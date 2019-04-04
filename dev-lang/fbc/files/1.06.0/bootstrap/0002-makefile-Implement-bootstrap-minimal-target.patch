@@ -1,0 +1,56 @@
+From dc6e5a3b68810d0e97625b57055bd98678e13a53 Mon Sep 17 00:00:00 2001
+From: William Breathitt Gray <vilhelm.gray@gmail.com>
+Date: Tue, 9 Apr 2019 18:51:38 +0900
+Subject: [PATCH] makefile: Implement bootstrap-minimal target
+
+The bootstrap-minimal target builds a bootstrap fbc with only the
+minimal features necessary to build another fbc.
+---
+ makefile | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
+
+diff --git a/makefile b/makefile
+index 0422dfff7..245e95669 100644
+--- a/makefile
++++ b/makefile
+@@ -64,8 +64,9 @@
+ #   warning-tests
+ #   clean-tests
+ #
+-#   bootstrap-dist  Create source package with precompiled fbc sources
+-#   bootstrap       Build fbc from the precompiled sources (only if precompiled sources exist)
++#   bootstrap-dist      Create source package with precompiled fbc sources
++#   bootstrap           Build fbc from the precompiled sources (only if precompiled sources exist)
++#   bootstrap-minimal   Build fbc from the precompiled sources (only if precompiled sources exist) with only the minimal features needed to compile another fbc
+ #
+ # makefile configuration:
+ #   FB[C|L]FLAGS     to set -g -exx etc. for the compiler build and/or link
+@@ -368,6 +369,11 @@ ALLFBCFLAGS += -e -m fbc -w pedantic
+ ALLFBLFLAGS += -e -m fbc -w pedantic
+ ALLCFLAGS += -Wall -Wextra -Wno-unused-parameter -Werror-implicit-function-declaration
+ 
++ifneq ($(filter bootstrap-minimal, $(MAKECMDGOALS)),)
++  # Disable features not needed to compile a minimal bootstrap fbc
++  ALLCFLAGS += -DDISABLE_GPM -DDISABLE_FFI -DDISABLE_X11
++endif
++
+ ifeq ($(TARGET_OS),xbox)
+   ifeq ($(OPENXDK),)
+     $(error Please set OPENXDK=<OpenXDK directory>)
+@@ -1061,9 +1067,11 @@ bootstrap-dist:
+ # Build the fbc[.exe] binary from the precompiled sources in the bootstrap/
+ # directory.
+ #
++.PHONY: bootstrap bootstrap-minimal
++bootstrap: gfxlib2 bootstrap-minimal
++
+ BOOTSTRAP_FBC := bootstrap/fbc$(EXEEXT)
+-.PHONY: bootstrap
+-bootstrap: gfxlib2 $(BOOTSTRAP_FBC)
++bootstrap-minimal: $(BOOTSTRAP_FBC)
+ 	mkdir -p bin
+ 	cp $(BOOTSTRAP_FBC) $(FBC_EXE)
+ 
+-- 
+2.21.0
+

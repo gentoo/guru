@@ -1,0 +1,37 @@
+From 94764a6bf44ab9146e23fb0559ef99f35ceeec79 Mon Sep 17 00:00:00 2001
+From: William Breathitt Gray <vilhelm.gray@gmail.com>
+Date: Sat, 6 Apr 2019 11:20:10 +0900
+Subject: [PATCH] makefile: Fix bootstrap recipe race condition
+
+Since fbrt0.o and libfb.a are statically linked to the bootstrap fbc,
+rtlib should be listed as a dependency of BOOTSTRAP_FBC. This patch
+fixes the race condition described in issue #131.
+---
+ makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/makefile b/makefile
+index aeca4c07e..0422dfff7 100644
+--- a/makefile
++++ b/makefile
+@@ -1063,7 +1063,7 @@ bootstrap-dist:
+ #
+ BOOTSTRAP_FBC := bootstrap/fbc$(EXEEXT)
+ .PHONY: bootstrap
+-bootstrap: rtlib gfxlib2 $(BOOTSTRAP_FBC)
++bootstrap: gfxlib2 $(BOOTSTRAP_FBC)
+ 	mkdir -p bin
+ 	cp $(BOOTSTRAP_FBC) $(FBC_EXE)
+ 
+@@ -1089,7 +1089,7 @@ endif
+ ifneq ($(filter darwin freebsd linux netbsd openbsd solaris,$(TARGET_OS)),)
+   BOOTSTRAP_LIBS := -lncurses -lm -pthread
+ endif
+-$(BOOTSTRAP_FBC): $(BOOTSTRAP_OBJ)
++$(BOOTSTRAP_FBC): rtlib $(BOOTSTRAP_OBJ)
+ 	$(QUIET_LINK)$(CC) -o $@ $(libdir)/fbrt0.o bootstrap/$(FBTARGET)/*.o $(libdir)/libfb.a $(BOOTSTRAP_LIBS)
+ 
+ .PHONY: clean-bootstrap
+-- 
+2.21.0
+
