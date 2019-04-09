@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>arthurzam+gentoo@gmail.com</email>
+		<name>Arthur Zamarin</name>
+	</maintainer>
+	<longdescription lang="en">
+		top utility for IO (C port)
+	</longdescription>
+	<upstream>
+		<remote-id type="github">Tomas-M/iotop</remote-id>
+	</upstream>
+</pkgmetadata>
