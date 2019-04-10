@@ -6,7 +6,8 @@
 		<name>Arthur Zamarin</name>
 	</maintainer>
 	<longdescription lang="en">
-		top utility for IO (C port)
+		Top-like UI used to show which process is using the I/O. Ported from the
+		Python language to C.
 	</longdescription>
 	<upstream>
 		<remote-id type="github">Tomas-M/iotop</remote-id>
