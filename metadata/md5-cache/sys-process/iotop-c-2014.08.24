@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DEPEND=sys-libs/ncurses:= !sys-process/iotop
+DESCRIPTION=top utility for IO (C port)
+EAPI=7
+HOMEPAGE=https://github.com/Tomas-M/iotop
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=sys-libs/ncurses:= !sys-process/iotop
+SLOT=0
+SRC_URI=https://github.com/Tomas-M/iotop/archive/cadd9675822cc02eace137eb918a4362c69bec9e.tar.gz -> iotop-c-2014.08.24.tar.gz
+_md5_=fac33a016597c7a9673a4da7f7549873
