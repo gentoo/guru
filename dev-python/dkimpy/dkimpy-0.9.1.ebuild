@@ -16,5 +16,5 @@ KEYWORDS="~amd64"
 IUSE=""
 
 python_test() {
-	"${EPYTHON}" -m unittest discover -v
+	"${EPYTHON}" -m unittest discover -v || die
 }
