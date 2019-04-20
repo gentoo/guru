@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>arthurzam+gentoo@gmail.com</email>
+		<name>Arthur Zamarin</name>
+	</maintainer>
+	<longdescription lang="en">
+		A lightweight notification daemon for Wayland. It is compatible
+		with any Wayland compositor which implements the wlr-layer-shell
+		Wayland protocol.
+	</longdescription>
+	<use>
+		<flag name="apparmor">Install apparmor profile</flag>
+		<flag name="gdk-pixbuf">Enable icons support via the <pkg>x11-libs/gdk-pixbuf</pkg> library</flag>
+		<flag name="man">Build and install man pages</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">emersion/mako</remote-id>
+	</upstream>
+</pkgmetadata>
