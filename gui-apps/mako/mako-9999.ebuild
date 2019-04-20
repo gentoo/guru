@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit fcaps meson
+inherit meson
 
 DESCRIPTION="A lightweight Wayland notification daemon"
 HOMEPAGE="https://wayland.emersion.fr/mako https://github.com/emersion/mako"
