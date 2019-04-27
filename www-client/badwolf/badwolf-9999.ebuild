@@ -26,8 +26,9 @@ DOCS=("README.md" "KnowledgeBase.md")
 
 DEPEND="
 	x11-libs/gtk+:3
-	net-libs/webkit-gtk
+	net-libs/webkit-gtk:4=
 "
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	restore_config config.h
