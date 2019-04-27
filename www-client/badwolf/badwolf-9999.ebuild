@@ -18,7 +18,7 @@ else
 fi
 
 DESCRIPTION="Minimalist and privacy-oriented WebKitGTK+ browser"
-HOMEPAGE="https://hacktivis.me/project/badwolf"
+HOMEPAGE="https://hacktivis.me/projects/badwolf"
 LICENSE="BSD"
 SLOT="0"
 
