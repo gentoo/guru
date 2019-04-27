@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>contact@hacktivis.me</email>
+		<name>Haelwenn (lanodan) Monnier</name>
+	</maintainer>
+	<longdescription>
+	BadWolf is a privacy-oriented WebKitGTK browser that doesn’t do compromises
+	for first-usage usability. Privacy is the first goal, and it should be
+	usable (security=usability^(-1) being false).
+	</longdescription>
+</pkgmetadata>
