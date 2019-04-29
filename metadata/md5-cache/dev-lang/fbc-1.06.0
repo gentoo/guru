@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile install prepare unpack
+DEPEND=sys-libs/ncurses:= gpm? ( sys-libs/gpm ) libffi? ( virtual/libffi ) opengl? ( virtual/opengl ) X? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXpm x11-libs/libXrandr x11-libs/libXrender )
+DESCRIPTION=FreeBASIC - A free/open source, multi-platform BASIC compiler.
+EAPI=7
+HOMEPAGE=https://www.freebasic.net
+IUSE=gpm libffi opengl X
+KEYWORDS=~amd64 ~x86
+LICENSE=FDL-1.2 GPL-2+ LGPL-2.1+
+RDEPEND=sys-libs/ncurses:= gpm? ( sys-libs/gpm ) libffi? ( virtual/libffi ) opengl? ( virtual/opengl ) X? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXpm x11-libs/libXrandr x11-libs/libXrender )
+SLOT=0
+SRC_URI=https://github.com/freebasic/fbc/archive/1.06.0.tar.gz -> fbc-1.06.0.tar.gz https://github.com/freebasic/fbc/releases/download/1.06.0/FreeBASIC-1.06.0-source-bootstrap.tar.xz
+_md5_=200dcbf4668c9b8e4c5ab46e622e12eb
