@@ -1,0 +1,35 @@
+From d1e485d6f1beb39e3228f86c2448b2fac77d1e62 Mon Sep 17 00:00:00 2001
+From: William Breathitt Gray <vilhelm.gray@gmail.com>
+Date: Sun, 21 Apr 2019 19:10:48 +0900
+Subject: [PATCH] Pass down all options from all -Wa, -Wc, and -Wl flags
+
+All options from all -Wa, -Wc, and -Wl flags are passed down to their
+respective programs. This fixes issue #137.
+---
+ src/compiler/fbc.bas | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/compiler/fbc.bas b/src/compiler/fbc.bas
+index 0f04217a1..f6fa3d9db 100644
+--- a/src/compiler/fbc.bas
++++ b/src/compiler/fbc.bas
+@@ -1869,13 +1869,13 @@ private sub handleOpt(byval optid as integer, byref arg as string)
+ 		end if
+ 
+ 	case OPT_WA
+-		fbc.extopt.gas = " " + hReplace( arg, ",", " " ) + " "
++		fbc.extopt.gas += " " + hReplace( arg, ",", " " ) + " "
+ 
+ 	case OPT_WC
+-		fbc.extopt.gcc = " " + hReplace( arg, ",", " " ) + " "
++		fbc.extopt.gcc += " " + hReplace( arg, ",", " " ) + " "
+ 
+ 	case OPT_WL
+-		fbc.extopt.ld = " " + hReplace( arg, ",", " " ) + " "
++		fbc.extopt.ld += " " + hReplace( arg, ",", " " ) + " "
+ 
+ 	case OPT_X
+ 		fbc.outname = arg
+-- 
+2.21.0
+
