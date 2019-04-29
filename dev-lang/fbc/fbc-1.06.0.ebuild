@@ -69,10 +69,12 @@ src_compile() {
 		cd "${S}" || die "cd failed"
 	fi
 
-	local xcflags=$(usex gpm "" "-DDISABLE_GPM")
-	xcflags+=$(usex libffi "" " -DDISABLE_FFI")
-	xcflags+=$(usex opengl "" " -DDISABLE_OPENGL")
-	xcflags+=$(usex X "" " -DDISABLE_X11")
+	local xcflags=(
+		$(usex gpm "" "-DDISABLE_GPM")
+		$(usex libffi "" " -DDISABLE_FFI")
+		$(usex opengl "" " -DDISABLE_OPENGL")
+		$(usex X "" " -DDISABLE_X11")
+	)
 
 	# fbc automatically strips the executables it compiles; in order to avoid
 	# creating striped executables, we override the fbc hardcoded linker "-s"
@@ -81,10 +83,10 @@ src_compile() {
 	# "--strip-debug" flag should be a safe option)
 	local fblflags="-Wl --strip-debug "
 	# fbc requires a space after the -Wl option
-	fblflags+=$(echo "${LDFLAGS}" | sed 's/-Wl,/-Wl /g')
+	fblflags+=${LDFLAGS//-Wl,/-Wl }
 
 	# Build fbc
-	emake CFLAGS="${CFLAGS} ${xcflags}" FBC="${fbc}" FBCFLAGS="${fbcflags}" FBLFLAGS="${fblflags}"
+	emake CFLAGS="${CFLAGS} ${xcflags[@]}" FBC="${fbc}" FBCFLAGS="${fbcflags}" FBLFLAGS="${fblflags}"
 }
 
 src_install() {
