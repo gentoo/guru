@@ -86,7 +86,7 @@ src_compile() {
 	fblflags+=${LDFLAGS//-Wl,/-Wl }
 
 	# Build fbc
-	emake CFLAGS="${CFLAGS} ${xcflags[@]}" FBC="${fbc}" FBCFLAGS="${fbcflags}" FBLFLAGS="${fblflags}"
+	emake CFLAGS="${CFLAGS} ${xcflags[*]}" FBC="${fbc}" FBCFLAGS="${fbcflags}" FBLFLAGS="${fblflags}"
 }
 
 src_install() {
