@@ -1,0 +1,169 @@
+From b8bfa87f56a86c3c81976b1a8c0411ac4240ae9e Mon Sep 17 00:00:00 2001
+From: William Breathitt Gray <vilhelm.gray@gmail.com>
+Date: Wed, 24 Apr 2019 16:59:08 +0900
+Subject: [PATCH] Implement the '-strip'/'-nostrip' compiler options
+
+This change allows users to choose whether or not to strip symbol
+information from the output file. The fbc '-strip' option is analogous
+to the ld '--strip-all' option. The ENABLE_STRIPALL compiler build
+option is introduced to configure whether fbc defaults to stripping
+symbols.
+
+This fixes issue #140.
+---
+ makefile             |  8 ++++++++
+ src/compiler/fbc.bas | 21 ++++++++++++++++++++-
+ 2 files changed, 28 insertions(+), 1 deletion(-)
+
+diff --git a/makefile b/makefile
+index 245e95669..519fe7e7b 100644
+--- a/makefile
++++ b/makefile
+@@ -81,6 +81,7 @@
+ #   ENABLE_SUFFIX=-0.24    append a string like "-0.24" to fbc/FB dir names,
+ #                          and use "-d ENABLE_SUFFIX=$(ENABLE_SUFFIX)" (non-standalone only)
+ #   ENABLE_LIB64=1         use prefix/lib64/ instead of prefix/lib/ for 64bit libs (non-standalone only)
++#   ENABLE_STRIPALL=1      use "-d ENABLE_STRIPALL" with select targets
+ #   FBPACKAGE     bindist: The package/archive file name without path or extension
+ #   FBPACKSUFFIX  bindist: Allows adding a custom suffix to the normal package name (and the toplevel dir in the archive)
+ #   FBMANIFEST    bindist: The manifest file name without path or extension
+@@ -92,6 +93,7 @@
+ #   -d ENABLE_SUFFIX=-0.24   assume FB's lib dir uses the given suffix (non-standalone only)
+ #   -d ENABLE_PREFIX=/some/path   hard-code specific $(prefix) into fbc
+ #   -d ENABLE_LIB64          use prefix/lib64/ instead of prefix/lib/ for 64bit libs (non-standalone only)
++#   -d ENABLE_STRIPALL       configure fbc to pass down '--strip-all' to linker by default
+ #
+ # rtlib/gfxlib2 source code configuration (CFLAGS):
+ #   -DDISABLE_X11    build without X11 headers (disables X11 gfx driver)
+@@ -429,6 +431,12 @@ endif
+ ifdef ENABLE_LIB64
+   ALLFBCFLAGS += -d ENABLE_LIB64
+ endif
++ifdef ENABLE_STRIPALL
++  ifneq ($(filter dos win32,$(TARGET_OS)),)
++    ALLFBCFLAGS += -d ENABLE_STRIPALL
++  endif
++endif
++
+ 
+ ALLFBCFLAGS += $(FBCFLAGS) $(FBFLAGS)
+ ALLFBLFLAGS += $(FBLFLAGS) $(FBFLAGS)
+diff --git a/src/compiler/fbc.bas b/src/compiler/fbc.bas
+index f6fa3d9db..f9b665bbc 100644
+--- a/src/compiler/fbc.bas
++++ b/src/compiler/fbc.bas
+@@ -100,6 +100,7 @@ type FBCCTX
+ 	xbe_title 			as zstring * FB_MAXNAMELEN+1  '' For the '-title <title>' xbox option
+ 	nodeflibs			as integer
+ 	staticlink			as integer
++	stripsymbols			as integer
+ 
+ 	'' Compiler paths
+ 	prefix				as zstring * FB_MAXPATHLEN+1  '' Path from -prefix or empty
+@@ -163,6 +164,10 @@ private sub fbcInit( )
+ 
+ 	fbGlobalInit()
+ 
++#ifdef ENABLE_STRIPALL
++	fbc.stripsymbols = TRUE
++#endif
++
+ 	fbc.objinf.lang = fbGetOption( FB_COMPOPT_LANG )
+ 
+ 	fbc.print = -1
+@@ -762,7 +767,7 @@ private function hLinkFiles( ) as integer
+ 
+ 	if( fbGetOption( FB_COMPOPT_DEBUGINFO ) = FALSE ) then
+ 		if( fbGetOption( FB_COMPOPT_PROFILE ) = FALSE ) then
+-			if( fbGetOption( FB_COMPOPT_TARGET ) <> FB_COMPTARGET_DARWIN ) then
++			if( fbc.stripsymbols ) then
+ 				ldcline += " -s"
+ 			end if
+ 		end if
+@@ -1417,6 +1422,7 @@ enum
+ 	OPT_NODEFLIBS
+ 	OPT_NOERRLINE
+ 	OPT_NOOBJINFO
++	OPT_NOSTRIP
+ 	OPT_O
+ 	OPT_OPTIMIZE
+ 	OPT_P
+@@ -1432,6 +1438,7 @@ enum
+ 	OPT_S
+ 	OPT_SHOWINCLUDES
+ 	OPT_STATIC
++	OPT_STRIP
+ 	OPT_T
+ 	OPT_TARGET
+ 	OPT_TITLE
+@@ -1480,6 +1487,7 @@ dim shared as integer option_takes_argument(0 to (OPT__COUNT - 1)) = _
+ 	FALSE, _ '' OPT_NODEFLIBS
+ 	FALSE, _ '' OPT_NOERRLINE
+ 	FALSE, _ '' OPT_NOOBJINFO
++	FALSE, _ '' OPT_NOSTRIP
+ 	TRUE , _ '' OPT_O
+ 	TRUE , _ '' OPT_OPTIMIZE
+ 	TRUE , _ '' OPT_P
+@@ -1495,6 +1503,7 @@ dim shared as integer option_takes_argument(0 to (OPT__COUNT - 1)) = _
+ 	TRUE , _ '' OPT_S
+ 	FALSE, _ '' OPT_SHOWINCLUDES
+ 	FALSE, _ '' OPT_STATIC
++	FALSE, _ '' OPT_STRIP
+ 	TRUE , _ '' OPT_T
+ 	TRUE , _ '' OPT_TARGET
+ 	TRUE , _ '' OPT_TITLE
+@@ -1676,6 +1685,9 @@ private sub handleOpt(byval optid as integer, byref arg as string)
+ 	case OPT_NOOBJINFO
+ 		fbSetOption( FB_COMPOPT_OBJINFO, FALSE )
+ 
++	case OPT_NOSTRIP
++		fbc.stripsymbols = FALSE
++
+ 	case OPT_O
+ 		'' Error if there already is an -o waiting to be assigned
+ 		hCheckWaitingObjfile( )
+@@ -1765,6 +1777,9 @@ private sub handleOpt(byval optid as integer, byref arg as string)
+ 	case OPT_STATIC
+ 		fbc.staticlink = TRUE
+ 
++	case OPT_STRIP
++		fbc.stripsymbols = TRUE
++
+ 	case OPT_T
+ 		fbSetOption( FB_COMPOPT_STACKSIZE, clng( arg ) * 1024 )
+ 
+@@ -1963,6 +1978,7 @@ private function parseOption(byval opt as zstring ptr) as integer
+ 		CHECK("noerrline", OPT_NOERRLINE)
+ 		CHECK("nodeflibs", OPT_NODEFLIBS)
+ 		CHECK("noobjinfo", OPT_NOOBJINFO)
++		CHECK("nostrip", OPT_NOSTRIP)
+ 
+ 	case asc("o")
+ 		ONECHAR(OPT_O)
+@@ -1990,6 +2006,7 @@ private function parseOption(byval opt as zstring ptr) as integer
+ 		ONECHAR(OPT_S)
+ 		CHECK("showincludes", OPT_SHOWINCLUDES)
+ 		CHECK("static", OPT_STATIC)
++		CHECK("strip", OPT_STRIP)
+ 
+ 	case asc("t")
+ 		ONECHAR(OPT_T)
+@@ -3384,6 +3401,7 @@ private sub hPrintOptions( )
+ 	print "  -nodeflibs       Do not include the default libraries"
+ 	print "  -noerrline       Do not show source context in error messages"
+ 	print "  -noobjinfo       Do not read/write compile-time info from/to .o and .a files"
++	print "  -nostrip         Do not strip symbol information from the output file"
+ 	print "  -o <file>        Set .o (or -pp .bas) file name for prev/next input file"
+ 	print "  -O <value>       Optimization level (default: 0)"
+ 	print "  -p <path>        Add a library search path"
+@@ -3401,6 +3419,7 @@ private sub hPrintOptions( )
+ 	print "  -s console|gui   Select win32 subsystem"
+ 	print "  -showincludes    Display a tree of file names of #included files"
+ 	print "  -static          Prefer static libraries over dynamic ones when linking"
++	print "  -strip           Omit all symbol information from the output file"
+ 	print "  -t <value>       Set .exe stack size in kbytes, default: 1024 (win32/dos)"
+ 	print "  -target <name>   Set cross-compilation target"
+ 	print "  -title <name>    Set XBE display title (xbox)"
+-- 
+2.21.0
+
