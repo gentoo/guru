@@ -7,8 +7,8 @@ DESCRIPTION="FreeBASIC - A free/open source, multi-platform BASIC compiler."
 HOMEPAGE="https://www.freebasic.net"
 SRC_URI="https://github.com/freebasic/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/freebasic/${PN}/releases/download/${PV}/FreeBASIC-${PV}-source-bootstrap.tar.xz
-	https://gist.github.com/vilhelmgray/08cebe0f22e303f7d5e6e5bc71e3d1f2/raw/710ba9ded1c7772f23fd68c08e02402f167d2c56/fbc-1.06.0-bootstrap-dist-linux-x86.patch
-	https://gist.github.com/vilhelmgray/08cebe0f22e303f7d5e6e5bc71e3d1f2/raw/710ba9ded1c7772f23fd68c08e02402f167d2c56/fbc-1.06.0-bootstrap-dist-linux-x86_64.patch"
+	https://gist.github.com/vilhelmgray/08cebe0f22e303f7d5e6e5bc71e3d1f2/raw/70c1f43eec81c35bdc780ace7fdf6a3c8b548c85/fbc-1.06.0-bootstrap-dist-linux-x86.patch
+	https://gist.github.com/vilhelmgray/08cebe0f22e303f7d5e6e5bc71e3d1f2/raw/70c1f43eec81c35bdc780ace7fdf6a3c8b548c85/fbc-1.06.0-bootstrap-dist-linux-x86_64.patch"
 
 LICENSE="FDL-1.2 GPL-2+ LGPL-2.1+"
 SLOT="0"
@@ -80,14 +80,8 @@ src_compile() {
 		$(usex X "" " -DDISABLE_X11")
 	)
 
-	# fbc automatically strips the executables it compiles; in order to avoid
-	# creating striped executables, we override the fbc hardcoded linker "-s"
-	# flag with our own; "--strip-debug" was chosen arbitrarily (without the
-	# "-g" flag the executable should not have debug_info symbols anyway, so the
-	# "--strip-debug" flag should be a safe option)
-	local fblflags="-Wl --strip-debug "
 	# fbc requires a space after the -Wl option
-	fblflags+=${LDFLAGS//-Wl,/-Wl }
+	local fblflags=${LDFLAGS//-Wl,/-Wl }
 
 	# Build fbc
 	emake CFLAGS="${CFLAGS} ${xcflags[*]}" FBC="${fbc}" FBCFLAGS="${fbcflags}" FBLFLAGS="${fblflags}"
