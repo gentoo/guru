@@ -8,5 +8,5 @@ KEYWORDS=~amd64 ~x86
 LICENSE=FDL-1.2 GPL-2+ LGPL-2.1+
 RDEPEND=sys-libs/ncurses:= gpm? ( sys-libs/gpm ) libffi? ( virtual/libffi ) opengl? ( virtual/opengl ) X? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXpm x11-libs/libXrandr x11-libs/libXrender )
 SLOT=0
-SRC_URI=https://github.com/freebasic/fbc/archive/1.06.0.tar.gz -> fbc-1.06.0.tar.gz https://github.com/freebasic/fbc/releases/download/1.06.0/FreeBASIC-1.06.0-source-bootstrap.tar.xz https://gist.github.com/vilhelmgray/08cebe0f22e303f7d5e6e5bc71e3d1f2/raw/710ba9ded1c7772f23fd68c08e02402f167d2c56/fbc-1.06.0-bootstrap-dist-linux-x86.patch https://gist.github.com/vilhelmgray/08cebe0f22e303f7d5e6e5bc71e3d1f2/raw/710ba9ded1c7772f23fd68c08e02402f167d2c56/fbc-1.06.0-bootstrap-dist-linux-x86_64.patch
-_md5_=6f16e5552410c005338980961d7972ef
+SRC_URI=https://github.com/freebasic/fbc/archive/1.06.0.tar.gz -> fbc-1.06.0.tar.gz https://github.com/freebasic/fbc/releases/download/1.06.0/FreeBASIC-1.06.0-source-bootstrap.tar.xz https://gist.github.com/vilhelmgray/08cebe0f22e303f7d5e6e5bc71e3d1f2/raw/70c1f43eec81c35bdc780ace7fdf6a3c8b548c85/fbc-1.06.0-bootstrap-dist-linux-x86.patch https://gist.github.com/vilhelmgray/08cebe0f22e303f7d5e6e5bc71e3d1f2/raw/70c1f43eec81c35bdc780ace7fdf6a3c8b548c85/fbc-1.06.0-bootstrap-dist-linux-x86_64.patch
+_md5_=78c9680afefd54f277fd02312c393438
