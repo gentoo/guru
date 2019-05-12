@@ -10,7 +10,6 @@
 	</maintainer>
 	<use>
 		<flag name="fluidsynth">Use <pkg>media-sound/fluidsynth</pkg> for MIDI support</flag>
-		<flag name="phonehome">Enable sending of anonymous hardware statistics</flag>
 	</use>
 	<upstream>
 		<bugs-to>https://forum.zdoom.org/viewforum.php?f=2</bugs-to>

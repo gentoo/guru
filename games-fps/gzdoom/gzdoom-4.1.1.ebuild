@@ -12,7 +12,7 @@ SRC_URI="https://github.com/coelckers/${PN}/archive/g${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="BSD BZIP2 DUMB-0.9.2 GPL-3 LGPL-3 MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="fluidsynth gtk openal openmp phonehome"
+IUSE="fluidsynth gtk openal openmp"
 
 DEPEND="
 	app-arch/bzip2
@@ -42,7 +42,6 @@ src_configure() {
 		-DNO_GTK="$(usex !gtk)"
 		-DNO_OPENAL="$(usex !openal)"
 		-DNO_OPENMP="$(usex !openmp)"
-		-DSEND_ANON_STATS="$(usex phonehome)"
 	)
 	cmake-utils_src_configure
 }
