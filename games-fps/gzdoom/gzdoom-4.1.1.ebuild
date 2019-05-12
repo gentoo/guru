@@ -19,16 +19,16 @@ DEPEND="
 	dev-util/glslang
 	media-libs/libsdl2[opengl]
 	sys-libs/zlib
-	virtual/jpeg:0
+	virtual/jpeg:0"
+RDEPEND="
+	${DEPEND}
+	fluidsynth? ( media-sound/fluidsynth )
 	gtk? ( x11-libs/gtk+:* )
 	openal? (
 		media-libs/libsndfile
 		media-libs/openal
 		media-sound/mpg123
 	)"
-RDEPEND="
-	${DEPEND}
-	fluidsynth? ( media-sound/fluidsynth )"
 
 S="${WORKDIR}/${PN}-g${PV}"
 
