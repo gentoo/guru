@@ -12,26 +12,22 @@ SRC_URI="https://github.com/coelckers/${PN}/archive/g${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="BSD BZIP2 DUMB-0.9.2 GPL-3 LGPL-3 MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="gtk openal openmp midi"
+IUSE="fluidsynth gtk openal openmp"
 
 DEPEND="
 	app-arch/bzip2
 	dev-util/glslang
 	media-libs/libsdl2[opengl]
 	sys-libs/zlib
-	virtual/jpeg:0
+	virtual/jpeg:0"
+RDEPEND="
+	${DEPEND}
+	fluidsynth? ( media-sound/fluidsynth )
 	gtk? ( x11-libs/gtk+:* )
-	midi? ( media-sound/wildmidi )
 	openal? (
 		media-libs/libsndfile
 		media-libs/openal
 		media-sound/mpg123
-	)"
-RDEPEND="
-	${DEPEND}
-	midi? (
-		media-sound/fluidsynth
-		media-sound/timidity++
 	)"
 
 S="${WORKDIR}/${PN}-g${PV}"
