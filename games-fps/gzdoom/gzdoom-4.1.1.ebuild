@@ -16,7 +16,7 @@ IUSE="fluidsynth gtk openal openmp"
 
 DEPEND="
 	app-arch/bzip2
-	dev-util/glslang
+	>=dev-util/glslang-7.11.3114_pre20190415-r1
 	media-libs/libsdl2[opengl]
 	sys-libs/zlib
 	virtual/jpeg:0"
