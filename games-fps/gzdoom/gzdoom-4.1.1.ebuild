@@ -5,7 +5,7 @@ EAPI=7
 
 inherit cmake-utils desktop xdg
 
-DESCRIPTION="GZDoom - a modder-friendly OpenGL source port based on the DOOM engine"
+DESCRIPTION="A modder-friendly OpenGL source port based on the DOOM engine"
 HOMEPAGE="https://zdoom.org"
 SRC_URI="https://github.com/coelckers/${PN}/archive/g${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -15,15 +15,14 @@ KEYWORDS="~amd64 ~x86"
 IUSE="fluidsynth gtk openal openmp"
 
 DEPEND="
-	app-arch/bzip2
-	dev-util/glslang
+	>=dev-util/glslang-7.11.3114_pre20190415-r1
 	media-libs/libsdl2[opengl]
 	sys-libs/zlib
-	virtual/jpeg:0"
+	virtual/jpeg:0
+	gtk? ( <x11-libs/gtk+-4:= )"
 RDEPEND="
 	${DEPEND}
 	fluidsynth? ( media-sound/fluidsynth )
-	gtk? ( x11-libs/gtk+:* )
 	openal? (
 		media-libs/libsndfile
 		media-libs/openal
