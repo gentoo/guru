@@ -3,7 +3,7 @@
 
 EAPI=7
 
-DESCRIPTION="FreeBASIC - A free/open source, multi-platform BASIC compiler."
+DESCRIPTION="A free/open source, multi-platform BASIC compiler."
 HOMEPAGE="https://www.freebasic.net"
 SRC_URI="https://github.com/freebasic/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/freebasic/${PN}/releases/download/${PV}/FreeBASIC-${PV}-source-bootstrap.tar.xz
