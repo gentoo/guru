@@ -5,7 +5,7 @@ EAPI=7
 
 inherit cmake-utils desktop xdg
 
-DESCRIPTION="GZDoom - a modder-friendly OpenGL source port based on the DOOM engine"
+DESCRIPTION="A modder-friendly OpenGL source port based on the DOOM engine"
 HOMEPAGE="https://zdoom.org"
 SRC_URI="https://github.com/coelckers/${PN}/archive/g${PV}.tar.gz -> ${P}.tar.gz"
 
