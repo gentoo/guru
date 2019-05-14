@@ -23,7 +23,12 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 	fluidsynth? ( media-sound/fluidsynth )
-	gtk? ( x11-libs/gtk+:* )
+	gtk? (
+		|| (
+			x11-libs/gtk+:2
+			x11-libs/gtk+:3
+		)
+	)
 	openal? (
 		media-libs/libsndfile
 		media-libs/openal
