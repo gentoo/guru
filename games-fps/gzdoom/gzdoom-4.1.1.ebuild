@@ -19,16 +19,11 @@ DEPEND="
 	>=dev-util/glslang-7.11.3114_pre20190415-r1
 	media-libs/libsdl2[opengl]
 	sys-libs/zlib
-	virtual/jpeg:0"
+	virtual/jpeg:0
+	gtk? ( <x11-libs/gtk+-4:= )"
 RDEPEND="
 	${DEPEND}
 	fluidsynth? ( media-sound/fluidsynth )
-	gtk? (
-		|| (
-			x11-libs/gtk+:2
-			x11-libs/gtk+:3
-		)
-	)
 	openal? (
 		media-libs/libsndfile
 		media-libs/openal
