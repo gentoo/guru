@@ -5,7 +5,7 @@ EAPI=7
 
 inherit xdg
 
-DESCRIPTION="Chocolate Doom - a Doom source port that is minimalist and historically accurate"
+DESCRIPTION="A Doom source port that is minimalist and historically accurate"
 HOMEPAGE="https://www.chocolate-doom.org"
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/${P}/${P}.tar.gz"
 
