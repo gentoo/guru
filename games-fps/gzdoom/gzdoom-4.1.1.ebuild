@@ -15,7 +15,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="fluidsynth gtk openal openmp"
 
 DEPEND="
-	>=dev-util/glslang-7.11.3114_pre20190415-r1
 	media-libs/libsdl2[opengl]
 	sys-libs/zlib
 	virtual/jpeg:0
@@ -30,6 +29,8 @@ RDEPEND="
 	)"
 
 S="${WORKDIR}/${PN}-g${PV}"
+
+PATCHES="${FILESDIR}/${PV}"
 
 src_prepare() {
 	cmake-utils_src_prepare

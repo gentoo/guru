@@ -1,0 +1,26 @@
+From c96d8c198e95876cb27b7cf9d0ec8d510d7a643d Mon Sep 17 00:00:00 2001
+From: "alexey.lysiuk" <alexey.lysiuk@gmail.com>
+Date: Fri, 10 May 2019 15:35:57 +0300
+Subject: [PATCH] - made DUMB library always static
+
+DUMB uses dumb_decode_vorbis() function from the main executable, so it failed to link as a dynamic library
+---
+ dumb/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/dumb/CMakeLists.txt b/dumb/CMakeLists.txt
+index 85e052209..904ca75c3 100644
+--- a/dumb/CMakeLists.txt
++++ b/dumb/CMakeLists.txt
+@@ -24,7 +24,7 @@ endif()
+ 
+ include_directories( include )
+ 
+-add_library( dumb
++add_library( dumb STATIC
+     src/core/unload.c
+     src/core/rendsig.c
+     src/core/rendduh.c
+-- 
+2.21.0
+
