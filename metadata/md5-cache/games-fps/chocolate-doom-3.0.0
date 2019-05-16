@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure postinst postrm preinst prepare
+DEPEND=media-libs/libsdl2 media-libs/sdl2-mixer[timidity?,vorbis?] media-libs/sdl2-net libsamplerate? ( media-libs/libsamplerate ) png? ( media-libs/libpng:= ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=A Doom source port that is minimalist and historically accurate
+EAPI=7
+HOMEPAGE=https://www.chocolate-doom.org
+IUSE=bash-completion libsamplerate png python timidity +vorbis
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD GPL-2+
+RDEPEND=media-libs/libsdl2 media-libs/sdl2-mixer[timidity?,vorbis?] media-libs/sdl2-net libsamplerate? ( media-libs/libsamplerate ) png? ( media-libs/libpng:= ) bash-completion? ( app-shells/bash-completion ) python? ( dev-lang/python dev-python/pillow )
+SLOT=0
+SRC_URI=https://github.com/chocolate-doom/chocolate-doom/releases/download/chocolate-doom-3.0.0/chocolate-doom-3.0.0.tar.gz
+_eclasses_=xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	14d00d009167652b1fa363e55effe213
+_md5_=111fbe5139e7e2332e12af393473c30e
