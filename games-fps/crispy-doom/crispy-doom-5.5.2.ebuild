@@ -12,7 +12,7 @@ SRC_URI="https://github.com/fabiangreffrath/${PN}/archive/${P}.tar.gz"
 LICENSE="BSD GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="bash-completion libsamplerate png python timidity +vorbis zlib"
+IUSE="libsamplerate png python timidity +vorbis zlib"
 
 DEPEND="
 	media-libs/libsdl2
@@ -23,7 +23,6 @@ DEPEND="
 	zlib? ( sys-libs/zlib )"
 RDEPEND="
 	${DEPEND}
-	bash-completion? ( app-shells/bash-completion )
 	python? (
 		dev-lang/python
 		dev-python/pillow
