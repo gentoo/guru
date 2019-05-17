@@ -12,7 +12,7 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/${P}/${P}.tar.gz"
 LICENSE="BSD GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="bash-completion libsamplerate png python timidity +vorbis"
+IUSE="libsamplerate png python timidity +vorbis"
 
 DEPEND="
 	media-libs/libsdl2
@@ -22,7 +22,6 @@ DEPEND="
 	png? ( media-libs/libpng:= )"
 RDEPEND="
 	${DEPEND}
-	bash-completion? ( app-shells/bash-completion )
 	python? (
 		dev-lang/python
 		dev-python/pillow
