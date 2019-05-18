@@ -23,11 +23,11 @@ DEPEND="
 	libsamplerate? ( media-libs/libsamplerate )
 	png? ( media-libs/libpng:= )"
 RDEPEND="${DEPEND}"
-BDEPEND="
-	python? (
-		${PYTHON_DEPS}
-		dev-python/pillow
-	)"
+BDEPEND="python? ( $(python_gen_any_dep 'dev-python/pillow[${PYTHON_USEDEP}]') )"
+
+python_check_deps() {
+	has_version "dev-python/pillow[${PYTHON_USEDEP}]"
+}
 
 src_configure() {
 	econf \
