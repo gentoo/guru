@@ -3,7 +3,9 @@
 
 EAPI=7
 
-inherit autotools xdg
+PYTHON_COMPAT=( python2_7 python3_{5,6,7} )
+
+inherit autotools python-any-r1 xdg
 
 DESCRIPTION="A limit-removing enhanced-resolution Doom source port based on Chocolate Doom"
 HOMEPAGE="https://github.com/fabiangreffrath/crispy-doom"
@@ -21,10 +23,10 @@ DEPEND="
 	libsamplerate? ( media-libs/libsamplerate )
 	png? ( media-libs/libpng:= )
 	zlib? ( sys-libs/zlib )"
-RDEPEND="
-	${DEPEND}
+RDEPEND="${DEPEND}"
+BDEPEND="
 	python? (
-		dev-lang/python
+		${PYTHON_DEPS}
 		dev-python/pillow
 	)"
 
