@@ -24,13 +24,13 @@ DEPEND="
 	png? ( media-libs/libpng:= )
 	zlib? ( sys-libs/zlib )"
 RDEPEND="${DEPEND}"
-BDEPEND="
-	python? (
-		${PYTHON_DEPS}
-		dev-python/pillow
-	)"
+BDEPEND="python? ( $(python_gen_any_dep 'dev-python/pillow[${PYTHON_USEDEP}]') )"
 
 S="${WORKDIR}"/${PN}-${P}
+
+python_check_deps() {
+	has_version "dev-python/pillow[${PYTHON_USEDEP}]"
+}
 
 src_prepare() {
 	default
