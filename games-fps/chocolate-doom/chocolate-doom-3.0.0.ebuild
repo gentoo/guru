@@ -3,7 +3,9 @@
 
 EAPI=7
 
-inherit xdg
+PYTHON_COMPAT=( python2_7 python3_{5,6,7} )
+
+inherit python-any-r1 xdg
 
 DESCRIPTION="A Doom source port that is minimalist and historically accurate"
 HOMEPAGE="https://www.chocolate-doom.org"
@@ -20,12 +22,12 @@ DEPEND="
 	media-libs/sdl2-net
 	libsamplerate? ( media-libs/libsamplerate )
 	png? ( media-libs/libpng:= )"
-RDEPEND="
-	${DEPEND}
-	python? (
-		dev-lang/python
-		dev-python/pillow
-	)"
+RDEPEND="${DEPEND}"
+BDEPEND="python? ( $(python_gen_any_dep 'dev-python/pillow[${PYTHON_USEDEP}]') )"
+
+python_check_deps() {
+	has_version "dev-python/pillow[${PYTHON_USEDEP}]"
+}
 
 src_configure() {
 	econf \
