@@ -30,13 +30,14 @@ RDEPEND="
 
 S="${WORKDIR}/${PN}-g${PV}"
 
+PATCHES="${FILESDIR}/${PV}"
+
 src_prepare() {
 	cmake-utils_src_prepare
 }
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_SHARED_LIBS=OFF
 		-DINSTALL_DOCS_PATH="${EPREFIX}/usr/share/doc/${P}/docs"
 		-DNO_GTK="$(usex !gtk)"
 		-DNO_OPENAL="$(usex !openal)"
