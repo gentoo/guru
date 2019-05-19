@@ -84,10 +84,10 @@ src_compile() {
 	local fblflags=${LDFLAGS//-Wl,/-Wl }
 
 	# Build fbc
-	emake CFLAGS="${CFLAGS} ${xcflags[*]}" FBC="${fbc}" FBCFLAGS="${fbcflags}" FBLFLAGS="${fblflags}"
+	emake CFLAGS="${CFLAGS} ${xcflags[*]}" FBC="${fbc}" FBCFLAGS="${fbcflags}" FBLFLAGS="${fblflags}" TARGET=${CHOST}
 }
 
 src_install() {
-	emake DESTDIR="${D}" prefix="/usr" install
+	emake DESTDIR="${D}" prefix="/usr" TARGET=${CHOST} install
 	einstalldocs
 }
