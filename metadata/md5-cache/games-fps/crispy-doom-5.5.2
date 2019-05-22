@@ -1,4 +1,4 @@
-BDEPEND=python? ( || ( ( dev-lang/python:3.7 dev-python/pillow[python_targets_python3_7(-),python_single_target_python3_7(+)] ) ( dev-lang/python:3.6 dev-python/pillow[python_targets_python3_6(-),python_single_target_python3_6(+)] ) ( dev-lang/python:3.5 dev-python/pillow[python_targets_python3_5(-),python_single_target_python3_5(+)] ) ( >=dev-lang/python-2.7.5-r2:2.7 dev-python/pillow[python_targets_python2_7(-),python_single_target_python2_7(+)] ) ) ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=python? ( || ( dev-lang/python:3.7 dev-lang/python:3.6 dev-lang/python:3.5 >=dev-lang/python-2.7.5-r2:2.7 ) ) >=app-portage/elt-patches-20170815 !<sys-devel/gettext-0.18.1.1-r3 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure postinst postrm preinst prepare setup
 DEPEND=media-libs/libsdl2 media-libs/sdl2-mixer[timidity?,vorbis?] media-libs/sdl2-net libsamplerate? ( media-libs/libsamplerate ) png? ( media-libs/libpng:= ) zlib? ( sys-libs/zlib ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
@@ -11,4 +11,4 @@ RDEPEND=media-libs/libsdl2 media-libs/sdl2-mixer[timidity?,vorbis?] media-libs/s
 SLOT=0
 SRC_URI=https://github.com/fabiangreffrath/crispy-doom/archive/crispy-doom-5.5.2.tar.gz
 _eclasses_=autotools	1bf086cdd7356f5c9a4acd9727bd2065	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	1d91b03d42ab6308b5f4f6b598ed110e	python-any-r1	4900ae970f827a22d33d41bd8b8f9ace	python-utils-r1	08e17157a6807add7db1f8d01e7e391f	toolchain-funcs	8c7f9d80beedd16f2e5a7f612c609529	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	14d00d009167652b1fa363e55effe213
-_md5_=27a63f776b6ca3dbfbbc6e7a44552d98
+_md5_=0f469f2814848d6b78dc3af4080d6f14
