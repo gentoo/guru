@@ -8,5 +8,5 @@ IUSE=savedconfig
 LICENSE=BSD
 RDEPEND=x11-libs/gtk+:3 net-libs/webkit-gtk:4=
 SLOT=0
-_eclasses_=git-r3	0d4635eeb5a96cd5315597a47eba25c9	portability	2b88d3ecc35035a3b8ab628b49cafb0e	savedconfig	a3812ff9dbe63484d556efcad4cc9a69
+_eclasses_=git-r3	0d4635eeb5a96cd5315597a47eba25c9	portability	2b88d3ecc35035a3b8ab628b49cafb0e	savedconfig	1de3f25f1039cd1772fbf707ef87dbe3
 _md5_=6a941b076178b19fe08fca74b12f9704
