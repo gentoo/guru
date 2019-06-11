@@ -40,15 +40,3 @@ src_configure() {
 		$(use_with png libpng) \
 		$(use_with zlib)
 }
-
-pkg_preinst() {
-	xdg_pkg_preinst
-}
-
-pkg_postinst() {
-	xdg_pkg_postinst
-}
-
-pkg_postrm() {
-	xdg_pkg_postrm
-}
