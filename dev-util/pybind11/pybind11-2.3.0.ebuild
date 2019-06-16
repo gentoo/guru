@@ -3,8 +3,8 @@
 
 EAPI=7
 
-# according to upstream is compatible with 2.7 and 3.x
-# 3.7 not added due to some dependencies not yet supporting it
+# According to upstream is compatible with 2.7 and 3.x
+# However support for python3_7 needs boost with python3_7
 PYTHON_COMPAT=( python{2_7,3_{5,6}} )
 
 inherit cmake-utils python-single-r1
@@ -28,8 +28,8 @@ DEPEND="
 		dev-python/sphinx[${PYTHON_USEDEP}]
 	)
 	test? (
-		dev-cpp/catch
-		dev-libs/boost[python,${PYTHON_USEDEP}]
+		dev-cpp/catch:0
+		dev-libs/boost:=[python,${PYTHON_USEDEP}]
 		dev-python/numpy[${PYTHON_USEDEP}]
 		dev-python/pytest[${PYTHON_USEDEP}]
 		sci-libs/scipy[${PYTHON_USEDEP}]
@@ -38,7 +38,7 @@ DEPEND="
 
 RDEPEND="
 	${PYTHON_DEP}
-	dev-cpp/eigen
+	dev-cpp/eigen:3
 	sys-apps/texinfo
 	sys-devel/gettext[cxx]
 	virtual/man
@@ -76,7 +76,7 @@ src_compile() {
 src_test() {
 	cmake-utils_src_test
 	pushd "${BUILD_DIR}" || die
-	emake check
+	eninja check
 	popd || die
 }
 
