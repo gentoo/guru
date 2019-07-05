@@ -8,6 +8,6 @@ KEYWORDS=~amd64
 LICENSE=BSD
 RDEPEND=x11-libs/gtk+:3 net-libs/webkit-gtk:4=
 SLOT=0
-SRC_URI=https://hacktivis.me/releases/badwolf-0.2.1.tar.gz
+SRC_URI=https://hacktivis.me/releases/badwolf-0.3.0.tar.gz
 _eclasses_=portability	2b88d3ecc35035a3b8ab628b49cafb0e	savedconfig	1de3f25f1039cd1772fbf707ef87dbe3
 _md5_=6a941b076178b19fe08fca74b12f9704
