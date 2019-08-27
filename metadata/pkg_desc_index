@@ -1,5 +1,5 @@
 app-misc/mat2 0.9.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
-dev-lang/fbc 1.06.0: A free/open source, multi-platform BASIC compiler.
+dev-lang/fbc 1.06.0 1.07.0: A free/open source, multi-platform BASIC compiler.
 dev-python/dkimpy 0.9.1: Python module implementing DKIM email signing and verification.
 dev-util/codespell 1.15.0: Check text files for common misspellings
 dev-util/pybind11 2.3.0: Seamless operability between C++11 and Python
