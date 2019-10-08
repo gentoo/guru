@@ -26,9 +26,10 @@ SLOT="0"
 # - font+ttf: truetype
 # - acodec+audio: alsa/openal/oss/pulseaudio (present in REQUIRED_USE)
 # - dialog: gtk
+# allegro[vorbis] isn't in CMakeList.txt but is required for the .ogg assets
 DEPEND="
 	>=media-libs/allegro-5.2.5:=
-	media-libs/allegro[jpeg,png,opengl,truetype,gtk]
+	media-libs/allegro[jpeg,png,opengl,truetype,gtk,vorbis]
 	dev-games/surgescript:=
 "
 RDEPEND="${DEPEND}"
