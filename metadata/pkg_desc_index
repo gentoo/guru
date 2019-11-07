@@ -1,5 +1,5 @@
 app-misc/mat2 0.9.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
-app-portage/pacvis 0.4.1 9999: Displays dependency graphs of packages
+app-portage/pacvis 0.4.1 0.4.2 9999: Displays dependency graphs of packages
 dev-games/surgescript 0.5.4 9999: scripting language made for opensurge
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
 dev-python/dkimpy 0.9.1: Python module implementing DKIM email signing and verification.
