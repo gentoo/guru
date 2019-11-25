@@ -3,7 +3,6 @@
 
 EAPI=7
 
-inherit savedconfig
 
 if [[ "${PV}" == "9999" ]]
 then
@@ -15,6 +14,7 @@ else
 	SRC_URI="https://hacktivis.me/releases/${MY_P}.tar.gz"
 	KEYWORDS="~amd64"
 	S="${WORKDIR}/${MY_P}"
+	inherit savedconfig
 fi
 
 DESCRIPTION="Minimalist and privacy-oriented WebKitGTK+ browser"
