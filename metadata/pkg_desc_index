@@ -6,7 +6,7 @@ dev-python/dkimpy 0.9.1: Python module implementing DKIM email signing and verif
 dev-util/codespell 1.15.0: Check text files for common misspellings
 dev-util/pybind11 2.3.0: Seamless operability between C++11 and Python
 games-arcade/opensurge 0.5.0_p1 9999: fun 2D retro platformer inspired by old-school Sonic games
-games-arcade/taisei 1.3: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
+games-arcade/taisei 1.3.1: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 games-fps/chocolate-doom 3.0.0: A Doom source port that is minimalist and historically accurate
 games-fps/crispy-doom 5.5.2: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 sys-process/iotop-c 2014.08.24: top utility for IO (C port)
