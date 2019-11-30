@@ -22,7 +22,7 @@ IUSE="doc test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	${PYTHON_DEP}
+	${PYTHON_DEPS}
 	doc? (
 		dev-python/breathe[${PYTHON_USEDEP}]
 		dev-python/sphinx[${PYTHON_USEDEP}]
@@ -37,7 +37,7 @@ DEPEND="
 "
 
 RDEPEND="
-	${PYTHON_DEP}
+	${PYTHON_DEPS}
 	dev-cpp/eigen:3
 	sys-apps/texinfo
 	sys-devel/gettext[cxx]
