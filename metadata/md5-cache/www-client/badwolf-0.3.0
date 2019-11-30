@@ -10,4 +10,4 @@ RDEPEND=x11-libs/gtk+:3 net-libs/webkit-gtk:4=
 SLOT=0
 SRC_URI=https://hacktivis.me/releases/badwolf-0.3.0.tar.gz
 _eclasses_=portability	2b88d3ecc35035a3b8ab628b49cafb0e	savedconfig	a3c113056e77e36a1d78ff4eb475dfd1
-_md5_=61c7b7e0439db1f45e1fbd8ee976b4ac
+_md5_=c09c9d12b8ed2e4744d9185771333c2c
