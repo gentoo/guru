@@ -1,4 +1,4 @@
-# Copyright 2018-2019 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
+# Copyright 2018-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
