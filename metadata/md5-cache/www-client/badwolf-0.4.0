@@ -1,13 +1,12 @@
 DEFINED_PHASES=compile configure install postinst
-DEPEND=x11-libs/gtk+:3 net-libs/webkit-gtk:4=
+DEPEND=x11-libs/gtk+:3 >=net-libs/webkit-gtk-2.26.0:4=
 DESCRIPTION=Minimalist and privacy-oriented WebKitGTK+ browser
 EAPI=7
 HOMEPAGE=https://hacktivis.me/projects/badwolf
 IUSE=savedconfig
-KEYWORDS=~amd64 ~ppc
 LICENSE=BSD
-RDEPEND=x11-libs/gtk+:3 net-libs/webkit-gtk:4=
+RDEPEND=x11-libs/gtk+:3 >=net-libs/webkit-gtk-2.26.0:4=
 SLOT=0
-SRC_URI=https://hacktivis.me/releases/badwolf-0.3.0.tar.gz
+SRC_URI=https://hacktivis.me/releases/badwolf-0.4.0.tar.gz
 _eclasses_=portability	2b88d3ecc35035a3b8ab628b49cafb0e	savedconfig	a3c113056e77e36a1d78ff4eb475dfd1
-_md5_=6db03a1b8d9d6d3ec34f5a86de5eb145
+_md5_=28cf02b278b37300bd64fea7ed6804a3

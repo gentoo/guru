@@ -9,4 +9,4 @@ PROPERTIES=live
 RDEPEND=x11-libs/gtk+:3 net-libs/webkit-gtk:4=
 SLOT=0
 _eclasses_=git-r3	562b380fc59ae6a8622171d0acb777d1
-_md5_=c09c9d12b8ed2e4744d9185771333c2c
+_md5_=6db03a1b8d9d6d3ec34f5a86de5eb145

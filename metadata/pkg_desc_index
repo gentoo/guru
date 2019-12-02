@@ -1,4 +1,4 @@
-app-misc/mat2 0.9.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
+app-misc/mat2 0.10.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-portage/pacvis 0.4.1 0.4.2 9999: Displays dependency graphs of packages
 dev-games/surgescript 0.5.4 9999: scripting language made for opensurge
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
@@ -11,4 +11,4 @@ games-fps/chocolate-doom 3.0.0: A Doom source port that is minimalist and histor
 games-fps/crispy-doom 5.5.2: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 media-gfx/azpainter 2.1.5: Full color painting software for Linux for illustration drawing
 sys-process/iotop-c 2014.08.24: top utility for IO (C port)
-www-client/badwolf 0.3.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
+www-client/badwolf 0.3.0 0.4.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
