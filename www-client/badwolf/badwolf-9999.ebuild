@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit xdg
+
 if [[ "${PV}" == "9999" ]]
 then
 	EGIT_REPO_URI="https://hacktivis.me/git/badwolf.git"
@@ -30,7 +32,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	restore_config config.h
+	[[ "${PV}" == "9999" ]] || restore_config config.h
 	default
 }
 
@@ -48,6 +50,6 @@ src_install() {
 		PREFIX="/usr" \
 		install
 
-	save_config config.h
+	[[ "${PV}" == "9999" ]] || save_config config.h
 	einstalldocs
 }
