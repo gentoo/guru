@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit xdg
+
 if [[ "${PV}" == "9999" ]]
 then
 	EGIT_REPO_URI="https://hacktivis.me/git/badwolf.git"
