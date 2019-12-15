@@ -8,5 +8,5 @@ LICENSE=BSD
 PROPERTIES=live
 RDEPEND=x11-libs/gtk+:3 net-libs/webkit-gtk:4=
 SLOT=0
-_eclasses_=git-r3	6d22636df236df4cc8475f7b7668bdcd	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_eclasses_=git-r3	7d6c351ee8b1feb12ed8c8b0adae088b	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
 _md5_=42068923aad4174484afd66bde6a8cb0
