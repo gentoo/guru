@@ -4,9 +4,10 @@ DESCRIPTION=Minimalist and privacy-oriented WebKitGTK+ browser
 EAPI=7
 HOMEPAGE=https://hacktivis.me/projects/badwolf
 IUSE=savedconfig
+KEYWORDS=~amd64
 LICENSE=BSD
 RDEPEND=x11-libs/gtk+:3 >=net-libs/webkit-gtk-2.26.0:4=
 SLOT=0
 SRC_URI=https://hacktivis.me/releases/badwolf-0.4.0.tar.gz
 _eclasses_=portability	2b88d3ecc35035a3b8ab628b49cafb0e	savedconfig	a3c113056e77e36a1d78ff4eb475dfd1	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=86639d5d0a891473ff773575586141b7
+_md5_=32aedf3a4b7499f0c6a7bf6efdaa04eb
