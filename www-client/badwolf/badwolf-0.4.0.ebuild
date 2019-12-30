@@ -13,8 +13,8 @@ then
 else
 	MY_P="${PN}-$(ver_rs 3 - 4 .)"
 	SRC_URI="https://hacktivis.me/releases/${MY_P}.tar.gz"
-	# Dropped because net-libs/webkit-gtk-2.26 isn't in ::gentoo
-	# KEYWORDS="~amd64 ~ppc"
+	# no ~ppc because of it being dropped in net-libs/webkit-gtk-2.26::gentoo
+	KEYWORDS="~amd64"
 	S="${WORKDIR}/${MY_P}"
 	inherit savedconfig
 fi
