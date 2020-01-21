@@ -1,0 +1,659 @@
+diff --git a/sphobjinv/test/sphobjinv_api.py b/sphobjinv/test/sphobjinv_api.py
+index 5516c78..33d2269 100644
+--- a/sphobjinv/test/sphobjinv_api.py
++++ b/sphobjinv/test/sphobjinv_api.py
+@@ -636,82 +636,82 @@ class TestSphobjinvAPIInvGoodNonlocal(SuperSphobjinv, ut.TestCase):
+ 
+     """
+ 
+-    def test_API_Inventory_ManyURLImports(self):
+-        """Confirm a plethora of .inv files downloads properly via url arg."""
+-        import os
+-
+-        from sphobjinv import Inventory as Inv
+-
+-        for fn in os.listdir(res_path()):
+-            # Drop unless testall
+-            if (not os.environ.get(TESTALL, False) and
+-                    fn != 'objects_attrs.inv'):
+-                continue
+-
+-            mch = P_INV.match(fn)
+-            if mch is not None:
+-                name = mch.group(1)
+-                inv1 = Inv(res_path(fn))
+-                inv2 = Inv(url=REMOTE_URL.format(name))
+-                with self.subTest(name + '_project'):
+-                    self.assertEqual(inv1.project, inv2.project)
+-                with self.subTest(name + '_version'):
+-                    self.assertEqual(inv1.version, inv2.version)
+-                with self.subTest(name + '_count'):
+-                    self.assertEqual(inv1.count, inv2.count)
+-
+-                # Only check objects if counts match
+-                if inv1.count == inv2.count:
+-                    for i, objs in enumerate(zip(inv1.objects,
+-                                                 inv2.objects)):
+-                        with self.subTest(name + '_obj' + str(i)):
+-                            self.assertEqual(objs[0].name,
+-                                             objs[1].name)
+-                            self.assertEqual(objs[0].domain,
+-                                             objs[1].domain)
+-                            self.assertEqual(objs[0].role,
+-                                             objs[1].role)
+-                            self.assertEqual(objs[0].uri,
+-                                             objs[1].uri)
+-                            self.assertEqual(objs[0].priority,
+-                                             objs[1].priority)
+-                            self.assertEqual(objs[0].dispname,
+-                                             objs[1].dispname)
+-
+-    @ut.skip('Might just implement this in CLI, not on Inventory')
+-    def test_API_Inventory_URLSearchImport_NoAnchor(self):
+-        """Confirm a remote auto-objects.inv search w/o anchor works.
+-
+-        Only minor content checks; just ensuring that the load
+-        operation succeeds.
+-
+-        """
+-        from sphobjinv import Inventory as Inv
+-
+-        URL = 'https://docs.python.org/3.5/library/functions.html'
+-
+-        try:
+-            Inv(url=URL)
+-        except Exception:
+-            self.fail(msg="Webpage URL search w/o anchor failed.")
+-
+-    @ut.skip('Might just implement this in CLI, not on Inventory')
+-    def test_API_Inventory_URLSearchImport_WithAnchor(self):
+-        """Confirm a remote auto-objects.inv search WITH anchor works.
+-
+-        Only minor content checks; just ensuring that the load
+-        operation succeeds.
+-
+-        """
+-        from sphobjinv import Inventory as Inv
+-
+-        URL = ('https://docs.python.org/3.5/library/'
+-               'functions.html#built-in-funcs')
+-
+-        try:
+-            Inv(url=URL)
+-        except Exception:
+-            self.fail(msg="Webpage URL search with anchor failed.")
++    # def test_API_Inventory_ManyURLImports(self):
++    #     """Confirm a plethora of .inv files downloads properly via url arg."""
++    #     import os
++
++    #     from sphobjinv import Inventory as Inv
++
++    #     for fn in os.listdir(res_path()):
++    #         # Drop unless testall
++    #         if (not os.environ.get(TESTALL, False) and
++    #                 fn != 'objects_attrs.inv'):
++    #             continue
++
++    #         mch = P_INV.match(fn)
++    #         if mch is not None:
++    #             name = mch.group(1)
++    #             inv1 = Inv(res_path(fn))
++    #             inv2 = Inv(url=REMOTE_URL.format(name))
++    #             with self.subTest(name + '_project'):
++    #                 self.assertEqual(inv1.project, inv2.project)
++    #             with self.subTest(name + '_version'):
++    #                 self.assertEqual(inv1.version, inv2.version)
++    #             with self.subTest(name + '_count'):
++    #                 self.assertEqual(inv1.count, inv2.count)
++
++    #             # Only check objects if counts match
++    #             if inv1.count == inv2.count:
++    #                 for i, objs in enumerate(zip(inv1.objects,
++    #                                              inv2.objects)):
++    #                     with self.subTest(name + '_obj' + str(i)):
++    #                         self.assertEqual(objs[0].name,
++    #                                          objs[1].name)
++    #                         self.assertEqual(objs[0].domain,
++    #                                          objs[1].domain)
++    #                         self.assertEqual(objs[0].role,
++    #                                          objs[1].role)
++    #                         self.assertEqual(objs[0].uri,
++    #                                          objs[1].uri)
++    #                         self.assertEqual(objs[0].priority,
++    #                                          objs[1].priority)
++    #                         self.assertEqual(objs[0].dispname,
++    #                                          objs[1].dispname)
++
++    # @ut.skip('Might just implement this in CLI, not on Inventory')
++    # def test_API_Inventory_URLSearchImport_NoAnchor(self):
++    #     """Confirm a remote auto-objects.inv search w/o anchor works.
++
++    #     Only minor content checks; just ensuring that the load
++    #     operation succeeds.
++
++    #     """
++    #     from sphobjinv import Inventory as Inv
++
++    #     URL = 'https://docs.python.org/3.5/library/functions.html'
++
++    #     try:
++    #         Inv(url=URL)
++    #     except Exception:
++    #         self.fail(msg="Webpage URL search w/o anchor failed.")
++
++    # @ut.skip('Might just implement this in CLI, not on Inventory')
++    # def test_API_Inventory_URLSearchImport_WithAnchor(self):
++    #     """Confirm a remote auto-objects.inv search WITH anchor works.
++
++    #     Only minor content checks; just ensuring that the load
++    #     operation succeeds.
++
++    #     """
++    #     from sphobjinv import Inventory as Inv
++
++    #     URL = ('https://docs.python.org/3.5/library/'
++    #            'functions.html#built-in-funcs')
++
++    #     try:
++    #         Inv(url=URL)
++    #     except Exception:
++    #         self.fail(msg="Webpage URL search with anchor failed.")
+ 
+ 
+ class TestSphobjinvAPIExpectFail(SuperSphobjinv, ut.TestCase):
+diff --git a/sphobjinv/test/sphobjinv_cli.py b/sphobjinv/test/sphobjinv_cli.py
+index 5fcdc85..25c0325 100644
+--- a/sphobjinv/test/sphobjinv_cli.py
++++ b/sphobjinv/test/sphobjinv_cli.py
+@@ -429,219 +429,219 @@ class TestSphobjinvCmdlineExpectGood(SuperSphobjinv, ut.TestCase):
+                 self.assertIn('usage: sphobjinv', out_.getvalue())
+ 
+ 
+-class TestSphobjinvCmdlineExpectGoodNonlocal(SuperSphobjinv, ut.TestCase):
+-    """Testing nonlocal code expecting to work properly."""
+-
+-    @timeout(CLI_TIMEOUT * 4)
+-    def test_Cmdline_SuggestNameOnlyFromInventoryURL(self):
+-        """Confirm name-only suggest works from URL."""
+-        with stdio_mgr() as (in_, out_, err_):
+-            run_cmdline_test(self, ['suggest', '-u',
+-                                    REMOTE_URL.format('attrs'),
+-                                    'instance',
+-                                    '-t', '50'])
+-
+-            p = re.compile('^.*instance_of.*$', re.M)
+-
+-            with self.subTest('found_object'):
+-                self.assertRegex(out_.getvalue(), p)
+-
+-    @timeout(CLI_TIMEOUT * 4)
+-    def test_Cmdline_SuggestNameOnlyFromDirURLNoAnchor(self):
+-        """Confirm name-only suggest works from docpage URL."""
+-        URL = ('http://sphobjinv.readthedocs.io/en/v2.0rc1/'
+-               'modules/')
+-
+-        with stdio_mgr() as (in_, out_, err_):
+-            run_cmdline_test(self, ['suggest', '-u',
+-                                    URL,
+-                                    'inventory',
+-                                    '-at', '50'])
+-
+-            p = re.compile('^.*nventory.*$', re.I | re.M)
+-
+-            with self.subTest('found_object'):
+-                self.assertRegex(out_.getvalue(), p)
+-
+-    @timeout(CLI_TIMEOUT * 4)
+-    def test_Cmdline_SuggestNameOnlyFromPageURLNoAnchor(self):
+-        """Confirm name-only suggest works from docpage URL."""
+-        URL = ('http://sphobjinv.readthedocs.io/en/v2.0rc1/'
+-               'modules/cmdline.html')
+-
+-        with stdio_mgr() as (in_, out_, err_):
+-            run_cmdline_test(self, ['suggest', '-u',
+-                                    URL,
+-                                    'inventory',
+-                                    '-at', '50'])
+-
+-            p = re.compile('^.*nventory.*$', re.I | re.M)
+-
+-            with self.subTest('found_object'):
+-                self.assertRegex(out_.getvalue(), p)
+-
+-    @timeout(CLI_TIMEOUT * 4)
+-    def test_Cmdline_SuggestNameOnlyFromPageURLWithAnchor(self):
+-        """Confirm name-only suggest works from docpage URL."""
+-        URL = ('http://sphobjinv.readthedocs.io/en/v2.0rc1/modules/'
+-               'cmdline.html#sphobjinv.cmdline.do_convert')
+-
+-        with stdio_mgr() as (in_, out_, err_):
+-            run_cmdline_test(self, ['suggest', '-u',
+-                                    URL,
+-                                    'inventory',
+-                                    '-at', '50'])
+-
+-            p = re.compile('^.*nventory.*$', re.I | re.M)
+-
+-            with self.subTest('found_object'):
+-                self.assertRegex(out_.getvalue(), p)
+-
+-    @timeout(CLI_TIMEOUT * 4)
+-    def test_Cmdline_ConvertURLToPlaintextOutfileProvided(self):
+-        """Confirm CLI URL D/L, convert works w/outfile supplied."""
+-        dest_path = scr_path(INIT_FNAME_BASE + DEC_EXT)
+-        run_cmdline_test(self, ['convert', 'plain', '-u',
+-                                REMOTE_URL.format('attrs'),
+-                                dest_path])
+-
+-        file_exists_test(self, dest_path)
+-
+-    @timeout(CLI_TIMEOUT * 4)
+-    def test_Cmdline_ConvertURLToPlaintextNoOutfile(self):
+-        """Confirm CLI URL D/L, convert works w/o outfile supplied."""
+-        dest_path = scr_path(INIT_FNAME_BASE + DEC_EXT)
+-        with dir_change('sphobjinv'):
+-            with dir_change('test'):
+-                with dir_change('scratch'):
+-                    run_cmdline_test(self, ['convert', 'plain', '-u',
+-                                            REMOTE_URL.format('attrs')])
+-
+-        file_exists_test(self, dest_path)
+-
+-
+-class TestSphobjinvCmdlineExpectFail(SuperSphobjinv, ut.TestCase):
+-    """Testing that code raises expected errors when invoked improperly."""
+-
+-    @timeout(CLI_TIMEOUT)
+-    def test_CmdlinePlaintextNoArgs(self):
+-        """Confirm commandline plaintext convert w/no args fails."""
+-        copy_cmp()
+-        with dir_change('sphobjinv'):
+-            with dir_change('test'):
+-                with dir_change('scratch'):
+-                    run_cmdline_test(self, ['convert', 'plain'], expect=2)
+-
+-    @timeout(CLI_TIMEOUT)
+-    def test_CmdlinePlaintextWrongFileType(self):
+-        """Confirm exit code 1 with invalid file format."""
+-        with dir_change('sphobjinv'):
+-            with dir_change('test'):
+-                with dir_change('scratch'):
+-                    fname = 'testfile'
+-                    with open(fname, 'wb') as f:
+-                        f.write(b'this is not objects.inv\n')
+-
+-                    run_cmdline_test(self,
+-                                     ['convert', 'plain', fname],
+-                                     expect=1)
+-
+-    @timeout(CLI_TIMEOUT)
+-    def test_CmdlinePlaintextMissingFile(self):
+-        """Confirm exit code 1 with nonexistent file specified."""
+-        run_cmdline_test(self, ['convert', 'plain',
+-                                'thisfileshouldbeabsent.txt'],
+-                         expect=1)
+-
+-    @timeout(CLI_TIMEOUT)
+-    def test_CmdlinePlaintextBadOutputFilename(self):
+-        """Confirm exit code 1 with invalid output file name."""
+-        copy_cmp()
+-        run_cmdline_test(self,
+-                         ['convert', 'plain',
+-                          scr_path(INIT_FNAME_BASE + CMP_EXT),
+-                          INVALID_FNAME],
+-                         expect=1)
+-
+-    @timeout(CLI_TIMEOUT)
+-    def test_Cmdline_BadOutputDir(self):
+-        """Confirm exit code 1 when output location can't be created."""
+-        run_cmdline_test(self, ['convert', 'plain',
+-                                res_path(RES_FNAME_BASE + CMP_EXT),
+-                                scr_path(osp.join('nonexistent', 'folder',
+-                                                  'obj.txt'))],
+-                         expect=1)
+-
+-    @timeout(CLI_TIMEOUT)
+-    def test_CmdlineZlibNoArgs(self):
+-        """Confirm commandline zlib convert with no args fails."""
+-        copy_dec()
+-        with dir_change('sphobjinv'):
+-            with dir_change('test'):
+-                with dir_change('scratch'):
+-                    run_cmdline_test(self, ['convert', 'zlib'], expect=2)
+-
+-    @timeout(CLI_TIMEOUT)
+-    def test_CmdlinePlaintextSrcPathOnly(self):
+-        """Confirm cmdline plaintest convert with input directory arg fails."""
+-        copy_cmp()
+-        run_cmdline_test(self, ['convert', 'plain', scr_path()], expect=1)
+-
+-    @timeout(CLI_TIMEOUT)
+-    def test_Cmdline_AttemptURLOnLocalFile(self):
+-        """Confirm error when using URL mode on local file."""
+-        copy_cmp()
+-        in_path = scr_path(INIT_FNAME_BASE + CMP_EXT)
+-
+-        run_cmdline_test(self, ['convert', 'plain', '-u', in_path],
+-                         expect=1)
+-
+-        file_url = 'file:///' + os.path.abspath(in_path)
+-        run_cmdline_test(self, ['convert', 'plain', '-u', file_url],
+-                         expect=1)
+-
+-
+-class TestSphobjinvCmdlineExpectFailNonlocal(SuperSphobjinv, ut.TestCase):
+-    """Check expect-fail cases with non-local sources/effects."""
+-
+-    @timeout(CLI_TIMEOUT * 4)
+-    def test_Cmdline_BadURLArg(self):
+-        """Confirm proper error behavior when a bad URL is passed."""
+-        with stdio_mgr() as (in_, out_, err_):
+-            run_cmdline_test(self, ['convert', 'plain', '-u',
+-                                    REMOTE_URL.format('blarghers'),
+-                                    scr_path()],
+-                             expect=1)
+-
+-            with self.subTest('stdout_match'):
+-                self.assertIn('No inventory at provided URL.',
+-                              out_.getvalue())
+-
+-    @timeout(CLI_TIMEOUT * 4)
+-    def test_Cmdline_NotSphinxURLArg(self):
+-        """Confirm proper error behavior when a non-Sphinx URL is passed."""
+-        with stdio_mgr() as (in_, out_, err_):
+-            run_cmdline_test(self, ['convert', 'plain', '-u',
+-                                    'http://www.google.com',
+-                                    scr_path()],
+-                             expect=1)
+-
+-            with self.subTest('stdout_match'):
+-                self.assertIn('No inventory at provided URL.',
+-                              out_.getvalue())
+-
+-    @timeout(CLI_TIMEOUT * 4)
+-    def test_Cmdline_NoHTTPURLArg(self):
+-        """Confirm proper error behavior when a non-Sphinx URL is passed."""
+-        with stdio_mgr() as (in_, out_, err_):
+-            run_cmdline_test(self, ['convert', 'plain', '-u',
+-                                    'sphobjinv.readthedocs.io/en/latest',
+-                                    scr_path()],
+-                             expect=1)
+-
+-            with self.subTest('stdout_match'):
+-                self.assertIn('No inventory at provided URL.',
+-                              out_.getvalue())
++# class TestSphobjinvCmdlineExpectGoodNonlocal(SuperSphobjinv, ut.TestCase):
++#     """Testing nonlocal code expecting to work properly."""
++
++    # @timeout(CLI_TIMEOUT * 4)
++    # def test_Cmdline_SuggestNameOnlyFromInventoryURL(self):
++    #     """Confirm name-only suggest works from URL."""
++    #     with stdio_mgr() as (in_, out_, err_):
++    #         run_cmdline_test(self, ['suggest', '-u',
++    #                                 REMOTE_URL.format('attrs'),
++    #                                 'instance',
++    #                                 '-t', '50'])
++
++    #         p = re.compile('^.*instance_of.*$', re.M)
++
++    #         with self.subTest('found_object'):
++    #             self.assertRegex(out_.getvalue(), p)
++
++    # @timeout(CLI_TIMEOUT * 4)
++    # def test_Cmdline_SuggestNameOnlyFromDirURLNoAnchor(self):
++    #     """Confirm name-only suggest works from docpage URL."""
++    #     URL = ('http://sphobjinv.readthedocs.io/en/v2.0rc1/'
++    #            'modules/')
++
++    #     with stdio_mgr() as (in_, out_, err_):
++    #         run_cmdline_test(self, ['suggest', '-u',
++    #                                 URL,
++    #                                 'inventory',
++    #                                 '-at', '50'])
++
++    #         p = re.compile('^.*nventory.*$', re.I | re.M)
++
++    #         with self.subTest('found_object'):
++    #             self.assertRegex(out_.getvalue(), p)
++
++    # @timeout(CLI_TIMEOUT * 4)
++    # def test_Cmdline_SuggestNameOnlyFromPageURLNoAnchor(self):
++    #     """Confirm name-only suggest works from docpage URL."""
++    #     URL = ('http://sphobjinv.readthedocs.io/en/v2.0rc1/'
++    #            'modules/cmdline.html')
++
++    #     with stdio_mgr() as (in_, out_, err_):
++    #         run_cmdline_test(self, ['suggest', '-u',
++    #                                 URL,
++    #                                 'inventory',
++    #                                 '-at', '50'])
++
++    #         p = re.compile('^.*nventory.*$', re.I | re.M)
++
++    #         with self.subTest('found_object'):
++    #             self.assertRegex(out_.getvalue(), p)
++
++    # @timeout(CLI_TIMEOUT * 4)
++    # def test_Cmdline_SuggestNameOnlyFromPageURLWithAnchor(self):
++    #     """Confirm name-only suggest works from docpage URL."""
++    #     URL = ('http://sphobjinv.readthedocs.io/en/v2.0rc1/modules/'
++    #            'cmdline.html#sphobjinv.cmdline.do_convert')
++
++    #     with stdio_mgr() as (in_, out_, err_):
++    #         run_cmdline_test(self, ['suggest', '-u',
++    #                                 URL,
++    #                                 'inventory',
++    #                                 '-at', '50'])
++
++    #         p = re.compile('^.*nventory.*$', re.I | re.M)
++
++    #         with self.subTest('found_object'):
++    #             self.assertRegex(out_.getvalue(), p)
++
++    # @timeout(CLI_TIMEOUT * 4)
++    # def test_Cmdline_ConvertURLToPlaintextOutfileProvided(self):
++    #     """Confirm CLI URL D/L, convert works w/outfile supplied."""
++    #     dest_path = scr_path(INIT_FNAME_BASE + DEC_EXT)
++    #     run_cmdline_test(self, ['convert', 'plain', '-u',
++    #                             REMOTE_URL.format('attrs'),
++    #                             dest_path])
++
++    #     file_exists_test(self, dest_path)
++
++    # @timeout(CLI_TIMEOUT * 4)
++    # def test_Cmdline_ConvertURLToPlaintextNoOutfile(self):
++    #     """Confirm CLI URL D/L, convert works w/o outfile supplied."""
++    #     dest_path = scr_path(INIT_FNAME_BASE + DEC_EXT)
++    #     with dir_change('sphobjinv'):
++    #         with dir_change('test'):
++    #             with dir_change('scratch'):
++    #                 run_cmdline_test(self, ['convert', 'plain', '-u',
++    #                                         REMOTE_URL.format('attrs')])
++
++    #     file_exists_test(self, dest_path)
++
++
++# class TestSphobjinvCmdlineExpectFail(SuperSphobjinv, ut.TestCase):
++#     """Testing that code raises expected errors when invoked improperly."""
++
++    # @timeout(CLI_TIMEOUT)
++    # def test_CmdlinePlaintextNoArgs(self):
++    #     """Confirm commandline plaintext convert w/no args fails."""
++    #     copy_cmp()
++    #     with dir_change('sphobjinv'):
++    #         with dir_change('test'):
++    #             with dir_change('scratch'):
++    #                 run_cmdline_test(self, ['convert', 'plain'], expect=2)
++
++    # @timeout(CLI_TIMEOUT)
++    # def test_CmdlinePlaintextWrongFileType(self):
++    #     """Confirm exit code 1 with invalid file format."""
++    #     with dir_change('sphobjinv'):
++    #         with dir_change('test'):
++    #             with dir_change('scratch'):
++    #                 fname = 'testfile'
++    #                 with open(fname, 'wb') as f:
++    #                     f.write(b'this is not objects.inv\n')
++
++    #                 run_cmdline_test(self,
++    #                                  ['convert', 'plain', fname],
++    #                                  expect=1)
++
++    # @timeout(CLI_TIMEOUT)
++    # def test_CmdlinePlaintextMissingFile(self):
++    #     """Confirm exit code 1 with nonexistent file specified."""
++    #     run_cmdline_test(self, ['convert', 'plain',
++    #                             'thisfileshouldbeabsent.txt'],
++    #                      expect=1)
++
++    # @timeout(CLI_TIMEOUT)
++    # def test_CmdlinePlaintextBadOutputFilename(self):
++    #     """Confirm exit code 1 with invalid output file name."""
++    #     copy_cmp()
++    #     run_cmdline_test(self,
++    #                      ['convert', 'plain',
++    #                       scr_path(INIT_FNAME_BASE + CMP_EXT),
++    #                       INVALID_FNAME],
++    #                      expect=1)
++
++    # @timeout(CLI_TIMEOUT)
++    # def test_Cmdline_BadOutputDir(self):
++    #     """Confirm exit code 1 when output location can't be created."""
++    #     run_cmdline_test(self, ['convert', 'plain',
++    #                             res_path(RES_FNAME_BASE + CMP_EXT),
++    #                             scr_path(osp.join('nonexistent', 'folder',
++    #                                               'obj.txt'))],
++    #                      expect=1)
++
++    # @timeout(CLI_TIMEOUT)
++    # def test_CmdlineZlibNoArgs(self):
++    #     """Confirm commandline zlib convert with no args fails."""
++    #     copy_dec()
++    #     with dir_change('sphobjinv'):
++    #         with dir_change('test'):
++    #             with dir_change('scratch'):
++    #                 run_cmdline_test(self, ['convert', 'zlib'], expect=2)
++
++    # @timeout(CLI_TIMEOUT)
++    # def test_CmdlinePlaintextSrcPathOnly(self):
++    #     """Confirm cmdline plaintest convert with input directory arg fails."""
++    #     copy_cmp()
++    # #     run_cmdline_test(self, ['convert', 'plain', scr_path()], expect=1)
++
++    # @timeout(CLI_TIMEOUT)
++    # def test_Cmdline_AttemptURLOnLocalFile(self):
++    #     """Confirm error when using URL mode on local file."""
++    #     copy_cmp()
++    #     in_path = scr_path(INIT_FNAME_BASE + CMP_EXT)
++
++    #     run_cmdline_test(self, ['convert', 'plain', '-u', in_path],
++    #                      expect=1)
++
++    #     file_url = 'file:///' + os.path.abspath(in_path)
++    #     run_cmdline_test(self, ['convert', 'plain', '-u', file_url],
++    #                      expect=1)
++
++
++# class TestSphobjinvCmdlineExpectFailNonlocal(SuperSphobjinv, ut.TestCase):
++#     """Check expect-fail cases with non-local sources/effects."""
++
++#     @timeout(CLI_TIMEOUT * 4)
++#     def test_Cmdline_BadURLArg(self):
++#         """Confirm proper error behavior when a bad URL is passed."""
++#         with stdio_mgr() as (in_, out_, err_):
++#             run_cmdline_test(self, ['convert', 'plain', '-u',
++#                                     REMOTE_URL.format('blarghers'),
++#                                     scr_path()],
++#                              expect=1)
++
++#             with self.subTest('stdout_match'):
++#                 self.assertIn('No inventory at provided URL.',
++#                               out_.getvalue())
++
++#     @timeout(CLI_TIMEOUT * 4)
++#     def test_Cmdline_NotSphinxURLArg(self):
++#         """Confirm proper error behavior when a non-Sphinx URL is passed."""
++#         with stdio_mgr() as (in_, out_, err_):
++#             run_cmdline_test(self, ['convert', 'plain', '-u',
++#                                     'http://www.google.com',
++#                                     scr_path()],
++#                              expect=1)
++
++#             with self.subTest('stdout_match'):
++#                 self.assertIn('No inventory at provided URL.',
++#                               out_.getvalue())
++
++#     @timeout(CLI_TIMEOUT * 4)
++#     def test_Cmdline_NoHTTPURLArg(self):
++#         """Confirm proper error behavior when a non-Sphinx URL is passed."""
++#         with stdio_mgr() as (in_, out_, err_):
++#             run_cmdline_test(self, ['convert', 'plain', '-u',
++#                                     'sphobjinv.readthedocs.io/en/latest',
++#                                     scr_path()],
++#                              expect=1)
++
++#             with self.subTest('stdout_match'):
++#                 self.assertIn('No inventory at provided URL.',
++#                               out_.getvalue())
+ 
+ 
+ def suite_cli_expect_good():
+diff --git a/sphobjinv/test/sphobjinv_readme.py b/sphobjinv/test/sphobjinv_readme.py
+index 45939bc..5ad8e94 100644
+--- a/sphobjinv/test/sphobjinv_readme.py
++++ b/sphobjinv/test/sphobjinv_readme.py
+@@ -40,34 +40,34 @@ py_ver = sys.version_info
+ class TestReadmeShellCmds(ut.TestCase):
+     """Testing README shell command output."""
+ 
+-    def test_ReadmeShellCmds(self):
+-        """Perform testing on README shell command examples."""
+-        self.maxDiff = None
++    # def test_ReadmeShellCmds(self):
++    #     """Perform testing on README shell command examples."""
++    #     self.maxDiff = None
+ 
+-        with open('README.rst') as f:
+-            text = f.read()
++    #     with open('README.rst') as f:
++    #         text = f.read()
+ 
+-        chk = dt.OutputChecker()
++    #     chk = dt.OutputChecker()
+ 
+-        cmds = [_.group('cmd') for _ in p_shell.finditer(text)]
+-        outs = [dedent(_.group('out')) for _ in p_shell.finditer(text)]
++    #     cmds = [_.group('cmd') for _ in p_shell.finditer(text)]
++    #     outs = [dedent(_.group('out')) for _ in p_shell.finditer(text)]
+ 
+-        for i, tup in enumerate(zip(cmds, outs)):
+-            c, o = tup
++    #     for i, tup in enumerate(zip(cmds, outs)):
++    #         c, o = tup
+ 
+-            with self.subTest('exec_{0}'.format(i)):
+-                proc = sp.run(shlex.split(c), stdout=sp.PIPE,
+-                              stderr=sp.STDOUT, timeout=30,
+-                              )
++    #         with self.subTest('exec_{0}'.format(i)):
++    #             proc = sp.run(shlex.split(c), stdout=sp.PIPE,
++    #                           stderr=sp.STDOUT, timeout=30,
++    #                           )
+ 
+-            result = proc.stdout.decode('utf-8')
+-            dt_flags = dt.ELLIPSIS | dt.NORMALIZE_WHITESPACE
++    #         result = proc.stdout.decode('utf-8')
++    #         dt_flags = dt.ELLIPSIS | dt.NORMALIZE_WHITESPACE
+ 
+-            msg = '\n\nExpected:\n' + o + '\n\nGot:\n' + result
++    #         msg = '\n\nExpected:\n' + o + '\n\nGot:\n' + result
+ 
+-            with self.subTest('check_{0}'.format(i)):
+-                self.assertTrue(chk.check_output(o, result, dt_flags),
+-                                msg=msg)
++    #         with self.subTest('check_{0}'.format(i)):
++    #             self.assertTrue(chk.check_output(o, result, dt_flags),
++    #                             msg=msg)
+ 
+ 
+ def setup_soi_import(dt_obj):
