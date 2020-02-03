@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_7 )
 
 inherit cmake-utils git-r3 distutils-r1
 
@@ -13,7 +13,7 @@ EGIT_REPO_URI="https://github.com/vidify/audiosync.git"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=
+KEYWORDS=""
 
 IUSE="debug"
 
