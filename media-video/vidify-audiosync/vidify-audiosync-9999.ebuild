@@ -13,7 +13,7 @@ EGIT_REPO_URI="https://github.com/vidify/audiosync.git"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS=
 
 IUSE="debug"
 
