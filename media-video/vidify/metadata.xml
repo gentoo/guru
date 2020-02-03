@@ -6,10 +6,6 @@
 		<email>andrewammerlaan@riseup.net</email>
 		<name>Andrew Ammerlaan</name>
 	</maintainer>
-	<maintainer type="project">
-		<email>proxy-maint@gentoo.org</email>
-		<name>Proxy Maintainers</name>
-	</maintainer>
 	<use>
 		<flag name="vlc">Use python-vlc as backend for vidify</flag>
 		<flag name="mpv">Use python-mpv as backend for vidify</flag>
