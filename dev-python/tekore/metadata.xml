@@ -6,8 +6,4 @@
         <email>andrewammerlaan@riseup.net</email>
         <name>Andrew Ammerlaan</name>
     </maintainer>
-    <maintainer type="project">
-        <email>proxy-maint@gentoo.org</email>
-        <name>Proxy Maintainers</name>
-    </maintainer>
 </pkgmetadata>
