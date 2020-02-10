@@ -5,15 +5,15 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_7 )
 
-inherit cmake-utils git-r3 distutils-r1
+inherit cmake-utils distutils-r1
 
 DESCRIPTION="Audio synchronization feature for vidify "
 HOMEPAGE="https://github.com/vidify/audiosync"
-EGIT_REPO_URI="https://github.com/vidify/audiosync.git"
+SRC_URI="https://github.com/vidify/audiosync/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="MIT"
+LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS=
+KEYWORDS="~amd64 ~x86"
 
 IUSE="debug"
 
@@ -23,7 +23,9 @@ RDEPEND="
 	sci-libs/fftw
 	debug? ( sci-visualization/gnuplot )"
 
+S="${WORKDIR}/audiosync-${PV}"
+
 src_prepare() {
-	use debug && eapply "${FILESDIR}/${P}-debug.patch"
+	use debug && sed -i -e "/defines.append(('DEBUG', '1'))/s/^# *//" setup.py
 	default
 }
