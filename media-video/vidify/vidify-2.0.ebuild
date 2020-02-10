@@ -7,30 +7,29 @@ PYTHON_COMPAT=( python3_7 )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-inherit eutils desktop distutils-r1 git-r3 xdg-utils
+inherit eutils desktop distutils-r1 xdg-utils
 
 DESCRIPTION="Watch live music videos for the songs playing on your device"
-HOMEPAGE="https://github.com/marioortizmanero/spotify-music-videos"
-EGIT_REPO_URI="https://github.com/marioortizmanero/spotify-music-videos.git"
-EGIT_BRANCH="next"
+HOMEPAGE="https://github.com/vidify/vidify"
+SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="MIT"
+LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS=
+KEYWORDS="~amd64 ~x86"
 
 IUSE="+vlc mpv"
 
 REQUIRED_USE="|| ( vlc mpv )"
 
 RDEPEND="
+	dev-python/appdirs[${PYTHON_USEDEP}]
+	dev-python/lyricwikia[${PYTHON_USEDEP}]
 	dev-python/pydbus[${PYTHON_USEDEP}]
 	dev-python/QtPy[gui,webengine,${PYTHON_USEDEP}]
-	dev-python/lyricwikia[${PYTHON_USEDEP}]
-	vlc? ( dev-python/python-vlc[${PYTHON_USEDEP}] )
-	mpv? ( dev-python/python-mpv[${PYTHON_USEDEP}] )
+	dev-python/tekore[${PYTHON_USEDEP}]
 	net-misc/youtube-dl[${PYTHON_USEDEP}]
-	dev-python/appdirs[${PYTHON_USEDEP}]
-	dev-python/tekore[${PYTHON_USEDEP}]"
+	mpv? ( dev-python/python-mpv[${PYTHON_USEDEP}] )
+	vlc? ( dev-python/python-vlc[${PYTHON_USEDEP}] )"
 
 python_install_all() {
 	distutils-r1_python_install_all
