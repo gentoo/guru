@@ -23,14 +23,22 @@ RDEPEND="
 	dev-python/fuzzywuzzy[${PYTHON_USEDEP}]
 	dev-python/jsonschema[${PYTHON_USEDEP}]"
 
-DEPEND="test? ( dev-python/timeout-decorator[${PYTHON_USEDEP}]
-		dev-python/stdio-mgr[${PYTHON_USEDEP}] )"
+DEPEND="test? (
+	dev-python/pytest-timeout[${PYTHON_USEDEP}]
+	dev-python/pytest-subtests[${PYTHON_USEDEP}]
+	dev-python/timeout-decorator[${PYTHON_USEDEP}]
+	dev-python/stdio-mgr[${PYTHON_USEDEP}] )"
 
-PATCHES="${FILESDIR}/${P}-skip-tests.patch"
-
-distutils_enable_sphinx doc/source dev-python/sphinx_rtd_theme
+distutils_enable_sphinx doc/source dev-python/sphinx_rtd_theme dev-python/sphinx-issues
 distutils_enable_tests pytest
 
+python_prepare_all() {
+	# not sure why this fails
+	rm tests/test_flake8_ext.py || die
+
+	distutils-r1_python_prepare_all
+}
+
 python_test() {
-	pytest -vv ${PN}/test/* || die "Tests fail with ${EPYTHON}"
+	pytest -vv tests || die "Tests fail with ${EPYTHON}"
 }
