@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_7 )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-inherit eutils desktop distutils-r1 xdg-utils
+inherit eutils distutils-r1 xdg-utils
 
 DESCRIPTION="Watch live music videos for the songs playing on your device"
 HOMEPAGE="https://github.com/vidify/vidify"
@@ -31,18 +31,7 @@ RDEPEND="
 	mpv? ( dev-python/python-mpv[${PYTHON_USEDEP}] )
 	vlc? ( dev-python/python-vlc[${PYTHON_USEDEP}] )"
 
-python_install_all() {
-	distutils-r1_python_install_all
-	newicon -s scalable vidify/gui/res/icon.svg ${PN}.svg
-	if use mpv && use !vlc; then
-		make_desktop_entry "${PN} --player mpv" "Vidify" "${PN}" "AudioVideo;Music"
-	elif use mpv && use vlc; then
-		make_desktop_entry "${PN} --player mpv" "Vidify (mpv)" "${PN}" "AudioVideo;Music"
-		make_desktop_entry "${PN}" "Vidify (vlc)" "${PN}" "AudioVideo;Music"
-	else
-		make_desktop_entry "${PN}" "Vidify" "${PN}" "AudioVideo;Music"
-	fi
-}
+# Tests work (mostly) outside of emerge, but core dump inside emerge/virtx
 
 pkg_postinst() {
 	xdg_desktop_database_update
