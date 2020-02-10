@@ -16,12 +16,23 @@ LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
+distutils_enable_sphinx docs
+
+# the enable_sphinx fucntion seems to act strange when there is only 1 PYTHON_COMPAT
+# repoman says:
+# dev-python/tekore/tekore-1.1.0.ebuild: BDEPEND: ~x86(default/linux/x86/17.0/systemd)
+# [     'dev-python/sphinx[python_targets_python3_7(-),python_single_target_python3_7(+)]']
+# therefore we overwrite the deps that the function adds here:
+BDEPEND="doc? (
+	dev-python/sphinx[${PYTHON_USEDEP}]
+	dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
+	dev-python/sphinx-autodoc-typehints[${PYTHON_USEDEP}] )"
+
 RDEPEND="dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/httpx[${PYTHON_USEDEP}]"
 
 DOCS="readme.rst"
 
-distutils_enable_sphinx docs dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}] dev-python/sphinx-autodoc-typehints[${PYTHON_USEDEP}]
 distutils_enable_tests pytest
 
 python_prepare_all() {
