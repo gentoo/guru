@@ -28,8 +28,6 @@ DEPEND="test? ( dev-python/mock[${PYTHON_USEDEP}] )"
 distutils_enable_sphinx docs
 distutils_enable_tests pytest
 
-#PATCHES="${FILESDIR}/${P}-skip-online-test.patch"
-
 python_prepare_all() {
 	# this test requires user credentials
 	rm tests/integration/test_user_endpoints.py || die
