@@ -28,7 +28,17 @@ DEPEND="test? ( dev-python/mock[${PYTHON_USEDEP}] )"
 distutils_enable_sphinx docs
 distutils_enable_tests pytest
 
-PATCHES="${FILESDIR}/${P}-skip-online-test.patch"
+#PATCHES="${FILESDIR}/${P}-skip-online-test.patch"
+
+python_prepare_all() {
+	# this test requires user credentials
+	rm tests/integration/test_user_endpoints.py || die
+
+	# this test requires a spotify client ID
+	rm tests/integration/test_non_user_endpoints.py || die
+
+	distutils-r1_python_prepare_all
+}
 
 python_test() {
 	pytest -vv tests || die "Tests fail with ${EPYTHON}"
