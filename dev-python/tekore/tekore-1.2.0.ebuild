@@ -31,6 +31,8 @@ BDEPEND="doc? (
 RDEPEND="dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/httpx[${PYTHON_USEDEP}]"
 
+DEPEND="test? ( dev-python/pytest-qt[${PYTHON_USEDEP}] )"
+
 DOCS="readme.rst"
 
 distutils_enable_tests pytest
