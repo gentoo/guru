@@ -9,9 +9,9 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit eutils distutils-r1 xdg-utils
 
-DESCRIPTION="Watch live music videos for the songs playing on your device"
+DESCRIPTION="Watch music videos in real time for the songs playing on your device"
 HOMEPAGE="https://github.com/vidify/vidify"
-SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0"
@@ -31,7 +31,20 @@ RDEPEND="
 	mpv? ( dev-python/python-mpv[${PYTHON_USEDEP}] )
 	vlc? ( dev-python/python-vlc[${PYTHON_USEDEP}] )"
 
-# Tests work (mostly) outside of emerge, but core dump inside emerge/virtx
+distutils_enable_tests unittest
+
+python_prepare_all() {
+	# skip online test
+	rm tests/apis/test_spotify_web.py || die
+
+	# this needs dbus running
+	rm tests/apis/test_mpris.py || die
+
+	# fails to parse config for some reason
+	rm tests/test_api_and_player_data.py || die
+
+	distutils-r1_python_prepare_all
+}
 
 pkg_postinst() {
 	xdg_desktop_database_update
