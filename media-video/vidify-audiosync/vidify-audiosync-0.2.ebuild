@@ -5,11 +5,11 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_7 )
 
-inherit cmake-utils distutils-r1
+inherit distutils-r1
 
 DESCRIPTION="Audio synchronization feature for vidify "
 HOMEPAGE="https://github.com/vidify/audiosync"
-SRC_URI="https://github.com/vidify/audiosync/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/vidify/audiosync/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0"
@@ -28,4 +28,13 @@ S="${WORKDIR}/audiosync-${PV}"
 src_prepare() {
 	use debug && sed -i -e "/defines.append(('DEBUG', '1'))/s/^# *//" setup.py
 	default
+}
+
+src_test() {
+	mkdir test_build
+	cd test_build
+	cmake .. -DBUILD_TESTING=YES
+	emake
+	emake test
+	cd ..
 }
