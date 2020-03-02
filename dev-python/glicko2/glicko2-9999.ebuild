@@ -20,18 +20,10 @@ HOMEPAGE="https://github.com/sublee/glicko2"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS=""
-IUSE="test"
-RESTRICT="!test? ( test )"
 
-DEPEND="
-	dev-python/setuptools[${PYTHON_USEDEP}]
-"
+distutils_enable_tests setup.py
 
 src_prepare() {
 	sed -i -e "s/distribute/setuptools/g" setup.py
 	eapply_user
-}
-
-python_test() {
-	"${PYTHON}" setup.py test || die
 }
