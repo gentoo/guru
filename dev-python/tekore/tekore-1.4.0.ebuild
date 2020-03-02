@@ -16,7 +16,7 @@ LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
-distutils_enable_sphinx docs
+distutils_enable_sphinx docs/src
 
 # the enable_sphinx fucntion seems to act strange when there is only 1 PYTHON_COMPAT
 # repoman says:
@@ -36,14 +36,6 @@ DEPEND="test? ( dev-python/pytest-qt[${PYTHON_USEDEP}] )"
 DOCS="readme.rst"
 
 distutils_enable_tests pytest
-
-python_prepare_all() {
-	# docs fail: AttributeError: 'PosixPath' object has no attribute 'rstrip'
-	sed -i -e 's:sys.path.insert(0, _root):#&:' \
-		docs/conf.py || die
-
-	distutils-r1_python_prepare_all
-}
 
 python_test() {
 	pytest -vv tests/* || die "Tests fail with ${EPYTHON}"
