@@ -59,14 +59,14 @@ src_configure() {
 	use java && append-cflags "-I${S}/src/libgenders"
 	use java && append-cflags "$(java-pkg_get-jni-cflags)"
 
-	local myconf="(
+	local myconf=(
 		--disable-static
 		--with-non-shortened-hostnames
 		$(use_with cxx cplusplus-extensions)
 		$(use_with java java-extensions)
 		$(use_with perl perl-extensions)
 		$(use_with python python-extensions)
-	)"
+	)
 	econf "${myconf[@]}"
 }
 
