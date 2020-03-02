@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_7 )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-inherit eutils distutils-r1 xdg-utils
+inherit eutils xdg distutils-r1
 
 DESCRIPTION="Watch music videos in real time for the songs playing on your device"
 HOMEPAGE="https://github.com/vidify/vidify"
@@ -47,8 +47,7 @@ python_prepare_all() {
 }
 
 pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
+	xdg_pkg_postinst
 
 	use mpv && elog "media-video/vlc is the default vidify player, to use mpv run 'vidify --player mpv' or set 'player = mpv' in the config file"
 	use vlc && elog "If video playback is not working please check 'vidify --debug' for missing-codec-errors and recompile media-video/vlc with the missing codecs"
@@ -56,9 +55,4 @@ pkg_postinst() {
 
 	optfeature "'vidify --dark-mode'" dev-python/qdarkstyle
 	optfeature "'vidify --audiosync'" media-video/vidify-audiosync
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
 }
