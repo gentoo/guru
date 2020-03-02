@@ -24,6 +24,8 @@ BDEPEND="dev-util/quilt"
 
 S="${WORKDIR}/${MY_P}+doc"
 
+DOCS=( doc/ANNmanual.pdf doc/ReadMe.txt )
+
 src_prepare() {
 	export QUILT_PATCHES="${WORKDIR}/debian/patches"
 	export QUILT_SERIES="${QUILT_PATCHES}/series"
@@ -48,11 +50,7 @@ src_install() {
 	insinto /usr/include/ANN
 	doins -r include/ANN/.
 
-	dodoc doc/ANNmanual.pdf
-	dodoc doc/Copyright.txt
-	dodoc doc/ReadMe.txt
-
-	insinto /usr/share/ANN/sample
+	insinto "/usr/share/${P}/sample"
 	doins sample/query.pts
 	doins sample/sample.save
 	doins sample/data.pts
