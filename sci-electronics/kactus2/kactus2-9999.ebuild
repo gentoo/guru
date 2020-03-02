@@ -37,13 +37,9 @@ RDEPEND="
 	${DEPEND}
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-3.8.0-install.patch # Fix install problem
-)
-
 src_install() {
-	# Can't use default, set INSTALL_ROOT and workaround parallel install bug
-	emake -j1 INSTALL_ROOT="${D}" install
+	# Can't use default, set INSTALL_ROOT
+	emake INSTALL_ROOT="${D}" install
 }
 
 pkg_postinst() {
