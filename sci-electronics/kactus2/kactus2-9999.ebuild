@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit xdg-utils
+inherit xdg
 
 DESCRIPTION="A open source IP-XACT-based tool"
 HOMEPAGE="
@@ -40,16 +40,4 @@ RDEPEND="
 src_install() {
 	# Can't use default, set INSTALL_ROOT
 	emake INSTALL_ROOT="${D}" install
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-	xdg_mimeinfo_database_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-	xdg_mimeinfo_database_update
 }
