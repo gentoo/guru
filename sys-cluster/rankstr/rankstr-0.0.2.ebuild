@@ -12,11 +12,11 @@ SRC_URI="https://github.com/ECP-VeloC/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="mpi test"
+IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	mpi? ( virtual/mpi )
+	virtual/mpi
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -32,7 +32,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DMPI="$(usex mpi "" OFF)"
+		-DMPI="ON"
 	)
 	cmake-utils_src_configure
 }
