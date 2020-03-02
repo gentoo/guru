@@ -12,18 +12,19 @@ SRC_URI="https://github.com/ECP-VeloC/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="mpi test"
+IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	mpi? ( virtual/mpi )
-	sys-libs/zlib
 	>=sys-cluster/KVTree-1.0.2
+	sys-libs/zlib
+	virtual/mpi
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-util/cmake-2.8
 "
+
 src_prepare() {
 	#do not build static library
 	sed -i '/shuffile-static/d' src/CMakeLists.txt || die
@@ -33,7 +34,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DMPI="$(usex mpi "" OFF)"
+		-DMPI="ON"
 	)
 	cmake-utils_src_configure
 }
