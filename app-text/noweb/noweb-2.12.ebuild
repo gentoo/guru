@@ -8,7 +8,7 @@ inherit eutils toolchain-funcs elisp-common
 MYPV="$(ver_rs 1 _)"
 
 DESCRIPTION="a literate programming tool, lighter than web"
-HOMEPAGE="http://www.eecs.harvard.edu/~nr/noweb/"
+HOMEPAGE="https://www.cs.tufts.edu/~nr/noweb/"
 SRC_URI="https://github.com/nrnrnr/${PN}/archive/v${MYPV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="
@@ -19,10 +19,13 @@ SLOT="0"
 KEYWORDS="~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~ppc-macos ~x64-macos ~x86-macos"
 IUSE="emacs examples"
 
-DEPEND="virtual/tex-base
+DEPEND="
 	dev-lang/icon
 	sys-apps/debianutils
-	emacs? ( app-editors/emacs:= )"
+	virtual/tex-base
+
+	emacs? ( app-editors/emacs:= )
+"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${PN}-${MYPV}"
@@ -81,7 +84,7 @@ src_install () {
 	dodir "/usr/libexec/${PN}"
 	dodir /usr/share/man
 	dodir /usr/share/texmf-site/tex/inputs
-	emake ICONC="icont" \
+	emake	ICONC="icont" \
 		BIN="${ED}/usr/bin" \
 		LIBSRC="icon" \
 		LIBNAME="${EPREFIX}/usr/libexec/${PN}" \
@@ -90,11 +93,14 @@ src_install () {
 		TEXNAME="${EPREFIX}/usr/share/texmf-site/tex/inputs" \
 		TEXINPUTS="${ED}/usr/share/texmf-site/tex/inputs" \
 		install || die "make install failed"
+
 	cd "${S}"
+
 	if use examples; then
 		insinto "/usr/share/doc/${PF}/examples"
-		doins examples/*
+		doins -r examples/.
 	fi
+
 	dodoc CHANGES README
 
 	if use emacs; then
