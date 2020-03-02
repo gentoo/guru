@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
+
 PYTHON_COMPAT=( python3_{6,7} )
 
 inherit distutils-r1
@@ -16,17 +17,7 @@ HOMEPAGE="https://github.com/dreid/atomiclong"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
-IUSE="test"
-RESTRICT="!test? ( test )"
 
 RDEPEND="virtual/python-cffi[${PYTHON_USEDEP}]"
 
-DEPEND="${RDEPEND}
-	test? (
-		dev-python/pytest[${PYTHON_USEDEP}]
-	)
-"
-
-python_test() {
-	pytest -vv || die
-}
+distutils_enable_tests pytest
