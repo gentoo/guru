@@ -16,8 +16,10 @@ http://cdn-fastly.deb.debian.org/debian/pool/main/a/${PN}/${PN}_${MY_PV}+doc-${P
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
+
 IUSE="debug test"
 RESTRICT="!test? ( test )"
+
 RDEPEND=""
 DEPEND=""
 BDEPEND="dev-util/quilt"
@@ -44,10 +46,11 @@ src_test() {
 	cd test
 	./ann_test < test1.in > /dev/null || die
 	./ann_test < test2.in > /dev/null || die
+	cd ..
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
+	default
 
 	insinto /usr/include/ANN
 	doins -r include/ANN/.
@@ -64,8 +67,7 @@ src_install() {
 	doman ann_sample.1
 	doman ann_test.1
 	doman ann2fig.1
-
-	einstalldocs
+	cd "${S}"
 
 	find "${D}" -name '*.la' -delete || die
 }
