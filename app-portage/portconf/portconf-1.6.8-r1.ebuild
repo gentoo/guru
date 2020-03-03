@@ -31,4 +31,5 @@ src_install() {
 	dobin portconf
 	insinto /etc
 	newins portconf.conf portconf.conf
+	einstalldocs
 }
