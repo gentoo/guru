@@ -16,9 +16,10 @@ KEYWORDS="~amd64"
 DEPEND=""
 RDEPEND="dev-lang/perl"
 
+DOCS=( README.md )
+
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 src_install() {
 	dobin "${PN}"
-	dodoc README.md
 }
