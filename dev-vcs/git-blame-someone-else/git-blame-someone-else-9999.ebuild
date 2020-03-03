@@ -23,4 +23,5 @@ DOCS=( README.md )
 
 src_install() {
 	dobin "${PN}"
+	einstalldocs
 }

@@ -25,4 +25,5 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 
 src_install() {
 	dobin "${PN}"
+	einstalldocs
 }
