@@ -21,12 +21,14 @@ RDEPEND="${DEPEND}
 		app-portage/eix
 		app-portage/portage-utils
 		sys-apps/gawk
+
 		|| ( app-text/agrep dev-libs/tre )
 "
 
+DOCS=( README.md )
+
 src_install() {
 	dobin portconf
-	dodoc README.md
 	insinto /etc
 	newins portconf.conf portconf.conf
 }
