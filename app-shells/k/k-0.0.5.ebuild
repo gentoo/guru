@@ -22,6 +22,7 @@ src_install() {
 	dodir "/usr/share/zsh/plugins"
 	insinto "/usr/share/zsh/plugins/${PN}"
 	doins "${PN}.sh"
+	einstalldocs
 }
 
 pkg_postinst() {
