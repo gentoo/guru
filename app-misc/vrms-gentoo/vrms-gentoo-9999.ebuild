@@ -18,7 +18,9 @@ RDEPEND="
 	dev-lang/perl
 "
 
+DOCS=( README.md )
+
 src_install() {
 	dobin "${PN}"
-	dodoc README.md
+	einstalldocs
 }
