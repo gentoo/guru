@@ -27,6 +27,6 @@ src_install() {
 	cd code
 	emake
 	cd ..
-	dobin exec/chaco
-	dodoc doc/*
+	dobin "exec/chaco"
+	dodoc -r doc/.
 }
