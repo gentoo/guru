@@ -3,28 +3,32 @@
 
 EAPI="7"
 
-EGIT_REPO_URI="https://github.com/pippijn/aldor.git"
-EGIT_COMMIT="13e5b90"
+COMMIT="13e5b90eecc79ec6704efb333c4c100187520e80"
 AUTOTOOLS_AUTORECONF=1
 AUTOTOOLS_IN_SOURCE_BUILD=1
-
-inherit git-r3 autotools elisp-common
+inherit autotools elisp-common
 
 DESCRIPTION="The Aldor Programming Language"
 HOMEPAGE="http://pippijn.github.io/aldor"
-SRC_URI="doc? ( http://aldor.org/docs/libaldor.pdf.gz )
-	emacs? ( http://hemmecke.de/aldor/aldor.el.nw )"
+SRC_URI="	https://github.com/pippijn/aldor/archive/${COMMIT}.tar.gz -> ${P}.tar.gz
+		doc? ( http://aldor.org/docs/libaldor.pdf.gz )
+		emacs? ( http://hemmecke.de/aldor/aldor.el.nw )"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="doc emacs"
 
-RDEPEND="emacs? ( app-editors/emacs:= )"
-DEPEND="${RDEPEND}
+RDEPEND="
+	emacs? ( app-editors/emacs:= )
+"
+DEPEND="
+	${RDEPEND}
 	virtual/yacc
+
 	doc? ( virtual/latex-base )
-	emacs? ( app-text/noweb )"
+	emacs? ( app-text/noweb )
+"
 
 DOCS=( AUTHORS COPYRIGHT LICENSE )
 
