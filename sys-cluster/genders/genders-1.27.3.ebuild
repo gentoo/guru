@@ -30,6 +30,8 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="cxx java perl python"
 
+DOCS=( README TUTORIAL NEWS )
+
 CDEPEND="
 	perl?	( dev-lang/perl:= )
 	python?	( ${PYTHON_DEPS} )
@@ -88,7 +90,6 @@ src_compile() {
 
 src_install() {
 	default
-	dodoc README TUTORIAL NEWS
 
 	if use perl ; then
 		cd "${S}/src/extensions/perl"
