@@ -17,6 +17,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	mpi? ( virtual/mpi )
+
 	sys-cluster/KVTree
 	sys-cluster/rankstr
 	sys-libs/zlib
@@ -25,6 +26,8 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-util/cmake-2.8
 "
+
+DOCS=( README.md )
 
 src_prepare() {
 	#do not build static library
@@ -42,6 +45,5 @@ src_configure() {
 
 src_install() {
 	cmake-utils_src_install
-	dodoc README.md
 	dodoc -r doc/rst/.
 }
