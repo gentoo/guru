@@ -12,14 +12,13 @@ HOMEPAGE="https://github.com/jayphelps/git-blame-someone-else"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+
 IUSE=""
 
 RDEPEND="
 	dev-vcs/git
 "
 DEPEND=""
-
-DOCS=( README.md )
 
 S="${WORKDIR}/${PN}-${COMMIT}"
 

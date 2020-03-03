@@ -3,23 +3,22 @@
 
 EAPI="7"
 
-SRC_URI=""
-EGIT_REPO_URI="https://github.com/jayphelps/git-blame-someone-else.git"
 inherit git-r3
 
 DESCRIPTION="Blame someone else for your bad code."
 HOMEPAGE="https://github.com/jayphelps/git-blame-someone-else"
+EGIT_REPO_URI="https://github.com/jayphelps/git-blame-someone-else.git"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
+
 IUSE=""
 
 RDEPEND="
 	dev-vcs/git
 "
 DEPEND=""
-
-DOCS=( README.md )
 
 src_install() {
 	dobin "${PN}"
