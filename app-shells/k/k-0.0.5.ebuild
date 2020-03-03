@@ -16,8 +16,9 @@ RDEPEND="
 	>=dev-vcs/git-1.7.2
 "
 
+DOCS=( readme.md )
+
 src_install() {
-	dodoc "readme.md"
 	dodir "/usr/share/zsh/plugins"
 	insinto "/usr/share/zsh/plugins/${PN}"
 	doins "${PN}.sh"
