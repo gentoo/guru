@@ -14,12 +14,15 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND="dev-vcs/git"
+RDEPEND="
+	dev-vcs/git
+"
 DEPEND=""
+
+DOCS=( README.md )
 
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 src_install() {
 	dobin "${PN}"
-	dodoc README.md
 }

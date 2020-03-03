@@ -14,10 +14,13 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND="dev-vcs/git"
+RDEPEND="
+	dev-vcs/git
+"
 DEPEND=""
+
+DOCS=( README.md )
 
 src_install() {
 	dobin "${PN}"
-	dodoc README.md
 }
