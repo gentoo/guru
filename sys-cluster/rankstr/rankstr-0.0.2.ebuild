@@ -27,10 +27,3 @@ src_prepare() {
 	default
 	cmake-utils_src_prepare
 }
-
-src_configure() {
-	local mycmakeargs=(
-		-DMPI="ON"
-	)
-	cmake-utils_src_configure
-}
