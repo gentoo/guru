@@ -46,7 +46,6 @@ src_configure() {
 		$(use_with sparse)
 		$(use_with unroll)
 	)
-
 	econf "${myconf[@]}"
 }
 
@@ -58,12 +57,13 @@ src_compile() {
 src_install() {
 	ln -s "lib${PN}.so" "lib${PN}.so.${MAJOR}"
 	ln -s "lib${PN}.so.${MAJOR}" "lib${PN}.so.${VERSION}"
-
 	dolib.so "lib${PN}.so"
 	dolib.so "lib${PN}.so.${MAJOR}"
 	dolib.so "lib${PN}.so.${VERSION}"
+
 	insinto "/usr/include/${PN}"
 	doins *.h
+
 	exeinto "/usr/libexec/${PN}"
 	doexe iotort
 	doexe itertort
@@ -74,7 +74,10 @@ src_install() {
 	doexe sptort
 	doexe torture
 	doexe ztorture
+
 	insinto "/usr/share/${P}"
 	doins *.dat
+
 	dodoc -r DOC/.
+	einstalldocs
 }
