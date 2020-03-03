@@ -15,9 +15,9 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="
+	app-shells/bash
 	sys-apps/coreutils
 	sys-apps/portage
-	app-shells/bash
 "
 
 S="${FILESDIR}"
