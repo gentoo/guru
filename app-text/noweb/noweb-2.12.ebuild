@@ -28,8 +28,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-DOCS=( CHANGES README )
-
 S="${WORKDIR}/${PN}-${MYPV}"
 
 SITEFILE="50${PN}-gentoo.el"
