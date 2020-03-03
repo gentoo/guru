@@ -3,12 +3,12 @@
 
 EAPI="7"
 
-SRC_URI=""
-EGIT_REPO_URI="https://github.com/z411/${PN}.git"
 inherit git-r3
 
 DESCRIPTION="vrms clone for Gentoo Linux"
 HOMEPAGE="https://github.com/z411/vrms-gentoo"
+EGIT_REPO_URI="https://github.com/z411/${PN}.git"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
@@ -18,9 +18,8 @@ RDEPEND="
 	dev-lang/perl
 "
 
-DOCS=( README.md )
-
 src_install() {
+	default
+
 	dobin "${PN}"
-	einstalldocs
 }

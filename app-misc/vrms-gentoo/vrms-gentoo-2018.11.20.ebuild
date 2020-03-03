@@ -18,11 +18,10 @@ RDEPEND="
 	dev-lang/perl
 "
 
-DOCS=( README.md )
-
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 src_install() {
+	default
+
 	dobin "${PN}"
-	einstalldocs
 }
