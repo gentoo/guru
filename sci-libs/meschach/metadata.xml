@@ -35,7 +35,6 @@ allocation/deallocation of memory.
     <flag name="old">build no longer supported functions</flag>
     <flag name="segmem">should be set if you are working with a machine or compiler that does not allow large arrays to be allocated. See README</flag>
     <flag name="sparse">incorporate sparse matrix functions</flag>
-    <flag name="test">build test programs</flag>
     <flag name="unroll">unroll low level loops on vectors</flag>
   </use>
 </pkgmetadata>

@@ -5,6 +5,9 @@ EAPI="7"
 
 inherit autotools eutils
 
+MAJOR="$(ver_cut 1)"
+VERSION="$(ver_cut 1-2)"
+
 DESCRIPTION="Meschach is a C-language library of routines for performing matrix computations."
 HOMEPAGE="http://homepage.divms.uiowa.edu/~dstewart/meschach"
 SRC_URI="http://cdn-fastly.deb.debian.org/debian/pool/main/m/meschach/${PN}_${PV}.orig.tar.gz \
@@ -13,8 +16,7 @@ http://cdn-fastly.deb.debian.org/debian/pool/main/m/meschach/${PN}_${PV}-14.debi
 LICENSE="meschach"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="complex +double float munroll old segmem sparse test unroll"
-RESTRICT="!test? ( test )"
+IUSE="complex +double float munroll old segmem sparse unroll"
 REQUIRED_USE="
 		^^ ( double float )
 "
@@ -23,6 +25,8 @@ PATCHES=(
 	"${WORKDIR}/debian/patches/${PN}_${PV}-13.diff"
 	"${WORKDIR}/debian/patches/${PN}_${PV}-13.configure.diff"
 )
+
+DOCS=( README )
 
 src_prepare() {
 	default
@@ -47,27 +51,30 @@ src_configure() {
 }
 
 src_compile() {
-	emake DESTDIR="${D}" all
-	use test && emake alltorture
+	emake vers="${VERSION}" DESTDIR="${D}" all
+	emake alltorture
 }
 
 src_install() {
-	dolib.so libmeschach.so
-	insinto /usr/include/meschach
+	ln -s "lib${PN}.so" "lib${PN}.so.${MAJOR}"
+	ln -s "lib${PN}.so.${MAJOR}" "lib${PN}.so.${VERSION}"
+
+	dolib.so "lib${PN}.so"
+	dolib.so "lib${PN}.so.${MAJOR}"
+	dolib.so "lib${PN}.so.${VERSION}"
+	insinto "/usr/include/${PN}"
 	doins *.h
-	use test && dodir /usr/libexec/meschach
-	use test && exeinto /usr/libexec/meschach
-	use test && doexe iotort
-	use test && doexe itertort
-	use test && doexe macheps
-	use test && doexe maxint
-	use test && doexe memtort
-	use test && doexe mfuntort
-	use test && doexe sptort
-	use test && doexe torture
-	use test && doexe ztorture
-	use test && insinto /usr/libexec/meschach
-	use test && doins *.dat
+	exeinto "/usr/libexec/${PN}"
+	doexe iotort
+	doexe itertort
+	doexe macheps
+	doexe maxint
+	doexe memtort
+	doexe mfuntort
+	doexe sptort
+	doexe torture
+	doexe ztorture
+	insinto "/usr/share/${P}"
+	doins *.dat
 	dodoc -r DOC/.
-	dodoc README
 }
