@@ -16,6 +16,7 @@ http://cdn-fastly.deb.debian.org/debian/pool/main/m/meschach/${PN}_${PV}-14.debi
 LICENSE="meschach"
 SLOT="0"
 KEYWORDS="~amd64"
+
 IUSE="complex +double float munroll old segmem sparse unroll"
 REQUIRED_USE="
 		^^ ( double float )
@@ -25,8 +26,6 @@ PATCHES=(
 	"${WORKDIR}/debian/patches/${PN}_${PV}-13.diff"
 	"${WORKDIR}/debian/patches/${PN}_${PV}-13.configure.diff"
 )
-
-DOCS=( README )
 
 src_prepare() {
 	default
