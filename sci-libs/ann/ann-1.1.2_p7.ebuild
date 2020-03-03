@@ -31,6 +31,7 @@ src_prepare() {
 	export QUILT_SERIES="${QUILT_PATCHES}/series"
 	quilt push -a || die
 	eapply_user
+
 	eautoreconf
 }
 
@@ -47,6 +48,7 @@ src_test() {
 
 src_install() {
 	emake DESTDIR="${D}" install
+
 	insinto /usr/include/ANN
 	doins -r include/ANN/.
 
@@ -62,5 +64,8 @@ src_install() {
 	doman ann_sample.1
 	doman ann_test.1
 	doman ann2fig.1
+
+	einstalldocs
+
 	find "${D}" -name '*.la' -delete || die
 }
