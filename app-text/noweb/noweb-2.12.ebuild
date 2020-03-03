@@ -124,6 +124,7 @@ src_install () {
 		elisp-site-file-install "${FILESDIR}/${SITEFILE}" \
 			|| die "elisp-site-file-install failed"
 	fi
+	einstalldocs
 }
 
 pkg_postinst() {
