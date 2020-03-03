@@ -6,17 +6,21 @@ EAPI="7"
 COMMIT="13e5b90eecc79ec6704efb333c4c100187520e80"
 AUTOTOOLS_AUTORECONF=1
 AUTOTOOLS_IN_SOURCE_BUILD=1
+
 inherit autotools elisp-common
 
 DESCRIPTION="The Aldor Programming Language"
 HOMEPAGE="http://pippijn.github.io/aldor"
-SRC_URI="	https://github.com/pippijn/aldor/archive/${COMMIT}.tar.gz -> ${P}.tar.gz
-		doc? ( http://aldor.org/docs/libaldor.pdf.gz )
-		emacs? ( http://hemmecke.de/aldor/aldor.el.nw )"
+SRC_URI="
+	https://github.com/pippijn/aldor/archive/${COMMIT}.tar.gz -> ${P}.tar.gz
+	doc? ( http://aldor.org/docs/libaldor.pdf.gz )
+	emacs? ( http://hemmecke.de/aldor/aldor.el.nw )
+"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
+
 IUSE="doc emacs"
 
 RDEPEND="
@@ -30,9 +34,15 @@ DEPEND="
 	emacs? ( app-text/noweb )
 "
 
-DOCS=( AUTHORS COPYRIGHT LICENSE )
+S="${WORKDIR}/${PN}-${COMMIT}/aldor"
 
-S="${WORKDIR}/${P}/aldor"
+DOCS=( AUTHORS README.building README.binary-only README.library ../README.md )
+
+src_unpack() {
+	unpack "${P}.tar.gz"
+	use doc && cp "${DISTDIR}/libaldor.pdf.gz" "${S}" && gunzip "${S}/libaldor.pdf.gz" || die
+	use emacs && cp "${DISTDIR}/aldor.el.nw" "${S}" || die
+}
 
 src_compile() {
 	if use doc ; then
@@ -40,20 +50,18 @@ src_compile() {
 		( cd lib/aldor/tutorial
 			pdflatex tutorial.tex
 			pdflatex tutorial.tex ) || die "make tutorial.pdf failed"
-		cp "${DISTDIR}/libaldor.pdf.gz" .
-		gunzip libaldor.pdf.gz
 		tar xzf "${DISTDIR}/algebra.html.tar.gz"
 	fi
 
 	if use emacs ; then
-		notangle "${DISTDIR}/aldor.el.nw" > aldor.el
-		notangle -Rinit.el "${DISTDIR}/aldor.el.nw" | \
+		notangle "aldor.el.nw" > aldor.el
+		notangle -Rinit.el "aldor.el.nw" | \
 			sed -e '1s/^.*$/;; aldor mode/' > 64aldor-gentoo.el
 		if use doc ; then
 			einfo "Documentation for the aldor emacs mode"
-			noweave "${DISTDIR}/aldor.el.nw" > aldor-mode.tex
+			noweave "aldor.el.nw" > aldor-mode.tex
 			pdflatex aldor-mode.tex
-			pdflatex aldor-mode.tex
+			pdflatex aldor-mode.tex || die "make aldor-mode.pdf failed"
 		fi
 	fi
 	default
