@@ -11,4 +11,10 @@ The Aldor language combines imperative, functional, and object-oriented features
 	<upstream>
 		<remote-id type="github">pippijn/aldor</remote-id>
 	</upstream>
+	<use>
+		<flag name="boehm-gc">Use Boehm Garbage Collector instead of built-in</flag>
+	</use>
+
+
+
 </pkgmetadata>

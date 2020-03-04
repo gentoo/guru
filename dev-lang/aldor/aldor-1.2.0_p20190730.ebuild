@@ -4,9 +4,8 @@
 EAPI="7"
 
 COMMIT="13e5b90eecc79ec6704efb333c4c100187520e80"
-AUTOTOOLS_AUTORECONF=1
-AUTOTOOLS_IN_SOURCE_BUILD=1
 
+#TODO: figure out if a java eclass is needed
 inherit autotools elisp-common
 
 DESCRIPTION="The Aldor Programming Language"
@@ -21,13 +20,24 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="doc emacs"
+IUSE="boehm-gc doc emacs java"
 
-RDEPEND="
+#is junit dep. only for test?
+#TODO: choose a slot for junit
+CDEPEND="
+	boehm-gc? ( dev-libs/boehm-gc )
 	emacs? ( app-editors/emacs:= )
+	java? ( dev-java/junit )
+"
+RDEPEND="
+	${CDEPEND}
+	java? ( virtual/jre:1.8	)
 "
 DEPEND="
-	${RDEPEND}
+	${CDEPEND}
+	java? ( virtual/jdk:1.8 )
+"
+BDEPEND="
 	virtual/yacc
 
 	doc? ( virtual/latex-base )
@@ -40,23 +50,42 @@ DOCS=( AUTHORS README.building README.binary-only README.library ../README.md )
 
 src_unpack() {
 	unpack "${P}.tar.gz"
-	use doc && cp "${DISTDIR}/libaldor.pdf.gz" "${S}" && gunzip "${S}/libaldor.pdf.gz" || die
+	if use doc ; then
+		cp "${DISTDIR}/libaldor.pdf.gz" "${S}"
+		gunzip "${S}/libaldor.pdf.gz"
+	fi
 	use emacs && cp "${DISTDIR}/aldor.el.nw" "${S}" || die
+}
+
+src_prepare() {
+	#TODO: respect CFLAGS and remove Werror
+	eapply_user
+	eautoreconf
+}
+
+src_configure() {
+	local myconf=(
+		--disable-static
+		--enable-libraries
+		--enable-shared
+		$(use_enable java)
+		$(use_with java java-junit)
+		$(use_with boehm-gc)
+	)
+	econf "${myconf[@]}"
 }
 
 src_compile() {
 	if use doc ; then
-		( cd aldorug; emake aldorug.pdf ) || die "make aldorug.pdf failed"
-		( cd lib/aldor/tutorial
+		( cd "${S}/aldorug"; emake aldorug.pdf ) || die "make aldorug.pdf failed"
+		( cd "${S}/lib/aldor/tutorial"
 			pdflatex tutorial.tex
 			pdflatex tutorial.tex ) || die "make tutorial.pdf failed"
-		tar xzf "${DISTDIR}/algebra.html.tar.gz"
 	fi
-
+	cd "${S}"
 	if use emacs ; then
 		notangle "aldor.el.nw" > aldor.el
-		notangle -Rinit.el "aldor.el.nw" | \
-			sed -e '1s/^.*$/;; aldor mode/' > 64aldor-gentoo.el
+		notangle -Rinit.el "aldor.el.nw" | sed -e '1s/^.*$/;; aldor mode/' > 64aldor-gentoo.el
 		if use doc ; then
 			einfo "Documentation for the aldor emacs mode"
 			noweave "aldor.el.nw" > aldor-mode.tex
@@ -64,15 +93,16 @@ src_compile() {
 			pdflatex aldor-mode.tex || die "make aldor-mode.pdf failed"
 		fi
 	fi
+	cd "${S}"
 	default
 }
 
 src_install() {
-	if use doc ; then
-		DOCS+=( aldorug/aldorug.pdf lib/aldor/tutorial/tutorial.pdf libaldor.pdf )
-	fi
+	use doc && DOCS+=( aldorug/aldorug.pdf lib/aldor/tutorial/tutorial.pdf libaldor.pdf )
+
 	if use emacs ; then
-		DOCS+=( aldor-mode.pdf )
+		use doc && DOCS+=( aldor-mode.pdf )
+		#TODO: rename aldor.el
 		elisp-site-file-install aldor.el
 		elisp-site-file-install 64aldor-gentoo.el
 	fi
