@@ -14,7 +14,4 @@ The Aldor language combines imperative, functional, and object-oriented features
 	<use>
 		<flag name="boehm-gc">Use Boehm Garbage Collector instead of built-in</flag>
 	</use>
-
-
-
 </pkgmetadata>
