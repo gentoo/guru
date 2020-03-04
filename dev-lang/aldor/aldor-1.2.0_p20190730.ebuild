@@ -54,7 +54,7 @@ src_unpack() {
 		cp "${DISTDIR}/libaldor.pdf.gz" "${S}"
 		gunzip "${S}/libaldor.pdf.gz"
 	fi
-	use emacs && cp "${DISTDIR}/aldor.el.nw" "${S}" || die
+	use emacs && cp "${DISTDIR}/aldor.el.nw" "${S}"
 }
 
 src_prepare() {
