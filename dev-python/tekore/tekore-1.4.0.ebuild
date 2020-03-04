@@ -29,7 +29,8 @@ BDEPEND="doc? (
 	dev-python/sphinx-autodoc-typehints[${PYTHON_USEDEP}] )"
 
 RDEPEND="dev-python/requests[${PYTHON_USEDEP}]
-	dev-python/httpx[${PYTHON_USEDEP}]"
+	dev-python/httpx[${PYTHON_USEDEP}]
+	media-sound/spotify"
 
 DOCS="readme.rst"
 
