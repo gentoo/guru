@@ -18,6 +18,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="
+	media-sound/pulseaudio
 	media-video/ffmpeg[openssl]
 	media-video/vidify[${PYTHON_USEDEP}]
 	sci-libs/fftw
