@@ -4,7 +4,8 @@
 EAPI="7"
 
 DISTUTILS_USE_SETUPTOOLS=no
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
+
 inherit cmake-utils distutils-r1
 
 DESCRIPTION="Very-Low Overhead Checkpointing System"
@@ -14,8 +15,10 @@ SRC_URI="https://github.com/ECP-VeloC/${PN^^}/archive/${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="alps doc lsf python +slurm test"
-RESTRICT="!test? ( test )"
+
+IUSE="alps lsf python +slurm"
+# Tests not working with python yet
+RESTRICT="python? ( test )"
 
 REQUIRED_USE="
 		?? ( alps lsf slurm )
@@ -33,9 +36,11 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-util/cmake-2.8
-	doc? ( dev-python/sphinx )
 "
+
 S="${WORKDIR}/${PN^^}-${P}"
+
+distutils_enable_sphinx "${S}/docs" --no-autodoc
 
 src_prepare() {
 	#strip CFLAGS
@@ -65,15 +70,13 @@ src_configure() {
 src_compile() {
 	default
 	if use python; then
-		cd "${S}/src/bindings/python"
+		cd "src/bindings/python"
 		distutils-r1_src_compile
-	fi
-	if use doc; then
-		cd "${S}/docs"
-		emake man
-		emake info
-		emake html
-		emake latexpdf
+		cd "${S}"
+	else
+		# If USE="-python doc" we still
+		# want to compile the doc files
+		sphinx_compile_all
 	fi
 }
 
@@ -83,9 +86,6 @@ src_install() {
 		cd "${S}/src/bindings/python"
 		distutils-r1_src_install
 	fi
-
-	#ToDO: install docs
-#	dodoc -r docs/.
 }
 
 src_test() {
