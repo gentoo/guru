@@ -24,7 +24,7 @@ case "${PV}" in
 	;;
 esac
 
-DESCRIPTION="Genders is a static cluster configuration database used for cluster configuration management."
+DESCRIPTION="Static cluster configuration database used for cluster configuration management."
 HOMEPAGE="https://github.com/chaos/genders"
 LICENSE="GPL-2"
 SLOT="0"
@@ -86,6 +86,12 @@ src_compile() {
 		cp genderssetup.py setup.py
 		distutils-r1_src_compile
 	fi
+}
+
+src_test() {
+	cd src/testsuite
+	default
+	cd ../..
 }
 
 src_install() {

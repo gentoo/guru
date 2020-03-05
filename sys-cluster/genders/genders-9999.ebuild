@@ -24,7 +24,7 @@ case "${PV}" in
 	;;
 esac
 
-DESCRIPTION="Genders is a static cluster configuration database used for cluster configuration management."
+DESCRIPTION="Static cluster configuration database used for cluster configuration management."
 HOMEPAGE="https://github.com/chaos/genders"
 LICENSE="GPL-2"
 SLOT="0"
