@@ -88,6 +88,12 @@ src_compile() {
 	fi
 }
 
+src_test() {
+	cd src/testsuite
+	default
+	cd ../..
+}
+
 src_install() {
 	default
 
