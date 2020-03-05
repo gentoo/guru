@@ -99,12 +99,14 @@ src_install() {
 
 	if use perl ; then
 		cd "${S}/src/extensions/perl"
+		unset DOCS
 		myinst=( DESTDIR="${D}" )
 		perl-module_src_install
 	fi
 
 	if use python; then
 		cd "${S}/src/extensions/python"
+		unset DOCS
 		python_install() {
 			distutils-r1_python_install
 		}
