@@ -20,7 +20,10 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="boehm-gc doc emacs java"
+#force boehm-gc for now, without it won't build ...
+IUSE="+boehm-gc doc emacs java"
+
+PATCHES=( "${FILESDIR}/respect-flags.diff" )
 
 #is junit dep. only for test?
 #TODO: choose a slot for junit
@@ -58,8 +61,9 @@ src_unpack() {
 }
 
 src_prepare() {
-	#TODO: respect CFLAGS and remove Werror
-	eapply_user
+	use boehm-gc && sed -i 's|-L /usr/X11/lib|-L /usr/X11/lib -lgc|' aldor/src/aldor.conf || die
+
+	default
 	eautoreconf
 }
 
