@@ -14,7 +14,7 @@ SRC_URI="https://github.com/ECP-VeloC/${PN^^}/archive/${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="alps doc +lsf python slurm test"
+IUSE="alps doc lsf python +slurm test"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
