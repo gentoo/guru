@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+	<maintainer type="person">
+		<email>andrewammerlaan@riseup.net</email>
+		<name>Andrew Ammerlaan</name>
+	</maintainer>
+	<use>
+		<flag name="vlc">Use python-vlc as backend for vidify</flag>
+		<flag name="mpv">Use python-mpv as backend for vidify</flag>
+	</use>
+</pkgmetadata>
