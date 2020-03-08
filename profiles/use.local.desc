@@ -4,4 +4,22 @@
 
 app-misc/mat2:sandbox - Enable sandboxing functionality through sys-apps/bubblewrap
 app-misc/mat2:video - Use media-video/ffmpeg for video support
+dev-lang/aldor:boehm-gc - Use Boehm Garbage Collector instead of built-in
 games-arcade/taisei:zip - Enable loading of game data from ZIP packages via dev-libs/libzip
+media-video/vidify:mpv - Use python-mpv as backend for vidify
+media-video/vidify:vlc - Use python-vlc as backend for vidify
+sci-libs/meschach:complex - incorporate complex functions.
+sci-libs/meschach:double - double precision
+sci-libs/meschach:float - single precision
+sci-libs/meschach:munroll - unroll low level loops on matrices
+sci-libs/meschach:old - build no longer supported functions
+sci-libs/meschach:segmem - should be set if you are working with a machine or compiler that does not allow large arrays to be allocated. See README
+sci-libs/meschach:sparse - incorporate sparse matrix functions
+sci-libs/meschach:unroll - unroll low level loops on vectors
+sys-auth/mrsh:pam - build with pam support
+sys-auth/mrsh:shadow - build with shadow file support
+sys-cluster/KVTree:fcntl - Set the type of file locking to fcntl.
+sys-cluster/KVTree:flock - Set the type of file locking to flock.
+sys-cluster/veloc:alps - Use ALPS (Application Level Placement Scheduler) as resource manager
+sys-cluster/veloc:lsf - Use LFS (Load Sharing Facility) as resource manager
+sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager

@@ -1,0 +1,10 @@
+DEFINED_PHASES=install
+DESCRIPTION=vrms clone for Gentoo Linux
+EAPI=7
+HOMEPAGE=https://github.com/z411/vrms-gentoo
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=dev-lang/perl
+SLOT=0
+SRC_URI=https://github.com/z411/vrms-gentoo/archive/1d45e07cfa7ceed69fb7302cfd0f3e2d2453e115.tar.gz -> vrms-gentoo-2018.11.20.tar.gz
+_md5_=082a7a4002fb0e3132c5870e72f8fc7c

@@ -1,14 +1,55 @@
-app-misc/mat2 0.10.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
+app-misc/mat2 0.10.1: Metadata Anonymisation Toolkit: handy tool to trash your metadata
+app-misc/vrms-gentoo 2018.11.20 9999: vrms clone for Gentoo Linux
 app-portage/pacvis 0.4.1 0.4.2 9999: Displays dependency graphs of packages
+app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
+app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
+app-shells/k 0.0.5: Directory listings for zsh with git features
+app-text/noweb 2.12: a literate programming tool, lighter than web
 dev-games/surgescript 0.5.4 9999: scripting language made for opensurge
+dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
+dev-python/atomiclong 0.1.1 9999: An AtomicLong type using CFFI.
+dev-python/curio 0.9: Concurrent I/O
 dev-python/dkimpy 0.9.1: Python module implementing DKIM email signing and verification.
+dev-python/glicko2 9999: An implementation of the Glicko-2 rating system for Python
+dev-python/hstspreload 2020.2.1: Chromium HSTS Preload list as a Python package
+dev-python/httpx 0.11.1: A next generation HTTP client for Python
+dev-python/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
+dev-python/pydbus 0.6.0: Pythonic DBus library
+dev-python/pytest-subtests 0.3.0: unittest subTest() support and subtests fixture
+dev-python/python-mpv 0.4.5: Python interface to the mpv media player
+dev-python/python-vlc 3.0.7110: Python ctypes-based bindings for libvlc
+dev-python/sniffio 1.1.0: Sniff out which async library your code is running under
+dev-python/sphinx-autodoc-typehints 1.10.3: Type hints support for the Sphinx autodoc extension
+dev-python/sphinxcontrib-trio 1.1.0: Make Sphinx better at documenting Python functions and methods
+dev-python/sphobjinv 2.0.1: Sphinx objects.inv Inspection/Manipulation Tool
+dev-python/spotipy 2.9.0: A light weight Python library for the Spotify Web API
+dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
+dev-python/tekore 1.4.0: Spotify Web API client
+dev-python/timeout-decorator 0.4.1: Timeout decorator
 dev-util/codespell 1.15.0: Check text files for common misspellings
-dev-util/pybind11 2.3.0: Seamless operability between C++11 and Python
+dev-vcs/git-blame-someone-else 2018.06.13 9999: Blame someone else for your bad code.
+dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 games-arcade/opensurge 0.5.0_p1 9999: fun 2D retro platformer inspired by old-school Sonic games
 games-arcade/taisei 1.3.1: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 games-fps/chocolate-doom 3.0.0: A Doom source port that is minimalist and historically accurate
 games-fps/crispy-doom 5.5.2: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 media-gfx/azpainter 2.1.5: Full color painting software for Linux for illustration drawing
+media-video/vidify 2.1.0: Watch music videos in real time for the songs playing on your device
+media-video/vidify-audiosync 0.2: Audio synchronization feature for vidify
+sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
+sci-electronics/verilator 4.026 9999: The fast free Verilog/SystemVerilog simulator
+sci-libs/ann 1.1.2_p7: A Library for Approximate Nearest Neighbor Searching
+sci-libs/chaco 2.2: Software for Partitioning Graphs
+sci-libs/meschach 1.2b: Meschach is a C-language library of routines for performing matrix computations.
+sys-auth/mrsh 2.12: Mrsh is a set of remote shell programs that use munge authentication.
+sys-cluster/AXL 0.3.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
+sys-cluster/KVTree 1.0.2 9999: KVTree provides a fully extensible C data structure modeled after Perl hashes.
+sys-cluster/er 0.0.3: High-level distributed erasure coding lib combining shuffile and redset
+sys-cluster/genders 1.27.3 9999: Static cluster configuration database used for cluster configuration management.
+sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on string values
+sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect datasets of MPI applications
+sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
+sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-process/iotop-c 2014.08.24: top utility for IO (C port)
 www-client/badwolf 0.3.0 0.4.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
