@@ -16,7 +16,7 @@ DEPEND="
 	sys-auth/munge
 
 	pam?	( sys-libs/pam )
-	shadow?	( virtual/shadow )
+	shadow?	( sys-apps/shadow )
 "
 RDEPEND="${DEPEND}"
 
