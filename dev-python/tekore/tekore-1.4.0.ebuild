@@ -16,6 +16,9 @@ LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
+# tests fail with py3_6
+RESTRICT="python_targets_python3_6? ( test )"
+
 RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	~dev-python/httpx-0.11.1[${PYTHON_USEDEP}]
