@@ -1,3 +1,4 @@
+app-misc/ghq 1.1.0: Remote repository management made easy
 app-misc/mat2 0.10.1: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/vrms-gentoo 2018.11.20 9999: vrms clone for Gentoo Linux
 app-portage/pacvis 0.4.1 0.4.2 9999: Displays dependency graphs of packages
@@ -10,11 +11,13 @@ dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
 dev-python/atomiclong 0.1.1 9999: An AtomicLong type using CFFI.
 dev-python/curio 0.9: Concurrent I/O
+dev-python/dataclasses 0.7: A backport of the dataclasses module for Python 3.6
 dev-python/dkimpy 0.9.1: Python module implementing DKIM email signing and verification.
 dev-python/glicko2 9999: An implementation of the Glicko-2 rating system for Python
 dev-python/hstspreload 2020.2.1: Chromium HSTS Preload list as a Python package
 dev-python/httpx 0.11.1: A next generation HTTP client for Python
 dev-python/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
+dev-python/mkautodoc 0.1.0: AutoDoc for MarkDown
 dev-python/pydbus 0.6.0: Pythonic DBus library
 dev-python/pytest-subtests 0.3.0: unittest subTest() support and subtests fixture
 dev-python/python-mpv 0.4.5: Python interface to the mpv media player
@@ -27,6 +30,7 @@ dev-python/spotipy 2.9.0: A light weight Python library for the Spotify Web API
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
 dev-python/tekore 1.4.0: Spotify Web API client
 dev-python/timeout-decorator 0.4.1: Timeout decorator
+dev-python/websockets 8.1: An implementation of the WebSocket Protocol (RFC 6455 & 7692)
 dev-util/codespell 1.15.0: Check text files for common misspellings
 dev-vcs/git-blame-someone-else 2018.06.13 9999: Blame someone else for your bad code.
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
