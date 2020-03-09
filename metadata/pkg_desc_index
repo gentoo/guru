@@ -18,6 +18,7 @@ dev-python/hstspreload 2020.2.1: Chromium HSTS Preload list as a Python package
 dev-python/httpx 0.11.1: A next generation HTTP client for Python
 dev-python/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 dev-python/mkautodoc 0.1.0: AutoDoc for MarkDown
+dev-python/outcome 1.0.1: Capture the outcome of Python function calls
 dev-python/pydbus 0.6.0: Pythonic DBus library
 dev-python/pytest-subtests 0.3.0: unittest subTest() support and subtests fixture
 dev-python/python-mpv 0.4.5: Python interface to the mpv media player
@@ -30,6 +31,7 @@ dev-python/spotipy 2.9.0: A light weight Python library for the Spotify Web API
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
 dev-python/tekore 1.4.0: Spotify Web API client
 dev-python/timeout-decorator 0.4.1: Timeout decorator
+dev-python/trio 0.13.0: Python library for async concurrency and I/O
 dev-python/websockets 8.1: An implementation of the WebSocket Protocol (RFC 6455 & 7692)
 dev-util/codespell 1.15.0: Check text files for common misspellings
 dev-vcs/git-blame-someone-else 2018.06.13 9999: Blame someone else for your bad code.
