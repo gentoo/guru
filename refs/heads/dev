@@ -1,17 +1,23 @@
 certificate version 0.1
-pusher A19F636CD4EDBCD1 1583760175 +0100
+pusher Kenichi Takahashi <kenichi.taka@gmail.com> 1583761116 +0900
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1583760174-6c6d94666f29825495c9ad2a49758d82655562a4
+nonce 1583761116-c1fefe069c092d77cbcfb02db99a24e7ff71caa8
 
-bae73a04eb1e01c94b05eaa5a9b39086f606eeca a3fa84db2925c90d1fe3122321c193eb4ccdeb89 refs/heads/dev
+a3fa84db2925c90d1fe3122321c193eb4ccdeb89 c13a7fe2f7e69b8cd8170f0619d62801f269f7cc refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCAAdFiEEBv9TQb2AXbC8fQemoZ9jbNTtvNEFAl5mQy8ACgkQoZ9jbNTt
-vNHpIAf+Jm7Jcfk+9+zu1jdj/hLHq+3SjIkH20weE0vPhfqsBSn2yHbj1dSuROUc
-xHndTsk8YFDIwtUeNxTNw3T1hU5gSQGUPJggur9gadDn9f0/mApS1BKtLoyyjUPF
-G7Ts/eiwkpun6I+27GhN8Sh4LHq8pRgJpGZpBn/Zz3gPuMFOopA6+o8RdeUmmq+K
-/evhB/9pCXibszamA1mGE/xsuGJKQCBUri7ds+FTNzMRrMzrQT+A7TWmS78qRY6J
-OONusPi8ypRFTX4ajBYwW+idYR5i89a4XEbV59D65duWoB1lFCoy6ZrYhm84zxad
-lJZA0SD2bvB2sasAHfc3xBSSaru7bQ==
-=1fak
+iQJLBAABCAA1FiEEoGLqyZrIz1bbGfJgSOzROL5l8B4FAl5mRtwXHGtlbmljaGku
+dGFrYUBnbWFpbC5jb20ACgkQSOzROL5l8B4pQQ/+Nj0ycYaCo6GmjdWILvtGhkzg
+g55qCe+2vFTGdn+tmGxA5DBlQbViI+Ltev6mtK6vPE/ISGqwT9ja/i5f+pxS8TBv
+JOHsKhm3rxq2t5TMd0Fvz6zDeZmpwAHT5ha4KJIQ9/0DMwvlXZ/0bDHtws6jD89m
+dvDCtDz7ozHnt9Q9s+2IGeyq+CabNmD7K4AkfUyRWo0yVR8KKkI1569BsPDKfzV9
+qRU7AJ/7Djp8Rp8OC3/+hr8gf+ygmIdvbFU8lLTnE7Ae7TMkHwPkJNs3AafhKV3s
+cgD4UchsSBjMqbOXuvSrFDQwRygp66dtT9uls8EDYYU2mJKlu+K++sRI4RsvAn9N
+cIDYfoCBX7Z4DLdhXiaZ5joeY0yR4PMcpnnog3SD6oETmkyIiviHA69W+u/xbvWa
+Z7ZHJHCUz7+YAGzMhLdgDStSseMrYxfDj5PnY2lD08vED/93DKQSrMPI9liKH+PA
++mBzyhw10Bw4bAMyysCIezvAMYt6tdNzAm8tqlVcjhbcV1k3CRK/RteCBPNGlJHg
+b/f3MhR01QUL5Q/PfEKpt1gkq6LB1efqJzwhiTWGU38Z3uZmlGNVzJ494q9XHfv6
+v/7F4V8FjyT8bD+QArpoJmi6WxuVnqwSEnQseiH3a0bRiOHua2GP/iBLtQJ+Pr6f
+SS8glo5vjuRrtXZPDN0=
+=5EWi
 -----END PGP SIGNATURE-----
