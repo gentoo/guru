@@ -70,7 +70,8 @@ SRC_URI="https://github.com/x-motemen/ghq/archive/v${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+
+BDEPEND="dev-lang/go"
 
 src_compile() {
 	go build -work -o "bin/${PN}" ./ || die
