@@ -30,11 +30,11 @@ PATCHES=( "${FILESDIR}/respect-flags.diff" )
 CDEPEND="
 	boehm-gc? ( dev-libs/boehm-gc )
 	emacs? ( app-editors/emacs:= )
-	java? ( dev-java/junit )
+	java? ( dev-java/junit:= )
 "
 RDEPEND="
 	${CDEPEND}
-	java? ( virtual/jre:1.8	)
+	java? ( virtual/jre:1.8 )
 "
 DEPEND="
 	${CDEPEND}

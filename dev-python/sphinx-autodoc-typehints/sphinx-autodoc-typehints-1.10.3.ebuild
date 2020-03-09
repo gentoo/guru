@@ -24,4 +24,16 @@ DEPEND="test? ( dev-python/sphobjinv[${PYTHON_USEDEP}]
 
 distutils_enable_tests pytest
 
-PATCHES="${FILESDIR}/${P}-skip-online-tests.patch"
+python_prepare_all() {
+	# skip these tests
+	sed -i -e 's:test_parse_annotation:_&:' \
+		-e 's:test_format_annotation:_&:' \
+		-e 's:test_format_annotation_both_libs:_&:' \
+		-e 's:test_sphinx_output:_&:' \
+		-e 's:test_format_annotation_both_libs:_&:' \
+		-e 's:test_format_annotation_both_libs:_&:' \
+		-e 's:test_format_annotation_both_libs:_&:' \
+                tests/test_sphinx_autodoc_typehints.py || die
+
+	distutils-r1_python_prepare_all
+}
