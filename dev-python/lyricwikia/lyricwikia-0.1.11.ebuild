@@ -26,3 +26,7 @@ RDEPEND="
 PATCHES="${FILESDIR}/${P}-skip-online-test.patch"
 
 distutils_enable_tests pytest
+
+pkg_postinst() {
+	elog "Note that access to LyricWikia through this API (and products that use this API) should comply to the LyricWikia terms of use"
+}
