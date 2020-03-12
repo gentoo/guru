@@ -38,7 +38,7 @@ dev-python/timeout-decorator 0.4.1: Timeout decorator
 dev-python/trio 0.13.0: Python library for async concurrency and I/O
 dev-python/uvicorn 0.11.3: The lightning-fast ASGI server
 dev-python/websockets 8.1: An implementation of the WebSocket Protocol (RFC 6455 & 7692)
-dev-util/codespell 1.15.0: Check text files for common misspellings
+dev-util/codespell 1.16.0: Check text files for common misspellings
 dev-vcs/git-blame-someone-else 2018.06.13 9999: Blame someone else for your bad code.
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 games-action/multimc 0.6.8: An advanced Qt5-based open-source launcher for Minecraft
