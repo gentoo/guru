@@ -9,7 +9,6 @@ app-text/noweb 2.12: a literate programming tool, lighter than web
 dev-games/surgescript 0.5.4 9999: scripting language made for opensurge
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
-dev-python/GitPython 3.1.0: A python library used to interact with Git repositories
 dev-python/atomiclong 0.1.1 9999: An AtomicLong type using CFFI.
 dev-python/curio 0.9: Concurrent I/O
 dev-python/dataclasses 0.7: A backport of the dataclasses module for Python 3.6
