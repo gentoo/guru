@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
 inherit distutils-r1
 
@@ -15,11 +15,22 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RESTRICT="test" #requires git repository
+RESTRICT="test" # only works inside upstream git repo
 
 RDEPEND="dev-python/gitdb[${PYTHON_USEDEP}]"
 
 BDEPEND="test? ( dev-python/ddt[${PYTHON_USEDEP}] )"
 
-distutils_enable_tests nose
+distutils_enable_tests pytest
 distutils_enable_sphinx doc/source dev-python/sphinx_rtd_theme
+
+python_test() {
+	cd "${S}" || die
+	git init || die
+	git config user.email "you@example.com" || die
+	git config user.name "Your Name" || die
+	git add -A || die
+	git commit -q -m ".." || die
+
+	pytest -vv || die "Tests fail with ${EPYTHON}"
+}
