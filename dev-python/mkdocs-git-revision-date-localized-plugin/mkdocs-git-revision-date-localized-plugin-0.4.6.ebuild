@@ -21,7 +21,7 @@ RESTRICT="test" # fails, mkdocs failed
 
 RDEPEND="
 	>=dev-python/Babel-2.7.0[${PYTHON_USEDEP}]
-	dev-python/GitPython[${PYTHON_USEDEP}]
+	dev-python/git-python[${PYTHON_USEDEP}]
 	dev-python/mkdocs[${PYTHON_USEDEP}]
 	dev-python/jinja[${PYTHON_USEDEP}]"
 
