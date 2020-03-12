@@ -33,7 +33,7 @@ dev-python/sphinxcontrib-trio 1.1.0: Make Sphinx better at documenting Python fu
 dev-python/sphobjinv 2.0.1: Sphinx objects.inv Inspection/Manipulation Tool
 dev-python/spotipy 2.9.0: A light weight Python library for the Spotify Web API
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
-dev-python/tekore 1.4.0: Spotify Web API client
+dev-python/tekore 1.5.0: Spotify Web API client
 dev-python/timeout-decorator 0.4.1: Timeout decorator
 dev-python/trio 0.13.0: Python library for async concurrency and I/O
 dev-python/uvicorn 0.11.3: The lightning-fast ASGI server
