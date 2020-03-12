@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~x86"
 
 RESTRICT="test" #requires git repository
 
-RDEPEND="dev-python/gitdb2[${PYTHON_USEDEP}]"
+RDEPEND="dev-python/gitdb[${PYTHON_USEDEP}]"
 
 BDEPEND="test? ( dev-python/ddt[${PYTHON_USEDEP}] )"
 
