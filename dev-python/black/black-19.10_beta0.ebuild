@@ -1,13 +1,16 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7,8} )
+
+DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
 MY_PV="19.10b0"
+
 DESCRIPTION="The uncompromising Python code formatter"
 HOMEPAGE="https://github.com/psf/black https://pypi.org/project/black/"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${PN}-${MY_PV}.tar.gz"
@@ -15,7 +18,9 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${PN}-${MY_PV}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
+
+# tests fail: name 'AioHTTPTestCase' is not defined
+RESTRICT="test"
 
 RDEPEND="
 	>=dev-python/appdirs-1.4[${PYTHON_USEDEP}]
@@ -29,12 +34,19 @@ RDEPEND="
 	>=dev-python/typing-extensions-3.7.4[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep 'dev-python/dataclasses[${PYTHON_USEDEP}]' python3_6)
 "
-DEPEND="${RDEPEND}
-	dev-python/setuptools[${PYTHON_USEDEP}]
-"
 
 S="${WORKDIR}/${PN}-${MY_PV}"
 
-python_test() {
-	python -m unittest tests/test_black.py || die "Tests fail with ${EPYTHON}"
+python_prepare_all() {
+	# cannot get_version() for some reason so we set it here manually
+	sed -i -e "s/get_version(root=CURRENT_DIR.parent)/${MY_PV::-2}/g" \
+		-e '/for sp in "abcfr":/d' \
+		-e '/version.split(sp)/d' \
+		docs/conf.py || die
+
+	distutils-r1_python_prepare_all
 }
+
+distutils_enable_tests pytest
+# docs fail to build:: module 'black' has no attribute 'is_python36'
+#distutils_enable_sphinx docs dev-python/recommonmark
