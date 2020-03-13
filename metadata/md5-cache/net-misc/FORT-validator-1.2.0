@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/autoconf sys-devel/automake >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/pkgconfig
+DEFINED_PHASES=install postinst prepare
+DEPEND=acct-group/fort acct-user/fort caps? ( sys-libs/libcap ) dev-libs/jansson libressl? ( dev-libs/libressl:0= ) !libressl? ( dev-libs/openssl:0= ) filecaps? ( sys-libs/libcap )
+DESCRIPTION=FORT validator is an open source RPKI validator.
+EAPI=7
+HOMEPAGE=https://fortproject.net/validator?2
+IUSE=caps libressl +filecaps
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=acct-group/fort acct-user/fort caps? ( sys-libs/libcap ) dev-libs/jansson libressl? ( dev-libs/libressl:0= ) !libressl? ( dev-libs/openssl:0= ) net-misc/rsync
+SLOT=0
+SRC_URI=https://github.com/NICMx/FORT-validator/archive/v1.2.0.tar.gz -> FORT-validator-1.2.0.tar.gz
+_eclasses_=autotools	ea7865c8fba1ea8d3639f355fffe1a3c	fcaps	9445d60c1eb084a91c38ef4c070b2f16	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	1d91b03d42ab6308b5f4f6b598ed110e	systemd	71fd8d2065d102753fb9e4d20eaf3e9f	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c
+_md5_=8ecda3d194aa3be5b6ab2ccd76c8daea

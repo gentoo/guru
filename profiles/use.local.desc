@@ -4,6 +4,8 @@
 
 app-misc/mat2:sandbox - Enable sandboxing functionality through sys-apps/bubblewrap
 app-misc/mat2:video - Use media-video/ffmpeg for video support
+app-misc/ntfy:dbus - Support for desktop notifications
+app-misc/ntfy:telegram - Add support for telegram backend
 dev-lang/aldor:boehm-gc - Use Boehm Garbage Collector instead of built-in
 games-arcade/taisei:zip - Enable loading of game data from ZIP packages via dev-libs/libzip
 media-video/vidify:mpv - Use python-mpv as backend for vidify

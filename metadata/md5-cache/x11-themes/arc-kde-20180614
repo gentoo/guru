@@ -1,0 +1,9 @@
+DEFINED_PHASES=postinst
+DESCRIPTION=Port of the popular GTK theme Arc for Plasma 5
+EAPI=7
+HOMEPAGE=https://github.com/PapirusDevelopmentTeam/arc-kde
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+SLOT=0
+SRC_URI=https://github.com/PapirusDevelopmentTeam/arc-kde/archive/20180614.tar.gz -> arc-kde-20180614.tar.gz
+_md5_=4566b565048199561aa2213221518039
