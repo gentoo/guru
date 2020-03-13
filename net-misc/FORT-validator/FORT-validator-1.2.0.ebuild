@@ -36,6 +36,8 @@ BDEPEND="
 src_prepare() {
 	default
 
+	rm test/http* || die
+
 	eautoreconf
 }
 
