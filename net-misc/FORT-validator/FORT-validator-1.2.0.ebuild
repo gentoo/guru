@@ -33,10 +33,10 @@ BDEPEND="
 	sys-devel/automake
 "
 
+PATCHES="${FILESDIR}/${PN}-skip-online-test.patch"
+
 src_prepare() {
 	default
-
-	rm test/http* || die
 
 	eautoreconf
 }
