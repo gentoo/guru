@@ -13,6 +13,7 @@ app-text/noweb 2.12: a literate programming tool, lighter than web
 dev-games/surgescript 0.5.4 9999: scripting language made for opensurge
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
+dev-python/aiofiles 0.4.0: File support for asyncio
 dev-python/atomiclong 0.1.1 9999: An AtomicLong type using CFFI.
 dev-python/black 19.10_beta0: The uncompromising Python code formatter
 dev-python/curio 0.9: Concurrent I/O
