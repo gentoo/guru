@@ -10,11 +10,12 @@ inherit distutils-r1
 DESCRIPTION="A utility for sending notifications, on demand and when commands finish."
 HOMEPAGE="https://github.com/dschep/ntfy"
 SRC_URI="https://github.com/dschep/ntfy/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64"
 
+KEYWORDS="~amd64"
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="test telegram dbus"
+
+IUSE="telegram dbus"
 
 RDEPEND="
 	dev-python/appdirs[${PYTHON_USEDEP}]
@@ -40,6 +41,5 @@ DEPEND="${RDEPEND}
 	)
 "
 
-python_test() {
-	esetup.py test || die
-}
+distutils_enable_tests pytest
+distutils_enable_sphinx docs
