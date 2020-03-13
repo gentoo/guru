@@ -5,17 +5,17 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7,8} )
 
+DISTUTILS_USE_SETUPTOOLS=rdepend
+
 inherit distutils-r1
 
-DESCRIPTION="Send messages and files over Telegram from the command-line."
-HOMEPAGE="https://www.rahielkasim.com/telegram-send/"
-
+DESCRIPTION="Send messages and files over Telegram from the command-line"
+HOMEPAGE="https://www.rahielkasim.com/telegram-send https://github.com/rahiel/telegram-send"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64 ~x86"
 
+KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-3"
 SLOT="0"
-IUSE=""
 
 RDEPEND="
 	dev-python/appdirs[${PYTHON_USEDEP}]
