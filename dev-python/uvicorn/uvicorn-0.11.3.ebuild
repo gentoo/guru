@@ -18,14 +18,16 @@ LICENSE="BSD"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
-IUSE="doc"
+IUSE="wsproto websockets httptools doc"
 REQUIRED_USE="x86? ( !doc )"
 
 RDEPEND="
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/h11[${PYTHON_USEDEP}]
 	>=dev-python/uvloop-0.14.0[${PYTHON_USEDEP}]
-	dev-python/wsproto[${PYTHON_USEDEP}]"
+	wsproto? ( dev-python/wsproto[${PYTHON_USEDEP}] )
+	websockets? ( >=dev-python/websockets-6.0[${PYTHON_USEDEP}] )
+	httptools? ( >=dev-python/httptools-0.1.1[${PYTHON_USEDEP}] )"
 
 BDEPEND="doc? ( !x86? (
 	dev-python/mkdocs
