@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>michael.egger@tsn.at</email>
+		<name>Michael Egger</name>
+	</maintainer>
+	<longdescription>
+		This is a port of the popular GTK theme Arc for Plasma 5 desktop with a few additions and extras.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/PapirusDevelopmentTeam/arc-kde/issues</bugs-to>
+		<doc>https://github.com/PapirusDevelopmentTeam/arc-kde/blob/master/README.md</doc>
+	</upstream>
+</pkgmetadata>
