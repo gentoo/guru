@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{6,7} )
 
 inherit distutils-r1
 
@@ -22,10 +22,6 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-# No tests because require networking access
-# Commenting out the test deps so we can add py3_8
-RESTRICT="test"
-
 RDEPEND="
 	dev-python/certifi[${PYTHON_USEDEP}]
 	dev-python/cryptography[${PYTHON_USEDEP}]
@@ -37,15 +33,15 @@ RDEPEND="
 	www-servers/tornado[${PYTHON_USEDEP}]
 "
 
-#DEPEND="test? (
-#	dev-python/attrs[${PYTHON_USEDEP}]
-#	dev-python/beautifulsoup:4[${PYTHON_USEDEP}]
-#	dev-python/flake8[${PYTHON_USEDEP}]
-#	dev-python/flaky[${PYTHON_USEDEP}]
-#	dev-python/pylint[${PYTHON_USEDEP}]
-#	dev-python/pytest-timeout[${PYTHON_USEDEP}]
-#	dev-python/yapf[${PYTHON_USEDEP}]
-#)"
+DEPEND="test? (
+	dev-python/attrs[${PYTHON_USEDEP}]
+	dev-python/beautifulsoup:4[${PYTHON_USEDEP}]
+	dev-python/flake8[${PYTHON_USEDEP}]
+	dev-python/flaky[${PYTHON_USEDEP}]
+	dev-python/pylint[${PYTHON_USEDEP}]
+	dev-python/pytest-timeout[${PYTHON_USEDEP}]
+	dev-python/yapf[${PYTHON_USEDEP}]
+)"
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs/source dev-python/sphinx_rtd_theme
@@ -54,14 +50,15 @@ python_prepare_all() {
 	# do not make a test flaky report
 	sed -i -e '/addopts/d' setup.cfg || die
 
-	# this test fails: Unknown pytest.mark.nocoverage
-	# likely this requires pytest-cov but that is deprecated
-	# so we skip the test
-	rm tests/test_meta.py || die
+	sed -i 's/from telegram.vendor.ptb_urllib3 //g' tests/test_*.py
+	sed -i 's/telegram.vendor.ptb_urllib3.urllib3/urllib3/g' tests/test_*.py
 
-	# this fails to import urllib3 even though
-	# it is installed
-	rm tests/test_official.py || die
+	# Remove tests files that require network access
+	rm tests/test_{animation,audio,bot,commandhandler,constants,conversationhandler}.py || die
+	rm tests/test_{dispatcher,document,forcereply,inlinekeyboardmarkup,inputmedia}.py || die
+	rm tests/test_{invoice,jobqueue,official,parsemode,persistence,photo,sticker,updater}.py || die
+	rm tests/test_replykeyboard{markup,remove}.py || die
+	rm tests/test_{video,videonote,voice}.py || die
 
 	distutils-r1_python_prepare_all
 }
