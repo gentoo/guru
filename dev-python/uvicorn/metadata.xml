@@ -6,9 +6,4 @@
         <email>andrewammerlaan@riseup.net</email>
         <name>Andrew Ammerlaan</name>
     </maintainer>
-    <use>
-        <flag name="wsproto">add websockets support using wsproto package</flag>
-        <flag name="websockets">add websockets support using websockets package</flag>
-        <flag name="httptools">use httpstools package for http protocol</flag>
-    </use>
 </pkgmetadata>
