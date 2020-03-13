@@ -5,7 +5,7 @@ EAPI=7
 
 inherit bash-completion-r1
 
-DESCRIPTION="Little git extras."
+DESCRIPTION="Little git extras"
 HOMEPAGE="https://github.com/tj/git-extras"
 
 if [[ $PV == 9999 ]]; then
