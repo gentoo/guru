@@ -19,7 +19,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	>=dev-python/colorama-0.3.9[${PYTHON_USEDEP}]
-	>=dev-python/git-python-2.1.8[${PYTHON_USEDEP}]
+	>=dev-python/GitPython-2.1.8[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
