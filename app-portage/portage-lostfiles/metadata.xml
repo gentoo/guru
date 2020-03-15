@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>michael.egger@tsn.at</email>
+		<name>Michael Egger</name>
+	</maintainer>
+	<longdescription>
+		A simple script to identify files not tracked by Portage package manager.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/gcarq/portage-lostfiles/issues</bugs-to>
+		<doc>https://github.com/gcarq/portage-lostfiles/blob/master/README.md</doc>
+	</upstream>
+</pkgmetadata>
