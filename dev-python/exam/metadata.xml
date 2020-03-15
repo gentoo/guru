@@ -8,8 +8,8 @@
   <upstream>
     <remote-id type="github">fluxx/exam</remote-id>
   </upstream>
-  <longdescription lang="en">Exam is a Python toolkit for writing better tests. It aims to remove a lot of the boiler plate testing code one often writes, while still following Python conventions and adhering to the unit testing interface.
-Installation
+  <longdescription lang="en">
+Exam is a Python toolkit for writing better tests. It aims to remove a lot of the boiler plate testing code one often writes, while still following Python conventions and adhering to the unit testing interface.
 
 Aside from the obvious "does the code work?", writings tests has many additional goals and benefits:
 
