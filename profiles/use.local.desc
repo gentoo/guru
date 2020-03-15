@@ -10,6 +10,8 @@ dev-lang/aldor:boehm-gc - Use Boehm Garbage Collector instead of built-in
 games-arcade/taisei:zip - Enable loading of game data from ZIP packages via dev-libs/libzip
 media-video/vidify:mpv - Use python-mpv as backend for vidify
 media-video/vidify:vlc - Use python-vlc as backend for vidify
+net-p2p/trezord-go:systemd - Install systemd service file
+net-p2p/trezord-go:udev - Install udev rules
 sci-libs/meschach:complex - incorporate complex functions.
 sci-libs/meschach:double - double precision
 sci-libs/meschach:float - single precision

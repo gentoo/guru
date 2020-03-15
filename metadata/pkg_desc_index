@@ -1,11 +1,13 @@
 acct-group/fort 0: System group: fort
 acct-user/fort 0: User for FORT RPKI validator
+acct-user/trezord 0: User for TREZOR Bridge
 app-misc/ghq 1.1.0: Remote repository management made easy
 app-misc/mat2 0.10.1: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/telegram-send 0.25: Send messages and files over Telegram from the command-line
 app-misc/vrms-gentoo 2018.11.20 9999: vrms clone for Gentoo Linux
 app-portage/pacvis 0.4.1 0.4.2 9999: Displays dependency graphs of packages
+app-portage/portage-lostfiles 0.2.0: A simple script to identify files not tracked by Portage package manager
 app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
 app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
 app-shells/k 0.0.5: Directory listings for zsh with git features
@@ -49,6 +51,7 @@ dev-util/codespell 1.16.0: Check text files for common misspellings
 dev-vcs/git-blame-someone-else 2018.06.13 9999: Blame someone else for your bad code.
 dev-vcs/git-extras 5.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
+dev-vcs/github-cli 0.6.1: The official GitHub CLI tool.
 games-action/multimc 0.6.8: An advanced Qt5-based open-source launcher for Minecraft
 games-arcade/opensurge 0.5.0_p1 9999: fun 2D retro platformer inspired by old-school Sonic games
 games-arcade/taisei 1.3.1: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
@@ -59,6 +62,8 @@ media-gfx/azpainter 2.1.5: Full color painting software for Linux for illustrati
 media-video/vidify 2.1.0: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.2: Audio synchronization feature for vidify
 net-misc/FORT-validator 1.2.0: FORT validator is an open source RPKI validator
+net-p2p/trezord-go 2.0.29: TREZOR Communication Daemon
+net-p2p/yggdrasil-go 0.3.13: An experiment in scalable routing as an encrypted IPv6 overlay network
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/verilator 4.026 9999: The fast free Verilog/SystemVerilog simulator
 sci-libs/ann 1.1.2_p7: A Library for Approximate Nearest Neighbor Searching
