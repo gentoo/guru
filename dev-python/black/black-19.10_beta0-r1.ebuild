@@ -18,7 +18,6 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${PN}-${MY_PV}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-RESTRICT="!test? ( test )"
 
 DEPEND="
 	test? (
@@ -54,4 +53,5 @@ python_prepare_all() {
 
 distutils_enable_tests pytest
 # docs fail to build:: module 'black' has no attribute 'is_python36'
+# 'release': return_codes_re.sub('', self.config.release),
 #distutils_enable_sphinx docs dev-python/recommonmark
