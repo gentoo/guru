@@ -68,7 +68,10 @@ src_prepare() {
 }
 
 src_configure() {
+	#install headers in a subfolder to avoid collisions with another packages
 	local myconf=(
+		--prefix="${EPREFIX}/usr"
+		--includedir="${EPREFIX}/usr/include/aldor"
 		--disable-static
 		--enable-libraries
 		--enable-shared
@@ -81,10 +84,11 @@ src_configure() {
 
 src_compile() {
 	if use doc ; then
-		( cd "${S}/aldorug"; emake aldorug.pdf ) || die "make aldorug.pdf failed"
-		( cd "${S}/lib/aldor/tutorial"
-			pdflatex tutorial.tex
-			pdflatex tutorial.tex ) || die "make tutorial.pdf failed"
+		cd "${S}/aldorug"
+		emake aldorug.pdf || die "make aldorug.pdf failed"
+
+		cd "${S}/lib/aldor/tutorial"
+		pdflatex tutorial.tex || die "make tutorial.pdf failed"
 	fi
 	cd "${S}"
 	if use emacs ; then
@@ -93,7 +97,6 @@ src_compile() {
 		if use doc ; then
 			einfo "Documentation for the aldor emacs mode"
 			noweave "aldor.el.nw" > aldor-mode.tex
-			pdflatex aldor-mode.tex
 			pdflatex aldor-mode.tex || die "make aldor-mode.pdf failed"
 		fi
 	fi
