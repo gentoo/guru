@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+    <maintainer type="person">
+        <email>william@wstrm.dev</email>
+        <name>William Wennerström</name>
+    </maintainer>
+    <longdescription>
+        GitHub CLI, gh, is Github on the command line. It brings pull requests,
+        issues, and other GitHub concepts to the terminal next to where you are
+        already working with git and your code.
+    </longdescription>
+</pkgmetadata>
