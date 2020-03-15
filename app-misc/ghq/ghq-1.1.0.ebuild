@@ -71,8 +71,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND="dev-lang/go"
-
 src_compile() {
 	go build -work -o "bin/${PN}" ./ || die
 }
