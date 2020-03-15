@@ -5,7 +5,7 @@ EAPI=7
 
 inherit autotools fcaps systemd
 
-DESCRIPTION="FORT validator is an open source RPKI validator."
+DESCRIPTION="FORT validator is an open source RPKI validator"
 HOMEPAGE="https://fortproject.net/validator?2"
 SRC_URI="https://github.com/NICMx/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
