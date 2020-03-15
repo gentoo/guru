@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{6,7} )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
@@ -19,8 +19,12 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-# tests fail: name 'AioHTTPTestCase' is not defined
-RESTRICT="test"
+DEPEND="
+	test? (
+		>=dev-python/aiohttp-3.3.2[${PYTHON_USEDEP}]
+		dev-python/aiohttp-cors[${PYTHON_USEDEP}]
+	)
+"
 
 RDEPEND="
 	>=dev-python/appdirs-1.4[${PYTHON_USEDEP}]
@@ -49,4 +53,5 @@ python_prepare_all() {
 
 distutils_enable_tests pytest
 # docs fail to build:: module 'black' has no attribute 'is_python36'
+# 'release': return_codes_re.sub('', self.config.release),
 #distutils_enable_sphinx docs dev-python/recommonmark
