@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{6,7} )
 inherit distutils-r1
 
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
-DESCRIPTION="Helpers for better testing."
+DESCRIPTION="Helpers for better testing"
 HOMEPAGE="https://github.com/fluxx/exam"
 
 LICENSE="MIT"
