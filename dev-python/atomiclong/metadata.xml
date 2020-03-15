@@ -5,10 +5,6 @@
     <email>lssndrbarbieri@gmail.com</email>
     <name>Alessandro Barbieri</name>
   </maintainer>
-  <maintainer type="project">
-    <email>proxy-maint@gentoo.org</email>
-    <name>Proxy Maintainers</name>
-  </maintainer>
   <upstream>
     <remote-id type="github">dreid/atomiclong</remote-id>
   </upstream>
