@@ -15,33 +15,10 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="virtual/linux-sources"
 
+# fix 32bit build
+PATCHES="${FILESDIR}/32bit.patch"
+
 S="${WORKDIR}/rtl8821ce-${COMMIT}"
 
 MODULE_NAMES="8821ce(net/wireless)"
 BUILD_TARGETS="all"
-
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
-}
-
-src_prepare(){
-	# fix 32bit build
-	epatch "${FILESDIR}/32bit.patch"
-}
-
-pkg_setup() {
-	linux-mod_pkg_setup
-}
-
-src_compile(){
-	linux-mod_src_compile
-}
-
-src_install() {
-	linux-mod_src_install
-}
-
-pkg_postinst() {
-	linux-mod_pkg_postinst
-}
