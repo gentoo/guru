@@ -1,0 +1,11 @@
+DEFINED_PHASES=configure postinst
+DEPEND=x11-libs/cairo x11-libs/libxcb x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-xrm x11-libs/libxkbcommon sys-libs/pam dev-libs/libev media-libs/fontconfig:= media-libs/libjpeg-turbo virtual/pkgconfig
+DESCRIPTION=Improved i3lock with color customization
+EAPI=7
+HOMEPAGE=https://github.com/Raymo111/i3lock-color
+KEYWORDS=~amd64
+LICENSE=i3lock-color
+RDEPEND=x11-libs/cairo x11-libs/libxcb x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-xrm x11-libs/libxkbcommon sys-libs/pam dev-libs/libev media-libs/fontconfig:= media-libs/libjpeg-turbo
+SLOT=0
+SRC_URI=https://github.com/Raymo111/i3lock-color/archive/2.12.c.1.tar.gz -> i3lock-color-2.12_p1.tar.gz
+_md5_=ec17c68ca91fd40502fcb79d2da2380b
