@@ -30,7 +30,6 @@ BDEPEND="doc? ( !x86? (
 	dev-python/mkdocs-material ) )"
 
 DEPEND="test? (
-	dev-python/black[${PYTHON_USEDEP}]
 	dev-python/isort[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	>=dev-python/uvloop-0.14.0[${PYTHON_USEDEP}]
