@@ -18,6 +18,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+RESTRICT="test"
+
 RDEPEND=">=dev-python/pymysql-0.9.0[${PYTHON_USEDEP}]"
 
 DEPEND="test? (
