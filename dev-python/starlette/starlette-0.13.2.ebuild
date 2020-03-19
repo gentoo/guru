@@ -19,16 +19,15 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 IUSE="doc"
-REQUIRED_USE="x86? ( !doc )"
 
 # ModuleNotFoundError: No module named 'graphql.pyutils.compat'
 # We need newer graphql-core
 RESTRICT="test"
 
-BDEPEND="doc? ( !x86? (
+BDEPEND="doc? (
 	dev-python/mkdocs
 	dev-python/mkdocs-material
-	dev-python/mkautodoc ) )"
+	dev-python/mkautodoc )"
 
 DEPEND="test? (
 	dev-python/aiofiles[${PYTHON_USEDEP}]
