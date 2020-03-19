@@ -19,7 +19,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 IUSE="doc"
-REQUIRED_USE="x86? ( !doc )"
 
 # Requires 'TEST_DATABASE_URLS' to be set
 # but to what, there is no documentation on this
@@ -32,9 +31,9 @@ RESTRICT="test"
 RDEPEND=">=dev-python/sqlalchemy-1.3.0[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep 'dev-python/aiocontextvars[${PYTHON_USEDEP}]' 'python3_6')"
 
-BDEPEND="doc? ( !x86? (
+BDEPEND="doc? (
 	dev-python/mkdocs
-	dev-python/mkdocs-material ) )"
+	dev-python/mkdocs-material )"
 
 # autoflake, codecov also required for tests?
 DEPEND="test? (
