@@ -84,7 +84,7 @@ media-video/vidify 2.1.0: Watch music videos in real time for the songs playing 
 media-video/vidify-audiosync 0.2: Audio synchronization feature for vidify
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0: FORT validator is an open source RPKI validator
-net-misc/openbgpd 6.6_p0 9999: OpenBGPD is a free implementation of BGPv4
+net-misc/openbgpd 6.6_p0: OpenBGPD is a free implementation of BGPv4
 net-misc/wsdd 0.5: A Web Service Discovery host daemon.
 net-p2p/trezord-go 2.0.29: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1: An experiment in scalable routing as an encrypted IPv6 overlay network
