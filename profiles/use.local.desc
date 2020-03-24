@@ -8,6 +8,13 @@ app-misc/ntfy:dbus - Support for desktop notifications
 app-misc/ntfy:telegram - Add support for telegram backend
 dev-lang/aldor:boehm-gc - Use Boehm Garbage Collector instead of built-in
 games-arcade/taisei:zip - Enable loading of game data from ZIP packages via dev-libs/libzip
+gui-libs/gtk-layer-shell:docs - Add the internal documentation, not needed for non-developers.
+gui-libs/gtk-layer-shell:examples - Adds examples for using, not needed for non-developers.
+gui-wm/wayfire:debug - Adds debugging symbols for error reporting. ENABLE ALL USE FLAGS BEFORE REPORTING BUGS.
+gui-wm/wayfire:wf-config - Makes wayfire use the system-wide wf-config, else builds it as a submodule. DO NOT DISABLE UNLESS YOU KNOW WHAT YOU ARE DOING.
+gui-wm/wayfire:wlroots - Makes wayfire use the system wide wlroots, else builds it as a submodule. DO NOT DISABLE UNLESS YOU KNOW WHAT YOU ARE DOING.
+mail-client/mutt-wizard:lynx - Use lynx to view html emails in mutt. HIGHLY RECOMMENDED.
+mail-client/mutt-wizard:notmuch - Pulls in notmuch (thin frontend on xapian). HIGHLY RECOMMENDED.
 media-video/vidify:mpv - Use python-mpv as backend for vidify
 media-video/vidify:vlc - Use python-vlc as backend for vidify
 net-p2p/trezord-go:systemd - Install systemd service file

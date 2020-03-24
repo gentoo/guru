@@ -1,0 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl] virtual/pkgconfig
+DEFINED_PHASES=install postinst unpack
+DEPEND=>=x11-misc/i3lock-color-2.11:= media-gfx/imagemagick x11-apps/xdpyinfo x11-apps/xrandr sys-devel/bc media-gfx/feh
+DESCRIPTION=sweet looking lockscreen for linux system
+EAPI=7
+HOMEPAGE=https://github.com/pavanjadhaw/betterlockscreen
+LICENSE=MIT
+PROPERTIES=live
+RDEPEND=>=x11-misc/i3lock-color-2.11:= media-gfx/imagemagick x11-apps/xdpyinfo x11-apps/xrandr sys-devel/bc media-gfx/feh
+SLOT=0
+_eclasses_=git-r3	86a0188f2ad9eb3d65e4d031ab8a0422	multilib	1d91b03d42ab6308b5f4f6b598ed110e	systemd	71fd8d2065d102753fb9e4d20eaf3e9f	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c
+_md5_=359bbf64c6ece00a19e222460b8b5ec4

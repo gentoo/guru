@@ -1,0 +1,12 @@
+BDEPEND=sys-devel/libtool virtual/pkgconfig
+DEFINED_PHASES=install postinst prepare unpack
+DESCRIPTION=OpenBGPD is a free implementation of BGPv4
+EAPI=7
+HOMEPAGE=http://www.openbgpd.org/index.html
+KEYWORDS=~amd64 ~x86
+LICENSE=ISC
+RDEPEND=acct-group/_bgpd acct-user/_bgpd
+SLOT=0
+SRC_URI=mirror://openbsd/OpenBGPD/openbgpd-6.6p0.tar.gz
+_eclasses_=multilib	1d91b03d42ab6308b5f4f6b598ed110e	systemd	71fd8d2065d102753fb9e4d20eaf3e9f	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c
+_md5_=94f189e8b1332bb0f2a784b23bd61f6b
