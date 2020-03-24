@@ -17,7 +17,6 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 IUSE="doc"
-REQUIRED_USE="x86? ( !doc )"
 
 RDEPEND="dev-python/certifi[${PYTHON_USEDEP}]
 	dev-python/chardet[${PYTHON_USEDEP}]
@@ -29,10 +28,10 @@ RDEPEND="dev-python/certifi[${PYTHON_USEDEP}]
 	dev-python/sniffio[${PYTHON_USEDEP}]
 	dev-python/urllib3[${PYTHON_USEDEP}]"
 
-BDEPEND="doc? ( !x86? (
+BDEPEND="doc? (
 	dev-python/mkdocs
 	dev-python/mkautodoc
-	dev-python/mkdocs-material ) )"
+	dev-python/mkdocs-material )"
 
 DEPEND="test? (
 	dev-python/attrs[${PYTHON_USEDEP}]

@@ -19,18 +19,16 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 IUSE="doc"
-REQUIRED_USE="x86? ( !doc )"
 
 RDEPEND="
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/h11[${PYTHON_USEDEP}]"
 
-BDEPEND="doc? ( !x86? (
+BDEPEND="doc? (
 	dev-python/mkdocs
-	dev-python/mkdocs-material ) )"
+	dev-python/mkdocs-material )"
 
 DEPEND="test? (
-	dev-python/black[${PYTHON_USEDEP}]
 	dev-python/isort[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	>=dev-python/uvloop-0.14.0[${PYTHON_USEDEP}]

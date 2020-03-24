@@ -1,0 +1,49 @@
+From 914c820b0b16a397f663930e897819a70ea556ae Mon Sep 17 00:00:00 2001
+From: Kurt Kanzenbach <kurt@kmk-computers.de>
+Date: Wed, 18 Mar 2020 11:02:33 +0100
+Subject: [PATCH] remail: Add setup.py
+
+Make it possible to use setuptools.
+
+Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
+---
+ setup.py | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
+ create mode 100644 setup.py
+
+diff --git a/setup.py b/setup.py
+new file mode 100644
+index 000000000000..fede9d368f0a
+--- /dev/null
++++ b/setup.py
+@@ -0,0 +1,27 @@
++import setuptools
++
++with open("README.md", "r") as fh:
++    long_description = fh.read()
++
++requires = [ 'flufl-bounce>=3.0', 'M2Crypto>=0.35.2', 'pyinotify>=0.9.6',
++             'python-gnupg>=0.4.5', 'ruamel.yaml>=0.16.5' ]
++
++setuptools.setup(
++    name="remail",
++    version="0.9",
++    author="Thomas Gleixner",
++    author_email="tglx@linutronix.de",
++    description="A set of tools for crypted mailing lists",
++    long_description=long_description,
++    long_description_content_type="text/markdown",
++    url="https://git.kernel.org/pub/scm/linux/kernel/git/tglx/remail.git/",
++    packages=setuptools.find_packages(),
++    scripts=[ 'remail_chkcfg', 'remail_daemon', 'remail_pipe' ],
++    classifiers=[
++        "Programming Language :: Python :: 3",
++        "License :: OSI Approved :: GPLv2 License",
++        "Operating System :: OS Independent",
++    ],
++    python_requires='>=3.6',
++    install_requires=requires,
++)
+-- 
+2.24.1
+

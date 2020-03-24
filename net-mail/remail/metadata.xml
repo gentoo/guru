@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>kurt@kmk-computers.de</email>
+    <name>Kurt Kanzenbach</name>
+  </maintainer>
+  <longdescription>
+    remail is a very simplistic mailing list tool which provides encryption.
+
+    remail reads mail from a maildir, decrypts it with the mailing list private
+    key and re-encrypts it for every enabled subscriber. The resulting mails are
+    delivered to the localhost's SMTP server.
+
+    remail supports S/MIME and PGP on both ends.
+  </longdescription>
+</pkgmetadata>
