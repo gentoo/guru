@@ -6,7 +6,6 @@ EAPI=7
 inherit systemd
 
 MY_PV="${PV/_p/p}"
-#MY_PN="openbgpd-portable"
 MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="OpenBGPD is a free implementation of BGPv4"
@@ -28,15 +27,11 @@ BDEPEND="
 	sys-devel/libtool
 "
 
-src_unpack() {
-	default
-	mv "${WORKDIR}/${MY_P}" "${S}"
-}
+S="${WORKDIR}/${MY_P}"
 
-src_prepare() {
-	eapply -p0 "${FILESDIR}/${P}-config.c.patch"
-	default
-}
+PATCHES=(
+	"${FILESDIR}/${P}-config.c.patch"
+)
 
 src_install() {
 	default
