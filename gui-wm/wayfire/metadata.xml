@@ -5,10 +5,6 @@
         <email>gentoo@aisha.cc</email>
         <name>Aisha Tammy</name>
     </maintainer>
-    <maintainer type="project">
-        <email>proxy-maint@gentoo.org</email>
-        <name>Proxy Maintainers</name>
-    </maintainer>
     <use>
       <flag name='wf-config'>Makes wayfire use the system-wide wf-config, else builds it as a submodule. DO NOT DISABLE UNLESS YOU KNOW WHAT YOU ARE DOING.</flag>
       <flag name='wlroots'>Makes wayfire use the system wide wlroots, else builds it as a submodule. DO NOT DISABLE UNLESS YOU KNOW WHAT YOU ARE DOING.</flag>
