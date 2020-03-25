@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# we need to execute this in a user writeable directory
+
+if [ ! -f ${HOME}/ATLauncher/ATLauncher.jar ]; then
+	mkdir -p ${HOME}/.local/share/ATLauncher
+	cp /opt/ATLauncher/ATLauncher.jar ${HOME}/.local/share/ATLauncher/ATLauncher.jar
+fi
+
+java -jar ${HOME}/.local/share/ATLauncher/ATLauncher.jar
