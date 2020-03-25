@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop xdg
+inherit desktop java-pkg-2 xdg
 
 DESCRIPTION="Minecraft launcher for community-made modpacks on the Technic Platform"
 HOMEPAGE="https://www.technicpack.net/"
@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~x86"
 LICENSE="technic"
 SLOT="0"
 
-RESTRICT="mirror"
+RESTRICT="bindist mirror"
 
 BDEPEND="media-gfx/imagemagick"
 
@@ -32,13 +32,8 @@ src_compile() {
 }
 
 src_install() {
-	dodir /opt/${PN}
-	insinto /opt/${PN}/
-	newins "${DISTDIR}/${P}.jar" ${PN}.jar
-
-	insinto /opt/bin/
-	doins "${FILESDIR}/${PN}"
-	fperms +x /opt/bin/${PN}
+	java-pkg_newjar "${DISTDIR}/${P}.jar" ${P}.jar
+	java-pkg_dolauncher ${PN} --jar ${P}.jar --java_args "\${JAVA_OPTS}"
 
 	newicon -s 16x16 ${PN}-0.png ${PN}.png
 	newicon -s 32x32 ${PN}-1.png ${PN}.png
