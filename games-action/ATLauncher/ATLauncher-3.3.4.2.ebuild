@@ -37,11 +37,11 @@ src_install() {
 	doins "${FILESDIR}/${PN}"
 	fperms +x /usr/bin/${PN}
 
-	newicon -s 256x256 ${PN}-0.png ${PN}.png
-	newicon -s 128x128 ${PN}-1.png ${PN}.png
-	newicon -s 64x64 ${PN}-2.png ${PN}.png
-	newicon -s 48x48 ${PN}-3.png ${PN}.png
-	newicon -s 32x32 ${PN}-4.png ${PN}.png
-	newicon -s 16x16 ${PN}-5.png ${PN}.png
-	make_desktop_entry ${PN} "ATLauncher" ${PN} Game
+	newicon -s 256x256 ${PN}-0.png atlauncher.png
+	newicon -s 128x128 ${PN}-1.png atlauncher.png
+	newicon -s 64x64 ${PN}-2.png atlauncher.png
+	newicon -s 48x48 ${PN}-3.png atlauncher.png
+	newicon -s 32x32 ${PN}-4.png atlauncher.png
+	newicon -s 16x16 ${PN}-5.png atlauncher.png
+	make_desktop_entry ${PN} "ATLauncher" atlauncher Game
 }
