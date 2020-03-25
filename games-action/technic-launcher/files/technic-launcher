@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+java -jar /opt/technic-launcher/technic-launcher.jar
+ 
