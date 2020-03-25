@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop xdg
+inherit desktop java-pkg-2 xdg
 
 DESCRIPTION="Minecraft launcher which integrates multiple different ModPacks"
 HOMEPAGE="https://atlauncher.com
@@ -31,13 +31,11 @@ src_compile() {
 }
 
 src_install() {
-	dodir /opt/${PN}
-	insinto /opt/${PN}/
-	newins "${DISTDIR}/${P}.jar" ${PN}.jar
+	java-pkg_newjar "${DISTDIR}/${P}.jar" ${P}.jar
 
-	insinto /opt/bin/
+	insinto /usr/bin/
 	doins "${FILESDIR}/${PN}"
-	fperms +x /opt/bin/${PN}
+	fperms +x /usr/bin/${PN}
 
 	newicon -s 256x256 ${PN}-0.png ${PN}.png
 	newicon -s 128x128 ${PN}-1.png ${PN}.png
