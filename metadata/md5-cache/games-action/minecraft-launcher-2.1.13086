@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm preinst prepare
+DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=An open-world game whose gameplay revolves around breaking and placing blocks
+EAPI=7
+HOMEPAGE=https://www.minecraft.net
+KEYWORDS=~amd64 ~x86
+LICENSE=Mojang
+RDEPEND=gnome-base/gconf sys-apps/dbus x11-apps/xrandr x11-libs/libXcomposite x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXi x11-libs/libXrender x11-libs/libXScrnSaver x11-libs/libXtst x11-libs/xcb-util >=x11-libs/gtk+-2.24.32-r1 media-libs/openal virtual/opengl virtual/jre:1.8
+RESTRICT=mirror
+SLOT=2
+SRC_URI=https://launcher.mojang.com/download/linux/x86_64/minecraft-launcher_2.1.13086.tar.gz -> minecraft-launcher-2.1.13086.tar.gz https://launcher.mojang.com/download/minecraft-launcher.svg
+_eclasses_=desktop	b1d22ac8bdd4679ab79c71aca235009d	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_md5_=524558ba439602605a19d4f317803cd1

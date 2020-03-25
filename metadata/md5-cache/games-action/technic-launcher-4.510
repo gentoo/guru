@@ -1,0 +1,14 @@
+BDEPEND=media-gfx/imagemagick
+DEFINED_PHASES=compile install postinst postrm preinst prepare unpack
+DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Minecraft launcher for community-made modpacks on the Technic Platform
+EAPI=7
+HOMEPAGE=https://www.technicpack.net/
+KEYWORDS=~amd64 ~x86
+LICENSE=technic
+RDEPEND=virtual/jre:1.8
+RESTRICT=mirror
+SLOT=0
+SRC_URI=http://launcher.technicpack.net/launcher4/510/TechnicLauncher.jar -> technic-launcher-4.510.jar https://www.technicpack.net/favicon.ico -> technic-launcher.ico
+_eclasses_=desktop	b1d22ac8bdd4679ab79c71aca235009d	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_md5_=a52d1a250c089a774c775660fcc806b7
