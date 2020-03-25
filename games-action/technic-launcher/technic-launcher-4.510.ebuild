@@ -35,8 +35,8 @@ src_install() {
 	java-pkg_newjar "${DISTDIR}/${P}.jar" ${P}.jar
 	java-pkg_dolauncher ${PN} --jar ${P}.jar --java_args "\${JAVA_OPTS}"
 
-	newicon -s 16x16 ${PN}-0.png ${PN}.png
-	newicon -s 32x32 ${PN}-1.png ${PN}.png
-	newicon -s 48x48 ${PN}-2.png ${PN}.png
-	make_desktop_entry ${PN} "Technic Launcher" ${PN} Game
+	newicon -s 16x16 ${PN}-0.png technic.png
+	newicon -s 32x32 ${PN}-1.png technic.png
+	newicon -s 48x48 ${PN}-2.png technic.png
+	make_desktop_entry ${PN} "Technic Launcher" technic Game
 }
