@@ -12,4 +12,4 @@ RESTRICT=bindist mirror
 SLOT=0
 SRC_URI=http://launcher.technicpack.net/launcher4/510/TechnicLauncher.jar -> technic-launcher-4.510.jar https://www.technicpack.net/favicon.ico -> technic-launcher.ico
 _eclasses_=desktop	b1d22ac8bdd4679ab79c71aca235009d	java-pkg-2	c4e6af2574fd1dc79b43a6e27af4b5fb	java-utils-2	a055407af6fd37cf3f692ba73d2d2ba5	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=f63d25c29ef107b739157c660948f8e9
+_md5_=efc7bf55f9191263618350dfb64ec342
