@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~x86"
 LICENSE="Mojang"
 SLOT="2"
 
-RESTRICT="mirror"
+RESTRICT="bindist mirror"
 
 RDEPEND="gnome-base/gconf
 	sys-apps/dbus

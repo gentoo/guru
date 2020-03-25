@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop xdg
+inherit desktop java-pkg-2 xdg
 
 DESCRIPTION="An open-world game whose gameplay revolves around breaking and placing blocks"
 HOMEPAGE="https://www.minecraft.net"
@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~x86"
 LICENSE="Mojang"
 SLOT="1"
 
-RESTRICT="mirror"
+RESTRICT="bindist mirror"
 
 RDEPEND="virtual/jre:1.8"
 
@@ -26,13 +26,8 @@ src_unpack() {
 }
 
 src_install() {
-	dodir /opt/${PN}
-	insinto /opt/${PN}/
-	newins "${DISTDIR}/${P}.jar" ${PN}.jar
-
-	insinto /opt/bin/
-	doins "${FILESDIR}/${PN}-legacy"
-	fperms +x /opt/bin/${PN}-legacy
+	java-pkg_newjar "${DISTDIR}/${P}.jar" ${P}-legacy.jar
+	java-pkg_dolauncher ${PN}-legacy --jar ${P}-legacy.jar --java_args "\${JAVA_OPTS}"
 
 	doicon -s scalable "${DISTDIR}/${PN}-legacy.svg"
 	make_desktop_entry ${PN}-legacy "Minecraft (legacy)" ${PN}-legacy Game
