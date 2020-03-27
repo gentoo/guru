@@ -3,13 +3,16 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_6 )
 
 inherit distutils-r1
 
 DESCRIPTION="A next generation HTTP client for Python"
-HOMEPAGE="https://www.python-httpx.org
-	https://github.com/encode/httpx"
+HOMEPAGE="
+	https://www.python-httpx.org
+	https://github.com/encode/httpx
+	https://pypi.org/project/httpx
+"
 SRC_URI="https://github.com/encode/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
@@ -38,7 +41,6 @@ DEPEND="test? (
 	dev-python/brotlipy[${PYTHON_USEDEP}]
 	dev-python/cryptography[${PYTHON_USEDEP}]
 	dev-python/isort[${PYTHON_USEDEP}]
-	dev-python/flake8[${PYTHON_USEDEP}]
 	dev-python/mypy[${PYTHON_USEDEP}]
 	dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 	dev-python/trio[${PYTHON_USEDEP}]
@@ -54,7 +56,7 @@ python_prepare_all() {
 	# requires internet connection
 	sed -i -e 's:test_start_tls_on_tcp_socket_stream:_&:' \
 		-e 's:test_start_tls_on_uds_socket_stream:_&:' \
-                tests/test_concurrency.py || die
+		tests/test_concurrency.py || die
 
 	sed -i -e 's:test_http2_live_request:_&:' \
 		tests/dispatch/test_http2.py || die
