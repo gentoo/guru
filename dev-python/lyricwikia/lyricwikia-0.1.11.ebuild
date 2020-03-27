@@ -15,8 +15,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-BDEPEND="dev-python/pytest-runner[${PYTHON_USEDEP}]"
-
 DEPEND="test? ( dev-python/responses[${PYTHON_USEDEP}] )"
 
 RDEPEND="
@@ -27,6 +25,13 @@ RDEPEND="
 PATCHES="${FILESDIR}/${P}-skip-online-test.patch"
 
 distutils_enable_tests pytest
+
+python_prepare_all() {
+	# do not depend on deprecated dep
+	sed -i -e '/pytest-runner/d' setup.py || die
+
+	distutils-r1_python_prepare_all
+}
 
 pkg_postinst() {
 	elog "Note that access to LyricWikia through this API (and products that use this API) should comply to the LyricWikia terms of use"
