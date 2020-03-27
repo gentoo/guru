@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>michael.egger@tsn.at</email>
-		<name>Michael Egger</name>
-	</maintainer>
-	<longdescription>
+  <maintainer type="person">
+    <email>michael.egger@tsn.at</email>
+    <name>Michael Egger</name>
+  </maintainer>
+  <longdescription>
 Arc KDE - This is a port of the popular GTK theme Arc for Plasma 5 desktop with a few additions and extras.
 
 In this repository you'll find:
@@ -21,9 +21,9 @@ In this repository you'll find:
     Yakuake Skins
 
 NOTE: Plasma theme Arc Color now supports KDE Color Schemes with Papirus icon theme.
-	</longdescription>
-	<upstream>
-		<bugs-to>https://github.com/PapirusDevelopmentTeam/arc-kde/issues</bugs-to>
-		<doc>https://github.com/PapirusDevelopmentTeam/arc-kde/blob/master/README.md</doc>
-	</upstream>
+  </longdescription>
+  <upstream>
+    <bugs-to>https://github.com/PapirusDevelopmentTeam/arc-kde/issues</bugs-to>
+    <doc>https://github.com/PapirusDevelopmentTeam/arc-kde/blob/master/README.md</doc>
+  </upstream>
 </pkgmetadata>
