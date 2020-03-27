@@ -6,7 +6,21 @@
 		<name>Michael Egger</name>
 	</maintainer>
 	<longdescription>
-		This is a port of the popular GTK theme Arc for Plasma 5 desktop with a few additions and extras.
+Arc KDE - This is a port of the popular GTK theme Arc for Plasma 5 desktop with a few additions and extras.
+
+In this repository you'll find:
+
+    Aurorae Themes
+    Konsole Color Schemes
+    Konversation Themes
+    Kvantum Themes
+    Plasma Color Schemes
+    Plasma Desktop Themes
+    Plasma Look-and-Feel Settings
+    Wallpapers
+    Yakuake Skins
+
+NOTE: Plasma theme Arc Color now supports KDE Color Schemes with Papirus icon theme.
 	</longdescription>
 	<upstream>
 		<bugs-to>https://github.com/PapirusDevelopmentTeam/arc-kde/issues</bugs-to>
