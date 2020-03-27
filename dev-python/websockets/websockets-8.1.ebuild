@@ -8,7 +8,10 @@ PYTHON_COMPAT=( python3_{6,7} )
 inherit distutils-r1
 
 DESCRIPTION="An implementation of the WebSocket Protocol (RFC 6455 & 7692)"
-HOMEPAGE="https://github.com/aaugustin/websockets https://pypi.org/project/websockets/"
+HOMEPAGE="
+		https://github.com/aaugustin/websockets
+		https://pypi.org/project/websockets/
+"
 SRC_URI="https://github.com/aaugustin/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
@@ -16,7 +19,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 python_prepare_all() {
-	# these tests fail, proabably because of 
+	# these tests fail, probably because of
 	# a permission error (no internet)
 	rm tests/test_client_server.py || die
 	rm tests/test_protocol.py || die
