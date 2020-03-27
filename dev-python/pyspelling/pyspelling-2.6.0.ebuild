@@ -23,13 +23,9 @@ RDEPEND="
 	>=dev-python/soupsieve-1.8[${PYTHON_USEDEP}]
 	>=dev-python/wcmatch-4.0[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
-	doc? (
-		dev-python/mkdocs-git-revision-date-localized-plugin[${PYTHON_USEDEP}]
-		dev-python/mkdocs_pymdownx_material_extras[${PYTHON_USEDEP}]
-	)
-"
+DEPEND="${RDEPEND}"
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs/src
+distutils_enable_sphinx docs/src \
+					dev-python/mkdocs-git-revision-date-localized-plugin \
+					dev-python/mkdocs_pymdownx_material_extras
