@@ -2,8 +2,12 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 
 <pkgmetadata>
-    <maintainer type="person">
-        <email>piotr.staroszczyk@get24.org</email>
-        <name>Piotr Staroszczyk</name>
-    </maintainer>
+  <maintainer type="person">
+    <email>piotr.staroszczyk@get24.org</email>
+    <name>Piotr Staroszczyk</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">MagicStack/httptools</remote-id>
+    <remote-id type="pypi">httptools</remote-id>
+  </upstream>
 </pkgmetadata>
