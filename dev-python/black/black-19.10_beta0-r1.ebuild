@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
@@ -19,12 +19,15 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="
-	test? (
-		>=dev-python/aiohttp-3.3.2[${PYTHON_USEDEP}]
-		dev-python/aiohttp-cors[${PYTHON_USEDEP}]
-	)
-"
+#aiohttp-cors being removed because no py3_7 support
+RESTRICT="test"
+
+#DEPEND="
+#	test? (
+#		>=dev-python/aiohttp-3.3.2[${PYTHON_USEDEP}]
+#		dev-python/aiohttp-cors[${PYTHON_USEDEP}]
+#	)
+#
 
 RDEPEND="
 	>=dev-python/appdirs-1.4[${PYTHON_USEDEP}]
