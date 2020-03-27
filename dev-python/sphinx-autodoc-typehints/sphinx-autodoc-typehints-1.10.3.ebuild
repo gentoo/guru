@@ -3,16 +3,19 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_6 )
 
 inherit distutils-r1
 
 DESCRIPTION="Type hints support for the Sphinx autodoc extension "
-HOMEPAGE="https://github.com/agronholm/sphinx-autodoc-typehints"
+HOMEPAGE="
+	https://github.com/agronholm/sphinx-autodoc-typehints
+	https://pypi.org/project/sphinx-autodoc-typehints
+"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
-KEYWORDS="~amd64 ~x86 "
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 BDEPEND="dev-python/setuptools_scm[${PYTHON_USEDEP}]"
@@ -33,7 +36,7 @@ python_prepare_all() {
 		-e 's:test_format_annotation_both_libs:_&:' \
 		-e 's:test_format_annotation_both_libs:_&:' \
 		-e 's:test_format_annotation_both_libs:_&:' \
-                tests/test_sphinx_autodoc_typehints.py || die
+		tests/test_sphinx_autodoc_typehints.py || die
 
 	distutils-r1_python_prepare_all
 }
