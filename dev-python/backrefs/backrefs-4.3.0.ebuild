@@ -24,12 +24,14 @@ IUSE="doc"
 RDEPEND=""
 DEPEND="
 	${RDEPEND}
+	test? (
+		dev-python/mock[${PYTHON_USEDEP}]
+	)
+"
+BDEPEND="
 	doc? (
 		>=dev-python/mkdocs-material-2.2.5[${PYTHON_USEDEP}]
 		dev-python/pyspelling[${PYTHON_USEDEP}]
-	)
-	test? (
-		dev-python/mock[${PYTHON_USEDEP}]
 	)
 "
 
@@ -37,5 +39,6 @@ distutils_enable_tests pytest
 
 python_compile_all() {
 	use doc && mkdocs build || die
+	#TODO: install docs
 	default
 }
