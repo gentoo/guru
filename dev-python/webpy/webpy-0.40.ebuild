@@ -16,8 +16,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="public-domain"
 SLOT="0"
-KEYWORDS="~amd64"
-RESTRICT="!test? ( test )"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-python/cheroot[${PYTHON_USEDEP}]
