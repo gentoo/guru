@@ -21,8 +21,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
 RDEPEND=""
-DEPEND="
-	${RDEPEND}
+DEPEND=""
+BDEPEND="
 	doc? (
 		dev-python/mkdocs-git-revision-date-localized-plugin[${PYTHON_USEDEP}]
 		dev-python/mkdocs_pymdownx_material_extras[${PYTHON_USEDEP}]
@@ -34,5 +34,6 @@ distutils_enable_tests pytest
 
 python_compile_all() {
 	use doc && mkdocs build || die
+	#TODO: install docs
 	default
 }
