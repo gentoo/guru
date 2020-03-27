@@ -8,7 +8,10 @@ PYTHON_COMPAT=( python3_{6,7,8} )
 inherit distutils-r1
 
 DESCRIPTION="Timeout decorator"
-HOMEPAGE="https://github.com/pnpnpn/timeout-decorator"
+HOMEPAGE="
+	https://github.com/pnpnpn/timeout-decorator
+	https://pypi.org/project/timeout-decorator
+"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
