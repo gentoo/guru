@@ -4,7 +4,8 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_6 )
-#DISTUTILS_USE_SETUPTOOLS=rdepend
+
+DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
@@ -24,4 +25,5 @@ RDEPEND="
 	dev-python/mkdocs-material[${PYTHON_USEDEP}]
 	>=dev-python/pymdown-extensions-7.0_beta2[${PYTHON_USEDEP}]
 "
-DEPEND="${RDEPEND}"
+
+S="${WORKDIR}/${PN}-${MYPV}"
