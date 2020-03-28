@@ -19,9 +19,10 @@ KEYWORDS="~amd64 ~x86 "
 SLOT="0"
 
 distutils_enable_tests pytest
-distutils_enable_sphinx doc \
-				dev-python/sphinxcontrib-programoutput \
-				dev-python/sphinx_rtd_theme
+# doc directory is not included in the release tarball for some reason
+#distutils_enable_sphinx doc \
+#				dev-python/sphinxcontrib-programoutput \
+#				dev-python/sphinx_rtd_theme
 
 #is this necessary?
 python_test() {
