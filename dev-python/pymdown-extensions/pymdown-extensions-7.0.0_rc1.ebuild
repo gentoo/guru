@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
 inherit distutils-r1
 
@@ -26,10 +26,10 @@ RDEPEND=">=dev-python/markdown-3.2[${PYTHON_USEDEP}]"
 
 BDEPEND="
 	doc? (
-		dev-python/mkdocs-git-revision-date-localized-plugin[${PYTHON_USEDEP}]
-		dev-python/mkdocs-material[${PYTHON_USEDEP}]
-		dev-python/pymdown-lexers[${PYTHON_USEDEP}]
-		dev-python/pyspelling[${PYTHON_USEDEP}]
+		dev-python/mkdocs-git-revision-date-localized-plugin
+		dev-python/mkdocs-material
+		dev-python/pymdown-lexers
+		dev-python/pyspelling
 	)
 "
 DEPEND="
@@ -38,6 +38,8 @@ DEPEND="
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 	)
 "
+
+S="${WORKDIR}/${PN}-${MYPV}"
 
 distutils_enable_tests pytest
 
