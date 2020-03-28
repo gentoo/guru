@@ -8,7 +8,11 @@ PYTHON_COMPAT=( python3_{6,7,8} )
 inherit distutils-r1
 
 DESCRIPTION="Chromium HSTS Preload list as a Python package"
-HOMEPAGE="https://github.com/sethmlarson/hstspreload"
+HOMEPAGE="
+	https://hstspreload.org
+	https://github.com/sethmlarson/hstspreload
+	https://pypi.org/project/hstspreload
+"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"

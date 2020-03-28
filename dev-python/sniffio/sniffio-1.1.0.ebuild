@@ -8,7 +8,10 @@ PYTHON_COMPAT=( python3_{6,7,8} )
 inherit distutils-r1
 
 DESCRIPTION="Sniff out which async library your code is running under"
-HOMEPAGE="https://github.com/python-trio/sniffio"
+HOMEPAGE="
+	https://github.com/python-trio/sniffio
+	https://pypi.org/project/sniffio
+"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="|| ( Apache-2.0 MIT )"

@@ -7,8 +7,11 @@ PYTHON_COMPAT=( python3_{6,7,8} pypy3 )
 
 inherit distutils-r1
 
-DESCRIPTION="Fast HTTP parser"
-HOMEPAGE="https://github.com/MagicStack/httptools"
+DESCRIPTION="httptools is a Python binding for the nodejs HTTP parser"
+HOMEPAGE="
+	https://github.com/MagicStack/httptools
+	https://pypi.org/project/httptools
+"
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"

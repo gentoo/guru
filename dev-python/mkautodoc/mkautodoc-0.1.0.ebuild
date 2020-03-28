@@ -7,8 +7,11 @@ PYTHON_COMPAT=( python3_{6,7,8} )
 
 inherit distutils-r1
 
-DESCRIPTION="AutoDoc for MarkDown"
-HOMEPAGE="https://github.com/tomchristie/mkautodoc"
+DESCRIPTION="Auto documentation for MkDocs"
+HOMEPAGE="
+	https://github.com/tomchristie/mkautodoc
+	https://pypi.org/project/mkautodoc
+"
 SRC_URI="https://github.com/tomchristie/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"

@@ -4,7 +4,7 @@
 EAPI=7
 inherit linux-mod
 
-COMMIT="27f98a55cc48b9a26e6eb4127976c8feb95867d8"
+COMMIT="df0c98c00d27508381eb280d568602bd85cd8f69"
 
 DESCRIPTION="Realtek RTL8821CE Driver module for Linux kernel"
 HOMEPAGE="https://github.com/tomaspinho/rtl8821ce"
@@ -14,9 +14,6 @@ LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="virtual/linux-sources"
-
-# fix 32bit build
-PATCHES="${FILESDIR}/32bit.patch"
 
 S="${WORKDIR}/rtl8821ce-${COMMIT}"
 

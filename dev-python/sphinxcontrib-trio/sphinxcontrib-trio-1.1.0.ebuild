@@ -8,7 +8,10 @@ PYTHON_COMPAT=( python3_{6,7,8} )
 inherit distutils-r1
 
 DESCRIPTION="Make Sphinx better at documenting Python functions and methods"
-HOMEPAGE="https://github.com/python-trio/sphinxcontrib-trio"
+HOMEPAGE="
+	https://github.com/python-trio/sphinxcontrib-trio
+	https://pypi.org/project/sphinxcontrib-trio
+"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="|| ( Apache-2.0 MIT )"

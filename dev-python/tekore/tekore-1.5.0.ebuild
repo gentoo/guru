@@ -23,13 +23,16 @@ RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	~dev-python/httpx-0.11.1[${PYTHON_USEDEP}]
 	media-sound/spotify
-	python_targets_python3_6? ( dev-python/dataclasses[python_targets_python3_6] )"
+	$(python_gen_cond_dep 'dev-python/dataclasses[${PYTHON_USEDEP}]' python3_6)
+"
 
 DOCS="readme.rst"
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs/src dev-python/sphinx_rtd_theme dev-python/sphinx-autodoc-typehints
+# doc not working: 'PosixPath' object has no attribute 'rstrip'
+#distutils_enable_sphinx docs/src dev-python/sphinx_rtd_theme dev-python/sphinx-autodoc-typehints
 
+#need this, otherwise: no tests ran
 python_test() {
 	pytest -vv tests/* || die "Tests fail with ${EPYTHON}"
 }

@@ -8,10 +8,13 @@ PYTHON_COMPAT=( python3_{6,7} )
 inherit distutils-r1
 
 DESCRIPTION="Capture the outcome of Python function calls"
-HOMEPAGE="https://github.com/python-trio/outcome"
+HOMEPAGE="
+	https://github.com/python-trio/outcome
+	https://pypi.org/project/outcome
+"
 SRC_URI="https://github.com/python-trio/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="Apache-2.0 MIT"
+LICENSE="|| ( Apache-2.0 MIT )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
