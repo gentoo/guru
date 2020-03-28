@@ -5,6 +5,8 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7,8} )
 
+DISTUTILS_USE_SETUPTOOLS=rdepend
+
 inherit distutils-r1
 
 COMMIT="fa422cb95b794157760259c5c20a1235e4a459be"
