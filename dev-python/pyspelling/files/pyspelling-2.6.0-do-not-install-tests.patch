@@ -1,0 +1,11 @@
+--- a/setup.py	2020-03-28 09:44:36.634469819 +0100
++++ b/setup.py_fix	2020-03-28 09:48:38.754477130 +0100
+@@ -59,7 +59,7 @@
+     author='Isaac Muse',
+     author_email='Isaac.Muse@gmail.com',
+     url='https://github.com/facelessuser/pyspelling',
+-    packages=find_packages(exclude=['tests', 'tools']),
++    packages=find_packages(exclude=('tests*', 'tools*')),
+     entry_points=entry_points,
+     install_requires=get_requirements(),
+     license='MIT License',
