@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_{6,7} )
 
 inherit distutils-r1
 
@@ -24,7 +24,6 @@ distutils_enable_tests pytest
 #				dev-python/sphinxcontrib-programoutput \
 #				dev-python/sphinx_rtd_theme
 
-#is this necessary?
-python_test() {
-	pytest -vv tests || "Tests fail with ${EPYTHON}"
-}
+#python_test() {
+#	pytest -vv tests || "Tests fail with ${EPYTHON}"
+#}
