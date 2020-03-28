@@ -23,7 +23,3 @@ distutils_enable_tests pytest
 #distutils_enable_sphinx doc \
 #				dev-python/sphinxcontrib-programoutput \
 #				dev-python/sphinx_rtd_theme
-
-#python_test() {
-#	pytest -vv tests || "Tests fail with ${EPYTHON}"
-#}
