@@ -3,8 +3,7 @@
 
 EAPI=7
 
-DISTUTILS_USE_SETUPTOOLS=rdepend
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_{6,7} )
 
 inherit distutils-r1
 
@@ -13,12 +12,17 @@ HOMEPAGE="
 	https://github.com/encode/httpcore
 	https://pypi.org/project/httpcore
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/encode/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc test"
+
+# Temporary failure in name resolution
+RESTRICT="test"
+
+# ERROR   -  Config value: 'theme'. Error: Unrecognised theme name: 'material'. The available installed themes are: mkdocs, readthedocs 
+#IUSE="doc"
 
 RDEPEND="
 	dev-python/h11[${PYTHON_USEDEP}]
@@ -26,13 +30,13 @@ RDEPEND="
 	dev-python/sniffio[${PYTHON_USEDEP}]
 	dev-python/trio[${PYTHON_USEDEP}]
 "
-BDEPEND="
-	doc? (
-		dev-python/mkautodoc
-		dev-python/mkdocs
-		dev-python/mkdocs-material
-	)
-"
+#BDEPEND="
+#	doc? (
+#		dev-python/mkautodoc
+#		dev-python/mkdocs
+#		dev-python/mkdocs-material
+#	)
+#"
 DEPEND="
 	${RDEPEND}
 	test? (
@@ -46,4 +50,11 @@ DEPEND="
 "
 
 distutils_enable_tests pytest
-#todo doc
+
+#python_compile_all() {
+#	default
+#	if use doc; then
+#		mkdocs build || die "failed to make docs"
+#		HTML_DOCS="site"
+#	fi
+#}
