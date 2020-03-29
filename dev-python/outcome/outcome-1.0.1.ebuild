@@ -24,4 +24,4 @@ BDEPEND="test? ( dev-python/async_generator[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}] )"
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs/source
+distutils_enable_sphinx docs/source dev-python/sphinxcontrib-trio
