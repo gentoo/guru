@@ -3,7 +3,9 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_{6,7} )
+
+DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
@@ -17,6 +19,9 @@ SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 LICENSE="|| ( MIT Apache-2.0 )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+
+# lots of different errors
+RESTRICT="test"
 
 RDEPEND="
 	>=dev-python/async_generator-1.9[${PYTHON_USEDEP}]
@@ -35,3 +40,17 @@ DEPEND="
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs/source
+
+python_prepare_all() {
+	# AttributeError("module 'pytest' has no attribute 'RemovedInPytest4Warning'",)
+	rm pytest_trio/_tests/conftest.py || die
+
+	distutils-r1_python_prepare_all
+}
+
+python_test() {
+	# has to be run in source dir
+	PYTHONPATH="${S}"
+	cd "${S}" || die
+	pytest -vv || die "Tests fail with ${EPYTHON}"
+}
