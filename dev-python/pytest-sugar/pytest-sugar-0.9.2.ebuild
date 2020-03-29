@@ -5,6 +5,8 @@ EAPI="7"
 
 PYTHON_COMPAT=( python3_{6,7,8} )
 
+DISTUTILS_USE_SETUPTOOLS=rdepend
+
 inherit distutils-r1
 
 DESCRIPTION="Plugin for pytest that changes the default look and feel of pytest"
@@ -18,6 +20,8 @@ SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+
+RESTRICT="test"
 
 RDEPEND="
 	>=dev-python/packaging-14.1[${PYTHON_USEDEP}]
