@@ -1,0 +1,15 @@
+BDEPEND=dev-python/py-cpuinfo[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] test? ( dev-python/aspectlib[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] dev-python/elasticsearch-py[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] dev-python/freezegun[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] dev-python/hunter[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] dev-python/pygal[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] dev-python/pygaljs[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] dev-python/pytest-instafail[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] dev-python/pytest-travis-fold[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] dev-python/pytest-xdist[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] ) test? ( dev-python/py-cpuinfo[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] dev-python/pytest[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] ) doc? ( || ( ( >=dev-lang/python-3.6.10:3.6 dev-python/sphinx[python_targets_python3_6(-),python_single_target_python3_6(+)] dev-python/sphinx-py3doc-enhanced-theme[python_targets_python3_6(-),python_single_target_python3_6(+)] ) ) ) python_targets_python3_6? ( >=dev-lang/python-3.6.10:3.6 ) >=dev-lang/python-exec-2:=[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] >=dev-python/setuptools-42.0.2[python_targets_python3_6(-)?,-python_single_target_python3_6(-)]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=py.test fixture for benchmarking code
+EAPI=7
+HOMEPAGE=https://pypi.python.org/pypi/pytest-benchmark https://github.com/ionelmc/pytest-benchmark
+IUSE=test doc python_targets_python3_6
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2
+RDEPEND=dev-python/py-cpuinfo[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] python_targets_python3_6? ( >=dev-lang/python-3.6.10:3.6 ) >=dev-lang/python-exec-2:=[python_targets_python3_6(-)?,-python_single_target_python3_6(-)] >=dev-python/setuptools-42.0.2[python_targets_python3_6(-)?,-python_single_target_python3_6(-)]
+REQUIRED_USE=|| ( python_targets_python3_6 )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/ionelmc/pytest-benchmark/archive/v3.2.3.tar.gz -> pytest-benchmark-3.2.3.tar.gz
+_eclasses_=distutils-r1	577e2308f7b36e26062d464f59a5ee6c	multibuild	40fe59465edacd730c644ec2bc197809	multilib	318e8ae683e57fd3ccd0d31a769d8ee8	multiprocessing	cac3169468f893670dac3e7cb940e045	python-r1	8386b016a2b3bbefa88443fdaa898057	python-utils-r1	6f5996d2ae01e0c6f2869ed18f023239	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c
+_md5_=6df6289302bb7efdf6b2848f69426d13
