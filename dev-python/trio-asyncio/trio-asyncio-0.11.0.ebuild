@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_{6,7} )
 
 inherit distutils-r1
 
@@ -18,24 +18,31 @@ LICENSE=" || ( Apache-2.0 MIT )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+# ImportError: cannot import name 'MarkInfo'
+# might be an issue in pytest-marks
+RESTRICT="test"
+
 RDEPEND="
 	>=dev-python/async_generator-1.6[${PYTHON_USEDEP}]
 	dev-python/outcome[${PYTHON_USEDEP}]
 	>=dev-python/trio-0.12.0[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '>=dev-python/contextvars-2.1[${PYTHON_USEDEP}]' python3_6)
 "
-DEPEND="
-	${RDEPEND}
-	dev-python/pytest-runner[${PYTHON_USEDEP}]
-"
+
+DEPEND="test? (
+	dev-python/pytest-marks[${PYTHON_USEDEP}]
+)"
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs/source
 
-src_prepare() {
+python_prepare_all() {
+	# do not depend on deprecated dep
+	sed -i -e '/pytest-runner/d' setup.py || die
+
 	#remove tests from installed packages
 	#TODO: remove hardcoded
 	sed -i 's|packages=find_packages()|packages=["trio_asyncio"]|' setup.py || die
 
-	default
+	distutils-r1_python_prepare_all
 }
