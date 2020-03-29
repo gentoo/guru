@@ -22,13 +22,9 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	dev-python/aiohttp[${PYTHON_USEDEP}]
 	dev-python/async_generator[${PYTHON_USEDEP}]
-"
-BDEPEND="
-	${RDEPEND}
-	test? (
-		dev-python/sanic[${PYTHON_USEDEP}]
-	)
+	dev-python/sanic[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs
+# where is the conf.py file? make html can't find it either
+#distutils_enable_sphinx docs
