@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
 inherit distutils-r1
 
@@ -18,7 +18,12 @@ LICENSE="LGPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+# requires file in src/pygaljs/static that is not in release tarballs
+RESTRICT="test"
+
 RDEPEND=""
 DEPEND=""
+
+S="${WORKDIR}/python-${P}"
 
 distutils_enable_tests pytest
