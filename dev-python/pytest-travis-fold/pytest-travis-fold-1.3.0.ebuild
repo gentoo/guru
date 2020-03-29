@@ -23,6 +23,10 @@ RDEPEND="
 	>=dev-python/pytest-2.6.0[${PYTHON_USEDEP}]
 	<dev-python/pytest-4[${PYTHON_USEDEP}]
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	test? (
+		dev-python/pytest-travis-fold[${PYTHON_USEDEP}]
+	)
+"
 
 distutils_enable_tests pytest
