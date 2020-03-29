@@ -51,5 +51,10 @@ python_prepare_all() {
 			-e "/test_getaddrinfo/i@pytest.mark.skip(reason='no IPv6')" \
 			trio/tests/test_socket.py || die "sed failed for test_socket.py"
 	fi
+
+	# these tests require internet access
+	rm trio/tests/test_ssl.py || die
+	rm trio/tests/test_highlevel_ssl_helpers.py || die
+
 	distutils-r1_python_prepare_all
 }
