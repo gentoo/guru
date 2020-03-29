@@ -5,6 +5,8 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_6 )
 
+DISTUTILS_USE_SETUPTOOLS=rdepend
+
 inherit distutils-r1
 
 DESCRIPTION="An aspect-oriented programming, monkey-patch and decorators library"
@@ -17,6 +19,10 @@ SRC_URI="https://github.com/ionelmc/python-${PN}/archive/v${PV}.tar.gz -> ${P}.t
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+
+# could not get this working, it tries to do all sorts of weird things
+# it calls a tests outside the tests folder, which then fails, removing the file results in import error
+RESTRICT="test"
 
 RDEPEND="
 	dev-python/fields[${PYTHON_USEDEP}]
@@ -32,6 +38,8 @@ DEPEND="
 		www-servers/tornado[${PYTHON_USEDEP}]
 	)
 "
+
+S="${WORKDIR}/python-${P}"
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs dev-python/sphinx-py3doc-enhanced-theme
