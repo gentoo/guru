@@ -33,6 +33,7 @@ DEPEND="
 		dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/nose[${PYTHON_USEDEP}]
 		dev-python/process-tests[${PYTHON_USEDEP}]
+		<dev-python/pytest-4[${PYTHON_USEDEP}]
 		dev-python/pytest-travis-fold[${PYTHON_USEDEP}]
 		dev-python/pytest-catchlog[${PYTHON_USEDEP}]
 		www-servers/tornado[${PYTHON_USEDEP}]
