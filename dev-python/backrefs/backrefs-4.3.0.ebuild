@@ -23,6 +23,7 @@ IUSE="doc"
 DEPEND="
 	test? (
 		dev-python/mock[${PYTHON_USEDEP}]
+		dev-python/regex[${PYTHON_USEDEP}]
 	)
 "
 BDEPEND="
