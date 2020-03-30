@@ -121,6 +121,7 @@ sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/verilator 4.026 9999: The fast free Verilog/SystemVerilog simulator
 sci-libs/ann 1.1.2_p7: A Library for Approximate Nearest Neighbor Searching
 sci-libs/chaco 2.2: Software for Partitioning Graphs
+sci-libs/jdqz 1997.11.07: Jacobi-Davidson type method for the generalized standard eigenvalue problem.
 sci-libs/meschach 1.2b: Meschach is a C-language library of routines for performing matrix computations.
 sys-auth/mrsh 2.12: Mrsh is a set of remote shell programs that use munge authentication.
 sys-cluster/AXL 0.3.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
