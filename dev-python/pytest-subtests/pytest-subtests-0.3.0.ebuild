@@ -17,7 +17,13 @@ LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
-RDEPEND="dev-python/pytest[${PYTHON_USEDEP}]"
+#https://github.com/pytest-dev/pytest-subtests/issues/21
+RESTRICT="test"
+
+RDEPEND="
+	>=dev-python/pytest-4.4[${PYTHON_USEDEP}]
+	>=dev-python/pytest-xdist-1.28[${PYTHON_USEDEP}]
+"
 
 distutils_enable_tests pytest
 
