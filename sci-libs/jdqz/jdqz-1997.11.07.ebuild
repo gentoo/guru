@@ -15,13 +15,11 @@ KEYWORDS="~amd64"
 
 IUSE="doc"
 
-# /usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: ../jdlib/libjdqz.so: undefined reference to `zgegs_'
-#/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: ../jdlib/libjdqz.so: undefined reference to `zgegv_'
-RESTRICT="test"
-
+# vvirtual/lapack does not pull in [deprecated] so we have to deal with this mess like this until it does
 DEPEND="
 	virtual/blas
 	virtual/lapack
+	|| ( sci-libs/openblas sci-libs/lapack[deprecated] )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="doc? ( dev-texlive/texlive-latex )"
@@ -59,8 +57,9 @@ src_compile() {
 }
 
 src_test() {
-	cd jdtest || die
+	cd "jdtest" || die
 	emake
+	cd ".." || die
 	LD_LIBRARY_PATH="./jdlib" ./jdtest/example || die
 }
 
