@@ -8,11 +8,16 @@ inherit flag-o-matic fortran-2
 DESCRIPTION="Jacobi-Davidson type method for the generalized standard eigenvalue problem."
 HOMEPAGE="https://www.win.tue.nl/casa/research/scientificcomputing/topics/jd/software.html"
 SRC_URI="https://www.win.tue.nl/casa/research/scientificcomputing/topics/jd/${PN}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc test"
-RESTRICT="!test? ( test )"
+
+IUSE="doc"
+
+# /usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: ../jdlib/libjdqz.so: undefined reference to `zgegs_'
+#/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/bin/ld: ../jdlib/libjdqz.so: undefined reference to `zgegv_'
+RESTRICT="test"
 
 DEPEND="
 	virtual/blas
@@ -39,9 +44,11 @@ src_prepare() {
 }
 
 src_compile() {
-	use doc && pdflatex manual.tex || die
+	if use doc; then
+		pdflatex manual.tex || die
+	fi
 
-	cd jdlib
+	cd "jdlib" || die
 
 	echo '#!/bin/sh' > make.sh || die
 	echo "${FC}" *.f "${FFLAGS} -shared -fPIC -Wl,-soname,libjdqz.so.0 -lm ${libs} ${LDFLAGS} -o libjdqz.so.0" >> make.sh || die
@@ -49,12 +56,11 @@ src_compile() {
 
 	./make.sh || die
 	ln -s libjdqz.so.0 libjdqz.so || die
-
-	cd ../jdtest
-	use test && emake
 }
 
 src_test() {
+	cd jdtest || die
+	emake
 	LD_LIBRARY_PATH="./jdlib" ./jdtest/example || die
 }
 
