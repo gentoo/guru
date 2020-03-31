@@ -4,7 +4,7 @@ acct-user/_bgpd 0: User for OpenBGPD
 acct-user/fort 0: User for FORT RPKI validator
 acct-user/trezord 0: User for TREZOR Bridge
 app-misc/ghq 1.1.0: Remote repository management made easy
-app-misc/mat2 0.10.1: Metadata Anonymisation Toolkit: handy tool to trash your metadata
+app-misc/mat2 0.11.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/telegram-send 0.25: Send messages and files over Telegram from the command-line
 app-misc/vrms-gentoo 2018.11.20 9999: vrms clone for Gentoo Linux
@@ -134,7 +134,7 @@ sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect da
 sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-process/iotop-c 2014.08.24: top utility for IO (C port)
-www-client/badwolf 0.3.0 0.4.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
+www-client/badwolf 0.4.0 0.5.1 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
 x11-misc/i3lock-color 2.12_p1 9999: Improved i3lock with color customization
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
