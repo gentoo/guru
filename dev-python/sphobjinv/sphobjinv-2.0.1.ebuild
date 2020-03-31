@@ -21,20 +21,25 @@ KEYWORDS="~amd64 ~x86 "
 SLOT="0"
 
 RDEPEND="
-	dev-python/attrs[${PYTHON_USEDEP}]
+	>=dev-python/attrs-17.4[${PYTHON_USEDEP}]
 	dev-python/certifi[${PYTHON_USEDEP}]
 	dev-python/fuzzywuzzy[${PYTHON_USEDEP}]
 	dev-python/jsonschema[${PYTHON_USEDEP}]"
 
 DEPEND="
 	test? (
+		>=dev-python/pytest-4.4.0[${PYTHON_USEDEP}]
+		dev-python/pytest-ordering[${PYTHON_USEDEP}]
 		dev-python/pytest-subtests[${PYTHON_USEDEP}]
 		dev-python/pytest-timeout[${PYTHON_USEDEP}]
-		dev-python/stdio-mgr[${PYTHON_USEDEP}]
+		dev-python/sphinx-issues[${PYTHON_USEDEP}]
+		dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
+		>=dev-python/stdio-mgr-1.0.1[${PYTHON_USEDEP}]
 		dev-python/timeout-decorator[${PYTHON_USEDEP}]
 	)
 "
 
+#it may require sphinx==2.3.1
 distutils_enable_sphinx doc/source dev-python/sphinx_rtd_theme dev-python/sphinx-issues
 distutils_enable_tests pytest
 
