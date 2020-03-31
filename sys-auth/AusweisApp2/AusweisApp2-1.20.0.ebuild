@@ -15,6 +15,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
+BDEPEND="virtual/pkgconfig"
+
 RDEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtconcurrent:5
@@ -29,8 +31,7 @@ RDEPEND="
 	net-libs/http-parser"
 
 DEPEND="${RDEPEND}
-	dev-qt/linguist-tools:5
-	virtual/pkgconfig"
+	dev-qt/linguist-tools:5"
 
 src_configure() {
 	local mycmakeargs=( -DBUILD_SHARED_LIBS=OFF )
