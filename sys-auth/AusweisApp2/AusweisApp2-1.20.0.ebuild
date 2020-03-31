@@ -33,7 +33,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-qt/linguist-tools:5"
 
-
 src_configure() {
 	local mycmakeargs=( -DBUILD_SHARED_LIBS=OFF )
 	cmake-utils_src_configure
