@@ -34,14 +34,20 @@ DEPEND="
 		>=dev-python/hypothesis-3.64[${PYTHON_USEDEP}]
 		!~dev-python/pytest-3.7.0[${PYTHON_USEDEP}]
 		!~dev-python/pytest-3.7.1[${PYTHON_USEDEP}]
+		>=dev-python/pytest-4.3[${PYTHON_USEDEP}]
 		dev-python/trio-asyncio[${PYTHON_USEDEP}]
 	)
 "
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs/source
+distutils_enable_sphinx docs/source \
+					">=dev-python/attrs-17.4.0" \
+					">=dev-python/sphinx-1.6.1" \
+					dev-python/sphinx_rtd_theme \
+					dev-python/sphinxcontrib-trio
 
 python_prepare_all() {
+	#fix for https://github.com/python-trio/pytest-trio/issues/90
 	# AttributeError("module 'pytest' has no attribute 'RemovedInPytest4Warning'",)
 	rm pytest_trio/_tests/conftest.py || die
 
@@ -50,6 +56,10 @@ python_prepare_all() {
 
 python_test() {
 	# has to be run in source dir
+	#even upstream doesn't know how to run their tests
+	#https://github.com/python-trio/pytest-trio/issues/84
+	#"Our CI is still passing AFAIK"
+
 	PYTHONPATH="${S}"
 	cd "${S}" || die
 	pytest -vv || die "Tests fail with ${EPYTHON}"
