@@ -27,6 +27,7 @@ DEPEND="
 	${RDEPEND}
 	test? (
 		dev-python/pexpect[${PYTHON_USEDEP}]
+		dev-python/pytest-instafail[${PYTHON_USEDEP}]
 		dev-python/pytest-xdist[${PYTHON_USEDEP}]
 	)
 "
