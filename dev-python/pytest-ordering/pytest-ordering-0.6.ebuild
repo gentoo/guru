@@ -3,7 +3,9 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
+
+DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
@@ -18,7 +20,15 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND=""
+DEPEND="test? ( dev-python/pytest-ordering[${PYTHON_USEDEP}] )"
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs/source
+
+python_prepare_all() {
+	# TypeError: `args` parameter expected to be a list or tuple of strings, got: '--markers' (type: <class 'str'>)
+	sed -i -e 's:test_run_marker_registered:_&:' \
+			tests/test_ordering.py || die
+
+	distutils-r1_python_prepare_all
+}
