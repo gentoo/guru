@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop xdg cmake-utils
+inherit desktop xdg cmake
 
 MY_PN="MultiMC5"
 MY_P="${MY_PN}-${PV}"
@@ -57,11 +57,11 @@ src_configure() {
 	local mycmakeargs=(
 		-DMultiMC_LAYOUT=lin-system
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
-	cmake-utils_src_install
+	cmake_src_install
 	domenu application/package/linux/multimc.desktop
 	doicon -s scalable application/resources/multimc/scalable/multimc.svg
 }
