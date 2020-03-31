@@ -58,6 +58,7 @@ dev-python/pyspelling 2.6.0: Spell checker automation tool
 dev-python/pytest-benchmark 3.2.3: py.test fixture for benchmarking code
 dev-python/pytest-instafail 0.4.1: Plugin for pytest that shows failures and errors instantly
 dev-python/pytest-marks 0.4: Allow to set 'marks' on pytest methods
+dev-python/pytest-ordering 0.6: pytest plugin to run your tests in a specific order
 dev-python/pytest-sanic 1.6.0: a Pytest Plugin for Sanic
 dev-python/pytest-subtests 0.3.0: unittest subTest() support and subtests fixture
 dev-python/pytest-sugar 0.9.2: Plugin for pytest that changes the default look and feel of pytest
