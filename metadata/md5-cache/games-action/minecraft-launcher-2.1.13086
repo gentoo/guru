@@ -9,5 +9,5 @@ RDEPEND=gnome-base/gconf sys-apps/dbus x11-apps/xrandr x11-libs/libXcomposite x1
 RESTRICT=bindist mirror
 SLOT=2
 SRC_URI=https://launcher.mojang.com/download/linux/x86_64/minecraft-launcher_2.1.13086.tar.gz -> minecraft-launcher-2.1.13086.tar.gz https://launcher.mojang.com/download/minecraft-launcher.svg
-_eclasses_=desktop	3b1f1d9a6b749c9ce2d5182877265b23	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_eclasses_=desktop	7fd20552ce4cc97e8acb132a499a7dd8	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
 _md5_=c1c9fa4b1aba86082822b16ac822b709
