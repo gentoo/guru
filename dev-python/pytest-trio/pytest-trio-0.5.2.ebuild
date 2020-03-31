@@ -32,6 +32,7 @@ DEPEND="
 	${RDEPEND}
 	test? (
 		>=dev-python/hypothesis-3.64[${PYTHON_USEDEP}]
+		dev-python/pytest-trio[${PYTHON_USEDEP}]
 		!~dev-python/pytest-3.7.0[${PYTHON_USEDEP}]
 		!~dev-python/pytest-3.7.1[${PYTHON_USEDEP}]
 		>=dev-python/pytest-4.3[${PYTHON_USEDEP}]
