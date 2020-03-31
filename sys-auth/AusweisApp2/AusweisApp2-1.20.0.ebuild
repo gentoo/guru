@@ -4,7 +4,7 @@
 EAPI=7
 
 CMAKE_BUILD_TYPE=Release
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="Official authentication app for German ID cards and residence permits"
 HOMEPAGE="https://www.ausweisapp.bund.de/"
@@ -35,5 +35,5 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	local mycmakeargs=( -DBUILD_SHARED_LIBS=OFF )
-	cmake-utils_src_configure
+	cmake_src_configure
 }
