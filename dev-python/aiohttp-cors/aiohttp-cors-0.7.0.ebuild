@@ -3,14 +3,13 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_{6,7} )
 
 inherit distutils-r1
 
 DESCRIPTION="Implements CORS support for aiohttp asyncio-powered asynchronous HTTP server"
 HOMEPAGE="https://github.com/aio-libs/aiohttp-cors"
 SRC_URI="https://github.com/aio-libs/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-EGIT_REPO_URI="https://github.com/aio-libs/aiohttp-cors"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -25,8 +24,10 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
+# https://github.com/aio-libs/aiohttp-cors/pull/278
 PATCHES=(
-	"${FILESDIR}"/aiohttp-cors-0.7.0-tests.patch
+	"${FILESDIR}/${P}-tests.patch"
+	"${FILESDIR}/${P}-py3_7.patch"
 )
 
 src_prepare() {
