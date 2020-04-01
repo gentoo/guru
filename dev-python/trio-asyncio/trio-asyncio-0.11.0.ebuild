@@ -19,7 +19,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 # ImportError: cannot import name 'MarkInfo'
-# might be an issue in pytest-marks
+# MarkInfo removed in pytest-4.1
 RESTRICT="test"
 
 RDEPEND="
@@ -30,7 +30,7 @@ RDEPEND="
 "
 
 DEPEND="test? (
-	dev-python/pytest-marks[${PYTHON_USEDEP}]
+	<dev-python/pytest-4.1[${PYTHON_USEDEP}]
 )"
 
 distutils_enable_tests pytest
