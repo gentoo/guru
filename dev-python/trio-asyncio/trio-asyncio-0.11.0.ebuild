@@ -26,6 +26,7 @@ RDEPEND="
 "
 
 DEPEND="test? (
+	dev-python/pytest-trio[${PYTHON_USEDEP}]
 	<dev-python/pytest-4.1[${PYTHON_USEDEP}]
 )"
 
