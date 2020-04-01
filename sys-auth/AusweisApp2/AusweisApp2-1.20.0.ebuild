@@ -3,7 +3,6 @@
 
 EAPI=7
 
-CMAKE_BUILD_TYPE=Release
 inherit cmake
 
 DESCRIPTION="Official authentication app for German ID cards and residence permits"
