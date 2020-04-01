@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_7 )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-inherit eutils xdg distutils-r1
+inherit eutils xdg distutils-r1 virtualx
 
 DESCRIPTION="Watch music videos in real time for the songs playing on your device"
 HOMEPAGE="https://github.com/vidify/vidify"
@@ -25,25 +25,34 @@ RDEPEND="
 	dev-python/appdirs[${PYTHON_USEDEP}]
 	dev-python/lyricwikia[${PYTHON_USEDEP}]
 	dev-python/pydbus[${PYTHON_USEDEP}]
+	dev-python/qdarkstyle[${PYTHON_USEDEP}]
 	dev-python/QtPy[gui,webengine,${PYTHON_USEDEP}]
 	dev-python/tekore[${PYTHON_USEDEP}]
 	net-misc/youtube-dl[${PYTHON_USEDEP}]
+	dev-python/zeroconf[${PYTHON_USEDEP}]
 	mpv? ( dev-python/python-mpv[${PYTHON_USEDEP}] )
-	vlc? ( dev-python/python-vlc[${PYTHON_USEDEP}] )"
+	vlc? ( dev-python/python-vlc[${PYTHON_USEDEP}] )
+"
 
 distutils_enable_tests unittest
 
 python_prepare_all() {
 	# skip online test
-	rm tests/apis/test_spotify_web.py || die
+	rm tests/api/test_spotify_web.py || die
+	rm tests/player/test_external.py || die
 
-	# this needs dbus running
-	rm tests/apis/test_mpris.py || die
+	# this needs dbus and a player running
+	rm tests/api/test_mpris.py || die
 
 	# fails to parse config for some reason
+	# likely because of the removal of the above tests
 	rm tests/test_api_and_player_data.py || die
 
 	distutils-r1_python_prepare_all
+}
+
+python_test() {
+	virtx "${EPYTHON}" -m unittest discover -v
 }
 
 pkg_postinst() {
@@ -53,6 +62,5 @@ pkg_postinst() {
 	use vlc && elog "If video playback is not working please check 'vidify --debug' for missing-codec-errors and recompile media-video/vlc with the missing codecs"
 	use mpv && elog "If video playback is not working please check 'vidify --player mpv --debug' for missing-codec-errors and recompile media-video/mpv with the missing codecs"
 
-	optfeature "'vidify --dark-mode'" dev-python/qdarkstyle
 	optfeature "'vidify --audiosync'" media-video/vidify-audiosync
 }
