@@ -22,6 +22,7 @@ SLOT="0"
 
 KEYWORDS="~amd64 ~x86"
 
+#majority of test works but I can't exclude the failing one easily
 RESTRICT="test"
 
 RDEPEND=""
@@ -33,11 +34,17 @@ DEPEND="
 		dev-python/process-tests[${PYTHON_USEDEP}]
 		dev-python/pytest-travis-fold[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
-		www-servers/uwsgi[python,python_gevent,${PYTHON_USEDEP}]
 	)
 "
+#		www-servers/uwsgi[python,python_gevent,${PYTHON_USEDEP}]
 
 S="${WORKDIR}/${MYPN}-${PV}"
+
+#src_prepare() {
+#	#wsgi test require network
+#	rm tests/wsgi.py || die
+#	default
+#}
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs \
