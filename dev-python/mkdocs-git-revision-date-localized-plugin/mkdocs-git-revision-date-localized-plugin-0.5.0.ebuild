@@ -20,13 +20,13 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RESTRICT="test" # fails, mkdocs failed
+RESTRICT="test" # fails, I think it tries to run git
 
 RDEPEND="
 	>=dev-python/Babel-2.7.0[${PYTHON_USEDEP}]
 	dev-python/GitPython[${PYTHON_USEDEP}]
 	dev-python/jinja[${PYTHON_USEDEP}]
-	dev-python/mkdocs[${PYTHON_USEDEP}]
+	>=dev-python/mkdocs-0.17[${PYTHON_USEDEP}]
 "
 DEPEND="
 	dev-python/click[${PYTHON_USEDEP}]
