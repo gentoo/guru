@@ -9,5 +9,7 @@
 	<use>
 		<flag name="vlc">Use python-vlc as backend for vidify</flag>
 		<flag name="mpv">Use python-mpv as backend for vidify</flag>
+		<flag name="zeroconf">Use an external network player</flag>
+		<flag name="dbus">Support local MPRIS players</flag>
 	</use>
 </pkgmetadata>
