@@ -3,15 +3,15 @@
 
 EAPI=7
 
-inherit cmake
+inherit cmake git-r3
 
 DESCRIPTION="Official authentication app for German ID cards and residence permits"
 HOMEPAGE="https://www.ausweisapp.bund.de/"
-SRC_URI="https://github.com/Governikus/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+EGIT_REPO_URI="https://github.com/Governikus/AusweisApp2.git"
 
 LICENSE="EUPL-1.2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE=""
 
 BDEPEND="virtual/pkgconfig"
@@ -31,6 +31,11 @@ RDEPEND="
 
 DEPEND="${RDEPEND}
 	dev-qt/linguist-tools:5"
+
+src_prepare() {
+	cmake_src_prepare
+	eautoreconf
+}
 
 src_install() {
 	cmake_src_install

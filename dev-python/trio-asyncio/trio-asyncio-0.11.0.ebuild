@@ -18,10 +18,6 @@ LICENSE=" || ( Apache-2.0 MIT )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-# ImportError: cannot import name 'MarkInfo'
-# might be an issue in pytest-marks
-RESTRICT="test"
-
 RDEPEND="
 	>=dev-python/async_generator-1.6[${PYTHON_USEDEP}]
 	dev-python/outcome[${PYTHON_USEDEP}]
@@ -30,7 +26,8 @@ RDEPEND="
 "
 
 DEPEND="test? (
-	dev-python/pytest-marks[${PYTHON_USEDEP}]
+	dev-python/pytest-trio[${PYTHON_USEDEP}]
+	<dev-python/pytest-4.1[${PYTHON_USEDEP}]
 )"
 
 distutils_enable_tests pytest
