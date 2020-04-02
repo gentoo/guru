@@ -15,12 +15,6 @@ LICENSE="MPL-1.1"
 SLOT="0"
 KEYWORDS="~amd64"
 
-#tests fail with an import failure
-#    from cchardet import _cchardet
-#ImportError: cannot import name '_cchardet'
-#I tried to manually import _cchardet in ipython3 and it works ...
-RESTRICT="test"
-
 RDEPEND="
 	dev-python/chardet[${PYTHON_USEDEP}]
 "
@@ -40,7 +34,6 @@ distutils_enable_tests nose
 #	default
 #}
 
-#python_test() {
-#	distutils_install_for_testing
-#	"${EPYTHON}" setup.py nosetest || die
-#}
+python_test() {
+	"${EPYTHON}" setup.py nosetests || die
+}
