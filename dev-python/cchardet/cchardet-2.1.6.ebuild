@@ -35,5 +35,5 @@ distutils_enable_tests nose
 #}
 
 python_test() {
-	"${EPYTHON}" setup.py nosetests || die
+	esetup.py nosetests || die "Tests fail with ${EPYTHON}"
 }
