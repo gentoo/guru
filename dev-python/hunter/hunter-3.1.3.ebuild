@@ -20,9 +20,6 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-#https://github.com/ionelmc/python-hunter/issues/82
-RESTRICT="test"
-
 RDEPEND="
 	dev-python/colorama[${PYTHON_USEDEP}]
 "
@@ -30,6 +27,7 @@ DEPEND="
 	${RDEPEND}
 	test? (
 		dev-python/aspectlib[${PYTHON_USEDEP}]
+		dev-python/hunter[${PYTHON_USEDEP}]
 		dev-python/manhole[${PYTHON_USEDEP}]
 		dev-python/process-tests[${PYTHON_USEDEP}]
 		dev-python/pytest-benchmark[${PYTHON_USEDEP}]
