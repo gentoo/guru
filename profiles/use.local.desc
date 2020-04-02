@@ -15,8 +15,10 @@ gui-wm/wayfire:wf-config - Makes wayfire use the system-wide wf-config, else bui
 gui-wm/wayfire:wlroots - Makes wayfire use the system wide wlroots, else builds it as a submodule. DO NOT DISABLE UNLESS YOU KNOW WHAT YOU ARE DOING.
 mail-client/mutt-wizard:lynx - Use lynx to view html emails in mutt. HIGHLY RECOMMENDED.
 mail-client/mutt-wizard:notmuch - Pulls in notmuch (thin frontend on xapian). HIGHLY RECOMMENDED.
+media-video/vidify:dbus - Support local MPRIS players
 media-video/vidify:mpv - Use python-mpv as backend for vidify
 media-video/vidify:vlc - Use python-vlc as backend for vidify
+media-video/vidify:zeroconf - Use an external network player
 net-p2p/trezord-go:systemd - Install systemd service file
 net-p2p/trezord-go:udev - Install udev rules
 sci-libs/meschach:complex - incorporate complex functions.
