@@ -12,7 +12,7 @@ HOMEPAGE="
 		https://github.com/hellysmile/fake-useragent
 		https://pypi.org/project/fake-useragent
 "
-SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/hellysmile/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -49,5 +49,16 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+python_prepare_all() {
+	# do not depend on pytest-cov
+	sed -i -e '/addopts/d' pytest.ini || die
+
+	# skip online tests
+	rm tests/test_fake.py || die
+	rm tests/test_utils.py || die
+
+	distutils-r1_python_prepare_all
+}
+
 distutils_enable_tests pytest
-distutils_enable_sphinx docs
+distutils_enable_sphinx docs --no-autodoc
