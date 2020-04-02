@@ -3,9 +3,9 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
-inherit cmake-utils
+inherit cmake distutils-r1
 
 MY_PN="GeographicLib"
 MY_PV=$(ver_rs 2 -)
@@ -48,14 +48,14 @@ IUSE_PRECISION="
 	precision_quad
 	precision_single
 "
-IUSE="${IUSE_GEOID_DATASET} ${IUSE_GRAVITY_MODEL} ${IUSE_MAGNETIC_MODEL} ${IUSE_PRECISION} boost doc examples geoid gravity magnetic"
+IUSE="${IUSE_GEOID_DATASET} ${IUSE_GRAVITY_MODEL} ${IUSE_MAGNETIC_MODEL} ${IUSE_PRECISION} boost doc examples geoid gravity magnetic python"
 IUSE_EXPAND="GEOID_DATASET GRAVITY_MODEL MAGNETIC_MODEL PRECISION"
 REQUIRED_USE="
 	^^ ( ${IUSE_PRECISION/+/} )
 	geoid? ( || ( ${IUSE_GEOID_DATASET/+/} ) )
 	gravity? ( || ( ${IUSE_GRAVITY_MODEL/+/} ) )
 	magnetic? ( || ( ${IUSE_MAGNETIC_MODEL/+/} ) )
-
+	python? ( ${PYTHON_REQUIRED_USE} )
 "
 SRC_URI="
 https://sourceforge.net/projects/${PN}/files/distrib/${MY_P}.tar.gz/download -> ${P}.tar.gz
@@ -107,9 +107,20 @@ DEPEND="
 
 S="${WORKDIR}/${MY_P}"
 
+distutils_enable_tests setup.py
+
 src_prepare() {
 	#TODO: strip cflags
 	default
+
+	# FATAL: cmake_src_prepare has not been run
+	cmake_src_prepare
+
+	if use python; then
+		cd "python" || die
+		distutils-r1_python_prepare_all
+		cd ".." || die
+	fi
 }
 
 src_configure() {
@@ -126,12 +137,41 @@ src_configure() {
 		-DUSE_BOOST_FOR_EXAMPLES=$(usex boost ON OFF)
 		-DGEOGRAPHICLIB_PRECISION="${precision}"
 	)
-	cmake-utils_src_configure
+
+	cmake_src_configure
+}
+
+src_compile() {
+	if use python; then
+		cd "python" || die
+		python_foreach_impl distutils-r1_python_compile
+		cd ".." || die
+	fi
+
+	default
+}
+
+src_test() {
+	if use python; then
+		cd "python" || die
+		python_foreach_impl python_test
+		cd ".." || die
+	fi
+
+	# Only 1 failing test in the C code, python passes for me
+	default
 }
 
 src_install() {
+	if use python; then
+		cd "python" || die
+		distutils-r1_python_install_all
+		cd ".."
+	fi
+
+	# Access denied, make file needs patching
+	# to correctly install in ${D}
 	default
-	#TODO: install python bindings correctly
 	#TODO: install datasets
 	#TODO: find out if java stuff need something
 }
