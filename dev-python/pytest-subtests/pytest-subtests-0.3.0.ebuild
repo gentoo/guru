@@ -32,3 +32,10 @@ python_prepare_all() {
 
 	distutils-r1_python_prepare_all
 }
+
+python_test() {
+	# tests fail if package is not installed
+	# workaround is to add source to PYTHONPATH
+	PYTHONPATH="${S}"
+	pytest -vv || die
+}
