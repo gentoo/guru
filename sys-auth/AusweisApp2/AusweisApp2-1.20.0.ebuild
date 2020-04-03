@@ -32,11 +32,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-qt/linguist-tools:5"
 
-src_configure() {
-	# get rid of QA Notice: The following files contain insecure RUNPATHs
-	local mycmakeargs=( -DCMAKE_SKIP_RPATH=ON )
-	cmake_src_configure
-}
+PATCHES=( "${FILESDIR}"/1.20.0-CMakeLists.patch )
 
 src_install() {
 	cmake_src_install

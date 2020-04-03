@@ -1,0 +1,12 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e958954..ae85daa 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -57,6 +57,7 @@ IF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT AND (IOS OR ANDROID))
+ ENDIF()
+ SET(CMAKE_DIR "${PROJECT_SOURCE_DIR}/cmake")
+ SET(CMAKE_MODULE_PATH "${CMAKE_DIR}")
++SET(CMAKE_SKIP_RPATH YES CACHE BOOL "Remove RUNPATH from ELF dynamic sections" FORCE)
+ OPTION(BUILD_SHARED_LIBS "Enable build of shared libraries")
+ OPTION(INTEGRATED_SDK "Build platform specific SDK" OFF)
+ 
