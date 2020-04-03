@@ -16,10 +16,9 @@ HOMEPAGE="
 	https://pypi.org/project/python-manhole
 "
 SRC_URI="https://github.com/ionelmc/${MYPN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="BSD-2"
 SLOT="0"
-IUSE="test"
-RESTRICT="!test? ( test )"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND=""
@@ -37,6 +36,11 @@ DEPEND="
 
 S="${WORKDIR}/${MYPN}-${PV}"
 
+distutils_enable_tests pytest
+distutils_enable_sphinx docs \
+				dev-python/sphinx-py3doc-enhanced-theme \
+				dev-python/sphinxcontrib-napoleon
+
 python_test() {
 	pytest -vv \
 			--deselect tests/test_manhole.py::test_non_daemon_connection \
@@ -45,10 +49,6 @@ python_test() {
 			--deselect tests/test_manhole.py::test_fork_exec \
 			--deselect tests/test_manhole.py::test_connection_handler_exec[str] \
 			--deselect tests/test_manhole.py::test_connection_handler_exec[func] \
-			--deselect tests/test_manhole_cli.py::test_help
+			--deselect tests/test_manhole_cli.py::test_help || die
 
 }
-
-distutils_enable_sphinx docs \
-				dev-python/sphinx-py3doc-enhanced-theme \
-				dev-python/sphinxcontrib-napoleon
