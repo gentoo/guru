@@ -16,14 +16,14 @@ HOMEPAGE="https://sourceforge.net/projects/geographiclib/"
 
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE_GEOID_DATASET="
-	geoid_dataset_egm84-30
-	geoid_dataset_egm84-15
-	geoid_dataset_egm96-15
-	geoid_dataset_egm96-5
-	geoid_dataset_egm2008-5
-	geoid_dataset_egm2008-2-5
-	geoid_dataset_egm2008-1
+IUSE_GEOIDS_DATASET="
+	geoids_dataset_egm84-30
+	geoids_dataset_egm84-15
+	geoids_dataset_egm96-15
+	geoids_dataset_egm96-5
+	geoids_dataset_egm2008-5
+	geoids_dataset_egm2008-2-5
+	geoids_dataset_egm2008-1
 "
 IUSE_GRAVITY_MODEL="
 	gravity_model_egm84
@@ -48,44 +48,48 @@ IUSE_PRECISION="
 	precision_quad
 	precision_single
 "
-IUSE="${IUSE_GEOID_DATASET} ${IUSE_GRAVITY_MODEL} ${IUSE_MAGNETIC_MODEL} ${IUSE_PRECISION} boost doc examples geoid gravity magnetic python"
-IUSE_EXPAND="GEOID_DATASET GRAVITY_MODEL MAGNETIC_MODEL PRECISION"
+IUSE="${IUSE_GEOIDS_DATASET} ${IUSE_GRAVITY_MODEL} ${IUSE_MAGNETIC_MODEL} ${IUSE_PRECISION} boost doc examples geoids gravity magnetic python"
+IUSE_EXPAND="GEOIDS_DATASET GRAVITY_MODEL MAGNETIC_MODEL PRECISION"
+
+#reverse required use needed, e.g. !geoids? ( !geoids_dataset_egm2008-1 ) and so on, use bash magic to generate them
 REQUIRED_USE="
 	^^ ( ${IUSE_PRECISION/+/} )
-	geoid? ( || ( ${IUSE_GEOID_DATASET/+/} ) )
+	geoids? ( || ( ${IUSE_GEOIDS_DATASET/+/} ) )
 	gravity? ( || ( ${IUSE_GRAVITY_MODEL/+/} ) )
 	magnetic? ( || ( ${IUSE_MAGNETIC_MODEL/+/} ) )
 	python? ( ${PYTHON_REQUIRED_USE} )
 "
+
+COMMON_URI="https://sourceforge.net/projects/${PN}/files"
 SRC_URI="
-https://sourceforge.net/projects/${PN}/files/distrib/${MY_P}.tar.gz/download -> ${P}.tar.gz
+${COMMON_URI}/distrib/${MY_P}.tar.gz/download -> ${P}.tar.gz
 
-geoid_dataset_egm84-30?		( https://sourceforge.net/projects/geographiclib/files/geoids-distrib/egm84-30.tar.bz2 )
-geoid_dataset_egm84-15?		( https://sourceforge.net/projects/geographiclib/files/geoids-distrib/egm84-15.tar.bz2 )
-geoid_dataset_egm96-15?		( https://sourceforge.net/projects/geographiclib/files/geoids-distrib/egm96-15.tar.bz2 )
-geoid_dataset_egm96-5?		( https://sourceforge.net/projects/geographiclib/files/geoids-distrib/egm96-5.tar.bz2 )
-geoid_dataset_egm2008-5?	( https://sourceforge.net/projects/geographiclib/files/geoids-distrib/egm2008-5.tar.bz2 )
-geoid_dataset_egm2008-2-5?	( https://sourceforge.net/projects/geographiclib/files/geoids-distrib/egm2008-2_5.tar.bz2 )
-geoid_dataset_egm2008-1?	( https://sourceforge.net/projects/geographiclib/files/geoids-distrib/egm2008-1.tar.bz2 )
+geoids_dataset_egm84-30?         ( ${COMMON_URI}/geoids-distrib/egm84-30.tar.bz2	-> geoids-egm84-30.tar.bz2	)
+geoids_dataset_egm84-15?         ( ${COMMON_URI}/geoids-distrib/egm84-15.tar.bz2	-> geoids-egm84-15.tar.bz2	)
+geoids_dataset_egm96-15?         ( ${COMMON_URI}/geoids-distrib/egm96-15.tar.bz2	-> geoids-egm96-15.tar.bz2	)
+geoids_dataset_egm96-5?          ( ${COMMON_URI}/geoids-distrib/egm96-5.tar.bz2		-> geoids-egm96-5.tar.bz2	)
+geoids_dataset_egm2008-5?        ( ${COMMON_URI}/geoids-distrib/egm2008-5.tar.bz2	-> geoids-egm2008-5.tar.bz2	)
+geoids_dataset_egm2008-2-5?      ( ${COMMON_URI}/geoids-distrib/egm2008-2_5.tar.bz2	-> geoids-egm2008-2_5.tar.bz2	)
+geoids_dataset_egm2008-1?        ( ${COMMON_URI}/geoids-distrib/egm2008-1.tar.bz2	-> geoids-egm2008-1.tar.bz2	)
 
-gravity_model_egm84?		( https://sourceforge.net/projects/geographiclib/files/gravity-distrib/egm84.tar.bz2 )
-gravity_model_egm96?		( https://sourceforge.net/projects/geographiclib/files/gravity-distrib/egm96.tar.bz2 )
-gravity_model_egm2008?		( https://sourceforge.net/projects/geographiclib/files/gravity-distrib/egm2008.tar.bz2 )
-gravity_model_wgs84?		( https://sourceforge.net/projects/geographiclib/files/gravity-distrib/wgs84.tar.bz2 )
+gravity_model_egm84?            ( ${COMMON_URI}/gravity-distrib/egm84.tar.bz2		-> gravity-egm84.tar.bz2	)
+gravity_model_egm96?            ( ${COMMON_URI}/gravity-distrib/egm96.tar.bz2		-> gravity-egm96.tar.bz2	)
+gravity_model_egm2008?          ( ${COMMON_URI}/gravity-distrib/egm2008.tar.bz2		-> gravity-egm2008.tar.bz2	)
+gravity_model_wgs84?            ( ${COMMON_URI}/gravity-distrib/wgs84.tar.bz2		-> gravity-wgs84.tar.bz2	)
 
-magnetic_model_wmm2010?		( https://sourceforge.net/projects/geographiclib/files/magnetic-distrib/wmm2010.tar.bz2 )
-magnetic_model_wmm2015v2?	( https://sourceforge.net/projects/geographiclib/files/magnetic-distrib/wmm2015v2.tar.bz2 )
-magnetic_model_wmm2020?		( https://sourceforge.net/projects/geographiclib/files/magnetic-distrib/wmm2020.tar.bz2 )
-magnetic_model_igrf11?		( https://sourceforge.net/projects/geographiclib/files/magnetic-distrib/igrf11.tar.bz2 )
-magnetic_model_igrf12?		( https://sourceforge.net/projects/geographiclib/files/magnetic-distrib/igrf12.tar.bz2 )
-magnetic_model_emm2010?		( https://sourceforge.net/projects/geographiclib/files/magnetic-distrib/emm2010.tar.bz2 )
-magnetic_model_emm2015?		( https://sourceforge.net/projects/geographiclib/files/magnetic-distrib/emm2015.tar.bz2 )
-magnetic_model_emm2017?		( https://sourceforge.net/projects/geographiclib/files/magnetic-distrib/emm2017.tar.bz2 )
+magnetic_model_wmm2010?         ( ${COMMON_URI}/magnetic-distrib/wmm2010.tar.bz2	-> magnetic-wmm2010.tar.bz2	)
+magnetic_model_wmm2015v2?       ( ${COMMON_URI}/magnetic-distrib/wmm2015v2.tar.bz2	-> magnetic-wmm2015v2.tar.bz2	)
+magnetic_model_wmm2020?         ( ${COMMON_URI}/magnetic-distrib/wmm2020.tar.bz2	-> magnetic-wmm2020.tar.bz2	)
+magnetic_model_igrf11?          ( ${COMMON_URI}/magnetic-distrib/igrf11.tar.bz2		-> magnetic-igrf11.tar.bz2	)
+magnetic_model_igrf12?          ( ${COMMON_URI}/magnetic-distrib/igrf12.tar.bz2		-> magnetic-igrf12.tar.bz2	)
+magnetic_model_emm2010?         ( ${COMMON_URI}/magnetic-distrib/emm2010.tar.bz2	-> magnetic-emm2010.tar.bz2	)
+magnetic_model_emm2015?         ( ${COMMON_URI}/magnetic-distrib/emm2015.tar.bz2	-> magnetic-emm2015.tar.bz2	)
+magnetic_model_emm2017?         ( ${COMMON_URI}/magnetic-distrib/emm2017.tar.bz2	-> magnetic-emm2017.tar.bz2	)
 "
 #TODO: find out the licenses of the geoid and gravity datasets
 LICENSE="
 	MIT
-	geoid? ( public-domain )
+	geoids? ( public-domain )
 	gravity? ( public-domain )
 	magnetic? ( public-domain )
 "
@@ -111,6 +115,9 @@ distutils_enable_tests setup.py
 
 src_prepare() {
 	#TODO: strip cflags
+#	sed -i "s|CXXFLAGS = -g -Wall -Wextra -O3 -std=c++0x||" tools/Makefile.mk || die
+#	sed -i "s|CXXFLAGS = -g -Wall -Wextra -O3 -std=c++0x||" src/Makefile.mk || die
+
 	default
 
 	# FATAL: cmake_src_prepare has not been run
@@ -131,11 +138,15 @@ src_configure() {
 	use precision_quad		&& precision="4"
 	use precision_single		&& precision="1"
 
+	export GEODATAPATH="/usr/share/GeographicLib"
+
 	local mycmakeargs=(
 		-DGEOGRAPHICLIB_DOCUMENTATION=$(usex doc ON OFF)
 		-DGEOGRAPHICLIB_LIB_TYPE="SHARED"
 		-DUSE_BOOST_FOR_EXAMPLES=$(usex boost ON OFF)
 		-DGEOGRAPHICLIB_PRECISION="${precision}"
+		-DGEOGRAPHICLIB_DATA="${GEODATAPATH}"
+		-DCMAKE_INSTALL_PREFIX="/usr"
 	)
 
 	cmake_src_configure
@@ -163,15 +174,20 @@ src_test() {
 }
 
 src_install() {
+	insinto "${GEODATAPATH}/geoids"
+	use geoids && doins -r "${WORKDIR}"/geoids/.
+	insinto "${GEODATAPATH}/gravity"
+	use gravity && doins -r "${WORKDIR}"/gravity/.
+	insinto "${GEODATAPATH}/magnetic"
+	use magnetic && doins -r "${WORKDIR}"/magnetic/.
+
 	if use python; then
 		cd "python" || die
 		distutils-r1_python_install_all
 		cd ".."
 	fi
-
 	# Access denied, make file needs patching
 	# to correctly install in ${D}
 	default
-	#TODO: install datasets
 	#TODO: find out if java stuff need something
 }
