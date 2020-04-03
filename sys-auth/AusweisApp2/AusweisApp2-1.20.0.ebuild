@@ -32,6 +32,8 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-qt/linguist-tools:5"
 
+PATCHES=( "${FILESDIR}"/1.20.0-CMakeLists.patch )
+
 src_install() {
 	cmake_src_install
 	dolib.so "${BUILD_DIR}"/src/activation/base/libAusweisAppActivation.so

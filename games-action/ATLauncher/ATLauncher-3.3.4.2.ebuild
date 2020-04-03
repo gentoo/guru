@@ -33,9 +33,8 @@ src_compile() {
 src_install() {
 	java-pkg_newjar "${DISTDIR}/${P}.jar" ${P}.jar
 
-	insinto /usr/bin/
-	doins "${FILESDIR}/${PN}"
-	fperms +x /usr/bin/${PN}
+	exeinto /usr/bin/
+	doexe "${FILESDIR}/${PN}"
 
 	newicon -s 256x256 ${PN}-0.png atlauncher.png
 	newicon -s 128x128 ${PN}-1.png atlauncher.png

@@ -32,6 +32,8 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-qt/linguist-tools:5"
 
+PATCHES=( "${FILESDIR}"/1.20.0-CMakeLists.patch )
+
 src_prepare() {
 	cmake_src_prepare
 	eautoreconf

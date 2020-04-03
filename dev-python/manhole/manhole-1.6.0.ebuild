@@ -4,7 +4,6 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_6 )
-
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
@@ -17,13 +16,10 @@ HOMEPAGE="
 	https://pypi.org/project/python-manhole
 "
 SRC_URI="https://github.com/ionelmc/${MYPN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="BSD-2"
 SLOT="0"
-
 KEYWORDS="~amd64 ~x86"
-
-#majority of test works but I can't exclude the failing one easily
-RESTRICT="test"
 
 RDEPEND=""
 DEPEND="
@@ -40,13 +36,19 @@ DEPEND="
 
 S="${WORKDIR}/${MYPN}-${PV}"
 
-#src_prepare() {
-#	#wsgi test require network
-#	rm tests/wsgi.py || die
-#	default
-#}
-
 distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 				dev-python/sphinx-py3doc-enhanced-theme \
 				dev-python/sphinxcontrib-napoleon
+
+python_test() {
+	pytest -vv \
+			--deselect tests/test_manhole.py::test_non_daemon_connection \
+			--deselect tests/test_manhole.py::test_daemon_connection \
+			--deselect tests/test_manhole.py::test_uwsgi \
+			--deselect tests/test_manhole.py::test_fork_exec \
+			--deselect tests/test_manhole.py::test_connection_handler_exec[str] \
+			--deselect tests/test_manhole.py::test_connection_handler_exec[func] \
+			--deselect tests/test_manhole_cli.py::test_help || die
+
+}
