@@ -37,6 +37,12 @@ src_prepare() {
 	eautoreconf
 }
 
+src_configure() {
+	# get rid of QA Notice: The following files contain insecure RUNPATHs
+	local mycmakeargs=( -DCMAKE_SKIP_RPATH=ON )
+	cmake_src_configure
+}
+
 src_install() {
 	cmake_src_install
 	dolib.so "${BUILD_DIR}"/src/activation/base/libAusweisAppActivation.so
