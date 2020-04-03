@@ -26,11 +26,8 @@ RDEPEND="
 	dev-python/lyricwikia[${PYTHON_USEDEP}]
 	dev-python/QtPy[gui,webengine,${PYTHON_USEDEP}]
 	net-misc/youtube-dl[${PYTHON_USEDEP}]
-	|| (
-		dev-python/tekore[${PYTHON_USEDEP}]
-		dev-python/pydbus[${PYTHON_USEDEP}]
-	)
 	dbus? ( dev-python/pydbus[${PYTHON_USEDEP}] )
+	!dbus? ( dev-python/tekore[${PYTHON_USEDEP}] )
 	mpv? ( dev-python/python-mpv[${PYTHON_USEDEP}] )
 	vlc? ( dev-python/python-vlc[${PYTHON_USEDEP}] )
 	zeroconf? ( dev-python/zeroconf[${PYTHON_USEDEP}] )
@@ -74,7 +71,7 @@ pkg_postinst() {
 	elog "If video playback is not working please check 'vidify --debug' for missing-codec-errors and recompile media-video/vlc or media-video/mpv with the missing codecs"
 
 	optfeature "using a MPRIS(D-Bus) audio player (e.g spotify)" dev-python/pydbus
-	optfeature "using the spotify web API as audio player" dev-python/tekore
+	optfeature "using the Spotify Web API as audio player" dev-python/tekore
 	optfeature "using an external network player" dev-python/zeroconf
 	optfeature "using media-video/mpv for video playback" dev-python/python-mpv
 	optfeature "using media-video/vlc for video playback" dev-python/python-vlc
