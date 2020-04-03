@@ -3,6 +3,7 @@ acct-group/fort 0: System group: fort
 acct-user/_bgpd 0: User for OpenBGPD
 acct-user/fort 0: User for FORT RPKI validator
 acct-user/trezord 0: User for TREZOR Bridge
+app-misc/doublecmd-bin 0.9.8: Free cross platform open source file manager with two panels side by side.
 app-misc/ghq 1.1.0: Remote repository management made easy
 app-misc/mat2 0.11.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
@@ -33,6 +34,7 @@ dev-python/autoflake 1.3.1: Removes unused imports and unused variables as repor
 dev-python/backrefs 4.3.0: Wrapper around re or regex that adds additional back references
 dev-python/black 19.10_beta0-r1: The uncompromising Python code formatter
 dev-python/bracex 2.0.0: Bash style brace expansion for Python
+dev-python/cchardet 2.1.6: cChardet is high speed universal character encoding detector
 dev-python/curio 0.9: Curio is a coroutine-based library for concurrent systems programming
 dev-python/databases 0.3.0: Async database support for Python.
 dev-python/dataclasses 0.7: A backport of the dataclasses module for Python 3.6
@@ -54,7 +56,7 @@ dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.0.0_rc3: A Material Design theme fo
 dev-python/mkdocs_pymdownx_material_extras 1.0_beta10: Custom alterations based on Mkdocs-Material
 dev-python/outcome 1.0.1: Capture the outcome of Python function calls
 dev-python/pydbus 0.6.0: Pythonic DBus library
-dev-python/pygaljs 1.0.0 1.0.1: Python package providing assets from https://github.com/Kozea/pygal.js
+dev-python/pygaljs 1.0.0 1.0.1 1.0.2: Python package providing assets from https://github.com/Kozea/pygal.js
 dev-python/pymdown-extensions 6.3.0 7.0.0_rc1: Extensions for Python Markdown.
 dev-python/pymdown-lexers 0.2018.9.5: Additional lexers for use in Pygments
 dev-python/pyspelling 2.6.0: Spell checker automation tool
@@ -111,19 +113,20 @@ gui-wm/wayfire 0.4.0 9999: A compiz like 3D wayland compositor
 kde-misc/plasma-applet-thermal-monitor 1.2.9: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 mail-client/mutt-wizard 20200313: A system for automatically configuring mutt and isync
 media-gfx/azpainter 2.1.5: Full color painting software for Linux for illustration drawing
-media-video/vidify 2.2.0: Watch music videos in real time for the songs playing on your device
+media-video/vidify 2.2.2: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.2: Audio synchronization feature for vidify
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0: FORT validator is an open source RPKI validator
 net-misc/openbgpd 6.6_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/wsdd 0.5: A Web Service Discovery host daemon.
 net-p2p/trezord-go 2.0.29: TREZOR Communication Daemon
-net-p2p/yggdrasil-go 0.3.13-r1: An experiment in scalable routing as an encrypted IPv6 overlay network
+net-p2p/yggdrasil-go 0.3.13-r1 0.3.14: An experiment in scalable routing as an encrypted IPv6 overlay network
 net-wireless/rtl8192eu 20200123: Realtek 8192EU driver module for Linux kernel
 net-wireless/rtl8821ce 20200224: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 20200302: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/verilator 4.026 9999: The fast free Verilog/SystemVerilog simulator
+sci-geosciences/geographiclib 1.50: C++ library for converting geographic coordinate systems
 sci-libs/ann 1.1.2_p7: A Library for Approximate Nearest Neighbor Searching
 sci-libs/chaco 2.2: Software for Partitioning Graphs
 sci-libs/jdqz 1997.11.07: Jacobi-Davidson type method for the generalized standard eigenvalue problem.
