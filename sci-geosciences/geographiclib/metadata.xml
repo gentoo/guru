@@ -12,7 +12,7 @@
 	<use>
 		<flag name="boost">Boost library is searched for in order to build the NearestNeighbor example</flag>
 		<flag name="gravity">Install the gravity models</flag>
-		<flag name="geoids">Install the geoids datasets</flag>
+		<flag name="geoids">Install the geoid datasets</flag>
 		<flag name="magnetic">Install the magnetic field models</flag>
 		<flag name="geoids_dataset_egm84-30">http://earth-info.nga.mil/GandG/wgs84/gravitymod/wgs84_180/wgs84_180.html 30' grid</flag>
 		<flag name="geoids_dataset_egm84-15">http://earth-info.nga.mil/GandG/wgs84/gravitymod/wgs84_180/wgs84_180.html 15' grid</flag>
