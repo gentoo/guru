@@ -31,6 +31,7 @@ BDEPEND="
 	)
 	test? (
 		dev-libs/check
+		dev-util/valgrind
 		$(python_gen_cond_dep '
 			dev-python/subunit[${PYTHON_MULTI_USEDEP}]
 		')
@@ -53,7 +54,7 @@ src_configure() {
 		-DUA_BUILD_EXAMPLES=OFF
 		-DUA_BUILD_TOOLS=$(usex tools)
 		-DUA_BUILD_UNIT_TESTS=$(usex test)
-		-UUA_ENABLE_ENCRYPTION=$(usex mbedtls)
+		-DUA_ENABLE_ENCRYPTION=$(usex mbedtls)
 		-DUA_ENABLE_PUBSUB=$(usex pubsub)
 	)
 
