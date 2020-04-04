@@ -1,9 +1,9 @@
-# Copyright 2019 Gentoo Authors
+# Copyright 2019-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
@@ -38,7 +38,7 @@ src_prepare() {
 	sed -i '/INSTALL(TARGETS "${GAME_UNIXNAME}" /s/"${CMAKE_INSTALL_PREFIX}/\0\/bin/' \
 		CMakeLists.txt || die "Failed fixing executable target"
 
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -47,5 +47,5 @@ src_configure() {
 		-DCMAKE_INSTALL_PREFIX="/usr"
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
