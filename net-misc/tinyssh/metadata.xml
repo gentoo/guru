@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>contact@hacktivis.me</email>
+		<name>Haelwenn (lanodan) Monnier</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">janmojzis/tinyssh</remote-id>
+		<bugs-to>https://github.com/janmojzis/tinyssh/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		TinySSH is a minimalistic and secure SSH server which
+		implements only a subset of SSHv2 features.
+	</longdescription>
+	<use>
+		<flag name="sodium">Use <pkg>dev-libs/libsodium</pkg> for cryptography</flag>
+	</use>
+</pkgmetadata>
