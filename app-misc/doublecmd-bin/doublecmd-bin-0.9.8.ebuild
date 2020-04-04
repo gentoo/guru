@@ -7,12 +7,16 @@ inherit desktop eutils
 
 MY_PN="doublecmd"
 DESCRIPTION="Free cross platform open source file manager with two panels side by side."
-HOMEPAGE="http://doublecmd.sourceforge.net/"
+HOMEPAGE="https://doublecmd.sourceforge.io/"
 
-SRC_URI="amd64? ( gtk? ( mirror://sourceforge/${MY_PN}/${MY_PN}-${PV}.gtk2.x86_64.tar.xz )
-		qt5?  ( mirror://sourceforge/${MY_PN}/${MY_PN}-${PV}.qt5.x86_64.tar.xz ) )
-	x86? ( gtk? ( mirror://sourceforge/${MY_PN}/${MY_PN}-${PV}.gtk2.i386.tar.xz )
-		qt5?  ( mirror://sourceforge/${MY_PN}/${MY_PN}-${PV}.qt5.i386.tar.xz ) )"
+SRC_URI="amd64? (
+		gtk? ( mirror://sourceforge/${MY_PN}/${MY_PN}-${PV}.gtk2.x86_64.tar.xz )
+		qt5?  ( mirror://sourceforge/${MY_PN}/${MY_PN}-${PV}.qt5.x86_64.tar.xz )
+	)
+	x86? (
+		gtk? ( mirror://sourceforge/${MY_PN}/${MY_PN}-${PV}.gtk2.i386.tar.xz )
+		qt5?  ( mirror://sourceforge/${MY_PN}/${MY_PN}-${PV}.qt5.i386.tar.xz )
+	)"
 
 # Licenses for package and plugins
 LICENSE="GPL-2+ LGPL-2-with-linking-exception LGPL-2.1+ LGPL-3 GPL-1 freedist"
@@ -21,8 +25,6 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE="gtk qt5"
 REQUIRED_USE=" ^^ ( gtk qt5 ) "
-
-RESTRICT="mirror"
 
 S="${WORKDIR}/${MY_PN}"
 
@@ -59,8 +61,8 @@ src_install(){
 
 	exeinto "/opt/${PN}"
 	doexe "${S}/${MY_PN}"
-	doexe "${S}/${MY_PN}.sh"
+	make_wrapper ${MY_PN} "/opt/${PN}/${MY_PN}" "" "/opt/${PN}" "/opt/bin/"
 
 	doicon -s 48 ${MY_PN}.png
-	make_desktop_entry "/opt/${PN}/${MY_PN}.sh" "Double Commander" "${MY_PN}" "Utility;" || die "Failed making desktop entry!"
+	make_desktop_entry "${MY_PN}" "Double Commander" "${MY_PN}" "Utility;" || die "Failed making desktop entry!"
 }
