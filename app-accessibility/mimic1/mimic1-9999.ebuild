@@ -10,7 +10,7 @@ if [[ ${PV} == *9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/MycroftAI/mimic1.git"
 else
 	SRC_URI="https://github.com/MycroftAI/mimic1/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Mycroft's TTS engine, based on CMU's Flite (Festival Lite)"
