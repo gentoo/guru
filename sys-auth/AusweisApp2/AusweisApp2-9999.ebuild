@@ -32,40 +32,4 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-qt/linguist-tools:5"
 
-PATCHES=( "${FILESDIR}"/1.20.0-CMakeLists.patch )
-
-src_prepare() {
-	cmake_src_prepare
-	eautoreconf
-}
-
-src_install() {
-	cmake_src_install
-	dolib.so "${BUILD_DIR}"/src/activation/base/libAusweisAppActivation.so
-	dolib.so "${BUILD_DIR}"/src/activation/customscheme/libAusweisAppActivationCustomScheme.so
-	dolib.so "${BUILD_DIR}"/src/activation/intent/libAusweisAppActivationIntent.so
-	dolib.so "${BUILD_DIR}"/src/activation/internal/libAusweisAppActivationInternal.so
-	dolib.so "${BUILD_DIR}"/src/activation/webservice/libAusweisAppActivationWebservice.so
-	dolib.so "${BUILD_DIR}"/src/card/base/libAusweisAppCard.so
-	dolib.so "${BUILD_DIR}"/src/card/drivers/libAusweisAppCardDrivers.so
-	dolib.so "${BUILD_DIR}"/src/card/pcsc/libAusweisAppCardPcsc.so
-	dolib.so "${BUILD_DIR}"/src/configuration/libAusweisAppConfiguration.so
-	dolib.so "${BUILD_DIR}"/src/core/libAusweisAppCore.so
-	dolib.so "${BUILD_DIR}"/src/export/libAusweisAppExport.so
-	dolib.so "${BUILD_DIR}"/src/file_provider/libAusweisAppFileProvider.so
-	dolib.so "${BUILD_DIR}"/src/global/libAusweisAppGlobal.so
-	dolib.so "${BUILD_DIR}"/src/init/libAusweisAppInit.so
-	dolib.so "${BUILD_DIR}"/src/network/libAusweisAppNetwork.so
-	dolib.so "${BUILD_DIR}"/src/remote_device/libAusweisAppRemoteDevice.so
-	dolib.so "${BUILD_DIR}"/src/secure_storage/libAusweisAppSecureStorage.so
-	dolib.so "${BUILD_DIR}"/src/services/libAusweisAppServices.so
-	dolib.so "${BUILD_DIR}"/src/settings/libAusweisAppSettings.so
-	dolib.so "${BUILD_DIR}"/src/ui/aidl/libAusweisAppUiAidl.so
-	dolib.so "${BUILD_DIR}"/src/ui/base/libAusweisAppUi.so
-	dolib.so "${BUILD_DIR}"/src/ui/common/libAusweisAppUiCommon.so
-	dolib.so "${BUILD_DIR}"/src/ui/json/libAusweisAppUiJson.so
-	dolib.so "${BUILD_DIR}"/src/ui/qml/libAusweisAppUiQml.so
-	dolib.so "${BUILD_DIR}"/src/ui/websocket/libAusweisAppUiWebsocket.so
-	dolib.so "${BUILD_DIR}"/src/ui/widget/libAusweisAppUiWidget.so
-	dolib.so "${BUILD_DIR}"/src/whitelist_client/libAusweisAppWhitelistClient.so
-}
+PATCHES=( "${FILESDIR}"/1.20.0-fix-Install.cmake.patch )

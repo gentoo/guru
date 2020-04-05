@@ -94,8 +94,6 @@ LICENSE="
 	magnetic? ( public-domain )
 "
 
-RESTRICT="primaryuri"
-
 RDEPEND="
 	>=dev-libs/boost-1.65.0
 "
@@ -118,9 +116,6 @@ src_prepare() {
 #	sed -i "s|CXXFLAGS = -g -Wall -Wextra -O3 -std=c++0x||" tools/Makefile.mk || die
 #	sed -i "s|CXXFLAGS = -g -Wall -Wextra -O3 -std=c++0x||" src/Makefile.mk || die
 
-	default
-
-	# FATAL: cmake_src_prepare has not been run
 	cmake_src_prepare
 
 	if use python; then
@@ -138,7 +133,7 @@ src_configure() {
 	use precision_quad		&& precision="4"
 	use precision_single		&& precision="1"
 
-	export GEODATAPATH="/usr/share/GeographicLib"
+	export GEODATAPATH="/usr/share/${P}"
 
 	local mycmakeargs=(
 		-DGEOGRAPHICLIB_DOCUMENTATION=$(usex doc ON OFF)
@@ -146,31 +141,29 @@ src_configure() {
 		-DUSE_BOOST_FOR_EXAMPLES=$(usex boost ON OFF)
 		-DGEOGRAPHICLIB_PRECISION="${precision}"
 		-DGEOGRAPHICLIB_DATA="${GEODATAPATH}"
-		-DCMAKE_INSTALL_PREFIX="/usr"
 	)
-
 	cmake_src_configure
 }
 
 src_compile() {
+	cmake_src_compile
+
 	if use python; then
 		cd "python" || die
 		python_foreach_impl distutils-r1_python_compile
 		cd ".." || die
 	fi
-
-	default
 }
 
 src_test() {
+	# Only 1 failing test in the C code, python passes for me
+	cmake_src_test
+
 	if use python; then
 		cd "python" || die
 		python_foreach_impl python_test
 		cd ".." || die
 	fi
-
-	# Only 1 failing test in the C code, python passes for me
-	default
 }
 
 src_install() {
@@ -181,13 +174,18 @@ src_install() {
 	insinto "${GEODATAPATH}/magnetic"
 	use magnetic && doins -r "${WORKDIR}"/magnetic/.
 
+	cmake_src_install
+
 	if use python; then
 		cd "python" || die
-		distutils-r1_python_install_all
+		python_foreach_impl distutils-r1_python_install
 		cd ".."
 	fi
-	# Access denied, make file needs patching
-	# to correctly install in ${D}
-	default
+
 	#TODO: find out if java stuff need something
+
+	rm -rf "${D}/usr/$(get_libdir)/python" || die
+
+	use doc && mkdir -p "${D}/usr/share/${P}" || die
+	use doc && mv "${D}/usr/share/doc/${MY_PN}" "${D}/usr/share/${P}/doc" || die
 }
