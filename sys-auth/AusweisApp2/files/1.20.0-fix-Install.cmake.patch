@@ -1,18 +1,18 @@
 diff --git a/cmake/Install.cmake b/cmake/Install.cmake
-index a13e029..1fa852d 100644
+index a13e029..336785c 100644
 --- a/cmake/Install.cmake
 +++ b/cmake/Install.cmake
-@@ -274,6 +274,13 @@ ELSEIF(UNIX)
+@@ -269,6 +269,13 @@ ELSEIF(ANDROID)
+ ELSEIF(UNIX)
+ 	IF(BUILD_SHARED_LIBS)
+ 		SET(CMAKE_INSTALL_RPATH "\$ORIGIN")
++		INSTALL(TARGETS AusweisAppActivation AusweisAppActivationCustomScheme AusweisAppActivationIntent
++			AusweisAppActivationInternal AusweisAppActivationWebservice AusweisAppCard AusweisAppCardDrivers
++			AusweisAppCardPcsc AusweisAppConfiguration AusweisAppCore AusweisAppExport AusweisAppFileProvider
++			AusweisAppGlobal AusweisAppInit AusweisAppNetwork AusweisAppRemoteDevice AusweisAppSecureStorage
++			AusweisAppServices AusweisAppSettings AusweisAppUi AusweisAppUiAidl AusweisAppUiCommon
++			AusweisAppUiJson AusweisAppUiQml AusweisAppUiWebsocket AusweisAppUiWidget AusweisAppWhitelistClient
++			LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} OPTIONAL)
+ 	ENDIF()
+ 
  	SET(DEFAULT_FILE_DESTINATION ${CMAKE_INSTALL_DATADIR}/${VENDOR}/AusweisApp2)
- 	SET(TRANSLATION_DESTINATION ${DEFAULT_FILE_DESTINATION}/${TRANSLATION_DESTINATION})
- 	INSTALL(TARGETS AusweisApp DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT Application)
-+	INSTALL(TARGETS AusweisAppActivation AusweisAppActivationCustomScheme AusweisAppActivationIntent
-+		AusweisAppActivationInternal AusweisAppActivationWebservice AusweisAppCard AusweisAppCardDrivers
-+		AusweisAppCardPcsc AusweisAppConfiguration AusweisAppCore AusweisAppExport AusweisAppFileProvider
-+		AusweisAppGlobal AusweisAppInit AusweisAppNetwork AusweisAppRemoteDevice AusweisAppSecureStorage
-+		AusweisAppServices AusweisAppSettings AusweisAppUi AusweisAppUiAidl AusweisAppUiCommon
-+		AusweisAppUiJson AusweisAppUiQml AusweisAppUiWebsocket AusweisAppUiWidget AusweisAppWhitelistClient
-+		LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} OPTIONAL)
- 	CONFIGURE_FILE(${PACKAGING_DIR}/linux/${BUNDLE_IDENTIFIER}.metainfo.xml.in ${CMAKE_CURRENT_BINARY_DIR}/${BUNDLE_IDENTIFIER}.metainfo.xml @ONLY)
- 	CONFIGURE_FILE(${PACKAGING_DIR}/linux/${BUNDLE_IDENTIFIER}.desktop.in ${CMAKE_CURRENT_BINARY_DIR}/${BUNDLE_IDENTIFIER}.desktop @ONLY)
- 	INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/${BUNDLE_IDENTIFIER}.metainfo.xml DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo COMPONENT Application)
