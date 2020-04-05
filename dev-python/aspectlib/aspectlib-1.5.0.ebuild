@@ -20,10 +20,6 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-# could not get this working, it tries to do all sorts of weird things
-# it calls a tests outside the tests folder, which then fails, removing the file results in import error
-RESTRICT="test"
-
 RDEPEND="
 	dev-python/fields[${PYTHON_USEDEP}]
 "
@@ -33,10 +29,10 @@ DEPEND="
 		dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/nose[${PYTHON_USEDEP}]
 		dev-python/process-tests[${PYTHON_USEDEP}]
-		<dev-python/pytest-4[${PYTHON_USEDEP}]
+		dev-python/pytest[${PYTHON_USEDEP}]
 		dev-python/pytest-travis-fold[${PYTHON_USEDEP}]
 		dev-python/pytest-catchlog[${PYTHON_USEDEP}]
-		www-servers/tornado[${PYTHON_USEDEP}]
+		<www-servers/tornado-6[${PYTHON_USEDEP}]
 	)
 "
 
