@@ -3,6 +3,7 @@ acct-group/fort 0: System group: fort
 acct-user/_bgpd 0: User for OpenBGPD
 acct-user/fort 0: User for FORT RPKI validator
 acct-user/trezord 0: User for TREZOR Bridge
+app-accessibility/mimic1 1.2.0.2 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
 app-misc/doublecmd-bin 0.9.8: Free cross platform open source file manager with two panels side by side.
 app-misc/ghq 1.1.0: Remote repository management made easy
 app-misc/mat2 0.11.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
@@ -19,6 +20,7 @@ app-text/noweb 2.12: a literate programming tool, lighter than web
 dev-games/surgescript 0.5.4 9999: scripting language made for opensurge
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
+dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
 dev-libs/open62541 1.0.1: Open source C implementation of OPC UA
 dev-libs/protothreads 1.4: Protothreads - Lightweight, Stackless Threads in C
 dev-python/aiofiles 0.4.0: File support for asyncio
@@ -92,6 +94,7 @@ dev-python/wcmatch 6.0.1: Wildcard/glob file name matcher
 dev-python/webpy 0.40 0.50: A web framework for python that is as simple as it is powerful
 dev-python/websockets 8.1: An implementation of the WebSocket Protocol (RFC 6455 & 7692)
 dev-util/codespell 1.16.0: Check text files for common misspellings
+dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/quilttools 0.3: Mailbox to quilt series converter
 dev-util/xdp-tools 0.0.2: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 2018.06.13 9999: Blame someone else for your bad code.
@@ -119,6 +122,7 @@ media-video/vidify-audiosync 0.2: Audio synchronization feature for vidify
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0: FORT validator is an open source RPKI validator
 net-misc/openbgpd 6.6_p0 9999: OpenBGPD is a free implementation of BGPv4
+net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
 net-misc/wsdd 0.5: A Web Service Discovery host daemon.
 net-p2p/trezord-go 2.0.29: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1 0.3.14: An experiment in scalable routing as an encrypted IPv6 overlay network
@@ -143,7 +147,7 @@ sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect da
 sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-process/iotop-c 2014.08.24: top utility for IO (C port)
-www-client/badwolf 0.4.0 0.5.1 9999: Minimalist and privacy-oriented WebKitGTK+ browser
+www-client/badwolf 0.5.1 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
 x11-misc/i3lock-color 2.12_p1 9999: Improved i3lock with color customization
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
