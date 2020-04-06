@@ -93,7 +93,7 @@ esac
 # because these eclasses are incompatible.
 # We also need to set 'something' to be able
 # to inherit python-any-r1 at all
-if [[ ! ${PYTHON_COMPAT} ]]; then
+if [[ -z "${PYTHON_COMPAT}" ]]; then
 	PYTHON_COMPAT=( python3_{6,7,8} )
 	inherit python-any-r1
 else
@@ -299,7 +299,7 @@ fi
 # If this is a python package using distutils-r1
 # then put the compile function in the specific
 # python function, else just put it in src_compile
-if [[ ${DISTUTILS_USE_SETUPTOOLS} ]]; then
+if [[ -n "${DISTUTILS_USE_SETUPTOOLS}" ]]; then
 	python_compile_all() { docs_compile; }
 else
 	src_compile() { docs_compile; }
