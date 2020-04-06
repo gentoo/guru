@@ -86,18 +86,23 @@ esac
 #
 # Defaults to ${DOCDIR}/_build/html
 
-# If PYHTON_COMPAT is not defined this is not a python
-# package, if it is defined, odds are that either
-# distutils-r1 or python-r1 is inherited as well
-# in this case we cannot inherit python-any-r1
-# because these eclasses are incompatible.
-# We also need to set 'something' to be able
-# to inherit python-any-r1 at all
-if [[ -z "${PYTHON_COMPAT}" ]]; then
-	PYTHON_COMPAT=( python3_{6,7,8} )
-	inherit python-any-r1
-else
-	inherit python-r1
+if [[ ! ${_DOCS} ]]; then
+
+# For the python based DOCBUILDERS we need to inherit python-any-r1
+if [[ "${DOCBUILDER}"=="sphinx" || "${DOCBUILDER}"=="mkdocs" ]]; then
+	# If this is not a python package then
+	# this is not already set, so we need
+	# to set this to inherit python-any-r1
+	if [[ -z "${PYTHON_COMPAT}" ]]; then
+		PYTHON_COMPAT=( python3_{6,7,8} )
+	fi
+
+	# Inherit python-any-r1 if neither python-any-r1 nor
+	# python-r1 have been inherited, because we need the
+	# python_gen_any_dep function
+	if [[ ! ${_PYTHON_R1} && ! ${_PYTHON_ANY_R1} ]]; then
+		inherit python-any-r1
+	fi
 fi
 
 # @FUNCTION: python_check_deps
@@ -162,7 +167,7 @@ sphinx_compile() {
 
 	local confpy=${DOCDIR}/conf.py
 	[[ -f ${confpy} ]] ||
-		die "${confpy} not found, distutils_enable_sphinx call wrong"
+		die "${confpy} not found, DOCDIR=${DOCDIR} call wrong"
 
 	if [[ ${AUTODOC} == 0 ]]; then
 		if grep -F -q 'sphinx.ext.autodoc' "${confpy}"; then
@@ -213,7 +218,7 @@ mkdocs_compile() {
 
 	local mkdocsyml=${DOCDIR}/mkdocs.yml
 	[[ -f ${mkdocsyml} ]] ||
-		die "${mkdocsyml} not found, distutils_enable_mkdocs call wrong"
+		die "${mkdocsyml} not found, DOCDIR=${DOCDIR} wrong"
 
 	pushd "${DOCDIR}"
 	mkdocs build -d "${OUTDIR}" || die
@@ -299,8 +304,11 @@ fi
 # If this is a python package using distutils-r1
 # then put the compile function in the specific
 # python function, else just put it in src_compile
-if [[ -n "${DISTUTILS_USE_SETUPTOOLS}" ]]; then
+if [[ ${_DISTUTILS_R1} ]]; then
 	python_compile_all() { docs_compile; }
 else
 	src_compile() { docs_compile; }
+fi
+
+_DOCS=1
 fi
