@@ -110,6 +110,8 @@ DEPEND="
 S="${WORKDIR}/${MY_P}"
 
 distutils_enable_tests setup.py
+# there are additional docs in the python dir
+distutils_enable_sphinx python/doc
 
 src_prepare() {
 	#TODO: strip cflags
@@ -152,6 +154,7 @@ src_compile() {
 		cd "python" || die
 		python_foreach_impl distutils-r1_python_compile
 		cd ".." || die
+		use doc && build_sphinx python/doc
 	fi
 }
 
@@ -176,6 +179,10 @@ src_install() {
 
 	cmake_src_install
 
+	# remove python things added by the cmake_src_install function
+	# these are installed in the wrong python dir
+	rm -rf "${D}/usr/$(get_libdir)/python" || die
+	# if use python we re-add these python files correctly
 	if use python; then
 		cd "python" || die
 		python_foreach_impl distutils-r1_python_install
@@ -184,8 +191,7 @@ src_install() {
 
 	#TODO: find out if java stuff need something
 
-	rm -rf "${D}/usr/$(get_libdir)/python" || die
-
-	use doc && mkdir -p "${D}/usr/share/${P}" || die
-	use doc && mv "${D}/usr/share/doc/${MY_PN}" "${D}/usr/share/${P}/doc" || die
+	# Installs to wrong doc dir for some reason
+	# Also happens with USE="-doc"
+	mv "${D}/usr/share/doc/${MY_PN}" "${D}/usr/share/doc/${P}" || die
 }
