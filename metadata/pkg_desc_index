@@ -42,6 +42,7 @@ dev-python/curio 0.9: Curio is a coroutine-based library for concurrent systems 
 dev-python/databases 0.3.0: Async database support for Python.
 dev-python/dataclasses 0.7: A backport of the dataclasses module for Python 3.6
 dev-python/fake-useragent 0.1.11: Up to date simple useragent faker with real world database
+dev-python/geopy 1.21.0: A Geocoding Toolbox for Python
 dev-python/glicko2 2019.10.10 9999: An implementation of the Glicko-2 rating system for Python
 dev-python/googletransx 2.4.2: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/graphene 2.1.8: GraphQL Framework for Python
