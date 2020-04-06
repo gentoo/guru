@@ -15,7 +15,7 @@ DESCRIPTION="C++ library for converting geographic coordinate systems"
 HOMEPAGE="https://sourceforge.net/projects/geographiclib/"
 
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE_GEOIDS_DATASET="
 	geoids_dataset_egm84-30
 	geoids_dataset_egm84-15
