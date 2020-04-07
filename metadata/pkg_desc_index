@@ -87,7 +87,7 @@ dev-python/spotipy 2.10.0: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.2.2: Server Sent Events for Starlette
 dev-python/starlette 0.13.2: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
-dev-python/tekore 1.5.0: Spotify Web API client
+dev-python/tekore 1.6.0: Spotify Web API client
 dev-python/timeout-decorator 0.4.1: Timeout decorator
 dev-python/trio 0.13.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
@@ -128,6 +128,7 @@ net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
 net-misc/wsdd 0.5: A Web Service Discovery host daemon.
 net-p2p/trezord-go 2.0.29: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1 0.3.14: An experiment in scalable routing as an encrypted IPv6 overlay network
+net-wireless/eiwd 1.6.1 9999: iwd without dbus
 net-wireless/rtl8192eu 20200123: Realtek 8192EU driver module for Linux kernel
 net-wireless/rtl8821ce 20200224: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 20200302: Realtek 8821CU/RTL8811CU module for Linux kernel
