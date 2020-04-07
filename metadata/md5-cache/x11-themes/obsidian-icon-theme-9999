@@ -1,0 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install postinst postrm preinst prepare unpack
+DEPEND=x11-themes/adwaita-icon-theme dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Obsidian Icon Theme is intuitive Faenza-like icon theme
+EAPI=7
+HOMEPAGE=https://github.com/madmaxms/iconpack-obsidian
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=x11-themes/adwaita-icon-theme
+SLOT=0
+_eclasses_=git-r3	86a0188f2ad9eb3d65e4d031ab8a0422	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_md5_=c8dbebeaa6298f8f1a6ad70fd7f85847

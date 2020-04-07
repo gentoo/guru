@@ -154,3 +154,4 @@ x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
 x11-misc/i3lock-color 2.12_p1 9999: Improved i3lock with color customization
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
+x11-themes/obsidian-icon-theme 4.11 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
