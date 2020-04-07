@@ -6,13 +6,11 @@
 		<name>Huang Rui</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">verilator/verilator</remote-id>
+		<remote-id type="github">madmaxms/iconpack-obsidian</remote-id>
 	</upstream>
 	<longdescription>
-	Verilator, the fastest free Verilog HDL simulator.
-	Accepts synthesizable Verilog or SystemVerilog
-	Performs lint code-quality checks
-	Compiles into multithreaded C++, SystemC, or (soon) C++-under-Python
-	Creates XML to front-end your own tools
+	Modern and intuitive Obsidian provides several faenza-like icons for
+	panels, toolbars and buttons it also provides squared and colorful icons
+	for your applications, folders, files and devices.
 	</longdescription>
 </pkgmetadata>
