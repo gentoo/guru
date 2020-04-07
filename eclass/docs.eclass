@@ -186,7 +186,7 @@ sphinx_compile() {
 		if grep -F -q 'sphinx.ext.autodoc' "${confpy}"; then
 			die "${FUNCNAME}: autodoc disabled but sphinx.ext.autodoc found in ${confpy}"
 		fi
-	elif [[ -z ${DOCDEPEND[@]} ]]; then
+	elif [[ ${AUTODOC} == 1 ]]; then
 		if ! grep -F -q 'sphinx.ext.autodoc' "${confpy}"; then
 			die "${FUNCNAME}: sphinx.ext.autodoc not found in ${confpy}, set AUTODOC=0"
 		fi
