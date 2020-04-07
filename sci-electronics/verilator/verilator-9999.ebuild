@@ -19,13 +19,13 @@ fi
 LICENSE="|| ( Artistic-2 LGPL-3 )"
 SLOT="0"
 
-DEPEND="
+RDEPEND="
 	dev-lang/perl
 	sys-libs/zlib
 "
 
-RDEPEND="
-	${DEPEND}
+DEPEND="
+	${RDEPEND}
 "
 
 BDEPEND="
