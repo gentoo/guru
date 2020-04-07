@@ -68,6 +68,9 @@ esac
 # is added by the eclass. E.g. to depend on mkdocs-material:
 #
 # DOCDEPEND="dev-python/mkdocs-material"
+#
+# This eclass appends to this variable, so you can
+# call it later in your ebuild again if necessary.
 
 # @ECLASS-VARIABLE: AUTODOC
 # @PRE_INHERIT
@@ -89,21 +92,29 @@ esac
 if [[ ! ${_DOCS} ]]; then
 
 # For the python based DOCBUILDERS we need to inherit python-any-r1
-if [[ "${DOCBUILDER}"=="sphinx" || "${DOCBUILDER}"=="mkdocs" ]]; then
-	# If this is not a python package then
-	# this is not already set, so we need
-	# to set this to inherit python-any-r1
-	if [[ -z "${PYTHON_COMPAT}" ]]; then
-		PYTHON_COMPAT=( python3_{6,7,8} )
-	fi
+case "${DOCBUILDER}" in
+	"sphinx"|"mkdocs")
+		# If this is not a python package then
+		# this is not already set, so we need
+		# to set this to inherit python-any-r1
+		if [[ -z "${PYTHON_COMPAT}" ]]; then
+			PYTHON_COMPAT=( python3_{6,7,8} )
+		fi
 
-	# Inherit python-any-r1 if neither python-any-r1 nor
-	# python-r1 have been inherited, because we need the
-	# python_gen_any_dep function
-	if [[ ! ${_PYTHON_R1} && ! ${_PYTHON_ANY_R1} ]]; then
-		inherit python-any-r1
-	fi
-fi
+		# Inherit python-any-r1 if neither python-any-r1 nor
+		# python-r1 have been inherited, because we need the
+		# python_gen_any_dep function
+		if [[ ! ${_PYTHON_R1} && ! ${_PYTHON_ANY_R1} ]]; then
+			inherit python-any-r1
+		fi
+		;;
+	"")
+		die "DOCBUILDER unset, should be set to use ${ECLASS}"
+		;;
+	*)
+		die "Unsupported DOCBUILDER=${DOCBUILDER} (unknown) for ${ECLASS}"
+		;;
+esac
 
 # @FUNCTION: python_check_deps
 # @DESCRIPTION:
@@ -113,10 +124,12 @@ python_check_deps() {
 	use doc || return 0
 
 	local dep
-	for dep in ${DOCDEPEND[@]}; do
+	for dep in ${check_deps[@]}; do
 		has_version "${dep}[${PYTHON_USEDEP}]" || return 1
 	done
 }
+# Save this before we start manipulating it
+check_deps=${DOCDEPEND}
 
 # @FUNCTION: python_append_dep
 # @DESCRIPTION:
@@ -129,7 +142,7 @@ python_append_deps() {
 	local temp=()
 	local dep
 	for dep in ${DOCDEPEND[@]}; do
-		temp+=" ${dep}"
+		temp+=" ${dep}[\${PYTHON_USEDEP}]"
 	done
 	DOCDEPEND=${temp}
 }
@@ -142,16 +155,16 @@ sphinx_setup() {
 
 	: ${AUTODOC:=1}
 
-	if [[ ! ${AUTODOC} == 1 && -n ${DEPS} ]]; then
+	if [[ ${AUTODOC} == 0 && -n "${DOCDEPEND}" ]]; then
 		die "${FUNCNAME}: do not set autodoc to 0 if external plugins are used"
 	fi
 	if [[ ${AUTODOC} == 1 ]]; then
-		deps="$(python_gen_any_dep "
+		DOCDEPEND="$(python_gen_any_dep "
 			dev-python/sphinx[\${PYTHON_USEDEP}]
 			${DOCDEPEND}")"
 
 	else
-		deps="dev-python/sphinx"
+		DOCDEPEND="dev-python/sphinx"
 	fi
 }
 
@@ -171,11 +184,11 @@ sphinx_compile() {
 
 	if [[ ${AUTODOC} == 0 ]]; then
 		if grep -F -q 'sphinx.ext.autodoc' "${confpy}"; then
-			die "distutils_enable_sphinx: autodoc disabled but sphinx.ext.autodoc found in ${confpy}"
+			die "${FUNCNAME}: autodoc disabled but sphinx.ext.autodoc found in ${confpy}"
 		fi
-	elif [[ -z ${DEPS[@]} ]]; then
+	elif [[ -z ${DOCDEPEND[@]} ]]; then
 		if ! grep -F -q 'sphinx.ext.autodoc' "${confpy}"; then
-			die "distutils_enable_sphinx: sphinx.ext.autodoc not found in ${confpy}, set AUTODOC=0"
+			die "${FUNCNAME}: sphinx.ext.autodoc not found in ${confpy}, set AUTODOC=0"
 		fi
 	fi
 	
@@ -195,12 +208,12 @@ mkdocs_setup() {
 	: ${AUTODOC:=0}
 
 	if [[ ${AUTODOC} == 1 ]]; then
-		deps="$(python_gen_any_dep "
+		DOCDEPEND="$(python_gen_any_dep "
 			dev-python/mkdocs[\${PYTHON_USEDEP}]
 			dev-python/mkautodoc[\${PYTHON_USEDEP}]
 		${DOCDEPEND}")"
 	else
-		deps="$(python_gen_any_dep "
+		DOCDEPEND="$(python_gen_any_dep "
 			dev-python/mkdocs[\${PYTHON_USEDEP}]
 			${DOCDEPEND}")"
 	fi
@@ -257,12 +270,6 @@ docs_compile() {
 		"mkdocs")
 			mkdocs_compile
 			;;
-		"")
-			die "DOCBUILDER unset, should be set to use ${ECLASS}"
-			;;
-		*)
-			die "Unsupported DOCBUILDER=${DOCBUILDER} (unknown) for ${ECLASS}"
-			;;
 	esac
 
 	HTML_DOCS+=( "${OUTDIR}/." )
@@ -287,18 +294,12 @@ case "${DOCBUILDER}" in
 		python_append_deps
 		mkdocs_setup
 		;;
-	"")
-		die "DOCBUILDER unset, should be set to use ${ECLASS}"
-		;;
-	*)
-		die "Unsupported DOCBUILDER=${DOCBUILDER} (unknown) for ${ECLASS}"
-		;;
 esac
 
 if [[ ${EAPI} == [56] ]]; then
-	DEPEND+=" doc? ( ${deps} )"
+	DEPEND+=" doc? ( ${DOCDEPEND} )"
 else
-	BDEPEND+=" doc? ( ${deps} )"
+	BDEPEND+=" doc? ( ${DOCDEPEND} )"
 fi
 
 # If this is a python package using distutils-r1
