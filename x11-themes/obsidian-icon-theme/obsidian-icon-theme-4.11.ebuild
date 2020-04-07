@@ -5,6 +5,8 @@ EAPI=7
 
 GIT_PN="iconpack-obsidian"
 
+inherit xdg
+
 DESCRIPTION="Obsidian Icon Theme is intuitive Faenza-like icon theme"
 
 HOMEPAGE="https://github.com/madmaxms/${GIT_PN}"
