@@ -32,4 +32,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-qt/linguist-tools:5"
 
-PATCHES=( "${FILESDIR}"/1.20.0-fix-Install.cmake.patch )
+src_configure() {
+	local mycmakeargs=( -DBUILD_SHARED_LIBS=OFF )
+	cmake_src_configure
+}

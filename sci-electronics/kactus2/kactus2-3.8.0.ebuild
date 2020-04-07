@@ -23,7 +23,7 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 
-DEPEND="
+RDEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qthelp:5
@@ -33,8 +33,8 @@ DEPEND="
 	dev-qt/qtxml:5
 "
 
-RDEPEND="
-	${DEPEND}
+DEPEND="
+	${RDEPEND}
 "
 
 PATCHES=(
