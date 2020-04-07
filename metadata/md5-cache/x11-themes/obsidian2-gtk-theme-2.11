@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DEPEND=>=x11-libs/gtk+-3.22 x11-themes/gtk-engines-adwaita
+DESCRIPTION=Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
+EAPI=7
+HOMEPAGE=https://github.com/madmaxms/theme-obsidian-2
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~ppc-aix ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
+LICENSE=GPL-3
+RDEPEND=>=x11-libs/gtk+-3.22 x11-themes/gtk-engines-adwaita
+SLOT=0
+SRC_URI=https://github.com/madmaxms/theme-obsidian-2/archive/v2.11.tar.gz -> obsidian2-gtk-theme-2.11.tar.gz
+_md5_=8fd4aa8be1cc9471dd1cea388ce74ae8
