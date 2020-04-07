@@ -32,6 +32,9 @@ DEPEND="${RDEPEND}"
 DOCS=( README.md )
 
 src_install() {
+	# Remove dead links to fix symbolic link does not exist QA.
+	find . -xtype l -exec rm {} + || die
+	# Install the icons
 	insinto /usr/share/icons
 	doins -r Obsidian*
 }
