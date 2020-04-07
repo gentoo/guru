@@ -21,7 +21,7 @@ KEYWORDS="~amd64 ~x86"
 # Temporary failure in name resolution
 RESTRICT="test"
 
-# ERROR   -  Config value: 'theme'. Error: Unrecognised theme name: 'material'. The available installed themes are: mkdocs, readthedocs 
+# ERROR   -  Config value: 'theme'. Error: Unrecognised theme name: 'material'. The available installed themes are: mkdocs, readthedocs
 #IUSE="doc"
 
 RDEPEND="
