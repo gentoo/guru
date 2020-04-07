@@ -3,5 +3,14 @@
 <pkgmetadata>
 	<maintainer type="person">
 		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">madmaxms/iconpack-obsidian</remote-id>
+	</upstream>
+	<longdescription>
+	Modern and intuitive Obsidian provides several faenza-like icons for
+	panels, toolbars and buttons it also provides squared and colorful icons
+	for your applications, folders, files and devices.
+	</longdescription>
 </pkgmetadata>
