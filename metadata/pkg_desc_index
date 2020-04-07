@@ -78,6 +78,7 @@ dev-python/python-multipart 0.0.5: A streaming multipart parser for Python
 dev-python/python-telegram-bot 12.4.2 9999: Python wrapper of telegram bots API
 dev-python/python-vlc 3.0.7110: Python ctypes-based bindings for libvlc
 dev-python/sanic 19.12.2: Async Python 3.6+ web server/framework | Build fast. Run fast.
+dev-python/schedule 0.6.0-r1 9999: Python job scheduling for humans
 dev-python/sniffio 1.1.0: Sniff out which async library your code is running under
 dev-python/sphinx-autodoc-typehints 1.10.3: Type hints support for the Sphinx autodoc extension
 dev-python/sphinxcontrib-trio 1.1.0: Make Sphinx better at documenting Python functions and methods

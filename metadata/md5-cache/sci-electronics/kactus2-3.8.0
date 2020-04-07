@@ -9,4 +9,4 @@ RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qthelp:5 dev-qt/qtprintsupport:5 d
 SLOT=0
 SRC_URI=https://github.com/kactus2/kactus2dev/archive/v3.8.0.tar.gz -> kactus2-3.8.0.tar.gz
 _eclasses_=xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=071768a257639384fabb07dd6516d770
+_md5_=874fe889b05b90f71af0d6e712584e81
