@@ -1,4 +1,5 @@
-DEFINED_PHASES=install prepare
+DEFINED_PHASES=install postinst postrm preinst prepare
+DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Free cross platform open source file manager with two panels side by side.
 EAPI=7
 HOMEPAGE=https://doublecmd.sourceforge.io/
@@ -9,5 +10,5 @@ RDEPEND=dev-libs/glib:2 sys-apps/dbus x11-libs/libX11 virtual/libc gtk? ( x11-li
 REQUIRED_USE=^^ ( gtk qt5 )
 SLOT=0
 SRC_URI=amd64? ( gtk? ( mirror://sourceforge/doublecmd/doublecmd-0.9.8.gtk2.x86_64.tar.xz ) qt5? ( mirror://sourceforge/doublecmd/doublecmd-0.9.8.qt5.x86_64.tar.xz ) ) x86? ( gtk? ( mirror://sourceforge/doublecmd/doublecmd-0.9.8.gtk2.i386.tar.xz ) qt5? ( mirror://sourceforge/doublecmd/doublecmd-0.9.8.qt5.i386.tar.xz ) )
-_eclasses_=desktop	7fd20552ce4cc97e8acb132a499a7dd8	eutils	fcb2aa98e1948b835b5ae66ca52868c5
-_md5_=e25c4fee4de6e384578997728565d71d
+_eclasses_=desktop	7fd20552ce4cc97e8acb132a499a7dd8	eutils	fcb2aa98e1948b835b5ae66ca52868c5	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_md5_=3ced7510e8d4798ff629413504b0fc8a
