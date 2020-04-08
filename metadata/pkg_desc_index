@@ -102,6 +102,7 @@ dev-util/xdp-tools 0.0.2: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 2018.06.13 9999: Blame someone else for your bad code.
 dev-vcs/git-extras 5.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
+dev-vcs/lazygit 0.19: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.3.4.2: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.13086: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
