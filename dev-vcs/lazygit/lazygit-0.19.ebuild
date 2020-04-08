@@ -14,13 +14,15 @@ SRC_URI="https://github.com/jesseduffield/${PN}/archive/v${PV}.tar.gz -> ${P}.ta
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="doc"
 
 DEPEND=( sys-libs/glibc )
 RDEPEND=(
 	${DEPEND}
 	dev-vcs/git
 )
+
+DOCS=( src/${EGO_PN}/{CONTRIBUTING,README}.md )
 
 PATCHES=( "${FILESDIR}/${P}-fix-gpg-breaking-terminal.patch" )
 
@@ -31,10 +33,6 @@ src_compile() {
 src_install() {
 	dobin bin/lazygit
 
-	local DOCS=(
-		src/${EGO_PN}/{CONTRIBUTING,README}.md
-		src/${EGO_PN}/docs/*.md
-		src/${EGO_PN}/docs/keybindings/*.md
-	)
+	use doc && dodoc -r "src/${EGO_PN}/docs/."
 	einstalldocs
 }
