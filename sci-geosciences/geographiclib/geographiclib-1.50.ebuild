@@ -57,6 +57,9 @@ REQUIRED_USE="
 	geoids? ( || ( ${IUSE_GEOIDS_DATASET/+/} ) )
 	gravity? ( || ( ${IUSE_GRAVITY_MODEL/+/} ) )
 	magnetic? ( || ( ${IUSE_MAGNETIC_MODEL/+/} ) )
+	!geoids? ( ${IUSE_GEOIDS_DATASET/geoids/!geoids} )
+	!gravity? ( ${IUSE_GRAVITY_MODEL/gravity/!gravity} )
+	!magnetic? ( ${IUSE_MAGNETIC_MODEL/magnetic/!magnetic} )
 	python? ( ${PYTHON_REQUIRED_USE} )
 "
 
@@ -101,8 +104,8 @@ DEPEND="
 	${RDEPEND}
 	doc? (
 		>=app-doc/doxygen-1.8.7
-		>=dev-python/sphinx-1.6.3-r2
 		>=dev-lang/perl-5.26.1-r1
+		>=dev-python/sphinx-1.6.3-r2
 		>=sys-apps/util-linux-2.31
 	)
 "
