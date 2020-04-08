@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop eutils
+inherit desktop eutils xdg
 
 MY_PN="doublecmd"
 DESCRIPTION="Free cross platform open source file manager with two panels side by side."
