@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>michael.egger@tsn.at</email>
+		<name>Michael Egger</name>
+	</maintainer>
+	<longdescription>
+		HTTP and GraphQL client for developers.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">Kong/insomnia</remote-id>
+	</upstream>
+</pkgmetadata>
