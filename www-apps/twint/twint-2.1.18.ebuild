@@ -8,7 +8,7 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
-DESCRIPTION="Advanced Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API"
+DESCRIPTION="Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API"
 HOMEPAGE="
 	https://github.com/twintproject/twint
 	https://pypi.org/project/twint
@@ -40,8 +40,4 @@ DEPEND="${RDEPEND}"
 
 python_test() {
 	"${EPYTHON}" test.py -v || die
-}
-
-src_test() {
-	python_foreach_impl python_test
 }
