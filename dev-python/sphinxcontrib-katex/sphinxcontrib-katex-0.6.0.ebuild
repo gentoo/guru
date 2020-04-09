@@ -15,9 +15,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND=">=dev-python/sphinx-1.7.5[${PYTHON_USEDEP}]"
-BDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 
 DOCS=( "CONTRIBUTING.rst" "README.rst" )
+
+distutils_enable_sphinx docs
 
 python_install_all() {
 	distutils-r1_python_install_all
