@@ -7,5 +7,5 @@ KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=mail-client/neomutt:=[notmuch=] net-mail/isync:=[ssl] mail-mta/msmtp app-admin/pass lynx? ( www-client/lynx )
 SLOT=0
-SRC_URI=https://github.com/LukeSmithxyz/mutt-wizard/archive/5ace69bdf56da3883b2666247aac462b0df5b020.tar.gz -> mutt-wizard-20200313.tar.gz
+SRC_URI=https://github.com/LukeSmithxyz/mutt-wizard/archive/5ace69bdf56da3883b2666247aac462b0df5b020.tar.gz -> mutt-wizard-0_pre20200313.tar.gz
 _md5_=c07685a3e35b8ddf6dd50e3aa6e28266

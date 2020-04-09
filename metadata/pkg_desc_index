@@ -56,12 +56,13 @@ dev-python/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/mkautodoc 0.1.0: Auto documentation for MkDocs
 dev-python/mkdocs-git-revision-date-localized-plugin 0.5.0: Display the localized date of the last git modification of a markdown file
-dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.0.0_rc3: A Material Design theme for MkDocs
-dev-python/mkdocs_pymdownx_material_extras 1.0_beta10: Custom alterations based on Mkdocs-Material
+dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.0.0_rc3 5.0.1: A Material Design theme for MkDocs
+dev-python/mkdocs-minify-plugin 0.2.3: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
+dev-python/mkdocs_pymdownx_material_extras 1.0_beta11: Custom alterations based on Mkdocs-Material
 dev-python/outcome 1.0.1: Capture the outcome of Python function calls
 dev-python/pydbus 0.6.0: Pythonic DBus library
 dev-python/pygaljs 1.0.0 1.0.1 1.0.2: Python package providing assets from https://github.com/Kozea/pygal.js
-dev-python/pymdown-extensions 6.3.0 7.0.0_rc1: Extensions for Python Markdown.
+dev-python/pymdown-extensions 6.3.0 7.0.0_rc1 7.0.0: Extensions for Python Markdown.
 dev-python/pymdown-lexers 0_pre20180905: Additional lexers for use in Pygments
 dev-python/pyspelling 2.6.0: Spell checker automation tool
 dev-python/pytest-benchmark 3.2.3: py.test fixture for benchmarking code
@@ -98,6 +99,7 @@ dev-python/webpy 0.40 0.50: A web framework for python that is as simple as it i
 dev-python/websockets 8.1: An implementation of the WebSocket Protocol (RFC 6455 & 7692)
 dev-util/codespell 1.16.0: Check text files for common misspellings
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
+dev-util/insomnia-bin 7.1.1: HTTP and GraphQL client for developers
 dev-util/quilttools 0.3: Mailbox to quilt series converter
 dev-util/xdp-tools 0.0.2: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
@@ -119,7 +121,7 @@ gui-apps/wf-shell 0.4.0 9999: A compiz like 3D wayland compositor
 gui-libs/gtk-layer-shell 0.1.0 9999: A library to create panels and other desktop components for Wayland
 gui-wm/wayfire 0.4.0 9999: A compiz like 3D wayland compositor
 kde-misc/plasma-applet-thermal-monitor 1.2.9: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
-mail-client/mutt-wizard 20200313: A system for automatically configuring mutt and isync
+mail-client/mutt-wizard 0_pre20200313: A system for automatically configuring mutt and isync
 media-gfx/azpainter 2.1.5: Full color painting software for Linux for illustration drawing
 media-video/vidify 2.2.3: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.2: Audio synchronization feature for vidify
@@ -131,9 +133,9 @@ net-misc/wsdd 0.5: A Web Service Discovery host daemon.
 net-p2p/trezord-go 2.0.29: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1 0.3.14: An experiment in scalable routing as an encrypted IPv6 overlay network
 net-wireless/eiwd 1.6.1 9999: iwd without dbus
-net-wireless/rtl8192eu 20200123: Realtek 8192EU driver module for Linux kernel
-net-wireless/rtl8821ce 20200224: Realtek RTL8821CE Driver module for Linux kernel
-net-wireless/rtl8821cu 20200302: Realtek 8821CU/RTL8811CU module for Linux kernel
+net-wireless/rtl8192eu 0_pre20200123: Realtek 8192EU driver module for Linux kernel
+net-wireless/rtl8821ce 0_pre20200224: Realtek RTL8821CE Driver module for Linux kernel
+net-wireless/rtl8821cu 0_pre20200302: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/verilator 4.026 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/geographiclib 1.50-r1: C++ library for converting geographic coordinate systems
@@ -151,7 +153,7 @@ sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on stri
 sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect datasets of MPI applications
 sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
-sys-process/iotop-c 2014.08.24: top utility for IO (C port)
+sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
 www-apps/twint 2.1.18: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-client/badwolf 0.5.1 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
