@@ -136,7 +136,7 @@ net-wireless/rtl8821ce 20200224: Realtek RTL8821CE Driver module for Linux kerne
 net-wireless/rtl8821cu 20200302: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/verilator 4.026 9999: The fast free Verilog/SystemVerilog simulator
-sci-geosciences/geographiclib 1.50: C++ library for converting geographic coordinate systems
+sci-geosciences/geographiclib 1.50-r1: C++ library for converting geographic coordinate systems
 sci-libs/ann 1.1.2_p7: A Library for Approximate Nearest Neighbor Searching
 sci-libs/chaco 2.2: Software for Partitioning Graphs
 sci-libs/jdqz 0_pre19971107: Jacobi-Davidson type method for the generalized standard eigenvalue problem.
@@ -152,6 +152,7 @@ sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect da
 sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-process/iotop-c 2014.08.24: top utility for IO (C port)
+www-apps/twint 2.1.18: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-client/badwolf 0.5.1 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
 x11-misc/i3lock-color 2.12_p1 9999: Improved i3lock with color customization
