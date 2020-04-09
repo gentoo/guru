@@ -16,7 +16,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc"
 
-DEPEND=( sys-libs/glibc )
 RDEPEND=(
 	${DEPEND}
 	dev-vcs/git
