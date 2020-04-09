@@ -81,6 +81,7 @@ dev-python/sanic 19.12.2: Async Python 3.6+ web server/framework | Build fast. R
 dev-python/schedule 0.6.0-r1 9999: Python job scheduling for humans
 dev-python/sniffio 1.1.0: Sniff out which async library your code is running under
 dev-python/sphinx-autodoc-typehints 1.10.3: Type hints support for the Sphinx autodoc extension
+dev-python/sphinxcontrib-katex 0.6.0: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-trio 1.1.0: Make Sphinx better at documenting Python functions and methods
 dev-python/sphobjinv 2.0.1: Sphinx objects.inv Inspection/Manipulation Tool
 dev-python/spotipy 2.10.0: A light weight Python library for the Spotify Web API
