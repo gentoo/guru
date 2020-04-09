@@ -5,7 +5,17 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7,8} )
 
-inherit distutils-r1
+#ERROR   -  Unable to read git logs of '/tmp/mozilla_andrew0/wcmatch-6.0.1/docs/src/markdown/index.md'. To ignore this error, set option 'ignoring_missing_git: true'
+#ERROR   -  Error reading page 'index.md': Cmd('git') failed due to: exit code(128)
+# how does one enable this option???
+#DOCBUILDER="mkdocs"
+#DOCEPEND="
+#	dev-python/mkdocs-git-revision-date-localized-plugin
+#	dev-python/mkdocs_pymdownx_material_extras
+#	dev-python/pyspelling
+#"
+
+inherit distutils-r1 #docs
 
 DESCRIPTION="Wildcard/glob file name matcher"
 HOMEPAGE="
@@ -17,21 +27,14 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-#IUSE="doc"
-
-# Need mkdocs-1.1 for this
-#BDEPEND="
-#	doc? (
-#		dev-python/mkdocs-git-revision-date-localized-plugin
-#		dev-python/mkdocs_pymdownx_material_extras
-#		dev-python/pyspelling
-#	)
-#"
-
 RDEPEND="
 	>=dev-python/backrefs-4.1[${PYTHON_USEDEP}]
 	>=dev-python/bracex-2.0[${PYTHON_USEDEP}]
 "
+
+DEPEND="test? (
+	dev-python/mock[${PYTHON_USEDEP}]
+)"
 
 distutils_enable_tests pytest
 
@@ -47,11 +50,3 @@ python_prepare_all() {
 
 	distutils-r1_python_prepare_all
 }
-
-#python_compile_all() {
-#	default
-#	if use doc; then
-#		mkdocs build || die "failed to make docs"
-#		HTML_DOCS="site"
-#	fi
-#}

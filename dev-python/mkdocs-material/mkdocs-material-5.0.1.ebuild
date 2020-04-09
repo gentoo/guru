@@ -7,14 +7,17 @@ PYTHON_COMPAT=( python3_{6,7} )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-inherit distutils-r1
+DOCBUILDER="mkdocs"
+DOCDEPEND="dev-python/mkdocs-minify-plugin"
+
+inherit distutils-r1 docs
 
 DESCRIPTION="A Material Design theme for MkDocs"
 HOMEPAGE="
 	https://github.com/squidfunk/mkdocs-material
 	https://pypi.org/project/mkdocs-material
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/squidfunk/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -22,6 +25,6 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	>=dev-python/markdown-3.2[${PYTHON_USEDEP}]
-	>=dev-python/mkdocs-1.0.1[${PYTHON_USEDEP}]
+	>=dev-python/mkdocs-1.1[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.4[${PYTHON_USEDEP}]
-	>=dev-python/pymdown-extensions-6.3[${PYTHON_USEDEP}]"
+	>=dev-python/pymdown-extensions-7.0[${PYTHON_USEDEP}]"

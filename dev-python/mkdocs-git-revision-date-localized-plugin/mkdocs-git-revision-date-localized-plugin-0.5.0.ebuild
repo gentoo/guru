@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_{6,7} )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
@@ -20,16 +20,34 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RESTRICT="test" # fails, I think it tries to run git
-
 RDEPEND="
 	>=dev-python/Babel-2.7.0[${PYTHON_USEDEP}]
 	dev-python/GitPython[${PYTHON_USEDEP}]
 	dev-python/jinja[${PYTHON_USEDEP}]
 	>=dev-python/mkdocs-0.17[${PYTHON_USEDEP}]
 "
-DEPEND="
+DEPEND="test? (
 	dev-python/click[${PYTHON_USEDEP}]
-	dev-python/mkdocs-material[${PYTHON_USEDEP}]"
+	dev-python/mkdocs-material[${PYTHON_USEDEP}]
+)"
 
 distutils_enable_tests pytest
+
+python_prepare_all() {
+	# AssertionError: 'mkdocs build' command failed
+	# 'theme set to 'material' with 'language' set to 'de''
+	# not sure why this is trying to set language to DE
+	sed -i -e 's:test_material_theme:_&:' \
+		-e 's:test_material_theme_no_locale :_&:' \
+			tests/test_basic.py || die
+
+	# mkdocs.exceptions.ConfigurationError: Aborted with 1 Configuration Errors!
+	sed -i -e 's:test_plugin_on_config:_&:' \
+			tests/test_plugin.py || die
+	distutils-r1_python_prepare_all
+}
+
+python_test() {
+	distutils_install_for_testing
+	pytest -vv || die "Tests fail with ${EPYTHON}"
+}

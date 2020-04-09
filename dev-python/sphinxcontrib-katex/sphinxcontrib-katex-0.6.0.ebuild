@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND=">=dev-python/sphinx-1.7.5[${PYTHON_USEDEP}]"
 
-DOCS=( "CONTRIBUTING.rst" "README.rst" )
+DOCS=()
 
 distutils_enable_sphinx docs
 
