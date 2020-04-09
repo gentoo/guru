@@ -14,8 +14,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-# avoid circular dependency with sphinx
-PDEPEND=">=dev-python/sphinx-1.7.5[${PYTHON_USEDEP}]"
+RDEPEND=">=dev-python/sphinx-1.7.5[${PYTHON_USEDEP}]"
 BDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 
 DOCS=( "CONTRIBUTING.rst" "README.rst" )
