@@ -5,7 +5,7 @@ EAPI=7
 
 MY_PN="${PN/-bin/}"
 
-inherit desktop pax-utils unpacker xdg-utils
+inherit desktop pax-utils unpacker xdg
 
 DESCRIPTION="HTTP and GraphQL client for developers"
 HOMEPAGE="https://insomnia.rest"
@@ -76,14 +76,4 @@ src_install() {
 	dosym ../Insomnia/insomnia opt/bin/insomnia
 
 	pax-mark -m "${ED}"/opt/Insomnia/insomnia
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
 }
