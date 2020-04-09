@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+	<email>torokhov-s-a@yandex.ru</email>
+	<name>Sergey Torokhov</name>
+</maintainer>
+<longdescription lang="en">
+	Sphinx extension using KaTeX to render math in HTML.
+
+	The extension uses KaTeX for rendering of math in HTML pages.
+	It is designed as a replacement for the built-in extension
+	sphinx.ext.mathjax, which uses MathJax for rendering.
+</longdescription>
+<upstream>
+	<remote-id type="pypi">sphinxcontrib-katex</remote-id>
+	<remote-id type="github">hagenw/sphinxcontrib-katex</remote-id>
+</upstream>
+</pkgmetadata>
