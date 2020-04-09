@@ -138,7 +138,7 @@ src_configure() {
 	use precision_quad		&& precision="4"
 	use precision_single		&& precision="1"
 
-	export GEODATAPATH="/usr/share/${P}"
+	export GEODATAPATH="/usr/share/${PN}"
 
 	local mycmakeargs=(
 		-DGEOGRAPHICLIB_DOCUMENTATION=$(usex doc ON OFF)
