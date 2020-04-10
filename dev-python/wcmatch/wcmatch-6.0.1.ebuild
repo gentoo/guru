@@ -5,17 +5,15 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7,8} )
 
-#ERROR   -  Unable to read git logs of '/tmp/mozilla_andrew0/wcmatch-6.0.1/docs/src/markdown/index.md'. To ignore this error, set option 'ignoring_missing_git: true'
-#ERROR   -  Error reading page 'index.md': Cmd('git') failed due to: exit code(128)
-# how does one enable this option???
-#DOCBUILDER="mkdocs"
-#DOCEPEND="
-#	dev-python/mkdocs-git-revision-date-localized-plugin
-#	dev-python/mkdocs_pymdownx_material_extras
-#	dev-python/pyspelling
-#"
+DOCBUILDER="mkdocs"
+DOCDEPEND="
+	dev-python/mkdocs-git-revision-date-localized-plugin
+	~dev-python/mkdocs-material-5.0.0_rc2
+	dev-python/mkdocs_pymdownx_material_extras
+	dev-python/pyspelling
+"
 
-inherit distutils-r1 #docs
+inherit distutils-r1 docs
 
 DESCRIPTION="Wildcard/glob file name matcher"
 HOMEPAGE="
@@ -48,5 +46,11 @@ python_prepare_all() {
 		-e 's:test_tilde_globmatch_no_tilde:_&:' \
 		tests/test_globmatch.py || die
 
+	# git revision data plugin needs git repo to build
+	if use doc; then
+		git init || die
+		git add -A || die
+		git commit -q -m ".." || die
+	fi
 	distutils-r1_python_prepare_all
 }
