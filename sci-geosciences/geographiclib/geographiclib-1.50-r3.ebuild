@@ -195,5 +195,5 @@ src_install() {
 
 	# Installs to wrong doc dir for some reason
 	# Also happens with USE="-doc"
-	mv "${D}/usr/share/doc/${MY_PN}" "${D}/usr/share/doc/${PN}" || die
+	mv "${D}/usr/share/doc/${MY_PN}" "${D}/usr/share/doc/${P}" || die
 }
