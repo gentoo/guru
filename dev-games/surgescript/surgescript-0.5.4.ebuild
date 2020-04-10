@@ -25,7 +25,8 @@ BDEPEND="doc? (
 	dev-python/mkdocs-material )"
 
 src_compile() {
-	default
+	cmake_src_compile
+
 	if use doc; then
 		mkdocs build || die "failed to make docs"
 		HTML_DOCS="site"
