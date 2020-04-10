@@ -183,7 +183,7 @@ HOMEPAGE="https://github.com/dalance/procs"
 SRC_URI="$(cargo_crate_uris ${CRATES})"
 RESTRICT="mirror"
 
-LICENSE="Apache-2.0 BSD BSD-2 BSD CC0-1.0 MIT ZLIB"
+LICENSE="Apache-2.0 BSD BSD-2 CC0-1.0 MIT ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
