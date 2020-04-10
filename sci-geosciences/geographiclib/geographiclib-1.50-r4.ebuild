@@ -56,9 +56,6 @@ REQUIRED_USE="
 	geoids? ( || ( ${IUSE_GEOIDS_DATASETS/+/} ) )
 	gravity? ( || ( ${IUSE_GRAVITY_MODELS/+/} ) )
 	magnetic? ( || ( ${IUSE_MAGNETIC_MODELS/+/} ) )
-	!geoids? ( ${IUSE_GEOIDS_DATASETS/geoids/!geoids} )
-	!gravity? ( ${IUSE_GRAVITY_MODELS/gravity/!gravity} )
-	!magnetic? ( ${IUSE_MAGNETIC_MODELS/magnetic/!magnetic} )
 	python? ( ${PYTHON_REQUIRED_USE} )
 "
 
