@@ -31,3 +31,14 @@ DEPEND="
 	>=dev-games/surgescript-0.5.4.3:=
 "
 RDEPEND="${DEPEND}"
+
+# https://github.com/alemart/opensurge/pull/30
+PATCHES=( "${FILESDIR}/${P}-fix_executable_install_path.patch" )
+
+src_configure() {
+	local mycmakeargs=(
+		-DUSE_STATIC=OFF
+	)
+
+	cmake_src_configure
+}
