@@ -15,7 +15,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="ayatana"
-RESTRICT="bindist mirror"
 
 RDEPEND="app-accessibility/at-spi2-atk:2
 	dev-libs/atk:0
