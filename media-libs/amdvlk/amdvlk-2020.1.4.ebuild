@@ -1,15 +1,15 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
+
 EAPI=7
 
 MULTILIB_COMPAT=( abi_x86_{32,64} )
 
 inherit multilib-minimal check-reqs
 
-#cmake-multilib and cmake-utils build doesn't support https://github.com/GPUOpen-Drivers/AMDVLK/issues/151
+#inherit cmake-multilib and cmake-utils build doesn't support https://github.com/GPUOpen-Drivers/AMDVLK/issues/151
 DESCRIPTION="AMD Open Source Driver for Vulkan"
 HOMEPAGE="https://github.com/GPUOpen-Drivers/AMDVLK"
-
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
