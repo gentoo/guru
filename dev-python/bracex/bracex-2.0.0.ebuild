@@ -5,7 +5,14 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7,8} )
 
-inherit distutils-r1
+DOCBUILDER="mkdocs"
+DOCDEPEND="
+	~dev-python/mkdocs-material-5.0.0_rc2
+	dev-python/mkdocs_pymdownx_material_extras
+	dev-python/pyspelling
+"
+
+inherit distutils-r1 docs
 
 DESCRIPTION="Bash style brace expansion for Python"
 HOMEPAGE="
@@ -18,22 +25,13 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="doc"
-
-BDEPEND="
-	doc? (
-		dev-python/mkdocs-git-revision-date-localized-plugin
-		dev-python/mkdocs_pymdownx_material_extras
-		dev-python/pyspelling
-	)
-"
-
 distutils_enable_tests pytest
 
-python_compile_all() {
-	default
-	if use doc; then
-		mkdocs build || die "failed to make docs"
-		HTML_DOCS="site"
-	fi
+python_prepare_all() {
+	# git revision data plugin needs git repo to build
+	# do not depend on this
+	sed -i -e '/git-revision-date-localized/d' \
+		mkdocs.yml || die
+
+		distutils-r1_python_prepare_all
 }
