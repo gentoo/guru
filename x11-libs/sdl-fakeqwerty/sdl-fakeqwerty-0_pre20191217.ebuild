@@ -19,10 +19,10 @@ REQUIRED_USE="|| ( sdl sdl2 xlib )"
 
 RDEPEND=""
 DEPEND="
-	virtual/pkgconfig
 	xlib? ( x11-libs/libX11[${MULTILIB_USEDEP}] )
 	sdl? ( >=media-libs/libsdl-1.2[${MULTILIB_USEDEP}] )
 	sdl2? ( media-libs/libsdl2[${MULTILIB_USEDEP}] )"
+BDEPEND="virtual/pkgconfig"
 
 DOCS=( README.md background.md games )
 
