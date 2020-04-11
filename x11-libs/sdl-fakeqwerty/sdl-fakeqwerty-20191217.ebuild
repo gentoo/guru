@@ -5,7 +5,7 @@ EAPI=7
 MULTILIB_COMPAT=( abi_x86_{32,64} )
 inherit multilib-minimal
 
-DESCRIPTION="Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games) on Linux"
+DESCRIPTION="Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)"
 HOMEPAGE="https://github.com/micolous/sdl-fakeqwerty"
 ARCHIVE_VERSION="a79f201903c30e91dc3b4f79c789e25548cf9589"
 SRC_URI="https://github.com/micolous/${PN}/archive/${ARCHIVE_VERSION}.tar.gz -> ${P}.tar.gz"
