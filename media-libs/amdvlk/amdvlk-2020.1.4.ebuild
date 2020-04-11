@@ -61,16 +61,16 @@ ${FETCH_URI}/CWPack/archive/${CWPACK_COMMIT}.tar.gz -> CWPack-${CWPACK_COMMIT}.t
 ###EBUILD FUNCTIONS
 src_prepare() {
 	##moving src to proper directories
-	mkdir -p ${S}
-	mkdir -p ${S}/third_party
-	mv AMDVLK-${CORRECT_AMDVLK_PV}/ ${S}/AMDVLK
-	mv xgl-${XGL_COMMIT}/ ${S}/xgl
-	mv pal-${PAL_COMMIT}/ ${S}/pal
-	mv llpc-${LLPC_COMMIT}/ ${S}/llpc
-	mv spvgen-${SPVGEN_COMMIT}/ ${S}/spvgen
-	mv llvm-project-${LLVM_PROJECT_COMMIT}/ ${S}/llvm-project
-	mv MetroHash-${METROHASH_COMMIT}/ ${S}/third_party/metrohash
-	mv CWPack-${CWPACK_COMMIT}/ ${S}/third_party/cwpack
+	mkdir -p "${S}"
+	mkdir -p "${S}/third_party"
+	mv AMDVLK-${CORRECT_AMDVLK_PV}/ "${S}/AMDVLK"
+	mv xgl-${XGL_COMMIT}/ "${S}/xgl"
+	mv pal-${PAL_COMMIT}/ "${S}/pal"
+	mv llpc-${LLPC_COMMIT}/ "${S}/llpc"
+	mv spvgen-${SPVGEN_COMMIT}/ "${S}/spvgen"
+	mv llvm-project-${LLVM_PROJECT_COMMIT}/ "${S}/llvm-project"
+	mv MetroHash-${METROHASH_COMMIT}/ "${S}/third_party/metrohash"
+	mv CWPack-${CWPACK_COMMIT}/ "${S}/third_party/cwpack"
 	##Installing rule
 	cat << EOF > "${T}/10-amdvlk-dri3.conf" || die
 Section "Device"
@@ -78,7 +78,7 @@ Identifier "AMDgpu"
 Option  "DRI" "3"
 EndSection
 EOF
-	cd ${S}/xgl
+	cd "${S}/xgl"
 	default
 }
 
@@ -87,27 +87,27 @@ multilib_src_configure() {
 			-DBUILD_WAYLAND_SUPPORT=$(usex wayland ) \
 			-DCMAKE_BUILD_TYPE="$(usex debug "Debug" "Release")" \
 			-B${BUILD_DIR} )
-	cd ${S}/xgl
+	cd "${S}"/xgl
 	cmake -H. "${mycmakeargs[@]}"
 }
 
 multilib_src_install() {
 	if use abi_x86_64 && multilib_is_native_abi; then
-		mkdir -p ${D}/usr/lib64/
-		mv "${BUILD_DIR}/icd/amdvlk64.so" ${D}/usr/lib64/
+		mkdir -p "${D}/usr/lib64/"
+		mv "${BUILD_DIR}/icd/amdvlk64.so" "${D}/usr/lib64/"
 		insinto /usr/share/vulkan/icd.d
-		doins ${S}/AMDVLK/json/Redhat/amd_icd64.json
+		doins "${S}/AMDVLK/json/Redhat/amd_icd64.json"
 	else
-		mkdir -p ${D}/usr/lib/
-		mv "${BUILD_DIR}/icd/amdvlk32.so" ${D}/usr/lib/
+		mkdir -p "${D}/usr/lib/"
+		mv "${BUILD_DIR}/icd/amdvlk32.so" "${D}/usr/lib/"
 		insinto /usr/share/vulkan/icd.d
-		doins ${S}/AMDVLK/json/Redhat/amd_icd32.json
+		doins "${S}/AMDVLK/json/Redhat/amd_icd32.json"
 	fi
 }
 
 multilib_src_install_all() {
 	insinto /usr/share/X11/xorg.conf.d/
-	doins ${T}/10-amdvlk-dri3.conf
+	doins "${T}/10-amdvlk-dri3.conf"
 	einfo "AMDVLK requires DRI3 mode so config file is istalled in /usr/share/X11/xorg.conf.d/10-amdvlk-dri3.conf"
 	einfo "It's safe to double xorg configuration files if you have already had ones"
 }
