@@ -8,7 +8,6 @@ PYTHON_COMPAT=( python3_{6,7,8} )
 DOCBUILDER="mkdocs"
 DOCDEPEND="
 	dev-python/mkdocs-minify-plugin
-	dev-python/mkdocs-git-revision-date-localized-plugin
 	dev-python/mkdocs-material
 	dev-python/pymdown-lexers
 	dev-python/pyspelling
@@ -36,11 +35,10 @@ DEPEND="test? (
 distutils_enable_tests pytest
 
 python_prepare_all() {
-	# git revision date plugin needs git repo to build
-	if use doc; then
-		git init || die
-		git add -A || die
-		git commit -q -m ".." || die
-	fi
+	# git revision data plugin needs git repo to build
+	# do not depend on this
+	sed -i -e '/git-revision-date-localized/d' \
+		mkdocs.yml || die
+
 	distutils-r1_python_prepare_all
 }
