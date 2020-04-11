@@ -4,20 +4,23 @@ acct-user/_bgpd 0: User for OpenBGPD
 acct-user/fort 0: User for FORT RPKI validator
 acct-user/trezord 0: User for TREZOR Bridge
 app-accessibility/mimic1 1.2.0.2 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
+app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/doublecmd-bin 0.9.8: Free cross platform open source file manager with two panels side by side.
 app-misc/ghq 1.1.0: Remote repository management made easy
 app-misc/mat2 0.11.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/telegram-send 0.25: Send messages and files over Telegram from the command-line
 app-misc/vrms-gentoo 0_pre20181120 9999: vrms clone for Gentoo Linux
+app-misc/watchexec 1.12.0: Executes commands in response to file modifications
 app-portage/pacvis 0.4.1 0.4.2 9999: Displays dependency graphs of packages
 app-portage/portage-lostfiles 0.2.0: A simple script to identify files not tracked by Portage package manager
 app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
 app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-text/katarakt 0.2: Simple PDF viewer
+app-text/mdbook 0.3.7: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
-dev-games/surgescript 0.5.4 9999: scripting language made for opensurge
+dev-games/surgescript 0.5.4.3 9999: scripting language made for opensurge
 dev-lang/aldor 1.2.0_pre20190730: The Aldor Programming Language
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
@@ -56,7 +59,7 @@ dev-python/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/mkautodoc 0.1.0: Auto documentation for MkDocs
 dev-python/mkdocs-git-revision-date-localized-plugin 0.5.0: Display the localized date of the last git modification of a markdown file
-dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.0.1: A Material Design theme for MkDocs
+dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.0.2: A Material Design theme for MkDocs
 dev-python/mkdocs-minify-plugin 0.2.3: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs_pymdownx_material_extras 1.0_beta11: Custom alterations based on Mkdocs-Material
 dev-python/outcome 1.0.1: Capture the outcome of Python function calls
@@ -101,7 +104,7 @@ dev-util/codespell 1.16.0: Check text files for common misspellings
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 7.1.1: HTTP and GraphQL client for developers
 dev-util/quilttools 0.3: Mailbox to quilt series converter
-dev-util/xdp-tools 0.0.2: Utilities and example programs for use with XDP
+dev-util/xdp-tools 0.0.3: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
 dev-vcs/git-extras 5.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
@@ -110,7 +113,7 @@ games-action/ATLauncher 3.3.4.2: Minecraft launcher which integrates multiple di
 games-action/minecraft-launcher 1.6.93 2.1.13086: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/technic-launcher 4.510: Minecraft launcher for community-made modpacks on the Technic Platform
-games-arcade/opensurge 0.5.0_p1 9999: fun 2D retro platformer inspired by old-school Sonic games
+games-arcade/opensurge 0.5.1.2 9999: fun 2D retro platformer inspired by old-school Sonic games
 games-arcade/taisei 1.3.1: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 games-fps/chocolate-doom 3.0.0: A Doom source port that is minimalist and historically accurate
 games-fps/crispy-doom 5.5.2: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
@@ -123,6 +126,9 @@ gui-wm/wayfire 0.4.0 9999: A compiz like 3D wayland compositor
 kde-misc/plasma-applet-thermal-monitor 1.2.9: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 mail-client/mutt-wizard 0_pre20200313: A system for automatically configuring mutt and isync
 media-gfx/azpainter 2.1.5: Full color painting software for Linux for illustration drawing
+media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
+media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
+media-sound/r128gain 1.0.1: Fast audio loudness scanner & tagger (ReplayGain v2 / R128)
 media-video/vidify 2.2.3: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.2: Audio synchronization feature for vidify
 net-mail/remail 0.9: A set of tools for crypted mailing lists
@@ -138,11 +144,12 @@ net-wireless/rtl8821ce 0_pre20200224: Realtek RTL8821CE Driver module for Linux 
 net-wireless/rtl8821cu 0_pre20200302: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/verilator 4.026 9999: The fast free Verilog/SystemVerilog simulator
-sci-geosciences/geographiclib 1.50-r1: C++ library for converting geographic coordinate systems
+sci-geosciences/geographiclib 1.50-r4: C++ library for converting geographic coordinate systems
 sci-libs/ann 1.1.2_p7: A Library for Approximate Nearest Neighbor Searching
 sci-libs/chaco 2.2: Software for Partitioning Graphs
 sci-libs/jdqz 0_pre19971107: Jacobi-Davidson type method for the generalized standard eigenvalue problem.
 sci-libs/meschach 1.2b: Meschach is a C-language library of routines for performing matrix computations.
+sys-apps/hex 0.1.3: Futuristic take on hexdump
 sys-apps/procs 0.9.20: A modern replacement for ps
 sys-auth/AusweisApp2 1.20.0 9999: Official authentication app for German ID cards and residence permits
 sys-auth/mrsh 2.12: Mrsh is a set of remote shell programs that use munge authentication.
@@ -157,6 +164,7 @@ sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
 www-apps/twint 2.1.18: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-client/badwolf 0.5.1 9999: Minimalist and privacy-oriented WebKitGTK+ browser
+x11-libs/sdl-fakeqwerty 20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
 x11-misc/i3lock-color 2.12_p1 9999: Improved i3lock with color customization
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
