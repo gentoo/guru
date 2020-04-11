@@ -3,7 +3,13 @@
 
 EAPI=7
 
-inherit cmake
+DOCBUILDER="mkdocs"
+DOCDEPEND="
+	dev-python/mkdocs
+	dev-python/mkdocs-material
+"
+
+inherit cmake docs
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
@@ -19,19 +25,10 @@ DESCRIPTION="scripting language made for opensurge"
 HOMEPAGE="https://alemart.github.io/surgescript"
 LICENSE="Apache-2.0"
 
-IUSE="doc"
-
-BDEPEND="doc? (
-	dev-python/mkdocs
-	dev-python/mkdocs-material )"
-
 src_compile() {
 	cmake_src_compile
 
-	if use doc; then
-		mkdocs build || die "failed to make docs"
-		HTML_DOCS="site"
-	fi
+	docs_compile
 }
 
 src_install() {
