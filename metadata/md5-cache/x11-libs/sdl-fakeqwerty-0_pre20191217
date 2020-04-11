@@ -1,5 +1,6 @@
+BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=virtual/pkgconfig xlib? ( x11-libs/libX11[abi_x86_32(-)?,abi_x86_64(-)?] ) sdl? ( >=media-libs/libsdl-1.2[abi_x86_32(-)?,abi_x86_64(-)?] ) sdl2? ( media-libs/libsdl2[abi_x86_32(-)?,abi_x86_64(-)?] )
+DEPEND=xlib? ( x11-libs/libX11[abi_x86_32(-)?,abi_x86_64(-)?] ) sdl? ( >=media-libs/libsdl-1.2[abi_x86_32(-)?,abi_x86_64(-)?] ) sdl2? ( media-libs/libsdl2[abi_x86_32(-)?,abi_x86_64(-)?] )
 DESCRIPTION=Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 EAPI=7
 HOMEPAGE=https://github.com/micolous/sdl-fakeqwerty
@@ -8,6 +9,6 @@ KEYWORDS=~amd64 ~x86
 LICENSE=sdl? ( LGPL-2 ) sdl2? ( ZLIB ) xlib? ( ZLIB )
 REQUIRED_USE=|| ( sdl sdl2 xlib ) || ( abi_x86_32 abi_x86_64 )
 SLOT=0
-SRC_URI=https://github.com/micolous/sdl-fakeqwerty/archive/a79f201903c30e91dc3b4f79c789e25548cf9589.tar.gz -> sdl-fakeqwerty-20191217.tar.gz
+SRC_URI=https://github.com/micolous/sdl-fakeqwerty/archive/a79f201903c30e91dc3b4f79c789e25548cf9589.tar.gz -> sdl-fakeqwerty-0_pre20191217.tar.gz
 _eclasses_=multibuild	40fe59465edacd730c644ec2bc197809	multilib	318e8ae683e57fd3ccd0d31a769d8ee8	multilib-build	dfda7934df092a96e439c05b4aeac519	multilib-minimal	8bddda43703ba94d8341f4e247f97566	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c
-_md5_=e33e248961571e6ca19789c27a91a6b2
+_md5_=2fe33baab6678786eaad6bcca517bfe5

@@ -88,7 +88,7 @@ dev-python/sphinx-autodoc-typehints 1.10.3: Type hints support for the Sphinx au
 dev-python/sphinxcontrib-katex 0.6.0: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-trio 1.1.0: Make Sphinx better at documenting Python functions and methods
 dev-python/sphobjinv 2.0.1: Sphinx objects.inv Inspection/Manipulation Tool
-dev-python/spotipy 2.10.0: A light weight Python library for the Spotify Web API
+dev-python/spotipy 2.11.1: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.2.2: Server Sent Events for Starlette
 dev-python/starlette 0.13.2: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
@@ -128,6 +128,8 @@ mail-client/mutt-wizard 0_pre20200313: A system for automatically configuring mu
 media-gfx/azpainter 2.1.5: Full color painting software for Linux for illustration drawing
 media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
+media-libs/amdvlk 2020.1.4: AMD Open Source Driver for Vulkan
+media-plugins/whysynth 20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-sound/r128gain 1.0.1: Fast audio loudness scanner & tagger (ReplayGain v2 / R128)
 media-video/vidify 2.2.3: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.2: Audio synchronization feature for vidify
@@ -143,7 +145,7 @@ net-wireless/rtl8192eu 0_pre20200123: Realtek 8192EU driver module for Linux ker
 net-wireless/rtl8821ce 0_pre20200224: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20200302: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
-sci-electronics/verilator 4.026 9999: The fast free Verilog/SystemVerilog simulator
+sci-electronics/verilator 4.032 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/geographiclib 1.50-r4: C++ library for converting geographic coordinate systems
 sci-libs/ann 1.1.2_p7: A Library for Approximate Nearest Neighbor Searching
 sci-libs/chaco 2.2: Software for Partitioning Graphs
@@ -164,7 +166,7 @@ sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
 www-apps/twint 2.1.18: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-client/badwolf 0.5.1 9999: Minimalist and privacy-oriented WebKitGTK+ browser
-x11-libs/sdl-fakeqwerty 20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
+x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
 x11-misc/i3lock-color 2.12_p1 9999: Improved i3lock with color customization
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
