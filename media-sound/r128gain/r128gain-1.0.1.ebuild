@@ -5,6 +5,7 @@ EAPI=7
 
 # dev-python/crcmod-1.7-r3::gentoo does not support python3_8 as of 2020-04-10.
 PYTHON_COMPAT=( python3_{6,7} )
+DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
