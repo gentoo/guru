@@ -9,10 +9,8 @@ if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/alemart/opensurge"
 else
-	MY_PV="${PV//_p/-}"
-	SRC_URI="https://github.com/alemart/opensurge/archive/v${MY_PV}.tar.gz -> ${PN}-${MY_PV}.tar.gz"
+	SRC_URI="https://github.com/alemart/opensurge/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}/${PN}-${MY_PV}/"
 fi
 
 DESCRIPTION="fun 2D retro platformer inspired by old-school Sonic games"
@@ -30,21 +28,16 @@ SLOT="0"
 DEPEND="
 	>=media-libs/allegro-5.2.5:=
 	media-libs/allegro[jpeg,png,opengl,truetype,gtk,vorbis]
-	dev-games/surgescript:=
+	>=dev-games/surgescript-0.5.4.3:=
 "
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	sed -i '/INSTALL(TARGETS "${GAME_UNIXNAME}" /s/"${CMAKE_INSTALL_PREFIX}/\0\/bin/' \
-		CMakeLists.txt || die "Failed fixing executable target"
-
-	cmake_src_prepare
-}
+# https://github.com/alemart/opensurge/pull/30
+PATCHES=( "${FILESDIR}/${P}-fix_executable_install_path.patch" )
 
 src_configure() {
 	local mycmakeargs=(
-		-DGAME_DATADIR="/usr/share/games/${PN}"
-		-DCMAKE_INSTALL_PREFIX="/usr"
+		-DUSE_STATIC=OFF
 	)
 
 	cmake_src_configure

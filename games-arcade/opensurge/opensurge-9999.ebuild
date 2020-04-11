@@ -5,15 +5,12 @@ EAPI=7
 
 inherit cmake
 
-MY_PV="${PV/_/-}"
-
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/alemart/opensurge"
 else
-	SRC_URI="https://github.com/alemart/opensurge/archive/v${MY_PV}.tar.gz -> ${PN}-${MY_PV}.tar.gz"
+	SRC_URI="https://github.com/alemart/opensurge/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}/${PN}-${MY_PV}/"
 fi
 
 DESCRIPTION="fun 2D retro platformer inspired by old-school Sonic games"
@@ -31,6 +28,6 @@ SLOT="0"
 DEPEND="
 	>=media-libs/allegro-5.2.5:=
 	media-libs/allegro[jpeg,png,opengl,truetype,gtk,vorbis]
-	dev-games/surgescript:=
+	>=dev-games/surgescript-0.5.4.3:=
 "
 RDEPEND="${DEPEND}"

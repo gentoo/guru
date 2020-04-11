@@ -7,7 +7,6 @@ PYTHON_COMPAT=( python3_{6,7,8} )
 
 DOCBUILDER="mkdocs"
 DOCDEPEND="
-	dev-python/mkdocs-git-revision-date-localized-plugin
 	~dev-python/mkdocs-material-5.0.0_rc2
 	dev-python/mkdocs_pymdownx_material_extras
 	dev-python/pyspelling
@@ -47,10 +46,9 @@ python_prepare_all() {
 		tests/test_globmatch.py || die
 
 	# git revision data plugin needs git repo to build
-	if use doc; then
-		git init || die
-		git add -A || die
-		git commit -q -m ".." || die
-	fi
+	# do not depend on this
+	sed -i -e '/git-revision-date-localized/d' \
+		mkdocs.yml || die
+
 	distutils-r1_python_prepare_all
 }

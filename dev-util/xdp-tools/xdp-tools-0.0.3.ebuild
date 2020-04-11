@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit linux-info
+inherit linux-info llvm multilib
 
 DESCRIPTION="Utilities and example programs for use with XDP"
 HOMEPAGE="https://github.com/xdp-project/xdp-tools"
@@ -17,32 +17,43 @@ KEYWORDS="~amd64 ~x86"
 RESTRICT="strip"
 
 # skip QA check(s) for eBPF samples
-QA_EXECSTACK="usr/lib/bpf/*.o"
+QA_EXECSTACK="usr/lib*/bpf/*.o"
 
 # XDP should be enabled
 CONFIG_CHECK="~XDP_SOCKETS"
+
+LLVM_MAX_SLOT=10
 
 BDEPEND="
 	virtual/pkgconfig
 "
 RDEPEND="
 	>=dev-libs/libbpf-0.0.7
+	net-libs/libpcap
+	sys-libs/zlib
 	virtual/libelf
 "
 DEPEND="${RDEPEND}
-	>=sys-devel/clang-9.0.0
-	>=sys-devel/llvm-9.0.0
+	sys-devel/clang:10
+	sys-devel/llvm:10
 "
+
+PATCHES=( "${FILESDIR}/${P}-install.patch" )
+
+pkg_setup() {
+	llvm_pkg_setup
+}
 
 src_configure() {
 	./configure
 }
 
 src_compile() {
-	emake PRODUCTION=1 PREFIX=/usr all
+	emake PRODUCTION=1 PREFIX=/usr LIBDIR="/usr/$(get_libdir)" all
 }
 
 src_install() {
-	emake PRODUCTION=1 PREFIX=/usr DESTDIR="${D}" install
+	emake PRODUCTION=1 PREFIX=/usr LIBDIR="/usr/$(get_libdir)" DESTDIR="${D}" install
 	doman xdp-filter/xdp-filter.8
+	doman xdp-dump/xdpdump.8
 }

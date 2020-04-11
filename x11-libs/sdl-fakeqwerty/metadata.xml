@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lo48576@hard-wi.red</email>
+		<name>YOSHIOKA Takuma</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">micolous/sdl-fakeqwerty</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		sdl-fakeqwerty makes your keyboard act like a US-QWERTY keyboard, while not changing any system settings.
+	</longdescription>
+	<use>
+		<flag name="sdl">Enable support for libsdl</flag>
+		<flag name="sdl2">Enable support for libsdl2</flag>
+		<flag name="xlib">Enable support for libX11</flag>
+	</use>
+</pkgmetadata>
