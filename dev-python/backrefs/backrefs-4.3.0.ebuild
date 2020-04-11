@@ -5,7 +5,13 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7,8} )
 
-inherit distutils-r1
+DOCBUILDER="mkdocs"
+DOCDEPEND="
+		~dev-python/mkdocs-material-4.6.3
+		dev-python/pyspelling
+"
+
+inherit distutils-r1 docs
 
 DESCRIPTION="Wrapper around re or regex that adds additional back references"
 HOMEPAGE="
@@ -18,27 +24,11 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="doc"
-
 DEPEND="
 	test? (
 		dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/regex[${PYTHON_USEDEP}]
 	)
 "
-BDEPEND="
-	doc? (
-		>=dev-python/mkdocs-material-2.2.5
-		dev-python/pyspelling
-	)
-"
 
 distutils_enable_tests pytest
-
-python_compile_all() {
-	default
-	if use doc; then
-		mkdocs build || die "failed to make docs"
-		HTML_DOCS="site"
-	fi
-}
