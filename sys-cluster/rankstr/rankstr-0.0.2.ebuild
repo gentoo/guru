@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="Split an MPI communicator into subcomms based on string values"
 HOMEPAGE="https://github.com/ECP-VeloC/rankstr"
@@ -25,5 +25,5 @@ src_prepare() {
 	#do not build static library
 	sed -i '/rankstr-static/d' src/CMakeLists.txt || die
 	default
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
