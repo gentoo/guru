@@ -129,7 +129,7 @@ media-gfx/azpainter 2.1.5: Full color painting software for Linux for illustrati
 media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.1.4: AMD Open Source Driver for Vulkan
-media-plugins/whysynth 20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
+media-plugins/whysynth 20170701_pre20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-sound/r128gain 1.0.1: Fast audio loudness scanner & tagger (ReplayGain v2 / R128)
 media-video/vidify 2.2.3: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.2: Audio synchronization feature for vidify
@@ -146,7 +146,7 @@ net-wireless/rtl8821ce 0_pre20200224: Realtek RTL8821CE Driver module for Linux 
 net-wireless/rtl8821cu 0_pre20200302: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/verilator 4.032 9999: The fast free Verilog/SystemVerilog simulator
-sci-geosciences/geographiclib 1.50-r4: C++ library for converting geographic coordinate systems
+sci-geosciences/geographiclib 1.50-r4 1.50.1: C++ library for converting geographic coordinate systems
 sci-libs/ann 1.1.2_p7: A Library for Approximate Nearest Neighbor Searching
 sci-libs/chaco 2.2: Software for Partitioning Graphs
 sci-libs/jdqz 0_pre19971107: Jacobi-Davidson type method for the generalized standard eigenvalue problem.
