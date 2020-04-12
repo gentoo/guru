@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="Low-level distributed erasure coding lib to protect datasets of MPI applications"
 HOMEPAGE="https://github.com/ECP-VeloC/redset"
@@ -28,10 +28,10 @@ src_prepare() {
 	#do not build static library
 	sed -i '/redset-static/d' src/CMakeLists.txt
 	default
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_install() {
-	cmake-utils_src_install
+	cmake_src_install
 	dodoc -r doc/rst/.
 }
