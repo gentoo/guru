@@ -59,7 +59,8 @@ dev-python/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/mkautodoc 0.1.0: Auto documentation for MkDocs
 dev-python/mkdocs-git-revision-date-localized-plugin 0.5.0: Display the localized date of the last git modification of a markdown file
-dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.0.2: A Material Design theme for MkDocs
+dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.1.0: A Material Design theme for MkDocs
+dev-python/mkdocs-material-extensions 1.0_beta1: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.2.3: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs_pymdownx_material_extras 1.0_beta11: Custom alterations based on Mkdocs-Material
 dev-python/outcome 1.0.1: Capture the outcome of Python function calls
