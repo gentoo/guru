@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="AXL provides a common C interface to transfer files in an HPC storage hierarchy."
 HOMEPAGE="https://github.com/ECP-VeloC/AXL"
@@ -30,7 +30,7 @@ src_prepare() {
 	#do not auto install README
 	sed -i '/FILES README.md DESTINATION/d' CMakeLists.txt || die
 	default
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -38,10 +38,10 @@ src_configure() {
 		#other options available: CRAY_DW INTEL_CPPR IBM_BBAPI
 		-DAXL_ASYNC_API=NONE
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
-	cmake-utils_src_install
+	cmake_src_install
 	dodoc -r doc/.
 }
