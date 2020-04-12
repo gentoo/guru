@@ -18,7 +18,7 @@ LICENSE="|| ( Apache-2.0 MIT )"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
-RDEPEND="dev-python/sphinx[${PYTHON_USEDEP}]"
+RDEPEND="<=dev-python/sphinx-3[${PYTHON_USEDEP}]"
 
 DEPEND="test? (
 	dev-python/contextlib2[${PYTHON_USEDEP}]
