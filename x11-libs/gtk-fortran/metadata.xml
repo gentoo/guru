@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+	<email>torokhov-s-a@yandex.ru</email>
+	<name>Sergey Torokhov</name>
+</maintainer>
+<longdescription>
+	Gtk-fortran is a partial GTK/Fortran binding aims to offer scientists programming in Fortran
+	a cross-platform library to build Graphical User Interfaces.
+</longdescription>
+<use>
+	<flag name="doc">Build doxygen documentation</flag>
+	<flag name="examples">Install examples source code files</flag>
+	<flag name="plplot">Build with <pkg>sci-libs/plplot</pkg> support</flag>
+</use>
+</pkgmetadata>
