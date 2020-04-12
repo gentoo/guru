@@ -6,7 +6,7 @@ EAPI=7
 inherit meson
 
 DESCRIPTION="Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL."
-HOMEPAGE="http://taisei-project.org/"
+HOMEPAGE="https://taisei-project.org/"
 LICENSE="BSD"
 SLOT="0"
 SRC_URI="https://github.com/taisei-project/taisei/releases/download/v${PV}/${PN}-v${PV}.tar.xz"

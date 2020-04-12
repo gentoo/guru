@@ -6,7 +6,7 @@ EAPI="7"
 DISTUTILS_USE_SETUPTOOLS=no
 PYTHON_COMPAT=( python3_{6,7,8} )
 
-inherit cmake-utils distutils-r1
+inherit cmake distutils-r1
 
 DESCRIPTION="Very-Low Overhead Checkpointing System"
 HOMEPAGE="https://github.com/ECP-VeloC/VELOC"
@@ -51,7 +51,7 @@ src_prepare() {
 	#do not auto install README
 #       sed -i '/FILES README.md DESTINATION/d' CMakeLists.txt || die
 	default
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -64,7 +64,7 @@ src_configure() {
 		-DCMAKE_INSTALL_LIBDIR="$(get_libdir)"
 		-DX_LIBDIR="$(get_libdir)"
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_compile() {
@@ -81,7 +81,7 @@ src_compile() {
 }
 
 src_install() {
-	cmake-utils_src_install
+	cmake_src_install
 	if use python; then
 		cd "${S}/src/bindings/python"
 		distutils-r1_src_install

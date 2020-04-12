@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit cmake-utils
+inherit cmake
 
 case "${PV}" in
 9999)
@@ -46,7 +46,7 @@ src_prepare() {
 	#do not install README.md automatically
 	sed -i '/FILES README.md DESTINATION/d' CMakeLists.txt || die
 	default
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -55,12 +55,12 @@ src_configure() {
 		-DKVTREE_FILE_LOCK="$(usex flock FLOCK $(usex fcntl FCNTL NONE))"
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
 	chrpath -d "${BUILD_DIR}/src/kvtree_print_file" || die
-	cmake-utils_src_install
+	cmake_src_install
 	chrpath -d "${ED}/usr/$(get_libdir)/libkvtree.so" || die
 	dodoc doc/rst/*.rst
 	docinto "${DOCSDIR}/users"

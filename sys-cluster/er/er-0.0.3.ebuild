@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="High-level distributed erasure coding lib combining shuffile  and redset"
 HOMEPAGE="https://github.com/ECP-VeloC/er"
@@ -29,5 +29,5 @@ src_prepare() {
 	#do not build static library
 	sed -i '/er-static/d' src/CMakeLists.txt || die
 	default
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }

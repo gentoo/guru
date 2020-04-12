@@ -14,7 +14,7 @@ else
 fi
 
 DESCRIPTION="fun 2D retro platformer inspired by old-school Sonic games"
-HOMEPAGE="http://opensurge2d.org/"
+HOMEPAGE="https://opensurge2d.org/"
 LICENSE="GPL-3"
 SLOT="0"
 

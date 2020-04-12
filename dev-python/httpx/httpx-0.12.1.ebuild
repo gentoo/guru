@@ -5,7 +5,11 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7} )
 
-inherit distutils-r1
+DOCBUILDER="mkdocs"
+DOCDEPEND="dev-python/mkdocs-material"
+AUTODOC=1
+
+inherit distutils-r1 docs
 
 DESCRIPTION="A next generation HTTP client for Python"
 HOMEPAGE="
@@ -19,8 +23,6 @@ LICENSE="BSD"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
-IUSE="doc"
-
 RDEPEND="dev-python/certifi[${PYTHON_USEDEP}]
 	dev-python/chardet[${PYTHON_USEDEP}]
 	dev-python/hstspreload[${PYTHON_USEDEP}]
@@ -30,11 +32,6 @@ RDEPEND="dev-python/certifi[${PYTHON_USEDEP}]
 	dev-python/rfc3986[${PYTHON_USEDEP}]
 	dev-python/sniffio[${PYTHON_USEDEP}]
 	dev-python/urllib3[${PYTHON_USEDEP}]"
-
-BDEPEND="doc? (
-	dev-python/mkdocs
-	dev-python/mkautodoc
-	dev-python/mkdocs-material )"
 
 DEPEND="test? (
 	dev-python/attrs[${PYTHON_USEDEP}]
@@ -62,12 +59,4 @@ python_prepare_all() {
 		tests/dispatch/test_http2.py || die
 
 	distutils-r1_python_prepare_all
-}
-
-python_compile_all() {
-	default
-	if use doc; then
-		mkdocs build || die "failed to make docs"
-		HTML_DOCS="site"
-	fi
 }

@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="A Geocoding Toolbox for Python"
 HOMEPAGE="
-	http://www.geopy.org
+	https://geopy.readthedocs.io
 	https://github.com/geopy/geopy
 	https://pypi.org/project/geopy
 "

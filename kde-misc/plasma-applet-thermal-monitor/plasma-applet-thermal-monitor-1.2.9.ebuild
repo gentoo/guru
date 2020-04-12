@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit kde5 cmake-utils
+inherit ecm
 
 DESCRIPTION="Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors"
 HOMEPAGE="https://store.kde.org/p/998915/
@@ -13,18 +13,17 @@ if [[ ${KDE_BUILD_TYPE} = live ]] ; then
 	EGIT_REPO_URI="https://github.com/kotelnik/${PN}.git"
 else
 	SRC_URI="https://github.com/kotelnik/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2+"
-SLOT="0"
-KEYWORDS="~amd64 ~x86"
+SLOT="5"
 
+# block against slot 0 of self, to prevent file collision
 DEPEND="
-	$(add_frameworks_dep plasma)
+	!kde-misc/plasma-applet-thermal-monitor:0
+	>=kde-frameworks/plasma-5.60.0:5
 "
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	local PATCHES=("${FILESDIR}/01-set-correct-qml-type.patch")
-	cmake-utils_src_prepare
-}
+PATCHES=("${FILESDIR}/01-set-correct-qml-type.patch")
