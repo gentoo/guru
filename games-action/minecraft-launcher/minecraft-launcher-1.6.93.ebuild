@@ -6,7 +6,7 @@ EAPI=7
 inherit desktop java-pkg-2 xdg
 
 DESCRIPTION="An open-world game whose gameplay revolves around breaking and placing blocks"
-HOMEPAGE="https://www.minecraft.net"
+HOMEPAGE="https://mojang.com/"
 SRC_URI="https://launcher.mojang.com/v1/objects/eabbff5ff8e21250e33670924a0c5e38f47c840b/launcher.jar -> ${P}.jar
 	https://launcher.mojang.com/download/minecraft-launcher.svg -> ${PN}-legacy.svg"
 
