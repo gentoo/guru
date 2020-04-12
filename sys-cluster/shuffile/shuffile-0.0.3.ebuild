@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="SHUFFILE Shuffle files between processes"
 HOMEPAGE="https://github.com/ECP-VeloC/shuffile"
@@ -27,5 +27,5 @@ src_prepare() {
 	#do not build static library
 	sed -i '/shuffile-static/d' src/CMakeLists.txt || die
 	default
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
