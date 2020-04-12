@@ -8,7 +8,7 @@ inherit desktop xdg
 MYPV="${PV/_beta}"
 
 DESCRIPTION="An open-world game whose gameplay revolves around breaking and placing blocks"
-HOMEPAGE="https://www.minecraft.net"
+HOMEPAGE="https://mojang.com/"
 SRC_URI="https://launcher.mojang.com/download/linux/x86_64/minecraft-launcher_${MYPV}.tar.gz -> ${P}.tar.gz
 	https://launcher.mojang.com/download/minecraft-launcher.svg"
 
