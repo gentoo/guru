@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mathieu.tortuyaux@gmail.com</email>
+		<name>Mathieu Tortuyaux</name>
+	</maintainer>
+	<longdescription lang="en">
+A terminal based graphical activity monitor inspired by gtop and vtop
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/xxxserxxx/gotop/issues</bugs-to>
+		<changelog>https://github.com/xxxserxxx/gotop/blob/master/CHANGELOG.md</changelog>
+		<doc>https://github.com/xxxserxxx/gotop/wiki</doc>
+	</upstream>
+</pkgmetadata>
