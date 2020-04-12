@@ -27,4 +27,6 @@ RDEPEND="
 	>=dev-python/markdown-3.2[${PYTHON_USEDEP}]
 	>=dev-python/mkdocs-1.1[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.4[${PYTHON_USEDEP}]
-	>=dev-python/pymdown-extensions-7.0[${PYTHON_USEDEP}]"
+	>=dev-python/pymdown-extensions-7.0[${PYTHON_USEDEP}]
+	>=dev-python/mkdocs-material-extensions-1.0_beta1[${PYTHON_USEDEP}]
+"
