@@ -19,7 +19,9 @@ fi
 LICENSE="GPL-2+"
 SLOT="5"
 
+# block against slot 0 of self, to prevent file collision
 DEPEND="
+	!kde-misc/plasma-applet-thermal-monitor:0
 	>=kde-frameworks/plasma-5.60.0:5
 "
 RDEPEND="${DEPEND}"
