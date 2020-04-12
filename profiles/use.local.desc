@@ -47,6 +47,9 @@ sys-cluster/KVTree:flock - Set the type of file locking to flock.
 sys-cluster/veloc:alps - Use ALPS (Application Level Placement Scheduler) as resource manager
 sys-cluster/veloc:lsf - Use LFS (Load Sharing Facility) as resource manager
 sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager
+x11-libs/gtk-fortran:doc - Build doxygen documentation
+x11-libs/gtk-fortran:examples - Install examples source code files
+x11-libs/gtk-fortran:plplot - Build with sci-libs/plplot support
 x11-libs/sdl-fakeqwerty:sdl - Enable support for libsdl
 x11-libs/sdl-fakeqwerty:sdl2 - Enable support for libsdl2
 x11-libs/sdl-fakeqwerty:xlib - Enable support for libX11
