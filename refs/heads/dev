@@ -1,23 +1,17 @@
 certificate version 0.1
-pusher Kurt Kanzenbach <kurt@kmk-computers.de> 1586771032 +0200
+pusher A19F636CD4EDBCD1 1586772084 +0200
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1586771032-e19b16c32ca7267c142063a1ed93fc0c501d1f7c
+nonce 1586772084-ebe326658a43f605487b99bc15786cbc0b40601a
 
-e47c4327ffe7fb08a5be152b7baeaaeccfa5da4e 2100af6a7b616d536a8e0cba6f5310c1bb55e414 refs/heads/dev
+2100af6a7b616d536a8e0cba6f5310c1bb55e414 085d03e37a807c76d2707fbac07f9d0198240d2f refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iQJKBAABCAA0FiEEiQLjxJIQcNxwU7Bj249qgr3OILkFAl6UNFgWHGt1cnRAa21r
-LWNvbXB1dGVycy5kZQAKCRDbj2qCvc4guaWKD/9ZjnPLfsBaWsr244Xn7owy5vBC
-L3zmkOhP9stn4LbvT3E3I65FfzYzCPezPsCDMVAp/sc0ue7/ffdp9QsFI1jUluWM
-nZKEGMcSWQ2ziwo0GF5SreoHhp1z9riStFFjgqOhFqHNAbE98rvuMIaucAyO5Eyx
-Dk0azHtiQ4kr67Y75LAPYROEOSz3nDtkepWyobdxq9NXM1qEsUTkWdi8P6Krf/qd
-CkSoifu3FhkECSbHgdjyMpZ2C4LY7KxDDzhSHyBWWWkWwdsMTAZgVUnbhJt1J7Zg
-i5ubWgxrU709XtCwIGmOoeCMJDF9mkRj8/mLnipF8wzkvPPo3JopBX1KDYHluXwY
-tkWIRaskHbg9my0jjk/mgC0n54fE4NrtqECsr+9CTQnlKA6NnSqx3zhLkeOdB/Tw
-jeOjb/Ed/8wC+2v07cpSwhCxTHonbmJwoBI0+QgfOb7tRwABNF4AOKDvyfdXhHKV
-Ow8TA5Krxeb2Hi60O0TnTqCVnCyZX+3oQ7rdh8W+q4LmNrn0XZ+ZxdwkQok+CdJD
-e8w6M/ignIMERfmSYp5ZtsaVxTkOkWGtUMNiSsClunri4rWwTfCqgpPGGIEb19F+
-ffy491Vso8LDoR6GqHgxEr1inM1fU/OZo8NnYBIlOOVvBA0w+TCt5MMjiITMkJa2
-hwUeXx9GB3t0/ZcUbw==
-=U3/B
+iQEzBAABCAAdFiEEBv9TQb2AXbC8fQemoZ9jbNTtvNEFAl6UOHQACgkQoZ9jbNTt
+vNGuqQf/Z+xtu6U3Fm0Fj5OcdY0kK8VceSsezkx+3eTIjuSnr6We7pcw/y82vU5a
+oTRWwthwnB4XljeyDwH2C8kYVSvAbPJdoyhuoXS4d74opTVzOjZXnbDBGs7lCsg2
+mR/V9r074WoGRoj2dz5L6a0St4AeUOmtsPAH++jxY2i0i/2s7clFP60rj/i3Skeg
+g+aWKca9kt5+3+8L54zt7zkwdYEAqiXT++ysyOmDbv/gWKiIQ9L84tH3KB13WxRY
+yfDNxm0xcgHwm6uZa+2R4GvLlvBLXPAUy9Kh2Frr2eaFhWgIhdzY4m26VymivWC3
+g5rP/TAB8WoBDomugu3xH89DYqFXhw==
+=xuDY
 -----END PGP SIGNATURE-----
