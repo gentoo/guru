@@ -27,14 +27,15 @@ DOCS=( ${ADIR}/AUTHORS ${ADIR}/COPYING ${ADIR}/README )
 
 src_prepare() {
 	default
-	sed -i -e "/ldconfig/d" "${S}/Makefile" || die
+	sed -i -e "/ldconfig/d" "${S}"/Makefile || die
 }
 
 src_install() {
-	mkdir -p "${D}/usr/{bin,share/man/man1}"
+	dodir /usr/bin
+	dodir /usr/share/man/man1
 	emake DESTDIR="${D}" PREFIX=/usr install
-	dodoc "${DOCS[@]}"
-	pushd "${D}/usr/share/man/man1" > /dev/null
+	einstalldocs "${DOCS[@]}"
+	pushd "${D}"/usr/share/man/man1 > /dev/null
 	gzip -d zita-a2j.1.gz
 	gzip -d zita-ajbridge.1.gz
 	gzip -d zita-j2a.1.gz

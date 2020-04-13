@@ -42,10 +42,10 @@ src_install(){
 	fi
 	if use doc; then
 		insinto /usr/share/6pm/Doc
-		doins ${ADIR}/Doc/*
+		doins "${ADIR}"/Doc/*
 	fi
 	if use nls; then
 		insinto /usr/share/6pm/Translations
-		doins ${ADIR}/Translations/*
+		doins "${ADIR}"/Translations/*
 	fi
 }
