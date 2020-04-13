@@ -20,7 +20,12 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+# mkdocs-material depends on this package creating a circular dep
 PDEPEND=">=dev-python/mkdocs-material-5.0.0[${PYTHON_USEDEP}]"
+
+# we still need mkdocs-material for test, but the circular dep can be avoided
+# by first emerging with FEATURES="-test"
+DEPEND="test? ( ${PDEPEND} )"
 
 S="${WORKDIR}/${PN}-${MYPV}"
 
