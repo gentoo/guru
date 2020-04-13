@@ -10,9 +10,9 @@ inherit cmake fortran-2
 
 DESCRIPTION="A GTK+ binding to build Graphical User Interfaces in Fortran"
 HOMEPAGE="https://github.com/vmagnin/gtk-fortran"
-SRC_URI="https://github.com/vmagnin/${PN}/archive/v19.04.gtk${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/vmagnin/${PN}/archive/v${PV}.gtk3.24.8.tar.gz -> ${P}.tar.gz"
 
-S="${WORKDIR}/${PN}-19.04.gtk${PV}"
+S="${WORKDIR}/${P}.gtk3.24.8"
 
 LICENSE="GPL-3"
 SLOT="0"
