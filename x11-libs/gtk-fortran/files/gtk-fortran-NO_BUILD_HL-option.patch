@@ -1,0 +1,96 @@
+diff -Naur a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	2019-04-24 10:53:11.000000000 +0300
++++ b/CMakeLists.txt	2020-04-13 07:05:14.000000000 +0300
+@@ -194,7 +194,7 @@
+ # As a temporary (?) workaround, we are now using pkg-config.
+ # If a CMake error occurs, add -D EXCLUDE_PLPLOT=true to your CMake command.
+ #===============================================================================
+-if (NOT EXCLUDE_PLPLOT)
++if (NOT EXCLUDE_PLPLOT AND NOT NO_BUILD_HL)
+     find_package(PkgConfig REQUIRED)
+ 
+     pkg_check_modules(PLPLOT-FORTRAN REQUIRED plplot-fortran)
+@@ -211,9 +211,9 @@
+     include_directories(${PLPLOT_INCLUDE_DIRS})
+     set(CMAKE_REQUIRED_LIBRARIES "${PLPLOT_LIBRARIES}")
+     set(CMAKE_REQUIRED_INCLUDES "${PLPLOT-FORTRAN_INCLUDE_DIRS}")
+-else(NOT EXCLUDE_PLPLOT)
++else(NOT EXCLUDE_PLPLOT AND NOT NO_BUILD_HL)
+     message(STATUS "PLPLOT Excluded as command option")
+-endif(NOT EXCLUDE_PLPLOT)
++endif(NOT EXCLUDE_PLPLOT AND NOT NO_BUILD_HL)
+ 
+ 
+ #===============================================================================
+@@ -223,10 +223,10 @@
+ add_subdirectory(test)
+ add_subdirectory(examples)
+ 
+-if(${GTKv} GREATER 2)
+-    add_subdirectory(sketcher)
+-endif()
+-
+-if(PLPLOT_FOUND AND NOT EXCLUDE_PLPLOT)
+-    add_subdirectory(plplot)
+-endif(PLPLOT_FOUND AND NOT EXCLUDE_PLPLOT)
++if(NOT NO_BUILD_HL)
++    if(PLPLOT_FOUND AND NOT EXCLUDE_PLPLOT)
++        add_subdirectory(plplot)
++    endif(PLPLOT_FOUND AND NOT EXCLUDE_PLPLOT)
++else(NOT NO_BUILD_HL)
++    message(STATUS "High Level API Excluded as command option")
++endif(NOT NO_BUILD_HL)
+diff -Naur a/src/CMakeLists.txt b/src/CMakeLists.txt
+--- a/src/CMakeLists.txt	2019-04-24 10:53:11.000000000 +0300
++++ b/src/CMakeLists.txt	2020-04-13 11:28:22.000000000 +0300
+@@ -33,28 +33,33 @@
+     "gdk-pixbuf-auto.f90"
+     "glib-auto.f90"
+     "gtk.f90"
+-    "gtk-hl.f90"
+-    "gtk-hl-container.f90"
+-    "gtk-hl-button.f90"
+-    "gtk-hl-entry.f90"
+-    "gtk-hl-tree.f90"
+-    "gtk-hl-menu.f90"
+-    "gtk-hl-combobox.f90"
+-    "gtk-hl-spin-slider.f90"
+-    "gtk-hl-chooser.f90"
+-    "gtk-hl-dialog.f90"
+-    "gtk-hl-progress.f90"
+-    "gtk-hl-accelerator.f90"
+-    "gtk-hl-infobar.f90"
+-    "gtk-hl-assistant.f90"
+-    "gtk-hl-misc.f90"
+-    "gtk-draw-hl.f90"
+     "gtk-sup.f90"
+-    "gdk-pixbuf-hl.f90"
+     "pango-auto.f90"
+     "gdkevents-auto${GTKv}.f90"
+ )
+ 
++if(NOT NO_BUILD_HL)
++    set(sources ${sources}
++        "gtk-hl.f90"
++        "gtk-hl-container.f90"
++        "gtk-hl-button.f90"
++        "gtk-hl-entry.f90"
++        "gtk-hl-tree.f90"
++        "gtk-hl-menu.f90"
++        "gtk-hl-combobox.f90"
++        "gtk-hl-spin-slider.f90"
++        "gtk-hl-chooser.f90"
++        "gtk-hl-dialog.f90"
++        "gtk-hl-progress.f90"
++        "gtk-hl-accelerator.f90"
++        "gtk-hl-infobar.f90"
++        "gtk-hl-assistant.f90"
++        "gtk-hl-misc.f90"
++        "gtk-draw-hl.f90"
++        "gdk-pixbuf-hl.f90"
++    )
++endif(NOT NO_BUILD_HL)
++
+ if (CMAKE_HOST_WIN32)
+   set(sources
+     ${sources}

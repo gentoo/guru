@@ -12,6 +12,7 @@
 <use>
 	<flag name="doc">Build doxygen documentation</flag>
 	<flag name="examples">Install examples source code files</flag>
+	<flag name="high-level">Build high-level interface to the gtk-fortran package</flag>
 	<flag name="plplot">Build with <pkg>sci-libs/plplot</pkg> support</flag>
 </use>
 </pkgmetadata>

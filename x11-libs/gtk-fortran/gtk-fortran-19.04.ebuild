@@ -18,7 +18,8 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="doc examples plplot"
+IUSE="doc examples high-level plplot"
+REQUIRED_USE="plplot? ( high-level )"
 
 RDEPEND="
 	x11-libs/gtk+:3
@@ -43,6 +44,11 @@ pkg_setup() {
 
 src_prepare() {
 	default
+	# Patching here because of failed via PATCHES due to different line endings in files.
+	# Patch is disable building of 'gtkf-sketcher' - it isn't installed and has now documentation;
+	# add upstream 'NO_BUILD_HL' cmake option to disable build of high-level interface to gtk-fortran
+	# that is used by plplot interface (and gtkf-sketcher) and currently causes the TEXTREL QA warnings.
+	eapply "${FILESDIR}"/gtk-fortran-NO_BUILD_HL-option.patch
 	# Fix library installation path
 	sed -i "s:CMAKE_INSTALL_LIBDIR lib:CMAKE_INSTALL_LIBDIR $(get_libdir):" CMakeLists.txt || die
 	# Fix "Some or all of the gtk libraries were not found. (missing: GTK3_GDKCONFIG_INCLUDE_DIR)",
@@ -55,6 +61,7 @@ src_prepare() {
 src_configure() {
 	mycmakeargs+=(
 		-DEXCLUDE_PLPLOT=$(usex plplot false true)
+		-DNO_BUILD_HL=$(usex high-level false true)
 		-DINSTALL_EXAMPLES=$(usex examples)
 		-DNO_BUILD_EXAMPLES=true
 	)
