@@ -10,7 +10,7 @@ HOMEPAGE="https://gitlab.com/fcitx/fcitx-skk"
 SRC_URI="https://gitlab.com/fcitx/fcitx-skk/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
-SLOT="4"
+SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="qt5"
 

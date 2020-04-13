@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>kurt@kmk-computers.de</email>
+    <name>Kurt Kanzenbach</name>
+  </maintainer>
+  <longdescription>
+    "tio" is a simple TTY terminal application which features a straightforward
+    commandline interface to easily connect to TTY devices for basic
+    input/output.
+  </longdescription>
+</pkgmetadata>
