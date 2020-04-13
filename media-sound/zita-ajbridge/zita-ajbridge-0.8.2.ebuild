@@ -34,7 +34,7 @@ src_install() {
 	dodir /usr/bin
 	dodir /usr/share/man/man1
 	emake DESTDIR="${D}" PREFIX=/usr install
-	einstalldocs "${DOCS[@]}"
+	einstalldocs
 	pushd "${D}"/usr/share/man/man1 > /dev/null
 	gzip -d zita-a2j.1.gz
 	gzip -d zita-ajbridge.1.gz
