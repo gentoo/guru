@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'http://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>denis7774@gmail.com</email>
+		<name>Denis Reva</name>
+		<description>RarogCmex</description>
+	</maintainer>
+	<longdescription>Add64 implements Additive Synthesis for creating new sounds that are not accessible to
+		any other synthesis method. Due to its large number of parameters, Additive Synthesis
+		has never really reached much popularity. Add64 is therefore designed to provide fast
+		real-time access to all parameters. A set of two 24-stage filters has been added to map
+		complex spectral alterations onto a set of only a few parameters. Emphasis has also been
+		put on modulations, both in the filter as well as the spectral design sections
+	</longdescription>
+	<use>
+		<flag name="presets">Install presets. Recommended</flag>
+	</use>
+</pkgmetadata>

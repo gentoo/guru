@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'http://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>denis7774@gmail.com</email>
+		<name>Denis Reva</name>
+		<description>RarogCmex</description>
+	</maintainer>
+	<longdescription>
+6PM, created and maintained by Michel Vergnaud, is a polyphonic, touch-sensitive, realtime, phase-modulation (PM) software sound synthesizer. The screenshot above is of the default version included in the repositories of Librazik-2, an excellent French linux distribution designed for high-quality audio production.
+
+All of the parameters for 6PM are located in the main GUI. The algorithm layout (indicated in the window on the left side of the window) is similar to that of the classic Yamaha DX7: the modulator(s) are on the upper row, and the carrier(s) are on the lower row. When an oscillator functions as a carrier, it will have a green pan ribbon in its corresponding envelope area on the right. Algorithms can be preset or user-made.
+
+6PM has six oscillators (operators) that can be used as either "modulators" or "carriers." Each oscillator includes its own amplitude and frequency envelopes (frequency envelope activates with the green button below the envelope window), with multiple envelope stages available for each. Sustain points and start attack levels can be selected. Looping within the envelopes is also possible. Frequency detuning is plus-minus 24 octaves, and can be set as absolute or relative to pitch. There are LFO buttons for both amplitude and frequency modulation, with dedicated pop-up windows. LFO waveforms include sine, square, ramp-up and ramp-down. Oscillator detuning (coarse and fine) as well as random detuning, are also available for each operator. Finally, there is a filter section at the bottom, which includes lowpass, highpass, bandpass and notch filter options, adjustable cutoff and resonance settings, and a dedicated filter envelope pop-up window. Unlike many softsynths, 6PM's control knobs modify the audio signal in realtime, without the need for new note-ons.
+
+A midi map section is included for midi assignments. Presets are organized into categories. Note that once you have made a preset and saved it with a new name, the original preset will still carry the same sound until you click "reload," which will return it to the original settings.
+
+6PM has a main volume slider, a global tuning dial, and note test and panic buttons, located in the lower lefthand corner. Pitchbend amount and number of polyphony are global settings that are accessed by clicking the "Midi" dropdown menu at the top of the GUI. 6PM can also be used in a terminal (good for slower machines). English and French language packets are available.
+	</longdescription>
+	<use>
+		<flag name="midimaps">Install midi maps for that synth. Recommended</flag>
+		<flag name="presets">Install presets. Recommended</flag>
+		<flag name="nls">Add support for localization</flag>
+	</use>
+</pkgmetadata>
