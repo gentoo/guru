@@ -122,7 +122,6 @@ games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 termina
 gui-apps/wcm 0.4.0 9999: Wayfire Config Manager
 gui-apps/wf-config 0.4.0 9999: A library for managing configuration files, written for wayfire
 gui-apps/wf-shell 0.4.0 9999: A compiz like 3D wayland compositor
-gui-libs/gtk-layer-shell 0.1.0 9999: A library to create panels and other desktop components for Wayland
 gui-wm/wayfire 0.4.0 9999: A compiz like 3D wayland compositor
 kde-misc/plasma-applet-thermal-monitor 1.2.9: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 mail-client/mutt-wizard 0_pre20200313: A system for automatically configuring mutt and isync
@@ -131,9 +130,13 @@ media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.1.4: AMD Open Source Driver for Vulkan
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
+media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
+media-sound/add64 3.8.0: Add64 is a realtime additive/subtractive-synthesis softsynth
 media-sound/r128gain 1.0.1: Fast audio loudness scanner & tagger (ReplayGain v2 / R128)
-media-video/vidify 2.2.3: Watch music videos in real time for the songs playing on your device
-media-video/vidify-audiosync 0.2: Audio synchronization feature for vidify
+media-sound/zita-ajbridge 0.8.2: zita-a2j and zita-j2a - bridges between ALSA and JACK
+media-video/vidify 2.2.4: Watch music videos in real time for the songs playing on your device
+media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
+net-dialup/tio 1.32: Simple TTY terminal application
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0: FORT validator is an open source RPKI validator
 net-misc/openbgpd 6.6_p0 9999: OpenBGPD is a free implementation of BGPv4
@@ -168,7 +171,7 @@ sys-process/gotop 3.5.1: A terminal based graphical activity monitor inspired by
 sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
 www-apps/twint 2.1.18: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-client/badwolf 0.5.1 9999: Minimalist and privacy-oriented WebKitGTK+ browser
-x11-libs/gtk-fortran 3.24.8: A GTK+ binding to build Graphical User Interfaces in Fortran
+x11-libs/gtk-fortran 19.04: A GTK+ binding to build Graphical User Interfaces in Fortran
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
 x11-misc/i3lock-color 2.12_p1 9999: Improved i3lock with color customization
