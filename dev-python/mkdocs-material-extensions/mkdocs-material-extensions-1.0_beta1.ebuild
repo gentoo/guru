@@ -20,7 +20,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND=">=dev-python/mkdocs-material-5.0.0[${PYTHON_USEDEP}]"
+PDEPEND=">=dev-python/mkdocs-material-5.0.0[${PYTHON_USEDEP}]"
 
 S="${WORKDIR}/${PN}-${MYPV}"
 
