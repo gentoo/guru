@@ -6,7 +6,7 @@ EAPI=7
 CMAKE_MAKEFILE_GENERATOR="emake"
 FORTRAN_STANDARD=2003
 
-inherit cmake flag-o-matic fortran-2
+inherit cmake fortran-2
 
 DESCRIPTION="A GTK+ binding to build Graphical User Interfaces in Fortran"
 HOMEPAGE="https://github.com/vmagnin/gtk-fortran"
@@ -35,6 +35,8 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+DOCS=( "README.md" "README-high-level" "CHANGELOG.md" )
+
 pkg_setup() {
 	fortran-2_pkg_setup
 }
@@ -56,11 +58,6 @@ src_configure() {
 		-DINSTALL_EXAMPLES=$(usex examples)
 		-DNO_BUILD_EXAMPLES=true
 	)
-	# Try to fix (fix similar warnings only for static library):
-	# /usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: CMakeFiles/gtk-fortran_object.dir/gtk-hl-assistant.f90.o:
-	# warning: relocation against `hl_gtk_assistant_destroy' in read-only section `.rodata'
-	# /usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../x86_64-pc-linux-gnu/bin/ld: warning: creating a DT_TEXTREL in object
-	append-flags -no-pie
 	cmake_src_configure
 }
 
@@ -71,5 +68,5 @@ src_compile() {
 
 src_install() {
 	cmake_src_install
-	use doc && dodoc -r ${BUILD_DIR}/html && rm ${D}/usr/share/doc/${P}/html/{*.map,*.md5}
+	use doc && dodoc -r "${BUILD_DIR}"/html && rm "${D}/usr/share/doc/${P}"/html/{*.map,*.md5}
 }
