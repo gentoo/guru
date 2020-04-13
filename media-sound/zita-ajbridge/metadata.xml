@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'http://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>denis7774@gmail.com</email>
+		<name>Denis Reva</name>
+		<description>RarogCmex</description>
+	</maintainer>
+	<longdescription>Zita-ajbridge provides two applications, zita-a2j and zita-j2a. They allow to use an ALSA device as a Jack client, to provide additional capture (a2j) or playback (j2a) channels. Functionally these are equivalent to the alsa_in and alsa_out clients that come with Jack, but they provide much better audio quality. The resampling ratio will typically be stable within 1 PPM and change only very smoothly. Delay will be stable as well even under worse case conditions, e.g. the Jack client running near the end of the cycle.
+
+The theory of operation and internals of these apps are the subject of a paper presented at LAC 2012.
+
+The alsa device should be a 'hw:' one, i.e. direct access to a soundcard and not an ALSA 'plug' device. A well-working Jack system is assumed, running in real-time mode.
+
+The sample rate can be the same as Jack's one, or different. Minimum delay is obtained by running the alsa device at a lower period size than Jack. This can be done safely as the alsa thread will run at a higher priority, and apart from copying to/from an internal buffer no work is done there. There are no restrictions on the product of period_size and number_of_periods as there are for alsa_in and alsa_out.
+
+Both apps will optionally (-v option) print some information four times per second. The first number is the average loop error over the last quarter second, in samples. It should be reduced to small randowm values close to zero after 15 seconds or so. The second is the dynamic correction factor of the nominal resampling ratio. This should converge to a value close to one and not move much. You may observe small variations in these numbers when Jack apps are started or stopped. This is normal. Anything else isn't - please report.
+
+The same -v option will enable detailed error reporting from the ALSA interface, or if all is OK print a summary of the ALSA device configuration.
+
+The -L option forces the ALSA device to 2 channels and 16-bit sample format. This can be required when using the ALSA loop device if the other side (e.g. mplayer) does not support more channels or a floating point sample format. This will fail on real hw: devices as these can be opened in mmap mode only with their real number of channels.
+
+When starting, and in case of major trouble, you will see the 'Starting synchronisation' message. This can happen if there is a timeout on the Jack server, e.g. a client crashed or terminated in a dirty way. Jack1 will skip one or more cycles when new apps are started, or when a large number of port connections is done in a short time. This may interrupt the audio signal, but should otherwise not have any ill consequences nor require a restart.
+
+Both apps will suspend operation while Jack is in 'freewheeling' mode. When using Jack1, returning from freewheeling to normal mode may generate large timing errors, the result of Jack's DLL not being re-initialised properly. Both apps will wait for 15 seconds before restarting if that happens. Patches to Jack1 have been submitted, so this problem should go away in the future.
+	</longdescription>
+</pkgmetadata>
