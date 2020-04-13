@@ -3,7 +3,7 @@
 
 EAPI=7
 
-DESCRIPTION="zita-a2j and zita-j2a - bridjes between ALSA and JACK"
+DESCRIPTION="zita-a2j and zita-j2a - bridges between ALSA and JACK"
 HOMEPAGE="https://kokkinizita.linuxaudio.org/linuxaudio/zita-ajbridge-doc/quickguide.html"
 SOURCE_URI="https://kokkinizita.linuxaudio.org/linuxaudio/downloads"
 SRC_URI="${SOURCE_URI}/${PN}-${PV}.tar.bz2"
