@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit java-vm-2 toolchain-funcs
+inherit java-vm-2 toolchain-funcs eapi7-ver
 
 abi_uri() {
 	echo "${2-$1}? (
@@ -12,7 +12,7 @@ abi_uri() {
 }
 
 MY_PV=${PV/_p/+}
-SLOT=${MY_PV%%[.+]*}
+SLOT="$(ver_cut 1)"
 
 SRC_URI="
 	$(abi_uri arm)
@@ -25,7 +25,7 @@ DESCRIPTION="Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Sup
 HOMEPAGE="https://adoptopenjdk.net"
 LICENSE="GPL-2-with-classpath-exception"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64"
-IUSE="alsa cups examples +gentoo-vm headless-awt source"
+IUSE="alsa cups examples -gentoo-vm headless-awt source"
 
 RDEPEND="
 	media-libs/fontconfig:1.0
