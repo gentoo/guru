@@ -21,10 +21,8 @@ RESTRICT="mirror"
 
 S="${WORKDIR}/${PN}.py-${PV}"
 
-RDEPEND="${PYTHON_DEPS}
-	$(python_gen_cond_dep '
-		dev-python/graphviz[${PYTHON_USEDEP}]
-	')
+RDEPEND="
+	graphviz? ( dev-python/graphviz[${PYTHON_USEDEP}] )
 "
 
 # removing "import future" and "from past.utils import old_div" from python scripts
