@@ -33,9 +33,13 @@ RDEPEND="
 	virtual/python-cffi[${PYTHON_USEDEP}]
 	jbig2enc? ( media-libs/jbig2enc )
 "
-BDEPEND="
-	dev-python/pytest-runner[${PYTHON_USEDEP}]
-"
+
+python_prepare_all() {
+	# do not depend on deprecated dep
+	sed -i -e '/pytest-runner/d' setup.py || die
+
+	distutils-r1_python_prepare_all
+}
 
 src_install() {
 	distutils-r1_src_install
