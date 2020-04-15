@@ -12,7 +12,8 @@ abi_uri() {
 }
 
 MY_PV=${PV/_p/+}
-SLOT="$(ver_cut 1)"
+SLOT=14
+#Some people like AndrewAmmerlaan reports that SLOT="$(ver_cut 1)" is not detected correctly. So I had to hardcode that.
 
 SRC_URI="
 	$(abi_uri arm)
