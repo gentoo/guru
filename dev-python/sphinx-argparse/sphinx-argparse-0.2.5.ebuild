@@ -20,4 +20,11 @@ RDEPEND="
 	${DEPEND}
 	dev-python/sphinx[${PYTHON_USEDEP}]
 "
-BDEPEND=""
+BDEPEND="
+	test? (
+		dev-python/pytest[${PYTHON_USEDEP}]
+		dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
+	)
+"
+
+distutils_enable_tests pytest
