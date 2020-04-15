@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+	<email>torokhov-s-a@yandex.ru</email>
+	<name>Sergey Torokhov</name>
+</maintainer>
+<longdescription lang="en">
+	FoBiS.py, a Fortran Building System for poor men, is a KISS tool
+	for automatic building modern Fortran projects, it being able
+	to automatically resolve inter-modules dependency hierarchy.
+</longdescription>
+<use>
+	<flag name="graphviz">Add support of generation of a dependencies graph</flag>
+</use>
+<upstream>
+	<remote-id type="pypi">FoBiS.py</remote-id>
+	<remote-id type="github">szaghi/FoBiS</remote-id>
+</upstream>
+</pkgmetadata>

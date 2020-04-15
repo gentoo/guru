@@ -1,0 +1,171 @@
+diff -Nur a/fobis/Builder.py b/fobis/Builder.py
+--- a/fobis/Builder.py	2019-12-06 15:58:52.000000000 +0300
++++ b/fobis/Builder.py	2020-02-21 20:10:30.000000000 +0300
+@@ -22,8 +22,6 @@
+ #
+ # You should have received a copy of the GNU General Public License
+ # along with FoBiS.py. If not, see <http://www.gnu.org/licenses/>.
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import str
+ from builtins import range
+ from builtins import *
+diff -Nur a/fobis/Cleaner.py b/fobis/Cleaner.py
+--- a/fobis/Cleaner.py	2019-12-06 15:58:52.000000000 +0300
++++ b/fobis/Cleaner.py	2020-02-21 20:10:39.000000000 +0300
+@@ -22,8 +22,6 @@
+ #
+ # You should have received a copy of the GNU General Public License
+ # along with FoBiS.py. If not, see <http://www.gnu.org/licenses/>.
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import *
+ from builtins import object
+ import os
+diff -Nur a/fobis/Colors.py b/fobis/Colors.py
+--- a/fobis/Colors.py	2019-12-06 15:58:52.000000000 +0300
++++ b/fobis/Colors.py	2020-02-21 20:10:49.000000000 +0300
+@@ -24,8 +24,6 @@
+ from __future__ import unicode_literals
+ 
+ 
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import *
+ from builtins import object
+ class Colors(object):
+diff -Nur a/fobis/Compiler.py b/fobis/Compiler.py
+--- a/fobis/Compiler.py	2019-12-10 20:10:04.000000000 +0300
++++ b/fobis/Compiler.py	2020-02-21 20:10:56.000000000 +0300
+@@ -29,8 +29,6 @@
+ #
+ # You should have received a copy of the GNU General Public License
+ # along with FoBiS.py. If not, see <http://www.gnu.org/licenses/>.
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import str
+ from builtins import *
+ from builtins import object
+diff -Nur a/fobis/Dependency.py b/fobis/Dependency.py
+--- a/fobis/Dependency.py	2019-12-06 15:58:52.000000000 +0300
++++ b/fobis/Dependency.py	2020-02-21 20:11:05.000000000 +0300
+@@ -23,8 +23,6 @@
+ #
+ # You should have received a copy of the GNU General Public License
+ # along with FoBiS.py. If not, see <http://www.gnu.org/licenses/>.
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import str
+ from builtins import *
+ from builtins import object
+diff -Nur a/fobis/Doctest.py b/fobis/Doctest.py
+--- a/fobis/Doctest.py	2019-12-06 15:58:52.000000000 +0300
++++ b/fobis/Doctest.py	2020-02-21 20:11:12.000000000 +0300
+@@ -24,8 +24,6 @@
+ from __future__ import absolute_import
+ from __future__ import division
+ from __future__ import unicode_literals
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import str
+ from builtins import *
+ from builtins import object
+diff -Nur a/fobis/FoBiSConfig.py b/fobis/FoBiSConfig.py
+--- a/fobis/FoBiSConfig.py	2019-12-10 20:10:31.000000000 +0300
++++ b/fobis/FoBiSConfig.py	2020-02-21 20:11:22.000000000 +0300
+@@ -28,8 +28,6 @@
+ #
+ # You should have received a copy of the GNU General Public License
+ # along with FoBiS.py. If not, see <http://www.gnu.org/licenses/>.
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import str
+ from builtins import *
+ from builtins import object
+diff -Nur a/fobis/Fobos.py b/fobis/Fobos.py
+--- a/fobis/Fobos.py	2019-12-06 15:58:52.000000000 +0300
++++ b/fobis/Fobos.py	2020-02-21 20:11:29.000000000 +0300
+@@ -29,8 +29,6 @@
+ from __future__ import absolute_import
+ from __future__ import division
+ from __future__ import unicode_literals
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import str
+ from builtins import *
+ from builtins import object
+diff -Nur a/fobis/Gcov.py b/fobis/Gcov.py
+--- a/fobis/Gcov.py	2019-12-06 15:58:52.000000000 +0300
++++ b/fobis/Gcov.py	2020-02-21 20:19:45.000000000 +0300
+@@ -23,12 +23,9 @@
+ #
+ # You should have received a copy of the GNU General Public License
+ # along with FoBiS.py. If not, see <http://www.gnu.org/licenses/>.
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import str
+ from builtins import *
+ from builtins import object
+-from past.utils import old_div
+ try:
+   from pygooglechart import PieChart2D
+   __graph__ = True
+diff -Nur a/fobis/ParsedFile.py b/fobis/ParsedFile.py
+--- a/fobis/ParsedFile.py	2019-12-06 15:58:52.000000000 +0300
++++ b/fobis/ParsedFile.py	2020-02-21 20:11:53.000000000 +0300
+@@ -23,8 +23,6 @@
+ # You should have received a copy of the GNU General Public License
+ # along with FoBiS.py. If not, see <http://www.gnu.org/licenses/>.
+ 
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import str
+ from builtins import *
+ from builtins import object
+diff -Nur a/fobis/__init__.py b/fobis/__init__.py
+--- a/fobis/__init__.py	2019-12-06 15:58:52.000000000 +0300
++++ b/fobis/__init__.py	2020-02-21 20:12:01.000000000 +0300
+@@ -20,6 +20,4 @@
+ # You should have received a copy of the GNU General Public License
+ # along with FoBiS.py. If not, see <http://www.gnu.org/licenses/>.
+ 
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import *
+\ No newline at end of file
+diff -Nur a/fobis/cli_parser.py b/fobis/cli_parser.py
+--- a/fobis/cli_parser.py	2019-12-06 15:58:52.000000000 +0300
++++ b/fobis/cli_parser.py	2020-02-21 20:12:07.000000000 +0300
+@@ -21,8 +21,6 @@
+ #
+ # You should have received a copy of the GNU General Public License
+ # along with FoBiS.py. If not, see <http://www.gnu.org/licenses/>.
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import str
+ from builtins import *
+ import argparse
+diff -Nur a/fobis/fobis.py b/fobis/fobis.py
+--- a/fobis/fobis.py	2019-12-06 15:58:52.000000000 +0300
++++ b/fobis/fobis.py	2020-02-21 20:12:13.000000000 +0300
+@@ -23,8 +23,6 @@
+ from __future__ import absolute_import
+ from __future__ import division
+ from __future__ import unicode_literals
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import *
+ try:
+   import configparser as configparser
+diff -Nur a/fobis/utils.py b/fobis/utils.py
+--- a/fobis/utils.py	2019-12-06 15:58:52.000000000 +0300
++++ b/fobis/utils.py	2020-02-21 20:12:18.000000000 +0300
+@@ -21,8 +21,6 @@
+ from __future__ import absolute_import
+ from __future__ import division
+ from __future__ import unicode_literals
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import str
+ from builtins import *
+ import os
