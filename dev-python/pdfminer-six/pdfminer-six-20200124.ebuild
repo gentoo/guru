@@ -16,7 +16,7 @@ SRC_URI="https://github.com/${MY_GITHUB_AUTHOR}/${MY_PN}/archive/${PV}.tar.gz ->
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc test"
+IUSE="doc"
 
 RDEPEND="
 	>=dev-python/chardet-3.0[${PYTHON_USEDEP}]
@@ -24,10 +24,8 @@ RDEPEND="
 	dev-python/sortedcontainers[${PYTHON_USEDEP}]
 "
 DEPEND="
-	${RDEPEND}
 	test? (
 		dev-python/nose[${PYTHON_USEDEP}]
-		dev-python/tox[${PYTHON_USEDEP}]
 	)
 "
 BDEPEND="
@@ -47,3 +45,5 @@ python_install_all() {
 	use doc && local HTML_DOCS=( docs/build/html/. )
 	distutils-r1_python_install_all
 }
+
+distutils_enable_tests nose
