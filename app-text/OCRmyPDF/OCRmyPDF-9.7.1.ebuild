@@ -48,6 +48,4 @@ src_install() {
 
 	insinto /usr/share/fish/vendor_completions.d
 	doins "${S}"/misc/completion/ocrmypdf.fish
-
-	dodoc README.md
 }
