@@ -28,4 +28,4 @@ RDEPEND="${PYTHON_DEPS}
 "
 
 # removing "import future" and "from past.utils import old_div" from python scripts
-PATCHES=( "${FILESDIR}/FoBiS-3.0.1-remove-import-future_olddiv.patch" )
+PATCHES=( "${FILESDIR}/${P}-remove-import-future_olddiv.patch" )
