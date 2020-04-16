@@ -5,7 +5,11 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_6 )
 
-inherit distutils-r1 eutils
+DOCBUILDER="mkdocs"
+DOCDEPEND="dev-python/mkdocs-material"
+AUTODOC=1
+
+inherit distutils-r1 docs eutils
 
 DESCRIPTION="The little ASGI framework that shines"
 HOMEPAGE="
@@ -23,11 +27,6 @@ IUSE="doc"
 # ModuleNotFoundError: No module named 'graphql.pyutils.compat'
 # We need newer graphql-core
 RESTRICT="test"
-
-BDEPEND="doc? (
-	dev-python/mkdocs
-	dev-python/mkdocs-material
-	dev-python/mkautodoc )"
 
 DEPEND="test? (
 	dev-python/aiofiles[${PYTHON_USEDEP}]
@@ -48,14 +47,6 @@ python_prepare_all() {
 	sed -i -e '/data_files/d' setup.py || die
 
 	distutils-r1_python_prepare_all
-}
-
-python_compile_all() {
-	default
-	if use doc; then
-		mkdocs build || die "failed to make docs"
-		HTML_DOCS="site"
-	fi
 }
 
 pkg_postinst() {
