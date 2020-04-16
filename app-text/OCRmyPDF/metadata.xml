@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>alarig@swordarmor.fr</email>
+		<name>Alarig Le Lay</name>
+	</maintainer>
+	<use>
+		<flag name="jbig2enc">
+			Uses <pkg>media-libs/jbig2enc</pkg> for better compression algorithm
+		</flag>
+	</use>
+</pkgmetadata>

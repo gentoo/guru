@@ -9,12 +9,14 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
+MY_PV=${PV/_p/.post}
+
 DESCRIPTION="Plugin for pytest that shows failures and errors instantly"
 HOMEPAGE="
 	https://github.com/pytest-dev/pytest-instafail
 	https://pypi.org/project/pytest-instafail
 "
-SRC_URI="https://github.com/pytest-dev/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/pytest-dev/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
@@ -31,5 +33,7 @@ DEPEND="
 		dev-python/pytest-xdist[${PYTHON_USEDEP}]
 	)
 "
+
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 distutils_enable_tests pytest
