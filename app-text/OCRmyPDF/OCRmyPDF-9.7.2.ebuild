@@ -2,7 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{6,7,8} )
+
+PYTHON_COMPAT=( python3_{6,7} )
+DISTUTILS_USE_SETUPTOOLS=rdepend
+
 inherit bash-completion-r1 distutils-r1
 
 DESCRIPTION="OCRmyPDF adds an OCR text layer to scanned PDF files"
@@ -13,11 +16,18 @@ SRC_URI="https://github.com/${MY_GITHUB_AUTHOR}/${PN}/archive/v${PV}.tar.gz -> $
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
+
+# This uses *a lot* of RAM, I have 32gb and these tests tried to use it all
+RESTRICT="test"
 IUSE="jbig2enc"
 
-DEPEND=""
+DEPEND="test? (
+	dev-python/pytest-helpers-namespace[${PYTHON_USEDEP}]
+	dev-python/pytest-xdist[${PYTHON_USEDEP}]
+	~dev-python/python-xmp-toolkit-2.0.1[${PYTHON_USEDEP}]
+)"
+
 RDEPEND="
-	${DEPEND}
 	app-text/ghostscript-gpl
 	app-text/tesseract
 	app-text/unpaper
@@ -33,6 +43,9 @@ RDEPEND="
 	virtual/python-cffi[${PYTHON_USEDEP}]
 	jbig2enc? ( media-libs/jbig2enc )
 "
+
+distutils_enable_tests pytest
+distutils_enable_sphinx docs --no-autodoc
 
 python_prepare_all() {
 	# do not depend on deprecated dep
