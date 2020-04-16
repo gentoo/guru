@@ -31,7 +31,7 @@ RDEPEND="
 	app-text/ghostscript-gpl
 	app-text/tesseract
 	app-text/unpaper
-	<=dev-python/pdfminer-six-20200124[${PYTHON_USEDEP}]
+	<=dev-python/pdfminer-six-20200402[${PYTHON_USEDEP}]
 	>=dev-python/pdfminer-six-20181108[${PYTHON_USEDEP}]
 	dev-python/pikepdf[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
