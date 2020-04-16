@@ -1,0 +1,15 @@
+BDEPEND=sys-libs/zlib:0=[abi_x86_32(-)?,abi_x86_64(-)?] dev-util/cmake
+DEFINED_PHASES=compile configure install postinst prepare pretend setup test
+DEPEND=wayland? ( dev-libs/wayland[abi_x86_32(-)?,abi_x86_64(-)?] ) sys-libs/zlib:0=[abi_x86_32(-)?,abi_x86_64(-)?] >=dev-util/vulkan-headers-1.2.135
+DESCRIPTION=AMD Open Source Driver for Vulkan
+EAPI=7
+HOMEPAGE=https://github.com/GPUOpen-Drivers/AMDVLK
+IUSE=debug wayland abi_x86_32 abi_x86_64
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=wayland? ( dev-libs/wayland[abi_x86_32(-)?,abi_x86_64(-)?] ) sys-libs/zlib:0=[abi_x86_32(-)?,abi_x86_64(-)?] >=dev-util/vulkan-headers-1.2.135 x11-libs/libdrm[abi_x86_32(-)?,abi_x86_64(-)?] x11-libs/libXrandr[abi_x86_32(-)?,abi_x86_64(-)?] x11-libs/libxcb[abi_x86_32(-)?,abi_x86_64(-)?] x11-libs/libxshmfence[abi_x86_32(-)?,abi_x86_64(-)?] >=media-libs/vulkan-loader-1.2.135[abi_x86_32(-)?,abi_x86_64(-)?]
+REQUIRED_USE=|| ( abi_x86_32 abi_x86_64 ) || ( abi_x86_32 abi_x86_64 )
+SLOT=0
+SRC_URI=https://github.com/GPUOpen-Drivers/AMDVLK/archive/v-2020.Q2.1.tar.gz -> AMDVLK-v-2020.Q2.1.tar.gz https://github.com/GPUOpen-Drivers/xgl/archive/1f6143fb951622e06fe7b9396957976fc9feddc7.tar.gz -> xgl-1f6143fb951622e06fe7b9396957976fc9feddc7.tar.gz https://github.com/GPUOpen-Drivers/pal/archive/8b2381a1d05cd2c9c4e7cc2eeda053e76d8c9a4a.tar.gz -> pal-8b2381a1d05cd2c9c4e7cc2eeda053e76d8c9a4a.tar.gz https://github.com/GPUOpen-Drivers/llpc/archive/9889f54c9a31743b48f3dafcb8ca0c106ed15da4.tar.gz -> llpc-9889f54c9a31743b48f3dafcb8ca0c106ed15da4.tar.gz https://github.com/GPUOpen-Drivers/spvgen/archive/a223c8636f8306697f6fdc86f742b99fbd8c5dbd.tar.gz -> spvgen-a223c8636f8306697f6fdc86f742b99fbd8c5dbd.tar.gz https://github.com/GPUOpen-Drivers/llvm-project/archive/50077fcc15e5844dacd820dcdb02edb23fc00330.tar.gz -> llvm-project-50077fcc15e5844dacd820dcdb02edb23fc00330.tar.gz https://github.com/GPUOpen-Drivers/MetroHash/archive/2b6fee002db6cc92345b02aeee963ebaaf4c0e2f.tar.gz -> MetroHash-2b6fee002db6cc92345b02aeee963ebaaf4c0e2f.tar.gz https://github.com/GPUOpen-Drivers/CWPack/archive/b601c88aeca7a7b08becb3d32709de383c8ee428.tar.gz -> CWPack-b601c88aeca7a7b08becb3d32709de383c8ee428.tar.gz
+_eclasses_=check-reqs	7e3fd1855a5e1b50bb9e80827b3f672d	multibuild	40fe59465edacd730c644ec2bc197809	multilib	318e8ae683e57fd3ccd0d31a769d8ee8	multilib-build	dfda7934df092a96e439c05b4aeac519	multilib-minimal	8bddda43703ba94d8341f4e247f97566	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c
+_md5_=6098a198297651eb65a01e7167e02f29
