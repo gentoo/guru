@@ -17,8 +17,6 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE="graphviz"
 
-RESTRICT="mirror"
-
 S="${WORKDIR}/${PN}.py-${PV}"
 
 RDEPEND="
