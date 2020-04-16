@@ -6,12 +6,17 @@ app-misc/mat2:sandbox - Enable sandboxing functionality through sys-apps/bubblew
 app-misc/mat2:video - Use media-video/ffmpeg for video support
 app-misc/ntfy:dbus - Support for desktop notifications
 app-misc/ntfy:telegram - Add support for telegram backend
+app-text/OCRmyPDF:jbig2enc - Uses media-libs/jbig2enc for better compression algorithm
+dev-java/openjdk-sts-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (package manager, eselect, java-config, EXPERIMENTAL!)
+dev-java/openjdk-sts-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
+dev-java/openjdk-sts-bin:source - Install JVM sources
 dev-lang/aldor:boehm-gc - Use Boehm Garbage Collector instead of built-in
 dev-libs/hts_engine:speech-tools - use memory allocation/free functions of app-accessibility/speech-tools
 dev-libs/open62541:mbedtls - Enable encryption support
 dev-libs/open62541:pubsub - Enable OPC/UA Pub/Sub extensions
 dev-libs/open62541:tools - Build additional shell tools
 dev-python/geopy:timezone - Enables localized date support
+dev-util/FoBiS:graphviz - Add support of generation of a dependencies graph
 games-arcade/taisei:zip - Enable loading of game data from ZIP packages via dev-libs/libzip
 gui-wm/wayfire:debug - Adds debugging symbols for error reporting. ENABLE ALL USE FLAGS BEFORE REPORTING BUGS.
 gui-wm/wayfire:wf-config - Makes wayfire use the system-wide wf-config, else builds it as a submodule. DO NOT DISABLE UNLESS YOU KNOW WHAT YOU ARE DOING.
