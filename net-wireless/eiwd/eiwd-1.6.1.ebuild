@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="+system-ell"
 
-COMMON_DEPEND="system-ell? ( ~dev-libs/ell-0.30 )"
+COMMON_DEPEND="system-ell? ( >=dev-libs/ell-0.31 )"
 BDEPEND="virtual/pkgconfig"
 RDEPEND="${COMMON_DEPEND}
 	!net-wireless/iwd
