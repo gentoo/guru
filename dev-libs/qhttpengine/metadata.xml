@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">nitroshare/qhttpengine</remote-id>
+	</upstream>
+	<longdescription>
+	QHttpEngine provides a simple set of classes for developing HTTP server
+	applications in Qt. The design goals of QHttpEngine include:
+	Reliability - extremely exhaustive test suite ensures that bugs are caught
+	as soon as they are introduced.
+	Flexibility - classes are designed for easy integration with existing Qt
+	code.
+	Simplicity - everything is intentionally kept as simple as possible.
+	Usability - documentation is provided for all classes.
+	All of QHttpEngine's functionality is included in a single monolithic
+	library.
+	</longdescription>
+</pkgmetadata>
