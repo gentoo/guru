@@ -49,7 +49,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.6.0-desktop.patch # Add a desktop file
-	"${FILESDIR}"/${PN}-0.6.0-home.patch # Add a desktop file
+	"${FILESDIR}"/${PN}-0.6.0-home.patch # Fix config file path
 )
 
 src_prepare() {
