@@ -128,7 +128,7 @@ gui-apps/wf-config 0.4.0 9999: A library for managing configuration files, writt
 gui-apps/wf-shell 0.4.0 9999: A compiz like 3D wayland compositor
 gui-wm/wayfire 0.4.0 9999: A compiz like 3D wayland compositor
 kde-misc/plasma-applet-thermal-monitor 1.2.9: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
-mail-client/mutt-wizard 0_pre20200313: A system for automatically configuring mutt and isync
+mail-client/mutt-wizard 0_pre20200412: A system for automatically configuring mutt and isync
 media-gfx/azpainter 2.1.5: Full color painting software for Linux for illustration drawing
 media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
