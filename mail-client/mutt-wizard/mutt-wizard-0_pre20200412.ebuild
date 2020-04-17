@@ -6,7 +6,7 @@ EAPI=7
 DESCRIPTION="A system for automatically configuring mutt and isync"
 HOMEPAGE="https://github.com/LukeSmithxyz/mutt-wizard"
 
-COMMIT=5ace69bdf56da3883b2666247aac462b0df5b020
+COMMIT=7c980ec6fbc4e51f3fa663a541de4ff5a4f6587f
 SRC_URI="https://github.com/LukeSmithxyz/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64 ~x86"
 
@@ -27,4 +27,9 @@ RDEPEND="
 # needed because there is no 'all' target defined in MAKEFILE
 src_compile() {
 	return 0;
+}
+
+src_install() {
+	# Do not install to /usr/local
+	PREFIX="/usr" default
 }
