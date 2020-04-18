@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Protostars/KikoPlay</remote-id>
+	</upstream>
+	<longdescription>
+	KikoPlay - A Full-Featured Danmu Player.
+	OpenGL rendering, smooth barrage experience. The libmpv playback kernel
+	supports multiple media file formats, retaining flexible parameter settings
+	for mpv.
+	Tree playlist, you can organize your fan play at will.
+	Support all major video sites for barrage search and download:
+	AcFun, Bilibili, Tucao, 5dm, Bahamut, iQiyi, Youku, Tencent Video, PPTV
+	Flexible barrage shielding rule setting, support for automatically merging
+	similar barrage and barrage event analysis annotations to enhance the
+	viewing experience.
+	Support batch management of the barrage pool, support the adjustment of the
+	barrage timeline, and better handle the inconsistency between the local
+	video and the video on the website.
+	The database can record and organize the dramas you have watched, and you
+	can get detailed information from Bangumi LAN service, you can watch it on
+	other devices through the webpage, and now there is an Android side to
+	choose from.
+	Integrated aria2 download function. Daily broadcast function: you can
+	quickly browse the new fan list and add followers.
+	Based on the resource search function of Lua script, you can also write
+	scripts for KikoPlay, script repository.
+	Support automatic downloading, by setting rules, KikoPlay can automatically
+	search for download resources.
+	Unique KikoPlay resource code and barrage pool code, can directly share
+	resource links containing barrage pool information.
+	</longdescription>
+</pkgmetadata>

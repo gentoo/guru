@@ -1,0 +1,16 @@
+diff --git a/kikoplay.desktop b/kikoplay.desktop
+new file mode 100644
+index 0000000..6171559
+--- /dev/null
++++ b/kikoplay.desktop
+@@ -0,0 +1,10 @@
++[Desktop Entry]
++Type=Application
++Name=KikoPlay
++Comment=KikoPlay is a full-featured danmu player!
++TryExec=KikoPlay
++Exec=KikoPlay
++Icon=/usr/share/pixmaps/kikoplay.png
++Terminal=false
++StartupNotify=true
++Categories=Qt;AudioVideo;Video;
