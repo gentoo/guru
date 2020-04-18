@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="HTTP server for Qt applications"
 HOMEPAGE="https://github.com/nitroshare/qhttpengine"
@@ -47,5 +47,5 @@ src_configure() {
 		${CMAKE_CONF}
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
