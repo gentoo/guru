@@ -43,6 +43,7 @@ src_configure() {
 		-DBUILD_TESTS=$(usex test)
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
 		-DLIB_INSTALL_DIR=$(get_libdir)
+		-DDOC_INSTALL_DIR="share/doc/${PF}"
 		${CMAKE_CONF}
 	)
 
