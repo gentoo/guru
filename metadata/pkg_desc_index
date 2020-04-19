@@ -115,7 +115,7 @@ dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your b
 dev-vcs/git-extras 5.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 dev-vcs/lazygit 0.19: Lazygit, a simple terminal UI for git commands
-games-action/ATLauncher 3.3.4.2: Minecraft launcher which integrates multiple different ModPacks
+games-action/ATLauncher 3.3.4.3: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.13509 2.1.13829_beta: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/technic-launcher 4.510: Minecraft launcher for community-made modpacks on the Technic Platform
