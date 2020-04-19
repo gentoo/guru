@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>lssndrbarbieri@gmail.com</email>
+    <name>Alessandro Barbieri</name>
+  </maintainer>
+  <upstream>
+    <maintainer>
+      <email>wcbrown@usna.edu</email>
+      <name>Chris Brown</name>
+    </maintainer>
+  </upstream>
+  <longdescription lang="en">
+The SACLIB library of computer algebra programs, originally derived from SAC-2, contains reference implementations of numerous algorithms and also forms the basis of the quantifier elimination systems QEPCAD and QEPCAD B. SACLIB 2.1 contains about 70,000 lines of C-code.
+  </longdescription>
+</pkgmetadata>
