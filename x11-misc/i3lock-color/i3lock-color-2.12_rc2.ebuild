@@ -3,7 +3,7 @@
 
 EAPI=7
 
-MY_PV="${PV//_p1/.c.1}"
+MY_PV="${PV//_rc2/.c.2}"
 
 DESCRIPTION="Improved i3lock with color customization"
 HOMEPAGE="https://github.com/Raymo111/i3lock-color"
