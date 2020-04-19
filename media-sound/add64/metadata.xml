@@ -6,7 +6,7 @@
 		<name>Denis Reva</name>
 		<description>RarogCmex</description>
 	</maintainer>
-	<longdescription>Add64 implements Additive Synthesis for creating new sounds that are not accessible to
+	<longdescription lang="en">Add64 implements Additive Synthesis for creating new sounds that are not accessible to
 		any other synthesis method. Due to its large number of parameters, Additive Synthesis
 		has never really reached much popularity. Add64 is therefore designed to provide fast
 		real-time access to all parameters. A set of two 24-stage filters has been added to map
