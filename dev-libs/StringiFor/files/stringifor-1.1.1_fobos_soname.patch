@@ -1,0 +1,12 @@
+diff -Nur a/fobos b/fobos
+--- a/fobos	2020-01-27 20:28:35.000000000 +0300
++++ b/fobos	2020-02-18 13:45:52.000000000 +0300
+@@ -7,7 +7,7 @@
+ [common-variables]
+ $CSHARED_GNU = -c -fPIC -frealloc-lhs -std=f2008 -fall-intrinsics
+ $CSHARED_INT = -c -fPIC -assume realloc_lhs -standard-semantics -std08
+-$LSHARED     = -shared
++$LSHARED     = -shared -Wl,-soname=libstringifor.so.1
+ $CSTATIC_GNU = -c -frealloc-lhs -std=f2008 -fall-intrinsics
+ $CSTATIC_INT = -c -assume realloc_lhs -standard-semantics -std08
+ $DEBUG_GNU   = -Og -g3 -Warray-bounds -Wcharacter-truncation -Wline-truncation -Wimplicit-interface -Wimplicit-procedure -Wunderflow -fcheck=all -fmodule-private -ffree-line-length-132 -fimplicit-none -fbacktrace -fdump-core -finit-real=nan
