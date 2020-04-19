@@ -25,6 +25,7 @@ dev-games/surgescript 0.5.4.3 9999: scripting language made for opensurge
 dev-java/openjdk-sts-bin 13.0.2_p8 14_p36: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
+dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
 dev-libs/open62541 1.0.1: Open source C implementation of OPC UA
 dev-libs/protothreads 1.4: Protothreads - Lightweight, Stackless Threads in C
