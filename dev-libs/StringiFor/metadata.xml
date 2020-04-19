@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer needed -->
+<maintainer type="person">
+	<email>torokhov-s-a@yandex.ru</email>
+	<name>Sergey Torokhov</name>
+</maintainer>
 <longdescription>
 	A KISS pure Fortran library providing astrings (class) manipulator for modern (2003+) Fortran projects
 </longdescription>
