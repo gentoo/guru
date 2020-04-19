@@ -5,7 +5,7 @@
     <email>michael.egger@tsn.at</email>
     <name>Michael Egger</name>
   </maintainer>
-  <longdescription>
+  <longdescription lang="en">
 Arc KDE - This is a port of the popular GTK theme Arc for Plasma 5 desktop with a few additions and extras.
 
 In this repository you'll find:
