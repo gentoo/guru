@@ -9,6 +9,7 @@ app-misc/doublecmd-bin 0.9.8: Free cross platform open source file manager with 
 app-misc/ghq 1.1.0: Remote repository management made easy
 app-misc/mat2 0.11.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
+app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/telegram-send 0.25: Send messages and files over Telegram from the command-line
 app-misc/vrms-gentoo 0_pre20181120 9999: vrms clone for Gentoo Linux
 app-misc/watchexec 1.12.0: Executes commands in response to file modifications
@@ -94,7 +95,7 @@ dev-python/sphinx-autodoc-typehints 1.10.3: Type hints support for the Sphinx au
 dev-python/sphinxcontrib-katex 0.6.0: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-trio 1.1.1: Make Sphinx better at documenting Python functions and methods
 dev-python/sphobjinv 2.0.1: Sphinx objects.inv Inspection/Manipulation Tool
-dev-python/spotipy 2.11.1: A light weight Python library for the Spotify Web API
+dev-python/spotipy 2.11.2: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.2.2: Server Sent Events for Starlette
 dev-python/starlette 0.13.3: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
@@ -116,7 +117,7 @@ dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your b
 dev-vcs/git-extras 5.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 dev-vcs/lazygit 0.19: Lazygit, a simple terminal UI for git commands
-games-action/ATLauncher 3.3.4.3: Minecraft launcher which integrates multiple different ModPacks
+games-action/ATLauncher 3.3.4.4: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.13509 2.1.13829_beta: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/technic-launcher 4.510: Minecraft launcher for community-made modpacks on the Technic Platform
@@ -140,7 +141,7 @@ media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modula
 media-sound/add64 3.8.0: Add64 is a realtime additive/subtractive-synthesis softsynth
 media-sound/r128gain 1.0.1: Fast audio loudness scanner & tagger (ReplayGain v2 / R128)
 media-sound/zita-ajbridge 0.8.4: zita-a2j and zita-j2a - bridges between ALSA and JACK
-media-video/kikoplay 0.6.0 9999: KikoPlay is a full-featured danmu player
+media-video/kikoplay 0.6.1 9999: KikoPlay is a full-featured danmu player
 media-video/vidify 2.2.4: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
 net-dialup/tio 1.32: Simple TTY terminal application
