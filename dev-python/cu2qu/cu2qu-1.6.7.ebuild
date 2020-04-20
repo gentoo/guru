@@ -22,6 +22,7 @@ DEPEND="
 	${RDEPEND}
 "
 BDEPEND="
+	app-arch/unzip
 	dev-python/cython[${PYTHON_USEDEP}]
 "
 
