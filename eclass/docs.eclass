@@ -89,6 +89,15 @@ esac
 #
 # Defaults to ${DOCDIR}/_build/html
 
+# @ECLASS-VARIABLE: DOCS_CONFIG_NAME
+# @DESCRIPTION:
+# Name of the doc builder config file.
+#
+# Only relevant for doxygen, as it allows
+# config files with non-standard names
+#
+# Defaults to Doxyfile for doxygen
+
 if [[ ! ${_DOCS} ]]; then
 
 # For the python based DOCBUILDERS we need to inherit python-any-r1
@@ -107,6 +116,10 @@ case "${DOCBUILDER}" in
 		if [[ ! ${_PYTHON_R1} && ! ${_PYTHON_ANY_R1} ]]; then
 			inherit python-any-r1
 		fi
+		;;
+	"doxygen")
+		# do not need to inherit anything for doxygen
+		true
 		;;
 	"")
 		die "DOCBUILDER unset, should be set to use ${ECLASS}"
@@ -243,6 +256,40 @@ mkdocs_compile() {
 	rm "${OUTDIR}"/*.gz || die
 }
 
+# @FUNCTION: doxygen_setup
+# @DESCRIPTION:
+# Sets dependencies for doxygen
+doxygen_setup() {
+	debug-print-function ${FUNCNAME}
+
+	DOCDEPEND="app-doc/doxygen
+			${DOCDEPEND}"
+}
+
+# @FUNCTION: mkdocs_compile
+# @DESCRIPTION:
+# Calls mkdocs to build docs.
+#
+# If you overwrite src_compile or python_compile_all
+# do not call this function, call docs_compile instead
+doxygen_compile() {
+	debug-print-function ${FUNCNAME}
+	use doc || return
+
+	: ${DOCS_CONFIG_NAME:="Doxyfile"}
+
+	local doxyfile=${DOCDIR}/${DOCS_CONFIG_NAME}
+	[[ -f ${doxyfile} ]] ||
+		die "${doxyfile} not found, DOCDIR=${DOCDIR} or DOCS_CONFIG_NAME=${DOCS_CONFIG_NAME} wrong"
+
+	# doxygen wants the HTML_OUTPUT dir to already exist
+	mkdir -p "${OUTDIR}"
+
+	pushd "${DOCDIR}"
+	(cat "${doxyfile}" ; echo "HTML_OUTPUT=${OUTDIR}") | doxygen - || die
+	popd
+}
+
 # @FUNCTION: docs_compile
 # @DESCRIPTION:
 # Calls DOCBUILDER and sets HTML_DOCS
@@ -270,6 +317,9 @@ docs_compile() {
 		"mkdocs")
 			mkdocs_compile
 			;;
+		"doxygen")
+			doxygen_compile
+			;;
 	esac
 
 	HTML_DOCS+=( "${OUTDIR}/." )
@@ -294,6 +344,9 @@ case "${DOCBUILDER}" in
 		python_append_deps
 		mkdocs_setup
 		;;
+	"doxygen")
+		doxygen_setup
+		;;
 esac
 
 if [[ ${EAPI} == [56] ]]; then
@@ -305,7 +358,7 @@ fi
 # If this is a python package using distutils-r1
 # then put the compile function in the specific
 # python function, else just put it in src_compile
-if [[ ${_DISTUTILS_R1} ]]; then
+if [[ ${_DISTUTILS_R1} && ( ${DOCBUILDER}="mkdocs" || ${DOCBUILDER}="sphinx" ) ]]; then
 	python_compile_all() { docs_compile; }
 else
 	src_compile() { docs_compile; }
