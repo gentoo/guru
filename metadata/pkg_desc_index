@@ -4,6 +4,7 @@ acct-user/_bgpd 0: User for OpenBGPD
 acct-user/fort 0: User for FORT RPKI validator
 acct-user/trezord 0: User for TREZOR Bridge
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
+app-emulation/dxvk-bin 1.6.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/doublecmd-bin 0.9.8: Free cross platform open source file manager with two panels side by side.
 app-misc/ghq 1.1.0: Remote repository management made easy
