@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# we need to execute this in a user writeable directory
+
+mkdir -p ${HOME}/.local/share/NotEnoughProduction
+cp /usr/share/NotEnoughProduction/lib/NotEnoughProduction-*.jar ${HOME}/.local/share/NotEnoughProduction/NotEnoughProduction.jar
+pushd ${HOME}/.local/share/NotEnoughProduction
+java -jar ${HOME}/.local/share/NotEnoughProduction/NotEnoughProduction.jar
+popd
