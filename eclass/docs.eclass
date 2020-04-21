@@ -266,9 +266,9 @@ doxygen_setup() {
 			${DOCDEPEND}"
 }
 
-# @FUNCTION: mkdocs_compile
+# @FUNCTION: doxygen_compile
 # @DESCRIPTION:
-# Calls mkdocs to build docs.
+# Calls doxygen to build docs.
 #
 # If you overwrite src_compile or python_compile_all
 # do not call this function, call docs_compile instead
