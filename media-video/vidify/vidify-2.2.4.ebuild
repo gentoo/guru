@@ -23,8 +23,8 @@ REQUIRED_USE="|| ( vlc mpv zeroconf )"
 
 RDEPEND="
 	dev-python/appdirs[${PYTHON_USEDEP}]
-	dev-python/lyricwikia[${PYTHON_USEDEP}]
 	dev-python/QtPy[gui,webengine,${PYTHON_USEDEP}]
+	net-misc/lyricwikia[${PYTHON_USEDEP}]
 	net-misc/youtube-dl[${PYTHON_USEDEP}]
 	dbus? ( dev-python/pydbus[${PYTHON_USEDEP}] )
 	!dbus? ( dev-python/tekore[${PYTHON_USEDEP}] )
