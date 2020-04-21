@@ -19,7 +19,7 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${PN}-releases-${PV}"
 
-src_configure() {
+src_prepare() {
 	# NOTE: Commands are from bootstrap.sh.
 	eaclocal
 	eautoheader

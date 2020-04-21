@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'http://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dnovomesky@gmail.com</email>
+		<name>Daniel Novomesky</name>
+		<description>Library for encoding and decoding .avif files</description>
+	</maintainer>
+	<use>
+		<flag name="dav1d">Enable faster decoding via dav1d</flag>
+		<flag name="libaom">Use encoding/decoding via libaom</flag>
+		<flag name="rav1e">Allow encoding via rav1e</flag>
+	</use>
+</pkgmetadata>
