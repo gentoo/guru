@@ -10,6 +10,7 @@ app-misc/ghq 1.1.0: Remote repository management made easy
 app-misc/mat2 0.11.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
+app-misc/rdfind 1.4.1: Find duplicate files
 app-misc/telegram-send 0.25: Send messages and files over Telegram from the command-line
 app-misc/vrms-gentoo 0_pre20181120 9999: vrms clone for Gentoo Linux
 app-misc/watchexec 1.12.0: Executes commands in response to file modifications
@@ -116,7 +117,7 @@ dev-util/xdp-tools 0.0.3: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
 dev-vcs/git-extras 5.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
-dev-vcs/lazygit 0.19: Lazygit, a simple terminal UI for git commands
+dev-vcs/lazygit 0.19 0.20: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.3.4.4: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.13509 2.1.13829_beta: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
