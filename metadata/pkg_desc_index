@@ -61,7 +61,6 @@ dev-python/httpcore 0.7.0: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/httpx 0.9.3 0.11.1 0.12.1: A next generation HTTP client for Python
 dev-python/hunter 3.1.3: Hunter is a flexible code tracing toolkit
-dev-python/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/mkdocs-git-revision-date-localized-plugin 0.5.0: Display the localized date of the last git modification of a markdown file
 dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.1.1: A Material Design theme for MkDocs
@@ -127,6 +126,7 @@ games-arcade/taisei 1.3.1: Clone of the Touhou series, written in C using SDL/Op
 games-fps/chocolate-doom 3.0.0: A Doom source port that is minimalist and historically accurate
 games-fps/crispy-doom 5.7.2: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
+games-util/NotEnoughProduction 0.0.3: Tool for building production chains for modded minecraft
 gui-apps/wcm 0.4.0 9999: Wayfire Config Manager
 gui-apps/wf-config 0.4.0 9999: A library for managing configuration files, written for wayfire
 gui-apps/wf-shell 0.4.0 9999: A compiz like 3D wayland compositor
@@ -149,6 +149,7 @@ media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
 net-dialup/tio 1.32: Simple TTY terminal application
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0: FORT validator is an open source RPKI validator
+net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/openbgpd 6.6_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
 net-misc/wsdd 0.5: A Web Service Discovery host daemon.
