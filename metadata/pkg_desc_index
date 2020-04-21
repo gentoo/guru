@@ -137,6 +137,7 @@ media-gfx/azpainter 2.1.5: Full color painting software for Linux for illustrati
 media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.1.4 2020.2.1: AMD Open Source Driver for Vulkan
+media-libs/libavif 0.6.4: Library for encoding and decoding .avif files
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
 media-sound/add64 3.8.0: Add64 is a realtime additive/subtractive-synthesis softsynth

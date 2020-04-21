@@ -23,6 +23,9 @@ gui-wm/wayfire:wf-config - Makes wayfire use the system-wide wf-config, else bui
 gui-wm/wayfire:wlroots - Makes wayfire use the system wide wlroots, else builds it as a submodule. DO NOT DISABLE UNLESS YOU KNOW WHAT YOU ARE DOING.
 mail-client/mutt-wizard:lynx - Use lynx to view html emails in mutt. HIGHLY RECOMMENDED.
 mail-client/mutt-wizard:notmuch - Pulls in notmuch (thin frontend on xapian). HIGHLY RECOMMENDED.
+media-libs/libavif:dav1d - Enable faster decoding via dav1d
+media-libs/libavif:libaom - Use encoding/decoding via libaom
+media-libs/libavif:rav1e - Allow encoding via rav1e
 media-sound/6pm:midimaps - Install midi maps for that synth. Recommended
 media-sound/6pm:nls - Add support for localization
 media-sound/6pm:presets - Install presets. Recommended
