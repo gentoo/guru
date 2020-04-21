@@ -67,9 +67,7 @@ src_prepare() {
 	mv -T "${WORKDIR}"/PENF-"${PENF_sha}" "${S}"/src/third_party/PENF
 	default
 
-	if [ "${FFLAGS}" ] ; then
-		sed -i -e 's:\$OPTIMIZE    = -O2:\$OPTIMIZE    = '"${FFLAGS}"':' fobos || die
-	fi
+	sed -i -e 's:\$OPTIMIZE    = -O2:\$OPTIMIZE    = '"${FFLAGS}"':' fobos || die
 }
 
 src_compile() {
