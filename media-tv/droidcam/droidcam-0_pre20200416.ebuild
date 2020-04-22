@@ -57,6 +57,11 @@ src_install() {
 	newicon -s 32x32 icon.png ${PN}.png
 	newicon -s 64x64 icon2.png ${PN}.png
 	make_desktop_entry ${PN} "Droidcam" ${PN} 'AudioVideo;Video'
+
+	# The cli and gui do not auto load the module if unloaded (why not tho?)
+	# so we just put it in modules-load.d to make sure it always works
+	insinto /usr/lib/modules-load.d/
+	doins "${FILESDIR}/v4l2loopback-dc.conf"
 }
 
 pkg_postinst() {
