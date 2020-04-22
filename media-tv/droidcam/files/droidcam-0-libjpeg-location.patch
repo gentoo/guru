@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index 134f723..44e2c2f 100644
+--- a/Makefile
++++ b/Makefile
+@@ -9,7 +9,7 @@
+ CC    = -no-pie
+ GTK   = `pkg-config --libs --cflags gtk+-2.0`
+ LIBS  = `pkg-config --libs libswscale libavutil`
+-JPEG  = -I/opt/libjpeg-turbo/include /opt/libjpeg-turbo/lib`getconf LONG_BIT`/libturbojpeg.a
++JPEG  = -I/usr/include /usr/lib`getconf LONG_BIT`/libturbojpeg.a
+ SRC      = src/connection.c src/decoder.c
+ NO_WARN  = -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast
+ 
