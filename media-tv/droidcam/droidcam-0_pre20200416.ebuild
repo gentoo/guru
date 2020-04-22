@@ -29,6 +29,7 @@ PATCHES="${FILESDIR}/${PN}-0-libjpeg-location.patch"
 
 CONFIG_CHECK="VIDEO_DEV"
 MODULE_NAMES="v4l2loopback-dc(video:${S}/v4l2loopback:${S}/v4l2loopback)"
+MODULESD_V4L2LOOPBACK_DC_ENABLED="yes"
 BUILD_TARGETS="all"
 
 src_configure() {
