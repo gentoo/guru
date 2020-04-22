@@ -25,7 +25,7 @@ app-text/katarakt 0.2: Simple PDF viewer
 app-text/mdbook 0.3.7: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
 dev-games/surgescript 0.5.4.3 9999: scripting language made for opensurge
-dev-java/openjdk-sts-bin 13.0.2_p8 14_p36: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
+dev-java/openjdk-sts-bin 13.0.2_p8 14.0.1_p7: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
 dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
@@ -117,7 +117,7 @@ dev-util/xdp-tools 0.0.3: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
 dev-vcs/git-extras 5.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
-dev-vcs/lazygit 0.19 0.20: Lazygit, a simple terminal UI for git commands
+dev-vcs/lazygit 0.19 0.20 0.20.2: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.3.4.4: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.13829: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
