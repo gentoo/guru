@@ -35,3 +35,7 @@ src_install() {
 pkg_postinst() {
 	udev_reload
 }
+
+pkg_postrm() {
+	udev_reload
+}
