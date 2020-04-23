@@ -1,0 +1,68 @@
+From 795e069727216e95708453b03b80ca99a98ea78f Mon Sep 17 00:00:00 2001
+From: David Heidelberg <david@ixit.cz>
+Date: Fri, 24 Apr 2020 00:29:20 +0200
+Subject: [PATCH 3/3] Support Linux (phones and desktop)
+
+Signed-off-by: David Heidelberg <david@ixit.cz>
+---
+ linux/nic.cz.mobile-datovka.desktop | 10 ++++++++++
+ mobile-datovka.pro                  | 26 +++++++++++++++++++++++++-
+ 2 files changed, 35 insertions(+), 1 deletion(-)
+ create mode 100644 linux/nic.cz.mobile-datovka.desktop
+
+diff --git a/linux/nic.cz.mobile-datovka.desktop b/linux/nic.cz.mobile-datovka.desktop
+new file mode 100644
+index 0000000..6089407
+--- /dev/null
++++ b/linux/nic.cz.mobile-datovka.desktop
+@@ -0,0 +1,10 @@
++[Desktop Entry]
++Type=Application
++Version=1.0
++Name=Mobile Datovka
++GenericName=Datovka
++Comment=Mobile client for ISDS
++Exec=mobile-datovka
++Icon=datovka
++Terminal=false
++Categories=Office;Email;Qt;
+diff --git a/mobile-datovka.pro b/mobile-datovka.pro
+index 635279f..1ff6f7d 100644
+--- a/mobile-datovka.pro
++++ b/mobile-datovka.pro
+@@ -380,7 +380,31 @@ RESOURCES += \
+ 
+ # Linux target.
+ linux {
+-    ICON = res/datovka.png
++    isEmpty(PREFIX) {
++        PREFIX = "/usr/local"
++    }
++
++    BINDIR="$${PREFIX}/bin"
++    DATADIR="$${PREFIX}/share"
++
++    LOCALE_INST_DIR = "$${DATADIR}/$${APP_NAME}/localisations"
++
++    target.path = "$${BINDIR}"
++
++    desktop.path = "$${DATADIR}/applications"
++    desktop.files += "linux/nic.cz.mobile-datovka.desktop"
++
++    metainfo.path = "$${DATADIR}/metainfo"
++    metainfo.files += "linux/nic.cz.mobile-datovka.metadata.xml"
++
++    icon64.path = "$${DATADIR}/icons/hicolor/64x64/apps"
++    icon64.files += "res/datovka.png"
++
++    localisation.path = "$${LOCALE_INST_DIR}"
++    localisation.files += res/locale/datovka_cs.qm \
++                          res/locale/datovka_en.qm
++
++    INSTALLS += target desktop metainfo icon64
+ }
+ 
+ # iOS target.
+-- 
+2.26.2
+
