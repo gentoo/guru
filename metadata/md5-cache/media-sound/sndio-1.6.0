@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure
+DEPEND=dev-libs/libbsd media-libs/alsa-lib
+DESCRIPTION=small audio and MIDI framework part of the OpenBSD project
+EAPI=7
+HOMEPAGE=http://www.sndio.org/
+IUSE=alsa
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-libs/libbsd media-libs/alsa-lib acct-user/sndiod
+SLOT=0/7.0
+SRC_URI=http://www.sndio.org/sndio-1.6.0.tar.gz
+_md5_=5a54befefaf91edcb6b55f66e057171a

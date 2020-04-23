@@ -4,6 +4,7 @@ acct-group/fort 0: System group: fort
 acct-user/_bgpd 0: User for OpenBGPD
 acct-user/biboumi 0: User for net-im/biboumi
 acct-user/fort 0: User for FORT RPKI validator
+acct-user/sndiod 0: daemon user for sndio
 acct-user/trezord 0: User for TREZOR Bridge
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
 app-emulation/dxvk-bin 1.6.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
@@ -141,10 +142,14 @@ media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.1.4 2020.2.1: AMD Open Source Driver for Vulkan
 media-libs/libavif 0.6.4: Library for encoding and decoding .avif files
+media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
+media-plugins/gst-plugins-sndio 1.8.0.1: Sndio audio sink and source for GStreamer
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
 media-sound/add64 3.8.0: Add64 is a realtime additive/subtractive-synthesis softsynth
+media-sound/aucatctl 0.1: A tool for controlling aucat and/or sndiod volume through MIDI
 media-sound/r128gain 1.0.1: Fast audio loudness scanner & tagger (ReplayGain v2 / R128)
+media-sound/sndio 1.6.0: small audio and MIDI framework part of the OpenBSD project
 media-sound/zita-ajbridge 0.8.4: zita-a2j and zita-j2a - bridges between ALSA and JACK
 media-tv/droidcam 0_pre20200416: Use android phone as webcam, using a v4l device driver and app
 media-video/kikoplay 0.6.1 9999: KikoPlay is a full-featured danmu player
