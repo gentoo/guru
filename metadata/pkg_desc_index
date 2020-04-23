@@ -28,7 +28,7 @@ app-text/katarakt 0.2: Simple PDF viewer
 app-text/mdbook 0.3.7: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
 dev-games/surgescript 0.5.4.3 9999: scripting language made for opensurge
-dev-java/openjdk-sts-bin 13.0.2_p8 14.0.1_p7: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
+dev-java/openjdk-sts-bin 14.0.1_p7-r1: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
 dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
@@ -141,7 +141,7 @@ media-gfx/azpainter 2.1.5: Full color painting software for Linux for illustrati
 media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.1.4 2020.2.1: AMD Open Source Driver for Vulkan
-media-libs/libavif 0.6.4: Library for encoding and decoding .avif files
+media-libs/libavif 0.6.4 9999: Library for encoding and decoding .avif files
 media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
 media-plugins/gst-plugins-sndio 1.8.0.1: Sndio audio sink and source for GStreamer
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
@@ -188,7 +188,7 @@ sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on stri
 sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect datasets of MPI applications
 sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
-sys-libs/solo-udev-rules 4.0.0: udev rules for the Solo FIDO2 & U2F USB+NFC security key
+sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC security key
 sys-process/gotop 3.5.1: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
 www-apps/twint 2.1.18: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
