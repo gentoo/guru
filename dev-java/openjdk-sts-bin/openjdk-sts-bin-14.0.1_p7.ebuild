@@ -26,7 +26,7 @@ DESCRIPTION="Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Sup
 HOMEPAGE="https://adoptopenjdk.net"
 LICENSE="GPL-2-with-classpath-exception"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64"
-IUSE="alsa cups examples -gentoo-vm headless-awt source"
+IUSE="alsa cups -gentoo-vm headless-awt source"
 
 RDEPEND="
 	media-libs/fontconfig:1.0
@@ -68,10 +68,6 @@ src_install() {
 	# libasound.so.2 but AdoptOpenJDK only has libjsound.so. Weird.
 	if ! use alsa ; then
 		rm -v lib/libjsound.* || die
-	fi
-
-	if ! use examples ; then
-		rm -vr demo/ || die
 	fi
 
 	if use headless-awt ; then
