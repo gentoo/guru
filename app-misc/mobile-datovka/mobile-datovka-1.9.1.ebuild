@@ -39,7 +39,7 @@ S="${WORKDIR}/${PN}-v${PV}"
 PATCHES=(
 	"${FILESDIR}/${PN}-1.9.1-quickdirtyfix.patch"
 	"${FILESDIR}/${P}-0001-add-metainfo-for-distributions.patch"
-	"${FILESDIR}/${P}-0002-support-Linux-phones-and-desktop.patch"
+	"${FILESDIR}/${P}-0002-Support-Linux-phones-and-desktop.patch"
 
 )
 
