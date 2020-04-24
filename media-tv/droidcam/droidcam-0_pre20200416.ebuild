@@ -33,7 +33,6 @@ MODULESD_V4L2LOOPBACK_DC_ENABLED="yes"
 BUILD_TARGETS="all"
 
 src_prepare() {
-	elog ${KV_FULL}
 	default
 	sed -i -e "s/\`uname -r\`/${KV_FULL}/g" v4l2loopback/Makefile
 }
