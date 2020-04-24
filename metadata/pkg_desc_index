@@ -7,11 +7,13 @@ acct-user/fort 0: User for FORT RPKI validator
 acct-user/sndiod 0: daemon user for sndio
 acct-user/trezord 0: User for TREZOR Bridge
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
+app-admin/gnome-passwordsafe 3.99.2: A password manager for GNOME
 app-emulation/dxvk-bin 1.6.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/doublecmd-bin 0.9.8: Free cross platform open source file manager with two panels side by side.
 app-misc/ghq 1.1.0: Remote repository management made easy
 app-misc/mat2 0.11.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
+app-misc/mobile-datovka 1.9.1: Mobile optimized GUI to access the Czech data box e-government system
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/rdfind 1.4.1: Find duplicate files
@@ -60,7 +62,7 @@ dev-python/glicko2 0_pre20191010 9999: An implementation of the Glicko-2 rating 
 dev-python/googletransx 2.4.2: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/graphene 2.1.8: GraphQL Framework for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
-dev-python/hstspreload 2020.4.14: Chromium HSTS Preload list as a Python package
+dev-python/hstspreload 2020.4.23: Chromium HSTS Preload list as a Python package
 dev-python/httpcore 0.7.0: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/httpx 0.9.3 0.11.1 0.12.1: A next generation HTTP client for Python
@@ -75,6 +77,7 @@ dev-python/outcome 1.0.1: Capture the outcome of Python function calls
 dev-python/pdfminer-six 20200124 20200402: Community maintained fork of pdfminer
 dev-python/pydbus 0.6.0: Pythonic DBus library
 dev-python/pygaljs 1.0.0 1.0.1 1.0.2: Python package providing assets from https://github.com/Kozea/pygal.js
+dev-python/pykeepass 3.2.0: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
 dev-python/pymdown-extensions 7.0.0: Extensions for Python Markdown.
 dev-python/pymdown-lexers 0_pre20180905: Additional lexers for use in Pygments
 dev-python/pyspelling 2.6.0: Spell checker automation tool
@@ -121,7 +124,7 @@ dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your b
 dev-vcs/git-extras 5.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 dev-vcs/lazygit 0.19 0.20 0.20.2: Lazygit, a simple terminal UI for git commands
-games-action/ATLauncher 3.3.4.4: Minecraft launcher which integrates multiple different ModPacks
+games-action/ATLauncher 3.3.4.5: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.13829: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/technic-launcher 4.510: Minecraft launcher for community-made modpacks on the Technic Platform
@@ -176,6 +179,7 @@ sci-libs/ann 1.1.2_p7: A Library for Approximate Nearest Neighbor Searching
 sci-libs/chaco 2.2: Software for Partitioning Graphs
 sci-libs/jdqz 0_pre19971107: Jacobi-Davidson type method for the generalized standard eigenvalue problem.
 sci-libs/meschach 1.2b: Meschach is a C-language library of routines for performing matrix computations.
+sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
 sys-apps/hex 0.1.3: Futuristic take on hexdump
 sys-apps/procs 0.9.20: A modern replacement for ps
 sys-auth/AusweisApp2 1.20.0 9999: Official authentication app for German ID cards and residence permits
@@ -198,6 +202,8 @@ x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Arch
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
 x11-misc/i3lock-color 2.12_rc2 9999: Improved i3lock with color customization
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
+x11-themes/arc-darkest-colors 0_pre20200417: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
 x11-themes/obsidian-icon-theme 4.11 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
 x11-themes/obsidian2-gtk-theme 2.11 9999: Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
+x11-themes/papirus-claws-mail-theme 0_pre20181023: Papirus icon theme for Claws Mail
