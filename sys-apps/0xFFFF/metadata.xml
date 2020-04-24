@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>david@ixit.cz</email>
+		<name>David Heidelberger</name>
+	</maintainer>
+	<longdescription lang="en">
+		Program for firmware flashing Linux based Nokia devices such as N900.
+	</longdescription>
+	<longdescription lang="cs">
+		Program pro nahrání firmwaru do Nokií založených na Linuxu (jako např. Nokia N900).
+	</longdescription>
+</pkgmetadata>
+

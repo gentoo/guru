@@ -1,0 +1,33 @@
+From 883714197ab39dfb68a5dffd2268e88a964f8913 Mon Sep 17 00:00:00 2001
+From: David Heidelberg <david@ixit.cz>
+Date: Wed, 14 Aug 2019 17:37:25 +0200
+Subject: [PATCH] setup.py: exclude tests directory
+
+Fixes build on ebuild based distributions.
+
+Signed-off-by: David Heidelberg <david@ixit.cz>
+---
+ setup.py          | 2 +-
+ tests/__init__.py | 0
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ delete mode 100644 tests/__init__.py
+
+diff --git a/setup.py b/setup.py
+index 773acfc..2a8c17b 100644
+--- a/setup.py
++++ b/setup.py
+@@ -11,7 +11,7 @@ setup(
+     author="Philipp Schmitt",
+     author_email="philipp@schmitt.co",
+     url="https://github.com/pschmitt/pykeepass",
+-    packages=find_packages(),
++    packages=find_packages(exclude=("tests")),
+     install_requires=[
+         "python-dateutil",
+         "construct",
+diff --git a/tests/__init__.py b/tests/__init__.py
+deleted file mode 100644
+index e69de29..0000000
+-- 
+2.22.1
+
