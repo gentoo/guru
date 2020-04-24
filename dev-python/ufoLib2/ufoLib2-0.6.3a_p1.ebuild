@@ -28,6 +28,7 @@ DEPEND="
 	${RDEPEND}
 	dev-python/setuptools_scm[${PYTHON_USEDEP}]
 "
+BDEPEND="app-arch/unzip"
 
 S="${WORKDIR}/${MYP}"
 
