@@ -16,5 +16,5 @@ DEPEND="dev-libs/libusb-compat"
 RDEPEND="${DEPEND}"
 
 src_install() {
-	make install PREFIX=/usr DESTDIR="${ED}"
+	emake DESTDIR="${ED}" PREFIX="/usr" install
 }
