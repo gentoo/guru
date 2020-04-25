@@ -22,7 +22,6 @@ RDEPEND="
 	>=dev-python/python-dateutil-2.4[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
 	>=dev-python/text-unidecode-1.3[${PYTHON_USEDEP}]
-	virtual/python-ipaddress[${PYTHON_USEDEP}]
 "
 DEPEND="
 	${RDEPEND}
