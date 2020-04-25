@@ -13,12 +13,13 @@ HOMEPAGE="
 	https://github.com/pypa/pep517
 	https://pypi.org/project/pep517
 "
-SRC_URI="https://github.com/pypa/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-python/flit_core-2[${PYTHON_USEDEP}]
@@ -35,4 +36,14 @@ DEPEND="
 	)
 "
 
-distutils_enable_tests pytest
+src_prepare() {
+	sed -i 's|addopts=--flake8||' pytest.ini
+	default
+}
+
+python_test() {
+	pytest -vv \
+			--deselect tests/test_meta.py::test_classic_package		\
+			--deselect tests/test_meta.py::test_meta_output			\
+			--deselect tests/test_meta.py::test_meta_for_this_package || die
+}
