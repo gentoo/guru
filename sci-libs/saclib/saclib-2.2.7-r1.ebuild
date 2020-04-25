@@ -3,6 +3,8 @@
 
 EAPI="7"
 
+inherit toolchain-funcs
+
 MYP="${PN}${PV}"
 
 MAJOR=$(ver_cut 1)
@@ -58,7 +60,7 @@ src_compile() {
 		cd ../lib/objo || die
 	fi
 
-	echo "${CC}" *.o "-fPIC -shared ${CFLAGS} ${LDFLAGS} -Wl,-soname,${FULLLIBNAME} -o ../${FULLLIBNAME}" > make.sh || die
+	echo $(tc-getCC) *.o "-fPIC -shared ${CFLAGS} ${LDFLAGS} -Wl,-soname,${FULLLIBNAME} -o ../${FULLLIBNAME}" > make.sh || die
 	bash make.sh || die
 	cd .. || die
 	ln -s "${FULLLIBNAME}" "${MINMAJLIBNAME}" || die
