@@ -5,9 +5,6 @@
 		<email>michael.egger@tsn.at</email>
 		<name>Michael Egger</name>
 	</maintainer>
-	<longdescription>
-		Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors.
-	</longdescription>
 	<upstream>
 		<bugs-to>https://github.com/kotelnik/plasma-applet-thermal-monitor/issues</bugs-to>
 		<doc>https://github.com/kotelnik/plasma-applet-thermal-monitor/blob/master/README.md</doc>
