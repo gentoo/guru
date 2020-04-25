@@ -6,6 +6,7 @@ EAPI="7"
 PYTHON_COMPAT=( python3_{6,7} )
 
 inherit distutils-r1
+DISTUTILS_USE_SETUPTOOLS=rdepend
 
 DESCRIPTION="Plugin for testing Cython extension modules"
 HOMEPAGE="https://github.com/lgpage/pytest-cython"
@@ -28,4 +29,4 @@ RDEPEND="dev-python/pytest[${PYTHON_USEDEP}]"
 #"
 
 #distutils_enable_tests pytest
-distutils_enable_sphinx docs
+distutils_enable_sphinx docs dev-python/sphinx-py3doc-enhanced-theme
