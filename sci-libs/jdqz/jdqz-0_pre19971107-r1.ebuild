@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit flag-o-matic fortran-2
+inherit flag-o-matic fortran-2 toolchain-funcs
 
 DESCRIPTION="Jacobi-Davidson type method for the generalized standard eigenvalue problem."
 HOMEPAGE="https://www.win.tue.nl/casa/research/scientificcomputing/topics/jd/software.html"
@@ -48,11 +48,9 @@ src_compile() {
 
 	cd "jdlib" || die
 
-	echo '#!/bin/sh' > make.sh || die
-	echo "${FC}" *.f "${FFLAGS} -shared -fPIC -Wl,-soname,libjdqz.so.0 -lm ${libs} ${LDFLAGS} -o libjdqz.so.0" >> make.sh || die
-	chmod +x make.sh || die
+	echo "$(fc-getFC)" *.f "${FFLAGS} -shared -fPIC -Wl,-soname,libjdqz.so.0 -lm ${libs} ${LDFLAGS} -o libjdqz.so.0" > make.sh || die
 
-	./make.sh || die
+	bash make.sh || die
 	ln -s libjdqz.so.0 libjdqz.so || die
 }
 
