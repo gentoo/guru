@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Bluegriffon(Binary)
+GenericName=Bluegriffon(Binary)
+Comment=Web and EPUB Editor
+Exec=bluegriffon-bin %u
+Icon=bluegriffon-bin
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+StartupWMClass=Bluegriffon
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/epub+zip
