@@ -17,10 +17,11 @@ HOMEPAGE="https://github.com/fonttools/ufoLib2"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="test"
 
+# fs not pulled in by fonttools
 RDEPEND="
 	>=dev-python/fonttools-4.0.0[${PYTHON_USEDEP}]
+	dev-python/fs[${PYTHON_USEDEP}]
 	>=dev-python/attrs-19.2.0[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
 "
@@ -35,6 +36,6 @@ S="${WORKDIR}/${MYP}"
 distutils_enable_tests pytest
 
 python_prepare_all() {
-	sed -e '/\<wheel\>/d' -i setup.cfg
+	sed -e '/\<wheel\>/d' -i setup.cfg || die
 	distutils-r1_python_prepare_all
 }
