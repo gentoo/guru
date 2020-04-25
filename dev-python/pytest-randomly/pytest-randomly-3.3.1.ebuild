@@ -31,9 +31,10 @@ RDEPEND="
 	dev-python/secretstorage[${PYTHON_USEDEP}]
 	dev-python/twine[${PYTHON_USEDEP}]
 
-	$(python_gen_cond_dep 'dev-python/black[${PYTHON_USEDEP}]' python3_8)
 	$(python_gen_cond_dep 'dev-python/importlib_metadata[${PYTHON_USEDEP}]' python3_6 python3_7)
 "
+#	$(python_gen_cond_dep 'dev-python/black[${PYTHON_USEDEP}]' python3_8)
+
 #DEPEND="
 #	test? (
 #		$(python_gen_cond_dep 'dev-python/check-manifest[${PYTHON_USEDEP}]' python3_8)
