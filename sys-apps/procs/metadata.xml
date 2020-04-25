@@ -8,7 +8,7 @@
 		<upstream>
 				<remote-id type="github">dalance/procs</remote-id>
 		</upstream>
-		<longdescription>
+		<longdescription lang="en">
 		procs is a replacement for ps written in Rust.
 		</longdescription>
 </pkgmetadata>
