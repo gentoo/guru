@@ -1,0 +1,8 @@
+#skia and revdeps
+=media-libs/skia-80
+dev-python/skia-pathops
+
+#pep517 and revdeps
+dev-python/check-manifest
+dev-python/pep517
+
