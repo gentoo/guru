@@ -5,7 +5,7 @@
 	<email>torokhov-s-a@yandex.ru</email>
 	<name>Sergey Torokhov</name>
 </maintainer>
-<longdescription>
+<longdescription lang="en">
 	A KISS pure Fortran library providing astrings (class) manipulator for modern (2003+) Fortran projects
 </longdescription>
 	<upstream>
