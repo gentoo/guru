@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python2_7 )
 inherit ninja-utils python-any-r1
 
 #https://github.com/google/skia/blob/master/include/core/SkMilestone.h
-COMMIT="2fc431eaea2979f6e6b20cdb715db8861d5a47b1"
+COMMIT="93e853bf2b832d13cb64194b90a8fec44544e518"
 
 SRC_URI="https://github.com/google/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64"
