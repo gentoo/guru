@@ -1,5 +1,5 @@
 #doesn't build
-=media-libs/skia-80
+media-libs/skia
 #skia revdep
 dev-python/skia-pathops
 
