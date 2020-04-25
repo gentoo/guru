@@ -25,8 +25,9 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
+#not available
+#	dev-lang/lua:5.3
 RDEPEND="
-	dev-lang/lua:5.3
 	dev-libs/qhttpengine:5
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
