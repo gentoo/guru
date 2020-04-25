@@ -16,8 +16,9 @@ KEYWORDS="~amd64"
 IUSE="dav1d"
 
 #REQUIRED_USE="|| ( dav1d libaom )"
+REQUIRED_USE="dav1d"
 
-#unavailable
+#unavailable dependencies
 #	libaom? ( >=media-libs/libaom-1.1 )
 #	rav1e? ( media-video/rav1e[capi] )
 DEPEND="
