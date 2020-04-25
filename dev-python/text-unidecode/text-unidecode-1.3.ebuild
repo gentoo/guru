@@ -13,11 +13,10 @@ SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 LICENSE="|| ( Artistic GPL-1 GPL-2+ )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
-DEPEND="test? ( dev-python/pytest )"
 RDEPEND=""
+
+distutils_enable_tests pytest
 
 python_prepare_all() {
 	sed -i '/pytest-runner/d' setup.py
@@ -29,5 +28,5 @@ python_test() {
 	cd "${TEST_DIR}" || die
 	cp "${S}/test_unidecode.py" . || die
 	cp "${S}/setup.cfg" . || die
-	pytest || die "Tests fail with ${EPYTHON}"
+	pytest -vv || die "Tests fail with ${EPYTHON}"
 }
