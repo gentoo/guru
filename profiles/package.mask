@@ -3,10 +3,5 @@
 #skia revdep
 dev-python/skia-pathops
 
-#pep517 revdep
-dev-python/check-manifest
-#wait until mgorny pushes his fix
-dev-python/pep517
-
 #depend on lua5.3 that is not available
 media-video/kikoplay
