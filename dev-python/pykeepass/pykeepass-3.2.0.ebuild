@@ -14,7 +14,8 @@ SRC_URI="https://github.com/libkeepass/pykeepass/archive/${PV}.tar.gz -> ${P}.ta
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-python/lxml-4.3.4
@@ -24,9 +25,9 @@ RDEPEND="
 	>=dev-python/python-dateutil-2.8.0
 	>=dev-python/future-0.17.0"
 DEPEND="${RDEPEND}"
-BDEPEND="
-	virtual/pkgconfig
-	dev-python/setuptools[${PYTHON_USEDEP}]
-	"
 
 PATCHES=( "${FILESDIR}/0001-setup.py-exclude-tests-directory.patch" )
+
+python_test() {
+	"${EPYTHON}" tests/tests.py -v || die
+}
