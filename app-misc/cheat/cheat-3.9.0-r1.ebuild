@@ -1,7 +1,7 @@
 # Copyright 2019-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI="7"
 
 inherit go-module
 
@@ -91,12 +91,13 @@ LICENSE="MIT Apache-2.0 BSD BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="man zsh-completion"
+IUSE="zsh-completion"
 
-BDEPEND=">=dev-lang/go-1.13
-	man? ( app-text/pandoc )
+BDEPEND="
+	app-text/pandoc
+	>=dev-lang/go-1.13
 "
-RDEPEND="zsh-completion? ( app-shells/zsh-completions )"
+RDEPEND="zsh-completion? ( !app-shells/zsh-completions )"
 
 src_install() {
 	dobin "dist/${PN}"
@@ -104,5 +105,5 @@ src_install() {
 		insinto /usr/share/zsh/site-functions
 		newins scripts/cheat.zsh _cheat
 	fi
-	use man && doman doc/cheat.1
+	doman doc/cheat.1
 }

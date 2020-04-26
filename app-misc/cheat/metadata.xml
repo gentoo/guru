@@ -5,9 +5,6 @@
 		<email>mathieu.tortuyaux@gmail.com</email>
 		<name>Mathieu Tortuyaux</name>
 	</maintainer>
-	<use>
-		<flag name="man">build and install man pages</flag>
-	</use>
 	<longdescription lang="en">
 cheat allows you to create and view interactive cheatsheets on the command-line.
 It was designed to help remind *nix system administrators of options for commands that they use frequently, but not frequently enough to remember.
