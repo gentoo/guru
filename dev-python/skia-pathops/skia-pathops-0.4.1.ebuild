@@ -18,7 +18,7 @@ LICENSE="BSD"
 SLOT="0"
 
 RDEPEND="
-	~media-libs/skia-80:=
+	~media-libs/skia-80_p20191220:=
 "
 DEPEND="
 	${RDEPEND}
@@ -34,8 +34,6 @@ BDEPEND="
 	dev-python/setuptools_scm[${PYTHON_USEDEP}]
 "
 #	dev-python/setuptools_git_ls_files[${PYTHON_USEDEP}]
-
-#S="${WORKDIR}/${PN}-${MY_PV#v}"
 
 distutils_enable_tests pytest
 
