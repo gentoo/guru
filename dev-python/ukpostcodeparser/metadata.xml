@@ -5,9 +5,6 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-	UK Postcode parser
-	</longdescription>
 	<upstream>
 		<remote-id type="github">hamstah/ukpostcodeparser</remote-id>
 		<remote-id type="pypi">UkPostcodeParser</remote-id>
