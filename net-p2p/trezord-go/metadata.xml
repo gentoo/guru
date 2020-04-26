@@ -9,9 +9,6 @@
 		<flag name="systemd">Install systemd service file</flag>
 		<flag name="udev">Install udev rules</flag>
 	</use>
-	<longdescription>
-		TREZOR Communication Daemon.
-	</longdescription>
 	<upstream>
 		<remote-id type="github">trezor/trezord-go</remote-id>
 	</upstream>
