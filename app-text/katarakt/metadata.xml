@@ -5,7 +5,7 @@
     <email>kurt@kmk-computers.de</email>
     <name>Kurt Kanzenbach</name>
   </maintainer>
-  <longdescription>
+  <longdescription lang="en">
     katarakt is a simple PDF viewer. It is designed to use as much available
     screen space as possible.
 
