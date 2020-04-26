@@ -9,6 +9,17 @@
 				<remote-id type="github">dalance/procs</remote-id>
 		</upstream>
 		<longdescription lang="en">
-		procs is a replacement for ps written in Rust.
+Features
+
+    Output by the colored and human-readable format
+    Keyword search over multi-column
+    Some additional information which are not supported by ps
+        TCP/UDP port
+        Read/Write throughput
+        Docker container name
+        More memory information
+    Pager support
+    Watch mode like top
+    Tree view
 		</longdescription>
 </pkgmetadata>
