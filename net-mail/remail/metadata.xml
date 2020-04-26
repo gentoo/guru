@@ -5,7 +5,7 @@
     <email>kurt@kmk-computers.de</email>
     <name>Kurt Kanzenbach</name>
   </maintainer>
-  <longdescription>
+  <longdescription lang="en">
     remail is a very simplistic mailing list tool which provides encryption.
 
     remail reads mail from a maildir, decrypts it with the mailing list private
