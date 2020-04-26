@@ -1,7 +1,2 @@
-#doesn't build
-media-libs/skia
-#skia revdep
-dev-python/skia-pathops
-
 #depend on lua5.3 that is not available
 media-video/kikoplay
