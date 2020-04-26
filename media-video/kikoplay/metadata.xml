@@ -8,7 +8,7 @@
 	<upstream>
 		<remote-id type="github">Protostars/KikoPlay</remote-id>
 	</upstream>
-	<longdescription>
+	<longdescription lang="en">
 	KikoPlay - A Full-Featured Danmu Player.
 	OpenGL rendering, smooth barrage experience. The libmpv playback kernel
 	supports multiple media file formats, retaining flexible parameter settings
