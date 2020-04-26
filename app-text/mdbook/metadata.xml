@@ -8,7 +8,4 @@
 	<upstream>
 		<remote-id type="github">rust-lang/mdBook</remote-id>
 	</upstream>
-	<longdescription lang="en">
-		mdBook is a utility to create modern online books from Markdown files.
-	</longdescription>
 </pkgmetadata>
