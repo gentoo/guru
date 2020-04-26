@@ -6,7 +6,7 @@
 		<email>william@wstrm.dev</email>
 		<name>William Wennerström</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Yggdrasil is an early-stage implementation of a fully end-to-end
 		encrypted IPv6 network. It is lightweight, self-arranging,
 		supported on multiple platforms and allows pretty much any
