@@ -1,14 +1,14 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI="7"
 
 inherit cmake
 
 DESCRIPTION="Library for encoding and decoding .avif files"
 HOMEPAGE="https://github.com/AOMediaCodec/libavif"
 
-if [[ ${PV} == *9999* ]]; then
+if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/AOMediaCodec/libavif.git"
 else
@@ -23,8 +23,8 @@ IUSE="dav1d +libaom rav1e"
 REQUIRED_USE="|| ( dav1d libaom )"
 
 DEPEND="dav1d? ( media-libs/dav1d )
-	libaom? ( >=media-libs/libaom-1.1 )
-	rav1e? ( media-video/rav1e[capi] )
+	libaom? ( >=media-libs/libaom-1.1:= )
+	rav1e? ( media-video/rav1e:=[capi] )
 	media-libs/libpng
 "
 RDEPEND="${DEPEND}"
@@ -32,11 +32,11 @@ BDEPEND=""
 
 src_configure() {
 	local mycmakeargs=(
-		-DAVIF_CODEC_DAV1D=$(usex dav1d ON OFF)
+		-DAVIF_BUILD_APPS=ON
 		-DAVIF_CODEC_AOM=$(usex libaom ON OFF)
+		-DAVIF_CODEC_DAV1D=$(usex dav1d ON OFF)
 		-DAVIF_CODEC_RAV1E=$(usex rav1e ON OFF)
 		-DBUILD_SHARED_LIBS=ON
-		-DAVIF_BUILD_APPS=ON
 	)
 	cmake_src_configure
 }
@@ -46,17 +46,5 @@ pkg_postinst() {
 		ewarn "libaom and rav1e flags are not set,"
 		ewarn "libavif will work in read-only mode."
 		ewarn "Enable libaom or rav1e flag if you want to save .AVIF files."
-	fi
-
-	if use libaom ; then
-		elog "When you upgrade libaom in the future,"
-		elog " you may need to re-emerge libavif again"
-		elog " to ensure correct AVIF import/export functions."
-	fi
-
-	if use rav1e ; then
-		elog "When you upgrade rav1e in the future,"
-		elog " you may need to re-emerge libavif again"
-		elog " to ensure correct AVIF export function."
 	fi
 }
