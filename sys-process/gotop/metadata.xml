@@ -5,9 +5,6 @@
 		<email>mathieu.tortuyaux@gmail.com</email>
 		<name>Mathieu Tortuyaux</name>
 	</maintainer>
-	<longdescription lang="en">
-A terminal based graphical activity monitor inspired by gtop and vtop
-	</longdescription>
 	<upstream>
 		<bugs-to>https://github.com/xxxserxxx/gotop/issues</bugs-to>
 		<changelog>https://github.com/xxxserxxx/gotop/blob/master/CHANGELOG.md</changelog>
