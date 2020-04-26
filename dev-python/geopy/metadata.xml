@@ -5,7 +5,7 @@
     <email>lssndrbarbieri@gmail.com</email>
     <name>Alessandro Barbieri</name>
   </maintainer>
-  <longdescription>
+  <longdescription lang="en">
 geopy is a Python 2 and 3 client for several popular geocoding web services.
 
 geopy makes it easy for Python developers to locate the coordinates of addresses, cities, countries, and landmarks across the globe using third-party geocoders and other data sources.

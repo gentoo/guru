@@ -6,7 +6,7 @@
     <email>andrewammerlaan@riseup.net</email>
     <name>Andrew Ammerlaan</name>
   </maintainer>
-  <longdescription>
+  <longdescription lang="en">
 Features
 
 HTTPX builds on the well-established usability of requests, and gives you:

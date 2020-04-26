@@ -5,7 +5,7 @@
     <email>lssndrbarbieri@gmail.com</email>
     <name>Alessandro Barbieri</name>
   </maintainer>
-  <longdescription>
+  <longdescription lang="en">
 pytest-sugar changes the look and feel of pytest, Python testing tool, by adding a progressbar and instafailing tests
   </longdescription>
   <upstream>

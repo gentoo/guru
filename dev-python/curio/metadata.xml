@@ -6,7 +6,7 @@
     <email>andrewammerlaan@riseup.net</email>
     <name>Andrew Ammerlaan</name>
   </maintainer>
-  <longdescription>
+  <longdescription lang="en">
 Curio is a coroutine-based library for concurrent Python systems programming. It provides standard programming abstractions such as as tasks, sockets, files, locks, and queues. It works on Unix and Windows. You'll find it to be familiar, small, fast, and fun
 Core Features
 

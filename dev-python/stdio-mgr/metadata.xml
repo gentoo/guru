@@ -6,7 +6,7 @@
     <email>andrewammerlaan@riseup.net</email>
     <name>Andrew Ammerlaan</name>
   </maintainer>
-  <longdescription>
+  <longdescription lang="en">
 Have a CLI Python application?
 
 Want to automate testing of the actual console input &amp; output of your user-facing components?
