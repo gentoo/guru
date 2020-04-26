@@ -7,7 +7,4 @@ Skia is an open source 2D graphics library which provides common APIs that work 
 
 Skia is sponsored and managed by Google, but is available for use by anyone under the BSD Free Software License. While engineering of the core components is done by the Skia development team, we consider contributions from any source.
   </longdescription>
-  <use>
-    <flag name="dawn">use Dawn, a WebGPU implementation</flag>
-  </use>
 </pkgmetadata>

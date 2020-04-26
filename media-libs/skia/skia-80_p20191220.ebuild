@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python2_7 )
 inherit ninja-utils python-any-r1
 
 #https://github.com/google/skia/blob/master/include/core/SkMilestone.h
-COMMIT="93e853bf2b832d13cb64194b90a8fec44544e518"
+COMMIT="1c9ebb50024f80f3bf289838298e15185d8f6966"
 
 SRC_URI="https://github.com/google/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64"
@@ -19,25 +19,36 @@ HOMEPAGE="
 "
 LICENSE="BSD"
 SLOT="0"
-IUSE="dawn expat gif jpeg png pdf webp zlib"
+IUSE=""
+#IUSE="dawn expat gif jpeg png pdf webp zlib"
 #TODO: find out how to enable and link: angle egl ffmpeg fontconfig freetype gl harfbuzz heif icu lua opencl piex sfntly wuffs vulkan xps s
 
 #TODO: find out which deps are needed for gl/egl/vulkan/X/gif/xps
-#	fontconfig? ( media-libs/fontconfig )
-#	freetype? ( media-libs/freetype )
 #	ffmpeg? ( virtual/ffmpeg )
-#	harfbuzz? ( media-libs/harfbuzz )
 #	heif? ( media-libs/libheif )
 #	icu? ( dev-libs/icu )
 #	virtual/opengl
 #	lua? ( dev-lang/lua )
 #	opencl? ( virtual/opencl )
 RDEPEND="
-	expat? ( dev-libs/expat )
-	jpeg? ( media-libs/libjpeg-turbo )
-	png? ( media-libs/libpng )
-	webp? ( media-libs/libwebp )
-	zlib? ( sys-libs/zlib )
+	app-arch/bzip2
+	dev-libs/expat
+	dev-libs/libbsd
+	dev-libs/libpcre
+	media-gfx/graphite2
+	media-libs/fontconfig
+	media-libs/freetype
+	media-libs/harfbuzz
+	media-libs/libglvnd
+	media-libs/libjpeg-turbo
+	media-libs/libpng
+	media-libs/libwebp
+	sys-apps/util-linux
+	sys-libs/zlib
+	x11-libs/libxcb
+	x11-libs/libX11
+	x11-libs/libXau
+	x11-libs/libXdmcp
 "
 DEPEND="
 	${PYTHON_DEPS}
@@ -57,6 +68,11 @@ src_prepare() {
 		-e '/:zlib_x86/d' \
 		-e '/third_party("zlib_x86/,/^}/d' \
 		-i third_party/zlib/BUILD.gn
+
+	#remove questionable cflags
+	sed -i 's|-O3||g' gn/BUILD.gn || die
+	sed -i 's|-ffunction-sections||g' gn/BUILD.gn || die
+	sed -i 's|-fdata-sections||g' gn/BUILD.gn || die
 }
 
 src_configure() {
@@ -80,25 +96,25 @@ src_configure() {
 		cxx=\"${CXX}\"
 		is_component_build=true
 		is_official_build=true
-
-		skia_enable_pdf=$(usex pdf true false)
-
-		skia_use_dawn=$(usex dawn true false)
-		skia_use_expat=$(usex expat true false)
-		skia_use_libgifcodec=$(usex gif true false)
-		skia_use_libjpeg_turbo_decode=$(usex jpeg true false)
-		skia_use_libjpeg_turbo_encode=$(usex jpeg true false)
-		skia_use_libpng_decode=$(usex png true false)
-		skia_use_libpng_encode=$(usex png true false)
-		skia_use_libwebp_decode=$(usex webp true false)
-		skia_use_libwebp_encode=$(usex webp true false)
-		skia_use_zlib=$(usex zlib true false)
-
 		skia_use_direct3d=false
 		skia_use_dng_sdk=false
 		skia_use_fonthost_mac=false
 		skia_use_metal=false
+		skia_use_sfntly=false
 	)
+#		skia_enable_pdf=$(usex pdf true false)
+#
+#		skia_use_dawn=$(usex dawn true false)
+#		skia_use_expat=$(usex expat true false)
+#		skia_use_libgifcodec=$(usex gif true false)
+#		skia_use_libjpeg_turbo_decode=$(usex jpeg true false)
+#		skia_use_libjpeg_turbo_encode=$(usex jpeg true false)
+#		skia_use_libpng_decode=$(usex png true false)
+#		skia_use_libpng_encode=$(usex png true false)
+#		skia_use_libwebp_decode=$(usex webp true false)
+#		skia_use_libwebp_encode=$(usex webp true false)
+#		skia_use_zlib=$(usex zlib true false)
+
 #		skia_use_angle=$(usex angle true false)
 #		skia_use_egl=$(usex egl true false)
 #		skia_use_fontconfig=$(usex fontconfig true false)
@@ -120,11 +136,11 @@ src_configure() {
 #	use freetype	&& myconf_gn+=( skia_use_system_freetype2=true )
 #	use harfbuzz	&& myconf_gn+=( skia_use_system_harfbuzz=true )
 #	use icu		&& myconf_gn+=( skia_use_system_icu=true )
-	use jpeg	&& myconf_gn+=( skia_use_system_libjpeg_turbo=true )
+#	use jpeg	&& myconf_gn+=( skia_use_system_libjpeg_turbo=true )
 #	use lua		&& myconf_gn+=( skia_use_system_lua=true )
-	use png		&& myconf_gn+=( skia_use_system_libpng=true )
-	use webp	&& myconf_gn+=( skia_use_system_libwebp=true )
-	use zlib	&& myconf_gn+=( skia_use_system_zlib=true )
+#	use png		&& myconf_gn+=( skia_use_system_libpng=true )
+#	use webp	&& myconf_gn+=( skia_use_system_libwebp=true )
+#	use zlib	&& myconf_gn+=( skia_use_system_zlib=true )
 
 	myconf_gn="${myconf_gn[@]} ${EXTRA_GN}"
 	set -- gn gen --args="${myconf_gn% }" out/Release
