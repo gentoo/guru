@@ -8,7 +8,4 @@
 	<upstream>
 		<remote-id type="gitlab">fcitx/fcitx-skk</remote-id>
 	</upstream>
-	<longdescription lang="en">
-		fcitx-skk is an input method engine for Fcitx, which uses libskk as its backend.
-	</longdescription>
 </pkgmetadata>
