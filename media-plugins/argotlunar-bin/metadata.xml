@@ -6,7 +6,7 @@
 		<name>Denis Reva</name>
 		<description>RarogCmex</description>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 	Argotlunar is a tool for creating surreal transformations of audio streams. 
 	Specifically, it is a real-time delay-line granulator. 
 	It disintegrates an audio stream into short samples (grains). 
