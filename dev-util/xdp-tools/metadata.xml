@@ -5,7 +5,7 @@
     <email>kurt@kmk-computers.de</email>
     <name>Kurt Kanzenbach</name>
   </maintainer>
-  <longdescription>
+  <longdescription lang="en">
     This package contains a collection of utilities and example code to be used
     with the eXpress Data Path facility of the Linux kernel.
   </longdescription>
