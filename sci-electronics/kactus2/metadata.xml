@@ -8,7 +8,7 @@
 	<upstream>
 		<remote-id type="github">kactus2/kactus2dev</remote-id>
 	</upstream>
-	<longdescription>
+	<longdescription lang="en">
 	Kactus2 is a toolset for designing embedded products, especially FPGA-based
 	MP-SoCs. The aim is easier IP reusability and integration for both hardware
 	and software. The tool is based on IEEE 1685-2014 "IP-XACT" standard.
