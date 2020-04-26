@@ -5,7 +5,7 @@
 	<email>waebbl@gmail.com</email>
 	<name>Bernd Waibel</name>
 </maintainer>
-<longdescription>
+<longdescription lang="en">
 	A tool to fix common misspellings in text files. It's designed primarily
 	checking misspelled words in source code, but can be used with other
 	text files as well.
