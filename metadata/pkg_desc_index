@@ -31,6 +31,7 @@ app-text/OCRmyPDF 9.7.2: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/mdbook 0.3.7: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
+dev-db/rum 1.3.6: RUM access method - inverted index with additional information in posting lists
 dev-games/surgescript 0.5.4.3 9999: scripting language made for opensurge
 dev-java/openjdk-sts-bin 14.0.1_p7-r1: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
@@ -182,6 +183,7 @@ net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0: FORT validator is an open source RPKI validator
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/openbgpd 6.6_p0 9999: OpenBGPD is a free implementation of BGPv4
+net-misc/purritobin 0.0.2 9999: minimalistic commanline pastebin
 net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
 net-misc/wsdd 0.5: A Web Service Discovery host daemon.
 net-p2p/trezord-go 2.0.29: TREZOR Communication Daemon
