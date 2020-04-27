@@ -40,6 +40,7 @@ dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
 dev-libs/open62541 1.0.1: Open source C implementation of OPC UA
 dev-libs/protothreads 1.4: Protothreads - Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
+dev-php/pecl-inotify 2.0.0: Inotify binding for PHP
 dev-python/aiofiles 0.4.0: File support for asyncio
 dev-python/aiohttp-cors 0.7.0: Implements CORS support for aiohttp asyncio-powered asynchronous HTTP server
 dev-python/aiomysql 0.0.20: aiomysql is a library for accessing a MySQL database from the asyncio
