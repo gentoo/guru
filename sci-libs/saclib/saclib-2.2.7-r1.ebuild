@@ -15,7 +15,7 @@ MAJLIBNAME="${LIBNAME}.${MAJOR}"
 MINMAJLIBNAME="${MAJLIBNAME}.${MINOR}"
 FULLLIBNAME="${MINMAJLIBNAME}.${REVISION}"
 
-DESCRIPTION="contains reference implementations of numerous algorithms and also forms the basis of the quantifier elimination systems QEPCAD"
+DESCRIPTION="Reference implementations of algorithms and forms the basis of QEPCAD"
 HOMEPAGE="https://www.usna.edu/Users/cs/wcbrown/qepcad/B/QEPCAD.html"
 SRC_URI="https://www.usna.edu/Users/cs/wcbrown/qepcad/INSTALL/${MYP}.tar.gz"
 
