@@ -1,0 +1,22 @@
+--- ../tests/test_mongoengine.py	2018-12-22 16:22:00.168173656 +0200
++++ ../tests/test_mongoengine.py	2018-12-22 16:22:23.207181092 +0200
+@@ -58,9 +58,6 @@
+         )
+ 
+     @classmethod
+-    def tearDownClass(cls):
+-        cls.db.drop_database(cls.db_name)
+-
+     def setUp(self):
+         mongoengine.connect('factory_boy_test')
+ 
+@@ -69,9 +66,3 @@
+         self.assertEqual('name0', std.name)
+         self.assertEqual('street0', std.address.street)
+         self.assertIsNone(std.id)
+-
+-    def test_creation(self):
+-        std1 = PersonFactory.create()
+-        self.assertEqual('name1', std1.name)
+-        self.assertEqual('street1', std1.address.street)
+-        self.assertIsNotNone(std1.id)

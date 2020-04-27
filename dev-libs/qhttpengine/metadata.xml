@@ -8,7 +8,7 @@
 	<upstream>
 		<remote-id type="github">nitroshare/qhttpengine</remote-id>
 	</upstream>
-	<longdescription>
+	<longdescription lang="en">
 	QHttpEngine provides a simple set of classes for developing HTTP server
 	applications in Qt. The design goals of QHttpEngine include:
 	Reliability - extremely exhaustive test suite ensures that bugs are caught

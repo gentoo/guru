@@ -1,7 +1,7 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI="7"
 
 GIT_PN="iconpack-obsidian"
 
@@ -9,9 +9,9 @@ inherit xdg
 
 DESCRIPTION="Obsidian Icon Theme is intuitive Faenza-like icon theme"
 
-HOMEPAGE="https://github.com/madmaxms/${GIT_PN}"
+HOMEPAGE="https://github.com/madmaxms/iconpack-obsidian"
 
-if [[ ${PV} == "9999" ]]; then
+if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/madmaxms/${GIT_PN}.git"
 else

@@ -6,7 +6,7 @@
     <email>lssndrbarbieri@gmail.com</email>
     <name>Alessandro Barbieri</name>
   </maintainer>
-  <longdescription>
+  <longdescription lang="en">
 Rationale
 
 Trio has native concepts of tasks and task cancellation. Asyncio is based on callbacks and chaining Futures, albeit with nicer syntax, which make handling of failures and timeouts fundamentally less reliable, especially in larger programs. Thus, you really want to base your async project on Trio.

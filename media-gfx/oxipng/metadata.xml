@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>lo48576@hard-wi.red</email>
-		<name>YOSHIOKA Takuma</name>
-	</maintainer>
-	<upstream>
-		<remote-id type="github">shssoichiro/oxipng</remote-id>
-	</upstream>
-	<longdescription lang="en">
-		Oxipng is a multithreaded lossless PNG compression optimizer.
-	</longdescription>
+  <maintainer type="person">
+    <email>lo48576@hard-wi.red</email>
+    <name>YOSHIOKA Takuma</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">shssoichiro/oxipng</remote-id>
+  </upstream>
+  <longdescription lang="en">
+Overview
+
+Oxipng is a multithreaded lossless PNG compression optimizer. It can be used via a command-line interface or as a library in other Rust programs.
+History
+
+Oxipng began as a complete rewrite of the OptiPNG project, which was assumed to be dead as no commit had been made to it since March 2014. (OptiPNG has since released a new version, after Oxipng was first released.) The name has been changed to avoid confusion and potential legal issues.
+
+The core goal of rewriting OptiPNG was to implement multithreading, which would be very difficult to do within the existing C codebase of OptiPNG. This also served as an opportunity to choose a more modern, safer language (Rust).
+  </longdescription>
 </pkgmetadata>

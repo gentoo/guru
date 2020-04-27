@@ -27,6 +27,7 @@ RDEPEND="
 	>=dev-qt/qtwidgets-${QT_PV}
 	>=dev-qt/qtquickcontrols-${QT_PV}
 	>=dev-qt/qtquickcontrols2-${QT_PV}
+	>=dev-qt/qttranslations-${QT_PV}
 "
 DEPEND="
 	${RDEPEND}
@@ -37,10 +38,8 @@ DEPEND="
 S="${WORKDIR}/${PN}-v${PV}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-1.9.1-quickdirtyfix.patch"
 	"${FILESDIR}/${P}-0001-add-metainfo-for-distributions.patch"
 	"${FILESDIR}/${P}-0002-Support-Linux-phones-and-desktop.patch"
-
 )
 
 src_configure() {

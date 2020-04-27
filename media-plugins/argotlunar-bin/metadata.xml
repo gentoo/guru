@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'http://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>denis7774@gmail.com</email>
+		<name>Denis Reva</name>
+		<description>RarogCmex</description>
+	</maintainer>
+	<longdescription lang="en">
+	Argotlunar is a tool for creating surreal transformations of audio streams. 
+	Specifically, it is a real-time delay-line granulator. 
+	It disintegrates an audio stream into short samples (grains). 
+	Each grain can have random settings of amplitude, panning, 
+	duration, delay, pitch, glissando, filter and envelope. 
+	The output of all grains is mixed together into 
+	a stream which can be fed back into the main input.
+	
+	Time-related parameters can be synced to the host tempo,
+	for rhythmic and pulsing textures.
+	Pitch-related parameters can be quantized for harmonic and melodic effects.
+	Feedback can create chaotic, densely layered, and distorted sounds.
+	
+	Most of the parameters can be correlated. Examples:
+	Filter cut-off correlated with pitch: 
+	Higher filter cut-off for grains with higher pitch, and vice versa.
+	
+	Grain duration correlated with panning: 
+	Grains with shorter duration panned to the center of the stereo
+	field, and grains with longer duration panned wide in the stereo field.
+	Argotlunar is free software. Licensed under the GPL v2.
+	</longdescription>
+</pkgmetadata>

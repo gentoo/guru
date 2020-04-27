@@ -5,9 +5,6 @@
 		<email>michael.egger@tsn.at</email>
 		<name>Michael Egger</name>
 	</maintainer>
-	<longdescription>
-		HTTP and GraphQL client for developers.
-	</longdescription>
 	<upstream>
 		<remote-id type="github">Kong/insomnia</remote-id>
 	</upstream>

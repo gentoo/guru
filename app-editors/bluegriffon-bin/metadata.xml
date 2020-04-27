@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'http://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>denis7774@gmail.com</email>
+		<name>Denis Reva</name>
+		<description>RarogCmex</description>
+	</maintainer>
+	<longdescription lang="en">BlueGriffon
+		The next-gen Web and EPUB Editor based on the rendering engine of Firefox
+
+		« My HTML Editor is BlueGriffon, an intuitive, modern and robust application.
+		I like that what I see is what I get on the Web. »
+		Jeff Jaffe, CEO of the World Wide Web Consortium (W3C)
+
+		« The HTML Editor I'm Using Today? BlueGriffon »
+		Nick Longo, author of CoffeeCup, the very first HTML Editor
+
+		« Dear @BlueGriffonApp , you saved my a$$ once again »
+		Tristan Nitot, former President of Mozilla Europe
+
+		BlueGriffon is a WYSIWYG content editor for the World Wide Web. 
+		It is based on the discontinued Nvu editor, which in turn is based on the Composer 
+		component of the Mozilla Application Suite. Powered by Gecko, the rendering engine of Firefox,
+		it can edit Web pages in conformance to Web Standards. It runs on Microsoft Windows, macOS and Linux.
+
+		BlueGriffon complies with the W3C's web standards. It can create and edit pages in accordance 
+		to HTML 4, XHTML 1.1, HTML 5 and XHTML 5. It supports CSS 2.1 and all parts of CSS 3 already 
+		implemented by Gecko. BlueGriffon also includes SVG-edit, an XUL-based editor for SVG that is 
+		originally distributed as an add-on to Firefox and was adapted to BlueGriffon.
+
+		A version without the CSS Stylesheet editor is free to download and is available on Microsoft Windows, 
+		macOS and Linux.
+
+		Many enhancements are available via add-ons. Most add-ons such as 'Project Manager', 'CSS Stylesheet editor',
+		'MathML Editor', 'Word Count' and 'FullScreen view/edit' must be paid for, 
+		while only two ('FireFTP' and 'Dictionaries') are free to download.
+	</longdescription>
+</pkgmetadata>

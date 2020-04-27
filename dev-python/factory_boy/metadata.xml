@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">
+	A versatile test fixtures replacement based on thoughtbot's
+	factory_bot for Ruby. It is designed to work well with various
+	ORMs (Django, Mongo, SQLAlchemy).
+	</longdescription>
+	<upstream>
+		<remote-id type="github">FactoryBoy/factory_boy</remote-id>
+		<remote-id type="pypi">factory_boy</remote-id>
+	</upstream>
+</pkgmetadata>

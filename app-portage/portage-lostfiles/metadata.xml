@@ -5,7 +5,7 @@
 		<email>michael.egger@tsn.at</email>
 		<name>Michael Egger</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		A simple script to identify files not tracked by Portage package manager.
 			Notes:
 		Symlinks are not reported as lost as long as the link target exists and is tracked.

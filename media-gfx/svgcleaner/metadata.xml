@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>lo48576@hard-wi.red</email>
-		<name>YOSHIOKA Takuma</name>
-	</maintainer>
-	<upstream>
-		<remote-id type="github">RazrFalcon/svgcleaner</remote-id>
-	</upstream>
-	<longdescription lang="en">
-		svgcleaner helps you clean up your SVG files, keeping them free from unnecessary data.
-	</longdescription>
+  <maintainer type="person">
+    <email>lo48576@hard-wi.red</email>
+    <name>YOSHIOKA Takuma</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">RazrFalcon/svgcleaner</remote-id>
+  </upstream>
+  <longdescription lang="en">
+Purpose
+
+The main purpose of svgcleaner is to losslessly reduce the size of an SVG image, created in a vector editing application, before publishing.
+
+Usually more than half of an SVG image's data is useless for rendering. For example:
+
+    Temporary data used by the vector editing application
+    Non-optimal SVG structure representation
+    Unused and invisible graphical elements
+
+... Are all unnecessary in a published SVG.
+Goals
+
+    Correctness - svgcleaner should not break an SVG file
+    Cleaning ratio - Higher is better
+    Performance - An average SVG file processing time should be closer to ~1ms on a modern PC
+
+Alternatives
+
+    svgo
+    scour
+
+In addition to the main advantages of svgcleaner — like correctness, cleaning ratio and performance, which are described below — there are some more nuances to be aware of:
+
+    svgcleaner cleans only one SVG file. It doesn't process SVGZ files. It doesn't process directories. It doesn't do anything else. Just one task*.
+    svgcleaner is strictly lossless by default. There are no destructive cleaning options enabled by default.
+    svgcleaner is portable. You can build it into a single executable without any external dependencies.
+
+* You can get all of these features using the GUI.
+  </longdescription>
 </pkgmetadata>

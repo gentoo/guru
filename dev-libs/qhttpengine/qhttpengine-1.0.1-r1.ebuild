@@ -1,14 +1,14 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI="7"
 
 inherit cmake
 
 DESCRIPTION="HTTP server for Qt applications"
 HOMEPAGE="https://github.com/nitroshare/qhttpengine"
 
-if [[ ${PV} == "9999" ]] ; then
+if [[ "${PV}" == "9999" ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/nitroshare/${PN}.git"
 else
@@ -19,9 +19,8 @@ fi
 
 LICENSE="MIT"
 SLOT="5"
-
 IUSE="doc examples test"
-
+RESTRICT="!test? ( test )"
 RDEPEND="
 	dev-qt/qtnetwork:5
 "

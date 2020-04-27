@@ -5,7 +5,7 @@
 		<email>david@ixit.cz</email>
 		<name>David Heidelberg</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		A GUI for accessing ISDS (Informační systém datových schránek
 		/ Data Box Information System) SOAP services as defined in Czech ISDS Act
 		(300/2008 Coll.) and implied documents.

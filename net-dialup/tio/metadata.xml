@@ -5,7 +5,7 @@
     <email>kurt@kmk-computers.de</email>
     <name>Kurt Kanzenbach</name>
   </maintainer>
-  <longdescription>
+  <longdescription lang="en">
     "tio" is a simple TTY terminal application which features a straightforward
     commandline interface to easily connect to TTY devices for basic
     input/output.

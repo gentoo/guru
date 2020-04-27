@@ -7,7 +7,7 @@
 	<upstream>
 		<remote-id type="github">madmaxms/theme-obsidian-2</remote-id>
 	</upstream>
-	<longdescription>
+	<longdescription lang="en">
 	Modern and intuitive Obsidian Gnome theme, based upon Adwaita-Maia dark
 	skin. Compatible with Gtk 3.22.
 	</longdescription>

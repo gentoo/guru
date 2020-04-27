@@ -6,7 +6,7 @@
     <email>andrewammerlaan@riseup.net</email>
     <name>Andrew Ammerlaan</name>
   </maintainer>
-  <longdescription>
+  <longdescription lang="en">
 Uvicorn is a lightning-fast ASGI server implementation, using uvloop and httptools.
 
 Until recently Python has lacked a minimal low-level server/application interface for asyncio frameworks. The ASGI specification fills this gap, and means we're now able to start building a common set of tooling usable across all asyncio frameworks.

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+  <upstream>
+    <remote-id type="github">fonttools/skia-pathops</remote-id>
+    <remote-id type="pypi">skia-pathops</remote-id>
+  </upstream>
+  <longdescription lang="en">
+Python bindings for the Google Skia library's Path Ops module, performing boolean operations on paths (intersection, union, difference, xor).
+  </longdescription>
+</pkgmetadata>

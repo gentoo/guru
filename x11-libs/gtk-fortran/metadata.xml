@@ -5,7 +5,7 @@
 	<email>torokhov-s-a@yandex.ru</email>
 	<name>Sergey Torokhov</name>
 </maintainer>
-<longdescription>
+<longdescription lang="en">
 	Gtk-fortran is a partial GTK/Fortran binding aims to offer scientists programming in Fortran
 	a cross-platform library to build Graphical User Interfaces.
 </longdescription>

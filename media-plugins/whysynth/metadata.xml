@@ -8,7 +8,7 @@
 	<upstream>
 		<remote-id type="github">smbolton/whysynth</remote-id>
 	</upstream>
-	<longdescription>
+	<longdescription lang="en">
 		WhySynth is a versatile softsynth which operates as a plugin for the DSSI Soft Synth Interface. A brief list of features:
 		4 oscillators, 2 filters, 3 LFOs, and 5 envelope generators per voice.
 		11 oscillator modes: minBLEP, wavecycle, chorused wavecycle, asynchronous granular, three FM modes, waveshaper, noise, PADsynth, and phase distortion.

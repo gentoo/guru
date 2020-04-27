@@ -6,7 +6,7 @@
     <email>andrewammerlaan@riseup.net</email>
     <name>Andrew Ammerlaan</name>
   </maintainer>
-  <longdescription>
+  <longdescription lang="en">
 What is websockets?
 
 websockets is a library for building WebSocket servers and clients in Python with a focus on correctness and simplicity.

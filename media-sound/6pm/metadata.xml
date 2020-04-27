@@ -6,7 +6,7 @@
 		<name>Denis Reva</name>
 		<description>RarogCmex</description>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 6PM, created and maintained by Michel Vergnaud, is a polyphonic, touch-sensitive, realtime, phase-modulation (PM) software sound synthesizer. The screenshot above is of the default version included in the repositories of Librazik-2, an excellent French linux distribution designed for high-quality audio production.
 
 All of the parameters for 6PM are located in the main GUI. The algorithm layout (indicated in the window on the left side of the window) is similar to that of the classic Yamaha DX7: the modulator(s) are on the upper row, and the carrier(s) are on the lower row. When an oscillator functions as a carrier, it will have a green pan ribbon in its corresponding envelope area on the right. Algorithms can be preset or user-made.

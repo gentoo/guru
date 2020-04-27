@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">
+	Python package that generates fake data for you.
+	Whether you need to bootstrap your database, create good-looking
+	XML documents, fill-in your persistence to stress test it,
+	or anonymize data taken from a production service, Faker is for you.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">joke2k/faker</remote-id>
+		<remote-id type="pypi">Faker</remote-id>
+	</upstream>
+</pkgmetadata>

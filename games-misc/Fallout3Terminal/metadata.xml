@@ -6,7 +6,7 @@
     <email>lssndrbarbieri@gmail.com</email>
     <name>Alessandro Barbieri</name>
   </maintainer>
-  <longdescription>
+  <longdescription lang="en">
 Fallout3Terminal is my own version of a Fallout 3/4/NV Terminal operating system, complete 
 with the ability to write journal entries, and in-game sounds from Fallout 3 itself! I 
 tried to recreate as many little details there are in the games, like the RobCo OS header 

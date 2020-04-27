@@ -8,7 +8,7 @@
 	<upstream>
 		<remote-id type="github">madmaxms/iconpack-obsidian</remote-id>
 	</upstream>
-	<longdescription>
+	<longdescription lang="en">
 	Modern and intuitive Obsidian provides several faenza-like icons for
 	panels, toolbars and buttons it also provides squared and colorful icons
 	for your applications, folders, files and devices.
