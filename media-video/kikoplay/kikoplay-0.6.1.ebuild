@@ -1,7 +1,7 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI="7"
 
 GIT_PN="KikoPlay"
 
@@ -13,7 +13,7 @@ HOMEPAGE="
 	https://github.com/Protostars/KikoPlay
 "
 
-if [[ ${PV} == "9999" ]] ; then
+if [[ "${PV}" == "9999" ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/Protostars/${GIT_PN}.git"
 else
@@ -25,9 +25,12 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-#not available
-#	dev-lang/lua:5.3
+# Please unmask dev-lang/lua:5.3 in /etc/portage/package.unmask/lua
+# Waiting for dev-lang/lua:5.3 unmasked in ::gentoo
+# With out dev-lang/lua:5.3, this package can't work
+# See also: https://github.com/gentoo/guru/issues/9
 RDEPEND="
+	dev-lang/lua:5.3
 	dev-libs/qhttpengine:5
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5

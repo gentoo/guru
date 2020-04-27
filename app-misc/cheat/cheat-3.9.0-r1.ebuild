@@ -99,6 +99,13 @@ BDEPEND="
 "
 RDEPEND="zsh-completion? ( !app-shells/zsh-completions )"
 
+src_test() {
+	# we can't use the default behavior
+	# since the check rule performs formatting
+	# with a non-standard go tool
+	emake test
+}
+
 src_install() {
 	dobin "dist/${PN}"
 	if use zsh-completion; then

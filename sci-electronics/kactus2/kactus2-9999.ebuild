@@ -1,7 +1,7 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI="7"
 
 inherit xdg
 
@@ -11,7 +11,7 @@ HOMEPAGE="
 	https://github.com/kactus2/kactus2dev
 "
 
-if [[ ${PV} == "9999" ]] ; then
+if [[ "${PV}" == "9999" ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/${PN}/${PN}dev.git"
 else
