@@ -1,2 +1,0 @@
-#depend on lua5.3 that is not available
-media-video/kikoplay
