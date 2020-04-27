@@ -1,3 +1,4 @@
+BDEPEND=app-arch/unzip
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup unpack
 DEPEND=>=dev-java/java-config-2.2.0-r3 dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Tool for building production chains for modded minecraft
@@ -10,4 +11,4 @@ RDEPEND=virtual/jre:1.8 >=dev-java/java-config-2.2.0-r3
 SLOT=0
 SRC_URI=https://github.com/bigbass1997/NotEnoughProduction/releases/download/v0.0.3/NotEnoughProduction-0.0.3.zip https://raw.githubusercontent.com/bigbass1997/NotEnoughProduction/master/lwjgl3/src/main/resources/libgdx128.png -> NotEnoughProduction-128.png https://raw.githubusercontent.com/bigbass1997/NotEnoughProduction/master/lwjgl3/src/main/resources/libgdx64.png -> NotEnoughProduction-64.png https://raw.githubusercontent.com/bigbass1997/NotEnoughProduction/master/lwjgl3/src/main/resources/libgdx32.png -> NotEnoughProduction-32.png https://raw.githubusercontent.com/bigbass1997/NotEnoughProduction/master/lwjgl3/src/main/resources/libgdx16.png -> NotEnoughProduction-16.png
 _eclasses_=desktop	7fd20552ce4cc97e8acb132a499a7dd8	java-pkg-2	c4e6af2574fd1dc79b43a6e27af4b5fb	java-utils-2	16d46032afaca1d6d0621f82084880cb	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=997cd43b7c0b95684ac1fa2528f5d3cd
+_md5_=a88d51eaa4616419ab4e46a341b79548

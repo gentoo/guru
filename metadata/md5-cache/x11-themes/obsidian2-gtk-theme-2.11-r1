@@ -8,4 +8,4 @@ LICENSE=GPL-3
 RDEPEND=>=x11-libs/gtk+-3.22 x11-themes/gtk-engines-adwaita
 SLOT=0
 SRC_URI=https://github.com/madmaxms/theme-obsidian-2/archive/v2.11.tar.gz -> obsidian2-gtk-theme-2.11.tar.gz
-_md5_=8fd4aa8be1cc9471dd1cea388ce74ae8
+_md5_=2d4cad02b3d4685788b96ed1d8714e27
