@@ -25,9 +25,12 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-#not available
-#	dev-lang/lua:5.3
+# Please unmask dev-lang/lua:5.3 in /etc/portage/package.unmask/lua
+# Waiting for dev-lang/lua:5.3 unmasked in ::gentoo
+# With out dev-lang/lua:5.3, this package can't work
+# See also: https://github.com/gentoo/guru/issues/9
 RDEPEND="
+	dev-lang/lua:5.3
 	dev-libs/qhttpengine:5
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
@@ -55,3 +58,4 @@ src_install() {
 	# Can't use default, set INSTALL_ROOT
 	emake INSTALL_ROOT="${D}" install
 }
+
