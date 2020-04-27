@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <!-- maintainer-needed -->
+  <upstream>
+    <maintainer> 
+      <email>arnaud.lb@gmail.com</email>
+      <name>Arnaud Le Blanc</name>
+    </maintainer>
+    <bugs-to>https://bugs.php.net/report.php?package=inotify</bugs-to>
+  </upstream>
+</pkgmetadata>
