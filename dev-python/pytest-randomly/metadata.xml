@@ -29,6 +29,13 @@ By resetting the random seed to a repeatable number for each test, tests can cre
 This plugin is a Pytest port of my plugin for nose, nose-randomly. I’ve written a blog post on its history.
   </longdescription>
   <upstream>
+    <bugs-to>https://github.com/pytest-dev/pytest-randomly/issues</bugs-to>
+    <changelog>https://github.com/pytest-dev/pytest-randomly/blob/master/HISTORY.rst</changelog>
+    <maintainer status="active">
+      <email>me@adamj.eu</email>
+      <name>Adam Johnson</name>
+    </maintainer>
+    <remote-id type="pypi">pytest-randomly</remote-id>
     <remote-id type="github">pytest-dev/pytest-randomly</remote-id>
   </upstream>
 </pkgmetadata>
