@@ -23,10 +23,7 @@
 # <DOCBUILDER>-build function for your doc builder.
 # For python based doc builders you can use the 
 # python_append_deps function to append [${PYTHON_USEDEP}]
-# automatically to additional dependencies
-#
-# For more information, please see the Python Guide:
-# https://dev.gentoo.org/~mgorny/python-guide/
+# automatically to additional dependencies.
 
 case "${EAPI:-0}" in
 	0|1|2|3|4)
@@ -48,7 +45,7 @@ esac
 
 # @ECLASS-VARIABLE: DOCDIR
 # @DESCRIPTION:
-# Sets the location of the doc builder config file.
+# Path containing the doc builder config file(s).
 #
 # For sphinx this is the location of "conf.py"
 # For mkdocs this is the location of "mkdocs.yml"
