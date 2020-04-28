@@ -41,7 +41,7 @@ esac
 # @PRE_INHERIT
 # @DESCRIPTION:
 # Sets the doc builder to use, currently supports
-# sphinx and mkdocs
+# sphinx, mkdocs and doxygen
 
 # @ECLASS-VARIABLE: DOCDIR
 # @DESCRIPTION:
