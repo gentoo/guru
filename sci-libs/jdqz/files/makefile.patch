@@ -1,0 +1,72 @@
+diff -ur a/jdlib/Makefile b/jdlib/Makefile
+--- a/jdlib/Makefile	1996-08-23 10:50:41.000000000 +0200
++++ b/jdlib/Makefile	2020-04-28 20:06:19.373359811 +0200
+@@ -2,21 +2,18 @@
+ #     Coded by Diederik R. Fokkema
+ #
+ #     $Id$
+-# 
++#
+ #
+ 
+ export SHELL=/bin/sh
+-export FC = f77
+-export FFLAGS = -u -O
+ 
+-LIB = libjdqz.a
++LIB = libjdqz.so.0
++SOURCES = $(wildcard *.f)
++OBJS = $(SOURCES:.f=.o)
+ 
+-OBJS = $(patsubst %.f,%.o,$(wildcard *.f))
++.PHONY: all
++all: ${LIB}
+ 
+-$(LIB): $(LIB)($(OBJS)) 
+-	ranlib $@
++$(LIB): $(OBJS)
++	$(FC) -fPIC ${FCFLAGS} $(OBJS) -o $@ ${LDFLAGS} -shared -Wl,-soname,libjdqz.so.0
+ 
+-$(LIB)(jdqz.o): jdqz.f
+-	$(FC) -u -O1 -c jdqz.f
+-	$(AR) rv $(LIB) jdqz.o
+-	-rm jdqz.o
+diff -ur a/jdtest/Makefile b/jdtest/Makefile
+--- a/jdtest/Makefile	1996-09-02 10:13:34.000000000 +0200
++++ b/jdtest/Makefile	2020-04-28 20:12:09.021605638 +0200
+@@ -1,13 +1,10 @@
+-FC = f77
+-FFLAGS = -u -O
+-
+ LIBPATH = -L../jdlib
+-LIBS = -ljdqz -llapack -lblas
++LIBS = -ljdqz
+ SUBDIRS = ../jdlib
+ OBJ = example.o
+ 
+ all: 	$(OBJ)
+-	$(FC) $(LDFLAGS) -o example $(OBJ) $(LIBPATH) $(LIBS)
++	$(FC) -fPIE $(FCFLAGS) $(LDFLAGS) -o example $(OBJ) $(LIBPATH) $(LIBS)
+ 
+ clean:
+ 	-rm -f example
+diff -ur a/Makefile b/Makefile
+--- a/Makefile	1996-08-23 10:47:42.000000000 +0200
++++ b/Makefile	2020-04-28 20:13:35.101159047 +0200
+@@ -1,14 +1,11 @@
+-FC = f77
+-FFLAGS = -u -O
+-
+ LIBPATH = -L../jdlib
+-LIBS = -ljdqr -llapack -lblas
++LIBS = -ljdqr
+ SUBDIRS = jdlib
+ TEST    = jdtest
+ 
+ all: 	libs jdqr
+ 
+-jdqr: 	
++jdqr:
+ 	@for i in $(TEST); do (cd $$i; $(MAKE)); done
+ 
+ libs:
