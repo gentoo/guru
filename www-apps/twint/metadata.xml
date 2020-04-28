@@ -28,6 +28,12 @@ Limits imposed by Twitter
 Twitter limits scrolls while browsing the user timeline. This means that with .Profile or with .Favorites you will be able to get ~3200 tweets.
   </longdescription>
   <upstream>
+    <doc lang="en">https://github.com/twintproject/twint/wiki</doc>
+    <bugs-to>https://github.com/twintproject/twint/issues</bugs-to>
+    <maintainer status="active">
+      <email>codyzacharias@pm.me</email>
+      <name>Cody Zacharias</name>
+    </maintainer>
     <remote-id type="github">twintproject/twint</remote-id>
     <remote-id type="pypi">twint</remote-id>
   </upstream>

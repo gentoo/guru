@@ -5,4 +5,20 @@
     <email>lssndrbarbieri@gmail.com</email>
     <name>Alessandro Barbieri</name>
   </maintainer>
+  <longdescription lang="en">
+Python data validation for Humans.
+
+Python has all kinds of data validation tools, but every one of them seems to require defining a schema or form. I wanted to create a simple validation library where validating a simple value does not require defining a form or a schema.
+  </longdescription>
+  <upstream>
+    <bugs-to>https://github.com/kvesteri/validators/issues</bugs-to>
+    <changelog>https://raw.githubusercontent.com/kvesteri/validators/master/CHANGES.rst</changelog>
+    <doc lang="en">https://validators.readthedocs.io/en/latest</doc>
+    <maintainer status="active">
+      <email>konsta@fastmonkeys.com</email>
+      <name>Konsta Vesterinen</name>
+    </maintainer>
+    <remote-id type="github">kvesteri/validators</remote-id>
+    <remote-id type="pypi">validators</remote-id>
+  </upstream>
 </pkgmetadata>

@@ -19,7 +19,8 @@ KEYWORDS="~amd64 ~x86"
 DEPEND="${POSTGRES_DEP}"
 RDEPEND="${DEPEND}"
 
-USE_PGXS=1
+# Needs a running PostgreSQL server
+RESTRICT="test"
 
 src_compile() {
 	postgres-multi_foreach emake USE_PGXS=1

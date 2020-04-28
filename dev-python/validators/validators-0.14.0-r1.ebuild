@@ -21,10 +21,11 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	test? (
-		>=dev-python/isort-4.2.2[${PYTHON_USEDEP}]
-	)
 "
+#not really required
+#	test? (
+#		>=dev-python/isort-4.2.2[${PYTHON_USEDEP}]
+#	)
 
 distutils_enable_tests pytest
 
