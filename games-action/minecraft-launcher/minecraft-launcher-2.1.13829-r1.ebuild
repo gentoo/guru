@@ -17,10 +17,15 @@ SLOT="2"
 RESTRICT="bindist mirror"
 
 RDEPEND="
-	>=x11-libs/gtk+-2.24.32-r1
+	>=x11-libs/gtk+-2.24.32-r1[X]
 	dev-libs/nss
+	dev-libs/libbsd
+	dev-libs/libffi
+	dev-libs/libpcre
 	gnome-base/gconf
+	media-libs/alsa-lib
 	media-libs/openal
+	net-libs/gnutls[idn]
 	sys-apps/dbus
 	virtual/jre:1.8
 	virtual/opengl
