@@ -1,9 +1,0 @@
-# Copyright 1999-2020 Gentoo Authors.
-# Distributed under the terms of the GNU General Public License v2
-
-# This file contains descriptions of GRAVITY_MODELS USE_EXPAND flags.
-
-egm84 - the Earth Gravity Model 1984, which includes terms up to degree 180.
-egm96 - the Earth Gravity Model 1996, which includes terms up to degree 360.
-egm2008 - the Earth Gravity Model 2008, which includes terms up to degree 2190.
-wgs84 - the WGS84 Reference Ellipsoid. This is just reproduces the normal gravitational field for the reference ellipsoid. This includes the zonal coefficients up to order 20.
