@@ -150,7 +150,7 @@ dev-vcs/git-extras 5.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 dev-vcs/lazygit 0.19 0.20 0.20.2: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.3.4.5: Minecraft launcher which integrates multiple different ModPacks
-games-action/minecraft-launcher 1.6.93 2.1.13829: An open-world game whose gameplay revolves around breaking and placing blocks
+games-action/minecraft-launcher 1.6.93 2.1.13829-r1: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/technic-launcher 4.510: Minecraft launcher for community-made modpacks on the Technic Platform
 games-arcade/opensurge 0.5.1.2 9999: fun 2D retro platformer inspired by old-school Sonic games
