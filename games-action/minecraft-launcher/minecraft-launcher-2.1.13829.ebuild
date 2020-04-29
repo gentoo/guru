@@ -16,9 +16,16 @@ SLOT="2"
 
 RESTRICT="bindist mirror"
 
-RDEPEND="gnome-base/gconf
+RDEPEND="
+	>=x11-libs/gtk+-2.24.32-r1
+	dev-libs/nss
+	gnome-base/gconf
+	media-libs/openal
 	sys-apps/dbus
+	virtual/jre:1.8
+	virtual/opengl
 	x11-apps/xrandr
+	x11-libs/libXScrnSaver
 	x11-libs/libXcomposite
 	x11-libs/libXcursor
 	x11-libs/libXdamage
@@ -26,13 +33,9 @@ RDEPEND="gnome-base/gconf
 	x11-libs/libXfixes
 	x11-libs/libXi
 	x11-libs/libXrender
-	x11-libs/libXScrnSaver
 	x11-libs/libXtst
 	x11-libs/xcb-util
-	>=x11-libs/gtk+-2.24.32-r1
-	media-libs/openal
-	virtual/opengl
-	virtual/jre:1.8"
+"
 
 S="${WORKDIR}/${PN}"
 
