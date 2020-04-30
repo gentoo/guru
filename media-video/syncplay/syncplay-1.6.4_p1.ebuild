@@ -40,6 +40,9 @@ python_install() {
 		emake "${MY_MAKEOPTS[@]}" install-client
 	use server && \
 		emake "${MY_MAKEOPTS[@]}" install-server
+
+	newinitd "${FILESDIR}/${PN}-server-init" "${PN}"
+	newconfd "${FILESDIR}/${PN}-server-init-conf" "${PN}"
 }
 
 pkg_postinst() {

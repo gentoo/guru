@@ -1,0 +1,65 @@
+#!/sbin/openrc-run
+# Copyright 1999-2020 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+command="/usr/bin/python"
+command_args="/usr/bin/syncplay-server"
+name="syncplay server"
+pidfile="/run/syncplay-server.pid"
+
+description="Syncplay Server to synchronize media playback"
+
+start() {
+	ebegin "Starting ${name}"
+
+	args=()
+
+	if [[ ${port} ]]; then
+		args+=" --port=${port}"
+	fi
+
+	if [[ ${isolate} == True ]]; then
+		args+=" --isolate-rooms"
+	fi
+
+	if [[ ${password} ]]; then
+		args+=" --password=${password}"
+	fi
+
+	if [[ ${salt} ]]; then
+		args+=" --salt=${salt}"
+	fi
+
+	if [[ ${motd} ]]; then
+		args+=" --motd-file=${motd}"
+	fi
+
+	if [[ ${noReady} == True ]]; then
+		args+=" --disable-ready"
+	fi
+
+	if [[ ${noChat} == True ]]; then
+		args+=" --disable-chat"
+	fi
+
+	if [[ ${maxChatLength} ]]; then
+		args+=" --max-chat-message-length=${maxChatLength}"
+	fi
+
+	if [[ ${usernameLength} ]]; then
+		args+=" --max-username-length=${usernameLength}"
+	fi
+
+	if [[ ${statsFile} ]]; then
+		args+=" --stats-db-file=${statsFile}"
+	fi
+
+	if [[ ${tls} ]]; then
+		args+=" --tls=${tls}"
+	fi
+
+	start-stop-daemon --start --background --make-pid --pidfile="${pidfile}" \
+		--exec "${command}" -- "${command_args}" ${args}
+
+	eend $?
+}
