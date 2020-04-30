@@ -25,7 +25,6 @@ DEPEND=">=dev-cpp/usockets-0.3.5:=[libuv?]
 	libuv? ( >=dev-libs/libuv-1.35.0 )
 "
 RDEPEND="${DEPEND}"
-BDEPEND="${DEPEND}"
 
 src_compile() {
 	if use libuv; then
