@@ -1,0 +1,83 @@
+From 185bf21dd0040a11cbffddb6e4bcf7af46a5bef7 Mon Sep 17 00:00:00 2001
+From: app4soft <appsoft@ua.fm>
+Date: Sun, 26 Apr 2020 06:54:09 +0300
+Subject: [PATCH] Update configure
+
+---
+ README    |  2 +-
+ README_ja |  2 +-
+ configure | 11 ++++++-----
+ 3 files changed, 8 insertions(+), 7 deletions(-)
+ mode change 100755 => 100644 configure
+
+diff --git a/README b/README
+index ba5f2c8..610e423 100644
+--- a/README
++++ b/README
+@@ -90,7 +90,7 @@ $ gmake
+ 
+ ## MacOS
+ 
+-$ ./configure --prefix=/usr/X11
++$ ./configure --prefix=/opt/X11
+ $ make
+ $ sudo make install
+ 
+diff --git a/README_ja b/README_ja
+index db190f2..997a499 100644
+--- a/README_ja
++++ b/README_ja
+@@ -102,7 +102,7 @@ $ gmake
+ 
+ ## MacOS
+ 
+-$ ./configure --prefix=/usr/X11
++$ ./configure --prefix=/opt/X11
+ $ make
+ $ sudo make install
+ 
+diff --git a/configure b/configure
+old mode 100755
+new mode 100644
+index cb9a9f6..e98b20f
+--- a/configure
++++ b/configure
+@@ -9,7 +9,7 @@ cat <<_ZYXW_
+ 
+ Options:
+   --help         display this help
+-  --debug        create debug exe (CFLAGS += -g)
++  --debug        create debug exe (CFLAGS = -g)
+   --arch=[ARCH]  CFLAGS += "-march=ARCH"
+ 
+   --prefix=[PREFIX]   install dir
+@@ -202,7 +202,8 @@ for opt;do
+ 	--no-check-lib)
+ 		cf_check_lib=no ;;
+ 	*=*)
+-		eval "$opt" ;;
++		tmp2=`expr "X$opt" : 'X\([^=]*\)=.*'`
++		eval $tmp2=\'$tmp1\' ;;
+ 	*)
+ 		echo "unknown option: $opt"
+ 		exit 1 ;;
+@@ -226,8 +227,8 @@ tmp1=`uname`
+ if test "$tmp1" = Linux;then cf_os=linux
+ elif test "$tmp1" = Darwin;then
+ 	cf_os=mac
+-	CFLAGS=`fc_add_string "$CFLAGS" "-I/usr/X11/include"`
+-	LDFLAGS=`fc_add_string "$LDFLAGS" "-L/usr/X11/lib"`
++	CFLAGS=`fc_add_string "$CFLAGS" "-I/opt/X11/include"`
++	LDFLAGS=`fc_add_string "$LDFLAGS" "-L/opt/X11/lib"`
+ elif test "$tmp1" = FreeBSD;then
+ 	cf_os=freebsd
+ 	cf_make=gmake
+@@ -311,7 +312,7 @@ fc_check_lib libjpeg "libjpeg" "" "-ljpeg" "stdio.h jpeglib.h" "libjpeg-dev or l
+ fc_check_lib X11 "x11" "" "-lX11" "X11/Xlib.h" "libx11-dev or libX11-devel or libx11"
+ fc_check_lib Xext "xext" "" "-lXext" "X11/Xlib.h X11/extensions/XShm.h" "libxext-dev or libXext-devel or libxext"
+ fc_check_lib XInput "xi" "" "-lXi" "X11/Xlib.h X11/extensions/XInput2.h" "libxi-dev or libXi-devel or libxi"
+-fc_check_lib fontconfig "fontconfig" "-I/usr/include/freetype2 -I/usr/X11/include/freetype2 -I/usr/local/include/freetype2" "-lfontconfig -lfreetype" "fontconfig/fontconfig.h" "libfontconfig1-dev or libfontconfig-devel or fontconfig"
++fc_check_lib fontconfig "fontconfig" "-I/usr/include/freetype2 -I/opt/X11/include/freetype2 -I/usr/local/include/freetype2" "-lfontconfig -lfreetype" "fontconfig/fontconfig.h" "libfontconfig1-dev or libfontconfig-devel or fontconfig"
+ fc_check_lib freetype2 "freetype2" "" "" "ft2build.h" "libfreetype6-dev or libfreetype6-devel or freetype2"
+ 
+ #------------------
