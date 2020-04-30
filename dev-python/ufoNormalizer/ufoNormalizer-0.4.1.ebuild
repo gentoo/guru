@@ -20,8 +20,4 @@ DEPEND=""
 RDEPEND=""
 BDEPEND="app-arch/unzip"
 
-#python_test() {
-#	"${EPYTHON}" esetup.py test || die
-#}
-
 distutils_enable_tests setup.py
