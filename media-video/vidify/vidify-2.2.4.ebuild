@@ -10,7 +10,7 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 inherit eutils xdg distutils-r1 virtualx
 
 DESCRIPTION="Watch music videos in real time for the songs playing on your device"
-HOMEPAGE="https://github.com/vidify/vidify"
+HOMEPAGE="https://github.com/vidify/vidify https://vidify.org"
 SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-3"
