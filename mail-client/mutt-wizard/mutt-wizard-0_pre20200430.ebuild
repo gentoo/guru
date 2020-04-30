@@ -6,7 +6,7 @@ EAPI=7
 DESCRIPTION="A system for automatically configuring mutt and isync"
 HOMEPAGE="https://github.com/LukeSmithxyz/mutt-wizard"
 
-COMMIT=7c980ec6fbc4e51f3fa663a541de4ff5a4f6587f
+COMMIT=069910c13ec1c89421372b8e54b40cd2ae783303
 SRC_URI="https://github.com/LukeSmithxyz/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64 ~x86"
 
