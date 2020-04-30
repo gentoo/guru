@@ -1,7 +1,7 @@
 # This is the file that syncplay service loads settings from, it does not affect the binary itself
 # See https://syncplay.pl/guide/server/ for a list of available flags and description
 
-#port="223"
+#port="8999"
 #isolate=False
 #password="yourpassword"
 #salt="RANDOMSALT"

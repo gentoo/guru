@@ -36,13 +36,14 @@ S="${WORKDIR}/${PN}-${MYPV}"
 
 python_install() {
 	local MY_MAKEOPTS=( DESTDIR="${D}" PREFIX=/usr )
-	use client && \
+	if use client; then
 		emake "${MY_MAKEOPTS[@]}" install-client
-	use server && \
+	fi
+	if use server; then
 		emake "${MY_MAKEOPTS[@]}" install-server
-
-	newinitd "${FILESDIR}/${PN}-server-init" "${PN}"
-	newconfd "${FILESDIR}/${PN}-server-init-conf" "${PN}"
+		newinitd "${FILESDIR}/${PN}-server-init" "${PN}"
+		newconfd "${FILESDIR}/${PN}-server-init-conf" "${PN}"
+	fi
 }
 
 pkg_postinst() {
