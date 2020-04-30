@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>lssndrbarbieri@gmail.com</email>
+    <name>Alessandro Barbieri</name>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://github.com/McLeopold/PythonSkills/issues</bugs-to>
+    <changelog>https://raw.githubusercontent.com/McLeopold/PythonSkills/master/CHANGES.rst</changelog>
+    <maintainer>
+      <email>mcleopold@gmail.com</email>
+      <name>Scott Hamilton</name>
+    </maintainer>
+    <remote-id type="pypi">skills</remote-id>
+    <remote-id type="github">McLeopold/PythonSkills</remote-id>
+  </upstream>
+  <longdescription lang="en">
+This is a Python port of the Moserware.Skills project that's available at
+
+http://github.com/moserware/Skills
+
+For more details on how the algorithm works, see
+
+http://www.moserware.com/2010/03/computing-your-skill.html
+  </longdescription>
+</pkgmetadata>
