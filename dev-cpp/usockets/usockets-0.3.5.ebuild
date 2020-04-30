@@ -19,9 +19,9 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="libuv +ssl libressl debug"
+IUSE="libuv +openssl libressl debug"
 
-DEPEND="ssl? (
+DEPEND="openssl? (
 			  libressl? ( >=dev-libs/libressl-3.0.0 )
 			  !libressl? ( >=dev-libs/openssl-1.1.0 )
 			  )
