@@ -6,7 +6,7 @@ EAPI=7
 DOCBUILDER="sphinx"
 DOCDIR="${S}/docs"
 
-inherit docs
+inherit autotools docs
 
 DESCRIPTION="Lightweight update client that runs on your Embedded Linux device"
 HOMEPAGE="https://rauc.io/"
@@ -36,6 +36,11 @@ DEPEND="
 
 PATCHES=( "${FILESDIR}/${P}-tests.patch" )
 
+src_prepare() {
+	default
+	eautoreconf
+}
+
 src_configure() {
 	local myconf=(
 		$(use_enable json)
@@ -43,4 +48,9 @@ src_configure() {
 		$(use_enable service)
 	)
 	econf "${myconf[@]}"
+}
+
+src_compile() {
+	default
+	docs_compile
 }
