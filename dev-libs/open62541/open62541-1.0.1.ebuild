@@ -9,7 +9,7 @@ inherit cmake python-single-r1
 
 DESCRIPTION="Open source C implementation of OPC UA"
 HOMEPAGE="https://open62541.org/"
-SRC_URI="https://github.com/open62541/open62541/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MPL-2.0"
 SLOT="0"
