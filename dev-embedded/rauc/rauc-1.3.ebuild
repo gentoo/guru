@@ -49,3 +49,8 @@ src_configure() {
 	)
 	econf "${myconf[@]}"
 }
+
+src_compile() {
+	default
+	docs_compile
+}
