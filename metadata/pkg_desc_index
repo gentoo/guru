@@ -46,7 +46,7 @@ dev-libs/open62541 1.0.1: Open source C implementation of OPC UA
 dev-libs/protothreads 1.4: Protothreads - Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
 dev-php/pecl-inotify 2.0.0: Inotify binding for PHP
-dev-python/aiofiles 0.4.0: File support for asyncio
+dev-python/aiofiles 0.5.0: File support for asyncio
 dev-python/aiohttp-cors 0.7.0: Implements CORS support for aiohttp asyncio-powered asynchronous HTTP server
 dev-python/aiomysql 0.0.20: aiomysql is a library for accessing a MySQL database from the asyncio
 dev-python/aionotify 0.2.0: Simple, asyncio-based inotify library for Python
@@ -65,11 +65,11 @@ dev-python/cchardet 2.1.6: cChardet is high speed universal character encoding d
 dev-python/check-manifest 0.41-r1: Tool to check the completeness of MANIFEST.in for Python packages
 dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
 dev-python/curio 0.9 1.2: Curio is a coroutine-based library for concurrent systems programming
-dev-python/databases 0.3.0: Async database support for Python.
+dev-python/databases 0.3.1: Async database support for Python.
 dev-python/dataclasses 0.7: A backport of the dataclasses module for Python 3.6
 dev-python/devtools 0.5.1: Dev tools for python
 dev-python/doxypypy 0.8.8.6: A more Pythonic version of doxypy, a Doxygen filter for Python
-dev-python/email-validator 1.0.5: A robust email syntax and deliverability validation library
+dev-python/email-validator 1.1.0: A robust email syntax and deliverability validation library
 dev-python/factory_boy 2.12.0 2.12.0-r1: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11: Up to date simple useragent faker with real world database
 dev-python/faker 4.0.3: Python package that generates fake data
@@ -78,7 +78,7 @@ dev-python/glicko2 0_pre20191010 9999: An implementation of the Glicko-2 rating 
 dev-python/googletransx 2.4.2: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/graphene 2.1.8: GraphQL Framework for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
-dev-python/hstspreload 2020.4.24: Chromium HSTS Preload list as a Python package
+dev-python/hstspreload 2020.4.28: Chromium HSTS Preload list as a Python package
 dev-python/httpcore 0.7.0: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/httpx 0.9.3 0.11.1 0.12.1: A next generation HTTP client for Python
@@ -104,7 +104,7 @@ dev-python/pyspelling 2.6.0: Spell checker automation tool
 dev-python/pytest-benchmark 3.2.3: py.test fixture for benchmarking code
 dev-python/pytest-cython 0.1.0-r1: Plugin for testing Cython extension modules
 dev-python/pytest-instafail 0.4.1_p0: Plugin for pytest that shows failures and errors instantly
-dev-python/pytest-isort 0.3.1: Plugin to check import ordering using isort
+dev-python/pytest-isort 1.0.0: Plugin to check import ordering using isort
 dev-python/pytest-marks 0.4: Allow to set 'marks' on pytest methods
 dev-python/pytest-ordering 0.6: pytest plugin to run your tests in a specific order
 dev-python/pytest-randomly 3.3.1 3.3.1-r1: Pytest plugin to randomly order tests and control random.seed
@@ -222,7 +222,7 @@ sci-libs/meschach 1.2b: Meschach is a C-language library of routines for perform
 sci-libs/saclib 2.2.7-r1 2.2.7-r2: Reference implementations of algorithms and forms the basis of QEPCAD
 sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
 sys-apps/hex 0.1.3: Futuristic take on hexdump
-sys-apps/procs 0.9.20: A modern replacement for ps
+sys-apps/procs 0.10.1: A modern replacement for ps
 sys-auth/AusweisApp2 1.20.0 9999: Official authentication app for German ID cards and residence permits
 sys-auth/mrsh 2.12: Mrsh is a set of remote shell programs that use munge authentication.
 sys-cluster/AXL 0.3.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
@@ -234,7 +234,7 @@ sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect da
 sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC security key
-sys-process/gotop 3.5.1: A terminal based graphical activity monitor inspired by gtop and vtop
+sys-process/gotop 3.5.2: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
 www-apps/twint 2.1.18 2.1.19: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-client/badwolf 0.5.1 9999: Minimalist and privacy-oriented WebKitGTK+ browser
