@@ -3,6 +3,11 @@
 
 EAPI=7
 
+DOCBUILDER="sphinx"
+DOCDIR="${S}/docs"
+
+inherit docs
+
 DESCRIPTION="Lightweight update client that runs on your Embedded Linux device"
 HOMEPAGE="https://rauc.io/"
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.xz"
@@ -10,13 +15,12 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.xz"
 SLOT="0"
 LICENSE="LGPL-2.1"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc json network service test"
+IUSE="json network service test"
 
 RESTRICT="!test? ( test )"
 
 BDEPEND="
 	virtual/pkgconfig
-	doc? ( dev-python/sphinx )
 	test? ( sys-fs/squashfs-tools )
 "
 RDEPEND="
@@ -39,14 +43,4 @@ src_configure() {
 		$(use_enable service)
 	)
 	econf "${myconf[@]}"
-}
-
-src_compile() {
-	default
-	use doc && emake doc
-}
-
-src_install() {
-	use doc && local HTML_DOCS=( docs/build/html/. )
-	default
 }
