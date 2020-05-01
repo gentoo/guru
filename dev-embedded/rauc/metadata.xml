@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>kurt@kmk-computers.de</email>
+    <name>Kurt Kanzenbach</name>
+  </maintainer>
+  <longdescription lang="en">
+    RAUC is a lightweight update client that runs on your Embedded Linux device
+    and reliably controls the procedure of updating your device with a new
+    firmware revision. RAUC is also the tool on your host system that lets you
+    create, inspect and modify update artifacts for your device.
+  </longdescription>
+  <use>
+    <flag name="json">
+      Add JSON support
+    </flag>
+    <flag name="network">
+      Add network update support
+    </flag>
+    <flag name="service">
+      Add dbus service
+    </flag>
+  </use>
+  <upstream>
+    <remote-id type="github">rauc/rauc</remote-id>
+  </upstream>
+</pkgmetadata>

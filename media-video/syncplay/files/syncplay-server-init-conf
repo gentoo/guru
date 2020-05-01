@@ -1,0 +1,14 @@
+# This is the file that syncplay service loads settings from, it does not affect the binary itself
+# See https://syncplay.pl/guide/server/ for a list of available flags and description
+
+#port="8999"
+#isolate=False
+#password="yourpassword"
+#salt="RANDOMSALT"
+#motd="/etc/syncplay/motd"
+#noReady=False
+#noChat=False
+#maxChatLength="500"
+#usernameLength="20"
+#statsFile="/etc/syncplay/stats.db"
+#tls="/etc/letsencrypt/live/syncplay.example.com/"

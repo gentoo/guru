@@ -9,4 +9,7 @@
     This package contains a collection of utilities and example code to be used
     with the eXpress Data Path facility of the Linux kernel.
   </longdescription>
+  <upstream>
+    <remote-id type="github">xdp-project/xdp-tools</remote-id>
+  </upstream>
 </pkgmetadata>

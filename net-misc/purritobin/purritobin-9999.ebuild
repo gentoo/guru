@@ -16,13 +16,23 @@ else
 	S="${WORKDIR}/PurritoBin-${PV}"
 fi
 
-LICENSE="GPL-2"
+LICENSE="ISC"
 SLOT="0"
-IUSE=""
+IUSE="libuv"
 
-DEPEND=""
-RDEPEND=""
-BDEPEND=""
+DEPEND=">=dev-cpp/usockets-0.3.5:=[libuv?]
+	>=dev-cpp/uwebsockets-0.17.4
+	libuv? ( >=dev-libs/libuv-1.35.0 )
+"
+RDEPEND="${DEPEND}"
+
+src_compile() {
+	if use libuv; then
+		WITH_LIBUV=1 emake all
+	else
+		emake all
+	fi
+}
 
 src_install() {
 	emake prefix="/usr" DESTDIR="${D}" install

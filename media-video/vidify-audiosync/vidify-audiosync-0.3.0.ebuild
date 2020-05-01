@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{6,7} )
 inherit distutils-r1
 
 DESCRIPTION="Audio synchronization feature for vidify "
-HOMEPAGE="https://github.com/vidify/audiosync"
+HOMEPAGE="https://github.com/vidify/audiosync https://vidify.org"
 SRC_URI="https://github.com/vidify/audiosync/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-3"
