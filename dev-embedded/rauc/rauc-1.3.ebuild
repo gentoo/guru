@@ -10,11 +10,14 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.xz"
 SLOT="0"
 LICENSE="LGPL-2.1"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc json network service"
+IUSE="doc json network service test"
+
+RESTRICT="!test? ( test )"
 
 BDEPEND="
 	virtual/pkgconfig
 	doc? ( dev-python/sphinx )
+	test? ( sys-fs/squashfs-tools )
 "
 RDEPEND="
 	dev-libs/glib:2
@@ -26,6 +29,8 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
+
+PATCHES=( "${FILESDIR}/${P}-tests.patch" )
 
 src_configure() {
 	local myconf=(
