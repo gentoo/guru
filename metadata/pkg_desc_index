@@ -100,6 +100,7 @@ dev-python/pygaljs 1.0.0 1.0.1 1.0.2: Python package providing assets from https
 dev-python/pykeepass 3.2.0: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
 dev-python/pymdown-extensions 7.0.0: Extensions for Python Markdown.
 dev-python/pymdown-lexers 0_pre20180905: Additional lexers for use in Pygments
+dev-python/pypandoc 1.5: Pypandoc provides a thin wrapper for pandoc, a universal document converter
 dev-python/pyspelling 2.6.0: Spell checker automation tool
 dev-python/pytest-benchmark 3.2.3: py.test fixture for benchmarking code
 dev-python/pytest-cython 0.1.0-r1: Plugin for testing Cython extension modules
