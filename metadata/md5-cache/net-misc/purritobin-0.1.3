@@ -1,13 +1,12 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install unpack
+DEFINED_PHASES=compile install
 DEPEND=>=dev-cpp/usockets-0.3.5:=[libuv?] >=dev-cpp/uwebsockets-0.17.4 libuv? ( >=dev-libs/libuv-1.35.0 )
 DESCRIPTION=minimalistic commanline pastebin
 EAPI=7
 HOMEPAGE=https://bsd.ac
 IUSE=libuv
+KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=ISC
-PROPERTIES=live
 RDEPEND=>=dev-cpp/usockets-0.3.5:=[libuv?] >=dev-cpp/uwebsockets-0.17.4 libuv? ( >=dev-libs/libuv-1.35.0 )
 SLOT=0
-_eclasses_=git-r3	86a0188f2ad9eb3d65e4d031ab8a0422
+SRC_URI=https://github.com/PurritoBin/PurritoBin/archive/0.1.3.tar.gz -> purritobin-0.1.3.tar.gz
 _md5_=5cccae85c1bbb07831b98c59252c967b

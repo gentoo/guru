@@ -31,13 +31,17 @@ app-text/OCRmyPDF 9.7.2: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/mdbook 0.3.7: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
+dev-cpp/usockets 0.3.5: tiny eventing, networking & crypto for async applications
+dev-cpp/uwebsockets 0.17.4: ultra fast, simple, secure & standards compliant web I/O
 dev-db/rum 1.3.6: RUM access method - inverted index with additional information in posting lists
+dev-embedded/rauc 1.3: Lightweight update client that runs on your Embedded Linux device
 dev-games/surgescript 0.5.4.3 9999: scripting language made for opensurge
 dev-java/openjdk-sts-bin 14.0.1_p7-r1: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
 dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
+dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta: C/C++ library to mainly provide Semantic Versioned implementation
 dev-libs/open62541 1.0.1: Open source C implementation of OPC UA
 dev-libs/protothreads 1.4: Protothreads - Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
@@ -49,6 +53,7 @@ dev-python/aionotify 0.2.0: Simple, asyncio-based inotify library for Python
 dev-python/aiopg 1.0.0: aiopg is a library for accessing a PostgreSQL database from the asyncio
 dev-python/aiosqlite 0.12.0: asyncio bridge to the standard sqlite3 module
 dev-python/aiounittest 1.3.1: Test python asyncio-based code with ease
+dev-python/almost 0.1.5: A helper for approximate comparison
 dev-python/aspectlib 1.5.0: An aspect-oriented programming, monkey-patch and decorators library
 dev-python/asyncpg 0.20.1: A fast PostgreSQL Database Client Library for Python/asyncio.
 dev-python/atomiclong 0.1.1 9999: An AtomicLong type using CFFI.
@@ -63,6 +68,7 @@ dev-python/curio 0.9 1.2: Curio is a coroutine-based library for concurrent syst
 dev-python/databases 0.3.0: Async database support for Python.
 dev-python/dataclasses 0.7: A backport of the dataclasses module for Python 3.6
 dev-python/devtools 0.5.1: Dev tools for python
+dev-python/doxypypy 0.8.8.6: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/email-validator 1.0.5: A robust email syntax and deliverability validation library
 dev-python/factory_boy 2.12.0 2.12.0-r1: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11: Up to date simple useragent faker with real world database
@@ -116,6 +122,7 @@ dev-python/python-vlc 3.0.7110: Python ctypes-based bindings for libvlc
 dev-python/sanic 19.12.2: Async Python 3.6+ web server/framework | Build fast. Run fast.
 dev-python/schedule 0.6.0-r1 9999: Python job scheduling for humans
 dev-python/skia-pathops 0.4.1: Python bindings for the Skia Path Ops
+dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/sniffio 1.1.0: Sniff out which async library your code is running under
 dev-python/sphinx-argparse 0.2.5: Sphinx extension that automatically documents argparse commands and options
 dev-python/sphinx-autodoc-typehints 1.10.3: Type hints support for the Sphinx autodoc extension
@@ -131,7 +138,9 @@ dev-python/text-unidecode 1.3: The most basic Text::Unidecode port
 dev-python/timeout-decorator 0.4.1: Timeout decorator
 dev-python/trio 0.13.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
+dev-python/trueskill 0.4.5: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/ufoLib2 0.6.3a_p1: A UFO font library
+dev-python/ufoNormalizer 0.4.1: A tool that will normalize the XML and other data inside of a UFO.
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/uvicorn 0.11.5: The lightning-fast ASGI server
 dev-python/validators 0.14.0-r1 0.14.3: Python Data Validation for Humans
@@ -165,14 +174,14 @@ gui-apps/wf-shell 0.4.0 9999: A compiz like 3D wayland compositor
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/wayfire 0.4.0 9999: A compiz like 3D wayland compositor
 kde-misc/plasma-applet-thermal-monitor 1.2.9: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
-mail-client/mutt-wizard 0_pre20200412: A system for automatically configuring mutt and isync
+mail-client/mutt-wizard 0_pre20200430: A system for automatically configuring mutt and isync
 media-fonts/symbola 7.17: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
 media-gfx/azpainter 2.1.6: Full color painting software for Linux for illustration drawing
 media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
-media-libs/amdvlk 2020.1.4 2020.2.1: AMD Open Source Driver for Vulkan
+media-libs/amdvlk 2020.1.4 2020.2.1 2020.2.2: AMD Open Source Driver for Vulkan
 media-libs/libavif 0.6.4-r1 0.7.2-r1 9999: Library for encoding and decoding .avif files
-media-libs/skia 80_p20191220: A complete 2D graphic library for drawing Text, Geometries, and Images
+media-libs/skia 80_p20191220 80_p20191220-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
 media-plugins/gst-plugins-sndio 1.8.0.1: Sndio audio sink and source for GStreamer
@@ -185,6 +194,7 @@ media-sound/sndio 1.6.0: small audio and MIDI framework part of the OpenBSD proj
 media-sound/zita-ajbridge 0.8.4: zita-a2j and zita-j2a - bridges between ALSA and JACK
 media-tv/droidcam 0_pre20200416: Use android phone as webcam, using a v4l device driver and app
 media-video/kikoplay 0.6.1 9999: KikoPlay is a full-featured danmu player
+media-video/syncplay 1.6.4_p1: Client/server to synchronize media playback
 media-video/vidify 2.2.4: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
 net-dialup/tio 1.32: Simple TTY terminal application
@@ -193,7 +203,7 @@ net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0: FORT validator is an open source RPKI validator
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/openbgpd 6.6_p0 9999: OpenBGPD is a free implementation of BGPv4
-net-misc/purritobin 0.0.2 9999: minimalistic commanline pastebin
+net-misc/purritobin 0.1.3 9999: minimalistic commanline pastebin
 net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
 net-misc/wsdd 0.5: A Web Service Discovery host daemon.
 net-p2p/trezord-go 2.0.29: TREZOR Communication Daemon

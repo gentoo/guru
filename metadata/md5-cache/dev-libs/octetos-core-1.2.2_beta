@@ -1,0 +1,11 @@
+BDEPEND=dev-util/cunit >=sys-devel/gcc-8.1 >=sys-devel/bison-3.1 dev-libs/libconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure unpack
+DESCRIPTION=C/C++ library to mainly provide Semantic Versioned implementation
+EAPI=7
+HOMEPAGE=https://github.com/azaeldevel/octetos-core
+KEYWORDS=~amd64
+LICENSE=GPL-3
+SLOT=0
+SRC_URI=https://github.com/azaeldevel/octetos-core/archive/1.2.2-br.tar.gz
+_eclasses_=autotools	7d999b62b8749fad43fff00620cedf47	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	318e8ae683e57fd3ccd0d31a769d8ee8	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c
+_md5_=5561aa63e8aca8d2a2f3ac4e1f0fbd8c
