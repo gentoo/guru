@@ -28,10 +28,10 @@ DEPEND="openssl? (
 	libuv? ( dev-libs/libuv )
 	debug? (
 		|| (
-			>=sys-devel/gcc-7.4.0[sanitize]
+			>=sys-devel/gcc-7.4.0:*[sanitize]
 			(
-				sys-devel/clang-runtime[sanitize]
-				sys-libs/compiler-rt-sanitizers[sanitize]
+				sys-devel/clang-runtime:*[sanitize]
+				sys-libs/compiler-rt-sanitizers:*[sanitize]
 			)
 		)
 	)
