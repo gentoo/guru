@@ -101,7 +101,7 @@ proc-macro-error-attr-0.4.11
 proc-macro2-1.0.9
 process_path-0.1.1
 procfs-0.7.7
-procs-0.9.20
+procs-0.10.1
 quote-1.0.3
 redox_syscall-0.1.56
 redox_users-0.3.4

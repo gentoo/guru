@@ -21,7 +21,7 @@
 # The aim of this eclass is to make it easy to add additional
 # doc builders. To do this, add a <DOCBUILDER>-setup and
 # <DOCBUILDER>-build function for your doc builder.
-# For python based doc builders you can use the 
+# For python based doc builders you can use the
 # python_append_deps function to append [${PYTHON_USEDEP}]
 # automatically to additional dependencies.
 
@@ -201,7 +201,7 @@ sphinx_compile() {
 			die "${FUNCNAME}: sphinx.ext.autodoc not found in ${confpy}, set AUTODOC=0"
 		fi
 	fi
-	
+
 	sed -i -e 's:^intersphinx_mapping:disabled_&:' \
 		"${DOCDIR}"/conf.py || die
 	# not all packages include the Makefile in pypi tarball

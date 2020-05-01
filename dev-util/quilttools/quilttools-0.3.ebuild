@@ -21,6 +21,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 BDEPEND="dev-python/sphinx"
 RDEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep '
+		dev-python/pyyaml[${PYTHON_MULTI_USEDEP}]
 		net-mail/notmuch[python,${PYTHON_MULTI_USEDEP}]
 	')"
 
