@@ -20,8 +20,11 @@ SLOT="0"
 LICENSE="BSD"
 KEYWORDS="~amd64"
 
+IUSE="test"
+RESTRICT="!test? ( test )"
+
 RDEPEND=""
-DEPEND=""
+DEPEND="test? ( dev-python/pytest[${PYTHON_USEDEP}] )"
 
 S="${WORKDIR}/${PN}-${COMMIT}"
 
