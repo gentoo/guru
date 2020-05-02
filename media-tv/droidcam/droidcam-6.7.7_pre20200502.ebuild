@@ -3,7 +3,7 @@
 
 EAPI=7
 
-COMMIT="fee087c7f699cb38fba7934c77c588d246355372"
+COMMIT="6cc7cb6266f4ac089cf3bbef2d2ae8fe590f1750"
 
 inherit desktop linux-mod xdg
 
@@ -25,7 +25,7 @@ RDEPEND="x11-libs/gtk+:2"
 
 S="${WORKDIR}/${PN}-${COMMIT}/linux"
 
-PATCHES="${FILESDIR}/${PN}-0-libjpeg-location.patch"
+PATCHES="${FILESDIR}/${PN}-libjpeg-location.patch"
 
 CONFIG_CHECK="VIDEO_DEV"
 MODULE_NAMES="v4l2loopback-dc(video:${S}/v4l2loopback:${S}/v4l2loopback)"
