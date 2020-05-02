@@ -21,8 +21,6 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RESTRICT="test"
-
 RDEPEND="
 	>=dev-python/packaging-14.1[${PYTHON_USEDEP}]
 	<dev-python/pytest-5.4[${PYTHON_USEDEP}]
