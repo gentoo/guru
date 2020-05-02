@@ -1,0 +1,10 @@
+DEFINED_PHASES=install postinst
+DESCRIPTION=A slightly better history for zsh
+EAPI=7
+HOMEPAGE=https://github.com/larkery/zsh-histdb
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=app-shells/zsh dev-db/sqlite
+SLOT=0
+SRC_URI=https://github.com/larkery/zsh-histdb/archive/7c34b558cca374b6c8727fc08868f2bc044fd162.tar.gz -> zsh-histdb-0_pre20200405.tar.gz
+_md5_=a19b2512fb1d5fc26946af5a5851bf23

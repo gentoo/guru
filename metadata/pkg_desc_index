@@ -27,6 +27,8 @@ app-portage/portage-lostfiles 0.2.0: A simple script to identify files not track
 app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
 app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
 app-shells/k 0.0.5: Directory listings for zsh with git features
+app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
+app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
 app-text/OCRmyPDF 9.7.2: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/mdbook 0.3.7: Creates a book from markdown files
@@ -59,6 +61,7 @@ dev-python/asyncpg 0.20.1: A fast PostgreSQL Database Client Library for Python/
 dev-python/atomiclong 0.1.1 9999: An AtomicLong type using CFFI.
 dev-python/autoflake 1.3.1: Removes unused imports and unused variables as reported by pyflakes
 dev-python/backrefs 4.3.0: Wrapper around re or regex that adds additional back references
+dev-python/baron 0.9: Full Syntax Tree for python to make writing refactoring code a realist task
 dev-python/black 19.10_beta0-r1: The uncompromising Python code formatter
 dev-python/bracex 2.0.0: Bash style brace expansion for Python
 dev-python/cchardet 2.1.6: cChardet is high speed universal character encoding detector
@@ -201,11 +204,12 @@ media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
 net-dialup/tio 1.32: Simple TTY terminal application
 net-im/biboumi 8.4 9.0_pre20200419: XMPP gateway to IRC
 net-mail/remail 0.9: A set of tools for crypted mailing lists
-net-misc/FORT-validator 1.2.0: FORT validator is an open source RPKI validator
+net-misc/FORT-validator 1.2.0 1.2.1: FORT validator is an open source RPKI validator
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/openbgpd 6.6_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.1.3 9999: minimalistic commanline pastebin
 net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
+net-misc/wayback_machine_downloader 2.2.1: Download an entire website from the Wayback Machine
 net-misc/wsdd 0.5: A Web Service Discovery host daemon.
 net-p2p/trezord-go 2.0.29: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1 0.3.14: An experiment in scalable routing as an encrypted IPv6 overlay network
