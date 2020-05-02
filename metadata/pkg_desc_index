@@ -68,7 +68,7 @@ dev-python/cchardet 2.1.6: cChardet is high speed universal character encoding d
 dev-python/check-manifest 0.41-r1: Tool to check the completeness of MANIFEST.in for Python packages
 dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
 dev-python/curio 0.9 1.2: Curio is a coroutine-based library for concurrent systems programming
-dev-python/databases 0.3.1: Async database support for Python.
+dev-python/databases 0.3.2: Async database support for Python.
 dev-python/dataclasses 0.7: A backport of the dataclasses module for Python 3.6
 dev-python/devtools 0.5.1: Dev tools for python
 dev-python/doxypypy 0.8.8.6: A more Pythonic version of doxypy, a Doxygen filter for Python
@@ -114,7 +114,7 @@ dev-python/pytest-ordering 0.6: pytest plugin to run your tests in a specific or
 dev-python/pytest-randomly 3.3.1 3.3.1-r1: Pytest plugin to randomly order tests and control random.seed
 dev-python/pytest-sanic 1.6.0: a Pytest Plugin for Sanic
 dev-python/pytest-subtests 0.3.0: unittest subTest() support and subtests fixture
-dev-python/pytest-sugar 0.9.2 0.9.2_p20200213: Plugin for pytest that changes the default look and feel of pytest
+dev-python/pytest-sugar 0.9.3: Plugin for pytest that changes the default look and feel of pytest
 dev-python/pytest-toolbox 0.4: Numerous useful plugins for pytest
 dev-python/pytest-travis-fold 1.3.0: Pytest plugin that folds captured output sections in Travis CI build log
 dev-python/pytest-trio 0.5.2: This is a pytest plugin to help you test projects that use Trio
@@ -122,7 +122,7 @@ dev-python/python-dotenv 0.13.0: Get and set values in your .env file in local a
 dev-python/python-mpv 0.4.6: Python interface to the mpv media player
 dev-python/python-multipart 0.0.5: A streaming multipart parser for Python
 dev-python/python-telegram-bot 12.4.2 9999: Python wrapper of telegram bots API
-dev-python/python-vlc 3.0.7110: Python ctypes-based bindings for libvlc
+dev-python/python-vlc 3.0.9113: Python ctypes-based bindings for libvlc
 dev-python/sanic 19.12.2: Async Python 3.6+ web server/framework | Build fast. Run fast.
 dev-python/schedule 0.6.0-r1 9999: Python job scheduling for humans
 dev-python/skia-pathops 0.4.1: Python bindings for the Skia Path Ops
@@ -135,7 +135,7 @@ dev-python/sphinxcontrib-trio 1.1.1: Make Sphinx better at documenting Python fu
 dev-python/sphobjinv 2.0.1: Sphinx objects.inv Inspection/Manipulation Tool
 dev-python/spotipy 2.12.0: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.2.2: Server Sent Events for Starlette
-dev-python/starlette 0.13.3: The little ASGI framework that shines
+dev-python/starlette 0.13.4: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
 dev-python/tekore 1.7.0: Spotify Web API client
 dev-python/text-unidecode 1.3: The most basic Text::Unidecode port
@@ -143,7 +143,7 @@ dev-python/timeout-decorator 0.4.1: Timeout decorator
 dev-python/trio 0.13.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trueskill 0.4.5: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
-dev-python/ufoLib2 0.6.3a_p1: A UFO font library
+dev-python/ufoLib2 0.7.0: A UFO font library
 dev-python/ufoNormalizer 0.4.1: A tool that will normalize the XML and other data inside of a UFO.
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/uvicorn 0.11.5: The lightning-fast ASGI server
@@ -196,7 +196,7 @@ media-sound/aucatctl 0.1: A tool for controlling aucat and/or sndiod volume thro
 media-sound/r128gain 1.0.1: Fast audio loudness scanner & tagger (ReplayGain v2 / R128)
 media-sound/sndio 1.6.0: small audio and MIDI framework part of the OpenBSD project
 media-sound/zita-ajbridge 0.8.4: zita-a2j and zita-j2a - bridges between ALSA and JACK
-media-tv/droidcam 0_pre20200416: Use android phone as webcam, using a v4l device driver and app
+media-tv/droidcam 6.7.7_pre20200502: Use android phone as webcam, using a v4l device driver and app
 media-video/kikoplay 0.6.1 9999: KikoPlay is a full-featured danmu player
 media-video/syncplay 1.6.4_p1: Client/server to synchronize media playback
 media-video/vidify 2.2.4: Watch music videos in real time for the songs playing on your device
