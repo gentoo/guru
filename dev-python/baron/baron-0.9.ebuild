@@ -8,22 +8,18 @@ PYTHON_COMPAT=( python3_{6,7} )
 inherit distutils-r1
 
 DESCRIPTION="Full Syntax Tree for python to make writing refactoring code a realist task"
-HOMEPAGE=" http://baron.pycqa.org/"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+HOMEPAGE="https://github.com/PyCQA/baron https://baron.pycqa.org"
+SRC_URI="https://github.com/PyCQA/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-RESTRICT="!test? ( test )"
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="test"
 
-DEPEND="
-	test? (
-		dev-python/pytest[${PYTHON_USEDEP}]
-	)
-"
 RDEPEND="
 	dev-python/rply[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
+# Doc building fails:
+# RuntimeError: Non Expected warning in `/var/tmp/portage/dev-python/baron-0.9/work/baron-0.9/docs/advanced.rst` line 48
+#distutils_enable_sphinx docs dev-python/matplotlib dev-python/ipython
