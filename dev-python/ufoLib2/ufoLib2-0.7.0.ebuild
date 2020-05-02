@@ -7,9 +7,7 @@ PYTHON_COMPAT=( python3_{6,7} )
 
 inherit distutils-r1
 
-MYP="${P/_p/}"
-
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${MYP}.zip"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.zip"
 KEYWORDS="~amd64 ~x86"
 
 DESCRIPTION="A UFO font library"
@@ -28,12 +26,14 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+	test? (
+		dev-python/typing-extensions[${PYTHON_USEDEP}]
+	)
 "
 BDEPEND="app-arch/unzip"
 
-S="${WORKDIR}/${MYP}"
-
 distutils_enable_tests pytest
+distutils_enable_sphinx docs/source dev-python/typing-extensions dev-python/sphinx_rtd_theme
 
 python_prepare_all() {
 	sed -e '/\<wheel\>/d' -i setup.cfg || die

@@ -5,7 +5,10 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_6 )
 
-inherit distutils-r1 eutils
+DOCBUILDER="mkdocs"
+DOCDEPEND="dev-python/mkdocs-material"
+
+inherit distutils-r1 docs eutils
 
 DESCRIPTION="Async database support for Python."
 HOMEPAGE="
@@ -31,10 +34,6 @@ RESTRICT="test"
 RDEPEND=">=dev-python/sqlalchemy-1.3.0[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep 'dev-python/aiocontextvars[${PYTHON_USEDEP}]' 'python3_6')"
 
-BDEPEND="doc? (
-	dev-python/mkdocs
-	dev-python/mkdocs-material )"
-
 # autoflake, codecov also required for tests?
 DEPEND="test? (
 	dev-python/aiomysql[${PYTHON_USEDEP}]
@@ -49,19 +48,13 @@ DEPEND="test? (
 	dev-python/starlette[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}] )"
 
+distutils_enable_tests pytest
+
 python_prepare_all() {
 	# do not install LICENSE to /usr/
 	sed -i -e '/data_files/d' setup.py || die
 
 	distutils-r1_python_prepare_all
-}
-
-python_compile_all() {
-	default
-	if use doc; then
-		mkdocs build || die "failed to make docs"
-		HTML_DOCS="site"
-	fi
 }
 
 pkg_postinst() {
@@ -70,5 +63,3 @@ pkg_postinst() {
 	optfeature "sqlite support" dev-python/aiosqlite
 	optfeature "postgresql+aiopg support" dev-python/aiopg
 }
-
-distutils_enable_tests pytest
