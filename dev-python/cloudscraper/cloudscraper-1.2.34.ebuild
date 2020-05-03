@@ -21,15 +21,8 @@ RDEPEND="
 "
 
 DEPEND="test? (
+	dev-python/js2py[${PYTHON_USEDEP}]
 	dev-python/responses[${PYTHON_USEDEP}]
 )"
 
 distutils_enable_tests pytest
-
-python_prepare_all() {
-	# TODO: Package js2py to support this test
-		sed -i -e 's:test_js_challenge_11_12_2019:_&:' \
-			tests/test_cloudscraper.py || die
-
-	distutils-r1_python_prepare_all
-}
