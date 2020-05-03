@@ -25,14 +25,14 @@ RESTRICT="test"
 DEPEND="
 	>=gui-libs/libhandy-0.0.10
 	>=x11-libs/gtk+-3.24.10
-	dev-python/beautifulsoup:4
-	dev-python/cloudscraper
-	dev-python/dateparser
-	dev-python/lxml
-	dev-python/pillow
-	dev-python/pure-protobuf
-	dev-python/python-magic
-	dev-python/unidecode
+	dev-python/beautifulsoup:4[${PYTHON_USEDEP}]
+	dev-python/cloudscraper[${PYTHON_USEDEP}]
+	dev-python/dateparser[${PYTHON_USEDEP}]
+	dev-python/lxml[${PYTHON_USEDEP}]
+	dev-python/pillow[${PYTHON_USEDEP}]
+	dev-python/pure-protobuf[${PYTHON_USEDEP}]
+	dev-python/python-magic[${PYTHON_USEDEP}]
+	dev-python/unidecode[${PYTHON_USEDEP}]
 "
 RDEPEND="
 	${DEPEND}
