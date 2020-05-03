@@ -8,20 +8,21 @@ MY_P="${MY_PN}-${PV}"
 
 PYTHON_COMPAT=( python3_7 )
 
-inherit meson python-single-r1 gnome2-utils xdg
+DISTUTILS_USE_SETUPTOOLS=no
+inherit distutils-r1 meson gnome2-utils xdg
 
 DESCRIPTION="An online/offline manga reader for GNOME"
 HOMEPAGE="https://gitlab.com/valos/Komikku"
 SRC_URI="https://gitlab.com/valos/${MY_PN}/-/archive/v${PV}/${MY_PN}-v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64"
 
+KEYWORDS="~amd64"
 LICENSE="GPL-3"
 SLOT="0"
-IUSE=""
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
+# Requires network connection to test
+RESTRICT="test"
 
 DEPEND="
-	${PYTHON_DEPS}
 	>=gui-libs/libhandy-0.0.10
 	>=x11-libs/gtk+-3.24.10
 	dev-python/beautifulsoup:4
@@ -39,9 +40,15 @@ RDEPEND="
 
 S="${WORKDIR}/${MY_PN}-v${PV}"
 
+distutils_enable_tests pytest
+
 src_install() {
 	meson_src_install
-	python_optimize
+	python_foreach_impl python_optimize
+}
+
+src_test() {
+	PYTHONPATH="${S}:${PYTHONPATH}" python_foreach_impl python_test
 }
 
 pkg_preinst() {
