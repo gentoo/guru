@@ -28,12 +28,12 @@ distutils_enable_tests pytest
 
 distutils_enable_sphinx docs dev-python/ipython
 
-src_prepare() {
-	default
-
+python_prepare_all() {
 	# Remove "__pycache__". Reason: unique basename
 	rm -rfd "${S}"/tests/__pycache__ || die
 
 	# Skip tests. Reason: calls fixture "red" directly
 	rm "${S}"/tests/test_bounding_box.py || die
+
+	distutils-r1_python_prepare_all
 }
