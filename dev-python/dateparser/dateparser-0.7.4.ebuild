@@ -14,15 +14,10 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 LICENSE="BSD-4"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
 DEPEND="
 	test? (
-		dev-python/coverage[${PYTHON_USEDEP}]
-		dev-python/flake8[${PYTHON_USEDEP}]
 		dev-python/mock[${PYTHON_USEDEP}]
-		dev-python/nose[${PYTHON_USEDEP}]
 		dev-python/parameterized[${PYTHON_USEDEP}]
 		dev-python/six[${PYTHON_USEDEP}]
 	)
@@ -35,4 +30,5 @@ RDEPEND="
 	dev-python/tzlocal[${PYTHON_USEDEP}]
 "
 
-distutils_enable_tests setup.py
+distutils_enable_tests nose
+distutils_enable_sphinx docs
