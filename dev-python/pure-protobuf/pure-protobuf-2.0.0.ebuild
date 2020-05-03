@@ -12,8 +12,19 @@ HOMEPAGE="
 	https://github.com/eigenein/protobuf
 	https://pypi.org/project/pure-protobuf/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/eigenein/protobuf/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+
+S="${WORKDIR}/protobuf-${PV}"
+
+distutils_enable_tests pytest
+
+python_install() {
+	# Package installs 'tests' package which is forbidden and likely a bug in the build system.
+	rm -r tests || die
+
+	python_foreach_impl distutils-r1_python_install
+}
