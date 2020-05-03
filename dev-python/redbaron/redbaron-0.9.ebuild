@@ -17,14 +17,7 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc"
 
-DEPEND="
-	doc? (
-		dev-python/ipython[matplotlib,${PYTHON_USEDEP}]
-		dev-python/sphinx[${PYTHON_USEDEP}]
-	)
-"
 RDEPEND="
 	>=dev-python/baron-0.7[${PYTHON_USEDEP}]
 	dev-python/pygments[${PYTHON_USEDEP}]
@@ -33,7 +26,7 @@ RDEPEND="
 
 distutils_enable_tests pytest
 
-distutils_enable_sphinx docs
+distutils_enable_sphinx docs dev-python/ipython
 
 src_prepare() {
 	default
