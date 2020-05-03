@@ -9,13 +9,27 @@ inherit distutils-r1
 
 DESCRIPTION="A Python module to bypass Cloudflare's anti-bot page"
 HOMEPAGE="https://github.com/venomous/cloudscraper"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/VeNoMouS/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-python/requests-2.9.2
-	>=dev-python/requests-toolbelt-0.9.1
+	>=dev-python/requests-2.9.2[${PYTHON_USEDEP}]
+	>=dev-python/requests-toolbelt-0.9.1[${PYTHON_USEDEP}]
 "
+
+DEPEND="test? (
+	dev-python/responses[${PYTHON_USEDEP}]
+)"
+
+distutils_enable_tests pytest
+
+python_prepare_all() {
+	# TODO: Package js2py to support this test
+		sed -i -e 's:test_js_challenge_11_12_2019:_&:' \
+			tests/test_cloudscraper.py || die
+
+	distutils-r1_python_prepare_all
+}
