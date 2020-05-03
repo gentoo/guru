@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="Utils for converting between date formats and calculating holidays"
 HOMEPAGE="https://github.com/fitnr/convertdate"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/fitnr/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -19,3 +19,5 @@ RDEPEND="
 	dev-python/pymeeus[${PYTHON_USEDEP}]
 	dev-python/pytz[${PYTHON_USEDEP}]
 "
+
+distutils_enable_tests pytest
