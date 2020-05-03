@@ -105,6 +105,7 @@ dev-python/pure-protobuf 2.0.0: A more Pythonic version of doxypy, a Doxygen fil
 dev-python/pydantic 1.5.1: Data parsing and validation using Python type hints
 dev-python/pydbus 0.6.0: Pythonic DBus library
 dev-python/pygaljs 1.0.0 1.0.1 1.0.2: Python package providing assets from https://github.com/Kozea/pygal.js
+dev-python/pyjsparser 2.7.1: Fast javascript parser based on esprima.js
 dev-python/pykeepass 3.2.0: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
 dev-python/pymdown-extensions 7.0.0: Extensions for Python Markdown.
 dev-python/pymdown-lexers 0_pre20180905: Additional lexers for use in Pygments
