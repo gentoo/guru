@@ -22,9 +22,4 @@ S="${WORKDIR}/protobuf-${PV}"
 
 distutils_enable_tests pytest
 
-python_install() {
-	# Package installs 'tests' package which is forbidden and likely a bug in the build system.
-	rm -r tests || die
-
-	python_foreach_impl distutils-r1_python_install
-}
+PATCHES="${FILESDIR}/${PN}-do-not-install-tests.patch"
