@@ -23,15 +23,12 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
+S="${WORKDIR}/${PN}-${VERSION}"
+
 src_configure() {
 	./configure CPPFLAGS="`pkg-config --cflags openssl`" \
 		LDFLAGS="`pkg-config --libs-only-L openssl`" \
 		LDADD="`pkg-config --libs openssl` -lresolv"
-}
-
-src_unpack() {
-	unpack ${A}
-	mv "${WORKDIR}/${PN}-${VERSION}" "${S}"
 }
 
 src_install() {
