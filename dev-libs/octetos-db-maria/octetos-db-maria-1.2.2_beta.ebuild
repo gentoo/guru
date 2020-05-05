@@ -29,3 +29,7 @@ src_prepare() {
 	default
 	eautoreconf -fi
 }
+
+src_configure() {
+	econf --with-mariadb
+}
