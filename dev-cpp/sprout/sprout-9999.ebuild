@@ -11,8 +11,10 @@ EGIT_REPO_URI="https://github.com/bolero-MURAKAMI/Sprout.git"
 
 LICENSE="Boost-1.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
+
 IUSE="test texconv wavconv"
+RESTRICT="!test? ( test )"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
