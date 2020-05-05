@@ -5,9 +5,11 @@ EAPI=7
 
 inherit autotools
 
+MYPV="${PV/_beta/-br}"
+
 DESCRIPTION="C/C++ library to mainly provide Semantic Versioned implementation"
 HOMEPAGE="https://github.com/azaeldevel/octetos-core"
-SRC_URI="https://github.com/azaeldevel/octetos-core/archive/1.2.2-br.tar.gz"
+SRC_URI="https://github.com/azaeldevel/${PN}/archive/${MYPV}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -24,17 +26,9 @@ BDEPEND="
 	dev-libs/libconfig
 "
 
-src_unpack() {
+S="${WORKDIR}/${PN}-${MYPV}"
+
+src_prepare() {
 	default
-	ln -s octetos-core-1.2.2-br "${P}"
-}
-
-src_configure() {
 	eautoreconf -fi
-}
-
-src_compile() {
-	if [ -f Makefile ] || [ -f GNUmakefile ] || [ -f makefile ]; then
-		emake || die "emake failed"
-	fi
 }
