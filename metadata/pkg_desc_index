@@ -55,6 +55,7 @@ dev-libs/octetos-db-maria 1.2.2_beta: C++ library for Database Acces.
 dev-libs/open62541 1.0.1: Open source C implementation of OPC UA
 dev-libs/protothreads 1.4: Protothreads - Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
+dev-libs/xqilla 2.3.4: An XQuery and XPath 2 library and command line utility written in C++
 dev-php/pecl-inotify 2.0.0: Inotify binding for PHP
 dev-python/aiofiles 0.5.0: File support for asyncio
 dev-python/aiohttp-cors 0.7.0: Implements CORS support for aiohttp asyncio-powered asynchronous HTTP server
