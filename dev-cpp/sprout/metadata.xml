@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <longdescription lang="en">
+C++11/14 constexpr based Containers, Algorithms, Random numbers, Parsing, Ray tracing, Synthesizer, and others.
+  </longdescription>
+  <maintainer type="person">
+    <email>m.santullo@posteo.net</email>
+    <name>Michele Santullo</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">bolero-MURAKAMI/Sprout</remote-id>
+  </upstream>
+  <use>
+    <flag name="texconv">Install texconv from subproject compost</flag>
+    <flag name="wavconv">Install texconv from subproject darkroom</flag>
+  </use>
+</pkgmetadata>

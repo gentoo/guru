@@ -1,0 +1,12 @@
+diff --git a/tools/CMakeLists.txt b/tools/CMakeLists.txt
+index a68233bf..ef38b570 100644
+--- a/tools/CMakeLists.txt
++++ b/tools/CMakeLists.txt
+@@ -1 +1,6 @@
+-subdirs( compost darkroom )
++if (WITH_WAVCONV)
++	subdirs( compost )
++endif()
++if (WITH_TEXCONV)
++	subdirs( darkroom )
++endif()
