@@ -19,10 +19,13 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="test"
 
-DEPEND=""
-RDEPEND="${DEPEND}"
+IUSE="test"
+RESTRICT="!test? ( test )"
+
+RDEPEND=""
+DEPEND="${RDEPEND}
+	test? ( dev-cpp/gtest )"
 BDEPEND=""
 
 src_configure() {
