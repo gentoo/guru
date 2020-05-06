@@ -20,7 +20,7 @@ SLOT="0"
 RDEPEND="
 	>=dev-python/fonttools-4.0.0[${PYTHON_USEDEP}]
 	dev-python/fs[${PYTHON_USEDEP}]
-	>=dev-python/attrs-19.2.0[${PYTHON_USEDEP}]
+	>=dev-python/attrs-19.3.0[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
 "
 DEPEND="
