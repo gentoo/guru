@@ -75,7 +75,7 @@ dev-python/baron 0.9: Full Syntax Tree for python to make writing refactoring co
 dev-python/black 19.10_beta0-r1: The uncompromising Python code formatter
 dev-python/bracex 2.0.0: Bash style brace expansion for Python
 dev-python/cchardet 2.1.6: cChardet is high speed universal character encoding detector
-dev-python/check-manifest 0.41-r1: Tool to check the completeness of MANIFEST.in for Python packages
+dev-python/check-manifest 0.42: Tool to check the completeness of MANIFEST.in for Python packages
 dev-python/cloudscraper 1.2.34: A Python module to bypass Cloudflare's anti-bot page
 dev-python/convertdate 2.2.0: Utils for converting between date formats and calculating holidays
 dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
@@ -94,7 +94,7 @@ dev-python/glicko2 0_pre20191010 9999: An implementation of the Glicko-2 rating 
 dev-python/googletransx 2.4.2: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/graphene 2.1.8: GraphQL Framework for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
-dev-python/hstspreload 2020.4.28: Chromium HSTS Preload list as a Python package
+dev-python/hstspreload 2020.5.5: Chromium HSTS Preload list as a Python package
 dev-python/httpcore 0.7.0: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/httpx 0.9.3 0.11.1 0.12.1: A next generation HTTP client for Python
@@ -149,7 +149,7 @@ dev-python/sniffio 1.1.0: Sniff out which async library your code is running und
 dev-python/sphinx-argparse 0.2.5: Sphinx extension that automatically documents argparse commands and options
 dev-python/sphinx-autodoc-typehints 1.10.3: Type hints support for the Sphinx autodoc extension
 dev-python/sphinxcontrib-katex 0.6.0: KaTeX Sphinx extension for rendering of math in HTML pages
-dev-python/sphinxcontrib-trio 1.1.1: Make Sphinx better at documenting Python functions and methods
+dev-python/sphinxcontrib-trio 1.1.2: Make Sphinx better at documenting Python functions and methods
 dev-python/sphobjinv 2.0.1: Sphinx objects.inv Inspection/Manipulation Tool
 dev-python/spotipy 2.12.0: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.2.2: Server Sent Events for Starlette
@@ -158,10 +158,10 @@ dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/st
 dev-python/tekore 1.7.0: Spotify Web API client
 dev-python/text-unidecode 1.3: The most basic Text::Unidecode port
 dev-python/timeout-decorator 0.4.1: Timeout decorator
-dev-python/trio 0.13.0: Python library for async concurrency and I/O
+dev-python/trio 0.14.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trueskill 0.4.5: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
-dev-python/ufoLib2 0.7.0: A UFO font library
+dev-python/ufoLib2 0.7.1: A UFO font library
 dev-python/ufoNormalizer 0.4.1: A tool that will normalize the XML and other data inside of a UFO.
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/uvicorn 0.11.5: The lightning-fast ASGI server
