@@ -3,15 +3,18 @@
 
 EAPI=7
 
-inherit cmake git-r3
+COMMIT="6b5addba9face0a6403e66e7db2aa94d87387f61"
+
+inherit cmake
 
 DESCRIPTION="C++11/14 constexpr based Containers, Algorithms, Random numbers and others"
 HOMEPAGE="http://bolero-murakami.github.io/Sprout/"
-EGIT_REPO_URI="https://github.com/bolero-MURAKAMI/Sprout.git"
+SRC_URI="https://github.com/bolero-MURAKAMI/Sprout/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/Sprout-${COMMIT}"
 
 LICENSE="Boost-1.0"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 IUSE="test texconv wavconv"
 RESTRICT="!test? ( test )"
