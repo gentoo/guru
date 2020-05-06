@@ -18,10 +18,7 @@ SRC_URI="https://github.com/mgedmin/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
-#install requires, is right?
 RDEPEND="
 	dev-python/pep517[${PYTHON_USEDEP}]
 	dev-python/toml[${PYTHON_USEDEP}]
@@ -30,9 +27,10 @@ DEPEND="
 	${RDEPEND}
 	test? (
 		dev-python/mock[${PYTHON_USEDEP}]
-		dev-python/nose[${PYTHON_USEDEP}]
 	)
 "
+
+distutils_enable_tests nose
 
 python_test() {
 	nosetests -v -e test_build_sdist || die
