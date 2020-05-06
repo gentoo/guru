@@ -21,6 +21,7 @@ SLOT="0"
 RDEPEND="<=dev-python/sphinx-3[${PYTHON_USEDEP}]"
 
 DEPEND="test? (
+	dev-python/async_generator[${PYTHON_USEDEP}]
 	dev-python/contextlib2[${PYTHON_USEDEP}]
 	dev-python/cssselect[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}] )"
