@@ -18,14 +18,20 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="+client +server vlc mpv"
-REQUIRED_USE="vlc? ( client ) mpv? ( client )"
+IUSE="+client +server vlc mpv mplayer"
+REQUIRED_USE="
+	vlc? ( client )
+	mpv? ( client )
+	mplayer? ( client )
+	client? ( || ( vlc mpv mplayer ) )
+"
 
 RDEPEND="
 	dev-python/certifi[${PYTHON_USEDEP}]
 	dev-python/twisted[${PYTHON_USEDEP}]
 	vlc? ( media-video/vlc[lua] )
 	mpv? ( media-video/mpv[lua] )
+	mplayer? ( media-video/mplayer )
 "
 
 # RDEPEND on PySide2 for gui, but not packaged here at the moment
@@ -53,6 +59,9 @@ pkg_postinst() {
 
 	if use client; then
 		elog "Syncplay supports the following players:"
-		elog "media-video/mpv, media-video/mplayer2, media-video/vlc"
+		elog "media-video/mpv, media-video/mplayer, media-video/vlc\n"
+		optfeature "using Syncplay with VLC" media-video/vlc[lua]
+		optfeature "using Syncplay with MPV" media-video/mpv[lua]
+		optfeature "using Syncplay with MPlayer" media-video/mplayer
 	fi
 }
