@@ -7,4 +7,5 @@ inherit acct-user
 
 ACCT_USER_ID=313
 ACCT_USER_GROUPS=( flatpak )
+KEYWORDS="~amd64 ~x86"
 acct-user_add_deps
