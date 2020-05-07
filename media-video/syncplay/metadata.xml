@@ -11,5 +11,6 @@
 		<flag name="server">Install the Syncplay server</flag>
 		<flag name="vlc">Pull in VLC with the lua flag</flag>
 		<flag name="mpv">Pull in MPV with the lua flag</flag>
+		<flag name="mplayer">Pull in MPlayer</flag>
 	</use>
 </pkgmetadata>
