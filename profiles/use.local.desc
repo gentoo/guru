@@ -39,6 +39,7 @@ media-sound/6pm:nls - Add support for localization
 media-sound/6pm:presets - Install presets. Recommended
 media-sound/add64:presets - Install presets. Recommended
 media-video/syncplay:client - Install the Syncplay client
+media-video/syncplay:mplayer - Pull in MPlayer
 media-video/syncplay:mpv - Pull in MPV with the lua flag
 media-video/syncplay:server - Install the Syncplay server
 media-video/syncplay:vlc - Pull in VLC with the lua flag
