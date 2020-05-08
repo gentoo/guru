@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">
+		The 'Rcpp' package provides R functions as well as C++ classes which offer a seamless integration of R and C++. Many R data types and objects can be mapped back and forth to C++ equivalents which facilitates both writing of new code as well as easier integration of third-party libraries. Documentation about 'Rcpp' is provided by several vignettes included in this package
+	</longdescription>
+	<upstream>
+		<bugs-to>
+			https://github.com/RcppCore/Rcpp/issues
+		</bugs-to>
+		<doc lang="en">
+			https://cran.r-project.org/web//packages/Rcpp/Rcpp.pdf
+		</doc>
+		<changelog>
+			https://cran.r-project.org/web//packages/Rcpp/ChangeLog
+		</changelog>
+		<maintainer>
+			<name>
+				Dirk Eddelbuettel
+			</name>
+			<email>
+				edd@debian.org
+			</email>
+		</maintainer>
+		<remote-id type="github">
+			RcppCore/Rcpp
+		</remote-id>
+	</upstream>
+</pkgmetadata>
