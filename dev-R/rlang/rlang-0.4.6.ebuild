@@ -13,7 +13,7 @@ HOMEPAGE="
 	https://github.com/r-lib/rlang
 	https://cran.r-project.org/package=rlang
 "
-
+KEYWORDS="~amd64"
 IUSE="${IUSE-}"
 DEPEND=">=dev-lang/R-3.2.0"
 RDEPEND="${DEPEND}"
