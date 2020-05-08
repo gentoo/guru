@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">
+		Defines new notions of prototype and size that are used to provide tools for consistent and well-founded type-coercion and size-recycling, and are in turn connected to ideas of type- and size-stability useful for analysing function interfaces.
+	</longdescription>
+	<upstream>
+		<bugs-to>
+			https://github.com/r-lib/vctrs/issues
+		</bugs-to>
+		<doc lang="en">
+			https://cran.r-project.org/web//packages/vctrs/vctrs.pdf
+		</doc>
+		<changelog>
+			https://cran.r-project.org/web//packages/vctrs/news/news.html
+		</changelog>
+		<maintainer>
+			<name>
+				Hadley Wickham
+			</name>
+			<email>
+				hadley@rstudio.com
+			</email>
+		</maintainer>
+		<remote-id type="github">
+			r-lib/vctrs
+		</remote-id>
+	</upstream>
+</pkgmetadata>
