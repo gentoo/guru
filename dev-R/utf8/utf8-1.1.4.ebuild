@@ -12,5 +12,5 @@ HOMEPAGE="
 DESCRIPTION='Unicode Text Processing'
 SRC_URI="http://cran.r-project.org/src/contrib/utf8_1.1.4.tar.gz"
 LICENSE='Apache-2.0'
-
+KEYWORDS="~amd64"
 IUSE="${IUSE-}"

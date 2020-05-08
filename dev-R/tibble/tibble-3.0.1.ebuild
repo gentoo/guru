@@ -14,6 +14,7 @@ HOMEPAGE="
 	https://cran.r-project.org/package=tibble
 "
 IUSE="${IUSE-}"
+KEYWORDS="~amd64"
 DEPEND="
 	>=dev-lang/R-3.1.0
 	dev-R/cli

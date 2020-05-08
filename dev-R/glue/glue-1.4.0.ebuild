@@ -13,6 +13,7 @@ HOMEPAGE="
 "
 SRC_URI="http://cran.r-project.org/src/contrib/glue_1.4.0.tar.gz"
 LICENSE='MIT'
-
+KEYWORDS="~amd64"
 IUSE="${IUSE-}"
 DEPEND=">=dev-lang/R-3.1"
+RDEPEND="${DEPEND}"

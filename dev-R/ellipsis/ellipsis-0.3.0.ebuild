@@ -13,9 +13,10 @@ HOMEPAGE="
 "
 SRC_URI="http://cran.r-project.org/src/contrib/ellipsis_0.3.0.tar.gz"
 LICENSE='GPL-3'
-
+KEYWORDS="~amd64"
 IUSE="${IUSE-}"
 DEPEND="
 	>=dev-lang/R-3.2
 	>=dev-R/rlang-0.3.0
 "
+RDEPEND="${DEPEND}"

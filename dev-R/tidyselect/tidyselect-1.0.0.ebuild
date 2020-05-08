@@ -14,6 +14,7 @@ HOMEPAGE="
 	https://cran.r-project.org/package=tidyselect
 "
 IUSE="${IUSE-}"
+KEYWORDS="~amd64"
 DEPEND="
 	>=dev-lang/R-3.2
 	dev-R/ellipsis

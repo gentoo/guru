@@ -13,9 +13,11 @@ HOMEPAGE="
 	https://github.com/tidyverse/purrr
 	https://cran.r-project.org/package=purrr
 "
+KEYWORDS="~amd64"
 IUSE="${IUSE-}"
 DEPEND="
 	>=dev-lang/R-3.2
 	>=dev-R/magrittr-1.5
 	>=dev-R/rlang-0.3.1
 "
+RDEPEND="${DEPEND}"

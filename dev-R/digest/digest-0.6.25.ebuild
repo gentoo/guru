@@ -12,7 +12,7 @@ HOMEPAGE="
 "
 SRC_URI="http://cran.r-project.org/src/contrib/${PN}_${PV}.tar.gz"
 LICENSE='GPL-2+'
-
+KEYWORDS="~amd64"
 IUSE="${IUSE-}"
 RDEPEND=">=dev-lang/R-3.1.0"
 DEPEND="${RDEPEND}"

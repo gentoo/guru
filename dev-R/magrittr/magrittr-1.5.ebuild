@@ -9,5 +9,5 @@ DESCRIPTION='A Forward-Pipe Operator for R'
 HOMEPAGE="https://cran.r-project.org/package=magrittr"
 SRC_URI="http://cran.r-project.org/src/contrib/magrittr_1.5.tar.gz"
 LICENSE='MIT'
-
+KEYWORDS="~amd64"
 IUSE="${IUSE-}"

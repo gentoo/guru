@@ -14,6 +14,7 @@ SRC_URI="http://cran.r-project.org/src/contrib/vctrs_0.2.4.tar.gz"
 LICENSE='GPL-3'
 
 IUSE="${IUSE-}"
+KEYWORDS="~amd64"
 DEPEND="
 	>=dev-lang/R-3.2
 	dev-R/digest

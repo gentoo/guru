@@ -13,6 +13,7 @@ HOMEPAGE="
 	https://cran.r-project.org/package=cellranger
 "
 IUSE="${IUSE-}"
+KEYWORDS="~amd64"
 DEPEND="
 	>=dev-lang/R-3.0.0
 	dev-R/rematch

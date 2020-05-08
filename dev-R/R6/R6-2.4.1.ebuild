@@ -14,4 +14,6 @@ HOMEPAGE="
 	https://cran.r-project.org/package=R6
 "
 IUSE="${IUSE-}"
+KEYWORDS="~amd64"
 DEPEND=">=dev-lang/R-3.0"
+RDEPEND="${DEPEND}"

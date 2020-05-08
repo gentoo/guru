@@ -12,5 +12,5 @@ HOMEPAGE="
 "
 SRC_URI="http://cran.r-project.org/src/contrib/pkgconfig_2.0.3.tar.gz"
 LICENSE='MIT'
-
+KEYWORDS="~amd64"
 IUSE="${IUSE-}"

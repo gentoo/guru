@@ -15,3 +15,4 @@ HOMEPAGE="
 	https://cran.r-project.org/package=Rcpp
 "
 IUSE="${IUSE-}"
+KEYWORDS="~amd64"

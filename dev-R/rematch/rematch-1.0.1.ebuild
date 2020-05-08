@@ -14,4 +14,4 @@ SRC_URI="http://cran.r-project.org/src/contrib/rematch_1.0.1.tar.gz"
 LICENSE='MIT'
 
 IUSE="${IUSE-}"
-RDEPEND=""
+KEYWORDS="~amd64"
