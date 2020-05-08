@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">
+		An implementation of interpreted string literals, inspired by Python's Literal String Interpolation, Docstrings and Julia's Triple-Quoted String Literals
+	</longdescription>
+	<upstream>
+		<bugs-to>
+			https://github.com/tidyverse/glue/issues
+		</bugs-to>
+		<doc lang="en">
+			https://cran.r-project.org/web//packages/glue/glue.pdf
+		</doc>
+		<changelog>
+			https://cran.r-project.org/web//packages/glue/news/news.html
+		</changelog>
+		<maintainer>
+			<name>
+				Jim Hester
+			</name>
+			<email>
+				james.f.hester@gmail.com
+			</email>
+		</maintainer>
+		<remote-id type="github">
+			tidyverse/glue
+		</remote-id>
+	</upstream>
+</pkgmetadata>
