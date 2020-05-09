@@ -14,15 +14,16 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	app-editors/emacs[dynamic-loading]
+	>=app-editors/emacs-26.1[dynamic-loading]
 	dev-libs/libvterm
 "
 
 ELISP_REMOVE="${PN}-pkg.el"
 SITEFILE="50${PN}-gentoo.el"
+DOC="README.md"
 
 src_configure() {
-	elisp-make-autoload-file
+	elisp_src_configure
 
 	local mycmakeargs=( "USE_SYSTEM_LIBVTERM=yes" )
 	cmake_src_configure
@@ -37,25 +38,23 @@ src_compile() {
 src_install() {
 	elisp_src_install
 
-	dodoc README.md
-
 	# install vterm module
 	elisp-install ${PN} *.so
 
 	# add shell config files
 	if has_version app-shells/bash; then
 		elog "Adding configuration for bash."
-		exeinto /etc/bash/bashrc.d/
-		newexe "${FILESDIR}/bashrc" bash-emacs-vterm.sh
+		insinto /etc/bash/bashrc.d/
+		newins "${FILESDIR}/bashrc" emacs-vterm-bash.sh
 	fi
 	if has_version app-shells/zsh; then
 		elog "Adding configuration for zsh."
-		exeinto /etc/profile.d/
-		newexe "${FILESDIR}/zshrc" zsh-emacs-vterm.sh
+		insinto /etc/profile.d/
+		newins "${FILESDIR}/zshrc" emacs-vterm-bash.sh
 	fi
 	if has_version app-shells/fish; then
 		elog "Adding configuration for fish."
-		exeinto /etc/fish/conf.d/
-		newexe "${FILESDIR}/config.fish" emacs-vterm.fish
+		insinto /etc/fish/conf.d/
+		newins "${FILESDIR}/config.fish" emacs-vterm.fish
 	fi
 }
