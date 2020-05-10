@@ -25,6 +25,7 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 #BDEPEND="test? ( dev-lang/python )"
 #RESTRICT="!test? ( test )"
+RESTRICT="test"
 
 src_configure() {
 	return
@@ -48,7 +49,7 @@ src_compile() {
 	#fi
 
 	tc-export AR CC
-	emake -f util/wren.mk LIBUV_DIR=${EPREFIX}/usr LIBUV=${EPREFIX}/usr/$(get_libdir)/libuv.so VERBOSE=1 ${targets}
+	emake -f util/wren.mk LIBUV_DIR="${EPREFIX}/usr" LIBUV="${EPREFIX}/usr/$(get_libdir)/libuv.so" VERBOSE=1 ${targets}
 }
 
 src_install() {
