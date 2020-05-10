@@ -41,19 +41,29 @@ app-text/katarakt 0.2: Simple PDF viewer
 app-text/komikku 0.12.0: An online/offline manga reader for GNOME
 app-text/mdbook 0.3.7: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
+dev-R/R6 2.4.1: Encapsulated Classes with Reference Semantics
+dev-R/Rcpp 1.0.4.6: Seamless R and C++ Integration
 dev-R/assertthat 0.2.1: Easy Pre and Post Assertions
+dev-R/cellranger 1.1.0: Translate Spreadsheet Cell Ranges to Rows and Columns
 dev-R/cli 2.0.2: Helpers for Developing Command Line Interfaces
 dev-R/crayon 1.3.4: Colored Terminal Output
 dev-R/digest 0.6.25: Create Compact Hash Digests of R Objects
+dev-R/dplyr 0.8.5: A Grammar of Data Manipulation
 dev-R/ellipsis 0.3.0: Tools for Working with ...
 dev-R/fansi 0.4.1: ANSI Control Sequence Aware String Functions
 dev-R/glue 1.4.0: Interpreted String Literals
 dev-R/lifecycle 0.2.0: Manage the Life Cycle of your Package Functions
 dev-R/magrittr 1.5: A Forward-Pipe Operator for R
+dev-R/pillar 1.4.4: Coloured Formatting for Columns
+dev-R/pkgconfig 2.0.3: Private Configuration for R Packages
+dev-R/purrr 0.3.4: Functional Programming Tools
 dev-R/rematch 1.0.1: Match Regular Expressions with a Nicer API
 dev-R/rlang 0.4.6: Functions for Base Types and Core R and Tidyverse Features
+dev-R/tibble 3.0.1: Simple Data Frames
+dev-R/tidyselect 1.0.0: Select from a Set of Strings
 dev-R/utf8 1.1.4: Unicode Text Processing
 dev-R/vctrs 0.2.4: Vector Helpers
+dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging library
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
 dev-cpp/usockets 0.3.5: tiny eventing, networking & crypto for async applications
 dev-cpp/uwebsockets 0.17.4: ultra fast, simple, secure & standards compliant web I/O
@@ -71,6 +81,7 @@ dev-libs/octetos-db-maria 1.2.2_beta: C++ library for Database Acces.
 dev-libs/open62541 1.0.1: Open source C implementation of OPC UA
 dev-libs/protothreads 1.4: Protothreads - Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
+dev-libs/wren 0.2.0 9999: The Wren Programming Language
 dev-libs/xqilla 2.3.4: An XQuery and XPath 2 library and command line utility written in C++
 dev-php/pecl-inotify 2.0.0: Inotify binding for PHP
 dev-python/aiofiles 0.5.0: File support for asyncio
@@ -235,7 +246,9 @@ media-video/syncplay 1.6.4_p1: Client/server to synchronize media playback
 media-video/vidify 2.2.5: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
 net-dialup/tio 1.32: Simple TTY terminal application
+net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.4 9.0_pre20200419: XMPP gateway to IRC
+net-im/discord-canary 0.0.103: All-in-one voice and text chat
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0 1.2.1: FORT validator is an open source RPKI validator
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia

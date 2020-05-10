@@ -4,10 +4,10 @@ DESCRIPTION=Tools for Working with ...
 EAPI=7
 HOMEPAGE=https://ellipsis.r-lib.org https://github.com/r-lib/ellipsis https://cran.r-project.org/package=ellipsis
 IUSE=byte-compile
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64
 LICENSE=GPL-3
-RDEPEND=dev-lang/R
+RDEPEND=>=dev-lang/R-3.2 >=dev-R/rlang-0.3.0 dev-lang/R
 SLOT=0
 SRC_URI=http://cran.r-project.org/src/contrib/ellipsis_0.3.0.tar.gz
-_eclasses_=R-packages-guru	af5bf54c0d31b74dff1c99abac5d2410	eutils	fcb2aa98e1948b835b5ae66ca52868c5
-_md5_=c1418c8073d16446d2cd5a505230d1ef
+_eclasses_=R-packages-guru	60eced3f09330237ab998893904f26db	eutils	fcb2aa98e1948b835b5ae66ca52868c5
+_md5_=dfb23a8a624e5ae0e892c4719e3020a4

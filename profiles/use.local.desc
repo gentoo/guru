@@ -22,6 +22,7 @@ dev-libs/hts_engine:speech-tools - use memory allocation/free functions of app-a
 dev-libs/open62541:mbedtls - Enable encryption support
 dev-libs/open62541:pubsub - Enable OPC/UA Pub/Sub extensions
 dev-libs/open62541:tools - Build additional shell tools
+dev-libs/wren:tools - Install the wren command line interpreter
 dev-libs/xqilla:tidy - Add Tidy-HTML5 support
 dev-python/geopy:timezone - Enables localized date support
 dev-util/FoBiS:graphviz - Add support of generation of a dependencies graph
