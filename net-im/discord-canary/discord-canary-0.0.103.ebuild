@@ -3,14 +3,14 @@
 
 EAPI=7
 
-inherit eutils desktop
+inherit desktop eutils xdg
 
 DESCRIPTION="All-in-one voice and text chat"
 
 HOMEPAGE="https://discordapp.com/"
 
 SRC_URI="https://dl-canary.discordapp.net/apps/linux/${PV}/discord-canary-${PV}.tar.gz"
-RESTRICT="mirror"
+RESTRICT="mirror bindist"
 KEYWORDS="~amd64"
 
 SLOT="0"
@@ -34,6 +34,16 @@ DEPEND="${RDEPEND}
 	media-libs/opus"
 
 S=${WORKDIR}/DiscordCanary
+
+QA_PREBUILT="
+	opt/discord-canary/DiscordCanary
+	opt/discord-canary/libEGL.so
+	opt/discord-canary/libGLESv2.so
+	opt/discord-canary/swiftshader/libEGL.so
+	opt/discord-canary/swiftshader/libGLESv2.so
+	opt/discord-canary/libVkICD_mock_icd.so
+	opt/discord-canary/libffmpeg.so
+"
 
 src_install() {
 	local destdir="/opt/${PN}"
