@@ -10,7 +10,7 @@ HOMEPAGE="https://biboumi.louiz.org/"
 SRC_URI="https://git.louiz.org/biboumi/snapshot/biboumi-${PV}.tar.xz"
 
 LICENSE="ZLIB"
-SLOT="0"
+SLOT="0/8"
 KEYWORDS="~amd64"
 IUSE="+idn logrotate postgres +sqlite +ssl systemd udns"
 
