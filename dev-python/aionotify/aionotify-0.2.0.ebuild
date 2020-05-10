@@ -15,6 +15,6 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="test? ( dev-python/asynctest[${PYTHON_USEDEP}] )"
-
-distutils_enable_tests pytest
+#DEPEND="test? ( dev-python/asynctest[${PYTHON_USEDEP}] )"
+#
+#distutils_enable_tests pytest

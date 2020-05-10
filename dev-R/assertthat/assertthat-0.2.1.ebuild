@@ -9,5 +9,5 @@ DESCRIPTION='Easy Pre and Post Assertions'
 HOMEPAGE="https://cran.r-project.org/package=assertthat"
 SRC_URI="http://cran.r-project.org/src/contrib/assertthat_0.2.1.tar.gz"
 LICENSE='GPL-3'
-
+KEYWORDS="~amd64"
 IUSE="${IUSE-}"

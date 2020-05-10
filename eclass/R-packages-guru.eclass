@@ -6,7 +6,6 @@ inherit eutils
 EXPORT_FUNCTIONS src_unpack src_prepare src_compile src_install pkg_postinst
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 IUSE="byte-compile"
 
 DEPEND="dev-lang/R"

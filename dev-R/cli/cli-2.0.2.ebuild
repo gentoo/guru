@@ -12,7 +12,7 @@ HOMEPAGE="
 "
 SRC_URI="http://cran.r-project.org/src/contrib/cli_2.0.2.tar.gz"
 LICENSE='MIT'
-
+KEYWORDS="~amd64"
 IUSE="${IUSE-}"
 DEPEND="
 	dev-R/assertthat

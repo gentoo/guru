@@ -13,7 +13,7 @@ HOMEPAGE="
 "
 SRC_URI="http://cran.r-project.org/src/contrib/lifecycle_0.2.0.tar.gz"
 LICENSE='GPL-3'
-
+KEYWORDS="~amd64"
 IUSE="${IUSE-}"
 DEPEND="
 	>=dev-lang/R-3.2
