@@ -58,13 +58,13 @@ DEPEND="${RDEPEND}
 S=${WORKDIR}/DiscordCanary
 
 QA_PREBUILT="
-	opt/discord-canary/DiscordCanary
-	opt/discord-canary/libEGL.so
-	opt/discord-canary/libGLESv2.so
-	opt/discord-canary/swiftshader/libEGL.so
-	opt/discord-canary/swiftshader/libGLESv2.so
-	opt/discord-canary/libVkICD_mock_icd.so
-	opt/discord-canary/libffmpeg.so
+	opt/discord-canary-bin/DiscordCanary
+	opt/discord-canary-bin/libEGL.so
+	opt/discord-canary-bin/libGLESv2.so
+	opt/discord-canary-bin/swiftshader/libEGL.so
+	opt/discord-canary-bin/swiftshader/libGLESv2.so
+	opt/discord-canary-bin/libVkICD_mock_icd.so
+	opt/discord-canary-bin/libffmpeg.so
 "
 
 src_install() {
