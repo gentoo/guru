@@ -3,7 +3,7 @@
 
 EAPI=7
 
-COMMIT="6cc7cb6266f4ac089cf3bbef2d2ae8fe590f1750"
+COMMIT="98cbf07def9604f92fd74ea2964d483347388909"
 
 inherit desktop linux-mod xdg
 
@@ -19,7 +19,7 @@ SLOT="0"
 # Requires connection to android phone
 RESTRICT="test"
 
-BDEPEND="media-libs/libjpeg-turbo[static-libs]"
+BDEPEND="media-libs/libjpeg-turbo"
 
 RDEPEND="x11-libs/gtk+:2"
 
