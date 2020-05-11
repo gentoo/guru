@@ -27,6 +27,14 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
-# TODO : tests doc
-#distutils_enable_tests setup.py # some unexpected failures
-#distutils_enable_sphinx docs
+python_prepare_all() {
+	# Unexpected success
+	sed -i -e 's:test_fix:_&:' \
+		quantities/tests/test_umath.py || die
+
+	distutils-r1_python_prepare_all
+}
+
+distutils_enable_tests unittest
+# wants ext.pngmath which got removed in sphinx-2
+distutils_enable_sphinx doc dev-python/numpydoc "<dev-python/sphinx-2"
