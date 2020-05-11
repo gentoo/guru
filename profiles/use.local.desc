@@ -25,6 +25,8 @@ dev-libs/open62541:tools - Build additional shell tools
 dev-libs/wren:tools - Install the wren command line interpreter
 dev-libs/xqilla:tidy - Add Tidy-HTML5 support
 dev-python/geopy:timezone - Enables localized date support
+dev-python/pylatex:matplotlib - Optionally add dev-python/matplotlib
+dev-python/pylatex:numpy - Optionally add dev-python/numpy
 dev-util/FoBiS:graphviz - Add support of generation of a dependencies graph
 games-arcade/taisei:zip - Enable loading of game data from ZIP packages via dev-libs/libzip
 gui-wm/wayfire:debug - Adds debugging symbols for error reporting. ENABLE ALL USE FLAGS BEFORE REPORTING BUGS.
