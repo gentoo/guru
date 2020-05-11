@@ -167,6 +167,7 @@ dev-python/python-mpv 0.4.6: Python interface to the mpv media player
 dev-python/python-multipart 0.0.5: A streaming multipart parser for Python
 dev-python/python-telegram-bot 12.4.2 9999: Python wrapper of telegram bots API
 dev-python/python-vlc 3.0.9113: Python ctypes-based bindings for libvlc
+dev-python/quantities 0.12.4: Support for physical quantities with units, based on numpy
 dev-python/redbaron 0.9: A FST for python to make writing refactoring code a realistic task
 dev-python/sanic 19.12.2: Async Python 3.6+ web server/framework | Build fast. Run fast.
 dev-python/schedule 0.6.0-r1 9999: Python job scheduling for humans
@@ -281,6 +282,7 @@ sys-apps/procs 0.10.1: A modern replacement for ps
 sys-apps/xdg-desktop-portal-gtk 1.6.0: GTK/GNOME backend for xdg-desktop-portal
 sys-auth/AusweisApp2 1.20.0 9999: Official authentication app for German ID cards and residence permits
 sys-auth/mrsh 2.12: Mrsh is a set of remote shell programs that use munge authentication.
+sys-block/systemd-swap 4.0.1: Script for creating swap space from zram swaps, swap files and swap partitions.
 sys-cluster/AXL 0.3.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
 sys-cluster/KVTree 1.0.2 9999: KVTree provides a fully extensible C data structure modeled after Perl hashes.
 sys-cluster/er 0.0.3: High-level distributed erasure coding lib combining shuffile and redset
