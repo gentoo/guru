@@ -17,32 +17,54 @@ SLOT="0"
 LICENSE="all-rights-reserved"
 RDEPEND=""
 DEPEND="${RDEPEND}
+	dev-libs/atk
 	sys-libs/libcxx
 	dev-libs/expat
+	dev-libs/glib:2
+	dev-libs/nspr
 	dev-libs/nss
-	gnome-base/gconf
+	gnome-base/gconf:2
 	media-gfx/graphite2
 	media-libs/alsa-lib
+	media-libs/fontconfig:1.0
 	media-libs/libpng
+	media-libs/freetype:2
 	net-print/cups
+	sys-apps/dbus
 	net-libs/gnutls
+	sys-libs/libcxx
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
 	sys-libs/zlib
-	x11-libs/gtk+
+	x11-libs/gtk+:3
 	x11-libs/libnotify
+	x11-libs/libX11
+	x11-libs/libXScrnSaver
 	x11-libs/libxcb
+	x11-libs/libXcomposite
+	x11-libs/libXcursor
+	x11-libs/libXdamage
+	x11-libs/libXext
+	x11-libs/libXfixes
+	x11-libs/libXi
+	x11-libs/libXrandr
+	x11-libs/libXrender
+	x11-libs/libXtst
+	x11-libs/pango
+
 	x11-libs/libXtst
 	media-libs/opus"
 
 S=${WORKDIR}/DiscordCanary
 
 QA_PREBUILT="
-	opt/discord-canary/DiscordCanary
-	opt/discord-canary/libEGL.so
-	opt/discord-canary/libGLESv2.so
-	opt/discord-canary/swiftshader/libEGL.so
-	opt/discord-canary/swiftshader/libGLESv2.so
-	opt/discord-canary/libVkICD_mock_icd.so
-	opt/discord-canary/libffmpeg.so
+	opt/discord-canary-bin/DiscordCanary
+	opt/discord-canary-bin/libEGL.so
+	opt/discord-canary-bin/libGLESv2.so
+	opt/discord-canary-bin/swiftshader/libEGL.so
+	opt/discord-canary-bin/swiftshader/libGLESv2.so
+	opt/discord-canary-bin/libVkICD_mock_icd.so
+	opt/discord-canary-bin/libffmpeg.so
 "
 
 src_install() {
