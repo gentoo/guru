@@ -12,7 +12,10 @@ HOMEPAGE="http://flatpak.org/"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc gnome gtk introspection policykit seccomp"
+IUSE="doc gnome gtk introspection kde policykit seccomp"
+
+# restrict until fixed. Bug: 721906
+RESTRICT="test"
 
 # FIXME: systemd is automagic dep.
 RDEPEND="
@@ -55,6 +58,7 @@ PDEPEND="
 	       sys-apps/xdg-desktop-portal-gtk )
 	gnome? ( >=sys-apps/xdg-desktop-portal-0.10
 		 sys-apps/xdg-desktop-portal-gtk )
+	kde? ( kde-plasma/xdg-desktop-portal-kde )
 "
 
 pkg_setup() {
