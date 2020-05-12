@@ -93,6 +93,11 @@ sci-libs/meschach:old - build no longer supported functions
 sci-libs/meschach:segmem - should be set if you are working with a machine or compiler that does not allow large arrays to be allocated. See README
 sci-libs/meschach:sparse - incorporate sparse matrix functions
 sci-libs/meschach:unroll - unroll low level loops on vectors
+sci-physics/SU2:cgns - Build with CGNS support (bundled)
+sci-physics/SU2:mkl - Enable Intel MKL support
+sci-physics/SU2:openblas - Enable OpenBLAS support
+sci-physics/SU2:tecio - Enable TECIO support
+sci-physics/SU2:tutorials - Install Tutorials files
 sys-auth/mrsh:pam - build with pam support
 sys-auth/mrsh:shadow - build with shadow file support
 sys-cluster/KVTree:fcntl - Set the type of file locking to fcntl.
