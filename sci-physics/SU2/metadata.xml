@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>torokhov-s-a@yandex.ru</email>
+    <name>Sergey Torokhov</name>
+  </maintainer>
+  <use>
+    <flag name="cgns">Build with CGNS support (bundled)</flag>
+    <flag name="mkl">Enable Intel MKL support</flag>
+    <flag name="openblas">Enable OpenBLAS support</flag>
+    <flag name="tecio">Enable TECIO support</flag>
+    <flag name="tutorials">Install Tutorials files</flag>
+  </use>
+  <longdescription>
+    The SU2 suite is an open-source collection of C++ based software tools
+    for performing Partial Differential Equation (PDE) analysis and solving
+    PDE-constrained optimization problems.
+
+    The toolset is designed with Computational Fluid Dynamics (CFD)
+    and aerodynamic shape optimization in mind, but is extensible
+    to treat arbitrary sets of governing equations such as potential flow,
+    elasticity, electrodynamics, chemically-reacting flows, and many others.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">su2code/SU2</remote-id>
+  </upstream>
+</pkgmetadata>
