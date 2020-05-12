@@ -8,6 +8,9 @@
 		<email>vilhelm.gray@gmail.com</email>
 		<name>William Breathitt Gray</name>
 	</maintainer>
+	<use>
+		<flag name="truecolor">Enable true-color rendering (experimental)</flag>
+	</use>
 	<upstream>
 		<bugs-to>https://github.com/fabiangreffrath/crispy-doom/issues</bugs-to>
 		<doc lang="en">https://github.com/fabiangreffrath/crispy-doom</doc>
