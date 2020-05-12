@@ -32,11 +32,6 @@ MODULE_NAMES="v4l2loopback-dc(video:${S}/v4l2loopback:${S}/v4l2loopback)"
 MODULESD_V4L2LOOPBACK_DC_ENABLED="yes"
 BUILD_TARGETS="all"
 
-src_prepare() {
-	default
-	sed -i -e "s/\`uname -r\`/${KV_FULL}/g" v4l2loopback/Makefile
-}
-
 src_configure() {
 	set_arch_to_kernel
 	default
@@ -44,7 +39,7 @@ src_configure() {
 
 src_compile() {
 	default
-	linux-mod_src_compile
+	KERNELRELEASE="${KV_FULL}" linux-mod_src_compile
 }
 
 src_test() {
