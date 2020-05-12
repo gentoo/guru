@@ -12,7 +12,7 @@ HOMEPAGE="http://flatpak.org/"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc gnome gtk introspection kde policykit seccomp"
+IUSE="doc gtk introspection kde policykit seccomp"
 
 # restrict until fixed. Bug: 721906
 RESTRICT="test"
@@ -46,18 +46,14 @@ DEPEND="${RDEPEND}
 	doc? ( >=dev-util/gtk-doc-1.20
 	       dev-libs/libxslt )
 "
-
 BDEPEND="
 	>=sys-devel/automake-1.13.4
 	sys-devel/bison
 	virtual/pkgconfig
 "
-# FIXME: is there a nicer way to do this?
 PDEPEND="
 	gtk? ( >=sys-apps/xdg-desktop-portal-0.10
 	       sys-apps/xdg-desktop-portal-gtk )
-	gnome? ( >=sys-apps/xdg-desktop-portal-0.10
-		 sys-apps/xdg-desktop-portal-gtk )
 	kde? ( kde-plasma/xdg-desktop-portal-kde )
 "
 
