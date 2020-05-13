@@ -17,12 +17,13 @@ SRC_URI="https://github.com/JelteF/${MY_PN}/archive/v${PV}.tar.gz -> ${MY_PN}.ta
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="examples matplotlib numpy" # quantities can be used also, but is not a gentoo package.
+IUSE="examples matplotlib numpy extras"
 
 DEPEND="
 	dev-python/ordered-set[${PYTHON_USEDEP}]
 	matplotlib? ( dev-python/matplotlib[$PYTHON_USEDEP] )
 	numpy? ( dev-python/numpy[$PYTHON_USEDEP] )
+	extras? ( dev-python/quantities[$PYTHON_USEDEP] )
 "
 
 RDEPEND="${DEPEND}"
@@ -48,6 +49,8 @@ python_install_all() {
 }
 
 src_test() {
-	rm "${S}"/tests/test_quantities.py # quantities is not a gentoo package
+	if  ! use extras ; then
+		rm "${S}"/tests/test_quantities.py # remove if quantities is not installed
+	fi
 	distutils-r1_src_test
 }
