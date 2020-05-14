@@ -36,11 +36,6 @@ BDEPEND="
 	sys-devel/flex
 "
 
-PATCHES=(
-	# https://github.com/verilator/verilator/issues/2320
-	"${FILESDIR}"/${PN}-4.034-fix-bison.patch
-)
-
 src_prepare() {
 	default
 	eautoconf --force
