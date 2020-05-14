@@ -85,7 +85,6 @@ dev-libs/wren 0.2.0 9999: The Wren Programming Language
 dev-libs/xqilla 2.3.4: An XQuery and XPath 2 library and command line utility written in C++
 dev-php/pecl-inotify 2.0.0: Inotify binding for PHP
 dev-python/aiofiles 0.5.0: File support for asyncio
-dev-python/aiohttp-cors 0.7.0: Implements CORS support for aiohttp asyncio-powered asynchronous HTTP server
 dev-python/aiomysql 0.0.20: aiomysql is a library for accessing a MySQL database from the asyncio
 dev-python/aionotify 0.2.0: Simple, asyncio-based inotify library for Python
 dev-python/aiopg 1.0.0: aiopg is a library for accessing a PostgreSQL database from the asyncio
