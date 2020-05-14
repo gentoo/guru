@@ -207,7 +207,7 @@ dev-util/xdp-tools 0.0.3: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
 dev-vcs/git-extras 5.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
-dev-vcs/lazygit 0.19 0.20 0.20.2: Lazygit, a simple terminal UI for git commands
+dev-vcs/lazygit 0.19 0.20.3: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.3.4.7: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.13829-r1: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
@@ -292,6 +292,7 @@ sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on stri
 sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect datasets of MPI applications
 sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
+sys-kernel/dkms 2.8.1: Dynamic Kernel Module Support
 sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC security key
 sys-process/gotop 3.5.2: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
@@ -306,5 +307,5 @@ x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Windo
 x11-themes/arc-darkest-colors 0_pre20200417: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
 x11-themes/obsidian-icon-theme 4.11-r1 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
-x11-themes/obsidian2-gtk-theme 2.11-r1 9999: Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
+x11-themes/obsidian2-gtk-theme 2.12 9999: Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
 x11-themes/papirus-claws-mail-theme 0_pre20181023: Papirus icon theme for Claws Mail

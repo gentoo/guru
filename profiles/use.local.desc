@@ -25,6 +25,7 @@ dev-libs/open62541:tools - Build additional shell tools
 dev-libs/wren:tools - Install the wren command line interpreter
 dev-libs/xqilla:tidy - Add Tidy-HTML5 support
 dev-python/geopy:timezone - Enables localized date support
+dev-python/pylatex:extras - Optionally add dev-python/quantities
 dev-python/pylatex:matplotlib - Optionally add dev-python/matplotlib
 dev-python/pylatex:numpy - Optionally add dev-python/numpy
 dev-util/FoBiS:graphviz - Add support of generation of a dependencies graph
@@ -106,6 +107,7 @@ sys-cluster/KVTree:flock - Set the type of file locking to flock.
 sys-cluster/veloc:alps - Use ALPS (Application Level Placement Scheduler) as resource manager
 sys-cluster/veloc:lsf - Use LFS (Load Sharing Facility) as resource manager
 sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager
+sys-kernel/dkms:kernel-hooks - Enable automatic rebuilding of modules via kernel source makefile hooks
 x11-libs/gtk-fortran:doc - Build doxygen documentation
 x11-libs/gtk-fortran:examples - Install examples source code files
 x11-libs/gtk-fortran:high-level - Build high-level interface to the gtk-fortran package
