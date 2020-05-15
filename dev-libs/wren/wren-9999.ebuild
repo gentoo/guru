@@ -48,6 +48,17 @@ src_compile() {
 	#	targets="${targets} api_test unit_test"
 	#fi
 
+	echo "prefix=\"${EPREFIX}/usr\"" > ${PN}.pc
+	echo "libdir=\"\${prefix}/$(get_libdir)\"" >> ${PN}.pc
+	echo "includedir=\"\${prefix}/include\"" >> ${PN}.pc
+	echo "" >> ${PN}.pc
+	echo "Name: ${PN}" >> ${PN}.pc
+	echo "Description: ${DESCRIPTION}" >> ${PN}.pc
+	echo "URL: ${HOMEPAGE}" >> ${PN}.pc
+	echo "Version: ${PV}" >> ${PN}.pc
+	echo "Libs: \"-L\${libdir}\" -l${PN}" >> ${PN}.pc
+	echo "Cflags: \"-I\${includedir}\"" >> ${PN}.pc
+
 	tc-export AR CC
 	emake -f util/wren.mk LIBUV_DIR="${EPREFIX}/usr" LIBUV="${EPREFIX}/usr/$(get_libdir)/libuv.so" VERBOSE=1 ${targets}
 }
@@ -60,4 +71,9 @@ src_install() {
 		dolib.a lib/libwren.a
 	fi
 	dolib.so lib/libwren.so
+	doheader src/include/wren.h
+	doheader src/include/wren.hpp
+
+	insinto /usr/$(get_libdir)/pkgconfig
+	doins ${PN}.pc
 }
