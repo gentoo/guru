@@ -7,6 +7,13 @@
   </maintainer>
   <upstream>
     <remote-id type="github">webpy/web.py</remote-id>
+    <doc lang="en">https://webpy.org/docs</doc>
+    <bugs-to>https://github.com/webpy/webpy/issues</bugs-to>
+    <changelog>https://raw.githubusercontent.com/webpy/webpy/master/ChangeLog.txt</changelog>
+    <maintainer>
+      <name>Anand Chitipothu</name>
+      <email>anandology@gmail.com</email>
+    </maintainer>
   </upstream>
   <longdescription lang="en">
     web.py provides small and simple web framework for
