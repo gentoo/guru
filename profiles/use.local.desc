@@ -31,9 +31,6 @@ dev-python/pylatex:numpy - Optionally add dev-python/numpy
 dev-util/FoBiS:graphviz - Add support of generation of a dependencies graph
 games-arcade/taisei:zip - Enable loading of game data from ZIP packages via dev-libs/libzip
 games-fps/crispy-doom:truecolor - Enable true-color rendering (experimental)
-gui-wm/wayfire:debug - Adds debugging symbols for error reporting. ENABLE ALL USE FLAGS BEFORE REPORTING BUGS.
-gui-wm/wayfire:wf-config - Makes wayfire use the system-wide wf-config, else builds it as a submodule. DO NOT DISABLE UNLESS YOU KNOW WHAT YOU ARE DOING.
-gui-wm/wayfire:wlroots - Makes wayfire use the system wide wlroots, else builds it as a submodule. DO NOT DISABLE UNLESS YOU KNOW WHAT YOU ARE DOING.
 mail-client/mutt-wizard:lynx - Use lynx to view html emails in mutt. HIGHLY RECOMMENDED.
 mail-client/mutt-wizard:notmuch - Pulls in notmuch (thin frontend on xapian). HIGHLY RECOMMENDED.
 media-libs/libavif:dav1d - Enable faster decoding via dav1d

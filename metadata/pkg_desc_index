@@ -220,11 +220,7 @@ games-fps/chocolate-doom 3.0.0: A Doom source port that is minimalist and histor
 games-fps/crispy-doom 5.7.2 5.8.0: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
 games-util/NotEnoughProduction 0.0.3-r1: Tool for building production chains for modded minecraft
-gui-apps/wcm 0.4.0 9999: Wayfire Config Manager
-gui-apps/wf-config 0.4.0 9999: A library for managing configuration files, written for wayfire
-gui-apps/wf-shell 0.4.0 9999: A compiz like 3D wayland compositor
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
-gui-wm/wayfire 0.4.0 9999: A compiz like 3D wayland compositor
 kde-misc/plasma-applet-thermal-monitor 1.2.9: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 mail-client/mutt-wizard 0_pre20200430: A system for automatically configuring mutt and isync
 media-fonts/symbola 7.17: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
