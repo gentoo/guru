@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>torokhov-s-a@yandex.ru</email>
+    <name>Sergey Torokhov</name>
+  </maintainer>
+  <longdescription>
+    This is a Qt image plugin for HEIF images, wrapping libheif.
+    It enables existing Qt applications to open and save .heic files.
+
+    Any application that (directly or indirectly) uses QImageReader
+    to open image files should automatically be able to use this plugin.
+
+    This has been successfully used with the following:
+    <pkg>media-gfx/lximage-qt</pkg>, <pkg>media-gfx/nomacs</pkg>
+  </longdescription>
+  <upstream>
+    <remote-id type="github">jakar/qt-heif-image-plugin</remote-id>
+  </upstream>
+</pkgmetadata>
