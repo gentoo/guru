@@ -15,7 +15,7 @@ app-admin/gnome-passwordsafe 3.99.2: A password manager for GNOME
 app-arch/unalz 0.65: Extract ALZ archives
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-emacs/vterm 20200504.544 20200504.544-r1: Emacs libvterm integration
-app-emulation/dxvk-bin 1.6.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
+app-emulation/dxvk-bin 1.6.1 1.7: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/apidb 4.3.0_beta: API Generator for Database acces.
 app-misc/cheat 3.10.0: cheat allows you to create and view interactive cheatsheets on the command-line
@@ -41,6 +41,7 @@ app-text/katarakt 0.2: Simple PDF viewer
 app-text/komikku 0.12.0: An online/offline manga reader for GNOME
 app-text/mdbook 0.3.7: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
+dev-R/BH 1.72.0.3: Boost C++ Header Files
 dev-R/R6 2.4.1: Encapsulated Classes with Reference Semantics
 dev-R/Rcpp 1.0.4.6: Seamless R and C++ Integration
 dev-R/assertthat 0.2.1: Easy Pre and Post Assertions
@@ -56,6 +57,7 @@ dev-R/lifecycle 0.2.0: Manage the Life Cycle of your Package Functions
 dev-R/magrittr 1.5: A Forward-Pipe Operator for R
 dev-R/pillar 1.4.4: Coloured Formatting for Columns
 dev-R/pkgconfig 2.0.3: Private Configuration for R Packages
+dev-R/plogr 0.2.0: The plog C++ Logging Library
 dev-R/purrr 0.3.4: Functional Programming Tools
 dev-R/rematch 1.0.1: Match Regular Expressions with a Nicer API
 dev-R/rlang 0.4.6: Functions for Base Types and Core R and Tidyverse Features
@@ -196,7 +198,7 @@ dev-python/uvicorn 0.11.5: The lightning-fast ASGI server
 dev-python/validators 0.14.0-r1 0.14.3: Python Data Validation for Humans
 dev-python/watchgod 0.6: Simple, modern file watching and code reload
 dev-python/wcmatch 6.0.1: Wildcard/glob file name matcher
-dev-python/webpy 0.40 0.50: A web framework for python that is as simple as it is powerful
+dev-python/webpy 0.40 0.50 0.51_p20200405: A web framework for python that is as simple as it is powerful
 dev-python/websockets 8.1: An implementation of the WebSocket Protocol (RFC 6455 & 7692)
 dev-util/FoBiS 3.0.2: FoBiS.py, a Fortran Building System for poor men
 dev-util/codespell 1.16.0: Check text files for common misspellings
@@ -235,6 +237,7 @@ media-libs/skia 80_p20191220 80_p20191220-r1: A complete 2D graphic library for 
 media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
 media-plugins/gst-plugins-sndio 1.8.0.1: Sndio audio sink and source for GStreamer
+media-plugins/qt-heif-image-plugin 0.3.3: Qt plugin for HEIF images
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
 media-sound/add64 3.8.0: Add64 is a realtime additive/subtractive-synthesis softsynth

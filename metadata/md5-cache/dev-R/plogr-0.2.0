@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst prepare unpack
+DEPEND=dev-cpp/plog dev-lang/R
+DESCRIPTION=The plog C++ Logging Library
+EAPI=7
+HOMEPAGE=https://github.com/krlmlr/plogr https://cran.r-project.org/package=plogr
+IUSE=byte-compile
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-cpp/plog dev-lang/R
+SLOT=0
+SRC_URI=http://cran.r-project.org/src/contrib/plogr_0.2.0.tar.gz
+_eclasses_=R-packages-guru	60eced3f09330237ab998893904f26db	eutils	fcb2aa98e1948b835b5ae66ca52868c5
+_md5_=a5dae14eaf328ef1b72368aac9ba21eb
