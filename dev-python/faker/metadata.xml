@@ -12,6 +12,23 @@
 	or anonymize data taken from a production service, Faker is for you.
 	</longdescription>
 	<upstream>
+		<maintainer>
+			<name>
+				Daniele Faraglia
+			</name>
+			<email>
+				joke2k@gmail.com
+			</email>
+		</maintainer>
+		<doc lang="en">
+			https://faker.readthedocs.io/en/stable
+		</doc>
+		<bugs-to>
+			https://github.com/joke2k/faker/issues
+		</bugs-to>
+		<changelog>
+			https://raw.githubusercontent.com/joke2k/faker/master/CHANGELOG.rst
+		</changelog>
 		<remote-id type="github">joke2k/faker</remote-id>
 		<remote-id type="pypi">Faker</remote-id>
 	</upstream>
