@@ -96,11 +96,11 @@ dev-python/aiounittest 1.3.1: Test python asyncio-based code with ease
 dev-python/almost 0.1.5: A helper for approximate comparison
 dev-python/aspectlib 1.5.0: An aspect-oriented programming, monkey-patch and decorators library
 dev-python/asyncpg 0.20.1: A fast PostgreSQL Database Client Library for Python/asyncio.
-dev-python/atomiclong 0.1.1 9999: An AtomicLong type using CFFI.
+dev-python/atomiclong 0.1.1 0.1.1-r1 9999: An AtomicLong type using CFFI.
 dev-python/autoflake 1.3.1: Removes unused imports and unused variables as reported by pyflakes
 dev-python/backrefs 4.3.0: Wrapper around re or regex that adds additional back references
 dev-python/baron 0.9: Full Syntax Tree for python to make writing refactoring code a realist task
-dev-python/black 19.10_beta0-r1: The uncompromising Python code formatter
+dev-python/black 19.10_beta0-r1 19.10_beta0-r2: The uncompromising Python code formatter
 dev-python/bracex 2.0.0: Bash style brace expansion for Python
 dev-python/cchardet 2.1.6: cChardet is high speed universal character encoding detector
 dev-python/check-manifest 0.42: Tool to check the completeness of MANIFEST.in for Python packages
@@ -142,7 +142,7 @@ dev-python/pep517 0.8.2-r1: standard API for systems which build Python packages
 dev-python/pure-protobuf 2.0.0-r1: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/pydantic 1.5.1: Data parsing and validation using Python type hints
 dev-python/pydbus 0.6.0: Pythonic DBus library
-dev-python/pygaljs 1.0.0 1.0.1 1.0.2: Python package providing assets from https://github.com/Kozea/pygal.js
+dev-python/pygaljs 1.0.2 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
 dev-python/pyjsparser 2.7.1: Fast javascript parser based on esprima.js
 dev-python/pykeepass 3.2.0: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
 dev-python/pylatex 1.3.1: A Python library for creating LaTeX files and snippets
@@ -152,8 +152,8 @@ dev-python/pymeeus 0.3.7: Python implementation of Jean Meeus astronomical routi
 dev-python/pypandoc 1.5: Pypandoc provides a thin wrapper for pandoc, a universal document converter
 dev-python/pyspelling 2.6.0: Spell checker automation tool
 dev-python/pytest-benchmark 3.2.3: py.test fixture for benchmarking code
-dev-python/pytest-cython 0.1.0-r1: Plugin for testing Cython extension modules
-dev-python/pytest-instafail 0.4.1_p0: Plugin for pytest that shows failures and errors instantly
+dev-python/pytest-cython 0.1.0-r1 0.1.0-r2: Plugin for testing Cython extension modules
+dev-python/pytest-instafail 0.4.1_p0 0.4.1_p0-r1: Plugin for pytest that shows failures and errors instantly
 dev-python/pytest-isort 1.0.0: Plugin to check import ordering using isort
 dev-python/pytest-marks 0.4: Allow to set 'marks' on pytest methods
 dev-python/pytest-ordering 0.6: pytest plugin to run your tests in a specific order
@@ -162,7 +162,7 @@ dev-python/pytest-sanic 1.6.0: a Pytest Plugin for Sanic
 dev-python/pytest-subtests 0.3.0: unittest subTest() support and subtests fixture
 dev-python/pytest-sugar 0.9.3: Plugin for pytest that changes the default look and feel of pytest
 dev-python/pytest-toolbox 0.4: Numerous useful plugins for pytest
-dev-python/pytest-travis-fold 1.3.0: Pytest plugin that folds captured output sections in Travis CI build log
+dev-python/pytest-travis-fold 1.3.0 1.3.0-r1: Pytest plugin that folds captured output sections in Travis CI build log
 dev-python/pytest-trio 0.5.2: This is a pytest plugin to help you test projects that use Trio
 dev-python/python-dotenv 0.13.0: Get and set values in your .env file in local and production servers
 dev-python/python-mpv 0.4.6: Python interface to the mpv media player
@@ -171,7 +171,7 @@ dev-python/python-telegram-bot 12.4.2 9999: Python wrapper of telegram bots API
 dev-python/python-vlc 3.0.9113: Python ctypes-based bindings for libvlc
 dev-python/quantities 0.12.4: Support for physical quantities with units, based on numpy
 dev-python/redbaron 0.9: A FST for python to make writing refactoring code a realistic task
-dev-python/sanic 19.12.2: Async Python 3.6+ web server/framework | Build fast. Run fast.
+dev-python/sanic 19.12.2 20.3.0: Async Python 3.6+ web server/framework | Build fast. Run fast.
 dev-python/schedule 0.6.0-r1 9999: Python job scheduling for humans
 dev-python/skia-pathops 0.4.1: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
@@ -190,7 +190,7 @@ dev-python/text-unidecode 1.3: The most basic Text::Unidecode port
 dev-python/timeout-decorator 0.4.1: Timeout decorator
 dev-python/trio 0.14.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
-dev-python/trueskill 0.4.5: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
+dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/ufoLib2 0.7.1: A UFO font library
 dev-python/ufoNormalizer 0.4.1: A tool that will normalize the XML and other data inside of a UFO.
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
@@ -199,7 +199,7 @@ dev-python/validators 0.14.0-r1 0.14.3: Python Data Validation for Humans
 dev-python/watchgod 0.6: Simple, modern file watching and code reload
 dev-python/wcmatch 6.0.1: Wildcard/glob file name matcher
 dev-python/webpy 0.40 0.50 0.51_p20200405: A web framework for python that is as simple as it is powerful
-dev-python/websockets 8.1: An implementation of the WebSocket Protocol (RFC 6455 & 7692)
+dev-python/websockets 7.0 8.1: An implementation of the WebSocket Protocol (RFC 6455 & 7692)
 dev-util/FoBiS 3.0.2: FoBiS.py, a Fortran Building System for poor men
 dev-util/codespell 1.16.0: Check text files for common misspellings
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
@@ -225,6 +225,7 @@ kde-misc/plasma-applet-thermal-monitor 1.2.9: Plasma 5 applet for monitoring CPU
 mail-client/mutt-wizard 0_pre20200430: A system for automatically configuring mutt and isync
 media-fonts/symbola 7.17: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
 media-gfx/azpainter 2.1.6: Full color painting software for Linux for illustration drawing
+media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
 media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.2.1 2020.2.2 2020.2.3: AMD Open Source Driver for Vulkan
@@ -297,7 +298,7 @@ sys-process/gotop 3.5.2: A terminal based graphical activity monitor inspired by
 sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
 www-apps/twint 2.1.18 2.1.19: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-client/badwolf 1.0.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
-x11-libs/gtk-fortran 19.04: A GTK+ binding to build Graphical User Interfaces in Fortran
+x11-libs/gtk-fortran 19.04 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
 x11-misc/i3lock-color 2.12_rc2 9999: Improved i3lock with color customization
