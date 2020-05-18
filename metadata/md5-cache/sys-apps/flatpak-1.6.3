@@ -3,7 +3,7 @@ DEFINED_PHASES=configure setup
 DEPEND=acct-group/flatpak acct-user/flatpak >=dev-util/ostree-2019.5[gpg(+)] || ( dev-util/ostree[curl] dev-util/ostree[soup] ) >=net-libs/libsoup-2.4 >=gnome-base/dconf-0.26 >=dev-libs/appstream-glib-0.5.10 x11-libs/gdk-pixbuf:2 >=dev-libs/glib-2.56:2 >=dev-libs/libxml2-2.4 sys-apps/dbus dev-libs/json-glib x11-apps/xauth >=app-arch/libarchive-2.8 >=app-crypt/gpgme-1.1.8 >=sys-fs/fuse-2.9.9:0 policykit? ( >=sys-auth/polkit-0.98 ) seccomp? ( sys-libs/libseccomp ) >=sys-devel/gettext-0.18.2 dev-util/gdbus-codegen introspection? ( >=dev-libs/gobject-introspection-1.40 ) doc? ( >=dev-util/gtk-doc-1.20 dev-libs/libxslt )
 DESCRIPTION=Application distribution framework
 EAPI=7
-HOMEPAGE=http://flatpak.org/
+HOMEPAGE=https://flatpak.org/
 IUSE=doc gtk introspection kde policykit seccomp kernel_linux
 KEYWORDS=~amd64
 LICENSE=LGPL-2.1
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/flatpak/flatpak/releases/download/1.6.3/flatpak-1.6.3.tar.xz
 _eclasses_=autotools	7d999b62b8749fad43fff00620cedf47	libtool	f143db5a74ccd9ca28c1234deffede96	linux-info	ed97304af323c7b2f6934f229982cb7d	multilib	318e8ae683e57fd3ccd0d31a769d8ee8	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c
-_md5_=b76b8027d1895c4f36e93ff1871fa346
+_md5_=0c83b6c96e2d2c48bc8cf34a9892b7fb
