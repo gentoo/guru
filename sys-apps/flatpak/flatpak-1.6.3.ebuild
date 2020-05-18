@@ -7,7 +7,7 @@ inherit autotools linux-info
 
 SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.xz"
 DESCRIPTION="Application distribution framework"
-HOMEPAGE="http://flatpak.org/"
+HOMEPAGE="https://flatpak.org/"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
