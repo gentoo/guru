@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="A web framework for python that is as simple as it is powerful"
 HOMEPAGE="
-	https://www.webpy.org
+	https://webpy.org/
 	https://github.com/webpy/webpy
 "
 SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"

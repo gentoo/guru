@@ -9,7 +9,7 @@ DESCRIPTION='A Grammar of Data Manipulation'
 SRC_URI="http://cran.r-project.org/src/contrib/dplyr_0.8.5.tar.gz"
 LICENSE='MIT'
 HOMEPAGE="
-	http://dplyr.tidyverse.org
+	https://dplyr.tidyverse.org
 	https://github.com/tidyverse/dplyr
 	https://cran.r-project.org/package=dplyr
 "
