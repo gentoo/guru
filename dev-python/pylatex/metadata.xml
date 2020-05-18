@@ -6,9 +6,4 @@
 		<email>ddenoncin@gmail.com</email>
 		<name>David Denoncin</name>
 	</maintainer>
-	<use>
-		<flag name="numpy">Optionally add dev-python/numpy</flag>
-		<flag name="matplotlib">Optionally add dev-python/matplotlib</flag>
-		<flag name="extras">Optionally add dev-python/quantities</flag>
-	</use>
 </pkgmetadata>
