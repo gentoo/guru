@@ -296,7 +296,7 @@ sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC s
 sys-process/gotop 3.5.2: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
 www-apps/twint 2.1.18 2.1.19: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
-www-client/badwolf 0.5.1 9999: Minimalist and privacy-oriented WebKitGTK+ browser
+www-client/badwolf 1.0.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 x11-libs/gtk-fortran 19.04: A GTK+ binding to build Graphical User Interfaces in Fortran
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
