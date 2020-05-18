@@ -11,7 +11,7 @@ COMMIT="16de3147e61aa4dc735efa116c50603707fb0683"
 
 DESCRIPTION="A web framework for python that is as simple as it is powerful"
 HOMEPAGE="
-	https://www.webpy.org
+	https://webpy.org/
 	https://github.com/webpy/webpy
 	https://pypi.org/project/web.py
 "
