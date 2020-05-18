@@ -9,7 +9,7 @@ DESCRIPTION='Functional Programming Tools'
 SRC_URI="http://cran.r-project.org/src/contrib/purrr_0.3.4.tar.gz"
 LICENSE='GPL-3'
 HOMEPAGE="
-	http://purrr.tidyverse.org
+	https://purrr.tidyverse.org
 	https://github.com/tidyverse/purrr
 	https://cran.r-project.org/package=purrr
 "
