@@ -7,16 +7,13 @@ PYTHON_COMPAT=( pypy3 python3_{6,7} )
 
 inherit distutils-r1
 
-SRC_URI=""
-EGIT_REPO_URI="https://github.com/dreid/${PN}.git"
-inherit git-r3
-
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 DESCRIPTION="An AtomicLong type using CFFI."
 HOMEPAGE="https://github.com/dreid/atomiclong"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 
 RDEPEND="virtual/python-cffi[${PYTHON_USEDEP}]"
 
