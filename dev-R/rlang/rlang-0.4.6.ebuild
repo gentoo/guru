@@ -9,7 +9,7 @@ DESCRIPTION='Functions for Base Types and Core R and Tidyverse Features'
 SRC_URI="http://cran.r-project.org/src/contrib/rlang_0.4.6.tar.gz"
 LICENSE='GPL-3'
 HOMEPAGE="
-	http://rlang.r-lib.org
+	https://rlang.r-lib.org
 	https://github.com/r-lib/rlang
 	https://cran.r-project.org/package=rlang
 "
