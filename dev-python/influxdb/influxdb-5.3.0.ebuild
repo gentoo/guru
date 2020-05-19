@@ -35,4 +35,4 @@ DEPEND="
 	)"
 
 distutils_enable_tests nose
-distutils_enable_sphinx docs
+distutils_enable_sphinx docs/source dev-python/sphinx_rtd_theme
