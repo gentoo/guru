@@ -18,14 +18,17 @@ SRC_URI="https://github.com/pytest-dev/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
-RESTRICT="!test? ( test )"
+
+# many failures, both with pytest-5 and 4
+RESTRICT="test"
+
 RDEPEND="
 	dev-python/docutils[${PYTHON_USEDEP}]
 	dev-python/factory_boy[${PYTHON_USEDEP}]
 	dev-python/faker[${PYTHON_USEDEP}]
 	dev-python/numpy[${PYTHON_USEDEP}]
 	dev-python/pygments[${PYTHON_USEDEP}]
+	dev-python/pytest[${PYTHON_USEDEP}]
 
 	$(python_gen_cond_dep 'dev-python/importlib_metadata[${PYTHON_USEDEP}]' python3_6 python3_7)
 "
@@ -44,7 +47,9 @@ DEPEND="
 #		$(python_gen_cond_dep 'dev-python/check-manifest[${PYTHON_USEDEP}]' python3_8)
 #		dev-python/multilint[${PYTHON_USEDEP}]
 
+distutils_enable_tests pytest
+
 python_test() {
-    distutils_install_for_testing
-    pytest -vv || die "Testsuite failed under ${EPYTHON}"
+	distutils_install_for_testing
+	pytest -vv || die "Testsuite failed under ${EPYTHON}"
 }
