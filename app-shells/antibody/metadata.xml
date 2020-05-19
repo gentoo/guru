@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>Ronny (tastytea) Gutbrod</name>
+	</maintainer>
+	<longdescription lang="en">
+		Antibody is fast because it can do things concurrently, while Antigen
+		does it sequentially. It also has the advantage of using a compiled
+		language instead of a scripting one.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">getantibody/antibody</remote-id>
+	</upstream>
+</pkgmetadata>
