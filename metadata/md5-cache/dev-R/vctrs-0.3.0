@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst prepare unpack
+DEPEND=>=dev-lang/R-3.2 dev-R/digest >=dev-R/ellipsis-0.2.0 dev-R/glue >=dev-R/rlang-0.4.5 dev-lang/R
+DESCRIPTION=Vector Helpers
+EAPI=7
+HOMEPAGE=https://github.com/r-lib/vctrs https://cran.r-project.org/package=vctrs
+IUSE=byte-compile
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=>=dev-lang/R-3.2 dev-R/digest >=dev-R/ellipsis-0.2.0 dev-R/glue >=dev-R/rlang-0.4.5 dev-lang/R
+SLOT=0
+SRC_URI=http://cran.r-project.org/src/contrib/vctrs_0.3.0.tar.gz
+_eclasses_=R-packages-guru	60eced3f09330237ab998893904f26db	eutils	fcb2aa98e1948b835b5ae66ca52868c5
+_md5_=01365a47596d6e6af30cd52bbb2a84f5

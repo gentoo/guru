@@ -33,6 +33,7 @@ app-portage/pacvis 0.4.1 0.4.2 9999: Displays dependency graphs of packages
 app-portage/portage-lostfiles 0.2.0: A simple script to identify files not tracked by Portage package manager
 app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
 app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
+app-shells/antibody 6.0.1: Fast Zsh plugin manager
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
@@ -50,9 +51,9 @@ dev-R/cli 2.0.2: Helpers for Developing Command Line Interfaces
 dev-R/crayon 1.3.4: Colored Terminal Output
 dev-R/digest 0.6.25: Create Compact Hash Digests of R Objects
 dev-R/dplyr 0.8.5: A Grammar of Data Manipulation
-dev-R/ellipsis 0.3.0: Tools for Working with ...
+dev-R/ellipsis 0.3.0 0.3.1: Tools for Working with ...
 dev-R/fansi 0.4.1: ANSI Control Sequence Aware String Functions
-dev-R/glue 1.4.0: Interpreted String Literals
+dev-R/glue 1.4.0 1.4.1: Interpreted String Literals
 dev-R/lifecycle 0.2.0: Manage the Life Cycle of your Package Functions
 dev-R/magrittr 1.5: A Forward-Pipe Operator for R
 dev-R/pillar 1.4.4: Coloured Formatting for Columns
@@ -62,9 +63,9 @@ dev-R/purrr 0.3.4: Functional Programming Tools
 dev-R/rematch 1.0.1: Match Regular Expressions with a Nicer API
 dev-R/rlang 0.4.6: Functions for Base Types and Core R and Tidyverse Features
 dev-R/tibble 3.0.1: Simple Data Frames
-dev-R/tidyselect 1.0.0: Select from a Set of Strings
+dev-R/tidyselect 1.0.0 1.1.0: Select from a Set of Strings
 dev-R/utf8 1.1.4: Unicode Text Processing
-dev-R/vctrs 0.2.4: Vector Helpers
+dev-R/vctrs 0.2.4 0.3.0: Vector Helpers
 dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging library
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
 dev-cpp/usockets 0.3.5: tiny eventing, networking & crypto for async applications
@@ -116,13 +117,13 @@ dev-python/doxypypy 0.8.8.6: A more Pythonic version of doxypy, a Doxygen filter
 dev-python/email-validator 1.1.0: A robust email syntax and deliverability validation library
 dev-python/factory_boy 2.12.0 2.12.0-r1: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11: Up to date simple useragent faker with real world database
-dev-python/faker 4.0.3: Python package that generates fake data
-dev-python/geopy 1.21.0: A Geocoding Toolbox for Python
+dev-python/faker 4.0.3 4.1.0: Python package that generates fake data
+dev-python/geopy 1.21.0 1.22.0: A Geocoding Toolbox for Python
 dev-python/glicko2 0_pre20191010 9999: An implementation of the Glicko-2 rating system for Python
 dev-python/googletransx 2.4.2: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/graphene 2.1.8: GraphQL Framework for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
-dev-python/hstspreload 2020.5.5: Chromium HSTS Preload list as a Python package
+dev-python/hstspreload 2020.5.19: Chromium HSTS Preload list as a Python package
 dev-python/httpcore 0.7.0: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/httpx 0.9.3 0.11.1 0.12.1: A next generation HTTP client for Python
@@ -132,8 +133,8 @@ dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/markdown-include 0.5.1: Syntax which allows for inclusion of contents of other Markdown docs
 dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your output
 dev-python/mkdocs-git-revision-date-localized-plugin 0.5.0: Display the localized date of the last git modification of a markdown file
-dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.1.6: A Material Design theme for MkDocs
-dev-python/mkdocs-material-extensions 1.0_beta1: Extension pack for Python Markdown
+dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.2.0: A Material Design theme for MkDocs
+dev-python/mkdocs-material-extensions 1.0: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.3.0: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs_pymdownx_material_extras 1.0_beta11: Custom alterations based on Mkdocs-Material
 dev-python/outcome 1.0.1: Capture the outcome of Python function calls
@@ -157,7 +158,7 @@ dev-python/pytest-instafail 0.4.1_p0 0.4.1_p0-r1: Plugin for pytest that shows f
 dev-python/pytest-isort 1.0.0: Plugin to check import ordering using isort
 dev-python/pytest-marks 0.4: Allow to set 'marks' on pytest methods
 dev-python/pytest-ordering 0.6: pytest plugin to run your tests in a specific order
-dev-python/pytest-randomly 3.3.1 3.3.1-r1: Pytest plugin to randomly order tests and control random.seed
+dev-python/pytest-randomly 3.3.1-r1: Pytest plugin to randomly order tests and control random.seed
 dev-python/pytest-sanic 1.6.0: a Pytest Plugin for Sanic
 dev-python/pytest-subtests 0.3.0: unittest subTest() support and subtests fixture
 dev-python/pytest-sugar 0.9.3: Plugin for pytest that changes the default look and feel of pytest
@@ -195,7 +196,7 @@ dev-python/ufoLib2 0.7.1: A UFO font library
 dev-python/ufoNormalizer 0.4.1: A tool that will normalize the XML and other data inside of a UFO.
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/uvicorn 0.11.5: The lightning-fast ASGI server
-dev-python/validators 0.14.0-r1 0.14.3: Python Data Validation for Humans
+dev-python/validators 0.14.0-r1 0.14.3 0.15.0: Python Data Validation for Humans
 dev-python/watchgod 0.6: Simple, modern file watching and code reload
 dev-python/wcmatch 6.0.1: Wildcard/glob file name matcher
 dev-python/webpy 0.40 0.50 0.51_p20200405: A web framework for python that is as simple as it is powerful
