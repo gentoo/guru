@@ -33,7 +33,7 @@ DEPEND="test? (
 
 RDEPEND="
 	>=dev-python/devtools-0.5.1[${PYTHON_USEDEP}]
-	>=dev-python/email-validator-1.0.5[${PYTHON_USEDEP}]
+	>=dev-python/python-email-validator-1.0.5[${PYTHON_USEDEP}]
 	>=dev-python/python-dotenv-0.13.0[${PYTHON_USEDEP}]
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep 'dev-python/dataclasses[${PYTHON_USEDEP}]' python3_6)
