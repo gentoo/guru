@@ -159,7 +159,7 @@ dev-python/pytest-instafail 0.4.1_p0 0.4.1_p0-r1: Plugin for pytest that shows f
 dev-python/pytest-isort 1.0.0: Plugin to check import ordering using isort
 dev-python/pytest-marks 0.4: Allow to set 'marks' on pytest methods
 dev-python/pytest-ordering 0.6: pytest plugin to run your tests in a specific order
-dev-python/pytest-randomly 3.3.1-r1: Pytest plugin to randomly order tests and control random.seed
+dev-python/pytest-randomly 3.3.1-r1 3.3.1-r2: Pytest plugin to randomly order tests and control random.seed
 dev-python/pytest-sanic 1.6.0: a Pytest Plugin for Sanic
 dev-python/pytest-subtests 0.3.0: unittest subTest() support and subtests fixture
 dev-python/pytest-sugar 0.9.3: Plugin for pytest that changes the default look and feel of pytest
@@ -211,7 +211,7 @@ dev-util/xdp-tools 0.0.3: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
 dev-vcs/git-extras 5.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
-dev-vcs/lazygit 0.19 0.20.3: Lazygit, a simple terminal UI for git commands
+dev-vcs/lazygit 0.19 0.20.3 0.20.4: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.3.4.7: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.13829-r1: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
@@ -300,6 +300,7 @@ sys-process/gotop 3.5.2: A terminal based graphical activity monitor inspired by
 sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
 www-apps/twint 2.1.18 2.1.19: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-client/badwolf 1.0.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
+x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-libs/gtk-fortran 19.04 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
