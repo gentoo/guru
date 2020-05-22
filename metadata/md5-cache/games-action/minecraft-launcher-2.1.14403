@@ -8,6 +8,6 @@ LICENSE=Mojang
 RDEPEND=>=x11-libs/gtk+-2.24.32-r1[X] dev-libs/nss dev-libs/libbsd dev-libs/libffi dev-libs/libpcre gnome-base/gconf media-libs/alsa-lib media-libs/openal net-libs/gnutls[idn] sys-apps/dbus virtual/jre:1.8 virtual/opengl x11-apps/xrandr x11-libs/libXScrnSaver x11-libs/libXcomposite x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXi x11-libs/libXrender x11-libs/libXtst x11-libs/xcb-util
 RESTRICT=bindist mirror
 SLOT=2
-SRC_URI=https://launcher.mojang.com/download/linux/x86_64/minecraft-launcher_2.1.13829.tar.gz -> minecraft-launcher-2.1.13829.tar.gz https://launcher.mojang.com/download/minecraft-launcher.svg
+SRC_URI=https://launcher.mojang.com/download/linux/x86_64/minecraft-launcher_2.1.14403.tar.gz -> minecraft-launcher-2.1.14403.tar.gz https://launcher.mojang.com/download/minecraft-launcher.svg
 _eclasses_=desktop	7fd20552ce4cc97e8acb132a499a7dd8	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
 _md5_=9a226fbeca7ca7a7ad85ec7e2886837a

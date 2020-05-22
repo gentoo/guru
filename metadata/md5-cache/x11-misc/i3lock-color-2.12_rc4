@@ -7,5 +7,5 @@ KEYWORDS=~amd64
 LICENSE=i3lock-color
 RDEPEND=x11-libs/cairo x11-libs/libxcb x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-xrm x11-libs/libxkbcommon sys-libs/pam dev-libs/libev media-libs/fontconfig:= media-libs/libjpeg-turbo
 SLOT=0
-SRC_URI=https://github.com/Raymo111/i3lock-color/archive/2.12.c.2.tar.gz -> i3lock-color-2.12_rc2.tar.gz
-_md5_=073c75c10824c774f27eeee03d008682
+SRC_URI=https://github.com/Raymo111/i3lock-color/archive/2.12.c.4.tar.gz -> i3lock-color-2.12_rc4.tar.gz
+_md5_=f82f0eeeb2a6ec4687a245d5bc5e6605
