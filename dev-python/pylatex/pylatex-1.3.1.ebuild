@@ -32,6 +32,8 @@ test? (
 	dev-python/quantities
 	dev-python/matplotlib
 	dev-python/numpy
+	app-text/texlive
+	dev-texlive/texlive-latexextra
 )
 "
 
@@ -45,8 +47,7 @@ distutils-r1_src_prepare
 
 python_install_all() {
 if use examples ; then
-	docinto examples
-	dodoc -r examples/.
+	dodoc -r examples
 fi
 
 distutils-r1_python_install_all
@@ -54,6 +55,7 @@ distutils-r1_python_install_all
 
 pkg_postinst() {
 	elog "Optional dependencies:"
+	optfeature "compiling generated files" app-text/texlive dev-texlive/texlive-latexextra
 	optfeature "matplotlib support" dev-python/matplotlib
 	optfeature "numpy support" dev-python/numpy
 	optfeature "quantities support" dev-python/quantities

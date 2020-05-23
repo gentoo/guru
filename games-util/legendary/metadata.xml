@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>Ronny (tastytea) Gutbrod</name>
+	</maintainer>
+	<longdescription lang="en">
+		Legendary is an open-source game launcher that can download and install
+		games from the Epic Games platform on Linux and Windows. It's name is a
+		tongue-in-cheek play on tiers of item rarity in many MMORPGs.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">derrod/legendary</remote-id>
+	</upstream>
+</pkgmetadata>
