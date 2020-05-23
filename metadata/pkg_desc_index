@@ -133,7 +133,7 @@ dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/markdown-include 0.5.1: Syntax which allows for inclusion of contents of other Markdown docs
 dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your output
 dev-python/mkdocs-git-revision-date-localized-plugin 0.5.0: Display the localized date of the last git modification of a markdown file
-dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.2.0: A Material Design theme for MkDocs
+dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.2.1: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.0: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.3.0: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs_pymdownx_material_extras 1.0_beta11: Custom alterations based on Mkdocs-Material
@@ -202,7 +202,7 @@ dev-python/wcmatch 6.0.1: Wildcard/glob file name matcher
 dev-python/webpy 0.40 0.50 0.51_p20200405: A web framework for python that is as simple as it is powerful
 dev-python/websockets 7.0 8.1: An implementation of the WebSocket Protocol (RFC 6455 & 7692)
 dev-util/FoBiS 3.0.2: FoBiS.py, a Fortran Building System for poor men
-dev-util/codespell 1.16.0: Check text files for common misspellings
+dev-util/codespell 1.17.1: Check text files for common misspellings
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 7.1.1: HTTP and GraphQL client for developers
 dev-util/quilttools 0.3: Mailbox to quilt series converter
@@ -221,6 +221,7 @@ games-fps/chocolate-doom 3.0.0: A Doom source port that is minimalist and histor
 games-fps/crispy-doom 5.7.2 5.8.0: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
 games-util/NotEnoughProduction 0.0.3-r1: Tool for building production chains for modded minecraft
+games-util/legendary 0.0.14: A free and open-source replacement for the Epic Games Launcher
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 kde-misc/plasma-applet-thermal-monitor 1.2.9: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 mail-client/mutt-wizard 0_pre20200430: A system for automatically configuring mutt and isync
@@ -252,6 +253,7 @@ net-dialup/tio 1.32: Simple TTY terminal application
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.4 8.5 9.0_pre20200419 9.0_pre20200509: XMPP gateway to IRC
 net-im/discord-canary-bin 0.0.103: All-in-one voice and text chat
+net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0 1.2.1: FORT validator is an open source RPKI validator
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
@@ -297,6 +299,7 @@ sys-kernel/dkms 2.8.1: Dynamic Kernel Module Support
 sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC security key
 sys-process/gotop 3.5.2: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
+www-apps/selfoss 2.18: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/twint 2.1.18 2.1.19: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-client/badwolf 1.0.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images

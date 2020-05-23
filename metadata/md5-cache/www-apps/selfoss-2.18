@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst prerm setup
+DEPEND=>=app-admin/webapp-config-1.50.15
+DESCRIPTION=The multipurpose rss reader, live stream, mashup, aggregation web application
+EAPI=7
+HOMEPAGE=https://selfoss.aditu.de/
+IUSE=vhosts
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=>=dev-lang/php-5.4.0[curl,gd] virtual/httpd-php || ( dev-db/mysql dev-db/postgresql dev-db/sqlite ) >=app-admin/webapp-config-1.50.15
+SLOT=2.18
+SRC_URI=https://github.com/SSilence/selfoss/releases/download/2.18/selfoss-2.18.zip
+_eclasses_=webapp	16783e418aca3ffa461d68310bf7ab12
+_md5_=e77eb8521e0e60c1921eb746c82879bd
