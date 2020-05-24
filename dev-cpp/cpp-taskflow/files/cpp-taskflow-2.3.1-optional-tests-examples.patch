@@ -1,0 +1,49 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3fccfd2..c267f84 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -9,8 +9,8 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
+ project(Cpp-Taskflow VERSION 2.3.1 LANGUAGES CXX)
+ 
+ # build options
+-option(TF_BUILD_EXAMPLES "Enables build of examples" ON)
+-option(TF_BUILD_TESTS "Enables build of tests" ON)
++option(TF_BUILD_EXAMPLES "Enables build of examples" OFF)
++option(TF_BUILD_TESTS "Enables build of tests" OFF)
+ option(TF_ENABLE_CUDA "Enables build of cuda code" OFF)
+ option(TF_BUILD_BENCHMARKS "Enables build of benchmarks" OFF)
+ 
+@@ -222,7 +222,7 @@ target_include_directories(${PROJECT_NAME} INTERFACE
+ # Example program 
+ # -----------------------------------------------------------------------------
+ 
+-if(${TF_BUILD_EXAMPLES})
++if(TF_BUILD_EXAMPLES)
+ 
+ message(STATUS "Building examples ...")
+ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${TF_EXAMPLE_DIR})
+@@ -282,13 +282,13 @@ target_link_libraries(
+ )
+ endif(${TF_ENABLE_CUDA})
+ 
+-endif(${TF_BUILD_EXAMPLES})  # ---- if TF_BUILD_EXAMPLES
++endif(TF_BUILD_EXAMPLES)  # ---- if TF_BUILD_EXAMPLES
+ 
+ # -----------------------------------------------------------------------------
+ # Unittest
+ # -----------------------------------------------------------------------------
+ 
+-if(${TF_BUILD_TESTS})
++if(TF_BUILD_TESTS)
+  
+ enable_testing()
+ message(STATUS "Building unit tests ...")
+@@ -504,7 +504,7 @@ add_test(cuda_matrix.product ${TF_UTEST_DIR}/cuda/cuda_matrix -tc=product)
+ 
+ endif(${TF_ENABLE_CUDA})
+ 
+-endif(${TF_BUILD_TESTS})
++endif(TF_BUILD_TESTS)
+ 
+ # -----------------------------------------------------------------------------
+ # Benchmarking (enabled by TF_BUILD_BENCHMARKS)
