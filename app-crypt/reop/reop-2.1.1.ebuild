@@ -18,8 +18,9 @@ src_compile() {
 }
 
 src_test() {
-	cd ./test || die
-	./test.sh || die
+	cd ./tests || die
+	source test.sh || die
+	cd .. || die
 }
 src_install() {
 	dobin reop
