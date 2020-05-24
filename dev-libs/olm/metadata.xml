@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>Ronny (tastytea) Gutbrod</name>
+	</maintainer>
+	<longdescription lang="en">
+		An implementation of the Double Ratchet cryptographic ratchet written in
+		C and C++11 and exposed as a C API.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://gitlab.matrix.org/matrix-org/olm/-/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
