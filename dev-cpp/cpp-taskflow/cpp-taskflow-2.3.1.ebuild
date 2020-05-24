@@ -30,7 +30,6 @@ PATCHES=(
 	"${FILESDIR}"/${P}-fix-lib-path.patch
 )
 
-
 src_configure() {
 	local mycmakeargs=(
 		-DTF_BUILD_TESTS=$(usex test ON OFF)
