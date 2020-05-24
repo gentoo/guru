@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit eutils xdg-utils
+inherit eutils xdg
 
 DESCRIPTION="Modern, beautiful IRC client written in GTK+ 3"
 HOMEPAGE="https://github.com/SrainApp/srain"
@@ -35,14 +35,4 @@ RDEPEND="${DEPEND}
 
 src_configure(){
 	econf $(use_enable debug)
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
 }
