@@ -23,5 +23,5 @@ src_test() {
 }
 src_install() {
 	dobin reop
-	doman repo.1
+	doman reop.1
 }
