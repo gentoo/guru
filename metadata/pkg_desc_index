@@ -66,6 +66,7 @@ dev-R/tibble 3.0.1: Simple Data Frames
 dev-R/tidyselect 1.0.0 1.1.0: Select from a Set of Strings
 dev-R/utf8 1.1.4: Unicode Text Processing
 dev-R/vctrs 0.2.4 0.3.0: Vector Helpers
+dev-cpp/cpp-taskflow 2.3.1 2.4.0 9999: Modern C++ Parallel Task Programming
 dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging library
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
 dev-cpp/usockets 0.3.5: tiny eventing, networking & crypto for async applications
@@ -254,6 +255,7 @@ net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.4 8.5 9.0_pre20200419 9.0_pre20200509: XMPP gateway to IRC
 net-im/discord-canary-bin 0.0.103: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
+net-im/srain 1.1.0: Modern, beautiful IRC client written in GTK+ 3
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0 1.2.1: FORT validator is an open source RPKI validator
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
