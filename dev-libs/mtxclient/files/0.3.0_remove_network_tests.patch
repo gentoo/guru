@@ -1,0 +1,72 @@
+From e4e068ba5dd3964c890f25bbe668c8a964562ded Mon Sep 17 00:00:00 2001
+From: tastytea <tastytea@tastytea.de>
+Date: Mon, 25 May 2020 00:50:30 +0200
+Subject: [PATCH] Remove tests that require a network connection.
+
+---
+ CMakeLists.txt | 35 -----------------------------------
+ 1 file changed, 35 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0073604..689a091 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -338,29 +338,6 @@ if(BUILD_LIB_TESTS)
+ 
+ 	file(COPY tests/fixtures DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+ 
+-	add_executable(client_api tests/client_api.cpp)
+-	target_link_libraries(client_api
+-		MatrixClient::MatrixClient
+-		GTest::GTest
+-		GTest::Main)
+-	target_include_directories(client_api PRIVATE
+-		${CMAKE_CURRENT_SOURCE_DIR}/tests)
+-
+-	add_executable(media_api tests/media_api.cpp)
+-	target_link_libraries(media_api
+-		MatrixClient::MatrixClient
+-		GTest::GTest
+-		GTest::Main)
+-	target_include_directories(media_api PRIVATE
+-		${CMAKE_CURRENT_SOURCE_DIR}/tests)
+-
+-	add_executable(e2ee tests/e2ee.cpp)
+-	target_link_libraries(e2ee
+-		MatrixClient::MatrixClient
+-		GTest::GTest
+-		GTest::Main)
+-	target_include_directories(e2ee PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/tests)
+-
+ 	add_executable(utils tests/utils.cpp)
+ 	target_link_libraries(utils
+ 		MatrixClient::MatrixClient
+@@ -375,14 +352,6 @@ if(BUILD_LIB_TESTS)
+ 		GTest::Main)
+ 	target_include_directories(pushrules PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/tests)
+ 
+-	add_executable(connection tests/connection.cpp)
+-	target_link_libraries(connection
+-		MatrixClient::MatrixClient
+-		GTest::GTest
+-		GTest::Main)
+-	target_include_directories(connection PRIVATE
+-		${CMAKE_CURRENT_SOURCE_DIR}/tests)
+-
+ 	add_executable(identifiers tests/identifiers.cpp)
+ 	target_link_libraries(identifiers
+ 		MatrixClient::MatrixClient
+@@ -425,10 +394,6 @@ if(BUILD_LIB_TESTS)
+ 		GTest::GTest
+ 		GTest::Main)
+ 
+-	add_test(BasicConnectivity connection)
+-	add_test(ClientAPI client_api)
+-	add_test(MediaAPI media_api)
+-	add_test(Encryption e2ee)
+ 	add_test(Utilities utils)
+ 	add_test(Pushrules pushrules)
+ 	add_test(Identifiers identifiers)
+-- 
+2.26.2
+
