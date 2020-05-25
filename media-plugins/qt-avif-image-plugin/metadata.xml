@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'http://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dnovomesky@gmail.com</email>
+		<name>Daniel Novomesky</name>
+	</maintainer>
+	<longdescription>
+	Qt imageformat plugin which enables Qt and KDE applications
+	to open and save AVIF images.
+	Plug-in used libavif.
+	When installed, following applications are known to open AVIF images:
+		gwenview
+		KolourPaint
+		nomacs
+		KPhotoAlbum
+		digiKam
+		qView
+		LXImage-Qt
+	</longdescription>
+</pkgmetadata>
