@@ -183,6 +183,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# Tests require network connection
+RESTRICT="test"
+
 src_install() {
 	cargo_src_install
 	einstalldocs
