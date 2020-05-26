@@ -31,6 +31,7 @@ DEPEND="
 PATCHES=(
 	"${FILESDIR}/0.3.0_remove_network_tests.patch"
 	"${FILESDIR}/0.3.0_remove_failing_tests.patch"
+	"${FILESDIR}/0.3.0_add_missing_header.patch"
 )
 
 src_configure() {
@@ -40,7 +41,7 @@ src_configure() {
 	)
 
 	if use test; then
-		# Upstream uses a toolchain file to set these.
+		# Upstream uses a toolchain file to set these, fixed in >0.3.0.
 		mycmakeargs+=(
 			-DCMAKE_CXX_STANDARD=17
 			-DCMAKE_CXX_STANDARD_REQUIRED=ON

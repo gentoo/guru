@@ -1,0 +1,22 @@
+From 3692a1dce868cfde29547757b6a8e91a05761b12 Mon Sep 17 00:00:00 2001
+From: Nicolas Werner <nicolas.werner@hotmail.de>
+Date: Sat, 9 May 2020 00:33:29 +0200
+Subject: [PATCH] gcc 10 fixes
+
+---
+ include/mtx/identifiers.hpp | 2 ++
+ tests/messages.cpp          | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/include/mtx/identifiers.hpp b/include/mtx/identifiers.hpp
+index a18b26e9..077099c4 100644
+--- a/include/mtx/identifiers.hpp
++++ b/include/mtx/identifiers.hpp
+@@ -6,4 +6,6 @@
+ #include <nlohmann/json.hpp>
+ #endif
+
++#include <stdexcept>
++
+ namespace mtx {
+ namespace identifiers {
