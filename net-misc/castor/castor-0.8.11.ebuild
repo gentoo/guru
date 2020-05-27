@@ -134,6 +134,11 @@ src_prepare() {
 	sed -i 's/Categories=Browser/Categories=Network/' data/Castor.desktop || die
 }
 
+src_test() {
+	# FIXME: test absolute_url::test_make_absolute_just_path fails without this.
+	RUST_BACKTRACE=1 cargo_src_test
+}
+
 src_install() {
 	cargo_src_install
 
