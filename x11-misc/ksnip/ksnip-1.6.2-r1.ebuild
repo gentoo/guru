@@ -9,7 +9,7 @@ DESCRIPTION="Ksnip is a Qt based cross-platform screenshot tool"
 HOMEPAGE="https://github.com/ksnip/ksnip"
 SRC_URI="https://github.com/ksnip/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="LGPL-3+"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
