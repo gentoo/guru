@@ -15,7 +15,7 @@ IUSE="alsa"
 
 DEPEND="
 	dev-libs/libbsd[${MULTILIB_USEDEP}]
-	media-libs/alsa-lib[${MULTILIB_USEDEP}]
+	alsa? ( media-libs/alsa-lib[${MULTILIB_USEDEP}] )
 "
 RDEPEND="
 	${DEPEND}
@@ -31,7 +31,13 @@ multilib_src_configure() {
 	./configure \
 		--prefix=/usr \
 		--libdir=/usr/$(get_libdir) \
-		--privsep-user=${PN}d \
-		--enable-alsa \
-		--with-libbsd
+		--privsep-user=sndiod \
+		--with-libbsd \
+		$(use_enable alsa)
+}
+
+src_install() {
+	multilib_src_install
+
+	doinitd "${FILESDIR}/sndiod"
 }

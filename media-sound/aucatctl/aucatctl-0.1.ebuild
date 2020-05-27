@@ -12,7 +12,7 @@ KEYWORDS="~amd64"
 
 DEPEND="
 	dev-libs/libbsd
-	media-sound/sndio
+	media-sound/sndio:=
 "
 RDEPEND="${DEPEND}"
 
