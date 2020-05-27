@@ -14,10 +14,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
-	media-libs/gstreamer:1.0
+	media-libs/gst-plugins-base:1.0
 	media-sound/sndio:=
-	sys-devel/gettext
-	dev-libs/glib
 "
 RDEPEND="${DEPEND}"
 
