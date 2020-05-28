@@ -84,11 +84,14 @@ CRATES="
 
 inherit cargo git-r3 systemd
 
-EGIT_REPO_URI="git://80h.dev/gemserv.git"
+EGIT_REPO_URI="https://git.sr.ht/~int80h/gemserv"
 EGIT_COMMIT="8ebe1becf124cf6143e3410d10cfb0fb760911e6"
 
 DESCRIPTION="A gemini Server written in rust"
-HOMEPAGE="gemini://80h.dev/projects/gemserv/"
+HOMEPAGE="
+	gemini://80h.dev/projects/gemserv/
+	https://git.sr.ht/~int80h/gemserv
+"
 SRC_URI="$(cargo_crate_uris ${CRATES})"
 
 LICENSE="Apache-2.0 BSD MIT MPL-2.0"
