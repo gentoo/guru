@@ -44,7 +44,8 @@ DEPEND="test? (
 	dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 	dev-python/trio[${PYTHON_USEDEP}]
 	dev-python/trustme[${PYTHON_USEDEP}]
-	dev-python/uvicorn[${PYTHON_USEDEP}] )"
+	dev-python/uvicorn[${PYTHON_USEDEP}]
+)"
 
 distutils_enable_tests pytest
 
