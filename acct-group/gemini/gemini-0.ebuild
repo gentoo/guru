@@ -3,11 +3,8 @@
 
 EAPI=7
 
-inherit acct-user
+inherit acct-group
 
-DESCRIPTION="daemon user for sndio"
 KEYWORDS="~amd64"
-ACCT_USER_ID="-1"
-ACCT_USER_GROUPS=( audio )
 
-acct-user_add_deps
+ACCT_GROUP_ID=-1

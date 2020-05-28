@@ -1,0 +1,15 @@
+#!/sbin/openrc-run
+# Copyright 1999-2020 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+description="Gemini server"
+pidfile="/var/run/gemserv.pid"
+command="/usr/bin/gemserv"
+command_args="${GEMSERV_CONFIG:-/etc/gemserv/config.toml} > ${GEMSERV_LOGFILE:-/dev/null}"
+command_user="${GEMSERV_USER:-gemini}"
+command_background="true"
+
+depend() {
+	need net
+	use dns
+}

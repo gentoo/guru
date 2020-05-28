@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit multilib-minimal
+
 DESCRIPTION="small audio and MIDI framework part of the OpenBSD project"
 HOMEPAGE="http://www.sndio.org/"
 SRC_URI="http://www.sndio.org/${P}.tar.gz"
@@ -12,19 +14,30 @@ KEYWORDS="~amd64"
 IUSE="alsa"
 
 DEPEND="
-	dev-libs/libbsd
-	media-libs/alsa-lib
+	dev-libs/libbsd[${MULTILIB_USEDEP}]
+	alsa? ( media-libs/alsa-lib[${MULTILIB_USEDEP}] )
 "
 RDEPEND="
 	${DEPEND}
 	acct-user/sndiod
 "
 
-src_configure() {
+src_prepare() {
+	default
+	multilib_copy_sources
+}
+
+multilib_src_configure() {
 	./configure \
 		--prefix=/usr \
 		--libdir=/usr/$(get_libdir) \
-		--privsep-user=${PN}d \
-		--enable-alsa \
-		--with-libbsd
+		--privsep-user=sndiod \
+		--with-libbsd \
+		$(use_enable alsa)
+}
+
+src_install() {
+	multilib_src_install
+
+	doinitd "${FILESDIR}/sndiod"
 }

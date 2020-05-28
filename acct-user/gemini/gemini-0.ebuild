@@ -5,9 +5,10 @@ EAPI=7
 
 inherit acct-user
 
-DESCRIPTION="daemon user for sndio"
+DESCRIPTION="User for gemini daemon"
 KEYWORDS="~amd64"
-ACCT_USER_ID="-1"
-ACCT_USER_GROUPS=( audio )
+
+ACCT_USER_ID=-1
+ACCT_USER_GROUPS=( gemini )
 
 acct-user_add_deps
