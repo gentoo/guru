@@ -37,7 +37,7 @@ multilib_src_configure() {
 }
 
 src_install() {
-	multilib_src_install
+	multilib-minimal_src_install
 
 	doinitd "${FILESDIR}/sndiod"
 }
