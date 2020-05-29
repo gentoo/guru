@@ -20,6 +20,7 @@ IUSE=""
 DEPEND=""
 RDEPEND="
 	${DEPEND}
+	!!net-misc/quagga
 	acct-group/_bgpd
 	acct-user/_bgpd
 "
@@ -42,8 +43,11 @@ src_install() {
 }
 
 pkg_postinst() {
-	ewarn ""
-	ewarn "OpenBGPD portable (not running on OpenBSD) can’t export its RIB to"
-	ewarn "the FIB. It’s only suitable for route-reflectors or route-servers."
-	ewarn ""
+	if [ -z "${REPLACING_VERSIONS}" ]; then
+		ewarn ""
+		ewarn "OpenBGPD portable (not running on OpenBSD) can’t export its RIB"
+		ewarn "to the FIB. It’s only suitable for route-reflectors or"
+		ewarn "route-servers."
+		ewarn ""
+	fi
 }

@@ -3,15 +3,18 @@
 
 EAPI=7
 
-inherit autotools git-r3 systemd
+inherit systemd
+
+MY_PV="${PV/_p/p}"
+MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="OpenBGPD is a free implementation of BGPv4"
-HOMEPAGE="http://www.openbgpd.org/"
-EGIT_REPO_URI="https://github.com/${PN}-portable/${PN}-portable.git"
+HOMEPAGE="http://www.openbgpd.org/index.html"
+SRC_URI="mirror://openbsd/OpenBGPD/${PN}-${MY_PV}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=""
@@ -22,37 +25,10 @@ RDEPEND="
 	acct-user/_bgpd
 "
 BDEPEND="
-	dev-util/byacc
 	sys-devel/libtool
 "
 
-PATCHES=(
-	"${FILESDIR}/${P}-update.patch"
-	"${FILESDIR}/${P}-config.c.patch"
-)
-
-src_unpack() {
-	git-r3_src_unpack
-
-	cd "${WORKDIR}"
-
-	EGIT_REPO_URI="https://github.com/openbgpd-portable/openbgpd-openbsd.git"
-	EGIT_BRANCH=$(cat "${S}"/OPENBSD_BRANCH)
-	EGIT_CHECKOUT_DIR="${S}/openbsd"
-	git-r3_fetch
-	git-r3_checkout
-}
-
-src_prepare() {
-	default
-	./autogen.sh
-	eautoreconf
-}
-
-src_configure() {
-	export YACC=byacc
-	default
-}
+S="${WORKDIR}/${MY_P}"
 
 src_install() {
 	default
