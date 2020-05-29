@@ -17,12 +17,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="+system-ell"
 
-COMMON_DEPEND="system-ell? ( >=dev-libs/ell-0.31 )"
-BDEPEND="virtual/pkgconfig"
-RDEPEND="${COMMON_DEPEND}
+DEPEND="system-ell? ( >=dev-libs/ell-0.31 )"
+RDEPEND="${DEPEND}
 	!net-wireless/iwd
 	net-wireless/wireless-regdb"
-DEPEND="${COMMON_DEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 S="${WORKDIR}/${MY_P}"
 
