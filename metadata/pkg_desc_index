@@ -271,9 +271,9 @@ net-misc/FORT-validator 1.2.0 1.2.1: FORT validator is an open source RPKI valid
 net-misc/castor 0.8.11: A graphical browser for plain-text protocols
 net-misc/gemserv 0.3.1: A gemini Server written in rust
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
-net-misc/openbgpd 6.6_p0 9999: OpenBGPD is a free implementation of BGPv4
+net-misc/openbgpd 6.6_p0 6.7_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.1.3 9999: minimalistic commanline pastebin
-net-misc/rpki-client 0.3.0: RPKI client implementation
+net-misc/rpki-client 0.3.0 6.6_p2: Portability shim for OpenBSD's rpki-client
 net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
 net-misc/wayback_machine_downloader 2.2.1: Download an entire website from the Wayback Machine
 net-misc/wsdd 0.5: A Web Service Discovery host daemon.
