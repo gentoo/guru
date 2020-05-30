@@ -20,6 +20,7 @@ IUSE="json network service test"
 RESTRICT="!test? ( test )"
 
 BDEPEND="
+	dev-util/gdbus-codegen
 	virtual/pkgconfig
 	test? ( sys-fs/squashfs-tools )
 "
