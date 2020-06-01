@@ -71,8 +71,8 @@ EGO_SUM=(
 	"gopkg.in/yaml.v1 v1.0.0-20140924161607-9f9df34309c0/go.mod"
 	"gopkg.in/yaml.v2 v2.2.2/go.mod"
 	"gopkg.in/yaml.v2 v2.2.4/go.mod"
-	"gopkg.in/yaml.v2 v2.2.8"
-	"gopkg.in/yaml.v2 v2.2.8/go.mod"
+	"gopkg.in/yaml.v2 v2.3.0"
+	"gopkg.in/yaml.v2 v2.3.0/go.mod"
 )
 go-module_set_globals
 
@@ -85,7 +85,7 @@ SRC_URI="https://github.com/cheat/cheat/archive/${PV}.tar.gz -> ${P}.tar.gz
 # software. Checked with dev-go/golicense
 LICENSE="MIT Apache-2.0 BSD BSD-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 IUSE="zsh-completion"
 
