@@ -19,7 +19,7 @@ SLOT="0"
 RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	>=dev-python/httpx-0.11.1[${PYTHON_USEDEP}]
-	<dev-python/httpx-0.13[${PYTHON_USEDEP}]
+	<dev-python/httpx-0.14[${PYTHON_USEDEP}]
 	media-sound/spotify
 	$(python_gen_cond_dep 'dev-python/dataclasses[${PYTHON_USEDEP}]' python3_6)
 "
