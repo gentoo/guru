@@ -50,10 +50,6 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.6.2-fix-define.patch # fix define problem
-)
-
 src_configure() {
 	eqmake5 PREFIX="${D}"/usr
 }
