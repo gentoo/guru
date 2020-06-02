@@ -5,6 +5,10 @@
 		<email>contact@hacktivis.me</email>
 		<name>Haelwenn (lanodan) Monnier</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>o.freyermuth@googlemail.com</email>
+		<name>Oliver Freyermuth</name>
+	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/taisei-project/taisei/issues</bugs-to>
 		<changelog>https://taisei-project.org/news.atom</changelog>
@@ -14,6 +18,7 @@
 		Taisei is an open clone of the Touhou Project series. Touhou is a one-man project of shoot-em-up games set in an isolated world full of Japanese folklore.
 	</longdescription>
 	<use>
+		<flag name="lto">Enable link time optimization</flag>
 		<flag name="zip">Enable loading of game data from ZIP packages via <pkg>dev-libs/libzip</pkg></flag>
 	</use>
 </pkgmetadata>
