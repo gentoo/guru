@@ -18,7 +18,7 @@ SLOT="0"
 LICENSE="MIT"
 IUSE="+autoload"
 
-RDEPEND="media-video/mpv:=[cplugins]
+RDEPEND="media-video/mpv:=[cplugins,libmpv]
 	dev-libs/glib"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
