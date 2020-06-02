@@ -26,6 +26,7 @@ dev-libs/wren:tools - Install the wren command line interpreter
 dev-libs/xqilla:tidy - Add Tidy-HTML5 support
 dev-python/geopy:timezone - Enables localized date support
 dev-util/FoBiS:graphviz - Add support of generation of a dependencies graph
+games-arcade/taisei:lto - Enable link time optimization
 games-arcade/taisei:zip - Enable loading of game data from ZIP packages via dev-libs/libzip
 games-fps/crispy-doom:truecolor - Enable true-color rendering (experimental)
 mail-client/mutt-wizard:lynx - Use lynx to view html emails in mutt. HIGHLY RECOMMENDED.
@@ -37,6 +38,7 @@ media-sound/6pm:midimaps - Install midi maps for that synth. Recommended
 media-sound/6pm:nls - Add support for localization
 media-sound/6pm:presets - Install presets. Recommended
 media-sound/add64:presets - Install presets. Recommended
+media-video/mpv-mpris:autoload - Load plugin automatically
 media-video/syncplay:client - Install the Syncplay client
 media-video/syncplay:mplayer - Pull in MPlayer
 media-video/syncplay:mpv - Pull in MPV with the lua flag
