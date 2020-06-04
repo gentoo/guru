@@ -17,7 +17,8 @@ SLOT="0"
 KEYWORDS=""
 IUSE="+system-ell"
 
-DEPEND="system-ell? ( >=dev-libs/ell-0.31 )"
+DEPEND="system-ell? ( >=dev-libs/ell-0.31 )
+	dev-python/docutils"
 RDEPEND="${DEPEND}
 	!net-wireless/iwd
 	net-wireless/wireless-regdb"
