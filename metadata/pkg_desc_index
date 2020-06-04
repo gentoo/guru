@@ -269,8 +269,8 @@ net-im/nheko 0.7.1: Desktop client for Matrix using Qt and C++14
 net-im/srain 1.1.0: Modern, beautiful IRC client written in GTK+ 3
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0 1.2.1: FORT validator is an open source RPKI validator
-net-misc/castor 0.8.11 0.8.12: A graphical browser for plain-text protocols
-net-misc/gemserv 0.3.1: A gemini Server written in rust
+net-misc/castor 0.8.12 0.8.13: A graphical browser for plain-text protocols
+net-misc/gemserv 0.3.1 0.4.1_pre20200529: A gemini Server written in rust
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/openbgpd 6.6_p0 6.7_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.1.3 9999: minimalistic commanline pastebin
