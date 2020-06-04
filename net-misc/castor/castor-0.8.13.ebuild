@@ -128,14 +128,11 @@ src_prepare() {
 
 	# Upstream uses forks to support LibreSSL. We revert to official sources.
 	sed -Ei 's/(native-tls|openssl(-sys)?) = \{.+/\1 = "*"/' Cargo.toml || die
-
-	# Fix Desktop entry.
-	sed -Ei 's/Icon=(.+)\.png/Icon=\1/' data/Castor.desktop || die
-	sed -i 's/Categories=Browser/Categories=Network/' data/Castor.desktop || die
 }
 
 src_test() {
-	# FIXME: test absolute_url::test_make_absolute_just_path fails without this.
+	# FIXME: test absolute_url::test_make_absolute_just_path fails without this,
+	# but I couldn't reproduce it.
 	RUST_BACKTRACE=1 cargo_src_test
 }
 
