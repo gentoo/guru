@@ -22,6 +22,7 @@ QA_EXECSTACK="bin/xow"
 src_prepare() {
 	cp "${DISTDIR}"/xow-firmware.cab "${S}"/driver.cab
 	sed -i '/curl/d' "${S}"/Makefile || die
+	sed -i 's#/etc/udev/rules.d#/lib/udev/rules.d#g' Makefile || die
 
 	default
 }
