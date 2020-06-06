@@ -1,0 +1,16 @@
+BDEPEND=python_single_target_python3_6? ( dev-lang/python:3.6 >=dev-lang/python-exec-2:=[python_targets_python3_6] ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) virtual/pkgconfig doc? ( media-gfx/graphviz python_single_target_python3_6? ( dev-python/sphinx[python_targets_python3_6(-)] dev-python/sphinx_rtd_theme[python_targets_python3_6(-)] ) python_single_target_python3_7? ( dev-python/sphinx[python_targets_python3_7(-)] dev-python/sphinx_rtd_theme[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/sphinx[python_targets_python3_8(-)] dev-python/sphinx_rtd_theme[python_targets_python3_8(-)] ) ) test? ( dev-libs/check dev-util/valgrind python_single_target_python3_6? ( dev-python/subunit[python_targets_python3_6(-)] ) python_single_target_python3_7? ( dev-python/subunit[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/subunit[python_targets_python3_8(-)] ) ) dev-util/ninja dev-util/cmake
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=mbedtls? ( net-libs/mbedtls:= ) openssl? ( dev-libs/openssl:0= )
+DESCRIPTION=Open source C implementation of OPC UA
+EAPI=7
+HOMEPAGE=https://open62541.org/
+IUSE=doc encryption examples etf mbedtls pubsub openssl test tools xdp python_single_target_python3_6 python_single_target_python3_7 python_single_target_python3_8
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=MPL-2.0
+RDEPEND=python_single_target_python3_6? ( dev-lang/python:3.6 >=dev-lang/python-exec-2:=[python_targets_python3_6] ) python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) mbedtls? ( net-libs/mbedtls:= ) openssl? ( dev-libs/openssl:0= )
+REQUIRED_USE=^^ ( python_single_target_python3_6 python_single_target_python3_7 python_single_target_python3_8 ) encryption? ( || ( mbedtls openssl ) ) etf? ( pubsub ) xdp? ( pubsub )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/open62541/open62541/archive/v1.1-rc1.tar.gz -> open62541-1.1-rc1.tar.gz
+_eclasses_=cmake	19b0421555865baefd505831dd4303e3	eutils	fcb2aa98e1948b835b5ae66ca52868c5	flag-o-matic	f1194291b9a1baca337c1c89b5f7f365	multilib	0914eab919f4f11dd9e0407b92af4726	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-single-r1	2d2617a730e75e491e1d17af87841ec5	python-utils-r1	ace0a9a129fcfeaae542c0d15c07f36a	toolchain-funcs	d3e75048a89c0445838d2f44e5c65d97	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_md5_=7961dd4c43f01baf762813d8c3fa33bb
