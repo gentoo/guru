@@ -9,5 +9,8 @@
 		<flag name="system-ell">
 			Use the system-wide <pkg>dev-libs/ell</pkg>instead of bundled.
 		</flag>
+		<flag name="resolvconf">
+			Use resolvconf to handle /etc/resolv.conf updates
+		</flag>
 	</use>
 </pkgmetadata>

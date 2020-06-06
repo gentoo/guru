@@ -7,7 +7,8 @@ pidfile="/run/iwd.pid"
 command_background="yes"
 
 depend() {
+	provide net
 	after bootmisc modules
-	before dns dhcpcd net
+	before dns dhcpcd
 	keyword -shutdown
 }
