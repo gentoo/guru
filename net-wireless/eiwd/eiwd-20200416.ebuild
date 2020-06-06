@@ -28,7 +28,9 @@ BDEPEND="virtual/pkgconfig"
 
 S="${WORKDIR}/${MY_P}"
 
-PATCHES=( "${FILESDIR}"/20200416.patch )
+PATCHES=(
+	"${FILESDIR}"/20200416.patch
+	"${FILESDIR}"/iwmon.patch )
 
 src_prepare() {
 	default
