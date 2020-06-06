@@ -15,10 +15,11 @@ SRC_URI="https://github.com/dylanaraps/eiwd/releases/download/${MY_PV}/${MY_P}.t
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+system-ell"
+IUSE="+resolvconf +system-ell"
 
 DEPEND="system-ell? ( >=dev-libs/ell-0.31 )"
 RDEPEND="${DEPEND}
+	resolvconf? ( || ( net-dns/openresolv net-misc/dhcpcd ) )
 	!net-wireless/iwd
 	net-wireless/wireless-regdb"
 BDEPEND="virtual/pkgconfig"
@@ -38,5 +39,9 @@ src_configure() {
 src_install() {
 	default
 	keepdir /var/lib/iwd
-	newinitd "${FILESDIR}/iwd.initd" iwd
+	newinitd "${FILESDIR}"/iwd.initd iwd
+	if use resolvconf ; then
+		insinto /etc/iwd/
+		doins "${FILESDIR}"/main.conf
+	fi
 }
