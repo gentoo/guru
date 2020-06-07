@@ -280,7 +280,7 @@ net-misc/wayback_machine_downloader 2.2.1: Download an entire website from the W
 net-misc/wsdd 0.5 0.6: A Web Service Discovery host daemon.
 net-p2p/trezord-go 2.0.29: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1 0.3.14: An experiment in scalable routing as an encrypted IPv6 overlay network
-net-wireless/eiwd 1.6.1 9999 20200416: iwd without dbus
+net-wireless/eiwd 1.6.1 1.7_pre20200416 9999: iwd without dbus
 net-wireless/rtl8192eu 0_pre20200123: Realtek 8192EU driver module for Linux kernel
 net-wireless/rtl8821ce 0_pre20200224: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20200302: Realtek 8821CU/RTL8811CU module for Linux kernel
