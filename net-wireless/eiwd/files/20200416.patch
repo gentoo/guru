@@ -1,0 +1,15 @@
+# Good for EGIT_COMMIT="7b5545a" which is Release 1.7
+# https://github.com/dylanaraps/eiwd/commit/39ef23ea037fe97c060fafbcbd25af684ae0c55e
+
+diff --git a/src/main.c b/src/main.c
+index 549f1bae..2ab44355 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -49,6 +49,7 @@
+ #include "src/backtrace.h"
+ 
+ static struct l_genl *genl;
++static struct l_netlink *rtnl;
+ static struct l_settings *iwd_config;
+ static struct l_timeout *timeout;
+ static const char *interfaces;

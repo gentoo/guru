@@ -11,6 +11,7 @@ MY_P="${PN}-${MY_PV}"
 DESCRIPTION="iwd without dbus"
 HOMEPAGE="https://github.com/dylanaraps/eiwd"
 EGIT_REPO_URI="https://github.com/dylanaraps/eiwd.git"
+# Version 1.7 Apr 16, 2020
 EGIT_COMMIT="7b5545a"
 
 LICENSE="LGPL-2.1"
@@ -26,6 +27,10 @@ RDEPEND="${DEPEND}
 BDEPEND="virtual/pkgconfig"
 
 S="${WORKDIR}/${MY_P}"
+
+PATCHES=(
+	"${FILESDIR}"/20200416.patch
+	"${FILESDIR}"/iwmon.patch )
 
 src_prepare() {
 	default
