@@ -5,7 +5,7 @@ EAPI=7
 
 inherit autotools flag-o-matic git-r3
 
-MY_PV="$(ver_rs 2 '-')"
+MY_PV="${PV}"
 MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="iwd without dbus"
