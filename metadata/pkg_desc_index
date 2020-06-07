@@ -129,7 +129,7 @@ dev-python/glicko2 0_pre20191010 9999: An implementation of the Glicko-2 rating 
 dev-python/googletransx 2.4.2: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/graphene 2.1.8: GraphQL Framework for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
-dev-python/hstspreload 2020.5.30: Chromium HSTS Preload list as a Python package
+dev-python/hstspreload 2020.6.5: Chromium HSTS Preload list as a Python package
 dev-python/httpcore 0.7.0 0.9.1: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/httpx 0.9.3 0.11.1 0.12.1 0.13.3: A next generation HTTP client for Python
@@ -140,7 +140,7 @@ dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/markdown-include 0.5.1: Syntax which allows for inclusion of contents of other Markdown docs
 dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your output
 dev-python/mkdocs-git-revision-date-localized-plugin 0.5.0: Display the localized date of the last git modification of a markdown file
-dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.2.2: A Material Design theme for MkDocs
+dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.2.3: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.0: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.3.0: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs_pymdownx_material_extras 1.0_beta11: Custom alterations based on Mkdocs-Material
@@ -218,8 +218,8 @@ dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your b
 dev-vcs/git-extras 5.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 dev-vcs/lazygit 0.19 0.20.3 0.20.4: Lazygit, a simple terminal UI for git commands
-games-action/ATLauncher 3.3.5.1: Minecraft launcher which integrates multiple different ModPacks
-games-action/minecraft-launcher 1.6.93 2.1.14947: An open-world game whose gameplay revolves around breaking and placing blocks
+games-action/ATLauncher 3.3.5.2: Minecraft launcher which integrates multiple different ModPacks
+games-action/minecraft-launcher 1.6.93 2.1.15166: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/technic-launcher 4.546: Minecraft launcher for community-made modpacks on the Technic Platform
 games-arcade/opensurge 0.5.1.2 9999: fun 2D retro platformer inspired by old-school Sonic games
@@ -229,6 +229,7 @@ games-fps/crispy-doom 5.7.2 5.8.0: A limit-removing enhanced-resolution Doom sou
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
 games-util/NotEnoughProduction 0.0.3-r1: Tool for building production chains for modded minecraft
 games-util/legendary 0.0.17 0.0.18: A free and open-source replacement for the Epic Games Launcher
+games-util/minigalaxy 0.9.4: A simple GOG client for Linux
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 kde-misc/plasma-applet-thermal-monitor 1.2.9: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 mail-client/mutt-wizard 0_pre20200430: A system for automatically configuring mutt and isync
@@ -256,7 +257,7 @@ media-sound/zita-ajbridge 0.8.4: zita-a2j and zita-j2a - bridges between ALSA an
 media-tv/droidcam 6.7.7_pre20200506: Use android phone as webcam, using a v4l device driver and app
 media-video/kikoplay 0.6.2 0.7.0 9999: KikoPlay is a full-featured danmu player
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
-media-video/syncplay 1.6.4_p1: Client/server to synchronize media playback
+media-video/syncplay 1.6.4_p1 1.6.5_beta1: Client/server to synchronize media playback
 media-video/vidify 2.2.5: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
 net-dialup/tio 1.32: Simple TTY terminal application
