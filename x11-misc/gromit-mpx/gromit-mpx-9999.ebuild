@@ -3,9 +3,9 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
-DESCRIPTION="Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool."
+DESCRIPTION="Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool"
 HOMEPAGE="https://github.com/bk138/${PN}"
 
 if [[ ${PV} == *9999* ]]; then
@@ -33,5 +33,5 @@ src_configure() {
 		-DCMAKE_INSTALL_SYSCONFDIR="${EPREFIX}"/etc
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
