@@ -17,7 +17,7 @@ EGIT_COMMIT="7b5545a"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="+resolvconf +system-ell"
+IUSE="+client +monitor ofono +resolvconf +system-ell wired"
 
 DEPEND="system-ell? ( >=dev-libs/ell-0.31 )"
 RDEPEND="${DEPEND}
@@ -42,7 +42,11 @@ src_configure() {
 	local myeconfargs=(
 		--sysconfdir="${EPREFIX}"/etc/iwd --localstatedir="${EPREFIX}"/var
 		--disable-dbus
+		$(use_enable client)
+		$(use_enable monitor)
+		$(use_enable ofono)
 		$(use_enable system-ell external-ell)
+		$(use_enable wired)
 	)
 	econf "${myeconfargs[@]}"
 }
