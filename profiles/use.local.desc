@@ -58,8 +58,12 @@ net-misc/purritobin:libuv - use libuv to do async operations, instead of linux k
 net-misc/tinyssh:sodium - Use dev-libs/libsodium for cryptography
 net-p2p/trezord-go:systemd - Install systemd service file
 net-p2p/trezord-go:udev - Install udev rules
+net-wireless/eiwd:client - Enable iwctl client tool
+net-wireless/eiwd:monitor - Enable iwmon monitor tool
+net-wireless/eiwd:ofono - Enable support for oFono SIM authentication
 net-wireless/eiwd:resolvconf - Use resolvconf to handle /etc/resolv.conf updates
 net-wireless/eiwd:system-ell - Use the system-wide dev-libs/ellinstead of bundled.
+net-wireless/eiwd:wired - Enable ethernet authentication daemon
 sci-geosciences/geographiclib:boost - Boost library is searched for in order to build the NearestNeighbor example
 sci-geosciences/geographiclib:geoids - Install the geoid datasets
 sci-geosciences/geographiclib:geoids_datasets_egm2008-1 - http://earth-info.nga.mil/GandG/wgs84/gravitymod/egm2008 1' grid
