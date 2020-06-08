@@ -18,9 +18,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE=""
 
-DEPEND=""
 RDEPEND="
 	media-libs/phonon:=[gstreamer]
 	media-libs/gst-plugins-good
@@ -28,7 +26,6 @@ RDEPEND="
 	dev-qt/qtgraphicaleffects
 	dev-qt/qtquickcontrols
 "
-BDEPEND=""
 
 src_install() {
 	insinto /usr/share/sddm/themes/aerial
