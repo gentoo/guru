@@ -33,8 +33,6 @@ dev-util/FoBiS:graphviz - Add support of generation of a dependencies graph
 games-arcade/taisei:lto - Enable link time optimization
 games-arcade/taisei:zip - Enable loading of game data from ZIP packages via dev-libs/libzip
 games-fps/crispy-doom:truecolor - Enable true-color rendering (experimental)
-mail-client/mutt-wizard:lynx - Use lynx to view html emails in mutt. HIGHLY RECOMMENDED.
-mail-client/mutt-wizard:notmuch - Pulls in notmuch (thin frontend on xapian). HIGHLY RECOMMENDED.
 media-libs/libavif:dav1d - Enable faster decoding via dav1d
 media-libs/libavif:libaom - Use encoding/decoding via libaom
 media-libs/libavif:rav1e - Allow encoding via rav1e
