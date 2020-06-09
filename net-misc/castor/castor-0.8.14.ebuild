@@ -17,14 +17,14 @@ CRATES="
 	blake2b_simd-0.5.10
 	cairo-rs-0.8.1
 	cairo-sys-rs-0.9.2
-	cc-1.0.52
+	cc-1.0.54
 	cfg-if-0.1.10
 	constant_time_eq-0.1.5
 	core-foundation-0.7.0
 	core-foundation-sys-0.7.0
 	crossbeam-utils-0.7.2
 	dirs-2.0.2
-	dirs-sys-0.3.4
+	dirs-sys-0.3.5
 	foreign-types-0.3.2
 	foreign-types-shared-0.1.1
 	futures-channel-0.3.5
@@ -48,7 +48,7 @@ CRATES="
 	gtk-sys-0.9.2
 	idna-0.2.0
 	lazy_static-1.4.0
-	libc-0.2.70
+	libc-0.2.71
 	log-0.4.8
 	matches-0.1.8
 	memchr-2.3.3
@@ -58,45 +58,47 @@ CRATES="
 	open-1.4.0
 	openssl-0.10.29
 	openssl-probe-0.1.2
-	openssl-sys-0.9.56
+	openssl-sys-0.9.58
 	pango-0.8.0
 	pango-sys-0.9.1
 	percent-encoding-2.1.0
-	pin-project-0.4.16
-	pin-project-internal-0.4.16
+	pin-project-0.4.20
+	pin-project-internal-0.4.20
 	pin-utils-0.1.0
 	pkg-config-0.3.17
-	ppv-lite86-0.2.6
-	proc-macro-hack-0.5.15
-	proc-macro-nested-0.1.4
-	proc-macro2-1.0.12
-	quote-1.0.5
+	ppv-lite86-0.2.8
+	proc-macro-hack-0.5.16
+	proc-macro-nested-0.1.5
+	proc-macro2-1.0.18
+	quote-1.0.7
 	rand-0.7.3
 	rand_chacha-0.2.2
 	rand_core-0.5.1
 	rand_hc-0.2.0
 	redox_syscall-0.1.56
 	redox_users-0.3.4
-	regex-1.3.7
-	regex-syntax-0.6.17
+	regex-1.3.9
+	regex-syntax-0.6.18
 	remove_dir_all-0.5.2
 	rust-argon2-0.7.0
 	schannel-0.1.19
 	security-framework-0.4.4
 	security-framework-sys-0.4.3
-	serde-1.0.110
-	serde_derive-1.0.110
+	serde-1.0.111
+	serde_derive-1.0.111
 	slab-0.4.2
 	smallvec-1.4.0
-	syn-1.0.21
+	syn-1.0.30
 	tempfile-3.1.0
+	textwrap-0.11.0
 	thread_local-1.0.1
 	toml-0.5.6
 	unicode-bidi-0.3.4
 	unicode-normalization-0.1.12
+	unicode-width-0.1.7
 	unicode-xid-0.2.0
 	url-2.1.1
-	vcpkg-0.2.8
+	vcpkg-0.2.9
 	version_check-0.1.5
 	wasi-0.9.0+wasi-snapshot-preview1
 	winapi-0.3.8
@@ -122,13 +124,6 @@ RDEPEND="
 	x11-libs/gtk+:3
 "
 DEPEND="${RDEPEND}"
-
-src_prepare() {
-	xdg_src_prepare
-
-	# Upstream uses forks to support LibreSSL. We revert to official sources.
-	sed -Ei 's/(native-tls|openssl(-sys)?) = \{.+/\1 = "*"/' Cargo.toml || die
-}
 
 src_test() {
 	# FIXME: test absolute_url::test_make_absolute_just_path fails without this,
