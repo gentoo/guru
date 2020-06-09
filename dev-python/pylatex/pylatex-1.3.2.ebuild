@@ -12,45 +12,36 @@ inherit distutils-r1 eutils
 
 DESCRIPTION="A Python library for creating LaTeX files and snippets"
 HOMEPAGE="https://github.com/JelteF/PyLaTeX"
-SRC_URI="https://github.com/JelteF/${MY_PN}/archive/v${PV}.tar.gz -> ${MY_PN}.tar.gz"
+SRC_URI="https://github.com/JelteF/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="examples"
 
-DEPEND="
-dev-python/ordered-set[${PYTHON_USEDEP}]
+RDEPEND="
+	dev-python/ordered-set[${PYTHON_USEDEP}]
 "
-RDEPEND="${DEPEND}"
 
-distutils_enable_sphinx docs
+DEPEND="test? (
+		dev-python/quantities[${PYTHON_USEDEP}]
+		dev-python/matplotlib[${PYTHON_USEDEP}]
+		dev-python/numpy[${PYTHON_USEDEP}]
+		app-text/texlive
+		dev-texlive/texlive-latexextra
+)"
+
+S="${WORKDIR}/${MY_P}"
+
+distutils_enable_sphinx docs/source
 distutils_enable_tests nose
 
-DEPEND+="
-test? (
-	dev-python/quantities
-	dev-python/matplotlib
-	dev-python/numpy
-	app-text/texlive
-	dev-texlive/texlive-latexextra
-)
-"
-
-src_prepare(){
-if use doc; then
-	sphinx-apidoc -F -o docs "${S}"/pylatex # conf.py is not included in source
-fi
-
-distutils-r1_src_prepare
-}
-
 python_install_all() {
-if use examples ; then
-	dodoc -r examples
-fi
+	if use examples ; then
+		dodoc -r examples
+	fi
 
-distutils-r1_python_install_all
+	distutils-r1_python_install_all
 }
 
 pkg_postinst() {
