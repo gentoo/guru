@@ -100,8 +100,8 @@ dev-python/aiofiles 0.5.0: File support for asyncio
 dev-python/aiomysql 0.0.20: aiomysql is a library for accessing a MySQL database from the asyncio
 dev-python/aionotify 0.2.0: Simple, asyncio-based inotify library for Python
 dev-python/aiopg 1.0.0: aiopg is a library for accessing a PostgreSQL database from the asyncio
-dev-python/aiosqlite 0.12.0: asyncio bridge to the standard sqlite3 module
-dev-python/aiounittest 1.3.1: Test python asyncio-based code with ease
+dev-python/aiosqlite 0.12.0 0.13.0: asyncio bridge to the standard sqlite3 module
+dev-python/aiounittest 1.4.0: Test python asyncio-based code with ease
 dev-python/almost 0.1.5: A helper for approximate comparison
 dev-python/aspectlib 1.5.0: An aspect-oriented programming, monkey-patch and decorators library
 dev-python/asyncpg 0.20.1: A fast PostgreSQL Database Client Library for Python/asyncio.
@@ -112,8 +112,8 @@ dev-python/baron 0.9: Full Syntax Tree for python to make writing refactoring co
 dev-python/bracex 2.0.0: Bash style brace expansion for Python
 dev-python/cchardet 2.1.6: cChardet is high speed universal character encoding detector
 dev-python/check-manifest 0.42: Tool to check the completeness of MANIFEST.in for Python packages
-dev-python/cloudscraper 1.2.34: A Python module to bypass Cloudflare's anti-bot page
-dev-python/convertdate 2.2.0: Utils for converting between date formats and calculating holidays
+dev-python/cloudscraper 1.2.34 1.2.40: A Python module to bypass Cloudflare's anti-bot page
+dev-python/convertdate 2.2.1: Utils for converting between date formats and calculating holidays
 dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
 dev-python/curio 0.9 1.2: Curio is a coroutine-based library for concurrent systems programming
 dev-python/databases 0.3.2: Async database support for Python.
@@ -129,7 +129,7 @@ dev-python/glicko2 0_pre20191010 9999: An implementation of the Glicko-2 rating 
 dev-python/googletransx 2.4.2: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/graphene 2.1.8: GraphQL Framework for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
-dev-python/hstspreload 2020.6.5: Chromium HSTS Preload list as a Python package
+dev-python/hstspreload 2020.6.9: Chromium HSTS Preload list as a Python package
 dev-python/httpcore 0.7.0 0.9.1: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/httpx 0.9.3 0.11.1 0.12.1 0.13.3: A next generation HTTP client for Python
@@ -145,7 +145,7 @@ dev-python/mkdocs-material-extensions 1.0: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.3.0: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs_pymdownx_material_extras 1.0_beta11: Custom alterations based on Mkdocs-Material
 dev-python/outcome 1.0.1: Capture the outcome of Python function calls
-dev-python/pdfminer-six 20200124 20200402: Community maintained fork of pdfminer
+dev-python/pdfminer-six 20200124 20200402 20200517: Community maintained fork of pdfminer
 dev-python/pep517 0.8.2-r1: standard API for systems which build Python packages
 dev-python/pure-protobuf 2.0.0-r1: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/pydantic 1.5.1: Data parsing and validation using Python type hints
@@ -153,7 +153,7 @@ dev-python/pydbus 0.6.0: Pythonic DBus library
 dev-python/pygaljs 1.0.2 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
 dev-python/pyjsparser 2.7.1: Fast javascript parser based on esprima.js
 dev-python/pykeepass 3.2.0: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
-dev-python/pylatex 1.3.1: A Python library for creating LaTeX files and snippets
+dev-python/pylatex 1.3.2: A Python library for creating LaTeX files and snippets
 dev-python/pymdown-extensions 7.0.0: Extensions for Python Markdown.
 dev-python/pymdown-lexers 0_pre20180905: Additional lexers for use in Pygments
 dev-python/pymeeus 0.3.7: Python implementation of Jean Meeus astronomical routines
@@ -166,7 +166,7 @@ dev-python/pytest-isort 1.0.0: Plugin to check import ordering using isort
 dev-python/pytest-marks 0.4: Allow to set 'marks' on pytest methods
 dev-python/pytest-ordering 0.6: pytest plugin to run your tests in a specific order
 dev-python/pytest-randomly 3.3.1-r1 3.3.1-r2: Pytest plugin to randomly order tests and control random.seed
-dev-python/pytest-sanic 1.6.0: a Pytest Plugin for Sanic
+dev-python/pytest-sanic 1.6.1: a Pytest Plugin for Sanic
 dev-python/pytest-subtests 0.3.0: unittest subTest() support and subtests fixture
 dev-python/pytest-sugar 0.9.3: Plugin for pytest that changes the default look and feel of pytest
 dev-python/pytest-toolbox 0.4: Numerous useful plugins for pytest
@@ -199,7 +199,7 @@ dev-python/timeout-decorator 0.4.1: Timeout decorator
 dev-python/trio 0.14.0 0.15.1: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
-dev-python/ufoLib2 0.7.1: A UFO font library
+dev-python/ufoLib2 0.7.1 0.8.0: A UFO font library
 dev-python/ufoNormalizer 0.4.1: A tool that will normalize the XML and other data inside of a UFO.
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/uvicorn 0.11.5: The lightning-fast ASGI server
@@ -262,7 +262,7 @@ media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
 net-dialup/tio 1.32: Simple TTY terminal application
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.4 8.5 9.0_pre20200419 9.0_pre20200509: XMPP gateway to IRC
-net-im/discord-canary-bin 0.0.103: All-in-one voice and text chat
+net-im/discord-canary-bin 0.0.104: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-im/nheko 0.7.1: Desktop client for Matrix using Qt and C++14
 net-im/srain 1.1.0: Modern, beautiful IRC client written in GTK+ 3
@@ -314,7 +314,7 @@ sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC s
 sys-process/gotop 3.5.3: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
-www-apps/twint 2.1.18 2.1.19: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
+www-apps/twint 2.1.18 2.1.19 2.1.20: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-client/badwolf 1.0.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-libs/gtk-fortran 19.04 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
