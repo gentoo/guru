@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
@@ -21,18 +21,12 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND=""
-DEPEND="
-	${RDEPEND}
-	test? (
+DEPEND="test? (
 		dev-python/eventlet[${PYTHON_USEDEP}]
 		dev-python/gevent[${PYTHON_USEDEP}]
 		dev-python/process-tests[${PYTHON_USEDEP}]
-		dev-python/pytest-travis-fold[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
-	)
-"
-#		www-servers/uwsgi[python,python_gevent,${PYTHON_USEDEP}]
+)"
 
 S="${WORKDIR}/${MYPN}-${PV}"
 
