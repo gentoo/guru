@@ -6,15 +6,15 @@ EAPI=7
 inherit desktop eutils xdg
 
 DESCRIPTION="All-in-one voice and text chat"
-
 HOMEPAGE="https://discordapp.com/"
-
 SRC_URI="https://dl-canary.discordapp.net/apps/linux/${PV}/discord-canary-${PV}.tar.gz"
-RESTRICT="mirror bindist"
-KEYWORDS="~amd64"
 
 SLOT="0"
 LICENSE="all-rights-reserved"
+KEYWORDS="~amd64"
+
+RESTRICT="mirror bindist"
+
 RDEPEND=""
 DEPEND="${RDEPEND}
 	dev-libs/atk

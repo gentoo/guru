@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_{6,7} )
 
 inherit distutils-r1
 
@@ -21,6 +21,7 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	dev-python/aiofiles[${PYTHON_USEDEP}]
 	>=dev-python/httpx-0.11.1[${PYTHON_USEDEP}]
+	<dev-python/httpx-0.12[${PYTHON_USEDEP}]
 	>=dev-python/httptools-0.0.10[${PYTHON_USEDEP}]
 	>=dev-python/multidict-4.0[${PYTHON_USEDEP}]
 	<dev-python/multidict-5.0[${PYTHON_USEDEP}]
@@ -37,7 +38,6 @@ DEPEND="
 		>=dev-python/pytest-5.2.1[${PYTHON_USEDEP}]
 		dev-python/pytest-benchmark[${PYTHON_USEDEP}]
 		dev-python/pytest-sanic[${PYTHON_USEDEP}]
-		dev-python/pytest-sugar[${PYTHON_USEDEP}]
 		dev-python/uvicorn[${PYTHON_USEDEP}]
 		www-servers/gunicorn[${PYTHON_USEDEP}]
 	)
@@ -47,7 +47,7 @@ distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 				dev-python/docutils \
 				dev-python/pygments \
-				">=dev-python/sphinx-2.1.2" \
-				">=dev-python/sphinx_rtd_theme-0.4.3" \
-				">=dev-python/recommonmark-0.5.0" \
+				dev-python/sphinx_rtd_theme \
+				dev-python/sphinxcontrib-websupport \
+				dev-python/recommonmark \
 				www-servers/gunicorn

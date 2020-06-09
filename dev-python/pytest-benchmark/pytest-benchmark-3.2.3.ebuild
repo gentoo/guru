@@ -4,7 +4,7 @@
 EAPI="7"
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
 inherit distutils-r1
 
@@ -37,7 +37,6 @@ BDEPEND="
 		dev-python/pygal[${PYTHON_USEDEP}]
 		dev-python/pygaljs[${PYTHON_USEDEP}]
 		dev-python/pytest-instafail[${PYTHON_USEDEP}]
-		dev-python/pytest-travis-fold[${PYTHON_USEDEP}]
 		dev-python/pytest-xdist[${PYTHON_USEDEP}]
 	)
 "
