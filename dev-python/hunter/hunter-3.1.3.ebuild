@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
@@ -29,9 +29,8 @@ DEPEND="
 		dev-python/aspectlib[${PYTHON_USEDEP}]
 		dev-python/hunter[${PYTHON_USEDEP}]
 		dev-python/manhole[${PYTHON_USEDEP}]
-		dev-python/process-tests[${PYTHON_USEDEP}]
 		dev-python/pytest-benchmark[${PYTHON_USEDEP}]
-		dev-python/pytest-travis-fold[${PYTHON_USEDEP}]
+		dev-python/process-tests[${PYTHON_USEDEP}]
 	)
 "
 BDEPEND="
