@@ -15,6 +15,7 @@ LICENSE="LGPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc introspection vala"
+REQUIRED_USE="vala? ( introspection )"
 
 RDEPEND="
 	>=dev-libs/glib-2.58.0:2
