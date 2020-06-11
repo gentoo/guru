@@ -1,0 +1,9 @@
+DEFINED_PHASES=install
+DESCRIPTION=sweet gradient icons
+EAPI=7
+HOMEPAGE=https://github.com/EliverLara/Sweet-folders
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~ppc-aix ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~m68k-mint ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris
+LICENSE=GPL-3
+SLOT=0
+SRC_URI=https://github.com/EliverLara/Sweet-folders/archive/d50fbe3d93df4c494958c773b681ab36049935a1.tar.gz -> sweet-folders-icon-theme-0_pre20200227.tar.gz
+_md5_=2c4617cf23d93b3e2c9286e75c197a3c

@@ -85,6 +85,7 @@ dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
 dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
+dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
 dev-libs/mtxclient 0.3.0: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta 2.2.1_beta: C/C++ library to mainly provide Semantic Versioned implementation
 dev-libs/octetos-db-maria 1.2.2_beta: C++ library for Database Acces.
@@ -271,6 +272,7 @@ net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0 1.2.1: FORT validator is an open source RPKI validator
 net-misc/castor 0.8.13 0.8.14: A graphical browser for plain-text protocols
 net-misc/gemserv 0.3.1 0.4.1_pre20200529: A gemini Server written in rust
+net-misc/kristall 0.2: Visual cross-platform gemini browser
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/openbgpd 6.6_p0 6.7_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.1.3 9999: minimalistic commanline pastebin
@@ -331,6 +333,9 @@ x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm,
 x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Window System
 x11-themes/arc-darkest-colors 0_pre20200417: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
+x11-themes/candy-icon-theme 0_pre20200606 9999: sweet gradient icons
 x11-themes/obsidian-icon-theme 4.12 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
 x11-themes/obsidian2-gtk-theme 2.12 9999: Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
 x11-themes/papirus-claws-mail-theme 0_pre20181023: Papirus icon theme for Claws Mail
+x11-themes/sweet-folders-icon-theme 0_pre20200227 9999: sweet gradient icons
+x11-themes/sweet-gtk-theme 1.10.5_p20200603 9999: light and dark colorful gtk theme
