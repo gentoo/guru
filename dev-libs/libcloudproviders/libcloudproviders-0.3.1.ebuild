@@ -24,7 +24,10 @@ DEPEND="${RDEPEND}
 	introspection? ( dev-libs/gobject-introspection:= )
 "
 BDEPEND="$(vala_depend)
-	doc? ( dev-util/gdbus-codegen )
+	doc? (
+		dev-util/gdbus-codegen
+		dev-util/gtk-doc
+	)
 	virtual/pkgconfig
 "
 
