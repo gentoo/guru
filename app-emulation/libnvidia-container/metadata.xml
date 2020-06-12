@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">NVIDIA/libnvidia-container</remote-id>
+	</upstream>
+	<longdescription lang="en">
+	NVIDIA container runtime library, this repository provides a library and a
+	simple CLI utility to automatically configure GNU/Linux containers
+	leveraging NVIDIA hardware.
+	The implementation relies on kernel primitives and is designed to be
+	agnostic of the container runtime.
+	</longdescription>
+</pkgmetadata>
