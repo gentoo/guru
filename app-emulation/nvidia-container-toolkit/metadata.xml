@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">NVIDIA/container-toolkit</remote-id>
+	</upstream>
+	<longdescription lang="en">
+	NVIDIA container runtime toolkit, build and run containers leveraging
+	NVIDIA GPUs. tl;dr: nvidia-docker is deprecated because docker now has
+	native gpu support, which this package is required to use. The NVIDIA
+	Container Toolkit (formerly known as NVIDIA Docker) allows containers to
+	access full GPU acceleration. OpenGL, OpenCL and CUDA are supported for
+	production use. Vulkan support is currently in beta. This only works for
+	Linux containers running on Linux host systems with NVIDIA GPUs.
+	</longdescription>
+</pkgmetadata>
