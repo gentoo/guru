@@ -24,6 +24,7 @@ SLOT="0"
 
 # dead symbolic links QA
 src_prepare() {
+	default
 	find . -xtype l -delete || die
 }
 
