@@ -8,7 +8,7 @@ inherit cmake-utils
 DESCRIPTION="NVIDIA GPUs htop like monitoring tool"
 HOMEPAGE="https://github.com/Syllo/nvtop"
 
-if [[ ${PV} == "9999" ]] ; then
+if [[ "${PV}" == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/Syllo/${PN}.git"
 	inherit git-r3
 else
