@@ -18,10 +18,10 @@ SLOT="0"
 LICENSE="MIT"
 IUSE="+autoload"
 
+BDEPEND="virtual/pkgconfig"
 RDEPEND="media-video/mpv:=[cplugins,libmpv]
 	dev-libs/glib"
-DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+DEPEND="${RDEPEND}"
 
 DOCS=(
 	README.md
