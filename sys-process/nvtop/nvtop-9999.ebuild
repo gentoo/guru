@@ -19,7 +19,7 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-IUSE="unicode debug"
+IUSE="debug unicode"
 
 RDEPEND="
 	sys-libs/ncurses:0=[unicode?]
@@ -32,19 +32,16 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-BUILD_DIR="${WORKDIR}/build"
-
-CMAKE_CONF="
-	!debug? ( -DCMAKE_BUILD_TYPE=Release )
-	debug? ( -DCMAKE_BUILD_TYPE=Debug )
-	unicode? ( -DCURSES_NEED_WIDE=TRUE )
-"
-
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.0.0-add-nvml.patch
 )
 
 src_configure() {
+	local CMAKE_CONF="
+		!debug? ( -DCMAKE_BUILD_TYPE=Release )
+		debug? ( -DCMAKE_BUILD_TYPE=Debug )
+		unicode? ( -DCURSES_NEED_WIDE=TRUE )
+	"
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
 		-DNVML_INCLUDE_DIRS="${S}/include"
