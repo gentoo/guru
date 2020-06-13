@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Syllo/nvtop</remote-id>
+	</upstream>
+	<longdescription lang="en">
+	Nvtop stands for NVidia TOP, a (h)top like task monitor for NVIDIA GPUs.
+	It can handle multiple GPUs and print information about them in a htop
+	familiar way. Some fields are shown as N/A: Ask NVIDIA for better support
+	of your hardware! Compatibility issues: Does not work with nouveau driver
+	stack and older NVIDIA GPU for the time being.
+	</longdescription>
+</pkgmetadata>
