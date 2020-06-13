@@ -7,6 +7,5 @@
     </maintainer>
     <use>
       <flag name="libuv">Enable bindings to use the libuv dispatcher</flag>
-      <flag name="openssl">Enable openssl support</flag>
     </use>
 </pkgmetadata>
