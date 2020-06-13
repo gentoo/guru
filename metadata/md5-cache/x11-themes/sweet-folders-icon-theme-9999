@@ -1,5 +1,5 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install unpack
+DEFINED_PHASES=install prepare unpack
 DESCRIPTION=sweet gradient icons
 EAPI=7
 HOMEPAGE=https://github.com/EliverLara/Sweet-folders
@@ -7,4 +7,4 @@ LICENSE=GPL-3
 PROPERTIES=live
 SLOT=0
 _eclasses_=git-r3	86a0188f2ad9eb3d65e4d031ab8a0422
-_md5_=2c4617cf23d93b3e2c9286e75c197a3c
+_md5_=4a551c3dce247b700c428b97f774c9e1

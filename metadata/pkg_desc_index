@@ -19,6 +19,8 @@ app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-emacs/vterm 20200504.544 20200504.544-r1: Emacs libvterm integration
 app-emulation/dxvk-bin 1.6.1 1.7: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
+app-emulation/libnvidia-container 1.1.1: NVIDIA container runtime library
+app-emulation/nvidia-container-toolkit 1.1.1: NVIDIA container runtime toolkit
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/apidb 4.3.0_beta: API Generator for Database acces.
 app-misc/cheat 3.10.1: cheat allows you to create and view interactive cheatsheets on the command-line
@@ -86,10 +88,10 @@ dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC comp
 dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
 dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
-dev-libs/mtxclient 0.3.0: Client API library for Matrix, built on top of Boost.Asio
+dev-libs/mtxclient 0.3.0 0.3.1: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta 2.2.1_beta: C/C++ library to mainly provide Semantic Versioned implementation
 dev-libs/octetos-db-maria 1.2.2_beta: C++ library for Database Acces.
-dev-libs/olm 3.1.4: Implementation of the olm and megolm cryptographic ratchets
+dev-libs/olm 3.1.4 3.1.5: Implementation of the olm and megolm cryptographic ratchets
 dev-libs/open62541 1.0.1 1.1_rc1: Open source C implementation of OPC UA
 dev-libs/protothreads 1.4: Protothreads - Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
@@ -266,7 +268,7 @@ net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.4 8.5 9.0_pre20200419 9.0_pre20200509: XMPP gateway to IRC
 net-im/discord-canary-bin 0.0.104: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
-net-im/nheko 0.7.1: Desktop client for Matrix using Qt and C++14
+net-im/nheko 0.7.1 0.7.2: Desktop client for Matrix using Qt and C++14
 net-im/srain 1.1.0: Modern, beautiful IRC client written in GTK+ 3
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0 1.2.1: FORT validator is an open source RPKI validator
