@@ -289,7 +289,7 @@ net-wireless/rtl8192eu 0_pre20200123: Realtek 8192EU driver module for Linux ker
 net-wireless/rtl8821ce 0_pre20200224: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20200302: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
-sci-electronics/verilator 4.034 9999: The fast free Verilog/SystemVerilog simulator
+sci-electronics/verilator 4.034 4.036 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/geographiclib 1.50-r4 1.50.1: C++ library for converting geographic coordinate systems
 sci-libs/ann 1.1.2_p7: A Library for Approximate Nearest Neighbor Searching
 sci-libs/chaco 2.2: Software for Partitioning Graphs
