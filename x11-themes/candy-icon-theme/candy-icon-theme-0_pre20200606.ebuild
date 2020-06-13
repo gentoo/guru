@@ -22,6 +22,12 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
+# dead symbolic links QA
+src_prepare() {
+	default
+	find . -xtype l -delete || die
+}
+
 src_install() {
 	dodir /usr/share/icons/candy-icons
 	insinto /usr/share/icons/candy-icons

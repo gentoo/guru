@@ -27,10 +27,8 @@ RDEPEND="
 	media-libs/libjpeg-turbo
 "
 
-DEPEND="
-	${RDEPEND}
-	virtual/pkgconfig
-"
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 S="${WORKDIR}/${PN}-${MY_PV}"
 
