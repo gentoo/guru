@@ -32,9 +32,12 @@ python_prepare_all() {
 	sed -i -e 's:test_fix:_&:' \
 		quantities/tests/test_umath.py || die
 
+	# pngmath replaced with imgmath in sphinx>1.8
+	sed -i -e 's:ext.pngmath:ext.imgmath:g' \
+		doc/conf.py || die
+
 	distutils-r1_python_prepare_all
 }
 
 distutils_enable_tests unittest
-# wants ext.pngmath which got removed in sphinx-2
-distutils_enable_sphinx doc dev-python/numpydoc "<dev-python/sphinx-2"
+distutils_enable_sphinx doc dev-python/numpydoc ">dev-python/sphinx-1.8"
