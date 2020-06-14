@@ -17,18 +17,21 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE=""
-RDEPEND="~dev-cpp/usockets-0.3.5"
+RDEPEND="~dev-cpp/usockets-0.4.0"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-Makefile.patch"
 	"${FILESDIR}/${PN}-src_Loop.h.patch"
 )
+
+src_prepare() {
+	default
+	mv src uWebSockets
+}
 
 src_compile() {
 	return 0
 }
 
 src_install() {
-	emake prefix="/usr" DESTDIR="${D}" install
+	doheader -r uWebSockets
 }

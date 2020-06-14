@@ -19,22 +19,13 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="libuv +openssl libressl debug"
+IUSE="libuv +ssl libressl static-libs"
 
-DEPEND="openssl? (
-			  libressl? ( >=dev-libs/libressl-3.0.0 )
-			  !libressl? ( >=dev-libs/openssl-1.1.0 )
-			  )
-	libuv? ( dev-libs/libuv )
-	debug? (
-		|| (
-			>=sys-devel/gcc-7.4.0:*[sanitize]
-			(
-				sys-devel/clang-runtime:*[sanitize]
-				sys-libs/compiler-rt-sanitizers:*[sanitize]
-			)
-		)
+DEPEND="ssl? (
+		libressl? ( >=dev-libs/libressl-3.0.0:=[static-libs?] )
+		!libressl? ( >=dev-libs/openssl-1.1.0:=[static-libs?] )
 	)
+	libuv? ( dev-libs/libuv[static-libs?] )
 "
 BDEPEND="${DEPEND}"
 RDEPEND="${DEPEND}"
@@ -45,13 +36,21 @@ PATCHES=(
 
 src_compile() {
 	# the Makefile uses environment variables
-	emake WITH_OPENSSL=$(usex openssl 1 0) \
+	emake -j1 \
+		  LIBusockets_VERSION=${PV} \
+		  WITH_OPENSSL=$(usex ssl 1 0) \
 		  WITH_LIBUV=$(usex libuv 1 0) \
-		  WITH_ASAN=$(usex debug 1 0) \
 		  default
 }
 
 src_install() {
-	emake libdir="/usr/$(get_libdir)" prefix="/usr" DESTDIR="${D}" install
+	emake -j1 \
+		  libdir="/usr/$(get_libdir)" \
+		  prefix="/usr" DESTDIR="${D}" \
+		  LIBusockets_VERSION=${PV} \
+		  install
 	einstalldocs
+	if ! use static-libs; then
+		rm "${D}/usr/$(get_libdir)/libusockets.a" || die
+	fi
 }

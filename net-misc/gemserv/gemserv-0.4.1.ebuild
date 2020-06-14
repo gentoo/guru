@@ -4,7 +4,7 @@
 EAPI=7
 
 CRATES="
-	arc-swap-0.4.6
+	arc-swap-0.4.7
 	atty-0.2.14
 	autocfg-1.0.0
 	bitflags-1.2.1
@@ -21,7 +21,7 @@ CRATES="
 	futures-macro-0.3.5
 	futures-task-0.3.5
 	futures-util-0.3.5
-	hermit-abi-0.1.13
+	hermit-abi-0.1.14
 	idna-0.2.0
 	iovec-0.1.4
 	kernel32-sys-0.2.2
@@ -36,33 +36,33 @@ CRATES="
 	mio-named-pipes-0.1.6
 	mio-uds-0.6.8
 	miow-0.2.1
-	miow-0.3.4
+	miow-0.3.5
 	net2-0.2.34
-	num-integer-0.1.42
-	num-traits-0.2.11
+	num-integer-0.1.43
+	num-traits-0.2.12
 	num_cpus-1.13.0
 	once_cell-1.4.0
 	openssl-0.10.29
-	openssl-sys-0.9.57
+	openssl-sys-0.9.58
 	percent-encoding-2.1.0
-	pin-project-0.4.17
-	pin-project-internal-0.4.17
-	pin-project-lite-0.1.5
+	pin-project-0.4.21
+	pin-project-internal-0.4.21
+	pin-project-lite-0.1.7
 	pin-utils-0.1.0
 	pkg-config-0.3.17
 	proc-macro-hack-0.5.16
-	proc-macro-nested-0.1.4
-	proc-macro2-1.0.17
-	quote-1.0.6
+	proc-macro-nested-0.1.5
+	proc-macro2-1.0.18
+	quote-1.0.7
 	redox_syscall-0.1.56
-	serde-1.0.110
-	serde_derive-1.0.110
+	serde-1.0.111
+	serde_derive-1.0.111
 	signal-hook-registry-1.2.0
 	simple_logger-1.6.0
 	slab-0.4.2
 	smallvec-1.4.0
 	socket2-0.3.12
-	syn-1.0.27
+	syn-1.0.31
 	time-0.1.43
 	tokio-0.2.21
 	tokio-openssl-0.4.0
@@ -72,7 +72,7 @@ CRATES="
 	unicode-normalization-0.1.12
 	unicode-xid-0.2.0
 	url-2.1.1
-	vcpkg-0.2.8
+	vcpkg-0.2.10
 	version_check-0.9.2
 	winapi-0.2.8
 	winapi-0.3.8
@@ -82,17 +82,17 @@ CRATES="
 	ws2_32-sys-0.2.1
 "
 
-inherit cargo git-r3 systemd
-
-EGIT_REPO_URI="https://git.sr.ht/~int80h/gemserv"
-EGIT_COMMIT="8ebe1becf124cf6143e3410d10cfb0fb760911e6"
+inherit cargo systemd
 
 DESCRIPTION="A gemini Server written in rust"
 HOMEPAGE="
 	gemini://80h.dev/projects/gemserv/
 	https://git.sr.ht/~int80h/gemserv
 "
-SRC_URI="$(cargo_crate_uris ${CRATES})"
+SRC_URI="
+	https://git.sr.ht/~int80h/gemserv/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	$(cargo_crate_uris ${CRATES})
+"
 
 LICENSE="Apache-2.0 BSD MIT MPL-2.0"
 SLOT="0"
@@ -104,6 +104,8 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+S="${WORKDIR}/${PN}-v${PV}"
+
 src_prepare() {
 	# Fix paths in systemd unit.
 	sed -i "s@/path/to/bin /path/to/config@${EPREFIX}/usr/bin/gemserv ${EPREFIX}/etc/gemserv/config.toml@" \
@@ -111,14 +113,13 @@ src_prepare() {
 
 	# Fix paths in config.
 	sed -Ei 's@/path/to/(key|cert)@/etc/gemserv/\1.pem@' config.toml || die
-	# Fix typo in config.
-	sed -Ei 's@^proxy@proxy =@' config.toml || die
+	sed -Ei 's@/path/to/serv@/var/gemini@' config.toml || die
 
 	default
 }
 
 src_unpack() {
-	git-r3_src_unpack
+	unpack "${P}.tar.gz"
 	cargo_src_unpack
 }
 
@@ -127,12 +128,12 @@ src_install() {
 
 	einstalldocs
 
+	diropts --group=gemini
 	insinto etc/gemserv
-	insopts --group=gemini --mode=640
 	newins config.toml config.toml.example
 
 	systemd_dounit init-scripts/gemserv.service
-	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
+	newinitd "init-scripts/${PN}.openrc" "${PN}"
 }
 
 pkg_postinst() {
