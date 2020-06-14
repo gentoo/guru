@@ -10,7 +10,6 @@ app-text/OCRmyPDF:jbig2enc - Uses media-libs/jbig2enc for better compression alg
 dev-cpp/sprout:texconv - Install texconv from subproject compost
 dev-cpp/sprout:wavconv - Install texconv from subproject darkroom
 dev-cpp/usockets:libuv - Enable bindings to use the libuv dispatcher
-dev-cpp/usockets:openssl - Enable openssl support
 dev-embedded/rauc:json - Add JSON support
 dev-embedded/rauc:network - Add network update support
 dev-embedded/rauc:service - Add dbus service

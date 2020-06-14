@@ -1,0 +1,11 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install prepare unpack
+DESCRIPTION=ultra fast, simple, secure & standards compliant web I/O
+EAPI=7
+HOMEPAGE=https://github.com/uNetworking/uWebSockets
+LICENSE=Apache-2.0
+PROPERTIES=live
+RDEPEND=~dev-cpp/usockets-0.4.0
+SLOT=0
+_eclasses_=git-r3	86a0188f2ad9eb3d65e4d031ab8a0422
+_md5_=94bd3090971d9a2c796c56a7be2277be

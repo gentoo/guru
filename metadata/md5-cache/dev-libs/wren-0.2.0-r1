@@ -10,5 +10,5 @@ RDEPEND=>=dev-libs/libuv-1.10.0
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/wren-lang/wren/archive/0.2.0.tar.gz -> wren-0.2.0.tar.gz
-_eclasses_=multilib	ba693a7065ee4edc78b3ea02a015bcad	toolchain-funcs	d3e75048a89c0445838d2f44e5c65d97
+_eclasses_=multilib	2477ebe553d3e4d2c606191fe6c33602	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
 _md5_=82811e043f2a8092c205f12064dc4f7b

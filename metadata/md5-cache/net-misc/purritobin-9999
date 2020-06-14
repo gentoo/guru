@@ -1,13 +1,12 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install unpack
-DEPEND=>=dev-cpp/usockets-0.3.5:=[libuv?] >=dev-cpp/uwebsockets-0.17.4 libuv? ( >=dev-libs/libuv-1.35.0 )
-DESCRIPTION=minimalistic commanline pastebin
+BDEPEND=dev-cpp/uwebsockets >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install prepare unpack
+DEPEND=dev-cpp/usockets[libuv=,static-libs?] libuv? ( >=dev-libs/libuv-1.35.0[static-libs?] )
+DESCRIPTION=minimalistic commandline pastebin
 EAPI=7
 HOMEPAGE=https://bsd.ac
-IUSE=libuv
-LICENSE=ISC
+IUSE=libuv static-libs
+LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=>=dev-cpp/usockets-0.3.5:=[libuv?] >=dev-cpp/uwebsockets-0.17.4 libuv? ( >=dev-libs/libuv-1.35.0 )
 SLOT=0
 _eclasses_=git-r3	86a0188f2ad9eb3d65e4d031ab8a0422
-_md5_=5cccae85c1bbb07831b98c59252c967b
+_md5_=c03306b5e3c81a965a0277a2c03f0172
