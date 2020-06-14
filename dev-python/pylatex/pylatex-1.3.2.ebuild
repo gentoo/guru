@@ -5,9 +5,8 @@ EAPI=7
 
 MY_PN="PyLaTeX"
 MY_P="${MY_PN}-${PV}"
-S="${WORKDIR}/${MY_P}"
 
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{6,7,8,9} )
 inherit distutils-r1 eutils
 
 DESCRIPTION="A Python library for creating LaTeX files and snippets"
@@ -33,7 +32,7 @@ DEPEND="test? (
 
 S="${WORKDIR}/${MY_P}"
 
-distutils_enable_sphinx docs/source
+distutils_enable_sphinx docs/source dev-python/sphinx_rtd_theme
 distutils_enable_tests nose
 
 python_install_all() {
