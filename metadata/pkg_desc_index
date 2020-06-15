@@ -143,7 +143,7 @@ dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/markdown-include 0.5.1: Syntax which allows for inclusion of contents of other Markdown docs
 dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your output
 dev-python/mkdocs-git-revision-date-localized-plugin 0.5.0: Display the localized date of the last git modification of a markdown file
-dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.2.3: A Material Design theme for MkDocs
+dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.2.3 5.3.0: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.0: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.3.0: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs_pymdownx_material_extras 1.0_beta11: Custom alterations based on Mkdocs-Material
@@ -170,7 +170,7 @@ dev-python/pytest-marks 0.4: Allow to set 'marks' on pytest methods
 dev-python/pytest-ordering 0.6: pytest plugin to run your tests in a specific order
 dev-python/pytest-randomly 3.3.1-r1 3.3.1-r2: Pytest plugin to randomly order tests and control random.seed
 dev-python/pytest-sanic 1.6.1: a Pytest Plugin for Sanic
-dev-python/pytest-subtests 0.3.0: unittest subTest() support and subtests fixture
+dev-python/pytest-subtests 0.3.1: unittest subTest() support and subtests fixture
 dev-python/pytest-sugar 0.9.3: Plugin for pytest that changes the default look and feel of pytest
 dev-python/pytest-toolbox 0.4: Numerous useful plugins for pytest
 dev-python/pytest-travis-fold 1.3.0 1.3.0-r1: Pytest plugin that folds captured output sections in Travis CI build log
@@ -199,7 +199,7 @@ dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/st
 dev-python/tekore 1.7.0 2.1.0: Spotify Web API client
 dev-python/text-unidecode 1.3: The most basic Text::Unidecode port
 dev-python/timeout-decorator 0.4.1: Timeout decorator
-dev-python/trio 0.14.0 0.15.1: Python library for async concurrency and I/O
+dev-python/trio 0.14.0 0.15.1 0.16.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/ufoLib2 0.7.1 0.8.0: A UFO font library
