@@ -1,0 +1,25 @@
+--- a/update.sh	2020-05-19 20:27:54.816143493 +0200
++++ b/update.sh	2020-05-19 20:28:03.700182804 +0200
+@@ -4,22 +4,6 @@
+ openbsd_branch=`cat OPENBSD_BRANCH`
+ openbgpd_version=`cat VERSION`
+ 
+-# pull in latest upstream code
+-echo "pulling upstream openbsd source"
+-if [ ! -d openbsd ]; then
+-	if [ -z "${RPKICLIENT_GIT}" ]; then
+-		git clone https://github.com/rpki-client/rpki-client-openbsd.git openbsd
+-	else
+-		git clone "${RPKICLIENT_GIT}/openbsd"
+-	fi
+-fi
+-if [ -d openbsd/.git ]; then
+-	(cd openbsd/src
+-	 git fetch
+-	 git checkout "${openbsd_branch}"
+-	 git pull --rebase)
+-fi
+-
+ # setup source paths
+ dir=`pwd`
+ patches="${dir}/patches"
