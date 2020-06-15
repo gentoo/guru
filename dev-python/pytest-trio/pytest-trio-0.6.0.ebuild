@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
@@ -20,7 +20,7 @@ LICENSE="|| ( MIT Apache-2.0 )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-# lots of different errors
+# fixture 'testdir' not found, should be in pytest according to the manual
 RESTRICT="test"
 
 RDEPEND="
@@ -32,7 +32,6 @@ DEPEND="
 	${RDEPEND}
 	test? (
 		>=dev-python/hypothesis-3.64[${PYTHON_USEDEP}]
-		dev-python/pytest-trio[${PYTHON_USEDEP}]
 		!~dev-python/pytest-3.7.0[${PYTHON_USEDEP}]
 		!~dev-python/pytest-3.7.1[${PYTHON_USEDEP}]
 		>=dev-python/pytest-4.3[${PYTHON_USEDEP}]
@@ -60,7 +59,6 @@ python_test() {
 	#even upstream doesn't know how to run their tests
 	#https://github.com/python-trio/pytest-trio/issues/84
 	#"Our CI is still passing AFAIK"
-
 	PYTHONPATH="${S}"
 	cd "${S}" || die
 	pytest -vv || die "Tests fail with ${EPYTHON}"
