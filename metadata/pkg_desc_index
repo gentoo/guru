@@ -35,7 +35,7 @@ app-misc/tealdeer 1.3.0: A very fast implementation of tldr in Rust.
 app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the command-line
 app-misc/vrms-gentoo 0_pre20181120 9999: vrms clone for Gentoo Linux
 app-misc/watchexec 1.12.0: Executes commands in response to file modifications
-app-portage/pacvis 0.4.1 0.4.2 9999: Displays dependency graphs of packages
+app-portage/pacvis 0.4.2 9999: Displays dependency graphs of packages
 app-portage/portage-lostfiles 0.2.0: A simple script to identify files not tracked by Portage package manager
 app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
 app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
@@ -224,6 +224,7 @@ dev-vcs/lazygit 0.19 0.20.3 0.20.4: Lazygit, a simple terminal UI for git comman
 games-action/ATLauncher 3.3.5.2: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.15166: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
+games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/technic-launcher 4.546: Minecraft launcher for community-made modpacks on the Technic Platform
 games-arcade/opensurge 0.5.1.2 9999: fun 2D retro platformer inspired by old-school Sonic games
 games-arcade/taisei 1.3.1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
@@ -278,7 +279,7 @@ net-misc/kristall 0.2: Visual cross-platform gemini browser
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/openbgpd 6.6_p0 6.7_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.2.1 9999: minimalistic commandline pastebin
-net-misc/rpki-client 0.3.0 6.6_p2: Portability shim for OpenBSD's rpki-client
+net-misc/rpki-client 6.6_p2 6.7_p0: Portability shim for OpenBSD's rpki-client
 net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
 net-misc/wayback_machine_downloader 2.2.1: Download an entire website from the Wayback Machine
 net-misc/wsdd 0.5 0.6: A Web Service Discovery host daemon.
