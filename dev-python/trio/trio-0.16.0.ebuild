@@ -61,3 +61,10 @@ python_prepare_all() {
 
 	distutils-r1_python_prepare_all
 }
+
+python_test() {
+	# tests fail if package is already installed without this
+	PYTHONPATH="${S}"
+	cd "${S}" || die
+	pytest -vv || die "Tests fail with ${EPYTHON}"
+}
