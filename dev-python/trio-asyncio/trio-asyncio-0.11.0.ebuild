@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
 inherit distutils-r1
 
@@ -27,7 +27,6 @@ RDEPEND="
 
 DEPEND="test? (
 	dev-python/pytest-trio[${PYTHON_USEDEP}]
-	<dev-python/pytest-4.1[${PYTHON_USEDEP}]
 )"
 
 distutils_enable_tests pytest

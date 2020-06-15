@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{6,7,8,9} )
 
 inherit distutils-r1
 
@@ -18,7 +18,7 @@ LICENSE="|| ( Apache-2.0 MIT )"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
-RDEPEND="<=dev-python/sphinx-3[${PYTHON_USEDEP}]"
+RDEPEND="dev-python/sphinx[${PYTHON_USEDEP}]"
 
 DEPEND="test? (
 	dev-python/async_generator[${PYTHON_USEDEP}]
