@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit cmake xdg-utils
+inherit cmake
 
 DESCRIPTION="Qt plug-in to allow Qt and KDE based applications to read/write AVIF images."
 HOMEPAGE="https://github.com/novomesk/qt-avif-image-plugin"
@@ -22,20 +22,9 @@ IUSE=""
 
 DEPEND=">=dev-qt/qtgui-5.12.3:5
 	>=media-libs/libavif-0.8.0
+	>=x11-misc/shared-mime-info-2.0-r1
 "
 
 BDEPEND=">=kde-frameworks/extra-cmake-modules-5.70:5"
 
 RDEPEND="${DEPEND}"
-
-src_install() {
-	cmake_src_install
-
-	insinto /usr/share/mime/packages/
-	doins share/mime/packages/avif.xml
-	doins share/mime/packages/avifs.xml
-}
-
-pkg_postinst() {
-	xdg_mimeinfo_database_update
-}
