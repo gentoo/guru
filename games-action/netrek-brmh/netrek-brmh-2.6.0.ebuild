@@ -29,7 +29,7 @@ BDEPEND="
 
 src_configure() {
 	xmkmf || die
-	make depend || die
+	emake depend || die
 }
 
 src_compile() {
