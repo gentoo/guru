@@ -5,10 +5,6 @@
 		<email>phil@demona.co</email>
 		<name>Phil DeMonaco</name>
 		</maintainer>
-	<maintainer type="project">
-		<email>proxy-maint@gentoo.org</email>
-		<name>Proxy Maintainers</name>
-	</maintainer>
 	<longdescription lang="en">
 			Dotfile management application which provides a configuration
 			and encryption interface ontop of traditional version control
