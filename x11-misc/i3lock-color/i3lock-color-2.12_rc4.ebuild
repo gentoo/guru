@@ -25,6 +25,7 @@ RDEPEND="
 	dev-libs/libev
 	media-libs/fontconfig:=
 	media-libs/libjpeg-turbo
+	!x11-misc/i3lock
 "
 
 DEPEND="${RDEPEND}"
@@ -33,7 +34,7 @@ BDEPEND="virtual/pkgconfig"
 S="${WORKDIR}/${PN}-${MY_PV}"
 
 src_configure() {
-	autoreconf -fiv
+	autoreconf -fiv || die
 	econf
 }
 
