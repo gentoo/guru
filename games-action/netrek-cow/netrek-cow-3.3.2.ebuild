@@ -14,6 +14,9 @@ KEYWORDS="~amd64"
 
 S="${WORKDIR}/netrek-client-cow-${PV}"
 
+# upstream has a file named check that is unrelated to tests
+RESTRICT="test"
+
 RDEPEND="
 	media-libs/libsdl
 	media-libs/sdl-mixer
