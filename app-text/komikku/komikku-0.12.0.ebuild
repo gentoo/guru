@@ -23,7 +23,7 @@ SLOT="0"
 RESTRICT="test"
 
 DEPEND="
-	>=gui-libs/libhandy-0.0.10
+	>=gui-libs/libhandy-0.0.10:0.0/0
 	>=x11-libs/gtk+-3.24.10
 	dev-python/beautifulsoup:4[${PYTHON_USEDEP}]
 	dev-python/cloudscraper[${PYTHON_USEDEP}]
