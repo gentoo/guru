@@ -21,7 +21,7 @@ RDEPEND="
 	>=dev-lang/python-3.6.5:*
 	>=dev-python/pykeepass-3.2.0
 	>=x11-libs/gtk+-3.24.1:3[introspection?]
-	>=gui-libs/libhandy-0.0.13
+	>=gui-libs/libhandy-0.0.13:0.0/0
 	>=dev-libs/libpwquality-1.4.0[python]
 	introspection? ( >=dev-libs/gobject-introspection-0.6.7:= )
 "
