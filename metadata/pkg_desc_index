@@ -13,6 +13,7 @@ acct-user/gemini 0: User for gemini daemon
 acct-user/sndiod 0: daemon user for sndio
 acct-user/trezord 0: User for TREZOR Bridge
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
+app-admin/chezmoi-bin 1.8.2: Manage your dotfiles across multiple machines, securely.
 app-admin/gnome-passwordsafe 3.99.2: A password manager for GNOME
 app-arch/unalz 0.65: Extract ALZ archives
 app-crypt/reop 2.1.1: reasonable expectation of privacy
@@ -20,7 +21,7 @@ app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on th
 app-emacs/vterm 20200504.544 20200504.544-r1: Emacs libvterm integration
 app-emulation/dxvk-bin 1.6.1 1.7: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/libnvidia-container 1.1.1: NVIDIA container runtime library
-app-emulation/nvidia-container-toolkit 1.1.1: NVIDIA container runtime toolkit
+app-emulation/nvidia-container-toolkit 1.1.1 1.1.2: NVIDIA container runtime toolkit
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/apidb 4.3.0_beta: API Generator for Database acces.
 app-misc/cheat 3.10.1: cheat allows you to create and view interactive cheatsheets on the command-line
