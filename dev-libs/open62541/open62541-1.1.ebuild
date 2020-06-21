@@ -7,14 +7,9 @@ PYTHON_COMPAT=( python3_{6..8} )
 
 inherit cmake python-single-r1
 
-MY_PV=${PV/_/-}
-MY_P=${PN}-${MY_PV}
-
 DESCRIPTION="Open source C implementation of OPC UA"
 HOMEPAGE="https://open62541.org/"
-SRC_URI="https://github.com/${PN}/${PN}/archive/v${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
-
-S=${WORKDIR}/${MY_P}
+SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MPL-2.0"
 SLOT="0"
@@ -61,7 +56,7 @@ PATCHES=( "${FILESDIR}/${P}-tests.patch" )
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
-		-DOPEN62541_VERSION=v${MY_PV}
+		-DOPEN62541_VERSION=v${PV}
 		-DUA_BUILD_EXAMPLES=OFF
 		-DUA_BUILD_TOOLS=$(usex tools)
 		-DUA_BUILD_UNIT_TESTS=$(usex test)

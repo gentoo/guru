@@ -3,8 +3,6 @@
 
 EAPI=7
 
-inherit flag-o-matic
-
 MY_PV="$(ver_rs 2 '-')"
 MY_P="${PN}-${MY_PV}"
 
@@ -15,11 +13,10 @@ SRC_URI="https://github.com/dylanaraps/eiwd/releases/download/${MY_PV}/${MY_P}.t
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+client +monitor ofono +resolvconf +system-ell wired"
+IUSE="+client +monitor ofono +system-ell wired"
 
 DEPEND="system-ell? ( >=dev-libs/ell-0.31 )"
 RDEPEND="${DEPEND}
-	resolvconf? ( || ( net-dns/openresolv net-misc/dhcpcd ) )
 	!net-wireless/iwd
 	net-wireless/wireless-regdb"
 BDEPEND="virtual/pkgconfig"
@@ -27,7 +24,6 @@ BDEPEND="virtual/pkgconfig"
 S="${WORKDIR}/${MY_P}"
 
 src_configure() {
-	append-cflags "-fsigned-char"
 	local myeconfargs=(
 		--sysconfdir="${EPREFIX}"/etc/iwd --localstatedir="${EPREFIX}"/var
 		--disable-dbus
@@ -44,8 +40,11 @@ src_install() {
 	default
 	keepdir /var/lib/iwd
 	newinitd "${FILESDIR}"/iwd.initd iwd
-	if use resolvconf ; then
-		insinto /etc/iwd/
-		doins "${FILESDIR}"/main.conf
-	fi
+	insinto /etc/iwd/
+	doins "${FILESDIR}"/main.conf
+}
+
+pkg_postinst() {
+	elog "To use eiwd's built-in DNS features you also need net-dns/openresolv"
+	elog "or net-misc/dhcpcd."
 }

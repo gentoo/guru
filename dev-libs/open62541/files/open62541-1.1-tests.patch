@@ -1,20 +1,20 @@
-From 42c70a47ac3a2acfbc9ef0ab153192f132d905ed Mon Sep 17 00:00:00 2001
+From 3155e729c5a20cacfb84472e442c94b05bba8dd4 Mon Sep 17 00:00:00 2001
 From: Kurt Kanzenbach <kurt@kmk-computers.de>
-Date: Fri, 5 Jun 2020 19:22:15 +0200
+Date: Sat, 20 Jun 2020 14:28:57 +0200
 Subject: [PATCH] cmake: pubsub: Disable failing tests within portage
 
 The Pub/Sub tests won't work within portage. Disable them.
 
 Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
 ---
- tests/CMakeLists.txt | 78 --------------------------------------------
- 1 file changed, 78 deletions(-)
+ tests/CMakeLists.txt | 84 --------------------------------------------
+ 1 file changed, 84 deletions(-)
 
 diff --git a/tests/CMakeLists.txt b/tests/CMakeLists.txt
-index 19ec2d8c44f9..fb21fb856ba4 100644
+index 3e839534bf83..af644422bba6 100644
 --- a/tests/CMakeLists.txt
 +++ b/tests/CMakeLists.txt
-@@ -331,84 +331,6 @@ if(UA_ENABLE_DISCOVERY)
+@@ -331,90 +331,6 @@ if(UA_ENABLE_DISCOVERY)
      add_test_valgrind(discovery ${TESTS_BINARY_DIR}/check_discovery)
  endif()
  
@@ -47,6 +47,12 @@ index 19ec2d8c44f9..fb21fb856ba4 100644
 -    add_executable(check_pubsub_publish_rt_levels pubsub/check_pubsub_publish_rt_levels.c $<TARGET_OBJECTS:open62541-object> $<TARGET_OBJECTS:open62541-plugins>)
 -    target_link_libraries(check_pubsub_publish_rt_levels ${LIBS})
 -    add_test_valgrind(check_pubsub_publish_rt_levels ${TESTS_BINARY_DIR}/check_pubsub_publish_rt_levels)
+-    add_executable(check_pubsub_subscribe_config_freeze pubsub/check_pubsub_subscribe_config_freeze.c $<TARGET_OBJECTS:open62541-object> $<TARGET_OBJECTS:open62541-plugins>)
+-    target_link_libraries(check_pubsub_subscribe_config_freeze ${LIBS})
+-    add_test_valgrind(check_pubsub_subscribe_config_freeze ${TESTS_BINARY_DIR}/check_pubsub_subscribe_config_freeze)
+-    add_executable(check_pubsub_subscribe_rt_levels pubsub/check_pubsub_subscribe_rt_levels.c $<TARGET_OBJECTS:open62541-object> $<TARGET_OBJECTS:open62541-plugins>)
+-    target_link_libraries(check_pubsub_subscribe_rt_levels ${LIBS})
+-    add_test_valgrind(check_pubsub_subscribe_rt_levels ${TESTS_BINARY_DIR}/check_pubsub_subscribe_rt_levels)
 -
 -    add_executable(check_pubsub_multiple_layer pubsub/check_pubsub_multiple_layer.c $<TARGET_OBJECTS:open62541-object> $<TARGET_OBJECTS:open62541-plugins>)
 -    target_link_libraries(check_pubsub_multiple_layer ${LIBS})
@@ -79,11 +85,11 @@ index 19ec2d8c44f9..fb21fb856ba4 100644
 -    if(UA_ENABLE_PUBSUB_INFORMATIONMODEL)
 -        add_executable(check_pubsub_informationmodel pubsub/check_pubsub_informationmodel.c $<TARGET_OBJECTS:open62541-object> $<TARGET_OBJECTS:open62541-plugins>)
 -        target_link_libraries(check_pubsub_informationmodel ${LIBS})
--        add_test(check_pubsub_informationmodel ${TESTS_BINARY_DIR}/check_pubsub_informationmodel)
+-        add_test_valgrind(check_pubsub_informationmodel ${TESTS_BINARY_DIR}/check_pubsub_informationmodel)
 -        if(UA_ENABLE_PUBSUB_INFORMATIONMODEL_METHODS)
 -            add_executable(check_pubsub_informationmodel_methods pubsub/check_pubsub_informationmodel_methods.c $<TARGET_OBJECTS:open62541-object> $<TARGET_OBJECTS:open62541-plugins>)
 -            target_link_libraries(check_pubsub_informationmodel_methods ${LIBS})
--            add_test(check_pubsub_informationmodel_methods ${TESTS_BINARY_DIR}/check_pubsub_informationmodel_methods)
+-            add_test_valgrind(check_pubsub_informationmodel_methods ${TESTS_BINARY_DIR}/check_pubsub_informationmodel_methods)
 -
 -        endif()
 -    endif()
