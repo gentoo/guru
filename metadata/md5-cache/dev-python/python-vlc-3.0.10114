@@ -1,14 +1,14 @@
 BDEPEND=python_targets_python3_6? ( dev-lang/python:3.6 ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_6(-)?,python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_6(-),-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-)] >=dev-python/setuptools-42.0.2[python_targets_python3_6(-)?,python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_6(-),-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
 DEFINED_PHASES=compile configure install prepare test
-DESCRIPTION=Chromium HSTS Preload list as a Python package
+DESCRIPTION=Python ctypes-based bindings for libvlc
 EAPI=7
-HOMEPAGE=https://hstspreload.org https://github.com/sethmlarson/hstspreload https://pypi.org/project/hstspreload
-IUSE=python_targets_python3_6 python_targets_python3_7 python_targets_python3_8 python_targets_python3_9
+HOMEPAGE=https://github.com/oaubert/python-vlc
+IUSE=examples python_targets_python3_6 python_targets_python3_7 python_targets_python3_8 python_targets_python3_9
 KEYWORDS=~amd64 ~x86
-LICENSE=BSD
+LICENSE=LGPL-2.1
 RDEPEND=python_targets_python3_6? ( dev-lang/python:3.6 ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_6(-)?,python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_6(-),-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
 REQUIRED_USE=|| ( python_targets_python3_6 python_targets_python3_7 python_targets_python3_8 python_targets_python3_9 )
 SLOT=0
-SRC_URI=mirror://pypi/h/hstspreload/hstspreload-2020.6.9.tar.gz
+SRC_URI=mirror://pypi/p/python-vlc/python-vlc-3.0.10114.tar.gz
 _eclasses_=distutils-r1	44725b3eb803b8abcd6978759c231210	multibuild	40fe59465edacd730c644ec2bc197809	multilib	2477ebe553d3e4d2c606191fe6c33602	multiprocessing	cac3169468f893670dac3e7cb940e045	python-r1	8386b016a2b3bbefa88443fdaa898057	python-utils-r1	ace0a9a129fcfeaae542c0d15c07f36a	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
-_md5_=699a59ea3a0b6b18da2ef5b995c5d4d1
+_md5_=958001c1d0f862ddb91b5af14a1090fd

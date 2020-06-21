@@ -58,7 +58,6 @@ net-p2p/trezord-go:udev - Install udev rules
 net-wireless/eiwd:client - Enable iwctl client tool
 net-wireless/eiwd:monitor - Enable iwmon monitor tool
 net-wireless/eiwd:ofono - Enable support for oFono SIM authentication
-net-wireless/eiwd:resolvconf - Use resolvconf to handle /etc/resolv.conf updates
 net-wireless/eiwd:system-ell - Use the system-wide dev-libs/ellinstead of bundled.
 net-wireless/eiwd:wired - Enable ethernet authentication daemon
 sci-geosciences/geographiclib:boost - Boost library is searched for in order to build the NearestNeighbor example
