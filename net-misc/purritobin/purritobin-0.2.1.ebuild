@@ -20,11 +20,11 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="libuv static-libs"
 
-DEPEND="dev-cpp/usockets[libuv=,static-libs?]
+DEPEND="net-libs/usockets[libuv=,static-libs?]
 	libuv? ( >=dev-libs/libuv-1.35.0[static-libs?] )
 "
 BDEPEND="
-	dev-cpp/uwebsockets
+	www-apps/uwebsockets
 "
 
 src_prepare() {

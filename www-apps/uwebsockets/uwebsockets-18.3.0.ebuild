@@ -17,7 +17,7 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-RDEPEND="~dev-cpp/usockets-0.4.0"
+RDEPEND=">=net-libs/usockets-0.4.0"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-src_Loop.h.patch"
