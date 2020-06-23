@@ -16,11 +16,6 @@ KEYWORDS="~amd64"
 RDEPEND="dev-qt/qtmultimedia:5[widgets]"
 DEPEND="${RDEPEND}"
 
-src_prepare() {
-	xdg_src_prepare
-	sed -Ei 's|(target\.path) = .+|\1 = /usr/bin|' src/kristall.pro || die
-}
-
 src_configure() {
 	# qmake overwrites Makefile but it is needed for installing.
 	mv Makefile{,.tmp} || die
