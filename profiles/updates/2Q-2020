@@ -1,0 +1,2 @@
+move dev-cpp/usockets net-libs/usockets
+move dev-cpp/uwebsockets www-apps/uwebsockets
