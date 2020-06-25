@@ -1,0 +1,10 @@
+--- a/src/annotations/undo/AddCommand.cpp
++++ b/src/annotations/undo/AddCommand.cpp
+@@ -29,7 +29,6 @@ AddCommand::AddCommand(AbstractAnnotationItem *item, AnnotationArea *annotationA
+ 
+ AddCommand::~AddCommand()
+ {
+-     delete mItem;
+ }
+ 
+ void AddCommand::undo()
