@@ -76,8 +76,6 @@ dev-R/vctrs 0.2.4 0.3.0: Vector Helpers
 dev-cpp/cpp-taskflow 2.3.1 2.4.0 9999: Modern C++ Parallel Task Programming
 dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging library
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
-dev-cpp/usockets 0.4.0 9999: tiny eventing, networking & crypto for async applications
-dev-cpp/uwebsockets 18.3.0 9999: ultra fast, simple, secure & standards compliant web I/O
 dev-cpp/vectorwrapper 1.1.1 9999: A template vector wrapper class for C++
 dev-db/pg_repack 1.4.5: RUM access method - inverted index with additional information in posting lists
 dev-db/rum 1.3.6: RUM access method - inverted index with additional information in posting lists
@@ -133,7 +131,7 @@ dev-python/glicko2 0_pre20191010 9999: An implementation of the Glicko-2 rating 
 dev-python/googletransx 2.4.2: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/graphene 2.1.8: GraphQL Framework for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
-dev-python/hstspreload 2020.6.16: Chromium HSTS Preload list as a Python package
+dev-python/hstspreload 2020.6.23: Chromium HSTS Preload list as a Python package
 dev-python/httpcore 0.7.0 0.9.1: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/httpx 0.9.3 0.11.1 0.12.1 0.13.3: A next generation HTTP client for Python
@@ -144,7 +142,7 @@ dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/markdown-include 0.5.1: Syntax which allows for inclusion of contents of other Markdown docs
 dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your output
 dev-python/mkdocs-git-revision-date-localized-plugin 0.5.0: Display the localized date of the last git modification of a markdown file
-dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.2.3 5.3.2: A Material Design theme for MkDocs
+dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.2.3 5.3.3: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.0: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.3.0: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs_pymdownx_material_extras 1.0_beta11: Custom alterations based on Mkdocs-Material
@@ -189,7 +187,7 @@ dev-python/skia-pathops 0.4.1: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/sniffio 1.1.0: Sniff out which async library your code is running under
 dev-python/sphinx-argparse 0.2.5: Sphinx extension that automatically documents argparse commands and options
-dev-python/sphinx-autodoc-typehints 1.10.3: Type hints support for the Sphinx autodoc extension
+dev-python/sphinx-autodoc-typehints 1.10.3 1.11.0: Type hints support for the Sphinx autodoc extension
 dev-python/sphinxcontrib-katex 0.6.0 0.6.1: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-trio 1.1.2: Make Sphinx better at documenting Python functions and methods
 dev-python/sphobjinv 2.0.1: Sphinx objects.inv Inspection/Manipulation Tool
@@ -219,15 +217,15 @@ dev-util/insomnia-bin 7.1.1: HTTP and GraphQL client for developers
 dev-util/quilttools 0.3: Mailbox to quilt series converter
 dev-util/xdp-tools 0.0.3: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
-dev-vcs/git-extras 5.1.0 9999: Little git extras
+dev-vcs/git-extras 6.0.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 dev-vcs/lazygit 0.19 0.20.3 0.20.4: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.3.5.2: Minecraft launcher which integrates multiple different ModPacks
-games-action/minecraft-launcher 1.6.93 2.1.15166: An open-world game whose gameplay revolves around breaking and placing blocks
+games-action/minecraft-launcher 1.6.93 2.1.15629: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
-games-action/technic-launcher 4.554: Minecraft launcher for community-made modpacks on the Technic Platform
+games-action/technic-launcher 4.560: Minecraft launcher for community-made modpacks on the Technic Platform
 games-arcade/opensurge 0.5.1.2 9999: fun 2D retro platformer inspired by old-school Sonic games
 games-arcade/taisei 1.3.1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 games-fps/chocolate-doom 3.0.0: A Doom source port that is minimalist and historically accurate
@@ -250,7 +248,7 @@ media-libs/skia 80_p20191220 80_p20191220-r1: A complete 2D graphic library for 
 media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
 media-plugins/gst-plugins-sndio 1.8.0.1-r1: Sndio audio sink and source for GStreamer
-media-plugins/qt-avif-image-plugin 9999: Qt plug-in to allow Qt and KDE based applications to read/write AVIF images.
+media-plugins/qt-avif-image-plugin 0.2.0 9999: Qt plug-in to allow Qt and KDE based applications to read/write AVIF images.
 media-plugins/qt-heif-image-plugin 0.3.3: Qt plugin for HEIF images
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
@@ -263,7 +261,7 @@ media-sound/zita-ajbridge 0.8.4: zita-a2j and zita-j2a - bridges between ALSA an
 media-tv/droidcam 6.7.7_pre20200506: Use android phone as webcam, using a v4l device driver and app
 media-video/kikoplay 0.6.2 0.7.0 9999: KikoPlay is a full-featured danmu player
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
-media-video/syncplay 1.6.4_p1 1.6.5_beta1: Client/server to synchronize media playback
+media-video/syncplay 1.6.5: Client/server to synchronize media playback
 media-video/vidify 2.2.5: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
 net-dialup/tio 1.32: Simple TTY terminal application
@@ -273,11 +271,12 @@ net-im/discord-canary-bin 0.0.104: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-im/nheko 0.7.1 0.7.2: Desktop client for Matrix using Qt and C++14
 net-im/srain 1.1.0: Modern, beautiful IRC client written in GTK+ 3
+net-libs/usockets 0.4.1 9999: tiny eventing, networking & crypto for async applications
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0 1.2.1: FORT validator is an open source RPKI validator
 net-misc/castor 0.8.13 0.8.14: A graphical browser for plain-text protocols
 net-misc/gemserv 0.4.1_pre20200529 0.4.1: A gemini Server written in rust
-net-misc/kristall 0.2: Visual cross-platform gemini browser
+net-misc/kristall 0.2 0.3: Visual cross-platform gemini browser
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/openbgpd 6.6_p0 6.7_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.2.1 9999: minimalistic commandline pastebin
@@ -324,6 +323,7 @@ sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
 sys-process/nvtop 1.0.0 9999: NVIDIA GPUs htop like monitoring tool
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/twint 2.1.18 2.1.19 2.1.20: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
+www-apps/uwebsockets 18.6.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.0.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-libs/gtk-fortran 19.04 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran

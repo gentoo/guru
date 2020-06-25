@@ -9,7 +9,6 @@ app-misc/ntfy:telegram - Add support for telegram backend
 app-text/OCRmyPDF:jbig2enc - Uses media-libs/jbig2enc for better compression algorithm
 dev-cpp/sprout:texconv - Install texconv from subproject compost
 dev-cpp/sprout:wavconv - Install texconv from subproject darkroom
-dev-cpp/usockets:libuv - Enable bindings to use the libuv dispatcher
 dev-embedded/rauc:json - Add JSON support
 dev-embedded/rauc:network - Add network update support
 dev-embedded/rauc:service - Add dbus service
@@ -51,6 +50,7 @@ media-video/vidify:vlc - Use python-vlc as backend for vidify
 media-video/vidify:zeroconf - Use an external network player
 net-im/biboumi:logrotate - Use app-admin/logrotate for rotating logs
 net-im/biboumi:udns - Asynchronously resolve domain names using net-libs/udns
+net-libs/usockets:libuv - Enable bindings to use the libuv dispatcher
 net-misc/purritobin:libuv - use libuv to do async operations, instead of linux kernels epoll
 net-misc/tinyssh:sodium - Use dev-libs/libsodium for cryptography
 net-p2p/trezord-go:systemd - Install systemd service file
