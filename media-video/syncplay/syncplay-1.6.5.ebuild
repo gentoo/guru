@@ -8,11 +8,9 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1 eutils xdg
 
-MYPV="${PV/_p1/a}"
-
 DESCRIPTION="Client/server to synchronize media playback"
 HOMEPAGE="https://github.com/Syncplay/syncplay https://syncplay.pl"
-SRC_URI="https://github.com/${PN^}/${PN}/archive/v${MYPV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/${PN^}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -37,8 +35,6 @@ RDEPEND="
 # RDEPEND on PySide2 for gui, but not packaged here at the moment
 # It is a too big and complex package for me to maintain
 # You can find PySide2 in the ::raiagent overlay
-
-S="${WORKDIR}/${PN}-${MYPV}"
 
 python_install() {
 	local MY_MAKEOPTS=( DESTDIR="${D}" PREFIX=/usr )
