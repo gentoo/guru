@@ -1,0 +1,36 @@
+From 94b08e1a3cef1d826ccae09a1287c2d5e327a293 Mon Sep 17 00:00:00 2001
+From: Dave Flogeras <dflogeras2@gmail.com>
+Date: Fri, 19 Jun 2020 09:23:29 -0300
+Subject: [PATCH] Include GNUInstallDirs before using variables that rely on
+ it.
+
+This was subtle because when building by hand, and running cmake
+multiple times, it seems to cache the variable.  However when building
+for Gentoo in an ebuild, cmake makes one pass, and the
+CMAKE_INSTALL_DATAROOTDIR variable is empty.  This results in the
+translation files going in the wrong place.
+---
+ CMakeLists.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 12ad227..5c14937 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -11,6 +11,8 @@ set(CMAKE_AUTORCC ON)
+ option(BUILD_TESTS "Build Unit Tests" OFF)
+ option(BUILD_EXAMPLE "Build Example Application" ON)
+ 
++include(GNUInstallDirs)
++
+ if (WIN32)
+ 	set(KIMAGEANNOTATOR_LANG_INSTAL_DIR "translations")
+ elseif (APPLE)
+@@ -27,7 +29,6 @@ if (UNIX)
+ 	find_package(X11 REQUIRED)
+ endif ()
+ 
+-include(GNUInstallDirs)
+ include(FeatureSummary)
+ 
+ set(KCOLORPICKER_MIN_VERSION "0.1.4")

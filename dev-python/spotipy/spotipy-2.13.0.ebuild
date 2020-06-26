@@ -35,6 +35,9 @@ python_prepare_all() {
 	# this test requires a spotify client ID
 	rm tests/integration/test_non_user_endpoints.py || die
 
+	# need internet access
+	sed -i -e 's:test_spotify_client_credentials_get_access_token:_&:' \
+		tests/unit/test_oauth.py || die
 	distutils-r1_python_prepare_all
 }
 

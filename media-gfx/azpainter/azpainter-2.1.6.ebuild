@@ -4,7 +4,7 @@
 EAPI=7
 
 DESCRIPTION="Full color painting software for Linux for illustration drawing"
-HOMEPAGE="http://azsky2.html.xdomain.jp/linux/azpainter.html https://github.com/Symbian9/azpainter"
+HOMEPAGE="http://azsky2.html.xdomain.jp/soft/azpainter.html https://github.com/Symbian9/azpainter"
 SRC_URI="https://github.com/Symbian9/azpainter/releases/download/v${PV}/${P}.tar.xz"
 
 LICENSE="GPL-3"
