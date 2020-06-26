@@ -11,7 +11,6 @@ MY_P="${PN}-${MY_PV}"
 DESCRIPTION="iwd without dbus"
 HOMEPAGE="https://github.com/dylanaraps/eiwd"
 EGIT_REPO_URI="https://github.com/dylanaraps/eiwd.git"
-EGIT_COMMIT="7b5545a"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
