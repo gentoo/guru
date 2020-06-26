@@ -22,10 +22,3 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 
 S="${WORKDIR}/${MY_P}"
-
-src_prepare() {
-	default
-	eapply "${FILESDIR}"/fix-undo-command-delete-items-that-are-required.patch
-	eapply "${FILESDIR}"/include-gnuinstalldirs-before-use.patch
-	cmake_src_prepare
-}

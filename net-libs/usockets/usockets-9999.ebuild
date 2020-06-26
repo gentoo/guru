@@ -27,7 +27,6 @@ DEPEND="ssl? (
 	)
 	libuv? ( dev-libs/libuv[static-libs?] )
 "
-BDEPEND="${DEPEND}"
 RDEPEND="${DEPEND}"
 
 PATCHES=(
@@ -36,19 +35,18 @@ PATCHES=(
 
 src_compile() {
 	# the Makefile uses environment variables
-	emake -j1 \
-		  LIBusockets_VERSION=${PV} \
-		  WITH_OPENSSL=$(usex ssl 1 0) \
-		  WITH_LIBUV=$(usex libuv 1 0) \
-		  default
+	emake LIBusockets_VERSION=${PV} \
+	      WITH_OPENSSL=$(usex ssl 1 0) \
+	      WITH_LIBUV=$(usex libuv 1 0) \
+	      default
 }
 
 src_install() {
-	emake -j1 \
-		  libdir="/usr/$(get_libdir)" \
-		  prefix="/usr" DESTDIR="${D}" \
-		  LIBusockets_VERSION=${PV} \
-		  install
+	emake libdir="/usr/$(get_libdir)" \
+	      prefix="/usr" \
+		  DESTDIR="${D}" \
+	      LIBusockets_VERSION=${PV} \
+	      install
 	einstalldocs
 	if ! use static-libs; then
 		rm "${D}/usr/$(get_libdir)/libusockets.a" || die

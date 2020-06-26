@@ -20,10 +20,10 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="libuv static-libs"
 
-DEPEND="net-libs/usockets[libuv=,static-libs?]
+RDEPEND="net-libs/usockets[libuv=,static-libs?]
 	libuv? ( >=dev-libs/libuv-1.35.0[static-libs?] )
 "
-BDEPEND="
+DEPEND="${RDEPEND}
 	www-apps/uwebsockets
 "
 

@@ -1,5 +1,5 @@
 diff --git a/Makefile b/Makefile
-index fa6e2ff..529ed74 100644
+index fa6e2ff..ca2603f 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -1,3 +1,14 @@
@@ -17,27 +17,20 @@ index fa6e2ff..529ed74 100644
  # WITH_OPENSSL=1 enables OpenSSL 1.1+ support
  ifeq ($(WITH_OPENSSL),1)
  	override CFLAGS += -DLIBUS_USE_OPENSSL
-@@ -33,13 +44,33 @@ ifeq ($(WITH_ASAN),1)
+@@ -33,13 +44,27 @@ ifeq ($(WITH_ASAN),1)
  endif
  
  override CFLAGS += -std=c11 -Isrc
 -override LDFLAGS += uSockets.a
  
 -# By default we build the uSockets.a static library
--default:
-+static:
+ default:
  	rm -f *.o
 -	$(CC) $(CFLAGS) -flto -O3 -c src/*.c src/eventing/*.c src/crypto/*.c
 -	$(AR) rvs uSockets.a *.o
-+	$(CC) $(CFLAGS) -c src/*.c src/eventing/*.c src/crypto/*.c
-+	$(AR) rvs libusockets.a *.o
-+
-+dynamic:
-+	rm -f *.o
 +	$(CC) -fPIC -c src/*.c src/eventing/*.c src/crypto/*.c $(CFLAGS)
++	$(AR) rvs libusockets.a *.o
 +	$(CC) -shared -fPIC -Wl,-soname,$(LIBTARGET) $(CFLAGS) -o $(LIBTARGET) *.o $(LDFLAGS)
-+
-+default: static dynamic
 +
 +install:
 +	# install the folders needed  (making sure that the exist)
@@ -56,7 +49,7 @@ index fa6e2ff..529ed74 100644
  
  # Builds all examples
  .PHONY: examples
-@@ -52,4 +83,5 @@ swift_examples:
+@@ -52,4 +77,5 @@ swift_examples:
  clean:
  	rm -f *.o
  	rm -f *.a
