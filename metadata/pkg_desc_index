@@ -191,7 +191,7 @@ dev-python/sphinx-autodoc-typehints 1.10.3 1.11.0: Type hints support for the Sp
 dev-python/sphinxcontrib-katex 0.6.0 0.6.1: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-trio 1.1.2: Make Sphinx better at documenting Python functions and methods
 dev-python/sphobjinv 2.0.1: Sphinx objects.inv Inspection/Manipulation Tool
-dev-python/spotipy 2.12.0: A light weight Python library for the Spotify Web API
+dev-python/spotipy 2.13.0: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.2.2: Server Sent Events for Starlette
 dev-python/starlette 0.13.4: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
@@ -225,7 +225,7 @@ games-action/minecraft-launcher 1.6.93 2.1.15629: An open-world game whose gamep
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
-games-action/technic-launcher 4.560: Minecraft launcher for community-made modpacks on the Technic Platform
+games-action/technic-launcher 4.564: Minecraft launcher for community-made modpacks on the Technic Platform
 games-arcade/opensurge 0.5.1.2 9999: fun 2D retro platformer inspired by old-school Sonic games
 games-arcade/taisei 1.3.1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 games-fps/chocolate-doom 3.0.0: A Doom source port that is minimalist and historically accurate
@@ -327,14 +327,14 @@ www-apps/uwebsockets 18.6.0 9999: ultra fast, simple, secure & standards complia
 www-client/badwolf 1.0.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-libs/gtk-fortran 19.04 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
-x11-libs/kcolorpicker 0.1.2: Qt based Color Picker with popup menu
-x11-libs/kimageannotator 0.2.1: Tool for annotating images
+x11-libs/kcolorpicker 0.1.2 0.1.4: Qt based Color Picker with popup menu
+x11-libs/kimageannotator 0.2.1 0.3.0: Tool for annotating images
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial videos
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
 x11-misc/gromit-mpx 1.3 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
 x11-misc/i3lock-color 2.12_rc4 9999: Improved i3lock with color customization
-x11-misc/ksnip 1.6.2-r1: Ksnip is a Qt based cross-platform screenshot tool
+x11-misc/ksnip 1.6.2-r1 1.7.0: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Window System
 x11-themes/arc-darkest-colors 0_pre20200417: Flat, dark-mode theme with transparent elements
