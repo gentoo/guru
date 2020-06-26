@@ -271,7 +271,7 @@ net-im/discord-canary-bin 0.0.104: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-im/nheko 0.7.1 0.7.2: Desktop client for Matrix using Qt and C++14
 net-im/srain 1.1.0: Modern, beautiful IRC client written in GTK+ 3
-net-libs/usockets 0.4.1 9999: tiny eventing, networking & crypto for async applications
+net-libs/usockets 0.4.1-r1 9999: tiny eventing, networking & crypto for async applications
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0 1.2.1: FORT validator is an open source RPKI validator
 net-misc/castor 0.8.13 0.8.14: A graphical browser for plain-text protocols
@@ -279,7 +279,7 @@ net-misc/gemserv 0.4.1_pre20200529 0.4.1: A gemini Server written in rust
 net-misc/kristall 0.2 0.3: Visual cross-platform gemini browser
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/openbgpd 6.6_p0 6.7_p0 9999: OpenBGPD is a free implementation of BGPv4
-net-misc/purritobin 0.2.1 9999: minimalistic commandline pastebin
+net-misc/purritobin 0.2.2 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.6_p2 6.7_p0: Portability shim for OpenBSD's rpki-client
 net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
 net-misc/wayback_machine_downloader 2.2.1: Download an entire website from the Wayback Machine
@@ -323,18 +323,18 @@ sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
 sys-process/nvtop 1.0.0 9999: NVIDIA GPUs htop like monitoring tool
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/twint 2.1.18 2.1.19 2.1.20: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
-www-apps/uwebsockets 18.6.0 9999: ultra fast, simple, secure & standards compliant web I/O
+www-apps/uwebsockets 18.7.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.0.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-libs/gtk-fortran 19.04 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
 x11-libs/kcolorpicker 0.1.2 0.1.4: Qt based Color Picker with popup menu
-x11-libs/kimageannotator 0.2.1 0.3.0: Tool for annotating images
+x11-libs/kimageannotator 0.2.1 0.3.1: Tool for annotating images
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial videos
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
 x11-misc/gromit-mpx 1.3 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
 x11-misc/i3lock-color 2.12_rc4 9999: Improved i3lock with color customization
-x11-misc/ksnip 1.6.2-r1 1.7.0: Ksnip is a Qt based cross-platform screenshot tool
+x11-misc/ksnip 1.6.2-r1 1.7.1: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Window System
 x11-themes/arc-darkest-colors 0_pre20200417: Flat, dark-mode theme with transparent elements
