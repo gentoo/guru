@@ -9,7 +9,7 @@ inherit desktop pax-utils unpacker xdg
 
 DESCRIPTION="HTTP and GraphQL client for developers"
 HOMEPAGE="https://insomnia.rest"
-SRC_URI="https://github.com/Kong/${MY_PN}/releases/download/v${PV}/insomnia_${PV}_amd64.deb"
+SRC_URI="https://github.com/Kong/${MY_PN}/releases/download/core@${PV}/Insomnia.Core-${PV}.deb"
 
 LICENSE="MIT"
 SLOT="0"
