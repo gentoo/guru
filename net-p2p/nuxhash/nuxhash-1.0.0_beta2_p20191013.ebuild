@@ -28,7 +28,7 @@ RDEPEND="
 	x11-libs/libXdmcp
 	x11-libs/libXext
 	x11-libs/libX11
-	gui? ( dev-python/wxpython:4.0 )
+	gui? ( dev-python/wxpython:4.0[${PYTHON_USEDEP}] )
 "
 
 PATCHES=(
