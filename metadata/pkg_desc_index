@@ -25,7 +25,7 @@ app-emulation/nvidia-container-toolkit 1.1.1 1.1.2: NVIDIA container runtime too
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/apidb 4.3.0_beta: API Generator for Database acces.
 app-misc/cheat 3.10.1: cheat allows you to create and view interactive cheatsheets on the command-line
-app-misc/doublecmd-bin 0.9.8: Free cross platform open source file manager with two panels side by side.
+app-misc/doublecmd-bin 0.9.8 0.9.9: Free cross platform open source file manager with two panels side by side.
 app-misc/ghq 1.1.0: Remote repository management made easy
 app-misc/mat2 0.11.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.9.1: Mobile optimized GUI to access the Czech data box e-government system
@@ -181,6 +181,7 @@ dev-python/python-telegram-bot 12.4.2 9999: Python wrapper of telegram bots API
 dev-python/python-vlc 3.0.10114: Python ctypes-based bindings for libvlc
 dev-python/quantities 0.12.4: Support for physical quantities with units, based on numpy
 dev-python/redbaron 0.9: A FST for python to make writing refactoring code a realistic task
+dev-python/rstcheck 3.3.1: Checks syntax of reStructuredText and code blocks nested within it
 dev-python/sanic 19.12.2 20.3.0: Async Python 3.6+ web server/framework | Build fast. Run fast.
 dev-python/schedule 0.6.0-r1 9999: Python job scheduling for humans
 dev-python/skia-pathops 0.4.1: Python bindings for the Skia Path Ops
@@ -220,12 +221,12 @@ dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your b
 dev-vcs/git-extras 6.0.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 dev-vcs/lazygit 0.19 0.20.3 0.20.4: Lazygit, a simple terminal UI for git commands
-games-action/ATLauncher 3.3.5.2: Minecraft launcher which integrates multiple different ModPacks
+games-action/ATLauncher 3.3.5.2 3.3.6.0_pre: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.15629: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
-games-action/technic-launcher 4.564: Minecraft launcher for community-made modpacks on the Technic Platform
+games-action/technic-launcher 4.566: Minecraft launcher for community-made modpacks on the Technic Platform
 games-arcade/opensurge 0.5.1.2 9999: fun 2D retro platformer inspired by old-school Sonic games
 games-arcade/taisei 1.3.1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 games-fps/chocolate-doom 3.0.0: A Doom source port that is minimalist and historically accurate
@@ -235,6 +236,7 @@ games-util/NotEnoughProduction 0.0.4: Tool for building production chains for mo
 games-util/itch-bin 25.4.0: itch.io game browser, installer and launcher
 games-util/legendary 0.0.18 0.0.19: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 0.9.4: A simple GOG client for Linux
+gui-apps/wofi 1.1.1 1.1.2 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 kde-misc/plasma-applet-thermal-monitor 1.2.9: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 media-fonts/symbola 7.17: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
@@ -242,7 +244,7 @@ media-gfx/azpainter 2.1.6: Full color painting software for Linux for illustrati
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
 media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
-media-libs/amdvlk 2020.2.1 2020.2.2 2020.2.3 2020.2.4: AMD Open Source Driver for Vulkan
+media-libs/amdvlk 2020.2.1 2020.2.2 2020.2.3 2020.2.4 2020.2.5: AMD Open Source Driver for Vulkan
 media-libs/libavif 0.6.4-r1 0.7.2-r1 0.7.3 9999: Library for encoding and decoding .avif files
 media-libs/skia 80_p20191220 80_p20191220-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
@@ -284,6 +286,7 @@ net-misc/rpki-client 6.6_p2 6.7_p0: Portability shim for OpenBSD's rpki-client
 net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
 net-misc/wayback_machine_downloader 2.2.1: Download an entire website from the Wayback Machine
 net-misc/wsdd 0.5 0.6: A Web Service Discovery host daemon.
+net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for Linux
 net-p2p/trezord-go 2.0.29: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1 0.3.14: An experiment in scalable routing as an encrypted IPv6 overlay network
 net-wireless/eiwd 1.6.1 1.7_pre20200606 9999: iwd without dbus
@@ -323,7 +326,7 @@ sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
 sys-process/nvtop 1.0.0 9999: NVIDIA GPUs htop like monitoring tool
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/twint 2.1.18 2.1.19 2.1.20: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
-www-apps/uwebsockets 18.7.0 9999: ultra fast, simple, secure & standards compliant web I/O
+www-apps/uwebsockets 18.8.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.0.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-libs/gtk-fortran 19.04 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
