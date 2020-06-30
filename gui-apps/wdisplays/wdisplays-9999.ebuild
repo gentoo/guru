@@ -17,7 +17,7 @@ DESCRIPTION="GUI display configurator for wlroots compositors"
 HOMEPAGE="https://cyclopsian.github.io/${PN}"
 
 BDEPEND="
-	x11-libs/gtk+:3
+	x11-libs/gtk+:3[wayland]
 	gui-libs/wlroots"
 DEPEND="${BDEPEND}"
 
