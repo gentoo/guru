@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-	>=dev-python/argon2_cffi-19.1.0[${PYTHON_USEDEP}]
+	>=dev-python/argon2-cffi-19.1.0[${PYTHON_USEDEP}]
 	>=dev-python/construct-2.9.4[${PYTHON_USEDEP}]
 	>=dev-python/future-0.17.0[${PYTHON_USEDEP}]
 	>=dev-python/lxml-4.3.4[${PYTHON_USEDEP}]
