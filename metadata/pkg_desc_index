@@ -73,7 +73,6 @@ dev-R/tibble 3.0.1: Simple Data Frames
 dev-R/tidyselect 1.0.0 1.1.0: Select from a Set of Strings
 dev-R/utf8 1.1.4: Unicode Text Processing
 dev-R/vctrs 0.2.4 0.3.0: Vector Helpers
-dev-cpp/cpp-taskflow 2.3.1 2.4.0 9999: Modern C++ Parallel Task Programming
 dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging library
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
 dev-cpp/vectorwrapper 1.1.1 9999: A template vector wrapper class for C++
@@ -98,7 +97,6 @@ dev-libs/tweeny 3.1.0: C++ tweening (inbetweening) library
 dev-libs/wren 0.2.0-r1 9999: The Wren Programming Language
 dev-libs/xqilla 2.3.4: An XQuery and XPath 2 library and command line utility written in C++
 dev-php/pecl-inotify 2.0.0: Inotify binding for PHP
-dev-python/aiofiles 0.5.0: File support for asyncio
 dev-python/aiomysql 0.0.20: aiomysql is a library for accessing a MySQL database from the asyncio
 dev-python/aionotify 0.2.0: Simple, asyncio-based inotify library for Python
 dev-python/aiopg 1.0.0: aiopg is a library for accessing a PostgreSQL database from the asyncio
@@ -119,7 +117,6 @@ dev-python/convertdate 2.2.1: Utils for converting between date formats and calc
 dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
 dev-python/curio 0.9 1.2: Curio is a coroutine-based library for concurrent systems programming
 dev-python/databases 0.3.2: Async database support for Python.
-dev-python/dataclasses 0.7: A backport of the dataclasses module for Python 3.6
 dev-python/dateparser 0.7.4: Date parsing library designed to parse dates from HTML pages
 dev-python/devtools 0.5.1: Dev tools for python
 dev-python/doxypypy 0.8.8.6: A more Pythonic version of doxypy, a Doxygen filter for Python
@@ -136,7 +133,6 @@ dev-python/httpcore 0.7.0 0.9.1: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/httpx 0.9.3 0.11.1 0.12.1 0.13.3: A next generation HTTP client for Python
 dev-python/hunter 3.1.3: Hunter is a flexible code tracing toolkit
-dev-python/influxdb 5.3.0: Python client for InfluxDB
 dev-python/js2py 0.70: JavaScript to Python Translator & JavaScript interpreter written in Python
 dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/markdown-include 0.5.1: Syntax which allows for inclusion of contents of other Markdown docs
@@ -174,7 +170,6 @@ dev-python/pytest-sugar 0.9.3: Plugin for pytest that changes the default look a
 dev-python/pytest-toolbox 0.4: Numerous useful plugins for pytest
 dev-python/pytest-travis-fold 1.3.0 1.3.0-r1: Pytest plugin that folds captured output sections in Travis CI build log
 dev-python/pytest-trio 0.5.2 0.6.0: This is a pytest plugin to help you test projects that use Trio
-dev-python/python-dotenv 0.13.0: Get and set values in your .env file in local and production servers
 dev-python/python-mpv 0.4.6: Python interface to the mpv media player
 dev-python/python-multipart 0.0.5: A streaming multipart parser for Python
 dev-python/python-telegram-bot 12.4.2 9999: Python wrapper of telegram bots API
@@ -182,7 +177,7 @@ dev-python/python-vlc 3.0.10114: Python ctypes-based bindings for libvlc
 dev-python/quantities 0.12.4: Support for physical quantities with units, based on numpy
 dev-python/redbaron 0.9: A FST for python to make writing refactoring code a realistic task
 dev-python/rstcheck 3.3.1: Checks syntax of reStructuredText and code blocks nested within it
-dev-python/sanic 19.12.2 20.3.0: Async Python 3.6+ web server/framework | Build fast. Run fast.
+dev-python/sanic 20.6.3: Async Python 3.6+ web server/framework | Build fast. Run fast.
 dev-python/schedule 0.6.0-r1 9999: Python job scheduling for humans
 dev-python/skia-pathops 0.4.1: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
@@ -197,7 +192,6 @@ dev-python/sse-starlette 0.2.2: Server Sent Events for Starlette
 dev-python/starlette 0.13.4: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
 dev-python/tekore 1.7.0 2.1.0: Spotify Web API client
-dev-python/text-unidecode 1.3: The most basic Text::Unidecode port
 dev-python/timeout-decorator 0.4.1: Timeout decorator
 dev-python/trio 0.14.0 0.15.1 0.16.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
@@ -210,7 +204,6 @@ dev-python/validators 0.14.0-r1 0.14.3 0.15.0: Python Data Validation for Humans
 dev-python/watchgod 0.6: Simple, modern file watching and code reload
 dev-python/wcmatch 6.0.1: Wildcard/glob file name matcher
 dev-python/webpy 0.40 0.50 0.51_p20200405: A web framework for python that is as simple as it is powerful
-dev-python/websockets 7.0 8.1: An implementation of the WebSocket Protocol (RFC 6455 & 7692)
 dev-util/FoBiS 3.0.2: FoBiS.py, a Fortran Building System for poor men
 dev-util/codespell 1.17.1: Check text files for common misspellings
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
@@ -236,6 +229,7 @@ games-util/NotEnoughProduction 0.0.4: Tool for building production chains for mo
 games-util/itch-bin 25.4.0: itch.io game browser, installer and launcher
 games-util/legendary 0.0.18 0.0.19: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 0.9.4: A simple GOG client for Linux
+gui-apps/wdisplays 1.0 9999: GUI display configurator for wlroots compositors
 gui-apps/wofi 1.1.1 1.1.2 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 kde-misc/plasma-applet-thermal-monitor 1.2.9: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
@@ -272,7 +266,7 @@ net-im/biboumi 8.4 8.5 9.0_pre20200419 9.0_pre20200509: XMPP gateway to IRC
 net-im/discord-canary-bin 0.0.104: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-im/nheko 0.7.1 0.7.2: Desktop client for Matrix using Qt and C++14
-net-im/srain 1.1.0: Modern, beautiful IRC client written in GTK+ 3
+net-im/srain 1.1.1: Modern, beautiful IRC client written in GTK+ 3
 net-libs/usockets 0.4.1-r1 9999: tiny eventing, networking & crypto for async applications
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0 1.2.1: FORT validator is an open source RPKI validator
