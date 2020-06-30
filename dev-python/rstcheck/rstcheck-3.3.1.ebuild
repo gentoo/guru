@@ -14,8 +14,6 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-python/docutils[${PYTHON_USEDEP}]
@@ -29,6 +27,8 @@ BDEPEND="
 "
 
 S="${WORKDIR}/${P}"
+
+distutils_enable_tests pytest
 
 python_test() {
 	# Ignore the module from ${S}, use the one from ${BUILD_DIR}

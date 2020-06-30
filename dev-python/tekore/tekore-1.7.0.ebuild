@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_7 )
 
 inherit distutils-r1
 
@@ -16,15 +16,11 @@ LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
-# tests fail with py3_6: no module named run
-RESTRICT="python_targets_python3_6? ( test )"
-
 RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	>=dev-python/httpx-0.11.1[${PYTHON_USEDEP}]
 	<dev-python/httpx-0.13[${PYTHON_USEDEP}]
 	media-sound/spotify
-	$(python_gen_cond_dep 'dev-python/dataclasses[${PYTHON_USEDEP}]' python3_6)
 "
 
 DOCS="readme.rst"
