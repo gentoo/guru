@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_7 )
 
 inherit distutils-r1
 
@@ -20,15 +20,14 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-python/aiofiles[${PYTHON_USEDEP}]
-	>=dev-python/httpx-0.11.1[${PYTHON_USEDEP}]
-	<dev-python/httpx-0.12[${PYTHON_USEDEP}]
+	~dev-python/httpx-0.11.1[${PYTHON_USEDEP}]
 	>=dev-python/httptools-0.0.10[${PYTHON_USEDEP}]
 	>=dev-python/multidict-4.0[${PYTHON_USEDEP}]
 	<dev-python/multidict-5.0[${PYTHON_USEDEP}]
-	>=dev-python/ujson-1.35[${PYTHON_USEDEP}]
-	>=dev-python/uvloop-0.5.3[${PYTHON_USEDEP}]
-	>=dev-python/websockets-7.0[${PYTHON_USEDEP}]
-	<dev-python/websockets-8.0[${PYTHON_USEDEP}]
+	dev-python/ujson[${PYTHON_USEDEP}]
+	dev-python/uvloop[${PYTHON_USEDEP}]
+	>=dev-python/websockets-8.1[${PYTHON_USEDEP}]
+	<dev-python/websockets-9.0[${PYTHON_USEDEP}]
 "
 DEPEND="
 	${RDEPEND}
