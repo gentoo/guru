@@ -16,6 +16,7 @@ LICENSE="GPL-3 excavator-EULA"
 SLOT="0"
 IUSE="gui"
 KEYWORDS="~amd64"
+RESTRICT="test"
 
 RDEPEND="
 	dev-libs/libbsd
@@ -38,4 +39,10 @@ PATCHES=(
 python_prepare_all() {
 	use gui || eapply "${FILESDIR}/nuxhash-1.0.0_beta2_p20191013-remove-gui.patch"
 	distutils-r1_python_prepare_all
+}
+
+python_test() {
+	for t in tests/test_*.py; do
+		"${EPYTHON}" "${t}" || die
+	done
 }
