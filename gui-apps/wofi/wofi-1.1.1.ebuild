@@ -19,5 +19,11 @@ DESCRIPTION="Wofi is a launcher/menu program for wlroots based wayland composito
 HOMEPAGE="${EHG_REPO_URI}"
 LICENSE="GPL-3"
 
+DEPEND="
+	dev-libs/wayland
+	x11-libs/gtk+[wayland]"
+RDEPEND="${DEPEND}"
+BDEPEND="virtual/pkgconfig"
+
 SLOT="0"
 KEYWORDS=""
