@@ -1,6 +1,6 @@
-BDEPEND=x11-libs/gtk+:3 gui-libs/wlroots >=dev-vcs/git-1.8.2.1[curl] >=dev-util/meson-0.51.2 >=dev-util/ninja-1.8.2
+BDEPEND=x11-libs/gtk+:3[wayland] gui-libs/wlroots >=dev-vcs/git-1.8.2.1[curl] >=dev-util/meson-0.51.2 >=dev-util/ninja-1.8.2
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
-DEPEND=x11-libs/gtk+:3 gui-libs/wlroots dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=x11-libs/gtk+:3[wayland] gui-libs/wlroots dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=GUI display configurator for wlroots compositors
 EAPI=7
 HOMEPAGE=https://cyclopsian.github.io/wdisplays
@@ -8,4 +8,4 @@ LICENSE=GPL-3+
 PROPERTIES=live
 SLOT=0
 _eclasses_=git-r3	86a0188f2ad9eb3d65e4d031ab8a0422	meson	8f7dc8ed2d76af0b33328789c017e677	multilib	2477ebe553d3e4d2c606191fe6c33602	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-utils-r1	ace0a9a129fcfeaae542c0d15c07f36a	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=bdc2fa02bbeb21ada04df70b75e9c074
+_md5_=e02de6547ada270c6e83bc85f6a631d2
