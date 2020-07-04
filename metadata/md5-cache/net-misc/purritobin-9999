@@ -9,5 +9,5 @@ LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=net-libs/usockets[libuv=,static-libs?] libuv? ( >=dev-libs/libuv-1.35.0[static-libs?] )
 SLOT=0
-_eclasses_=git-r3	86a0188f2ad9eb3d65e4d031ab8a0422
+_eclasses_=git-r3	8ec5b53812bce105ae7943930e4660f8
 _md5_=2b4c3e4cc20c734340719e46cc03b742

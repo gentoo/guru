@@ -6,5 +6,5 @@ HOMEPAGE=https://gitlab.com/jschx/ufetch
 LICENSE=ISC
 PROPERTIES=live
 SLOT=0
-_eclasses_=git-r3	86a0188f2ad9eb3d65e4d031ab8a0422
+_eclasses_=git-r3	8ec5b53812bce105ae7943930e4660f8
 _md5_=a94ec27645500b0b9d147067f25eb9ab
