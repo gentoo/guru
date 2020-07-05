@@ -22,13 +22,13 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="doc"
-
-# ModuleNotFoundError: No module named 'graphql.pyutils.compat'
-# We need newer graphql-core
+# ModuleNotFoundError: No module named 'graphql.execution.executors'
+# Now graphql is at the newest version and this still doesn't work :(
+# though there are less errors now
 RESTRICT="test"
 
 DEPEND="test? (
+	dev-python/aiosqlite[${PYTHON_USEDEP}]
 	dev-python/aiofiles[${PYTHON_USEDEP}]
 	dev-python/black[${PYTHON_USEDEP}]
 	dev-python/databases[${PYTHON_USEDEP}]
@@ -40,7 +40,8 @@ DEPEND="test? (
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/sse-starlette[${PYTHON_USEDEP}]
 	dev-python/ujson[${PYTHON_USEDEP}]
-	dev-python/graphene[${PYTHON_USEDEP}] )"
+	dev-python/graphene[${PYTHON_USEDEP}]
+)"
 
 python_prepare_all() {
 	# do not install LICENSE to /usr/
