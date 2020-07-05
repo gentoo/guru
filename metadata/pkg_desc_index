@@ -127,7 +127,8 @@ dev-python/faker 4.0.3 4.1.0: Python package that generates fake data
 dev-python/geopy 1.21.0 1.22.0: A Geocoding Toolbox for Python
 dev-python/glicko2 0_pre20191010 9999: An implementation of the Glicko-2 rating system for Python
 dev-python/googletransx 2.4.2: Free Google Translate API for Python. Translates totally free of charge.
-dev-python/graphene 2.1.8: GraphQL Framework for Python
+dev-python/graphene 3.0.0_beta3: GraphQL Framework for Python
+dev-python/graphql-core 3.1.1: GraphQL for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
 dev-python/hstspreload 2020.6.30: Chromium HSTS Preload list as a Python package
 dev-python/httpcore 0.7.0 0.9.1: A minimal HTTP client
@@ -300,7 +301,7 @@ sci-libs/saclib 2.2.7-r1 2.2.7-r2: Reference implementations of algorithms and f
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
 sci-physics/SU2 7.0.4 7.0.5: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
-sys-apps/flatpak 1.8.0: Application distribution framework
+sys-apps/flatpak 1.8.1: Application distribution framework
 sys-apps/hex 0.1.3: Futuristic take on hexdump
 sys-apps/procs 0.10.1: A modern replacement for ps
 sys-apps/xdg-desktop-portal-gtk 1.6.0: GTK/GNOME backend for xdg-desktop-portal
