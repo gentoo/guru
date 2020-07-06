@@ -85,6 +85,7 @@ dev-java/openjdk-sts-bin 14.0.1_p7-r1: Prebuilt Java JDK binaries provided by Ad
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
 dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
+dev-libs/cgicc 3.2.19: A C++ class library for writing CGI applications
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
 dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
 dev-libs/mtxclient 0.3.0 0.3.1: Client API library for Matrix, built on top of Boost.Asio
@@ -94,7 +95,7 @@ dev-libs/olm 3.1.4 3.1.5: Implementation of the olm and megolm cryptographic rat
 dev-libs/open62541 1.0.1 1.1: Open source C implementation of OPC UA
 dev-libs/protothreads 1.4: Protothreads - Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
-dev-libs/tweeny 3.1.0: C++ tweening (inbetweening) library
+dev-libs/tweeny 3.1.0 3.1.1: C++ tweening (inbetweening) library
 dev-libs/wren 0.2.0-r1 9999: The Wren Programming Language
 dev-libs/xqilla 2.3.4: An XQuery and XPath 2 library and command line utility written in C++
 dev-php/pecl-inotify 2.0.0: Inotify binding for PHP
@@ -273,8 +274,8 @@ net-im/srain 1.1.1: Modern, beautiful IRC client written in GTK+ 3
 net-libs/usockets 0.4.1-r1 9999: tiny eventing, networking & crypto for async applications
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0 1.2.1: FORT validator is an open source RPKI validator
-net-misc/castor 0.8.14 0.8.15: A graphical browser for plain-text protocols
-net-misc/gemserv 0.4.1_pre20200529 0.4.1: A gemini Server written in rust
+net-misc/castor 0.8.15 0.8.16: A graphical browser for plain-text protocols
+net-misc/gemserv 0.4.1 0.4.2: A gemini Server written in rust
 net-misc/kristall 0.2 0.3: Visual cross-platform gemini browser
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/openbgpd 6.6_p0 6.7_p0 9999: OpenBGPD is a free implementation of BGPv4
