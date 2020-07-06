@@ -5,7 +5,7 @@ EAPI=7
 
 # NOTE: Generate new list with `cargo-ebuild ebuild` on every bump.
 CRATES="
-	aho-corasick-0.7.10
+	aho-corasick-0.7.13
 	ansi-parser-0.6.5
 	arrayref-0.3.6
 	arrayvec-0.5.1
@@ -17,7 +17,7 @@ CRATES="
 	blake2b_simd-0.5.10
 	cairo-rs-0.8.1
 	cairo-sys-rs-0.9.2
-	cc-1.0.54
+	cc-1.0.55
 	cfg-if-0.1.10
 	constant_time_eq-0.1.5
 	core-foundation-0.7.0
@@ -49,6 +49,7 @@ CRATES="
 	idna-0.2.0
 	lazy_static-1.4.0
 	libc-0.2.71
+	linkify-0.4.0
 	log-0.4.8
 	matches-0.1.8
 	memchr-2.3.3
@@ -56,19 +57,19 @@ CRATES="
 	nom-4.2.3
 	once_cell-1.4.0
 	open-1.4.0
-	openssl-0.10.29
+	openssl-0.10.30
 	openssl-probe-0.1.2
 	openssl-sys-0.9.58
 	pango-0.8.0
 	pango-sys-0.9.1
 	percent-encoding-2.1.0
-	pin-project-0.4.20
-	pin-project-internal-0.4.20
+	pin-project-0.4.22
+	pin-project-internal-0.4.22
 	pin-utils-0.1.0
 	pkg-config-0.3.17
 	ppv-lite86-0.2.8
 	proc-macro-hack-0.5.16
-	proc-macro-nested-0.1.5
+	proc-macro-nested-0.1.6
 	proc-macro2-1.0.18
 	quote-1.0.7
 	rand-0.7.3
@@ -79,29 +80,29 @@ CRATES="
 	redox_users-0.3.4
 	regex-1.3.9
 	regex-syntax-0.6.18
-	remove_dir_all-0.5.2
+	remove_dir_all-0.5.3
 	rust-argon2-0.7.0
 	schannel-0.1.19
 	security-framework-0.4.4
 	security-framework-sys-0.4.3
-	serde-1.0.111
-	serde_derive-1.0.111
+	serde-1.0.114
+	serde_derive-1.0.114
 	slab-0.4.2
-	smallvec-1.4.0
-	syn-1.0.30
+	syn-1.0.33
 	tempfile-3.1.0
 	textwrap-0.11.0
 	thread_local-1.0.1
+	tinyvec-0.3.3
 	toml-0.5.6
 	unicode-bidi-0.3.4
-	unicode-normalization-0.1.12
+	unicode-normalization-0.1.13
 	unicode-width-0.1.7
-	unicode-xid-0.2.0
+	unicode-xid-0.2.1
 	url-2.1.1
-	vcpkg-0.2.9
+	vcpkg-0.2.10
 	version_check-0.1.5
 	wasi-0.9.0+wasi-snapshot-preview1
-	winapi-0.3.8
+	winapi-0.3.9
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-x86_64-pc-windows-gnu-0.4.0
 "
@@ -115,7 +116,8 @@ SRC_URI="
 	$(cargo_crate_uris ${CRATES})
 "
 
-LICENSE="Apache-2.0 BSD-2 CC0-1.0 MIT MPL-2.0"
+# NOTE: Update after every dependency change (cargo-license helps).
+LICENSE="Apache-2.0 BSD-2 CC0-1.0 MIT MPL-2.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 
