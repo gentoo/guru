@@ -259,7 +259,7 @@ media-sound/scream 3.6 9999: Plays sound received from network or from a QEMU Wi
 media-sound/sndio 1.6.0: small audio and MIDI framework part of the OpenBSD project
 media-sound/zita-ajbridge 0.8.4: zita-a2j and zita-j2a - bridges between ALSA and JACK
 media-tv/droidcam 6.7.7_pre20200506: Use android phone as webcam, using a v4l device driver and app
-media-video/kikoplay 0.6.2 0.7.0 9999: KikoPlay is a full-featured danmu player
+media-video/kikoplay 0.6.2 0.7.0 0.7.1 9999: KikoPlay is a full-featured danmu player
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
 media-video/syncplay 1.6.5: Client/server to synchronize media playback
 media-video/vidify 2.2.5: Watch music videos in real time for the songs playing on your device
