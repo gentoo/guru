@@ -1,19 +1,22 @@
 certificate version 0.1
-pusher Alarig Le Lay <alarig@swordarmor.fr> 1594241194 +0200
-pushee git+ssh://git.gentoo.org/repo/proj/guru.git
-nonce 1594241194-378fc80cda5c0a09ddac7e53dc6ee9c9e9e22d3d
+pusher EF36EDA1E064A3E9 1594300837 +0200
+pushee git.gentoo.org:repo/proj/guru.git
+nonce 1594300837-a42bfb7e35dedabf031d85e4bc4611177ffde3c1
 
-153064863b4cee79391fef5bf4c192b449a33cc6 a663545a71de92ba73ac404e5dc26b2207deb94b refs/heads/dev
+a663545a71de92ba73ac404e5dc26b2207deb94b eda30cb222948e22fd4c6fece0b5b39802013453 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iQGpBAABCgCTFiEEiuHGca3ZRor448kqev5ixt+LzewFAl8GMKpfFIAAAAAALgAo
-aXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5maWZ0aGhvcnNlbWFuLm5ldDhB
-RTFDNjcxQUREOTQ2OEFGOEUzQzkyQTdBRkU2MkM2REY4QkNERUMVHGFsYXJpZ0Bz
-d29yZGFybW9yLmZyAAoJEHr+Ysbfi83srT8H/1OAYWnnR8iUew3rMWl8wAuJQe8j
-p61IxBFg5BrnP55SeSUZuceoH3ShaFyjAtE0oys+SfP30oeccUJeDXSaizxnB006
-4GYvjK5TPK25YBfwKXjEplZar+sw9I5zpYHHSnJUy3eIPMk0yznT1YqPhxN4lm0G
-sjcHNpf84JzxYBDk6jcp2z88/r+H+UosynYgbUrrM9XhEnP8cKiti/H/A7sXmU+S
-nPM1bJP+YDedINvgprOJwOvca+VA37ESMV8yW626BU9YCyucPQKSW7YjKYGnJ4xw
-kPt91Kta8lmc+OYX/sUg/M39xpegJdEVlWFUYtfbjS8hTivyrWqCjtSbykc=
-=/Dfl
+iQIzBAABCAAdFiEEQFrSbuEi2N8whjSe7zbtoeBko+kFAl8HGaUACgkQ7zbtoeBk
+o+le4xAAs5o+5gYqTy4FhATTmHtuP/gTtrzGE0lH66AbWk+olFoaV8ZOMafnHAQp
+qOQSFzCuFuFMSMntdJYnMInSTF4d3vz7M+Ekw/ylsJ+7MTbMGzSv+x7WY1zEuRRR
+Qm7EnudEaj0tRKloEdrqBrVb5/Ta/+ynZE2XBuH5inLw5n30pv58kGbvT7iJboPJ
+sA0O4n+aHnEvY7ifFPdp0YHJPhZMVEqPp422JFqurSCWZFC9IAzlff+PzOHZnhg3
+OrEhwxaMfgO6eHQU4EHnEX/VfbtB99/hM5YTc94uQBprA97AN8K35TDoGrlBHts9
+idZ/E4ZE8NMalsJ8vLOmRr1c2GlW1tbn35KRbof21Pt19ddlkrTMiAk/Ww2z76tc
+Q4BI9EGAH/OqDOTSilW+aToQD0OopSk28pxfGDvi+BTaFarByKo1VRsbdf3od/ph
+qZVOQK4davBEm5LWggDkhgCa3mUcAvn88L9hxl2fg4BxVogKvlsUJdTJ0CsbuB5s
+N6MOL6hDJZmlgqYwWgXdZsgrfz5Goo9GL4P4WyNSq5e1hWQkQCaUpABJ8NheODOG
+o7kv6Gyxe6KbTE8Q8Mh6Stt/wFfOdSfqycxL+2lqRQGVP2srmQLdQejCjQlpF2PB
+lskC6K4q7aHdeahIgbu6r+PRRiJKHcg7tQQmvXwI98M6pebV14w=
+=MMm9
 -----END PGP SIGNATURE-----
