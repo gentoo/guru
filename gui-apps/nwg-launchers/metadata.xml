@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>coppens.matthias.abc@gmail.com</email>
+        <description>Matthias Coppens</description>
+    </maintainer>
+    <use>
+        <flag name="bar">Installs nwgbar,
+            a horizontal or vertical button bar.</flag>
+        <flag name="dmenu">Installs nwgdmenu and nwgdmenu_run,
+            GTK dynamic menu windows.</flag>
+        <flag name="grid">Installs nwggrid,
+            a GNOME-like application grid.</flag>
+    </use>
+</pkgmetadata>

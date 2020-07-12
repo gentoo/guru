@@ -24,6 +24,10 @@ DEPEND="
 
 src_install() {
 	newbin trezord-go trezord
+	newinitd "${FILESDIR}/trezord-openrc.sh" trezord
+	keepdir /var/log/trezord
+	fowners trezord:root /var/log/trezord
+
 	use systemd && systemd_dounit src/github.com/trezor/trezord-go/release/linux/trezord.service
 	use udev && udev_dorules src/github.com/trezor/trezord-go/release/linux/trezor.rules
 }

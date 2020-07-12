@@ -8,10 +8,10 @@ CRATES="
 	atty-0.2.14
 	autocfg-1.0.0
 	bitflags-1.2.1
-	bytes-0.5.4
-	cc-1.0.54
+	bytes-0.5.5
+	cc-1.0.57
 	cfg-if-0.1.10
-	chrono-0.4.11
+	chrono-0.4.12
 	colored-1.9.3
 	foreign-types-0.3.2
 	foreign-types-shared-0.1.1
@@ -21,6 +21,7 @@ CRATES="
 	futures-macro-0.3.5
 	futures-task-0.3.5
 	futures-util-0.3.5
+	generator-0.6.21
 	hermit-abi-0.1.14
 	idna-0.2.0
 	iovec-0.1.4
@@ -28,12 +29,13 @@ CRATES="
 	lazy_static-1.4.0
 	libc-0.2.71
 	log-0.4.8
+	loom-0.3.4
 	matches-0.1.8
 	memchr-2.3.3
 	mime-0.3.16
 	mime_guess-2.0.3
 	mio-0.6.22
-	mio-named-pipes-0.1.6
+	mio-named-pipes-0.1.7
 	mio-uds-0.6.8
 	miow-0.2.1
 	miow-0.3.5
@@ -42,40 +44,44 @@ CRATES="
 	num-traits-0.2.12
 	num_cpus-1.13.0
 	once_cell-1.4.0
-	openssl-0.10.29
+	openssl-0.10.30
 	openssl-sys-0.9.58
 	percent-encoding-2.1.0
-	pin-project-0.4.21
-	pin-project-internal-0.4.21
+	pin-project-0.4.22
+	pin-project-internal-0.4.22
 	pin-project-lite-0.1.7
 	pin-utils-0.1.0
 	pkg-config-0.3.17
 	proc-macro-hack-0.5.16
-	proc-macro-nested-0.1.5
+	proc-macro-nested-0.1.6
 	proc-macro2-1.0.18
 	quote-1.0.7
 	redox_syscall-0.1.56
-	serde-1.0.111
-	serde_derive-1.0.111
+	rustc_version-0.2.3
+	scoped-tls-0.1.2
+	semver-0.9.0
+	semver-parser-0.7.0
+	serde-1.0.114
+	serde_derive-1.0.114
 	signal-hook-registry-1.2.0
 	simple_logger-1.6.0
 	slab-0.4.2
-	smallvec-1.4.0
 	socket2-0.3.12
-	syn-1.0.31
+	syn-1.0.33
 	time-0.1.43
+	tinyvec-0.3.3
 	tokio-0.2.21
 	tokio-openssl-0.4.0
 	toml-0.5.6
 	unicase-2.6.0
 	unicode-bidi-0.3.4
-	unicode-normalization-0.1.12
-	unicode-xid-0.2.0
+	unicode-normalization-0.1.13
+	unicode-xid-0.2.1
 	url-2.1.1
 	vcpkg-0.2.10
 	version_check-0.9.2
 	winapi-0.2.8
-	winapi-0.3.8
+	winapi-0.3.9
 	winapi-build-0.1.1
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-x86_64-pc-windows-gnu-0.4.0
@@ -94,7 +100,7 @@ SRC_URI="
 	$(cargo_crate_uris ${CRATES})
 "
 
-LICENSE="Apache-2.0 BSD MIT MPL-2.0"
+LICENSE="Apache-2.0 BSD MIT MPL-2.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 

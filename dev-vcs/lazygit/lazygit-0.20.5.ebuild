@@ -16,14 +16,13 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc"
 
+DEPEND=( sys-libs/glibc )
 RDEPEND=(
 	${DEPEND}
 	dev-vcs/git
 )
 
 DOCS=( src/${EGO_PN}/{CONTRIBUTING,README}.md )
-
-PATCHES=( "${FILESDIR}/${P}-fix-gpg-breaking-terminal.patch" )
 
 src_compile() {
 	GOPATH="${S}" go build -v -o bin/lazygit src/${EGO_PN}/main.go || die
