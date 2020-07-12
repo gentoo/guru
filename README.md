@@ -90,6 +90,10 @@ In GURU we use ['thin manifests'](https://wiki.gentoo.org/wiki/Repository_format
 
 String variables should be quoted (e.g. not `$P` or `${P}` but `"${P}"`). `repoman -dx full` will warn you about any unquoted variables you might have forgotten about.
 
+- #### No Symlinks in the repository
+
+Please don't use symlinks in the repository (e.g. foobar-x.y.z.ebuild -> foobar-9999.ebuild), see [this forum posts](https://forums.gentoo.org/viewtopic-t-1079126-start-0.html) on why this is not a good idea.
+
 - #### Undesirable/Deprecated dependencies
 
 Sometimes a upstream lists dependencies which are considered deprecated. If possible, packages should **not** depend on these deprecated dependencies. Reasons a dependency might be deprecated is that it is too old, unmaintained, or the features it adds are not useful to Gentoo. You can find an overview of the currently deprecated dependencies and the reason they are deprecated in `$(portageq get_repo_path / gentoo)/profiles/package.deprecated`. `repoman -dx full` will warn you if your package depends on a deprecated dependency.
