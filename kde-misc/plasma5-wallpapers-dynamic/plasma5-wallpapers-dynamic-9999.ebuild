@@ -35,5 +35,6 @@ DEPEND="
 	>=kde-frameworks/plasma-${KFMIN}:5
 	>=media-libs/libheif-1.3.0
 	>=kde-frameworks/kirigami-${KFMIN}:5
+	media-libs/libexif
 "
 RDEPEND="${DEPEND}"
