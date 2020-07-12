@@ -51,7 +51,11 @@ RDEPEND="
 	${DEPEND}
 "
 
-PATCHES=( "${FILESDIR}/${P}-tests.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-etf.patch"
+	"${FILESDIR}/${P}-headers.patch"
+	"${FILESDIR}/${P}-tests.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
@@ -64,6 +68,7 @@ src_configure() {
 		-DUA_ENABLE_ENCRYPTION_MBEDTLS=$(usex mbedtls)
 		-DUA_ENABLE_ENCRYPTION_OPENSSL=$(usex openssl)
 		-DUA_ENABLE_PUBSUB=$(usex pubsub)
+		-DUA_ENABLE_PUBSUB_ETH_UADP=$(usex pubsub)
 		-DUA_ENABLE_PUBSUB_ETH_UADP_ETF=$(usex etf)
 		-DUA_ENABLE_PUBSUB_ETH_UADP_XDP=$(usex xdp)
 	)
