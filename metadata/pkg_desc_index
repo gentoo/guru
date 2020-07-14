@@ -41,7 +41,7 @@ app-portage/pacvis 0.4.2 9999: Displays dependency graphs of packages
 app-portage/portage-lostfiles 0.2.0: A simple script to identify files not tracked by Portage package manager
 app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
 app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
-app-shells/antibody 6.0.1: Fast Zsh plugin manager
+app-shells/antibody 6.0.1 6.1.0: Fast Zsh plugin manager
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
@@ -217,7 +217,7 @@ dev-util/xdp-tools 0.0.3: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
 dev-vcs/git-extras 6.0.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
-dev-vcs/lazygit 0.20.3 0.20.4 0.20.5: Lazygit, a simple terminal UI for git commands
+dev-vcs/lazygit 0.20.3 0.20.4 0.20.5 0.20.6: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.3.5.2 3.3.6.0_pre: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.15852: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
@@ -238,7 +238,7 @@ gui-apps/wdisplays 1.0-r1 9999: GUI display configurator for wlroots compositors
 gui-apps/wofi 1.1.1 1.1.2 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 kde-misc/plasma-applet-thermal-monitor 1.2.9: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
-kde-misc/plasma5-wallpapers-dynamic 3.1.0 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
+kde-misc/plasma5-wallpapers-dynamic 3.2.1 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
 media-fonts/symbola 7.17: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
 media-gfx/azpainter 2.1.6: Full color painting software for Linux for illustration drawing
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
@@ -302,7 +302,7 @@ sci-libs/jdqz 0_pre19971107-r1 0_pre19971107-r2: Jacobi-Davidson type method for
 sci-libs/meschach 1.2b: Meschach is a C-language library of routines for performing matrix computations.
 sci-libs/saclib 2.2.7-r1 2.2.7-r2: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
-sci-physics/SU2 7.0.4 7.0.5: SU2: An Open-Source Suite for Multiphysics Simulation and Design
+sci-physics/SU2 7.0.4 7.0.5 7.0.6: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
 sys-apps/flatpak 1.8.1: Application distribution framework
 sys-apps/hex 0.1.3: Futuristic take on hexdump
