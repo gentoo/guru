@@ -8,6 +8,9 @@
 		<email>vilhelm.gray@gmail.com</email>
 		<name>William Breathitt Gray</name>
 	</maintainer>
+	<use>
+		<flag name="midi">basic support for MIDI files</flag>
+	</use>
 	<upstream>
 		<bugs-to>https://github.com/chocolate-doom/chocolate-doom/issues</bugs-to>
 		<doc lang="en">https://www.chocolate-doom.org</doc>
