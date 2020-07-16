@@ -8,7 +8,7 @@
     <use>
         <flag name="bar">Installs nwgbar,
             a horizontal or vertical button bar.</flag>
-        <flag name="dmenu">Installs nwgdmenu and nwgdmenu_run,
+        <flag name="dmenu">Installs nwgdmenu,
             GTK dynamic menu windows.</flag>
         <flag name="grid">Installs nwggrid,
             a GNOME-like application grid.</flag>
