@@ -137,6 +137,7 @@ dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP pa
 dev-python/httpx 0.9.3 0.11.1 0.12.1 0.13.3: A next generation HTTP client for Python
 dev-python/hunter 3.1.3: Hunter is a flexible code tracing toolkit
 dev-python/js2py 0.70: JavaScript to Python Translator & JavaScript interpreter written in Python
+dev-python/jupyter-sphinx 0.2.4: Jupyter Sphinx Extensions
 dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/markdown-include 0.5.1: Syntax which allows for inclusion of contents of other Markdown docs
 dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your output
@@ -150,6 +151,7 @@ dev-python/pdfminer-six 20200124 20200402 20200517: Community maintained fork of
 dev-python/pep517 0.8.2-r1: standard API for systems which build Python packages
 dev-python/pure-protobuf 2.0.0-r1: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/pydantic 1.5.1 1.6.1: Data parsing and validation using Python type hints
+dev-python/pydata-sphinx-theme 0.3.1: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0: Pythonic DBus library
 dev-python/pygaljs 1.0.2 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
 dev-python/pyjsparser 2.7.1: Fast javascript parser based on esprima.js
