@@ -15,15 +15,10 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-# XIO:  fatal IO error 0 (Success) on X server ":1114323366"
-# looks like upstream changed the test suite to use xvfbwrapper
-# but there are still some bugs, tests pass okay, but still get
-# the above error
-RESTRICT="test"
-
 RDEPEND="
 	media-video/mpv[libmpv]
-	dev-python/pillow[${PYTHON_USEDEP}]"
+	dev-python/pillow[${PYTHON_USEDEP}]
+"
 
 DEPEND="test? ( dev-python/xvfbwrapper[${PYTHON_USEDEP}] )"
 
@@ -48,7 +43,6 @@ python_prepare_all() {
 			mpv-test.py || die
 
 	distutils-r1_python_prepare_all
-
 }
 
 python_test() {
