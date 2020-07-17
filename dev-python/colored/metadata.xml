@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>coppens.matthias.abc@gmail.com</email>
+        <description>Matthias Coppens</description>
+    </maintainer>
+    <longdescription>
+        Very simple Python library for color and formatting in terminal.
+        Collection of color codes and names for 256 color terminal setups.
+    </longdescription>
+</pkgmetadata>
