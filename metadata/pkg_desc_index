@@ -81,7 +81,7 @@ dev-db/pg_repack 1.4.5: RUM access method - inverted index with additional infor
 dev-db/rum 1.3.6: RUM access method - inverted index with additional information in posting lists
 dev-embedded/rauc 1.3: Lightweight update client that runs on your Embedded Linux device
 dev-games/surgescript 0.5.4.3 9999: scripting language made for opensurge
-dev-java/openjdk-sts-bin 14.0.1_p7-r1: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
+dev-java/openjdk-sts-bin 14.0.2_p12: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
 dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
@@ -248,12 +248,12 @@ media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer writ
 media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.2.1 2020.2.2 2020.2.3 2020.2.4 2020.2.5 2020.2.6: AMD Open Source Driver for Vulkan
-media-libs/libavif 0.6.4-r1 0.7.2-r1 0.7.3 0.8.0 9999: Library for encoding and decoding .avif files
+media-libs/libavif 0.7.3 0.8.0 9999: Library for encoding and decoding .avif files
 media-libs/skia 80_p20191220 80_p20191220-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
 media-plugins/gst-plugins-sndio 1.8.0.1-r1: Sndio audio sink and source for GStreamer
-media-plugins/qt-avif-image-plugin 0.2.0 9999: Qt plug-in to allow Qt and KDE based applications to read/write AVIF images.
+media-plugins/qt-avif-image-plugin 0.3.0 9999: Qt plug-in to allow Qt and KDE based applications to read/write AVIF images.
 media-plugins/qt-heif-image-plugin 0.3.3: Qt plugin for HEIF images
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
