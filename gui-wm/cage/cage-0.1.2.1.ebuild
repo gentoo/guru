@@ -10,6 +10,7 @@ case "${PV}" in
 		;;
 	*)
 		SRC_URI="${EGIT_REPO_URI}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+		KEYWORDS="~amd64 ~x86"
 esac
 inherit meson
 
@@ -29,8 +30,6 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}"
-
-KEYWORDS="-amd64 -x86"
 
 src_configure() {
 	meson_src_configure $(meson_use X xwayland)
