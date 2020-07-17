@@ -92,7 +92,7 @@ dev-libs/mtxclient 0.3.0 0.3.1: Client API library for Matrix, built on top of B
 dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta 2.2.1_beta 2.3.0_beta: C/C++ library to mainly provide Semantic Versioned implementation
 dev-libs/octetos-db-maria 1.2.2_beta: C++ library for Database Acces.
 dev-libs/olm 3.1.4 3.1.5: Implementation of the olm and megolm cryptographic ratchets
-dev-libs/open62541 1.0.1 1.1: Open source C implementation of OPC UA
+dev-libs/open62541 1.0.1 1.1 1.1.1: Open source C implementation of OPC UA
 dev-libs/protothreads 1.4: Protothreads - Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
 dev-libs/tweeny 3.1.0 3.1.1: C++ tweening (inbetweening) library
@@ -239,6 +239,7 @@ gui-apps/nwg-launchers 0.2.0 9999: GTK+ launchers for sway, i3 and some other WM
 gui-apps/wdisplays 1.0-r1 9999: GUI display configurator for wlroots compositors
 gui-apps/wofi 1.1.1 1.1.2 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
+gui-wm/cage 0.1.2.1 9999: A Wayland kiosk
 kde-misc/plasma-applet-thermal-monitor 1.2.9: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 kde-misc/plasma5-wallpapers-dynamic 3.2.1 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
 media-fonts/symbola 7.17: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
@@ -247,7 +248,7 @@ media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer writ
 media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.2.1 2020.2.2 2020.2.3 2020.2.4 2020.2.5 2020.2.6: AMD Open Source Driver for Vulkan
-media-libs/libavif 0.6.4-r1 0.7.2-r1 0.7.3 9999: Library for encoding and decoding .avif files
+media-libs/libavif 0.6.4-r1 0.7.2-r1 0.7.3 0.8.0 9999: Library for encoding and decoding .avif files
 media-libs/skia 80_p20191220 80_p20191220-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
