@@ -115,6 +115,7 @@ dev-python/bracex 2.0.0: Bash style brace expansion for Python
 dev-python/cchardet 2.1.6: cChardet is high speed universal character encoding detector
 dev-python/check-manifest 0.42: Tool to check the completeness of MANIFEST.in for Python packages
 dev-python/cloudscraper 1.2.34 1.2.40: A Python module to bypass Cloudflare's anti-bot page
+dev-python/colored 1.4.2 9999: Very simple Python library for color and formatting in terminal
 dev-python/convertdate 2.2.1: Utils for converting between date formats and calculating holidays
 dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
 dev-python/curio 0.9 1.2: Curio is a coroutine-based library for concurrent systems programming
@@ -212,7 +213,7 @@ dev-python/webpy 0.40 0.50 0.51_p20200405: A web framework for python that is as
 dev-util/FoBiS 3.0.2: FoBiS.py, a Fortran Building System for poor men
 dev-util/codespell 1.17.1: Check text files for common misspellings
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
-dev-util/insomnia-bin 2020.2.2: HTTP and GraphQL client for developers
+dev-util/insomnia-bin 2020.3.3: HTTP and GraphQL client for developers
 dev-util/osc 0.169.1 9999: Command line tool for Open Build Service
 dev-util/quilttools 0.3: Mailbox to quilt series converter
 dev-util/xdp-tools 0.0.3: Utilities and example programs for use with XDP
@@ -241,7 +242,7 @@ gui-apps/wofi 1.1.1 1.1.2 9999: Wofi is a launcher/menu program for wlroots base
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.2.1 9999: A Wayland kiosk
 kde-misc/plasma-applet-thermal-monitor 1.2.9: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
-kde-misc/plasma5-wallpapers-dynamic 3.2.1 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
+kde-misc/plasma5-wallpapers-dynamic 3.2.3 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
 media-fonts/symbola 7.17: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
 media-gfx/azpainter 2.1.6: Full color painting software for Linux for illustration drawing
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
