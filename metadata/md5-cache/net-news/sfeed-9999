@@ -1,0 +1,10 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install unpack
+DESCRIPTION=simple RSS and Atom parser
+EAPI=7
+HOMEPAGE=https://www.codemadness.org/sfeed.html
+LICENSE=ISC
+PROPERTIES=live
+SLOT=0
+_eclasses_=git-r3	8ec5b53812bce105ae7943930e4660f8
+_md5_=99af983a3fbf4e1cf3aa304ae4d65068
