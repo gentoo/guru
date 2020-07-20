@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>coppens.matthias.abc@gmail.com</email>
+        <description>Matthias Coppens</description>
+    </maintainer>
+    <longdescription>
+        PyInquirer strives to be an easily embeddable and beautiful
+        command line interface for Python. PyInquirer wants to make it
+        easy for existing Inquirer.js users to write immersive
+        command line applications in Python. We are convinced that its
+        feature-set is the most complete for building immersive
+        CLI applications. We also hope that PyInquirer proves itself
+        useful to Python users.
+    </longdescription>
+</pkgmetadata>
