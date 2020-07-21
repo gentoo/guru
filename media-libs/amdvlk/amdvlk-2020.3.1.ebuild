@@ -19,7 +19,7 @@ REQUIRED_USE="|| ( abi_x86_32 abi_x86_64 )"
 BUNDLED_LLVM_DEPEND="sys-libs/zlib:0=[${MULTILIB_USEDEP}]"
 DEPEND="wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
 	${BUNDLED_LLVM_DEPEND}
-	>=dev-util/vulkan-headers-1.2.137"
+	>=dev-util/vulkan-headers-1.2.143"
 BDEPEND="${BUNDLED_LLVM_DEPEND}
 	dev-util/cmake"
 RDEPEND=" ${DEPEND}
@@ -27,7 +27,7 @@ RDEPEND=" ${DEPEND}
 	x11-libs/libXrandr[${MULTILIB_USEDEP}]
 	x11-libs/libxcb[${MULTILIB_USEDEP}]
 	x11-libs/libxshmfence[${MULTILIB_USEDEP}]
-	>=media-libs/vulkan-loader-1.2.137[${MULTILIB_USEDEP}]"
+	>=media-libs/vulkan-loader-1.2.141[${MULTILIB_USEDEP}]"
 
 CHECKREQS_MEMORY="4G"
 CHECKREQS_DISK_BUILD="2G"
@@ -41,13 +41,13 @@ CORRECT_AMDVLK_PV="v-$(ver_rs 1 '.Q')" #Works only for amdvlk source code: trans
 ##and place commits in the desired variables
 ## EXAMPLE: XGL_COMMIT="80e5a4b11ad2058097e77746772ddc9ab2118e07"
 ## SRC_URI="... ${FETCH_URI}/$PART/archive/$COMMIT.zip -> $PART-$COMMIT.zip ..."
-XGL_COMMIT="877b773000248dffa025c42d9c4074d1a07b9e47"
-PAL_COMMIT="a83f67db9f0d2f16bbc698aeefa9c5e9476c993a"
-LLPC_COMMIT="61b5d58e8891dc37e473064d429f0496d5254e52"
-SPVGEN_COMMIT="d4817ab957f79762da83b7fc1d3f2816dbdc13fd"
-LLVM_PROJECT_COMMIT="53692d985a53a336e07907c2d4b86bf2deb66908"
-METROHASH_COMMIT="2b6fee002db6cc92345b02aeee963ebaaf4c0e2f"
-CWPACK_COMMIT="b601c88aeca7a7b08becb3d32709de383c8ee428"
+XGL_COMMIT="9a577aa9c496e2c77844fb91ede978da25b5afd3"
+PAL_COMMIT="6604885c5d60be4a29346f1774a6f7e331879428"
+LLPC_COMMIT="be51df411e14ae19145ab046f95338ed38243b91"
+SPVGEN_COMMIT="e0e6fdae66d8e2cd9949e514f4e6ce6c7e21cce9"
+LLVM_PROJECT_COMMIT="56e1f9b8df3d414ab7acc2fa07272d318725d440"
+METROHASH_COMMIT="712f76fee75d69b23a1ea8f6465752c3ccaaf9a2"
+CWPACK_COMMIT="7387247eb9889ddcabbc1053b9c2052e253b088e"
 ## SRC_URI
 SRC_URI=" ${FETCH_URI}/AMDVLK/archive/${CORRECT_AMDVLK_PV}.tar.gz -> AMDVLK-${CORRECT_AMDVLK_PV}.tar.gz
 ${FETCH_URI}/xgl/archive/${XGL_COMMIT}.tar.gz -> xgl-${XGL_COMMIT}.tar.gz
