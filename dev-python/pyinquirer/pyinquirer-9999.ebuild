@@ -20,6 +20,7 @@ esac
 PYTHON_COMPAT=( python3_{6,7,8} )
 inherit distutils-r1
 distutils_enable_sphinx docs
+distutils_enable_tests pytest
 
 DESCRIPTION="A Python module for common interactive command line UIs"
 HOMEPAGE="${EGIT_REPO_URI}"
@@ -27,11 +28,22 @@ LICENSE="MIT"
 
 SLOT="0"
 
+# Tests are outdated, they fail for >dev-python/ptyprocess-0.5.1
+RESTRICT="test"
+
 RDEPEND="
 	>=dev-python/prompt_toolkit-3.0.0[${PYTHON_USEDEP}]
 	<dev-python/prompt_toolkit-3.1.0[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.2.0[${PYTHON_USEDEP}]"
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? (
+		dev-python/testfixtures[${PYTHON_USEDEP}]
+		>=dev-python/pytest-html-1.10.1[${PYTHON_USEDEP}]
+		>=dev-python/pytest-xdist-1.15.0[${PYTHON_USEDEP}]
+		>=dev-python/pylint-1.6.5[${PYTHON_USEDEP}]
+		>=dev-python/ptyprocess-0.5.1[${PYTHON_USEDEP}]
+		>=dev-python/regex-2016.11.21[${PYTHON_USEDEP}] )"
 
 src_prepare() {
 	default
