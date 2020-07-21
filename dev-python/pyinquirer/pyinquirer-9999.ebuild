@@ -27,7 +27,7 @@ LICENSE="MIT"
 
 SLOT="0"
 
-RDEPEND="${PYTHON_DEPS}
+RDEPEND="
 	>=dev-python/prompt_toolkit-3.0.0[${PYTHON_USEDEP}]
 	<dev-python/prompt_toolkit-3.1.0[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.2.0[${PYTHON_USEDEP}]"
