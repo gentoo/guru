@@ -105,6 +105,7 @@ dev-python/aiopg 1.0.0: aiopg is a library for accessing a PostgreSQL database f
 dev-python/aiosqlite 0.12.0 0.13.0: asyncio bridge to the standard sqlite3 module
 dev-python/aiounittest 1.4.0: Test python asyncio-based code with ease
 dev-python/almost 0.1.5: A helper for approximate comparison
+dev-python/ascim 0.1.1 9999: Manipulate ASCII art as you would do with raster images
 dev-python/aspectlib 1.5.0: An aspect-oriented programming, monkey-patch and decorators library
 dev-python/asyncpg 0.20.1: A fast PostgreSQL Database Client Library for Python/asyncio.
 dev-python/atomiclong 0.1.1 0.1.1-r1 9999: An AtomicLong type using CFFI.
@@ -155,6 +156,7 @@ dev-python/pydantic 1.5.1 1.6.1: Data parsing and validation using Python type h
 dev-python/pydata-sphinx-theme 0.3.1: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0: Pythonic DBus library
 dev-python/pygaljs 1.0.2 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
+dev-python/pyinquirer 9999: A Python module for common interactive command line UIs
 dev-python/pyjsparser 2.7.1: Fast javascript parser based on esprima.js
 dev-python/pykeepass 3.2.0: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
 dev-python/pymdown-extensions 7.0.0: Extensions for Python Markdown.
@@ -195,7 +197,7 @@ dev-python/spotipy 2.13.0: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.2.2: Server Sent Events for Starlette
 dev-python/starlette 0.13.4: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
-dev-python/tekore 1.7.0 2.1.1: Spotify Web API client
+dev-python/tekore 1.7.0 2.1.2: Spotify Web API client
 dev-python/timeout-decorator 0.4.1: Timeout decorator
 dev-python/trio 0.14.0 0.15.1 0.16.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
@@ -247,7 +249,7 @@ media-gfx/azpainter 2.1.6: Full color painting software for Linux for illustrati
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
 media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
-media-libs/amdvlk 2020.2.1 2020.2.2 2020.2.3 2020.2.4 2020.2.5 2020.2.6: AMD Open Source Driver for Vulkan
+media-libs/amdvlk 2020.2.4 2020.2.5 2020.2.6 2020.3.1: AMD Open Source Driver for Vulkan
 media-libs/libavif 0.7.3 0.8.0 9999: Library for encoding and decoding .avif files
 media-libs/skia 80_p20191220 80_p20191220-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
