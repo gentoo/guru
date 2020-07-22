@@ -30,6 +30,7 @@ RDEPEND="
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 		dev-python/pillow[truetype,${PYTHON_USEDEP}]
 		>dev-python/pyinquirer-1.0.3[${PYTHON_USEDEP}]
-		dev-python/colored[${PYTHON_USEDEP}]')
+		dev-python/colored[${PYTHON_USEDEP}]
+		dev-python/ascim[${PYTHON_USEDEP}]')
 	>=media-gfx/imagemagick-7"
 BDEPEND="${RDEPEND}"
