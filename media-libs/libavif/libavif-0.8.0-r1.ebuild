@@ -18,7 +18,7 @@ fi
 
 LICENSE="BSD-2"
 SLOT="0"
-IUSE="dav1d gdk-pixbuf +libaom rav1e"
+IUSE="dav1d +libaom rav1e"
 
 REQUIRED_USE="|| ( dav1d libaom )"
 
@@ -27,7 +27,6 @@ DEPEND="dav1d? ( media-libs/dav1d )
 	rav1e? ( media-video/rav1e:=[capi] )
 	media-libs/libpng
 	virtual/jpeg
-	gdk-pixbuf? ( x11-libs/gdk-pixbuf:2 )
 "
 RDEPEND="${DEPEND}"
 BDEPEND=""
@@ -39,7 +38,6 @@ src_configure() {
 		-DAVIF_CODEC_DAV1D=$(usex dav1d ON OFF)
 		-DAVIF_CODEC_RAV1E=$(usex rav1e ON OFF)
 		-DBUILD_SHARED_LIBS=ON
-		-DAVIF_BUILD_GDK_PIXBUF=$(usex gdk-pixbuf ON OFF)
 	)
 	cmake_src_configure
 }
