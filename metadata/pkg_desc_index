@@ -229,7 +229,7 @@ games-action/netrek-cow 3.3.2: cow client for netrek
 games-action/technic-launcher 4.583: Minecraft launcher for community-made modpacks on the Technic Platform
 games-arcade/opensurge 0.5.1.2 9999: fun 2D retro platformer inspired by old-school Sonic games
 games-arcade/taisei 1.3.1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
-games-engines/boxtron 0.5.4: Steam Play compatibility tool to run DOS games using native Linux DOSBox
+games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
 games-fps/chocolate-doom 3.0.1: A Doom source port that is minimalist and historically accurate
 games-fps/crispy-doom 5.7.2 5.8.0: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
@@ -247,15 +247,16 @@ kde-misc/plasma5-wallpapers-dynamic 3.3.0 9999: A KDE Plasma wallpaper plugin to
 media-fonts/symbola 7.17: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
 media-gfx/azpainter 2.1.6: Full color painting software for Linux for illustration drawing
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
+media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.2.4 2020.2.5 2020.2.6 2020.3.1: AMD Open Source Driver for Vulkan
-media-libs/libavif 0.7.3 0.8.0 9999: Library for encoding and decoding .avif files
+media-libs/libavif 0.7.3 0.8.0-r1 9999: Library for encoding and decoding .avif files
 media-libs/skia 80_p20191220 80_p20191220-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
 media-plugins/gst-plugins-sndio 1.8.0.1-r1: Sndio audio sink and source for GStreamer
-media-plugins/qt-avif-image-plugin 0.3.0 9999: Qt plug-in to allow Qt and KDE based applications to read/write AVIF images.
+media-plugins/qt-avif-image-plugin 0.3.1 9999: Qt plug-in to allow Qt and KDE based applications to read/write AVIF images.
 media-plugins/qt-heif-image-plugin 0.3.3: Qt plugin for HEIF images
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
@@ -342,7 +343,7 @@ x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Arch
 x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial videos
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
 x11-misc/gromit-mpx 1.3 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
-x11-misc/i3lock-color 2.12_rc4 9999: Improved i3lock with color customization
+x11-misc/i3lock-color 2.12.5 9999: Improved i3lock with color customization
 x11-misc/ksnip 1.6.2-r1 1.7.1: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Window System
