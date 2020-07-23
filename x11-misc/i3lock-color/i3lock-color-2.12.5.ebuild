@@ -3,7 +3,7 @@
 
 EAPI=7
 
-MY_PV="${PV//_rc4/.c.4}"
+MY_PV="${PV//.5/.c.5}"
 
 DESCRIPTION="Improved i3lock with color customization"
 HOMEPAGE="https://github.com/Raymo111/i3lock-color"
@@ -25,7 +25,6 @@ RDEPEND="
 	dev-libs/libev
 	media-libs/fontconfig:=
 	media-libs/libjpeg-turbo
-	!x11-misc/i3lock
 "
 
 DEPEND="${RDEPEND}"
@@ -34,7 +33,7 @@ BDEPEND="virtual/pkgconfig"
 S="${WORKDIR}/${PN}-${MY_PV}"
 
 src_configure() {
-	autoreconf -fiv || die
+	autoreconf -fiv
 	econf
 }
 

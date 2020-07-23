@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit cmake
+inherit cmake gnome2-utils
 
 DESCRIPTION="Library for encoding and decoding .avif files"
 HOMEPAGE="https://github.com/AOMediaCodec/libavif"
@@ -44,10 +44,26 @@ src_configure() {
 	cmake_src_configure
 }
 
+pkg_preinst() {
+	if use gdk-pixbuf ; then
+		gnome2_gdk_pixbuf_savelist
+	fi
+}
+
 pkg_postinst() {
 	if ! use libaom && ! use rav1e ; then
 		ewarn "libaom and rav1e flags are not set,"
 		ewarn "libavif will work in read-only mode."
 		ewarn "Enable libaom or rav1e flag if you want to save .AVIF files."
+	fi
+
+	if use gdk-pixbuf ; then
+		gnome2_gdk_pixbuf_update
+	fi
+}
+
+pkg_postrm() {
+	if use gdk-pixbuf ; then
+		gnome2_gdk_pixbuf_update
 	fi
 }
