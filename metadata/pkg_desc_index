@@ -250,7 +250,7 @@ media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer writ
 media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
-media-libs/amdvlk 2020.2.4 2020.2.5 2020.2.6 2020.3.1: AMD Open Source Driver for Vulkan
+media-libs/amdvlk 2020.2.6 2020.3.1 2020.3.2: AMD Open Source Driver for Vulkan
 media-libs/libavif 0.7.3 0.8.0-r1 9999: Library for encoding and decoding .avif files
 media-libs/skia 80_p20191220 80_p20191220-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
@@ -301,7 +301,7 @@ net-wireless/rtl8192eu 0_pre20200123 0_pre20200619: Realtek 8192EU driver module
 net-wireless/rtl8821ce 0_pre20200224: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20200302: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
-sci-electronics/verilator 4.034 4.036 9999: The fast free Verilog/SystemVerilog simulator
+sci-electronics/verilator 4.034 4.036 4.038 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/geographiclib 1.50-r4 1.50.1: C++ library for converting geographic coordinate systems
 sci-libs/ann 1.1.2_p7: A Library for Approximate Nearest Neighbor Searching
 sci-libs/chaco 2.2: Software for Partitioning Graphs
