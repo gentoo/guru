@@ -20,7 +20,7 @@ app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-emacs/vterm 20200504.544 20200504.544-r1: Emacs libvterm integration
 app-emulation/dxvk-bin 1.6.1 1.7: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
-app-emulation/nvidia-container-toolkit 1.1.1 1.1.2: NVIDIA container runtime toolkit
+app-emulation/nvidia-container-toolkit 1.1.1 1.1.2 1.2.0: NVIDIA container runtime toolkit
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/apidb 4.3.0_beta: API Generator for Database acces.
 app-misc/cheat 4.0.2: cheat allows you to create and view interactive cheatsheets on the command-line
