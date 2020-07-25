@@ -63,7 +63,7 @@ SLOT="0"
 IUSE=""
 
 RDEPEND="
-	app-emulation/libnvidia-container
+	sys-libs/libnvidia-container
 "
 
 DEPEND="${RDEPEND}"
