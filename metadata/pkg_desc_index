@@ -326,7 +326,7 @@ sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-kernel/dkms 2.8.1: Dynamic Kernel Module Support
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
-sys-libs/libnvidia-container 1.1.1: NVIDIA container runtime library
+sys-libs/libnvidia-container 1.1.1 1.2.0: NVIDIA container runtime library
 sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC security key
 sys-process/gotop 4.0.1: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
