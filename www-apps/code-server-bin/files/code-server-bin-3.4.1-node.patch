@@ -1,0 +1,8 @@
+--- a/bin/code-server
++++ b/bin/code-server
+@@ -33,4 +33,4 @@ root() {
+ }
+ 
+ ROOT="$(root)"
+-exec "$ROOT/lib/node" "$ROOT" "$@"
++exec node "$ROOT" --disable-telemetry "$@"

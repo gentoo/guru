@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>xgqt@protonmail.com</email>
+    <name>Maciej Barć</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">cdr/code-server</remote-id>
+  </upstream>
+  <longdescription>
+      Run VS Code on any machine anywhere and access it in the browser.
+      Code on your Chromebook, tablet, and laptop with a consistent development environment.
+      Develop on a Linux machine and pick up from any device with a web browser.
+      Take advantage of large cloud servers to speed up tests, compilations, downloads, and more.
+      Preserve battery life when you're on the go as all intensive tasks runs on your server.
+      Make use of a spare computer you have lying around and turn it into a full development environment.
+  </longdescription>
+</pkgmetadata>
