@@ -53,12 +53,15 @@ src_prepare() {
 	rm lib/vscode/node_modules/vscode-ripgrep/bin/rg || die
 
 	# not needed
-	rm code-server
-	rm postinstall.sh
+	rm code-server || die
+	rm postinstall.sh || die
 }
 
 src_install() {
-	local mydocs="LICENSE.txt README.md ThirdPartyNotices.txt"
+	# already in /usr/portage/licenses/MIT
+	rm LICENSE.txt || die
+
+	local mydocs="README.md ThirdPartyNotices.txt"
 	for doc in ${mydocs}
 	do
 		(dodoc "${doc}" && rm "${doc}") || die
