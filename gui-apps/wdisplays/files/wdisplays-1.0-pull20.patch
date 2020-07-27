@@ -1,4 +1,4 @@
-From 657e2966e556c78f121075c69fe1ba8d2b4dcb73 Mon Sep 17 00:00:00 2001
+From 5198a9c94b40ff157c284df413be5402f1b75118 Mon Sep 17 00:00:00 2001
 From: Simon Ser <contact@emersion.fr>
 Date: Wed, 8 Jul 2020 11:57:35 +0200
 Subject: [PATCH] Use correct versions when binding globals
@@ -17,7 +17,7 @@ Closes: https://github.com/cyclopsian/wdisplays/issues/18
  1 file changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/src/outputs.c b/src/outputs.c
-index 9ebf7e5..40410ec 100644
+index 9ebf7e5..a5007e8 100644
 --- a/src/outputs.c
 +++ b/src/outputs.c
 @@ -534,20 +534,20 @@ static void registry_handle_global(void *data, struct wl_registry *registry,
@@ -31,7 +31,7 @@ index 9ebf7e5..40410ec 100644
    } else if (strcmp(interface, zxdg_output_manager_v1_interface.name) == 0) {
      state->xdg_output_manager = wl_registry_bind(registry, name,
 -        &zxdg_output_manager_v1_interface, version);
-+        &zxdg_output_manager_v1_interface, 3);
++        &zxdg_output_manager_v1_interface, 2);
    } else if(strcmp(interface, zwlr_screencopy_manager_v1_interface.name) == 0) {
      state->copy_manager = wl_registry_bind(registry, name,
 -        &zwlr_screencopy_manager_v1_interface, version);
@@ -46,4 +46,3 @@ index 9ebf7e5..40410ec 100644
    }
  }
  
-
