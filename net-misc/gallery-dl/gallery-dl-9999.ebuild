@@ -19,6 +19,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
+RESTRICT="test"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="bash-completion zsh-completion"
@@ -28,7 +29,7 @@ RDEPEND="
 "
 
 # tests require network access
-#distutils_enable_tests setup.py
+distutils_enable_tests setup.py
 
 src_compile() {
 	if use bash-completion || use zsh-completion
