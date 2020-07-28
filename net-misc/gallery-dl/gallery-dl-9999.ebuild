@@ -45,7 +45,9 @@ src_compile() {
 }
 
 pkg_postinst() {
-	elog "Optional dependencies:"
-	elog "media-video/ffmpeg - for Pixiv Ugoira to WebM conversion"
-	elog "net-misc/youtube-dl - for video downloads"
+	elog "To get additional features, some optional runtime dependencies"
+	elog "may be installed:"
+	elog ""
+	optfeature "Pixiv Ugoira to WebM conversion" media-video/ffmpeg
+	optfeature "video downloads" net-misc/youtube-dl
 }
