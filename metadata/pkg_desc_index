@@ -20,7 +20,7 @@ app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-emacs/vterm 20200504.544 20200504.544-r1: Emacs libvterm integration
 app-emulation/dxvk-bin 1.6.1 1.7: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
-app-emulation/nvidia-container-toolkit 1.1.1 1.1.2 1.2.0: NVIDIA container runtime toolkit
+app-emulation/nvidia-container-toolkit 1.1.1 1.1.2 1.2.0 1.2.1: NVIDIA container runtime toolkit
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/apidb 4.3.0_beta: API Generator for Database acces.
 app-misc/cheat 4.0.2: cheat allows you to create and view interactive cheatsheets on the command-line
@@ -132,7 +132,7 @@ dev-python/googletransx 2.4.2: Free Google Translate API for Python. Translates 
 dev-python/graphene 3.0.0_beta3: GraphQL Framework for Python
 dev-python/graphql-core 3.1.1: GraphQL for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
-dev-python/hstspreload 2020.7.15: Chromium HSTS Preload list as a Python package
+dev-python/hstspreload 2020.7.22: Chromium HSTS Preload list as a Python package
 dev-python/httpcore 0.7.0 0.9.1: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/httpx 0.9.3 0.11.1 0.12.1 0.13.3: A next generation HTTP client for Python
@@ -176,7 +176,7 @@ dev-python/pytest-sugar 0.9.3: Plugin for pytest that changes the default look a
 dev-python/pytest-toolbox 0.4: Numerous useful plugins for pytest
 dev-python/pytest-travis-fold 1.3.0 1.3.0-r1: Pytest plugin that folds captured output sections in Travis CI build log
 dev-python/pytest-trio 0.5.2 0.6.0: This is a pytest plugin to help you test projects that use Trio
-dev-python/python-mpv 0.4.7: Python interface to the mpv media player
+dev-python/python-mpv 0.5.2: Python interface to the mpv media player
 dev-python/python-multipart 0.0.5: A streaming multipart parser for Python
 dev-python/python-telegram-bot 12.4.2 9999: Python wrapper of telegram bots API
 dev-python/python-vlc 3.0.10114: Python ctypes-based bindings for libvlc
@@ -204,7 +204,7 @@ dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill, Gl
 dev-python/ufoLib2 0.7.1 0.8.0: A UFO font library
 dev-python/ufoNormalizer 0.4.1: A tool that will normalize the XML and other data inside of a UFO.
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
-dev-python/uvicorn 0.11.6: The lightning-fast ASGI server
+dev-python/uvicorn 0.11.7: The lightning-fast ASGI server
 dev-python/validators 0.14.0-r1 0.14.3 0.15.0: Python Data Validation for Humans
 dev-python/watchgod 0.6: Simple, modern file watching and code reload
 dev-python/wcmatch 6.0.1: Wildcard/glob file name matcher
@@ -221,11 +221,11 @@ dev-vcs/git-extras 6.0.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 dev-vcs/lazygit 0.20.4 0.20.5 0.20.6 0.20.8 0.20.9: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.3.5.2 3.3.6.0_pre: Minecraft launcher which integrates multiple different ModPacks
-games-action/minecraft-launcher 1.6.93 2.1.15852: An open-world game whose gameplay revolves around breaking and placing blocks
+games-action/minecraft-launcher 1.6.93 2.1.16102: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
-games-action/technic-launcher 4.583: Minecraft launcher for community-made modpacks on the Technic Platform
+games-action/technic-launcher 4.588: Minecraft launcher for community-made modpacks on the Technic Platform
 games-arcade/opensurge 0.5.1.2 9999: fun 2D retro platformer inspired by old-school Sonic games
 games-arcade/taisei 1.3.1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
