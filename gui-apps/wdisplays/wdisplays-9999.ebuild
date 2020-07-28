@@ -10,6 +10,7 @@ case "${PV}" in
 		;;
 	*)
 		SRC_URI="${EGIT_REPO_URI}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+		KEYWORDS="~amd64"
 esac
 inherit meson xdg
 
@@ -23,5 +24,3 @@ DEPEND="${BDEPEND}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-
-KEYWORDS=""
