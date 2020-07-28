@@ -4,6 +4,7 @@
 EAPI=7
 
 PYTHON_COMPAT=(python3_{6,7,8})
+DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit eutils distutils-r1
 
@@ -44,7 +45,7 @@ src_compile() {
 }
 
 pkg_postinst() {
-	elog "Optionad dependencies:"
+	elog "Optional dependencies:"
 	elog "media-video/ffmpeg - for Pixiv Ugoira to WebM conversion"
 	elog "net-misc/youtube-dl - for video downloads"
 }
