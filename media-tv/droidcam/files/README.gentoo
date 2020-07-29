@@ -1,0 +1,6 @@
+The default resolution for v4l2loopback-dc is 640x480. You can override these
+values in /etc/modprobe.d/v4l2loopback-dc.conf 
+and modifying 'width' and 'height'.
+
+See https://github.com/aramg/droidcam/issues/56 on why a fork of v4l2loopback
+is currently being used here.
