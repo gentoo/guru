@@ -5,4 +5,7 @@
 		<email>andrewammerlaan@riseup.net</email>
 		<name>Andrew Ammerlaan</name>
 	</maintainer>
+	<use>
+		<flag name="gtk">Build the <pkg>dev-cpp/gtkmm</pkg>:3.0 client.</flag>
+	</use>
 </pkgmetadata>

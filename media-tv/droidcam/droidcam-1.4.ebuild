@@ -42,7 +42,7 @@ DOCS=( README.md README-DKMS.md )
 DISABLE_AUTOFORMATTING="true"
 DOC_CONTENTS="
 		The default resolution for v4l2loopback-dc[1] is 640x480. You can override these
-		values in /etc/modprobe.d/v4l2loopback-dc.conf 
+		values in /etc/modprobe.d/v4l2loopback-dc.conf
 		and modifying 'width' and 'height'.
 		[1] https://github.com/aramg/droidcam/issues/56
 "
@@ -106,12 +106,21 @@ pkg_postinst() {
 
 	if use gtk ; then
 		xdg_pkg_postinst
+	else
+		elog ""
+		elog "Only droidcam-cli has been installed since no 'gtk' flag was present"
+		elog "in the USE list."
 	fi
 
 	elog ""
-	elog "To use this package, you'll need to download the android app as well:"
+	readme.gentoo_print_elog
+
+	elog ""
+	elog "To use this package, you will need to download the Android or iOS app as well:"
+	elog "Android:"
 	elog "Free version: https://play.google.com/store/apps/details?id=com.dev47apps.droidcam"
 	elog "Paid version: https://play.google.com/store/apps/details?id=com.dev47apps.droidcamx"
+	elog "iOS: https://apps.apple.com/us/app/droidcam-wireless-webcam/id1510258102"
 
 	elog ""
 	optfeature "to connection with USB via ADB instead of over wifi" dev-util/android-tools
