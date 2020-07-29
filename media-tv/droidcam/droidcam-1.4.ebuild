@@ -41,8 +41,8 @@ PATCHES="${FILESDIR}/${PN}-makefile-fixes.patch"
 DOCS=( README.md README-DKMS.md )
 DISABLE_AUTOFORMATTING="true"
 DOC_CONTENTS="
-		The default resolution for v4l2loopback-dc[1] is 640x480. You can override the
-		value by copying droidcam.conf.default to /etc/modprobe.d/droidcam.conf
+		The default resolution for v4l2loopback-dc[1] is 640x480. You can override these
+		values in /etc/modprobe.d/v4l2loopback-dc.conf 
 		and modifying 'width' and 'height'.
 		[1] https://github.com/aramg/droidcam/issues/56
 "
