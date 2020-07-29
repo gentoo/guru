@@ -42,7 +42,7 @@ DOCS=( README.md README-DKMS.md )
 DISABLE_AUTOFORMATTING="true"
 DOC_CONTENTS="
 		The default resolution for v4l2loopback-dc[1] is 640x480. You can override these
-		values in /etc/modprobe.d/v4l2loopback-dc.conf 
+		values in /etc/modprobe.d/v4l2loopback-dc.conf
 		and modifying 'width' and 'height'.
 		[1] https://github.com/aramg/droidcam/issues/56
 "
@@ -107,6 +107,8 @@ pkg_postinst() {
 	if use gtk ; then
 		xdg_pkg_postinst
 	fi
+
+	readme.gentoo_print_elog
 
 	elog ""
 	elog "To use this package, you'll need to download the android app as well:"
