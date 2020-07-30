@@ -42,6 +42,6 @@ src_install() {
 	else rm -r "${D}"/etc/kernel/;
 	fi
 
-	ewarn "DKMS will say about missing headers even if sys-kernel/linux-headers installed"
+	ewarn "DKMS might say about missing headers even if sys-kernel/linux-headers installed"
 	ewarn "Just don't keep attention, that don't affect anything"
 }
