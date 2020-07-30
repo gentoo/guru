@@ -44,6 +44,7 @@ media-sound/6pm:midimaps - Install midi maps for that synth. Recommended
 media-sound/6pm:nls - Add support for localization
 media-sound/6pm:presets - Install presets. Recommended
 media-sound/add64:presets - Install presets. Recommended
+media-tv/droidcam:audio - Use snd_aloop kernel module for audio
 media-tv/droidcam:gtk - Build the dev-cpp/gtkmm:3.0 client.
 media-video/mpv-mpris:autoload - Load plugin automatically
 media-video/syncplay:client - Install the Syncplay client
