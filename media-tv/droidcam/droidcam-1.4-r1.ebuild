@@ -14,55 +14,64 @@ KEYWORDS="~amd64"
 LICENSE="GPL-2"
 SLOT="0"
 
-IUSE="gtk"
+IUSE="audio gtk usb"
 
 # Requires connection to android phone
 RESTRICT="test"
 
 DEPEND="
-	gtk? (
-		dev-cpp/gtkmm:3.0
-		media-video/ffmpeg
-	)
 	=app-pda/libusbmuxd-1*
+	dev-libs/glib
+	gtk? ( dev-cpp/gtkmm:3.0 )
 	media-libs/alsa-lib
-"
-
-BDEPEND="
 	media-libs/libjpeg-turbo
 	>=media-libs/speex-1.2.0-r1
-	virtual/pkgconfig
+	media-video/ffmpeg
+	usb? ( dev-util/android-tools )
+	x11-libs/gdk-pixbuf
+	x11-libs/gtk+:3
+	x11-libs/libX11
+	x11-libs/pango
 "
 
-S="${WORKDIR}/${P}/linux"
+BDEPEND="virtual/pkgconfig"
 
-PATCHES="${FILESDIR}/${PN}-makefile-fixes.patch"
+S="${WORKDIR}/${P}/linux"
 
 DOCS=( README.md README-DKMS.md )
 DISABLE_AUTOFORMATTING="true"
 DOC_CONTENTS="
-		The default resolution for v4l2loopback-dc[1] is 640x480. You can override these
-		values in /etc/modprobe.d/v4l2loopback-dc.conf
+		The default resolution for v4l2loopback-dc[1] is 640x480. You can override the
+		value by copying droidcam.conf.default to /etc/modprobe.d/droidcam.conf
 		and modifying 'width' and 'height'.
 		[1] https://github.com/aramg/droidcam/issues/56
 "
 
 BUILD_TARGETS="all"
 MODULE_NAMES="v4l2loopback-dc(video:${S}/v4l2loopback:${S}/v4l2loopback)"
-CONFIG_CHECK="VIDEO_DEV ~SND_ALOOP MEDIA_SUPPORT MEDIA_CAMERA_SUPPORT"
-ERROR_SND_ALOOP="CONFIG_SND_ALOOP: missing, required for audio support"
+CONFIG_CHECK="VIDEO_DEV MEDIA_SUPPORT MEDIA_CAMERA_SUPPORT"
 MODULESD_V4L2LOOPBACK_DC_ENABLED="yes"
 
+PATCHES="${FILESDIR}/${PN}-makefile-fixes.patch"
+
 src_prepare() {
-	default
 	if ! use gtk ; then
 		sed -i -e '/cflags gtk+/d' Makefile
+	else
+		xdg_src_prepare
 	fi
 	linux-mod_pkg_setup
 }
 
 src_configure() {
 	set_arch_to_kernel
+	if use audio ; then
+		if linux_config_exists ; then
+			if ! linux_chkconfig_present SND_ALOOP ; then
+				die "Audio requested but CONFIG_SND_ALOOP not selected in config!"
+			fi
+		fi
+	fi
 	default
 }
 
@@ -81,6 +90,10 @@ src_test() {
 	popd
 }
 
+pkg_preinst() {
+	xdg_pkg_preinst
+}
+
 src_install() {
 	if use gtk ; then
 		dobin droidcam
@@ -94,36 +107,32 @@ src_install() {
 
 	# The cli and gui do not auto load the module if unloaded (why not tho?)
 	# so we just put it in modules-load.d to make sure it always works
-	insinto /usr/lib/modules-load.d/
-	doins "${FILESDIR}/v4l2loopback-dc.conf"
+	insinto /etc/modules-load.d
+	doins "${FILESDIR}"/${PN}-video.conf
+	if use audio && linux_chkconfig_module SND_ALOOP ; then
+		doins "${FILESDIR}"/${PN}-audio.conf
+	fi
 
+	newdoc "${FILESDIR}"/${PN}-modprobe.conf ${PN}.conf.default
 	einstalldocs
 	linux-mod_src_install
 }
 
 pkg_postinst() {
-	linux-mod_pkg_postinst
-
 	if use gtk ; then
 		xdg_pkg_postinst
 	else
-		elog ""
+		elog
 		elog "Only droidcam-cli has been installed since no 'gtk' flag was present"
 		elog "in the USE list."
+		elog
 	fi
 
-	elog ""
+	linux-mod_pkg_postinst
 	readme.gentoo_print_elog
 
-	elog ""
-	elog "To use this package, you will need to download the Android or iOS app as well:"
-	elog "Android:"
-	elog "Free version: https://play.google.com/store/apps/details?id=com.dev47apps.droidcam"
-	elog "Paid version: https://play.google.com/store/apps/details?id=com.dev47apps.droidcamx"
-	elog "iOS: https://apps.apple.com/us/app/droidcam-wireless-webcam/id1510258102"
-
-	elog ""
-	optfeature "to connection with USB via ADB instead of over wifi" dev-util/android-tools
+	elog "Links to the Android/iPhone/iPad apps can be reached at"
+	elog "https://www.dev47apps.com/"
 }
 
 pkg_postrm() {
