@@ -23,7 +23,8 @@ SLOT="0"
 
 RDEPEND="
 	dev-python/click[${PYTHON_USEDEP}]
-	dev-python/h11[${PYTHON_USEDEP}]"
+	dev-python/h11[${PYTHON_USEDEP}]
+"
 
 DEPEND="test? (
 	dev-python/isort[${PYTHON_USEDEP}]
@@ -38,15 +39,6 @@ DEPEND="test? (
 distutils_enable_tests pytest
 
 python_prepare_all() {
-	# these tests fail to collect, likely because wsproto is out of date
-	# ImportError: cannot import name 'ConnectionType'
-	rm tests/protocols/test_websocket.py || die
-	rm tests/protocols/test_http.py || die
-
-	# AttributeError: module 'uvicorn.protocols.http' has no attribute 'h11_impl'
-	sed -i -e 's:test_concrete_http_class:_&:' \
-		tests/test_config.py || die
-
 	# do not install LICENSE to /usr/
 	sed -i -e '/data_files/d' setup.py || die
 
