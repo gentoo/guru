@@ -3,7 +3,8 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_8 python3_9 )
+PYTHON_COMPAT=( python3_{8,9} )
+DISTUTILS_SINGLE_IMPL=1
 
 inherit distutils-r1
 
@@ -16,7 +17,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	<dev-python/requests-3.0[${PYTHON_USEDEP}]
-	dev-python/wheel[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		<dev-python/requests-3.0[${PYTHON_USEDEP}]
+		dev-python/wheel[${PYTHON_USEDEP}]
+	')
 "
 DEPEND="${RDEPEND}"
