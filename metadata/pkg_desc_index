@@ -204,7 +204,7 @@ dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill, Gl
 dev-python/ufoLib2 0.7.1 0.8.0: A UFO font library
 dev-python/ufoNormalizer 0.4.1: A tool that will normalize the XML and other data inside of a UFO.
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
-dev-python/uvicorn 0.11.7: The lightning-fast ASGI server
+dev-python/uvicorn 0.11.8: The lightning-fast ASGI server
 dev-python/validators 0.14.0-r1 0.14.3 0.15.0: Python Data Validation for Humans
 dev-python/watchgod 0.6: Simple, modern file watching and code reload
 dev-python/wcmatch 6.0.1: Wildcard/glob file name matcher
