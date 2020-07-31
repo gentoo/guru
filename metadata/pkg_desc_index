@@ -234,7 +234,7 @@ games-fps/crispy-doom 5.7.2 5.8.0: A limit-removing enhanced-resolution Doom sou
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
 games-util/NotEnoughProduction 0.0.4: Tool for building production chains for modded minecraft
 games-util/itch-bin 25.4.0: itch.io game browser, installer and launcher
-games-util/legendary 0.0.18 0.0.19: A free and open-source replacement for the Epic Games Launcher
+games-util/legendary 0.0.18-r1 0.0.19-r1: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 0.9.4: A simple GOG client for Linux
 gui-apps/nwg-launchers 0.2.0 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/wdisplays 1.0-r2 9999: GUI display configurator for wlroots compositors
