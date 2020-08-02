@@ -91,7 +91,7 @@ dev-libs/mtxclient 0.3.0 0.3.1: Client API library for Matrix, built on top of B
 dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta 2.2.1_beta 2.3.0_beta: C/C++ library to mainly provide Semantic Versioned implementation
 dev-libs/octetos-db-maria 1.2.2_beta: C++ library for Database Acces.
 dev-libs/olm 3.1.4 3.1.5: Implementation of the olm and megolm cryptographic ratchets
-dev-libs/open62541 1.0.1 1.1.1: Open source C implementation of OPC UA
+dev-libs/open62541 1.0.1 1.1.2: Open source C implementation of OPC UA
 dev-libs/protothreads 1.4: Protothreads - Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
 dev-libs/tweeny 3.1.0 3.1.1: C++ tweening (inbetweening) library
