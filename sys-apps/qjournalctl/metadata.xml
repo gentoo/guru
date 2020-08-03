@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>ahvenas@gmail.com</email>
+		<name>Henrik Pihl</name>
+	</maintainer>
+	<longdescription>
+	A graphical user interface which displays the systemd's journal and 
+	lets the user filter the output without the command line.
+	</longdescription>
+</pkgmetadata>
