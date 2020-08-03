@@ -18,6 +18,7 @@ app-admin/gnome-passwordsafe 3.99.2: A password manager for GNOME
 app-arch/unalz 0.65: Extract ALZ archives
 app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
+app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-emacs/vterm 20200504.544 20200504.544-r1: Emacs libvterm integration
 app-emulation/dxvk-bin 1.6.1 1.7: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.1.1 1.1.2 1.2.0 1.2.1: NVIDIA container runtime toolkit
@@ -132,6 +133,7 @@ dev-python/googletransx 2.4.2: Free Google Translate API for Python. Translates 
 dev-python/graphene 3.0.0_beta3: GraphQL Framework for Python
 dev-python/graphql-core 3.1.1: GraphQL for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
+dev-python/hidapi 0.9.0_p3: A Cython interface to the hidapi
 dev-python/hstspreload 2020.7.22: Chromium HSTS Preload list as a Python package
 dev-python/httpcore 0.7.0 0.9.1: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
@@ -233,6 +235,7 @@ games-fps/chocolate-doom 3.0.1: A Doom source port that is minimalist and histor
 games-fps/crispy-doom 5.7.2 5.8.0: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
 games-util/NotEnoughProduction 0.0.4: Tool for building production chains for modded minecraft
+games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
 games-util/itch-bin 25.4.0: itch.io game browser, installer and launcher
 games-util/legendary 0.0.18-r1 0.0.19-r1: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 0.9.4: A simple GOG client for Linux
@@ -315,6 +318,8 @@ sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
 sys-apps/flatpak 1.8.1: Application distribution framework
 sys-apps/hex 0.1.3: Futuristic take on hexdump
 sys-apps/procs 0.10.1: A modern replacement for ps
+sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
+sys-apps/rogdrv 0.0.5: ASUS ROG userspace mouse driver for Linux.
 sys-apps/xdg-desktop-portal-gtk 1.6.0: GTK/GNOME backend for xdg-desktop-portal
 sys-auth/mrsh 2.12: Mrsh is a set of remote shell programs that use munge authentication.
 sys-block/systemd-swap 4.0.1: Script for creating swap space from zram swaps, swap files and swap partitions.
