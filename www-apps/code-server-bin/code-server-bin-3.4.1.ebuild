@@ -55,12 +55,11 @@ src_prepare() {
 	# not needed
 	rm code-server || die
 	rm postinstall.sh || die
+	# already in /usr/portage/licenses/MIT
+	rm LICENSE.txt || die
 }
 
 src_install() {
-	# already in /usr/portage/licenses/MIT
-	rm LICENSE.txt || die
-
 	local mydocs="README.md ThirdPartyNotices.txt"
 	for doc in ${mydocs}
 	do
