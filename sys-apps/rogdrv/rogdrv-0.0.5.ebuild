@@ -17,16 +17,17 @@ SRC_URI="https://github.com/kyokenn/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.g
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-DEPEND="
-	dev-libs/libappindicator
-	dev-python/python-evdev[${PYTHON_USEDEP}]
-	dev-python/cffi[${PYTHON_USEDEP}]
-	dev-python/hidapi[${PYTHON_USEDEP}]
-	virtual/udev"
+DEPEND="$(python_gen_cond_dep '
+		dev-python/python-evdev[${PYTHON_USEDEP}]
+		dev-python/cffi[${PYTHON_USEDEP}]
+		dev-python/hidapi[${PYTHON_USEDEP}]
+		' python3_{7,8} )
+		dev-libs/libappindicator
+		virtual/udev
+		${PYTHON_DEPS}"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 CONFIG_CHECK="~INPUT_UINPUT"
 
 python_prepare_all() {
