@@ -37,17 +37,9 @@ DEPEND="dev-qt/qtcore:5
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
-src_prepare() {
-	xdg_src_prepare
-}
-
 src_configure() {
 	eqmake5 Scenarist.pro
 	emake qmake_all
-}
-
-src_preinst() {
-	xdg_src_prepare
 }
 
 src_install() {
