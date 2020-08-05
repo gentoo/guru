@@ -47,3 +47,14 @@ src_install() {
 	readme.gentoo_create_doc
 	font_src_install
 }
+
+pkg_postinst() {
+	xdg_pkg_postinst
+	font_pkg_postinst
+	readme.gentoo_print_elog
+}
+
+pkg_postrm() {
+	xdg_pkg_postrm
+	font_pkg_postrm
+}
