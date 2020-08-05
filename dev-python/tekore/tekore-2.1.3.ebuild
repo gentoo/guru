@@ -23,6 +23,11 @@ RDEPEND="
 	media-sound/spotify
 "
 
+BDEPEND="test? (
+	>=dev-python/pytest-asyncio-0.11[${PYTHON_USEDEP}]
+	<dev-python/pytest-asyncio-0.15[${PYTHON_USEDEP}]
+)"
+
 DOCS="readme.rst"
 
 distutils_enable_tests pytest
@@ -31,7 +36,6 @@ distutils_enable_tests pytest
 
 python_prepare_all() {
 	# requires network
-		# Assertion error (pytest-qt), maybe we can't do shortcuts inside ebuild environment?
 	sed -i -e 's:test_bad_arguments_raises_error:_&:' \
 			tests/auth/expiring.py || die
 
