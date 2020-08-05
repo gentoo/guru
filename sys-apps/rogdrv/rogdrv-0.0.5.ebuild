@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_7 )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1 linux-info udev
@@ -18,11 +18,9 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="$(python_gen_cond_dep '
-		dev-python/python-evdev[${PYTHON_USEDEP}]
+DEPEND="dev-python/python-evdev[${PYTHON_USEDEP}]
 		dev-python/cffi[${PYTHON_USEDEP}]
 		dev-python/hidapi[${PYTHON_USEDEP}]
-		' python3_{7,8} )
 		dev-libs/libappindicator
 		virtual/udev"
 RDEPEND="${DEPEND}"
