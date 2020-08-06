@@ -245,7 +245,7 @@ gui-apps/wofi 1.2 1.2.1 9999: Wofi is a launcher/menu program for wlroots based 
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.2.1 9999: A Wayland kiosk
 kde-misc/plasma-applet-thermal-monitor 1.2.9: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
-kde-misc/plasma5-wallpapers-dynamic 3.3.0 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
+kde-misc/plasma5-wallpapers-dynamic 3.3.3 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
 media-fonts/symbola 7.17: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
 media-gfx/azpainter 2.1.6: Full color painting software for Linux for illustration drawing
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
@@ -253,7 +253,7 @@ media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.2.6 2020.3.1 2020.3.2: AMD Open Source Driver for Vulkan
-media-libs/libavif 0.7.3 0.8.0-r1 9999: Library for encoding and decoding .avif files
+media-libs/libavif 0.7.3 0.8.0-r1 0.8.1 9999: Library for encoding and decoding .avif files
 media-libs/skia 80_p20191220 80_p20191220-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
@@ -350,7 +350,7 @@ x11-libs/kimageannotator 0.2.1 0.3.1: Tool for annotating images
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial videos
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
-x11-misc/gromit-mpx 1.3 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
+x11-misc/gromit-mpx 1.3 1.3.1 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
 x11-misc/i3lock-color 2.12.5 9999: Improved i3lock with color customization
 x11-misc/ksnip 1.6.2-r1 1.7.1: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
