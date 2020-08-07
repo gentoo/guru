@@ -252,7 +252,7 @@ media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer writ
 media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
-media-libs/amdvlk 2020.2.6 2020.3.1 2020.3.2: AMD Open Source Driver for Vulkan
+media-libs/amdvlk 2020.2.6 2020.3.1 2020.3.2 2020.3.3: AMD Open Source Driver for Vulkan
 media-libs/libavif 0.7.3 0.8.0-r1 0.8.1 9999: Library for encoding and decoding .avif files
 media-libs/skia 80_p20191220 80_p20191220-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
@@ -359,7 +359,7 @@ x11-themes/arc-darkest-colors 0_pre20200417: Flat, dark-mode theme with transpar
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
 x11-themes/candy-icon-theme 0_pre20200606 9999: sweet gradient icons
 x11-themes/obsidian-icon-theme 4.12 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
-x11-themes/obsidian2-gtk-theme 2.12 9999: Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
+x11-themes/obsidian2-gtk-theme 2.13 9999: Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
 x11-themes/papirus-claws-mail-theme 0_pre20181023: Papirus icon theme for Claws Mail
 x11-themes/sweet-folders-icon-theme 0_pre20200227 9999: sweet gradient icons
 x11-themes/sweet-gtk-theme 1.10.5_p20200603 9999: light and dark colorful gtk theme
