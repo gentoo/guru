@@ -106,7 +106,7 @@ dev-python/aiosqlite 0.12.0 0.13.0: asyncio bridge to the standard sqlite3 modul
 dev-python/aiounittest 1.4.0: Test python asyncio-based code with ease
 dev-python/almost 0.1.5: A helper for approximate comparison
 dev-python/ascim 0.1.1 9999: Manipulate ASCII art as you would do with raster images
-dev-python/aspectlib 1.5.0: An aspect-oriented programming, monkey-patch and decorators library
+dev-python/aspectlib 1.5.1: An aspect-oriented programming, monkey-patch and decorators library
 dev-python/asyncpg 0.20.1: A fast PostgreSQL Database Client Library for Python/asyncio.
 dev-python/atomiclong 0.1.1 0.1.1-r1 9999: An AtomicLong type using CFFI.
 dev-python/autoflake 1.3.1: Removes unused imports and unused variables as reported by pyflakes
@@ -239,7 +239,7 @@ games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
 games-util/itch-bin 25.4.0: itch.io game browser, installer and launcher
 games-util/legendary 0.0.18-r1 0.0.19-r1: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 0.9.4: A simple GOG client for Linux
-gui-apps/nwg-launchers 0.2.0 0.3.0 9999: GTK+ launchers for sway, i3 and some other WMs
+gui-apps/nwg-launchers 0.2.0 0.3.0 0.3.1 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/wdisplays 1.0-r2 9999: GUI display configurator for wlroots compositors
 gui-apps/wofi 1.2 1.2.1 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
@@ -278,7 +278,7 @@ media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
 net-dialup/tio 1.32: Simple TTY terminal application
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.4 8.5 9.0_pre20200419 9.0_pre20200509: XMPP gateway to IRC
-net-im/discord-canary-bin 0.0.104: All-in-one voice and text chat
+net-im/discord-canary-bin 0.0.104 0.0.106: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-im/nheko 0.7.1 0.7.2: Desktop client for Matrix using Qt and C++14
 net-im/srain 1.1.1: Modern, beautiful IRC client written in GTK+ 3
