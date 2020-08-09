@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{6,7,8,9} )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
@@ -29,7 +29,7 @@ DEPEND="
 		dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/nose[${PYTHON_USEDEP}]
 		dev-python/process-tests[${PYTHON_USEDEP}]
-		<www-servers/tornado-6[${PYTHON_USEDEP}]
+		www-servers/tornado[${PYTHON_USEDEP}]
 	)
 "
 
