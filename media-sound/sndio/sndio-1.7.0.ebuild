@@ -9,7 +9,7 @@ DESCRIPTION="small audio and MIDI framework part of the OpenBSD project"
 HOMEPAGE="http://www.sndio.org/"
 SRC_URI="http://www.sndio.org/${P}.tar.gz"
 LICENSE="ISC"
-SLOT="0/7.0"
+SLOT="0/7.1"
 KEYWORDS="~amd64"
 IUSE="alsa"
 
