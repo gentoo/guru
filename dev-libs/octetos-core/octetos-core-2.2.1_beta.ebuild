@@ -9,7 +9,7 @@ MYPV="${PV/_beta/-beta.1}"
 
 DESCRIPTION="C/C++ library to mainly provide Semantic Versioned implementation"
 HOMEPAGE="https://github.com/azaeldevel/octetos-core"
-SRC_URI="https://github.com/azaeldevel/${PN}/archive/${MYPV}.tar.gz"
+SRC_URI="https://github.com/azaeldevel/${PN}/archive/${MYPV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
