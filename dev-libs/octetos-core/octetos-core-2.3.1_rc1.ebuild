@@ -5,7 +5,7 @@ EAPI=7
 
 inherit autotools
 
-MYPV="${PV/_beta/-br}"
+MYPV="${PV/_rc1/-beta.1/}"
 
 DESCRIPTION="C/C++ library to mainly provide Semantic Versioned implementation"
 HOMEPAGE="https://github.com/azaeldevel/octetos-core"
@@ -20,10 +20,11 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND="
-	dev-util/cunit
 	>=sys-devel/gcc-8.1
 	>=sys-devel/bison-3.1
 	dev-libs/libconfig
+	dev-perl/XML-Parser
+	dev-util/intltool
 "
 
 S="${WORKDIR}/${PN}-${MYPV}"
