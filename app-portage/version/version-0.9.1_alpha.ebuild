@@ -17,7 +17,10 @@ KEYWORDS="~amd64"
 
 IUSE=""
 
-DEPEND="dev-libs/octetos-core"
+DEPEND="
+	dev-libs/octetos-core
+	dev-libs/octetos-coreutils
+"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
