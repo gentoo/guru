@@ -41,6 +41,7 @@ app-portage/pacvis 0.4.2 9999: Displays dependency graphs of packages
 app-portage/portage-lostfiles 0.2.0: A simple script to identify files not tracked by Portage package manager
 app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
 app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
+app-portage/version 0.6.1_alpha 0.6.2_alpha 0.9.0_alpha 0.9.1_alpha: A command line function for package version management.
 app-shells/antibody 6.0.1 6.1.0: Fast Zsh plugin manager
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
@@ -89,8 +90,8 @@ dev-libs/cgicc 3.2.19: A C++ class library for writing CGI applications
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
 dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
 dev-libs/mtxclient 0.3.0 0.3.1: Client API library for Matrix, built on top of Boost.Asio
-dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta 2.2.1_beta 2.3.0_beta 2.3.1_beta: C/C++ library to mainly provide Semantic Versioned implementation
-dev-libs/octetos-coreutils 0.3.0_alpha 0.4.0_alpha: Similar to coretils but is a C ++ API.
+dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta 2.2.1_beta 2.3.0_beta 2.3.1_beta 2.3.1_rc1: C/C++ library to mainly provide Semantic Versioned implementation
+dev-libs/octetos-coreutils 0.3.0_alpha 0.4.0_alpha 0.4.0_alpha2: Similar to coreutils but is a C ++ API.
 dev-libs/octetos-db-maria 1.2.2_beta: C++ library for Database Acces.
 dev-libs/olm 3.1.4 3.1.5: Implementation of the olm and megolm cryptographic ratchets
 dev-libs/open62541 1.0.1 1.1.2: Open source C implementation of OPC UA
