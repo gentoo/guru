@@ -9,7 +9,7 @@ MYPV="${PV/_alpha}"
 
 DESCRIPTION="A command line/operator for package version."
 HOMEPAGE="https://github.com/azaeldevel/octetos-version"
-SRC_URI="https://github.com/azaeldevel/octetos-${PN}/archive/${MYPV}.tar.gz"
+SRC_URI="https://github.com/azaeldevel/octetos-${PN}/archive/${MYPV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -17,7 +17,10 @@ KEYWORDS="~amd64"
 
 IUSE=""
 
-DEPEND="dev-libs/octetos-core"
+DEPEND="
+	dev-libs/octetos-core
+	dev-libs/octetos-coreutils
+"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
