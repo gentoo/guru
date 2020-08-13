@@ -10,7 +10,7 @@ MYP="${PN}-${MYPV}"
 
 DESCRIPTION="Similar to coreutils but is a C ++ API."
 HOMEPAGE="https://github.com/azaeldevel/octetos-coreutils"
-SRC_URI="https://github.com/azaeldevel/${PN}/archive/${MYPV}.tar.gz"
+SRC_URI="https://github.com/azaeldevel/${PN}/archive/${MYPV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
