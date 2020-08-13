@@ -5,11 +5,11 @@ EAPI=7
 
 inherit cmake fcaps
 
-MY_COMMIT="2ef41e1afca824acc0cd0ac9a714016459a24d25"
+MY_PV="${PV/_/-}"
 
 DESCRIPTION="XMPP gateway to IRC"
 HOMEPAGE="https://biboumi.louiz.org/"
-SRC_URI="https://lab.louiz.org/louiz/biboumi/-/archive/${MY_COMMIT}/biboumi-${MY_COMMIT}.tar.bz2 -> ${P}.tar.bz2"
+SRC_URI="https://git.louiz.org/biboumi/snapshot/biboumi-${MY_PV}.tar.xz"
 
 LICENSE="ZLIB"
 SLOT="0"
@@ -33,7 +33,7 @@ RDEPEND="
 	${DEPEND}
 	acct-user/biboumi"
 
-S="${WORKDIR}/${PN}-${MY_COMMIT}"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 DOCS=( README.rst CHANGELOG.rst doc/user.rst )
 
@@ -58,7 +58,6 @@ src_configure() {
 		-DWITH_POSTGRESQL="$(usex postgres)"
 
 		-DWITHOUT_SYSTEMD="$(usex systemd no yes)"
-		-DWITHOUT_UDNS="$(usex udns no yes)"
 		-DWITHOUT_POSTGRESQL="$(usex postgres no yes)"
 	)							# The WITHOUT_* is really needed.
 
