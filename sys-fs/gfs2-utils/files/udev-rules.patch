@@ -1,0 +1,10 @@
+--- gfs2-utils-3.2.0/gfs2/scripts/Makefile.am	2018-05-23 22:04:16.000000000 +0200
++++ gfs2-utils-3.2.0.new/gfs2/scripts/Makefile.am	2020-02-10 15:16:08.262116412 +0100
+@@ -5,6 +5,6 @@
+ 	gfs2_trace \
+ 	gfs2_withdraw_helper
+ 
+-udevrulesdir=@udevdir@/rules.d
++udevrulesdir=/lib/udev/rules.d
+ dist_udevrules_DATA = \
+ 	82-gfs2-withdraw.rules
