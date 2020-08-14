@@ -124,7 +124,7 @@ dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
 dev-python/curio 0.9 1.2: Curio is a coroutine-based library for concurrent systems programming
 dev-python/databases 0.3.2: Async database support for Python.
 dev-python/dateparser 0.7.4: Date parsing library designed to parse dates from HTML pages
-dev-python/devtools 0.5.1: Dev tools for python
+dev-python/devtools 0.6: Dev tools for python
 dev-python/doxypypy 0.8.8.6: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/factory_boy 2.12.0 2.12.0-r1: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11: Up to date simple useragent faker with real world database
@@ -136,10 +136,10 @@ dev-python/graphene 3.0.0_beta3: GraphQL Framework for Python
 dev-python/graphql-core 3.1.1: GraphQL for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
 dev-python/hidapi 0.9.0_p3: A Cython interface to the hidapi
-dev-python/hstspreload 2020.7.22: Chromium HSTS Preload list as a Python package
-dev-python/httpcore 0.7.0 0.9.1: A minimal HTTP client
+dev-python/hstspreload 2020.8.12: Chromium HSTS Preload list as a Python package
+dev-python/httpcore 0.7.0 0.9.1 0.10.1: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
-dev-python/httpx 0.9.3 0.11.1 0.12.1 0.13.3: A next generation HTTP client for Python
+dev-python/httpx 0.9.3 0.11.1 0.12.1 0.13.3 0.14.0: A next generation HTTP client for Python
 dev-python/hunter 3.1.3: Hunter is a flexible code tracing toolkit
 dev-python/js2py 0.70: JavaScript to Python Translator & JavaScript interpreter written in Python
 dev-python/jupyter-sphinx 0.2.4: Jupyter Sphinx Extensions
@@ -155,7 +155,7 @@ dev-python/outcome 1.0.1: Capture the outcome of Python function calls
 dev-python/pdfminer-six 20200124 20200402 20200517: Community maintained fork of pdfminer
 dev-python/pep517 0.8.2-r1: standard API for systems which build Python packages
 dev-python/pure-protobuf 2.0.0-r1: A more Pythonic version of doxypy, a Doxygen filter for Python
-dev-python/pydantic 1.5.1 1.6.1: Data parsing and validation using Python type hints
+dev-python/pydantic 1.6.1: Data parsing and validation using Python type hints
 dev-python/pydata-sphinx-theme 0.3.1: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0: Pythonic DBus library
 dev-python/pygaljs 1.0.2 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
@@ -183,7 +183,7 @@ dev-python/pytest-trio 0.5.2 0.6.0: This is a pytest plugin to help you test pro
 dev-python/python-mpv 0.5.2: Python interface to the mpv media player
 dev-python/python-multipart 0.0.5: A streaming multipart parser for Python
 dev-python/python-telegram-bot 12.4.2 9999: Python wrapper of telegram bots API
-dev-python/python-vlc 3.0.10114: Python ctypes-based bindings for libvlc
+dev-python/python-vlc 3.0.11115: Python ctypes-based bindings for libvlc
 dev-python/redbaron 0.9: A FST for python to make writing refactoring code a realistic task
 dev-python/rstcheck 3.3.1: Checks syntax of reStructuredText and code blocks nested within it
 dev-python/sanic 20.6.3: Async Python 3.6+ web server/framework | Build fast. Run fast.
@@ -200,7 +200,7 @@ dev-python/spotipy 2.13.0: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.2.2: Server Sent Events for Starlette
 dev-python/starlette 0.13.4: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
-dev-python/tekore 1.7.0 2.1.3: Spotify Web API client
+dev-python/tekore 2.1.3: Spotify Web API client
 dev-python/timeout-decorator 0.4.1: Timeout decorator
 dev-python/trio 0.14.0 0.15.1 0.16.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
@@ -229,7 +229,7 @@ games-action/minecraft-launcher 1.6.93 2.1.16102: An open-world game whose gamep
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
-games-action/technic-launcher 4.588: Minecraft launcher for community-made modpacks on the Technic Platform
+games-action/technic-launcher 4.590: Minecraft launcher for community-made modpacks on the Technic Platform
 games-arcade/opensurge 0.5.1.2 9999: fun 2D retro platformer inspired by old-school Sonic games
 games-arcade/taisei 1.3.1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
