@@ -22,6 +22,10 @@ BDEPEND="${DEPEND}
 		dev-util/meson
 		dev-util/ninja"
 
+QA_PRESTRIPPED="/usr/bin/tlslookup
+				/usr/lib64/libnss_tls.so.2
+				/usr/sbin/nss-tlsd"
+
 src_prepare() {
 			default
 			sed -e "s/@0@\/run\/nss-tls/\/var\/run\/nss-tls/" -i "${S}"/meson.build || die
@@ -48,7 +52,7 @@ src_install() {
 			meson_src_install
 }
 
-post_install() {
+pkg_postinst() {
 			ewarn "Do Not put ip address of the server in nss-tls.conf"
 			ewarn "use the dns name and add record of dns server in /etc/hosts"
 			ewarn "echo "8.8.8.8 dns.google" >> /etc/hosts"

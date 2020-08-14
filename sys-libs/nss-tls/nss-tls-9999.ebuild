@@ -22,6 +22,10 @@ BDEPEND="${DEPEND}
 		dev-util/meson
 		dev-util/ninja"
 
+QA_PRESTRIPPED="/usr/bin/tlslookup
+				/usr/lib64/libnss_tls.so.2
+				/usr/sbin/nss-tlsd"
+
 EGIT_REPO_URI="https://github.com/dimkr/nss-tls.git"
 EGIT_BRANCH="master"
 
@@ -51,7 +55,7 @@ src_install() {
 			meson_src_install
 }
 
-post_install() {
+pkg_postinst() {
 			ewarn "Do Not put ip address of the server in nss-tls.conf"
 			ewarn "use the dns name and add record of dns server in /etc/hosts"
 			ewarn "echo "8.8.8.8 dns.google" >> /etc/hosts"
