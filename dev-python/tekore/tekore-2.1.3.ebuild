@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_7 )
+PYTHON_COMPAT=( python3_{7,8} )
 
 inherit distutils-r1
 
@@ -20,7 +20,6 @@ RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	>=dev-python/httpx-0.11.1[${PYTHON_USEDEP}]
 	<dev-python/httpx-0.14[${PYTHON_USEDEP}]
-	media-sound/spotify
 "
 
 BDEPEND="test? (

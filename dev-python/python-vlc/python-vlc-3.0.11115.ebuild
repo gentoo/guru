@@ -8,7 +8,8 @@ PYTHON_COMPAT=( python3_{6,7,8,9} )
 inherit distutils-r1
 
 DESCRIPTION="Python ctypes-based bindings for libvlc"
-HOMEPAGE="https://github.com/oaubert/python-vlc"
+HOMEPAGE="https://github.com/oaubert/python-vlc
+	https://wiki.videolan.org/Python_bindings/"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"

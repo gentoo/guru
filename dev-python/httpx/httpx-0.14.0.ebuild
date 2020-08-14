@@ -26,7 +26,7 @@ SLOT="0"
 RDEPEND="dev-python/certifi[${PYTHON_USEDEP}]
 	dev-python/chardet[${PYTHON_USEDEP}]
 	dev-python/hstspreload[${PYTHON_USEDEP}]
-	dev-python/httpcore[${PYTHON_USEDEP}]
+	~dev-python/httpcore-0.10.1[${PYTHON_USEDEP}]
 	dev-python/hyper-h2[${PYTHON_USEDEP}]
 	dev-python/h11[${PYTHON_USEDEP}]
 	dev-python/idna[${PYTHON_USEDEP}]
