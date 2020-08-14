@@ -21,7 +21,7 @@ SLOT="0"
 RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
-	media-sound/spotify"
+"
 
 DEPEND="test? ( dev-python/mock[${PYTHON_USEDEP}] )"
 
