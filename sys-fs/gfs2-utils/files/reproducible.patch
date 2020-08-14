@@ -1,0 +1,91 @@
+Description: make build reproducible
+ Don't include build date and time in binaries.
+Author: Valentin Vidic <Valentin.Vidic@CARNet.hr>
+Last-Update: 2018-04-05
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/gfs2/convert/gfs2_convert.c
++++ b/gfs2/convert/gfs2_convert.c
+@@ -1699,8 +1699,7 @@
+ /* ------------------------------------------------------------------------- */
+ static void version(void)
+ {
+-	log_notice(_("gfs2_convert version %s (built %s %s)\n"), VERSION,
+-			   __DATE__, __TIME__);
++	log_notice(_("gfs2_convert version %s\n"), VERSION);
+ 	log_notice("%s\n\n", REDHAT_COPYRIGHT);
+ }
+ 
+--- a/gfs2/edit/hexedit.c
++++ b/gfs2/edit/hexedit.c
+@@ -2396,8 +2396,8 @@
+ static void parameterpass1(int argc, char *argv[], int i)
+ {
+ 	if (!strcasecmp(argv[i], "-V")) {
+-		printf("%s version %s (built %s %s)\n",
+-		       argv[0], VERSION, __DATE__, __TIME__);
++		printf("%s version %s\n",
++		       argv[0], VERSION);
+ 		printf("%s\n", REDHAT_COPYRIGHT);
+ 		exit(0);
+ 	}
+--- a/gfs2/fsck/main.c
++++ b/gfs2/fsck/main.c
+@@ -62,8 +62,8 @@
+ 
+ static void version(void)
+ {
+-	printf( _("GFS2 fsck %s (built %s %s)\n"),
+-	       VERSION, __DATE__, __TIME__);
++	printf( _("GFS2 fsck %s\n"),
++	       VERSION);
+ 	printf(REDHAT_COPYRIGHT "\n");
+ }
+ 
+--- a/gfs2/mkfs/main_grow.c
++++ b/gfs2/mkfs/main_grow.c
+@@ -100,8 +100,7 @@
+ 			override_device_size <<= 20;
+ 			break;
+ 		case 'V':
+-			printf(_("%s %s (built %s %s)\n"), argv[0],
+-			       VERSION, __DATE__, __TIME__);
++			printf(_("%s %s\n"), argv[0], VERSION);
+ 			printf(REDHAT_COPYRIGHT "\n");
+ 			exit(0);
+ 		case 'h':
+--- a/gfs2/mkfs/main_jadd.c
++++ b/gfs2/mkfs/main_jadd.c
+@@ -180,8 +180,7 @@
+ 			opts->quiet = 1;
+ 			break;
+ 		case 'V':
+-			printf("gfs2_jadd %s (built %s %s)\n", VERSION,
+-			       __DATE__, __TIME__);
++			printf("gfs2_jadd %s\n", VERSION);
+ 			printf(REDHAT_COPYRIGHT "\n");
+ 			exit(0);
+ 			break;
+--- a/gfs2/mkfs/main_mkfs.c
++++ b/gfs2/mkfs/main_mkfs.c
+@@ -374,8 +374,7 @@
+ 			opt_parse_extended(optarg, opts);
+ 			break;
+ 		case 'V':
+-			printf("mkfs.gfs2 %s (built %s %s)\n", VERSION,
+-			       __DATE__, __TIME__);
++			printf("mkfs.gfs2 %s\n", VERSION);
+ 			printf(REDHAT_COPYRIGHT "\n");
+ 			exit(EXIT_SUCCESS);
+ 			break;
+--- a/gfs2/tune/main.c
++++ b/gfs2/tune/main.c
+@@ -59,7 +59,7 @@
+ 
+ static void version(void)
+ {
+-	printf("tunegfs2 (%s %s)\n", __DATE__, __TIME__);
++	printf("tunegfs2\n");
+ }
+ 
+ int main(int argc, char **argv)

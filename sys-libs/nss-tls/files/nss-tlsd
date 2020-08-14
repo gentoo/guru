@@ -1,0 +1,33 @@
+#!/sbin/openrc-run
+# Copyright 1999-2017 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+description="NSS TLS Daemon"
+
+
+depend() {
+	use dns ldap net slapd logger
+}
+
+checkconfig() {
+	if [ ! -d /run/nss-tlsd ] ; then
+		checkpath -d -m 755 /run/nss-tlsd
+	fi
+
+}
+
+start_pre() {
+	checkconfig
+}
+
+start() {
+        ebegin "Starting NSS-TLSD"
+        start-stop-daemon --start --background --exec /usr/sbin/nss-tlsd --pidfile /var/run/nss-tlsd.pid
+        eend $?
+}
+
+stop() {
+        ebegin "Stopping NSS-TLSD"
+        start-stop-daemon --stop --exec /usr/sbin/nss-tlsd --pidfile /var/run/nss-tlsd.pid
+        eend $?
+}
