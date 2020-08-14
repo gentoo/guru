@@ -3,9 +3,19 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
-inherit distutils-r1
+DOCBUILDER="mkdocs"
+DOCDEPEND="
+	dev-python/ansi2html
+	dev-python/markdown
+	dev-python/markdown-include
+	dev-python/mkdocs-exclude
+	dev-python/mkdocs-material
+	dev-python/pygments
+"
+
+inherit distutils-r1 docs
 
 MYPN="python-${PN}"
 MYP="${MYPN}-${PV}"
@@ -21,10 +31,8 @@ SLOT="0"
 S="${WORKDIR}/${MYP}"
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs dev-python/sphinxcontrib-websupport
 
 DEPEND="test? (
 	dev-python/pygments[${PYTHON_USEDEP}]
-	dev-python/pytest-isort[${PYTHON_USEDEP}]
 	dev-python/pytest-mock[${PYTHON_USEDEP}]
 )"
