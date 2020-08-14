@@ -52,7 +52,7 @@ src_install() {
 			meson_src_install
 }
 
-post_install() {
+pkg_postinst() {
 			ewarn "Do Not put ip address of the server in nss-tls.conf"
 			ewarn "use the dns name and add record of dns server in /etc/hosts"
 			ewarn "echo "8.8.8.8 dns.google" >> /etc/hosts"
