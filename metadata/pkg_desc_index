@@ -20,7 +20,7 @@ app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-emacs/vterm 20200504.544 20200504.544-r1: Emacs libvterm integration
-app-emulation/dxvk-bin 1.6.1 1.7: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
+app-emulation/dxvk-bin 1.7 1.7.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.1.1 1.1.2 1.2.0 1.2.1: NVIDIA container runtime toolkit
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/apidb 4.3.0_beta: API Generator for Database acces.
@@ -333,9 +333,11 @@ sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on stri
 sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect datasets of MPI applications
 sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
+sys-fs/gfs2-utils 3.2.0: Shared-disk cluster file system
 sys-kernel/dkms 2.8.3: Dynamic Kernel Module Support
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-libs/libnvidia-container 1.1.1 1.2.0: NVIDIA container runtime library
+sys-libs/nss-tls 1.0 9999: A DNS over HTTPS resolver for glibc
 sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC security key
 sys-process/gotop 4.0.1: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/iotop-c 0_pre20140824: top utility for IO (C port)
