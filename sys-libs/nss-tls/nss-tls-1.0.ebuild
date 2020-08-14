@@ -22,6 +22,10 @@ BDEPEND="${DEPEND}
 		dev-util/meson
 		dev-util/ninja"
 
+QA_PRESTRIPPED="/usr/bin/tlslookup
+				/usr/lib64/libnss_tls.so.2
+				/usr/sbin/nss-tlsd"
+
 src_prepare() {
 			default
 			sed -e "s/@0@\/run\/nss-tls/\/var\/run\/nss-tls/" -i "${S}"/meson.build || die

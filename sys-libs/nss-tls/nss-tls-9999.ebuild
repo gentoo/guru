@@ -22,6 +22,10 @@ BDEPEND="${DEPEND}
 		dev-util/meson
 		dev-util/ninja"
 
+QA_PRESTRIPPED="/usr/bin/tlslookup
+				/usr/lib64/libnss_tls.so.2
+				/usr/sbin/nss-tlsd"
+
 EGIT_REPO_URI="https://github.com/dimkr/nss-tls.git"
 EGIT_BRANCH="master"
 
