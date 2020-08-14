@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_7 )
+PYTHON_COMPAT=( python3_{7,8} )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
@@ -31,7 +31,6 @@ RDEPEND="
 	mpv? ( dev-python/python-mpv[${PYTHON_USEDEP}] )
 	vlc? ( dev-python/python-vlc[${PYTHON_USEDEP}] )
 	zeroconf? ( dev-python/zeroconf[${PYTHON_USEDEP}] )
-	$(python_gen_cond_dep 'dev-python/dataclasses[${PYTHON_USEDEP}]' python3_6)
 "
 
 distutils_enable_tests unittest
