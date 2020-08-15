@@ -1,0 +1,40 @@
+From 0b0cbdd4e376b60a2974c502c100395a381249e8 Mon Sep 17 00:00:00 2001
+From: Kurt Kanzenbach <kurt@kmk-computers.de>
+Date: Sat, 15 Aug 2020 08:45:21 +0200
+Subject: [PATCH] tests: Disable network tests
+
+The network tests won't work within portage. Disable them.
+
+Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
+---
+ Makefile.am | 7 -------
+ 1 file changed, 7 deletions(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index efe55792fabb..2c6d8080e992 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -150,10 +150,6 @@ check_PROGRAMS = \
+ 	test/progress.test \
+ 	test/slot.test
+ 
+-if WANT_NETWORK
+-check_PROGRAMS += test/network.test
+-endif
+-
+ if WANT_JSON
+ check_PROGRAMS += test/boot_switch.test
+ endif
+@@ -233,9 +229,6 @@ test_utils_test_LDADD = librauctest.la
+ test_install_test_SOURCES = test/install.c
+ test_install_test_LDADD = librauctest.la
+ 
+-test_network_test_SOURCES = test/network.c
+-test_network_test_LDADD = librauctest.la
+-
+ test_progress_test_SOURCES = test/progress.c
+ test_progress_test_LDADD = librauctest.la
+ 
+-- 
+2.26.2
+
