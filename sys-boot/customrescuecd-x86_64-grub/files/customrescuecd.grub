@@ -1,0 +1,43 @@
+#!/bin/sh
+# Copyright 1999-2018 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+. /usr/share/grub/grub-mkconfig_lib
+
+if [ -r /etc/default/customrescuecd ] ; then
+  . /etc/default/customrescuecd
+fi
+
+# crcd = path of newest link to iso of customrescuecd, created by the ebuild
+#        of customrescuecd-x86_64
+
+crcd="/usr/share/systemrescuecd/systemrescuecd-x86_64-newest.iso"
+
+longname="CustomRescueCD"
+bootops=")"
+
+if [ ! -z "${CRCD_BOOTOPTIONS}" ]; then
+	bootops=" with bootoptions)"
+fi
+
+if [ -f "${crcd}" ]; then
+
+	device=$(${grub_probe} --target=device "${crcd}")
+	path=$(make_system_path_relative_to_its_root "${crcd}")
+	grub_string=$(prepare_grub_to_access_device "${device}" | grub_add_tab | grub_add_tab)
+
+	gettext_printf "Found %s on %s\n" "${longname}" "${device}" >&2
+	onstr=$(gettext_printf "(on %s)" "${device}")
+
+	cat << EOF
+submenu "${longname}" --class submenu {
+	menuentry "${longname} (64bit ${bootops}" --class rescue {
+${grub_string}
+		set isofile=${path}
+		loopback loop \${isofile}
+		linux (loop)/boot/x86_64/customrescue64 ${CRCD_BOOTOPTIONS} customisobasedir=customresccd customisolabel=CRC64 vga=791 net.ifnames=0
+	}
+}
+EOF
+
+fi

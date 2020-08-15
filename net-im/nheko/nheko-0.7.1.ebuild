@@ -28,13 +28,13 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	dev-qt/linguist-tools:5
 	dev-libs/spdlog
 "
+BDEPEND="dev-qt/linguist-tools:5"
 
 src_prepare() {
 	cmake_src_prepare
-	xdg_src_prepare
+	xdg_environment_reset
 
 	# TODO: Unbundle SingleApplication, blurhash and cpp-httplib.
 }
