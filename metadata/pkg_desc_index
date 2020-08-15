@@ -14,6 +14,8 @@ acct-user/sndiod 0: daemon user for sndio
 acct-user/trezord 0: User for TREZOR Bridge
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
 app-admin/chezmoi 1.8.2: Manage your dotfiles across multiple machines, securely.
+app-admin/customrescuecd-x86 0.3.1: A system rescue cd or usbstick for desktop and server based on gentoo
+app-admin/customrescuecd-x86_64 0.10.3: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/gnome-passwordsafe 3.99.2: A password manager for GNOME
 app-arch/unalz 0.65: Extract ALZ archives
 app-crypt/reop 2.1.1: reasonable expectation of privacy
@@ -80,7 +82,7 @@ dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, R
 dev-cpp/vectorwrapper 1.1.1 9999: A template vector wrapper class for C++
 dev-db/pg_repack 1.4.5: RUM access method - inverted index with additional information in posting lists
 dev-db/rum 1.3.6: RUM access method - inverted index with additional information in posting lists
-dev-embedded/rauc 1.3: Lightweight update client that runs on your Embedded Linux device
+dev-embedded/rauc 1.4: Lightweight update client that runs on your Embedded Linux device
 dev-games/surgescript 0.5.4.3 9999: scripting language made for opensurge
 dev-java/openjdk-sts-bin 14.0.2_p12: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
@@ -325,6 +327,8 @@ sys-apps/rogdrv 0.0.5: ASUS ROG userspace mouse driver for Linux.
 sys-apps/xdg-desktop-portal-gtk 1.6.0: GTK/GNOME backend for xdg-desktop-portal
 sys-auth/mrsh 2.12: Mrsh is a set of remote shell programs that use munge authentication.
 sys-block/systemd-swap 4.0.1: Script for creating swap space from zram swaps, swap files and swap partitions.
+sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
+sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-cluster/AXL 0.3.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
 sys-cluster/KVTree 1.0.2 9999: KVTree provides a fully extensible C data structure modeled after Perl hashes.
 sys-cluster/er 0.0.3: High-level distributed erasure coding lib combining shuffile and redset
