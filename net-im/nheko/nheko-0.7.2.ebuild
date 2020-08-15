@@ -28,9 +28,9 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	dev-qt/linguist-tools:5
 	dev-libs/spdlog
 "
+BDEPEND="dev-qt/linguist-tools:5"
 
 src_prepare() {
 	cmake_src_prepare
