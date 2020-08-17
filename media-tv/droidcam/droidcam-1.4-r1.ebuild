@@ -14,7 +14,7 @@ KEYWORDS="~amd64"
 LICENSE="GPL-2"
 SLOT="0"
 
-IUSE="audio gtk usb"
+IUSE="gtk"
 
 # Requires connection to android phone
 RESTRICT="test"
@@ -27,7 +27,7 @@ DEPEND="
 	media-libs/libjpeg-turbo
 	>=media-libs/speex-1.2.0-r1
 	media-video/ffmpeg
-	usb? ( dev-util/android-tools )
+	dev-util/android-tools
 	x11-libs/gdk-pixbuf
 	x11-libs/gtk+:3
 	x11-libs/libX11
@@ -49,8 +49,10 @@ DOC_CONTENTS="
 
 BUILD_TARGETS="all"
 MODULE_NAMES="v4l2loopback-dc(video:${S}/v4l2loopback:${S}/v4l2loopback)"
-CONFIG_CHECK="VIDEO_DEV MEDIA_SUPPORT MEDIA_CAMERA_SUPPORT"
 MODULESD_V4L2LOOPBACK_DC_ENABLED="yes"
+
+CONFIG_CHECK="~SND_ALOOP VIDEO_DEV MEDIA_SUPPORT MEDIA_CAMERA_SUPPORT"
+ERROR_SND_ALOOP="CONFIG_SND_ALOOP is required for audio support"
 
 PATCHES="${FILESDIR}/${PN}-makefile-fixes.patch"
 
@@ -65,13 +67,6 @@ src_prepare() {
 
 src_configure() {
 	set_arch_to_kernel
-	if use audio ; then
-		if linux_config_exists ; then
-			if ! linux_chkconfig_present SND_ALOOP ; then
-				die "Audio requested but CONFIG_SND_ALOOP not selected in config!"
-			fi
-		fi
-	fi
 	default
 }
 
@@ -109,8 +104,10 @@ src_install() {
 	# so we just put it in modules-load.d to make sure it always works
 	insinto /etc/modules-load.d
 	doins "${FILESDIR}"/${PN}-video.conf
-	if use audio && linux_chkconfig_module SND_ALOOP ; then
-		doins "${FILESDIR}"/${PN}-audio.conf
+	if linux_config_exists ; then
+		if linux_chkconfig_module SND_ALOOP ; then
+			doins "${FILESDIR}"/${PN}-audio.conf
+		fi
 	fi
 
 	newdoc "${FILESDIR}"/${PN}-modprobe.conf ${PN}.conf.default
@@ -123,8 +120,7 @@ pkg_postinst() {
 		xdg_pkg_postinst
 	else
 		elog
-		elog "Only droidcam-cli has been installed since no 'gtk' flag was present"
-		elog "in the USE list."
+		elog "Only droidcam-cli has been installed since 'gtk' flag was not set"
 		elog
 	fi
 
