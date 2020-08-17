@@ -11,7 +11,7 @@ MYP="${MYPN}-${MYPV}"
 
 DESCRIPTION="C++ library for Database Acces."
 HOMEPAGE="https://github.com/azaeldevel/octetos-db"
-SRC_URI="https://github.com/azaeldevel/${MYPN}/archive/${MYPV}.tar.gz"
+SRC_URI="https://github.com/azaeldevel/${MYPN}/archive/${MYPV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
