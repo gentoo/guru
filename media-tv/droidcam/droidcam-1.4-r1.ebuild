@@ -22,16 +22,18 @@ RESTRICT="test"
 DEPEND="
 	=app-pda/libusbmuxd-1*
 	dev-libs/glib
-	gtk? ( dev-cpp/gtkmm:3.0 )
 	media-libs/alsa-lib
 	media-libs/libjpeg-turbo
 	>=media-libs/speex-1.2.0-r1
 	media-video/ffmpeg
 	dev-util/android-tools
-	x11-libs/gdk-pixbuf
-	x11-libs/gtk+:3
-	x11-libs/libX11
-	x11-libs/pango
+	gtk? (
+		dev-cpp/gtkmm:3.0
+		x11-libs/gdk-pixbuf
+		x11-libs/gtk+:3
+		x11-libs/libX11
+		x11-libs/pango
+	)
 "
 
 BDEPEND="virtual/pkgconfig"
