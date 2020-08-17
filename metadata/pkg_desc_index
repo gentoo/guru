@@ -94,9 +94,11 @@ dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync client
 dev-libs/mtxclient 0.3.0 0.3.1: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta 2.2.1_beta 2.3.0_beta 2.3.1_beta 2.3.1_rc1: C/C++ library to mainly provide Semantic Versioned implementation
 dev-libs/octetos-coreutils 0.3.0_alpha 0.4.0_alpha 0.4.0_alpha2: Similar to coreutils but is a C ++ API.
-dev-libs/octetos-db-maria 1.2.2_beta: C++ library for Database Acces.
+dev-libs/octetos-db 1.3.2_alpha: C++ library for Database Acces.
+dev-libs/octetos-db-maria 1.2.2_beta 1.3.2_alpha: C++ library for Database Acces.
+dev-libs/octetos-db-postgresql 1.3.2_alpha: C++ library for Database Acces.
 dev-libs/olm 3.1.4 3.1.5: Implementation of the olm and megolm cryptographic ratchets
-dev-libs/open62541 1.0.1 1.1.2: Open source C implementation of OPC UA
+dev-libs/open62541 1.0.2 1.1.2: Open source C implementation of OPC UA
 dev-libs/protothreads 1.4: Protothreads - Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
 dev-libs/tweeny 3.1.0 3.1.1: C++ tweening (inbetweening) library
@@ -141,7 +143,7 @@ dev-python/hidapi 0.9.0_p3: A Cython interface to the hidapi
 dev-python/hstspreload 2020.8.12: Chromium HSTS Preload list as a Python package
 dev-python/httpcore 0.7.0 0.9.1 0.10.1: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
-dev-python/httpx 0.9.3 0.11.1 0.12.1 0.13.3 0.14.0: A next generation HTTP client for Python
+dev-python/httpx 0.9.3 0.11.1 0.12.1 0.13.3 0.14.1: A next generation HTTP client for Python
 dev-python/hunter 3.1.3: Hunter is a flexible code tracing toolkit
 dev-python/js2py 0.70: JavaScript to Python Translator & JavaScript interpreter written in Python
 dev-python/jupyter-sphinx 0.2.4: Jupyter Sphinx Extensions
@@ -290,8 +292,8 @@ net-libs/usockets 0.5.0 9999: tiny eventing, networking & crypto for async appli
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0 1.2.1 1.3.0: FORT validator is an open source RPKI validator
 net-misc/castor 0.8.15 0.8.16: A graphical browser for plain-text protocols
-net-misc/gallery-dl 1.14.3 9999: Download image galleries and collections from several image hosting sites
-net-misc/gemserv 0.4.2 0.4.4: A gemini Server written in rust
+net-misc/gallery-dl 1.14.3 1.14.4 9999: Download image galleries and collections from several image hosting sites
+net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/kristall 0.2 0.3: Visual cross-platform gemini browser
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/openbgpd 6.6_p0 6.7_p0 9999: OpenBGPD is a free implementation of BGPv4
