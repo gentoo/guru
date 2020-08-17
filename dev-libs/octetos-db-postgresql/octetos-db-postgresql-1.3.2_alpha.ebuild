@@ -5,8 +5,8 @@ EAPI=7
 
 inherit autotools
 
-MYPV="${PV/_beta/-alpha.6}"
-MYPN="${PN/-maria}"
+MYPV="${PV/_alpha/-alpha}"
+MYPN="${PN/-postgresql}"
 MYP="${MYPN}-${MYPV}"
 
 DESCRIPTION="C++ library for Database Acces."
@@ -19,7 +19,7 @@ KEYWORDS="~amd64"
 
 IUSE=""
 
-DEPEND="dev-libs/octetos-core dev-db/mariadb-connector-c"
+DEPEND="dev-libs/octetos-db dev-libs/libpqxx"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
@@ -31,5 +31,5 @@ src_prepare() {
 }
 
 src_configure() {
-	econf --with-mariadb
+	econf --with-postgresql
 }

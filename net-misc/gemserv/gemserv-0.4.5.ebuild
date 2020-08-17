@@ -8,10 +8,10 @@ CRATES="
 	atty-0.2.14
 	autocfg-1.0.0
 	bitflags-1.2.1
-	bytes-0.5.5
-	cc-1.0.57
+	bytes-0.5.6
+	cc-1.0.58
 	cfg-if-0.1.10
-	chrono-0.4.13
+	chrono-0.4.15
 	colored-1.9.3
 	foreign-types-0.3.2
 	foreign-types-shared-0.1.1
@@ -21,15 +21,13 @@ CRATES="
 	futures-macro-0.3.5
 	futures-task-0.3.5
 	futures-util-0.3.5
-	generator-0.6.21
 	hermit-abi-0.1.15
 	idna-0.2.0
 	iovec-0.1.4
 	kernel32-sys-0.2.2
 	lazy_static-1.4.0
-	libc-0.2.71
-	log-0.4.8
-	loom-0.3.4
+	libc-0.2.74
+	log-0.4.11
 	matches-0.1.8
 	memchr-2.3.3
 	mime-0.3.16
@@ -47,30 +45,26 @@ CRATES="
 	openssl-0.10.30
 	openssl-sys-0.9.58
 	percent-encoding-2.1.0
-	pin-project-0.4.22
-	pin-project-internal-0.4.22
+	pin-project-0.4.23
+	pin-project-internal-0.4.23
 	pin-project-lite-0.1.7
 	pin-utils-0.1.0
-	pkg-config-0.3.17
-	proc-macro-hack-0.5.16
+	pkg-config-0.3.18
+	proc-macro-hack-0.5.18
 	proc-macro-nested-0.1.6
-	proc-macro2-1.0.18
+	proc-macro2-1.0.19
 	quote-1.0.7
-	redox_syscall-0.1.56
-	rustc_version-0.2.3
-	scoped-tls-0.1.2
-	semver-0.9.0
-	semver-parser-0.7.0
-	serde-1.0.114
-	serde_derive-1.0.114
-	signal-hook-registry-1.2.0
+	redox_syscall-0.1.57
+	serde-1.0.115
+	serde_derive-1.0.115
+	signal-hook-registry-1.2.1
 	simple_logger-1.6.0
 	slab-0.4.2
 	socket2-0.3.12
-	syn-1.0.33
+	syn-1.0.38
 	time-0.1.43
 	tinyvec-0.3.3
-	tokio-0.2.21
+	tokio-0.2.22
 	tokio-openssl-0.4.0
 	toml-0.5.6
 	unicase-2.6.0
@@ -100,7 +94,7 @@ SRC_URI="
 	$(cargo_crate_uris ${CRATES})
 "
 
-LICENSE="Apache-2.0 BSD MIT MPL-2.0"
+LICENSE="Apache-2.0 BSD MIT MPL-2.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 

@@ -5,7 +5,7 @@ EAPI=7
 
 inherit autotools
 
-MYPV="${PV/_beta/-alpha.6}"
+MYPV="${PV/_alpha/-alpha}"
 MYPN="${PN/-maria}"
 MYP="${MYPN}-${MYPV}"
 
@@ -19,7 +19,7 @@ KEYWORDS="~amd64"
 
 IUSE=""
 
-DEPEND="dev-libs/octetos-core dev-db/mariadb-connector-c"
+DEPEND="dev-libs/octetos-db dev-db/mariadb-connector-c"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
