@@ -311,6 +311,7 @@ net-wireless/eiwd 1.6.1 1.7_pre20200606 9999: iwd without dbus
 net-wireless/rtl8192eu 0_pre20200123 0_pre20200619: Realtek 8192EU driver module for Linux kernel
 net-wireless/rtl8821ce 0_pre20200224 0_pre20200703: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20200302: Realtek 8821CU/RTL8811CU module for Linux kernel
+sci-electronics/dsview 1.12 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/verilator 4.034 4.036 4.038 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/geographiclib 1.50-r4 1.50.1: C++ library for converting geographic coordinate systems
