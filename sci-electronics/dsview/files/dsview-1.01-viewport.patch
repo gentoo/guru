@@ -1,0 +1,10 @@
+--- a/DSView/pv/view/viewport.cpp
++++ b/DSView/pv/view/viewport.cpp
+@@ -37,7 +37,7 @@
+ 
+ #include <QMouseEvent>
+ #include <QStyleOption>
+-
++#include <QPainterPath>
+ 
+ #include <math.h>
