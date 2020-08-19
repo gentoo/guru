@@ -9,6 +9,7 @@
 		<name>William Breathitt Gray</name>
 	</maintainer>
 	<use>
+		<flag name="midi">Basic support for MIDI files</flag>
 		<flag name="truecolor">Enable true-color rendering (experimental)</flag>
 	</use>
 	<upstream>

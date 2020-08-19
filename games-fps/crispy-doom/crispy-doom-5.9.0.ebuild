@@ -14,19 +14,32 @@ SRC_URI="https://github.com/fabiangreffrath/${PN}/archive/${P}.tar.gz"
 LICENSE="BSD GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="libsamplerate png python timidity truecolor +vorbis zlib"
+IUSE="bash-completion doc libsamplerate +midi png truecolor +vorbis zlib"
 
 DEPEND="
 	media-libs/libsdl2
-	media-libs/sdl2-mixer[timidity?,vorbis?]
+	media-libs/sdl2-mixer[midi?,vorbis?]
 	media-libs/sdl2-net
 	libsamplerate? ( media-libs/libsamplerate )
 	png? ( media-libs/libpng:= )
 	zlib? ( sys-libs/zlib )"
 RDEPEND="${DEPEND}"
-BDEPEND="python? ( ${PYTHON_DEPS} )"
+BDEPEND="
+	bash-completion? ( ${PYTHON_DEPS} )
+	doc? ( ${PYTHON_DEPS} )"
 
 S="${WORKDIR}"/${PN}-${P}
+
+DOCS=(
+	"AUTHORS"
+	"ChangeLog"
+	"NEWS.md"
+	"NOT-BUGS.md"
+	"PHILOSOPHY.md"
+	"README.md"
+	"README.Music.md"
+	"README.Strife.md"
+)
 
 src_prepare() {
 	default
@@ -35,9 +48,21 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		--docdir="${EPREFIX}/usr/share/doc/${P}/docs" \
+		$(use_enable bash-completion) \
+		$(use_enable doc) \
+		--disable-fonts \
+		--disable-icons \
 		$(use_with libsamplerate) \
 		$(use_with png libpng) \
 		$(use_enable truecolor) \
 		$(use_with zlib)
+}
+
+src_install() {
+	emake DESTDIR="${D}" install
+
+	# Remove redundant documentation files
+	rm -r "${ED}/usr/share/doc/"* || die
+
+	einstalldocs
 }
