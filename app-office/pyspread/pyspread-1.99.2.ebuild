@@ -30,6 +30,13 @@ RDEPEND="
 	>=dev-python/pyenchant-1.1.0[${PYTHON_USEDEP}]
 "
 
+python_prepare_all() {
+	distutils-r1_python_prepare_all
+
+	# Fix the provided desktop file
+	sed -i -e '/Path/d' "${PN}.desktop" || die
+}
+
 python_install() {
 	distutils-r1_python_install
 
