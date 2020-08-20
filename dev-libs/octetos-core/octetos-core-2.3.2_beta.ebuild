@@ -17,14 +17,15 @@ KEYWORDS="~amd64"
 
 IUSE=""
 
-DEPEND=""
-RDEPEND="${DEPEND}"
-BDEPEND="
-	>=sys-devel/gcc-8.1
-	>=sys-devel/bison-3.1
+DEPEND="
+	sys-devel/bison
 	dev-libs/libconfig
 	dev-perl/XML-Parser
 	dev-util/intltool
+"
+RDEPEND="${DEPEND}"
+BDEPEND="
+	>=sys-devel/gcc-8.1
 "
 
 S="${WORKDIR}/${PN}-${MYPV}"
