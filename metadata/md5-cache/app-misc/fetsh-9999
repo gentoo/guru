@@ -1,0 +1,10 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install unpack
+DESCRIPTION=A fetch written in POSIX shell without any external commands
+EAPI=7
+HOMEPAGE=https://github.com/6gk/fet.sh
+LICENSE=ISC
+PROPERTIES=live
+SLOT=0
+_eclasses_=git-r3	8ec5b53812bce105ae7943930e4660f8
+_md5_=57f4db5a101529df77d64d776f484481

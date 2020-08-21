@@ -28,6 +28,7 @@ app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/apidb 4.3.0_beta: API Generator for Database acces.
 app-misc/cheat 4.0.2: cheat allows you to create and view interactive cheatsheets on the command-line
 app-misc/doublecmd-bin 0.9.8 0.9.9: Free cross platform open source file manager with two panels side by side.
+app-misc/fetsh 1.5 9999: A fetch written in POSIX shell without any external commands
 app-misc/ghq 1.1.0: Remote repository management made easy
 app-misc/mat2 0.11.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.9.1: Mobile optimized GUI to access the Czech data box e-government system
