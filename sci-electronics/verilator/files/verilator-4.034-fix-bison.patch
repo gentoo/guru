@@ -1,17 +1,13 @@
-diff --git a/src/Makefile_obj.in b/src/Makefile_obj.in
-index 911f97e1..63799569 100644
---- a/src/Makefile_obj.in
-+++ b/src/Makefile_obj.in
-@@ -323,6 +323,12 @@ V3ParseBison.h: V3ParseBison.c
- V3ParseBison.c: verilog.y $(BISONPRE)
- 	@echo "If you get errors from verilog.y below, try upgrading bison to version 1.875 or newer."
- 	$(PERL) $(BISONPRE) --yacc ${YACC} -d -v -o V3ParseBison.c $<
-+	# Unfortunately bison 3.6.1 have break changes caused compile error.
-+	# Workaround issue https://github.com/verilator/verilator/issues/2320
-+	# This workaround is safe for the old version of bison.
-+	# TODO: code should removed when bison fixed the problem.
-+	@sed -ie 's#/\* "/\*.*\*/"  \*/##g' V3ParseBison.c
-+	@sed -ie 's#/\* "/\*.*\*/"  \*/##g' V3ParseBison.h
- 
- V3Lexer_pregen.yy.cpp:	verilog.l V3ParseBison.h $(HEADERS)
- 	${LEX} --version
+diff --git a/src/bisonpre b/src/bisonpre
+index 39597957..48cf26eb 100755
+--- a/src/bisonpre
++++ b/src/bisonpre
+@@ -212,6 +212,8 @@ sub clean_output {
+         $line =~ s!\(YY_\("!(YY_((char*)"!g;
+         # Fix bison 2.3 glr-parser warning about yyerrorloc.YYTYPE::yydummy uninit
+         $line =~ s!(YYLTYPE yyerrloc;)!$1 yyerrloc.yydummy=0;/*bisonpre*/!g;
++        # Fix bison 3.6.1 unexpected nested-comment
++        $line =~ s!/\* "/\*.*\*/"  \*/!!g;
+         $fh->write($line);
+     }
+     $fh->close;
