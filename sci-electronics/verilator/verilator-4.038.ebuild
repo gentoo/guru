@@ -37,8 +37,8 @@ BDEPEND="
 "
 
 PATCHES=(
-	# https://github.com/verilator/verilator/issues/2320
-	"${FILESDIR}"/${PN}-4.034-fix-bison.patch
+	# https://github.com/verilator/verilator/pull/2505
+	"${FILESDIR}"/${PN}-4.040-fix-bison.patch
 )
 
 src_prepare() {

@@ -37,11 +37,6 @@ DEPEND="
 
 S="${WORKDIR}/${PN}-v${PV}"
 
-PATCHES=(
-	"${FILESDIR}/${P}-0001-add-metainfo-for-distributions.patch"
-	"${FILESDIR}/${P}-0002-Support-Linux-phones-and-desktop.patch"
-)
-
 src_configure() {
 	lrelease ${PN}.pro || die
 	eqmake5 PREFIX="/usr" TEXT_FILES_INST_DIR="/usr/share/${PN}/"

@@ -5,9 +5,9 @@ EAPI=7
 
 inherit autotools
 
-MYPV="${PV/_beta/-beta/}"
+MYPV="${PV/_alpha/-alpha/}"
 
-DESCRIPTION="C/C++ library to mainly provide Semantic Versioned implementation"
+DESCRIPTION="Library for reading biblia."
 HOMEPAGE="https://github.com/azaeldevel/octetos-core"
 SRC_URI="https://github.com/azaeldevel/${PN}/archive/${MYPV}.tar.gz -> ${P}.tar.gz"
 
@@ -18,15 +18,10 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="
-	dev-libs/libconfig
-	dev-perl/XML-Parser
+	dev-libs/octetos-core
 "
 RDEPEND="${DEPEND}"
-BDEPEND="
-	sys-devel/bison
-	dev-util/intltool
-	>=sys-devel/gcc-8.1
-"
+BDEPEND="dev-util/cunit"
 
 S="${WORKDIR}/${PN}-${MYPV}"
 
