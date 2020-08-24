@@ -10,4 +10,4 @@ RDEPEND=dev-lang/perl sys-libs/zlib
 SLOT=0
 SRC_URI=https://github.com/verilator/verilator/archive/v4.038.tar.gz -> verilator-4.038.tar.gz
 _eclasses_=autotools	7d999b62b8749fad43fff00620cedf47	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	2477ebe553d3e4d2c606191fe6c33602	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
-_md5_=daf1fe3e48c8ad5d5fe1f017b86b6c87
+_md5_=5bcd448977234d6db933dfceb3190e90
