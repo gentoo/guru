@@ -21,7 +21,7 @@ DEPEND="
 	dev-libs/octetos-core
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
+BDEPEND="dev-util/cunit"
 
 S="${WORKDIR}/${PN}-${MYPV}"
 
