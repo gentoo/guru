@@ -18,13 +18,13 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="
-	sys-devel/bison
 	dev-libs/libconfig
 	dev-perl/XML-Parser
-	dev-util/intltool
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
+	sys-devel/bison
+	dev-util/intltool
 	>=sys-devel/gcc-8.1
 "
 
