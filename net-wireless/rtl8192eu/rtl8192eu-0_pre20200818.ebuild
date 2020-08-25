@@ -4,7 +4,7 @@
 EAPI=7
 inherit linux-mod
 
-COMMIT="9cf06524dfebda414675433141f771b36b7e68e8"
+COMMIT="6d2705d8023c25b43f845298e707252fd813e68e"
 
 DESCRIPTION="Realtek 8192EU driver module for Linux kernel"
 HOMEPAGE="https://github.com/Mange/rtl8192eu-linux-driver"
