@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile install postinst postrm preinst setup
 DEPEND=virtual/linux-sources kernel_linux? ( sys-apps/kmod[tools] ) sys-apps/sed kernel_linux? ( virtual/linux-sources virtual/libelf )
-DESCRIPTION=Realtek 8192EU driver module for Linux kernel
+DESCRIPTION=Realtek 8821CU/RTL8811CU module for Linux kernel
 EAPI=7
-HOMEPAGE=https://github.com/Mange/rtl8192eu-linux-driver
+HOMEPAGE=https://github.com/brektrou/rtl8821CU
 IUSE=kernel_linux kernel_linux
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=kernel_linux? ( sys-apps/kmod[tools] )
 SLOT=0
-SRC_URI=https://github.com/Mange/rtl8192eu-linux-driver/archive/9cf06524dfebda414675433141f771b36b7e68e8.tar.gz -> rtl8192eu-0_pre20200123.tar.gz
+SRC_URI=https://github.com/brektrou/rtl8821CU/archive/45a8b4393e3281b969822c81bd93bdb731d58472.tar.gz -> rtl8821cu-0_pre20200822.tar.gz
 _eclasses_=eutils	fcb2aa98e1948b835b5ae66ca52868c5	linux-info	c90a203b1c14cfa77bd3e37a0e96c955	linux-mod	63c06dfa12648f13855f5f4348af824c	multilib	2477ebe553d3e4d2c606191fe6c33602	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
-_md5_=e52a5249f0addcfc213508bc7b245908
+_md5_=6d675fc73f667e77fa3f69369d998234
