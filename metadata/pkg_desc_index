@@ -254,7 +254,7 @@ gui-apps/mpvpaper 1.0 9999: A video wallpaper program for wlroots based wayland 
 gui-apps/nwg-launchers 0.2.0 0.3.0 0.3.1 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/swaylock-blur 0.3.1: A program that runs swaylock to a blurred screenshot of the desktop
 gui-apps/wdisplays 1.0-r2 9999: GUI display configurator for wlroots compositors
-gui-apps/wofi 1.2 1.2.1 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
+gui-apps/wofi 1.2.1 1.2.2 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.2.1 9999: A Wayland kiosk
 kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
