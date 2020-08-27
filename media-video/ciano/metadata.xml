@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>Ronny (tastytea) Gutbrod</name>
+	</maintainer>
+	<longdescription lang="en">
+		Ciano is a desktop multimedia conversion application responsible for
+		converting videos, music and images. Originally created to provide the
+		best possible experience in the elementary operating system, Ciano makes
+		use of the largest conversion tools: FFmpeg and ImageMagick.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/robertsanseries/ciano/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
