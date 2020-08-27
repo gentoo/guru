@@ -21,8 +21,8 @@ esac
 LICENSE="GPL-3"
 SLOT="0"
 
-RDEPENDS="
+RDEPEND="
 	media-video/mpv[libmpv]
 	gui-libs/wlroots
 "
-DEPENDS="${RDEPENDS}"
+DEPEND="${RDEPEND}"
