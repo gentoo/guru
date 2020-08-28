@@ -3,12 +3,15 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} pypy3 )
 
 inherit distutils-r1
 
 DESCRIPTION="Python Data Validation for Humans"
-HOMEPAGE="https://github.com/kvesteri/validators"
+HOMEPAGE="
+	https://github.com/kvesteri/validators
+	https://pypi.org/project/validators
+"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 KEYWORDS="~amd64 ~x86"
@@ -19,15 +22,13 @@ RDEPEND="
 	>=dev-python/decorator-3.4.0[${PYTHON_USEDEP}]
 	>=dev-python/six-1.4.0[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
-"
-#not really required
-#	test? (
-#		>=dev-python/isort-4.2.2[${PYTHON_USEDEP}]
-#	)
+
+python_prepare_all() {
+	# sphinx.ext.pngmath has been replace in sphinx>2
+	sed -i -e 's/sphinx.ext.pngmath/sphinx.ext.imgmath/g' docs/conf.py || die
+
+	distutils-r1_python_prepare_all
+}
 
 distutils_enable_tests pytest
-
-#issues with sphinx.ext.pngmath https://github.com/kvesteri/validators/issues/156
-distutils_enable_sphinx docs "<dev-python/sphinx-1.8"
+distutils_enable_sphinx docs
