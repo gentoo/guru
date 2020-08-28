@@ -4,7 +4,7 @@
 EAPI="7"
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{7,8} )
 
 inherit distutils-r1
 
@@ -14,11 +14,11 @@ HOMEPAGE="
 	https://pypi.org/project/Faker
 "
 SRC_URI="https://github.com/joke2k/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
-RESTRICT="!test? ( test )"
+
 RDEPEND="
 	>=dev-python/python-dateutil-2.4[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
@@ -29,6 +29,7 @@ DEPEND="
 	>=dev-python/sphinx-2.4[${PYTHON_USEDEP}]
 	<dev-python/sphinx-3.0[${PYTHON_USEDEP}]
 	test? (
+		dev-python/faker[${PYTHON_USEDEP}]
 		<dev-python/freezegun-0.4[${PYTHON_USEDEP}]
 		dev-python/more-itertools[${PYTHON_USEDEP}]
 		>=dev-python/pytest-5.4.0[${PYTHON_USEDEP}]
@@ -52,6 +53,7 @@ python_test() {
 	pytest -vv || die "Testsuite failed under ${EPYTHON}"
 }
 
+distutils_enable_tests pytest
 #TODO: make docs working
 #FileNotFoundError: [Errno 2] No such file or directory: '/var/tmp/portage/dev-python/faker-4.1.0/work/docs/providers.rst'
 #distutils_enable_sphinx docs --no-autodoc
