@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{7,8} )
 
 inherit distutils-r1 linux-info
 
@@ -25,7 +25,6 @@ RDEPEND="
 	dev-python/outcome[${PYTHON_USEDEP}]
 	dev-python/sniffio[${PYTHON_USEDEP}]
 	dev-python/sortedcontainers[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep 'dev-python/contextvars[${PYTHON_USEDEP}]' python3_6)
 "
 DEPEND="${RDEPEND}
 	test? (
