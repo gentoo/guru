@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8,9} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 
 inherit distutils-r1
 
@@ -23,7 +23,7 @@ RDEPEND="
 	dev-python/six[${PYTHON_USEDEP}]
 "
 
-DEPEND="test? ( dev-python/mock[${PYTHON_USEDEP}] )"
+BDEPEND="test? ( dev-python/mock[${PYTHON_USEDEP}] )"
 
 distutils_enable_sphinx docs
 distutils_enable_tests pytest
@@ -38,6 +38,7 @@ python_prepare_all() {
 	# need internet access
 	sed -i -e 's:test_spotify_client_credentials_get_access_token:_&:' \
 		tests/unit/test_oauth.py || die
+
 	distutils-r1_python_prepare_all
 }
 

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
@@ -36,6 +36,8 @@ python_prepare_all() {
 		tests/test_queue.py || die
 	sed -i -e 's:test_uevent_get_asyncio_set:_&:' \
 		-e 's:test_uevent_get_asyncio_wait:_&:' \
+		-e 's:test_universal_error:_&:' \
+		-e 's:test_universal_value:_&:' \
 		tests/test_sync.py || die
 
 	distutils-r1_python_prepare_all
