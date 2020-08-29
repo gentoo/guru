@@ -1,0 +1,41 @@
+From: Kurt Kanzenbach <kurt@kmk-computers.de>
+Subject: mb2q: Pickup Reviewed-and-tested-by tags
+Date: Sat, 22 Aug 2020 12:49:06 +0200
+
+From: Kurt Kanzenbach <kurt@kmk-computers.de>
+
+Currently Reviewed-and-tested-by tags are ignored. Pick them up in the same way
+as Reported-and-tested-by is handled.
+
+Example mail:
+
+ https://lkml.kernel.org/netdev/87k0ylgv80.fsf@mellanox.com/
+
+Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
+
+---
+ mb2q | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+Index: quilttools/mb2q
+===================================================================
+--- quilttools.orig/mb2q
++++ quilttools/mb2q
+@@ -211,6 +211,7 @@ tag_order = [
+     'Originally-by',
+     'Co-developed-by',
+     'Signed-off-by',
++    'Reviewed-and-tested-by',
+     'Tested-by',
+     'Reviewed-by',
+     'Acked-by',
+@@ -360,6 +361,9 @@ class patchmsg(object):
+                 if tag == 'Reported-and-tested-by':
+                     self.add_tag('Reported-by', addr)
+                     tag = 'Tested-by'
++                if tag == 'Reviewed-and-tested-by':
++                    self.add_tag('Reviewed-by', addr)
++                    tag = 'Tested-by'
+                 self.add_tag(tag, addr)
+                 return True
+             i += 1

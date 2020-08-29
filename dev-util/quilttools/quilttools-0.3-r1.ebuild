@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=(python3_{6,7})
+PYTHON_COMPAT=(python3_{6..8})
 
 inherit python-single-r1
 
@@ -24,6 +24,8 @@ RDEPEND="${PYTHON_DEPS}
 		dev-python/pyyaml[${PYTHON_MULTI_USEDEP}]
 		net-mail/notmuch[python,${PYTHON_MULTI_USEDEP}]
 	')"
+
+PATCHES=( "${FILESDIR}/${P}-tags.patch" )
 
 src_compile() {
 	emake -C Documentation man
