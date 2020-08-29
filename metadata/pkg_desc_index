@@ -46,7 +46,7 @@ app-portage/pacvis 0.4.2 9999: Displays dependency graphs of packages
 app-portage/portage-lostfiles 0.2.0: A simple script to identify files not tracked by Portage package manager
 app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
 app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
-app-portage/version 0.6.1_alpha 0.6.2_alpha 0.9.0_alpha 0.9.1_alpha 0.10.0_alpha 0.14.2_alpha: A command line function for package version management.
+app-portage/version 0.6.1_alpha 0.6.2_alpha 0.9.0_alpha 0.9.1_alpha 0.10.0_alpha 0.14.2_alpha 0.14.4_alpha: A command line function for package version management.
 app-shells/antibody 6.0.1 6.1.0: Fast Zsh plugin manager
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
@@ -97,7 +97,7 @@ dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync client
 dev-libs/mtxclient 0.3.0 0.3.1: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/octetos-biblion 0.1.1_alpha: Library for reading biblia.
 dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta 2.2.1_beta 2.3.0_beta 2.3.1_beta 2.3.1_rc1 2.3.2_beta 2.3.3_beta: C/C++ library to mainly provide Semantic Versioned implementation
-dev-libs/octetos-coreutils 0.3.0_alpha 0.4.0_alpha 0.4.0_alpha2: Similar to coreutils but is a C ++ API.
+dev-libs/octetos-coreutils 0.3.0_alpha 0.4.0_alpha 0.4.0_alpha2 0.6.1_alpha: Similar to coreutils but is a C ++ API.
 dev-libs/octetos-db 1.3.2_alpha: C++ library for Database Acces.
 dev-libs/octetos-db-maria 1.2.2_beta 1.3.2_alpha: C++ library for Database Acces.
 dev-libs/octetos-db-postgresql 1.3.2_alpha: C++ library for Database Acces.
@@ -129,7 +129,7 @@ dev-python/cloudscraper 1.2.34 1.2.40: A Python module to bypass Cloudflare's an
 dev-python/colored 1.4.2 9999: Very simple Python library for color and formatting in terminal
 dev-python/convertdate 2.2.1: Utils for converting between date formats and calculating holidays
 dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
-dev-python/curio 0.9 1.2: Curio is a coroutine-based library for concurrent systems programming
+dev-python/curio 0.9 1.4: Curio is a coroutine-based library for concurrent systems programming
 dev-python/databases 0.3.2: Async database support for Python.
 dev-python/dateparser 0.7.4: Date parsing library designed to parse dates from HTML pages
 dev-python/devtools 0.6: Dev tools for python
@@ -144,10 +144,10 @@ dev-python/graphene 3.0.0_beta3: GraphQL Framework for Python
 dev-python/graphql-core 3.1.1: GraphQL for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
 dev-python/hidapi 0.9.0_p3: A Cython interface to the hidapi
-dev-python/hstspreload 2020.8.12: Chromium HSTS Preload list as a Python package
-dev-python/httpcore 0.7.0 0.9.1 0.10.1: A minimal HTTP client
+dev-python/hstspreload 2020.8.25: Chromium HSTS Preload list as a Python package
+dev-python/httpcore 0.10.1: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
-dev-python/httpx 0.9.3 0.11.1 0.12.1 0.13.3 0.14.1: A next generation HTTP client for Python
+dev-python/httpx 0.11.1 0.13.3 0.14.2: A next generation HTTP client for Python
 dev-python/hunter 3.1.3: Hunter is a flexible code tracing toolkit
 dev-python/hwi 1.1.2: Library and command line tool for interacting with hardware wallets
 dev-python/js2py 0.70: JavaScript to Python Translator & JavaScript interpreter written in Python
@@ -206,7 +206,7 @@ dev-python/sphinx-autodoc-typehints 1.10.3 1.11.0: Type hints support for the Sp
 dev-python/sphinxcontrib-katex 0.6.0 0.6.1: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-trio 1.1.2: Make Sphinx better at documenting Python functions and methods
 dev-python/sphobjinv 2.0.1: Sphinx objects.inv Inspection/Manipulation Tool
-dev-python/spotipy 2.13.0: A light weight Python library for the Spotify Web API
+dev-python/spotipy 2.14.0: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.2.2: Server Sent Events for Starlette
 dev-python/starlette 0.13.4: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
@@ -228,18 +228,18 @@ dev-util/codespell 1.17.1: Check text files for common misspellings
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3: HTTP and GraphQL client for developers
 dev-util/osc 0.169.1 9999: Command line tool for Open Build Service
-dev-util/quilttools 0.3: Mailbox to quilt series converter
-dev-util/xdp-tools 0.0.3: Utilities and example programs for use with XDP
+dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
+dev-util/xdp-tools 1.0.1: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
 dev-vcs/git-extras 6.0.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 dev-vcs/lazygit 0.20.8 0.20.9 0.22.1: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.3.5.2 3.3.6.0_pre: Minecraft launcher which integrates multiple different ModPacks
-games-action/minecraft-launcher 1.6.93 2.1.16102: An open-world game whose gameplay revolves around breaking and placing blocks
+games-action/minecraft-launcher 1.6.93 2.1.17314: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
-games-action/technic-launcher 4.590: Minecraft launcher for community-made modpacks on the Technic Platform
+games-action/technic-launcher 4.591: Minecraft launcher for community-made modpacks on the Technic Platform
 games-arcade/opensurge 0.5.1.2 9999: fun 2D retro platformer inspired by old-school Sonic games
 games-arcade/taisei 1.3.1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
@@ -247,7 +247,7 @@ games-fps/crispy-doom 5.9.0: A limit-removing enhanced-resolution Doom source po
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
 games-util/NotEnoughProduction 0.0.4: Tool for building production chains for modded minecraft
 games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
-games-util/itch-bin 25.4.0: itch.io game browser, installer and launcher
+games-util/itch-bin 25.4.0 25.4.1: itch.io game browser, installer and launcher
 games-util/legendary 0.0.18-r1 0.0.19-r1: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 0.9.4: A simple GOG client for Linux
 gui-apps/mpvpaper 1.0 9999: A video wallpaper program for wlroots based wayland compositors
