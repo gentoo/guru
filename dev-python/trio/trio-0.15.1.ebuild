@@ -25,7 +25,6 @@ RDEPEND="
 	dev-python/outcome[${PYTHON_USEDEP}]
 	dev-python/sniffio[${PYTHON_USEDEP}]
 	dev-python/sortedcontainers[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep 'dev-python/contextvars[${PYTHON_USEDEP}]' python3_6)
 "
 DEPEND="${RDEPEND}
 	test? (
