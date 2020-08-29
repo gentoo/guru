@@ -33,7 +33,6 @@ RDEPEND="
 QA_PREBUILT="
 	/opt/itch-bin/itch
 	/opt/itch-bin/libffmpeg.so
-	/opt/itch-bin/libnode.so
 "
 
 S="${WORKDIR}"
