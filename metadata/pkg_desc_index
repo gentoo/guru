@@ -32,7 +32,7 @@ app-misc/ghq 1.1.0: Remote repository management made easy
 app-misc/liquidctl 1.4.1: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/mat2 0.11.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
-app-misc/navi 2.8.0 2.9.0: An interactive cheatsheet tool for the command-line
+app-misc/navi 2.8.0 2.9.0 2.10.0: An interactive cheatsheet tool for the command-line
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/rdfind 1.4.1: Find duplicate files
@@ -316,7 +316,7 @@ net-p2p/trezord-go 2.0.29-r1: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1 0.3.14: An experiment in scalable routing as an encrypted IPv6 overlay network
 net-wireless/eiwd 1.6.1 1.7_pre20200606 9999: iwd without dbus
 net-wireless/rtl8192eu 0_pre20200619 0_pre20200818: Realtek 8192EU driver module for Linux kernel
-net-wireless/rtl8821ce 0_pre20200224 0_pre20200703: Realtek RTL8821CE Driver module for Linux kernel
+net-wireless/rtl8821ce 0_pre20200826: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20200302 0_pre20200822: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-electronics/dsview 1.12 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
