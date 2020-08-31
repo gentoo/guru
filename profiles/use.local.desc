@@ -36,6 +36,8 @@ gui-apps/nwg-launchers:bar - Installs nwgbar, a horizontal or vertical button ba
 gui-apps/nwg-launchers:dmenu - Installs nwgdmenu, GTK dynamic menu windows.
 gui-apps/nwg-launchers:grid - Installs nwggrid, a GNOME-like application grid.
 gui-wm/cage:X - Enable support for X11 applications (XWayland)
+media-gfx/glimpse:heif - Enable support for ISO/IEC 23008-12:2017 HEIF files
+media-gfx/glimpse:vector-icons - Enable support for vector icons (experimental)
 media-libs/libavif:dav1d - Enable faster decoding via dav1d
 media-libs/libavif:gdk-pixbuf - Build a gdk-pixbuf loader
 media-libs/libavif:libaom - Use encoding/decoding via libaom

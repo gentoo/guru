@@ -46,7 +46,7 @@ app-portage/pacvis 0.4.2 9999: Displays dependency graphs of packages
 app-portage/portage-lostfiles 0.2.0: A simple script to identify files not tracked by Portage package manager
 app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
 app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
-app-portage/version 0.6.1_alpha 0.6.2_alpha 0.9.0_alpha 0.9.1_alpha 0.10.0_alpha 0.14.2_alpha 0.14.4_alpha: A command line function for package version management.
+app-portage/version 0.6.1_alpha 0.6.2_alpha 0.9.0_alpha 0.9.1_alpha 0.10.0_alpha 0.14.2_alpha 0.14.4_alpha 0.15.0_alpha: A command line function for package version management.
 app-shells/antibody 6.0.1 6.1.0: Fast Zsh plugin manager
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
@@ -96,8 +96,8 @@ dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
 dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
 dev-libs/mtxclient 0.3.0 0.3.1: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/octetos-biblion 0.1.1_alpha: Library for reading biblia.
-dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta 2.2.1_beta 2.3.0_beta 2.3.1_beta 2.3.1_rc1 2.3.2_beta 2.3.3_beta: C/C++ library to mainly provide Semantic Versioned implementation
-dev-libs/octetos-coreutils 0.3.0_alpha 0.4.0_alpha 0.4.0_alpha2 0.6.1_alpha: Similar to coreutils but is a C ++ API.
+dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta 2.2.1_beta 2.3.0_beta 2.3.1_beta 2.3.1_rc1 2.3.2_beta 2.3.3_beta 2.5.0_alpha: C/C++ library to mainly provide Semantic Versioned implementation
+dev-libs/octetos-coreutils 0.3.0_alpha 0.4.0_alpha 0.4.0_alpha2 0.6.1_alpha 0.7.0_alpha: Similar to coreutils but is a C++ API.
 dev-libs/octetos-db 1.3.2_alpha: C++ library for Database Acces.
 dev-libs/octetos-db-maria 1.2.2_beta 1.3.2_alpha: C++ library for Database Acces.
 dev-libs/octetos-db-postgresql 1.3.2_alpha: C++ library for Database Acces.
@@ -262,6 +262,7 @@ kde-misc/plasma5-wallpapers-dynamic 3.3.3 9999: A KDE Plasma wallpaper plugin to
 media-fonts/symbola 7.17: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
 media-gfx/azpainter 2.1.6: Full color painting software for Linux for illustration drawing
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
+media-gfx/glimpse 0.2.0: Image editor based on the GNU Image Manipulation Program
 media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/oxipng 2.3.0: A lossless PNG compression optimizer
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
@@ -371,6 +372,7 @@ x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial v
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
 x11-misc/gromit-mpx 1.3 1.3.1 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
 x11-misc/i3lock-color 2.12.5 9999: Improved i3lock with color customization
+x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement for i3status, written in Rust.
 x11-misc/ksnip 1.6.2-r1 1.7.1 1.7.3: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Window System
