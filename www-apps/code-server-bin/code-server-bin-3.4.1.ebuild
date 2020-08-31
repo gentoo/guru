@@ -35,7 +35,7 @@ RDEPEND="
 S="${WORKDIR}/${MY_PV}-linux-${ARCH}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-${PV}-node.patch"
+	"${FILESDIR}/${PN}-node.patch"
 )
 
 src_prepare() {
