@@ -115,6 +115,7 @@ dev-python/aiopg 1.0.0: aiopg is a library for accessing a PostgreSQL database f
 dev-python/aiosqlite 0.12.0 0.13.0: asyncio bridge to the standard sqlite3 module
 dev-python/aiounittest 1.4.0: Test python asyncio-based code with ease
 dev-python/almost 0.1.5: A helper for approximate comparison
+dev-python/asciimatics 1.11.0 9999: Package for curses-like operations, text UIs and ASCII art animations
 dev-python/ascim 0.1.1 9999: Manipulate ASCII art as you would do with raster images
 dev-python/aspectlib 1.5.1: An aspect-oriented programming, monkey-patch and decorators library
 dev-python/asyncpg 0.20.1: A fast PostgreSQL Database Client Library for Python/asyncio.
@@ -169,6 +170,7 @@ dev-python/pure-protobuf 2.0.0-r1: A more Pythonic version of doxypy, a Doxygen 
 dev-python/pydantic 1.6.1: Data parsing and validation using Python type hints
 dev-python/pydata-sphinx-theme 0.3.1: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0: Pythonic DBus library
+dev-python/pyfiglet 0.8.0 9999: Pure-python FIGlet implementation
 dev-python/pygaljs 1.0.2 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
 dev-python/pyinquirer 9999: A Python module for common interactive command line UIs
 dev-python/pyjsparser 2.7.1: Fast javascript parser based on esprima.js
