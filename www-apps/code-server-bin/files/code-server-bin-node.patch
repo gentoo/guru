@@ -5,4 +5,4 @@
  
  ROOT="$(root)"
 -exec "$ROOT/lib/node" "$ROOT" "$@"
-+exec node "$ROOT" --disable-telemetry "$@"
++exec node "${ROOT}" --disable-telemetry "${@}"
