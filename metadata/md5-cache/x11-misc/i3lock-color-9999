@@ -8,5 +8,5 @@ LICENSE=i3lock-color
 PROPERTIES=live
 RDEPEND=x11-libs/cairo x11-libs/libxcb x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-xrm x11-libs/libxkbcommon sys-libs/pam dev-libs/libev media-libs/fontconfig:= media-libs/libjpeg-turbo
 SLOT=0
-_eclasses_=git-r3	8ec5b53812bce105ae7943930e4660f8
+_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
 _md5_=9195d6f1b870591fdf624b93a7d0ac2e

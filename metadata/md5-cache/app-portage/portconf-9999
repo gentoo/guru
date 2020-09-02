@@ -8,5 +8,5 @@ LICENSE=GPL-3+
 PROPERTIES=live
 RDEPEND=app-shells/bash:= sys-apps/portage app-portage/eix app-portage/portage-utils sys-apps/gawk || ( app-text/agrep dev-libs/tre )
 SLOT=0
-_eclasses_=git-r3	8ec5b53812bce105ae7943930e4660f8
+_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
 _md5_=82abe1112f072a0c5dbdbcf2d13a743b
