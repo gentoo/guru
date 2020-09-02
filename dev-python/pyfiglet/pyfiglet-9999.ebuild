@@ -15,7 +15,10 @@ then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/pwaller/pyfiglet.git"
 else
-	SRC_URI="https://github.com/pwaller/pyfiglet/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	MY_PV="$(ver_cut 1-2).post$(ver_cut 3)"
+	MY_P="${PN}-${MY_PV}"
+	S="${WORKDIR}/${MY_P}"
+	SRC_URI="https://files.pythonhosted.org/packages/source/p/pyfiglet/${MY_P}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
