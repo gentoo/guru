@@ -275,7 +275,7 @@ media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
 media-plugins/gimp-avif-plugin 9999: Plug-in for development GIMP 2.99.1 for loading/saving AVIF images.
 media-plugins/gst-plugins-sndio 1.8.0.1-r1: Sndio audio sink and source for GStreamer
-media-plugins/qt-avif-image-plugin 0.3.1 9999: Qt plug-in to allow Qt and KDE based applications to read/write AVIF images.
+media-plugins/qt-avif-image-plugin 0.3.1 0.3.2 9999: Qt plug-in to allow Qt and KDE based applications to read/write AVIF images.
 media-plugins/qt-heif-image-plugin 0.3.3: Qt plugin for HEIF images
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
@@ -358,7 +358,7 @@ sys-libs/libnvidia-container 1.1.1 1.2.0: NVIDIA container runtime library
 sys-libs/nss-tls 1.0 9999: A DNS over HTTPS resolver for glibc
 sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC security key
 sys-process/gotop 4.0.1: A terminal based graphical activity monitor inspired by gtop and vtop
-sys-process/iotop-c 0_pre20140824 1.9: top utility for IO (C port)
+sys-process/iotop-c 0_pre20140824 1.9 1.10: top utility for IO (C port)
 sys-process/nvtop 1.0.0 9999: NVIDIA GPUs htop like monitoring tool
 www-apps/code-server-bin 3.4.1: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
