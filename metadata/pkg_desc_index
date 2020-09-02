@@ -170,7 +170,7 @@ dev-python/pure-protobuf 2.0.0-r1: A more Pythonic version of doxypy, a Doxygen 
 dev-python/pydantic 1.6.1: Data parsing and validation using Python type hints
 dev-python/pydata-sphinx-theme 0.3.1: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0: Pythonic DBus library
-dev-python/pyfiglet 0.8.0 9999: Pure-python FIGlet implementation
+dev-python/pyfiglet 0.8.0 0.8.1 9999: Pure-python FIGlet implementation
 dev-python/pygaljs 1.0.2 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
 dev-python/pyinquirer 9999: A Python module for common interactive command line UIs
 dev-python/pyjsparser 2.7.1: Fast javascript parser based on esprima.js
