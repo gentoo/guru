@@ -1,4 +1,5 @@
-# EBUILD file for vlang/v
+# Copyright 1999-2020 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 DESCRIPTION="Simple, fast, safe compiled language for developing maintainable software."
@@ -12,7 +13,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 src_compile(){
-  cd v && make
-  # Adds to PATH via symlink
-  ./v symlink
+	cd v && make
+	# Adds to PATH via symlink
+	./v symlink
 }
