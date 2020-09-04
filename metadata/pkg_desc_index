@@ -47,7 +47,7 @@ app-portage/portage-lostfiles 0.2.0: A simple script to identify files not track
 app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
 app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
 app-portage/version 0.6.1_alpha 0.6.2_alpha 0.9.0_alpha 0.9.1_alpha 0.10.0_alpha 0.14.2_alpha 0.14.4_alpha 0.15.0_alpha: A command line function for package version management.
-app-shells/antibody 6.0.1 6.1.0: Fast Zsh plugin manager
+app-shells/antibody 6.1.0 6.1.1: Fast Zsh plugin manager
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
