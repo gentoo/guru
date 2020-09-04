@@ -1,0 +1,13 @@
+diff --git a/docs/src/conf.py b/docs/src/conf.py
+index c99ca4e..4f216f8 100644
+--- a/docs/src/conf.py
++++ b/docs/src/conf.py
+@@ -3,7 +3,7 @@ import sys
+ from pathlib import Path
+ 
+ _root = Path(os.path.realpath(__file__)).parent.parent.parent
+-sys.path.insert(0, _root)
++sys.path.insert(0, str(_root))
+ 
+ 
+ project = 'tekore'
