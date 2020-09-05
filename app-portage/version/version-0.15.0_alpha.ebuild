@@ -17,11 +17,9 @@ KEYWORDS="~amd64"
 
 IUSE=""
 
-DEPEND=""
+DEPEND="dev-libs/octetos-coreutils"
 RDEPEND="${DEPEND}"
-BDEPEND="
-	dev-libs/octetos-core
-"
+BDEPEND=""
 
 S="${WORKDIR}/octetos-${PN}-${MYPV}"
 
