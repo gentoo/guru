@@ -27,9 +27,6 @@ BDEPEND="test? (
 	<dev-python/pytest-asyncio-0.15[${PYTHON_USEDEP}]
 )"
 
-# fixes bug in conf.py: 'PosixPath' object has no attribute 'rstrip'
-PATCHES=( "${FILESDIR}/${PN}-fix-docs-path.patch" )
-
 DOCS="readme.rst"
 
 distutils_enable_tests pytest
