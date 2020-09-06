@@ -6,7 +6,7 @@
     <name>Maciej Barć</name>
   </maintainer>
   <upstream>
-    <remote-id type="github">PyCQA/redbaron</remote-id>
-    <remote-id type="pypi">redbaron</remote-id>
+    <remote-id type="github">amanusk/s-tui</remote-id>
+    <remote-id type="pypi">s-tui</remote-id>
   </upstream>
 </pkgmetadata>
