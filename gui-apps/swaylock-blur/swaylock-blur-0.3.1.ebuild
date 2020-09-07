@@ -66,7 +66,7 @@ SRC_URI="
 RESTRICT="mirror"
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""  # Upstream has archived the project, use swaylock-effects instead
 IUSE=""
 
 DEPEND="
@@ -76,3 +76,8 @@ DEPEND="
 	gui-wm/sway
 "
 RDEPEND="${RDEPEND}"
+
+pkg_postinst() {
+	ewarn "gui-apps/swaylock-blur is deprecated"
+	ewarn "in favor of gui-apps/swaylock-effects."
+}
