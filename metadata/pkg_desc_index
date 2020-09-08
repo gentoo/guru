@@ -25,7 +25,7 @@ app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating
 app-emulation/dxvk-bin 1.7 1.7.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.1.1 1.1.2 1.2.0 1.2.1: NVIDIA container runtime toolkit
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
-app-misc/apidb 4.3.0_beta: API Generator for Database acces.
+app-misc/apidb 4.3.0_beta 5.0.0_alpha: API Generator for Database acces.
 app-misc/cheat 4.0.2: cheat allows you to create and view interactive cheatsheets on the command-line
 app-misc/doublecmd-bin 0.9.8 0.9.9: Free cross platform open source file manager with two panels side by side.
 app-misc/fetsh 1.6 1.7 9999: A fetch written in POSIX shell without any external commands
@@ -33,7 +33,7 @@ app-misc/ghq 1.1.0: Remote repository management made easy
 app-misc/liquidctl 1.4.1: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/mat2 0.11.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
-app-misc/navi 2.8.0 2.9.0 2.10.0: An interactive cheatsheet tool for the command-line
+app-misc/navi 2.9.0 2.10.0 9999: An interactive cheatsheet tool for the command-line
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/rdfind 1.4.1: Find duplicate files
@@ -47,7 +47,7 @@ app-portage/pacvis 0.4.2 9999: Displays dependency graphs of packages
 app-portage/portage-lostfiles 0.2.0: A simple script to identify files not tracked by Portage package manager
 app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
 app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
-app-portage/version 0.6.1_alpha 0.6.2_alpha 0.9.0_alpha 0.9.1_alpha 0.10.0_alpha 0.14.2_alpha 0.14.4_alpha 0.15.0_alpha: A command line function for package version management.
+app-portage/version 0.6.1_alpha 0.6.2_alpha 0.9.0_alpha 0.9.1_alpha 0.10.0_alpha 0.14.2_alpha 0.14.4_alpha 0.15.0_alpha 0.17.0_alpha: A command line function for package version management.
 app-shells/antibody 6.1.0 6.1.1: Fast Zsh plugin manager
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
@@ -101,7 +101,7 @@ dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta 2.2.1_beta 2.3.0_beta 2.3
 dev-libs/octetos-coreutils 0.3.0_alpha 0.4.0_alpha 0.4.0_alpha2 0.6.1_alpha 0.7.0_alpha: Similar to coreutils but is a C++ API.
 dev-libs/octetos-db 1.3.2_alpha 1.3.3_alpha: C++ library for Database Acces.
 dev-libs/octetos-db-maria 1.2.2_beta 1.3.2_alpha: C++ library for Database Acces.
-dev-libs/octetos-db-postgresql 1.3.2_alpha 1.3.3_alpha: C++ library for Database Acces.
+dev-libs/octetos-db-postgresql 1.3.2_alpha 1.3.3_alpha 1.3.6_alpha: C++ library for Database Acces.
 dev-libs/olm 3.1.4 3.1.5: Implementation of the olm and megolm cryptographic ratchets
 dev-libs/open62541 1.0.2 1.1.2: Open source C implementation of OPC UA
 dev-libs/protothreads 1.4: Protothreads - Lightweight, Stackless Threads in C
@@ -209,7 +209,7 @@ dev-python/sphinx-autodoc-typehints 1.10.3 1.11.0: Type hints support for the Sp
 dev-python/sphinxcontrib-katex 0.6.0 0.6.1: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-trio 1.1.2: Make Sphinx better at documenting Python functions and methods
 dev-python/sphobjinv 2.0.1: Sphinx objects.inv Inspection/Manipulation Tool
-dev-python/spotipy 2.14.0: A light weight Python library for the Spotify Web API
+dev-python/spotipy 2.15.0: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.2.2: Server Sent Events for Starlette
 dev-python/starlette 0.13.4: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
@@ -256,6 +256,7 @@ games-util/minigalaxy 0.9.4: A simple GOG client for Linux
 gui-apps/mpvpaper 1.0 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.3.0 0.3.1 0.3.2 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/swaylock-blur 0.3.1: A program that runs swaylock to a blurred screenshot of the desktop
+gui-apps/swaylock-effects 1.6.0 1.6.1 9999: Swaylock, with fancy effects
 gui-apps/wdisplays 1.0-r2 9999: GUI display configurator for wlroots compositors
 gui-apps/wofi 1.2.1 1.2.2 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
@@ -278,7 +279,7 @@ media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary L
 media-plugins/gimp-avif-plugin 9999: Plug-in for development GIMP 2.99.1 for loading/saving AVIF images.
 media-plugins/gst-plugins-sndio 1.8.0.1-r1: Sndio audio sink and source for GStreamer
 media-plugins/qt-avif-image-plugin 0.3.1 0.3.2 9999: Qt plug-in to allow Qt and KDE based applications to read/write AVIF images.
-media-plugins/qt-heif-image-plugin 0.3.3: Qt plugin for HEIF images
+media-plugins/qt-heif-image-plugin 0.3.3 0.3.3-r1: Qt plugin for HEIF images
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
 media-sound/add64 3.8.0: Add64 is a realtime additive/subtractive-synthesis softsynth
@@ -366,7 +367,7 @@ sys-process/nvtop 1.0.0 9999: NVIDIA GPUs htop like monitoring tool
 www-apps/code-server-bin 3.4.1: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/twint 2.1.18 2.1.19 2.1.20: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
-www-apps/uwebsockets 18.12.0 9999: ultra fast, simple, secure & standards compliant web I/O
+www-apps/uwebsockets 18.13.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.0.3 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-libs/gtk-fortran 19.04 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
