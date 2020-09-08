@@ -5,4 +5,8 @@
 		<email>azael.devel@gmail.com</email>
 		<name>Azael Reyes</name>
 	</maintainer>
+	<use>
+		<flag name="mariadb">Enable MariaDB conection</flag>
+		<flag name="postgresql">Enable PostgreSQL conection</flag>
+	</use>
 </pkgmetadata>
