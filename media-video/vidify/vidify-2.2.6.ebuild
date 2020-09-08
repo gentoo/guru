@@ -43,8 +43,7 @@ python_prepare_all() {
 	# this needs dbus and a player running
 	rm tests/api/test_mpris.py || die
 
-	# fails to parse config for some reason
-	# likely because of the removal of the above tests
+	# can't parse non-existent config
 	rm tests/test_api_and_player_data.py || die
 
 	# do not hard depend on this
