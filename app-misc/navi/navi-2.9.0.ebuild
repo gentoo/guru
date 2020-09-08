@@ -78,15 +78,28 @@ inherit cargo
 
 DESCRIPTION="An interactive cheatsheet tool for the command-line"
 HOMEPAGE="https://github.com/denisidoro/navi"
-SRC_URI="
+SRC_URI="$(cargo_crate_uris ${CRATES})"
+
+if [[ "${PV}" == 9999 ]]
+then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/denisidoro/navi.git"
+else
+	SRC_URI+="
 	https://github.com/denisidoro/navi/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	$(cargo_crate_uris ${CRATES})
-"
+	"
+	KEYWORDS="~amd64"
+fi
+
 RESTRICT="mirror"
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND="app-shells/fzf"
 DEPEND="${RDEPEND}"
+
+src_unpack() {
+	[[ "${PV}" == 9999 ]] && git-r3_src_unpack
+	cargo_src_unpack
+}

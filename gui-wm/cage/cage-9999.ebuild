@@ -3,19 +3,19 @@
 
 EAPI=7
 
-EGIT_REPO_URI="https://github.com/Hjdskes/${PN}"
-case "${PV}" in
-	9999)
-		inherit git-r3
-		;;
-	*)
-		SRC_URI="${EGIT_REPO_URI}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-		KEYWORDS="~amd64 ~x86"
-esac
 inherit meson
 
+if [[ "${PV}" == 9999 ]]
+then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/Hjdskes/cage"
+else
+	SRC_URI="https://github.com/Hjdskes/cage/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
+
 DESCRIPTION="A Wayland kiosk"
-HOMEPAGE="https://www.hjdskes.nl/projects/${PN}"
+HOMEPAGE="https://www.hjdskes.nl/projects/cage https://github.com/Hjdskes/cage"
 LICENSE="MIT"
 SLOT="0"
 

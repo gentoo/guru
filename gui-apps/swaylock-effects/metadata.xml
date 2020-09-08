@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <name>Matthias Coppens</name>
+        <email>coppens.matthias.abc@gmail.com</email>
+    </maintainer>
+    <use>
+        <flag name="fish-completion">Enable fish completion support</flag>
+        <flag name="gdk-pixbuf">Enable additional image format support via the <pkg>x11-libs/gdk-pixbuf</pkg> library</flag>
+        <flag name="man">Build and install man pages</flag>
+    </use>
+    <upstream>
+        <remote-id type="github">mortie/swaylock-effects</remote-id>
+        <bugs-to>https://github.com/mortie/swaylock-effects/issues</bugs-to>
+    </upstream>
+</pkgmetadata>
