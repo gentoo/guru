@@ -45,6 +45,12 @@ src_prepare() {
 }
 
 src_configure() {
-	local mycmakeargs=(-DAPIDB_VERSION_STAGE=alpha  -DAPIDB_MARIADB=Y -DPLATFORM=Gentoo -DCOMPONENT=FULL)
+	local mycmakeargs=(-DAPIDB_VERSION_STAGE=alpha -DPLATFORM=Gentoo -DCOMPONENT=FULL)
+	if use mariadb ;then
+		mycmakeargs+=(-DAPIDB_MARIADB=Y)
+	fi
+	if use postgresql ;then
+		mycmakeargs+=(-DAPIDB_POSTGRESQL=Y)
+	fi
 	cmake_src_configure
 }
