@@ -10,5 +10,5 @@ LICENSE=LGPL-2.1
 RDEPEND=gnome-base/gnome-desktop:3 media-libs/fontconfig >=dev-libs/glib-2.44:2[dbus] >=x11-libs/gtk+-3.21.5:3[wayland=,X=] >=sys-apps/xdg-desktop-portal-1.6.0-r1
 SLOT=0
 SRC_URI=https://github.com/flatpak/xdg-desktop-portal-gtk/releases/download/1.6.0/xdg-desktop-portal-gtk-1.6.0.tar.xz
-_eclasses_=multilib	2477ebe553d3e4d2c606191fe6c33602	systemd	71fd8d2065d102753fb9e4d20eaf3e9f	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
+_eclasses_=multilib	2477ebe553d3e4d2c606191fe6c33602	systemd	69be00334d73f9f50261554b94be0879	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
 _md5_=877e2790710597cb112935b5e9c83538
