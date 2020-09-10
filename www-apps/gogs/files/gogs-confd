@@ -1,0 +1,47 @@
+# Apache License 2015
+
+# Path of your config dir
+# It will be created upon finishing installation
+custom_config_dir="/etc/gogs/custom"
+
+# Path of gogs data (avatars etc.)
+# This will change the location in which repos are stored
+workdir="/var/lib/gogs"
+
+# What user and group should Gogs run as?
+user="gogs"
+group="git"
+
+# Where is Gogs installed?
+basedir="/etc/gogs"
+
+# What is the Gogs executable called?
+daemon="gogs"
+
+# What arguments should be passed to Gogs?
+# Only "web" is supported (to start the server)
+daemon_opts="web"
+
+# Where does Gogs keep configuration files?
+# Only for user information messages at the moment
+defaultconf="${basedir}/conf/app.ini"
+customconf="${basedir}/custom/conf/app.ini"
+
+# Where should logs be stored?
+logfile="/var/log/gogs/gogs.log"
+
+# Where should the PID file be saved while Gogs is running?
+# Default is "/run/${SVCNAME}.pid"
+# eg "/run/gogs.pid"
+#pidfile="/run/gogs.pid"
+
+# How long should we wait for Gogs itself to start?
+# Expects a number (in milliseconds)
+# Default 500
+startwait=500
+
+# What is the maximum wait for start-stop-daemon to create a PID file?
+# Expects a number (in milliseconds)
+# Default 1000
+timeout=1000
+

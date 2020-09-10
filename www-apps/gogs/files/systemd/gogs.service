@@ -1,0 +1,24 @@
+[Unit]
+Description=Gogs service
+Documentation=https://gogs.io
+
+AssertPathIsDirectory=/var/lib/gogs
+AssertPathIsReadWrite=/var/lib/gogs
+AssertPathIsDirectory=/var/log/gogs
+AssertPathIsReadWrite=/var/log/gogs
+
+After=network.target
+Requires=network.target
+
+[Service]
+User=gogs
+Group=gogs
+
+Environment="GOGS_WORK_DIR=/var/lib/gogs"
+Environment="GOGS_CUSTOM=/etc/gogs"
+WorkingDirectory=/var/lib/gogs
+ExecStart=/usr/bin/gogs web -c /etc/gogs/conf/app.ini
+
+Restart=always
+PrivateTmp=true
+Nice=5

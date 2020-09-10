@@ -1,0 +1,21 @@
+[Unit]
+Description=Gogs service (sandboxed for user @%u)
+Documentation=https://gogs.io
+
+[Service]
+ExecStartPre=/usr/bin/install -d -m700 %h/.config/gogs
+ExecStartPre=/bin/cp -n /etc/gogs/conf/app.user.ini %h/.config/gogs/app.ini
+ExecStartPre=/bin/sed -i 's|<user>|%u|' %h/.config/gogs/app.ini
+ExecStartPre=/bin/sed -i 's|<home>|%h|' %h/.config/gogs/app.ini
+
+Environment="GOGS_CUSTOM=%h/.config/gogs"
+ExecStart=/usr/bin/gogs web --config %h/.config/gogs/app.ini
+Restart=always
+
+NoNewPrivileges=true
+DevicePolicy=closed
+PrivateTmp=true
+Nice=5
+
+[Install]
+WantedBy=default.target
