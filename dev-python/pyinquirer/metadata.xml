@@ -14,4 +14,8 @@
         CLI applications. We also hope that PyInquirer proves itself
         useful to Python users.
     </longdescription>
+    <upstream>
+        <remote-id type="github">CITGuru/PyInquirer</remote-id>
+        <bugs-to>https://github.com/CITGuru/PyInquirer/issues</bugs-to>
+    </upstream>
 </pkgmetadata>
