@@ -2,8 +2,10 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
-app-misc/apidb:mariadb - Enable MariaDB conection
-app-misc/apidb:postgresql - Enable PostgreSQL conection
+app-misc/apidb:commands - Build commands
+app-misc/apidb:corelibs - Build Abtract layer
+app-misc/apidb:mariadb - Build MariaDB Layer
+app-misc/apidb:postgresql - Build PostgreSQL Layer
 app-misc/mat2:sandbox - Enable sandboxing functionality through sys-apps/bubblewrap
 app-misc/mat2:video - Use media-video/ffmpeg for video support
 app-misc/ntfy:dbus - Support for desktop notifications
@@ -123,6 +125,7 @@ sys-cluster/veloc:alps - Use ALPS (Application Level Placement Scheduler) as res
 sys-cluster/veloc:lsf - Use LFS (Load Sharing Facility) as resource manager
 sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager
 sys-kernel/dkms:kernel-hooks - Enable automatic rebuilding of modules via kernel source makefile hooks
+www-apps/gogs:cert - Adds support for self-signed certificates
 x11-libs/gtk-fortran:doc - Build doxygen documentation
 x11-libs/gtk-fortran:examples - Install examples source code files
 x11-libs/gtk-fortran:high-level - Build high-level interface to the gtk-fortran package

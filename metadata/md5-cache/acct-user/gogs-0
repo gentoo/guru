@@ -1,0 +1,8 @@
+DEFINED_PHASES=install postinst preinst prerm pretend
+DESCRIPTION=www-apps/gogs user
+EAPI=7
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+RDEPEND=acct-group/git
+SLOT=0
+_eclasses_=acct-user	4e8cbda4e2f81e96d4113bcf7547e6ba	user	7b7fc6ec5eb1c1eee55b0609f01e7362	user-info	a2abd4e2f4c3b9b06d64bf1329359a02
+_md5_=ac40994d7ac805421e4a3db2b3464190
