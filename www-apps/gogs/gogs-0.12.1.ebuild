@@ -487,10 +487,7 @@ src_install() {
 	# Install binary
 	dobin gogs
 	# Prepare systemd init scripts and install it
-	cp "${FILESDIR}/systemd/${PN}.service" "${T}/${PN}.service" || die
-	use mysql && enable_systemd_dep mysqld
-	use postgres && enable_systemd_dep postgresql
-	systemd_dounit "${T}/${PN}.service"
+	systemd_dounit "${FILESDIR}/systemd/${PN}.service"
 	# Install OpenRC init files
 	doconfd "${FILESDIR}/gogs-confd"
 	doinitd "${FILESDIR}/gogs-initd"

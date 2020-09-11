@@ -12,7 +12,7 @@ Requires=network.target
 
 [Service]
 User=gogs
-Group=gogs
+Group=git
 
 Environment="GOGS_WORK_DIR=/var/lib/gogs"
 Environment="GOGS_CUSTOM=/etc/gogs"
