@@ -3,19 +3,18 @@
 
 EAPI=7
 
-EGIT_REPO_URI="https://github.com/cyclopsian/${PN}"
-case "${PV}" in
-	"9999")
-		inherit git-r3
-		;;
-	*)
-		SRC_URI="${EGIT_REPO_URI}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-		KEYWORDS="~amd64"
-esac
+if [[ "${PV}" == 9999 ]]
+then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/cyclopsian/wdisplays.git"
+else
+	SRC_URI="https://github.com/cyclopsian/wdisplays/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+fi
 inherit meson xdg
 
 DESCRIPTION="GUI display configurator for wlroots compositors"
-HOMEPAGE="https://cyclopsian.github.io/${PN}"
+HOMEPAGE="https://cyclopsian.github.io/wdisplays https://github.com/cyclopsian/wdisplays"
 
 BDEPEND="
 	x11-libs/gtk+:3[wayland]
@@ -25,4 +24,4 @@ DEPEND="${BDEPEND}"
 LICENSE="GPL-3+"
 SLOT="0"
 
-PATCHES=("${FILESDIR}/${P}-pull20.patch")
+PATCHES=("${FILESDIR}/${PN}-1.0-pull20.patch")

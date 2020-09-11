@@ -6,7 +6,9 @@
 		<name>Azael Reyes</name>
 	</maintainer>
 	<use>
-		<flag name="mariadb">Enable MariaDB conection</flag>
-		<flag name="postgresql">Enable PostgreSQL conection</flag>
+		<flag name="mariadb">Build MariaDB Layer</flag>
+		<flag name="postgresql">Build PostgreSQL Layer</flag>
+		<flag name="commands">Build commands</flag>
+		<flag name="corelibs">Build Abtract layer</flag>
 	</use>
 </pkgmetadata>

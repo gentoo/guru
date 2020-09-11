@@ -1,31 +1,36 @@
 diff --git a/Makefile b/Makefile
-index 7d33414..6f3e53a 100644
+index 27f97ce..1a01539 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -1,3 +1,13 @@
 +DESTDIR ?=
 +
-+prefix ?=	"/usr/local"
-+exec_prefix ?=	"$(prefix)"
-+libdir ?=	"$(exec_prefix)/lib"
-+includedir?=	"$(exec_prefix)/include/uSockets"
++prefix ?=       "/usr/local"
++exec_prefix ?=  "$(prefix)"
++libdir ?=       "$(exec_prefix)/lib"
++includedir?=    "$(exec_prefix)/include/uSockets"
 +
 +# OpenBSD specific library version
-+LIBTARGET =	libusockets.so.$(LIBusockets_VERSION)
++LIBTARGET =     libusockets.so.$(LIBusockets_VERSION)
 +
  # WITH_OPENSSL=1 enables OpenSSL 1.1+ support or BoringSSL
+ # For now we need to link with C++ for OpenSSL support, but should be removed with time
  ifeq ($(WITH_OPENSSL),1)
- 	override CFLAGS += -DLIBUS_USE_OPENSSL
-@@ -33,13 +43,27 @@ ifeq ($(WITH_ASAN),1)
+@@ -34,17 +44,28 @@ ifeq ($(WITH_ASAN),1)
  endif
  
  override CFLAGS += -std=c11 -Isrc
 -override LDFLAGS += uSockets.a
  
 -# By default we build the uSockets.a static library
++
  default:
  	rm -f *.o
 -	$(CC) $(CFLAGS) -flto -O3 -c src/*.c src/eventing/*.c src/crypto/*.c
+-# For now we do rely on C++17 for OpenSSL support but we will be porting this work to C11
+-ifeq ($(WITH_OPENSSL),1)
+-	$(CXX) $(CXXFLAGS) -std=c++17 -flto -O3 -c src/crypto/*.cpp
+-endif
 -	$(AR) rvs uSockets.a *.o
 +	$(CC) -fPIC -c src/*.c src/eventing/*.c src/crypto/*.c $(CFLAGS)
 +	$(AR) rvs libusockets.a *.o
@@ -48,10 +53,9 @@ index 7d33414..6f3e53a 100644
  
  # Builds all examples
  .PHONY: examples
-@@ -52,4 +76,6 @@ swift_examples:
+@@ -57,4 +78,5 @@ swift_examples:
  clean:
  	rm -f *.o
  	rm -f *.a
 +	rm -f *.so
  	rm -rf .certs
-+
