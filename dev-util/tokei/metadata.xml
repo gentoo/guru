@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lo48576@hard-wi.red</email>
+		<name>YOSHIOKA Takuma</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">XAMPPRocky/tokei</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		Tokei is a program that displays statistics about your code. Tokei will show the number of files, total lines within those files and code, comments, and blanks grouped by language.
+	</longdescription>
+</pkgmetadata>
