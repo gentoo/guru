@@ -3,18 +3,18 @@
 
 EAPI=7
 
-EGIT_REPO_URI="https://github.com/nwg-piotr/${PN}"
-case "${PV}" in
-	9999)
-		inherit git-r3
-		;;
-	*)
-		SRC_URI="${EGIT_REPO_URI}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-esac
+if [[ "${PV}" == 9999 ]]
+then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/nwg-piotr/nwg-launchers.git"
+else
+	SRC_URI="https://github.com/nwg-piotr/nwg-launchers/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+fi
 inherit meson
 
 DESCRIPTION="GTK+ launchers for sway, i3 and some other WMs"
-HOMEPAGE="${EGIT_REPO_URI}"
+HOMEPAGE="https://github.com/nwg-piotr/nwg-launchers"
 LICENSE="GPL-3"
 
 SLOT="0"
@@ -26,6 +26,8 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 IUSE="+bar +dmenu +grid"
+
+RESTRICT="mirror"
 
 src_configure() {
 	meson_src_configure $(meson_use bar) $(meson_use dmenu) $(meson_use grid)
