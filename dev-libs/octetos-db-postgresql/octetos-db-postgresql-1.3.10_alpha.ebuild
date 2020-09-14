@@ -19,8 +19,8 @@ KEYWORDS="~amd64"
 
 IUSE=""
 
-DEPEND="dev-libs/octetos-db dev-db/postgresql:*"
-RDEPEND="${DEPEND}"
+DEPEND="dev-libs/octetos-db"
+RDEPEND="${DEPEND} dev-db/postgresql:*"
 BDEPEND=""
 
 S="${WORKDIR}/${MYP}"
