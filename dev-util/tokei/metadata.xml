@@ -6,9 +6,9 @@
 		<name>YOSHIOKA Takuma</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">desbma/r128gain</remote-id>
+		<remote-id type="github">XAMPPRocky/tokei</remote-id>
 	</upstream>
 	<longdescription lang="en">
-		r128gain is a multi platform command line tool to scan your audio files and tag them with loudness metadata (ReplayGain v2 or Opus R128 gain format), to allow playback of several tracks or albums at a similar loudness level.
+		Tokei is a program that displays statistics about your code. Tokei will show the number of files, total lines within those files and code, comments, and blanks grouped by language.
 	</longdescription>
 </pkgmetadata>
