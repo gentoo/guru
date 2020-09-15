@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DEPEND=media-libs/libsdl
+DESCRIPTION=virtual machine designed for extremely compact low-level audiovisual programs
+EAPI=7
+HOMEPAGE=http://pelulamu.net/ibniz/
+KEYWORDS=~amd64 ~x86
+LICENSE=ZLIB
+RDEPEND=media-libs/libsdl
+SLOT=0
+SRC_URI=http://pelulamu.net/ibniz/ibniz-1.18.tar.gz
+_md5_=566cc4259644be44fc6907fe823e9f6b

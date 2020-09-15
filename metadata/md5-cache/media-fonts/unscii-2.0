@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm setup
+DEPEND=media-libs/sdl-image dev-lang/perl media-gfx/fontforge x11-apps/bdftopcf unicode? ( media-fonts/unifont[utils] ) X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DESCRIPTION=Set of bitmapped Unicode fonts based on classic system fonts
+EAPI=7
+HOMEPAGE=http://pelulamu.net/unscii/
+IUSE=unicode X
+KEYWORDS=~amd64 ~x86
+LICENSE=OFL-1.1
+RDEPEND=media-libs/sdl-image
+SLOT=0
+SRC_URI=http://pelulamu.net/unscii/unscii-2.0-src.tar.gz
+_eclasses_=font	dd073b36fe3fd8b868c23bc23209db45	multilib	98584e405e2b0264d37e8f728327fed1	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
+_md5_=3d8f080f0f50282febb7f1edd9393430
