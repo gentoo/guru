@@ -489,8 +489,8 @@ src_install() {
 	# Prepare systemd init scripts and install it
 	systemd_dounit "${FILESDIR}/systemd/${PN}.service"
 	# Install OpenRC init files
-	doconfd "${FILESDIR}/gogs-confd"
-	doinitd "${FILESDIR}/gogs-initd"
+	newconfd "${FILESDIR}/gogs-confd" gogs
+	newinitd "${FILESDIR}/gogs-initd" gogs
 	# Install HTTPS certs
 	if use cert; then
 	 keepdir /etc/${PN}/https
