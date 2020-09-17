@@ -34,7 +34,7 @@ app-misc/ghq 1.1.0: Remote repository management made easy
 app-misc/liquidctl 1.4.1: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/mat2 0.11.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
-app-misc/navi 2.10.0 2.11.0 9999: An interactive cheatsheet tool for the command-line
+app-misc/navi 2.11.0 2.12.0 9999: An interactive cheatsheet tool for the command-line
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/rdfind 1.4.1: Find duplicate files
@@ -256,7 +256,7 @@ games-util/itch-bin 25.4.0 25.4.1: itch.io game browser, installer and launcher
 games-util/legendary 0.0.19-r1 0.20.1: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 0.9.4: A simple GOG client for Linux
 gui-apps/mpvpaper 1.0 9999: A video wallpaper program for wlroots based wayland compositors
-gui-apps/nwg-launchers 0.3.2 0.3.3 9999: GTK+ launchers for sway, i3 and some other WMs
+gui-apps/nwg-launchers 0.3.3 0.3.4 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/swaylock-blur 0.3.1: A program that runs swaylock to a blurred screenshot of the desktop
 gui-apps/swaylock-effects 1.6.0 1.6.1 9999: Swaylock, with fancy effects
 gui-apps/wdisplays 1.0-r2 9999: GUI display configurator for wlroots compositors
