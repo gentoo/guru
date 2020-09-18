@@ -1,0 +1,11 @@
+--- a/src/nvc_mount.c	2020-09-16 20:30:14.000000000 +0800
++++ b/src/nvc_mount.c	2020-09-18 18:00:17.984906768 +0800
+@@ -10,7 +10,7 @@
+ #include <libgen.h>
+ #undef basename /* Use the GNU version of basename. */
+ #include <limits.h>
+-#include <nvidia-modprobe-utils.h>
++#include "nvidia-modprobe-utils.h"
+ #include <stdio.h>
+ #include <string.h>
+ #include <sched.h>
