@@ -3,7 +3,8 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_{6,7} )
+DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
@@ -37,9 +38,17 @@ DEPEND="${RDEPEND}
 		dev-python/emoji[${PYTHON_USEDEP}]
 		dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/psutil[${PYTHON_USEDEP}]
-		dev-python/sleekxmpp[${PYTHON_USEDEP}]
 	)
 "
+
+python_prepare_all() {
+	# Sleekxmpp no longer in repo
+	rm tests/test_xmpp.py  || die
+	sed -i -e 's:test_xmpp:_&:' \
+		tests/test_integration.py || die
+
+	distutils-r1_python_prepare_all
+}
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs
