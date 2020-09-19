@@ -3,8 +3,7 @@
 
 EAPI=7
 
-GITHUB_PN="container-toolkit"
-EGO_PN="github.com/NVIDIA/${GITHUB_PN}"
+EGO_PN="github.com/NVIDIA/${PN}"
 
 inherit go-module
 
@@ -50,7 +49,7 @@ else
 	go-module_set_globals
 
 	SRC_URI="
-		https://github.com/NVIDIA/${GITHUB_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/NVIDIA/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 		${EGO_SUM_SRC_URI}
 	"
 	KEYWORDS="~amd64"

@@ -1,0 +1,11 @@
+--- a/src/nvc_info.c	2020-09-16 20:30:14.000000000 +0800
++++ b/src/nvc_info.c	2020-09-18 18:06:55.562176348 +0800
+@@ -6,7 +6,7 @@
+ 
+ #include <errno.h>
+ #include <limits.h>
+-#include <nvidia-modprobe-utils.h>
++#include "nvidia-modprobe-utils.h"
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>

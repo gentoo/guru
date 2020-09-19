@@ -21,6 +21,8 @@ esac
 LICENSE="ISC"
 SLOT="0"
 
+RESTRICT="mirror"
+
 src_install() {
 	dobin fet.sh
 }
