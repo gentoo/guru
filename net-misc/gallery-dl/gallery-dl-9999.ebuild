@@ -6,7 +6,7 @@ EAPI=7
 PYTHON_COMPAT=(python3_{6,7,8})
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-inherit eutils distutils-r1
+inherit eutils distutils-r1 optfeature
 
 DESCRIPTION="Download image galleries and collections from several image hosting sites"
 HOMEPAGE="https://github.com/mikf/gallery-dl"
@@ -16,7 +16,7 @@ if [[ "${PV}" == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/mikf/${PN}.git"
 	KEYWORDS=""
 else
-	SRC_URI="https://github.com/mikf/${PN}/archive/v${PV}.tar.gz"
+	SRC_URI="https://github.com/mikf/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
