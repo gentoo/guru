@@ -228,7 +228,7 @@ dev-python/validators 0.18.0: Python Data Validation for Humans
 dev-python/watchgod 0.6: Simple, modern file watching and code reload
 dev-python/wcmatch 6.0.1: Wildcard/glob file name matcher
 dev-python/webpy 0.40 0.50 0.51_p20200405: A web framework for python that is as simple as it is powerful
-dev-util/FoBiS 3.0.2: FoBiS.py, a Fortran Building System for poor men
+dev-util/FoBiS 3.0.2 3.0.5: FoBiS.py, a Fortran Building System for poor men
 dev-util/codespell 1.17.1: Check text files for common misspellings
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3: HTTP and GraphQL client for developers
@@ -237,9 +237,10 @@ dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/tokei 12.0.4: Count code, quickly
 dev-util/xdp-tools 1.0.1: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
+dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
 dev-vcs/git-extras 6.0.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
-dev-vcs/lazygit 0.20.8 0.20.9 0.22.1: Lazygit, a simple terminal UI for git commands
+dev-vcs/lazygit 0.20.8 0.20.9 0.22.1 0.22.9: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.3.5.3 3.3.6.0_pre: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.17417: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
@@ -249,6 +250,7 @@ games-action/technic-launcher 4.591: Minecraft launcher for community-made modpa
 games-arcade/opensurge 0.5.1.2 9999: fun 2D retro platformer inspired by old-school Sonic games
 games-arcade/taisei 1.3.1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
+games-engines/luxtorpeda 22.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-fps/crispy-doom 5.9.0 5.9.1: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
 games-util/NotEnoughProduction 0.0.4: Tool for building production chains for modded minecraft
@@ -349,7 +351,6 @@ sys-apps/hex 0.1.3 0.3.0: Futuristic take on hexdump
 sys-apps/procs 0.10.1: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
 sys-apps/rogdrv 0.0.5: ASUS ROG userspace mouse driver for Linux.
-sys-apps/xdg-desktop-portal-gtk 1.6.0: GTK/GNOME backend for xdg-desktop-portal
 sys-auth/mrsh 2.12: Mrsh is a set of remote shell programs that use munge authentication.
 sys-block/systemd-swap 4.0.1: Script for creating swap space from zram swaps, swap files and swap partitions.
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
