@@ -6,7 +6,7 @@ EAPI=7
 PYTHON_COMPAT=( python3_{6,7,8,9} )
 DISTUTILS_SINGLE_IMPL=1
 
-inherit distutils-r1 eutils xdg-utils
+inherit distutils-r1 optfeature xdg
 
 DESCRIPTION="A simple GOG client for Linux"
 HOMEPAGE="https://github.com/sharkwouter/minigalaxy"
@@ -32,12 +32,6 @@ python_test() {
 }
 
 pkg_postinst() {
-	xdg_icon_cache_update
-
 	optfeature "running games with system dosbox" games-emulation/dosbox
 	optfeature "running games with system scummvm" games-engines/scummvm
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
 }
