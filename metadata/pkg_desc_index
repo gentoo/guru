@@ -43,6 +43,7 @@ app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the c
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20181120 9999: vrms clone for Gentoo Linux
 app-misc/watchexec 1.12.0 1.14.0: Executes commands in response to file modifications
+app-office/openoffice-bin 4.1.7-r1: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.2-r1 9999: Pyspread is a non-traditional spreadsheet written in Python
 app-portage/pacvis 0.4.2 9999: Displays dependency graphs of packages
 app-portage/portage-lostfiles 0.2.0: A simple script to identify files not tracked by Portage package manager
@@ -259,7 +260,7 @@ games-util/itch-bin 25.4.0 25.4.1: itch.io game browser, installer and launcher
 games-util/legendary 0.0.19-r1 0.20.1: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 0.9.4: A simple GOG client for Linux
 gui-apps/mpvpaper 1.0 9999: A video wallpaper program for wlroots based wayland compositors
-gui-apps/nwg-launchers 0.3.3 0.3.4 9999: GTK+ launchers for sway, i3 and some other WMs
+gui-apps/nwg-launchers 0.3.4 0.4.0 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/swaylock-blur 0.3.1: A program that runs swaylock to a blurred screenshot of the desktop
 gui-apps/swaylock-effects 1.6.0 1.6.1 9999: Swaylock, with fancy effects
 gui-apps/wdisplays 1.0-r2 9999: GUI display configurator for wlroots compositors
@@ -314,7 +315,7 @@ net-libs/usockets 0.6.0 9999: tiny eventing, networking & crypto for async appli
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0 1.2.1 1.3.0: FORT validator is an open source RPKI validator
 net-misc/castor 0.8.15 0.8.16: A graphical browser for plain-text protocols
-net-misc/gallery-dl 1.14.3 1.14.4 9999: Download image galleries and collections from several image hosting sites
+net-misc/gallery-dl 1.15.0 9999: Download image galleries and collections from several image hosting sites
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/kristall 0.2 0.3: Visual cross-platform gemini browser
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
