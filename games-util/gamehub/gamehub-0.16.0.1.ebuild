@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit gnome2-utils meson vala xdg-utils
+inherit gnome2-utils meson vala xdg
 
 DESCRIPTION="GameHub is a unified library for all your games"
 HOMEPAGE="https://tkashkin.tk/projects/gamehub"
@@ -44,11 +44,9 @@ src_prepare() {
 }
 
 pkg_postinst() {
-	xdg_icon_cache_update
 	gnome2_schemas_update
 }
 
 pkg_postrm() {
-	xdg_icon_cache_update
 	gnome2_schemas_update
 }
