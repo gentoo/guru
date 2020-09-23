@@ -7,7 +7,7 @@ inherit desktop java-utils-2 multilib-build rpm
 
 DESCRIPTION="Spanish government's electronic signature application for online procedures"
 HOMEPAGE="https://administracionelectronica.gob.es/ctt/clienteafirma"
-SRC_URI="https://estaticos.redsara.es/comunes/autofirma/1/6/5/AutoFirma_Linux.zip"
+SRC_URI="https://estaticos.redsara.es/comunes/autofirma/1/6/5/AutoFirma_Linux.zip -> ${P}.zip"
 
 LICENSE="|| ( GPL-2+ EUPL-1.1 )"
 SLOT="0"
