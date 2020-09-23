@@ -32,6 +32,8 @@ python_test() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
+
 	optfeature "running games with system dosbox" games-emulation/dosbox
 	optfeature "running games with system scummvm" games-engines/scummvm
 }

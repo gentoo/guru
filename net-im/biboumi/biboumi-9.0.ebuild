@@ -5,11 +5,11 @@ EAPI=7
 
 inherit cmake fcaps
 
-MY_COMMIT="0479bd031922f5eb9fd8f8873eec60dc380abfc3"
+MY_PV="${PV/_/-}"
 
 DESCRIPTION="XMPP gateway to IRC"
 HOMEPAGE="https://biboumi.louiz.org/"
-SRC_URI="https://lab.louiz.org/louiz/biboumi/-/archive/${MY_COMMIT}/biboumi-${MY_COMMIT}.tar.bz2 -> ${P}.tar.bz2"
+SRC_URI="https://git.louiz.org/biboumi/snapshot/biboumi-${MY_PV}.tar.xz"
 
 LICENSE="ZLIB"
 SLOT="0"
@@ -31,9 +31,10 @@ DEPEND="
 BDEPEND="dev-python/sphinx"
 RDEPEND="
 	${DEPEND}
-	acct-user/biboumi"
+	acct-user/biboumi
+"
 
-S="${WORKDIR}/${PN}-${MY_COMMIT}"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 DOCS=( README.rst CHANGELOG.rst doc/user.rst )
 

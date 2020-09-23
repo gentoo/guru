@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>denis7774@gmail.com</email>
-		<name>Reva Denis aka RarogCmex</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">
 		Java™ is the world's leading programming language and platform.
 		The code for Java is open source and available at OpenJDK™.

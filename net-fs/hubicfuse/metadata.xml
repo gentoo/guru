@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM 'http://www.gentoo.org/dtd/metadata.dtd'>
 <pkgmetadata>
-	<maintainer type="person">
-		<email>denis7774@gmail.com</email>
-		<name>Reva Denis aka RarogCmex</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">
 		A FUSE application which provides access to hubiC's cloud files via a mount-point.
 

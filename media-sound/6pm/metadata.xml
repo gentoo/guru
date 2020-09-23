@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM 'http://www.gentoo.org/dtd/metadata.dtd'>
 <pkgmetadata>
-	<maintainer type="person">
-		<email>denis7774@gmail.com</email>
-		<name>Denis Reva</name>
-		<description>RarogCmex</description>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">
 6PM, created and maintained by Michel Vergnaud, is a polyphonic, touch-sensitive, realtime, phase-modulation (PM) software sound synthesizer. The screenshot above is of the default version included in the repositories of Librazik-2, an excellent French linux distribution designed for high-quality audio production.
 

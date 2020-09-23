@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>david@ixit.cz</email>
-    <name>David Heidelberger</name>
-  </maintainer>
+  <!-- maintainer-needed -->
   <longdescription lang="en">
 0xFFFF is the Open Free Fiasco Firmware Flasher for Maemo devices. It supports
 generating and unpacking FIASCO images. It is useful for editing Maemo firmware
