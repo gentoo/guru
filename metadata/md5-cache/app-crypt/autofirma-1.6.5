@@ -1,0 +1,14 @@
+BDEPEND=app-arch/unzip >=app-arch/rpm2targz-9.0.0.3g
+DEFINED_PHASES=install unpack
+DEPEND=virtual/jre:1.8 !abi_x86_x32? ( www-client/firefox )
+DESCRIPTION=Spanish government's electronic signature application for online procedures
+EAPI=7
+HOMEPAGE=https://administracionelectronica.gob.es/ctt/clienteafirma
+IUSE=elibc_FreeBSD abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+KEYWORDS=~amd64
+LICENSE=|| ( GPL-2+ EUPL-1.1 )
+RDEPEND=virtual/jre:1.8 !abi_x86_x32? ( www-client/firefox )
+SLOT=0
+SRC_URI=https://estaticos.redsara.es/comunes/autofirma/1/6/5/AutoFirma_Linux.zip -> autofirma-1.6.5.zip
+_eclasses_=desktop	7fd20552ce4cc97e8acb132a499a7dd8	edos2unix	33e347e171066657f91f8b0c72ec8773	estack	686eaab303305a908fd57b2fd7617800	eutils	2d5b3f4b315094768576b6799e4f926e	java-utils-2	ec7a89849c84f93e9c6db27812923888	l10n	8cdd85e169b835d518bc2fd59f780d8e	multibuild	b2c915190b051f55a23b9354b9849847	multilib	98584e405e2b0264d37e8f728327fed1	multilib-build	9a65133006c608964888346a412cc454	rpm	760ff223c2c4299b68ea901e24c4cabd	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb	wrapper	4251d4c84c25f59094fd557e0063a974
+_md5_=b17963839c91aebbc84f51b36a5498c0
