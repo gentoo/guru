@@ -3,12 +3,12 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_7 )
 
 DOCBUILDER="mkdocs"
 DOCDEPEND="dev-python/mkdocs-material"
 
-inherit distutils-r1 docs eutils
+inherit distutils-r1 docs optfeature
 
 DESCRIPTION="Async database support for Python."
 HOMEPAGE="
@@ -40,13 +40,13 @@ DEPEND="test? (
 	dev-python/aiopg[${PYTHON_USEDEP}]
 	dev-python/aiosqlite[${PYTHON_USEDEP}]
 	dev-python/asyncpg[${PYTHON_USEDEP}]
-	dev-python/black[${PYTHON_USEDEP}]
 	dev-python/isort[${PYTHON_USEDEP}]
 	dev-python/mypy[${PYTHON_USEDEP}]
 	dev-python/psycopg[${PYTHON_USEDEP}]
 	dev-python/pymysql[${PYTHON_USEDEP}]
 	dev-python/starlette[${PYTHON_USEDEP}]
-	dev-python/requests[${PYTHON_USEDEP}] )"
+	dev-python/requests[${PYTHON_USEDEP}]
+)"
 
 distutils_enable_tests pytest
 
