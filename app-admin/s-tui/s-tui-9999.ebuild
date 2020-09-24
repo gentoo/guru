@@ -6,7 +6,7 @@ EAPI=7
 PYTHON_COMPAT=( python3_{6,7,8} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-inherit eutils distutils-r1
+inherit distutils-r1 optfeature
 
 DESCRIPTION="Stress-Terminal UI monitoring tool"
 HOMEPAGE="https://amanusk.github.io/s-tui/"

@@ -12,7 +12,7 @@ HOMEPAGE="https://flatpak.org/"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE="doc gtk introspection kde policykit seccomp systemd"
 
 # FIXME: Automagic dep on app-arch/zstd

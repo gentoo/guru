@@ -3,10 +3,10 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-inherit distutils-r1 eutils xdg
+inherit distutils-r1 optfeature xdg
 
 DESCRIPTION="Client/server to synchronize media playback"
 HOMEPAGE="https://github.com/Syncplay/syncplay https://syncplay.pl"

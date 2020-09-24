@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7} )
 
-inherit distutils-r1
+inherit distutils-r1 optfeature
 
 DESCRIPTION="aiopg is a library for accessing a PostgreSQL database from the asyncio"
 HOMEPAGE="

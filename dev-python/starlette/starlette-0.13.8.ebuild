@@ -3,13 +3,13 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_{7,8} )
 
 DOCBUILDER="mkdocs"
 DOCDEPEND="dev-python/mkdocs-material"
 AUTODOC=1
 
-inherit distutils-r1 docs eutils
+inherit distutils-r1 docs optfeature
 
 DESCRIPTION="The little ASGI framework that shines"
 HOMEPAGE="
@@ -30,8 +30,6 @@ RESTRICT="test"
 DEPEND="test? (
 	dev-python/aiosqlite[${PYTHON_USEDEP}]
 	dev-python/aiofiles[${PYTHON_USEDEP}]
-	dev-python/black[${PYTHON_USEDEP}]
-	dev-python/databases[${PYTHON_USEDEP}]
 	dev-python/isort[${PYTHON_USEDEP}]
 	dev-python/itsdangerous[${PYTHON_USEDEP}]
 	dev-python/jinja[${PYTHON_USEDEP}]

@@ -77,7 +77,7 @@ terminal_size-0.1.12
 termion-1.5.5
 termios-0.3.2
 textwrap-0.11.0
-tui-0.9.5
+tui-0.11.0
 unicode-segmentation-1.6.0
 unicode-width-0.1.7
 unicode-xid-0.2.0

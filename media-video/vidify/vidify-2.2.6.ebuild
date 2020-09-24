@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{7,8} )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-inherit eutils xdg distutils-r1 virtualx
+inherit xdg distutils-r1 optfeature virtualx
 
 DESCRIPTION="Watch music videos in real time for the songs playing on your device"
 HOMEPAGE="https://github.com/vidify/vidify https://vidify.org"

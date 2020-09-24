@@ -22,7 +22,6 @@ RDEPEND="
 	>=dev-python/async_generator-1.6[${PYTHON_USEDEP}]
 	dev-python/outcome[${PYTHON_USEDEP}]
 	>=dev-python/trio-0.12.0[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep '>=dev-python/contextvars-2.1[${PYTHON_USEDEP}]' python3_6)
 "
 
 DEPEND="test? (

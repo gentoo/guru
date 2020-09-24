@@ -10,7 +10,7 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 DOCBUILDER="mkdocs"
 DOCDEPEND="dev-python/mkdocs-material"
 
-inherit distutils-r1 docs eutils
+inherit distutils-r1 docs optfeature
 
 DESCRIPTION="The lightning-fast ASGI server"
 HOMEPAGE="https://www.uvicorn.org/
