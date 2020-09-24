@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_6 )
+PYTHON_COMPAT=( python3_{7,8} )
 
 inherit distutils-r1
 
@@ -22,13 +22,12 @@ RDEPEND="
 	dev-python/aniso8601[${PYTHON_USEDEP}]
 	dev-python/graphql-core[${PYTHON_USEDEP}]
 	dev-python/graphql-relay[${PYTHON_USEDEP}]
-	dev-python/unidecode[${PYTHON_USEDEP}]
 "
 
 DEPEND="test? (
 	dev-python/iso8601[${PYTHON_USEDEP}]
 	dev-python/mock[${PYTHON_USEDEP}]
-	dev-python/promises[${PYTHON_USEDEP}]
+	dev-python/promise[${PYTHON_USEDEP}]
 	dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 	dev-python/pytest-benchmark[${PYTHON_USEDEP}]
 	dev-python/pytest-mock[${PYTHON_USEDEP}]
