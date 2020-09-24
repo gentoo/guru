@@ -31,8 +31,7 @@ IUSE="doc"
 # to that local directory
 RESTRICT="test"
 
-RDEPEND=">=dev-python/sqlalchemy-1.3.0[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep 'dev-python/aiocontextvars[${PYTHON_USEDEP}]' 'python3_6')"
+RDEPEND=">=dev-python/sqlalchemy-1.3.0[${PYTHON_USEDEP}]"
 
 # autoflake, codecov also required for tests?
 DEPEND="test? (
