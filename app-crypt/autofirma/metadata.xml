@@ -5,10 +5,6 @@
     <email>gentoo@chuso.net</email>
     <name>Jesus Perez Rey</name>
   </maintainer>
-  <maintainer type="project">
-    <email>proxy-maint@gentoo.org</email>
-    <name>Proxy Maintainers</name>
-  </maintainer>
   <upstream>
     <remote-id type="github">ctt/clienteafirma</remote-id>
   </upstream>
