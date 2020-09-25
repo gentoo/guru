@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop java-utils-2 multilib-build rpm
+inherit desktop java-utils-2 rpm xdg
 
 DESCRIPTION="Spanish government's electronic signature application for online procedures"
 HOMEPAGE="https://administracionelectronica.gob.es/ctt/clienteafirma"
@@ -13,9 +13,7 @@ LICENSE="|| ( GPL-2+ EUPL-1.1 )"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="virtual/jre:1.8
-	!abi_x86_x32? ( www-client/firefox )"
-DEPEND="${RDEPEND}"
+RDEPEND="virtual/jre:1.8"
 BDEPEND="app-arch/unzip"
 
 S=${WORKDIR}
@@ -30,8 +28,5 @@ src_install() {
 	java-pkg_dolauncher
 	java-pkg_dojar "usr/lib64/${PN}/${PN}Configurador.jar"
 	doicon "usr/lib64/${PN}/${PN}.png"
-	make_desktop_entry "${PN}" AutoFirma "${PN}" "Utility"
-	sed -i "s/autoFirma/${PN}/" "usr/lib64/firefox/defaults/pref/${PN}.js" || die
-	insinto /usr/$(get_libdir)/firefox/defaults/pref
-	doins "usr/lib64/firefox/defaults/pref/${PN}.js"
+	make_desktop_entry "${PN} %u" AutoFirma "${PN}" "Utility" "Comment[es]=Aplicación de firma electrónica de la FNMT\nMimeType=x-scheme-handler/afirma"
 }
