@@ -20,14 +20,15 @@ app-admin/customrescuecd-x86_64 0.10.3: A system rescue cd or usbstick for deskt
 app-admin/gnome-passwordsafe 3.99.2: A password manager for GNOME
 app-admin/s-tui 1.0.2 9999: Stress-Terminal UI monitoring tool
 app-arch/unalz 0.65: Extract ALZ archives
-app-crypt/autofirma 1.6.5: Spanish government's electronic signature application for online procedures
+app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
+app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-emulation/dxvk-bin 1.7 1.7.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.2.0 1.2.1 1.3.0: NVIDIA container runtime toolkit
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
-app-misc/apidb 4.3.0_beta 5.0.0_alpha 5.0.0_alpha8: API Generator for Database acces.
+app-misc/apidb 4.3.0_beta 5.0.0_alpha 5.0.0_alpha8 5.0.0_alpha19: API Generator for Database acces.
 app-misc/cheat 4.0.2: cheat allows you to create and view interactive cheatsheets on the command-line
 app-misc/doublecmd-bin 0.9.8 0.9.9: Free cross platform open source file manager with two panels side by side.
 app-misc/fetsh 1.7 1.8 9999: A fetch written in POSIX shell without any external commands
@@ -50,7 +51,7 @@ app-portage/pacvis 0.4.2 9999: Displays dependency graphs of packages
 app-portage/portage-lostfiles 0.2.0: A simple script to identify files not tracked by Portage package manager
 app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
 app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
-app-portage/version 0.6.1_alpha 0.6.2_alpha 0.9.0_alpha 0.9.1_alpha 0.10.0_alpha 0.14.2_alpha 0.14.4_alpha 0.15.0_alpha 0.17.0_alpha: A command line function for package version management.
+app-portage/version 0.6.1_alpha 0.6.2_alpha 0.9.0_alpha 0.9.1_alpha 0.10.0_alpha 0.14.2_alpha 0.14.4_alpha 0.15.0_alpha 0.17.0_alpha 0.18.0_alpha: A command line function for package version management.
 app-shells/antibody 6.1.0 6.1.1: Fast Zsh plugin manager
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string

@@ -1,0 +1,14 @@
+BDEPEND=app-arch/unzip >=app-arch/rpm2targz-9.0.0.3g
+DEFINED_PHASES=install postinst postrm preinst prepare unpack
+DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Spanish government's electronic signature application for online procedures
+EAPI=7
+HOMEPAGE=https://administracionelectronica.gob.es/ctt/clienteafirma
+IUSE=elibc_FreeBSD
+KEYWORDS=~amd64
+LICENSE=|| ( GPL-2+ EUPL-1.1 )
+RDEPEND=virtual/jre:1.8
+SLOT=0
+SRC_URI=https://estaticos.redsara.es/comunes/autofirma/1/6/5/AutoFirma_Linux.zip -> autofirma-1.6.5.zip
+_eclasses_=desktop	7fd20552ce4cc97e8acb132a499a7dd8	edos2unix	33e347e171066657f91f8b0c72ec8773	estack	686eaab303305a908fd57b2fd7617800	eutils	2d5b3f4b315094768576b6799e4f926e	java-utils-2	ec7a89849c84f93e9c6db27812923888	l10n	8cdd85e169b835d518bc2fd59f780d8e	rpm	760ff223c2c4299b68ea901e24c4cabd	wrapper	4251d4c84c25f59094fd557e0063a974	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_md5_=9218eac74919e44b8dd2029ea0db2f07
