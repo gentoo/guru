@@ -17,7 +17,7 @@ esac
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 DISTUTILS_SINGLE_IMPL=1
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{7,8} )
 inherit distutils-r1
 
 DESCRIPTION="Create memes from the terminal"

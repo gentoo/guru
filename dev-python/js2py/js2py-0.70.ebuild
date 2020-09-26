@@ -6,7 +6,7 @@ EAPI=7
 MY_PN="Js2Py"
 MY_P="${MY_PN}-${PV}"
 
-PYTHON_COMPAT=( python3_{6,7,8} )
+PYTHON_COMPAT=( python3_{7,8} )
 
 inherit distutils-r1
 

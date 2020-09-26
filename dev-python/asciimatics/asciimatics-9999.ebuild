@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_7 )
 inherit distutils-r1
 
 DESCRIPTION="Package for curses-like operations, text UIs and ASCII art animations"

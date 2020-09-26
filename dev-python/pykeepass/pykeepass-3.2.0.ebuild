@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} ) # not all dependency are 3.8 ready
+PYTHON_COMPAT=( python3_7 ) # not all dependency are 3.8 ready
 
 inherit distutils-r1 eutils toolchain-funcs
 
