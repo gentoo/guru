@@ -280,6 +280,7 @@ media-fonts/unscii 2.0: Set of bitmapped Unicode fonts based on classic system f
 media-gfx/azpainter 2.1.6: Full color painting software for Linux for illustration drawing
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
 media-gfx/glimpse 0.2.0: Image editor based on the GNU Image Manipulation Program
+media-gfx/grafx2 2.7.2978: A pixelart-oriented painting program
 media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/oxipng 2.3.0 3.0.1: A lossless PNG compression optimizer
 media-gfx/silicon 0.3.2: Create beautiful image of your code

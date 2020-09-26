@@ -45,6 +45,7 @@ gui-apps/swaylock-effects:man - Build and install man pages
 gui-wm/cage:X - Enable support for X11 applications (XWayland)
 media-gfx/glimpse:heif - Enable support for ISO/IEC 23008-12:2017 HEIF files
 media-gfx/glimpse:vector-icons - Enable support for vector icons (experimental)
+media-gfx/grafx2:ttf - Install TTF Fonts
 media-sound/6pm:midimaps - Install midi maps for that synth. Recommended
 media-sound/6pm:nls - Add support for localization
 media-sound/6pm:presets - Install presets. Recommended

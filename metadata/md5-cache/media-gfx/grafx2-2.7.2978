@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst postrm preinst prepare
+DEPEND=media-libs/libsdl media-libs/sdl-image media-libs/freetype media-libs/libpng ttf? ( media-libs/sdl-ttf ) lua? ( >=dev-lang/lua-5.1.0 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=A pixelart-oriented painting program
+EAPI=7
+HOMEPAGE=http://www.pulkomandy.tk/projects/GrafX2
+IUSE=ttf lua
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RESTRICT=test
+SLOT=0
+SRC_URI=http://www.pulkomandy.tk/projects/GrafX2/downloads/grafx2-2.7.2978-src.tgz
+_eclasses_=xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_md5_=32c5aeb5ddd747f63d649c47ea51947e
