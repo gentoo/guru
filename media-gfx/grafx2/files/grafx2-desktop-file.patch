@@ -1,0 +1,15 @@
+diff -Naur grafx2.orig/misc/unix/grafx2.desktop grafx2/misc/unix/grafx2.desktop
+--- grafx2.orig/misc/unix/grafx2.desktop	2020-03-03 20:32:57.000000000 +0100
++++ grafx2/misc/unix/grafx2.desktop	2020-09-26 04:04:31.315093477 +0200
+@@ -1,9 +1,9 @@
+ [Desktop Entry]
+ Name=GrafX2
+ Comment=Deluxe Paint Clone
+-Exec=grafx2 %f
++Exec=grafx2-sdl %f
+ Terminal=false
+ Type=Application
+ Icon=grafx2
+-Categories=Application;Graphics;
++Categories=Graphics;
+ MimeType=image/lbm;image/iff;image/pcx;image/tga;image/gif;image/bmp;image/x-icon;image/png;
