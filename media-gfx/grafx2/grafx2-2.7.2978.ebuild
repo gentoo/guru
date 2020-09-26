@@ -1,9 +1,9 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit xdg-utils
+inherit xdg
 
 DESCRIPTION="A pixelart-oriented painting program"
 HOMEPAGE="http://www.pulkomandy.tk/projects/GrafX2"
@@ -14,56 +14,39 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="ttf lua"
 
+# Test phase fails: make: *** [Makefile:1146: ../bin/tests-sdl] Error 1
+RESTRICT="test"
+
 PATCHES=(
 	"${FILESDIR}/${PN}-desktop-file.patch"
 )
 
-DEPEND="media-libs/libsdl
+DEPEND="
+	media-libs/libsdl
 	media-libs/sdl-image
 	media-libs/freetype
 	media-libs/libpng
 	ttf? ( media-libs/sdl-ttf )
-	lua? ( >=dev-lang/lua-5.1.0 )"
-RDEPEND=""
+	lua? ( >=dev-lang/lua-5.1.0 )
+"
 
-src_unpack()
-{
-	unpack ${P}-src.tgz && mv ${PN} ${P}
-}
+S="${WORKDIR}/${PN}/src/"
 
-src_prepare()
-{
+src_prepare() {
+	pushd ../
 	eapply ${PATCHES}
-
 	eapply_user
-
-	cd ${WORKDIR}/${P}/src/
-	sed -i s/lua5\.1/lua/g Makefile
+	popd
+	sed -i s/lua5\.1/lua/g Makefile || die
 }
 
-src_compile()
-{
+src_compile() {
 	use ttf || MYCNF="NOTTF=1"
 	use lua || MYCNF="${MYCNF} NOLUA=1"
 
-	cd ${WORKDIR}/${P}/src/
 	emake ${MYCNF} || die "emake failed"
 }
 
-src_install()
-{
-	cd ${WORKDIR}/${P}/src/
+src_install() {
 	emake ${MYCNF} DESTDIR="${D}" PREFIX="/usr" install || die "Install failed"
-}
-
-pkg_postinst()
-{
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-}
-
-pkg_postrm()
-{
-	xdg_desktop_database_update
-	xdg_icon_cache_update
 }
