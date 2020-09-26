@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_7 )
 DISTUTILS_USE_SETUPTOOLS=pyproject.toml
 
 inherit distutils-r1
@@ -26,8 +26,8 @@ RDEPEND="
 	<dev-python/flit_core-3[${PYTHON_USEDEP}]
 	dev-python/toml[${PYTHON_USEDEP}]
 
-	$(python_gen_cond_dep 'dev-python/importlib_metadata[${PYTHON_USEDEP}]' python3_{6,7})
-	$(python_gen_cond_dep 'dev-python/zipp[${PYTHON_USEDEP}]' python3_{6,7})
+	$(python_gen_cond_dep 'dev-python/importlib_metadata[${PYTHON_USEDEP}]' python3_7)
+	$(python_gen_cond_dep 'dev-python/zipp[${PYTHON_USEDEP}]' python3_7)
 "
 DEPEND="
 	${RDEPEND}

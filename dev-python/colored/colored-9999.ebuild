@@ -13,7 +13,7 @@ case "${PV}" in
 		KEYWORDS="~amd64"
 esac
 
-PYTHON_COMPAT=( python3_{6,7,8,9} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 inherit distutils-r1
 
 DESCRIPTION="Very simple Python library for color and formatting in terminal"
