@@ -21,7 +21,7 @@ SLOT="0"
 IUSE=""
 
 DEPEND=">=dev-qt/qtgui-5.12.3:5
-	>=media-libs/libavif-0.8.1
+	>=media-libs/libavif-0.9.0
 	>=x11-misc/shared-mime-info-2.0-r1
 "
 
