@@ -59,7 +59,7 @@ app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
 app-text/OCRmyPDF 9.7.2: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/git-delta 0.4.3: A syntax-highlighting pager for git
 app-text/katarakt 0.2: Simple PDF viewer
-app-text/komikku 0.12.0: An online/offline manga reader for GNOME
+app-text/komikku 0.12.0 0.15.0: An online/offline manga reader for GNOME
 app-text/mdbook 0.3.7 0.4.3: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
 dev-R/BH 1.72.0.3: Boost C++ Header Files
@@ -383,7 +383,7 @@ www-apps/code-server-bin 3.4.1: VS Code in the browser (binary version with unbu
 www-apps/gogs 0.12.1-r1: Gogs is a self-hosted Git service written in Go
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/twint 2.1.20: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
-www-apps/uwebsockets 18.13.0 9999: ultra fast, simple, secure & standards compliant web I/O
+www-apps/uwebsockets 18.13.0 18.14.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.0.3 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-libs/gtk-fortran 19.04 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
