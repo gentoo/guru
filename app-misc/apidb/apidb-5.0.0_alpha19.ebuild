@@ -21,7 +21,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="mariadb postgresql commands gui corelibs"
+IUSE="+mariadb postgresql commands gtk +corelibs"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
@@ -30,7 +30,7 @@ BDEPEND="
 	dev-libs/boost
 	sys-devel/bison
 	sys-devel/flex
-	gui? ( x11-libs/gtk+ )
+	gtk? ( x11-libs/gtk+ )
 	dev-libs/libtar
 	mariadb? ( dev-libs/octetos-db-maria )
 	postgresql? ( dev-libs/octetos-db-postgresql )
@@ -65,8 +65,8 @@ src_configure() {
 	if use commands ;then
 		APIDBINSTALL="$APIDBINSTALL;COMMANDS"
 	fi
-	if use gui ;then
-		APIDBINSTALL="$APIDBINSTALL;GUI"
+	if use gtk ;then
+		APIDBINSTALL="$APIDBINSTALL;GTK3"
 	fi
 	local mycmakeargs=(-DAPIDB_VERSION_STAGE=alpha -DPLATFORM=LINUX_GENTOO -DAPIDBBUILD=$APIDBBUILD -DAPIDBINSTALL=$APIDBINSTALL)
 	cmake_src_configure

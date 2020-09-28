@@ -21,5 +21,3 @@ KEYWORDS="~amd64"
 S="${WORKDIR}/protobuf-${PV}"
 
 distutils_enable_tests pytest
-
-PATCHES="${FILESDIR}/${PN}-do-not-install-tests.patch"
