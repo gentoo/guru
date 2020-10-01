@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DESCRIPTION=visualizer for shell commands, executions and alerting
+EAPI=7
+HOMEPAGE=https://sampler.dev
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=media-libs/alsa-lib
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/sqshq/sampler/releases/download/v1.1.0/sampler-1.1.0-linux-amd64 -> sampler-bin-1.1.0
+_md5_=4d5b0078b91e49838959c9ac3d88a9e3
