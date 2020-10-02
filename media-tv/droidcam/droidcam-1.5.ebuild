@@ -22,11 +22,12 @@ RESTRICT="test"
 DEPEND="
 	=app-pda/libusbmuxd-1*
 	dev-libs/glib
+	dev-libs/libappindicator:3
+	dev-util/android-tools
 	media-libs/alsa-lib
 	media-libs/libjpeg-turbo
 	>=media-libs/speex-1.2.0-r1
 	media-video/ffmpeg
-	dev-util/android-tools
 	gtk? (
 		dev-cpp/gtkmm:3.0
 		x11-libs/gdk-pixbuf
