@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND==app-pda/libusbmuxd-1* dev-libs/glib media-libs/alsa-lib media-libs/libjpeg-turbo >=media-libs/speex-1.2.0-r1 media-video/ffmpeg dev-util/android-tools gtk? ( dev-cpp/gtkmm:3.0 x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/libX11 x11-libs/pango ) kernel_linux? ( sys-apps/kmod[tools] ) sys-apps/sed kernel_linux? ( virtual/linux-sources virtual/libelf ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND==app-pda/libusbmuxd-1* dev-libs/glib dev-libs/libappindicator:3 dev-util/android-tools media-libs/alsa-lib media-libs/libjpeg-turbo >=media-libs/speex-1.2.0-r1 media-video/ffmpeg gtk? ( dev-cpp/gtkmm:3.0 x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/libX11 x11-libs/pango ) kernel_linux? ( sys-apps/kmod[tools] ) sys-apps/sed kernel_linux? ( virtual/linux-sources virtual/libelf ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Use android phone as webcam, using a v4l device driver and app
 EAPI=7
 HOMEPAGE=https://www.dev47apps.com/droidcam/linux/ https://github.com/aramg/droidcam
@@ -10,6 +10,6 @@ LICENSE=GPL-2
 RDEPEND=kernel_linux? ( sys-apps/kmod[tools] )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/aramg/droidcam/archive/v1.4.tar.gz -> droidcam-1.4.tar.gz
+SRC_URI=https://github.com/aramg/droidcam/archive/v1.5.tar.gz -> droidcam-1.5.tar.gz
 _eclasses_=desktop	7fd20552ce4cc97e8acb132a499a7dd8	edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	2d5b3f4b315094768576b6799e4f926e	l10n	8cdd85e169b835d518bc2fd59f780d8e	linux-info	c90a203b1c14cfa77bd3e37a0e96c955	linux-mod	63c06dfa12648f13855f5f4348af824c	multilib	98584e405e2b0264d37e8f728327fed1	readme.gentoo-r1	22ae82e140bdd95d17a34fd5fd733190	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb	wrapper	4251d4c84c25f59094fd557e0063a974	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=a80a6111ddf6b8e10b9af007727b4e56
+_md5_=0d78a75f46cc82658b6741ebcc5e6447

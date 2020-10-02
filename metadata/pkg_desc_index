@@ -152,7 +152,7 @@ dev-python/graphene 3.0.0_beta5: GraphQL Framework for Python
 dev-python/graphql-core 3.1.1: GraphQL for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
 dev-python/hidapi 0.9.0_p3: A Cython interface to the hidapi
-dev-python/hstspreload 2020.9.15: Chromium HSTS Preload list as a Python package
+dev-python/hstspreload 2020.9.29: Chromium HSTS Preload list as a Python package
 dev-python/httpcore 0.10.1: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/httpx 0.11.1 0.13.3 0.14.3: A next generation HTTP client for Python
@@ -248,7 +248,7 @@ dev-vcs/git-extras 6.0.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 dev-vcs/lazygit 0.20.8 0.20.9 0.22.1 0.22.9: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.3.5.3 3.3.6.0_pre: Minecraft launcher which integrates multiple different ModPacks
-games-action/minecraft-launcher 1.6.93 2.1.17417: An open-world game whose gameplay revolves around breaking and placing blocks
+games-action/minecraft-launcher 1.6.93 2.1.17627 2.1.17785_beta: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
@@ -302,7 +302,7 @@ media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/scream 3.6 9999: Plays sound received from network or from a QEMU Windows VM
 media-sound/sndio 1.7.0: small audio and MIDI framework part of the OpenBSD project
 media-sound/zita-ajbridge 0.8.4: zita-a2j and zita-j2a - bridges between ALSA and JACK
-media-tv/droidcam 1.4-r1: Use android phone as webcam, using a v4l device driver and app
+media-tv/droidcam 1.5: Use android phone as webcam, using a v4l device driver and app
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
 media-video/kikoplay 0.7.1 9999: KikoPlay is a full-featured danmu player
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
