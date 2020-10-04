@@ -244,7 +244,7 @@ dev-util/tokei 12.0.4: Count code, quickly
 dev-util/xdp-tools 1.0.1: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
-dev-vcs/git-extras 6.0.0 9999: Little git extras
+dev-vcs/git-extras 6.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 dev-vcs/lazygit 0.20.8 0.20.9 0.22.1 0.22.9: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.3.5.3 3.3.6.0_pre: Minecraft launcher which integrates multiple different ModPacks
