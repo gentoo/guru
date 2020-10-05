@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>xgqt@protonmail.com</email>
+        <name>Maciej Barć</name>
+    </maintainer>
+    <upstream>
+        <remote-id type="github">Fushko/gammy</remote-id>
+    </upstream>
+    <longdescription>
+        Gammy is a GUI tool for adjusting pixel brightness/temperature automatically or manually.
+        It can dim the screen if its content is too bright, or brighten it otherwise. This can help your eyes adjust when switching between dark and light windows, especially at night or in suboptimal lighting conditions.
+        Screenshots available on its website.
+    </longdescription>
+</pkgmetadata>
