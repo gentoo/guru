@@ -16,7 +16,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="test? ( dev-python/pyhamcrest[${PYTHON_USEDEP}] )"
-BDEPEND=""
+RDEPEND=""
+BDEPEND="test? ( dev-python/pyhamcrest[${PYTHON_USEDEP}] )"
 
 distutils_enable_tests pytest
