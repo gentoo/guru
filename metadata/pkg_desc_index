@@ -395,6 +395,7 @@ x11-libs/kimageannotator 0.2.1 0.3.1 0.3.2: Tool for annotating images
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial videos
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
+x11-misc/gammy 0.9.58a 9999: Adaptive screen brightness/temperature
 x11-misc/gromit-mpx 1.3 1.3.1 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
 x11-misc/i3lock-color 2.12.5 9999: Improved i3lock with color customization
 x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement for i3status, written in Rust.
@@ -404,7 +405,7 @@ x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Windo
 x11-themes/arc-darkest-colors 0_pre20200417: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
 x11-themes/candy-icon-theme 0_pre20200606 9999: sweet gradient icons
-x11-themes/obsidian-icon-theme 4.12 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
+x11-themes/obsidian-icon-theme 4.13 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
 x11-themes/obsidian2-gtk-theme 2.15 9999: Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
 x11-themes/papirus-claws-mail-theme 0_pre20181023: Papirus icon theme for Claws Mail
 x11-themes/sweet-folders-icon-theme 0_pre20200227 9999: sweet gradient icons
