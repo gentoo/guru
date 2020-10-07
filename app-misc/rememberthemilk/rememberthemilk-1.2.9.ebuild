@@ -12,10 +12,10 @@ SRC_URI="https://www.${PN}.com/download/linux/fedora/21/x86_64/${P}-1.x86_64.rpm
 S="${WORKDIR}"
 
 LICENSE="all-rights-reserved"
-
 SLOT="0"
-
 KEYWORDS="~amd64"
+
+RESTRICT="bindist mirror"
 
 RDEPEND="media-video/ffmpeg[chromium]
 	app-accessibility/at-spi2-atk
