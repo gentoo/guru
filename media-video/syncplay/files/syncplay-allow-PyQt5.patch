@@ -1,0 +1,474 @@
+From c759525889f303195e677f9341cf325decf74809 Mon Sep 17 00:00:00 2001
+From: Andrew Ammerlaan <andrewammerlaan@riseup.net>
+Date: Wed, 7 Oct 2020 13:31:46 +0200
+Subject: [PATCH] PyQt5 compatability
+
+---
+ syncplay/ui/ConfigurationGetter.py |   4 +-
+ syncplay/ui/GuiConfiguration.py    |  16 ++--
+ syncplay/ui/gui.py                 | 130 ++++++++++++++++-------------
+ 3 files changed, 82 insertions(+), 68 deletions(-)
+
+diff --git a/syncplay/ui/ConfigurationGetter.py b/syncplay/ui/ConfigurationGetter.py
+index dd1d8ec0..6d83c650 100755
+--- a/syncplay/ui/ConfigurationGetter.py
++++ b/syncplay/ui/ConfigurationGetter.py
+@@ -513,10 +513,10 @@ def getConfiguration(self):
+         self._overrideConfigWithArgs(args)
+         if not self._config['noGui']:
+             try:
+-                from syncplay.vendor.Qt import QtWidgets, IsPySide, IsPySide2
++                from syncplay.vendor.Qt import QtWidgets, IsPySide, IsPySide2, IsPyQt5
+                 from syncplay.vendor.Qt.QtCore import QCoreApplication
+                 from syncplay.vendor import qt5reactor
+-                if not (IsPySide2 or IsPySide):
++                if not (IsPySide2 or IsPySide or IsPyQt5):
+                     raise ImportError
+                 if QCoreApplication.instance() is None:
+                     self.app = QtWidgets.QApplication(sys.argv)
+diff --git a/syncplay/ui/GuiConfiguration.py b/syncplay/ui/GuiConfiguration.py
+index 96915814..cfe51b26 100755
+--- a/syncplay/ui/GuiConfiguration.py
++++ b/syncplay/ui/GuiConfiguration.py
+@@ -11,7 +11,7 @@
+ from syncplay.utils import isBSD, isLinux, isMacOS, isWindows
+ from syncplay.utils import resourcespath, posixresourcespath
+
+-from syncplay.vendor.Qt import QtCore, QtWidgets, QtGui, __binding__, IsPySide, IsPySide2
++from syncplay.vendor.Qt import QtCore, QtWidgets, QtGui, __binding__, IsPySide, IsPySide2, IsPyQt5
+ from syncplay.vendor.Qt.QtCore import Qt, QSettings, QCoreApplication, QSize, QPoint, QUrl, QLine, QEventLoop, Signal
+ from syncplay.vendor.Qt.QtWidgets import QApplication, QLineEdit, QLabel, QCheckBox, QButtonGroup, QRadioButton, QDoubleSpinBox, QPlainTextEdit
+ from syncplay.vendor.Qt.QtGui import QCursor, QIcon, QImage, QDesktopServices
+@@ -21,6 +21,8 @@
+     QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True)
+ if IsPySide2:
+     from PySide2.QtCore import QStandardPaths
++elif IsPyQt5:
++    from PyQt5.QtCore import QStandardPaths
+
+
+ class GuiConfiguration:
+@@ -445,7 +447,7 @@ def browseMediapath(self):
+                 defaultdirectory = QDesktopServices.storageLocation(QDesktopServices.HomeLocation)
+             else:
+                 defaultdirectory = ""
+-        elif IsPySide2:
++        elif IsPySide2 or IsPyQt5:
+             if self.config["mediaSearchDirectories"] and os.path.isdir(self.config["mediaSearchDirectories"][0]):
+                 defaultdirectory = self.config["mediaSearchDirectories"][0]
+             elif os.path.isdir(self.mediadirectory):
+@@ -1181,7 +1183,7 @@ def addMessageTab(self):
+
+         self.displaySettingsGroup = QtWidgets.QGroupBox(getMessage("messages-other-title"))
+         self.displaySettingsLayout = QtWidgets.QVBoxLayout()
+-        self.displaySettingsLayout.setAlignment(Qt.AlignTop & Qt.AlignLeft)
++        self.displaySettingsLayout.setAlignment(Qt.AlignTop | Qt.AlignLeft)
+         self.displaySettingsFrame = QtWidgets.QFrame()
+
+         self.showDurationNotificationCheckbox = QCheckBox(getMessage("showdurationnotification-label"))
+@@ -1193,7 +1195,7 @@ def addMessageTab(self):
+         self.languageLayout.setContentsMargins(0, 0, 0, 0)
+         self.languageFrame.setLayout(self.languageLayout)
+         self.languageFrame.setSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+-        self.languageLayout.setAlignment(Qt.AlignTop & Qt.AlignLeft)
++        self.languageLayout.setAlignment(Qt.AlignTop | Qt.AlignLeft)
+         self.languageLabel = QLabel(getMessage("language-label"), self)
+         self.languageCombobox = QtWidgets.QComboBox(self)
+         self.languageCombobox.addItem(getMessage("automatic-language").format(getMessage("LANGUAGE", getInitialLanguage())))
+@@ -1214,7 +1216,7 @@ def addMessageTab(self):
+
+         self.displaySettingsGroup.setLayout(self.displaySettingsLayout)
+         self.displaySettingsGroup.setMaximumHeight(self.displaySettingsGroup.minimumSizeHint().height())
+-        self.displaySettingsLayout.setAlignment(Qt.AlignTop & Qt.AlignLeft)
++        self.displaySettingsLayout.setAlignment(Qt.AlignTop | Qt.AlignLeft)
+         self.messageLayout.addWidget(self.displaySettingsGroup)
+
+         # messageFrame
+@@ -1394,7 +1396,9 @@ def __init__(self, config, playerpaths, error, defaultConfig):
+         self.publicServerAddresses = []
+
+         self._playerProbeThread = GetPlayerIconThread()
+-        self._playerProbeThread.done.connect(self._updateExecutableIcon)
++        # To-Do: Why does this not work with PyQt5
++        if not IsPyQt5:
++            self._playerProbeThread.done.connect(self._updateExecutableIcon)
+         self._playerProbeThread.start()
+
+         if self.config['clearGUIData'] == True:
+diff --git a/syncplay/ui/gui.py b/syncplay/ui/gui.py
+index c59c5697..a8fe427d 100755
+--- a/syncplay/ui/gui.py
++++ b/syncplay/ui/gui.py
+@@ -18,8 +18,7 @@
+ from syncplay.utils import resourcespath
+ from syncplay.utils import isLinux, isWindows, isMacOS
+ from syncplay.utils import formatTime, sameFilename, sameFilesize, sameFileduration, RoomPasswordProvider, formatSize, isURL
+-from syncplay.vendor import Qt
+-from syncplay.vendor.Qt import QtCore, QtWidgets, QtGui, __binding__, __binding_version__, __qt_version__, IsPySide, IsPySide2
++from syncplay.vendor.Qt import QtCore, QtWidgets, QtGui, __binding__, __binding_version__, __qt_version__, IsPySide, IsPySide2, IsPyQt5
+ from syncplay.vendor.Qt.QtCore import Qt, QSettings, QSize, QPoint, QUrl, QLine, QDateTime
+ applyDPIScaling = True
+ if isLinux():
+@@ -32,15 +31,17 @@
+     QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, applyDPIScaling)
+ if IsPySide2:
+     from PySide2.QtCore import QStandardPaths
++elif IsPyQt5:
++    from PyQt5.QtCore import QStandardPaths
+ if isMacOS() and IsPySide:
+     from Foundation import NSURL
+     from Cocoa import NSString, NSUTF8StringEncoding
+ lastCheckedForUpdates = None
+ from syncplay.vendor import darkdetect
+ if isMacOS():
+-	isDarkMode = darkdetect.isDark()
++    isDarkMode = darkdetect.isDark()
+ else:
+-	isDarkMode = None
++    isDarkMode = None
+
+
+ class ConsoleInGUI(ConsoleUI):
+@@ -139,7 +140,7 @@ def __init__(self, parent=None):
+             self.setWindowTitle(getMessage("about-dialog-title"))
+             if isWindows():
+                 self.setWindowFlags(self.windowFlags() & ~Qt.WindowContextHelpButtonHint)
+-        self.setWindowIcon(QtGui.QPixmap(resourcespath + 'syncplay.png'))
++        self.setWindowIcon(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'syncplay.png')))
+         nameLabel = QtWidgets.QLabel("<center><strong>Syncplay</strong></center>")
+         nameLabel.setFont(QtGui.QFont("Helvetica", 18))
+         linkLabel = QtWidgets.QLabel()
+@@ -202,7 +203,7 @@ def __init__(self, tlsData, parent=None):
+             self.setWindowTitle(getMessage("tls-information-title"))
+             if isWindows():
+                 self.setWindowFlags(self.windowFlags() & ~Qt.WindowContextHelpButtonHint)
+-        self.setWindowIcon(QtGui.QPixmap(resourcespath + 'syncplay.png'))
++        self.setWindowIcon(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'syncplay.png')))
+         statusLabel = QtWidgets.QLabel(getMessage("tls-dialog-status-label").format(tlsData["subject"]))
+         descLabel = QtWidgets.QLabel(getMessage("tls-dialog-desc-label").format(tlsData["subject"]))
+         connDataLabel = QtWidgets.QLabel(getMessage("tls-dialog-connection-label").format(tlsData["protocolVersion"], tlsData["cipher"]))
+@@ -454,6 +455,15 @@ def mouseMoveEvent(self, event):
+     def needsClient(f):  # @NoSelf
+         @wraps(f)
+         def wrapper(self, *args, **kwds):
++            # To-Do: For some strange reason the args tumple contains False
++            # for some functions, resulting in a crash as the function only accepts
++            # one argument (self). I do not understand where this 'False' is coming
++            # from, it does not seem to be added when the function is called.
++            # This very ugly workaround fixes the problem
++            if IsPyQt5:
++                if len(args)>0:
++                    if not args[0]:
++                        args = ()
+             if not self._syncplayClient:
+                 self.showDebugMessage("Tried to use client before it was ready!")
+                 return
+@@ -614,11 +624,11 @@ def showUserList(self, currentUser, rooms):
+
+             if isControlledRoom:
+                 if room == currentUser.room and currentUser.isController():
+-                    roomitem.setIcon(QtGui.QPixmap(resourcespath + 'lock_open.png'))
++                    roomitem.setIcon(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'lock_open.png')))
+                 else:
+-                    roomitem.setIcon(QtGui.QPixmap(resourcespath + 'lock.png'))
++                    roomitem.setIcon(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'lock.png')))
+             else:
+-                roomitem.setIcon(QtGui.QPixmap(resourcespath + 'chevrons_right.png'))
++                roomitem.setIcon(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'chevrons_right.png')))
+
+             for user in rooms[room]:
+                 useritem = QtGui.QStandardItem(user.username)
+@@ -719,31 +729,31 @@ def openPlaylistMenu(self, position):
+             pathFound = self._syncplayClient.fileSwitch.findFilepath(firstFile) if not isURL(firstFile) else None
+             if self._syncplayClient.userlist.currentUser.file is None or firstFile != self._syncplayClient.userlist.currentUser.file["name"]:
+                 if isURL(firstFile):
+-                    menu.addAction(QtGui.QPixmap(resourcespath + "world_go.png"), getMessage("openstreamurl-menu-label"), lambda: self.openFile(firstFile, resetPosition=True, fromUser=True))
++                    menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "world_go.png")), getMessage("openstreamurl-menu-label"), lambda: self.openFile(firstFile, resetPosition=True, fromUser=True))
+                 elif pathFound:
+-                        menu.addAction(QtGui.QPixmap(resourcespath + "film_go.png"), getMessage("openmedia-menu-label"), lambda: self.openFile(pathFound, resetPosition=True, fromUser=True))
++                        menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "film_go.png")), getMessage("openmedia-menu-label"), lambda: self.openFile(pathFound, resetPosition=True, fromUser=True))
+             if pathFound:
+-                menu.addAction(QtGui.QPixmap(resourcespath + "folder_film.png"),
++                menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "folder_film.png")),
+                                getMessage('open-containing-folder'),
+                                lambda: utils.open_system_file_browser(pathFound))
+             if self._syncplayClient.isUntrustedTrustableURI(firstFile):
+                 domain = utils.getDomainFromURL(firstFile)
+-                menu.addAction(QtGui.QPixmap(resourcespath + "shield_add.png"), getMessage("addtrusteddomain-menu-label").format(domain), lambda: self.addTrustedDomain(domain))
+-            menu.addAction(QtGui.QPixmap(resourcespath + "delete.png"), getMessage("removefromplaylist-menu-label"), lambda: self.deleteSelectedPlaylistItems())
++                menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "shield_add.png")), getMessage("addtrusteddomain-menu-label").format(domain), lambda: self.addTrustedDomain(domain))
++            menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "delete.png")), getMessage("removefromplaylist-menu-label"), lambda: self.deleteSelectedPlaylistItems())
+             menu.addSeparator()
+-        menu.addAction(QtGui.QPixmap(resourcespath + "arrow_switch.png"), getMessage("shuffleremainingplaylist-menu-label"), lambda: self.shuffleRemainingPlaylist())
+-        menu.addAction(QtGui.QPixmap(resourcespath + "arrow_switch.png"), getMessage("shuffleentireplaylist-menu-label"), lambda: self.shuffleEntirePlaylist())
+-        menu.addAction(QtGui.QPixmap(resourcespath + "arrow_undo.png"), getMessage("undoplaylist-menu-label"), lambda: self.undoPlaylistChange())
+-        menu.addAction(QtGui.QPixmap(resourcespath + "film_edit.png"), getMessage("editplaylist-menu-label"), lambda: self.openEditPlaylistDialog())
+-        menu.addAction(QtGui.QPixmap(resourcespath + "film_add.png"), getMessage("addfilestoplaylist-menu-label"), lambda: self.OpenAddFilesToPlaylistDialog())
+-        menu.addAction(QtGui.QPixmap(resourcespath + "world_add.png"), getMessage("addurlstoplaylist-menu-label"), lambda: self.OpenAddURIsToPlaylistDialog())
++        menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "arrow_switch.png")), getMessage("shuffleremainingplaylist-menu-label"), lambda: self.shuffleRemainingPlaylist())
++        menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "arrow_switch.png")), getMessage("shuffleentireplaylist-menu-label"), lambda: self.shuffleEntirePlaylist())
++        menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "arrow_undo.png")), getMessage("undoplaylist-menu-label"), lambda: self.undoPlaylistChange())
++        menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "film_edit.png")), getMessage("editplaylist-menu-label"), lambda: self.openEditPlaylistDialog())
++        menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "film_add.png")), getMessage("addfilestoplaylist-menu-label"), lambda: self.OpenAddFilesToPlaylistDialog())
++        menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "world_add.png")), getMessage("addurlstoplaylist-menu-label"), lambda: self.OpenAddURIsToPlaylistDialog())
+         menu.addSeparator()
+         menu.addAction(getMessage("loadplaylistfromfile-menu-label"),lambda: self.OpenLoadPlaylistFromFileDialog()) # TODO: Add icon
+         menu.addAction("Load and shuffle playlist from file",lambda: self.OpenLoadPlaylistFromFileDialog(shuffle=True))  # TODO: Add icon and messages_en
+         menu.addAction(getMessage("saveplaylisttofile-menu-label"),lambda: self.OpenSavePlaylistToFileDialog()) # TODO: Add icon
+         menu.addSeparator()
+-        menu.addAction(QtGui.QPixmap(resourcespath + "film_folder_edit.png"), getMessage("setmediadirectories-menu-label"), lambda: self.openSetMediaDirectoriesDialog())
+-        menu.addAction(QtGui.QPixmap(resourcespath + "shield_edit.png"), getMessage("settrusteddomains-menu-label"), lambda: self.openSetTrustedDomainsDialog())
++        menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "film_folder_edit.png")), getMessage("setmediadirectories-menu-label"), lambda: self.openSetMediaDirectoriesDialog())
++        menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "shield_edit.png")), getMessage("settrusteddomains-menu-label"), lambda: self.openSetTrustedDomainsDialog())
+         menu.exec_(self.playlist.viewport().mapToGlobal(position))
+
+     def openRoomMenu(self, position):
+@@ -778,25 +788,25 @@ def openRoomMenu(self, position):
+         elif username and filename and filename != getMessage("nofile-note"):
+             if self.config['sharedPlaylistEnabled'] and not self.isItemInPlaylist(filename):
+                 if isURL(filename):
+-                    menu.addAction(QtGui.QPixmap(resourcespath + "world_add.png"), addUsersStreamToPlaylistLabelText, lambda: self.addStreamToPlaylist(filename))
++                    menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "world_add.png")), addUsersStreamToPlaylistLabelText, lambda: self.addStreamToPlaylist(filename))
+                 else:
+-                    menu.addAction(QtGui.QPixmap(resourcespath + "film_add.png"), addUsersFileToPlaylistLabelText, lambda: self.addStreamToPlaylist(filename))
++                    menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "film_add.png")), addUsersFileToPlaylistLabelText, lambda: self.addStreamToPlaylist(filename))
+
+             if self._syncplayClient.userlist.currentUser.file is None or filename != self._syncplayClient.userlist.currentUser.file["name"]:
+                 if isURL(filename):
+-                    menu.addAction(QtGui.QPixmap(resourcespath + "world_go.png"), getMessage("openusersstream-menu-label").format(shortUsername), lambda: self.openFile(filename, resetPosition=False, fromUser=True))
++                    menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "world_go.png")), getMessage("openusersstream-menu-label").format(shortUsername), lambda: self.openFile(filename, resetPosition=False, fromUser=True))
+                 else:
+                     pathFound = self._syncplayClient.fileSwitch.findFilepath(filename)
+                     if pathFound:
+-                        menu.addAction(QtGui.QPixmap(resourcespath + "film_go.png"), getMessage("openusersfile-menu-label").format(shortUsername), lambda: self.openFile(pathFound, resetPosition=False, fromUser=True))
++                        menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "film_go.png")), getMessage("openusersfile-menu-label").format(shortUsername), lambda: self.openFile(pathFound, resetPosition=False, fromUser=True))
+             if self._syncplayClient.isUntrustedTrustableURI(filename):
+                 domain = utils.getDomainFromURL(filename)
+-                menu.addAction(QtGui.QPixmap(resourcespath + "shield_add.png"), getMessage("addtrusteddomain-menu-label").format(domain), lambda: self.addTrustedDomain(domain))
++                menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "shield_add.png")), getMessage("addtrusteddomain-menu-label").format(domain), lambda: self.addTrustedDomain(domain))
+
+             if not isURL(filename) and filename != getMessage("nofile-note"):
+                 path = self._syncplayClient.fileSwitch.findFilepath(filename)
+                 if path:
+-                    menu.addAction(QtGui.QPixmap(resourcespath + "folder_film.png"), getMessage('open-containing-folder'), lambda: utils.open_system_file_browser(path))
++                    menu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + "folder_film.png")), getMessage('open-containing-folder'), lambda: utils.open_system_file_browser(path))
+         else:
+             return
+         menu.exec_(self.listTreeView.viewport().mapToGlobal(position))
+@@ -808,7 +818,7 @@ def updateListGeometry(self):
+                 self.listTreeView.setFirstColumnSpanned(roomtocheck, self.listTreeView.rootIndex(), True)
+                 roomtocheck += 1
+             self.listTreeView.header().setStretchLastSection(False)
+-            if IsPySide2:
++            if IsPySide2 or IsPyQt5:
+                 self.listTreeView.header().setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
+                 self.listTreeView.header().setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeToContents)
+                 self.listTreeView.header().setSectionResizeMode(2, QtWidgets.QHeaderView.ResizeToContents)
+@@ -822,7 +832,7 @@ def updateListGeometry(self):
+             if self.listTreeView.header().width() < (NarrowTabsWidth+self.listTreeView.header().sectionSize(3)):
+                 self.listTreeView.header().resizeSection(3, self.listTreeView.header().width()-NarrowTabsWidth)
+             else:
+-                if IsPySide2:
++                if IsPySide2 or IsPyQt5:
+                     self.listTreeView.header().setSectionResizeMode(3, QtWidgets.QHeaderView.Stretch)
+                 if IsPySide:
+                     self.listTreeView.header().setResizeMode(3, QtWidgets.QHeaderView.Stretch)
+@@ -1003,7 +1013,7 @@ def getInitialMediaDirectory(self, includeUserSpecifiedDirectories=True):
+                 defaultdirectory = QtGui.QDesktopServices.storageLocation(QtGui.QDesktopServices.HomeLocation)
+             else:
+                 defaultdirectory = ""
+-        elif IsPySide2:
++        elif IsPySide2 or IsPyQt5:
+             if self.config["mediaSearchDirectories"] and os.path.isdir(self.config["mediaSearchDirectories"][0]) and includeUserSpecifiedDirectories:
+                 defaultdirectory = self.config["mediaSearchDirectories"][0]
+             elif includeUserSpecifiedDirectories and os.path.isdir(self.mediadirectory):
+@@ -1410,7 +1420,7 @@ def addTopLayout(self, window):
+         window.chatInput.setMaxLength(constants.MAX_CHAT_MESSAGE_LENGTH)
+         window.chatInput.returnPressed.connect(self.sendChatMessage)
+         window.chatButton = QtWidgets.QPushButton(
+-            QtGui.QPixmap(resourcespath + 'email_go.png'),
++            QtGui.QIcon(QtGui.QPixmap(resourcespath + 'email_go.png')),
+             getMessage("sendmessage-label"))
+         window.chatButton.pressed.connect(self.sendChatMessage)
+         window.chatLayout = QtWidgets.QHBoxLayout()
+@@ -1445,7 +1455,7 @@ def addTopLayout(self, window):
+         window.listlabel = QtWidgets.QLabel(getMessage("userlist-heading-label"))
+         if isMacOS:
+             window.listlabel.setMinimumHeight(21)
+-            window.sslButton = QtWidgets.QPushButton(QtGui.QPixmap(resourcespath + 'lock_green.png').scaled(14, 14),"")
++            window.sslButton = QtWidgets.QPushButton(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'lock_green.png').scaled(14, 14)),"")
+             window.sslButton.setVisible(False)
+             window.sslButton.setFixedHeight(21)
+             window.sslButton.setFixedWidth(21)
+@@ -1453,7 +1463,7 @@ def addTopLayout(self, window):
+             window.sslButton.setStyleSheet("QPushButton:!hover{border: 1px solid gray;} QPushButton:hover{border:2px solid black;}")
+         else:
+             window.listlabel.setMinimumHeight(27)
+-            window.sslButton = QtWidgets.QPushButton(QtGui.QPixmap(resourcespath + 'lock_green.png'),"")
++            window.sslButton = QtWidgets.QPushButton(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'lock_green.png')),"")
+             window.sslButton.setVisible(False)
+             window.sslButton.setFixedHeight(27)
+             window.sslButton.setFixedWidth(27)
+@@ -1485,7 +1495,7 @@ def addTopLayout(self, window):
+         window.roomsCombobox.setEditable(True)
+         #window.roomsCombobox.setMaxLength(constants.MAX_ROOM_NAME_LENGTH)
+         window.roomButton = QtWidgets.QPushButton(
+-            QtGui.QPixmap(resourcespath + 'door_in.png'),
++            QtGui.QIcon(QtGui.QPixmap(resourcespath + 'door_in.png')),
+             getMessage("joinroom-label"))
+         window.roomButton.pressed.connect(self.joinRoom)
+         window.roomButton.setFixedWidth(window.roomButton.sizeHint().width()+3)
+@@ -1620,24 +1630,24 @@ def addPlaybackLayout(self, window):
+         window.playbackFrame.setLayout(window.playbackLayout)
+         window.seekInput = QtWidgets.QLineEdit()
+         window.seekInput.returnPressed.connect(self.seekFromButton)
+-        window.seekButton = QtWidgets.QPushButton(QtGui.QPixmap(resourcespath + 'clock_go.png'), "")
++        window.seekButton = QtWidgets.QPushButton(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'clock_go.png')), "")
+         window.seekButton.setToolTip(getMessage("seektime-menu-label"))
+         window.seekButton.pressed.connect(self.seekFromButton)
+         window.seekInput.setText("0:00")
+         window.seekInput.setFixedWidth(60)
+         window.playbackLayout.addWidget(window.seekInput)
+         window.playbackLayout.addWidget(window.seekButton)
+-        window.unseekButton = QtWidgets.QPushButton(QtGui.QPixmap(resourcespath + 'arrow_undo.png'), "")
++        window.unseekButton = QtWidgets.QPushButton(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'arrow_undo.png')), "")
+         window.unseekButton.setToolTip(getMessage("undoseek-menu-label"))
+         window.unseekButton.pressed.connect(self.undoSeek)
+
+         window.miscLayout = QtWidgets.QHBoxLayout()
+         window.playbackLayout.addWidget(window.unseekButton)
+-        window.playButton = QtWidgets.QPushButton(QtGui.QPixmap(resourcespath + 'control_play_blue.png'), "")
++        window.playButton = QtWidgets.QPushButton(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'control_play_blue.png')), "")
+         window.playButton.setToolTip(getMessage("play-menu-label"))
+         window.playButton.pressed.connect(self.play)
+         window.playbackLayout.addWidget(window.playButton)
+-        window.pauseButton = QtWidgets.QPushButton(QtGui.QPixmap(resourcespath + 'control_pause_blue.png'), "")
++        window.pauseButton = QtWidgets.QPushButton(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'control_pause_blue.png')), "")
+         window.pauseButton.setToolTip(getMessage("pause-menu-label"))
+         window.pauseButton.pressed.connect(self.pause)
+         window.playbackLayout.addWidget(window.pauseButton)
+@@ -1657,13 +1667,13 @@ def populateMenubar(self, window):
+         # File menu
+
+         window.fileMenu = QtWidgets.QMenu(getMessage("file-menu-label"), self)
+-        window.openAction = window.fileMenu.addAction(QtGui.QPixmap(resourcespath + 'folder_explore.png'),
++        window.openAction = window.fileMenu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'folder_explore.png')),
+                                                       getMessage("openmedia-menu-label"))
+         window.openAction.triggered.connect(self.browseMediapath)
+-        window.openAction = window.fileMenu.addAction(QtGui.QPixmap(resourcespath + 'world_explore.png'),
++        window.openAction = window.fileMenu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'world_explore.png')),
+                                                       getMessage("openstreamurl-menu-label"))
+         window.openAction.triggered.connect(self.promptForStreamURL)
+-        window.openAction = window.fileMenu.addAction(QtGui.QPixmap(resourcespath + 'film_folder_edit.png'),
++        window.openAction = window.fileMenu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'film_folder_edit.png')),
+                                                       getMessage("setmediadirectories-menu-label"))
+         window.openAction.triggered.connect(self.openSetMediaDirectoriesDialog)
+
+@@ -1671,7 +1681,7 @@ def populateMenubar(self, window):
+         if isMacOS():
+             window.exitAction.setMenuRole(QtWidgets.QAction.QuitRole)
+         else:
+-            window.exitAction.setIcon(QtGui.QPixmap(resourcespath + 'cross.png'))
++            window.exitAction.setIcon(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'cross.png')))
+         window.exitAction.triggered.connect(self.exitSyncplay)
+
+         if(window.editMenu is not None):
+@@ -1683,19 +1693,19 @@ def populateMenubar(self, window):
+
+         window.playbackMenu = QtWidgets.QMenu(getMessage("playback-menu-label"), self)
+         window.playAction = window.playbackMenu.addAction(
+-            QtGui.QPixmap(resourcespath + 'control_play_blue.png'),
++            QtGui.QIcon(QtGui.QPixmap(resourcespath + 'control_play_blue.png')),
+             getMessage("play-menu-label"))
+         window.playAction.triggered.connect(self.play)
+         window.pauseAction = window.playbackMenu.addAction(
+-            QtGui.QPixmap(resourcespath + 'control_pause_blue.png'),
++            QtGui.QIcon(QtGui.QPixmap(resourcespath + 'control_pause_blue.png')),
+             getMessage("pause-menu-label"))
+         window.pauseAction.triggered.connect(self.pause)
+         window.seekAction = window.playbackMenu.addAction(
+-            QtGui.QPixmap(resourcespath + 'clock_go.png'),
++            QtGui.QIcon(QtGui.QPixmap(resourcespath + 'clock_go.png')),
+             getMessage("seektime-menu-label"))
+         window.seekAction.triggered.connect(self.seekPositionDialog)
+         window.unseekAction = window.playbackMenu.addAction(
+-            QtGui.QPixmap(resourcespath + 'arrow_undo.png'),
++            QtGui.QIcon(QtGui.QPixmap(resourcespath + 'arrow_undo.png')),
+             getMessage("undoseek-menu-label"))
+         window.unseekAction.triggered.connect(self.undoSeek)
+
+@@ -1705,17 +1715,17 @@ def populateMenubar(self, window):
+
+         window.advancedMenu = QtWidgets.QMenu(getMessage("advanced-menu-label"), self)
+         window.setoffsetAction = window.advancedMenu.addAction(
+-            QtGui.QPixmap(resourcespath + 'timeline_marker.png'),
++            QtGui.QIcon(QtGui.QPixmap(resourcespath + 'timeline_marker.png')),
+             getMessage("setoffset-menu-label"))
+         window.setoffsetAction.triggered.connect(self.setOffset)
+         window.setTrustedDomainsAction = window.advancedMenu.addAction(
+-            QtGui.QPixmap(resourcespath + 'shield_edit.png'),
++            QtGui.QIcon(QtGui.QPixmap(resourcespath + 'shield_edit.png')),
+             getMessage("settrusteddomains-menu-label"))
+         window.setTrustedDomainsAction.triggered.connect(self.openSetTrustedDomainsDialog)
+         window.createcontrolledroomAction = window.advancedMenu.addAction(
+-            QtGui.QPixmap(resourcespath + 'page_white_key.png'), getMessage("createcontrolledroom-menu-label"))
++            QtGui.QIcon(QtGui.QPixmap(resourcespath + 'page_white_key.png')), getMessage("createcontrolledroom-menu-label"))
+         window.createcontrolledroomAction.triggered.connect(self.createControlledRoom)
+-        window.identifyascontroller = window.advancedMenu.addAction(QtGui.QPixmap(resourcespath + 'key_go.png'),
++        window.identifyascontroller = window.advancedMenu.addAction(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'key_go.png')),
+                                                                     getMessage("identifyascontroller-menu-label"))
+         window.identifyascontroller.triggered.connect(self.identifyAsController)
+
+@@ -1743,18 +1753,18 @@ def populateMenubar(self, window):
+         window.helpMenu = QtWidgets.QMenu(getMessage("help-menu-label"), self)
+
+         window.userguideAction = window.helpMenu.addAction(
+-            QtGui.QPixmap(resourcespath + 'help.png'),
++            QtGui.QIcon(QtGui.QPixmap(resourcespath + 'help.png')),
+             getMessage("userguide-menu-label"))
+         window.userguideAction.triggered.connect(self.openUserGuide)
+         window.updateAction = window.helpMenu.addAction(
+-            QtGui.QPixmap(resourcespath + 'application_get.png'),
++            QtGui.QIcon(QtGui.QPixmap(resourcespath + 'application_get.png')),
+             getMessage("update-menu-label"))
+         window.updateAction.triggered.connect(self.userCheckForUpdates)
+
+         if not isMacOS():
+             window.helpMenu.addSeparator()
+             window.about = window.helpMenu.addAction(
+-                QtGui.QPixmap(resourcespath + 'syncplay.png'),
++                QtGui.QIcon(QtGui.QPixmap(resourcespath + 'syncplay.png')),
+                 getMessage("about-menu-label"))
+         else:
+             window.about = window.helpMenu.addAction("&About")
+@@ -1835,16 +1845,16 @@ def changeAutoplayState(self, source=None):
+     def updateReadyIcon(self):
+         ready = self.readyPushButton.isChecked()
+         if ready:
+-            self.readyPushButton.setIcon(QtGui.QPixmap(resourcespath + 'tick_checkbox.png'))
++            self.readyPushButton.setIcon(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'tick_checkbox.png')))
+         else:
+-            self.readyPushButton.setIcon(QtGui.QPixmap(resourcespath + 'empty_checkbox.png'))
++            self.readyPushButton.setIcon(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'empty_checkbox.png')))
+
+     def updateAutoPlayIcon(self):
+         ready = self.autoplayPushButton.isChecked()
+         if ready:
+-            self.autoplayPushButton.setIcon(QtGui.QPixmap(resourcespath + 'tick_checkbox.png'))
++            self.autoplayPushButton.setIcon(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'tick_checkbox.png')))
+         else:
+-            self.autoplayPushButton.setIcon(QtGui.QPixmap(resourcespath + 'empty_checkbox.png'))
++            self.autoplayPushButton.setIcon(QtGui.QIcon(QtGui.QPixmap(resourcespath + 'empty_checkbox.png')))
+
+     def automaticUpdateCheck(self):
+         currentDateTimeValue = QDateTime.currentDateTime()
+@@ -2060,7 +2070,7 @@ def __init__(self, passedBar=None):
+         self.populateMenubar(self)
+         self.addMainFrame(self)
+         self.loadSettings()
+-        self.setWindowIcon(QtGui.QPixmap(resourcespath + "syncplay.png"))
++        self.setWindowIcon(QtGui.QIcon(QtGui.QPixmap(resourcespath + "syncplay.png")))
+         self.setWindowFlags(self.windowFlags() & Qt.WindowCloseButtonHint & Qt.WindowMinimizeButtonHint & ~Qt.WindowContextHelpButtonHint)
+         self.show()
+         self.setAcceptDrops(True)
+
