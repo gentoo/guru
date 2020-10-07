@@ -30,11 +30,10 @@ RDEPEND="
 	vlc? ( media-video/vlc[lua] )
 	mpv? ( media-video/mpv[lua] )
 	mplayer? ( media-video/mplayer )
+	client? ( dev-python/QtPy[${PYTHON_USEDEP},gui] )
 "
 
-# RDEPEND on PySide2 for gui, but not packaged here at the moment
-# It is a too big and complex package for me to maintain
-# You can find PySide2 in the ::raiagent overlay
+PATCHES=( "${FILESDIR}/${PN}-allow-PyQt5.patch" )
 
 python_install() {
 	local MY_MAKEOPTS=( DESTDIR="${D}" PREFIX=/usr )
@@ -50,8 +49,6 @@ python_install() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
-
-	optfeature "using the GUI (you can find it in the raiagent overlay)\n" dev-python/pyside2
 
 	if use client; then
 		elog "Syncplay supports the following players:"
