@@ -8,32 +8,39 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1 optfeature xdg
 
+MYPV="${PV/_beta/-Beta}"
+
 DESCRIPTION="Client/server to synchronize media playback"
 HOMEPAGE="https://github.com/Syncplay/syncplay https://syncplay.pl"
-SRC_URI="https://github.com/${PN^}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/${PN^}/${PN}/archive/${MYPV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="+client +server vlc mpv mplayer"
-REQUIRED_USE="
-	vlc? ( client )
-	mpv? ( client )
-	mplayer? ( client )
-	client? ( || ( vlc mpv mplayer ) )
-"
+IUSE="+client +server"
 
 RDEPEND="
 	dev-python/certifi[${PYTHON_USEDEP}]
 	dev-python/twisted[${PYTHON_USEDEP}]
-	vlc? ( media-video/vlc[lua] )
-	mpv? ( media-video/mpv[lua] )
-	mplayer? ( media-video/mplayer )
-	client? ( dev-python/QtPy[${PYTHON_USEDEP},gui] )
+	client? (
+		dev-python/QtPy[${PYTHON_USEDEP},gui]
+		|| (
+			media-video/vlc[lua]
+			media-video/mpv[lua]
+			media-video/mplayer
+		)
+	)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-allow-PyQt5.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-change-alignment-operator.patch"
+	"${FILESDIR}/${PN}-make-qpixmap-to-qicon-conversion-explicit.patch"
+	"${FILESDIR}/${PN}-use-lambda-to-connect-behind-wrapper.patch"
+	"${FILESDIR}/${PN}-allow-PyQt5.patch"
+)
+
+S="${WORKDIR}/${PN}-${MYPV}"
 
 python_install() {
 	local MY_MAKEOPTS=( DESTDIR="${D}" PREFIX=/usr )
@@ -51,7 +58,7 @@ pkg_postinst() {
 	xdg_pkg_postinst
 
 	if use client; then
-		elog "Syncplay supports the following players:"
+		elog "Syncplay supports the following media players:"
 		elog "media-video/mpv, media-video/mplayer, media-video/vlc\n"
 		optfeature "using Syncplay with VLC" media-video/vlc[lua]
 		optfeature "using Syncplay with MPV" media-video/mpv[lua]

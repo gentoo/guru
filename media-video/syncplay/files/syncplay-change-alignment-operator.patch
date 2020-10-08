@@ -1,0 +1,41 @@
+From 61584550ca734d2f3fa3b811d73f2cebd2b7f30f Mon Sep 17 00:00:00 2001
+From: Andrew Ammerlaan <andrewammerlaan@riseup.net>
+Date: Thu, 8 Oct 2020 08:37:58 +0200
+Subject: [PATCH] replace & with | in Alignment, visually identical
+
+---
+ syncplay/ui/GuiConfiguration.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/syncplay/ui/GuiConfiguration.py b/syncplay/ui/GuiConfiguration.py
+index 96915814..e0713adf 100755
+--- a/syncplay/ui/GuiConfiguration.py
++++ b/syncplay/ui/GuiConfiguration.py
+@@ -1181,7 +1181,7 @@ def addMessageTab(self):
+
+         self.displaySettingsGroup = QtWidgets.QGroupBox(getMessage("messages-other-title"))
+         self.displaySettingsLayout = QtWidgets.QVBoxLayout()
+-        self.displaySettingsLayout.setAlignment(Qt.AlignTop & Qt.AlignLeft)
++        self.displaySettingsLayout.setAlignment(Qt.AlignTop | Qt.AlignLeft)
+         self.displaySettingsFrame = QtWidgets.QFrame()
+
+         self.showDurationNotificationCheckbox = QCheckBox(getMessage("showdurationnotification-label"))
+@@ -1193,7 +1193,7 @@ def addMessageTab(self):
+         self.languageLayout.setContentsMargins(0, 0, 0, 0)
+         self.languageFrame.setLayout(self.languageLayout)
+         self.languageFrame.setSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+-        self.languageLayout.setAlignment(Qt.AlignTop & Qt.AlignLeft)
++        self.languageLayout.setAlignment(Qt.AlignTop | Qt.AlignLeft)
+         self.languageLabel = QLabel(getMessage("language-label"), self)
+         self.languageCombobox = QtWidgets.QComboBox(self)
+         self.languageCombobox.addItem(getMessage("automatic-language").format(getMessage("LANGUAGE", getInitialLanguage())))
+@@ -1214,7 +1214,7 @@ def addMessageTab(self):
+
+         self.displaySettingsGroup.setLayout(self.displaySettingsLayout)
+         self.displaySettingsGroup.setMaximumHeight(self.displaySettingsGroup.minimumSizeHint().height())
+-        self.displaySettingsLayout.setAlignment(Qt.AlignTop & Qt.AlignLeft)
++        self.displaySettingsLayout.setAlignment(Qt.AlignTop | Qt.AlignLeft)
+         self.messageLayout.addWidget(self.displaySettingsGroup)
+
+         # messageFrame
+
