@@ -72,7 +72,7 @@ BDEPEND="
 "
 
 src_compile() {
-	make binary || die
+	emake binary || die
 }
 
 src_install() {
