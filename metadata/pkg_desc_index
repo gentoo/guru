@@ -36,7 +36,7 @@ app-misc/ghq 1.1.0: Remote repository management made easy
 app-misc/liquidctl 1.4.1: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/mat2 0.11.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
-app-misc/navi 2.11.0 2.12.0 9999: An interactive cheatsheet tool for the command-line
+app-misc/navi 2.12.0 2.12.1 9999: An interactive cheatsheet tool for the command-line
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/rdfind 1.4.1: Find duplicate files
@@ -248,7 +248,7 @@ dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your b
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
 dev-vcs/git-extras 6.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
-dev-vcs/lazygit 0.20.8 0.20.9 0.22.1 0.22.9: Lazygit, a simple terminal UI for git commands
+dev-vcs/lazygit 0.20.9 0.22.9 0.23.1: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.3.5.3 3.3.6.0_pre: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.17627 2.1.17785_beta: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
@@ -351,7 +351,7 @@ sci-libs/jdqz 0_pre19971107-r1 0_pre19971107-r2: Jacobi-Davidson type method for
 sci-libs/meschach 1.2b: Meschach is a C-language library of routines for performing matrix computations.
 sci-libs/saclib 2.2.7-r1 2.2.7-r2: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
-sci-physics/SU2 7.0.4 7.0.5 7.0.6: SU2: An Open-Source Suite for Multiphysics Simulation and Design
+sci-physics/SU2 7.0.6: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
 sys-apps/dust 0.5.3: A more intuitive version of du
 sys-apps/flatpak 1.8.2: Application distribution framework
