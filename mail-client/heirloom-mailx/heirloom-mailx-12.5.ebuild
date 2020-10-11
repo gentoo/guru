@@ -4,7 +4,7 @@
 EAPI=7
 
 LICENSE="BSD"
-DESCRIPTION="The heirloom-mailx, this is version mailx in CentOS"
+DESCRIPTION="The mailx utility from CentOS"
 HOMEPAGE="https://www.debian.org/"
 SRC_URI="https://yorune.pl/gentoo/${CATEGORY}/${PN}/${PN}_${PVR}.orig.tar.gz http://ftp.debian.org/debian/pool/main/h/${PN}/${PN}_${PVR}.orig.tar.gz"
 KEYWORDS="~amd64"
@@ -33,7 +33,7 @@ src_compile(){
 }
 
 src_install(){
-	emake PREFIX=${D}/usr SYSCONFDIR=${D}/etc UCBINSTALL=/usr/bin/install install
-	install -v -m755 -d     ${D}/usr/share/doc/heirloom-mailx-12.5
-	install -v -m644 README ${D}/usr/share/doc/heirloom-mailx-12.5
+	emake PREFIX="${D}/usr" SYSCONFDIR="${D}/etc" UCBINSTALL="/usr/bin/install" install
+	install -v -m755 -d     "${D}/usr/share/doc/heirloom-mailx-12.5"
+	install -v -m644 README "${D}/usr/share/doc/heirloom-mailx-12.5"
 }
