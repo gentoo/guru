@@ -1,0 +1,122 @@
+diff -Naur a/src/github.com/jesseduffield/lazygit/pkg/commands/oscommands/os.go b/src/github.com/jesseduffield/lazygit/pkg/commands/oscommands/os.go
+--- a/src/github.com/jesseduffield/lazygit/pkg/commands/oscommands/os.go	2020-10-10 02:34:14.000000000 +0300
++++ b/src/github.com/jesseduffield/lazygit/pkg/commands/oscommands/os.go	2020-10-10 14:00:26.000000000 +0300
+@@ -143,18 +143,19 @@
+ 	return RunCommandWithOutputLiveWrapper(c, command, output)
+ }
+ 
+-// DetectUnamePass detect a username / password question in a command
+-// promptUserForCredential is a function that gets executed when this function detect you need to fillin a password
+-// The promptUserForCredential argument will be "username" or "password" and expects the user's password or username back
++// DetectUnamePass detect a username / password / passphrase question in a command
++// promptUserForCredential is a function that gets executed when this function detect you need to fillin a password or passphrase
++// The promptUserForCredential argument will be "username", "password" or "passphrase" and expects the user's password/passphrase or username back
+ func (c *OSCommand) DetectUnamePass(command string, promptUserForCredential func(string) string) error {
+ 	ttyText := ""
+ 	errMessage := c.RunCommandWithOutputLive(command, func(word string) string {
+ 		ttyText = ttyText + " " + word
+ 
+ 		prompts := map[string]string{
+-			`.+'s password:`:         "password",
+-			`Password\s*for\s*'.+':`: "password",
+-			`Username\s*for\s*'.+':`: "username",
++			`.+'s password:`:                         "password",
++			`Password\s*for\s*'.+':`:                 "password",
++			`Username\s*for\s*'.+':`:                 "username",
++			`Enter\s*passphrase\s*for\s*key\s*'.+':`: "passphrase",
+ 		}
+ 
+ 		for pattern, askFor := range prompts {
+diff -Naur a/src/github.com/jesseduffield/lazygit/pkg/gui/credentials_panel.go b/src/github.com/jesseduffield/lazygit/pkg/gui/credentials_panel.go
+--- a/src/github.com/jesseduffield/lazygit/pkg/gui/credentials_panel.go	2020-10-10 02:34:14.000000000 +0300
++++ b/src/github.com/jesseduffield/lazygit/pkg/gui/credentials_panel.go	2020-10-10 03:17:57.000000000 +0300
+@@ -9,7 +9,7 @@
+ 
+ type credentials chan string
+ 
+-// promptUserForCredential wait for a username or password input from the credentials popup
++// promptUserForCredential wait for a username, password or passphrase input from the credentials popup
+ func (gui *Gui) promptUserForCredential(passOrUname string) string {
+ 	gui.credentials = make(chan string)
+ 	gui.g.Update(func(g *gocui.Gui) error {
+@@ -17,9 +17,12 @@
+ 		if passOrUname == "username" {
+ 			credentialsView.Title = gui.Tr.CredentialsUsername
+ 			credentialsView.Mask = 0
+-		} else {
++		} else if passOrUname == "password" {
+ 			credentialsView.Title = gui.Tr.CredentialsPassword
+ 			credentialsView.Mask = '*'
++		} else {
++			credentialsView.Title = gui.Tr.CredentialsPassphrase
++			credentialsView.Mask = '*'
+ 		}
+ 
+ 		if err := gui.switchContext(gui.Contexts.Credentials.Context); err != nil {
+@@ -30,7 +33,7 @@
+ 		return nil
+ 	})
+ 
+-	// wait for username/passwords input
++	// wait for username/passwords/passphrase input
+ 	userInput := <-gui.credentials
+ 	return userInput + "\n"
+ }
+@@ -70,10 +73,10 @@
+ func (gui *Gui) handleCredentialsPopup(cmdErr error) {
+ 	if cmdErr != nil {
+ 		errMessage := cmdErr.Error()
+-		if strings.Contains(errMessage, "Invalid username or password") {
++		if strings.Contains(errMessage, "Invalid username, password or passphrase") {
+ 			errMessage = gui.Tr.PassUnameWrong
+ 		}
+-		// we are not logging this error because it may contain a password
++		// we are not logging this error because it may contain a password or a passphrase
+ 		gui.createErrorPanel(errMessage)
+ 	} else {
+ 		_ = gui.closeConfirmationPrompt(false)
+diff -Naur a/src/github.com/jesseduffield/lazygit/pkg/i18n/dutch.go b/src/github.com/jesseduffield/lazygit/pkg/i18n/dutch.go
+--- a/src/github.com/jesseduffield/lazygit/pkg/i18n/dutch.go	2020-10-10 02:34:14.000000000 +0300
++++ b/src/github.com/jesseduffield/lazygit/pkg/i18n/dutch.go	2020-10-10 02:57:03.000000000 +0300
+@@ -19,6 +19,7 @@
+ 		CommitMessage:                       "Commit bericht",
+ 		CredentialsUsername:                 "Gebruikersnaam",
+ 		CredentialsPassword:                 "Wachtwoord",
++		CredentialsPassphrase:               "Voer een wachtwoordzin in voor de SSH-sleutel",
+ 		PassUnameWrong:                      "Wachtwoord en/of gebruikersnaam verkeert",
+ 		CommitChanges:                       "Commit veranderingen",
+ 		AmendLastCommit:                     "wijzig laatste commit",
+diff -Naur a/src/github.com/jesseduffield/lazygit/pkg/i18n/english.go b/src/github.com/jesseduffield/lazygit/pkg/i18n/english.go
+--- a/src/github.com/jesseduffield/lazygit/pkg/i18n/english.go	2020-10-10 02:34:14.000000000 +0300
++++ b/src/github.com/jesseduffield/lazygit/pkg/i18n/english.go	2020-10-10 02:56:08.000000000 +0300
+@@ -30,6 +30,7 @@
+ 	CommitMessage                       string
+ 	CredentialsUsername                 string
+ 	CredentialsPassword                 string
++	CredentialsPassphrase               string
+ 	PassUnameWrong                      string
+ 	CommitChanges                       string
+ 	AmendLastCommit                     string
+@@ -519,7 +520,8 @@
+ 		CommitMessage:                       "Commit message",
+ 		CredentialsUsername:                 "Username",
+ 		CredentialsPassword:                 "Password",
+-		PassUnameWrong:                      "Password and/or username wrong",
++		CredentialsPassphrase:               "Enter passphrase for SSH key",
++		PassUnameWrong:                      "Password, passphrase and/or username wrong",
+ 		CommitChanges:                       "commit changes",
+ 		AmendLastCommit:                     "amend last commit",
+ 		SureToAmend:                         "Are you sure you want to amend last commit? Afterwards, you can change commit message from the commits panel.",
+diff -Naur a/src/github.com/jesseduffield/lazygit/pkg/i18n/polish.go b/src/github.com/jesseduffield/lazygit/pkg/i18n/polish.go
+--- a/src/github.com/jesseduffield/lazygit/pkg/i18n/polish.go	2020-10-10 02:34:14.000000000 +0300
++++ b/src/github.com/jesseduffield/lazygit/pkg/i18n/polish.go	2020-10-10 02:49:23.000000000 +0300
+@@ -15,7 +15,8 @@
+ 		CommitMessage:                       "Wiadomość commita",
+ 		CredentialsUsername:                 "Username",
+ 		CredentialsPassword:                 "Password",
+-		PassUnameWrong:                      "Password and/or username wrong",
++		CredentialsPassphrase:               "Passphrase",
++		PassUnameWrong:                      "Password, passphrase and/or username wrong",
+ 		CommitChanges:                       "commituj zmiany",
+ 		AmendLastCommit:                     "zmień ostatnie zatwierdzenie",
+ 		SureToAmend:                         "Czy na pewno chcesz zmienić ostatnie zatwierdzenie? Możesz zmienić komunikat zatwierdzenia z panelu zatwierdzeń.",
