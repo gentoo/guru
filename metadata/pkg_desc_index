@@ -30,7 +30,7 @@ app-emulation/nvidia-container-toolkit 1.3.0: NVIDIA container runtime toolkit
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/apidb 4.3.0_beta 5.0.0_alpha 5.0.0_alpha8 5.0.0_alpha19: API Generator for Database acces.
 app-misc/cheat 4.0.2: cheat allows you to create and view interactive cheatsheets on the command-line
-app-misc/doublecmd-bin 0.9.8 0.9.9: Free cross platform open source file manager with two panels side by side.
+app-misc/doublecmd-bin 0.9.9: Free cross platform open source file manager with two panels side by side.
 app-misc/fetsh 1.7 1.8 9999: A fetch written in POSIX shell without any external commands
 app-misc/ghq 1.1.0: Remote repository management made easy
 app-misc/liquidctl 1.4.1: Cross-platform tool and drivers for liquid coolers and other devices
@@ -45,7 +45,7 @@ app-misc/tealdeer 1.4.1: A very fast implementation of tldr in Rust.
 app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the command-line
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20181120 9999: vrms clone for Gentoo Linux
-app-misc/watchexec 1.12.0 1.14.0: Executes commands in response to file modifications
+app-misc/watchexec 1.14.1: Executes commands in response to file modifications
 app-office/openoffice-bin 4.1.7-r1: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.2-r1 9999: Pyspread is a non-traditional spreadsheet written in Python
 app-portage/pacvis 0.4.2 9999: Displays dependency graphs of packages
@@ -58,7 +58,7 @@ app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
 app-text/OCRmyPDF 9.7.2: OCRmyPDF adds an OCR text layer to scanned PDF files
-app-text/git-delta 0.4.3: A syntax-highlighting pager for git
+app-text/git-delta 0.4.3 0.4.4: A syntax-highlighting pager for git
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/komikku 0.12.0 0.15.0: An online/offline manga reader for GNOME
 app-text/mdbook 0.3.7 0.4.3: Creates a book from markdown files
@@ -132,6 +132,7 @@ dev-python/autoflake 1.3.1: Removes unused imports and unused variables as repor
 dev-python/backrefs 4.3.0: Wrapper around re or regex that adds additional back references
 dev-python/baron 0.9: Full Syntax Tree for python to make writing refactoring code a realist task
 dev-python/base58 2.0.1: Base58 and Base58Check implementation
+dev-python/bitbox02 4.1.0: Python API for communicating with the BitBox02 device
 dev-python/bracex 2.0.0: Bash style brace expansion for Python
 dev-python/cchardet 2.1.6: cChardet is high speed universal character encoding detector
 dev-python/check-manifest 0.42: Tool to check the completeness of MANIFEST.in for Python packages
@@ -173,6 +174,7 @@ dev-python/mkdocs-material-extensions 1.0: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.3.0: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs_pymdownx_material_extras 1.0_beta11: Custom alterations based on Mkdocs-Material
 dev-python/mnemonic 0.19: Reference implementation of BIP-0039 for generating deterministic keys
+dev-python/noiseprotocol 0.3.1: Python implementation of Noise Protocol Framework
 dev-python/outcome 1.0.1: Capture the outcome of Python function calls
 dev-python/pdfminer-six 20200124 20200402 20200517: Community maintained fork of pdfminer
 dev-python/pep517 0.8.2-r1: standard API for systems which build Python packages
@@ -248,7 +250,7 @@ dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your b
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
 dev-vcs/git-extras 6.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
-dev-vcs/lazygit 0.20.9 0.22.9 0.23.1: Lazygit, a simple terminal UI for git commands
+dev-vcs/lazygit 0.20.9 0.22.9 0.23.1 0.23.1-r1 9999: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.3.5.3 3.3.6.0_pre: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.17627 2.1.17785_beta: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
@@ -277,6 +279,7 @@ gui-wm/cage 0.1.2.1 9999: A Wayland kiosk
 kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 kde-misc/plasma5-wallpapers-dynamic 3.3.3 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
 kde-misc/skanpage 2020.06.11: Simple pdf scanning application based on libksane and KDE Frameworks
+mail-client/heirloom-mailx 12.5: The mailx utility from CentOS
 media-fonts/symbola 7.17: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
 media-fonts/unscii 2.0: Set of bitmapped Unicode fonts based on classic system fonts
 media-gfx/azpainter 2.1.6: Full color painting software for Linux for illustration drawing
