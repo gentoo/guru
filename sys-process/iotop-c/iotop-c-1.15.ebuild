@@ -18,12 +18,12 @@ BDEPEND="virtual/pkgconfig"
 
 S="${WORKDIR}/iotop-${PV}"
 
-src_prepare() {
-	default
-	sed -i Makefile -e "s/-lncursesw/$(pkg-config --libs ncursesw)/"
+src_compile() {
+	emake V=1
 }
 
 src_install() {
 	dobin iotop
 	dodoc README.md
+	doman iotop.8
 }
