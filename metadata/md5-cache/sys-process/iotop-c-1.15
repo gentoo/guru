@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig
-DEFINED_PHASES=install prepare
+DEFINED_PHASES=compile install
 DEPEND=sys-libs/ncurses:= !sys-process/iotop
 DESCRIPTION=top utility for IO (C port)
 EAPI=7
@@ -8,5 +8,5 @@ KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
 RDEPEND=sys-libs/ncurses:= !sys-process/iotop
 SLOT=0
-SRC_URI=https://github.com/Tomas-M/iotop/archive/v1.9.tar.gz -> iotop-c-1.9.tar.gz
-_md5_=d98ed4cfd7495802caf2f0a252ec98c1
+SRC_URI=https://github.com/Tomas-M/iotop/archive/v1.15.tar.gz -> iotop-c-1.15.tar.gz
+_md5_=69ae8419eac026bbf33921fc59e64da1
