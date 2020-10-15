@@ -21,11 +21,11 @@ SLOT="0"
 IUSE=""
 
 DEPEND="
-	dev-qt/qtwidgets:5
 	dev-qt/qtcore:5
+	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtsvg:5
-	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
 "
 
 RDEPEND="
@@ -35,6 +35,8 @@ RDEPEND="
 
 src_prepare() {
 	default
+	sed -i -e "/QMAKE_CXXFLAGS/s:-Werror::" "${MY_PN}".pro || die
+
 	sed -i -e "s:Office:Development:" "${S}/src/resources/${PN}.desktop"
 }
 

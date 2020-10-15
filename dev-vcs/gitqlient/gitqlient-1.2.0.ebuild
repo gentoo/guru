@@ -23,11 +23,11 @@ SLOT="0"
 IUSE=""
 
 DEPEND="
-	dev-qt/qtwidgets:5
 	dev-qt/qtcore:5
+	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtsvg:5
-	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
 "
 
 RDEPEND="
@@ -39,7 +39,8 @@ src_prepare() {
 	default
 	mv -T "${WORKDIR}"/QLogger-"${QLogger_sha}" "${S}"/QLogger || die
 
-	sed -i -e "s:target.path = /\$\$(HOME)/\$\${TARGET}/bin:target.path = /usr/bin:" \
+	sed -i -e "/QMAKE_CXXFLAGS/s:-Werror::" \
+	-i -e "s:target.path = /\$\$(HOME)/\$\${TARGET}/bin:target.path = /usr/bin:" \
 	-i -e "s:TARGET = ${MY_PN}:TARGET = ${PN}:" "${MY_PN}".pro || die
 
 	sed -i -e "s:Office:Development:" -i -e "s:Exec=${MY_PN}:Exec=${PN}:" \
