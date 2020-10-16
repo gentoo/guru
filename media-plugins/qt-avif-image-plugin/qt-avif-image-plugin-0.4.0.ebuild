@@ -13,7 +13,7 @@ if [[ "${PV}" == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/novomesk/qt-avif-image-plugin.git"
 else
 	SRC_URI="https://github.com/novomesk/qt-avif-image-plugin/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
+	KEYWORDS=""
 fi
 
 LICENSE="BSD-2"
@@ -21,7 +21,7 @@ SLOT="0"
 IUSE=""
 
 DEPEND=">=dev-qt/qtgui-5.12.3:5
-	>=media-libs/libavif-0.8.1
+	>=media-libs/libavif-0.8.2
 	>=x11-misc/shared-mime-info-2.0-r1
 "
 
