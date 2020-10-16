@@ -155,7 +155,7 @@ dev-python/graphene 3.0.0_beta5: GraphQL Framework for Python
 dev-python/graphql-core 3.1.1: GraphQL for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
 dev-python/hidapi 0.9.0_p3: A Cython interface to the hidapi
-dev-python/hstspreload 2020.9.29: Chromium HSTS Preload list as a Python package
+dev-python/hstspreload 2020.10.6: Chromium HSTS Preload list as a Python package
 dev-python/httpcore 0.10.1: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/httpx 0.11.1 0.13.3 0.14.3: A next generation HTTP client for Python
@@ -251,8 +251,8 @@ dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
 dev-vcs/git-extras 6.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 dev-vcs/gitqlient 1.2.0 9999: Multi-platform Git client written with Qt
-dev-vcs/lazygit 0.20.9 0.22.9 0.23.1 0.23.1-r1 9999: Lazygit, a simple terminal UI for git commands
-games-action/ATLauncher 3.3.5.3 3.3.6.0_pre: Minecraft launcher which integrates multiple different ModPacks
+dev-vcs/lazygit 0.20.9 0.22.9 0.23.1 0.23.1-r1 0.23.6 9999: Lazygit, a simple terminal UI for git commands
+games-action/ATLauncher 3.3.5.4: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.17627 2.1.17785_beta: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/netrek-brmh 2.6.0: brmh client for netrek
@@ -297,7 +297,7 @@ media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
 media-plugins/gimp-avif-plugin 9999: Plug-in for development GIMP 2.99.1 for loading/saving AVIF images.
 media-plugins/gst-plugins-sndio 1.8.0.1-r1: Sndio audio sink and source for GStreamer
-media-plugins/qt-avif-image-plugin 0.3.1 0.3.2 9999: Qt plug-in to allow Qt and KDE based applications to read/write AVIF images.
+media-plugins/qt-avif-image-plugin 0.3.2 9999: Qt plug-in to allow Qt and KDE based applications to read/write AVIF images.
 media-plugins/qt-heif-image-plugin 0.3.3 0.3.3-r1: Qt plugin for HEIF images
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
