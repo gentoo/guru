@@ -16,7 +16,7 @@ acct-user/trezord 0: User for TREZOR Bridge
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
 app-admin/chezmoi 1.8.2: Manage your dotfiles across multiple machines, securely.
 app-admin/customrescuecd-x86 0.3.1: A system rescue cd or usbstick for desktop and server based on gentoo
-app-admin/customrescuecd-x86_64 0.10.3: A system rescue cd or usbstick for desktop and server based on gentoo
+app-admin/customrescuecd-x86_64 0.10.3 0.11.0: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/gnome-passwordsafe 3.99.2: A password manager for GNOME
 app-admin/s-tui 1.0.2 9999: Stress-Terminal UI monitoring tool
 app-arch/unalz 0.65: Extract ALZ archives
