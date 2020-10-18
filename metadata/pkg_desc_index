@@ -158,7 +158,7 @@ dev-python/hidapi 0.9.0_p3: A Cython interface to the hidapi
 dev-python/hstspreload 2020.10.6: Chromium HSTS Preload list as a Python package
 dev-python/httpcore 0.10.1: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
-dev-python/httpx 0.11.1 0.13.3 0.14.3: A next generation HTTP client for Python
+dev-python/httpx 0.11.1 0.13.3 0.16.1: A next generation HTTP client for Python
 dev-python/hunter 3.1.3: Hunter is a flexible code tracing toolkit
 dev-python/hwi 1.1.2: Library and command line tool for interacting with hardware wallets
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
@@ -168,7 +168,7 @@ dev-python/libusb1 1.8: Pure-python wrapper for libusb-1.0
 dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/markdown-include 0.5.1: Syntax which allows for inclusion of contents of other Markdown docs
 dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your output
-dev-python/mkdocs-git-revision-date-localized-plugin 0.5.0: Display the localized date of the last git modification of a markdown file
+dev-python/mkdocs-git-revision-date-localized-plugin 0.7.2: Display the localized date of the last git modification of a markdown file
 dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.2.3 5.3.3: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.0: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.3.0: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
@@ -213,9 +213,9 @@ dev-python/sanic 20.6.3: Async Python 3.6+ web server/framework | Build fast. Ru
 dev-python/schedule 0.6.0-r1 9999: Python job scheduling for humans
 dev-python/skia-pathops 0.4.1: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
-dev-python/sniffio 1.1.0: Sniff out which async library your code is running under
+dev-python/sniffio 1.2.0: Sniff out which async library your code is running under
 dev-python/sphinx-argparse 0.2.5: Sphinx extension that automatically documents argparse commands and options
-dev-python/sphinx-autodoc-typehints 1.10.3 1.11.0: Type hints support for the Sphinx autodoc extension
+dev-python/sphinx-autodoc-typehints 1.10.3 1.11.1: Type hints support for the Sphinx autodoc extension
 dev-python/sphinx-tabs 1.3.0: Create tabbed content in Sphinx documentation when building HTML
 dev-python/sphinxcontrib-katex 0.6.0 0.6.1: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-napoleon 0.7: Allow a different format in dosctrings for better clarity
@@ -225,15 +225,15 @@ dev-python/spotipy 2.16.0: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.4.0: Server Sent Events for Starlette
 dev-python/starlette 0.13.8: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
-dev-python/tekore 3.1.0: Spotify Web API client
+dev-python/tekore 3.2.0: Spotify Web API client
 dev-python/timeout-decorator 0.4.1: Timeout decorator
-dev-python/trio 0.14.0 0.15.1 0.16.0: Python library for async concurrency and I/O
+dev-python/trio 0.14.0 0.15.1 0.17.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/ufoLib2 0.7.1 0.8.0: A UFO font library
 dev-python/ufoNormalizer 0.4.1: A tool that will normalize the XML and other data inside of a UFO.
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
-dev-python/uvicorn 0.11.8: The lightning-fast ASGI server
+dev-python/uvicorn 0.12.1: The lightning-fast ASGI server
 dev-python/validators 0.18.0: Python Data Validation for Humans
 dev-python/watchgod 0.6: Simple, modern file watching and code reload
 dev-python/wcmatch 6.0.1: Wildcard/glob file name matcher
