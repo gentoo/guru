@@ -1,0 +1,10 @@
+DEFINED_PHASES=install postinst postrm unpack
+DESCRIPTION=A system rescue cd or usbstick for desktop and server based on gentoo
+EAPI=7
+HOMEPAGE=https://sourceforge.net/projects/customrescuecd
+KEYWORDS=~x86
+LICENSE=GPL-3
+RESTRICT=bindist mirror
+SLOT=0.4.0
+SRC_URI=mirror://sourceforge/customrescuecd/CUSTOMRESCUECD-x86-0.4.0.iso
+_md5_=295053385db55c2248a41913d59d1d1d
