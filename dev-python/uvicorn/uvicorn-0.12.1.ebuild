@@ -24,13 +24,15 @@ SLOT="0"
 RDEPEND="
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/h11[${PYTHON_USEDEP}]
+	dev-python/typing-extensions[${PYTHON_USEDEP}]
 "
 
 DEPEND="test? (
-	dev-python/isort[${PYTHON_USEDEP}]
-	dev-python/requests[${PYTHON_USEDEP}]
+	dev-python/colorama[${PYTHON_USEDEP}]
+	dev-python/pytest-mock[${PYTHON_USEDEP}]
+	dev-python/python-dotenv[${PYTHON_USEDEP}]
+	dev-python/pyyaml[${PYTHON_USEDEP}]
 	>=dev-python/uvloop-0.14.0[${PYTHON_USEDEP}]
-	>=dev-python/wsproto-0.13.0[${PYTHON_USEDEP}]
 	>=dev-python/websockets-8.0[${PYTHON_USEDEP}]
 	dev-python/httptools[${PYTHON_USEDEP}]
 	>=dev-python/watchgod-0.6[${PYTHON_USEDEP}]
@@ -41,6 +43,9 @@ distutils_enable_tests pytest
 python_prepare_all() {
 	# do not install LICENSE to /usr/
 	sed -i -e '/data_files/d' setup.py || die
+
+	# Remove pytest-cov dep
+	sed -i -e '21,22d' setup.cfg || die
 
 	distutils-r1_python_prepare_all
 }
