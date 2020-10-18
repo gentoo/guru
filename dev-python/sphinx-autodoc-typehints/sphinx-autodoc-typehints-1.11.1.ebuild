@@ -25,7 +25,7 @@ RDEPEND="dev-python/sphinx[${PYTHON_USEDEP}]"
 DEPEND="test? (
 	dev-python/sphobjinv[${PYTHON_USEDEP}]
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
-	)"
+)"
 
 distutils_enable_tests pytest
 

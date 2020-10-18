@@ -23,7 +23,10 @@ LICENSE="BSD"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
-RDEPEND="dev-python/certifi[${PYTHON_USEDEP}]
+RESTRICT="test"
+
+RDEPEND="
+	dev-python/certifi[${PYTHON_USEDEP}]
 	dev-python/chardet[${PYTHON_USEDEP}]
 	dev-python/hstspreload[${PYTHON_USEDEP}]
 	~dev-python/httpcore-0.10.1[${PYTHON_USEDEP}]
@@ -42,6 +45,7 @@ DEPEND="test? (
 	dev-python/isort[${PYTHON_USEDEP}]
 	dev-python/mypy[${PYTHON_USEDEP}]
 	dev-python/pytest-asyncio[${PYTHON_USEDEP}]
+	dev-python/pytest-trio[${PYTHON_USEDEP}]
 	dev-python/trio[${PYTHON_USEDEP}]
 	dev-python/trustme[${PYTHON_USEDEP}]
 	dev-python/uvicorn[${PYTHON_USEDEP}]
