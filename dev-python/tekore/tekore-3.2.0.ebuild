@@ -18,7 +18,7 @@ SLOT="0"
 
 RDEPEND="
 	>=dev-python/httpx-0.11[${PYTHON_USEDEP}]
-	<dev-python/httpx-0.15[${PYTHON_USEDEP}]
+	<dev-python/httpx-0.17[${PYTHON_USEDEP}]
 "
 
 BDEPEND="test? (
