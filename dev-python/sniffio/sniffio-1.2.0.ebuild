@@ -22,3 +22,8 @@ DEPEND="test? ( dev-python/curio[${PYTHON_USEDEP}] )"
 
 distutils_enable_sphinx docs/source dev-python/sphinxcontrib-trio
 distutils_enable_tests pytest
+
+python_test() {
+	PYTHONPATH="${S}"
+	pytest -vv || die "Tests fail with ${EPYTHON}"
+}
