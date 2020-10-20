@@ -1,23 +1,13 @@
 certificate version 0.1
-pusher torokhov-s-a@yandex.ru 1603144849 +0300
-pushee git+ssh://git.gentoo.org/repo/proj/guru.git
-nonce 1603144849-d55ad9595ee643566b67e11c22f17ae70d7cda30
+pusher 385E3E52 1603176877 +0800
+pushee git.gentoo.org:repo/proj/guru.git
+nonce 1603176876-458b279d63ea1a44fae596e472b710acfec28af6
 
-8932a9e0cad00fa7918ecbbf3eed52609016c443 428658e9f9d2f77aa71767ebabdadbe908ccfc25 refs/heads/dev
+428658e9f9d2f77aa71767ebabdadbe908ccfc25 f5d5eb90c8f3475515abcbc6f56e87d9ebf47602 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iQJLBAABCAA1FiEE9ENucPfUBrMMmlEhZ4eqcTBJFeMFAl+ODJEXHHRvcm9raG92
-LXMtYUB5YW5kZXgucnUACgkQZ4eqcTBJFeMxoRAArPI7DFxqPkKXy69jcoi8kaY3
-KuID+rPRmswQDS/LEPaiVByhDq7IK5jNeiSgt8tFAUv2KeQRw0+PmbY0Y8izYgsA
-87nJ8NPDdY+2qspcdnSbmwjSCmaJ7HCLp31Zghy/dF0JnBQ6s7+/8T8jb4qLPQQv
-RDUkVc2eGS3zpR8bCCAQgFpYWWc/vNWejz/DCTMtB1ADPqIuHNMtFfiBWCVGBpj3
-KgOz1Tn9xQTEvWdBaAfYPudBDjgFrY9ryF8uCMM2xkuvuygFHX0DvSqQVrIpekNQ
-psj1WuwNC66IFQf4ST5/dhVX6tQ/qGJdy5XXou9+PIlIDY4eTyVn+2gnNDbikeJ1
-SvNjwRrwAaTxTSgLh4XRNlzWQBVh7jBFSH6mZzjBOIw4SVTFatKrEgkTtneG3f6u
-73Mmu53CXKcGhtpTJj+ehx20CtMKj4Nd8wGMDZuncg7TujnaxG9IysTG36DPUNq1
-2Rq99aqgGrQiqaiaMS9b9OxFtHpitTrYubOfqatTliHwllGZ61m/bmhbTpqNggTm
-Xb7xj/lyKUfhJ0BBWADZIKWmes+hJ/8zM0RzyGknd6NkaGhaGKLWZPJ/nWDiQygU
-JwulG7lTDhin4ExjIC26hLuWEH8b5lwmDTgAY6sEeC1GI83OcSmx5fdUb6+jd0wv
-h/hmSmizBV08rv+h/Lg=
-=ERsW
+iHUEABYIAB0WIQR+/TuwzxUTAJc40CytTjSoOF4+UgUCX46JrQAKCRCtTjSoOF4+
+UqLGAQDozfRb3bZxgPpTgwb8cHDtH1LsH/hKhkdX0QlErEreVQD/ZDmETtXBh3iJ
+5KCP6/Z8yhbOKssnuaMU179DL8dbhgk=
+=85TJ
 -----END PGP SIGNATURE-----
