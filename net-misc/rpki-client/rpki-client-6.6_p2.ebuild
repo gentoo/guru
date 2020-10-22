@@ -10,7 +10,7 @@ MY_PV="${PV/_p/p}"
 MY_P="${MY_PN}-${MY_PV}"
 
 DESCRIPTION="Portability shim for OpenBSD's rpki-client"
-HOMEPAGE="https://rpki-client.org/"
+HOMEPAGE="https://www.rpki-client.org/"
 SRC_URI="https://github.com/${PN}/${MY_PN}/archive/${MY_PV}.tar.gz -> ${P}.tar.gz"
 EGIT_REPO_URI="https://github.com/${PN}/${PN}-openbsd.git"
 
