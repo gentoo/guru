@@ -352,7 +352,7 @@ sci-libs/jdqz 0_pre19971107-r1 0_pre19971107-r2: Jacobi-Davidson type method for
 sci-libs/meschach 1.2b: Meschach is a C-language library of routines for performing matrix computations.
 sci-libs/saclib 2.2.7-r1 2.2.7-r2: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
-sci-physics/SU2 7.0.6: SU2: An Open-Source Suite for Multiphysics Simulation and Design
+sci-physics/SU2 7.0.6 7.0.7: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
 sys-apps/dust 0.5.3: A more intuitive version of du
 sys-apps/hex 0.1.3 0.3.0: Futuristic take on hexdump
@@ -374,7 +374,7 @@ sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect da
 sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
-sys-fs/gfs2-utils 3.2.0: Shared-disk cluster file system
+sys-fs/gfs2-utils 3.2.0 3.3.0: Shared-disk cluster file system
 sys-kernel/dkms 2.8.3: Dynamic Kernel Module Support
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-libs/libnvidia-container 1.3.0: NVIDIA container runtime library
