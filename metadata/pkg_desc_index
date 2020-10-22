@@ -223,7 +223,7 @@ dev-python/spotipy 2.16.0: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.4.0: Server Sent Events for Starlette
 dev-python/starlette 0.13.8: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
-dev-python/tekore 3.2.0: Spotify Web API client
+dev-python/tekore 3.3.0: Spotify Web API client
 dev-python/timeout-decorator 0.4.1: Timeout decorator
 dev-python/trio 0.14.0 0.15.1 0.17.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
