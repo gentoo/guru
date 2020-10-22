@@ -5,25 +5,18 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_7 )
 
-DISTUTILS_USE_SETUPTOOLS=rdepend
-
 inherit distutils-r1
-
-MYPV="${PV/_beta/b}"
 
 DESCRIPTION="Custom alterations based on Mkdocs-Material"
 HOMEPAGE="
 	https://github.com/facelessuser/mkdocs_pymdownx_material_extras
 	https://pypi.org/project/mkdocs-pymdownx-material-extras"
-SRC_URI="https://github.com/facelessuser/${PN}/archive/${MYPV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/facelessuser/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	dev-python/mkdocs-material[${PYTHON_USEDEP}]
-	>=dev-python/pymdown-extensions-7.0_beta2[${PYTHON_USEDEP}]
+	>=dev-python/mkdocs-material-5.0.2[${PYTHON_USEDEP}]
 "
-
-S="${WORKDIR}/${PN}-${MYPV}"
