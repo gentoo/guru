@@ -250,7 +250,7 @@ dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 dev-vcs/gitqlient 1.2.0 1.3.0_beta 9999: Multi-platform Git client written with Qt
 dev-vcs/lazygit 0.20.9 0.22.9 0.23.1 0.23.1-r1 0.23.6 9999: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.3.5.4: Minecraft launcher which integrates multiple different ModPacks
-games-action/minecraft-launcher 1.6.93 2.1.17627 2.1.17785_beta: An open-world game whose gameplay revolves around breaking and placing blocks
+games-action/minecraft-launcher 1.6.93 2.1.17785: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
@@ -309,7 +309,7 @@ media-tv/droidcam 1.5: Use android phone as webcam, using a v4l device driver an
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
 media-video/kikoplay 0.7.2 9999: KikoPlay is a full-featured danmu player
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
-media-video/syncplay 1.6.6_beta2: Client/server to synchronize media playback
+media-video/syncplay 1.6.6: Client/server to synchronize media playback
 media-video/vidify 2.2.6: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
 net-dialup/tio 1.32: Simple TTY terminal application
