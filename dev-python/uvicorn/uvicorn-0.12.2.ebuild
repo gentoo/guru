@@ -27,15 +27,17 @@ RDEPEND="
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 "
 
-DEPEND="test? (
+BDEPEND="test? (
 	dev-python/colorama[${PYTHON_USEDEP}]
 	dev-python/pytest-mock[${PYTHON_USEDEP}]
 	dev-python/python-dotenv[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
+	dev-python/trustme[${PYTHON_USEDEP}]
 	>=dev-python/uvloop-0.14.0[${PYTHON_USEDEP}]
 	>=dev-python/websockets-8.0[${PYTHON_USEDEP}]
 	dev-python/httptools[${PYTHON_USEDEP}]
 	>=dev-python/watchgod-0.6[${PYTHON_USEDEP}]
+	dev-python/wsproto[${PYTHON_USEDEP}]
 )"
 
 distutils_enable_tests pytest
