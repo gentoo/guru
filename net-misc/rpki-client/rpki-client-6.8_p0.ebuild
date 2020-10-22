@@ -7,7 +7,7 @@ MY_PV="${PV/_p/p}"
 MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="Portability shim for OpenBSD's rpki-client"
-HOMEPAGE="https://rpki-client.org/"
+HOMEPAGE="https://www.rpki-client.org/"
 SRC_URI="mirror://openbsd/${PN}/${PN}-${MY_PV}.tar.gz"
 
 LICENSE="ISC"

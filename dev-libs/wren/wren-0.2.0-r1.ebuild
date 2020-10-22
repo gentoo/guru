@@ -6,7 +6,7 @@ EAPI=7
 inherit toolchain-funcs
 
 DESCRIPTION="The Wren Programming Language"
-HOMEPAGE="http://wren.io/"
+HOMEPAGE="https://wren.io/"
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/wren-lang/${PN}.git"
 	inherit git-r3
