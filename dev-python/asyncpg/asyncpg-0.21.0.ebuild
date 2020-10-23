@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_7 )
+PYTHON_COMPAT=( python3_{7,8} )
 
 inherit distutils-r1
 
@@ -16,8 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 # ModuleNotFoundError: No module named 'asyncpg.protocol.protocol'
-# tests seem to require that the package is already installed,
-# PYTHONPATH workaround does not seem to work here
+# for some reason, still doesn't work if package is already installed
+# or with distutils_install_for_testing function
 RESTRICT="test"
 
 BDEPEND="dev-python/cython[${PYTHON_USEDEP}]"
@@ -25,7 +25,8 @@ BDEPEND="dev-python/cython[${PYTHON_USEDEP}]"
 DEPEND="test? (
 	dev-python/pycodestyle[${PYTHON_USEDEP}]
 	dev-python/flake8[${PYTHON_USEDEP}]
-	dev-python/uvloop[${PYTHON_USEDEP}] )"
+	dev-python/uvloop[${PYTHON_USEDEP}]
+)"
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs dev-python/sphinxcontrib-asyncio dev-python/sphinx_rtd_theme
