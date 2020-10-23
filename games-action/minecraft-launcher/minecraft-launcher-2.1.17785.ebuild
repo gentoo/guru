@@ -26,6 +26,7 @@ RDEPEND="
 	media-libs/alsa-lib
 	media-libs/openal
 	net-libs/gnutls[idn]
+	net-print/cups
 	sys-apps/dbus
 	virtual/jre:1.8
 	virtual/opengl
@@ -43,6 +44,12 @@ RDEPEND="
 "
 
 S="${WORKDIR}/${PN}"
+
+QA_PRESTRIPPED="
+	/opt/minecraft-launcher/libcef.so
+	/opt/minecraft-launcher/liblauncher.so
+	/opt/minecraft-launcher/minecraft-launcher
+"
 
 src_install() {
 	dodir /opt/${PN}
