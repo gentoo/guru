@@ -1,0 +1,66 @@
+diff --git a/custom/conf/app.ini b/custom/conf/app.ini
+--- a/custom/conf/app.ini
++++ b/custom/conf/app.ini
+@@ -1,14 +1,12 @@
+-# !!! NEVER EVER MODIFY THIS FILE !!!
+-# !!! PLEASE MAKE CHANGES ON CORRESPONDING CUSTOM CONFIG FILE !!!
+-# !!! IF YOU ARE PACKAGING PROVIDER, PLEASE MAKE OWN COPY OF IT !!!
++## General config override ##
+ 
+ ; The brand name of the application, can be your company or team name.
+ BRAND_NAME = Gogs
+ ; The system user who should be running the applications. It has no effect on Windows,
+ ; otherwise, it should match the value of $USER environment variable.
+-RUN_USER = git
++RUN_USER = gogs
+ ; The running mode of the application, can be either "dev", "prod" or "test".
+-RUN_MODE = dev
++RUN_MODE = prod
+ 
+ [server]
+ ; The public-facing URL for the application.
+@@ -41,7 +39,7 @@ UNIX_SOCKET_PERMISSION = 666
+ LOCAL_ROOT_URL = %(PROTOCOL)s://%(HTTP_ADDR)s:%(HTTP_PORT)s/
+ 
+ ; Whether to disable using CDN for static files regardless.
+-OFFLINE_MODE = false
++OFFLINE_MODE = true
+ ; Whether to disable logging in router.
+ DISABLE_ROUTER_LOG = true
+ ; Whether to enable application level GZIP compression.
+@@ -91,7 +89,7 @@ DSA     = 1024
+ 
+ [repository]
+ ; The root path for storing managed repositories, default is "~/gogs-repositories"
+-ROOT =
++ROOT = /var/lib/gogs/repositories
+ ; The script type server supports, sometimes could be "sh".
+ SCRIPT_TYPE = bash
+ ; Default ANSI charset for an unrecognized charset.
+@@ -145,7 +143,7 @@ PASSWORD =
+ ; For "postgres" only, either "disable", "require" or "verify-full".
+ SSL_MODE = disable
+ ; For "sqlite3" only, make sure to use absolute path.
+-PATH = data/gogs.db
++PATH = database/gogs.db
+ ; The maximum open connections of the pool.
+ MAX_OPEN_CONNS = 30
+ ; The maximum idle connections of the pool.
+@@ -306,7 +304,7 @@ REPOSITORY_AVATAR_UPLOAD_PATH = data/repo-avatars
+ ; Chinese users can use a custom avatar source, such as http://cn.gravatar.com/avatar/.
+ GRAVATAR_SOURCE = gravatar
+ ; Whether to disable Gravatar, this value will be forced to be true in offline mode.
+-DISABLE_GRAVATAR = false
++DISABLE_GRAVATAR = true
+ ; Whether to enable federated avatar lookup uses DNS to discover avatar associated
+ ; with emails, see https://www.libravatar.org for details.
+ ; This value will be forced to be false in offline mode or when Gravatar is disabled.
+@@ -347,7 +345,7 @@ PAGING_NUM = 10
+ ; General settings of loggers.
+ [log]
+ ; The root path for all log files, default is "log/" subdirectory.
+-ROOT_PATH =
++ROOT_PATH = /var/log/gogs/
+ ; Can be "console", "file", "slack" and "discord".
+ ; Use comma to separate multiple modes, e.g. "console, file"
+ MODE = console
