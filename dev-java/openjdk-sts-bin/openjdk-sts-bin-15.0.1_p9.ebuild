@@ -12,7 +12,7 @@ abi_uri() {
 }
 
 MY_PV=${PV/_p/+}
-SLOT=14
+SLOT=15
 #Some people like AndrewAmmerlaan reports that SLOT="$(ver_cut 1)" is not detected correctly. So I had to hardcode that.
 
 SRC_URI="

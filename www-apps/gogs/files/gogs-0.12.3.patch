@@ -1,7 +1,6 @@
-diff --git a/conf/app.ini b/conf/app.ini
-index f58e60d..0c43a13 100644
---- a/conf/app.ini
-+++ b/conf/app.ini
+diff --git a/custom/conf/app.ini b/custom/conf/app.ini
+--- a/custom/conf/app.ini
++++ b/custom/conf/app.ini
 @@ -1,14 +1,12 @@
 -# !!! NEVER EVER MODIFY THIS FILE !!!
 -# !!! PLEASE MAKE CHANGES ON CORRESPONDING CUSTOM CONFIG FILE !!!

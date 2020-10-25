@@ -15,7 +15,6 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE="nls test"
 
-
 BDEPEND="sys-devel/autoconf
 		sys-devel/automake
 		sys-devel/libtool

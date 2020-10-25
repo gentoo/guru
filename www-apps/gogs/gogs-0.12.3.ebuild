@@ -277,6 +277,7 @@ EGO_SUM=(
 	"github.com/smartystreets/goconvey v0.0.0-20181108003508-044398e4856c/go.mod"
 	"github.com/smartystreets/goconvey v0.0.0-20190330032615-68dc04aab96a/go.mod"
 	"github.com/smartystreets/goconvey v0.0.0-20190731233626-505e41936337/go.mod"
+	"github.com/smartystreets/goconvey v1.6.4/go.mod"
 	"github.com/ssor/bom v0.0.0-20170718123548-6386211fdfcf"
 	"github.com/ssor/bom v0.0.0-20170718123548-6386211fdfcf/go.mod"
 	"github.com/stretchr/objx v0.1.0/go.mod"
@@ -293,8 +294,8 @@ EGO_SUM=(
 	"github.com/syndtr/goleveldb v1.0.0/go.mod"
 	"github.com/t-tiger/gorm-bulk-insert v1.3.0"
 	"github.com/t-tiger/gorm-bulk-insert v1.3.0/go.mod"
-	"github.com/unknwon/cae v1.0.0"
-	"github.com/unknwon/cae v1.0.0/go.mod"
+	"github.com/unknwon/cae v1.0.2"
+	"github.com/unknwon/cae v1.0.2/go.mod"
 	"github.com/unknwon/com v0.0.0-20190804042917-757f69c95f3e/go.mod"
 	"github.com/unknwon/com v1.0.1"
 	"github.com/unknwon/com v1.0.1/go.mod"
@@ -364,7 +365,6 @@ EGO_SUM=(
 	"golang.org/x/sys v0.0.0-20200420163511-1957bb5e6d1f/go.mod"
 	"golang.org/x/text v0.3.0/go.mod"
 	"golang.org/x/text v0.3.1-0.20180807135948-17ff2d5776d2/go.mod"
-	"golang.org/x/text v0.3.2"
 	"golang.org/x/text v0.3.2/go.mod"
 	"golang.org/x/text v0.3.3"
 	"golang.org/x/text v0.3.3/go.mod"
@@ -411,7 +411,6 @@ EGO_SUM=(
 	"gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df"
 	"gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df/go.mod"
 	"gopkg.in/ini.v1 v1.46.0/go.mod"
-	"gopkg.in/ini.v1 v1.55.0"
 	"gopkg.in/ini.v1 v1.55.0/go.mod"
 	"gopkg.in/ini.v1 v1.56.0"
 	"gopkg.in/ini.v1 v1.56.0/go.mod"
@@ -419,10 +418,6 @@ EGO_SUM=(
 	"gopkg.in/ldap.v2 v2.5.1/go.mod"
 	"gopkg.in/macaron.v1 v1.3.4/go.mod"
 	"gopkg.in/macaron.v1 v1.3.5/go.mod"
-	"gopkg.in/macaron.v1 v1.3.6"
-	"gopkg.in/macaron.v1 v1.3.6/go.mod"
-	"gopkg.in/macaron.v1 v1.3.8"
-	"gopkg.in/macaron.v1 v1.3.8/go.mod"
 	"gopkg.in/macaron.v1 v1.3.9"
 	"gopkg.in/macaron.v1 v1.3.9/go.mod"
 	"gopkg.in/redis.v2 v2.3.2"
@@ -432,7 +427,6 @@ EGO_SUM=(
 	"gopkg.in/yaml.v2 v2.2.2/go.mod"
 	"gopkg.in/yaml.v2 v2.2.4/go.mod"
 	"gopkg.in/yaml.v2 v2.2.5/go.mod"
-	"gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c"
 	"gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c/go.mod"
 	"honnef.co/go/tools v0.0.0-20180728063816-88497007e858/go.mod"
 	"honnef.co/go/tools v0.0.0-20190102054323-c2f93a96b099/go.mod"
@@ -454,27 +448,39 @@ LICENSE="Apache-2.0 BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
-IUSE="mysql postgres sqlite pam cert"
+IUSE="cert mysql pam postgres sqlite"
 REQUIRED_USE="|| ( sqlite mysql postgres )"
 PATCHES=( "${FILESDIR}/${P}.patch" )
+
+RESTRICT="mirror"
 
 DEPEND="
 	acct-user/gogs
 	sqlite? ( dev-db/sqlite:3 )
-	"
+"
 
-RDEPEND="${DEPEND}
+RDEPEND="
+	${DEPEND}
 	app-shells/bash
 	dev-vcs/git[curl,threads]
 	virtual/ssh
 	mysql? ( virtual/mysql )
 	pam? ( sys-libs/pam )
 	postgres? ( dev-db/postgresql[pam?] )
-	"
+"
 
 FILECAPS=(
 	cap_net_bind_service+ep usr/bin/gogs
 )
+
+src_prepare() {
+	mkdir -p "${S}/custom/conf/"
+	cp "${S}/conf/app.ini" "${S}/custom/conf/"
+
+	default
+
+	sed -i -e 's:data/gogs.db:database/gogs.db:' "${S}/templates/install.tmpl" || die
+}
 
 src_compile() {
 	GOLANG_PKG_TAGS=""
@@ -486,29 +492,40 @@ src_compile() {
 src_install() {
 	# Install binary
 	dobin gogs
+
 	# Prepare systemd init scripts and install it
 	systemd_dounit "${FILESDIR}/systemd/${PN}.service"
+
 	# Install OpenRC init files
 	newconfd "${FILESDIR}/gogs-confd" gogs
 	newinitd "${FILESDIR}/gogs-initd" gogs
+
 	# Install HTTPS certs
 	if use cert; then
-	 keepdir /etc/${PN}/https
+		keepdir /etc/${PN}/https
 	fi
+
 	# Install configuration files
 	insinto /etc/${PN}/conf
 	insopts -m640
 	doins conf/app.ini
+
+	insinto /etc/${PN}/custom/conf
+	insopts -m640
+	doins custom/conf/app.ini
+
 	# Fix permissions of config files
 	keepdir /etc/${PN}/
 	fperms 775 /etc/${PN}/conf
 	fowners -R gogs:git /etc/${PN}
+
 	# Install theme files
 	insinto /usr/share/themes/${PN}/
 	insopts -m440
 	doins -r public/
 	doins -r templates/
 	fowners -R gogs:git /usr/share/themes/${PN}/
+
 	# Create log directory
 	keepdir /var/log/${PN}
 	fowners -R gogs:git /var/log/${PN}

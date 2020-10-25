@@ -22,7 +22,6 @@ RDEPEND="
 	dev-libs/libbsd
 	dev-libs/libffi
 	dev-libs/libpcre
-	gnome-base/gconf
 	media-libs/alsa-lib
 	media-libs/openal
 	net-libs/gnutls[idn]
