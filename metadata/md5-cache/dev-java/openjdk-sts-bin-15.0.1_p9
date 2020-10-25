@@ -8,7 +8,7 @@ KEYWORDS=~amd64 ~arm ~arm64 ~ppc64
 LICENSE=GPL-2-with-classpath-exception
 RDEPEND=media-libs/fontconfig:1.0 media-libs/freetype:2 >=sys-apps/baselayout-java-0.1.0-r1 >=sys-libs/glibc-2.29-r7:* sys-libs/zlib alsa? ( media-libs/alsa-lib ) cups? ( net-print/cups ) !headless-awt? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXrender x11-libs/libXtst ) >=dev-java/java-config-2.2.0-r3 >=app-eselect/eselect-java-0.4.0
 RESTRICT=preserve-libs splitdebug
-SLOT=14
-SRC_URI=arm? ( https://github.com/AdoptOpenJDK/openjdk14-binaries/releases/download/jdk-14.0.2+12/OpenJDK14U-jdk_arm_linux_hotspot_14.0.2_12.tar.gz ) arm64? ( https://github.com/AdoptOpenJDK/openjdk14-binaries/releases/download/jdk-14.0.2+12/OpenJDK14U-jdk_aarch64_linux_hotspot_14.0.2_12.tar.gz ) ppc64? ( https://github.com/AdoptOpenJDK/openjdk14-binaries/releases/download/jdk-14.0.2+12/OpenJDK14U-jdk_ppc64le_linux_hotspot_14.0.2_12.tar.gz ) amd64? ( https://github.com/AdoptOpenJDK/openjdk14-binaries/releases/download/jdk-14.0.2+12/OpenJDK14U-jdk_x64_linux_hotspot_14.0.2_12.tar.gz )
+SLOT=15
+SRC_URI=arm? ( https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.1+9/OpenJDK15U-jdk_arm_linux_hotspot_15.0.1_9.tar.gz ) arm64? ( https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.1+9/OpenJDK15U-jdk_aarch64_linux_hotspot_15.0.1_9.tar.gz ) ppc64? ( https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.1+9/OpenJDK15U-jdk_ppc64le_linux_hotspot_15.0.1_9.tar.gz ) amd64? ( https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.1+9/OpenJDK15U-jdk_x64_linux_hotspot_15.0.1_9.tar.gz )
 _eclasses_=eapi7-ver	f9ec87e93172b25ce65a85303dc06964	java-vm-2	7cfcabfd055e69d3568103a4e0b0fae7	multilib	98584e405e2b0264d37e8f728327fed1	pax-utils	a41d1fd1c111289ffa04490de6ee79d7	prefix	c2993e4c430c1ee24f278983d6189501	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=4f3058e0379c3bcc7f963439f74a07e2
+_md5_=f6f081a8cdab8a3f336d2e0222acea92
