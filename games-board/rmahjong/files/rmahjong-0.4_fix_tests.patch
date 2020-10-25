@@ -1,0 +1,282 @@
+diff --git a/server/test.py b/server/test.py
+--- a/server/test.py
++++ b/server/test.py
+@@ -25,7 +25,7 @@ from botengine import BotEngine
+ 
+ 
+ def tiles(strs):
+-	return map(Tile, strs)
++	return [*map(Tile, strs)]
+ 
+ 
+ def chi(tile_name):
+@@ -156,52 +156,52 @@ class EvalHandTestCase(TestCase):
+ 			hand, sets, r = h
+ 			score = count_of_tiles_yaku(tiles(hand), sets, [], Tile("XX"), Tile("XX"), "Ron")
+ 			yaku = find_tiles_yaku(tiles(hand), sets, [], Tile("XX"), Tile("XX"), "Ron")
+-			self.assert_(score == r, "Hand %i returned score %i %s hand=%s" % (hand_id, score, yaku, hand))
++			self.assertTrue(score == r, "Hand %i returned score %i %s hand=%s" % (hand_id, score, yaku, hand))
+ 
+ 		hand = [ "WE", "C2", "C3", "C4", "WN", "WN", "WN", "DR", "B9", "DR", "B8", "B7", "WE", "WE" ]
+ 		sets = []
+-		self.assertEquals(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WN"), "Ron"), 2)
+-		self.assertEquals(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WN"), "Tsumo"), 3)
+-		self.assertEquals(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WE"), "Ron"), 2)
+-		self.assertEquals(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WS"), "Ron"), 1)
++		self.assertEqual(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WN"), "Ron"), 2)
++		self.assertEqual(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WN"), "Tsumo"), 3)
++		self.assertEqual(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WE"), "Ron"), 2)
++		self.assertEqual(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WS"), "Ron"), 1)
+ 		hand = [ "WE", "DW", "DW", "DW", "C4", "C2", "C3", "DR", "B9", "DR", "B8", "B7", "WE", "WE" ]
+-		self.assertEquals(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WS"), "Ron"), 2)
++		self.assertEqual(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WS"), "Ron"), 2)
+ 		hand,sets = ([ "C4", "C5", "C6", "C7", "B7", "B8", "B9", "P2", "P3", "P4", "C4"], [kan("WS")])
+-		self.assertEquals(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WS"), "Ron"), 1)
++		self.assertEqual(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WS"), "Ron"), 1)
+ 		hand,sets = ([ "C4", "C5", "C6", "C7", "B7", "B8", "B9", "P2", "P3", "P4", "C4"], [ckan("WS")])
+-		self.assertEquals(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WS"), "Ron"), 1)
++		self.assertEqual(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WS"), "Ron"), 1)
+ 
+ 		hand = [ "WN", "B9", "B6", "WN", "B4", "B8", "B5", "B7"]
+ 		sets = [chi("B1"), chi("P5")]
+-		self.assertEquals(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WW"), "Ron"), 1)
+-		self.assertEquals(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WW"), "Tsumo"), 1)
++		self.assertEqual(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WW"), "Ron"), 1)
++		self.assertEqual(count_of_tiles_yaku(tiles(hand), sets, [], Tile("WE"), Tile("WW"), "Tsumo"), 1)
+ 
+ 	def test_basic_payment(self):
+-		self.assert_(compute_payment(2, 40, "Ron", Tile("WN")) == ("", 2600))
+-		self.assert_(compute_payment(2, 40, "Ron", Tile("WE")) == ("", 3900))
+-		self.assertEquals(compute_payment(2, 40, "Tsumo", Tile("WN")), ("", (700,1300)))
+-		self.assertEquals(compute_payment(2, 40, "Tsumo", Tile("WE")), ("", (1300, 0)))
++		self.assertTrue(compute_payment(2, 40, "Ron", Tile("WN")) == ("", 2600))
++		self.assertTrue(compute_payment(2, 40, "Ron", Tile("WE")) == ("", 3900))
++		self.assertEqual(compute_payment(2, 40, "Tsumo", Tile("WN")), ("", (700,1300)))
++		self.assertEqual(compute_payment(2, 40, "Tsumo", Tile("WE")), ("", (1300, 0)))
+ 
+-		self.assert_(compute_payment(1, 40, "Ron", Tile("WN")) == ("", 1300))
+-		self.assert_(compute_payment(1, 40, "Ron", Tile("WE")) == ("", 2000))
+-		self.assertEquals(compute_payment(1, 40, "Tsumo", Tile("WN")), ("", (400, 700)))
+-		self.assertEquals(compute_payment(1, 40, "Tsumo", Tile("WE")), ("", (700, 0)))
++		self.assertTrue(compute_payment(1, 40, "Ron", Tile("WN")) == ("", 1300))
++		self.assertTrue(compute_payment(1, 40, "Ron", Tile("WE")) == ("", 2000))
++		self.assertEqual(compute_payment(1, 40, "Tsumo", Tile("WN")), ("", (400, 700)))
++		self.assertEqual(compute_payment(1, 40, "Tsumo", Tile("WE")), ("", (700, 0)))
+ 
+-		self.assertEquals(compute_payment(4, 20, "Tsumo", Tile("WN")), ("", (1300, 2600)))
+-		self.assertEquals(compute_payment(4, 20, "Tsumo", Tile("WE")), ("", (2600, 0)))
++		self.assertEqual(compute_payment(4, 20, "Tsumo", Tile("WN")), ("", (1300, 2600)))
++		self.assertEqual(compute_payment(4, 20, "Tsumo", Tile("WE")), ("", (2600, 0)))
+ 
+-		self.assertEquals(compute_payment(3, 20, "Tsumo", Tile("WN")), ("", (700, 1300)))
+-		self.assertEquals(compute_payment(3, 20, "Tsumo", Tile("WE")), ("", (1300, 0)))
++		self.assertEqual(compute_payment(3, 20, "Tsumo", Tile("WN")), ("", (700, 1300)))
++		self.assertEqual(compute_payment(3, 20, "Tsumo", Tile("WE")), ("", (1300, 0)))
+ 
+-		self.assertEquals(compute_payment(5, 40, "Ron", Tile("WN")), ("Mangan", 8000))
+-		self.assertEquals(compute_payment(5, 40, "Ron", Tile("WE")), ("Mangan", 12000))
+-		self.assertEquals(compute_payment(5, 40, "Tsumo", Tile("WN")), ("Mangan", (2000, 4000)))
+-		self.assertEquals(compute_payment(5, 40, "Tsumo", Tile("WE")), ("Mangan", (4000, 0)))
++		self.assertEqual(compute_payment(5, 40, "Ron", Tile("WN")), ("Mangan", 8000))
++		self.assertEqual(compute_payment(5, 40, "Ron", Tile("WE")), ("Mangan", 12000))
++		self.assertEqual(compute_payment(5, 40, "Tsumo", Tile("WN")), ("Mangan", (2000, 4000)))
++		self.assertEqual(compute_payment(5, 40, "Tsumo", Tile("WE")), ("Mangan", (4000, 0)))
+ 
+-		self.assertEquals(compute_payment(13, 40, "Ron", Tile("WN")), ("Yakuman", 32000))
+-		self.assertEquals(compute_payment(13, 40, "Ron", Tile("WE")), ("Yakuman", 48000))
+-		self.assertEquals(compute_payment(13, 40, "Tsumo", Tile("WN")), ("Yakuman", (8000, 16000)))
+-		self.assertEquals(compute_payment(13, 40, "Tsumo", Tile("WE")), ("Yakuman", (16000, 0)))
++		self.assertEqual(compute_payment(13, 40, "Ron", Tile("WN")), ("Yakuman", 32000))
++		self.assertEqual(compute_payment(13, 40, "Ron", Tile("WE")), ("Yakuman", 48000))
++		self.assertEqual(compute_payment(13, 40, "Tsumo", Tile("WN")), ("Yakuman", (8000, 16000)))
++		self.assertEqual(compute_payment(13, 40, "Tsumo", Tile("WE")), ("Yakuman", (16000, 0)))
+ 
+ 	def test_tenpai(self):
+ 		hands = (([ "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B9", "P1", "P1", "P1", "WN"], [], True, ["WN"]),
+@@ -215,10 +215,10 @@ class EvalHandTestCase(TestCase):
+ 						([ "P1", "P2", "P3", "DR", "DR", "DR", "B7", "B9", "WN", "WN"], [ pon("P1") ], True, ["B8"]))
+ 
+ 		for h, sets, tenpai, w in hands:
+-			self.assertEquals(hand_in_tenpai(tiles(h), sets), tenpai)
++			self.assertEqual(hand_in_tenpai(tiles(h), sets), tenpai)
+ 			waiting = [ t.name for t in find_waiting_tiles(tiles(h), sets) ]
+ 			waiting.sort()
+-			self.assertEquals(waiting, w)
++			self.assertEqual(waiting, w)
+ 
+ 	def test_riichi(self):
+ 		hands = (([ "P5", "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B9", "P1", "P1", "P1", "WN"], [], True),
+@@ -229,7 +229,7 @@ class EvalHandTestCase(TestCase):
+ 					([ "P4", "P4", "P4", "C6", "C4", "C5", "B7", "B6", "B8", "B8", "DR" ], [ ckan("WE") ], True),	
+ 					([ "P4", "P4", "C6", "P3", "C5", "B7", "B6", "P1", "DR", "B8", "DR" ], [ ckan("WE") ], False))
+ 		for h, sets, riichi in hands:
+-			self.assertEquals(riichi_test(tiles(h), sets), riichi, [h,sets])
++			self.assertEqual(riichi_test(tiles(h), sets), riichi, [h,sets])
+ 
+ 	def test_singlewait(self):
+ 		# Last tile in the list comes last
+@@ -242,21 +242,21 @@ class EvalHandTestCase(TestCase):
+ 				([  "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B9", "P1", "P1", "P3", "P1", "P2"], [], True),
+ 				([  "B1", "B2", "B3", "C8", "C8", "C8", "DW", "DW", "DW", "P4", "P4", "P1", "P2", "P3"], [], True))
+ 		for h, sets, singlewait in hands:
+-			self.assertEquals(check_single_waiting(tiles(h), sets), singlewait)
++			self.assertEqual(check_single_waiting(tiles(h), sets), singlewait)
+ 
+ 
+ 	def test_score(self):
+ 		hand = [ "WN", "B9", "B6", "WN", "B4", "B8", "B5", "B7"]
+ 		sets = [chi("B1"), chi("P5")]
+ 		payment, scores, minipoints = compute_score(tiles(hand), sets, "Ron", ([], [ Tile("B7") ]), [], Tile("WE"), Tile("WW"))
+-		self.assertEquals(payment, ('', 2000))
+-		self.assertEquals(minipoints, 30)
++		self.assertEqual(payment, ('', 2000))
++		self.assertEqual(minipoints, 30)
+ 
+ 		hand = [ "C2", "C2", "C4", "C4", "C7", "C7", "B6", "B8", "B8", "C1", "C1", "WS", "WS", "B6"]
+ 		sets = []
+ 		payment, scores, minipoints = compute_score(tiles(hand), sets, "Ron", ([ Tile("C7") ], [ Tile("B5") ]), [], Tile("WS"), Tile("WW"))
+-		self.assertEquals(payment, ('', 6400))
+-		self.assertEquals(minipoints, 25)
++		self.assertEqual(payment, ('', 6400))
++		self.assertEqual(minipoints, 25)
+ 
+ 
+ class BotEngineTestCase(TestCase):
+@@ -272,9 +272,9 @@ class BotEngineTestCase(TestCase):
+ 			e.set_wall(4 * all_tiles)
+ 			e.question_discard()
+ 			action = e.get_string()
+-			self.assert_(action == "Discard")
++			self.assertTrue(action == "Discard")
+ 			tile = e.get_tile()
+-			self.assert_(tile in h)
++			self.assertTrue(tile in h)
+ 		finally:
+ 			e.shutdown()
+ 
+@@ -289,9 +289,9 @@ class BotEngineTestCase(TestCase):
+ 			e.set_wall(4 * all_tiles)
+ 			e.question_discard()
+ 			action = e.get_string()
+-			self.assert_(action == "Discard")
++			self.assertTrue(action == "Discard")
+ 			tile = e.get_tile()
+-			self.assert_(tile in h)
++			self.assertTrue(tile in h)
+ 		finally:
+ 			e.shutdown()
+ 
+@@ -308,7 +308,7 @@ class BotEngineTestCase(TestCase):
+ 				e.set_sets(sets)
+ 				e.question_yaku()
+ 				score = e.get_int() 
+-				self.assert_(score == r, "Hand %i returned score %i" % (hand_id, score))
++				self.assertTrue(score == r, "Hand %i returned score %i" % (hand_id, score))
+ 		
+ 		finally:
+ 			e.shutdown()
+@@ -324,23 +324,23 @@ class BotEngineTestCase(TestCase):
+ 			e.set_round_wind(Tile("WE"))
+ 			e.set_player_wind(Tile("WN"))
+ 			e.question_yaku()
+-			self.assertEquals(e.get_int(), 2)
++			self.assertEqual(e.get_int(), 2)
+ 
+ 			e.set_round_wind(Tile("WE"))
+ 			e.set_player_wind(Tile("WE"))
+ 			e.question_yaku()
+-			self.assertEquals(e.get_int(), 2)
++			self.assertEqual(e.get_int(), 2)
+ 
+ 			e.set_round_wind(Tile("WE"))
+ 			e.set_player_wind(Tile("WS"))
+ 			e.question_yaku()
+-			self.assertEquals(e.get_int(), 1)
++			self.assertEqual(e.get_int(), 1)
+ 
+ 			e.set_sets([ pon("DW") ])
+ 			e.set_round_wind(Tile("WE"))
+ 			e.set_player_wind(Tile("WS"))
+ 			e.question_yaku()
+-			self.assertEquals(e.get_int(), 2)
++			self.assertEqual(e.get_int(), 2)
+ 
+ 		finally:
+ 			e.shutdown()
+@@ -357,7 +357,7 @@ class BotEngineTestCase(TestCase):
+ 			e.set_wall(wall)
+ 			e.question_discard_tiles()
+ 			tile_list = e.get_tiles()
+-			self.assertEquals(tile_list, [Tile("B1"), Tile("B1"), Tile("B1")])
++			self.assertEqual(tile_list, [Tile("B1"), Tile("B1"), Tile("B1")])
+ 		finally:
+ 			e.shutdown()
+ 
+@@ -373,7 +373,7 @@ class BotEngineTestCase(TestCase):
+ 			e.set_wall(wall)
+ 			e.question_discard_tiles()
+ 			tile_list = e.get_tiles()
+-			self.assertEquals(tile_list, [Tile("DR")])
++			self.assertEqual(tile_list, [Tile("DR")])
+ 		finally:
+ 			e.shutdown()
+ 
+@@ -394,12 +394,12 @@ class BotEngineTestCase(TestCase):
+ 			e.set_wall(wall)
+ 			e.question_discard_tiles()
+ 			tile_list = e.get_tiles()
+-			self.assertEquals(tile_list, [Tile("P4")])
++			self.assertEqual(tile_list, [Tile("P4")])
+ 			h = tiles([ "C8", "C8", "C2", "C2", "C3", "C3", "B2", "B2", "B4", "B4", "P1", "P4", "B5", "B5" ])
+ 			e.set_hand(h)
+ 			e.question_discard_tiles()
+ 			tile_list = e.get_tiles()
+-			self.assertEquals(tile_list, [Tile("P1")])
++			self.assertEqual(tile_list, [Tile("P1")])
+ 
+ 			wall = 3 * all_tiles
+ 			wall.remove(Tile("WW"))
+@@ -411,7 +411,7 @@ class BotEngineTestCase(TestCase):
+ 			e.set_hand(h)
+ 			e.question_discard_tiles()
+ 			tile_list = e.get_tiles()
+-			self.assertEquals(tile_list, [Tile("C9")])
++			self.assertEqual(tile_list, [Tile("C9")])
+ 
+ 		finally:
+ 			e.shutdown()
+@@ -429,18 +429,18 @@ class BotEngineTestCase(TestCase):
+ 			e.question_discard()
+ 
+ 			action = e.get_string()
+-			self.assert_(action == "Kan")
++			self.assertTrue(action == "Kan")
+ 			tile = e.get_tile()
+-			self.assertEquals(tile, Tile("P9"))
++			self.assertEqual(tile, Tile("P9"))
+ 
+ 			h = tiles([ "C1", "C2", "C3", "P9", "B1", "B1", "B1", "P1", "P3", "DR", "DR" ])
+ 			e.set_hand(h)
+ 			e.set_sets([pon("P9")])
+ 			e.question_discard()
+ 			action = e.get_string()
+-			self.assert_(action == "Kan")
++			self.assertTrue(action == "Kan")
+ 			tile = e.get_tile()
+-			self.assertEquals(tile, Tile("P9"))
++			self.assertEqual(tile, Tile("P9"))
+ 
+ 
+ 			h = tiles([ "C1", "C2", "C3", "P9", "P9", "P9", "P9", "P7", "P8",  "P1", "P3", "DR", "DR", "C5" ])
+@@ -448,9 +448,9 @@ class BotEngineTestCase(TestCase):
+ 			e.set_sets([])
+ 			e.question_discard()
+ 			action = e.get_string()
+-			self.assert_(action == "Discard")
++			self.assertTrue(action == "Discard")
+ 			tile = e.get_tile()
+-			self.assertEquals(tile, Tile("C5"))
++			self.assertEqual(tile, Tile("C5"))
+ 
+ 		finally:
+ 			e.shutdown()

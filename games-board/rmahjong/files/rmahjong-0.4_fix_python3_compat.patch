@@ -1,0 +1,87 @@
+diff --git a/client/client.py b/client/client.py
+--- a/client/client.py
++++ b/client/client.py
+@@ -138,10 +138,10 @@ class Mahjong:
+ 
+ 	def init_player_boxes(self, names, player_winds, score):
+ 		self.player_boxes = [
+-			PlayerBox((50, 700), names[0], player_winds[0], int(score[0]), direction_up, (0,-80)),
+-			PlayerBox((954, 50), names[1], player_winds[1], int(score[1]), direction_left, (-210, 0)),
+-			PlayerBox((700, 0), names[2], player_winds[2], int(score[2]), direction_up, (0,80)),
+-			PlayerBox((0, 50), names[3], player_winds[3], int(score[3]), direction_right, (80,0)) ]
++			PlayerBox((50, 700), names[0], player_winds[0], int(float(score[0])), direction_up, (0,-80)),
++			PlayerBox((954, 50), names[1], player_winds[1], int(float(score[1])), direction_left, (-210, 0)),
++			PlayerBox((700, 0), names[2], player_winds[2], int(float(score[2])), direction_up, (0,80)),
++			PlayerBox((0, 50), names[3], player_winds[3], int(float(score[3])), direction_right, (80,0)) ]
+ 		for widget in self.player_boxes:
+ 			self.gui.add_widget(widget)
+ 
+diff --git a/client/states.py b/client/states.py
+--- a/client/states.py
++++ b/client/states.py
+@@ -555,8 +555,8 @@ class ScoreState(RoundPreparingState):
+ 		results = []
+ 		for wind in winds:
+ 			name = (self.mahjong.get_player_name(wind))
+-			score = (int(self.message[wind + "_score"]))
+-			payment = (int(self.message[wind + "_payment"]))
++			score = (int(float(self.message[wind + "_score"])))
++			payment = (int(float(self.message[wind + "_payment"])))
+ 			results.append((name, score, payment))
+ 		results.sort(key = lambda r: r[1], reverse = True)
+ 		return results
+diff --git a/client/tilepainter.py b/client/tilepainter.py
+--- a/client/tilepainter.py
++++ b/client/tilepainter.py
+@@ -89,7 +89,7 @@ class TilePainter:
+ 			img = self.tile_images[name]
+ 			w = img.get_width()
+ 			h = img.get_height()
+-			screen.blit(pygame.transform.smoothscale(img, (w/4, h/4)), position)
++			screen.blit(pygame.transform.smoothscale(img, (w//4, h//4)), position)
+ 
+ 	def draw_tile_list(self, screen, position, tile_names, space = 0):
+ 		for i, tile_name in enumerate(tile_names):
+diff --git a/server/botengine.py b/server/botengine.py
+index 03623f9..b128135 100644
+--- a/server/botengine.py
++++ b/server/botengine.py
+@@ -71,7 +71,7 @@ class BotEngine():
+ 
+ 	def get_tiles(self, blocking = False):
+ 		if self._is_next_line() or blocking:
+-			return map(Tile, (self._read_line().strip().split()))
++			return [*map(Tile, (self._read_line().strip().split()))]
+ 		else:
+ 			return None
+ 
+diff --git a/server/eval.py b/server/eval.py
+index 042ee54..dc7e463 100644
+--- a/server/eval.py
++++ b/server/eval.py
+@@ -19,6 +19,7 @@ from tile import Pon, Chi
+ from tile import red_dragon, white_dragon, green_dragon, dragons
+ from tile import bamboos, chars, pins, all_tiles, honors
+ from copy import copy
++import functools
+ 
+ def is_hand_open(sets):
+ 	for set in sets:
+@@ -274,7 +275,7 @@ def eval_sets(pair, sets, round_wind, player_wind, last_tile, wintype):
+ 	# Other hands
+ 	for name, fn in score_functions:
+ 		score = fn(pair, sets)
+-		if score > 0:
++		if score:
+ 			result.append((name, score))
+ 
+ 	# Pinfu
+@@ -304,7 +305,7 @@ def eval_sets(pair, sets, round_wind, player_wind, last_tile, wintype):
+ 
+ 
+ def sum_over_sets(sets, fn):
+-	return reduce(lambda a, s: fn(s) + a, sets, 0)
++	return functools.reduce(lambda a, s: fn(s) + a, sets, 0)
+ 
+ def for_all_tiles_in_sets(sets, fn):
+ 	return for_all_sets(sets, lambda s: s.all_tiles(fn))
