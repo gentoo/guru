@@ -6,7 +6,7 @@ EAPI=7
 PYTHON_COMPAT=(python3_{7,8})
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-inherit eutils distutils-r1 optfeature
+inherit distutils-r1 optfeature
 
 DESCRIPTION="Download image galleries and collections from several image hosting sites"
 HOMEPAGE="https://github.com/mikf/gallery-dl"
@@ -14,33 +14,26 @@ HOMEPAGE="https://github.com/mikf/gallery-dl"
 if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/mikf/${PN}.git"
-	KEYWORDS=""
 else
 	SRC_URI="https://github.com/mikf/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
+# tests require network access
 RESTRICT="test"
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="bash-completion zsh-completion"
 
 RDEPEND="
 	>=dev-python/requests-2.11.0[${PYTHON_USEDEP}]
 "
 
-# tests require network access
 distutils_enable_tests setup.py
 
 src_compile() {
-	if use bash-completion || use zsh-completion
-	then
-		emake completion
-	fi
-
+	emake data/completion/gallery-dl
+	emake data/completion/_gallery-dl
 	emake man
-
-	# this will install shell completion and man pages generated above (if any)
 	distutils-r1_src_compile
 }
 
