@@ -38,7 +38,6 @@ RDEPEND="
 		dev-python/pyopengl[${PYTHON_MULTI_USEDEP}]
 	')
 "
-DEPEND="test? ( dev-python/unittest2 )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.4_fix_python3_compat.patch"
@@ -62,7 +61,7 @@ src_compile() {
 }
 
 src_test() {
-	cd "${S}/server/" && python3 test.py
+	cd "${S}/server/" && python3 test.py -v
 }
 
 src_install() {
@@ -79,5 +78,5 @@ src_install() {
 
 	dobin "rmahjong"
 	doicon -s 48 "${DISTDIR}/kmahjongg_${PN}.png"
-	make_desktop_entry "${PN}" "RMahjong" "kmahjongg_${PN}.png" "Game;BoardGame;" || die "Failed making desktop entry!"
+	make_desktop_entry "${PN}" "RMahjong" "kmahjongg_${PN}" "Game;BoardGame;" || die "Failed making desktop entry!"
 }

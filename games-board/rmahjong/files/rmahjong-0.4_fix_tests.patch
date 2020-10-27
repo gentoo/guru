@@ -1,3 +1,17 @@
+diff a/server/botengine.py b/server/botengine.py
+--- a/server/botengine.py
++++ b/server/botengine.py
+@@ -53,7 +53,10 @@
+ 
+ 	def shutdown(self):
+ 		self.thread.thread_quit = True
++		self.process.stdin.close()
++		self.process.stdout.close()
+ 		self.process.terminate()
++		self.process.wait()
+ 		#self._write("QUIT\n")
+ 		#self.join()
+ 
 diff --git a/server/test.py b/server/test.py
 --- a/server/test.py
 +++ b/server/test.py
