@@ -13,9 +13,7 @@ SLOT="0"
 KEYWORDS=""
 
 DEPEND="
-	media-libs/alsa-lib
-	media-libs/freeglut
-	media-libs/mesa
+	media-video/pipewire:=
 	dev-libs/wayland
 "
 RDEPEND="${DEPEND}"
