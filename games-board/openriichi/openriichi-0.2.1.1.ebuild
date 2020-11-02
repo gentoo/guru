@@ -24,15 +24,11 @@ RESTRICT="mirror"
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 RDEPEND="
-	dev-libs/glib
-	dev-libs/gobject-introspection
 	dev-libs/libgee:0.8
 	media-libs/glew:0
 	media-libs/libsdl2[haptic,joystick,opengl,sound,threads,video]
 	media-libs/sdl2-image[jpeg,png,tiff,webp]
 	media-libs/sdl2-mixer
-	sys-libs/glibc
-	sys-libs/zlib
 	x11-libs/gtk+:3
 	x11-libs/pango
 "
