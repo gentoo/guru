@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>torokhov-s-a@yandex.ru</email>
+		<name>Sergey Torokhov</name>
+	</maintainer>
+	<longdescription>
+		OpenRiichi is an open source Japanese Mahjong client written in the Vala programming language.
+		It supports singleplayer and multiplayer, with or without bots.
+		It features all the standard riichi rules, as well as some optional ones.
+		It also supports game logging, so games can be viewed again.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">FluffyStuff/OpenRiichi</remote-id>
+	</upstream>
+</pkgmetadata>
