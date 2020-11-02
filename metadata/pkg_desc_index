@@ -95,7 +95,7 @@ dev-games/surgescript 0.5.4.3 9999: scripting language made for opensurge
 dev-java/openjdk-sts-bin 15.0.1_p9: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
-dev-lang/gleam 0.11.2: gleam
+dev-lang/gleam 0.11.2 0.12.0: A statically typed functional language for the BEAM
 dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
 dev-libs/cgicc 3.2.19: A C++ class library for writing CGI applications
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
@@ -306,6 +306,8 @@ media-sound/ibniz 1.18: virtual machine designed for extremely compact low-level
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/scream 3.6 9999: Plays sound received from network or from a QEMU Windows VM
 media-sound/sndio 1.7.0: small audio and MIDI framework part of the OpenBSD project
+media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
+media-sound/wlavu 9999: Wayland ALSA VU-meter with peaking and optional support for wlr-layer-shell
 media-sound/zita-ajbridge 0.8.4: zita-a2j and zita-j2a - bridges between ALSA and JACK
 media-tv/droidcam 1.5: Use android phone as webcam, using a v4l device driver and app
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
