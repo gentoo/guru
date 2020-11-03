@@ -1,0 +1,13 @@
+BDEPEND=>=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure prepare
+DEPEND=dev-libs/octetos-db-abstract dev-db/mariadb-connector-c
+DESCRIPTION=C++ library for Database Acces.
+EAPI=7
+HOMEPAGE=https://github.com/azaeldevel/octetos-db-maria
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=dev-libs/octetos-db-abstract dev-db/mariadb-connector-c
+SLOT=0
+SRC_URI=https://github.com/azaeldevel/octetos-db-maria/archive/1.4.2-alpha.tar.gz -> octetos-db-maria-1.4.2_alpha.tar.gz
+_eclasses_=autotools	7d999b62b8749fad43fff00620cedf47	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	98584e405e2b0264d37e8f728327fed1	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
+_md5_=ba99876d40054214d1e2bfe4cf9d77fa
