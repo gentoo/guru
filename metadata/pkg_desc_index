@@ -360,6 +360,7 @@ sci-libs/saclib 2.2.7-r1 2.2.7-r2: Reference implementations of algorithms and f
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
 sci-physics/SU2 7.0.6 7.0.7: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
+sys-apps/drm_info 2.2.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3: A more intuitive version of du
 sys-apps/hex 0.1.3 0.3.0: Futuristic take on hexdump
 sys-apps/procs 0.10.1: A modern replacement for ps
