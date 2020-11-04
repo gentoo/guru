@@ -142,7 +142,7 @@ dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
 dev-python/curio 0.9 1.4: Curio is a coroutine-based library for concurrent systems programming
 dev-python/databases 0.3.2: Async database support for Python.
 dev-python/dateparser 0.7.4: Date parsing library designed to parse dates from HTML pages
-dev-python/devtools 0.6: Dev tools for python
+dev-python/devtools 0.6.1: Dev tools for python
 dev-python/doxypypy 0.8.8.6: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/factory_boy 2.12.0-r1 3.0.1: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11: Up to date simple useragent faker with real world database
@@ -154,7 +154,7 @@ dev-python/graphene 3.0.0_beta5: GraphQL Framework for Python
 dev-python/graphql-core 3.1.1: GraphQL for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
 dev-python/hidapi 0.9.0_p3: A Cython interface to the hidapi
-dev-python/hstspreload 2020.10.6: Chromium HSTS Preload list as a Python package
+dev-python/hstspreload 2020.10.20: Chromium HSTS Preload list as a Python package
 dev-python/httpcore 0.10.1: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/httpx 0.11.1 0.13.3 0.16.1: A next generation HTTP client for Python
@@ -167,7 +167,7 @@ dev-python/libusb1 1.8: Pure-python wrapper for libusb-1.0
 dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/markdown-include 0.5.1: Syntax which allows for inclusion of contents of other Markdown docs
 dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your output
-dev-python/mkdocs-git-revision-date-localized-plugin 0.7.2: Display the localized date of the last git modification of a markdown file
+dev-python/mkdocs-git-revision-date-localized-plugin 0.7.3: Display the localized date of the last git modification of a markdown file
 dev-python/mkdocs-material 4.6.3 5.0.0_rc2 5.2.3 5.3.3 6.1.0: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.0.1: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.3.0: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
@@ -220,7 +220,7 @@ dev-python/sphinxcontrib-katex 0.6.0 0.6.1: KaTeX Sphinx extension for rendering
 dev-python/sphinxcontrib-napoleon 0.7: Allow a different format in dosctrings for better clarity
 dev-python/sphinxcontrib-trio 1.1.2: Make Sphinx better at documenting Python functions and methods
 dev-python/sphobjinv 2.0.1: Sphinx objects.inv Inspection/Manipulation Tool
-dev-python/spotipy 2.16.0: A light weight Python library for the Spotify Web API
+dev-python/spotipy 2.16.1: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.4.0: Server Sent Events for Starlette
 dev-python/starlette 0.13.8: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
