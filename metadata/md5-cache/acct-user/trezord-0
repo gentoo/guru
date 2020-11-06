@@ -4,5 +4,5 @@ EAPI=7
 KEYWORDS=~amd64 ~x86
 RDEPEND=acct-group/plugdev
 SLOT=0
-_eclasses_=acct-user	4e8cbda4e2f81e96d4113bcf7547e6ba	user	7d67a631c7e23b5232db99bca019ebaf	user-info	a2abd4e2f4c3b9b06d64bf1329359a02
+_eclasses_=acct-user	4e8cbda4e2f81e96d4113bcf7547e6ba	user	b0a0d4ca9e3f79c38f8f4143b8d5a2d8	user-info	a2abd4e2f4c3b9b06d64bf1329359a02
 _md5_=4f9046e345fb796023a9ea976170555b
