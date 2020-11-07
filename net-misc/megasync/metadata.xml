@@ -6,4 +6,11 @@
 		<name>Samuel Bernardo</name>
 		<description>megasync client from mega.nz</description>
 	</maintainer>
+	<use>
+		<flag name='dolphin'>Upload your files to your Mega account from Dolphin file manager.</flag>
+		<flag name='nautilus'>Upload your files to your Mega account from nautilus.</flag>
+		<flag name='thunar'>Upload your files to your Mega account from Thunar.</flag>
+		<flag name='cryptopp'>Compile with Crypto++ Library.</flag>
+		<flag name='freeimage'>Use freeimage to manage graphic images format.</flag>
+	</use>
 </pkgmetadata>

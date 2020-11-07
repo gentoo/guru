@@ -22,51 +22,41 @@ fi
 
 LICENSE="MEGA"
 SLOT="0"
-IUSE="dolphin nautilus thunar +cryptopp +sqlite +zlib +curl freeimage readline examples threads qt5 java php python gnome"
+IUSE="dolphin nautilus thunar +cryptopp +sqlite +zlib +curl freeimage readline examples threads java php python gnome"
 
 DEPEND="
 	dev-lang/swig
 	app-doc/doxygen
 	media-libs/libmediainfo
 	media-libs/libraw
-	!qt5? ( 
-		dev-qt/qtcore:4
-		dev-qt/qtgui:4
-		dev-qt/qtdbus:4
-		dev-libs/sni-qt
-		dev-qt/qtimageformats:5
-		dev-qt/qtsvg:5
-		)
-	qt5? ( 
-		dev-qt/qtcore:5
-		dev-qt/linguist-tools
-		dev-qt/qtwidgets:5
-		dev-qt/qtgui:5
-		dev-qt/qtconcurrent:5
-		dev-qt/qtnetwork:5
-		dev-qt/qtdbus:5
-		dev-qt/qtimageformats:5
-		dev-qt/qtsvg:5
-		)"
+	dev-qt/qtcore:5
+	dev-qt/linguist-tools
+	dev-qt/qtwidgets:5
+	dev-qt/qtgui:5
+	dev-qt/qtconcurrent:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtdbus:5
+	dev-qt/qtimageformats:5
+	dev-qt/qtsvg:5"
 RDEPEND="${DEPEND}
-		x11-themes/hicolor-icon-theme
-		dev-libs/openssl
-		dev-libs/libgcrypt
-		media-libs/libpng
-		net-dns/c-ares
-		cryptopp? ( dev-libs/crypto++ )
-		app-arch/xz-utils
-		dev-libs/libuv
-		sqlite? ( dev-db/sqlite:3 )
-		dev-libs/libsodium
-		zlib? ( sys-libs/zlib )
-		curl? ( net-misc/curl[ssl,curl_ssl_openssl] )
-		freeimage? ( media-libs/freeimage )
-		readline? ( sys-libs/readline:0 )
-		dolphin? ( kde-apps/dolphin )
-		nautilus? ( >=gnome-base/nautilus-3 )
-		thunar? ( xfce-base/thunar )
-		"
+	x11-themes/hicolor-icon-theme
+	dev-libs/openssl
+	dev-libs/libgcrypt
+	media-libs/libpng
+	net-dns/c-ares
+	cryptopp? ( dev-libs/crypto++ )
+	app-arch/xz-utils
+	dev-libs/libuv
+	sqlite? ( dev-db/sqlite:3 )
+	dev-libs/libsodium
+	zlib? ( sys-libs/zlib )
+	curl? ( net-misc/curl[ssl,curl_ssl_openssl] )
+	freeimage? ( media-libs/freeimage )
+	readline? ( sys-libs/readline:0 )
+	dolphin? ( kde-apps/dolphin )
+	nautilus? ( >=gnome-base/nautilus-3 )
+	thunar? ( xfce-base/thunar )
+	"
 
 PATCHES=( )
 
@@ -116,15 +106,9 @@ src_configure(){
 		MEGA.pro
 		CONFIG+="release"
 	)
-	if use qt5; then
-		eqmake5 ${myeqmakeargs[@]}
-		use dolphin && cmake-utils_src_configure
-		$(qt5_get_bindir)/lrelease MEGASync/MEGASync.pro
-	else
-		eqmake4 ${myeqmakeargs[@]}
-		use dolphin && cmake-utils_src_configure
-		$(qt4_get_bindir)/lrelease MEGASync/MEGASync.pro
-	fi
+	eqmake5 ${myeqmakeargs[@]}
+	use dolphin && cmake-utils_src_configure
+	$(qt5_get_bindir)/lrelease MEGASync/MEGASync.pro
 }
 
 src_compile(){
