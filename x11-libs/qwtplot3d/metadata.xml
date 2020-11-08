@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="project">
-		<email>sci@gentoo.org</email>
-		<name>Gentoo Science Project</name>
+	<maintainer type="person">
+		<email>andrewammerlaan@riseup.net</email>
+		<name>Andrew Ammerlaan</name>
 	</maintainer>
 	<longdescription lang="en">
 		QwtPlot3D is a graphics extension to the Qt GUI application framework.
