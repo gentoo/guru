@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit fcaps meson
+inherit fcaps meson toolchain-funcs
 
 DESCRIPTION="Swaylock, with fancy effects"
 HOMEPAGE="https://github.com/mortie/swaylock-effects"
@@ -23,7 +23,7 @@ LICENSE="MIT"
 SLOT="0"
 IUSE="fish-completion +gdk-pixbuf +man +pam zsh-completion"
 
-RESTRICT="mirror"
+RESTRICT="mirror test"
 
 DEPEND="
 	!gui-apps/swaylock
@@ -52,6 +52,10 @@ src_configure() {
 	)
 
 	meson_src_configure
+}
+
+pkg_setup() {
+	[ $(gcc-major-version) -ge 9 ] || die "This package needs to be built with GCC >=9"
 }
 
 pkg_postinst() {
