@@ -27,7 +27,7 @@ DEPEND="${RDEPEND}"
 
 IUSE="+bar +dmenu +grid"
 
-RESTRICT="mirror"
+RESTRICT="mirror test"
 
 src_configure() {
 	meson_src_configure $(meson_use bar) $(meson_use dmenu) $(meson_use grid)

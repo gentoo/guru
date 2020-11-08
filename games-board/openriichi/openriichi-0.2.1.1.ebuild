@@ -39,6 +39,9 @@ src_prepare() {
 	default
 	mv -T "${WORKDIR}/Engine-${Engine_sha}" "${S}/Engine" || die
 
+	#switch vsync ON by default
+	sed -i -e "s/v_sync = OnOffEnum.OFF/v_sync = OnOffEnum.ON/" "${S}/source/Game/Options.vala" || die
+
 	vala_src_prepare
 }
 
