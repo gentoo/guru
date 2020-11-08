@@ -362,6 +362,7 @@ sci-libs/meschach 1.2b: Meschach is a C-language library of routines for perform
 sci-libs/saclib 2.2.7-r1 2.2.7-r2: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
 sci-physics/SU2 7.0.6 7.0.7: SU2: An Open-Source Suite for Multiphysics Simulation and Design
+sci-visualization/scidavis 2.3.0: Application for Scientific Data Analysis and Visualization
 sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
 sys-apps/drm_info 2.2.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3: A more intuitive version of du
@@ -403,6 +404,8 @@ x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-libs/gtk-fortran 19.04 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
 x11-libs/kcolorpicker 0.1.2 0.1.4: Qt based Color Picker with popup menu
 x11-libs/kimageannotator 0.2.1 0.3.1 0.3.2: Tool for annotating images
+x11-libs/qwt5-qt5 5.2.3_p20200902: 2D plotting library for Qt5
+x11-libs/qwtplot3d 0.2.7: 3D plotting library for Qt5
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial videos
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system

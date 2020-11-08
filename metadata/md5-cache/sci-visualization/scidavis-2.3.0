@@ -1,0 +1,16 @@
+BDEPEND=doc? ( app-doc/doxygen ) test? ( dev-libs/unittest++ )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup
+DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Application for Scientific Data Analysis and Visualization
+EAPI=7
+HOMEPAGE=http://scidavis.sourceforge.net/
+IUSE=assistant doc origin python test python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-cpp/muParser dev-qt/qtgui:5 dev-qt/qtopengl:5 sci-libs/gsl sys-libs/zlib[minizip] x11-libs/qwt5-qt5:5 x11-libs/qwtplot3d assistant? ( dev-qt/assistant ) origin? ( sci-libs/liborigin ) python? ( python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_7? ( dev-python/PyQt5[python_targets_python3_7(-)] dev-python/PyQt5-sip[python_targets_python3_7(-)] dev-python/sip[python_targets_python3_7(-)] ) python_single_target_python3_8? ( dev-python/PyQt5[python_targets_python3_8(-)] dev-python/PyQt5-sip[python_targets_python3_8(-)] dev-python/sip[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/PyQt5[python_targets_python3_9(-)] dev-python/PyQt5-sip[python_targets_python3_9(-)] dev-python/sip[python_targets_python3_9(-)] ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 ) )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://sourceforge/scidavis/SciDAVis/2/2.3/scidavis-2.3.0.tar.gz
+_eclasses_=estack	686eaab303305a908fd57b2fd7617800	multilib	98584e405e2b0264d37e8f728327fed1	python-single-r1	d3100de905f978df912135806cf27188	python-utils-r1	e41e32d357e5bdd388b5be2ce24f3883	qmake-utils	4eb5e05ef7ee630c003e3f0edc094135	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_md5_=903e74d33b2627d6a362cb57aa8376c3
