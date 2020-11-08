@@ -5,8 +5,6 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7,8,9} )
 
-DISTUTILS_USE_SETUPTOOLS=rdepend
-
 inherit distutils-r1
 
 DESCRIPTION="unittest subTest() support and subtests fixture"
@@ -23,15 +21,6 @@ RDEPEND="
 "
 
 distutils_enable_tests pytest
-
-python_prepare_all() {
-	#https://github.com/pytest-dev/pytest-subtests/issues/21
-	# Failed: nomatch: '*1 passed*'
-	sed -i -e 's:test_capture_with_fixture:_&:' \
-		tests/test_subtests.py || die
-
-	distutils-r1_python_prepare_all
-}
 
 python_test() {
 	# tests fail if package is not installed
