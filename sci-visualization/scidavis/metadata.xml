@@ -5,10 +5,6 @@
 		<email>andrewammerlaan@riseup.net</email>
 		<name>Andrew Ammerlaan</name>
 	</maintainer>
-	<maintainer type="project">
-		<email>sci@gentoo.org</email>
-		<name>Gentoo Science Project</name>
-	</maintainer>
 	<longdescription lang="en">
 		SciDAVis is a user-friendly data analysis and visualization program primarily aimed at high-quality plotting of scientific data.
 		It strives to combine an intuitive, easy-to-use graphical user interface with powerful features such as Python scriptability.
