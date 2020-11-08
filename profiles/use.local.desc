@@ -61,6 +61,11 @@ media-video/vidify:zeroconf - Use an external network player
 net-im/biboumi:logrotate - Use app-admin/logrotate for rotating logs
 net-im/biboumi:udns - Asynchronously resolve domain names using net-libs/udns
 net-libs/usockets:libuv - Enable bindings to use the libuv dispatcher
+net-misc/megasync:cryptopp - Compile with Crypto++ Library.
+net-misc/megasync:dolphin - Upload your files to your Mega account from Dolphin file manager.
+net-misc/megasync:freeimage - Use freeimage to manage graphic images format.
+net-misc/megasync:nautilus - Upload your files to your Mega account from nautilus.
+net-misc/megasync:thunar - Upload your files to your Mega account from Thunar.
 net-misc/purritobin:libuv - use libuv to do async operations, instead of linux kernels epoll
 net-misc/tinyssh:sodium - Use dev-libs/libsodium for cryptography
 net-p2p/trezord-go:systemd - Install systemd service file
