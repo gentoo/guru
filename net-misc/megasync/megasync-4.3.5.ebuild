@@ -1,12 +1,11 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 EAPI=7
 
 inherit eutils multilib qmake-utils autotools git-r3 desktop cmake-multilib
 
-DESCRIPTION="A Qt-based program for syncing your MEGA account in your PC. This is the official app."
+DESCRIPTION="The official Qt-based program for syncing your MEGA account in your PC"
 HOMEPAGE="http://mega.co.nz"
 RTAG="_Linux"
 if [[ ${PV} == *9999* ]];then
@@ -17,28 +16,33 @@ else
 	EGIT_REPO_URI="https://github.com/meganz/MEGAsync"
 	EGIT_COMMIT="v${PV}.0${RTAG}"
 	EGIT_SUBMODULES=( '*' )
-	KEYWORDS="~x86 ~amd64"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="MEGA"
 SLOT="0"
 IUSE="dolphin nautilus thunar +cryptopp +sqlite +zlib +curl freeimage readline examples threads java php python gnome"
 
-DEPEND="
-	dev-lang/swig
-	app-doc/doxygen
+CDEPEND="
 	media-libs/libmediainfo
 	media-libs/libraw
 	dev-qt/qtcore:5
-	dev-qt/linguist-tools
 	dev-qt/qtwidgets:5
 	dev-qt/qtgui:5
 	dev-qt/qtconcurrent:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtdbus:5
 	dev-qt/qtimageformats:5
-	dev-qt/qtsvg:5"
-RDEPEND="${DEPEND}
+	dev-qt/qtsvg:5
+"
+
+BDEPEND="${CDEPEND}
+	dev-lang/swig
+	app-doc/doxygen
+	dev-qt/linguist-tools
+"
+
+RDEPEND="${CDEPEND}
 	x11-themes/hicolor-icon-theme
 	dev-libs/openssl
 	dev-libs/libgcrypt
@@ -56,8 +60,9 @@ RDEPEND="${DEPEND}
 	dolphin? ( kde-apps/dolphin )
 	nautilus? ( >=gnome-base/nautilus-3 )
 	thunar? ( xfce-base/thunar )
-	"
+"
 
+DOCS=( CREDITS.md README.md )
 PATCHES=( )
 
 if [[ ${PV} != *9999* ]];then
@@ -100,7 +105,7 @@ src_configure(){
 		$(use_enable php) \
 		$(use_enable python) \
 		"--enable-chat" \
-		"--enable-gcc-hardening" 
+		"--enable-gcc-hardening"
 	cd ../..
 	local myeqmakeargs=(
 		MEGA.pro
@@ -118,15 +123,13 @@ src_compile(){
 
 src_install(){
 	use dolphin && cmake-utils_src_install
-	local DOCS=( CREDITS.md README.md )
 	einstalldocs
 	insinto usr/share/licenses/${PN}
 	doins LICENCE.md installer/terms.txt
 	cd src/MEGASync
 	dobin ${PN}
 	cd platform/linux/data
-	insinto usr/share/applications
-	doins ${PN}.desktop
+	domenu ${PN}.desktop
 	cd icons/hicolor
 	for size in 16x16 32x32 48x48 128x128 256x256;do
 		doicon -s $size $size/apps/mega.png
