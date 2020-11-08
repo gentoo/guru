@@ -1,0 +1,11 @@
+diff --git a/do_install b/do_install
+index acce4650..121c1b82 100755
+--- a/do_install
++++ b/do_install
+@@ -16,6 +16,5 @@ mkdir -p $mandir/man3
+ for file in "$tmp_man"/*.3 ; do
+   out=$mandir/man3/$(basename "$file");
+   install -m 0644 "$file" "$out";
+-  gzip -f "$out";
+ done
+ echo "Done; it's advised to run 'sudo mandb' (GNU) or 'sudo makewhatis' (BSD) now."
