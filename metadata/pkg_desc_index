@@ -347,6 +347,7 @@ net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
 net-misc/wayback_machine_downloader 2.2.1: Download an entire website from the Wayback Machine
 net-misc/wsdd 0.5 0.6 0.6.1 0.6.2: A Web Service Discovery host daemon.
 net-news/sfeed 0.9.18 9999: simple RSS and Atom parser
+net-p2p/lbry 0.48.2: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for Linux
 net-p2p/trezord-go 2.0.29-r1: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1 0.3.14: An experiment in scalable routing as an encrypted IPv6 overlay network
