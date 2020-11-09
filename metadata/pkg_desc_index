@@ -371,7 +371,7 @@ sci-physics/SU2 7.0.6 7.0.7: SU2: An Open-Source Suite for Multiphysics Simulati
 sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
 sys-apps/drm_info 2.2.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3: A more intuitive version of du
-sys-apps/hex 0.1.3 0.3.0 0.3.1: Futuristic take on hexdump
+sys-apps/hex 0.1.3 0.3.0 0.3.1 0.3.2: Futuristic take on hexdump
 sys-apps/procs 0.10.1: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
 sys-apps/rogdrv 0.0.5: ASUS ROG userspace mouse driver for Linux.
