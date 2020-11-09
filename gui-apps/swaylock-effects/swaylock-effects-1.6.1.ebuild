@@ -23,7 +23,7 @@ LICENSE="MIT"
 SLOT="0"
 IUSE="fish-completion +gdk-pixbuf +man +pam zsh-completion"
 
-RESTRICT="mirror"
+RESTRICT="mirror test"
 
 DEPEND="
 	!gui-apps/swaylock
@@ -35,7 +35,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	>=sys-devel/gcc-9
 	>=dev-libs/wayland-protocols-1.14
 	virtual/pkgconfig
 	man? ( app-text/scdoc )
@@ -53,6 +52,10 @@ src_configure() {
 	)
 
 	meson_src_configure
+}
+
+pkg_setup() {
+	[ $(gcc-major-version) -ge 9 ] || die "This package needs to be built with GCC >=9"
 }
 
 pkg_postinst() {
