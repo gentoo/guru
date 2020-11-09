@@ -116,9 +116,6 @@ sci-physics/SU2:mkl - Enable Intel MKL support
 sci-physics/SU2:openblas - Enable OpenBLAS support
 sci-physics/SU2:tecio - Enable TECIO support
 sci-physics/SU2:tutorials - Install Tutorials files
-sci-visualization/scidavis:assistant - Compile with QAssistant (documentation broweser) support from dev-qt/assistant.
-sci-visualization/scidavis:origin - Add support for reading OriginLab OPJ project files through sci-libs/liborigin.
-sci-visualization/scidavis:python - Build support for python scripting.
 sys-auth/mrsh:pam - build with pam support
 sys-auth/mrsh:shadow - build with shadow file support
 sys-cluster/KVTree:fcntl - Set the type of file locking to fcntl.
