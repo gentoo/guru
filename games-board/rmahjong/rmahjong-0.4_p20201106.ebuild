@@ -7,10 +7,10 @@ PYTHON_COMPAT=( python3_{6,7,8,9} )
 
 inherit desktop python-single-r1 xdg
 
-# Tarball from initial py3 port branch:
+# Tarball from py3 port branch:
 # https://github.com/spirali/rmahjong/tree/py3
 # At least "Furiten", "Red fives" rules aren't implemented.
-PKG_sha="119704b581e3358ecb2764bd8e208ea5b24e7695"
+PKG_sha="7a37ade640bc24eb2cc9f0ad6c7ce26773be2856"
 
 DESCRIPTION="Riichi Mahjong, the Japanese variant of the Chinese game Mahjong for 4 players"
 HOMEPAGE="https://github.com/spirali/rmahjong"
@@ -38,11 +38,6 @@ RDEPEND="
 		dev-python/pyopengl[${PYTHON_MULTI_USEDEP}]
 	')
 "
-
-PATCHES=(
-	"${FILESDIR}/${PN}-0.4_fix_python3_compat.patch"
-	"${FILESDIR}/${PN}-0.4_fix_tests.patch"
-)
 
 src_prepare(){
 	default
