@@ -45,7 +45,7 @@ app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20181120 9999: vrms clone for Gentoo Linux
 app-misc/watchexec 1.14.1: Executes commands in response to file modifications
 app-office/openoffice-bin 4.1.7-r1: Apache OpenOffice productivity suite
-app-office/pyspread 1.99.2-r1 9999: Pyspread is a non-traditional spreadsheet written in Python
+app-office/pyspread 1.99.2-r1 1.99.4 9999: Pyspread is a non-traditional spreadsheet written in Python
 app-portage/pacvis 0.4.2 9999: Displays dependency graphs of packages
 app-portage/portage-lostfiles 0.2.0: A simple script to identify files not tracked by Portage package manager
 app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
@@ -254,7 +254,7 @@ dev-vcs/git-extras 6.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 dev-vcs/gitqlient 1.2.0 1.3.0_beta 9999: Multi-platform Git client written with Qt
 dev-vcs/lazygit 0.20.9 0.22.9 0.23.6 0.23.7 9999: Lazygit, a simple terminal UI for git commands
-games-action/ATLauncher 3.4.0.1: Minecraft launcher which integrates multiple different ModPacks
+games-action/ATLauncher 3.4.0.2: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.17785: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/netrek-brmh 2.6.0: brmh client for netrek
@@ -276,7 +276,7 @@ games-util/minigalaxy 0.9.4: A simple GOG client for Linux
 gui-apps/mpvpaper 1.0 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.4.1 0.4.2 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/swaylock-blur 0.3.1: A program that runs swaylock to a blurred screenshot of the desktop
-gui-apps/swaylock-effects 1.6.0 1.6.1 9999: Swaylock, with fancy effects
+gui-apps/swaylock-effects 1.6.1 1.6.2 9999: Swaylock, with fancy effects
 gui-apps/wdisplays 1.0-r2 9999: GUI display configurator for wlroots compositors
 gui-apps/wofi 1.2.1 1.2.2 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
@@ -297,6 +297,9 @@ media-gfx/silicon 0.3.2: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.4.3: AMD Open Source Driver for Vulkan
 media-libs/skia 80_p20191220 80_p20191220-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
+media-libs/svt-av1 0.8.5 9999: Scalable Video Technology for AV1 (SVT-AV1 Encoder and Decoder)
+media-libs/svt-hevc 1.5.0 9999: Scalable Video Technology for HEVC (SVT-HEVC Encoder)
+media-libs/svt-vp9 0.3.0 9999: Scalable Video Technology for VP9 (SVT-VP9 Encoder)
 media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
 media-plugins/gimp-avif-plugin 9999: Plug-in for development GIMP 2.99.3 for loading/saving AVIF images.
@@ -411,7 +414,7 @@ x11-libs/qwtplot3d 0.2.7: 3D plotting library for Qt5
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial videos
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
-x11-misc/gammy 0.9.58a 9999: Adaptive screen brightness/temperature
+x11-misc/gammy 0.9.58a 0.9.59 9999: Adaptive screen brightness/temperature
 x11-misc/gromit-mpx 1.3 1.3.1 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
 x11-misc/i3lock-color 2.12.5 9999: Improved i3lock with color customization
 x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement for i3status, written in Rust.
@@ -423,6 +426,6 @@ x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
 x11-themes/candy-icon-theme 0_pre20200606 9999: sweet gradient icons
 x11-themes/obsidian-icon-theme 4.13 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
 x11-themes/obsidian2-gtk-theme 2.15 9999: Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
-x11-themes/papirus-claws-mail-theme 0_pre20181023: Papirus icon theme for Claws Mail
+x11-themes/papirus-claws-mail-theme 0_pre20181023 0_pre20201019: Papirus icon theme for Claws Mail
 x11-themes/sweet-folders-icon-theme 0_pre20200227 9999: sweet gradient icons
 x11-themes/sweet-gtk-theme 1.10.5_p20200603 9999: light and dark colorful gtk theme

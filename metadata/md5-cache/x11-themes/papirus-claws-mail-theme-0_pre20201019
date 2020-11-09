@@ -1,0 +1,9 @@
+DEFINED_PHASES=-
+DESCRIPTION=Papirus icon theme for Claws Mail
+EAPI=7
+HOMEPAGE=https://github.com/PapirusDevelopmentTeam/papirus-claws-mail-theme
+KEYWORDS=~amd64
+LICENSE=GPL-3
+SLOT=0
+SRC_URI=https://github.com/PapirusDevelopmentTeam/papirus-claws-mail-theme/archive/3017a659a613489f110c2aa600496ac49c61da55.tar.gz -> papirus-claws-mail-theme-0_pre20201019.tar.gz
+_md5_=d1469a66e4afdb92cb2ee68d08162b3a
