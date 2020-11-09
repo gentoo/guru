@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7,8} )
 
-inherit eutils xdg distutils-r1
+inherit eutils xdg desktop distutils-r1
 
 DESCRIPTION="Pyspread is a non-traditional spreadsheet written in Python"
 HOMEPAGE="https://pyspread.gitlab.io"
@@ -21,7 +21,6 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE=""
 
 RDEPEND="
 	>=dev-python/PyQt5-5.10.0[svg,${PYTHON_USEDEP}]
@@ -40,7 +39,7 @@ python_prepare_all() {
 python_install() {
 	distutils-r1_python_install
 
-	# Install the provided desktop file
-	insinto /usr/share/applications
-	doins "${PN}.desktop"
+	doicon "${PN}"/share/icons/"${PN}.ico"
+	doicon "${PN}"/share/icons/"${PN}.svg"
+	domenu "${PN}.desktop"
 }
