@@ -219,7 +219,7 @@ dev-python/sniffio 1.2.0: Sniff out which async library your code is running und
 dev-python/sphinx-argparse 0.2.5: Sphinx extension that automatically documents argparse commands and options
 dev-python/sphinx-autodoc-typehints 1.10.3 1.11.1: Type hints support for the Sphinx autodoc extension
 dev-python/sphinx-tabs 1.3.0: Create tabbed content in Sphinx documentation when building HTML
-dev-python/sphinxcontrib-katex 0.6.0 0.6.1: KaTeX Sphinx extension for rendering of math in HTML pages
+dev-python/sphinxcontrib-katex 0.6.1 0.7.1: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-napoleon 0.7: Allow a different format in dosctrings for better clarity
 dev-python/sphinxcontrib-trio 1.1.2: Make Sphinx better at documenting Python functions and methods
 dev-python/sphobjinv 2.0.1: Sphinx objects.inv Inspection/Manipulation Tool
@@ -263,7 +263,7 @@ games-action/technic-launcher 4.603: Minecraft launcher for community-made modpa
 games-arcade/opensurge 0.5.1.2 9999: fun 2D retro platformer inspired by old-school Sonic games
 games-arcade/taisei 1.3.1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 games-board/openriichi 0.2.1.1: OpenRiichi is an open source Japanese Mahjong client
-games-board/rmahjong 0.4_p20201013: Riichi Mahjong, the Japanese variant of the Chinese game Mahjong for 4 players
+games-board/rmahjong 0.4_p20201106: Riichi Mahjong, the Japanese variant of the Chinese game Mahjong for 4 players
 games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
 games-engines/luxtorpeda 23.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-fps/crispy-doom 5.9.0 5.9.1 5.9.2: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
@@ -324,6 +324,7 @@ media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
 media-video/syncplay 1.6.6: Client/server to synchronize media playback
 media-video/vidify 2.2.6: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
+media-video/wlrobs 9999: OBS plugin that allows you to screen capture on wlroots based compositors
 net-dialup/tio 1.32: Simple TTY terminal application
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.5 9.0_rc1-r1 9.0: XMPP gateway to IRC

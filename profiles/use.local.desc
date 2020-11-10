@@ -58,6 +58,8 @@ media-video/vidify:dbus - Support local MPRIS players
 media-video/vidify:mpv - Use python-mpv as backend for vidify
 media-video/vidify:vlc - Use python-vlc as backend for vidify
 media-video/vidify:zeroconf - Use an external network player
+media-video/wlrobs:dmabuf - Enable the dmabuf backend
+media-video/wlrobs:scpy - Enable the screen copy backend
 net-im/biboumi:logrotate - Use app-admin/logrotate for rotating logs
 net-im/biboumi:udns - Asynchronously resolve domain names using net-libs/udns
 net-libs/usockets:libuv - Enable bindings to use the libuv dispatcher
