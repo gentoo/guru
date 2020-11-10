@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <name>Matthias Coppens</name>
+        <email>coppens.matthias.abc@gmail.com</email>
+    </maintainer>
+    <upstream>
+        <bugs-to>https://todo.sr.ht/~scoopta/wlrobs</bugs-to>
+    </upstream>
+    <use>
+        <flag name="dmabuf">Enable the dmabuf backend</flag>
+        <flag name="scpy">Enable the screen copy backend</flag>
+    </use>
+</pkgmetadata>
