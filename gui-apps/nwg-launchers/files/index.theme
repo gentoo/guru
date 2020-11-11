@@ -1,0 +1,14 @@
+[Icon Theme]
+Name=nwg-launchers
+Comment=user customized icon theme by inheritance
+
+Inherits=gnome,Adwaita,hicolor
+
+Directories=icons
+
+[icons]
+Context=Applications
+Size=96
+MinSize=8
+MaxSize=192
+Type=Scalable
