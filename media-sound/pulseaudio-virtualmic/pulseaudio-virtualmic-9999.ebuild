@@ -21,7 +21,8 @@ SLOT="0"
 
 RESTRICT="mirror test"
 
-RDEPEND="media-video/ffmpeg"
+RDEPEND="media-video/ffmpeg
+	media-sound/pulseaudio"
 DEPEND="${RDEPEND}"
 
 src_install() {
