@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7..9} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1 optfeature
@@ -25,8 +25,8 @@ LICENSE="GPL-2"
 SLOT="0"
 
 RDEPEND="
-	>=dev-python/urwid-2.0.1[${PYTHON_USEDEP}]
 	>=dev-python/psutil-5.6.0[${PYTHON_USEDEP}]
+	>=dev-python/urwid-2.0.1[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests unittest
