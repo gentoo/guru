@@ -1,8 +1,6 @@
 [Icon Theme]
 Name=nwg-launchers
-Comment=user customized icon theme by inheritance
-
-Inherits=gnome,Adwaita,hicolor
+Comment=nwg-launchers default icons
 
 Directories=icons
 
