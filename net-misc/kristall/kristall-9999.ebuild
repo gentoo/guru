@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit qmake-utils xdg
+inherit xdg
 
 DESCRIPTION="Visual cross-platform gemini browser"
 HOMEPAGE="https://github.com/MasterQ32/kristall"
@@ -25,11 +25,9 @@ RDEPEND="
 	dev-qt/qtnetwork:5[ssl]
 "
 DEPEND="${RDEPEND}"
-
-src_compile() {
-	emake
-}
+BDEPEND="dev-qt/qtcore" # qmake
 
 src_install() {
 	emake DESTDIR="${D}" INSTALL="install -D" PREFIX="${EPREFIX}/usr" install
+	einstalldocs
 }
