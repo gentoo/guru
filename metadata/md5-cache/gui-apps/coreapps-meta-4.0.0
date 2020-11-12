@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=Meta package for coreapps
+EAPI=7
+HOMEPAGE=https://gitlab.com/cubocore/coreapps
+IUSE=location pulseaudio udisks
+KEYWORDS=~amd64
+LICENSE=metapackage
+RDEPEND=~gui-apps/coreaction-4.0.0 ~gui-apps/coreapps-meta-4.0.0 ~gui-apps/corearchiver-4.0.0 ~gui-apps/corefm-4.0.0 ~gui-apps/coregarage-4.0.0 ~gui-apps/corehunt-4.0.0 ~gui-apps/coreimage-4.0.0 ~gui-apps/coreinfo-4.0.0 ~gui-apps/corekeyboard-4.0.0 ~gui-apps/corepad-4.0.0 ~gui-apps/corepaint-4.0.0 ~gui-apps/corepdf-4.0.0 ~gui-apps/corerenamer-4.0.0 ~gui-apps/coreshot-4.0.0 ~gui-apps/corestats-4.0.0 ~gui-apps/corestuff-4.0.0 ~gui-apps/coreterminal-4.0.0 ~gui-apps/coretime-4.0.0 ~gui-apps/coretoppings-4.0.0[location?,pulseaudio?] ~gui-libs/libcprime-4.0.0 ~gui-libs/libcsys-4.0.0[udisks?]
+SLOT=0
+_md5_=cf009f066de2f295a20a7e0e9894f1c0
