@@ -313,7 +313,7 @@ kde-misc/skanpage 2020.06.11: Simple pdf scanning application based on libksane 
 mail-client/heirloom-mailx 12.5: The mailx utility from CentOS
 media-fonts/symbola 7.17: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
 media-fonts/unscii 2.0: Set of bitmapped Unicode fonts based on classic system fonts
-media-gfx/azpainter 2.1.6: Full color painting software for Linux for illustration drawing
+media-gfx/azpainter 2.1.6 2.1.7_beta4: Full color painting software for Linux for illustration drawing
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
 media-gfx/glimpse 0.2.0: Image editor based on the GNU Image Manipulation Program
 media-gfx/grafx2 2.7.2978: A pixelart-oriented painting program
@@ -364,7 +364,7 @@ net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.2.0 1.2.1 1.3.0: FORT validator is an open source RPKI validator
 net-misc/castor 0.8.15 0.8.16: A graphical browser for plain-text protocols
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
-net-misc/kristall 0.2 0.3: Visual cross-platform gemini browser
+net-misc/kristall 0.2 0.3 9999: Visual cross-platform gemini browser
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/megasync 4.3.3 4.3.5 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/openbgpd 6.6_p0 6.7_p0 6.8_p0 9999: OpenBGPD is a free implementation of BGPv4
