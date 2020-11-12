@@ -1,0 +1,12 @@
+[Icon Theme]
+Name=nwg-launchers
+Comment=nwg-launchers default icons
+
+Directories=icons
+
+[icons]
+Context=Applications
+Size=96
+MinSize=8
+MaxSize=192
+Type=Scalable

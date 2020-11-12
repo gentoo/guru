@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>xgqt@protonmail.com</email>
+        <name>Maciej Barć</name>
+    </maintainer>
+    <use>
+        <flag name="location">
+            Enable location discovery
+        </flag>
+    </use>
+    <upstream>
+        <remote-id type="gitlab">cubocore/coreapps/coretoppings</remote-id>
+    </upstream>
+</pkgmetadata>
