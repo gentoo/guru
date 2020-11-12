@@ -20,13 +20,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-src_configure() {
-	# qmake overwrites Makefile but it is needed for installing.
-	mv Makefile{,.tmp} || die
-	eqmake5 src/kristall.pro
+src_compile() {
+	emake
 }
 
 src_install() {
-	mv Makefile{.tmp,} || die
-	INSTALL="install -D" PREFIX="${EPREFIX}/usr" default
+	emake DESTDIR="${D}" INSTALL="install -D" PREFIX="${EPREFIX}/usr" install
 }
