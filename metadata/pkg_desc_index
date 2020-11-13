@@ -45,7 +45,7 @@ app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the c
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20181120 9999: vrms clone for Gentoo Linux
 app-misc/watchexec 1.14.1: Executes commands in response to file modifications
-app-office/openoffice-bin 4.1.7-r1: Apache OpenOffice productivity suite
+app-office/openoffice-bin 4.1.8: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.2-r1 1.99.4 9999: Pyspread is a non-traditional spreadsheet written in Python
 app-portage/pacvis 0.4.2 9999: Displays dependency graphs of packages
 app-portage/portage-lostfiles 0.2.0: A simple script to identify files not tracked by Portage package manager
@@ -133,7 +133,7 @@ dev-python/autoflake 1.3.1: Removes unused imports and unused variables as repor
 dev-python/backrefs 4.3.0: Wrapper around re or regex that adds additional back references
 dev-python/baron 0.9: Full Syntax Tree for python to make writing refactoring code a realist task
 dev-python/base58 2.0.1: Base58 and Base58Check implementation
-dev-python/bitbox02 4.1.0: Python API for communicating with the BitBox02 device
+dev-python/bitbox02 5.0.0: Python API for communicating with the BitBox02 device
 dev-python/bracex 2.0.0: Bash style brace expansion for Python
 dev-python/cchardet 2.1.6: cChardet is high speed universal character encoding detector
 dev-python/check-manifest 0.42: Tool to check the completeness of MANIFEST.in for Python packages
@@ -318,7 +318,7 @@ media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer writ
 media-gfx/glimpse 0.2.0: Image editor based on the GNU Image Manipulation Program
 media-gfx/grafx2 2.7.2978: A pixelart-oriented painting program
 media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
-media-gfx/oxipng 2.3.0 3.0.1: A lossless PNG compression optimizer
+media-gfx/oxipng 2.3.0 3.0.1 4.0.0: A lossless PNG compression optimizer
 media-gfx/silicon 0.3.2: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.4.3: AMD Open Source Driver for Vulkan

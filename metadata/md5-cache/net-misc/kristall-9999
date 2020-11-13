@@ -1,5 +1,5 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install postinst postrm preinst prepare unpack
+BDEPEND=dev-qt/qtcore >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install postinst postrm preinst prepare unpack
 DEPEND=dev-qt/qtmultimedia:5[widgets] dev-qt/qtsvg:5 dev-qt/qtnetwork:5[ssl] dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Visual cross-platform gemini browser
 EAPI=7
@@ -8,5 +8,5 @@ LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=dev-qt/qtmultimedia:5[widgets] dev-qt/qtsvg:5 dev-qt/qtnetwork:5[ssl]
 SLOT=0
-_eclasses_=estack	686eaab303305a908fd57b2fd7617800	git-r3	3e7ec3d6619213460c85e2aa48398441	multilib	98584e405e2b0264d37e8f728327fed1	qmake-utils	4eb5e05ef7ee630c003e3f0edc094135	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=8f2b46d0264bc63d205ddfd58260dbb8
+_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_md5_=2679b914306cf2372ae925e1c08a71dc
