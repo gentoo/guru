@@ -16,6 +16,15 @@ KEYWORDS=""
 
 IUSE="+dmabuf +scpy"
 
+RESTRICT="mirror"
+
+RDEPEND="
+	dev-libs/wayland
+	media-video/obs-studio
+	dmabuf? ( x11-libs/libdrm )
+"
+DEPEND="${RDEPEND}"
+
 src_configure() {
 	local emesonargs=(
 		$(meson_use dmabuf use_dmabuf)

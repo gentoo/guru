@@ -3,19 +3,19 @@
 
 EAPI="7"
 
-inherit desktop gnome2-utils multilib pax-utils prefix rpm xdg-utils
+inherit desktop multilib gnome2-utils pax-utils prefix rpm xdg
 
 IUSE="gnome java"
 
-BUILDID="9800"
+BUILDID="9803"
 BVER="${PV/_rc*/}-${BUILDID}"
-BVER2=4.1.7-${BUILDID}
+BVER2=${PV}-${BUILDID}
 BASIS="ooobasis4.1"
 BASIS2="basis4.1"
 NM="openoffice"
 NM1="${NM}-brand"
 NM2="${NM}4"
-NM3="${NM2}.1.7"
+NM3="${NM2}.$(ver_cut 2-3)"
 FILEPATH="mirror://sourceforge/openofficeorg.mirror"
 if [ "${ARCH}" = "amd64" ] ; then
 	XARCH="x86_64"
@@ -26,8 +26,10 @@ UP="en-US/RPMS"
 
 DESCRIPTION="Apache OpenOffice productivity suite"
 HOMEPAGE="https://www.openoffice.org/"
-SRC_URI="amd64? ( "${FILEPATH}"/Apache_OpenOffice_${PV}_Linux_x86-64_install-rpm_en-US.tar.gz )
-	x86? ( "${FILEPATH}"/Apache_OpenOffice_${PV}_Linux_x86_install-rpm_en-US.tar.gz )"
+SRC_URI="
+	amd64? ( "${FILEPATH}"/Apache_OpenOffice_${PV}_Linux_x86-64_install-rpm_en-US.tar.gz )
+	x86? ( "${FILEPATH}"/Apache_OpenOffice_${PV}_Linux_x86_install-rpm_en-US.tar.gz )
+"
 
 # TODO: supports ca_XR (Valencian RACV) locale too
 LANGS="ast eu bg ca ca-valencia zh-CN zh-TW cs da nl en-GB fi fr gd gl de el he hi hu it ja km ko lt nb pl pt-BR pt ru sr sk sl es sv ta th tr vi"
@@ -59,7 +61,7 @@ DEPEND="${RDEPEND}
 
 PDEPEND="java? ( >=virtual/jre-1.8.0 )"
 
-RESTRICT="strip"
+RESTRICT="mirror strip"
 
 S=${WORKDIR}
 
@@ -74,7 +76,8 @@ src_unpack() {
 	cp "${FILESDIR}"/{50-${PN},wrapper.in} "${T}"
 	eprefixify "${T}"/{50-${PN},wrapper.in}
 
-	for i in base calc core01 core02 core03 core04 core05 core06 core07 draw graphicfilter images impress math ogltrans ooofonts ooolinguistic pyuno ure writer xsltfilter ; do
+	# 'pyuno' is excluded from unpack list to switch off Python2 scripts support
+	for i in base calc core01 core02 core03 core04 core05 core06 core07 draw graphicfilter images impress math ogltrans ooofonts ooolinguistic ure writer xsltfilter ; do
 		rpm_unpack "./${UP}/${NM}-${i}-${BVER}.${XARCH}.rpm"
 	done
 
@@ -104,7 +107,7 @@ src_unpack() {
 				ca-valencia) m=ca-XV ;;
 				*) m=${l} ;;
 			esac
-			LANGDIR="${m}/RPMS/"
+			LANGDIR="${m}/RPMS"
 			rpm_unpack "./${LANGDIR}/${NM}-${m}-${BVER}.${XARCH}.rpm"
 			rpm_unpack "./${LANGDIR}/${NM1}-${m}-${BVER}.${XARCH}.rpm"
 			for n in base calc draw help impress math res writer; do
@@ -118,7 +121,6 @@ src_unpack() {
 src_install() {
 	INSTDIR="/usr/$(get_libdir)/${NM}"
 	dodir ${INSTDIR}
-	# mv "${WORKDIR}"/opt/${NM}/* "${ED}${INSTDIR}" || die
 	mv "${WORKDIR}"/opt/${NM2}/* "${ED}${INSTDIR}" || die
 
 	#Menu entries, icons and mime-types
@@ -152,7 +154,7 @@ src_install() {
 	dosym ${INSTDIR}/program/soffice /usr/bin/soffice
 
 	# Non-java weirdness see bug #99366
-	use !java && rm -f "${ED}${INSTDIR}/program/javaldx"
+	use !java && rm -f "${ED}${INSTDIR}/program/javaldx" "${ED}${INSTDIR}/program/libofficebean.so"
 
 	# prevent revdep-rebuild from attempting to rebuild all the time
 	insinto /etc/revdep-rebuild && doins "${T}/50-${PN}"
@@ -160,37 +162,31 @@ src_install() {
 	# remove soffice bin to avoid collision with libreoffice
 	rm -rf "${ED}/usr/bin/soffice" || die
 
-	# remove vulnerable pythonscript.py, bug #677248
-	# and disable python2 script support bug #715400
-	rm "${ED}${INSTDIR}/program/pythonscript.py" || die
-	rm "${ED}${INSTDIR}/program/python-core-2.7.6/lib/lib-dynload/_bsddb.so" || die
-	rm "${ED}${INSTDIR}/program/python-core-2.7.6/lib/lib-dynload/dbm.so" || die
+	# Vulnerable pythonscript.py, bug #677248
+	# Disable python2 script support bug #715400
+	rm "${ED}${INSTDIR}/program/python" || die
 
 	# remove obsolete gstreamer-0.10 plugin
 	rm "${ED}${INSTDIR}/program/libavmediagst.so" || die
 }
 
 pkg_preinst() {
+	xdg_pkg_preinst
 	use gnome && gnome2_icon_savelist
 }
 
 pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
-	xdg_icon_cache_update
-	use gnome && gnome2_icon_cache_update
+	xdg_pkg_postinst
 
 	pax-mark -m "${EPREFIX}"/usr/$(get_libdir)/${NM}/program/soffice.bin
 
 	# Inform users about python scripting security problems, bug #677248
 	# and removing it due to the end of python2 support, bug #715400
-	elog "${INSTDIR}/program/pythonscript.py has been removed"
+	elog "Python2 scripts support via 'pyuno' module was skipped to unpack"
 	elog "due to a security vulnerability (CVE-2018-16858)"
 	elog "and the end of python2 support in Gentoo."
 }
 
 pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-	use gnome && gnome2_icon_cache_update
+	xdg_pkg_postrm
 }
