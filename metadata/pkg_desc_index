@@ -302,7 +302,7 @@ gui-apps/swaylock-effects 1.6.1 1.6.2 9999: Swaylock, with fancy effects
 gui-apps/tiramisu 0_p20201110 9999: minimalistic desktop notifications provider
 gui-apps/wdisplays 1.0-r2 9999: GUI display configurator for wlroots compositors
 gui-apps/wlr-randr 0.1.0 9999: xrandr clone for wlroots compositors
-gui-apps/wofi 1.2.1 1.2.2 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
+gui-apps/wofi 1.2.1 1.2.2 1.2.3 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 gui-libs/libcprime 4.0.0: Library for managing settings of CoreApps
 gui-libs/libcsys 4.0.0 9999: Library for managing the device
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
