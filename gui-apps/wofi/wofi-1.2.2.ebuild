@@ -25,5 +25,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
+RESTRICT="test"
+
 SLOT="0"
 KEYWORDS=""
