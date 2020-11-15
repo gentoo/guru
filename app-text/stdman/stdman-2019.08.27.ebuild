@@ -20,6 +20,7 @@ if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/jeaye/stdman"
 else
+	KEYWORDS="~amd64"
 	SRC_URI="https://github.com/jeaye/stdman/archive/${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
