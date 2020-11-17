@@ -448,7 +448,7 @@ LICENSE="Apache-2.0 BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
-IUSE="cert mysql pam postgres sqlite"
+IUSE="cert mysql +pam postgres +sqlite"
 REQUIRED_USE="|| ( sqlite mysql postgres )"
 PATCHES=( "${FILESDIR}/${P}.patch" )
 
