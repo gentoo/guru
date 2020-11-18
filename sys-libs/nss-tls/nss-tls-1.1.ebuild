@@ -5,7 +5,7 @@ EAPI=7
 
 DESCRIPTION="A DNS over HTTPS resolver for glibc"
 HOMEPAGE="https://github.com/dimkr/nss-tls"
-SRC_URI="https://github.com/dimkr/nss-tls/archive/${PV}.tar.gz"
+SRC_URI="https://github.com/dimkr/nss-tls/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 inherit meson ninja-utils
 
