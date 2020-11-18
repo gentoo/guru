@@ -5,7 +5,7 @@ EAPI=7
 
 DESCRIPTION="A DNS over HTTPS resolver for glibc"
 HOMEPAGE="https://github.com/dimkr/nss-tls"
-SRC_URI="https://github.com/dimkr/nss-tls/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/dimkr/nss-tls/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 inherit meson ninja-utils
 
@@ -47,7 +47,7 @@ src_install() {
 			meson_src_install
 }
 
-pkg_postinst() {
+post_install() {
 			ewarn "Do Not put ip address of the server in nss-tls.conf"
 			ewarn "use the dns name and add record of dns server in /etc/hosts"
 			ewarn "echo "8.8.8.8 dns.google" >> /etc/hosts"

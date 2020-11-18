@@ -2,7 +2,7 @@
 # Apache License 2015
 
 user="${user:-gogs}"
-group="${group:-gogs}"
+group="${group:-git}"
 pidfile="${pidfile:-/run/${SVCNAME}.pid}"
 basedir="${basedir:-/usr/share/gogs}"
 daemon="${daemon:-gogs}"
