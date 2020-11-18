@@ -132,6 +132,7 @@ sys-cluster/veloc:lsf - Use LFS (Load Sharing Facility) as resource manager
 sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager
 sys-kernel/dkms:kernel-hooks - Enable automatic rebuilding of modules via kernel source makefile hooks
 www-apps/gogs:cert - Adds support for self-signed certificates
+www-client/torbrowser-launcher:apparmor - Enable AppArmor support
 x11-libs/gtk-fortran:doc - Build doxygen documentation
 x11-libs/gtk-fortran:examples - Install examples source code files
 x11-libs/gtk-fortran:high-level - Build high-level interface to the gtk-fortran package
