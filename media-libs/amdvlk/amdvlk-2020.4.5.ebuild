@@ -41,9 +41,9 @@ CORRECT_AMDVLK_PV="v-$(ver_rs 1 '.Q')" #Works only for amdvlk source code: trans
 ##and place commits in the desired variables
 ## EXAMPLE: XGL_COMMIT="80e5a4b11ad2058097e77746772ddc9ab2118e07"
 ## SRC_URI="... ${FETCH_URI}/$PART/archive/$COMMIT.zip -> $PART-$COMMIT.zip ..."
-XGL_COMMIT="f623fc7ca78c3cec2123a16700a8819f3ccf0656"
-PAL_COMMIT="29117a3431d163a2e9e7bfe87e63d0d8d3c28b11"
-LLPC_COMMIT="d2180485db6cde18b2ead1eda0925be409507b78"
+XGL_COMMIT="fc11e79aab63337702d8efc05e5433dec9efdf06"
+PAL_COMMIT="b1e752d402592628f61eb7e1aa2a802a205de798"
+LLPC_COMMIT="38dcb76aadf729b67cabe15c2cc07a784020f704"
 SPVGEN_COMMIT="fb798cb760a436e9496dbaab8827e4d183b74744"
 LLVM_PROJECT_COMMIT="7ff363c8283c1d41ecbdcdc45c8b724b52312d67"
 METROHASH_COMMIT="3c566dd9cda44ca7fd97659e0b53ac953f9037d2"
@@ -71,13 +71,6 @@ src_prepare() {
 	mv llvm-project-${LLVM_PROJECT_COMMIT}/ "${S}/llvm-project"
 	mv MetroHash-${METROHASH_COMMIT}/ "${S}/third_party/metrohash"
 	mv CWPack-${CWPACK_COMMIT}/ "${S}/third_party/cwpack"
-	##Installing rule
-	cat << EOF > "${T}/10-amdvlk-dri3.conf" || die
-Section "Device"
-Identifier "AMDgpu"
-Option  "DRI" "3"
-EndSection
-EOF
 	cd "${S}/xgl"
 	default
 }
@@ -105,21 +98,17 @@ multilib_src_install() {
 	fi
 }
 
-multilib_src_install_all() {
-	insinto /usr/share/X11/xorg.conf.d/
-	doins "${T}/10-amdvlk-dri3.conf"
-	einfo "AMDVLK requires DRI3 mode so config file is istalled in /usr/share/X11/xorg.conf.d/10-amdvlk-dri3.conf"
-	einfo "It's safe to double xorg configuration files if you have already had ones"
-}
 
 pkg_postinst() {
 	elog "More information about the configuration can be found here:"
 	elog " https://github.com/GPUOpen-Drivers/AMDVLK"
 	ewarn "Make sure the following line is NOT included in the any Xorg configuration section:"
-	ewarn "Driver      \"modesetting\""
+	ewarn "| Driver      \"modesetting\""
+	ewarn "and make sure you use DRI3 mode for Xorg (not revelant for wayland)"
 	ewarn "Else AMDVLK breaks things"
 	ewarn "With some games AMDVLK is still not stable. Use it at you own risk"
 	elog "You may want to disable default vulkan mesa provider in package.use \"media-libs/mesa -vulkan\""
 	elog "or perform export in /etc/env.d/ variable VK_ICD_FILENAMES=vulkanprovidername:vulkanprovidername2 "
 	elog "exampe| VK_ICD_FILENAMES=\"/usr/share/vulkan/icd.d/amd_icd64.json:/usr/share/vulkan/icd.d/amd_icd64.json\""
+	elog "For DXVK: use DXVK_FILTER_DEVICE_NAME= variable"
 }
