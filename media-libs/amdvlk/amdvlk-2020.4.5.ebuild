@@ -98,7 +98,6 @@ multilib_src_install() {
 	fi
 }
 
-
 pkg_postinst() {
 	elog "More information about the configuration can be found here:"
 	elog " https://github.com/GPUOpen-Drivers/AMDVLK"
