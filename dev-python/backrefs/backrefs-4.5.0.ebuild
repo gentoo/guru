@@ -43,4 +43,3 @@ src_compile() {
 
 	distutils-r1_src_compile
 }
-
