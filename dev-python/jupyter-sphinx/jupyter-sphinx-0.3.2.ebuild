@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 
 inherit distutils-r1
 
@@ -24,4 +24,4 @@ RDEPEND="
 "
 
 distutils_enable_tests pytest
-distutils_enable_sphinx doc/source dev-python/matplotlib
+distutils_enable_sphinx doc/source dev-python/matplotlib dev-python/alabaster
