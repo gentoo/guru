@@ -44,7 +44,7 @@ src_compile() {
 src_install() {
 	emake libdir="/usr/$(get_libdir)" \
 	      prefix="/usr" \
-		  DESTDIR="${D}" \
+	      DESTDIR="${ED}" \
 	      LIBusockets_VERSION=${PV} \
 	      install
 	einstalldocs
