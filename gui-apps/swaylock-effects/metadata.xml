@@ -11,6 +11,11 @@
         <flag name="man">Build and install man pages</flag>
     </use>
     <upstream>
+        <maintainer>
+            <name>Martin Dørum</name>
+            <email>martid0311@gmail.com</email>
+        </maintainer>
+        <doc>https://github.com/mortie/swaylock-effects#effects</doc>
         <remote-id type="github">mortie/swaylock-effects</remote-id>
         <bugs-to>https://github.com/mortie/swaylock-effects/issues</bugs-to>
     </upstream>

@@ -7,6 +7,7 @@
     </maintainer>
     <upstream>
         <remote-id type="github">pwaller/pyfiglet</remote-id>
+        <remote-id type="pypi">pyfiglet</remote-id>
         <bugs-to>https://github.com/pwaller/pyfiglet/issues</bugs-to>
     </upstream>
 </pkgmetadata>

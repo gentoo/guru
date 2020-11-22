@@ -13,4 +13,12 @@
         <flag name="grid">Installs nwggrid,
             a GNOME-like application grid.</flag>
     </use>
+    <upstream>
+        <maintainer>
+            <name>Piotr Miller</name>
+            <email>nwg.piotr@gmail.com</email>
+        </maintainer>
+        <bugs-to>https://github.com/nwg-piotr/nwg-launchers/issues</bugs-to>
+        <remote-id type="github">nwg-piotr/nwg-launchers</remote-id>
+    </upstream>
 </pkgmetadata>
