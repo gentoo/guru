@@ -6,7 +6,7 @@ EAPI=7
 PYTHON_COMPAT=( python3_{7,8} )
 DISTUTILS_USE_SETUPTOOLS=no
 
-inherit autotools distutils-r1 perl-module java-pkg-opt-2
+inherit autotools distutils-r1 perl-module java-pkg-opt-2 flag-o-matic
 
 case "${PV}" in
 9999)
