@@ -5,7 +5,4 @@
 		<email>gentoo@aisha.cc</email>
 		<name>Aisha Tammy</name>
 	</maintainer>
-	<use>
-		<flag name="libuv">use libuv to do async operations, instead of linux kernels epoll</flag>
-	</use>
 </pkgmetadata>
