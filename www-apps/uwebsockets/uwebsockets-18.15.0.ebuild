@@ -17,11 +17,7 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-RDEPEND=">=net-libs/usockets-0.4.1"
-
-PATCHES=(
-	"${FILESDIR}/${PN}-src_Loop.h.patch"
-)
+RDEPEND=">=net-libs/usockets-0.6.0"
 
 src_prepare() {
 	default

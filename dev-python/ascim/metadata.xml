@@ -5,4 +5,10 @@
         <email>coppens.matthias.abc@gmail.com</email>
         <name>Matthias Coppens</name>
     </maintainer>
+    <upstream>
+        <doc>https://github.com/fakefred/ascim#usage</doc>
+        <bugs-to>https://github.com/fakefred/ascim/issues</bugs-to>
+        <remote-id type="github">fakefred/ascim</remote-id>
+        <remote-id type="pypi">ascim</remote-id>
+    </upstream>
 </pkgmetadata>

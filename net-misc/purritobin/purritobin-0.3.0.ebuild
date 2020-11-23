@@ -6,45 +6,31 @@ EAPI=7
 DESCRIPTION="minimalistic commandline pastebin"
 HOMEPAGE="https://bsd.ac"
 
+inherit toolchain-funcs
+
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/PurritoBin/PurritoBin.git"
-	KEYWORDS=""
 else
 	SRC_URI="https://github.com/PurritoBin/PurritoBin/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm64 ~x86"
 	S="${WORKDIR}/PurritoBin-${PV}"
 fi
 
-LICENSE="GPL-2"
+LICENSE="ISC"
 SLOT="0"
-IUSE="libuv static-libs"
 
-RDEPEND="net-libs/usockets[libuv=,static-libs?]
-	libuv? ( >=dev-libs/libuv-1.35.0[static-libs?] )
-"
+RDEPEND="net-libs/usockets"
 DEPEND="${RDEPEND}
 	www-apps/uwebsockets
 "
 
-src_prepare() {
-	sed -i -e "s:.ifdef:ifdef:g" \
-		   -e "s:.else:else:g" \
-		   -e "s:.endif:endif:g" \
-		   Makefile
+src_configure() {
 	default
-}
-
-src_compile() {
-	env LDFLAGS="-L/usr/$(get_libdir)" \
-		emake $(usex libuv USE_DLIBUV=1 '') \
-		$(usex static-libs USE_STATIC=1 '') \
-		all
+	tc-export CXX
 }
 
 src_install() {
-	emake prefix="/usr" \
-		  DESTDIR="${D}" \
-		  install
+	emake PREFIX="/usr" DESTDIR="${ED}" install
 	einstalldocs
 }

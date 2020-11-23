@@ -5,4 +5,8 @@
         <email>coppens.matthias.abc@gmail.com</email>
         <name>Matthias Coppens</name>
     </maintainer>
+    <upstream>
+        <bugs-to>https://gitlab.com/jschx/ufetch/-/issues</bugs-to>
+        <remote-id type="gitlab">jschx/ufetch</remote-id>
+    </upstream>
 </pkgmetadata>

@@ -16,6 +16,11 @@
         you've freed up in this session.
     </longdescription>
     <upstream>
+        <maintainer>
+            <name>Aram Drevekenin</name>
+            <email>aram@poor.dev</email>
+        </maintainer>
+        <changelog>https://github.com/imsnif/diskonaut/blob/main/CHANGELOG.md</changelog>
         <remote-id type="github">imsnif/diskonaut</remote-id>
         <bugs-to>https://github.com/imsnif/diskonaut/issues</bugs-to>
     </upstream>

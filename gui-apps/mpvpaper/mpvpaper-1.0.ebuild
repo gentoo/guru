@@ -21,6 +21,8 @@ esac
 LICENSE="GPL-3"
 SLOT="0"
 
+RESTRICT="mirror test"
+
 RDEPEND="
 	media-video/mpv[libmpv]
 	gui-libs/wlroots

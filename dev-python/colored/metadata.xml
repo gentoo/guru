@@ -9,4 +9,9 @@
         Very simple Python library for color and formatting in terminal.
         Collection of color codes and names for 256 color terminal setups.
     </longdescription>
+    <upstream>
+        <bugs-to>https://gitlab.com/dslackw/colored/-/issues</bugs-to>
+        <remote-id type="gitlab">dslackw/colored</remote-id>
+        <remote-id type="pypi">colored</remote-id>
+    </upstream>
 </pkgmetadata>

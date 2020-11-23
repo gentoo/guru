@@ -16,6 +16,7 @@
     </longdescription>
     <upstream>
         <remote-id type="github">CITGuru/PyInquirer</remote-id>
+        <remote-id type="pypi">PyInquirer</remote-id>
         <bugs-to>https://github.com/CITGuru/PyInquirer/issues</bugs-to>
     </upstream>
 </pkgmetadata>
