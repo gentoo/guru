@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit multilib
+inherit toolchain-funcs
 
 DESCRIPTION="tiny eventing, networking & crypto for async applications"
 HOMEPAGE="https://github.com/uNetworking/uSockets"
@@ -12,9 +12,10 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/uNetworking/uSockets.git"
 else
-	SRC_URI="https://github.com/uNetworking/uSockets/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	COMMIT=7683672d87067cd75b854f4e36b9820f4809a4be
+	SRC_URI="https://github.com/uNetworking/uSockets/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm64 ~x86"
-	S="${WORKDIR}/uSockets-${PV}"
+	S="${WORKDIR}/uSockets-${COMMIT}"
 fi
 
 LICENSE="Apache-2.0"
@@ -33,6 +34,7 @@ PATCHES=(
 )
 
 src_compile() {
+	tc-export CC CXX
 	# the Makefile uses environment variables
 	emake VERSION=${PV} \
 	      LIB="$(get_libdir)" \
