@@ -6,8 +6,8 @@
 		<name>Matthias Coppens</name>
 	</maintainer>
 	<upstream>
-        <bugs-to>https://github.com/denisidoro/navi/issues</bugs-to>
-        <doc>https://github.com/denisidoro/navi#usage</doc>
+		<bugs-to>https://github.com/denisidoro/navi/issues</bugs-to>
+		<doc>https://github.com/denisidoro/navi#usage</doc>
 		<remote-id type="github">denisidoro/navi</remote-id>
 	</upstream>
 </pkgmetadata>
