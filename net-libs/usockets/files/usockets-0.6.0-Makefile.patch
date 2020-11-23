@@ -1,21 +1,23 @@
 diff --git a/Makefile b/Makefile
-index 27f97ce..c269c3f 100644
+index 27f97ce..f8bf8d7 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -1,60 +1,62 @@
+@@ -1,60 +1,59 @@
 +DESTDIR ?=
 +
 +prefix ?=	/usr
 +exec_prefix ?=	$(prefix)
 +LIB ?=		lib
 +libdir ?=	$(exec_prefix)/$(LIB)
-+includedir ?=	$(exec_prefix)/include/uSockets
++includedir ?=	$(exec_prefix)/include
++
++PKG_CONFIG ?=	pkg-config
 +
 +VERSION ?=	0.0
 +LIBTARGET =	libusockets.so.$(VERSION)
 +
-+LIBS =
 +REQUIRES =
++COMMON_FLAGS =	-Isrc
 +
  # WITH_OPENSSL=1 enables OpenSSL 1.1+ support or BoringSSL
  # For now we need to link with C++ for OpenSSL support, but should be removed with time
@@ -32,8 +34,8 @@ index 27f97ce..c269c3f 100644
 -	else
 -		override CFLAGS += -DLIBUS_NO_SSL
 -	endif
-+CFLAGS +=	-DLIBUS_USE_OPENSSL
-+LIBS +=		-lssl -lcrypto -lstdc++
++COMMON_FLAGS +=	-DLIBUS_USE_OPENSSL
++LDFLAGS +=	-lstdc++
 +REQUIRES +=	libssl libcrypto
  endif
  
@@ -41,16 +43,17 @@ index 27f97ce..c269c3f 100644
  ifeq ($(WITH_LIBUV),1)
 -	override CFLAGS += -DLIBUS_USE_LIBUV
 -	override LDFLAGS += -luv
--endif
--
++COMMON_FLAGS +=	-DLIBUS_USE_LIBUV
++REQUIRES +=	libuv
+ endif
+ 
 -# WITH_GCD=1 builds with libdispatch as event-loop
 -ifeq ($(WITH_GCD),1)
 -	override CFLAGS += -DLIBUS_USE_GCD
 -	override LDFLAGS += -framework CoreFoundation
-+CFLAGS +=	-DLIBUS_USE_LIBUV
-+LIBS +=		-luv
-+REQUIRES +=	libuv
- endif
+-endif
++CFLAGS +=	-std=c11 $(COMMON_FLAGS)
++CXXFLAGS +=	-std=c++17 $(COMMON_FLAGS)
  
 -# WITH_ASAN builds with sanitizers
 -ifeq ($(WITH_ASAN),1)
@@ -60,8 +63,7 @@ index 27f97ce..c269c3f 100644
 -
 -override CFLAGS += -std=c11 -Isrc
 -override LDFLAGS += uSockets.a
-+CFLAGS += -std=c11 -Isrc
- 
+-
 -# By default we build the uSockets.a static library
  default:
 -	rm -f *.o
@@ -70,7 +72,7 @@ index 27f97ce..c269c3f 100644
 +	$(CC) $(CFLAGS) -fPIC -c src/*.c src/eventing/*.c src/crypto/*.c
  ifeq ($(WITH_OPENSSL),1)
 -	$(CXX) $(CXXFLAGS) -std=c++17 -flto -O3 -c src/crypto/*.cpp
-+	$(CXX) $(CXXFLAGS) -fPIC -std=c++17 -c src/crypto/*.cpp
++	$(CXX) $(CXXFLAGS) -fPIC -c src/crypto/*.cpp
  endif
 -	$(AR) rvs uSockets.a *.o
 -
@@ -82,18 +84,13 @@ index 27f97ce..c269c3f 100644
 -swift_examples:
 -	swiftc -O -I . examples/swift_http_server/main.swift uSockets.a -o swift_http_server
 +	$(AR) rvs libusockets.a *.o
-+	$(CC) -shared -fPIC -Wl,-soname,$(LIBTARGET) $(CFLAGS) -o $(LIBTARGET) *.o $(LIBS) $(LDFLAGS)
++	$(CC) -shared -o $(LIBTARGET) *.o -Wl,-soname,$(LIBTARGET) `$(PKG_CONFIG) --libs $(REQUIRES)` $(LDFLAGS)
 +	sed -e "s:@PREFIX@:$(prefix):" -e "s:@REQUIRES@:$(REQUIRES):" \
 +	-e "s:@LIB@:$(LIB):" -e "s:@VERSION@:$(VERSION):" libusockets.pc.in > libusockets.pc
 +
 +install:
-+	install -d "$(DESTDIR)$(libdir)/pkgconfig" \
-+	"$(DESTDIR)$(includedir)/internal/eventing" \
-+	"$(DESTDIR)$(includedir)/internal/networking"
-+	install -m 644 src/*.h "$(DESTDIR)$(includedir)/"
-+	install -m 644 src/internal/*.h "$(DESTDIR)$(includedir)/internal/"
-+	install -m 644 src/internal/eventing/*.h "$(DESTDIR)$(includedir)/internal/eventing/"
-+	install -m 644 src/internal/networking/*.h "$(DESTDIR)$(includedir)/internal/networking/"
++	install -d "$(DESTDIR)$(libdir)/pkgconfig" "$(DESTDIR)$(includedir)"
++	install -m 644 src/libusockets.h "$(DESTDIR)$(includedir)/"
 +	install -m 755 $(LIBTARGET) "$(DESTDIR)$(libdir)"
 +	ln -sf $(LIBTARGET) "$(DESTDIR)$(libdir)/libusockets.so"
 +	install -m 755 libusockets.a "$(DESTDIR)$(libdir)/"
@@ -106,16 +103,15 @@ index 27f97ce..c269c3f 100644
  	rm -rf .certs
 +	rm -f libusockets.pc
 +
-+.PHONY: 
++.PHONY: default install clean
 diff --git a/libusockets.pc.in b/libusockets.pc.in
 new file mode 100644
-index 0000000..b63637b
+index 0000000..b818020
 --- /dev/null
 +++ b/libusockets.pc.in
-@@ -0,0 +1,13 @@
+@@ -0,0 +1,12 @@
 +prefix=@PREFIX@
-+exec_prefix=${prefix}
-+libdir=${exec_prefix}/@LIB@
++libdir=${prefix}/@LIB@
 +includedir=${prefix}/include
 +
 +Name: uSockets
