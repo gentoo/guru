@@ -1,13 +1,13 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install unpack
+DEFINED_PHASES=compile install
 DEPEND=ssl? ( >=dev-libs/openssl-1.1.0:=[static-libs?] ) libuv? ( dev-libs/libuv[static-libs?] )
 DESCRIPTION=tiny eventing, networking & crypto for async applications
 EAPI=7
 HOMEPAGE=https://github.com/uNetworking/uSockets
 IUSE=libuv +ssl static-libs
+KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=Apache-2.0
-PROPERTIES=live
 RDEPEND=ssl? ( >=dev-libs/openssl-1.1.0:=[static-libs?] ) libuv? ( dev-libs/libuv[static-libs?] )
 SLOT=0
-_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441	multilib	98584e405e2b0264d37e8f728327fed1	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
+SRC_URI=https://github.com/uNetworking/uSockets/archive/7683672d87067cd75b854f4e36b9820f4809a4be.tar.gz -> usockets-0.6.0_p1.tar.gz
+_eclasses_=multilib	98584e405e2b0264d37e8f728327fed1	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
 _md5_=303ab4d2c772ab0c9d1096ff6886cbbf
