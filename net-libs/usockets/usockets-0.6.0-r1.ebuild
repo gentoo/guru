@@ -19,36 +19,36 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="libuv +ssl libressl static-libs"
+IUSE="libuv +ssl static-libs"
 
 DEPEND="ssl? (
-		libressl? ( >=dev-libs/libressl-3.0.0:=[static-libs?] )
-		!libressl? ( >=dev-libs/openssl-1.1.0:=[static-libs?] )
+		>=dev-libs/openssl-1.1.0:=[static-libs?]
 	)
 	libuv? ( dev-libs/libuv[static-libs?] )
 "
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/usockets-Makefile.patch"
+	"${FILESDIR}/${PN}-0.6.0-Makefile.patch"
 )
 
 src_compile() {
 	# the Makefile uses environment variables
-	emake LIBusockets_VERSION=${PV} \
+	emake VERSION=${PV} \
+	      LIB="$(get_libdir)" \
 	      WITH_OPENSSL=$(usex ssl 1 0) \
 	      WITH_LIBUV=$(usex libuv 1 0) \
 	      default
 }
 
 src_install() {
-	emake libdir="/usr/$(get_libdir)" \
-	      prefix="/usr" \
-	      DESTDIR="${ED}" \
-	      LIBusockets_VERSION=${PV} \
+	emake LIB="$(get_libdir)" \
+	      prefix="${EPREFIX%/}/usr" \
+	      DESTDIR="${D}" \
+	      VERSION=${PV} \
 	      install
 	einstalldocs
 	if ! use static-libs; then
-		rm "${D}/usr/$(get_libdir)/libusockets.a" || die
+		rm -f "${ED}/usr/$(get_libdir)/libusockets.a" || die
 	fi
 }
