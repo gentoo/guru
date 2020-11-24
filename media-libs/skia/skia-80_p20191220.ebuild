@@ -5,7 +5,7 @@ EAPI="7"
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit ninja-utils python-any-r1
+inherit ninja-utils python-any-r1 toolchain-funcs
 
 #https://github.com/google/skia/blob/master/include/core/SkMilestone.h
 COMMIT="1c9ebb50024f80f3bf289838298e15185d8f6966"

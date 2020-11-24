@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit xdg-utils
+
 DESCRIPTION="A browser for the LBRY network, a digital marketplace controlled by its users."
 HOMEPAGE="https://lbry.com/"
 SRC_URI="https://github.com/lbryio/lbry-desktop/releases/download/v0.48.2/LBRY_0.48.2.deb"
