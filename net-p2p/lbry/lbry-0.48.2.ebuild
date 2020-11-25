@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit xdg-utils
+inherit xdg
 
 DESCRIPTION="A browser for the LBRY network, a digital marketplace controlled by its users."
 HOMEPAGE="https://lbry.com/"
@@ -37,14 +37,4 @@ src_install() {
 	ls -al "${D}"
 	rm -rd "${D}/usr/share/doc/lbry"
 	fperms 0755 /opt/LBRY/lbry || die
-}
-
-pkg_postinst() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
 }

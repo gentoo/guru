@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit xdg-utils
+inherit xdg
 
 MY_COMMIT="aee10fc647fd0cdb8ef9907ae3ee42c1bea5d976"
 
@@ -33,12 +33,4 @@ src_install() {
 	done
 
 	default
-}
-
-pkg_postinst() {
-	use icons && xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	use icons && xdg_icon_cache_update
 }
