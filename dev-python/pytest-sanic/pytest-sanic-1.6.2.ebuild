@@ -3,8 +3,7 @@
 
 EAPI="7"
 
-DISTUTILS_USE_SETUPTOOLS=rdepend
-PYTHON_COMPAT=( python3_7 )
+PYTHON_COMPAT=( python3_{7,8} )
 
 inherit distutils-r1
 
@@ -22,6 +21,8 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	dev-python/aiohttp[${PYTHON_USEDEP}]
 	dev-python/async_generator[${PYTHON_USEDEP}]
+	dev-python/pytest[${PYTHON_USEDEP}]
+	dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 	dev-python/sanic[${PYTHON_USEDEP}]
 "
 
@@ -30,6 +31,6 @@ distutils_enable_tests pytest
 #distutils_enable_sphinx docs
 
 python_test() {
-	# skip this test: Task was destroyed but it is pending!
-	pytest -vv --deselect tests/test_client_websocket.py::test_fixture_sanic_client_ws || die "Tests failed with ${EPYTHON}"
+	distutils_install_for_testing
+	pytest -vv || die "Tests failed with ${EPYTHON}"
 }
