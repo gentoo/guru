@@ -50,13 +50,3 @@ src_install() {
 
 	make_desktop_entry "${PN}" "${PN^}" "${PN}" "Graphics;Settings"
 }
-
-pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-}

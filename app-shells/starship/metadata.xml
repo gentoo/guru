@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>randy@electronsweatshop.com</email>
+		<name>Randy Barlow</name>
+	</maintainer>
+	<longdescription lang="en">
+		Starship is:
+
+		Fast: it's fast – really really fast!
+		Customizable: configure every aspect of your prompt.
+		Universal: works on any shell, on any operating system.
+		Intelligent: shows relevant information at a glance.
+		Feature rich: support for all your favorite tools.
+		Easy: quick to install – start using it in minutes.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">starship/starship</remote-id>
+	</upstream>
+</pkgmetadata>

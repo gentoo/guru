@@ -20,10 +20,11 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="libuv +ssl static-libs"
+IUSE="libuv libressl +ssl static-libs"
 
 DEPEND="ssl? (
-		>=dev-libs/openssl-1.1.0:=[static-libs?]
+		!libressl? ( >=dev-libs/openssl-1.1.0[static-libs?] )
+		libressl? ( dev-libs/libressl[static-libs?] )
 	)
 	libuv? ( dev-libs/libuv[static-libs?] )
 "
@@ -37,18 +38,18 @@ src_compile() {
 	tc-export CC CXX
 	# the Makefile uses environment variables
 	emake VERSION=${PV} \
-	      LIB="$(get_libdir)" \
-	      WITH_OPENSSL=$(usex ssl 1 0) \
-	      WITH_LIBUV=$(usex libuv 1 0) \
-	      default
+		  LIB="$(get_libdir)" \
+		  WITH_OPENSSL=$(usex ssl 1 0) \
+		  WITH_LIBUV=$(usex libuv 1 0) \
+		  default
 }
 
 src_install() {
 	emake LIB="$(get_libdir)" \
-	      prefix="${EPREFIX%/}/usr" \
-	      DESTDIR="${D}" \
-	      VERSION=${PV} \
-	      install
+		  prefix="${EPREFIX%/}/usr" \
+		  DESTDIR="${D}" \
+		  VERSION=${PV} \
+		  install
 	einstalldocs
 	if ! use static-libs; then
 		rm -f "${ED}/usr/$(get_libdir)/libusockets.a" || die

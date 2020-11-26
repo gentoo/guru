@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake desktop xdg-utils
+inherit desktop xdg cmake
 
 DESCRIPTION="Ksnip is a Qt based cross-platform screenshot tool"
 HOMEPAGE="https://github.com/ksnip/ksnip"
@@ -30,14 +30,4 @@ src_install() {
 
 	doicon -s scalable desktop/${PN}.svg
 	domenu desktop/${PN}.desktop
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
 }

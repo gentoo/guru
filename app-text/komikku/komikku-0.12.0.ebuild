@@ -53,21 +53,17 @@ src_test() {
 
 pkg_preinst() {
 	gnome2_schemas_savelist
-	xdg_environment_reset
+	xdg_pkg_preinst
 }
 
 pkg_postinst() {
 	gnome2_gconf_install
 	gnome2_schemas_update
-	xdg_icon_cache_update
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
+	xdg_pkg_postinst
 }
 
 pkg_postrm() {
 	gnome2_gconf_uninstall
 	gnome2_schemas_update
-	xdg_icon_cache_update
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
+	xdg_pkg_postrm
 }

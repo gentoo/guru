@@ -20,7 +20,7 @@ fi
 LICENSE="ISC"
 SLOT="0"
 
-RDEPEND="net-libs/usockets"
+RDEPEND="net-libs/usockets[ssl]"
 DEPEND="${RDEPEND}
 	www-apps/uwebsockets
 "

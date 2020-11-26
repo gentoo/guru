@@ -36,8 +36,8 @@ RDEPEND="
 "
 
 pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
+	xdg_pkg_postinst
+
 	elog "You need the following files in order to run melonDS:"
 	elog "- bios7.bin"
 	elog "- bios9.bin"
@@ -46,9 +46,4 @@ pkg_postinst() {
 	elog "Place them in ~/.config/melonDS"
 	elog "The romlist.bin file can be found in the /usr/share/melonDS directory"
 	elog "The rest of those files can be found somewhere in the internet ;-)"
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
 }

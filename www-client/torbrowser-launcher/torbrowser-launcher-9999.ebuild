@@ -46,13 +46,7 @@ python_install_all() {
 }
 
 pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
+	xdg_pkg_postinst
 
 	elog "For updating over system TOR install net-vpn/tor and dev-python/txsocksx"
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
 }
