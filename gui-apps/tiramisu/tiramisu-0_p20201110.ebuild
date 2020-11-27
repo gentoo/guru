@@ -3,8 +3,7 @@
 
 EAPI=7
 
-if [[ "${PV}" == 9999 ]]
-then
+if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/Sweets/tiramisu"
 else
@@ -19,6 +18,9 @@ HOMEPAGE="https://github.com/Sweets/tiramisu"
 
 LICENSE="MIT"
 SLOT="0"
+
+RDEPEND="dev-libs/glib:2[dbus]"
+DEPEND="${RDEPEND}"
 
 src_install() {
 	emake DESTDIR="${ED}" PREFIX=/usr install
