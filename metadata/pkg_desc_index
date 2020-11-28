@@ -88,6 +88,7 @@ dev-R/tibble 3.0.1: Simple Data Frames
 dev-R/tidyselect 1.0.0 1.1.0: Select from a Set of Strings
 dev-R/utf8 1.1.4: Unicode Text Processing
 dev-R/vctrs 0.2.4 0.3.0: Vector Helpers
+dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
 dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging library
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
 dev-cpp/vectorwrapper 1.1.1 9999: A template vector wrapper class for C++
@@ -129,6 +130,7 @@ dev-python/asciimatics 1.11.0 1.12.0 9999: Package for curses-like operations, t
 dev-python/ascim 0.1.1 9999: Manipulate ASCII art as you would do with raster images
 dev-python/aspectlib 1.5.1: An aspect-oriented programming, monkey-patch and decorators library
 dev-python/asyncpg 0.21.0: A fast PostgreSQL Database Client Library for Python/asyncio.
+dev-python/asynctest 0.13.0: Enhance the standard unittest with features for testing asyncio libraries
 dev-python/atomiclong 0.1.1 0.1.1-r1 9999: An AtomicLong type using CFFI.
 dev-python/autoflake 1.3.1: Removes unused imports and unused variables as reported by pyflakes
 dev-python/backrefs 4.5.0: Wrapper around re or regex that adds additional back references
@@ -142,7 +144,7 @@ dev-python/cloudscraper 1.2.34 1.2.40 1.2.46: A Python module to bypass Cloudfla
 dev-python/colored 1.4.2 9999: Very simple Python library for color and formatting in terminal
 dev-python/convertdate 2.2.1 2.2.2: Utils for converting between date formats and calculating holidays
 dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
-dev-python/curio 0.9 1.4: Curio is a coroutine-based library for concurrent systems programming
+dev-python/curio 0.9 1.2-r1 1.4: Curio is a coroutine-based library for concurrent systems programming
 dev-python/databases 0.3.2: Async database support for Python.
 dev-python/dateparser 0.7.4: Date parsing library designed to parse dates from HTML pages
 dev-python/devtools 0.6.1: Dev tools for python
@@ -158,12 +160,12 @@ dev-python/graphql-core 3.1.1: GraphQL for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
 dev-python/guidata 1.7.9: Library for user interfaces for easy dataset editing and display
 dev-python/hidapi 0.9.0_p3: A Cython interface to the hidapi
-dev-python/hstspreload 2020.10.20: Chromium HSTS Preload list as a Python package
+dev-python/hstspreload 2020.11.21: Chromium HSTS Preload list as a Python package
 dev-python/httpcore 0.10.1: A minimal HTTP client
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/httpx 0.11.1 0.13.3 0.16.1: A next generation HTTP client for Python
 dev-python/hunter 3.1.3: Hunter is a flexible code tracing toolkit
-dev-python/hwi 1.2.0: Library and command line tool for interacting with hardware wallets
+dev-python/hwi 1.2.1: Library and command line tool for interacting with hardware wallets
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
 dev-python/js2py 0.70: JavaScript to Python Translator & JavaScript interpreter written in Python
 dev-python/jupyter-sphinx 0.3.2: Jupyter Sphinx Extensions
@@ -172,14 +174,14 @@ dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/markdown-include 0.6.0: Syntax which allows for inclusion of contents of other Markdown docs
 dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your output
 dev-python/mkdocs-git-revision-date-localized-plugin 0.7.3: Display the localized date of the last git modification of a markdown file
-dev-python/mkdocs-material 5.0.0_rc2 5.2.3 5.3.3 6.1.5: A Material Design theme for MkDocs
+dev-python/mkdocs-material 5.0.0_rc2 5.2.3 5.3.3 6.1.5 6.1.6: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.0.1: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.3.0: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs-redirects 1.0.1: Plugin for Mkdocs page redirects
 dev-python/mkdocs_pymdownx_material_extras 1.1.3: Custom alterations based on Mkdocs-Material
 dev-python/mnemonic 0.19: Reference implementation of BIP-0039 for generating deterministic keys
 dev-python/noiseprotocol 0.3.1: Python implementation of Noise Protocol Framework
-dev-python/outcome 1.0.1: Capture the outcome of Python function calls
+dev-python/outcome 1.1.0: Capture the outcome of Python function calls
 dev-python/pdfminer-six 20200124 20200402 20200517: Community maintained fork of pdfminer
 dev-python/pep517 0.8.2-r1: standard API for systems which build Python packages
 dev-python/promise 2.3.0: Bytecode optimisation using staticness assertions
@@ -229,15 +231,15 @@ dev-python/spotipy 2.16.1: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.4.0: Server Sent Events for Starlette
 dev-python/starlette 0.13.8: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
-dev-python/tekore 3.3.0: Spotify Web API client
+dev-python/tekore 3.4.0: Spotify Web API client
 dev-python/timeout-decorator 0.5.0: Timeout decorator
-dev-python/trio 0.14.0 0.15.1 0.17.0: Python library for async concurrency and I/O
+dev-python/trio 0.17.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/ufoLib2 0.7.1 0.8.0: A UFO font library
 dev-python/ufoNormalizer 0.4.1: A tool that will normalize the XML and other data inside of a UFO.
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
-dev-python/uvicorn 0.12.2: The lightning-fast ASGI server
+dev-python/uvicorn 0.12.2 0.12.3: The lightning-fast ASGI server
 dev-python/validators 0.18.0: Python Data Validation for Humans
 dev-python/watchgod 0.6: Simple, modern file watching and code reload
 dev-python/wcmatch 6.0.1: Wildcard/glob file name matcher
@@ -367,6 +369,7 @@ net-misc/castor 0.8.15 0.8.16: A graphical browser for plain-text protocols
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/kristall 0.2 0.3 9999: Visual cross-platform gemini browser
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
+net-misc/mastorss 0.13.0 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.3 4.3.5 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/openbgpd 6.6_p0 6.7_p0 6.8_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.3.2 9999: minimalistic commandline pastebin

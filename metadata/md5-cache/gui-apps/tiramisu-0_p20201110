@@ -1,9 +1,11 @@
 DEFINED_PHASES=install
+DEPEND=dev-libs/glib:2[dbus]
 DESCRIPTION=minimalistic desktop notifications provider
 EAPI=7
 HOMEPAGE=https://github.com/Sweets/tiramisu
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=MIT
+RDEPEND=dev-libs/glib:2[dbus]
 SLOT=0
 SRC_URI=https://github.com/Sweets/tiramisu/archive/8eb946dae0e2f98d3850d89e1bb535640e8c3266.tar.gz -> tiramisu-0_p20201110.tar.gz
-_md5_=95ed10e5cb161230fe30977ae967a156
+_md5_=1d9b59917dcf615bbd446f818060dac3
