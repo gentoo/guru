@@ -54,7 +54,6 @@ distutils_enable_sphinx docs \
 				dev-python/recommonmark \
 				www-servers/gunicorn
 
-
 python_prepare_all() {
 	# 'dependency' not found in `markers` configuration option
 	# requires pytest version which is no longer in ::gentoo
