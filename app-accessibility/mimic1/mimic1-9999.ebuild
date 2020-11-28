@@ -5,7 +5,7 @@ EAPI=7
 
 inherit autotools
 
-if [[ ${PV} == *9999 ]] ; then
+if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/MycroftAI/mimic1.git"
 else
@@ -31,10 +31,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=( "${FILESDIR}/${PN}-1.3.0.1-gcc10.patch" )
+
 src_prepare() {
 	default
-
 	sed -i 's/-Werror//' Makefile.am
-
 	eautoreconf
 }
