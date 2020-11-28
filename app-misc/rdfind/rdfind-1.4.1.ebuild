@@ -12,18 +12,14 @@ SRC_URI="https://github.com/pauldreik/rdfind/archive/releases/${PV}.tar.gz -> ${
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm"
-IUSE=""
 
-DEPEND="dev-libs/nettle"
-RDEPEND="${DEPEND}"
+RDEPEND="dev-libs/nettle"
+DEPEND="${RDEPEND}"
+BDEPEND="sys-devel/autoconf-archive"
 
 S="${WORKDIR}/${PN}-releases-${PV}"
 
 src_prepare() {
-	# NOTE: Commands are from bootstrap.sh.
-	eaclocal
-	eautoheader
-	eautomake --add-missing
-	eautoconf
 	default
+	eautoreconf
 }
