@@ -15,16 +15,15 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE=""
-
 DEPEND="
 	dev-libs/libconfig
 	dev-perl/XML-Parser
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	sys-devel/bison
+	dev-util/cunit
 	dev-util/intltool
+	sys-devel/bison
 	>=sys-devel/gcc-8.1
 "
 

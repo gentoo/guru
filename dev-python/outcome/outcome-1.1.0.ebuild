@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 
 inherit distutils-r1
 
@@ -20,8 +20,10 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-python/attrs[${PYTHON_USEDEP}]"
 
-BDEPEND="test? ( dev-python/async_generator[${PYTHON_USEDEP}]
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}] )"
+BDEPEND="test? (
+	dev-python/async_generator[${PYTHON_USEDEP}]
+	dev-python/pytest-asyncio[${PYTHON_USEDEP}]
+)"
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs/source dev-python/sphinxcontrib-trio
