@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake desktop xdg wrapper
+inherit desktop xdg cmake wrapper
 
 DESCRIPTION="Graphical Git client to help understand and manage source code history"
 HOMEPAGE="https://github.com/gitahead/gitahead"
@@ -16,10 +16,10 @@ SRC_URI="
 	https://github.com/commonmark/cmark/archive/f0793895eefc8ca14499831a24abee549a5af53e.tar.gz -> ${P}-dep_cmark_cmark.tar.gz
 "
 
-RESTRICT="test"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+RESTRICT="test"
 
 RDEPEND="
 	dev-qt/qtconcurrent:5
@@ -30,9 +30,7 @@ RDEPEND="
 	dev-qt/qttest:5
 	dev-qt/qtwidgets:5
 "
-DEPEND="
-	${RDEPEND}
-"
+DEPEND="${RDEPEND}"
 
 src_unpack() {
 	unpack "${P}.tar.gz"
@@ -49,14 +47,6 @@ src_unpack() {
 		[ ! -f "${DISTDIR}/${P}-${i}.tar.gz" ] && die "The file ${DISTDIR}/${P}-${i}.tar.gz doesn't exist"
 		tar xf "${DISTDIR}/${P}-${i}.tar.gz" --strip-components 1 -C "${i//_//}" || die "Failed to unpack ${P}-${i}.tar.gz"
 	done
-}
-
-src_prepare() {
-	cmake_src_prepare
-}
-
-src_configure() {
-	cmake_src_configure
 }
 
 src_install() {
