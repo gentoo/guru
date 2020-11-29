@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>xgqt@protonmail.com</email>
+        <name>Maciej Barć</name>
+    </maintainer>
+    <upstream>
+        <remote-id type="github">gitahead/gitahead</remote-id>
+    </upstream>
+    <longdescription>
+        GitAhead is a graphical Git client designed to help you understand and manage your source code history.
+    </longdescription>
+</pkgmetadata>
