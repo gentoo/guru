@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit eutils qmake-utils xdg
+inherit multilib qmake-utils xdg
 
 DESCRIPTION="A Qt based archiving solution with libarchive backend"
 HOMEPAGE="https://gitlab.com/marcusbritanicus/libarchive-qt"
@@ -17,10 +17,9 @@ else
 	S="${WORKDIR}/${PN}-v${PV}"
 fi
 
-RESTRICT="mirror"
+RESTRICT="mirror test"
 LICENSE="LGPL-3"
 SLOT="0"
-IUSE=""
 
 DEPEND="
 	app-arch/libarchive[lzma,bzip2,zlib]
@@ -29,9 +28,7 @@ DEPEND="
 	app-arch/lzop
 	dev-qt/qtgui:5
 "
-RDEPEND="
-	${DEPEND}
-"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	local lib="$(get_libdir)"
@@ -41,6 +38,5 @@ src_configure() {
 
 src_install() {
 	einstalldocs
-
 	emake INSTALL_ROOT="${D}" install
 }
