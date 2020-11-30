@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit eutils qmake-utils xdg
+inherit qmake-utils xdg
 
 DESCRIPTION="An image viewer for C Suite"
 HOMEPAGE="https://gitlab.com/cubocore/coreapps/coreimage"
@@ -17,10 +17,9 @@ else
 	S="${WORKDIR}/${PN}-v${PV}"
 fi
 
-RESTRICT="mirror"
+RESTRICT="mirror test"
 LICENSE="GPL-3"
 SLOT="0"
-IUSE=""
 
 DEPEND="
 	dev-qt/qtconcurrent:5=

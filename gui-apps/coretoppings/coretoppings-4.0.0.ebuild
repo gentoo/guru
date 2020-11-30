@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit eutils qmake-utils xdg
+inherit qmake-utils xdg
 
 DESCRIPTION="Additional features, plugins, widgets etc for C Suite"
 HOMEPAGE="https://gitlab.com/cubocore/coreapps/coretoppings"
@@ -17,7 +17,7 @@ else
 	S="${WORKDIR}/${PN}-v${PV}"
 fi
 
-RESTRICT="mirror"
+RESTRICT="mirror test"
 LICENSE="GPL-3"
 SLOT="0"
 IUSE="location pulseaudio"
