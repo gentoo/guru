@@ -3,9 +3,9 @@
 
 EAPI=7
 
-QTV="5.15.1"
+QTMIN="5.15.1"
 
-inherit eutils qmake-utils
+inherit multilib qmake-utils
 
 DESCRIPTION="Library for managing the device"
 HOMEPAGE="https://gitlab.com/cubocore/coreapps/libcsys"
@@ -19,15 +19,15 @@ else
 	S="${WORKDIR}/${PN}-v${PV}"
 fi
 
-RESTRICT="mirror"
+RESTRICT="mirror test"
 LICENSE="GPL-3"
 SLOT="0"
 IUSE="udisks"
 
 DEPEND="
-	~dev-qt/qtcore-${QTV}:5=
-	~dev-qt/qtdbus-${QTV}:5=
-	~dev-qt/qtnetwork-${QTV}:5=
+	>=dev-qt/qtcore-${QTMIN}:5
+	>=dev-qt/qtdbus-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
 "
 RDEPEND="
 	${DEPEND}
@@ -48,6 +48,5 @@ src_configure() {
 
 src_install() {
 	einstalldocs
-
 	emake INSTALL_ROOT="${D}" install
 }
