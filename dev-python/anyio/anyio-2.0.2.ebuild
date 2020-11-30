@@ -16,7 +16,7 @@ AUTODOC=1
 
 inherit distutils-r1 docs
 
-DESCRIPTION="High level compatibility layer for multiple asynchronous event loop implementations"
+DESCRIPTION="Compatibility layer for multiple asynchronous event loop implementations"
 HOMEPAGE="
 	https://github.com/agronholm/anyio
 	https://pypi.org/project/anyio
