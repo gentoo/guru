@@ -31,7 +31,7 @@ RDEPEND="${DEPEND}"
 
 src_prepare(){
 	einfo $(get_libdir)
-	sed "s/lib CACHE/$(get_libdir) CACHE"/ -i CMakeLists.txt
-	sed "s/lib/cmake/folly CACHE/$(get_libdir)/cmake/folly CACHE"/ -i CMakeLists.txt
+	sed "s/lib CACHE/$(get_libdir) CACHE/" -i CMakeLists.txt
+	sed "s/lib\/cmake\/folly CACHE/$(get_libdir)\/cmake\/folly CACHE/" -i CMakeLists.txt
 	cmake_src_prepare
 }
