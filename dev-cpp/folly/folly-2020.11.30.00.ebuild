@@ -13,7 +13,7 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="static-libs"
+IUSE=""
 
 DEPEND="app-arch/lz4
 		app-arch/snappy
@@ -21,7 +21,6 @@ DEPEND="app-arch/lz4
 		app-arch/zstd
 		dev-libs/double-conversion
 		dev-libs/libevent
-		dev-libs/openssl
 		dev-cpp/gflags
 		dev-cpp/glog[gflags]
 		dev-libs/boost[context,threads]
@@ -29,3 +28,10 @@ DEPEND="app-arch/lz4
 		sys-libs/zlib
 		sys-devel/binutils:*"
 RDEPEND="${DEPEND}"
+
+src_prepare(){
+	einfo $(get_libdir)
+	sed "s/lib CACHE/$(get_libdir) CACHE"/ -i CMakeLists.txt
+	sed "s/lib/cmake/folly CACHE/$(get_libdir)/cmake/folly CACHE"/ -i CMakeLists.txt
+	cmake_src_prepare
+}
