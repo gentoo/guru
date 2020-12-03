@@ -16,19 +16,23 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
+COMMON_DEPEND="
+	>=dev-qt/qtcore-5.12
+	>=dev-qt/qtgraphicaleffects-5.12
+	>=dev-qt/qtquickcontrols-5.12
+	>=dev-qt/qtquickcontrols2-5.12
+"
 RDEPEND="
+	${COMMON_DEPEND}
+	dev-python/aiohttp
 	media-video/mpv
 	media-video/ffmpeg
 	net-misc/curl
-	dev-python/aiohttp
 	>=dev-lang/python-3.7.0
 "
 DEPEND="
+	${COMMON_DEPEND}
 	kde-frameworks/extra-cmake-modules
-	>=dev-qt/qtcore-5.12
-	>=dev-qt/qtquickcontrols-5.12
-	>=dev-qt/qtquickcontrols2-5.12
-	>=dev-qt/qtgraphicaleffects-5.12
 "
 
 pkg_postinst()
