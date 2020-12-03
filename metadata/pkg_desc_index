@@ -24,7 +24,7 @@ app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generat
 app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
-app-emulation/dxvk-bin 1.7.1 1.7.2: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
+app-emulation/dxvk-bin 1.7.2 1.7.3: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.3.0: NVIDIA container runtime toolkit
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/apidb 4.3.0_beta 5.0.0_alpha 5.0.0_alpha8 5.0.0_alpha19 5.0.0_alpha20: API Generator for Database acces.
@@ -88,6 +88,7 @@ dev-R/tibble 3.0.1: Simple Data Frames
 dev-R/tidyselect 1.0.0 1.1.0: Select from a Set of Strings
 dev-R/utf8 1.1.4: Unicode Text Processing
 dev-R/vctrs 0.2.4 0.3.0: Vector Helpers
+dev-cpp/folly 2020.11.30.00: An open-source C++ library developed and used at Facebook
 dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
 dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging library
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
@@ -142,10 +143,12 @@ dev-python/bracex 2.0.0: Bash style brace expansion for Python
 dev-python/cchardet 2.1.6: cChardet is high speed universal character encoding detector
 dev-python/check-manifest 0.42: Tool to check the completeness of MANIFEST.in for Python packages
 dev-python/cloudscraper 1.2.34 1.2.40 1.2.46: A Python module to bypass Cloudflare's anti-bot page
+dev-python/clufter 0.77.2: Tool/library for transforming/analyzing cluster configuration formats
 dev-python/colored 1.4.2 9999: Very simple Python library for color and formatting in terminal
 dev-python/convertdate 2.2.1 2.2.2: Utils for converting between date formats and calculating holidays
 dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
 dev-python/curio 0.9 1.2-r1 1.4: Curio is a coroutine-based library for concurrent systems programming
+dev-python/dacite 1.6.0: This module simplifies creation of data classes (PEP 557) from dictionaries
 dev-python/databases 0.3.2: Async database support for Python.
 dev-python/dateparser 0.7.4: Date parsing library designed to parse dates from HTML pages
 dev-python/devtools 0.6.1: Dev tools for python
@@ -159,6 +162,7 @@ dev-python/googletransx 2.4.2: Free Google Translate API for Python. Translates 
 dev-python/graphene 3.0.0_beta5: GraphQL Framework for Python
 dev-python/graphql-core 3.1.1: GraphQL for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
+dev-python/gssapi 1.6.11: A Python interface to RFC 2743/2744 (plus common extensions)
 dev-python/guidata 1.7.9: Library for user interfaces for easy dataset editing and display
 dev-python/hidapi 0.9.0_p3: A Cython interface to the hidapi
 dev-python/hstspreload 2020.11.21: Chromium HSTS Preload list as a Python package
@@ -170,6 +174,7 @@ dev-python/hwi 1.2.1: Library and command line tool for interacting with hardwar
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
 dev-python/js2py 0.70: JavaScript to Python Translator & JavaScript interpreter written in Python
 dev-python/jupyter-sphinx 0.3.2: Jupyter Sphinx Extensions
+dev-python/k5test 0.9.2: A library for setting up self-contained Kerberos 5 environments
 dev-python/libusb1 1.8: Pure-python wrapper for libusb-1.0
 dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/markdown-include 0.6.0: Syntax which allows for inclusion of contents of other Markdown docs
@@ -182,6 +187,7 @@ dev-python/mkdocs-redirects 1.0.1: Plugin for Mkdocs page redirects
 dev-python/mkdocs_pymdownx_material_extras 1.1.3: Custom alterations based on Mkdocs-Material
 dev-python/mnemonic 0.19: Reference implementation of BIP-0039 for generating deterministic keys
 dev-python/noiseprotocol 0.3.1: Python implementation of Noise Protocol Framework
+dev-python/oscrypto 1.2.1: TLS sockets, key generation, encryption, decryption, signing, verification
 dev-python/outcome 1.1.0: Capture the outcome of Python function calls
 dev-python/pdfminer-six 20200124 20200402 20200517: Community maintained fork of pdfminer
 dev-python/pep517 0.8.2-r1: standard API for systems which build Python packages
@@ -212,6 +218,7 @@ dev-python/pytest-toolbox 0.4: Numerous useful plugins for pytest
 dev-python/pytest-trio 0.5.2 0.6.0: This is a pytest plugin to help you test projects that use Trio
 dev-python/python-mpv 0.5.2: Python interface to the mpv media player
 dev-python/python-multipart 0.0.5: A streaming multipart parser for Python
+dev-python/python-pkcs11 0.7.0: PKCS#11 (Cryptoki) support for Python
 dev-python/python-telegram-bot 12.4.2 13.0 9999: Python wrapper of telegram bots API
 dev-python/python-vlc 3.0.11115: Python ctypes-based bindings for libvlc
 dev-python/redbaron 0.9 0.9.2: A FST for python to make writing refactoring code a realistic task
@@ -281,25 +288,25 @@ games-util/itch-bin 25.4.0 25.4.1: itch.io game browser, installer and launcher
 games-util/legendary 0.20.2 0.20.3: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.0: A simple GOG client for Linux
 gui-apps/azote 1.8.1 9999: wallpaper manager for wlroots compositors
-gui-apps/coreaction 4.0.0 9999: A side bar for showing widgets for C Suite
-gui-apps/coreapps-meta 4.0.0: Meta package for coreapps
-gui-apps/corearchiver 4.0.0 9999: Archiver for C Suite, to create and extract archives
-gui-apps/corefm 4.0.0-r1 9999: A lightweight file-manager for C Suite
-gui-apps/coregarage 4.0.0 9999: A settings manager for C Suite
-gui-apps/corehunt 4.0.0 9999: A file finder utility for C Suite
-gui-apps/coreimage 4.0.0 9999: An image viewer for C Suite
-gui-apps/coreinfo 4.0.0 9999: A file information tool for C Suite
-gui-apps/corekeyboard 4.0.0 9999: A x11 based virtual keyboard for C Suite
-gui-apps/corepad 4.0.0 9999: A document editor for C Suite
-gui-apps/corepaint 4.0.0 9999: A paint app for C Suite
-gui-apps/corepdf 4.0.0 9999: A PDF viewer for C Suite
-gui-apps/corerenamer 4.0.0 9999: A batch file renamer for C Suite
-gui-apps/coreshot 4.0.0 9999: A screen capture utility for C Suite
-gui-apps/corestats 4.0.0 9999: A system resource viewer for C Suite
-gui-apps/corestuff 4.0.0 9999: An activity viewer for C Suite
-gui-apps/coreterminal 4.0.0 9999: A terminal emulator for C Suite
-gui-apps/coretime 4.0.0 9999: A time related task manager for C Suite
-gui-apps/coretoppings 4.0.0: Additional features, plugins, widgets etc for C Suite
+gui-apps/coreaction 4.0.0 4.1.0 9999: A side bar for showing widgets for C Suite
+gui-apps/coreapps-meta 4.0.0 4.1.0: Meta package for coreapps
+gui-apps/corearchiver 4.0.0 4.1.0 9999: Archiver for C Suite, to create and extract archives
+gui-apps/corefm 4.0.0-r1 4.1.0 9999: A lightweight file-manager for C Suite
+gui-apps/coregarage 4.0.0 4.1.0 9999: A settings manager for C Suite
+gui-apps/corehunt 4.0.0 4.1.0 9999: A file finder utility for C Suite
+gui-apps/coreimage 4.0.0 4.1.0 9999: An image viewer for C Suite
+gui-apps/coreinfo 4.0.0 4.1.0 9999: A file information tool for C Suite
+gui-apps/corekeyboard 4.0.0 4.1.0 9999: A x11 based virtual keyboard for C Suite
+gui-apps/corepad 4.0.0 4.1.0 9999: A document editor for C Suite
+gui-apps/corepaint 4.0.0 4.1.0 9999: A paint app for C Suite
+gui-apps/corepdf 4.0.0 4.1.0 9999: A PDF viewer for C Suite
+gui-apps/corerenamer 4.0.0 4.1.0 9999: A batch file renamer for C Suite
+gui-apps/coreshot 4.0.0 4.1.0 9999: A screen capture utility for C Suite
+gui-apps/corestats 4.0.0 4.1.0 9999: A system resource viewer for C Suite
+gui-apps/corestuff 4.0.0 4.1.0 9999: An activity viewer for C Suite
+gui-apps/coreterminal 4.0.0 4.1.0 9999: A terminal emulator for C Suite
+gui-apps/coretime 4.0.0 4.1.0 9999: A time related task manager for C Suite
+gui-apps/coretoppings 4.0.0 4.1.0: Additional features, plugins, widgets etc for C Suite
 gui-apps/mpvpaper 1.0 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.4.1 0.4.2 0.4.2-r1 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperdesktop 0_p20201107 9999: simple, sleek QT based DE for wayland using wayfire
@@ -308,14 +315,15 @@ gui-apps/tiramisu 0_p20201110 9999: minimalistic desktop notifications provider
 gui-apps/wdisplays 1.0-r2 9999: GUI display configurator for wlroots compositors
 gui-apps/wlr-randr 0.1.0 9999: xrandr clone for wlroots compositors
 gui-apps/wofi 1.2.1 1.2.2 1.2.3 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
-gui-libs/libcprime 4.0.0: Library for managing settings of CoreApps
-gui-libs/libcsys 4.0.0 9999: Library for managing the device
+gui-libs/libcprime 4.0.0 4.1.0: Library for managing settings of CoreApps
+gui-libs/libcsys 4.0.0 4.1.0 9999: Library for managing the device
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.2.1 9999: A Wayland kiosk
 kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 kde-misc/plasma5-wallpapers-dynamic 3.3.3 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
 kde-misc/skanpage 2020.06.11: Simple pdf scanning application based on libksane and KDE Frameworks
 mail-client/heirloom-mailx 12.5: The mailx utility from CentOS
+media-fonts/overpass 3.0.4: An open source webfont family inspired by Highway Gothic
 media-fonts/symbola 7.17: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
 media-fonts/unscii 2.0: Set of bitmapped Unicode fonts based on classic system fonts
 media-gfx/azpainter 2.1.6 2.1.7_beta4: Full color painting software for Linux for illustration drawing
@@ -353,7 +361,7 @@ media-tv/droidcam 1.6: Use android phone as webcam, using a v4l device driver an
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
 media-video/kikoplay 0.7.2 9999: KikoPlay is a full-featured danmu player
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
-media-video/qliveplayer 3.20.0: A cute and useful Live Stream Player with danmaku support
+media-video/qliveplayer 3.20.1: A cute and useful Live Stream Player with danmaku support
 media-video/syncplay 1.6.6: Client/server to synchronize media playback
 media-video/vidify 2.2.6: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
@@ -424,6 +432,7 @@ sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect da
 sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
+sys-fs/dwarfs 0.2.3: A fast very high compression read-only FUSE file system
 sys-fs/gfs2-utils 3.2.0 3.3.0: Shared-disk cluster file system
 sys-kernel/dkms 2.8.3: Dynamic Kernel Module Support
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
@@ -457,6 +466,6 @@ x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm,
 x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Window System
 x11-themes/arc-darkest-colors 0_pre20200417 0_pre20200818: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
-x11-themes/obsidian-icon-theme 4.13 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
-x11-themes/obsidian2-gtk-theme 2.15 9999: Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
+x11-themes/obsidian-icon-theme 4.14 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
+x11-themes/obsidian2-gtk-theme 2.16 9999: Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
 x11-themes/papirus-claws-mail-theme 0_pre20181023 0_pre20201019: Papirus icon theme for Claws Mail
