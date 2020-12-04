@@ -72,8 +72,6 @@ pkg_postinst() {
 	einfo "  su -s /bin/sh -c '${EROOT}/usr/libexec/${MY_PN}/fort_setup.sh /usr/share/${MY_PN}/tal/' fort"
 	einfo ""
 	einfo "as root and restart fort to enable it."
-	einfo "The configuration file generation will fail because the script tries"
-	einfo "to write in your current directory. Plus, there is a configuration"
-	einfo "file with this ebuild, so you don’t have to use the generated one if"
-	einfo "you don’t want to."
+	einfo "The configuration file generation will provide a config file, but a"
+	einfo "simpler one is shiped with the ebuid. Use the one you prefer."
 }
