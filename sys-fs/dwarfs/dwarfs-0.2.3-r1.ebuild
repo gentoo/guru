@@ -18,7 +18,7 @@ SRC_URI="https://github.com/mhx/dwarfs/archive/v${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="jemalloc"
+IUSE=""
 
 DEPEND="app-arch/zstd
 		app-arch/lz4
@@ -36,8 +36,7 @@ DEPEND="app-arch/zstd
 		sys-fs/fuse:3
 		sys-devel/flex
 		sys-devel/binutils:*
-		sys-libs/zlib
-		jemalloc? ( dev-libs/jemalloc )"
+		sys-libs/zlib"
 RDEPEND="dev-libs/boost[context,threads]
 		dev-libs/double-conversion
 		app-arch/zstd
@@ -81,7 +80,7 @@ src_prepare(){
 
 pkg_postinst(){
 	elog "Test shows that dwarfs compiled with Clang is substantially faster than GCC ones"
-	elog "See ${HOMEPAGE}"
+	elog "See https://github.com/mhx/dwarfs/issues/14"
 	elog "So you may want to compile it independently with Clang by the"
 	elog "https://wiki.gentoo.org/wiki/Clang"
 	elog "And with the per-package settings:"
