@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_7 )
 
 inherit distutils-r1 optfeature
 
-DESCRIPTION="HTTP/Socks4/Socks5/Shadowsocks/ShadowsocksR/SSH/Redirect/Pf TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio"
+DESCRIPTION="TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio"
 HOMEPAGE="
 	https://github.com/qwj/python-proxy
 	https://pypi.org/project/pproxy
