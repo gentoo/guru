@@ -33,11 +33,18 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="Futuristic take on hexdump, made in Rust."
+DESCRIPTION="Futuristic take on hexdump"
 HOMEPAGE="https://github.com/sitkevij/hex"
-SRC_URI="$(cargo_crate_uris ${CRATES})"
+SRC_URI="https://github.com/sitkevij/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	$(cargo_crate_uris ${CRATES})"
 
-LICENSE="Apache-2.0 MIT"
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 RESTRICT="mirror"
+
+src_install() {
+	cargo_src_install
+
+	dodoc README.md
+}
