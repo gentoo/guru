@@ -19,7 +19,7 @@ else
 	S="${WORKDIR}/${PN}-v${PV}"
 fi
 
-RESTRICT="mirror test"
+RESTRICT="test"
 LICENSE="GPL-3"
 SLOT="0"
 IUSE=""
