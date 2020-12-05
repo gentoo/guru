@@ -18,7 +18,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-RESTRICT="mirror"
+RESTRICT="test"
 LICENSE="MIT"
 SLOT="0"
 IUSE="apparmor"
