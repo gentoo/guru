@@ -1,0 +1,118 @@
+--- a/pcs/settings_default.py	2019-06-12 23:35:02.146909492 +0900
++++ b/pcs/settings_default.py	2019-06-12 23:31:27.795771910 +0900
+@@ -1,8 +1,8 @@
+ import os.path
+ 
+ systemctl_binary = "/bin/systemctl"
+-chkconfig_binary = "/sbin/chkconfig"
+-service_binary = "/sbin/service"
++chkconfig_binary = "/usr/bin/rc-config"
++service_binary = "/sbin/rc-service"
+ pacemaker_binaries = "/usr/sbin/"
+ crm_resource_binary = os.path.join(pacemaker_binaries, "crm_resource")
+ corosync_binaries = "/usr/sbin/"
+--- a/pcsd/pcs.rb	2019-06-12 23:35:13.882862268 +0900
++++ b/pcsd/pcs.rb	2019-06-12 23:31:11.357838047 +0900
+@@ -1712,7 +1712,7 @@
+   if ISSYSTEMCTL
+     cmd = ['systemctl', 'is-enabled', "#{service}.service"]
+   else
+-    cmd = ['chkconfig', service]
++    cmd = ['/usr/bin/rc-config','list default|/bin/grep -ow', service]
+   end
+   _, _, retcode = run_cmd(PCSAuth.getSuperuserAuth(), *cmd)
+   return (retcode == 0)
+@@ -1722,7 +1722,7 @@
+   if ISSYSTEMCTL
+     cmd = ['systemctl', 'status', "#{service}.service"]
+   else
+-    cmd = ['service', service, 'status']
++    cmd = ['/bin/rc-status', 'default|/bin/grep started| /bin/grep -ow', service]
+   end
+   _, _, retcode = run_cmd(PCSAuth.getSuperuserAuth(), *cmd)
+   return (retcode == 0)
+@@ -1778,11 +1778,12 @@
+ class ServiceInstalledCheckerChkconfig < ServiceInstalledChecker
+   protected
+   def run_command
+-    return run_cmd(PCSAuth.getSuperuserAuth(), 'chkconfig')
++    cmd = ['/usr/bin/rc-config', 'list']
++    return run_cmd(PCSAuth.getSuperuserAuth(), *cmd)
+   end
+ 
+   def contains_line_service?(line, service)
+-    return line.split(' ')[0] == service
++    return line.strip == service
+   end
+ end
+
+@@ -1765,7 +1766,7 @@
+     cmd = ['systemctl', 'enable', "#{service}.service"]
+   else
+     # fails when the service is not installed
+-    cmd = ['chkconfig', service, 'on']
++    cmd = ['/usr/bin/rc-config', 'add', service, 'default']
+   end
+   _, _, retcode = run_cmd(PCSAuth.getSuperuserAuth(), *cmd)
+   return (retcode == 0)
+@@ -1780,7 +1781,7 @@
+   if ISSYSTEMCTL
+     cmd = ['systemctl', 'disable', "#{service}.service"]
+   else
+-    cmd = ['chkconfig', service, 'off']
++    cmd = ['/usr/bin/rc-config', 'delete', service, 'default']
+   end
+   _, _, retcode = run_cmd(PCSAuth.getSuperuserAuth(), *cmd)
+   return (retcode == 0)
+--- a/pcs/lib/external.py	2019-06-12 23:35:06.017893916 +0900
++++ b/pcs/lib/external.py	2019-06-12 23:31:18.962807448 +0900
+@@ -69,7 +69,7 @@
+             _systemctl, "disable", _get_service_name(service, instance)
+         ])
+     else:
+-        stdout, stderr, retval = runner.run([_chkconfig, service, "off"])
++        stdout, stderr, retval = runner.run([_chkconfig, 'delete', service, "default"])
+     if retval != 0:
+         raise DisableServiceError(
+             service,
+@@ -93,7 +93,7 @@
+             _systemctl, "enable", _get_service_name(service, instance)
+         ])
+     else:
+-        stdout, stderr, retval = runner.run([_chkconfig, service, "on"])
++        stdout, stderr, retval = runner.run([_chkconfig, 'add', service, "default"])
+     if retval != 0:
+         raise EnableServiceError(
+             service,
+@@ -177,8 +177,12 @@
+             [_systemctl, "is-enabled", _get_service_name(service, instance)]
+         )
+     else:
+-        dummy_stdout, dummy_stderr, retval = runner.run([_chkconfig, service])
+-
++        stdout, dummy_stderr, dummy_retval = runner.run([_chkconfig, 'list', 'default'])
++        retval = 1
++        for line in stdout.splitlines():
++            line = line.strip()
++            if service == line:
++                retval = 0
+     return retval == 0
+ 
+ 
+@@ -225,14 +229,13 @@
+     """
+     if is_systemctl():
+         return []
+-
+-    stdout, dummy_stderr, return_code = runner.run([_chkconfig])
++    stdout, dummy_stderr, return_code = runner.run([_chkconfig, "list"])
+     if return_code != 0:
+         return []
+ 
+     service_list = []
+     for service in stdout.splitlines():
+-        service = service.split(" ", 1)[0]
++        service = service.strip().split(' ')[0]
+         if service:
+             service_list.append(service)
+     return service_list
