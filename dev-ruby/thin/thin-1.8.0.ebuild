@@ -21,3 +21,18 @@ DEPEND="dev-ruby/eventmachine
 
 
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
+
+each_ruby_configure() {
+			${RUBY} -Cext/thin_parser extconf.rb || die
+}
+
+each_ruby_compile() {
+		emake V=1 -Cext/thin_parser
+		cp ext/thin_parser/thin_parser.so lib/ || die
+}
+
+
+
+all_ruby_install() {
+			ruby_fakegem_binwrapper thin
+}
