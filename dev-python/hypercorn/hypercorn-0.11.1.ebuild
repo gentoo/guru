@@ -6,12 +6,12 @@ EAPI="7"
 PYTHON_COMPAT=( python3_{7,8} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-DOCBUILDER="sphinx"
-DOCDEPEND="
+DOCS_BUILDER="sphinx"
+DOCS_DEPEND="
 	dev-python/sphinxcontrib-napoleon
 	dev-python/pydata-sphinx-theme
 "
-DOCDIR="${S}/docs"
+DOCS_DIR="${S}/docs"
 
 inherit distutils-r1 docs optfeature
 

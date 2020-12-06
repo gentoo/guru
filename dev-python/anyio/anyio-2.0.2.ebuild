@@ -5,14 +5,14 @@ EAPI="7"
 
 PYTHON_COMPAT=( python3_7 )
 
-DOCBUILDER="sphinx"
-DOCDIR="${S}/docs"
-DOCDEPEND="
+DOCS_BUILDER="sphinx"
+DOCS_DIR="${S}/docs"
+DOCS_DEPEND="
 	dev-python/anyio
 	>=dev-python/sphinx-autodoc-typehints-1.2.0
 	dev-python/sphinx_rtd_theme
 "
-AUTODOC=1
+DOCS_AUTODOC=1
 
 inherit distutils-r1 docs
 

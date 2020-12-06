@@ -5,8 +5,8 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_7 )
 
-DOCBUILDER="mkdocs"
-DOCDEPEND="
+DOCS_BUILDER="mkdocs"
+DOCS_DEPEND="
 	dev-python/mkdocs-minify-plugin
 	dev-python/mkdocs-redirects
 "

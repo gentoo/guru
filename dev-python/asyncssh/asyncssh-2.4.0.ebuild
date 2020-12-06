@@ -4,8 +4,8 @@
 EAPI="7"
 
 PYTHON_COMPAT=( python3_7 )
-DOCDIR="docs"
-DOCBUILDER="sphinx"
+DOCS_DIR="docs"
+DOCS_BUILDER="sphinx"
 
 inherit distutils-r1 docs optfeature
 

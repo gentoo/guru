@@ -5,9 +5,9 @@ EAPI="7"
 
 PYTHON_COMPAT=( python3_{7,8} )
 DISTUTILS_USE_SETUPTOOLS=bdepend
-DOCBUILDER="sphinx"
-DOCDIR="${S}/docs/source"
-DOCDEPEND="
+DOCS_BUILDER="sphinx"
+DOCS_DIR="${S}/docs/source"
+DOCS_DEPEND="
 	>=dev-python/attrs-17.4.0
 	>=dev-python/sphinx-1.6.1
 	dev-python/sphinx_rtd_theme

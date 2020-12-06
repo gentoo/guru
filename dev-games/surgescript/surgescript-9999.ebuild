@@ -3,8 +3,8 @@
 
 EAPI=7
 
-DOCBUILDER="mkdocs"
-DOCDEPEND="
+DOCS_BUILDER="mkdocs"
+DOCS_DEPEND="
 	dev-python/mkdocs
 	dev-python/mkdocs-material
 "

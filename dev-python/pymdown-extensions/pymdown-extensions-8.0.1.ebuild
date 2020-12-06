@@ -5,8 +5,8 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7,8,9} )
 
-DOCBUILDER="mkdocs"
-DOCDEPEND="
+DOCS_BUILDER="mkdocs"
+DOCS_DEPEND="
 	dev-python/mkdocs-git-revision-date-localized-plugin
 	dev-python/mkdocs-minify-plugin
 	dev-python/mkdocs-material

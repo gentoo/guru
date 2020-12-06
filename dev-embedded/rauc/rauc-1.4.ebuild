@@ -3,8 +3,8 @@
 
 EAPI=7
 
-DOCBUILDER="sphinx"
-DOCDIR="${S}/docs"
+DOCS_BUILDER="sphinx"
+DOCS_DIR="${S}/docs"
 
 inherit autotools docs
 
