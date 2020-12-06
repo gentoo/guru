@@ -18,7 +18,7 @@
      cmd = ['systemctl', 'is-enabled', "#{service}.service"]
    else
 -    cmd = ['chkconfig', service]
-+    cmd = ['/usr/bin/rc-config','list default|/bin/grep -ow', service]
++    cmd = ['/usr/bin/rc-config','list default|/bin/grep -q', service]
    end
    _, _, retcode = run_cmd(PCSAuth.getSuperuserAuth(), *cmd)
    return (retcode == 0)
@@ -27,7 +27,7 @@
      cmd = ['systemctl', 'status', "#{service}.service"]
    else
 -    cmd = ['service', service, 'status']
-+    cmd = ['/bin/rc-status', 'default|/bin/grep started| /bin/grep -ow', service]
++    cmd = ['/bin/rc-status', 'default|/bin/grep started| /bin/grep -q', service]
    end
    _, _, retcode = run_cmd(PCSAuth.getSuperuserAuth(), *cmd)
    return (retcode == 0)
