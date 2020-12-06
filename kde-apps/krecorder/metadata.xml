@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>xgqt@protonmail.com</email>
+        <name>Maciej Barć</name>
+    </maintainer>
+    <longdescription>
+        Krecorder is a convergent audio recording application for Plasma.
+        Features:
+        - Record audio with a visualizer, and pausing functionality
+        - Ability to select audio sources
+        - Ability to select encoding and container formats
+        - Audio playback with a visualizer
+    </longdescription>
+</pkgmetadata>
