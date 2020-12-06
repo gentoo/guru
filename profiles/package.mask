@@ -1,4 +1,5 @@
 # Huang Rui <vowstar@gmail.com> (2020-04-27)
-# Requires >=dev-lang/lua-5.3 which is masked
-# User should unmask dev-lang/lua-5.3 and media-video/kikoplay to install
+# Theo Anderson <telans@posteo.de> (2020-12-06)
+# All these ebuilds require slotted Lua, which is still masked.
+>=media-gfx/grafx2-2.7.2978-r100
 media-video/kikoplay

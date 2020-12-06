@@ -3,13 +3,14 @@
 
 EAPI=7
 
-DOCBUILDER="mkdocs"
-DOCDEPEND="
+PYTHON_COMPAT=( python3_{7,8,9} )
+DOCS_BUILDER="mkdocs"
+DOCS_DEPEND="
 	dev-python/mkdocs
 	dev-python/mkdocs-material
 "
 
-inherit cmake docs
+inherit cmake python-any-r1 docs
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3

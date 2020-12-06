@@ -5,8 +5,8 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7,8} )
 
-DOCBUILDER="mkdocs"
-DOCDEPEND="
+DOCS_BUILDER="mkdocs"
+DOCS_DEPEND="
 	~dev-python/mkdocs-material-5.0.0_rc2
 	dev-python/mkdocs_pymdownx_material_extras
 	dev-python/pyspelling

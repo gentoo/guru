@@ -5,8 +5,8 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7,8,9} )
 
-DOCBUILDER="mkdocs"
-DOCDEPEND="
+DOCS_BUILDER="mkdocs"
+DOCS_DEPEND="
 	dev-python/ansi2html
 	dev-python/markdown
 	dev-python/markdown-include

@@ -3,7 +3,9 @@
 
 EAPI=7
 
-inherit xdg cmake optfeature
+PYTHON_COMPAT=( python3_{7..9} )
+
+inherit xdg cmake optfeature python-single-r1
 
 MY_P="QLivePlayer-${PV}"
 
@@ -15,8 +17,10 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 COMMON_DEPEND="
+	${PYTHON_DEPS}
 	>=dev-qt/qtcore-5.12
 	>=dev-qt/qtgraphicaleffects-5.12
 	>=dev-qt/qtquickcontrols-5.12
@@ -24,16 +28,29 @@ COMMON_DEPEND="
 "
 RDEPEND="
 	${COMMON_DEPEND}
-	dev-python/aiohttp
+	$(python_gen_cond_dep '
+		dev-python/aiohttp[${PYTHON_USEDEP}]
+	')
 	media-video/mpv
 	media-video/ffmpeg
 	net-misc/curl
-	>=dev-lang/python-3.7.0
 "
 DEPEND="
 	${COMMON_DEPEND}
 	kde-frameworks/extra-cmake-modules
 "
+
+src_prepare()
+{
+	cmake_src_prepare
+	# fix python version
+	sed -i "s/python3/${EPYTHON}/" src/qlphelper/bilivideo.cpp \
+		|| die "Sed failed to set python version!"
+	sed -i "s/python3/${EPYTHON}/" src/qlphelper/danmakulauncher.cpp \
+		|| die "Sed failed to set python version!"
+	sed -i "s/python3/${EPYTHON}/" src/qlphelper/streamfinder.cpp \
+		|| die "Sed failed to set python version!"
+}
 
 pkg_postinst()
 {

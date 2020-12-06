@@ -5,14 +5,22 @@ EAPI=7
 
 inherit cmake
 
+NVIDIA_PV="455.38"
+
 DESCRIPTION="NVIDIA GPUs htop like monitoring tool"
 HOMEPAGE="https://github.com/Syllo/nvtop"
 
 if [[ "${PV}" == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/Syllo/${PN}.git"
 	inherit git-r3
+	SRC_URI="
+		https://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-${NVIDIA_PV}.tar.bz2
+	"
 else
-	SRC_URI="https://github.com/Syllo/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="
+		https://github.com/Syllo/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
+		https://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-${NVIDIA_PV}.tar.bz2
+	"
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -32,10 +40,6 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.0.0-add-nvml.patch
-)
-
 src_configure() {
 	local CMAKE_CONF="
 		!debug? ( -DCMAKE_BUILD_TYPE=Release )
@@ -47,6 +51,8 @@ src_configure() {
 		-DNVML_INCLUDE_DIRS="${S}/include"
 		${CMAKE_CONF}
 	)
+
+	cp "${WORKDIR}/nvidia-settings-${NVIDIA_PV}/src/nvml.h" "${S}/include/nvml.h" || die
 
 	cmake_src_configure
 }

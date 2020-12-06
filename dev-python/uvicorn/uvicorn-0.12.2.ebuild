@@ -7,8 +7,8 @@ PYTHON_COMPAT=( python3_{7,8} )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-DOCBUILDER="mkdocs"
-DOCDEPEND="dev-python/mkdocs-material"
+DOCS_BUILDER="mkdocs"
+DOCS_DEPEND="dev-python/mkdocs-material"
 
 inherit distutils-r1 docs optfeature
 

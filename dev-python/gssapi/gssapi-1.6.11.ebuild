@@ -4,8 +4,8 @@
 EAPI="7"
 
 PYTHON_COMPAT=( python3_{6..8} )
-DOCBUILDER="sphinx"
-DOCDEPEND="
+DOCS_BUILDER="sphinx"
+DOCS_DEPEND="
 	>=dev-python/recommonmark-0.4.0
 	>dev-python/sphinx_rtd_theme-0.2.5
 "

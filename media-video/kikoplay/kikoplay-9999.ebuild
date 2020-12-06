@@ -5,7 +5,9 @@ EAPI="7"
 
 GIT_PN="KikoPlay"
 
-inherit qmake-utils xdg
+LUA_COMPAT=( lua5-3 )
+
+inherit lua-single qmake-utils xdg
 
 DESCRIPTION="KikoPlay is a full-featured danmu player"
 HOMEPAGE="
@@ -30,7 +32,7 @@ SLOT="0"
 # With out dev-lang/lua:5.3, this package can't work
 # See also: https://github.com/gentoo/guru/issues/9
 RDEPEND="
-	dev-lang/lua:5.3
+	${LUA_DEPS}
 	dev-libs/qhttpengine:5
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5

@@ -20,7 +20,7 @@ else
 	S="${WORKDIR}/${MY_P}"
 fi
 
-RESTRICT="mirror"
+RESTRICT="test"
 LICENSE="GPL-3"
 SLOT="0"
 

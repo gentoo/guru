@@ -5,8 +5,8 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_7 )
 
-DOCBUILDER="mkdocs"
-DOCDEPEND="dev-python/mkdocs-material"
+DOCS_BUILDER="mkdocs"
+DOCS_DEPEND="dev-python/mkdocs-material"
 
 inherit distutils-r1 docs optfeature
 

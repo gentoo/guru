@@ -3,10 +3,11 @@
 
 EAPI=7
 
-DOCBUILDER="sphinx"
-DOCDIR="${S}/docs"
+PYTHON_COMPAT=( python3_{7,8,9} )
+DOCS_BUILDER="sphinx"
+DOCS_DIR="${S}/docs"
 
-inherit autotools docs
+inherit autotools python-any-r1 docs
 
 DESCRIPTION="Lightweight update client that runs on your Embedded Linux device"
 HOMEPAGE="https://rauc.io/"

@@ -48,7 +48,6 @@ RDEPEND="
 
 src_install() {
 	distutils-r1_src_install
-	insinto "/usr/$(get_libdir)/${PN}/jellyfin-web"
+	insinto "$(python_get_sitedir)/${PN//-/_}/webclient_view/webclient"
 	doins -r "${WORKDIR}"/dist/*
-	dosym "/usr/$(get_libdir)/jellyfin-mpv-shim/jellyfin-web" "$(python_get_sitedir)/${PN//-/_}/webclient_view/webclient"
 }

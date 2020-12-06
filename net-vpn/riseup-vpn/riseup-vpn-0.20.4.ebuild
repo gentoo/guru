@@ -3,9 +3,9 @@
 
 EAPI=7
 
-DOCBUILDER="sphinx"
-DOCDIR="docs"
-AUTODOC=0
+DOCS_BUILDER="sphinx"
+DOCS_DIR="docs"
+DOCS_AUTODOC=0
 
 PYTHON_COMPAT=( python3_{7,8,9} )
 

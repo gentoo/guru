@@ -7,8 +7,8 @@ PYTHON_COMPAT=( python3_7 )
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-DOCBUILDER="mkdocs"
-DOCDEPEND="dev-python/mkdocs-minify-plugin"
+DOCS_BUILDER="mkdocs"
+DOCS_DEPEND="dev-python/mkdocs-minify-plugin"
 
 inherit distutils-r1 docs
 
