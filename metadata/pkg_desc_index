@@ -157,7 +157,7 @@ dev-python/devtools 0.6.1: Dev tools for python
 dev-python/doxypypy 0.8.8.6: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/factory_boy 2.12.0-r1 3.0.1: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11: Up to date simple useragent faker with real world database
-dev-python/faker 4.1.2: Python package that generates fake data
+dev-python/faker 5.0.0: Python package that generates fake data
 dev-python/geopy 1.21.0 1.22.0: A Geocoding Toolbox for Python
 dev-python/glicko2 0_pre20191010 9999: An implementation of the Glicko-2 rating system for Python
 dev-python/googletransx 2.4.2: Free Google Translate API for Python. Translates totally free of charge.
