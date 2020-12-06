@@ -20,7 +20,6 @@ DEPEND="media-libs/fontconfig
 	>=dev-lang/ruby-2.2
 	dev-ruby/rubygems
 	dev-ruby/bundler
-	sys-devel/gcc
 	dev-libs/libffi
 	sys-apps/coreutils
 "
@@ -99,7 +98,6 @@ src_install() {
 		rm -rf "${D}/usr/share/snmp"
 		rm -rf "${D}/usr/lib64/python*/site-packages/pcs/snmp" #FIXME
 		rm "${D}/usr/share/man/man8/pcs_snmp_agent.8"
-		rm "${D}/usr/lib/systemd/system/pcs_snmp_agent.service"
 		rm "${D}/usr/lib/pcs/pcs_snmp_agent"
 		rm "${D}/etc/default/pcs_snmp_agent"
 	fi
