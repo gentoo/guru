@@ -84,8 +84,8 @@ src_install() {
 	dosym /usr/sbin/pcs "${EPREFIX}/usr/lib/pcs/pcs"
 
 	# use Debian style systemd unit (with config in /etc/default/pcsd)
-	cp -a "${S}/pcsd/pcsd.service.debian" "${D}/usr/lib/systemd/system/pcsd.service"
-	#cp -a "${S}/pcsd/pcsd-ruby.service.debian" "${D}/usr/lib/systemd/system/pcsd.service"
+	systemd_newunit "${S}/pcsd/pcsd.service.debian" "pcsd.service"
+	systemd_newunit "${S}/pcsd/pcsd-ruby.service" "pcsd-daemon.service"
 	# custom service file for openRC
 	newinitd "${FILESDIR}/pcsd.initd" pcsd || die
 	newinitd "${FILESDIR}/pcsd-daemon.initd" pcsd-daemon || die
