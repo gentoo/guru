@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( pypy3 python3_{7,8} )
+PYTHON_COMPAT=( pypy3 python3_{7,8,9} )
 
 inherit distutils-r1
 
@@ -14,11 +14,11 @@ SRC_URI="https://github.com/hamstah/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
 # https://github.com/hamstah/ukpostcodeparser/issues/8
 PATCHES=( "${FILESDIR}/${P}-test.patch" )
+
+distutils_enable_tests unittest
 
 python_test() {
 	"${PYTHON}" -m unittest discover -v -s ukpostcodeparser/test -p parser.py || die "tests failed with ${EPYTHON}"
