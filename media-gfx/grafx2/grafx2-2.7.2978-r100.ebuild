@@ -15,6 +15,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="lua ttf"
+REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
 # Test phase fails: make: *** [Makefile:1146: ../bin/tests-sdl] Error 1
 RESTRICT="test"
 
