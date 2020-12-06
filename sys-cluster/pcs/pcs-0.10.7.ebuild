@@ -4,8 +4,8 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{7..9} )
-#inherit distutils-r1
-inherit python-utils-r1 systemd
+USE_RUBY="ruby25 ruby26"
+inherit distutils-r1 ruby-ng systemd
 
 DESCRIPTION="Pacemaker/Corosync Configuration System"
 HOMEPAGE="https://github.com/ClusterLabs/pcs"
@@ -16,25 +16,31 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="snmp systemd"
 
-DEPEND="media-libs/fontconfig
-	>=dev-lang/ruby-2.2
-	dev-ruby/rubygems
-	dev-ruby/bundler
+DEPEND="
+	media-libs/fontconfig
 	dev-libs/libffi
 	sys-apps/coreutils
 "
 RDEPEND="${DEPEND}
 	>=www-servers/tornado-6.0
 	<www-servers/tornado-7.0
-	dev-python/python-dateutil
-	dev-python/distro
-	dev-python/dacite
-	dev-python/lxml
-	dev-python/pyopenssl
-	dev-python/pycurl
-	dev-python/pyparsing
+	dev-python/python-dateutil[${PYTHON_USEDEP}]
+	dev-python/distro[${PYTHON_USEDEP}]
+	dev-python/dacite[${PYTHON_USEDEP}]
+	dev-python/lxml[${PYTHON_USEDEP}]
+	dev-python/pyopenssl[${PYTHON_USEDEP}]
+	dev-python/pycurl[${PYTHON_USEDEP}]
+	dev-python/pyparsing[${PYTHON_USEDEP}]
 	sys-process/psmisc
 	dev-libs/openssl
+	sys-libs/pam
+	>=sys-cluster/corosync-3.0
+	>=sys-cluster/pacemaker-2.0
+"
+
+ruby_add_rdepend "
+	dev-ruby/bundler
+	dev-ruby/rubygems
 	dev-ruby/open4
 	dev-ruby/highline
 	dev-ruby/json
@@ -49,12 +55,7 @@ RDEPEND="${DEPEND}
 	dev-ruby/sinatra
 	dev-ruby/open4
 	dev-ruby/backports
-	sys-libs/pam
-	>=sys-cluster/corosync-3.0
-	>=sys-cluster/pacemaker-2.0
 "
-
-REQUIRED_USE=${PYTHON_REQUIRED_USE}
 
 PATCHES=( "${FILESDIR}/remove-ruby-bundle-path.patch" "${FILESDIR}/openrc-0.10.7.patch" )
 
@@ -80,7 +81,7 @@ src_install() {
 	keepdir /var/lib/pcsd
 
 	# symlink the /usr/lib/pcs/pcs to /usr/sbin/pcs for pcsd
-	dosym /usr/sbin/pcs "${EPREFIX}/usr/lib/pcs/pcs"
+	dosym ../../../sbin/pcs "${EPREFIX}/usr/lib/pcs/pcs"
 
 	# use Debian style systemd unit (with config in /etc/default/pcsd)
 	systemd_newunit "${S}/pcsd/pcsd.service.debian" "pcsd.service"
