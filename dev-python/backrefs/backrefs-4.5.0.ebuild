@@ -7,9 +7,9 @@ PYTHON_COMPAT=( python3_{7,8,9} )
 
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="
-	dev-python/mkdocs_pymdownx_material_extras
-	dev-python/mkdocs-minify-plugin
 	dev-python/mkdocs-git-revision-date-localized-plugin
+	~dev-python/mkdocs_pymdownx_material_extras-1.0.7
+	dev-python/mkdocs-minify-plugin
 	dev-python/mkdocs-material
 	dev-python/pyspelling
 "
@@ -31,7 +31,7 @@ BDEPEND="test? ( dev-python/mock[${PYTHON_USEDEP}] )"
 
 distutils_enable_tests pytest
 
-src_compile() {
+python_prepare_all() {
 	# mkdocs-git-revision-date-localized-plugin needs git repo
 	if use doc; then
 		git init
@@ -41,5 +41,5 @@ src_compile() {
 		git commit -m 'init'
 	fi
 
-	distutils-r1_src_compile
+	distutils-r1_python_prepare_all
 }

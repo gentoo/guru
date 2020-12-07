@@ -3,11 +3,13 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="
-	~dev-python/mkdocs-material-5.0.0_rc2
+	dev-python/mkdocs-git-revision-date-localized-plugin
+	dev-python/mkdocs-material
+	dev-python/mkdocs-minify-plugin
 	dev-python/mkdocs_pymdownx_material_extras
 	dev-python/pyspelling
 "
@@ -28,10 +30,14 @@ KEYWORDS="~amd64 ~x86"
 distutils_enable_tests pytest
 
 python_prepare_all() {
-	# git revision data plugin needs git repo to build
-	# do not depend on this
-	sed -i -e '/git-revision-date-localized/d' \
-		mkdocs.yml || die
+	# mkdocs-git-revision-date-localized-plugin needs git repo
+	if use doc; then
+		git init
+		git config --global user.email "you@example.com" || die
+		git config --global user.name "Your Name" || die
+		git add .
+		git commit -m 'init'
+	fi
 
-		distutils-r1_python_prepare_all
+	distutils-r1_python_prepare_all
 }

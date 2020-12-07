@@ -9,8 +9,10 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="
-	dev-python/mkdocs_pymdownx_material_extras
-	~dev-python/mkdocs-material-5.0.0_rc2"
+	~dev-python/mkdocs_pymdownx_material_extras-1.1.3
+	dev-python/mkdocs-git-revision-date-localized-plugin
+	dev-python/mkdocs-minify-plugin
+"
 
 inherit distutils-r1 docs
 
@@ -31,18 +33,20 @@ RDEPEND="
 	dev-python/markdown[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	>=dev-python/soupsieve-1.8[${PYTHON_USEDEP}]
-	>=dev-python/wcmatch-4.0[${PYTHON_USEDEP}]
+	>=dev-python/wcmatch-6.0.3[${PYTHON_USEDEP}]
 "
-
-PATCHES="${FILESDIR}/${P}-do-not-install-tests.patch"
 
 distutils_enable_tests pytest
 
 python_prepare_all() {
-	# git revision data plugin needs git repo to build
-	# do not depend on this
-	sed -i -e '/git-revision-date-localized/d' \
-		mkdocs.yml || die
+	# mkdocs-git-revision-date-localized-plugin needs git repo
+	if use doc; then
+		git init
+		git config --global user.email "you@example.com" || die
+		git config --global user.name "Your Name" || die
+		git add .
+		git commit -m 'init'
+	fi
 
 	distutils-r1_python_prepare_all
 }
