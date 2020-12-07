@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_7 )
+PYTHON_COMPAT=( python3_{7,8} )
 
 inherit distutils-r1
 
@@ -21,7 +21,6 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	>=dev-python/Babel-2.7.0[${PYTHON_USEDEP}]
 	dev-python/GitPython[${PYTHON_USEDEP}]
-	dev-python/jinja[${PYTHON_USEDEP}]
 	>=dev-python/mkdocs-1.0[${PYTHON_USEDEP}]
 "
 DEPEND="test? (
@@ -29,9 +28,4 @@ DEPEND="test? (
 	dev-python/mkdocs-material[${PYTHON_USEDEP}]
 )"
 
-distutils_enable_tests pytest
-
-python_test() {
-	distutils_install_for_testing
-	pytest -vv || die "Tests fail with ${EPYTHON}"
-}
+distutils_enable_tests --install pytest
