@@ -50,10 +50,6 @@ python_prepare_all() {
 		-e 's:test_tabbed_split:_&:' \
 		tests/test_extensions/test_tabbed.py  || die
 
-	distutils-r1_python_prepare_all
-}
-
-src_compile() {
 	# mkdocs-git-revision-date-localized-plugin needs git repo
 	if use doc; then
 		git init
@@ -63,5 +59,5 @@ src_compile() {
 		git commit -m 'init'
 	fi
 
-	distutils-r1_src_compile
+	distutils-r1_python_prepare_all
 }
