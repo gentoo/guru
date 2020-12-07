@@ -4,6 +4,7 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{7..9} )
+DISTUTILS_USE_SETUPTOOLS=rdepend
 USE_RUBY="ruby25 ruby26"
 inherit distutils-r1 ruby-ng systemd
 
@@ -59,6 +60,8 @@ ruby_add_rdepend "
 
 PATCHES=( "${FILESDIR}/remove-ruby-bundle-path.patch" "${FILESDIR}/openrc-0.10.7.patch" )
 
+S="${WORKDIR}/all/${P}"
+
 src_compile() {
 	return
 }
@@ -81,7 +84,7 @@ src_install() {
 	keepdir /var/lib/pcsd
 
 	# symlink the /usr/lib/pcs/pcs to /usr/sbin/pcs for pcsd
-	dosym ../../../sbin/pcs "${EPREFIX}/usr/lib/pcs/pcs"
+	dosym ../../sbin/pcs "${EPREFIX}/usr/lib/pcs/pcs"
 
 	# use Debian style systemd unit (with config in /etc/default/pcsd)
 	systemd_newunit "${S}/pcsd/pcsd.service.debian" "pcsd.service"
@@ -102,4 +105,6 @@ src_install() {
 		rm "${D}/usr/lib/pcs/pcs_snmp_agent"
 		rm "${D}/etc/default/pcs_snmp_agent"
 	fi
+
+	python_foreach_impl python_optimize
 }
