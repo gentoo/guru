@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_7 )
+PYTHON_COMPAT=( python3_{7,8} )
 
 inherit distutils-r1
 
@@ -23,9 +23,10 @@ PDEPEND=">=dev-python/mkdocs-material-5.0.0[${PYTHON_USEDEP}]"
 
 # we still need mkdocs-material for test, but the circular dep can be avoided
 # by first emerging with FEATURES="-test"
-DEPEND="test? ( ${PDEPEND} )"
+BDEPEND="test? ( ${PDEPEND} )"
 
 distutils_enable_tests pytest
+
 python_prepare_all() {
 	# AssertionError: False is not true
 	sed -i -e 's:test_material_svg_injection:_&:' \
