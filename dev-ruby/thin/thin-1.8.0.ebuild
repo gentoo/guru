@@ -3,7 +3,7 @@
 
 EAPI=7
 
-USE_RUBY="ruby24 ruby25 ruby26 ruby27"
+USE_RUBY="ruby24 ruby25 ruby26"
 
 inherit ruby-fakegem
 
@@ -15,9 +15,11 @@ LICENSE="Ruby"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="dev-ruby/eventmachine
-		dev-ruby/daemons
-		dev-ruby/rack"
+ruby_add_depend "
+	dev-ruby/eventmachine
+	dev-ruby/daemons
+	dev-ruby/rack
+"
 
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
 
