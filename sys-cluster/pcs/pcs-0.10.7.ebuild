@@ -54,7 +54,6 @@ ruby_add_rdepend "
 	dev-ruby/thin
 	dev-ruby/tilt
 	dev-ruby/sinatra
-	dev-ruby/open4
 	dev-ruby/backports
 "
 
