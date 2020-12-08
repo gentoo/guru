@@ -17,34 +17,25 @@ SRC_URI="https://github.com/mhx/dwarfs/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE=""
 
-DEPEND="app-arch/zstd
-		app-arch/lz4
-		app-arch/xz-utils
-		app-arch/snappy
-		dev-libs/boost[context,threads]
+DEPEND="sys-devel/flex
+		sys-devel/binutils:*"
+RDEPEND="dev-libs/boost[context,threads]
 		dev-libs/double-conversion
 		dev-libs/libfmt
 		dev-libs/libevent
-		dev-cpp/gflags
-		dev-cpp/glog[gflags]
-		dev-cpp/sparsehash
-		sys-libs/binutils-libs
-		sys-libs/libunwind
-		sys-fs/fuse:3
-		sys-devel/flex
-		sys-devel/binutils:*
-		sys-libs/zlib"
-RDEPEND="dev-libs/boost[context,threads]
-		dev-libs/double-conversion
 		app-arch/zstd
 		app-arch/lz4
 		app-arch/xz-utils
 		app-arch/snappy
+		dev-cpp/sparsehash
+		dev-cpp/gflags
+		dev-cpp/glog[gflags]
 		sys-fs/fuse:3
 		sys-libs/binutils-libs
+		sys-libs/zlib
 		sys-libs/libunwind"
 BDEPEND="app-text/ronn
 		dev-util/cmake
