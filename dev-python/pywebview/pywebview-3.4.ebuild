@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="A lightweight cross-platform wrapper around a webview component"
 HOMEPAGE="https://github.com/r0x0r/pywebview"
-SRC_URI="https://github.com/r0x0r/pywebview/archive/${PV}.tar.gz"
+SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"

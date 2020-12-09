@@ -2,10 +2,11 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>telans@posteo.de</email>
-		<name>Theo Anderson</name>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">Nefelim4ag/systemd-swap</remote-id>
+		<remote-id type="github">bigsassy/pytest-pythonpath</remote-id>
+		<remote-id type="pypi">pytest-pythonpath</remote-id>
 	</upstream>
 </pkgmetadata>
