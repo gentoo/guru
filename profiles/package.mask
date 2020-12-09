@@ -1,3 +1,7 @@
+# Theo Anderson <telans@posteo.de> (2020-12-06)
+# SELinux profiles do not support systemd
+>=sys-block/systemd-swap-4.4.0
+
 # Huang Rui <vowstar@gmail.com> (2020-04-27)
 # Theo Anderson <telans@posteo.de> (2020-12-06)
 # All these ebuilds require slotted Lua, which is still masked.
