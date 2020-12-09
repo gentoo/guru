@@ -10,16 +10,18 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
+SHADER_PV="1.1.0"
 WEB_PV="1.6.2"
 
 DESCRIPTION="MPV-based desktop and cast client for Jellyfin (Unofficial)"
 HOMEPAGE="https://github.com/iwalton3/jellyfin-mpv-shim"
 SRC_URI="
 	https://github.com/iwalton3/jellyfin-mpv-shim/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/iwalton3/default-shader-pack/archive/v${SHADER_PV}.tar.gz -> jellyfin-mpv-shim-shader-pack-${SHADER_PV}.tar.gz
 	https://github.com/iwalton3/jellyfin-web/releases/download/jwc${WEB_PV}-1/dist.zip -> jellyfin-web-${WEB_PV}.zip
 "
 
-LICENSE="MIT"
+LICENSE="LGPL-3+ MIT Unlicense"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
@@ -48,6 +50,8 @@ RDEPEND="
 
 src_install() {
 	distutils-r1_src_install
-	insinto "$(python_get_sitedir)/${PN//-/_}/webclient_view/webclient"
+	insinto "$(python_get_sitedir)/${PN//-/_}/webclient_view/webclient" # jellyfin-web dist
 	doins -r "${WORKDIR}"/dist/*
+	insinto "$(python_get_sitedir)/${PN//-/_}/default_shader_pack" # mpv shaders
+	doins -r "${WORKDIR}"/default-shader-pack-${SHADER_PV}/*
 }
