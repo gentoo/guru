@@ -7,8 +7,8 @@ PYTHON_COMPAT=( python3_{7..9} )
 
 inherit distutils-r1
 
-DESCRIPTION="Python API to MPV using JSON IPC"
-HOMEPAGE="https://github.com/iwalton3/python-mpv-jsonipc"
+DESCRIPTION="System V IPC primitives for python"
+HOMEPAGE="http://semanchuk.com/philip/sysv_ipc/"
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
