@@ -74,7 +74,7 @@ src_install() {
 		SYSTEMCTL_OVERRIDE=$(use systemd) \
 		DESTDIR="${D}" \
 		CONF_DIR="/etc/default/" \
-		PREFIX="/usr/${EPREFIX}" \
+		PREFIX="${EPREFIX}/usr/" \
 		BUNDLE_INSTALL_PYAGENTX=false \
 		BUNDLE_TO_INSTALL=false \
 		BUILD_GEMS=false
