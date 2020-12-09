@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="System tray icon creation via python"
 HOMEPAGE="https://github.com/moses-palmer/pystray"
-SRC_URI="https://github.com/moses-palmer/pystray/archive/v${PV}.tar.gz"
+SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0"

@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="Python API client for Jellyfin"
 HOMEPAGE="https://github.com/iwalton3/jellyfin-apiclient-python"
-SRC_URI="https://github.com/iwalton3/jellyfin-apiclient-python/archive/v${PV}.tar.gz"
+SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
