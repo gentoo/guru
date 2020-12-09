@@ -1,0 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install setup unpack
+DESCRIPTION=Script for creating swap space from zram swaps, swap files and swap partitions.
+EAPI=7
+HOMEPAGE=https://github.com/Nefelim4ag/systemd-swap/
+IUSE=kernel_linux
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=|| ( ( dev-lang/python:3.8 dev-python/python-systemd[python_targets_python3_8(-),python_single_target_python3_8(+)] dev-python/sysv_ipc[python_targets_python3_8(-),python_single_target_python3_8(+)] ) ( dev-lang/python:3.7 dev-python/python-systemd[python_targets_python3_7(-),python_single_target_python3_7(+)] dev-python/sysv_ipc[python_targets_python3_7(-),python_single_target_python3_7(+)] ) )
+SLOT=0
+_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441	linux-info	c90a203b1c14cfa77bd3e37a0e96c955	multilib	d410501a125f99ffb560b0c523cd3d1e	python-any-r1	54a3178500786b0a7ede4a23b7f2a6ad	python-utils-r1	e41e32d357e5bdd388b5be2ce24f3883	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
+_md5_=c196554fd0012de1f721eb6bb338ed6a
