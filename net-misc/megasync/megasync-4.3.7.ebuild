@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools desktop qmake-utils xdg cmake
+inherit autotools cmake desktop qmake-utils
 
 MEGA_SDK_REV="ba4834cb6c22f4e996f328db3aa5b82ef20eed3e" # commit of src/MEGASync/mega submodule
 
