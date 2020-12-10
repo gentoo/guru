@@ -3,9 +3,7 @@
 
 EAPI=7
 
-inherit autotools cmake desktop qmake-utils
-
-MEGA_SDK_REV="ba4834cb6c22f4e996f328db3aa5b82ef20eed3e" # commit of src/MEGASync/mega submodule
+inherit autotools desktop qmake-utils xdg cmake
 
 DESCRIPTION="The official Qt-based program for syncing your MEGA account in your PC"
 HOMEPAGE="http://mega.co.nz"
@@ -14,6 +12,7 @@ if [[ ${PV} == 9999 ]];then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/meganz/MEGAsync"
 else
+	MEGA_SDK_REV="ba4834cb6c22f4e996f328db3aa5b82ef20eed3e" # commit of src/MEGASync/mega submodule
 	SRC_URI="
 		https://github.com/meganz/MEGAsync/archive/v${PV}.0_Linux.tar.gz -> ${P}.tar.gz
 		https://github.com/meganz/sdk/archive/${MEGA_SDK_REV}.tar.gz -> ${PN}-sdk-${PV}.tar.gz
@@ -71,8 +70,10 @@ BDEPEND="
 DOCS=( CREDITS.md README.md )
 
 src_prepare() {
-	rmdir src/MEGASync/mega
-	mv "${WORKDIR}"/sdk-${MEGA_SDK_REV} src/MEGASync/mega
+	if [[ ${PV} != 9999 ]]; then
+		rmdir src/MEGASync/mega
+		mv "${WORKDIR}"/sdk-${MEGA_SDK_REV} src/MEGASync/mega
+	fi
 	default
 	cd src/MEGASync/mega
 	eautoreconf
