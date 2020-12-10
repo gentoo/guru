@@ -36,7 +36,8 @@ RDEPEND="dev-libs/boost[context,threads]
 		sys-fs/fuse:3
 		sys-libs/binutils-libs
 		sys-libs/zlib
-		sys-libs/libunwind"
+		sys-libs/libunwind
+		!dev-cpp/folly"
 BDEPEND="app-text/ronn
 		dev-util/cmake
 		sys-apps/sed
@@ -46,6 +47,8 @@ BDEPEND="app-text/ronn
 CHECKREQS_DISK_BUILD="512M"
 
 DOCS=( "README.md" "CHANGES.md" "TODO" )
+
+CMAKE_IN_SOURCE_BUILD=true
 
 src_unpack(){
 	default
@@ -67,6 +70,12 @@ src_prepare(){
 	popd
 	sed "s/DESTINATION lib/DESTINATION $(get_libdir)/" -i CMakeLists.txt || die
 	cmake_src_prepare
+}
+
+src_install(){
+	default
+	dolib.so libmetadata_thrift.so libthrift_light.so
+	dolib.so folly/libfolly.so.0.58.0-dev folly/libfolly.so
 }
 
 pkg_postinst(){

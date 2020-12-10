@@ -21,7 +21,6 @@ KEYWORDS="~amd64"
 RDEPEND="
 		dev-python/appdirs[${PYTHON_USEDEP}]
 		dev-python/decorator[${PYTHON_USEDEP}]
-		dev-python/funcsigs[${PYTHON_USEDEP}]
 		dev-python/ipdb[${PYTHON_USEDEP}]
 		dev-python/ipython[${PYTHON_USEDEP}]
 		dev-python/ipython_genutils[${PYTHON_USEDEP}]
