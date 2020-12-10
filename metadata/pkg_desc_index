@@ -352,7 +352,7 @@ media-plugins/qt-avif-image-plugin 0.4.0 9999: Qt plug-in to allow Qt and KDE ba
 media-plugins/qt-heif-image-plugin 0.3.3-r1: Qt plugin for HEIF images
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
-media-sound/add64 3.8.0: Add64 is a realtime additive/subtractive-synthesis softsynth
+media-sound/add64 3.8.0 3.9.3: Add64 is a realtime additive/subtractive-synthesis softsynth
 media-sound/aucatctl 0.1: A tool for controlling aucat and/or sndiod volume through MIDI
 media-sound/ibniz 1.18: virtual machine designed for extremely compact low-level audiovisual programs
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
