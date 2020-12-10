@@ -210,14 +210,14 @@ dev-python/pytest-instafail 0.4.2: Plugin for pytest that shows failures and err
 dev-python/pytest-isort 1.2.0: Plugin to check import ordering using isort
 dev-python/pytest-marks 0.4: Allow to set 'marks' on pytest methods
 dev-python/pytest-pythonpath 0.7.3: Plugin for adding to the PYTHONPATH from the pytests.ini file before tests run
-dev-python/pytest-randomly 3.4.1: Pytest plugin to randomly order tests and control random.seed
+dev-python/pytest-randomly 3.4.1 3.5.0: Pytest plugin to randomly order tests and control random.seed
 dev-python/pytest-sanic 1.6.2: a Pytest Plugin for Sanic
 dev-python/pytest-subtests 0.3.2: unittest subTest() support and subtests fixture
 dev-python/pytest-sugar 0.9.3 0.9.4: Plugin for pytest that changes the default look and feel of pytest
 dev-python/pytest-toolbox 0.4: Numerous useful plugins for pytest
 dev-python/pytest-trio 0.5.2 0.6.0 0.7.0: This is a pytest plugin to help you test projects that use Trio
 dev-python/python-mpv 0.5.2: Python interface to the mpv media player
-dev-python/python-mpv-jsonipc 1.1.11: Python API to MPV using JSON IPC
+dev-python/python-mpv-jsonipc 1.1.11 1.1.12: Python API to MPV using JSON IPC
 dev-python/python-multipart 0.0.5: A streaming multipart parser for Python
 dev-python/python-pkcs11 0.7.0: PKCS#11 (Cryptoki) support for Python
 dev-python/python-telegram-bot 12.4.2 13.0 9999: Python wrapper of telegram bots API
@@ -247,8 +247,8 @@ dev-python/timeout-decorator 0.5.0: Timeout decorator
 dev-python/trio 0.17.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
-dev-python/ufoLib2 0.7.1 0.8.0: A UFO font library
-dev-python/ufoNormalizer 0.4.1 0.5.0: A tool that will normalize the XML and other data inside of a UFO.
+dev-python/ufoLib2 0.7.1 0.8.0 0.10.0: A UFO font library
+dev-python/ufoNormalizer 0.5.0: A tool that will normalize the XML and other data inside of a UFO.
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/uvicorn 0.12.2 0.12.3: The lightning-fast ASGI server
 dev-python/validators 0.18.0: Python Data Validation for Humans
@@ -269,7 +269,7 @@ dev-vcs/git-extras 6.1.0 9999: Little git extras
 dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
 dev-vcs/gitqlient 1.2.0 1.3.0_beta 9999: Multi-platform Git client written with Qt
-dev-vcs/lazygit 0.20.9 0.22.9 0.23.6 0.23.7 9999: Lazygit, a simple terminal UI for git commands
+dev-vcs/lazygit 0.20.9 0.22.9 0.23.7 9999: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.4.0.2: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 2.1.17785 2.2.548_beta: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
@@ -330,6 +330,7 @@ mail-client/heirloom-mailx 12.5: The mailx utility from CentOS
 media-fonts/overpass 3.0.4: An open source webfont family inspired by Highway Gothic
 media-fonts/symbola 7.17: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
 media-fonts/unscii 2.0: Set of bitmapped Unicode fonts based on classic system fonts
+media-fonts/warframe-fonts 0_p20191111: Fonts from the Warframe game
 media-gfx/azpainter 2.1.6 2.1.7_beta4: Full color painting software for Linux for illustration drawing
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
 media-gfx/glimpse 0.2.0: Image editor based on the GNU Image Manipulation Program
@@ -415,7 +416,7 @@ sci-libs/kissfft 131 9999: A Fast Fourier Transform (FFT) library that tries to 
 sci-libs/meschach 1.2b: Meschach is a C-language library of routines for performing matrix computations.
 sci-libs/saclib 2.2.7-r1 2.2.7-r2: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
-sci-physics/SU2 7.0.6 7.0.7: SU2: An Open-Source Suite for Multiphysics Simulation and Design
+sci-physics/SU2 7.0.6 7.0.7 7.0.8: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
 sys-apps/drm_info 2.2.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3: A more intuitive version of du
@@ -439,7 +440,7 @@ sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect da
 sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
-sys-fs/dwarfs 0.2.3-r2: A fast very high compression read-only FUSE file system
+sys-fs/dwarfs 0.2.3-r3: A fast very high compression read-only FUSE file system
 sys-fs/erofs-utils 1.1: Userspace tools for EROFS images
 sys-fs/gfs2-utils 3.2.0 3.3.0: Shared-disk cluster file system
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
