@@ -1,0 +1,20 @@
+--- a/Lib/ufo2ft/filters/__init__.py
++++ b/Lib/ufo2ft/filters/__init__.py
+@@ -9,6 +9,7 @@ import importlib
+ from fontTools.misc.loggingTools import Timer
+ from ufo2ft.util import _LazyFontName, _GlyphSet
+ from ufo2ft.constants import FILTERS_KEY as UFO2FT_FILTERS_KEY  # keep previous name
++from glyphsLib.builder.constants import GLYPHLIB_PREFIX
+ 
+ 
+ logger = logging.getLogger(__name__)
+@@ -205,7 +206,8 @@ class BaseFilter(object):
+                 if glyphName in modified:
+                     continue
+                 glyph = glyphSet[glyphName]
+-                if include(glyph) and filter_(glyph):
++                if glyph.lib.get(GLYPHLIB_PREFIX+'Export', True) and \
++                    include(glyph) and filter_(glyph):
+                     modified.add(glyphName)
+ 
+         num = len(modified)
