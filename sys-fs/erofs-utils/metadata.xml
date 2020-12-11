@@ -32,5 +32,6 @@
 	</longdescription>
 	<use>
 		<flag name="uuid">Allow interaction with libuuid in sys-apps/util-linux. It's recommended turn on</flag>
+		<flag name="fuse">Enable support for Filesystem in Userspace via sys-fs/fuse</flag>
 	</use>
 </pkgmetadata>
