@@ -73,7 +73,7 @@ src_prepare(){
 }
 
 src_install(){
-	default
+	cmake_src_install
 	dolib.so libmetadata_thrift.so libthrift_light.so
 	dolib.so folly/libfolly.so.0.58.0-dev folly/libfolly.so
 }

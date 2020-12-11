@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6..8} )
+PYTHON_COMPAT=( python3_{6..9} )
 
 inherit cmake python-single-r1
 
@@ -14,15 +14,10 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="doc encryption examples etf mbedtls pubsub openssl test tools xdp"
+IUSE="doc examples mbedtls pubsub test tools"
 RESTRICT="!test? ( test )"
 
-REQUIRED_USE="
-	${PYTHON_REQUIRED_USE}
-	encryption? ( || ( mbedtls openssl ) )
-	etf? ( pubsub )
-	xdp? ( pubsub )
-"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 BDEPEND="
 	${PYTHON_DEPS}
@@ -44,18 +39,13 @@ BDEPEND="
 "
 DEPEND="
 	mbedtls? ( net-libs/mbedtls:= )
-	openssl? ( dev-libs/openssl:0= )
 "
 RDEPEND="
 	${PYTHON_DEPS}
 	${DEPEND}
 "
 
-PATCHES=(
-	"${FILESDIR}/${P}-etf.patch"
-	"${FILESDIR}/${P}-headers.patch"
-	"${FILESDIR}/${P}-tests.patch"
-)
+PATCHES=( "${FILESDIR}/${P}-tests.patch" )
 
 src_configure() {
 	local mycmakeargs=(
@@ -64,13 +54,8 @@ src_configure() {
 		-DUA_BUILD_EXAMPLES=OFF
 		-DUA_BUILD_TOOLS=$(usex tools)
 		-DUA_BUILD_UNIT_TESTS=$(usex test)
-		-DUA_ENABLE_ENCRYPTION=$(usex encryption)
-		-DUA_ENABLE_ENCRYPTION_MBEDTLS=$(usex mbedtls)
-		-DUA_ENABLE_ENCRYPTION_OPENSSL=$(usex openssl)
+		-DUA_ENABLE_ENCRYPTION=$(usex mbedtls)
 		-DUA_ENABLE_PUBSUB=$(usex pubsub)
-		-DUA_ENABLE_PUBSUB_ETH_UADP=$(usex pubsub)
-		-DUA_ENABLE_PUBSUB_ETH_UADP_ETF=$(usex etf)
-		-DUA_ENABLE_PUBSUB_ETH_UADP_XDP=$(usex xdp)
 	)
 
 	cmake_src_configure
