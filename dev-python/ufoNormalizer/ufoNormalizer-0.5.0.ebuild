@@ -5,6 +5,7 @@ EAPI="7"
 
 PYTHON_COMPAT=( python3_{7,8,9} pypy3 )
 DISTUTILS_USE_SETUPTOOLS=rdepend
+
 MYPN="${PN,,}"
 MYP="${MYPN}-${PV}"
 inherit distutils-r1
@@ -15,10 +16,8 @@ SRC_URI="mirror://pypi/${MYPN:0:1}/${MYPN}/${MYP}.zip"
 
 SLOT="0"
 LICENSE="BSD"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
-DEPEND=""
-RDEPEND=""
 BDEPEND="app-arch/unzip"
 
 S="${WORKDIR}/${MYP}"
