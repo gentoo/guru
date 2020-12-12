@@ -31,6 +31,6 @@ src_configure() {
 }
 
 src_install() {
-	emake PREFIX="/usr" DESTDIR="${ED}" install
+	emake PREFIX="/usr" MANDIR="/usr/share/man" DESTDIR="${ED}" install
 	einstalldocs
 }
