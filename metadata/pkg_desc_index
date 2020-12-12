@@ -149,6 +149,7 @@ dev-python/click-repl 0.1.6: Subcommand REPL for click apps
 dev-python/cloudscraper 1.2.34 1.2.40 1.2.46: A Python module to bypass Cloudflare's anti-bot page
 dev-python/clufter 0.77.2: Tool/library for transforming/analyzing cluster configuration formats
 dev-python/colored 1.4.2 9999: Very simple Python library for color and formatting in terminal
+dev-python/compreffor 0.5.0: A CFF table subroutinizer for FontTools
 dev-python/convertdate 2.2.1 2.2.2: Utils for converting between date formats and calculating holidays
 dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
 dev-python/curio 0.9 1.2-r1 1.4 1.4-r1: Curio is a coroutine-based library for concurrent systems programming
@@ -161,7 +162,8 @@ dev-python/factory_boy 2.12.0-r1 3.0.1: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11: Up to date simple useragent faker with real world database
 dev-python/faker 5.0.0 5.0.1: Python package that generates fake data
 dev-python/geopy 1.21.0 1.22.0: A Geocoding Toolbox for Python
-dev-python/glicko2 0_pre20191010 9999: An implementation of the Glicko-2 rating system for Python
+dev-python/glicko2 0_pre20191010: An implementation of the Glicko-2 rating system for Python
+dev-python/glyphsLib 5.3.0: A library to provide a bridge from Glyphs source files to UFOs
 dev-python/googletransx 2.4.2: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/graphene 3.0.0_beta5: GraphQL Framework for Python
 dev-python/graphql-core 3.1.1 3.1.2: GraphQL for Python
@@ -247,6 +249,7 @@ dev-python/timeout-decorator 0.5.0: Timeout decorator
 dev-python/trio 0.17.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
+dev-python/ufo2ft 2.13.0: A bridge from UFOs to FontTool objects
 dev-python/ufoLib2 0.7.1 0.8.0 0.10.0: A UFO font library
 dev-python/ufoNormalizer 0.5.0: A tool that will normalize the XML and other data inside of a UFO.
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
@@ -330,7 +333,7 @@ mail-client/heirloom-mailx 12.5: The mailx utility from CentOS
 media-fonts/overpass 3.0.4: An open source webfont family inspired by Highway Gothic
 media-fonts/symbola 7.17: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
 media-fonts/unscii 2.0: Set of bitmapped Unicode fonts based on classic system fonts
-media-fonts/warframe-fonts 0_p20191111: Fonts from the Warframe game
+media-fonts/warframe-fonts 0_pre20191111: Fonts from the Warframe game
 media-gfx/azpainter 2.1.6 2.1.7_beta4: Full color painting software for Linux for illustration drawing
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
 media-gfx/glimpse 0.2.0: Image editor based on the GNU Image Manipulation Program
@@ -390,7 +393,7 @@ net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/mastorss 0.13.0 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.3 4.3.5 4.3.7 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/openbgpd 6.6_p0 6.7_p0 6.8_p0 9999: OpenBGPD is a free implementation of BGPv4
-net-misc/purritobin 0.3.2 9999: minimalistic commandline pastebin
+net-misc/purritobin 0.3.3 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.6_p2 6.7_p0 6.7_p1 6.8_p0: Portability shim for OpenBSD's rpki-client
 net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
 net-misc/wayback_machine_downloader 2.2.1: Download an entire website from the Wayback Machine
@@ -431,9 +434,9 @@ sys-block/systemd-swap 4.0.1 4.4.0 9999: Script for creating swap space from zra
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-cluster/AXL 0.3.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
-sys-cluster/KVTree 1.0.2 9999: KVTree provides a fully extensible C data structure modeled after Perl hashes.
+sys-cluster/KVTree 1.0.2: KVTree provides a fully extensible C data structure modeled after Perl hashes.
 sys-cluster/er 0.0.3: High-level distributed erasure coding lib combining shuffile and redset
-sys-cluster/genders 1.27.3 9999: Static cluster configuration database used for cluster configuration management.
+sys-cluster/genders 1.27.3: Static cluster configuration database used for cluster configuration management.
 sys-cluster/pcs 0.10.7: Pacemaker/Corosync Configuration System
 sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on string values
 sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect datasets of MPI applications
@@ -455,7 +458,7 @@ www-apps/code-server-bin 3.4.1 3.6.1: VS Code in the browser (binary version wit
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/twint 2.1.20: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
-www-apps/uwebsockets 18.15.0 9999: ultra fast, simple, secure & standards compliant web I/O
+www-apps/uwebsockets 18.17.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.0.3 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/torbrowser-launcher 0.3.2 0.3.3 9999: A program to download, updated, and run the Tor Browser Bundle
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
