@@ -106,6 +106,7 @@ dev-lang/gleam 0.11.2 0.12.0: A statically typed functional language for the BEA
 dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
 dev-libs/cgicc 3.2.19: A C++ class library for writing CGI applications
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
+dev-libs/imsg-compat 6.8.0 9999: linux port of OpenBSD imsg
 dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
 dev-libs/mtxclient 0.3.0 0.3.1: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/octetos-biblion 0.1.1_alpha: Library for reading biblia.

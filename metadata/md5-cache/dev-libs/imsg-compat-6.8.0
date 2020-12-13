@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DESCRIPTION=linux port of OpenBSD imsg
+EAPI=7
+HOMEPAGE=https://man.openbsd.org/imsg_init.3 https://github.com/bsd-ac/imsg-compat
+IUSE=static-libs test
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=ISC
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/bsd-ac/imsg-compat/archive/6.8.0.tar.gz -> imsg-compat-6.8.0.tar.gz
+_md5_=0c12af0aa7c31d3ce1a3ab0befbf51a1
