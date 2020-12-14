@@ -14,6 +14,7 @@ SRC_URI="https://github.com/macournoyer/thin/archive/v${PV}.tar.gz -> ${P}.tar.g
 LICENSE="Ruby"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="doc test"
 
 ruby_add_depend "
 	dev-ruby/eventmachine
