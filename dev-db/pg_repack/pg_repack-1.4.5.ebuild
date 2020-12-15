@@ -8,7 +8,7 @@ POSTGRES_USEDEP="server"
 
 inherit postgres-multi
 
-DESCRIPTION="RUM access method - inverted index with additional information in posting lists"
+DESCRIPTION="Reorganize tables in PostgreSQL databases with minimal locks"
 HOMEPAGE="https://github.com/reorg/pg_repack"
 SRC_URI="https://github.com/reorg/pg_repack/archive/ver_${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-ver_${PV}"
