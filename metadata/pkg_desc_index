@@ -12,7 +12,7 @@ acct-user/gogs 1: www-apps/gogs user
 acct-user/sndiod 0: daemon user for sndio
 acct-user/trezord 0: User for TREZOR Bridge
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
-app-admin/antidot 0.3.0: Cleans up your $HOME from those pesky dotfiles
+app-admin/antidot 0.3.0 0.4.1: Cleans up your $HOME from those pesky dotfiles
 app-admin/chezmoi 1.8.2: Manage your dotfiles across multiple machines, securely.
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.11.1: A system rescue cd or usbstick for desktop and server based on gentoo
@@ -30,7 +30,7 @@ app-emulation/dxvk-bin 1.7.2 1.7.3: Vulkan-based implementation of D3D9, D3D10 a
 app-emulation/nvidia-container-toolkit 1.3.0: NVIDIA container runtime toolkit
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/apidb 4.3.0_beta 5.0.0_alpha 5.0.0_alpha8 5.0.0_alpha19 5.0.0_alpha20: API Generator for Database acces.
-app-misc/cheat 4.0.2: cheat allows you to create and view interactive cheatsheets on the command-line
+app-misc/cheat 4.0.2 4.2.0: cheat allows you to create and view interactive cheatsheets on the command-line
 app-misc/doublecmd-bin 0.9.9: Free cross platform open source file manager with two panels side by side.
 app-misc/fetsh 1.7 1.8 9999: A fetch written in POSIX shell without any external commands
 app-misc/ghq 1.1.0: Remote repository management made easy
@@ -103,6 +103,7 @@ dev-java/openjdk-sts-bin 15.0.1_p9: Prebuilt Java JDK binaries provided by Adopt
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.06.0 1.07.0 1.07.1: A free/open source, multi-platform BASIC compiler.
 dev-lang/gleam 0.11.2 0.12.0: A statically typed functional language for the BEAM
+dev-lang/wren 0.2.0-r1 0.3.0: The Wren Programming Language
 dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
 dev-libs/cgicc 3.2.19: A C++ class library for writing CGI applications
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
@@ -110,8 +111,8 @@ dev-libs/imsg-compat 6.8.1 9999: linux port of OpenBSD imsg
 dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
 dev-libs/mtxclient 0.3.0 0.3.1: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/octetos-biblion 0.1.1_alpha: Library for reading biblia.
-dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta 2.2.1_beta 2.3.0_beta 2.3.1_beta 2.3.1_rc1 2.3.2_beta 2.3.3_beta 2.5.0_alpha 2.8.2_beta: C/C++ library to mainly provide Semantic Versioned implementation
-dev-libs/octetos-coreutils 0.3.0_alpha 0.4.0_alpha 0.4.0_alpha2 0.6.1_alpha 0.7.0_alpha 0.11.1_alpha: Similar to coreutils but is a C++ API.
+dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta 2.2.1_beta 2.3.0_beta 2.3.1_beta 2.3.1_rc1 2.3.2_beta 2.3.3_beta 2.5.0_alpha 2.8.2_beta 2.15.0_beta: C/C++ library to mainly provide Semantic Versioned implementation
+dev-libs/octetos-coreutils 0.3.0_alpha 0.4.0_alpha 0.4.0_alpha2 0.6.1_alpha 0.7.0_alpha 0.11.1_alpha 0.12.0_alpha: Similar to coreutils but is a C++ API.
 dev-libs/octetos-db 1.3.2_alpha 1.3.3_alpha: C++ library for Database Acces.
 dev-libs/octetos-db-abstract 0.1.2_alpha: API to access database, abstract component.
 dev-libs/octetos-db-maria 1.2.2_beta 1.3.2_alpha 1.4.2_alpha: C++ library for Database Acces.
@@ -121,7 +122,6 @@ dev-libs/open62541 1.0.3 1.1.3: Open source C implementation of OPC UA
 dev-libs/protothreads 1.4: Protothreads - Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
 dev-libs/tweeny 3.1.0 3.1.1: C++ tweening (inbetweening) library
-dev-libs/wren 0.2.0-r1 9999: The Wren Programming Language
 dev-libs/xqilla 2.3.4: An XQuery and XPath 2 library and command line utility written in C++
 dev-php/pecl-inotify 2.0.0: Inotify binding for PHP
 dev-python/aiomysql 0.0.20: aiomysql is a library for accessing a MySQL database from the asyncio
@@ -154,6 +154,7 @@ dev-python/compreffor 0.5.0: A CFF table subroutinizer for FontTools
 dev-python/convertdate 2.2.1 2.2.2: Utils for converting between date formats and calculating holidays
 dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
 dev-python/curio 0.9 1.2-r1 1.4 1.4-r1: Curio is a coroutine-based library for concurrent systems programming
+dev-python/cx-oracle 8.0.1: Python interface to Oracle
 dev-python/dacite 1.6.0: This module simplifies creation of data classes (PEP 557) from dictionaries
 dev-python/databases 0.3.2: Async database support for Python.
 dev-python/dateparser 0.7.4: Date parsing library designed to parse dates from HTML pages
@@ -220,7 +221,7 @@ dev-python/pytest-sugar 0.9.3 0.9.4: Plugin for pytest that changes the default 
 dev-python/pytest-toolbox 0.4: Numerous useful plugins for pytest
 dev-python/pytest-trio 0.5.2 0.6.0 0.7.0: This is a pytest plugin to help you test projects that use Trio
 dev-python/python-mpv 0.5.2: Python interface to the mpv media player
-dev-python/python-mpv-jsonipc 1.1.11 1.1.12: Python API to MPV using JSON IPC
+dev-python/python-mpv-jsonipc 1.1.12 1.1.13: Python API to MPV using JSON IPC
 dev-python/python-multipart 0.0.5: A streaming multipart parser for Python
 dev-python/python-pkcs11 0.7.0: PKCS#11 (Cryptoki) support for Python
 dev-python/python-telegram-bot 12.4.2 13.0 9999: Python wrapper of telegram bots API
@@ -258,7 +259,6 @@ dev-python/uvicorn 0.12.2 0.12.3: The lightning-fast ASGI server
 dev-python/validators 0.18.0: Python Data Validation for Humans
 dev-python/watchgod 0.6: Simple, modern file watching and code reload
 dev-python/webpy 0.40 0.50 0.51_p20200405: A web framework for python that is as simple as it is powerful
-dev-ruby/thin 1.8.0: This a Ruby gem that delivers a thin and fast web server
 dev-util/FoBiS 3.0.2 3.0.5: FoBiS.py, a Fortran Building System for poor men
 dev-util/codespell 1.17.1: Check text files for common misspellings
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
@@ -361,14 +361,13 @@ media-sound/aucatctl 0.1: A tool for controlling aucat and/or sndiod volume thro
 media-sound/ibniz 1.18: virtual machine designed for extremely compact low-level audiovisual programs
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file or stream as a PulseAudio source
-media-sound/scream 3.6 9999: Plays sound received from network or from a QEMU Windows VM
 media-sound/sndio 1.7.0: small audio and MIDI framework part of the OpenBSD project
 media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
 media-sound/wlavu 9999: Wayland ALSA VU-meter with peaking and optional support for wlr-layer-shell
 media-sound/zita-ajbridge 0.8.4: zita-a2j and zita-j2a - bridges between ALSA and JACK
 media-tv/droidcam 1.6: Use android phone as webcam, using a v4l device driver and app
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
-media-video/jellyfin-mpv-shim 1.8.0: MPV-based desktop and cast client for Jellyfin (Unofficial)
+media-video/jellyfin-mpv-shim 1.8.0 1.8.1: MPV-based desktop and cast client for Jellyfin (Unofficial)
 media-video/kikoplay 0.7.2 9999: KikoPlay is a full-featured danmu player
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
 media-video/qliveplayer 3.20.1-r1 3.20.2: A cute and useful Live Stream Player with danmaku support
@@ -391,7 +390,7 @@ net-misc/castor 0.8.15 0.8.16: A graphical browser for plain-text protocols
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/kristall 0.2 0.3 9999: Visual cross-platform gemini browser
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
-net-misc/mastorss 0.13.0 9999: Another RSS to Mastodon bot
+net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.3 4.3.5 4.3.7 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/openbgpd 6.6_p0 6.7_p0 6.8_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.3.3 9999: minimalistic commandline pastebin
@@ -462,6 +461,7 @@ www-apps/twint 2.1.20: Twitter scraping & OSINT tool written in Python that does
 www-apps/uwebsockets 18.17.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.0.3 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/torbrowser-launcher 0.3.2 0.3.3 9999: A program to download, updated, and run the Tor Browser Bundle
+www-servers/thin 1.8.0: This a Ruby gem that delivers a thin and fast web server
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-libs/gtk-fortran 19.04 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
 x11-libs/kcolorpicker 0.1.2 0.1.4: Qt based Color Picker with popup menu
@@ -480,5 +480,5 @@ x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Windo
 x11-themes/arc-darkest-colors 0_pre20200818 0_pre20201112: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
 x11-themes/obsidian-icon-theme 4.14 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
-x11-themes/obsidian2-gtk-theme 2.16 9999: Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
+x11-themes/obsidian2-gtk-theme 2.17 9999: Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
 x11-themes/papirus-claws-mail-theme 0_pre20181023 0_pre20201019: Papirus icon theme for Claws Mail
