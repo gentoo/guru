@@ -53,7 +53,7 @@ ruby_add_rdepend "
 	dev-ruby/rack-test
 	dev-ruby/rubygems
 	dev-ruby/sinatra
-	dev-ruby/thin
+	www-servers/thin
 	dev-ruby/thor
 	dev-ruby/tilt
 "
