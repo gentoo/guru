@@ -251,6 +251,18 @@ diff -uPNr pcs-0.10.7/pcsd/settings.rb pcs-0.10.7-openrc/pcsd/settings.rb
  
  CRT_FILE = PCSD_VAR_LOCATION + 'pcsd.crt'
  KEY_FILE = PCSD_VAR_LOCATION + 'pcsd.key'
+diff -uPNr pcs-0.10.7/pcsd/settings.rb.debian pcs-0.10.7-openrc/pcsd/settings.rb.debian
+--- pcs-0.10.7/pcsd/settings.rb.debian	2020-12-15 17:02:49.065879020 +0100
++++ pcs-0.10.7-openrc/pcsd/settings.rb.debian	2020-12-16 18:52:24.289921676 +0100
+@@ -3,7 +3,7 @@
+ PCSD_EXEC_LOCATION = '/usr/share/pcsd/'
+ PCSD_VAR_LOCATION = '/var/lib/pcsd/'
+ PCSD_DEFAULT_PORT = 2224
+-PCSD_RUBY_SOCKET = '/run/pcsd-ruby.socket'
++PCSD_RUBY_SOCKET = '/run/pcsd-daemon.socket'
+ 
+ CRT_FILE = PCSD_VAR_LOCATION + 'pcsd.crt'
+ KEY_FILE = PCSD_VAR_LOCATION + 'pcsd.key'
 diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_test/tier0/lib/test_external.py
 --- pcs-0.10.7/pcs_test/tier0/lib/test_external.py	2020-12-15 17:02:49.061879080 +0100
 +++ pcs-0.10.7-openrc/pcs_test/tier0/lib/test_external.py	2020-12-15 17:44:33.382213643 +0100
