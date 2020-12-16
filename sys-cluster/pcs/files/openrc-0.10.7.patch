@@ -84,7 +84,7 @@ diff -uPNr pcs-0.10.7/pcs/lib/external.py pcs-0.10.7-openrc/pcs/lib/external.py
  
 diff -uPNr pcs-0.10.7/pcs/settings_default.py pcs-0.10.7-openrc/pcs/settings_default.py
 --- pcs-0.10.7/pcs/settings_default.py	2020-12-15 17:02:49.056879154 +0100
-+++ pcs-0.10.7-openrc/pcs/settings_default.py	2020-12-15 20:31:14.156706578 +0100
++++ pcs-0.10.7-openrc/pcs/settings_default.py	2020-12-16 10:21:42.110032722 +0100
 @@ -1,8 +1,8 @@
  import os.path
  
@@ -97,6 +97,24 @@ diff -uPNr pcs-0.10.7/pcs/settings_default.py pcs-0.10.7-openrc/pcs/settings_def
  pacemaker_binaries = "/usr/sbin/"
  crm_resource_binary = os.path.join(pacemaker_binaries, "crm_resource")
  corosync_binaries = "/usr/sbin/"
+@@ -41,7 +41,7 @@
+ crm_mon_schema = "/usr/share/pacemaker/crm_mon.rng"
+ agent_metadata_schema = "/usr/share/resource-agents/ra-api-1.dtd"
+ pcsd_var_location = "/var/lib/pcsd/"
+-pcsd_ruby_socket = "/run/pcsd-ruby.socket"
++pcsd_ruby_socket = "/run/pcsd-daemon.socket"
+ pcsd_cert_location = os.path.join(pcsd_var_location, "pcsd.crt")
+ pcsd_key_location = os.path.join(pcsd_var_location, "pcsd.key")
+ pcsd_known_hosts_location = os.path.join(pcsd_var_location, "known-hosts")
+@@ -59,7 +59,7 @@
+ pacemaker_gname = "haclient"
+ sbd_binary = "/usr/sbin/sbd"
+ sbd_watchdog_default = "/dev/watchdog"
+-sbd_config = "/etc/sysconfig/sbd"
++sbd_config = "/etc/default/sbd"
+ # this limit is also mentioned in docs, change there as well
+ sbd_max_device_num = 3
+ # message types are also mentioned in docs, change there as well
 diff -uPNr pcs-0.10.7/pcs/settings.py.debian pcs-0.10.7-openrc/pcs/settings.py.debian
 --- pcs-0.10.7/pcs/settings.py.debian	2020-12-15 17:02:49.055879169 +0100
 +++ pcs-0.10.7-openrc/pcs/settings.py.debian	2020-12-16 09:36:10.493104892 +0100
