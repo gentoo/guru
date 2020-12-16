@@ -84,16 +84,15 @@ diff -uPNr pcs-0.10.7/pcs/lib/external.py pcs-0.10.7-openrc/pcs/lib/external.py
  
 diff -uPNr pcs-0.10.7/pcs/settings_default.py pcs-0.10.7-openrc/pcs/settings_default.py
 --- pcs-0.10.7/pcs/settings_default.py	2020-12-15 17:02:49.056879154 +0100
-+++ pcs-0.10.7-openrc/pcs/settings_default.py	2020-12-16 10:21:42.110032722 +0100
++++ pcs-0.10.7-openrc/pcs/settings_default.py	2020-12-16 21:59:28.541361537 +0100
 @@ -1,8 +1,8 @@
  import os.path
  
--systemctl_binary = "/bin/systemctl"
+ systemctl_binary = "/bin/systemctl"
 -chkconfig_binary = "/sbin/chkconfig"
 -service_binary = "/sbin/service"
-+systemctl_binary="/bin/systemctl"
-+rc_config_binary="/usr/bin/rc-config"
-+rc_service_binary="/sbin/rc-service"
++rc_config_binary = "/usr/bin/rc-config"
++rc_service_binary = "/sbin/rc-service"
  pacemaker_binaries = "/usr/sbin/"
  crm_resource_binary = os.path.join(pacemaker_binaries, "crm_resource")
  corosync_binaries = "/usr/sbin/"
@@ -136,13 +135,13 @@ diff -uPNr pcs-0.10.7/pcs/settings.py.debian pcs-0.10.7-openrc/pcs/settings.py.d
  pcsd_config = "/etc/default/pcsd"
 diff -uPNr pcs-0.10.7/pcs/utils.py pcs-0.10.7-openrc/pcs/utils.py
 --- pcs-0.10.7/pcs/utils.py	2020-12-15 17:02:49.056879154 +0100
-+++ pcs-0.10.7-openrc/pcs/utils.py	2020-12-15 17:36:27.914500816 +0100
++++ pcs-0.10.7-openrc/pcs/utils.py	2020-12-16 21:57:09.487686936 +0100
 @@ -2187,7 +2187,7 @@
          )
      else:
          stdout, stderr, retval = cmd_runner().run(
 -            [settings.service_binary, service, "start"]
-+            [settings.rc-service_binary, service, "start"]
++            [settings.rc_service_binary, service, "start"]
          )
      return join_multilines([stderr, stdout]), retval
  
@@ -151,13 +150,13 @@ diff -uPNr pcs-0.10.7/pcs/utils.py pcs-0.10.7-openrc/pcs/utils.py
      else:
          stdout, stderr, retval = cmd_runner().run(
 -            [settings.service_binary, service, "stop"]
-+            [settings.rc-service_binary, service, "stop"]
++            [settings.rc_service_binary, service, "stop"]
          )
      return join_multilines([stderr, stdout]), retval
  
 diff -uPNr pcs-0.10.7/pcsd/pcs.rb pcs-0.10.7-openrc/pcsd/pcs.rb
 --- pcs-0.10.7/pcsd/pcs.rb	2020-12-15 17:02:49.063879050 +0100
-+++ pcs-0.10.7-openrc/pcsd/pcs.rb	2020-12-16 09:19:41.341318599 +0100
++++ pcs-0.10.7-openrc/pcsd/pcs.rb	2020-12-16 21:54:52.337982100 +0100
 @@ -1708,11 +1708,22 @@
  def is_service_enabled?(service)
    if ISSYSTEMCTL
@@ -198,7 +197,7 @@ diff -uPNr pcs-0.10.7/pcsd/pcs.rb pcs-0.10.7-openrc/pcsd/pcs.rb
    protected
    def run_command
 -    return run_cmd(PCSAuth.getSuperuserAuth(), 'chkconfig')
-+    cmd = ['/usr/bin/rc-config', 'list']
++    cmd = ['rc-config', 'list']
 +    return run_cmd(PCSAuth.getSuperuserAuth(), *cmd)
    end
  
@@ -239,6 +238,7 @@ diff -uPNr pcs-0.10.7/pcsd/pcs.rb pcs-0.10.7-openrc/pcsd/pcs.rb
    end
    _, _, retcode = run_cmd(PCSAuth.getSuperuserAuth(), *cmd)
    return (retcode == 0)
+I file binari pcs-0.10.7/pcsd/.pcs.rb.swp e pcs-0.10.7-openrc/pcsd/.pcs.rb.swp sono diversi
 diff -uPNr pcs-0.10.7/pcsd/settings.rb pcs-0.10.7-openrc/pcsd/settings.rb
 --- pcs-0.10.7/pcsd/settings.rb	2020-12-15 17:02:49.065879020 +0100
 +++ pcs-0.10.7-openrc/pcsd/settings.rb	2020-12-16 09:26:46.782426991 +0100
@@ -265,15 +265,15 @@ diff -uPNr pcs-0.10.7/pcsd/settings.rb.debian pcs-0.10.7-openrc/pcsd/settings.rb
  KEY_FILE = PCSD_VAR_LOCATION + 'pcsd.key'
 diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_test/tier0/lib/test_external.py
 --- pcs-0.10.7/pcs_test/tier0/lib/test_external.py	2020-12-15 17:02:49.061879080 +0100
-+++ pcs-0.10.7-openrc/pcs_test/tier0/lib/test_external.py	2020-12-15 17:44:33.382213643 +0100
++++ pcs-0.10.7-openrc/pcs_test/tier0/lib/test_external.py	2020-12-16 21:52:40.531155033 +0100
 @@ -16,8 +16,8 @@
  import pcs.lib.external as lib
  
  
 -_chkconfig = settings.chkconfig_binary
 -_service = settings.service_binary
-+_rc-config = settings.rc-config_binary
-+_rc-service = settings.rc-service_binary
++_rc_config = settings.rc_config_binary
++_rc_service = settings.rc_service_binary
  _systemctl = settings.systemctl_binary
  
  
@@ -282,7 +282,7 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          )
          self.mock_runner.run.assert_called_once_with(
 -            [_chkconfig, self.service, "off"]
-+            [_rc-config, "delete", self.service, "default"]
++            [_rc_config, "delete", self.service, "default"]
          )
  
      def test_not_systemctl_failed(self, mock_is_installed, mock_systemctl):
@@ -291,7 +291,7 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          )
          self.mock_runner.run.assert_called_once_with(
 -            [_chkconfig, self.service, "off"]
-+            [_rc-config, "delete", self.service, "default"]
++            [_rc_config, "delete", self.service, "default"]
          )
  
      def test_systemctl_not_installed(self, mock_is_installed, mock_systemctl):
@@ -300,7 +300,7 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          )
          self.mock_runner.run.assert_called_once_with(
 -            [_chkconfig, self.service, "off"]
-+            [_rc-config, "delete", self.service, "default"]
++            [_rc_config, "delete", self.service, "default"]
          )
  
  
@@ -309,7 +309,7 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          lib.enable_service(self.mock_runner, self.service)
          self.mock_runner.run.assert_called_once_with(
 -            [_chkconfig, self.service, "on"]
-+            [_rc-config, "add", self.service, "default"]
++            [_rc_config, "add", self.service, "default"]
          )
  
      def test_not_systemctl_failed(self, mock_systemctl):
@@ -318,7 +318,7 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          )
          self.mock_runner.run.assert_called_once_with(
 -            [_chkconfig, self.service, "on"]
-+            [_rc-config, "add", self.service, "default"]
++            [_rc_config, "add", self.service, "default"]
          )
  
      def test_instance_systemctl(self, mock_systemctl):
@@ -327,7 +327,7 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          lib.enable_service(self.mock_runner, self.service, instance="test")
          self.mock_runner.run.assert_called_once_with(
 -            [_chkconfig, self.service, "on"]
-+            [_rc-config, "add", self.service, "default"]
++            [_rc_config, "add", self.service, "default"]
          )
  
  
@@ -336,7 +336,7 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          lib.start_service(self.mock_runner, self.service)
          self.mock_runner.run.assert_called_once_with(
 -            [_service, self.service, "start"]
-+            [_rc-service, self.service, "start"]
++            [_rc_service, self.service, "start"]
          )
  
      def test_not_systemctl_failed(self, mock_systemctl):
@@ -345,7 +345,7 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          )
          self.mock_runner.run.assert_called_once_with(
 -            [_service, self.service, "start"]
-+            [_rc-service, self.service, "start"]
++            [_rc_service, self.service, "start"]
          )
  
      def test_instance_systemctl(self, mock_systemctl):
@@ -354,7 +354,7 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          lib.start_service(self.mock_runner, self.service, instance="test")
          self.mock_runner.run.assert_called_once_with(
 -            [_service, self.service, "start"]
-+            [_rc-service, self.service, "start"]
++            [_rc_service, self.service, "start"]
          )
  
  
@@ -363,7 +363,7 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          lib.stop_service(self.mock_runner, self.service)
          self.mock_runner.run.assert_called_once_with(
 -            [_service, self.service, "stop"]
-+            [_rc-service, self.service, "stop"]
++            [_rc_service, self.service, "stop"]
          )
  
      def test_not_systemctl_failed(self, mock_systemctl):
@@ -372,7 +372,7 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          )
          self.mock_runner.run.assert_called_once_with(
 -            [_service, self.service, "stop"]
-+            [_rc-service, self.service, "stop"]
++            [_rc_service, self.service, "stop"]
          )
  
      def test_instance_systemctl(self, mock_systemctl):
@@ -381,7 +381,7 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          lib.stop_service(self.mock_runner, self.service, instance="test")
          self.mock_runner.run.assert_called_once_with(
 -            [_service, self.service, "stop"]
-+            [_rc-service, self.service, "stop"]
++            [_rc_service, self.service, "stop"]
          )
  
  
@@ -390,14 +390,14 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          self.mock_runner.run.return_value = ("", "", 0)
          self.assertTrue(lib.is_service_enabled(self.mock_runner, self.service))
 -        self.mock_runner.run.assert_called_once_with([_chkconfig, self.service])
-+        self.mock_runner.run.assert_called_once_with([_rc-config, self.service])
++        self.mock_runner.run.assert_called_once_with([_rc_config, self.service])
  
      def test_not_systemctl_disabled(self, mock_systemctl):
          mock_systemctl.return_value = False
          self.mock_runner.run.return_value = ("", "", 3)
          self.assertFalse(lib.is_service_enabled(self.mock_runner, self.service))
 -        self.mock_runner.run.assert_called_once_with([_chkconfig, self.service])
-+        self.mock_runner.run.assert_called_once_with([_rc-config, self.service])
++        self.mock_runner.run.assert_called_once_with([_rc_config, self.service])
  
  
  @mock.patch("pcs.lib.external.is_systemctl")
@@ -406,7 +406,7 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          self.assertTrue(lib.is_service_running(self.mock_runner, self.service))
          self.mock_runner.run.assert_called_once_with(
 -            [_service, self.service, "status"]
-+            [_rc-service, self.service, "status"]
++            [_rc_service, self.service, "status"]
          )
  
      def test_not_systemctl_not_running(self, mock_systemctl):
@@ -415,7 +415,7 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          self.assertFalse(lib.is_service_running(self.mock_runner, self.service))
          self.mock_runner.run.assert_called_once_with(
 -            [_service, self.service, "status"]
-+            [_rc-service, self.service, "status"]
++            [_rc_service, self.service, "status"]
          )
  
  
@@ -424,7 +424,7 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          )
          self.assertEqual(mock_is_systemctl.call_count, 1)
 -        self.mock_runner.run.assert_called_once_with([_chkconfig])
-+        self.mock_runner.run.assert_called_once_with([_rc-config])
++        self.mock_runner.run.assert_called_once_with([_rc_config])
  
      def test_failed(self, mock_is_systemctl):
          mock_is_systemctl.return_value = False
@@ -432,7 +432,7 @@ diff -uPNr pcs-0.10.7/pcs_test/tier0/lib/test_external.py pcs-0.10.7-openrc/pcs_
          self.assertEqual(lib.get_non_systemd_services(self.mock_runner), [])
          self.assertEqual(mock_is_systemctl.call_count, 1)
 -        self.mock_runner.run.assert_called_once_with([_chkconfig])
-+        self.mock_runner.run.assert_called_once_with([_rc-config])
++        self.mock_runner.run.assert_called_once_with([_rc_config])
  
      def test_systemd(self, mock_is_systemctl):
          mock_is_systemctl.return_value = True
