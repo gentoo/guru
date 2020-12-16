@@ -57,7 +57,6 @@ all_ruby_prepare() {
 	use doc || rm tasks/rdoc.rake
 }
 
-
 each_ruby_configure() {
 			${RUBY} -Cext/thin_parser extconf.rb || die
 }
