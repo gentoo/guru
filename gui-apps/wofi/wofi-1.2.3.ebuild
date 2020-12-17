@@ -6,17 +6,19 @@ EAPI=7
 # Upstream's tarballs are timestamped (https://todo.sr.ht/~sircmpwn/hg.sr.ht/33).
 # This makes them impossible to validate, so every version has a live ebuild.
 
-EHG_REPO_URI="https://hg.sr.ht/~scoopta/${PN}"
-inherit meson mercurial
-case "${PV}" in
-	"9999")
-		;;
-	*)
-		EHG_REVISION="v${PV}"
-esac
+inherit meson
+if [ "${PV}" = 9999 ]
+then
+	inherit mercurial
+	EHG_REPO_URI="https://hg.sr.ht/~scoopta/${PN}"
+else
+	SRC_URI="https://hg.sr.ht/~scoopta/wofi/archive/v${PV}.tar.gz"
+	S="${WORKDIR}/${PN}-v${PV}"
+	KEYWORDS="~amd64"
+fi
 
 DESCRIPTION="Wofi is a launcher/menu program for wlroots based wayland compositors like sway"
-HOMEPAGE="${EHG_REPO_URI}"
+HOMEPAGE="https://hg.sr.ht/~scoopta/wofi"
 LICENSE="GPL-3"
 
 DEPEND="
@@ -25,7 +27,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-RESTRICT="test"
+RESTRICT="test mirror"
 
 SLOT="0"
-KEYWORDS=""
