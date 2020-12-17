@@ -374,7 +374,7 @@ media-video/qliveplayer 3.20.1-r1 3.20.2: A cute and useful Live Stream Player w
 media-video/syncplay 1.6.6: Client/server to synchronize media playback
 media-video/vidify 2.2.6: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
-media-video/wlrobs 9999: OBS plugin that allows you to screen capture on wlroots based compositors
+media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
 net-dialup/tio 1.32: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0 9999: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
