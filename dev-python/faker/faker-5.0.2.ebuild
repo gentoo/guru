@@ -24,11 +24,11 @@ RDEPEND="
 	>=dev-python/text-unidecode-1.3[${PYTHON_USEDEP}]
 "
 BDEPEND="test? (
-		dev-python/freezegun[${PYTHON_USEDEP}]
-		>=dev-python/pytest-6.0.1[${PYTHON_USEDEP}]
-		>=dev-python/random2-1.0.1[${PYTHON_USEDEP}]
-		>=dev-python/ukpostcodeparser-1.1.1[${PYTHON_USEDEP}]
-		>=dev-python/validators-0.13.0[${PYTHON_USEDEP}]
+	dev-python/freezegun[${PYTHON_USEDEP}]
+	>=dev-python/pytest-6.0.1[${PYTHON_USEDEP}]
+	>=dev-python/random2-1.0.1[${PYTHON_USEDEP}]
+	>=dev-python/ukpostcodeparser-1.1.1[${PYTHON_USEDEP}]
+	>=dev-python/validators-0.13.0[${PYTHON_USEDEP}]
 	)
 "
 
