@@ -2,25 +2,23 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
-PYTHON_COMPAT=( python3_7 pypy3)
+PYTHON_COMPAT=( python3_{7,8,9} pypy3)
 
 inherit distutils-r1
 
-COMMIT="99285aa6b5250b91a837b842dc61b2a96007f3c5"
-
 DESCRIPTION="An implementation of the Glicko-2 rating system for Python"
 HOMEPAGE="https://github.com/sublee/glicko2"
-SRC_URI="https://github.com/sublee/glicko2/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
-LICENSE="BSD"
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-
-S="${WORKDIR}/${PN}-${COMMIT}"
 
 distutils_enable_tests setup.py
 
 src_prepare() {
-	sed -i -e "s/distribute/setuptools/g" setup.py
-	eapply_user
+	sed -i -e "s/distribute/setuptools/g" \
+		-e 's/setuptools.find_packages()/setuptools.find_packages(exclude=["*test*"])/g' \
+		setup.py
+	default
 }

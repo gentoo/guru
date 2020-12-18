@@ -19,7 +19,7 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	>=dev-python/chardet-3.0[${PYTHON_USEDEP}]
-	dev-python/pycryptodome[${PYTHON_USEDEP}]
+	dev-python/cryptography[${PYTHON_USEDEP}]
 	dev-python/sortedcontainers[${PYTHON_USEDEP}]
 "
 

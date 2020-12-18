@@ -3,8 +3,7 @@
 
 EAPI="7"
 
-DISTUTILS_USE_SETUPTOOLS=bdepend
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 
 inherit distutils-r1
 
@@ -29,16 +28,14 @@ RDEPEND="
 	$(python_gen_cond_dep 'dev-python/importlib_metadata[${PYTHON_USEDEP}]' python3_7)
 	$(python_gen_cond_dep 'dev-python/pygments[${PYTHON_USEDEP}]' python3_9)
 "
-DEPEND="
-	test? (
-		dev-python/pytest-randomly[${PYTHON_USEDEP}]
-		dev-python/pytest-xdist[${PYTHON_USEDEP}]
-	)
-"
+BDEPEND="test? (
+	dev-python/pytest-xdist[${PYTHON_USEDEP}]
+)"
 
 distutils_enable_tests pytest
 
 python_test() {
+	distutils_install_for_testing --via-root
 	pytest -vv \
 		--deselect tests/test_pytest_randomly.py::test_entrypoint_injection \
 		--deselect tests/test_pytest_randomly.py::test_classes_reordered \
