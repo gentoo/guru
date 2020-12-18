@@ -3,18 +3,21 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_7 )
+PYTHON_COMPAT=( python3_{7,8} )
 
-DOCS_BUILDER="sphinx"
-DOCS_DIR="${S}/docs"
-DOCS_DEPEND="
-	dev-python/anyio
-	>=dev-python/sphinx-autodoc-typehints-1.2.0
-	dev-python/sphinx_rtd_theme
-"
-DOCS_AUTODOC=1
+# Build with USE="-doc" first because of circular dependency
+# otherwise one gets the error that sphinx-autodoc-typehints
+# does not support py3.8
+# DOCS_BUILDER="sphinx"
+# DOCS_DIR="${S}/docs"
+# DOCS_DEPEND="
+# 	dev-python/anyio
+# 	>=dev-python/sphinx-autodoc-typehints-1.2.0
+# 	dev-python/sphinx_rtd_theme
+# "
+# DOCS_AUTODOC=1
 
-inherit distutils-r1 docs
+inherit distutils-r1 #docs
 
 DESCRIPTION="Compatibility layer for multiple asynchronous event loop implementations"
 HOMEPAGE="
@@ -27,15 +30,18 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+# This is a mess
+RESTRICT="test"
+
 RDEPEND="
 	>=dev-python/curio-1.4[${PYTHON_USEDEP}]
 	>=dev-python/idna-2.8[${PYTHON_USEDEP}]
 	>=dev-python/sniffio-1.1[${PYTHON_USEDEP}]
 	>=dev-python/trio-0.16[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep 'dev-python/typing-extensions[${PYTHON_USEDEP}]' python3_7)
 "
-#remember to add 
-#	$(python_gen_cond_dep 'dev-python/typing_extensions[${PYTHON_USEDEP}]' python3_7)
-DEPEND="
+
+BDEPEND="
 	${RDEPEND}
 	test? (
 		>=dev-python/hypothesis-4.0[${PYTHON_USEDEP}]

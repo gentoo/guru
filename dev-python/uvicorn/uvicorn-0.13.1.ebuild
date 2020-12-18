@@ -4,7 +4,6 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{7,8} )
-
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 DOCS_BUILDER="mkdocs"
@@ -22,21 +21,24 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 RDEPEND="
-	dev-python/click[${PYTHON_USEDEP}]
-	dev-python/h11[${PYTHON_USEDEP}]
-	dev-python/typing-extensions[${PYTHON_USEDEP}]
+	>=dev-python/click-7[${PYTHON_USEDEP}]
+	<dev-python/click-8[${PYTHON_USEDEP}]
+	>=dev-python/h11-0.8[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep 'dev-python/typing-extensions[${PYTHON_USEDEP}]' python3_7)
 "
 
 BDEPEND="test? (
-	dev-python/colorama[${PYTHON_USEDEP}]
+	>=dev-python/colorama-0.4[${PYTHON_USEDEP}]
 	dev-python/pytest-mock[${PYTHON_USEDEP}]
-	dev-python/python-dotenv[${PYTHON_USEDEP}]
-	dev-python/pyyaml[${PYTHON_USEDEP}]
+	>=dev-python/python-dotenv-0.13[${PYTHON_USEDEP}]
+	>=dev-python/pyyaml-5.1[${PYTHON_USEDEP}]
 	dev-python/trustme[${PYTHON_USEDEP}]
 	>=dev-python/uvloop-0.14.0[${PYTHON_USEDEP}]
 	>=dev-python/websockets-8.0[${PYTHON_USEDEP}]
-	dev-python/httptools[${PYTHON_USEDEP}]
+	>=dev-python/httptools-0.1[${PYTHON_USEDEP}]
+	<dev-python/httptools-0.2[${PYTHON_USEDEP}]
 	>=dev-python/watchgod-0.6[${PYTHON_USEDEP}]
+	<dev-python/watchgod-0.7[${PYTHON_USEDEP}]
 	dev-python/wsproto[${PYTHON_USEDEP}]
 )"
 
@@ -58,4 +60,12 @@ pkg_postinst() {
 	optfeature "websockets support using websockets" dev-python/websockets
 	optfeature "httpstools package for http protocol" dev-python/httptools
 	optfeature "efficient debug reload" dev-python/watchgod
+}
+
+python_test() {
+	pytest -vv \
+			--deselect tests/protocols/test_http.py::test_supported_upgrade_request[H11Protocol] \
+			--deselect tests/protocols/test_http.py::test_supported_upgrade_request[HttpToolsProtocol] \
+			--deselect tests/protocols/test_websocket.py::test_invalid_upgrade[WSProtocol] \
+	|| die
 }
