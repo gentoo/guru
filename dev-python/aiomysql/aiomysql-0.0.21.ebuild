@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_7 )
+PYTHON_COMPAT=( python3_{7,8} )
 
 inherit distutils-r1
 
@@ -23,11 +23,14 @@ RESTRICT="test"
 RDEPEND=">=dev-python/pymysql-0.9.0[${PYTHON_USEDEP}]"
 
 DEPEND="test? (
-	dev-python/coverage[${PYTHON_USEDEP}]
 	dev-python/docker-py[${PYTHON_USEDEP}]
+	dev-python/ipdb[${PYTHON_USEDEP}]
 	dev-python/flake8[${PYTHON_USEDEP}]
+	<dev-python/pytest-5.4.1[${PYTHON_USEDEP}]
+	dev-python/pytest-sugar[${PYTHON_USEDEP}]
 	dev-python/sqlalchemy[${PYTHON_USEDEP}]
-	dev-python/uvloop[${PYTHON_USEDEP}] )"
+	dev-python/uvloop[${PYTHON_USEDEP}]
+)"
 
 python_prepare_all() {
 	# fails: lots of AttributeError
