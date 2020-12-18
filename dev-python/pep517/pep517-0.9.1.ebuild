@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_7 )
+PYTHON_COMPAT=( python3_{7,8,9} )
 DISTUTILS_USE_SETUPTOOLS=pyproject.toml
 
 inherit distutils-r1
@@ -18,12 +18,8 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-python/flit_core-2[${PYTHON_USEDEP}]
-	<dev-python/flit_core-3[${PYTHON_USEDEP}]
 	dev-python/toml[${PYTHON_USEDEP}]
 
 	$(python_gen_cond_dep 'dev-python/importlib_metadata[${PYTHON_USEDEP}]' python3_7)
@@ -35,6 +31,8 @@ DEPEND="
 		dev-python/mock[${PYTHON_USEDEP}]
 	)
 "
+
+distutils_enable_tests pytest
 
 src_prepare() {
 	sed -i 's|addopts=--flake8||' pytest.ini
