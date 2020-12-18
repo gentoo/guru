@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_7 )
+PYTHON_COMPAT=( python3_{7,8} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit bash-completion-r1 distutils-r1
@@ -31,17 +31,20 @@ RDEPEND="
 	app-text/ghostscript-gpl
 	app-text/tesseract
 	app-text/unpaper
-	<=dev-python/pdfminer-six-20200402[${PYTHON_USEDEP}]
-	>=dev-python/pdfminer-six-20181108[${PYTHON_USEDEP}]
+	dev-python/cffi[${PYTHON_USEDEP}]
+	dev-python/coloredlogs[${PYTHON_USEDEP}]
+	>=dev-python/pdfminer-six-20191110[${PYTHON_USEDEP}]
+	<=dev-python/pdfminer-six-20201018[${PYTHON_USEDEP}]
 	dev-python/pikepdf[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
+	dev-python/pluggy[${PYTHON_USEDEP}]
 	dev-python/reportlab[${PYTHON_USEDEP}]
 	dev-python/tqdm[${PYTHON_USEDEP}]
-	media-gfx/img2pdf
+	jbig2enc? ( media-libs/jbig2enc )
+	media-gfx/img2pdf[${PYTHON_USEDEP}]
 	media-gfx/pngquant
 	media-libs/leptonica
 	virtual/python-cffi[${PYTHON_USEDEP}]
-	jbig2enc? ( media-libs/jbig2enc )
 "
 
 distutils_enable_tests pytest
