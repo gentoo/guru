@@ -44,6 +44,8 @@ DEPEND="test? (
 python_prepare_all() {
 	# do not install LICENSE to /usr/
 	sed -i -e '/data_files/d' setup.py || die
+	# do not depend on pytest-cov
+	sed -i -e '/--cov/d' setup.cfg || die
 
 	distutils-r1_python_prepare_all
 }
