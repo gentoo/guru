@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_7 )
+PYTHON_COMPAT=( python3_{7,8} )
 
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="dev-python/mkdocs-material"
@@ -21,6 +21,9 @@ SRC_URI="https://github.com/encode/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+
+# httpcore.ConnectError: [Errno 16] Device or resource busy
+RESTRICT="test"
 
 RDEPEND="
 	>=dev-python/curio-1.4[${PYTHON_USEDEP}]
