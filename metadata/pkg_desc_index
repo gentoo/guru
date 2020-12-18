@@ -371,7 +371,7 @@ media-video/jellyfin-mpv-shim 1.8.0 1.8.1: MPV-based desktop and cast client for
 media-video/kikoplay 0.7.2 9999: KikoPlay is a full-featured danmu player
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
 media-video/qliveplayer 3.20.1-r1 3.20.2: A cute and useful Live Stream Player with danmaku support
-media-video/syncplay 1.6.6: Client/server to synchronize media playback
+media-video/syncplay 1.6.7: Client/server to synchronize media playback
 media-video/vidify 2.2.6: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
