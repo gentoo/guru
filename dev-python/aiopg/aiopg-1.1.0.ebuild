@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_7 )
+PYTHON_COMPAT=( python3_{7,8,9} )
 
 inherit distutils-r1 optfeature
 
@@ -25,12 +25,12 @@ RESTRICT="test"
 RDEPEND="dev-python/psycopg[${PYTHON_USEDEP}]"
 
 DEPEND="test? (
-	dev-python/coverage[${PYTHON_USEDEP}]
 	dev-python/tox[${PYTHON_USEDEP}]
 	dev-python/isort[${PYTHON_USEDEP}]
 	dev-python/pytest-timeout[${PYTHON_USEDEP}]
 	dev-python/sqlalchemy[${PYTHON_USEDEP}]
-	dev-python/flake8[${PYTHON_USEDEP}] )"
+	dev-python/flake8[${PYTHON_USEDEP}]
+)"
 
 pkg_postinst() {
 	optfeature "sqlalchemy support" dev-python/sqlalchemy
