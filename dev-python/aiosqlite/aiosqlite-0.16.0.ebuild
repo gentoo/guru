@@ -3,7 +3,8 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
+DISTUTILS_USE_SETUPTOOLS=no
 
 inherit distutils-r1
 
@@ -18,10 +19,9 @@ KEYWORDS="~amd64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-DEPEND="test? (
+BDEPEND="test? (
 	dev-python/aiounittest[${PYTHON_USEDEP}]
 	dev-python/mypy[${PYTHON_USEDEP}]
-	dev-python/pylint[${PYTHON_USEDEP}]
 	dev-python/twine[${PYTHON_USEDEP}]
 )"
 
