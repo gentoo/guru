@@ -22,6 +22,10 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
+# This error is really strange
+# UserWarning: python-telegram-bot is using upstream urllib3. This is allowed but not supported by python-telegram-bot maintainers.
+RESTRICT="test"
+
 RDEPEND="
 	dev-python/certifi[${PYTHON_USEDEP}]
 	dev-python/cryptography[${PYTHON_USEDEP}]
