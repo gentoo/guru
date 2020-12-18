@@ -3,15 +3,17 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_7 )
+PYTHON_COMPAT=( python3_{7,8} )
+DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
-SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.zip"
-KEYWORDS="~amd64"
 DESCRIPTION="Cubic-to-quadratic bezier curve conversion"
 HOMEPAGE="https://github.com/googlefonts/cu2qu"
+SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.zip"
+
 LICENSE="Apache-2.0"
+KEYWORDS="~amd64"
 SLOT="0"
 
 RDEPEND="
@@ -24,6 +26,7 @@ DEPEND="
 BDEPEND="
 	app-arch/unzip
 	dev-python/cython[${PYTHON_USEDEP}]
+	dev-python/fs[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
