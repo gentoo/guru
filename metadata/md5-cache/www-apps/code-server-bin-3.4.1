@@ -6,8 +6,9 @@ EAPI=7
 HOMEPAGE=https://coder.com/
 KEYWORDS=-* ~amd64 ~arm64
 LICENSE=MIT
-RDEPEND=!www-apps/code-server >=net-libs/nodejs-12.16.1[ssl] sys-apps/ripgrep
+RDEPEND=!www-apps/code-server >=net-libs/nodejs-12.16.1:0/12[ssl] sys-apps/ripgrep
+RESTRICT=test
 SLOT=0
 SRC_URI=amd64? ( https://github.com/cdr/code-server/releases/download/v3.4.1/code-server-3.4.1-linux-amd64.tar.gz ) arm64? ( https://github.com/cdr/code-server/releases/download/v3.4.1/code-server-3.4.1-linux-arm64.tar.gz )
 _eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	69be00334d73f9f50261554b94be0879	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
-_md5_=9e27b0a980bc09bcc8b71bfed5ef34ff
+_md5_=3ab2571f0824945e54f54a58e2e80a26
