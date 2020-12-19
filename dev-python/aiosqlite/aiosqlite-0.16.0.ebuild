@@ -21,7 +21,6 @@ RESTRICT="!test? ( test )"
 
 BDEPEND="test? (
 	dev-python/aiounittest[${PYTHON_USEDEP}]
-	dev-python/mypy[${PYTHON_USEDEP}]
 	dev-python/twine[${PYTHON_USEDEP}]
 )"
 

@@ -4,8 +4,8 @@
 EAPI=7
 
 MY_PN="${PN/-bin/}"
-MY_PV="${MY_PN}-${PV}"
-BASE_URI="https://github.com/cdr/${MY_PN}/releases/download/v${PV}/${MY_PV}-linux"
+MY_P="${MY_PN}-${PV}"
+BASE_URI="https://github.com/cdr/${MY_PN}/releases/download/v${PV}/${MY_P}-linux"
 
 inherit systemd
 
@@ -16,6 +16,7 @@ SRC_URI="
 	arm64? ( ${BASE_URI}-arm64.tar.gz )
 "
 
+RESTRICT="test"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~arm64"
@@ -26,15 +27,17 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	>=net-libs/nodejs-12.16.1[ssl]
+	>=net-libs/nodejs-12.16.1:0/12[ssl]
 	sys-apps/ripgrep
 "
 
-S="${WORKDIR}/${MY_PV}-linux-${ARCH}"
+S="${WORKDIR}/${MY_P}-linux-${ARCH}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-node.patch"
 )
+
+DOCS=( README.md ThirdPartyNotices.txt )
 
 src_prepare() {
 	default
@@ -58,11 +61,7 @@ src_prepare() {
 }
 
 src_install() {
-	local mydocs="README.md ThirdPartyNotices.txt"
-	for doc in ${mydocs}
-	do
-		(dodoc "${doc}" && rm "${doc}") || die
-	done
+	einstalldocs
 
 	insinto "/usr/lib/${MY_PN}"
 	doins -r .

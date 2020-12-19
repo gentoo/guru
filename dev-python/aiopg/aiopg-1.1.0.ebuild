@@ -29,7 +29,6 @@ DEPEND="test? (
 	dev-python/isort[${PYTHON_USEDEP}]
 	dev-python/pytest-timeout[${PYTHON_USEDEP}]
 	dev-python/sqlalchemy[${PYTHON_USEDEP}]
-	dev-python/flake8[${PYTHON_USEDEP}]
 )"
 
 pkg_postinst() {
