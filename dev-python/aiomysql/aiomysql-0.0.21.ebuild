@@ -27,7 +27,6 @@ DEPEND="test? (
 	dev-python/ipdb[${PYTHON_USEDEP}]
 	dev-python/flake8[${PYTHON_USEDEP}]
 	<dev-python/pytest-5.4.1[${PYTHON_USEDEP}]
-	dev-python/pytest-sugar[${PYTHON_USEDEP}]
 	dev-python/sqlalchemy[${PYTHON_USEDEP}]
 	dev-python/uvloop[${PYTHON_USEDEP}]
 )"
