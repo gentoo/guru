@@ -6,8 +6,8 @@ HOMEPAGE=https://www.warframe.com/news/warframe-fansite-kit
 IUSE=X
 KEYWORDS=~amd64
 LICENSE=Warframe-EULA
-RESTRICT=mirror
+RESTRICT=bindist mirror
 SLOT=0
 SRC_URI=https://m.box.com/file/401032406918/download?shared_link=https%3A%2F%2Fdigitalextremesltd.app.box.com%2Fs%2Fvh2u41yhdlgp3girffucbynadoi33173 -> Corpus.ttf https://m.box.com/file/401037009816/download?shared_link=https%3A%2F%2Fdigitalextremesltd.app.box.com%2Fs%2Fvh2u41yhdlgp3girffucbynadoi33173 -> CorpusBold.ttf https://m.box.com/file/401042823306/download?shared_link=https%3A%2F%2Fdigitalextremesltd.app.box.com%2Fs%2Fvh2u41yhdlgp3girffucbynadoi33173 -> Grineer.ttf https://m.box.com/file/302545392046/download?shared_link=https%3A%2F%2Fdigitalextremesltd.app.box.com%2Fs%2Fvh2u41yhdlgp3girffucbynadoi33173 -> Solaris.ttf
 _eclasses_=font	e052246186f22bd6a37797238374613b
-_md5_=51241e9bee91e1fb1738319ea1993a5e
+_md5_=f9f9ae320de9a8daf8e232d1fa1fd8fe
