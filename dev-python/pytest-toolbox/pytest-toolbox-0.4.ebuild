@@ -20,9 +20,7 @@ SLOT="0"
 distutils_enable_tests pytest
 
 DEPEND="test? (
-	dev-python/isort[${PYTHON_USEDEP}]
 	dev-python/pydantic[${PYTHON_USEDEP}]
-	dev-python/pytest-isort[${PYTHON_USEDEP}]
 	dev-python/pytest-mock[${PYTHON_USEDEP}]
 )"
 

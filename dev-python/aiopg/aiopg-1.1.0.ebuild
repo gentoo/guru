@@ -25,8 +25,6 @@ RESTRICT="test"
 RDEPEND="dev-python/psycopg[${PYTHON_USEDEP}]"
 
 DEPEND="test? (
-	dev-python/tox[${PYTHON_USEDEP}]
-	dev-python/isort[${PYTHON_USEDEP}]
 	dev-python/pytest-timeout[${PYTHON_USEDEP}]
 	dev-python/sqlalchemy[${PYTHON_USEDEP}]
 )"

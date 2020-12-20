@@ -18,7 +18,6 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 DEPEND="test? (
-	dev-python/isort[${PYTHON_USEDEP}]
 	dev-python/pytest-aiohttp[${PYTHON_USEDEP}]
 	dev-python/pytest-toolbox[${PYTHON_USEDEP}]
 	dev-python/pytest-mock[${PYTHON_USEDEP}]

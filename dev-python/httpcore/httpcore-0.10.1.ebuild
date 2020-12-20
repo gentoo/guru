@@ -36,9 +36,6 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	test? (
-		dev-python/autoflake[${PYTHON_USEDEP}]
-		dev-python/isort[${PYTHON_USEDEP}]
-		dev-python/mypy[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/pytest-trio[${PYTHON_USEDEP}]
 	)
