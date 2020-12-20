@@ -41,7 +41,6 @@ DEPEND="
 		dev-python/testfixtures[${PYTHON_USEDEP}]
 		>=dev-python/pytest-html-1.10.1[${PYTHON_USEDEP}]
 		>=dev-python/pytest-xdist-1.15.0[${PYTHON_USEDEP}]
-		>=dev-python/pylint-1.6.5[${PYTHON_USEDEP}]
 		>=dev-python/ptyprocess-0.5.1[${PYTHON_USEDEP}]
 		>=dev-python/regex-2016.11.21[${PYTHON_USEDEP}] )"
 

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
+  <!-- maintainer-needed -->
+  <longdescription>
+    This is my fork of lmeyerov's update to Ryan Kirkman's pyglicko2
+  </longdescription>
   <upstream>
-    <remote-id type="github">sublee/glicko2</remote-id>
+    <remote-id type="github">deepy/glicko2</remote-id>
+    <remote-id type="pypi">glicko2</remote-id>
   </upstream>
 </pkgmetadata>

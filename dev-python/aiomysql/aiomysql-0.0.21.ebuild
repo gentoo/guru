@@ -25,7 +25,6 @@ RDEPEND=">=dev-python/pymysql-0.9.0[${PYTHON_USEDEP}]"
 DEPEND="test? (
 	dev-python/docker-py[${PYTHON_USEDEP}]
 	dev-python/ipdb[${PYTHON_USEDEP}]
-	dev-python/flake8[${PYTHON_USEDEP}]
 	<dev-python/pytest-5.4.1[${PYTHON_USEDEP}]
 	dev-python/sqlalchemy[${PYTHON_USEDEP}]
 	dev-python/uvloop[${PYTHON_USEDEP}]

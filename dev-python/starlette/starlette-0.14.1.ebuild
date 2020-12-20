@@ -28,17 +28,15 @@ KEYWORDS="~amd64 ~x86"
 RESTRICT="test"
 
 DEPEND="test? (
-	dev-python/aiosqlite[${PYTHON_USEDEP}]
 	dev-python/aiofiles[${PYTHON_USEDEP}]
-	dev-python/isort[${PYTHON_USEDEP}]
+	dev-python/aiosqlite[${PYTHON_USEDEP}]
+	dev-python/graphene[${PYTHON_USEDEP}]
 	dev-python/itsdangerous[${PYTHON_USEDEP}]
 	dev-python/jinja[${PYTHON_USEDEP}]
-	dev-python/mypy[${PYTHON_USEDEP}]
 	dev-python/python-multipart[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/sse-starlette[${PYTHON_USEDEP}]
 	dev-python/ujson[${PYTHON_USEDEP}]
-	dev-python/graphene[${PYTHON_USEDEP}]
 )"
 
 python_prepare_all() {

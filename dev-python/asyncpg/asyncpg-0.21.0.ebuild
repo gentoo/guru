@@ -23,8 +23,6 @@ RESTRICT="test"
 BDEPEND="dev-python/cython[${PYTHON_USEDEP}]"
 
 DEPEND="test? (
-	dev-python/pycodestyle[${PYTHON_USEDEP}]
-	dev-python/flake8[${PYTHON_USEDEP}]
 	dev-python/uvloop[${PYTHON_USEDEP}]
 )"
 

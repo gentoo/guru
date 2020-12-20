@@ -42,8 +42,6 @@ DEPEND="test? (
 	dev-python/attrs[${PYTHON_USEDEP}]
 	dev-python/brotlipy[${PYTHON_USEDEP}]
 	dev-python/cryptography[${PYTHON_USEDEP}]
-	dev-python/isort[${PYTHON_USEDEP}]
-	dev-python/mypy[${PYTHON_USEDEP}]
 	dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 	dev-python/pytest-trio[${PYTHON_USEDEP}]
 	dev-python/trio[${PYTHON_USEDEP}]

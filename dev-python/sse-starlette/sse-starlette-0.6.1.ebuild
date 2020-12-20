@@ -19,6 +19,5 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 # BDEPEND="test? (
-# 	dev-python/isort[${PYTHON_USEDEP}]
 # 	dev-python/starlette[${PYTHON_USEDEP}]
 # )"
