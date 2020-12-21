@@ -26,8 +26,10 @@ RDEPEND="
 	media-libs/fontconfig:=
 	media-libs/libjpeg-turbo
 "
-
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	!x11-misc/i3lock
+"
 BDEPEND="virtual/pkgconfig"
 
 S="${WORKDIR}/${PN}-${MY_PV}"

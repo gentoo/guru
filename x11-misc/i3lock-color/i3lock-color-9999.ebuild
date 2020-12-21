@@ -26,11 +26,11 @@ RDEPEND="
 	media-libs/fontconfig:=
 	media-libs/libjpeg-turbo
 "
-
 DEPEND="
 	${RDEPEND}
-	virtual/pkgconfig
+	!x11-misc/i3lock
 "
+BDEPEND="virtual/pkgconfig"
 
 src_configure() {
 	autoreconf -fiv
