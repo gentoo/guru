@@ -10,6 +10,7 @@ MY_REV="c70ecfa8a529cb71f21f475f31d748ce9b154a8b"
 DESCRIPTION="A faster implementation of i3lock-fancy"
 HOMEPAGE="https://github.com/yvbbrjdr/i3lock-fancy-rapid"
 SRC_URI="https://github.com/yvbbrjdr/i3lock-fancy-rapid/archive/${MY_REV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${MY_REV}"
 
 LICENSE="BSD"
 SLOT="0"
@@ -22,8 +23,6 @@ RDEPEND="
 	)
 "
 DEPEND="x11-libs/libX11"
-
-S="${WORKDIR}"/i3lock-fancy-rapid-${MY_REV}
 
 src_prepare() {
 	default
