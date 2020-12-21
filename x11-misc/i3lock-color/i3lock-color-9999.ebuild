@@ -12,7 +12,7 @@ EGIT_REPO_URI="${HOMEPAGE}"
 LICENSE="i3lock-color"
 SLOT="0"
 
-RDEPEND="
+DEPEND="
 	dev-libs/libev
 	media-libs/fontconfig:=
 	media-libs/libjpeg-turbo
@@ -24,9 +24,9 @@ RDEPEND="
 	x11-libs/xcb-util-xrm
 	x11-libs/libxkbcommon
 "
-DEPEND="
-	${RDEPEND}
-	!x11-misc/i3lock
+RDEPEND="
+	${DEPEND}
+	!!x11-misc/i3lock
 "
 BDEPEND="virtual/pkgconfig"
 
