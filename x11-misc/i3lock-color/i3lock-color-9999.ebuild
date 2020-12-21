@@ -7,24 +7,22 @@ inherit git-r3
 
 DESCRIPTION="Improved i3lock with color customization"
 HOMEPAGE="https://github.com/Raymo111/i3lock-color"
-
 EGIT_REPO_URI="${HOMEPAGE}"
-KEYWORDS=""
 
 LICENSE="i3lock-color"
 SLOT="0"
 
 RDEPEND="
+	dev-libs/libev
+	media-libs/fontconfig:=
+	media-libs/libjpeg-turbo
+	sys-libs/pam
 	x11-libs/cairo
 	x11-libs/libxcb
 	x11-libs/xcb-util
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-xrm
 	x11-libs/libxkbcommon
-	sys-libs/pam
-	dev-libs/libev
-	media-libs/fontconfig:=
-	media-libs/libjpeg-turbo
 "
 DEPEND="
 	${RDEPEND}
@@ -34,7 +32,7 @@ BDEPEND="virtual/pkgconfig"
 
 src_configure() {
 	autoreconf -fiv
-	econf
+	default
 }
 
 pkg_postinst() {
