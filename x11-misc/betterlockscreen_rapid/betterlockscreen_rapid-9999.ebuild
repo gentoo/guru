@@ -19,6 +19,7 @@ RDEPEND="
 
 src_install() {
 	dobin betterlockscreen_rapid
+	einstalldocs
 	insinto /etc
 	doins betterlockscreen_rapid.conf
 }
