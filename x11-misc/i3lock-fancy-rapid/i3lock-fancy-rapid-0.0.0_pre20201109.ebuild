@@ -37,6 +37,6 @@ src_configure() {
 }
 
 src_install() {
-	dobin "${PN}"
+	dobin i3lock-fancy-rapid
 	einstalldocs
 }
