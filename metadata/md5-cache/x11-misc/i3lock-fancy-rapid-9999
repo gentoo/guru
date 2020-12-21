@@ -1,0 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=configure install prepare unpack
+DEPEND=x11-libs/libX11
+DESCRIPTION=A faster implementation of i3lock-fancy
+EAPI=7
+HOMEPAGE=https://github.com/yvbbrjdr/i3lock-fancy-rapid
+LICENSE=BSD
+PROPERTIES=live
+RDEPEND=|| ( >=x11-misc/i3lock-2.12 >=x11-misc/i3lock-color-2.12 )
+SLOT=0
+_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
+_md5_=becf1892963769aea4cf374bfcb706b5

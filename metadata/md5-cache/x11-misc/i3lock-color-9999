@@ -1,12 +1,12 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure postinst unpack
-DEPEND=x11-libs/cairo x11-libs/libxcb x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-xrm x11-libs/libxkbcommon sys-libs/pam dev-libs/libev media-libs/fontconfig:= media-libs/libjpeg-turbo virtual/pkgconfig
+DEPEND=dev-libs/libev media-libs/fontconfig:= media-libs/libjpeg-turbo sys-libs/pam x11-libs/cairo x11-libs/libxcb x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-xrm x11-libs/libxkbcommon
 DESCRIPTION=Improved i3lock with color customization
 EAPI=7
 HOMEPAGE=https://github.com/Raymo111/i3lock-color
 LICENSE=i3lock-color
 PROPERTIES=live
-RDEPEND=x11-libs/cairo x11-libs/libxcb x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-xrm x11-libs/libxkbcommon sys-libs/pam dev-libs/libev media-libs/fontconfig:= media-libs/libjpeg-turbo
+RDEPEND=dev-libs/libev media-libs/fontconfig:= media-libs/libjpeg-turbo sys-libs/pam x11-libs/cairo x11-libs/libxcb x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-xrm x11-libs/libxkbcommon !!x11-misc/i3lock
 SLOT=0
 _eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
-_md5_=9195d6f1b870591fdf624b93a7d0ac2e
+_md5_=e1a2d03c04fee58cf9fdca5f7146a2c5

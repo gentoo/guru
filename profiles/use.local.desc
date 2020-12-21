@@ -20,7 +20,6 @@ dev-java/openjdk-sts-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (
 dev-java/openjdk-sts-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
 dev-java/openjdk-sts-bin:source - Install JVM sources
 dev-lang/aldor:boehm-gc - Use Boehm Garbage Collector instead of built-in
-dev-lang/wren:tools - Install the wren command line interpreter
 dev-libs/hts_engine:speech-tools - use memory allocation/free functions of app-accessibility/speech-tools
 dev-libs/open62541:encryption - Enable encryption support
 dev-libs/open62541:etf - Enable pub/sub using Earliest TxTime First Qdisc
