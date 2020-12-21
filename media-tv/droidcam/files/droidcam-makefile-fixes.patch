@@ -1,5 +1,5 @@
 diff --git a/Makefile b/Makefile
-index 91ca3af..408de37 100644
+index 91ca3af..16afe8b 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -6,7 +6,7 @@
@@ -18,7 +18,8 @@ index 91ca3af..408de37 100644
 -JPEG  = -I$(JPEG_INCLUDE) $(JPEG_LIB)/libturbojpeg.a
 +JPEG  = -I$(JPEG_INCLUDE) $(JPEG_LIB)/libturbojpeg.so
  SRC      = src/connection.c src/settings.c src/decoder*.c src/av.c src/usb.c
- USBMUXD = -lusbmuxd
+-USBMUXD = -lusbmuxd
++USBMUXD = -lusbmuxd-2.0
  
  all: droidcam-cli droidcam
  
@@ -26,7 +27,7 @@ index 91ca3af..408de37 100644
 -LIBAV = /usr/lib/x86_64-linux-gnu/libswscale.a /usr/lib/x86_64-linux-gnu/libavutil.a
 -SRC  += /usr/lib/x86_64-linux-gnu/libusbmuxd.a /usr/lib/x86_64-linux-gnu/libxml2.a src/libplist-2.0.a
 +LIBAV = /usr/lib/x86_64-linux-gnu/libswscale.so /usr/lib/x86_64-linux-gnu/libavutil.so
-+SRC  += /usr/lib/x86_64-linux-gnu/libusbmuxd.so /usr/lib/x86_64-linux-gnu/libxml2.so src/libplist-2.0.so
++SRC  += /usr/lib/x86_64-linux-gnu/libusbmuxd-2.0.so /usr/lib/x86_64-linux-gnu/libxml2.so src/libplist-2.0.so
  package: clean all
  	zip -x icon.png src/ src/* Makefile -r droidcam_`date +%s`.zip ./*
  
