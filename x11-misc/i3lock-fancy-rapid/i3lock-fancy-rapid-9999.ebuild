@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit git-r3
+inherit git-r3 flag-o-matic toolchain-funcs
 
 DESCRIPTION="A faster implementation of i3lock-fancy"
 HOMEPAGE="https://github.com/yvbbrjdr/i3lock-fancy-rapid"
