@@ -13,7 +13,4 @@
 		<bugs-to>https://github.com/wren-lang/wren/issues</bugs-to>
 	<remote-id type="github">wren-lang/wren</remote-id>
 	</upstream>
-	<use>
-		<flag name="tools">Install the wren command line interpreter</flag>
-	</use>
 </pkgmetadata>

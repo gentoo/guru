@@ -20,7 +20,7 @@ IUSE="gtk"
 RESTRICT="test"
 
 DEPEND="
-	=app-pda/libusbmuxd-1*
+	app-pda/libusbmuxd
 	dev-libs/glib
 	dev-libs/libappindicator:3
 	dev-util/android-tools

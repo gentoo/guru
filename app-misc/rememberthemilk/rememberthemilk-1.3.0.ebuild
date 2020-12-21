@@ -14,10 +14,10 @@ S="${WORKDIR}"
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64"
-
 RESTRICT="bindist mirror"
+QA_PREBUILD="*"
 
-RDEPEND="media-video/ffmpeg[chromium]
+RDEPEND="
 	app-accessibility/at-spi2-atk
 	app-accessibility/at-spi2-core
 	dev-libs/atk
@@ -27,6 +27,7 @@ RDEPEND="media-video/ffmpeg[chromium]
 	dev-libs/nss
 	media-libs/alsa-lib
 	media-libs/mesa
+	media-video/ffmpeg[chromium]
 	net-print/cups
 	sys-apps/dbus
 	x11-libs/cairo
@@ -44,7 +45,8 @@ RDEPEND="media-video/ffmpeg[chromium]
 	x11-libs/libXtst
 	x11-libs/libdrm
 	x11-libs/libxcb
-	x11-libs/pango"
+	x11-libs/pango
+"
 
 src_install() {
 	insinto "/opt/${PN}"

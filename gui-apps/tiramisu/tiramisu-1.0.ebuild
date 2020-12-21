@@ -22,6 +22,11 @@ SLOT="0"
 RDEPEND="dev-libs/glib:2[dbus]"
 DEPEND="${RDEPEND}"
 
+src_prepare() {
+	default
+	sed -i '/CFLAGS.*=/d' Makefile || die
+}
+
 src_configure() {
 	tc-export CC
 	default
