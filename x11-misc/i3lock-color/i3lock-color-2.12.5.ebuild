@@ -5,9 +5,10 @@ EAPI=7
 
 MY_PV="$(ver_cut 1-2).c.$(ver_cut 3)"
 
-DESCRIPTION="Improved i3lock with color customization"
+DESCRIPTION="The world's most popular non-default computer lockscreen"
 HOMEPAGE="https://github.com/Raymo111/i3lock-color"
 SRC_URI="https://github.com/Raymo111/i3lock-color/archive/${MY_PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="i3lock-color"
 SLOT="0"
@@ -30,8 +31,6 @@ RDEPEND="
 	!!x11-misc/i3lock
 "
 BDEPEND="virtual/pkgconfig"
-
-S="${WORKDIR}/${PN}-${MY_PV}"
 
 src_configure() {
 	autoreconf -fiv

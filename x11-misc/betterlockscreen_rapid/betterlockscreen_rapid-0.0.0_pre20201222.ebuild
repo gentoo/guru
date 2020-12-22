@@ -3,14 +3,16 @@
 
 EAPI=7
 
-inherit git-r3
+MY_REV="705f03ace10e273ced75ffa98bc5983c4b3ebecb"
 
 DESCRIPTION="A rapid and good-looking screen locker"
 HOMEPAGE="https://github.com/oakszyjrnrdy/betterlockscreen_rapid"
-EGIT_REPO_URI="https://github.com/oakszyjrnrdy/betterlockscreen_rapid.git"
+SRC_URI="https://github.com/oakszyjrnrdy/betterlockscreen_rapid/archive/${MY_REV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${MY_REV}"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	x11-misc/i3lock-color
