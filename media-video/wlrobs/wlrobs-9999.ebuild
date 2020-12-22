@@ -10,7 +10,7 @@ then
 	inherit mercurial
 	EHG_REPO_URI="https://hg.sr.ht/~scoopta/wlrobs"
 else
-	SRC_URI="https://hg.sr.ht/~scoopta/wlrobs/archive/v${PV}.tar.gz"
+	SRC_URI="https://hg.sr.ht/~scoopta/wlrobs/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-v${PV}"
 	KEYWORDS="~amd64"
 fi
@@ -39,9 +39,4 @@ src_configure() {
 		$(meson_use scpy   use_scpy  )
 	)
 	meson_src_configure
-}
-
-src_install() {
-	exeinto "/usr/lib64/obs-plugins"
-	doexe "$BUILD_DIR/libwlrobs.so"
 }
