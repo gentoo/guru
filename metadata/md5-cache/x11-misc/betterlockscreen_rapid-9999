@@ -8,4 +8,4 @@ PROPERTIES=live
 RDEPEND=x11-misc/i3lock-color x11-misc/i3lock-fancy-rapid
 SLOT=0
 _eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
-_md5_=98273d55c2be773ff7be6003240cddcf
+_md5_=d02cba227ca323e7b890943b18f4f255

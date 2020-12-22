@@ -202,7 +202,7 @@ dev-python/pproxy 2.4.6 2.4.6-r1 2.5: TCP/UDP asynchronous tunnel proxy implemen
 dev-python/promise 2.3.0: Bytecode optimisation using staticness assertions
 dev-python/pure-protobuf 2.0.0-r1 2.0.1: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/pydbus 0.6.0: Pythonic DBus library
-dev-python/pyfiglet 0.8.0 0.8.1 9999: Pure-python FIGlet implementation
+dev-python/pyfiglet 0.8_p0 0.8_p1 9999: Pure-python FIGlet implementation
 dev-python/pygaljs 1.0.2 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
 dev-python/pygsl 2.3.0: Python interface for the GNU scientific library (gsl)
 dev-python/pyinquirer 9999: A Python module for common interactive command line UIs
@@ -295,7 +295,7 @@ games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 termina
 games-util/NotEnoughProduction 0.0.4: Tool for building production chains for modded minecraft
 games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
 games-util/itch-bin 25.4.0 25.4.1: itch.io game browser, installer and launcher
-games-util/legendary 0.20.3 0.20.4: A free and open-source replacement for the Epic Games Launcher
+games-util/legendary 0.20.4 0.20.5: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.0: A simple GOG client for Linux
 gui-apps/azote 1.8.1 9999: wallpaper manager for wlroots compositors
 gui-apps/coreaction 4.0.0 4.1.0 9999: A side bar for showing widgets for C Suite
@@ -473,7 +473,7 @@ x11-libs/kimageannotator 0.2.1 0.3.1 0.3.2 0.4.0: Tool for annotating images
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial videos
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
-x11-misc/betterlockscreen_rapid 9999: A rapid and good-looking screen locker
+x11-misc/betterlockscreen_rapid 0.0.0_pre20201222 9999: A rapid and good-looking screen locker
 x11-misc/gammy 0.9.58a 0.9.59 9999: Adaptive screen brightness/temperature
 x11-misc/gromit-mpx 1.3.1 1.4 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
 x11-misc/i3lock-color 2.12.5 2.13.1 9999: Improved i3lock with color customization
