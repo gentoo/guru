@@ -17,13 +17,14 @@ KEYWORDS="~amd64"
 IUSE="doc introspection vala"
 REQUIRED_USE="vala? ( introspection )"
 
-RDEPEND="
-	>=dev-libs/glib-2.58.0:2
-"
-DEPEND="${RDEPEND}
+RDEPEND=">=dev-libs/glib-2.58.0:2"
+DEPEND="
+	${RDEPEND}
 	introspection? ( dev-libs/gobject-introspection:= )
 "
-BDEPEND="$(vala_depend)
+BDEPEND="
+	$(vala_depend)
+	dev-util/glib-utils
 	doc? (
 		dev-util/gdbus-codegen
 		dev-util/gtk-doc
@@ -32,9 +33,10 @@ BDEPEND="$(vala_depend)
 "
 
 src_prepare() {
-	vala_src_prepare
 	default
+	vala_src_prepare
 }
+
 src_configure() {
 	local emesonargs=(
 		$(meson_use vala vapigen)
@@ -42,5 +44,6 @@ src_configure() {
 		$(meson_use doc enable-gtk-doc)
 		-Dinstalled-tests=false
 	)
+
 	meson_src_configure
 }
