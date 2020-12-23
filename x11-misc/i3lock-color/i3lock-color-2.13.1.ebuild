@@ -24,7 +24,7 @@ DEPEND="
 	x11-libs/xcb-util
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-xrm
-	x11-libs/libxkbcommon
+	x11-libs/libxkbcommon[X]
 "
 RDEPEND="
 	${DEPEND}
