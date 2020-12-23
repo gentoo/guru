@@ -20,3 +20,4 @@ RDEPEND="
 	${DEPEND}
 	dev-python/python-xlib[${PYTHON_USEDEP}]
 "
+BDEPEND="dev-python/pip[${PYTHON_USEDEP}]"
