@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit flag-o-matic
+
 DESCRIPTION="Support for mounting HubiC drive in GNU/Linux"
 HOMEPAGE="https://github.com/TurboGit/hubicfuse"
 SRC_URI="https://github.com/TurboGit/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -24,6 +26,11 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 DOCS=( README.md )
+
+src_configure() {
+	append-cflags -fcommon
+	default
+}
 
 src_install() {
 	default
