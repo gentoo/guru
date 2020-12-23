@@ -16,7 +16,7 @@ SLOT="0"
 
 RESTRICT="bindist mirror"
 
-BDEPEND="media-gfx/imagemagick"
+BDEPEND="media-gfx/imagemagick[png]"
 
 RDEPEND="virtual/jre:1.8"
 
