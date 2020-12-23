@@ -23,7 +23,7 @@ PATCHES=(
 
 DEPEND="
 	media-libs/libsdl
-	media-libs/sdl-image
+	media-libs/sdl-image[tiff]
 	media-libs/freetype
 	media-libs/libpng
 	ttf? ( media-libs/sdl-ttf )
