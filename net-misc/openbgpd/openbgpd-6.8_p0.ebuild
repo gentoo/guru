@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit systemd
+inherit flag-o-matic systemd
 
 MY_PV="${PV/_p/p}"
 MY_P="${PN}-${MY_PV}"
@@ -36,6 +36,11 @@ src_install() {
 	newinitd "${FILESDIR}/${PN}-init.d" bgpd
 	newconfd "${FILESDIR}/${PN}-conf.d" bgpd
 	systemd_newunit "${FILESDIR}/${PN}.service" bgpd.service
+}
+
+src_configure() {
+	append-cflags -fcommon
+	default
 }
 
 pkg_postinst() {
