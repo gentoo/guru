@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>telans@posteo.de</email>
+		<name>Theo Anderson</name>
+	</maintainer>
 	<longdescription>
 		libcloudproviders is a DBus API that allows cloud storage sync clients to expose their services. Clients such as file managers and desktop environments can then provide integrated access to the cloud providers services.
 

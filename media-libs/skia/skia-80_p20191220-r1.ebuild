@@ -39,7 +39,7 @@ RDEPEND="
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/harfbuzz
-	media-libs/libglvnd
+	media-libs/libglvnd[X]
 	media-libs/libjpeg-turbo
 	media-libs/libpng
 	media-libs/libwebp

@@ -20,7 +20,10 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="dev-libs/octetos-core"
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	!!dev-libs/octetos-db
+"
 BDEPEND=""
 
 S="${WORKDIR}/${MYP}"

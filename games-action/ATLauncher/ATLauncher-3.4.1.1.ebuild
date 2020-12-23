@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-3"
 SLOT="0"
 
-BDEPEND="media-gfx/imagemagick"
+BDEPEND="media-gfx/imagemagick[png]"
 
 RDEPEND="virtual/jre:1.8"
 

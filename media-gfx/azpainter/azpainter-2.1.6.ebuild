@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit toolchain-funcs
+
 DESCRIPTION="Full color painting software for Linux for illustration drawing"
 HOMEPAGE="http://azsky2.html.xdomain.jp/soft/azpainter.html https://github.com/Symbian9/azpainter"
 SRC_URI="https://github.com/Symbian9/azpainter/releases/download/v${PV}/${P}.tar.xz"
@@ -30,5 +32,5 @@ PATCHES=(
 )
 
 src_configure() {
-	sh ./configure --prefix=/usr CFLAGS="${CFLAGS:-02}" LDFLAGS="${LDFLAGS}"
+	sh ./configure --prefix=/usr CC="$(tc-getCC)" CFLAGS="${CFLAGS:-02}" LDFLAGS="${LDFLAGS}"
 }

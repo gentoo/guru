@@ -29,5 +29,6 @@ src_install() {
 }
 
 src_test() {
-	make testall || die
+	make -C test testcpp && test/testcpp || die
+	make -C test DATATYPE=simd CFLAGADD="$(CFLAGADD)" test || die
 }

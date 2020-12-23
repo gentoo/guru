@@ -22,6 +22,6 @@ SLOT="0"
 CONFIG_CHECK="~ZRAM ~ZSWAP"
 
 src_install() {
-	default
+	emake PREFIX="${ED}" install
 	keepdir /var/lib/systemd-swap
 }
