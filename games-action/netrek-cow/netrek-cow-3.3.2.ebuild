@@ -18,6 +18,7 @@ S="${WORKDIR}/netrek-client-cow-${PV}"
 RESTRICT="test"
 
 RDEPEND="
+	media-libs/imlib2
 	media-libs/libsdl
 	media-libs/sdl-mixer
 	x11-base/xorg-proto
