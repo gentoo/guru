@@ -16,9 +16,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="virtual/libusb"
-BDEPEND="
-	dev-python/pip[${PYTHON_USEDEP}]
-	dev-python/wheel[${PYTHON_USEDEP}]
-"
+DEPEND="dev-python/wheel[${PYTHON_USEDEP}]"
 
 distutils_enable_tests setup.py
