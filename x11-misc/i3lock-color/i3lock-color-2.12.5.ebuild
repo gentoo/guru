@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/Raymo111/i3lock-color"
 SRC_URI="https://github.com/Raymo111/i3lock-color/archive/${MY_PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${MY_PV}"
 
-LICENSE="MIT"
+LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
