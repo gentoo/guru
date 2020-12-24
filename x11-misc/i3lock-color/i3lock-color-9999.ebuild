@@ -9,7 +9,7 @@ DESCRIPTION="Improved i3lock with color customization"
 HOMEPAGE="https://github.com/Raymo111/i3lock-color"
 EGIT_REPO_URI="https://github.com/Raymo111/i3lock-color.git"
 
-LICENSE="i3lock-color"
+LICENSE="MIT"
 SLOT="0"
 
 DEPEND="
