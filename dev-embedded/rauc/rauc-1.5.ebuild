@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7..9} )
 DOCS_BUILDER="sphinx"
 DOCS_DIR="${S}/docs"
 
@@ -15,15 +15,21 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.xz"
 
 SLOT="0"
 LICENSE="LGPL-2.1"
-KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="json network service test"
+KEYWORDS="~amd64"
+IUSE="gpt json network service test"
 
 RESTRICT="!test? ( test )"
 
 BDEPEND="
 	dev-util/gdbus-codegen
 	virtual/pkgconfig
-	test? ( sys-fs/squashfs-tools )
+	test? (
+		dev-libs/opensc
+		net-misc/casync
+		sys-fs/mtd-utils
+		sys-fs/squashfs-tools
+		sys-libs/libfaketime
+	)
 "
 RDEPEND="
 	dev-libs/glib:2
@@ -45,6 +51,7 @@ src_prepare() {
 
 src_configure() {
 	local myconf=(
+		$(use_enable gpt)
 		$(use_enable json)
 		$(use_enable network)
 		$(use_enable service)
