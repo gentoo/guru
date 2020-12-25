@@ -12,6 +12,9 @@
     create, inspect and modify update artifacts for your device.
   </longdescription>
   <use>
+    <flag name="gpt">
+      Add GPT support
+    </flag>
     <flag name="json">
       Add JSON support
     </flag>
