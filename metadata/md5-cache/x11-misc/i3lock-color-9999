@@ -4,9 +4,9 @@ DEPEND=dev-libs/libev media-libs/fontconfig:= media-libs/libjpeg-turbo sys-libs/
 DESCRIPTION=Improved i3lock with color customization
 EAPI=7
 HOMEPAGE=https://github.com/Raymo111/i3lock-color
-LICENSE=i3lock-color
+LICENSE=BSD
 PROPERTIES=live
 RDEPEND=dev-libs/libev media-libs/fontconfig:= media-libs/libjpeg-turbo sys-libs/pam x11-libs/cairo x11-libs/libxcb x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-xrm x11-libs/libxkbcommon !!x11-misc/i3lock
 SLOT=0
 _eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
-_md5_=4ad5d19200426945e9a2fcfb258df663
+_md5_=425b0e331edc1d6cda7adc0c8e616c08

@@ -98,7 +98,7 @@ dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, R
 dev-cpp/vectorwrapper 1.1.1 9999: A template vector wrapper class for C++
 dev-db/pg_repack 1.4.6: Reorganize tables in PostgreSQL databases with minimal locks
 dev-db/rum 1.3.7: RUM access method - inverted index with additional information in posting lists
-dev-embedded/rauc 1.4: Lightweight update client that runs on your Embedded Linux device
+dev-embedded/rauc 1.5: Lightweight update client that runs on your Embedded Linux device
 dev-games/surgescript 0.5.4.3 0.5.4.4 9999: scripting language made for opensurge
 dev-java/openjdk-sts-bin 15.0.1_p9: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
@@ -269,7 +269,7 @@ dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3: HTTP and GraphQL client for developers
 dev-util/osc 0.169.1 9999: Command line tool for Open Build Service
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
-dev-util/tokei 12.0.4: Count code, quickly
+dev-util/tokei 12.0.4 12.1.0: Count code, quickly
 dev-util/xdp-tools 1.0.1: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
@@ -288,7 +288,7 @@ games-arcade/opensurge 0.5.1.2 9999: fun 2D retro platformer inspired by old-sch
 games-arcade/taisei 1.3.1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 games-board/openriichi 0.2.1.1: OpenRiichi is an open source Japanese Mahjong client
 games-board/rmahjong 0.4_p20201106: Riichi Mahjong, the Japanese variant of the Chinese game Mahjong for 4 players
-games-emulation/melonds 0.8.3 0.9 9999: Nintendo DS emulator, sorta
+games-emulation/melonds 0.8.3 0.9 0.9.1 9999: Nintendo DS emulator, sorta
 games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
 games-engines/luxtorpeda 23.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-fps/crispy-doom 5.9.0 5.9.1 5.9.2: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
