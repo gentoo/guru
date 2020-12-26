@@ -14,9 +14,10 @@ SRC_URI="
 	https://web.archive.org/web/20140913154759if_/http://users.teilar.gr/~g1951d/Symbola.pdf -> ${P}.pdf
 "
 
-LICENSE="Unicode_Fonts_for_Ancient_Scripts"
+LICENSE="UFAS"
 SLOT="0"
 KEYWORDS="~amd64"
+RESTRICT="bindist"
 
 BDEPEND="app-arch/unzip"
 

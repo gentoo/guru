@@ -11,9 +11,10 @@ DESCRIPTION="Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Sy
 HOMEPAGE="https://dn-works.com/ufas/"
 SRC_URI="https://web.archive.org/web/20201013230756if_/https://dn-works.com/wp-content/uploads/2020/UFAS-Fonts/Symbola.zip -> ${P}.zip"
 
-LICENSE="Unicode_Fonts_for_Ancient_Scripts"
+LICENSE="UFAS"
 SLOT="0"
 KEYWORDS="~amd64"
+RESTRICT="bindist"
 
 BDEPEND="app-arch/unzip"
 
