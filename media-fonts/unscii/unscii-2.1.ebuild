@@ -4,11 +4,12 @@
 EAPI=7
 
 FONT_SUFFIX="otf pcf ttf"
+
 inherit toolchain-funcs font
 
 DESCRIPTION="Set of bitmapped Unicode fonts based on classic system fonts"
 HOMEPAGE="http://pelulamu.net/${PN}/"
-SRC_URI="${HOMEPAGE}${P}-src.tar.gz"
+SRC_URI="http://pelulamu.net/unscii/${P}-src.tar.gz -> ${P}.tar.gz"
 
 LICENSE="
 	public-domain
@@ -26,8 +27,14 @@ DEPEND="
 	x11-apps/bdftopcf
 	unicode? ( media-fonts/unifont[utils] )
 "
+
 S="${WORKDIR}/${P}-src"
 DOCS=( ${PN}.txt )
+
+src_prepare() {
+	default
+	sed -i "s/gcc.*/$(tc-getCC) ${CFLAGS}/" Makefile || die
+}
 
 src_install() {
 	font_src_install
