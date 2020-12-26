@@ -5,8 +5,10 @@ EAPI=7
 
 DESCRIPTION="A free/open source, multi-platform BASIC compiler."
 HOMEPAGE="https://www.freebasic.net"
-SRC_URI="https://github.com/freebasic/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/freebasic/${PN}/releases/download/${PV}/FreeBASIC-${PV}-source-bootstrap.tar.xz"
+SRC_URI="
+	https://github.com/freebasic/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/freebasic/${PN}/releases/download/${PV}/FreeBASIC-${PV}-source-bootstrap.tar.xz
+"
 
 LICENSE="FDL-1.2 GPL-2+ LGPL-2.1+"
 SLOT="0"
@@ -24,10 +26,11 @@ DEPEND="
 		x11-libs/libXpm
 		x11-libs/libXrandr
 		x11-libs/libXrender
-	)"
+	)
+"
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}"/${P}-Pass-ltinfo-to-linker.patch )
+PATCHES=( "${FILESDIR}"/${PN}-1.07.0-Pass-ltinfo-to-linker.patch )
 
 DOCS="${S}/doc/fbc.1"
 
