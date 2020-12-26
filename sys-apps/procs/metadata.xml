@@ -5,6 +5,10 @@
     <email>kenichi.taka@gmail.com</email>
     <name>Kenichi Takahashi</name>
   </maintainer>
+  <maintainer type="person">
+    <email>telans@posteo.de</email>
+    <name>Theo Anderson</name>
+  </maintainer>
   <upstream>
     <remote-id type="github">dalance/procs</remote-id>
   </upstream>
