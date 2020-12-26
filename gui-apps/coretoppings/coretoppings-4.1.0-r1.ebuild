@@ -34,6 +34,10 @@ RDEPEND="
 	pulseaudio? ( media-sound/pulseaudio )
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-statusnotifierbutton.patch"
+)
+
 src_prepare() {
 	default
 
