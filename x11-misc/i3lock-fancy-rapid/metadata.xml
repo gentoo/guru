@@ -5,4 +5,7 @@
 		<email>jlin.gentoo@outlook.com</email>
 		<name>Jian Lin</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">yvbbrjdr/i3lock-fancy-rapid</remote-id>
+	</upstream>
 </pkgmetadata>
