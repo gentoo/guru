@@ -20,6 +20,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="test"
+IUSE="gnome-keyring"
 
 RDEPEND="
 	dev-qt/qtconcurrent:5
@@ -29,6 +30,9 @@ RDEPEND="
 	dev-qt/qtprintsupport:5
 	dev-qt/qttest:5
 	dev-qt/qtwidgets:5
+	gnome-keyring? (
+		app-crypt/libsecret
+	)
 "
 DEPEND="${RDEPEND}"
 
