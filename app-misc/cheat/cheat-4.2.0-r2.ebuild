@@ -90,9 +90,9 @@ SRC_URI="
 LICENSE="MIT Apache-2.0 BSD BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="zsh-completion"
 
-RDEPEND=""
+RDEPEND="zsh-completion? ( !app-shells/zsh-completions )"
 BDEPEND="app-text/pandoc"
 
 src_prepare() {
@@ -110,11 +110,13 @@ src_test() {
 src_install() {
 	dobin "dist/${PN}"
 	newbashcomp scripts/cheat.bash "${PN}"
-	insinto /usr/share/zsh/site-functions
-	newins scripts/cheat.zsh _cheat
 	insinto /usr/share/fish/vendor_completions.d
 	doins scripts/cheat.fish
 	doman doc/cheat.1
+	if use zsh-completion; then
+		insinto /usr/share/zsh/site-functions
+		newins scripts/cheat.zsh _cheat
+	fi
 }
 
 pkg_postinst() {
