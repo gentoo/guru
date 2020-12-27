@@ -1,0 +1,14 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install postinst postrm preinst setup
+DEPEND=kernel_linux? ( sys-apps/kmod[tools] ) sys-apps/sed kernel_linux? ( virtual/linux-sources virtual/libelf )
+DESCRIPTION=kernel module for random ISN generation
+EAPI=7
+HOMEPAGE=https://github.com/0xsirus/tirdad
+IUSE=kernel_linux kernel_linux
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=kernel_linux? ( sys-apps/kmod[tools] )
+SLOT=0
+SRC_URI=https://github.com/0xsirus/tirdad/archive/9a0e137ae05dd1aa05c20750975598e4dac77dbf.zip -> tirdad-0_p20200926.zip
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	69bd92aa099f708425db9f1f01d61213	l10n	8cdd85e169b835d518bc2fd59f780d8e	linux-info	c90a203b1c14cfa77bd3e37a0e96c955	linux-mod	63c06dfa12648f13855f5f4348af824c	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb	wrapper	4251d4c84c25f59094fd557e0063a974
+_md5_=ca7951e3473f7f50f6e2845b01c69e60

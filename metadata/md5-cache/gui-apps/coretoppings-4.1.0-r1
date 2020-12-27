@@ -11,4 +11,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://gitlab.com/cubocore/coreapps/coretoppings/-/archive/v4.1.0/coretoppings-v4.1.0.tar.gz -> coretoppings-4.1.0.tar.gz
 _eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=c223834e62e0de5a60d6e0b03d3d6e4c
+_md5_=2e8d011218ffa002c8aa30daf62ca640

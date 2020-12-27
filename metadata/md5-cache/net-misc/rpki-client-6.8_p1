@@ -1,0 +1,12 @@
+BDEPEND=sys-devel/libtool
+DEFINED_PHASES=configure install
+DEPEND=acct-group/_rpki-client acct-user/_rpki-client
+DESCRIPTION=Portability shim for OpenBSD's rpki-client
+EAPI=7
+HOMEPAGE=https://www.rpki-client.org/
+KEYWORDS=~amd64 ~x86
+LICENSE=ISC
+RDEPEND=acct-group/_rpki-client acct-user/_rpki-client
+SLOT=0
+SRC_URI=mirror://openbsd/rpki-client/rpki-client-6.8p1.tar.gz
+_md5_=ac1a36486eda8c6ec8e4e176ea9b7bca

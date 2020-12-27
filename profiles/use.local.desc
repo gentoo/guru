@@ -126,6 +126,8 @@ sys-auth/mrsh:pam - build with pam support
 sys-auth/mrsh:shadow - build with shadow file support
 sys-cluster/KVTree:fcntl - Set the type of file locking to fcntl.
 sys-cluster/KVTree:flock - Set the type of file locking to flock.
+sys-cluster/dlb:hwloc - add sys-apps/hwlocsupport
+sys-cluster/dlb:instrumentation - enable sys-cluster/extrae instrumentation
 sys-cluster/veloc:alps - Use ALPS (Application Level Placement Scheduler) as resource manager
 sys-cluster/veloc:lsf - Use LFS (Load Sharing Facility) as resource manager
 sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager
