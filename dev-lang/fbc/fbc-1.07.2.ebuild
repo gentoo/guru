@@ -5,10 +5,10 @@ EAPI=7
 
 DESCRIPTION="A free/open source, multi-platform BASIC compiler."
 HOMEPAGE="https://www.freebasic.net"
-SRC_URI="https://github.com/freebasic/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
+SRC_URI="
+	https://github.com/freebasic/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/freebasic/${PN}/releases/download/${PV}/FreeBASIC-${PV}-source-bootstrap.tar.xz
-	https://gist.github.com/vilhelmgray/08cebe0f22e303f7d5e6e5bc71e3d1f2/raw/70c1f43eec81c35bdc780ace7fdf6a3c8b548c85/fbc-1.06.0-bootstrap-dist-linux-x86.patch
-	https://gist.github.com/vilhelmgray/08cebe0f22e303f7d5e6e5bc71e3d1f2/raw/70c1f43eec81c35bdc780ace7fdf6a3c8b548c85/fbc-1.06.0-bootstrap-dist-linux-x86_64.patch"
+"
 
 LICENSE="FDL-1.2 GPL-2+ LGPL-2.1+"
 SLOT="0"
@@ -26,10 +26,11 @@ DEPEND="
 		x11-libs/libXpm
 		x11-libs/libXrandr
 		x11-libs/libXrender
-	)"
+	)
+"
 RDEPEND="${DEPEND}"
 
-PATCHES="${FILESDIR}/${PV}/${PN}"
+PATCHES=( "${FILESDIR}"/${PN}-1.07.0-Pass-ltinfo-to-linker.patch )
 
 DOCS="${S}/doc/fbc.1"
 
@@ -47,12 +48,10 @@ src_prepare() {
 	# We only need bootstrap source code if fbc is not already present
 	if ! has_version dev-lang/fbc; then
 		cd "${BOOTSTRAP_S}" || die "cd failed"
-		eapply "${FILESDIR}/${PV}/bootstrap"
-		eapply "${DISTDIR}/fbc-1.06.0-bootstrap-dist-linux-x86.patch"
-		eapply "${DISTDIR}/fbc-1.06.0-bootstrap-dist-linux-x86_64.patch"
+		eapply "${PATCHES[@]}"
 		cd "${S}" || die "cd failed"
 	fi
-	default
+	eapply_user
 }
 
 src_compile() {

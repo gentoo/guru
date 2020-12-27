@@ -10,7 +10,10 @@ DESCRIPTION="Set of bitmapped Unicode fonts based on classic system fonts"
 HOMEPAGE="http://pelulamu.net/${PN}/"
 SRC_URI="${HOMEPAGE}${P}-src.tar.gz"
 
-LICENSE="OFL-1.1"
+LICENSE="
+	public-domain
+	unicode? ( GPL-2 )
+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="unicode"

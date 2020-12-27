@@ -5,8 +5,10 @@ EAPI=7
 
 DESCRIPTION="A free/open source, multi-platform BASIC compiler."
 HOMEPAGE="https://www.freebasic.net"
-SRC_URI="https://github.com/freebasic/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/freebasic/${PN}/releases/download/${PV}/FreeBASIC-${PV}-source-bootstrap.tar.xz"
+SRC_URI="
+	https://github.com/freebasic/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/freebasic/${PN}/releases/download/${PV}/FreeBASIC-${PV}-source-bootstrap.tar.xz
+"
 
 LICENSE="FDL-1.2 GPL-2+ LGPL-2.1+"
 SLOT="0"
@@ -24,10 +26,11 @@ DEPEND="
 		x11-libs/libXpm
 		x11-libs/libXrandr
 		x11-libs/libXrender
-	)"
+	)
+"
 RDEPEND="${DEPEND}"
 
-PATCHES="${FILESDIR}/${PV}"
+PATCHES=( "${FILESDIR}/${PN}-1.07.0-Pass-ltinfo-to-linker.patch" )
 
 DOCS="${S}/doc/fbc.1"
 
@@ -36,19 +39,19 @@ BOOTSTRAP_S="${WORKDIR}/FreeBASIC-${PV}-source-bootstrap"
 src_unpack() {
 	# We only need bootstrap source code if fbc is not already present
 	if ! has_version dev-lang/fbc; then
-		unpack FreeBASIC-${PV}-source-bootstrap.tar.xz
+		unpack "FreeBASIC-${PV}-source-bootstrap.tar.xz"
 	fi
-	unpack ${P}.tar.gz
+	unpack "${P}.tar.gz"
 }
 
 src_prepare() {
 	# We only need bootstrap source code if fbc is not already present
 	if ! has_version dev-lang/fbc; then
 		cd "${BOOTSTRAP_S}" || die "cd failed"
-		eapply "${FILESDIR}/${PV}"
+		eapply "${PATCHES[@]}"
 		cd "${S}" || die "cd failed"
 	fi
-	default
+	eapply_user
 }
 
 src_compile() {
@@ -77,13 +80,13 @@ src_compile() {
 	)
 
 	# fbc requires a space after the -Wl option
-	local fblflags=${LDFLAGS//-Wl,/-Wl }
+	local fblflags="${LDFLAGS//-Wl,/-Wl }"
 
 	# Build fbc
-	emake CFLAGS="${CFLAGS} ${xcflags[*]}" FBC="${fbc}" FBCFLAGS="${fbcflags}" FBLFLAGS="${fblflags}" TARGET=${CHOST}
+	emake CFLAGS="${CFLAGS} ${xcflags[*]} -I/usr/$(get_libdir)/libffi/include" FBC="${fbc}" FBCFLAGS="${fbcflags}" FBLFLAGS="${fblflags}" TARGET="${CHOST}"
 }
 
 src_install() {
-	emake DESTDIR="${D}" prefix="/usr" TARGET=${CHOST} install
+	emake DESTDIR="${D}" prefix="/usr" TARGET="${CHOST}" install
 	einstalldocs
 }

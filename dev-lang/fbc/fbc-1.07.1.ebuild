@@ -27,7 +27,7 @@ DEPEND="
 	)"
 RDEPEND="${DEPEND}"
 
-PATCHES="${FILESDIR}/${PV}"
+PATCHES=( "${FILESDIR}"/${PN}-1.07.0-Pass-ltinfo-to-linker.patch )
 
 DOCS="${S}/doc/fbc.1"
 
@@ -45,10 +45,10 @@ src_prepare() {
 	# We only need bootstrap source code if fbc is not already present
 	if ! has_version dev-lang/fbc; then
 		cd "${BOOTSTRAP_S}" || die "cd failed"
-		eapply "${FILESDIR}/${PV}"
+		eapply "${PATCHES[@]}"
 		cd "${S}" || die "cd failed"
 	fi
-	default
+	eapply_user
 }
 
 src_compile() {

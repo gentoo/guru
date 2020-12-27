@@ -3,53 +3,25 @@
 
 EAPI=7
 
-inherit autotools git-r3
-
-MY_PN="${PN}-portable"
 MY_PV="${PV/_p/p}"
-MY_P="${MY_PN}-${MY_PV}"
+MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="Portability shim for OpenBSD's rpki-client"
 HOMEPAGE="https://www.rpki-client.org/"
-SRC_URI="https://github.com/${PN}/${MY_PN}/archive/${MY_PV}.tar.gz -> ${P}.tar.gz"
-EGIT_REPO_URI="https://github.com/${PN}/${PN}-openbsd.git"
+SRC_URI="mirror://openbsd/${PN}/${PN}-${MY_PV}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DEPEND="
 	acct-group/_rpki-client
 	acct-user/_rpki-client
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
-
-PATCHES=(
-	"${FILESDIR}/${PN}-${PV%_*}-update.patch"
-)
+BDEPEND="sys-devel/libtool"
 
 S="${WORKDIR}/${MY_P}"
-
-src_unpack() {
-	default
-
-	EGIT_BRANCH=$(cat "${S}"/OPENBSD_BRANCH)
-	EGIT_CHECKOUT_DIR="${S}/openbsd"
-	git-r3_fetch
-	git-r3_checkout
-}
-
-src_prepare() {
-	default
-
-	cd "${S}"
-	./autogen.sh
-
-	eautoreconf
-}
-
 src_configure() {
 	local myeconfargs=(
 		--with-rsync=rsync
@@ -62,7 +34,8 @@ src_configure() {
 src_install() {
 	emake DESTDIR="${D}" BINDIR="/usr/bin" MANDIR="/usr/share/man" install
 	insinto /etc/rpki
-	doins tals/*
-	keepdir "/var/db/${PN}/"
-	fowners -R _rpki-client "/var/db/${PN}/"
+	doins *.tal
+	keedir "/var/cache/rpki-client/"
+	keepdir "/var/db/rpki-client/"
+	fowners -R _rpki-client "/var/db/rpki-client/"
 }
