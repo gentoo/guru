@@ -57,7 +57,6 @@ src_prepare() {
 	if ! use gnome-keyring; then
 		sed -i 's/add_subdirectory(git)//' ./dep/CMakeLists.txt || die
 	fi
-	default
 	cmake_src_prepare
 }
 
