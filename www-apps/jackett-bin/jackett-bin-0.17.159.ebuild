@@ -16,6 +16,7 @@ SLOT="0"
 RESTRICT="strip"
 
 RDEPEND="
+	app-crypt/mit-krb5
 	dev-libs/icu
 	dev-util/lttng-ust
 "
