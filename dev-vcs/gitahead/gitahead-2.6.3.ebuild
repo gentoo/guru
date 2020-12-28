@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop xdg cmake wrapper
+inherit desktop xdg cmake wrapper flag-o-matic
 
 DESCRIPTION="Graphical Git client to help understand and manage source code history"
 HOMEPAGE="https://github.com/gitahead/gitahead"
