@@ -60,6 +60,11 @@ src_prepare() {
 	cmake_src_prepare
 }
 
+src_configure() {
+	filter-flags -flto* # Segfault in libQt5Core.so.5
+	cmake_src_configure
+}
+
 src_install() {
 	cd "${BUILD_DIR}" || die
 
