@@ -20,6 +20,7 @@ RESTRICT="test"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~arm64"
+IUSE="gnome-keyring"
 
 # In case we ever make a non-"-binary" pkg
 DEPEND="
@@ -29,6 +30,9 @@ RDEPEND="
 	${DEPEND}
 	>=net-libs/nodejs-12.16.1:0/12[ssl]
 	sys-apps/ripgrep
+	gnome-keyring? (
+		app-crypt/libsecret
+	)
 "
 
 S="${WORKDIR}/${MY_P}-linux-${ARCH}"
@@ -58,6 +62,10 @@ src_prepare() {
 	rm postinstall.sh || die
 	# already in /usr/portage/licenses/MIT
 	rm LICENSE.txt || die
+
+	if ! use gnome-keyring; then
+		rm -r ./lib/vscode/node_modules/keytar || die
+	fi
 }
 
 src_install() {
