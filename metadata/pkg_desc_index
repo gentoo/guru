@@ -3,12 +3,16 @@ acct-group/_rpki-client 0: System group: _rpki-client
 acct-group/biboumi 0: System group: biboumi
 acct-group/fort 0: System group: fort
 acct-group/gemini 0: System group: gemini
+acct-group/jackett 0: Group for www-apps/jackett-bin
+acct-group/monero 0: System group: monero
 acct-user/_bgpd 0: User for OpenBGPD
 acct-user/_rpki-client 0: User for rpki-client
 acct-user/biboumi 0: User for net-im/biboumi
 acct-user/fort 0: User for FORT RPKI validator
 acct-user/gemini 0: User for gemini daemon
 acct-user/gogs 1: www-apps/gogs user
+acct-user/jackett 0: User for www-apps/jackett-bin
+acct-user/monero 0: System user: monero
 acct-user/sndiod 0: daemon user for sndio
 acct-user/trezord 0: User for TREZOR Bridge
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
@@ -27,7 +31,7 @@ app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on th
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
 app-emulation/dxvk-bin 1.7.2 1.7.3: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
-app-emulation/nvidia-container-toolkit 1.3.0: NVIDIA container runtime toolkit
+app-emulation/nvidia-container-toolkit 1.4.0: NVIDIA container runtime toolkit
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/apidb 4.3.0_beta 5.0.0_alpha 5.0.0_alpha8 5.0.0_alpha19 5.0.0_alpha20: API Generator for Database acces.
 app-misc/cheat 4.0.2 4.2.0 4.2.0-r1: cheat allows you to create and view interactive cheatsheets on the command-line
@@ -49,6 +53,7 @@ app-misc/vrms-gentoo 0_pre20181120: vrms clone for Gentoo Linux
 app-misc/watchexec 1.14.1: Executes commands in response to file modifications
 app-office/openoffice-bin 4.1.8: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.4 1.99.5 9999: Pyspread is a non-traditional spreadsheet written in Python
+app-portage/emlop 0.4.1: A fast, accurate, ergonomic emerge.log parser
 app-portage/pacvis 0.4.2 9999: Displays dependency graphs of packages
 app-portage/portage-lostfiles 0.2.0: A simple script to identify files not tracked by Portage package manager
 app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
@@ -102,7 +107,8 @@ dev-embedded/rauc 1.5: Lightweight update client that runs on your Embedded Linu
 dev-games/surgescript 0.5.4.3 0.5.4.4 9999: scripting language made for opensurge
 dev-java/openjdk-sts-bin 15.0.1_p9: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
-dev-lang/fbc 1.07.1 1.07.2 1.07.2-r1: A free/open source, multi-platform BASIC compiler.
+dev-lang/fbc 1.07.1 1.07.2 1.07.2-r1 1.07.2-r2: A free/open source, multi-platform BASIC compiler.
+dev-lang/fbc-bootstrap 1.07.2: Bootstrap package for dev-lang/fbc
 dev-lang/gleam 0.11.2 0.12.0 0.12.1: A statically typed functional language for the BEAM
 dev-lang/wren 0.3.0: The Wren Programming Language
 dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
@@ -111,6 +117,7 @@ dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
 dev-libs/imsg-compat 6.8.1 9999: linux port of OpenBSD imsg
 dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
 dev-libs/libnodave 0.8.5.1: Connect to and exchange data with Siemens PLCs
+dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
 dev-libs/mtxclient 0.3.0 0.3.1: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/octetos-biblion 0.1.1_alpha: Library for reading biblia.
 dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta 2.2.1_beta 2.3.0_beta 2.3.1_beta 2.3.1_rc1 2.3.2_beta 2.3.3_beta 2.5.0_alpha 2.8.2_beta 2.15.0_beta: C/C++ library to mainly provide Semantic Versioned implementation
@@ -255,6 +262,7 @@ dev-python/timeout-decorator 0.5.0: Timeout decorator
 dev-python/trio 0.17.0: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
+dev-python/tweepy 3.10.0: An easy-to-use Python library for accessing the Twitter API.
 dev-python/ufo2ft 2.19.1: A bridge from UFOs to FontTool objects
 dev-python/ufoLib2 0.7.1 0.8.0 0.10.0: A UFO font library
 dev-python/ufoNormalizer 0.5.2: A tool that will normalize the XML and other data inside of a UFO.
@@ -297,7 +305,7 @@ games-puzzle/superflu-riteurnz 1.0.0: Artisanal video-game about Superflu, the u
 games-util/NotEnoughProduction 0.0.4: Tool for building production chains for modded minecraft
 games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
 games-util/itch-bin 25.4.0 25.4.1: itch.io game browser, installer and launcher
-games-util/legendary 0.20.4 0.20.5: A free and open-source replacement for the Epic Games Launcher
+games-util/legendary 0.20.5 0.20.6: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.0: A simple GOG client for Linux
 gui-apps/azote 1.8.1 9999: wallpaper manager for wlroots compositors
 gui-apps/coreaction 4.0.0 4.1.0 9999: A side bar for showing widgets for C Suite
@@ -403,8 +411,11 @@ net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
 net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
 net-misc/wayback_machine_downloader 2.2.1: Download an entire website from the Wayback Machine
 net-misc/wsdd 0.5 0.6 0.6.1 0.6.2: A Web Service Discovery host daemon.
+net-misc/xmrig 6.7.0: RandomX, CryptoNight, KawPow, AstroBWT, and Argon2 CPU/GPU miner
+net-misc/xmrig-mo 6.7.0: RandomX, CryptoNight, KawPow, AstroBWT and Argon2 miner for the MoneroOcean pool
 net-news/sfeed 0.9.18 0.9.20 9999: simple RSS and Atom parser
 net-p2p/lbry 0.48.2 0.49.1: A browser for the LBRY network, a digital marketplace controlled by its users.
+net-p2p/monero 0.17.1.7: The secure, private, untraceable cryptocurrency
 net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for Linux
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1 0.3.14 0.3.15: An experiment in scalable routing as an encrypted IPv6 overlay network
@@ -455,7 +466,7 @@ sys-fs/gfs2-utils 3.2.0 3.3.0: Shared-disk cluster file system
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
 sys-kernel/tirdad 0_p20200926: kernel module for random ISN generation
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
-sys-libs/libnvidia-container 1.3.0: NVIDIA container runtime library
+sys-libs/libnvidia-container 1.3.1: NVIDIA container runtime library
 sys-libs/nss-tls 1.0 1.1 9999: A DNS over HTTPS resolver for glibc
 sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC security key
 sys-process/bottom 0.5.6: A graphical process/system monitor with a customizable interface
@@ -464,6 +475,7 @@ sys-process/iotop-c 1.15: top utility for IO (C port)
 sys-process/nvtop 1.1.0 9999: NVIDIA GPUs htop like monitoring tool
 www-apps/code-server-bin 3.4.1 3.6.1 3.8.0: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
+www-apps/jackett-bin 0.17.159: ultra fast, simple, secure & standards compliant web I/O
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/twint 2.1.20: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 18.17.0 9999: ultra fast, simple, secure & standards compliant web I/O

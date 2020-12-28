@@ -1,0 +1,13 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install
+DESCRIPTION=ultra fast, simple, secure & standards compliant web I/O
+EAPI=7
+HOMEPAGE=https://github.com/uNetworking/uWebSockets
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=app-crypt/mit-krb5 dev-libs/icu dev-util/lttng-ust
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/Jackett/Jackett/releases/download/v0.17.159/Jackett.Binaries.LinuxAMDx64.tar.gz -> jackett-bin-0.17.159.tar.gz
+_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	74b223e42834adf09a2d21fe5fe13741	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
+_md5_=2f41cb78813532e0e8b56042b0cb29a6

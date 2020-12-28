@@ -10,6 +10,7 @@ app-misc/mat2:sandbox - Enable sandboxing functionality through sys-apps/bubblew
 app-misc/mat2:video - Use media-video/ffmpeg for video support
 app-misc/ntfy:dbus - Support for desktop notifications
 app-misc/ntfy:telegram - Add support for telegram backend
+app-portage/emlop:fish-completion - Enable fish completion support.
 app-text/OCRmyPDF:jbig2enc - Uses media-libs/jbig2enc for better compression algorithm
 dev-cpp/sprout:texconv - Install texconv from subproject compost
 dev-cpp/sprout:wavconv - Install texconv from subproject darkroom
@@ -74,6 +75,11 @@ net-misc/megasync:freeimage - Use freeimage to manage graphic images format.
 net-misc/megasync:nautilus - Upload your files to your Mega account from nautilus.
 net-misc/megasync:thunar - Upload your files to your Mega account from Thunar.
 net-misc/tinyssh:sodium - Use dev-libs/libsodium for cryptography
+net-p2p/monero:daemon - Build the Monero daemon used to connect to the P2P network.
+net-p2p/monero:hw-wallet - Enable if you want to use a hardware wallet like a Trezor or Ledger.
+net-p2p/monero:tools - Build tools used to manipulate the blockchain as it is stored on disk.
+net-p2p/monero:wallet-cli - Build the command line wallet, monero-wallet-cli.
+net-p2p/monero:wallet-rpc - Build the RPC wallet, monero-wallet-rpc.
 net-p2p/trezord-go:systemd - Install systemd service file
 net-p2p/trezord-go:udev - Install udev rules
 net-wireless/eiwd:client - Enable iwctl client tool
