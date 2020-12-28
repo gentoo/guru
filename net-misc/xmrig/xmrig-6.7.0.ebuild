@@ -49,6 +49,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	einfo "Increase the vm.nr_hugepages sysctl value so that XMRig can allocate with huge pages."
+	elog "Increase the vm.nr_hugepages sysctl value so that XMRig can allocate with huge pages."
 	optfeature "CPU specific performance tweaks" sys-apps/msr-tools
 }
