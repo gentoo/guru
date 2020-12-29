@@ -21,11 +21,12 @@ HOMEPAGE="
 	https://github.com/pgjones/hypercorn
 	https://pypi.org/project/Hypercorn
 "
-SRC_URI="https://github.com/pgjones/hypercorn/archive/${PV}.zip -> ${P}.zip"
+SRC_URI="https://github.com/pgjones/hypercorn/archive/${PV}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="MIT"
-KEYWORDS="~amd64 ~x86"
 SLOT="0"
-RESTRICT=""
+KEYWORDS="~amd64 ~x86"
+
 RDEPEND="
 	dev-python/h11[${PYTHON_USEDEP}]
 	>=dev-python/hyper-h2-3.1.0[${PYTHON_USEDEP}]
