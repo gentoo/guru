@@ -11,8 +11,10 @@ SRC_URI="
 	https://github.com/gitahead/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/stinb/libgit2/archive/90af68bbe2690998f015f18b7c890f5868bcd3ee.tar.gz -> ${P}-dep_libgit2_libgit2.tar.gz
 	https://github.com/libssh2/libssh2/archive/42d37aa63129a1b2644bf6495198923534322d64.tar.gz -> ${P}-dep_libssh2_libssh2.tar.gz
-	https://github.com/git/git/archive/0d0ac3826a3bbb9247e39e12623bbcfdd722f24c.tar.gz -> ${P}-dep_git_git.tar.gz
 	https://github.com/commonmark/cmark/archive/f0793895eefc8ca14499831a24abee549a5af53e.tar.gz -> ${P}-dep_cmark_cmark.tar.gz
+	gnome-keyring? (
+		https://github.com/git/git/archive/0d0ac3826a3bbb9247e39e12623bbcfdd722f24c.tar.gz -> ${P}-dep_git_git.tar.gz
+	)
 "
 
 LICENSE="MIT"
@@ -42,9 +44,9 @@ src_unpack() {
 	local i list=(
 		dep_libgit2_libgit2
 		dep_libssh2_libssh2
-		dep_git_git
 		dep_cmark_cmark
 	)
+	use gnome-keyring && list+=( dep_git_git )
 	for i in "${list[@]}"; do
 		[ ! -f "${DISTDIR}/${P}-${i}.tar.gz" ] && die "The file ${DISTDIR}/${P}-${i}.tar.gz doesn't exist"
 		tar xf "${DISTDIR}/${P}-${i}.tar.gz" --strip-components 1 -C "${i//_//}" || die "Failed to unpack ${P}-${i}.tar.gz"
