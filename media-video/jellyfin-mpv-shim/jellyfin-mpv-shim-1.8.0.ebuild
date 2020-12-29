@@ -26,7 +26,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="
-	app-arch/unzip
 	$(python_gen_cond_dep '
 		dev-python/python-mpv[${PYTHON_USEDEP}]
 		dev-python/jellyfin-apiclient-python[${PYTHON_USEDEP}]
@@ -47,6 +46,7 @@ RDEPEND="
 		dev-python/werkzeug[${PYTHON_USEDEP}]
 	')
 "
+BDEPEND="app-arch/unzip"
 
 src_install() {
 	distutils-r1_src_install
