@@ -5,21 +5,16 @@ EAPI=7
 
 inherit cmake systemd
 
-MY_RANDOMX_REV="5ce5f4906c1eb166be980f6d83cc80f4112ffc2a"
-MY_SUPERCOP_REV="633500ad8c8759995049ccd022107d1fa8a1bbc9"
-
 DESCRIPTION="The secure, private, untraceable cryptocurrency"
 HOMEPAGE="https://github.com/monero-project/monero"
-SRC_URI="
-	https://github.com/monero-project/monero/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/monero-project/supercop/archive/${MY_SUPERCOP_REV}.tar.gz -> ${PN}-supercop-${PV}.tar.gz
-"
+SRC_URI="https://github.com/monero-project/monero/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+daemon libressl readline +tools +wallet-cli +wallet-rpc"
 REQUIRED_USE="|| ( daemon tools wallet-cli wallet-rpc )"
+RESTRICT="test"
 
 DEPEND="
 	acct-group/monero
@@ -28,6 +23,7 @@ DEPEND="
 	dev-libs/libsodium:=
 	dev-libs/randomx
 	dev-libs/rapidjson
+	dev-libs/supercop
 	net-dns/unbound:=[threads]
 	net-libs/czmq:=
 	net-libs/miniupnpc
@@ -38,24 +34,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=("${FILESDIR}/${P}-linkjobs.patch")
-
-src_unpack() {
-	unpack ${A}
-	rmdir "${S}"/external/supercop || die
-	mv "${WORKDIR}"/supercop-${MY_SUPERCOP_REV} "${S}"/external/supercop || die
-}
-
-src_prepare() {
-	cmake_src_prepare
-
-	sed -i 's:miniupnp/::' src/p2p/net_node.inl || die
-	sed -e 's/UPNP_LIBRARIES "libminiupnpc-static/UPNP_LIBRARIES "miniupnpc'/ \
-		-e '/libminiupnpc-static/d' \
-		-e '/\/miniupnpc/d' \
-		-e '/randomx/d' \
-		-i external/CMakeLists.txt || die
-}
+PATCHES=(
+	"${FILESDIR}/${P}-linkjobs.patch"
+	"${FILESDIR}/${P}-unbundle-dependencies.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
