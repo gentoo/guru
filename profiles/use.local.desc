@@ -76,7 +76,6 @@ net-misc/megasync:nautilus - Upload your files to your Mega account from nautilu
 net-misc/megasync:thunar - Upload your files to your Mega account from Thunar.
 net-misc/tinyssh:sodium - Use dev-libs/libsodium for cryptography
 net-p2p/monero:daemon - Build the Monero daemon used to connect to the P2P network.
-net-p2p/monero:hw-wallet - Enable if you want to use a hardware wallet like a Trezor or Ledger.
 net-p2p/monero:tools - Build tools used to manipulate the blockchain as it is stored on disk.
 net-p2p/monero:wallet-cli - Build the command line wallet, monero-wallet-cli.
 net-p2p/monero:wallet-rpc - Build the RPC wallet, monero-wallet-rpc.
