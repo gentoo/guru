@@ -12,7 +12,6 @@ DESCRIPTION="The secure, private, untraceable cryptocurrency"
 HOMEPAGE="https://github.com/monero-project/monero"
 SRC_URI="
 	https://github.com/monero-project/monero/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/tevador/RandomX/archive/${MY_RANDOMX_REV}.tar.gz -> ${PN}-randomx-${PV}.tar.gz
 	https://github.com/monero-project/supercop/archive/${MY_SUPERCOP_REV}.tar.gz -> ${PN}-supercop-${PV}.tar.gz
 "
 
@@ -27,6 +26,7 @@ DEPEND="
 	acct-user/monero
 	dev-libs/boost:=[nls,threads]
 	dev-libs/libsodium:=
+	dev-libs/randomx
 	dev-libs/rapidjson
 	net-dns/unbound:=[threads]
 	net-libs/czmq:=
@@ -42,8 +42,7 @@ PATCHES=("${FILESDIR}/${P}-linkjobs.patch")
 
 src_unpack() {
 	unpack ${A}
-	rmdir "${S}"/external/{randomx,supercop,trezor-common} || die
-	mv "${WORKDIR}"/RandomX-${MY_RANDOMX_REV} "${S}"/external/randomx || die
+	rmdir "${S}"/external/supercop || die
 	mv "${WORKDIR}"/supercop-${MY_SUPERCOP_REV} "${S}"/external/supercop || die
 }
 
@@ -54,11 +53,13 @@ src_prepare() {
 	sed -e 's/UPNP_LIBRARIES "libminiupnpc-static/UPNP_LIBRARIES "miniupnpc'/ \
 		-e '/libminiupnpc-static/d' \
 		-e '/\/miniupnpc/d' \
+		-e '/randomx/d' \
 		-i external/CMakeLists.txt || die
 }
 
 src_configure() {
 	local mycmakeargs=(
+		# TODO: Update CMake to install built libraries (help wanted)
 		-DBUILD_SHARED_LIBS=OFF
 		-DMANUAL_SUBMODULES=ON
 		-DMONERO_PARALLEL_LINK_JOBS=1
@@ -78,6 +79,8 @@ src_compile() {
 }
 
 src_install() {
+	einstalldocs
+
 	# Install all binaries.
 	find "${BUILD_DIR}/bin/" -type f -executable -print0 |
 		while IFS= read -r -d '' line; do
@@ -112,15 +115,15 @@ src_install() {
 
 pkg_postinst() {
 	if use daemon; then
-		einfo "Start the Monero P2P daemon as a system service with"
-		einfo "'rc-service monerod start'. Enable it at startup with"
-		einfo "'rc-update add monerod default'."
-		einfo
-		einfo "Run monerod status as any user to get sync status and other stats."
-		einfo
-		einfo "The Monero blockchain can take up a lot of space (80 GiB) and is stored"
-		einfo "in /var/lib/monero by default. You may want to enable pruning by adding"
-		einfo "'prune-blockchain=1' to /etc/monero/monerod.conf to prune the blockchain"
-		einfo "or move the data directory to another disk."
+		elog "Start the Monero P2P daemon as a system service with"
+		elog "'rc-service monerod start'. Enable it at startup with"
+		elog "'rc-update add monerod default'."
+		elog
+		elog "Run monerod status as any user to get sync status and other stats."
+		elog
+		elog "The Monero blockchain can take up a lot of space (80 GiB) and is stored"
+		elog "in /var/lib/monero by default. You may want to enable pruning by adding"
+		elog "'prune-blockchain=1' to /etc/monero/monerod.conf to prune the blockchain"
+		elog "or move the data directory to another disk."
 	fi
 }
