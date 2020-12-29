@@ -5,39 +5,28 @@ EAPI=7
 
 inherit cmake systemd
 
-MY_RANDOMX_REV="5ce5f4906c1eb166be980f6d83cc80f4112ffc2a"
-MY_SUPERCOP_REV="633500ad8c8759995049ccd022107d1fa8a1bbc9"
-MY_TREZORCOMMON_REV="bff7fdfe436c727982cc553bdfb29a9021b423b0"
-
 DESCRIPTION="The secure, private, untraceable cryptocurrency"
 HOMEPAGE="https://github.com/monero-project/monero"
-SRC_URI="
-	https://github.com/monero-project/monero/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/tevador/RandomX/archive/${MY_RANDOMX_REV}.tar.gz -> ${PN}-randomx-${PV}.tar.gz
-	https://github.com/monero-project/supercop/archive/${MY_SUPERCOP_REV}.tar.gz -> ${PN}-supercop-${PV}.tar.gz
-	hw-wallet? ( https://github.com/trezor/trezor-common/archive/${MY_TREZORCOMMON_REV}.tar.gz -> ${PN}-trezor-common-${PV}.tar.gz )
-"
+SRC_URI="https://github.com/monero-project/monero/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-IUSE="+daemon hw-wallet libressl readline tools +wallet-cli +wallet-rpc"
+KEYWORDS="~amd64 ~arm64 ~x86"
+IUSE="+daemon libressl readline +tools +wallet-cli +wallet-rpc"
 REQUIRED_USE="|| ( daemon tools wallet-cli wallet-rpc )"
+RESTRICT="test"
 
 DEPEND="
 	acct-group/monero
 	acct-user/monero
 	dev-libs/boost:=[nls,threads]
 	dev-libs/libsodium:=
+	dev-libs/randomx
 	dev-libs/rapidjson
+	dev-libs/supercop
 	net-dns/unbound:=[threads]
 	net-libs/czmq:=
 	net-libs/miniupnpc
-	hw-wallet? (
-		dev-libs/hidapi
-		dev-libs/protobuf:=
-		virtual/libusb:1
-	)
 	!libressl? ( dev-libs/openssl:= )
 	libressl? ( dev-libs/libressl:= )
 	readline? ( sys-libs/readline:0= )
@@ -45,33 +34,18 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=("${FILESDIR}/${P}-linkjobs.patch")
-
-src_unpack() {
-	unpack ${A}
-	rmdir "${S}"/external/{randomx,supercop,trezor-common} || die
-	mv "${WORKDIR}"/RandomX-${MY_RANDOMX_REV} "${S}"/external/randomx || die
-	mv "${WORKDIR}"/supercop-${MY_SUPERCOP_REV} "${S}"/external/supercop || die
-	use hw-wallet && (mv "${WORKDIR}"/trezor-common-${MY_TREZORCOMMON_REV} "${S}"/external/trezor-common || die)
-}
-
-src_prepare() {
-	cmake_src_prepare
-
-	sed -i 's:miniupnp/::' src/p2p/net_node.inl || die
-	sed -e 's/UPNP_LIBRARIES "libminiupnpc-static/UPNP_LIBRARIES "miniupnpc'/ \
-		-e '/libminiupnpc-static/d' \
-		-e '/\/miniupnpc/d' \
-		-i external/CMakeLists.txt || die
-}
+PATCHES=(
+	"${FILESDIR}/${P}-linkjobs.patch"
+	"${FILESDIR}/${P}-unbundle-dependencies.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
-		# Monero's liblmdb conflicts with the system liblmdb :(
+		# TODO: Update CMake to install built libraries (help wanted)
 		-DBUILD_SHARED_LIBS=OFF
 		-DMANUAL_SUBMODULES=ON
 		-DMONERO_PARALLEL_LINK_JOBS=1
-		-DUSE_DEVICE_TREZOR=$(usex hw-wallet 1 0)
+		-DUSE_DEVICE_TREZOR=OFF
 	)
 
 	cmake_src_configure
@@ -87,6 +61,8 @@ src_compile() {
 }
 
 src_install() {
+	einstalldocs
+
 	# Install all binaries.
 	find "${BUILD_DIR}/bin/" -type f -executable -print0 |
 		while IFS= read -r -d '' line; do
@@ -121,15 +97,15 @@ src_install() {
 
 pkg_postinst() {
 	if use daemon; then
-		einfo "Start the Monero P2P daemon as a system service with"
-		einfo "'rc-service monerod start'. Enable it at startup with"
-		einfo "'rc-update add monerod default'."
-		einfo
-		einfo "Run monerod status as any user to get sync status and other stats."
-		einfo
-		einfo "The Monero blockchain can take up a lot of space (80 GiB) and is stored"
-		einfo "in /var/lib/monero by default. You may want to enable pruning by adding"
-		einfo "'prune-blockchain=1' to /etc/monero/monerod.conf to prune the blockchain"
-		einfo "or move the data directory to another disk."
+		elog "Start the Monero P2P daemon as a system service with"
+		elog "'rc-service monerod start'. Enable it at startup with"
+		elog "'rc-update add monerod default'."
+		elog
+		elog "Run monerod status as any user to get sync status and other stats."
+		elog
+		elog "The Monero blockchain can take up a lot of space (80 GiB) and is stored"
+		elog "in /var/lib/monero by default. You may want to enable pruning by adding"
+		elog "'prune-blockchain=1' to /etc/monero/monerod.conf to prune the blockchain"
+		elog "or move the data directory to another disk."
 	fi
 }
