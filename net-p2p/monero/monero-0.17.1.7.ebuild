@@ -19,7 +19,7 @@ SRC_URI="
 LICENSE="BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-IUSE="+daemon libressl readline tools +wallet-cli +wallet-rpc"
+IUSE="+daemon libressl readline +tools +wallet-cli +wallet-rpc"
 REQUIRED_USE="|| ( daemon tools wallet-cli wallet-rpc )"
 
 DEPEND="
