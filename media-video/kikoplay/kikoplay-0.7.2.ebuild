@@ -36,7 +36,7 @@ RDEPEND="
 	dev-qt/qtnetwork:5
 	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
-	media-video/mpv[libmpv,-luajit]
+	media-video/mpv[libmpv,lua]
 	net-misc/aria2
 "
 
