@@ -115,6 +115,7 @@ dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another 
 dev-libs/cgicc 3.2.19: A C++ class library for writing CGI applications
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
 dev-libs/imsg-compat 6.8.1 9999: linux port of OpenBSD imsg
+dev-libs/libQuotient 0.6.2: A Qt5 library to write cross-platform clients for Matrix
 dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
 dev-libs/libnodave 0.8.5.1: Connect to and exchange data with Siemens PLCs
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
@@ -279,7 +280,7 @@ dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/osc 0.169.1 0.171.0 0.171.0-r1 9999: Command line tool for Open Build Service
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
-dev-util/tokei 12.0.4 12.1.0: Count code, quickly
+dev-util/tokei 12.0.4 12.1.0 12.1.1: Count code, quickly
 dev-util/xdp-tools 1.0.1: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
@@ -342,6 +343,7 @@ gui-libs/libcsys 4.0.0 4.1.0 9999: Library for managing the device
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.2.1 9999: A Wayland kiosk
 kde-apps/krecorder 9999: A convergent audio recording application for Plasma
+kde-frameworks/kquickimageeditor 0.1.2: QtQuick components providing basic image editing capabilities
 kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 kde-misc/plasma5-wallpapers-dynamic 3.3.3 3.3.6 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
 kde-misc/skanpage 2020.06.11: Simple pdf scanning application based on libksane and KDE Frameworks
