@@ -21,6 +21,7 @@ app-admin/chezmoi 1.8.2 1.8.10: Manage your dotfiles across multiple machines, s
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.11.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/gnome-passwordsafe 3.99.2 4.0: A password manager for GNOME
+app-admin/krapplet 0.1.0: Krapplet (keyring applet): a password manager based on gnome-keyring.
 app-admin/s-tui 1.0.2 9999: Stress-Terminal UI monitoring tool
 app-arch/libarchive-qt 2.0.2 9999: A Qt based archiving solution with libarchive backend
 app-arch/unalz 0.65: Extract ALZ archives
