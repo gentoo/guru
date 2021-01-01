@@ -21,6 +21,7 @@ SLOT="0"
 
 DEPEND="
 	dev-qt/qtcore
+	dev-qt/qtquickcontrols2
 "
 
 RDEPEND="${DEPEND}"

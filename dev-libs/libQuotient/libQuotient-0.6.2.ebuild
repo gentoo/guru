@@ -24,5 +24,6 @@ RESTRICT="!test? ( test )"
 DEPEND="
 	dev-qt/qtgui
 	dev-qt/qtnetwork
+	dev-qt/qtmultimedia
 "
 RDEPEND="${DEPEND}"
