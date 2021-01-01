@@ -7,7 +7,7 @@ inherit meson
 
 DESCRIPTION="Sway Floating Window Bar"
 HOMEPAGE="https://github.com/LBCrion/sfwbar"
-SRC_URI="https://github.com/LBCrion/sfwbar/archive/v${PV}.tar.gz"
+SRC_URI="https://github.com/LBCrion/sfwbar/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64"
 
 LICENSE="GPL-2"
@@ -24,8 +24,3 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-src_configure() {
-	local emesonargs=(
-	)
-	meson_src_configure
-}
