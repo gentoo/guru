@@ -9,4 +9,4 @@ RDEPEND=x11-themes/adwaita-icon-theme
 SLOT=0
 SRC_URI=https://github.com/madmaxms/iconpack-obsidian/archive/v4.14.tar.gz -> obsidian-icon-theme-4.14.tar.gz
 _eclasses_=xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=37c976cb00a4bdec5352b7d391d7b4eb
+_md5_=39151ddb2ca89063ac3baca442d06659
