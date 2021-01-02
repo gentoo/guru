@@ -31,6 +31,7 @@ app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
+app-editors/vscodium-bin 1.52.1: Free/Libre Open Source Software Binaries of VSCode
 app-emulation/dxvk-bin 1.7.2 1.7.3: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.4.0: NVIDIA container runtime toolkit
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
@@ -105,6 +106,7 @@ dev-cpp/vectorwrapper 1.1.1 9999: A template vector wrapper class for C++
 dev-db/pg_repack 1.4.6: Reorganize tables in PostgreSQL databases with minimal locks
 dev-db/rum 1.3.7: RUM access method - inverted index with additional information in posting lists
 dev-embedded/rauc 1.5: Lightweight update client that runs on your Embedded Linux device
+dev-games/godot 3.2.3: Multi-platform 2D and 3D game engine
 dev-games/surgescript 0.5.4.3 0.5.4.4 9999: scripting language made for opensurge
 dev-java/openjdk-sts-bin 15.0.1_p9: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
