@@ -31,8 +31,8 @@ RDEPEND="
 	$(python_gen_cond_dep '
 		dev-python/aiohttp[${PYTHON_USEDEP}]
 	')
-	media-video/mpv
 	media-video/ffmpeg
+	media-video/mpv
 	net-misc/curl
 "
 DEPEND="
