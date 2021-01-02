@@ -1,10 +1,10 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 inherit linux-mod
 
-COMMIT="45a8b4393e3281b969822c81bd93bdb731d58472"
+COMMIT="deff094b9d361b75dd3522aab4eb7f2ca3f3b0be"
 
 DESCRIPTION="Realtek 8821CU/RTL8811CU module for Linux kernel"
 HOMEPAGE="https://github.com/brektrou/rtl8821CU"
