@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>rossbridger.cc@gmail.com</email>
+		<name>Ross Charles Campbell</name>
+	</maintainer>
+	<longdescription>
+This is not a fork. This is a repository of scripts to automatically
+build Microsoft's vscode repository into freely-licensed binaries with
+a community-driven default configuration.
+	</longdescription>
+</pkgmetadata>
