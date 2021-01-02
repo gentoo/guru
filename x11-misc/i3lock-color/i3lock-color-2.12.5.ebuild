@@ -21,10 +21,10 @@ DEPEND="
 	sys-libs/pam
 	x11-libs/cairo
 	x11-libs/libxcb
+	x11-libs/libxkbcommon
 	x11-libs/xcb-util
 	x11-libs/xcb-util-image
 	x11-libs/xcb-util-xrm
-	x11-libs/libxkbcommon
 "
 RDEPEND="
 	${DEPEND}
