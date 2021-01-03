@@ -31,6 +31,7 @@ app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
+app-editors/visual-studio-code-bin 1.52.1: Multiplatform Visual Studio Code from Microsoft
 app-editors/vscodium-bin 1.52.1: Free/Libre Open Source Software Binaries of VSCode
 app-emulation/dxvk-bin 1.7.2 1.7.3: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.4.0: NVIDIA container runtime toolkit
