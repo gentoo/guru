@@ -279,6 +279,7 @@ dev-python/watchgod 0.6: Simple, modern file watching and code reload
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
 dev-util/FoBiS 3.0.2 3.0.5: FoBiS.py, a Fortran Building System for poor men
 dev-util/codespell 1.17.1 2.0.0: Check text files for common misspellings
+dev-util/gammaray 2.11.2: High-level runtime introspection tool for Qt applications
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/osc 0.169.1 0.171.0 0.171.0-r1 9999: Command line tool for Open Build Service
