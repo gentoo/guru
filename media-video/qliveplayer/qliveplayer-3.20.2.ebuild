@@ -21,23 +21,23 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 COMMON_DEPEND="
 	${PYTHON_DEPS}
-	>=dev-qt/qtcore-5.12
-	>=dev-qt/qtgraphicaleffects-5.12
-	>=dev-qt/qtquickcontrols-5.12
-	>=dev-qt/qtquickcontrols2-5.12
+	>=dev-qt/qtcore-5.12:5
+	>=dev-qt/qtgraphicaleffects-5.12:5
+	>=dev-qt/qtquickcontrols-5.12:5
+	>=dev-qt/qtquickcontrols2-5.12:5
 "
 RDEPEND="
 	${COMMON_DEPEND}
 	$(python_gen_cond_dep '
 		dev-python/aiohttp[${PYTHON_USEDEP}]
 	')
-	media-video/mpv
 	media-video/ffmpeg
+	media-video/mpv
 	net-misc/curl
 "
 DEPEND="
 	${COMMON_DEPEND}
-	kde-frameworks/extra-cmake-modules
+	kde-frameworks/extra-cmake-modules:5
 "
 
 src_prepare()
