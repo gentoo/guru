@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -28,6 +28,7 @@ RDEPEND="
 "
 
 BDEPEND="test? (
+	dev-python/cryptography[${PYTHON_USEDEP}]
 	>=dev-python/colorama-0.4[${PYTHON_USEDEP}]
 	dev-python/pytest-mock[${PYTHON_USEDEP}]
 	>=dev-python/python-dotenv-0.13[${PYTHON_USEDEP}]
@@ -37,6 +38,7 @@ BDEPEND="test? (
 	>=dev-python/websockets-8.0[${PYTHON_USEDEP}]
 	>=dev-python/httptools-0.1[${PYTHON_USEDEP}]
 	<dev-python/httptools-0.2[${PYTHON_USEDEP}]
+	dev-python/httpx[${PYTHON_USEDEP}]
 	>=dev-python/watchgod-0.6[${PYTHON_USEDEP}]
 	<dev-python/watchgod-0.7[${PYTHON_USEDEP}]
 	dev-python/wsproto[${PYTHON_USEDEP}]
