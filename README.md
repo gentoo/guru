@@ -36,6 +36,10 @@ The [GURU regulations](https://wiki.gentoo.org/wiki/Project:GURU#The_regulations
 
 ## Frequently Asked Questions <a name="FAQ"></a>
 
+- #### How do I emerge these ebuilds?
+
+`eselect repository enable guru && emerge --sync` and emerge the package just as usual.
+
 - #### How do I contribute?
 
 See [wiki.gentoo.org/wiki/Project:GURU/Information_for_Contributors](https://wiki.gentoo.org/wiki/Project:GURU/Information_for_Contributors)
