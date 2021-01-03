@@ -414,7 +414,7 @@ net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/kristall 0.2 0.3 9999: Visual cross-platform gemini browser
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
-net-misc/megasync 4.3.3 4.3.5 4.3.7 4.3.8.0 9999: The official Qt-based program for syncing your MEGA account in your PC
+net-misc/megasync 4.3.8.0 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/openbgpd 6.6_p0 6.7_p0 6.8_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.3.3 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
