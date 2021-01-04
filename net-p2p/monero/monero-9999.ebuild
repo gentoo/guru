@@ -11,6 +11,7 @@ HOMEPAGE="https://github.com/monero-project/monero"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/monero-project/monero.git"
+	EGIT_SUBMODULES=()
 else
 	SRC_URI="https://github.com/monero-project/monero/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm64 ~x86"
@@ -40,10 +41,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-0.17.1.7-linkjobs.patch"
-	"${FILESDIR}/${PN}-0.17.1.7-unbundle-dependencies.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-0.17.1.7-unbundle-dependencies.patch" )
 
 src_configure() {
 	local mycmakeargs=(
