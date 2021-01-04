@@ -12,7 +12,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="dev-libs/libusb-compat"
+DEPEND="virtual/libusb"
 RDEPEND="${DEPEND}"
 
 src_install() {
