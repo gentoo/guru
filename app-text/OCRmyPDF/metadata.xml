@@ -5,6 +5,10 @@
 		<email>alarig@swordarmor.fr</email>
 		<name>Alarig Le Lay</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>telans@posteo.de</email>
+		<name>Theo Anderson</name>
+	</maintainer>
 	<use>
 		<flag name="jbig2enc">
 			Uses <pkg>media-libs/jbig2enc</pkg> for better compression algorithm
