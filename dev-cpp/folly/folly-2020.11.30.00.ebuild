@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -21,6 +21,7 @@ DEPEND="app-arch/lz4
 		app-arch/zstd
 		dev-libs/double-conversion
 		dev-libs/libevent
+		dev-libs/libfmt
 		dev-cpp/gflags
 		dev-cpp/glog[gflags]
 		dev-libs/boost[context,threads]
