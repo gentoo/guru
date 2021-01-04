@@ -3,14 +3,15 @@
 
 EAPI=7
 
-inherit systemd
-
 DESCRIPTION="API Support for your favorite torrent trackers"
 HOMEPAGE="https://github.com/Jackett/Jackett"
-SRC_URI="https://github.com/Jackett/Jackett/releases/download/v${PV}/Jackett.Binaries.LinuxAMDx64.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}"/Jackett
+SRC_URI="
+	amd64? ( https://github.com/Jackett/Jackett/releases/download/v${PV}/Jackett.Binaries.LinuxAMDx64.tar.gz -> ${P}-amd64.tar.gz )
+	arm? ( https://github.com/Jackett/Jackett/releases/download/v${PV}/Jackett.Binaries.LinuxARM32.tar.gz -> ${P}-arm.tar.gz )
+	arm64? ( https://github.com/Jackett/Jackett/releases/download/v${PV}/Jackett.Binaries.LinuxARM64.tar.gz -> ${P}-arm64.tar.gz )
+"
 
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm ~arm64"
 LICENSE="GPL-2"
 SLOT="0"
 RESTRICT="strip"
@@ -21,12 +22,8 @@ RDEPEND="
 	dev-util/lttng-ust
 "
 
-QA_PRESTRIPPED="/opt/jackett/*"
-QA_PREBUILT="/opt/jackett/*.so"
-
-src_compile(){
-	return
-}
+QA_PREBUILT="*"
+S="${WORKDIR}"/Jackett
 
 src_install() {
 	dodir /opt/jackett

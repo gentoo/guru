@@ -34,14 +34,14 @@ RDEPEND="
 QA_PRESTRIPPED="*"
 
 QA_PREBUILT="
-	opt/${MY_PN}/code
-	opt/${MY_PN}/libEGL.so
-	opt/${MY_PN}/libffmpeg.so
-	opt/${MY_PN}/libGLESv2.so
-	opt/${MY_PN}/libvk_swiftshader.so
-	opt/${MY_PN}/libvulkan.so
-	opt/${MY_PN}/swiftshader/libEGL.so
-	opt/${MY_PN}/swiftshader/libGLESv2.so"
+	opt/${PN}/code
+	opt/${PN}/libEGL.so
+	opt/${PN}/libffmpeg.so
+	opt/${PN}/libGLESv2.so
+	opt/${PN}/libvk_swiftshader.so
+	opt/${PN}/libvulkan.so
+	opt/${PN}/swiftshader/libEGL.so
+	opt/${PN}/swiftshader/libGLESv2.so"
 
 pkg_setup() {
 	if use amd64; then

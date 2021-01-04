@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{7..9} )
 inherit desktop python-any-r1 scons-utils xdg
 
 DESCRIPTION="Multi-platform 2D and 3D game engine"
-HOMEPAGE="http://godotengine.org"
+HOMEPAGE="https://godotengine.org"
 
 SRC_URI="https://github.com/godotengine/${PN}/archive/${PV}-stable.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${P}-stable"
