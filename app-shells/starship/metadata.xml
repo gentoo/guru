@@ -18,4 +18,9 @@
 	<upstream>
 		<remote-id type="github">starship/starship</remote-id>
 	</upstream>
+	<use>
+		<flag name='battery'>Include support for laptop battery information.</flag>
+		<flag name='http'>If enabled, starship can help you file bugs with itself</flag>
+		<flag name='tls-vendored'>Use a bundled openssl instead of the system openssl</flag>
+	</use>
 </pkgmetadata>
