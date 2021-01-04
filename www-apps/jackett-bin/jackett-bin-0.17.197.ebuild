@@ -5,9 +5,13 @@ EAPI=7
 
 DESCRIPTION="API Support for your favorite torrent trackers"
 HOMEPAGE="https://github.com/Jackett/Jackett"
-SRC_URI="https://github.com/Jackett/Jackett/releases/download/v${PV}/Jackett.Binaries.LinuxAMDx64.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	amd64? ( https://github.com/Jackett/Jackett/releases/download/v${PV}/Jackett.Binaries.LinuxAMDx64.tar.gz -> ${P}-amd64.tar.gz )
+	arm? ( https://github.com/Jackett/Jackett/releases/download/v${PV}/Jackett.Binaries.LinuxARM32.tar.gz -> ${P}-arm.tar.gz )
+	arm64? ( https://github.com/Jackett/Jackett/releases/download/v${PV}/Jackett.Binaries.LinuxARM64.tar.gz -> ${P}-arm64.tar.gz )
+"
 
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm ~arm64"
 LICENSE="GPL-2"
 SLOT="0"
 RESTRICT="strip"
