@@ -32,5 +32,5 @@ src_prepare() {
 	cmake_src_prepare
 	sed -e "s/lib CACHE/$(get_libdir) CACHE/" \
 		-e "s/lib\/cmake\/folly CACHE/$(get_libdir)\/cmake\/folly CACHE/" \
-		-i CMakeLists.txt
+		-i CMakeLists.txt || die
 }
