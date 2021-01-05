@@ -3,8 +3,6 @@
 
 EAPI=7
 
-inherit autotools
-
 DESCRIPTION="Bluespec High Level Hardware Design Language"
 HOMEPAGE="https://github.com/B-Lang-org/bsc"
 
@@ -35,6 +33,9 @@ BDEPEND="
 	dev-haskell/cabal:0=
 	dev-lang/ghc:0=
 	dev-util/gperf
+	sys-devel/autoconf
+	sys-devel/bison
+	sys-devel/flex
 "
 
 src_install() {
