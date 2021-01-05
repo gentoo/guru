@@ -224,7 +224,7 @@ dev-python/pydbus 0.6.0: Pythonic DBus library
 dev-python/pyfiglet 0.8_p0 0.8_p1 9999: Pure-python FIGlet implementation
 dev-python/pygaljs 1.0.2 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
 dev-python/pygsl 2.3.0: Python interface for the GNU scientific library (gsl)
-dev-python/pyinquirer 9999: A Python module for common interactive command line UIs
+dev-python/pyinquirer 1.0.3_p20200708 9999: A Python module for common interactive command line UIs
 dev-python/pyjsparser 2.7.1: Fast javascript parser based on esprima.js
 dev-python/pykeepass 3.2.0 3.2.1: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
 dev-python/pymeeus 0.3.7: Python implementation of Jean Meeus astronomical routines
