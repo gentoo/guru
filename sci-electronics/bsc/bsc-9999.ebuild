@@ -42,6 +42,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-9999-fix-libdir.patch
+	"${FILESDIR}"/${PN}-9999-fix-wrapper.patch
 )
 
 DOCS=( "README.md" "COPYING" )

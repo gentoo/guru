@@ -130,7 +130,7 @@ index 4ee8e86..e243531 100644
  if { [catch Bluetcl::initBluespec err] } {
      puts "Error in initialization file bluespec.tcl: $err" 
 diff --git a/src/comp/Makefile b/src/comp/Makefile
-index 58b81d7..dda30ac 100644
+index 58b81d7..6f113a2 100644
 --- a/src/comp/Makefile
 +++ b/src/comp/Makefile
 @@ -14,6 +14,7 @@ RM = rm -f
@@ -149,26 +149,29 @@ index 58b81d7..dda30ac 100644
  BINDIR=$(PREFIX)/bin
  
  # Top-level of where intermediate GHC files are stored
-@@ -390,6 +392,7 @@ $(BINDIR)/core/%: %
+@@ -389,7 +391,8 @@ $(BINDIR)/core/%: %
+ 
  $(BINDIR)/%: wrapper.sh $(BINDIR)/core/%
  	mkdir -p -m 755 $(BINDIR)
- 	$(INSTALL) -m 755 wrapper.sh $(BINDIR)/$(@F)
-+	cat $(BINDIR)/$(@F) | $(SED) -e "s:^LIBDIR=.*$$:LIBDIR=\"$(abspath $(LIBDIR))\":g" > $(BINDIR)/$(@F)
+-	$(INSTALL) -m 755 wrapper.sh $(BINDIR)/$(@F)
++	$(SED) "s:^LIBDIR=.*$$:LIBDIR=\"$(abspath $(LIBDIR))\":g" wrapper.sh > $(BUILDDIR)/$(@F)
++	$(INSTALL) -m 755 $(BUILDDIR)/$(@F) $(BINDIR)/$(@F)
  
  .PHONY: install-bsc
  install-bsc: $(addprefix $(BINDIR)/,$(BSCEXES))
 diff --git a/src/comp/wrapper.sh b/src/comp/wrapper.sh
-index 656e9a0..fa1a052 100755
+index 656e9a0..1d5cf47 100755
 --- a/src/comp/wrapper.sh
 +++ b/src/comp/wrapper.sh
-@@ -5,9 +5,22 @@
+@@ -5,9 +5,23 @@
  ABSNAME="$(cd "${0%/*}"; echo $PWD)/${0##*/}"
  SCRIPTNAME="${ABSNAME##*/}"
  BINDIR="${ABSNAME%/*}"
 +# LIBDIR will be replaced to user defined path after build
 +LIBDIR="${BINDIR}/../lib"
 +
-+# If missing LIBDIR, search one
++# If missing LIBDIR, search one.
++# This is unlikely to happen unless the user moves the file after installation.
 +if [ ! -d ${LIBDIR} ]; then
 +    LIBDIR="$(find ${BINDIR}/.. -maxdepth 10 -type d -name 'SAT' -print -quit)"
 +    if [ ! "x${LIBDIR}" = "x"  ]; then
