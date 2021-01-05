@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -114,7 +114,7 @@ S="${WORKDIR}/${PN}-v${PV}"
 
 src_prepare() {
 	# Fix paths in systemd unit.
-	sed -i "s@/path/to/bin /path/to/config@${EPREFIX}/usr/bin/gemserv ${EPREFIX}/etc/gemserv/config.toml@" \
+	sed -i 's@/path/to/bin /path/to/config@'"${EPREFIX}"'/usr/bin/gemserv '"${EPREFIX}"'/etc/gemserv/config.toml@' \
 		init-scripts/gemserv.service || die
 
 	# Fix paths in config.
