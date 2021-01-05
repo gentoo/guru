@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -13,11 +13,11 @@ SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm ~x86"
 
 DEPEND="dev-python/sphinx[${PYTHON_USEDEP}]"
 RDEPEND="
 	${DEPEND}
 	dev-python/python-xlib[${PYTHON_USEDEP}]
 "
-DEPEND="dev-python/pillow[${PYTHON_USEDEP}]"
+BDEPEND="dev-python/pillow[${PYTHON_USEDEP}]"

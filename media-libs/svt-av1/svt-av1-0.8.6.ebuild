@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -13,7 +13,7 @@ if [ ${PV} = "9999" ]; then
 	EGIT_REPO_URI="https://github.com/OpenVisualCloud/SVT-AV1.git"
 else
 	SRC_URI="https://github.com/OpenVisualCloud/SVT-AV1/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 -x86" # -x86: https://github.com/OpenVisualCloud/SVT-AV1/issues/1231
+	KEYWORDS="~amd64 -arm ~arm64 -x86" # -x86: https://github.com/OpenVisualCloud/SVT-AV1/issues/1231
 	S="${WORKDIR}/SVT-AV1-${PV}"
 fi
 
