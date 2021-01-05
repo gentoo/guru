@@ -9,5 +9,5 @@ RDEPEND=app-crypt/mit-krb5 dev-libs/icu dev-util/lttng-ust
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/Jackett/Jackett/releases/download/v0.17.159/Jackett.Binaries.LinuxAMDx64.tar.gz -> jackett-bin-0.17.159.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	74b223e42834adf09a2d21fe5fe13741	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
+_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	74b223e42834adf09a2d21fe5fe13741	toolchain-funcs	1a94dc06d324bd0dab754e11abe6d27e
 _md5_=679df5b1d8139adc5871bbed383cd721

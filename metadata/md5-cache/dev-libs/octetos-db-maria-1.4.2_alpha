@@ -9,5 +9,5 @@ LICENSE=GPL-3
 RDEPEND=dev-libs/octetos-db-abstract dev-db/mariadb-connector-c dev-db/mariadb:=
 SLOT=0
 SRC_URI=https://github.com/azaeldevel/octetos-db-maria/archive/1.4.2-alpha.tar.gz -> octetos-db-maria-1.4.2_alpha.tar.gz
-_eclasses_=autotools	3ec5e49b810b2571ca9c6d76f55867bb	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	605c126bed8d87e4378d5ff1645330cb
+_eclasses_=autotools	3ec5e49b810b2571ca9c6d76f55867bb	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	1a94dc06d324bd0dab754e11abe6d27e
 _md5_=3a422416dfbd199e8085331251dd4710
