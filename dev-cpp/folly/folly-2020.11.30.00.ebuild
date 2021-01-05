@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -21,6 +21,7 @@ DEPEND="app-arch/lz4
 		app-arch/zstd
 		dev-libs/double-conversion
 		dev-libs/libevent
+		dev-libs/libfmt
 		dev-cpp/gflags
 		dev-cpp/glog[gflags]
 		dev-libs/boost[context,threads]
@@ -31,7 +32,7 @@ RDEPEND="${DEPEND}"
 
 src_prepare(){
 	einfo $(get_libdir)
-	sed "s/lib CACHE/$(get_libdir) CACHE/" -i CMakeLists.txt
-	sed "s/lib\/cmake\/folly CACHE/$(get_libdir)\/cmake\/folly CACHE/" -i CMakeLists.txt
+	sed "s/lib CACHE/$(get_libdir) CACHE/" -i CMakeLists.txt || die
+	sed "s/lib\/cmake\/folly CACHE/$(get_libdir)\/cmake\/folly CACHE/" -i CMakeLists.txt || die
 	cmake_src_prepare
 }

@@ -1,4 +1,4 @@
-# Copyright 2019-2020 Gentoo Authors
+# Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -13,7 +13,7 @@ SRC_URI="https://gitlab.gnome.org/World/libcloudproviders/-/archive/${PV}/libclo
 
 LICENSE="LGPL-3+"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="doc introspection vala"
 REQUIRED_USE="vala? ( introspection )"
 

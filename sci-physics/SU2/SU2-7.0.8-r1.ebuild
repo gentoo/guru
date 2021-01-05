@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 
 inherit meson python-single-r1
 
@@ -11,8 +11,9 @@ DESCRIPTION="SU2: An Open-Source Suite for Multiphysics Simulation and Design"
 HOMEPAGE="https://su2code.github.io/"
 SRC_URI="
 	https://github.com/su2code/SU2/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	test? ( https://github.com/su2code/TestCases/archive/v${PV}.tar.gz -> ${P}-TestCases.tar.gz )
-	tutorials? ( https://github.com/su2code/Tutorials/archive/v${PV}.tar.gz -> ${P}-Tutorials.tar.gz )
+	https://github.com/band-a-prend/gentoo-overlay/raw/master/sci-physics/${PN}/files/${P}-fix-python-optimize.patch
+	test? ( https://github.com/su2code/TestCases/archive/v7.0.7.tar.gz -> ${PN}-7.0.7-TestCases.tar.gz )
+	tutorials? ( https://github.com/su2code/Tutorials/archive/v7.0.7.tar.gz -> ${PN}-7.0.7-Tutorials.tar.gz )
 "
 
 LICENSE="LGPL-2.1"
@@ -42,23 +43,23 @@ DEPEND="
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/${P}-fix-env.patch"
 	"${FILESDIR}/${PN}-7.0.4-unbundle_boost.patch"
-	"${FILESDIR}/${P}-fix-python-optimize.patch"
+	"${FILESDIR}/${P}-fix-env.patch"
+	"${DISTDIR}/${P}-fix-python-optimize.patch"
 )
 
-DOCS=( "LICENSE.md" "README.md" "SU2_PY/documentation.txt" )
+DOCS=( "README.md" "SU2_PY/documentation.txt" )
 
 src_unpack() {
 	unpack "${P}.tar.gz"
 	if use test ; then
-		einfo "Unpacking ${P}-TestCases.tar.gz to /var/tmp/portage/sci-physics/${P}/work/${P}/TestCases"
-		tar -C "${P}"/TestCases --strip-components=1 -xzf "${DISTDIR}/${P}-TestCases.tar.gz" || die
+		einfo "Unpacking ${PN}-7.0.7-TestCases.tar.gz to /var/tmp/portage/sci-physics/${P}/work/${P}/TestCases"
+		tar -C "${P}"/TestCases --strip-components=1 -xzf "${DISTDIR}/${PN}-7.0.7-TestCases.tar.gz" || die
 	fi
 	if use tutorials ; then
-		einfo "Unpacking ${P}-Tutorials.tar.gz to /var/tmp/portage/sci-physics/${P}/work/${P}"
-		mkdir "${P}"/Tutorials
-		tar -C "${P}"/Tutorials --strip-components=1 -xzf "${DISTDIR}/${P}-Tutorials.tar.gz" || die
+		einfo "Unpacking ${PN}-7.0.7-Tutorials.tar.gz to /var/tmp/portage/sci-physics/${P}/work/${P}"
+		mkdir "${P}"/Tutorials || die
+		tar -C "${P}"/Tutorials --strip-components=1 -xzf "${DISTDIR}/${PN}-7.0.7-Tutorials.tar.gz" || die
 	fi
 }
 
@@ -103,8 +104,8 @@ src_test() {
 
 src_install() {
 	meson_src_install
-	mkdir -p "${ED}$(python_get_sitedir)"
-	mv "${ED}"/usr/bin/{FSI,SU2,*.py} -t "${ED}$(python_get_sitedir)"
+	mkdir -p "${ED}$(python_get_sitedir)" || die
+	mv "${ED}"/usr/bin/{FSI,SU2,*.py} -t "${ED}$(python_get_sitedir)" || die
 	python_optimize "${D}/$(python_get_sitedir)"
 
 	if use tutorials ; then
