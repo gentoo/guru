@@ -1,5 +1,6 @@
 hidden  default/linux/amd64/17.1/selinux                        stable
 hidden  default/linux/amd64/17.1/hardened/selinux               stable
 hidden  default/linux/amd64/17.1/no-multilib/hardened/selinux   stable
+hidden  default/linux/amd64/17.0/x32                            stable
 hidden  default/linux/x86/17.0/selinux                          stable
 hidden  default/linux/x86/17.0/hardened/selinux                 stable
