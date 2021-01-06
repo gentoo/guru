@@ -1,12 +1,14 @@
 BDEPEND=dev-haskell/cabal:0= dev-lang/ghc:0= dev-util/gperf sys-devel/autoconf sys-devel/bison sys-devel/flex >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install unpack
+DEFINED_PHASES=compile install unpack
 DEPEND=dev-haskell/old-time:0= dev-haskell/regex-compat:0= dev-haskell/split:0= dev-haskell/syb:0= dev-lang/tcl
-DESCRIPTION=Bluespec High Level Hardware Design Language
+DESCRIPTION=Bluespec high level hardware design language compiler
 EAPI=7
 HOMEPAGE=https://github.com/B-Lang-org/bsc
+IUSE=test
 LICENSE=BSD GPL-3+ MIT
 PROPERTIES=live
 RDEPEND=dev-haskell/old-time:0= dev-haskell/regex-compat:0= dev-haskell/split:0= dev-haskell/syb:0= dev-lang/tcl
+RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
-_md5_=83a6e4bf4a2528145940751bfb9db5c2
+_md5_=23db1989ed0391e908eaafd83da34487
