@@ -7,11 +7,19 @@ DESCRIPTION="Bluespec high level hardware design language compiler"
 HOMEPAGE="https://github.com/B-Lang-org/bsc"
 
 if [[ ${PV} == "9999" ]] ; then
-	inherit git-r3
 	EGIT_REPO_URI="https://github.com/B-Lang-org/${PN}.git"
+	inherit git-r3
 else
-	SRC_URI=""
-	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
+	EGIT_COMMIT="7d25cdedd5c6df310acfcf5a3255aeb13b6adb61"
+	# Using SRC_URI here will failed because this repo uses git submodules.
+	# SRC_URI="https://github.com/B-Lang-org/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+	# S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
+	# Waiting for https://github.com/B-Lang-org/bsc/issues/85
+	EGIT_REPO_URI="https://github.com/B-Lang-org/${PN}.git"
+	# This inherit git-r3 will removed after upstream finished.
+	inherit git-r3
+
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="BSD GPL-3+ MIT"
@@ -41,8 +49,8 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-9999-fix-libdir.patch
-	"${FILESDIR}"/${PN}-9999-fix-wrapper.patch
+	"${FILESDIR}"/${PN}-0_pre20210106-fix-libdir.patch
+	"${FILESDIR}"/${PN}-0_pre20210106-fix-wrapper.patch
 )
 
 DOCS=( "README.md" "COPYING" )
