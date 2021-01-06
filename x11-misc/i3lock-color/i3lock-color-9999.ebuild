@@ -5,7 +5,7 @@ EAPI=7
 
 inherit git-r3
 
-DESCRIPTION="Improved i3lock with color customization"
+DESCRIPTION="The world's most popular non-default computer lockscreen"
 HOMEPAGE="https://github.com/Raymo111/i3lock-color"
 EGIT_REPO_URI="https://github.com/Raymo111/i3lock-color.git"
 

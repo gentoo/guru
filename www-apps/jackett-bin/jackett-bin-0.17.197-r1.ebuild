@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit systemd
+
 DESCRIPTION="API Support for your favorite torrent trackers"
 HOMEPAGE="https://github.com/Jackett/Jackett"
 SRC_URI="
@@ -29,5 +31,6 @@ src_install() {
 	dodir /opt/jackett
 	cp -a "${S}"/. "${ED}"/opt/jackett || die
 	newinitd "${FILESDIR}"/jackett.initd jackett
+	systemd_dounit "${FILESDIR}"/jackett.service
 	doenvd "${FILESDIR}"/99jackett
 }

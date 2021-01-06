@@ -1,0 +1,13 @@
+diff --git a/src/comp/Makefile b/src/comp/Makefile
+index 6f113a2..5220c30 100644
+--- a/src/comp/Makefile
++++ b/src/comp/Makefile
+@@ -391,7 +391,7 @@ $(BINDIR)/core/%: %
+ 
+ $(BINDIR)/%: wrapper.sh $(BINDIR)/core/%
+ 	mkdir -p -m 755 $(BINDIR)
+-	$(SED) "s:^LIBDIR=.*$$:LIBDIR=\"$(abspath $(LIBDIR))\":g" wrapper.sh > $(BUILDDIR)/$(@F)
++	$(SED) "s:^LIBDIR=.*$$:LIBDIR=\"$$\{BINDIR\}/$(shell realpath --relative-to $(BINDIR) $(LIBDIR))\":g" wrapper.sh > $(BUILDDIR)/$(@F)
+ 	$(INSTALL) -m 755 $(BUILDDIR)/$(@F) $(BINDIR)/$(@F)
+ 
+ .PHONY: install-bsc

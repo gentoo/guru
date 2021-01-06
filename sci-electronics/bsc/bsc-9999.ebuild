@@ -3,7 +3,7 @@
 
 EAPI=7
 
-DESCRIPTION="Bluespec High Level Hardware Design Language"
+DESCRIPTION="Bluespec high level hardware design language compiler"
 HOMEPAGE="https://github.com/B-Lang-org/bsc"
 
 if [[ ${PV} == "9999" ]] ; then
@@ -16,6 +16,8 @@ fi
 
 LICENSE="BSD GPL-3+ MIT"
 SLOT="0"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-haskell/old-time:0=
@@ -38,6 +40,17 @@ BDEPEND="
 	sys-devel/flex
 "
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-9999-fix-libdir.patch
+	"${FILESDIR}"/${PN}-9999-fix-wrapper.patch
+)
+
+DOCS=( "README.md" "COPYING" )
+
+# We don't want to run it because it will do install by default.
+src_compile() { :; }
+
 src_install() {
-	emake PREFIX="${D}" install
+	emake PREFIX="${ED%/}"/usr LIBDIR="${ED%/}"/usr/$(get_libdir) install
+	einstalldocs
 }
