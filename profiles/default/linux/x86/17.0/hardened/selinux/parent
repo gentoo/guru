@@ -1,0 +1,2 @@
+gentoo:default/linux/x86/17.0/hardened/selinux
+:features/selinux
