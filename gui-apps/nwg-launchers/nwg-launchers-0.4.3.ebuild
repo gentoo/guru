@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -11,11 +11,11 @@ else
 	SRC_URI="https://github.com/nwg-piotr/nwg-launchers/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
-inherit meson
+inherit meson xdg
 
 DESCRIPTION="GTK+ launchers for sway, i3 and some other WMs"
 HOMEPAGE="https://github.com/nwg-piotr/nwg-launchers"
-LICENSE="GPL-3"
+LICENSE="GPL-3 CC-BY-SA-3.0"
 
 SLOT="0"
 
@@ -25,10 +25,17 @@ RDEPEND="
 	dev-cpp/nlohmann_json"
 DEPEND="${RDEPEND}"
 
-IUSE="+bar +dmenu +grid"
-
 RESTRICT="mirror"
+
+IUSE="+bar +dmenu +grid"
 
 src_configure() {
 	meson_src_configure $(meson_use bar) $(meson_use dmenu) $(meson_use grid)
+}
+
+src_install() {
+	meson_src_install
+
+	insinto /usr/share/icons/nwg-launchers
+	doins -r "${FILESDIR}"/.
 }
