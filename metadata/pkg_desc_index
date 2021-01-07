@@ -436,7 +436,7 @@ net-wireless/eiwd 1.6.1 1.7_pre20200606 9999: iwd without dbus
 net-wireless/rtl8192eu 0_pre20201219: Realtek 8192EU driver module for Linux kernel
 net-wireless/rtl8821ce 0_pre20201216: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20201224: Realtek 8821CU/RTL8811CU module for Linux kernel
-sci-electronics/bsc 9999: Bluespec high level hardware design language compiler
+sci-electronics/bsc 0_pre20210106 9999: Bluespec high level hardware design language compiler
 sci-electronics/dsview 1.12 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/verilator 4.106 9999: The fast free Verilog/SystemVerilog simulator
