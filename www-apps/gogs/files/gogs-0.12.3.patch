@@ -1,6 +1,6 @@
-diff --git a/custom/conf/app.ini b/custom/conf/app.ini
---- a/custom/conf/app.ini
-+++ b/custom/conf/app.ini
+diff --git a/conf/app.ini b/conf/app.ini
+--- a/conf/app.ini
++++ b/conf/app.ini
 @@ -1,14 +1,12 @@
 -# !!! NEVER EVER MODIFY THIS FILE !!!
 -# !!! PLEASE MAKE CHANGES ON CORRESPONDING CUSTOM CONFIG FILE !!!
