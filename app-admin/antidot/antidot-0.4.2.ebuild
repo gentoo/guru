@@ -353,7 +353,7 @@ SRC_URI="
 	${EGO_SUM_SRC_URI}
 "
 
-LICENSE="MIT"
+LICENSE="MIT Apache-2.0 BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 RESTRICT="mirror"
