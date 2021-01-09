@@ -96,7 +96,7 @@ SRC_URI="
 	${EGO_SUM_SRC_URI}
 "
 
-LICENSE="MIT"
+LICENSE="MIT Apache-2.0 BSD BSD-2 MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="wayland"
