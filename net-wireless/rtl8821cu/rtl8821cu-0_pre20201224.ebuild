@@ -19,3 +19,9 @@ S="${WORKDIR}/rtl8821CU-${COMMIT}"
 
 MODULE_NAMES="8821cu(net/wireless)"
 BUILD_TARGETS="all"
+BUILD_TARGET_ARCH="${ARCH}"
+
+pkg_setup() {
+	linux-mod_pkg_setup
+	BUILD_PARAMS="KERN_DIR=${KV_DIR} ARCH=$(uname -m | sed -e s/i.86/i386/) KSRC=${KV_DIR} KERN_VER=${KV_FULL}"
+}
