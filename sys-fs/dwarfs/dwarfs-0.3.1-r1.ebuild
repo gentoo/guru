@@ -91,4 +91,7 @@ pkg_postinst(){
 	elog "${HOMEPAGE}"
 	elog "About creating: ${HOMEPAGE}/blob/main/doc/mkdwarfs.md"
 	elog "About mounting: ${HOMEPAGE}/blob/main/doc/dwarfs.md"
+	ewarn "If you have both sys-fs/fuse:2 and sys-fs/fuse:3 installed"
+	ewarn "Dwarfs will install /sbin/dwarfs for fuse3 and /sbin/dwarfs2 for fuse2"
+	ewarn "See https://github.com/mhx/dwarfs/issues/32"
 }
