@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -6,7 +6,10 @@ EAPI=7
 inherit fcaps go-module systemd
 
 DESCRIPTION="Gogs is a self-hosted Git service written in Go"
-HOMEPAGE="https://gogs.io https://github.com/gogs/gogs"
+HOMEPAGE="
+	https://gogs.io
+	https://github.com/gogs/gogs
+"
 
 EGO_SUM=(
 	"cloud.google.com/go v0.26.0/go.mod"
@@ -439,26 +442,26 @@ EGO_SUM=(
 	"xorm.io/core v0.7.2/go.mod"
 	"xorm.io/xorm v0.8.0"
 	"xorm.io/xorm v0.8.0/go.mod"
-	)
+)
+
 go-module_set_globals
 
-SRC_URI="https://github.com/gogs/gogs/archive/v${PV}.tar.gz -> ${P}.tar.gz ${EGO_SUM_SRC_URI}"
+SRC_URI="
+	https://github.com/gogs/gogs/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	${EGO_SUM_SRC_URI}
+"
 
 LICENSE="Apache-2.0 BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-
 IUSE="cert mysql +pam postgres +sqlite"
 REQUIRED_USE="|| ( sqlite mysql postgres )"
-PATCHES=( "${FILESDIR}/${P}.patch" )
-
 RESTRICT="mirror"
 
 DEPEND="
 	acct-user/gogs
 	sqlite? ( dev-db/sqlite:3 )
 "
-
 RDEPEND="
 	${DEPEND}
 	app-shells/bash
@@ -469,24 +472,23 @@ RDEPEND="
 	postgres? ( dev-db/postgresql[pam?] )
 "
 
+PATCHES=( "${FILESDIR}/${P}.patch" )
 FILECAPS=(
 	cap_net_bind_service+ep usr/bin/gogs
 )
 
 src_prepare() {
-	mkdir -p "${S}/custom/conf/"
-	cp "${S}/conf/app.ini" "${S}/custom/conf/"
-
 	default
-
-	sed -i -e 's:data/gogs.db:database/gogs.db:' "${S}/templates/install.tmpl" || die
+	mkdir -p custom/conf/
+	cp conf/app.ini custom/conf/
+	sed -i 's:data/:database/:' templates/install.tmpl || die
 }
 
 src_compile() {
-	GOLANG_PKG_TAGS=""
-	use cert && GOLANG_PKG_TAGS+=" cert"
-	use pam && GOLANG_PKG_TAGS+=" pam"
-	go build -tags ${GOLANG_PKG_TAGS} -o gogs
+	local GOLANG_PKG_TAGS=()
+	use cert && GOLANG_PKG_TAGS+=( cert )
+	use pam && GOLANG_PKG_TAGS+=( pam )
+	go build -tags ${GOLANG_PKG_TAGS[@]} -o gogs || die
 }
 
 src_install() {
@@ -501,9 +503,7 @@ src_install() {
 	newinitd "${FILESDIR}/gogs-initd" gogs
 
 	# Install HTTPS certs
-	if use cert; then
-		keepdir /etc/${PN}/https
-	fi
+	use cert && keepdir /etc/${PN}/https
 
 	# Install configuration files
 	insinto /etc/${PN}/conf
@@ -529,4 +529,9 @@ src_install() {
 	# Create log directory
 	keepdir /var/log/${PN}
 	fowners -R gogs:git /var/log/${PN}
+}
+
+pkg_postinst() {
+	ewarn "You will not be able to run gogs via the command line."
+	ewarn "Please use the installed service files."
 }
