@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure prepare
+DEPEND=fuse? ( sys-fs/fuse:0 ) lz4? ( >=app-arch/lz4-1.9 ) selinux? ( sys-libs/libselinux ) uuid? ( sys-apps/util-linux )
+DESCRIPTION=Userspace tools for EROFS images
+EAPI=7
+HOMEPAGE=https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git
+IUSE=fuse lz4 selinux +uuid
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-2+
+RDEPEND=fuse? ( sys-fs/fuse:0 ) lz4? ( >=app-arch/lz4-1.9 ) selinux? ( sys-libs/libselinux ) uuid? ( sys-apps/util-linux )
+SLOT=0
+SRC_URI=https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/erofs-utils-1.2.1.tar.gz
+_eclasses_=autotools	3ec5e49b810b2571ca9c6d76f55867bb	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	1a94dc06d324bd0dab754e11abe6d27e
+_md5_=6b945ec22f4141f253fd6affa586a897

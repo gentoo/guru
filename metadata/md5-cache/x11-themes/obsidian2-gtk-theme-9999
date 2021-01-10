@@ -9,4 +9,4 @@ PROPERTIES=live
 RDEPEND=>=x11-libs/gtk+-3.22 x11-themes/gtk-engines-adwaita
 SLOT=0
 _eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
-_md5_=c9561a8210c351b5bc75d11f689b2852
+_md5_=3f7f3dbd1552fc1e96d78b1822a5c810

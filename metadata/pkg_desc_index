@@ -20,7 +20,7 @@ app-admin/antidot 0.4.1 0.4.2: Cleans up your $HOME from those pesky dotfiles
 app-admin/chezmoi 1.8.2 1.8.10: Manage your dotfiles across multiple machines, securely.
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.12.0: A system rescue cd or usbstick for desktop and server based on gentoo
-app-admin/gnome-passwordsafe 3.99.2 4.0: A password manager for GNOME
+app-admin/gnome-passwordsafe 4.0-r1 4.1: A password manager for GNOME
 app-admin/krapplet 0.1.0-r1: Krapplet (keyring applet): a password manager based on gnome-keyring.
 app-admin/s-tui 1.0.2 9999: Stress-Terminal UI monitoring tool
 app-arch/libarchive-qt 2.0.2 9999: A Qt based archiving solution with libarchive backend
@@ -70,7 +70,7 @@ app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
 app-shells/starship 0.47.0 0.48.0: The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
-app-text/OCRmyPDF 11.4.3 11.4.4: OCRmyPDF adds an OCR text layer to scanned PDF files
+app-text/OCRmyPDF 11.4.4 11.4.5: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/komikku 0.12.0 0.15.0 0.24.0: An online/offline manga reader for GNOME
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
@@ -111,6 +111,7 @@ dev-db/rum 1.3.7: RUM access method - inverted index with additional information
 dev-embedded/rauc 1.5: Lightweight update client that runs on your Embedded Linux device
 dev-games/godot 3.2.3: Multi-platform 2D and 3D game engine
 dev-games/surgescript 0.5.4.3 0.5.4.4 9999: scripting language made for opensurge
+dev-go/lichen 0.1.1: Go binary license checker
 dev-java/openjdk-sts-bin 15.0.1_p9: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.07.1 1.07.2 1.07.2-r1 1.07.2-r2: A free/open source, multi-platform BASIC compiler.
@@ -225,7 +226,7 @@ dev-python/pygaljs 1.0.2 1.0.2-r1: Python package providing assets from https://
 dev-python/pygsl 2.3.0: Python interface for the GNU scientific library (gsl)
 dev-python/pyinquirer 1.0.3_p20200708 9999: A Python module for common interactive command line UIs
 dev-python/pyjsparser 2.7.1: Fast javascript parser based on esprima.js
-dev-python/pykeepass 3.2.0 3.2.1: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
+dev-python/pykeepass 3.2.0-r1 3.2.1-r1: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
 dev-python/pymeeus 0.3.7: Python implementation of Jean Meeus astronomical routines
 dev-python/pypandoc 1.5: Pypandoc provides a thin wrapper for pandoc, a universal document converter
 dev-python/pystray 0.17.2: System tray icon creation via python
@@ -297,8 +298,8 @@ dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
 dev-vcs/gitqlient 1.2.0 1.3.0_beta 9999: Multi-platform Git client written with Qt
 dev-vcs/lazygit 0.20.9 0.22.9 0.23.7 0.24.2 9999: Lazygit, a simple terminal UI for git commands
-games-action/ATLauncher 3.4.1.1: Minecraft launcher which integrates multiple different ModPacks
-games-action/minecraft-launcher 1.6.93 2.2.909: An open-world game whose gameplay revolves around breaking and placing blocks
+games-action/ATLauncher 3.4.2.1: Minecraft launcher which integrates multiple different ModPacks
+games-action/minecraft-launcher 1.6.93 2.2.909 2.2.1165_beta: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
@@ -357,6 +358,7 @@ kde-misc/plasma5-wallpapers-dynamic 3.3.3 3.3.6 9999: A KDE Plasma wallpaper plu
 kde-misc/skanpage 2020.06.11: Simple pdf scanning application based on libksane and KDE Frameworks
 mail-client/heirloom-mailx 12.5: The mailx utility from CentOS
 media-fonts/overpass 3.0.4: An open source webfont family inspired by Highway Gothic
+media-fonts/source-han-serif 1.001: Pan-CJK OpenType/CFF font family
 media-fonts/symbola 7.17 13.00: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
 media-fonts/unscii 2.0 2.1: Set of bitmapped Unicode fonts based on classic system fonts
 media-fonts/warframe-fonts 0_pre20191111: Fonts from the Warframe game
@@ -370,14 +372,12 @@ media-gfx/silicon 0.3.2 0.4.0: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.4.5 2020.4.6: AMD Open Source Driver for Vulkan
 media-libs/skia 80_p20191220 80_p20191220-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
-media-libs/svt-av1 0.8.5 0.8.6 9999: Scalable Video Technology for AV1 (SVT-AV1 Encoder and Decoder)
 media-libs/svt-hevc 1.5.0 9999: Scalable Video Technology for HEVC (SVT-HEVC Encoder)
 media-libs/svt-vp9 0.3.0 9999: Scalable Video Technology for VP9 (SVT-VP9 Encoder)
 media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
 media-plugins/gimp-avif-plugin 9999: Plug-in for development GIMP 2.99.3 for loading/saving AVIF images.
 media-plugins/gst-plugins-sndio 1.8.0.1-r1: Sndio audio sink and source for GStreamer
-media-plugins/qt-avif-image-plugin 0.4.1 9999: Qt plug-in to allow Qt and KDE based applications to read/write AVIF images.
 media-plugins/qt-heif-image-plugin 0.3.3-r1: Qt plugin for HEIF images
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
@@ -427,7 +427,7 @@ net-misc/xmrig 6.7.0: RandomX, CryptoNight, KawPow, AstroBWT, and Argon2 CPU/GPU
 net-misc/xmrig-mo 6.7.0: RandomX, CryptoNight, KawPow, AstroBWT and Argon2 miner for the MoneroOcean pool
 net-news/sfeed 0.9.18 0.9.20 9999: simple RSS and Atom parser
 net-p2p/lbry 0.48.2 0.49.1: A browser for the LBRY network, a digital marketplace controlled by its users.
-net-p2p/monero 0.17.1.7 0.17.1.8 9999: The secure, private, untraceable cryptocurrency
+net-p2p/monero 0.17.1.9 9999: The secure, private, untraceable cryptocurrency
 net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for Linux
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1 0.3.14 0.3.15: An experiment in scalable routing as an encrypted IPv6 overlay network
@@ -448,6 +448,8 @@ sci-libs/kissfft 131 9999: A Fast Fourier Transform (FFT) library that tries to 
 sci-libs/meschach 1.2b: Meschach is a C-language library of routines for performing matrix computations.
 sci-libs/saclib 2.2.7-r1 2.2.7-r2: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
+sci-mathematics/frama-c 22.0: Framework for analysis of source codes written in C
+sci-mathematics/why3 1.3.3: Platform for deductive program verification
 sci-physics/SU2 7.0.8-r1: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
 sys-apps/drm_info 2.2.0 9999: Small utility to dump info about DRM devices
@@ -459,7 +461,7 @@ sys-apps/rogdrv 0.0.5: ASUS ROG userspace mouse driver for Linux.
 sys-apps/sampler 1.1.0: visualizer for shell commands, executions and alerting
 sys-apps/sampler-bin 1.1.0: visualizer for shell commands, executions and alerting
 sys-auth/mrsh 2.12: Mrsh is a set of remote shell programs that use munge authentication.
-sys-block/systemd-swap 4.0.1 4.4.0 9999: Script for creating swap space from zram swaps, swap files and swap partitions.
+sys-block/systemd-swap 4.4.0 9999: Script for creating swap space from zram swaps, swap files and swap partitions.
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-cluster/AXL 0.3.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
@@ -473,8 +475,8 @@ sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect da
 sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
-sys-fs/dwarfs 0.2.4 0.3.1: A fast very high compression read-only FUSE file system
-sys-fs/erofs-utils 1.1 1.2 9999: Userspace tools for EROFS images
+sys-fs/dwarfs 0.2.4 0.3.1-r1: A fast very high compression read-only FUSE file system
+sys-fs/erofs-utils 1.1 1.2 1.2.1 9999: Userspace tools for EROFS images
 sys-fs/gfs2-utils 3.2.0 3.3.0: Shared-disk cluster file system
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
 sys-kernel/tirdad 0_p20200926: kernel module for random ISN generation
@@ -488,7 +490,7 @@ sys-process/iotop-c 1.15: top utility for IO (C port)
 sys-process/nvtop 1.1.0 9999: NVIDIA GPUs htop like monitoring tool
 www-apps/code-server-bin 3.4.1 3.6.1 3.8.0: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
-www-apps/jackett-bin 0.17.197-r1: API Support for your favorite torrent trackers
+www-apps/jackett-bin 0.17.197-r1 0.17.207: API Support for your favorite torrent trackers
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/twint 2.1.20: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 18.17.0 9999: ultra fast, simple, secure & standards compliant web I/O
