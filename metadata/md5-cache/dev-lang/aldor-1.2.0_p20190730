@@ -1,4 +1,4 @@
-BDEPEND=virtual/yacc doc? ( virtual/latex-base ) emacs? ( app-text/noweb ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.1:1.16 >=sys-devel/automake-1.15.1:1.15 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=virtual/yacc doc? ( virtual/latex-base ) emacs? ( app-text/noweb ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install postinst prepare prerm unpack
 DEPEND=boehm-gc? ( dev-libs/boehm-gc ) emacs? ( app-editors/emacs:= ) java? ( dev-java/junit:= ) java? ( virtual/jdk:1.8 )
 DESCRIPTION=The Aldor Programming Language
@@ -10,5 +10,5 @@ LICENSE=Apache-2.0
 RDEPEND=boehm-gc? ( dev-libs/boehm-gc ) emacs? ( app-editors/emacs:= ) java? ( dev-java/junit:= ) java? ( virtual/jre:1.8 )
 SLOT=0
 SRC_URI=https://github.com/pippijn/aldor/archive/13e5b90eecc79ec6704efb333c4c100187520e80.tar.gz -> aldor-1.2.0_p20190730.tar.gz doc? ( http://aldor.org/docs/libaldor.pdf.gz ) emacs? ( http://hemmecke.de/aldor/aldor.el.nw )
-_eclasses_=autotools	3ec5e49b810b2571ca9c6d76f55867bb	elisp-common	34cc2b6f6d8914019a353fe39cff43ce	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	1a94dc06d324bd0dab754e11abe6d27e
+_eclasses_=autotools	9677fc170e6d375dc41c14871b33d28c	elisp-common	34cc2b6f6d8914019a353fe39cff43ce	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	1a94dc06d324bd0dab754e11abe6d27e
 _md5_=d294e05bcbbd70c1bd6d3a28e3d510b6
