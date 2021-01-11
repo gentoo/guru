@@ -1,0 +1,17 @@
+[Unit]
+Description=PurritoBin
+After=network.target
+
+[Service]
+SyslogIdentifier=purritobin
+Restart=always
+RestartSec=5
+Type=simple
+User=purritobin
+Group=purritobin
+WorkingDirectory=/var/www/purritobin
+ExecStart=/usr/bin/purritobin
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target
