@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit multilib qmake-utils xdg
+inherit multilib cmake xdg
 
 DESCRIPTION="A Qt based archiving solution with libarchive backend"
 HOMEPAGE="https://gitlab.com/marcusbritanicus/libarchive-qt"
@@ -17,7 +17,7 @@ else
 	S="${WORKDIR}/${PN}-v${PV}"
 fi
 
-RESTRICT="mirror test"
+RESTRICT="test"
 LICENSE="LGPL-3"
 SLOT="0"
 
