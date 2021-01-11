@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit multilib cmake xdg
+inherit multilib xdg cmake
 
 DESCRIPTION="A Qt based archiving solution with libarchive backend"
 HOMEPAGE="https://gitlab.com/marcusbritanicus/libarchive-qt"
@@ -29,14 +29,3 @@ DEPEND="
 	dev-qt/qtgui:5
 "
 RDEPEND="${DEPEND}"
-
-src_configure() {
-	local lib="$(get_libdir)"
-	# '^^' because we need to upcase the definition
-	eqmake5 DEFINES+="${lib^^}"
-}
-
-src_install() {
-	einstalldocs
-	emake INSTALL_ROOT="${D}" install
-}
