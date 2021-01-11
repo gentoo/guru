@@ -1,11 +1,10 @@
-# Copyright 2017-2020 Gentoo Authors
+# Copyright 2017-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 CRATES="
 	aho-corasick-0.7.13
-	ansi_term-0.11.0
 	anyhow-1.0.32
 	arrayref-0.3.6
 	arrayvec-0.5.1
@@ -15,7 +14,8 @@ CRATES="
 	bitflags-1.2.1
 	blake2b_simd-0.5.10
 	cfg-if-0.1.10
-	clap-2.33.3
+	clap-3.0.0-beta.2
+	clap_derive-3.0.0-beta.2
 	constant_time_eq-0.1.5
 	crossbeam-utils-0.7.2
 	derive_more-0.14.1
@@ -23,12 +23,15 @@ CRATES="
 	dirs-sys-next-0.1.0
 	edit-0.1.2
 	getrandom-0.1.15
+	hashbrown-0.9.1
 	heck-0.3.1
 	hermit-abi-0.1.15
+	indexmap-1.6.1
 	lazy_static-1.4.0
 	libc-0.2.77
 	memchr-2.3.3
 	numtoa-0.1.0
+	os_str_bytes-2.4.0
 	ppv-lite86-0.2.10
 	proc-macro-error-1.0.4
 	proc-macro-error-attr-1.0.4
@@ -54,15 +57,14 @@ CRATES="
 	semver-parser-0.7.0
 	shellwords-1.1.0
 	strip-ansi-escapes-0.1.0
-	strsim-0.8.0
-	structopt-0.3.17
-	structopt-derive-0.4.10
+	strsim-0.10.0
 	syn-0.15.44
 	syn-1.0.40
 	tempfile-3.1.0
+	termcolor-1.1.2
 	terminal_size-0.1.13
 	termion-1.5.5
-	textwrap-0.11.0
+	textwrap-0.12.1
 	thiserror-1.0.20
 	thiserror-impl-1.0.20
 	thread_local-1.0.1
