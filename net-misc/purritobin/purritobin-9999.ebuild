@@ -1,4 +1,4 @@
-# Copyright 2019-2020 Gentoo Authors
+# Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -6,7 +6,7 @@ EAPI=7
 DESCRIPTION="minimalistic commandline pastebin"
 HOMEPAGE="https://bsd.ac"
 
-inherit toolchain-funcs
+inherit systemd toolchain-funcs
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -20,7 +20,11 @@ fi
 LICENSE="ISC"
 SLOT="0"
 
-RDEPEND="net-libs/usockets[ssl]"
+RDEPEND="
+	net-libs/usockets[ssl]
+	acct-user/purritobin
+	acct-group/purritobin
+"
 DEPEND="${RDEPEND}
 	www-apps/uwebsockets
 "
@@ -32,5 +36,10 @@ src_configure() {
 
 src_install() {
 	emake PREFIX="/usr" MANDIR="/usr/share/man" DESTDIR="${ED}" install
+	insinto /var/www/purritobin
+	doins frontend/paste.html
+	fowners purritobin:purritobin /var/www/purritobin
+	newinitd "${FILESDIR}"/purritobin.initd purritobin
+	systemd_dounit "${FILESDIR}"/purritobin.service
 	einstalldocs
 }

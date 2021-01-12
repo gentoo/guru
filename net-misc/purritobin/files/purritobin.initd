@@ -1,0 +1,16 @@
+#!/sbin/openrc-run
+# Copyright 2020-2021 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="PurritoBin"
+description="ultra fast, minimalistic command line paste-bin"
+
+command="/usr/bin/purrito"
+command_background=true
+command_args="${command_args:- -d /var/www/purritobin/}"
+pidfile="/run/${RC_SVCNAME}.pid"
+command_user="purritobin:purritobin"
+
+depend() {
+        need net
+}

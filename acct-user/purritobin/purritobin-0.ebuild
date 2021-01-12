@@ -3,8 +3,11 @@
 
 EAPI=7
 
-inherit acct-group
+inherit acct-user
 
-ACCT_GROUP_ID=-1
-DESCRIPTION="Group for www-apps/jackett-bin"
+DESCRIPTION="User for www-apps/jackett-bin"
 KEYWORDS="~amd64 ~x86"
+ACCT_USER_ID=-1
+ACCT_USER_GROUPS=( purritobin )
+
+acct-user_add_deps
