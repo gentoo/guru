@@ -1,12 +1,12 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install unpack
-DEPEND=net-libs/usockets[ssl] www-apps/uwebsockets
+DEPEND=net-libs/usockets[ssl] acct-user/purritobin acct-group/purritobin www-apps/uwebsockets
 DESCRIPTION=minimalistic commandline pastebin
 EAPI=7
 HOMEPAGE=https://bsd.ac
 LICENSE=ISC
 PROPERTIES=live
-RDEPEND=net-libs/usockets[ssl]
+RDEPEND=net-libs/usockets[ssl] acct-user/purritobin acct-group/purritobin
 SLOT=0
-_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	1a94dc06d324bd0dab754e11abe6d27e
-_md5_=b83428810cec97cefe19e25efa966a93
+_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441	multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	74b223e42834adf09a2d21fe5fe13741	toolchain-funcs	1a94dc06d324bd0dab754e11abe6d27e
+_md5_=c99918c75d3e9fd479e5e207c6199048
