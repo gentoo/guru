@@ -291,7 +291,7 @@ dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/osc 0.169.1 0.171.0 0.171.0-r1 9999: Command line tool for Open Build Service
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
-dev-util/tokei 12.0.4 12.1.0 12.1.1: Count code, quickly
+dev-util/tokei 12.0.4 12.1.0 12.1.1 12.1.2: Count code, quickly
 dev-util/xdp-tools 1.0.1: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
@@ -373,6 +373,7 @@ media-gfx/oxipng 2.3.0 3.0.1 4.0.0 4.0.2 4.0.3: A lossless PNG compression optim
 media-gfx/silicon 0.3.2 0.4.0: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.4.5 2020.4.6: AMD Open Source Driver for Vulkan
+media-libs/jpeg-xl 9999: JPEG XL Reference Software
 media-libs/skia 80_p20191220 80_p20191220-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-libs/svt-hevc 1.5.0 9999: Scalable Video Technology for HEVC (SVT-HEVC Encoder)
 media-libs/svt-vp9 0.3.0 9999: Scalable Video Technology for VP9 (SVT-VP9 Encoder)
@@ -392,7 +393,7 @@ media-sound/sndio 1.7.0: small audio and MIDI framework part of the OpenBSD proj
 media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
 media-sound/wlavu 9999: Wayland ALSA VU-meter with peaking and optional support for wlr-layer-shell
 media-sound/zita-ajbridge 0.8.4: zita-a2j and zita-j2a - bridges between ALSA and JACK
-media-tv/droidcam 1.6: Use android phone as webcam, using a v4l device driver and app
+media-tv/droidcam 1.7: Use android phone as webcam, using a v4l device driver and app
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
 media-video/jellyfin-mpv-shim 1.8.0 1.8.1: MPV-based desktop and cast client for Jellyfin (Unofficial)
 media-video/kikoplay 0.7.2 9999: KikoPlay is a full-featured danmu player
