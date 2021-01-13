@@ -1,4 +1,4 @@
-# Copyright 2019-2020 Gentoo Authors
+# Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -16,7 +16,7 @@ SLOT="0"
 
 IUSE="gtk"
 
-# Requires connection to android phone
+# Requires connection to phone
 RESTRICT="test"
 
 DEPEND="
@@ -39,7 +39,7 @@ DEPEND="
 
 BDEPEND="virtual/pkgconfig"
 
-S="${WORKDIR}/${P}/linux"
+RDEPEND="${DEPEND}"
 
 DOCS=( README.md README-DKMS.md )
 DISABLE_AUTOFORMATTING="true"
@@ -61,8 +61,10 @@ PATCHES="${FILESDIR}/${PN}-makefile-fixes.patch"
 
 src_prepare() {
 	if ! use gtk ; then
-		sed -i -e '/cflags gtk+/d' Makefile
+		sed -i -e '/cflags gtk+/d' Makefile || die
 	else
+		# remove path and extension from icon entry
+		sed -i -e 's/Icon=\/opt\/droidcam-icon.png/Icon=droidcam/g' droidcam.desktop || die
 		xdg_src_prepare
 	fi
 	linux-mod_pkg_setup
@@ -97,7 +99,7 @@ src_install() {
 		dobin droidcam
 		newicon -s 32 icon.png droidcam.png
 		newicon -s 48 icon2.png droidcam.png
-		make_desktop_entry "${PN}" "DroidCam Client" "${PN}" AudioVideo
+		domenu droidcam.desktop
 	fi
 	dobin "${PN}-cli"
 

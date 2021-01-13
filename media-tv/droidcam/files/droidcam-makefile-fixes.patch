@@ -1,5 +1,5 @@
 diff --git a/Makefile b/Makefile
-index 91ca3af..16afe8b 100644
+index d1c514e..5abd541 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -6,7 +6,7 @@
@@ -23,15 +23,15 @@ index 91ca3af..16afe8b 100644
  
  all: droidcam-cli droidcam
  
- ifeq "$(RELEASE)" "1"
+ ifneq "$(RELEASE)" ""
 -LIBAV = /usr/lib/x86_64-linux-gnu/libswscale.a /usr/lib/x86_64-linux-gnu/libavutil.a
--SRC  += /usr/lib/x86_64-linux-gnu/libusbmuxd.a /usr/lib/x86_64-linux-gnu/libxml2.a src/libplist-2.0.a
+-SRC  += src/libusbmuxd.a src/libxml2.a src/libplist-2.0.a
 +LIBAV = /usr/lib/x86_64-linux-gnu/libswscale.so /usr/lib/x86_64-linux-gnu/libavutil.so
-+SRC  += /usr/lib/x86_64-linux-gnu/libusbmuxd-2.0.so /usr/lib/x86_64-linux-gnu/libxml2.so src/libplist-2.0.so
++SRC  += src/libusbmuxd-2.0.so src/libxml2.so src/libplist-2.0.so
  package: clean all
- 	zip -x icon.png src/ src/* Makefile -r droidcam_`date +%s`.zip ./*
- 
-@@ -36,10 +36,10 @@ gresource: .gresource.xml icon2.png
+ 	zip "droidcam_$(RELEASE).zip" \
+ 		LICENSE README* icon2.png  \
+@@ -39,10 +39,10 @@ gresource: .gresource.xml icon2.png
  	glib-compile-resources .gresource.xml --generate-source --target=src/resources.c
  
  droidcam-cli: src/droidcam-cli.c $(SRC)
