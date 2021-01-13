@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit cmake git-r3
+inherit xdg cmake git-r3
 
 DESCRIPTION="JPEG XL Reference Software"
 HOMEPAGE="https://gitlab.com/wg1/jpeg-xl/"
@@ -47,12 +47,4 @@ src_configure() {
 	)
 
 	cmake_src_configure
-}
-
-pkg_postinst() {
-	xdg_mimeinfo_database_update
-}
-
-pkg_postrm() {
-	xdg_mimeinfo_database_update
 }
