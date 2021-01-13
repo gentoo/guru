@@ -20,9 +20,11 @@ IUSE="gtk"
 RESTRICT="test"
 
 DEPEND="
+	app-pda/libplist
 	app-pda/libusbmuxd
 	dev-libs/glib
 	dev-libs/libappindicator:3
+	dev-libs/libxml2
 	dev-util/android-tools
 	media-libs/alsa-lib
 	media-libs/libjpeg-turbo
