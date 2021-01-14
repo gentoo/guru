@@ -431,7 +431,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 src_compile() {
-	go build -v -x -work -o ${PN} || die "build failed"
+	go build -v -x -work -o "${PN}" || die "build failed"
 }
 
 src_install() {
