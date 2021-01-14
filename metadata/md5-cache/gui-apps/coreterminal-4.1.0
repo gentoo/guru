@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare
-DEPEND=dev-qt/qtcore:5= dev-qt/qtgui:5= dev-qt/qtserialport:5 dev-qt/qtwidgets:5= gui-libs/libcprime x11-libs/qtermwidget dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtserialport:5 dev-qt/qtwidgets:5 gui-libs/libcprime x11-libs/qtermwidget dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=A terminal emulator for C Suite
 EAPI=7
 HOMEPAGE=https://gitlab.com/cubocore/coreapps/coreterminal
 KEYWORDS=~amd64
 LICENSE=GPL-3
-RDEPEND=dev-qt/qtcore:5= dev-qt/qtgui:5= dev-qt/qtserialport:5 dev-qt/qtwidgets:5= gui-libs/libcprime x11-libs/qtermwidget
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtserialport:5 dev-qt/qtwidgets:5 gui-libs/libcprime x11-libs/qtermwidget
 RESTRICT=test
 SLOT=0
 SRC_URI=https://gitlab.com/cubocore/coreapps/coreterminal/-/archive/v4.1.0/coreterminal-v4.1.0.tar.gz -> coreterminal-4.1.0.tar.gz
 _eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47	toolchain-funcs	1a94dc06d324bd0dab754e11abe6d27e	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
-_md5_=73273af50ab96584a3234b10487e631d
+_md5_=2580875753587d627ff13edf00cd3ec7
