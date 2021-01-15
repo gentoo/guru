@@ -1,4 +1,4 @@
-From 0d6c18f8336765c83ce4125833c6b5d44b0b83e6 Mon Sep 17 00:00:00 2001
+From 1de19829622cf394a6154834955379e7e45e0cb8 Mon Sep 17 00:00:00 2001
 From: Kurt Kanzenbach <kurt@kmk-computers.de>
 Date: Fri, 10 Apr 2020 15:39:13 +0200
 Subject: [PATCH] lib: xdp: make: Fix library install
@@ -16,7 +16,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/lib/libxdp/Makefile b/lib/libxdp/Makefile
-index 842c47ac9279..e59aa441eae3 100644
+index f45cc93c3076..2efe6bbea67a 100644
 --- a/lib/libxdp/Makefile
 +++ b/lib/libxdp/Makefile
 @@ -49,12 +49,11 @@ install: all
@@ -26,8 +26,8 @@ index 842c47ac9279..e59aa441eae3 100644
 -	$(Q)install -m 0755 $(SHARED_LIBS) $(STATIC_LIBS) $(DESTDIR)$(LIBDIR)
 +	$(Q)cp -a $(SHARED_LIBS) $(DESTDIR)$(LIBDIR)
  	$(Q)install -m 0755 $(XDP_OBJS) $(DESTDIR)$(BPF_OBJECT_DIR)
- 	$(Q)install -m 0755 -d $(DESTDIR)$(MANDIR)/man3
- 	$(Q)install -m 0644 $(MAN_FILES) $(DESTDIR)$(MANDIR)/man3
+ 	$(if $(MAN_FILES),$(Q)install -m 0755 -d $(DESTDIR)$(MANDIR)/man3)
+ 	$(if $(MAN_FILES),$(Q)install -m 0644 $(MAN_FILES) $(DESTDIR)$(MANDIR)/man3)
  
 -
  $(OBJDIR)/libxdp.a: $(STATIC_OBJS)
