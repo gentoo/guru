@@ -1,12 +1,13 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 PYTHON_COMPAT=( python3_{7,8,9} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
+DISTUTILS_SINGLE_IMPL=1
 
-inherit distutils-r1 optfeature xdg
+inherit desktop distutils-r1 optfeature xdg
 
 DESCRIPTION="Client/server to synchronize media playback"
 HOMEPAGE="https://github.com/Syncplay/syncplay https://syncplay.pl"
@@ -17,12 +18,17 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 IUSE="+client +server"
+REQUIRED_USE="|| ( client server )"
 
 RDEPEND="
-	dev-python/certifi[${PYTHON_USEDEP}]
-	dev-python/twisted[${PYTHON_USEDEP}]
+	$( python_gen_cond_dep \
+	'dev-python/certifi[${PYTHON_USEDEP}]
+	dev-python/twisted[${PYTHON_USEDEP}]'
+	)
 	client? (
-		dev-python/QtPy[${PYTHON_USEDEP},gui]
+		$( python_gen_cond_dep \
+		'dev-python/QtPy[${PYTHON_USEDEP},gui]'
+		)
 		|| (
 			media-video/vlc[lua]
 			media-video/mpv[lua]
@@ -40,12 +46,17 @@ PATCHES=(
 )
 
 python_install() {
-	local MY_MAKEOPTS=( DESTDIR="${D}" PREFIX=/usr )
+	python_domodule syncplay
+	for size in 256 128 96 64 48 32 24 16; do
+		doicon -s ${size} "${PN}/resources/hicolor/${size}x${size}/apps/syncplay.png"
+	done
 	if use client; then
-		emake "${MY_MAKEOPTS[@]}" install-client
+		python_newscript syncplayClient.py syncplay
+		domenu syncplay/resources/syncplay.desktop
 	fi
 	if use server; then
-		emake "${MY_MAKEOPTS[@]}" install-server
+		python_newscript syncplayServer.py syncplay-server
+		domenu syncplay/resources/syncplay-server.desktop
 		newinitd "${FILESDIR}/${PN}-server-init" "${PN}"
 		newconfd "${FILESDIR}/${PN}-server-init-conf" "${PN}"
 	fi
