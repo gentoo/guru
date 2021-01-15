@@ -76,7 +76,7 @@ app-text/OCRmyPDF 11.4.5 11.5.0: OCRmyPDF adds an OCR text layer to scanned PDF 
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/komikku 0.12.0 0.15.0 0.24.0: An online/offline manga reader for GNOME
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
-app-text/mdbook 0.4.5: Creates a book from markdown files
+app-text/mdbook 0.4.5 0.4.6: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
 app-text/stdman 2019.08.27 2020.11.17 9999: Formatted C++ stdlib man pages (cppreference)
 dev-R/BH 1.72.0-r3: Boost C++ Header Files
@@ -399,7 +399,7 @@ media-video/jellyfin-mpv-shim 1.8.0 1.8.1: MPV-based desktop and cast client for
 media-video/kikoplay 0.7.2 9999: KikoPlay is a full-featured danmu player
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
 media-video/qliveplayer 3.20.2 3.21.0: A cute and useful Live Stream Player with danmaku support
-media-video/syncplay 1.6.7: Client/server to synchronize media playback
+media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/vidify 2.2.6: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
