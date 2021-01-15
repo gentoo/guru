@@ -13,7 +13,7 @@ SRC_URI="https://github.com/godotengine/${PN}/archive/${PV}-stable.tar.gz -> ${P
 S="${WORKDIR}/${P}-stable"
 KEYWORDS="~amd64 ~x86"
 
-LICENSE="Apache-2.0 BSD BSL-1.1 CC-BY-3.0 MIT MPL-2.0 OFL-1.1 public-domain ZLIB"
+LICENSE="Apache-2.0 Boost-1.0 BSD CC-BY-3.0 MIT MPL-2.0 OFL-1.1 public-domain ZLIB"
 SLOT="0"
 IUSE="+bullet debug +enet +freetype lto +mbedtls +ogg +opus pulseaudio +theora +udev +upnp +vorbis +webp"
 
