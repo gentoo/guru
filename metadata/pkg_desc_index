@@ -292,7 +292,7 @@ dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/osc 0.169.1 0.171.0 0.171.0-r1 9999: Command line tool for Open Build Service
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/tokei 12.0.4 12.1.0 12.1.1 12.1.2: Count code, quickly
-dev-util/xdp-tools 1.0.1: Utilities and example programs for use with XDP
+dev-util/xdp-tools 1.1.0: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
 dev-vcs/git-extras 6.1.0 9999: Little git extras
@@ -320,7 +320,7 @@ games-util/NotEnoughProduction 0.0.4: Tool for building production chains for mo
 games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
 games-util/itch-bin 25.4.0 25.4.1: itch.io game browser, installer and launcher
 games-util/legendary 0.20.5 0.20.6: A free and open-source replacement for the Epic Games Launcher
-games-util/minigalaxy 1.0.0: A simple GOG client for Linux
+games-util/minigalaxy 1.0.2: A simple GOG client for Linux
 gui-apps/azote 1.8.1 9999: wallpaper manager for wlroots compositors
 gui-apps/coreaction 4.0.0 4.1.0 9999: A side bar for showing widgets for C Suite
 gui-apps/coreapps-meta 4.0.0 4.1.0: Meta package for coreapps
