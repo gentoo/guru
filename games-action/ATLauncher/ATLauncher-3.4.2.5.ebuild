@@ -8,7 +8,7 @@ inherit desktop java-pkg-2 xdg
 DESCRIPTION="Minecraft launcher which integrates multiple different ModPacks"
 HOMEPAGE="https://atlauncher.com
 	https://github.com/ATLauncher/ATLauncher"
-SRC_URI="https://github.com/ATLauncher/ATLauncher/releases/download/${PV}/${P}.jar
+SRC_URI="https://github.com/ATLauncher/ATLauncher/releases/download/v${PV}/${P}.jar
 	https://raw.githubusercontent.com/ATLauncher/ATLauncher/master/src/main/resources/assets/image/Icon.ico -> ${PN}.ico"
 
 KEYWORDS="~amd64 ~x86"
