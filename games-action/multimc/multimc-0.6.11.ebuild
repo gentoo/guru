@@ -1,4 +1,4 @@
-# Copyright 2019-2020 Gentoo Authors
+# Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -51,6 +51,11 @@ src_unpack() {
 	rm -rf "${S}/libraries/libnbtplusplus" "${S}/libraries/quazip"
 	mv "${WORKDIR}/libnbtplusplus-${LIBNBTPLUSPLUS_VER}" "${S}/libraries/libnbtplusplus" || die
 	mv "${WORKDIR}/quazip-${QUAZIP_VER}" "${S}/libraries/quazip" || die
+}
+
+src_prepare() {
+	cmake_src_prepare
+	sed -r -i 's/-Werror([a-z=-]+)?//g' CMakeLists.txt || die
 }
 
 src_configure() {
