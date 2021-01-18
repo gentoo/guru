@@ -5,9 +5,23 @@
 		<email>rossbridger.cc@gmail.com</email>
 		<name>Ross Charles Campbell</name>
 	</maintainer>
-	<longdescription>
-This is not a fork. This is a repository of scripts to automatically
-build Microsoft's vscode repository into freely-licensed binaries with
-a community-driven default configuration.
+	<maintainer type="person">
+		<email>xgqt@protonmail.com</email>
+		<name>Maciej Barć</name>
+	</maintainer>
+	<use>
+		<flag name="libsecret">Enable libsecret support</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">VSCodium/vscodium</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		Microsoft’s vscode source code is open source (MIT-licensed),
+		but the product available for download (Visual Studio Code)
+		is licensed under this not-FLOSS license
+		and contains telemetry/tracking.
+		The VSCodium project exists so that you don’t have to download+build
+		from source. These binaries are licensed under the MIT license.
+		Telemetry is disabled.
 	</longdescription>
 </pkgmetadata>
