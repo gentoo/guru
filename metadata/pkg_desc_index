@@ -18,7 +18,7 @@ acct-user/purritobin 0: User for www-apps/jackett-bin
 acct-user/sndiod 0: daemon user for sndio
 acct-user/trezord 0: User for TREZOR Bridge
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
-app-admin/antidot 0.4.1 0.4.2: Cleans up your $HOME from those pesky dotfiles
+app-admin/antidot 0.4.2 0.5.0: Cleans up your $HOME from those pesky dotfiles
 app-admin/chezmoi 1.8.2 1.8.10: Manage your dotfiles across multiple machines, securely.
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.12.0: A system rescue cd or usbstick for desktop and server based on gentoo
@@ -47,7 +47,7 @@ app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
 app-misc/liquidctl 1.4.2: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/mat2 0.11.0 0.12.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
-app-misc/navi 2.12.1 2.13.0 2.13.1 9999: An interactive cheatsheet tool for the command-line
+app-misc/navi 2.13.0 2.13.1 2.14.0 9999: An interactive cheatsheet tool for the command-line
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/rdfind 1.4.1: Find duplicate files
@@ -269,7 +269,7 @@ dev-python/spotipy 2.16.1: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.6.1: Server Sent Events for Starlette
 dev-python/starlette 0.14.1: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
-dev-python/sysv_ipc 1.0.1: System V IPC primitives for python
+dev-python/sysv_ipc 1.0.1 1.1.0: System V IPC primitives for python
 dev-python/tekore 3.4.2: Spotify Web API client
 dev-python/timeout-decorator 0.5.0: Timeout decorator
 dev-python/trio 0.17.0: Python library for async concurrency and I/O
@@ -321,7 +321,7 @@ games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
 games-util/itch-bin 25.4.0 25.4.1: itch.io game browser, installer and launcher
 games-util/legendary 0.20.5 0.20.6: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.2: A simple GOG client for Linux
-gui-apps/azote 1.8.1 9999: wallpaper manager for wlroots compositors
+gui-apps/azote 1.8.1 1.8.2 9999: wallpaper manager for wlroots compositors
 gui-apps/coreaction 4.0.0 4.1.0 9999: A side bar for showing widgets for C Suite
 gui-apps/coreapps-meta 4.0.0 4.1.0: Meta package for coreapps
 gui-apps/corearchiver 4.0.0 4.1.0 9999: Archiver for C Suite, to create and extract archives
@@ -494,7 +494,7 @@ sys-process/iotop-c 1.15: top utility for IO (C port)
 sys-process/nvtop 1.1.0 9999: NVIDIA GPUs htop like monitoring tool
 www-apps/code-server-bin 3.4.1 3.6.1 3.8.0: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
-www-apps/jackett-bin 0.17.294: API Support for your favorite torrent trackers
+www-apps/jackett-bin 0.17.294 0.17.311: API Support for your favorite torrent trackers
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/twint 2.1.20: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 18.17.0 18.19.0 9999: ultra fast, simple, secure & standards compliant web I/O
