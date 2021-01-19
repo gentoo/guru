@@ -5,9 +5,6 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		A complete and consistent functional programming toolkit for R.
-	</longdescription>
 	<upstream>
 		<bugs-to>
 			https://github.com/tidyverse/purrr/issues
