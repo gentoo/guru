@@ -5,9 +5,6 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		Helper functions to work with spreadsheets and the "A1:D10" style of cell range specification.
-	</longdescription>
 	<upstream>
 		<bugs-to>
 			https://github.com/rsheets/cellranger/issues
