@@ -176,7 +176,9 @@ xcb-0.8.2
 xml-rs-0.8.3
 "
 
-inherit cargo
+PYTHON_COMPAT=( python3_{6..9} )
+
+inherit cargo python-any-r1
 
 DESCRIPTION="Create beautiful image of your code"
 HOMEPAGE="https://github.com/Aloxaf/silicon"
@@ -189,8 +191,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 BDEPEND="
-	dev-lang/python
-	virtual/pkgconfig"
+	virtual/pkgconfig
+	${PYTHON_DEPS}"
 DEPEND="
 	media-libs/fontconfig
 	media-libs/freetype
