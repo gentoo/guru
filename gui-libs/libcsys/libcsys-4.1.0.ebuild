@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -8,13 +8,13 @@ QTMIN="5.15.1"
 inherit multilib qmake-utils
 
 DESCRIPTION="Library for managing the device"
-HOMEPAGE="https://gitlab.com/cubocore/coreapps/libcsys"
+HOMEPAGE="https://gitlab.com/cubocore/libcsys"
 
 if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://gitlab.com/cubocore/coreapps/${PN}.git"
+	EGIT_REPO_URI="https://gitlab.com/cubocore/${PN}.git"
 else
-	SRC_URI="https://gitlab.com/cubocore/coreapps/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://gitlab.com/cubocore/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 	S="${WORKDIR}/${PN}-v${PV}"
 fi
