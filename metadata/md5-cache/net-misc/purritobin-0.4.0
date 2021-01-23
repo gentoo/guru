@@ -9,5 +9,5 @@ LICENSE=ISC
 RDEPEND=net-libs/usockets[ssl] acct-user/purritobin acct-group/purritobin
 SLOT=0
 SRC_URI=https://github.com/PurritoBin/PurritoBin/archive/0.4.0.tar.gz -> purritobin-0.4.0.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	74b223e42834adf09a2d21fe5fe13741	toolchain-funcs	1a94dc06d324bd0dab754e11abe6d27e
+_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	74b223e42834adf09a2d21fe5fe13741	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
 _md5_=c99918c75d3e9fd479e5e207c6199048
