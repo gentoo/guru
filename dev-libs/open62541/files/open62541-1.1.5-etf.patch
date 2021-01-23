@@ -25,11 +25,11 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  plugins/ua_pubsub_ethernet_etf.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/plugins/ua_pubsub_ethernet_etf.c b/plugins/ua_pubsub_ethernet_etf.c
-index 416b5857945a..d55eb363e3b5 100644
---- a/plugins/ua_pubsub_ethernet_etf.c
-+++ b/plugins/ua_pubsub_ethernet_etf.c
-@@ -186,7 +186,7 @@ UA_PubSubChannelEthernetETF_open(const UA_PubSubConnectionConfig *connectionConf
+Index: open62541/plugins/ua_pubsub_ethernet_etf.c
+===================================================================
+--- open62541.orig/plugins/ua_pubsub_ethernet_etf.c
++++ open62541/plugins/ua_pubsub_ethernet_etf.c
+@@ -186,7 +186,7 @@ UA_PubSubChannelEthernetETF_open(const U
      struct ifreq ifreq;
      memset(&ifreq, 0, sizeof(struct ifreq));
      UA_UInt64 len = UA_MIN(address->networkInterface.length, sizeof(ifreq.ifr_name)-1);
@@ -38,6 +38,3 @@ index 416b5857945a..d55eb363e3b5 100644
                  "%.*s", (int)len,
                  (char*)address->networkInterface.data);
  
--- 
-2.26.2
-

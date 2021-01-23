@@ -10,10 +10,10 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  tests/CMakeLists.txt | 78 --------------------------------------------
  1 file changed, 78 deletions(-)
 
-diff --git a/tests/CMakeLists.txt b/tests/CMakeLists.txt
-index c73b2b04520b..fb21fb856ba4 100644
---- a/tests/CMakeLists.txt
-+++ b/tests/CMakeLists.txt
+Index: open62541/tests/CMakeLists.txt
+===================================================================
+--- open62541.orig/tests/CMakeLists.txt
++++ open62541/tests/CMakeLists.txt
 @@ -331,84 +331,6 @@ if(UA_ENABLE_DISCOVERY)
      add_test_valgrind(discovery ${TESTS_BINARY_DIR}/check_discovery)
  endif()
@@ -99,6 +99,3 @@ index c73b2b04520b..fb21fb856ba4 100644
  add_executable(check_server_readspeed server/check_server_readspeed.c $<TARGET_OBJECTS:open62541-object> $<TARGET_OBJECTS:open62541-testplugins>)
  target_link_libraries(check_server_readspeed ${LIBS})
  add_test_no_valgrind(server_readspeed ${TESTS_BINARY_DIR}/check_server_readspeed)
--- 
-2.26.2
-

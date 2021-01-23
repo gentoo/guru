@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -15,10 +15,9 @@ IUSE="test"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-libs/libsodium
 	>=dev-libs/boost-1.70.0
 	dev-libs/olm
-	dev-libs/openssl
+	>=dev-libs/openssl-1.1.0
 	dev-cpp/nlohmann_json
 "
 DEPEND="
@@ -31,7 +30,6 @@ DEPEND="
 PATCHES=(
 	"${FILESDIR}/0.3.0_remove_network_tests.patch"
 	"${FILESDIR}/0.3.0_remove_failing_tests.patch"
-	"${FILESDIR}/0.3.0_add_missing_header.patch"
 )
 
 src_configure() {
@@ -39,14 +37,6 @@ src_configure() {
 		-DBUILD_LIB_TESTS="$(usex test)"
 		-DBUILD_LIB_EXAMPLES=OFF
 	)
-
-	if use test; then
-		# Upstream uses a toolchain file to set these, fixed in >0.3.0.
-		mycmakeargs+=(
-			-DCMAKE_CXX_STANDARD=17
-			-DCMAKE_CXX_STANDARD_REQUIRED=ON
-		)
-	fi
 
 	cmake_src_configure
 }

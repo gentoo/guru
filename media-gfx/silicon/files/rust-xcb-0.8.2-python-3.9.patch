@@ -1,0 +1,43 @@
+From b41c79a73069160af5290c328acecd499f5d216a Mon Sep 17 00:00:00 2001
+From: Michel Alexandre Salim <michel@michel-slm.name>
+Date: Mon, 8 Jun 2020 22:59:11 -0700
+Subject: [PATCH] Use `ElementTree` instead of `cElementTree`
+
+`cElementTree` has been deprecated since Python 3.3; `ElementTree` will use a fast implementation whenever available.
+
+`cElementTree` is actually removed as of Python 3.9 beta 1, and on Python 3.8 it's an alias to `ElementTree`.
+
+See https://docs.python.org/3.8/library/xml.etree.elementtree.html
+
+Signed-off-by: Michel Alexandre Salim <michel@michel-slm.name>
+---
+ xcbgen/matcher.py | 2 +-
+ xcbgen/state.py   | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/xcbgen/matcher.py b/xcbgen/matcher.py
+index bfa315eb..97ae5f9f 100644
+--- a/xcbgen/matcher.py
++++ b/xcbgen/matcher.py
+@@ -7,7 +7,7 @@
+ '''
+ 
+ from os.path import join
+-from xml.etree.cElementTree import parse
++from xml.etree.ElementTree import parse
+ 
+ from xcbgen.xtypes import *
+ 
+diff --git a/xcbgen/state.py b/xcbgen/state.py
+index 1f5479e9..95af5a40 100644
+--- a/xcbgen/state.py
++++ b/xcbgen/state.py
+@@ -2,7 +2,7 @@
+ This module contains the namespace class and the singleton module class.
+ '''
+ from os.path import dirname, basename
+-from xml.etree.cElementTree import parse
++from xml.etree.ElementTree import parse
+ 
+ from xcbgen import matcher
+ from xcbgen.error import *

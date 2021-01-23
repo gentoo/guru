@@ -5,9 +5,6 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		A fast, consistent tool for working with data frame like objects, both in memory and out of memory.
-	</longdescription>
 	<upstream>
 		<bugs-to>
 			https://github.com/tidyverse/dplyr/issues
