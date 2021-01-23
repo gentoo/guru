@@ -23,4 +23,3 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 "
-
