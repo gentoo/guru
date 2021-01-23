@@ -18,5 +18,5 @@ RDEPEND="
 S="${WORKDIR}/package"
 
 src_install() {
-	npm install -g --production --prefix "${ED}/usr"
+	npm install -g --production --prefix "${ED}/usr" $(npm pack . | tail -1)
 }
