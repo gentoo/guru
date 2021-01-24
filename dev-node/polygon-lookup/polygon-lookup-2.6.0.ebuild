@@ -20,7 +20,16 @@ RDEPEND="
 	dev-node/point-in-polygon
 	dev-node/rbush
 "
+BDEPEND="
+	app-misc/jq
+	sys-apps/moreutils
+"
 S="${WORKDIR}"
+
+src_prepare() {
+	jq '.dependencies[] = "*"' package/package.json | sponge package/package.json || die
+	default
+}
 
 src_install() {
 	local dir="${ED}/usr/$(get_libdir)/node_modules/"

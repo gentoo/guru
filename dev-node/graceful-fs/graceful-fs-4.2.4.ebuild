@@ -15,7 +15,16 @@ RDEPEND="
 	${DEPEND}
 "
 
+BDEPEND="
+	app-misc/jq
+	sys-apps/moreutils
+"
 S="${WORKDIR}/package"
+
+src_prepare() {
+	jq '.dependencies[] = "*"' package/package.json | sponge package/package.json || die
+	default
+}
 
 src_install() {
 	npm install -g --production --prefix "${ED}/usr" $(npm pack . | tail -1)
