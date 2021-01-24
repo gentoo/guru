@@ -19,6 +19,7 @@ SLOT="0"
 RESTRICT="strip"
 
 RDEPEND="
+	acct-user/jackett
 	app-crypt/mit-krb5
 	dev-libs/icu
 	dev-util/lttng-ust
