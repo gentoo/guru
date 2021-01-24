@@ -10,7 +10,7 @@ if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/B-Lang-org/${PN}.git"
 	inherit git-r3
 else
-	EGIT_COMMIT="7d25cdedd5c6df310acfcf5a3255aeb13b6adb61"
+	EGIT_COMMIT="69dee0667e51108832b685511e9aa631cca1e83a"
 	# Using SRC_URI here will failed because this repo uses git submodules.
 	# SRC_URI="https://github.com/B-Lang-org/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 	# S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
@@ -37,6 +37,11 @@ RDEPEND="
 
 DEPEND="
 	${RDEPEND}
+	test? (
+		dev-util/dejagnu
+		sci-electronics/systemc
+		sys-process/time
+	)
 "
 
 BDEPEND="
@@ -60,5 +65,6 @@ src_compile() { :; }
 
 src_install() {
 	emake PREFIX="${ED%/}"/usr LIBDIR="${ED%/}"/usr/$(get_libdir) install
+	emake -C src/comp PREFIX="${ED%/}"/usr LIBDIR="${ED%/}"/usr/$(get_libdir) install-extra
 	einstalldocs
 }
