@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+inherit node-guru
+
 DESCRIPTION="Object schema validation"
 HOMEPAGE="
 	https://github.com/hapijs/joi
@@ -9,11 +11,7 @@ HOMEPAGE="
 "
 SRC_URI="https://registry.npmjs.org/@hapi/joi/-/joi-17.1.1.tgz -> ${P}.tgz"
 LICENSE="BSD"
-SLOT=0
 KEYWORDS="~amd64"
-DEPEND="
-	net-libs/nodejs
-"
 RDEPEND="
 	${DEPEND}
 	dev-node/hapi+address
@@ -22,19 +20,3 @@ RDEPEND="
 	dev-node/hapi+pinpoint
 	dev-node/hapi+topo
 "
-BDEPEND="
-	app-misc/jq
-	sys-apps/moreutils
-"
-S="${WORKDIR}"
-
-src_prepare() {
-	jq '.dependencies[] = "*"' package/package.json | sponge package/package.json || die
-	default
-}
-
-src_install() {
-	local dir="${ED}/usr/$(get_libdir)/node_modules/@hapi/joi"
-	mkdir -p "${dir}" || die
-	mv package/* "${dir}" || die
-}

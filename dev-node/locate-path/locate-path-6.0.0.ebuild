@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+inherit node-guru
+
 DESCRIPTION="Get the first path that exists on disk of multiple paths"
 HOMEPAGE="
 	https://github.com/sindresorhus/locate-path
@@ -9,28 +11,8 @@ HOMEPAGE="
 "
 SRC_URI="https://registry.npmjs.org/locate-path/-/locate-path-6.0.0.tgz"
 LICENSE="MIT"
-SLOT=0
 KEYWORDS="~amd64"
-DEPEND="
-	net-libs/nodejs
-"
 RDEPEND="
 	${DEPEND}
 	dev-node/p-locate
 "
-BDEPEND="
-	app-misc/jq
-	sys-apps/moreutils
-"
-S="${WORKDIR}"
-
-src_prepare() {
-	jq '.dependencies[] = "*"' package/package.json | sponge package/package.json || die
-	default
-}
-
-src_install() {
-	local dir="${ED}/usr/$(get_libdir)/node_modules/"
-	mkdir -p "${dir}" || die
-	mv package "${dir}/${PN}" || die
-}

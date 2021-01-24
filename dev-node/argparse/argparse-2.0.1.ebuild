@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+inherit node-guru
+
 DESCRIPTION="CLI arguments parser. Native port of python's argparse."
 HOMEPAGE="
 	https://github.com/nodeca/argparse
@@ -9,27 +11,7 @@ HOMEPAGE="
 "
 SRC_URI="https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz -> ${P}.tgz"
 LICENSE="PSF-2"
-SLOT=0
 KEYWORDS="~amd64"
-DEPEND="
-	net-libs/nodejs
-"
 RDEPEND="
 	${DEPEND}
 "
-BDEPEND="
-	app-misc/jq
-	sys-apps/moreutils
-"
-S="${WORKDIR}"
-
-src_prepare() {
-	jq '.dependencies[] = "*"' package/package.json | sponge package/package.json || die
-	default
-}
-
-src_install() {
-	local dir="${ED}/usr/$(get_libdir)/node_modules/argparse"
-	mkdir -p "${dir}" || die
-	mv package/* "${dir}" || die
-}

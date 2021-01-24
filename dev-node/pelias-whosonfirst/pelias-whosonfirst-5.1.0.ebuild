@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+inherit node-guru
+
 DESCRIPTION="Importer for Who's on First"
 HOMEPAGE="
 	https://github.com/pelias/whosonfirst
@@ -9,11 +11,7 @@ HOMEPAGE="
 "
 SRC_URI="https://registry.npmjs.org/pelias-whosonfirst/-/pelias-whosonfirst-5.1.0.tgz"
 LICENSE="MIT"
-SLOT=0
 KEYWORDS="~amd64"
-DEPEND="
-	net-libs/nodejs
-"
 RDEPEND="
 	${DEPEND}
 	dev-node/hapi+joi
@@ -34,19 +32,3 @@ RDEPEND="
 	dev-node/through2-map
 	dev-node/through2-sink
 "
-BDEPEND="
-	app-misc/jq
-	sys-apps/moreutils
-"
-S="${WORKDIR}"
-
-src_prepare() {
-	jq '.dependencies[] = "*"' package/package.json | sponge package/package.json || die
-	default
-}
-
-src_install() {
-	local dir="${ED}/usr/$(get_libdir)/node_modules/"
-	mkdir -p "${dir}" || die
-	mv package "${dir}/${PN}" || die
-}
