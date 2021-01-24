@@ -14,6 +14,7 @@ BDEPEND="
 S="${WORKDIR}"
 
 node-guru_src_prepare() {
+	#remove version constraints on dependencies
 	jq 'if .dependencies? then .dependencies[] = "*" else . end' package/package.json | sponge package/package.json || die
 	default
 }
