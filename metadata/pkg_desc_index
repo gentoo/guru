@@ -110,7 +110,7 @@ dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, R
 dev-cpp/vectorwrapper 1.1.1 9999: A template vector wrapper class for C++
 dev-db/pg_repack 1.4.6: Reorganize tables in PostgreSQL databases with minimal locks
 dev-db/rum 1.3.7: RUM access method - inverted index with additional information in posting lists
-dev-embedded/rauc 1.5: Lightweight update client that runs on your Embedded Linux device
+dev-embedded/rauc 1.5.1: Lightweight update client that runs on your Embedded Linux device
 dev-games/godot 3.2.3: Multi-platform 2D and 3D game engine
 dev-games/surgescript 0.5.4.3 0.5.4.4 9999: scripting language made for opensurge
 dev-go/lichen 0.1.1: Go binary license checker
@@ -418,6 +418,7 @@ net-misc/FORT-validator 1.3.0 1.4.0 1.4.1 1.4.2: FORT validator is an open sourc
 net-misc/castor 0.8.15 0.8.16: A graphical browser for plain-text protocols
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/kristall 0.2 0.3 9999: Visual cross-platform gemini browser
+net-misc/lyrics-in-terminal 1.3.1: Command Line Lyrics fetcher for MPRIS media players
 net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 9999: The official Qt-based program for syncing your MEGA account in your PC
@@ -441,7 +442,7 @@ net-wireless/eiwd 1.6.1 1.7_pre20200606 9999: iwd without dbus
 net-wireless/rtl8192eu 0_pre20201219: Realtek 8192EU driver module for Linux kernel
 net-wireless/rtl8821ce 0_pre20201216: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20201224: Realtek 8821CU/RTL8811CU module for Linux kernel
-sci-electronics/bsc 0_pre20210106 9999: Bluespec high level hardware design language compiler
+sci-electronics/bsc 0_pre20210124 9999: Bluespec high level hardware design language compiler
 sci-electronics/dsview 1.12 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/verilator 4.108 9999: The fast free Verilog/SystemVerilog simulator
