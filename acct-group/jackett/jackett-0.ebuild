@@ -7,4 +7,4 @@ inherit acct-group
 
 ACCT_GROUP_ID=-1
 DESCRIPTION="Group for www-apps/jackett-bin"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
