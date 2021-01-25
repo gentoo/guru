@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="JSON Schema for HTTP Archive (HAR)"
 HOMEPAGE="
 	https://github.com/ahmadnassri/har-schema
 	https://www.npmjs.com/package/har-schema
 "
-SRC_URI="https://registry.npmjs.org/har-schema/-/har-schema-2.0.0.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

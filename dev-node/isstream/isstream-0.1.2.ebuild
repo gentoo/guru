@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Determine if an object is a Stream"
 HOMEPAGE="
 	https://github.com/rvagg/isstream
 	https://www.npmjs.com/package/isstream
 "
-SRC_URI="https://registry.npmjs.org/isstream/-/isstream-0.1.2.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

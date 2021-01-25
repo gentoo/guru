@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Golang osm pbf parser with npm wrapper"
 HOMEPAGE="
 	https://github.com/pelias/pbf2json
 	https://www.npmjs.com/package/pbf2json
 "
-SRC_URI="https://registry.npmjs.org/pbf2json/-/pbf2json-6.6.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/split
 	dev-node/through2
 "

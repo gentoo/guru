@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Missing keepalive http.Agent"
 HOMEPAGE="
 	https://github.com/node-modules/agentkeepalive
 	https://www.npmjs.com/package/agentkeepalive
 "
-SRC_URI="https://registry.npmjs.org/agentkeepalive/-/agentkeepalive-4.1.3.tgz -> ${P}.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

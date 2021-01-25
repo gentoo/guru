@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Caseless object set/get/has, very useful when working with HTTP headers."
 HOMEPAGE="
 	https://github.com/mikeal/caseless
 	https://www.npmjs.com/package/caseless
 "
-SRC_URI="https://registry.npmjs.org/caseless/-/caseless-0.12.0.tgz"
 LICENSE="Apache-2.0"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

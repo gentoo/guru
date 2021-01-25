@@ -3,17 +3,14 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
-DESCRIPTION="Use node's fs.realpath, but fall back to the JS implementation if the native one fails"
+MYPN="${PN/_/.}"
+SRC_URI="https://registry.npmjs.org/${MYPN}/-/${MYPN}-${PV}.tgz -> ${P}.tgz"
+DESCRIPTION="Use node's fs.realpath, but fall back to the JS implementation"
 HOMEPAGE="
 	https://github.com/isaacs/fs.realpath
 	https://www.npmjs.com/package/fs.realpath
 "
-SRC_URI="https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"
-MYPN="${PN/_/.}"

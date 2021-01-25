@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Like JSON.stringify, but doesn't blow up on circular refs."
 HOMEPAGE="
 	https://github.com/isaacs/json-stringify-safe
 	https://www.npmjs.com/package/json-stringify-safe
 "
-SRC_URI="https://registry.npmjs.org/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

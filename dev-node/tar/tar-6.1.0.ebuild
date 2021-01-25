@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="tar for node"
 HOMEPAGE="
 	https://github.com/npm/node-tar
 	https://www.npmjs.com/package/tar
 "
-SRC_URI="https://registry.npmjs.org/tar/-/tar-6.1.0.tgz -> ${P}.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

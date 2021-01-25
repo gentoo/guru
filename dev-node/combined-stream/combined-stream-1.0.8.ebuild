@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="A stream that emits multiple other streams one after another."
 HOMEPAGE="
 	https://github.com/felixge/node-combined-stream
 	https://www.npmjs.com/package/combined-stream
 "
-SRC_URI="https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.8.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/delayed-stream
 "

@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="split a Text Stream into a Line Stream"
 HOMEPAGE="
 	https://github.com/dominictarr/split
 	https://www.npmjs.com/package/split
 "
-SRC_URI="https://registry.npmjs.org/split/-/split-1.0.1.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/through
 "

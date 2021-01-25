@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Recursive version of fs.readdir with streaming API."
 HOMEPAGE="
 	https://github.com/paulmillr/readdirp
 	https://www.npmjs.com/package/readdirp
 "
-SRC_URI="https://registry.npmjs.org/readdirp/-/readdirp-3.5.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/picomatch
 "

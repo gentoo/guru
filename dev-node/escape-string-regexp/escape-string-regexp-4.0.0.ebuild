@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Escape RegExp special characters"
 HOMEPAGE="
 	https://github.com/sindresorhus/escape-string-regexp
 	https://www.npmjs.com/package/escape-string-regexp
 "
-SRC_URI="https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

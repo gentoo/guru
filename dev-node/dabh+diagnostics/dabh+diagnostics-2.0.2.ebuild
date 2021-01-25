@@ -3,16 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
+first="${PN%%+*}"
+second="${PN#*+}"
+SRC_URI="https://registry.npmjs.org/@${first}/${second}/-/${second}.tgz -> ${P}.tgz"
 DESCRIPTION="Tools for debugging your node.js modules and event loop"
 HOMEPAGE="
 	https://github.com/3rd-Eden/diagnostics
 	https://www.npmjs.com/package/@dabh/diagnostics
 "
-SRC_URI="https://registry.npmjs.org/@dabh/diagnostics/-/diagnostics-2.0.2.tgz -> ${P}.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

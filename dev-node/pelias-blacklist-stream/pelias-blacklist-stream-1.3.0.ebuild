@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Pelias document blacklist stream"
 HOMEPAGE="
 	https://github.com/pelias/blacklist-stream
 	https://www.npmjs.com/package/pelias-blacklist-stream
 "
-SRC_URI="https://registry.npmjs.org/pelias-blacklist-stream/-/pelias-blacklist-stream-1.3.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/pelias-config
 	dev-node/through2
 "

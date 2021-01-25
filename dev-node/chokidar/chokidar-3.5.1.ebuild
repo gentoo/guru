@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Minimal and efficient cross-platform file watching library"
 HOMEPAGE="
 	https://github.com/paulmillr/chokidar
 	https://www.npmjs.com/package/chokidar
 "
-SRC_URI="https://registry.npmjs.org/chokidar/-/chokidar-3.5.1.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/anymatch
 	dev-node/braces
 	dev-node/glob-parent

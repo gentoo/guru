@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Detect whether or not an object is a Typed Array"
 HOMEPAGE="
 	https://github.com/hughsk/is-typedarray
 	https://www.npmjs.com/package/is-typedarray
 "
-SRC_URI="https://registry.npmjs.org/is-typedarray/-/is-typedarray-1.0.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

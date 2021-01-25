@@ -3,18 +3,19 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Object schema validation"
+first="${PN%%+*}"
+second="${PN#*+}"
+SRC_URI="https://registry.npmjs.org/@${first}/${second}/-/${second}.tgz -> ${P}.tgz"
 HOMEPAGE="
 	https://github.com/hapijs/joi
 	https://www.npmjs.com/package/@hapi/joi
 "
-SRC_URI="https://registry.npmjs.org/@hapi/joi/-/joi-17.1.1.tgz -> ${P}.tgz"
 LICENSE="BSD"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/hapi+address
 	dev-node/hapi+formula
 	dev-node/hapi+hoek

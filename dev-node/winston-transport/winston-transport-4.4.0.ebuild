@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Base stream implementations for winston@3 and up."
 HOMEPAGE="
 	https://github.com/winstonjs/winston-transport
 	https://www.npmjs.com/package/winston-transport
 "
-SRC_URI="https://registry.npmjs.org/winston-transport/-/winston-transport-4.4.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/readable-stream
 	dev-node/triple-beam
 "

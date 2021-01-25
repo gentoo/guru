@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Converts back a yargs argv object to its original array form"
 HOMEPAGE="
 	https://github.com/yargs/yargs-unparser
 	https://www.npmjs.com/package/yargs-unparser
 "
-SRC_URI="https://registry.npmjs.org/yargs-unparser/-/yargs-unparser-2.0.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/camelcase
 	dev-node/decamelize
 	dev-node/flat

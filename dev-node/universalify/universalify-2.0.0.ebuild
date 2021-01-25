@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Make a callback- or promise-based function support both promises and callbacks."
 HOMEPAGE="
 	https://github.com/RyanZim/universalify
 	https://www.npmjs.com/package/universalify
 "
-SRC_URI="https://registry.npmjs.org/universalify/-/universalify-2.0.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

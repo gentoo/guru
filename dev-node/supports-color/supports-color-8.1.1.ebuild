@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Detect whether a terminal supports color"
 HOMEPAGE="
 	https://github.com/chalk/supports-color
 	https://www.npmjs.com/package/supports-color
 "
-SRC_URI="https://registry.npmjs.org/supports-color/-/supports-color-8.1.1.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/has-flag
 "

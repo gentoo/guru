@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Minimal module to check if a file is executable."
 HOMEPAGE="
 	https://github.com/isaacs/isexe
 	https://www.npmjs.com/package/isexe
 "
-SRC_URI="https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

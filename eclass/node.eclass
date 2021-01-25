@@ -3,24 +3,31 @@
 
 EXPORT_FUNCTIONS src_prepare src_compile src_install
 
+RESTRICT+=" mirror"
 SLOT="0"
-IUSE=""
-DEPEND="net-libs/nodejs"
-RDEPEND="${DEPEND}"
-BDEPEND="
+
+[ -z "${SRC_URI}" ] && SRC_URI="https://registry.npmjs.org/${PN}/-/${P}.tgz"
+
+[ -z "${NODEJS_BDEPEND}" ] && BDEPEND+=" ${NODEJS_BDEPEND}"
+[ -z "${NODEJS_RDEPEND}" ] && RDEPEND+=" ${NODEJS_RDEPEND}"
+[ -z "${NODEJS_DEPEND}" ] && DEPEND+=" ${NODEJS_DEPEND}"
+[ -z "${RDEPEND}" ] && DEPEND+=" ${RDEPEND}"
+
+DEPEND+=" net-libs/nodejs"
+BDEPEND+="
 	app-misc/jq
 	net-misc/rsync
 	sys-apps/moreutils
 "
 S="${WORKDIR}/package"
 
-node-guru_src_prepare() {
+node_src_prepare() {
 	#remove version constraints on dependencies
 	jq 'if .dependencies? then .dependencies[] = "*" else . end' package.json | sponge package.json || die
 	default
 }
 
-node-guru_src_compile() {
+node_src_compile() {
 	#here we trick npm into believing there are no dependencies so it will not try to fetch them
 	jq 'with_entries(if .key == "dependencies" then .key = "deps" else . end)' package.json | sponge package.json || die
 
@@ -31,12 +38,11 @@ node-guru_src_compile() {
 	jq 'with_entries(if .key == "deps" then .key = "dependencies" else . end)' package.json | sponge package.json || die
 }
 
-node-guru_src_install() {
+node_src_install() {
 	#copy files instead of symlinks
 	rsync -avLAX "${T}/prefix/" "${ED}/usr" --exclude /bin || die
 
-	if [ -d "${T}/prefix/bin" ]
-	then
+	if [ -d "${T}/prefix/bin" ] ; then
 		#keep the symlinks
 		rsync -avAX "${T}/prefix/bin/" "${ED}/usr/bin" || die
 	fi

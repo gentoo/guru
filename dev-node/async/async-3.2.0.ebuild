@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Higher-order functions and common patterns for asynchronous code"
 HOMEPAGE="
 	https://caolan.github.io/async/
 	https://www.npmjs.com/package/async
 "
-SRC_URI="https://registry.npmjs.org/async/-/async-3.2.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

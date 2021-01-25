@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Convert a dash/dot/underscore/space separated string to camelCase or PascalCase"
 HOMEPAGE="
 	https://github.com/sindresorhus/camelcase
 	https://www.npmjs.com/package/camelcase
 "
-SRC_URI="https://registry.npmjs.org/camelcase/-/camelcase-6.2.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

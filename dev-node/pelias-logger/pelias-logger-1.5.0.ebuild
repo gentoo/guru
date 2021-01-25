@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="The centralized logger package for Pelias."
 HOMEPAGE="
 	https://github.com/pelias/logger
 	https://www.npmjs.com/package/pelias-logger
 "
-SRC_URI="https://registry.npmjs.org/pelias-logger/-/pelias-logger-1.5.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/winston
 	dev-node/pelias-config
 "

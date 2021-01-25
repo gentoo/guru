@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Node.js 0.12 path.isAbsolute() ponyfill"
 HOMEPAGE="
 	https://github.com/sindresorhus/path-is-absolute
 	https://www.npmjs.com/package/path-is-absolute
 "
-SRC_URI="https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-2.0.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

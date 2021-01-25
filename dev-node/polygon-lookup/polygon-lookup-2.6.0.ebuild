@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Fast point-in-polygon intersection for large numbers of polygons."
 HOMEPAGE="
 	https://github.com/pelias/polygon-lookup
 	https://www.npmjs.com/package/polygon-lookup
 "
-SRC_URI="https://registry.npmjs.org/polygon-lookup/-/polygon-lookup-2.6.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/lodash
 	dev-node/point-in-polygon
 	dev-node/rbush

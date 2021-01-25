@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Brace expansion as known from sh/bash"
 HOMEPAGE="
 	https://github.com/juliangruber/brace-expansion
 	https://www.npmjs.com/package/brace-expansion
 "
-SRC_URI="https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/balanced-match
 "

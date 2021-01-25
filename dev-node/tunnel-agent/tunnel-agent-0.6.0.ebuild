@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="HTTP proxy tunneling agent. Formerly part of mikeal/request, now a standalone module."
 HOMEPAGE="
 	https://github.com/mikeal/tunnel-agent
 	https://www.npmjs.com/package/tunnel-agent
 "
-SRC_URI="https://registry.npmjs.org/tunnel-agent/-/tunnel-agent-0.6.0.tgz"
 LICENSE="Apache-2.0"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/safe-buffer
 "

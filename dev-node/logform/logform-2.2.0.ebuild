@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="An mutable object-based log format designed for chaining & objectMode streams."
 HOMEPAGE="
 	https://github.com/winstonjs/logform
 	https://www.npmjs.com/package/logform
 "
-SRC_URI="https://registry.npmjs.org/logform/-/logform-2.2.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/colors
 	dev-node/fast-safe-stringify
 	dev-node/fecha

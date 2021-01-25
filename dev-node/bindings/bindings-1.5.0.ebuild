@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Helper module for loading your native module's .node file"
 HOMEPAGE="
 	https://github.com/TooTallNate/node-bindings
 	https://www.npmjs.com/package/bindings
 "
-SRC_URI="https://registry.npmjs.org/bindings/-/bindings-1.5.0.tgz -> ${P}.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

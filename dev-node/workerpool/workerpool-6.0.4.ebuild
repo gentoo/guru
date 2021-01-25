@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Offload tasks to a pool of workers on node.js and in the browser"
 HOMEPAGE="
 	https://github.com/josdejong/workerpool
 	https://www.npmjs.com/package/workerpool
 "
-SRC_URI="https://registry.npmjs.org/workerpool/-/workerpool-6.0.4.tgz"
 LICENSE="Apache-2.0"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

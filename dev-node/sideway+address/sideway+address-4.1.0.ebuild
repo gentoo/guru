@@ -3,17 +3,18 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
+first="${PN%%+*}"
+second="${PN#*+}"
+SRC_URI="https://registry.npmjs.org/@${first}/${second}/-/${second}.tgz -> ${P}.tgz"
 DESCRIPTION="Email address and domain validation"
 HOMEPAGE="
 	https://github.com/sideway/address
 	https://www.npmjs.com/package/@sideway/address
 "
-SRC_URI="https://registry.npmjs.org/@sideway/address/-/address-4.1.0.tgz -> ${P}.tgz"
 LICENSE="BSD"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/hapi+hoek
 "

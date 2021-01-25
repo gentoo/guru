@@ -3,16 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Return the filename and line number of the calling function"
+first="${PN%%+*}"
+second="${PN#*+}"
+SRC_URI="https://registry.npmjs.org/@${first}/${second}/-/${second}.tgz -> ${P}.tgz"
 HOMEPAGE="
 	https://github.com/hapijs/pinpoint
 	https://www.npmjs.com/package/@hapi/pinpoint
 "
-SRC_URI="https://registry.npmjs.org/@hapi/pinpoint/-/pinpoint-2.0.0.tgz -> ${P}.tgz"
 LICENSE="BSD"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Recursively iterates over specified directory, require()'ing each file, and returning a nested hash structure containing those modules."
 HOMEPAGE="
 	https://github.com/troygoode/node-require-directory/
 	https://www.npmjs.com/package/require-directory
 "
-SRC_URI="https://registry.npmjs.org/require-directory/-/require-directory-2.1.1.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Take a nested Javascript object and flatten it, or unflatten an object with delimited keys"
 HOMEPAGE="
 	https://github.com/hughsk/flat
 	https://www.npmjs.com/package/flat
 "
-SRC_URI="https://registry.npmjs.org/flat/-/flat-5.0.2.tgz"
 LICENSE="BSD"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

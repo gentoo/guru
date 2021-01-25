@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Another JSON Schema Validator"
 HOMEPAGE="
 	https://github.com/ajv-validator/ajv
 	https://www.npmjs.com/package/ajv
 "
-SRC_URI="https://registry.npmjs.org/ajv/-/ajv-7.0.3.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/fast-deep-equal
 	dev-node/json-schema-traverse
 	dev-node/require-from-string

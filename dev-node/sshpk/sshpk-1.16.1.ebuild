@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="A library for finding and using SSH public keys"
 HOMEPAGE="
 	https://github.com/arekinath/node-sshpk
 	https://www.npmjs.com/package/sshpk
 "
-SRC_URI="https://registry.npmjs.org/sshpk/-/sshpk-1.16.1.tgz -> ${P}.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

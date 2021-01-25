@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="get colors in your node.js console"
 HOMEPAGE="
 	https://github.com/Marak/colors.js
 	https://www.npmjs.com/package/colors
 "
-SRC_URI="https://registry.npmjs.org/colors/-/colors-1.4.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

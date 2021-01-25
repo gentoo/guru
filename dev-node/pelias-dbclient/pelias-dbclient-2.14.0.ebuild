@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Database client for Pelias import pipelines"
 HOMEPAGE="
 	https://github.com/pelias/dbclient
 	https://www.npmjs.com/package/pelias-dbclient
 "
-SRC_URI="https://registry.npmjs.org/pelias-dbclient/-/pelias-dbclient-2.14.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/hapi+joi
 	dev-node/elasticsearch
 	dev-node/pelias-config

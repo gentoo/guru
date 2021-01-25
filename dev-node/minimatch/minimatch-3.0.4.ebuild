@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="a glob matcher in javascript"
 HOMEPAGE="
 	https://github.com/isaacs/minimatch
 	https://www.npmjs.com/package/minimatch
 "
-SRC_URI="https://registry.npmjs.org/minimatch/-/minimatch-3.0.4.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/brace-expansion
 "

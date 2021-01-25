@@ -3,17 +3,18 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Topological sorting with grouping support"
+first="${PN%%+*}"
+second="${PN#*+}"
+SRC_URI="https://registry.npmjs.org/@${first}/${second}/-/${second}.tgz -> ${P}.tgz"
 HOMEPAGE="
 	https://github.com/hapijs/topo
 	https://www.npmjs.com/package/@hapi/topo
 "
-SRC_URI="https://registry.npmjs.org/@hapi/topo/-/topo-5.0.0.tgz -> ${P}.tgz"
 LICENSE="BSD"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/hapi+hoek
 "

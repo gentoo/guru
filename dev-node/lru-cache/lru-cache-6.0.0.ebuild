@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="A cache object that deletes the least-recently-used items."
 HOMEPAGE="
 	https://github.com/isaacs/node-lru-cache
 	https://www.npmjs.com/package/lru-cache
 "
-SRC_URI="https://registry.npmjs.org/lru-cache/-/lru-cache-6.0.0.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/yallist
 "

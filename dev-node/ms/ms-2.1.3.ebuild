@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Tiny millisecond conversion utility"
 HOMEPAGE="
 	https://github.com/vercel/ms
 	https://www.npmjs.com/package/ms
 "
-SRC_URI="https://registry.npmjs.org/ms/-/ms-2.1.3.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="random bytes from browserify stand alone"
 HOMEPAGE="
 	https://github.com/crypto-browserify/randombytes
 	https://www.npmjs.com/package/randombytes
 "
-SRC_URI="https://registry.npmjs.org/randombytes/-/randombytes-2.1.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/safe-buffer
 "

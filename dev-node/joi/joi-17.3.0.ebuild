@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Object schema validation"
 HOMEPAGE="
 	https://github.com/sideway/joi
 	https://www.npmjs.com/package/joi
 "
-SRC_URI="https://registry.npmjs.org/joi/-/joi-17.3.0.tgz"
 LICENSE="BSD"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/hapi+hoek
 	dev-node/hapi+topo
 	dev-node/sideway+address

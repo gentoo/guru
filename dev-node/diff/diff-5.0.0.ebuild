@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="A javascript text diff implementation."
 HOMEPAGE="
 	https://github.com/kpdecker/jsdiff
 	https://www.npmjs.com/package/diff
 "
-SRC_URI="https://registry.npmjs.org/diff/-/diff-5.0.0.tgz"
 LICENSE="BSD"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

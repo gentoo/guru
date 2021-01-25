@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="HTTP methods that node supports"
 HOMEPAGE="
 	https://github.com/jshttp/methods
 	https://www.npmjs.com/package/methods
 "
-SRC_URI="https://registry.npmjs.org/methods/-/methods-1.1.2.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="easily create complex multi-column command-line-interfaces"
 HOMEPAGE="
 	https://github.com/yargs/cliui
 	https://www.npmjs.com/package/cliui
 "
-SRC_URI="https://registry.npmjs.org/cliui/-/cliui-7.0.4.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/string-width
 	dev-node/strip-ansi
 	dev-node/wrap-ansi

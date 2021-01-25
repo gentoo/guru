@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Serialize JavaScript to a superset of JSON that includes regular expressions and functions."
 HOMEPAGE="
 	https://github.com/yahoo/serialize-javascript
 	https://www.npmjs.com/package/serialize-javascript
 "
-SRC_URI="https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-5.0.1.tgz"
 LICENSE="BSD"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/randombytes
 "

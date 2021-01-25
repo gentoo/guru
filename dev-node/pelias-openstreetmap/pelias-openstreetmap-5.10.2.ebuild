@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Pelias openstreetmap utilities"
 HOMEPAGE="
 	https://github.com/mapzen/pelias-openstreetmap
 	https://www.npmjs.com/package/pelias-openstreetmap
 "
-SRC_URI="https://registry.npmjs.org/pelias-openstreetmap/-/pelias-openstreetmap-5.10.2.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/async
 	dev-node/combined-stream
 	dev-node/extend

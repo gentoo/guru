@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Run a function exactly one time"
 HOMEPAGE="
 	https://github.com/isaacs/once
 	https://www.npmjs.com/package/once
 "
-SRC_URI="https://registry.npmjs.org/once/-/once-1.4.0.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/wrappy
 "

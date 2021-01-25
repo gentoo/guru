@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Importer for Who's on First"
 HOMEPAGE="
 	https://github.com/pelias/whosonfirst
 	https://www.npmjs.com/package/pelias-whosonfirst
 "
-SRC_URI="https://registry.npmjs.org/pelias-whosonfirst/-/pelias-whosonfirst-5.1.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/hapi+joi
 	dev-node/async
 	dev-node/better-sqlite3

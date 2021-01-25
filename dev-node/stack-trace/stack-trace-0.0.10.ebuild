@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Get v8 stack traces as an array of CallSite objects."
 HOMEPAGE="
 	https://github.com/felixge/node-stack-trace
 	https://www.npmjs.com/package/stack-trace
 "
-SRC_URI="https://registry.npmjs.org/stack-trace/-/stack-trace-0.0.10.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

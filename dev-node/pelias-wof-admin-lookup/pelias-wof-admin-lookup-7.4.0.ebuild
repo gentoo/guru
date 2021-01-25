@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="A fast, local, streaming Who's On First administrative hierarchy lookup."
 HOMEPAGE="
 	https://github.com/pelias/wof-admin-lookup
 	https://www.npmjs.com/package/pelias-wof-admin-lookup
 "
-SRC_URI="https://registry.npmjs.org/pelias-wof-admin-lookup/-/pelias-wof-admin-lookup-7.4.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/hapi+joi
 	dev-node/async
 	dev-node/csv-parse

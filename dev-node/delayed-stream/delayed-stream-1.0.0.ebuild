@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Buffers events from a stream until you are ready to handle them."
 HOMEPAGE="
 	https://github.com/felixge/node-delayed-stream
 	https://www.npmjs.com/package/delayed-stream
 "
-SRC_URI="https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

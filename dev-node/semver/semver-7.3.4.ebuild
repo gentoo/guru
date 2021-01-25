@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="The semantic version parser used by npm."
 HOMEPAGE="
 	https://github.com/npm/node-semver
 	https://www.npmjs.com/package/semver
 "
-SRC_URI="https://registry.npmjs.org/semver/-/semver-7.3.4.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/lru-cache
 "

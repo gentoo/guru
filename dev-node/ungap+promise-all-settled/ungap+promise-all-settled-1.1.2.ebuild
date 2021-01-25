@@ -3,16 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
+first="${PN%%+*}"
+second="${PN#*+}"
+SRC_URI="https://registry.npmjs.org/@${first}/${second}/-/${second}.tgz -> ${P}.tgz"
 DESCRIPTION="A cross platform Promise.allSettled polyfill"
 HOMEPAGE="
 	https://github.com/ungap/promise-all-settled
 	https://www.npmjs.com/package/@ungap/promise-all-settled
 "
-SRC_URI="https://registry.npmjs.org/@ungap/promise-all-settled/-/promise-all-settled-1.1.2.tgz -> ${P}.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

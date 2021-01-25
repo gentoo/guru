@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="A comprehensive library for mime-type mapping"
 HOMEPAGE="
 	https://github.com/broofa/mime
 	https://www.npmjs.com/package/mime
 "
-SRC_URI="https://registry.npmjs.org/mime/-/mime-2.5.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

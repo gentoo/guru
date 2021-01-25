@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Fast deep equal"
 HOMEPAGE="
 	https://github.com/epoberezkin/fast-deep-equal
 	https://www.npmjs.com/package/fast-deep-equal
 "
-SRC_URI="https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz -> ${P}.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

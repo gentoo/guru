@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Browser-friendly inheritance fully compatible with standard node.js inherits()"
 HOMEPAGE="
 	https://github.com/isaacs/inherits
 	https://www.npmjs.com/package/inherits
 "
-SRC_URI="https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

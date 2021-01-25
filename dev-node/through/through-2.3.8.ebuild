@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="simplified stream construction"
 HOMEPAGE="
 	https://github.com/dominictarr/through
 	https://www.npmjs.com/package/through
 "
-SRC_URI="https://registry.npmjs.org/through/-/through-2.3.8.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

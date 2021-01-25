@@ -3,15 +3,11 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="A tiny and fast selection algorithm in JavaScript."
 HOMEPAGE="
 	https://www.npmjs.com/package/quickselect
 "
-SRC_URI="https://registry.npmjs.org/quickselect/-/quickselect-${PV}.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

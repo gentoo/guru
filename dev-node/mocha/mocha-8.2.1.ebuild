@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="simple, flexible, fun test framework"
 HOMEPAGE="
 	https://mochajs.org/
 	https://www.npmjs.com/package/mocha
 "
-SRC_URI="https://registry.npmjs.org/mocha/-/mocha-8.2.1.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/ungap+promise-all-settled
 	dev-node/ansi-colors
 	dev-node/browser-stdout

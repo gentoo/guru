@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="A tiny (183B to 210B) and fast utility to ascend parent directories"
 HOMEPAGE="
 	https://github.com/lukeed/escalade
 	https://www.npmjs.com/package/escalade
 "
-SRC_URI="https://registry.npmjs.org/escalade/-/escalade-3.1.1.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

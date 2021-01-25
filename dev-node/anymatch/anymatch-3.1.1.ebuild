@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Matches strings against configurable strings, globs, regular expressions, and/or functions"
 HOMEPAGE="
 	https://github.com/micromatch/anymatch
 	https://www.npmjs.com/package/anymatch
 "
-SRC_URI="https://registry.npmjs.org/anymatch/-/anymatch-3.1.1.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/normalize-path
 	dev-node/picomatch
 "

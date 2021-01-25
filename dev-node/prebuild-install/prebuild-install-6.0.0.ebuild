@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="A command line tool to easily install prebuilt binaries for multiple version of node/iojs on a specific platform"
 HOMEPAGE="
 	https://github.com/prebuild/prebuild-install
 	https://www.npmjs.com/package/prebuild-install
 "
-SRC_URI="https://registry.npmjs.org/prebuild-install/-/prebuild-install-6.0.0.tgz -> ${P}.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

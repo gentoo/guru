@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
-DESCRIPTION="Easily add ANSI colors to your text and symbols in the terminal. A faster drop-in replacement for chalk, kleur and turbocolor (without the dependencies and rendering bugs)."
+DESCRIPTION="Easily add ANSI colors to your text and symbols in the terminal"
 HOMEPAGE="
 	https://github.com/doowb/ansi-colors
 	https://www.npmjs.com/package/ansi-colors
 "
-SRC_URI="https://registry.npmjs.org/ansi-colors/-/ansi-colors-4.1.1.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

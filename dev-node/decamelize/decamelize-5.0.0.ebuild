@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Convert a camelized string into a lowercased one with a custom separator"
 HOMEPAGE="
 	https://github.com/sindresorhus/decamelize
 	https://www.npmjs.com/package/decamelize
 "
-SRC_URI="https://registry.npmjs.org/decamelize/-/decamelize-5.0.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

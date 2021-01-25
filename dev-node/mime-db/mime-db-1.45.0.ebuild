@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Media Type Database"
 HOMEPAGE="
 	https://github.com/jshttp/mime-db
 	https://www.npmjs.com/package/mime-db
 "
-SRC_URI="https://registry.npmjs.org/mime-db/-/mime-db-1.45.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

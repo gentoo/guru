@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Like which(1) unix command. Find the first instance of an executable in the PATH."
 HOMEPAGE="
 	https://github.com/isaacs/node-which
 	https://www.npmjs.com/package/which
 "
-SRC_URI="https://registry.npmjs.org/which/-/which-2.0.2.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/isexe
 "

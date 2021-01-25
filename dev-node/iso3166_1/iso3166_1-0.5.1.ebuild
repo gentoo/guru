@@ -3,17 +3,14 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
+MYPN="${PN/_/-}"
+SRC_URI="https://registry.npmjs.org/${MYPN}/-/${MYPN}-${PV}.tgz -> ${P}.tgz"
 DESCRIPTION="Tiny, fast, modular ISO 3166-1 alpha-2/alpha-3 parser."
 HOMEPAGE="
 	https://github.com/moimikey/iso3166-1
 	https://www.npmjs.com/package/iso3166-1
 "
-SRC_URI="https://registry.npmjs.org/iso3166-1/-/iso3166-1-0.5.1.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"
-MYPN="${PN/_/-}"

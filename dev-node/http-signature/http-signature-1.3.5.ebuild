@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Reference implementation of Joyent's HTTP Signature scheme."
 HOMEPAGE="
 	https://github.com/joyent/node-http-signature/
 	https://www.npmjs.com/package/http-signature
 "
-SRC_URI="https://registry.npmjs.org/http-signature/-/http-signature-1.3.5.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/assert-plus
 	dev-node/jsprim
 	dev-node/sshpk

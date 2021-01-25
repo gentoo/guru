@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Run multiple promise-returning & async functions with limited concurrency"
 HOMEPAGE="
 	https://github.com/sindresorhus/p-limit
 	https://www.npmjs.com/package/p-limit
 "
-SRC_URI="https://registry.npmjs.org/p-limit/-/p-limit-3.1.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/yocto-queue
 "

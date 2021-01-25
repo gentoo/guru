@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="elegant & feature rich browser / node HTTP with a fluent API"
 HOMEPAGE="
 	https://github.com/visionmedia/superagent
 	https://www.npmjs.com/package/superagent
 "
-SRC_URI="https://registry.npmjs.org/superagent/-/superagent-6.1.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/component-emitter
 	dev-node/cookiejar
 	dev-node/debug

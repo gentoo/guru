@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="a little globber"
 HOMEPAGE="
 	https://github.com/isaacs/node-glob
 	https://www.npmjs.com/package/glob
 "
-SRC_URI="https://registry.npmjs.org/glob/-/glob-7.1.6.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/fs_realpath
 	dev-node/inflight
 	dev-node/inherits

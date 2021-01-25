@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="RFC6265 Cookies and Cookie Jar for node.js"
 HOMEPAGE="
 	https://github.com/salesforce/tough-cookie
 	https://www.npmjs.com/package/tough-cookie
 "
-SRC_URI="https://registry.npmjs.org/tough-cookie/-/tough-cookie-4.0.0.tgz"
 LICENSE="BSD"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/psl
 	dev-node/punycode
 	dev-node/universalify

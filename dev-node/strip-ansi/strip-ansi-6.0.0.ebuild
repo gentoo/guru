@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Strip ANSI escape codes from a string"
 HOMEPAGE="
 	https://github.com/chalk/strip-ansi
 	https://www.npmjs.com/package/strip-ansi
 "
-SRC_URI="https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/ansi-regex
 "

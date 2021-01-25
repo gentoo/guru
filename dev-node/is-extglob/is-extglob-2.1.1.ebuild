@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Returns true if a string has an extglob."
 HOMEPAGE="
 	https://github.com/jonschlinkert/is-extglob
 	https://www.npmjs.com/package/is-extglob
 "
-SRC_URI="https://registry.npmjs.org/is-extglob/-/is-extglob-2.1.1.tgz -> ${P}.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

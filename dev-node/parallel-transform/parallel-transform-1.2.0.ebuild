@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Transform stream that allows you to run your transforms in parallel without changing the order"
 HOMEPAGE="
 	https://github.com/mafintosh/parallel-transform
 	https://www.npmjs.com/package/parallel-transform
 "
-SRC_URI="https://registry.npmjs.org/parallel-transform/-/parallel-transform-1.2.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/cyclist
 	dev-node/inherits
 	dev-node/readable-stream

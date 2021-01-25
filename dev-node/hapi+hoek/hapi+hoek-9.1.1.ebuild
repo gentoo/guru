@@ -3,16 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
+first="${PN%%+*}"
+second="${PN#*+}"
+SRC_URI="https://registry.npmjs.org/@${first}/${second}/-/${second}.tgz -> ${P}.tgz"
 DESCRIPTION="General purpose node utilities"
 HOMEPAGE="
 	https://github.com/hapijs/hoek
 	https://www.npmjs.com/package/@hapi/hoek
 "
-SRC_URI="https://registry.npmjs.org/@hapi/hoek/-/hoek-9.1.1.tgz -> ${P}.tgz"
 LICENSE="BSD"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

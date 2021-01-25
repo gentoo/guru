@@ -3,16 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
+first="${PN%%+*}"
+second="${PN#*+}"
+SRC_URI="https://registry.npmjs.org/@${first}/${second}/-/${second}.tgz -> ${P}.tgz"
 DESCRIPTION="Math and string formula parser."
 HOMEPAGE="
 	https://github.com/hapijs/formula
 	https://www.npmjs.com/package/@hapi/formula
 "
-SRC_URI="https://registry.npmjs.org/@hapi/formula/-/formula-3.0.0.tgz -> ${P}.tgz"
 LICENSE="BSD"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

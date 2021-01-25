@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Checks whether a value is an object"
 HOMEPAGE="
 	https://github.com/inspect-js/is-object
 	https://www.npmjs.com/package/is-object
 "
-SRC_URI="https://registry.npmjs.org/is-object/-/is-object-1.0.2.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

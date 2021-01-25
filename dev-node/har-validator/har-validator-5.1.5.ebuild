@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Extremely fast HTTP Archive (HAR) validator using JSON Schema"
 HOMEPAGE="
 	https://github.com/ahmadnassri/node-har-validator
 	https://www.npmjs.com/package/har-validator
 "
-SRC_URI="https://registry.npmjs.org/har-validator/-/har-validator-5.1.5.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/ajv
 	dev-node/har-schema
 "

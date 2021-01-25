@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="(recursive)? merging of (cloned)? objects."
 HOMEPAGE="
 	https://github.com/yeikos/js.merge
 	https://www.npmjs.com/package/merge
 "
-SRC_URI="https://registry.npmjs.org/merge/-/merge-2.1.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Returns true if a number or string value is a finite number. Useful for regex matches, parsing, user input, etc."
 HOMEPAGE="
 	https://github.com/jonschlinkert/is-number
 	https://www.npmjs.com/package/is-number
 "
-SRC_URI="https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz -> ${P}.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="check whether a command line command exists in the current environment"
 HOMEPAGE="
 	https://github.com/mathisonian/command-exists
 	https://www.npmjs.com/package/command-exists
 "
-SRC_URI="https://registry.npmjs.org/command-exists/-/command-exists-1.2.9.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

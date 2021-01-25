@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="A logger for just about everything."
 HOMEPAGE="
 	https://github.com/winstonjs/winston
 	https://www.npmjs.com/package/winston
 "
-SRC_URI="https://registry.npmjs.org/winston/-/winston-3.3.3.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/async
 	dev-node/dabh+diagnostics
 	dev-node/is-stream

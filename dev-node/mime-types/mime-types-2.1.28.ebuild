@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="The ultimate javascript content-type utility."
 HOMEPAGE="
 	https://github.com/jshttp/mime-types
 	https://www.npmjs.com/package/mime-types
 "
-SRC_URI="https://registry.npmjs.org/mime-types/-/mime-types-2.1.28.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/mime-db
 "

@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="yargs the modern, pirate-themed, successor to optimist."
 HOMEPAGE="
 	https://yargs.js.org/
 	https://www.npmjs.com/package/yargs
 "
-SRC_URI="https://registry.npmjs.org/yargs/-/yargs-16.2.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/cliui
 	dev-node/escalade
 	dev-node/get-caller-file

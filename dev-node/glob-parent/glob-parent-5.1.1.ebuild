@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Extract the non-magic parent path from a glob string."
 HOMEPAGE="
 	https://github.com/gulpjs/glob-parent
 	https://www.npmjs.com/package/glob-parent
 "
-SRC_URI="https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.1.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/is-glob
 "

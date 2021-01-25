@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Port of jQuery.extend for node.js and the browser"
 HOMEPAGE="
 	https://github.com/justmoon/node-extend
 	https://www.npmjs.com/package/extend
 "
-SRC_URI="https://registry.npmjs.org/extend/-/extend-3.0.2.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="utilities for primitive JavaScript types"
 HOMEPAGE="
 	https://github.com/joyent/node-jsprim
 	https://www.npmjs.com/package/jsprim
 "
-SRC_URI="https://registry.npmjs.org/jsprim/-/jsprim-2.0.0.tgz -> ${P}.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

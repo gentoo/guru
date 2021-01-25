@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Run the supplied function exactly one time (once)"
 HOMEPAGE="
 	https://github.com/3rd-Eden/one-time
 	https://www.npmjs.com/package/one-time
 "
-SRC_URI="https://registry.npmjs.org/one-time/-/one-time-1.0.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/fn_name
 "

@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="HTTP Agent that keeps socket connections alive between keep-alive requests. Formerly part of mikeal/request, now a standalone module."
 HOMEPAGE="
 	https://github.com/mikeal/forever-agent
 	https://www.npmjs.com/package/forever-agent
 "
-SRC_URI="https://registry.npmjs.org/forever-agent/-/forever-agent-0.6.1.tgz"
 LICENSE="Apache-2.0"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

@@ -3,16 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
+first="${PN%%+*}"
+second="${PN#*+}"
+SRC_URI="https://registry.npmjs.org/@${first}/${second}/-/${second}.tgz -> ${P}.tgz"
 DESCRIPTION="Math and string formula parser."
 HOMEPAGE="
 	https://github.com/sideway/formula
 	https://www.npmjs.com/package/@sideway/formula
 "
-SRC_URI="https://registry.npmjs.org/@sideway/formula/-/formula-3.0.0.tgz -> ${P}.tgz"
 LICENSE="BSD"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

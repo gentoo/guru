@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Wordwrap a string with ANSI escape codes"
 HOMEPAGE="
 	https://github.com/chalk/wrap-ansi
 	https://www.npmjs.com/package/wrap-ansi
 "
-SRC_URI="https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz -> ${P}.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Simplified HTTP request client."
 HOMEPAGE="
 	https://github.com/request/request
 	https://www.npmjs.com/package/request
 "
-SRC_URI="https://registry.npmjs.org/request/-/request-2.88.2.tgz"
 LICENSE="Apache-2.0"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/aws-sign2
 	dev-node/aws4
 	dev-node/caseless

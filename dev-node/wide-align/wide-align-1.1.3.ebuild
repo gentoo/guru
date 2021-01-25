@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="A wide-character aware text alignment function for use on the console or with fixed width fonts."
 HOMEPAGE="
 	https://github.com/iarna/wide-align
 	https://www.npmjs.com/package/wide-align
 "
-SRC_URI="https://registry.npmjs.org/wide-align/-/wide-align-1.1.3.tgz"
 LICENSE="ISC"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/string-width
 "

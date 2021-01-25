@@ -3,18 +3,16 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Module that provides a convenience wrapper around HTTP GET microservices"
 HOMEPAGE="
 	https://github.com/pelias/microservice-wrapper
 	https://www.npmjs.com/package/pelias-microservice-wrapper
 "
-SRC_URI="https://registry.npmjs.org/pelias-microservice-wrapper/-/pelias-microservice-wrapper-1.9.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/lodash
 	dev-node/pelias-logger
 	dev-node/superagent

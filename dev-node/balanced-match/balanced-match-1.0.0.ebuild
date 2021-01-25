@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="Match balanced string pairs"
 HOMEPAGE="
 	https://github.com/juliangruber/balanced-match
 	https://www.npmjs.com/package/balanced-match
 "
-SRC_URI="https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

@@ -3,16 +3,12 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="A regular expression to match all Emoji-only symbols as per the Unicode Standard."
 HOMEPAGE="
 	https://mths.be/emoji-regex
 	https://www.npmjs.com/package/emoji-regex
 "
-SRC_URI="https://registry.npmjs.org/emoji-regex/-/emoji-regex-9.2.0.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
-"

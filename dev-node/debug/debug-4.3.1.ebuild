@@ -3,17 +3,15 @@
 
 EAPI=7
 
-inherit node-guru
+inherit node
 
 DESCRIPTION="small debugging utility"
 HOMEPAGE="
 	https://github.com/visionmedia/debug
 	https://www.npmjs.com/package/debug
 "
-SRC_URI="https://registry.npmjs.org/debug/-/debug-4.3.1.tgz"
 LICENSE="MIT"
 KEYWORDS="~amd64"
-RDEPEND="
-	${DEPEND}
+NODEJS_RDEPEND="
 	dev-node/ms
 "
