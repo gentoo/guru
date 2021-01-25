@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -60,6 +60,7 @@ DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtimageformats:5
 	dev-qt/qtsvg:5
+	dev-qt/qtx11extras:5
 "
 BDEPEND="
 	app-doc/doxygen

@@ -61,6 +61,7 @@ DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtimageformats:5
 	dev-qt/qtsvg:5
+	dev-qt/qtx11extras:5
 "
 BDEPEND="
 	dev-lang/swig
