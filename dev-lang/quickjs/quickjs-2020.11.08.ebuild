@@ -1,4 +1,4 @@
-# Copyright 2021 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
+# Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
