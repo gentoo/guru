@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+
 inherit node-guru
 
 DESCRIPTION="AWS signing. Originally pulled from LearnBoost/knox, maintained as vendor in request, now a standalone module."

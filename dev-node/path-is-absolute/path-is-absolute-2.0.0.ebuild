@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+
 inherit node-guru
 
 DESCRIPTION="Node.js 0.12 path.isAbsolute() ponyfill"

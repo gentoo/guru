@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+
 inherit node-guru
 
 DESCRIPTION="A through2 wrapper that just receives chunks and nothing else."

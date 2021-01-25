@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+
 inherit node-guru
 
 DESCRIPTION="A tiny wrapper around Node.js streams.Transform (Streams2/3) to avoid explicit subclassing noise"
