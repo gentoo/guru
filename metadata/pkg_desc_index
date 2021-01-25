@@ -39,7 +39,9 @@ app-emulation/dxvk-bin 1.7.2 1.7.3: Vulkan-based implementation of D3D9, D3D10 a
 app-emulation/nvidia-container-toolkit 1.4.0: NVIDIA container runtime toolkit
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/apidb 4.3.0_beta 5.0.0_alpha 5.0.0_alpha8 5.0.0_alpha19 5.0.0_alpha20 5.8.0_beta: API Generator for Database acces.
+app-misc/brightness-control 2.0_p20200629: Qt Brightness Controller in Python
 app-misc/cheat 4.0.2 4.2.0 4.2.0-r1: cheat allows you to create and view interactive cheatsheets on the command-line
+app-misc/ddcui 0.1.2: Graphical user interface for ddcutil - control monitor settings
 app-misc/doublecmd-bin 0.9.9 0.9.10: Free cross platform open source file manager with two panels side by side.
 app-misc/fetsh 1.7 1.8 9999: A fetch written in POSIX shell without any external commands
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -118,6 +120,7 @@ dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.07.1 1.07.2 1.07.2-r1 1.07.2-r2: A free/open source, multi-platform BASIC compiler.
 dev-lang/fbc-bootstrap 1.07.2: Bootstrap package for dev-lang/fbc
 dev-lang/gleam 0.11.2 0.12.0 0.12.1: A statically typed functional language for the BEAM
+dev-lang/quickjs 2020.11.08: Small embeddable Javascript engine
 dev-lang/wren 0.3.0: The Wren Programming Language
 dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
 dev-libs/cgicc 3.2.19: A C++ class library for writing CGI applications

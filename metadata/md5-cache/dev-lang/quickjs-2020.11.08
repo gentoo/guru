@@ -1,0 +1,9 @@
+DEFINED_PHASES=prepare
+DESCRIPTION=Small embeddable Javascript engine
+EAPI=7
+HOMEPAGE=https://bellard.org/quickjs/
+KEYWORDS=~amd64
+LICENSE=MIT
+SLOT=0
+SRC_URI=https://bellard.org/quickjs/quickjs-2020-11-08.tar.xz
+_md5_=23dde0641dafe75040ab8e5468d07842
