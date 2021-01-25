@@ -4,7 +4,6 @@
 EAPI=7
 inherit node-guru
 
-inherit node-guru
 DESCRIPTION="Pass two numbers, get a regex-compatible source string for matching ranges. Validated against more than 2.78 million test assertions."
 HOMEPAGE="
 	https://github.com/micromatch/to-regex-range
@@ -15,4 +14,5 @@ LICENSE="MIT"
 KEYWORDS="~amd64"
 RDEPEND="
 	${DEPEND}
+	dev-node/is-number
 "

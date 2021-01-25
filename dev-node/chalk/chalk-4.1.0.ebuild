@@ -14,4 +14,5 @@ LICENSE="MIT"
 KEYWORDS="~amd64"
 RDEPEND="
 	${DEPEND}
+	dev-node/ansi-styles
 "

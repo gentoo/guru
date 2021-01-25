@@ -21,5 +21,4 @@ RDEPEND="
 	dev-node/is-glob
 	dev-node/normalize-path
 	dev-node/readdirp
-	dev-node/fsevents
 "

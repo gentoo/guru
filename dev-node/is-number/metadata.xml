@@ -6,7 +6,7 @@
 		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>https://github.com/fsevents/fsevents/issues</bugs-to>
-		<remote-id type="github">fsevents/fsevents</remote-id>
+		<bugs-to>https://github.com/jonschlinkert/is-number/issues</bugs-to>
+		<remote-id type="github">jonschlinkert/is-number</remote-id>
 	</upstream>
 </pkgmetadata>
