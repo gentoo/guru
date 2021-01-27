@@ -12,7 +12,8 @@ HOMEPAGE="
 "
 LICENSE="BSD"
 KEYWORDS="~amd64"
-NODEJS_RDEPEND="
+RDEPEND="
+	${NODEJS_RDEPEND}
 	dev-node/psl
 	dev-node/punycode
 	dev-node/universalify

@@ -12,7 +12,8 @@ HOMEPAGE="
 "
 LICENSE="MIT"
 KEYWORDS="~amd64"
-NODEJS_RDEPEND="
+RDEPEND="
+	${NODEJS_RDEPEND}
 	dev-node/assert-plus
 	dev-node/jsprim
 	dev-node/sshpk

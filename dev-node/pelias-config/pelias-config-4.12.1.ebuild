@@ -10,9 +10,11 @@ HOMEPAGE="
 	https://github.com/pelias/config
 	https://www.npmjs.com/package/pelias-config
 "
+
 LICENSE="MIT"
 KEYWORDS="~amd64"
-NODEJS_RDEPEND="
+RDEPEND="
+	${NODEJS_RDEPEND}
 	dev-node/hapi+joi
 	dev-node/lodash
 "

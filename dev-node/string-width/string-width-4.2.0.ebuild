@@ -12,7 +12,8 @@ HOMEPAGE="
 "
 LICENSE="MIT"
 KEYWORDS="~amd64"
-NODEJS_RDEPEND="
+RDEPEND="
+	${NODEJS_RDEPEND}
 	dev-node/emoji-regex
 	dev-node/is-fullwidth-code-point
 	dev-node/strip-ansi

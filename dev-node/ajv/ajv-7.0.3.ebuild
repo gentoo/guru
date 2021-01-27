@@ -12,7 +12,8 @@ HOMEPAGE="
 "
 LICENSE="MIT"
 KEYWORDS="~amd64"
-NODEJS_RDEPEND="
+RDEPEND="
+	${NODEJS_RDEPEND}
 	dev-node/fast-deep-equal
 	dev-node/json-schema-traverse
 	dev-node/require-from-string

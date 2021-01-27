@@ -12,7 +12,8 @@ HOMEPAGE="
 "
 LICENSE="Apache-2.0"
 KEYWORDS="~amd64"
-NODEJS_RDEPEND="
+RDEPEND="
+	${NODEJS_RDEPEND}
 	dev-node/aws-sign2
 	dev-node/aws4
 	dev-node/caseless

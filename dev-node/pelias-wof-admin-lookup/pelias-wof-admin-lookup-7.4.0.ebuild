@@ -10,9 +10,11 @@ HOMEPAGE="
 	https://github.com/pelias/wof-admin-lookup
 	https://www.npmjs.com/package/pelias-wof-admin-lookup
 "
+
 LICENSE="MIT"
 KEYWORDS="~amd64"
-NODEJS_RDEPEND="
+RDEPEND="
+	${NODEJS_RDEPEND}
 	dev-node/hapi+joi
 	dev-node/async
 	dev-node/csv-parse

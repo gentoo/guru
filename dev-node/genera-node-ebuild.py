@@ -73,21 +73,21 @@ with open(os.path.join(pacchetto, "".join([pacchetto, "-", versione, ".ebuild"])
 	ebuild.write("".join(['\nLICENSE="', licenza, '"\n']))
 	ebuild.write('KEYWORDS="~amd64"')
 
-	if "devDependencies" in dati["versions"][versione].keys():
-		dipendenze=dati["versions"][versione]["devDependencies"]
-		if dipendenze:
-			ebuild.write('\nIUSE="test"\n')
-			ebuild.write('RESTRICT="!test? ( test )"\n')
-			ebuild.write('\nBDEPEND="\n')
-			ebuild.write('\t${NODEJS_BDEPEND}\n')
-			ebuild.write('\ttest? (\n')
-			for d in dipendenze:
-				if "@" in d:
-					d=d.replace('@','').replace('/','+')
-
-				ebuild.write("".join(['\t\tdev-node/', d, '\n']))
-
-			ebuild.write('\t)\n"')
+#	if "devDependencies" in dati["versions"][versione].keys():
+#		dipendenze=dati["versions"][versione]["devDependencies"]
+#		if dipendenze:
+#			ebuild.write('\nIUSE="test"\n')
+#			ebuild.write('RESTRICT="!test? ( test )"\n')
+#			ebuild.write('\nBDEPEND="\n')
+#			ebuild.write('\t${NODEJS_BDEPEND}\n')
+#			ebuild.write('\ttest? (\n')
+#			for d in dipendenze:
+#				if "@" in d:
+#					d=d.replace('@','').replace('/','+')
+#
+#				ebuild.write("".join(['\t\tdev-node/', d, '\n']))
+#
+#			ebuild.write('\t)\n"')
 
 	if "dependencies" in dati["versions"][versione].keys():
 		dipendenze=dati["versions"][versione]["dependencies"]

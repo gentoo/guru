@@ -10,9 +10,11 @@ HOMEPAGE="
 	https://github.com/pelias/microservice-wrapper
 	https://www.npmjs.com/package/pelias-microservice-wrapper
 "
+
 LICENSE="MIT"
 KEYWORDS="~amd64"
-NODEJS_RDEPEND="
+RDEPEND="
+	${NODEJS_RDEPEND}
 	dev-node/lodash
 	dev-node/pelias-logger
 	dev-node/superagent

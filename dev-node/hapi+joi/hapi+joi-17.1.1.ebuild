@@ -15,7 +15,8 @@ HOMEPAGE="
 "
 LICENSE="BSD"
 KEYWORDS="~amd64"
-NODEJS_RDEPEND="
+RDEPEND="
+	${NODEJS_RDEPEND}
 	dev-node/hapi+address
 	dev-node/hapi+formula
 	dev-node/hapi+hoek

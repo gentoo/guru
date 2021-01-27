@@ -12,7 +12,8 @@ HOMEPAGE="
 "
 LICENSE="ISC"
 KEYWORDS="~amd64"
-NODEJS_RDEPEND="
+RDEPEND="
+	${NODEJS_RDEPEND}
 	dev-node/normalize-path
 	dev-node/picomatch
 "

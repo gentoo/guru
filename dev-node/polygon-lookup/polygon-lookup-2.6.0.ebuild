@@ -12,7 +12,8 @@ HOMEPAGE="
 "
 LICENSE="MIT"
 KEYWORDS="~amd64"
-NODEJS_RDEPEND="
+RDEPEND="
+	${NODEJS_RDEPEND}
 	dev-node/lodash
 	dev-node/point-in-polygon
 	dev-node/rbush

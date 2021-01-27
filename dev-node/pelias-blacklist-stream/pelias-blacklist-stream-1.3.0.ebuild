@@ -10,9 +10,11 @@ HOMEPAGE="
 	https://github.com/pelias/blacklist-stream
 	https://www.npmjs.com/package/pelias-blacklist-stream
 "
+
 LICENSE="MIT"
 KEYWORDS="~amd64"
-NODEJS_RDEPEND="
+RDEPEND="
+	${NODEJS_RDEPEND}
 	dev-node/pelias-config
 	dev-node/through2
 "

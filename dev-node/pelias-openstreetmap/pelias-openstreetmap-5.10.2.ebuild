@@ -10,9 +10,31 @@ HOMEPAGE="
 	https://github.com/mapzen/pelias-openstreetmap
 	https://www.npmjs.com/package/pelias-openstreetmap
 "
+
 LICENSE="MIT"
 KEYWORDS="~amd64"
-NODEJS_RDEPEND="
+IUSE="test"
+RESTRICT="!test? ( test )"
+
+BDEPEND="
+	${NODEJS_BDEPEND}
+	test? (
+		dev-node/colors
+		dev-node/deep-diff
+		dev-node/istanbul
+		dev-node/jshint
+		dev-node/naivedb
+		dev-node/pelias-mock-logger
+		dev-node/precommit-hook
+		dev-node/proxyquire
+		dev-node/stream-mock
+		dev-node/taginfo
+		dev-node/tap-spec
+		dev-node/tape
+	)
+"
+RDEPEND="
+	${NODEJS_RDEPEND}
 	dev-node/async
 	dev-node/combined-stream
 	dev-node/extend
