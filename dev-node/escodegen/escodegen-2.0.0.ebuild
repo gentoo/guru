@@ -7,7 +7,7 @@ inherit node
 
 DESCRIPTION="ECMAScript code generator"
 HOMEPAGE="
-	http://github.com/estools/escodegen
+	https://github.com/estools/escodegen
 	https://www.npmjs.com/package/escodegen
 "
 
