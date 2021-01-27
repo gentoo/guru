@@ -11,7 +11,7 @@ HOMEPAGE="
 	https://www.npmjs.com/package/domhandler
 "
 
-LICENSE="BSD-2-Clause"
+LICENSE="BSD-2"
 KEYWORDS="~amd64"
 RDEPEND="
 	${NODEJS_RDEPEND}

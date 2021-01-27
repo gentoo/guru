@@ -11,5 +11,5 @@ HOMEPAGE="
 	https://www.npmjs.com/package/esutils
 "
 
-LICENSE="BSD-2-Clause"
+LICENSE="BSD-2"
 KEYWORDS="~amd64"

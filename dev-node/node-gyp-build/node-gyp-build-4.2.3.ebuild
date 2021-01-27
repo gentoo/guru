@@ -5,10 +5,10 @@ EAPI=7
 
 inherit node
 
-DESCRIPTION="RFC4122 (v1, v4, and v5) UUIDs"
+DESCRIPTION="Build tool and bindings loader for node-gyp that supports prebuilds"
 HOMEPAGE="
-	https://github.com/uuidjs/uuid
-	https://www.npmjs.com/package/uuid
+	https://github.com/prebuild/node-gyp-build
+	https://www.npmjs.com/package/node-gyp-build
 "
 
 LICENSE="MIT"

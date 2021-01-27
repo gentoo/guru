@@ -5,11 +5,11 @@ EAPI=7
 
 inherit node
 
-DESCRIPTION="ECMAScript parsing infrastructure for multipurpose analysis"
+DESCRIPTION="Parse milliseconds into an object"
 HOMEPAGE="
-	http://esprima.org
-	https://www.npmjs.com/package/esprima
+	https://github.com/sindresorhus/parse-ms
+	https://www.npmjs.com/package/parse-ms
 "
 
-LICENSE="BSD-2"
+LICENSE="MIT"
 KEYWORDS="~amd64"

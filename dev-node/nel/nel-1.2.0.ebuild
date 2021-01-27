@@ -5,10 +5,10 @@ EAPI=7
 
 inherit node
 
-DESCRIPTION="Generates and consumes source maps"
+DESCRIPTION="Node.js Evaluation Loop (NEL): module to run a Node.js REPL session"
 HOMEPAGE="
-	https://github.com/mozilla/source-map
-	https://www.npmjs.com/package/source-map
+	https://github.com/n-riesco/nel
+	https://www.npmjs.com/package/nel
 "
 
 LICENSE="BSD"
