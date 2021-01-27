@@ -7,7 +7,7 @@ inherit node
 
 DESCRIPTION="A tool for rapidly building command line apps"
 HOMEPAGE="
-	http://github.com/node-js-libs/cli
+	https://github.com/node-js-libs/cli
 	https://www.npmjs.com/package/cli
 "
 

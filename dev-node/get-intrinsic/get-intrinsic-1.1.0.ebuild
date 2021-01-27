@@ -1,0 +1,21 @@
+# Copyright 1999-2021 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=7
+
+inherit node
+
+DESCRIPTION="Get and robustly cache all JS language-level intrinsics at first require time"
+HOMEPAGE="
+	https://github.com/ljharb/get-intrinsic
+	https://www.npmjs.com/package/get-intrinsic
+"
+
+LICENSE="MIT"
+KEYWORDS="~amd64"
+RDEPEND="
+	${NODEJS_RDEPEND}
+	dev-node/function-bind
+	dev-node/has
+	dev-node/has-symbols
+"

@@ -10,6 +10,7 @@ HOMEPAGE="
 	https://github.com/ajv-validator/ajv
 	https://www.npmjs.com/package/ajv
 "
+
 LICENSE="MIT"
 KEYWORDS="~amd64"
 RDEPEND="

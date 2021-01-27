@@ -23,7 +23,7 @@ RDEPEND="
 	dev-node/is-regex
 	dev-node/object-inspect
 	dev-node/object-keys
-	dev-node/object.assign
-	dev-node/string.prototype.trimend
-	dev-node/string.prototype.trimstart
+	dev-node/object_assign
+	dev-node/string_prototype_trimend
+	dev-node/string_prototype_trimstart
 "

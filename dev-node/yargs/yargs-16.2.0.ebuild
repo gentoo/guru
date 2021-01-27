@@ -10,6 +10,7 @@ HOMEPAGE="
 	https://yargs.js.org/
 	https://www.npmjs.com/package/yargs
 "
+
 LICENSE="MIT"
 KEYWORDS="~amd64"
 RDEPEND="

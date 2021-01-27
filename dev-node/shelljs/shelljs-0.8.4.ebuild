@@ -7,7 +7,7 @@ inherit node
 
 DESCRIPTION="Portable Unix shell commands for Node.js"
 HOMEPAGE="
-	http://github.com/shelljs/shelljs
+	https://github.com/shelljs/shelljs
 	https://www.npmjs.com/package/shelljs
 "
 

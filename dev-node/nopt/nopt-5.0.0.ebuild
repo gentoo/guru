@@ -5,15 +5,15 @@ EAPI=7
 
 inherit node
 
-DESCRIPTION="Convert milliseconds to a human readable string"
+DESCRIPTION="Option parsing for Node, supporting types, shorthands, etc. Used by npm."
 HOMEPAGE="
-	https://github.com/sindresorhus/pretty-ms
-	https://www.npmjs.com/package/pretty-ms
+	https://github.com/npm/nopt
+	https://www.npmjs.com/package/nopt
 "
 
-LICENSE="MIT"
+LICENSE="ISC"
 KEYWORDS="~amd64"
 RDEPEND="
 	${NODEJS_RDEPEND}
-	dev-node/parse-ms
+	dev-node/abbrev
 "

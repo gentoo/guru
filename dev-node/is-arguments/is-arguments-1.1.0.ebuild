@@ -5,15 +5,15 @@ EAPI=7
 
 inherit node
 
-DESCRIPTION="Convert milliseconds to a human readable string"
+DESCRIPTION="Is this an arguments object? It's a harder question than you think."
 HOMEPAGE="
-	https://github.com/sindresorhus/pretty-ms
-	https://www.npmjs.com/package/pretty-ms
+	https://github.com/inspect-js/is-arguments
+	https://www.npmjs.com/package/is-arguments
 "
 
 LICENSE="MIT"
 KEYWORDS="~amd64"
 RDEPEND="
 	${NODEJS_RDEPEND}
-	dev-node/parse-ms
+	dev-node/call-bind
 "

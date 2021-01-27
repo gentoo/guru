@@ -27,7 +27,7 @@ RDEPEND="
 	dev-node/minimist
 	dev-node/object-inspect
 	dev-node/object-is
-	dev-node/object.assign
+	dev-node/object_assign
 	dev-node/resolve
 	dev-node/resumer
 	dev-node/string_prototype_trim
