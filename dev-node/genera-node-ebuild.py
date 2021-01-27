@@ -15,7 +15,6 @@ json_uri="".join(['https://registry.npmjs.org/', vero_nome])
 pagina=requests.get(json_uri)
 dati=json.loads(pagina.text)
 descrizione=dati["description"].replace("`","")
-licenza=dati["license"]
 manutentori=dati["maintainers"]
 versione=dati["dist-tags"]["latest"]
 src_uri=dati["versions"][versione]["dist"]["tarball"]
@@ -70,7 +69,10 @@ with open(os.path.join(pacchetto, "".join([pacchetto, "-", versione, ".ebuild"])
 		ebuild.write('\nMYPN="${PN//_/.}"')
 		ebuild.write('\nSRC_URI="https://registry.npmjs.org/${MYPN}/-/${MYPN}-${PV}.tgz -> ${P}.tgz"\n')
 
-	ebuild.write("".join(['\nLICENSE="', licenza, '"\n']))
+	if "license" in dati.keys():
+		licenza=dati["license"]
+		ebuild.write("".join(['\nLICENSE="', licenza, '"\n']))
+
 	ebuild.write('KEYWORDS="~amd64"')
 
 #	if "devDependencies" in dati["versions"][versione].keys():

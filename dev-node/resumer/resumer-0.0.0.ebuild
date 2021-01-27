@@ -5,17 +5,14 @@ EAPI=7
 
 inherit node
 
-DESCRIPTION="ECMAScript ToPrimitive algorithm"
+DESCRIPTION="a through stream that starts paused and resumes on the next tick"
 HOMEPAGE="
-	https://github.com/ljharb/es-to-primitive
-	https://www.npmjs.com/package/es-to-primitive
+	https://www.npmjs.com/package/resumer
 "
 
 LICENSE="MIT"
 KEYWORDS="~amd64"
 RDEPEND="
 	${NODEJS_RDEPEND}
-	dev-node/is-callable
-	dev-node/is-date-object
-	dev-node/is-symbol
+	dev-node/through
 "
