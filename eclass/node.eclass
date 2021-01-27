@@ -6,19 +6,20 @@ EXPORT_FUNCTIONS src_prepare src_compile src_install
 RESTRICT+=" mirror"
 SLOT="0"
 
-[ -z "${SRC_URI}" ] && SRC_URI="https://registry.npmjs.org/${PN}/-/${P}.tgz"
+SRC_URI="https://registry.npmjs.org/${PN}/-/${P}.tgz"
 
-[ -z "${NODEJS_BDEPEND}" ] && BDEPEND+=" ${NODEJS_BDEPEND}"
-[ -z "${NODEJS_RDEPEND}" ] && RDEPEND+=" ${NODEJS_RDEPEND}"
-[ -z "${NODEJS_DEPEND}" ] && DEPEND+=" ${NODEJS_DEPEND}"
-[ -z "${RDEPEND}" ] && DEPEND+=" ${RDEPEND}"
-
-DEPEND+=" net-libs/nodejs"
-BDEPEND+="
+NODEJS_DEPEND="net-libs/nodejs"
+NDDEJS_RDEPEND="${NODEJS_DEPEND}"
+NODEJS_BDEPEND="
 	app-misc/jq
 	net-misc/rsync
 	sys-apps/moreutils
 "
+
+DEPEND="${NODEJS_DEPEND}"
+RDEPEND="${NODEJS_RDEPEND}"
+BDEPEND="${NODEJS_BDEPEND}"
+
 S="${WORKDIR}/package"
 
 node_src_prepare() {

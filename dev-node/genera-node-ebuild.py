@@ -8,6 +8,9 @@ vero_nome=pacchetto
 if "@" in pacchetto:
 	pacchetto=pacchetto.replace("@", "").replace("/", "+")
 
+if "." in pacchetto:
+	pacchetto=pacchetto.replace(".", "_")
+
 json_uri="".join(['https://registry.npmjs.org/', vero_nome])
 pagina=requests.get(json_uri)
 dati=json.loads(pagina.text)
@@ -48,7 +51,7 @@ with open(os.path.join(pacchetto, "".join([pacchetto, "-", versione, ".ebuild"])
 	ebuild.write("# Copyright 1999-2021 Gentoo Authors\n")
 	ebuild.write("# Distributed under the terms of the GNU General Public License v2\n\n")
 	ebuild.write("EAPI=7\n\n")
-	ebuild.write("inherit node-guru\n\n")
+	ebuild.write("inherit node\n\n")
 	ebuild.write("".join(['DESCRIPTION="', descrizione, '"\n']))
 	ebuild.write('HOMEPAGE="\n\t')
 	if "homepage" in dati.keys():
@@ -57,16 +60,47 @@ with open(os.path.join(pacchetto, "".join([pacchetto, "-", versione, ".ebuild"])
 
 	ebuild.write('\n\thttps://www.npmjs.com/package/')
 	ebuild.write(vero_nome)
-	ebuild.write("".join(['\n"\nSRC_URI="', src_uri, ' -> ${P}.tgz"\n']))
-	ebuild.write("".join(['LICENSE="', licenza, '"\n']))
-	ebuild.write('KEYWORDS="~amd64"\n')
-	ebuild.write('RDEPEND="\n')
-	ebuild.write('\t${DEPEND}\n')
+	ebuild.write('\n"\n')
+	if "+" in pacchetto:
+		ebuild.write('\nPN_LEFT="${PN%%+*}"')
+		ebuild.write('\nPN_RIGHT="${PN#*+}"')
+		ebuild.write('\nSRC_URI="https://registry.npmjs.org/@${PN_LEFT}/${PN_RIGHT}/-/${PN_RIGHT}-${PV}.tgz -> ${P}.tgz"\n')
+
+	if "." in vero_nome:
+		ebuild.write('\nMYPN="${PN//_/.}"')
+		ebuild.write('\nSRC_URI="https://registry.npmjs.org/${MYPN}/-/${MYPN}-${PV}.tgz -> ${P}.tgz"\n')
+
+	ebuild.write("".join(['\nLICENSE="', licenza, '"\n']))
+	ebuild.write('KEYWORDS="~amd64"')
+
+	if "devDependencies" in dati["versions"][versione].keys():
+		dipendenze=dati["versions"][versione]["devDependencies"]
+		if dipendenze:
+			ebuild.write('\nIUSE="test"\n')
+			ebuild.write('RESTRICT="!test? ( test )"\n')
+			ebuild.write('\nBDEPEND="\n')
+			ebuild.write('\t${NODEJS_BDEPEND}\n')
+			ebuild.write('\ttest? (\n')
+			for d in dipendenze:
+				if "@" in d:
+					d=d.replace('@','').replace('/','+')
+
+				ebuild.write("".join(['\t\tdev-node/', d, '\n']))
+
+			ebuild.write('\t)\n"')
+
 	if "dependencies" in dati["versions"][versione].keys():
 		dipendenze=dati["versions"][versione]["dependencies"]
-		for d in dipendenze:
-			if "@" in d:
-				d=d.replace('@','').replace('/','+')
+		if dipendenze:
+			ebuild.write('\nRDEPEND="\n')
+			ebuild.write('\t${NODEJS_RDEPEND}\n')
+			for d in dipendenze:
+				if "@" in d:
+					d=d.replace('@','').replace('/','+')
+
 				ebuild.write("".join(['\tdev-node/', d, '\n']))
 
-	ebuild.write('"')
+			ebuild.write('"')
+
+	ebuild.write('\n')
+
