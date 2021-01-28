@@ -1,14 +1,13 @@
-# Copyright 2018-2020 Gentoo Authors
+# Copyright 2018-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-MY_P="${P//_beta/b}"
+inherit toolchain-funcs
 
 DESCRIPTION="Full color painting software for Linux for illustration drawing"
 HOMEPAGE="http://azsky2.html.xdomain.jp/soft/azpainter.html"
-SRC_URI="http://azsky2.html.xdomain.jp/arc/${MY_P}.tar.xz"
-S="${WORKDIR}/${MY_P}"
+SRC_URI="http://azsky2.html.xdomain.jp/arc/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -28,5 +27,5 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	sh ./configure --prefix=/usr CFLAGS="${CFLAGS:-02}" LDFLAGS="${LDFLAGS}"
+	sh ./configure --prefix=/usr CC="$(tc-getCC)" CFLAGS="${CFLAGS:-02}" LDFLAGS="${LDFLAGS}"
 }

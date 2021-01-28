@@ -19,6 +19,10 @@ HOMEPAGE="https://github.com/ascent12/drm_info"
 LICENSE="MIT"
 SLOT="0"
 
+PATCHES=(
+	"${FILESDIR}/${P}-drm_fourcc-fix.patch"
+)
+
 DEPEND="
 	x11-libs/libdrm
 	dev-libs/json-c:=

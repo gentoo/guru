@@ -28,4 +28,4 @@ jobs:
         sudo ln -s /var/db/repos/gentoo/profiles/default/linux/amd64/17.1 /etc/portage/make.profile
     - name: Test with pkgcheck
       run: |
-        pkgcheck scan --exit --check=-RedundantVersionCheck,-VisibilityCheck,-AcctCheck
+        pkgcheck scan --exit --checks=-RedundantVersionCheck,-VisibilityCheck,-AcctCheck

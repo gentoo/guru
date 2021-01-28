@@ -46,7 +46,7 @@ pkg_setup() {
 }
 
 src_configure() {
-	./configure
+	./configure || die
 }
 
 src_compile() {
@@ -60,7 +60,4 @@ src_compile() {
 
 src_install() {
 	emake PREFIX=/usr LIBDIR="/usr/$(get_libdir)" DESTDIR="${D}" install
-	doman xdp-filter/xdp-filter.8
-	doman xdp-dump/xdpdump.8
-	doman xdp-loader/xdp-loader.8
 }
