@@ -12,4 +12,4 @@ RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/xdp-project/xdp-tools/archive/v1.1.0.tar.gz -> xdp-tools-1.1.0.tar.gz
 _eclasses_=linux-info	c90a203b1c14cfa77bd3e37a0e96c955	llvm	21d8c0949a2693d7109cc6a25fabfcaf	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=d3760d9785b37ac5cf2b5f5904c5b1ba
+_md5_=60cac2a676be8dae9f7bdc1ddca2c8bd
