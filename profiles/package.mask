@@ -1,0 +1,8 @@
+# Theo Anderson <telans@posteo.de> (2021-01-28)
+# net-wireless/eiwd requires plugin.h from dev-libs/ell
+# plugin.h no longer installed since dev-libs/ell-0.34
+# which is no longer in tree. See:
+# https://git.kernel.org/pub/scm/libs/ell/ell.git/
+# commit e129cb4cd2270f308c1564e75859672643dd902b
+# Pending removal.
+net-wireless/eiwd
