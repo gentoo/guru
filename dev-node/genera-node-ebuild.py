@@ -18,8 +18,6 @@ descrizione=dati["description"].replace("`","")
 manutentori=dati["maintainers"]
 versione=dati["dist-tags"]["latest"]
 src_uri=dati["versions"][versione]["dist"]["tarball"]
-repo=dati["repository"]["url"].split(".", 2)[1]
-remote=repo.split("/", 1)[1]
 
 if not os.path.exists(pacchetto):
 	os.mkdir(pacchetto)
@@ -42,7 +40,11 @@ with open(os.path.join(pacchetto, "metadata.xml"), "w") as metadata:
 #		metadata.write("".join(["\t\t\t<email>", m["email"], "</email>\n"]))
 #		metadata.write("\t\t</maintainer>\n")
 
-	metadata.write("".join(['\t\t<remote-id type=\"github\">', remote, "</remote-id>\n"]))
+	if "repository" in dati.keys():
+		repo=dati["repository"]["url"].split(".", 2)[1]
+		remote=repo.split("/", 1)[1]
+		metadata.write("".join(['\t\t<remote-id type=\"github\">', remote, "</remote-id>\n"]))
+
 	metadata.write("\t</upstream>\n")
 	metadata.write("</pkgmetadata>\n")
 
