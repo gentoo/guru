@@ -19,6 +19,8 @@ fi
 
 LICENSE="ISC"
 SLOT="0"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	net-libs/usockets[ssl]
@@ -32,6 +34,10 @@ DEPEND="${RDEPEND}
 src_configure() {
 	default
 	tc-export CXX
+}
+
+src_test() {
+	emake check
 }
 
 src_install() {
