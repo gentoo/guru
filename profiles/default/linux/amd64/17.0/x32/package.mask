@@ -7,3 +7,6 @@
 # Is this still relevant? Looks like support was comitted:
 # https://codereview.chromium.org/18014003
 www-apps/code-server-bin
+
+#net-libs/nodejs is masked
+#how to bulk mask all of dev-node?

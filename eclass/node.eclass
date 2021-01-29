@@ -35,7 +35,7 @@ node_src_compile() {
 	jq 'with_entries(if .key == "devDependencies" then .key = "devDeps" else . end)' package.json | sponge package.json || die
 
 	export npm_config_prefix="${T}/prefix"
-	use test || export NODE_ENV="production"
+	in_iuse test || export NODE_ENV="production"
 	npm install --global || die
 
 	#restore original package.json

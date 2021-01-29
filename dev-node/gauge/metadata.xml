@@ -5,4 +5,8 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/npm/gauge/issues</bugs-to>
+		<remote-id type="github">git+https://github.com/iarna/gauge.git</remote-id>
+	</upstream>
 </pkgmetadata>
