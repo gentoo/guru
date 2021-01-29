@@ -11,5 +11,5 @@ HOMEPAGE="
 	https://www.npmjs.com/package/tslib
 "
 
-LICENSE="BSD-0"
+LICENSE="0BSD"
 KEYWORDS="~amd64"

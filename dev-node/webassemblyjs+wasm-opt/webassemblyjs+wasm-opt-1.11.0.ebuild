@@ -5,7 +5,7 @@ EAPI=7
 
 inherit node
 
-DESCRIPTION=""
+DESCRIPTION="WASM optimizer"
 HOMEPAGE="
 	https://github.com/xtuc/webassemblyjs
 	https://www.npmjs.com/package/@webassemblyjs/wasm-opt
