@@ -6,7 +6,7 @@
 		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>https://github.com/JoshuaWise/better-sqlite3/issues</bugs-to>
-		<remote-id type="github">git://github.com/JoshuaWise/better-sqlite3.git</remote-id>
+		<bugs-to>https://github.com/segmentio/noop-logger/issues</bugs-to>
+		<remote-id type="github">git://github.com/segmentio/noop-logger.git</remote-id>
 	</upstream>
 </pkgmetadata>

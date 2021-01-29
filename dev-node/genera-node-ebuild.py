@@ -14,7 +14,6 @@ if "." in pacchetto:
 json_uri="".join(['https://registry.npmjs.org/', vero_nome])
 pagina=requests.get(json_uri)
 dati=json.loads(pagina.text)
-manutentori=dati["maintainers"]
 versione=dati["dist-tags"]["latest"]
 src_uri=dati["versions"][versione]["dist"]["tarball"]
 
@@ -34,6 +33,7 @@ with open(os.path.join(pacchetto, "metadata.xml"), "w") as metadata:
 		bugs_uri=dati["bugs"]["url"]
 		metadata.write("".join(["\t\t<bugs-to>", bugs_uri, "</bugs-to>\n"]))
 
+#	manutentori=dati["maintainers"]
 #	for m in manutentori:
 #		metadata.write("\t\t<maintainer status=\"unknown\">\n")
 #		metadata.write("".join(["\t\t\t<email>", m["email"], "</email>\n"]))
