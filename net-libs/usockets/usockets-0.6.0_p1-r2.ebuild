@@ -1,4 +1,4 @@
-# Copyright 2019-2020 Gentoo Authors
+# Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -34,22 +34,17 @@ PATCHES=(
 	"${FILESDIR}/${PN}-0.6.0-Makefile.patch"
 )
 
-src_compile() {
+src_configure() {
 	tc-export CC CXX
-	# the Makefile uses environment variables
-	emake VERSION=${PV} \
-		  LIB="$(get_libdir)" \
-		  WITH_OPENSSL=$(usex ssl 1 0) \
-		  WITH_LIBUV=$(usex libuv 1 0) \
-		  default
+	export VERSION="${PV%_*}" \
+	       LIB="$(get_libdir)" \
+	       WITH_OPENSSL="$(usex ssl 1 0)"
+	       WITH_LIBUV="$(usex libuv 1 0)"
+	default
 }
 
 src_install() {
-	emake LIB="$(get_libdir)" \
-		  prefix="${EPREFIX%/}/usr" \
-		  DESTDIR="${D}" \
-		  VERSION=${PV} \
-		  install
+	default
 	einstalldocs
 	if ! use static-libs; then
 		rm -f "${ED}/usr/$(get_libdir)/libusockets.a" || die
