@@ -11,7 +11,7 @@ HOMEPAGE="
 	https://www.npmjs.com/package/jszip
 "
 
-LICENSE="|| (MIT GPL-3.0)"
+LICENSE="|| ( MIT GPL-3.0 )"
 KEYWORDS="~amd64"
 RDEPEND="
 	${NODEJS_RDEPEND}

@@ -11,5 +11,5 @@ HOMEPAGE="
 	https://www.npmjs.com/package/node-forge
 "
 
-LICENSE="|| (BSD GPL-2.0)"
+LICENSE="|| ( BSD GPL-2.0 )"
 KEYWORDS="~amd64"

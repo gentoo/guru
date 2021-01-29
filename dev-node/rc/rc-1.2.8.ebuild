@@ -11,7 +11,7 @@ HOMEPAGE="
 	https://www.npmjs.com/package/rc
 "
 
-LICENSE="|| (BSD-2 MIT Apache-2.0)"
+LICENSE="|| ( BSD-2 MIT Apache-2.0 )"
 KEYWORDS="~amd64"
 RDEPEND="
 	${NODEJS_RDEPEND}

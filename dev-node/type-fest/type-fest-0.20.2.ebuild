@@ -11,5 +11,5 @@ HOMEPAGE="
 	https://www.npmjs.com/package/type-fest
 "
 
-LICENSE="|| (MIT CC0-1.0)"
+LICENSE="|| ( MIT CC0-1.0 )"
 KEYWORDS="~amd64"

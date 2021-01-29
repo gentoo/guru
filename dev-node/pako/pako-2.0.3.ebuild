@@ -11,5 +11,5 @@ HOMEPAGE="
 	https://www.npmjs.com/package/pako
 "
 
-LICENSE="MIT Zlib"
+LICENSE="MIT ZLIB"
 KEYWORDS="~amd64"

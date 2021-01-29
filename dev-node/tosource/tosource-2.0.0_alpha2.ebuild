@@ -14,4 +14,4 @@ HOMEPAGE="
 	https://www.npmjs.com/package/tosource
 "
 KEYWORDS="~amd64"
-LICENSE="Zlib"
+LICENSE="ZLIB"
