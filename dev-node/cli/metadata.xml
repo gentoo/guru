@@ -6,7 +6,7 @@
 		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>http://github.com/node-js-libs/cli/issues</bugs-to>
+		<bugs-to>https://github.com/node-js-libs/cli/issues</bugs-to>
 		<remote-id type="github">node-js-libs/cli</remote-id>
 	</upstream>
 </pkgmetadata>

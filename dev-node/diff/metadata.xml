@@ -6,7 +6,7 @@
 		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>http://github.com/kpdecker/jsdiff/issues</bugs-to>
+		<bugs-to>https://github.com/kpdecker/jsdiff/issues</bugs-to>
 		<remote-id type="github">kpdecker/jsdiff</remote-id>
 	</upstream>
 </pkgmetadata>

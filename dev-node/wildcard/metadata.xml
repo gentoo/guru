@@ -6,7 +6,7 @@
 		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>http://github.com/DamonOehlman/wildcard/issues</bugs-to>
+		<bugs-to>https://github.com/DamonOehlman/wildcard/issues</bugs-to>
 		<remote-id type="github">DamonOehlman/wildcard</remote-id>
 	</upstream>
 </pkgmetadata>

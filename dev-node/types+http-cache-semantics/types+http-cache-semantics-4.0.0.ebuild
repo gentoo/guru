@@ -7,7 +7,6 @@ inherit node
 
 DESCRIPTION="TypeScript definitions for http-cache-semantics"
 HOMEPAGE="
-	
 	https://www.npmjs.com/package/@types/http-cache-semantics
 "
 

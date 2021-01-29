@@ -14,7 +14,6 @@ if "." in pacchetto:
 json_uri="".join(['https://registry.npmjs.org/', vero_nome])
 pagina=requests.get(json_uri)
 dati=json.loads(pagina.text)
-descrizione=dati["description"].replace("`","")
 manutentori=dati["maintainers"]
 versione=dati["dist-tags"]["latest"]
 src_uri=dati["versions"][versione]["dist"]["tarball"]
@@ -41,9 +40,8 @@ with open(os.path.join(pacchetto, "metadata.xml"), "w") as metadata:
 #		metadata.write("\t\t</maintainer>\n")
 
 	if "repository" in dati.keys():
-		repo=dati["repository"]["url"].split(".", 2)[1]
-		remote=repo.split("/", 1)[1]
-		metadata.write("".join(['\t\t<remote-id type=\"github\">', remote, "</remote-id>\n"]))
+		repo=dati["repository"]["url"]
+		metadata.write("".join(['\t\t<remote-id type=\"github\">', repo, "</remote-id>\n"]))
 
 	metadata.write("\t</upstream>\n")
 	metadata.write("</pkgmetadata>\n")
@@ -53,13 +51,19 @@ with open(os.path.join(pacchetto, "".join([pacchetto, "-", versione, ".ebuild"])
 	ebuild.write("# Distributed under the terms of the GNU General Public License v2\n\n")
 	ebuild.write("EAPI=7\n\n")
 	ebuild.write("inherit node\n\n")
-	ebuild.write("".join(['DESCRIPTION="', descrizione, '"\n']))
+	ebuild.write('DESCRIPTION="')
+	if "description" in dati.keys():
+		descrizione=dati["description"].replace("`","")
+		ebuild.write(descrizione)
+
+	ebuild.write('"\n')
 	ebuild.write('HOMEPAGE="\n\t')
 	if "homepage" in dati.keys():
 		homepage=dati["homepage"].split("#")[0]
 		ebuild.write(homepage)
+		ebuild.write('\n')
 
-	ebuild.write('\n\thttps://www.npmjs.com/package/')
+	ebuild.write('\thttps://www.npmjs.com/package/')
 	ebuild.write(vero_nome)
 	ebuild.write('\n"\n')
 	if "+" in pacchetto:

@@ -6,7 +6,7 @@
 		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>http://github.com/digitaldesignlabs/es6-promisify/issues</bugs-to>
+		<bugs-to>https://github.com/digitaldesignlabs/es6-promisify/issues</bugs-to>
 		<remote-id type="github">digitaldesignlabs/es6-promisify</remote-id>
 	</upstream>
 </pkgmetadata>

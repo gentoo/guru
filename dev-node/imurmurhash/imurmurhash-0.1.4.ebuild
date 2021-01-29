@@ -10,3 +10,4 @@ HOMEPAGE="
 	https://www.npmjs.com/package/imurmurhash
 "
 KEYWORDS="~amd64"
+LICENSE="MIT"

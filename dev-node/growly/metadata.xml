@@ -6,7 +6,7 @@
 		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>http://github.com/theabraham/growly/issues</bugs-to>
+		<bugs-to>https://github.com/theabraham/growly/issues</bugs-to>
 		<remote-id type="github">theabraham/growly</remote-id>
 	</upstream>
 </pkgmetadata>

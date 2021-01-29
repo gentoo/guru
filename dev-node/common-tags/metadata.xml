@@ -6,7 +6,7 @@
 		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>http://github.com/declandewet/common-tags/issues</bugs-to>
+		<bugs-to>https://github.com/declandewet/common-tags/issues</bugs-to>
 		<remote-id type="github">declandewet/common-tags</remote-id>
 	</upstream>
 </pkgmetadata>

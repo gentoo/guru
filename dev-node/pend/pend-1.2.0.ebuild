@@ -7,7 +7,6 @@ inherit node
 
 DESCRIPTION="dead-simple optimistic async helper"
 HOMEPAGE="
-	
 	https://www.npmjs.com/package/pend
 "
 

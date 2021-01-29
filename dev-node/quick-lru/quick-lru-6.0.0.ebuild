@@ -5,7 +5,7 @@ EAPI=7
 
 inherit node
 
-DESCRIPTION="Simple â€œLeast Recently Usedâ€� (LRU) cache"
+DESCRIPTION="Simple Least Recently Used (LRU) cache"
 HOMEPAGE="
 	https://github.com/sindresorhus/quick-lru
 	https://www.npmjs.com/package/quick-lru

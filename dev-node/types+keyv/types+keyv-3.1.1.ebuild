@@ -7,7 +7,6 @@ inherit node
 
 DESCRIPTION="TypeScript definitions for keyv"
 HOMEPAGE="
-	
 	https://www.npmjs.com/package/@types/keyv
 "
 

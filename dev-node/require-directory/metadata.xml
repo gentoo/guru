@@ -6,7 +6,7 @@
 		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>http://github.com/troygoode/node-require-directory/issues/</bugs-to>
+		<bugs-to>https://github.com/troygoode/node-require-directory/issues/</bugs-to>
 		<remote-id type="github">troygoode/node-require-directory</remote-id>
 	</upstream>
 </pkgmetadata>

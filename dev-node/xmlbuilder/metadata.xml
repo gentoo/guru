@@ -6,7 +6,7 @@
 		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>http://github.com/oozcitak/xmlbuilder-js/issues</bugs-to>
+		<bugs-to>https://github.com/oozcitak/xmlbuilder-js/issues</bugs-to>
 		<remote-id type="github">oozcitak/xmlbuilder-js</remote-id>
 	</upstream>
 </pkgmetadata>
