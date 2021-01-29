@@ -20,13 +20,11 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="libuv libressl +ssl static-libs"
+IUSE="libuv +ssl static-libs"
 
-DEPEND="ssl? (
-		!libressl? ( >=dev-libs/openssl-1.1.0[static-libs?] )
-		libressl? ( dev-libs/libressl[static-libs?] )
-	)
+DEPEND="
 	libuv? ( dev-libs/libuv[static-libs?] )
+	ssl? ( >=dev-libs/openssl-1.1.0[static-libs?] )
 "
 RDEPEND="${DEPEND}"
 
