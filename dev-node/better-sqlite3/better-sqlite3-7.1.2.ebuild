@@ -19,3 +19,4 @@ RDEPEND="
 	dev-node/prebuild-install
 	dev-node/tar
 "
+#TODO: unbundle sqlite

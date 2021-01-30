@@ -26,14 +26,15 @@ node_src_prepare() {
 	#remove version constraints on dependencies
 	jq 'if .dependencies? then .dependencies[] = "*" else . end' package.json | sponge package.json || die
 	jq 'if .devDependencies? then .devDependencies[] = "*" else . end' package.json | sponge package.json || die
-	default
-}
 
-node_src_compile() {
 	#here we trick npm into believing there are no dependencies so it will not try to fetch them
 	jq 'with_entries(if .key == "dependencies" then .key = "deps" else . end)' package.json | sponge package.json || die
 	jq 'with_entries(if .key == "devDependencies" then .key = "devDeps" else . end)' package.json | sponge package.json || die
 
+	default
+}
+
+node_src_compile() {
 	#path to the modules
 	export NODE_PATH="/usr/$(get_libdir)/node_modules"
 	export npm_config_prefix="${T}/prefix"
@@ -41,13 +42,13 @@ node_src_compile() {
 	export npm_config_nodedir="/usr/include/node"
 	in_iuse test || export NODE_ENV="production"
 	npm install --global || die
-
-	#restore original package.json
-	jq 'with_entries(if .key == "deps" then .key = "dependencies" else . end)' package.json | sponge package.json || die
-	jq 'with_entries(if .key == "devDeps" then .key = "devDependencies" else . end)' package.json | sponge package.json || die
 }
 
 node_src_install() {
+	#restore original package.json
+	jq 'with_entries(if .key == "deps" then .key = "dependencies" else . end)' package.json | sponge package.json || die
+	jq 'with_entries(if .key == "devDeps" then .key = "devDependencies" else . end)' package.json | sponge package.json || die
+
 	#copy files instead of symlinks
 	rsync -avLAX "${T}/prefix/" "${ED}/usr" --exclude /bin || die
 

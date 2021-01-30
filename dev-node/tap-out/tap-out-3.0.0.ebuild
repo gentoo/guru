@@ -20,3 +20,5 @@ RDEPEND="
 	dev-node/split
 	dev-node/trim
 "
+
+PATCHES=( "${FILESDIR}/PassThrough.patch" )

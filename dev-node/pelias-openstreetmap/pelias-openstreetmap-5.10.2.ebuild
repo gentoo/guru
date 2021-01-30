@@ -14,7 +14,8 @@ HOMEPAGE="
 LICENSE="MIT"
 KEYWORDS="~amd64"
 IUSE="test"
-RESTRICT="!test? ( test )"
+#no tests in tarball
+RESTRICT="test"
 
 BDEPEND="
 	${NODEJS_BDEPEND}
