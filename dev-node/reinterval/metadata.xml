@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/4rzael/reInterval/issues</bugs-to>
+		<remote-id type="github">4rzael/reInterval</remote-id>
+	</upstream>
+</pkgmetadata>

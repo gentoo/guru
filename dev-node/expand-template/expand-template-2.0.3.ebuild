@@ -11,5 +11,5 @@ HOMEPAGE="
 	https://www.npmjs.com/package/expand-template
 "
 
-LICENSE="|| ( MIT WTFPL )"
+LICENSE="|| ( MIT WTFPL-2 )"
 KEYWORDS="~amd64"

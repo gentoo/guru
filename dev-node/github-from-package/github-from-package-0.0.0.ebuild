@@ -10,3 +10,4 @@ HOMEPAGE="
 		https://www.npmjs.com/package/github-from-package
 "
 KEYWORDS="~amd64"
+LICENSE="MIT"

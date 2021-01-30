@@ -10,5 +10,6 @@ HOMEPAGE="
 	https://github.com/isaacs/json-stringify-safe
 	https://www.npmjs.com/package/json-stringify-safe
 "
+
 LICENSE="ISC"
 KEYWORDS="~amd64"
