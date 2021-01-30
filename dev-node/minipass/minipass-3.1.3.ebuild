@@ -5,20 +5,15 @@ EAPI=7
 
 inherit node
 
-DESCRIPTION="tar for node"
+DESCRIPTION="minimal implementation of a PassThrough stream"
 HOMEPAGE="
-	https://github.com/npm/node-tar
-	https://www.npmjs.com/package/tar
+	https://github.com/isaacs/minipass
+	https://www.npmjs.com/package/minipass
 "
 
 LICENSE="ISC"
 KEYWORDS="~amd64"
 RDEPEND="
 	${NODEJS_RDEPEND}
-	dev-node/chownr
-	dev-node/fs-minipass
-	dev-node/minipass
-	dev-node/minizlib
-	dev-node/mkdirp
 	dev-node/yallist
 "

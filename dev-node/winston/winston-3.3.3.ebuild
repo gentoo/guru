@@ -10,6 +10,7 @@ HOMEPAGE="
 	https://github.com/winstonjs/winston
 	https://www.npmjs.com/package/winston
 "
+
 LICENSE="MIT"
 KEYWORDS="~amd64"
 RDEPEND="

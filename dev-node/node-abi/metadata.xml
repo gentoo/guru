@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/lgeiger/node-abi/issues</bugs-to>
-		<remote-id type="github">git+https://github.com/lgeiger/node-abi.git</remote-id>
+		<remote-id type="github">lgeiger/node-abi</remote-id>
 	</upstream>
 </pkgmetadata>

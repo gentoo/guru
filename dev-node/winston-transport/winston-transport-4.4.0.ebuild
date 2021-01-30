@@ -10,6 +10,7 @@ HOMEPAGE="
 	https://github.com/winstonjs/winston-transport
 	https://www.npmjs.com/package/winston-transport
 "
+
 LICENSE="MIT"
 KEYWORDS="~amd64"
 RDEPEND="

@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/mapnik/mapnik-reference/issues</bugs-to>
-		<remote-id type="github">git://github.com/mapnik/mapnik-reference.git</remote-id>
+		<remote-id type="github">mapnik/mapnik-reference</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/mafintosh/mkdirp-classic/issues</bugs-to>
-		<remote-id type="github">git+https://github.com/mafintosh/mkdirp-classic.git</remote-id>
+		<remote-id type="github">mafintosh/mkdirp-classic</remote-id>
 	</upstream>
 </pkgmetadata>

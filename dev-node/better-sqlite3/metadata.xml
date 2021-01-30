@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/JoshuaWise/better-sqlite3/issues</bugs-to>
-		<remote-id type="github">git://github.com/JoshuaWise/better-sqlite3.git</remote-id>
+		<remote-id type="github">JoshuaWise/better-sqlite3</remote-id>
 	</upstream>
 </pkgmetadata>

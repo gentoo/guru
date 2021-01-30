@@ -10,6 +10,7 @@ HOMEPAGE="
 	https://github.com/isaacs/node-which
 	https://www.npmjs.com/package/which
 "
+
 LICENSE="ISC"
 KEYWORDS="~amd64"
 RDEPEND="

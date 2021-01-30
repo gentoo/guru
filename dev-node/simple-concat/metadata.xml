@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/feross/simple-concat/issues</bugs-to>
-		<remote-id type="github">git://github.com/feross/simple-concat.git</remote-id>
+		<remote-id type="github">feross/simple-concat</remote-id>
 	</upstream>
 </pkgmetadata>

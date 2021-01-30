@@ -5,20 +5,16 @@ EAPI=7
 
 inherit node
 
-DESCRIPTION="tar for node"
+DESCRIPTION="A small fast zlib stream built on [minipass](http://npm.im/minipass) and Node.js's zlib binding."
 HOMEPAGE="
-	https://github.com/npm/node-tar
-	https://www.npmjs.com/package/tar
+	https://github.com/isaacs/minizlib
+	https://www.npmjs.com/package/minizlib
 "
 
-LICENSE="ISC"
+LICENSE="MIT"
 KEYWORDS="~amd64"
 RDEPEND="
 	${NODEJS_RDEPEND}
-	dev-node/chownr
-	dev-node/fs-minipass
 	dev-node/minipass
-	dev-node/minizlib
-	dev-node/mkdirp
 	dev-node/yallist
 "

@@ -34,7 +34,11 @@ node_src_compile() {
 	jq 'with_entries(if .key == "dependencies" then .key = "deps" else . end)' package.json | sponge package.json || die
 	jq 'with_entries(if .key == "devDependencies" then .key = "devDeps" else . end)' package.json | sponge package.json || die
 
+	#path to the modules
+	export NODE_PATH="/usr/$(get_libdir)/node_modules"
 	export npm_config_prefix="${T}/prefix"
+	#path to the headers needed by node-gyp
+	export npm_config_nodedir="/usr/include/node"
 	in_iuse test || export NODE_ENV="production"
 	npm install --global || die
 

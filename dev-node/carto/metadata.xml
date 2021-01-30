@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/mapbox/carto/issues</bugs-to>
-		<remote-id type="github">git+ssh://git@github.com/mapbox/carto.git</remote-id>
+		<remote-id type="github">mapbox/carto</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/inspiredware/napi-build-utils/issues</bugs-to>
-		<remote-id type="github">git+https://github.com/inspiredware/napi-build-utils.git</remote-id>
+		<remote-id type="github">inspiredware/napi-build-utils</remote-id>
 	</upstream>
 </pkgmetadata>

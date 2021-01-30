@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/iarna/console-control-strings/issues</bugs-to>
-		<remote-id type="github">git+https://github.com/iarna/console-control-strings.git</remote-id>
+		<remote-id type="github">iarna/console-control-strings</remote-id>
 	</upstream>
 </pkgmetadata>

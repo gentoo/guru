@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/kentcdodds/cross-env/issues</bugs-to>
-		<remote-id type="github">git+https://github.com/kentcdodds/cross-env.git</remote-id>
+		<remote-id type="github">kentcdodds/cross-env</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/visionmedia/node-delegates/issues</bugs-to>
-		<remote-id type="github">git+https://github.com/visionmedia/node-delegates.git</remote-id>
+		<remote-id type="github">visionmedia/node-delegates</remote-id>
 	</upstream>
 </pkgmetadata>

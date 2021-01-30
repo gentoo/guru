@@ -10,6 +10,7 @@ HOMEPAGE="
 	https://github.com/iarna/wide-align
 	https://www.npmjs.com/package/wide-align
 "
+
 LICENSE="ISC"
 KEYWORDS="~amd64"
 RDEPEND="

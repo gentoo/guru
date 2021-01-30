@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/npm/gauge/issues</bugs-to>
-		<remote-id type="github">git+https://github.com/iarna/gauge.git</remote-id>
+		<remote-id type="github">iarna/gauge</remote-id>
 	</upstream>
 </pkgmetadata>
