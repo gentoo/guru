@@ -31,6 +31,12 @@ node_src_prepare() {
 	jq 'with_entries(if .key == "dependencies" then .key = "deps" else . end)' package.json | sponge package.json || die
 	jq 'with_entries(if .key == "devDependencies" then .key = "devDeps" else . end)' package.json | sponge package.json || die
 
+	#delete some trash
+	find . -iname 'code-of-conduct*' -maxdepth 1 -delete || die
+	find . -iname 'contributing*' -maxdepth 1 -delete || die
+	find . -iname 'license*' -maxdepth 1 -delete || die
+	rm -rf .DS_Store .editorconfig .github .gitignore .tm_properties .travis* || die
+
 	default
 }
 
@@ -48,6 +54,14 @@ node_src_install() {
 	#restore original package.json
 	jq 'with_entries(if .key == "deps" then .key = "dependencies" else . end)' package.json | sponge package.json || die
 	jq 'with_entries(if .key == "devDeps" then .key = "devDependencies" else . end)' package.json | sponge package.json || die
+
+	#install some files in the docdir
+	find . -iname "authors*" -maxdepth 1 -exec dodoc "{}" \; -exec rm "{}" \; || die
+	find . -iname "changelog*" -maxdepth 1 -exec dodoc "{}" \; -exec rm "{}" \; || die
+	find . -iname "changes*" -maxdepth 1 -exec dodoc "{}" \; -exec rm "{}" \; || die
+	find . -iname "copyright*" -maxdepth 1 -exec dodoc "{}" \; -exec rm "{}" \; || die
+	find . -iname "history*" -maxdepth 1 -exec dodoc "{}" \; -exec rm "{}" \; || die
+	find . -iname "readme*" -maxdepth 1 -exec dodoc "{}" \; -exec rm "{}" \; || die
 
 	#copy files instead of symlinks
 	rsync -avLAX "${T}/prefix/" "${ED}/usr" --exclude /bin || die
