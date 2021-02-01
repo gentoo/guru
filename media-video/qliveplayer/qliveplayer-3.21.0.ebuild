@@ -22,9 +22,10 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 COMMON_DEPEND="
 	${PYTHON_DEPS}
 	>=dev-qt/qtcore-5.12:5
-	>=dev-qt/qtgraphicaleffects-5.12:5
-	>=dev-qt/qtquickcontrols-5.12:5
-	>=dev-qt/qtquickcontrols2-5.12:5
+	>=dev-qt/qtdeclarative-5.12:5
+	>=dev-qt/qtgui-5.12:5
+	>=dev-qt/qtnetwork-5.12:5
+	>=dev-qt/qtwidgets-5.12:5
 "
 RDEPEND="
 	${COMMON_DEPEND}
