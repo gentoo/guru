@@ -40,6 +40,8 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${P}/src"
 
+SITEFILE="70${PN}-gentoo.el"
+
 src_configure() {
 	# Just to be safe, because './configure --help' says:
 	# "Set default GERBIL_HOME (environment variable still overrides)"
@@ -61,6 +63,10 @@ src_configure() {
 }
 
 src_compile() {
+	# Verbose build process
+	GAMBCOMP_VERBOSE="yes"
+	export GAMBCOMP_VERBOSE
+
 	# The 'build.sh' script uses environment variables that are exported
 	# by portage, ie.: CFLAGS, LDFLAGS, ...
 	sh ./build.sh \
@@ -82,10 +88,10 @@ src_install() {
 		|| die "Failed to fix '/usr/share/gerbil/TAGS' install path"
 
 	# Compile the 'gerbil-mode.el'
-	# FIXME: Doesn't autoload
 	if use emacs; then
 		pushd "${D}/usr/share/emacs/site-lisp/gerbil" || die
-		elisp-compile *.el || die
+		elisp-compile *.el || die "Failed to compile elisp files"
+		elisp-site-file-install "${FILESDIR}/${SITEFILE}"
 		popd || die
 	fi
 
