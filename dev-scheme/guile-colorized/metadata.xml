@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>xgqt@protonmail.com</email>
+		<name>Maciej Barć</name>
+	</maintainer>
+	<longdescription lang="en">
+		colorized REPL for GNU Guile
+		NOTE: Now guile-colorized only support Guile-2.0.9 or higher!
+	</longdescription>
+	<upstream>
+		<remote-id type="gitlab">NalaGinrut/guile-colorized</remote-id>
+	</upstream>
+</pkgmetadata>

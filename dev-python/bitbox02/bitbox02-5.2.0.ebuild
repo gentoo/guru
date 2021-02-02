@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -17,7 +17,7 @@ IUSE=""
 
 RDEPEND="
 	>=dev-python/base58-2.0.0[${PYTHON_USEDEP}]
-	>=dev-python/ecdsa-0.13.0[${PYTHON_USEDEP}]
+	>=dev-python/ecdsa-0.14.0[${PYTHON_USEDEP}]
 	>=dev-python/hidapi-0.7.99[${PYTHON_USEDEP}]
 	>=dev-python/noiseprotocol-0.3.0[${PYTHON_USEDEP}]
 	>=dev-python/protobuf-python-3.7.0[${PYTHON_USEDEP}]
