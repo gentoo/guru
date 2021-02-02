@@ -165,7 +165,7 @@ dev-python/b2sdk 1.2.0: The client library for BackBlaze's B2 product
 dev-python/baron 0.9: Full Syntax Tree for python to make writing refactoring code a realist task
 dev-python/base58 2.0.1: Base58 and Base58Check implementation
 dev-python/billiard 3.6.3.0: Python multiprocessing fork
-dev-python/bitbox02 5.1.0: Python API for communicating with the BitBox02 device
+dev-python/bitbox02 5.2.0: Python API for communicating with the BitBox02 device
 dev-python/cchardet 2.1.6 2.1.7: cChardet is high speed universal character encoding detector
 dev-python/check-manifest 0.45: Tool to check the completeness of MANIFEST.in for Python packages
 dev-python/click-didyoumean 0.0.3: Enable git-like did-you-mean feature in click
@@ -286,6 +286,8 @@ dev-python/uvicorn 0.13.3: The lightning-fast ASGI server
 dev-python/validators 0.18.2: Python Data Validation for Humans
 dev-python/watchgod 0.6: Simple, modern file watching and code reload
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
+dev-scheme/gerbil 0.16 9999: Dialect of Scheme designed for Systems Programming
+dev-scheme/guile-colorized 20191205 99999999: Colorized REPL for GNU Guile
 dev-util/FoBiS 3.0.2 3.0.5: FoBiS.py, a Fortran Building System for poor men
 dev-util/codespell 1.17.1 2.0.0: Check text files for common misspellings
 dev-util/gammaray 2.11.2: High-level runtime introspection tool for Qt applications
@@ -397,7 +399,7 @@ media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
 media-video/jellyfin-mpv-shim 1.8.0 1.8.1: MPV-based desktop and cast client for Jellyfin (Unofficial)
 media-video/kikoplay 0.7.2 9999: KikoPlay is a full-featured danmu player
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
-media-video/qliveplayer 3.20.2 3.21.0: A cute and useful Live Stream Player with danmaku support
+media-video/qliveplayer 3.21.0 3.21.1: A cute and useful Live Stream Player with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/vidify 2.2.6: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
