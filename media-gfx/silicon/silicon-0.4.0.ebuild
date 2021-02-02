@@ -176,7 +176,7 @@ xcb-0.8.2
 xml-rs-0.8.3
 "
 
-PYTHON_COMPAT=( python3_{6..9} )
+PYTHON_COMPAT=( python3_{7..9} )
 
 inherit cargo python-any-r1
 
