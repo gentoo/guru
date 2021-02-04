@@ -287,7 +287,7 @@ dev-python/validators 0.18.2: Python Data Validation for Humans
 dev-python/watchgod 0.6: Simple, modern file watching and code reload
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
 dev-scheme/gerbil 0.16 9999: Dialect of Scheme designed for Systems Programming
-dev-scheme/guile-colorized 20191205 99999999: Colorized REPL for GNU Guile
+dev-scheme/guile-colorized 0.1_p20191205 9999: Colorized REPL for GNU Guile
 dev-util/FoBiS 3.0.2 3.0.5: FoBiS.py, a Fortran Building System for poor men
 dev-util/codespell 1.17.1 2.0.0: Check text files for common misspellings
 dev-util/gammaray 2.11.2: High-level runtime introspection tool for Qt applications
@@ -361,7 +361,7 @@ gui-wm/cage 0.1.2.1 9999: A Wayland kiosk
 kde-apps/krecorder 9999: A convergent audio recording application for Plasma
 kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 kde-misc/plasma5-wallpapers-dynamic 3.3.3 3.3.6 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
-kde-misc/skanpage 2020.06.11: Simple pdf scanning application based on libksane and KDE Frameworks
+kde-misc/skanpage 2021.01.12: Simple pdf scanning application based on libksane and KDE Frameworks
 mail-client/heirloom-mailx 12.5: The mailx utility from CentOS
 media-fonts/overpass 3.0.4: An open source webfont family inspired by Highway Gothic
 media-fonts/source-han-serif 1.001: Pan-CJK OpenType/CFF font family
@@ -427,7 +427,7 @@ net-misc/openbgpd 6.6_p0 6.7_p0 6.8_p0 9999: OpenBGPD is a free implementation o
 net-misc/purritobin 0.4.0 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
 net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
-net-misc/tootle 1.0_alpha2 9999: Mastodon client written in GTK3
+net-misc/tootle 1.0_alpha2 1.0 9999: Mastodon client written in GTK3
 net-misc/wayback_machine_downloader 2.2.1: Download an entire website from the Wayback Machine
 net-misc/wsdd 0.5 0.6 0.6.1 0.6.2: A Web Service Discovery host daemon.
 net-misc/xmrig 6.7.2: RandomX, CryptoNight, KawPow, AstroBWT, and Argon2 CPU/GPU miner
@@ -498,7 +498,7 @@ sys-process/iotop-c 1.16: top utility for IO (C port)
 sys-process/nvtop 1.1.0 9999: NVIDIA GPUs htop like monitoring tool
 www-apps/code-server-bin 3.4.1 3.6.1 3.8.0: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
-www-apps/jackett-bin 0.17.405: API Support for your favorite torrent trackers
+www-apps/jackett-bin 0.17.405 0.17.449: API Support for your favorite torrent trackers
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/twint 2.1.20: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 18.23.0 9999: ultra fast, simple, secure & standards compliant web I/O
