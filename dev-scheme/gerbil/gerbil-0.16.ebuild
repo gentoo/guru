@@ -23,11 +23,9 @@ LICENSE="Apache-2.0 LGPL-2.1"
 SLOT="0"
 IUSE="emacs leveldb lmdb mysql +sqlite +xml yaml +zlib"
 
-BDEPEND="
-	emacs? ( >=app-editors/emacs-23.1:* )
-"
 DEPEND="
 	dev-scheme/gambit
+	emacs? ( >=app-editors/emacs-23.1:* )
 	leveldb? ( dev-libs/leveldb )
 	lmdb? ( dev-db/lmdb )
 	mysql? ( dev-db/mariadb:* )
