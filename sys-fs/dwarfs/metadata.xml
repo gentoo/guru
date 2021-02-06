@@ -16,4 +16,7 @@
 		* Highly multi-threaded implementation. Both the file system creation tool as well as the FUSE driver are able to make good use of the many cores of your system.
 		* Optional experimental Lua support to provide custom filtering and ordering functionality.
 	</longdescription>
+	<use>
+		<flag name="fuse2">Install optional fuse2 bindings in addition to fuse3.</flag>
+	</use>
 </pkgmetadata>
