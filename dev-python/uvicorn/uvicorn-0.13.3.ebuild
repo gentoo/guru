@@ -36,11 +36,11 @@ BDEPEND="test? (
 	dev-python/trustme[${PYTHON_USEDEP}]
 	>=dev-python/uvloop-0.14.0[${PYTHON_USEDEP}]
 	>=dev-python/websockets-8.0[${PYTHON_USEDEP}]
+	<dev-python/websockets-9.0[${PYTHON_USEDEP}]
 	>=dev-python/httptools-0.1[${PYTHON_USEDEP}]
 	<dev-python/httptools-0.2[${PYTHON_USEDEP}]
 	dev-python/httpx[${PYTHON_USEDEP}]
 	>=dev-python/watchgod-0.6[${PYTHON_USEDEP}]
-	<dev-python/watchgod-0.7[${PYTHON_USEDEP}]
 	dev-python/wsproto[${PYTHON_USEDEP}]
 )"
 

@@ -15,7 +15,7 @@ SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${PV}/dwarfs-${PV}.tar
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="python +jemalloc"
+IUSE="python +jemalloc fuse2"
 
 #test IUSE disabled because there is no googletest in portage tree
 #-DWITH_TESTS=$(usex test ON OFF)
@@ -38,6 +38,7 @@ RDEPEND="dev-libs/boost[context,threads,python?]
 		dev-cpp/gflags
 		dev-cpp/glog[gflags]
 		sys-fs/fuse:3
+		fuse2? ( sys-fs/fuse:0 )
 		sys-libs/binutils-libs
 		sys-libs/zlib
 		sys-libs/libunwind
@@ -52,8 +53,8 @@ CHECKREQS_DISK_BUILD="768M"
 
 DOCS=( "README.md" "CHANGES.md" "TODO" )
 
-CMAKE_IN_SOURCE_BUILD=true
-CMAKE_WARN_UNUSED_CLI=no
+CMAKE_IN_SOURCE_BUILD=1
+CMAKE_WARN_UNUSED_CLI=0
 
 QA_SONAME="${D}/usr/lib64/libdwarfs.so ${D}/usr/lib64/libxxhash.so"
 
@@ -78,6 +79,14 @@ src_install(){
 	cmake_src_install
 	dolib.so libmetadata_thrift.so libthrift_light.so
 	dolib.so folly/libfolly.so.0.58.0-dev folly/libfolly.so
+	if ! use fuse2; then
+		rm "${D}"/usr/sbin/dwarfs2
+		rm "${D}"/usr/sbin/mount.dwarfs2
+		else
+			ewarn "If you have both sys-fs/fuse:2 and sys-fs/fuse:3 installed"
+			ewarn "Dwarfs will install /sbin/dwarfs for fuse3 and /sbin/dwarfs2 for fuse2"
+			ewarn "See https://github.com/mhx/dwarfs/issues/32"
+	fi
 }
 
 pkg_postinst(){
@@ -91,7 +100,4 @@ pkg_postinst(){
 	elog "${HOMEPAGE}"
 	elog "About creating: ${HOMEPAGE}/blob/main/doc/mkdwarfs.md"
 	elog "About mounting: ${HOMEPAGE}/blob/main/doc/dwarfs.md"
-	ewarn "If you have both sys-fs/fuse:2 and sys-fs/fuse:3 installed"
-	ewarn "Dwarfs will install /sbin/dwarfs for fuse3 and /sbin/dwarfs2 for fuse2"
-	ewarn "See https://github.com/mhx/dwarfs/issues/32"
 }
