@@ -36,10 +36,6 @@ src_configure() {
 	tc-export CXX
 }
 
-src_test() {
-	emake check
-}
-
 src_install() {
 	emake PREFIX="/usr" MANDIR="/usr/share/man" DESTDIR="${ED}" install
 	insinto /var/www/purritobin
