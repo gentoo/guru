@@ -1,0 +1,30 @@
+#!/bin/sh
+
+
+# Copyright 1999-2021 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+
+DESCRIPTION="Manages scheme implementations"
+MAINTAINER="xgqt@protonmail.com"
+VERSION="1.0.0"
+
+SYMLINK_DESCRIPTION="default scheme implementations"
+SYMLINK_PATH="/usr/bin/scheme"
+SYMLINK_TARGETS=(
+    chezscheme chicken
+    elk escm
+    gsi gxi
+    jscheme
+    racket
+    scheme48 scm
+    tinyscheme
+    ypsilon
+)
+
+
+inherit bin-symlink
+
+do_unset() {
+    rm -f "${SYMLINK_PATH}"
+}
