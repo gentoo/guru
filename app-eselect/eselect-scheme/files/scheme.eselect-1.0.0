@@ -16,6 +16,7 @@ SYMLINK_TARGETS=(
     elk escm
     gsi gxi
     jscheme
+    plt-r5rs
     racket
     scheme48 scm
     tinyscheme
