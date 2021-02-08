@@ -68,13 +68,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
+	xdg_pkg_postinst
 	elog "You may want to install some additional utils, check in:"
 	elog "https://code.visualstudio.com/Docs/setup#_additional-tools"
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
 }
