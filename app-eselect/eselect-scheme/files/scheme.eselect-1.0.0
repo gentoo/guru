@@ -14,7 +14,7 @@ SYMLINK_PATH="/usr/bin/scheme"
 SYMLINK_TARGETS=(
     chezscheme chicken
     elk escm
-    gsi gxi
+    guile gsi gxi
     jscheme
     plt-r5rs
     racket
