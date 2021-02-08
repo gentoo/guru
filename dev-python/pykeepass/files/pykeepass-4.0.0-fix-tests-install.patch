@@ -19,7 +19,7 @@ index 773acfc..2a8c17b 100644
 @@ -11,7 +11,7 @@ setup(
      author="Philipp Schmitt",
      author_email="philipp@schmitt.co",
-     url="https://github.com/pschmitt/pykeepass",
+     url="https://github.com/libkeepass/pykeepass",
 -    packages=find_packages(),
 +    packages=find_packages(exclude=("tests")),
      install_requires=[
