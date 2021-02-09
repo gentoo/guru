@@ -15,7 +15,7 @@ app-portage/emlop:fish-completion - Enable fish completion support.
 app-shells/starship:battery - Include support for laptop battery information.
 app-shells/starship:http - If enabled, starship can help you file bugs with itself
 app-shells/starship:tls-vendored - Use a bundled openssl instead of the system openssl
-app-text/OCRmyPDF:jbig2enc - Uses media-libs/jbig2enc for better compression algorithm
+app-text/OCRmyPDF:jbig2enc - Uses media-libs/jbig2enc for a better compression algorithm
 dev-cpp/sprout:texconv - Install texconv from subproject compost
 dev-cpp/sprout:wavconv - Install texconv from subproject darkroom
 dev-embedded/rauc:gpt - Add GPT support

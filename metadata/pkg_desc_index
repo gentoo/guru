@@ -27,6 +27,7 @@ app-admin/s-tui 1.0.2 9999: Stress-Terminal UI monitoring tool
 app-arch/libarchive-qt 2.0.2 9999: A Qt based archiving solution with libarchive backend
 app-arch/unalz 0.65: Extract ALZ archives
 app-backup/b2 2.1.0: The command-line tool for BackBlaze's B2 product.
+app-backup/timeshift 20.11.1: A system restore utility for Linux
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/reop 2.1.1: reasonable expectation of privacy
@@ -34,9 +35,10 @@ app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on th
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
 app-editors/visual-studio-code-bin 1.53.0: Multiplatform Visual Studio Code from Microsoft
-app-editors/vscodium-bin 1.52.1: Free/Libre Open Source Software Binaries of VSCode
+app-editors/vscodium-bin 1.52.1 1.53.0: Free/Libre Open Source Software Binaries of VSCode
 app-emulation/dxvk-bin 1.7.2 1.7.3: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.4.0: NVIDIA container runtime toolkit
+app-eselect/eselect-scheme 1.0.0: Manages scheme implementations
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/apidb 4.3.0_beta 5.0.0_alpha 5.0.0_alpha8 5.0.0_alpha19 5.0.0_alpha20 5.8.0_beta: API Generator for Database acces.
 app-misc/brightness-control 2.0_p20200629: Qt Brightness Controller in Python
@@ -73,9 +75,9 @@ app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
 app-shells/starship 0.47.0 0.48.0: The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
-app-text/OCRmyPDF 11.4.5 11.5.0: OCRmyPDF adds an OCR text layer to scanned PDF files
+app-text/OCRmyPDF 11.5.0 11.6.0: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/katarakt 0.2: Simple PDF viewer
-app-text/komikku 0.12.0 0.15.0 0.24.0: An online/offline manga reader for GNOME
+app-text/komikku 0.15.0 0.24.0 0.26.0: An online/offline manga reader for GNOME
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
 app-text/mdbook 0.4.5 0.4.6: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
@@ -230,7 +232,7 @@ dev-python/pygaljs 1.0.2 1.0.2-r1: Python package providing assets from https://
 dev-python/pygsl 2.3.0: Python interface for the GNU scientific library (gsl)
 dev-python/pyinquirer 1.0.3_p20200708 9999: A Python module for common interactive command line UIs
 dev-python/pyjsparser 2.7.1: Fast javascript parser based on esprima.js
-dev-python/pykeepass 3.2.0-r1 3.2.1-r1: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
+dev-python/pykeepass 4.0.0: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
 dev-python/pymeeus 0.3.7: Python implementation of Jean Meeus astronomical routines
 dev-python/pypandoc 1.5: Pypandoc provides a thin wrapper for pandoc, a universal document converter
 dev-python/pystray 0.17.2: System tray icon creation via python
@@ -353,7 +355,7 @@ gui-apps/swaylock-effects 1.6.2 1.6.3 9999: Swaylock, with fancy effects
 gui-apps/tiramisu 0_p20201110 1.0 9999: minimalistic desktop notifications provider
 gui-apps/wdisplays 1.0-r2 9999: GUI display configurator for wlroots compositors
 gui-apps/wlr-randr 0.1.0 0.2.0 9999: xrandr clone for wlroots compositors
-gui-apps/wofi 1.2.1 1.2.2 1.2.3 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
+gui-apps/wofi 1.2.2 1.2.3 1.2.4 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 gui-libs/libcprime 4.0.0 4.1.0: Library for managing settings of CoreApps
 gui-libs/libcsys 4.0.0 4.1.0 9999: Library for managing the device
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
@@ -424,14 +426,14 @@ net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/openbgpd 6.6_p0 6.7_p0 6.8_p0 9999: OpenBGPD is a free implementation of BGPv4
-net-misc/purritobin 0.4.0 9999: minimalistic commandline pastebin
+net-misc/purritobin 0.4.1 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
 net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
 net-misc/tootle 1.0_alpha2 1.0 9999: Mastodon client written in GTK3
 net-misc/wayback_machine_downloader 2.2.1: Download an entire website from the Wayback Machine
 net-misc/wsdd 0.5 0.6 0.6.1 0.6.2 0.6.4: A Web Service Discovery host daemon.
-net-misc/xmrig 6.7.2: RandomX, CryptoNight, KawPow, AstroBWT, and Argon2 CPU/GPU miner
-net-misc/xmrig-mo 6.7.2: RandomX, CryptoNight, KawPow, AstroBWT and Argon2 miner for the MoneroOcean pool
+net-misc/xmrig 6.7.2 6.8.1: RandomX, CryptoNight, KawPow, AstroBWT, and Argon2 CPU/GPU miner
+net-misc/xmrig-mo 6.7.2 6.8.1: RandomX, CryptoNight, KawPow, AstroBWT and Argon2 miner for the MoneroOcean pool
 net-news/sfeed 0.9.18 0.9.20 9999: simple RSS and Atom parser
 net-p2p/lbry 0.48.2 0.49.1: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.1.9 9999: The secure, private, untraceable cryptocurrency
@@ -462,7 +464,7 @@ sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
 sys-apps/drm_info 2.2.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3 0.5.4: A more intuitive version of du
 sys-apps/hex 0.3.2 0.4.0: Futuristic take on hexdump
-sys-apps/procs 0.10.10: A modern replacement for ps
+sys-apps/procs 0.10.10 0.11.3: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
 sys-apps/rogdrv 0.0.5: ASUS ROG userspace mouse driver for Linux.
 sys-apps/sampler 1.1.0: visualizer for shell commands, executions and alerting
