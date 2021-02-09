@@ -19,6 +19,8 @@ fi
 
 LICENSE="ISC"
 SLOT="0"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	net-libs/usockets[ssl]

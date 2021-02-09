@@ -11,7 +11,7 @@
 	</maintainer>
 	<use>
 		<flag name="jbig2enc">
-			Uses <pkg>media-libs/jbig2enc</pkg> for better compression algorithm
+			Uses <pkg>media-libs/jbig2enc</pkg> for a better compression algorithm
 		</flag>
 	</use>
 </pkgmetadata>

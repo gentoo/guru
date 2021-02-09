@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop eutils pax-utils
+inherit desktop eutils pax-utils xdg
 
 DESCRIPTION="Multiplatform Visual Studio Code from Microsoft"
 HOMEPAGE="https://code.visualstudio.com"
@@ -60,7 +60,7 @@ src_install() {
 	insinto "/opt/${PN}"
 	doins -r *
 	fperms +x /opt/${PN}/{,bin/}code
-	dosym "../../opt/${PN}/bin/code" "usr/bin/${PN}"
+	dosym "../../opt/${PN}/bin/code" "usr/bin/code"
 	domenu "${FILESDIR}/code.desktop"
 	domenu "${FILESDIR}/code-url-handler.desktop"
 	dodoc "resources/app/LICENSE.rtf"
@@ -68,6 +68,7 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
 	elog "You may want to install some additional utils, check in:"
 	elog "https://code.visualstudio.com/Docs/setup#_additional-tools"
 }
