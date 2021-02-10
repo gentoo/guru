@@ -54,7 +54,10 @@ DEPEND="
 "
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}"/${P}-fix-llvm-build.patch )
+PATCHES=(
+	"${FILESDIR}"/${P}-fix-llvm-build.patch
+	"${FILESDIR}"/${P}-fix-CVE-2021-26825.patch
+)
 
 src_prepare() {
 	default
