@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -37,7 +37,7 @@ Name: ${PN}
 Description: ${DESCRIPTION}
 URL: ${HOMEPAGE}
 Version: ${PV}
-Libs: "-L\${libdir}\" -l${PN}
+Libs: "-L\${libdir}" -l${PN}
 Cflags: "-I\${includedir}"
 EOF
 }
