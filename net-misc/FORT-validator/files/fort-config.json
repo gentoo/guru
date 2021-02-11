@@ -2,7 +2,9 @@
 	"tal": "/usr/share/fort/tal/",
 	"local-repository": "/var/cache/fort/repository/",
 	"server": {
-		"address": "::"
+		"address": [
+			"::"
+		]
 	},
 	"log": {
 		"output": "syslog"

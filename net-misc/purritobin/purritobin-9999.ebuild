@@ -41,7 +41,7 @@ src_install() {
 	insinto /var/www/purritobin
 	doins frontend/paste.html
 	fowners purritobin:purritobin /var/www/purritobin
-	newinitd "${FILESDIR}"/purritobin.initd purritobin
-	systemd_dounit "${FILESDIR}"/purritobin.service
+	newinitd services/openrc purritobin
+	systemd_newunit services/systemd purritobin.service
 	einstalldocs
 }
