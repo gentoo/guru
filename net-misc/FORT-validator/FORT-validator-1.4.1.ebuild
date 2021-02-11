@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -42,8 +42,8 @@ src_prepare() {
 }
 
 src_install() {
-	newinitd "${FILESDIR}/${MY_PN}-initd" ${MY_PN}
-	newconfd "${FILESDIR}/${MY_PN}-confd" ${MY_PN}
+	newinitd "${FILESDIR}/${MY_PN}-1.4-initd" ${MY_PN}
+	newconfd "${FILESDIR}/${MY_PN}-1.4-confd" ${MY_PN}
 
 	emake DESTDIR="${D}" install
 	insinto /usr/share/${MY_PN}/
@@ -59,7 +59,7 @@ src_install() {
 	exeinto "/usr/libexec/${MY_PN}"
 	doexe fort_setup.sh
 
-	systemd_dounit "${FILESDIR}/${MY_PN}.service"
+	systemd_dounit "${FILESDIR}/${MY_PN}-1.4.service"
 }
 
 pkg_postinst() {

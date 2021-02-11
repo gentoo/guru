@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -42,8 +42,8 @@ src_prepare() {
 }
 
 src_install() {
-	newinitd "${FILESDIR}/${MY_PN}-initd" ${MY_PN}
-	newconfd "${FILESDIR}/${MY_PN}-confd" ${MY_PN}
+	newinitd "${FILESDIR}/${MY_PN}-1.5-initd" ${MY_PN}
+	newconfd "${FILESDIR}/${MY_PN}-1.5-confd" ${MY_PN}
 
 	emake DESTDIR="${D}" install
 	insinto /usr/share/${MY_PN}/
@@ -59,19 +59,16 @@ src_install() {
 	exeinto "/usr/libexec/${MY_PN}"
 	doexe fort_setup.sh
 
-	systemd_dounit "${FILESDIR}/${MY_PN}.service"
+	systemd_dounit "${FILESDIR}/${MY_PN}-1.5.service"
 }
 
 pkg_postinst() {
 	fcaps cap_net_bind_service usr/bin/fort
 
 	einfo ""
-	einfo "ARIN TAL is disabled by default because the ARIN Relying Party"
-	einfo "Agreement must be accepted beforehead. Start fort, run"
+	einfo "You have to init the TALs before the first run. To do so, run "
 	einfo ""
-	einfo "  su -s /bin/sh -c '${EROOT}/usr/libexec/${MY_PN}/fort_setup.sh /usr/share/${MY_PN}/tal/' fort"
+	einfo "  su -s /bin/sh -c '${EROOT}/usr/bin/${MY_PN} --init-tals --tal /usr/share/${MY_PN}/tal/' fort"
 	einfo ""
-	einfo "as root and restart fort to enable it."
-	einfo "The configuration file generation will provide a config file, but a"
-	einfo "simpler one is shiped with the ebuid. Use the one you prefer."
+	einfo "as root."
 }
