@@ -34,7 +34,7 @@ app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
-app-editors/visual-studio-code-bin 1.53.0: Multiplatform Visual Studio Code from Microsoft
+app-editors/visual-studio-code-bin 1.53.1: Multiplatform Visual Studio Code from Microsoft
 app-editors/vscodium-bin 1.52.1 1.53.0: Free/Libre Open Source Software Binaries of VSCode
 app-emulation/dxvk-bin 1.7.2 1.7.3: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.4.0: NVIDIA container runtime toolkit
@@ -61,7 +61,7 @@ app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20181120: vrms clone for Gentoo Linux
 app-misc/watchexec 1.14.1: Executes commands in response to file modifications
 app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
-app-office/openoffice-bin 4.1.8: Apache OpenOffice productivity suite
+app-office/openoffice-bin 4.1.8 4.1.9: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.4 1.99.5 9999: Pyspread is a non-traditional spreadsheet written in Python
 app-portage/emlop 0.4.1: A fast, accurate, ergonomic emerge.log parser
 app-portage/pacvis 0.4.2 9999: Displays dependency graphs of packages
@@ -114,7 +114,7 @@ dev-cpp/vectorwrapper 1.1.1 9999: A template vector wrapper class for C++
 dev-db/pg_repack 1.4.6: Reorganize tables in PostgreSQL databases with minimal locks
 dev-db/rum 1.3.7: RUM access method - inverted index with additional information in posting lists
 dev-embedded/rauc 1.5.1: Lightweight update client that runs on your Embedded Linux device
-dev-games/godot 3.2.3: Multi-platform 2D and 3D game engine
+dev-games/godot 3.2.3-r1: Multi-platform 2D and 3D game engine
 dev-games/surgescript 0.5.4.3 0.5.4.4 9999: scripting language made for opensurge
 dev-go/lichen 0.1.1: Go binary license checker
 dev-java/openjdk-sts-bin 15.0.1_p9: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
@@ -258,6 +258,7 @@ dev-python/pywebview 3.4: A lightweight cross-platform wrapper around a webview 
 dev-python/redbaron 0.9 0.9.2: A FST for python to make writing refactoring code a realistic task
 dev-python/rstcheck 3.3.1: Checks syntax of reStructuredText and code blocks nested within it
 dev-python/sanic 20.9.1: Async Python 3.6+ web server/framework | Build fast. Run fast.
+dev-python/scenedetect 0.5.5: Video Scene Cut Detection and Analysis Tool
 dev-python/schedule 0.6.0-r1 9999: Python job scheduling for humans
 dev-python/skia-pathops 0.4.1: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
@@ -397,6 +398,7 @@ media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
 media-sound/wlavu 9999: Wayland ALSA VU-meter with peaking and optional support for wlr-layer-shell
 media-sound/zita-ajbridge 0.8.4: zita-a2j and zita-j2a - bridges between ALSA and JACK
 media-tv/droidcam 1.7: Use android phone as webcam, using a v4l device driver and app
+media-video/av1an 1.12 9999: Cross-platform framework to streamline encoding
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
 media-video/jellyfin-mpv-shim 1.8.0 1.8.1: MPV-based desktop and cast client for Jellyfin (Unofficial)
 media-video/kikoplay 0.7.2 9999: KikoPlay is a full-featured danmu player
@@ -417,7 +419,7 @@ net-im/srain 1.1.1 1.1.3: Modern, beautiful IRC client written in GTK+ 3
 net-libs/kcgi 0.12.3 9999: minimal CGI library for web applications
 net-libs/usockets 0.6.0_p20210126 9999: tiny eventing, networking & crypto for async applications
 net-mail/remail 0.9: A set of tools for crypted mailing lists
-net-misc/FORT-validator 1.3.0 1.4.0 1.4.1 1.4.2: FORT validator is an open source RPKI validator
+net-misc/FORT-validator 1.4.1 1.4.2 1.5.0: FORT validator is an open source RPKI validator
 net-misc/castor 0.8.15 0.8.16: A graphical browser for plain-text protocols
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/kristall 0.2 0.3 9999: Visual cross-platform gemini browser
@@ -426,7 +428,7 @@ net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/openbgpd 6.6_p0 6.7_p0 6.8_p0 9999: OpenBGPD is a free implementation of BGPv4
-net-misc/purritobin 0.4.1 9999: minimalistic commandline pastebin
+net-misc/purritobin 0.4.2 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
 net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
 net-misc/tootle 1.0_alpha2 1.0 9999: Mastodon client written in GTK3
