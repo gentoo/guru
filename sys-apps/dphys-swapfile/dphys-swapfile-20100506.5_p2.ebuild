@@ -11,7 +11,7 @@ SRC_URI="${BASE_URI}/${PN}_$(ver_cut 1).orig.tar.gz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 x86 ~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 S="${WORKDIR}/${PN}"
 
