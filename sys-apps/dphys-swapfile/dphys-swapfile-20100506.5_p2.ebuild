@@ -7,7 +7,7 @@ DESCRIPTION="Provides Using a Swap File instead of a Partition"
 HOMEPAGE="http://neil.franklin.ch/Projects/dphys-swapfile/"
 BASE_URI="https://archive.raspberrypi.org/debian/pool/main/d/dphys-swapfile"
 SRC_URI="${BASE_URI}/${PN}_$(ver_cut 1).orig.tar.gz
-         ${BASE_URI}/${PN}_$(ver_cut 1)-$(ver_cut 2)+rpt$(ver_cut 4).debian.tar.xz"
+		${BASE_URI}/${PN}_$(ver_cut 1)-$(ver_cut 2)+rpt$(ver_cut 4).debian.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
