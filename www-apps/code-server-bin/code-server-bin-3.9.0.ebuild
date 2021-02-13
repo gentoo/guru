@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -51,20 +51,23 @@ src_prepare() {
 	# thus "-bin".
 
 	# use system node
-	rm node || die
-	rm lib/node || die
+	rm ./node ./lib/node \
+		|| die "failed to remove bundled nodejs"
 
 	# remove bundled ripgrep binary
-	rm lib/vscode/node_modules/vscode-ripgrep/bin/rg || die
+	rm ./lib/vscode/node_modules/vscode-ripgrep/bin/rg \
+		|| die "failed to remove bundled ripgrep"
 
 	# not needed
-	rm code-server || die
-	rm postinstall.sh || die
+	rm ./code-server || die
+	rm ./postinstall.sh || die
+
 	# already in /usr/portage/licenses/MIT
-	rm LICENSE.txt || die
+	rm ./LICENSE.txt || die
 
 	if ! use gnome-keyring; then
-		rm -r ./lib/vscode/node_modules/keytar || die
+		rm -r ./lib/vscode/node_modules/keytar \
+			|| die "failed to remove bundled keytar"
 	fi
 }
 

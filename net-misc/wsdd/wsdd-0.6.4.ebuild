@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 PYTHON_REQ_USE="xml(+)"
 
 inherit python-r1 systemd
@@ -17,9 +17,9 @@ KEYWORDS="~amd64 ~arm ~x86"
 IUSE="samba"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-DEPEND="${PYTHON_DEPS}"
-# Samba is technically no requiredment of wsdd, but depend on it if the use flags is set.
-RDEPEND="${DEPEND} samba? ( net-fs/samba )"
+DEPEND=""
+# Samba is technically not a requirement of wsdd, but depend on it if the use flags is set.
+RDEPEND="${PYTHON_DEPS} samba? ( net-fs/samba )"
 BDEPEND=""
 
 src_install() {
