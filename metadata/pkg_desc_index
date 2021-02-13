@@ -37,7 +37,7 @@ app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
 app-editors/visual-studio-code-bin 1.53.2: Multiplatform Visual Studio Code from Microsoft
 app-editors/vscodium-bin 1.52.1 1.53.0 1.53.1: Free/Libre Open Source Software Binaries of VSCode
 app-emulation/dxvk-bin 1.7.2 1.7.3: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
-app-emulation/nvidia-container-toolkit 1.4.0: NVIDIA container runtime toolkit
+app-emulation/nvidia-container-toolkit 1.4.2: NVIDIA container runtime toolkit
 app-eselect/eselect-scheme 1.0.0: Manages scheme implementations
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/apidb 4.3.0_beta 5.0.0_alpha 5.0.0_alpha8 5.0.0_alpha19 5.0.0_alpha20 5.8.0_beta: API Generator for Database acces.
@@ -461,7 +461,7 @@ sci-libs/saclib 2.2.7-r1 2.2.7-r2: Reference implementations of algorithms and f
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
 sci-mathematics/frama-c 22.0: Framework for analysis of source codes written in C
 sci-mathematics/why3 1.3.3: Platform for deductive program verification
-sci-physics/SU2 7.0.8-r1: SU2: An Open-Source Suite for Multiphysics Simulation and Design
+sci-physics/SU2 7.0.8-r1 7.1.0: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
 sys-apps/drm_info 2.2.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3 0.5.4: A more intuitive version of du
@@ -471,6 +471,7 @@ sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
 sys-apps/rogdrv 0.0.5: ASUS ROG userspace mouse driver for Linux.
 sys-apps/sampler 1.1.0: visualizer for shell commands, executions and alerting
 sys-apps/sampler-bin 1.1.0: visualizer for shell commands, executions and alerting
+sys-apps/systemd-bootchart 234: systemd boot performance graphing tool
 sys-auth/mrsh 2.12: Mrsh is a set of remote shell programs that use munge authentication.
 sys-block/systemd-swap 4.4.0 9999: Script for creating swap space from zram swaps, swap files and swap partitions.
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
@@ -493,7 +494,7 @@ sys-fs/gfs2-utils 3.2.0 3.3.0: Shared-disk cluster file system
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
 sys-kernel/tirdad 0_p20200926: kernel module for random ISN generation
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
-sys-libs/libnvidia-container 1.3.1: NVIDIA container runtime library
+sys-libs/libnvidia-container 1.3.3: NVIDIA container runtime library
 sys-libs/nss-tls 1.0 1.1 9999: A DNS over HTTPS resolver for glibc
 sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC security key
 sys-process/bottom 0.5.6: A graphical process/system monitor with a customizable interface
@@ -527,6 +528,6 @@ x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm,
 x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Window System
 x11-themes/arc-darkest-colors 0_pre20200818 0_pre20201112: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
-x11-themes/obsidian-icon-theme 4.14 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
+x11-themes/obsidian-icon-theme 4.15 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
 x11-themes/obsidian2-gtk-theme 2.18 9999: Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
 x11-themes/papirus-claws-mail-theme 0_pre20181023 0_pre20201019: Papirus icon theme for Claws Mail

@@ -183,6 +183,7 @@ sci-mathematics/why3:zarith - Use Zarith (dev-ml/zarith) instead of Nums (dev-ml
 sci-mathematics/why3:zip - Enable compression of session files
 sci-physics/SU2:cgns - Build with CGNS support (bundled)
 sci-physics/SU2:mkl - Enable Intel MKL support
+sci-physics/SU2:mpp - Enable Mutation++ library support
 sci-physics/SU2:openblas - Enable OpenBLAS support
 sci-physics/SU2:tecio - Enable TECIO support
 sci-physics/SU2:tutorials - Install Tutorials files
