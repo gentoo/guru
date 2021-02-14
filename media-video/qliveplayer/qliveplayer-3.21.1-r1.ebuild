@@ -1,0 +1,59 @@
+# Copyright 2020-2021 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=7
+
+PYTHON_COMPAT=( python3_{7..9} )
+
+inherit xdg cmake optfeature python-single-r1
+
+MY_P="QLivePlayer-${PV}"
+
+DESCRIPTION="A cute and useful Live Stream Player with danmaku support"
+HOMEPAGE="https://github.com/IsoaSFlus/QLivePlayer"
+SRC_URI="https://github.com/IsoaSFlus/QLivePlayer/archive/${PV}.tar.gz -> ${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
+
+LICENSE="GPL-2"
+SLOT="0"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
+COMMON_DEPEND="
+	${PYTHON_DEPS}
+	>=dev-qt/qtdeclarative-5.15:5[widgets]
+	>=dev-qt/qtquickcontrols-5.15:5
+	>=dev-qt/qtquickcontrols2-5.15:5
+"
+RDEPEND="
+	${COMMON_DEPEND}
+	$(python_gen_cond_dep '
+		dev-python/aiohttp[${PYTHON_USEDEP}]
+	')
+	media-video/ffmpeg
+	media-video/mpv
+	net-misc/curl
+"
+DEPEND="
+	${COMMON_DEPEND}
+	kde-frameworks/extra-cmake-modules:5
+"
+
+src_prepare()
+{
+	cmake_src_prepare
+	# fix python version
+	sed -i "s/python3/${EPYTHON}/" src/qlphelper/bilivideo.cpp \
+		|| die "Sed failed to set python version!"
+	sed -i "s/python3/${EPYTHON}/" src/qlphelper/danmakulauncher.cpp \
+		|| die "Sed failed to set python version!"
+	sed -i "s/python3/${EPYTHON}/" src/qlphelper/streamfinder.cpp \
+		|| die "Sed failed to set python version!"
+}
+
+pkg_postinst()
+{
+	xdg_pkg_postinst
+	optfeature "twitch support" "net-misc/streamlink"
+	optfeature "youtube support" "dev-python/protobuf-python net-misc/streamlink"
+}
