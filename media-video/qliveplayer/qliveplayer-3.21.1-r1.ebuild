@@ -21,7 +21,11 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 COMMON_DEPEND="
 	${PYTHON_DEPS}
-	>=dev-qt/qtdeclarative-5.15:5[widgets]
+	>=dev-qt/qtcore-5.15:5
+	>=dev-qt/qtdeclarative-5.15:5
+	>=dev-qt/qtgui-5.15:5
+	>=dev-qt/qtnetwork-5.15:5
+	>=dev-qt/qtwidgets-5.15:5
 "
 RDEPEND="
 	${COMMON_DEPEND}
