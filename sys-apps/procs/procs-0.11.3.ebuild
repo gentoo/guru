@@ -201,7 +201,7 @@ SRC_URI="
 
 # License set may be more restrictive as OR is not respected
 # use cargo-license for a more accurate license picture
-LICENSE="BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSL-1.1 CC0-1.0 MIT Unlicense ZLIB"
+LICENSE="Apache-2.0 BSD BSD-2 CC0-1.0 MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 RESTRICT="mirror"
