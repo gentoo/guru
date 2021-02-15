@@ -35,6 +35,8 @@ RDEPEND="
 	media-video/ffmpeg
 	media-video/mpv
 	net-misc/curl
+	>=dev-qt/qtquickcontrols-5.12:5
+	>=dev-qt/qtquickcontrols2-5.12:5
 "
 DEPEND="
 	${COMMON_DEPEND}
