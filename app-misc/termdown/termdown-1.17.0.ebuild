@@ -25,4 +25,3 @@ DEPEND="
 	speak? ( app-accessibility/espeak )"
 
 RDEPEND="${DEPEND}"
-
