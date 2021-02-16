@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit go-module golang-build
+inherit go-module
 
 EGO_SUM=(
 "github.com/gdamore/encoding v1.0.0"
@@ -40,9 +40,11 @@ S="${WORKDIR}/lf-r${PV}"
 EGO_PN=github.com/gokcehan/lf
 
 src_compile() {
-	go build
+	go build -x || die
 }
 
 src_install() {
 	dobin "lf"
+	einstalldocs
+	doman "lf.1"
 }
