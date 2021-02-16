@@ -45,6 +45,7 @@ DEPEND="
 
 src_prepare()
 {
+	xdg_environment_reset
 	cmake_src_prepare
 	# fix python version
 	sed -i "s/python3/${EPYTHON}/" src/qlphelper/bilivideo.cpp \
