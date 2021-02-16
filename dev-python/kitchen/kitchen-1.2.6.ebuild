@@ -8,16 +8,10 @@ inherit distutils-r1
 
 DESCRIPTION="Kitchen contains a cornucopia of useful code"
 HOMEPAGE="https://github.com/fedora-infra/kitchen"
-SRC_URI="https://github.com/fedora-infra/kitchen/archive/${PV}.tar.gz"
-
-S="${WORKDIR}/${P}"
+SRC_URI="https://github.com/fedora-infra/kitchen/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 
 SLOT="0"
 
 KEYWORDS="~amd64"
-
-src_prepare() {
-    distutils-r1_src_prepare
-}

@@ -11,18 +11,18 @@ DESCRIPTION="A text-based interface (TUI) to view and interact with Reddit from 
 HOMEPAGE="https://gitlab.com/ajak/tuir"
 SRC_URI="https://gitlab.com/ajak/tuir/-/archive/v${PV}/tuir-v${PV}.tar.gz"
 
-S="${WORKDIR}/${PN}-v${PV}"
-
 LICENSE="MIT"
 
 SLOT="0"
 
-KEYWORDS="~amd64"
+S="${WORKDIR}/${PN}-v${PV}"
 
-RDEPEND="${DEPEND}"
+KEYWORDS="~amd64"
 
 DEPEND="dev-python/beautifulsoup[${PYTHON_USEDEP}]
 dev-python/decorator[${PYTHON_USEDEP}]
 dev-python/requests[${PYTHON_USEDEP}]
 dev-python/six[${PYTHON_USEDEP}]
 dev-python/kitchen[${PYTHON_USEDEP}]"
+
+RDEPEND="${DEPEND}"
