@@ -8,8 +8,8 @@ PYTHON_REQ_USE="ncurses"
 inherit distutils-r1
 
 DESCRIPTION="A text-based interface (TUI) to view and interact with Reddit from your terminal"
-HOMEPAGE="https://github.com/proycon/tuir"
-SRC_URI="https://gitlab.com/ajak/tuir/-/archive/v1.29.0/tuir-v1.29.0.tar.gz"
+HOMEPAGE="https://gitlab.com/ajak/tuir"
+SRC_URI="https://gitlab.com/ajak/tuir/-/archive/v${PV}/tuir-v${PV}.tar.gz"
 
 S="${WORKDIR}/${PN}-v${PV}"
 
@@ -19,8 +19,10 @@ SLOT="0"
 
 KEYWORDS="~amd64"
 
-DEPEND="dev-python/beautifulsoup
-dev-python/decorator
-dev-python/requests
-dev-python/six
-dev-python/kitchen"
+RDEPEND="${DEPEND}"
+
+DEPEND="dev-python/beautifulsoup[${PYTHON_USEDEP}]
+dev-python/decorator[${PYTHON_USEDEP}]
+dev-python/requests[${PYTHON_USEDEP}]
+dev-python/six[${PYTHON_USEDEP}]
+dev-python/kitchen[${PYTHON_USEDEP}]"
