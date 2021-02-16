@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7..9} )
 
-inherit xdg cmake optfeature python-single-r1
+inherit xdg cmake optfeature python-single-r1 readme.gentoo-r1
 
 MY_P="QLivePlayer-${PV}"
 
@@ -56,9 +56,16 @@ src_prepare()
 		|| die "Sed failed to set python version!"
 }
 
+src_install()
+{
+	cmake_src_install
+	readme.gentoo_create_doc
+}
+
 pkg_postinst()
 {
 	xdg_pkg_postinst
+	readme.gentoo_print_elog
 	optfeature "twitch support" "net-misc/streamlink"
 	optfeature "youtube support" "dev-python/protobuf-python net-misc/streamlink"
 }
