@@ -47,13 +47,15 @@ src_prepare()
 {
 	xdg_environment_reset
 	cmake_src_prepare
-	# fix python version
-	sed -i "s/python3/${EPYTHON}/" src/qlphelper/bilivideo.cpp \
-		|| die "Sed failed to set python version!"
-	sed -i "s/python3/${EPYTHON}/" src/qlphelper/danmakulauncher.cpp \
-		|| die "Sed failed to set python version!"
-	sed -i "s/python3/${EPYTHON}/" src/qlphelper/streamfinder.cpp \
-		|| die "Sed failed to set python version!"
+	# respect PYTHON_SINGLE_TARGET
+	grep 'p.start("python3", args);' src/qlphelper/bilivideo.cpp >/dev/null || die
+	sed -i "s/python3/${EPYTHON}/" src/qlphelper/bilivideo.cpp || die
+	grep 'dmcPyProcess->start("python3", dmcPy);' \
+		src/qlphelper/danmakulauncher.cpp >/dev/null || die
+	sed -i "s/python3/${EPYTHON}/" src/qlphelper/danmakulauncher.cpp || die
+	grep 'proc->start("python3", args);' \
+		src/qlphelper/streamfinder.cpp >/dev/null || die
+	sed -i "s/python3/${EPYTHON}/" src/qlphelper/streamfinder.cpp || die
 }
 
 src_install()
