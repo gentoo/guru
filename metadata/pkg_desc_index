@@ -17,7 +17,7 @@ acct-user/monero 0: System user: monero
 acct-user/purritobin 0: User for www-apps/jackett-bin
 acct-user/trezord 0: User for TREZOR Bridge
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
-app-admin/antidot 0.4.2 0.5.0: Cleans up your $HOME from those pesky dotfiles
+app-admin/antidot 0.5.0 0.6.1: Cleans up your $HOME from those pesky dotfiles
 app-admin/chezmoi 1.8.2 1.8.10: Manage your dotfiles across multiple machines, securely.
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.12.0: A system rescue cd or usbstick for desktop and server based on gentoo
@@ -35,7 +35,7 @@ app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on th
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
 app-editors/visual-studio-code-bin 1.53.2: Multiplatform Visual Studio Code from Microsoft
-app-editors/vscodium-bin 1.52.1 1.53.0 1.53.1: Free/Libre Open Source Software Binaries of VSCode
+app-editors/vscodium-bin 1.52.1 1.53.0 1.53.1 1.53.2: Free/Libre Open Source Software Binaries of VSCode
 app-emulation/dxvk-bin 1.7.2 1.7.3: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.4.2: NVIDIA container runtime toolkit
 app-eselect/eselect-scheme 1.0.0: Manages scheme implementations
@@ -47,6 +47,7 @@ app-misc/ddcui 0.1.2: Graphical user interface for ddcutil - control monitor set
 app-misc/doublecmd-bin 0.9.9 0.9.10: Free cross platform open source file manager with two panels side by side.
 app-misc/fetsh 1.7 1.8 9999: A fetch written in POSIX shell without any external commands
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
+app-misc/lf 20: Terminal file manager
 app-misc/liquidctl 1.4.2: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/mat2 0.11.0 0.12.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
@@ -57,6 +58,7 @@ app-misc/rdfind 1.4.1: Find duplicate files
 app-misc/rememberthemilk 1.3.0: Freemium simple to-do tasks manager
 app-misc/tealdeer 1.4.1: A very fast implementation of tldr in Rust.
 app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the command-line
+app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20181120: vrms clone for Gentoo Linux
 app-misc/watchexec 1.14.1: Executes commands in response to file modifications
@@ -65,7 +67,7 @@ app-office/openoffice-bin 4.1.8 4.1.9: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.4 1.99.5 9999: Pyspread is a non-traditional spreadsheet written in Python
 app-portage/emlop 0.4.1: A fast, accurate, ergonomic emerge.log parser
 app-portage/pacvis 0.4.2 9999: Displays dependency graphs of packages
-app-portage/portage-lostfiles 0.2.0: A simple script to identify files not tracked by Portage package manager
+app-portage/portage-lostfiles 0.2.2: A simple script to identify files not tracked by Portage package manager
 app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
 app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
 app-portage/version 0.6.1_alpha 0.6.2_alpha 0.9.0_alpha 0.9.1_alpha 0.10.0_alpha 0.14.2_alpha 0.14.4_alpha 0.15.0_alpha 0.17.0_alpha 0.18.0_alpha 0.19.0_alpha 0.20.1_alpha: A command line function for package version management.
@@ -74,8 +76,9 @@ app-shells/fish-command-timer 0.1.3 0.1.3_p20201002: Fish shell extension for pr
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
 app-shells/starship 0.47.0 0.48.0: The minimal, blazing-fast, and infinitely customizable prompt for any shell!
+app-shells/zsh-autosuggestions 0.6.4: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
-app-text/OCRmyPDF 11.5.0 11.6.0: OCRmyPDF adds an OCR text layer to scanned PDF files
+app-text/OCRmyPDF 11.6.0 11.6.2: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/komikku 0.15.0 0.24.0 0.26.0: An online/offline manga reader for GNOME
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
@@ -187,14 +190,13 @@ dev-python/devtools 0.6.1: Dev tools for python
 dev-python/doxypypy 0.8.8.6: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/factory_boy 3.1.0: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11: Up to date simple useragent faker with real world database
-dev-python/faker 5.0.2: Python package that generates fake data
 dev-python/geopy 2.0.0: A Geocoding Toolbox for Python
 dev-python/github-sublee-glicko2 0_pre20191010: An implementation of the Glicko-2 rating system for Python
 dev-python/glicko2 2.0.0: glicko2 implementation in python
 dev-python/glyphsLib 5.3.0: A library to provide a bridge from Glyphs source files to UFOs
 dev-python/googletransx 2.4.2: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/graphene 3.0.0_beta6: GraphQL Framework for Python
-dev-python/graphql-core 3.1.1 3.1.2: GraphQL for Python
+dev-python/graphql-core 3.1.2 3.1.3: GraphQL for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
 dev-python/gssapi 1.6.12: A Python interface to RFC 2743/2744 (plus common extensions)
 dev-python/guidata 1.7.9: Library for user interfaces for easy dataset editing and display
@@ -212,6 +214,7 @@ dev-python/jellyfin-apiclient-python 1.6.2: Python API client for Jellyfin
 dev-python/js2py 0.70: JavaScript to Python Translator & JavaScript interpreter written in Python
 dev-python/jupyter-sphinx 0.3.2: Jupyter Sphinx Extensions
 dev-python/k5test 0.9.2: A library for setting up self-contained Kerberos 5 environments
+dev-python/kitchen 1.2.6: Kitchen contains a cornucopia of useful code
 dev-python/libusb1 1.9.1: Pure-python wrapper for libusb-1.0
 dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/markdown-include 0.6.0: Syntax which allows for inclusion of contents of other Markdown docs
@@ -262,7 +265,6 @@ dev-python/scenedetect 0.5.5: Video Scene Cut Detection and Analysis Tool
 dev-python/schedule 0.6.0-r1 9999: Python job scheduling for humans
 dev-python/skia-pathops 0.4.1: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
-dev-python/sniffio 1.2.0: Sniff out which async library your code is running under
 dev-python/sphinx-argparse 0.2.5: Sphinx extension that automatically documents argparse commands and options
 dev-python/sphinx-autodoc-typehints 1.10.3 1.11.1: Type hints support for the Sphinx autodoc extension
 dev-python/sphinx-tabs 1.3.0: Create tabbed content in Sphinx documentation when building HTML
@@ -286,7 +288,6 @@ dev-python/ufoLib2 0.7.1 0.8.0 0.10.0: A UFO font library
 dev-python/ufoNormalizer 0.5.2: A tool that will normalize the XML and other data inside of a UFO.
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/uvicorn 0.13.3: The lightning-fast ASGI server
-dev-python/validators 0.18.2: Python Data Validation for Humans
 dev-python/watchgod 0.7: Simple, modern file watching and code reload
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
 dev-scheme/gerbil 0.16 9999: Dialect of Scheme designed for Systems Programming
@@ -377,6 +378,7 @@ media-gfx/glimpse 0.2.0: Image editor based on the GNU Image Manipulation Progra
 media-gfx/grafx2 2.7.2978 2.7.2978-r100: A pixelart-oriented painting program
 media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/oxipng 2.3.0 3.0.1 4.0.0 4.0.2 4.0.3: A lossless PNG compression optimizer
+media-gfx/qview 4.0: Practical and minimal image viewer
 media-gfx/silicon 0.3.2 0.4.0: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.1.2: AMD Open Source Driver for Vulkan
@@ -403,7 +405,7 @@ media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
 media-video/jellyfin-mpv-shim 1.8.0 1.8.1: MPV-based desktop and cast client for Jellyfin (Unofficial)
 media-video/kikoplay 0.7.2 9999: KikoPlay is a full-featured danmu player
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
-media-video/qliveplayer 3.21.0-r1 3.21.1-r1: A cute and useful Live Stream Player with danmaku support
+media-video/qliveplayer 3.21.0-r1 3.21.1-r1: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/vidify 2.2.6: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
@@ -432,10 +434,11 @@ net-misc/purritobin 0.4.2 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
 net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
 net-misc/tootle 1.0_alpha2 1.0 9999: Mastodon client written in GTK3
+net-misc/tuir 1.29.0: A text-based interface (TUI) to view and interact with Reddit from your terminal
 net-misc/wayback_machine_downloader 2.2.1: Download an entire website from the Wayback Machine
 net-misc/wsdd 0.5 0.6 0.6.1 0.6.2 0.6.4: A Web Service Discovery host daemon.
-net-misc/xmrig 6.7.2 6.8.1: RandomX, CryptoNight, KawPow, AstroBWT, and Argon2 CPU/GPU miner
-net-misc/xmrig-mo 6.7.2 6.8.1: RandomX, CryptoNight, KawPow, AstroBWT and Argon2 miner for the MoneroOcean pool
+net-misc/xmrig 6.8.1 6.8.2: RandomX, CryptoNight, KawPow, AstroBWT, and Argon2 CPU/GPU miner
+net-misc/xmrig-mo 6.8.1 6.8.2: RandomX, CryptoNight, KawPow, AstroBWT and Argon2 miner for the MoneroOcean pool
 net-news/sfeed 0.9.18 0.9.20 9999: simple RSS and Atom parser
 net-p2p/lbry 0.48.2 0.49.1: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.1.9 9999: The secure, private, untraceable cryptocurrency
@@ -443,7 +446,6 @@ net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1 0.3.14 0.3.15: An experiment in scalable routing as an encrypted IPv6 overlay network
 net-vpn/riseup-vpn 0.20.4: Anonymous encrypted VPN client powered by Bitmask
-net-wireless/eiwd 1.6.1 1.7_pre20200606 9999: iwd without dbus
 net-wireless/rtl8192eu 0_pre20201219: Realtek 8192EU driver module for Linux kernel
 net-wireless/rtl8821ce 0_pre20201216: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20201224: Realtek 8821CU/RTL8811CU module for Linux kernel
@@ -522,7 +524,7 @@ x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
 x11-misc/betterlockscreen_rapid 0.0.0_pre20201222 9999: A rapid and good-looking screen locker
 x11-misc/gammy 0.9.58a 0.9.59 0.9.60 9999: Adaptive screen brightness/temperature
 x11-misc/gromit-mpx 1.3.1 1.4 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
-x11-misc/i3lock-color 2.12.5 2.13.1 9999: The world's most popular non-default computer lockscreen
+x11-misc/i3lock-color 2.13.1 2.13.2 9999: The world's most popular non-default computer lockscreen
 x11-misc/i3lock-fancy-rapid 0.0.0_pre20201109 9999: A faster implementation of i3lock-fancy
 x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement for i3status, written in Rust.
 x11-misc/ksnip 1.6.2-r1 1.7.1 1.7.3 1.8.0 1.8.0-r1: Ksnip is a Qt based cross-platform screenshot tool
