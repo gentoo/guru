@@ -12,7 +12,7 @@ DESCRIPTION="OCRmyPDF adds an OCR text layer to scanned PDF files"
 HOMEPAGE="https://github.com/jbarlow83/OCRmyPDF"
 SRC_URI="https://github.com/jbarlow83/OCRmyPDF/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-3"
+LICENSE="MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
@@ -50,18 +50,9 @@ DEPEND="
 distutils_enable_tests pytest
 distutils_enable_sphinx docs --no-autodoc
 
-python_prepare_all() {
-	# do not depend on deprecated dep
-	sed -i -e '/pytest-runner/d' setup.py || die
-
-	distutils-r1_python_prepare_all
-}
-
 src_install() {
 	distutils-r1_src_install
-
-	newbashcomp "${S}"/misc/completion/ocrmypdf.bash "${PN,,}"
-
+	newbashcomp misc/completion/ocrmypdf.bash "${PN,,}"
 	insinto /usr/share/fish/vendor_completions.d
-	doins "${S}"/misc/completion/ocrmypdf.fish
+	doins misc/completion/ocrmypdf.fish
 }

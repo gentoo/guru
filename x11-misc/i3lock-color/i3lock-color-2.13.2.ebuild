@@ -32,13 +32,6 @@ RDEPEND="
 "
 BDEPEND="virtual/pkgconfig"
 
-src_prepare() {
-	default
-	sed -e 's/^#auth include system-auth/auth include system-auth/' \
-		-e 's/^auth include login/#auth include login/' \
-		-i pam/i3lock || die
-}
-
 src_configure() {
 	autoreconf -fiv
 	default

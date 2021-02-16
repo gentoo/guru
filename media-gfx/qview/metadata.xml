@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'http://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dnovomesky@gmail.com</email>
+		<name>Daniel Novomesky</name>
+	</maintainer>
+	<upstream>
+		<maintainer status="active">
+			<name>jurplel</name>
+			<email>jurplel@interversehq.com</email>
+		</maintainer>
+		<changelog>https://interversehq.com/qview/changelog</changelog>
+		<doc>https://github.com/jurplel/qView/wiki</doc>
+		<bugs-to>https://github.com/jurplel/qView/issues</bugs-to>
+		<remote-id type="github">jurplel/qView</remote-id>
+	</upstream>
+</pkgmetadata>
