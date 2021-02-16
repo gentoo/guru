@@ -6,6 +6,13 @@
 		<name>Jian Lin</name>
 	</maintainer>
 	<upstream>
+		<maintainer status="active">
+			<name>IsoaSFlus</name>
+			<email>me@isoasflus.com</email>
+		</maintainer>
+		<changelog>https://github.com/IsoaSFlus/QLivePlayer/releases</changelog>
+		<doc>https://github.com/IsoaSFlus/QLivePlayer/wiki</doc>
+		<bugs-to>https://github.com/IsoaSFlus/QLivePlayer/issues</bugs-to>
 		<remote-id type="github">IsoaSFlus/QLivePlayer</remote-id>
 	</upstream>
 </pkgmetadata>

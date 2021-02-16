@@ -9,7 +9,7 @@ inherit xdg cmake optfeature python-single-r1
 
 MY_P="QLivePlayer-${PV}"
 
-DESCRIPTION="A cute and useful Live Stream Player with danmaku support"
+DESCRIPTION="A player and recorder for live streams and videos with danmaku support"
 HOMEPAGE="https://github.com/IsoaSFlus/QLivePlayer"
 SRC_URI="https://github.com/IsoaSFlus/QLivePlayer/archive/${PV}.tar.gz -> ${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
