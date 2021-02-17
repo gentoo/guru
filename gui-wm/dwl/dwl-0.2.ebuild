@@ -13,10 +13,6 @@ KEYWORDS="~amd64"
 
 DEPEND="gui-libs/wlroots
 dev-libs/wayland-protocols"
-
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	eapply "${FILESDIR}/${P}-prefix.patch"
-	eapply_user
-}
+PATCHES=( "${FILESDIR}/${P}-prefix.patch" )
