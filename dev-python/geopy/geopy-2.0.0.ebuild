@@ -20,8 +20,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	<sci-geosciences/geographiclib-2[python,${PYTHON_USEDEP}]
-	>=sci-geosciences/geographiclib-1.49[python,${PYTHON_USEDEP}]
+	<sci-geosciences/GeographicLib-2[python,${PYTHON_USEDEP}]
+	>=sci-geosciences/GeographicLib-1.49[python,${PYTHON_USEDEP}]
 "
 BDEPEND="test? (
 	dev-python/pytest-aiohttp[${PYTHON_USEDEP}]

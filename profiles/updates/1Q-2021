@@ -1,1 +1,2 @@
 move dev-python/faker dev-python/Faker
+move sci-geosciences/geographiclib sci-geosciences/GeographicLib
