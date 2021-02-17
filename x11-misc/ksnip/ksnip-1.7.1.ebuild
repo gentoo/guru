@@ -21,7 +21,7 @@ RDEPEND="
 		dev-qt/qtprintsupport:5
 		dev-qt/qtx11extras:5
 		dev-qt/qtxml:5
-		>=x11-libs/kimageannotator-0.3.1
+		>=media-libs/kimageannotator-0.3.1
 		x11-libs/libxcb"
 BDEPEND=""
 

@@ -19,7 +19,7 @@ RDEPEND="
 		dev-qt/qtprintsupport:5
 		dev-qt/qtx11extras:5
 		dev-qt/qtxml:5
-		>=x11-libs/kimageannotator-0.4.0
+		>=xmedia-libs/kimageannotator-0.4.0
 		x11-libs/libxcb
 "
 DEPEND="${RDEPEND}"
