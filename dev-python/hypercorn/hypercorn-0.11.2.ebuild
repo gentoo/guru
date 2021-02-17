@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 DOCS_BUILDER="sphinx"
@@ -41,7 +41,6 @@ BDEPEND="
 		>=dev-python/mock-4[${PYTHON_USEDEP}]
 		<dev-python/pytest-6[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
-		dev-python/pytest-cov[${PYTHON_USEDEP}]
 		dev-python/pytest-trio[${PYTHON_USEDEP}]
 		dev-python/trio[${PYTHON_USEDEP}]
 	)
@@ -49,28 +48,20 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-#python_prepare_all() {
-#	# do not install LICENSE to /usr/
-#	sed -i -e '/data_files/d' setup.py || die
-#
-#	# Remove pytest-cov dep
-#	sed -i -e '21,22d' setup.cfg || die
-#
-#	distutils-r1_python_prepare_all
-#}
+python_prepare_all() {
+	# do not install LICENSE to /usr/
+	sed -i -e '/data_files/d' setup.py || die
 
-#pkg_postinst() {
-#	optfeature "asyncio event loop on top of libuv" dev-python/uvloop
-#	optfeature "websockets support using wsproto" dev-python/wsproto
-#	optfeature "websockets support using websockets" dev-python/websockets
-#	optfeature "httpstools package for http protocol" dev-python/httptools
-#	optfeature "efficient debug reload" dev-python/watchgod
-#}
+	# Remove pytest-cov dep
+	sed -i -e '/addopts/d' setup.cfg || die
 
-#python_test() {
-#	pytest -vv \
-#			--deselect tests/protocols/test_http.py::test_supported_upgrade_request[H11Protocol] \
-#			--deselect tests/protocols/test_http.py::test_supported_upgrade_request[HttpToolsProtocol] \
-#			--deselect tests/protocols/test_websocket.py::test_invalid_upgrade[WSProtocol] \
-#	|| die
-#}
+	distutils-r1_python_prepare_all
+}
+
+pkg_postinst() {
+	optfeature "asyncio event loop on top of libuv" dev-python/uvloop
+	optfeature "websockets support using wsproto" dev-python/wsproto
+	optfeature "websockets support using websockets" dev-python/websockets
+	optfeature "httpstools package for http protocol" dev-python/httptools
+	optfeature "efficient debug reload" dev-python/watchgod
+}
