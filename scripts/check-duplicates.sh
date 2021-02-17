@@ -10,7 +10,7 @@
 printf "\nChecking for duplicates....\n"
 
 gentoo_location="/var/db/repos/gentoo"
-guru_location="../"
+guru_location="."
 
 gentoo_packs=$(find ${gentoo_location} -mindepth 2 -maxdepth 2 -printf "%P\n" | sort | grep -Ev "^(.git|.github|metadata|profiles|scripts)/")
 guru_packs=$(find ${guru_location} -mindepth 2 -maxdepth 2 -printf "%P\n" | sort | grep -Ev "^(.git|.github|metadata|profiles|scripts)/")

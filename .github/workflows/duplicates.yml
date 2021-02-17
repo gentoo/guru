@@ -1,4 +1,4 @@
-name: repoman
+name: duplicates
 
 on:
   push:
