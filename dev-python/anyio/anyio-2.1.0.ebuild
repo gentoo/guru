@@ -1,15 +1,15 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 
 # Build with USE="-doc" first because of circular dependency
 # otherwise one gets the error that sphinx-autodoc-typehints
-# does not support py3.8
+# does not support py3.9
 # DOCS_BUILDER="sphinx"
-# DOCS_DIR="${S}/docs"
+# DOCS_DIR="docs"
 # DOCS_DEPEND="
 # 	dev-python/anyio
 # 	>=dev-python/sphinx-autodoc-typehints-1.2.0
