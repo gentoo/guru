@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 DOCS_BUILDER="mkdocs"
@@ -19,6 +19,10 @@ SRC_URI="https://github.com/encode/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
+
+# lots of these
+# 'AsyncConnectionPool' object has no attribute 'arequest'
+RESTRICT="test"
 
 RDEPEND="
 	>=dev-python/click-7[${PYTHON_USEDEP}]
