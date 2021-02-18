@@ -15,4 +15,6 @@ DEPEND="gui-libs/wlroots
 dev-libs/wayland-protocols"
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${P}-prefix.patch" )
+src_install() {
+	emake PREFIX="${D}"/usr install
+}
