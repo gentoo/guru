@@ -9,12 +9,12 @@
 GENTOO_DIR="/var/db/repos/gentoo"
 GENTOO_PACKAGES=(
 	$(find ${GENTOO_DIR} -mindepth 2 -maxdepth 2 -printf "%P\n" \
-		| sort | grep -Ev "^(.git|.github|metadata|profiles|scripts)/"
+		| sort | grep -Ev "^(.git|.github|metadata|profiles|scripts)/|metadata.xml"
 	)
 )
 REPO_PACKAGES=(
 	$(find . -mindepth 2 -maxdepth 2 -printf "%P\n" \
-		| sort | grep -Ev "^(.git|.github|metadata|profiles|scripts)/"
+		| sort | grep -Ev "^(.git|.github|metadata|profiles|scripts)/|metadata.xml"
 	)
 )
 
