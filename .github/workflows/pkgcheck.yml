@@ -10,22 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.9
-    - name: Install pkgcheck
-      run: |
-        python -m pip install --upgrade pip
-        pip install pkgcheck
-    - name: Setup master gentoo repository
-      run: |
-        sudo mkdir -p /var/db/repos/gentoo /etc/portage /var/cache/distfiles
-        wget -qO - "https://github.com/gentoo-mirror/gentoo/archive/master.tar.gz" | sudo tar xz -C /var/db/repos/gentoo --strip-components=1
-        sudo wget "https://www.gentoo.org/dtd/metadata.dtd" -O /var/cache/distfiles/metadata.dtd
-        sudo wget "https://gitweb.gentoo.org/proj/portage.git/plain/cnf/repos.conf" -O /etc/portage/repos.conf
-        sudo ln -s /var/db/repos/gentoo/profiles/default/linux/amd64/17.1 /etc/portage/make.profile
-    - name: Test with pkgcheck
-      run: |
-        pkgcheck scan --exit --checks=-RedundantVersionCheck --keywords=-MissingAccountIdentifier,-OldPackageUpdate
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run pkgcheck
+      uses: pkgcore/pkgcheck-action@v1
