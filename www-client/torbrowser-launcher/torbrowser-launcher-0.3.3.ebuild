@@ -6,7 +6,7 @@ EAPI=7
 DISTUTILS_USE_SETUPTOOLS=no
 PYTHON_COMPAT=( python3_{7..9} )
 
-inherit distutils-r1 xdg
+inherit distutils-r1 optfeature xdg
 
 DESCRIPTION="A program to download, updated, and run the Tor Browser Bundle"
 HOMEPAGE="https://github.com/micahflee/torbrowser-launcher"
@@ -49,5 +49,7 @@ python_install_all() {
 pkg_postinst() {
 	xdg_pkg_postinst
 
-	elog "For updating over system TOR install net-vpn/tor and dev-python/txsocksx"
+	elog "To get additional features, some optional runtime dependencies"
+	elog "may be installed:"
+	optfeature "updating over system TOR" net-vpn/tor dev-python/txsocksx
 }
