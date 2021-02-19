@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -14,23 +14,20 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc"
 
-RDEPEND=""
-DEPEND="${RDEPEND}"
+BDEPEND="doc? ( app-doc/doxygen )"
 
 src_prepare() {
 	cmake_src_prepare
 
 	if use doc; then
-		sed -i "s@DESTINATION share/doc/Tweeny@DESTINATION share/doc/${PF}@" \
+		sed -i 's@DESTINATION share/doc/Tweeny@DESTINATION ${CMAKE_INSTALL_DOCDIR}@' \
 			doc/CMakeLists.txt || die "Could not change documentation path."
 	fi
 }
 
 src_configure() {
 	local -a mycmakeargs=(
-		-DTWEENY_BUILD_EXAMPLES=NO
 		-DTWEENY_BUILD_DOCUMENTATION=$(usex doc)
-		-DTWEENY_BUILD_EXTRAS=NO
 	)
 
 	cmake_src_configure

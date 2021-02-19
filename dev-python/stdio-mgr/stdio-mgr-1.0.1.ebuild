@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_7 )
+PYTHON_COMPAT=( python3_{7,8,9} )
 
 inherit distutils-r1
 
@@ -23,3 +23,8 @@ distutils_enable_tests pytest
 #distutils_enable_sphinx doc \
 #				dev-python/sphinxcontrib-programoutput \
 #				dev-python/sphinx_rtd_theme
+
+python_test() {
+	# skip the doctests
+	pytest -vv tests || die "Tests failed with ${EPYTHON}"
+}
