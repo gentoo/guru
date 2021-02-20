@@ -1,0 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install postinst unpack
+DEPEND=app-shells/zsh
+DESCRIPTION=A framework for managing your zsh configuration.
+EAPI=7
+HOMEPAGE=https://ohmyz.sh
+LICENSE=MIT
+PROPERTIES=live
+RDEPEND=app-shells/zsh
+SLOT=0
+_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
+_md5_=b85abe5874f9a11bffa5a6dbca443b4f
