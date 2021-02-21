@@ -11,7 +11,7 @@ SRC_URI="https://github.com/FreeTubeApp/FreeTube/releases/download/v${PV}-beta/f
 
 S="${WORKDIR}"
 
-LICENSE="AGPL-3"
+LICENSE="AGPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
 
