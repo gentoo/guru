@@ -1,11 +1,11 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 inherit R-packages-guru
 
-MY_P="${PN}_${PV}-3"
+MY_P="${PN}_$(ver_rs 3 -)"
 
 DESCRIPTION='Boost C++ Header Files'
 HOMEPAGE="
@@ -15,7 +15,7 @@ HOMEPAGE="
 SRC_URI="http://cran.r-project.org/src/contrib/${MY_P}.tar.gz"
 LICENSE='Boost-1.0'
 KEYWORDS="~amd64"
-DEPEND="dev-libs/boost"
+DEPEND="~dev-libs/boost-1.75.0"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
