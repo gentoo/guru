@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake xdg-utils
+inherit cmake xdg
 
 DESCRIPTION="A MIDI player/game that displays notes and teaches you how to play the piano"
 HOMEPAGE="https://www.pianobooster.org"
@@ -52,14 +52,4 @@ src_configure() {
 	)
 
 	cmake_src_configure
-}
-
-pkg_postinst() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
 }
