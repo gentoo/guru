@@ -15,7 +15,7 @@ LICENSE="Apache-2.0"
 SLOT="6.8"
 KEYWORDS="~amd64 ~x86"
 
-CDEPEND="dev-java/jsr305 dev-java/guava:20 dev-java/gradle-base-annotations:${SLOT}"
+CDEPEND="dev-java/guava:20 dev-java/gradle-base-annotations:${SLOT}"
 
 RDEPEND=">=virtual/jre-1.8
 ${CDEPEND}"
@@ -25,5 +25,5 @@ ${CDEPEND}"
 MY_PN="${PN/gradle-/}"
 S="${WORKDIR}/gradle-${PV}"
 JAVA_SRC_DIR="subprojects/${MY_PN}/src/main/java"
-JAVA_GENTOO_CLASSPATH="jsr305 guava-20 gradle-base-annotations-${SLOT}"
+JAVA_GENTOO_CLASSPATH="guava-20 gradle-base-annotations-${SLOT}"
 RESTRICT="test"
