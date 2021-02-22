@@ -12,7 +12,7 @@ HOMEPAGE="https://gradle.org"
 SRC_URI="https://github.com/gradle/gradle/archive/v${PV}.tar.gz"
 
 LICENSE="Apache-2.0"
-SLOT="0"
+SLOT="6.8"
 KEYWORDS="~amd64 ~x86"
 
 CDEPEND="dev-java/jsr305"
