@@ -1,0 +1,13 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install unpack
+DEPEND=app-misc/pup-bin app-text/recode app-misc/jq
+DESCRIPTION=Tuxi is a cli assistant. Get answers of your questions instantly.
+EAPI=7
+HOMEPAGE=https://github.com/Bugswriter/tuxi
+KEYWORDS=~amd64
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=app-misc/pup-bin app-text/recode app-misc/jq
+SLOT=0
+_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
+_md5_=e91592aede5740e6f95f2bdcacc69480

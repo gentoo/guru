@@ -1,0 +1,10 @@
+DEFINED_PHASES=configure install unpack
+DESCRIPTION=Parsing HTML at the command line
+EAPI=7
+HOMEPAGE=https://github.com/ericchiang/pup
+KEYWORDS=~amd64
+LICENSE=MIT
+SLOT=0
+SRC_URI=https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip
+_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	unpacker	45b49db67094fdafbb6a16a2299e894b
+_md5_=46971fd1b69caab9316c282b19aea9c3
