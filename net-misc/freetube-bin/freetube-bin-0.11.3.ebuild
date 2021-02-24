@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit unpacker xdg-utils
+inherit unpacker xdg
 
 DESCRIPTION="https://github.com/FreeTubeApp/FreeTube"
 HOMEPAGE="https://freetubeapp.io/"
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/FreeTubeApp/FreeTube/releases/download/v${PV}-beta/f
 
 S="${WORKDIR}"
 
-LICENSE="AGPL-3"
+LICENSE="AGPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
 
@@ -30,17 +30,7 @@ src_install() {
 	doins -r "${WORKDIR}"/usr/share/applications/*
 	insinto /usr/share/icons/
 	doins -r "${WORKDIR}"/usr/share/icons/*
-	chmod 4755 "${D}"/opt/FreeTube/chrome-sandbox
-	chmod +x  "${D}"/opt/FreeTube/freetube
+	chmod 4755 "${D}"/opt/FreeTube/chrome-sandbox || die
+	chmod +x  "${D}"/opt/FreeTube/freetube || die
 	dosym "${EPREFIX}"/opt/FreeTube/freetube /usr/bin/freetube-bin
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
 }

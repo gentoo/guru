@@ -3,21 +3,15 @@
 
 EAPI=7
 
-if [[ ${PV} == "9999" ]] ; then
-		EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
-		inherit git-r3
-else
-		MY_COMMIT="f21e646ce6c09198f7f625c597f08af49551fdb0"
-		SRC_URI="https://github.com/${PN}/${PN}/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
-		KEYWORDS="~amd64"
-		S="${WORKDIR}/${PN}-${MY_COMMIT}"
-fi
+inherit git-r3
 
 DESCRIPTION="A framework for managing your zsh configuration."
 HOMEPAGE="https://ohmyz.sh"
+EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS=""
 
 DEPEND="app-shells/zsh"
 RDEPEND="${DEPEND}"
