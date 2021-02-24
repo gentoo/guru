@@ -10,5 +10,5 @@ LICENSE=|| ( GPL-2+ EUPL-1.1 )
 RDEPEND=virtual/jre:1.8
 SLOT=0
 SRC_URI=https://estaticos.redsara.es/comunes/autofirma/1/6/5/AutoFirma_Linux.zip -> autofirma-1.6.5.zip
-_eclasses_=desktop	7fd20552ce4cc97e8acb132a499a7dd8	edos2unix	33e347e171066657f91f8b0c72ec8773	estack	055c42df72f76a4f45ec92b35e83cd56	eutils	2d5b3f4b315094768576b6799e4f926e	java-utils-2	378e4cda228ea0231a0ac283cb2ad25c	l10n	8cdd85e169b835d518bc2fd59f780d8e	rpm	760ff223c2c4299b68ea901e24c4cabd	wrapper	4251d4c84c25f59094fd557e0063a974	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	estack	055c42df72f76a4f45ec92b35e83cd56	eutils	2d5b3f4b315094768576b6799e4f926e	java-utils-2	378e4cda228ea0231a0ac283cb2ad25c	l10n	8cdd85e169b835d518bc2fd59f780d8e	rpm	760ff223c2c4299b68ea901e24c4cabd	wrapper	4251d4c84c25f59094fd557e0063a974	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
 _md5_=9218eac74919e44b8dd2029ea0db2f07

@@ -10,5 +10,5 @@ RDEPEND=app-accessibility/at-spi2-atk dev-libs/nss media-libs/libpng:0/16 x11-li
 RESTRICT=bindist strip test
 SLOT=0
 SRC_URI=amd64? ( https://github.com/VSCodium/vscodium/releases/download/1.53.0/VSCodium-linux-x64-1.53.0.tar.gz ) arm? ( https://github.com/VSCodium/vscodium/releases/download/1.53.0/VSCodium-linux-armhf-1.53.0.tar.gz ) arm64? ( https://github.com/VSCodium/vscodium/releases/download/1.53.0/VSCodium-linux-arm64-1.53.0.tar.gz )
-_eclasses_=desktop	7fd20552ce4cc97e8acb132a499a7dd8	pax-utils	a41d1fd1c111289ffa04490de6ee79d7	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	pax-utils	a41d1fd1c111289ffa04490de6ee79d7	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
 _md5_=c98e1c92348c9581bdba67ddcf792a88
