@@ -30,6 +30,7 @@ DEPEND="
 		dev-python/lxml[${PYTHON_USEDEP}]
 		dev-python/pillow[${PYTHON_USEDEP}]
 		dev-python/pure-protobuf[${PYTHON_USEDEP}]
+		dev-python/pygobject[${PYTHON_USEDEP}]
 		dev-python/python-magic[${PYTHON_USEDEP}]
 		dev-python/unidecode[${PYTHON_USEDEP}]
 	')
