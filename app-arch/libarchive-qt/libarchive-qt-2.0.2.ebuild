@@ -30,6 +30,18 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	default
+
+	# remove override of the libpath
+	sed -i -e '/^	target.path/d' lib/shared.pro || die
+	sed -i -e '/^	target.path/d' lib/static.pro || die
+
+	# fix prefix of lib files
+	sed -i -e 's/$$INSTALL_PREFIX/$$PREFIX/g' lib/shared.pro || die
+	sed -i -e 's/$$INSTALL_PREFIX/$$PREFIX/g' lib/static.pro || die
+}
+
 src_configure() {
 	local lib="$(get_libdir)"
 	# '^^' because we need to upcase the definition
@@ -38,5 +50,5 @@ src_configure() {
 
 src_install() {
 	einstalldocs
-	emake INSTALL_ROOT="${D}" install
+	emake INSTALL_ROOT="${ED}" install
 }

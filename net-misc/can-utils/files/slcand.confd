@@ -1,0 +1,18 @@
+# /etc/conf.d/slcand
+# This file contains the configuration for the slcan daemon
+
+
+
+# The `stty' command includes support for speeds of 57600, 115200,
+# 230400, 460800, 500000, 576000, 921600, 1000000, 1152000, 1500000,
+# 2000000, 2500000, 3000000, 3500000, or 4000000
+
+# 921600 baud for S6
+# 460800 baud for S5
+
+# Case sensitive speed setting
+
+can_speed="S5"
+tty_baud="460800"
+tty_device="ttyUSB0"
+can_device="can0"

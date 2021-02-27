@@ -1,4 +1,4 @@
-# Copyright 2019-2020 Gentoo Authors
+# Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
@@ -8,7 +8,7 @@ PHP_EXT_INI="yes"
 PHP_EXT_ZENDEXT="no"
 PHP_EXT_PECL_FILENAME="inotify-${PV}.tgz"
 
-USE_PHP="php7-2 php7-3"
+USE_PHP="php7-3"
 
 inherit php-ext-pecl-r3
 
