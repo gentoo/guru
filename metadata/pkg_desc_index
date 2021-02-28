@@ -278,7 +278,7 @@ dev-python/sphinxcontrib-katex 0.6.1 0.7.1: KaTeX Sphinx extension for rendering
 dev-python/sphinxcontrib-napoleon 0.7: Allow a different format in dosctrings for better clarity
 dev-python/sphinxcontrib-trio 1.1.2: Make Sphinx better at documenting Python functions and methods
 dev-python/sphobjinv 2.0.1: Sphinx objects.inv Inspection/Manipulation Tool
-dev-python/spotipy 2.16.1: A light weight Python library for the Spotify Web API
+dev-python/spotipy 2.17.1: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.6.1: Server Sent Events for Starlette
 dev-python/starlette 0.14.1: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
