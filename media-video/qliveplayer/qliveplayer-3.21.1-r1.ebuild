@@ -43,8 +43,7 @@ DEPEND="
 	kde-frameworks/extra-cmake-modules:5
 "
 
-src_prepare()
-{
+src_prepare() {
 	xdg_environment_reset
 	cmake_src_prepare
 	# respect PYTHON_SINGLE_TARGET
@@ -58,14 +57,12 @@ src_prepare()
 	sed -i "s/python3/${EPYTHON}/" src/qlphelper/streamfinder.cpp || die
 }
 
-src_install()
-{
+src_install() {
 	cmake_src_install
 	readme.gentoo_create_doc
 }
 
-pkg_postinst()
-{
+pkg_postinst() {
 	xdg_pkg_postinst
 	readme.gentoo_print_elog
 	optfeature "twitch support" "net-misc/streamlink"
