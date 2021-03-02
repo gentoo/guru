@@ -356,7 +356,7 @@ go-module_set_globals
 DESCRIPTION="Cleans up your \$HOME from those pesky dotfiles"
 HOMEPAGE="https://github.com/doron-cohen/antidot"
 SRC_URI="
-	https://github.com/doron-cohen/antidot/archive/v${PV}.tar.gz
+	https://github.com/doron-cohen/antidot/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}
 "
 
