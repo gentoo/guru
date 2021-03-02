@@ -7,9 +7,11 @@ JAVA_PKG_IUSE="doc source"
 
 inherit java-pkg-2 java-pkg-simple
 
+MY_P="gradle-${PV}"
+
 DESCRIPTION="Build automation tool for JVM Languages, C(++), etc."
 HOMEPAGE="https://gradle.org"
-SRC_URI="https://github.com/gradle/gradle/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/gradle/gradle/archive/v${PV}.tar.gz -> ${MY_P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="6.8"
