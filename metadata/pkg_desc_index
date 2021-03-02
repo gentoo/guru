@@ -17,7 +17,7 @@ acct-user/monero 0: System user: monero
 acct-user/purritobin 0: User for www-apps/jackett-bin
 acct-user/trezord 0: User for TREZOR Bridge
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
-app-admin/antidot 0.5.0 0.6.1: Cleans up your $HOME from those pesky dotfiles
+app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
 app-admin/chezmoi 1.8.2 1.8.10: Manage your dotfiles across multiple machines, securely.
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.12.0: A system rescue cd or usbstick for desktop and server based on gentoo
@@ -37,7 +37,7 @@ app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating
 app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
 app-editors/visual-studio-code-bin 1.53.2: Multiplatform Visual Studio Code from Microsoft
 app-editors/vscodium-bin 1.52.1 1.53.0 1.53.1 1.53.2: Free/Libre Open Source Software Binaries of VSCode
-app-emulation/dxvk-bin 1.7.3 1.8: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
+app-emulation/dxvk-bin 1.8 1.8.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.4.2: NVIDIA container runtime toolkit
 app-eselect/eselect-scheme 1.0.0: Manages scheme implementations
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
@@ -82,7 +82,7 @@ app-shells/ohmyzsh 9999: A framework for managing your zsh configuration.
 app-shells/starship 0.48.0 0.50.0: The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 app-shells/zsh-autosuggestions 0.6.4: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
-app-text/OCRmyPDF 11.6.0 11.6.2: OCRmyPDF adds an OCR text layer to scanned PDF files
+app-text/OCRmyPDF 11.6.2 11.7.0: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/komikku 0.24.0 0.26.1: An online/offline manga reader for GNOME
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
@@ -414,7 +414,7 @@ media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
 media-video/jellyfin-mpv-shim 1.8.0 1.8.1: MPV-based desktop and cast client for Jellyfin (Unofficial)
 media-video/kikoplay 0.7.2 9999: KikoPlay is a full-featured danmu player
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
-media-video/qliveplayer 3.21.0-r1 3.21.1-r1: A player and recorder for live streams and videos with danmaku support
+media-video/qliveplayer 3.21.1-r1 3.22.0: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/vidify 2.2.6: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
@@ -452,8 +452,8 @@ net-misc/tuxi 9999: Tuxi is a cli assistant. Get answers of your questions insta
 net-misc/wayback_machine_downloader 2.2.1: Download an entire website from the Wayback Machine
 net-misc/whatscli 1.0.6: A command line interface for WhatsApp
 net-misc/wsdd 0.5 0.6 0.6.1 0.6.2 0.6.4: A Web Service Discovery host daemon.
-net-misc/xmrig 6.8.1 6.8.2: RandomX, CryptoNight, KawPow, AstroBWT, and Argon2 CPU/GPU miner
-net-misc/xmrig-mo 6.8.1 6.8.2: RandomX, CryptoNight, KawPow, AstroBWT and Argon2 miner for the MoneroOcean pool
+net-misc/xmrig 6.8.2 6.9.0: RandomX, CryptoNight, KawPow, AstroBWT, and Argon2 CPU/GPU miner
+net-misc/xmrig-mo 6.8.2 6.9.0: RandomX, CryptoNight, KawPow, AstroBWT and Argon2 miner for the MoneroOcean pool
 net-news/sfeed 0.9.18 0.9.20 9999: simple RSS and Atom parser
 net-p2p/lbry 0.48.2 0.49.1: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.1.9 9999: The secure, private, untraceable cryptocurrency
@@ -488,7 +488,7 @@ sys-apps/rogdrv 0.0.5: ASUS ROG userspace mouse driver for Linux.
 sys-apps/sampler 1.1.0: visualizer for shell commands, executions and alerting
 sys-apps/sampler-bin 1.1.0: visualizer for shell commands, executions and alerting
 sys-apps/systemd-bootchart 234: systemd boot performance graphing tool
-sys-auth/mrsh 2.12: Mrsh is a set of remote shell programs that use munge authentication.
+sys-auth/mrsh 2.12 2.12-r1: Mrsh is a set of remote shell programs that use munge authentication.
 sys-block/systemd-swap 4.4.0 9999: Script for creating swap space from zram swaps, swap files and swap partitions.
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd

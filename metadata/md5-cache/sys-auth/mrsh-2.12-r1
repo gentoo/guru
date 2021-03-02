@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install
+DEPEND=sys-auth/munge pam? ( sys-libs/pam ) shadow? ( sys-apps/shadow )
+DESCRIPTION=Mrsh is a set of remote shell programs that use munge authentication.
+EAPI=7
+HOMEPAGE=https://github.com/chaos/mrsh
+IUSE=pam shadow
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=sys-auth/munge pam? ( sys-libs/pam ) shadow? ( sys-apps/shadow )
+SLOT=0
+SRC_URI=https://github.com/chaos/mrsh/archive/2.12.tar.gz -> mrsh-2.12.tar.gz
+_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	74b223e42834adf09a2d21fe5fe13741	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_md5_=b5504112e68ab26fe18559be820ea96e
