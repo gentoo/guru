@@ -21,11 +21,11 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 COMMON_DEPEND="
 	${PYTHON_DEPS}
-	>=dev-qt/qtcore-5.12:5
-	>=dev-qt/qtdeclarative-5.12:5
-	>=dev-qt/qtgui-5.12:5
-	>=dev-qt/qtnetwork-5.12:5
-	>=dev-qt/qtwidgets-5.12:5
+	>=dev-qt/qtcore-5.15:5
+	>=dev-qt/qtdeclarative-5.15:5
+	>=dev-qt/qtgui-5.15:5
+	>=dev-qt/qtnetwork-5.15:5
+	>=dev-qt/qtwidgets-5.15:5
 "
 RDEPEND="
 	${COMMON_DEPEND}
@@ -35,16 +35,15 @@ RDEPEND="
 	media-video/ffmpeg
 	media-video/mpv
 	net-misc/curl
-	>=dev-qt/qtquickcontrols-5.12:5
-	>=dev-qt/qtquickcontrols2-5.12:5
+	>=dev-qt/qtquickcontrols-5.15:5
+	>=dev-qt/qtquickcontrols2-5.15:5
 "
 DEPEND="
 	${COMMON_DEPEND}
 	kde-frameworks/extra-cmake-modules:5
 "
 
-src_prepare()
-{
+src_prepare() {
 	xdg_environment_reset
 	cmake_src_prepare
 	# respect PYTHON_SINGLE_TARGET
@@ -58,14 +57,12 @@ src_prepare()
 	sed -i "s/python3/${EPYTHON}/" src/qlphelper/streamfinder.cpp || die
 }
 
-src_install()
-{
+src_install() {
 	cmake_src_install
 	readme.gentoo_create_doc
 }
 
-pkg_postinst()
-{
+pkg_postinst() {
 	xdg_pkg_postinst
 	readme.gentoo_print_elog
 	optfeature "twitch support" "net-misc/streamlink"

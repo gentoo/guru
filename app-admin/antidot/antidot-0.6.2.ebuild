@@ -26,8 +26,8 @@ EGO_SUM=(
 	"github.com/Netflix/go-expect v0.0.0-20180615182759-c93bf25de8e8"
 	"github.com/Netflix/go-expect v0.0.0-20180615182759-c93bf25de8e8/go.mod"
 	"github.com/OneOfOne/xxhash v1.2.2/go.mod"
-	"github.com/adrg/xdg v0.3.0"
-	"github.com/adrg/xdg v0.3.0/go.mod"
+	"github.com/adrg/xdg v0.3.1"
+	"github.com/adrg/xdg v0.3.1/go.mod"
 	"github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc/go.mod"
 	"github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf/go.mod"
 	"github.com/armon/circbuf v0.0.0-20150827004946-bbbad097214e/go.mod"
@@ -153,8 +153,8 @@ EGO_SUM=(
 	"github.com/modern-go/reflect2 v1.0.1/go.mod"
 	"github.com/mwitkow/go-conntrack v0.0.0-20161129095857-cc309e4a2223/go.mod"
 	"github.com/oklog/ulid v1.3.1/go.mod"
-	"github.com/otiai10/copy v1.4.2"
-	"github.com/otiai10/copy v1.4.2/go.mod"
+	"github.com/otiai10/copy v1.5.0"
+	"github.com/otiai10/copy v1.5.0/go.mod"
 	"github.com/otiai10/curr v0.0.0-20150429015615-9b4961190c95/go.mod"
 	"github.com/otiai10/curr v1.0.0"
 	"github.com/otiai10/curr v1.0.0/go.mod"
@@ -190,8 +190,8 @@ EGO_SUM=(
 	"github.com/spaolacci/murmur3 v0.0.0-20180118202830-f09979ecbc72/go.mod"
 	"github.com/spf13/afero v1.1.2/go.mod"
 	"github.com/spf13/cast v1.3.0/go.mod"
-	"github.com/spf13/cobra v1.1.1"
-	"github.com/spf13/cobra v1.1.1/go.mod"
+	"github.com/spf13/cobra v1.1.3"
+	"github.com/spf13/cobra v1.1.3/go.mod"
 	"github.com/spf13/jwalterweatherman v1.0.0/go.mod"
 	"github.com/spf13/pflag v1.0.3"
 	"github.com/spf13/pflag v1.0.3/go.mod"
@@ -340,7 +340,6 @@ EGO_SUM=(
 	"gopkg.in/yaml.v2 v2.0.0-20170812160011-eb3733d160e7/go.mod"
 	"gopkg.in/yaml.v2 v2.2.1/go.mod"
 	"gopkg.in/yaml.v2 v2.2.4/go.mod"
-	"gopkg.in/yaml.v2 v2.2.8/go.mod"
 	"gopkg.in/yaml.v2 v2.4.0"
 	"gopkg.in/yaml.v2 v2.4.0/go.mod"
 	"gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c"
@@ -357,7 +356,7 @@ go-module_set_globals
 DESCRIPTION="Cleans up your \$HOME from those pesky dotfiles"
 HOMEPAGE="https://github.com/doron-cohen/antidot"
 SRC_URI="
-	https://github.com/doron-cohen/antidot/archive/v${PV}.tar.gz
+	https://github.com/doron-cohen/antidot/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}
 "
 
@@ -376,6 +375,8 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "To get started with antidot, first run 'antidot update'"
-	elog "Then add the output of 'antidot init' to your .bash_profile or similar"
+	if [[ -z ${REPLACING_VERSIONS} ]]; then
+		elog "To get started with antidot, first run 'antidot update'"
+		elog "Then add the output of 'antidot init' to your .bash_profile or similar"
+	fi
 }

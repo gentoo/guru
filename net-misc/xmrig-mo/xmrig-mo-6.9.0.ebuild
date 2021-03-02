@@ -5,7 +5,7 @@ EAPI=7
 
 inherit cmake optfeature
 
-MO_PV="mo2"
+MO_PV="mo1"
 DESCRIPTION="RandomX, CryptoNight, KawPow, AstroBWT and Argon2 miner for the MoneroOcean pool"
 HOMEPAGE="https://moneroocean.stream/ https://github.com/MoneroOcean/xmrig"
 SRC_URI="https://github.com/MoneroOcean/xmrig/archive/v${PV}-${MO_PV}.tar.gz -> ${P}-${MO_PV}.tar.gz"
