@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>arsen@aarsen.me</email>
+    <name>Arsen Arsenović</name>
+  </maintainer>
+  <longdescription lang="en">
+    plocate is a locate(1) based on posting lists, completely replacing mlocate with a much faster (and smaller) index. It is suitable as a default locate on your system.
+  </longdescription>
+  <use>
+    <flag name="io-uring">Enable efficient I/O via sys-libs/liburing.</flag>
+  </use>
+</pkgmetadata>
