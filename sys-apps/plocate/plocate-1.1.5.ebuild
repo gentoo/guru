@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit meson
+inherit meson systemd
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
@@ -27,10 +27,18 @@ DEPEND="
 
 src_configure() {
 	local emesonargs=(
-		-Dinstall_cron=true
-		-Dinstall_systemd=true
+		-Dinstall_cron=false
+		-Dinstall_systemd=false
 		-Dlocategroup=locate
 	)
 
 	meson_src_configure
+}
+
+src_install() {
+	meson_src_install
+
+	exeinto /etc/cron.daily/
+	newexe "${FILESDIR}"/updatedb.cron plocate
+	systemd_dounit "${FILESDIR}"/updatedb.{service,timer}
 }
