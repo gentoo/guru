@@ -42,3 +42,11 @@ src_install() {
 	newexe "${FILESDIR}"/updatedb.cron plocate
 	systemd_dounit "${FILESDIR}"/updatedb.{service,timer}
 }
+
+pkg_postinst() {
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		# The same notice as mlocate, minus the configuration file
+		elog "The database for the plocate command is generated daily by a cron job,"
+		elog "if you install for the first time you can run the updatedb command manually now."
+	fi
+}
