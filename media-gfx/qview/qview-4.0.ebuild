@@ -1,9 +1,9 @@
 # Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=7
 
-inherit xdg qmake-utils
+inherit flag-o-matic qmake-utils xdg
 
 DESCRIPTION="Practical and minimal image viewer"
 HOMEPAGE="https://github.com/jurplel/qView https://interversehq.com/qview"
@@ -15,10 +15,15 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="dev-qt/qtgui:5"
-BDEPEND=""
 RDEPEND="${DEPEND}"
 
 src_configure() {
+	# https://github.com/jurplel/qView/issues/395
+	if tc-is-clang && has_version "sys-devel/clang:$(clang-major-version)[default-libcxx]" || is-flagq -stdlib=libc++; then
+		append-cxxflags -stdlib=libstdc++
+		append-ldflags -stdlib=libstdc++
+	fi
+
 	eqmake5 PREFIX=/usr qView.pro
 }
 
