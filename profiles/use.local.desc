@@ -156,6 +156,7 @@ sci-physics/SU2:mpp - Enable Mutation++ library support
 sci-physics/SU2:openblas - Enable OpenBLAS support
 sci-physics/SU2:tecio - Enable TECIO support
 sci-physics/SU2:tutorials - Install Tutorials files
+sys-apps/plocate:io-uring - Enable efficient I/O via sys-libs/liburing.
 sys-auth/mrsh:pam - build with pam support
 sys-auth/mrsh:shadow - build with shadow file support
 sys-cluster/KVTree:fcntl - Set the type of file locking to fcntl.

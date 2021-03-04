@@ -443,7 +443,7 @@ net-misc/lyricwikia 0.1.11: Python API to get song lyrics from LyricWikia
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/openbgpd 6.6_p0 6.7_p0 6.8_p0 9999: OpenBGPD is a free implementation of BGPv4
-net-misc/purritobin 0.4.2 9999: minimalistic commandline pastebin
+net-misc/purritobin 0.4.2 0.5.0 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
 net-misc/rtv 1.27.0: Browse Reddit from your terminal
 net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
@@ -483,6 +483,7 @@ sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
 sys-apps/drm_info 2.2.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3 0.5.4: A more intuitive version of du
 sys-apps/hex 0.3.2 0.4.0 0.4.1: Futuristic take on hexdump
+sys-apps/plocate 1.1.5: a much faster locate
 sys-apps/procs 0.10.10 0.11.3: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
 sys-apps/rogdrv 0.0.5: ASUS ROG userspace mouse driver for Linux.
