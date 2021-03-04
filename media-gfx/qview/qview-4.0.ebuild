@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit flag-o-matic qmake-utils xdg
+inherit flag-o-matic qmake-utils virtualx xdg
 
 DESCRIPTION="Practical and minimal image viewer"
 HOMEPAGE="https://github.com/jurplel/qView https://interversehq.com/qview"
@@ -25,6 +25,12 @@ src_configure() {
 	fi
 
 	eqmake5 PREFIX=/usr qView.pro
+}
+
+src_test() {
+	cd tests || die
+	eqmake5 && emake
+	virtx ./tests
 }
 
 src_install() {
