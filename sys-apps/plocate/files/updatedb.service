@@ -1,0 +1,13 @@
+[Unit]
+Description=Update the plocate database
+ConditionACPower=true
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/updatedb
+LimitNOFILE=131072
+IOSchedulingClass=idle
+
+PrivateTmp=true
+PrivateDevices=true
+PrivateNetwork=true
