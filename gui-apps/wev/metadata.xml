@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>octiabrina@myrvogna.net</email>
+		<name>Octiabrina Terrien-Puig</name>
+	</maintainer>
+	<longdescription>
+		A tool for debugging events on a Wayland window,
+		analogous to the X11 tool xev.
+	</longdescription>
+</pkgmetadata>
