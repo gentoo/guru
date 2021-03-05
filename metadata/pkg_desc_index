@@ -35,7 +35,7 @@ app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on th
 app-editors/featherpad 0.17.2: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
-app-editors/visual-studio-code-bin 1.53.2: Multiplatform Visual Studio Code from Microsoft
+app-editors/visual-studio-code-bin 1.54.1: Multiplatform Visual Studio Code from Microsoft
 app-editors/vscodium-bin 1.52.1 1.53.0 1.53.1 1.53.2: Free/Libre Open Source Software Binaries of VSCode
 app-emulation/dxvk-bin 1.8 1.8.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.4.2: NVIDIA container runtime toolkit
@@ -43,9 +43,11 @@ app-eselect/eselect-scheme 1.0.0: Manages scheme implementations
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/apidb 4.3.0_beta 5.0.0_alpha 5.0.0_alpha8 5.0.0_alpha19 5.0.0_alpha20 5.8.0_beta: API Generator for Database acces.
 app-misc/brightness-control 2.0_p20200629: Qt Brightness Controller in Python
+app-misc/brightnessctl 0.5.1 9999: A program to read and control device brightness
 app-misc/cheat 4.0.2 4.2.0 4.2.0-r2: cheat allows you to create and view interactive cheatsheets on the command-line
 app-misc/ddcui 0.1.2: Graphical user interface for ddcutil - control monitor settings
 app-misc/doublecmd-bin 0.9.9 0.9.10: Free cross platform open source file manager with two panels side by side.
+app-misc/dragon 1.1.1 9999: Simple drag-and-drop source/sink for X and Wayland
 app-misc/fetsh 1.7 1.8 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -296,6 +298,7 @@ dev-python/ufoNormalizer 0.5.2: A tool that will normalize the XML and other dat
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/watchgod 0.7: Simple, modern file watching and code reload
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
+dev-python/yams 0.7.3 9999: A Last.FM scrobbler for MPD (Yet Another Mpd Scrobbler)
 dev-scheme/gerbil 0.16 9999: Dialect of Scheme designed for Systems Programming
 dev-scheme/guile-colorized 0.1_p20191205 9999: Colorized REPL for GNU Guile
 dev-util/FoBiS 3.0.2 3.0.5: FoBiS.py, a Fortran Building System for poor men
@@ -359,9 +362,11 @@ gui-apps/mpvpaper 1.0 1.1 9999: A video wallpaper program for wlroots based wayl
 gui-apps/nwg-launchers 0.4.3 0.4.4 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperdesktop 0_p20201107 9999: simple, sleek QT based DE for wayland using wayfire
 gui-apps/sfwbar 0.9.4 0.9.6: Sway Floating Window Bar
+gui-apps/swaykbdd 1.0: Per-window keyboard layout switcher for Sway
 gui-apps/swaylock-effects 1.6.2 1.6.3 9999: Swaylock, with fancy effects
 gui-apps/tiramisu 0_p20201110 1.0 9999: minimalistic desktop notifications provider
 gui-apps/wdisplays 1.0-r2 9999: GUI display configurator for wlroots compositors
+gui-apps/wev 1.0.0: Wayland event viewer
 gui-apps/wlr-randr 0.1.0 0.2.0 9999: xrandr clone for wlroots compositors
 gui-apps/wofi 1.2.2 1.2.3 1.2.4 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 gui-libs/libcprime 4.0.0 4.1.0: Library for managing settings of CoreApps
@@ -387,7 +392,7 @@ media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/oxipng 2.3.0 3.0.1 4.0.0 4.0.2 4.0.3: A lossless PNG compression optimizer
 media-gfx/qfontviewer 9999: Font viewer with character table
 media-gfx/qview 4.0: Practical and minimal image viewer
-media-gfx/silicon 0.3.2 0.4.0: Create beautiful image of your code
+media-gfx/silicon 0.3.2 0.4.0 0.4.1: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.1.2: AMD Open Source Driver for Vulkan
 media-libs/jpeg-xl 9999: JPEG XL Reference Software
@@ -404,6 +409,7 @@ media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modula
 media-sound/add64 3.8.0 3.9.3: Add64 is a realtime additive/subtractive-synthesis softsynth
 media-sound/ibniz 1.18: virtual machine designed for extremely compact low-level audiovisual programs
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
+media-sound/ncpamixer 1.3.3.1 9999: A ncurses mixer for PulseAudio inspired by pavucontrol
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
 media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file or stream as a PulseAudio source
 media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
