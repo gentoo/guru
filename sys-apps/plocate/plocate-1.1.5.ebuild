@@ -10,13 +10,13 @@ if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URL="https://git.sesse.net/plocate"
 else
 	SRC_URI="https://plocate.sesse.net/download/plocate-${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="a much faster locate"
 HOMEPAGE="https://plocate.sesse.net/"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE="io-uring"
 
 DEPEND="
