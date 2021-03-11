@@ -6,7 +6,7 @@
 
 
 DESCRIPTION="Manages scheme implementations"
-MAINTAINER="xgqt@protonmail.com"
+MAINTAINER="xgqt@riseup.net"
 VERSION="1.0.0"
 
 SYMLINK_DESCRIPTION="default scheme implementations"
