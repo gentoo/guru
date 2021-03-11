@@ -5,7 +5,7 @@ EAPI=7
 
 QTMIN="5.15.1"
 
-inherit multilib qmake-utils
+inherit cmake
 
 DESCRIPTION="Library for managing the device"
 HOMEPAGE="https://gitlab.com/cubocore/libcsys"
@@ -19,10 +19,8 @@ else
 	S="${WORKDIR}/${PN}-v${PV}"
 fi
 
-RESTRICT="test"
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="udisks"
 
 DEPEND="
 	>=dev-qt/qtcore-${QTMIN}:5
@@ -31,22 +29,5 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	udisks? (
-		sys-fs/udisks:2
-	)
+	sys-fs/udisks:2
 "
-
-PATCHES=(
-	"${FILESDIR}/${PN}-lib.patch"
-)
-
-src_configure() {
-	local lib="$(get_libdir)"
-	# '^^' because we need to upcase the definition
-	eqmake5 DEFINES+="${lib^^}"
-}
-
-src_install() {
-	einstalldocs
-	emake INSTALL_ROOT="${D}" install
-}
