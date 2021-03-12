@@ -49,7 +49,7 @@ BDEPEND="app-text/ronn
 		sys-devel/bison
 		virtual/pkgconfig"
 
-CHECKREQS_DISK_BUILD="1.2G"
+CHECKREQS_DISK_BUILD="13000M"
 
 PATCHES=( ${FILESDIR}/dwarfs-0.4.0-link.patch )
 
