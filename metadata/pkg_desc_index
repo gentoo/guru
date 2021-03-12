@@ -167,7 +167,7 @@ dev-python/aiopg 1.1.0: aiopg is a library for accessing a PostgreSQL database f
 dev-python/aiosqlite 0.16.0: asyncio bridge to the standard sqlite3 module
 dev-python/aiounittest 1.4.0: Test python asyncio-based code with ease
 dev-python/almost 0.1.5: A helper for approximate comparison
-dev-python/anyio 2.1.0: Compatibility layer for multiple asynchronous event loop implementations
+dev-python/anyio 2.1.0 2.2.0: Compatibility layer for multiple asynchronous event loop implementations
 dev-python/asciimatics 1.11.0 1.12.0 9999: Package for curses-like operations, text UIs and ASCII art animations
 dev-python/ascim 0.1.1 9999: Manipulate ASCII art as you would do with raster images
 dev-python/aspectlib 1.5.2: An aspect-oriented programming, monkey-patch and decorators library
@@ -514,7 +514,7 @@ sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-fs/btrfs-heatmap 9: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
-sys-fs/dwarfs 0.2.4 0.3.1-r2 0.4.0: A fast very high compression read-only FUSE file system
+sys-fs/dwarfs 0.4.0: A fast very high compression read-only FUSE file system
 sys-fs/erofs-utils 1.1 1.2 1.2.1 9999: Userspace tools for EROFS images
 sys-fs/gcsfuse 0.33.2: A user-space file system for interacting with Google Cloud Storage
 sys-fs/gfs2-utils 3.2.0 3.3.0: Shared-disk cluster file system

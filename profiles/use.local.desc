@@ -167,7 +167,6 @@ sys-cluster/dlb:instrumentation - enable sys-cluster/extrae instrumentation
 sys-cluster/veloc:alps - Use ALPS (Application Level Placement Scheduler) as resource manager
 sys-cluster/veloc:lsf - Use LFS (Load Sharing Facility) as resource manager
 sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager
-sys-fs/dwarfs:fuse2 - Install optional fuse2 bindings in addition to fuse3.
 sys-fs/erofs-utils:fuse - Enable support for Filesystem in Userspace via sys-fs/fuse
 sys-fs/erofs-utils:uuid - Allow interaction with libuuid in sys-apps/util-linux. It's recommended turn on
 sys-kernel/dkms:kernel-hooks - Enable automatic rebuilding of modules via kernel source makefile hooks
