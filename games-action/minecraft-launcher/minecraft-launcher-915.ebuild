@@ -44,20 +44,12 @@ RDEPEND="
 
 S="${WORKDIR}/${PN}"
 
-QA_PRESTRIPPED="
-	/opt/minecraft-launcher/libcef.so
-	/opt/minecraft-launcher/liblauncher.so
-	/opt/minecraft-launcher/minecraft-launcher
+QA_PREBUILT="
+	/usr/bin/minecraft-launcher
 "
 
 src_install() {
-	dodir /opt/${PN}
-	insinto /opt/${PN}/
-	doins -r .
-
-	fperms +x /opt/${PN}/${PN}
-
-	dosym ../${PN}/${PN} /opt/bin/${PN}
+	dobin minecraft-launcher
 
 	doicon -s scalable "${DISTDIR}/${PN}.svg"
 	make_desktop_entry ${PN} "Minecraft" ${PN} Game
