@@ -68,6 +68,9 @@ src_install() {
 
 	if use amd64 || use arm64; then
 		dosym "../../../../../../../usr/bin/rg" "${EPREFIX}/opt/${MY_PN}/resources/app/node_modules.asar.unpacked/vscode-ripgrep/bin/rg"
+	else
+		# On other arches we don't unbundle rg, so we have to make it executable
+		fperms +x /opt/${MY_PN}/resources/app/node_modules.asar.unpacked/vscode-ripgrep/bin/rg
 	fi
 
 	dodoc resources/app/LICENSE.txt resources/app/ThirdPartyNotices.txt
