@@ -60,6 +60,9 @@ src_install() {
 	insinto "/opt/${PN}"
 	doins -r *
 	fperms +x /opt/${PN}/{,bin/}code
+	fperms +x /opt/${PN}/chrome-sandbox
+	fperms -R +x /opt/${PN}/resources/app/out/vs/base/node
+	fperms +x /opt/${PN}/resources/app/node_modules.asar.unpacked/vscode-ripgrep/bin/rg
 	dosym "../../opt/${PN}/bin/code" "usr/bin/code"
 	domenu "${FILESDIR}/code.desktop"
 	domenu "${FILESDIR}/code-url-handler.desktop"
