@@ -3,19 +3,19 @@
 
 EAPI=7
 
-EGIT_REPO_URI="https://github.com/linux-can/${PN}.git"
-EGIT_BRANCH="master"
-
-inherit autotools git-r3 systemd
+inherit autotools systemd
 
 DESCRIPTION="CAN userspace utilities and tools"
 HOMEPAGE="https://github.com/linux-can/"
+SRC_URI="https://github.com/linux-can/can-utils/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 
 src_prepare() {
+	default
+
 	eautoreconf
 }
 
