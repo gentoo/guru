@@ -11,15 +11,10 @@
 # the octave-forge category of the package.
 OCTAVEFORGE_CAT="${OCTAVEFORGE_CAT:-main}"
 
-
 REPO_URI="http://svn.code.sf.net/p/octave/code/trunk/octave-forge"
-if [[ "${PV}" = 9999* ]]; then
-	inherit subversion autotools
-	ESVN_REPO_URI="${REPO_URI}/${OCTAVEFORGE_CAT}/${PN}"
-else
-	inherit autotools
-	SRC_URI="mirror://sourceforge/octave/${P}.tar.gz"
-fi
+
+inherit autotools
+SRC_URI="mirror://sourceforge/octave/${P}.tar.gz"
 
 SRC_URI="
 	${SRC_URI}
@@ -39,22 +34,21 @@ octaveforge_src_unpack() {
 	default
 	if [ ! -d "${WORKDIR}/${P}" ]; then
 		S="${WORKDIR}/${PN}"
-		cd "${S}"
+		cd "${S}" || die
 	fi
 }
 
 octaveforge_src_prepare() {
-	[[ "${PV}" = 9999* ]] && subversion_src_prepare
 	for filename in Makefile configure; do
-		cp "${DISTDIR}/octaveforge_${filename}" "${S}/${filename}"
+		cp "${DISTDIR}/octaveforge_${filename}" "${S}/${filename}" || die
 	done
 
 	#octave_config_info is deprecated in octave5
 	sed -i 's|octave_config_info|__octave_config_info__|g' Makefile || die
 
-	chmod 0755 "${S}/configure"
-	if [ -e "${S}"/src/autogen.sh ]; then
-		cd "${S}"/src && ./autogen.sh || die 'failed to run autogen.sh'
+	chmod 0755 "${S}/configure" || die
+	if [ -e "${S}/src/autogen.sh" ]; then
+		cd "${S}/src" && ./autogen.sh || die 'failed to run autogen.sh'
 	fi
 	if [ -e "${S}/src/Makefile" ]; then
 		sed -i 's/ -s / /g' "${S}/src/Makefile" || die 'sed failed.'
@@ -65,16 +59,14 @@ octaveforge_src_prepare() {
 octaveforge_src_install() {
 	emake DESTDIR="${D}" DISTPKG='Gentoo' install
 	if [ -d doc/ ]; then
-		insinto "/usr/share/doc/${PF}"
-		doins -r doc/* || die 'failed to install the docs'
+		dodoc -r doc/*
 	fi
 }
 
 octaveforge_pkg_postinst() {
 	einfo "Registering ${CATEGORY}/${PF} on the Octave package database."
-	[ -d "${OCT_PKGDIR}" ] || mkdir -p "${OCT_PKGDIR}"
-	"${OCT_BIN}" -H -q --no-site-file --eval "pkg('rebuild');" \
-		&> /dev/null || die 'failed to register the package.'
+	[ -d "${OCT_PKGDIR}" ] || mkdir -p "${OCT_PKGDIR}" || die
+	"${OCT_BIN}" -H -q --no-site-file --eval "pkg('rebuild');" &> /dev/null || die 'failed to register the package.'
 }
 
 octaveforge_pkg_prerm() {
@@ -86,10 +78,10 @@ octaveforge_pkg_prerm() {
 			disp(l{cellfun(@(x)strcmp(x.name,'${PN}'),l)}.dir);
 		"
 	)
-	rm -f "${pkgdir}"/packinfo/on_uninstall.m
-	if [ -e "${pkgdir}"/packinfo/on_uninstall.m.orig ]; then
-		mv "$pkgdir"/packinfo/on_uninstall.m{.orig,}
-		cd "$pkgdir"/packinfo
+	rm -f "${pkgdir}/packinfo/on_uninstall.m" || die
+	if [ -e "${pkgdir}/packinfo/on_uninstall.m.orig" ]; then
+		mv "$pkgdir"/packinfo/on_uninstall.m{.orig,} || die
+		cd "$pkgdir/packinfo" || die
 		"${OCT_BIN}" -H -q --no-site-file --eval "
 			l = pkg('list');
 			on_uninstall(l{cellfun(@(x)strcmp(x.name,'${PN}'), l)});
@@ -99,7 +91,6 @@ octaveforge_pkg_prerm() {
 
 octaveforge_pkg_postrm() {
 	einfo 'Rebuilding the Octave package database.'
-	[ -d "${OCT_PKGDIR}" ] || mkdir -p "${OCT_PKGDIR}"
-	"${OCT_BIN}" -H --silent --eval 'pkg rebuild' \
-		&> /dev/null || die 'failed to rebuild the package database'
+	[ -d "${OCT_PKGDIR}" ] || mkdir -p "${OCT_PKGDIR}" || die
+	"${OCT_BIN}" -H --silent --eval 'pkg rebuild' &> /dev/null || die 'failed to rebuild the package database'
 }
