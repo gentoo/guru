@@ -49,9 +49,7 @@ BDEPEND="app-text/ronn
 		sys-devel/bison
 		virtual/pkgconfig"
 
-CHECKREQS_DISK_BUILD="13000M"
-
-PATCHES=( ${FILESDIR}/dwarfs-0.4.0-link.patch )
+CHECKREQS_DISK_BUILD="1300M"
 
 DOCS=( "README.md" "CHANGES.md" "TODO" )
 
@@ -85,13 +83,8 @@ src_install(){
 }
 
 pkg_postinst(){
-	elog "Test shows that dwarfs compiled with Clang is substantially faster than GCC ones"
-	elog "See https://github.com/mhx/dwarfs/issues/14"
-	elog "So you may want to compile it independently with Clang by the"
-	elog "https://wiki.gentoo.org/wiki/Clang"
-	elog "And with the per-package settings:"
-	elog "https://wiki.gentoo.org/wiki/Handbook:AMD64/Portage/Advanced#Per-package_environment_variables"
-	elog "Also you may find more information in the"
+	elog "Since version 0.4.1 GGC builds has been fixed. Now both Clang and GCC are working very well"
+	elog "You may find more information in the"
 	elog "${HOMEPAGE}"
 	elog "About creating: ${HOMEPAGE}/blob/main/doc/mkdwarfs.md"
 	elog "About mounting: ${HOMEPAGE}/blob/main/doc/dwarfs.md"
