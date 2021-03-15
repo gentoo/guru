@@ -16,6 +16,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-remove-forced-options.patch
 	"${FILESDIR}"/${P}-dont-strip-bins.patch
 	"${FILESDIR}"/${P}-add-chost.patch
+	"${FILESDIR}"/${P}-add-fpic.patch
 )
 
 DEPEND=""
