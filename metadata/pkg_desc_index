@@ -46,7 +46,7 @@ app-misc/brightness-control 2.0_p20200629: Qt Brightness Controller in Python
 app-misc/brightnessctl 0.5.1 9999: A program to read and control device brightness
 app-misc/cheat 4.0.2 4.2.0 4.2.0-r2: cheat allows you to create and view interactive cheatsheets on the command-line
 app-misc/ddcui 0.1.2: Graphical user interface for ddcutil - control monitor settings
-app-misc/doublecmd-bin 0.9.9 0.9.10: Free cross platform open source file manager with two panels side by side.
+app-misc/doublecmd-bin 0.9.10: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 9999: Simple drag-and-drop source/sink for X and Wayland
 app-misc/fetsh 1.7 1.8 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
@@ -92,29 +92,30 @@ app-text/mdbook 0.4.5 0.4.6 0.4.7: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
 app-text/stdman 2019.08.27 2020.11.17 9999: Formatted C++ stdlib man pages (cppreference)
 dev-R/BH 1.75.0.0: Boost C++ Header Files
-dev-R/R6 2.4.1: Encapsulated Classes with Reference Semantics
-dev-R/Rcpp 1.0.4.6: Seamless R and C++ Integration
+dev-R/R6 2.4.1 2.5.0: Encapsulated Classes with Reference Semantics
+dev-R/Rcpp 1.0.4.6 1.0.6: Seamless R and C++ Integration
 dev-R/assertthat 0.2.1: Easy Pre and Post Assertions
 dev-R/cellranger 1.1.0: Translate Spreadsheet Cell Ranges to Rows and Columns
-dev-R/cli 2.0.2: Helpers for Developing Command Line Interfaces
-dev-R/crayon 1.3.4: Colored Terminal Output
-dev-R/digest 0.6.25: Create Compact Hash Digests of R Objects
-dev-R/dplyr 0.8.5: A Grammar of Data Manipulation
+dev-R/cli 2.0.2 2.3.1: Helpers for Developing Command Line Interfaces
+dev-R/crayon 1.3.4 1.4.1: Colored Terminal Output
+dev-R/digest 0.6.25 0.6.27: Create Compact Hash Digests of R Objects
+dev-R/dplyr 0.8.5 1.0.5: A Grammar of Data Manipulation
 dev-R/ellipsis 0.3.0 0.3.1: Tools for Working with ...
-dev-R/fansi 0.4.1: ANSI Control Sequence Aware String Functions
-dev-R/glue 1.4.0 1.4.1: Interpreted String Literals
-dev-R/lifecycle 0.2.0: Manage the Life Cycle of your Package Functions
-dev-R/magrittr 1.5: A Forward-Pipe Operator for R
-dev-R/pillar 1.4.4: Coloured Formatting for Columns
+dev-R/fansi 0.4.1 0.4.2: ANSI Control Sequence Aware String Functions
+dev-R/generics 0.1.0: Common S3 Generics not Provided by Base R Methods Related to Model Fitting
+dev-R/glue 1.4.0 1.4.1 1.4.2: Interpreted String Literals
+dev-R/lifecycle 0.2.0 1.0.0: Manage the Life Cycle of your Package Functions
+dev-R/magrittr 1.5 2.0.1: A Forward-Pipe Operator for R
+dev-R/pillar 1.4.4 1.5.1: Coloured Formatting for Columns
 dev-R/pkgconfig 2.0.3: Private Configuration for R Packages
 dev-R/plogr 0.2.0: The plog C++ Logging Library
 dev-R/purrr 0.3.4: Functional Programming Tools
 dev-R/rematch 1.0.1: Match Regular Expressions with a Nicer API
-dev-R/rlang 0.4.6: Functions for Base Types and Core R and Tidyverse Features
-dev-R/tibble 3.0.1: Simple Data Frames
+dev-R/rlang 0.4.6 0.4.10: Functions for Base Types and Core R and Tidyverse Features
+dev-R/tibble 3.0.1 3.1.0: Simple Data Frames
 dev-R/tidyselect 1.0.0 1.1.0: Select from a Set of Strings
-dev-R/utf8 1.1.4: Unicode Text Processing
-dev-R/vctrs 0.2.4 0.3.0: Vector Helpers
+dev-R/utf8 1.1.4 1.2.1: Unicode Text Processing
+dev-R/vctrs 0.2.4 0.3.0 0.3.6: Vector Helpers
 dev-cpp/folly 2020.11.30.00 2021.01.04.00: An open-source C++ library developed and used at Facebook
 dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
 dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging library
@@ -164,6 +165,7 @@ dev-php/pecl-inotify 2.0.0: Inotify binding for PHP
 dev-python/aiomysql 0.0.21: aiomysql is a library for accessing a MySQL database from the asyncio
 dev-python/aionotify 0.2.0: Simple, asyncio-based inotify library for Python
 dev-python/aiopg 1.1.0: aiopg is a library for accessing a PostgreSQL database from the asyncio
+dev-python/aiosmtplib 1.1.4: Asynchronous SMTP client for use with asyncio
 dev-python/aiosqlite 0.16.0: asyncio bridge to the standard sqlite3 module
 dev-python/aiounittest 1.4.0: Test python asyncio-based code with ease
 dev-python/almost 0.1.5: A helper for approximate comparison
@@ -200,13 +202,13 @@ dev-python/dateparser 1.0.0: Date parsing library designed to parse dates from H
 dev-python/devtools 0.6.1: Dev tools for python
 dev-python/doxypypy 0.8.8.6: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/factory_boy 3.1.0: A fixtures replacement tool
-dev-python/fake-useragent 0.1.11: Up to date simple useragent faker with real world database
+dev-python/fake-useragent 0.1.11 0.1.11-r1: Up to date simple useragent faker with real world database
 dev-python/geopy 2.0.0: A Geocoding Toolbox for Python
-dev-python/github-sublee-glicko2 0_pre20191010: An implementation of the Glicko-2 rating system for Python
+dev-python/github-sublee-glicko2 0_pre20191010 0_pre20191010-r1: An implementation of the Glicko-2 rating system for Python
 dev-python/glicko2 2.0.0: glicko2 implementation in python
 dev-python/glyphsLib 5.3.0: A library to provide a bridge from Glyphs source files to UFOs
 dev-python/google-cloud-storage 1.36.0: Google Cloud Storage API client library
-dev-python/googletransx 2.4.2: Free Google Translate API for Python. Translates totally free of charge.
+dev-python/googletransx 2.4.2 2.4.2-r1: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/graphene 3.0.0_beta7: GraphQL Framework for Python
 dev-python/graphql-core 3.1.2 3.1.3: GraphQL for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
@@ -298,6 +300,7 @@ dev-python/ufoNormalizer 0.5.2: A tool that will normalize the XML and other dat
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/watchgod 0.7: Simple, modern file watching and code reload
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
+dev-python/xunitparser 1.3.3: Read JUnit/XUnit XML files and map them to Python objects
 dev-python/yams 0.7.3 9999: A Last.FM scrobbler for MPD (Yet Another Mpd Scrobbler)
 dev-scheme/gerbil 0.16 9999: Dialect of Scheme designed for Systems Programming
 dev-scheme/guile-colorized 0.1_p20191205 9999: Colorized REPL for GNU Guile
@@ -313,10 +316,10 @@ dev-util/xdp-tools 1.1.0: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
 dev-vcs/git-extras 6.1.0 9999: Little git extras
-dev-vcs/git-repo-updater 0.5.1: Easily update multiple git repositories at once
+dev-vcs/git-repo-updater 0.5.1 0.5.1-r1: Easily update multiple git repositories at once
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
 dev-vcs/gitqlient 1.2.0 1.3.0_beta 1.3.0 9999: Multi-platform Git client written with Qt
-dev-vcs/lazygit 0.23.7 0.24.2 0.25.1 9999: Lazygit, a simple terminal UI for git commands
+dev-vcs/lazygit 0.25.1 0.26.1 9999: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 915: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.11: An advanced Qt5-based open-source launcher for Minecraft
@@ -441,7 +444,7 @@ net-libs/usockets 0.6.0_p20210126 0.7.1 9999: tiny eventing, networking & crypto
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.4.1 1.4.2 1.5.0: FORT validator is an open source RPKI validator
 net-misc/amfora 1.8.0: A fancy terminal browser for the Gemini protocol.
-net-misc/can-utils 2020.02.04 2020.12.0 9999-r3: CAN userspace utilities and tools
+net-misc/can-utils 2020.02.04 2020.12.0 2020.12.0-r1 9999-r3: CAN userspace utilities and tools
 net-misc/castor 0.8.15 0.8.16: A graphical browser for plain-text protocols
 net-misc/freetube-bin 0.11.3: https://github.com/FreeTubeApp/FreeTube
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
@@ -514,7 +517,7 @@ sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-fs/btrfs-heatmap 9: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
-sys-fs/dwarfs 0.4.0: A fast very high compression read-only FUSE file system
+sys-fs/dwarfs 0.4.1: A fast very high compression read-only FUSE file system
 sys-fs/erofs-utils 1.1 1.2 1.2.1 9999: Userspace tools for EROFS images
 sys-fs/gcsfuse 0.33.2: A user-space file system for interacting with Google Cloud Storage
 sys-fs/gfs2-utils 3.2.0 3.3.0: Shared-disk cluster file system
@@ -533,11 +536,12 @@ www-apps/code-server-bin 3.8.1 3.9.0 3.9.1: VS Code in the browser (binary versi
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/jackett-bin 0.17.456: API Support for your favorite torrent trackers
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
-www-apps/twint 2.1.20: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
+www-apps/twint 2.1.20 2.1.20-r1: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 18.23.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.0.3 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/browsh-bin 1.6.4: A fully-modern text-based browser, rendering to TTY and browsers
 www-client/torbrowser-launcher 0.3.3 9999: A program to download, updated, and run the Tor Browser Bundle
+www-client/woob 2.0 9999: Consume lots of websites without a browser (Web Outside Of Browsers)
 www-servers/thin 1.8.0: This a Ruby gem that delivers a thin and fast web server
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-libs/gtk-fortran 19.04 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran

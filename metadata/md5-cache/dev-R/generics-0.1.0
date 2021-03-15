@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst prepare unpack
+DEPEND=>=dev-lang/R-3.1 dev-lang/R
+DESCRIPTION=Common S3 Generics not Provided by Base R Methods Related to Model Fitting
+EAPI=7
+HOMEPAGE=https://cran.r-project.org/package=generics
+IUSE=byte-compile
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=>=dev-lang/R-3.1 dev-lang/R
+SLOT=0
+SRC_URI=http://cran.r-project.org/src/contrib/generics_0.1.0.tar.gz
+_eclasses_=R-packages-guru	60eced3f09330237ab998893904f26db	edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	2d5b3f4b315094768576b6799e4f926e	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974
+_md5_=cc529c3e3533f8f1de1cba1d624efa14
