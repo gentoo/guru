@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index a5ba63b..8364e93 100644
+--- a/Makefile
++++ b/Makefile
+@@ -214,7 +214,7 @@ size:
+ 	gzip < bpgdec | wc
+ 
+ install: bpgenc bpgdec
+-	install -s -m 755 $^ $(prefix)/bin
++	install -m 755 $^ $(prefix)/bin
+ 
+ CLEAN_DIRS=doc html libavcodec libavutil \
+      jctvc jctvc/TLibEncoder jctvc/TLibVideoIO jctvc/TLibCommon jctvc/libmd5
