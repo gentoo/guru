@@ -15,4 +15,10 @@
 			<email>fabrice@bellard.org</email>
 		</maintainer>
 	</upstream>
+	<use>
+		<flag name="x265"></flag>
+		<flag name="bpgview"></flag>
+		<flag name="jctvc"></flag>
+		<flag name="emcc"></flag>
+	</use>
 </pkgmetadata>
