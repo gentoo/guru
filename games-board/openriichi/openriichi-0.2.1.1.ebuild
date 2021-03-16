@@ -24,6 +24,7 @@ RESTRICT="mirror"
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 RDEPEND="
+	$(vala_depend)
 	dev-libs/libgee:0.8
 	media-libs/glew:0
 	media-libs/libsdl2[haptic,joystick,opengl,sound,threads,video]

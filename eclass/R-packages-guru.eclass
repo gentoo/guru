@@ -11,6 +11,13 @@ IUSE="byte-compile"
 DEPEND="dev-lang/R"
 RDEPEND="${DEPEND}"
 
+dodocrm() {
+	if [ -e "${1}" ]; then
+		dodoc -r "${1}"
+		rm -rf "${1}" || die
+	fi
+}
+
 R-packages-guru_src_unpack() {
 	unpack ${A}
 	if [[ -d "${PN//_/.}" ]] && [[ ! -d "${P}" ]]; then
@@ -18,15 +25,11 @@ R-packages-guru_src_unpack() {
 	fi
 }
 
-if has "${EAPI:-0}" 0 1 2 3 4 5; then
-	R-packages-guru_src_prepare() {
-		epatch_user
-	}
-else
-	R-packages-guru_src_prepare() {
-		default
-	}
-fi
+R-packages-guru_src_prepare() {
+	rm -f LICENSE || die
+	default
+}
+
 
 R-packages-guru_src_compile() {
 	MAKEFLAGS="CFLAGS=${CFLAGS// /\\ } CXXFLAGS=${CXXFLAGS// /\\ } FFLAGS=${FFLAGS// /\\ } FCFLAGS=${FCFLAGS// /\\ } LDFLAGS=${LDFLAGS// /\\ }" \
@@ -34,6 +37,22 @@ R-packages-guru_src_compile() {
 }
 
 R-packages-guru_src_install() {
+	cd "${WORKDIR}"/${PN//_/.} || die
+
+	dodocrm examples || die
+#	dodocrm DESCRIPTION || die #keep this
+	dodocrm NEWS.md || die
+	dodocrm README.md || die
+	dodocrm html || die
+	docinto "${DOCSDIR}/html"
+	if [ -e doc ]; then
+		ls doc/*.html &>/dev/null && dodoc -r doc/*.html
+		rm -rf doc/*.html || die
+		docinto "${DOCSDIR}"
+		dodoc -r doc/.
+		rm -rf doc
+	fi
+
 	insinto /usr/$(get_libdir)/R/site-library
 	doins -r "${WORKDIR}"/${PN//_/.}
 }
