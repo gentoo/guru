@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # Based on media-gfx/gimp-2.10.18-r2.ebuild
 
-EAPI=6 # gnome2.eclass doesn't work with EAPI 7.
+EAPI=7
 GNOME2_EAUTORECONF=yes
 WANT_AUTOMAKE=
 
@@ -77,17 +77,17 @@ DEPEND="
 	${COMMON_DEPEND}
 	>=dev-lang/perl-5.10.0
 	dev-libs/appstream-glib
-	dev-util/gtk-update-icon-cache
 	>=dev-util/intltool-0.40.1
 	sys-apps/findutils
 	>=sys-devel/gettext-0.19
-	>=sys-devel/libtool-2.2
-	virtual/pkgconfig
 	doc? ( dev-util/gtk-doc )
 	test? ( x11-base/xorg-server[xvfb] )
 "
-
-# TODO: Add BDEPEND after switch to EAPI 7.
+BDEPEND="
+	dev-util/gtk-update-icon-cache
+	>=sys-devel/libtool-2.2
+	virtual/pkgconfig
+"
 
 DOCS=( "AUTHORS" "HACKING.md" "NEWS" "README.md" )
 
@@ -118,6 +118,7 @@ src_prepare() {
 	sed 's:-DGIMP_protect_DISABLE_DEPRECATED:-DGIMP_DISABLE_DEPRECATED:g' \
 		-i configure || die # bug #615144
 	fgrep -q GIMP_DISABLE_DEPRECATED configure || die # bug #615144, self-test
+
 }
 
 _adjust_sandbox() {
@@ -196,12 +197,4 @@ src_install() {
 	local gimp_app_version=$(grep '\[gimp_app_version' configure.ac \
 								 | sed -E 's/.*\[([2-9]\.[0-9]+)\].*/\1/')
 	mv "${ED%/}"/usr/share/man/man1/gimp-console{-${gimp_app_version},}.1 || die
-}
-
-pkg_postinst() {
-	gnome2_pkg_postinst
-}
-
-pkg_postrm() {
-	gnome2_pkg_postrm
 }

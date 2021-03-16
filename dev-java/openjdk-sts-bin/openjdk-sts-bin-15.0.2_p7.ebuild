@@ -1,6 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# java-vm not yet ported to EAPI 7
 EAPI=6
 
 inherit java-vm-2 toolchain-funcs eapi7-ver
@@ -12,8 +13,7 @@ abi_uri() {
 }
 
 MY_PV=${PV/_p/+}
-SLOT=15
-#Some people like AndrewAmmerlaan reports that SLOT="$(ver_cut 1)" is not detected correctly. So I had to hardcode that.
+SLOT=${MY_PV%%[.+]*}
 
 SRC_URI="
 	$(abi_uri arm)
@@ -21,11 +21,12 @@ SRC_URI="
 	$(abi_uri ppc64le ppc64)
 	$(abi_uri x64 amd64)
 "
-
 DESCRIPTION="Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported"
 HOMEPAGE="https://adoptopenjdk.net"
+
 LICENSE="GPL-2-with-classpath-exception"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64"
+
 IUSE="alsa cups -gentoo-vm headless-awt source"
 
 RDEPEND="
