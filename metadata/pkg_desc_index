@@ -131,7 +131,7 @@ dev-java/gradle-base-annotations 6.8.2: Build automation tool for JVM Languages,
 dev-java/gradle-base-services 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-build-operations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-hashing 6.8.2: Build automation tool for JVM Languages, C(++), etc.
-dev-java/openjdk-sts-bin 15.0.1_p9: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
+dev-java/openjdk-sts-bin 15.0.2_p7: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.07.1 1.07.2 1.07.2-r1 1.07.2-r2: A free/open source, multi-platform BASIC compiler.
 dev-lang/fbc-bootstrap 1.07.2: Bootstrap package for dev-lang/fbc

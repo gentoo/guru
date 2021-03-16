@@ -77,10 +77,10 @@ gui-wm/cage:X - Enable support for X11 applications (XWayland)
 media-gfx/glimpse:heif - Enable support for ISO/IEC 23008-12:2017 HEIF files
 media-gfx/glimpse:vector-icons - Enable support for vector icons (experimental)
 media-gfx/grafx2:ttf - Install TTF Fonts
-media-libs/libbpg:bpgview - 
-media-libs/libbpg:emcc - 
-media-libs/libbpg:jctvc - 
-media-libs/libbpg:x265 - 
+media-libs/libbpg:bpgview - Compile bpgview (media-libs/libsdl and media-libs/sdl-image needed)
+media-libs/libbpg:emcc - Enable compilation of Javascript decoder with Emscripten
+media-libs/libbpg:jctvc - Enable the JCTVC code (best quality but slow) for the encoder
+media-libs/libbpg:x265 - Enable x265 for the encoder
 media-sound/6pm:midimaps - Install midi maps for that synth. Recommended
 media-sound/6pm:nls - Add support for localization
 media-sound/6pm:presets - Install presets. Recommended
