@@ -24,6 +24,8 @@ QA_PREBUILT="
 "
 
 src_prepare() {
+	sed -e 's|\#jdkhome="\/path\/to\/jdk"|jdkhome=\$(java-config -O)|g' -i "${S}/${MYP}/etc/gephi.conf"
+
 	#remove windows things
 	rm -r "${S}/${MYP}"/bin/*.exe || die
 	rm -r "${S}/${MYP}"/platform/lib/*.exe || die
