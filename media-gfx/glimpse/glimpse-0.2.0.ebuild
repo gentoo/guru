@@ -92,7 +92,7 @@ BDEPEND="
 DOCS=( "AUTHORS" "HACKING.md" "NEWS" "README.md" )
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.2_fix_test-appdata.patch" # Bug 685210, bug #691070
+	"${FILESDIR}/${PN}-0.2.0_fix_test-appdata.patch" # Bug 685210, bug #691070
 	"${FILESDIR}/${PN}-0.2.0_fix_autoconf-2.70.patch" # Bug #776679
 )
 
