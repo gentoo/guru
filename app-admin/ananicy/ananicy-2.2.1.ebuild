@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7,8,9} pypy3 )
 
 inherit python-any-r1
 
@@ -17,6 +17,11 @@ KEYWORDS="~amd64"
 RDEPEND="sys-apps/systemd"
 S="${WORKDIR}/${P^}"
 DOCS=( README.md )
+
+src_prepare(){
+	sed -e 's|\/sbin\/sysctl|\/usr\/sbin\/sysctl|g' -i ananicy.service || die
+	default
+}
 
 src_compile() {
 	return
