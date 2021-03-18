@@ -17,6 +17,7 @@ acct-user/monero 0: System user: monero
 acct-user/purritobin 0: User for www-apps/jackett-bin
 acct-user/trezord 0: User for TREZOR Bridge
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
+app-admin/ananicy 2.2.1: ANother Auto NICe daemon
 app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
 app-admin/chezmoi 1.8.2 1.8.10: Manage your dotfiles across multiple machines, securely.
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
@@ -77,6 +78,7 @@ app-portage/portconf 1.6.8-r1 9999: /etc/portage cleaner
 app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
 app-portage/version 0.6.1_alpha 0.6.2_alpha 0.9.0_alpha 0.9.1_alpha 0.10.0_alpha 0.14.2_alpha 0.14.4_alpha 0.15.0_alpha 0.17.0_alpha 0.18.0_alpha 0.19.0_alpha 0.20.1_alpha: A command line function for package version management.
 app-shells/antibody 6.1.0 6.1.1: Fast Zsh plugin manager
+app-shells/fish-agnoster-theme 0.1.0_p20200415: Fancy, colorful theme with support for Powerline fonts
 app-shells/fish-command-timer 0.1.3 0.1.3_p20201002: Fish shell extension for printing execution time for each command
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
@@ -183,7 +185,7 @@ dev-python/b2sdk 1.2.0: The client library for BackBlaze's B2 product
 dev-python/baron 0.9: Full Syntax Tree for python to make writing refactoring code a realist task
 dev-python/base58 2.0.1: Base58 and Base58Check implementation
 dev-python/billiard 3.6.3.0: Python multiprocessing fork
-dev-python/bitbox02 5.2.0: Python API for communicating with the BitBox02 device
+dev-python/bitbox02 5.3.0: Python API for communicating with the BitBox02 device
 dev-python/cchardet 2.1.6 2.1.7: cChardet is high speed universal character encoding detector
 dev-python/check-manifest 0.45: Tool to check the completeness of MANIFEST.in for Python packages
 dev-python/click-didyoumean 0.0.3: Enable git-like did-you-mean feature in click
@@ -225,7 +227,7 @@ dev-python/jellyfin-apiclient-python 1.6.2: Python API client for Jellyfin
 dev-python/jupyter-sphinx 0.3.2: Jupyter Sphinx Extensions
 dev-python/k5test 0.9.2: A library for setting up self-contained Kerberos 5 environments
 dev-python/kitchen 1.2.6: Kitchen contains a cornucopia of useful code
-dev-python/libusb1 1.9.1: Pure-python wrapper for libusb-1.0
+dev-python/libusb1 1.9.2: Pure-python wrapper for libusb-1.0
 dev-python/manhole 1.6.0: Debugging manhole for python application
 dev-python/markdown-include 0.6.0: Syntax which allows for inclusion of contents of other Markdown docs
 dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your output
@@ -410,6 +412,7 @@ media-plugins/alsa-sndio 0.2: Sndio audio sink and source for GStreamer
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
 media-plugins/gimp-avif-plugin 9999: Plug-in for development GIMP 2.99.3 for loading/saving AVIF images.
 media-plugins/qt-heif-image-plugin 0.3.3-r1 0.3.3-r2: Qt plugin for HEIF images
+media-plugins/qt-jpegxl-image-plugin 9999: Qt plug-in to allow Qt and KDE based applications to read/write JXL images.
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
 media-sound/add64 3.8.0 3.9.3: Add64 is a realtime additive/subtractive-synthesis softsynth
@@ -559,7 +562,7 @@ x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement 
 x11-misc/ksnip 1.8.0-r1 1.8.1: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Window System
-x11-terms/terminus 1.0.134: A terminal for a more modern age
+x11-terms/terminus 1.0.135: A terminal for a more modern age
 x11-themes/arc-darkest-colors 0_pre20200818 0_pre20201112: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
 x11-themes/obsidian-icon-theme 4.15 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
