@@ -4,7 +4,7 @@
 EAPI=7
 
 DESCRIPTION="Bindings for GObject Introspection and libgirepository for Guile"
-HOMEPAGE="https://github.com/spk121/guile-gi"
+HOMEPAGE="https://spk121.github.io/guile-gi/"
 
 if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
