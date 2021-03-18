@@ -4,9 +4,9 @@
 EAPI=7
 
 DESCRIPTION="A terminal for a more modern age"
+
 HOMEPAGE="https://eugeny.github.io/terminus/"
-SRC_URI="https://github.com/Eugeny/${PN}/releases/download/v${PV}/${P}-linux.tar.gz
-https://github.com/ScardracS/icons/releases/download/release/${PN}-icons.tar.gz"
+SRC_URI="https://github.com/Eugeny/${PN}/releases/download/v${PV}/${P}-linux.tar.gz https://github.com/ScardracS/icons/releases/download/release/${PN}-icons.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
