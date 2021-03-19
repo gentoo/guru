@@ -25,6 +25,7 @@ BDEPEND="
 DEPEND="
 	>=dev-scheme/guile-2.0.9
 	dev-libs/gobject-introspection
+	x11-libs/gtk+:3[introspection]
 "
 RDEPEND="${DEPEND}"
 
