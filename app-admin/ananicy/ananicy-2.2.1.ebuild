@@ -14,7 +14,6 @@ SRC_URI="https://github.com/Nefelim4ag/Ananicy/archive/${PV}.tar.gz -> ${P}.tar.
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-RDEPEND="sys-apps/systemd"
 S="${WORKDIR}/${P^}"
 DOCS=( README.md )
 
