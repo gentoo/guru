@@ -58,7 +58,7 @@ ruby_add_rdepend "
 	dev-ruby/tilt
 "
 
-PATCHES=( "${FILESDIR}/remove-ruby-bundle-path.patch" "${FILESDIR}/openrc-0.10.8.patch" )
+PATCHES=( "${FILESDIR}/remove-ruby-bundle-path.patch" "${FILESDIR}/openrc-${PV}.patch" )
 
 S="${WORKDIR}/all/${P}"
 
