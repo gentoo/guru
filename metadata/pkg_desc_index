@@ -37,7 +37,7 @@ app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linu
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
 app-editors/visual-studio-code-bin 1.54.2: Multiplatform Visual Studio Code from Microsoft
-app-editors/vscodium-bin 1.53.0 1.53.1 1.53.2: Free/Libre Open Source Software Binaries of VSCode
+app-editors/vscodium-bin 1.53.1 1.53.2 1.54.3: Free/Libre Open Source Software Binaries of VSCode
 app-emulation/dxvk-bin 1.8 1.8.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.4.2: NVIDIA container runtime toolkit
 app-eselect/eselect-scheme 1.0.0: Manages scheme implementations
@@ -562,7 +562,7 @@ x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement 
 x11-misc/ksnip 1.8.0-r1 1.8.1: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Window System
-x11-terms/terminus 1.0.135: A terminal for a more modern age
+x11-terms/terminus 1.0.135-r1: A terminal for a more modern age
 x11-themes/arc-darkest-colors 0_pre20200818 0_pre20201112: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
 x11-themes/obsidian-icon-theme 4.15 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
