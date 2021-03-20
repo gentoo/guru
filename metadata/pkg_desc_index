@@ -499,7 +499,6 @@ sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
 sys-apps/drm_info 2.2.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3 0.5.4: A more intuitive version of du
 sys-apps/hex 0.3.2 0.4.0 0.4.1: Futuristic take on hexdump
-sys-apps/plocate 1.1.5: a much faster locate
 sys-apps/procs 0.10.10 0.11.3: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
 sys-apps/rogdrv 0.0.5: ASUS ROG userspace mouse driver for Linux.
@@ -562,7 +561,7 @@ x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement 
 x11-misc/ksnip 1.8.0-r1 1.8.1: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Window System
-x11-terms/terminus 1.0.135-r1: A terminal for a more modern age
+x11-terms/terminus 1.0.135: A terminal for a more modern age
 x11-themes/arc-darkest-colors 0_pre20200818 0_pre20201112: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
 x11-themes/obsidian-icon-theme 4.15 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
