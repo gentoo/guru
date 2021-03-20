@@ -20,6 +20,9 @@ DEPEND="net-print/cups" # Requested by electron
 
 src_prepare(){
 	default
+
+	# Remove useless license files.
+	rm LICENSE.electron.txt LICENSES.electron.html
 }
 
 src_install(){
@@ -33,5 +36,4 @@ src_install(){
 	for i in {16,24,32,48,64,72,96,128,512}; do
 		doicon -s "${i}" ../terminus-"${i}".png
 	done
-	dodoc LICENSE.electron.txt LICENSES.electron.html
 }
