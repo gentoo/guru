@@ -33,6 +33,15 @@ python_prepare_all() {
 	distutils-r1_python_prepare_all
 }
 
+python_install_all() {
+	distutils-r1_python_install_all
+
+	# rename the executable to avoid file conflict with net-im/lyrics-in-terminal
+	find "${D}" -name 'lyrics' -execdir mv {} lyricwikia \; || die
+}
+
 pkg_postinst() {
 	elog "Note that access to LyricWikia through this API (and products that use this API) should comply to the LyricWikia terms of use"
+	elog ""
+	elog "LyricWikia is now offline, this package is provided solely for the purpose of satisfying media-video/vidify's dependencies"
 }

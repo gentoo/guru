@@ -16,5 +16,4 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="dev-python/dbus-python[${PYTHON_USEDEP}]
-	!net-misc/lyricwikia"
+RDEPEND="dev-python/dbus-python[${PYTHON_USEDEP}]"
