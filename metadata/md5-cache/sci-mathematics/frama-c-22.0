@@ -4,6 +4,7 @@ DEPEND=>=dev-lang/ocaml-4.08.1[ocamlopt?] >=dev-ml/ocamlgraph-1.8.5[gtk?,ocamlop
 DESCRIPTION=Framework for analysis of source codes written in C
 EAPI=7
 HOMEPAGE=https://frama-c.com
+INHERIT=autotools
 IUSE=+aorai +callgraph +dive +e-acsl +eva +from-analysis gtk +impact +inout +instantiate +loop-analysis +metrics +nonterm +obfuscator +ocamlopt +occurrence +pdg +postdominators +print-api +qed +report +rtegen +scope security-slicing +semantic-constant-folding +server +slicing +sparecode +studia +users +variadic +wp
 KEYWORDS=~amd64
 LICENSE=BSD LGPL-2 LGPL-2.1
@@ -12,5 +13,5 @@ REQUIRED_USE=dive? ( eva studia ) e-acsl? ( rtegen ) from-analysis? ( eva callgr
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://frama-c.com/download/frama-c-22.0-Titanium.tar.gz
-_eclasses_=autotools	9988ecbe04129214297a7bbf3d253710	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	4ba6c345bf49883c84d5fa5c9bf40c0b
 _md5_=85a568d9f5d3ced982174fc28df642ec

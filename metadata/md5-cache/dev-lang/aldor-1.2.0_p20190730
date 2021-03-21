@@ -4,11 +4,12 @@ DEPEND=boehm-gc? ( dev-libs/boehm-gc ) emacs? ( app-editors/emacs:= ) java? ( de
 DESCRIPTION=The Aldor Programming Language
 EAPI=7
 HOMEPAGE=http://pippijn.github.io/aldor
+INHERIT=autotools elisp-common
 IUSE=+boehm-gc doc emacs java
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
 RDEPEND=boehm-gc? ( dev-libs/boehm-gc ) emacs? ( app-editors/emacs:= ) java? ( dev-java/junit:= ) java? ( virtual/jre:1.8 )
 SLOT=0
 SRC_URI=https://github.com/pippijn/aldor/archive/13e5b90eecc79ec6704efb333c4c100187520e80.tar.gz -> aldor-1.2.0_p20190730.tar.gz doc? ( http://aldor.org/docs/libaldor.pdf.gz ) emacs? ( http://hemmecke.de/aldor/aldor.el.nw )
-_eclasses_=autotools	9988ecbe04129214297a7bbf3d253710	elisp-common	d4b53ec63c580b993ed19445f411e1d2	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	4ba6c345bf49883c84d5fa5c9bf40c0b	elisp-common	d4b53ec63c580b993ed19445f411e1d2
 _md5_=d294e05bcbbd70c1bd6d3a28e3d510b6

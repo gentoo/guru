@@ -4,11 +4,12 @@ DEPEND=app-arch/xz-utils dev-libs/libgcrypt dev-libs/libsodium dev-libs/libuv me
 DESCRIPTION=The official Qt-based program for syncing your MEGA account in your PC
 EAPI=7
 HOMEPAGE=http://mega.co.nz
+INHERIT=autotools desktop qmake-utils xdg cmake
 IUSE=+cryptopp +curl +sqlite +zlib dolphin examples freeimage java libressl nautilus php python readline threads thunar
 KEYWORDS=~amd64 ~x86
 LICENSE=MEGA
 RDEPEND=app-arch/xz-utils dev-libs/libgcrypt dev-libs/libsodium dev-libs/libuv media-libs/libpng net-dns/c-ares x11-themes/hicolor-icon-theme cryptopp? ( dev-libs/crypto++ ) curl? ( !libressl? ( net-misc/curl[ssl,curl_ssl_openssl] ) libressl? ( net-misc/curl[ssl,curl_ssl_libressl] ) ) dolphin? ( kde-apps/dolphin ) freeimage? ( media-libs/freeimage ) !libressl? ( dev-libs/openssl:0= ) libressl? ( dev-libs/libressl:0= ) nautilus? ( >=gnome-base/nautilus-3 ) readline? ( sys-libs/readline:0 ) sqlite? ( dev-db/sqlite:3 ) thunar? ( xfce-base/thunar ) zlib? ( sys-libs/zlib )
 SLOT=0
 SRC_URI=https://github.com/meganz/MEGAsync/archive/v4.3.8.0_Win.tar.gz -> megasync-4.3.8.0.tar.gz https://github.com/meganz/sdk/archive/37b346c2e119559e40c08f43e1a8f54353e7ad59.tar.gz -> megasync-sdk-4.3.8.0.tar.gz
-_eclasses_=autotools	9988ecbe04129214297a7bbf3d253710	cmake	314a813be2f09820e8978cdee941e501	desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	09a8beb8e6a8e02dc1e1bd83ac353741	l10n	8cdd85e169b835d518bc2fd59f780d8e	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	wrapper	4251d4c84c25f59094fd557e0063a974	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	4ba6c345bf49883c84d5fa5c9bf40c0b	desktop	c0d27bf73aa08ca05b663dbd31fbef28	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	09a8beb8e6a8e02dc1e1bd83ac353741	cmake	314a813be2f09820e8978cdee941e501
 _md5_=1ab5981a137bbf081b2eb091e82b2901

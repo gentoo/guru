@@ -4,11 +4,12 @@ DEPEND=lz4? ( >=app-arch/lz4-1.9 ) uuid? ( sys-apps/util-linux )
 DESCRIPTION=Userspace tools for EROFS images
 EAPI=7
 HOMEPAGE=https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git
+INHERIT=autotools
 IUSE=lz4 +uuid
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=GPL-2+
 RDEPEND=lz4? ( >=app-arch/lz4-1.9 ) uuid? ( sys-apps/util-linux )
 SLOT=0
 SRC_URI=https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/erofs-utils-1.1.tar.gz
-_eclasses_=autotools	9988ecbe04129214297a7bbf3d253710	libtool	f143db5a74ccd9ca28c1234deffede96	multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	4ba6c345bf49883c84d5fa5c9bf40c0b
 _md5_=0c1154b66e74b3e48da03dcc00842e82
