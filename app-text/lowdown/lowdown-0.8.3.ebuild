@@ -11,18 +11,13 @@ HOMEPAGE="https://kristaps.bsd.lv/lowdown/"
 if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/kristapsdz/${PN}.git"
-	KEYWORDS=""
 else
 	SRC_URI="https://kristaps.bsd.lv/${PN}/snapshots/${P}.tar.gz"
-	KEYWORDS="~*"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="ISC"
 SLOT="0"
-IUSE=""
-
-DEPEND=""
-RDEPEND=""
 
 src_prepare() {
 	default
