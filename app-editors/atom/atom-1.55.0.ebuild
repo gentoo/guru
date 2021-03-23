@@ -22,7 +22,7 @@ src_prepare(){
 	default
 
 	# Remove useless license files.
-	rm LICENSE.electron.txt LICENSES.electron.html
+	rm LICENSE LICENSES.chromium.html version
 }
 
 src_install(){
