@@ -31,5 +31,5 @@ src_install(){
 	dosym "${EPREFIX}"/opt/"${PN}"/atom "${EPREFIX}"/usr/bin/atom
 	fperms +x /opt/"${PN}"/atom
 	make_desktop_entry /opt/atom/atom Atom atom Utility
-	doicon atom
+	doicon atom.png
 }
