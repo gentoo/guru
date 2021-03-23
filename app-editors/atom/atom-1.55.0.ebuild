@@ -12,7 +12,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-inherit desktop xdg-utils
+inherit desktop xdg
 
 S="${WORKDIR}/${P}-amd64"
 
@@ -30,6 +30,6 @@ src_install(){
 	doins -r "${S}"/*
 	dosym "${EPREFIX}"/opt/"${PN}"/atom "${EPREFIX}"/usr/bin/atom
 	fperms +x /opt/"${PN}"/atom
-	make_desktop_entry /opt/atom/atom atom
+	make_desktop_entry /opt/atom/atom Atom atom Utility
 	doicon atom.png
 }
