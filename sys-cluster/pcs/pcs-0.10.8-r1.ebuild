@@ -6,7 +6,7 @@ EAPI=7
 PYTHON_COMPAT=( python3_{7..9} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 USE_RUBY="ruby25 ruby26"
-inherit distutils-r1 ruby-ng systemd
+inherit python-single-r1 ruby-ng systemd
 
 DESCRIPTION="Pacemaker/Corosync Configuration System"
 HOMEPAGE="https://github.com/ClusterLabs/pcs"
@@ -17,27 +17,30 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="systemd"
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 DEPEND="
 	dev-libs/libffi
 	media-libs/fontconfig
-	sys-apps/coreutils
 "
 RDEPEND="
 	${DEPEND}
+	$(python_gen_cond_dep '
+		dev-python/distro[${PYTHON_USEDEP}]
+		dev-python/dacite[${PYTHON_USEDEP}]
+		dev-python/lxml[${PYTHON_USEDEP}]
+		dev-python/pycurl[${PYTHON_USEDEP}]
+		dev-python/pyopenssl[${PYTHON_USEDEP}]
+		dev-python/pyparsing[${PYTHON_USEDEP}]
+		dev-python/python-dateutil[${PYTHON_USEDEP}]
+		>=www-servers/tornado-6.0[${PYTHON_USEDEP}]
+		<www-servers/tornado-7.0[${PYTHON_USEDEP}]
+	')
 	dev-libs/openssl
-	dev-python/distro[${PYTHON_USEDEP}]
-	dev-python/dacite[${PYTHON_USEDEP}]
-	dev-python/lxml[${PYTHON_USEDEP}]
-	dev-python/pycurl[${PYTHON_USEDEP}]
-	dev-python/pyopenssl[${PYTHON_USEDEP}]
-	dev-python/pyparsing[${PYTHON_USEDEP}]
-	dev-python/python-dateutil[${PYTHON_USEDEP}]
 	>=sys-cluster/corosync-3.0
 	>=sys-cluster/pacemaker-2.0
 	sys-libs/pam
 	sys-process/psmisc
-	>=www-servers/tornado-6.0[${PYTHON_USEDEP}]
-	<www-servers/tornado-7.0[${PYTHON_USEDEP}]
 "
 
 ruby_add_rdepend "
@@ -67,17 +70,21 @@ src_compile() {
 }
 
 src_install() {
+	python-single-r1_pkg_setup
 	# pre-create directory that is needed by 'make install'
 	dodir "/usr/lib/pcs"
 	# install files using 'make install'
-	emake install \
-		SYSTEMCTL_OVERRIDE=$(use systemd) \
-		DESTDIR="${D}" \
-		CONF_DIR="/etc/default/" \
-		PREFIX="${EPREFIX}/usr/" \
-		BUNDLE_INSTALL_PYAGENTX=false \
-		BUNDLE_TO_INSTALL=false \
+
+	local makeopts=(
+		SYSTEMCTL_OVERRIDE=$(use systemd)
+		DESTDIR="${D}"
+		CONF_DIR="/etc/default/"
+		PREFIX="${EPREFIX}/usr/"
 		BUILD_GEMS=false
+		BUNDLE_INSTALL_PYAGENTX=false
+		BUNDLE_TO_INSTALL=false
+	)
+	emake install "${makeopts[@]}"
 
 	# mark log directories to be kept
 	keepdir /var/log/pcsd
@@ -99,5 +106,5 @@ src_install() {
 	cp -a "${S}/pcs/settings.py.debian" "${D}/usr/lib/pcs/settings.py" || die
 	cp -a "${S}/pcsd/settings.rb.debian" "${D}/usr/lib/pcsd/settings.rb" || die
 
-	python_foreach_impl python_optimize
+	python_optimize
 }
