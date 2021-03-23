@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -29,6 +29,7 @@ RDEPEND="
 	~gui-apps/corepad-${PV}
 	~gui-apps/corepaint-${PV}
 	~gui-apps/corepdf-${PV}
+	~gui-apps/corepins-${PV}
 	~gui-apps/corerenamer-${PV}
 	~gui-apps/coreshot-${PV}
 	~gui-apps/corestats-${PV}
@@ -36,6 +37,7 @@ RDEPEND="
 	~gui-apps/coreterminal-${PV}
 	~gui-apps/coretime-${PV}
 	~gui-apps/coretoppings-${PV}[location?,pulseaudio?]
+	~gui-apps/coreuniverse-${PV}
 	~gui-libs/libcprime-${PV}
 	~gui-libs/libcsys-${PV}[udisks?]
 "
