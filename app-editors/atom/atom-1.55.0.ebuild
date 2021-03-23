@@ -12,7 +12,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-inherit desktop
+inherit desktop xdg
 
 S="${WORKDIR}/${P}-amd64"
 
