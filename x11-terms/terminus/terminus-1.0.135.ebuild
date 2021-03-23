@@ -12,7 +12,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-inherit desktop xdg-utils
+inherit desktop xdg
 
 S=""${WORKDIR}"/"${P}"-linux"
 
@@ -30,7 +30,7 @@ src_install(){
 	doins -r "${S}"/*
 	dosym "${EPREFIX}"/opt/"${PN}"/terminus "${EPREFIX}"/usr/bin/terminus
 	fperms +x /opt/"${PN}"/terminus
-	make_desktop_entry /opt/terminus/terminus terminus
+	make_desktop_entry /opt/terminus/terminus terminus terminus Utility
 	doicon ../terminus.svg
 	doicon ../terminus.ico
 	for i in {16,24,32,48,64,72,96,128,512}; do
