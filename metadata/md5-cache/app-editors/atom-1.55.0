@@ -1,0 +1,12 @@
+DEFINED_PHASES=install prepare
+DEPEND=net-print/cups
+DESCRIPTION=A hackable text editor for the 21st Century
+EAPI=7
+HOMEPAGE=https://atom.io/
+INHERIT=desktop xdg-utils
+KEYWORDS=~amd64
+LICENSE=MIT
+SLOT=0
+SRC_URI=https://github.com/atom/atom/releases/download/v1.55.0/atom-amd64.tar.gz -> atom-1.55.0.tar.gz
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_md5_=332a1e31cc390e00c17c332a33115bc8

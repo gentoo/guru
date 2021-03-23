@@ -32,6 +32,7 @@ app-backup/timeshift 20.11.1: A system restore utility for Linux
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/reop 2.1.1: reasonable expectation of privacy
+app-editors/atom 1.55.0: A hackable text editor for the 21st Century
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
@@ -70,7 +71,7 @@ app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20181120: vrms clone for Gentoo Linux
 app-misc/watchexec 1.14.1: Executes commands in response to file modifications
 app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
-app-office/openoffice-bin 4.1.8 4.1.9: Apache OpenOffice productivity suite
+app-office/openoffice-bin 4.1.9: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.4 1.99.5 9999: Pyspread is a non-traditional spreadsheet written in Python
 app-portage/emlop 0.4.1: A fast, accurate, ergonomic emerge.log parser
 app-portage/pacvis 0.4.2 9999: Displays dependency graphs of packages
@@ -195,7 +196,7 @@ dev-python/click-repl 0.1.6: Subcommand REPL for click apps
 dev-python/cloudscraper 1.2.40 1.2.46 1.2.56: A Python module to bypass Cloudflare's anti-bot page
 dev-python/clufter 0.77.2: Tool/library for transforming/analyzing cluster configuration formats
 dev-python/colored 1.4.2 9999: Very simple Python library for color and formatting in terminal
-dev-python/compreffor 0.5.0: A CFF table subroutinizer for FontTools
+dev-python/compreffor 0.5.0 0.5.1: A CFF table subroutinizer for FontTools
 dev-python/convertdate 2.3.0 2.3.1: Utils for converting between date formats and calculating holidays
 dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
 dev-python/curio 0.9 1.2-r1 1.4 1.4-r1 1.5: Curio is a coroutine-based library for concurrent systems programming
@@ -205,9 +206,9 @@ dev-python/databases 0.4.1: Async database support for Python.
 dev-python/dateparser 1.0.0: Date parsing library designed to parse dates from HTML pages
 dev-python/devtools 0.6.1: Dev tools for python
 dev-python/doxypypy 0.8.8.6: A more Pythonic version of doxypy, a Doxygen filter for Python
-dev-python/factory_boy 3.1.0: A fixtures replacement tool
+dev-python/factory_boy 3.1.0 3.2.0: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11 0.1.11-r1: Up to date simple useragent faker with real world database
-dev-python/geopy 2.0.0: A Geocoding Toolbox for Python
+dev-python/geopy 2.0.0 2.1.0: A Geocoding Toolbox for Python
 dev-python/github-sublee-glicko2 0_pre20191010 0_pre20191010-r1: An implementation of the Glicko-2 rating system for Python
 dev-python/glicko2 2.0.0: glicko2 implementation in python
 dev-python/glyphsLib 5.3.0: A library to provide a bridge from Glyphs source files to UFOs
@@ -359,6 +360,7 @@ gui-apps/corekeyboard 4.0.0 4.1.0 9999: A x11 based virtual keyboard for C Suite
 gui-apps/corepad 4.0.0 4.1.0 9999: A document editor for C Suite
 gui-apps/corepaint 4.0.0 4.1.0 9999: A paint app for C Suite
 gui-apps/corepdf 4.0.0 4.1.0 9999: A PDF viewer for C Suite
+gui-apps/corepins 4.1.0 9999: A bookmarking app for C Suite
 gui-apps/corerenamer 4.0.0 4.1.0 9999: A batch file renamer for C Suite
 gui-apps/coreshot 4.0.0 4.1.0 9999: A screen capture utility for C Suite
 gui-apps/corestats 4.0.0 4.1.0 9999: A system resource viewer for C Suite
@@ -366,6 +368,7 @@ gui-apps/corestuff 4.0.0 4.1.0 9999: An activity viewer for C Suite
 gui-apps/coreterminal 4.0.0 4.1.0 9999: A terminal emulator for C Suite
 gui-apps/coretime 4.0.0 4.1.0 9999: A time related task manager for C Suite
 gui-apps/coretoppings 4.0.0 4.1.0-r1: Additional features, plugins, widgets etc for C Suite
+gui-apps/coreuniverse 4.1.0 9999: Shows information about apps for C Suite
 gui-apps/mpvpaper 1.0 1.1 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.4.3 0.4.4 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperdesktop 0_p20210310 9999: Simple, sleek QT based DE for wayland using wayfire
@@ -496,7 +499,7 @@ sci-libs/saclib 2.2.7-r1 2.2.7-r2: Reference implementations of algorithms and f
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
 sci-mathematics/frama-c 22.0: Framework for analysis of source codes written in C
 sci-mathematics/why3 1.3.3: Platform for deductive program verification
-sci-physics/SU2 7.1.0 7.1.1: SU2: An Open-Source Suite for Multiphysics Simulation and Design
+sci-physics/SU2 7.1.1: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
 sys-apps/drm_info 2.2.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3 0.5.4: A more intuitive version of du
@@ -516,7 +519,7 @@ sys-cluster/KVTree 1.0.2: KVTree provides a fully extensible C data structure mo
 sys-cluster/dlb 2.1-r1: Dynamically react to application imbalance by modifying the number of resources
 sys-cluster/er 0.0.3: High-level distributed erasure coding lib combining shuffile and redset
 sys-cluster/genders 1.27.3 1.28.1: Static cluster configuration database used for cluster configuration management.
-sys-cluster/pcs 0.10.7 0.10.8: Pacemaker/Corosync Configuration System
+sys-cluster/pcs 0.10.7 0.10.8 0.10.8-r1: Pacemaker/Corosync Configuration System
 sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on string values
 sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect datasets of MPI applications
 sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
