@@ -92,12 +92,12 @@ src_install() {
 		systemd_newunit "${S}/pcsd/pcsd-ruby.service" "pcsd-daemon.service"
 	fi
 	# custom service file for openRC
-	newinitd "${FILESDIR}/pcsd.initd" pcsd || die
-	newinitd "${FILESDIR}/pcsd-daemon.initd" pcsd-daemon || die
+	newinitd "${FILESDIR}/pcsd.initd" pcsd
+	newinitd "${FILESDIR}/pcsd-daemon.initd" pcsd-daemon
 
 	# move config files to right places - we use debian-style /etc/default
-	cp -a "${S}/pcs/settings.py.debian" "${D}/usr/lib/pcs/settings.py"
-	cp -a "${S}/pcsd/settings.rb.debian" "${D}/usr/lib/pcsd/settings.rb"
+	cp -a "${S}/pcs/settings.py.debian" "${D}/usr/lib/pcs/settings.py" || die
+	cp -a "${S}/pcsd/settings.rb.debian" "${D}/usr/lib/pcsd/settings.rb" || die
 
 	python_foreach_impl python_optimize
 }
