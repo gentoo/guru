@@ -61,7 +61,9 @@ ruby_add_rdepend "
 	www-servers/thin
 "
 
-PATCHES=( "${FILESDIR}/remove-ruby-bundle-path.patch" "${FILESDIR}/openrc-${PV}.patch" )
+PATCHES=( 	"${FILESDIR}/remove-ruby-bundle-path.patch"
+			"${FILESDIR}/openrc-${PV}.patch"
+			"${FILESDIR}/pcsd-daemon.service.patch" )
 
 S="${WORKDIR}/all/${P}"
 
