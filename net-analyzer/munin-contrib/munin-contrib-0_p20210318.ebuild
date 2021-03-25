@@ -32,7 +32,7 @@ src_install() {
 	insinto "/usr/libexec/munin"
 	use tools && doins -r tools
 	insinto "/usr/libexec/munin/plugins/contrib"
-	use plugins && doins -r plugins
+	use plugins && doins -r plugins/*
 	insinto "/etc/munin/templates"
 	use templates && doins -r templates/munstrap
 	use examples && dodoc -r samples/munin.conf
