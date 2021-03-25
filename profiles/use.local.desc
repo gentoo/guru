@@ -96,6 +96,9 @@ media-video/vidify:vlc - Use python-vlc as backend for vidify
 media-video/vidify:zeroconf - Use an external network player
 media-video/wlrobs:dmabuf - Enable the dmabuf backend
 media-video/wlrobs:scpy - Enable the screen copy backend
+net-analyzer/munin-contrib:plugins - contrib munin plugins
+net-analyzer/munin-contrib:templates - contrib munin tools
+net-analyzer/munin-contrib:tools - munin contrib tools
 net-im/biboumi:logrotate - Use app-admin/logrotate for rotating logs
 net-im/biboumi:udns - Asynchronously resolve domain names using net-libs/udns
 net-libs/usockets:libuv - Enable bindings to use the libuv dispatcher
