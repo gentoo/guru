@@ -56,7 +56,6 @@ QA_PREBUILT="
 	/opt/vscodium/swiftshader/libEGL.so
 	/opt/vscodium/swiftshader/libGLESv2.so
 "
-QA_PRESTRIPPED="${QA_PREBUILT}"
 
 src_prepare() {
 	default
