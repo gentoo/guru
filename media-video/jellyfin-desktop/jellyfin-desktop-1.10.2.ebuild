@@ -48,8 +48,6 @@ RDEPEND="
 "
 BDEPEND="app-arch/unzip"
 
-S="${WORKDIR}/jellyfin-desktop-${PV}"
-
 src_install() {
 	distutils-r1_src_install
 	insinto "$(python_get_sitedir)/jellyfin_mpv_shim/webclient_view/webclient" # jellyfin-web dist
