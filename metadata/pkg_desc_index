@@ -43,6 +43,7 @@ app-emulation/dxvk-bin 1.8 1.8.1: Vulkan-based implementation of D3D9, D3D10 and
 app-emulation/nvidia-container-toolkit 1.4.2: NVIDIA container runtime toolkit
 app-eselect/eselect-scheme 1.0.0: Manages scheme implementations
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
+app-misc/afetch 2.0.1: Simple system info written in C
 app-misc/apidb 4.3.0_beta 5.0.0_alpha 5.0.0_alpha8 5.0.0_alpha19 5.0.0_alpha20 5.8.0_beta: API Generator for Database acces.
 app-misc/brightness-control 2.0_p20200629: Qt Brightness Controller in Python
 app-misc/brightnessctl 0.5.1 9999: A program to read and control device brightness
@@ -264,7 +265,6 @@ dev-python/pytest-marks 0.4: Allow to set 'marks' on pytest methods
 dev-python/pytest-pythonpath 0.7.3: Plugin for adding to the PYTHONPATH from the pytests.ini file before tests run
 dev-python/pytest-randomly 3.5.0: Pytest plugin to randomly order tests and control random.seed
 dev-python/pytest-sanic 1.6.2: a Pytest Plugin for Sanic
-dev-python/pytest-subtests 0.4.0: unittest subTest() support and subtests fixture
 dev-python/pytest-sugar 0.9.3 0.9.4: Plugin for pytest that changes the default look and feel of pytest
 dev-python/pytest-toolbox 0.4: Numerous useful plugins for pytest
 dev-python/pytest-trio 0.5.2 0.6.0 0.7.0: This is a pytest plugin to help you test projects that use Trio
@@ -530,7 +530,7 @@ sys-fs/btrfs-heatmap 9: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
 sys-fs/dwarfs 0.4.1: A fast very high compression read-only FUSE file system
 sys-fs/erofs-utils 1.1 1.2 1.2.1 9999: Userspace tools for EROFS images
-sys-fs/gcsfuse 0.33.2: A user-space file system for interacting with Google Cloud Storage
+sys-fs/gcsfuse 0.34.0: A user-space file system for interacting with Google Cloud Storage
 sys-fs/gfs2-utils 3.2.0 3.3.0: Shared-disk cluster file system
 sys-fs/python-btrfs 12: Python 3 module to inspect btrfs filesystems
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
@@ -543,7 +543,7 @@ sys-process/bottom 0.5.7: A graphical process/system monitor with a customizable
 sys-process/gotop 4.1.1: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/iotop-c 1.17: top utility for IO (C port)
 sys-process/nvtop 1.1.0 9999: NVIDIA GPUs htop like monitoring tool
-www-apps/code-server-bin 3.8.1 3.9.0 3.9.1: VS Code in the browser (binary version with unbundled node and ripgrep)
+www-apps/code-server-bin 3.9.0 3.9.1 3.9.2: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/jackett-bin 0.17.456: API Support for your favorite torrent trackers
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
