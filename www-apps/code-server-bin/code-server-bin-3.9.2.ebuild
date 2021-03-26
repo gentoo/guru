@@ -41,8 +41,13 @@ PATCHES=( "${FILESDIR}/${PN}-node.patch" )
 
 DOCS=( "README.md" "ThirdPartyNotices.txt" )
 
-QA_PREBUILT="*"
-QA_PRESTRIPPED="${QA_PREBUILT}"
+QA_PREBUILT="
+	/usr/lib/code-server/lib/coder-cloud-agent
+	/usr/lib/code-server/lib/vscode/node_modules/*
+"
+QA_PRESTRIPPED="
+	/usr/lib/code-server/lib/coder-cloud-agent
+"
 
 src_prepare() {
 	default
