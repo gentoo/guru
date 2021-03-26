@@ -21,7 +21,6 @@ SRC_URI="
 	)
 "
 
-RESTRICT="bindist strip test"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~arm ~arm64"
@@ -43,6 +42,20 @@ RDEPEND="
 "
 
 S="${WORKDIR}"
+
+QA_PREBUILT="
+	/opt/vscodium/chrome-sandbox
+	/opt/vscodium/codium
+	/opt/vscodium/libEGL.so
+	/opt/vscodium/libGLESv2.so
+	/opt/vscodium/libffmpeg.so
+	/opt/vscodium/libvk_swiftshader.so
+	/opt/vscodium/libvulkan.so
+	/opt/vscodium/resources/app/node_modules.asar.unpacked/*
+	/opt/vscodium/swiftshader/*
+	/opt/vscodium/swiftshader/libEGL.so
+	/opt/vscodium/swiftshader/libGLESv2.so
+"
 
 src_prepare() {
 	default
