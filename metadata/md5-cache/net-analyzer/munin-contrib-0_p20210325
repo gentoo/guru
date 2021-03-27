@@ -7,5 +7,5 @@ KEYWORDS=~amd64
 LICENSE=GPL-3+ Apache-2.0 GPL-2 LGPL-2 GPL-2+ LGPL-3+
 RDEPEND=net-analyzer/munin
 SLOT=0
-SRC_URI=https://github.com/munin-monitoring/contrib/archive/7fd554f04b67a985e99f15aa56aa4546d6006f2f.tar.gz -> munin-contrib-0_p20210318.tar.gz
-_md5_=05330080a737b01ef7ad5e17e96d0660
+SRC_URI=https://github.com/munin-monitoring/contrib/archive/4af69a6d076a467d7f8faa0030e8da53b1de190f.tar.gz -> munin-contrib-0_p20210325.tar.gz
+_md5_=40de10b00f61282da65ac8565c417b9d
