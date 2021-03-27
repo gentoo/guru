@@ -27,4 +27,9 @@ BDEPEND="
 "
 PATCHES=( "${FILESDIR}/remove-pytest-runner.patch" )
 
-distutils_enable_tests --install pytest
+distutils_enable_tests pytest
+
+python_test() {
+	distutils_install_for_testing
+	default
+}
