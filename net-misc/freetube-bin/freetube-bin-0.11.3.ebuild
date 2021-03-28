@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit unpacker xdg
+inherit desktop unpacker xdg
 
 DESCRIPTION="https://github.com/FreeTubeApp/FreeTube"
 HOMEPAGE="https://freetubeapp.io/"
@@ -15,6 +15,8 @@ LICENSE="AGPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
 
+QA_PREBUILT="/opt/FreeTube/*"
+
 DEPEND="net-print/cups"
 RDEPEND="${DEPEND}"
 
@@ -25,12 +27,12 @@ src_configure() {
 src_install() {
 	DESTDIR="${D}"
 	insinto /opt
-	doins -r "${WORKDIR}"/opt/*
-	insinto /usr/share/applications/
-	doins -r "${WORKDIR}"/usr/share/applications/*
-	insinto /usr/share/icons/
-	doins -r "${WORKDIR}"/usr/share/icons/*
-	chmod 4755 "${D}"/opt/FreeTube/chrome-sandbox || die
-	chmod +x  "${D}"/opt/FreeTube/freetube || die
-	dosym "${EPREFIX}"/opt/FreeTube/freetube /usr/bin/freetube-bin
+	doins -r opt/*
+	domenu usr/share/applications/freetube.desktop
+	for size in {16,32,48,64,128,256}; do
+		doicon -s ${size} usr/share/icons/hicolor/${size}x${size}/apps/freetube.png
+	done
+	fperms 4755 /opt/FreeTube/chrome-sandbox || die
+	fperms +x  /opt/FreeTube/freetube || die
+	dosym ../../opt/FreeTube/freetube /usr/bin/freetube-bin
 }

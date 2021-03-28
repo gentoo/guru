@@ -35,8 +35,8 @@ RDEPEND="
 	x11-themes/hicolor-icon-theme
 	cryptopp? ( dev-libs/crypto++ )
 	curl? (
-		!libressl? ( net-misc/curl[ssl,curl_ssl_openssl] )
-		libressl? ( net-misc/curl[ssl,curl_ssl_libressl] )
+		!libressl? ( net-misc/curl[ssl,curl_ssl_openssl(-)] )
+		libressl? ( net-misc/curl[ssl,curl_ssl_libressl(-)] )
 	)
 	dolphin? ( kde-apps/dolphin )
 	freeimage? ( media-libs/freeimage )

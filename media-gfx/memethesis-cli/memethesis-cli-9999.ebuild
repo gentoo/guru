@@ -1,9 +1,15 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
+DISTUTILS_USE_SETUPTOOLS=rdepend
+DISTUTILS_SINGLE_IMPL=1
+PYTHON_COMPAT=( python3_{7,8} )
+inherit distutils-r1
+
 EGIT_REPO_URI="https://github.com/fakefred/${PN}"
+
 case "${PV}" in
 	9999)
 		inherit git-r3
@@ -13,13 +19,8 @@ case "${PV}" in
 		KEYWORDS="~amd64"
 esac
 
-DISTUTILS_USE_SETUPTOOLS=rdepend
-DISTUTILS_SINGLE_IMPL=1
-PYTHON_COMPAT=( python3_{7,8} )
-inherit distutils-r1
-
 DESCRIPTION="Create memes from the terminal"
-HOMEPAGE="${EGIT_REPO_URI}"
+HOMEPAGE="https://github.com/fakefred/memethesis-cli"
 LICENSE="GPL-3"
 SLOT="0"
 

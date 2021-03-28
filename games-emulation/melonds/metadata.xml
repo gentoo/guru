@@ -8,8 +8,4 @@
     <upstream>
         <remote-id type="gitlab">Arisotura/melonDS</remote-id>
     </upstream>
-    <longdescription>
-        DS emulator, sorta.
-        The goal is to do things right and fast, akin to blargSNES.
-    </longdescription>
 </pkgmetadata>

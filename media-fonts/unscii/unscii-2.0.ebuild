@@ -7,8 +7,8 @@ FONT_SUFFIX="otf pcf ttf"
 inherit toolchain-funcs font
 
 DESCRIPTION="Set of bitmapped Unicode fonts based on classic system fonts"
-HOMEPAGE="http://viznut.fi/${PN}/"
-SRC_URI="${HOMEPAGE}${P}-src.tar.gz"
+HOMEPAGE="http://viznut.fi/unscii/"
+SRC_URI="http://viznut.fi/unscii/${P}-src.tar.gz"
 
 LICENSE="
 	public-domain

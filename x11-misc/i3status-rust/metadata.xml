@@ -5,9 +5,6 @@
 		<email>phil@demona.co</email>
 		<name>Phil DeMonaco</name>
 	</maintainer>
-	<longdescription lang="en">
-		A feature-rich and resource-friendly replacement for i3status, written in Rust.
-	</longdescription>
 	<upstream>
 		<remote-id type="github">greshake/i3status-rust</remote-id>
 	</upstream>

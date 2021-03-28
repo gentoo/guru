@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="A set of C++ classes that provide a common API for realtime MIDI input/output"
 HOMEPAGE="http://www.music.mcgill.ca/~gary/rtmidi"
-SRC_URI="https://dl.bintray.com/aeon-engine/aeon_dependencies/rtmidi/src/rtmidi-4.0.0.tar.gz"
+SRC_URI="https://dl.bintray.com/aeon-engine/aeon_dependencies/rtmidi/src/${P}.tar.gz"
 
 LICENSE="RtMidi"
 SLOT="0"

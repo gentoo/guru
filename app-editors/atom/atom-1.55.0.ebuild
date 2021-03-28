@@ -18,6 +18,8 @@ S="${WORKDIR}/${P}-amd64"
 
 DEPEND="net-print/cups" # Requested by electron
 
+QA_PREBUILT="/opt/atom/*"
+
 src_prepare(){
 	default
 
@@ -28,7 +30,7 @@ src_prepare(){
 src_install(){
 	insinto /opt/"${PN}"
 	doins -r "${S}"/*
-	dosym "${EPREFIX}"/opt/"${PN}"/atom "${EPREFIX}"/usr/bin/atom
+	dosym ../../opt/"${PN}"/atom "${EPREFIX}"/usr/bin/atom
 	fperms +x /opt/"${PN}"/atom
 	make_desktop_entry /opt/atom/atom Atom atom Utility
 	doicon atom.png

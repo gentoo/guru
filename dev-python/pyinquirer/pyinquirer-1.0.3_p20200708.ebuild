@@ -25,7 +25,7 @@ inherit distutils-r1
 distutils_enable_tests pytest
 
 DESCRIPTION="A Python module for common interactive command line UIs"
-HOMEPAGE="${EGIT_REPO_URI}"
+HOMEPAGE="https://github.com/CITGuru/PyInquirer"
 LICENSE="MIT"
 
 SLOT="0"

@@ -92,7 +92,7 @@ go-module_set_globals
 DESCRIPTION="A modern and intuitive terminal-based text editor"
 HOMEPAGE="https://github.com/zyedidia/micro"
 SRC_URI="
-	https://github.com/zyedidia/micro/archive/v${PV}.tar.gz
+	https://github.com/zyedidia/micro/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}
 "
 

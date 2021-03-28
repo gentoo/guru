@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -15,7 +15,9 @@ SRC_URI="https://github.com/bsc-pm/dlb/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
+
 IUSE="hwloc instrumentation mpi openmp"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
 	hwloc? ( sys-apps/hwloc )
@@ -23,6 +25,7 @@ DEPEND="
 "
 #instrumentation ( sys-cluster/extrae )
 RDEPEND="
+	${PYTHON_DEPS}
 	${DEPEND}
 	dev-lang/tk
 	$(python_gen_cond_dep 'dev-python/matplotlib[tk,${PYTHON_USEDEP}]')

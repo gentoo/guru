@@ -5,7 +5,7 @@ EAPI=7
 
 DESCRIPTION="Better Portable Graphics reference implementation"
 HOMEPAGE="https://bellard.org/bpg/"
-SRC_URI="${HOMEPAGE}/${P}.tar.gz"
+SRC_URI="https://bellard.org/bpg/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"

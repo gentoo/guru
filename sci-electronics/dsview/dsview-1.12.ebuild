@@ -26,7 +26,9 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-RDEPEND="
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
+RDEPEND="${PYTHON_DEPS}
 	dev-cpp/glibmm:2
 	dev-libs/boost
 	dev-libs/glib

@@ -6,7 +6,7 @@ EAPI=7
 CONFIG_CHECK="~ZRAM ~ZSWAP"
 PYTHON_COMPAT=( python3_{7..8} )
 
-inherit linux-info python-any-r1
+inherit linux-info python-r1
 
 DESCRIPTION="Script for creating swap space from zram swaps, swap files and swap partitions."
 HOMEPAGE="https://github.com/Nefelim4ag/systemd-swap/"
@@ -22,7 +22,9 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-RDEPEND="
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
+RDEPEND="${PYTHON_DEPS}
 	$(python_gen_any_dep '
 		dev-python/python-systemd[${PYTHON_USEDEP}]
 		dev-python/sysv_ipc[${PYTHON_USEDEP}]

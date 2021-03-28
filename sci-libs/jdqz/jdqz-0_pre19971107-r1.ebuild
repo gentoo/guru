@@ -19,7 +19,7 @@ IUSE="doc"
 DEPEND="
 	virtual/blas
 	virtual/lapack
-	|| ( sci-libs/openblas sci-libs/lapack[deprecated] )
+	|| ( sci-libs/openblas sci-libs/lapack[deprecated(-)] )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="doc? ( dev-texlive/texlive-latex )"

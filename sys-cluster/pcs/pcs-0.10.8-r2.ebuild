@@ -25,6 +25,7 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
+	${PYTHON_DEPS}
 	$(python_gen_cond_dep '
 		dev-python/distro[${PYTHON_USEDEP}]
 		dev-python/dacite[${PYTHON_USEDEP}]
@@ -42,6 +43,12 @@ RDEPEND="
 	sys-libs/pam
 	sys-process/psmisc
 "
+PATCHES=(
+	"${FILESDIR}/remove-ruby-bundle-path.patch"
+	"${FILESDIR}/openrc-${PV}.patch"
+	"${FILESDIR}/pcsd-daemon.service.patch"
+)
+S="${WORKDIR}/all/${P}"
 
 ruby_add_rdepend "
 	dev-ruby/backports
@@ -60,12 +67,6 @@ ruby_add_rdepend "
 	dev-ruby/tilt
 	www-servers/thin
 "
-
-PATCHES=( 	"${FILESDIR}/remove-ruby-bundle-path.patch"
-			"${FILESDIR}/openrc-${PV}.patch"
-			"${FILESDIR}/pcsd-daemon.service.patch" )
-
-S="${WORKDIR}/all/${P}"
 
 src_compile() {
 	return

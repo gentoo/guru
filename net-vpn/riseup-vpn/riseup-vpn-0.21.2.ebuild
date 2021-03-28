@@ -66,6 +66,7 @@ SRC_URI="https://0xacab.org/leap/bitmask-vpn/-/archive/${PV}/bitmask-vpn-${PV}.t
 # Save a lot of Error 404's since this is not mirrored
 IUSE="test"
 RESTRICT="mirror !test? ( test )"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # Generated with dev-go/golicense
 LICENSE="GPL-3 BSD-2 CC0-1.0 MIT BSD"
@@ -98,6 +99,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	net-vpn/openvpn
 	sys-auth/polkit
+	${PYTHON_DEPS}
 "
 
 # ip command is in bin instead of sbin on Gentoo

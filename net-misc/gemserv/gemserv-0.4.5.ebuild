@@ -85,10 +85,7 @@ CRATES="
 inherit cargo systemd
 
 DESCRIPTION="A gemini Server written in rust"
-HOMEPAGE="
-	gemini://80h.dev/projects/gemserv/
-	https://git.sr.ht/~int80h/gemserv
-"
+HOMEPAGE="https://git.sr.ht/~int80h/gemserv"
 SRC_URI="
 	https://git.sr.ht/~int80h/gemserv/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	$(cargo_crate_uris ${CRATES})

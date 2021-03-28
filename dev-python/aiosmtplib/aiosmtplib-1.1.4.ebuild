@@ -3,6 +3,7 @@
 
 EAPI=7
 
+DISTUTILS_USE_SETUPTOOLS=pyproject.toml
 PYTHON_COMPAT=( python3_{7,8} )
 
 inherit distutils-r1
@@ -19,5 +20,3 @@ DEPEND="dev-python/pyproject2setuppy"
 RDEPEND="${DEPEND}"
 
 RESTRICT="mirror"
-
-DISTUTILS_USE_SETUPTOOLS=pyproject.toml

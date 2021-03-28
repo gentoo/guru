@@ -11,7 +11,6 @@
 		<email>rozstrojenie.jazni@gmail.com</email>
 		<name>Michał Gasewicz</name>
 	</maintainer>
-	<longdescription>cx_Oracle is a Python extension module that enables access to Oracle Database.</longdescription>
 	<use>
 		<flag name="examples">Install examples, usually source code</flag>
 	</use>

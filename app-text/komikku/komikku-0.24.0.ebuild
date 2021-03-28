@@ -19,6 +19,8 @@ KEYWORDS="~amd64"
 LICENSE="GPL-3"
 SLOT="0"
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 DEPEND="
 	>=gui-libs/libhandy-1.0.2
 	>=x11-libs/gtk+-3.24.10
@@ -36,6 +38,7 @@ DEPEND="
 	')
 "
 RDEPEND="
+	${PYTHON_DEPS}
 	${DEPEND}
 "
 

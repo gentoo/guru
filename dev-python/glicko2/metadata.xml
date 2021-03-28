@@ -2,9 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <!-- maintainer-needed -->
-  <longdescription>
-    This is my fork of lmeyerov's update to Ryan Kirkman's pyglicko2
-  </longdescription>
   <upstream>
     <remote-id type="github">deepy/glicko2</remote-id>
     <remote-id type="pypi">glicko2</remote-id>

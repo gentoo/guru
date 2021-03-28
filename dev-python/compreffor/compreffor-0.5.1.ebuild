@@ -25,14 +25,9 @@ BDEPEND="
 	app-arch/unzip
 	dev-python/cython[${PYTHON_USEDEP}]
 "
+PATCHES=( "${FILESDIR}/remove-pytest-runner.patch" )
 
 distutils_enable_tests pytest
-
-src_prepare() {
-	#undesired dependency
-	sed -i "s|setup_requires=pytest_runner + wheel,|setup_requires=wheel,|" setup.py
-	default
-}
 
 python_test() {
 	distutils_install_for_testing

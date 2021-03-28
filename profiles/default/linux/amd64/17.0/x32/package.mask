@@ -7,3 +7,14 @@
 # Is this still relevant? Looks like support was comitted:
 # https://codereview.chromium.org/18014003
 www-apps/code-server-bin
+
+# Andrew Ammerlaan <andrewammerlaan@riseup.net> (2021-03-28)
+# Depends on QtPy[webengine] --> PyQtWebengine --> Nodejs
+# which is masked on this profile
+app-editors/kitscenarist
+dev-vcs/gitqlient
+dev-python/pywebview
+media-video/vidify
+media-video/vidify-audiosync
+
+
