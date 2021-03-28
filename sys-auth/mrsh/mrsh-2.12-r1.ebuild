@@ -35,5 +35,5 @@ src_configure() {
 src_install() {
 	default
 	#remove executable bit from systemd units
-	chmod a-x "${ED}/$(systemd_get_systemunitdir)"/* || die
+	chmod a-x "${D}/$(systemd_get_systemunitdir)"/* || die
 }
