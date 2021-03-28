@@ -116,8 +116,8 @@ src_test() {
 
 src_install() {
 	meson_src_install
-	mkdir -p "${ED}$(python_get_sitedir)" || die
-	mv "${ED}"/usr/bin/{FSI_tools,SU2,SU2_Nastran,*.py} -t "${ED}$(python_get_sitedir)" || die
+	mkdir -p "${D}$(python_get_sitedir)" || die
+	mv "${ED}"/usr/bin/{FSI_tools,SU2,SU2_Nastran,*.py} -t "${D}$(python_get_sitedir)" || die
 	python_optimize "${D}/$(python_get_sitedir)"
 
 	if use tutorials ; then
