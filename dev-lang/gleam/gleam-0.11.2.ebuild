@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -248,7 +248,7 @@ xattr-0.2.2
 
 inherit cargo
 
-DESCRIPTION="gleam"
+DESCRIPTION="A statically typed functional language for the BEAM"
 HOMEPAGE="https://gleam.run"
 SRC_URI="https://github.com/gleam-lang/gleam/archive/v${PV}.tar.gz -> ${P}.tar.gz $(cargo_crate_uris ${CRATES})"
 RESTRICT="mirror"
