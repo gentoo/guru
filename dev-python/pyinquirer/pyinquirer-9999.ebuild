@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -23,7 +23,7 @@ distutils_enable_sphinx docs
 distutils_enable_tests pytest
 
 DESCRIPTION="A Python module for common interactive command line UIs"
-HOMEPAGE="${EGIT_REPO_URI}"
+HOMEPAGE="https://github.com/CITGuru/PyInquirer"
 LICENSE="MIT"
 
 SLOT="0"
