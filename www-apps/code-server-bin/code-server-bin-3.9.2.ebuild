@@ -77,10 +77,10 @@ src_install() {
 
 	insinto "/usr/lib/${MY_PN}"
 	doins -r .
-	fperms +x "${EPREFIX}/usr/lib/${MY_PN}/bin/${MY_PN}"
-	dosym "${EPREFIX}/usr/lib/${MY_PN}/bin/${MY_PN}" "${EPREFIX}/usr/bin/${MY_PN}"
+	fperms +x "/usr/lib/${MY_PN}/bin/${MY_PN}"
+	dosym "../../usr/lib/${MY_PN}/bin/${MY_PN}" "${EPREFIX}/usr/bin/${MY_PN}"
 
-	dosym "${EPREFIX}/usr/bin/rg" "${EPREFIX}/usr/lib/${MY_PN}/lib/vscode/node_modules/vscode-ripgrep/bin/rg"
+	dosym "../../../../../../../../usr/bin/rg" "${EPREFIX}/usr/lib/${MY_PN}/lib/vscode/node_modules/vscode-ripgrep/bin/rg"
 
 	systemd_dounit "${FILESDIR}/${MY_PN}.service"
 }
