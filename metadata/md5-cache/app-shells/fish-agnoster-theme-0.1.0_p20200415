@@ -7,4 +7,4 @@ LICENSE=MIT
 RDEPEND=app-shells/fish
 SLOT=0
 SRC_URI=https://github.com/hauleth/agnoster/archive/1ae9625e27ef47d2e6abc60156cd154cd1c37f46.tar.gz -> fish-agnoster-theme-0.1.0_p20200415.tar.gz
-_md5_=6ad0070dcdd2991452916070276be46a
+_md5_=68bf988a791015e5fc0eb9ece5845315

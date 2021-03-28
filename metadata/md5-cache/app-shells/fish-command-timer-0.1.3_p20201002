@@ -7,4 +7,4 @@ LICENSE=Apache-2.0
 RDEPEND=>=app-shells/fish-2.2
 SLOT=0
 SRC_URI=https://github.com/jichu4n/fish-command-timer/archive/d84332e56e9ad4fe8d2f1fe80dedbed50449979c.tar.gz -> fish-command-timer-0.1.3_p20201002.tar.gz
-_md5_=51abcd16908e3b1a923791802f8ae878
+_md5_=b87d3526c822bbdf042e05f015e71014

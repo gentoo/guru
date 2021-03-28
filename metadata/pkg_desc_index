@@ -43,7 +43,7 @@ app-emulation/dxvk-bin 1.8 1.8.1: Vulkan-based implementation of D3D9, D3D10 and
 app-emulation/nvidia-container-toolkit 1.4.2: NVIDIA container runtime toolkit
 app-eselect/eselect-scheme 1.0.0: Manages scheme implementations
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
-app-misc/afetch 2.0.1: Simple system info written in C
+app-misc/afetch 2.1.0: Simple system info written in C
 app-misc/apidb 4.3.0_beta 5.0.0_alpha 5.0.0_alpha8 5.0.0_alpha19 5.0.0_alpha20 5.8.0_beta: API Generator for Database acces.
 app-misc/brightness-control 2.0_p20200629: Qt Brightness Controller in Python
 app-misc/brightnessctl 0.5.1 9999: A program to read and control device brightness
@@ -129,6 +129,7 @@ dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, R
 dev-cpp/vectorwrapper 1.1.2 9999: A template vector wrapper class for C++
 dev-db/pg_repack 1.4.6: Reorganize tables in PostgreSQL databases with minimal locks
 dev-db/rum 1.3.7: RUM access method - inverted index with additional information in posting lists
+dev-embedded/mv88e6xxx-dump 0.2.0_pre20210327: Dump information about Marvell mv88e6xxx Ethernet switches
 dev-embedded/rauc 1.5.1: Lightweight update client that runs on your Embedded Linux device
 dev-games/godot 3.2.3-r1: Multi-platform 2D and 3D game engine
 dev-games/surgescript 0.5.4.3 0.5.4.4 9999: scripting language made for opensurge
@@ -243,7 +244,7 @@ dev-python/pdfminer-six 20201018: Community maintained fork of pdfminer
 dev-python/pdoc3 0.9.2: Auto-generate API documentation for Python projects
 dev-python/pep517 0.9.1: standard API for systems which build Python packages
 dev-python/phx-class-registry 3.0.5: An intersection of the Registry and Factory pattern
-dev-python/pproxy 2.4.6 2.4.6-r1 2.5: TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio
+dev-python/pproxy 2.4.6 2.4.6-r1 2.5 2.7.7: TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio
 dev-python/promise 2.3.0: Bytecode optimisation using staticness assertions
 dev-python/pure-protobuf 2.0.0-r1 2.0.1: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/pydbus 0.6.0: Pythonic DBus library
@@ -267,7 +268,7 @@ dev-python/pytest-randomly 3.5.0: Pytest plugin to randomly order tests and cont
 dev-python/pytest-sanic 1.6.2: a Pytest Plugin for Sanic
 dev-python/pytest-sugar 0.9.3 0.9.4: Plugin for pytest that changes the default look and feel of pytest
 dev-python/pytest-toolbox 0.4: Numerous useful plugins for pytest
-dev-python/pytest-trio 0.5.2 0.6.0 0.7.0: This is a pytest plugin to help you test projects that use Trio
+dev-python/pytest-trio 0.7.0: This is a pytest plugin to help you test projects that use Trio
 dev-python/python-mpv 0.5.2: Python interface to the mpv media player
 dev-python/python-mpv-jsonipc 1.1.12 1.1.13: Python API to MPV using JSON IPC
 dev-python/python-multipart 0.0.5: A streaming multipart parser for Python
@@ -279,7 +280,7 @@ dev-python/redbaron 0.9 0.9.2: A FST for python to make writing refactoring code
 dev-python/rstcheck 3.3.1: Checks syntax of reStructuredText and code blocks nested within it
 dev-python/sanic 20.9.1: Async Python 3.6+ web server/framework | Build fast. Run fast.
 dev-python/scenedetect 0.5.5: Video Scene Cut Detection and Analysis Tool
-dev-python/schedule 0.6.0-r1 9999: Python job scheduling for humans
+dev-python/schedule 1.0.0: Python job scheduling for humans
 dev-python/skia-pathops 0.4.1: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/sphinx-argparse 0.2.5: Sphinx extension that automatically documents argparse commands and options
@@ -297,12 +298,12 @@ dev-python/sysv_ipc 1.0.1 1.1.0: System V IPC primitives for python
 dev-python/tekore 3.6.1: Spotify Web API client
 dev-python/timeout-decorator 0.5.0: Timeout decorator
 dev-python/trio 0.18.0 0.18.0_p20210212: Python library for async concurrency and I/O
-dev-python/trio-asyncio 0.11.0: a re-implementation of the asyncio mainloop on top of Trio
+dev-python/trio-asyncio 0.11.0 0.12.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/tweepy 3.10.0: An easy-to-use Python library for accessing the Twitter API.
 dev-python/ufo2ft 2.19.1: A bridge from UFOs to FontTool objects
 dev-python/ufoLib2 0.7.1 0.8.0 0.10.0: A UFO font library
-dev-python/ufoNormalizer 0.5.2: A tool that will normalize the XML and other data inside of a UFO.
+dev-python/ufoNormalizer 0.5.2 0.5.3: A tool that will normalize the XML and other data inside of a UFO.
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/watchgod 0.7: Simple, modern file watching and code reload
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
@@ -405,7 +406,7 @@ media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/oxipng 2.3.0 3.0.1 4.0.0 4.0.2 4.0.3: A lossless PNG compression optimizer
 media-gfx/qfontviewer 9999: Font viewer with character table
 media-gfx/qview 4.0: Practical and minimal image viewer
-media-gfx/silicon 0.3.2 0.4.0 0.4.1: Create beautiful image of your code
+media-gfx/silicon 0.4.0 0.4.1: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.1.2: AMD Open Source Driver for Vulkan
 media-libs/jpeg-xl 9999: JPEG XL Reference Software
@@ -484,7 +485,7 @@ net-p2p/monero 0.17.1.9 9999: The secure, private, untraceable cryptocurrency
 net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for Linux
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1 0.3.14 0.3.15: An experiment in scalable routing as an encrypted IPv6 overlay network
-net-vpn/riseup-vpn 0.20.4 0.21.2: Anonymous encrypted VPN client powered by Bitmask
+net-vpn/riseup-vpn 0.21.2: Anonymous encrypted VPN client powered by Bitmask
 net-wireless/rtl8192eu 0_pre20201219: Realtek 8192EU driver module for Linux kernel
 net-wireless/rtl8821ce 0_pre20201216: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20201224: Realtek 8821CU/RTL8811CU module for Linux kernel
@@ -520,8 +521,8 @@ sys-cluster/AXL 0.3.0: AXL provides a common C interface to transfer files in an
 sys-cluster/KVTree 1.0.2: KVTree provides a fully extensible C data structure modeled after Perl hashes.
 sys-cluster/dlb 2.1-r1: Dynamically react to application imbalance by modifying the number of resources
 sys-cluster/er 0.0.3: High-level distributed erasure coding lib combining shuffile and redset
-sys-cluster/genders 1.27.3 1.28.1: Static cluster configuration database used for cluster configuration management.
-sys-cluster/pcs 0.10.7 0.10.8 0.10.8-r1: Pacemaker/Corosync Configuration System
+sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
+sys-cluster/pcs 0.10.7 0.10.8 0.10.8-r2: Pacemaker/Corosync Configuration System
 sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on string values
 sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect datasets of MPI applications
 sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes

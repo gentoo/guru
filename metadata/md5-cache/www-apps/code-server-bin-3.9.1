@@ -4,6 +4,7 @@ DEPEND=!www-apps/code-server
 DESCRIPTION=VS Code in the browser (binary version with unbundled node and ripgrep)
 EAPI=7
 HOMEPAGE=https://coder.com/
+INHERIT=systemd
 IUSE=gnome-keyring
 KEYWORDS=-* ~amd64 ~arm64
 LICENSE=MIT
@@ -11,5 +12,5 @@ RDEPEND=!www-apps/code-server >=net-libs/nodejs-12.16.1:0/12[ssl] sys-apps/ripgr
 RESTRICT=test
 SLOT=0
 SRC_URI=amd64? ( https://github.com/cdr/code-server/releases/download/v3.9.1/code-server-3.9.1-linux-amd64.tar.gz ) arm64? ( https://github.com/cdr/code-server/releases/download/v3.9.1/code-server-3.9.1-linux-arm64.tar.gz )
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	74b223e42834adf09a2d21fe5fe13741	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=48eec358a2b2ff6e7255889cb42d971c
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	74b223e42834adf09a2d21fe5fe13741
+_md5_=5dc8d35b7c01f7b62ec0a418ba3222bc

@@ -4,9 +4,10 @@ DEPEND=media-gfx/feh media-gfx/imagemagick sys-devel/bc x11-apps/xdpyinfo x11-ap
 DESCRIPTION=sweet looking lockscreen for linux system
 EAPI=7
 HOMEPAGE=https://github.com/pavanjadhaw/betterlockscreen
+INHERIT=systemd git-r3
 LICENSE=MIT
 PROPERTIES=live
 RDEPEND=media-gfx/feh media-gfx/imagemagick sys-devel/bc x11-apps/xdpyinfo x11-apps/xrandr >=x11-misc/i3lock-color-2.11:=
 SLOT=0
-_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441	multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	74b223e42834adf09a2d21fe5fe13741	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
-_md5_=1ec19717efffc884dcec10f6515c44e6
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	74b223e42834adf09a2d21fe5fe13741	git-r3	3e7ec3d6619213460c85e2aa48398441
+_md5_=0bfd450d612a2c4921011d023ec25f06

@@ -7,4 +7,4 @@ LICENSE=GPL-3
 RESTRICT=bindist mirror
 SLOT=0.12.0
 SRC_URI=mirror://sourceforge/customrescuecd/CUSTOMRESCUECD-x86_64-0.12.0.iso
-_md5_=5fa744248ec43f6f6ec587253baeb8aa
+_md5_=82fa76afb59c372272615edd65db8246

@@ -9,4 +9,4 @@ LICENSE=MIT
 SLOT=0
 SRC_URI=https://github.com/atom/atom/releases/download/v1.55.0/atom-amd64.tar.gz -> atom-1.55.0.tar.gz
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
-_md5_=f44540e8c1af5dafbfe578e740937d97
+_md5_=8d32baba092340809abd63891173b70b
