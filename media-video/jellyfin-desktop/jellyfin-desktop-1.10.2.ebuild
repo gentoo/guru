@@ -50,8 +50,8 @@ BDEPEND="app-arch/unzip"
 
 src_install() {
 	distutils-r1_src_install
-	insinto "$(python_get_sitedir)/jellyfin_mpv_shim/webclient_view/webclient" # jellyfin-web dist
-	doins -r "${WORKDIR}"/dist/*
-	insinto "$(python_get_sitedir)/jellyfin_mpv_shim/default_shader_pack" # mpv shaders
-	doins -r "${WORKDIR}"/default-shader-pack-${SHADER_PV}/*
+	python_moduleinto "jellyfin_mpv_shim/webclient_view/webclient" # jellyfin-web dist
+	python_domodule -r "${WORKDIR}"/dist/*
+	python_moduleinto "jellyfin_mpv_shim/default_shader_pack" # mpv shaders
+	python_domodule -r "${WORKDIR}"/default-shader-pack-${SHADER_PV}/*
 }
