@@ -12,9 +12,11 @@ HOMEPAGE="https://gitlab.gnome.org/World/PasswordSafe"
 SRC_URI="https://gitlab.gnome.org/World/PasswordSafe/-/archive/${PV}/PasswordSafe-${PV}.tar.bz2"
 
 LICENSE="GPL-2+"
-IUSE="debug +introspection"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
+
+IUSE="debug +introspection"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 S="${WORKDIR}/PasswordSafe-${PV}"
 
@@ -28,7 +30,10 @@ DEPEND="
 	>=x11-libs/gtk+-3.24.1:3[introspection?]
 	introspection? ( >=dev-libs/gobject-introspection-0.6.7:= )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${PYTHON_DEPS}
+	${DEPEND}
+"
 
 src_prepare() {
 	default
