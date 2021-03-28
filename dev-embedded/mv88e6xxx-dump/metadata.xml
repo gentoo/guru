@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>kurt@kmk-computers.de</email>
+    <name>Kurt Kanzenbach</name>
+  </maintainer>
+  <longdescription lang="en">
+    Dump information about Marvell mv88e6xxx Ethernet switches.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">lunn/mv88e6xxx_dump</remote-id>
+  </upstream>
+</pkgmetadata>
