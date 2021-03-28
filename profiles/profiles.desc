@@ -3,9 +3,9 @@
 # arise and masks are needed. They must match :gentoo profiles.
 # Using parent files within the profiles allows gentoo: profiles
 # to inherit any ::guru masks we choose.
-#hidden  default/linux/amd64/17.1/selinux                        dev
-#hidden  default/linux/amd64/17.1/hardened/selinux               dev
-#hidden  default/linux/amd64/17.1/no-multilib/hardened/selinux   dev
-#hidden  default/linux/amd64/17.0/x32                            dev
-#hidden  default/linux/x86/17.0/selinux                          dev
-#hidden  default/linux/x86/17.0/hardened/selinux                 dev
+hidden  default/linux/amd64/17.1/selinux                        dev
+hidden  default/linux/amd64/17.1/hardened/selinux               dev
+hidden  default/linux/amd64/17.1/no-multilib/hardened/selinux   dev
+hidden  default/linux/amd64/17.0/x32                            dev
+hidden  default/linux/x86/17.0/selinux                          dev
+hidden  default/linux/x86/17.0/hardened/selinux                 dev
