@@ -9,7 +9,7 @@ then
 	inherit mercurial
 	EHG_REPO_URI="https://hg.sr.ht/~scoopta/${PN}"
 else
-	SRC_URI="https://hg.sr.ht/~scoopta/wofi/archive/v${PV}.tar.gz"
+	SRC_URI="https://hg.sr.ht/~scoopta/wofi/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-v${PV}"
 	KEYWORDS="~amd64"
 fi
@@ -22,7 +22,7 @@ IUSE="+run +drun +dmenu"
 
 DEPEND="
 	dev-libs/wayland
-	x11-libs/gtk+[wayland]"
+	x11-libs/gtk+[wayland(-)]"
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
