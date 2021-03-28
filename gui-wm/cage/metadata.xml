@@ -5,10 +5,6 @@
         <email>coppens.matthias.abc@gmail.com</email>
         <name>Matthias Coppens</name>
     </maintainer>
-    <longdescription>
-        This is Cage, a Wayland kiosk.
-        A kiosk runs a single, maximized application.
-    </longdescription>
     <use>
         <flag name="X">Enable support for X11 applications (XWayland)</flag>
     </use>
