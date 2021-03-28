@@ -180,7 +180,7 @@ go-module_set_globals
 
 DESCRIPTION="A command line interface for WhatsApp"
 HOMEPAGE="https://github.com/normen/whatscli"
-SRC_URI="https://github.com/normen/whatscli/archive/v${PV}.tar.gz ${P}.tar.gz
+SRC_URI="https://github.com/normen/whatscli/archive/v${PV}.tar.gz -> ${P}.tar.gz
 		${EGO_SUM_SRC_URI}"
 
 LICENSE="MIT"
