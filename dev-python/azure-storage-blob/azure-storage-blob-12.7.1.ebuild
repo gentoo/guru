@@ -13,3 +13,5 @@ SRC_URI="https://files.pythonhosted.org/packages/62/c5/2ded1eafb82fe093c9f18db07
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+
+BDEPEND="app-arch/unzip"
