@@ -21,6 +21,7 @@ DEPENDS="
 	media-libs/sdl2-mixer:=
 	media-libs/sdl2-ttf:=
 "
+BDEPEND="app-arch/unzip"
 
 src_compile() {
 	cmake_src_compile
