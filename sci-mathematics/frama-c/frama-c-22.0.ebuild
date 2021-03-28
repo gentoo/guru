@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -20,7 +20,7 @@ RESTRICT="strip"
 
 RDEPEND="
 	>=dev-lang/ocaml-4.08.1[ocamlopt?]
-	>=dev-ml/ocamlgraph-1.8.5[gtk?,ocamlopt?]
+	>=dev-ml/ocamlgraph-1.8.5[gtk(-)?,ocamlopt?]
 	>=dev-ml/zarith-1.5[ocamlopt?]
 	>=dev-ml/yojson-1.4.1[ocamlopt?]
 	gtk? ( >=dev-ml/lablgtk-2.14:2=[sourceview,gnomecanvas,ocamlopt?] )
