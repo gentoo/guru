@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -23,7 +23,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	local f=${EROOT%/}/usr/share/${PN%-*}/${PN}-newest.iso
+	local f=${EROOT}/usr/share/${PN%-*}/${PN}-newest.iso
 
 	# no version newer than ours? we're the newest!
 	if ! has_version ">${CATEGORY}/${PF}"; then
@@ -32,7 +32,7 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	local f=${EROOT%/}/usr/share/${PN%-*}/${PN}-newest.iso
+	local f=${EROOT}/usr/share/${PN%-*}/${PN}-newest.iso
 
 	# if there is no version newer than ours installed
 	if ! has_version ">${CATEGORY}/${PF}"; then
