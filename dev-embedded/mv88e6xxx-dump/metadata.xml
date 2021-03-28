@@ -5,9 +5,6 @@
     <email>kurt@kmk-computers.de</email>
     <name>Kurt Kanzenbach</name>
   </maintainer>
-  <longdescription lang="en">
-    Dump information about Marvell mv88e6xxx Ethernet switches.
-  </longdescription>
   <upstream>
     <remote-id type="github">lunn/mv88e6xxx_dump</remote-id>
   </upstream>
