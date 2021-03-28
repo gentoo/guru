@@ -9,7 +9,7 @@ MY_COMMIT="25fa4d07d7a5551fee6d8d7ad128cdffd50532c8"
 
 DESCRIPTION="Dump information about Marvell mv88e6xxx Ethernet switches"
 HOMEPAGE="https://github.com/lunn/mv88e6xxx_dump"
-SRC_URI="https://github.com/lunn/${PN}/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/lunn/mv88e6xxx_dump/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
