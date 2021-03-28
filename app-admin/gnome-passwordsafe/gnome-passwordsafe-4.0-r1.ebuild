@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7..9} )
 
-inherit gnome2-utils meson xdg python-any-r1
+inherit gnome2-utils meson xdg python-r1
 
 DESCRIPTION="A password manager for GNOME"
 HOMEPAGE="https://gitlab.gnome.org/World/PasswordSafe"
