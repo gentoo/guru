@@ -5,40 +5,34 @@ EAPI=7
 
 inherit unpacker
 
-DESCRIPTION="A beautiful, fast and fully open source mail client for Mac, Windows and Linux."
-
+DESCRIPTION="A beautiful, fast and fully open source mail client for Mac, Windows and Linux"
 HOMEPAGE="https://getmailspring.com/"
-
 SRC_URI="https://github.com/Foundry376/Mailspring/releases/download/${PV}/mailspring-${PV}-amd64.deb"
+S="${WORKDIR}"
 
 LICENSE="GPL-3"
-
 SLOT="0"
-
 KEYWORDS="~amd64"
 
-IUSE=""
 
 RDEPEND="
 	app-crypt/libsecret
-	gnome-base/gconf
-	>=x11-libs/gtk+-3
-	virtual/udev
-	dev-libs/libgcrypt
-	x11-libs/libnotify
-	x11-libs/libXtst
-	x11-libs/libxkbfile
-	dev-libs/nss
-	sys-devel/libtool
-	net-dns/c-ares
-	dev-cpp/ctemplate
 	app-text/tidy-html5
-	|| ( gnome-base/gvfs =dev-libs/glib-2* )
-	x11-misc/xdg-utils
+	dev-cpp/ctemplate
+	dev-libs/libgcrypt
+	dev-libs/nss
+	gnome-base/gconf
 	media-libs/libglvnd
+	net-dns/c-ares
+	sys-devel/libtool
+	virtual/udev
+	=x11-libs/gtk+-3*
+	x11-libs/libnotify
+	x11-libs/libxkbfile
+	x11-libs/libXtst
+	x11-misc/xdg-utils
+	|| ( =dev-libs/glib-2* gnome-base/gvfs  )
 "
-
-S="${WORKDIR}"
 
 src_unpack(){
 	unpack_deb ${A}
