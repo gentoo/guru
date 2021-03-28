@@ -28,7 +28,7 @@ src_prepare(){
 src_install(){
 	insinto /opt/"${PN}"
 	doins -r "${S}"/*
-	dosym "${EPREFIX}"/opt/"${PN}"/terminus "${EPREFIX}"/usr/bin/terminus
+	dosym ../../opt/"${PN}"/terminus "${EPREFIX}"/usr/bin/terminus
 	fperms +x /opt/"${PN}"/terminus
 	make_desktop_entry /opt/terminus/terminus terminus terminus Utility
 	doicon ../terminus.svg
