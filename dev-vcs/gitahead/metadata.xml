@@ -8,7 +8,4 @@
     <upstream>
         <remote-id type="github">gitahead/gitahead</remote-id>
     </upstream>
-    <longdescription>
-        GitAhead is a graphical Git client designed to help you understand and manage your source code history.
-    </longdescription>
 </pkgmetadata>
