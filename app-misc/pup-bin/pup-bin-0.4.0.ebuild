@@ -15,6 +15,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+BDEPEND="app-arch/unzip"
+
 src_configure() {
 	unpack_zip "${DISTDIR}"/pup_v"${PV}"_linux_amd64.zip
 }
