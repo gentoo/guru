@@ -7,7 +7,7 @@ inherit cmake xdg
 
 DESCRIPTION="A MIDI player/game that displays notes and teaches you how to play the piano"
 HOMEPAGE="https://www.pianobooster.org"
-SRC_URI="https://github.com/pianobooster/PianoBooster/archive/v1.0.0.tar.gz"
+SRC_URI="https://github.com/pianobooster/PianoBooster/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
