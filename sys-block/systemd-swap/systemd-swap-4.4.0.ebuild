@@ -22,6 +22,8 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 RDEPEND="${PYTHON_DEPS}
 	$(python_gen_any_dep '
 		dev-python/python-systemd[${PYTHON_USEDEP}]
