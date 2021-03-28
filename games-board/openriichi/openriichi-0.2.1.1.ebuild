@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -9,7 +9,7 @@ Engine_sha="e495846970a1b38d00c81a3f74568030f976ed31"
 MY_PN="OpenRiichi"
 
 DESCRIPTION="OpenRiichi is an open source Japanese Mahjong client"
-HOMEPAGE="https://github.com/FluffyStuff/${MY_PN}"
+HOMEPAGE="https://github.com/FluffyStuff/OpenRiichi"
 SRC_URI="
 	https://github.com/FluffyStuff/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/FluffyStuff/Engine/archive/${Engine_sha}.tar.gz -> ${P}-Engine.tar.gz
