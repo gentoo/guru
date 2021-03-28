@@ -9,7 +9,7 @@ DESCRIPTION="A beautiful, fast and fully open source mail client for Mac, Window
 
 HOMEPAGE="https://getmailspring.com/"
 
-SRC_URI="https://github.com/Foundry376/Mailspring/releases/download/1.8.0/mailspring-1.8.0-amd64.deb"
+SRC_URI="https://github.com/Foundry376/Mailspring/releases/download/${PV}/mailspring-${PV}-amd64.deb"
 
 LICENSE="GPL-3"
 
@@ -24,7 +24,7 @@ RDEPEND="
 	gnome-base/gconf
 	>=x11-libs/gtk+-3
 	virtual/udev
-	dev-libs/libgcrypt 
+	dev-libs/libgcrypt
 	x11-libs/libnotify
 	x11-libs/libXtst
 	x11-libs/libxkbfile
@@ -41,9 +41,9 @@ RDEPEND="
 S="${WORKDIR}"
 
 src_unpack(){
-	unpack_deb ${A}
+	unpack_deb "${A}"
 }
 
 src_install(){
-	cp -R ${S}/* "${D}"
+	cp -R "${S}"/* "${D}" || die "Installing binary files failed"
 }
