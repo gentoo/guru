@@ -19,6 +19,7 @@ fi
 LICENSE="GPL-2+"
 SLOT=0
 IUSE="3d bluetooth designer doc geolocation printsupport script scxml svg test qml wayland webengine"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-qt/qtcore:5
