@@ -188,7 +188,7 @@ src_install() {
 
 	# Workaround for bug #321111 to give Glimpse the least
 	# precedence on PDF documents by default
-	mv "${ED%/}"/usr/share/applications/{,zzz-}org.glimpse_editor.Glimpse.desktop || die
+	mv "${ED}"/usr/share/applications/{,zzz-}org.glimpse_editor.Glimpse.desktop || die
 
 	find "${D}" -name '*.la' -type f -delete || die
 
@@ -196,5 +196,5 @@ src_install() {
 	# (bug #433527)
 	local gimp_app_version=$(grep '\[gimp_app_version' configure.ac \
 								 | sed -E 's/.*\[([2-9]\.[0-9]+)\].*/\1/')
-	mv "${ED%/}"/usr/share/man/man1/gimp-console{-${gimp_app_version},}.1 || die
+	mv "${ED}"/usr/share/man/man1/gimp-console{-${gimp_app_version},}.1 || die
 }
