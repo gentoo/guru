@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -18,7 +18,7 @@ inherit distutils-r1
 distutils_enable_sphinx docs dev-python/sphinx_rtd_theme
 
 DESCRIPTION="Manipulate ASCII art as you would do with raster images"
-HOMEPAGE="${EGIT_REPO_URI}"
+HOMEPAGE="https://github.com/fakefred/ascim"
 LICENSE="MIT"
 
 SLOT="0"
