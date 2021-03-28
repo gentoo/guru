@@ -10,12 +10,14 @@ inherit cmake check-reqs python-single-r1
 DESCRIPTION="A fast very high compression read-only FUSE file system"
 HOMEPAGE="https://github.com/mhx/dwarfs"
 
-SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${PV}/dwarfs-${PV}.tar.bz2 -> ${P}.tar.bz2"
+SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
+
 IUSE="python +jemalloc"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 #test IUSE disabled because there is no googletest in portage tree at this moment
 #-DWITH_TESTS=$(usex test ON OFF)
@@ -24,7 +26,8 @@ PYTHON_REQ_USE="python"
 
 DEPEND="sys-devel/flex
 		sys-devel/binutils:*"
-RDEPEND="dev-libs/boost[context,threads,python?]
+RDEPEND="${PYTHON_DEPS}
+		dev-libs/boost[context,threads,python?]
 		dev-libs/double-conversion
 		dev-libs/libfmt
 		dev-libs/libevent
