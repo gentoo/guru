@@ -7,7 +7,7 @@ inherit autotools
 
 DESCRIPTION="Userspace tools for EROFS images"
 HOMEPAGE="https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git"
-SRC_URI="${HOMEPAGE}/snapshot/${P}.tar.gz"
+SRC_URI="https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
