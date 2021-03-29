@@ -1,3 +1,0 @@
-# Theo Anderson <telans@posteo.de> (2021-01-04)
-# SELinux profiles do not support systemd
->=sys-block/systemd-swap-4.4.0

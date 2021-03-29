@@ -1,9 +1,0 @@
-# Theo Anderson <telans@posteo.de> (2021-01-06)
-# Paths relative to `profiles`. The first line denotes the
-# parent profile which should inherit any changes we make here.
-# The second line points to the location where the appropriate
-# masks or forces(?) are. It is important to keep the
-# changes separated per profile/feature in case a
-# parent profile picks up on changes intended for a different profile.
-gentoo:default/linux/amd64/17.0/x32
-:default/linux/amd64/17.0/x32
