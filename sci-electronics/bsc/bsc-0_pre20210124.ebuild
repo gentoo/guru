@@ -19,7 +19,7 @@ else
 	# Waiting for https://github.com/B-Lang-org/bsc/issues/85
 	EGIT_REPO_URI="https://github.com/B-Lang-org/${PN}.git"
 
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS=""
 fi
 
 LICENSE="BSD GPL-3+ MIT"

@@ -1,4 +1,0 @@
-# Theo Anderson <telans@posteo.de> (2021-01-06)
-# Masked the new hidden arch as testing to keep
-# in line with no stable packages in ::guru
-hidden  testing
