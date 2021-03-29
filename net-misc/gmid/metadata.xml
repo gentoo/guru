@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<maintainer>
+			<name>Omar Polo</name>
+			<email>op@omarpolo.com</email>
+		</maintainer>
+		<changelog>https://git.omarpolo.com/gmid/tree/ChangeLog</changelog>
+	</upstream>
+	<maintainer type="person">
+		<email>cyber@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+</pkgmetadata>
