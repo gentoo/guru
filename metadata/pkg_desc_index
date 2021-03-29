@@ -86,7 +86,7 @@ app-shells/fish-command-timer 0.1.3 0.1.3_p20201002: Fish shell extension for pr
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
 app-shells/ohmyzsh 9999: A framework for managing your zsh configuration.
-app-shells/starship 0.48.0 0.50.0: The minimal, blazing-fast, and infinitely customizable prompt for any shell!
+app-shells/starship 0.51.0: The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 app-shells/zsh-autosuggestions 0.6.4: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
 app-text/OCRmyPDF 11.6.2 11.7.0 11.7.1: OCRmyPDF adds an OCR text layer to scanned PDF files
@@ -225,7 +225,7 @@ dev-python/hijri-converter 2.1.1: Accurate Hijri-Gregorian date converter based 
 dev-python/hstspreload 2021.2.15: Chromium HSTS Preload list as a Python package
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/hunter 3.1.3 3.3.1: Hunter is a flexible code tracing toolkit
-dev-python/hwi 1.2.1 2.0.0: Library and command line tool for interacting with hardware wallets
+dev-python/hwi 1.2.1 2.0.1: Library and command line tool for interacting with hardware wallets
 dev-python/hypercorn 0.11.2: ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
 dev-python/jellyfin-apiclient-python 1.6.2 1.7.2: Python API client for Jellyfin
@@ -339,7 +339,7 @@ games-board/openriichi 0.2.1.1: OpenRiichi is an open source Japanese Mahjong cl
 games-board/rmahjong 0.4_p20201106: Riichi Mahjong, the Japanese variant of the Chinese game Mahjong for 4 players
 games-emulation/melonds 0.8.3 0.9 0.9.1 9999: Nintendo DS emulator, sorta
 games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
-games-engines/luxtorpeda 24.0.0: Steam Play compatibility tool to run games using native Linux engines
+games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
 games-fps/crispy-doom 5.9.0 5.9.1 5.9.2 5.10.0 5.10.1: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
@@ -507,7 +507,7 @@ sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
 sys-apps/drm_info 2.2.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3 0.5.4: A more intuitive version of du
 sys-apps/hex 0.3.2 0.4.0 0.4.1: Futuristic take on hexdump
-sys-apps/procs 0.10.10 0.11.3: A modern replacement for ps
+sys-apps/procs 0.10.10 0.11.3 0.11.4: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
 sys-apps/rogdrv 0.0.5: ASUS ROG userspace mouse driver for Linux.
 sys-apps/sampler 1.1.0: visualizer for shell commands, executions and alerting
