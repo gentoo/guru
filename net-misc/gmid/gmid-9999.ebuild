@@ -6,15 +6,11 @@ EAPI=7
 inherit toolchain-funcs
 
 DESCRIPTION="simple and secure Gemini server"
-HOMEPAGE="
-	gemini://gemini.omarpolo.com/pages/gmid.gmi
-	https://www.omarpolo.com/pages/gmid.html
-"
+HOMEPAGE="https://www.omarpolo.com/pages/gmid.html"
 
 if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.omarpolo.com/${PN}"
-	KEYWORDS=""
 else
 	SRC_URI="https://git.omarpolo.com/${PN}/snapshot/${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
