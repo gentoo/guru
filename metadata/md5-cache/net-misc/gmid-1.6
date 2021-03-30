@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/flex virtual/yacc
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=acct-user/gemini dev-libs/libevent !libressl? ( dev-libs/libretls ) libressl? ( dev-libs/libressl )
+DESCRIPTION=simple and secure Gemini server
+EAPI=7
+HOMEPAGE=https://www.omarpolo.com/pages/gmid.html
+INHERIT=toolchain-funcs
+IUSE=libressl
+KEYWORDS=~amd64 ~x86
+LICENSE=ISC
+RDEPEND=acct-user/gemini dev-libs/libevent !libressl? ( dev-libs/libretls ) libressl? ( dev-libs/libressl )
+SLOT=0
+SRC_URI=https://git.omarpolo.com/gmid/snapshot/gmid-1.6.tar.gz
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
+_md5_=4fe0c3e2c777cca43016d5ead8c4e0d4
