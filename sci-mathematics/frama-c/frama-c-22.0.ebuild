@@ -24,7 +24,7 @@ RDEPEND="
 	>=dev-ml/zarith-1.5[ocamlopt?]
 	>=dev-ml/yojson-1.4.1[ocamlopt?]
 	gtk? ( >=dev-ml/lablgtk-2.14:2=[sourceview,gnomecanvas,ocamlopt?] )
-	wp? ( >=sci-mathematics/why3-1.3.3 )"
+	wp? ( ~sci-mathematics/why3-1.3.3 )"
 DEPEND="${RDEPEND}
 	dev-ml/findlib
 	media-gfx/graphviz"
