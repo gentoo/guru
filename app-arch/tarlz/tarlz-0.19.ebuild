@@ -7,7 +7,7 @@ inherit unpacker
 
 DESCRIPTION="A parallel archiver combining tar and lzip"
 HOMEPAGE="https://www.nongnu.org/lzip/tarlz.html"
-SRC_URI="http://download.savannah.gnu.org/releases/lzip/${PN}/${P}.tar.lz"
+SRC_URI="https://download.savannah.gnu.org/releases/lzip/${PN}/${P}.tar.lz"
 LICENSE="GPL-2+"
 
 SLOT="0"
