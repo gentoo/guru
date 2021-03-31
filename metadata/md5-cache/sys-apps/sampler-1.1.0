@@ -4,6 +4,7 @@ DEPEND=media-libs/alsa-lib
 DESCRIPTION=visualizer for shell commands, executions and alerting
 EAPI=7
 HOMEPAGE=https://sampler.dev
+INHERIT=go-module
 KEYWORDS=~amd64
 LICENSE=GPL-3
 RDEPEND=media-libs/alsa-lib

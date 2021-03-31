@@ -3,6 +3,7 @@ DEPEND=>=dev-qt/qtcore-5.15.1:5 >=dev-qt/qtdbus-5.15.1:5 >=dev-qt/qtnetwork-5.15
 DESCRIPTION=Library for managing the device
 EAPI=7
 HOMEPAGE=https://gitlab.com/cubocore/libcsys
+INHERIT=multilib qmake-utils
 IUSE=udisks
 KEYWORDS=~amd64
 LICENSE=GPL-3
@@ -10,5 +11,5 @@ RDEPEND=>=dev-qt/qtcore-5.15.1:5 >=dev-qt/qtdbus-5.15.1:5 >=dev-qt/qtnetwork-5.1
 RESTRICT=test
 SLOT=0
 SRC_URI=https://gitlab.com/cubocore/libcsys/-/archive/v4.0.0/libcsys-v4.0.0.tar.gz -> libcsys-4.0.0.tar.gz
-_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47
 _md5_=b0c9b14ffa3e98bf3a9a72e3624fa32e

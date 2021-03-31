@@ -3,6 +3,7 @@ DEFINED_PHASES=install postinst test unpack
 DESCRIPTION=cheat allows you to create and view interactive cheatsheets on the command-line
 EAPI=7
 HOMEPAGE=https://github.com/cheat/cheat
+INHERIT=go-module
 IUSE=zsh-completion
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT Apache-2.0 BSD BSD-2

@@ -4,6 +4,7 @@ DEPEND=dev-vcs/git
 DESCRIPTION=Manage your dotfiles across multiple machines, securely.
 EAPI=7
 HOMEPAGE=https://github.com/twpayne/chezmoi
+INHERIT=go-module
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT Apache-2.0 BSD BSD-2 MPL-2.0
 RDEPEND=dev-vcs/git

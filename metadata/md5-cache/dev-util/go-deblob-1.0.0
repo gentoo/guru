@@ -3,6 +3,7 @@ DEFINED_PHASES=install postinst unpack
 DESCRIPTION=remove binary blobs from a directory
 EAPI=7
 HOMEPAGE=https://hacktivis.me/git/go-deblob/
+INHERIT=go-module
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD ISC MIT
 RESTRICT=strip

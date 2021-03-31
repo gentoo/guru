@@ -3,6 +3,7 @@ DEFINED_PHASES=compile install postinst unpack
 DESCRIPTION=Fast Zsh plugin manager
 EAPI=7
 HOMEPAGE=https://getantibody.github.io/
+INHERIT=go-module
 KEYWORDS=~amd64
 LICENSE=MIT
 RDEPEND=app-shells/zsh[unicode] dev-vcs/git
