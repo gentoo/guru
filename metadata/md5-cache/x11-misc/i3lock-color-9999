@@ -4,9 +4,10 @@ DEPEND=dev-libs/libev media-libs/fontconfig:= media-libs/libjpeg-turbo sys-libs/
 DESCRIPTION=The world's most popular non-default computer lockscreen
 EAPI=7
 HOMEPAGE=https://github.com/Raymo111/i3lock-color
+INHERIT=git-r3
 LICENSE=BSD
 PROPERTIES=live
 RDEPEND=dev-libs/libev media-libs/fontconfig:= media-libs/libjpeg-turbo sys-libs/pam x11-libs/cairo x11-libs/libxcb x11-libs/libxkbcommon[X] x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-xrm !!x11-misc/i3lock
 SLOT=0
-_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
+_eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
 _md5_=d37ac0868b4d9aaef9843c6df58d84b3

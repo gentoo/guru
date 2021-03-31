@@ -4,9 +4,10 @@ DEPEND=>=x11-libs/gtk+-3.22 x11-themes/gtk-engines-adwaita
 DESCRIPTION=Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
 EAPI=7
 HOMEPAGE=https://github.com/madmaxms/theme-obsidian-2
+INHERIT=git-r3
 LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=>=x11-libs/gtk+-3.22 x11-themes/gtk-engines-adwaita
 SLOT=0
-_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
+_eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
 _md5_=3f7f3dbd1552fc1e96d78b1822a5c810

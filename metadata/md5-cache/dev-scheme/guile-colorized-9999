@@ -4,9 +4,10 @@ DEPEND=>=dev-scheme/guile-2.0.9
 DESCRIPTION=Colorized REPL for GNU Guile
 EAPI=7
 HOMEPAGE=https://gitlab.com/NalaGinrut/guile-colorized/
+INHERIT=git-r3
 LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=>=dev-scheme/guile-2.0.9
 SLOT=0
-_eclasses_=git-r3	3e7ec3d6619213460c85e2aa48398441
+_eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
 _md5_=d3cc9b65ff455122843385f63421c000
