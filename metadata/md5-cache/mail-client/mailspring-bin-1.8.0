@@ -1,0 +1,12 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=A beautiful, fast and fully open source mail client for Mac, Windows and Linux
+EAPI=7
+HOMEPAGE=https://getmailspring.com/
+INHERIT=unpacker
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=app-crypt/libsecret app-text/tidy-html5 dev-cpp/ctemplate dev-libs/libgcrypt dev-libs/nss gnome-base/gconf media-libs/libglvnd net-dns/c-ares sys-devel/libtool virtual/udev =x11-libs/gtk+-3* x11-libs/libnotify x11-libs/libxkbfile x11-libs/libXtst x11-misc/xdg-utils || ( =dev-libs/glib-2* gnome-base/gvfs )
+SLOT=0
+SRC_URI=https://github.com/Foundry376/Mailspring/releases/download/1.8.0/mailspring-1.8.0-amd64.deb
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	unpacker	517f16af48ee3ab88180dd58b5143213
+_md5_=ff59a66ce54013380c318aa14be38871
