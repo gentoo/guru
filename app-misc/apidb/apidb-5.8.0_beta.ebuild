@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit cmake
-
 CMAKE_MAKEFILE_GENERATOR="emake"
 CMAKE_BINARY=cmake
 CMAKE_MAKEFILE_GENERATOR=emake
+
+inherit cmake
 
 MYPV="${PV/_beta/-beta}"
 MYPN="${PN}"
