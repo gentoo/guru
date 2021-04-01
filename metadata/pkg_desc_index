@@ -533,7 +533,7 @@ sys-fs/btrfs-heatmap 9: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
 sys-fs/dwarfs 0.4.1: A fast very high compression read-only FUSE file system
 sys-fs/erofs-utils 1.1 1.2 1.2.1 9999: Userspace tools for EROFS images
-sys-fs/gcsfuse 0.34.0: A user-space file system for interacting with Google Cloud Storage
+sys-fs/gcsfuse 0.34.1: A user-space file system for interacting with Google Cloud Storage
 sys-fs/gfs2-utils 3.2.0 3.3.0: Shared-disk cluster file system
 sys-fs/python-btrfs 12: Python 3 module to inspect btrfs filesystems
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
