@@ -31,8 +31,8 @@ jobs:
         sudo ln -s /var/db/repos/gentoo/profiles/default/linux/amd64/17.1 /etc/portage/make.profile
     - name: Update portage
       run: |
-        python3 portage-portage-3.0.18/bin/emerge --sync
-        python3 portage-portage-3.0.18/bin/emerge -1 sys-apps/portage    
+        sudo python3 portage-portage-3.0.18/bin/emerge --sync
+        sudo python3 portage-portage-3.0.18/bin/emerge -1 sys-apps/portage    
     - name: Test with repoman
       run: |
         python3 portage-portage-3.0.18/repoman/bin/repoman full -dx
