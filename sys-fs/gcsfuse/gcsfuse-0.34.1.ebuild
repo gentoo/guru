@@ -247,6 +247,8 @@ EGO_SUM=(
 	"github.com/jacobsa/gcloud v0.0.0-20190518041910-99c1a71c36ad/go.mod"
 	"github.com/jacobsa/gcloud v0.0.0-20210318100944-f73b85415adb"
 	"github.com/jacobsa/gcloud v0.0.0-20210318100944-f73b85415adb/go.mod"
+	"github.com/jacobsa/gcloud v0.0.0-20210325123825-0cb59778cc89"
+	"github.com/jacobsa/gcloud v0.0.0-20210325123825-0cb59778cc89/go.mod"
 	"github.com/jacobsa/oglematchers v0.0.0-20150720000706-141901ea67cd"
 	"github.com/jacobsa/oglematchers v0.0.0-20150720000706-141901ea67cd/go.mod"
 	"github.com/jacobsa/oglemock v0.0.0-20150831005832-e94d794d06ff"
