@@ -26,6 +26,7 @@ app-admin/gnome-passwordsafe 4.0-r1 4.1: A password manager for GNOME
 app-admin/krapplet 0.1.0-r1 0.2.0 0.3.1: Krapplet (keyring applet): a Linux graphical password manager
 app-admin/s-tui 1.0.2 1.1.1 9999: Stress-Terminal UI monitoring tool
 app-arch/libarchive-qt 2.0.2 9999: A Qt based archiving solution with libarchive backend
+app-arch/tarlz 0.19: A parallel archiver combining tar and lzip
 app-arch/unalz 0.65: Extract ALZ archives
 app-backup/b2 2.1.0: The command-line tool for BackBlaze's B2 product.
 app-backup/timeshift 20.11.1: A system restore utility for Linux
@@ -69,7 +70,7 @@ app-misc/tealdeer 1.4.1: A very fast implementation of tldr in Rust.
 app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the command-line
 app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
-app-misc/vrms-gentoo 0_pre20181120: vrms clone for Gentoo Linux
+app-misc/vrms-gentoo 0_pre20181120 0_pre20201102: vrms clone for Gentoo Linux
 app-misc/watchexec 1.14.1: Executes commands in response to file modifications
 app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
 app-office/openoffice-bin 4.1.9: Apache OpenOffice productivity suite
