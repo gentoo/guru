@@ -19,7 +19,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install lxml pyyaml
-        wget -qO - "https://github.com/gentoo/portage/archive/portage-3.0.12.tar.gz" | tar xz
+        wget -qO - "https://github.com/gentoo/portage/archive/portage-3.0.18.tar.gz" | tar xz
         sudo groupadd -g 250 portage
         sudo useradd -g portage -d /var/tmp/portage -s /bin/false -u 250 portage
     - name: Setup master gentoo repository
@@ -31,4 +31,4 @@ jobs:
         sudo ln -s /var/db/repos/gentoo/profiles/default/linux/amd64/17.1 /etc/portage/make.profile
     - name: Test with repoman
       run: |
-        python3 portage-portage-3.0.12/repoman/bin/repoman full -dx
+        python3 portage-portage-3.0.18/repoman/bin/repoman full -dx
