@@ -11,12 +11,14 @@ EGIT_REPO_URI="https://github.com/ptitSeb/gl4es.git"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="egl X"
+IUSE="egl X test"
+RESTRICT="!test? ( test )"
 
 DEPEND="
 	media-libs/mesa[X?,egl?]
 "
 RDEPEND="${DEPEND}"
+BDEPEND="test? ( dev-util/apitrace )"
 
 # Note: Should be added into virtual/opengl if moved to ::gentoo
 
