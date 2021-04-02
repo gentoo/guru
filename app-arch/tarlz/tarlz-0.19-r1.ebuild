@@ -14,7 +14,7 @@ SLOT="0"
 
 KEYWORDS="~amd64"
 
-RDEPEND="app-arch/lzlib"
+RDEPEND="app-arch/lzlib:0="
 DEPEND="
 	${RDEPEND}
 	$(unpacker_src_uri_depends)
