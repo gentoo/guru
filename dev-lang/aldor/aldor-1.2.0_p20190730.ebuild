@@ -1,12 +1,11 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
 
 COMMIT="13e5b90eecc79ec6704efb333c4c100187520e80"
 
-#TODO: figure out if a java eclass is needed
-inherit autotools elisp-common
+inherit autotools elisp-common java-pkg-opt-2
 
 DESCRIPTION="The Aldor Programming Language"
 HOMEPAGE="http://pippijn.github.io/aldor"
