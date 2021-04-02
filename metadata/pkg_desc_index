@@ -26,7 +26,7 @@ app-admin/gnome-passwordsafe 4.0-r1 4.1: A password manager for GNOME
 app-admin/krapplet 0.1.0-r1 0.2.0 0.3.1: Krapplet (keyring applet): a Linux graphical password manager
 app-admin/s-tui 1.0.2 1.1.1 9999: Stress-Terminal UI monitoring tool
 app-arch/libarchive-qt 2.0.2 9999: A Qt based archiving solution with libarchive backend
-app-arch/tarlz 0.19: A parallel archiver combining tar and lzip
+app-arch/tarlz 0.19-r1: A parallel archiver combining tar and lzip
 app-arch/unalz 0.65: Extract ALZ archives
 app-backup/b2 2.1.0: The command-line tool for BackBlaze's B2 product.
 app-backup/timeshift 20.11.1: A system restore utility for Linux
