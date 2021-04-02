@@ -10,7 +10,6 @@ HOMEPAGE="http://ptitseb.github.io/gl4es/"
 EGIT_REPO_URI="https://github.com/ptitSeb/gl4es.git"
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE="egl X test"
 RESTRICT="!test? ( test )"
 
