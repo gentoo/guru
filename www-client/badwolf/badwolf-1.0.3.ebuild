@@ -1,4 +1,4 @@
-# Copyright 2019-2020 Gentoo Authors
+# Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -47,7 +47,7 @@ src_compile() {
 src_install() {
 	emake \
 		DESTDIR="${D}" \
-		DOCDIR="/usr/share/doc/${P}" \
+		DOCDIR="/usr/share/doc/${PF}" \
 		PREFIX="/usr" \
 		install
 
