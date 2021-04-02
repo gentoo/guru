@@ -461,7 +461,7 @@ net-misc/FORT-validator 1.4.1 1.4.2 1.5.0: FORT validator is an open source RPKI
 net-misc/amfora 1.8.0: A fancy terminal browser for the Gemini protocol.
 net-misc/can-utils 2020.02.04 2020.12.0 2020.12.0-r1 9999-r3: CAN userspace utilities and tools
 net-misc/castor 0.8.15 0.8.16: A graphical browser for plain-text protocols
-net-misc/freetube-bin 0.11.3: https://github.com/FreeTubeApp/FreeTube
+net-misc/freetube-bin 0.11.3 0.12.0: https://github.com/FreeTubeApp/FreeTube
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/gmid 1.6 9999: simple and secure Gemini server
 net-misc/kristall 0.2 0.3 9999: Visual cross-platform gemini browser
