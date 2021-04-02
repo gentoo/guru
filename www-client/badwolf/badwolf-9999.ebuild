@@ -47,6 +47,7 @@ src_compile() {
 src_install() {
 	emake \
 		DESTDIR="${D}" \
+		DOCDIR="/usr/share/doc/${P}" \
 		PREFIX="/usr" \
 		install
 
