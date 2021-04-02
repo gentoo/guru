@@ -4,7 +4,6 @@
 #
 # This checks for potential and exact package matches within an overlay & ::gentoo
 # Note that this is not going to be 100% accurate
-#
 
 GENTOO_DIR="/var/db/repos/gentoo"
 GENTOO_PACKAGES=(

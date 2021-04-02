@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop xdg cmake
+inherit desktop java-pkg-2 xdg cmake
 
 MY_PN="MultiMC5"
 MY_P="${MY_PN}-${PV}"
