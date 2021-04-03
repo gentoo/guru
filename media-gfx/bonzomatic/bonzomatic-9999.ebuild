@@ -35,7 +35,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	local ecmakeargs=(
+	local mycmakeargs=(
 		-DBONZOMATIC_USE_SYSTEM_GLFW=$(usex system-glfw)
 		-DBONZOMATIC_USE_SYSTEM_GLEW=$(usex system-glew)
 		-DBONZOMATIC_USE_SYSTEM_STB=$(usex system-stb)
