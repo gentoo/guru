@@ -408,6 +408,7 @@ media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/oxipng 2.3.0 3.0.1 4.0.0 4.0.2 4.0.3: A lossless PNG compression optimizer
 media-gfx/qfontviewer 9999: Font viewer with character table
 media-gfx/qview 4.0: Practical and minimal image viewer
+media-gfx/sic 0.18.0: Accessible image processing and conversion from the terminal tool.
 media-gfx/silicon 0.4.0 0.4.1: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.1.2: AMD Open Source Driver for Vulkan
@@ -496,6 +497,7 @@ sci-electronics/bsc 0_pre20210124 9999: Bluespec high level hardware design lang
 sci-electronics/dsview 1.12 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/verilator 4.110 9999: The fast free Verilog/SystemVerilog simulator
+sci-geosciences/GeographicLib-data 0: Datasets for GeographicLib
 sci-libs/ann 1.1.2_p7: A Library for Approximate Nearest Neighbor Searching
 sci-libs/chaco 2.2: Software for Partitioning Graphs
 sci-libs/jdqz 0_pre19971107-r1 0_pre19971107-r2: Jacobi-Davidson type method for the generalized standard eigenvalue problem.
@@ -521,7 +523,7 @@ sys-block/systemd-swap 4.4.0 9999: Script for creating swap space from zram swap
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-cluster/AXL 0.3.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
-sys-cluster/KVTree 1.0.2: KVTree provides a fully extensible C data structure modeled after Perl hashes.
+sys-cluster/KVTree 1.0.2 1.1.0: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/dlb 2.1-r1: Dynamically react to application imbalance by modifying the number of resources
 sys-cluster/er 0.0.3: High-level distributed erasure coding lib combining shuffile and redset
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
