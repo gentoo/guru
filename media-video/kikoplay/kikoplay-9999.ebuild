@@ -49,7 +49,7 @@ BDEPEND="
 "
 
 src_configure() {
-	eqmake5 PREFIX="${D}"/usr
+	eqmake5 PREFIX="${EPREFIX}/usr"
 }
 
 src_install() {
