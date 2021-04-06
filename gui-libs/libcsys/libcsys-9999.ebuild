@@ -21,6 +21,7 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
+IUSE="udisks"
 
 DEPEND="
 	>=dev-qt/qtcore-${QTMIN}:5
@@ -29,5 +30,7 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	sys-fs/udisks:2
+	udisks? (
+		sys-fs/udisks:2
+	)
 "

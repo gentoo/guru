@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit qmake-utils xdg
+inherit cmake xdg
 
 DESCRIPTION="An image viewer for C Suite"
 HOMEPAGE="https://gitlab.com/cubocore/coreapps/coreimage"
@@ -34,21 +34,7 @@ RDEPEND="
 "
 
 src_prepare() {
-	default
+	cmake_src_prepare
 
-	sed -i 's/CSuite/X-CSuite/' "${PN}.desktop" || die
-}
-
-src_configure() {
-	eqmake5
-}
-
-src_compile() {
-	emake
-}
-
-src_install() {
-	einstalldocs
-
-	emake INSTALL_ROOT="${D}" install
+	sed -i 's/CSuite/X-CSuite/' *.desktop || die
 }

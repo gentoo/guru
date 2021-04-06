@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit qmake-utils xdg
+inherit cmake xdg
 
 DESCRIPTION="A screen capture utility for C Suite"
 HOMEPAGE="https://gitlab.com/cubocore/coreapps/coreshot"
@@ -33,21 +33,7 @@ RDEPEND="
 "
 
 src_prepare() {
-	default
+	cmake_src_prepare
 
-	sed -i 's/CSuite/X-CSuite/' "${PN}.desktop" || die
-}
-
-src_configure() {
-	eqmake5
-}
-
-src_compile() {
-	emake
-}
-
-src_install() {
-	einstalldocs
-
-	emake INSTALL_ROOT="${D}" install
+	sed -i 's/CSuite/X-CSuite/' *.desktop || die
 }

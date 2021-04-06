@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<use>
+		<flag name="system-glfw">Use the systems installed version of GLFW (upstream-unsupported)</flag>
+		<flag name="system-glew">Use the systems installed version of GLEW (upstream-unsupported)</flag>
+		<flag name="system-stb">Use the systems installed version of STB (upstream-unsupported)</flag>
+		<flag name="system-kissfft">Use the systems installed version of Kissfft (upstream-unsupported)</flag>
+	</use>
+</pkgmetadata>
