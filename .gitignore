@@ -2,6 +2,7 @@
 *.swp
 *~
 ,*
+.github
 .idea/
 .vs/
 .vscode/
