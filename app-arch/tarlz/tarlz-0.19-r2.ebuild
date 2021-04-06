@@ -19,3 +19,7 @@ DEPEND="
 	${RDEPEND}
 	$(unpacker_src_uri_depends)
 "
+
+src_configure() {
+	econf LDFLAGS="${LDFLAGS}" CXXFLAGS="${CXXFLAGS}"
+}
