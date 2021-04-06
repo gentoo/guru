@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=Meta package for coreapps
+EAPI=7
+HOMEPAGE=https://gitlab.com/cubocore/coreapps
+IUSE=location pulseaudio udisks
+LICENSE=metapackage
+PROPERTIES=live
+RDEPEND=~gui-apps/coreaction-9999 ~gui-apps/coreapps-meta-9999 ~gui-apps/corearchiver-9999 ~gui-apps/corefm-9999 ~gui-apps/coregarage-9999 ~gui-apps/corehunt-9999 ~gui-apps/coreimage-9999 ~gui-apps/coreinfo-9999 ~gui-apps/corekeyboard-9999 ~gui-apps/corepad-9999 ~gui-apps/corepaint-9999 ~gui-apps/corepdf-9999 ~gui-apps/corepins-9999 ~gui-apps/corerenamer-9999 ~gui-apps/coreshot-9999 ~gui-apps/corestats-9999 ~gui-apps/corestuff-9999 ~gui-apps/coreterminal-9999 ~gui-apps/coretime-9999 ~gui-apps/coretoppings-9999[location?,pulseaudio?] ~gui-apps/coreuniverse-9999 ~gui-libs/libcprime-9999 ~gui-libs/libcsys-9999[udisks?]
+SLOT=0
+_md5_=fba0cc8bfdd5ac6ad590de1b408b87dd

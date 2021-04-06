@@ -74,9 +74,14 @@ gui-apps/wofi:dmenu - Enable dmenu mode
 gui-apps/wofi:drun - Enable drun mode
 gui-apps/wofi:run - Enable run mode
 gui-wm/cage:X - Enable support for X11 applications (XWayland)
+media-gfx/bonzomatic:system-glew - Use the systems installed version of GLEW (upstream-unsupported)
+media-gfx/bonzomatic:system-glfw - Use the systems installed version of GLFW (upstream-unsupported)
+media-gfx/bonzomatic:system-kissfft - Use the systems installed version of Kissfft (upstream-unsupported)
+media-gfx/bonzomatic:system-stb - Use the systems installed version of STB (upstream-unsupported)
 media-gfx/glimpse:heif - Enable support for ISO/IEC 23008-12:2017 HEIF files
 media-gfx/glimpse:vector-icons - Enable support for vector icons (experimental)
 media-gfx/grafx2:ttf - Install TTF Fonts
+media-libs/gl4es:egl - Enable EGL support.
 media-libs/libbpg:bpgview - Compile bpgview (media-libs/libsdl and media-libs/sdl-image needed)
 media-libs/libbpg:emcc - Enable compilation of Javascript decoder with Emscripten
 media-libs/libbpg:jctvc - Enable the JCTVC code (best quality but slow) for the encoder
@@ -196,6 +201,7 @@ sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager
 sys-fs/erofs-utils:fuse - Enable support for Filesystem in Userspace via sys-fs/fuse
 sys-fs/erofs-utils:uuid - Allow interaction with libuuid in sys-apps/util-linux. It's recommended turn on
 sys-kernel/dkms:kernel-hooks - Enable automatic rebuilding of modules via kernel source makefile hooks
+sys-power/ZenStates-Linux:togglecode - Install the togglecode utility to turn on/off the Q-Code display on ASUS Crosshair VI Hero motherboards (and other boards with a compatible Super I/O chip)
 www-apps/gogs:cert - Adds support for self-signed certificates
 www-client/torbrowser-launcher:apparmor - Enable AppArmor support
 x11-libs/gtk-fortran:doc - Build doxygen documentation

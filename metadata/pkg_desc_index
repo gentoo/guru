@@ -38,8 +38,9 @@ app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on th
 app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
-app-editors/visual-studio-code-bin 1.54.2: Multiplatform Visual Studio Code from Microsoft
+app-editors/visual-studio-code-bin 1.54.2 1.55.0: Multiplatform Visual Studio Code from Microsoft
 app-editors/vscodium-bin 1.53.1 1.53.2 1.54.3: Free/Libre Open Source Software Binaries of VSCode
+app-emacs/flycheck 31: On the fly syntax checking for GNU Emacs
 app-emulation/dxvk-bin 1.8 1.8.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.4.2: NVIDIA container runtime toolkit
 app-eselect/eselect-scheme 1.0.0: Manages scheme implementations
@@ -52,7 +53,7 @@ app-misc/cheat 4.0.2 4.2.0 4.2.0-r2: cheat allows you to create and view interac
 app-misc/ddcui 0.1.2: Graphical user interface for ddcutil - control monitor settings
 app-misc/doublecmd-bin 0.9.10: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 9999: Simple drag-and-drop source/sink for X and Wayland
-app-misc/fetsh 1.7 1.8 9999: A fetch written in POSIX shell without any external commands
+app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
 app-misc/lf 20: Terminal file manager
@@ -178,7 +179,7 @@ dev-python/aiosqlite 0.16.0: asyncio bridge to the standard sqlite3 module
 dev-python/aiounittest 1.4.0: Test python asyncio-based code with ease
 dev-python/almost 0.1.5: A helper for approximate comparison
 dev-python/anyio 2.1.0 2.2.0: Compatibility layer for multiple asynchronous event loop implementations
-dev-python/asciimatics 1.11.0 1.12.0 9999: Package for curses-like operations, text UIs and ASCII art animations
+dev-python/asciimatics 1.11.0 1.12.0 1.13.0 9999: Package for curses-like operations, text UIs and ASCII art animations
 dev-python/ascim 0.1.1 9999: Manipulate ASCII art as you would do with raster images
 dev-python/aspectlib 1.5.2: An aspect-oriented programming, monkey-patch and decorators library
 dev-python/asyncpg 0.21.0: A fast PostgreSQL Database Client Library for Python/asyncio.
@@ -245,6 +246,7 @@ dev-python/pdfminer-six 20201018: Community maintained fork of pdfminer
 dev-python/pdoc3 0.9.2: Auto-generate API documentation for Python projects
 dev-python/pep517 0.9.1: standard API for systems which build Python packages
 dev-python/phx-class-registry 3.0.5: An intersection of the Registry and Factory pattern
+dev-python/portio 0.5: Python low level port I/O for Linux x86
 dev-python/pproxy 2.4.6 2.4.6-r1 2.5 2.7.7: TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio
 dev-python/promise 2.3.0: Bytecode optimisation using staticness assertions
 dev-python/pure-protobuf 2.0.0-r1 2.0.1: A more Pythonic version of doxypy, a Doxygen filter for Python
@@ -277,6 +279,7 @@ dev-python/python-pkcs11 0.7.0: PKCS#11 (Cryptoki) support for Python
 dev-python/python-telegram-bot 13.1 9999: Python wrapper of telegram bots API
 dev-python/python-vlc 3.0.11115: Python ctypes-based bindings for libvlc
 dev-python/pywebview 3.4: A lightweight cross-platform wrapper around a webview component
+dev-python/recordclass 0.14.3 9999: Mutable variants of tupe and collections.namedtuple
 dev-python/redbaron 0.9 0.9.2: A FST for python to make writing refactoring code a realistic task
 dev-python/rstcheck 3.3.1: Checks syntax of reStructuredText and code blocks nested within it
 dev-python/sanic 20.9.1: Async Python 3.6+ web server/framework | Build fast. Run fast.
@@ -352,7 +355,7 @@ games-util/legendary 0.20.5 0.20.6: A free and open-source replacement for the E
 games-util/minigalaxy 1.0.2: A simple GOG client for Linux
 gui-apps/azote 1.8.1 1.8.2 1.9.0 9999: wallpaper manager for wlroots compositors
 gui-apps/coreaction 4.0.0 4.1.0 9999: A side bar for showing widgets for C Suite
-gui-apps/coreapps-meta 4.0.0 4.1.0: Meta package for coreapps
+gui-apps/coreapps-meta 4.0.0 4.1.0 9999: Meta package for coreapps
 gui-apps/corearchiver 4.0.0 4.1.0 9999: Archiver for C Suite, to create and extract archives
 gui-apps/corefm 4.0.0-r1 4.1.0 9999: A lightweight file-manager for C Suite
 gui-apps/coregarage 4.0.0 4.1.0 9999: A settings manager for C Suite
@@ -370,7 +373,7 @@ gui-apps/corestats 4.0.0 4.1.0 9999: A system resource viewer for C Suite
 gui-apps/corestuff 4.0.0 4.1.0 9999: An activity viewer for C Suite
 gui-apps/coreterminal 4.0.0 4.1.0 9999: A terminal emulator for C Suite
 gui-apps/coretime 4.0.0 4.1.0 9999: A time related task manager for C Suite
-gui-apps/coretoppings 4.0.0 4.1.0-r1: Additional features, plugins, widgets etc for C Suite
+gui-apps/coretoppings 4.0.0 4.1.0-r1 9999: Additional features, plugins, widgets etc for C Suite
 gui-apps/coreuniverse 4.1.0 9999: Shows information about apps for C Suite
 gui-apps/mpvpaper 1.0 1.1 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.4.3 0.4.4 9999: GTK+ launchers for sway, i3 and some other WMs
@@ -400,6 +403,7 @@ media-fonts/symbola 7.17 13.00: Unicode font for Latin, IPA Extensions, Greek, C
 media-fonts/unscii 2.0 2.1: Set of bitmapped Unicode fonts based on classic system fonts
 media-fonts/warframe-fonts 0_pre20191111: Fonts from the Warframe game
 media-gfx/azpainter 2.1.6 2.1.7: Full color painting software for Linux for illustration drawing
+media-gfx/bonzomatic 2021.03.07 9999: Live shader coding tool and Shader Showdown workhorse
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
 media-gfx/gephi-bin 0.9.2: The Open Graph Viz Platform
 media-gfx/glimpse 0.2.0: Image editor based on the GNU Image Manipulation Program
@@ -412,6 +416,7 @@ media-gfx/sic 0.18.0: Accessible image processing and conversion from the termin
 media-gfx/silicon 0.4.0 0.4.1: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.1.2: AMD Open Source Driver for Vulkan
+media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
 media-libs/jpeg-xl 9999: JPEG XL Reference Software
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
 media-libs/rtmidi 4.0.0: A set of C++ classes that provide a common API for realtime MIDI input/output
@@ -439,7 +444,7 @@ media-tv/droidcam 1.7.2: Use android phone as webcam, using a v4l device driver 
 media-video/av1an 1.12 9999: Cross-platform framework to streamline encoding
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
 media-video/jellyfin-desktop 1.10.2: MPV-based desktop and cast client for Jellyfin
-media-video/kikoplay 0.7.2 9999: KikoPlay is a full-featured danmu player
+media-video/kikoplay 0.8.0 9999: KikoPlay is a full-featured danmu player
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
 media-video/qliveplayer 3.21.1-r1 3.22.0: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
@@ -496,7 +501,7 @@ net-wireless/rtl8821cu 0_pre20201224: Realtek 8821CU/RTL8811CU module for Linux 
 sci-electronics/bsc 0_pre20210124 9999: Bluespec high level hardware design language compiler
 sci-electronics/dsview 1.12 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
-sci-electronics/verilator 4.110 9999: The fast free Verilog/SystemVerilog simulator
+sci-electronics/verilator 4.200 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/GeographicLib-data 0: Datasets for GeographicLib
 sci-libs/ann 1.1.2_p7: A Library for Approximate Nearest Neighbor Searching
 sci-libs/chaco 2.2: Software for Partitioning Graphs
@@ -523,7 +528,7 @@ sys-block/systemd-swap 4.4.0 9999: Script for creating swap space from zram swap
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-cluster/AXL 0.3.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
-sys-cluster/KVTree 1.0.2 1.1.0: KVTree provides a fully extensible C data structure modeled after Perl hashes
+sys-cluster/KVTree 1.1.0: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/dlb 2.1-r1: Dynamically react to application imbalance by modifying the number of resources
 sys-cluster/er 0.0.3: High-level distributed erasure coding lib combining shuffile and redset
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
@@ -545,6 +550,8 @@ sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-libs/libnvidia-container 1.3.3: NVIDIA container runtime library
 sys-libs/nss-tls 1.0 1.1 9999: A DNS over HTTPS resolver for glibc
 sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC security key
+sys-power/ZenStates-Linux 0_p20170507: Dynamically edit AMD Ryzen processor P-States
+sys-power/disable-c6 0_p20190603: disable the C6 state upon system boot, preventing Ryzen freezes
 sys-process/bottom 0.5.7: A graphical process/system monitor with a customizable interface
 sys-process/gotop 4.1.1: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/iotop-c 1.17: top utility for IO (C port)
