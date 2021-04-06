@@ -29,9 +29,7 @@ src_install() {
 	insinto /opt
 	doins -r opt/*
 	domenu usr/share/applications/freetube.desktop
-	for size in {16,32,48,64,128,256}; do
-		doicon -s ${size} usr/share/icons/hicolor/${size}x${size}/apps/freetube.png
-	done
+	doicon -s scalable usr/share/icons/hicolor/scalable/apps/freetube.svg
 	fperms 4755 /opt/FreeTube/chrome-sandbox || die
 	fperms +x  /opt/FreeTube/freetube || die
 	dosym ../../opt/FreeTube/freetube /usr/bin/freetube-bin
