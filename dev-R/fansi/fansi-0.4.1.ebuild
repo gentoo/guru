@@ -10,7 +10,7 @@ HOMEPAGE="
 	https://github.com/brodieG/fansi
 	https://cran.r-project.org/package=fansi
 "
-SRC_URI="http://cran.r-project.org/src/contrib/fansi_0.4.1.tar.gz"
+SRC_URI="mirror://cran/src/contrib/fansi_0.4.1.tar.gz"
 LICENSE='GPL-2+'
 KEYWORDS="~amd64"
 IUSE="${IUSE-}"

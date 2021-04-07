@@ -10,7 +10,7 @@ HOMEPAGE="
 	https://github.com/r-lib/cli
 	https://cran.r-project.org/package=cli
 "
-SRC_URI="http://cran.r-project.org/src/contrib/cli_2.0.2.tar.gz"
+SRC_URI="mirror://cran/src/contrib/cli_2.0.2.tar.gz"
 LICENSE='MIT'
 KEYWORDS="~amd64"
 IUSE="${IUSE-}"

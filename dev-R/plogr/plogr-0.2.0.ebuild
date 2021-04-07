@@ -6,7 +6,7 @@ EAPI="7"
 inherit R-packages-guru
 
 DESCRIPTION='The plog C++ Logging Library'
-SRC_URI="http://cran.r-project.org/src/contrib/plogr_0.2.0.tar.gz"
+SRC_URI="mirror://cran/src/contrib/plogr_0.2.0.tar.gz"
 HOMEPAGE="
 	https://github.com/krlmlr/plogr
 	https://cran.r-project.org/package=plogr

@@ -11,7 +11,7 @@ HOMEPAGE="
 	https://github.com/r-lib/ellipsis
 	https://cran.r-project.org/package=ellipsis
 "
-SRC_URI="http://cran.r-project.org/src/contrib/${PN}_${PV}.tar.gz"
+SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 LICENSE='GPL-3'
 KEYWORDS="~amd64"
 IUSE="${IUSE-}"

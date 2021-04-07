@@ -10,7 +10,7 @@ HOMEPAGE="
 	https://github.com/r-lib/vctrs
 	https://cran.r-project.org/package=vctrs
 "
-SRC_URI="http://cran.r-project.org/src/contrib/${PN}_${PV}.tar.gz"
+SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 LICENSE='GPL-3'
 
 IUSE="${IUSE-}"

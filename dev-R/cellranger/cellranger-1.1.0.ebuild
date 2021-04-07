@@ -6,7 +6,7 @@ EAPI="7"
 inherit R-packages-guru
 
 DESCRIPTION='Translate Spreadsheet Cell Ranges to Rows and Columns'
-SRC_URI="http://cran.r-project.org/src/contrib/cellranger_1.1.0.tar.gz"
+SRC_URI="mirror://cran/src/contrib/cellranger_1.1.0.tar.gz"
 LICENSE='MIT'
 HOMEPAGE="
 	https://github.com/rsheets/cellranger

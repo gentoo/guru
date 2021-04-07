@@ -10,7 +10,7 @@ HOMEPAGE="
 	https://github.com/r-lib/crayon
 	https://cran.r-project.org/package=crayon
 "
-SRC_URI="http://cran.r-project.org/src/contrib/crayon_1.3.4.tar.gz"
+SRC_URI="mirror://cran/src/contrib/crayon_1.3.4.tar.gz"
 LICENSE='MIT'
 KEYWORDS="~amd64"
 IUSE="${IUSE-}"

@@ -10,7 +10,7 @@ HOMEPAGE="
 	https://github.com/MangoTheCat/rematch
 	https://cran.r-project.org/package=rematch
 "
-SRC_URI="http://cran.r-project.org/src/contrib/rematch_1.0.1.tar.gz"
+SRC_URI="mirror://cran/src/contrib/rematch_1.0.1.tar.gz"
 LICENSE='MIT'
 
 IUSE="${IUSE-}"
