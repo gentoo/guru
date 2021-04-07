@@ -12,7 +12,7 @@ HOMEPAGE="
 	https://github.com/eddelbuettel/bh
 	https://cran.r-project.org/package=BH
 "
-SRC_URI="http://cran.r-project.org/src/contrib/${MY_P}.tar.gz"
+SRC_URI="mirror://cran/src/contrib/${MY_P}.tar.gz"
 LICENSE='Boost-1.0'
 KEYWORDS="~amd64"
 DEPEND="~dev-libs/boost-1.75.0"
