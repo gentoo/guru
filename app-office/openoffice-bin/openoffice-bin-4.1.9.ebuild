@@ -51,14 +51,25 @@ RDEPEND="
 	app-arch/unzip
 	app-arch/zip
 	>=dev-lang/perl-5.0
+	dev-libs/atk
+	dev-libs/dbus-glib
+	media-libs/glu
 	>=media-libs/freetype-2.1.10-r2
+	media-libs/libglvnd
 	sys-libs/ncurses-compat:5
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
+	x11-libs/gdk-pixbuf-xlib
+	x11-libs/gtk+:2
 	x11-libs/libXaw
-	x11-libs/libXinerama"
-
-DEPEND="${RDEPEND}
-	sys-apps/findutils"
-
+	x11-libs/libXinerama
+	x11-libs/pango
+	x11-libs/libXrandr
+"
+DEPEND="
+	${RDEPEND}
+	sys-apps/findutils
+"
 PDEPEND="java? ( >=virtual/jre-1.8.0 )"
 
 RESTRICT="mirror strip"
