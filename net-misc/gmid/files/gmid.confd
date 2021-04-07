@@ -2,12 +2,3 @@
 
 # Configuration file
 #GMID_CONFIGFILE="/etc/gmid/gmid.conf"
-
-# PID file
-#GMID_PIDFILE="/var/run/gmid.pid"
-
-# User to run gmid as
-#GMID_USER="gemini"
-
-# Group to run gmid as
-#GMID_GROUP="gemini"

@@ -3,7 +3,10 @@
 
 EAPI=7
 
-inherit toolchain-funcs
+SSL_DEPS_SKIP=1
+SSL_DAYS=36500
+
+inherit ssl-cert toolchain-funcs
 
 DESCRIPTION="simple and secure Gemini server"
 HOMEPAGE="https://www.omarpolo.com/pages/gmid.html"
@@ -53,13 +56,23 @@ src_configure() {
 src_install() {
 	default
 
+	dodir /etc/gmid
+	cp "${FILESDIR}"/gmid.conf "${ED}"/etc/gmid/gmid.conf || die
+
 	newinitd "${FILESDIR}"/gmid.initd gmid
 	newconfd "${FILESDIR}"/gmid.confd gmid
+
+	keepdir /var/gemini/localhost
 }
 
 pkg_postinst() {
+	if [[ ! -f "${EROOT}"/etc/ssl/${PN}/${PN}.key ]]; then
+		install_cert /etc/ssl/${PN}/${PN}
+		chown gemini:gemini "${EROOT}"/etc/ssl/${PN}/${PN}.{crt,csr,key,pem}
+	fi
+
 	einfo "This gemini server can be run as a user with zero configuration.\n"
 	einfo "In order to use it with the init service you will need to generate a"
-	einfo "self-signed TLS certificate and key and set up the configuration"
+	einfo "self-signed TLS certificate and a key and set up the configuration"
 	einfo "file (see man 1 gmid for details)."
 }

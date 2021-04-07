@@ -12,10 +12,9 @@ description_reload="Reload the gmid configuration without losing connections."
 GMID_CONFIGFILE=${GMID_CONFIGFILE:-/etc/gmid/gmid.conf}
 
 command="/usr/bin/gmid"
-command_args="-c \"${GMID_CONFIGFILE}\""
-pidfile=${GMID_PIDFILE:-/var/run/gmid.pid}
-user=${GMID_USER:-gemini}
-group=${GMID_GROUP:-gemini}
+command_args="-c \"${GMID_CONFIGFILE}\" -f"
+command_background=1
+pidfile="/var/run/gmid.pid"
 
 depend() {
 	need net
