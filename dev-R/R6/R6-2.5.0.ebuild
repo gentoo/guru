@@ -6,7 +6,7 @@ EAPI="7"
 inherit R-packages-guru
 
 DESCRIPTION='Encapsulated Classes with Reference Semantics'
-SRC_URI="http://cran.r-project.org/src/contrib/${PN}_${PV}.tar.gz"
+SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 LICENSE='MIT'
 HOMEPAGE="
 	https://r6.r-lib.org
