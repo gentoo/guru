@@ -175,6 +175,8 @@ IUSE=""
 DEPEND=""
 RDEPEND=""
 
+QA_FLAGS_IGNORED="usr/bin/tokei"
+
 src_compile() {
 	cargo_src_compile --features all
 }
