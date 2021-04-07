@@ -82,6 +82,8 @@ IUSE=""
 DEPEND=""
 RDEPEND=""
 
+QA_FLAGS_IGNORED="usr/bin/dust"
+
 src_install() {
 	cargo_src_install
 
