@@ -1,4 +1,4 @@
-DEFINED_PHASES=unpack
+DEFINED_PHASES=configure unpack
 DEPEND=app-arch/lzlib:0= || ( app-arch/plzip app-arch/pdlzip app-arch/lzip )
 DESCRIPTION=A parallel archiver combining tar and lzip
 EAPI=7
@@ -10,4 +10,4 @@ RDEPEND=app-arch/lzlib:0=
 SLOT=0
 SRC_URI=https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.19.tar.lz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	unpacker	517f16af48ee3ab88180dd58b5143213
-_md5_=1bf3401ba8c2c18659db2677a6c95c5c
+_md5_=6a05aca23d4c321ace5795cac7610b86

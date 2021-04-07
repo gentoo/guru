@@ -1,0 +1,9 @@
+DEFINED_PHASES=install
+DESCRIPTION=Simplistic yet fancy CPU architecture fetching tool
+EAPI=7
+HOMEPAGE=https://github.com/Dr-Noob/cpufetch
+KEYWORDS=~amd64
+LICENSE=MIT
+SLOT=0
+SRC_URI=https://github.com/Dr-Noob/cpufetch/archive/ec2ad4fef60b0e26f40b818a3968de7e83fb466c.tar.gz -> cpufetch-0.94_p20210406.tar.gz
+_md5_=e625f7746296cd30eab9f491e64ff935

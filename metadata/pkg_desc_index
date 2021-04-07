@@ -26,14 +26,14 @@ app-admin/gnome-passwordsafe 4.0-r1 4.1: A password manager for GNOME
 app-admin/krapplet 0.1.0-r1 0.2.0 0.3.1: Krapplet (keyring applet): a Linux graphical password manager
 app-admin/s-tui 1.0.2 1.1.1 9999: Stress-Terminal UI monitoring tool
 app-arch/libarchive-qt 2.0.2 9999: A Qt based archiving solution with libarchive backend
-app-arch/tarlz 0.19-r1: A parallel archiver combining tar and lzip
+app-arch/tarlz 0.19-r2: A parallel archiver combining tar and lzip
 app-arch/unalz 0.65: Extract ALZ archives
 app-backup/b2 2.1.0: The command-line tool for BackBlaze's B2 product.
 app-backup/timeshift 20.11.1: A system restore utility for Linux
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/reop 2.1.1: reasonable expectation of privacy
-app-editors/atom 1.55.0: A hackable text editor for the 21st Century
+app-editors/atom-bin 1.55.0-r1: A hackable text editor for the 21st Century
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
@@ -47,9 +47,10 @@ app-eselect/eselect-scheme 1.0.0: Manages scheme implementations
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/afetch 2.1.0: Simple system info written in C
 app-misc/apidb 4.3.0_beta 5.0.0_alpha 5.0.0_alpha8 5.0.0_alpha19 5.0.0_alpha20 5.8.0_beta: API Generator for Database acces.
-app-misc/brightness-control 2.0_p20200629: Qt Brightness Controller in Python
+app-misc/brightness-control 2.0_p20210331: Qt Brightness Controller in Python
 app-misc/brightnessctl 0.5.1 9999: A program to read and control device brightness
 app-misc/cheat 4.0.2 4.2.0 4.2.0-r2: cheat allows you to create and view interactive cheatsheets on the command-line
+app-misc/cpufetch 0.94_p20210406: Simplistic yet fancy CPU architecture fetching tool
 app-misc/ddcui 0.1.2: Graphical user interface for ddcutil - control monitor settings
 app-misc/doublecmd-bin 0.9.10: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 9999: Simple drag-and-drop source/sink for X and Wayland
@@ -66,7 +67,7 @@ app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/pup-bin 0.4.0: Parsing HTML at the command line
 app-misc/rdfind 1.4.1: Find duplicate files
 app-misc/rememberthemilk 1.3.0: Freemium simple to-do tasks manager
-app-misc/tai 0.0.3: tai (Terminal Ascii Image) tool to convert images to ascii
+app-misc/tai 0.0.3 0.0.4: tai (Terminal Ascii Image) tool to convert images to ascii
 app-misc/tealdeer 1.4.1: A very fast implementation of tldr in Rust.
 app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the command-line
 app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
@@ -91,6 +92,7 @@ app-shells/ohmyzsh 9999: A framework for managing your zsh configuration.
 app-shells/starship 0.51.0: The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 app-shells/zsh-autosuggestions 0.6.4: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
+app-shells/zsh-history-to-fish 0.3.0: Bring your ZSH history to Fish shell
 app-text/OCRmyPDF 11.6.2 11.7.0 11.7.1: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/komikku 0.24.0 0.26.1: An online/offline manga reader for GNOME
@@ -525,6 +527,7 @@ sys-apps/sampler-bin 1.1.0: visualizer for shell commands, executions and alerti
 sys-apps/systemd-bootchart 234: systemd boot performance graphing tool
 sys-auth/mrsh 2.12 2.12-r1: Mrsh is a set of remote shell programs that use munge authentication.
 sys-block/systemd-swap 4.4.0 9999: Script for creating swap space from zram swaps, swap files and swap partitions.
+sys-boot/bmaptools 3.6: Bmaptool is a tool for creating and copyng files using block maps
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-cluster/AXL 0.3.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
