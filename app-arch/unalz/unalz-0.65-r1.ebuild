@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -26,7 +26,7 @@ PATCHES=(
 S="${WORKDIR}"/${PN}
 
 src_compile() {
-	emake linux-utf8
+	emake linux-utf8 LDFLAGS="${LDFLAGS}"
 }
 
 src_install() {
