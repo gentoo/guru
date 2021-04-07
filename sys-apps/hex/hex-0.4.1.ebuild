@@ -49,6 +49,8 @@ IUSE=""
 DEPEND=""
 RDEPEND=""
 
+QA_FLAGS_IGNORED="usr/bin/hx"
+
 src_install() {
 	cargo_src_install
 

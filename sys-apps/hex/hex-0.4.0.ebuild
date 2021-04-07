@@ -1,4 +1,4 @@
-# Copyright 2017-2020 Gentoo Authors
+# Copyright 2017-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -42,6 +42,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 RESTRICT="mirror"
+
+QA_FLAGS_IGNORED="usr/bin/hx"
 
 src_install() {
 	cargo_src_install
