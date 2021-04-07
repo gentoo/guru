@@ -200,6 +200,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	x11-misc/xclip"
 
+QA_FLAGS_IGNORED="usr/bin/silicon"
+
 src_unpack() {
 	cargo_src_unpack
 
