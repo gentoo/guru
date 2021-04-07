@@ -5,9 +5,6 @@
     <email>mustafasalih1991@gmail.com</email>
     <name>Mustafa Salih</name>
   </maintainer>
-  <longdescription lang="en">
-    sic (sic image cli) a tool performs image processing and conversion from the terminal. 
-  </longdescription>
   <upstream>
     <bugs-to>https://github.com/foresterre/sic/issues</bugs-to>
   </upstream>
