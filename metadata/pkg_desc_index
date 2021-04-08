@@ -379,7 +379,7 @@ gui-apps/coretoppings 4.0.0 4.1.0-r1 4.2.0_alpha 9999: Additional features, plug
 gui-apps/coreuniverse 4.1.0 4.2.0_alpha 9999: Shows information about apps for C Suite
 gui-apps/mpvpaper 1.0 1.1 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.4.3 0.4.4 9999: GTK+ launchers for sway, i3 and some other WMs
-gui-apps/paperdesktop 0_p20210310 9999: Simple, sleek QT based DE for wayland using wayfire
+gui-apps/paperde 0_p20210310 0.1.0_alpha 9999: Simple, sleek QT based DE for wayland using wayfire
 gui-apps/sfwbar 0.9.4 0.9.6 0.9.7: Sway Floating Window Bar
 gui-apps/swaykbdd 1.0: Per-window keyboard layout switcher for Sway
 gui-apps/swaylock-effects 1.6.2 1.6.3 9999: Swaylock, with fancy effects

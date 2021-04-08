@@ -1,6 +1,6 @@
 BDEPEND=>=dev-util/meson-0.49 || ( dev-lang/python:3.9 dev-lang/python:3.8 dev-lang/python:3.7 ) doc? ( dev-python/docutils ) >=dev-util/meson-0.54.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=media-libs/freetype:2 >=media-libs/libpng-1.5 media-libs/libsdl2 media-libs/sdl2-mixer media-libs/libwebp sys-libs/zlib zip? ( dev-libs/libzip )
+DEPEND=media-libs/freetype:2 >=media-libs/libpng-1.5 media-libs/libsdl2 media-libs/sdl2-mixer[opus] media-libs/libwebp sys-libs/zlib zip? ( dev-libs/libzip )
 DESCRIPTION=Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 EAPI=7
 HOMEPAGE=https://taisei-project.org/
@@ -11,4 +11,4 @@ LICENSE=MIT CC-BY-4.0 CC0-1.0 public-domain
 SLOT=0
 SRC_URI=https://github.com/taisei-project/taisei/releases/download/v1.3.1/taisei-v1.3.1.tar.xz
 _eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	543b53e4d003ebd889082f4673e52af5	meson	e43eef9331f54965a573ed380854ff47	python-any-r1	690a993463cd2ebcde40ccdf1bd9ba98
-_md5_=e6b89d9e0826e8e68f7eab87fb6b7856
+_md5_=30f6d8fe5cfe4d348d63f719139b7414
