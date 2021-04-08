@@ -24,7 +24,6 @@ RESTRICT="test"
 IUSE="gnome-keyring"
 
 RDEPEND="
-	dev-qt/linguist-tools:5
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
@@ -36,7 +35,10 @@ RDEPEND="
 		app-crypt/libsecret
 	)
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	dev-qt/linguist-tools:5
+"
 
 src_unpack() {
 	unpack "${P}.tar.gz"
