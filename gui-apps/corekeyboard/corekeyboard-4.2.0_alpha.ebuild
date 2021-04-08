@@ -29,6 +29,7 @@ DEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	gui-libs/libcprime
+	x11-libs/libXtst
 "
 RDEPEND="
 	${DEPEND}
