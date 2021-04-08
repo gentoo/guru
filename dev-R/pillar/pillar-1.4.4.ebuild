@@ -10,7 +10,7 @@ HOMEPAGE="
 	https://github.com/r-lib/pillar
 	https://cran.r-project.org/package=pillar
 "
-SRC_URI="http://cran.r-project.org/src/contrib/pillar_1.4.4.tar.gz"
+SRC_URI="mirror://cran/src/contrib/pillar_1.4.4.tar.gz"
 LICENSE='GPL-3'
 KEYWORDS="~amd64"
 IUSE="${IUSE-}"

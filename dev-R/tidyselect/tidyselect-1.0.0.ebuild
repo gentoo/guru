@@ -6,7 +6,7 @@ EAPI="7"
 inherit R-packages-guru
 
 DESCRIPTION='Select from a Set of Strings'
-SRC_URI="http://cran.r-project.org/src/contrib/tidyselect_1.0.0.tar.gz"
+SRC_URI="mirror://cran/src/contrib/tidyselect_1.0.0.tar.gz"
 LICENSE='GPL-3'
 HOMEPAGE="
 	https://tidyselect.r-lib.org

@@ -6,7 +6,7 @@ EAPI="7"
 inherit R-packages-guru
 
 DESCRIPTION='Functional Programming Tools'
-SRC_URI="http://cran.r-project.org/src/contrib/purrr_0.3.4.tar.gz"
+SRC_URI="mirror://cran/src/contrib/purrr_0.3.4.tar.gz"
 LICENSE='GPL-3'
 HOMEPAGE="
 	https://purrr.tidyverse.org

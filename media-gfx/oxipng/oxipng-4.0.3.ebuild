@@ -92,6 +92,8 @@ LICENSE="Apache-2.0 MIT ZLIB"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+QA_FLAGS_IGNORED="usr/bin/oxipng"
+
 src_install() {
 	cargo_src_install
 

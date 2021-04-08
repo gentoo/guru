@@ -11,7 +11,7 @@ HOMEPAGE="
 	https://github.com/r-lib/lifecycle
 	https://cran.r-project.org/package=lifecycle
 "
-SRC_URI="http://cran.r-project.org/src/contrib/lifecycle_0.2.0.tar.gz"
+SRC_URI="mirror://cran/src/contrib/lifecycle_0.2.0.tar.gz"
 LICENSE='GPL-3'
 KEYWORDS="~amd64"
 IUSE="${IUSE-}"

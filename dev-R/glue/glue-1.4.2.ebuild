@@ -11,7 +11,7 @@ HOMEPAGE="
 	https://github.com/tidyverse/glue
 	https://cran.r-project.org/package=glue
 "
-SRC_URI="http://cran.r-project.org/src/contrib/${PN}_${PV}.tar.gz"
+SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 LICENSE='MIT'
 KEYWORDS="~amd64"
 IUSE="${IUSE-}"

@@ -6,7 +6,7 @@ EAPI="7"
 inherit R-packages-guru
 
 DESCRIPTION='Simple Data Frames'
-SRC_URI="http://cran.r-project.org/src/contrib/tibble_3.0.1.tar.gz"
+SRC_URI="mirror://cran/src/contrib/tibble_3.0.1.tar.gz"
 LICENSE='MIT'
 HOMEPAGE="
 	https://tibble.tidyverse.org

@@ -203,6 +203,8 @@ IUSE=""
 DEPEND=""
 RDEPEND=""
 
+QA_FLAGS_IGNORED="usr/bin/mdbook"
+
 src_prepare() {
 	eapply_user
 

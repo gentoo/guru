@@ -6,7 +6,7 @@ EAPI="7"
 inherit R-packages-guru
 
 DESCRIPTION='A Grammar of Data Manipulation'
-SRC_URI="http://cran.r-project.org/src/contrib/dplyr_0.8.5.tar.gz"
+SRC_URI="mirror://cran/src/contrib/dplyr_0.8.5.tar.gz"
 LICENSE='MIT'
 HOMEPAGE="
 	https://dplyr.tidyverse.org

@@ -29,12 +29,16 @@ IUSE="libsecret"
 RDEPEND="
 	app-accessibility/at-spi2-atk
 	dev-libs/nss
+	media-libs/alsa-lib
 	media-libs/libpng:0/16
+	net-print/cups
 	x11-libs/cairo
 	x11-libs/gtk+:3
 	x11-libs/libXScrnSaver
 	x11-libs/libXtst
 	x11-libs/libnotify
+	x11-libs/libxkbcommon
+	x11-libs/libxkbfile
 	x11-libs/pango
 	libsecret? ( app-crypt/libsecret[crypt]	)
 	amd64? ( sys-apps/ripgrep )
@@ -59,6 +63,11 @@ QA_PREBUILT="
 
 src_prepare() {
 	default
+
+	# Remove libsecret (controlled via USE=libsecret)
+	if ! use libsecret; then
+		rm -r "resources/app/node_modules.asar.unpacked/keytar" || die
+	fi
 
 	# Unbundle ripgrep on amd64 & arm64
 	if use amd64 || use arm64; then
