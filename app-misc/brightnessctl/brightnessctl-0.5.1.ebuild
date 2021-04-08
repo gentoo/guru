@@ -5,15 +5,9 @@ EAPI=7
 
 DESCRIPTION="A program to read and control device brightness"
 HOMEPAGE="https://github.com/Hummer12007/brightnessctl"
+SRC_URI="https://github.com/Hummer12007/brightnessctl/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/Hummer12007/brightnessctl.git"
-else
-	SRC_URI="https://github.com/Hummer12007/brightnessctl/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
-fi
-
+KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"
 IUSE="systemd udev"
