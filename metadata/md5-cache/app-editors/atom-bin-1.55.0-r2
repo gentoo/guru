@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/atom/atom/releases/download/v1.55.0/atom-amd64.tar.gz -> atom-bin-1.55.0.tar.gz
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
-_md5_=969407923a1757c8afdc88d2fb4778ea
+_md5_=b5383c3a8c42b55038148efa5e0985eb

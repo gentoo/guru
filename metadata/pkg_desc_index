@@ -27,13 +27,13 @@ app-admin/krapplet 0.1.0-r1 0.2.0 0.3.1: Krapplet (keyring applet): a Linux grap
 app-admin/s-tui 1.0.2 1.1.1 9999: Stress-Terminal UI monitoring tool
 app-arch/libarchive-qt 2.0.2 9999: A Qt based archiving solution with libarchive backend
 app-arch/tarlz 0.19-r2: A parallel archiver combining tar and lzip
-app-arch/unalz 0.65: Extract ALZ archives
+app-arch/unalz 0.65-r1: Extract ALZ archives
 app-backup/b2 2.1.0: The command-line tool for BackBlaze's B2 product.
 app-backup/timeshift 20.11.1: A system restore utility for Linux
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/reop 2.1.1: reasonable expectation of privacy
-app-editors/atom-bin 1.55.0-r1: A hackable text editor for the 21st Century
+app-editors/atom-bin 1.55.0-r2: A hackable text editor for the 21st Century
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
@@ -97,7 +97,7 @@ app-text/OCRmyPDF 11.6.2 11.7.0 11.7.1: OCRmyPDF adds an OCR text layer to scann
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/komikku 0.24.0 0.26.1: An online/offline manga reader for GNOME
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
-app-text/lowdown 0.8.3 9999: simple markdown translator
+app-text/lowdown 0.8.4 9999: simple markdown translator
 app-text/mdbook 0.4.5 0.4.6 0.4.7: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
 app-text/stdman 2019.08.27 2020.11.17 9999: Formatted C++ stdlib man pages (cppreference)
@@ -125,7 +125,7 @@ dev-R/rlang 0.4.6 0.4.10: Functions for Base Types and Core R and Tidyverse Feat
 dev-R/tibble 3.0.1 3.1.0: Simple Data Frames
 dev-R/tidyselect 1.0.0 1.1.0: Select from a Set of Strings
 dev-R/utf8 1.1.4 1.2.1: Unicode Text Processing
-dev-R/vctrs 0.2.4 0.3.0 0.3.6: Vector Helpers
+dev-R/vctrs 0.3.7: Vector Helpers
 dev-cpp/folly 2020.11.30.00 2021.01.04.00: An open-source C++ library developed and used at Facebook
 dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
 dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging library
@@ -356,27 +356,27 @@ games-util/itch-bin 25.4.0 25.4.1: itch.io game browser, installer and launcher
 games-util/legendary 0.20.5 0.20.6: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.2: A simple GOG client for Linux
 gui-apps/azote 1.8.1 1.8.2 1.9.0 9999: wallpaper manager for wlroots compositors
-gui-apps/coreaction 4.0.0 4.1.0 9999: A side bar for showing widgets for C Suite
-gui-apps/coreapps-meta 4.0.0 4.1.0 9999: Meta package for coreapps
-gui-apps/corearchiver 4.0.0 4.1.0 9999: Archiver for C Suite, to create and extract archives
-gui-apps/corefm 4.0.0-r1 4.1.0 9999: A lightweight file-manager for C Suite
-gui-apps/coregarage 4.0.0 4.1.0 9999: A settings manager for C Suite
-gui-apps/corehunt 4.0.0 4.1.0 9999: A file finder utility for C Suite
-gui-apps/coreimage 4.0.0 4.1.0 9999: An image viewer for C Suite
-gui-apps/coreinfo 4.0.0 4.1.0 9999: A file information tool for C Suite
-gui-apps/corekeyboard 4.0.0 4.1.0 9999: A x11 based virtual keyboard for C Suite
-gui-apps/corepad 4.0.0 4.1.0 9999: A document editor for C Suite
-gui-apps/corepaint 4.0.0 4.1.0 9999: A paint app for C Suite
-gui-apps/corepdf 4.0.0 4.1.0 9999: A PDF viewer for C Suite
-gui-apps/corepins 4.1.0 9999: A bookmarking app for C Suite
-gui-apps/corerenamer 4.0.0 4.1.0 9999: A batch file renamer for C Suite
-gui-apps/coreshot 4.0.0 4.1.0 9999: A screen capture utility for C Suite
-gui-apps/corestats 4.0.0 4.1.0 9999: A system resource viewer for C Suite
-gui-apps/corestuff 4.0.0 4.1.0 9999: An activity viewer for C Suite
-gui-apps/coreterminal 4.0.0 4.1.0 9999: A terminal emulator for C Suite
-gui-apps/coretime 4.0.0 4.1.0 9999: A time related task manager for C Suite
-gui-apps/coretoppings 4.0.0 4.1.0-r1 9999: Additional features, plugins, widgets etc for C Suite
-gui-apps/coreuniverse 4.1.0 9999: Shows information about apps for C Suite
+gui-apps/coreaction 4.0.0 4.1.0 4.2.0_alpha 9999: A side bar for showing widgets for C Suite
+gui-apps/coreapps-meta 4.0.0 4.1.0 4.2.0_alpha 9999: Meta package for coreapps
+gui-apps/corearchiver 4.0.0 4.1.0 4.2.0_alpha 9999: Archiver for C Suite, to create and extract archives
+gui-apps/corefm 4.0.0-r1 4.1.0 4.2.0_alpha 9999: A lightweight file-manager for C Suite
+gui-apps/coregarage 4.0.0 4.1.0 4.2.0_alpha 9999: A settings manager for C Suite
+gui-apps/corehunt 4.0.0 4.1.0 4.2.0_alpha 9999: A file finder utility for C Suite
+gui-apps/coreimage 4.0.0 4.1.0 4.2.0_alpha 9999: An image viewer for C Suite
+gui-apps/coreinfo 4.0.0 4.1.0 4.2.0_alpha 9999: A file information tool for C Suite
+gui-apps/corekeyboard 4.0.0 4.1.0 4.2.0_alpha 9999: A x11 based virtual keyboard for C Suite
+gui-apps/corepad 4.0.0 4.1.0 4.2.0_alpha 9999: A document editor for C Suite
+gui-apps/corepaint 4.0.0 4.1.0 4.2.0_alpha 9999: A paint app for C Suite
+gui-apps/corepdf 4.0.0 4.1.0 4.2.0_alpha 9999: A PDF viewer for C Suite
+gui-apps/corepins 4.1.0 4.2.0_alpha 9999: A bookmarking app for C Suite
+gui-apps/corerenamer 4.0.0 4.1.0 4.2.0_alpha 9999: A batch file renamer for C Suite
+gui-apps/coreshot 4.0.0 4.1.0 4.2.0_alpha 9999: A screen capture utility for C Suite
+gui-apps/corestats 4.0.0 4.1.0 4.2.0_alpha 9999: A system resource viewer for C Suite
+gui-apps/corestuff 4.0.0 4.1.0 4.2.0_alpha 9999: An activity viewer for C Suite
+gui-apps/coreterminal 4.0.0 4.1.0 4.2.0_alpha 9999: A terminal emulator for C Suite
+gui-apps/coretime 4.0.0 4.1.0 4.2.0_alpha 9999: A time related task manager for C Suite
+gui-apps/coretoppings 4.0.0 4.1.0-r1 4.2.0_alpha 9999: Additional features, plugins, widgets etc for C Suite
+gui-apps/coreuniverse 4.1.0 4.2.0_alpha 9999: Shows information about apps for C Suite
 gui-apps/mpvpaper 1.0 1.1 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.4.3 0.4.4 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperdesktop 0_p20210310 9999: Simple, sleek QT based DE for wayland using wayfire
@@ -388,8 +388,8 @@ gui-apps/wdisplays 1.0-r3 9999: GUI display configurator for wlroots compositors
 gui-apps/wev 1.0.0: Wayland event viewer
 gui-apps/wlr-randr 0.1.0 0.2.0 9999: xrandr clone for wlroots compositors
 gui-apps/wofi 1.2.2 1.2.3 1.2.4 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
-gui-libs/libcprime 4.0.0 4.1.0 9999: Library for managing settings of CoreApps
-gui-libs/libcsys 4.0.0 4.1.0 9999: Library for managing the device
+gui-libs/libcprime 4.0.0 4.1.0 4.2.0_alpha 9999: Library for managing settings of CoreApps
+gui-libs/libcsys 4.0.0 4.1.0 4.2.0_alpha 9999: Library for managing the device
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.2.1 9999: A Wayland kiosk
 gui-wm/dwl 0.2: dwm for Wayland
