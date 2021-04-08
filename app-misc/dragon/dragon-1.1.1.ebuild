@@ -5,15 +5,9 @@ EAPI=7
 
 DESCRIPTION="Simple drag-and-drop source/sink for X and Wayland"
 HOMEPAGE="https://github.com/mwh/dragon"
+SRC_URI="https://github.com/mwh/dragon/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/mwh/dragon.git"
-	inherit git-r3
-else
-	SRC_URI="https://github.com/mwh/dragon/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
-fi
-
+KEYWORDS="~amd64"
 LICENSE="GPL-3"
 SLOT="0"
 
