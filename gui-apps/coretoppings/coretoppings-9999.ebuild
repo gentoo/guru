@@ -25,6 +25,7 @@ SLOT="0"
 IUSE="location pulseaudio"
 
 DEPEND="
+	dev-libs/libdbusmenu-qt
 	dev-qt/qtbluetooth:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5

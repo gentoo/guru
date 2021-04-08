@@ -57,6 +57,13 @@ PATCHES=(
 	"${FILESDIR}/${P}-tests.patch"
 )
 
+src_prepare() {
+	# bug 780912
+	sed -i -e 's/check_add_cc_flag("-Werror")//g' CMakeLists.txt || die
+
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
