@@ -7,15 +7,15 @@ inherit cmake xdg
 
 DESCRIPTION="Simple, sleek QT based DE for wayland using wayfire"
 
-HOMEPAGE="https://gitlab.com/cubocore/paper/paperdesktop"
+HOMEPAGE="https://gitlab.com/cubocore/paper/paperde"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://gitlab.com/cubocore/paper/paperdesktop"
+	EGIT_REPO_URI="https://gitlab.com/cubocore/paper/${PN}"
 else
 	COMMIT=65c755306688203ddc32bbc099ba1de03166cde9
-	SRC_URI="https://gitlab.com/cubocore/paper/paperdesktop/-/archive/${COMMIT}/paperdesktop-${COMMIT}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}"/paperdesktop-${COMMIT}
+	SRC_URI="https://gitlab.com/cubocore/paper/${PN}/-/archive/${COMMIT}/paperde-${COMMIT}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}-${COMMIT}"
 	KEYWORDS="~amd64"
 fi
 
