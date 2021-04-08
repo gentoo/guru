@@ -18,6 +18,8 @@ LICENSE="MIT"
 KEYWORDS="~amd64 ~x86 "
 SLOT="0"
 
+RDEPEND="dev-python/attrs[${PYTHON_USEDEP}]"
+
 distutils_enable_tests pytest
 # doc directory is not included in the release tarball for some reason
 #distutils_enable_sphinx doc \
