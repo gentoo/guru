@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake desktop git-r3 xdg-utils
+inherit xdg cmake desktop git-r3
 
 DESCRIPTION="Fast Sony PlayStation (PSX) emulator"
 HOMEPAGE="https://github.com/stenzek/duckstation"
@@ -92,12 +92,4 @@ src_install() {
 		doins "${BUILD_DIR}"/bin/duckstation-qt
 		fperms +x /opt/${PN}/duckstation-qt
 	fi
-}
-
-pkg_postinst() {
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
 }
