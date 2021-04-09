@@ -29,6 +29,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+QA_FLAGS_IGNORED=".*"
+
 src_prepare() {
 	default
 

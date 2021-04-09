@@ -37,11 +37,17 @@ RDEPEND="
 
 S="${WORKDIR}/${MY_P}-linux-${ARCH}"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-node.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-node.patch" )
 
-DOCS=( README.md ThirdPartyNotices.txt )
+DOCS=( "README.md" "ThirdPartyNotices.txt" )
+
+QA_PREBUILT="
+	/usr/lib/code-server/lib/coder-cloud-agent
+	/usr/lib/code-server/lib/vscode/node_modules/*
+"
+QA_PRESTRIPPED="
+	/usr/lib/code-server/lib/coder-cloud-agent
+"
 
 src_prepare() {
 	default
@@ -64,11 +70,6 @@ src_prepare() {
 
 	# already in /usr/portage/licenses/MIT
 	rm ./LICENSE.txt || die
-
-	if ! use gnome-keyring; then
-		rm -r ./lib/vscode/node_modules/keytar \
-			|| die "failed to remove bundled keytar"
-	fi
 }
 
 src_install() {

@@ -12,7 +12,7 @@ SRC_URI="https://github.com/atom/atom/releases/download/v${PV}/atom-amd64.tar.gz
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="alsa cups ssl test X"
+IUSE="alsa cups nodejs ssl test X"
 RESTRICT="!test? ( test )"
 
 S="${WORKDIR}/atom-${PV}-amd64"
@@ -23,13 +23,16 @@ RDEPEND="
 	app-crypt/libsecret
 	dev-libs/atk
 	dev-libs/nss
+	dev-vcs/git
 	alsa? ( media-libs/alsa-lib )
 	cups? ( net-print/cups )
+	nodejs? ( net-libs/nodejs[npm] )
 	ssl? ( dev-libs/openssl )
 	X? (
 		x11-libs/cairo
 		x11-libs/gdk-pixbuf
 		x11-libs/gtk+
+		x11-libs/libnotify
 		x11-libs/libX11
 		x11-libs/libxcb
 		x11-libs/libXcomposite
@@ -47,13 +50,12 @@ RDEPEND="
 	)
 "
 
-QA_PREBUILT="/opt/atom/*"
+QA_PREBUILT="/opt/atom-bin/*"
+QA_PRESTRIPPED="/opt/atom-bin/resources/*"  # Files are already stripped
 
+DOCS=( resources/LICENSE.md )
 src_prepare(){
 	default
-
-	# Remove useless license files.
-	rm LICENSE LICENSES.chromium.html version
 }
 
 src_install(){
@@ -61,9 +63,20 @@ src_install(){
 	doins -r "${S}"/*
 	dosym ../../opt/"${PN}"/atom "${EPREFIX}"/usr/bin/atom
 	fperms +x /opt/"${PN}"/atom
-	fperms +x /opt/"${PN}"/resources/app/apm/bin/apm
+	if use nodejs; then
+		rm resources/app/apm/bin/npm
+		rm resources/app/apm/BUNDLED_NODE_VERSION
+		#Fix apm to use nodejs binary
+		sed -i "s#\$binDir\/\$nodeBin#\$\(which \$nodeBin\)#" resources/app/apm/bin/apm
+	else
+		fperms +x /opt/"${PN}"/resources/app/apm/bin/npm
+	fi
 	fperms +x /opt/"${PN}"/resources/app/apm/bin/node
-	fperms +x /opt/"${PN}"/resources/app/apm/bin/npm
+	fperms +x /opt/"${PN}"/resources/app/apm/bin/apm
 	make_desktop_entry /opt/${PN}/atom Atom atom Utility
 	doicon atom.png
+
+	einstalldocs
+
+	find "${ED}" -name '*.la' -delete || die
 }

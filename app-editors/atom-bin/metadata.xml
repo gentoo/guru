@@ -8,4 +8,7 @@
 	<upstream>
 		<remote-id type="github">atom/atom</remote-id>
 	</upstream>
+	<use>
+		<flag name="nodejs">Enable nodejs support in USE</flag>
+	</use>
 </pkgmetadata>

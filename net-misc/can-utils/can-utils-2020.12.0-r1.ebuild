@@ -5,8 +5,8 @@ EAPI=7
 
 inherit autotools systemd
 
-DESCRIPTION="CAN userspace utilities and tools"
-HOMEPAGE="https://github.com/linux-can/"
+DESCRIPTION="SocketCAN userspace utilities and tools"
+HOMEPAGE="https://github.com/linux-can/can-utils"
 SRC_URI="https://github.com/linux-can/can-utils/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"

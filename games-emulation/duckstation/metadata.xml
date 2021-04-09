@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>octiabrina@myrvogna.net</email>
+		<name>Octiabrina Terrien-Puig</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">stenzek/duckstation</remote-id>
+	</upstream>
+	<longdescription>
+		DuckStation is a fast emulator of the Sony PlayStation (PSX),
+		focused on playability, speed, and long-term maintainability.
+	</longdescription>
+	<use>
+		<flag name="discord">Enable Discord Rich Presence to show the current game on Discord</flag>
+		<flag name="egl">Enable EGL support</flag>
+		<flag name="evdev">Support EVDev controller interface</flag>
+		<flag name="fbdev">Support FBDev OpenGL contexts</flag>
+		<flag name="gamepad">Link with SDL2 for controller support</flag>
+		<flag name="gbm">Support DRM/KMS OpenGL contexts</flag>
+		<flag name="nogui">Build the NoGUI frontend</flag>
+		<flag name="qt5">Build the QT frontend</flag>
+		<flag name="retroachievements">Build with RetroAchievements supports</flag>
+	</use>
+</pkgmetadata>
