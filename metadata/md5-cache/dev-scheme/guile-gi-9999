@@ -11,4 +11,4 @@ RDEPEND=>=dev-scheme/guile-2.0.9 dev-libs/gobject-introspection x11-libs/gtk+:3[
 RESTRICT=strip test
 SLOT=0
 _eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=288d524a45db1c54d3502015787f5a1e
+_md5_=436604cb0f89c2e4eb383603aeabf385

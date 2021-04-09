@@ -9,4 +9,4 @@ LICENSE=ISC
 RDEPEND=acct-group/_rpki-client acct-user/_rpki-client
 SLOT=0
 SRC_URI=mirror://openbsd/rpki-client/rpki-client-6.8p1.tar.gz
-_md5_=ac1a36486eda8c6ec8e4e176ea9b7bca
+_md5_=50852914586087e775470637c2fb68b9
