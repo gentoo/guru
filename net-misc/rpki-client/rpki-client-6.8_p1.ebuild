@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -35,7 +35,7 @@ src_install() {
 	emake DESTDIR="${D}" BINDIR="/usr/bin" MANDIR="/usr/share/man" install
 	insinto /etc/rpki
 	doins *.tal
-	keedir "/var/cache/rpki-client/"
+	keepdir "/var/cache/rpki-client/"
 	keepdir "/var/db/rpki-client/"
 	fowners -R _rpki-client "/var/db/rpki-client/"
 }
