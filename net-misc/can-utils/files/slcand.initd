@@ -1,6 +1,4 @@
-#!/sbin/runscript
-# Copyright 2013 Brunvoll AS
-
+#!/sbin/openrc-run
 
 start() {
 
