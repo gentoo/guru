@@ -1,0 +1,27 @@
+From 9cec33fdbd7c7bb983d4562ccbb08adf5d7194ec Mon Sep 17 00:00:00 2001
+From: tastytea <tastytea@tastytea.de>
+Date: Fri, 9 Apr 2021 19:54:34 +0200
+Subject: [PATCH] Add *FLAGS.
+
+---
+ src/kristall.pro | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/kristall.pro b/src/kristall.pro
+index 2a8b21e..4193c57 100644
+--- a/src/kristall.pro
++++ b/src/kristall.pro
+@@ -19,6 +19,10 @@ LIBS += -lcrypto
+ # We need iconv on non-linux platforms
+ !linux: LIBS += -liconv
+ 
++QMAKE_CFLAGS = $$(CFLAGS)
++QMAKE_CXXFLAGS = $$(CXXFLAGS)
++QMAKE_LFLAGS = $$(LDFLAGS)
++
+ QMAKE_CFLAGS += -Wno-unused-parameter -Werror=return-type
+ QMAKE_CXXFLAGS += -Wno-unused-parameter -Werror=return-type
+ 
+-- 
+2.26.3
+
