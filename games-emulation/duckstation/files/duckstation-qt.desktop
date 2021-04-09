@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=DuckStation Qt
+GenericName=PlayStation 1 Emulator
+Comment=Fast-ish PlayStation 1 emulator
+Icon=duckstation-qt
+TryExec=/opt/duckstation/duckstation-qt
+Exec=/opt/duckstation/duckstation-qt %f
+Terminal=false
+Categories=Game;Emulator;Qt;
