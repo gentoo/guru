@@ -22,6 +22,8 @@ IUSE=""
 
 RDEPEND="
 	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtdbus:5
 	x11-libs/libXxf86vm
 "
 DEPEND="
@@ -36,12 +38,7 @@ src_configure() {
 src_install() {
 	default
 
-	local sizes="
-	128
-	16
-	32
-	64
-	"
+	local sizes="128 16 32 64"
 	cd ./icons || die
 	for size in ${sizes}; do
 		convert "${size}x${size}ball.ico" "${size}x${size}ball.png" || die
