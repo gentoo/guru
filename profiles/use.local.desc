@@ -116,6 +116,7 @@ net-analyzer/munin-contrib:templates - contrib munin tools
 net-analyzer/munin-contrib:tools - munin contrib tools
 net-im/biboumi:logrotate - Use app-admin/logrotate for rotating logs
 net-im/biboumi:udns - Asynchronously resolve domain names using net-libs/udns
+net-im/ruqola:speech - Enable text-to-speech support
 net-libs/usockets:libuv - Enable bindings to use the libuv dispatcher
 net-misc/megasync:cryptopp - Compile with Crypto++ Library.
 net-misc/megasync:dolphin - Upload your files to your Mega account from Dolphin file manager.

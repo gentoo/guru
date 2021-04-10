@@ -11,4 +11,4 @@ RDEPEND=dev-qt/qtmultimedia:5[widgets] dev-qt/qtsvg:5 dev-qt/qtnetwork:5[ssl]
 SLOT=0
 SRC_URI=https://github.com/MasterQ32/kristall/archive/V0.3.tar.gz -> kristall-0.3.tar.gz
 _eclasses_=xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
-_md5_=2679b914306cf2372ae925e1c08a71dc
+_md5_=86cc2f085dc918fd88e567999be3c63c
