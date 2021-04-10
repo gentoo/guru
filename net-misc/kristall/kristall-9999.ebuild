@@ -27,6 +27,8 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="dev-qt/qtcore" # qmake
 
+PATCHES=( "${FILESDIR}/${PN}-0.3_add_flags.patch" )
+
 src_install() {
 	emake DESTDIR="${D}" INSTALL="install -D" PREFIX="${EPREFIX}/usr" install
 	einstalldocs

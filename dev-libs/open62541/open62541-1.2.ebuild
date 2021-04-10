@@ -52,7 +52,6 @@ RDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${P}-etf.patch"
 	"${FILESDIR}/${P}-headers.patch"
 	"${FILESDIR}/${P}-tests.patch"
 )

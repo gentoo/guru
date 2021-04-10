@@ -21,8 +21,6 @@ RDEPEND="
 	dev-qt/qtsvg:5
 	dev-qt/qtconcurrent:5
 	app-text/cmark
-	dev-libs/tweeny
-	dev-db/lmdb++
 	>=dev-libs/mtxclient-0.4.1
 	dev-cpp/nlohmann_json
 	dev-libs/qtkeychain
@@ -30,6 +28,8 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	dev-libs/spdlog
+	dev-libs/tweeny
+	<dev-db/lmdb++-1.0.0
 "
 BDEPEND="dev-qt/linguist-tools:5"
 

@@ -29,6 +29,7 @@ RDEPEND="
 	x11-libs/libX11
 	x11-libs/libxcb"
 DEPEND="${RDEPEND}
+	dev-qt/qtconcurrent:5
 	kde-frameworks/extra-cmake-modules:5
 "
 BDEPEND="
