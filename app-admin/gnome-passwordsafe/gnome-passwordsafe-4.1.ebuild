@@ -34,13 +34,7 @@ RDEPEND="
 	${DEPEND}
 "
 
-PATCHES=( "${FILESDIR}/${PN}-4.1-meson-install.patch" )
-
-src_prepare() {
-	default
-	# pycryptodomex to pycryptodome conversion
-	sed -i 's/Cryptodome/Crypto/g' passwordsafe/keyfile_generator.py || die
-}
+PATCHES=( "${FILESDIR}/${PN}-4.1.patch" )
 
 src_configure() {
 	local emesonargs=(
@@ -52,7 +46,7 @@ src_configure() {
 
 src_install() {
 	meson_src_install
-	python_doscript /usr/bin/gnome-passwordsafe
+	python_doscript "${ED}"/usr/bin/gnome-passwordsafe
 	python_optimize
 }
 
