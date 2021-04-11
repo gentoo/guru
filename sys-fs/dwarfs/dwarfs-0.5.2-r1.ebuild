@@ -14,13 +14,10 @@ SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS=""
 
-IUSE="python +jemalloc"
+IUSE="python +jemalloc test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-
-#test IUSE disabled because there is no googletest in portage tree at this moment
-#-DWITH_TESTS=$(usex test ON OFF)
 
 PYTHON_REQ_USE="python"
 
@@ -45,6 +42,7 @@ RDEPEND="${PYTHON_DEPS}
 		sys-libs/binutils-libs
 		sys-libs/zlib
 		sys-libs/libunwind
+		test? ( dev-cpp/gtest )
 		!dev-cpp/folly"
 BDEPEND="app-text/ronn
 		dev-util/cmake
@@ -70,6 +68,7 @@ src_configure(){
 	mycmakeargs=(
 		-DUSE_JEMALLOC=$(usex jemalloc ON OFF)
 		-DWITH_PYTHON=$(usex python ON OFF)
+		-DWITH_TESTS=$(usex test ON OFF)
 		-DPREFER_SYSTEM_ZSTD=1
 		-DPREFER_SYSTEM_XXHASH=1
 		-DWITH_LEGACY_FUSE=0
