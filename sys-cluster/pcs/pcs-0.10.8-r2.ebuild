@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7..9} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
-USE_RUBY="ruby25 ruby26"
+USE_RUBY="ruby25 ruby26 ruby27"
 inherit python-single-r1 ruby-ng systemd
 
 DESCRIPTION="Pacemaker/Corosync Configuration System"
@@ -100,6 +100,8 @@ src_install() {
 	if use systemd ; then
 		systemd_newunit "${S}/pcsd/pcsd.service.debian" "pcsd.service"
 		systemd_newunit "${S}/pcsd/pcsd-ruby.service" "pcsd-daemon.service"
+		rm "${D}"/usr/lib/systemd/system/pcsd-ruby.service
+		rm "${D}"/usr/lib/systemd/system/pcsd.service
 	fi
 	# custom service file for openRC
 	newinitd "${FILESDIR}/pcsd.initd" pcsd
