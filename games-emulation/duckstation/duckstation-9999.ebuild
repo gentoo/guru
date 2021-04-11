@@ -71,7 +71,7 @@ src_install() {
 
 	# Binary and resources files must be in same directory – installing in /opt
 	insinto /opt/${PN}
-	doins -r "${BUILD_DIR}"/bin/{database,inputprofiles,resources,shaders}
+	doins -r "${BUILD_DIR}"/bin/{database,inputprofiles,resources,shaders,translations}
 
 	if use nogui; then
 		newicon -s 16 appimage/icon-16px.png duckstation-nogui
