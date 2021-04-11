@@ -259,3 +259,15 @@ LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD BSL-1.1 CC0-1.0 MI
 SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="mirror"
+
+QA_FLAGS_IGNORED="usr/bin/gleam"
+
+src_configure() {
+	export RUSTFLAGS="${RUSTFLAGS} --cap-lints warn"
+	cargo_src_configure
+}
+
+src_install() {
+	cargo_src_install
+	einstalldocs
+}
