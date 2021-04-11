@@ -81,7 +81,7 @@ src_install(){
 	fperms +x /opt/"${PN}"/resources/app/apm/bin/apm
 
 	doicon atom.png
-	make_desktop_entry "/opt/atom-bin/atom %U" "atom" "atom" \
+	make_desktop_entry "/opt/atom-bin/atom %U" "Atom" "atom" \
 		"GNOME;GTK;Utility;TextEditor;Development;" \
 		"GenericName=Text Editor\nMimeType=text/plain;\nStartupNotify=true\nStartupWMClass=atom"
 
