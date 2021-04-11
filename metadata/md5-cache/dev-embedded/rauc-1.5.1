@@ -1,4 +1,4 @@
-BDEPEND=dev-util/gdbus-codegen virtual/pkgconfig test? ( dev-libs/opensc net-misc/casync sys-fs/mtd-utils sys-fs/squashfs-tools sys-libs/libfaketime ) >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 doc? ( || ( ( dev-lang/python:3.9 dev-python/sphinx[python_targets_python3_9(-),-python_single_target_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/sphinx[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) ( dev-lang/python:3.7 dev-python/sphinx[python_targets_python3_7(-),-python_single_target_python3_7(-)] ) ) )
+BDEPEND=dev-util/gdbus-codegen virtual/pkgconfig test? ( dev-libs/opensc net-misc/casync sys-fs/mtd-utils sys-fs/squashfs-tools sys-libs/libfaketime ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 sys-apps/gawk doc? ( || ( ( dev-lang/python:3.9 dev-python/sphinx[python_targets_python3_9(-),-python_single_target_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/sphinx[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) ( dev-lang/python:3.7 dev-python/sphinx[python_targets_python3_7(-),-python_single_target_python3_7(-)] ) ) )
 DEFINED_PHASES=compile configure prepare setup
 DEPEND=dev-libs/glib:2 dev-libs/openssl:0= json? ( dev-libs/json-glib ) network? ( net-misc/curl ) service? ( sys-apps/dbus )
 DESCRIPTION=Lightweight update client that runs on your Embedded Linux device
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/glib:2 dev-libs/openssl:0= json? ( dev-libs/json-glib ) network
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/rauc/rauc/releases/download/v1.5.1/rauc-1.5.1.tar.xz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	6ff8412ccf96444868b310b0a28973ba	python-utils-r1	3ea803de86891185c7b1db2c0b5bc8c8	python-any-r1	17241a11501065ff3651350040875aa9	docs	5a0235b1127b58fd6bf54a12c8d21657
+_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	79023c161e8f625b0f1823715941c2da	python-utils-r1	3ea803de86891185c7b1db2c0b5bc8c8	python-any-r1	17241a11501065ff3651350040875aa9	docs	5a0235b1127b58fd6bf54a12c8d21657
 _md5_=86bdf2060055876c85e5545374d3b744
