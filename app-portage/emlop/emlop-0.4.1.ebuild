@@ -82,6 +82,8 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="bash-completion zsh-completion fish-completion"
 RESTRICT="mirror"
 
+QA_FLAGS_IGNORED="usr/bin/emlop"
+
 DOCS=( "README.md" "CHANGELOG.md" )
 
 src_install() {
