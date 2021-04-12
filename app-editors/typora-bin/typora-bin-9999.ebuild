@@ -35,7 +35,6 @@ src_install() {
 	fperms 0755 /opt/Typora-linux-x64/Typora
 	fperms 4755 /opt/Typora-linux-x64/chrome-sandbox
 	domenu /usr/share/applications/
-	doins "${FILESDIR}/Typora.desktop"
 }
 
 pkg_postinst() {
