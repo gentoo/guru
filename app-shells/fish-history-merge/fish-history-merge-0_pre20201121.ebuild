@@ -4,7 +4,7 @@
 EAPI="7"
 COMMIT="7e415b8ab843a64313708273cf659efbf471ad39"
 
-DESCRIPTION="This is a fish plugin that modifies built-in up-or-search command to merge the command history"
+DESCRIPTION="Plugin that modifies built-in up-or-search command to merge the command history"
 HOMEPAGE="https://github.com/2m/fish-history-merge"
 SRC_URI="https://github.com/2m/fish-history-merge/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
