@@ -33,11 +33,13 @@ app-backup/timeshift 20.11.1: A system restore utility for Linux
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/reop 2.1.1: reasonable expectation of privacy
-app-editors/atom-bin 1.55.0-r3: A hackable text editor for the 21st Century
+app-crypt/tomb 2.9: Tomb :: File Encryption on GNU/Linux
+app-editors/atom-bin 1.55.0-r4: A hackable text editor for the 21st Century
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
+app-editors/typora-bin 9999: a markdown editor,markdown reader.
 app-editors/visual-studio-code-bin 1.54.2 1.55.0: Multiplatform Visual Studio Code from Microsoft
 app-editors/vscodium-bin 1.53.1 1.53.2 1.54.3: Free/Libre Open Source Software Binaries of VSCode
 app-emacs/flycheck 31: On the fly syntax checking for GNU Emacs
@@ -50,7 +52,7 @@ app-misc/apidb 4.3.0_beta 5.0.0_alpha 5.0.0_alpha8 5.0.0_alpha19 5.0.0_alpha20 5
 app-misc/brightness-control 2.0_p20210331: Qt Brightness Controller in Python
 app-misc/brightnessctl 0.5.1: A program to read and control device brightness
 app-misc/cheat 4.0.2 4.2.0 4.2.0-r2: cheat allows you to create and view interactive cheatsheets on the command-line
-app-misc/cpufetch 0.94_p20210406: Simplistic yet fancy CPU architecture fetching tool
+app-misc/cpufetch 0.94_p20210409: Simplistic yet fancy CPU architecture fetching tool
 app-misc/ddcui 0.1.2: Graphical user interface for ddcutil - control monitor settings
 app-misc/doublecmd-bin 0.9.10: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1: Simple drag-and-drop source/sink for X and Wayland
@@ -73,7 +75,7 @@ app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the c
 app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20181120 0_pre20201102: vrms clone for Gentoo Linux
-app-misc/watchexec 1.14.1: Executes commands in response to file modifications
+app-misc/watchexec 1.14.1 1.15.0: Executes commands in response to file modifications
 app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
 app-office/openoffice-bin 4.1.9: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.4 1.99.5 9999: Pyspread is a non-traditional spreadsheet written in Python
@@ -86,6 +88,7 @@ app-portage/version 0.6.1_alpha 0.6.2_alpha 0.9.0_alpha 0.9.1_alpha 0.10.0_alpha
 app-shells/antibody 6.1.0 6.1.1: Fast Zsh plugin manager
 app-shells/fish-agnoster-theme 0.1.0_p20200415: Fancy, colorful theme with support for Powerline fonts
 app-shells/fish-command-timer 0.1.3 0.1.3_p20201002: Fish shell extension for printing execution time for each command
+app-shells/fish-history-merge 0_pre20201121: This is a fish plugin that modifies built-in up-or-search command to merge the command history
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
 app-shells/ohmyzsh 9999: A framework for managing your zsh configuration.
@@ -127,6 +130,7 @@ dev-R/tidyselect 1.0.0 1.1.0: Select from a Set of Strings
 dev-R/utf8 1.1.4 1.2.1: Unicode Text Processing
 dev-R/vctrs 0.3.7: Vector Helpers
 dev-cpp/folly 2020.11.30.00 2021.01.04.00: An open-source C++ library developed and used at Facebook
+dev-cpp/gsl-lite 0.38.0: C++ Guideline Support Library implementation
 dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
 dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging library
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
@@ -144,8 +148,8 @@ dev-java/gradle-build-operations 6.8.2: Build automation tool for JVM Languages,
 dev-java/gradle-hashing 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/openjdk-sts-bin 15.0.2_p7: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
-dev-lang/fbc 1.07.1 1.07.2 1.07.2-r1 1.07.2-r2: A free/open source, multi-platform BASIC compiler.
-dev-lang/fbc-bootstrap 1.07.2: Bootstrap package for dev-lang/fbc
+dev-lang/fbc 1.07.1 1.07.2 1.07.2-r1 1.07.2-r2 1.07.3: A free/open source, multi-platform BASIC compiler.
+dev-lang/fbc-bootstrap 1.07.2 1.07.3: Bootstrap package for dev-lang/fbc
 dev-lang/gleam 0.11.2 0.12.0 0.12.1: A statically typed functional language for the BEAM
 dev-lang/quickjs 2020.11.08: Small embeddable Javascript engine
 dev-lang/wren 0.3.0: The Wren Programming Language
@@ -333,8 +337,8 @@ dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your b
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
 dev-vcs/git-repo-updater 0.5.1 0.5.1-r1: Easily update multiple git repositories at once
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
-dev-vcs/gitqlient 1.2.0 1.3.0_beta 1.3.0 9999: Multi-platform Git client written with Qt
-dev-vcs/lazygit 0.25.1 0.26.1 0.27.2 9999: Lazygit, a simple terminal UI for git commands
+dev-vcs/gitqlient 1.3.0 1.3.1 9999: Multi-platform Git client written with Qt
+dev-vcs/lazygit 0.25.1 0.26.1 0.27.2 0.27.3 0.27.4 9999: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 921: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/multimc 0.6.12: An advanced Qt5-based open-source launcher for Minecraft
@@ -467,8 +471,8 @@ net-im/nheko 0.8.0 0.8.1: Desktop client for Matrix using Qt and C++14
 net-im/rocketchat-desktop-bin 3.1.1: The Ultimate Open Source Web Chat Platform
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
 net-im/srain 1.1.1 1.1.3: Modern, beautiful IRC client written in GTK+ 3
-net-libs/kcgi 0.12.3 9999: minimal CGI library for web applications
-net-libs/usockets 0.6.0_p20210126 0.7.1 9999: tiny eventing, networking & crypto for async applications
+net-libs/kcgi 0.12.3 0.12.4 9999: minimal CGI library for web applications
+net-libs/usockets 0.7.1_p20210214 9999: tiny eventing, networking & crypto for async applications
 net-mail/remail 0.9: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.4.1 1.4.2 1.5.0: FORT validator is an open source RPKI validator
 net-misc/amfora 1.8.0: A fancy terminal browser for the Gemini protocol.
@@ -483,7 +487,7 @@ net-misc/lyricwikia 0.1.11-r1: Python API to get song lyrics from LyricWikia
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/openbgpd 6.6_p0 6.7_p0 6.8_p0 9999: OpenBGPD is a free implementation of BGPv4
-net-misc/purritobin 0.4.2 0.5.0 9999: minimalistic commandline pastebin
+net-misc/purritobin 0.5.2 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
 net-misc/rtv 1.27.0: Browse Reddit from your terminal
 net-misc/tinyssh 20190101: A small SSH server with state-of-the-art cryptography
@@ -514,13 +518,14 @@ sci-libs/ann 1.1.2_p7: A Library for Approximate Nearest Neighbor Searching
 sci-libs/chaco 2.2: Software for Partitioning Graphs
 sci-libs/jdqz 0_pre19971107-r1 0_pre19971107-r2: Jacobi-Davidson type method for the generalized standard eigenvalue problem.
 sci-libs/kissfft 131 9999: A Fast Fourier Transform (FFT) library that tries to Keep it Simple, Stupid
-sci-libs/meschach 1.2b: Meschach is a C-language library of routines for performing matrix computations.
+sci-libs/meschach 1.2b: Meschach is a C-language library of routines for performing matrix computations
 sci-libs/saclib 2.2.7-r1 2.2.7-r2: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
 sci-mathematics/frama-c 22.0: Framework for analysis of source codes written in C
 sci-mathematics/why3 1.3.3 1.4.0: Platform for deductive program verification
 sci-physics/SU2 7.1.1: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
+sys-apps/dool 0.8_pre20191010 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
 sys-apps/drm_info 2.2.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3 0.5.4: A more intuitive version of du
 sys-apps/hex 0.3.2 0.4.0 0.4.1: Futuristic take on hexdump
@@ -536,7 +541,7 @@ sys-boot/bmaptools 3.6: Bmaptool is a tool for creating and copyng files using b
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-cluster/AXL 0.3.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
-sys-cluster/KVTree 1.1.0: KVTree provides a fully extensible C data structure modeled after Perl hashes
+sys-cluster/KVTree 1.1.0 1.1.1: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/dlb 2.1-r1: Dynamically react to application imbalance by modifying the number of resources
 sys-cluster/er 0.0.3: High-level distributed erasure coding lib combining shuffile and redset
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
@@ -547,7 +552,7 @@ sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-fs/btrfs-heatmap 9: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
-sys-fs/dwarfs 0.4.1 0.5.2: A fast very high compression read-only FUSE file system
+sys-fs/dwarfs 0.4.1 0.5.4: A fast very high compression read-only FUSE file system
 sys-fs/erofs-utils 1.1 1.2 1.2.1 9999: Userspace tools for EROFS images
 sys-fs/gcsfuse 0.34.1: A user-space file system for interacting with Google Cloud Storage
 sys-fs/gfs2-utils 3.2.0 3.3.0: Shared-disk cluster file system
@@ -560,17 +565,17 @@ sys-libs/nss-tls 1.0 1.1 9999: A DNS over HTTPS resolver for glibc
 sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC security key
 sys-power/ZenStates-Linux 0_p20170507: Dynamically edit AMD Ryzen processor P-States
 sys-power/disable-c6 0_p20190603: disable the C6 state upon system boot, preventing Ryzen freezes
-sys-power/gwe 0.15.2: NVIDIA settings alternative with overclocking, fan control, and information
+sys-power/gwe 0.15.3: NVIDIA settings alternative with overclocking, fan control, and information
 sys-process/bottom 0.5.7: A graphical process/system monitor with a customizable interface
 sys-process/gotop 4.1.1: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/iotop-c 1.17: top utility for IO (C port)
 sys-process/nvtop 1.1.0 9999: NVIDIA GPUs htop like monitoring tool
 www-apps/code-server-bin 3.9.1 3.9.2 3.9.3: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
-www-apps/jackett-bin 0.17.456: API Support for your favorite torrent trackers
+www-apps/jackett-bin 0.17.866: API Support for your favorite torrent trackers
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/twint 2.1.20 2.1.20-r1: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
-www-apps/uwebsockets 18.23.0 9999: ultra fast, simple, secure & standards compliant web I/O
+www-apps/uwebsockets 19.1.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.0.3 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/browsh-bin 1.6.4: A fully-modern text-based browser, rendering to TTY and browsers
 www-client/torbrowser-launcher 0.3.3 9999: A program to download, updated, and run the Tor Browser Bundle

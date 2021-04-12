@@ -1,0 +1,10 @@
+DEFINED_PHASES=install
+DESCRIPTION=This is a fish plugin that modifies built-in up-or-search command to merge the command history
+EAPI=7
+HOMEPAGE=https://github.com/2m/fish-history-merge
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=app-shells/fish
+SLOT=0
+SRC_URI=https://github.com/2m/fish-history-merge/archive/7e415b8ab843a64313708273cf659efbf471ad39.tar.gz -> fish-history-merge-0_pre20201121.tar.gz
+_md5_=59faa1283b72dd4ac00aef4b6e55b443

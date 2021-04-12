@@ -1,0 +1,12 @@
+DEFINED_PHASES=install postinst unpack
+DESCRIPTION=a markdown editor,markdown reader.
+EAPI=7
+HOMEPAGE=https://typora.io
+INHERIT=xdg-utils desktop
+KEYWORDS=~amd64
+LICENSE=Typora-EULA
+RDEPEND=x11-libs/libXScrnSaver
+SLOT=0
+SRC_URI=https://typora.io/linux/Typora-linux-x64.tar.gz -> typora-9999-linux-x64.tar.gz
+_eclasses_=xdg-utils	ff2ff954e6b17929574eee4efc5152ba	desktop	c0d27bf73aa08ca05b663dbd31fbef28
+_md5_=9534c144bb07ecd344579623e0599d09
