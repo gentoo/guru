@@ -16,16 +16,12 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
-IUSE="python +jemalloc"
+IUSE="python +jemalloc test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-
-#test IUSE disabled because there is no googletest in portage tree at this moment
-#-DWITH_TESTS=$(usex test ON OFF)
 
 PYTHON_REQ_USE="python"
 
-DEPEND="sys-devel/flex
-		sys-devel/binutils:*"
+DEPEND="sys-devel/flex"
 RDEPEND="${PYTHON_DEPS}
 		dev-libs/boost[context,threads,python?]
 		dev-libs/double-conversion
@@ -47,6 +43,7 @@ RDEPEND="${PYTHON_DEPS}
 		sys-libs/libunwind
 		!dev-cpp/folly"
 BDEPEND="app-text/ronn
+		test? ( dev-cpp/gtest )
 		dev-util/cmake
 		sys-apps/sed
 		sys-devel/bison
@@ -70,8 +67,10 @@ src_configure(){
 	mycmakeargs=(
 		-DUSE_JEMALLOC=$(usex jemalloc ON OFF)
 		-DWITH_PYTHON=$(usex python ON OFF)
+		-DWITH_TESTS=$(usex test ON OFF)
 		-DPREFER_SYSTEM_ZSTD=1
 		-DPREFER_SYSTEM_XXHASH=1
+		-DPREFER_SYSTEM_GTEST=1
 		-DWITH_LEGACY_FUSE=0
 	)
 	if use python; then mycmakeargs+=( -DWITH_PYTHON_VERSION=${EPYTHON#python} ); fi
@@ -81,7 +80,7 @@ src_configure(){
 
 src_install(){
 	cmake_src_install
-	dolib.so libmetadata_thrift.so libthrift_light.so
+	dolib.so libmetadata_thrift.so libthrift_light.so libdwarfs.so libfsst.so
 	dolib.so folly/libfolly.so.0.58.0-dev folly/libfolly.so
 }
 

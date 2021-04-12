@@ -10,8 +10,7 @@ MY_PN="GitQlient"
 DESCRIPTION="Multi-platform Git client written with Qt"
 HOMEPAGE="https://github.com/francescmm/GitQlient"
 
-#EGIT_BRANCH="develop"
-EGIT_SUBMODULES=( QLogger )
+EGIT_BRANCH="develop"
 EGIT_REPO_URI="https://github.com/francescmm/${MY_PN}.git"
 SRC_URI=""
 KEYWORDS=""
@@ -24,7 +23,6 @@ DEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
-	dev-qt/qtsvg:5
 	dev-qt/qtwebchannel:5
 	dev-qt/qtwebengine:5[widgets]
 	dev-qt/qtwidgets:5

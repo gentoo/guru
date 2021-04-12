@@ -3,7 +3,7 @@
 
 EAPI=7
 
-COMMIT="ec2ad4fef60b0e26f40b818a3968de7e83fb466c"
+COMMIT="8f2f3d3a1652b87162f763a88a5070cf25c2e6d7"
 DESCRIPTION="Simplistic yet fancy CPU architecture fetching tool"
 HOMEPAGE="https://github.com/Dr-Noob/cpufetch"
 SRC_URI="https://github.com/Dr-Noob/cpufetch/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/Dr-Noob/cpufetch/archive/${COMMIT}.tar.gz -> ${P}.ta
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-PATCHES=( "${FILESDIR}/makefile.patch" )
+PATCHES=( "${FILESDIR}/makefile-${PV}.patch" )
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 src_install() {

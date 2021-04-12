@@ -12,9 +12,10 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/uNetworking/uSockets.git"
 else
-	SRC_URI="https://github.com/uNetworking/uSockets/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	COMMIT=5440dbac79bd76444175b76ee95dfcade12a6aac
+	SRC_URI="https://github.com/uNetworking/uSockets/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm64 ~x86"
-	S="${WORKDIR}/uSockets-${PV}"
+	S="${WORKDIR}/uSockets-${COMMIT}"
 fi
 
 LICENSE="Apache-2.0"

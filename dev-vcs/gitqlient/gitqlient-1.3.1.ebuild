@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -23,7 +23,8 @@ DEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
-	dev-qt/qtsvg:5
+	dev-qt/qtwebchannel:5
+	dev-qt/qtwebengine:5[widgets]
 	dev-qt/qtwidgets:5
 "
 
@@ -34,7 +35,7 @@ RDEPEND="
 
 src_prepare() {
 	default
-	sed -i -e "/QMAKE_CXXFLAGS/s:-Werror::" "${MY_PN}".pro || die
+	sed -i -e "/QMAKE_CXXFLAGS/s:-Werror::" -e "/^GQ_SHA/d" "${MY_PN}".pro || die
 
 	sed -i -e "s:Office:Development:" "${S}/src/resources/${PN}.desktop" || die
 }

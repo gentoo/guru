@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7..9} )
 
-inherit gnome2-utils meson xdg python-r1
+inherit gnome2-utils meson xdg python-single-r1
 
 DESCRIPTION="A password manager for GNOME"
 HOMEPAGE="https://gitlab.gnome.org/World/PasswordSafe"
@@ -14,14 +14,13 @@ SRC_URI="https://gitlab.gnome.org/World/PasswordSafe/-/archive/${PV}/PasswordSaf
 LICENSE="GPL-2+"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-
 IUSE="debug +introspection"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 S="${WORKDIR}/PasswordSafe-${PV}"
 
 DEPEND="
-	$(python_gen_any_dep '
+	$(python_gen_cond_dep '
 		dev-python/pycryptodome[${PYTHON_USEDEP}]
 		>=dev-python/pykeepass-3.2.0[${PYTHON_USEDEP}]
 	')
@@ -35,23 +34,19 @@ RDEPEND="
 	${DEPEND}
 "
 
-src_prepare() {
-	default
-	# Use python from PATH instead of binary found during install
-	sed -i "s:@PYTHON@:/usr/bin/env python:" passwordsafe.in || die
-	# pycryptodomex to pycryptodome conversion
-	sed -i 's/Cryptodome/Crypto/g' passwordsafe/keyfile_generator.py || die
-}
+PATCHES=( "${FILESDIR}/${PN}-4.1.patch" )
 
 src_configure() {
 	local emesonargs=(
 		-Dprofile=$(usex debug development default)
 	)
+
 	meson_src_configure
 }
 
 src_install() {
 	meson_src_install
+	python_doscript "${ED}"/usr/bin/gnome-passwordsafe
 	python_optimize
 }
 

@@ -27,7 +27,10 @@ RDEPEND="
 	alsa? ( media-libs/alsa-lib )
 	cups? ( net-print/cups )
 	nodejs? ( net-libs/nodejs[npm] )
-	ssl? ( dev-libs/openssl )
+	ssl? (
+		dev-libs/openssl
+		dev-libs/openssl-compat
+	)
 	X? (
 		x11-libs/cairo
 		x11-libs/gdk-pixbuf
@@ -63,18 +66,24 @@ src_install(){
 	doins -r "${S}"/*
 	dosym ../../opt/"${PN}"/atom "${EPREFIX}"/usr/bin/atom
 	fperms +x /opt/"${PN}"/atom
+
 	if use nodejs; then
 		rm resources/app/apm/bin/npm
 		rm resources/app/apm/BUNDLED_NODE_VERSION
+
 		#Fix apm to use nodejs binary
 		sed -i "s#\$binDir\/\$nodeBin#\$\(which \$nodeBin\)#" resources/app/apm/bin/apm
 	else
 		fperms +x /opt/"${PN}"/resources/app/apm/bin/npm
 	fi
+
 	fperms +x /opt/"${PN}"/resources/app/apm/bin/node
 	fperms +x /opt/"${PN}"/resources/app/apm/bin/apm
-	make_desktop_entry /opt/${PN}/atom Atom atom Utility
+
 	doicon atom.png
+	make_desktop_entry "/opt/atom-bin/atom %U" "Atom" "atom" \
+		"GNOME;GTK;Utility;TextEditor;Development;" \
+		"GenericName=Text Editor\nMimeType=text/plain;\nStartupNotify=true\nStartupWMClass=atom"
 
 	einstalldocs
 

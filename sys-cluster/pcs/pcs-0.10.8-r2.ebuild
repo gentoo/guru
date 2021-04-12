@@ -101,6 +101,10 @@ src_install() {
 		systemd_newunit "${S}/pcsd/pcsd.service.debian" "pcsd.service"
 		systemd_newunit "${S}/pcsd/pcsd-ruby.service" "pcsd-daemon.service"
 	fi
+	# Remove Bundled systemd service
+	rm "${D}"/usr/lib/systemd/system/pcsd-ruby.service || die
+	rm "${D}"/usr/lib/systemd/system/pcsd.service || die
+
 	# custom service file for openRC
 	newinitd "${FILESDIR}/pcsd.initd" pcsd
 	newinitd "${FILESDIR}/pcsd-daemon.initd" pcsd-daemon
