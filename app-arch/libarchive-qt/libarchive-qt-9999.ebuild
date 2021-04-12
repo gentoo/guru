@@ -20,6 +20,7 @@ fi
 RESTRICT="test"
 LICENSE="LGPL-3"
 SLOT="0"
+IUSE="static-libs"
 
 DEPEND="
 	app-arch/libarchive[lzma,bzip2,zlib]
@@ -29,3 +30,10 @@ DEPEND="
 	dev-qt/qtgui:5
 "
 RDEPEND="${DEPEND}"
+
+src_configure() {
+	local mycmakeargs=(
+		-DINSTALL_STATIC=$(usex static-libs)
+	)
+	cmake_src_configure
+}
