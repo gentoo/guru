@@ -13,14 +13,10 @@ KEYWORDS="~amd64 ~x86"
 PATCHES=( "${FILESDIR}/makefile.patch" )
 S="${WORKDIR}/Chaco-${PV}"
 
-#src_prepare() {
-#	eapply_user
-#}
-
 src_install() {
-	pushd code
+	pushd code || die
 	emake
-	popd
+	popd || die
 	dobin "exec/chaco"
 	dodoc -r doc/.
 }

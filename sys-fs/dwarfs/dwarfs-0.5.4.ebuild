@@ -17,6 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 IUSE="python +jemalloc test"
+RESTRICT="!test? ( test )"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 PYTHON_REQ_USE="python"
