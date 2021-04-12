@@ -88,7 +88,7 @@ app-portage/version 0.6.1_alpha 0.6.2_alpha 0.9.0_alpha 0.9.1_alpha 0.10.0_alpha
 app-shells/antibody 6.1.0 6.1.1: Fast Zsh plugin manager
 app-shells/fish-agnoster-theme 0.1.0_p20200415: Fancy, colorful theme with support for Powerline fonts
 app-shells/fish-command-timer 0.1.3 0.1.3_p20201002: Fish shell extension for printing execution time for each command
-app-shells/fish-history-merge 0_pre20201121: This is a fish plugin that modifies built-in up-or-search command to merge the command history
+app-shells/fish-history-merge 0_pre20201121: Plugin that modifies built-in up-or-search command to merge the command history
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
 app-shells/ohmyzsh 9999: A framework for managing your zsh configuration.
@@ -515,12 +515,12 @@ sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/verilator 4.200 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/GeographicLib-data 0: Datasets for GeographicLib
 sci-libs/ann 1.1.2_p7: A Library for Approximate Nearest Neighbor Searching
-sci-libs/chaco 2.2: Software for Partitioning Graphs
 sci-libs/jdqz 0_pre19971107-r1 0_pre19971107-r2: Jacobi-Davidson type method for the generalized standard eigenvalue problem.
 sci-libs/kissfft 131 9999: A Fast Fourier Transform (FFT) library that tries to Keep it Simple, Stupid
 sci-libs/meschach 1.2b: Meschach is a C-language library of routines for performing matrix computations
 sci-libs/saclib 2.2.7-r1 2.2.7-r2: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
+sci-mathematics/chaco 2.2: Software for Partitioning Graphs
 sci-mathematics/frama-c 22.0: Framework for analysis of source codes written in C
 sci-mathematics/why3 1.3.3 1.4.0: Platform for deductive program verification
 sci-physics/SU2 7.1.1: SU2: An Open-Source Suite for Multiphysics Simulation and Design
@@ -595,7 +595,7 @@ x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement 
 x11-misc/ksnip 1.8.1: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Window System
-x11-terms/terminus 1.0.135: A terminal for a more modern age
+x11-terms/terminus-bin 1.0.136: A terminal for a more modern age
 x11-themes/arc-darkest-colors 0_pre20200818 0_pre20201112: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
 x11-themes/obsidian-icon-theme 4.15 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
