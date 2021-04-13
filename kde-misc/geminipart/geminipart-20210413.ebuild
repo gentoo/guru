@@ -4,6 +4,7 @@
 EAPI=7
 
 COMMIT="11e93034deaacee8237ac79f46854b15368f1e9c"
+ECM_TEST="forceoptional"
 KFMIN=5.16.0
 QTMIN=5.4.0
 inherit ecm
