@@ -18,7 +18,7 @@ SRC_URI="https://github.com/python-trio/${PN}/archive/${COMMIT}.tar.gz -> ${P}.t
 
 LICENSE="|| ( Apache-2.0 MIT )"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-python/async_generator[${PYTHON_USEDEP}]

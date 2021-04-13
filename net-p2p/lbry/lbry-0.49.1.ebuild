@@ -18,8 +18,11 @@ RDEPEND="
 	dev-libs/libappindicator
 	dev-libs/nss
 	gnome-base/gconf
+	media-libs/alsa-lib
+	net-print/cups
 	x11-libs/libnotify
 	x11-libs/libXtst
+	x11-libs/libXScrnSaver
 "
 
 S="${WORKDIR}"

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit toolchain-funcs
+inherit toolchain-funcs xdg
 
 DESCRIPTION="Full color painting software for Linux for illustration drawing"
 HOMEPAGE="http://azsky2.html.xdomain.jp/soft/azpainter.html"

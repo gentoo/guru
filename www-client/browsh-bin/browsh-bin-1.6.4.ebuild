@@ -15,6 +15,8 @@ KEYWORDS="~amd64"
 
 S="${WORKDIR}"
 
+QA_PREBUILT="*"
+
 src_configure() {
 	unpack_deb "${DISTDIR}"/browsh_"${PV}"_linux_amd64.deb
 }
