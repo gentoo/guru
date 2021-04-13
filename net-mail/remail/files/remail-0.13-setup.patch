@@ -27,7 +27,7 @@ index 000000000000..fede9d368f0a
 +
 +setuptools.setup(
 +    name="remail",
-+    version="0.9",
++    version="0.13",
 +    author="Thomas Gleixner",
 +    author_email="tglx@linutronix.de",
 +    description="A set of tools for crypted mailing lists",
