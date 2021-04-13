@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure install
-DEPEND=dev-qt/qtcore:5 media-libs/alsa-lib virtual/opengl virtual/jack
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 media-libs/alsa-lib virtual/opengl virtual/jack
 DESCRIPTION=Add64 is a realtime additive/subtractive-synthesis softsynth
 EAPI=7
 HOMEPAGE=https://sourceforge.net/projects/add64 http://linuxsynths.com/Add64PatchesDemos/add64.html
@@ -7,8 +7,8 @@ INHERIT=qmake-utils
 IUSE=+presets
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=GPL-3
-RDEPEND=dev-qt/qtcore:5 media-libs/alsa-lib virtual/opengl virtual/jack
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 media-libs/alsa-lib virtual/opengl virtual/jack
 SLOT=0
 SRC_URI=mirror://sourceforge/project/add64/Add64-3.8.0.tar.bz2
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47
-_md5_=092e2648e8aa693def5a42c5bdac74b6
+_md5_=4b31d89de79f23ccfedd33811246928c

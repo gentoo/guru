@@ -25,7 +25,7 @@ app-admin/customrescuecd-x86_64 0.12.0 0.12.1: A system rescue cd or usbstick fo
 app-admin/gnome-passwordsafe 4.0-r1 4.1: A password manager for GNOME
 app-admin/krapplet 0.1.0-r1 0.2.0 0.3.1: Krapplet (keyring applet): a Linux graphical password manager
 app-admin/s-tui 1.0.2 1.1.1 9999: Stress-Terminal UI monitoring tool
-app-arch/libarchive-qt 2.0.2 9999: A Qt based archiving solution with libarchive backend
+app-arch/libarchive-qt 2.0.3 9999: A Qt based archiving solution with libarchive backend
 app-arch/tarlz 0.19-r2: A parallel archiver combining tar and lzip
 app-arch/unalz 0.65-r1: Extract ALZ archives
 app-backup/b2 2.1.0: The command-line tool for BackBlaze's B2 product.
@@ -185,13 +185,13 @@ dev-python/aiosqlite 0.16.0: asyncio bridge to the standard sqlite3 module
 dev-python/aiounittest 1.4.0: Test python asyncio-based code with ease
 dev-python/almost 0.1.5: A helper for approximate comparison
 dev-python/anyio 2.1.0 2.2.0: Compatibility layer for multiple asynchronous event loop implementations
-dev-python/asciimatics 1.11.0 1.12.0 1.13.0 9999: Package for curses-like operations, text UIs and ASCII art animations
+dev-python/asciimatics 1.13.0 9999: Package for curses-like operations, text UIs and ASCII art animations
 dev-python/ascim 0.1.1 9999: Manipulate ASCII art as you would do with raster images
 dev-python/aspectlib 1.5.2: An aspect-oriented programming, monkey-patch and decorators library
 dev-python/asyncpg 0.21.0: A fast PostgreSQL Database Client Library for Python/asyncio.
 dev-python/asyncssh 2.4.2 2.5.0: Asynchronous SSHv2 client and server library
 dev-python/asynctest 0.13.0: Enhance the standard unittest with features for testing asyncio libraries
-dev-python/atomiclong 0.1.1 0.1.1-r1 9999: An AtomicLong type using CFFI.
+dev-python/atomiclong 0.1.1-r1 9999: An AtomicLong type using CFFI.
 dev-python/autoflake 1.3.1 1.4: Removes unused imports and unused variables as reported by pyflakes
 dev-python/azure-storage-blob 12.7.1: Microsoft Azure Blob Storage Client Library for Python
 dev-python/b2sdk 1.2.0: The client library for BackBlaze's B2 product
@@ -217,13 +217,13 @@ dev-python/dateparser 1.0.0: Date parsing library designed to parse dates from H
 dev-python/devtools 0.6.1: Dev tools for python
 dev-python/doxypypy 0.8.8.6: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/factory_boy 3.1.0 3.2.0: A fixtures replacement tool
-dev-python/fake-useragent 0.1.11 0.1.11-r1: Up to date simple useragent faker with real world database
+dev-python/fake-useragent 0.1.11-r1: Up to date simple useragent faker with real world database
 dev-python/geopy 2.0.0 2.1.0: A Geocoding Toolbox for Python
-dev-python/github-sublee-glicko2 0_pre20191010 0_pre20191010-r1: An implementation of the Glicko-2 rating system for Python
+dev-python/github-sublee-glicko2 0_pre20191010-r1: An implementation of the Glicko-2 rating system for Python
 dev-python/glicko2 2.0.0: glicko2 implementation in python
 dev-python/glyphsLib 5.3.0: A library to provide a bridge from Glyphs source files to UFOs
 dev-python/google-cloud-storage 1.36.0: Google Cloud Storage API client library
-dev-python/googletransx 2.4.2 2.4.2-r1: Free Google Translate API for Python. Translates totally free of charge.
+dev-python/googletransx 2.4.2-r1: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/graphene 3.0.0_beta7: GraphQL Framework for Python
 dev-python/graphql-core 3.1.2 3.1.3: GraphQL for Python
 dev-python/graphql-relay 3.0.0: Relay library for graphql-core-next
@@ -254,13 +254,13 @@ dev-python/pdoc3 0.9.2: Auto-generate API documentation for Python projects
 dev-python/pep517 0.9.1: standard API for systems which build Python packages
 dev-python/phx-class-registry 3.0.5: An intersection of the Registry and Factory pattern
 dev-python/portio 0.5: Python low level port I/O for Linux x86
-dev-python/pproxy 2.4.6 2.4.6-r1 2.5 2.7.7: TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio
+dev-python/pproxy 2.5 2.7.7: TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio
 dev-python/promise 2.3.0: Bytecode optimisation using staticness assertions
 dev-python/pure-protobuf 2.0.0-r1 2.0.1: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/py3nvml 0.2.6: Python 3 Bindings for the NVIDIA Management Library
 dev-python/pydbus 0.6.0: Pythonic DBus library
-dev-python/pyfiglet 0.8_p0 0.8_p1 9999: Pure-python FIGlet implementation
-dev-python/pygaljs 1.0.2 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
+dev-python/pyfiglet 0.8_p1 9999: Pure-python FIGlet implementation
+dev-python/pygaljs 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
 dev-python/pygsl 2.3.0: Python interface for the GNU scientific library (gsl)
 dev-python/pyinquirer 1.0.3_p20200708 9999: A Python module for common interactive command line UIs
 dev-python/pyinstaller 4.2: Bundles a Python application and all its dependencies into a single package.
@@ -296,7 +296,7 @@ dev-python/schedule 1.0.0: Python job scheduling for humans
 dev-python/skia-pathops 0.4.1: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/sphinx-argparse 0.2.5: Sphinx extension that automatically documents argparse commands and options
-dev-python/sphinx-autodoc-typehints 1.10.3 1.11.1: Type hints support for the Sphinx autodoc extension
+dev-python/sphinx-autodoc-typehints 1.11.1: Type hints support for the Sphinx autodoc extension
 dev-python/sphinx-tabs 1.3.0: Create tabbed content in Sphinx documentation when building HTML
 dev-python/sphinxcontrib-katex 0.7.1: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-napoleon 0.7: Allow a different format in dosctrings for better clarity
@@ -314,7 +314,7 @@ dev-python/trio-asyncio 0.11.0 0.12.0: a re-implementation of the asyncio mainlo
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/tweepy 3.10.0: An easy-to-use Python library for accessing the Twitter API.
 dev-python/ufo2ft 2.19.1: A bridge from UFOs to FontTool objects
-dev-python/ufoLib2 0.7.1 0.8.0 0.10.0: A UFO font library
+dev-python/ufoLib2 0.8.0 0.10.0: A UFO font library
 dev-python/ufoNormalizer 0.5.2 0.5.3: A tool that will normalize the XML and other data inside of a UFO.
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/watchgod 0.7: Simple, modern file watching and code reload
@@ -335,9 +335,9 @@ dev-util/tokei 12.0.4 12.1.0 12.1.1 12.1.2: Count code, quickly
 dev-util/xdp-tools 1.1.0: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
-dev-vcs/git-repo-updater 0.5.1 0.5.1-r1: Easily update multiple git repositories at once
+dev-vcs/git-repo-updater 0.5.1-r1: Easily update multiple git repositories at once
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
-dev-vcs/gitqlient 1.3.0 1.3.1 9999: Multi-platform Git client written with Qt
+dev-vcs/gitqlient 1.3.0 1.3.1 1.3.2 9999: Multi-platform Git client written with Qt
 dev-vcs/lazygit 0.25.1 0.26.1 0.27.2 0.27.3 0.27.4 9999: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
 games-action/minecraft-launcher 1.6.93 921: An open-world game whose gameplay revolves around breaking and placing blocks
@@ -363,27 +363,27 @@ games-util/itch-bin 25.4.0 25.4.1: itch.io game browser, installer and launcher
 games-util/legendary 0.20.5 0.20.6: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.2: A simple GOG client for Linux
 gui-apps/azote 1.8.1 1.8.2 1.9.0 9999: wallpaper manager for wlroots compositors
-gui-apps/coreaction 4.0.0 4.1.0 4.2.0_alpha 9999: A side bar for showing widgets for C Suite
-gui-apps/coreapps-meta 4.0.0 4.1.0 4.2.0_alpha 9999: Meta package for coreapps
-gui-apps/corearchiver 4.0.0 4.1.0 4.2.0_alpha 9999: Archiver for C Suite, to create and extract archives
-gui-apps/corefm 4.0.0-r1 4.1.0 4.2.0_alpha 9999: A lightweight file-manager for C Suite
-gui-apps/coregarage 4.0.0 4.1.0 4.2.0_alpha 9999: A settings manager for C Suite
-gui-apps/corehunt 4.0.0 4.1.0 4.2.0_alpha 9999: A file finder utility for C Suite
-gui-apps/coreimage 4.0.0 4.1.0 4.2.0_alpha 9999: An image viewer for C Suite
-gui-apps/coreinfo 4.0.0 4.1.0 4.2.0_alpha 9999: A file information tool for C Suite
-gui-apps/corekeyboard 4.0.0 4.1.0 4.2.0_alpha 9999: A x11 based virtual keyboard for C Suite
-gui-apps/corepad 4.0.0 4.1.0 4.2.0_alpha 9999: A document editor for C Suite
-gui-apps/corepaint 4.0.0 4.1.0 4.2.0_alpha 9999: A paint app for C Suite
-gui-apps/corepdf 4.0.0 4.1.0 4.2.0_alpha 9999: A PDF viewer for C Suite
-gui-apps/corepins 4.1.0 4.2.0_alpha 9999: A bookmarking app for C Suite
-gui-apps/corerenamer 4.0.0 4.1.0 4.2.0_alpha 9999: A batch file renamer for C Suite
-gui-apps/coreshot 4.0.0 4.1.0 4.2.0_alpha 9999: A screen capture utility for C Suite
-gui-apps/corestats 4.0.0 4.1.0 4.2.0_alpha 9999: A system resource viewer for C Suite
-gui-apps/corestuff 4.0.0 4.1.0 4.2.0_alpha 9999: An activity viewer for C Suite
-gui-apps/coreterminal 4.0.0 4.1.0 4.2.0_alpha 9999: A terminal emulator for C Suite
-gui-apps/coretime 4.0.0 4.1.0 4.2.0_alpha 9999: A time related task manager for C Suite
-gui-apps/coretoppings 4.0.0 4.1.0-r1 4.2.0_alpha 9999: Additional features, plugins, widgets etc for C Suite
-gui-apps/coreuniverse 4.1.0 4.2.0_alpha 9999: Shows information about apps for C Suite
+gui-apps/coreaction 4.1.0 4.2.0_alpha 4.2.0 9999: A side bar for showing widgets for C Suite
+gui-apps/coreapps-meta 4.1.0 4.2.0_alpha 4.2.0 9999: Meta package for coreapps
+gui-apps/corearchiver 4.1.0 4.2.0_alpha 4.2.0 9999: Archiver for C Suite, to create and extract archives
+gui-apps/corefm 4.0.0-r1 4.1.0 4.2.0_alpha 4.2.0 9999: A lightweight file-manager for C Suite
+gui-apps/coregarage 4.1.0 4.2.0_alpha 4.2.0 9999: A settings manager for C Suite
+gui-apps/corehunt 4.1.0 4.2.0_alpha 4.2.0 9999: A file finder utility for C Suite
+gui-apps/coreimage 4.1.0 4.2.0_alpha 4.2.0 9999: An image viewer for C Suite
+gui-apps/coreinfo 4.1.0 4.2.0_alpha 4.2.0 9999: A file information tool for C Suite
+gui-apps/corekeyboard 4.1.0 4.2.0_alpha 4.2.0 9999: A x11 based virtual keyboard for C Suite
+gui-apps/corepad 4.1.0 4.2.0_alpha 4.2.0 9999: A document editor for C Suite
+gui-apps/corepaint 4.1.0 4.2.0_alpha 4.2.0 9999: A paint app for C Suite
+gui-apps/corepdf 4.1.0 4.2.0_alpha 4.2.0 9999: A PDF viewer for C Suite
+gui-apps/corepins 4.1.0 4.2.0_alpha 4.2.0 9999: A bookmarking app for C Suite
+gui-apps/corerenamer 4.1.0 4.2.0_alpha 4.2.0 9999: A batch file renamer for C Suite
+gui-apps/coreshot 4.1.0 4.2.0_alpha 4.2.0 9999: A screen capture utility for C Suite
+gui-apps/corestats 4.1.0 4.2.0_alpha 4.2.0 9999: A system resource viewer for C Suite
+gui-apps/corestuff 4.1.0 4.2.0_alpha 4.2.0 9999: An activity viewer for C Suite
+gui-apps/coreterminal 4.1.0 4.2.0_alpha 4.2.0 9999: A terminal emulator for C Suite
+gui-apps/coretime 4.1.0 4.2.0_alpha 4.2.0 9999: A time related task manager for C Suite
+gui-apps/coretoppings 4.1.0-r1 4.2.0_alpha 4.2.0 9999: Additional features, plugins, widgets etc for C Suite
+gui-apps/coreuniverse 4.1.0 4.2.0_alpha 4.2.0 9999: Shows information about apps for C Suite
 gui-apps/mpvpaper 1.0 1.1 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.4.3 0.4.4 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperde 0_p20210310 0.1.0_alpha 9999: Simple, sleek QT based DE for wayland using wayfire
@@ -395,8 +395,8 @@ gui-apps/wdisplays 1.0-r3 9999: GUI display configurator for wlroots compositors
 gui-apps/wev 1.0.0: Wayland event viewer
 gui-apps/wlr-randr 0.1.0 0.2.0 9999: xrandr clone for wlroots compositors
 gui-apps/wofi 1.2.2 1.2.3 1.2.4 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
-gui-libs/libcprime 4.0.0 4.1.0 4.2.0_alpha 9999: Library for managing settings of CoreApps
-gui-libs/libcsys 4.0.0 4.1.0 4.2.0_alpha 9999: Library for managing the device
+gui-libs/libcprime 4.1.0 4.2.0_alpha 4.2.0 9999: Library for managing settings of CoreApps
+gui-libs/libcsys 4.1.0 4.2.0_alpha 4.2.0 9999: Library for managing the device
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.2.1 9999: A Wayland kiosk
 gui-wm/dwl 0.2: dwm for Wayland
@@ -411,6 +411,7 @@ media-fonts/source-han-serif 1.001: Pan-CJK OpenType/CFF font family
 media-fonts/symbola 7.17 13.00: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
 media-fonts/unscii 2.0 2.1: Set of bitmapped Unicode fonts based on classic system fonts
 media-fonts/warframe-fonts 0_pre20191111: Fonts from the Warframe game
+media-gfx/akira 0.0.13 9999: Native Linux App for UI and UX Design built in Vala and GTK.
 media-gfx/azpainter 2.1.6 2.1.7: Full color painting software for Linux for illustration drawing
 media-gfx/bonzomatic 2021.03.07 9999: Live shader coding tool and Shader Showdown workhorse
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
@@ -473,7 +474,7 @@ net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
 net-im/srain 1.1.1 1.1.3: Modern, beautiful IRC client written in GTK+ 3
 net-libs/kcgi 0.12.3 0.12.4 9999: minimal CGI library for web applications
 net-libs/usockets 0.7.1_p20210214 9999: tiny eventing, networking & crypto for async applications
-net-mail/remail 0.9: A set of tools for crypted mailing lists
+net-mail/remail 0.13: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.4.1 1.4.2 1.5.0: FORT validator is an open source RPKI validator
 net-misc/amfora 1.8.0: A fancy terminal browser for the Gemini protocol.
 net-misc/can-utils 2020.02.04 2020.12.0-r1 9999-r3: CAN userspace utilities and tools
@@ -531,7 +532,8 @@ sys-apps/dust 0.5.3 0.5.4: A more intuitive version of du
 sys-apps/hex 0.3.2 0.4.0 0.4.1: Futuristic take on hexdump
 sys-apps/procs 0.10.10 0.11.3 0.11.4: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
-sys-apps/rogdrv 0.0.5: ASUS ROG userspace mouse driver for Linux.
+sys-apps/rogdrv 0.0.5_p20210208: ASUS ROG userspace mouse driver for Linux.
+sys-apps/ryzen-stabilizator 0_pre20180309: Small utility to control a few parameters on Ryzen
 sys-apps/sampler 1.1.0: visualizer for shell commands, executions and alerting
 sys-apps/sampler-bin 1.1.0: visualizer for shell commands, executions and alerting
 sys-apps/systemd-bootchart 234: systemd boot performance graphing tool
@@ -547,8 +549,8 @@ sys-cluster/er 0.0.3: High-level distributed erasure coding lib combining shuffi
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
 sys-cluster/pcs 0.10.7 0.10.8 0.10.8-r2: Pacemaker/Corosync Configuration System
 sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on string values
-sys-cluster/redset 0.0.4: Low-level distributed erasure coding lib to protect datasets of MPI applications
-sys-cluster/shuffile 0.0.3: SHUFFILE Shuffle files between processes
+sys-cluster/redset 0.0.4 0.0.5: Low-level distributed erasure coding lib to protect datasets of MPI applications
+sys-cluster/shuffile 0.0.3 0.0.4: SHUFFILE Shuffle files between processes
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-fs/btrfs-heatmap 9: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
@@ -574,7 +576,7 @@ www-apps/code-server-bin 3.9.1 3.9.2 3.9.3: VS Code in the browser (binary versi
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/jackett-bin 0.17.866: API Support for your favorite torrent trackers
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
-www-apps/twint 2.1.20 2.1.20-r1: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
+www-apps/twint 2.1.20-r1: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 19.1.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.0.3 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/browsh-bin 1.6.4: A fully-modern text-based browser, rendering to TTY and browsers
