@@ -17,8 +17,24 @@ KEYWORDS="~amd64"
 
 QA_PREBUILT="/opt/FreeTube/*"
 
-DEPEND="net-print/cups"
-RDEPEND="${DEPEND}"
+RDEPEND="
+	app-accessibility/at-spi2-core
+	dev-libs/atk
+	dev-libs/nss
+	media-libs/alsa-lib
+	media-libs/mesa
+	net-print/cups
+	x11-libs/gdk-pixbuf
+	x11-libs/gtk+:3
+	x11-libs/libdrm
+	x11-libs/libXcomposite
+	x11-libs/libXdamage
+	x11-libs/libXfixes
+	x11-libs/libxkbcommon
+	x11-libs/libXrandr
+	x11-libs/libxshmfence
+	x11-libs/pango
+"
 
 src_configure() {
 	unpack_deb "${DISTDIR}"/freetube_"${PV}"_amd64.deb
