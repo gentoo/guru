@@ -15,7 +15,7 @@ SLOT="0"
 LICENSE="GPL-3"
 KEYWORDS="~amd64"
 
-DEPENDS="
+DEPEND="
 	media-libs/libpng:=
 	media-libs/libsdl2:=
 	media-libs/sdl2-mixer:=
