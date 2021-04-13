@@ -25,7 +25,7 @@ SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="|| ( MIT Apache-2.0 )"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 #too many errors
 RESTRICT="test"
 
