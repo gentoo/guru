@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit xdg-utils desktop
+inherit desktop xdg
 
 DESCRIPTION="a markdown editor,markdown reader."
 HOMEPAGE="https://typora.io"
@@ -20,6 +20,8 @@ RDEPEND="
 	${DEPEND}"
 BDEPEND=""
 
+QA_PREBUILT="*"
+
 src_unpack() {
 	if [ ${A} != "" ]; then
 		unpack ${A}
@@ -34,9 +36,5 @@ src_install() {
 	dosym -r /opt/Typora-linux-x64/Typora /usr/bin/Typora
 	fperms 0755 /opt/Typora-linux-x64/Typora
 	fperms 4755 /opt/Typora-linux-x64/chrome-sandbox
-	domenu /usr/share/applications/
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
+	domenu "${FILESDIR}/Typora.desktop"
 }
