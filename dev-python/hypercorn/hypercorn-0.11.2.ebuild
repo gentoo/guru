@@ -25,7 +25,7 @@ SRC_URI="https://github.com/pgjones/hypercorn/archive/${PV}.tar.gz -> ${P}.tar.g
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-python/h11[${PYTHON_USEDEP}]
