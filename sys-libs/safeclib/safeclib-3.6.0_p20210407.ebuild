@@ -17,12 +17,14 @@ KEYWORDS="~amd64"
 IUSE="+constraint-handler +extensions modules norm-compat +nullslack test unsafe valgrind"
 RESTRICT="!test? ( test )"
 BDEPEND="
+	app-doc/doxygen[dot]
 	valgrind? ( dev-util/valgrind )
 "
 S="${WORKDIR}/${PN}-${MY_REV}"
 
-MODULE_NAMES="slkm(misc:${S}-module:${S}-module/src)"
+MODULE_NAMES="slkm(misc:${S}-module:${S}-module)"
 BUILD_TARGETS="all"
+BUILD_PARAMS="-f Makefile.kernel"
 
 src_prepare() {
 	eautoreconf
@@ -62,11 +64,13 @@ src_compile() {
 
 	if use modules ; then
 		cd "${S}-module" || die
-		linux-mod_src_compile || die
+		linux-mod_src_compile
 	fi
 }
 
 src_install() {
+	# wcsstr towupper towlower manpages collide with sys-apps/man-pages
+	# what to do?
 	default
 	einstalldocs
 	rm -r doc/man || die
@@ -74,7 +78,7 @@ src_install() {
 
 	if use modules ; then
 		cd "${S}-module" || die
-		linux-mod_src_install || die
+		linux-mod_src_install
 	fi
 }
 
