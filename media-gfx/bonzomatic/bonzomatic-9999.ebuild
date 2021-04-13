@@ -31,6 +31,7 @@ DEPEND="
 	virtual/opengl
 	media-libs/alsa-lib
 	media-libs/fontconfig
+	x11-libs/libXinerama
 "
 RDEPEND="${DEPEND}"
 
