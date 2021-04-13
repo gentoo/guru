@@ -3,15 +3,16 @@
 
 EAPI=7
 
+COMMIT="d60b94caae7a4c295c0aefc4415555bb5ba62a3f"
 ECM_HANDBOOK="forceoptional"
 KFMIN=5.38.0
 QTMIN=5.4.0
-inherit ecm git-r3
+inherit ecm
 
 DESCRIPTION="Gemini KIO slave"
 HOMEPAGE="https://invent.kde.org/tobias/kio-gemini"
-EGIT_REPO_URI="https://invent.kde.org/tobias/kio-gemini.git"
-EGIT_COMMIT="d60b94caae7a4c295c0aefc4415555bb5ba62a3f"
+SRC_URI="https://invent.kde.org/tobias/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.gz"
+S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="LGPL-2+"
 SLOT="5"
