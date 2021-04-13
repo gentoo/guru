@@ -3,15 +3,15 @@
 
 EAPI=7
 
+COMMIT="11e93034deaacee8237ac79f46854b15368f1e9c"
 KFMIN=5.16.0
 QTMIN=5.4.0
-ECM_TEST="optional"
-inherit ecm git-r3
+inherit ecm
 
 DESCRIPTION="KPart for viewing text/gemini files"
 HOMEPAGE="https://invent.kde.org/tobias/geminipart"
-EGIT_REPO_URI="https://invent.kde.org/tobias/geminipart.git"
-EGIT_COMMIT="11e93034deaacee8237ac79f46854b15368f1e9c"
+SRC_URI="https://invent.kde.org/tobias/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.gz"
+S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="LGPL-2+"
 SLOT="5"
