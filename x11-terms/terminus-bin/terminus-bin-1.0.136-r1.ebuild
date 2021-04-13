@@ -44,7 +44,7 @@ DEPEND="
 	)
 "
 
-QA_PREBUILT="/opt/terminus/*"
+QA_PREBUILT="/opt/terminus-bin/*"
 
 src_prepare(){
 	default
