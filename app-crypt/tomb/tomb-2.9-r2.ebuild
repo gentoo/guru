@@ -55,6 +55,7 @@ RDEPEND="
 "
 DEPEND="${CDEPEND}"
 BDEPEND="
+	dev-python/markdown
 	dev-python/pygments
 	sys-devel/gettext
 "
