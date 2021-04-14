@@ -3,6 +3,7 @@
 # * generated automatically using pmaint *
 
 app-admin/krapplet:pass - Add support for pass compatible storage
+app-editors/atom-bin:beautify - Install packages for atom-beautify
 app-editors/vscodium-bin:libsecret - Enable libsecret support
 app-misc/apidb:commands - Build commands
 app-misc/apidb:corelibs - Build Abtract layer
