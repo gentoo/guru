@@ -12,7 +12,7 @@ SRC_URI="https://github.com/atom/atom/releases/download/v${PV}/atom-amd64.tar.gz
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="alsa cups nodejs ssl test X"
+IUSE="alsa cups ssl test X"
 RESTRICT="!test? ( test )"
 
 S="${WORKDIR}/atom-${PV}-amd64"
@@ -26,7 +26,6 @@ RDEPEND="
 	dev-vcs/git
 	alsa? ( media-libs/alsa-lib )
 	cups? ( net-print/cups )
-	nodejs? ( net-libs/nodejs[npm] )
 	ssl? (
 		dev-libs/openssl
 		dev-libs/openssl-compat
@@ -67,18 +66,10 @@ src_install(){
 	dosym ../../opt/"${PN}"/atom "${EPREFIX}"/usr/bin/atom
 	fperms +x /opt/"${PN}"/atom
 
-	if use nodejs; then
-		rm resources/app/apm/bin/npm
-		rm resources/app/apm/BUNDLED_NODE_VERSION
-
-		#Fix apm to use nodejs binary
-		sed -i "s#\$binDir\/\$nodeBin#\$\(which \$nodeBin\)#" resources/app/apm/bin/apm
-	else
-		fperms +x /opt/"${PN}"/resources/app/apm/bin/npm
-	fi
-
-	fperms +x /opt/"${PN}"/resources/app/apm/bin/node
+	# I will use only npm provided with package itself
 	fperms +x /opt/"${PN}"/resources/app/apm/bin/apm
+	fperms +x /opt/"${PN}"/resources/app/apm/bin/node
+	fperms +x /opt/"${PN}"/resources/app/apm/bin/npm
 
 	doicon atom.png
 	make_desktop_entry "/opt/atom-bin/atom %U" "Atom" "atom" \
