@@ -13,11 +13,11 @@ if [[ ${PV} == 9999 ]];then
 	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}.git"
 else
-	SRC_URI="${HOMEPAGE}/releases/download/v${PV}/${P}.tar.gz"
+	SRC_URI="https://github.com/caffeine-ng/caffeine-ng/releases/download/v${PV}/${P}.tar.gz"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="GPL-3"
-KEYWORDS="~amd64"
 SLOT="0"
 IUSE=""
 
