@@ -44,7 +44,7 @@ DEPEND="
 	)
 "
 
-QA_PREBUILT="/opt/terminus/*"
+QA_PREBUILT="/opt/terminus-bin/*"
 
 src_prepare(){
 	default
@@ -55,7 +55,9 @@ src_install(){
 	doins -r "${S}"/*
 	dosym ../../opt/"${PN}"/terminus "${EPREFIX}"/usr/bin/terminus
 	fperms +x /opt/"${PN}"/terminus
-	make_desktop_entry /opt/${PN}/terminus Terminus terminus Utility
+	make_desktop_entry "/opt/${PN}/terminus %U" "Terminus" "terminus" \
+		"GNOME;GTK;Utility;" \
+		"GenericName=Terminus\n\nStartupNotify=true\nStartupWMClass=terminus"
 	doicon ../terminus.svg
 	doicon ../terminus.ico
 	for i in {16,24,32,48,64,72,96,128,512}; do

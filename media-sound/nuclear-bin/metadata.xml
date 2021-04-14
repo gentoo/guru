@@ -6,6 +6,6 @@
 		<name>Marco Scardovi</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">atom/atom</remote-id>
+		<remote-id type="github">nukeop/nuclear</remote-id>
 	</upstream>
 </pkgmetadata>
