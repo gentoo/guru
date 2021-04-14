@@ -15,7 +15,3 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~ppc-macos ~x64-macos ~x64-solaris ~x86-solar
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="test"
-RESTRICT="!test? ( test )"
-
-DEPEND="test? ( ${PYTHON_DEPS} )"

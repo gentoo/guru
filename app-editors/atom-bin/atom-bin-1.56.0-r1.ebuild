@@ -12,7 +12,11 @@ SRC_URI="https://github.com/atom/atom/releases/download/v${PV}/atom-amd64.tar.gz
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="alsa cups ssl test X"
+
+# beautify contains packages used by atom-beautify.
+# If you want other plugins to be working please file
+# a bug on bugs.gentoo.org under GURU section.
+IUSE="alsa beautify cups ssl test X"
 RESTRICT="!test? ( test )"
 
 S="${WORKDIR}/atom-${PV}-amd64"
@@ -25,6 +29,12 @@ RDEPEND="
 	dev-libs/nss
 	dev-vcs/git
 	alsa? ( media-libs/alsa-lib )
+	beautify? (
+		dev-python/autopep8
+		dev-python/black
+		dev-util/beautysh
+		dev-util/uncrustify
+		)
 	cups? ( net-print/cups )
 	ssl? (
 		dev-libs/openssl
@@ -52,10 +62,11 @@ RDEPEND="
 	)
 "
 
-QA_PREBUILT="/opt/atom-bin/*"
-QA_PRESTRIPPED="/opt/atom-bin/resources/*"  # Files are already stripped
+QA_PREBUILT="/opt/${PN}/*"
+QA_PRESTRIPPED="/opt/${PN}/resources/*"  # Files are already stripped
 
 DOCS=( resources/LICENSE.md )
+
 src_prepare(){
 	default
 }
@@ -67,6 +78,7 @@ src_install(){
 	fperms +x /opt/"${PN}"/atom
 
 	# I will use only npm provided with package itself
+	# as nodejs is not required to make it working (and it is really big).
 	fperms +x /opt/"${PN}"/resources/app/apm/bin/apm
 	fperms +x /opt/"${PN}"/resources/app/apm/bin/node
 	fperms +x /opt/"${PN}"/resources/app/apm/bin/npm

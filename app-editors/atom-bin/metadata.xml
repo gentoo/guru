@@ -8,4 +8,7 @@
 	<upstream>
 		<remote-id type="github">atom/atom</remote-id>
 	</upstream>
+	<use>
+		<flag name="beautify">Install packages for atom-beautify</flag>
+	</use>
 </pkgmetadata>
