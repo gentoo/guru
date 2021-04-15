@@ -32,6 +32,7 @@ DEPEND="
 	media-libs/alsa-lib
 	media-libs/fontconfig
 	x11-libs/libXinerama
+	x11-libs/libXcursor
 "
 RDEPEND="${DEPEND}"
 
