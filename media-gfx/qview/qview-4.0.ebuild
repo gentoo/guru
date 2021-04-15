@@ -15,9 +15,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
+	dev-qt/qtconcurrent:5
 	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
 	dev-qt/qtnetwork:5
+	dev-qt/qtwidgets:5
 "
 
 RDEPEND="${DEPEND}"
