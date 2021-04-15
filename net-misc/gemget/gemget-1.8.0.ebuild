@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit go-module toolchain-funcs
+inherit go-module
 
 DESCRIPTION="Command line downloader for the Gemini protocol"
 HOMEPAGE="https://github.com/makeworld-the-better-one/gemget"
@@ -51,11 +51,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 src_compile() {
-	emake VERSION="${PV}" COMMIT="unknown"
+	go build -o ${PN} -ldflags="-s -w" || die
 }
 
 src_install() {
-	mkdir -p "${D}${EPREFIX}/usr/bin"
-	emake PREFIX="${D}${EPREFIX}/usr" install
+	dobin ${PN}
 	dodoc README.md
 }
