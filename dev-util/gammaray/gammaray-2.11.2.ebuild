@@ -49,6 +49,8 @@ DEPEND="${RDEPEND}
 src_prepare(){
 	sed -i "/BackwardMacros.cmake/d" CMakeLists.txt || die
 	sed -i "/add_backward(gammaray_core)/d" core/CMakeLists.txt || die
+	# Don't install into deprecated /usr/share/appdata/
+	sed -i "s|/appdata|/metainfo|g" {CMakeLists.txt,gammaray.spec} || die
 	cmake_src_prepare
 }
 
