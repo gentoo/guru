@@ -22,6 +22,7 @@ RDEPEND="
 	dev-libs/libgcrypt
 	dev-libs/nss
 	dev-libs/openssl
+	dev-libs/openssl-compat
 	gnome-base/gconf
 	media-libs/alsa-lib
 	media-libs/libglvnd
