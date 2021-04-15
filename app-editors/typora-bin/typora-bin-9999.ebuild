@@ -33,7 +33,7 @@ src_install() {
 	insinto /opt/
 	doins -r "${S}"
 	newicon "$S/resources/app/asserts/icon/icon_512x512@2x.png" "${PN}.png"
-	dosym /opt/Typora-linux-x64/Typora ../../usr/bin/Typora
+	dosym ../../opt/Typora-linux-x64/Typora /usr/bin/Typora
 	fperms 0755 /opt/Typora-linux-x64/Typora
 	fperms 4755 /opt/Typora-linux-x64/chrome-sandbox
 	domenu "${FILESDIR}/Typora.desktop"

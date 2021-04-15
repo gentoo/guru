@@ -12,7 +12,7 @@ if [[ "${PV}" == 9999 ]]; then
 	EGIT_REPO_URI="git://github.com/akiraux/${PN}.git"
 else
 	SRC_URI="https://github.com/akiraux/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
+	KEYWORDS=""
 	S="${WORKDIR}/${P^}"
 fi
 
@@ -38,7 +38,7 @@ src_prepare(){
 
 src_install(){
 	meson_src_install
-	dosym -r /usr/bin/com.github.akiraux.akira /usr/bin/akira
+	dosym ../../usr/bin/com.github.akiraux.akira /usr/bin/akira
 }
 
 pkg_preinst() {
