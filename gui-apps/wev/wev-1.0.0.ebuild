@@ -18,10 +18,16 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	app-text/scdoc
+	dev-libs/wayland-protocols
+	dev-util/wayland-scanner
 	virtual/pkgconfig
 "
 
-src_install() {
-	export PREFIX="${EPREFIX}/usr"
+src_prepare() {
 	default
+	# Respect LDFLAGS
+	# Install to /usr/ not /usr/local/
+	sed -e 's/$(LIBS)/$(LIBS) $(LDFLAGS)/' \
+		-e 's/local//' \
+		-i Makefile || die
 }

@@ -14,21 +14,22 @@ SRC_URI="https://github.com/rurban/safeclib/archive/${MY_REV}.tar.gz -> ${P}.tar
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+constraint-handler +extensions modules norm-compat +nullslack test unsafe valgrind"
+IUSE="+constraint-handler doc +extensions modules norm-compat +nullslack test unsafe valgrind"
 RESTRICT="!test? ( test )"
+
 BDEPEND="
-	app-doc/doxygen[dot]
+	doc? ( app-doc/doxygen[dot] )
 	valgrind? ( dev-util/valgrind )
 "
-S="${WORKDIR}/${PN}-${MY_REV}"
 
+S="${WORKDIR}/${PN}-${MY_REV}"
 MODULE_NAMES="slkm(misc:${S}-module:${S}-module)"
 BUILD_TARGETS="all"
-BUILD_PARAMS="-f Makefile.kernel"
+BUILD_PARAMS="-f Makefile.kernel V=1"
 
 src_prepare() {
-	eautoreconf
 	default
+	eautoreconf
 
 	if use modules ; then
 		#duplicate the working folder
@@ -44,13 +45,16 @@ src_configure() {
 		--disable-static
 		--disable-valgrind-sgcheck
 		--enable-shared
+		--disable-Werror
 		$(use_enable constraint-handler)
+		$(use_enable doc)
 		$(use_enable extensions)
 		$(use_enable norm-compat)
 		$(use_enable nullslack)
 		$(use_enable unsafe)
 		$(use_enable valgrind)
 	)
+
 	econf "${myconf[@]}" --enable-wchar
 
 	if use modules ; then
@@ -64,6 +68,7 @@ src_compile() {
 
 	if use modules ; then
 		cd "${S}-module" || die
+		export src="${S}-module"
 		linux-mod_src_compile
 	fi
 }
@@ -73,8 +78,7 @@ src_install() {
 	# what to do?
 	default
 	einstalldocs
-	rm -r doc/man || die
-	dodoc -r doc/.
+	use doc && dodoc -r doc/.
 
 	if use modules ; then
 		cd "${S}-module" || die

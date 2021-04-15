@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>linobigatti@protonmail.com</email>
+		<name>Lino Bigatti</name>
+	</maintainer>
+	<longdescription>
+		Neko project 2 kai (np2kai for short) is a PC-9801 emulator
+		written in C and C++. It allows for i286, ia32 and haxm emulation.
+		It is based on Neko project II.
+	</longdescription>
+	<use>
+		<flag name="sdl">
+			Use <pkg>media-libs/libsdl</pkg> over <pkg>media-libs/libsdl2</pkg>
+		</flag>
+		<flag name="i286">
+			Enable i286 emulation.
+			USE="ia32" or USE="haxm" will disable it, 
+			unless all 3 emulation USE flags are set
+		</flag>
+		<flag name="ia32">Enable ia32 emulation</flag>
+		<flag name="haxm">Enable haxm emulation</flag>
+	</use>
+</pkgmetadata>

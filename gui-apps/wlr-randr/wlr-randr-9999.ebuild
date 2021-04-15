@@ -27,3 +27,8 @@ BDEPEND="
 	dev-libs/wayland-protocols
 	virtual/pkgconfig
 "
+
+src_prepare() {
+	default
+	sed -i 's/werror=true/werror=false/' meson.build || die
+}

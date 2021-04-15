@@ -32,8 +32,8 @@ src_compile() {
 }
 
 src_install() {
-	java-pkg_newjar "${DISTDIR}/${P}.jar" ${P}.jar
-	java-pkg_dolauncher ${PN} --jar ${P}.jar --java_args "\${JAVA_OPTS}"
+	java-pkg_newjar "${DISTDIR}/${P}.jar" ${PN}.jar
+	java-pkg_dolauncher ${PN} --jar ${PN}.jar --java_args "\${JAVA_OPTS}"
 
 	newicon -s 16x16 ${PN}-0.png technic.png
 	newicon -s 32x32 ${PN}-1.png technic.png

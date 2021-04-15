@@ -3,9 +3,14 @@
 
 EAPI="7"
 
+inherit qmake-utils
+
 MYP="${P^}"
 DESCRIPTION="Tomb :: File Encryption on GNU/Linux"
-HOMEPAGE="https://www.dyne.org/software/tomb"
+HOMEPAGE="
+	https://www.dyne.org/software/tomb
+	https://github.com/dyne/Tomb
+"
 SRC_URI="https://files.dyne.org/tomb/releases/Tomb-${PV}.tar.gz"
 LICENSE="
 	GPL-3
@@ -13,8 +18,8 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="~amd64"
-#todo extras/desktop extras/qt-tray extras/kdf
-IUSE="gui test"
+#todo extras/desktop
+IUSE="gui test tray"
 #test require sudo, can't be done non interactively
 RESTRICT="test"
 PATCHES=( "${FILESDIR}/gtomb.patch" )
@@ -33,7 +38,14 @@ DOCS=(
 	doc/tomb_manpage.pdf
 )
 S="${WORKDIR}/${MYP}"
+CDEPEND="
+	dev-libs/libgcrypt
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
+"
 RDEPEND="
+	${CDEPEND}
 	app-admin/sudo
 	app-crypt/gnupg
 	app-crypt/pinentry
@@ -41,13 +53,27 @@ RDEPEND="
 	sys-fs/cryptsetup
 	gui? ( gnome-extra/zenity )
 "
+DEPEND="${CDEPEND}"
 BDEPEND="
+	dev-python/markdown
 	dev-python/pygments
 	sys-devel/gettext
 "
+
 src_compile() {
 	export PREFIX="${EPREFIX}/usr"
 	emake
+
+	pushd extras/kdf-keys || die
+	emake all
+	popd || die
+
+	if use tray ; then
+		pushd extras/qt-tray || die
+		eqmake5
+		emake all
+		popd || die
+	fi
 
 	#translations
 	pushd extras/translations || die
@@ -65,24 +91,37 @@ src_install() {
 	#translations
 	export PREFIX="${ED}/usr"
 	pushd extras/translations || die
-	emake install
+	emake
 	popd || die
 
 	#zenity gui
 	if use gui ; then
-	pushd extras/gtomb || die
-	dobin gtomb
-	newdoc README.md README-gtomb
-	popd || die
+		pushd extras/gtomb || die
+		dobin gtomb
+		newdoc README.md README-gtomb
+		popd || die
 	fi
+
+	if use tray ; then
+		pushd extras/qt-tray || die
+		dobin tomb-qt-tray
+		popd || die
+	fi
+
+	pushd extras/kdf-keys || die
+	emake install
+	popd || die
 
 	#documentation
 	einstalldocs
 	cd doc/literate || die
-	insinto "/usr/share/doc/${P}/html"
+	insinto "/usr/share/doc/${PF}/html"
 	doins -r *.html *.css public
 }
 
 src_test() {
+	emake test
+
+	pushd extras/kdf-keys || die
 	emake test
 }
