@@ -10,4 +10,4 @@ RDEPEND=x11-libs/libXScrnSaver
 SLOT=0
 SRC_URI=https://typora.io/linux/Typora-linux-x64.tar.gz -> typora-9999-linux-x64.tar.gz
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
-_md5_=3dd22d31da4f338d77d5cb31d4ba727d
+_md5_=1df3a73524ab9e06e0992eeac82ab55d

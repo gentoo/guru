@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install prepare test
+DEPEND=dev-erlang/cowlib dev-lang/erlang:= dev-util/rebar >=sys-apps/gawk-4.1
+DESCRIPTION=Small, fast, modern HTTP server for Erlang/OTP.
+EAPI=6
+HOMEPAGE=https://github.com/ninenines/cowboy
+INHERIT=rebar
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-erlang/cowlib =dev-erlang/ranch-1.7.1* dev-lang/erlang:=
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/ninenines/cowboy/archive/2.8.0.tar.gz -> cowboy-2.8.0.tar.gz
+_eclasses_=rebar	43c151aeda0dc4bf44b59e949df136aa
+_md5_=72e3063485ba1df3ec6d92c975b4a166

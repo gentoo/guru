@@ -3,6 +3,7 @@
 # * generated automatically using pmaint *
 
 app-admin/krapplet:pass - Add support for pass compatible storage
+app-crypt/tomb:tray - add a tomb tray in a QT desktop toolbar
 app-editors/atom-bin:beautify - Install packages for atom-beautify
 app-editors/vscodium-bin:libsecret - Enable libsecret support
 app-misc/apidb:commands - Build commands
@@ -67,6 +68,10 @@ games-emulation/duckstation:gbm - Support DRM/KMS OpenGL contexts
 games-emulation/duckstation:nogui - Build the NoGUI frontend
 games-emulation/duckstation:qt5 - Build the QT frontend
 games-emulation/duckstation:retroachievements - Build with RetroAchievements supports
+games-emulation/np2kai:haxm - Enable haxm emulation
+games-emulation/np2kai:i286 - Enable i286 emulation. USE="ia32" or USE="haxm" will disable it, unless all 3 emulation USE flags are set
+games-emulation/np2kai:ia32 - Enable ia32 emulation
+games-emulation/np2kai:sdl - Use media-libs/libsdl over media-libs/libsdl2
 games-fps/crispy-doom:midi - Basic support for MIDI files
 games-fps/crispy-doom:truecolor - Enable true-color rendering (experimental)
 gui-apps/azote:imagemagick - enable colorpicker using imagemagick
@@ -74,6 +79,7 @@ gui-apps/azote:simple-colorpicker - enable colorpicker without imagemagick
 gui-apps/azote:yaml - enable support for reading yaml files
 gui-apps/coreapps-meta:location - Enable location discovery
 gui-apps/coretoppings:location - Enable location discovery
+gui-apps/foot:ime - Enable IME support
 gui-apps/nwg-launchers:bar - Installs nwgbar, a horizontal or vertical button bar.
 gui-apps/nwg-launchers:dmenu - Installs nwgdmenu, GTK dynamic menu windows.
 gui-apps/nwg-launchers:grid - Installs nwggrid, a GNOME-like application grid.
@@ -91,6 +97,7 @@ media-gfx/bonzomatic:system-stb - Use the systems installed version of STB (upst
 media-gfx/glimpse:heif - Enable support for ISO/IEC 23008-12:2017 HEIF files
 media-gfx/glimpse:vector-icons - Enable support for vector icons (experimental)
 media-gfx/grafx2:ttf - Install TTF Fonts
+media-libs/fcft:text-shaping - Support text shaping using HarfBuzz
 media-libs/gl4es:egl - Enable EGL support.
 media-libs/libbpg:bpgview - Compile bpgview (media-libs/libsdl and media-libs/sdl-image needed)
 media-libs/libbpg:emcc - Enable compilation of Javascript decoder with Emscripten
