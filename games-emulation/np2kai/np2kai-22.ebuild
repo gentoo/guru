@@ -26,7 +26,7 @@ DEPEND="sys-libs/glibc
 	media-libs/libsdl2
 	!sdl? ( media-libs/sdl2-mixer )
 	media-libs/sdl2-ttf
-	virtual/libusb
+	virtual/libusb:1
 	x11-base/xorg-server
 	x11-libs/gtk+:2"
 
@@ -38,7 +38,7 @@ BDEPEND="sys-devel/gcc
 S=${WORKDIR}/NP2kai-rev.${PV}/x11
 
 src_configure() {
-	bash ${S}/autogen.sh
+	bash "${S}/autogen.sh"
 	sdlconf=$(usex sdl "--enable-sdl --enable-sdlmixer --enable-sdlttf
 						--disable-sdl2 --disable-sdl2mixer --disable-sdl2ttf" \
 						"--enable-sdl2 --enable-sdl2mixer --enable-sdl2ttf
@@ -51,7 +51,7 @@ src_configure() {
 }
 
 pkg_postinst() {
-	if [ "${features}" = "--enable-build-all" ] ; then 
+	if [ "${features}" = "--enable-build-all" ] ; then
 		cfgname="{xnp2kai, xnp21kai}"
 	elif ! use ia32 && ! use haxm ; then
 		cfgname="xnp2kai"
