@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop xdg
+inherit desktop optfeature xdg
 
 DESCRIPTION="A hackable text editor for the 21st Century"
 HOMEPAGE="https://atom.io/"
@@ -13,10 +13,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-# beautify contains packages used by atom-beautify.
-# If you want other plugins to be working please file
-# a bug on bugs.gentoo.org under GURU section.
-IUSE="alsa beautify cups ssl test X"
+IUSE="alsa cups ssl test X"
 RESTRICT="!test? ( test )"
 
 S="${WORKDIR}/atom-${PV}-amd64"
@@ -29,12 +26,6 @@ RDEPEND="
 	dev-libs/nss
 	dev-vcs/git
 	alsa? ( media-libs/alsa-lib )
-	beautify? (
-		dev-python/autopep8
-		dev-python/black
-		dev-util/beautysh
-		dev-util/uncrustify
-		)
 	cups? ( net-print/cups )
 	ssl? (
 		dev-libs/openssl
@@ -91,4 +82,12 @@ src_install(){
 	einstalldocs
 
 	find "${ED}" -name '*.la' -delete || die
+}
+
+pkg_postinst(){
+	optfeature_header "If you want to use atom-beautify please install following packages:"
+	optfeature "python code beautifier" dev-python/autopep8
+	optfeature "python code beautifier" dev-python/black
+	optfeature "shell code beautifier" dev-util/beautysh
+	optfeature "C, C++, Java code beautifier" dev-util/uncrustify
 }
