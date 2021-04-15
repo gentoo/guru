@@ -14,12 +14,14 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	>=dev-qt/qtcore-5.9
+	>=dev-qt/qtdbus-5.9
 	>=dev-qt/qtnetwork-5.9
 	>=dev-qt/qttranslations-5.9
 	>=dev-qt/qtgui-5.9
 	>=dev-qt/qtquickcontrols2-5.9
 	dev-libs/openssl:0
 	media-libs/flac
+	media-sound/pulseaudio
 "
 RDEPEND="${DEPEND}"
 
