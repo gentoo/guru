@@ -38,7 +38,7 @@ src_prepare(){
 
 src_install(){
 	meson_src_install
-	dosym -r /usr/bin/com.github.akiraux.akira /usr/bin/akira
+	dosym ../../usr/bin/com.github.akiraux.akira /usr/bin/akira
 }
 
 pkg_preinst() {
