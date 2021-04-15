@@ -15,3 +15,5 @@ SRC_URI="https://files.pythonhosted.org/packages/b4/83/9f6ff034650abe9778c9a4f86
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
+
+PATCHES=( "${FILESDIR}/${PN}-4.2-dont-pre-strip.patch" )
