@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit xdg meson vala
+inherit gnome2-utils xdg meson vala
 
 DESCRIPTION="Native Linux App for UI and UX Design built in Vala and GTK."
 HOMEPAGE="https://github.com/akiraux/Akira"
@@ -27,8 +27,8 @@ DEPEND="
 	dev-libs/libgee
 	dev-libs/libxml2
 	sys-devel/gettext
-	x11-libs/goocanvas:2.0
-	x11-libs/gtksourceview:4"
+	x11-libs/goocanvas:3.0
+	x11-libs/gtksourceview:3.0"
 RDEPEND="${DEPEND}"
 
 src_prepare(){
@@ -37,18 +37,21 @@ src_prepare(){
 }
 
 src_install(){
-	meson_src_isntall
+	meson_src_install
 	dosym -r /usr/bin/com.github.akiraux.akira /usr/bin/akira
 }
 
 pkg_preinst() {
 	xdg_pkg_preinst
+	gnome2_schemas_savelist
 }
 
 pkg_postinst() {
 	xdg_pkg_postinst
+	gnome2_schemas_savelist
 }
 
 pkg_postrm() {
 	xdg_pkg_postrm
+	gnome2_schemas_savelist
 }
