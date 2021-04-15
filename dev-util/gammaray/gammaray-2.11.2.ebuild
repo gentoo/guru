@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake
+inherit xdg cmake
 
 DESCRIPTION="High-level runtime introspection tool for Qt applications"
 HOMEPAGE="https://www.kdab.com/gammaray https://github.com/KDAB/GammaRay"
@@ -83,6 +83,8 @@ src_configure(){
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
+
 	elog
 	elog "Install dev-util/kdstatemachineeditor as optional dependency"
 	elog "for graphical state machine debugging support"
