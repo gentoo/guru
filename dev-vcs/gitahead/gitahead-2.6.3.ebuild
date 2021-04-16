@@ -24,6 +24,8 @@ RESTRICT="test"
 IUSE="gnome-keyring"
 
 RDEPEND="
+	app-crypt/mit-krb5
+	app-text/cmark
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
@@ -31,6 +33,7 @@ RDEPEND="
 	dev-qt/qtprintsupport:5
 	dev-qt/qttest:5
 	dev-qt/qtwidgets:5
+	net-libs/libssh2
 	gnome-keyring? (
 		app-crypt/libsecret
 	)
@@ -38,6 +41,12 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	dev-qt/linguist-tools:5
+"
+
+QA_FLAGS_IGNORED="
+	usr/share/GitAhead/Plugins/imageformats/libqjpeg.so
+	usr/share/GitAhead/Plugins/platforms/libqxcb.so
+	usr/share/GitAhead/Plugins/platforminputcontexts/libcomposeplatforminputcontextplugin.so
 "
 
 src_unpack() {

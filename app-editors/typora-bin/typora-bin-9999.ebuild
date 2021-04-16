@@ -16,6 +16,24 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="
+	app-accessibility/at-spi2-atk
+	dev-libs/atk
+	dev-libs/nss
+	media-libs/alsa-lib
+	net-print/cups
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
+	x11-libs/gtk+:3
+	x11-libs/pango
+	x11-libs/libdrm
+	x11-libs/libXcomposite
+	x11-libs/libXcursor
+	x11-libs/libXdamage
+	x11-libs/libXfixes
+	x11-libs/libXi
+	x11-libs/libXrandr
+	x11-libs/libXrender
+	x11-libs/libXtst
 	x11-libs/libXScrnSaver
 	${DEPEND}"
 BDEPEND=""
