@@ -16,4 +16,4 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-PATCHES=( "${FILESDIR}/${PN}-4.2-dont-pre-strip.patch" )
+QA_PRESTRIPPED="usr/lib/python.*/site-packages/PyInstaller/bootloader/Linux-.*/run.*"

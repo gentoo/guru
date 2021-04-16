@@ -31,7 +31,7 @@ src_compile() {
 }
 
 src_install() {
-	java-pkg_newjar "${DISTDIR}/${P}.jar" ${P}.jar
+	java-pkg_newjar "${DISTDIR}/${P}.jar" ${PN}.jar
 
 	dobin "${FILESDIR}/${PN}"
 
