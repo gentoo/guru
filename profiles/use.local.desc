@@ -67,11 +67,12 @@ games-emulation/duckstation:gbm - Support DRM/KMS OpenGL contexts
 games-emulation/duckstation:nogui - Build the NoGUI frontend
 games-emulation/duckstation:qt5 - Build the QT frontend
 games-emulation/duckstation:retroachievements - Build with RetroAchievements supports
+games-emulation/np2kai:X - Build support for X
 games-emulation/np2kai:haxm - Enable haxm emulation
 games-emulation/np2kai:i286 - Enable i286 emulation USE="ia32" or USE="haxm" will disable it, unless all 3 emulation USE flags are set
 games-emulation/np2kai:ia32 - Enable ia32 emulation
-games-emulation/np2kai:sdl - Use media-libs/libsdl
-games-emulation/np2kai:sdl2 - Use media-libs/libsdl2
+games-emulation/np2kai:sdl - Use media-libs/libsdl instead of media-libs/libsdl2
+games-emulation/np2kai:sdl2 - Use media-libs/libsdl2 instead of media-libs/libsdl
 games-fps/crispy-doom:midi - Basic support for MIDI files
 games-fps/crispy-doom:truecolor - Enable true-color rendering (experimental)
 gui-apps/azote:imagemagick - enable colorpicker using imagemagick

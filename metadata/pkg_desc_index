@@ -63,7 +63,7 @@ app-misc/lf 20: Terminal file manager
 app-misc/liquidctl 1.4.2: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/mat2 0.11.0 0.12.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
-app-misc/navi 2.13.0 2.13.1 2.14.0 9999: An interactive cheatsheet tool for the command-line
+app-misc/navi 2.14.0 2.15.0 2.15.1 9999: An interactive cheatsheet tool for the command-line
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/pup-bin 0.4.0: Parsing HTML at the command line
@@ -355,7 +355,7 @@ games-board/openriichi 0.2.1.1: OpenRiichi is an open source Japanese Mahjong cl
 games-board/rmahjong 0.4_p20201106: Riichi Mahjong, the Japanese variant of the Chinese game Mahjong for 4 players
 games-emulation/duckstation 9999: Fast Sony PlayStation (PSX) emulator
 games-emulation/melonds 0.8.3 0.9 0.9.1 9999: Nintendo DS emulator, sorta
-games-emulation/np2kai 22: NP2kai is an emulator for the japanese PC-98 series of computers
+games-emulation/np2kai 22 22_p20210211: NP2kai is an emulator for the japanese PC-98 series of computers
 games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
