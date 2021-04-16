@@ -25,23 +25,21 @@ DEPEND="
 	dev-libs/atk
 	dev-libs/libappindicator
 	dev-libs/nss
-	alsa? ( media-libs/alsa-lib )
-	cups? ( net-print/cups )
-	X? (
-		media-libs/mesa
-		x11-libs/gdk-pixbuf
-		x11-libs/gtk+
-		x11-libs/libdrm
-		x11-libs/libnotify
-		x11-libs/libXcomposite
-		x11-libs/libXdamage
-		x11-libs/libXfixes
-		x11-libs/libxkbcommon
-		x11-libs/libXrandr
-		x11-libs/libxshmfence
-		x11-libs/libXtst
-		x11-libs/pango
-	)
+	media-libs/alsa-lib
+	net-print/cups
+	media-libs/mesa
+	x11-libs/gdk-pixbuf
+	x11-libs/gtk+
+	x11-libs/libdrm
+	x11-libs/libnotify
+	x11-libs/libXcomposite
+	x11-libs/libXdamage
+	x11-libs/libXfixes
+	x11-libs/libxkbcommon
+	x11-libs/libXrandr
+	x11-libs/libxshmfence
+	x11-libs/libXtst
+	x11-libs/pango
 "
 
 QA_PREBUILT="/opt/nuclear-bin/*"
@@ -73,4 +71,8 @@ src_install(){
 	cd ../scalable || die
 	mv nuclear-icon.svg nuclear.svg || die
 	doicon nuclear.svg
+}
+
+pkg_postinst(){
+	xdg_desktop_database_update
 }
