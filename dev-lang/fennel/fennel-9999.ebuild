@@ -32,14 +32,14 @@ pkg_setup() {
 
 src_compile() {
 	emake LUA_VERSION="$(lua_get_version)" \
-		  LUA_LIB_DIR="${D}/$(lua_get_lmod_dir)" \
-		  PREFIX="${D}/usr"
+		  LUA_LIB_DIR="${ED}/$(lua_get_lmod_dir)" \
+		  PREFIX="${ED}/usr"
 }
 
 src_install() {
 	emake LUA_VERSION="$(lua_get_version)" \
-		  LUA_LIB_DIR="${D}/$(lua_get_lmod_dir)" \
-		  PREFIX="${D}/usr" install
+		  LUA_LIB_DIR="${ED}/$(lua_get_lmod_dir)" \
+		  PREFIX="${ED}/usr" install
 	doman "${PN}.1"
 	dodoc *.md
 }
