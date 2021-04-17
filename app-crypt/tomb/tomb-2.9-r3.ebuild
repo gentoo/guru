@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit qmake-utils
+inherit desktop qmake-utils xdg
 
 MYP="${P^}"
 DESCRIPTION="Tomb :: File Encryption on GNU/Linux"
@@ -102,15 +102,42 @@ src_install() {
 		popd || die
 	fi
 
+	#qt tray
 	if use tray ; then
 		pushd extras/qt-tray || die
 		dobin tomb-qt-tray
 		popd || die
 	fi
 
+	#kdf programs
 	pushd extras/kdf-keys || die
 	emake install
 	popd || die
+
+	#is there an eclass for this?
+	#pixmap
+	doicon extras/gtk-tray/monmort.xpm
+	pushd extras/desktop
+	#copied from install.zsh
+	#mime types
+	xdg-mime install dyne-tomb.xml
+	xdg-icon-resource install --context mimetypes --size 32 monmort.xpm monmort
+	xdg-icon-resource install --size 32 monmort.xpm dyne-monmort
+	#desktop
+	domenu tomb.desktop
+	#menu
+	insinto /etc/menu
+	doins tomb
+	#mime info
+	insinto /usr/share/mime-info
+	doins tomb.mime
+	doins tomb.keys
+	insinto /usr/lib/mime/packages
+	newins tomb.mimepkg tomb
+	#application entry
+	insinto /usr/share/application-registry
+	doins tomb.applications
+	popd
 
 	#documentation
 	einstalldocs

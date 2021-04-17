@@ -18,9 +18,9 @@ SRC_URI="
 
 LICENSE="MIT BSD"
 SLOT="0"
-KEYWORDS="" # Unkeyworded for testing
-IUSE="haxm +i286 +sdl2 +X"
-REQUIRED_USE="|| ( sdl2 X )"
+KEYWORDS="~amd64"
+IUSE="+i286 ia32 haxm +sdl2 +X"
+REQUIRED_USE="|| ( X sdl2 ) ^^ ( i286 ia32 )"
 
 # TODO: migrate from gtk2 to gtk3
 DEPEND="
@@ -49,7 +49,7 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/NP2kai-${MY_REV}"
 
 src_prepare() {
-	sed -i 's/CONFIGURATIONS Release/CONFIGURATIONS Gentoo/g' CMakeLists.txt || die
+	sed -i '+s/CONFIGURATIONS Release/CONFIGURATIONS Gentoo/g' CMakeLists.txt || die
 	mv "${WORKDIR}"/sdl2-cmake-modules-${MY_SDL2_CMAKE_MODULES_REV}/* \
 		"${S}"/cmake/sdl2-cmake-modules/ || die
 
@@ -58,13 +58,11 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_I286=$(usex i286)
-		-DBUILD_HAXM=$(usex haxm)
-		-DBUILD_SDL=ON
-		-DBUILD_X=$(usex X)
-		-DNP2kai_temp=NO
-		-DUSE_HAXM=$(usex haxm)
-		-DUSE_SDL2=$(usex sdl2)
+		-D BUILD_I286=$(usex i286)
+		-D BUILD_HAXM=$(usex haxm)
+		-D BUILD_SDL=ON
+		-D BUILD_X=$(usex X)
+		-D USE_SDL2=$(usex sdl2)
 	)
 
 	NP2KAI_VERSION=${PV} NP2KAI_HASH=${MY_REV} cmake_src_configure
@@ -75,7 +73,7 @@ pkg_postinst() {
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		if use i286 && use haxm; then
 			local cfgname="{xnp2kai,xnp21kai}"
-		elif ! use haxm; then
+		elif use i286 && ! use haxm; then
 			local cfgname="xnp2kai"
 		else
 			local cfgname="xnp21kai"

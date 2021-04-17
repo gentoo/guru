@@ -1,0 +1,37 @@
+From 4aeb699562b0c50ac0061dcbbed7248f5f5be4f9 Mon Sep 17 00:00:00 2001
+From: Florian Schmaus <flo@geekplace.eu>
+Date: Sat, 17 Apr 2021 18:19:59 +0200
+Subject: [PATCH] Makefile: Optionally avoid installation of Ubuntu-specific
+ PAM config
+
+This allows non Ubuntu distributions to opt out from the installation
+of Ubuntu-specific PAM files.
+---
+ Makefile | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/Makefile b/Makefile
+index 6e79421356de..447ccf193745 100644
+--- a/Makefile
++++ b/Makefile
+@@ -173,14 +173,17 @@ PAM_MODULE_DIR := $(PREFIX)/lib/security
+ PAM_INSTALL_PATH := $(PAM_MODULE_DIR)/$(PAM_NAME).so
+ PAM_CONFIG := $(BIN)/config
+ PAM_CONFIG_DIR := $(PREFIX)/share/pam-configs
++INSTALL_UBUNTU_PAM_CONFIG := true
+ 
+ install-pam: $(PAM_MODULE)
+ 	install -d $(DESTDIR)$(PAM_MODULE_DIR)
+ 	install $(PAM_MODULE) $(DESTDIR)$(PAM_MODULE_DIR)
+ 
++ifeq ($(INSTALL_UBUNTU_PAM_CONFIG), true)
+ 	m4 --define=PAM_INSTALL_PATH=$(PAM_INSTALL_PATH) < $(PAM_NAME)/config > $(PAM_CONFIG)
+ 	install -d $(DESTDIR)$(PAM_CONFIG_DIR)
+ 	install $(PAM_CONFIG) $(DESTDIR)$(PAM_CONFIG_DIR)/$(NAME)
++endif
+ 
+ COMPLETION_INSTALL_DIR := $(PREFIX)/share/bash-completion/completions
+ 
+-- 
+2.30.2
+

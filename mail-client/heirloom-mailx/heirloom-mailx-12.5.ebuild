@@ -29,7 +29,7 @@ src_prepare() {
 
 src_compile(){
 	sed 's@<openssl@<openssl-1.0/openssl@' -i openssl.c fio.c makeconfig
-	emake LDFLAGS+="-L /usr/lib/openssl-1.0/" SENDMAIL=/usr/sbin/sendmail
+	emake LDFLAGS=${LDFLAGS} LDFLAGS+="-L /usr/lib/openssl-1.0/" SENDMAIL=/usr/sbin/sendmail
 }
 
 src_install(){
