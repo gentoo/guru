@@ -5,12 +5,12 @@ EAPI=7
 
 inherit desktop xdg
 
-MY_P="terminus-${PV}"
+MY_PV="terminus-${PV}-linux"
 
 DESCRIPTION="A terminal for a more modern age"
 HOMEPAGE="https://eugeny.github.io/terminus/"
 SRC_URI="
-	https://github.com/Eugeny/terminus/releases/download/v${PV}/${MY_P}-linux.tar.gz -> ${P}.tar.gz
+	https://github.com/Eugeny/terminus/releases/download/v${PV}/${MY_PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/ScardracS/icons/releases/download/release/terminus-icons.tar.gz
 "
 
@@ -18,7 +18,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-S="${WORKDIR}/${MY_P}-linux"
+S="${WORKDIR}/${MY_PV}"
 
 DEPEND="
 	app-accessibility/at-spi2-atk
@@ -40,7 +40,7 @@ DEPEND="
 	x11-libs/pango
 "
 
-QA_PREBUILT="/opt/terminus-bin/*"
+QA_PREBUILT="/opt/${PN}/*"
 
 src_prepare(){
 	default
