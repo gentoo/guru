@@ -10,7 +10,7 @@ inherit lua-single
 DESCRIPTION="Fennel is a lisp that compiles to Lua"
 HOMEPAGE="https://fennel-lang.org/"
 
-if [[ "${PV}" == *9999* ]]; then
+if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.sr.ht/~technomancy/fennel"
 else
@@ -22,24 +22,15 @@ LICENSE="MIT"
 SLOT="0"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
-BDEPEND="${LUA_DEPS}"
-RDEPEND="${BDEPEND}"
+RDEPEND="${LUA_DEPS}"
 DEPEND="${RDEPEND}"
-
-pkg_setup() {
-	lua-single_pkg_setup
-}
-
-src_compile() {
-	emake LUA_VERSION="$(lua_get_version)" \
-		  LUA_LIB_DIR="${ED}/$(lua_get_lmod_dir)" \
-		  PREFIX="${ED}/usr"
-}
+BDEPEND="${RDEPEND}"
 
 src_install() {
-	emake LUA_VERSION="$(lua_get_version)" \
-		  LUA_LIB_DIR="${ED}/$(lua_get_lmod_dir)" \
-		  PREFIX="${ED}/usr" install
+	emake \
+		LUA_LIB_DIR="${ED}/$(lua_get_lmod_dir)" \
+		PREFIX="${ED}/usr" \
+		install
 	doman "${PN}.1"
 	dodoc *.md
 }
