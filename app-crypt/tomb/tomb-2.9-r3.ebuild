@@ -154,11 +154,3 @@ src_test() {
 	pushd extras/kdf-keys || die
 	emake test
 }
-
-pkg_postinst() {
-	xdg_pkg_postinst
-}
-
-pkg_postrm() {
-	xdg_pkg_postrm
-}
