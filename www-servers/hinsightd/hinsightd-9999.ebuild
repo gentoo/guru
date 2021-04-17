@@ -45,7 +45,7 @@ src_compile() {
 }
 
 src_install() {
-	newbin "${S}/build/hin9 hinsightd"
+	newbin "${S}/build/hin9" hinsightd
 	newinitd "${FILESDIR}/init.d.sh" hinsightd
 
 	insinto /etc/hinsightd
