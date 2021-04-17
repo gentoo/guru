@@ -3,6 +3,7 @@
 
 EAPI="7"
 
+XDG_ECLASS_MIMEINFOFILES="${S}/extras/desktop/dyne-tomb.xml"
 inherit desktop qmake-utils xdg
 
 MYP="${P^}"
@@ -18,7 +19,6 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="~amd64"
-#todo extras/desktop
 IUSE="gui test tray"
 #test require sudo, can't be done non interactively
 RESTRICT="test"
@@ -40,9 +40,11 @@ DOCS=(
 S="${WORKDIR}/${MYP}"
 CDEPEND="
 	dev-libs/libgcrypt
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	tray? (
+		dev-qt/qtcore:5
+		dev-qt/qtgui:5
+		dev-qt/qtwidgets:5
+	)
 "
 RDEPEND="
 	${CDEPEND}
@@ -91,7 +93,7 @@ src_install() {
 	#translations
 	export PREFIX="${ED}/usr"
 	pushd extras/translations || die
-	emake
+	emake install
 	popd || die
 
 	#zenity gui
@@ -116,13 +118,13 @@ src_install() {
 
 	#is there an eclass for this?
 	#pixmap
-	doicon extras/gtk-tray/monmort.xpm
+	pushd extras/gtk-tray
+	doicon monmort.xpm
+	newicon --context mimetypes --size 32 monmort.xpm monmort
+	newicon --size 32 monmort.xpm dyne-monmort
+	popd
 	pushd extras/desktop
 	#copied from install.zsh
-	#mime types
-	xdg-mime install dyne-tomb.xml
-	xdg-icon-resource install --context mimetypes --size 32 monmort.xpm monmort
-	xdg-icon-resource install --size 32 monmort.xpm dyne-monmort
 	#desktop
 	domenu tomb.desktop
 	#menu
