@@ -3,7 +3,6 @@
 
 EAPI="7"
 
-XDG_ECLASS_MIMEINFOFILES="${S}/extras/desktop/dyne-tomb.xml"
 inherit desktop qmake-utils xdg
 
 MYP="${P^}"
@@ -108,6 +107,7 @@ src_install() {
 	if use tray ; then
 		pushd extras/qt-tray || die
 		dobin tomb-qt-tray
+		doicon pixmaps/tomb_icon.png
 		popd || die
 	fi
 
@@ -125,6 +125,9 @@ src_install() {
 	popd
 	pushd extras/desktop
 	#copied from install.zsh
+	#mime types
+	insinto /usr/share/mime/packages
+	doins dyne-tomb.xml
 	#desktop
 	domenu tomb.desktop
 	#menu
