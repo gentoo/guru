@@ -58,11 +58,11 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-D BUILD_I286=$(usex i286 ON OFF)
-		-D BUILD_HAXM=$(usex haxm ON OFF)
+		-D BUILD_I286=$(usex i286)
+		-D BUILD_HAXM=$(usex haxm)
 		-D BUILD_SDL=ON
-		-D BUILD_X=$(usex X ON OFF)
-		-D NP2kai_temp=OFF
+		-D BUILD_X=$(usex X)
+		-D USE_SDL2=$(usex sdl2)
 	)
 
 	NP2KAI_VERSION=${PV} NP2KAI_HASH=${MY_REV} cmake_src_configure
