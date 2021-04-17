@@ -1,0 +1,14 @@
+BDEPEND=test? ( dev-lang/perl )
+DEFINED_PHASES=compile install
+DESCRIPTION=Unix command line queue utility
+EAPI=7
+HOMEPAGE=https://git.vuxu.org/nq/about/
+IUSE=-shell +tq test
+KEYWORDS=~amd64 ~x86
+LICENSE=public-domain
+RDEPEND=shell? ( sys-apps/util-linux sys-apps/coreutils ) tq? ( || ( app-misc/tmux app-misc/screen ) )
+REQUIRED_USE=shell? ( !test )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://git.vuxu.org/nq/snapshot/nq-0.4.tar.gz
+_md5_=5b124a174e93614e4f921e30f6a31072

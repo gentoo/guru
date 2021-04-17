@@ -1,9 +1,9 @@
 DEFINED_PHASES=install postinst preinst prerm pretend
-DESCRIPTION=User for FORT RPKI validator
+DESCRIPTION=www-apps/gogs user
 EAPI=7
 INHERIT=acct-user
-KEYWORDS=~amd64 ~x86
-RDEPEND=acct-group/fort
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+RDEPEND=app-shells/bash acct-group/git
 SLOT=0
 _eclasses_=user-info	a2abd4e2f4c3b9b06d64bf1329359a02	user	26d8ce6329c43cbac965617f1c0627e2	acct-user	d32fbb1f9b68d1a1c2adf200d92350af
-_md5_=b3f9f9bd58088f291988eb8abb890ac8
+_md5_=0712a4ea505a97fcc29272f6de59d0ec

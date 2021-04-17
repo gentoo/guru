@@ -1,17 +1,19 @@
-acct-group/_bgpd 0: System group: _bgpd
+acct-group/_bgpd 0-r1: System group: _bgpd
 acct-group/_rpki-client 0: System group: _rpki-client
 acct-group/biboumi 0: System group: biboumi
-acct-group/fort 0: System group: fort
+acct-group/fort 0-r1: System group: fort
 acct-group/gemini 0: System group: gemini
+acct-group/hinsightd 0: A user group for www-servers/hinsightd
 acct-group/jackett 0: Group for www-apps/jackett-bin
 acct-group/monero 0: System group: monero
 acct-group/purritobin 0: Group for net-misc/purritobin
-acct-user/_bgpd 0: User for OpenBGPD
+acct-user/_bgpd 0-r1: User for OpenBGPD
 acct-user/_rpki-client 0: User for rpki-client
 acct-user/biboumi 0: User for net-im/biboumi
-acct-user/fort 0: User for FORT RPKI validator
+acct-user/fort 0-r1: User for FORT RPKI validator
 acct-user/gemini 0: User for gemini daemon
-acct-user/gogs 1: www-apps/gogs user
+acct-user/gogs 1-r1: www-apps/gogs user
+acct-user/hinsightd 0: A user account for www-servers/hinsightd
 acct-user/jackett 0: User for www-apps/jackett-bin
 acct-user/monero 0: System user: monero
 acct-user/purritobin 0: User for net-misc/purritobin
@@ -33,14 +35,14 @@ app-backup/timeshift 20.11.1: A system restore utility for Linux
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/reop 2.1.1: reasonable expectation of privacy
-app-crypt/tomb 2.9-r2: Tomb :: File Encryption on GNU/Linux
+app-crypt/tomb 2.9-r3: Tomb :: File Encryption on GNU/Linux
 app-editors/atom-bin 1.56.0-r3: A hackable text editor for the 21st Century
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
 app-editors/typora-bin 9999: a markdown editor,markdown reader.
-app-editors/visual-studio-code-bin 1.54.2 1.55.0: Multiplatform Visual Studio Code from Microsoft
+app-editors/visual-studio-code-bin 1.54.2 1.55.0 1.55.2: Multiplatform Visual Studio Code from Microsoft
 app-editors/vscodium-bin 1.53.2 1.54.3 1.55.2: Free/Libre Open Source Software Binaries of VSCode
 app-emacs/flycheck 31: On the fly syntax checking for GNU Emacs
 app-emulation/dxvk-bin 1.8 1.8.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
@@ -75,7 +77,7 @@ app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the c
 app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20181120 0_pre20201102: vrms clone for Gentoo Linux
-app-misc/watchexec 1.14.1 1.15.0: Executes commands in response to file modifications
+app-misc/watchexec 1.14.1 1.15.0 1.15.1: Executes commands in response to file modifications
 app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
 app-office/openoffice-bin 4.1.9: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.4 1.99.5 9999: Pyspread is a non-traditional spreadsheet written in Python
@@ -100,7 +102,6 @@ app-text/OCRmyPDF 11.6.2 11.7.0 11.7.1: OCRmyPDF adds an OCR text layer to scann
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/komikku 0.24.0 0.26.1 0.27.0: An online/offline manga reader for GNOME
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
-app-text/lowdown 0.8.4 9999: simple markdown translator
 app-text/mdbook 0.4.5 0.4.6 0.4.7: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
 app-text/stdman 2019.08.27 2020.11.17 9999: Formatted C++ stdlib man pages (cppreference)
@@ -153,6 +154,7 @@ dev-java/openjdk-sts-bin 15.0.2_p7: Prebuilt Java JDK binaries provided by Adopt
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/fbc 1.07.1 1.07.2 1.07.2-r1 1.07.2-r2 1.07.3: A free/open source, multi-platform BASIC compiler.
 dev-lang/fbc-bootstrap 1.07.2 1.07.3: Bootstrap package for dev-lang/fbc
+dev-lang/fennel 0.9.1 9999: Fennel is a lisp that compiles to Lua
 dev-lang/gleam 0.11.2 0.12.0 0.12.1: A statically typed functional language for the BEAM
 dev-lang/quickjs 2020.11.08: Small embeddable Javascript engine
 dev-lang/wren 0.3.0: The Wren Programming Language
@@ -201,7 +203,7 @@ dev-python/azure-storage-blob 12.7.1: Microsoft Azure Blob Storage Client Librar
 dev-python/b2sdk 1.2.0: The client library for BackBlaze's B2 product
 dev-python/baron 0.9: Full Syntax Tree for python to make writing refactoring code a realist task
 dev-python/base58 2.0.1: Base58 and Base58Check implementation
-dev-python/billiard 3.6.3.0: Python multiprocessing fork
+dev-python/billiard 3.6.3.0 3.6.4.0: Python multiprocessing fork
 dev-python/bitbox02 5.3.0: Python API for communicating with the BitBox02 device
 dev-python/cchardet 2.1.6 2.1.7: cChardet is high speed universal character encoding detector
 dev-python/check-manifest 0.45: Tool to check the completeness of MANIFEST.in for Python packages
@@ -219,7 +221,7 @@ dev-python/dacite 1.6.0: This module simplifies creation of data classes (PEP 55
 dev-python/databases 0.4.1: Async database support for Python.
 dev-python/dateparser 1.0.0: Date parsing library designed to parse dates from HTML pages
 dev-python/devtools 0.6.1: Dev tools for python
-dev-python/doxypypy 0.8.8.6: A more Pythonic version of doxypy, a Doxygen filter for Python
+dev-python/doxypypy 0.8.8.6 0.8.8.6_p20210405: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/factory_boy 3.1.0 3.2.0: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11-r1: Up to date simple useragent faker with real world database
 dev-python/geopy 2.0.0 2.1.0: A Geocoding Toolbox for Python
@@ -350,7 +352,7 @@ games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
 games-action/technic-launcher 4.625: Minecraft launcher for community-made modpacks on the Technic Platform
 games-arcade/opensurge 0.5.1.2 9999: fun 2D retro platformer inspired by old-school Sonic games
-games-arcade/taisei 1.3.1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
+games-arcade/taisei 1.3.1-r1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 games-board/openriichi 0.2.1.1: OpenRiichi is an open source Japanese Mahjong client
 games-board/rmahjong 0.4_p20201106: Riichi Mahjong, the Japanese variant of the Chinese game Mahjong for 4 players
 games-emulation/duckstation 9999: Fast Sony PlayStation (PSX) emulator
@@ -367,7 +369,7 @@ games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
 games-util/itch-bin 25.4.0 25.4.1: itch.io game browser, installer and launcher
 games-util/legendary 0.20.5 0.20.6: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.2: A simple GOG client for Linux
-gui-apps/azote 1.8.1 1.8.2 1.9.0 9999: wallpaper manager for wlroots compositors
+gui-apps/azote 1.8.1 1.8.2 1.9.0 1.9.1 9999: wallpaper manager for wlroots compositors
 gui-apps/coreaction 4.1.0 4.2.0_alpha 4.2.0 9999: A side bar for showing widgets for C Suite
 gui-apps/coreapps-meta 4.1.0 4.2.0_alpha 4.2.0 9999: Meta package for coreapps
 gui-apps/corearchiver 4.1.0 4.2.0_alpha 4.2.0 9999: Archiver for C Suite, to create and extract archives
@@ -414,7 +416,8 @@ kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU
 kde-misc/plasma5-wallpapers-dynamic 3.3.3 3.3.6 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
 kde-misc/skanpage 2021.01.12: Simple pdf scanning application based on libksane and KDE Frameworks
 mail-client/heirloom-mailx 12.5: The mailx utility from CentOS
-mail-client/mailspring-bin 1.8.0 1.9.0: A beautiful, fast and fully open source mail client for Mac, Windows and Linux
+mail-client/mailspring-bin 1.8.0 1.9.0 1.9.1: A beautiful, fast and fully open source mail client for Mac, Windows and Linux
+media-fonts/3270font 2.2.1 2.2.1-r1: A IBM 3270 Terminal font in a modern format
 media-fonts/overpass 3.0.4: An open source webfont family inspired by Highway Gothic
 media-fonts/source-han-serif 1.001: Pan-CJK OpenType/CFF font family
 media-fonts/symbola 7.17 13.00: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
@@ -542,6 +545,7 @@ sys-apps/dool 0.8_pre20191010 9999: Versatile replacement for vmstat, iostat and
 sys-apps/drm_info 2.2.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3 0.5.4: A more intuitive version of du
 sys-apps/hex 0.3.2 0.4.0 0.4.1: Futuristic take on hexdump
+sys-apps/nq 0.4: Unix command line queue utility
 sys-apps/procs 0.10.10 0.11.3 0.11.4: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
 sys-apps/rogdrv 0.0.5_p20210208: ASUS ROG userspace mouse driver for Linux.
@@ -557,7 +561,7 @@ sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of
 sys-cluster/AXL 0.3.0 0.4.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
 sys-cluster/KVTree 1.1.0 1.1.1: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/dlb 2.1-r1: Dynamically react to application imbalance by modifying the number of resources
-sys-cluster/er 0.0.3: High-level distributed erasure coding lib combining shuffile and redset
+sys-cluster/er 0.0.3 0.0.4: High-level distributed erasure coding lib combining shuffile and redset
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
 sys-cluster/pcs 0.10.7 0.10.8 0.10.8-r2: Pacemaker/Corosync Configuration System
 sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on string values
@@ -568,6 +572,7 @@ sys-fs/btrfs-heatmap 9: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
 sys-fs/dwarfs 0.4.1 0.5.4: A fast very high compression read-only FUSE file system
 sys-fs/erofs-utils 1.1 1.2 1.2.1 9999: Userspace tools for EROFS images
+sys-fs/fscrypt 0.3.0: Tool for managing Linux filesystem encryption
 sys-fs/gcsfuse 0.34.1: A user-space file system for interacting with Google Cloud Storage
 sys-fs/gfs2-utils 3.2.0 3.3.0: Shared-disk cluster file system
 sys-fs/python-btrfs 12: Python 3 module to inspect btrfs filesystems
@@ -587,7 +592,7 @@ sys-process/iotop-c 1.17: top utility for IO (C port)
 sys-process/nvtop 1.1.0 9999: NVIDIA GPUs htop like monitoring tool
 www-apps/code-server-bin 3.9.1 3.9.2 3.9.3: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
-www-apps/jackett-bin 0.17.866: API Support for your favorite torrent trackers
+www-apps/jackett-bin 0.17.866 9999: API Support for your favorite torrent trackers
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/twint 2.1.20-r1: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 19.1.0 9999: ultra fast, simple, secure & standards compliant web I/O
@@ -595,6 +600,7 @@ www-client/badwolf 1.0.3 9999: Minimalist and privacy-oriented WebKitGTK+ browse
 www-client/browsh-bin 1.6.4: A fully-modern text-based browser, rendering to TTY and browsers
 www-client/torbrowser-launcher 0.3.3 9999: A program to download, updated, and run the Tor Browser Bundle
 www-client/woob 2.0 9999: Consume lots of websites without a browser (Web Outside Of Browsers)
+www-servers/hinsightd 9999: hinsightd a http/1.1 webserver with (hopefully) minimal goals
 www-servers/thin 1.8.0: This a Ruby gem that delivers a thin and fast web server
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-libs/gtk-fortran 19.04 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
@@ -611,7 +617,7 @@ x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement 
 x11-misc/ksnip 1.8.1: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Window System
-x11-terms/terminus-bin 1.0.136-r3: A terminal for a more modern age
+x11-terms/terminus-bin 1.0.137: A terminal for a more modern age
 x11-themes/arc-darkest-colors 0_pre20200818 0_pre20201112: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
 x11-themes/obsidian-icon-theme 4.15 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme

@@ -1,0 +1,13 @@
+BDEPEND=dev-vcs/cvs virtual/pkgconfig
+DEFINED_PHASES=install unpack
+DESCRIPTION=API Support for your favorite torrent trackers
+EAPI=7
+HOMEPAGE=https://github.com/Jackett/Jackett
+INHERIT=cvs systemd unpacker
+LICENSE=GPL-2
+PROPERTIES=live
+RDEPEND=acct-user/jackett app-crypt/mit-krb5 dev-libs/icu dev-util/lttng-ust
+RESTRICT=strip
+SLOT=0
+_eclasses_=cvs	8f8740beb4ce1deaae8393cfc28d2ed1	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	unpacker	517f16af48ee3ab88180dd58b5143213
+_md5_=61d84ebe76f78bf2b01a9ca38d491b0b
