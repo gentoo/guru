@@ -13,9 +13,13 @@ SRC_URI="https://github.com/rbanffy/3270font/archive/v${PV}.tar.gz -> ${P}.tar.g
 LICENSE="BSD CC-BY-SA-3.0 GPL-3 OFL"
 SLOT="0"
 KEYWORDS="~amd64"
+
 IUSE="test"
+RESTRICT="!test? ( test )"
+
 DOCS=( CHANGELOG.md README.md  )
 HTML_DOCS=( "DESCRIPTION.en_us.html" )
+
 PATCHES=( "${FILESDIR}/remove-useless-tests.patch" )
 RDEPEND="
 	media-gfx/fontforge
