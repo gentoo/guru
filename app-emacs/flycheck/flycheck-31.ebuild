@@ -18,3 +18,7 @@ RDEPEND="${BDEPEND}"
 
 SITEFILE="50${PN}-gentoo.el"
 DOCS="README.md"
+
+# Running tests requires a lot of external dependencies that don't exist in
+# portage
+RESTRICT=test
