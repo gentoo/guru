@@ -49,6 +49,6 @@ src_install(){
 	einstalldocs
 
 	#--disable-static get ignored ...
-	find "${D}" -name '*.a' -delete || die
-	find "${D}" -name '*.la' -delete || die
+	find "${ED}" -name '*.a' -delete || die
+	find "${ED}" -name '*.la' -delete || die
 }
