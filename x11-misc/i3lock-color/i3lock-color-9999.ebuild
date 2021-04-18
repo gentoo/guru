@@ -17,7 +17,7 @@ DEPEND="
 	media-libs/fontconfig:=
 	media-libs/libjpeg-turbo
 	sys-libs/pam
-	x11-libs/cairo
+	x11-libs/cairo[X]
 	x11-libs/libxcb
 	x11-libs/libxkbcommon[X]
 	x11-libs/xcb-util
