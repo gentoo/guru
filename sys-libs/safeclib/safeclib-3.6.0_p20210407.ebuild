@@ -3,7 +3,8 @@
 
 EAPI=7
 
-inherit autotools linux-mod
+MODULE_OPTIONAL_USE=modules
+inherit autotools linux-info linux-mod
 
 MY_REV="986f6d34e49637d68cb41221307231f0ea79ca4d"
 
@@ -16,30 +17,42 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+constraint-handler doc +extensions modules norm-compat +nullslack test unsafe valgrind"
 RESTRICT="!test? ( test )"
-
+PATCHES=( "${FILESDIR}/gh96.patch" )
 BDEPEND="
 	doc? ( app-doc/doxygen[dot] )
 	valgrind? ( dev-util/valgrind )
 "
 
 S="${WORKDIR}/${PN}-${MY_REV}"
-MODULE_NAMES="slkm(misc:${S}-module:${S}-module)"
+MODULE_NAMES="slkm(misc:${S}:${S})"
 BUILD_TARGETS="all"
-BUILD_PARAMS="-f Makefile.kernel V=1"
+BUILD_PARAMS="-f Makefile.kernel"
+
+pkg_setup() {
+	if use modules ; then
+		CONFIG_CHECK="COMPAT_32BIT_TIME"
+		ERROR_COMPAT_32BIT_TIME="module require COMPAT_32BIT_TIME to build"
+	fi
+	linux-mod_pkg_setup
+}
 
 src_prepare() {
 	default
 	eautoreconf
 
-	if use modules ; then
-		#duplicate the working folder
-		#one for the library and one for the module
-		cd "${WORKDIR}" || die
-		cp -r "${S}" "${S}-module" || die
-	fi
+	#duplicate the working folder
+	#one for the library and one for the module
+	cd "${WORKDIR}" || die
+	cp -r "${S}" "${S}-lib" || die
 }
 
 src_configure() {
+	if use modules ; then
+		set_kvobj ko
+		econf "${myconf[@]}" --disable-wchar
+	fi
+
+	cd "${S}-lib" || die
 	#forcing wchar because of https://github.com/rurban/safeclib/issues/95
 	local myconf=(
 		--disable-static
@@ -54,38 +67,32 @@ src_configure() {
 		$(use_enable unsafe)
 		$(use_enable valgrind)
 	)
-
 	econf "${myconf[@]}" --enable-wchar
-
-	if use modules ; then
-		cd "${S}-module" || die
-		econf "${myconf[@]}" --disable-wchar
-	fi
 }
 
 src_compile() {
-	default
-
 	if use modules ; then
-		cd "${S}-module" || die
-		export src="${S}-module"
 		linux-mod_src_compile
 	fi
+
+	cd "${S}-lib" || die
+	default
 }
 
 src_install() {
+	if use modules ; then
+		linux-mod_src_install
+	fi
+
+	cd "${S}-lib" || die
 	# wcsstr towupper towlower manpages collide with sys-apps/man-pages
 	# what to do?
 	default
 	einstalldocs
 	use doc && dodoc -r doc/.
-
-	if use modules ; then
-		cd "${S}-module" || die
-		linux-mod_src_install
-	fi
 }
 
 src_test() {
+	cd "${S}-lib" || die
 	emake check
 }
