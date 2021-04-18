@@ -28,7 +28,7 @@ DEPEND="
 	x11-libs/pixman
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
+BDEPEND="app-text/scdoc"
 
 src_configure() {
 	local emesonargs=(
