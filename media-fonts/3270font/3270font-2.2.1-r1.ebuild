@@ -22,7 +22,6 @@ HTML_DOCS=( "DESCRIPTION.en_us.html" )
 
 PATCHES=( "${FILESDIR}/remove-useless-tests.patch" )
 RDEPEND="
-	${PYTHON_DEPS}
 	media-gfx/fontforge
 "
 DEPEND="
