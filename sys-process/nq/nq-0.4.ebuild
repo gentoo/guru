@@ -35,4 +35,6 @@ src_compile() {
 src_install() {
 	emake DESTDIR="${D}" PREFIX=/usr ALL="nq fq $(usev tq)" install
 	einstalldocs
+	insinto /usr/share/zsh/site-functions
+	doins _nq
 }

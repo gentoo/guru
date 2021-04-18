@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop eutils linux-mod readme.gentoo-r1 xdg
+inherit desktop linux-mod readme.gentoo-r1 xdg
 
 DESCRIPTION="Use android phone as webcam, using a v4l device driver and app"
 HOMEPAGE="https://www.dev47apps.com/droidcam/linux/

@@ -21,6 +21,8 @@ RDEPEND="
 	dev-libs/nspr
 	dev-libs/nss
 	media-fonts/noto-emoji
+	media-libs/alsa-lib
+	net-print/cups
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3

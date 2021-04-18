@@ -185,7 +185,7 @@ xattr-0.2.2
 xdg-2.2.0
 "
 
-inherit eutils cargo bash-completion-r1
+inherit cargo bash-completion-r1
 
 DESCRIPTION="A very fast implementation of tldr in Rust."
 HOMEPAGE="https://github.com/tldr-pages/tldr

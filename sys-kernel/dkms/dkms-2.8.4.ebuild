@@ -3,8 +3,6 @@
 
 EAPI=7
 
-inherit eutils
-
 DESCRIPTION="Dynamic Kernel Module Support"
 HOMEPAGE="https://github.com/dell/dkms"
 LICENSE="GPL-2"

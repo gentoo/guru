@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit eutils toolchain-funcs elisp-common
+inherit toolchain-funcs elisp-common
 
 MYPV="$(ver_rs 1 _)"
 

@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7,8,9} )
 
-inherit meson python-any-r1 xdg-utils
+inherit meson python-any-r1 xdg
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
@@ -53,16 +53,4 @@ src_configure() {
 		-Dstrip=false
 	)
 	meson_src_configure
-}
-
-pkg_postinst() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
 }
