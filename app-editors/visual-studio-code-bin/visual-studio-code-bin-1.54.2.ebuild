@@ -23,13 +23,16 @@ RDEPEND="
 	app-accessibility/at-spi2-atk
 	app-crypt/libsecret[crypt]
 	dev-libs/nss
+	media-libs/alsa-lib
 	media-libs/libpng:0/16
 	x11-libs/cairo
 	x11-libs/gtk+:3
 	x11-libs/libnotify
+	x11-libs/libxkbcommon
 	x11-libs/libXScrnSaver
 	x11-libs/libXtst
-	x11-libs/pango"
+	x11-libs/pango
+"
 
 QA_PRESTRIPPED="*"
 
