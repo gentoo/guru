@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7..9} )
 
-inherit eutils xdg desktop distutils-r1
+inherit xdg desktop distutils-r1
 
 DESCRIPTION="Pyspread is a non-traditional spreadsheet written in Python"
 HOMEPAGE="https://pyspread.gitlab.io"
