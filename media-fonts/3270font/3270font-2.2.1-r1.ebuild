@@ -4,7 +4,7 @@
 EAPI="7"
 
 PYTHON_COMPAT=( python3_{7,8} )
-inherit font python-single-r1
+inherit font python-any-r1
 
 DESCRIPTION="A IBM 3270 Terminal font in a modern format"
 HOMEPAGE="https://github.com/rbanffy/3270font"
@@ -29,13 +29,10 @@ DEPEND="
 	${PYTHON_DEPS}
 	${RDEPEND}
 	test? (
-		$(python_gen_cond_dep '
-			dev-python/ipdb[${PYTHON_USEDEP}]
-			dev-python/pillow[${PYTHON_USEDEP}]
-		')
+		dev-python/ipdb
+		dev-python/pillow
 	)
 "
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 FONT_S="${S}/build"
 FONT_SUFFIX="otf ttf pfm woff"
