@@ -19,6 +19,7 @@ RDEPEND="
 	app-crypt/mit-krb5
 	app-text/tidy-html5
 	dev-cpp/ctemplate
+	dev-libs/cyrus-sasl
 	dev-libs/libgcrypt
 	dev-libs/nss
 	dev-libs/openssl
