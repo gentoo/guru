@@ -3,12 +3,12 @@ DEPEND=dev-lang/icon sys-apps/debianutils virtual/tex-base emacs? ( app-editors/
 DESCRIPTION=a literate programming tool, lighter than web
 EAPI=7
 HOMEPAGE=https://www.cs.tufts.edu/~nr/noweb/
-INHERIT=eutils toolchain-funcs elisp-common
+INHERIT=toolchain-funcs elisp-common
 IUSE=emacs examples
 KEYWORDS=~alpha ~amd64 ~hppa ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~ppc-macos ~x64-macos
 LICENSE=|| ( BSD-2 noweb ) emacs? ( GPL-2 )
 RDEPEND=dev-lang/icon sys-apps/debianutils virtual/tex-base emacs? ( app-editors/emacs:= )
 SLOT=0
 SRC_URI=https://github.com/nrnrnr/noweb/archive/v2_12.tar.gz -> noweb-2.12.tar.gz
-_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	elisp-common	36f97076abd90f943a34f8bcd58b5bcc
-_md5_=59128cbdbd06a1963afaeaf4f08f4a8f
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	elisp-common	36f97076abd90f943a34f8bcd58b5bcc
+_md5_=0e60af6c393494e05f6fc4fb5bb1d28b

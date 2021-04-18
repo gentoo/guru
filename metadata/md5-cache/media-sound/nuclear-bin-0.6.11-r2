@@ -9,4 +9,4 @@ LICENSE=MIT
 SLOT=0
 SRC_URI=https://github.com/nukeop/nuclear/releases/download/v0.6.11/nuclear-0.6.11.tar.gz -> nuclear-bin-0.6.11.tar.gz
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
-_md5_=43705bcb45bbfaacf2da41d7cf2f1f32
+_md5_=44a027ea533d820eb6d5b46e108a2151
