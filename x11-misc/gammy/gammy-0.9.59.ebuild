@@ -24,6 +24,7 @@ RDEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtdbus:5
+	dev-qt/qtwidgets:5
 	x11-libs/libXxf86vm
 "
 DEPEND="

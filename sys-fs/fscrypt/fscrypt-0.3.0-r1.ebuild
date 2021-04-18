@@ -79,6 +79,12 @@ PATCHES=(
 	"${FILESDIR}/0001-Makefile-Optionally-avoid-installation-of-Ubuntu-spe.patch"
 )
 
+src_compile() {
+	# Set GO_LINK_FLAGS to the empty string, as fscrypt strips the
+	# binary by default. See bug #783780.
+	emake GO_LINK_FLAGS=""
+}
+
 src_install() {
 	emake \
 		DESTDIR="${ED}" \

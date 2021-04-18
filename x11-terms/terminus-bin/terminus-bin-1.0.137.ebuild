@@ -60,7 +60,3 @@ src_install(){
 		doicon -s "${i}" ../terminus-"${i}".png
 	done
 }
-
-pkg_postinst(){
-	xdg_desktop_database_update
-}
