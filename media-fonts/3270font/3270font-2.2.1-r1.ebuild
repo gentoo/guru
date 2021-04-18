@@ -28,13 +28,24 @@ DEPEND="
 	${PYTHON_DEPS}
 	${RDEPEND}
 	test? (
-		dev-python/ipdb
-		dev-python/pillow
+		$(python_gen_any_dep '
+			dev-python/ipdb[${PYTHON_USEDEP}]
+			dev-python/pillow[${PYTHON_USEDEP}]
+		')
 	)
 "
 
 FONT_S="${S}/build"
 FONT_SUFFIX="otf ttf pfm woff"
+
+python_check_deps() {
+	has_version -d "dev-python/ipdb[${PYTHON_USEDEP}]" &&
+	has_version -d "dev-python/pillow[${PYTHON_USEDEP}]"
+}
+
+pkg_setup() {
+	use test && python-any-r1_pkg_setup
+}
 
 src_compile() {
 	emake font
