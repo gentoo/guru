@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2001-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -12,7 +12,8 @@ KEYWORDS="~amd64"
 DEPEND="net-libs/liblockfile
 		dev-libs/libbsd
 		virtual/mta
-		mail-client/mailx-support"
+		mail-client/mailx-support
+		dev-libs/openssl"
 
 RDEPEND="${DEPEND}
 		!virtual/mailx
@@ -29,7 +30,7 @@ src_prepare() {
 
 src_compile(){
 	sed 's@<openssl@<openssl-1.0/openssl@' -i openssl.c fio.c makeconfig
-	emake LDFLAGS=${LDFLAGS} LDFLAGS+="-L /usr/lib/openssl-1.0/" SENDMAIL=/usr/sbin/sendmail
+	emake LDFLAGS="${LDFLAGS}" LDFLAGS+="-L /usr/lib/openssl-1.0/" SENDMAIL=/usr/sbin/sendmail
 }
 
 src_install(){
