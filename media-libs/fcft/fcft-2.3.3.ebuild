@@ -33,6 +33,7 @@ BDEPEND="app-text/scdoc"
 src_configure() {
 	local emesonargs=(
 		$(meson_feature text-shaping)
+		"-Dwerror=false"
 	)
 	meson_src_configure
 }

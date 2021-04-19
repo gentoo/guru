@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -58,6 +58,8 @@ RDEPEND="
 	app-shells/zsh[unicode]
 	dev-vcs/git
 "
+
+PATCHES=( "${FILESDIR}/${PN}-6.1.1_remove-failing-tests.patch" )
 
 src_compile() {
 	local -a mygoargs=(

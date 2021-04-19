@@ -15,6 +15,10 @@ SLOT="0"
 KEYWORDS=""
 IUSE="" #+openssl
 
+BDEPEND="
+dev-util/ninja
+"
+
 RDEPEND="
 acct-user/hinsightd
 acct-group/hinsightd
@@ -26,14 +30,8 @@ dev-libs/openssl
 
 DEPEND="${RDEPEND}"
 
-BDEPEND="
-acct-user/hinsightd
-acct-group/hinsightd
-dev-util/ninja
-"
-
 PATCHES=(
-"${FILESDIR}/gentoo.patch"
+"${FILESDIR}/hinsightd-redefine-directories.patch"
 )
 
 #src_configure() {
@@ -41,15 +39,20 @@ PATCHES=(
 
 src_compile() {
 	cd build
-	ninja
+	ninja || die
 }
 
 src_install() {
 	newbin "${S}/build/hin9" hinsightd
 	newinitd "${FILESDIR}/init.d.sh" hinsightd
+	#systemd_dounit "${FILESDIR}/hinsightd.service" # not tested
 
 	insinto /etc/hinsightd
 	newins "${S}/workdir/main.lua" hinsightd.lua
+
+	# logrotate
+	insinto /etc/logrotate.d
+	newins "${FILESDIR}"/logrotate.d.sh hinsightd
 
 	keepdir /var/www/localhost/htdocs
 	keepdir /var/log/hinsightd

@@ -43,6 +43,7 @@ src_configure() {
 	local emesonargs=(
 		$(meson_use ime)
 		"-Dterminfo=disabled"
+		"-Dwerror=false"
 	)
 	meson_src_configure
 }
