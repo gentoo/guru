@@ -8,14 +8,21 @@ HOMEPAGE="https://github.com/zsh-users/zsh-autosuggestions"
 SRC_URI="https://github.com/zsh-users/zsh-autosuggestions/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
-
 SLOT="0"
-
 KEYWORDS="~amd64"
-
-DEPEND=">=app-shells/zsh-4.3.11"
-
-RDEPEND="${DEPEND}"
+IUSE="test"
+#RESTRICT="!test? ( test )"
+#test need byebug not packaged
+RESTRICT="test"
+RDEPEND=">=app-shells/zsh-4.3.11"
+BDEPEND="
+	test? (
+		${RDEPEND}
+		dev-ruby/bundler
+		dev-ruby/rspec
+	)
+"
+DEPEND=""
 
 src_install() {
 	insinto "/usr/share/zsh/site-functions/"
