@@ -53,6 +53,7 @@ S="${WORKDIR}/${P}-${NAME}"
 src_prepare() {
 	mv configure.in configure.ac || die
 	sed -i 's/configure\.in/configure.ac/g' Makefile.generating Makefile || die
+	sed -i '/\$(CC)/s/-O2 -g3/$(CFLAGS)/' src/plugins/e-acsl/Makefile.in || die
 	touch config_file || die
 	eautoreconf
 	eapply_user
