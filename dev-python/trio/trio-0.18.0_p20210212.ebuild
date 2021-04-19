@@ -35,6 +35,7 @@ DEPEND="${RDEPEND}
 		dev-python/ipython[${PYTHON_USEDEP}]
 		>=dev-python/jedi-0.17.0[${PYTHON_USEDEP}]
 		dev-python/pyopenssl[${PYTHON_USEDEP}]
+		dev-python/pylint[${PYTHON_USEDEP}]
 		dev-python/trustme[${PYTHON_USEDEP}]
 		dev-python/yapf[${PYTHON_USEDEP}]
 	)
