@@ -64,7 +64,9 @@ src_install(){
 
 	# I will use only npm provided with package itself
 	# as nodejs is not required to make it working (and it is really big).
-	fperms +x /opt/"${PN}"/resources/app/apm/bin/*
+	fperms +x /opt/"${PN}"/resources/app/apm/bin/apm
+	fperms +x /opt/"${PN}"/resources/app/apm/bin/node
+	fperms +x /opt/"${PN}"/resources/app/apm/bin/npm
 
 	doicon atom.png
 	make_desktop_entry "/opt/atom-bin/atom %U" "Atom" "atom" \
