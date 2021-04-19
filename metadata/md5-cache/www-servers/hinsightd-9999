@@ -1,4 +1,4 @@
-BDEPEND=acct-user/hinsightd acct-group/hinsightd dev-util/ninja >=dev-vcs/git-1.8.2.1[curl] filecaps? ( sys-libs/libcap )
+BDEPEND=dev-util/ninja >=dev-vcs/git-1.8.2.1[curl] filecaps? ( sys-libs/libcap )
 DEFINED_PHASES=compile install postinst unpack
 DEPEND=acct-user/hinsightd acct-group/hinsightd sys-libs/liburing dev-lang/lua:* sys-libs/zlib dev-libs/openssl
 DESCRIPTION=hinsightd a http/1.1 webserver with (hopefully) minimal goals
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=acct-user/hinsightd acct-group/hinsightd sys-libs/liburing dev-lang/lua:* sys-libs/zlib dev-libs/openssl filecaps? ( sys-libs/libcap )
 SLOT=0
 _eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52	fcaps	da689a8e04bbbb3518888ff668fee45b
-_md5_=f0fc893d72bda3e7ac7579b80d06d6d2
+_md5_=d41e93fca3451a0148c8b13050438aac

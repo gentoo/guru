@@ -36,7 +36,7 @@ app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature applicat
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-crypt/tomb 2.9-r5: Tomb :: File Encryption on GNU/Linux
-app-editors/atom-bin 1.56.0-r3: A hackable text editor for the 21st Century
+app-editors/atom-bin 1.56.0-r4: A hackable text editor for the 21st Century
 app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
@@ -166,7 +166,7 @@ dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync client
 dev-libs/libdwarf 20210305: The DWARF Debugging Information Format
 dev-libs/libnodave 0.8.5.1: Connect to and exchange data with Siemens PLCs
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
-dev-libs/mtxclient 0.4.1: Client API library for Matrix, built on top of Boost.Asio
+dev-libs/mtxclient 0.4.1 0.5.0: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/octetos-biblion 0.1.1_alpha: Library for reading biblia.
 dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta 2.2.1_beta 2.3.0_beta 2.3.1_beta 2.3.1_rc1 2.3.2_beta 2.3.3_beta 2.5.0_alpha 2.8.2_beta 2.15.0_beta 2.20.0_beta: C/C++ library to mainly provide Semantic Versioned implementation
 dev-libs/octetos-coreutils 0.3.0_alpha 0.4.0_alpha 0.4.0_alpha2 0.6.1_alpha 0.7.0_alpha 0.11.1_alpha 0.12.0_alpha: Similar to coreutils but is a C++ API.
@@ -392,8 +392,8 @@ gui-apps/coreterminal 4.1.0 4.2.0_alpha 4.2.0 9999: A terminal emulator for C Su
 gui-apps/coretime 4.1.0 4.2.0_alpha 4.2.0 9999: A time related task manager for C Suite
 gui-apps/coretoppings 4.1.0-r1 4.2.0_alpha 4.2.0 9999: Additional features, plugins, widgets etc for C Suite
 gui-apps/coreuniverse 4.1.0 4.2.0_alpha 4.2.0 9999: Shows information about apps for C Suite
-gui-apps/foot 1.7.1 9999: A fast, lightweight and minimalistic Wayland terminal emulator
-gui-apps/foot-terminfo 1.7.1 9999: Terminfo for foot, a great Wayland terminal emulator
+gui-apps/foot 1.7.1 1.7.2 9999: A fast, lightweight and minimalistic Wayland terminal emulator
+gui-apps/foot-terminfo 1.7.1 1.7.2 9999: Terminfo for foot, a great Wayland terminal emulator
 gui-apps/mpvpaper 1.0 1.1 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.4.3 0.4.4 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperde 0_p20210310 0.1.0_alpha 9999: Simple, sleek QT based DE for wayland using wayfire
@@ -562,6 +562,7 @@ sys-cluster/AXL 0.3.0 0.4.0: AXL provides a common C interface to transfer files
 sys-cluster/KVTree 1.1.0 1.1.1: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/dlb 2.1-r1: Dynamically react to application imbalance by modifying the number of resources
 sys-cluster/er 0.0.3 0.0.4: High-level distributed erasure coding lib combining shuffile and redset
+sys-cluster/extrae 3.8.3: Instrumentation framework to generate execution traces of parallel runtimes
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
 sys-cluster/pcs 0.10.7 0.10.8 0.10.8-r2: Pacemaker/Corosync Configuration System
 sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on string values
@@ -581,7 +582,7 @@ sys-kernel/tirdad 0_p20200926: kernel module for random ISN generation
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-libs/libnvidia-container 1.3.3: NVIDIA container runtime library
 sys-libs/nss-tls 1.0 1.1 9999: A DNS over HTTPS resolver for glibc
-sys-libs/safeclib 3.6.0_p20210407: safec libc extension with all C11 Annex K functions
+sys-libs/safeclib 3.6.0_p20210407-r1: safec libc extension with all C11 Annex K functions
 sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC security key
 sys-power/ZenStates-Linux 0_p20170507: Dynamically edit AMD Ryzen processor P-States
 sys-power/disable-c6 0_p20190603: disable the C6 state upon system boot, preventing Ryzen freezes
@@ -610,7 +611,7 @@ x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial v
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system
 x11-misc/betterlockscreen_rapid 0.0.0_pre20201222: A rapid and good-looking screen locker
 x11-misc/caffeine-ng 3.5.1 9999: Aplication able to temporarily inhibit the screensaver.
-x11-misc/gammy 0.9.58a 0.9.59 0.9.60 9999: Adaptive screen brightness/temperature
+x11-misc/gammy 0.9.60 0.9.64 9999: Adaptive screen brightness/temperature
 x11-misc/gromit-mpx 1.3.1 1.4 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
 x11-misc/i3lock-color 2.13.1 2.13.2 9999: The world's most popular non-default computer lockscreen
 x11-misc/i3lock-fancy-rapid 0.0.0_pre20201109: A faster implementation of i3lock-fancy
@@ -621,6 +622,7 @@ x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Windo
 x11-terms/terminus-bin 1.0.137: A terminal for a more modern age
 x11-themes/arc-darkest-colors 0_pre20200818 0_pre20201112: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
+x11-themes/materia-theme 20210322: A Material Design theme for GNOME/GTK based desktop environments
 x11-themes/obsidian-icon-theme 4.15 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
 x11-themes/obsidian2-gtk-theme 2.18 9999: Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
 x11-themes/papirus-claws-mail-theme 0_pre20181023 0_pre20201019: Papirus icon theme for Claws Mail

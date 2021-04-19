@@ -222,6 +222,28 @@ sys-cluster/KVTree:fcntl - Set the type of file locking to fcntl.
 sys-cluster/KVTree:flock - Set the type of file locking to flock.
 sys-cluster/dlb:hwloc - add sys-apps/hwlocsupport
 sys-cluster/dlb:instrumentation - enable sys-cluster/extrae instrumentation
+sys-cluster/extrae:boost - Search for boost
+sys-cluster/extrae:doc - Generates the documentation of this instrumentation package
+sys-cluster/extrae:dwarf - Build with dev-libs/libdwarf
+sys-cluster/extrae:elf - Build with virtual/libelf
+sys-cluster/extrae:fft - Search for FFT package (which?)
+sys-cluster/extrae:heterogeneous - Enable support for heterogeneous tracing
+sys-cluster/extrae:inotify - Enable inotify support
+sys-cluster/extrae:instrument-dynamic-memory - Enables instrumentation for dynamic memory (malloc, free, realloc) calls
+sys-cluster/extrae:instrument-io - Enables instrumentation for basic I/O (read, write) calls
+sys-cluster/extrae:instrument-syscall - Enables instrumentation for system calls (other than I/O and mallocs)
+sys-cluster/extrae:java - Enable support for tracing Java. This is necessary to create the connectors between |TRACE| and Java applications.
+sys-cluster/extrae:merge-in-trace - Embed the merging process in the tracing library so the final tracefile can be generated automatically from the application run
+sys-cluster/extrae:opencl - Enable support for tracing OpenCL
+sys-cluster/extrae:openmp - Enable support for tracing OpenMP
+sys-cluster/extrae:parallel-merge - Build the parallel mergers (mpimpi2prv/mpimpi2dim) based on MPI
+sys-cluster/extrae:pebs-sampling - enable PEBS sampling
+sys-cluster/extrae:posix-clock - Use POSIX clock (clock_gettime call) instead of low level timing routines. Use this option if the system where you install the instrumentation package modifies the frequency of its processors at runtime.
+sys-cluster/extrae:pthread - Enable support for tracing pthread library
+sys-cluster/extrae:sampling - Enable PAPI sampling support
+sys-cluster/extrae:single-mpi-lib - Produces a single instrumentation library for MPI that contains both Fortran and C wrappers. Applications that call the MPI library from both C and Fortran languages need this flag to be enabled.
+sys-cluster/extrae:smpss - Enable support for tracing SMP-superscalar
+sys-cluster/extrae:xml - Enable support for XML configuration
 sys-cluster/veloc:alps - Use ALPS (Application Level Placement Scheduler) as resource manager
 sys-cluster/veloc:lsf - Use LFS (Load Sharing Facility) as resource manager
 sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager

@@ -7,7 +7,8 @@ INHERIT=elisp
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
 RDEPEND=app-emacs/dash >=app-editors/emacs-23.1:*
+RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/flycheck/flycheck/archive/31.tar.gz -> flycheck-31.tar.gz
 _eclasses_=elisp-common	36f97076abd90f943a34f8bcd58b5bcc	elisp	023dd24ad9e6d5e62907e7007f548ca3
-_md5_=eb3524e456e80880a2306e2e6d3059b0
+_md5_=57c6b73c247bcbf082e03d3a53ac581a
