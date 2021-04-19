@@ -15,6 +15,10 @@ SLOT="0"
 KEYWORDS=""
 IUSE="" #+openssl
 
+BDEPEND="
+dev-util/ninja
+"
+
 RDEPEND="
 acct-user/hinsightd
 acct-group/hinsightd
@@ -26,14 +30,8 @@ dev-libs/openssl
 
 DEPEND="${RDEPEND}"
 
-BDEPEND="
-acct-user/hinsightd
-acct-group/hinsightd
-dev-util/ninja
-"
-
 PATCHES=(
-"${FILESDIR}/gentoo.patch"
+"${FILESDIR}/hinsightd-redefine-directories.patch"
 )
 
 #src_configure() {
@@ -41,7 +39,7 @@ PATCHES=(
 
 src_compile() {
 	cd build
-	ninja
+	ninja || die
 }
 
 src_install() {
