@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription>
+A dynamic instrumentation package to trace programs compiled and run with the shared 
+memory model (like OpenMP and pthreads), the message passing (MPI) programming model or 
+both programming models (different MPI processes using OpenMP or pthreads within each MPI 
+process). Extrae generates trace files that can be later visualized with <pkg>sys-cluster/paraver</pkg>.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/bsc-performance-tools/extrae/issues</bugs-to>
+		<remote-id type="github">bsc-performance-tools/extrae</remote-id>
+	</upstream>
+	<use>
+		<flag name="boost">Search for boost</flag>
+		<flag name="doc">Generates the documentation of this instrumentation package</flag>
+		<!--<flag name="cuda">Enable support for tracing CUDA calls on nVidia hardware and needs to point to the CUDA SDK installation path. This instrumentation is only valid in binaries that use the shared version of the CUDA library.</flag>-->
+		<!--<flag name="cupti">CUPTI is used to instrument CUDA calls</flag>-->
+		<flag name="dwarf">Build with <pkg>dev-libs/libdwarf</pkg></flag>
+		<!--<flag name="dyninst">Build with dyninst</flag>-->
+		<flag name="elf">Build with <pkg>virtual/libelf</pkg></flag>
+		<flag name="fft">Search for FFT package (which?)</flag>
+		<flag name="heterogeneous">Enable support for heterogeneous tracing</flag>
+		<flag name="inotify">Enable inotify support</flag>
+		<flag name="instrument-dynamic-memory">Enables instrumentation for dynamic memory (malloc, free, realloc) calls</flag>
+		<flag name="instrument-io">Enables instrumentation for basic I/O (read, write) calls</flag>
+		<flag name="instrument-syscall">Enables instrumentation for system calls (other than I/O and mallocs)</flag>
+		<flag name="java">Enable support for tracing Java. This is necessary to create the connectors between |TRACE| and Java applications.</flag>
+		<flag name="merge-in-trace">Embed the merging process in the tracing library so the final tracefile can be generated automatically from the application run</flag>
+		<!--<flag name="nanos">Enable support for tracing <pkg>sys-cluster/nanos</pkg> run-time</flag>-->
+		<!--<flag name="online">Enable on-line analysis</flag>-->
+		<flag name="opencl">Enable support for tracing OpenCL</flag>
+		<flag name="openmp">Enable support for tracing OpenMP</flag>
+		<flag name="parallel-merge">Build the parallel mergers (mpimpi2prv/mpimpi2dim) based on MPI</flag>
+		<flag name="pebs-sampling">enable PEBS sampling</flag>
+		<!--<flag name="pmapi">Enable PMAPI library to gather CPU performance counters</flag>-->
+		<flag name="posix-clock">Use POSIX clock (clock_gettime call) instead of low level timing routines. Use this option if the system where you install the instrumentation package modifies the frequency of its processors at runtime.</flag>
+		<flag name="pthread">Enable support for tracing pthread library</flag>
+		<flag name="sampling">Enable PAPI sampling support</flag>
+		<!--<flag name="spectral">This package enables support for on-line spectral analysis.</flag>-->
+		<flag name="single-mpi-lib">Produces a single instrumentation library for MPI that contains both Fortran and C wrappers. Applications that call the MPI library from both C and Fortran languages need this flag to be enabled.</flag>
+		<flag name="smpss">Enable support for tracing SMP-superscalar</flag>
+		<!--<flag name="synapse">This library is a front-end of the MRNet library</flag>-->
+		<flag name="xml">Enable support for XML configuration</flag>
+	</use>
+</pkgmetadata>
