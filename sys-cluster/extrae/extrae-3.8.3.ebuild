@@ -153,9 +153,9 @@ src_configure() {
 src_install() {
 	default
 
-	mkdir -p "${ED}/$(python_get_sitedir)/" || die
-	mv "${ED}/usr/libexec/pyextrae" "${ED}/$(python_get_sitedir)/" || die
-	python_optimize "${ED}/$(python_get_sitedir)/pyextrae"
+	mkdir -p "${D}/$(python_get_sitedir)/" || die
+	mv "${ED}/usr/libexec/pyextrae" "${D}/$(python_get_sitedir)/" || die
+	python_optimize "${D}/$(python_get_sitedir)/pyextrae"
 
 	#super-duper workaround
 	mkdir -p "${ED}/usr/share/doc/${PF}" || die
