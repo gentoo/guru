@@ -41,6 +41,9 @@ DOCS=( CHANGES.md README.md )
 src_prepare() {
 	mv configure.in configure.ac || die
 	sed -i 's/configure\.in/configure.ac/g' Makefile.in || die
+	sed -e '/^lib\/why3[a-z]*\$(EXE):/{n;s/-Wall/$(CFLAGS) $(LDFLAGS)/}' \
+		-e '/^%.o: %.c/{n;s/\$(CC).*-o/$(CC) $(CFLAGS) -o/}' \
+		-i Makefile.in || die
 	eautoreconf
 	eapply_user
 }
