@@ -45,9 +45,14 @@ src_compile() {
 src_install() {
 	newbin "${S}/build/hin9" hinsightd
 	newinitd "${FILESDIR}/init.d.sh" hinsightd
+	#systemd_dounit "${FILESDIR}/hinsightd.service" # not tested
 
 	insinto /etc/hinsightd
 	newins "${S}/workdir/main.lua" hinsightd.lua
+
+	# logrotate
+	insinto /etc/logrotate.d
+	newins "${FILESDIR}"/logrotate.d.sh hinsightd
 
 	keepdir /var/www/localhost/htdocs
 	keepdir /var/log/hinsightd
