@@ -22,6 +22,7 @@ CRATES="
 	crossterm_winapi-0.7.0
 	directories-next-2.0.0
 	dirs-sys-next-0.1.2
+	dtoa-0.4.8
 	edit-0.1.3
 	either-1.6.1
 	getrandom-0.2.2
@@ -32,6 +33,7 @@ CRATES="
 	instant-0.1.9
 	lazy_static-1.4.0
 	libc-0.2.92
+	linked-hash-map-0.5.4
 	lock_api-0.4.3
 	log-0.4.14
 	memchr-2.3.4
@@ -62,6 +64,9 @@ CRATES="
 	remove_dir_all-0.7.0
 	same-file-1.0.6
 	scopeguard-1.1.0
+	serde-1.0.125
+	serde_derive-1.0.125
+	serde_yaml-0.8.17
 	shellwords-1.1.0
 	signal-hook-0.1.17
 	signal-hook-registry-1.3.0
@@ -88,6 +93,7 @@ CRATES="
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-util-0.1.5
 	winapi-x86_64-pc-windows-gnu-0.4.0
+	yaml-rust-0.4.5
 "
 
 inherit cargo
