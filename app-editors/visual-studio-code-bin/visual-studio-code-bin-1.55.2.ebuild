@@ -29,6 +29,7 @@ RDEPEND="
 	x11-libs/gtk+:3
 	x11-libs/libnotify
 	x11-libs/libxkbcommon
+	x11-libs/libxkbfile
 	x11-libs/libXScrnSaver
 	x11-libs/libXtst
 	x11-libs/pango
