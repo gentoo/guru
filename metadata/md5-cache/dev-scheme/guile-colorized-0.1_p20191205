@@ -8,4 +8,4 @@ LICENSE=GPL-3
 RDEPEND=>=dev-scheme/guile-2.0.9
 SLOT=0
 SRC_URI=https://gitlab.com/NalaGinrut/guile-colorized/-/archive/1625a79f0e31849ebd537e2a58793fb45678c58f.tar.bz2 -> guile-colorized-0.1_p20191205.tar.bz2
-_md5_=d3cc9b65ff455122843385f63421c000
+_md5_=c3dd9087fafaf15be4a5302104a2fad8

@@ -10,4 +10,4 @@ PROPERTIES=live
 RDEPEND=>=dev-scheme/guile-2.0.9
 SLOT=0
 _eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=d3cc9b65ff455122843385f63421c000
+_md5_=c3dd9087fafaf15be4a5302104a2fad8
