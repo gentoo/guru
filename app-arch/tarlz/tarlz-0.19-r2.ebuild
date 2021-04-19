@@ -20,6 +20,10 @@ DEPEND="
 	$(unpacker_src_uri_depends)
 "
 
+PATCHES=(
+	"${FILESDIR}/skip-broken-testcase.patch"
+)
+
 src_configure() {
 	econf LDFLAGS="${LDFLAGS}" CXXFLAGS="${CXXFLAGS}"
 }
