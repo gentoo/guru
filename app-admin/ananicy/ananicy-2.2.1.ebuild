@@ -16,6 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="${PYTHON_DEPS}"
+RDEPEND="sys-process/schedtool"
 
 S="${WORKDIR}/${P^}"
 DOCS=( README.md )
