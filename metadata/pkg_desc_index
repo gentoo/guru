@@ -71,7 +71,7 @@ app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/pup-bin 0.4.0: Parsing HTML at the command line
 app-misc/rdfind 1.4.1: Find duplicate files
 app-misc/rememberthemilk 1.3.0: Freemium simple to-do tasks manager
-app-misc/tai 0.0.3 0.0.4: tai (Terminal Ascii Image) tool to convert images to ascii
+app-misc/tai 0.0.3 0.0.4 0.0.5: tai (Terminal Ascii Image) tool to convert images to ascii
 app-misc/tealdeer 1.4.1: A very fast implementation of tldr in Rust.
 app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the command-line
 app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
@@ -164,7 +164,7 @@ dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
 dev-libs/imsg-compat 6.8.1 9999: linux port of OpenBSD imsg
 dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
 dev-libs/libdwarf 20210305: The DWARF Debugging Information Format
-dev-libs/libnodave 0.8.5.1: Connect to and exchange data with Siemens PLCs
+dev-libs/libnodave 0.8.5.1-r1: Connect to and exchange data with Siemens PLCs
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
 dev-libs/mtxclient 0.4.1 0.5.0: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/octetos-biblion 0.1.1_alpha: Library for reading biblia.
@@ -327,6 +327,9 @@ dev-python/watchgod 0.7: Simple, modern file watching and code reload
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
 dev-python/xunitparser 1.3.3: Read JUnit/XUnit XML files and map them to Python objects
 dev-python/yams 0.7.3 9999: A Last.FM scrobbler for MPD (Yet Another Mpd Scrobbler)
+dev-ruby/byebug 11.1.3: a Ruby 2 debugger
+dev-ruby/pry-byebug 3.9.0: Step-by-step debugging and stack navigation in Pry
+dev-ruby/rspec-wait 0.0.9: enables time-resilient expectations in your RSpec test suite
 dev-scheme/gerbil 0.16 9999: Dialect of Scheme designed for Systems Programming
 dev-scheme/guile-colorized 0.1_p20191205 9999: Colorized REPL for GNU Guile
 dev-scheme/guile-gi 0.3.1 9999: Bindings for GObject Introspection and libgirepository for Guile
@@ -503,6 +506,7 @@ net-misc/lyrics-in-terminal 1.3.1: Command Line Lyrics fetcher for MPRIS media p
 net-misc/lyricwikia 0.1.11-r1: Python API to get song lyrics from LyricWikia
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 9999: The official Qt-based program for syncing your MEGA account in your PC
+net-misc/myip 1.2.0: Get your external IP address using STUN server
 net-misc/openbgpd 6.6_p0 6.7_p0 6.8_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.5.2 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
@@ -598,7 +602,7 @@ www-apps/jackett-bin 0.17.866 9999: API Support for your favorite torrent tracke
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/twint 2.1.20-r1: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 19.1.0 9999: ultra fast, simple, secure & standards compliant web I/O
-www-client/badwolf 1.0.3 9999: Minimalist and privacy-oriented WebKitGTK+ browser
+www-client/badwolf 1.1.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/browsh-bin 1.6.4: A fully-modern text-based browser, rendering to TTY and browsers
 www-client/torbrowser-launcher 0.3.3 9999: A program to download, updated, and run the Tor Browser Bundle
 www-client/woob 2.0 9999: Consume lots of websites without a browser (Web Outside Of Browsers)
