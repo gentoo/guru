@@ -28,6 +28,7 @@ src_prepare() {
 	default
 	sed -e "s/gcc/$(tc-getCC)/" \
 		-e "/CFLAGS=/d" \
+		-e 's/$(CC) $^ $(CFLAGS) -o $@/$(CC) $^ $(CFLAGS) $(LDFLAGS) -o $@/' \
 		-i Makefile || die
 }
 
