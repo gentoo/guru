@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version = '1.0' encoding = 'UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -6,7 +6,7 @@
 		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>https://github.com/Nefelim4ag/Ananicy/issues</bugs-to>
-		<remote-id type="github">Nefelim4ag/Ananicy</remote-id>
+		<bugs-to>https://github.com/deivid-rodriguez/byebug/issues</bugs-to>
+		<remote-id type="github">deivid-rodriguez/byebug</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -5,7 +5,7 @@ EAPI="7"
 
 PYTHON_COMPAT=( python3_{7,8,9} pypy3 )
 
-inherit python-any-r1
+inherit python-single-r1
 
 DESCRIPTION="ANother Auto NICe daemon"
 HOMEPAGE="https://github.com/Nefelim4ag/Ananicy"
@@ -15,22 +15,23 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 DEPEND="${PYTHON_DEPS}"
+RDEPEND="${DEPEND}
+	sys-process/schedtool
+"
 
 S="${WORKDIR}/${P^}"
 DOCS=( README.md )
-
-src_prepare(){
-	sed -e 's|\/sbin\/sysctl|\/usr\/sbin\/sysctl|g' -i ananicy.service || die
-	default
-}
+PATCHES=( "${FILESDIR}/fix-sysctl-path.patch" )
 
 src_compile() {
 	return
 }
 
 src_install() {
-	emake PREFIX="${ED}" install
+	emake PREFIX="${D}" install
 	python_fix_shebang "${ED}/usr/bin/ananicy"
 	einstalldocs
 }

@@ -3,6 +3,11 @@
 
 EAPI=7
 
+USE_RUBY="ruby25 ruby26 ruby27 ruby30"
+RUBY_FAKEGEM_RECIPE_TEST="rspec3"
+
+inherit ruby-fakegem
+
 DESCRIPTION="Fish-like autosuggestions for zsh"
 HOMEPAGE="https://github.com/zsh-users/zsh-autosuggestions"
 SRC_URI="https://github.com/zsh-users/zsh-autosuggestions/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -11,15 +16,16 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
-#RESTRICT="!test? ( test )"
+RESTRICT="!test? ( test )"
 #test need byebug not packaged
-RESTRICT="test"
+#RESTRICT="test"
 RDEPEND=">=app-shells/zsh-4.3.11"
 BDEPEND="
 	test? (
 		${RDEPEND}
 		dev-ruby/bundler
-		dev-ruby/rspec
+		dev-ruby/pry-byebug
+		dev-ruby/rspec-wait
 	)
 "
 DEPEND=""
