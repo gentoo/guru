@@ -22,7 +22,7 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND=">=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
-	>=dev-qt/qtquickcontrols-${QTMIN}:5
+	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-apps/libksane-19.04.0:5
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5

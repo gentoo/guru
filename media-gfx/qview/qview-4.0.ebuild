@@ -14,14 +14,16 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="
+RDEPEND="
 	dev-qt/qtconcurrent:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtwidgets:5
 "
 
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	dev-qt/qttest:5
+"
 
 src_configure() {
 	# https://github.com/jurplel/qView/issues/395

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit unpacker
+inherit toolchain-funcs unpacker
 
 DESCRIPTION="A parallel archiver combining tar and lzip"
 HOMEPAGE="https://www.nongnu.org/lzip/tarlz.html"
@@ -25,5 +25,9 @@ PATCHES=(
 )
 
 src_configure() {
-	econf LDFLAGS="${LDFLAGS}" CXXFLAGS="${CXXFLAGS}"
+	econf \
+		CXX="$(tc-getCXX)" \
+		CXXFLAGS="${CXXFLAGS}" \
+		CPPFLAGS="${CPPFLAGS}" \
+		LDFLAGS="${LDFLAGS}"
 }
