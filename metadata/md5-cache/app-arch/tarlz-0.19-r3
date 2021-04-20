@@ -3,11 +3,11 @@ DEPEND=app-arch/lzlib:0= || ( app-arch/plzip app-arch/pdlzip app-arch/lzip )
 DESCRIPTION=A parallel archiver combining tar and lzip
 EAPI=7
 HOMEPAGE=https://www.nongnu.org/lzip/tarlz.html
-INHERIT=unpacker
+INHERIT=toolchain-funcs unpacker
 KEYWORDS=~amd64
 LICENSE=GPL-2+
 RDEPEND=app-arch/lzlib:0=
 SLOT=0
 SRC_URI=https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.19.tar.lz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	unpacker	517f16af48ee3ab88180dd58b5143213
-_md5_=ac4a5097409be0ae098e2822d13eb24c
+_md5_=a268b3d4b3b3bc9f3d367425cfd8ff7a
