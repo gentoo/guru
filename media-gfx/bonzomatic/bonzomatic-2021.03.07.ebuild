@@ -29,6 +29,7 @@ DEPEND="
 	system-stb? ( dev-libs/stb )
 	system-kissfft? ( sci-libs/kissfft )
 	virtual/opengl
+	virtual/glu
 	media-libs/alsa-lib
 	media-libs/fontconfig
 	x11-libs/libXi
