@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -22,6 +22,7 @@ LICENSE="GPL-3"
 SLOT="0"
 
 DEPEND="
+	dev-qt/qtconcurrent:5
 	dev-qt/qtx11extras:5
 	gui-libs/libcprime
 	gui-libs/libcsys

@@ -24,6 +24,7 @@ LICENSE="GPL-3"
 SLOT="0"
 
 DEPEND="
+	dev-qt/qtconcurrent:5
 	dev-qt/qtx11extras:5
 	gui-libs/libcprime
 	gui-libs/libcsys
