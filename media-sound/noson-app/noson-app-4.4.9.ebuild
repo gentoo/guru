@@ -19,6 +19,7 @@ DEPEND="
 	>=dev-qt/qttranslations-5.9
 	>=dev-qt/qtgui-5.9
 	>=dev-qt/qtquickcontrols2-5.9
+	>=dev-qt/qtsvg-5.9
 	dev-libs/openssl:0
 	media-libs/flac
 	media-sound/pulseaudio
