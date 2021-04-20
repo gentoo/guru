@@ -24,6 +24,7 @@ LICENSE="GPL-3"
 SLOT="0"
 
 DEPEND="
+	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5

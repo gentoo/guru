@@ -17,13 +17,13 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
-#test need byebug not packaged
-#RESTRICT="test"
 RDEPEND=">=app-shells/zsh-4.3.11"
 BDEPEND="
 	test? (
 		${RDEPEND}
+		app-misc/tmux
 		dev-ruby/bundler
+		dev-ruby/pry
 		dev-ruby/pry-byebug
 		dev-ruby/rspec-wait
 	)
@@ -32,7 +32,7 @@ DEPEND=""
 
 src_install() {
 	insinto "/usr/share/zsh/site-functions/"
-	doins "${PN}.zsh"
+	doins "${WORKDIR}/all/${P}/${PN}.zsh"
 }
 
 pkg_postinst() {
