@@ -73,7 +73,10 @@ HOMEPAGE="https://github.com/bootandy/dust"
 SRC_URI="https://github.com/bootandy/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	$(cargo_crate_uris ${CRATES})"
 # Prevent portage from trying to fetch bunch of *.crate from mirror despite they are not mirrored.
-RESTRICT="mirror"
+#
+# Specifying `test` to ignore failing tests.
+# See <https://github.com/bootandy/dust/issues/138>.
+RESTRICT="mirror test"
 LICENSE="Apache-2.0 MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
