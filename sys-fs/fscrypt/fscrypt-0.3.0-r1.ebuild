@@ -90,7 +90,7 @@ src_install() {
 		DESTDIR="${ED}" \
 		PREFIX="/usr" \
 		PAM_MODULE_DIR="$(getpam_mod_dir)" \
-		INSTALL_UBUNTU_PAM_CONFIG="false" \
+		PAM_CONFIG_DIR= \
 		install
 	einstalldocs
 
