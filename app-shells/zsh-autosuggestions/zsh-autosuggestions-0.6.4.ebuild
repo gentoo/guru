@@ -23,6 +23,7 @@ BDEPEND="
 		${RDEPEND}
 		app-misc/tmux
 		dev-ruby/bundler
+		dev-ruby/pry
 		dev-ruby/pry-byebug
 		dev-ruby/rspec-wait
 	)
