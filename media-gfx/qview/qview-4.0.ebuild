@@ -14,6 +14,9 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
+IUSE="test"
+RESTRICT="!test? ( test )"
+
 RDEPEND="
 	dev-qt/qtconcurrent:5
 	dev-qt/qtgui:5
@@ -22,7 +25,7 @@ RDEPEND="
 "
 
 DEPEND="${RDEPEND}
-	dev-qt/qttest:5
+	test? ( dev-qt/qttest:5 )
 "
 
 src_configure() {
