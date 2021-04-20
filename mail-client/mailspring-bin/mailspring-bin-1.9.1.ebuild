@@ -30,6 +30,7 @@ RDEPEND="
 	net-dns/c-ares
 	net-print/cups
 	sys-devel/libtool
+	sys-libs/db
 	virtual/udev
 	=x11-libs/gtk+-3*
 	x11-libs/libnotify
