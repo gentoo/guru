@@ -15,8 +15,12 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 DEPEND="${PYTHON_DEPS}"
-RDEPEND="sys-process/schedtool"
+RDEPEND="${DEPEND}
+	sys-process/schedtool
+"
 
 S="${WORKDIR}/${P^}"
 DOCS=( README.md )
