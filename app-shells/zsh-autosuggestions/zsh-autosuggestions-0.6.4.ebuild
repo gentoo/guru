@@ -23,6 +23,7 @@ RDEPEND=">=app-shells/zsh-4.3.11"
 BDEPEND="
 	test? (
 		${RDEPEND}
+		app-misc/tmux
 		dev-ruby/bundler
 		dev-ruby/pry-byebug
 		dev-ruby/rspec-wait
