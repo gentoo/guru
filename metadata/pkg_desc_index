@@ -619,7 +619,7 @@ x11-misc/caffeine-ng 3.5.1 9999: Aplication able to temporarily inhibit the scre
 x11-misc/gammy 0.9.60 0.9.64 9999: Adaptive screen brightness/temperature
 x11-misc/gromit-mpx 1.3.1 1.4 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
 x11-misc/i3lock-color 2.13.1 2.13.2 9999: The world's most popular non-default computer lockscreen
-x11-misc/i3lock-fancy-rapid 0.0.0_pre20201109-r1: A faster implementation of i3lock-fancy
+x11-misc/i3lock-fancy-rapid 0.0.0_pre20201109-r1 0.0.0_pre20210421: A faster implementation of i3lock-fancy
 x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement for i3status, written in Rust.
 x11-misc/ksnip 1.8.1: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
