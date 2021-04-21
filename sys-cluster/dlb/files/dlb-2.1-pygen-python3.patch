@@ -10,8 +10,6 @@ Subject: [PATCH] Run pygen script with either python2 or python3
  3 files changed, 174 insertions(+), 1 deletion(-)
  create mode 100755 scripts/pygen.py3
 
-diff --git a/Makefile.am b/Makefile.am
-index 7d575e7..b274011 100644
 --- a/Makefile.am
 +++ b/Makefile.am
 @@ -83,7 +83,11 @@ nodist_include_HEADERS = src/LB_MPI/MPI_interface.h \
@@ -35,8 +33,6 @@ index 7d575e7..b274011 100644
  	scripts/viewer/dlb_cpu_usage.in \
  	scripts/viewer/dlb_viewer.py.in \
  	$(DEBIAN_EXTRA) \
-diff --git a/configure.ac b/configure.ac
-index 2200d23..8a587b9 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -235,6 +235,8 @@ AC_SUBST([INSTR_DEBUG_CPPFLAGS])
@@ -48,9 +44,6 @@ index 2200d23..8a587b9 100644
  
  # check for OpenMP availability
  AC_OPENMP
-diff --git a/scripts/pygen.py3 b/scripts/pygen.py3
-new file mode 100755
-index 0000000..9748d96
 --- /dev/null
 +++ b/scripts/pygen.py3
 @@ -0,0 +1,166 @@
