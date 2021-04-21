@@ -167,7 +167,7 @@ dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync client
 dev-libs/libdwarf 20210305: The DWARF Debugging Information Format
 dev-libs/libnodave 0.8.5.1-r1: Connect to and exchange data with Siemens PLCs
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
-dev-libs/mtxclient 0.5.0 0.5.1: Client API library for Matrix, built on top of Boost.Asio
+dev-libs/mtxclient 0.4.1 0.5.0 0.5.1: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/octetos-biblion 0.1.1_alpha: Library for reading biblia.
 dev-libs/octetos-core 1.2.2_beta 2.0.0_beta 2.2.0_beta 2.2.1_beta 2.3.0_beta 2.3.1_beta 2.3.1_rc1 2.3.2_beta 2.3.3_beta 2.5.0_alpha 2.8.2_beta 2.15.0_beta 2.20.0_beta: C/C++ library to mainly provide Semantic Versioned implementation
 dev-libs/octetos-coreutils 0.3.0_alpha 0.4.0_alpha 0.4.0_alpha2 0.6.1_alpha 0.7.0_alpha 0.11.1_alpha 0.12.0_alpha: Similar to coreutils but is a C++ API.
@@ -567,8 +567,9 @@ sys-cluster/AXL 0.3.0 0.4.0: AXL provides a common C interface to transfer files
 sys-cluster/KVTree 1.1.0 1.1.1: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/dlb 2.1-r1: Dynamically react to application imbalance by modifying the number of resources
 sys-cluster/er 0.0.3 0.0.4: High-level distributed erasure coding lib combining shuffile and redset
-sys-cluster/extrae 3.8.3: Instrumentation framework to generate execution traces of parallel runtimes
+sys-cluster/extrae 3.8.3-r1: Instrumentation framework to generate execution traces of parallel runtimes
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
+sys-cluster/nanos6 2.5.1-r1: runtime that implements the OmpSs-2 parallel programming model
 sys-cluster/pcs 0.10.7 0.10.8 0.10.8-r2: Pacemaker/Corosync Configuration System
 sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on string values
 sys-cluster/redset 0.0.4 0.0.5: Low-level distributed erasure coding lib to protect datasets of MPI applications

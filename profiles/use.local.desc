@@ -240,6 +240,7 @@ sys-cluster/extrae:instrument-io - Enables instrumentation for basic I/O (read, 
 sys-cluster/extrae:instrument-syscall - Enables instrumentation for system calls (other than I/O and mallocs)
 sys-cluster/extrae:java - Enable support for tracing Java. This is necessary to create the connectors between |TRACE| and Java applications.
 sys-cluster/extrae:merge-in-trace - Embed the merging process in the tracing library so the final tracefile can be generated automatically from the application run
+sys-cluster/extrae:nanos - Enable support for tracing sys-cluster/nanos run-time
 sys-cluster/extrae:opencl - Enable support for tracing OpenCL
 sys-cluster/extrae:openmp - Enable support for tracing OpenMP
 sys-cluster/extrae:parallel-merge - Build the parallel mergers (mpimpi2prv/mpimpi2dim) based on MPI
@@ -250,6 +251,14 @@ sys-cluster/extrae:sampling - Enable PAPI sampling support
 sys-cluster/extrae:single-mpi-lib - Produces a single instrumentation library for MPI that contains both Fortran and C wrappers. Applications that call the MPI library from both C and Fortran languages need this flag to be enabled.
 sys-cluster/extrae:smpss - Enable support for tracing SMP-superscalar
 sys-cluster/extrae:xml - Enable support for XML configuration
+sys-cluster/nanos6:cluster - Enable OmpSs@Cluster support. This requires an MPI version that supports MPI_THREAD_MULTIPLE to be present in your environment
+sys-cluster/nanos6:debug - enable extra assertions and checks in debug - may cause significant slowdown
+sys-cluster/nanos6:dlb - enable dynamic management and sharing of computing resources
+sys-cluster/nanos6:embed-code-changes - embed into the runtime any code changes present in the source
+sys-cluster/nanos6:execution-workflow - Enable execution using the Execution Workflow
+sys-cluster/nanos6:extrae - to generate execution traces for offline performance analysis with paraver
+sys-cluster/nanos6:papi - enable dev-libs/papi support
+sys-cluster/nanos6:unwind - to generate sample-based profiling
 sys-cluster/veloc:alps - Use ALPS (Application Level Placement Scheduler) as resource manager
 sys-cluster/veloc:lsf - Use LFS (Load Sharing Facility) as resource manager
 sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager
