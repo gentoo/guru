@@ -92,6 +92,7 @@ DEPEND="
 	dev-util/debhelper
 	sys-apps/fakeroot
 	x11-libs/gtk+:3
+	dev-qt/linguist-tools
 	dev-qt/qtdeclarative[widgets]
 	dev-qt/qtquickcontrols2[widgets]
 "
