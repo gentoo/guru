@@ -21,8 +21,8 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-DEPEND=""
-RDEPEND=""
+DEPEND="sci-libs/fftw:3.0"
+RDEPEND="${DEPEND}"
 
 src_install() {
 	dolib.so libkissfft.so
