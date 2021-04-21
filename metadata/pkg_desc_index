@@ -463,7 +463,7 @@ media-sound/ibniz 1.18: virtual machine designed for extremely compact low-level
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/ncpamixer 1.3.3.1 9999: A ncurses mixer for PulseAudio inspired by pavucontrol
 media-sound/noson-app 4.4.9: The essential to control music from your SONOS devices on Linux platforms
-media-sound/nuclear-bin 0.6.11-r2: Nuclear is a streaming program that pulls content from free sources on internet
+media-sound/nuclear-bin 0.6.12: Nuclear is a streaming program that pulls content from free sources on internet
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
 media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file or stream as a PulseAudio source
 media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
@@ -608,7 +608,7 @@ www-client/badwolf 1.1.0 9999: Minimalist and privacy-oriented WebKitGTK+ browse
 www-client/browsh-bin 1.6.4: A fully-modern text-based browser, rendering to TTY and browsers
 www-client/torbrowser-launcher 0.3.3 9999: A program to download, updated, and run the Tor Browser Bundle
 www-client/woob 2.0 9999: Consume lots of websites without a browser (Web Outside Of Browsers)
-www-servers/hinsightd 9999: hinsightd a http/1.1 webserver with (hopefully) minimal goals
+www-servers/hinsightd 0.9.0 9999: hinsightd a http/1.1 webserver with (hopefully) minimal goals
 www-servers/thin 1.8.0: This a Ruby gem that delivers a thin and fast web server
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-libs/gtk-fortran 19.04 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
