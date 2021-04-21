@@ -12,8 +12,10 @@ HOMEPAGE="https://gitlab.com/tiotags/hin9"
 SRC_URI="https://gitlab.com/tiotags/hin9/-/archive/v0.9.0/hin9-v0.9.0.tar.gz"
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="" #+openssl
+
+S="${WORKDIR}/hin9-v${PV}"
 
 BDEPEND="
 dev-util/ninja
