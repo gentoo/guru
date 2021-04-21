@@ -6,7 +6,6 @@ EAPI=7
 inherit acct-user
 
 DESCRIPTION="A user account for www-servers/hinsightd"
-KEYWORDS=""
 
 ACCT_USER_ID=-1
 ACCT_USER_GROUPS=( hinsightd )
