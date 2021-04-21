@@ -15,6 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="boost doc dwarf elf fft heterogeneous inotify +instrument-dynamic-memory +instrument-io +instrument-syscall merge-in-trace nanos opencl openmp +parallel-merge pebs-sampling +posix-clock pthread sampling +single-mpi-lib smpss +xml"
 #aspectj and aspectj-weaver needs to be enabled both at the same time but the aspectj package in gentoo doesn't have weaver
+#TODO: find out who is pulling in libpfm
 #TODO: find out which FFT library is used
 #TODO: remove some useflags (boost fft elf dwarf)
 #TODO: pmapi online dyninst cuda spectral cupti openshmem gm mx synapse memkind sionlib aspectj
@@ -22,7 +23,9 @@ IUSE="boost doc dwarf elf fft heterogeneous inotify +instrument-dynamic-memory +
 
 CDEPEND="
 	${PYTHON_DEPS}
+	app-arch/xz-utils
 	dev-libs/icu
+	dev-libs/libpfm
 	sys-libs/libunwind
 	dev-libs/libxml2
 	dev-libs/papi
@@ -36,7 +39,7 @@ CDEPEND="
 	boost? ( dev-libs/boost:= )
 	dwarf? ( dev-libs/libdwarf )
 	elf? ( virtual/libelf )
-	nanos? ( sys-cluster/nanos6 )
+	inotify? ( dev-libs/libevent )
 	opencl? ( dev-util/opencl-headers )
 "
 DEPEND="
