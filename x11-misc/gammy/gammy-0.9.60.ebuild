@@ -37,7 +37,7 @@ src_configure() {
 }
 
 src_install() {
-	default
+	emake INSTALL_ROOT="${D}" install
 
 	local sizes="128 16 32 64"
 	cd ./icons || die

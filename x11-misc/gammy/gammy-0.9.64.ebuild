@@ -37,14 +37,5 @@ src_configure() {
 }
 
 src_install() {
-	default
-
-	local sizes="128 16 32 64"
-	cd ./icons || die
-	for size in ${sizes}; do
-		convert "${size}x${size}ball.ico" "${size}x${size}ball.png" || die
-		newicon -s "${size}" "${size}x${size}ball.png" "${PN}.png"
-	done
-
-	make_desktop_entry "${PN}" "${PN^}" "${PN}" "Graphics;Settings"
+	emake INSTALL_ROOT="${D}" install
 }
