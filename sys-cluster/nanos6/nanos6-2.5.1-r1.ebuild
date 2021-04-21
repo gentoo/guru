@@ -12,10 +12,10 @@ SRC_URI="https://github.com/bsc-pm/nanos6/archive/refs/tags/version-${PV}.tar.gz
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="cluster debug dlb doc embed-code-changes execution-workflow git papi unwind"
+IUSE="cluster debug dlb embed-code-changes execution-workflow extrae git papi unwind"
 #chrono-arch build fail
 #jemalloc require custom stuff
-#TODO: cuda pqos mercurium memkind k1om extrae
+#TODO: cuda pqos mercurium memkind k1om
 RDEPEND="
 	>=dev-libs/boost-1.59:=
 	sys-apps/hwloc
@@ -25,12 +25,12 @@ RDEPEND="
 	cluster? ( virtual/mpi )
 	dlb? ( sys-cluster/dlb )
 	embed-code-changes? ( dev-vcs/git )
+	extrae? ( sys-cluster/extrae[nanos] )
 	papi? ( dev-libs/papi )
 	unwind? ( sys-libs/libunwind )
 "
-#extrae? ( sys-cluster/extrae[nanos] )
 DEPEND="${RDEPEND}"
-BDEPEND="doc? ( app-doc/doxygen )"
+BDEPEND=""
 REQUIRED_USE="cluster? ( execution-workflow )"
 S="${WORKDIR}/${PN}-version-${PV}"
 
@@ -57,12 +57,6 @@ src_configure() {
 		--without-pgi
 
 		$(use_enable cluster)
-		$(use_enable doc doxygen-doc)
-		$(use_enable doc doxygen-dot)
-		$(use_enable doc doxygen-html)
-		$(use_enable doc doxygen-man)
-		$(use_enable doc doxygen-pdf)
-		$(use_enable doc doxygen-ps)
 		$(use_enable debug extra-debug)
 		$(use_enable embed-code-changes)
 		$(use_enable execution-workflow)
@@ -78,11 +72,11 @@ src_configure() {
 	else
 		myconf+=( "--without-git" )
 	fi
-#	if use extrae; then
-#		myconf+=( "--with-extrae=${EPREFIX}/usr/$(get_libdir)/extrae" )
-#	else
+	if use extrae; then
+		myconf+=( "--with-extrae=${EPREFIX}/usr/$(get_libdir)/extrae" )
+	else
 		myconf+=( "--without-extrae" )
-#	fi
+	fi
 	if use papi; then
 		myconf+=( "--with-papi=${EPREFIX}/usr" )
 	else
@@ -103,6 +97,9 @@ src_configure() {
 
 src_install() {
 	default
+	dodoc CHANGELOG.md
+	rm -r docs/Doxyfile* || die
+	dodoc -r docs/.
 
 	docompress -x "/usr/share/doc/${PF}/paraver-cfg"
 	docompress -x "/usr/share/doc/${PF}/scripts"
