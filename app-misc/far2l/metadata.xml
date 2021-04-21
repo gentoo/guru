@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<use>
+		<flag name="archive">Multiarc extended archives support</flag>
+		<flag name="nfs">NFS support in NetRocks</flag>
+		<flag name="samba">SMB support in NetRocks</flag>
+		<flag name="sftp">SFTP support in NetRocks</flag>
+		<flag name="ssl">FTPS support in NetRocks</flag>
+		<flag name="webdav">WebDav support in NetRocks</flag>
+	</use>
+</pkgmetadata>
