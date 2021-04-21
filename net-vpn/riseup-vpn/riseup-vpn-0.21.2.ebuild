@@ -83,6 +83,7 @@ QA_PRESTRIPPED="
 
 BDEPEND="
 	virtual/pkgconfig
+	dev-qt/linguist-tools
 	test? ( dev-qt/qttest )
 "
 

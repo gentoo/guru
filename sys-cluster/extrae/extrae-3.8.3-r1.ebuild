@@ -13,17 +13,19 @@ SRC_URI="https://github.com/bsc-performance-tools/extrae/archive/${PV}.tar.gz ->
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
-#TODO: correctly install python stuff
-IUSE="boost doc dwarf elf fft heterogeneous inotify +instrument-dynamic-memory +instrument-io +instrument-syscall merge-in-trace opencl openmp +parallel-merge pebs-sampling +posix-clock pthread sampling +single-mpi-lib smpss +xml"
+IUSE="boost doc dwarf elf fft heterogeneous inotify +instrument-dynamic-memory +instrument-io +instrument-syscall merge-in-trace nanos opencl openmp +parallel-merge pebs-sampling +posix-clock pthread sampling +single-mpi-lib smpss +xml"
 #aspectj and aspectj-weaver needs to be enabled both at the same time but the aspectj package in gentoo doesn't have weaver
+#TODO: find out who is pulling in libpfm
 #TODO: find out which FFT library is used
 #TODO: remove some useflags (boost fft elf dwarf)
-#TODO: nanos pmapi online dyninst cuda spectral cupti openshmem gm mx synapse memkind sionlib aspectj
+#TODO: pmapi online dyninst cuda spectral cupti openshmem gm mx synapse memkind sionlib aspectj
 #TODO: support llvm libunwind, llvm rt, elftoolchain
 
 CDEPEND="
 	${PYTHON_DEPS}
+	app-arch/xz-utils
 	dev-libs/icu
+	dev-libs/libpfm
 	sys-libs/libunwind
 	dev-libs/libxml2
 	dev-libs/papi
@@ -31,10 +33,13 @@ CDEPEND="
 	sys-libs/glibc
 	sys-libs/zlib
 	virtual/mpi
+
 	|| ( sys-devel/binutils:* sys-libs/binutils-libs )
+
 	boost? ( dev-libs/boost:= )
 	dwarf? ( dev-libs/libdwarf )
 	elf? ( virtual/libelf )
+	inotify? ( dev-libs/libevent )
 	opencl? ( dev-util/opencl-headers )
 "
 DEPEND="
@@ -67,10 +72,9 @@ src_configure() {
 	local myconf=(
 		--datadir="${T}"
 		--datarootdir="${T}"
-		--libdir="${EPREFIX}/usr/$(get_libdir)/extrae"
+		--libdir="${EPREFIX}/usr/$(get_libdir)/extrae/lib"
 
 		--disable-mic
-		--disable-nanos
 		--disable-online
 		--disable-peruse
 		--disable-pmapi
@@ -103,6 +107,7 @@ src_configure() {
 		$(use_enable instrument-io)
 		$(use_enable instrument-syscall)
 		$(use_enable merge-in-trace)
+		$(use_enable nanos)
 		$(use_enable openmp)
 		$(use_enable sampling)
 		$(use_enable parallel-merge)
@@ -113,7 +118,6 @@ src_configure() {
 		$(use_enable smpss)
 		$(use_enable xml)
 	)
-#		$(use_enable nanos)
 #		--without-sionlib
 #--with-pmpi-hook                                                                                                                                 (Choose method to call PMPI (dlsym or pmpi))
 

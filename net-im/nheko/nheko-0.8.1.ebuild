@@ -21,7 +21,7 @@ RDEPEND="
 	dev-qt/qtsvg:5
 	dev-qt/qtconcurrent:5
 	app-text/cmark
-	>=dev-libs/mtxclient-0.4.1
+	<dev-libs/mtxclient-0.5.0
 	dev-cpp/nlohmann_json
 	dev-libs/qtkeychain
 "

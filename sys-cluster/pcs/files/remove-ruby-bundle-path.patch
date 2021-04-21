@@ -1,5 +1,5 @@
---- a/pcs/settings_default.py	2018-11-23 12:57:53.000000000 +0000
-+++ b/pcs/settings_default.py	2019-05-11 20:07:19.080000000 +0000
+--- a/pcs/settings_default.py
++++ b/pcs/settings_default.py
 @@ -81,7 +81,7 @@
  ])
  # Set pcsd_gem_path to None if there are no bundled ruby gems and the path does
