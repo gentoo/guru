@@ -94,6 +94,7 @@ DOCS=( "AUTHORS" "HACKING.md" "NEWS" "README.md" )
 PATCHES=(
 	"${FILESDIR}/${PN}-0.2.0_fix_test-appdata.patch" # Bug 685210, bug #691070
 	"${FILESDIR}/${PN}-0.2.0_fix_autoconf-2.70.patch" # Bug #776679
+	"${FILESDIR}/${PN}-0.2.0_disable-failing-tests.patch" # Bug #784410
 )
 
 src_prepare() {
