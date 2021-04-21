@@ -8,6 +8,8 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
+MY_P="bmap-tools-${PV}"
+
 DESCRIPTION="Bmaptool is a tool for creating and copyng files using block maps"
 HOMEPAGE="https://github.com/intel/bmap-tools"
 
@@ -16,7 +18,7 @@ SRC_URI="https://github.com/intel/bmap-tools/archive/refs/tags/v${PV}.tar.gz -> 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-S="${WORKDIR}/bmap-tools-3.6"
+S="${WORKDIR}/${MY_P}"
 RDEPEND="dev-python/six"
 
 python_install_all() {
