@@ -6,5 +6,6 @@ EAPI=7
 inherit acct-group
 
 DESCRIPTION="A user group for www-servers/hinsightd"
+KEYWORDS="~amd64"
 
 ACCT_GROUP_ID=-1
