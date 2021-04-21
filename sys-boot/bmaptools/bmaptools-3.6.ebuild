@@ -6,7 +6,7 @@ EAPI=7
 PYTHON_COMPAT=( python3_{7..9} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-inherit distutils-r1 udev
+inherit distutils-r1
 
 DESCRIPTION="Bmaptool is a tool for creating and copyng files using block maps"
 HOMEPAGE="https://github.com/intel/bmap-tools"
