@@ -5,11 +5,12 @@ EAPI=7
 
 inherit desktop xdg
 
-MY_P="nuclear-${PV}"
+MY_PV="v${PV}"
+MY_P="nuclear-${MY_PV}"
 
 DESCRIPTION="Nuclear is a streaming program that pulls content from free sources on internet"
 HOMEPAGE="https://nuclear.js.org/"
-SRC_URI="https://github.com/nukeop/nuclear/releases/download/v${PV}/${MY_P}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/nukeop/nuclear/releases/download/${MY_PV}/${MY_P}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"

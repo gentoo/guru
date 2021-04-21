@@ -2,6 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<!-- maintainer-needed -->
+	<upstream>
+		<changelog>https://gitlab.com/tiotags/hin9/-/blob/master/docs/changes.md</changelog>
+		<bugs-to>https://gitlab.com/tiotags/hin9/-/issues</bugs-to>
+	</upstream>
 	<longdescription lang="en">
 		hinsightd is a http/1.1 webserver with a focus on simple code and
 		reliable behaviour.

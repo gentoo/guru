@@ -61,12 +61,8 @@ src_configure() {
 		$(use_enable embed-code-changes)
 		$(use_enable execution-workflow)
 	)
+	use dlb && myconf+=( "--with-dlb=${EPREFIX}/usr" )
 
-	if use dlb; then
-		myconf+=( "--with-dlb=${EPREFIX}/usr" )
-	else
-		myconf+=( "--without-dlb" )
-	fi
 	if use embed-code-changes; then
 		myconf+=( "--with-git=${EPREFIX}/usr" )
 	else

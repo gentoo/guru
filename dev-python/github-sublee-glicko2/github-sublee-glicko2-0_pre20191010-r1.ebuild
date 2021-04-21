@@ -16,6 +16,9 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
+DEPEND="test? ( dev-python/pytest[${PYTHON_USEDEP}] )"
+RDEPEND="!dev-python/glicko2[${PYTHON_USEDEP}]"
+
 S="${WORKDIR}/${MYPN}-${COMMIT}"
 
 distutils_enable_tests setup.py
