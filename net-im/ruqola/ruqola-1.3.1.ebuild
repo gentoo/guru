@@ -22,7 +22,7 @@ IUSE="speech telemetry"
 
 DEPEND="
 	dev-libs/qtkeychain
-	>=dev-qt/qtmultimedia-${QTMIN}:5
+	>=dev-qt/qtmultimedia-${QTMIN}:5[widgets]
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtnetworkauth-${QTMIN}:5
 	>=dev-qt/qtwebsockets-${QTMIN}:5
