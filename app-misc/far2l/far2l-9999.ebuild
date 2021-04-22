@@ -3,13 +3,13 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6..9} )
+PYTHON_COMPAT=( python3_{7..9} )
 
 CMAKE_MAKEFILE_GENERATOR="emake"
 CMAKE_BUILD_TYPE="Release"
 WX_GTK_VER="3.0-gtk3"
 
-inherit eutils cmake xdg-utils wxwidgets python-any-r1
+inherit cmake xdg-utils wxwidgets python-r1
 
 DESCRIPTION="Linux port of Far Manager"
 HOMEPAGE="https://github.com/elfmz/far2l"
@@ -30,6 +30,7 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="+ssl libressl sftp samba nfs webdav +archive +wxwidgets python +static-libs"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 BDEPEND=">=dev-util/cmake-3.2.2
 	sys-devel/m4"
