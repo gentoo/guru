@@ -3,9 +3,9 @@
 
 EAPI=7
 
-LUA_COMPAT=( lua5-{1..4} )
+LUA_COMPAT=( lua5-1 )
 
-inherit fcaps
+inherit fcaps lua
 
 DESCRIPTION="hinsightd a http/1.1 webserver with (hopefully) minimal goals"
 HOMEPAGE="https://gitlab.com/tiotags/hin9"
@@ -22,9 +22,11 @@ S="${WORKDIR}/hin9-v${PV}"
 
 BDEPEND="
 	dev-util/ninja
+	virtual/pkgconfig
 "
 
-RDEPEND="${LUA_DEPS}
+RDEPEND="
+	${LUA_DEPS}
 	acct-user/hinsightd
 	acct-group/hinsightd
 	sys-libs/liburing
