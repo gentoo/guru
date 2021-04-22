@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit linux-info llvm multilib
+inherit linux-info llvm multilib toolchain-funcs
 
 DESCRIPTION="Utilities and example programs for use with XDP"
 HOMEPAGE="https://github.com/xdp-project/xdp-tools"
@@ -51,6 +51,8 @@ src_configure() {
 
 src_compile() {
 	emake \
+		CC="$(tc-getCC)" \
+		AR="$(tc-getAR)" \
 		PRODUCTION=1 \
 		DYNAMIC_LIBXDP=1 \
 		FORCE_SYSTEM_LIBBPF=1 \
