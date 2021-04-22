@@ -9,7 +9,7 @@ inherit distutils-r1
 
 COMMIT="91c29b1ab6cd86d6d68fc983fd7ceba3a88ad544"
 
-DESCRIPTION="Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms"
+DESCRIPTION="Python Implementation of the TrueSkill Algorithm"
 HOMEPAGE="
 	https://trueskill.org
 	https://github.com/sublee/trueskill
@@ -28,7 +28,7 @@ DEPEND="
 	test? (
 		>=dev-python/almost-0.1.5[${PYTHON_USEDEP}]
 		>=dev-python/mpmath-0.17[${PYTHON_USEDEP}]
-		dev-python/pip[${PYTHON_USEDEP}]
+		dev-python/pytest[${PYTHON_USEDEP}]
 	)
 "
 S="${WORKDIR}/${PN}-${COMMIT}"
