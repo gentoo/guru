@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit toolchain-funcs
+
 DESCRIPTION="A program to read and control device brightness"
 HOMEPAGE="https://github.com/Hummer12007/brightnessctl"
 SRC_URI="https://github.com/Hummer12007/brightnessctl/archive/${PV}.tar.gz -> ${P}.tar.gz"
@@ -22,6 +24,7 @@ BDEPEND="
 "
 
 src_compile() {
+	tc-export CC
 	use systemd && export ENABLE_SYSTEMD=1
 	emake
 }
@@ -39,6 +42,6 @@ src_install() {
 		myconf="INSTALL_UDEV_RULES=0"
 	fi
 
-	emake install ${myconf} DESTDIR="${D}"
+	emake ${myconf} DESTDIR="${D}" install
 	dodoc README.md
 }
