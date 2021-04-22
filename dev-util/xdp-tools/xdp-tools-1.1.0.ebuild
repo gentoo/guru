@@ -14,7 +14,8 @@ LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 
 # skip strip for eBPF object files
-RESTRICT="strip"
+# tests have to be run as root
+RESTRICT="strip test"
 
 # skip QA check(s) for eBPF samples
 QA_EXECSTACK="usr/lib*/bpf/*.o usr/share/xdp-tools/*.o"
