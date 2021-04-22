@@ -10,30 +10,32 @@ inherit fcaps
 DESCRIPTION="hinsightd a http/1.1 webserver with (hopefully) minimal goals"
 HOMEPAGE="https://gitlab.com/tiotags/hin9"
 SRC_URI="https://gitlab.com/tiotags/hin9/-/archive/v0.9.0/hin9-v0.9.0.tar.gz"
+
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
+
 IUSE="" #+openssl
+REQUIRED_USE="${LUA_REQUIRED_USE}"
 
 S="${WORKDIR}/hin9-v${PV}"
 
 BDEPEND="
-dev-util/ninja
+	dev-util/ninja
 "
 
-RDEPEND="
-acct-user/hinsightd
-acct-group/hinsightd
-sys-libs/liburing
-dev-lang/lua:*
-sys-libs/zlib
-dev-libs/openssl
+RDEPEND="${LUA_DEPS}
+	acct-user/hinsightd
+	acct-group/hinsightd
+	sys-libs/liburing
+	sys-libs/zlib
+	dev-libs/openssl
 "
 
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-"${FILESDIR}/hinsightd-redefine-directories.patch"
+	"${FILESDIR}/hinsightd-redefine-directories.patch"
 )
 
 #src_configure() {
