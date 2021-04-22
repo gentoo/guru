@@ -1,7 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+
+inherit toolchain-funcs
 
 DESCRIPTION="MPRIS plugin for mpv"
 HOMEPAGE="https://github.com/hoyon/mpv-mpris"
@@ -26,6 +28,10 @@ DEPEND="${RDEPEND}"
 DOCS=(
 	README.md
 )
+
+src_compile() {
+	emake CC="$(tc-getCC)"
+}
 
 src_install() {
 	insinto "/usr/$(get_libdir)/mpv"
