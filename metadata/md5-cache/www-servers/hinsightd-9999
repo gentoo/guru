@@ -1,6 +1,6 @@
 BDEPEND=dev-util/ninja >=dev-vcs/git-1.8.2.1[curl] filecaps? ( sys-libs/libcap )
 DEFINED_PHASES=compile install postinst unpack
-DEPEND=acct-user/hinsightd acct-group/hinsightd sys-libs/liburing dev-lang/lua:* sys-libs/zlib dev-libs/openssl
+DEPEND=acct-user/hinsightd acct-group/hinsightd sys-libs/liburing sys-libs/zlib dev-libs/openssl
 DESCRIPTION=hinsightd a http/1.1 webserver with (hopefully) minimal goals
 EAPI=7
 HOMEPAGE=https://gitlab.com/tiotags/hin9
@@ -8,7 +8,7 @@ INHERIT=git-r3 fcaps
 IUSE=+filecaps
 LICENSE=BSD
 PROPERTIES=live
-RDEPEND=acct-user/hinsightd acct-group/hinsightd sys-libs/liburing dev-lang/lua:* sys-libs/zlib dev-libs/openssl filecaps? ( sys-libs/libcap )
+RDEPEND=acct-user/hinsightd acct-group/hinsightd sys-libs/liburing sys-libs/zlib dev-libs/openssl filecaps? ( sys-libs/libcap )
 SLOT=0
 _eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52	fcaps	da689a8e04bbbb3518888ff668fee45b
-_md5_=d41e93fca3451a0148c8b13050438aac
+_md5_=770ea0448ef78b57ad8dcbb8d6e71ca0
