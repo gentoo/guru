@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -35,6 +35,7 @@ IUSE="static-libs test"
 RESTRICT="!test? ( test )"
 
 DEPEND="dev-util/FoBiS"
+BDEPEND="virtual/fortran"
 
 PATCHES=(
 	"${FILESDIR}/stringifor-1.1.1_fobos_soname.patch"
