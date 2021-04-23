@@ -33,7 +33,12 @@ DOCS=( ${PN}.txt )
 
 src_prepare() {
 	default
-	sed -i "s/gcc.*/$(tc-getCC) ${CFLAGS}/" Makefile || die
+
+	sed -i \
+		-e 's;CC=.*;CC ?= gcc;' \
+		-e 's;$(CC) ;&$(CFLAGS) ;' \
+		-e 's;$(CC) .* -o .*;& $(LDFLAGS);' \
+		Makefile || die
 }
 
 src_install() {

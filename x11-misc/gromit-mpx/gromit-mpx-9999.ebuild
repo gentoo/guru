@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake
+inherit cmake xdg
 
 DESCRIPTION="Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool"
 HOMEPAGE="https://github.com/bk138/gromit-mpx"
@@ -26,6 +26,10 @@ RDEPEND="
 	>=x11-apps/xinput-1.3
 "
 DEPEND="${RDEPEND}"
+
+src_prepare () {
+	cmake_src_prepare
+}
 
 src_configure() {
 	local mycmakeargs=(

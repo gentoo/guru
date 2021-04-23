@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -29,7 +29,7 @@ src_prepare() {
 
 	# Use make-tinysshcc.sh script, which has no tests and doesn't execute
 	# binaries. See https://github.com/janmojzis/tinyssh/issues/2
-	sed -i 's/tinyssh/tinysshcc/g' ./Makefile || die
+	sed -i 's/make-tinyssh\.sh/make-tinysshcc.sh/g' ./Makefile || die
 
 	default
 }
@@ -38,11 +38,12 @@ src_compile() {
 	if use sodium
 	then
 		emake \
+			CC="$(tc-getCC)"
 			LIBS="-lsodium" \
-			CFLAGS="$CFLAGS -I/usr/include/sodium" \
-			LDFLAGS="-L/usr/lib"
+			CFLAGS="${CFLAGS} -I/usr/include/sodium" \
+			LDFLAGS="${LDFLAGS} -L/usr/lib"
 	else
-		emake
+		emake CC="$(tc-getCC)"
 	fi
 }
 
