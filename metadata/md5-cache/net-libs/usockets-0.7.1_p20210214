@@ -11,4 +11,4 @@ RDEPEND=libuv? ( dev-libs/libuv[static-libs?] ) ssl? ( >=dev-libs/openssl-1.1.0[
 SLOT=0
 SRC_URI=https://github.com/uNetworking/uSockets/archive/5440dbac79bd76444175b76ee95dfcade12a6aac.tar.gz -> usockets-0.7.1_p20210214.tar.gz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
-_md5_=e895f0a25fba30017798f4445f4524da
+_md5_=8c3a7cb1a26c00dfd2e039ff9ac544ed
