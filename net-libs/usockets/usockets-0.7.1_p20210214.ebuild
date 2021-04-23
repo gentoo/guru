@@ -33,7 +33,7 @@ PATCHES=(
 )
 
 src_configure() {
-	tc-export CC CXX
+	tc-export CC CXX AR
 	export VERSION="${PV%_*}" \
 	       LIB="$(get_libdir)" \
 	       WITH_OPENSSL="$(usex ssl 1 0)"
