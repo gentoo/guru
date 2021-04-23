@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit linux-info llvm multilib
+inherit linux-info llvm multilib toolchain-funcs
 
 DESCRIPTION="Utilities and example programs for use with XDP"
 HOMEPAGE="https://github.com/xdp-project/xdp-tools"
@@ -14,7 +14,8 @@ LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 
 # skip strip for eBPF object files
-RESTRICT="strip"
+# tests have to be run as root
+RESTRICT="strip test"
 
 # skip QA check(s) for eBPF samples
 QA_EXECSTACK="usr/lib*/bpf/*.o usr/share/xdp-tools/*.o"
@@ -51,6 +52,8 @@ src_configure() {
 
 src_compile() {
 	emake \
+		CC="$(tc-getCC)" \
+		AR="$(tc-getAR)" \
 		PRODUCTION=1 \
 		DYNAMIC_LIBXDP=1 \
 		FORCE_SYSTEM_LIBBPF=1 \

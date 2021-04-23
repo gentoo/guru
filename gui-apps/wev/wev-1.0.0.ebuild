@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit toolchain-funcs
+
 DESCRIPTION="Wayland event viewer"
 HOMEPAGE="https://git.sr.ht/~sircmpwn/wev"
 SRC_URI="https://git.sr.ht/~sircmpwn/wev/archive/${PV}.tar.gz -> ${P}.tar.gz"
@@ -30,4 +32,10 @@ src_prepare() {
 	sed -e 's/$(LIBS)/$(LIBS) $(LDFLAGS)/' \
 		-e 's/local//' \
 		-i Makefile || die
+}
+
+src_compile() {
+	tc-export CC
+
+	default
 }

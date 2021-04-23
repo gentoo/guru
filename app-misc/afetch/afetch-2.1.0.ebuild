@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit savedconfig
+inherit savedconfig toolchain-funcs
 
 DESCRIPTION="Simple system info written in C"
 HOMEPAGE="https://github.com/13-CF/afetch/"
@@ -14,12 +14,16 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="savedconfig"
 
+src_compile() {
+	emake CC="$(tc-getCC)" DESTDIR="${ED}" PREFIX="${EPREFIX}"/usr afetch
+}
+
 src_prepare() {
 	default
 	restore_config src/config.h
 }
 
 src_install() {
-	emake DESTDIR="${ED}" PREFIX="${EPREFIX}"/usr install
+	default
 	save_config src/config.h
 }
