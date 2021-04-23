@@ -3,7 +3,7 @@
 
 EAPI=7
 
-DESCRIPTION="Sndio audio sink and source for GStreamer"
+DESCRIPTION="ALSA PCM to play audio on sndio servers"
 HOMEPAGE="https://github.com/Duncaen/alsa-sndio"
 SRC_URI="https://github.com/Duncaen/alsa-sndio/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="ISC"
@@ -20,6 +20,10 @@ src_prepare() {
 	default
 
 	sed -i "s;/lib/alsa-lib/;/$(get_libdir)/alsa-lib/;" Makefile || die "Failed changing libdir"
+}
+
+src_compile() {
+	emake CC="${CC:-gcc}"
 }
 
 src_install() {
