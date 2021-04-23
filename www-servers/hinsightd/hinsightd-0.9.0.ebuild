@@ -5,11 +5,11 @@ EAPI=7
 
 LUA_COMPAT=( lua5-1 )
 
-inherit fcaps lua
+inherit fcaps lua-single
 
 DESCRIPTION="hinsightd a http/1.1 webserver with (hopefully) minimal goals"
 HOMEPAGE="https://gitlab.com/tiotags/hin9"
-SRC_URI="https://gitlab.com/tiotags/hin9/-/archive/v0.9.0/hin9-v0.9.0.tar.gz"
+SRC_URI="https://gitlab.com/tiotags/hin9/-/archive/v${PV}/hin9-v${PV}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
@@ -51,7 +51,7 @@ src_compile() {
 src_install() {
 	newbin "${S}/build/hin9" hinsightd
 	newinitd "${FILESDIR}/init.d.sh" hinsightd
-	#systemd_dounit "${FILESDIR}/hinsightd.service" # not tested
+	systemd_dounit "${FILESDIR}/hinsightd.service" # not tested
 
 	insinto /etc/hinsightd
 	newins "${S}/workdir/main.lua" hinsightd.lua
