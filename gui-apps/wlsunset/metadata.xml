@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>contact@hacktivis.me</email>
+		<name>Haelwenn (lanodan) Monnier</name>
+	</maintainer>
+	<longdescription lang="en">
+		Day/night gamma adjustments for Wayland compositors supporting wlr-gamma-control-unstable-v1.
+	</longdescription>
+</pkgmetadata>
