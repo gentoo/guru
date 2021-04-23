@@ -11,10 +11,12 @@ app-misc/apidb:mariadb - Build MariaDB Layer
 app-misc/apidb:postgresql - Build PostgreSQL Layer
 app-misc/far2l:archive - Multiarc extended archives support
 app-misc/far2l:nfs - NFS support in NetRocks
+app-misc/far2l:python - Python scripting support
 app-misc/far2l:samba - SMB support in NetRocks
 app-misc/far2l:sftp - SFTP support in NetRocks
 app-misc/far2l:ssl - FTPS support in NetRocks
 app-misc/far2l:webdav - WebDav support in NetRocks
+app-misc/far2l:wxwidgets - GUI backend support
 app-misc/mat2:sandbox - Enable sandboxing functionality through sys-apps/bubblewrap
 app-misc/mat2:video - Use media-video/ffmpeg for video support
 app-misc/ntfy:dbus - Support for desktop notifications

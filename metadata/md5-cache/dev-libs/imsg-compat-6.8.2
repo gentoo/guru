@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install
+DESCRIPTION=linux port of OpenBSD imsg
+EAPI=7
+HOMEPAGE=https://man.openbsd.org/imsg_init.3 https://github.com/bsd-ac/imsg-compat
+INHERIT=toolchain-funcs
+IUSE=static-libs test
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=ISC
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/bsd-ac/imsg-compat/archive/6.8.2.tar.gz -> imsg-compat-6.8.2.tar.gz
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
+_md5_=13937ddbcbed9584dcaa215e5ce68a61

@@ -1,12 +1,12 @@
-DEFINED_PHASES=install postinst prepare
+DEFINED_PHASES=compile install postinst prepare
 DESCRIPTION=Simple system info written in C
 EAPI=7
 HOMEPAGE=https://github.com/13-CF/afetch/
-INHERIT=savedconfig
+INHERIT=savedconfig toolchain-funcs
 IUSE=savedconfig savedconfig
 KEYWORDS=~amd64
 LICENSE=GPL-3
 SLOT=0
 SRC_URI=https://github.com/13-CF/afetch/archive/refs/tags/V2.1.0.tar.gz -> afetch-2.1.0.tar.gz
-_eclasses_=portability	c10bdc40668533b1faf15b1d89df0303	savedconfig	0bc45cb0429003c9abc73bae24a0d5bd
-_md5_=64f74259919d78ac5bd418b46a9ebcc5
+_eclasses_=portability	c10bdc40668533b1faf15b1d89df0303	savedconfig	0bc45cb0429003c9abc73bae24a0d5bd	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
+_md5_=151d354964558c4c0fac1be30d58892b

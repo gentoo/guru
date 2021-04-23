@@ -11,4 +11,4 @@ RESTRICT=mirror strip bindist
 SLOT=0
 SRC_URI=amd64? ( https://update.code.visualstudio.com/1.55.0/linux-x64/stable -> visual-studio-code-bin-1.55.0-amd64.tar.gz ) arm? ( https://update.code.visualstudio.com/1.55.0/linux-armhf/stable -> visual-studio-code-bin-1.55.0-arm.tar.gz ) arm64? ( https://update.code.visualstudio.com/1.55.0/linux-arm64/stable -> visual-studio-code-bin-1.55.0-arm64.tar.gz )
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	pax-utils	d3fc79d3d50544347e324864f95206e2	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
-_md5_=d3da2fcacd6233f8d0e9125fd8bdcc12
+_md5_=fcf83a41e980d185b2b0dec2006a06f4
