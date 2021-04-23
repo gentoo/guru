@@ -24,4 +24,6 @@ src_configure() {
 		-DGSL_LITE_OPT_BUILD_TESTS=$(usex test)
 	)
 	cmake_src_configure
+
+	sed -i -e 's/"-*Werror"//g' test/MakeTestTarget.cmake || die
 }
