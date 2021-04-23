@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit toolchain-funcs
+
 DESCRIPTION="Unix command line queue utility"
 HOMEPAGE="https://git.vuxu.org/nq/about/"
 SRC_URI="https://git.vuxu.org/${PN}/snapshot/${P}.tar.gz"
@@ -29,7 +31,7 @@ src_compile() {
 		cp nq.sh nq
 		cp fq.sh fq
 	fi
-	emake CFLAGS="${CFLAGS} -Wno-unused-result"
+	emake CC="$(tc-getCC)" CFLAGS="${CFLAGS} -Wno-unused-result"
 }
 
 src_install() {
