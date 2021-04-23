@@ -5,7 +5,4 @@
 		<email>contact@hacktivis.me</email>
 		<name>Haelwenn (lanodan) Monnier</name>
 	</maintainer>
-	<longdescription lang="en">
-		Day/night gamma adjustments for Wayland compositors supporting wlr-gamma-control-unstable-v1.
-	</longdescription>
 </pkgmetadata>
