@@ -7,7 +7,7 @@ EAPI=7
 GNOME2_EAUTORECONF=yes
 WANT_AUTOMAKE=
 
-inherit autotools gnome2 virtualx
+inherit autotools gnome2 toolchain-funcs virtualx
 
 DESCRIPTION="Image editor based on the GNU Image Manipulation Program"
 HOMEPAGE="https://glimpse-editor.org/"
@@ -120,6 +120,7 @@ src_prepare() {
 		-i configure || die # bug #615144
 	fgrep -q GIMP_DISABLE_DEPRECATED configure || die # bug #615144, self-test
 
+	export CC_FOR_BUILD="$(tc-getBUILD_CC)"
 }
 
 _adjust_sandbox() {
