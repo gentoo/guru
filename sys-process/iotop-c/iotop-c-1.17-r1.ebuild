@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit fcaps
+
 DESCRIPTION="top utility for IO (C port)"
 HOMEPAGE="https://github.com/Tomas-M/iotop"
 SRC_URI="https://github.com/Tomas-M/iotop/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -17,6 +19,10 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 S="${WORKDIR}/iotop-${PV}"
+
+FILECAPS=(
+	cap_net_admin=eip usr/bin/iotop
+)
 
 src_compile() {
 	emake V=1
