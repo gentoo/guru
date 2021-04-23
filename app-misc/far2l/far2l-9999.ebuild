@@ -44,7 +44,10 @@ RDEPEND="dev-libs/xerces-c
 	archive? (
 		dev-libs/libpcre2
 		app-arch/libarchive )
-	python? ( $(python_gen_any_dep 'dev-python/virtualenv[${PYTHON_USEDEP}]') )"
+	python? (
+		${PYTHON_DEPS}
+		$(python_gen_any_dep 'dev-python/virtualenv[${PYTHON_USEDEP}]')
+	)"
 
 DEPEND="${RDEPEND}"
 
