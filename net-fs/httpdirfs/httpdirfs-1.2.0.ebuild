@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit toolchain-funcs
+
 DESCRIPTION="Filesystem to mount HTTP directory listings, with a permanent cache"
 HOMEPAGE="https://github.com/fangfufu/httpdirfs"
 
@@ -30,6 +32,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+src_compile () {
+	emake CC="$(tc-getCC)"
+}
+
 src_install() {
-	emake prefix="${D}"/usr install
+	emake prefix="${D}/usr" install
 }
