@@ -88,7 +88,7 @@ src_configure() {
 	}
 	passflags "${CFLAGS}" cflags_c
 	passflags "${CXXFLAGS}" cflags_cc
-	passflags "${CFLAGS}" ldflags
+	passflags "${LDFLAGS}" ldflags
 
 	myconf_gn+=(
 		ar=\"${AR}\"
