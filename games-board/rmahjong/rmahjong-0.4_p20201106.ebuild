@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7..9} )
 
 inherit desktop python-single-r1 xdg
 
@@ -62,9 +62,12 @@ src_test() {
 src_install() {
 	python_moduleinto ${PN}
 	python_domodule {client/,server/,start.sh}
+	fperms 755 $(python_get_sitedir)/${PN}/start.sh
+	fperms 755 $(python_get_sitedir)/${PN}/server/run_server.sh
 
-	python_moduleinto bot
-	python_domodule "bot/bot"
+	python_moduleinto ${PN}/bot
+	python_domodule bot/bot
+	fperms 755 $(python_get_sitedir)/${PN}/bot/bot
 
 	python_optimize "${D}/$(python_get_sitedir)/${PN}/"{client,server}/*.py
 
