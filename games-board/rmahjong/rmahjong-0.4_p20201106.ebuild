@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7..9} )
 
-inherit desktop python-single-r1 xdg
+inherit desktop python-single-r1 toolchain-funcs xdg
 
 # Tarball from py3 port branch:
 # https://github.com/spirali/rmahjong/tree/py3
@@ -48,6 +48,10 @@ src_prepare(){
 	sed -i "/logging.info/d" "${S}/server/server.py" || die
 
 	echo $'#!/bin/sh\ncd '"$(python_get_sitedir)/${PN}"' && ./start.sh' > "${S}/rmahjong"
+
+	# pass compiler and CFLAGS to 'Bot' makefile
+	sed -i -e 's:gcc:'"$(tc-getCC)"':g' bot/makefile \
+		-e 's:CFLAGS=-Wall -O3 -march=native:CFLAGS='"${CFLAGS}"':'|| die
 }
 
 src_compile() {
