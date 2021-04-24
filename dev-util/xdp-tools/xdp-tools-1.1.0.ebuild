@@ -40,7 +40,10 @@ DEPEND="${RDEPEND}
 	sys-devel/llvm:10
 "
 
-PATCHES=( "${FILESDIR}/${P}-install.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-install.patch"
+	"${FILESDIR}/${P}-readelf.patch"
+)
 
 pkg_setup() {
 	llvm_pkg_setup
@@ -54,6 +57,7 @@ src_compile() {
 	emake \
 		CC="$(tc-getCC)" \
 		AR="$(tc-getAR)" \
+		READELF=$(tc-getREADELF) \
 		PRODUCTION=1 \
 		DYNAMIC_LIBXDP=1 \
 		FORCE_SYSTEM_LIBBPF=1 \
