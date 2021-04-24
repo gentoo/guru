@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit toolchain-funcs
+
 COMMIT="8f2f3d3a1652b87162f763a88a5070cf25c2e6d7"
 DESCRIPTION="Simplistic yet fancy CPU architecture fetching tool"
 HOMEPAGE="https://github.com/Dr-Noob/cpufetch"
@@ -13,6 +15,11 @@ SLOT="0"
 KEYWORDS="~amd64"
 PATCHES=( "${FILESDIR}/makefile-${PV}.patch" )
 S="${WORKDIR}/${PN}-${COMMIT}"
+
+src_prepare() {
+	default
+	export CC=$(tc-getCC)
+}
 
 src_install() {
 	dobin "${PN}"

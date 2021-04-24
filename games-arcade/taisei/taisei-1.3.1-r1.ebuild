@@ -21,7 +21,7 @@ HOMEPAGE="https://taisei-project.org/"
 LICENSE="MIT CC-BY-4.0 CC0-1.0 public-domain"
 SLOT="0"
 
-IUSE="doc +lto zip"
+IUSE="doc lto zip"
 
 DEPEND="
 	media-libs/freetype:2

@@ -3,18 +3,17 @@
 
 EAPI=7
 
-# _alpha -> -alpha
-MY_PV="${PV/_/-}"
-
 inherit cmake xdg
 
 DESCRIPTION="Simple, sleek QT based DE for wayland using wayfire"
 HOMEPAGE="https://gitlab.com/cubocore/paper/paperde"
 
-if [[ ${PV} == 9999 ]]; then
+if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/cubocore/paper/${PN}.git"
 else
+	# _alpha -> -alpha
+	MY_PV="${PV/_/-}"
 	SRC_URI="https://gitlab.com/cubocore/paper/${PN}/-/archive/v${MY_PV}/${PN}-v${MY_PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 	S="${WORKDIR}/${PN}-v${MY_PV}"
@@ -23,6 +22,9 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
+BDEPEND="
+	kde-frameworks/extra-cmake-modules:5
+"
 DEPEND="
 	dev-libs/libdbusmenu-qt
 	dev-libs/wayland

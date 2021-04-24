@@ -18,7 +18,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="examples high-level plplot"
+IUSE="examples high-level plplot static-libs"
 REQUIRED_USE="plplot? ( high-level )"
 
 RDEPEND="
@@ -42,6 +42,8 @@ src_prepare() {
 	# Fix library installation path and disable 'sketcher' build
 	sed -i -e "s:CMAKE_INSTALL_LIBDIR lib:CMAKE_INSTALL_LIBDIR $(get_libdir):" \
 	-e "s:    add_subdirectory(sketcher)::" CMakeLists.txt || die
+
+	use !static-libs && eapply "${FILESDIR}/${P}_skip-static-build.patch"
 
 	cmake_src_prepare
 }

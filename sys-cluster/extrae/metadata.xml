@@ -16,6 +16,7 @@ process). Extrae generates trace files that can be later visualized with <pkg>sy
 		<remote-id type="github">bsc-performance-tools/extrae</remote-id>
 	</upstream>
 	<use>
+		<!--<flag name="aspectj">Enable support for tracing Java through <pkg>dev-java/aspectj</pkg> (experimental)</flag>-->
 		<flag name="boost">Search for boost</flag>
 		<flag name="doc">Generates the documentation of this instrumentation package</flag>
 		<!--<flag name="cuda">Enable support for tracing CUDA calls on nVidia hardware and needs to point to the CUDA SDK installation path. This instrumentation is only valid in binaries that use the shared version of the CUDA library.</flag>-->
