@@ -18,7 +18,7 @@ fi
 
 LICENSE="BSD MIT"
 SLOT="0"
-IUSE="+daemon libressl readline +tools +wallet-cli +wallet-rpc"
+IUSE="+daemon readline +tools +wallet-cli +wallet-rpc"
 REQUIRED_USE="|| ( daemon tools wallet-cli wallet-rpc )"
 RESTRICT="test"
 
@@ -27,14 +27,13 @@ DEPEND="
 	acct-user/monero
 	dev-libs/boost:=[nls,threads]
 	dev-libs/libsodium:=
+	dev-libs/openssl:=
 	dev-libs/randomx
 	dev-libs/rapidjson
 	dev-libs/supercop
 	net-dns/unbound:=[threads]
 	net-libs/czmq:=
 	net-libs/miniupnpc
-	!libressl? ( dev-libs/openssl:= )
-	libressl? ( dev-libs/libressl:= )
 	readline? ( sys-libs/readline:0= )
 "
 RDEPEND="${DEPEND}"
