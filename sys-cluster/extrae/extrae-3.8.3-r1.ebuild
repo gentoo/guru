@@ -14,7 +14,10 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="boost doc dwarf elf fft heterogeneous inotify +instrument-dynamic-memory +instrument-io +instrument-syscall merge-in-trace nanos opencl openmp +parallel-merge pebs-sampling +posix-clock pthread sampling +single-mpi-lib smpss +xml"
-#aspectj and aspectj-weaver needs to be enabled both at the same time but the aspectj package in gentoo doesn't have weaver
+#aspectj and aspectj-weaver need to both be enabled at the same time
+#current dev-java/aspectj package only provides aspectj.jar
+#aspectj needs foo/lib/aspectj.jar and foo/bin/ajc
+#aspectj-weaver needs bar/aspectjweaver.jar
 #TODO: find out who is pulling in libpfm
 #TODO: find out which FFT library is used
 #TODO: remove some useflags (boost fft elf dwarf)
@@ -42,6 +45,7 @@ CDEPEND="
 	inotify? ( dev-libs/libevent )
 	opencl? ( dev-util/opencl-headers )
 "
+#	aspectj? ( >=dev-java/aspectj-1.9.6 )
 DEPEND="
 	${CDEPEND}
 	java? ( virtual/jdk:1.8 )
@@ -56,6 +60,7 @@ BDEPEND="
 "
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
+	java? ( pthread )
 "
 #	cupti? ( cuda )
 #	dyninst? ( boost dwarf elf )
@@ -92,8 +97,6 @@ src_configure() {
 		--without-cupti
 		--without-memkind
 		--without-clustering
-		--without-java-aspectj
-		--without-java-aspectj-weaver
 		--without-synapse
 		--without-spectral
 		--without-openshmem
@@ -121,6 +124,13 @@ src_configure() {
 #		--without-sionlib
 #--with-pmpi-hook                                                                                                                                 (Choose method to call PMPI (dlsym or pmpi))
 
+#	if use aspectj; then
+#		myconf+=( "--with-java-aspectj=${EPREFIX}/usr/share/aspectj/lib" )
+#		myconf+=( "--with-java-aspectj-weaver=${EPREFIX}/usr" )
+#	else
+		myconf+=( "--without-java-aspectj-weaver" )
+		myconf+=( "--without-java-aspectj" )
+#	fi
 	if use boost; then
 		myconf+=( "--with-boost=${EPREFIX}/usr" )
 	else
