@@ -224,6 +224,7 @@ dev-python/databases 0.4.1: Async database support for Python.
 dev-python/dateparser 1.0.0: Date parsing library designed to parse dates from HTML pages
 dev-python/devtools 0.6.1: Dev tools for python
 dev-python/doxypypy 0.8.8.6 0.8.8.6_p20210405: A more Pythonic version of doxypy, a Doxygen filter for Python
+dev-python/ewmh 0.1.6: An implementation of Extended Window Manager Hints, based on Xlib
 dev-python/factory_boy 3.1.0 3.2.0: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11-r1: Up to date simple useragent faker with real world database
 dev-python/geopy 2.0.0 2.1.0: A Geocoding Toolbox for Python
@@ -318,7 +319,7 @@ dev-python/sysv_ipc 1.0.1 1.1.0: System V IPC primitives for python
 dev-python/tekore 3.6.2: Spotify Web API client
 dev-python/trio 0.18.0 0.18.0_p20210212: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0 0.12.0: a re-implementation of the asyncio mainloop on top of Trio
-dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
+dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill Algorithm
 dev-python/tweepy 3.10.0: An easy-to-use Python library for accessing the Twitter API.
 dev-python/ufo2ft 2.19.1: A bridge from UFOs to FontTool objects
 dev-python/ufoLib2 0.8.0 0.10.0: A UFO font library
@@ -343,7 +344,7 @@ dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/osc 0.169.1 0.171.0 0.171.0-r1 9999: Command line tool for Open Build Service
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/tokei 12.0.4 12.1.0 12.1.1 12.1.2: Count code, quickly
-dev-util/xdp-tools 1.1.0: Utilities and example programs for use with XDP
+dev-util/xdp-tools 1.1.1: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613 9999: Blame someone else for your bad code.
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
 dev-vcs/git-repo-updater 0.5.1-r1: Easily update multiple git repositories at once
@@ -612,7 +613,7 @@ www-client/woob 2.0 9999: Consume lots of websites without a browser (Web Outsid
 www-servers/hinsightd 0.9.0 9999: hinsightd a http/1.1 webserver with (hopefully) minimal goals
 www-servers/thin 1.8.0: This a Ruby gem that delivers a thin and fast web server
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
-x11-libs/gtk-fortran 19.04 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
+x11-libs/gtk-fortran 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial videos
 x11-misc/betterlockscreen 3.0.1 9999: sweet looking lockscreen for linux system

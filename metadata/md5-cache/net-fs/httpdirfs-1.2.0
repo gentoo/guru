@@ -1,12 +1,14 @@
-DEFINED_PHASES=install
+DEFINED_PHASES=compile install
 DEPEND=dev-libs/expat dev-libs/gumbo net-misc/curl sys-fs/e2fsprogs sys-fs/fuse:0
 DESCRIPTION=Filesystem to mount HTTP directory listings, with a permanent cache
 EAPI=7
 HOMEPAGE=https://github.com/fangfufu/httpdirfs
+INHERIT=toolchain-funcs
 KEYWORDS=~amd64
 LICENSE=GPL-3
 RDEPEND=dev-libs/expat dev-libs/gumbo net-misc/curl sys-fs/e2fsprogs sys-fs/fuse:0
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/fangfufu/httpdirfs/archive/1.2.0.tar.gz -> httpdirfs-1.2.0.tar.gz
-_md5_=b52d1464978aff62dcb67077c76bba22
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
+_md5_=cfe5c754ce9dedaebcbd1ee7e09d62c5
