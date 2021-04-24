@@ -3,9 +3,13 @@
 
 EAPI=7
 
+inherit fcaps linux-info toolchain-funcs
+
 DESCRIPTION="top utility for IO (C port)"
 HOMEPAGE="https://github.com/Tomas-M/iotop"
 SRC_URI="https://github.com/Tomas-M/iotop/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+
+S="${WORKDIR}/iotop-${PV}"
 
 LICENSE="GPL-2+"
 SLOT="0"
@@ -16,10 +20,14 @@ RDEPEND="sys-libs/ncurses:=
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-S="${WORKDIR}/iotop-${PV}"
+CONFIG_CHECK="~TASK_IO_ACCOUNTING ~TASK_DELAY_ACCT ~TASKSTATS ~VM_EVENT_COUNTERS"
+
+FILECAPS=(
+	cap_net_admin=eip usr/bin/iotop
+)
 
 src_compile() {
-	emake V=1
+	emake V=1 CC="$(tc-getCC)" PKG_CONFIG="$(tc-getPKG_CONFIG)"
 }
 
 src_install() {
