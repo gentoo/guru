@@ -29,6 +29,7 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
+	kde-frameworks/kirigami-addons:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
 "
