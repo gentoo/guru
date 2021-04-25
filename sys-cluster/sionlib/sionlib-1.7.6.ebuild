@@ -15,6 +15,7 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+cxx debug doc +fortran +mpi +ompi +openmp +parutils +pthreads python"
+#TODO: fix installation in multilib
 #TODO: cuda sionfwd msa
 #--enable-sionfwd=/path/to/sionfwd
 #--msa=(hostname-regex|deep-est-sdv)]	MSA aware collective operations for the given system
@@ -22,7 +23,6 @@ IUSE="+cxx debug doc +fortran +mpi +ompi +openmp +parutils +pthreads python"
 PATCHES=( "${FILESDIR}/respect-flags.patch" )
 
 RDEPEND="
-	${PYTHON_DEPS}
 	mpi? ( virtual/mpi )
 	ompi? (
 		sys-libs/libomp
@@ -30,7 +30,10 @@ RDEPEND="
 	)
 	openmp? ( sys-libs/libomp )
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	${PYTHON_DEPS}
+"
 BDEPEND="doc? ( app-doc/doxygen )"
 S="${WORKDIR}/${PN}"
 
@@ -59,7 +62,7 @@ src_configure() {
 
 	local myconf=(
 		--disable-mic
-		--prefix="${EPREFIX}/usr"
+		--prefix="${T}/prefix/usr"
 	)
 
 	#custom configure?
@@ -78,25 +81,22 @@ src_configure() {
 }
 
 src_compile() {
+	export VARTEXFONTS="${T}/fonts"
 	default
-	use doc && doxygen -u doxy && doxygen doxy || die
+	use doc && doxygen -u doxy || die
+	use doc && doxygen doxy || die
 }
 
 src_install() {
-	sed -e "s|\${PREFIX}|${D}/usr|g" -i mf/common.defs || die
-	sed -e "s|\$(PREFIX)|${D}/usr|g" -i src/utils/Makefile || die
-	sed \
-		-e "s|\$(PREFIX)|${D}/usr|g" \
-		-e "s|\${PREFIX}|${D}/usr|g" \
-		-i mf/RealMakefile || die
-
+	mkdir -p "${T}/prefix/usr/share/doc/${PF}" || die
 	default
 
-	use doc && dodoc -r doc/html
-
-	mv "${ED}/usr/examples" "${ED}/usr/share/doc/${PF}/" || die
+	mv "${T}/prefix/usr/examples" "${T}/prefix/usr/share/doc/${PF}/" || die
+	rsync -ravXHA "${T}/prefix/usr" "${ED}/" || die
 	docompress -x "/usr/share/doc/${PF}/examples"
-	docompress -x "/usr/share/doc/${PF}/html"
+
+	use doc && dodoc -r doc/html
+	use doc && docompress -x "/usr/share/doc/${PF}/html"
 
 	#TODO: build shared libs
 	#find "${ED}" -name '*.a' -delete || die
