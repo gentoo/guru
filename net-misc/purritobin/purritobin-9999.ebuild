@@ -30,10 +30,16 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	www-apps/uwebsockets
 "
+BDEPEND="test? ( sys-apps/coreutils )"
 
 src_configure() {
 	default
 	tc-export CXX
+}
+
+src_test() {
+	P_DD_FLAGS="iflag=fullblock" \
+	default
 }
 
 src_install() {
