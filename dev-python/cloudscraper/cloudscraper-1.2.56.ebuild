@@ -19,6 +19,7 @@ DEPEND="
 	test? (
 		dev-python/js2py[${PYTHON_USEDEP}]
 		dev-python/responses[${PYTHON_USEDEP}]
+		net-libs/nodejs
 	)"
 RDEPEND="
 	>=dev-python/requests-2.9.2[${PYTHON_USEDEP}]
