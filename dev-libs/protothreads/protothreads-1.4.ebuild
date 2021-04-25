@@ -1,9 +1,11 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
 
-DESCRIPTION="Protothreads - Lightweight, Stackless Threads in C"
+inherit toolchain-funcs
+
+DESCRIPTION="Lightweight, Stackless Threads in C"
 HOMEPAGE="https://web.archive.org/web/20190923093100/http://dunkels.com/adam/pt/"
 SRC_URI="
 	https://web.archive.org/web/20190518175329/http://dunkels.com/adam/download/pt-${PV}.tar.gz -> ${P}.tar
@@ -16,7 +18,7 @@ KEYWORDS="~amd64"
 IUSE="doc examples"
 
 BDEPEND="doc? ( app-doc/doxygen )"
-
+PATCHES=( "${FILESDIR}/respect-cflags.patch" )
 S="${WORKDIR}/pt-${PV}"
 
 src_unpack() {
@@ -24,13 +26,8 @@ src_unpack() {
 	cp "${DISTDIR}/graham-pt.h" "${S}"
 }
 
-src_prepare() {
-	sed -i 's/-Werror//g' Makefile
-	sed -i 's/-O//g' Makefile
-	default
-}
-
 src_compile() {
+	export CC=$(tc-getCC)
 	default
 	use doc && cd doc && emake
 }
@@ -44,7 +41,7 @@ src_install() {
 		dodoc README
 		docinto html
 		dodoc -r doc/html/.
-
+		docompress -x "/usr/share/doc/${P}/html"
 	fi
 	if use examples ; then
 		insinto "/usr/share/${P}/examples"
