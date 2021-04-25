@@ -261,6 +261,15 @@ sys-cluster/nanos6:execution-workflow - Enable execution using the Execution Wor
 sys-cluster/nanos6:extrae - to generate execution traces for offline performance analysis with paraver
 sys-cluster/nanos6:papi - enable dev-libs/papi support
 sys-cluster/nanos6:unwind - to generate sample-based profiling
+sys-cluster/sionlib:cxx - Disable C++ support
+sys-cluster/sionlib:debug - enable SIONlib debug
+sys-cluster/sionlib:fortran - Enable Fortran support
+sys-cluster/sionlib:mpi - enable mpi
+sys-cluster/sionlib:ompi - enable hybrid openmp mpi
+sys-cluster/sionlib:openmp - enable openmp
+sys-cluster/sionlib:parutils - Enable compilation of parutils (used for benchmarking)
+sys-cluster/sionlib:pthreads - configure SIONlib to use pthreads for locking
+sys-cluster/sionlib:python - enable python support
 sys-cluster/veloc:alps - Use ALPS (Application Level Placement Scheduler) as resource manager
 sys-cluster/veloc:lsf - Use LFS (Load Sharing Facility) as resource manager
 sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager
