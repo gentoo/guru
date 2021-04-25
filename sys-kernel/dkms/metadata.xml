@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>denis7774@gmail.com</email>
-		<name>Denis Reva</name>
-		<description>I do not use that package by myself so I can't test it. I port and update it only</description>
-	</maintainer>
 	<upstream>
 		<remote-id type="github">dell/dkms</remote-id>
 	</upstream>
