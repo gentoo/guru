@@ -44,6 +44,7 @@ process). Extrae generates trace files that can be later visualized with <pkg>sy
 		<flag name="sampling">Enable PAPI sampling support</flag>
 		<!--<flag name="spectral">This package enables support for on-line spectral analysis.</flag>-->
 		<flag name="single-mpi-lib">Produces a single instrumentation library for MPI that contains both Fortran and C wrappers. Applications that call the MPI library from both C and Fortran languages need this flag to be enabled.</flag>
+		<flag name="sionlib">Enable support for <pkg>sys-cluster/sionlib</pkg></flag>
 		<flag name="smpss">Enable support for tracing SMP-superscalar</flag>
 		<!--<flag name="synapse">This library is a front-end of the MRNet library</flag>-->
 		<flag name="xml">Enable support for XML configuration</flag>
