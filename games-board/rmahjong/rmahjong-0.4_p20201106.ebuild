@@ -51,7 +51,8 @@ src_prepare(){
 
 	# pass compiler and CFLAGS to 'Bot' makefile
 	sed -i -e 's:gcc:'"$(tc-getCC)"':g' bot/makefile \
-		-e 's:CFLAGS=-Wall -O3 -march=native:CFLAGS='"${CFLAGS}"':'|| die
+		-e 's:CFLAGS=-Wall -O3 -march=native:CFLAGS='"${CFLAGS}"':' \
+		-e 's:\$(ARG):\$(ARG) '"${LDFLAGS}"':' || die
 }
 
 src_compile() {
