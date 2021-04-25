@@ -11,6 +11,7 @@ KEYWORDS="~amd64"
 
 DEPEND="net-libs/liblockfile
 		dev-libs/libbsd
+		sys-libs/binutils-libs
 		virtual/mta
 		mail-client/mailx-support
 		dev-libs/openssl"
