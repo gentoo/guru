@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools
+inherit autotools flag-o-matic
 
 DESCRIPTION="Userspace tools for EROFS images"
 HOMEPAGE="https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git"
@@ -23,12 +23,17 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=(
+	${FILESDIR}/erofs-utils-1.2.1-no-Werror.patch
+)
+
 src_prepare() {
 	default
 	eautoreconf
 }
 
 src_configure() {
+	append-flags "-Wno-error"
 	econf \
 		$(use_enable fuse) \
 		$(use_enable lz4) \
