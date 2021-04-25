@@ -24,7 +24,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	${FILESDIR}/erofs-utils-1.2.1-no-Werror.patch
+	"${FILESDIR}"/erofs-utils-1.2.1-no-Werror.patch
 )
 
 src_prepare() {
