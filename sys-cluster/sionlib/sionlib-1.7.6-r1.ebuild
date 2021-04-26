@@ -15,7 +15,6 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+cxx debug doc +fortran +mpi +ompi +openmp +parutils +pthreads python"
-#TODO: fix installation in multilib
 #TODO: cuda sionfwd msa
 #--enable-sionfwd=/path/to/sionfwd
 #--msa=(hostname-regex|deep-est-sdv)]	MSA aware collective operations for the given system
@@ -94,6 +93,16 @@ src_install() {
 	default
 
 	mv "${T}/prefix/usr/examples" "${T}/prefix/usr/share/doc/${PF}/" || die
+
+	#move 64 bit libraries in lib64
+	libs64=( "${T}"/prefix/usr/lib/*64* )
+	if [[ ${#libs64[@]} -gt 0 ]]; then
+		mkdir "${T}/prefix/usr/lib64" || die
+		for l in "${libs64[@]}" ; do
+			mv "${l}" "${T}/prefix/usr/lib64/" || die
+		done
+	fi
+
 	rsync -ravXHA "${T}/prefix/usr" "${ED}/" || die
 	docompress -x "/usr/share/doc/${PF}/examples"
 
