@@ -13,7 +13,7 @@ SRC_URI="https://github.com/bsc-performance-tools/extrae/archive/${PV}.tar.gz ->
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="boost doc dwarf elf fft heterogeneous inotify +instrument-dynamic-memory +instrument-io +instrument-syscall merge-in-trace nanos opencl openmp +parallel-merge pebs-sampling +posix-clock pthread sampling +single-mpi-lib sionlib smpss +xml"
+IUSE="boost clustering doc dwarf elf fft heterogeneous inotify +instrument-dynamic-memory +instrument-io +instrument-syscall merge-in-trace nanos opencl openmp +parallel-merge pebs-sampling +posix-clock pthread sampling +single-mpi-lib sionlib smpss +xml"
 #aspectj and aspectj-weaver need to both be enabled at the same time
 #current dev-java/aspectj package only provides aspectj.jar
 #aspectj needs foo/lib/aspectj.jar and foo/bin/ajc
@@ -40,6 +40,7 @@ CDEPEND="
 	|| ( sys-devel/binutils:* sys-libs/binutils-libs )
 
 	boost? ( dev-libs/boost:= )
+	clustering? ( sys-cluster/clusteringsuite )
 	dwarf? ( dev-libs/libdwarf )
 	elf? ( virtual/libelf )
 	inotify? ( dev-libs/libevent )
@@ -99,7 +100,6 @@ src_configure() {
 		--without-dyninst
 		--without-cupti
 		--without-memkind
-		--without-clustering
 		--without-synapse
 		--without-spectral
 		--without-openshmem
@@ -137,6 +137,11 @@ src_configure() {
 		myconf+=( "--with-boost=${EPREFIX}/usr" )
 	else
 		myconf+=( "--without-boost" )
+	fi
+	if use clustering; then
+		myconf+=( "--with-clustering=${EPREFIX}/usr" )
+	else
+		myconf+=( "--without-clustering" )
 	fi
 	if use dwarf; then
 		myconf+=( "--with-dwarf=${EPREFIX}/usr" )
