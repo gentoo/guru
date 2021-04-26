@@ -5,21 +5,30 @@ EAPI=7
 
 LUA_COMPAT=( lua5-{1..4} )
 
-inherit git-r3 fcaps lua-single systemd
+inherit fcaps lua-single systemd cmake
 
 DESCRIPTION="hinsightd a http/1.1 webserver with (hopefully) minimal goals"
 HOMEPAGE="https://gitlab.com/tiotags/hin9"
-EGIT_REPO_URI="https://gitlab.com/tiotags/hin9.git"
+
+if [[ ${PV} == *9999* ]]; then
+	EGIT_REPO_URI="https://gitlab.com/tiotags/hin9.git"
+	inherit git-r3
+else
+	KEYWORDS="~amd64"
+	SRC_URI="https://gitlab.com/tiotags/hin9/-/archive/v${PV}/hin9-v${PV}.tar.gz"
+	S="${WORKDIR}/hin9-v${PV}"
+fi
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="" #+openssl
+IUSE="+openssl"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
 BDEPEND="
 	dev-util/ninja
+	dev-util/cmake
 	virtual/pkgconfig
 "
 
@@ -29,7 +38,7 @@ RDEPEND="
 	acct-group/hinsightd
 	sys-libs/liburing
 	sys-libs/zlib
-	dev-libs/openssl
+	openssl? ( dev-libs/openssl )
 "
 
 DEPEND="${RDEPEND}"
@@ -38,16 +47,15 @@ PATCHES=(
 	"${FILESDIR}/hinsightd-redefine-directories.patch"
 )
 
-#src_configure() {
-#}
-
-src_compile() {
-	cd build
-	ninja || die
+src_configure() {
+	local mycmakeargs=(
+		-DUSE_OPENSSL=$(usex openssl)
+	)
+	cmake_src_configure
 }
 
 src_install() {
-	newbin "${S}/build/hin9" hinsightd
+	newbin "${BUILD_DIR}/hin9" hinsightd
 	newinitd "${FILESDIR}/init.d.sh" hinsightd
 	systemd_dounit "${FILESDIR}/hinsightd.service" # not tested
 
