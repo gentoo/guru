@@ -83,8 +83,10 @@ src_configure() {
 src_compile() {
 	export VARTEXFONTS="${T}/fonts"
 	default
-	use doc && doxygen -u doxy || die
-	use doc && doxygen doxy || die
+	if use doc ; then
+		doxygen -u doxy || die
+		doxygen doxy || die
+	fi
 }
 
 src_install() {
