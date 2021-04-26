@@ -58,7 +58,10 @@ RDEPEND="
 	virtual/opencl
 "
 BDEPEND="
-	doc? ( dev-python/sphinx )
+	doc? (
+		dev-python/sphinx
+		dev-tex/latexmk
+	)
 "
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
