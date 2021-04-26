@@ -59,6 +59,7 @@ BDEPEND="
 	doc? (
 		dev-python/sphinx
 		dev-tex/latexmk
+		dev-texlive/texlive-latexextra
 	)
 "
 REQUIRED_USE="
