@@ -57,6 +57,7 @@ RDEPEND="
 "
 BDEPEND="
 	doc? (
+		app-text/ghostscript-gpl
 		dev-python/sphinx
 		dev-tex/latexmk
 		dev-texlive/texlive-latexextra
