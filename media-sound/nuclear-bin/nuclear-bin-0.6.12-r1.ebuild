@@ -63,8 +63,6 @@ src_install(){
 	cd presskit/icons/color || die
 	for i in {16,24,32,48,64,96,128,256,512}; do
 		mv "${i}".png nuclear-"${i}".png || die
-	done
-	for i in {16,24,32,48,64,96,128,256,512}; do
 		doicon -s "${i}" nuclear-"${i}".png
 	done
 	cd ../scalable || die
