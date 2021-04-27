@@ -47,6 +47,8 @@ src_prepare() {
 }
 
 src_configure() {
+	export VARTEXFONTS="${T}/fonts"
+
 	if use modules ; then
 		set_kvobj ko
 		econf "${myconf[@]}" --disable-wchar
