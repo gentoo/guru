@@ -55,8 +55,8 @@ src_install(){
 	fperms +x /opt/"${PN}"/chrome-sandbox
 	fperms +x /opt/"${PN}"/resources/bin/fpcalc
 	make_desktop_entry "/opt/${PN}/nuclear %U" "Nuclear" "nuclear" \
-		"GNOME;GTK;Utility;X-MediaPlayer;" \
-		"GenericName=Media Player\n\nStartupNotify=true\nStartupWMClass=nuclear"
+		"Audio;Music;Player;AudioVideo;" \
+		"GenericName=Nuclear-bin\nStartupNotify=true\nStartupWMClass=nuclear"
 	cd "${S}"/resources/media/ || die
 	mv icon.icns nuclear.icns || die
 	doicon nuclear.icns
