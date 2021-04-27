@@ -1,5 +1,5 @@
 BDEPEND=app-arch/gzip
-DEFINED_PHASES=compile install prepare
+DEFINED_PHASES=compile install
 DEPEND=media-libs/alsa-lib >=media-libs/zita-alsa-pcmi-0.3.0 >=media-libs/zita-resampler-1.6.0 virtual/jack
 DESCRIPTION=zita-a2j and zita-j2a - bridges between ALSA and JACK
 EAPI=7
@@ -11,4 +11,4 @@ RDEPEND=media-libs/alsa-lib >=media-libs/zita-alsa-pcmi-0.3.0 >=media-libs/zita-
 SLOT=0
 SRC_URI=https://kokkinizita.linuxaudio.org/linuxaudio/downloads/zita-ajbridge-0.8.4.tar.bz2
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
-_md5_=a5da639095d5ded8824fd7e1cf4f50e9
+_md5_=4041c9301011e4e526796d4a2b4513ce

@@ -27,6 +27,8 @@ app-shells/starship:battery - Include support for laptop battery information.
 app-shells/starship:http - If enabled, starship can help you file bugs with itself
 app-shells/starship:tls-vendored - Use a bundled openssl instead of the system openssl
 app-text/OCRmyPDF:jbig2enc - Uses media-libs/jbig2enc for a better compression algorithm
+app-text/klogg:lto - Build with link time optimization (LTO).
+app-text/klogg:sentry - Enable crash reporting using sentry.io.
 dev-cpp/sprout:texconv - Install texconv from subproject compost
 dev-cpp/sprout:wavconv - Install texconv from subproject darkroom
 dev-embedded/rauc:gpt - Add GPT support
@@ -120,6 +122,12 @@ media-libs/libbpg:bpgview - Compile bpgview (media-libs/libsdl and media-libs/sd
 media-libs/libbpg:emcc - Enable compilation of Javascript decoder with Emscripten
 media-libs/libbpg:jctvc - Enable the JCTVC code (best quality but slow) for the encoder
 media-libs/libbpg:x265 - Enable x265 for the encoder
+media-libs/vips:fits - Enable support for the FITS image format through sci-libs/cfitsio
+media-libs/vips:gsf - Enable support for creating image pyramids with dzsave
+media-libs/vips:heif - Enable support for HEIC images
+media-libs/vips:imagequant - Enable support for 8bpp PNG via media-gfx/libimagequant
+media-libs/vips:matio - Enable support for reading images from Matlab files through sci-libs/matio
+media-libs/vips:pango - Enable support for text rendering
 media-sound/6pm:midimaps - Install midi maps for that synth. Recommended
 media-sound/6pm:nls - Add support for localization
 media-sound/6pm:presets - Install presets. Recommended
@@ -228,9 +236,12 @@ sys-auth/mrsh:pam - build with pam support
 sys-auth/mrsh:shadow - build with shadow file support
 sys-cluster/KVTree:fcntl - Set the type of file locking to fcntl.
 sys-cluster/KVTree:flock - Set the type of file locking to flock.
+sys-cluster/clusteringsuite:mpi - enable mpi for distributed version
+sys-cluster/clusteringsuite:old-pcfparser - enable compilation with old pcfparser
 sys-cluster/dlb:hwloc - add sys-apps/hwlocsupport
 sys-cluster/dlb:instrumentation - enable sys-cluster/extrae instrumentation
 sys-cluster/extrae:boost - Search for boost
+sys-cluster/extrae:clustering - Enable sys-cluster/clusteringsuite support
 sys-cluster/extrae:doc - Generates the documentation of this instrumentation package
 sys-cluster/extrae:dwarf - Build with dev-libs/libdwarf
 sys-cluster/extrae:elf - Build with virtual/libelf
@@ -251,6 +262,7 @@ sys-cluster/extrae:posix-clock - Use POSIX clock (clock_gettime call) instead of
 sys-cluster/extrae:pthread - Enable support for tracing pthread library
 sys-cluster/extrae:sampling - Enable PAPI sampling support
 sys-cluster/extrae:single-mpi-lib - Produces a single instrumentation library for MPI that contains both Fortran and C wrappers. Applications that call the MPI library from both C and Fortran languages need this flag to be enabled.
+sys-cluster/extrae:sionlib - Enable support for sys-cluster/sionlib
 sys-cluster/extrae:smpss - Enable support for tracing SMP-superscalar
 sys-cluster/extrae:xml - Enable support for XML configuration
 sys-cluster/nanos6:cluster - Enable OmpSs@Cluster support. This requires an MPI version that supports MPI_THREAD_MULTIPLE to be present in your environment
@@ -287,6 +299,7 @@ sys-process/nq:shell - Use shell implementation
 sys-process/nq:tq - Install tq, a tmux & screen wrapper
 www-apps/gogs:cert - Adds support for self-signed certificates
 www-client/torbrowser-launcher:apparmor - Enable AppArmor support
+www-servers/hinsightd:openssl - Enable tls encryption with openssl
 x11-libs/gtk-fortran:examples - Install examples source code files
 x11-libs/gtk-fortran:high-level - Build high-level interface to the gtk-fortran package
 x11-libs/gtk-fortran:plplot - Build with sci-libs/plplot support

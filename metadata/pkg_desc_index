@@ -37,7 +37,7 @@ app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generat
 app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-crypt/tomb 2.9-r5: Tomb :: File Encryption on GNU/Linux
 app-editors/atom-bin 1.56.0-r4: A hackable text editor for the 21st Century
-app-editors/bluegriffon-bin 3.1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
+app-editors/bluegriffon-bin 3.1-r1: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
@@ -58,7 +58,7 @@ app-misc/cpufetch 0.94_p20210409: Simplistic yet fancy CPU architecture fetching
 app-misc/ddcui 0.1.2: Graphical user interface for ddcutil - control monitor settings
 app-misc/doublecmd-bin 0.9.10: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1: Simple drag-and-drop source/sink for X and Wayland
-app-misc/far2l 2.3.20210419_alpha 9999: Linux port of FAR Manager v2
+app-misc/far2l 2.3.20210419_alpha 2.3.20210426_alpha 9999: Linux port of FAR Manager v2
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -78,7 +78,7 @@ app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the c
 app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20181120 0_pre20201102: vrms clone for Gentoo Linux
-app-misc/watchexec 1.14.1 1.15.0 1.15.1: Executes commands in response to file modifications
+app-misc/watchexec 1.14.1 1.15.0 1.15.1 1.15.2: Executes commands in response to file modifications
 app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
 app-office/openoffice-bin 4.1.9: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.4 1.99.5 9999: Pyspread is a non-traditional spreadsheet written in Python
@@ -101,6 +101,7 @@ app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
 app-shells/zsh-history-to-fish 0.3.0: Bring your ZSH history to Fish shell
 app-text/OCRmyPDF 11.6.2 11.7.0 11.7.1: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/katarakt 0.2: Simple PDF viewer
+app-text/klogg 20.12: A GUI application to browse and search through long and complex log files
 app-text/komikku 0.24.0 0.26.1 0.27.0: An online/offline manga reader for GNOME
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
 app-text/mdbook 0.4.5 0.4.6 0.4.7: Creates a book from markdown files
@@ -178,7 +179,7 @@ dev-libs/octetos-db-maria 1.2.2_beta 1.3.2_alpha 1.4.2_alpha 1.9.2_alpha: C++ li
 dev-libs/octetos-db-postgresql 1.3.2_alpha 1.3.3_alpha 1.3.6_alpha 1.3.9_alpha 1.3.10_alpha: C++ library for Database Acces.
 dev-libs/olm 3.2.1 3.2.2: Implementation of the olm and megolm cryptographic ratchets
 dev-libs/open62541 1.2.1: Open source C implementation of OPC UA
-dev-libs/protothreads 1.4: Protothreads - Lightweight, Stackless Threads in C
+dev-libs/protothreads 1.4: Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
 dev-libs/randomx 1.1.8: Proof of work algorithm based on random code execution
 dev-libs/supercop 0_p20200827: Fast cryyptographic operations for Monero wallets
@@ -363,7 +364,7 @@ games-arcade/taisei 1.3.1-r1 9999: Clone of the Touhou series, written in C usin
 games-board/openriichi 0.2.1.1: OpenRiichi is an open source Japanese Mahjong client
 games-board/rmahjong 0.4_p20201106: Riichi Mahjong, the Japanese variant of the Chinese game Mahjong for 4 players
 games-emulation/duckstation 9999: Fast Sony PlayStation (PSX) emulator
-games-emulation/melonds 0.8.3 0.9 0.9.1 9999: Nintendo DS emulator, sorta
+games-emulation/melonds 0.9.1 0.9.2 9999: Nintendo DS emulator, sorta
 games-emulation/np2kai 22 22_p20210211: NP2kai is an emulator for the japanese PC-98 series of computers
 games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
@@ -417,6 +418,7 @@ gui-libs/libcsys 4.1.0 4.2.0_alpha 4.2.0 9999: Library for managing the device
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.2.1 0.1.3 9999: A Wayland kiosk
 gui-wm/dwl 0.2: dwm for Wayland
+kde-apps/kaidan 0.7.0: A simple, user-friendly Jabber/XMPP client for every device!
 kde-apps/kclock 0.4.0: A convergent clock application for Plasma
 kde-apps/krecorder 9999: A convergent audio recording application for Plasma
 kde-frameworks/kirigami-addons 0.1: Convergent visual components for Kirigami-based applications
@@ -456,6 +458,7 @@ media-libs/rtmidi 4.0.0: A set of C++ classes that provide a common API for real
 media-libs/skia 80_p20191220-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-libs/svt-hevc 1.5.0 9999: Scalable Video Technology for HEVC (SVT-HEVC Encoder)
 media-libs/svt-vp9 0.3.0 9999: Scalable Video Technology for VP9 (SVT-VP9 Encoder)
+media-libs/vips 8.10.6: VIPS Image Processing Library
 media-plugins/alsa-sndio 0.2: ALSA PCM to play audio on sndio servers
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
 media-plugins/gimp-avif-plugin 9999: Plug-in for development GIMP 2.99.3 for loading/saving AVIF images.
@@ -469,12 +472,12 @@ media-sound/ibniz 1.18: virtual machine designed for extremely compact low-level
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/ncpamixer 1.3.3.1: A ncurses mixer for PulseAudio inspired by pavucontrol
 media-sound/noson-app 4.4.9: The essential to control music from your SONOS devices on Linux platforms
-media-sound/nuclear-bin 0.6.12: Nuclear is a streaming program that pulls content from free sources on internet
+media-sound/nuclear-bin 0.6.12-r1: Nuclear is a streaming program that pulls content from free sources on internet
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
 media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file or stream as a PulseAudio source
 media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
 media-sound/wlavu 9999: Wayland ALSA VU-meter with peaking and optional support for wlr-layer-shell
-media-sound/zita-ajbridge 0.8.4: zita-a2j and zita-j2a - bridges between ALSA and JACK
+media-sound/zita-ajbridge 0.8.4 0.8.4-r1: zita-a2j and zita-j2a - bridges between ALSA and JACK
 media-tv/droidcam 1.7.2: Use android phone as webcam, using a v4l device driver and app
 media-video/av1an 1.12 9999: Cross-platform framework to streamline encoding
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
@@ -496,7 +499,7 @@ net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP cont
 net-im/nheko 0.8.1 0.8.2: Desktop client for Matrix using Qt and C++14
 net-im/rocketchat-desktop-bin 3.1.1: The Ultimate Open Source Web Chat Platform
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
-net-im/srain 1.1.1 1.1.3: Modern, beautiful IRC client written in GTK+ 3
+net-im/srain 1.1.3 1.2.1: Modern, beautiful IRC client written in GTK+ 3
 net-libs/kcgi 0.12.3 0.12.4 9999: minimal CGI library for web applications
 net-libs/usockets 0.7.1_p20210214 9999: tiny eventing, networking & crypto for async applications
 net-mail/remail 0.13: A set of tools for crypted mailing lists
@@ -507,7 +510,7 @@ net-misc/castor 0.8.15 0.8.16: A graphical browser for plain-text protocols
 net-misc/freetube-bin 0.11.3 0.12.0: https://github.com/FreeTubeApp/FreeTube
 net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
-net-misc/gmid 1.6 9999: simple and secure Gemini server
+net-misc/gmid 1.6.1 9999: Simple and secure Gemini server
 net-misc/kristall 0.3-r1 9999: Visual cross-platform gemini browser
 net-misc/lyrics-in-terminal 1.3.1: Command Line Lyrics fetcher for MPRIS media players
 net-misc/lyricwikia 0.1.11-r1: Python API to get song lyrics from LyricWikia
@@ -551,7 +554,7 @@ sci-mathematics/chaco 2.2: Software for Partitioning Graphs
 sci-mathematics/frama-c 22.0: Framework for analysis of source codes written in C
 sci-mathematics/why3 1.3.3 1.4.0: Platform for deductive program verification
 sci-physics/SU2 7.1.1: SU2: An Open-Source Suite for Multiphysics Simulation and Design
-sys-apps/0xFFFF 0.8: The 0pen Free Fiasco Firmware Flasher
+sys-apps/0xFFFF 0.8 0.9: The 0pen Free Fiasco Firmware Flasher
 sys-apps/dool 0.8_pre20191010 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
 sys-apps/drm_info 2.2.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3 0.5.4: A more intuitive version of du
@@ -570,20 +573,21 @@ sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of cu
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-cluster/AXL 0.3.0 0.4.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
 sys-cluster/KVTree 1.1.0 1.1.1: KVTree provides a fully extensible C data structure modeled after Perl hashes
+sys-cluster/clusteringsuite 2.6.9: Automatically expose the main performance trends in applications' computation structure
 sys-cluster/dlb 2.1-r1: Dynamically react to application imbalance by modifying the number of resources
 sys-cluster/er 0.0.3 0.0.4: High-level distributed erasure coding lib combining shuffile and redset
-sys-cluster/extrae 3.8.3-r1: Instrumentation framework to generate execution traces of parallel runtimes
+sys-cluster/extrae 3.8.3-r1 3.8.3-r2 3.8.3-r3: Instrumentation framework to generate execution traces of parallel runtimes
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
 sys-cluster/nanos6 2.5.1-r1: runtime that implements the OmpSs-2 parallel programming model
 sys-cluster/pcs 0.10.7 0.10.8 0.10.8-r2: Pacemaker/Corosync Configuration System
 sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on string values
 sys-cluster/redset 0.0.4 0.0.5: Low-level distributed erasure coding lib to protect datasets of MPI applications
 sys-cluster/shuffile 0.0.3 0.0.4: SHUFFILE Shuffle files between processes
-sys-cluster/sionlib 1.7.6: Scalable I/O library for parallel access to task-local files
+sys-cluster/sionlib 1.7.6-r1: Scalable I/O library for parallel access to task-local files
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-fs/btrfs-heatmap 9: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
-sys-fs/dwarfs 0.4.1 0.5.4: A fast very high compression read-only FUSE file system
+sys-fs/dwarfs 0.4.1 0.5.4-r1: A fast very high compression read-only FUSE file system
 sys-fs/erofs-utils 1.2.1 9999: Userspace tools for EROFS images
 sys-fs/fscrypt 0.3.0-r1: Tool for managing Linux filesystem encryption
 sys-fs/gcsfuse 0.34.1: A user-space file system for interacting with Google Cloud Storage
@@ -594,7 +598,7 @@ sys-kernel/tirdad 0_p20200926: kernel module for random ISN generation
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-libs/libnvidia-container 1.3.3: NVIDIA container runtime library
 sys-libs/nss-tls 1.0 1.1 9999: A DNS over HTTPS resolver for glibc
-sys-libs/safeclib 3.6.0_p20210407-r1: safec libc extension with all C11 Annex K functions
+sys-libs/safeclib 3.6.0_p20210407-r2: safec libc extension with all C11 Annex K functions
 sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC security key
 sys-power/ZenStates-Linux 0_p20170507: Dynamically edit AMD Ryzen processor P-States
 sys-power/disable-c6 0_p20190603: disable the C6 state upon system boot, preventing Ryzen freezes
@@ -614,7 +618,7 @@ www-client/badwolf 1.1.0 9999: Minimalist and privacy-oriented WebKitGTK+ browse
 www-client/browsh-bin 1.6.4: A fully-modern text-based browser, rendering to TTY and browsers
 www-client/torbrowser-launcher 0.3.3 9999: A program to download, updated, and run the Tor Browser Bundle
 www-client/woob 2.0 9999: Consume lots of websites without a browser (Web Outside Of Browsers)
-www-servers/hinsightd 0.9.0 9999: hinsightd a http/1.1 webserver with (hopefully) minimal goals
+www-servers/hinsightd 0.9.0 0.9.1 9999: hinsightd a http/1.1 webserver with (hopefully) minimal goals
 www-servers/thin 1.8.0: This a Ruby gem that delivers a thin and fast web server
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-libs/gtk-fortran 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran

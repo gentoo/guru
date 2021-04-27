@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/SCM-NV/ftl/archive/97b8292e893ad147ca44e42bcd56d23e9a8259fb.tar.gz -> ftl-1.0_p20210308.tar.gz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	fortran-2	b4796813ccda91c9c0d3463fc90aa969
-_md5_=f41206de71952c8e9fdb8dc367ac247e
+_md5_=dd49851c3b42f6c3df8626fba0506249
