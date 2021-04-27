@@ -29,14 +29,13 @@ CDEPEND="
 	app-arch/xz-utils
 	dev-libs/icu
 	dev-libs/libpfm
-	sys-libs/libunwind
 	dev-libs/libxml2
 	dev-libs/papi
 	sys-apps/hwloc
-	sys-libs/glibc
 	sys-libs/zlib
 	virtual/mpi
 
+	|| ( sys-libs/libunwind sys-libs/llvm-libunwind )
 	|| ( sys-devel/binutils:* sys-libs/binutils-libs )
 
 	boost? ( dev-libs/boost:= )
