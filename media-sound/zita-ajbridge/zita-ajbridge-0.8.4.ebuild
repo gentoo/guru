@@ -1,7 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+
+inherit toolchain-funcs
 
 DESCRIPTION="zita-a2j and zita-j2a - bridges between ALSA and JACK"
 HOMEPAGE="https://kokkinizita.linuxaudio.org/linuxaudio/zita-ajbridge-doc/quickguide.html"
@@ -28,6 +30,11 @@ DOCS=( ${ADIR}/AUTHORS ${ADIR}/COPYING ${ADIR}/README )
 src_prepare() {
 	default
 	sed -i -e "/ldconfig/d" "${S}"/Makefile || die
+}
+
+src_compile() {
+	tc-export CXX
+	default
 }
 
 src_install() {
