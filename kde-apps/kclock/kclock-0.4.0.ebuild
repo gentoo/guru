@@ -34,3 +34,10 @@ DEPEND="
 	>=kde-frameworks/plasma-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	sed \
+		-e "/Version=.*/d" \
+		-i org.kde.kclock.desktop || die
+	ecm_src_prepare
+}
