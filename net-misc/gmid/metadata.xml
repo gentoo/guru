@@ -6,7 +6,6 @@
 			<name>Omar Polo</name>
 			<email>op@omarpolo.com</email>
 		</maintainer>
-		<changelog>https://git.omarpolo.com/gmid/tree/ChangeLog</changelog>
 	</upstream>
 	<maintainer type="person">
 		<email>cyber@sysrq.in</email>

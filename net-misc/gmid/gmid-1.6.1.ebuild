@@ -8,7 +8,7 @@ SSL_DAYS=36500
 
 inherit ssl-cert toolchain-funcs
 
-DESCRIPTION="simple and secure Gemini server"
+DESCRIPTION="Simple and secure Gemini server"
 HOMEPAGE="https://www.omarpolo.com/pages/gmid.html"
 
 if [[ ${PV} == "9999" ]] ; then
@@ -22,6 +22,8 @@ fi
 LICENSE="ISC"
 SLOT="0"
 IUSE="libressl"
+
+PATCHES=( "${FILESDIR}"/${P}-make-pidfile.patch )
 
 DEPEND="acct-user/gemini
 	dev-libs/libevent
