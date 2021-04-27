@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit xdg
+inherit toolchain-funcs xdg
 
 DESCRIPTION="Modern, beautiful IRC client written in GTK+ 3"
 HOMEPAGE="https://github.com/SrainApp/srain"
@@ -27,4 +27,9 @@ DEPEND="
 
 src_configure() {
 	econf $(use_enable debug)
+}
+
+src_compile() {
+	tc-export CC
+	default
 }
