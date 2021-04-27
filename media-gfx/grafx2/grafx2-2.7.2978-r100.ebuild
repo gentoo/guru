@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -16,6 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="lua ttf"
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
+
 # Test phase fails: make: *** [Makefile:1146: ../bin/tests-sdl] Error 1
 RESTRICT="test"
 
@@ -34,16 +35,15 @@ PATCHES=( "${FILESDIR}/${PN}-desktop-file.patch" )
 
 src_prepare() {
 	pushd ../ && default && popd
-	sed -i s/lua5\.1/lua/g Makefile || die "sed failed"
 }
 
 src_compile() {
 	use ttf || MYCNF="NOTTF=1"
 	use lua || MYCNF="${MYCNF} NOLUA=1"
 
-	emake ${MYCNF} || die "emake failed"
+	emake ${MYCNF}
 }
 
 src_install() {
-	emake ${MYCNF} DESTDIR="${D}" PREFIX="/usr" install || die "Install failed"
+	emake ${MYCNF} DESTDIR="${ED}" PREFIX="/usr" install
 }
