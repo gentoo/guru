@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit toolchain-funcs
+
 DESCRIPTION="The 0pen Free Fiasco Firmware Flasher"
 HOMEPAGE="https://github.com/pali/0xFFFF/"
 SRC_URI="https://github.com/pali/${PN}/releases/download/${PV}/${P}.tar.gz"
@@ -14,6 +16,11 @@ IUSE=""
 
 DEPEND="virtual/libusb:0"
 RDEPEND="${DEPEND}"
+
+src_compile() {
+	tc-export CC
+	default
+}
 
 src_install() {
 	emake DESTDIR="${ED}" PREFIX="/usr" install
