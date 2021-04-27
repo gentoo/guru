@@ -24,3 +24,8 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
+
+src_test() {
+	export QT_QPA_PLATFORM=offscreen
+	ecm_src_test
+}
