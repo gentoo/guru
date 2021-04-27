@@ -47,6 +47,8 @@ src_prepare() {
 }
 
 src_configure() {
+	export VARTEXFONTS="${T}/fonts"
+
 	if use modules ; then
 		set_kvobj ko
 		econf "${myconf[@]}" --disable-wchar
@@ -87,12 +89,15 @@ src_install() {
 	cd "${S}-lib" || die
 	default
 	einstalldocs
-	use doc && dodoc -r doc/.
 
-	# wcsstr towupper towlower manpages collide with sys-apps/man-pages
-	rm "${ED}/usr/share/man/man3/towlower.3" || die
-	rm "${ED}/usr/share/man/man3/towupper.3" || die
-	rm "${ED}/usr/share/man/man3/wcsstr.3" || die
+	if use doc ; then
+		dodoc -r doc/.
+
+		# wcsstr towupper towlower manpages collide with sys-apps/man-pages
+		rm "${ED}/usr/share/man/man3/towlower.3" || die
+		rm "${ED}/usr/share/man/man3/towupper.3" || die
+		rm "${ED}/usr/share/man/man3/wcsstr.3" || die
+	fi
 }
 
 src_test() {

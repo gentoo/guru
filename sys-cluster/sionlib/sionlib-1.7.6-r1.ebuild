@@ -22,7 +22,6 @@ IUSE="+cxx debug doc +fortran +mpi +ompi +openmp +parutils +pthreads python"
 PATCHES=( "${FILESDIR}/respect-flags.patch" )
 
 RDEPEND="
-	${PYTHON_DEPS}
 	mpi? ( virtual/mpi )
 	ompi? (
 		sys-libs/libomp
@@ -30,7 +29,10 @@ RDEPEND="
 	)
 	openmp? ( sys-libs/libomp )
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	${PYTHON_DEPS}
+"
 BDEPEND="doc? ( app-doc/doxygen )"
 S="${WORKDIR}/${PN}"
 
@@ -59,7 +61,7 @@ src_configure() {
 
 	local myconf=(
 		--disable-mic
-		--prefix="${EPREFIX}/usr"
+		--prefix="${T}/prefix/usr"
 	)
 
 	#custom configure?
@@ -78,25 +80,34 @@ src_configure() {
 }
 
 src_compile() {
+	export VARTEXFONTS="${T}/fonts"
 	default
-	use doc && doxygen -u doxy && doxygen doxy || die
+	if use doc ; then
+		doxygen -u doxy || die
+		doxygen doxy || die
+	fi
 }
 
 src_install() {
-	sed -e "s|\${PREFIX}|${D}/usr|g" -i mf/common.defs || die
-	sed -e "s|\$(PREFIX)|${D}/usr|g" -i src/utils/Makefile || die
-	sed \
-		-e "s|\$(PREFIX)|${D}/usr|g" \
-		-e "s|\${PREFIX}|${D}/usr|g" \
-		-i mf/RealMakefile || die
-
+	mkdir -p "${T}/prefix/usr/share/doc/${PF}" || die
 	default
 
-	use doc && dodoc -r doc/html
+	mv "${T}/prefix/usr/examples" "${T}/prefix/usr/share/doc/${PF}/" || die
 
-	mv "${ED}/usr/examples" "${ED}/usr/share/doc/${PF}/" || die
+	#move 64 bit libraries in lib64
+	libs64=( "${T}"/prefix/usr/lib/*64* )
+	if [[ ${#libs64[@]} -gt 0 ]]; then
+		mkdir "${T}/prefix/usr/lib64" || die
+		for l in "${libs64[@]}" ; do
+			mv "${l}" "${T}/prefix/usr/lib64/" || die
+		done
+	fi
+
+	rsync -ravXHA "${T}/prefix/usr" "${ED}/" || die
 	docompress -x "/usr/share/doc/${PF}/examples"
-	docompress -x "/usr/share/doc/${PF}/html"
+
+	use doc && dodoc -r doc/html
+	use doc && docompress -x "/usr/share/doc/${PF}/html"
 
 	#TODO: build shared libs
 	#find "${ED}" -name '*.a' -delete || die

@@ -1,4 +1,4 @@
-# Copyright 2019-2020 Gentoo Authors
+# Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -20,16 +20,20 @@ else
 	S="${WORKDIR}/${MY_P}"
 fi
 
-RESTRICT="test"
 LICENSE="GPL-3"
 SLOT="0"
 
 DEPEND="
+	dev-qt/qtcore:5
+	dev-qt/qtdeclarative:5
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
 	media-libs/libsdl2[sound,video]
+	net-libs/gnutls
 	net-libs/libpcap
+	net-libs/libslirp
 	net-misc/curl
 	x11-libs/cairo
-	x11-libs/gtk+:3
 "
 RDEPEND="
 	${DEPEND}
@@ -44,6 +48,5 @@ pkg_postinst() {
 	elog "- firmware.bin"
 	elog "- romlist.bin"
 	elog "Place them in ~/.config/melonDS"
-	elog "The romlist.bin file can be found in the /usr/share/melonDS directory"
-	elog "The rest of those files can be found somewhere in the internet ;-)"
+	elog "Those files can be found somewhere on the Internet ;-)"
 }

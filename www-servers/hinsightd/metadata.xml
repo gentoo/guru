@@ -17,6 +17,6 @@
 		Full debug information can be toggled per request and outputted to 			console or a log file.
 	</longdescription>
 	<use>
-		<!--<flag name="openssl">Enable tls encryption with openssl</flag>-->
+		<flag name="openssl">Enable tls encryption with openssl</flag>
 	</use>
 </pkgmetadata>

@@ -8,7 +8,7 @@ SSL_DAYS=36500
 
 inherit ssl-cert toolchain-funcs
 
-DESCRIPTION="simple and secure Gemini server"
+DESCRIPTION="Simple and secure Gemini server"
 HOMEPAGE="https://www.omarpolo.com/pages/gmid.html"
 
 if [[ ${PV} == "9999" ]] ; then
@@ -32,16 +32,6 @@ BDEPEND="sys-devel/flex
 RDEPEND="${DEPEND}"
 
 DOCS=( README.md ChangeLog )
-
-src_prepare() {
-	default
-
-	# QA Notice: command not found
-	# remove `etags` from the "all" target
-	sed \
-		-e "s/^\(all: .*\) TAGS \(.*\)$/\1 \2/" \
-		-i Makefile || die
-}
 
 src_configure() {
 	# note: not an autoconf configure script

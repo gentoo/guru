@@ -55,16 +55,14 @@ src_install(){
 	fperms +x /opt/"${PN}"/chrome-sandbox
 	fperms +x /opt/"${PN}"/resources/bin/fpcalc
 	make_desktop_entry "/opt/${PN}/nuclear %U" "Nuclear" "nuclear" \
-		"GNOME;GTK;Utility;X-MediaPlayer;" \
-		"GenericName=Media Player\n\nStartupNotify=true\nStartupWMClass=nuclear"
+		"Audio;Music;Player;AudioVideo;" \
+		"GenericName=Nuclear-bin\nStartupNotify=true\nStartupWMClass=nuclear"
 	cd "${S}"/resources/media/ || die
 	mv icon.icns nuclear.icns || die
 	doicon nuclear.icns
 	cd presskit/icons/color || die
 	for i in {16,24,32,48,64,96,128,256,512}; do
 		mv "${i}".png nuclear-"${i}".png || die
-	done
-	for i in {16,24,32,48,64,96,128,256,512}; do
 		doicon -s "${i}" nuclear-"${i}".png
 	done
 	cd ../scalable || die

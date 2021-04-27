@@ -33,7 +33,7 @@ RDEPEND="${PYTHON_DEPS}
 		app-arch/libarchive
 		app-arch/zstd
 		app-arch/lz4
-		app-arch/xz-utils
+		app-arch/xz-utils[static-libs]
 		app-arch/snappy
 		dev-cpp/sparsehash
 		dev-cpp/gflags
@@ -86,6 +86,7 @@ src_install(){
 }
 
 pkg_postinst(){
+	elog "Suggest to enable USE 'threads' globally if you have multicore machine"
 	elog "Since version 0.4.1 GGC builds has been fixed. Now both Clang and GCC are working very well"
 	elog "You may find more information in the"
 	elog "${HOMEPAGE}"

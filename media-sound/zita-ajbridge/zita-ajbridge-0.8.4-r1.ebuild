@@ -27,24 +27,15 @@ ADIR="${WORKDIR}/${P}/"
 
 DOCS=( ${ADIR}/AUTHORS ${ADIR}/COPYING ${ADIR}/README )
 
-src_prepare() {
-	default
-	sed -i -e "/ldconfig/d" "${S}"/Makefile || die
-}
+PATCHES=( "${FILESDIR}/zita-ajbridge-0.8.4_don-t-compress-and-install-manpages.patch" )
 
 src_compile() {
 	tc-export CXX
+	export PREFIX="/usr"
 	default
 }
 
 src_install() {
-	dodir /usr/bin
-	dodir /usr/share/man/man1
-	emake DESTDIR="${D}" PREFIX=/usr install
-	einstalldocs
-	pushd "${D}"/usr/share/man/man1 > /dev/null
-	gzip -d zita-a2j.1.gz
-	gzip -d zita-ajbridge.1.gz
-	gzip -d zita-j2a.1.gz
-	popd > /dev/null
+	doman *.1
+	default
 }

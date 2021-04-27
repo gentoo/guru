@@ -14,7 +14,7 @@ RUN_USER="hinsightd"
 extra_commands="checkconfig reload"
 
 command=$RUN_FILE
-command_args="--config $CFG_FILE --logdir $LOG_DIR --cwd $CWD_DIR --pidfile $PID_FILE --tmpdir $TMP_DIR"
+command_args="--config $CFG_FILE --logdir $LOG_DIR/ --cwd $CWD_DIR/ --pidfile $PID_FILE --tmpdir $TMP_DIR"
 pidfile="$PID_FILE"
 command_args_background="--daemonize"
 command_user="$RUN_USER:$RUN_USER"

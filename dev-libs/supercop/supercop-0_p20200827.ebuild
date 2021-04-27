@@ -20,6 +20,7 @@ DEPEND="dev-lang/nasm"
 S="${WORKDIR}"/${PN}-${MY_REV}
 
 src_configure() {
+	append-flags -fPIC
 	append-ldflags -Wl,-z,noexecstack
 	cmake_src_configure
 }

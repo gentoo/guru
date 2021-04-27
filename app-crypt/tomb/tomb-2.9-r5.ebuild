@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit desktop qmake-utils xdg
+inherit desktop qmake-utils toolchain-funcs xdg
 
 MYP="${P^}"
 DESCRIPTION="Tomb :: File Encryption on GNU/Linux"
@@ -62,6 +62,7 @@ BDEPEND="
 "
 
 src_compile() {
+	export CC=$(tc-getCC)
 	export PREFIX="${EPREFIX}/usr"
 	emake
 
