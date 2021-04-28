@@ -7,7 +7,7 @@ inherit desktop qmake-utils
 
 DESCRIPTION="A basic launcher for Mupen64Plus"
 HOMEPAGE="https://github.com/dh4/mupen64plus-qt"
-SRC_URI="https://github.com/dh4/${PN}/archive/${PV}.tar.gz"
+SRC_URI="https://github.com/dh4/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
