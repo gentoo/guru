@@ -24,6 +24,7 @@ DEPEND="
 	dev-libs/libconfig
 	net-libs/libsoup
 "
+BDEPEND="dev-python/sphinx"
 
 src_prepare() {
 	sed -i "s/'doc', meson.project_name())/'doc', meson.project_name() + '-${PV}')/" \
