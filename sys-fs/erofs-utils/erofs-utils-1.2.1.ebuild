@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools flag-o-matic
+inherit autotools
 
 DESCRIPTION="Userspace tools for EROFS images"
 HOMEPAGE="https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git"
@@ -33,7 +33,6 @@ src_prepare() {
 }
 
 src_configure() {
-	append-flags "-Wno-error"
 	econf \
 		$(use_enable fuse) \
 		$(use_enable lz4) \
