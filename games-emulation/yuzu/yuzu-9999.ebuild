@@ -108,6 +108,7 @@ src_configure() {
 		-DUSE_DISCORD_PRESENCE=$(usex discord ON OFF)
 		-DYUZU_ENABLE_BOXCAT=$(usex boxcat ON OFF)
 		-DYUZU_USE_QT_WEB_ENGINE=$(usex webengine ON OFF)
+		-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=OFF
 	)
 	cmake_src_configure
 
