@@ -45,6 +45,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 S="${WORKDIR}/${MY_P}"
+PATCHES=( "${FILESDIR}"/multimc-0.6.12-gcc11.patch )
 
 src_unpack() {
 	default
