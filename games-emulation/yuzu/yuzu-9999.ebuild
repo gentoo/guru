@@ -22,7 +22,7 @@ EGIT_SUBMODULES=( '*' '-ffmpeg' '-inih' '-libressl' '-libusb' '-libzip' '-opus' 
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE="+boxcat +cubeb discord +qt5 sdl webengine +webservice"
 
 DEPEND="
