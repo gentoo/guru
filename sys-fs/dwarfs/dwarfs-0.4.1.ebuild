@@ -17,12 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 IUSE="python +jemalloc"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-
-#test IUSE disabled because there is no googletest in portage tree at this moment
-#-DWITH_TESTS=$(usex test ON OFF)
-
-PYTHON_REQ_USE="python"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 DEPEND="sys-devel/flex
 		sys-devel/binutils:*"
