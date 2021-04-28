@@ -5,9 +5,10 @@ EAPI=7
 
 inherit cmake optfeature
 
-DESCRIPTION="RandomX, CryptoNight, KawPow, AstroBWT, and Argon2 CPU/GPU miner"
-HOMEPAGE="https://github.com/xmrig/xmrig"
-SRC_URI="https://github.com/xmrig/xmrig/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+MO_PV="mo2"
+DESCRIPTION="RandomX, CryptoNight, KawPow, AstroBWT and Argon2 miner for the MoneroOcean pool"
+HOMEPAGE="https://moneroocean.stream/ https://github.com/MoneroOcean/xmrig"
+SRC_URI="https://github.com/MoneroOcean/xmrig/archive/v${PV}-${MO_PV}.tar.gz -> ${P}-${MO_PV}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -19,6 +20,8 @@ DEPEND="
 	sys-apps/hwloc:=
 	ssl? ( dev-libs/openssl:= )
 "
+
+S="${WORKDIR}/xmrig-${PV}-${MO_PV}"
 
 src_prepare() {
 	cmake_src_prepare
@@ -40,12 +43,14 @@ src_configure() {
 }
 
 src_install() {
-	dobin "${BUILD_DIR}/xmrig"
+	newbin "${BUILD_DIR}/xmrig" xmrig-mo
 	dodoc -r doc/*.md
 	einstalldocs
 }
 
 pkg_postinst() {
 	elog "Increase the vm.nr_hugepages sysctl value so that XMRig can allocate with huge pages."
+	elog "XMRig-MoneroOcean has been installed as /usr/bin/xmrig-mo"
+	elog "in order to differentiate between the original XMRig"
 	optfeature "CPU specific performance tweaks" sys-apps/msr-tools
 }

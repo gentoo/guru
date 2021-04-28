@@ -3,15 +3,18 @@
 
 EAPI=7
 
-inherit cmake
+inherit xdg cmake
 
 DESCRIPTION="A GUI application to browse and search through long and complex log files"
 HOMEPAGE="https://klogg.filimonov.dev"
-SRC_URI="https://github.com/variar/klogg/archive/refs/tags/v${PV}.tar.gz"
+SRC_URI="https://github.com/variar/klogg/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+
+IUSE="+sentry lto test"
+RESTRICT="!test? ( test )"
 
 DEPEND="
 	dev-qt/qtcore:5
@@ -21,53 +24,31 @@ DEPEND="
 	dev-qt/qtxml:5
 	dev-qt/qtconcurrent:5
 "
-
-RDEPEND="${DEPEND} x11-themes/hicolor-icon-theme"
-
+RDEPEND="
+	${DEPEND}
+	x11-themes/hicolor-icon-theme
+"
 BDEPEND="
-	>=dev-util/cmake-3.12
+	test? ( dev-qt/qttest:5 )
 "
 
-IUSE="+sentry lto"
+QA_PREBUILT="usr/bin/klogg_minidump_dump"
 
 src_prepare() {
 	sed -e 's|share/doc/klogg|${CMAKE_INSTALL_DOCDIR}|' -i "${S}/CMakeLists.txt" || die "sed CMAKE_INSTALL_DOCDIR"
 	sed -e 's|TBB_INSTALL_LIBRARY_DIR lib|TBB_INSTALL_LIBRARY_DIR ${CMAKE_INSTALL_LIBDIR}|' -i "${S}/3rdparty/tbb/CMakeLists.txt" || die "sed TBB_INSTALL_LIBRARY_DIR"
-
-	eapply_user
 	cmake_src_prepare
 }
 
 src_configure() {
-	local cmakeopts="-DWARNINGS_AS_ERRORS=OFF -DDISABLE_WERROR=ON"
-
-	if use sentry; then
-		cmakeopts+=" -DKLOGG_USE_SENTRY=ON"
-	else
-		cmakeopts+=" -DKLOGG_USE_SENTRY=OFF"
-	fi
-
-	if use lto; then
-		cmakeopts+=" -DUSE_LTO=ON"
-	else
-		cmakeopts+=" -DUSE_LTO=OFF"
-	fi
-
-	local mycmakeargs=(
-		${cmakeopts}
-	)
 	export KLOGG_VERSION=${PV}.0.813
+	local mycmakeargs=(
+		-DDISABLE_WERROR=ON
+		-DKLOGG_USE_SENTRY=$(usex sentry)
+		-DBUILD_TESTS=$(usex test)
+		-DUSE_LTO=$(usex lto)
+		-DWARNINGS_AS_ERRORS=OFF
+	)
+
 	cmake_src_configure
-}
-
-src_compile() {
-	cmake_src_compile ${PN}
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
 }
