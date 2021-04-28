@@ -18,3 +18,11 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DOCS=( index.rst )
+
+src_prepare() {
+	sed -e '/include_dirs/d' \
+		-e '/library_dirs/d' \
+		-i setup.py || die
+
+	distutils-r1_src_prepare
+}
