@@ -58,12 +58,8 @@ pkg_setup() {
 	fi
 }
 
-src_unpack() {
-	git-r3_src_unpack
-
-	# Do not fetch via sources because this file always changes
-	curl https://api.yuzu-emu.org/gamedb/ > "${S}"/compatibility_list.json
-}
+# May fetch this file from src_unpack to provide compatibility list support
+# curl https://api.yuzu-emu.org/gamedb/ > "${S}"/compatibility_list.json
 
 src_prepare() {
 	# Set yuzu dev flags
