@@ -1,0 +1,17 @@
+BDEPEND=dev-python/cython[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)] test? ( >=dev-python/pytest-4.5.0[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)] ) doc? ( || ( ( dev-lang/python:3.8 dev-python/sphinx[python_targets_python3_8(-),-python_single_target_python3_8(-)] dev-python/sphinxcontrib-asyncio[python_targets_python3_8(-),-python_single_target_python3_8(-)] dev-python/sphinx_rtd_theme[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) ( dev-lang/python:3.7 dev-python/sphinx[python_targets_python3_7(-),-python_single_target_python3_7(-)] dev-python/sphinxcontrib-asyncio[python_targets_python3_7(-),-python_single_target_python3_7(-)] dev-python/sphinx_rtd_theme[python_targets_python3_7(-),-python_single_target_python3_7(-)] ) ) ) python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)] >=dev-python/setuptools-42.0.2[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=test? ( dev-python/uvloop[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)] )
+DESCRIPTION=A fast PostgreSQL Database Client Library for Python/asyncio.
+EAPI=7
+HOMEPAGE=https://github.com/MagicStack/asyncpg
+INHERIT=distutils-r1
+IUSE=test doc python_targets_python3_7 python_targets_python3_8
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
+REQUIRED_USE=|| ( python_targets_python3_7 python_targets_python3_8 )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=mirror://pypi/a/asyncpg/asyncpg-0.22.0.tar.gz
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	3ea803de86891185c7b1db2c0b5bc8c8	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	d8655e1387589a2e1930339b1627d5c1
+_md5_=3143675cd7ac52f528b7453db2a95f09
