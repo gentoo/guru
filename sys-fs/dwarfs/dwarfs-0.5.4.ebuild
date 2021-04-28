@@ -33,7 +33,7 @@ RDEPEND="${PYTHON_DEPS}
 		app-arch/libarchive
 		app-arch/zstd
 		app-arch/lz4
-		app-arch/xz-utils[static-libs]
+		app-arch/xz-utils
 		app-arch/snappy
 		dev-cpp/sparsehash
 		dev-cpp/gflags
