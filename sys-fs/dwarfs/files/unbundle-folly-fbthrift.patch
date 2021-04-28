@@ -1,5 +1,5 @@
---- CMakeLists.txt	2021-04-28 16:56:24.432666631 +0200
-+++ CMakeLists.txt2	2021-04-28 17:00:04.622812742 +0200
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
 @@ -298,7 +298,7 @@
  if(WITH_TESTS OR WITH_BENCHMARKS)
    add_library(test_helpers test/test_helpers.cpp test/test_strings.cpp

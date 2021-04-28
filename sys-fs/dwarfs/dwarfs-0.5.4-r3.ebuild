@@ -57,7 +57,6 @@ BDEPEND="
 
 	test? ( dev-cpp/gtest )
 "
->>>>>>> f29f4045 (sys-fs/dwarfs: unbundling WIP):sys-fs/dwarfs/dwarfs-0.5.4-r1.ebuild
 
 CHECKREQS_DISK_BUILD="1300M"
 
