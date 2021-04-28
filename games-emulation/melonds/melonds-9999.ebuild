@@ -24,10 +24,12 @@ LICENSE="GPL-3"
 SLOT="0"
 
 DEPEND="
+	app-arch/libarchive
 	dev-qt/qtcore:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
+	media-libs/libepoxy
 	media-libs/libsdl2[sound,video]
 	net-libs/gnutls
 	net-libs/libpcap
