@@ -6,7 +6,7 @@ EAPI=7
 PYTHON_COMPAT=( pypy3 python3_{7,8,9} )
 inherit python-any-r1
 
-DESCRIPTION="Automatically expose the main performance trends in applications' computation structure"
+DESCRIPTION="Expose the main performance trends in applications computation structure"
 HOMEPAGE="
 	https://tools.bsc.es/cluster-analysis
 	https://github.com/bsc-performance-tools/clustering-suite
