@@ -12,7 +12,9 @@ SRC_URI="https://github.com/variar/klogg/archive/refs/tags/v${PV}.tar.gz -> ${P}
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+
 IUSE="+sentry lto test"
+RESTRICT="!test? ( test )"
 
 DEPEND="
 	dev-qt/qtcore:5
