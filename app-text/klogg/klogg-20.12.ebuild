@@ -12,7 +12,7 @@ SRC_URI="https://github.com/variar/klogg/archive/refs/tags/v${PV}.tar.gz -> ${P}
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+sentry lto"
+IUSE="+sentry lto test"
 
 DEPEND="
 	dev-qt/qtcore:5
@@ -25,6 +25,9 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 	x11-themes/hicolor-icon-theme
+"
+BDEPEND="
+	test? ( dev-qt/qttest:5 )
 "
 
 QA_PREBUILT="usr/bin/klogg_minidump_dump"
@@ -40,6 +43,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DDISABLE_WERROR=ON
 		-DKLOGG_USE_SENTRY=$(usex sentry)
+		-DBUILD_TESTS=$(usex test)
 		-DUSE_LTO=$(usex lto)
 		-DWARNINGS_AS_ERRORS=OFF
 	)
