@@ -80,7 +80,6 @@ multilib_src_configure() {
 		$(use_with lcms) \
 		$(use_with matio ) \
 		$(use_with openexr OpenEXR) \
-#		$(use_with openslide) \
 		$(use_with orc) \
 		$(use_with pango pangoft2) \
 		$(use_with pango pangocairo) \
@@ -101,5 +100,5 @@ multilib_src_install() {
 }
 multilib_src_install_all() {
 	einstalldocs
-	prune_libtool_files
+	find "${D}" -name '*.la' -type f -delete || die
 }
