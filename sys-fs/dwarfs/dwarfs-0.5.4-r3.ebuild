@@ -21,6 +21,7 @@ RESTRICT="!test? ( test )"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 PATCHES=( "${WORKDIR}/unbundle-folly-fbthrift.patch" )
+#TODO: unbundle libfsst
 
 RDEPEND="
 	${PYTHON_DEPS}
@@ -36,6 +37,7 @@ RDEPEND="
 	dev-cpp/sparsehash
 	dev-libs/boost[context,threads,python?]
 	dev-libs/double-conversion
+	dev-libs/fsst:=
 	dev-libs/libevent
 	dev-libs/libfmt
 	dev-libs/xxhash
@@ -91,8 +93,7 @@ src_configure(){
 
 src_install(){
 	cmake_src_install
-	#TODO: unbundle libfsst
-	dolib.so libdwarfs.so libfsst.so
+	dolib.so libdwarfs.so
 }
 
 pkg_postinst(){
