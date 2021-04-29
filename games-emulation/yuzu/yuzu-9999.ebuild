@@ -112,6 +112,6 @@ src_configure() {
 	)
 	cmake_src_configure
 
-	# This would be better in src_unpack but it would be unlinked
-	mv "${S}"/compatibility_list.json "${BUILD_DIR}"/dist/compatibility_list/ || die
+	## This would be better in src_unpack but it would be unlinked
+	#mv "${S}"/compatibility_list.json "${BUILD_DIR}"/dist/compatibility_list/ || die
 }
