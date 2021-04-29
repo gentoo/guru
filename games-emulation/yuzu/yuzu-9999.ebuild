@@ -10,7 +10,7 @@ inherit cmake git-r3 flag-o-matic toolchain-funcs xdg
 DESCRIPTION="An emulator for Nintendo Switch"
 HOMEPAGE="https://yuzu-emu.org"
 EGIT_REPO_URI="https://github.com/yuzu-emu/yuzu"
-EGIT_SUBMODULES=( '*' '-ffmpeg' '-inih' '-libressl' '-libusb' '-libzip' '-opus' )
+EGIT_SUBMODULES=( '*' '-ffmpeg' '-inih' '-libressl' '-libusb' '-libzip' '-opus' '-SDL' )
 # TODO '-Vulkan-Headers' need to fix API in code
 # TODO '-xbyak' wait for bump in tree
 # TODO cubeb auto-links to jack, pulse, alsa .., allow determining cubeb output
@@ -32,7 +32,7 @@ DEPEND="
 		>=dev-qt/qtwidgets-5.15
 	)
 	sdl? (
-		media-libs/libsdl2
+		>=media-libs/libsdl2-2.0.14
 		>=dev-libs/inih-52
 	)
 	>=app-arch/lz4-1.8
