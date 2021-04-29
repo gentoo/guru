@@ -91,6 +91,11 @@ games-emulation/np2kai:i286 - Enable i286 emulation USE="ia32" or USE="haxm" wil
 games-emulation/np2kai:ia32 - Enable ia32 emulation
 games-emulation/np2kai:sdl - Use media-libs/libsdl instead of media-libs/libsdl2
 games-emulation/np2kai:sdl2 - Use media-libs/libsdl2 instead of media-libs/libsdl
+games-emulation/yuzu:boxcat - Enable the Boxcat service, a yuzu high-level implementation of BCAT
+games-emulation/yuzu:cubeb - Enables the cubeb audio backend
+games-emulation/yuzu:discord - Enables Discord Rich Presence
+games-emulation/yuzu:webengine - Use QtWebEngine for web applet implementation
+games-emulation/yuzu:webservice - Enable web services (telemetry, etc.)
 games-fps/crispy-doom:midi - Basic support for MIDI files
 games-fps/crispy-doom:truecolor - Enable true-color rendering (experimental)
 gui-apps/azote:imagemagick - enable colorpicker using imagemagick
@@ -268,7 +273,6 @@ sys-cluster/extrae:xml - Enable support for XML configuration
 sys-cluster/nanos6:cluster - Enable OmpSs@Cluster support. This requires an MPI version that supports MPI_THREAD_MULTIPLE to be present in your environment
 sys-cluster/nanos6:debug - enable extra assertions and checks in debug - may cause significant slowdown
 sys-cluster/nanos6:dlb - enable dynamic management and sharing of computing resources
-sys-cluster/nanos6:embed-code-changes - embed into the runtime any code changes present in the source
 sys-cluster/nanos6:execution-workflow - Enable execution using the Execution Workflow
 sys-cluster/nanos6:extrae - to generate execution traces for offline performance analysis with paraver
 sys-cluster/nanos6:papi - enable dev-libs/papi support
