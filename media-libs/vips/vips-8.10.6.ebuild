@@ -11,8 +11,9 @@ HOMEPAGE="https://libvips.github.io/libvips/"
 LICENSE="LGPL-2.1+"
 SLOT="1"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc debug exif fftw fits heif gsf graphicsmagick imagemagick imagequant jpeg lcms matio openexr orc pango pdf png svg static-libs tiff webp zlib"
-REQUIRED_USE="imagequant? ( png )"
+IUSE="doc debug exif fftw fits heif gsf graphicsmagick imagemagick imagequant jpeg lcms matio openexr orc pango pdf png svg static-libs test tiff webp zlib"
+REQUIRED_USE="imagequant? ( png ) test? ( jpeg png )"
+RESTRICT="!test? ( test )"
 
 # FIXME: nitfi (FIND_NIFTI)
 # openslide? ( >=media-libs/openslide-3.3.0 )
