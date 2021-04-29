@@ -12,7 +12,7 @@ SRC_URI="https://github.com/bsc-pm/nanos6/archive/refs/tags/version-${PV}.tar.gz
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="cluster debug dlb embed-code-changes execution-workflow extrae git papi unwind"
+IUSE="cluster debug dlb execution-workflow extrae papi unwind"
 #chrono-arch build fail
 #jemalloc require custom stuff
 #TODO: cuda pqos mercurium memkind k1om
@@ -24,7 +24,6 @@ RDEPEND="
 
 	cluster? ( virtual/mpi )
 	dlb? ( sys-cluster/dlb )
-	embed-code-changes? ( dev-vcs/git )
 	extrae? ( sys-cluster/extrae[nanos] )
 	papi? ( dev-libs/papi )
 	unwind? ( sys-libs/libunwind )
@@ -42,6 +41,7 @@ src_prepare() {
 src_configure() {
 	local myconf=(
 		--disable-chrono-arch
+		--disable-embed-code-changes
 		--disable-openacc
 		--disable-static
 
@@ -51,6 +51,7 @@ src_configure() {
 		--with-libnuma="${EPREFIX}/usr"
 		--with-pic
 
+		--without-git
 		--without-k1om
 		--without-nanos6-clang
 		--without-nanos6-mercurium
@@ -58,16 +59,10 @@ src_configure() {
 
 		$(use_enable cluster)
 		$(use_enable debug extra-debug)
-		$(use_enable embed-code-changes)
 		$(use_enable execution-workflow)
 	)
 	use dlb && myconf+=( "--with-dlb=${EPREFIX}/usr" )
 
-	if use embed-code-changes; then
-		myconf+=( "--with-git=${EPREFIX}/usr" )
-	else
-		myconf+=( "--without-git" )
-	fi
 	if use extrae; then
 		myconf+=( "--with-extrae=${EPREFIX}/usr/$(get_libdir)/extrae" )
 	else
