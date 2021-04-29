@@ -55,11 +55,14 @@ src_prepare() {
 			;;
 	esac
 
-	# Replase install PREFIX, LIBDIR, add library soname
+	# Replase BUILD type, PREFIX and libdir, LIBDIR, add libsoname and LDFLAGS,
+	# drop FLAGS reassign block, add CXXFLAGS to 'configure_ftlRegex.c' build
 	sed -i -e '/^BUILD ?=/s:debug:release:' \
 		-e 's:PREFIX ?= /usr/local:PREFIX ?= '"${ED}"'/usr/:' \
 		-e 's:(PREFIX)/lib:(PREFIX)/'"$(get_libdir)"':' \
 		-e 's:SOLDFLAGS = -shared:SOLDFLAGS = -shared -Wl,-soname=libftl.so.1 '"${LDFLAGS}"':' \
+		-e '/gnudebug)/,+15d' \
+		-e '/configure_ftlRegex.c/ s:\$(CXXCOMPILER):\$(CXXCOMPILER) \$(CXXFLAGS):' \
 		makefile || die
 }
 

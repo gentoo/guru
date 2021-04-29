@@ -18,9 +18,7 @@ KEYWORDS=""
 
 IUSE="python +jemalloc test"
 RESTRICT="!test? ( test )"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-
-PYTHON_REQ_USE="python"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 DEPEND="sys-devel/flex"
 RDEPEND="${PYTHON_DEPS}
