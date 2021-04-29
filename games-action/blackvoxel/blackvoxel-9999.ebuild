@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit eutils git-r3
+inherit git-r3
 
 DESCRIPTION="Blackvoxel Video Game"
 HOMEPAGE="https://www.blackvoxel.com/"

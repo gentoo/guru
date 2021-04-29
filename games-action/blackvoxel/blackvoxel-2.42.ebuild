@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop eutils xdg
+inherit desktop xdg
 
 DESCRIPTION="Blackvoxel Video Game"
 HOMEPAGE="https://www.blackvoxel.com/"
