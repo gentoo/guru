@@ -5,7 +5,7 @@ EAPI=7
 
 LUA_COMPAT=( lua5-{1..4} )
 
-inherit fcaps lua-single systemd cmake
+inherit fcaps lua-single systemd cmake linux-info
 
 DESCRIPTION="hinsightd a http/1.1 webserver with (hopefully) minimal goals"
 HOMEPAGE="https://gitlab.com/tiotags/hin9"
@@ -26,7 +26,6 @@ IUSE="+openssl"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
 BDEPEND="
-	dev-util/ninja
 	dev-util/cmake
 	virtual/pkgconfig
 "
@@ -73,4 +72,10 @@ src_install() {
 
 pkg_postinst() {
 	fcaps CAP_NET_BIND_SERVICE /usr/bin/hinsightd
+
+	if kernel_is lt 5 7; then
+		ewarn ""
+		ewarn "hinsightd requires io_uring and kernel ~5.6.0"
+		ewarn ""
+	fi
 }
