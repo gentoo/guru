@@ -15,6 +15,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+PATCHES=( "${FILESDIR}/${PN}-2020.11.08_Remove-TTY-check-in-test.patch" )
+
 src_prepare() {
 	sed -i \
 		-e 's;prefix=/usr/local;prefix=/usr;' \
