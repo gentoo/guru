@@ -1,0 +1,30 @@
+--- a/Makefile
++++ b/Makefile
+@@ -11,7 +11,7 @@
+ CC=g++
+ LD=g++
+ PROGNAME=blackvoxel
+-CFLAGS=-I "src/sc_Squirrel3/include"  -DCOMPILEOPTION_DEMO=0 -DDEVELOPPEMENT_ON=0 -DCOMPILEOPTION_SPECIAL=0 -DCOMPILEOPTION_DATAFILESPATH="\"$(blackvoxeldatadir)\""
++CFLAGS+=-I "src/sc_Squirrel3/include"  -DCOMPILEOPTION_DEMO=0 -DDEVELOPPEMENT_ON=0 -DCOMPILEOPTION_SPECIAL=0 -DCOMPILEOPTION_DATAFILESPATH="\"$(blackvoxeldatadir)\""
+ SRC= $(wildcard src/*.cpp) $(wildcard src/z/*.cpp)
+ OBJ= $(SRC:src/%.cpp=obj/%.o)
+ 
+@@ -28,8 +28,7 @@
+   KERNELNAME =$(shell uname -s)
+ 
+   ifeq ($(KERNELNAME),Linux)
+-    CFLAGS+= -O3 -c -fmessage-length=0
+-    LDFLAGS=-s -zrelro -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
++    LDFLAGS+= -zrelro -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
+   else ifeq ($(KERNELNAME), FreeBSD)
+     # To be done...
+     CFLAGS+= -O3 -c -fmessage-length=0
+@@ -57,7 +56,7 @@
+ 
+ 
+ squirrel: 
+-	cd src/sc_Squirrel3 ; make sq$(CPU_BITS)
++	+make -C src/sc_Squirrel3 sq$(CPU_BITS)
+ 
+ clean:
+ 	@rm -rf obj
