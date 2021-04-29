@@ -5,7 +5,7 @@ EAPI=7
 
 inherit cmake
 
-DESCRIPTION="Wangle is a framework providing a set of common client/server abstractions for building services in a consistent, modular, and composable way"
+DESCRIPTION="Framework providing common client/server abstractions"
 HOMEPAGE="https://github.com/facebook/wangle"
 
 SRC_URI="https://github.com/facebook/wangle/archive/v${PV}.tar.gz -> ${P}.tar.gz"
