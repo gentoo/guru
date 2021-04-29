@@ -66,6 +66,7 @@ multilib_src_configure() {
 	use imagemagick && magick="--with-magickpackage=MagickCore"
 	use graphicsmagick && magick="--with-magickpackage=GraphicsMagick"
 
+	# NOTE: Replace pangoft2 with pangocairo in > 8.10.6.
 	econf \
 		${magick} \
 		$(multilib_native_use_enable doc gtk-doc) \
@@ -82,7 +83,6 @@ multilib_src_configure() {
 		$(use_with openexr OpenEXR) \
 		$(use_with orc) \
 		$(use_with pango pangoft2) \
-		$(use_with pango pangocairo) \
 		$(use_with pdf poppler) \
 		$(use_with png) \
 		$(use_with svg rsvg) \
