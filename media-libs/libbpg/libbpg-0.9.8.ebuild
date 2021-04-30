@@ -21,7 +21,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-add-fpic.patch
 )
 
-DEPEND=""
+DEPEND="sys-process/numactl"
 RDEPEND="${DEPEND}"
 BDEPEND="
 	media-video/ffmpeg
@@ -29,6 +29,7 @@ BDEPEND="
 	virtual/jpeg
 	bpgview? ( media-libs/sdl-image )
 	bpgview? ( media-libs/libsdl )
+	dev-lang/yasm
 "
 
 src_prepare() {
@@ -55,7 +56,8 @@ src_compile() {
 		$(usex jctvc USE_JCTVC=y '') \
 		$(usex emcc USE_EMCC=y '') \
 		CXX="$(tc-getCXX)" \
-		CC="$(tc-getCC)"
+		CC="$(tc-getCC)" \
+		LIBS="-lrt -lm -lpthread -lnuma"
 }
 
 src_install() {
