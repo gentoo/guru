@@ -2,23 +2,18 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-# PYTHON_COMPAT=( python2_7 )
 
-#inherit cmake git-r3 flag-o-matic python-any-r1 toolchain-funcs xdg
 inherit cmake git-r3 flag-o-matic toolchain-funcs xdg
 
 DESCRIPTION="An emulator for Nintendo Switch"
 HOMEPAGE="https://yuzu-emu.org"
 EGIT_REPO_URI="https://github.com/yuzu-emu/yuzu"
-EGIT_SUBMODULES=( '*' '-ffmpeg' '-inih' '-libressl' '-libusb' '-libzip' '-opus' '-SDL' )
-# TODO '-Vulkan-Headers' need to fix API in code
+EGIT_SUBMODULES=( '*' '-ffmpeg' '-inih' '-libressl' '-libusb' '-libzip' '-opus' '-SDL' '-Vulkan-Headers' )
 # TODO '-xbyak' wait for bump in tree
 # TODO cubeb auto-links to jack, pulse, alsa .., allow determining cubeb output
 #      media-libs/cubeb would benefit to a lot of packages: dolphin-emu, firefox, citra, self, ...
 # TODO many submodules produce static libraries which forces to unset BUILD_SHARED_LIBS
 #      this may be better to generate shared libraries and install them under /usr/$(get_libdir)/yuzu
-# TODO python2 code should be needed only for submodules test
-#      until verified keep track of python specific ebuild stuffs as comment
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -44,6 +39,7 @@ DEPEND="
 	>=dev-libs/libzip-1.5
 	>=media-libs/opus-1.3.1
 	>=sys-libs/zlib-1.2
+	dev-util/vulkan-headers
 	virtual/libusb:1
 "
 #	>=dev-libs/xbyak-5.96
@@ -89,7 +85,8 @@ src_prepare() {
 	# sed -i -e '/target_include_directories(xbyak/s:./xbyak/xbyak:/usr/include/xbyak/:' externals/CMakeLists.txt
 
 	# Unbundle vulkan headers
-	# sed -i -e 's:../../externals/Vulkan-Headers/include:/usr/include/vulkan/:' src/video_core/CMakeLists.txt src/yuzu/CMakeLists.txt src/yuzu_cmd/CMakeLists.txt
+	sed -i -e 's:../../externals/Vulkan-Headers/include:/usr/include/vulkan/:' src/video_core/CMakeLists.txt src/yuzu/CMakeLists.txt src/yuzu_cmd/CMakeLists.txt
+	sed -i -e '/VK_ERROR_INCOMPATIBLE_VERSION_KHR/d' src/video_core/vulkan_common/vulkan_wrapper.cpp
 
 	# Unbundle discord rapidjson
 	sed -i '/NOT RAPIDJSONTEST/,/endif(NOT RAPIDJSONTEST)/d;/find_file(RAPIDJSON/d;s:\${RAPIDJSON}:"/usr/include/rapidjson":' externals/discord-rpc/CMakeLists.txt || die
