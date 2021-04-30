@@ -47,6 +47,8 @@ Version: ${PV}
 Libs: "-L\${libdir}" -lbpg
 Cflags: "-I\${includedir}"
 EOF
+
+	sed -Ei 's/^(X265_LIBS:=.+\.a)$/\1 -lnuma/' Makefile || die
 }
 
 src_compile() {
@@ -56,8 +58,7 @@ src_compile() {
 		$(usex jctvc USE_JCTVC=y '') \
 		$(usex emcc USE_EMCC=y '') \
 		CXX="$(tc-getCXX)" \
-		CC="$(tc-getCC)" \
-		LIBS="-lrt -lm -lpthread -lnuma"
+		CC="$(tc-getCC)"
 }
 
 src_install() {
