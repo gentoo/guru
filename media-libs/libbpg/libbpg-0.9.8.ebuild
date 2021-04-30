@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit toolchain-funcs
+
 DESCRIPTION="Better Portable Graphics reference implementation"
 HOMEPAGE="https://bellard.org/bpg/"
 SRC_URI="https://bellard.org/bpg/${P}.tar.gz"
@@ -51,7 +53,9 @@ src_compile() {
 		$(usex x265 USE_X265=y '') \
 		$(usex bpgview USE_BPGVIEW=y '') \
 		$(usex jctvc USE_JCTVC=y '') \
-		$(usex emcc USE_EMCC=y '')
+		$(usex emcc USE_EMCC=y '') \
+		CXX="$(tc-getCXX)" \
+		CC="$(tc-getCC)"
 }
 
 src_install() {
