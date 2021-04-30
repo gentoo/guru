@@ -13,7 +13,7 @@ then
 	EGIT_REPO_URI="https://gitlab.com/woob/woob.git"
 	inherit git-r3
 else
-	SRC_URI="https://gitlab.com/woob/woob/uploads/98647f26717896697b52170cf8bcd301/woob-3.0.tar.gz"
+	SRC_URI="https://gitlab.com/woob/woob/uploads/98647f26717896697b52170cf8bcd301/${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
