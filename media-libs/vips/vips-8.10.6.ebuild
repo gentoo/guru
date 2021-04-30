@@ -11,8 +11,9 @@ HOMEPAGE="https://libvips.github.io/libvips/"
 LICENSE="LGPL-2.1+"
 SLOT="1"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc debug exif fftw fits heif gsf graphicsmagick imagemagick imagequant jpeg lcms matio openexr orc pango pdf png svg static-libs tiff webp zlib"
-REQUIRED_USE="imagequant? ( png )"
+IUSE="doc debug exif fftw fits heif gsf graphicsmagick imagemagick imagequant jpeg lcms matio openexr orc pango pdf png svg static-libs test tiff webp zlib"
+REQUIRED_USE="imagequant? ( png ) test? ( jpeg png )"
+RESTRICT="!test? ( test )"
 
 # FIXME: nitfi (FIND_NIFTI)
 # openslide? ( >=media-libs/openslide-3.3.0 )
@@ -66,6 +67,7 @@ multilib_src_configure() {
 	use imagemagick && magick="--with-magickpackage=MagickCore"
 	use graphicsmagick && magick="--with-magickpackage=GraphicsMagick"
 
+	# NOTE: Replace pangoft2 with pangocairo in > 8.10.6.
 	econf \
 		${magick} \
 		$(multilib_native_use_enable doc gtk-doc) \
@@ -80,10 +82,8 @@ multilib_src_configure() {
 		$(use_with lcms) \
 		$(use_with matio ) \
 		$(use_with openexr OpenEXR) \
-#		$(use_with openslide) \
 		$(use_with orc) \
 		$(use_with pango pangoft2) \
-		$(use_with pango pangocairo) \
 		$(use_with pdf poppler) \
 		$(use_with png) \
 		$(use_with svg rsvg) \
@@ -101,5 +101,5 @@ multilib_src_install() {
 }
 multilib_src_install_all() {
 	einstalldocs
-	prune_libtool_files
+	find "${D}" -name '*.la' -type f -delete || die
 }
