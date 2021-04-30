@@ -19,6 +19,7 @@ DEPEND="
 	virtual/opengl
 "
 RDEPEND="${DEPEND}"
+BDEPEND="app-arch/unzip"
 
 S=${WORKDIR}/src
 
