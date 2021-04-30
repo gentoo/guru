@@ -5,6 +5,7 @@
 app-admin/krapplet:pass - Add support for pass compatible storage
 app-crypt/tomb:tray - add a tomb tray in a QT desktop toolbar
 app-editors/vscodium-bin:libsecret - Enable libsecret support
+app-emulation/arnold:inkz80 - Use inkz80 processor emulation
 app-misc/apidb:commands - Build commands
 app-misc/apidb:corelibs - Build Abtract layer
 app-misc/apidb:mariadb - Build MariaDB Layer
