@@ -4,20 +4,20 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7,8} )
+DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
 if [[ "${PV}" == "9999" ]]
 then
-	EGIT_REPO_URI="https://git.weboob.org/weboob/weboob.git"
+	EGIT_REPO_URI="https://gitlab.com/woob/woob.git"
 	inherit git-r3
 else
-	SRC_URI="https://git.woob.tech/weboob/weboob/uploads/7b91875f693b60e93c5976daa051034b/weboob-2.0.tar.gz"
-	S="${WORKDIR}/weboob-${PV}"
+	SRC_URI="https://gitlab.com/woob/woob/uploads/98647f26717896697b52170cf8bcd301/${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
-DESCRIPTION="Consume lots of websites without a browser (Web Outside Of Browsers)"
+DESCRIPTION="Web Outside Of Browsers (core, site modules and applications)"
 HOMEPAGE="https://woob.tech/"
 LICENSE="LGPL-3+"
 SLOT="0"
@@ -68,8 +68,8 @@ src_prepare() {
 	default
 
 	sed -i \
-		-e '/weboob.browser.browsers,/d' \
-		-e '/weboob.browser.pages,/d' \
+		-e '/woob.browser.browsers,/d' \
+		-e '/woob.browser.pages,/d' \
 		setup.cfg || die "Failed removing network-dependent tests"
 }
 

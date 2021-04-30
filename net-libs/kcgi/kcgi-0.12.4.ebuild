@@ -26,6 +26,13 @@ DEPEND="
 	test? ( net-misc/curl[static-libs] )
 "
 
+src_prepare() {
+	export CC="$(tc-getCC)"
+	export AR="$(tc-getAR)"
+
+	default
+}
+
 src_configure() {
 	./configure PREFIX="${EPREFIX}/usr" \
 		MANDIR="${EPREFIX}/usr/share/man" \
@@ -35,20 +42,17 @@ src_configure() {
 }
 
 src_compile() {
-	bmake -j$(makeopts_jobs) \
-		CC="$(tc-getCC)" || die
+	bmake -j$(makeopts_jobs) || die
 }
 
 src_test() {
-	bmake -j$(makeopts_jobs) \
-		CC="$(tc-getCC)" regress || die
+	bmake -j$(makeopts_jobs)  regress || die
 }
 
 src_install() {
 	bmake -j$(makeopts_jobs) \
-		CC="$(tc-getCC)" \
 		DESTDIR="${D}" \
 		MANDIR=/usr/share/man \
 		install || die
-	find "${ED}/usr/$(get_libdir)" -name "*.a" -delete
+	find "${ED}/usr/$(get_libdir)" -name "*.a" -delete || die
 }
