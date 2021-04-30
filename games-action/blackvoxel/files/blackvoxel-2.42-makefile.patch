@@ -15,7 +15,7 @@
    ifeq ($(KERNELNAME),Linux)
 -    CFLAGS+= -O3 -c -fmessage-length=0
 -    LDFLAGS=-s -zrelro -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
-+    LDFLAGS+= -zrelro -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
++    LDFLAGS+= -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
    else ifeq ($(KERNELNAME), FreeBSD)
      # To be done...
      CFLAGS+= -O3 -c -fmessage-length=0

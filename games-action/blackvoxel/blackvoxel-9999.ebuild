@@ -27,9 +27,10 @@ RDEPEND="${DEPEND}"
 src_prepare() {
 	sed -i -e '/COMPILEOPTION_SAVEFOLDERNAME/s:Blackvoxel:.local/share/blackvoxel:' \
 		src/ACompileSettings.h || die
-	sed -i -e 's/LDFLAGS=/LDFLAGS+= /' -e 's/LDFLAGS/s/-s //' \
+	sed -i -e 's/LDFLAGS=/LDFLAGS+= /' -e '/LDFLAGS/s/-s -zrelro //' \
 		-e '/(CPU_BITS)/ { s/; make //; s/cd/+make -C/}' \
-		-e '/CFLAGS+/d' -e 's/CFLAGS=/CFLAGS+=/' Makefile || die
+		-e '/CFLAGS+/d' -e 's/CFLAGS=/CFLAGS+=/' \
+		Makefile || die
 	default
 }
 
