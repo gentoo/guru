@@ -50,5 +50,5 @@ src_install() {
 		DESTDIR="${D}" \
 		MANDIR=/usr/share/man \
 		install || die
-	find "${ED}/usr/$(get_libdir)" -name "*.a" -delete
+	find "${ED}/usr/$(get_libdir)" -name "*.a" -delete || die
 }
