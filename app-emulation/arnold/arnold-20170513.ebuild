@@ -3,6 +3,8 @@
 
 EAPI=7
 
+WX_GTK_VER="3.0-gtk3"
+
 inherit cmake desktop wxwidgets
 
 DESCRIPTION="Amstrad CPC emulator"
@@ -21,9 +23,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="app-arch/unzip"
 
-S=${WORKDIR}/src
-
-WX_GTK_VER="3.0-gtk3"
+S="${WORKDIR}/src"
 
 src_prepare() {
 	setup-wxwidgets
