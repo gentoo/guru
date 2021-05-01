@@ -45,7 +45,6 @@ app-editors/typora-bin 9999: a markdown editor,markdown reader.
 app-editors/visual-studio-code-bin 1.54.2 1.55.0 1.55.2: Multiplatform Visual Studio Code from Microsoft
 app-editors/vscodium-bin 1.53.2 1.54.3 1.55.2: Free/Libre Open Source Software Binaries of VSCode
 app-emacs/flycheck 31: On the fly syntax checking for GNU Emacs
-app-emulation/arnold 20170513: Amstrad CPC emulator
 app-emulation/dxvk-bin 1.8 1.8.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.4.2: NVIDIA container runtime toolkit
 app-eselect/eselect-scheme 1.0.0: Manages scheme implementations
