@@ -6,7 +6,7 @@ EAPI=7
 PYTHON_COMPAT=( python3_{7,8,9} )
 GITHUB_PN="DSView"
 
-inherit autotools cmake python-r1 udev xdg
+inherit autotools cmake python-r1 toolchain-funcs udev xdg
 
 DESCRIPTION="An open source multi-function instrument"
 HOMEPAGE="
@@ -52,6 +52,9 @@ PATCHES=(
 )
 
 src_prepare() {
+	export CC="$(tc-getCC)"
+	export AR="$(tc-getAR)"
+
 	default
 
 	local LIBDIR="/usr/$(get_libdir)"
