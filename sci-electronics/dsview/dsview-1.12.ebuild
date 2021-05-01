@@ -37,6 +37,7 @@ RDEPEND="${PYTHON_DEPS}
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtsvg:5
+	dev-qt/qtconcurrent:5
 	sci-libs/fftw:3.0
 	virtual/libusb:1
 "
