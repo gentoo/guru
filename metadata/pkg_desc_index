@@ -505,7 +505,8 @@ media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/vidify 2.2.6: Watch music videos in real time for the songs playing on your device
 media-video/vidify-audiosync 0.3.0: Audio synchronization feature for vidify
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
-net-analyzer/munin-contrib 0_p20210325: user contributed stuff related to munin
+net-analyzer/munin-contrib 0.2021.04.27: user contributed stuff related to munin
+net-analyzer/munin-plugins-mendix 23: This package provides various plugins for Munin
 net-dialup/tio 1.32: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0 9999: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
@@ -562,7 +563,7 @@ sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/verilator 4.200 4.202 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/GeographicLib-data 0: Datasets for GeographicLib
 sci-libs/ann 1.1.2_p7: A Library for Approximate Nearest Neighbor Searching
-sci-libs/jdqz 0_pre19971107-r1 0_pre19971107-r2: Jacobi-Davidson type method for the generalized standard eigenvalue problem.
+sci-libs/jdqz 0_pre19971107-r2: Jacobi-Davidson type method for the generalized standard eigenvalue problem.
 sci-libs/meschach 1.2b: Meschach is a C-language library of routines for performing matrix computations
 sci-libs/saclib 2.2.7-r1 2.2.7-r2: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
