@@ -46,7 +46,7 @@ go-module_set_globals
 SRC_URI="https://github.com/makeworld-the-better-one/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}"
 
-LICENSE="MIT"
+LICENSE="0BSD BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 

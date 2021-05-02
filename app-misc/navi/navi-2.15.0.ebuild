@@ -108,6 +108,8 @@ LICENSE="Apache-2.0"
 SLOT="0"
 RESTRICT="mirror"
 
+QA_FLAGS_IGNORED="usr/bin/navi"
+
 RDEPEND="app-shells/fzf"
 DEPEND="${RDEPEND}"
 

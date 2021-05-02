@@ -6,7 +6,7 @@ EAPI=7
 PYTHON_COMPAT=(python3_{7,8})
 PYTHON_REQ_USE="xml"
 
-DISTUTILS_USE_SETUPTOOLS=rdepend
+DISTUTILS_USE_SETUPTOOLS=bdepend
 
 inherit distutils-r1
 

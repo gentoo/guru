@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit toolchain-funcs
+
 DESCRIPTION="Better Portable Graphics reference implementation"
 HOMEPAGE="https://bellard.org/bpg/"
 SRC_URI="https://bellard.org/bpg/${P}.tar.gz"
@@ -19,7 +21,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-add-fpic.patch
 )
 
-DEPEND=""
+DEPEND="sys-process/numactl"
 RDEPEND="${DEPEND}"
 BDEPEND="
 	media-video/ffmpeg
@@ -27,6 +29,7 @@ BDEPEND="
 	virtual/jpeg
 	bpgview? ( media-libs/sdl-image )
 	bpgview? ( media-libs/libsdl )
+	dev-lang/yasm
 "
 
 src_prepare() {
@@ -44,6 +47,8 @@ Version: ${PV}
 Libs: "-L\${libdir}" -lbpg
 Cflags: "-I\${includedir}"
 EOF
+
+	sed -Ei 's/^(X265_LIBS:=.+\.a)$/\1 -lnuma/' Makefile || die
 }
 
 src_compile() {
@@ -51,7 +56,9 @@ src_compile() {
 		$(usex x265 USE_X265=y '') \
 		$(usex bpgview USE_BPGVIEW=y '') \
 		$(usex jctvc USE_JCTVC=y '') \
-		$(usex emcc USE_EMCC=y '')
+		$(usex emcc USE_EMCC=y '') \
+		CXX="$(tc-getCXX)" \
+		CC="$(tc-getCC)"
 }
 
 src_install() {

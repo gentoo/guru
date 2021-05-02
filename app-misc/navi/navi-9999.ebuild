@@ -58,7 +58,7 @@ CRATES="
 	rayon-core-1.9.0
 	redox_syscall-0.2.5
 	redox_users-0.4.0
-	regex-1.4.5
+	regex-1.4.6
 	regex-syntax-0.6.23
 	remove_dir_all-0.5.3
 	remove_dir_all-0.7.0
@@ -113,6 +113,8 @@ fi
 LICENSE="Apache-2.0"
 SLOT="0"
 RESTRICT="mirror"
+
+QA_FLAGS_IGNORED="usr/bin/navi"
 
 RDEPEND="app-shells/fzf"
 DEPEND="${RDEPEND}"

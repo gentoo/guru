@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools
+inherit autotools findlib
 
 DESCRIPTION="Framework for analysis of source codes written in C"
 HOMEPAGE="https://frama-c.com"
@@ -26,7 +26,6 @@ RDEPEND="
 	gtk? ( >=dev-ml/lablgtk-2.14:2=[sourceview,gnomecanvas,ocamlopt?] )
 	wp? ( ~sci-mathematics/why3-1.3.3 )"
 DEPEND="${RDEPEND}
-	dev-ml/findlib
 	media-gfx/graphviz"
 
 REQUIRED_USE="
@@ -96,8 +95,4 @@ src_configure() {
 		$(use_enable variadic) \
 		$(use_enable wp) \
 		--disable-wp-coq
-}
-
-src_install() {
-	emake install DESTDIR="${ED}"
 }

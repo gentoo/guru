@@ -197,6 +197,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+QA_FLAGS_IGNORED="usr/bin/tldr"
+
 # Tests require network connection
 RESTRICT="test"
 

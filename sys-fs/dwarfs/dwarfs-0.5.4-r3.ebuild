@@ -20,7 +20,7 @@ IUSE="python +jemalloc test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
-PATCHES=( "${WORKDIR}/unbundle-folly-fbthrift.patch" )
+PATCHES=( "${FILESDIR}/unbundle.patch" )
 #TODO: unbundle libfsst
 
 RDEPEND="
@@ -31,9 +31,10 @@ RDEPEND="
 	app-arch/xz-utils
 	app-arch/zstd
 	dev-cpp/fbthrift:=
-	dev-cpp/folly:=
+	>=dev-cpp/folly-2021.04.19.00-r1:=
 	dev-cpp/gflags
 	dev-cpp/glog[gflags]
+	dev-cpp/parallel-hashmap:=
 	dev-cpp/sparsehash
 	dev-libs/boost[context,threads,python?]
 	dev-libs/double-conversion
@@ -68,13 +69,14 @@ CMAKE_IN_SOURCE_BUILD=1
 CMAKE_WARN_UNUSED_CLI=0
 
 src_prepare(){
+	rm -r fsst zstd fbthrift folly xxHash parallel-hashmap || die
 	cmake_src_prepare
 	einfo "setting library path to $(get_libdir)"
 	sed "s/DESTINATION lib/DESTINATION $(get_libdir)/" -i CMakeLists.txt || die
 }
 
 src_configure(){
-	append-cxxflag "-I/usr/include/folly"
+	append-cxxflags "-I/usr/include"
 
 	einfo "setting configuration flags to:"
 	mycmakeargs=(

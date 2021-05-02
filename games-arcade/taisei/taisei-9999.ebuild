@@ -34,6 +34,7 @@ DEPEND="
 	zip? ( dev-libs/libzip )
 "
 BDEPEND="
+	>=dev-libs/cglm-0.7.8
 	>=dev-util/meson-0.53
 	${PYTHON_DEPS}
 	doc? ( dev-python/docutils )"
