@@ -45,9 +45,9 @@ src_compile() {
 }
 
 src_test() {
-	cd "jdtest" || die
+	pushd "jdtest" || die
 	emake
-	cd ".." || die
+	popd || die
 	LD_LIBRARY_PATH="./jdlib" ./jdtest/example || die
 }
 
