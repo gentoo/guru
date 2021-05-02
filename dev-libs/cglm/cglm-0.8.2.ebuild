@@ -23,6 +23,13 @@ IUSE="doc"
 BDEPEND="dev-util/meson
 	doc? ( dev-python/sphinx )"
 
+src_configure() {
+	local emesonargs=(
+		"-Dwerror=false"
+	)
+	meson_src_configure
+}
+
 src_compile() {
 	default
 	meson_src_compile
