@@ -3,13 +3,15 @@
 
 EAPI="7"
 
-COMMIT="4af69a6d076a467d7f8faa0030e8da53b1de190f"
+inherit toolchain-funcs
+
+COMMIT="c31cb283fe9d38ae0367fcd9a8aef6be14bcb927"
 
 SRC_URI="https://github.com/munin-monitoring/contrib/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64"
 DESCRIPTION="user contributed stuff related to munin"
 HOMEPAGE="https://github.com/munin-monitoring/contrib"
-LICENSE="GPL-3+ Apache-2.0 GPL-2 LGPL-2 GPL-2+ LGPL-3+" #TODO: investigate all the licenses
+LICENSE="GPL-3+ Apache-2.0 GPL-2 LGPL-2 GPL-2+ LGPL-3+ MIT" #TODO: investigate all the licenses
 SLOT="0"
 IUSE="examples +plugins templates tools"
 RDEPEND="net-analyzer/munin"
@@ -20,6 +22,7 @@ README_PLUGINS=(
 	plugins/apache/apache_byprojects/README.md
 	plugins/apache/apache_vhosts/README.txt
 	plugins/apt/deb_packages/README.md
+	plugins/jmx/readme.txt
 	plugins/kamailio/README.md
 	plugins/network/linux_if/README.md
 	plugins/nfs-freebsd/README.rst
@@ -42,6 +45,7 @@ README_TOOLS=(
 
 src_prepare() {
 	default
+	rm "plugins/nginx/nginx_byprojects/LICENSE.txt" || die
 }
 
 src_configure() {
@@ -49,7 +53,20 @@ src_configure() {
 }
 
 src_compile() {
-	return
+	export CC=$(tc-getCC)
+
+	pushd plugins/cpu || die
+		emake multicpu1sec-c || die
+		rm multicpu1sec-c.c || die
+	popd
+	pushd plugins/disk/smart-c || die
+		emake
+		rm *.h *.o *.c Makefile || die
+	popd
+	pushd plugins/network || die
+		emake if1sec-c || die
+		rm if1sec-c.c || die
+	popd
 }
 
 src_install() {
@@ -65,7 +82,7 @@ src_install() {
 
 	if use plugins; then
 		#install documentation in subfolders
-		for i in plugins/{apt,}/*/example-graphs ; do
+		for i in plugins/{apt,network,}/*/example-graphs ; do
 			p="${ED}/usr/share/doc/${PF}/${i}"
 			mkdir -p "${p}" || die
 			mv "${i}" "${p}" || die

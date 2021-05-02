@@ -21,6 +21,7 @@ DEPEND="
 	x11-libs/libXrandr
 	dev-libs/libevdev
 	x11-libs/gtk+:3
+	virtual/udev
 	|| ( dev-dotnet/dotnet-sdk-bin dev-dotnet/dotnet-runtime-bin )
 "
 
@@ -50,7 +51,8 @@ src_install() {
 	insinto "/usr/share/${MY_PN}"
 	doins -r "Configurations"
 
-	doins "${S}/99-${LP}.rules" "/usr/lib/udev/rules.d"
+	insinto "/lib/udev/rules.d"
+	doins -r "${S}/99-${LP}.rules"
 	#install -Dm 644 -o root "${S}/99-${LP}.rules" -t "${D}/usr/lib/udev/rules.d"
 	udevadm control --reload || die
 

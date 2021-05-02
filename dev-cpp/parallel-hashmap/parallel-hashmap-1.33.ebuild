@@ -19,21 +19,12 @@ IUSE="examples"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
-#BDEPEND="
-#	doc? ( app-text/pandoc )
-#"
 
 #TODO: explore the various cmake options (if any)
-#TODO: tests, doc
+#TODO: tests
 
 src_compile() {
 	cmake_src_compile
-
-	#waiting for https://github.com/greg7mdp/parallel-hashmap/issues/91
-#	if use doc ; then
-#		cd html || die
-#		emake all
-#	fi
 }
 
 src_install() {
