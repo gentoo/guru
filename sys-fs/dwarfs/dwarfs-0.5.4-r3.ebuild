@@ -14,7 +14,7 @@ SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 
 IUSE="python +jemalloc test"
 RESTRICT="!test? ( test )"
