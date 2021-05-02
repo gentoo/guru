@@ -23,6 +23,11 @@ IUSE="doc"
 BDEPEND="dev-util/meson
 	doc? ( dev-python/sphinx )"
 
+PATCHES=(
+	# Upstream patch: https://github.com/recp/cglm/commit/13269f4af8d3c95220f97746c968eac3ba122a32
+	"${FILESDIR}"/${PN}-0.8.2-fix-vec3-vec4.patch
+)
+
 src_configure() {
 	local emesonargs=(
 		"-Dwerror=false"
