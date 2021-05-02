@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<bugs-to>https://github.com/zzkW35/amdgpu-fan/issues</bugs-to>
+		<remote-id type="github">zzkW35/amdgpu-fan</remote-id>
+	</upstream>
+</pkgmetadata>
