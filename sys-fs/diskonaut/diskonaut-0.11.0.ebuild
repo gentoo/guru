@@ -120,6 +120,8 @@ LICENSE="MIT"
 SLOT="0"
 IUSE=""
 
+QA_FLAGS_IGNORED="usr/bin/diskonaut"
+
 src_unpack() {
 	[[ "${PV}" == 9999 ]] && git-r3_src_unpack
 	cargo_src_unpack

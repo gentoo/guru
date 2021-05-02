@@ -116,6 +116,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="profile"
 
+QA_FLAGS_IGNORED="usr/bin/i3status-rs"
+
 DEPEND="sys-apps/dbus
 	media-sound/pulseaudio
 	profile? ( dev-util/google-perftools )"
