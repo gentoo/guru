@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools
+inherit autotools findlib
 
 DESCRIPTION="Platform for deductive program verification"
 HOMEPAGE="http://why3.lri.fr/"
@@ -16,7 +16,6 @@ IUSE="coq emacs gtk +ocamlopt re +zarith zip"
 
 DEPEND=">=dev-lang/ocaml-4.05.0[ocamlopt?]
 		>=dev-ml/menhir-20151112
-		dev-ml/findlib
 		dev-ml/num
 		coq? ( >=sci-mathematics/coq-8.6 )
 		emacs? ( app-editors/emacs:* )
@@ -70,7 +69,8 @@ src_compile() {
 }
 
 src_install(){
-	emake install install-lib DESTDIR="${ED}"
+	findlib_src_preinst
+	emake install install-lib DESTDIR="${ED}" || die "make failed"
 
 	doman doc/why3.1
 	einstalldocs
