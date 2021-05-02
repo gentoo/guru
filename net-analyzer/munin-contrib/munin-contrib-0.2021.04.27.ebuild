@@ -56,7 +56,7 @@ src_compile() {
 	export CC=$(tc-getCC)
 
 	pushd plugins/cpu || die
-		${CC} ${CFLAGS} -o multicpu1sec-c multicpu1sec-c.c || die
+		emake multicpu1sec-c || die
 		rm multicpu1sec-c.c || die
 	popd
 	pushd plugins/disk/smart-c || die
@@ -64,7 +64,7 @@ src_compile() {
 		rm *.h *.o *.c Makefile || die
 	popd
 	pushd plugins/network || die
-		${CC} ${CFLAGS} -o if1sec-c if1sec-c.c || die
+		emake if1sec-c || die
 		rm if1sec-c.c || die
 	popd
 }
