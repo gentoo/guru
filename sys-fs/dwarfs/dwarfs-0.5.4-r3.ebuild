@@ -31,7 +31,7 @@ RDEPEND="
 	app-arch/xz-utils
 	app-arch/zstd
 	dev-cpp/fbthrift:=
-	dev-cpp/folly:=
+	>=dev-cpp/folly-2021.04.19.00-r1:=
 	dev-cpp/gflags
 	dev-cpp/glog[gflags]
 	dev-cpp/parallel-hashmap:=
