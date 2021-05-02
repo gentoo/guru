@@ -1,11 +1,15 @@
-BDEPEND=media-video/ffmpeg media-libs/libpng virtual/jpeg bpgview? ( media-libs/sdl-image ) bpgview? ( media-libs/libsdl )
+BDEPEND=media-video/ffmpeg media-libs/libpng virtual/jpeg bpgview? ( media-libs/sdl-image ) bpgview? ( media-libs/libsdl ) dev-lang/yasm
 DEFINED_PHASES=compile install prepare
+DEPEND=sys-process/numactl
 DESCRIPTION=Better Portable Graphics reference implementation
 EAPI=7
 HOMEPAGE=https://bellard.org/bpg/
+INHERIT=toolchain-funcs
 IUSE=+x265 bpgview jctvc emcc static-libs
 KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-2.1
+RDEPEND=sys-process/numactl
 SLOT=0
 SRC_URI=https://bellard.org/bpg/libbpg-0.9.8.tar.gz
-_md5_=7e8c20c35af2c7da90ce64da9b0f540f
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
+_md5_=ff67fc374da4d2a9ba3af51be9d33071

@@ -1,6 +1,6 @@
 BDEPEND=test? ( sys-apps/coreutils ) virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install test unpack
-DEPEND=net-libs/usockets[ssl] acct-user/purritobin acct-group/purritobin www-apps/uwebsockets
+DEPEND=>=dev-db/lmdb-0.9.29 net-libs/usockets[ssl] acct-user/purritobin acct-group/purritobin www-apps/uwebsockets >=dev-db/lmdb++-1.0.0
 DESCRIPTION=minimalistic commandline pastebin
 EAPI=7
 HOMEPAGE=https://bsd.ac
@@ -8,8 +8,8 @@ INHERIT=systemd toolchain-funcs git-r3
 IUSE=test
 LICENSE=ISC
 PROPERTIES=live
-RDEPEND=net-libs/usockets[ssl] acct-user/purritobin acct-group/purritobin
+RDEPEND=>=dev-db/lmdb-0.9.29 net-libs/usockets[ssl] acct-user/purritobin acct-group/purritobin
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=f1f9c7e79b9eac0b6feaaed8269c4e97
+_md5_=0214e377a49a10e90524f2527b74155d
