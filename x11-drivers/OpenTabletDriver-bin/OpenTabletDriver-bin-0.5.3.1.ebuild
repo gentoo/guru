@@ -50,7 +50,8 @@ src_install() {
 	insinto "/usr/share/${MY_PN}"
 	doins -r "Configurations"
 
-	doins "${S}/99-${LP}.rules" "/usr/lib/udev/rules.d"
+	insinto "/usr/lib/udev/rules.d"
+	doins -r "${S}/99-${LP}.rules"
 	#install -Dm 644 -o root "${S}/99-${LP}.rules" -t "${D}/usr/lib/udev/rules.d"
 	udevadm control --reload || die
 
