@@ -1,14 +1,13 @@
 BDEPEND=sys-devel/flex virtual/yacc >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install postinst unpack
-DEPEND=acct-user/gemini dev-libs/libevent !libressl? ( dev-libs/libretls ) libressl? ( dev-libs/libressl )
+DEPEND=acct-user/gemini dev-libs/libevent dev-libs/libretls
 DESCRIPTION=Simple and secure Gemini server
 EAPI=7
 HOMEPAGE=https://www.omarpolo.com/pages/gmid.html
 INHERIT=ssl-cert toolchain-funcs git-r3
-IUSE=libressl
 LICENSE=ISC
 PROPERTIES=live
-RDEPEND=acct-user/gemini dev-libs/libevent !libressl? ( dev-libs/libretls ) libressl? ( dev-libs/libressl )
+RDEPEND=acct-user/gemini dev-libs/libevent dev-libs/libretls
 SLOT=0
 _eclasses_=ssl-cert	a9ab3ee655f5ee43246ff3999cfedfe6	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=90af7b62d4ae2b16829a20f2b7f87941
+_md5_=ddda669ea65645b11c8b4cc489702683

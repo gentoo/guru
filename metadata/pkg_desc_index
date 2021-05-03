@@ -37,7 +37,6 @@ app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generat
 app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-crypt/tomb 2.9-r5: Tomb :: File Encryption on GNU/Linux
 app-editors/atom-bin 1.56.0-r4: A hackable text editor for the 21st Century
-app-editors/bluegriffon-bin 3.1-r2: The Open Source next-gen Web Editor based on the rendering engine of Firefox
 app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
@@ -57,6 +56,7 @@ app-misc/brightnessctl 0.5.1: A program to read and control device brightness
 app-misc/cheat 4.0.2 4.2.0 4.2.1: cheat allows you to create and view interactive cheatsheets on the command-line
 app-misc/cpufetch 0.94_p20210409: Simplistic yet fancy CPU architecture fetching tool
 app-misc/ddcui 0.1.2: Graphical user interface for ddcutil - control monitor settings
+app-misc/diff-so-fancy 1.4.0: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
 app-misc/doublecmd-bin 0.9.10: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.20210419_alpha 2.3.20210426_alpha 9999: Linux port of FAR Manager v2
@@ -139,7 +139,7 @@ dev-cpp/fizz 2021.04.19.00: C++14 implementation of the TLS-1.3 standard
 dev-cpp/folly 2020.11.30.00 2021.01.04.00 2021.04.19.00 2021.04.19.00-r1: An open-source C++ library developed and used at Facebook
 dev-cpp/gsl-lite 0.38.0: C++ Guideline Support Library implementation
 dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
-dev-cpp/parallel-hashmap 1.33: A family of header-only, very fast and memory-friendly hashmap and btree containers.
+dev-cpp/parallel-hashmap 1.33: Family of header-only, fast and memory-friendly hashmap and btree containers
 dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging library
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
 dev-cpp/vectorwrapper 1.1.2 9999: A template vector wrapper class for C++
@@ -159,7 +159,6 @@ dev-games/godot 3.2.3-r1: Multi-platform 2D and 3D game engine
 dev-games/surgescript 0.5.4.3 0.5.4.4 9999: scripting language made for opensurge
 dev-go/lichen 0.1.1: Go binary license checker
 dev-java/gradle-base-annotations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
-dev-java/gradle-base-services 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-build-operations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-hashing 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/openjdk-sts-bin 15.0.2_p7: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
@@ -172,7 +171,7 @@ dev-lang/quickjs 2020.11.08 2021.03.27: Small embeddable Javascript engine
 dev-lang/wren 0.3.0: The Wren Programming Language
 dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
 dev-libs/cgicc 3.2.19: A C++ class library for writing CGI applications
-dev-libs/cglm 0.8.2 9999: OpenGL Mathematics (glm) for C
+dev-libs/cglm 0.8.2-r1 9999: OpenGL Mathematics (glm) for C
 dev-libs/fsst 0_pre20200830: Fast Static Symbol Table: fast text compression that allows random access
 dev-libs/ftl 1.0_p20210308: The Fortran Template Library (FTL) is a general purpose library for Fortran 2003
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
