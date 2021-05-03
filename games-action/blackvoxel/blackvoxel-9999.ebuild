@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit git-r3
+inherit git-r3 toolchain-funcs
 
 DESCRIPTION="Blackvoxel Video Game"
 HOMEPAGE="https://www.blackvoxel.com/"
@@ -30,11 +30,22 @@ src_prepare() {
 	sed -i -e 's/LDFLAGS=/LDFLAGS+= /' -e '/LDFLAGS/s/-s -zrelro //' \
 		-e '/(CPU_BITS)/ { s/; make //; s/cd/+make -C/}' \
 		-e '/CFLAGS+/d' -e 's/CFLAGS=/CFLAGS+=/' \
+		-e '/^CC=/d' -e 's/^LD=/CXX?=/' \
+		-e 's/CFLAGS/CXXFLAGS/g' -e 's/\$(CC)/$(CXX)/' \
+		-e 's/\$(LD)/$(CXX)/' \
 		Makefile || die
+	sed -i -e 's/\<gcc\>/$(CC)/' -e 's/\<g++\>/$(CXX)/' \
+		-e 's/\<ar\>/$(AR)/' src/sc_Squirrel3/squirrel/Makefile \
+		src/sc_Squirrel3/sqstdlib/Makefile \
+		src/sc_Squirrel3/sq/Makefile || die
 	default
 }
 
 src_compile() {
+	export CXX="$(tc-getCXX)"
+	export CC="$(tc-getCC)"
+	export AR="$(tc-getAR)"
+
 	emake blackvoxeldatadir="/usr/share/${PN}" bindir="/usr/bin"
 }
 
