@@ -64,7 +64,7 @@ src_prepare() {
 	append-cxxflags '-O3 -DNDEBUG'
 
 	# headers is not a valid boost component
-	sed -i -e '/find_package(Boost/s/headers //' CMakeLists.txt || die
+	sed -i -e '/find_package(Boost/{s/headers //;s/CONFIG //}' CMakeLists.txt || die
 
 	# Allow skip submodule downloading
 	rm .gitmodules
