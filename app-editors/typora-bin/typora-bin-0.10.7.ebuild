@@ -3,15 +3,15 @@
 
 EAPI=7
 
-inherit desktop xdg
+inherit unpacker xdg
 
 DESCRIPTION="a markdown editor,markdown reader."
 HOMEPAGE="https://typora.io"
-SRC_URI="https://typora.io/linux/Typora-linux-x64.tar.gz -> typora-${PV}-linux-x64.tar.gz"
+SRC_URI="https://typora.io/linux/typora_${PV}_amd64.deb"
 
 LICENSE="Typora-EULA"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="-* ~amd64"
 IUSE=""
 
 DEPEND=""
@@ -39,20 +39,9 @@ RDEPEND="
 BDEPEND=""
 
 QA_PREBUILT="*"
-
-src_unpack() {
-	if [ ${A} != "" ]; then
-		unpack ${A}
-	fi
-	S="${WORKDIR}/bin/Typora-linux-x64/"
-}
+S="${WORKDIR}"
 
 src_install() {
-	insinto /opt/
-	doins -r "${S}"
-	newicon "$S/resources/app/asserts/icon/icon_512x512@2x.png" "${PN}.png"
-	dosym ../../opt/Typora-linux-x64/Typora /usr/bin/Typora
-	fperms 0755 /opt/Typora-linux-x64/Typora
-	fperms 4755 /opt/Typora-linux-x64/chrome-sandbox
-	domenu "${FILESDIR}/Typora.desktop"
+	mv "${S}"/* "${ED}" || die
+	mv "${ED}/usr/share/doc/${PN//-bin}" "${ED}/usr/share/doc/${PF}" || die
 }

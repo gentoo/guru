@@ -5,6 +5,10 @@ EAPI=7
 
 USE_RUBY="ruby24 ruby25 ruby26"
 
+RUBY_FAKEGEM_RECIPE_TEST="rspec3"
+
+RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
+
 inherit ruby-fakegem
 
 DESCRIPTION="This a Ruby gem that delivers a thin and fast web server"
@@ -21,8 +25,6 @@ ruby_add_depend "
 	dev-ruby/daemons
 	dev-ruby/rack
 "
-
-RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
 
 all_ruby_prepare() {
 	# Fix Ragel-based parser generation (uses a *very* old syntax that
@@ -49,8 +51,8 @@ all_ruby_prepare() {
 		-e '/tracing routines (with NO custom logger)/,/^  end/ s:^:#:'\
 		spec/logging_spec.rb || die
 
-	find spec/perf -name "*_spec.rb" -exec \
-		sed -i '/be_faster_then/ i \    pending' {} \;
+	# Remove failing perfomance tests
+	rm -r spec/perf || die
 
 	sed -i -e "s/Spec::Runner/Rspec/" spec/spec_helper.rb || die
 	# nasty but too complex to fix up for now :(
@@ -58,16 +60,16 @@ all_ruby_prepare() {
 }
 
 each_ruby_configure() {
-			${RUBY} -Cext/thin_parser extconf.rb || die
+	${RUBY} -Cext/thin_parser extconf.rb || die
 }
 
 each_ruby_compile() {
-		emake V=1 -Cext/thin_parser
-		cp ext/thin_parser/thin_parser.so lib/ || die
+	emake V=1 CFLAGS="${CFLAGS} -fPIC" DLDFLAGS="${LDFLAGS}" -Cext/thin_parser
+	cp ext/thin_parser/thin_parser.so lib/ || die
 }
 
 all_ruby_install() {
-			ruby_fakegem_binwrapper thin
+	ruby_fakegem_binwrapper thin
 }
 
 all_ruby_install() {
