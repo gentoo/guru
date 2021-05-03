@@ -27,7 +27,7 @@ FILECAPS=(
 )
 
 src_compile() {
-	emake V=1 CC="$(tc-getCC)" PKG_CONFIG="$(tc-getPKG_CONFIG)"
+	emake V=1 CC="$(tc-getCC)" PKG_CONFIG="$(tc-getPKG_CONFIG)" NO_FLTO=1
 }
 
 src_install() {
