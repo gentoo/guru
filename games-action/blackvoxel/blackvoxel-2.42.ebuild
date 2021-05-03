@@ -29,6 +29,7 @@ S="${WORKDIR}/${PN}_source_${PV//./_}"
 PATCHES=(
 	"${FILESDIR}"/${P}-makefile.patch
 	"${FILESDIR}"/${P}-savedir.patch
+	"${FILESDIR}"/${P}-dont-strip-files.patch
 )
 
 src_compile() {
