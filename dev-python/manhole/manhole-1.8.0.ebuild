@@ -8,27 +8,29 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
-MYPN="python-${PN}"
+MY_PN="python-${PN}"
 
 DESCRIPTION="Debugging manhole for python application"
 HOMEPAGE="
 	https://github.com/ionelmc/python-manhole
-	https://pypi.org/project/python-manhole
+	https://pypi.org/project/manhole
 "
-SRC_URI="https://github.com/ionelmc/${MYPN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/ionelmc/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="test? (
+DEPEND="
+	test? (
 		dev-python/eventlet[${PYTHON_USEDEP}]
 		dev-python/gevent[${PYTHON_USEDEP}]
 		dev-python/process-tests[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
-)"
+	)
+"
 
-S="${WORKDIR}/${MYPN}-${PV}"
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs \
@@ -36,13 +38,15 @@ distutils_enable_sphinx docs \
 				dev-python/sphinxcontrib-napoleon
 
 python_test() {
-	pytest -vv \
+	distutils_install_for_testing
+	epytest \
 			--deselect tests/test_manhole.py::test_non_daemon_connection \
 			--deselect tests/test_manhole.py::test_daemon_connection \
 			--deselect tests/test_manhole.py::test_uwsgi \
 			--deselect tests/test_manhole.py::test_fork_exec \
 			--deselect tests/test_manhole.py::test_connection_handler_exec[str] \
 			--deselect tests/test_manhole.py::test_connection_handler_exec[func] \
-			--deselect tests/test_manhole_cli.py::test_help || die
+			--deselect tests/test_manhole.py::test_environ_variable_activation \
+			--deselect tests/test_manhole_cli.py::test_help
 
 }
