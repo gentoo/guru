@@ -23,18 +23,22 @@ SLOT="0"
 
 IUSE="doc lto zip"
 
-DEPEND="
+RDEPEND="
 	media-libs/freetype:2
 	>=media-libs/libpng-1.5
 	media-libs/libsdl2
-	media-libs/sdl2-mixer[opus]
+	media-libs/opusfile
 	media-libs/libwebp
+	app-arch/zstd
 	sys-libs/zlib
 	zip? ( dev-libs/libzip )
 "
-BDEPEND="
+DEPEND="
+	${RDEPEND}
 	>=dev-libs/cglm-0.7.8
-	>=dev-util/meson-0.49
+"
+BDEPEND="
+	>=dev-util/meson-0.53
 	${PYTHON_DEPS}
 	doc? ( dev-python/docutils )"
 

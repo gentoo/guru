@@ -23,7 +23,7 @@ SLOT="0"
 
 IUSE="doc lto zip"
 
-DEPEND="
+RDEPEND="
 	media-libs/freetype:2
 	>=media-libs/libpng-1.5
 	media-libs/libsdl2
@@ -33,8 +33,11 @@ DEPEND="
 	sys-libs/zlib
 	zip? ( dev-libs/libzip )
 "
-BDEPEND="
+DEPEND="
+	${RDEPEND}
 	>=dev-libs/cglm-0.7.8
+"
+BDEPEND="
 	>=dev-util/meson-0.53
 	${PYTHON_DEPS}
 	doc? ( dev-python/docutils )"
