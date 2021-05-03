@@ -40,7 +40,7 @@ app-editors/atom-bin 1.56.0-r4: A hackable text editor for the 21st Century
 app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
-app-editors/typora-bin 9999: a markdown editor,markdown reader.
+app-editors/typora-bin 0.10.7: a markdown editor,markdown reader.
 app-editors/visual-studio-code-bin 1.54.2 1.55.0 1.55.2: Multiplatform Visual Studio Code from Microsoft
 app-editors/vscodium-bin 1.53.2 1.54.3 1.55.2: Free/Libre Open Source Software Binaries of VSCode
 app-emacs/flycheck 31: On the fly syntax checking for GNU Emacs
@@ -571,7 +571,7 @@ sci-mathematics/frama-c 22.0: Framework for analysis of source codes written in 
 sci-mathematics/why3 1.3.3 1.4.0: Platform for deductive program verification
 sci-physics/SU2 7.1.1: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sys-apps/0xFFFF 0.8 0.9: The 0pen Free Fiasco Firmware Flasher
-sys-apps/dool 0.8_pre20191010 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
+sys-apps/dool 0.8_pre20191010-r1 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
 sys-apps/drm_info 2.2.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3 0.5.4: A more intuitive version of du
 sys-apps/hex 0.3.2 0.4.0 0.4.1: Futuristic take on hexdump
