@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2018-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -34,7 +34,7 @@ src_prepare() {
 		-e 's/CFLAGS/CXXFLAGS/g' -e 's/\$(CC)/$(CXX)/' \
 		-e 's/\$(LD)/$(CXX)/' \
 		Makefile || die
-	sed -i -e 's/\<gcc\>/$(CC)/' -e 's/\<g++\>/$(CXX)/' \
+	sed -i -e 's/\<gcc\>/$(CC)/' -e 's/\<g++ /$(CXX) /' \
 		-e 's/\<ar\>/$(AR)/' src/sc_Squirrel3/squirrel/Makefile \
 		src/sc_Squirrel3/sqstdlib/Makefile \
 		src/sc_Squirrel3/sq/Makefile || die
