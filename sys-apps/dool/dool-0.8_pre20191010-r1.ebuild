@@ -31,6 +31,10 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RDEPEND="${PYTHON_DEPS}"
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/0001-Key-for-key-in-dool_disk_avgqu.py-to-avoid-KeyError.patch"
+)
+
 src_compile() {
 	:
 }
