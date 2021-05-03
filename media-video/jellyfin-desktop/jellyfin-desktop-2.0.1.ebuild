@@ -8,18 +8,14 @@ PYTHON_REQ_USE="tk"
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-inherit distutils-r1
+MY_PN="jellyfin-mpv-shim"
+MY_P="${MY_PN}-${PV}"
 
-SHADER_PV="1.1.0"
-WEB_PV="1.7.0"
+inherit distutils-r1
 
 DESCRIPTION="MPV-based desktop and cast client for Jellyfin"
 HOMEPAGE="https://github.com/jellyfin/jellyfin-desktop"
-SRC_URI="
-	https://github.com/jellyfin/jellyfin-desktop/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/iwalton3/default-shader-pack/archive/v${SHADER_PV}.tar.gz -> jellyfin-mpv-shim-shader-pack-${SHADER_PV}.tar.gz
-	https://github.com/iwalton3/jellyfin-web/releases/download/v${WEB_PV}-4/dist.zip -> jellyfin-web-${WEB_PV}.zip
-"
+SRC_URI="mirror://pypi/${MY_P:0:1}/${MY_PN}/${MY_P}.tar.gz"
 
 LICENSE="LGPL-3+ MIT Unlicense"
 SLOT="0"
@@ -29,9 +25,8 @@ DEPEND="
 	$(python_gen_cond_dep '
 		dev-python/python-mpv[${PYTHON_USEDEP}]
 		>=dev-python/jellyfin-apiclient-python-1.7.2[${PYTHON_USEDEP}]
-		dev-python/python-mpv-jsonipc[${PYTHON_USEDEP}]
+		>=dev-python/python-mpv-jsonipc-1.1.9[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
-		dev-python/pydantic[${PYTHON_USEDEP}]
 	')
 "
 RDEPEND="
@@ -46,12 +41,5 @@ RDEPEND="
 		dev-python/werkzeug[${PYTHON_USEDEP}]
 	')
 "
-BDEPEND="app-arch/unzip"
 
-src_install() {
-	distutils-r1_src_install
-	python_moduleinto "jellyfin_mpv_shim/webclient_view/webclient" # jellyfin-web dist
-	python_domodule -r "${WORKDIR}"/dist/*
-	python_moduleinto "jellyfin_mpv_shim/default_shader_pack" # mpv shaders
-	python_domodule -r "${WORKDIR}"/default-shader-pack-${SHADER_PV}/*
-}
+S="${WORKDIR}/${MY_P}"
