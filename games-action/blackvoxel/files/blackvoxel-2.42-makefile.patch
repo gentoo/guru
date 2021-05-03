@@ -1,9 +1,10 @@
-From a4fbc416e1c9884353f743f84ca98207f792b502 Mon Sep 17 00:00:00 2001
+From 6f28e09bf6c8b48e0b1e7acc8b755e076e41fe40 Mon Sep 17 00:00:00 2001
 From: tastytea <tastytea@tastytea.de>
-Date: Mon, 3 May 2021 02:26:12 +0200
+Date: Mon, 3 May 2021 21:21:25 +0200
 Subject: [PATCH] Don't overwrite build-flags, replace hardcoded tools with
  variables.
 
+Also remove -zrelro from LDFLAGS.
 ---
  Makefile                           | 29 ++++++++++++++---------------
  src/sc_Squirrel3/sq/Makefile       |  8 ++++----
@@ -12,7 +13,7 @@ Subject: [PATCH] Don't overwrite build-flags, replace hardcoded tools with
  4 files changed, 34 insertions(+), 35 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index 3fac7f3..a85dd7e 100644
+index 3fac7f3..62c50cb 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -8,10 +8,9 @@ ifndef bindir
@@ -46,7 +47,7 @@ index 3fac7f3..a85dd7e 100644
 -    CFLAGS+= -O3 -c -fmessage-length=0
 -    LDFLAGS=-s -zrelro -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
 +    CXXFLAGS+= -O3 -c -fmessage-length=0
-+    LDFLAGS+=-s -zrelro -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
++    LDFLAGS+=-s -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
    else ifeq ($(KERNELNAME), FreeBSD)
      # To be done...
 -    CFLAGS+= -O3 -c -fmessage-length=0
