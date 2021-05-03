@@ -21,14 +21,13 @@ fi
 
 LICENSE="ISC"
 SLOT="0"
-IUSE="libressl"
 
 PATCHES=( "${FILESDIR}"/${P}-make-pidfile.patch )
 
 DEPEND="acct-user/gemini
 	dev-libs/libevent
-	!libressl? ( dev-libs/libretls )
-	libressl? ( dev-libs/libressl )"
+	dev-libs/libretls
+"
 BDEPEND="sys-devel/flex
 	virtual/yacc"
 RDEPEND="${DEPEND}"
