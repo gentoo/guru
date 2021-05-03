@@ -109,6 +109,9 @@ DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/${PN}-v${PV}"
 
+# Rust packages ignore CFLAGS and LDFLAGS so let's silence the QA warnings.
+QA_FLAGS_IGNORED="usr/bin/gemserv"
+
 src_prepare() {
 	# Fix paths in systemd unit.
 	sed -i 's@/path/to/bin /path/to/config@'"${EPREFIX}"'/usr/bin/gemserv '"${EPREFIX}"'/etc/gemserv/config.toml@' \
