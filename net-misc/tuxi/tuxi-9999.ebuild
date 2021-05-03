@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://github.com/Bugswriter/tuxi.git"
 LICENSE="GPL-3"
 SLOT="0"
 
-DEPEND="app-misc/pup-bin
+DEPEND="app-misc/pup
 app-text/recode
 app-misc/jq"
 RDEPEND="${DEPEND}"

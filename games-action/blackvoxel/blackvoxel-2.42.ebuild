@@ -1,9 +1,9 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit desktop xdg
+inherit desktop toolchain-funcs xdg
 
 DESCRIPTION="Blackvoxel Video Game"
 HOMEPAGE="https://www.blackvoxel.com/"
@@ -29,9 +29,14 @@ S="${WORKDIR}/${PN}_source_${PV//./_}"
 PATCHES=(
 	"${FILESDIR}"/${P}-makefile.patch
 	"${FILESDIR}"/${P}-savedir.patch
+	"${FILESDIR}"/${P}-dont-strip-files.patch
 )
 
 src_compile() {
+	export CXX="$(tc-getCXX)"
+	export CC="$(tc-getCC)"
+	export AR="$(tc-getAR)"
+
 	emake blackvoxeldatadir="/usr/share/${PN}" bindir="/usr/bin"
 }
 

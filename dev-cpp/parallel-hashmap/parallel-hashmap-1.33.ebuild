@@ -5,7 +5,7 @@ EAPI=7
 
 inherit cmake
 
-DESCRIPTION="A family of header-only, very fast and memory-friendly hashmap and btree containers."
+DESCRIPTION="Family of header-only, fast and memory-friendly hashmap and btree containers"
 HOMEPAGE="
 	https://greg7mdp.github.io/parallel-hashmap/
 	https://github.com/greg7mdp/parallel-hashmap

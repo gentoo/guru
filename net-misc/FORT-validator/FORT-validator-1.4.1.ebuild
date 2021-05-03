@@ -14,15 +14,14 @@ MY_PN="fort"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="caps libressl"
+IUSE="caps"
 
 DEPEND="
 	acct-group/fort
 	acct-user/fort
 	caps? ( sys-libs/libcap )
 	dev-libs/jansson
-	libressl?	( dev-libs/libressl:0= )
-	!libressl?	( dev-libs/openssl:0= )
+	dev-libs/openssl:0=
 "
 RDEPEND="
 	${DEPEND}

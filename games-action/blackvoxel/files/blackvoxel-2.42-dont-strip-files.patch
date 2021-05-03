@@ -1,0 +1,69 @@
+From b6baebbd17479d9b6f6083797fa4eb63741fa52b Mon Sep 17 00:00:00 2001
+From: tastytea <tastytea@tastytea.de>
+Date: Mon, 3 May 2021 03:05:19 +0200
+Subject: [PATCH] Don't strip files.
+
+---
+ Makefile                     | 10 +++++-----
+ src/sc_Squirrel3/sq/Makefile |  4 ++--
+ 2 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index a85dd7e..51cb0fd 100644
+--- a/Makefile
++++ b/Makefile
+@@ -19,7 +19,7 @@ OBJ= $(SRC:src/%.cpp=obj/%.o)
+ ifeq ($(OS),Windows_NT)
+   CPU_BITS=32
+   CXXFLAGS+= -O3 -c -fmessage-length=0 -march=i686
+-  LDFLAGS+= -s -Xlinker --large-address-aware -mwindows -L"src/sc_Squirrel3/lib" -lmingw32 -lSDLmain -lSDL -llibglew32 -lglu32 -lopengl32 -llibglut -lsquirrel -lsqstdlib
++  LDFLAGS+= -Xlinker --large-address-aware -mwindows -L"src/sc_Squirrel3/lib" -lmingw32 -lSDLmain -lSDL -llibglew32 -lglu32 -lopengl32 -llibglut -lsquirrel -lsqstdlib
+ else
+   # Unix like operating systems
+   CPU_BITS= $(shell getconf LONG_BIT)
+@@ -28,18 +28,18 @@ else
+ 
+   ifeq ($(KERNELNAME),Linux)
+     CXXFLAGS+= -O3 -c -fmessage-length=0
+-    LDFLAGS+=-s -zrelro -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
++    LDFLAGS+=-zrelro -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
+   else ifeq ($(KERNELNAME), FreeBSD)
+     # To be done...
+     CXXFLAGS+= -O3 -c -fmessage-length=0
+-    LDFLAGS+=-s -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
++    LDFLAGS+=-L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
+   else ifeq ($(KERNELNAME), Darwin)
+     CXXFLAGS+= -O3 -c -fmessage-length=0
+-    LDFLAGS+=-s -L"src/sc_Squirrel3/lib" -L"/usr/local/Cellar/glew" -L"/usr/local/Cellar/sdl" -I"/usr/local/Cellar/glew" -I"/usr/local/Cellar/sdl" -framework Cocoa -framework OpenGL -lSDLmain -lSDL -lGLEW -lsquirrel -lsqstdlib
++    LDFLAGS+=-L"src/sc_Squirrel3/lib" -L"/usr/local/Cellar/glew" -L"/usr/local/Cellar/sdl" -I"/usr/local/Cellar/glew" -I"/usr/local/Cellar/sdl" -framework Cocoa -framework OpenGL -lSDLmain -lSDL -lGLEW -lsquirrel -lsqstdlib
+   else
+     # Unknow kernel... trying default flags
+     CXXFLAGS+= -O3 -c -fmessage-length=0
+-    LDFLAGS+=-s -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
++    LDFLAGS+=-L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
+   endif
+ endif
+ 
+diff --git a/src/sc_Squirrel3/sq/Makefile b/src/sc_Squirrel3/sq/Makefile
+index 08fb2ef..8cc1cbc 100644
+--- a/src/sc_Squirrel3/sq/Makefile
++++ b/src/sc_Squirrel3/sq/Makefile
+@@ -12,13 +12,13 @@ SRCS= sq.c
+ 	
+ 	
+ sq32:
+-	$(CXX) -O2 -s -fno-exceptions -fno-rtti -o $(OUT) $(SRCS) $(INCZ) $(LIBZ) $(LIB)
++	$(CXX) -O2 -fno-exceptions -fno-rtti -o $(OUT) $(SRCS) $(INCZ) $(LIBZ) $(LIB)
+ 
+ sqprof:
+ 	$(CXX) -O2 -pg -fno-exceptions -fno-rtti -pie -gstabs -g3 -o $(OUT) $(SRCS) $(INCZ) $(LIBZ) $(LIB)
+ 	
+ sq64:
+-	$(CXX) -O2 -s -m64 -fno-exceptions -fno-rtti -D_SQ64 -o $(OUT) $(SRCS) $(INCZ) $(LIBZ) $(LIB)
++	$(CXX) -O2 -m64 -fno-exceptions -fno-rtti -D_SQ64 -o $(OUT) $(SRCS) $(INCZ) $(LIBZ) $(LIB)
+ 	
+ sq64d:
+ 	$(CXX) -O0 -g3 -m64 -fno-exceptions -fno-rtti -D_SQ64 -o $(OUT) $(SRCS) $(INCZ) $(LIBZ) $(LIB)
+-- 
+2.26.3
+

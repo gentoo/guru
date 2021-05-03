@@ -25,6 +25,8 @@ DEPEND="
 	|| ( dev-dotnet/dotnet-sdk-bin dev-dotnet/dotnet-runtime-bin )
 "
 
+QA_PREBUILT="*"
+
 S="${WORKDIR}/${MY_PN}"
 src_install() {
 	local LP=opentabletdriver
@@ -71,6 +73,6 @@ pkg_postinst() {
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		elog "Please replug your tablet before attempting to use the driver"
 	fi
-	#ewarn "If this is your first time installing,"
+	ewarn "otd-gui is currently broken while the daemon is running https://github.com/OpenTabletDriver/OpenTabletDriver/issues/1041"
 	#ewarn "please replug your tablet."
 }
