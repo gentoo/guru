@@ -10,16 +10,25 @@ inherit distutils-r1
 
 DESCRIPTION="Tool/library for transforming/analyzing cluster configuration formats"
 HOMEPAGE="https://pagure.io/clufter"
-SRC_URI="https://pagure.io/clufter/archive/v0.77.2/clufter-v0.77.2.tar.gz"
+SRC_URI="https://pagure.io/${PN}/archive/v${PV}/${PN}-v${PV}.tar.gz"
+
+S="${WORKDIR}/${PN}-v${PV}"
 
 SLOT="0"
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
+
+DOCS=( __root__/README )
 
 DEPEND="dev-python/lxml
 		dev-libs/libxml2"
 
-S="${WORKDIR}/${PN}-v${PV}"
+src_compile() {
+	# Build native extension first
+	pushd "${S}/__root__/ccs-flatten" || die
+	emake
+	popd || die
 
-DOCS=( __root__/README )
+	distutils-r1_src_compile
+}
