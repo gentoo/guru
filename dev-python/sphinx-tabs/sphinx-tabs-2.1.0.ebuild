@@ -23,7 +23,6 @@ BDEPEND="
 	>=dev-python/setuptools_scm-1.15.0[${PYTHON_USEDEP}]
 	test? (
 		dev-python/beautifulsoup:4[${PYTHON_USEDEP}]
-		dev-python/coverage[${PYTHON_USEDEP}]
 		dev-python/path-py[${PYTHON_USEDEP}]
 		dev-python/pygments[${PYTHON_USEDEP}]
 		dev-python/pytest-regressions[${PYTHON_USEDEP}]
