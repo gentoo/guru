@@ -11,7 +11,7 @@
     <doc lang="en">https://cran.r-project.org/web//packages/tibble/tibble.pdf</doc>
     <changelog>https://cran.r-project.org/web//packages/tibble/news/news.html</changelog>
     <maintainer>
-      <name>Kirill M&#195;&#188;ller</name>
+      <name>Kirill Müller</name>
       <email>krlmlr+r@mailbox.org</email>
     </maintainer>
     <remote-id type="github">tidyverse/tibble</remote-id>
