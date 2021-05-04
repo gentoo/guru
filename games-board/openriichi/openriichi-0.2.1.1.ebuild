@@ -3,6 +3,8 @@
 
 EAPI=7
 
+VALA_MIN_API_VERSION="0.44"
+
 inherit desktop meson vala xdg
 
 Engine_sha="e495846970a1b38d00c81a3f74568030f976ed31"
