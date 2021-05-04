@@ -329,7 +329,6 @@ dev-python/starlette 0.14.1: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
 dev-python/sysv_ipc 1.0.1 1.1.0: System V IPC primitives for python
 dev-python/tekore 3.6.2: Spotify Web API client
-dev-python/tornado 6.1: Spotify Web API client
 dev-python/trio 0.18.0 0.18.0_p20210212: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0 0.12.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill Algorithm
