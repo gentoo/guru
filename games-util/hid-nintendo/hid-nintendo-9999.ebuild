@@ -11,7 +11,7 @@ EGIT_REPO_URI="https://github.com/nicman23/dkms-hid-nintendo"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 
 MODULE_NAMES="${PN}(kernel/drivers/hid:${S}/src)"
 BUILD_TARGETS="-C /usr/src/linux M=${S}/src"
