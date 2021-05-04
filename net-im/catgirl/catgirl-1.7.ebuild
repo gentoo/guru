@@ -22,3 +22,7 @@ DOCS=( README.7 scripts/chat.tmux.conf )
 src_configure() {
 	./configure --prefix="${EPREFIX}"/usr
 }
+
+src_compile() {
+	emake all
+}
