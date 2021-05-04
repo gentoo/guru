@@ -7,7 +7,7 @@ inherit desktop multilib gnome2-utils pax-utils prefix rpm xdg
 
 IUSE="gnome java"
 
-BUILDID="9805"
+BUILDID="9807"
 BVER="${PV/_rc*/}-${BUILDID}"
 BVER2=${PV}-${BUILDID}
 BASIS="ooobasis4.1"
