@@ -1,6 +1,6 @@
-From b6baebbd17479d9b6f6083797fa4eb63741fa52b Mon Sep 17 00:00:00 2001
+From a68c7c2d10bed88a5148828b6f8f02175af696ca Mon Sep 17 00:00:00 2001
 From: tastytea <tastytea@tastytea.de>
-Date: Mon, 3 May 2021 03:05:19 +0200
+Date: Mon, 3 May 2021 21:25:36 +0200
 Subject: [PATCH] Don't strip files.
 
 ---
@@ -9,7 +9,7 @@ Subject: [PATCH] Don't strip files.
  2 files changed, 7 insertions(+), 7 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index a85dd7e..51cb0fd 100644
+index 62c50cb..57f27d4 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -19,7 +19,7 @@ OBJ= $(SRC:src/%.cpp=obj/%.o)
@@ -25,13 +25,13 @@ index a85dd7e..51cb0fd 100644
  
    ifeq ($(KERNELNAME),Linux)
      CXXFLAGS+= -O3 -c -fmessage-length=0
--    LDFLAGS+=-s -zrelro -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
-+    LDFLAGS+=-zrelro -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
+-    LDFLAGS+=-s -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
++    LDFLAGS+=-L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
    else ifeq ($(KERNELNAME), FreeBSD)
      # To be done...
      CXXFLAGS+= -O3 -c -fmessage-length=0
 -    LDFLAGS+=-s -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
-+    LDFLAGS+=-L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
++    LDFLAGS+= -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
    else ifeq ($(KERNELNAME), Darwin)
      CXXFLAGS+= -O3 -c -fmessage-length=0
 -    LDFLAGS+=-s -L"src/sc_Squirrel3/lib" -L"/usr/local/Cellar/glew" -L"/usr/local/Cellar/sdl" -I"/usr/local/Cellar/glew" -I"/usr/local/Cellar/sdl" -framework Cocoa -framework OpenGL -lSDLmain -lSDL -lGLEW -lsquirrel -lsqstdlib

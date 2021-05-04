@@ -3,6 +3,7 @@
 
 EAPI=7
 
+VALA_MIN_API_VERSION="0.44"
 VALA_USE_DEPEND="vapigen"
 
 inherit meson vala

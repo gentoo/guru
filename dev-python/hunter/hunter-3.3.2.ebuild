@@ -20,14 +20,11 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="
-	dev-python/colorama[${PYTHON_USEDEP}]
-"
+RDEPEND="dev-python/colorama[${PYTHON_USEDEP}]"
 DEPEND="
 	${RDEPEND}
 	test? (
 		dev-python/aspectlib[${PYTHON_USEDEP}]
-		dev-python/hunter[${PYTHON_USEDEP}]
 		dev-python/manhole[${PYTHON_USEDEP}]
 		dev-python/pytest-benchmark[${PYTHON_USEDEP}]
 		dev-python/process-tests[${PYTHON_USEDEP}]
@@ -47,5 +44,27 @@ python_prepare_all() {
 	# all tests in this file fail
 	rm tests/test_remote.py || die
 
+	sed 's/setuptools_scm>=3.3.1,!=4.0.0,<6.0/setuptools_scm>=3.3.1/' \
+		-i setup.py || die
+
 	distutils-r1_python_prepare_all
+}
+
+python_compile() {
+	distutils-r1_python_compile
+
+	if use test; then
+		"${EPYTHON}" tests/setup.py build_ext --force --inplace || die
+	fi
+}
+
+python_test() {
+	local -x PYTHONPATH="${S}/tests:${BUILD_DIR}/lib:${PYTHONPATH}"
+	epytest --ignore=src \
+		--deselect tests/test_integration.py::test_pth_activation \
+		--deselect tests/test_integration.py::test_pth_sample4 \
+		--deselect tests/test_integration.py::test_pth_sample2 \
+		--deselect tests/test_integration.py::test_depth_limit_subprocess[depth_lt=2] \
+		--deselect tests/test_integration.py::test_depth_limit_subprocess[depth_lt=3] \
+		--deselect tests/test_integration.py::test_depth_limit_subprocess[depth_lt=4]
 }

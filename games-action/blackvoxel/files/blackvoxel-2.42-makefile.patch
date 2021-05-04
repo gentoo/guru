@@ -1,18 +1,19 @@
-From a4fbc416e1c9884353f743f84ca98207f792b502 Mon Sep 17 00:00:00 2001
+From 18ae2cca1ef8b9e04b463719d03b021245ecfeec Mon Sep 17 00:00:00 2001
 From: tastytea <tastytea@tastytea.de>
-Date: Mon, 3 May 2021 02:26:12 +0200
+Date: Mon, 3 May 2021 21:21:25 +0200
 Subject: [PATCH] Don't overwrite build-flags, replace hardcoded tools with
  variables.
 
+Also remove -zrelro from LDFLAGS.
 ---
- Makefile                           | 29 ++++++++++++++---------------
+ Makefile                           | 31 +++++++++++++++---------------
  src/sc_Squirrel3/sq/Makefile       |  8 ++++----
- src/sc_Squirrel3/sqstdlib/Makefile | 16 ++++++++--------
- src/sc_Squirrel3/squirrel/Makefile | 16 ++++++++--------
- 4 files changed, 34 insertions(+), 35 deletions(-)
+ src/sc_Squirrel3/sqstdlib/Makefile | 16 +++++++--------
+ src/sc_Squirrel3/squirrel/Makefile | 16 +++++++--------
+ 4 files changed, 35 insertions(+), 36 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index 3fac7f3..a85dd7e 100644
+index 3fac7f3..d1104e7 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -8,10 +8,9 @@ ifndef bindir
@@ -39,14 +40,14 @@ index 3fac7f3..a85dd7e 100644
  else
    # Unix like operating systems
    CPU_BITS= $(shell getconf LONG_BIT)
-@@ -28,31 +27,31 @@ else
+@@ -28,36 +27,36 @@ else
    KERNELNAME =$(shell uname -s)
  
    ifeq ($(KERNELNAME),Linux)
 -    CFLAGS+= -O3 -c -fmessage-length=0
 -    LDFLAGS=-s -zrelro -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
 +    CXXFLAGS+= -O3 -c -fmessage-length=0
-+    LDFLAGS+=-s -zrelro -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
++    LDFLAGS+=-s -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
    else ifeq ($(KERNELNAME), FreeBSD)
      # To be done...
 -    CFLAGS+= -O3 -c -fmessage-length=0
@@ -81,6 +82,12 @@ index 3fac7f3..a85dd7e 100644
  
  
  
+ squirrel: 
+-	cd src/sc_Squirrel3 ; make sq$(CPU_BITS)
++	+make -C src/sc_Squirrel3 sq$(CPU_BITS)
+ 
+ clean:
+ 	@rm -rf obj
 diff --git a/src/sc_Squirrel3/sq/Makefile b/src/sc_Squirrel3/sq/Makefile
 index c2cfc7e..08fb2ef 100644
 --- a/src/sc_Squirrel3/sq/Makefile

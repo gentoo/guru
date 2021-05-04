@@ -134,7 +134,7 @@ pkg_postinst() {
 	linux-mod_pkg_postinst
 	readme.gentoo_print_elog
 
-	elog "Links to the Android/iPhone/iPad apps can be reached at"
+	elog "Links to the Android/iPhone/iPad apps can be found at"
 	elog "https://www.dev47apps.com/"
 }
 

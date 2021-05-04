@@ -1,8 +1,8 @@
 diff --git a/Makefile b/Makefile
-index 54738f5..bcb5800 100644
+index b5f696c..bcb5800 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -6,25 +6,25 @@
+@@ -6,7 +6,7 @@
  # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  # Use at your own risk. See README file for more details.
  
@@ -11,11 +11,8 @@ index 54738f5..bcb5800 100644
  JPEG_INCLUDE ?= $(JPEG_DIR)/include
  JPEG_LIB ?= $(JPEG_DIR)/lib`getconf LONG_BIT`
  
- CXX   = g++
- CXXFLAGS = -std=c++11 -Wall -fPIC -no-pie
- GTK   = `pkg-config --libs --cflags gtk+-3.0` `pkg-config --libs x11`
--#GTK  += `pkg-config --cflags --libs appindicator3-0.1`
-+GTK  += `pkg-config --cflags --libs appindicator3-0.1`
+@@ -16,15 +16,15 @@ GTK   = `pkg-config --libs --cflags gtk+-3.0` `pkg-config --libs x11`
+ GTK  += `pkg-config --cflags --libs appindicator3-0.1`
  LIBAV = `pkg-config --libs --cflags libswscale libavutil`
  LIBS  =  -lspeex -lasound -lpthread -lm
 -JPEG  = -I$(JPEG_INCLUDE) $(JPEG_LIB)/libturbojpeg.a
