@@ -27,9 +27,8 @@ RDEPEND="
 	media-libs/freetype:2
 	>=media-libs/libpng-1.5
 	media-libs/libsdl2
-	media-libs/opusfile
+	media-libs/sdl2-mixer[opus]
 	media-libs/libwebp
-	app-arch/zstd
 	sys-libs/zlib
 	zip? ( dev-libs/libzip )
 "
