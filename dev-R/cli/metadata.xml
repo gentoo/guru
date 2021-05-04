@@ -2,6 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
+    <description>co-maintainers welcome</description>
     <email>lssndrbarbieri@gmail.com</email>
     <name>Alessandro Barbieri</name>
   </maintainer>
@@ -11,7 +12,7 @@
     <doc lang="en">https://cran.r-project.org/web//packages/cli/cli.pdf</doc>
     <changelog>https://cran.r-project.org/web//packages/cli/news/news.html</changelog>
     <maintainer>
-      <name>G&#195;&#161;bor Cs&#195;&#161;rdi</name>
+      <name>Gábor Csárdi</name>
       <email>csardi.gabor@gmail.com</email>
     </maintainer>
     <remote-id type="github">r-lib/cli</remote-id>

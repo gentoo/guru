@@ -2,6 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
+    <description>co-maintainers welcome</description>
     <email>lssndrbarbieri@gmail.com</email>
     <name>Alessandro Barbieri</name>
   </maintainer>
@@ -10,7 +11,7 @@
     <bugs-to>https://github.com/r-lib/crayon/issues</bugs-to>
     <doc lang="en">https://cran.r-project.org/web//packages/crayon/crayon.pdf</doc>
     <maintainer>
-      <name>G&#195;&#161;bor Cs&#195;&#161;rdi</name>
+      <name>Gábor Csárdi</name>
       <email>csardi.gabor@gmail.com</email>
     </maintainer>
     <remote-id type="github">r-lib/crayon</remote-id>
