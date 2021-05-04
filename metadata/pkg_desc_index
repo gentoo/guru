@@ -46,7 +46,7 @@ app-editors/vscodium-bin 1.53.2 1.54.3 1.55.2: Free/Libre Open Source Software B
 app-emacs/flycheck 31: On the fly syntax checking for GNU Emacs
 app-emulation/arnold 20170513: Amstrad CPC emulator
 app-emulation/dxvk-bin 1.8 1.8.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
-app-emulation/nvidia-container-toolkit 1.4.2: NVIDIA container runtime toolkit
+app-emulation/nvidia-container-toolkit 1.4.2 1.5.0: NVIDIA container runtime toolkit
 app-eselect/eselect-scheme 1.0.0: Manages scheme implementations
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/afetch 2.1.0: Simple system info written in C
@@ -81,7 +81,7 @@ app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20181120 0_pre20201102: vrms clone for Gentoo Linux
 app-misc/watchexec 1.14.1 1.15.0 1.15.1 1.15.2 1.15.3: Executes commands in response to file modifications
 app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
-app-office/openoffice-bin 4.1.9: Apache OpenOffice productivity suite
+app-office/openoffice-bin 4.1.10: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.4 1.99.5 9999: Pyspread is a non-traditional spreadsheet written in Python
 app-portage/emlop 0.4.1: A fast, accurate, ergonomic emerge.log parser
 app-portage/pacvis 0.4.2 9999: Displays dependency graphs of packages
@@ -329,6 +329,7 @@ dev-python/starlette 0.14.1: The little ASGI framework that shines
 dev-python/stdio-mgr 1.0.1: Context manager for mocking/wrapping stdin/stdout/stderr
 dev-python/sysv_ipc 1.0.1 1.1.0: System V IPC primitives for python
 dev-python/tekore 3.6.2: Spotify Web API client
+dev-python/tornado 6.1: Spotify Web API client
 dev-python/trio 0.18.0 0.18.0_p20210212: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.11.0 0.12.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill Algorithm
@@ -390,6 +391,7 @@ games-util/NotEnoughProduction 0.0.4: Tool for building production chains for mo
 games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
 games-util/hid-nintendo 9999: A Nintendo HID kernel module
 games-util/itch-bin 25.4.0 25.4.1: itch.io game browser, installer and launcher
+games-util/joycond 9999: Combine joy-cons using hid-nintendo
 games-util/legendary 0.20.5 0.20.6: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.2: A simple GOG client for Linux
 gui-apps/azote 1.8.1 1.8.2 1.9.0 1.9.1 9999: wallpaper manager for wlroots compositors
@@ -510,6 +512,7 @@ net-dialup/tio 1.32: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0 9999: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.5 9.0_rc1-r1 9.0: XMPP gateway to IRC
+net-im/catgirl 1.7: TLS-only terminal IRC client
 net-im/discord-canary-bin 0.0.119-r1: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-im/nheko 0.8.1 0.8.2: Desktop client for Matrix using Qt and C++14
@@ -653,7 +656,7 @@ x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement 
 x11-misc/ksnip 1.8.1: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Window System
-x11-terms/terminus-bin 1.0.137: A terminal for a more modern age
+x11-terms/terminus-bin 1.0.138: A terminal for a more modern age
 x11-themes/arc-darkest-colors 0_pre20200818 0_pre20201112: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
 x11-themes/materia-theme 20210322: A Material Design theme for GNOME/GTK based desktop environments
