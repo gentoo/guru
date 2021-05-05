@@ -37,6 +37,7 @@ dev-embedded/rauc:json - Add JSON support
 dev-embedded/rauc:network - Add network update support
 dev-embedded/rauc:service - Add dbus service
 dev-games/godot:bullet - Enable support for sci-physics/bullet
+dev-games/godot:deprecated - Enable deprecated features
 dev-games/godot:enet - Enable support for net-libs/enet
 dev-games/godot:freetype - Enable support for media-libs/freetype
 dev-games/godot:lto - Enable support for link time optimization

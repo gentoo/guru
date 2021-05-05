@@ -155,7 +155,7 @@ dev-embedded/rauc 1.5.1: Lightweight update client that runs on your Embedded Li
 dev-erlang/cowboy 2.8.0: Small, fast, modern HTTP server for Erlang/OTP.
 dev-erlang/cowlib 2.10.1: Support library for manipulating Web protocols.
 dev-erlang/ranch 1.7.1: Socket acceptor pool for TCP protocols.
-dev-games/godot 3.2.3-r1: Multi-platform 2D and 3D game engine
+dev-games/godot 3.2.3-r1 3.3: Multi-platform 2D and 3D game engine
 dev-games/surgescript 0.5.4.3 0.5.4.4 9999: scripting language made for opensurge
 dev-go/lichen 0.1.1: Go binary license checker
 dev-java/gradle-base-annotations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
