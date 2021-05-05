@@ -199,7 +199,10 @@ COMMIT="540882ec8c9e40414de54d6c43f72f861c4e89d9"
 MY_PV=$(ver_cut 1-3)
 MY_P="${PN}-${MY_PV}"
 DESCRIPTION="A fully-modern text-based browser, rendering to TTY and browsers"
-HOMEPAGE="https://brow.sh"
+HOMEPAGE="
+	https://brow.sh
+	https://github.com/browsh-org/browsh
+"
 SRC_URI="
 	https://github.com/browsh-org/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz
 	https://github.com/browsh-org/${PN}/releases/download/v${MY_PV}/${MY_P}-an.fx.xpi
