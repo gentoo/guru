@@ -10,7 +10,7 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
 
-DESCRIPTION="The command-line tool for BackBlaze's B2 product."
+DESCRIPTION="Command-line tool for BackBlaze's B2 product"
 HOMEPAGE="https://github.com/Backblaze/B2_Command_Line_Tool"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
@@ -20,7 +20,6 @@ KEYWORDS="~amd64 ~x86"
 
 PATCHES=(
 	"${FILESDIR}/${P}-nameclash.patch"
-	"${FILESDIR}/${P}-skip-integration-test.patch"
 )
 
 RDEPEND="
@@ -34,7 +33,15 @@ RDEPEND="
 
 distutils_enable_tests pytest
 
-pkg_postinst(){
+python_test() {
+	epytest \
+		--deselect test/integration/test_b2_command_line.py::test_integration \
+		--deselect test/unit/test_arg_parser.py::TestCustomArgTypes::test_parse_millis_from_float_timestamp \
+		--deselect test/unit/test_console_tool.py::TestConsoleTool::test_sync_exclude_if_modified_after_exact \
+		--deselect test/unit/test_console_tool.py::TestConsoleTool::test_sync_exclude_if_modified_after_in_range
+}
+
+pkg_postinst() {
 	elog "The b2 executable has been renamed to backblaze2 in order to"
 	elog "avoid a name clash with b2 from boost-build"
 }
