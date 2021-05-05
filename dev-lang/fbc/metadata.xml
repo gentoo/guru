@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">
 		FreeBASIC is a completely free, open-source, multi-platform
 		BASIC compiler, with syntax similar to MS-QuickBASIC, that adds

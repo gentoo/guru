@@ -14,6 +14,12 @@ SLOT="0"
 DEPEND=">=x11-libs/gtk+-3"
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	default
+	sed -e 's/\(`pkg-config --cflags .*`\) \(`pkg-config --libs .*`\)/\1 $(CFLAGS) \2 $(LDFLAGS)/' \
+		-i Makefile
+}
+
 src_install() {
 	emake PREFIX="${D}/usr/bin" install
 	dodoc README
