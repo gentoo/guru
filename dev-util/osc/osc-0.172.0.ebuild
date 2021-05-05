@@ -47,6 +47,8 @@ BDEPEND="
 	')
 )"
 
+PATCHES=( "${FILESDIR}"/${PN}-no-man-compression.patch )
+
 distutils_enable_tests pytest
 # Bug: https://bugs.gentoo.org/704520
 #distutils_enable_sphinx docs dev-python/alabaster
