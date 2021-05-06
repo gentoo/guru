@@ -4,7 +4,7 @@
 	<maintainer type="person">
 		<email>phil@demona.co</email>
 		<name>Phil DeMonaco</name>
-		</maintainer>
+	</maintainer>
 	<longdescription lang="en">
 			Dotfile management application which provides a configuration
 			and encryption interface ontop of traditional version control
@@ -13,6 +13,6 @@
 			with differing requirements.
 	</longdescription>
 	<upstream>
-		<remote-id type="github">twpane/chezmoi</remote-id>
+		<remote-id type="github">twpayne/chezmoi</remote-id>
 	</upstream>
 </pkgmetadata>
