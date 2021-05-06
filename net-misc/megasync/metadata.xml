@@ -6,6 +6,9 @@
 		<name>Samuel Bernardo</name>
 		<description>megasync client from mega.nz</description>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">meganz/MEGAsync</remote-id>
+	</upstream>
 	<use>
 		<flag name='dolphin'>Upload your files to your Mega account from Dolphin file manager.</flag>
 		<flag name='nautilus'>Upload your files to your Mega account from nautilus.</flag>

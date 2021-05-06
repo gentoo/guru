@@ -199,7 +199,10 @@ COMMIT="540882ec8c9e40414de54d6c43f72f861c4e89d9"
 MY_PV=$(ver_cut 1-3)
 MY_P="${PN}-${MY_PV}"
 DESCRIPTION="A fully-modern text-based browser, rendering to TTY and browsers"
-HOMEPAGE="https://brow.sh"
+HOMEPAGE="
+	https://brow.sh
+	https://github.com/browsh-org/browsh
+"
 SRC_URI="
 	https://github.com/browsh-org/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz
 	https://github.com/browsh-org/${PN}/releases/download/v${MY_PV}/${MY_P}-an.fx.xpi
@@ -207,7 +210,27 @@ SRC_URI="
 "
 S="${WORKDIR}/${PN}-${COMMIT}/interfacer"
 
-LICENSE="Apache-2.0 BSD BSD-2 CC0-1.0 CC-BY-3.0 ISC LGPL-2.1 MIT MPL-2.0"
+BUNDLED_NODE_MODULES_LICENSES="
+	0BSD
+	Apache-2.0
+	BSD
+	BSD-2
+	CC0-1.0
+	CC-BY-3.0
+	ISC
+	MIT
+	MPL-2.0
+	PSF-2
+	Unlicense
+	ZLIB
+	|| ( AFL-2.1 BSD )
+	|| ( BSD-2 MIT Apache-2.0 )
+	|| ( BSD GPL-2 )
+	|| ( LGPL-2 MIT )
+	|| ( MIT GPL-3 )
+	|| ( WTFPL-2 MIT )
+"
+LICENSE="Apache-2.0 BSD BSD-2 CC0-1.0 CC-BY-3.0 ISC LGPL-2.1 MIT MPL-2.0 ${BUNDLED_NODE_MODULES_LICENSES}"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 

@@ -17,7 +17,7 @@
 This plugin provides a benchmark fixture. This fixture is a callable object that will benchmark any function passed to it.
   </longdescription>
   <upstream>
-    <remote-id type="github">ionelm/pytest-benchmark</remote-id>
+    <remote-id type="github">ionelmc/pytest-benchmark</remote-id>
     <remote-id type="pypi">pytest-benchmark</remote-id>
   </upstream>
 </pkgmetadata>
