@@ -9,7 +9,10 @@ MY_P="${MY_PN}-${PV}"
 inherit xdg cmake
 
 DESCRIPTION="Nintendo DS emulator, sorta"
-HOMEPAGE="http://melonds.kuribo64.net/"
+HOMEPAGE="
+	http://melonds.kuribo64.net
+	https://github.com/Arisotura/melonDS
+"
 
 if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
