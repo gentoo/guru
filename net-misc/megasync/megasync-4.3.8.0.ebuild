@@ -6,7 +6,10 @@ EAPI=7
 inherit autotools desktop qmake-utils xdg cmake
 
 DESCRIPTION="The official Qt-based program for syncing your MEGA account in your PC"
-HOMEPAGE="http://mega.co.nz"
+HOMEPAGE="
+	https://mega.io
+	https://github.com/meganz/MEGAsync
+"
 
 if [[ ${PV} == 9999 ]];then
 	inherit git-r3
