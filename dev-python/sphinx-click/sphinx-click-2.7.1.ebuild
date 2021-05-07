@@ -23,9 +23,9 @@ RDEPEND="
 	<dev-python/sphinx-4[${PYTHON_USEDEP}]
 	>=dev-python/click-6[${PYTHON_USEDEP}]
 	<dev-python/click-8[${PYTHON_USEDEP}]
-	dev-python/docutils[${PYTHON_USEDEP}]
+	<dev-python/docutils-0.17[${PYTHON_USEDEP}]
 "
 DEPEND="dev-python/pbr[${PYTHON_USEDEP}]"
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs
+distutils_enable_sphinx docs --no-autodoc
