@@ -3,6 +3,15 @@
 # * generated automatically using pmaint *
 
 app-admin/krapplet:pass - Add support for pass compatible storage
+app-crypt/mkp224o:amd64-51-30k - Use x86_64 amd64-51-30k SUPERCOP implementation
+app-crypt/mkp224o:amd64-64-24k - Use x86_64 amd64-64-24k SUPERCOP implementation
+app-crypt/mkp224o:besort - Force intfilter binary search case to use big endian sorting; useful if your filters aren't of the same length
+app-crypt/mkp224o:binsearch - Enable binary search algo; much faster if there are a lot of filters
+app-crypt/mkp224o:donna - Use portable ed25519-donna implementation
+app-crypt/mkp224o:donna-sse2 - Use x86 + SSE2 ed25519-donna implementation
+app-crypt/mkp224o:pcre2 - Enable the regex engine and use pcre2
+app-crypt/mkp224o:ref10 - Use portable ref10 SUPERCOP implementation
+app-crypt/mkp224o:statistics - Collect performance statistics
 app-crypt/tomb:tray - add a tomb tray in a QT desktop toolbar
 app-editors/vscodium-bin:libsecret - Enable libsecret support
 app-emulation/arnold:inkz80 - Use inkz80 processor emulation
