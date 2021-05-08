@@ -129,6 +129,7 @@ media-gfx/bonzomatic:system-glew - Use the systems installed version of GLEW (up
 media-gfx/bonzomatic:system-glfw - Use the systems installed version of GLFW (upstream-unsupported)
 media-gfx/bonzomatic:system-kissfft - Use the systems installed version of Kissfft (upstream-unsupported)
 media-gfx/bonzomatic:system-stb - Use the systems installed version of STB (upstream-unsupported)
+media-gfx/bonzomatic:wayland - Build non-system-glfw for wayland instead of X11
 media-gfx/glimpse:heif - Enable support for ISO/IEC 23008-12:2017 HEIF files
 media-gfx/glimpse:vector-icons - Enable support for vector icons (experimental)
 media-gfx/grafx2:ttf - Install TTF Fonts
