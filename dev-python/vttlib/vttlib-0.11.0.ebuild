@@ -24,6 +24,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	>=dev-python/fonttools-4.10.2[${PYTHON_USEDEP}]
 	>=dev-python/pyparsing-2.4.7[${PYTHON_USEDEP}]
+	dev-python/toml[${PYTHON_USEDEP}]
 	>=dev-python/ufoLib2-0.7.1[${PYTHON_USEDEP}]
 "
 #setup_requires
