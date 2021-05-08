@@ -73,6 +73,7 @@ src_configure() {
 	# Remove builtin third-party packages, link with system ones instead
 	myesconsargs+=(
 		builtin_bullet=no
+		builtin_embree=no
 		builtin_enet=no
 		builtin_freetype=no
 		builtin_libogg=no
@@ -92,6 +93,9 @@ src_configure() {
 	myesconsargs+=(
 		# Mono bindings requires MSBuild which is only available on Windows
 		module_mono_enabled=no
+		# TODO: land embree library (https://github.com/embree/embree) in guru
+		# so that we can enable raycast module
+		module_raycast_enabled=no
 		module_bullet_enabled=$(usex bullet)
 		module_enet_enabled=$(usex enet)
 		module_freetype_enabled=$(usex freetype)
@@ -137,6 +141,6 @@ src_install() {
 	insinto /usr/share/metainfo
 	doins misc/dist/linux/org.godotengine.Godot.appdata.xml
 	insinto /usr/share/mime/application
-	doins misc/dist/linux/x-godot-project.xml
+	doins misc/dist/linux/org.godotengine.Godot.xml
 	dodoc AUTHORS.md CHANGELOG.md DONORS.md README.md
 }
