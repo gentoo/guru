@@ -56,12 +56,11 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-fix-llvm-build.patch
-	"${FILESDIR}"/${P}-fix-CVE-2021-26825.patch
 )
 
 src_prepare() {
 	default
-	rm -r thirdparty/{bullet,enet,freetype,libogg,libpng,libtheora,libvorbis,libvpx,libwebp,mbedtls,miniupnpc,opus,pcre2,zlib,zstd} || die
+	rm -r thirdparty/{bullet,enet,freetype,libogg,libpng,libtheora,libvorbis,libvpx,libwebp,mbedtls,miniupnpc,opus,pcre2,zstd} || die
 }
 
 src_configure() {
