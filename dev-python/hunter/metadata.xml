@@ -67,7 +67,7 @@ From the other perspective, you'd be wondering if you could use Hunter to measur
 In other words, filtering events is the main selling point of Hunter - it's fast (cython implementation) and the query API is flexible enough.
   </longdescription>
   <upstream>
-    <remote-id type="github">python-hyper/hyper-h2</remote-id>
-    <remote-id type="pypi">h2</remote-id>
+    <remote-id type="github">ionelmc/python-hunter</remote-id>
+    <remote-id type="pypi">hunter</remote-id>
   </upstream>
 </pkgmetadata>

@@ -46,12 +46,6 @@ DEPEND="
 	${RDEPEND}
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.01-viewport.patch
-	"${FILESDIR}"/${PN}-1.12-desktop.patch
-	"${FILESDIR}"/${PN}-1.12-cmake.patch
-)
-
 src_prepare() {
 	export CC="$(tc-getCC)"
 	export AR="$(tc-getAR)"
@@ -79,10 +73,9 @@ src_configure() {
 
 src_compile() {
 	cd "${S}/libsigrok4DSL" || die
-	emake DESTDIR="${D}"
+	emake
 	cd "${S}/libsigrokdecode4DSL" || die
-	emake DESTDIR="${D}"
-	cd "${S}"
+	emake
 }
 
 src_install() {

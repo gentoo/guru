@@ -6,7 +6,7 @@ EAPI=7
 DESCRIPTION="minimalistic commandline pastebin"
 HOMEPAGE="https://bsd.ac"
 
-inherit systemd toolchain-funcs
+inherit systemd meson
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -35,17 +35,15 @@ DEPEND="${RDEPEND}
 BDEPEND="test? ( sys-apps/coreutils )"
 
 src_configure() {
-	default
-	tc-export CXX
-}
-
-src_test() {
-	P_DD_FLAGS="iflag=fullblock" \
-	default
+	local emesonargs=(
+		$(meson_use test enable_testing)
+		-Dtest_dd_flags="iflag=fullblock"
+	)
+	meson_src_configure
 }
 
 src_install() {
-	emake PREFIX="/usr" MANDIR="/usr/share/man" DESTDIR="${ED}" install
+	meson_src_install
 	insinto /var/www/purritobin
 	doins frontend/paste.html
 	keepdir /var/db/purritobin

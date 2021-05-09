@@ -47,9 +47,11 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.01-viewport.patch
-	"${FILESDIR}"/${PN}-1.12-desktop.patch
-	"${FILESDIR}"/${PN}-1.12-cmake.patch
+	"${FILESDIR}"/${P}-desktop.patch
+	"${FILESDIR}"/${P}-cmake.patch
+	"${FILESDIR}"/${P}-fix-qt.patch
+	"${FILESDIR}"/${P}-fix-segfault.patch
+	"${FILESDIR}"/${P}-fix-extern-c.patch
 )
 
 src_prepare() {
@@ -79,10 +81,9 @@ src_configure() {
 
 src_compile() {
 	cd "${S}/libsigrok4DSL" || die
-	emake DESTDIR="${D}"
+	emake
 	cd "${S}/libsigrokdecode4DSL" || die
-	emake DESTDIR="${D}"
-	cd "${S}"
+	emake
 }
 
 src_install() {

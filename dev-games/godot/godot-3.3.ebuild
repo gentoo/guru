@@ -56,12 +56,11 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-fix-llvm-build.patch
-	"${FILESDIR}"/${P}-fix-CVE-2021-26825.patch
 )
 
 src_prepare() {
 	default
-	rm -r thirdparty/{bullet,enet,freetype,libogg,libpng,libtheora,libvorbis,libvpx,libwebp,mbedtls,miniupnpc,opus,pcre2,zlib,zstd} || die
+	rm -r thirdparty/{bullet,enet,freetype,libogg,libpng,libtheora,libvorbis,libvpx,libwebp,mbedtls,miniupnpc,opus,pcre2,zstd} || die
 }
 
 src_configure() {
@@ -74,6 +73,7 @@ src_configure() {
 	# Remove builtin third-party packages, link with system ones instead
 	myesconsargs+=(
 		builtin_bullet=no
+		builtin_embree=no
 		builtin_enet=no
 		builtin_freetype=no
 		builtin_libogg=no
@@ -93,6 +93,9 @@ src_configure() {
 	myesconsargs+=(
 		# Mono bindings requires MSBuild which is only available on Windows
 		module_mono_enabled=no
+		# TODO: land embree library (https://github.com/embree/embree) in guru
+		# so that we can enable raycast module
+		module_raycast_enabled=no
 		module_bullet_enabled=$(usex bullet)
 		module_enet_enabled=$(usex enet)
 		module_freetype_enabled=$(usex freetype)
@@ -138,6 +141,6 @@ src_install() {
 	insinto /usr/share/metainfo
 	doins misc/dist/linux/org.godotengine.Godot.appdata.xml
 	insinto /usr/share/mime/application
-	doins misc/dist/linux/x-godot-project.xml
+	doins misc/dist/linux/org.godotengine.Godot.xml
 	dodoc AUTHORS.md CHANGELOG.md DONORS.md README.md
 }
