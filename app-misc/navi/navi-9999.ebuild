@@ -6,7 +6,7 @@
 EAPI=7
 
 CRATES="
-	aho-corasick-0.7.15
+	aho-corasick-0.7.18
 	anyhow-1.0.40
 	atty-0.2.14
 	autocfg-1.0.1
@@ -36,7 +36,7 @@ CRATES="
 	linked-hash-map-0.5.4
 	lock_api-0.4.3
 	log-0.4.14
-	memchr-2.3.4
+	memchr-2.4.0
 	memoffset-0.6.3
 	mio-0.7.11
 	miow-0.3.7
@@ -58,8 +58,8 @@ CRATES="
 	rayon-core-1.9.0
 	redox_syscall-0.2.5
 	redox_users-0.4.0
-	regex-1.4.6
-	regex-syntax-0.6.23
+	regex-1.5.3
+	regex-syntax-0.6.25
 	remove_dir_all-0.5.3
 	remove_dir_all-0.7.0
 	same-file-1.0.6
