@@ -1,0 +1,13 @@
+BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=install postinst postrm setup
+DESCRIPTION=A beautiful sans-serif monotype font designed for code listings
+EAPI=7
+HOMEPAGE=https://nodnod.net/posts/inconsolata-dz https://fontinfo.opensuse.org/fonts/Inconsolata-dzdz.html
+INHERIT=font
+IUSE=X
+KEYWORDS=~amd64
+LICENSE=OFL-1.1
+SLOT=0
+SRC_URI=https://nodnod.net/posts/inconsolata-dz/files/Inconsolata_dz.otf
+_eclasses_=font	0667878c2b594871023dd1833d05996f
+_md5_=d322bae6a29c8fb62fe1b551d96db2cd
