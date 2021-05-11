@@ -8,16 +8,16 @@ MYP="${PN}-${MYPV}"
 DESCRIPTION="C++ library for Database Acces."
 HOMEPAGE="https://github.com/azaeldevel/octetos-db-maria"
 if [[ ${PV} == 9999 ]]; then
-inherit autotools git-r3
-EGIT_REPO_URI="https://github.com/azaeldevel/octetos-core.git"
+	inherit autotools git-r3
+	EGIT_REPO_URI="https://github.com/azaeldevel/octetos-core.git"
 else
-inherit autotools
-SRC_URI="https://github.com/azaeldevel/${PN}/archive/${MYPV}.tar.gz -> ${P}.tar.gz"
+	inherit autotools
+	SRC_URI="https://github.com/azaeldevel/${PN}/archive/${MYPV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
 
 DEPEND="
 	dev-libs/octetos-db-abstract
