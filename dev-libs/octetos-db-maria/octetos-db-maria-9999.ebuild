@@ -3,15 +3,16 @@
 
 EAPI=7
 
+inherit autotools
+
 MYPV="${PV/_alpha/-alpha}"
 MYP="${PN}-${MYPV}"
 DESCRIPTION="C++ library for Database Acces."
 HOMEPAGE="https://github.com/azaeldevel/octetos-db-maria"
 if [[ ${PV} == 9999 ]]; then
-	inherit autotools git-r3
+	inherit git-r3
 	EGIT_REPO_URI="https://github.com/azaeldevel/octetos-core.git"
 else
-	inherit autotools
 	SRC_URI="https://github.com/azaeldevel/${PN}/archive/${MYPV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
