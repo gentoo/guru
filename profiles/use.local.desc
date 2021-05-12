@@ -41,6 +41,11 @@ app-text/klogg:lto - Build with link time optimization (LTO).
 app-text/klogg:sentry - Enable crash reporting using sentry.io.
 dev-cpp/sprout:texconv - Install texconv from subproject compost
 dev-cpp/sprout:wavconv - Install texconv from subproject darkroom
+dev-cpp/vexcl:amdsi - Implement workaround for AMD SI GPUs
+dev-cpp/vexcl:clhpp - Install the OpenCL C++ header provided by VexCL
+dev-cpp/vexcl:compute - Use Boost.Compute algorithms
+dev-cpp/vexcl:jit - Use the JIT backend
+dev-cpp/vexcl:opencl - Use OpenCL as backend
 dev-embedded/rauc:gpt - Add GPT support
 dev-embedded/rauc:json - Add JSON support
 dev-embedded/rauc:network - Add network update support

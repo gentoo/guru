@@ -1,0 +1,10 @@
+DEFINED_PHASES=compile configure install prepare
+DESCRIPTION=This package provides various plugins for Munin
+EAPI=7
+HOMEPAGE=https://github.com/mendix/munin-plugins-mendix
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=net-analyzer/munin
+SLOT=0
+SRC_URI=https://github.com/mendix/munin-plugins-mendix/archive/84f6a325fda18678cd08e9c3615d76e747a5ab51.tar.gz -> munin-plugins-mendix-23_p20210510.tar.gz
+_md5_=7fecf5eb5497aa0c8b3a5659d8fae6d1
