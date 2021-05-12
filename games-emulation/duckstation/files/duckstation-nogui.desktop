@@ -6,5 +6,4 @@ Comment=Fast-ish PlayStation 1 emulator
 Icon=duckstation-nogui
 TryExec=/opt/duckstation/duckstation-nogui
 Exec=/opt/duckstation/duckstation-nogui %f
-Terminal=false
 Categories=Game;Emulator;

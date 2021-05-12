@@ -74,20 +74,24 @@ src_install() {
 	doins -r "${BUILD_DIR}"/bin/{database,inputprofiles,resources,shaders,translations}
 
 	if use nogui; then
-		newicon -s 16 appimage/icon-16px.png duckstation-nogui
-		newicon -s 32 appimage/icon-32px.png duckstation-nogui
-		newicon -s 48 appimage/icon-48px.png duckstation-nogui
-		newicon -s 64 appimage/icon-64px.png duckstation-nogui
+		newicon -s 16 dist/icon-16px.png duckstation-nogui
+		newicon -s 32 dist/icon-32px.png duckstation-nogui
+		newicon -s 48 dist/icon-48px.png duckstation-nogui
+		newicon -s 64 dist/icon-64px.png duckstation-nogui
+		newicon -s 128 dist/icon-128px.png duckstation-nogui
+		newicon -s 256 dist/icon-256px.png duckstation-nogui
 		domenu "${FILESDIR}"/duckstation-nogui.desktop
 		doins "${BUILD_DIR}"/bin/duckstation-nogui
 		fperms +x /opt/${PN}/duckstation-nogui
 	fi
 
 	if use qt5; then
-		newicon -s 16 appimage/icon-16px.png duckstation-qt
-		newicon -s 32 appimage/icon-32px.png duckstation-qt
-		newicon -s 48 appimage/icon-48px.png duckstation-qt
-		newicon -s 64 appimage/icon-64px.png duckstation-qt
+		newicon -s 16 dist/icon-16px.png duckstation-qt
+		newicon -s 32 dist/icon-32px.png duckstation-qt
+		newicon -s 48 dist/icon-48px.png duckstation-qt
+		newicon -s 64 dist/icon-64px.png duckstation-qt
+		newicon -s 128 dist/icon-128px.png duckstation-qt
+		newicon -s 256 dist/icon-256px.png duckstation-qt
 		domenu "${FILESDIR}"/duckstation-qt.desktop
 		doins "${BUILD_DIR}"/bin/duckstation-qt
 		fperms +x /opt/${PN}/duckstation-qt
