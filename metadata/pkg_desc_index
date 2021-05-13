@@ -19,7 +19,7 @@ acct-user/monero 0: System user: monero
 acct-user/purritobin 0: User for net-misc/purritobin
 acct-user/trezord 0: User for TREZOR Bridge
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
-app-admin/ananicy 2.2.1: ANother Auto NICe daemon
+app-admin/ananicy 2.2.1 2.2.1-r1: ANother Auto NICe daemon
 app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
 app-admin/chezmoi 1.8.2 1.8.10: Manage your dotfiles across multiple machines, securely.
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
@@ -478,7 +478,7 @@ media-gfx/sic 0.18.0: Accessible image processing and conversion from the termin
 media-gfx/silicon 0.4.0 0.4.1: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.1.2: AMD Open Source Driver for Vulkan
-media-libs/fcft 2.3.3 9999: A simple library for font loading and glyph rasterization
+media-libs/fcft 2.3.3 2.4.0 9999: A simple library for font loading and glyph rasterization
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
 media-libs/jpeg-xl 9999: JPEG XL Reference Software
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
@@ -527,7 +527,7 @@ net-im/catgirl 1.7: TLS-only terminal IRC client
 net-im/discord-canary-bin 0.0.119-r1: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-im/nheko 0.8.1 0.8.2: Desktop client for Matrix using Qt and C++14
-net-im/rocketchat-desktop-bin 3.2.0: The Ultimate Open Source Web Chat Platform
+net-im/rocketchat-desktop-bin 3.2.1: The Ultimate Open Source Web Chat Platform
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
 net-im/srain 1.1.3 1.2.1: Modern, beautiful IRC client written in GTK+ 3
 net-libs/kcgi 0.12.3 0.12.4 9999: minimal CGI library for web applications

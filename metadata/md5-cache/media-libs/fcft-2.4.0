@@ -1,0 +1,15 @@
+BDEPEND=app-text/scdoc app-i18n/unicode-data examples? ( dev-libs/wayland-protocols dev-util/wayland-scanner ) >=dev-util/meson-0.54.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=test? ( text-shaping? ( media-fonts/noto-emoji ) )
+DESCRIPTION=A simple library for font loading and glyph rasterization
+EAPI=7
+HOMEPAGE=https://codeberg.org/dnkl/fcft
+INHERIT=meson
+IUSE=examples +text-shaping test
+KEYWORDS=~amd64
+LICENSE=MIT
+RESTRICT=!test? ( test )
+SLOT=0/3
+SRC_URI=https://codeberg.org/dnkl/fcft/archive/2.4.0.tar.gz -> fcft-2.4.0.tar.gz
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	meson	00d6fba6e500964c50ba74d1d1fc2e6c
+_md5_=4b9615b36b05daa5bcb3e104a4c337d0
