@@ -3,9 +3,11 @@
 
 EAPI=7
 
-#DOCS_AUTODOC=0
 DOCS_BUILDER="sphinx"
-DOCS_DEPEND="dev-python/sphinx-bootstrap-theme"
+DOCS_DEPEND="
+	dev-python/breathe
+	dev-python/sphinx-bootstrap-theme
+"
 DOCS_DIR="docs"
 PYTHON_COMPAT=( python3_{7..9} )
 
@@ -29,9 +31,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=( "${FILESDIR}/add-sphinx-ext-autodoc-to-conf-py.patch" )
+
 src_prepare() {
-	default
-	sed -e "s|git_version()|${PV}|g" -i docs/conf.py || die
+	sed -e "s|git_version()|\'${PV}\'|g" -i docs/conf.py || die
 	cmake_src_prepare
 }
 
