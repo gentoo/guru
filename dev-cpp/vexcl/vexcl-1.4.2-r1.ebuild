@@ -58,7 +58,7 @@ src_configure() {
 
 src_compile() {
 	cmake_src_compile
-        docs_compile
+	docs_compile
 }
 
 src_install() {
