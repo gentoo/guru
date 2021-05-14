@@ -18,10 +18,11 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	default
-	sed -e "s/gcc/$(tc-getCC)/" \
-		-e "s/FLAGS=/FLAGS=${CFLAGS} /" \
+	sed -r \
+		-e "s/gcc/$(tc-getCC)/" \
+		-e "s/^FLAGS=(.*)$/FLAGS=${CFLAGS} \1 ${LDFLAGS}/" \
 		-e "s/-s //" \
-		-i Makefile
+		-i Makefile || die
 }
 
 src_install() {

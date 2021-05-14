@@ -31,6 +31,6 @@ src_compile() {
 src_install() {
 	emake PREFIX="${D}" install
 	python_fix_shebang "${ED}/usr/bin/ananicy"
-	doinitd ananicy.initd
+	doinitd "${FILESDIR}/ananicy.initd"
 	einstalldocs
 }
