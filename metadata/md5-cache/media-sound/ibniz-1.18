@@ -10,4 +10,4 @@ RDEPEND=media-libs/libsdl[X]
 SLOT=0
 SRC_URI=http://viznut.fi/ibniz/ibniz-1.18.tar.gz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
-_md5_=bd2c4c13a60ac737bf9c313fbde99aae
+_md5_=edc6d38baac455deb56207b18ca31ece

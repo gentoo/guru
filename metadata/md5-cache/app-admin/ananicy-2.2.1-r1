@@ -12,4 +12,4 @@ REQUIRED_USE=^^ ( python_single_target_pypy3 python_single_target_python3_7 pyth
 SLOT=0
 SRC_URI=https://github.com/Nefelim4ag/Ananicy/archive/2.2.1.tar.gz -> ananicy-2.2.1.tar.gz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
-_md5_=5481413c90888522726945d280bddcc7
+_md5_=c68dfa2d491029413c345e9379c03b24
