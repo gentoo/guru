@@ -15,7 +15,7 @@ DEPEND="dev-libs/libsodium:="
 RDEPEND="${DEPEND}"
 
 src_compile() {
-	emake CC="${CC:-cc}" CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS} -lsodium"
+	emake CC="${CC:-cc}" CFLAGS="${CFLAGS}" LDFLAGS="-lsodium ${LDFLAGS}"
 }
 
 src_test() {
