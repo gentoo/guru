@@ -6,7 +6,7 @@
         <email>coppens.matthias.abc@gmail.com</email>
     </maintainer>
     <upstream>
-        <bugs-to>https://github.com/cyclopsian/wdisplays/issues</bugs-to>
-        <remote-id type="github">cyclopian/wdisplays</remote-id>
+        <bugs-to>https://github.com/artizirk/wdisplays/issues</bugs-to>
+        <remote-id type="github">artizirk/wdisplays</remote-id>
     </upstream>
 </pkgmetadata>

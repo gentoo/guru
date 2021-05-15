@@ -6,16 +6,18 @@ EAPI=7
 inherit meson xdg
 
 DESCRIPTION="GUI display configurator for wlroots compositors"
-HOMEPAGE="https://cyclopsian.github.io/wdisplays https://github.com/cyclopsian/wdisplays"
+HOMEPAGE="https://github.com/artizirk/wdisplays"
 
 if [[ "${PV}" == 9999 ]]
 then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/cyclopsian/wdisplays.git"
+	EGIT_REPO_URI="https://github.com/artizirk/wdisplays.git"
 else
-	SRC_URI="https://github.com/cyclopsian/wdisplays/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/artizirk/wdisplays/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
+
+RESTRICT="mirror test"
 
 RDEPEND="
 	dev-libs/glib
