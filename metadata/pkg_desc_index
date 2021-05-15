@@ -42,8 +42,8 @@ app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linu
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8: A modern and intuitive terminal-based text editor
 app-editors/typora-bin 0.10.7: a markdown editor,markdown reader.
-app-editors/visual-studio-code-bin 1.55.2 1.56.0: Multiplatform Visual Studio Code from Microsoft
-app-editors/vscodium-bin 1.53.2 1.54.3 1.55.2: Free/Libre Open Source Software Binaries of VSCode
+app-editors/visual-studio-code-bin 1.55.2 1.56.2: Multiplatform Visual Studio Code from Microsoft
+app-editors/vscodium-bin 1.54.3 1.55.2 1.56.0: Free/Libre Open Source Software Binaries of VSCode
 app-emacs/flycheck 31: On the fly syntax checking for GNU Emacs
 app-emulation/arnold 20170513: Amstrad CPC emulator
 app-emulation/dxvk-bin 1.8 1.8.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
@@ -434,7 +434,7 @@ gui-apps/sfwbar 0.9.4 0.9.6 0.9.7: Sway Floating Window Bar
 gui-apps/swaykbdd 1.0: Per-window keyboard layout switcher for Sway
 gui-apps/swaylock-effects 1.6.2 1.6.3 9999: Swaylock, with fancy effects
 gui-apps/tiramisu 1.0_p20201110 9999: minimalistic desktop notifications provider
-gui-apps/wdisplays 1.0-r3 9999: GUI display configurator for wlroots compositors
+gui-apps/wdisplays 1.0-r3 1.1 9999: GUI display configurator for wlroots compositors
 gui-apps/wev 1.0.0: Wayland event viewer
 gui-apps/wlr-randr 0.1.0 0.2.0 9999: xrandr clone for wlroots compositors
 gui-apps/wlsunset 0.1.0 9999: Day/night gamma adjustments for Wayland
