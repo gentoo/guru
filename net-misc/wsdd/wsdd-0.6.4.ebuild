@@ -19,7 +19,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND=""
 # Samba is technically not a requirement of wsdd, but depend on it if the use flags is set.
-RDEPEND="${PYTHON_DEPS} samba? ( net-fs/samba )"
+RDEPEND="${PYTHON_DEPS} acct-group/${PN} acct-user/${PN} samba? ( net-fs/samba )"
 BDEPEND=""
 
 src_install() {
@@ -30,11 +30,13 @@ src_install() {
 		sed -i -e '/need samba/d' etc/openrc/init.d/wsdd
 	fi
 
+	sed -i -e "s/daemon:daemon/${PN}:${PN}/" etc/openrc/init.d/wsdd
+
 	doinitd etc/openrc/init.d/wsdd
 	doconfd etc/openrc/conf.d/wsdd
 
 	# install systemd unit file with wsdd user and dependency on samba service if use flag is set
-	sed -i -e 's/=nobody/=daemon/' etc/systemd/wsdd.service
+	sed -i -e "s/=nobody/=${PN}/" etc/systemd/wsdd.service
 	if use samba; then
 		sed -i -e 's/;Wants=smb.service/Wants=samba.service/' etc/systemd/wsdd.service
 	fi
