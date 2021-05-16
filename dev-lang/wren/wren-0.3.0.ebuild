@@ -43,10 +43,11 @@ EOF
 }
 
 src_compile() {
+	tc-export CC
 	cd projects/make
-	emake
+	emake verbose=1
 	cd "${WORKDIR}/wren-cli-${PV}/projects/make"
-	emake
+	emake verbose=1
 }
 
 python_test() {
