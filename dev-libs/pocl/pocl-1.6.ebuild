@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
@@ -51,7 +51,7 @@ src_configure() {
 		-DENABLE_ICD=ON
 		-DENABLE_POCL_BUILDING=OFF
 		-DKERNELLIB_HOST_CPU_VARIANTS=native
-		-DPOCL_ICD_ABSOLUTE_PATH=OFF
+		-DPOCL_ICD_ABSOLUTE_PATH=ON
 		-DSTATIC_LLVM=OFF
 
 		-DENABLE_ACCEL_DEVICE=$(usex accel)

@@ -12,6 +12,7 @@ SRC_URI="https://broth.itch.ovh/itch/linux-amd64/${PV}/archive/default -> ${P}.z
 KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"
+IUSE="system-ffmpeg"
 
 BDEPEND="app-arch/unzip"
 RDEPEND="
@@ -30,12 +31,13 @@ RDEPEND="
 	sys-apps/util-linux
 	media-gfx/graphite2
 	media-libs/vulkan-loader
-	media-video/ffmpeg[chromium]
+	system-ffmpeg? ( media-video/ffmpeg[chromium] )
 "
 
 QA_PREBUILT="
 	/opt/itch-bin/itch
 	/opt/itch-bin/libvk_swiftshader.so
+	!system-ffmpeg? ( /opt/itch-bin/libffmpeg.so )
 "
 
 S="${WORKDIR}"
@@ -45,6 +47,12 @@ src_install() {
 	insinto "${destdir}"
 	doins -r locales resources
 	doins *.pak *.dat *.bin *.json version libvk_swiftshader.so
+
+	if use system-ffmpeg; then	# bug 710944
+		rm libffmpeg.so || die
+		ln -s "${EPREFIX}/usr/$(get_libdir)/chromium/libffmpeg.so" || die
+	fi
+	doins libffmpeg.so
 
 	exeinto "${destdir}"
 	doexe itch
