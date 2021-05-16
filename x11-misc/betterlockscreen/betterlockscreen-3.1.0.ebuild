@@ -12,7 +12,7 @@ if [[ "${PV}" == 9999 ]];then
 	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}"
 else
-	SRC_URI="https://github.com/pavanjadhaw/betterlockscreen/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/pavanjadhaw/betterlockscreen/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
@@ -29,16 +29,16 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+src_configure() {
+	sed -i '90s/i3lock-color/i3lock/' betterlockscreen || die
+}
+
 src_install() {
 	dobin betterlockscreen
 
 	dodoc -r examples
 
-	if [[ "${PV}" == 9999 ]] ; then
-		systemd_dounit system/betterlockscreen@.service
-	else
-		systemd_dounit betterlockscreen@.service
-	fi
+	systemd_dounit system/betterlockscreen@.service
 }
 
 pkg_postinst() {
