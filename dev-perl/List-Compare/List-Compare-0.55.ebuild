@@ -18,6 +18,7 @@ DEPEND="
 	${RDEPEND}
 	virtual/perl-ExtUtils-MakeMaker
 	test? (
+		dev-perl/Capture-Tiny
 		dev-perl/IO-CaptureOutput
 		>=virtual/perl-Test-Simple-0.100.0
 	)
