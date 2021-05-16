@@ -7,6 +7,7 @@ acct-group/hinsightd 0: A user group for www-servers/hinsightd
 acct-group/jackett 0: Group for www-apps/jackett-bin
 acct-group/monero 0: System group: monero
 acct-group/purritobin 0: Group for net-misc/purritobin
+acct-group/wsdd 0: Group for net-misc/wsdd
 acct-user/_bgpd 0-r1: User for OpenBGPD
 acct-user/_rpki-client 0: User for rpki-client
 acct-user/biboumi 0: User for net-im/biboumi
@@ -18,6 +19,7 @@ acct-user/jackett 0: User for www-apps/jackett-bin
 acct-user/monero 0: System user: monero
 acct-user/purritobin 0: User for net-misc/purritobin
 acct-user/trezord 0: User for TREZOR Bridge
+acct-user/wsdd 0: User for net-misc/wsdd
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
 app-admin/ananicy 2.2.1 2.2.1-r1: ANother Auto NICe daemon
 app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
@@ -48,7 +50,7 @@ app-emacs/flycheck 31: On the fly syntax checking for GNU Emacs
 app-emulation/arnold 20170513: Amstrad CPC emulator
 app-emulation/dxvk-bin 1.8 1.8.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.4.2 1.5.0: NVIDIA container runtime toolkit
-app-eselect/eselect-scheme 1.0.0: Manages scheme implementations
+app-eselect/eselect-scheme 2.0.0: Manages scheme implementations
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/afetch 2.1.0: Simple system info written in C
 app-misc/apidb 4.3.0_beta 5.0.0_alpha 5.0.0_alpha8 5.0.0_alpha19 5.0.0_alpha20 5.8.0_beta: API Generator for Database acces.
@@ -201,6 +203,9 @@ dev-libs/supercop 0_p20200827: Fast cryyptographic operations for Monero wallets
 dev-libs/tllist 1.0.5 9999: A C header file only implementation of a typed linked list
 dev-libs/tweeny 3.1.1 3.2.0: C++ tweening (inbetweening) library
 dev-libs/xqilla 2.3.4: An XQuery and XPath 2 library and command line utility written in C++
+dev-perl/File-DirList 0.05: provide a sorted list of directory content
+dev-perl/File-Touch 0.11: Update file access and modification times, creating files if needed
+dev-perl/List-Compare 0.55: Compare elements of two or more lists
 dev-php/pecl-inotify 2.0.0: Inotify binding for PHP
 dev-python/aiomysql 0.0.21: aiomysql is a library for accessing a MySQL database from the asyncio
 dev-python/aionotify 0.2.0: Simple, asyncio-based inotify library for Python
@@ -284,6 +289,7 @@ dev-python/pproxy 2.5 2.7.7: TCP/UDP asynchronous tunnel proxy implemented in Py
 dev-python/promise 2.3.0: Bytecode optimisation using staticness assertions
 dev-python/pure-protobuf 2.0.0-r1 2.0.1: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/py3nvml 0.2.6: Python 3 Bindings for the NVIDIA Management Library
+dev-python/pybeam 0.7: Python module to parse Erlang BEAM files
 dev-python/pydbus 0.6.0: Pythonic DBus library
 dev-python/pyfiglet 0.8_p1 9999: Pure-python FIGlet implementation
 dev-python/pygaljs 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
@@ -354,6 +360,7 @@ dev-ruby/byebug 11.1.3: a Ruby 2 debugger
 dev-ruby/certified 1.0.0: Ensure using OpenSSL::SSL::VERIFY_PEER and provide certificate bundle if needed
 dev-ruby/pry-byebug 3.9.0: Step-by-step debugging and stack navigation in Pry
 dev-ruby/rspec-wait 0.0.9: enables time-resilient expectations in your RSpec test suite
+dev-scheme/cyclone 0.28.0 9999: Scheme R7RS to C compiler
 dev-scheme/gerbil 0.16 9999: Dialect of Scheme designed for Systems Programming
 dev-scheme/guile-colorized 0.1_p20191205 9999: Colorized REPL for GNU Guile
 dev-scheme/guile-gi 0.3.1 9999: Bindings for GObject Introspection and libgirepository for Guile
@@ -399,7 +406,7 @@ games-util/NotEnoughProduction 0.0.4: Tool for building production chains for mo
 games-util/dwarf-therapist 41.2.2: For managing dwarves in Dwarf Fortress
 games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
 games-util/hid-nintendo 9999: A Nintendo HID kernel module
-games-util/itch-bin 25.4.1 25.5.1: itch.io game browser, installer and launcher
+games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launcher
 games-util/joycond 9999: Combine joy-cons using hid-nintendo
 games-util/legendary 0.20.5 0.20.6: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.2: A simple GOG client for Linux
@@ -433,6 +440,7 @@ gui-apps/paperde 0.1.1 9999: Simple, sleek QT based DE for wayland using wayfire
 gui-apps/sfwbar 0.9.4 0.9.6 0.9.7: Sway Floating Window Bar
 gui-apps/swaykbdd 1.0: Per-window keyboard layout switcher for Sway
 gui-apps/swaylock-effects 1.6.2 1.6.3 9999: Swaylock, with fancy effects
+gui-apps/szyszka 1.0.0: Simple, powerful and easy to use file renamer
 gui-apps/tiramisu 1.0_p20201110 9999: minimalistic desktop notifications provider
 gui-apps/wdisplays 1.0-r3 1.1 9999: GUI display configurator for wlroots compositors
 gui-apps/wev 1.0.0: Wayland event viewer
@@ -560,7 +568,7 @@ net-misc/tuir 1.29.0: A text-based interface (TUI) to view and interact with Red
 net-misc/tuxi 9999: Tuxi is a cli assistant. Get answers of your questions instantly.
 net-misc/wayback_machine_downloader 2.2.1: Download an entire website from the Wayback Machine
 net-misc/whatscli 1.0.6: A command line interface for WhatsApp
-net-misc/wsdd 0.5 0.6 0.6.1 0.6.2 0.6.4: A Web Service Discovery host daemon.
+net-misc/wsdd 0.6.4: A Web Service Discovery host daemon.
 net-misc/xmrig 6.12.1: RandomX, CryptoNight, KawPow, AstroBWT, and Argon2 CPU/GPU miner
 net-misc/xmrig-mo 6.12.1: RandomX, CryptoNight, KawPow, AstroBWT and Argon2 miner for the MoneroOcean pool
 net-news/sfeed 0.9.18 0.9.20 9999: simple RSS and Atom parser
