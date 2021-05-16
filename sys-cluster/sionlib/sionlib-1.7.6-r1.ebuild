@@ -44,6 +44,11 @@ pkg_setup() {
 	fortran-2_pkg_setup
 }
 
+src_prepare() {
+	default
+	sed 's/CXXFLAGS = $(CXXFLAGS)/CXXFLAGS = /' -i test/serial/Makefile || die
+}
+
 src_configure() {
 	tc-export AR CC CXX F77 FC
 	export MPICC=/usr/bin/mpicc
