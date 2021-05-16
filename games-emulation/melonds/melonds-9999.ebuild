@@ -23,33 +23,34 @@ else
 	S="${WORKDIR}/${MY_P}"
 fi
 
-LICENSE="GPL-3"
+IUSE="+jit +opengl"
+LICENSE="BSD-2 GPL-2 GPL-3 Unlicense"
 SLOT="0"
 
 DEPEND="
 	app-arch/libarchive
 	dev-qt/qtcore:5
-	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	media-libs/libepoxy
 	media-libs/libsdl2[sound,video]
-	net-libs/gnutls
-	net-libs/libpcap
 	net-libs/libslirp
-	net-misc/curl
-	x11-libs/cairo
+	net-libs/libpcap
+	opengl? ( media-libs/libepoxy )
 "
-RDEPEND="
-	${DEPEND}
-"
+RDEPEND="${DEPEND}"
+
+# used for JIT recompiler
+QA_EXECSTACK="usr/bin/melonDS"
 
 src_prepare() {
 	cmake_src_prepare
 }
 
 src_configure() {
-	append-ldflags -Wl,-z,noexecstack
+	local mycmakeargs=(
+		-DENABLE_JIT=$(usex jit)
+		-DENABLE_OGLRENDERER=$(usex opengl)
+	)
 	cmake_src_configure
 }
 
