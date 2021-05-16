@@ -42,7 +42,12 @@ src_test() {
 }
 
 src_compile() {
-	emake AR="$(tc-getAR)" CC="$(tc-getCC)" CYC_GCC_OPT_FLAGS="${CYC_GCC_OPT_FLAGS}"
+	local myopts=(
+		AR="$(tc-getAR)"
+		CC="$(tc-getCC)"
+		CYC_GCC_OPT_FLAGS="${CYC_GCC_OPT_FLAGS}"
+	)
+	emake "${myopts[@]}"
 }
 
 src_install() {
