@@ -44,13 +44,11 @@ RDEPEND="
 	${DEPEND}
 "
 
+# used for JIT recompiler
+QA_EXECSTACK="usr/bin/melonDS"
+
 src_prepare() {
 	cmake_src_prepare
-}
-
-src_configure() {
-	append-ldflags -Wl,-z,noexecstack
-	cmake_src_configure
 }
 
 src_compile() {
