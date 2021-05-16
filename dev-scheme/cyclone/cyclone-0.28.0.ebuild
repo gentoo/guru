@@ -36,10 +36,6 @@ src_configure() {
 	tc-export CC
 }
 
-src_compile() {
-	emake
-}
-
 src_test() {
 	emake test LDFLAGS=""
 }
