@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit toolchain-funcs
+
 DESCRIPTION="Bootstrap package for dev-lang/fbc"
 HOMEPAGE="https://www.freebasic.net"
 SRC_URI="https://github.com/freebasic/fbc/releases/download/${PV}/FreeBASIC-${PV}-source-bootstrap.tar.xz"
@@ -16,7 +18,8 @@ PATCHES=( "${FILESDIR}"/fbc-1.07.0-Pass-ltinfo-to-linker.patch )
 S="${WORKDIR}/FreeBASIC-${PV}-source-bootstrap"
 
 src_compile() {
-	emake bootstrap-minimal
+	emake bootstrap-minimal \
+		AR=$(tc-getAR) AS=$(tc-getAS) CC=$(tc-getCC) CFLAGS="${CFLAGS}" V=1
 }
 
 src_install() {
