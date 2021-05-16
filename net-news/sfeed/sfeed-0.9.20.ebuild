@@ -20,8 +20,8 @@ LICENSE="ISC"
 SLOT="0"
 
 src_compile() {
-	tc-export CC
-	default
+	tc-export AR CC
+	emake RANLIB=$(tc-getRANLIB)
 }
 
 src_install() {
