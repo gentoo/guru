@@ -91,6 +91,9 @@ src_prepare() {
 	# Unbundle discord rapidjson
 	sed -i '/NOT RAPIDJSONTEST/,/endif(NOT RAPIDJSONTEST)/d;/find_file(RAPIDJSON/d;s:\${RAPIDJSON}:"/usr/include/rapidjson":' externals/discord-rpc/CMakeLists.txt || die
 
+	# media-libs/libsdl2: use 2.0.14 in tree
+	sed -i 's/2.0.15/2.0.14/' CMakeLists.txt
+
 	cmake_src_prepare
 }
 
