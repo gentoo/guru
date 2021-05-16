@@ -13,4 +13,8 @@
 		processed but specific checks can be performed by using command line
 		parameters.
 	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/rpm-software-management/rpmlint/issues</bugs-to>
+		<remote-id type="github">rpm-software-management/rpmlint</remote-id>
+	</upstream>
 </pkgmetadata>
