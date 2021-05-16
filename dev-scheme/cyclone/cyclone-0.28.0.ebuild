@@ -31,6 +31,7 @@ RDEPEND="
 "
 
 src_configure() {
+	export CYC_GCC_OPT_FLAGS="${CFLAGS}"
 	append-cflags -fPIC -rdynamic -Iinclude
 	append-ldflags -L. -Wl,--export-dynamic
 	tc-export AR CC RANLIB
@@ -41,7 +42,7 @@ src_test() {
 }
 
 src_compile() {
-	emake AR="$(tc-getAR)" CC="$(tc-getCC)" CYC_GCC_OPT_FLAGS="${CFLAGS}"
+	emake AR="$(tc-getAR)" CC="$(tc-getCC)" CYC_GCC_OPT_FLAGS="${CYC_GCC_OPT_FLAGS}"
 }
 
 src_install() {
