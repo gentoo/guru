@@ -27,13 +27,14 @@ PATCHES=(
 	"${WORKDIR}/debian/patches/${PN}_${PV}-13.diff"
 	"${WORKDIR}/debian/patches/${PN}_${PV}-13.configure.diff"
 	"${FILESDIR}/makefile.patch"
+	"${FILESDIR}/configure.patch"
 )
 
 src_prepare() {
 	default
 	use old && sed -i -- 's/all: shared static/all: oldpart shared static/g' makefile.in
 	mv configure.in configure.ac || die
-	export AR="$(tc-getAR)"
+	tc-export AR CC
 	eautoreconf
 }
 
