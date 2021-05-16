@@ -6,7 +6,7 @@
 
 EAPI=7
 
-inherit flag-o-matic
+inherit flag-o-matic toolchain-funcs
 
 DESCRIPTION="Scheme R7RS to C compiler"
 HOMEPAGE="http://justinethier.github.io/cyclone/"
@@ -33,11 +33,15 @@ RDEPEND="
 src_configure() {
 	append-cflags -fPIC -rdynamic -Iinclude
 	append-ldflags -L. -Wl,--export-dynamic
-	tc-export CC
+	tc-export AR CC RANLIB
 }
 
 src_test() {
 	emake test LDFLAGS=""
+}
+
+src_compile() {
+	emake AR="$(tc-getAR)" CC="$(tc-getCC)" CYC_GCC_OPT_FLAGS="${CFLAGS}"
 }
 
 src_install() {
