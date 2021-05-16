@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools findlib
+inherit autotools findlib toolchain-funcs
 
 DESCRIPTION="Framework for analysis of source codes written in C"
 HOMEPAGE="https://frama-c.com"
@@ -53,6 +53,7 @@ src_prepare() {
 	mv configure.in configure.ac || die
 	sed -i 's/configure\.in/configure.ac/g' Makefile.generating Makefile || die
 	sed -i '/\$(CC)/s/-O2 -g3/$(CFLAGS)/' src/plugins/e-acsl/Makefile.in || die
+	sed -i "s/ranlib/$(tc-getRANLIB)/" src/plugins/e-acsl/Makefile.in || die
 	touch config_file || die
 	eautoreconf
 	eapply_user
@@ -95,4 +96,9 @@ src_configure() {
 		$(use_enable variadic) \
 		$(use_enable wp) \
 		--disable-wp-coq
+}
+
+src_compile() {
+	tc-export AR
+	default
 }
