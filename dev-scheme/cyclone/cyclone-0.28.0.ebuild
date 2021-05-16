@@ -45,6 +45,7 @@ src_compile() {
 	local myopts=(
 		AR="$(tc-getAR)"
 		CC="$(tc-getCC)"
+		RANLIB="$(tc-getRANLIB)"
 		CYC_GCC_OPT_FLAGS="${CYC_GCC_OPT_FLAGS}"
 	)
 	emake "${myopts[@]}"
