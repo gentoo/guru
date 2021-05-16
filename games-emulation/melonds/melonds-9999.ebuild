@@ -6,7 +6,7 @@ EAPI=7
 MY_PN="melonDS"
 MY_P="${MY_PN}-${PV}"
 
-inherit xdg cmake
+inherit cmake flag-o-matic toolchain-funcs xdg
 
 DESCRIPTION="Nintendo DS emulator, sorta"
 HOMEPAGE="
@@ -43,6 +43,20 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 "
+
+src_prepare() {
+	cmake_src_prepare
+}
+
+src_configure() {
+	append-ldflags -Wl,-z,noexecstack
+	cmake_src_configure
+}
+
+src_compile() {
+	tc-export AR
+	cmake_src_compile
+}
 
 pkg_postinst() {
 	xdg_pkg_postinst
