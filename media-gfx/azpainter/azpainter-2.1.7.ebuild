@@ -26,6 +26,18 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+DOCS=( AUTHORS ChangeLog ReadMe_en ReadMe_ja manual_ja.html )
+
 src_configure() {
-	sh ./configure --prefix=/usr CC="$(tc-getCC)" CFLAGS="${CFLAGS:-02}" LDFLAGS="${LDFLAGS}"
+	sh ./configure --prefix=/usr CC="$(tc-getCC)" CFLAGS="${CFLAGS:-02}" LDFLAGS="${LDFLAGS}" || die "./configure failed"
+}
+
+src_compile() {
+	tc-export AR
+	default
+}
+
+src_install() {
+	default
+	rm -r "${D}/usr/share/doc/${PN}" || die
 }

@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit toolchain-funcs
+
 DESCRIPTION="simple RSS and Atom parser"
 HOMEPAGE="https://www.codemadness.org/sfeed.html"
 
@@ -16,6 +18,11 @@ fi
 
 LICENSE="ISC"
 SLOT="0"
+
+src_compile() {
+	tc-export AR CC
+	emake RANLIB=$(tc-getRANLIB)
+}
 
 src_install() {
 	DESTDIR="${D}" \

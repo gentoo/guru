@@ -13,7 +13,7 @@ MYPV="${PV/_beta/-beta}"
 MYPN="${PN}"
 MYP="${MYPN}-${MYPV}"
 
-DESCRIPTION="API Generator for Database acces."
+DESCRIPTION="API Generator for Database access"
 HOMEPAGE="https://github.com/azaeldevel/apidb"
 SRC_URI="https://github.com/azaeldevel/${PN}/archive/${MYPV}.tar.gz"
 
@@ -23,19 +23,20 @@ KEYWORDS="~amd64"
 
 IUSE="+mariadb postgresql commands gtk +corelibs"
 
-DEPEND=""
-RDEPEND="${DEPEND}"
-BDEPEND="
+RDEPEND="
 	dev-libs/libxml2
 	dev-libs/boost
 	dev-libs/octetos-coreutils
-	sys-devel/bison
-	sys-devel/flex
-	gtk? ( x11-libs/gtk+ )
+	dev-libs/octetos-db-abstract
+	gtk? ( x11-libs/gtk+:3 )
 	dev-libs/libtar
 	mariadb? ( dev-libs/octetos-db-maria )
 	postgresql? ( dev-libs/octetos-db-postgresql )
 	media-gfx/imagemagick
+"
+DEPEND="${RDEPEND}
+	sys-devel/bison
+	sys-devel/flex
 "
 
 S="${WORKDIR}/${PN}-${MYPV}"

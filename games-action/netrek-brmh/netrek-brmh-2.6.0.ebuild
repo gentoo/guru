@@ -29,7 +29,10 @@ BDEPEND="
 
 src_configure() {
 	xmkmf || die
-	emake depend || die
+	emake depend \
+		CC="$(tc-getCC)" \
+		CDEBUGFLAGS="${CFLAGS}" \
+		LOCAL_LDFLAGS="${LDFLAGS}"
 }
 
 src_compile() {

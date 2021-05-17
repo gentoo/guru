@@ -2,7 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit linux-mod
+
+inherit linux-mod toolchain-funcs
+BUILD_PARAMS="CC=$(tc-getCC) V=1"
 
 COMMIT="f1bc7e86c4a1c67bee04c361dd978683869d2347"
 

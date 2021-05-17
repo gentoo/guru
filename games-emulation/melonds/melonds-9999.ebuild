@@ -6,7 +6,7 @@ EAPI=7
 MY_PN="melonDS"
 MY_P="${MY_PN}-${PV}"
 
-inherit xdg cmake
+inherit cmake flag-o-matic toolchain-funcs xdg
 
 DESCRIPTION="Nintendo DS emulator, sorta"
 HOMEPAGE="
@@ -23,26 +23,41 @@ else
 	S="${WORKDIR}/${MY_P}"
 fi
 
-LICENSE="GPL-3"
+IUSE="+jit +opengl"
+LICENSE="BSD-2 GPL-2 GPL-3 Unlicense"
 SLOT="0"
 
 DEPEND="
 	app-arch/libarchive
 	dev-qt/qtcore:5
-	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
-	media-libs/libepoxy
 	media-libs/libsdl2[sound,video]
-	net-libs/gnutls
-	net-libs/libpcap
 	net-libs/libslirp
-	net-misc/curl
-	x11-libs/cairo
+	net-libs/libpcap
+	opengl? ( media-libs/libepoxy )
 "
-RDEPEND="
-	${DEPEND}
-"
+RDEPEND="${DEPEND}"
+
+# used for JIT recompiler
+QA_EXECSTACK="usr/bin/melonDS"
+
+src_prepare() {
+	cmake_src_prepare
+}
+
+src_configure() {
+	local mycmakeargs=(
+		-DENABLE_JIT=$(usex jit)
+		-DENABLE_OGLRENDERER=$(usex opengl)
+	)
+	cmake_src_configure
+}
+
+src_compile() {
+	tc-export AR
+	cmake_src_compile
+}
 
 pkg_postinst() {
 	xdg_pkg_postinst

@@ -44,15 +44,17 @@ pkg_setup() {
 	fortran-2_pkg_setup
 }
 
+src_prepare() {
+	default
+	sed 's/CXXFLAGS = $(CXXFLAGS)/CXXFLAGS = /' -i test/serial/Makefile || die
+}
+
 src_configure() {
-	export AR=$(tc-getAR)
-	export CC=$(tc-getCC)
-	export CXX=$(tc-getCXX)
+	tc-export AR CC CXX F77 FC
 	export MPICC=/usr/bin/mpicc
 	export MPICXX=/usr/bin/mpicxx
 	export MPIF77=/usr/bin/mpif77
 	export MPIF90=/usr/bin/mpif90
-	export F77=$(tc-getF77)
 	export F90=$(tc-getFC)
 	export OMPF77=$(tc-getF77)
 	export OMPF90=$(tc-getFC)
@@ -81,7 +83,8 @@ src_configure() {
 
 src_compile() {
 	export VARTEXFONTS="${T}/fonts"
-	default
+	emake C_AR=$(tc-getAR)
+
 	if use doc ; then
 		doxygen -u doxy || die
 		doxygen doxy || die

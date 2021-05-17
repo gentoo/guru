@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit toolchain-funcs
+
 DESCRIPTION="reasonable expectation of privacy"
 HOMEPAGE="https://flak.tedunangst.com/post/reop"
 SRC_URI="https://flak.tedunangst.com/files/${P}.tgz"
@@ -15,7 +17,7 @@ DEPEND="dev-libs/libsodium:="
 RDEPEND="${DEPEND}"
 
 src_compile() {
-	emake CC="${CC:-cc}" CFLAGS="${CFLAGS}" LDFLAGS="-lsodium ${LDFLAGS}"
+	emake CC=$(tc-getCC) CFLAGS="${CFLAGS}" LDFLAGS="-lsodium ${LDFLAGS}"
 }
 
 src_test() {
