@@ -13,6 +13,7 @@ SYMLINK_DESCRIPTION="default scheme"
 SYMLINK_PATH="/usr/bin/scheme"
 SYMLINK_TARGETS=(
     chezscheme                  # chezscheme
+    chibi-scheme                # chibi
     chicken csi                 # chicken
     cyclone icyc                # cyclone
     elk                         # elk
