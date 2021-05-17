@@ -43,10 +43,11 @@ src_test() {
 
 src_compile() {
 	local myopts=(
+		PREFIX="${EPREFIX}/usr"
+		CYC_GCC_OPT_FLAGS="${CYC_GCC_OPT_FLAGS}"
 		AR="$(tc-getAR)"
 		CC="$(tc-getCC)"
 		RANLIB="$(tc-getRANLIB)"
-		CYC_GCC_OPT_FLAGS="${CYC_GCC_OPT_FLAGS}"
 	)
 	emake "${myopts[@]}"
 }
