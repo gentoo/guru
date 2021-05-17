@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit go-module golang-build
+inherit go-module
 
 DESCRIPTION="A self-hosted live video and web chat server"
 HOMEPAGE="https://owncast.online"
