@@ -23,13 +23,12 @@ KEYWORDS="~amd64"
 
 IUSE="+mariadb postgresql commands gtk +corelibs"
 
-
 RDEPEND="
 	dev-libs/libxml2
 	dev-libs/boost
 	dev-libs/octetos-coreutils
 	dev-libs/octetos-db-abstract
-	gtk? ( x11-libs/gtk+ )
+	gtk? ( x11-libs/gtk+:3 )
 	dev-libs/libtar
 	mariadb? ( dev-libs/octetos-db-maria )
 	postgresql? ( dev-libs/octetos-db-postgresql )
