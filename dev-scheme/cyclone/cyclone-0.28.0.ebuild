@@ -32,7 +32,7 @@ RDEPEND="
 
 src_configure() {
 	export CYC_GCC_OPT_FLAGS="${CFLAGS}"
-	append-cflags -fPIC -rdynamic -Iinclude
+	append-cflags -fPIC -Iinclude
 	append-ldflags -L. -Wl,--export-dynamic
 	tc-export AR CC RANLIB
 }
