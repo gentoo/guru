@@ -200,7 +200,7 @@ MY_PV=$(ver_cut 1-3)
 MY_P="${PN}-${MY_PV}"
 DESCRIPTION="A fully-modern text-based browser, rendering to TTY and browsers"
 HOMEPAGE="
-	https://brow.sh
+	https://www.brow.sh
 	https://github.com/browsh-org/browsh
 "
 SRC_URI="
