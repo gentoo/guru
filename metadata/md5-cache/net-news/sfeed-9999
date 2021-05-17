@@ -1,11 +1,11 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install unpack
+DEFINED_PHASES=compile install unpack
 DESCRIPTION=simple RSS and Atom parser
 EAPI=7
 HOMEPAGE=https://www.codemadness.org/sfeed.html
-INHERIT=git-r3
+INHERIT=toolchain-funcs git-r3
 LICENSE=ISC
 PROPERTIES=live
 SLOT=0
-_eclasses_=git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=6a7bb6805c7318bdb8af37fa9b52c095
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
+_md5_=524158843942a944342a78df0b0f9fc0

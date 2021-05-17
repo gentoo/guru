@@ -1,4 +1,4 @@
-BDEPEND=test? ( sys-apps/coreutils ) virtual/pkgconfig >=dev-util/meson-0.54.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=test? ( net-misc/curl[ssl] sys-apps/coreutils ) virtual/pkgconfig >=dev-util/meson-0.54.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install test unpack
 DEPEND=>=dev-db/lmdb-0.9.29 net-libs/usockets[ssl] acct-user/purritobin acct-group/purritobin www-apps/uwebsockets >=dev-db/lmdb++-1.0.0
 DESCRIPTION=minimalistic commandline pastebin
@@ -12,4 +12,4 @@ RDEPEND=>=dev-db/lmdb-0.9.29 net-libs/usockets[ssl] acct-user/purritobin acct-gr
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	meson	00d6fba6e500964c50ba74d1d1fc2e6c	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=4306eccaea8463b07d2d66c399a632c2
+_md5_=78802e96d37dd9b968ac332f4dffa044

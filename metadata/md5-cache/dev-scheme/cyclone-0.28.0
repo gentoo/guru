@@ -1,13 +1,13 @@
-DEFINED_PHASES=configure install test
+DEFINED_PHASES=compile configure install test
 DEPEND=dev-libs/concurrencykit
-DESCRIPTION=Scheme R7RS to C compiler
+DESCRIPTION=R7RS Scheme to C compiler
 EAPI=7
 HOMEPAGE=http://justinethier.github.io/cyclone/
-INHERIT=flag-o-matic
+INHERIT=flag-o-matic toolchain-funcs
 KEYWORDS=~amd64
 LICENSE=MIT
 RDEPEND=dev-libs/concurrencykit
 SLOT=0
 SRC_URI=https://github.com/justinethier/cyclone-bootstrap/archive/refs/tags/v0.28.0.tar.gz -> cyclone-0.28.0.tar.gz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc
-_md5_=df4cf26c7f99f87a81cbe10a5e3b7f07
+_md5_=4da41a9c75dec47c0f5df96d594d3e99
