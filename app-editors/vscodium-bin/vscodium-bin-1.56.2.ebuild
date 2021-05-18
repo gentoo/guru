@@ -55,6 +55,8 @@ QA_PREBUILT="
 	/opt/vscodium/libffmpeg.so
 	/opt/vscodium/libvk_swiftshader.so
 	/opt/vscodium/libvulkan.so
+	/opt/vscodium/libvulkan.so.1
+	/opt/vscodium/resources/app/extensions/node_modules/esbuild/bin/esbuild
 	/opt/vscodium/resources/app/node_modules.asar.unpacked/*
 	/opt/vscodium/swiftshader/*
 	/opt/vscodium/swiftshader/libEGL.so
