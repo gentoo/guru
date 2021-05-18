@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/dartsim/dart/issues</bugs-to>
+		<remote-id type="github">dartsim/dart</remote-id>
+	</upstream>
+	<use>
+		<flag name="bullet">Bullet Collision Detector Support</flag>
+		<flag name="examples">Build the examples</flag>
+		<flag name="extras">Build the experimental projects that are derived from the core DART project</flag>
+		<flag name="ipopt">IPopt Optimization Support</flag>
+		<flag name="nlopt">NLopt Optimization Support</flag>
+		<flag name="ode">ODE Collision Detector Support</flag>
+		<flag name="openscenegraph">OpenSceneGraph GUI and examples</flag>
+		<flag name="tests">Build the tests</flag>
+		<flag name="tutorials">Build the tutorials</flag>
+		<flag name="urdfdom">URDF parser</flag>
+	</use>
+</pkgmetadata>
