@@ -3,9 +3,11 @@
 
 EAPI=7
 
+DOCS_BUILDER="doxygen"
+DOCS_CONFIG_NAME="doxy"
 FORTRAN_NEEDED="fortran"
 PYTHON_COMPAT=( pypy3 python3_{7,8,9} )
-inherit flag-o-matic fortran-2 python-any-r1 toolchain-funcs
+inherit docs flag-o-matic fortran-2 python-any-r1 toolchain-funcs
 
 DESCRIPTION="Scalable I/O library for parallel access to task-local files"
 HOMEPAGE="https://www.fz-juelich.de/ias/jsc/EN/Expertise/Support/Software/SIONlib/_node.html"
@@ -14,7 +16,7 @@ SRC_URI="http://apps.fz-juelich.de/jsc/sionlib/download.php?version=${PV} -> ${P
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+cxx debug doc +fortran +mpi +ompi +openmp +parutils +pthreads python"
+IUSE="+cxx debug doc examples +fortran +mpi +ompi +openmp +parutils +pthreads python"
 #TODO: cuda sionfwd msa
 #--enable-sionfwd=/path/to/sionfwd
 #--msa=(hostname-regex|deep-est-sdv)]	MSA aware collective operations for the given system
@@ -33,7 +35,6 @@ DEPEND="
 	${RDEPEND}
 	${PYTHON_DEPS}
 "
-BDEPEND="doc? ( app-doc/doxygen )"
 S="${WORKDIR}/${PN}"
 
 pkg_setup() {
@@ -47,6 +48,7 @@ pkg_setup() {
 src_prepare() {
 	default
 	sed 's/CXXFLAGS = $(CXXFLAGS)/CXXFLAGS = /' -i test/serial/Makefile || die
+	sed 's/`gcc/`${CC}/' -i config/determine-compiler-version.sh || die
 }
 
 src_configure() {
@@ -83,21 +85,21 @@ src_configure() {
 
 src_compile() {
 	export VARTEXFONTS="${T}/fonts"
-	emake C_AR=$(tc-getAR)
-
-	if use doc ; then
-		doxygen -u doxy || die
-		doxygen doxy || die
-	fi
+	emake C_AR=$(tc-getAR) F90=$(tc-getFC)
+	docs_compile
 }
 
 src_install() {
 	mkdir -p "${T}/prefix/usr/share/doc/${PF}" || die
 	default
 
-	mv "${T}/prefix/usr/examples" "${T}/prefix/usr/share/doc/${PF}/" || die
+	if use examples ; then
+		mv "${T}/prefix/usr/examples" "${T}/prefix/usr/share/doc/${PF}/" || die
+	else
+		rm -r "${T}/prefix/usr/examples" || die
+	fi
 
-	#move 64 bit libraries in lib64
+	# move 64 bit libraries to lib64
 	libs64=( "${T}"/prefix/usr/lib/*64* )
 	if [[ ${#libs64[@]} -gt 0 ]]; then
 		mkdir "${T}/prefix/usr/lib64" || die
@@ -108,9 +110,6 @@ src_install() {
 
 	rsync -ravXHA "${T}/prefix/usr" "${ED}/" || die
 	docompress -x "/usr/share/doc/${PF}/examples"
-
-	use doc && dodoc -r doc/html
-	use doc && docompress -x "/usr/share/doc/${PF}/html"
 
 	#TODO: build shared libs
 	#find "${ED}" -name '*.a' -delete || die
