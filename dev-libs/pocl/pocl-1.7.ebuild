@@ -10,7 +10,7 @@ PYTHON_COMPAT=( python3_{7..9} )
 
 inherit cmake llvm python-any-r1 docs
 
-LLVM_MAX_SLOT=11
+LLVM_MAX_SLOT=12
 
 DESCRIPTION="Portable Computing Language (an implementation of OpenCL)"
 HOMEPAGE="
