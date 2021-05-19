@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# Maintainer: Andrew Ammerlaan <andrewammerlaan@riseup.net>
+# Maintainer: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
 #
 # This sets up repoman and runs the latest version
 #
