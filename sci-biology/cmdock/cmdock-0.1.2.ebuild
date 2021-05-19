@@ -17,9 +17,11 @@ DOCS_DIR="${S}/docs"
 LICENSE="LGPL-3"
 SLOT="${PV}"
 KEYWORDS="~amd64"
-IUSE="boinc"
 
-DEPEND="
+IUSE="boinc"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
+DEPEND="${PYTHON_DEPS}
 	dev-cpp/eigen
 	dev-libs/cxxopts
 	boinc? ( sci-misc/boinc-wrapper )
