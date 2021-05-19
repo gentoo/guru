@@ -3,7 +3,6 @@
 
 EAPI="7"
 
-COMMIT="af4cbdcc93267c065fbb7c7248d203977343523f"
 DISTUTILS_SINGLE_IMPL=1
 PYTHON_COMPAT=( python3_{7,8,9} )
 
@@ -11,8 +10,8 @@ inherit distutils-r1
 
 DESCRIPTION="Tool for checking common errors in RPM packages"
 HOMEPAGE="https://github.com/rpm-software-management/rpmlint"
-SRC_URI="https://github.com/rpm-software-management/rpmlint/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${COMMIT}"
+SRC_URI="https://github.com/rpm-software-management/rpmlint/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
