@@ -14,8 +14,9 @@ SRC_URI="https://github.com/dartsim/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="bullet examples extras glut ipopt +nlopt ode openscenegraph python tests tutorials urdfdom"
+IUSE="bullet doc examples extras glut +ipopt +nlopt ode openscenegraph python test tutorials urdfdom"
 #TODO: pagmo
+RESTRIC="!test? ( test )"
 
 REQUIRED_USE="
 	python? ( ${PYTHON_REQUIRED_USE} )
@@ -41,9 +42,14 @@ RDEPEND="
 	bullet? ( sci-physics/bullet )
 	examples? ( dev-games/openscenegraph )
 	glut? ( media-libs/freeglut )
-	ipopt? ( >=sci-libs/ipopt-3.11.9 )
+	ipopt? ( sci-libs/ipopt )
 	nlopt? ( >=sci-libs/nlopt-2.4.1 )
-	python? ( ${PYTHON_DEPS} )
+	python? (
+		${PYTHON_DEPS}
+		$(python_gen_cond_dep '
+			dev-python/pybind11[${PYTHON_USEDEP}]
+		')
+	)
 	ode? ( dev-games/ode )
 	openscenegraph? ( dev-games/openscenegraph )
 	urdfdom? ( dev-libs/urdfdom )
@@ -52,6 +58,7 @@ DEPEND="
 	${RDEPEND}
 	urdfdom? ( dev-libs/urdfdom_headers )
 "
+BDEPEND="doc? ( app-doc/doxygen )"
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
@@ -69,9 +76,10 @@ src_configure() {
 
 src_compile() {
 	cmake_src_compile
-#	use examples && emake examples
-#	use tests && emake tests
-#	use tutorials && emake tutorials
+	use examples && cmake_src_compile examples
+#	use python && cmake_src_compile dartpy
+#	use test && cmake_src_compile tests
+#	use tutorials && cmake_src_compile tutorials
 }
 
 src_install() {
