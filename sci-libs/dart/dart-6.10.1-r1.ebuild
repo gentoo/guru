@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="bullet doc examples extras glut +ipopt +nlopt ode openscenegraph python test tutorials urdfdom"
 #TODO: pagmo
-RESTRIC="!test? ( test )"
+RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
 	python? ( ${PYTHON_REQUIRED_USE} )
