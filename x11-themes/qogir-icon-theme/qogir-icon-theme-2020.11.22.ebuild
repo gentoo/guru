@@ -38,8 +38,8 @@ src_prepare() {
 }
 
 src_install() {
-	mkdir -p ${D}/usr/share/icons
-	CURSOR_DIR=${D}/usr/share/cursors/xorg-x11 ${S}/install.sh -d ${D}/usr/share/icons
+	mkdir -p "${D}/usr/share/icons"
+	CURSOR_DIR="${D}/usr/share/cursors/xorg-x11" "${S}"/install.sh -d "${D}/usr/share/icons"
 }
 
 pkg_postinst() {
