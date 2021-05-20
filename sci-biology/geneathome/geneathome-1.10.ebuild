@@ -64,7 +64,7 @@ src_test() {
 
 src_install() {
 	insinto /var/lib/boinc/projects/gene.disi.unitn.it_test
-	doins "${FILESDIR}"/app_config.xml
+	doins "${FILESDIR}"/app_info.xml
 	exeinto /var/lib/boinc/projects/gene.disi.unitn.it_test
 	newexe bin/pc "gene_pcim_v${PV}"
 }
