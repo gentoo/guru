@@ -19,12 +19,13 @@ SLOT="${PV}"
 KEYWORDS="~amd64"
 
 IUSE="boinc"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+REQUIRED_USE="doc? ( ${PYTHON_REQUIRED_USE} )"
 
-DEPEND="${PYTHON_DEPS}
+DEPEND="
 	dev-cpp/eigen
 	dev-libs/cxxopts
 	boinc? ( sci-misc/boinc-wrapper )
+	doc? ( ${PYTHON_DEPS} )
 "
 RDEPEND="${DEPEND}
 	dev-lang/perl
@@ -54,7 +55,7 @@ src_install() {
 
 	if use boinc ; then
 		insinto /var/lib/boinc/projects/www.sidock.si_sidock
-		doins "${FILESDIR}/app_config.xml"
+		doins "${FILESDIR}/app_info.xml"
 		doins "${FILESDIR}/cmdock-boinc_job_${PV}.xml"
 		doins "${FILESDIR}/cmdock-boinc-zip_job_${PV}.xml"
 
