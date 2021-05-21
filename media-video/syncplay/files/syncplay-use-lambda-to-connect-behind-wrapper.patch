@@ -1,5 +1,5 @@
 From f880d4773238a31ac7046ff290910a4ff4920d53 Mon Sep 17 00:00:00 2001
-From: Andrew Ammerlaan <andrewammerlaan@riseup.net>
+From: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
 Date: Thu, 8 Oct 2020 11:41:41 +0200
 Subject: [PATCH] use lambda when connect() to function with @wrapper
 

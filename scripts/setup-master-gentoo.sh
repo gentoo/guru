@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# Maintainer: Andrew Ammerlaan <andrewammerlaan@riseup.net>
+# Maintainer: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
 #
 # Fetch and setup the latest ::gentoo
 

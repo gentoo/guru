@@ -1,5 +1,5 @@
 From b0e018d0cda148ef8dba07857fcbe8d751800992 Mon Sep 17 00:00:00 2001
-From: Andrew Ammerlaan <andrewammerlaan@riseup.net>
+From: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
 Date: Thu, 8 Oct 2020 08:47:44 +0200
 Subject: [PATCH] make conversion from QPixmap to QIcon explicit
 
