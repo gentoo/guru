@@ -13,7 +13,7 @@ SRC_URI="https://github.com/vidify/audiosync/archive/v${PV}.tar.gz -> ${P}.tar.g
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 IUSE="debug"
 
