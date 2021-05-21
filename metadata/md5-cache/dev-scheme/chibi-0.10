@@ -1,0 +1,11 @@
+DEFINED_PHASES=configure install
+DESCRIPTION=Minimal Scheme implementation for use as an extension language
+EAPI=7
+HOMEPAGE=http://synthcode.com/scheme/chibi/
+INHERIT=multilib toolchain-funcs
+KEYWORDS=~amd64
+LICENSE=BSD
+SLOT=0
+SRC_URI=https://github.com/ashinn/chibi-scheme/archive/refs/tags/0.10.tar.gz -> chibi-0.10.tar.gz
+_eclasses_=multilib	d410501a125f99ffb560b0c523cd3d1e	toolchain-funcs	24921b57d6561d87cbef4916a296ada4
+_md5_=6381b885fea0ca8e5f1bf986cc35ef2e

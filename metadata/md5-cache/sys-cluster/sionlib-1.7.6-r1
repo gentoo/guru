@@ -4,12 +4,12 @@ DEPEND=mpi? ( virtual/mpi ) ompi? ( sys-libs/libomp virtual/mpi ) openmp? ( sys-
 DESCRIPTION=Scalable I/O library for parallel access to task-local files
 EAPI=7
 HOMEPAGE=https://www.fz-juelich.de/ias/jsc/EN/Expertise/Support/Software/SIONlib/_node.html
-INHERIT=flag-o-matic fortran-2 python-any-r1 toolchain-funcs
-IUSE=+cxx debug doc +fortran +mpi +ompi +openmp +parutils +pthreads python
+INHERIT=docs flag-o-matic fortran-2 python-any-r1 toolchain-funcs
+IUSE=+cxx debug doc examples +fortran +mpi +ompi +openmp +parutils +pthreads python doc
 KEYWORDS=~amd64
 LICENSE=BSD
 RDEPEND=mpi? ( virtual/mpi ) ompi? ( sys-libs/libomp virtual/mpi ) openmp? ( sys-libs/libomp ) fortran? ( virtual/fortran )
 SLOT=0
 SRC_URI=http://apps.fz-juelich.de/jsc/sionlib/download.php?version=1.7.6 -> sionlib-1.7.6.tar.gz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	fortran-2	b4796813ccda91c9c0d3463fc90aa969	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-any-r1	17241a11501065ff3651350040875aa9
-_md5_=af88408b89112d7b9d47dde30fa800b2
+_eclasses_=docs	1541edddf7c7971612b5b9cec370f875	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	fortran-2	b4796813ccda91c9c0d3463fc90aa969	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-any-r1	17241a11501065ff3651350040875aa9
+_md5_=7ca87299f9fbcf954279ee4158f1a55e

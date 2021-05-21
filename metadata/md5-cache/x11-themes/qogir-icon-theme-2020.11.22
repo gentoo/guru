@@ -1,0 +1,12 @@
+DEFINED_PHASES=install postinst postrm prepare
+DESCRIPTION=A flat colorful design icon theme for linux desktops
+EAPI=7
+HOMEPAGE=https://github.com/vinceliuice/Qogir-icon-theme
+INHERIT=xdg-utils
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RESTRICT=binchecks strip
+SLOT=0
+SRC_URI=https://github.com/vinceliuice/qogir-icon-theme/archive/refs/tags/2020-11-22.tar.gz
+_eclasses_=xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_md5_=5fb4c98f5dd7f5335664ec161a4fd081
