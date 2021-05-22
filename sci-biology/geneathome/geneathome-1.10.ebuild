@@ -15,7 +15,7 @@ DESCRIPTION="BOINC application for expanding Gene Regulatory Networks (GRN)"
 HOMEPAGE="http://gene.disi.unitn.it/test/genehome https://bitbucket.org/francesco-asnicar/pc-boinc"
 SRC_URI="https://github.com/BOINC/boinc/archive/client_release/${BOINC_RELEASE}/${BOINC_VER}.tar.gz -> boinc-${BOINC_VER}.tar.gz
 	https://bitbucket.org/francesco-asnicar/${MY_PN}/get/${COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/boinc-client_release-${BOINC_RELEASE}-${BOINC_VER}/samples/francesco-asnicar-${MY_PN}-${COMMIT}"
+S="${WORKDIR}/boinc-client_release-${BOINC_RELEASE}-${BOINC_VER}/samples/${PN}"
 
 LICENSE="sunpro public-domain"
 SLOT="0"
@@ -34,7 +34,7 @@ DOCS=( Readme.md )
 
 src_unpack() {
 	default
-	mv "${WORKDIR}/francesco-asnicar-${MY_PN}-${COMMIT}" "${S}" || die
+	mv "${WORKDIR}"/francesco-asnicar-* "${S}" || die
 }
 
 src_prepare() {
