@@ -370,6 +370,7 @@ dev-scheme/guile-gi 0.3.1 9999: Bindings for GObject Introspection and libgirepo
 dev-scheme/owl-lisp 0.2 9999: Purely functional dialect of Scheme
 dev-util/FoBiS 3.0.5: FoBiS.py, a Fortran Building System for poor men
 dev-util/beautysh 6.0.1 6.1.0: Bash beautifier for the masses
+dev-util/cdecl 9.10: Composing and deciphering C (or C++) declarations or casts, aka "gibberish."
 dev-util/codespell 1.17.1 2.0.0: Check text files for common misspellings
 dev-util/devscripts 2.21.2: Scripts to make the life of a Debian Package maintainer easier
 dev-util/gammaray 2.11.2: High-level runtime introspection tool for Qt applications
@@ -579,7 +580,6 @@ net-p2p/monero 0.17.2.0 9999: The secure, private, untraceable cryptocurrency
 net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for Linux
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1 0.3.14 0.3.15: An experiment in scalable routing as an encrypted IPv6 overlay network
-net-vpn/riseup-vpn 0.21.2: Anonymous encrypted VPN client powered by Bitmask
 net-wireless/rtl8192eu 0_pre20210403: Realtek 8192EU driver module for Linux kernel
 net-wireless/rtl8821ce 0_pre20210321: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20210327: Realtek 8821CU/RTL8811CU module for Linux kernel
