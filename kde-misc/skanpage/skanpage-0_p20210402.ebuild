@@ -4,23 +4,22 @@
 EAPI=7
 
 ECM_DEBUG="false"
-KFMIN=5.74.0
-QTMIN=5.14.2
-inherit ecm desktop
+KFMIN=5.80
+QTMIN=5.15.2
+inherit ecm
 
-COMMIT="b265d4c7fc2cc33e85ded01763486b2be1d4a42e"
+COMMIT="1c144786d44ec266839ff3ffbe911f2cc61644d1"
 
 DESCRIPTION="Simple pdf scanning application based on libksane and KDE Frameworks"
-HOMEPAGE="https://invent.kde.org/astippich/skanpage"
-SRC_URI="https://invent.kde.org/astippich/skanpage/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://invent.kde.org/utilities/skanpage"
+SRC_URI="https://invent.kde.org/utilities/skanpage/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.gz -> ${P}.tar.gz"
 
-# No license in repo
-RESTRICT="bindist mirror"
-LICENSE="all-rights-reserved"
+LICENSE="|| ( GPL-2 GPL-3 )"
 SLOT="5"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
-DEPEND=">=dev-qt/qtwidgets-${QTMIN}:5
+DEPEND="
+	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=kde-apps/libksane-19.04.0:5

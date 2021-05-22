@@ -17,7 +17,7 @@ SRC_URI="https://github.com/BOINC/boinc/archive/client_release/${BOINC_RELEASE}/
 	https://bitbucket.org/francesco-asnicar/${MY_PN}/get/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/boinc-client_release-${BOINC_RELEASE}-${BOINC_VER}/samples/francesco-asnicar-${MY_PN}-${COMMIT}"
 
-LICENSE="FSFAP public-domain"
+LICENSE="sunpro public-domain"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
