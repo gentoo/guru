@@ -35,6 +35,10 @@ src_prepare() {
 	sed -i -e "/cp.*cursors/i mkdir -p \${CURSOR_DIR}/Qogir\${color}" \
 		-e "s:\(cp.*cursors\"\).*:\1 \${CURSOR_DIR}/Qogir\${color}:" \
 		install.sh || die "Sed failed changing cursor location!"
+
+	# Use xdg-utils eclass instead
+	sed -i -e "/gtk-update-icon-cache/d" \
+		install.sh || die "Sed failed removing gtk-update-icon-cache call!"
 }
 
 src_install() {
