@@ -388,7 +388,6 @@ dev-vcs/gitqlient 1.3.0 1.3.1 1.3.2 9999: Multi-platform Git client written with
 dev-vcs/lazygit 0.25.1 0.26.1 0.27.4 0.28.1 9999: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
 games-action/blackvoxel 2.42 9999: Blackvoxel Video Game
-games-action/minecraft-launcher 1.6.93 921: An open-world game whose gameplay revolves around breaking and placing blocks
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
 games-action/technic-launcher 4.625: Minecraft launcher for community-made modpacks on the Technic Platform
@@ -538,7 +537,7 @@ net-fs/httpdirfs 1.2.0 9999: Filesystem to mount HTTP directory listings, with a
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.5 9.0_rc1-r1 9.0: XMPP gateway to IRC
 net-im/catgirl 1.7: TLS-only terminal IRC client
-net-im/discord-canary-bin 0.0.121: All-in-one voice and text chat
+net-im/discord-canary-bin 0.0.122: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-im/nheko 0.8.1 0.8.2: Desktop client for Matrix using Qt and C++14
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
@@ -559,7 +558,7 @@ net-misc/gmid 1.6.1 9999: Simple and secure Gemini server
 net-misc/kristall 0.3-r1 9999: Visual cross-platform gemini browser
 net-misc/lyrics-in-terminal 1.3.1: Command Line Lyrics fetcher for MPRIS media players
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
-net-misc/megasync 4.3.8.0 9999: The official Qt-based program for syncing your MEGA account in your PC
+net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/myip 1.2.0: Get your external IP address using STUN server
 net-misc/openbgpd 6.6_p0 6.7_p0 6.8_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.6.7 9999: minimalistic commandline pastebin
