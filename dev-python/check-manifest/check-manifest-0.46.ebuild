@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{7..9} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
@@ -29,8 +29,10 @@ DEPEND="
 	)
 "
 
-distutils_enable_tests nose
+distutils_enable_tests pytest
 
 python_test() {
-	nosetests -v -e test_build_sdist || die
+	epytest \
+		--deselect tests.py::Tests::test_build_sdist_pep517_isolated \
+		--deselect tests.py::Tests::test_build_sdist_pep517_no_isolation
 }
