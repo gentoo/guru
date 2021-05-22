@@ -520,7 +520,6 @@ media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file
 media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
 media-sound/wlavu 9999: Wayland ALSA VU-meter with peaking and optional support for wlr-layer-shell
 media-sound/zita-ajbridge 0.8.4 0.8.4-r1: zita-a2j and zita-j2a - bridges between ALSA and JACK
-media-tv/droidcam 1.7.3: Use android phone as webcam, using a v4l device driver and app
 media-video/av1an 1.12 9999: Cross-platform framework to streamline encoding
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
 media-video/jellyfin-desktop 2.0.1: MPV-based desktop and cast client for Jellyfin
