@@ -42,7 +42,7 @@ done
 
 RDEPEND="
 	!dev-libs/hts_engine
-	media-sound/sonic
+	media-libs/sonic
 	ao? ( media-libs/libao )
 	portaudio? ( media-libs/portaudio )
 	pulseaudio? ( media-sound/pulseaudio )
