@@ -1,3 +1,4 @@
 move sys-apps/nq sys-process/nq
 move www-client/browsh-bin www-client/browsh
 move app-misc/pup-bin app-misc/pup
+move media-tv/droidcam media-video/droidcam
