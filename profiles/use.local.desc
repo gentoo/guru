@@ -2,6 +2,17 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
+app-accessibility/espeak-ng:doc - Builds and installs manpage with app-text/ronn
+app-accessibility/espeak-ng:klatt - Enables Klatt formant synthesis and implementation
+app-accessibility/espeak-ng:l10n_ru - Builds extended Russian Dictionary file
+app-accessibility/espeak-ng:l10n_zh - Builds extended Chinese (Mandarin and Cantonese) Dictionary files
+app-accessibility/espeak-ng:mbrola - Adds support for mbrola voices
+app-accessibility/espeak-ng:sonic - Enables the sonic library to speed up the audio
+app-accessibility/rhvoice:cli - Build a CLI application that allows you to synthesize speech
+app-accessibility/rhvoice:client - Build a client allowing to speak text (deprecated - use speech-dispatcher)
+app-accessibility/rhvoice:server - Build a server application
+app-accessibility/rhvoice:speech-dispatcher - Build a speech-dispatcher middleware module
+app-accessibility/rhvoice:utils - Build utilities needed for the ones creating voices
 app-admin/krapplet:pass - Add support for pass compatible storage
 app-crypt/mkp224o:amd64-51-30k - Use x86_64 amd64-51-30k SUPERCOP implementation
 app-crypt/mkp224o:amd64-64-24k - Use x86_64 amd64-64-24k SUPERCOP implementation

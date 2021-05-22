@@ -22,7 +22,9 @@ acct-user/owncast 0: User for media-video/owncast
 acct-user/purritobin 0: User for net-misc/purritobin
 acct-user/trezord 0: User for TREZOR Bridge
 acct-user/wsdd 0: User for net-misc/wsdd
+app-accessibility/espeak-ng 1.50: Software speech synthesizer for English, and some other languages
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
+app-accessibility/rhvoice 1.2.4: TTS engine with extended languages support (including Russian)
 app-admin/ananicy 2.2.1 2.2.1-r1: ANother Auto NICe daemon
 app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
 app-admin/chezmoi 1.8.10 2.0.12: Manage your dotfiles across multiple machines, securely
@@ -143,6 +145,7 @@ dev-R/tibble 3.1.1: Simple Data Frames
 dev-R/tidyselect 1.1.1: Select from a Set of Strings
 dev-R/utf8 1.2.1: Unicode Text Processing
 dev-R/vctrs 0.3.8: Vector Helpers
+dev-cpp/cli11 1.9.1: Command line parser for C++11
 dev-cpp/fbthrift 2021.04.19.00: Facebook's branch of Apache Thrift, including a new C++ server
 dev-cpp/fizz 2021.04.19.00: C++14 implementation of the TLS-1.3 standard
 dev-cpp/folly 2020.11.30.00 2021.01.04.00 2021.04.19.00 2021.04.19.00-r1: An open-source C++ library developed and used at Facebook
@@ -466,12 +469,13 @@ kde-misc/geminipart 20210413: KPart for viewing text/gemini files
 kde-misc/kio-gemini 20210413: Gemini KIO slave
 kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 kde-misc/plasma5-wallpapers-dynamic 3.3.3 3.3.6 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
-kde-misc/skanpage 2021.01.12: Simple pdf scanning application based on libksane and KDE Frameworks
+kde-misc/skanpage 0_p20210402: Simple pdf scanning application based on libksane and KDE Frameworks
 mail-client/heirloom-mailx 12.5: The mailx utility from CentOS
 mail-client/mailspring-bin 1.8.0 1.9.0 1.9.1: A beautiful, fast and fully open source mail client for Mac, Windows and Linux
 media-fonts/3270font 2.2.1-r1: A IBM 3270 Terminal font in a modern format
 media-fonts/gohufont 2.1_p20170627: A monospace bitmap font
 media-fonts/inconsolata_dz 20201205: A beautiful sans-serif monotype font designed for code listings
+media-fonts/linja-pona 4.2: Font for sitelen pona, a script for toki pona
 media-fonts/overpass 3.0.4: An open source webfont family inspired by Highway Gothic
 media-fonts/source-han-serif 1.001: Pan-CJK OpenType/CFF font family
 media-fonts/symbola 7.17 13.00: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
@@ -497,8 +501,10 @@ media-libs/fcft 2.3.3 2.4.0 9999: A simple library for font loading and glyph ra
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
 media-libs/jpeg-xl 9999: JPEG XL Reference Software
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
+media-libs/pcaudiolib 1.1: Portable C Audio Library
 media-libs/rtmidi 4.0.0: A set of C++ classes that provide a common API for realtime MIDI input/output
 media-libs/skia 80_p20191220-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
+media-libs/sonic 0.3.0_pre20210316: Simple library to speed up or slow down speech
 media-libs/svt-hevc 1.5.0 9999: Scalable Video Technology for HEVC (SVT-HEVC Encoder)
 media-libs/svt-vp9 0.3.0 9999: Scalable Video Technology for VP9 (SVT-VP9 Encoder)
 media-libs/vips 8.10.6: VIPS Image Processing Library
