@@ -1,0 +1,25 @@
+diff --git a/samples/wrapper/Makefile b/samples/wrapper/Makefile
+index c20af9446d..5ecd76c45d 100644
+--- a/Makefile
++++ b/Makefile
+@@ -7,8 +7,7 @@ BOINC_LIB_DIR = $(BOINC_DIR)/lib
+ BOINC_ZIP_DIR = $(BOINC_DIR)/zip
+ PTHREAD = -pthread
+ 
+-CXXFLAGS += -g -O0 \
+-	-Wall -W -Wshadow -Wpointer-arith -Wcast-qual -Wcast-align -Wwrite-strings -fno-common \
++CXXFLAGS += \
+     -I$(BOINC_DIR) \
+     -I$(BOINC_LIB_DIR) \
+     -I$(BOINC_API_DIR) \
+@@ -41,5 +40,5 @@ REGEXP_OBJS = \
+ 	regexp_memory.o \
+ 	regexp_report.o
+ 
+-wrapper: wrapper.o libstdc++.a $(BOINC_LIB_DIR)/libboinc.a $(BOINC_API_DIR)/libboinc_api.a $(REGEXP_OBJS)
+-	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -o wrapper wrapper.o $(REGEXP_OBJS) libstdc++.a $(PTHREAD) -lboinc_api -lboinc -lboinc_zip
++wrapper: wrapper.o $(REGEXP_OBJS)
++	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -o wrapper wrapper.o $(REGEXP_OBJS) $(PTHREAD) -lboinc_api -lboinc -lboinc_zip $(LDFLAGS)
+-- 
+2.31.1
+

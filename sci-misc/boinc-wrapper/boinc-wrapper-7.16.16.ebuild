@@ -23,7 +23,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}"/makefile.patch )
+PATCHES=( "${FILESDIR}"/${PN}-$(ver_cut 1-2)-makefile.patch )
 DOCS=( ReadMe.txt job.xml )
 
 src_prepare() {
@@ -36,7 +36,7 @@ src_prepare() {
 
 src_configure() {
 	cd ../.. || die
-	econf --enable-pkg-devel --disable-static
+	econf --enable-pkg-devel --disable-static --disable-fcgi --without-x
 }
 
 src_compile() {
