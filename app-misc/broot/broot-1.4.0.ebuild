@@ -214,6 +214,9 @@ LICENSE="Apache-2.0 BSD-2 BSD LGPL-3+ MIT ZLIB"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
+# Rust packages ignore CFLAGS and LDFLAGS so let's silence the QA warnings
+QA_FLAGS_IGNORED="usr/bin/broot"
+
 src_prepare() {
 	default
 

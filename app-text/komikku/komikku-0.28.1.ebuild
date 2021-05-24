@@ -22,7 +22,7 @@ SLOT="0"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
-	>=gui-libs/libhandy-1.0.2
+	>=gui-libs/libhandy-1.2.0
 	>=x11-libs/gtk+-3.24.10
 	$(python_gen_cond_dep '
 		dev-python/beautifulsoup:4[${PYTHON_USEDEP}]

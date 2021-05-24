@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Jonas Frei</name>
+		<email>freijon@pm.me</email>
+	</maintainer>
+	<longdescription>
+		A lightweight overlay volume/backlight/progress/anything bar
+		for wlroots based Wayland compositors (requrires support for
+		wlr_layer_shell_unstable_v1). This project is inspired by
+		xob - X Overlay Bar
+	</longdescription>
+	<upstream>
+		<remote-id type="github">francma/wob</remote-id>
+		<bugs-to>https://github.com/francma/wob/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

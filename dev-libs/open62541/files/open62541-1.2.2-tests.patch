@@ -7,13 +7,11 @@ The Pub/Sub tests won't work within portage. Disable them.
 
 Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
 ---
- tests/CMakeLists.txt | 78 --------------------------------------------
- 1 file changed, 78 deletions(-)
+ tests/CMakeLists.txt |  103 ---------------------------------------------------
+ 1 file changed, 103 deletions(-)
 
-Index: open62541/tests/CMakeLists.txt
-===================================================================
---- open62541.orig/tests/CMakeLists.txt
-+++ open62541/tests/CMakeLists.txt
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
 @@ -341,109 +341,6 @@ if(UA_ENABLE_DISCOVERY)
      add_test_valgrind(discovery ${TESTS_BINARY_DIR}/check_discovery)
  endif()

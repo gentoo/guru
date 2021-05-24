@@ -8,13 +8,11 @@ well.
 
 Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
 ---
- CMakeLists.txt | 2 ++
+ CMakeLists.txt |    2 ++
  1 file changed, 2 insertions(+)
 
-Index: open62541/CMakeLists.txt
-===================================================================
---- open62541.orig/CMakeLists.txt
-+++ open62541/CMakeLists.txt
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
 @@ -907,6 +907,7 @@ if(UA_ENABLE_PUBSUB)
      list(APPEND default_plugin_headers ${PROJECT_SOURCE_DIR}/plugins/include/open62541/plugin/pubsub_udp.h)
      list(APPEND default_plugin_sources ${PROJECT_SOURCE_DIR}/plugins/ua_pubsub_udp.c)

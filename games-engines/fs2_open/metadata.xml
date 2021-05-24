@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Jonas Frei</name>
+		<email>freijon@pm.me</email>
+	</maintainer>
+	<longdescription>
+		fs2_open is the game enginge of the FreeSpace2 Source Code Project.
+		This package is not the complete game, but rather the game engine
+		that runs the game. The game data files have to be installed
+		manually.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">scp-fs2open/fs2open.github.com</remote-id>
+		<bugs-to>https://github.com/scp-fs2open/fs2open.github.com/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
