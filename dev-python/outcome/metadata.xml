@@ -2,10 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 
 <pkgmetadata>
-  <maintainer type="person">
-    <email>andrewammerlaan@gentoo.org</email>
-    <name>Andrew Ammerlaan</name>
-  </maintainer>
+  <!-- maintainer-needed -->
   <upstream>
     <remote-id type="github">python-trio/outcome</remote-id>
     <remote-id type="pypi">outcome</remote-id>

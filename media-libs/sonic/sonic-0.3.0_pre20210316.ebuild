@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit multilib
+inherit multilib toolchain-funcs
 
 COMMIT="ba331411f17702e01f6c2d7016eefebaa695871f"
 DESCRIPTION="Simple library to speed up or slow down speech"
@@ -24,6 +24,8 @@ src_prepare() {
 	default
 	sed "s|/lib|/$(get_libdir)|" -i Makefile || die
 	sed "/install libsonic.a/d" -i Makefile || die
+	sed "s/CC=gcc/CC=$(tc-getCC)/" -i Makefile || die
+	export AR="$(tc-getAR)"
 }
 
 src_install() {

@@ -30,15 +30,15 @@ BDEPEND="
 	doc? (
 		media-gfx/graphviz
 		$(python_gen_cond_dep '
-			dev-python/sphinx[${PYTHON_MULTI_USEDEP}]
-			dev-python/sphinx_rtd_theme[${PYTHON_MULTI_USEDEP}]
+			dev-python/sphinx[${PYTHON_USEDEP}]
+			dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
 		')
 	)
 	test? (
 		dev-libs/check
 		dev-util/valgrind
 		$(python_gen_cond_dep '
-			dev-python/subunit[${PYTHON_MULTI_USEDEP}]
+			dev-python/subunit[${PYTHON_USEDEP}]
 		')
 	)
 "

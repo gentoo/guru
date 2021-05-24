@@ -2,10 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 
 <pkgmetadata>
-  <maintainer type="person">
-    <email>andrewammerlaan@gentoo.org</email>
-    <name>Andrew Ammerlaan</name>
-  </maintainer>
+  <!-- maintainer-needed -->
   <longdescription lang="en">
 Curio is a coroutine-based library for concurrent Python systems programming. It provides standard programming abstractions such as as tasks, sockets, files, locks, and queues. It works on Unix and Windows. You'll find it to be familiar, small, fast, and fun
 Core Features

@@ -2,10 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 
 <pkgmetadata>
-  <maintainer type="person">
-    <email>andrewammerlaan@gentoo.org</email>
-    <name>Andrew Ammerlaan</name>
-  </maintainer>
+  <!-- maintainer-needed -->
   <longdescription lang="en">
 The package provides a single function: in_hsts_preload() which takes an IDNA-encoded host and returns either True or False regarding whether that host should be only accessed via HTTPS.
   </longdescription>
