@@ -13,7 +13,7 @@ EGIT_SUBMODULES=()
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="discord egl evdev fbdev +gamepad gbm +nogui qt5 retroachievements wayland X"
+IUSE="discord +egl +evdev fbdev +gamepad gbm +nogui qt5 retroachievements wayland X"
 
 # Either or both frontends must be built
 REQUIRED_USE="
@@ -43,7 +43,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-# Set working directory to checkout directory
 S="${WORKDIR}/${PN}"
 
 src_configure() {
@@ -59,10 +58,8 @@ src_configure() {
 		-DUSE_SDL2=$(usex gamepad)
 		-DUSE_WAYLAND=$(usex wayland)
 		-DUSE_X11=$(usex X)
-
 		-DBUILD_SHARED_LIBS=OFF
 	)
-
 	cmake_src_configure
 }
 
@@ -80,8 +77,8 @@ src_install() {
 		newicon -s 64 dist/icon-64px.png duckstation-nogui
 		newicon -s 128 dist/icon-128px.png duckstation-nogui
 		newicon -s 256 dist/icon-256px.png duckstation-nogui
-		domenu "${FILESDIR}"/duckstation-nogui.desktop
 		doins "${BUILD_DIR}"/bin/duckstation-nogui
+		dosym ../../opt/${PN}/duckstation-qt usr/bin/duckstation-qt
 		fperms +x /opt/${PN}/duckstation-nogui
 	fi
 
@@ -92,8 +89,8 @@ src_install() {
 		newicon -s 64 dist/icon-64px.png duckstation-qt
 		newicon -s 128 dist/icon-128px.png duckstation-qt
 		newicon -s 256 dist/icon-256px.png duckstation-qt
-		domenu "${FILESDIR}"/duckstation-qt.desktop
 		doins "${BUILD_DIR}"/bin/duckstation-qt
+		dosym ../../opt/${PN}/duckstation-qt usr/bin/duckstation-qt
 		fperms +x /opt/${PN}/duckstation-qt
 	fi
 }
