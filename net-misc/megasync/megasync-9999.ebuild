@@ -14,14 +14,17 @@ HOMEPAGE="
 if [[ ${PV} == 9999 ]];then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/meganz/MEGAsync"
+	EGIT_BRANCH="master"
+	EGIT_SUBMODULES=( '*' )
 else
-	MEGA_SDK_REV="ba4834cb6c22f4e996f328db3aa5b82ef20eed3e" # commit of src/MEGASync/mega submodule
+	MEGA_SDK_REV="c11a688d578e16dc25d4c94fee7995730be1aa50" # commit of src/MEGASync/mega submodule
 	SRC_URI="
-		https://github.com/meganz/MEGAsync/archive/v${PV}.0_Linux.tar.gz -> ${P}.tar.gz
+		https://github.com/meganz/MEGAsync/archive/v${PV}_Win.tar.gz -> ${P}.tar.gz
 		https://github.com/meganz/sdk/archive/${MEGA_SDK_REV}.tar.gz -> ${PN}-sdk-${PV}.tar.gz
 	"
 	KEYWORDS="~amd64 ~x86"
-	S="${WORKDIR}"/MEGAsync-${PV}.0_Linux
+	# 4.5.0.0 has no dedicated linux tag
+	S="${WORKDIR}"/MEGAsync-${PV}_Win
 fi
 
 LICENSE="MEGA"
@@ -62,25 +65,40 @@ DEPEND="
 	dev-qt/qtx11extras:5
 "
 BDEPEND="
-	app-doc/doxygen
 	dev-lang/swig
 	dev-qt/linguist-tools
 "
 
 DOCS=( CREDITS.md README.md )
 
+CMAKE_USE_DIR="${S}/src/MEGAShellExtDolphin"
+
 src_prepare() {
 	if [[ ${PV} != 9999 ]]; then
 		rmdir src/MEGASync/mega
 		mv "${WORKDIR}"/sdk-${MEGA_SDK_REV} src/MEGASync/mega
 	fi
-	default
-	cd src/MEGASync/mega
+	if [ -e "${FILESDIR}/${P}_pdfium.patch" ]; then
+		cd "${S}/src/MEGASync/mega"
+		eapply -Np1 "${FILESDIR}/${P}_pdfium.patch"
+		cd "${S}"
+	fi
+	if has_version ">=media-video/ffmpeg-4.4" && [ -e "${FILESDIR}/${P}_ffmpeg.patch" ]; then
+		eapply "${FILESDIR}/${P}_ffmpeg.patch"
+	fi
+	if use dolphin; then
+		# use the kde5 CMakeLists instead of the kde 4 version
+		mv src/MEGAShellExtDolphin/CMakeLists_kde5.txt src/MEGAShellExtDolphin/CMakeLists.txt || die
+		cmake_src_prepare
+	else
+		default
+	fi
+	cd "${S}/src/MEGASync/mega"
 	eautoreconf
 }
 
 src_configure() {
-	cd src/MEGASync/mega
+	cd "${S}/src/MEGASync/mega"
 	econf \
 		"--disable-silent-rules" \
 		"--disable-curl-checks" \
@@ -101,7 +119,7 @@ src_configure() {
 		$(use_enable python) \
 		"--enable-chat" \
 		"--enable-gcc-hardening"
-	cd ../..
+	cd "${S}/src"
 
 	local myeqmakeargs=(
 		MEGA.pro
