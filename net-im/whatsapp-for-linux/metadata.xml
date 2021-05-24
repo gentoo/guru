@@ -5,8 +5,5 @@
 		<remote-id type="github">eneshecan/whatsapp-for-linux</remote-id>
 		<bugs-to>https://github.com/eneshecan/whatsapp-for-linux/issues</bugs-to>
 	</upstream>
-	<maintainer type="person">
-		<email>andrewammerlaan@gentoo.org</email>
-		<name>Andrew Ammerlaan</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 </pkgmetadata>
