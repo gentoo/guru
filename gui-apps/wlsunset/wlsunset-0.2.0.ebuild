@@ -20,11 +20,13 @@ SLOT="0"
 
 BDEPEND="
 	dev-util/wayland-scanner
-	dev-libs/wayland-protocols
 	app-text/scdoc
 "
-DEPEND="dev-libs/wayland"
-RDEPEND="${DEPEND}"
+RDEPEND="dev-libs/wayland"
+DEPEND="
+	${RDEPEND}
+	dev-libs/wayland-protocols
+"
 
 src_configure() {
 	local emesonargs=(
