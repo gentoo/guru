@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install postinst prepare unpack
+DEPEND=dev-R/Rcpp dev-lang/R
+DESCRIPTION=C++ Classes to Embed R in C++ (and C) Applications
+EAPI=7
+HOMEPAGE=https://cran.r-project.org/package=RInside http://dirk.eddelbuettel.com/code/rinside.html https://github.com/eddelbuettel/rinside
+INHERIT=R-packages-guru
+IUSE=byte-compile
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=dev-R/Rcpp dev-lang/R
+SLOT=0
+SRC_URI=mirror://cran/src/contrib/RInside_0.2.16.tar.gz
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	R-packages-guru	77ddece43d8fce7d68f6304f5ba11ea1
+_md5_=a0cda0adf011bac552c2f62ba0ed4ef4

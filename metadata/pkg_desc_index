@@ -88,7 +88,7 @@ app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
 app-misc/watchexec 1.15.3 1.16.0 1.16.1: Executes commands in response to file modifications
-app-misc/wego 2.0 2.0_p20190211: Wego is a weather client for the terminal
+app-misc/wego 2.0_p20190211-r1: Wego is a weather client for the terminal
 app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
 app-office/openoffice-bin 4.1.10: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.4 1.99.5 9999: Pyspread is a non-traditional spreadsheet written in Python
@@ -121,6 +121,7 @@ app-text/stdman 2019.08.27 2020.11.17 9999: Formatted C++ stdlib man pages (cppr
 app-vim/vim-nix 9999: vim plugin: Vim configuration files for Nix
 dev-R/BH 1.75.0.0: Boost C++ Header Files
 dev-R/R6 2.5.0: Encapsulated Classes with Reference Semantics
+dev-R/RInside 0.2.16: C++ Classes to Embed R in C++ (and C) Applications
 dev-R/Rcpp 1.0.6: Seamless R and C++ Integration
 dev-R/assertthat 0.2.1: Easy Pre and Post Assertions
 dev-R/cellranger 1.1.0: Translate Spreadsheet Cell Ranges to Rows and Columns

@@ -1,14 +1,13 @@
-DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-lang/go:0=
+BDEPEND=>=dev-lang/go-1.10
+DEFINED_PHASES=compile install test unpack
 DESCRIPTION=Wego is a weather client for the terminal
 EAPI=7
 HOMEPAGE=https://github.com/schachmat/wego
-INHERIT=golang-single
-IUSE=debug pie test
+INHERIT=golang-vcs-snapshot golang-build
 KEYWORDS=~amd64
 LICENSE=BSD ISC
-RESTRICT=!test? ( test )
+RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/schachmat/wego/archive/994e4f141759a1070d7b0c8fbe5fad2cc7ee7d45.tar.gz -> wego-2.0_p20190211.tar.gz https://github.com/mattn/go-runewidth/archive/43a826dcfbd.tar.gz -> github.com-mattn-go-runewidth-43a826dcfbd.tar.gz https://github.com/mattn/go-colorable/archive/2e1b0c1546e01.tar.gz -> github.com-mattn-go-colorable-2e1b0c1546e01.tar.gz https://github.com/schachmat/ingo/archive/a4bdc0729a3f.tar.gz -> github.com-schachmat-ingo-a4bdc0729a3f.tar.gz https://github.com/mattn/go-isatty/archive/7b513a986450.tar.gz -> github.com-mattn-go-isatty-7b513a986450.tar.gz https://github.com/rivo/uniseg/archive/f8f8f751c732.tar.gz -> github.com-rivo-uniseg-f8f8f751c732.tar.gz https://github.com/golang/sys/archive/d5e6a3e2c0ae.tar.gz -> github.com-golang-sys-d5e6a3e2c0ae.tar.gz
-_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	multiprocessing	cac3169468f893670dac3e7cb940e045	golang-common	841280455f6d0e5f0a41902a4bdf989c	golang-single	3aa6e218f70cb61a72d61ec347b78aab
-_md5_=6bf7420e871dffe6b66b7f6c8e007cc4
+_eclasses_=golang-base	b8fb27dacacea08140c53857f439fc7d	golang-vcs-snapshot	ff485cabd3f37b060f110b0be95092ec	golang-build	91472d4e18894e738c69b415e236a664
+_md5_=4bfa5bb2b8b335a89f030000f5c0c0b5
