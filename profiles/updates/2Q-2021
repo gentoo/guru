@@ -2,6 +2,6 @@ move sys-apps/nq sys-process/nq
 move www-client/browsh-bin www-client/browsh
 move app-misc/pup-bin app-misc/pup
 move media-tv/droidcam media-video/droidcam
-slotmove minecraft-launcher 2 0
-slotmove minecraft-launcher 1 legacy
+slotmove games-action/minecraft-launcher 2 0
+slotmove games-action/minecraft-launcher 1 legacy
 move app-misc/spotify-tray media-sound/spotify-tray
