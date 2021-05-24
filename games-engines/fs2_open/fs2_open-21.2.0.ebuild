@@ -16,7 +16,7 @@ EGIT_COMMIT="release_${_PV}"
 
 LICENSE="Unlicense"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 
 DEPEND="
 	media-libs/libjpeg-turbo
