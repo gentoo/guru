@@ -3,8 +3,8 @@
 
 EAPI=7
 
-KFMIN=5.66.0
-QTMIN=5.12.0
+KFMIN="5.66.0"
+QTMIN="5.12.0"
 inherit ecm
 
 DESCRIPTION="A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day."
@@ -18,9 +18,8 @@ else
 	KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 fi
 
-LICENSE="GPL-3 LGPL-3 MIT"
+LICENSE="CC0-1.0 BSD CC-BY-SA-4.0 GPL-3+ LGPL-3+"
 SLOT="0"
-IUSE=""
 
 DEPEND="
 	>=dev-qt/qtconcurrent-${QTMIN}:5
