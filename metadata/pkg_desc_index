@@ -81,14 +81,13 @@ app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/pup 0.4.0_p1: Parsing HTML at the command line
 app-misc/rdfind 1.4.1: Find duplicate files
 app-misc/rememberthemilk 1.3.0: Freemium simple to-do tasks manager
-app-misc/spotify-tray 1.3.1: Tray icon for the Spotify Linux client
 app-misc/tai 0.0.3 0.0.4 0.0.5: tai (Terminal Ascii Image) tool to convert images to ascii
 app-misc/tealdeer 1.4.1: A very fast implementation of tldr in Rust.
 app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the command-line
 app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
-app-misc/watchexec 1.14.1 1.15.0 1.15.1 1.15.2 1.15.3 1.16.0: Executes commands in response to file modifications
+app-misc/watchexec 1.15.3 1.16.0 1.16.1: Executes commands in response to file modifications
 app-misc/wego 2.0 2.0_p20190211: Wego is a weather client for the terminal
 app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
 app-office/openoffice-bin 4.1.10: Apache OpenOffice productivity suite
@@ -204,7 +203,7 @@ dev-libs/octetos-db-abstract 0.1.2_alpha 0.6.0_alpha: API to access database, ab
 dev-libs/octetos-db-maria 1.2.2_beta 1.3.2_alpha 1.4.2_alpha 1.9.2_alpha 9999: C++ library for Database Acces.
 dev-libs/octetos-db-postgresql 1.3.2_alpha 1.3.3_alpha 1.3.6_alpha 1.3.9_alpha 1.3.10_alpha: C++ library for Database Acces.
 dev-libs/olm 3.2.1 3.2.2: Implementation of the olm and megolm cryptographic ratchets
-dev-libs/open62541 1.2.1: Open source C implementation of OPC UA
+dev-libs/open62541 1.2.2: Open source C implementation of OPC UA
 dev-libs/pocl 1.7: Portable Computing Language (an implementation of OpenCL)
 dev-libs/protothreads 1.4: Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
@@ -405,6 +404,7 @@ games-emulation/mupen64plus-qt 1.14 9999: A basic launcher for Mupen64Plus
 games-emulation/np2kai 22 22_p20210211: NP2kai is an emulator for the japanese PC-98 series of computers
 games-emulation/yuzu 9999: An emulator for Nintendo Switch
 games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
+games-engines/fs2_open 21.2.0: FreeSpace2 Source Code Project game engine
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
 games-fps/crispy-doom 5.9.0 5.9.1 5.9.2 5.10.0 5.10.1: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
@@ -454,6 +454,7 @@ gui-apps/wdisplays 1.0-r3 1.1 9999: GUI display configurator for wlroots composi
 gui-apps/wev 1.0.0: Wayland event viewer
 gui-apps/wlr-randr 0.1.0 0.2.0 9999: xrandr clone for wlroots compositors
 gui-apps/wlsunset 0.1.0 9999: Day/night gamma adjustments for Wayland
+gui-apps/wob 0.11: A lightweight overlay volume/backlight/progress/anything bar for Wayland.
 gui-apps/wofi 1.2.2 1.2.3 1.2.4 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 gui-libs/libcprime 4.1.0 4.2.0_alpha 4.2.0 9999: Library for managing settings of CoreApps
 gui-libs/libcsys 4.1.0 4.2.0_alpha 4.2.0 9999: Library for managing the device
@@ -543,12 +544,11 @@ net-fs/httpdirfs 1.2.0 9999: Filesystem to mount HTTP directory listings, with a
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.5 9.0_rc1-r1 9.0: XMPP gateway to IRC
 net-im/catgirl 1.7: TLS-only terminal IRC client
-net-im/discord-canary-bin 0.0.122: All-in-one voice and text chat
+net-im/discord-canary-bin 0.0.123: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-im/nheko 0.8.1 0.8.2: Desktop client for Matrix using Qt and C++14
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
 net-im/srain 1.1.3 1.2.1: Modern, beautiful IRC client written in GTK+ 3
-net-im/whatsapp-desktop-bin 0.5.1: Unofficial WhatsApp Desktop Client, built with Electron
 net-im/whatsapp-for-linux 1.1.7: An unofficial WhatsApp desktop application for Linux
 net-libs/kcgi 0.12.4 0.12.5 9999: minimal CGI library for web applications
 net-libs/usockets 0.7.1_p20210214-r2 9999: tiny eventing, networking & crypto for async applications
@@ -645,6 +645,7 @@ sys-fs/erofs-utils 1.2.1 9999: Userspace tools for EROFS images
 sys-fs/fscrypt 0.3.0-r1: Tool for managing Linux filesystem encryption
 sys-fs/gcsfuse 0.35.0: A user-space file system for interacting with Google Cloud Storage
 sys-fs/gfs2-utils 3.2.0 3.3.0: Shared-disk cluster file system
+sys-fs/git-mount 1.0.0_p20160321: git-mount let's you mount your repo as a filesystem based on a revision.
 sys-fs/python-btrfs 12 13: Python 3 module to inspect btrfs filesystems
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
 sys-kernel/tirdad 0_p20200926: kernel module for random ISN generation
