@@ -1,12 +1,3 @@
-From 61584550ca734d2f3fa3b811d73f2cebd2b7f30f Mon Sep 17 00:00:00 2001
-From: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
-Date: Thu, 8 Oct 2020 08:37:58 +0200
-Subject: [PATCH] replace & with | in Alignment, visually identical
-
----
- syncplay/ui/GuiConfiguration.py | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
 diff --git a/syncplay/ui/GuiConfiguration.py b/syncplay/ui/GuiConfiguration.py
 index 96915814..e0713adf 100755
 --- a/syncplay/ui/GuiConfiguration.py

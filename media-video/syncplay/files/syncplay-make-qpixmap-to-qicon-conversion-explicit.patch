@@ -1,12 +1,3 @@
-From b0e018d0cda148ef8dba07857fcbe8d751800992 Mon Sep 17 00:00:00 2001
-From: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
-Date: Thu, 8 Oct 2020 08:47:44 +0200
-Subject: [PATCH] make conversion from QPixmap to QIcon explicit
-
----
- syncplay/ui/gui.py | 106 ++++++++++++++++++++++-----------------------
- 1 file changed, 53 insertions(+), 53 deletions(-)
-
 diff --git a/syncplay/ui/gui.py b/syncplay/ui/gui.py
 index c59c5697..2a4bd1a5 100755
 --- a/syncplay/ui/gui.py
