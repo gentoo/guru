@@ -59,6 +59,10 @@ src_configure() {
 		--disable-rpath
 }
 
+src_compile() {
+	emake -j1
+}
+
 src_test() {
 	emake check
 }
