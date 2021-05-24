@@ -23,11 +23,21 @@ LICENSE="GPL-3"
 SLOT="0"
 
 RDEPEND="
-	>=dev-python/PyQt5-5.10.0[svg,${PYTHON_USEDEP}]
+	>=dev-python/PyQt5-5.10.0[gui,printsupport,svg,widgets,${PYTHON_USEDEP}]
+	>=dev-python/markdown2-2.3[${PYTHON_USEDEP}]
 	>=dev-python/matplotlib-1.1.1[${PYTHON_USEDEP}]
 	>=dev-python/numpy-1.1.1[${PYTHON_USEDEP}]
 	>=dev-python/pyenchant-1.1.0[${PYTHON_USEDEP}]
+	>=dev-python/python-dateutil-2.7.0[${PYTHON_USEDEP}]
 "
+
+distutils_enable_tests pytest
+
+# TODO: package sphinxbootstrap4theme
+#distutils_enable_sphinx apidocs \
+#	"dev-python/sphinx-autodoc-typehints" \
+#	"dev-python/recommonmark" \
+#	"dev-python/sphinxbootstrap4theme"
 
 python_prepare_all() {
 	distutils-r1_python_prepare_all
@@ -42,4 +52,9 @@ python_install() {
 	doicon "${PN}"/share/icons/"${PN}.ico"
 	doicon "${PN}"/share/icons/"${PN}.svg"
 	domenu "${PN}.desktop"
+}
+
+python_test() {
+	export QT_QPA_PLATFORM=offscreen
+	epytest
 }
