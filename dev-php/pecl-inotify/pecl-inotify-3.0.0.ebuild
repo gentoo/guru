@@ -8,7 +8,7 @@ PHP_EXT_INI="yes"
 PHP_EXT_ZENDEXT="no"
 PHP_EXT_PECL_FILENAME="inotify-${PV}.tgz"
 
-USE_PHP="php7-3"
+USE_PHP="php7-3 php7-4 php8-0"
 
 inherit php-ext-pecl-r3
 
@@ -17,4 +17,4 @@ KEYWORDS="~amd64"
 DESCRIPTION="Inotify binding for PHP"
 HOMEPAGE="https://pecl.php.net/package/inotify"
 LICENSE="PHP-3"
-SLOT="0/2"
+SLOT="0/3"
