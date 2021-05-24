@@ -22,8 +22,8 @@ CMAKE_REMOVE_MODULES_LIST="Hardening VersionFromGit"
 LICENSE="l10n_pt-BR? ( CC-BY-SA-4.0 ) BSD GPL-2 GPL-3+ LGPL-2.1+ MIT"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-IUSE="ao bindist cli client portaudio pulseaudio +server +speech-dispatcher utils"
-REQUIRED_USE="( ao || portaudio || pulseaudio )"
+IUSE="ao bindist cli client portaudio +pulseaudio +server +speech-dispatcher utils"
+REQUIRED_USE="|| ( ao portaudio pulseaudio )"
 
 CC_NC_LANGS=( en eo ky ru uk )
 NC_LANGS=( ka tt )
