@@ -21,6 +21,7 @@ SRC_URI="
 	https://${EGO_PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz
 	${EGO_VENDOR_URI}
 "
+HOMEPAGE="https://github.com/schachmat/wego"
 LICENSE="BSD ISC"
 SLOT="0"
 KEYWORDS="~amd64"
