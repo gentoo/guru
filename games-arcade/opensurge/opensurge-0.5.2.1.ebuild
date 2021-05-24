@@ -15,7 +15,7 @@ fi
 
 DESCRIPTION="fun 2D retro platformer inspired by old-school Sonic games"
 HOMEPAGE="https://opensurge2d.org/"
-LICENSE="GPL-3"
+LICENSE="Allegro Apache-2.0 CC-BY-3.0 CC-BY-4.0 CC-BY-SA-3.0 CC-BY-SA-4.0 CC0-1.0 GPL-3+ MIT OFL-1.1 WTFPL-2"
 SLOT="0"
 
 # Allegro:5 libs to USE
@@ -26,18 +26,15 @@ SLOT="0"
 # - dialog: gtk
 # allegro[vorbis] isn't in CMakeList.txt but is required for the .ogg assets
 DEPEND="
-	>=media-libs/allegro-5.2.5:=
-	media-libs/allegro[jpeg,png,opengl,truetype(-),gtk(-),vorbis]
+	>=media-libs/allegro-5.2.5:5[jpeg,png,opengl,truetype(-),gtk(-),vorbis]
 	>=dev-games/surgescript-0.5.4.3:=
 "
 RDEPEND="${DEPEND}"
 
-# https://github.com/alemart/opensurge/pull/30
-PATCHES=( "${FILESDIR}/${P}-fix_executable_install_path.patch" )
-
 src_configure() {
 	local mycmakeargs=(
-		-DUSE_STATIC=OFF
+		-DGAME_BINDIR="/usr/bin"
+		-DGAME_DATADIR="/usr/share/${PN}"
 	)
 
 	cmake_src_configure
