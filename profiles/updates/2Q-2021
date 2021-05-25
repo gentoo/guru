@@ -5,3 +5,5 @@ move media-tv/droidcam media-video/droidcam
 slotmove games-action/minecraft-launcher 2 0
 slotmove games-action/minecraft-launcher 1 legacy
 move app-misc/spotify-tray media-sound/spotify-tray
+move net-im/catgirl net-irc/catgirl
+move net-im/srain net-irc/srain
