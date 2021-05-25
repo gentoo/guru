@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..8} )
+PYTHON_COMPAT=( python3_{7..9} )
 DOCS_DIR="docs"
 DOCS_BUILDER="sphinx"
 
@@ -30,17 +30,17 @@ BDEPEND="
 		>=dev-python/libnacl-1.4.2[${PYTHON_USEDEP}]
 		>=dev-python/pyopenssl-17.0.0[${PYTHON_USEDEP}]
 		>=dev-python/python-pkcs11-0.7.0[${PYTHON_USEDEP}]
-		>=dev-python/uvloop-0.9.1[${PYTHON_USEDEP}]
 	)
 "
 
 distutils_enable_tests pytest
 
+distutils_enable_sphinx docs
+
 python_test() {
-	pytest -vv \
+	epytest \
 		--deselect tests/test_agent.py::_TestAgent::test_confirm \
-		--deselect tests/test_x509.py::_TestX509::test_expired_root \
-	|| die
+		--deselect tests/test_x509.py::_TestX509::test_expired_root
 }
 
 pkg_postinst() {
