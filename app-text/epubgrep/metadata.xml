@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>Ronny (tastytea) Gutbrod</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>tastytea</name>
+			<email>tastytea@tastytea.de</email>
+		</maintainer>
+		<bugs-to>https://schlomp.space/tastytea/epubgrep/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

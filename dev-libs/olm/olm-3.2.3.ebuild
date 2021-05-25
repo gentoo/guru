@@ -16,9 +16,6 @@ KEYWORDS="~amd64"
 IUSE="doc test"
 RESTRICT="!test? ( test )"
 
-RDEPEND=""
-DEPEND="${RDEPEND}"
-
 src_configure() {
 	local -a mycmakeargs=(
 		-DOLM_TESTS="$(usex test)"
