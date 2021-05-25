@@ -26,8 +26,6 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	test? (
-		dev-python/mock[${PYTHON_USEDEP}]
-		dev-python/nose[${PYTHON_USEDEP}]
 		dev-python/process-tests[${PYTHON_USEDEP}]
 		www-servers/tornado[${PYTHON_USEDEP}]
 	)
