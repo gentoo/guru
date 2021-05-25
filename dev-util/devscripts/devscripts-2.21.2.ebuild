@@ -31,9 +31,7 @@ CDEPEND="
 	dev-util/distro-info
 	python? ( ${PYTHON_DEPS} )
 "
-DEPEND="
-	${CDEPEND}
-	app-shells/bash-completion
+DEPEND="${CDEPEND}
 	test? (
 		app-arch/zip
 		dev-perl/Git-Wrapper
@@ -42,7 +40,6 @@ DEPEND="
 		dev-perl/Software-License
 		dev-perl/String-ShellQuote
 		dev-perl/UNIVERSAL-require
-		dev-python/flake8[${PYTHON_USEDEP}]
 		dev-python/pyftpdlib[${PYTHON_USEDEP}]
 		dev-python/python-debian[${PYTHON_USEDEP}]
 		dev-util/shunit2
@@ -51,8 +48,7 @@ DEPEND="
 		virtual/perl-DB_File
 	)
 "
-RDEPEND="
-	${CDEPEND}
+RDEPEND="${CDEPEND}
 	app-arch/dpkg
 	app-crypt/gnupg
 	app-text/wdiff
@@ -106,6 +102,11 @@ src_install() {
 		distutils-r1_src_install
 		popd > /dev/null || die
 	fi
+
+	mv "${ED}"/usr/share/doc/${PN} "${ED}"/usr/share/doc/${PF} || die
+
+	# "incorrect name, no completions for command defined"
+	rm "${ED}"/usr/share/bash-completion/completions/{debcheckout,pkgnames} || die
 }
 
 src_test() {

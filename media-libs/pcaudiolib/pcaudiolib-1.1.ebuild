@@ -12,7 +12,8 @@ SRC_URI="https://github.com/espeak-ng/${PN}/archive/refs/tags/${PV}.tar.gz -> ${
 LICENSE="GPL-3+ ZLIB"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa oss pulseaudio"
+IUSE="+alsa oss pulseaudio"
+REQUIRED_USE="|| ( alsa oss pulseaudio )"
 
 RDEPEND="
 	alsa? ( >=media-libs/alsa-lib-1.0.18 )

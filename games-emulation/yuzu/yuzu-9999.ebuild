@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -85,14 +85,17 @@ src_prepare() {
 	# sed -i -e '/target_include_directories(xbyak/s:./xbyak/xbyak:/usr/include/xbyak/:' externals/CMakeLists.txt
 
 	# Unbundle vulkan headers
-	sed -i -e 's:../../externals/Vulkan-Headers/include:/usr/include/vulkan/:' src/video_core/CMakeLists.txt src/yuzu/CMakeLists.txt src/yuzu_cmd/CMakeLists.txt
-	sed -i -e '/VK_ERROR_INCOMPATIBLE_VERSION_KHR/d' src/video_core/vulkan_common/vulkan_wrapper.cpp
+	sed -i -e 's:../../externals/Vulkan-Headers/include:/usr/include/vulkan/:' src/video_core/CMakeLists.txt src/yuzu/CMakeLists.txt src/yuzu_cmd/CMakeLists.txt || die
+	sed -i -e '/VK_ERROR_INCOMPATIBLE_VERSION_KHR/d' src/video_core/vulkan_common/vulkan_wrapper.cpp || die
 
 	# Unbundle discord rapidjson
 	sed -i '/NOT RAPIDJSONTEST/,/endif(NOT RAPIDJSONTEST)/d;/find_file(RAPIDJSON/d;s:\${RAPIDJSON}:"/usr/include/rapidjson":' externals/discord-rpc/CMakeLists.txt || die
 
-	# media-libs/libsdl2: use 2.0.14 in tree
-	sed -i 's/2.0.15/2.0.14/' CMakeLists.txt
+	# Force disable bundled sdl2, use 2.0.14 in tree
+	if use sdl; then
+		sed -i '/find_package(SDL2/{s/2.0.15/2.0.14/;s/ QUIET//}' CMakeLists.txt || die
+		sed -i '/PS5_RUMBLE/d' src/input_common/sdl/sdl_impl.cpp
+	fi
 
 	cmake_src_prepare
 }
@@ -100,14 +103,15 @@ src_prepare() {
 src_configure() {
 	local -a mycmakeargs=(
 		-DBUILD_SHARED_LIBS=OFF
-		-DENABLE_CUBEB=$(usex cubeb ON OFF)
+		-DENABLE_CUBEB=$(usex cubeb)
 		-DENABLE_QT=$(usex qt5)
 		-DENABLE_QT_TRANSLATION=$(usex qt5)
 		-DENABLE_SDL2=$(usex sdl)
-		-DENABLE_WEB_SERVICE=$(usex webservice ON OFF)
-		-DUSE_DISCORD_PRESENCE=$(usex discord ON OFF)
-		-DYUZU_ENABLE_BOXCAT=$(usex boxcat ON OFF)
-		-DYUZU_USE_QT_WEB_ENGINE=$(usex webengine ON OFF)
+		-DENABLE_WEB_SERVICE=$(usex webservice)
+		-DUSE_DISCORD_PRESENCE=$(usex discord)
+		-DYUZU_ALLOW_SYSTEM_SDL2=$(usex sdl)
+		-DYUZU_ENABLE_BOXCAT=$(usex boxcat)
+		-DYUZU_USE_QT_WEB_ENGINE=$(usex webengine)
 		-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=OFF
 	)
 	cmake_src_configure
