@@ -29,10 +29,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-src_configure() {
-	sed -i '90s/i3lock-color/i3lock/' betterlockscreen || die
-}
-
 src_install() {
 	dobin betterlockscreen
 
