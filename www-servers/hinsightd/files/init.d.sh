@@ -6,7 +6,8 @@ LOG_DIR=/var/log/$NAME
 TMP_DIR=/var/tmp/$NAME
 CWD_DIR=/var/www/localhost
 PID_FILE=$RUN_DIR/$NAME.pid
-CFG_FILE=/etc/hinsightd/$NAME.lua
+CFG_FILE=/etc/hinsightd/main.lua
+LOG_FILE=$LOG_DIR/hindsight.log
 
 RUN_FILE=/usr/bin/hinsightd
 RUN_USER="hinsightd"
@@ -14,7 +15,7 @@ RUN_USER="hinsightd"
 extra_commands="checkconfig reload"
 
 command=$RUN_FILE
-command_args="--config $CFG_FILE --logdir $LOG_DIR/ --cwd $CWD_DIR/ --pidfile $PID_FILE --tmpdir $TMP_DIR"
+command_args="--config $CFG_FILE --logdir $LOG_DIR --cwd $CWD_DIR --pidfile $PID_FILE --tmpdir $TMP_DIR --log $LOG_FILE"
 pidfile="$PID_FILE"
 command_args_background="--daemonize"
 command_user="$RUN_USER:$RUN_USER"
@@ -24,11 +25,11 @@ depend() {
 }
 
 checkconfig() {
-  $command $command_args --pretend > /dev/null
+  start-stop-daemon --quiet --user $RUN_USER --start --exec $command -- --check $command_args
 }
 
 start_pre() {
-  checkpath --directory --owner $command_user --mode 0770 $LOG_DIR $TMP_DIR $RUN_DIR
+  checkpath --directory --owner $command_user --mode 06770 $LOG_DIR $TMP_DIR $RUN_DIR
   checkconfig || return 1
 }
 
