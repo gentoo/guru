@@ -1,6 +1,6 @@
-BDEPEND=dev-util/wayland-scanner dev-libs/wayland-protocols app-text/scdoc >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=dev-util/wayland-scanner app-text/scdoc >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install test
-DEPEND=dev-libs/wayland
+DEPEND=dev-libs/wayland dev-libs/wayland-protocols
 DESCRIPTION=Day/night gamma adjustments for Wayland
 EAPI=7
 HOMEPAGE=https://sr.ht/~kennylevinsen/wlsunset/
@@ -9,6 +9,6 @@ KEYWORDS=~amd64
 LICENSE=MIT
 RDEPEND=dev-libs/wayland
 SLOT=0
-SRC_URI=https://git.sr.ht/~kennylevinsen/wlsunset/archive/0.1.0.tar.gz -> wlsunset-0.1.0.tar.gz
+SRC_URI=https://git.sr.ht/~kennylevinsen/wlsunset/archive/0.2.0.tar.gz -> wlsunset-0.2.0.tar.gz
 _eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	meson	28cbb704f3b4e0481c4a5f22be635115
-_md5_=adf3658741810bf0bdacd2a6f5148450
+_md5_=0bd505c5bc44938a98d7fb11a2b06d51
