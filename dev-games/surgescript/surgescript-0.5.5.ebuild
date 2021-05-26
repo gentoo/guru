@@ -5,10 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{7..9} )
 DOCS_BUILDER="mkdocs"
-DOCS_DEPEND="
-	dev-python/mkdocs
-	dev-python/mkdocs-material
-"
+DOCS_DEPEND="dev-python/mkdocs-material"
 
 inherit cmake python-any-r1 docs
 
@@ -17,15 +14,25 @@ HOMEPAGE="https://alemart.github.io/surgescript"
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/alemart/surgescript.git"
+	EGIT_REPO_URI="https://github.com/alemart/${PN}.git"
 	SLOT="0"
 else
-	SRC_URI="https://github.com/alemart/surgescript/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/alemart/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
-	SLOT="0/${PV}"
+	SLOT="0/$(ver_cut 1-3)"
 fi
 
 LICENSE="Apache-2.0"
+IUSE="examples static-libs"
+
+DOCS=( CHANGES.md README.md )
+
+src_configure() {
+	local mycmakeoptions=(
+		-DWANT_STATIC=$(usex static-libs)
+	)
+	cmake_src_configure
+}
 
 src_compile() {
 	cmake_src_compile
@@ -34,5 +41,7 @@ src_compile() {
 
 src_install() {
 	cmake_src_install
-	mv "${D}"/usr/lib "${D}"/usr/"$(get_libdir)" || die "Failed moving to libdir"
+
+	docompress -x /usr/share/doc/${PF}/examples
+	use examples && dodoc -r examples
 }
