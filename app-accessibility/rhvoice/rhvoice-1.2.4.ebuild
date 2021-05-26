@@ -10,16 +10,16 @@ DESCRIPTION="TTS engine with extended languages support (including Russian)"
 HOMEPAGE="https://rhvoice.su https://github.com/RHVoice/RHVoice"
 SRC_URI="
 	https://github.com/${MY_PN}/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
-	l10n_en? ( https://github.com/RHVoice/evgeniy-eng/archive/refs/tags/4.0.tar.gz -> rhvoice-evgeniy-eng-4.0.tar.gz )
+	l10n_en? ( https://github.com/${MY_PN}/evgeniy-eng/archive/refs/tags/4.0.tar.gz -> rhvoice-evgeniy-eng-4.0.tar.gz )
 	l10n_ru? (
-		https://github.com/RHVoice/evgeniy-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-evgeniy-rus-4.0.tar.gz
-		https://github.com/RHVoice/victoria-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-victoria-4.0.tar.gz
+		https://github.com/${MY_PN}/evgeniy-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-evgeniy-rus-4.0.tar.gz
+		https://github.com/${MY_PN}/victoria-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-victoria-4.0.tar.gz
 	)
 "
 S="${WORKDIR}/${MY_PN}-${PV}"
 CMAKE_REMOVE_MODULES_LIST="Hardening VersionFromGit"
 
-LICENSE="l10n_pt-BR? ( CC-BY-SA-4.0 ) BSD GPL-2 GPL-3+ LGPL-2.1+ MIT"
+LICENSE="l10n_pt-BR? ( CC-BY-SA-4.0 ) BSD GPL-2 GPL-3+ LGPL-2.1+"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="ao bindist cli client portaudio +pulseaudio +server +speech-dispatcher utils"
@@ -54,6 +54,7 @@ RDEPEND="
 "
 BDEPEND="${DEPEND}
 	dev-cpp/cli11
+	dev-libs/rapidxml
 	dev-libs/utfcpp
 "
 REQUIRED_USE="|| ( ao portaudio pulseaudio )"
@@ -91,8 +92,9 @@ src_prepare() {
 	sed 's|/systemd/system||' \
 		-i src/service/CMakeLists.txt || die
 
-	rm -r src/third-party/{sonic,tclap,utf8} || die
-	sed "/sonic/d" -i src/third-party/CMakeLists.txt || die
+	sed -e "/sonic/d" \
+		-e "/set(RAPIDXML_INCLUDE_DIR/d" \
+		-i src/third-party/CMakeLists.txt || die
 	sed "/set(UTF8_INCLUDE_DIR/d" -i src/CMakeLists.txt || die
 
 	sed 's/ "RHVoice_question_match"//' \
@@ -136,10 +138,9 @@ src_configure() {
 		-DWITH_PULSE=$(usex pulseaudio)
 		-DWITH_PORTAUDIO=$(usex portaudio)
 		# src/third-party/CMakeLists.txt
-		-DRAPIDXML_INCLUDE_DIR="${S}"/src/third-party/rapidxml
+		-DRAPIDXML_INCLUDE_DIR=/usr/include/rapidxml
 		-DUTF8_INCLUDE_DIR=/usr/include/utf8cpp
 	)
 
-	append-cppflags -std=gnu++11
 	cmake_src_configure
 }

@@ -71,7 +71,7 @@ go-module_set_globals
 DESCRIPTION="cheat allows you to create and view interactive cheatsheets on the command-line"
 HOMEPAGE="https://github.com/cheat/cheat"
 SRC_URI="
-	https://github.com/cheat/cheat/archive/${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}
 "
 
@@ -80,32 +80,35 @@ SRC_URI="
 LICENSE="MIT Apache-2.0 BSD BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="zsh-completion"
+IUSE="man zsh-completion"
 
 RDEPEND="zsh-completion? ( !app-shells/zsh-completions )"
-BDEPEND="app-text/pandoc"
+BDEPEND="man? ( app-text/pandoc )"
 
-src_prepare() {
-	sed -e "s|\/tmp|${T}|g" -i Makefile || die
-	default
+src_compile() {
+	go build -o ${PN} ./cmd/${PN} || die "compile failed"
+
+	if use man; then
+		pandoc -s -t man doc/${PN}.1.md -o doc/${PN}.1 || die "building manpage failed"
+	fi
 }
 
 src_test() {
-	# we can't use the default behavior
-	# since the check rule performs formatting
-	# with a non-standard go tool
-	emake test
+	go test ./cmd/${PN} || die
 }
 
 src_install() {
-	dobin "dist/${PN}"
-	newbashcomp scripts/cheat.bash "${PN}"
+	dobin ${PN}
+
+	use man && doman doc/${PN}.1
+
+	newbashcomp scripts/${PN}.bash ${PN}
 	insinto /usr/share/fish/vendor_completions.d
-	doins scripts/cheat.fish
-	doman doc/cheat.1
+	doins scripts/${PN}.fish
+
 	if use zsh-completion; then
 		insinto /usr/share/zsh/site-functions
-		newins scripts/cheat.zsh _cheat
+		newins scripts/${PN}.zsh _cheat
 	fi
 }
 

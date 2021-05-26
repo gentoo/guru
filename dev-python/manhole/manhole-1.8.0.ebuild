@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -21,7 +21,7 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="
+BDEPEND="
 	test? (
 		dev-python/eventlet[${PYTHON_USEDEP}]
 		dev-python/gevent[${PYTHON_USEDEP}]
@@ -32,13 +32,11 @@ DEPEND="
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
-distutils_enable_tests pytest
-distutils_enable_sphinx docs \
-				dev-python/sphinx-py3doc-enhanced-theme \
-				dev-python/sphinxcontrib-napoleon
+distutils_enable_tests --install pytest
+
+distutils_enable_sphinx docs dev-python/sphinx-py3doc-enhanced-theme
 
 python_test() {
-	distutils_install_for_testing
 	epytest \
 			--deselect tests/test_manhole.py::test_non_daemon_connection \
 			--deselect tests/test_manhole.py::test_daemon_connection \
@@ -47,6 +45,7 @@ python_test() {
 			--deselect tests/test_manhole.py::test_connection_handler_exec[str] \
 			--deselect tests/test_manhole.py::test_connection_handler_exec[func] \
 			--deselect tests/test_manhole.py::test_environ_variable_activation \
+			--deselect tests/test_manhole.py::test_stderr_doesnt_deadlock \
 			--deselect tests/test_manhole_cli.py::test_help
 
 }

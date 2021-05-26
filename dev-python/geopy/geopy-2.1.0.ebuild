@@ -22,8 +22,8 @@ KEYWORDS="~amd64"
 RDEPEND="dev-python/geographiclib[${PYTHON_USEDEP}]"
 BDEPEND="
 	test? (
+		dev-python/async_generator[${PYTHON_USEDEP}]
 		dev-python/pytest-aiohttp[${PYTHON_USEDEP}]
-		dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/pytz[${PYTHON_USEDEP}]
 		dev-python/six[${PYTHON_USEDEP}]
 	)
@@ -32,8 +32,7 @@ BDEPEND="
 distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 				dev-python/sphinx-issues \
-				">=dev-python/sphinx_rtd_theme-0.4.0" \
-				dev-python/readme_renderer
+				dev-python/sphinx_rtd_theme
 
 python_test() {
 	epytest \

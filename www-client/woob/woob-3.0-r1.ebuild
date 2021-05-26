@@ -42,19 +42,20 @@ RDEPEND="
 	dev-python/termcolor[${PYTHON_USEDEP}]
 	dev-python/unidecode[${PYTHON_USEDEP}]
 "
-DEPEND="${RDEPEND}"
+BDEPEND="test? ( ${RDEPEND} )"
 
 distutils_enable_tests nose
 
 distutils_enable_sphinx docs/source
 
-src_prepare() {
-	default
-
+python_prepare_all() {
 	sed -i \
 		-e '/woob.browser.browsers,/d' \
 		-e '/woob.browser.pages,/d' \
-		setup.cfg || die "Failed removing network-dependent tests"
+		-e '/woob.tools.application.formatters.table,/d' \
+		setup.cfg || die
+
+	distutils-r1_python_prepare_all
 }
 
 python_install_all() {

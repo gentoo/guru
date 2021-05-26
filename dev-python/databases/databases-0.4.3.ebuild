@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{8..9} )
 
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="dev-python/mkdocs-material"
@@ -21,28 +21,15 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="doc"
+RDEPEND="<dev-python/sqlalchemy-1.4.0[${PYTHON_USEDEP}]"
 
-# Requires 'TEST_DATABASE_URLS' to be set
-# but to what, there is no documentation on this
-# besides this looks like it requires internet so it will fail anyway
-# To fix this, the whole 'TEST_DATABASE_URLS' stuff should probably be commented out
-# or we download whatever 'TEST_DATABASE_URLS' is supposed to point at and the variable
-# to that local directory
-RESTRICT="test"
-
-RDEPEND=">=dev-python/sqlalchemy-1.3.0[${PYTHON_USEDEP}]"
-
-# autoflake, codecov also required for tests?
-DEPEND="test? (
-	dev-python/aiomysql[${PYTHON_USEDEP}]
+BDEPEND="test? (
 	dev-python/aiopg[${PYTHON_USEDEP}]
 	dev-python/aiosqlite[${PYTHON_USEDEP}]
 	dev-python/asyncpg[${PYTHON_USEDEP}]
 	dev-python/psycopg[${PYTHON_USEDEP}]
 	dev-python/pymysql[${PYTHON_USEDEP}]
 	dev-python/starlette[${PYTHON_USEDEP}]
-	dev-python/requests[${PYTHON_USEDEP}]
 )"
 
 distutils_enable_tests pytest
@@ -50,13 +37,26 @@ distutils_enable_tests pytest
 python_prepare_all() {
 	# do not install LICENSE to /usr/
 	sed -i -e '/data_files/d' setup.py || die
+	# fix tests
+	sed -i -e '/databases.backends.mysql/d' tests/test_connection_options.py || die
 
 	distutils-r1_python_prepare_all
 }
 
+python_test() {
+	TEST_DATABASE_URLS="" epytest \
+		--deselect tests/test_connection_options.py::test_mysql_pool_size \
+		--deselect tests/test_connection_options.py::test_mysql_explicit_pool_size \
+		--deselect tests/test_connection_options.py::test_mysql_ssl \
+		--deselect tests/test_connection_options.py::test_mysql_explicit_ssl \
+		--deselect tests/test_connection_options.py::test_mysql_pool_recycle \
+		--deselect tests/test_databases.py \
+		--deselect tests/test_integration.py::test_integration
+}
+
 pkg_postinst() {
 	optfeature "postgresql support" dev-python/asyncpg dev-python/psycopg
-	optfeature "mysql support" dev-python/aiomysql dev-python/pymysql
+	optfeature "mysql support" dev-python/pymysql
 	optfeature "sqlite support" dev-python/aiosqlite
 	optfeature "postgresql+aiopg support" dev-python/aiopg
 }
