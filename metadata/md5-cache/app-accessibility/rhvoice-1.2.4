@@ -1,4 +1,4 @@
-BDEPEND=dev-cpp/cli11 dev-libs/utfcpp dev-util/ninja dev-util/cmake
+BDEPEND=dev-cpp/cli11 dev-libs/rapidxml dev-libs/utfcpp dev-util/ninja dev-util/cmake
 DEFINED_PHASES=compile configure install prepare test unpack
 DESCRIPTION=TTS engine with extended languages support (including Russian)
 EAPI=7
@@ -6,10 +6,10 @@ HOMEPAGE=https://rhvoice.su https://github.com/RHVoice/RHVoice
 INHERIT=cmake multilib
 IUSE=ao bindist cli client portaudio +pulseaudio +server +speech-dispatcher utils l10n_en l10n_eo l10n_ky l10n_ru l10n_uk l10n_ka l10n_tt l10n_pt-BR
 KEYWORDS=~amd64 ~x86
-LICENSE=l10n_pt-BR? ( CC-BY-SA-4.0 ) BSD GPL-2 GPL-3+ LGPL-2.1+ MIT l10n_en? ( CC-BY-NC-ND-4.0 ) l10n_eo? ( CC-BY-NC-ND-4.0 ) l10n_ky? ( CC-BY-NC-ND-4.0 ) l10n_ru? ( CC-BY-NC-ND-4.0 ) l10n_uk? ( CC-BY-NC-ND-4.0 ) l10n_ka? ( free-noncomm ) l10n_tt? ( free-noncomm )
+LICENSE=l10n_pt-BR? ( CC-BY-SA-4.0 ) BSD GPL-2 GPL-3+ LGPL-2.1+ l10n_en? ( CC-BY-NC-ND-4.0 ) l10n_eo? ( CC-BY-NC-ND-4.0 ) l10n_ky? ( CC-BY-NC-ND-4.0 ) l10n_ru? ( CC-BY-NC-ND-4.0 ) l10n_uk? ( CC-BY-NC-ND-4.0 ) l10n_ka? ( free-noncomm ) l10n_tt? ( free-noncomm )
 RDEPEND=!dev-libs/hts_engine media-libs/sonic ao? ( media-libs/libao ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-sound/pulseaudio ) speech-dispatcher? ( app-accessibility/speech-dispatcher ) server? ( dev-libs/glib[dbus] >=dev-cpp/glibmm-2.66.1:2 )
 REQUIRED_USE=|| ( ao portaudio pulseaudio )
 SLOT=0
 SRC_URI=https://github.com/RHVoice/RHVoice/archive/refs/tags/1.2.4.tar.gz -> rhvoice-1.2.4.tar.gz l10n_en? ( https://github.com/RHVoice/evgeniy-eng/archive/refs/tags/4.0.tar.gz -> rhvoice-evgeniy-eng-4.0.tar.gz ) l10n_ru? ( https://github.com/RHVoice/evgeniy-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-evgeniy-rus-4.0.tar.gz https://github.com/RHVoice/victoria-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-victoria-4.0.tar.gz )
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da
-_md5_=b7802b5ce00790a15eaea77da948faae
+_md5_=7da7585d2dd861ead25f05cad28c49f9
