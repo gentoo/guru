@@ -31,7 +31,6 @@ DEPEND="
 	test? ( >=dev-python/sanic-20.12.2[${PYTHON_USEDEP}] )
 "
 
-
 distutils_enable_tests pytest
 # where is the conf.py file? make html can't find it either
 #distutils_enable_sphinx docs
