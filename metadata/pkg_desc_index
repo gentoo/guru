@@ -48,7 +48,6 @@ app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linu
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8 2.0.9: A modern and intuitive terminal-based text editor
 app-editors/typora-bin 0.10.7: a markdown editor,markdown reader.
-app-editors/visual-studio-code-bin 1.55.2 1.56.2: Multiplatform Visual Studio Code from Microsoft
 app-editors/vscodium-bin 1.56.0 1.56.2: Free/Libre Open Source Software Binaries of VSCode
 app-emacs/flycheck 31: On the fly syntax checking for GNU Emacs
 app-emulation/arnold 20170513: Amstrad CPC emulator
@@ -110,7 +109,7 @@ app-shells/zsh-autosuggestions 0.6.4: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
 app-shells/zsh-history-to-fish 0.3.0: Bring your ZSH history to Fish shell
 app-text/OCRmyPDF 12.0.2: OCRmyPDF adds an OCR text layer to scanned PDF files
-app-text/epubgrep 0.1.3 0.2.0: Search tool for EPUB ebooks
+app-text/epubgrep 0.1.3 0.2.0 0.3.1: Search tool for EPUB ebooks
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/klogg 20.12: A GUI application to browse and search through long and complex log files
 app-text/komikku 0.27.0 0.28.1: An online/offline manga reader for GNOME
@@ -147,9 +146,9 @@ dev-R/tidyselect 1.1.1: Select from a Set of Strings
 dev-R/utf8 1.2.1: Unicode Text Processing
 dev-R/vctrs 0.3.8: Vector Helpers
 dev-cpp/cli11 1.9.1: Command line parser for C++11
-dev-cpp/fbthrift 2021.04.19.00: Facebook's branch of Apache Thrift, including a new C++ server
-dev-cpp/fizz 2021.04.19.00: C++14 implementation of the TLS-1.3 standard
-dev-cpp/folly 2021.01.04.00 2021.04.19.00-r1: An open-source C++ library developed and used at Facebook
+dev-cpp/fbthrift 2021.04.19.00 2021.05.24.00: Facebook's branch of Apache Thrift, including a new C++ server
+dev-cpp/fizz 2021.04.19.00 2021.05.24.00: C++14 implementation of the TLS-1.3 standard
+dev-cpp/folly 2021.01.04.00 2021.04.19.00-r1 2021.05.24.00: An open-source C++ library developed and used at Facebook
 dev-cpp/gsl-lite 0.38.0: C++ Guideline Support Library implementation
 dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
 dev-cpp/parallel-hashmap 1.33: Family of header-only, fast and memory-friendly hashmap and btree containers
@@ -157,9 +156,10 @@ dev-cpp/pcg-cpp 0.98.1_p20210406: Family of better random number generators
 dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging library
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
 dev-cpp/termcolor 2.0.0: Header-only library for printing colored messages to the terminal
+dev-cpp/tiny-dnn 1.0.0_alpha3: header only, dependency-free deep learning framework in C++14
 dev-cpp/vectorwrapper 1.1.2 9999: A template vector wrapper class for C++
 dev-cpp/vexcl 1.4.2-r1: VexCL - Vector expression template library for OpenCL
-dev-cpp/wangle 2021.04.19.00: Framework providing common client/server abstractions
+dev-cpp/wangle 2021.04.19.00 2021.05.24.00: Framework providing common client/server abstractions
 dev-db/pg_repack 1.4.6: Reorganize tables in PostgreSQL databases with minimal locks
 dev-db/rum 1.3.7: RUM access method - inverted index with additional information in posting lists
 dev-dotnet/dotnet-aspnet-bin 5.0.5: .NET ASP.NET Runtime Store
@@ -233,7 +233,6 @@ dev-python/ascim 0.1.1 9999: Manipulate ASCII art as you would do with raster im
 dev-python/aspectlib 1.5.2: An aspect-oriented programming, monkey-patch and decorators library
 dev-python/asyncpg 0.23.0: A fast PostgreSQL Database Client Library for Python/asyncio.
 dev-python/asyncssh 2.6.0: Asynchronous SSHv2 client and server library
-dev-python/atomiclong 0.1.1-r1: An AtomicLong type using CFFI.
 dev-python/autoflake 1.3.1 1.4: Removes unused imports and unused variables as reported by pyflakes
 dev-python/azure-storage-blob 12.8.1: Microsoft Azure Blob Storage Client Library for Python
 dev-python/b2sdk 1.2.0: The client library for BackBlaze's B2 product
@@ -322,7 +321,7 @@ dev-python/pytest-isort 1.3.0: Plugin to check import ordering using isort
 dev-python/pytest-marks 0.4: Allow to set 'marks' on pytest methods
 dev-python/pytest-pythonpath 0.7.3: Plugin for adding to the PYTHONPATH from the pytests.ini file before tests run
 dev-python/pytest-randomly 3.5.0: Pytest plugin to randomly order tests and control random.seed
-dev-python/pytest-sanic 1.6.2: a Pytest Plugin for Sanic
+dev-python/pytest-sanic 1.6.2 1.7.1: a Pytest Plugin for Sanic
 dev-python/pytest-sugar 0.9.3 0.9.4: Plugin for pytest that changes the default look and feel of pytest
 dev-python/pytest-toolbox 0.4: Numerous useful plugins for pytest
 dev-python/pytest-trio 0.7.0: This is a pytest plugin to help you test projects that use Trio
@@ -331,11 +330,12 @@ dev-python/python-multipart 0.0.5: A streaming multipart parser for Python
 dev-python/python-pkcs11 0.7.0: PKCS#11 (Cryptoki) support for Python
 dev-python/python-telegram-bot 13.1 9999: Python wrapper of telegram bots API
 dev-python/pywebview 3.4: A lightweight cross-platform wrapper around a webview component
-dev-python/raven 6.10.0: Raven is a client for Sentry
 dev-python/recordclass 0.14.3 9999: Mutable variants of tupe and collections.namedtuple
 dev-python/redbaron 0.9 0.9.2: A FST for python to make writing refactoring code a realistic task
 dev-python/rstcheck 3.3.1: Checks syntax of reStructuredText and code blocks nested within it
-dev-python/sanic 20.9.1: Async Python 3.6+ web server/framework | Build fast. Run fast.
+dev-python/sanic 20.9.1 21.3.4: Async Python 3.6+ web server/framework | Build fast. Run fast.
+dev-python/sanic-routing 0.6.2: Internal handler routing for Sanic
+dev-python/sanic-testing 0.4.0: Test clients for Sanic
 dev-python/scenedetect 0.5.5: Video Scene Cut Detection and Analysis Tool
 dev-python/schedule 1.0.0 1.1.0: Python job scheduling for humans
 dev-python/skia-pathops 0.4.1 0.6.0_p2: Python bindings for the Skia Path Ops

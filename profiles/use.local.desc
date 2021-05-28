@@ -52,6 +52,10 @@ app-text/klogg:lto - Build with link time optimization (LTO).
 app-text/klogg:sentry - Enable crash reporting using sentry.io.
 dev-cpp/sprout:texconv - Install texconv from subproject compost
 dev-cpp/sprout:wavconv - Install texconv from subproject darkroom
+dev-cpp/tiny-dnn:double-precision - Build tiny-dnn with double precision computations
+dev-cpp/tiny-dnn:opencl - Build tiny-dnn with OpenCL library support
+dev-cpp/tiny-dnn:serialization - Build tiny-dnn with Serialization support
+dev-cpp/tiny-dnn:tbb - Build tiny-dnn with TBB library support
 dev-cpp/vexcl:amdsi - Implement workaround for AMD SI GPUs
 dev-cpp/vexcl:clhpp - Install the OpenCL C++ header provided by VexCL
 dev-cpp/vexcl:compute - Use Boost.Compute algorithms
