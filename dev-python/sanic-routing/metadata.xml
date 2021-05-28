@@ -2,12 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <description>comaintainers welcome</description>
     <email>lssndrbarbieri@gmail.com</email>
     <name>Alessandro Barbieri</name>
   </maintainer>
   <upstream>
-    <remote-id type="pypi">raven</remote-id>
-    <remote-id type="github">getsentry/raven-python</remote-id>
+    <remote-id type="github">sanic-org/sanic-routing</remote-id>
   </upstream>
 </pkgmetadata>
