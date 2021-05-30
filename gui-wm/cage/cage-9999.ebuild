@@ -19,7 +19,7 @@ HOMEPAGE="https://www.hjdskes.nl/projects/cage https://github.com/Hjdskes/cage"
 LICENSE="MIT"
 SLOT="0"
 
-IUSE="-X"
+IUSE="X"
 
 RDEPEND="
 	>=gui-libs/wlroots-0.13

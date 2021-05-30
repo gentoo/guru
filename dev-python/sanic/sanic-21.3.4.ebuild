@@ -28,7 +28,6 @@ RDEPEND="
 	dev-python/ujson[${PYTHON_USEDEP}]
 	dev-python/uvloop[${PYTHON_USEDEP}]
 	>=dev-python/websockets-8.1[${PYTHON_USEDEP}]
-	<dev-python/websockets-9.0[${PYTHON_USEDEP}]
 "
 DEPEND="
 	${RDEPEND}
@@ -53,5 +52,5 @@ distutils_enable_sphinx docs \
 				www-servers/gunicorn
 
 python_test() {
-	pytest -vv --deselect tests/test_unix_socket.py::test_zero_downtime || die
+	pytest -vv --deselect tests/test_unix_socket.py::test_zero_downtime tests/test_keep_alive_timeout.py::test_keep_alive_client_timeout || die
 }

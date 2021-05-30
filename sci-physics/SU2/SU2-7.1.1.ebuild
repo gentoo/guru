@@ -23,7 +23,7 @@ KEYWORDS="~amd64"
 # cgns, metis, parmetis are bundled;
 # omp is disable as it's experimental;
 # pastix is disabled as it's try to find bundled libs;
-IUSE="cgns -mkl +mpi mpp openblas tecio test tutorials"
+IUSE="cgns mkl +mpi mpp openblas tecio test tutorials"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}

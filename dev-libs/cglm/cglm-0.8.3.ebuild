@@ -3,7 +3,14 @@
 
 EAPI=7
 
-inherit meson
+DOCS_BUILDER="sphinx"
+DOCS_AUTODOC=0
+DOCS_DIR="${S}/docs/source"
+
+PYTHON_COMPAT=( python3_{7,8,9} )
+
+inherit python-any-r1
+inherit docs meson
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
@@ -18,11 +25,6 @@ HOMEPAGE="https://github.com/recp/cglm"
 LICENSE="MIT"
 SLOT="0"
 
-IUSE="doc"
-
-BDEPEND="dev-util/meson
-	doc? ( dev-python/sphinx )"
-
 src_configure() {
 	local emesonargs=(
 		"-Dwerror=false"
@@ -33,16 +35,5 @@ src_configure() {
 src_compile() {
 	default
 	meson_src_compile
-	if use doc; then
-		einfo "Building documentation ..."
-		local doc_dir="${S}/docs"
-		cd "${doc_dir}" || die "Cannot chdir into \"${doc_dir}\"!"
-		sphinx-build -b html source build || die "Building documentation failed!"
-	fi
-}
-
-src_install() {
-	use doc && local HTML_DOCS=( "${S}/docs/build/." )
-	default
-	meson_src_install
+	docs_compile
 }

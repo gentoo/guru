@@ -27,7 +27,7 @@ HOMEPAGE="https://adoptopenjdk.net"
 LICENSE="GPL-2-with-classpath-exception"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64"
 
-IUSE="alsa cups -gentoo-vm headless-awt source"
+IUSE="alsa cups gentoo-vm headless-awt source"
 
 RDEPEND="
 	media-libs/fontconfig:1.0
