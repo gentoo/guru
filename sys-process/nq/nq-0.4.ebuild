@@ -13,7 +13,7 @@ LICENSE="public-domain"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="-shell +tq test"
+IUSE="shell +tq test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="shell? ( !test )" # shell alternatives currently fail tests
 
