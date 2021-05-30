@@ -5,7 +5,7 @@ DESCRIPTION=SU2: An Open-Source Suite for Multiphysics Simulation and Design
 EAPI=7
 HOMEPAGE=https://su2code.github.io/
 INHERIT=meson python-single-r1
-IUSE=cgns -mkl +mpi mpp openblas tecio test tutorials python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9
+IUSE=cgns mkl +mpi mpp openblas tecio test tutorials python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~amd64
 LICENSE=LGPL-2.1
 RDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) mpi? ( virtual/mpi[cxx] ) mkl? ( sci-libs/mkl ) openblas? ( sci-libs/openblas )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/su2code/SU2/archive/v7.1.1.tar.gz -> SU2-7.1.1.tar.gz mpp? ( https://github.com/mutationpp/Mutationpp/archive/v1.0.1.tar.gz -> mutationpp-1.0.1.tar.gz ) test? ( https://github.com/su2code/TestCases/archive/v7.1.1.tar.gz -> SU2-7.1.1-TestCases.tar.gz ) tutorials? ( https://github.com/su2code/Tutorials/archive/v7.1.1.tar.gz -> SU2-7.1.1-Tutorials.tar.gz )
 _eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	meson	28cbb704f3b4e0481c4a5f22be635115	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
-_md5_=15fbcba84f9425534f9c1bd5dc3db0b7
+_md5_=f4f12a2990a0cca9df5c150921040e40

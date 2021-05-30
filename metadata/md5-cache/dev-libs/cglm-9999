@@ -1,12 +1,12 @@
-BDEPEND=dev-util/meson doc? ( dev-python/sphinx ) >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install test unpack
+BDEPEND=doc? ( || ( ( dev-lang/python:3.9 dev-python/sphinx[python_targets_python3_9(-),-python_single_target_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/sphinx[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) ( dev-lang/python:3.7 dev-python/sphinx[python_targets_python3_7(-),-python_single_target_python3_7(-)] ) ) ) >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install setup test unpack
 DESCRIPTION=OpenGL Mathematics (glm) for C
 EAPI=7
 HOMEPAGE=https://github.com/recp/cglm
-INHERIT=meson git-r3
+INHERIT=python-any-r1 docs meson git-r3
 IUSE=doc
 LICENSE=MIT
 PROPERTIES=live
 SLOT=0
-_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	meson	28cbb704f3b4e0481c4a5f22be635115	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
-_md5_=0cd128d1b70945cea69ca060bf171dc6
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-any-r1	17241a11501065ff3651350040875aa9	docs	1541edddf7c7971612b5b9cec370f875	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	meson	28cbb704f3b4e0481c4a5f22be635115	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
+_md5_=b2c3b93455bb6e8929e1999570b2a9db
