@@ -31,7 +31,7 @@ DEPEND="
 		>=dev-libs/inih-52
 	)
 	>=app-arch/lz4-1.8
-	>=app-arch/zstd-1.4
+	>=app-arch/zstd-1.5
 	>=dev-cpp/catch-2.13:0
 	>=dev-cpp/nlohmann_json-3.8.0
 	>=dev-libs/boost-1.73:=[context]
