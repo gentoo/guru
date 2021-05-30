@@ -5,7 +5,7 @@ EAPI=7
 
 inherit cmake
 
-DESCRIPTION="Search tool for EPUB ebooks"
+DESCRIPTION="Search tool for EPUB e-books"
 HOMEPAGE="https://schlomp.space/tastytea/epubgrep"
 SRC_URI="https://schlomp.space/tastytea/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}"
@@ -20,6 +20,7 @@ RDEPEND="
 	dev-libs/boost[nls]
 	app-arch/libarchive[bzip2,iconv,lzma,zlib]
 	dev-libs/libfmt
+	dev-libs/pugixml
 "
 DEPEND="
 	${RDEPEND}

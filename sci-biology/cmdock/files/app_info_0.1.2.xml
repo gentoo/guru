@@ -47,7 +47,7 @@
 </app_version>
 <app_version>
 	<app_name>cmdock-boinc-zip</app_name>
-	<version_num>200</version_num>
+	<version_num>204</version_num>
 	<file_ref>
 		<file_name>cmdock-boinc-zip_wrapper_0.1.2</file_name>
 		<main_program/>

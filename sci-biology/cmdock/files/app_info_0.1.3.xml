@@ -1,0 +1,95 @@
+<app_info>
+<app>
+	<name>cmdock-boinc</name>
+	<user_friendly_name>CurieMarieDock on BOINC</user_friendly_name>
+</app>
+<app>
+	<name>cmdock-boinc-zip</name>
+	<user_friendly_name>CurieMarieDock on BOINC + zipped input</user_friendly_name>
+</app>
+<app>
+	<name>cmdock-boinc-zcp</name>
+	<user_friendly_name>CurieMarieDock on BOINC + zipped input, checkpoints and progress bar</user_friendly_name>
+</app>
+
+<file_info>
+	<name>cmdock-wrapper_0.1.3</name>
+	<executable/>
+</file_info>
+<file_info>
+	<name>cmdock-boinc-zcp_wrapper_0.1.3</name>
+	<executable/>
+</file_info>
+<file_info>
+	<name>cmdock-boinc-zip_wrapper_0.1.3</name>
+	<executable/>
+</file_info>
+
+<file_info>
+	<name>cmdock-boinc_job_0.1.3.xml</name>
+</file_info>
+<file_info>
+	<name>cmdock-boinc-zcp_job_0.1.3.xml</name>
+</file_info>
+<file_info>
+	<name>cmdock-boinc-zip_job_0.1.3.xml</name>
+</file_info>
+<file_info>
+	<name>docking_out.sd</name>
+</file_info>
+
+<app_version>
+	<app_name>cmdock-boinc</app_name>
+	<version_num>103</version_num>
+	<file_ref>
+		<file_name>cmdock-wrapper_0.1.3</file_name>
+		<main_program/>
+	</file_ref>
+	<file_ref>
+		<file_name>cmdock-boinc_job_0.1.3.xml</file_name>
+		<open_name>job.xml</open_name>
+		<copy_file/>
+	</file_ref>
+	<file_ref>
+		<file_name>docking_out.sd</file_name>
+		<open_name>docking_out.sd</open_name>
+		<copy_file/>
+	</file_ref>
+</app_version>
+<app_version>
+	<app_name>cmdock-boinc-zcp</app_name>
+	<version_num>100</version_num>
+	<file_ref>
+		<file_name>cmdock-boinc-zcp_wrapper_0.1.3</file_name>
+		<main_program/>
+	</file_ref>
+	<file_ref>
+		<file_name>cmdock-boinc-zcp_job_0.1.3.xml</file_name>
+		<open_name>job.xml</open_name>
+		<copy_file/>
+	</file_ref>
+	<file_ref>
+		<file_name>docking_out.sd</file_name>
+		<open_name>docking_out.sd</open_name>
+		<copy_file/>
+	</file_ref>
+</app_version>
+<app_version>
+	<app_name>cmdock-boinc-zip</app_name>
+	<version_num>300</version_num>
+	<file_ref>
+		<file_name>cmdock-boinc-zip_wrapper_0.1.3</file_name>
+		<main_program/>
+	</file_ref>
+	<file_ref>
+		<file_name>cmdock-boinc-zip_job_0.1.3.xml</file_name>
+		<open_name>job.xml</open_name>
+		<copy_file/>
+	</file_ref>
+	<file_ref>
+		<file_name>docking_out.sd</file_name>
+		<open_name>docking_out.sd</open_name>
+		<copy_file/>
+	</file_ref>
+</app_version>
+</app_info>
