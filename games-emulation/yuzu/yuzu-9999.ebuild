@@ -18,7 +18,7 @@ EGIT_SUBMODULES=( '*' '-ffmpeg' '-inih' '-libressl' '-libusb' '-libzip' '-opus' 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="+boxcat +cubeb discord +qt5 sdl webengine +webservice"
+IUSE="+boxcat +compatibility-list +cubeb discord +qt5 sdl webengine +webservice"
 
 DEPEND="
 	discord? ( >=dev-libs/rapidjson-1.1.0 )
@@ -58,7 +58,7 @@ src_unpack() {
 	git-r3_src_unpack
 
 	# Do not fetch via sources because this file always changes
-	curl https://api.yuzu-emu.org/gamedb/ > "${S}"/compatibility_list.json
+	use compatibility-list && curl https://api.yuzu-emu.org/gamedb/ > "${S}"/compatibility_list.json
 }
 
 src_prepare() {
@@ -107,6 +107,7 @@ src_prepare() {
 src_configure() {
 	local -a mycmakeargs=(
 		-DBUILD_SHARED_LIBS=OFF
+		-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=$(usex compatibility-list)
 		-DENABLE_CUBEB=$(usex cubeb)
 		-DENABLE_QT=$(usex qt5)
 		-DENABLE_QT_TRANSLATION=$(usex qt5)
@@ -120,5 +121,7 @@ src_configure() {
 	cmake_src_configure
 
 	# This would be better in src_unpack but it would be unlinked
-	mv "${S}"/compatibility_list.json "${BUILD_DIR}"/dist/compatibility_list/ || die
+	if use compatibility-list; then
+		mv "${S}"/compatibility_list.json "${BUILD_DIR}"/dist/compatibility_list/ || die
+	fi
 }
