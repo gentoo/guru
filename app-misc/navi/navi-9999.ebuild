@@ -58,14 +58,14 @@ CRATES="
 	rayon-core-1.9.0
 	redox_syscall-0.2.5
 	redox_users-0.4.0
-	regex-1.5.3
+	regex-1.5.4
 	regex-syntax-0.6.25
 	remove_dir_all-0.5.3
 	remove_dir_all-0.7.0
 	same-file-1.0.6
 	scopeguard-1.1.0
-	serde-1.0.125
-	serde_derive-1.0.125
+	serde-1.0.126
+	serde_derive-1.0.126
 	serde_yaml-0.8.17
 	shellwords-1.1.0
 	signal-hook-0.1.17
@@ -77,8 +77,8 @@ CRATES="
 	tempfile-3.2.0
 	termcolor-1.1.2
 	textwrap-0.12.1
-	thiserror-1.0.24
-	thiserror-impl-1.0.24
+	thiserror-1.0.25
+	thiserror-impl-1.0.25
 	unicode-segmentation-1.7.1
 	unicode-width-0.1.8
 	unicode-xid-0.2.1
