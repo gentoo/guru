@@ -24,7 +24,6 @@ RDEPEND="
 	>=dev-python/httpx-0.15.4[${PYTHON_USEDEP}]
 	>=dev-python/pytest-5.2[${PYTHON_USEDEP}]
 	>=dev-python/websockets-8.1[${PYTHON_USEDEP}]
-	<dev-python/websockets-9.0[${PYTHON_USEDEP}]
 "
 DEPEND="
 	${RDEPEND}
