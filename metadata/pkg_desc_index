@@ -109,7 +109,7 @@ app-shells/zsh-autosuggestions 0.6.4: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
 app-shells/zsh-history-to-fish 0.3.0: Bring your ZSH history to Fish shell
 app-text/OCRmyPDF 12.0.2: OCRmyPDF adds an OCR text layer to scanned PDF files
-app-text/epubgrep 0.1.3 0.2.0 0.3.1: Search tool for EPUB ebooks
+app-text/epubgrep 0.3.2 0.4.0: Search tool for EPUB e-books
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/klogg 20.12: A GUI application to browse and search through long and complex log files
 app-text/komikku 0.27.0 0.28.1: An online/offline manga reader for GNOME
@@ -150,6 +150,7 @@ dev-cpp/fbthrift 2021.04.19.00 2021.05.24.00: Facebook's branch of Apache Thrift
 dev-cpp/fizz 2021.04.19.00 2021.05.24.00: C++14 implementation of the TLS-1.3 standard
 dev-cpp/folly 2021.01.04.00 2021.04.19.00-r1 2021.05.24.00: An open-source C++ library developed and used at Facebook
 dev-cpp/gsl-lite 0.38.0: C++ Guideline Support Library implementation
+dev-cpp/indicators 2.2: Activity indicators for modern C++
 dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
 dev-cpp/parallel-hashmap 1.33: Family of header-only, fast and memory-friendly hashmap and btree containers
 dev-cpp/pcg-cpp 0.98.1_p20210406: Family of better random number generators
@@ -177,8 +178,10 @@ dev-go/lichen 0.1.1: Go binary license checker
 dev-java/gradle-base-annotations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-build-operations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-hashing 6.8.2: Build automation tool for JVM Languages, C(++), etc.
+dev-java/mill-bin 0.9.7: A Java/Scala build tool
 dev-java/openjdk-sts-bin 15.0.2_p7: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
+dev-lang/ammonite-repl-bin 2.3.8: Scala language-based scripting and REPL
 dev-lang/fbc 1.07.3: A free/open source, multi-platform BASIC compiler.
 dev-lang/fbc-bootstrap 1.07.3: Bootstrap package for dev-lang/fbc
 dev-lang/fennel 0.9.1 0.9.2 9999: Fennel is a lisp that compiles to Lua
@@ -188,7 +191,7 @@ dev-lang/wren 0.3.0: The Wren Programming Language
 dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
 dev-libs/boinc-zip 7.16.16: Wrapper for the zip/unzip functions to expose to BOINC clients
 dev-libs/cgicc 3.2.19: A C++ class library for writing CGI applications
-dev-libs/cglm 0.8.2-r1 9999: OpenGL Mathematics (glm) for C
+dev-libs/cglm 0.8.2-r1 0.8.3 9999: OpenGL Mathematics (glm) for C
 dev-libs/fsst 0_pre20200830: Fast Static Symbol Table: fast text compression that allows random access
 dev-libs/ftl 1.0_p20210308: The Fortran Template Library (FTL) is a general purpose library for Fortran 2003
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
@@ -384,6 +387,7 @@ dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/osc 0.173.0 9999: Command line tool for Open Build Service
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/rpmlint 2.0.0: Tool for checking common errors in RPM packages
+dev-util/rust-analyzer-bin 9999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/xdp-tools 1.1.1: Utilities and example programs for use with XDP
 dev-vcs/git-blame-someone-else 0_pre20180613: Blame someone else for your bad code.
@@ -585,7 +589,7 @@ net-misc/wsdd 0.6.4: A Web Service Discovery host daemon.
 net-misc/xmrig 6.12.1: RandomX, CryptoNight, KawPow, AstroBWT, and Argon2 CPU/GPU miner
 net-misc/xmrig-mo 6.12.1: RandomX, CryptoNight, KawPow, AstroBWT and Argon2 miner for the MoneroOcean pool
 net-news/sfeed 0.9.23 9999: simple RSS and Atom parser
-net-p2p/bisq 1.6.4: The decentralized bitcoin exchange (non-atomic, with arbitration)
+net-p2p/bisq 1.6.4 1.6.5: The decentralized bitcoin exchange (non-atomic, with arbitration)
 net-p2p/lbry 0.48.2 0.49.1 0.50.2: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.2.0 9999: The secure, private, untraceable cryptocurrency
 net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for Linux
@@ -594,7 +598,7 @@ net-p2p/yggdrasil-go 0.3.13-r1 0.3.14 0.3.15: An experiment in scalable routing 
 net-wireless/rtl8192eu 0_pre20210403: Realtek 8192EU driver module for Linux kernel
 net-wireless/rtl8821ce 0_pre20210321: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20210327: Realtek 8821CU/RTL8811CU module for Linux kernel
-sci-biology/cmdock 0.1.2: Program for docking ligands to proteins and nucleic acids
+sci-biology/cmdock 0.1.2 0.1.3: Program for docking ligands to proteins and nucleic acids
 sci-biology/geneathome 1.10: BOINC application for expanding Gene Regulatory Networks (GRN)
 sci-electronics/bsc 0_pre20210124 9999: Bluespec high level hardware design language compiler
 sci-electronics/dsview 1.12 9999: An open source multi-function instrument
@@ -686,12 +690,12 @@ x11-drivers/OpenTabletDriver-bin 0.5.3.1: Cross platform tablet driver (binary p
 x11-libs/gtk-fortran 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial videos
-x11-misc/betterlockscreen 3.1.1 9999: sweet looking lockscreen for linux system
+x11-misc/betterlockscreen 3.1.1 3.2.0 9999: sweet looking lockscreen for linux system
 x11-misc/betterlockscreen_rapid 0.0.0_pre20201222: A rapid and good-looking screen locker
 x11-misc/caffeine-ng 3.5.1 9999: Aplication able to temporarily inhibit the screensaver.
 x11-misc/gammy 0.9.60 0.9.64 9999: Adaptive screen brightness/temperature
 x11-misc/gromit-mpx 1.4 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
-x11-misc/i3lock-color 2.13.1 2.13.2 9999: The world's most popular non-default computer lockscreen
+x11-misc/i3lock-color 2.13.2 2.13.3 9999: The world's most popular non-default computer lockscreen
 x11-misc/i3lock-fancy-rapid 0.0.0_pre20201109-r1 0.0.0_pre20210421: A faster implementation of i3lock-fancy
 x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement for i3status, written in Rust.
 x11-misc/ksnip 1.8.1: Ksnip is a Qt based cross-platform screenshot tool
