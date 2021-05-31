@@ -1,9 +1,12 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 inherit eutils
 
 EXPORT_FUNCTIONS src_unpack src_prepare src_compile src_install pkg_postinst
+
+SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
+HOMEPAGE="https://cran.r-project.org/package=${PN}"
 
 SLOT="0"
 IUSE="byte-compile"
