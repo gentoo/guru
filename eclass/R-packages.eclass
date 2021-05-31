@@ -18,25 +18,25 @@ dodocrm() {
 	fi
 }
 
-R-packages-guru_src_unpack() {
+R-packages_src_unpack() {
 	unpack ${A}
 	if [[ -d "${PN//_/.}" ]] && [[ ! -d "${P}" ]]; then
 		mv ${PN//_/.} "${P}"
 	fi
 }
 
-R-packages-guru_src_prepare() {
+R-packages_src_prepare() {
 	rm -f LICENSE || die
 	default
 }
 
 
-R-packages-guru_src_compile() {
+R-packages_src_compile() {
 	MAKEFLAGS="CFLAGS=${CFLAGS// /\\ } CXXFLAGS=${CXXFLAGS// /\\ } FFLAGS=${FFLAGS// /\\ } FCFLAGS=${FCFLAGS// /\\ } LDFLAGS=${LDFLAGS// /\\ }" \
 		R CMD INSTALL . -l "${WORKDIR}" $(use byte-compile && echo "--byte-compile")
 }
 
-R-packages-guru_src_install() {
+R-packages_src_install() {
 	cd "${WORKDIR}"/${PN//_/.} || die
 
 	dodocrm examples || die
@@ -57,7 +57,7 @@ R-packages-guru_src_install() {
 	doins -r "${WORKDIR}"/${PN//_/.}
 }
 
-R-packages-guru_pkg_postinst() {
+R-packages_pkg_postinst() {
 	if [[ "${_UNRESOLVABLE_PACKAGES:-}" ]]; then
 		# _UNRESOLVABLE_PACKAGES is only set if it has more than zero items
 		local _max=${#_UNRESOLVABLE_PACKAGES[*]} i=
