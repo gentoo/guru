@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		High-Performance Stemmer, Tokenizer, and Spell Checker // Low
+		level spell checker and morphological analyzer based on the
+		famous 'hunspell' library https://hunspell.github.io. The
+		package can analyze or check individual words as well as parse
+		text, latex, html or xml documents. For a more user-friendly
+		interface use the 'spelling' package which builds on this
+		package to automate checking of files, documentation and
+		vignettes in all common formats.
+	</longdescription>
+</pkgmetadata>
