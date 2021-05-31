@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Survival Analysis // Contains the core survival analysis
+		routines, including definition of Surv objects, Kaplan-Meier
+		and Aalen-Johansen (multi-state) curves, Cox models, and
+		parametric accelerated failure time models.
+	</longdescription>
+</pkgmetadata>
