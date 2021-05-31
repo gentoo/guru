@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Render Markdown with the C Library 'Sundown' // Provides R
+		bindings to the 'Sundown' Markdown rendering library
+		(https://github.com/vmg/sundown). Markdown is a plain-text
+		formatting syntax that can be converted to 'XHTML' or other
+		formats. See http://en.wikipedia.org/wiki/Markdown for more
+		information about Markdown.
+	</longdescription>
+</pkgmetadata>
