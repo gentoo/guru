@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Simulate Package Installation and Attach // Simulates the process
+		of installing a package and then attaching it. This is a key
+		part of the 'devtools' package as it allows you to rapidly
+		iterate while developing a package.
+	</longdescription>
+</pkgmetadata>
