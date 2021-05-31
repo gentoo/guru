@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		A General-Purpose Package for Dynamic Report Generation in R //
+		Provides a general-purpose tool for dynamic report generation
+		in R using Literate Programming techniques.
+	</longdescription>
+</pkgmetadata>
