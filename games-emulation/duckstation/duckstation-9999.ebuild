@@ -71,24 +71,22 @@ src_install() {
 	doins -r "${BUILD_DIR}"/bin/{database,inputprofiles,resources,shaders,translations}
 
 	if use nogui; then
-		newicon -s 16 dist/icon-16px.png duckstation-nogui
-		newicon -s 32 dist/icon-32px.png duckstation-nogui
-		newicon -s 48 dist/icon-48px.png duckstation-nogui
-		newicon -s 64 dist/icon-64px.png duckstation-nogui
-		newicon -s 128 dist/icon-128px.png duckstation-nogui
-		newicon -s 256 dist/icon-256px.png duckstation-nogui
+		for i in {16,32,48,64,128,256}; do
+			newicon -s ${i} dist/icon-${i}px.png duckstation-nogui
+		done
+		domenu dist/duckstation-nogui.desktop
+
 		doins "${BUILD_DIR}"/bin/duckstation-nogui
-		dosym ../../opt/${PN}/duckstation-qt usr/bin/duckstation-qt
+		dosym ../../opt/${PN}/duckstation-nogui usr/bin/duckstation-nogui
 		fperms +x /opt/${PN}/duckstation-nogui
 	fi
 
 	if use qt5; then
-		newicon -s 16 dist/icon-16px.png duckstation-qt
-		newicon -s 32 dist/icon-32px.png duckstation-qt
-		newicon -s 48 dist/icon-48px.png duckstation-qt
-		newicon -s 64 dist/icon-64px.png duckstation-qt
-		newicon -s 128 dist/icon-128px.png duckstation-qt
-		newicon -s 256 dist/icon-256px.png duckstation-qt
+		for i in {16,32,48,64,128,256}; do
+			newicon -s ${i} dist/icon-${i}px.png duckstation-qt
+		done
+		domenu dist/duckstation-qt.desktop
+
 		doins "${BUILD_DIR}"/bin/duckstation-qt
 		dosym ../../opt/${PN}/duckstation-qt usr/bin/duckstation-qt
 		fperms +x /opt/${PN}/duckstation-qt
