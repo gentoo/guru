@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Read and Write '.ini' Files // Parse simple '.ini' configuration
+		files to an structured list. Users can manipulate this
+		resulting list with lapply() functions. This same structured
+		list can be used to write back to file after modifications.
+	</longdescription>
+</pkgmetadata>
