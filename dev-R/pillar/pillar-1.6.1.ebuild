@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit R-packages-guru
+inherit R-packages
 
 DESCRIPTION='Coloured Formatting for Columns'
 HOMEPAGE="
@@ -13,15 +13,15 @@ HOMEPAGE="
 SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 LICENSE='GPL-3'
 KEYWORDS="~amd64"
-IUSE="${IUSE-}"
+
 DEPEND="
 	dev-R/cli
 	>=dev-R/crayon-1.3.4
-	dev-R/ellipsis
+	>=dev-R/ellipsis-0.3.2
 	dev-R/fansi
 	dev-R/lifecycle
 	>=dev-R/rlang-0.3.0
 	>=dev-R/utf8-1.1.0
-	>=dev-R/vctrs-0.2.0
+	>=dev-R/vctrs-0.3.8
 "
-RDEPEND="${DEPEND-}"
+RDEPEND="${DEPEND}"
