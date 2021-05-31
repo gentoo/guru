@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Unit Testing for R // Software testing is important, but, in part
+		because it is frustrating and boring, many of us avoid it.
+		'testthat' is a testing framework for R that is easy to learn
+		and use, and integrates with your existing 'workflow'.
+	</longdescription>
+</pkgmetadata>
