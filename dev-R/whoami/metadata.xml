@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Username, Full Name, Email Address, 'GitHub' Username of the
+		Current User // Look up the username and full name of the
+		current user, the current user's email address and 'GitHub'
+		username, using various sources of system and configuration
+		information.
+	</longdescription>
+</pkgmetadata>
