@@ -9,7 +9,6 @@ SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 HOMEPAGE="https://cran.r-project.org/package=${PN}"
 
 SLOT="0"
-IUSE="byte-compile"
 
 DEPEND="dev-lang/R"
 RDEPEND="${DEPEND}"
@@ -35,8 +34,7 @@ R-packages_src_prepare() {
 
 
 R-packages_src_compile() {
-	MAKEFLAGS="CFLAGS=${CFLAGS// /\\ } CXXFLAGS=${CXXFLAGS// /\\ } FFLAGS=${FFLAGS// /\\ } FCFLAGS=${FCFLAGS// /\\ } LDFLAGS=${LDFLAGS// /\\ }" \
-		R CMD INSTALL . -l "${WORKDIR}" $(use byte-compile && echo "--byte-compile")
+	MAKEFLAGS="CFLAGS=${CFLAGS// /\\ } CXXFLAGS=${CXXFLAGS// /\\ } FFLAGS=${FFLAGS// /\\ } FCFLAGS=${FCFLAGS// /\\ } LDFLAGS=${LDFLAGS// /\\ }" R CMD INSTALL . -l "${WORKDIR} --byte-compile"
 }
 
 R-packages_src_install() {
@@ -73,3 +71,4 @@ R-packages_pkg_postinst() {
 		einfo 'Please install it manually from the R interpreter if you need it.'
 	fi
 }
+ù
