@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit R-packages-guru
+inherit R-packages
 
 DESCRIPTION='ANSI Control Sequence Aware String Functions'
 HOMEPAGE="
@@ -13,6 +13,6 @@ HOMEPAGE="
 SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 LICENSE='GPL-2+'
 KEYWORDS="~amd64"
-IUSE="${IUSE-}"
+
 DEPEND=">=dev-lang/R-3.1.0"
 RDEPEND="${DEPEND}"
