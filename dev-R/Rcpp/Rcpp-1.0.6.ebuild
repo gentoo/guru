@@ -3,10 +3,9 @@
 
 EAPI="7"
 
-inherit R-packages-guru
+inherit R-packages
 
 DESCRIPTION='Seamless R and C++ Integration'
-SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 LICENSE='GPL-2+'
 HOMEPAGE="
 	http://www.rcpp.org
@@ -14,5 +13,4 @@ HOMEPAGE="
 	https://github.com/RcppCore/Rcpp
 	https://cran.r-project.org/package=Rcpp
 "
-IUSE="${IUSE-}"
 KEYWORDS="~amd64"

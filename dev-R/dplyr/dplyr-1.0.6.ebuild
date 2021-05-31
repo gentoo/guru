@@ -3,10 +3,9 @@
 
 EAPI="7"
 
-inherit R-packages-guru
+inherit R-packages
 
 DESCRIPTION='A Grammar of Data Manipulation'
-SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 LICENSE='MIT'
 HOMEPAGE="
 	https://dplyr.tidyverse.org
@@ -14,7 +13,6 @@ HOMEPAGE="
 	https://cran.r-project.org/package=dplyr
 "
 KEYWORDS="~amd64"
-IUSE="${IUSE-}"
 DEPEND="
 	dev-cpp/plog
 	dev-libs/boost
@@ -31,4 +29,4 @@ DEPEND="
 	>=dev-R/tidyselect-1.1.0
 	>=dev-R/vctrs-0.3.5
 "
-RDEPEND="${DEPEND-}"
+RDEPEND="${DEPEND}"

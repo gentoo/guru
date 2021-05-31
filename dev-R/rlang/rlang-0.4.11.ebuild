@@ -3,10 +3,9 @@
 
 EAPI="7"
 
-inherit R-packages-guru
+inherit R-packages
 
 DESCRIPTION='Functions for Base Types and Core R and Tidyverse Features'
-SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 LICENSE='GPL-3'
 HOMEPAGE="
 	https://rlang.r-lib.org
@@ -14,6 +13,5 @@ HOMEPAGE="
 	https://cran.r-project.org/package=rlang
 "
 KEYWORDS="~amd64"
-IUSE="${IUSE-}"
 DEPEND=">=dev-lang/R-3.3.0"
 RDEPEND="${DEPEND}"

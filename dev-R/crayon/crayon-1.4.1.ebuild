@@ -3,14 +3,12 @@
 
 EAPI="7"
 
-inherit R-packages-guru
+inherit R-packages
 
 DESCRIPTION='Colored Terminal Output'
 HOMEPAGE="
 	https://github.com/r-lib/crayon
 	https://cran.r-project.org/package=crayon
 "
-SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 LICENSE='MIT'
 KEYWORDS="~amd64"
-IUSE="${IUSE-}"

@@ -3,17 +3,15 @@
 
 EAPI="7"
 
-inherit R-packages-guru
+inherit R-packages
 
 DESCRIPTION='Encapsulated Classes with Reference Semantics'
-SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 LICENSE='MIT'
 HOMEPAGE="
 	https://r6.r-lib.org
 	https://github.com/r-lib/R6
 	https://cran.r-project.org/package=R6
 "
-IUSE="${IUSE-}"
 KEYWORDS="~amd64"
 DEPEND=">=dev-lang/R-3.0"
 RDEPEND="${DEPEND}"

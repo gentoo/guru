@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit R-packages-guru
+inherit R-packages
 
 DESCRIPTION='Interpreted String Literals'
 HOMEPAGE="
@@ -11,9 +11,7 @@ HOMEPAGE="
 	https://github.com/tidyverse/glue
 	https://cran.r-project.org/package=glue
 "
-SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 LICENSE='MIT'
 KEYWORDS="~amd64"
-IUSE="${IUSE-}"
 DEPEND=">=dev-lang/R-3.2"
 RDEPEND="${DEPEND}"

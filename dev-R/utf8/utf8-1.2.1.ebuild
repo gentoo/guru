@@ -3,16 +3,14 @@
 
 EAPI="7"
 
-inherit R-packages-guru
+inherit R-packages
 
 HOMEPAGE="
 	https://github.com/patperry/r-utf8
 	https://cran.r-project.org/package=utf8
 "
 DESCRIPTION='Unicode Text Processing'
-SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 LICENSE='Apache-2.0'
 KEYWORDS="~amd64"
-IUSE="${IUSE-}"
 DEPEND=">=dev-lang/R-2.1.0"
 RDEPEND="${DEPEND}"
