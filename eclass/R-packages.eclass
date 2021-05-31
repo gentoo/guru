@@ -3,7 +3,7 @@
 
 inherit eutils
 
-EXPORT_FUNCTIONS src_unpack src_prepare src_compile src_install pkg_postinst
+EXPORT_FUNCTIONS src_unpack src_prepare src_compile src_install
 
 SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 HOMEPAGE="https://cran.r-project.org/package=${PN}"
@@ -57,18 +57,3 @@ R-packages_src_install() {
 	insinto /usr/$(get_libdir)/R/site-library
 	doins -r "${WORKDIR}"/${PN//_/.}
 }
-
-R-packages_pkg_postinst() {
-	if [[ "${_UNRESOLVABLE_PACKAGES:-}" ]]; then
-		# _UNRESOLVABLE_PACKAGES is only set if it has more than zero items
-		local _max=${#_UNRESOLVABLE_PACKAGES[*]} i=
-
-		einfo "Dependency(-ies):"
-		for (( i=0; i<"${_max}"; i++ )); do
-			einfo "- ${_UNRESOLVABLE_PACKAGES[$i]}"
-		done
-		einfo 'are (is) suggested by upstream but could not be found.'
-		einfo 'Please install it manually from the R interpreter if you need it.'
-	fi
-}
-ù
