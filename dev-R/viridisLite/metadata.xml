@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Colorblind-Friendly Color Maps (Lite Version) // Color maps
+		designed to improve graph readability for readers with common
+		forms of color blindness and/or color vision deficiency. The
+		color maps are also perceptually-uniform, both in regular form
+		and also when converted to black-and-white for printing. This
+		is the 'lite' version of the 'viridis' package that also
+		contains 'ggplot2' bindings for discrete and continuous color
+		and fill scales and can be found at
+		https://cran.r-project.org/package=viridis.
+	</longdescription>
+</pkgmetadata>
