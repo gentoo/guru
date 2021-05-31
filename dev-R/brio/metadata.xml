@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Basic R Input Output // Functions to handle basic input output,
+		these functions always read and write UTF-8 (8-bit Unicode
+		Transformation Format) files and provide more explicit control
+		over line endings.
+	</longdescription>
+</pkgmetadata>
