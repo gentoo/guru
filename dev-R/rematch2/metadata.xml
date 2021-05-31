@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Tidy Output from Regular Expression Matching // Wrappers on
+		'regexpr' and 'gregexpr' to return the match results in tidy
+		data frames.
+	</longdescription>
+</pkgmetadata>
