@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Scale Functions for Visualization // Graphical scales map data to
+		aesthetics, and provide methods for automatically determining
+		breaks and labels for axes and legends.
+	</longdescription>
+</pkgmetadata>
