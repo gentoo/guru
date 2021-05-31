@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Parse XML // Work with XML files using a simple, consistent
+		interface. Built on top of the 'libxml2' C library.
+	</longdescription>
+</pkgmetadata>
