@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Query 'git' Credentials from 'R' // Query, set, delete
+		credentials from the 'git' credential store. Manage 'GitHub'
+		tokens and other 'git' credentials. This package is to be used
+		by other packages that need to authenticate to 'GitHub' and/or
+		other 'git' repositories.
+	</longdescription>
+</pkgmetadata>
