@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Linear and Nonlinear Mixed Effects Models // Fit and compare
+		Gaussian linear and nonlinear mixed-effects models.
+	</longdescription>
+</pkgmetadata>
