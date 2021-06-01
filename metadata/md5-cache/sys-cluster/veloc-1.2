@@ -1,17 +1,17 @@
-BDEPEND=>=dev-util/cmake-2.8 doc? ( dev-python/sphinx ) dev-util/ninja dev-util/cmake python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
+BDEPEND=>=dev-util/cmake-2.8 doc? ( dev-python/sphinx ) dev-util/ninja dev-util/cmake python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=slurm? ( sys-cluster/slurm ) app-shells/pdsh >=dev-libs/boost-1.60.0 sys-cluster/AXL sys-cluster/er virtual/mpi
 DESCRIPTION=Very-Low Overhead Checkpointing System
 EAPI=7
 HOMEPAGE=https://github.com/ECP-VeloC/VELOC
 INHERIT=cmake distutils-r1
-IUSE=alps lsf python +slurm doc python_targets_python3_7 python_targets_python3_8
+IUSE=alps lsf python +slurm doc python_targets_python3_8
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=slurm? ( sys-cluster/slurm ) app-shells/pdsh >=dev-libs/boost-1.60.0 sys-cluster/AXL sys-cluster/er virtual/mpi python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)]
-REQUIRED_USE=?? ( alps lsf slurm ) || ( python_targets_python3_7 python_targets_python3_8 )
+RDEPEND=slurm? ( sys-cluster/slurm ) app-shells/pdsh >=dev-libs/boost-1.60.0 sys-cluster/AXL sys-cluster/er virtual/mpi python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,-python_single_target_python3_8(-)]
+REQUIRED_USE=?? ( alps lsf slurm ) || ( python_targets_python3_8 )
 RESTRICT=python? ( test )
 SLOT=0
 SRC_URI=https://github.com/ECP-VeloC/VELOC/archive/veloc-1.2.tar.gz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	f0ca511df3fddd316b783632b804e8fb
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	f0ca511df3fddd316b783632b804e8fb
 _md5_=9a301e635e9e9b92f5baccb42c953a94

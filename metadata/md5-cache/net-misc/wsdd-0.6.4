@@ -4,12 +4,12 @@ DESCRIPTION=A Web Service Discovery host daemon.
 EAPI=7
 HOMEPAGE=https://github.com/christgau/wsdd
 INHERIT=python-r1 systemd
-IUSE=samba python_targets_python3_7 python_targets_python3_8 python_targets_python3_9
+IUSE=samba python_targets_python3_8 python_targets_python3_9
 KEYWORDS=~amd64 ~arm ~x86
 LICENSE=MIT
-RDEPEND=python_targets_python3_7? ( dev-lang/python:3.7[xml(+)] ) python_targets_python3_8? ( dev-lang/python:3.8[xml(+)] ) python_targets_python3_9? ( dev-lang/python:3.9[xml(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-),-python_single_target_python3_9(-)] acct-group/wsdd acct-user/wsdd samba? ( net-fs/samba )
-REQUIRED_USE=|| ( python_targets_python3_7 python_targets_python3_8 python_targets_python3_9 )
+RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8[xml(+)] ) python_targets_python3_9? ( dev-lang/python:3.9[xml(+)] ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] acct-group/wsdd acct-user/wsdd samba? ( net-fs/samba )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 SLOT=0
 SRC_URI=https://github.com/christgau/wsdd/archive/v0.6.4.tar.gz -> wsdd-0.6.4.tar.gz
-_eclasses_=multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-r1	26e4ad0a4190b14f70973dc253e86535	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6
+_eclasses_=multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6
 _md5_=f0e53c3a2278b136296b8042c8ede84b

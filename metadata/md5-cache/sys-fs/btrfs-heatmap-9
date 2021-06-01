@@ -1,15 +1,15 @@
 DEFINED_PHASES=install setup
-DEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_7? ( >=sys-fs/python-btrfs-12[python_targets_python3_7(-)] ) python_single_target_python3_8? ( >=sys-fs/python-btrfs-12[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=sys-fs/python-btrfs-12[python_targets_python3_9(-)] )
+DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( >=sys-fs/python-btrfs-12[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=sys-fs/python-btrfs-12[python_targets_python3_9(-)] )
 DESCRIPTION=Python 3 script to draw a heatmap of a btrfs filesystem
 EAPI=7
 HOMEPAGE=https://github.com/knorrie/btrfs-heatmap
 INHERIT=python-single-r1
-IUSE=python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9
+IUSE=python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=python_single_target_python3_7? ( dev-lang/python:3.7 >=dev-lang/python-exec-2:=[python_targets_python3_7] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_7? ( >=sys-fs/python-btrfs-12[python_targets_python3_7(-)] ) python_single_target_python3_8? ( >=sys-fs/python-btrfs-12[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=sys-fs/python-btrfs-12[python_targets_python3_9(-)] )
-REQUIRED_USE=^^ ( python_single_target_python3_7 python_single_target_python3_8 python_single_target_python3_9 )
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( >=sys-fs/python-btrfs-12[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=sys-fs/python-btrfs-12[python_targets_python3_9(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://github.com/knorrie/btrfs-heatmap/archive/v9.tar.gz -> btrfs-heatmap-9.tar.gz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
 _md5_=c49aa7a93c194520b7848e2e16e4970c

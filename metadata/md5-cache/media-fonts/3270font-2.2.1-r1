@@ -1,6 +1,6 @@
 BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
 DEFINED_PHASES=compile install postinst postrm setup test
-DEPEND=|| ( dev-lang/python:3.8 dev-lang/python:3.7 ) media-gfx/fontforge test? ( || ( ( dev-lang/python:3.8 dev-python/ipdb[python_targets_python3_8(-),-python_single_target_python3_8(-)] dev-python/pillow[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) ( dev-lang/python:3.7 dev-python/ipdb[python_targets_python3_7(-),-python_single_target_python3_7(-)] dev-python/pillow[python_targets_python3_7(-),-python_single_target_python3_7(-)] ) ) )
+DEPEND=|| ( dev-lang/python:3.8 ) media-gfx/fontforge test? ( || ( ( dev-lang/python:3.8 dev-python/ipdb[python_targets_python3_8(-),-python_single_target_python3_8(-)] dev-python/pillow[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) ) )
 DESCRIPTION=A IBM 3270 Terminal font in a modern format
 EAPI=7
 HOMEPAGE=https://github.com/rbanffy/3270font
@@ -12,5 +12,5 @@ RDEPEND=media-gfx/fontforge
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/rbanffy/3270font/archive/v2.2.1.tar.gz -> 3270font-2.2.1.tar.gz
-_eclasses_=font	0667878c2b594871023dd1833d05996f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-any-r1	17241a11501065ff3651350040875aa9
+_eclasses_=font	0667878c2b594871023dd1833d05996f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-any-r1	17241a11501065ff3651350040875aa9
 _md5_=5206c6cfd6bf2122dd7314a049bc9fe1

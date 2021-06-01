@@ -3,12 +3,12 @@ DESCRIPTION=Script for creating swap space from zram swaps, swap files and swap 
 EAPI=7
 HOMEPAGE=https://github.com/Nefelim4ag/systemd-swap/
 INHERIT=linux-info python-r1
-IUSE=kernel_linux python_targets_python3_7 python_targets_python3_8
+IUSE=kernel_linux python_targets_python3_8
 KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=GPL-3
-RDEPEND=python_targets_python3_7? ( dev-lang/python:3.7 ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_7(-)?,python_targets_python3_8(-)?,-python_single_target_python3_7(-),-python_single_target_python3_8(-)] || ( ( dev-lang/python:3.8 dev-python/python-systemd[python_targets_python3_8(-),-python_single_target_python3_8(-)] dev-python/sysv_ipc[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) ( dev-lang/python:3.7 dev-python/python-systemd[python_targets_python3_7(-),-python_single_target_python3_7(-)] dev-python/sysv_ipc[python_targets_python3_7(-),-python_single_target_python3_7(-)] ) )
-REQUIRED_USE=|| ( python_targets_python3_7 python_targets_python3_8 )
+RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,-python_single_target_python3_8(-)] || ( ( dev-lang/python:3.8 dev-python/python-systemd[python_targets_python3_8(-),-python_single_target_python3_8(-)] dev-python/sysv_ipc[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) )
+REQUIRED_USE=|| ( python_targets_python3_8 )
 SLOT=0
 SRC_URI=https://github.com/Nefelim4ag/systemd-swap/archive/4.4.0.tar.gz -> systemd-swap-4.4.0.tar.gz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	linux-info	30ded7f9adbdd03d3e848cdd74f6c395	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	d273d56dc725880edbeb1f6389faf5f1	python-r1	26e4ad0a4190b14f70973dc253e86535
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	linux-info	30ded7f9adbdd03d3e848cdd74f6c395	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535
 _md5_=7dd4074bda1792135768c8ab06a3fd2f
