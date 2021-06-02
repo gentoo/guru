@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install prepare unpack
+DEPEND=>=dev-R/yaml-2.1.19 >=dev-R/xfun-0.21 >=dev-R/evaluate-0.10 dev-R/highr >=dev-lang/R-3.2.3 dev-R/markdown >=dev-R/stringr-0.6 dev-lang/R
+DESCRIPTION=A General-Purpose Package for Dynamic report generation in R
+EAPI=7
+HOMEPAGE=https://cran.r-project.org/package=knitr
+INHERIT=R-packages
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=>=dev-R/yaml-2.1.19 >=dev-R/xfun-0.21 >=dev-R/evaluate-0.10 dev-R/highr >=dev-lang/R-3.2.3 dev-R/markdown >=dev-R/stringr-0.6 app-text/pandoc dev-lang/R
+SLOT=0
+SRC_URI=mirror://cran/src/contrib/knitr_1.33.tar.gz
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	R-packages	f7ef3dba4e30c3f99e3d1d09ba81ae24
+_md5_=34ee37d351455be3a0e497843adb788f

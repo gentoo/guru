@@ -109,7 +109,7 @@ app-shells/zsh-autosuggestions 0.6.4: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
 app-shells/zsh-history-to-fish 0.3.0: Bring your ZSH history to Fish shell
 app-text/OCRmyPDF 12.0.2: OCRmyPDF adds an OCR text layer to scanned PDF files
-app-text/epubgrep 0.3.2 0.4.0: Search tool for EPUB e-books
+app-text/epubgrep 0.4.0 0.5.0: Search tool for EPUB e-books
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/klogg 20.12: A GUI application to browse and search through long and complex log files
 app-text/komikku 0.27.0 0.28.1: An online/offline manga reader for GNOME
@@ -120,31 +120,92 @@ app-text/noweb 2.12: a literate programming tool, lighter than web
 app-text/stdman 2019.08.27 2020.11.17 9999: Formatted C++ stdlib man pages (cppreference)
 app-vim/vim-nix 9999: vim plugin: Vim configuration files for Nix
 dev-R/BH 1.75.0.0: Boost C++ Header Files
+dev-R/MASS 7.3.54: Support Functions and Datasets for variables and Ripley's MASS
+dev-R/Matrix 1.3.3: Sparse and Dense Matrix Classes and Methods
 dev-R/R6 2.5.0: Encapsulated Classes with Reference Semantics
+dev-R/RColorBrewer 1.1.2: ColorBrewer Palettes
 dev-R/RInside 0.2.16: C++ Classes to Embed R in C++ (and C) Applications
 dev-R/Rcpp 1.0.6: Seamless R and C++ Integration
+dev-R/RcppArmadillo 0.10.2.2.0: Rcpp Integration for the Armadillo templated linear algebra library
+dev-R/RcppEnsmallen 0.2.16.1.1: Header-Only C++ Mathematical Optimization library for armadillo
+dev-R/askpass 1.1: Safe Password Entry for R, Git and SSH
 dev-R/assertthat 0.2.1: Easy Pre and Post Assertions
+dev-R/brew 1.0.6: Templating Framework for Report Generation
+dev-R/brio 1.1.2: Basic R Input Output
+dev-R/callr 3.7.0: Call R from R
 dev-R/cellranger 1.1.0: Translate Spreadsheet Cell Ranges to Rows and Columns
 dev-R/cli 2.5.0: Helpers for Developing Command Line Interfaces
+dev-R/colorspace 2.0.1: A Toolbox for Manipulating and Assessing colors and palettes
+dev-R/commonmark 1.7: High Performance CommonMark and github markdown rendering in R
+dev-R/covr 3.5.1: Test Coverage for Packages
 dev-R/crayon 1.4.1: Colored Terminal Output
+dev-R/curl 4.3.1: A Modern and Flexible Web Client for R
+dev-R/desc 1.3.0: Manipulate DESCRIPTION Files
+dev-R/diffobj 0.3.4: Diffs for R Objects
 dev-R/digest 0.6.27: Create Compact Hash Digests of R Objects
 dev-R/dplyr 1.0.6: A Grammar of Data Manipulation
 dev-R/ellipsis 0.3.2: Tools for Working with ...
-dev-R/fansi 0.4.2: ANSI Control Sequence Aware String Functions
+dev-R/evaluate 0.14: Parsing and Evaluation Tools that provide more details than the default
+dev-R/fansi 0.5.0: ANSI Control Sequence Aware String Functions
+dev-R/farver 2.1.0: High Performance Colour Space Manipulation
 dev-R/generics 0.1.0: Common S3 Generics not Provided by Base R Methods Related to Model Fitting
+dev-R/ggplot2 3.3.3: Create Elegant Data Visualisations using the grammar of graphics
+dev-R/gh 1.3.0: GitHub API
+dev-R/gitcreds 0.1.1: Query git Credentials from R
 dev-R/glue 1.4.2: Interpreted String Literals
+dev-R/gtable 0.3.0: Arrange Grobs in Tables
+dev-R/highr 0.9: Syntax Highlighting for R Source Code
+dev-R/httr 1.4.2: Tools for Working with URLs and HTTP
+dev-R/hunspell 3.0.1: High-Performance Stemmer, Tokenizer and Spell Checker
+dev-R/ini 0.3.1: Read and Write .ini Files
+dev-R/isoband 0.2.4: Generate Isolines and Isobands from regularky spaced elevation grids
+dev-R/jsonlite 1.7.2: A Simple and Robust JSON Parser and generator for R
+dev-R/knitr 1.33: A General-Purpose Package for Dynamic report generation in R
+dev-R/labeling 0.4.2: Axis Labeling
+dev-R/lattice 0.20.44: Trellis Graphics for R
+dev-R/lazyeval 0.2.2: Lazy (Non-Standard) Evaluation
 dev-R/lifecycle 1.0.0: Manage the Life Cycle of your Package Functions
 dev-R/magrittr 2.0.1: A Forward-Pipe Operator for R
-dev-R/pillar 1.6.0: Coloured Formatting for Columns
+dev-R/markdown 1.1: Render Markdown with the C Library Sundown
+dev-R/mgcv 1.8.35: Mixed GAM Computation Vehicle with automatic smoothness estimation
+dev-R/mime 0.10: Map Filenames to MIME Types
+dev-R/munsell 0.5.0: Utilities for Using Munsell Colours
+dev-R/nlme 3.1.152: Linear and Nonlinear Mixed Effects Models
+dev-R/nnet 7.3.16: Feed-Forward Neural Networks and multinomial log-linear models
+dev-R/openssl 1.4.4: Toolkit for Encryption, Signatures and certificates based on openssl
+dev-R/pillar 1.6.1: Coloured Formatting for Columns
 dev-R/pkgconfig 2.0.3: Private Configuration for R Packages
+dev-R/pkgload 1.2.1: Simulate Package Installation and Attach
 dev-R/plogr 0.2.0: The plog C++ Logging Library
+dev-R/praise 1.0.0: Praise Users
+dev-R/processx 3.5.2: Execute and Control System Processes
+dev-R/ps 1.6.0: List, Query, Manipulate System Processes
 dev-R/purrr 0.3.4: Functional Programming Tools
 dev-R/rematch 1.0.1: Match Regular Expressions with a Nicer API
+dev-R/rematch2 2.1.2: Tidy Output from Regular Expression Matching
+dev-R/rex 1.2.0: Friendly Regular Expressions
 dev-R/rlang 0.4.11: Functions for Base Types and Core R and Tidyverse Features
-dev-R/tibble 3.1.1: Simple Data Frames
+dev-R/roxygen2 7.1.1: In-Line Documentation for R
+dev-R/rprojroot 2.0.2: Finding Files in Project Subdirectories
+dev-R/rstudioapi 0.13: Safely Access the RStudio API
+dev-R/scales 1.1.1: Scale Functions for Visualization
+dev-R/spelling 2.2: Tools for Spell Checking in R
+dev-R/stringi 1.6.2: Character String Processing Facilities
+dev-R/stringr 1.4.0: Simple, Consistent Wrappers for common string operations
+dev-R/survival 3.2.11: Survival Analysis
+dev-R/sys 3.4: Powerful and Reliable Tools for Running System Commands in R
+dev-R/testthat 3.0.2: Unit Testing for R
+dev-R/tibble 3.1.2: Simple Data Frames
 dev-R/tidyselect 1.1.1: Select from a Set of Strings
 dev-R/utf8 1.2.1: Unicode Text Processing
 dev-R/vctrs 0.3.8: Vector Helpers
+dev-R/viridisLite 0.4.0: Colorblind-Friendly Color Maps (Lite Version)
+dev-R/waldo 0.2.5: Find Differences Between R Objects
+dev-R/whoami 1.3.0: Username, Full Name, Email Address, GitHub username of the current user
+dev-R/withr 2.4.2: Run Code With Temporarily Modified Global State
+dev-R/xfun 0.23: Supporting Functions for Package maintained by Yihui Xie
+dev-R/xml2 1.3.2: Parse XML
+dev-R/yaml 2.2.1: Methods to Convert R Data to YAML and Back
 dev-cpp/cli11 1.9.1: Command line parser for C++11
 dev-cpp/fbthrift 2021.04.19.00 2021.05.24.00: Facebook's branch of Apache Thrift, including a new C++ server
 dev-cpp/fizz 2021.04.19.00 2021.05.24.00: C++14 implementation of the TLS-1.3 standard
@@ -178,7 +239,7 @@ dev-go/lichen 0.1.1: Go binary license checker
 dev-java/gradle-base-annotations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-build-operations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-hashing 6.8.2: Build automation tool for JVM Languages, C(++), etc.
-dev-java/mill-bin 0.9.7: A Java/Scala build tool
+dev-java/mill-bin 0.9.8: A Java/Scala build tool
 dev-java/openjdk-sts-bin 15.0.2_p7: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
 dev-lang/ammonite-repl-bin 2.3.8: Scala language-based scripting and REPL
@@ -208,7 +269,7 @@ dev-libs/octetos-db 1.3.2_alpha 1.3.3_alpha: C++ library for Database Acces.
 dev-libs/octetos-db-abstract 0.1.2_alpha 0.6.0_alpha: API to access database, abstract component.
 dev-libs/octetos-db-maria 1.4.2_alpha 1.9.2_alpha 9999: C++ library for Database Acces.
 dev-libs/octetos-db-postgresql 1.3.9_alpha 1.3.10_alpha: C++ library for Database Acces.
-dev-libs/olm 3.2.2 3.2.3: Implementation of the olm and megolm cryptographic ratchets
+dev-libs/olm 3.2.3 3.2.4: Implementation of the olm and megolm cryptographic ratchets
 dev-libs/open62541 1.2.2: Open source C implementation of OPC UA
 dev-libs/pocl 1.7: Portable Computing Language (an implementation of OpenCL)
 dev-libs/protothreads 1.4: Lightweight, Stackless Threads in C
@@ -248,7 +309,6 @@ dev-python/celery 5.1.0_beta2: Asynchronous task queue/job queue based on distri
 dev-python/check-manifest 0.46: Tool to check the completeness of MANIFEST.in for Python packages
 dev-python/click-didyoumean 0.0.3: Enable git-like did-you-mean feature in click
 dev-python/click-repl 0.1.6: Subcommand REPL for click apps
-dev-python/cloudscraper 1.2.56 1.2.58: A Python module to bypass Cloudflare's anti-bot page
 dev-python/clufter 0.77.2: Tool/library for transforming/analyzing cluster configuration formats
 dev-python/colored 1.4.2 9999: Very simple Python library for color and formatting in terminal
 dev-python/compreffor 0.5.0 0.5.1: A CFF table subroutinizer for FontTools
@@ -260,7 +320,7 @@ dev-python/dacite 1.6.0: This module simplifies creation of data classes (PEP 55
 dev-python/databases 0.4.3: Async database support for Python.
 dev-python/dateparser 1.0.0: Date parsing library designed to parse dates from HTML pages
 dev-python/devtools 0.6.1: Dev tools for python
-dev-python/doxypypy 0.8.8.6 0.8.8.6_p20210405: A more Pythonic version of doxypy, a Doxygen filter for Python
+dev-python/doxypypy 0.8.8.6_p20210405: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/ewmh 0.1.6: An implementation of Extended Window Manager Hints, based on Xlib
 dev-python/factory_boy 3.1.0 3.2.0: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11-r1: Up to date simple useragent faker with real world database
@@ -280,7 +340,7 @@ dev-python/hijri-converter 2.1.1: Accurate Hijri-Gregorian date converter based 
 dev-python/hstspreload 2021.3.22: Chromium HSTS Preload list as a Python package
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/hunter 3.3.3: Hunter is a flexible code tracing toolkit
-dev-python/hwi 1.2.1 2.0.1: Library and command line tool for interacting with hardware wallets
+dev-python/hwi 1.2.1 2.0.2: Library and command line tool for interacting with hardware wallets
 dev-python/hypercorn 0.11.2: ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
 dev-python/injector 0.18.4: Python dependency injection framework
@@ -671,7 +731,14 @@ sys-process/bottom 0.6.1: A graphical process/system monitor with a customizable
 sys-process/gotop 4.1.1: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/iotop-c 1.17-r1: top utility for IO (C port)
 sys-process/nq 0.4: Unix command line queue utility
-sys-process/nvtop 1.1.0 9999: NVIDIA GPUs htop like monitoring tool
+sys-process/nvtop 1.2.1 9999: NVIDIA GPUs htop like monitoring tool
+virtual/MASS 0: Virtual of a R recommended package
+virtual/Matrix 0: Virtual of a R recommended package
+virtual/lattice 0: Virtual of a R recommended package
+virtual/mgcv 0: Virtual of a R recommended package
+virtual/nlme 0: Virtual of a R recommended package
+virtual/nnet 0: Virtual of a R recommended package
+virtual/survival 0: Virtual of a R recommended package
 www-apps/code-server-bin 3.9.2 3.9.3 3.10.0: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/jackett-bin 0.17.933 0.18.15 9999: API Support for your favorite torrent trackers
@@ -699,6 +766,7 @@ x11-misc/i3lock-color 2.13.2 2.13.3 9999: The world's most popular non-default c
 x11-misc/i3lock-fancy-rapid 0.0.0_pre20201109-r1 0.0.0_pre20210421: A faster implementation of i3lock-fancy
 x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement for i3status, written in Rust.
 x11-misc/ksnip 1.8.1: Ksnip is a Qt based cross-platform screenshot tool
+x11-misc/rofi-file-browser-extended 1.2.0: A file browser for rofi
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Window System
 x11-terms/terminus-bin 1.0.139: A terminal for a more modern age

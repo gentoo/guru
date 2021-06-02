@@ -1,0 +1,7 @@
+DEFINED_PHASES=-
+DESCRIPTION=Virtual of a R recommended package
+EAPI=7
+KEYWORDS=~amd64
+RDEPEND=|| ( dev-lang/R[-minimal] dev-R/survival )
+SLOT=0
+_md5_=80f30320cdc6eee7e84241687754e007

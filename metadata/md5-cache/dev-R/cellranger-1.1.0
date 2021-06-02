@@ -1,14 +1,13 @@
-DEFINED_PHASES=compile install postinst prepare unpack
+DEFINED_PHASES=compile install prepare unpack
 DEPEND=>=dev-lang/R-3.0.0 dev-R/rematch dev-R/tibble dev-lang/R
 DESCRIPTION=Translate Spreadsheet Cell Ranges to Rows and Columns
 EAPI=7
 HOMEPAGE=https://github.com/rsheets/cellranger https://cran.r-project.org/package=cellranger
-INHERIT=R-packages-guru
-IUSE=byte-compile
+INHERIT=R-packages
 KEYWORDS=~amd64
 LICENSE=MIT
 RDEPEND=>=dev-lang/R-3.0.0 dev-R/rematch dev-R/tibble dev-lang/R
 SLOT=0
 SRC_URI=mirror://cran/src/contrib/cellranger_1.1.0.tar.gz
-_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	R-packages-guru	77ddece43d8fce7d68f6304f5ba11ea1
-_md5_=09e28792e41f7128a07252942139028d
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	R-packages	f7ef3dba4e30c3f99e3d1d09ba81ae24
+_md5_=03736e5b5ce432ad2ecf5cb1b51a3854

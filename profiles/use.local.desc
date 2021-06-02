@@ -131,6 +131,7 @@ games-emulation/np2kai:ia32 - Enable ia32 emulation
 games-emulation/np2kai:sdl - Use media-libs/libsdl instead of media-libs/libsdl2
 games-emulation/np2kai:sdl2 - Use media-libs/libsdl2 instead of media-libs/libsdl
 games-emulation/yuzu:boxcat - Enable the Boxcat service, a yuzu high-level implementation of BCAT
+games-emulation/yuzu:compatibility-list - Downloads the latest compatibility list
 games-emulation/yuzu:cubeb - Enables the cubeb audio backend
 games-emulation/yuzu:discord - Enables Discord Rich Presence
 games-emulation/yuzu:webengine - Use QtWebEngine for web applet implementation

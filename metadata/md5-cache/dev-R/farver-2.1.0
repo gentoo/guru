@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install prepare unpack
+DEPEND=dev-lang/R
+DESCRIPTION=High Performance Colour Space Manipulation
+EAPI=7
+HOMEPAGE=https://cran.r-project.org/package=farver
+INHERIT=R-packages
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-lang/R
+SLOT=0
+SRC_URI=mirror://cran/src/contrib/farver_2.1.0.tar.gz
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	R-packages	f7ef3dba4e30c3f99e3d1d09ba81ae24
+_md5_=cc90b9e841dda73215c92e27f68b7d27
