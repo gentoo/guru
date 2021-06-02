@@ -72,7 +72,7 @@ src_install() {
 
 	if use nogui; then
 		for i in {16,32,48,64,128,256}; do
-			newicon -s ${i} dist/icon-${i}px.png duckstation-nogui
+			newicon -s ${i} dist/icon-${i}px.png duckstation-nogui.png
 		done
 		domenu dist/duckstation-nogui.desktop
 
@@ -83,7 +83,7 @@ src_install() {
 
 	if use qt5; then
 		for i in {16,32,48,64,128,256}; do
-			newicon -s ${i} dist/icon-${i}px.png duckstation-qt
+			newicon -s ${i} dist/icon-${i}px.png duckstation-qt.png
 		done
 		domenu dist/duckstation-qt.desktop
 
