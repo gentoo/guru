@@ -22,7 +22,7 @@ IUSE="udev doc"
 
 BDEPEND=""
 RDEPEND="
-	>=dev-python/bitbox02-5.2.0[${PYTHON_USEDEP}]
+	>=dev-python/bitbox02-5.3.0[${PYTHON_USEDEP}]
 	>=dev-python/ecdsa-0.13.0[${PYTHON_USEDEP}]
 	>=dev-python/hidapi-0.7.99[${PYTHON_USEDEP}]
 	>=dev-python/libusb1-1.7.0[${PYTHON_USEDEP}]
