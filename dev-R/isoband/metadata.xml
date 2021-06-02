@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Generate Isolines and Isobands from Regularly Spaced Elevation
+		Grids // A fast C++ implementation to generate contour lines
+		(isolines) and contour polygons (isobands) from regularly
+		spaced grids containing elevation data.
+	</longdescription>
+</pkgmetadata>

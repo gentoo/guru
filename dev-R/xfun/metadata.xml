@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Supporting Functions for Packages Maintained by 'Yihui Xie' //
+		Miscellaneous functions commonly used in other packages
+		maintained by 'Yihui Xie'.
+	</longdescription>
+</pkgmetadata>

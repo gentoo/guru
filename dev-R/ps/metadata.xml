@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		List, Query, Manipulate System Processes // List, query and
+		manipulate all system processes, on 'Windows', 'Linux' and
+		'macOS'.
+	</longdescription>
+</pkgmetadata>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Support Functions and Datasets for Venables and Ripley's MASS //
+		Functions and datasets to support Venables and Ripley, "Modern
+		Applied Statistics with S" (4th edition, 2002).
+	</longdescription>
+</pkgmetadata>

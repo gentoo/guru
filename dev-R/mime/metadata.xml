@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Map Filenames to MIME Types // Guesses the MIME type from a
+		filename extension using the data derived from /etc/mime.types
+		in UNIX-type systems.
+	</longdescription>
+</pkgmetadata>

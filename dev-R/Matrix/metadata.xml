@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Sparse and Dense Matrix Classes and Methods // A rich hierarchy
+		of matrix classes, including triangular, symmetric, and
+		diagonal matrices, both dense and sparse and with pattern,
+		logical and numeric entries.   Numerous methods for and
+		operations on these matrices, using 'LAPACK' and 'SuiteSparse'
+		libraries.
+	</longdescription>
+</pkgmetadata>

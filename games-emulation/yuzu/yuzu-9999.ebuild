@@ -18,7 +18,7 @@ EGIT_SUBMODULES=( '*' '-ffmpeg' '-inih' '-libressl' '-libusb' '-libzip' '-opus' 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="+boxcat +cubeb discord +qt5 sdl webengine +webservice"
+IUSE="+boxcat +compatibility-list +cubeb discord +qt5 sdl webengine +webservice"
 
 DEPEND="
 	discord? ( >=dev-libs/rapidjson-1.1.0 )
@@ -31,7 +31,7 @@ DEPEND="
 		>=dev-libs/inih-52
 	)
 	>=app-arch/lz4-1.8
-	>=app-arch/zstd-1.4
+	>=app-arch/zstd-1.5
 	>=dev-cpp/catch-2.13:0
 	>=dev-cpp/nlohmann_json-3.8.0
 	>=dev-libs/boost-1.73:=[context]
@@ -54,8 +54,12 @@ pkg_setup() {
 	fi
 }
 
-# May fetch this file from src_unpack to provide compatibility list support
-# curl https://api.yuzu-emu.org/gamedb/ > "${S}"/compatibility_list.json
+src_unpack() {
+	git-r3_src_unpack
+
+	# Do not fetch via sources because this file always changes
+	use compatibility-list && curl https://api.yuzu-emu.org/gamedb/ > "${S}"/compatibility_list.json
+}
 
 src_prepare() {
 	# Set yuzu dev flags
@@ -103,6 +107,7 @@ src_prepare() {
 src_configure() {
 	local -a mycmakeargs=(
 		-DBUILD_SHARED_LIBS=OFF
+		-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=$(usex compatibility-list)
 		-DENABLE_CUBEB=$(usex cubeb)
 		-DENABLE_QT=$(usex qt5)
 		-DENABLE_QT_TRANSLATION=$(usex qt5)
@@ -112,10 +117,11 @@ src_configure() {
 		-DYUZU_ALLOW_SYSTEM_SDL2=$(usex sdl)
 		-DYUZU_ENABLE_BOXCAT=$(usex boxcat)
 		-DYUZU_USE_QT_WEB_ENGINE=$(usex webengine)
-		-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=OFF
 	)
 	cmake_src_configure
 
-	## This would be better in src_unpack but it would be unlinked
-	#mv "${S}"/compatibility_list.json "${BUILD_DIR}"/dist/compatibility_list/ || die
+	# This would be better in src_unpack but it would be unlinked
+	if use compatibility-list; then
+		mv "${S}"/compatibility_list.json "${BUILD_DIR}"/dist/compatibility_list/ || die
+	fi
 }

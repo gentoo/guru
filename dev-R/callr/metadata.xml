@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Call R from R // It is sometimes useful to perform a computation
+		in a separate R process, without affecting the current R
+		process at all. This packages does exactly that.
+	</longdescription>
+</pkgmetadata>

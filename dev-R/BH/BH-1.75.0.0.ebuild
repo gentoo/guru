@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit R-packages-guru
+inherit R-packages
 
 MY_P="${PN}_$(ver_rs 3 -)"
 

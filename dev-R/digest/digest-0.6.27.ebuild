@@ -3,16 +3,14 @@
 
 EAPI="7"
 
-inherit R-packages-guru
+inherit R-packages
 
 DESCRIPTION='Create Compact Hash Digests of R Objects'
 HOMEPAGE="
 	http://dirk.eddelbuettel.com/code/digest.html
 	https://github.com/eddelbuettel/digest
 "
-SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 LICENSE='GPL-2+'
 KEYWORDS="~amd64"
-IUSE="${IUSE-}"
 RDEPEND=">=dev-lang/R-3.3.0"
 DEPEND="${RDEPEND}"

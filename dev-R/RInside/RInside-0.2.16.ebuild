@@ -3,11 +3,10 @@
 
 EAPI=7
 
-inherit R-packages-guru
+inherit R-packages
 
 DESCRIPTION='C++ Classes to Embed R in C++ (and C) Applications'
 KEYWORDS="~amd64"
-SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 LICENSE='GPL-2+'
 HOMEPAGE="
 	https://cran.r-project.org/package=RInside

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Syntax Highlighting for R Source Code // Provides syntax
+		highlighting for R source code. Currently it supports LaTeX and
+		HTML output. Source code of other languages is supported via
+		Andre Simon's highlight package (http://www.andre-simon.de).
+	</longdescription>
+</pkgmetadata>

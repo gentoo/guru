@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Finding Files in Project Subdirectories // Robust, reliable and
+		flexible paths to files below a project root. The 'root' of a
+		project is defined as a directory that matches a certain
+		criterion, e.g., it contains a certain regular file.
+	</longdescription>
+</pkgmetadata>

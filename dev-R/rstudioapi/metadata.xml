@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Safely Access the RStudio API // Access the RStudio API (if
+		available) and provide informative error messages when it's
+		not.
+	</longdescription>
+</pkgmetadata>

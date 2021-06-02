@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		In-Line Documentation for R // Generate your Rd documentation,
+		'NAMESPACE' file, and collation field using specially formatted
+		comments. Writing documentation in-line with code makes it
+		easier to keep your documentation up-to-date as your
+		requirements change. 'Roxygen2' is inspired by the 'Doxygen'
+		system for C++.
+	</longdescription>
+</pkgmetadata>

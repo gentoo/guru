@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Parsing and Evaluation Tools that Provide More Details than the
+		Default // Parsing and evaluation tools that make it easy to
+		recreate the command line behaviour of R.
+	</longdescription>
+</pkgmetadata>

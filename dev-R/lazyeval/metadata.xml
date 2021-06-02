@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		Lazy (Non-Standard) Evaluation // An alternative approach to non-
+		standard evaluation using formulas. Provides a full
+		implementation of LISP style 'quasiquotation', making it easier
+		to generate code with other code.
+	</longdescription>
+</pkgmetadata>

@@ -2,12 +2,13 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <maintainer type="person">
-	<name>Samuel Bauer</name>
-	<email>samuel.bauer@yahoo.fr</email>
+	<name>mazes-80</name>
+	<email>mazes-80@github.com</email>
 </maintainer>
 <use>
 	<flag name="boxcat">Enable the Boxcat service, a yuzu high-level implementation of BCAT</flag>
 	<flag name="cubeb">Enables the cubeb audio backend</flag>
+	<flag name="compatibility-list">Downloads the latest compatibility list</flag>
 	<flag name="discord">Enables Discord Rich Presence</flag>
 	<flag name="webengine">Use QtWebEngine for web applet implementation</flag>
 	<flag name="webservice">Enable web services (telemetry, etc.)</flag>
