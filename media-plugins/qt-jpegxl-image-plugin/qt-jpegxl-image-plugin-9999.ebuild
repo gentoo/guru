@@ -16,7 +16,7 @@ SLOT="0"
 IUSE=""
 
 DEPEND=">=dev-qt/qtgui-5.14.0:5
-	media-libs/jpeg-xl
+	media-libs/libjxl
 "
 
 BDEPEND=">=kde-frameworks/extra-cmake-modules-5.70:5"
