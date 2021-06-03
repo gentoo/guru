@@ -8,7 +8,7 @@ adler-1.0.2
 adler32-1.2.0
 ahash-0.4.7
 ahash-0.7.2
-aho-corasick-0.7.15
+aho-corasick-0.7.18
 ansi_colours-1.0.2
 ansi_term-0.11.0
 anyhow-1.0.40
@@ -21,7 +21,6 @@ base64-0.13.0
 bet-1.0.0
 bincode-1.3.3
 bitflags-1.2.1
-broot-1.4.0
 bstr-0.2.15
 bytemuck-1.5.1
 byteorder-1.4.3
@@ -31,7 +30,7 @@ char_reader-0.1.0
 chrono-0.4.19
 clap-2.33.3
 cli-log-0.1.0
-cli-log-1.2.0
+cli-log-2.0.0
 clipboard-win-4.1.0
 color_quant-1.1.0
 crc32fast-1.2.1
@@ -48,7 +47,7 @@ csv-core-0.1.10
 csv2svg-0.1.5
 custom_error-1.9.2
 deflate-0.8.6
-deser-hjson-0.1.12
+deser-hjson-0.1.13
 directories-3.0.2
 directories-next-2.0.0
 dirs-sys-0.3.6
@@ -80,7 +79,8 @@ is_executable-0.1.2
 itoa-0.4.7
 jobserver-0.1.22
 jpeg-decoder-0.1.22
-lazy-regex-1.1.0
+lazy-regex-2.1.0
+lazy-regex-proc_macros-2.1.0
 lazy_static-1.4.0
 lazycell-1.3.0
 lfs-core-0.3.1
@@ -93,10 +93,11 @@ linked-hash-map-0.5.4
 lock_api-0.4.3
 log-0.4.14
 matches-0.1.8
-memchr-2.3.4
+memchr-2.4.0
 memmap-0.7.0
 memoffset-0.6.3
-minimad-0.7.0
+minimad-0.7.1
+minimad-0.8.0
 miniz_oxide-0.3.7
 miniz_oxide-0.4.4
 mio-0.7.11
@@ -140,9 +141,9 @@ rayon-1.5.0
 rayon-core-1.9.0
 redox_syscall-0.2.6
 redox_users-0.4.0
-regex-1.4.6
+regex-1.5.4
 regex-automata-0.1.9
-regex-syntax-0.6.23
+regex-syntax-0.6.25
 remove_dir_all-0.5.3
 rusqlite-0.24.2
 ryu-1.0.5
@@ -166,7 +167,8 @@ svg-0.8.2
 syn-1.0.70
 syntect-4.5.0
 tempfile-3.2.0
-termimad-0.10.2
+termimad-0.10.3
+termimad-0.11.1
 terminal-clipboard-0.2.1
 termux-clipboard-0.1.0
 textwrap-0.11.0
@@ -212,7 +214,7 @@ SRC_URI="https://github.com/Canop/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="Apache-2.0 BSD-2 BSD LGPL-3+ MIT ZLIB"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="~amd64"
 
 # Rust packages ignore CFLAGS and LDFLAGS so let's silence the QA warnings
 QA_FLAGS_IGNORED="usr/bin/broot"
