@@ -26,10 +26,10 @@ PATCHES=( "${FILESDIR}/respect-flags.patch" )
 RDEPEND="
 	mpi? ( virtual/mpi )
 	ompi? (
-		sys-libs/libomp
+		|| ( sys-devel/gcc:*[openmp] sys-libs/libomp )
 		virtual/mpi
 	)
-	openmp? ( sys-libs/libomp )
+	openmp? ( || ( sys-devel/gcc:*[openmp] sys-libs/libomp ) )
 "
 DEPEND="
 	${RDEPEND}
