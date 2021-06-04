@@ -4,12 +4,12 @@ DESCRIPTION=Mailbox to quilt series converter
 EAPI=7
 HOMEPAGE=https://git.kernel.org/pub/scm/linux/kernel/git/tglx/quilttools.git/about/
 INHERIT=python-single-r1
-IUSE=doc examples +python_single_target_python3_8
+IUSE=doc examples python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_8? ( dev-python/pyyaml[python_targets_python3_8(-)] net-mail/notmuch[python,python_targets_python3_8(-)] )
-REQUIRED_USE=^^ ( python_single_target_python3_8 )
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( dev-python/pyyaml[python_targets_python3_8(-)] net-mail/notmuch[python,python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pyyaml[python_targets_python3_9(-)] net-mail/notmuch[python,python_targets_python3_9(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://git.kernel.org/pub/scm/linux/kernel/git/tglx/quilttools.git/snapshot/quilttools-0.3.tar.gz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
-_md5_=a5fd950d64b3565b4aa9629acfa46bee
+_md5_=eb6c93e536bcbf3f477c2ee3f1285c73

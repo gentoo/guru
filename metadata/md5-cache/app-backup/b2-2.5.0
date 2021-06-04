@@ -1,0 +1,16 @@
+BDEPEND=test? ( python_single_target_python3_8? ( >=dev-python/arrow-0.8.0[python_targets_python3_8(-)] >=dev-python/b2sdk-1.8.0[python_targets_python3_8(-)] >=dev-python/phx-class-registry-3.0.5[python_targets_python3_8(-)] >=dev-python/rst2ansi-0.1.5[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/arrow-0.8.0[python_targets_python3_9(-)] >=dev-python/b2sdk-1.8.0[python_targets_python3_9(-)] >=dev-python/phx-class-registry-3.0.5[python_targets_python3_9(-)] >=dev-python/rst2ansi-0.1.5[python_targets_python3_9(-)] ) python_single_target_python3_8? ( >=dev-python/importlib_metadata-3.3.0[python_targets_python3_8(-)] ) python_single_target_python3_8? ( >=dev-python/pytest-4.5.0[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/pytest-4.5.0[python_targets_python3_9(-)] ) ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/setuptools-42.0.2[python_targets_python3_9(-)] )
+DEFINED_PHASES=compile configure install postinst prepare setup test
+DESCRIPTION=Command-line tool for BackBlaze's B2 product
+EAPI=7
+HOMEPAGE=https://github.com/Backblaze/B2_Command_Line_Tool
+INHERIT=distutils-r1
+IUSE=test python_single_target_python3_8 python_single_target_python3_9
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=python_single_target_python3_8? ( >=dev-python/arrow-0.8.0[python_targets_python3_8(-)] >=dev-python/b2sdk-1.8.0[python_targets_python3_8(-)] >=dev-python/phx-class-registry-3.0.5[python_targets_python3_8(-)] >=dev-python/rst2ansi-0.1.5[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/arrow-0.8.0[python_targets_python3_9(-)] >=dev-python/b2sdk-1.8.0[python_targets_python3_9(-)] >=dev-python/phx-class-registry-3.0.5[python_targets_python3_9(-)] >=dev-python/rst2ansi-0.1.5[python_targets_python3_9(-)] ) python_single_target_python3_8? ( >=dev-python/importlib_metadata-3.3.0[python_targets_python3_8(-)] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_8? ( >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)] ) python_single_target_python3_9? ( >=dev-python/setuptools-42.0.2[python_targets_python3_9(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://pypi/b/b2/b2-2.5.0.tar.gz
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	distutils-r1	c21cf58c1e3c67e0ea53c96a7b37eddd
+_md5_=5ac05d4b819a9a0e4f523fe65cbb5fed
