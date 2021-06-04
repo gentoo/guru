@@ -91,4 +91,7 @@ src_install() {
 		dosym ../../opt/${PN}/duckstation-qt usr/bin/duckstation-qt
 		fperms +x /opt/${PN}/duckstation-qt
 	fi
+
+	insinto /usr/share/metainfo
+	doins dist/org.duckstation.DuckStation.metainfo.xml
 }

@@ -6,7 +6,7 @@ EAPI=7
 MY_PN="Komikku"
 MY_P="${MY_PN}-${PV}"
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8,9} )
 
 inherit python-single-r1 meson gnome2-utils xdg
 

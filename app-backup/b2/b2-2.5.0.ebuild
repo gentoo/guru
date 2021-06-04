@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..8} )
+PYTHON_COMPAT=( python3_{7..9} )
 
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_SETUPTOOLS=rdepend
@@ -19,16 +19,23 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 PATCHES=(
-	"${FILESDIR}/${P}-nameclash.patch"
+	"${FILESDIR}/${PN}-2.5.0-nameclash.patch"
+	"${FILESDIR}/${PN}-2.5.0-disable-pip-requirement-installs.patch"
 )
 
 RDEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/arrow-0.8.0[${PYTHON_USEDEP}]
-		>=dev-python/b2sdk-1.2.0[${PYTHON_USEDEP}]
-		<dev-python/b2sdk-1.3.0[${PYTHON_USEDEP}]
+		>=dev-python/b2sdk-1.8.0[${PYTHON_USEDEP}]
 		>=dev-python/phx-class-registry-3.0.5[${PYTHON_USEDEP}]
+		>=dev-python/rst2ansi-0.1.5[${PYTHON_USEDEP}]
 	')
+	$(python_gen_cond_dep '
+		<dev-python/importlib_metadata-3.0.0[${PYTHON_USEDEP}]
+		' pypy3 python3_7)
+	$(python_gen_cond_dep '
+		>=dev-python/importlib_metadata-3.3.0[${PYTHON_USEDEP}]
+		' pypy3 python3_8)
 "
 
 distutils_enable_tests pytest

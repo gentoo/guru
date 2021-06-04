@@ -5,10 +5,10 @@ EAPI="7"
 
 inherit xdg cmake git-r3
 
-DESCRIPTION="JPEG XL Reference Software"
-HOMEPAGE="https://gitlab.com/wg1/jpeg-xl/"
+DESCRIPTION="JPEG XL image format reference implementation"
+HOMEPAGE="https://github.com/libjxl/libjxl"
 
-EGIT_REPO_URI="https://gitlab.com/wg1/jpeg-xl.git"
+EGIT_REPO_URI="https://github.com/libjxl/libjxl.git"
 
 LICENSE="Apache-2.0"
 SLOT="0"
