@@ -23,7 +23,7 @@ BDEPEND="
 	sys-apps/texinfo
 "
 DEPEND="
-	>=dev-scheme/guile-2.0.9
+	>=dev-scheme/guile-2.0.9:=
 	dev-libs/gobject-introspection
 	x11-libs/gtk+:3[introspection]
 "
