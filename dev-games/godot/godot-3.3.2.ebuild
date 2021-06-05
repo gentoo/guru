@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~x86"
 
 LICENSE="Apache-2.0 Boost-1.0 BSD CC-BY-3.0 MIT MPL-2.0 OFL-1.1 public-domain ZLIB"
 SLOT="0/3"
-IUSE="+bullet debug deprecated +enet +freetype lto +mbedtls +ogg +opus pulseaudio +theora +udev +upnp +vorbis +webp"
+IUSE="+bullet debug deprecated +enet +freetype lto +mbedtls +ogg +opus pulseaudio raycast +theora +udev +upnp +vorbis +webp"
 
 RDEPEND="
 	app-arch/lz4
@@ -42,6 +42,7 @@ RDEPEND="
 		media-libs/opusfile
 	)
 	pulseaudio? ( media-sound/pulseaudio )
+	raycast? ( media-libs/embree:3 )
 	theora? ( media-libs/libtheora )
 	udev? ( virtual/udev )
 	upnp? ( net-libs/miniupnpc )
@@ -93,9 +94,7 @@ src_configure() {
 	myesconsargs+=(
 		# Mono bindings requires MSBuild which is only available on Windows
 		module_mono_enabled=no
-		# TODO: land embree library (https://github.com/embree/embree) in guru
-		# so that we can enable raycast module
-		module_raycast_enabled=no
+		module_raycast_enabled=$(usex raycast)
 		module_bullet_enabled=$(usex bullet)
 		module_enet_enabled=$(usex enet)
 		module_freetype_enabled=$(usex freetype)

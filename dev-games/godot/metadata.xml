@@ -17,9 +17,10 @@ web-based (HTML5) platforms.
 		<flag name="bullet">Enable support for <pkg>sci-physics/bullet</pkg></flag>
 		<flag restrict="&gt;=dev-games/godot-3.3.0" name="deprecated">Enable deprecated features</flag>
 		<flag name="enet">Enable support for <pkg>net-libs/enet</pkg></flag>
-		<flag name="lto">Enable support for link time optimization</flag>
 		<flag name="freetype">Enable support for <pkg>media-libs/freetype</pkg></flag>
+		<flag name="lto">Enable support for link time optimization</flag>
 		<flag name="mbedtls">Enable support for <pkg>net-libs/mbedtls</pkg></flag>
+		<flag name="raycast">Enable raycast module using <pkg>media-libs/embree</pkg></flag>
 	</use>
 	<upstream>
 		<remote-id type="github">godotengine/godot</remote-id>
