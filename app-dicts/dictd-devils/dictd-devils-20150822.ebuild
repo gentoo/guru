@@ -20,7 +20,7 @@ BDEPEND="
 PATCHES=( "${FILESDIR}/format.patch" )
 
 src_prepare() {
-	eapply_user
+	default
 
 	sed \
 		-e 's/\r//g' \
