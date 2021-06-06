@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <maintainer type="person">
-	<name>mazes-80</name>
-	<email>mazes-80@github.com</email>
+	<name>Samuel Bauer</name>
+	<email>samuel.bauer@yahoo.fr</email>
 </maintainer>
 <use>
 	<flag name="boxcat">Enable the Boxcat service, a yuzu high-level implementation of BCAT</flag>

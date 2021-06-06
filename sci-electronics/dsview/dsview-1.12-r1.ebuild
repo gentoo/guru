@@ -52,6 +52,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-fix-qt.patch
 	"${FILESDIR}"/${P}-fix-segfault.patch
 	"${FILESDIR}"/${P}-fix-extern-c.patch
+	"${FILESDIR}"/${P}-fix-python3.patch
 )
 
 src_prepare() {

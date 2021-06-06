@@ -21,7 +21,7 @@ LICENSE="GPL-3"
 SLOT="0"
 
 DEPEND="
-	>=dev-scheme/guile-2.0.9
+	>=dev-scheme/guile-2.0.9:=
 "
 RDEPEND="${DEPEND}"
 

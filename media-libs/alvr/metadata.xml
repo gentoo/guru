@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription lang="en">
+		ALVR is a SteamVR driver for Oculus Quest and Quest 2 using a wireless connection to the headset.
+	</longdescription>
+	<use>
+		<flag name="x264">Use x264 for h264 software encoding</flag>
+		<flag name="x265">Use x265 for h265 software encoding</flag>
+	</use>
+</pkgmetadata>

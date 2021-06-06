@@ -27,6 +27,7 @@ RDEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/arrow-0.8.0[${PYTHON_USEDEP}]
 		>=dev-python/b2sdk-1.8.0[${PYTHON_USEDEP}]
+		>=dev-python/docutils-0.16[${PYTHON_USEDEP}]
 		>=dev-python/phx-class-registry-3.0.5[${PYTHON_USEDEP}]
 		>=dev-python/rst2ansi-0.1.5[${PYTHON_USEDEP}]
 	')
