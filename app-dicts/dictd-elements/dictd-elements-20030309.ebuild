@@ -20,8 +20,8 @@ src_unpack() {
 
 src_prepare() {
 	eapply_user
-	sed -e '/^%h/{h;n;n;s/Symbol: //;T;x;G;s/\n/ /}' -i elements.db
-	sed -e '/^%h/{N;N;s/%h.*\n%d\n\(%h.*\)/\1\n%d/}' -i elements.db
+	sed -e '/^%h/{h;n;n;s/Symbol: //;T;x;G;s/\n/ /}' -i elements.db || die
+	sed -e '/^%h/{N;N;s/%h.*\n%d\n\(%h.*\)/\1\n%d/}' -i elements.db || die
 }
 
 src_compile() {
@@ -30,8 +30,8 @@ src_compile() {
 		--headword-separator " " \
 		--columns 80 \
 		-p elements \
-		< elements.db
-	dictzip elements.dict
+		< elements.db || die
+	dictzip elements.dict || die
 }
 
 src_install() {
