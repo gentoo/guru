@@ -8,7 +8,7 @@ inherit cmake flag-o-matic linux-info toolchain-funcs
 DESCRIPTION="Collection of high-performance ray tracing kernels"
 HOMEPAGE="https://github.com/embree/embree"
 LICENSE="Apache-2.0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86 -*"
+KEYWORDS="-* ~amd64 ~arm ~arm64 ~x86"
 SRC_URI="https://github.com/embree/embree/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 SLOT="3"
 ARM_CPU_FLAGS=( neon:neon )

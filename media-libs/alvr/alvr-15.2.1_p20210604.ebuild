@@ -477,7 +477,7 @@ else
 	EGIT_REPO_URI="https://github.com/alvr-org/ALVR.git"
 	EGIT_COMMIT="ab9f6eb78114181ff3e8252706e578bb5de6343c"
 	inherit git-r3
-	KEYWORDS="~amd64"
+	KEYWORDS=""
 fi
 
 SRC_URI="${SRC_URI} $(cargo_crate_uris ${CRATES})"
