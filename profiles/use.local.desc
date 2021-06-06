@@ -24,7 +24,6 @@ app-crypt/mkp224o:pcre2 - Enable the regex engine and use pcre2
 app-crypt/mkp224o:ref10 - Use portable ref10 SUPERCOP implementation
 app-crypt/mkp224o:statistics - Collect performance statistics
 app-crypt/tomb:tray - add a tomb tray in a QT desktop toolbar
-app-editors/vscodium-bin:libsecret - Enable libsecret support
 app-emulation/arnold:inkz80 - Use inkz80 processor emulation
 app-misc/apidb:commands - Build commands
 app-misc/apidb:corelibs - Build Abtract layer
@@ -71,6 +70,7 @@ dev-games/godot:enet - Enable support for net-libs/enet
 dev-games/godot:freetype - Enable support for media-libs/freetype
 dev-games/godot:lto - Enable support for link time optimization
 dev-games/godot:mbedtls - Enable support for net-libs/mbedtls
+dev-games/godot:raycast - Enable raycast module using media-libs/embree
 dev-java/openjdk-sts-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (package manager, eselect, java-config, EXPERIMENTAL!)
 dev-java/openjdk-sts-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
 dev-java/openjdk-sts-bin:source - Install JVM sources
@@ -164,6 +164,14 @@ media-gfx/bonzomatic:wayland - Build non-system-glfw for wayland instead of X11
 media-gfx/glimpse:heif - Enable support for ISO/IEC 23008-12:2017 HEIF files
 media-gfx/glimpse:vector-icons - Enable support for vector icons (experimental)
 media-gfx/grafx2:ttf - Install TTF Fonts
+media-libs/alvr:x264 - Use x264 for h264 software encoding
+media-libs/alvr:x265 - Use x265 for h265 software encoding
+media-libs/embree:compact-polys - Enables compact tris/quads, i.e. only geomIDs and primIDs are stored inside the leaf nodes
+media-libs/embree:ispc - Enables ISPC support for Embree throughdev-lang/ispc
+media-libs/embree:raymask - Enable the ray masking feature
+media-libs/embree:ssp - Enables protection of return address from buffer overwrites
+media-libs/embree:tbb - Use Intel's threading librarydev-cpp/tbb
+media-libs/embree:tutorial - Compile and install the Embree tutorials
 media-libs/fcft:text-shaping - Support text shaping using HarfBuzz
 media-libs/gl4es:egl - Enable EGL support.
 media-libs/libbpg:bpgview - Compile bpgview (media-libs/libsdl and media-libs/sdl-image needed)

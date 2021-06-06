@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig dev-util/ninja dev-util/cmake
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=amd64? ( ispc? ( dev-lang/ispc ) ) x86? ( ispc? ( dev-lang/ispc ) ) media-libs/glfw tbb? ( dev-cpp/tbb ) tutorial? ( media-libs/libpng:0= media-libs/openimageio virtual/jpeg:0 ) virtual/opengl
+DESCRIPTION=Collection of high-performance ray tracing kernels
+EAPI=7
+HOMEPAGE=https://github.com/embree/embree
+INHERIT=cmake flag-o-matic linux-info toolchain-funcs
+IUSE=+compact-polys ispc raymask ssp static-libs +tbb tutorial cpu_flags_arm_neon cpu_flags_x86_sse2 cpu_flags_x86_sse4_2 cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_avx512dq kernel_linux
+KEYWORDS=~amd64 ~arm ~arm64 ~x86 -*
+LICENSE=Apache-2.0
+RDEPEND=amd64? ( ispc? ( dev-lang/ispc ) ) x86? ( ispc? ( dev-lang/ispc ) ) media-libs/glfw tbb? ( dev-cpp/tbb ) tutorial? ( media-libs/libpng:0= media-libs/openimageio virtual/jpeg:0 ) virtual/opengl
+REQUIRED_USE=arm? ( !ispc ) arm64? ( !ispc )
+SLOT=3
+SRC_URI=https://github.com/embree/embree/archive/v3.13.0.tar.gz -> embree-3.13.0.tar.gz
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	linux-info	30ded7f9adbdd03d3e848cdd74f6c395
+_md5_=628fc47515ccd6a03964925f3b011b85

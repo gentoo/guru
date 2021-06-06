@@ -48,7 +48,6 @@ app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linu
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/micro 2.0.8 2.0.9: A modern and intuitive terminal-based text editor
 app-editors/typora-bin 0.10.7: a markdown editor,markdown reader.
-app-editors/vscodium-bin 1.56.0 1.56.2: Free/Libre Open Source Software Binaries of VSCode
 app-emacs/flycheck 31: On the fly syntax checking for GNU Emacs
 app-emulation/arnold 20170513: Amstrad CPC emulator
 app-emulation/dxvk-bin 1.8 1.8.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
@@ -233,7 +232,7 @@ dev-embedded/rauc 1.5.1: Lightweight update client that runs on your Embedded Li
 dev-erlang/cowboy 2.8.0: Small, fast, modern HTTP server for Erlang/OTP.
 dev-erlang/cowlib 2.10.1: Support library for manipulating Web protocols.
 dev-erlang/ranch 1.7.1: Socket acceptor pool for TCP protocols.
-dev-games/godot 3.2.3-r1 3.3: Multi-platform 2D and 3D game engine
+dev-games/godot 3.3.2: Multi-platform 2D and 3D game engine
 dev-games/surgescript 0.5.4.4 0.5.5 9999: scripting language made for opensurge
 dev-go/lichen 0.1.1: Go binary license checker
 dev-java/gradle-base-annotations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
@@ -279,6 +278,7 @@ dev-libs/supercop 0_p20200827: Fast cryyptographic operations for Monero wallets
 dev-libs/tllist 1.0.5 9999: A C header file only implementation of a typed linked list
 dev-libs/tweeny 3.1.1 3.2.0: C++ tweening (inbetweening) library
 dev-libs/xqilla 2.3.4: An XQuery and XPath 2 library and command line utility written in C++
+dev-lisp/arc 3.2: New dialect of Lisp, works well for basic web apps
 dev-perl/File-DirList 0.05: provide a sorted list of directory content
 dev-perl/File-Touch 0.12: Update file access and modification times, creating files if needed
 dev-perl/GitLab-API-v4 0.26: A complete GitLab API v4 client
@@ -478,6 +478,7 @@ games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukuts
 games-fps/crispy-doom 5.10.0 5.10.1: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 games-fps/quakespasm 0.93.2 9999: Modern, cross-platform Quake 1 engine based on FitzQuake
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
+games-puzzle/krank 8: Little casual game
 games-puzzle/superflu-riteurnz 1.0.0: Artisanal video-game about Superflu, the useless super-hero (french)
 games-util/NotEnoughProduction 0.0.4: Tool for building production chains for modded minecraft
 games-util/dwarf-therapist 41.2.2: For managing dwarves in Dwarf Fortress
@@ -563,10 +564,12 @@ media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/oxipng 3.0.1 4.0.3: A lossless PNG compression optimizer
 media-gfx/qfontviewer 9999: Font viewer with character table
 media-gfx/qview 4.0: Practical and minimal image viewer
-media-gfx/sic 0.18.0: Accessible image processing and conversion from the terminal tool.
+media-gfx/sic 0.18.0 0.19.0: Accessible image processing and conversion from the terminal tool.
 media-gfx/silicon 0.4.0 0.4.1: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
+media-libs/alvr 15.2.1_p20210604: Wireless driver for Oculus Quest
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.1.2: AMD Open Source Driver for Vulkan
+media-libs/embree 3.13.0: Collection of high-performance ray tracing kernels
 media-libs/fcft 2.3.3 2.4.0 9999: A simple library for font loading and glyph rasterization
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
@@ -662,7 +665,7 @@ net-wireless/rtl8821cu 0_pre20210327: Realtek 8821CU/RTL8811CU module for Linux 
 sci-biology/cmdock 0.1.2 0.1.3: Program for docking ligands to proteins and nucleic acids
 sci-biology/geneathome 1.10: BOINC application for expanding Gene Regulatory Networks (GRN)
 sci-electronics/bsc 0_pre20210124 9999: Bluespec high level hardware design language compiler
-sci-electronics/dsview 1.12 9999: An open source multi-function instrument
+sci-electronics/dsview 1.12-r1 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/verilator 4.200 4.202 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/GeographicLib-data 0: Datasets for GeographicLib
@@ -759,7 +762,7 @@ x11-libs/gtk-fortran 20.04: A GTK+ binding to build Graphical User Interfaces in
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial videos
 x11-misc/betterlockscreen 3.1.1 3.2.0 9999: sweet looking lockscreen for linux system
-x11-misc/betterlockscreen_rapid 0.0.0_pre20201222: A rapid and good-looking screen locker
+x11-misc/betterlockscreen_rapid 0.0.0_pre20201222 0.0.0_pre20210606: A rapid and good-looking screen locker
 x11-misc/caffeine-ng 3.5.1 9999: Aplication able to temporarily inhibit the screensaver.
 x11-misc/gammy 0.9.60 0.9.64 9999: Adaptive screen brightness/temperature
 x11-misc/gromit-mpx 1.4 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool

@@ -1,0 +1,12 @@
+DEFINED_PHASES=install
+DESCRIPTION=Little casual game
+EAPI=7
+HOMEPAGE=https://gitlab.com/mazes_80/krank
+INHERIT=desktop
+KEYWORDS=~amd64 ~x86
+LICENSE=public-domain
+RDEPEND=dev-python/pygame
+SLOT=0
+SRC_URI=https://gitlab.com/mazes_80/krank/-/archive/8/krank-8.tar.bz2
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28
+_md5_=7db206c46825ba71e433bd4271f4e9a7
