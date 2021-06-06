@@ -12,6 +12,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND=">=app-text/dictd-1.5.5"
+BDEPEND="${RDEPEND}"
 
 src_unpack() {
 	cp "${DISTDIR}/${A}" elements.db || die
