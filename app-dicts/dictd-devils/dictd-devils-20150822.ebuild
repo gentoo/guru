@@ -11,7 +11,8 @@ LICENSE="public-domain"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=">=app-text/dictd-1.5.5"
+RDEPEND=">=app-text/dictd-1.5.5"
+BDEPEND="${RDEPEND}"
 
 PATCHES=( "${FILESDIR}/format.patch" )
 
@@ -38,28 +39,4 @@ src_compile() {
 src_install() {
 	insinto /var/dict
 	doins devils.dict.dz devils.index
-}
-
-pkg_preinst() {
-	HAS_OLD_VERSION="$(has_version app-dicts/${PN})"
-}
-
-pkg_postinst() {
-	if "${HAS_OLD_VERSION}" ; then
-		elog "You must restart your dictd server before the ${PN} dictionary is"
-		elog "completely updated.  If you are using OpenRC, this may be accomplished by"
-		elog "running '/etc/init.d/dictd restart'."
-	else
-		elog "You must register ${PN} and restart your dictd server before the"
-		elog "dictionary is available for use.  If you are using OpenRC, both tasks may be"
-		elog "accomplished by running '/etc/init.d/dictd restart'."
-	fi
-}
-
-pkg_postrm() {
-	if ! "${HAS_OLD_VERSION}" ; then
-		elog "You must unregister ${PN} and restart your dictd server before the"
-		elog "dictionary is completely removed.  If you are using OpenRC, both tasks may be"
-		elog "accomplished by running '/etc/init.d/dictd restart'."
-	fi
 }
