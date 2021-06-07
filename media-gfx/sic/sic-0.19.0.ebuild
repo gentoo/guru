@@ -162,6 +162,7 @@ zip-0.5.13
 "
 
 inherit cargo
+
 S="${WORKDIR}/${P}"
 DESCRIPTION="Accessible image processing and conversion from the terminal tool."
 HOMEPAGE="https://github.com/foresterre/sic"
@@ -171,4 +172,5 @@ RESTRICT="mirror"
 LICENSE="Apache-2.0 MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+QA_FLAGS_IGNORED="usr/bin/sic"
 DEPEND=">=dev-lang/nasm-2.14.02"
