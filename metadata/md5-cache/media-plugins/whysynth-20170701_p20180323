@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RDEPEND=media-libs/dssi media-libs/liblo sci-libs/fftw:3.0 x11-libs/gtk+:2 media-libs/ladspa-sdk media-libs/alsa-lib
 SLOT=0
 SRC_URI=https://github.com/smbolton/whysynth/archive/32e4bc73baa554bb1844b3165e657911f43f3568.tar.gz -> whysynth-20170701_p20180323.tar.gz
-_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354
+_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354
 _md5_=0252c95a38e7cf28c517c913f8dde8b9

@@ -10,5 +10,5 @@ PROPERTIES=live
 RDEPEND=dev-libs/expat dev-libs/gumbo net-misc/curl sys-fs/e2fsprogs sys-fs/fuse:0
 RESTRICT=test
 SLOT=0
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
 _md5_=cfe5c754ce9dedaebcbd1ee7e09d62c5

@@ -11,5 +11,5 @@ RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 SLOT=0
 SRC_URI=https://github.com/scottchiefbaker/dool/archive/6b89f2d0b6e38e1c8d706e88a12e020367f5100d.tar.gz -> dool-0.8_pre20191010.tar.gz
-_eclasses_=multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535
+_eclasses_=multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535
 _md5_=b07ca7e9c0dddf5e86b2cc7bd29057d9

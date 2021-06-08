@@ -10,5 +10,5 @@ LICENSE=Apache-2.0
 RDEPEND=libuv? ( dev-libs/libuv[static-libs(-)?] ) ssl? ( >=dev-libs/openssl-1.1.0[static-libs?] )
 SLOT=0
 SRC_URI=https://github.com/uNetworking/uSockets/archive/5440dbac79bd76444175b76ee95dfcade12a6aac.tar.gz -> usockets-0.7.1_p20210214.tar.gz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479
 _md5_=8e1ddc5529c0a641a32e90f556ef9114

@@ -9,5 +9,5 @@ LICENSE=ZLIB
 RDEPEND=media-libs/libsdl[X]
 SLOT=0
 SRC_URI=http://viznut.fi/ibniz/ibniz-1.18.tar.gz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479
 _md5_=edc6d38baac455deb56207b18ca31ece

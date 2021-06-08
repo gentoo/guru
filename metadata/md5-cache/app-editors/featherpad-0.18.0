@@ -9,5 +9,5 @@ LICENSE=GPL-3
 RDEPEND=app-text/hunspell dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5
 SLOT=0
 SRC_URI=https://github.com/tsujan/FeatherPad/archive/V0.18.0.tar.gz -> featherpad-0.18.0.tar.gz
-_eclasses_=xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	d410501a125f99ffb560b0c523cd3d1e	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47
+_eclasses_=xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47
 _md5_=f8dda7c2830d31d104b14b09475ff6c5
