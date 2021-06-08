@@ -3,21 +3,20 @@
 
 EAPI=7
 
-COMMIT="d60b94caae7a4c295c0aefc4415555bb5ba62a3f"
+COMMIT="679b4b9125e9980aea22dace35afd76a5ca9e85e"
 ECM_HANDBOOK="forceoptional"
 KFMIN=5.38.0
 QTMIN=5.4.0
 inherit ecm
 
 DESCRIPTION="Gemini KIO slave"
-HOMEPAGE="https://invent.kde.org/tobias/kio-gemini"
-SRC_URI="https://invent.kde.org/tobias/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.gz"
+HOMEPAGE="https://gitlab.com/tobiasrautenkranz/kio-gemini"
+SRC_URI="https://gitlab.com/tobiasrautenkranz/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="LGPL-2+"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE=""
 
 DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
