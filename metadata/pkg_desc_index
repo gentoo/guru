@@ -114,7 +114,7 @@ app-text/klogg 20.12: A GUI application to browse and search through long and co
 app-text/komikku 0.27.0 0.28.1: An online/offline manga reader for GNOME
 app-text/kramdown-rfc2629 1.4.6: An RFC2629 (XML2RFC) backend for Thomas Leitner's kramdown markdown parser
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
-app-text/mdbook 0.4.7 0.4.8 0.4.9: Creates a book from markdown files
+app-text/mdbook 0.4.7 0.4.8 0.4.9 0.4.10: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
 app-text/stdman 2019.08.27 2020.11.17 9999: Formatted C++ stdlib man pages (cppreference)
 app-vim/vim-nix 9999: vim plugin: Vim configuration files for Nix
@@ -324,7 +324,6 @@ dev-python/doxypypy 0.8.8.6_p20210405: A more Pythonic version of doxypy, a Doxy
 dev-python/ewmh 0.1.6: An implementation of Extended Window Manager Hints, based on Xlib
 dev-python/factory_boy 3.1.0 3.2.0: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11-r1: Up to date simple useragent faker with real world database
-dev-python/geographiclib 1.50: Python implementation of the geodesic routines in GeographicLib
 dev-python/geopy 2.1.0: A Geocoding Toolbox for Python
 dev-python/github-sublee-glicko2 0_pre20191010-r1: An implementation of the Glicko-2 rating system for Python
 dev-python/glicko2 2.0.0: glicko2 implementation in python
