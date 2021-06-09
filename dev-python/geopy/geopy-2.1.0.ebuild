@@ -19,7 +19,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="dev-python/geographiclib[${PYTHON_USEDEP}]"
+RDEPEND="sci-geosciences/GeographicLib[${PYTHON_USEDEP}]"
 BDEPEND="
 	test? (
 		dev-python/async_generator[${PYTHON_USEDEP}]
