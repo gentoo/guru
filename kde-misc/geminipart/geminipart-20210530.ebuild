@@ -3,21 +3,20 @@
 
 EAPI=7
 
-COMMIT="11e93034deaacee8237ac79f46854b15368f1e9c"
+COMMIT="6463a3931e86c4a99ff022d091ad5a7d49e202b1"
 ECM_TEST="forceoptional"
-KFMIN=5.16.0
+KFMIN=5.77.0
 QTMIN=5.4.0
 inherit ecm
 
 DESCRIPTION="KPart for viewing text/gemini files"
-HOMEPAGE="https://invent.kde.org/tobias/geminipart"
-SRC_URI="https://invent.kde.org/tobias/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.gz"
+HOMEPAGE="https://gitlab.com/tobiasrautenkranz/geminipart"
+SRC_URI="https://gitlab.com/tobiasrautenkranz/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="LGPL-2+"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE=""
 
 DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5

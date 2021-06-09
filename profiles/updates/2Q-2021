@@ -7,3 +7,4 @@ slotmove games-action/minecraft-launcher 1 legacy
 move app-misc/spotify-tray media-sound/spotify-tray
 move net-im/catgirl net-irc/catgirl
 move net-im/srain net-irc/srain
+move kde-apps/kaidan net-im/kaidan

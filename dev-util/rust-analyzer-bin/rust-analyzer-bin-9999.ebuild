@@ -15,5 +15,8 @@ S=${WORKDIR}
 
 src_install() {
 	newbin rust-analyzer-linux rust-analyzer
+}
+
+pkg_postinst() {
 	elog "Make sure to add your desired rust toolchain (e.g. with rustup) for rust-analyzer to work correctly"
 }

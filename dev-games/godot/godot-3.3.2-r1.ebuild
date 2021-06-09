@@ -15,13 +15,14 @@ KEYWORDS="~amd64 ~x86"
 
 LICENSE="Apache-2.0 Boost-1.0 BSD CC-BY-3.0 MIT MPL-2.0 OFL-1.1 public-domain ZLIB"
 SLOT="0/3"
-IUSE="+bullet debug deprecated +enet +freetype lto +mbedtls +ogg +opus pulseaudio raycast +theora +udev +upnp +vorbis +webp"
+IUSE="+bullet debug deprecated +enet +freetype lto +mbedtls +ogg +opus pulseaudio +raycast +theora +udev +upnp +vorbis +webp"
 
 RDEPEND="
 	app-arch/lz4
 	app-arch/zstd
 	dev-libs/libpcre2[pcre32]
 	media-libs/alsa-lib
+	media-libs/embree:3
 	media-libs/libpng:0=
 	media-libs/libvpx
 	media-libs/mesa[gles2]
@@ -42,7 +43,6 @@ RDEPEND="
 		media-libs/opusfile
 	)
 	pulseaudio? ( media-sound/pulseaudio )
-	raycast? ( media-libs/embree:3 )
 	theora? ( media-libs/libtheora )
 	udev? ( virtual/udev )
 	upnp? ( net-libs/miniupnpc )
@@ -61,7 +61,7 @@ PATCHES=(
 
 src_prepare() {
 	default
-	rm -r thirdparty/{bullet,enet,freetype,libogg,libpng,libtheora,libvorbis,libvpx,libwebp,mbedtls,miniupnpc,opus,pcre2,zstd} || die
+	rm -r thirdparty/{bullet,embree,enet,freetype,libogg,libpng,libtheora,libvorbis,libvpx,libwebp,mbedtls,miniupnpc,opus,pcre2,zstd} || die
 }
 
 src_configure() {
@@ -94,13 +94,13 @@ src_configure() {
 	myesconsargs+=(
 		# Mono bindings requires MSBuild which is only available on Windows
 		module_mono_enabled=no
-		module_raycast_enabled=$(usex raycast)
 		module_bullet_enabled=$(usex bullet)
 		module_enet_enabled=$(usex enet)
 		module_freetype_enabled=$(usex freetype)
 		module_mbedtls_enabled=$(usex mbedtls)
 		module_ogg_enabled=$(usex ogg)
 		module_opus_enabled=$(usex opus)
+		module_raycast_enabled=$(usex raycast)
 		module_theora_enabled=$(usex theora)
 		module_upnp_enabled=$(usex upnp)
 		module_vorbis_enabled=$(usex vorbis)

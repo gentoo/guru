@@ -38,12 +38,11 @@ DEPEND="
 	gui-libs/libcprime
 	gui-libs/libcsys
 "
-# Because of gui-wm/wayfire build failure, also add requirement constraints here
-#   wlroots found: NO found 0.13.0 but need: '<0.12.0' ; matched: '>=0.11.0'
+
 RDEPEND="
 	${DEPEND}
-	<gui-libs/wlroots-0.13.0
-	>=gui-wm/wayfire-0.7.0[X]
+	gui-libs/wlroots
+	gui-wm/wayfire[X]
 	sys-apps/xdg-desktop-portal
 	x11-misc/qt5ct
 "
