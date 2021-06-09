@@ -1,4 +1,4 @@
-DEFINED_PHASES=install
+DEFINED_PHASES=install postinst
 DESCRIPTION=An implementation of Language Server Protocol for the Rust programming language
 EAPI=7
 HOMEPAGE=https://rust-analyzer.github.io
@@ -6,4 +6,4 @@ LICENSE=Apache-2.0
 PROPERTIES=live
 SLOT=0
 SRC_URI=https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux.gz
-_md5_=c4f22b77b1d91d962af406e2b51d263c
+_md5_=272f84d2fcc82f19e810865d5e30e777

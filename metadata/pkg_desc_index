@@ -108,13 +108,13 @@ app-shells/zsh-autosuggestions 0.6.4: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
 app-shells/zsh-history-to-fish 0.3.0: Bring your ZSH history to Fish shell
 app-text/OCRmyPDF 12.0.2: OCRmyPDF adds an OCR text layer to scanned PDF files
-app-text/epubgrep 0.4.0 0.5.0: Search tool for EPUB e-books
+app-text/epubgrep 0.5.0 0.5.1: Search tool for EPUB e-books
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/klogg 20.12: A GUI application to browse and search through long and complex log files
 app-text/komikku 0.27.0 0.28.1: An online/offline manga reader for GNOME
 app-text/kramdown-rfc2629 1.4.6: An RFC2629 (XML2RFC) backend for Thomas Leitner's kramdown markdown parser
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
-app-text/mdbook 0.4.7 0.4.8: Creates a book from markdown files
+app-text/mdbook 0.4.7 0.4.8 0.4.9: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
 app-text/stdman 2019.08.27 2020.11.17 9999: Formatted C++ stdlib man pages (cppreference)
 app-vim/vim-nix 9999: vim plugin: Vim configuration files for Nix
@@ -232,7 +232,7 @@ dev-embedded/rauc 1.5.1: Lightweight update client that runs on your Embedded Li
 dev-erlang/cowboy 2.8.0: Small, fast, modern HTTP server for Erlang/OTP.
 dev-erlang/cowlib 2.10.1: Support library for manipulating Web protocols.
 dev-erlang/ranch 1.7.1: Socket acceptor pool for TCP protocols.
-dev-games/godot 3.3.2: Multi-platform 2D and 3D game engine
+dev-games/godot 3.3.2-r1: Multi-platform 2D and 3D game engine
 dev-games/surgescript 0.5.4.4 0.5.5 9999: scripting language made for opensurge
 dev-go/lichen 0.1.1: Go binary license checker
 dev-java/gradle-base-annotations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
@@ -446,6 +446,7 @@ dev-util/gammaray 2.11.2: High-level runtime introspection tool for Qt applicati
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/osc 0.173.0 9999: Command line tool for Open Build Service
+dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's OpenGL Shader Builder
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/rpmlint 2.0.0: Tool for checking common errors in RPM packages
 dev-util/rust-analyzer-bin 9999: An implementation of Language Server Protocol for the Rust programming language
@@ -532,12 +533,11 @@ gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.3 9999: A Wayland kiosk
 gui-wm/dwl 0.2.1: dwm for Wayland
 kde-apps/alligator 0.1 21.05: A convergent RSS/Atom feed reader for Plasma
-kde-apps/kaidan 0.7.0: A simple, user-friendly Jabber/XMPP client for every device!
 kde-apps/kclock 0.4.0 21.05: A convergent clock application for Plasma
 kde-apps/krecorder 21.05: A convergent audio recording application for Plasma
 kde-frameworks/kirigami-addons 0.2: Convergent visual components for Kirigami-based applications
-kde-misc/geminipart 20210413: KPart for viewing text/gemini files
-kde-misc/kio-gemini 20210413: Gemini KIO slave
+kde-misc/geminipart 20210530: KPart for viewing text/gemini files
+kde-misc/kio-gemini 20210516: Gemini KIO slave
 kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 kde-misc/plasma5-wallpapers-dynamic 3.3.9 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
 kde-misc/skanpage 0_p20210402: Simple pdf scanning application based on libksane and KDE Frameworks
@@ -564,7 +564,7 @@ media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/oxipng 3.0.1 4.0.3: A lossless PNG compression optimizer
 media-gfx/qfontviewer 9999: Font viewer with character table
 media-gfx/qview 4.0: Practical and minimal image viewer
-media-gfx/sic 0.18.0 0.19.0: Accessible image processing and conversion from the terminal tool.
+media-gfx/sic 0.19.0: Accessible image processing and conversion from the terminal tool.
 media-gfx/silicon 0.4.0 0.4.1: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/alvr 15.2.1_p20210604: Wireless driver for Oculus Quest
@@ -618,6 +618,8 @@ net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.5 9.0_rc1-r1 9.0: XMPP gateway to IRC
 net-im/discord-canary-bin 0.0.124: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
+net-im/guilded-bin 1.0.996954: Drop Discord, get Guilded
+net-im/kaidan 0.7.0 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!
 net-im/nheko 0.8.1 0.8.2: Desktop client for Matrix using Qt and C++14
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
 net-im/whatsapp-for-linux 1.1.7: An unofficial WhatsApp desktop application for Linux
@@ -650,7 +652,6 @@ net-misc/tuxi 9999: Tuxi is a cli assistant. Get answers of your questions insta
 net-misc/wayback_machine_downloader 2.2.1: Download an entire website from the Wayback Machine
 net-misc/whatscli 1.0.6: A command line interface for WhatsApp
 net-misc/wsdd 0.6.4: A Web Service Discovery host daemon.
-net-misc/xmrig 6.12.1: RandomX, CryptoNight, KawPow, AstroBWT, and Argon2 CPU/GPU miner
 net-misc/xmrig-mo 6.12.1: RandomX, CryptoNight, KawPow, AstroBWT and Argon2 miner for the MoneroOcean pool
 net-news/sfeed 0.9.23 9999: simple RSS and Atom parser
 net-p2p/bisq 1.6.4 1.6.5: The decentralized bitcoin exchange (non-atomic, with arbitration)
@@ -716,7 +717,7 @@ sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
 sys-fs/dwarfs 0.4.1 0.5.4 0.5.4-r2 0.5.4-r3: A fast very high compression read-only FUSE file system
 sys-fs/erofs-utils 1.2.1 9999: Userspace tools for EROFS images
 sys-fs/fscrypt 0.3.0-r1: Tool for managing Linux filesystem encryption
-sys-fs/gcsfuse 0.35.0: A user-space file system for interacting with Google Cloud Storage
+sys-fs/gcsfuse 0.35.1: A user-space file system for interacting with Google Cloud Storage
 sys-fs/gfs2-utils 3.2.0 3.3.0: Shared-disk cluster file system
 sys-fs/git-mount 1.0.0_p20160321: git-mount let's you mount your repo as a filesystem based on a revision.
 sys-fs/python-btrfs 12 13: Python 3 module to inspect btrfs filesystems
@@ -757,7 +758,7 @@ www-misc/gitea2rss 0.7.0: Generates RSS feeds from Gitea releases, tags and comm
 www-servers/hinsightd 0.9.3 0.9.4 9999: hinsightd a http/1.1 webserver with (hopefully) minimal goals
 www-servers/thin 1.8.0: This a Ruby gem that delivers a thin and fast web server
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
-x11-drivers/OpenTabletDriver-bin 0.5.3.1: Cross platform tablet driver (binary package)
+x11-drivers/OpenTabletDriver-bin 0.5.3.1 0.5.3.2: Cross platform tablet driver (binary package)
 x11-libs/gtk-fortran 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial videos
@@ -766,7 +767,7 @@ x11-misc/betterlockscreen_rapid 0.0.0_pre20201222 0.0.0_pre20210606: A rapid and
 x11-misc/caffeine-ng 3.5.1 9999: Aplication able to temporarily inhibit the screensaver.
 x11-misc/gammy 0.9.60 0.9.64 9999: Adaptive screen brightness/temperature
 x11-misc/gromit-mpx 1.4 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
-x11-misc/i3lock-color 2.13.2 2.13.3 9999: The world's most popular non-default computer lockscreen
+x11-misc/i3lock-color 2.13.2 2.13.4 9999: The world's most popular non-default computer lockscreen
 x11-misc/i3lock-fancy-rapid 0.0.0_pre20201109-r1 0.0.0_pre20210421: A faster implementation of i3lock-fancy
 x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement for i3status, written in Rust.
 x11-misc/ksnip 1.8.1: Ksnip is a Qt based cross-platform screenshot tool
