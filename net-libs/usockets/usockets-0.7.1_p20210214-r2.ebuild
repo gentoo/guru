@@ -20,11 +20,11 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="libuv +ssl static-libs"
+IUSE="libuv +ssl"
 
 DEPEND="
-	libuv? ( dev-libs/libuv[static-libs(-)?] )
-	ssl? ( >=dev-libs/openssl-1.1.0[static-libs?] )
+	libuv? ( dev-libs/libuv )
+	ssl? ( >=dev-libs/openssl-1.1.0 )
 "
 RDEPEND="${DEPEND}"
 
@@ -44,7 +44,5 @@ src_configure() {
 src_install() {
 	default
 	einstalldocs
-	if ! use static-libs; then
-		rm -f "${ED}/usr/$(get_libdir)/libusockets.a" || die
-	fi
+	rm -f "${ED}/usr/$(get_libdir)/libusockets.a" || die
 }
