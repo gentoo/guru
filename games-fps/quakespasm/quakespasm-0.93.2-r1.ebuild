@@ -22,6 +22,7 @@ DEPEND="
 	media-libs/libogg
 	media-libs/libmad
 	virtual/opengl
+	virtual/glu
 	sdl2? ( media-libs/libsdl2 )
 	!sdl2? ( media-libs/libsdl )
 "
