@@ -166,12 +166,6 @@ media-gfx/glimpse:vector-icons - Enable support for vector icons (experimental)
 media-gfx/grafx2:ttf - Install TTF Fonts
 media-libs/alvr:x264 - Use x264 for h264 software encoding
 media-libs/alvr:x265 - Use x265 for h265 software encoding
-media-libs/embree:compact-polys - Enables compact tris/quads, i.e. only geomIDs and primIDs are stored inside the leaf nodes
-media-libs/embree:ispc - Enables ISPC support for Embree throughdev-lang/ispc
-media-libs/embree:raymask - Enable the ray masking feature
-media-libs/embree:ssp - Enables protection of return address from buffer overwrites
-media-libs/embree:tbb - Use Intel's threading librarydev-cpp/tbb
-media-libs/embree:tutorial - Compile and install the Embree tutorials
 media-libs/fcft:text-shaping - Support text shaping using HarfBuzz
 media-libs/gl4es:egl - Enable EGL support.
 media-libs/libbpg:bpgview - Compile bpgview (media-libs/libsdl and media-libs/sdl-image needed)

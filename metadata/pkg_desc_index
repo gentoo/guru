@@ -291,7 +291,6 @@ dev-python/aiosmtplib 1.1.6: Asynchronous SMTP client for use with asyncio
 dev-python/aiosqlite 0.17.0-r1: asyncio bridge to the standard sqlite3 module
 dev-python/aiounittest 1.4.0: Test python asyncio-based code with ease
 dev-python/almost 0.1.5: A helper for approximate comparison
-dev-python/anyio 2.2.0 3.0.1: Compatibility layer for multiple asynchronous event loop implementations
 dev-python/asciimatics 1.13.0 9999: Package for curses-like operations, text UIs and ASCII art animations
 dev-python/ascim 0.1.1 9999: Manipulate ASCII art as you would do with raster images
 dev-python/aspectlib 1.5.2: An aspect-oriented programming, monkey-patch and decorators library
@@ -317,6 +316,7 @@ dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
 dev-python/curio 0.9 1.4-r1 1.5: Curio is a coroutine-based library for concurrent systems programming
 dev-python/cx-oracle 8.1.0: Python interface to Oracle
 dev-python/dacite 1.6.0: This module simplifies creation of data classes (PEP 557) from dictionaries
+dev-python/daff 1.3.46: The daff can produce and apply tabular diffs
 dev-python/databases 0.4.3: Async database support for Python.
 dev-python/dateparser 1.0.0: Date parsing library designed to parse dates from HTML pages
 dev-python/devtools 0.6.1: Dev tools for python
@@ -568,7 +568,6 @@ media-gfx/silicon 0.4.0 0.4.1: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/alvr 15.2.1_p20210604: Wireless driver for Oculus Quest
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.1.2: AMD Open Source Driver for Vulkan
-media-libs/embree 3.13.0: Collection of high-performance ray tracing kernels
 media-libs/fcft 2.3.3 2.4.0 9999: A simple library for font loading and glyph rasterization
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
