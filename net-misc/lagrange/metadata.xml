@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>strikersh@disroot.org</email>
+		<name>Jules de Sartiges</name>
+	</maintainer>
+	<use>
+		<flag name="mpg123">Enable support for mp3 decoding over media-sound/mpg123</flag>
+	</use>
+	<longdescription lang="en">
+		Lagrange is a desktop GUI client for browsing Geminispace. It
+		offers modern conveniences familiar from web browsers, such as
+		smooth scrolling, inline image viewing, multiple tabs, visual
+		themes, Unicode fonts, bookmarks, history, and page outlines.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/skyjake/lagrange/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
