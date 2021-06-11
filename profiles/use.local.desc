@@ -139,6 +139,7 @@ games-emulation/yuzu:webservice - Enable web services (telemetry, etc.)
 games-fps/crispy-doom:midi - Basic support for MIDI files
 games-fps/crispy-doom:truecolor - Enable true-color rendering (experimental)
 games-fps/quakespasm:sdl2 - Use media-libs/libsdl2 instead of media-libs/libsdl
+games-puzzle/atris:sound - Enable atris sound pack
 games-util/itch-bin:system-ffmpeg - Use the system-wide media-video/ffmpeg instead of bundled.
 gui-apps/azote:imagemagick - enable colorpicker using imagemagick
 gui-apps/azote:simple-colorpicker - enable colorpicker without imagemagick
@@ -195,6 +196,7 @@ net-im/biboumi:logrotate - Use app-admin/logrotate for rotating logs
 net-im/biboumi:udns - Asynchronously resolve domain names using net-libs/udns
 net-im/ruqola:speech - Enable text-to-speech support
 net-libs/usockets:libuv - Enable bindings to use the libuv dispatcher
+net-misc/lagrange:mpg123 - Enable support for mp3 decoding over media-sound/mpg123
 net-misc/megasync:cryptopp - Compile with Crypto++ Library.
 net-misc/megasync:dolphin - Upload your files to your Mega account from Dolphin file manager.
 net-misc/megasync:freeimage - Use freeimage to manage graphic images format.

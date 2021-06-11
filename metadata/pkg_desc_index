@@ -439,7 +439,7 @@ dev-scheme/owl-lisp 0.2 9999: Purely functional dialect of Scheme
 dev-util/FoBiS 3.0.5: FoBiS.py, a Fortran Building System for poor men
 dev-util/beautysh 6.0.1 6.1.0: Bash beautifier for the masses
 dev-util/cdecl 9.10: Composing and deciphering C (or C++) declarations or casts, aka "gibberish."
-dev-util/codespell 1.17.1 2.0.0: Check text files for common misspellings
+dev-util/codespell 2.0.0 2.1.0: Check text files for common misspellings
 dev-util/devscripts 2.21.2: Scripts to make the life of a Debian Package maintainer easier
 dev-util/gammaray 2.11.2: High-level runtime introspection tool for Qt applications
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
@@ -478,6 +478,7 @@ games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukuts
 games-fps/crispy-doom 5.10.0 5.10.1: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 games-fps/quakespasm 0.93.2 9999: Modern, cross-platform Quake 1 engine based on FitzQuake
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
+games-puzzle/atris 1.0.7: Alizarin tetris
 games-puzzle/krank 8: Little casual game
 games-puzzle/superflu-riteurnz 1.0.0: Artisanal video-game about Superflu, the useless super-hero (french)
 games-util/NotEnoughProduction 0.0.4: Tool for building production chains for modded minecraft
@@ -635,6 +636,7 @@ net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/gmid 1.6.1 9999: Simple and secure Gemini server
 net-misc/kristall 0.3-r1 9999: Visual cross-platform gemini browser
+net-misc/lagrange 1.5.1 9999: A Beautiful Gemini Client
 net-misc/lyrics-in-terminal 1.4.1: Command Line Lyrics fetcher for MPRIS media players
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
