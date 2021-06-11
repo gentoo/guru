@@ -1,0 +1,63 @@
+diff --git a/atris.c b/atris.c
+index a621e22..234b05f 100644
+--- a/atris.c
++++ b/atris.c
+@@ -947,7 +947,6 @@ main(int argc, char *argv[])
+     /* Initialize the display in a 640x480 native-depth mode */
+     flags = // SDL_HWSURFACE |  
+             SDL_SWSURFACE | 
+-	    SDL_FULLSCREEN | 
+             // SDL_SRCCOLORKEY | 
+             // SDL_ANYFORMAT |
+             0; 
+diff --git a/configure b/configure
+index 9411dd5..7d3af0c 100755
+--- a/configure
++++ b/configure
+@@ -6044,7 +6044,7 @@ case "$target" in
+ 	CFLAGS="$CFLAGS -s"
+ 	;;
+     *)
+-	GAME_INSTALLDIR="\$(prefix)/games/$PACKAGE"
++	GAME_INSTALLDIR="/usr/share/atris"
+ 	;;
+ esac
+ 
+diff --git a/highscore.c b/highscore.c
+index 003e8f4..28c069d 100644
+--- a/highscore.c
++++ b/highscore.c
+@@ -59,9 +59,9 @@ save_high_scores()
+     if (!loaded) 
+ 	return;
+ 
+-    fout = fopen("Atris.Scores","wt");
++    fout = fopen("/var/games/atris/Atris.Scores","wt");
+     if (!fout) {
+-	Debug("Unable to write High Score file [Atris.Scores]: %s\n", strerror(errno));
++	Debug("Unable to write High Score file [/var/games/atris/Atris.Scores]: %s\n", strerror(errno));
+ 	return;
+     }
+ 
+@@ -94,7 +94,7 @@ load_high_scores()
+ 	loaded = TRUE;
+     }
+ 
+-    fin = fopen("Atris.Scores", "r");
++    fin = fopen("/var/games/atris/Atris.Scores", "r");
+     if (fin) {
+ 
+ 	for (i=0; !feof(fin) && i < NUM_HIGH_SCORES; i++) {
+diff --git a/identity.c b/identity.c
+index 941ab57..f3dc160 100644
+--- a/identity.c
++++ b/identity.c
+@@ -17,7 +17,7 @@
+ #include "xflame.pro"
+ #include "display.pro"
+ 
+-#define ID_FILENAME	"Atris.Players"
++#define ID_FILENAME	"/var/games/atris/Atris.Players"
+ 
+ /***************************************************************************
+  *      input_string()

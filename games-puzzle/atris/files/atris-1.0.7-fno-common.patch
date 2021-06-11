@@ -1,0 +1,147 @@
+diff --git a/atris.c b/atris.c
+index dbdc258..61ed4b9 100644
+--- a/atris.c
++++ b/atris.c
+@@ -48,6 +48,8 @@ static sound_style *event_ss[2];
+ static AI_Player *event_ai[2];
+ static char *event_name[2];
+ extern int Score[2];
++GT gametype;
++struct option_struct Options;
+ 
+ /***************************************************************************
+  *      Panic()
+diff --git a/atris.h b/atris.h
+index 4dc4d5b..19cc456 100644
+--- a/atris.h
++++ b/atris.h
+@@ -67,7 +67,7 @@ typedef enum {
+     QUIT		=6,
+     DEMO		=7
+ } GT;
+-GT gametype;
++extern GT gametype;
+ 
+ #ifndef min
+ #define min(a,b)	((a)<(b)?(a):(b))
+diff --git a/display.c b/display.c
+index cbbca0d..f63f5cf 100644
+--- a/display.c
++++ b/display.c
+@@ -14,6 +14,25 @@
+ 
+ #include "xflame.pro"
+ 
++SDL_Color color_white;
++SDL_Color color_black;
++SDL_Color color_red;
++SDL_Color color_blue;
++SDL_Color color_purple;
++
++Uint32	int_black;
++Uint32  int_white;
++Uint32	int_grey;
++Uint32	int_blue;
++Uint32 	int_med_blue;
++Uint32 	int_dark_blue;
++Uint32	int_purple;
++Uint32  int_dark_purple;
++Uint32  int_solid_black;
++
++SDL_Surface *screen, *widget_layer, *flame_layer;
++TTF_Font *font, *sfont, *lfont, *hfont;	/* normal, small , large, huge font */
++
+ struct layout_struct {
+     /* the whole board layout */
+     SDL_Rect grid_border[2];
+diff --git a/display.h b/display.h
+index db4d68a..6d71b9d 100644
+--- a/display.h
++++ b/display.h
+@@ -9,24 +9,24 @@
+ 
+ #include "SDL/SDL_ttf.h"
+ 
+-SDL_Color color_white;
+-SDL_Color color_black;
+-SDL_Color color_red;
+-SDL_Color color_blue;
+-SDL_Color color_purple;
++extern SDL_Color color_white;
++extern SDL_Color color_black;
++extern SDL_Color color_red;
++extern SDL_Color color_blue;
++extern SDL_Color color_purple;
+ 
+-Uint32	int_black;
+-Uint32  int_white;
+-Uint32	int_grey;
+-Uint32	int_blue;
+-Uint32 	int_med_blue;
+-Uint32 	int_dark_blue;
+-Uint32	int_purple;
+-Uint32  int_dark_purple;
+-Uint32  int_solid_black;
++extern Uint32	int_black;
++extern Uint32  int_white;
++extern Uint32	int_grey;
++extern Uint32	int_blue;
++extern Uint32 	int_med_blue;
++extern Uint32 	int_dark_blue;
++extern Uint32	int_purple;
++extern Uint32  int_dark_purple;
++extern Uint32  int_solid_black;
+ 
+-SDL_Surface *screen, *widget_layer, *flame_layer;
+-TTF_Font *font, *sfont, *lfont, *hfont;	/* normal, small , large, huge font */
++extern SDL_Surface *screen, *widget_layer, *flame_layer;
++extern TTF_Font *font, *sfont, *lfont, *hfont;	/* normal, small , large, huge font */
+ 
+ #define int_border_color	int_grey
+ #define int_button_face1	int_dark_blue
+diff --git a/options.h b/options.h
+index 575fc1a..cf38b40 100644
+--- a/options.h
++++ b/options.h
+@@ -25,6 +25,7 @@ struct option_struct {
+     int named_sound;
+     int named_piece;
+     int named_game;
+-} Options;
++};
++extern struct option_struct Options;
+ 
+ #endif
+diff --git a/piece.c b/piece.c
+index 4c08eaf..6944165 100644
+--- a/piece.c
++++ b/piece.c
+@@ -33,6 +33,9 @@
+ #include "piece.h"
+ #include "options.h"
+ 
++color_style special_style;
++SDL_Surface *edge[4];	/* hikari to kage */
++
+ /***************************************************************************
+  *      load_piece_style()
+  * Load a piece style from the given file.
+diff --git a/piece.h b/piece.h
+index bc4226c..a47abbe 100644
+--- a/piece.h
++++ b/piece.h
+@@ -67,13 +67,11 @@ typedef struct color_style_struct {
+     int h;			/* height of each color block */
+ } color_style;
+ 
+-color_style special_style;
+-
+ #define HORIZ_LIGHT 	0
+ #define VERT_LIGHT 	1
+ #define HORIZ_DARK 	2
+ #define VERT_DARK	3
+-SDL_Surface *edge[4];	/* hikari to kage */
++extern SDL_Surface *edge[4];	/* hikari to kage */
+ 
+ /* this structure holds all of the color styles we have been able to load
+  * for this game */
