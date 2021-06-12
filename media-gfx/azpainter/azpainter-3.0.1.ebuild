@@ -6,13 +6,14 @@ EAPI=7
 inherit toolchain-funcs xdg
 
 DESCRIPTION="Full color painting software for Linux for illustration drawing"
-HOMEPAGE="http://azsky2.html.xdomain.jp/soft/azpainter.html"
-SRC_URI="http://azsky2.html.xdomain.jp/arc/${P}.tar.xz"
+HOMEPAGE="http://azsky2.html.xdomain.jp/soft/azpainter.html
+https://gitlab.com/azelpg/azpainter"
+SRC_URI="https://gitlab.com/azelpg/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
+S="${WORKDIR}/${PN}-v${PV}"
 
 LICENSE="GPL-3"
 SLOT="0/3"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DEPEND="
 	x11-libs/libX11:=
