@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake
+inherit cmake xdg-utils
 
 DESCRIPTION="A Beautiful Gemini Client"
 HOMEPAGE="https://gmi.skyjake.fi/lagrange/"
@@ -37,10 +37,7 @@ src_configure() {
 	cmake_src_configure
 }
 
-src_compile() {
-	cmake_src_compile
-}
-
-src_install() {
-	cmake_src_install
+pkg_postinst() {
+	xdg_desktop_database_update
+	xdg_icon_cache_update
 }
