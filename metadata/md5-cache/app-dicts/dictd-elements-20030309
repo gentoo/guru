@@ -1,0 +1,11 @@
+BDEPEND=>=app-text/dictd-1.5.5
+DEFINED_PHASES=compile install postrm prepare unpack
+DESCRIPTION=Jay Kominek's database of the elements for dict
+EAPI=7
+HOMEPAGE=http://www.dict.org
+KEYWORDS=~amd64
+LICENSE=public-domain
+RDEPEND=>=app-text/dictd-1.5.5
+SLOT=0
+SRC_URI=https://web.archive.org/web/20121223051336/http://www.miranda.org:80/~jkominek/elements/elements.db -> dictd-elements-20030309.db
+_md5_=f32e31c0aeb1beb5ea485fdfcd497de1

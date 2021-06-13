@@ -1,0 +1,11 @@
+BDEPEND=>=app-text/dictd-1.5.5
+DEFINED_PHASES=compile install postrm prepare unpack
+DESCRIPTION=The Jargon File for dict
+EAPI=7
+HOMEPAGE=http://www.catb.org/~esr/jargon/index.html
+KEYWORDS=~amd64
+LICENSE=public-domain
+RDEPEND=>=app-text/dictd-1.5.5
+SLOT=0
+SRC_URI=http://www.catb.org/~esr/jargon/oldversions/jarg423.txt
+_md5_=56c6b08ecc82fa46b7be2246dcdc85fe

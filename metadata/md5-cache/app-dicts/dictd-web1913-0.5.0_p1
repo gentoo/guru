@@ -1,0 +1,11 @@
+BDEPEND=>=app-text/dictd-1.5.5 app-arch/unzip dev-libs/libxslt
+DEFINED_PHASES=compile install postrm prepare unpack
+DESCRIPTION=Webster's Revised Unabridged Dictionary (1913) for dict
+EAPI=7
+HOMEPAGE=http://www.micra.com
+KEYWORDS=~amd64
+LICENSE=public-domain
+RDEPEND=>=app-text/dictd-1.5.5
+SLOT=0
+SRC_URI=http://www.gutenberg.org/files/660/old/pgw050ab.zip http://www.gutenberg.org/files/661/old/pgw050c.zip http://www.gutenberg.org/files/662/old/pgw050de.zip http://www.gutenberg.org/files/663/old/pgw050fh.zip http://www.gutenberg.org/files/664/old/pgw050il.txt http://www.gutenberg.org/files/665/old/pgw050mo.zip http://www.gutenberg.org/files/666/old/pgw050pq.zip http://www.gutenberg.org/files/667/old/pgw050r.zip http://www.gutenberg.org/files/668/old/pgw050s.zip http://www.gutenberg.org/files/669/old/pgw050tw.zip http://www.gutenberg.org/files/670/old/pgw050xz.zip https://git.sr.ht/~ag_eitilt/web1913-dict-patches/archive/p1.tar.gz -> web1913-dict-patches-p1.tar.gz
+_md5_=9ced7c34973b6384d441d90dba1bb1a9

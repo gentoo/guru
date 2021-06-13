@@ -1,0 +1,11 @@
+BDEPEND=>=app-text/dictd-1.5.5
+DEFINED_PHASES=compile install postrm prepare unpack
+DESCRIPTION=The Free On-line Dictionary of Computing for dict
+EAPI=7
+HOMEPAGE=https://foldoc.org
+KEYWORDS=~amd64
+LICENSE=FDL-1.1+
+RDEPEND=>=app-text/dictd-1.5.5
+SLOT=0
+SRC_URI=https://web.archive.org/web/20180405153121/http://foldoc.org/Dictionary -> dictd-foldoc-20180405.txt
+_md5_=a13aad9e51733203ad0e2e0a79580124
