@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<maintainer type="person">
+		<email>contact@hacktivis.me</email>
+		<name>Haelwenn (lanodan) Monnier</name>
+	</maintainer>
 	<use>
 		<flag name="system-glfw">Use the systems installed version of GLFW (upstream-unsupported)</flag>
 		<flag name="wayland">Build non-system-glfw for wayland instead of X11</flag>
