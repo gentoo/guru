@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<longdescription lang="en">
+	For converting between different versions of .dwg and .dxf
+	ODA File Converter application features a graphical interface and a
+	command-line interface.
+	Upon execution, the application identifies all files in the specified
+	source directory that match the specified filter, then loads and saves each
+	of these files to the specified output directory as the specified output
+	version/type.
+	If the audit flag is enabled, an audit/repair operation will be applied to
+	each file as it is loaded.
+	If the recursive flag is enabled, subdirectories within the source
+	directory will be processed recursively.
+	</longdescription>
+</pkgmetadata>

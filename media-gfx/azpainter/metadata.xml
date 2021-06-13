@@ -11,8 +11,11 @@
 		Since the color is handled with 16 bit color (15 bit fixed point number) internally, the accuracy of color rises, but the memory is consumed correspondingly.
 	</longdescription>
 	<longdescription lang="ja">
-	イラスト描画向けのLinux用フルカラーペイントソフトです。
-	ドット編集には向いていません。
-	内部では16bitカラー(15bit固定小数点数)で色を扱うため、色の精度が上がりますが、その分メモリを消費します。
+		イラスト描画向けのLinux用フルカラーペイントソフトです。
+		ドット編集には向いていません。
+		内部では16bitカラー(15bit固定小数点数)で色を扱うため、色の精度が上がりますが、その分メモリを消費します。
 	</longdescription>
+	<upstream>
+		<remote-id type="gitlab">azelpg/azpainter</remote-id>
+	</upstream>
 </pkgmetadata>

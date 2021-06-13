@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
@@ -25,7 +25,7 @@ KEYWORDS="~amd64"
 LICENSE="MIT BSD BSD-2"
 SLOT="0"
 
-RDEPEND="sys-fs/fuse"
+RDEPEND="sys-fs/fuse:0"
 DEPEND="${RDEPEND}"
 
 src_install() {

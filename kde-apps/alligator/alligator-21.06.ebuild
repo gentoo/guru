@@ -10,12 +10,11 @@ inherit ecm
 
 DESCRIPTION="A convergent RSS/Atom feed reader for Plasma"
 HOMEPAGE="https://apps.kde.org/alligator/"
-SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+SRC_URI="mirror://kde/stable/plasma-mobile/${PV}/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="5"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
