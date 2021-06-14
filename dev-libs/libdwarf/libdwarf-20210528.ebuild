@@ -14,13 +14,14 @@ LICENSE="LGPL-2.1 GPL-2 BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="dwarfexample dwarfgen +elf global-alloc-sums namestable nonstandardprintf oldframecol sanitize"
-DOCS=( AUTHORS README README.md ChangeLog ChangeLog2018 NEWS )
 
 DEPEND="
 	sys-libs/zlib
 	elf? ( virtual/libelf )
 "
 RDEPEND="${DEPEND}"
+
+DOCS=( AUTHORS README README.md ChangeLog ChangeLog2018 NEWS )
 
 src_configure() {
 
