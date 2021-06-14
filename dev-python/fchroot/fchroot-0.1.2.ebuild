@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+static-libs"
 
 RDEPEND="
-	app-emulation/qemu[static-user]
+	app-emulation/qemu[qemu_softmmu_targets_x86_64,qemu_softmmu_targets_aarch64,qemu_softmmu_targets_arm,static-user]
 	dev-libs/glib[static-libs]
 	sys-apps/attr[static-libs]
 	sys-libs/zlib[static-libs]
