@@ -17,7 +17,9 @@ SLOT="0"
 KEYWORDS="-* ~amd64"
 
 RDEPEND="
-	dev-qt/qtcore
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtwidgets:5
 	x11-themes/hicolor-icon-theme
 "
 
