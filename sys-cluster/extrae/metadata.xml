@@ -9,7 +9,7 @@
 A dynamic instrumentation package to trace programs compiled and run with the shared 
 memory model (like OpenMP and pthreads), the message passing (MPI) programming model or 
 both programming models (different MPI processes using OpenMP or pthreads within each MPI 
-process). Extrae generates trace files that can be later visualized with <pkg>sys-cluster/paraver</pkg>.
+process). Extrae generates trace files that can be later visualized with sys-cluster/paraver.
 	</longdescription>
 	<upstream>
 		<bugs-to>https://github.com/bsc-performance-tools/extrae/issues</bugs-to>
@@ -33,7 +33,7 @@ process). Extrae generates trace files that can be later visualized with <pkg>sy
 		<flag name="instrument-syscall">Enables instrumentation for system calls (other than I/O and mallocs)</flag>
 		<flag name="java">Enable support for tracing Java. This is necessary to create the connectors between |TRACE| and Java applications.</flag>
 		<flag name="merge-in-trace">Embed the merging process in the tracing library so the final tracefile can be generated automatically from the application run</flag>
-		<flag name="nanos">Enable support for tracing <pkg>sys-cluster/nanos</pkg> run-time</flag>
+		<flag name="nanos">Enable support for tracing <pkg>sys-cluster/nanos6</pkg> run-time</flag>
 		<!--<flag name="online">Enable on-line analysis</flag>-->
 		<flag name="opencl">Enable support for tracing OpenCL</flag>
 		<flag name="openmp">Enable support for tracing OpenMP</flag>
