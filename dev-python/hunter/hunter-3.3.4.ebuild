@@ -3,8 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
-
+PYTHON_COMPAT=( python3_{8..9} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
 inherit distutils-r1
@@ -42,13 +41,6 @@ PATCHES=( "${FILESDIR}/remove-setuptools_scm-upper-constraint.patch" )
 distutils_enable_tests pytest
 distutils_enable_sphinx docs ">=dev-python/sphinx-py3doc-enhanced-theme-2.3.2"
 
-python_prepare_all() {
-	# all tests in this file fail
-	rm tests/test_remote.py || die
-
-	distutils-r1_python_prepare_all
-}
-
 python_compile() {
 	distutils-r1_python_compile
 
@@ -59,5 +51,13 @@ python_compile() {
 
 python_test() {
 	local -x PYTHONPATH="${S}/tests:${BUILD_DIR}/lib:${PYTHONPATH}"
-	epytest
+	epytest -vv \
+		--deselect tests/test_integration.py::test_pid_prefix[True-CodePrinter] \
+		--deselect tests/test_integration.py::test_pid_prefix[False-CodePrinter] \
+		--deselect tests/test_integration.py::test_pid_prefix[True-CallPrinter] \
+		--deselect tests/test_integration.py::test_pid_prefix[False-CallPrinter] \
+		--deselect tests/test_remote.py::test_manhole \
+		--deselect tests/test_remote.py::test_manhole_clean_exit \
+		--deselect tests/test_tracer.py::test_perf_stdlib[cython] \
+		|| die
 }

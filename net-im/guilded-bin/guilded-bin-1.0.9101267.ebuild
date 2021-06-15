@@ -22,6 +22,8 @@ RDEPEND="
 	app-accessibility/at-spi2-core
 	app-crypt/libsecret
 	dev-libs/libappindicator
+	net-print/cups
+	media-libs/alsa-lib
 	sys-apps/util-linux
 	x11-misc/xdg-utils
 	x11-libs/gtk+:3
@@ -44,6 +46,7 @@ QA_PREBUILT="
 	opt/${MY_BIN}/libGLESv2.so
 	opt/${MY_BIN}/swiftshader/libEGL.so
 	opt/${MY_BIN}/swiftshader/libGLESv2.so
+	opt/${MY_BIN}/resources/*
 "
 
 CONFIG_CHECK="~USER_NS"

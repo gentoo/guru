@@ -3,7 +3,8 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..9} )
+
 inherit distutils-r1
 
 DESCRIPTION="Subcommand REPL for click apps"
@@ -16,11 +17,11 @@ SRC_URI="https://github.com/click-contrib/click-repl/archive/${PV}.tar.gz -> ${P
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-RESTRICT="test"
+
 DEPEND="
-	dev-python/click
-	dev-python/prompt_toolkit
-	dev-python/six
+	dev-python/click[${PYTHON_USEDEP}]
+	dev-python/prompt_toolkit[${PYTHON_USEDEP}]
+	dev-python/six[${PYTHON_USEDEP}]
 "
 RDEPEND="${DEPEND}"
 

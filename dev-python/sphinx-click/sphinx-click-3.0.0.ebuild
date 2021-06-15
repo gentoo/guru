@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{8,9} )
 
 inherit distutils-r1
 
@@ -19,13 +19,11 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 RDEPEND="
-	>=dev-python/sphinx-1.5[${PYTHON_USEDEP}]
-	<dev-python/sphinx-4[${PYTHON_USEDEP}]
+	>=dev-python/sphinx-2.0[${PYTHON_USEDEP}]
 	>=dev-python/click-6[${PYTHON_USEDEP}]
-	<dev-python/click-8[${PYTHON_USEDEP}]
 	<dev-python/docutils-0.17[${PYTHON_USEDEP}]
 "
-DEPEND="dev-python/pbr[${PYTHON_USEDEP}]"
+DEPEND=">=dev-python/pbr-2.0[${PYTHON_USEDEP}]"
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs --no-autodoc
