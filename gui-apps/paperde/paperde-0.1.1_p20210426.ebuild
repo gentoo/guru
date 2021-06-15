@@ -13,7 +13,7 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://gitlab.com/cubocore/paper/${PN}.git"
 else
 	COMMIT="15018307192107e2915671d412f3fc900ac5af4b"
-	SRC_URI="https://gitlab.com/cubocore/paper/${PN}/-/archive/${COMMIT}/paperde-${COMMIT}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://gitlab.com/cubocore/paper/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 	S="${WORKDIR}/${PN}-${COMMIT}"
 fi
