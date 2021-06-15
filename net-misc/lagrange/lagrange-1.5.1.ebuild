@@ -12,7 +12,7 @@ if [ "${PV}" == "9999" ]; then
 
 	EGIT_REPO_URI="https://git.skyjake.fi/gemini/${PN}.git"
 else
-	SRC_URI="https://git.skyjake.fi/skyjake/${PN}/releases/download/v${PV}/${PN}-${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://git.skyjake.fi/skyjake/${PN}/releases/download/v${PV}/${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
