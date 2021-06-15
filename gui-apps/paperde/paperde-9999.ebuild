@@ -38,7 +38,6 @@ DEPEND="
 	gui-libs/libcprime
 	gui-libs/libcsys
 "
-
 RDEPEND="
 	${DEPEND}
 	gui-libs/wlroots
