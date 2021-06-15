@@ -16,7 +16,7 @@ fi
 DESCRIPTION="Automatically select a display configuration based on connected devices"
 HOMEPAGE="https://github.com/phillipberndt/autorandr"
 
-LICENSE="GPL-3+"
+LICENSE="GPL-3"
 SLOT="0"
 IUSE="bash-completion systemd udev"
 
