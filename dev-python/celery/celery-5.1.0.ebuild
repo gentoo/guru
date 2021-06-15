@@ -23,7 +23,7 @@ KEYWORDS="~amd64"
 # There are a number of other optional 'extras'
 IUSE="examples"
 #RESTRICT="!test? ( test )"
-RESTRICT="test" #amqp wants vine.five
+RESTRICT="test" # 'celery' not found in `markers` configuration option
 
 RDEPEND="
 	>=dev-python/billiard-3.6.4.0[${PYTHON_USEDEP}]
@@ -49,7 +49,6 @@ DEPEND="
 		dev-python/pytest-celery[${PYTHON_USEDEP}]
 		dev-python/pytest-subtests[${PYTHON_USEDEP}]
 		>=dev-python/pytest-timeout-1.4.2[${PYTHON_USEDEP}]
-		>=dev-python/python-dateutil-2.1[${PYTHON_USEDEP}]
 		>=dev-python/pyyaml-3.10[${PYTHON_USEDEP}]
 		>=dev-python/pyzmq-13.1.0[${PYTHON_USEDEP}]
 	)
