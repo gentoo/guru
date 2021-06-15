@@ -1,0 +1,17 @@
+BDEPEND=utilities? ( app-admin/chrpath ) dev-util/ninja dev-util/cmake
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=python? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) ) virtual/fortran
+DESCRIPTION=Compressed numerical arrays that support high-speed random access
+EAPI=7
+HOMEPAGE=https://computing.llnl.gov/projects/zfp https://zfp.io https://github.com/LLNL/ZFP
+INHERIT=cmake fortran-2 python-single-r1
+IUSE=aligned cfp fasthash examples fortran openmp profile python strided test twoway +utilities python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=python? ( python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) ) virtual/fortran
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/LLNL/zfp/archive/refs/tags/0.5.5.tar.gz -> zfp-0.5.5.tar.gz
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	fortran-2	b4796813ccda91c9c0d3463fc90aa969	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
+_md5_=6476106da69e9995d2407b36986c9f3d

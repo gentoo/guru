@@ -8,5 +8,5 @@ KEYWORDS=~amd64
 LICENSE=LGPL-2.1 GPL-2 BSD
 RDEPEND=sys-libs/zlib elf? ( virtual/libelf )
 SLOT=0
-SRC_URI=https://www.prevanders.net/libdwarf-20210305.tar.gz
-_md5_=02ab9e31488cc66ecd3c83425f9842e4
+SRC_URI=https://www.prevanders.net/libdwarf-20210528.tar.gz
+_md5_=f16b647066f39c3e41367213e69750f1

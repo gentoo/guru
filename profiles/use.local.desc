@@ -100,6 +100,15 @@ dev-libs/pocl:hardening - Enable hardening against various attacks. May worsen p
 dev-libs/pocl:hwloc - Enable hwloc support
 dev-libs/pocl:memmanager - Enables custom memory manager. Except for special circumstances, this should be disabled
 dev-libs/xqilla:tidy - Add Tidy-HTML5 support
+dev-libs/zfp:aligned - Enable aligned memory allocation
+dev-libs/zfp:cfp - Build CFP arrays library
+dev-libs/zfp:examples - Build Examples
+dev-libs/zfp:fasthash - Use a faster but more collision prone hash function
+dev-libs/zfp:fortran - Build Fortran library
+dev-libs/zfp:openmp - Enable OpenMP parallel compression
+dev-libs/zfp:strided - Enable strided access for progressive zfp streams
+dev-libs/zfp:twoway - Use two-way skew-associative cache
+dev-libs/zfp:utilities - Build command line utilities
 dev-python/cx-oracle:examples - Install examples, usually source code
 dev-scheme/gerbil:leveldb - Add support for using dev-libs/leveldb
 dev-scheme/gerbil:lmdb - Add support for using dev-db/lmdb

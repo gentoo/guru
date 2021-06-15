@@ -7,6 +7,6 @@ INHERIT=desktop xdg
 KEYWORDS=~amd64
 LICENSE=MIT
 SLOT=0
-SRC_URI=https://github.com/nukeop/nuclear/releases/download/v0.6.13/nuclear-0.6.13.tar.gz -> nuclear-bin-0.6.13.tar.gz
+SRC_URI=https://github.com/nukeop/nuclear/releases/download/v0.6.14/nuclear-0.6.14.tar.gz -> nuclear-bin-0.6.14.tar.gz
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
 _md5_=c0147f595fa2cfce77ba0c1dedceebf5
