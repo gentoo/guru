@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..9} )
 PYTHON_REQ_USE="tk"
 
 inherit autotools python-single-r1
@@ -23,7 +23,6 @@ DEPEND="
 	hwloc? ( sys-apps/hwloc )
 	mpi? ( virtual/mpi )
 "
-#instrumentation ( sys-cluster/extrae )
 RDEPEND="
 	${PYTHON_DEPS}
 	${DEPEND}
