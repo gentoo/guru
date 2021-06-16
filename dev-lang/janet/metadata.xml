@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>xgqt@riseup.net</email>
+        <name>Maciej Barć</name>
+    </maintainer>
+    <longdescription lang="en">
+        Janet is a functional and imperative programming language
+        and bytecode interpreter. It is a lisp-like language,
+        but lists are replaced by other data structures (arrays,
+        tables (hash table), struct (immutable hash table), tuples).
+        The language also supports bridging to native code written in C,
+        meta-programming with macros, and bytecode assembly.
+    </longdescription>
+    <upstream>
+        <bugs-to>https://github.com/janet-lang/janet</bugs-to>
+        <doc>https://janet-lang.org/docs</doc>
+        <remote-id type="github">janet-lang/janet</remote-id>
+    </upstream>
+</pkgmetadata>
