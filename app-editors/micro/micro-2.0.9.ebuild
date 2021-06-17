@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit go-module
+inherit go-module optfeature
 
 EGO_SUM=(
 	"github.com/blang/semver v3.5.1+incompatible"
@@ -97,7 +97,7 @@ EGO_SUM=(
 
 go-module_set_globals
 
-DESCRIPTION="A modern and intuitive terminal-based text editor"
+DESCRIPTION="Modern and intuitive terminal-based text editor"
 HOMEPAGE="https://github.com/zyedidia/micro"
 SRC_URI="
 	https://github.com/zyedidia/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
@@ -107,16 +107,7 @@ SRC_URI="
 LICENSE="MIT Apache-2.0 BSD BSD-2 MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="wayland"
 RESTRICT="mirror"
-
-RDEPEND="
-	!wayland? (
-		x11-misc/xsel
-		x11-misc/xclip
-	)
-	wayland? ( gui-apps/wl-clipboard )
-"
 
 src_compile() {
 	go build -v -work -x -o ${PN} ./cmd/micro || die
@@ -126,4 +117,10 @@ src_install() {
 	dobin ${PN}
 	doman ./assets/packaging/micro.1
 	einstalldocs
+}
+
+pkg_postinst() {
+	optfeature_header "Clipboard support with display servers:"
+	optfeature "Xorg" x11-misc/xsel x11-misc/xclip
+	optfeature "Wayland" gui-apps/wl-clipboard
 }
