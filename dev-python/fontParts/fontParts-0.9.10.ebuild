@@ -18,13 +18,18 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	dev-python/booleanOperations[${PYTHON_USEDEP}]
-	dev-python/defcon[${PYTHON_USEDEP}]
-	dev-python/fontMath[${PYTHON_USEDEP}]
-	>=dev-python/fonttools-4.2.1[${PYTHON_USEDEP}]
+	>=dev-python/booleanOperations-0.9.0[${PYTHON_USEDEP}]
+	>=dev-python/defcon-0.8.1[${PYTHON_USEDEP}]
+	>=dev-python/fontMath-0.6.0[${PYTHON_USEDEP}]
+	>=dev-python/fonttools-4.24.4[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
 BDEPEND="test? ( dev-python/fontPens[${PYTHON_USEDEP}] )"
+
+pkg_setup() {
+	export SETUPTOOLS_SCM_PRETEND_VERSION="${PV%_*}"
+}
+
 
 python_test() {
 	"${EPYTHON}" Lib/fontParts/fontshell/test.py -v || die "Tests failed with ${EPYTHON}"
