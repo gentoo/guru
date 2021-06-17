@@ -1,4 +1,4 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -104,7 +104,7 @@ SRC_URI="
 	${EGO_SUM_SRC_URI}
 "
 
-LICENSE="MIT Apache-2.0 BSD BSD-2 MPL-2.0"
+LICENSE="MIT Apache-2.0 BSD MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 RESTRICT="mirror"
