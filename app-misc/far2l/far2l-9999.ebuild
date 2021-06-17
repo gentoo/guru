@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 WX_GTK_VER="3.0-gtk3"
 
@@ -46,7 +46,8 @@ RDEPEND="dev-libs/xerces-c
 		app-arch/libarchive )
 	python? (
 		${PYTHON_DEPS}
-		$(python_gen_any_dep 'dev-python/virtualenv[${PYTHON_USEDEP}]')
+		virtual/python-cffi
+		dev-python/debugpy
 	)"
 
 DEPEND="${RDEPEND}"
