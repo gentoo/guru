@@ -8,10 +8,10 @@ INHERIT=autotools findlib toolchain-funcs
 IUSE=+aorai +callgraph +dive +e-acsl +eva +from-analysis gtk +impact +inout +instantiate +loop-analysis +metrics +nonterm +obfuscator +ocamlopt +occurrence +pdg +postdominators +print-api +qed +report +rtegen +scope security-slicing +semantic-constant-folding +server +slicing +sparecode +studia +users +variadic +wp
 KEYWORDS=~amd64
 LICENSE=BSD LGPL-2 LGPL-2.1
-RDEPEND=>=dev-lang/ocaml-4.08.1[ocamlopt?] >=dev-ml/ocamlgraph-1.8.5[gtk(-)?,ocamlopt?] >=dev-ml/zarith-1.5[ocamlopt?] >=dev-ml/yojson-1.4.1[ocamlopt?] gtk? ( >=dev-ml/lablgtk-2.14:2=[sourceview,gnomecanvas,ocamlopt?] ) wp? ( ~sci-mathematics/why3-1.3.3 )
+RDEPEND=>=dev-lang/ocaml-4.08.1[ocamlopt?] >=dev-ml/ocamlgraph-1.8.5[gtk(-)?,ocamlopt?] >=dev-ml/zarith-1.5[ocamlopt?] >=dev-ml/yojson-1.4.1[ocamlopt?] gtk? ( >=dev-ml/lablgtk-2.14:2=[sourceview,gnomecanvas,ocamlopt?] ) wp? ( ~sci-mathematics/why3-1.3.3 ) dev-lang/ocaml:=[ocamlopt?]
 REQUIRED_USE=dive? ( eva studia ) e-acsl? ( rtegen ) from-analysis? ( eva callgraph ) impact? ( pdg eva inout ) inout? ( from-analysis eva callgraph ) metrics? ( eva ) nonterm? ( eva ) occurrence? ( eva ) pdg? ( from-analysis eva callgraph ) scope? ( postdominators eva from-analysis pdg ) security-slicing? ( slicing eva pdg gtk ) semantic-constant-folding? ( eva ) slicing? ( from-analysis pdg eva callgraph ) sparecode? ( pdg eva ) studia? ( eva ) users? ( eva ) wp? ( qed rtegen )
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://frama-c.com/download/frama-c-22.0-Titanium.tar.gz
-_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	findlib	197b318e28cee28e11c2b474328b50dd
+_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	findlib	34a4bb0c0d4e2f20b27aeadab3dc9641
 _md5_=315323573d52756bd187de18051aceb6
