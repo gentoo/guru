@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -13,12 +13,14 @@ KEYWORDS="~amd64"
 IUSE="test"
 #RESTRICT="!test? ( test )"
 RESTRICT="test" #investigate
+
 RDEPEND=""
 DEPEND="
 	${RDEPEND}
 	dev-lang/perl
 "
 BDEPEND="test? ( dev-util/bats )"
+
 PATCHES=( "${FILESDIR}/fix-path.patch" )
 DOCS=( README.md history.md pro-tips.md )
 

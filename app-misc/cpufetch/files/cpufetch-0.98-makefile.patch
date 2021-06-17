@@ -1,0 +1,30 @@
+--- a/Makefile
++++ b/Makefile
+@@ -1,6 +1,4 @@
+-CC ?= gcc
+-
+-CFLAGS+=-Wall -Wextra -pedantic -fstack-protector-all -pedantic -std=c99
++CFLAGS+=-Wall -Wextra -pedantic -std=c99
+ SANITY_FLAGS=-Wfloat-equal -Wshadow -Wpointer-arith
+ 
+ PREFIX ?= /usr
+@@ -35,17 +33,15 @@
+ 	OUTPUT=cpufetch.exe
+ endif
+ 
+-all: CFLAGS += -O3
+ all: $(OUTPUT)
+ 
+-debug: CFLAGS += -g -O0
+ debug: $(OUTPUT)
+ 
+-static: CFLAGS += -static -O3
++static: CFLAGS += -static
+ static: $(OUTPUT)
+ 
+ $(OUTPUT): Makefile $(SOURCE) $(HEADERS)
+-	$(CC) $(CFLAGS) $(SANITY_FLAGS) $(SOURCE) -o $(OUTPUT)
++	$(CC) $(CFLAGS) $(LDFLAGS) $(SANITY_FLAGS) $(SOURCE) -o $(OUTPUT)
+ 
+ run: $(OUTPUT)
+ 	./$(OUTPUT)

@@ -3,7 +3,8 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( pypy3 python3_{7,8,9} )
+PYTHON_COMPAT=( pypy3 python3_{8,9} )
+
 inherit autotools java-pkg-opt-2 python-single-r1
 
 DESCRIPTION="Instrumentation framework to generate execution traces of parallel runtimes"
@@ -32,6 +33,8 @@ CDEPEND="
 	dev-libs/libxml2
 	dev-libs/papi
 	sys-apps/hwloc
+	!<sys-cluster/openmpi-4.0.5-r1
+	!>=sys-cluster/openmpi-4.0.5-r1[libompitrace]
 	sys-libs/zlib
 	virtual/mpi
 
@@ -85,7 +88,6 @@ src_configure() {
 	local myconf=(
 		--datadir="${T}"
 		--datarootdir="${T}"
-		--libdir="${EPREFIX}/usr/$(get_libdir)/extrae/lib"
 
 		--disable-mic
 		--disable-online
@@ -180,6 +182,8 @@ src_configure() {
 
 src_install() {
 	default
+
+	#TODO: build examples
 
 	mkdir -p "${D}/$(python_get_sitedir)/" || die
 	mv "${ED}/usr/libexec/pyextrae" "${D}/$(python_get_sitedir)/" || die

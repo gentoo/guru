@@ -3,19 +3,16 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..9} )
 PYTHON_REQ_USE="tk"
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-MY_PN="jellyfin-mpv-shim"
-MY_P="${MY_PN}-${PV}"
-
 inherit distutils-r1
 
-DESCRIPTION="MPV-based desktop and cast client for Jellyfin"
-HOMEPAGE="https://github.com/jellyfin/jellyfin-desktop"
-SRC_URI="mirror://pypi/${MY_P:0:1}/${MY_PN}/${MY_P}.tar.gz"
+DESCRIPTION="MPV Cast Client for Jellyfin"
+HOMEPAGE="https://github.com/jellyfin/jellyfin-mpv-shim"
+SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-3+ MIT Unlicense"
 SLOT="0"
@@ -41,5 +38,3 @@ RDEPEND="
 		dev-python/werkzeug[${PYTHON_USEDEP}]
 	')
 "
-
-S="${WORKDIR}/${MY_P}"

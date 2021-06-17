@@ -12,11 +12,10 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/cubocore/paper/${PN}.git"
 else
-	# _alpha -> -alpha
-	MY_PV="${PV/_/-}"
-	SRC_URI="https://gitlab.com/cubocore/paper/${PN}/-/archive/v${MY_PV}/${PN}-v${MY_PV}.tar.gz -> ${P}.tar.gz"
+	COMMIT="15018307192107e2915671d412f3fc900ac5af4b"
+	SRC_URI="https://gitlab.com/cubocore/paper/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}/${PN}-v${MY_PV}"
+	S="${WORKDIR}/${PN}-${COMMIT}"
 fi
 
 LICENSE="GPL-3"

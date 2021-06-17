@@ -37,5 +37,7 @@ distutils_enable_tests pytest
 
 python_test() {
 	distutils_install_for_testing --via-root
-	pytest -vv || die "Testsuite failed under ${EPYTHON}"
+	pytest -vv \
+		--deselect tests/test_pytest_randomly.py::test_entrypoint_injection \
+		|| die "Testsuite failed under ${EPYTHON}"
 }

@@ -2,19 +2,32 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>strikersh@disroot.org</email>
-		<name>Jules de Sartiges</name>
+		<email>alarig@swordarmor.fr</email>
+		<name>Alarig Le Lay</name>
 	</maintainer>
-	<use>
-		<flag name="mpg123">Enable support for mp3 decoding over media-sound/mpg123</flag>
-	</use>
-	<longdescription lang="en">
-		Lagrange is a desktop GUI client for browsing Geminispace. It
-		offers modern conveniences familiar from web browsers, such as
-		smooth scrolling, inline image viewing, multiple tabs, visual
-		themes, Unicode fonts, bookmarks, history, and page outlines.
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<longdescription>
+		Lagrange is a desktop GUI client for browsing Geminispace.
+		It offers modern conveniences familiar from web browsers,
+		such as smooth scrolling, inline image viewing, multiple
+		tabs, visual themes, Unicode fonts, bookmarks, history, and
+		page outlines.
+
+		Like the Gemini protocol, Lagrange has been designed with
+		minimalism in mind. It depends on a small number of essential
+		libraries. It is written in C and uses SDL for
+		hardware-accelerated graphics. OpenSSL is used for secure
+		communications.
 	</longdescription>
 	<upstream>
+		<maintainer>
+			<email>jaakko.keranen@iki.fi</email>
+			<name>Jaakko Keränen</name>
+		</maintainer>
 		<bugs-to>https://github.com/skyjake/lagrange/issues</bugs-to>
+		<remote-id type="github">skyjake/lagrange</remote-id>
 	</upstream>
 </pkgmetadata>

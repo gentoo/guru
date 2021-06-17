@@ -6,7 +6,7 @@ EAPI=7
 MY_PN="Komikku"
 MY_P="${MY_PN}-${PV}"
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8,9} )
 
 inherit python-single-r1 meson gnome2-utils xdg
 
@@ -22,7 +22,7 @@ SLOT="0"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
-	>=gui-libs/libhandy-1.0.2
+	>=gui-libs/libhandy-1.2.0
 	>=x11-libs/gtk+-3.24.10
 	$(python_gen_cond_dep '
 		dev-python/beautifulsoup:4[${PYTHON_USEDEP}]

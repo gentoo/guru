@@ -5,7 +5,7 @@ EAPI=7
 
 #DOCS_BUILDER="sphinx"
 #DOCS_DIR="docs/source"
-PYTHON_COMPAT=( python3_{7,8,9,10} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 
 inherit cmake fortran-2 python-single-r1 #docs
 
@@ -58,7 +58,7 @@ src_configure() {
 src_compile() {
 	cmake_src_compile
 	#docs only available starting from the next release
-	#use doc && docs_compile
+	#docs_compile
 }
 
 src_install() {

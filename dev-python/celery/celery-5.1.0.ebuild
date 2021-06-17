@@ -1,13 +1,14 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
+
 DISTUTILS_USE_SETUPTOOLS=rdepend
-PYTHON_COMPAT=( python3_{7,8} )
+MYPV="${PV/_beta/b}"
+PYTHON_COMPAT=( python3_8 )
 
 inherit bash-completion-r1 distutils-r1 eutils optfeature
 
-MYPV="${PV/_beta/b}"
 DESCRIPTION="Asynchronous task queue/job queue based on distributed message passing"
 HOMEPAGE="
 	http://celeryproject.org
@@ -15,15 +16,14 @@ HOMEPAGE="
 	https://github.com/celery/celery
 "
 SRC_URI="https://github.com/celery/celery/archive/v${MYPV}.tar.gz -> ${P}.tar.gz"
-
+S="${WORKDIR}/${PN}-${MYPV}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 # There are a number of other optional 'extras'
 IUSE="examples"
 #RESTRICT="!test? ( test )"
-RESTRICT="test" #'celery' not found in `markers` configuration option
-S="${WORKDIR}/${PN}-${MYPV}"
+RESTRICT="test" # 'celery' not found in `markers` configuration option
 
 RDEPEND="
 	>=dev-python/billiard-3.6.4.0[${PYTHON_USEDEP}]
@@ -49,7 +49,6 @@ DEPEND="
 		dev-python/pytest-celery[${PYTHON_USEDEP}]
 		dev-python/pytest-subtests[${PYTHON_USEDEP}]
 		>=dev-python/pytest-timeout-1.4.2[${PYTHON_USEDEP}]
-		>=dev-python/python-dateutil-2.1[${PYTHON_USEDEP}]
 		>=dev-python/pyyaml-3.10[${PYTHON_USEDEP}]
 		>=dev-python/pyzmq-13.1.0[${PYTHON_USEDEP}]
 	)
@@ -61,6 +60,7 @@ DEPEND="
 		dev-python/sqlalchemy[${PYTHON_USEDEP}]
 	)
 "
+
 # testsuite needs it own source
 DISTUTILS_IN_SOURCE_BUILD=1
 distutils_enable_tests pytest
