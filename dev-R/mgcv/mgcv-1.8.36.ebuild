@@ -3,17 +3,18 @@
 
 EAPI=7
 
+MYPV="$(ver_rs 2 -)"
+
 inherit R-packages
 
 DESCRIPTION='Mixed GAM Computation Vehicle with automatic smoothness estimation'
 KEYWORDS="~amd64"
-SRC_URI="mirror://cran/src/contrib/mgcv_1.8-35.tar.gz"
+SRC_URI="mirror://cran/src/contrib/${PN}_${MYPV}.tar.gz"
 LICENSE='GPL-2+'
 
 DEPEND="
+	>=dev-lang/R-3.6.0[minimal]
 	virtual/nlme
-	>=dev-lang/R-3.6.0
 	virtual/Matrix
-	dev-lang/R[minimal]
 "
 RDEPEND="${DEPEND}"
