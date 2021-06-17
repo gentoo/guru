@@ -23,7 +23,7 @@ dodocrm() {
 R-packages_src_unpack() {
 	unpack ${A}
 	if [[ -d "${PN//_/.}" ]] && [[ ! -d "${P}" ]]; then
-		mv ${PN//_/.} "${P}"
+		mv "${PN//_/.}" "${P}" || die
 	fi
 }
 
@@ -34,26 +34,31 @@ R-packages_src_prepare() {
 
 
 R-packages_src_compile() {
-	MAKEFLAGS="CFLAGS=${CFLAGS// /\\ } CXXFLAGS=${CXXFLAGS// /\\ } FFLAGS=${FFLAGS// /\\ } FCFLAGS=${FCFLAGS// /\\ } LDFLAGS=${LDFLAGS// /\\ }" R CMD INSTALL . -l "${WORKDIR}" "--byte-compile"
+	MAKEFLAGS="CFLAGS=${CFLAGS// /\\ } CXXFLAGS=${CXXFLAGS// /\\ } FFLAGS=${FFLAGS// /\\ } FCFLAGS=${FCFLAGS// /\\ } LDFLAGS=${LDFLAGS// /\\ }" R CMD INSTALL . -l "${WORKDIR}" "--byte-compile" || die
 }
 
 R-packages_src_install() {
-	cd "${WORKDIR}"/${PN//_/.} || die
+	cd "${WORKDIR}/${PN//_/.}" || die
 
 	dodocrm examples || die
-#	dodocrm DESCRIPTION || die #keep this
+	#dodocrm DESCRIPTION || die #keep this
 	dodocrm NEWS.md || die
 	dodocrm README.md || die
 	dodocrm html || die
-	docinto "${DOCSDIR}/html"
+
 	if [ -e doc ]; then
-		ls doc/*.html &>/dev/null && dodoc -r doc/*.html
-		rm -rf doc/*.html || die
+		if [ -e doc/html ]; then
+			docinto "${DOCSDIR}/html"
+			dodoc -r doc/*.html
+			rm -r doc/*.html || die
+			docompress -x "${DOCSDIR}/html"
+		fi
+
 		docinto "${DOCSDIR}"
 		dodoc -r doc/.
-		rm -rf doc
+		rm -r doc || die
 	fi
 
-	insinto /usr/$(get_libdir)/R/site-library
-	doins -r "${WORKDIR}"/${PN//_/.}
+	insinto "/usr/$(get_libdir)/R/site-library"
+	doins -r "${WORKDIR}/${PN//_/.}"
 }
