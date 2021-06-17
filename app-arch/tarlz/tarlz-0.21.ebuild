@@ -14,15 +14,11 @@ SLOT="0"
 
 KEYWORDS="~amd64"
 
-RDEPEND="app-arch/lzlib:0="
+RDEPEND=">=app-arch/lzlib-1.12:0="
 DEPEND="
 	${RDEPEND}
 	$(unpacker_src_uri_depends)
 "
-
-PATCHES=(
-	"${FILESDIR}/skip-broken-testcase.patch"
-)
 
 src_configure() {
 	econf \
