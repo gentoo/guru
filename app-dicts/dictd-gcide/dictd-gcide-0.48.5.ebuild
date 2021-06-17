@@ -15,7 +15,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND=">=app-text/dictd-1.5.5"
+BDEPEND=">=app-text/dictd-1.13.0-r3"
 RDEPEND="
 	${BDEPEND}
 	!app-dicts/dictd-web1913
