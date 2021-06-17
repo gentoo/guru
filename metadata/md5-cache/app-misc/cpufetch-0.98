@@ -1,0 +1,11 @@
+DEFINED_PHASES=install prepare
+DESCRIPTION=Simplistic yet fancy CPU architecture fetching tool
+EAPI=7
+HOMEPAGE=https://github.com/Dr-Noob/cpufetch
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64
+LICENSE=MIT
+SLOT=0
+SRC_URI=https://github.com/Dr-Noob/cpufetch/archive/refs/tags/v0.98.tar.gz -> cpufetch-0.98.tar.gz
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479
+_md5_=e438e06abf6db7236957f8876711de0d

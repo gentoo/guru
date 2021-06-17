@@ -24,6 +24,7 @@ app-crypt/mkp224o:pcre2 - Enable the regex engine and use pcre2
 app-crypt/mkp224o:ref10 - Use portable ref10 SUPERCOP implementation
 app-crypt/mkp224o:statistics - Collect performance statistics
 app-crypt/tomb:tray - add a tomb tray in a QT desktop toolbar
+app-dicts/dictd-mueller:ipa - convert transcription into the IPA Unicode
 app-emulation/arnold:inkz80 - Use inkz80 processor emulation
 app-misc/apidb:commands - Build commands
 app-misc/apidb:corelibs - Build Abtract layer
@@ -205,7 +206,6 @@ net-im/biboumi:logrotate - Use app-admin/logrotate for rotating logs
 net-im/biboumi:udns - Asynchronously resolve domain names using net-libs/udns
 net-im/ruqola:speech - Enable text-to-speech support
 net-libs/usockets:libuv - Enable bindings to use the libuv dispatcher
-net-misc/lagrange:mpg123 - Enable support for mp3 decoding over media-sound/mpg123
 net-misc/megasync:cryptopp - Compile with Crypto++ Library.
 net-misc/megasync:dolphin - Upload your files to your Mega account from Dolphin file manager.
 net-misc/megasync:freeimage - Use freeimage to manage graphic images format.
@@ -320,7 +320,7 @@ sys-cluster/extrae:instrument-io - Enables instrumentation for basic I/O (read, 
 sys-cluster/extrae:instrument-syscall - Enables instrumentation for system calls (other than I/O and mallocs)
 sys-cluster/extrae:java - Enable support for tracing Java. This is necessary to create the connectors between |TRACE| and Java applications.
 sys-cluster/extrae:merge-in-trace - Embed the merging process in the tracing library so the final tracefile can be generated automatically from the application run
-sys-cluster/extrae:nanos - Enable support for tracing sys-cluster/nanos run-time
+sys-cluster/extrae:nanos - Enable support for tracing sys-cluster/nanos6 run-time
 sys-cluster/extrae:opencl - Enable support for tracing OpenCL
 sys-cluster/extrae:openmp - Enable support for tracing OpenMP
 sys-cluster/extrae:parallel-merge - Build the parallel mergers (mpimpi2prv/mpimpi2dim) based on MPI
@@ -372,4 +372,6 @@ x11-libs/gtk-fortran:plplot - Build with sci-libs/plplot support
 x11-libs/sdl-fakeqwerty:sdl - Enable support for libsdl
 x11-libs/sdl-fakeqwerty:sdl2 - Enable support for libsdl2
 x11-libs/sdl-fakeqwerty:xlib - Enable support for libX11
+x11-misc/autorandr:systemd - Install autorand systemd files
+x11-misc/autorandr:udev - Use udev for monitor detection
 x11-themes/arc-darkest-colors:icons - Install icon themes

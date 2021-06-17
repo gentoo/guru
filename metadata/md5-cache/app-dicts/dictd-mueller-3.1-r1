@@ -1,0 +1,14 @@
+BDEPEND=>=app-text/dictd-1.13.0-r3 dev-lang/perl sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DESCRIPTION=V. K. Mueller English-Russian Dictionary
+EAPI=7
+HOMEPAGE=http://mueller-dict.sourceforge.net
+INHERIT=eutils autotools
+IUSE=ipa
+KEYWORDS=~amd64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=>=app-text/dictd-1.13.0-r3
+SLOT=0
+SRC_URI=mirror://sourceforge/mueller-dict/mueller-dict-3.1.tar.gz
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354
+_md5_=2d0a98c0b06a132c25ebfda79a91200a

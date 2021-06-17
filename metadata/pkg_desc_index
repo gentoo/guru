@@ -49,15 +49,17 @@ app-dicts/dictd-foldoc 20180405: The Free On-line Dictionary of Computing for di
 app-dicts/dictd-gazetteer 1.3: The original U.S. Gazetteer Place and Zipcode Files for dict
 app-dicts/dictd-gcide 0.48.5: Collaborative International Dictionary of English (incl. Webster 1913) for dict
 app-dicts/dictd-jargon 4.2.3-r2: The Jargon File for dict
+app-dicts/dictd-moby-thesaurus 1.0: Grady Ward's Moby Thesaurus; 35000 root words and 2.5 million synonyms
+app-dicts/dictd-mueller 3.1-r1: V. K. Mueller English-Russian Dictionary
 app-dicts/dictd-web1913 0.5.0_p1: Webster's Revised Unabridged Dictionary (1913) for dict
 app-editors/atom-bin 1.57.0: A hackable text editor for the 21st Century
 app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
-app-editors/micro 2.0.8 2.0.9: A modern and intuitive terminal-based text editor
+app-editors/micro 2.0.9: Modern and intuitive terminal-based text editor
 app-editors/typora-bin 0.10.7: a markdown editor,markdown reader.
 app-emacs/flycheck 31: On the fly syntax checking for GNU Emacs
 app-emulation/arnold 20170513: Amstrad CPC emulator
-app-emulation/dxvk-bin 1.8 1.8.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
+app-emulation/dxvk-bin 1.8.1 1.9: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.4.2 1.5.0: NVIDIA container runtime toolkit
 app-eselect/eselect-scheme 3.1.0: Manages scheme implementations
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
@@ -67,8 +69,8 @@ app-misc/brightness-control 2.0_p20210331: Qt Brightness Controller in Python
 app-misc/brightnessctl 0.5.1: A program to read and control device brightness
 app-misc/broot 1.5.1: A new way to see and navigate directory trees
 app-misc/cheat 4.2.2: cheat allows you to create and view interactive cheatsheets on the command-line
-app-misc/cpufetch 0.94_p20210409: Simplistic yet fancy CPU architecture fetching tool
-app-misc/diff-so-fancy 1.4.0 1.4.1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
+app-misc/cpufetch 0.94_p20210409 0.98: Simplistic yet fancy CPU architecture fetching tool
+app-misc/diff-so-fancy 1.4.2: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
 app-misc/doublecmd-bin 0.9.10: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.20210419_alpha 2.3.20210426_alpha 9999: Linux port of FAR Manager v2
@@ -119,7 +121,7 @@ app-text/OCRmyPDF 12.0.2: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/epubgrep 0.5.0 0.5.1: Search tool for EPUB e-books
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/klogg 20.12: A GUI application to browse and search through long and complex log files
-app-text/komikku 0.27.0 0.28.1: An online/offline manga reader for GNOME
+app-text/komikku 0.28.1 0.29.2: An online/offline manga reader for GNOME
 app-text/kramdown-rfc2629 1.4.6: An RFC2629 (XML2RFC) backend for Thomas Leitner's kramdown markdown parser
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
 app-text/mdbook 0.4.7 0.4.8 0.4.9 0.4.10: Creates a book from markdown files
@@ -214,9 +216,9 @@ dev-R/xfun 0.23: Supporting Functions for Package maintained by Yihui Xie
 dev-R/xml2 1.3.2: Parse XML
 dev-R/yaml 2.2.1: Methods to Convert R Data to YAML and Back
 dev-cpp/cli11 1.9.1: Command line parser for C++11
-dev-cpp/fbthrift 2021.04.19.00 2021.05.24.00 2021.06.07.00: Facebook's branch of Apache Thrift, including a new C++ server
-dev-cpp/fizz 2021.04.19.00 2021.05.24.00 2021.06.07.00: C++14 implementation of the TLS-1.3 standard
-dev-cpp/folly 2021.01.04.00 2021.04.19.00-r1 2021.05.24.00 2021.06.07.00: An open-source C++ library developed and used at Facebook
+dev-cpp/fbthrift 2021.04.19.00 2021.05.24.00 2021.06.14.00: Facebook's branch of Apache Thrift, including a new C++ server
+dev-cpp/fizz 2021.04.19.00 2021.05.24.00 2021.06.14.00: C++14 implementation of the TLS-1.3 standard
+dev-cpp/folly 2021.01.04.00 2021.04.19.00-r1 2021.05.24.00 2021.06.14.00: An open-source C++ library developed and used at Facebook
 dev-cpp/gsl-lite 0.38.0: C++ Guideline Support Library implementation
 dev-cpp/indicators 2.2: Activity indicators for modern C++
 dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
@@ -228,7 +230,7 @@ dev-cpp/termcolor 2.0.0: Header-only library for printing colored messages to th
 dev-cpp/tiny-dnn 1.0.0_alpha3: header only, dependency-free deep learning framework in C++14
 dev-cpp/vectorwrapper 1.1.2 9999: A template vector wrapper class for C++
 dev-cpp/vexcl 1.4.2-r1: VexCL - Vector expression template library for OpenCL
-dev-cpp/wangle 2021.04.19.00 2021.05.24.00 2021.06.07.00: Framework providing common client/server abstractions
+dev-cpp/wangle 2021.04.19.00 2021.05.24.00 2021.06.14.00: Framework providing common client/server abstractions
 dev-db/pg_repack 1.4.6: Reorganize tables in PostgreSQL databases with minimal locks
 dev-db/rum 1.3.7: RUM access method - inverted index with additional information in posting lists
 dev-dotnet/dotnet-aspnet-bin 5.0.5: .NET ASP.NET Runtime Store
@@ -242,7 +244,7 @@ dev-erlang/cowlib 2.10.1: Support library for manipulating Web protocols.
 dev-erlang/ranch 1.7.1: Socket acceptor pool for TCP protocols.
 dev-games/godot 3.3.2-r1: Multi-platform 2D and 3D game engine
 dev-games/surgescript 0.5.4.4 0.5.5 9999: scripting language made for opensurge
-dev-go/lichen 0.1.1: Go binary license checker
+dev-go/lichen 0.1.4: Go binary license checker
 dev-java/gradle-base-annotations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-build-operations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-hashing 6.8.2: Build automation tool for JVM Languages, C(++), etc.
@@ -313,7 +315,7 @@ dev-python/base58 2.1.0: Base58 and Base58Check implementation
 dev-python/billiard 3.6.3.0 3.6.4.0: Python multiprocessing fork
 dev-python/bitbox02 5.3.0: Python API for communicating with the BitBox02 device
 dev-python/cchardet 2.1.7: cChardet is high speed universal character encoding detector
-dev-python/celery 5.1.0_beta2: Asynchronous task queue/job queue based on distributed message passing
+dev-python/celery 5.1.0: Asynchronous task queue/job queue based on distributed message passing
 dev-python/check-manifest 0.46: Tool to check the completeness of MANIFEST.in for Python packages
 dev-python/click-didyoumean 0.0.3: Enable git-like did-you-mean feature in click
 dev-python/click-repl 0.2.0: Subcommand REPL for click apps
@@ -386,7 +388,7 @@ dev-python/pypandoc 1.5: Pypandoc provides a thin wrapper for pandoc, a universa
 dev-python/pysftp 0.2.9: A friendly face on SFTP
 dev-python/pystray 0.17.3: System tray icon creation via python
 dev-python/pytest-benchmark 3.4.1: py.test fixture for benchmarking code
-dev-python/pytest-celery 0.0.0_alpha1: a shim pytest plugin to enable celery.contrib.pytest
+dev-python/pytest-celery 0.0.0: a shim pytest plugin to enable celery.contrib.pytest
 dev-python/pytest-cython 0.1.0-r2 0.1.1: Plugin for testing Cython extension modules
 dev-python/pytest-instafail 0.4.2: Plugin for pytest that shows failures and errors instantly
 dev-python/pytest-isort 1.3.0: Plugin to check import ordering using isort
@@ -414,7 +416,7 @@ dev-python/schedule 1.1.0: Python job scheduling for humans
 dev-python/skia-pathops 0.4.1 0.6.0_p2: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/sphinx-argparse 0.2.5: Sphinx extension that automatically documents argparse commands and options
-dev-python/sphinx-click 3.0.0: Sphinx plugin to automatically document click-based applications
+dev-python/sphinx-click 3.0.0 3.0.1: Sphinx plugin to automatically document click-based applications
 dev-python/sphinx-tabs 2.1.0: Create tabbed content in Sphinx documentation when building HTML
 dev-python/sphinxcontrib-katex 0.7.1: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-napoleon 0.7: Allow a different format in dosctrings for better clarity
@@ -525,7 +527,7 @@ gui-apps/foot 1.7.1 1.7.2 9999: A fast, lightweight and minimalistic Wayland ter
 gui-apps/foot-terminfo 1.7.1 1.7.2 9999: Terminfo for foot, a great Wayland terminal emulator
 gui-apps/mpvpaper 1.0 1.1 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.4.3 0.4.4 9999: GTK+ launchers for sway, i3 and some other WMs
-gui-apps/paperde 9999: Simple, sleek QT based DE for wayland using wayfire
+gui-apps/paperde 0.1.1_p20210426 9999: Simple, sleek QT based DE for wayland using wayfire
 gui-apps/sfwbar 0.9.7 0.9.8: Sway Floating Window Bar
 gui-apps/swaykbdd 1.0: Per-window keyboard layout switcher for Sway
 gui-apps/swaylock-effects 1.6.2 1.6.3 9999: Swaylock, with fancy effects
@@ -611,7 +613,8 @@ media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
 media-sound/zita-ajbridge 0.8.4 0.8.4-r1: zita-a2j and zita-j2a - bridges between ALSA and JACK
 media-video/av1an 1.12 9999: Cross-platform framework to streamline encoding
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
-media-video/jellyfin-desktop 2.0.1: MPV-based desktop and cast client for Jellyfin
+media-video/jellyfin-media-player 1.6.0: Jellyfin Desktop Client based on Plex Media Player
+media-video/jellyfin-mpv-shim 2.0.1: MPV Cast Client for Jellyfin
 media-video/kikoplay 0.8.0 0.8.1 9999: KikoPlay is a full-featured danmu player
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
 media-video/owncast 0.0.7: A self-hosted live video and web chat server
@@ -625,7 +628,7 @@ net-dialup/tio 1.32: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.5 9.0_rc1-r1 9.0: XMPP gateway to IRC
-net-im/discord-canary-bin 0.0.124: All-in-one voice and text chat
+net-im/discord-canary-bin 0.0.125: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-im/guilded-bin 1.0.9101267: Drop Discord, get Guilded
 net-im/kaidan 0.7.0 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!
@@ -646,7 +649,7 @@ net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/gmid 1.6.1 9999: Simple and secure Gemini server
 net-misc/kristall 0.3-r1 9999: Visual cross-platform gemini browser
-net-misc/lagrange 1.5.1 9999: A Beautiful Gemini Client
+net-misc/lagrange 1.5.2: Desktop GUI client for browsing Geminispace
 net-misc/lyrics-in-terminal 1.4.1: Command Line Lyrics fetcher for MPRIS media players
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
@@ -699,6 +702,7 @@ sys-apps/dust 0.5.3 0.5.4: A more intuitive version of du
 sys-apps/hex 0.3.2 0.4.0 0.4.1: Futuristic take on hexdump
 sys-apps/procs 0.11.5 0.11.6: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
+sys-apps/ripgrep-all 0.9.6: Like ripgrep, but also search in PDFs, E-Books, Office documents, archives, etc.
 sys-apps/rogdrv 0.0.5_p20210208: ASUS ROG userspace mouse driver for Linux.
 sys-apps/ryzen-stabilizator 0_pre20180309: Small utility to control a few parameters on Ryzen
 sys-apps/sampler 1.1.0: visualizer for shell commands, executions and alerting
@@ -714,9 +718,9 @@ sys-cluster/KVTree 1.1.1: KVTree provides a fully extensible C data structure mo
 sys-cluster/clusteringsuite 2.6.9: Expose the main performance trends in applications computation structure
 sys-cluster/dlb 2.1-r1: Dynamically react to application imbalance by modifying the number of resources
 sys-cluster/er 0.0.4: High-level distributed erasure coding lib combining shuffile and redset
-sys-cluster/extrae 3.8.3-r1 3.8.3-r2 3.8.3-r3: Instrumentation framework to generate execution traces of parallel runtimes
+sys-cluster/extrae 3.8.3-r5: Instrumentation framework to generate execution traces of parallel runtimes
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
-sys-cluster/nanos6 2.5.1-r1: runtime that implements the OmpSs-2 parallel programming model
+sys-cluster/nanos6 2.5.1-r2: runtime that implements the OmpSs-2 parallel programming model
 sys-cluster/pcs 0.10.7 0.10.8 0.10.8-r2: Pacemaker/Corosync Configuration System
 sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on string values
 sys-cluster/redset 0.0.5: Low-level distributed erasure coding lib to protect datasets of MPI applications
@@ -773,6 +777,7 @@ x11-drivers/OpenTabletDriver-bin 0.5.3.1 0.5.3.2: Cross platform tablet driver (
 x11-libs/gtk-fortran 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial videos
+x11-misc/autorandr 1.11 9999: Automatically select a display configuration based on connected devices
 x11-misc/betterlockscreen 3.1.1 3.2.0 9999: sweet looking lockscreen for linux system
 x11-misc/betterlockscreen_rapid 0.0.0_pre20201222 0.0.0_pre20210606: A rapid and good-looking screen locker
 x11-misc/caffeine-ng 3.5.1 9999: Aplication able to temporarily inhibit the screensaver.
