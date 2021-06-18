@@ -1,0 +1,26 @@
+--- a/setup.py
++++ b/setup.py
+@@ -29,7 +29,6 @@ try:
+ except ImportError:
+     print("afdko: setup.py requires that the Python package 'wheel' be "
+           "installed. Try the command 'pip install wheel'.")
+-    sys.exit(1)
+ 
+ 
+ class InstallPlatlib(setuptools.command.install.install):
+@@ -246,7 +245,6 @@ def main():
+           zip_safe=False,
+           python_requires='>=2.7',
+           setup_requires=[
+-              'wheel',
+               'setuptools_scm',
+           ],
+           tests_require=[
+@@ -260,7 +258,6 @@ def main():
+           cmdclass={
+               'build_py': CustomBuild,
+               'build_scripts': CustomBuildScripts,
+-              'bdist_wheel': CustomBDistWheel,
+               'install': InstallPlatlib,
+           },
+           )

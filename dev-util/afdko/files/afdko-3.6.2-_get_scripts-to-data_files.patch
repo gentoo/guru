@@ -1,0 +1,11 @@
+--- a/setup.py
++++ b/setup.py
+@@ -234,7 +234,7 @@
+               'pytest',
+           ],
+           install_requires=_get_requirements(),
+-          scripts=_get_scripts(),
++          data_files=[("bin",_get_scripts())],
+           entry_points={
+               'console_scripts': _get_console_scripts(),
+           },

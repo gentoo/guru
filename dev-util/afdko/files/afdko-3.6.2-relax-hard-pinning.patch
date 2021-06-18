@@ -1,0 +1,26 @@
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1,13 +1,13 @@
+ # 'lxml' is not a primary requirement of afdko but it's listed here because
+ # we want to have control over the version and guarantee that the XML output
+ # of our tools is stable
+-# NOTE: hard-pinning (==) here gets relaxed to >= in setup.py
+-lxml==4.6.2
+-booleanOperations==0.9.0
+-defcon[pens,lxml]==0.7.2
+-fontMath==0.6.0
+-fontTools[woff,ufo,lxml,unicode]==4.21.1
+-psautohint==2.3.0
+-tqdm==4.58.0
+-ufonormalizer==0.5.3
+-ufoProcessor==1.9.0
++# NOTE: hard-pinning (>=) here gets relaxed to >= in setup.py
++lxml>=4.6.2
++booleanOperations>=0.9.0
++defcon[pens,lxml]>=0.7.2
++fontMath>=0.6.0
++fontTools[woff,ufo,lxml,unicode]>=4.21.1
++psautohint>=2.3.0
++tqdm>=4.58.0
++ufonormalizer>=0.5.3
++ufoProcessor>=1.9.0
