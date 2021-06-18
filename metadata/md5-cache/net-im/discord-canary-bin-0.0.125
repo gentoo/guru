@@ -11,5 +11,5 @@ RDEPEND=app-accessibility/at-spi2-atk:2 app-accessibility/at-spi2-core:2 dev-lib
 RESTRICT=mirror bindist
 SLOT=0
 SRC_URI=https://dl-canary.discordapp.net/apps/linux/0.0.125/discord-canary-0.0.125.deb
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	linux-info	dcc3dd587b38fefad1be6ff5e2fc9cb7	pax-utils	d3fc79d3d50544347e324864f95206e2	unpacker	517f16af48ee3ab88180dd58b5143213	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	pax-utils	d3fc79d3d50544347e324864f95206e2	unpacker	517f16af48ee3ab88180dd58b5143213	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
 _md5_=fa2d8a8809ab3d64e28e8232cc73dcad
