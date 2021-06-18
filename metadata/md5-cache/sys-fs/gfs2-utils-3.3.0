@@ -12,5 +12,5 @@ RDEPEND=sys-libs/zlib app-arch/bzip2 sys-libs/ncurses sys-apps/util-linux
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://pagure.io/gfs2-utils/archive/3.3.0/gfs2-utils-3.3.0.tar.gz
-_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	linux-info	30ded7f9adbdd03d3e848cdd74f6c395
+_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	linux-info	e31d3106e784a7484040b23155922837
 _md5_=32b32209f770f68786a788987fdc213b
