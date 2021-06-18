@@ -9,6 +9,7 @@ PYTHON_COMPAT=( python3_{8..9} )
 inherit distutils-r1
 
 SRC_URI="https://github.com/mikekap/unicodedata2/archive/refs/tags/${MYPV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${MYPV}"
 KEYWORDS="~amd64 ~x86"
 DESCRIPTION="Unicodedata backport for python 2/3 updated to the latest unicode version"
 HOMEPAGE="https://github.com/mikekap/unicodedata2"
