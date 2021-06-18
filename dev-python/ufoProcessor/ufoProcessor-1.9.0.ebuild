@@ -18,10 +18,11 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	dev-python/defcon[${PYTHON_USEDEP}]
-	dev-python/fontMath[${PYTHON_USEDEP}]
-	dev-python/fontParts[${PYTHON_USEDEP}]
-	>=dev-python/fonttools-3.32[${PYTHON_USEDEP}]
+	>=dev-python/defcon-0.6.0[${PYTHON_USEDEP}]
+	>=dev-python/fontMath-0.4.9[${PYTHON_USEDEP}]
+	>=dev-python/fontParts-0.8.2[${PYTHON_USEDEP}]
+	>=dev-python/fonttools-3.32.0[${PYTHON_USEDEP}]
+	>=dev-python/MutatorMath-2.1.2[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
 BDEPEND="dev-python/setuptools_scm[${PYTHON_USEDEP}]"
