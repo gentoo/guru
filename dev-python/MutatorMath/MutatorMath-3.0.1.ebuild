@@ -21,7 +21,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
+	test? (
+		dev-python/pytest[${PYTHON_USEDEP}]
+		dev-python/unicodedata2[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_tests setup.py
