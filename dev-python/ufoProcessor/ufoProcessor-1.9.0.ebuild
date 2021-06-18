@@ -24,7 +24,12 @@ RDEPEND="
 	>=dev-python/fonttools-3.32.0[${PYTHON_USEDEP}]
 	>=dev-python/MutatorMath-2.1.2[${PYTHON_USEDEP}]
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? (
+		>=dev-python/unicodedata2[${PYTHON_USEDEP}]
+	)
+"
 BDEPEND="dev-python/setuptools_scm[${PYTHON_USEDEP}]"
 
 pkg_setup() {
