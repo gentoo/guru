@@ -73,5 +73,7 @@ python_test() {
 	distutils_install_for_testing
 	epytest -vv \
 		--deselect tests/integration/test_hint.py::test_hashmap_old_version \
+		--deselect tests/integration/test_mmhint.py::test_vfotf[tests/integration/data/vf_tests/CJKSparseVar.subset.hinted.otf] \
+		--deselect tests/integration/test_mmhint.py::test_vfotf[tests/integration/data/vf_tests/bug816.hinted.otf] \
 		|| die
 }
