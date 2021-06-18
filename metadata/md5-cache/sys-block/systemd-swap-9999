@@ -10,5 +10,5 @@ PROPERTIES=live
 RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,-python_single_target_python3_8(-)] || ( ( dev-lang/python:3.8 dev-python/python-systemd[python_targets_python3_8(-),-python_single_target_python3_8(-)] dev-python/sysv_ipc[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) )
 REQUIRED_USE=|| ( python_targets_python3_8 )
 SLOT=0
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	linux-info	e31d3106e784a7484040b23155922837	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
+_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	linux-info	dcc3dd587b38fefad1be6ff5e2fc9cb7	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
 _md5_=7dd4074bda1792135768c8ab06a3fd2f
