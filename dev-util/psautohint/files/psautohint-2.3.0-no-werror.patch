@@ -1,0 +1,11 @@
+diff '--color=auto' -ru psautohint-2.3.0/libpsautohint/meson.build /var/tmp/portage/dev-util/psautohint-2.3.0/work/psautohint-2.3.0/libpsautohint/meson.build
+--- psautohint-2.3.0/libpsautohint/meson.build	2021-06-18 02:49:14.557282566 +0200
++++ /var/tmp/portage/dev-util/psautohint-2.3.0/work/psautohint-2.3.0/libpsautohint/meson.build	2021-06-18 02:54:34.873912737 +0200
+@@ -21,7 +21,6 @@
+   '-Wstringop-truncation',
+   '-Wunreachable-code-break',
+   '-Wunused-macros',
+-  '-Werror',
+ ]
+ 
+ add_global_arguments(cc.get_supported_arguments(cflags), language : 'c')
