@@ -42,7 +42,8 @@ src_compile() {
 
 src_install() {
 	escons prefix="${T}" install
-	doheader "${T}/dtl/include"/*
+	insinto /usr/include/dtl
+	doins "${T}/dtl/include"/*
 	if use examples; then
 		cd examples || die
 		rm SConstruct *.o *.cpp *.hpp || die
