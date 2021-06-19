@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <!-- maintainer-needed -->
+    <upstream>
+        <bugs-to>https://github.com/daltonmaag/statmake/issues</bugs-to>
+        <remote-id type="github">daltonmaag/statmake</remote-id>
+        <remote-id type="pypi">statmake</remote-id>
+    </upstream>
+</pkgmetadata>
