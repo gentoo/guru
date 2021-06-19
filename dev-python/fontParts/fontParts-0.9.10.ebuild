@@ -30,7 +30,6 @@ pkg_setup() {
 	export SETUPTOOLS_SCM_PRETEND_VERSION="${PV%_*}"
 }
 
-
 python_test() {
 	"${EPYTHON}" Lib/fontParts/fontshell/test.py -v || die "Tests failed with ${EPYTHON}"
 }
