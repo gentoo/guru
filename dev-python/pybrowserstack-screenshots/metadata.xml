@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<!-- maintainer-needed -->
+    <!-- maintainer-needed -->
+    <upstream>
+        <bugs-to>https://github.com/cmck/pybrowserstack-screenshots/issues</bugs-to>
+        <remote-id type="github">cmck/pybrowserstack-screenshots</remote-id>
+        <remote-id type="pypi">pybrowserstack-screenshot</remote-id>
+        </upstream>
 </pkgmetadata>
