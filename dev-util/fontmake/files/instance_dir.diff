@@ -1,0 +1,12 @@
+--- a/Lib/fontmake/font_project.py
++++ b/Lib/fontmake/font_project.py
+@@ -149,8 +149,7 @@ class FontProject:
+             os.mkdir(master_dir)
+         if instance_dir is None:
+             instance_dir = self._output_dir("ufo", is_instance=True)
++            instance_dir = os.path.join("..",instance_dir)
+-        if not os.path.isdir(instance_dir):
+-            os.mkdir(instance_dir)
+ 
+         try:
+             font = glyphsLib.GSFont(glyphs_path)
