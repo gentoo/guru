@@ -18,6 +18,9 @@ S="${WORKDIR}"/csv${PV}
 
 src_configure() {
 	local myconfargs=(
+		--installschemename=chezscheme
+		--installpetitename=chezscheme-petite
+		--installscriptname=chezscheme-script
 		--installprefix="${EPREFIX}"/usr
 		--nogzip-man-pages
 		--disable-curses # TODO: ncurses USE flag.
