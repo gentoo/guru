@@ -11,5 +11,5 @@ LICENSE=Apache-2.0
 RDEPEND=boehm-gc? ( dev-libs/boehm-gc ) emacs? ( app-editors/emacs:= ) java? ( dev-java/junit:= ) java? ( virtual/jre:1.8 ) java? ( >=dev-java/java-config-2.2.0-r3 )
 SLOT=0
 SRC_URI=https://github.com/pippijn/aldor/archive/13e5b90eecc79ec6704efb333c4c100187520e80.tar.gz -> aldor-1.2.0_p20190730.tar.gz doc? ( http://aldor.org/docs/libaldor.pdf.gz ) emacs? ( http://hemmecke.de/aldor/aldor.el.nw )
-_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	elisp-common	6bfea130fc0f2cbd4cbc23dc12992349	java-utils-2	2440f41421207d084e5e3f1fb001b34e	java-pkg-opt-2	77d2e22d0de7640f817d20e861c0ff3f
+_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	elisp-common	cf4fd1b0835b9f3e638724840468064a	java-utils-2	2440f41421207d084e5e3f1fb001b34e	java-pkg-opt-2	77d2e22d0de7640f817d20e861c0ff3f
 _md5_=3e7ce44c6c71c6569dcdfda470058913
