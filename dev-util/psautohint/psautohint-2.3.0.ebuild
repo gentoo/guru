@@ -6,7 +6,7 @@ EAPI=7
 COMMIT="1e4c5061d328105c4dcfcb6fdbc27ec49b3e9d23"
 DISTUTILS_IN_SOURCE_BUILD=1
 EMESON_SOURCE="${S}/libpsautohint"
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit meson distutils-r1
 
@@ -37,7 +37,6 @@ pkg_setup() {
 	local _v=$(ver_cut 4)
 	_v="$(ver_cut 1-3)${_v:0:1}$(ver_cut 5)"
 	export SETUPTOOLS_SCM_PRETEND_VERSION="${_v/p/.post}"
-	MESON_BUILD_DIR="${WORKDIR}/${P}-build"
 }
 
 src_unpack() {
@@ -48,6 +47,7 @@ src_unpack() {
 }
 
 src_configure() {
+	MESON_BUILD_DIR="${WORKDIR}/${P}-build"
 	BUILD_DIR="${MESON_BUILD_DIR}" meson_src_configure
 	distutils-r1_src_configure
 }
