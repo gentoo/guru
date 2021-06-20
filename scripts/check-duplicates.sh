@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 # Maintainer: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
-# Maintainer: Theo Anderson <telans@posteo.de>
+# Maintainer: James Beddek <telans@posteo.de>
 #
 # This checks for potential and exact package matches within an overlay & ::gentoo
 # Note that this is not going to be 100% accurate

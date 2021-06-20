@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>kurt@kmk-computers.de</email>
+    <name>Kurt Kanzenbach</name>
+  </maintainer>
+  <longdescription lang="en">
+    SMCRoute is a UNIX/Linux tool to manage and monitor multicast routes. It
+    supports both IPv4 and IPv6 multicast routing.
+
+    SMCRoute can be used as an alternative to dynamic multicast routers like
+    mrouted or pimd in setups where static multicast routes should be maintained
+    and/or no proper IGMP or MLD signaling exists.
+
+    Multicast routes exist in the UNIX kernel as long as a multicast routing
+    daemon runs. On Linux, multiple multicast routers can run simultaneously
+    using different multicast routing tables.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">troglobit/smcroute</remote-id>
+  </upstream>
+</pkgmetadata>

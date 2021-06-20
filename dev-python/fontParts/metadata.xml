@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <!-- maintainer-needed -->
+    <upstream>
+        <bugs-to>https://github.com/robotools/fontParts/issues</bugs-to>
+        <remote-id type="github">robotools/fontParts</remote-id>
+        <remote-id type="pypi">fontParts</remote-id>
+    </upstream>
+</pkgmetadata>

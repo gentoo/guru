@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <!-- maintainer-needed -->
+    <upstream>
+        <bugs-to>https://github.com/adobe-type-tools/afdko/issues</bugs-to>
+        <remote-id type="github">adobe-type-tools/afdko</remote-id>
+        <remote-id type="pypi">afdko</remote-id>
+    </upstream>
+</pkgmetadata>

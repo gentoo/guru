@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <!-- maintainer-needed -->
+    <upstream>
+        <bugs-to>https://github.com/googlefonts/ots-python/issues</bugs-to>
+        <remote-id type="github">googlefonts/ots-python</remote-id>
+        <remote-id type="pypi">ots-python</remote-id>
+    </upstream>
+</pkgmetadata>

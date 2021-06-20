@@ -13,7 +13,8 @@ LICENSE="GPL-2 public-domain"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND=">=app-text/dictd-1.5.5"
+RDEPEND=">=app-text/dictd-1.13.0-r3"
+BDEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-fix-makefile.patch"

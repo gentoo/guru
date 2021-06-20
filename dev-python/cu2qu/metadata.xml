@@ -2,6 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 
 <pkgmetadata>
+  <!-- maintainer-needed -->
   <upstream>
     <remote-id type="github">googlefonts/cu2qu</remote-id>
     <remote-id type="pypi">cu2qu</remote-id>

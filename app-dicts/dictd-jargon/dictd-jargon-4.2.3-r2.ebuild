@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="The Jargon File for dict"
 HOMEPAGE="http://www.catb.org/~esr/jargon/index.html"
@@ -11,7 +11,7 @@ LICENSE="public-domain"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND=">=app-text/dictd-1.5.5"
+RDEPEND=">=app-text/dictd-1.13.0-r3"
 BDEPEND="${RDEPEND}"
 
 src_unpack() {

@@ -26,7 +26,7 @@ RESTRICT="test"
 DEPEND="
 	acct-group/monero
 	acct-user/monero
-	<dev-libs/boost-1.76.0:=[nls,threads]
+	dev-libs/boost:=[nls,threads]
 	dev-libs/libsodium:=
 	dev-libs/openssl:=
 	dev-libs/randomx
@@ -40,7 +40,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}/${PN}-0.17.1.7-unbundle-dependencies.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-0.17.1.7-unbundle-dependencies.patch"
+	"${FILESDIR}/${PN}-0.17.2.0-boost-176.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(

@@ -1,0 +1,22 @@
+--- a/c/public/lib/config/linux/gcc/gcc.mak
++++ b/c/public/lib/config/linux/gcc/gcc.mak
+@@ -27,7 +27,7 @@
+ 
+ $(LIB_TARGET): $(LIB_OBJS)
+ 	mkdir -p $(LIB_DIR)
+-	$(AR) -rvs $@ $?
++	$(AR) rvs $@ $?
+ 
+ clean:
+ 	if [ "$(LIB_OBJS)" ]; then \
+--- a/c/public/lib/config/linux/gcc/gcc_tx.mak
++++ b/c/public/lib/config/linux/gcc/gcc_tx.mak
+@@ -30,7 +30,7 @@
+ 
+ $(LIB_TARGET): $(LIB_OBJS)
+ 	mkdir -p $(LIB_DIR)
+-	$(AR) -rvs $@ $?
++	$(AR) rvs $@ $?
+ 
+ clean:
+ 	if [ "$(LIB_OBJS)" ]; then \

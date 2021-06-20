@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 # Maintainer: Andrew Ammerlaan <andrewammerlaan@gentoo.org>
-# Maintainer: Theo Anderson <telans@posteo.de>
+# Maintainer: James Beddek <telans@posteo.de>
 #
 # This sets up repoman and runs the latest version
 #

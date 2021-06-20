@@ -3,7 +3,7 @@
 <pkgmetadata>
 	<maintainer type="person">
 		<email>telans@posteo.de</email>
-		<name>Theo Anderson</name>
+		<name>James Beddek</name>
 	</maintainer>
 	<upstream>
 		<remote-id type="github">Nefelim4ag/systemd-swap</remote-id>
