@@ -51,7 +51,7 @@ COMMON_DEPEND="
 	iconv? ( >=virtual/libiconv-0-r1 )
 "
 # harfbuzz? (
-# 		media-libs/harfbuzz 
+# 		media-libs/harfbuzz
 #   	media-libs/sdl!VER!-ttf[harfbuzz]
 #	)
 
