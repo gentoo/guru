@@ -60,6 +60,9 @@ DEPEND="${COMMON_DEPEND}"
 
 DOCS=( AUTHORS ChangeLog README.md )
 
+# https://bugs.gentoo.org/796962
+PATCHES=( "$FILESDIR/$P-resolve-conflict-with-SDL-function-91.patch" )
+
 src_prepare() {
 	l10n_find_plocales_changes "${S}/lang" "" ".ini"
 

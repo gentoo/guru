@@ -1,0 +1,34 @@
+From d263759d94c45bea6acbf6fb079350bba6c6e3c6 Mon Sep 17 00:00:00 2001
+From: Peter Kosyh <p.kosyh@gmail.com>
+Date: Sun, 20 Jun 2021 23:13:29 +0300
+Subject: [PATCH] resolve conflict with SDL function: #91
+
+---
+ src/SDL_gif.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/SDL_gif.c b/src/SDL_gif.c
+index 543280cc..0a74cf1e 100644
+--- a/src/SDL_gif.c
++++ b/src/SDL_gif.c
+@@ -741,7 +741,7 @@ ReadImage(SDL_RWops * src, int len, int height, int cmapSize,
+ }
+ 
+ /* Load a GIF type animation from an SDL datasource */
+-static Animation_t *IMG_LoadGIFAnimation_RW(SDL_RWops *src)
++static Animation_t *LoadGIFAnimation_RW(SDL_RWops *src)
+ {
+     GIF_Anim_t *internal = IMG_LoadGIF_RW_Internal(src, SDL_TRUE);
+     if (internal) {
+@@ -782,7 +782,7 @@ Animation_t *GIF_LoadAnim(const char* file)
+ 	SDL_RWops* src = RWFromIdf(instead_idf(), file);
+ 	if (!src)
+ 		return NULL;
+-	anim = IMG_LoadGIFAnimation_RW(src);
++	anim = LoadGIFAnimation_RW(src);
+ 	SDL_RWclose(src);
+ 	if (!anim)
+ 		return NULL;
+-- 
+2.31.1
+
