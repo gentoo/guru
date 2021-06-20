@@ -1,0 +1,10 @@
+--- a/setup.py
++++ b/setup.py
+@@ -120,7 +120,6 @@
+     platforms=["posix", "nt"],
+     package_dir={"": "src/python"},
+     packages=find_packages("src/python"),
+-    ext_modules=[libttfautohint],
+     zip_safe=False,
+     cmdclass=cmdclass,
+     setup_requires=['setuptools_scm'],
