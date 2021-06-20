@@ -1,0 +1,17 @@
+BDEPEND=test? ( dev-python/fonttools[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] dev-python/cattrs[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] >=dev-python/pytest-4.5.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] dev-python/pyproject2setuppy[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-python/fonttools[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] dev-python/cattrs[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] test? ( dev-python/ufo2ft[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] )
+DESCRIPTION=Generate STAT tables for variable fonts from .stylespace files
+EAPI=7
+HOMEPAGE=https://github.com/daltonmaag/statmake
+INHERIT=distutils-r1
+IUSE=test test python_targets_python3_8 python_targets_python3_9
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-python/fonttools[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] dev-python/cattrs[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,-python_single_target_python3_8(-),-python_single_target_python3_9(-)]
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/daltonmaag/statmake/archive/refs/tags/v0.3.0.tar.gz -> statmake-0.3.0.tar.gz
+_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-r1	26e4ad0a4190b14f70973dc253e86535	distutils-r1	c21cf58c1e3c67e0ea53c96a7b37eddd
+_md5_=d0633a060af0597616dacd400fc8bb66

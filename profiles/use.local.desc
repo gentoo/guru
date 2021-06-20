@@ -123,6 +123,7 @@ dev-util/gammaray:qml - Build with Qt5 Quick support
 dev-util/gammaray:script - Enable scripting support from the Qt5 framework
 dev-util/gammaray:scxml - Build support for Qt5 State Chart XML (SCXML)
 dev-util/gammaray:webengine - Enable support for dev-qt/qtwebengine
+dev-util/ots:sanitize - Sanitize Graphite tables
 games-arcade/taisei:lto - Enable link time optimization
 games-arcade/taisei:zip - Enable loading of game data from ZIP packages via dev-libs/libzip
 games-emulation/duckstation:discord - Enable Discord Rich Presence to show the current game on Discord

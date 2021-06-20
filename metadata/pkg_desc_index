@@ -34,7 +34,7 @@ app-admin/gnome-passwordsafe 4.0-r1 4.1: A password manager for GNOME
 app-admin/krapplet 0.1.0-r1 0.2.0 0.3.1: Krapplet (keyring applet): a Linux graphical password manager
 app-admin/s-tui 1.0.2 1.1.1: Stress-Terminal UI monitoring tool
 app-arch/libarchive-qt 2.0.3 2.0.4 9999: A Qt based archiving solution with libarchive backend
-app-arch/tarlz 0.19-r3: A parallel archiver combining tar and lzip
+app-arch/tarlz 0.21: A parallel archiver combining tar and lzip
 app-arch/unalz 0.65-r1: Extract ALZ archives
 app-backup/b2 2.5.0: Command-line tool for BackBlaze's B2 product
 app-backup/timeshift 20.11.1: A system restore utility for Linux
@@ -55,7 +55,6 @@ app-dicts/dictd-web1913 0.5.0_p1: Webster's Revised Unabridged Dictionary (1913)
 app-editors/atom-bin 1.57.0: A hackable text editor for the 21st Century
 app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
-app-editors/micro 2.0.9: Modern and intuitive terminal-based text editor
 app-editors/typora-bin 0.10.7: a markdown editor,markdown reader.
 app-emacs/flycheck 31: On the fly syntax checking for GNU Emacs
 app-emulation/arnold 20170513: Amstrad CPC emulator
@@ -67,13 +66,13 @@ app-misc/afetch 2.1.0: Simple system info written in C
 app-misc/apidb 5.8.0_beta: API Generator for Database access
 app-misc/brightness-control 2.0_p20210331: Qt Brightness Controller in Python
 app-misc/brightnessctl 0.5.1: A program to read and control device brightness
-app-misc/broot 1.5.1: A new way to see and navigate directory trees
+app-misc/broot 1.6.0: A new way to see and navigate directory trees
 app-misc/cheat 4.2.2: cheat allows you to create and view interactive cheatsheets on the command-line
 app-misc/cpufetch 0.94_p20210409 0.98: Simplistic yet fancy CPU architecture fetching tool
 app-misc/diff-so-fancy 1.4.2: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
 app-misc/doublecmd-bin 0.9.10: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1: Simple drag-and-drop source/sink for X and Wayland
-app-misc/far2l 2.3.20210419_alpha 2.3.20210426_alpha 9999: Linux port of FAR Manager v2
+app-misc/far2l 2.3.20210426_alpha 9999: Linux port of FAR Manager v2
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -130,7 +129,7 @@ app-text/stdman 2019.08.27 2020.11.17 9999: Formatted C++ stdlib man pages (cppr
 app-vim/vim-nix 9999: vim plugin: Vim configuration files for Nix
 dev-R/BH 1.75.0.0: Boost C++ Header Files
 dev-R/MASS 7.3.54: Support Functions and Datasets for variables and Ripley's MASS
-dev-R/Matrix 1.3.3: Sparse and Dense Matrix Classes and Methods
+dev-R/Matrix 1.3.4: Sparse and Dense Matrix Classes and Methods
 dev-R/R6 2.5.0: Encapsulated Classes with Reference Semantics
 dev-R/RColorBrewer 1.1.2: ColorBrewer Palettes
 dev-R/RInside 0.2.16: C++ Classes to Embed R in C++ (and C) Applications
@@ -158,7 +157,7 @@ dev-R/evaluate 0.14: Parsing and Evaluation Tools that provide more details than
 dev-R/fansi 0.5.0: ANSI Control Sequence Aware String Functions
 dev-R/farver 2.1.0: High Performance Colour Space Manipulation
 dev-R/generics 0.1.0: Common S3 Generics not Provided by Base R Methods Related to Model Fitting
-dev-R/ggplot2 3.3.3: Create Elegant Data Visualisations using the grammar of graphics
+dev-R/ggplot2 3.3.4: Create Elegant Data Visualisations using the grammar of graphics
 dev-R/gh 1.3.0: GitHub API
 dev-R/gitcreds 0.1.1: Query git Credentials from R
 dev-R/glue 1.4.2: Interpreted String Literals
@@ -176,7 +175,7 @@ dev-R/lazyeval 0.2.2: Lazy (Non-Standard) Evaluation
 dev-R/lifecycle 1.0.0: Manage the Life Cycle of your Package Functions
 dev-R/magrittr 2.0.1: A Forward-Pipe Operator for R
 dev-R/markdown 1.1: Render Markdown with the C Library Sundown
-dev-R/mgcv 1.8.35: Mixed GAM Computation Vehicle with automatic smoothness estimation
+dev-R/mgcv 1.8.36: Mixed GAM Computation Vehicle with automatic smoothness estimation
 dev-R/mime 0.10: Map Filenames to MIME Types
 dev-R/munsell 0.5.0: Utilities for Using Munsell Colours
 dev-R/nlme 3.1.152: Linear and Nonlinear Mixed Effects Models
@@ -203,7 +202,7 @@ dev-R/stringi 1.6.2: Character String Processing Facilities
 dev-R/stringr 1.4.0: Simple, Consistent Wrappers for common string operations
 dev-R/survival 3.2.11: Survival Analysis
 dev-R/sys 3.4: Powerful and Reliable Tools for Running System Commands in R
-dev-R/testthat 3.0.2: Unit Testing for R
+dev-R/testthat 3.0.3: Unit Testing for R
 dev-R/tibble 3.1.2: Simple Data Frames
 dev-R/tidyselect 1.1.1: Select from a Set of Strings
 dev-R/utf8 1.2.1: Unicode Text Processing
@@ -212,13 +211,14 @@ dev-R/viridisLite 0.4.0: Colorblind-Friendly Color Maps (Lite Version)
 dev-R/waldo 0.2.5: Find Differences Between R Objects
 dev-R/whoami 1.3.0: Username, Full Name, Email Address, GitHub username of the current user
 dev-R/withr 2.4.2: Run Code With Temporarily Modified Global State
-dev-R/xfun 0.23: Supporting Functions for Package maintained by Yihui Xie
+dev-R/xfun 0.24: Supporting Functions for Package maintained by Yihui Xie
 dev-R/xml2 1.3.2: Parse XML
 dev-R/yaml 2.2.1: Methods to Convert R Data to YAML and Back
 dev-cpp/cli11 1.9.1: Command line parser for C++11
-dev-cpp/fbthrift 2021.04.19.00 2021.05.24.00 2021.06.14.00: Facebook's branch of Apache Thrift, including a new C++ server
-dev-cpp/fizz 2021.04.19.00 2021.05.24.00 2021.06.14.00: C++14 implementation of the TLS-1.3 standard
-dev-cpp/folly 2021.01.04.00 2021.04.19.00-r1 2021.05.24.00 2021.06.14.00: An open-source C++ library developed and used at Facebook
+dev-cpp/dtl 1.19_p20210531: diff template library written by C++
+dev-cpp/fbthrift 2021.05.24.00 2021.06.14.00: Facebook's branch of Apache Thrift, including a new C++ server
+dev-cpp/fizz 2021.05.24.00 2021.06.14.00: C++14 implementation of the TLS-1.3 standard
+dev-cpp/folly 2021.05.24.00 2021.06.14.00: An open-source C++ library developed and used at Facebook
 dev-cpp/gsl-lite 0.38.0: C++ Guideline Support Library implementation
 dev-cpp/indicators 2.2: Activity indicators for modern C++
 dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
@@ -230,7 +230,7 @@ dev-cpp/termcolor 2.0.0: Header-only library for printing colored messages to th
 dev-cpp/tiny-dnn 1.0.0_alpha3: header only, dependency-free deep learning framework in C++14
 dev-cpp/vectorwrapper 1.1.2 9999: A template vector wrapper class for C++
 dev-cpp/vexcl 1.4.2-r1: VexCL - Vector expression template library for OpenCL
-dev-cpp/wangle 2021.04.19.00 2021.05.24.00 2021.06.14.00: Framework providing common client/server abstractions
+dev-cpp/wangle 2021.05.24.00 2021.06.14.00: Framework providing common client/server abstractions
 dev-db/pg_repack 1.4.6: Reorganize tables in PostgreSQL databases with minimal locks
 dev-db/rum 1.3.7: RUM access method - inverted index with additional information in posting lists
 dev-dotnet/dotnet-aspnet-bin 5.0.5: .NET ASP.NET Runtime Store
@@ -255,7 +255,7 @@ dev-lang/ammonite-repl-bin 2.3.8: Scala language-based scripting and REPL
 dev-lang/fbc 1.07.3: A free/open source, multi-platform BASIC compiler.
 dev-lang/fbc-bootstrap 1.07.3: Bootstrap package for dev-lang/fbc
 dev-lang/fennel 0.9.1 0.9.2 9999: Fennel is a lisp that compiles to Lua
-dev-lang/gleam 0.14.4 0.15.1: A statically typed functional language for the BEAM
+dev-lang/gleam 0.16.0: A statically typed functional language for the BEAM
 dev-lang/quickjs 2020.11.08 2021.03.27: Small embeddable Javascript engine
 dev-lang/wren 0.3.0: The Wren Programming Language
 dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
@@ -296,6 +296,7 @@ dev-perl/GitLab-API-v4 0.26: A complete GitLab API v4 client
 dev-perl/HTTP-Tiny-Multipart 0.08: Add post_multipart to HTTP::Tiny
 dev-perl/List-Compare 0.55: Compare elements of two or more lists
 dev-php/pecl-inotify 3.0.0: Inotify binding for PHP
+dev-python/MutatorMath 3.0.1: A library for piecewise linear interpolation in multiple dimensions
 dev-python/aionotify 0.2.0: Simple, asyncio-based inotify library for Python
 dev-python/aiopg 1.1.0 1.2.1: aiopg is a library for accessing a PostgreSQL database from the asyncio
 dev-python/aiosmtplib 1.1.6: Asynchronous SMTP client for use with asyncio
@@ -310,12 +311,16 @@ dev-python/asyncssh 2.6.0: Asynchronous SSHv2 client and server library
 dev-python/autoflake 1.4: Removes unused imports and unused variables as reported by pyflakes
 dev-python/azure-storage-blob 12.8.1: Microsoft Azure Blob Storage Client Library for Python
 dev-python/b2sdk 1.8.0: The client library for BackBlaze's B2 product
+dev-python/babelfont 2.0.1: Interrogate and manipulate UFO, TTF and OTF fonts with a common interface
 dev-python/baron 0.9: Full Syntax Tree for python to make writing refactoring code a realist task
 dev-python/base58 2.1.0: Base58 and Base58Check implementation
 dev-python/billiard 3.6.3.0 3.6.4.0: Python multiprocessing fork
 dev-python/bitbox02 5.3.0: Python API for communicating with the BitBox02 device
+dev-python/browserstack-local-python 1.2.2: Python bindings for BrowserStack Local
+dev-python/cattrs 1.2.0: Complex custom class converters for attrs
 dev-python/cchardet 2.1.7: cChardet is high speed universal character encoding detector
-dev-python/celery 5.1.0: Asynchronous task queue/job queue based on distributed message passing
+dev-python/celery 5.1.0 5.1.1: Asynchronous task queue/job queue based on distributed message passing
+dev-python/cffsubr 0.2.8: Standalone CFF subroutinizer based on AFDKO tx tool
 dev-python/check-manifest 0.46: Tool to check the completeness of MANIFEST.in for Python packages
 dev-python/click-didyoumean 0.0.3: Enable git-like did-you-mean feature in click
 dev-python/click-repl 0.2.0: Subcommand REPL for click apps
@@ -330,12 +335,16 @@ dev-python/dacite 1.6.0: This module simplifies creation of data classes (PEP 55
 dev-python/daff 1.3.46: The daff can produce and apply tabular diffs
 dev-python/databases 0.4.3: Async database support for Python.
 dev-python/dateparser 1.0.0: Date parsing library designed to parse dates from HTML pages
+dev-python/debugpy 1.3.0: An implementation of the Debug Adapter Protocol for Python
 dev-python/devtools 0.6.1: Dev tools for python
 dev-python/doxypypy 0.8.8.6_p20210405: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/ewmh 0.1.6: An implementation of Extended Window Manager Hints, based on Xlib
 dev-python/factory_boy 3.2.0: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11-r1: Up to date simple useragent faker with real world database
 dev-python/fchroot 0.1.2: Franken-chroot tool. Chroot arm/64 arches into amd64/x86
+dev-python/fontMath 0.6.0: A collection of objects that implement fast font math
+dev-python/fontParts 0.9.10: An API for interacting with the parts of fonts
+dev-python/fontPens 0.2.4: A collection of classes implementing the pen protocol for manipulating glyphs
 dev-python/geopy 2.1.0: A Geocoding Toolbox for Python
 dev-python/github-sublee-glicko2 0_pre20191010-r1: An implementation of the Glicko-2 rating system for Python
 dev-python/glicko2 2.0.0: glicko2 implementation in python
@@ -350,7 +359,7 @@ dev-python/hidapi 0.9.0_p3 0.10.1: A Cython interface to the hidapi
 dev-python/hijri-converter 2.1.1: Accurate Hijri-Gregorian date converter based on the Umm al-Qura calendar
 dev-python/hstspreload 2021.3.22: Chromium HSTS Preload list as a Python package
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
-dev-python/hunter 3.3.4: Hunter is a flexible code tracing toolkit
+dev-python/hunter 3.3.4 3.3.5: Hunter is a flexible code tracing toolkit
 dev-python/hwi 1.2.1 2.0.2: Library and command line tool for interacting with hardware wallets
 dev-python/hypercorn 0.11.2: ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
@@ -366,6 +375,7 @@ dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your outpu
 dev-python/mnemonic 0.19: Reference implementation of BIP-0039 for generating deterministic keys
 dev-python/noiseprotocol 0.3.1: Python implementation of Noise Protocol Framework
 dev-python/oscrypto 1.2.1: TLS sockets, key generation, encryption, decryption, signing, verification
+dev-python/ots-python 8.1.4: A Python wrapper for OpenType Sanitizer
 dev-python/outcome 1.1.0: Capture the outcome of Python function calls
 dev-python/pdfminer-six 20201018: Community maintained fork of pdfminer
 dev-python/pdoc3 0.9.2: Auto-generate API documentation for Python projects
@@ -377,6 +387,7 @@ dev-python/promise 2.3.0: Promises/A+ implementation for Python
 dev-python/pure-protobuf 2.0.0-r1 2.0.1: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/py3nvml 0.2.6: Python 3 Bindings for the NVIDIA Management Library
 dev-python/pybeam 0.7: Python module to parse Erlang BEAM files
+dev-python/pybrowserstack-screenshots 0.1: A python api wrapper and client for Browserstack Screenshots API
 dev-python/pyfiglet 0.8_p1 9999: Pure-python FIGlet implementation
 dev-python/pygaljs 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
 dev-python/pygsl 2.3.0: Python interface for the GNU scientific library (gsl)
@@ -410,29 +421,32 @@ dev-python/rst2ansi 0.1.5: Render reStructuredText documents to the terminal
 dev-python/rstcheck 3.3.1: Checks syntax of reStructuredText and code blocks nested within it
 dev-python/sanic 21.3.4: Async Python 3.6+ web server/framework | Build fast. Run fast.
 dev-python/sanic-routing 0.6.2: Internal handler routing for Sanic
-dev-python/sanic-testing 0.4.0: Test clients for Sanic
+dev-python/sanic-testing 0.4.0 0.6.0: Test clients for Sanic
 dev-python/scenedetect 0.5.5: Video Scene Cut Detection and Analysis Tool
 dev-python/schedule 1.1.0: Python job scheduling for humans
 dev-python/skia-pathops 0.4.1 0.6.0_p2: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/sphinx-argparse 0.2.5: Sphinx extension that automatically documents argparse commands and options
 dev-python/sphinx-click 3.0.0 3.0.1: Sphinx plugin to automatically document click-based applications
-dev-python/sphinx-tabs 2.1.0: Create tabbed content in Sphinx documentation when building HTML
 dev-python/sphinxcontrib-katex 0.7.1: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-napoleon 0.7: Allow a different format in dosctrings for better clarity
 dev-python/sphinxcontrib-trio 1.1.2: Make Sphinx better at documenting Python functions and methods
 dev-python/spotipy 2.17.1: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.6.1 0.7.2: Server Sent Events for Starlette
 dev-python/starlette 0.14.2: The little ASGI framework that shines
+dev-python/statmake 0.3.0: Generate STAT tables for variable fonts from .stylespace files
+dev-python/strictyaml 1.3.2: A type-safe YAML parser built atop ruamel.yaml
 dev-python/sysv_ipc 1.0.1 1.1.0: System V IPC primitives for python
 dev-python/trio 0.18.0 0.18.0_p20210212: Python library for async concurrency and I/O
 dev-python/trio-asyncio 0.12.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill Algorithm
 dev-python/tweepy 3.10.0: An easy-to-use Python library for accessing the Twitter API.
-dev-python/ufo2ft 2.19.1: A bridge from UFOs to FontTool objects
-dev-python/ufoLib2 0.8.0 0.10.0: A UFO font library
+dev-python/ufo2ft 2.21.0: A bridge from UFOs to FontTool objects
+dev-python/ufoLib2 0.11.1: A UFO font library
 dev-python/ufoNormalizer 0.5.4: A tool that will normalize the XML and other data inside of a UFO.
+dev-python/ufoProcessor 1.9.0: A Python package for processing and generating UFO files
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
+dev-python/unicodedata2 13.0.0.2: Unicodedata backport for python 2/3 updated to the latest unicode version
 dev-python/vttlib 0.11.0: Dump, merge and compile Visual TrueType data in UFO3 with FontTools
 dev-python/watchgod 0.7: Simple, modern file watching and code reload
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
@@ -442,6 +456,7 @@ dev-ruby/byebug 11.1.3: a Ruby 2 debugger
 dev-ruby/certified 1.0.0: Ensure using OpenSSL::SSL::VERIFY_PEER and provide certificate bundle if needed
 dev-ruby/pry-byebug 3.9.0: Step-by-step debugging and stack navigation in Pry
 dev-ruby/rspec-wait 0.0.9: enables time-resilient expectations in your RSpec test suite
+dev-scheme/chez 9.5.4: A programming language based on R6RS
 dev-scheme/chibi 0.10 9999: Minimal Scheme implementation for use as an extension language
 dev-scheme/cyclone 0.28.0 9999: R7RS Scheme to C compiler
 dev-scheme/gerbil 0.16 9999: Dialect of Scheme designed for Systems Programming
@@ -449,14 +464,18 @@ dev-scheme/guile-colorized 0.1_p20191205 9999: Colorized REPL for GNU Guile
 dev-scheme/guile-gi 0.3.1 9999: Bindings for GObject Introspection and libgirepository for Guile
 dev-scheme/owl-lisp 0.2 9999: Purely functional dialect of Scheme
 dev-util/FoBiS 3.0.5: FoBiS.py, a Fortran Building System for poor men
+dev-util/afdko 3.6.2: Adobe Font Development Kit for OpenType
 dev-util/beautysh 6.0.1 6.1.0: Bash beautifier for the masses
 dev-util/cdecl 9.10: Composing and deciphering C (or C++) declarations or casts, aka "gibberish."
 dev-util/codespell 2.0.0 2.1.0: Check text files for common misspellings
 dev-util/devscripts 2.21.2: Scripts to make the life of a Debian Package maintainer easier
+dev-util/fontmake 2.4.0: A wrapper for several Python libraries to compile fonts from sources
 dev-util/gammaray 2.11.2: High-level runtime introspection tool for Qt applications
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/osc 0.173.0 9999: Command line tool for Open Build Service
+dev-util/ots 8.1.4: An util for validating and sanitising OpenType files
+dev-util/psautohint 2.3.0: A standalone version of AFDKO autohinter
 dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's OpenGL Shader Builder
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/rpmlint 2.0.0: Tool for checking common errors in RPM packages
@@ -569,6 +588,7 @@ media-gfx/akira 0.0.13 9999: Native Linux App for UI and UX Design built in Vala
 media-gfx/azpainter 3.0.1: Full color painting software for Linux for illustration drawing
 media-gfx/bonzomatic 2021.03.07 9999: Live shader coding tool and Shader Showdown workhorse
 media-gfx/dustr 9999: light and interactive tool your crops need
+media-gfx/fontdiff 0.2.3: A tool for finding visual differences between two font versions
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
 media-gfx/gephi-bin 0.9.2: The Open Graph Viz Platform
 media-gfx/glimpse 0.2.0: Image editor based on the GNU Image Manipulation Program
@@ -658,6 +678,7 @@ net-misc/openbgpd 6.8_p0 6.9_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.6.7 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
 net-misc/rtv 1.27.0: Browse Reddit from your terminal
+net-misc/smcroute 2.4.4: A static multicast routing daemon
 net-misc/tinyssh 20210601 99999999: A small SSH server with state-of-the-art cryptography
 net-misc/tootle 1.0_alpha2 1.0 9999: Mastodon client written in GTK3
 net-misc/tuir 1.29.0: A text-based interface (TUI) to view and interact with Reddit from your terminal

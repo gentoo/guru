@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig dev-util/ninja dev-util/cmake virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test
-DEPEND=acct-group/monero acct-user/monero <dev-libs/boost-1.76.0:=[nls,threads] dev-libs/libsodium:= dev-libs/openssl:= dev-libs/randomx dev-libs/rapidjson dev-libs/supercop net-dns/unbound:=[threads] net-libs/czmq:= net-libs/miniupnpc readline? ( sys-libs/readline:0= )
+DEPEND=acct-group/monero acct-user/monero dev-libs/boost:=[nls,threads] dev-libs/libsodium:= dev-libs/openssl:= dev-libs/randomx dev-libs/rapidjson dev-libs/supercop net-dns/unbound:=[threads] net-libs/czmq:= net-libs/miniupnpc readline? ( sys-libs/readline:0= )
 DESCRIPTION=The secure, private, untraceable cryptocurrency
 EAPI=7
 HOMEPAGE=https://github.com/monero-project/monero
@@ -8,10 +8,10 @@ INHERIT=cmake systemd
 IUSE=+daemon readline +tools +wallet-cli +wallet-rpc
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=BSD MIT
-RDEPEND=acct-group/monero acct-user/monero <dev-libs/boost-1.76.0:=[nls,threads] dev-libs/libsodium:= dev-libs/openssl:= dev-libs/randomx dev-libs/rapidjson dev-libs/supercop net-dns/unbound:=[threads] net-libs/czmq:= net-libs/miniupnpc readline? ( sys-libs/readline:0= )
+RDEPEND=acct-group/monero acct-user/monero dev-libs/boost:=[nls,threads] dev-libs/libsodium:= dev-libs/openssl:= dev-libs/randomx dev-libs/rapidjson dev-libs/supercop net-dns/unbound:=[threads] net-libs/czmq:= net-libs/miniupnpc readline? ( sys-libs/readline:0= )
 REQUIRED_USE=|| ( daemon tools wallet-cli wallet-rpc )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/monero-project/monero/archive/v0.17.2.0.tar.gz -> monero-0.17.2.0.tar.gz
 _eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6
-_md5_=f74fae37e9cfa9aa794fc38a501a1332
+_md5_=444f57e383cbab9024aa06e23e680838

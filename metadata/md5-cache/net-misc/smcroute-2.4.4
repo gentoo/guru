@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure setup
+DEPEND=caps? ( sys-libs/libcap ) systemd? ( sys-apps/systemd:0= )
+DESCRIPTION=A static multicast routing daemon
+EAPI=7
+HOMEPAGE=https://troglobit.com/projects/smcroute/
+INHERIT=autotools linux-info
+IUSE=caps systemd kernel_linux
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=caps? ( sys-libs/libcap ) systemd? ( sys-apps/systemd:0= )
+SLOT=0
+SRC_URI=https://github.com/troglobit/smcroute/releases/download/2.4.4/smcroute-2.4.4.tar.xz
+_eclasses_=gnuconfig	9f91b4b0c84e734a87492d4293f03de5	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	libtool	f143db5a74ccd9ca28c1234deffede96	autotools	9e63f92c2a5d867fea55ecb160c7d354	linux-info	7e8ed4c6a1d136fb291c52386f996c2c
+_md5_=a4727d37aa1d98b17d2481a169f4419f
