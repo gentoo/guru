@@ -2,11 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
+
+DISTUTILS_USE_SETUPTOOLS=pyproject.toml
 MYPN="vttLib"
 MYPV="${PV/_p/.post}"
 MYP="${MYPN}-${MYPV}"
-PYTHON_COMPAT=( python3_{7,8} )
-DISTUTILS_USE_SETUPTOOLS=pyproject.toml
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
