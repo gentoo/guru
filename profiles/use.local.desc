@@ -147,6 +147,8 @@ games-emulation/yuzu:cubeb - Enables the cubeb audio backend
 games-emulation/yuzu:discord - Enables Discord Rich Presence
 games-emulation/yuzu:webengine - Use QtWebEngine for web applet implementation
 games-emulation/yuzu:webservice - Enable web services (telemetry, etc.)
+games-engines/instead:doc - Include some additional documentation on how to create games for the instead engine
+games-engines/instead:sdl2 - Use libsdl2 instead of libsdl
 games-fps/crispy-doom:midi - Basic support for MIDI files
 games-fps/crispy-doom:truecolor - Enable true-color rendering (experimental)
 games-fps/quakespasm:sdl2 - Use media-libs/libsdl2 instead of media-libs/libsdl

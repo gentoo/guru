@@ -57,6 +57,8 @@ app-editors/featherpad 0.17.2 0.18.0: Lightweight Qt5 Plain-Text Editor for Linu
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/typora-bin 0.10.7: a markdown editor,markdown reader.
 app-emacs/flycheck 31: On the fly syntax checking for GNU Emacs
+app-emacs/idris-mode 1.0 9999: Idris syntax highlighting, compiler-supported editing, and interactive REPL
+app-emacs/prop-menu 0.1.2: Compute pop-up menus from text and overlay properties
 app-emulation/arnold 20170513: Amstrad CPC emulator
 app-emulation/dxvk-bin 1.8.1 1.9: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.4.2 1.5.0: NVIDIA container runtime toolkit
@@ -504,6 +506,7 @@ games-emulation/np2kai 22 22_p20210211: NP2kai is an emulator for the japanese P
 games-emulation/yuzu 9999: An emulator for Nintendo Switch
 games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
 games-engines/fs2_open 21.2.0: FreeSpace2 Source Code Project game engine
+games-engines/instead 3.3.4 9999: INSTEAD text-based quest game engine
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
 games-fps/crispy-doom 5.10.0 5.10.1: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
@@ -598,7 +601,7 @@ media-gfx/oda-file-converter 22.5.0.0-r1: For converting between different versi
 media-gfx/oxipng 3.0.1 4.0.3: A lossless PNG compression optimizer
 media-gfx/qview 4.0: Practical and minimal image viewer
 media-gfx/sic 0.19.0: Accessible image processing and conversion from the terminal tool.
-media-gfx/silicon 0.4.0 0.4.1: Create beautiful image of your code
+media-gfx/silicon 0.4.0 0.4.1 0.4.3: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-libs/alvr 15.2.1_p20210604: Wireless driver for Oculus Quest
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.1.2: AMD Open Source Driver for Vulkan
@@ -791,7 +794,7 @@ www-client/browsh 1.6.4_p1: A fully-modern text-based browser, rendering to TTY 
 www-client/torbrowser-launcher 0.3.3 9999: A program to download, updated, and run the Tor Browser Bundle
 www-client/woob 3.0-r1 9999: Web Outside Of Browsers (core, site modules and applications)
 www-misc/gitea2rss 0.7.0: Generates RSS feeds from Gitea releases, tags and commits
-www-servers/hinsightd 0.9.3 0.9.4 9999: hinsightd a http/1.1 webserver with (hopefully) minimal goals
+www-servers/hinsightd 0.9.3 0.9.4 0.9.5 9999: hinsightd a http/1.1 webserver with (hopefully) minimal goals
 www-servers/thin 1.8.0: This a Ruby gem that delivers a thin and fast web server
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-drivers/OpenTabletDriver-bin 0.5.3.1 0.5.3.2: Cross platform tablet driver (binary package)

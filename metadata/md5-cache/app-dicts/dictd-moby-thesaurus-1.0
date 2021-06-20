@@ -7,4 +7,4 @@ KEYWORDS=~amd64
 LICENSE=GPL-2
 SLOT=0
 SRC_URI=mirror://debian/pool/main/d/dict-moby-thesaurus/dict-moby-thesaurus_1.0-6.4_all.deb
-_md5_=b85e904dc02aa8431d48889c7146c0d9
+_md5_=bdcd5c212f01df795a8ad2f5428e9c8a
