@@ -18,3 +18,5 @@ RDEPEND="
 	${DEPEND}
 	>=dev-R/Rcpp-0.12.12
 "
+
+#bundling status: https://github.com/ropensci/hunspell/issues/34

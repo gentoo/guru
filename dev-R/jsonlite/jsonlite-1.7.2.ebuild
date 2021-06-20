@@ -8,3 +8,5 @@ inherit R-packages
 DESCRIPTION='A Simple and Robust JSON Parser and generator for R'
 KEYWORDS="~amd64"
 LICENSE='MIT'
+
+#unbundling status: https://github.com/jeroen/jsonlite/issues/201
