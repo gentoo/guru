@@ -62,7 +62,7 @@ Sure, since GURU packages are not mirrored on the [Gentoo mirrors](https://devma
 
 - #### I need help, where do I go?
 
-You can reach other GURU contributors on [IRC #gentoo-guru](https://webchat.freenode.net/?channels=gentoo-guru), or by emailing guru-committers@gentoo.org.
+You can reach other GURU contributors on [IRC #gentoo-guru](https://web.libera.chat/#gentoo-guru), or by emailing guru-committers@gentoo.org.
 
 - #### I found a bug, what do I do?
 
