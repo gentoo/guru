@@ -3,21 +3,25 @@
 
 EAPI=7
 
+MY_PN="csv"
+MY_P="${MY_PN}${PV}"
+
 DESCRIPTION="A programming language based on R6RS"
 HOMEPAGE="https://cisco.github.io/ChezScheme/ https://github.com/cisco/ChezScheme"
-SRC_URI="https://github.com/cisco/ChezScheme/releases/download/v${PV}/csv${PV}.tar.gz"
+SRC_URI="https://github.com/cisco/ChezScheme/releases/download/v${PV}/${MY_P}.tar.gz"
 
 # Chez Scheme itself is Apache 2.0, but it vendors LZ4 (BSD-2),
 # Nanopass (MIT), stex (MIT), and zlib (ZLIB).
 LICENSE="Apache-2.0 BSD-2 MIT ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="examples"
+IUSE="examples threads"
 
-S="${WORKDIR}"/csv${PV}
+S="${WORKDIR}"/${MY_P}
 
 src_configure() {
 	local myconfargs=(
+		--64
 		--installschemename=chezscheme
 		--installpetitename=chezscheme-petite
 		--installscriptname=chezscheme-script
@@ -27,10 +31,12 @@ src_configure() {
 		--disable-x11 # TODO: X USE flag.
 	)
 
+	use threads && myconfargs+=(--threads)
+
 	./configure "${myconfargs[@]}" || die
 }
 
 src_install() {
 	emake install TempRoot="${D}"
-	use examples || rm -r "${D}"/usr/lib/csv${PV}/examples || die
+	use examples || rm -r "${D}"/usr/lib/${MY_P}/examples || die
 }

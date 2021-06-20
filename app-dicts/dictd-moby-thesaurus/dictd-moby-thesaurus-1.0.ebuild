@@ -1,4 +1,4 @@
-# Copyright 1999-2004 Gentoo Technologies, Inc.w
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,6 +10,7 @@ DESCRIPTION="Grady Ward's Moby Thesaurus; 35000 root words and 2.5 million synon
 HOMEPAGE="https://tracker.debian.org/pkg/dict-moby-thesaurus"
 SRC_URI="mirror://debian/pool/main/d/${MY_PN}/${DEB}"
 S="${WORKDIR}"
+
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="~amd64"
