@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>matt@offtopica.uk</email>
+    <name>Matt Smith</name>
+  </maintainer>
+  <longdescription lang="en">
+    This is an emacs mode for editing Idris code.
+
+    This mode was original designed to work with version 1 of the
+    language through an IDE-Protocol. Idris2 uses the next iteration
+    of the same protocol. Idris-mode tries to maintain compatibility
+    with both protocol versions, however, not all the features from
+    the IDE-Protocol have been realised in Idris2. When using
+    idris-mode with Idris2 your experience might be a bit clunky.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">idris-hackers/idris-mode</remote-id>
+  </upstream>
+  <stabilize-allarches/>
+</pkgmetadata>
