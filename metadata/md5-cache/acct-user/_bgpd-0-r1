@@ -5,5 +5,5 @@ INHERIT=acct-user
 KEYWORDS=~amd64 ~x86
 RDEPEND=acct-group/_bgpd
 SLOT=0
-_eclasses_=user-info	8eda7e0ed7acb4b9678bea151579e154	user	851cc5d467389d7cfb5f6b33d575807b	acct-user	d32fbb1f9b68d1a1c2adf200d92350af
+_eclasses_=user-info	8eda7e0ed7acb4b9678bea151579e154	user	1e9788ed3d1120a037bc627062ab3c61	acct-user	d32fbb1f9b68d1a1c2adf200d92350af
 _md5_=5f2a17e6a319725084c5a56bf0e52c38
