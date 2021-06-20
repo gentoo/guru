@@ -11,5 +11,5 @@ LICENSE=GPL-3
 RDEPEND=>=dev-lang/php-5.4.0[curl,gd] virtual/httpd-php || ( dev-db/mysql dev-db/postgresql dev-db/sqlite ) >=app-admin/webapp-config-1.50.15
 SLOT=2.18-r1
 SRC_URI=https://github.com/SSilence/selfoss/releases/download/2.18/selfoss-2.18.zip
-_eclasses_=webapp	990ad6a000cf18d1ef87117e8c7b0a54
+_eclasses_=webapp	cd327e73cdb307ceb80dcca6b8ad8b52
 _md5_=b6d11a22e1f0fba75c4b50e4fa91cab7

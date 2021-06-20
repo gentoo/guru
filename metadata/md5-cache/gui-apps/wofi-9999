@@ -1,6 +1,6 @@
-BDEPEND=virtual/pkgconfig >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=virtual/pkgconfig >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array dev-vcs/mercurial
 DEFINED_PHASES=compile configure install test unpack
-DEPEND=dev-libs/wayland x11-libs/gtk+[wayland(-)] dev-vcs/mercurial
+DEPEND=dev-libs/wayland x11-libs/gtk+[wayland(-)]
 DESCRIPTION=Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 EAPI=7
 HOMEPAGE=https://hg.sr.ht/~scoopta/wofi
@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=dev-libs/wayland x11-libs/gtk+[wayland(-)]
 RESTRICT=test mirror
 SLOT=0
-_eclasses_=multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	meson	5ec14fdbc5446b8767e87e186e3b1a52	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	8cdd85e169b835d518bc2fd59f780d8e	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	2d5b3f4b315094768576b6799e4f926e	mercurial	9f2bfb53237de8f79541b5592ed52f7a
+_eclasses_=multiprocessing	65f88f0e80751d45b06bbcfc4b149ccc	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	2545dc6f0aaecb2dea61424911e82674	multilib	ba7da83f763a749a2870c28785c6dc0b	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	meson	5ec14fdbc5446b8767e87e186e3b1a52	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	6da6797255ab7fb848a02afa0cbc406f	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	f93c6ebbcd4a4e3e3f2328a13511b73a	mercurial	7f6612bb0caf80b02a5516b66e249e46
 _md5_=c89ce8c01ccf9c750f9c2ce842f423e0

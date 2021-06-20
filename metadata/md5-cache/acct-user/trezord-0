@@ -5,5 +5,5 @@ INHERIT=acct-user
 KEYWORDS=~amd64 ~x86
 RDEPEND=acct-group/plugdev
 SLOT=0
-_eclasses_=user-info	a2abd4e2f4c3b9b06d64bf1329359a02	user	26d8ce6329c43cbac965617f1c0627e2	acct-user	d32fbb1f9b68d1a1c2adf200d92350af
+_eclasses_=user-info	8eda7e0ed7acb4b9678bea151579e154	user	851cc5d467389d7cfb5f6b33d575807b	acct-user	d32fbb1f9b68d1a1c2adf200d92350af
 _md5_=4f9046e345fb796023a9ea976170555b

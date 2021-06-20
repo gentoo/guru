@@ -11,5 +11,5 @@ LICENSE=GPL-3
 RDEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) dev-libs/qhttpengine:5 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5 dev-qt/qtwidgets:5 media-video/mpv[libmpv,lua] net-misc/aria2
 SLOT=0
 SRC_URI=https://github.com/Protostars/KikoPlay/archive/0.8.0.tar.gz -> kikoplay-0.8.0.tar.gz
-_eclasses_=toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	lua-utils	f89d52950f35686c55327aa60782641c	lua-single	f91b5656f00869c220a6e35ae0521c54	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_eclasses_=toolchain-funcs	2545dc6f0aaecb2dea61424911e82674	multilib	ba7da83f763a749a2870c28785c6dc0b	lua-utils	f89d52950f35686c55327aa60782641c	lua-single	f91b5656f00869c220a6e35ae0521c54	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
 _md5_=e1758d6ef5d56c37385c34365554dbdb

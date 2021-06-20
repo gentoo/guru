@@ -9,5 +9,5 @@ LICENSE=GPL-2
 RDEPEND=dev-libs/libcec dev-qt/qtquickcontrols2 dev-qt/qtwebchannel dev-qt/qtwebengine dev-qt/qtx11extras media-video/mpv[libmpv]
 SLOT=0
 SRC_URI=https://github.com/jellyfin/jellyfin-media-player/releases/download/v1.6.0/jellyfin-media-player_1.6.0-1_amd64-groovy.deb -> jellyfin-media-player-1.6.0.deb
-_eclasses_=xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	unpacker	517f16af48ee3ab88180dd58b5143213
+_eclasses_=xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	toolchain-funcs	2545dc6f0aaecb2dea61424911e82674	multilib	ba7da83f763a749a2870c28785c6dc0b	unpacker	315fbc6afeddec885b965513572766c4
 _md5_=a40daf2751aa011c2a1afc34b73361d7

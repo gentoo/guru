@@ -9,5 +9,5 @@ LICENSE=ISC
 PROPERTIES=live
 RDEPEND=acct-user/gemini dev-libs/libevent dev-libs/libretls
 SLOT=0
-_eclasses_=ssl-cert	f89abc915c0b80c4a66bd4c321169d3d	toolchain-funcs	24921b57d6561d87cbef4916a296ada4	multilib	ebdbaed22e873a5abe6205f41349b479	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
+_eclasses_=ssl-cert	f89abc915c0b80c4a66bd4c321169d3d	toolchain-funcs	2545dc6f0aaecb2dea61424911e82674	multilib	ba7da83f763a749a2870c28785c6dc0b	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
 _md5_=ddda669ea65645b11c8b4cc489702683
