@@ -7,7 +7,7 @@
 [![pkgcheck](https://github.com/gentoo/guru/workflows/pkgcheck/badge.svg)](https://github.com/gentoo/guru/actions?query=workflow%3Apkgcheck)
 [![repoman](https://github.com/gentoo/guru/workflows/repoman/badge.svg)](https://github.com/gentoo/guru/actions?query=workflow%3Arepoman)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://wiki.gentoo.org/wiki/Project:GURU/Information_for_Contributors)
-[![chat on freenode](https://img.shields.io/badge/chat-on%20freenode-brightgreen.svg)](https://webchat.freenode.net/#gentoo-guru)
+[![chat on libera](https://img.shields.io/badge/chat-on%20libera-brightgreen.svg)](https://web.libera.chat/#gentoo-guru)
 
 <table><tr>
 <td width="68%">
