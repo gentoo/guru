@@ -1,5 +1,5 @@
---- a/Makefile	2021-04-17 04:14:57.220030609 +0200
-+++ b/Makefile	2021-04-17 04:15:23.615508374 +0200
+--- a/Makefile
++++ b/Makefile
 @@ -73,17 +73,11 @@
  	@./fontbakery_checks.sh
  

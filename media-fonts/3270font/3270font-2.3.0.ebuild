@@ -3,7 +3,8 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{8..9} )
+
 inherit font python-any-r1
 
 DESCRIPTION="A IBM 3270 Terminal font in a modern format"
@@ -19,18 +20,17 @@ RESTRICT="!test? ( test )"
 
 DOCS=( CHANGELOG.md README.md  )
 HTML_DOCS=( "DESCRIPTION.en_us.html" )
-
 PATCHES=( "${FILESDIR}/remove-useless-tests.patch" )
-RDEPEND="
-	media-gfx/fontforge
-"
+
+RDEPEND=""
 DEPEND="
 	${PYTHON_DEPS}
-	${RDEPEND}
+	media-gfx/fontforge
 	test? (
 		$(python_gen_any_dep '
 			dev-python/ipdb[${PYTHON_USEDEP}]
 			dev-python/pillow[${PYTHON_USEDEP}]
+			dev-util/gftools[${PYTHON_SINGLE_USEDEP}]
 		')
 	)
 "
@@ -39,7 +39,7 @@ FONT_S="${S}/build"
 FONT_SUFFIX="otf ttf pfm woff"
 
 python_check_deps() {
-	has_version -d "dev-python/ipdb[${PYTHON_USEDEP}]" &&
+	has_version -d "dev-python/ipdb[${PYTHON_USEDEP}]" && \
 	has_version -d "dev-python/pillow[${PYTHON_USEDEP}]"
 }
 
