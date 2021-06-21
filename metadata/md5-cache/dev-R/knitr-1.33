@@ -9,5 +9,5 @@ LICENSE=GPL-2+
 RDEPEND=>=dev-R/yaml-2.1.19 >=dev-R/xfun-0.21 >=dev-R/evaluate-0.10 dev-R/highr >=dev-lang/R-3.2.3 dev-R/markdown >=dev-R/stringr-0.6 app-text/pandoc dev-lang/R
 SLOT=0
 SRC_URI=mirror://cran/src/contrib/knitr_1.33.tar.gz
-_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	3c7381c56a184f0dd5ba3fb824808f30	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	45faf8ab7d5fe72e58a634092cd1f283	R-packages	e08c2b1553ebb85c451feb7f8445eec0
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	3c7381c56a184f0dd5ba3fb824808f30	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	9a53f21c753d823ba20a22f857c25cb4	R-packages	e08c2b1553ebb85c451feb7f8445eec0
 _md5_=34ee37d351455be3a0e497843adb788f
