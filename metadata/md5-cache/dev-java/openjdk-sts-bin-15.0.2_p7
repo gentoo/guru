@@ -11,5 +11,5 @@ RDEPEND=media-libs/fontconfig:1.0 media-libs/freetype:2 >=sys-apps/baselayout-ja
 RESTRICT=preserve-libs splitdebug
 SLOT=15
 SRC_URI=arm? ( https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.2+7/OpenJDK15U-jdk_arm_linux_hotspot_15.0.2_7.tar.gz ) arm64? ( https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.2+7/OpenJDK15U-jdk_aarch64_linux_hotspot_15.0.2_7.tar.gz ) ppc64? ( https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.2+7/OpenJDK15U-jdk_ppc64le_linux_hotspot_15.0.2_7.tar.gz ) amd64? ( https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.2+7/OpenJDK15U-jdk_x64_linux_hotspot_15.0.2_7.tar.gz )
-_eclasses_=multilib	6f710a580aea2e8c7f5be70f8912ad43	toolchain-funcs	7a9551c9a6680454019664620505375a	pax-utils	74cd9920d64148719fb62c462935c1b5	prefix	245bf72183394aa1b43afa1dbc97ab2c	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	java-vm-2	1b9686c0df06500159478dfaf5c21338	eapi7-ver	f9ec87e93172b25ce65a85303dc06964
+_eclasses_=multilib	f8d35c2432bb32c4f1e779c4287b31ec	toolchain-funcs	e867df3870e8ff04a5b94f925be8b06a	pax-utils	74cd9920d64148719fb62c462935c1b5	prefix	245bf72183394aa1b43afa1dbc97ab2c	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	java-vm-2	1b9686c0df06500159478dfaf5c21338	eapi7-ver	f9ec87e93172b25ce65a85303dc06964
 _md5_=daadd24bc152daba47ddaf86ce68a05e

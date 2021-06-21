@@ -10,5 +10,5 @@ LICENSE=GPL-3
 RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 media-libs/alsa-lib virtual/opengl virtual/jack
 SLOT=0
 SRC_URI=mirror://sourceforge/project/add64/Add64-3.8.0.tar.bz2
-_eclasses_=toolchain-funcs	7a9551c9a6680454019664620505375a	multilib	6f710a580aea2e8c7f5be70f8912ad43	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47
+_eclasses_=toolchain-funcs	e867df3870e8ff04a5b94f925be8b06a	multilib	f8d35c2432bb32c4f1e779c4287b31ec	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47
 _md5_=4b31d89de79f23ccfedd33811246928c

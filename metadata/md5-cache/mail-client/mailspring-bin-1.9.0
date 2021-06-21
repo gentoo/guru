@@ -9,5 +9,5 @@ LICENSE=GPL-3
 RDEPEND=app-crypt/libsecret app-crypt/mit-krb5 app-text/tidy-html5 dev-cpp/ctemplate dev-libs/cyrus-sasl dev-libs/libgcrypt dev-libs/nss dev-libs/openssl dev-libs/openssl-compat gnome-base/gconf media-libs/alsa-lib media-libs/libglvnd net-dns/c-ares net-print/cups sys-devel/libtool sys-libs/db:5.3 virtual/udev =x11-libs/gtk+-3* x11-libs/libnotify x11-libs/libxkbfile x11-libs/libXtst x11-libs/libXScrnSaver x11-misc/xdg-utils || ( =dev-libs/glib-2* gnome-base/gvfs )
 SLOT=0
 SRC_URI=https://github.com/Foundry376/Mailspring/releases/download/1.9.0/mailspring-1.9.0-amd64.deb
-_eclasses_=toolchain-funcs	7a9551c9a6680454019664620505375a	multilib	6f710a580aea2e8c7f5be70f8912ad43	unpacker	2eeba54233fa41bdb15dcddcb63fba3a	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_eclasses_=toolchain-funcs	e867df3870e8ff04a5b94f925be8b06a	multilib	f8d35c2432bb32c4f1e779c4287b31ec	unpacker	2eeba54233fa41bdb15dcddcb63fba3a	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
 _md5_=164ee1e495e46efe27a778bb3204a126
