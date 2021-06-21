@@ -10,5 +10,5 @@ LICENSE=Apache-2.0
 PROPERTIES=live
 RDEPEND=libuv? ( dev-libs/libuv ) ssl? ( >=dev-libs/openssl-1.1.0 )
 SLOT=0
-_eclasses_=toolchain-funcs	2545dc6f0aaecb2dea61424911e82674	multilib	ba7da83f763a749a2870c28785c6dc0b	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
+_eclasses_=toolchain-funcs	7a9551c9a6680454019664620505375a	multilib	6f710a580aea2e8c7f5be70f8912ad43	git-r3	b8e8c92aa5fe8df7187e466138eb4e52
 _md5_=ea8c30e7949a0298f26f2081fc2dfeec

@@ -9,5 +9,5 @@ LICENSE=GPL-3+ Apache-2.0 GPL-2 LGPL-2 GPL-2+ LGPL-3+ MIT
 RDEPEND=net-analyzer/munin
 SLOT=0
 SRC_URI=https://github.com/munin-monitoring/contrib/archive/c31cb283fe9d38ae0367fcd9a8aef6be14bcb927.tar.gz -> munin-contrib-0.2021.04.27.tar.gz
-_eclasses_=toolchain-funcs	2545dc6f0aaecb2dea61424911e82674	multilib	ba7da83f763a749a2870c28785c6dc0b
+_eclasses_=toolchain-funcs	7a9551c9a6680454019664620505375a	multilib	6f710a580aea2e8c7f5be70f8912ad43
 _md5_=60212b53ebb72fccdcefc462626f3811

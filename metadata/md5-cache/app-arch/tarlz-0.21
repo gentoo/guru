@@ -9,5 +9,5 @@ LICENSE=GPL-2+
 RDEPEND=>=app-arch/lzlib-1.12:0=
 SLOT=0
 SRC_URI=https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.21.tar.lz
-_eclasses_=toolchain-funcs	2545dc6f0aaecb2dea61424911e82674	multilib	ba7da83f763a749a2870c28785c6dc0b	unpacker	315fbc6afeddec885b965513572766c4
+_eclasses_=toolchain-funcs	7a9551c9a6680454019664620505375a	multilib	6f710a580aea2e8c7f5be70f8912ad43	unpacker	2eeba54233fa41bdb15dcddcb63fba3a
 _md5_=2c58977080ce294abb0c644d40085da0

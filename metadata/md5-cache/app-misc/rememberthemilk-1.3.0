@@ -10,5 +10,5 @@ RDEPEND=app-accessibility/at-spi2-atk app-accessibility/at-spi2-core dev-libs/at
 RESTRICT=bindist mirror
 SLOT=0
 SRC_URI=https://www.rememberthemilk.com/download/linux/fedora/21/x86_64/rememberthemilk-1.3.0-1.x86_64.rpm
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	6da6797255ab7fb848a02afa0cbc406f	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	f93c6ebbcd4a4e3e3f2328a13511b73a	estack	055c42df72f76a4f45ec92b35e83cd56	rpm	a013c862fce4974c42fe270ad00430a2
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	3c7381c56a184f0dd5ba3fb824808f30	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	f93c6ebbcd4a4e3e3f2328a13511b73a	estack	055c42df72f76a4f45ec92b35e83cd56	rpm	17ff2249b50738c17c3824b58c813a5b
 _md5_=7e435fbd88cb1c7c2ec294a66bd0550d

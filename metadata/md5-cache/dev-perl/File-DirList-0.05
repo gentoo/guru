@@ -12,5 +12,5 @@ RDEPEND=dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/T/TP/TPABA/File-DirList/File-DirList-0.05.tar.gz
-_eclasses_=multiprocessing	65f88f0e80751d45b06bbcfc4b149ccc	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	0ee2b2b92175720c966a5608c62b458d
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	perl-functions	fea344a91ebf37efadf172c6a3de5a72	perl-module	0ee2b2b92175720c966a5608c62b458d
 _md5_=0d07e44ffe6827906bb3235390ffd598

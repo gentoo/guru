@@ -10,5 +10,5 @@ LICENSE=BSD
 RDEPEND=app-arch/bzip2 dev-libs/expat dev-libs/libbsd dev-libs/libpcre media-gfx/graphite2 media-libs/fontconfig media-libs/freetype media-libs/harfbuzz[icu] media-libs/libglvnd[X] media-libs/libjpeg-turbo media-libs/libpng media-libs/libwebp sys-apps/util-linux sys-libs/zlib x11-libs/libxcb x11-libs/libX11 x11-libs/libXau x11-libs/libXdmcp
 SLOT=0
 SRC_URI=https://github.com/google/skia/archive/1c9ebb50024f80f3bf289838298e15185d8f6966.tar.gz -> skia-80_p20191220.tar.gz
-_eclasses_=multiprocessing	65f88f0e80751d45b06bbcfc4b149ccc	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	2545dc6f0aaecb2dea61424911e82674	multilib	ba7da83f763a749a2870c28785c6dc0b	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-any-r1	17241a11501065ff3651350040875aa9
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	7a9551c9a6680454019664620505375a	multilib	6f710a580aea2e8c7f5be70f8912ad43	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-any-r1	17241a11501065ff3651350040875aa9
 _md5_=a0f0e36f25ae4b6bdf100e3960eea003
