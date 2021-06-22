@@ -52,6 +52,7 @@ src_install() {
 	default
 	meson_src_install
 	insinto /usr/share/feedbackd/themes
-	doins "${WORKDIR}"/feedbackd-device-themes-"${MY_THEME_COMMIT}"/data/"{pine64.pinephone,purism.librem5}.json"
+	doins "${WORKDIR}"/feedbackd-device-themes-"${MY_THEME_COMMIT}"/data/pine64.pinephone.json
+	doins "${WORKDIR}"/feedbackd-device-themes-"${MY_THEME_COMMIT}"/data/purism.librem5.json
 	udev_newrules "${S}"/debian/feedbackd.udev 90-feedbackd.rules
 }
