@@ -41,9 +41,9 @@ PATCHES=(
 	"${FILESDIR}"/0001-system-prompt-allow-blank-passwords.patch
 	"${FILESDIR}"/0002-fix-locale-issue.patch
 	"${FILESDIR}"/0003-fix-locale-issue-in-service-file.patch
-	"${FILESDIR}"/0004-calls-manager.patch.patch
-	"${FILESDIR}"/0005-calls-manager.patch.patch
-	"${FILESDIR}"/0006-calls-manager.patch.patch
+	"${FILESDIR}"/0004-calls-manager.patch
+	"${FILESDIR}"/0005-calls-manager.patch
+	"${FILESDIR}"/0006-calls-manager.patch
 )
 
 src_prepare() {
