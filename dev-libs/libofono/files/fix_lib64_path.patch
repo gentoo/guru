@@ -1,0 +1,13 @@
+diff --git a/lib/lib.pro b/lib/lib.pro
+index c1f8c5a..8718e85 100644
+--- a/lib/lib.pro
++++ b/lib/lib.pro
+@@ -62,7 +62,7 @@ SOURCES += ofonointerface.cpp \
+     ofonoconnmancontext.cpp \
+     ofonocellbroadcast.cpp
+ 
+-target.path = $$[QT_INSTALL_PREFIX]/lib
++target.path = $$[QT_INSTALL_PREFIX]/lib64
+ headers.files = $$PUBLIC_HEADERS
+ headers.path = $$[QT_INSTALL_PREFIX]/include/ofono-qt
+ 
