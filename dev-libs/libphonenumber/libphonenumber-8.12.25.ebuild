@@ -5,7 +5,7 @@ EAPI=7
 
 CMAKE_MAKEFILE_GENERATOR=emake
 
-inherit cmake java-pkg-2
+inherit cmake java-pkg-2 java-pkg-simple
 
 DESCRIPTION="library for parsing, formatting, and validating international phone numbers"
 HOMEPAGE="https://github.com/google/libphonenumber"
