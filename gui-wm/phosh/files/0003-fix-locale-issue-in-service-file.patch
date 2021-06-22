@@ -1,0 +1,22 @@
+From: Daniel Dehennin <daniel.dehennin@baby-gnu.org>
+Date: Wed, 17 Mar 2021 17:38:58 +0100
+Subject: Fix locale issue in Service file
+
+* data/phosh.service (Environment): do not override user language
+  setting.
+---
+ data/phosh.service | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/data/phosh.service b/data/phosh.service
+index fa18137..a585696 100644
+--- a/data/phosh.service
++++ b/data/phosh.service
+@@ -25,7 +25,6 @@ Before=graphical.target
+ ConditionPathExists=/dev/tty0
+ 
+ [Service]
+-Environment=LANG=C.UTF-8
+ Environment=XDG_CURRENT_DESKTOP=GNOME
+ Environment=XDG_SESSION_DESKTOP=phosh
+ Environment=XDG_SESSION_TYPE=wayland
