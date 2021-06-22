@@ -1,6 +1,17 @@
-diff --git a/src/calls-manager.c b/src/calls-manager.c
-new file mode 100644
-index 00000000..b8ec2721
+diff --git a/src/shell.h b/src/shell.h
+index 6465fd4..0d7c161 100644
+--- a/src/shell.h
++++ b/src/shell.h
+@@ -70,7 +70,9 @@ void                 phosh_shell_unlock          (PhoshShell *self);
+ void                 phosh_shell_set_primary_monitor (PhoshShell *self, PhoshMonitor *monitor);
+ PhoshMonitor        *phosh_shell_get_primary_monitor (PhoshShell *self);
+ PhoshMonitor        *phosh_shell_get_builtin_monitor (PhoshShell *self);
++
+ PhoshLockscreenManager *phosh_shell_get_lockscreen_manager (PhoshShell *self);
++PhoshCallsManager      *phosh_shell_get_calls_manager      (PhoshShell *self);
+ PhoshBackgroundManager *phosh_shell_get_background_manager (PhoshShell *self);
+ PhoshModeManager    *phosh_shell_get_mode_manager    (PhoshShell *self);
+ PhoshMonitorManager *phosh_shell_get_monitor_manager (PhoshShell *self);
 --- /dev/null
 +++ b/src/calls-manager.c
 @@ -0,0 +1,418 @@

@@ -532,25 +532,5 @@ index c5894fde..2120e1f8 100644
  PhoshWifiManager *
  phosh_shell_get_wifi_manager (PhoshShell *self)
  {
-diff --git a/src/shell.h b/src/shell.h
-index 6465fd40..e0353f02 100644
---- a/src/shell.h
-+++ b/src/shell.h
-@@ -10,6 +10,7 @@
-
- #include "background-manager.h"
- #include "bt-manager.h"
-+#include "calls-manager.h"
- #include "docked-manager.h"
- #include "feedback-manager.h"
- #include "gtk-mount-manager.h"
-@@ -77,6 +78,7 @@ PhoshBackgroundManager *phosh_shell_get_background_manager (PhoshShell *self);
- PhoshFeedbackManager   *phosh_shell_get_feedback_manager   (PhoshShell *self);
- PhoshGtkMountManager   *phosh_shell_get_gtk_mount_manager  (PhoshShell *self);
- PhoshLockscreenManager *phosh_shell_get_lockscreen_manager (PhoshShell *self);
-+PhoshCallsManager      *phosh_shell_get_calls_manager      (PhoshShell *self);
- PhoshModeManager       *phosh_shell_get_mode_manager       (PhoshShell *self);
- PhoshMonitorManager    *phosh_shell_get_monitor_manager    (PhoshShell *self);
- PhoshToplevelManager   *phosh_shell_get_toplevel_manager   (PhoshShell *self);
 --
 GitLab
