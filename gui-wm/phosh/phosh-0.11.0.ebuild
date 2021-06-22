@@ -63,8 +63,7 @@ src_install() {
 	meson_src_install
 	newpamd "${FILESDIR}"/pam_phosh 'phosh'
 	systemd_newunit "${FILESDIR}"/phosh.service 'phosh.service'
-	domenu /usr/share/applications/
-	doins "${FILESDIR}"/sm.puri.OSK0.desktop
+	domenu "${FILESDIR}"/sm.puri.OSK0.desktop
 
 	DOC_CONTENTS="
 	To amend the existing password policy please see the man 5 passwdqc.conf
