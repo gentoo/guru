@@ -9,7 +9,7 @@ adler32-1.2.0
 ahash-0.4.7
 ahash-0.7.4
 aho-corasick-0.7.18
-ansi_colours-1.0.2
+ansi_colours-1.0.3
 ansi_term-0.11.0
 anyhow-1.0.41
 argh-0.1.4
@@ -47,7 +47,7 @@ csv-core-0.1.10
 csv2svg-0.1.5
 custom_error-1.9.2
 deflate-0.8.6
-deser-hjson-1.0.0
+deser-hjson-1.0.1
 directories-3.0.2
 directories-next-2.0.0
 dirs-sys-0.3.6
@@ -83,7 +83,7 @@ lazy-regex-2.2.1
 lazy-regex-proc_macros-2.2.1
 lazy_static-1.4.0
 lazycell-1.3.0
-lfs-core-0.3.1
+lfs-core-0.3.4
 libc-0.2.97
 libgit2-sys-0.12.21+1.1.0
 libsqlite3-sys-0.20.1
@@ -129,17 +129,17 @@ proc-macro2-1.0.27
 proc-status-0.1.1
 quote-1.0.9
 rand-0.7.3
-rand-0.8.3
+rand-0.8.4
 rand_chacha-0.2.2
 rand_chacha-0.3.1
 rand_core-0.5.1
-rand_core-0.6.2
+rand_core-0.6.3
 rand_hc-0.2.0
-rand_hc-0.3.0
+rand_hc-0.3.1
 rand_pcg-0.2.1
 rayon-1.5.1
 rayon-core-1.9.1
-redox_syscall-0.2.8
+redox_syscall-0.2.9
 redox_users-0.4.0
 regex-1.5.4
 regex-automata-0.1.10
@@ -187,7 +187,7 @@ unicode-width-0.1.8
 unicode-xid-0.2.2
 url-2.2.2
 users-0.11.0
-vcpkg-0.2.13
+vcpkg-0.2.15
 vec_map-0.8.2
 version_check-0.9.3
 walkdir-2.3.2
