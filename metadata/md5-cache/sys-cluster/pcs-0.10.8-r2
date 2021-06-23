@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ClusterLabs/pcs/archive/v0.10.8.tar.gz -> pcs-0.10.8.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	estack	055c42df72f76a4f45ec92b35e83cd56	ruby-utils	685587efe9ff6315b82811810827f69a	ruby-ng	b97a1a9a3103f9a66f622ea3eb2ce12b	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	0cb5f4040aac0cd98d17cec3079de0a0	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75	estack	055c42df72f76a4f45ec92b35e83cd56	ruby-utils	685587efe9ff6315b82811810827f69a	ruby-ng	b97a1a9a3103f9a66f622ea3eb2ce12b	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6
 _md5_=a8035ec4c050eeb171667ea366b1d7e5

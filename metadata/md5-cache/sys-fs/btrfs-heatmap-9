@@ -11,5 +11,5 @@ RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://github.com/knorrie/btrfs-heatmap/archive/v9.tar.gz -> btrfs-heatmap-9.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	0cb5f4040aac0cd98d17cec3079de0a0	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75
 _md5_=c49aa7a93c194520b7848e2e16e4970c

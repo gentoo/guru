@@ -1,4 +1,4 @@
-BDEPEND=dev-util/gdbus-codegen virtual/pkgconfig test? ( dev-libs/opensc net-misc/casync sys-fs/mtd-utils sys-fs/squashfs-tools sys-libs/libfaketime ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 doc? ( || ( ( dev-lang/python:3.9 dev-python/sphinx[python_targets_python3_9(-),-python_single_target_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/sphinx[python_targets_python3_8(-),-python_single_target_python3_8(-)] ) ) )
+BDEPEND=dev-util/gdbus-codegen virtual/pkgconfig test? ( dev-libs/opensc net-misc/casync sys-fs/mtd-utils sys-fs/squashfs-tools sys-libs/libfaketime ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 doc? ( || ( ( dev-lang/python:3.9 dev-python/sphinx[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/sphinx[python_targets_python3_8(-)] ) ) )
 DEFINED_PHASES=compile configure prepare setup
 DEPEND=dev-libs/glib:2 dev-libs/openssl:0= json? ( dev-libs/json-glib ) network? ( net-misc/curl ) service? ( sys-apps/dbus )
 DESCRIPTION=Lightweight update client that runs on your Embedded Linux device
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/glib:2 dev-libs/openssl:0= json? ( dev-libs/json-glib ) network
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/rauc/rauc/releases/download/v1.5.1/rauc-1.5.1.tar.xz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-any-r1	17241a11501065ff3651350040875aa9	docs	1541edddf7c7971612b5b9cec370f875
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	0cb5f4040aac0cd98d17cec3079de0a0	python-any-r1	901d9e22c7a848a1196502edf060f330	docs	1541edddf7c7971612b5b9cec370f875
 _md5_=86bdf2060055876c85e5545374d3b744

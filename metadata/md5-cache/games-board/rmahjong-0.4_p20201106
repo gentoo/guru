@@ -12,5 +12,5 @@ REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/spirali/rmahjong/archive/7a37ade640bc24eb2cc9f0ad6c7ce26773be2856.tar.gz -> rmahjong-0.4_p20201106.tar.gz https://github.com/KDE/kmahjongg/raw/master/icons/48-apps-kmahjongg.png -> kmahjongg_rmahjong.png
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	6e84b7d3d8d0bb1ee12774f4a66909e2	python-single-r1	d25ac9d5d91fe9d44fda6ec192aca11a	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	0cb5f4040aac0cd98d17cec3079de0a0	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
 _md5_=ce5b141abc4fab786e1e1d771b97aa6d
