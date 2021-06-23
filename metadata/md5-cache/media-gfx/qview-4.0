@@ -12,5 +12,5 @@ RDEPEND=dev-qt/qtconcurrent:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/jurplel/qView/archive/4.0.tar.gz -> qview-4.0.tar.gz
-_eclasses_=toolchain-funcs	e867df3870e8ff04a5b94f925be8b06a	multilib	f8d35c2432bb32c4f1e779c4287b31ec	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	3c7381c56a184f0dd5ba3fb824808f30	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	9a53f21c753d823ba20a22f857c25cb4	flag-o-matic	bc2e7662a4a9a8643be851982a837ddc	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47	virtualx	0a780e1ab49c75da33a78ede35ab8f9c	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	3c7381c56a184f0dd5ba3fb824808f30	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	9a53f21c753d823ba20a22f857c25cb4	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47	virtualx	0a780e1ab49c75da33a78ede35ab8f9c	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
 _md5_=327db28274da95900149b512d2c8ac17

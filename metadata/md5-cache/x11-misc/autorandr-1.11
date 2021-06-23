@@ -11,5 +11,5 @@ LICENSE=GPL-3
 RDEPEND=bash-completion? ( app-shells/bash ) systemd? ( sys-apps/systemd ) udev? ( virtual/udev )
 SLOT=0
 SRC_URI=https://github.com/phillipberndt/autorandr/archive/1.11.tar.gz -> autorandr-1.11.tar.gz
-_eclasses_=toolchain-funcs	e867df3870e8ff04a5b94f925be8b06a	multilib	f8d35c2432bb32c4f1e779c4287b31ec	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	udev	452708c3f55cf6e918b045adb949a9e6
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	udev	452708c3f55cf6e918b045adb949a9e6
 _md5_=6fc16a138ab254902f4eb7ad6d46a7cd

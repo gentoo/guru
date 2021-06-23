@@ -10,5 +10,5 @@ LICENSE=MIT
 RDEPEND=dev-libs/wayland x11-libs/libxkbcommon
 SLOT=0
 SRC_URI=https://git.sr.ht/~sircmpwn/wev/archive/1.0.0.tar.gz -> wev-1.0.0.tar.gz
-_eclasses_=toolchain-funcs	e867df3870e8ff04a5b94f925be8b06a	multilib	f8d35c2432bb32c4f1e779c4287b31ec
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
 _md5_=307db4e88cf2415aee4d5c118d0b2e2e

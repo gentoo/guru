@@ -11,5 +11,5 @@ LICENSE=sdl? ( LGPL-2 ) sdl2? ( ZLIB ) xlib? ( ZLIB )
 REQUIRED_USE=|| ( sdl sdl2 xlib ) || ( abi_x86_32 abi_x86_64 )
 SLOT=0
 SRC_URI=https://github.com/micolous/sdl-fakeqwerty/archive/a79f201903c30e91dc3b4f79c789e25548cf9589.tar.gz -> sdl-fakeqwerty-0_pre20191217.tar.gz
-_eclasses_=multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	multilib	f8d35c2432bb32c4f1e779c4287b31ec	toolchain-funcs	e867df3870e8ff04a5b94f925be8b06a	multilib-build	c311a933538fe97b72600926696ea66f	multilib-minimal	12533389e8f5cc25f70ffcddbc9b3d29
+_eclasses_=multibuild	6b3d5ee849dafe6cdfd7b859c211fb01	multilib	97566c1a256d07b00848aa767e38a352	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib-build	c311a933538fe97b72600926696ea66f	multilib-minimal	12533389e8f5cc25f70ffcddbc9b3d29
 _md5_=2fe33baab6678786eaad6bcca517bfe5

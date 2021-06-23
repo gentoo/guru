@@ -10,5 +10,5 @@ LICENSE=Apache-2.0 LGPL-2.1
 RDEPEND=dev-scheme/gambit emacs? ( >=app-editors/emacs-23.1:* ) leveldb? ( dev-libs/leveldb ) lmdb? ( dev-db/lmdb ) mysql? ( dev-db/mariadb:* ) sqlite? ( dev-db/sqlite ) xml? ( dev-libs/libxml2 ) yaml? ( dev-libs/libyaml ) zlib? ( sys-libs/zlib )
 SLOT=0
 SRC_URI=https://github.com/vyzo/gerbil/archive/v0.16.tar.gz -> gerbil-0.16.tar.gz
-_eclasses_=elisp-common	cf4fd1b0835b9f3e638724840468064a	toolchain-funcs	e867df3870e8ff04a5b94f925be8b06a	multilib	f8d35c2432bb32c4f1e779c4287b31ec	wrapper	4251d4c84c25f59094fd557e0063a974
+_eclasses_=elisp-common	cf4fd1b0835b9f3e638724840468064a	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	wrapper	4251d4c84c25f59094fd557e0063a974
 _md5_=66c196a9a6fda031b7a6a154f08b9ab4

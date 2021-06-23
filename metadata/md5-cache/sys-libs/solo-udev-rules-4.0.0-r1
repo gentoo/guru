@@ -10,5 +10,5 @@ LICENSE=|| ( Apache-2.0 MIT )
 RDEPEND=virtual/udev
 SLOT=0
 SRC_URI=https://github.com/solokeys/solo/archive/4.0.0.tar.gz -> solo-4.0.0.tar.gz
-_eclasses_=toolchain-funcs	e867df3870e8ff04a5b94f925be8b06a	multilib	f8d35c2432bb32c4f1e779c4287b31ec	udev	452708c3f55cf6e918b045adb949a9e6
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	udev	452708c3f55cf6e918b045adb949a9e6
 _md5_=281a154ad6523c969b8cab83769c0a10
