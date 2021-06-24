@@ -14,7 +14,7 @@ LICENSE="MIT"
 SLOT="0"
 IUSE=""
 
-RDEPEND="virtual/jre"
+RDEPEND=">=virtual/jre-1.8:*"
 
 S="${WORKDIR}"
 
