@@ -5,6 +5,10 @@
     <email>matt@offtopica.uk</email>
     <name>Matt Smith</name>
   </maintainer>
+  <maintainer type="person">
+    <email>xgqt@protonmail.com</email>
+    <name>Maciej Barć</name>
+  </maintainer>
   <longdescription lang="en">
     Chez Scheme is both a programming language and an implementation
     of that language, with supporting tools and documentation.
