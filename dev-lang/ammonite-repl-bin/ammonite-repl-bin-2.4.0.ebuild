@@ -14,12 +14,6 @@ LICENSE="MIT"
 SLOT="0"
 IUSE=""
 
-# Ammonite release binaries seem to package also a full scala
-# distribution, no need ot depend on dev-lang/scala(-bin).
-# RDEPEND="
-# 	>=dev-lang/scala-bin-${SCALA_VERSION}
-# "
-
 S="${WORKDIR}"
 
 src_install() {
