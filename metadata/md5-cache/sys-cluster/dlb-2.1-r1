@@ -12,5 +12,5 @@ RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8[tk] >=dev-lang/pyt
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://github.com/bsc-pm/dlb/archive/v2.1.tar.gz -> dlb-2.1.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	969dff6876159a10dfdad9e01d265d1c	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	977ed3240c7c676eb18a277e65663c1c	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75
 _md5_=9fd7a5e367106be9342369df2fcdf8b7
