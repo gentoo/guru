@@ -1,0 +1,10 @@
+--- a/setup.py
++++ b/setup.py
+@@ -72,7 +72,6 @@ setup(
+ #                      see: https://github.com/fontforge/fontforge/issues/2048
+         'setuptools',
+         'FontTools[ufo]',
+-        'Flask',
+         'absl-py',
+         'glyphsLib',
+         'PyGithub',

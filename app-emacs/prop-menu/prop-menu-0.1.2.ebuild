@@ -16,3 +16,19 @@ KEYWORDS="~amd64"
 S="${WORKDIR}/prop-menu-el-${PV}"
 
 SITEFILE="50${PN}-gentoo.el"
+
+src_prepare() {
+	default
+	rm Makefile || die
+}
+
+src_test() {
+	${EMACS} ${EMACSFLAGS} ${BYTECOMPFLAGS} \
+			 -l ert -l prop-menu-tests.el \
+			 -f ert-run-tests-batch-and-exit || die "tests failed"
+}
+
+src_install() {
+	elisp-install ${PN} prop-menu.{el,elc}
+	elisp-site-file-install "${FILESDIR}"/${SITEFILE}
+}

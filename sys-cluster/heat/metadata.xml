@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<longdescription lang="en">
+		Heat is a service to orchestrate multiple composite cloud applications using
+		templates, through both an OpenStack-native REST API and a
+		CloudFormation-compatible Query API.
+	</longdescription>
+	<use>
+		<flag name="memcached">Installs the memcached server</flag>
+	</use>
+	<upstream>
+		<remote-id type="launchpad">heat</remote-id>
+	</upstream>
+</pkgmetadata>

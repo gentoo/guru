@@ -1,0 +1,470 @@
+From 93e4345e823dbb9d9ee187d1f5b32c6dd7dffdd3 Mon Sep 17 00:00:00 2001
+From: Dorota Czaplejewicz <dorota.czaplejewicz@puri.sm>
+Date: Mon, 5 Apr 2021 08:17:07 +0000
+Subject: [PATCH 1/2] layout: Take into account text purpose again
+
+---
+ src/data.rs | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
+
+diff --git a/src/data.rs b/src/data.rs
+index e5aa3910..71711c3f 100644
+--- a/src/data.rs
++++ b/src/data.rs
+@@ -239,13 +239,18 @@ fn load_layout_data_with_fallback(
+         .map(PathBuf::from)
+         .or_else(|| xdg::data_path("squeekboard/keyboards"));
+ 
+-    log_print!(
+-        logging::Level::Debug, 
+-        "load_layout_data_with_fallback() -> name:{}, purpose:{:?}, overlay:{}, layout_name:{}", 
+-        name, purpose, overlay, &name
+-    );
++    let layout_purpose = match overlay {
++        "" => match purpose {
++            ContentPurpose::Number => "number",
++            ContentPurpose::Digits => "number",
++            ContentPurpose::Phone => "number",
++            ContentPurpose::Terminal => "terminal",
++            _ => "",
++        },
++        overlay => overlay,
++    };
+ 
+-    for (kind, source) in list_layout_sources(&name, kind, overlay, path) {
++    for (kind, source) in list_layout_sources(&name, kind, layout_purpose, path) {
+         let layout = load_layout_data(source.clone());
+         match layout {
+             Err(e) => match (e, source) {
+-- 
+GitLab
+
+
+From 190876903281774bf0f304269ad7f047f44482b1 Mon Sep 17 00:00:00 2001
+From: Dorota Czaplejewicz <dorota.czaplejewicz@puri.sm>
+Date: Mon, 5 Apr 2021 10:36:41 +0000
+Subject: [PATCH 2/2] layouts: Make selection testable
+
+From now on, all the parameters for loading layout are handled inside a single pure function, which makes them possible to test.
+
+As a side benefit, the old preference order function composed of a mess of nested procedures is gone.
+---
+ src/data.rs   | 312 ++++++++++++++++++++++++++++++++++----------------
+ src/layout.rs |   2 +-
+ 2 files changed, 212 insertions(+), 102 deletions(-)
+
+diff --git a/src/data.rs b/src/data.rs
+index 71711c3f..29cd4ba4 100644
+--- a/src/data.rs
++++ b/src/data.rs
+@@ -69,8 +69,12 @@ pub mod c {
+         let overlay_str = as_str(&overlay)
+                 .expect("Bad overlay name")
+                 .expect("Empty overlay name");
++        let overlay_str = match overlay_str {
++            "" => None,
++            other => Some(other),
++        };
+ 
+-        let (kind, layout) = load_layout_data_with_fallback(&name, type_, variant, &overlay_str);
++        let (kind, layout) = load_layout_data_with_fallback(&name, type_, variant, overlay_str);
+         let layout = ::layout::Layout::new(layout, kind);
+         Box::into_raw(Box::new(layout))
+     }
+@@ -113,97 +117,156 @@ impl fmt::Display for DataSource {
+     }
+ }
+ 
+-type LayoutSource = (ArrangementKind, DataSource);
+-
+-/// Lists possible sources, with 0 as the most preferred one
+-/// Trying order: native lang of the right kind, native base,
+-/// fallback lang of the right kind, fallback base
+-/// The `purpose` argument is not ContentPurpose,
+-/// but rather ContentPurpose and overlay in one.
+-fn list_layout_sources(
+-    name: &str,
+-    kind: ArrangementKind,
+-    purpose: &str,
+-    keyboards_path: Option<PathBuf>,
+-) -> Vec<LayoutSource> {
+-    // Just a simplification of often called code.
+-    let add_by_name = |
+-        mut ret: Vec<LayoutSource>,
+-        purpose: &str,
+-        name: &str,
+-        kind: &ArrangementKind,
+-    | -> Vec<LayoutSource> {
+-        let name = if purpose == "" { name.into() }
+-            else { format!("{}/{}", purpose, name) };
+-
+-        if let Some(path) = keyboards_path.clone() {
+-            ret.push((
+-                kind.clone(),
+-                DataSource::File(
+-                    path.join(name.clone())
+-                        .with_extension("yaml")
+-                )
+-            ))
+-        }
+-
+-        ret.push((
+-            kind.clone(),
+-            DataSource::Resource(name)
+-        ));
+-        ret
+-    };
+-
+-    // Another grouping.
+-    let add_by_kind = |ret, purpose: &str, name: &str, kind| {
+-        let ret = match kind {
+-            &ArrangementKind::Base => ret,
+-            kind => add_by_name(
+-                ret,
+-                purpose,
+-                &name_with_arrangement(name.into(), kind),
+-                kind,
+-            ),
+-        };
+-
+-        add_by_name(ret, purpose, name, &ArrangementKind::Base)
++/* All functions in this family carry around ArrangementKind,
++ * because it's not guaranteed to be preserved,
++ * and the resulting layout needs to know which version was loaded.
++ * See `squeek_layout_get_kind`.
++ * Possible TODO: since this is used only in styling,
++ * and makes the below code nastier than needed, maybe it should go.
++ */
++
++/// Returns ordered names treating `name` as the base name,
++/// ignoring any `+` inside.
++fn _get_arrangement_names(name: &str, arrangement: ArrangementKind)
++    -> Vec<(ArrangementKind, String)>
++{
++    let name_with_arrangement = match arrangement {    
++        ArrangementKind::Base => name.into(),
++        ArrangementKind::Wide => format!("{}_wide", name),
+     };
+-
+-    fn name_with_arrangement(
+-        name: String,
+-        kind: &ArrangementKind,
+-    ) -> String {
+-        match kind {    
+-            ArrangementKind::Base => name,
+-            ArrangementKind::Wide => name + "_wide",
+-        }
++    
++    let mut ret = Vec::new();
++    if name_with_arrangement != name {
++        ret.push((arrangement, name_with_arrangement));
+     }
++    ret.push((ArrangementKind::Base, name.into()));
++    ret
++}
+ 
+-    let ret = Vec::new();
+-
+-    // Name as given takes priority.
+-    let ret = add_by_kind(ret, purpose, name, &kind);
+-
+-    // Then try non-alternative name if applicable (`us` for `us+colemak`).
+-    let ret = {
++/// Returns names accounting for any `+` in the `name`,
++/// including the fallback to the default layout.
++fn get_preferred_names(name: &str, kind: ArrangementKind)
++    -> Vec<(ArrangementKind, String)>
++{
++    let mut ret = _get_arrangement_names(name, kind);
++    
++    let base_name_preferences = {
+         let mut parts = name.splitn(2, '+');
+         match parts.next() {
+             Some(base) => {
+-                // The name is already equal to base, so it was already added.
+-                if base == name { ret }
+-                else {
+-                    add_by_kind(ret, purpose, base, &kind)
++                // The name is already equal to base, so nothing to add
++                if base == name {
++                    vec![]
++                } else {
++                    _get_arrangement_names(base, kind)
+                 }
+             },
+             // The layout's base name starts with a "+". Weird but OK.
+             None => {
+                 log_print!(logging::Level::Surprise, "Base layout name is empty: {}", name);
+-                ret
++                vec![]
+             }
+         }
+     };
++    
++    ret.extend(base_name_preferences.into_iter());
++    let fallback_names = _get_arrangement_names(FALLBACK_LAYOUT_NAME, kind);
++    ret.extend(fallback_names.into_iter());
++    ret
++}
++
++/// Includes the subdirectory before the forward slash.
++type LayoutPath = String;
++
++// This is only used inside iter_fallbacks_with_meta.
++// Placed at the top scope
++// because `use LayoutPurpose::*;`
++// complains about "not in scope" otherwise.
++// This seems to be a Rust 2015 edition problem.
++/// Helper for determining where to look up the layout.
++enum LayoutPurpose<'a> {
++    Default,
++    Special(&'a str),
++}
++
++/// Returns the directory string
++/// where the layout should be looked up, including the slash.
++fn get_directory_string(
++    content_purpose: ContentPurpose,
++    overlay: Option<&str>) -> String
++{
++    use self::LayoutPurpose::*;
++
++    let layout_purpose = match overlay {
++        None => match content_purpose {
++            ContentPurpose::Number => Special("number"),
++            ContentPurpose::Digits => Special("number"),
++            ContentPurpose::Phone => Special("number"),
++            ContentPurpose::Terminal => Special("terminal"),
++            _ => Default,
++        },
++        Some(overlay) => Special(overlay),
++    };
++
++    // For intuitiveness,
++    // default purpose layouts are stored in the root directory,
++    // as they correspond to typical text
++    // and are seen the most often.
++    match layout_purpose {
++        Default => "".into(),
++        Special(purpose) => format!("{}/", purpose),
++    }
++}
+ 
+-    add_by_kind(ret, purpose, FALLBACK_LAYOUT_NAME.into(), &kind)
++/// Returns an iterator over all fallback paths.
++fn to_layout_paths(
++    name_fallbacks: Vec<(ArrangementKind, String)>,
++    content_purpose: ContentPurpose,
++    overlay: Option<&str>,
++) -> impl Iterator<Item=(ArrangementKind, LayoutPath)> {
++    let prepend_directory = get_directory_string(content_purpose, overlay);
++
++    name_fallbacks.into_iter()
++        .map(move |(arrangement, name)|
++            (arrangement, format!("{}{}", prepend_directory, name))
++        )
++}
+ 
++type LayoutSource = (ArrangementKind, DataSource);
++
++fn to_layout_sources(
++    layout_paths: impl Iterator<Item=(ArrangementKind, LayoutPath)>,
++    filesystem_path: Option<PathBuf>,
++) -> impl Iterator<Item=LayoutSource> {
++    layout_paths.flat_map(move |(arrangement, layout_path)| {
++        let mut sources = Vec::new();
++        if let Some(path) = &filesystem_path {
++            sources.push((
++                arrangement,
++                DataSource::File(
++                    path.join(&layout_path)
++                        .with_extension("yaml")
++                )
++            ));
++        };
++        sources.push((arrangement, DataSource::Resource(layout_path.clone())));
++        sources.into_iter()
++    })
++}
++
++/// Returns possible sources, with first as the most preferred one.
++/// Trying order: native lang of the right kind, native base,
++/// fallback lang of the right kind, fallback base
++fn iter_layout_sources(
++    name: &str,
++    arrangement: ArrangementKind,
++    purpose: ContentPurpose,
++    ui_overlay: Option<&str>,
++    layout_storage: Option<PathBuf>,
++) -> impl Iterator<Item=LayoutSource> {
++    let names = get_preferred_names(name, arrangement);
++    let paths = to_layout_paths(names, purpose, ui_overlay);
++    to_layout_sources(paths, layout_storage)
+ }
+ 
+ fn load_layout_data(source: DataSource)
+@@ -231,7 +294,7 @@ fn load_layout_data_with_fallback(
+     name: &str,
+     kind: ArrangementKind,
+     purpose: ContentPurpose,
+-    overlay: &str,
++    overlay: Option<&str>,
+ ) -> (ArrangementKind, ::layout::LayoutData) {
+ 
+     // Build the path to the right keyboard layout subdirectory
+@@ -239,18 +302,7 @@ fn load_layout_data_with_fallback(
+         .map(PathBuf::from)
+         .or_else(|| xdg::data_path("squeekboard/keyboards"));
+ 
+-    let layout_purpose = match overlay {
+-        "" => match purpose {
+-            ContentPurpose::Number => "number",
+-            ContentPurpose::Digits => "number",
+-            ContentPurpose::Phone => "number",
+-            ContentPurpose::Terminal => "terminal",
+-            _ => "",
+-        },
+-        overlay => overlay,
+-    };
+-
+-    for (kind, source) in list_layout_sources(&name, kind, layout_purpose, path) {
++    for (kind, source) in iter_layout_sources(&name, kind, purpose, overlay, path) {
+         let layout = load_layout_data(source.clone());
+         match layout {
+             Err(e) => match (e, source) {
+@@ -982,11 +1034,11 @@ mod tests {
+     
+     /// First fallback should be to builtin, not to FALLBACK_LAYOUT_NAME
+     #[test]
+-    fn fallbacks_order() {
+-        let sources = list_layout_sources("nb", ArrangementKind::Base, "", None);
++    fn test_fallback_basic_builtin() {
++        let sources = iter_layout_sources("nb", ArrangementKind::Base, ContentPurpose::Normal, None, None);
+         
+         assert_eq!(
+-            sources,
++            sources.collect::<Vec<_>>(),
+             vec!(
+                 (ArrangementKind::Base, DataSource::Resource("nb".into())),
+                 (
+@@ -996,14 +1048,36 @@ mod tests {
+             )
+         );
+     }
++    
++    /// Prefer loading from file system before builtin.
++    #[test]
++    fn test_preferences_order_path() {
++        let sources = iter_layout_sources("nb", ArrangementKind::Base, ContentPurpose::Normal, None, Some(".".into()));
++        
++        assert_eq!(
++            sources.collect::<Vec<_>>(),
++            vec!(
++                (ArrangementKind::Base, DataSource::File("./nb.yaml".into())),
++                (ArrangementKind::Base, DataSource::Resource("nb".into())),
++                (
++                    ArrangementKind::Base,
++                    DataSource::File("./us.yaml".into())
++                ),
++                (
++                    ArrangementKind::Base,
++                    DataSource::Resource("us".into())
++                ),
++            )
++        );
++    }
+ 
+     /// If layout contains a "+", it should reach for what's in front of it too.
+     #[test]
+-    fn fallbacks_order_base() {
+-        let sources = list_layout_sources("nb+aliens", ArrangementKind::Base, "", None);
++    fn test_preferences_order_base() {
++        let sources = iter_layout_sources("nb+aliens", ArrangementKind::Base, ContentPurpose::Normal, None, None);
+ 
+         assert_eq!(
+-            sources,
++            sources.collect::<Vec<_>>(),
+             vec!(
+                 (ArrangementKind::Base, DataSource::Resource("nb+aliens".into())),
+                 (ArrangementKind::Base, DataSource::Resource("nb".into())),
+@@ -1016,22 +1090,58 @@ mod tests {
+     }
+ 
+     #[test]
+-    fn fallbacks_terminal_order_base() {
+-        let sources = list_layout_sources("nb+aliens", ArrangementKind::Base, "terminal", None);
++    fn test_preferences_order_arrangement() {
++        let sources = iter_layout_sources("nb", ArrangementKind::Wide, ContentPurpose::Normal, None, None);
+ 
+         assert_eq!(
+-            sources,
++            sources.collect::<Vec<_>>(),
++            vec!(
++                (ArrangementKind::Wide, DataSource::Resource("nb_wide".into())),
++                (ArrangementKind::Base, DataSource::Resource("nb".into())),
++                (
++                    ArrangementKind::Wide,
++                    DataSource::Resource("us_wide".into())
++                ),
++                (
++                    ArrangementKind::Base,
++                    DataSource::Resource("us".into())
++                ),
++            )
++        );
++    }
++
++    #[test]
++    fn test_preferences_order_overlay() {
++        let sources = iter_layout_sources("nb", ArrangementKind::Base, ContentPurpose::Normal, Some("terminal"), None);
++
++        assert_eq!(
++            sources.collect::<Vec<_>>(),
+             vec!(
+-                (ArrangementKind::Base, DataSource::Resource("terminal/nb+aliens".into())),
+                 (ArrangementKind::Base, DataSource::Resource("terminal/nb".into())),
+                 (
+                     ArrangementKind::Base,
+-                    DataSource::Resource(format!("terminal/{}", FALLBACK_LAYOUT_NAME))
++                    DataSource::Resource("terminal/us".into())
+                 ),
+             )
+         );
+     }
+-    
++
++    #[test]
++    fn test_preferences_order_hint() {
++        let sources = iter_layout_sources("nb", ArrangementKind::Base, ContentPurpose::Terminal, None, None);
++
++        assert_eq!(
++            sources.collect::<Vec<_>>(),
++            vec!(
++                (ArrangementKind::Base, DataSource::Resource("terminal/nb".into())),
++                (
++                    ArrangementKind::Base,
++                    DataSource::Resource("terminal/us".into())
++                ),
++            )
++        );
++    }
++
+     #[test]
+     fn unicode_keysym() {
+         let keysym = xkb::keysym_from_name(
+diff --git a/src/layout.rs b/src/layout.rs
+index 413795f0..0b8607b0 100644
+--- a/src/layout.rs
++++ b/src/layout.rs
+@@ -600,7 +600,7 @@ impl View {
+ }
+ 
+ /// The physical characteristic of layout for the purpose of styling
+-#[derive(Clone, PartialEq, Debug)]
++#[derive(Clone, Copy, PartialEq, Debug)]
+ pub enum ArrangementKind {
+     Base = 0,
+     Wide = 1,
+-- 
+GitLab
+

@@ -22,3 +22,19 @@ RDEPEND="
 	dev-R/Rcpp
 	>=dev-R/RcppArmadillo-0.8.400.0.0
 "
+
+src_prepare() {
+	default
+	#remove bundled
+	rm -r inst/include/ensmallen_bits || die
+	rm inst/include/ensmallen.hpp || die
+	#link to sci-libs/ensmallen
+	dosym /usr/include/ensmallen_bits inst/include/ensmallen_bits
+	dosym /usr/include/ensmallen.hpp inst/include/ensmallen.hpp
+}
+
+src_install() {
+	R-packages_src_install
+	dosym /usr/include/ensmallen_bits "/usr/$(get_libdir)/R/site-library/${PN}/include/ensmallen_bits"
+	dosym /usr/include/ensmallen.hpp "/usr/$(get_libdir)/R/site-library/${PN}/include/ensmallen.hpp"
+}

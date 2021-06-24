@@ -18,3 +18,8 @@
 # revived. Upstream recommends switching to media-gfx/gimp.
 # Masked for removal in 30 days.
 media-gfx/glimpse
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-06-20)
+# Mask BH until next release
+# Depend on boost version no longer available
+=dev-R/BH-1.75.0.0

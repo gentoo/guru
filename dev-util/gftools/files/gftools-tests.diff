@@ -1,0 +1,28 @@
+--- a/Lib/gftools/tests/test_qa.py
++++ b/Lib/gftools/tests/test_qa.py
+@@ -1,5 +1,6 @@
+ import subprocess
+ import unittest
++import pytest
+ import tempfile
+ import os
+ 
+@@ -38,6 +39,7 @@ class TestQA(unittest.TestCase):
+             self.assertTrue("Fontbakery" in os.listdir(qa_out))
+ 
+     def test_diff_github_fonts_vs_googlefonts_vf(self):
++        if not 'GH_TOKEN' in os.environ.keys(): pytest.skip("GH_TOKEN not provided")
+         with tempfile.TemporaryDirectory() as qa_out:
+             subprocess.call(
+                 [
+--- a/Lib/gftools/tests/test_stat.py
++++ b/Lib/gftools/tests/test_stat.py
+@@ -373,7 +373,7 @@ def test_gen_stat_tables_from_config(var
+         - name: Italic
+           value: 1
+     """
+-    config = yaml.load(config_text)
++    config = yaml.safe_load(config_text)
+     gen_stat_tables_from_config(config, var_fonts)
+     roman, italic = var_fonts
+ 
