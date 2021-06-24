@@ -18,6 +18,14 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="X examples ncurses threads"
 
+# FIXME: enabling X11 doesn't link against X11's libs?
+DEPEND="
+	ncurses? ( sys-libs/ncurses )
+"
+RDEPEND="
+	${DEPEND}
+"
+
 S="${WORKDIR}/${CSV}"
 
 src_prepare() {
@@ -34,7 +42,7 @@ src_configure() {
 		$(usex ncurses '' '--disable-curses')
 		$(usex X '' '--disable-x11')
 		--installprefix="/usr"
-		--installbin="/usr/$(get_libdir)/${CSV}"
+		--installbin="/usr/bin"
 		--installlib="/usr/$(get_libdir)"
 		--installman="/usr/share/man"
 		--temproot="${D}"
