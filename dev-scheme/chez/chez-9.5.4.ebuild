@@ -18,8 +18,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="X examples ncurses threads"
 
-# FIXME: enabling X11 doesn't link against X11's libs?
 DEPEND="
+	X? ( x11-libs/libX11 )
 	ncurses? ( sys-libs/ncurses )
 "
 RDEPEND="
