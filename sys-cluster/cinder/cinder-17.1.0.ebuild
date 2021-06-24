@@ -32,6 +32,7 @@ DEPEND=">=dev-python/pbr-5.4.1[${PYTHON_USEDEP}]
 	app-admin/sudo"
 
 #	>=dev-python/oauth2client-1.5.0[${PYTHON_USEDEP}]  # do not include, upstream depricated
+#TODO: remove zstd
 RDEPEND="
 	>=dev-python/pbr-5.4.1[${PYTHON_USEDEP}]
 	>=dev-python/decorator-4.1.0[${PYTHON_USEDEP}]

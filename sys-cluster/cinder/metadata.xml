@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>prometheanfire@gentoo.org</email>
-    <name>Matthew Thode</name>
-  </maintainer>
+  <!-- maintainer-needed -->
   <use>
     <flag name="api">Installs the initscripts for the cinder api service</flag>
     <flag name="iscsi">Allow using an iSCSI remote storage server as pool for disk image storage</flag>
