@@ -1,0 +1,17 @@
+BDEPEND=test? ( media-gfx/ttfautohint >=dev-python/pytest-4.5.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=test? ( dev-python/fonttools[python_targets_python3_8(-)?,python_targets_python3_9(-)?] )
+DESCRIPTION=A Python wrapper for ttfautohint
+EAPI=7
+HOMEPAGE=https://github.com/fonttools/ttfautohint-py
+INHERIT=distutils-r1
+IUSE=test python_targets_python3_8 python_targets_python3_9
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=media-gfx/ttfautohint python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/fonttools/ttfautohint-py/archive/refs/tags/v0.4.3.tar.gz -> ttfautohint-py-0.4.3.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	969dff6876159a10dfdad9e01d265d1c	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	881e51510dd0c384fb912f54c0865d2e
+_md5_=1f5025c6d70abb08fe6052cee9f83199

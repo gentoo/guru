@@ -1,0 +1,14 @@
+BDEPEND=>=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install test
+DEPEND=media-libs/alsa-lib dev-libs/glib || ( media-sound/pulseaudio >=media-sound/apulse-0.1.12-r4[sdk] )
+DESCRIPTION=Call audio routing daemon
+EAPI=7
+HOMEPAGE=https://gitlab.com/mobian1/callaudiod
+INHERIT=meson systemd
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-3
+RDEPEND=media-libs/alsa-lib dev-libs/glib || ( media-sound/pulseaudio >=media-sound/apulse-0.1.12-r4[sdk] )
+SLOT=0
+SRC_URI=https://gitlab.com/mobian1/callaudiod/-/archive/84ed2eb164711e73d30a88d540f59ddd8bc88b45.tar.gz -> callaudiod-0.1.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	132cbb376048d079b5a012f5467c4e7f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	969dff6876159a10dfdad9e01d265d1c	meson	5ec14fdbc5446b8767e87e186e3b1a52	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6
+_md5_=be819533c08c5bbd433713a88d65ba92

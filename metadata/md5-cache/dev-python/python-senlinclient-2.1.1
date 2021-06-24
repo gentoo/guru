@@ -1,0 +1,16 @@
+BDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-python/pbr-2.1.1[python_targets_python3_8(-)?]
+DESCRIPTION=A client for the OpenStack Senlin API
+EAPI=7
+HOMEPAGE=https://github.com/openstack/python-senlinclient
+INHERIT=distutils-r1
+IUSE=python_targets_python3_8
+KEYWORDS=~amd64 ~arm64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=Apache-2.0
+RDEPEND=>=dev-python/pbr-2.1.1[python_targets_python3_8(-)?] >=dev-python/prettytable-0.7.2[python_targets_python3_8(-)?] <dev-python/prettytable-0.8[python_targets_python3_8(-)?] >=dev-python/keystoneauth-3.4.0[python_targets_python3_8(-)?] >=dev-python/openstacksdk-0.24.0[python_targets_python3_8(-)?] >=dev-python/osc-lib-1.11.0[python_targets_python3_8(-)?] >=dev-python/oslo-i18n-3.15.3[python_targets_python3_8(-)?] >=dev-python/oslo-serialization-2.18.0[python_targets_python3_8(-)?] !~dev-python/oslo-serialization-2.19.1[python_targets_python3_8(-)?] >=dev-python/oslo-utils-3.33.0[python_targets_python3_8(-)?] >=dev-python/python-heatclient-1.10.0[python_targets_python3_8(-)?] >=dev-python/pyyaml-3.13.0[python_targets_python3_8(-)?] >=dev-python/requests-2.14.2[python_targets_python3_8(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?]
+REQUIRED_USE=|| ( python_targets_python3_8 )
+SLOT=0
+SRC_URI=mirror://pypi/p/python-senlinclient/python-senlinclient-2.1.1.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	969dff6876159a10dfdad9e01d265d1c	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	881e51510dd0c384fb912f54c0865d2e
+_md5_=be504f088f42739eedf519a5b8b4aeaf

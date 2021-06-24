@@ -13,6 +13,7 @@ app-accessibility/rhvoice:client - Build a client allowing to speak text (deprec
 app-accessibility/rhvoice:server - Build a server application
 app-accessibility/rhvoice:speech-dispatcher - Build a speech-dispatcher middleware module
 app-accessibility/rhvoice:utils - Build utilities needed for the ones creating voices
+app-admin/glance:swift - Adds swift storage support
 app-admin/krapplet:pass - Add support for pass compatible storage
 app-crypt/mkp224o:amd64-51-30k - Use x86_64 amd64-51-30k SUPERCOP implementation
 app-crypt/mkp224o:amd64-64-24k - Use x86_64 amd64-64-24k SUPERCOP implementation
@@ -111,6 +112,15 @@ dev-libs/zfp:strided - Enable strided access for progressive zfp streams
 dev-libs/zfp:twoway - Use two-way skew-associative cache
 dev-libs/zfp:utilities - Build command line utilities
 dev-python/cx-oracle:examples - Install examples, usually source code
+dev-python/glance_store:cinder - enable cinder backend supprt
+dev-python/glance_store:swift - enable swift backend supprt
+dev-python/glance_store:vmware - enable vmware backend supprt
+dev-python/tinyrpc:gevent - Add support for gevent
+dev-python/tinyrpc:httpclient - Add support for httpclient
+dev-python/tinyrpc:jsonext - Add support for jsonext
+dev-python/tinyrpc:websocket - Add support for websocket
+dev-python/tinyrpc:wsgi - Add support for wsgi
+dev-python/tinyrpc:zmq - Add support for zmq
 dev-scheme/gerbil:leveldb - Add support for using dev-libs/leveldb
 dev-scheme/gerbil:lmdb - Add support for using dev-db/lmdb
 dev-scheme/gerbil:yaml - Add support for yaml file format
@@ -302,10 +312,21 @@ sci-physics/SU2:openblas - Enable OpenBLAS support
 sci-physics/SU2:tecio - Enable TECIO support
 sci-physics/SU2:tutorials - Install Tutorials files
 sys-apps/drm_info:pci - Print PCI device names via libpci
+sys-auth/keystone:memcached - Installs dependencies needed for using memcached as a backend
+sys-auth/keystone:mongo - Installs dependencies needed for using mongo as a backend
 sys-auth/mrsh:pam - build with pam support
 sys-auth/mrsh:shadow - build with shadow file support
 sys-cluster/KVTree:fcntl - Set the type of file locking to fcntl.
 sys-cluster/KVTree:flock - Set the type of file locking to flock.
+sys-cluster/cinder:api - Installs the initscripts for the cinder api service
+sys-cluster/cinder:iscsi - Allow using an iSCSI remote storage server as pool for disk image storage
+sys-cluster/cinder:lvm - Allow using the Logical Volume Manager (sys-fs/lvm2) as pool for disk image storage
+sys-cluster/cinder:memcached - Installs the memcached server
+sys-cluster/cinder:rdma - Enable rdma storage backend support
+sys-cluster/cinder:scheduler - Installs the initscripts for the cinder scheduler service
+sys-cluster/cinder:tcp - Enables tcp support for the iscsi backend
+sys-cluster/cinder:tgt - Enable tgt storage backend support
+sys-cluster/cinder:volume - Installs the initscripts for the cinder volume service
 sys-cluster/clusteringsuite:mpi - enable mpi for distributed version
 sys-cluster/clusteringsuite:old-pcfparser - enable compilation with old pcfparser
 sys-cluster/dlb:hwloc - add sys-apps/hwlocsupport
@@ -335,6 +356,7 @@ sys-cluster/extrae:single-mpi-lib - Produces a single instrumentation library fo
 sys-cluster/extrae:sionlib - Enable support for sys-cluster/sionlib
 sys-cluster/extrae:smpss - Enable support for tracing SMP-superscalar
 sys-cluster/extrae:xml - Enable support for XML configuration
+sys-cluster/heat:memcached - Installs the memcached server
 sys-cluster/nanos6:cluster - Enable OmpSs@Cluster support. This requires an MPI version that supports MPI_THREAD_MULTIPLE to be present in your environment
 sys-cluster/nanos6:debug - enable extra assertions and checks in debug - may cause significant slowdown
 sys-cluster/nanos6:dlb - enable dynamic management and sharing of computing resources
@@ -342,6 +364,21 @@ sys-cluster/nanos6:execution-workflow - Enable execution using the Execution Wor
 sys-cluster/nanos6:extrae - to generate execution traces for offline performance analysis with paraver
 sys-cluster/nanos6:papi - enable dev-libs/papi support
 sys-cluster/nanos6:unwind - to generate sample-based profiling
+sys-cluster/neutron:compute-only - Only install things needed on compute hosts
+sys-cluster/neutron:dhcp - Installs the initscripts for the neutron dhcp service
+sys-cluster/neutron:haproxy - haproxy backend support
+sys-cluster/neutron:l3 - Installs the initscripts for the neutron l3 agent service
+sys-cluster/neutron:linuxbridge - Installs the initscripts for the neutron linuxbridge agent service
+sys-cluster/neutron:metadata - Installs the initscripts for the neutron metadata agent service
+sys-cluster/neutron:openvswitch - Installs the initscripts for the neutron openvswitch agent service
+sys-cluster/neutron:server - Installs the initscripts for the neutron server service
+sys-cluster/nova:compute - Installs the initscripts for the nova volume service
+sys-cluster/nova:compute-only - only install stuff needed for a compute host
+sys-cluster/nova:iscsi - Installs iscsi helper udev scripts
+sys-cluster/nova:memcached - Installs the memcached server
+sys-cluster/nova:novncproxy - Installs the initscripts for the nova novncproxy service
+sys-cluster/nova:openvswitch - Installs openvswitch for the neutron openvswitch support
+sys-cluster/nova:rabbitmq - Installs the rabbitmq server
 sys-cluster/sionlib:cxx - Disable C++ support
 sys-cluster/sionlib:debug - enable SIONlib debug
 sys-cluster/sionlib:fortran - Enable Fortran support
@@ -351,6 +388,11 @@ sys-cluster/sionlib:openmp - enable openmp
 sys-cluster/sionlib:parutils - Enable compilation of parutils (used for benchmarking)
 sys-cluster/sionlib:pthreads - configure SIONlib to use pthreads for locking
 sys-cluster/sionlib:python - enable python support
+sys-cluster/swift:account - adds swift account support
+sys-cluster/swift:container - adds swift container support
+sys-cluster/swift:memcached - adds memcached support
+sys-cluster/swift:object - adds swift object support
+sys-cluster/swift:proxy - adds swift proxy support
 sys-cluster/veloc:alps - Use ALPS (Application Level Placement Scheduler) as resource manager
 sys-cluster/veloc:lsf - Use LFS (Load Sharing Facility) as resource manager
 sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager

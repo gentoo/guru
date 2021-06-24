@@ -7,7 +7,8 @@ INHERIT=elisp
 KEYWORDS=~amd64
 LICENSE=GPL-3+
 RDEPEND=app-emacs/prop-menu >=app-editors/emacs-23.1:*
+RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/idris-hackers/idris-mode/archive/refs/tags/1.0.tar.gz
+SRC_URI=https://github.com/idris-hackers/idris-mode/archive/refs/tags/1.0.tar.gz -> idris-mode-1.0.tar.gz
 _eclasses_=elisp-common	cf4fd1b0835b9f3e638724840468064a	elisp	b165dc0288d12ab26e86f41c56f03914
-_md5_=0c4f1eb3e1aec01fad06efff522930e2
+_md5_=23e40b1f6862b176dafc895fcc3b2a5c

@@ -1,0 +1,9 @@
+DEFINED_PHASES=install postinst
+DESCRIPTION=Mobile and privacy friendly configuration for Firefox
+EAPI=7
+HOMEPAGE=https://gitlab.com/postmarketOS/mobile-config-firefox
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-3
+SLOT=0
+SRC_URI=https://gitlab.com/postmarketOS/mobile-config-firefox/-/archive/2.1.0/mobile-config-firefox-2.1.0.tar.gz
+_md5_=6ac875cc079a553e0e4a8d679fb742aa

@@ -1,0 +1,16 @@
+BDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-python/pbr-2.0.0[python_targets_python3_8(-)?] !~dev-python/pbr-2.1.0[python_targets_python3_8(-)?]
+DESCRIPTION=Neutron shared routines and utilities.
+EAPI=7
+HOMEPAGE=https://github.com/openstack/neutron-lib
+INHERIT=distutils-r1
+IUSE=python_targets_python3_8
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=dev-python/pbr-2.0.0[python_targets_python3_8(-)?] !~dev-python/pbr-2.1.0[python_targets_python3_8(-)?] >=dev-python/sqlalchemy-1.2.0[python_targets_python3_8(-)?] >=dev-python/pecan-1.0.0[python_targets_python3_8(-)?] !~dev-python/pecan-1.0.2[python_targets_python3_8(-)?] !~dev-python/pecan-1.0.3[python_targets_python3_8(-)?] !~dev-python/pecan-1.0.4[python_targets_python3_8(-)?] !~dev-python/pecan-1.2.0[python_targets_python3_8(-)?] >=dev-python/keystoneauth-3.4.0[python_targets_python3_8(-)?] >=dev-python/netaddr-0.7.18[python_targets_python3_8(-)?] >=dev-python/stevedore-1.20.0[python_targets_python3_8(-)?] >=dev-python/os-ken-0.3.0[python_targets_python3_8(-)?] >=dev-python/oslo-concurrency-3.26.0[python_targets_python3_8(-)?] >=dev-python/oslo-config-5.2.0[python_targets_python3_8(-)?] >=dev-python/oslo-context-2.19.2[python_targets_python3_8(-)?] >=dev-python/oslo-db-4.44.0[python_targets_python3_8(-)?] >=dev-python/oslo-i18n-3.15.3[python_targets_python3_8(-)?] >=dev-python/oslo-log-3.36.0[python_targets_python3_8(-)?] >=dev-python/oslo-messaging-7.0.0[python_targets_python3_8(-)?] >=dev-python/oslo-policy-1.30.0[python_targets_python3_8(-)?] >=dev-python/oslo-serialization-2.18.0[python_targets_python3_8(-)?] !~dev-python/oslo-serialization-2.19.1[python_targets_python3_8(-)?] >=dev-python/oslo-service-1.24.0[python_targets_python3_8(-)?] !~dev-python/oslo-service-1.28.1[python_targets_python3_8(-)?] >=dev-python/oslo-utils-3.33.0[python_targets_python3_8(-)?] >=dev-python/oslo-versionedobjects-1.31.2[python_targets_python3_8(-)?] >=dev-python/osprofiler-1.4.0[python_targets_python3_8(-)?] >=dev-python/setproctitle-1.1.10[python_targets_python3_8(-)?] >=dev-python/os-traits-0.9.0[python_targets_python3_8(-)?] >=dev-python/webob-1.7.1[python_targets_python3_8(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?]
+REQUIRED_USE=|| ( python_targets_python3_8 )
+SLOT=0
+SRC_URI=mirror://pypi/n/neutron-lib/neutron-lib-2.6.1.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	969dff6876159a10dfdad9e01d265d1c	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	881e51510dd0c384fb912f54c0865d2e
+_md5_=45fa449a14dc3fc2900f64d09e371417

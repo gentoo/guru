@@ -1,0 +1,14 @@
+BDEPEND=app-doc/doxygen
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-qt/qtcore dev-texlive/texlive-fontutils
+DESCRIPTION=A Qt-based library that provides bindings to oFono
+EAPI=7
+HOMEPAGE=https://github.com/Kaffeine/libofono-qt
+INHERIT=qmake-utils
+KEYWORDS=~amd64 ~arm64
+LICENSE=LGPL-2.1
+RDEPEND=dev-qt/qtcore dev-texlive/texlive-fontutils
+SLOT=0
+SRC_URI=https://github.com/Kaffeine/libofono-qt/archive/refs/tags/1.30.tar.gz -> libofono-1.30.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47
+_md5_=ad00f59fdae8c9625a57aec61cc5399e
