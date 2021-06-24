@@ -17,15 +17,29 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 LICENSE="LGPL-2+"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~x86"
+IUSE="konqueror"
 
 DEPEND="
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kparts-${KFMIN}:5
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	konqueror? (
+		kde-apps/konqueror:5
+		kde-misc/kio-gemini:5
+	)
+"
 
 src_test() {
 	export QT_QPA_PLATFORM=offscreen
 	ecm_src_test
+}
+
+src_install() {
+	ecm_src_install
+
+	if ! use konqueror ; then
+		rm "${ED}"/usr/share/applications/gemini-konqueror.desktop || die
+	fi
 }
