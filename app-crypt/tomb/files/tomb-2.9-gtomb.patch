@@ -1,5 +1,5 @@
---- a/extras/gtomb/gtomb	2021-04-12 03:01:14.803394386 +0200
-+++ b/extras/gtomb/gtomb	2021-04-12 03:02:19.277491170 +0200
+--- a/extras/gtomb/gtomb
++++ b/extras/gtomb/gtomb
 @@ -19,8 +19,8 @@
  # along with this source code. If not, see <http://www.gnu.org/licenses/>.
  
