@@ -16,7 +16,7 @@ IUSE=""
 
 S="${WORKDIR}"
 
-RDEPEND="virtual/jre"
+RDEPEND=">=virtual/jre-1.8:*"
 
 src_install() {
 	newbin "${DISTDIR}/ammonite-${PV}" amm
