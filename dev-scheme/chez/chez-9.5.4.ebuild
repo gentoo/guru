@@ -3,40 +3,53 @@
 
 EAPI=7
 
-MY_PN="csv"
-MY_P="${MY_PN}${PV}"
+CSV="csv${PV}"
+
+inherit multilib
 
 DESCRIPTION="A programming language based on R6RS"
 HOMEPAGE="https://cisco.github.io/ChezScheme/ https://github.com/cisco/ChezScheme"
-SRC_URI="https://github.com/cisco/ChezScheme/releases/download/v${PV}/${MY_P}.tar.gz"
+SRC_URI="https://github.com/cisco/ChezScheme/releases/download/v${PV}/${CSV}.tar.gz -> ${P}.tar.gz"
 
 # Chez Scheme itself is Apache 2.0, but it vendors LZ4 (BSD-2),
 # Nanopass (MIT), stex (MIT), and zlib (ZLIB).
 LICENSE="Apache-2.0 BSD-2 MIT ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="examples threads"
+IUSE="X examples ncurses threads"
 
-S="${WORKDIR}"/${MY_P}
+S="${WORKDIR}/${CSV}"
+
+src_prepare() {
+	default
+
+	if use ncurses; then
+		eapply "${FILESDIR}/tinfo.patch"
+	fi
+}
 
 src_configure() {
 	local myconfargs=(
-		--64
+		$(usex threads '--threads' '')
+		$(usex ncurses '' '--disable-curses')
+		$(usex X '' '--disable-x11')
+		--installprefix="/usr"
+		--installbin="/usr/$(get_libdir)/${CSV}"
+		--installlib="/usr/$(get_libdir)"
+		--installman="/usr/share/man"
+		--temproot="${D}"
 		--installschemename=chezscheme
 		--installpetitename=chezscheme-petite
 		--installscriptname=chezscheme-script
-		--installprefix="${EPREFIX}"/usr
 		--nogzip-man-pages
-		--disable-curses # TODO: ncurses USE flag.
-		--disable-x11 # TODO: X USE flag.
 	)
-
-	use threads && myconfargs+=(--threads)
-
 	./configure "${myconfargs[@]}" || die
 }
 
 src_install() {
-	emake install TempRoot="${D}"
-	use examples || rm -r "${D}"/usr/lib/${MY_P}/examples || die
+	default
+
+	if ! use examples; then
+		rm -r "${D}/usr/$(get_libdir)/${CSV}/examples" || die
+	fi
 }
