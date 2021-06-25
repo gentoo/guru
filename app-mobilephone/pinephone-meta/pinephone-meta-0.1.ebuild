@@ -14,22 +14,14 @@ KEYWORDS="~arm64"
 IUSE="+eg25-manager"
 
 RDEPEND="
+	app-mobilephone/pinephone-modem-scripts
 	gnome-extra/iio-sensor-proxy
 	gui-wm/phosh-meta
 	app-mobilephone/usb-tethering
 	media-libs/alsa-ucm-pinephone
 	media-tv/v4l-utils
-	sys-firmware/anx7688-firmware
-	sys-firmware/rtl8723bt-firmware
-	sys-firmware/ov5640-firmware
-	x11-themes/sound-theme-librem5
-	eg25-manager? (
-		net-misc/eg25-manager
-		>=app-mobilephone/pinephone-modem-scripts-0.20.3-r5
-	)
-	!eg25-manager? (
-		<=app-mobilephone/pinephone-modem-scripts-0.20.3-r4
-		!net-misc/eg25-manager
-	)
+	net-misc/eg25-manager
 	sys-boot/osk-sdl
+	sys-firmware/pinephone-firmware
+	x11-themes/sound-theme-librem5
 "
