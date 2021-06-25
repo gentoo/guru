@@ -13,10 +13,6 @@ zfp uses lossy but optionally error-bounded compression to achieve high compress
 
 zfp is freely available as open source and is distributed under a BSD license. zfp is primarily written in C and C++ but also includes Python and Fortran bindings. zfp conforms to various language standards, including C89, C99, C11, C++98, C++11, and C++14, and is supported on Linux, macOS, and Windows.
 </longdescription>
-  <maintainer type="person">
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
   <upstream>
     <bugs-to>https://github.com/LLNL/zfp/issues</bugs-to>
     <remote-id type="github">LLNL/zfp</remote-id>
