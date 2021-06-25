@@ -3,7 +3,9 @@
 
 EAPI=7
 
-inherit bash-completion-r1 systemd udev
+PYTHON_COMPAT=( python3_{7..10} )
+
+inherit bash-completion-r1 distutils-r1 systemd udev
 
 if [[ "${PV}" = "9999" ]] ; then
 	inherit git-r3
@@ -18,7 +20,7 @@ HOMEPAGE="https://github.com/phillipberndt/autorandr"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="bash-completion +launcher systemd udev"
+IUSE="bash-completion launcher systemd udev"
 
 RDEPEND="
 	launcher? ( x11-libs/libxcb )
@@ -30,16 +32,19 @@ DEPEND="
 "
 
 src_compile() {
+	distutils-r1_src_compile
+
 	if use launcher; then
 		emake contrib/autorandr_launcher/autorandr-launcher
 	fi
 }
 
 src_install() {
+	distutils-r1_src_install
+
 	doman autorandr.1
 
 	local targets=(
-		autorandr
 		autostart_config
 		$(usex bash-completion bash_completion "")
 		$(usev launcher)
