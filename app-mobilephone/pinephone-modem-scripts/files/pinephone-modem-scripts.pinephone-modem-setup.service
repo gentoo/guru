@@ -1,0 +1,9 @@
+[Unit]
+Description=Setup modem
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/pinephone-modem-setup.sh
+
+[Install]
+WantedBy=graphical.target
