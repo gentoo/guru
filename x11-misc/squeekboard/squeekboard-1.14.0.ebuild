@@ -62,14 +62,15 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
-DEPEND="
+RDEPEND="
 	${PYTHON_DEPS}
 	dev-libs/feedbackd
+	dev-libs/wayland-protocols
 	gnome-base/gnome-desktop
 	media-fonts/noto-emoji
 	x11-libs/gtk+:3
 "
-RDEPEND="${DEPEND}"
+
 BDEPEND="
 	dev-util/gtk-doc
 	dev-util/intltool
