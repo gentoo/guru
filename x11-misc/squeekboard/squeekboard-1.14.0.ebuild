@@ -49,7 +49,7 @@ CRATES="
 	xkbcommon-0.4.0
 	yaml-rust-0.4.5
 "
-inherit cargo gnome2-utils meson xdg
+inherit cargo gnome2-utils meson toolchain-funcs xdg
 
 MY_COMMIT="19630334b07d6d2949932cf05018925cb3ab9613"
 
@@ -83,6 +83,7 @@ S="${WORKDIR}/${PN}-${MY_COMMIT}"
 QA_FLAGS_IGNORED="/usr/bin/squeekboard-test-layout"
 
 src_install() {
+	CC="$(tc-getCC)"
 	meson_src_install
 	insinto /usr/bin
 	doins "${S}/tools/squeekboard-restyled"
