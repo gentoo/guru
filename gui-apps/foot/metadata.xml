@@ -7,5 +7,6 @@
 	</maintainer>
 	<use>
 		<flag name="ime">Enable IME support</flag>
+		<flag name="grapheme-clustering">Enable grapheme clustering support</flag>
 	</use>
 </pkgmetadata>
