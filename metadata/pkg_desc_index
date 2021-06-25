@@ -42,7 +42,7 @@ app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature applicat
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/mkp224o 1.5.0: Vanity address generator for v3 Tor hidden service addresses
 app-crypt/reop 2.1.1: reasonable expectation of privacy
-app-crypt/tomb 2.9-r5: Tomb :: File Encryption on GNU/Linux
+app-crypt/tomb 2.9-r6: Tomb :: File Encryption on GNU/Linux
 app-dicts/dictd-devils 20150822: The Devil's Dictionary for dict
 app-dicts/dictd-elements 20030309: Jay Kominek's database of the elements for dict
 app-dicts/dictd-foldoc 20180405: The Free On-line Dictionary of Computing for dict
@@ -100,6 +100,7 @@ app-misc/watchexec 1.15.3 1.16.0 1.16.1: Executes commands in response to file m
 app-misc/wego 2.0_p20190211-r1: Wego is a weather client for the terminal
 app-mobilephone/flashlight 0.1.1-r1: It's a flashlight, what do you expect?
 app-mobilephone/mobile-config-firefox 2.1.0: Mobile and privacy friendly configuration for Firefox
+app-mobilephone/usb-tethering 0.1: USB tethering on Pine64/ConfigFS systems
 app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
 app-office/openoffice-bin 4.1.10: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.6: Pyspread is a non-traditional spreadsheet written in Python
@@ -122,7 +123,7 @@ app-shells/zsh-autosuggestions 0.6.4: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
 app-shells/zsh-history-to-fish 0.3.0: Bring your ZSH history to Fish shell
 app-text/OCRmyPDF 12.0.2: OCRmyPDF adds an OCR text layer to scanned PDF files
-app-text/epubgrep 0.5.0 0.5.1: Search tool for EPUB e-books
+app-text/epubgrep 0.5.1 0.6.0: Search tool for EPUB e-books
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/klogg 20.12: A GUI application to browse and search through long and complex log files
 app-text/komikku 0.28.1 0.29.2: An online/offline manga reader for GNOME
@@ -637,7 +638,7 @@ kde-apps/kclock 21.05 21.06: A convergent clock application for Plasma
 kde-apps/krecorder 21.05 21.06: A convergent audio recording application for Plasma
 kde-apps/tokodon 21.06: Mastodon client for Plasma and Plasma Mobile
 kde-frameworks/kirigami-addons 0.2: Convergent visual components for Kirigami-based applications
-kde-misc/geminipart 20210530: KPart for viewing text/gemini files
+kde-misc/geminipart 20210530-r1: KPart for viewing text/gemini files
 kde-misc/kio-gemini 20210516: Gemini KIO slave
 kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 kde-misc/plasma5-wallpapers-dynamic 3.3.9 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.

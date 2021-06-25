@@ -1,15 +1,16 @@
-BDEPEND=virtual/pkgconfig virtual/pkgconfig
-DEFINED_PHASES=install postinst
-DEPEND=virtual/pkgconfig
+BDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=virtual/pkgconfig launcher? ( x11-libs/libxcb ) udev? ( virtual/udev )
 DESCRIPTION=Automatically select a display configuration based on connected devices
 EAPI=7
 HOMEPAGE=https://github.com/phillipberndt/autorandr
-INHERIT=bash-completion-r1 systemd udev
-IUSE=bash-completion systemd udev
-KEYWORDS=~amd64
+INHERIT=bash-completion-r1 distutils-r1 systemd udev
+IUSE=bash-completion launcher systemd udev python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=bash-completion? ( app-shells/bash ) systemd? ( sys-apps/systemd ) udev? ( virtual/udev )
+RDEPEND=launcher? ( x11-libs/libxcb ) udev? ( virtual/udev ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/phillipberndt/autorandr/archive/1.11.tar.gz -> autorandr-1.11.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	udev	452708c3f55cf6e918b045adb949a9e6
-_md5_=6fc16a138ab254902f4eb7ad6d46a7cd
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	977ed3240c7c676eb18a277e65663c1c	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	ab5cf7189d651fc1d8a4a8184a54cb52	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	udev	452708c3f55cf6e918b045adb949a9e6
+_md5_=0b9e60bd3e3d04782d0173bed670598e

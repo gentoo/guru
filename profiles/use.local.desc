@@ -180,6 +180,7 @@ gui-apps/wofi:dmenu - Enable dmenu mode
 gui-apps/wofi:drun - Enable drun mode
 gui-apps/wofi:run - Enable run mode
 gui-wm/cage:X - Enable support for X11 applications (XWayland)
+kde-misc/geminipart:konqueror - Make Konqueror handle gemini:// URLs
 media-gfx/bonzomatic:system-glew - Use the systems installed version of GLEW (upstream-unsupported)
 media-gfx/bonzomatic:system-glfw - Use the systems installed version of GLFW (upstream-unsupported)
 media-gfx/bonzomatic:system-kissfft - Use the systems installed version of Kissfft (upstream-unsupported)
@@ -417,6 +418,5 @@ x11-libs/gtk-fortran:plplot - Build with sci-libs/plplot support
 x11-libs/sdl-fakeqwerty:sdl - Enable support for libsdl
 x11-libs/sdl-fakeqwerty:sdl2 - Enable support for libsdl2
 x11-libs/sdl-fakeqwerty:xlib - Enable support for libX11
-x11-misc/autorandr:systemd - Install autorand systemd files
-x11-misc/autorandr:udev - Use udev for monitor detection
+x11-misc/autorandr:launcher - Install the launcher
 x11-themes/arc-darkest-colors:icons - Install icon themes
