@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
 	<longdescription lang="en">Simple Go program to enable/disable C6 C-state, processor boosting, address space layout randomization (ASLR) and the Power Supply Idle Control workaround on an AMD Ryzen processor, in order to help with the infamous "MCE-random-reboots-while-idle" issue.</longdescription>
 	<upstream>
 		<bugs-to>https://github.com/qrwteyrutiyoup/ryzen-stabilizator/issues</bugs-to>
