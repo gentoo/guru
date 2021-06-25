@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+  <maintainer type="person">
+    <description>co-maintainers welcome</description>
+    <email>lssndrbarbieri@gmail.com</email>
+    <name>Alessandro Barbieri</name>
+  </maintainer>
   <longdescription>
 zfp is a compressed format for representing multidimensional floating-point and integer arrays. zfp provides compressed-array classes that support high throughput read and write random access to individual array elements. zfp also supports serial and parallel (OpenMP and CUDA) compression of whole arrays, e.g., for applications that read and write large data sets to and from disk.
 
@@ -8,10 +13,6 @@ zfp uses lossy but optionally error-bounded compression to achieve high compress
 
 zfp is freely available as open source and is distributed under a BSD license. zfp is primarily written in C and C++ but also includes Python and Fortran bindings. zfp conforms to various language standards, including C89, C99, C11, C++98, C++11, and C++14, and is supported on Linux, macOS, and Windows.
 </longdescription>
-  <maintainer type="person">
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
   <upstream>
     <bugs-to>https://github.com/LLNL/zfp/issues</bugs-to>
     <remote-id type="github">LLNL/zfp</remote-id>

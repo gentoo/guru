@@ -71,10 +71,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	virtual/pkgconfig
-	dev-util/intltool
-	virtual/rust
 	dev-util/gtk-doc
+	dev-util/intltool
+	virtual/pkgconfig
+	virtual/rust
 "
 
 S="${WORKDIR}/${PN}-${MY_COMMIT}"

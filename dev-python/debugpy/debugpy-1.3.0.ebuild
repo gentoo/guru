@@ -19,6 +19,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
+RESTRICT="!test? ( test )"
 
 DOCS="DESCRIPTION.md"
 
@@ -28,6 +29,7 @@ DEPEND="
 		dev-python/nose[${PYTHON_USEDEP}]
 		dev-python/pytest[${PYTHON_USEDEP}]
 	)"
+BDEPEND="app-arch/unzip"
 
 python_test() {
 	nosetests --verbose || die

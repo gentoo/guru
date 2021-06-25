@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer needed -->
-<upstream>
-	<maintainer>
-		<name>Denis Howe</name>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
 	</maintainer>
-</upstream>
-<longdescription>
-	A database for 'dict'-compatible dictionary software, based on the Free On-line Dictionary of Computing describing various topics in computing.
-</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Denis Howe</name>
+		</maintainer>
+	</upstream>
+	<longdescription>
+		A database for 'dict'-compatible dictionary software, based on the Free On-line Dictionary of Computing describing various topics in computing.
+	</longdescription>
 </pkgmetadata>

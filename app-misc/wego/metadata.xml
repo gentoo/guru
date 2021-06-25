@@ -4,7 +4,7 @@
 	<maintainer type="person">
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
-		<description>comaintainers welcome</description>
+		<description>co-maintainers welcome</description>
 	</maintainer>
 	<upstream>
 		<remote-id type="github">schachmat/wego</remote-id>

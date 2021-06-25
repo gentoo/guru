@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer needed -->
-<upstream>
-	<maintainer status="inactive">
-		<name>Jay Kominek</name>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
 	</maintainer>
-</upstream>
-<longdescription>
-	A database for 'dict'-compatible dictionary software, based on Jay Kominek's descriptions of the atomic elements.
-</longdescription>
+	<upstream>
+		<maintainer status="inactive">
+			<name>Jay Kominek</name>
+		</maintainer>
+	</upstream>
+	<longdescription>
+		A database for 'dict'-compatible dictionary software, based on Jay Kominek's descriptions of the atomic elements.
+	</longdescription>
 </pkgmetadata>

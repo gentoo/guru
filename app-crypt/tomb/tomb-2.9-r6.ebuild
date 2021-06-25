@@ -3,15 +3,17 @@
 
 EAPI="7"
 
+MYP="${P^}"
+
 inherit desktop qmake-utils toolchain-funcs xdg
 
-MYP="${P^}"
 DESCRIPTION="Tomb :: File Encryption on GNU/Linux"
 HOMEPAGE="
 	https://www.dyne.org/software/tomb
 	https://github.com/dyne/Tomb
 "
 SRC_URI="https://files.dyne.org/tomb/releases/Tomb-${PV}.tar.gz"
+S="${WORKDIR}/${MYP}"
 LICENSE="
 	GPL-3
 	gui? ( GPL-3+ )
@@ -19,9 +21,13 @@ LICENSE="
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="gui test tray"
+
 #test require sudo, can't be done non interactively
 RESTRICT="test"
-PATCHES=( "${FILESDIR}/gtomb.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-gtomb.patch"
+	"${FILESDIR}/${P}-respect-ldflags.patch"
+)
 DOCS=(
 	AUTHORS.txt
 	ChangeLog.txt
@@ -36,7 +42,7 @@ DOCS=(
 	doc/TKS1-draft.pdf
 	doc/tomb_manpage.pdf
 )
-S="${WORKDIR}/${MYP}"
+
 CDEPEND="
 	dev-libs/libgcrypt
 	tray? (
@@ -109,6 +115,8 @@ src_install() {
 		pushd extras/qt-tray || die
 		dobin tomb-qt-tray
 		doicon pixmaps/tomb_icon.png
+		insinto /usr/share
+		doins -r i18n
 		popd || die
 	fi
 

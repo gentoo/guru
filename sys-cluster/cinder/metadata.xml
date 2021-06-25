@@ -2,8 +2,9 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <email>prometheanfire@gentoo.org</email>
-    <name>Matthew Thode</name>
+    <description>co-maintainers welcome</description>
+    <email>lssndrbarbieri@gmail.com</email>
+    <name>Alessandro Barbieri</name>
   </maintainer>
   <use>
     <flag name="api">Installs the initscripts for the cinder api service</flag>

@@ -12,4 +12,7 @@
 		<email>cyber+gentoo@sysrq.in</email>
 		<name>Anna</name>
 	</maintainer>
+	<use>
+		<flag name="konqueror">Make Konqueror handle gemini:// URLs</flag>
+	</use>
 </pkgmetadata>
