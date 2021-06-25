@@ -22,7 +22,6 @@ DEPEND="
 	gnome-extra/gnome-calendar
 	gui-wm/phosh
 	net-voip/calls
-	net-im/chatty
 	net-dns/dnsmasq
 	sys-power/gtherm
 	sys-auth/rtkit
