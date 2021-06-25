@@ -29,11 +29,6 @@ DEPEND="
 	${RDEPEND}
 "
 
-src_prepare() {
-	default
-	sed -i 's/TARGETS=/TARGETS?=/' Makefile || die
-}
-
 src_compile() {
 	if use launcher; then
 		emake contrib/autorandr_launcher/autorandr-launcher
