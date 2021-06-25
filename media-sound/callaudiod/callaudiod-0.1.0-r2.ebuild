@@ -18,14 +18,14 @@ SLOT="0"
 
 S="${WORKDIR}/${PN}-${COMMIT}"
 
-DEPEND="
-	media-libs/alsa-lib
+RDEPEND="
 	dev-libs/glib
+	dev-util/gdbus-codegen
+	media-libs/alsa-lib
 	|| (
 		media-sound/pulseaudio
 		>=media-sound/apulse-0.1.12-r4[sdk]
 	)
 "
-RDEPEND="${DEPEND}"
 
 BUILD_DIR="${S}"/build
