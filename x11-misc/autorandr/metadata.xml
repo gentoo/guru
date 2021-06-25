@@ -6,7 +6,6 @@
 	<name>Florian Schmaus</name>
 </maintainer>
 <use>
-	<flag name="systemd">Install autorand systemd files</flag>
-	<flag name="udev">Use udev for monitor detection</flag>
+	<flag name="launcher">Install the launcher</flag>
 </use>
 </pkgmetadata>
