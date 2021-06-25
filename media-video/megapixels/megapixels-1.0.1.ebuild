@@ -13,13 +13,13 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
-DEPEND="
+RDEPEND="
 	gui-libs/gtk
-	media-gfx/imagemagick
+	media-libs/tiff
 	media-gfx/zbar
+	media-libs/libepoxy
 	media-libs/libraw
 "
-RDEPEND="${DEPEND}"
 
 PATCHES=( "${FILESDIR}"/fix-preview-color.patch )
 
