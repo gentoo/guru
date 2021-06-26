@@ -3,9 +3,9 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..9} )
 
-inherit xdg cmake optfeature python-single-r1 readme.gentoo-r1
+inherit cmake optfeature python-single-r1 readme.gentoo-r1 xdg
 
 MY_P="QLivePlayer-${PV}"
 
@@ -37,6 +37,7 @@ RDEPEND="
 	net-misc/curl
 	>=dev-qt/qtquickcontrols-5.15:5
 	>=dev-qt/qtquickcontrols2-5.15:5
+	>=dev-qt/qtsvg-5.15:5
 "
 DEPEND="
 	${COMMON_DEPEND}
