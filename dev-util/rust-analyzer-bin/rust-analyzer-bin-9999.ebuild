@@ -5,16 +5,16 @@ EAPI=7
 
 DESCRIPTION="An implementation of Language Server Protocol for the Rust programming language"
 HOMEPAGE="https://rust-analyzer.github.io"
-SRC_URI="https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux.gz"
+SRC_URI="https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz"
 
-LICENSE="Apache-2.0"
+LICENSE="Apache-2.0 MIT-with-advertising"
 SLOT="0"
 PROPERTIES="live"
 
 S=${WORKDIR}
 
 src_install() {
-	newbin rust-analyzer-linux rust-analyzer
+	newbin rust-analyzer-x86_64-unknown-linux-gnu rust-analyzer
 }
 
 pkg_postinst() {
