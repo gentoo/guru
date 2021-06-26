@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+  <maintainer type="person">
+    <description>co-maintainers welcome</description>
+    <email>lssndrbarbieri@gmail.com</email>
+    <name>Alessandro Barbieri</name>
+  </maintainer>
   <longdescription lang="en">
     Oslo middleware library includes components that can be injected into wsgi pipelines to intercept request/response flows. The base class can be enhanced with functionality like add/delete/modification of http headers and support for limiting size/connection etc
   </longdescription>
