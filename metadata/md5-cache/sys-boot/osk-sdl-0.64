@@ -1,0 +1,15 @@
+BDEPEND=app-text/scdoc test? ( x11-misc/xvfb-run ) >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst prepare test
+DESCRIPTION=Lightweight On-Screen-Keyboard based on SDL2
+EAPI=7
+HOMEPAGE=https://gitlab.com/postmarketOS/osk-sdl
+INHERIT=meson
+IUSE=test
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-3
+RDEPEND=app-portage/gentoolkit media-libs/cogl media-fonts/dejavu media-libs/libglvnd media-libs/libsdl2[kms,haptic] media-libs/mesa media-libs/sdl2-ttf sys-fs/cryptsetup sys-kernel/dracut
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.com/postmarketOS/osk-sdl/-/archive/69fb2d943a8664d5a587c967ac828f9ed5acd7ce.tar.gz -> osk-sdl-0.64.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	132cbb376048d079b5a012f5467c4e7f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	977ed3240c7c676eb18a277e65663c1c	meson	5ec14fdbc5446b8767e87e186e3b1a52
+_md5_=3a560a321167464168e6d14756c17770

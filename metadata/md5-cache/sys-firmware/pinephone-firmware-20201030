@@ -1,0 +1,9 @@
+DEFINED_PHASES=install
+DESCRIPTION=Firmwares files for PinePhone
+EAPI=7
+HOMEPAGE=https://xff.cz/git/linux-firmware
+KEYWORDS=~amd64 ~arm64
+LICENSE=linux-fw-redistributable no-source-code
+SLOT=0
+SRC_URI=https://github.com/scardracs/gentoo-packages/releases/download/20201030/pinephone-firmware-20201030.tar.gz
+_md5_=6b4ef3f2fccb8886dab7f3410ed71a45

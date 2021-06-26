@@ -1,6 +1,6 @@
 BDEPEND=>=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test
-DEPEND=vala? ( || ( dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] ) ) dev-libs/gobject-introspection
+DEPEND=dev-libs/gobject-introspection dev-util/gdbus-codegen vala? ( || ( dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] ) )
 DESCRIPTION=A simple daemon to monitor thermal zones and cooling devices
 EAPI=7
 HOMEPAGE=https://source.puri.sm/Librem5/gtherm
@@ -8,9 +8,9 @@ INHERIT=meson systemd vala
 IUSE=+introspection +vala
 KEYWORDS=~amd64 ~arm64
 LICENSE=GPL-3
-RDEPEND=vala? ( || ( dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] ) ) dev-libs/gobject-introspection
+RDEPEND=dev-libs/gobject-introspection dev-util/gdbus-codegen vala? ( || ( dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] ) )
 REQUIRED_USE=vala? ( introspection )
 SLOT=0
 SRC_URI=https://source.puri.sm/Librem5/gtherm/-/archive/v0.0.2/gtherm-v0.0.2.tar.gz -> gtherm-0.0.2.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	132cbb376048d079b5a012f5467c4e7f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	977ed3240c7c676eb18a277e65663c1c	meson	5ec14fdbc5446b8767e87e186e3b1a52	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	edos2unix	33e347e171066657f91f8b0c72ec8773	l10n	3c7381c56a184f0dd5ba3fb824808f30	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	9a53f21c753d823ba20a22f857c25cb4	vala	03f1f33473c1c770f4bffe2e342cd1df
-_md5_=f966a5f427eb0823237e9b566152fc28
+_md5_=ebdaff915c3d18336a149fbc4afc3a3c

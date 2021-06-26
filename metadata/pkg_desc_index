@@ -100,6 +100,8 @@ app-misc/watchexec 1.15.3 1.16.0 1.16.1: Executes commands in response to file m
 app-misc/wego 2.0_p20190211-r1: Wego is a weather client for the terminal
 app-mobilephone/flashlight 0.1.1-r1: It's a flashlight, what do you expect?
 app-mobilephone/mobile-config-firefox 2.1.0: Mobile and privacy friendly configuration for Firefox
+app-mobilephone/pinephone-meta 0.1: Meta-package for installing phosh on pinephone
+app-mobilephone/pinephone-modem-scripts 0.20.8: Modem scripts for the PinePhone
 app-mobilephone/usb-tethering 0.1: USB tethering on Pine64/ConfigFS systems
 app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
 app-office/openoffice-bin 4.1.10: Apache OpenOffice productivity suite
@@ -276,8 +278,6 @@ dev-libs/imsg-compat 6.8.2 9999: linux port of OpenBSD imsg
 dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
 dev-libs/libdwarf 20210528: The DWARF Debugging Information Format
 dev-libs/libnodave 0.8.5.1-r1: Connect to and exchange data with Siemens PLCs
-dev-libs/libofono 1.30: A Qt-based library that provides bindings to oFono
-dev-libs/libphonenumber 8.12.25: library for parsing, formatting, and validating international phone numbers
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
 dev-libs/mtxclient 0.4.1 0.5.1: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/octetos-biblion 0.1.1_alpha: Library for reading biblia.
@@ -588,6 +588,7 @@ games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launch
 games-util/joycond 9999: Combine joy-cons using hid-nintendo
 games-util/legendary 0.20.5 0.20.6: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.2: A simple GOG client for Linux
+gnome-extra/iio-sensor-proxy 3.1: IIO sensors to D-Bus proxy
 gui-apps/azote 1.9.0 1.9.1 9999: wallpaper manager for wlroots compositors
 gui-apps/coreaction 4.2.0 9999: A side bar for showing widgets for C Suite
 gui-apps/coreapps-meta 4.2.0 9999: Meta package for coreapps
@@ -610,7 +611,7 @@ gui-apps/coreterminal 4.2.0 9999: A terminal emulator for C Suite
 gui-apps/coretime 4.2.0 9999: A time related task manager for C Suite
 gui-apps/coretoppings 4.1.0-r1 4.2.0 9999: Additional features, plugins, widgets etc for C Suite
 gui-apps/coreuniverse 4.2.0 9999: Shows information about apps for C Suite
-gui-apps/foot 1.7.1 1.7.2 9999: A fast, lightweight and minimalistic Wayland terminal emulator
+gui-apps/foot 1.7.1 1.7.2 1.8.0 9999: A fast, lightweight and minimalistic Wayland terminal emulator
 gui-apps/foot-terminfo 1.7.1 1.7.2 9999: Terminfo for foot, a great Wayland terminal emulator
 gui-apps/mpvpaper 1.0 1.1 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.4.3 0.4.4 9999: GTK+ launchers for sway, i3 and some other WMs
@@ -671,6 +672,7 @@ media-gfx/sic 0.19.0: Accessible image processing and conversion from the termin
 media-gfx/silicon 0.4.0 0.4.1 0.4.3: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-gfx/ttfautohint 1.8.3: A library for automated hinting of truetype fonts
+media-libs/alsa-ucm-pinephone 20210507: ALSA ucm configuration files for PinePhone
 media-libs/alvr 15.2.1_p20210604: Wireless driver for Oculus Quest
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.1.2: AMD Open Source Driver for Vulkan
 media-libs/fcft 2.3.3 2.4.0 2.4.1 9999: A simple library for font loading and glyph rasterization
@@ -717,11 +719,11 @@ media-video/uxplay 0_pre20210525: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
 net-analyzer/munin-contrib 0.2021.04.27: user contributed stuff related to munin
 net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various plugins for Munin
+net-dialup/atinout 0.9.1: AT commands as input are sent to modem and responses given as output
 net-dialup/tio 1.32: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.5 9.0_rc1-r1 9.0: XMPP gateway to IRC
-net-im/chatty 0.3.1: Messaging client
 net-im/discord-canary-bin 0.0.125: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-im/guilded-bin 1.0.9101267: Drop Discord, get Guilded
@@ -738,6 +740,7 @@ net-misc/FORT-validator 1.4.1 1.4.2 1.5.0: FORT validator is an open source RPKI
 net-misc/amfora 1.8.0: A fancy terminal browser for the Gemini protocol.
 net-misc/can-utils 2020.02.04 2020.12.0-r1 9999-r3: CAN userspace utilities and tools
 net-misc/castor 0.8.15 0.8.16: A graphical browser for plain-text protocols
+net-misc/eg25-manager 20210617: Daemon for managing the Quectel EG25 modem
 net-misc/freetube-bin 0.11.3 0.12.0: https://github.com/FreeTubeApp/FreeTube
 net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
@@ -794,7 +797,7 @@ sci-physics/SU2 7.1.1: SU2: An Open-Source Suite for Multiphysics Simulation and
 sys-apps/0xFFFF 0.8 0.9: The 0pen Free Fiasco Firmware Flasher
 sys-apps/dool 0.8_pre20191010-r1 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
 sys-apps/drm_info 2.2.0 2.3.0 9999: Small utility to dump info about DRM devices
-sys-apps/dust 0.5.3 0.5.4: A more intuitive version of du
+sys-apps/dust 0.5.3 0.5.4 0.6.0: A more intuitive version of du
 sys-apps/hex 0.3.2 0.4.0 0.4.1: Futuristic take on hexdump
 sys-apps/procs 0.11.5 0.11.6: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
@@ -810,6 +813,7 @@ sys-block/systemd-swap 4.4.0 9999: Script for creating swap space from zram swap
 sys-boot/bmaptools 3.6: Bmaptool is a tool for creating and copyng files using block maps
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
+sys-boot/osk-sdl 0.64: Lightweight On-Screen-Keyboard based on SDL2
 sys-cluster/AXL 0.4.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
 sys-cluster/KVTree 1.1.1: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/cinder 17.1.0: Cinder is the OpenStack Block storage service, a spin out of nova-volumes
@@ -830,6 +834,7 @@ sys-cluster/shuffile 0.0.4: SHUFFILE Shuffle files between processes
 sys-cluster/sionlib 1.7.6-r1: Scalable I/O library for parallel access to task-local files
 sys-cluster/swift 2.26.0 2.27.0: A highly available, distributed, and eventually consistent object/blob store
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
+sys-firmware/pinephone-firmware 20201030: Firmwares files for PinePhone
 sys-fs/btrfs-heatmap 9: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
 sys-fs/dwarfs 0.4.1 0.5.4 0.5.4-r2 0.5.4-r3: A fast very high compression read-only FUSE file system

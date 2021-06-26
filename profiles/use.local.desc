@@ -44,6 +44,7 @@ app-misc/mat2:video - Use media-video/ffmpeg for video support
 app-misc/ntfy:dbus - Support for desktop notifications
 app-misc/ntfy:telegram - Add support for telegram backend
 app-misc/termdown:speak - Support for spoken countdown
+app-mobilephone/pinephone-meta:eg25-manager - Enable eg25 modem manager
 app-portage/emlop:fish-completion - Enable fish completion support.
 app-shells/starship:battery - Include support for laptop battery information.
 app-shells/starship:http - If enabled, starship can help you file bugs with itself
@@ -169,6 +170,7 @@ gui-apps/azote:simple-colorpicker - enable colorpicker without imagemagick
 gui-apps/azote:yaml - enable support for reading yaml files
 gui-apps/coreapps-meta:location - Enable location discovery
 gui-apps/coretoppings:location - Enable location discovery
+gui-apps/foot:grapheme-clustering - Enable grapheme clustering support
 gui-apps/foot:ime - Enable IME support
 gui-apps/nwg-launchers:bar - Installs nwgbar, a horizontal or vertical button bar.
 gui-apps/nwg-launchers:dmenu - Installs nwgdmenu, GTK dynamic menu windows.
