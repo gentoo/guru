@@ -713,7 +713,7 @@ media-video/kikoplay 0.8.0 0.8.1 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.0.1: A GTK3 camera application that knows how to deal with the media request api
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
 media-video/owncast 0.0.7: A self-hosted live video and web chat server
-media-video/qliveplayer 3.22.0 3.22.1: A player and recorder for live streams and videos with danmaku support
+media-video/qliveplayer 3.22.1 3.22.3: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/uxplay 0_pre20210525: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors

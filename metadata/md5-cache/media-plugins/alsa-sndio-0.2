@@ -1,11 +1,14 @@
-DEFINED_PHASES=compile install prepare
-DEPEND=media-libs/alsa-lib media-sound/sndio:=
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=media-libs/alsa-lib[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] media-sound/sndio:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?]
 DESCRIPTION=ALSA PCM to play audio on sndio servers
 EAPI=7
 HOMEPAGE=https://github.com/Duncaen/alsa-sndio
+INHERIT=multilib-minimal
+IUSE=abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
 KEYWORDS=~amd64
 LICENSE=ISC
-RDEPEND=media-libs/alsa-lib media-sound/sndio:=
+RDEPEND=media-libs/alsa-lib[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] media-sound/sndio:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?]
 SLOT=0
 SRC_URI=https://github.com/Duncaen/alsa-sndio/archive/0.2.tar.gz -> alsa-sndio-0.2.tar.gz
-_md5_=13f32c67ae5a0e2576eee18644012f7e
+_eclasses_=multibuild	05a584848db4901c97fcd94ae7cc3a97	multilib	97566c1a256d07b00848aa767e38a352	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib-build	c311a933538fe97b72600926696ea66f	multilib-minimal	12533389e8f5cc25f70ffcddbc9b3d29
+_md5_=63546234d262caa559a4ba02e5815b9b
