@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit meson gnome2-utils udev
+inherit meson gnome2-utils udev xdg-utils
 
 MY_COMMIT="f5feb4b3d17bbf16171d716bbb8e28f3a84542ef"
 
@@ -16,6 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="x11-libs/gtk+"
+BDEPEND="dev-lang/python-exec[native-symlinks]"
 
 S="${WORKDIR}/${PN}-${MY_COMMIT}"
 
@@ -27,8 +28,10 @@ src_install() {
 
 pkg_postinst() {
 	gnome2_schemas_update
+	xdg_desktop_database_update
 }
 
 pkg_postrm() {
 	gnome2_schemas_update
+	xdg_icon_cache_update
 }
