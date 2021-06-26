@@ -35,7 +35,7 @@ DEPEND="
 	>=dev-cpp/catch-2.13:0
 	>=dev-cpp/nlohmann_json-3.8.0
 	>=dev-libs/boost-1.73:=[context]
-	>=dev-libs/libfmt-7.1.0
+	>=dev-libs/libfmt-8
 	>=dev-libs/libzip-1.5
 	>=media-libs/opus-1.3.1
 	>=sys-libs/zlib-1.2

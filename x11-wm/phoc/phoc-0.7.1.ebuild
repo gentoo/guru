@@ -30,6 +30,7 @@ DEPEND="
 	dev-libs/glib
 	dev-libs/gobject-introspection
 	dev-libs/libinput
+	dev-libs/wayland-protocols
 	gnome-base/gnome-desktop
 	!gui-libs/wlroots
 	x11-libs/xcb-util

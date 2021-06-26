@@ -19,8 +19,9 @@ IUSE="+introspection +vala"
 REQUIRED_USE="vala? ( introspection )"
 
 DEPEND="
-	vala? ( $(vala_depend) )
 	dev-libs/gobject-introspection
+	dev-util/gdbus-codegen
+	vala? ( $(vala_depend) )
 "
 RDEPEND="${DEPEND}"
 
