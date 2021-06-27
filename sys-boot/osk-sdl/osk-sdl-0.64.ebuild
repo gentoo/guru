@@ -14,8 +14,7 @@ SRC_URI="https://gitlab.com/postmarketOS/osk-sdl/-/archive/${COMMIT}.tar.gz -> $
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="test"
-RESTRICT="!test? ( test )"
+RESTRICT="test"
 
 RDEPEND="
 	app-portage/gentoolkit
@@ -29,10 +28,7 @@ RDEPEND="
 	sys-kernel/dracut
 "
 
-BDEPEND="
-	app-text/scdoc
-	test? ( x11-misc/xvfb-run )
-"
+BDEPEND="app-text/scdoc"
 
 S="${WORKDIR}/${PN}-${COMMIT}"
 

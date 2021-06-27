@@ -13,11 +13,16 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 RESTRICT="test"
+IUSE="+systemd"
 
 RDEPEND="
 	dev-libs/glib:*
 	gnome-base/gnome-common
 	dev-libs/libgudev
+	systemd? (
+		!sys-apps/openrc
+		sys-apps/systemd
+	)
 	virtual/udev
 "
 

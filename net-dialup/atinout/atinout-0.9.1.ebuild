@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit toolchain-funcs
+
 DESCRIPTION="AT commands as input are sent to modem and responses given as output"
 HOMEPAGE="http://atinout.sourceforge.net/index.html"
 SRC_URI="https://netix.dl.sourceforge.net/project/atinout/v0.9.1/${P}.tar.gz"
@@ -16,4 +18,6 @@ PATCHES=(
 	"${FILESDIR}"/0002-do-not-rely-on-CR-in-modem-output.patch
 )
 
-QA_PREBUILT="/usr/bin/atinout"
+src_compile() {
+	CC="$(tc-getCC)" emake LDFLAGS="${LDFLAGS}"
+}

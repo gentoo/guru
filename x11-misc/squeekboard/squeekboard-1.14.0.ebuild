@@ -49,6 +49,7 @@ CRATES="
 	xkbcommon-0.4.0
 	yaml-rust-0.4.5
 "
+
 inherit cargo gnome2-utils meson toolchain-funcs xdg
 
 MY_COMMIT="19630334b07d6d2949932cf05018925cb3ab9613"
@@ -65,6 +66,7 @@ KEYWORDS="~amd64 ~arm64"
 RDEPEND="
 	${PYTHON_DEPS}
 	dev-libs/feedbackd
+	dev-libs/wayland
 	dev-libs/wayland-protocols
 	gnome-base/gnome-desktop
 	media-fonts/noto-emoji
