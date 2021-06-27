@@ -16,8 +16,10 @@ KEYWORDS="~amd64 ~arm64"
 PATCHES=(
 	"${FILESDIR}"/0001-make-gcc-happy-by-adding-fallthrough-comment.patch
 	"${FILESDIR}"/0002-do-not-rely-on-CR-in-modem-output.patch
+	"${FILESDIR}"/0003-patch-makefile.patch
 )
 
 src_compile() {
-	CC="$(tc-getCC)" emake LDFLAGS="${LDFLAGS}"
+	tc-export CC
+	emake
 }
