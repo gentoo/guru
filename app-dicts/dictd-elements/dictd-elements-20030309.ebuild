@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="Jay Kominek's database of the elements for dict"
-HOMEPAGE="http://www.dict.org"
+HOMEPAGE="https://www.dict.org/"
 SRC_URI="https://web.archive.org/web/20121223051336/http://www.miranda.org:80/~jkominek/elements/elements.db -> ${P}.db"
 S="$WORKDIR"
 LICENSE="public-domain"

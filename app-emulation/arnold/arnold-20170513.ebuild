@@ -9,7 +9,7 @@ inherit cmake desktop wxwidgets
 
 DESCRIPTION="Amstrad CPC emulator"
 HOMEPAGE="http://www.cpctech.org.uk"
-SRC_URI="http://cpctech.cpc-live.com/arnsrc.zip -> ${P}.zip"
+SRC_URI="https://cpctech.cpc-live.com/arnsrc.zip -> ${P}.zip"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
