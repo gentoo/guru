@@ -1,15 +1,16 @@
 BDEPEND=>=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm test
-DEPEND=dev-libs/glib:* gnome-base/gnome-common dev-libs/libgudev virtual/udev dev-util/gtk-doc-am virtual/pkgconfig
+DEPEND=dev-libs/glib:* gnome-base/gnome-common dev-libs/libgudev systemd? ( !sys-apps/openrc sys-apps/systemd ) virtual/udev dev-util/gtk-doc-am virtual/pkgconfig
 DESCRIPTION=IIO sensors to D-Bus proxy
 EAPI=7
 HOMEPAGE=https://gitlab.freedesktop.org/hadess/iio-sensor-proxy/
 INHERIT=gnome2-utils meson systemd udev
+IUSE=+systemd
 KEYWORDS=~amd64 ~arm64
 LICENSE=GPL-3
-RDEPEND=dev-libs/glib:* gnome-base/gnome-common dev-libs/libgudev virtual/udev
+RDEPEND=dev-libs/glib:* gnome-base/gnome-common dev-libs/libgudev systemd? ( !sys-apps/openrc sys-apps/systemd ) virtual/udev
 RESTRICT=test
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/hadess/iio-sensor-proxy/-/archive/3.1/iio-sensor-proxy-3.1.tar.gz
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	gnome2-utils	c8e3fff820d850c0e003e22208d2eea3	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	132cbb376048d079b5a012f5467c4e7f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	977ed3240c7c676eb18a277e65663c1c	meson	5ec14fdbc5446b8767e87e186e3b1a52	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	udev	452708c3f55cf6e918b045adb949a9e6
-_md5_=28b003a5106164760280bb54cb5c3ac4
+_md5_=8e9944caa9e39c1cc94cc144faf95efa

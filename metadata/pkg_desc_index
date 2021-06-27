@@ -66,7 +66,7 @@ app-emulation/spice-html5 0.2.1 0.2.2: Spice Javascript client
 app-eselect/eselect-scheme 3.1.0: Manages scheme implementations
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/afetch 2.1.0: Simple system info written in C
-app-misc/apidb 5.8.0_beta: API Generator for Database access
+app-misc/apidb 5.8.0_beta 5.11.0_beta: API Generator for Database access
 app-misc/brightness-control 2.0_p20210331: Qt Brightness Controller in Python
 app-misc/brightnessctl 0.5.1: A program to read and control device brightness
 app-misc/broot 1.6.1: A new way to see and navigate directory trees
@@ -98,7 +98,7 @@ app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
 app-misc/watchexec 1.15.3 1.16.0 1.16.1: Executes commands in response to file modifications
 app-misc/wego 2.0_p20190211-r1: Wego is a weather client for the terminal
-app-mobilephone/flashlight 0.1.1-r1: It's a flashlight, what do you expect?
+app-mobilephone/flashlight 0.1.1-r2: It's a flashlight, what do you expect?
 app-mobilephone/mobile-config-firefox 2.1.0: Mobile and privacy friendly configuration for Firefox
 app-mobilephone/pinephone-meta 0.1: Meta-package for installing phosh on pinephone
 app-mobilephone/pinephone-modem-scripts 0.20.8: Modem scripts for the PinePhone
@@ -281,7 +281,7 @@ dev-libs/libnodave 0.8.5.1-r1: Connect to and exchange data with Siemens PLCs
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
 dev-libs/mtxclient 0.4.1 0.5.1: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/octetos-biblion 0.1.1_alpha: Library for reading biblia.
-dev-libs/octetos-core 2.15.0_beta 2.20.0_beta 9999: C/C++ library to mainly provide Semantic Versioned implementation
+dev-libs/octetos-core 2.15.0_beta 2.20.0_beta 2.25.0_beta: C/C++ library to mainly provide Semantic Versioned implementation
 dev-libs/octetos-coreutils 0.11.1_alpha 0.12.0_alpha: Similar to coreutils but is a C++ API.
 dev-libs/octetos-db 1.3.2_alpha 1.3.3_alpha: C++ library for Database Acces.
 dev-libs/octetos-db-abstract 0.1.2_alpha 0.6.0_alpha: API to access database, abstract component.
@@ -700,7 +700,7 @@ media-sound/ibniz 1.18: virtual machine designed for extremely compact low-level
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/ncpamixer 1.3.3.1: A ncurses mixer for PulseAudio inspired by pavucontrol
 media-sound/noson-app 4.4.9: The essential to control music from your SONOS devices on Linux platforms
-media-sound/nuclear-bin 0.6.14: Nuclear is a streaming program that pulls content from free sources on internet
+media-sound/nuclear-bin 0.6.15: Nuclear is a streaming program that pulls content from free sources on internet
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
 media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file or stream as a PulseAudio source
 media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
