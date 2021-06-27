@@ -8,7 +8,7 @@ EGIT_REPO_URI="https://github.com/bgloyer/pacvis.git"
 inherit distutils-r1 git-r3
 
 DESCRIPTION="Displays dependency graphs of packages"
-HOMEPAGE="https://github.com/bgloyer/pacvis.git"
+HOMEPAGE="https://github.com/bgloyer/pacvis"
 SRC_URI=""
 
 LICENSE="MIT"

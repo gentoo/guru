@@ -10,19 +10,19 @@ SV="${PV##*_}"
 SD="${SN}-${SV}"
 
 DESCRIPTION="Webster's Revised Unabridged Dictionary (1913) for dict"
-HOMEPAGE="http://www.micra.com"
+HOMEPAGE="https://www.micra.com"
 SRC_URI="
-	http://www.gutenberg.org/files/660/old/pgw${GV}ab.zip
-	http://www.gutenberg.org/files/661/old/pgw${GV}c.zip
-	http://www.gutenberg.org/files/662/old/pgw${GV}de.zip
-	http://www.gutenberg.org/files/663/old/pgw${GV}fh.zip
-	http://www.gutenberg.org/files/664/old/pgw${GV}il.txt
-	http://www.gutenberg.org/files/665/old/pgw${GV}mo.zip
-	http://www.gutenberg.org/files/666/old/pgw${GV}pq.zip
-	http://www.gutenberg.org/files/667/old/pgw${GV}r.zip
-	http://www.gutenberg.org/files/668/old/pgw${GV}s.zip
-	http://www.gutenberg.org/files/669/old/pgw${GV}tw.zip
-	http://www.gutenberg.org/files/670/old/pgw${GV}xz.zip
+	https://www.gutenberg.org/files/660/old/pgw${GV}ab.zip
+	https://www.gutenberg.org/files/661/old/pgw${GV}c.zip
+	https://www.gutenberg.org/files/662/old/pgw${GV}de.zip
+	https://www.gutenberg.org/files/663/old/pgw${GV}fh.zip
+	https://www.gutenberg.org/files/664/old/pgw${GV}il.txt
+	https://www.gutenberg.org/files/665/old/pgw${GV}mo.zip
+	https://www.gutenberg.org/files/666/old/pgw${GV}pq.zip
+	https://www.gutenberg.org/files/667/old/pgw${GV}r.zip
+	https://www.gutenberg.org/files/668/old/pgw${GV}s.zip
+	https://www.gutenberg.org/files/669/old/pgw${GV}tw.zip
+	https://www.gutenberg.org/files/670/old/pgw${GV}xz.zip
 	https://git.sr.ht/~ag_eitilt/${SN}/archive/${SV}.tar.gz -> ${SD}.tar.gz
 "
 S="${WORKDIR}"

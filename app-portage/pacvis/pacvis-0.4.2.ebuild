@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python{3_6,3_7,3_8} )
 inherit distutils-r1
 
 DESCRIPTION="Displays dependency graphs of packages"
-HOMEPAGE="https://github.com/bgloyer/pacvis.git"
+HOMEPAGE="https://github.com/bgloyer/pacvis"
 SRC_URI="https://github.com/bgloyer/pacvis/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"

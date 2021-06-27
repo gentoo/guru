@@ -9,7 +9,7 @@ inherit R-packages
 
 DESCRIPTION='Sparse and Dense Matrix Classes and Methods'
 KEYWORDS="~amd64"
-SRC_URI="http://cran.r-project.org/src/contrib/${PN}_${MYPV}.tar.gz"
+SRC_URI="https://cran.r-project.org/src/contrib/${PN}_${MYPV}.tar.gz"
 LICENSE='GPL-2+'
 
 DEPEND="

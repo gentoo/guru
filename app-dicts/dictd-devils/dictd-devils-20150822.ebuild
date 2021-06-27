@@ -4,8 +4,8 @@
 EAPI=8
 
 DESCRIPTION="The Devil's Dictionary for dict"
-HOMEPAGE="http://www.dict.org"
-SRC_URI="http://www.gutenberg.org/files/972/972.zip -> ${P}.zip"
+HOMEPAGE="https://www.dict.org/"
+SRC_URI="https://www.gutenberg.org/files/972/972.zip -> ${P}.zip"
 S="$WORKDIR"
 LICENSE="public-domain"
 SLOT="0"
