@@ -2,10 +2,10 @@ BDEPEND=>=app-text/dictd-1.13.0-r3 app-arch/unzip
 DEFINED_PHASES=compile install prepare
 DESCRIPTION=The Devil's Dictionary for dict
 EAPI=8
-HOMEPAGE=http://www.dict.org
+HOMEPAGE=https://www.dict.org/
 KEYWORDS=~amd64
 LICENSE=public-domain
 RDEPEND=>=app-text/dictd-1.13.0-r3
 SLOT=0
-SRC_URI=http://www.gutenberg.org/files/972/972.zip -> dictd-devils-20150822.zip
-_md5_=1979725a13def0a82a7990e26236c6f2
+SRC_URI=https://www.gutenberg.org/files/972/972.zip -> dictd-devils-20150822.zip
+_md5_=9d95a8ce8dfc860584e022ce5d6dfae9

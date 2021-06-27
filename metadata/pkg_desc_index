@@ -417,7 +417,6 @@ dev-python/oslo-versionedobjects 2.3.0: A library that provides a generic versio
 dev-python/oslo-vmware 3.7.0: Oslo VMware library for OpenStack projects
 dev-python/osprofiler 3.4.0: OpenStack Profiler Library
 dev-python/ots-python 8.1.4: A Python wrapper for OpenType Sanitizer
-dev-python/outcome 1.1.0: Capture the outcome of Python function calls
 dev-python/ovsdbapp 1.5.0: A library for creating OVSDB applications
 dev-python/pdfminer-six 20201018: Community maintained fork of pdfminer
 dev-python/pep517 0.9.1: standard API for systems which build Python packages
@@ -453,7 +452,6 @@ dev-python/pytest-randomly 3.8.0: Pytest plugin to randomly order tests and cont
 dev-python/pytest-sanic 1.7.1: a Pytest Plugin for Sanic
 dev-python/pytest-sugar 0.9.4: Plugin for pytest that changes the default look and feel of pytest
 dev-python/pytest-toolbox 0.4: Numerous useful plugins for pytest
-dev-python/pytest-trio 0.7.0: This is a pytest plugin to help you test projects that use Trio
 dev-python/python-barbicanclient 5.0.1: Client library for Barbican API.
 dev-python/python-blazarclient 3.1.1: This is a client for the OpenStack Blazar API
 dev-python/python-designateclient 4.1.0: Python bindings to the Designate API.
@@ -490,7 +488,6 @@ dev-python/sphinx-argparse 0.2.5: Sphinx extension that automatically documents 
 dev-python/sphinx-click 3.0.0 3.0.1: Sphinx plugin to automatically document click-based applications
 dev-python/sphinxcontrib-katex 0.7.1: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-napoleon 0.7: Allow a different format in dosctrings for better clarity
-dev-python/sphinxcontrib-trio 1.1.2: Make Sphinx better at documenting Python functions and methods
 dev-python/spotipy 2.17.1: A light weight Python library for the Spotify Web API
 dev-python/sse-starlette 0.6.1 0.7.2: Server Sent Events for Starlette
 dev-python/starlette 0.14.2: The little ASGI framework that shines
@@ -500,8 +497,6 @@ dev-python/sysv_ipc 1.0.1 1.1.0: System V IPC primitives for python
 dev-python/taskflow 4.5.0: A library to do [jobs, tasks, flows] in a HA manner using different backends
 dev-python/tinyrpc 1.0.1: A protocol neutral RPC library that supports JSON-RPC and zmq.
 dev-python/tooz 2.7.1: Library centralizing the most common distributed primitives
-dev-python/trio 0.18.0 0.18.0_p20210212: Python library for async concurrency and I/O
-dev-python/trio-asyncio 0.12.0: a re-implementation of the asyncio mainloop on top of Trio
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill Algorithm
 dev-python/ttfautohint-py 0.4.3: A Python wrapper for ttfautohint
 dev-python/tweepy 3.10.0: An easy-to-use Python library for accessing the Twitter API.
@@ -589,6 +584,7 @@ games-util/joycond 9999: Combine joy-cons using hid-nintendo
 games-util/legendary 0.20.5 0.20.6: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.2: A simple GOG client for Linux
 gnome-extra/iio-sensor-proxy 3.1: IIO sensors to D-Bus proxy
+gnome-extra/portfolio 0.9.10: A minimalist file manager for those who want to use Linux mobile devices
 gui-apps/azote 1.9.0 1.9.1 9999: wallpaper manager for wlroots compositors
 gui-apps/coreaction 4.2.0 9999: A side bar for showing widgets for C Suite
 gui-apps/coreapps-meta 4.2.0 9999: Meta package for coreapps
@@ -630,7 +626,7 @@ gui-apps/wofi 1.2.3 1.2.4 9999: Wofi is a launcher/menu program for wlroots base
 gui-libs/libcprime 4.2.0 4.2.2 9999: Library for managing settings of CoreApps
 gui-libs/libcsys 4.2.0 9999: Library for managing the device
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
-gui-wm/cage 0.1.3 9999: A Wayland kiosk
+gui-wm/cage 0.1.3 0.1.4 9999: A Wayland kiosk
 gui-wm/dwl 0.2.1: dwm for Wayland
 gui-wm/phosh 0.11.0: A pure Wayland shell prototype for GNOME on mobile devices
 gui-wm/phosh-meta 0.2: Meta package for Phosh
