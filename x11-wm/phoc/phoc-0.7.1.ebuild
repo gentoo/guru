@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit vala meson gnome2-utils xdg
+inherit meson vala xdg
 
 MY_PV="v${PV}"
 MY_P="${PN}-${MY_PV}"
@@ -24,20 +24,27 @@ SRC_URI="
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="+introspection"
+IUSE="+introspection +systemd test"
+RESTRICT="!test? ( test )"
 
-DEPEND="
+RDEPEND="
 	dev-libs/glib
 	dev-libs/gobject-introspection
 	dev-libs/libinput
+	dev-libs/wayland
 	dev-libs/wayland-protocols
 	gnome-base/gnome-desktop
-	!gui-libs/wlroots
+	systemd? (
+		!sys-apps/openrc
+		sys-apps/systemd
+	)
+	x11-libs/libdrm
+	x11-libs/pixman
 	x11-libs/xcb-util
 	x11-libs/xcb-util-wm
 	x11-wm/mutter
 "
-RDEPEND="${DEPEND}"
+
 BDEPEND="
 	dev-util/ctags
 	dev-util/meson
@@ -54,9 +61,8 @@ S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
 	default
-	eapply_user
-	rm -r "${S}"/subprojects/wlroots || die
-	mv "${WORKDIR}/${WL_P}" "${S}"/subprojects/wlroots || die
+	rm -r "${S}"/subprojects/wlroots || die "Failed to remove bundled wlroots"
+	cp -r "${WORKDIR}/${WL_P}" "${S}"/subprojects/wlroots || die "Failed to copy right version of wlroots"
 }
 
 src_configure() {
@@ -70,16 +76,14 @@ src_configure() {
 }
 
 src_install() {
-	meson_src_install
-	dobin "${S}"/helpers/scale-to-fit
+	DESTDIR="${D}" meson_src_install
+#	dobin "${S}"/helpers/scale-to-fit
 }
 
 pkg_postinst() {
 	xdg_pkg_postinst
-	gnome2_schemas_update
 }
 
 pkg_postrm() {
 	xdg_pkg_postrm
-	gnome2_schemas_update
 }
