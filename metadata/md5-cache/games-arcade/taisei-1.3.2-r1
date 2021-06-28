@@ -11,5 +11,5 @@ LICENSE=MIT CC-BY-4.0 CC0-1.0 public-domain
 RDEPEND=media-libs/freetype:2 >=media-libs/libpng-1.5 media-libs/libsdl2 media-libs/sdl2-mixer[opus] media-libs/libwebp sys-libs/zlib zip? ( dev-libs/libzip )
 SLOT=0
 SRC_URI=https://github.com/taisei-project/taisei/releases/download/v1.3.2/taisei-v1.3.2.tar.xz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	132cbb376048d079b5a012f5467c4e7f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	977ed3240c7c676eb18a277e65663c1c	meson	5ec14fdbc5446b8767e87e186e3b1a52	python-any-r1	901d9e22c7a848a1196502edf060f330	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	977ed3240c7c676eb18a277e65663c1c	meson	5bc3f1b890f90cc00cf1d1dddc10233e	python-any-r1	901d9e22c7a848a1196502edf060f330	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
 _md5_=073dcd8d404e3509db4ba425ff6b8484

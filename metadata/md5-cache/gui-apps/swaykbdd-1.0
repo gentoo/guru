@@ -10,5 +10,5 @@ LICENSE=MIT
 RDEPEND=gui-wm/sway dev-libs/json-c:0=
 SLOT=0
 SRC_URI=https://github.com/artemsen/swaykbdd/archive/v1.0.tar.gz -> swaykbdd-1.0.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	132cbb376048d079b5a012f5467c4e7f	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	977ed3240c7c676eb18a277e65663c1c	meson	5ec14fdbc5446b8767e87e186e3b1a52
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	977ed3240c7c676eb18a277e65663c1c	meson	5bc3f1b890f90cc00cf1d1dddc10233e
 _md5_=b6f3da7a2074026cbeede07f3e7b1ef2
