@@ -13,5 +13,6 @@ HOMEPAGE="https://github.com/hartator/wayback-machine-downloader"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-#requires network
+
 RESTRICT="test"
+PROPERTIES="test_network"

@@ -17,7 +17,7 @@ HOMEPAGE="https://github.com/cabo/kramdown-rfc2629"
 LICENSE="MIT"
 
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 ruby_add_rdepend "

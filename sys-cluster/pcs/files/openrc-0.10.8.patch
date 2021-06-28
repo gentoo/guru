@@ -1,5 +1,5 @@
---- a/pcs-0.10.8/pcs/lib/external.py
-+++ b/pcs-0.10.8/pcs/lib/external.py
+--- a/pcs/lib/external.py
++++ b/pcs/lib/external.py
 @@ -13,8 +13,8 @@
  from pcs.lib.errors import LibraryError
  
@@ -81,8 +81,8 @@
      if return_code != 0:
          return []
  
---- a/pcs-0.10.8/pcs/settings_default.py
-+++ b/pcs-0.10.8/pcs/settings_default.py
+--- a/pcs/settings_default.py
++++ b/pcs/settings_default.py
 @@ -1,8 +1,8 @@
  import os.path
  
@@ -112,8 +112,8 @@
  # this limit is also mentioned in docs, change there as well
  sbd_max_device_num = 3
  # message types are also mentioned in docs, change there as well
---- a/pcs-0.10.8/pcs/settings.py.debian
-+++ b/pcs-0.10.8/pcs/settings.py.debian
+--- a/pcs/settings.py.debian
++++ b/pcs/settings.py.debian
 @@ -1,10 +1,10 @@
  from pcs.settings_default import *
 -service_binary = "/usr/sbin/service"
@@ -130,8 +130,8 @@
  pcsd_exec_location = "/usr/share/pcsd/"
  pcsd_gem_path = None
  pcsd_config = "/etc/default/pcsd"
---- a/pcs-0.10.8/pcs/utils.py
-+++ b/pcs-0.10.8/pcs/utils.py
+--- a/pcs/utils.py
++++ b/pcs/utils.py
 @@ -2187,7 +2187,7 @@
          )
      else:
@@ -150,8 +150,8 @@
          )
      return join_multilines([stderr, stdout]), retval
  
---- a/pcs-0.10.8/pcsd/pcs.rb
-+++ b/pcs-0.10.8/pcsd/pcs.rb
+--- a/pcsd/pcs.rb
++++ b/pcsd/pcs.rb
 @@ -1708,11 +1708,22 @@
  def is_service_enabled?(service)
    if ISSYSTEMCTL
@@ -233,8 +233,8 @@
    end
    _, _, retcode = run_cmd(PCSAuth.getSuperuserAuth(), *cmd)
    return (retcode == 0)
---- a/pcs-0.10.8/pcsd/settings.rb
-+++ b/pcs-0.10.8/pcsd/settings.rb
+--- a/pcsd/settings.rb
++++ b/pcsd/settings.rb
 @@ -3,7 +3,7 @@
  PCSD_EXEC_LOCATION = '/usr/lib/pcsd/'
  PCSD_VAR_LOCATION = '/var/lib/pcsd/'
@@ -244,8 +244,8 @@
  
  CRT_FILE = PCSD_VAR_LOCATION + 'pcsd.crt'
  KEY_FILE = PCSD_VAR_LOCATION + 'pcsd.key'
---- a/pcs-0.10.8/pcsd/settings.rb.debian
-+++ b/pcs-0.10.8/pcsd/settings.rb.debian
+--- a/pcsd/settings.rb.debian
++++ b/pcsd/settings.rb.debian
 @@ -3,7 +3,7 @@
  PCSD_EXEC_LOCATION = '/usr/share/pcsd/'
  PCSD_VAR_LOCATION = '/var/lib/pcsd/'
@@ -255,8 +255,8 @@
  
  CRT_FILE = PCSD_VAR_LOCATION + 'pcsd.crt'
  KEY_FILE = PCSD_VAR_LOCATION + 'pcsd.key'
---- a/pcs-0.10.8/pcs_test/tier0/lib/test_external.py
-+++ b/pcs-0.10.8/pcs_test/tier0/lib/test_external.py
+--- a/pcs_test/tier0/lib/test_external.py
++++ b/pcs_test/tier0/lib/test_external.py
 @@ -16,8 +16,8 @@
  import pcs.lib.external as lib
  

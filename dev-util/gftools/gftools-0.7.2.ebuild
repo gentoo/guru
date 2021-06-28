@@ -1,11 +1,11 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-COMMIT="0fe81a08dee6e7614c0f196e6668a9aafaad0d3e"
-DISTUTILS_USE_SETUPTOOLS=rdepend
+COMMIT="e33ccf3515cc5b8005a3a50b4163663623649d20"
 DISTUTILS_SINGLE_IMPL=1
+DISTUTILS_USE_SETUPTOOLS=rdepend
 PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
@@ -25,36 +25,36 @@ PROPERTIES="test_network"
 
 RDEPEND="
 	$(python_gen_cond_dep '
-		app-arch/brotli[python,${PYTHON_MULTI_USEDEP}]
-		dev-python/absl-py[${PYTHON_MULTI_USEDEP}]
-		dev-python/babelfont[${PYTHON_MULTI_USEDEP}]
-		dev-python/browserstack-local-python[${PYTHON_MULTI_USEDEP}]
-		dev-python/fonttools[${PYTHON_MULTI_USEDEP}]
-		dev-python/glyphsLib[${PYTHON_MULTI_USEDEP}]
-		dev-python/ots-python[${PYTHON_MULTI_USEDEP}]
-		dev-python/protobuf-python[${PYTHON_MULTI_USEDEP}]
-		dev-python/pybrowserstack-screenshots[${PYTHON_MULTI_USEDEP}]
-		dev-python/pygit2[${PYTHON_MULTI_USEDEP}]
-		dev-python/PyGithub[${PYTHON_MULTI_USEDEP}]
-		dev-python/pyyaml[${PYTHON_MULTI_USEDEP}]
-		dev-python/statmake[${PYTHON_MULTI_USEDEP}]
-		dev-python/strictyaml[${PYTHON_MULTI_USEDEP}]
-		dev-python/requests[${PYTHON_MULTI_USEDEP}]
-		dev-python/tabulate[${PYTHON_MULTI_USEDEP}]
-		dev-python/ttfautohint-py[${PYTHON_MULTI_USEDEP}]
-		dev-python/unidecode[${PYTHON_MULTI_USEDEP}]
-		dev-python/vttlib[${PYTHON_MULTI_USEDEP}]
-		dev-util/fontmake[${PYTHON_MULTI_USEDEP}]
+		app-arch/brotli[python,${PYTHON_USEDEP}]
+		dev-python/absl-py[${PYTHON_USEDEP}]
+		dev-python/babelfont[${PYTHON_USEDEP}]
+		dev-python/browserstack-local-python[${PYTHON_USEDEP}]
+		dev-python/fonttools[${PYTHON_USEDEP}]
+		dev-python/glyphsLib[${PYTHON_USEDEP}]
+		dev-python/ots-python[${PYTHON_USEDEP}]
+		dev-python/protobuf-python[${PYTHON_USEDEP}]
+		dev-python/pybrowserstack-screenshots[${PYTHON_USEDEP}]
+		dev-python/pygit2[${PYTHON_USEDEP}]
+		dev-python/PyGithub[${PYTHON_USEDEP}]
+		dev-python/pyyaml[${PYTHON_USEDEP}]
+		dev-python/statmake[${PYTHON_USEDEP}]
+		dev-python/strictyaml[${PYTHON_USEDEP}]
+		dev-python/requests[${PYTHON_USEDEP}]
+		dev-python/tabulate[${PYTHON_USEDEP}]
+		dev-python/ttfautohint-py[${PYTHON_USEDEP}]
+		dev-python/unidecode[${PYTHON_USEDEP}]
+		dev-python/vttlib[${PYTHON_USEDEP}]
+		dev-util/fontmake[${PYTHON_USEDEP}]
 	')
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	$(python_gen_cond_dep '
-		dev-python/setuptools_scm[${PYTHON_MULTI_USEDEP}]
+		dev-python/setuptools_scm[${PYTHON_USEDEP}]
 	')
 	test? (
 		$(python_gen_cond_dep '
-			dev-python/tabulate[${PYTHON_MULTI_USEDEP}]
+			dev-python/tabulate[${PYTHON_USEDEP}]
 			media-gfx/fontforge[python,${PYTHON_SINGLE_USEDEP}]
 		')
 	)
