@@ -50,6 +50,6 @@ distutils_enable_sphinx docs \
 				dev-python/recommonmark \
 				www-servers/gunicorn
 
-#python_test() {
-#	pytest -vv --deselect tests/test_unix_socket.py::test_zero_downtime tests/test_keep_alive_timeout.py::test_keep_alive_client_timeout || die
-#}
+python_test() {
+	pytest -vv --deselect tests/test_keep_alive_timeout.py::test_keep_alive_client_timeout || die
+}
