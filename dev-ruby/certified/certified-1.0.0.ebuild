@@ -5,6 +5,7 @@ EAPI=7
 
 USE_RUBY="ruby26 ruby27"
 
+RUBY_FAKEGEM_RECIPE_TEST="none"
 RUBY_FAKEGEM_EXTRADOC="README.md"
 
 inherit ruby-fakegem
