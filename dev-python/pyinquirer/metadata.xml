@@ -5,7 +5,7 @@
         <email>coppens.matthias.abc@gmail.com</email>
         <name>Matthias Coppens</name>
     </maintainer>
-    <longdescription>
+    <longdescription lang="en">
         PyInquirer strives to be an easily embeddable and beautiful
         command line interface for Python. PyInquirer wants to make it
         easy for existing Inquirer.js users to write immersive

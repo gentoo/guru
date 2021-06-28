@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Character String Processing Facilities // A multitude of
 		character string/text/natural language processing tools:
 		pattern searching (e.g., with 'Java'-like regular expressions

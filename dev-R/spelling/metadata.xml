@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Tools for Spell Checking in R // Spell checking common document
 		formats including latex, markdown, manual pages, and
 		description files. Includes utilities to automate checking of

@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Diffs for R Objects // Generate a colorized diff of two R objects
 		for an intuitive visualization of their differences.
 	</longdescription>

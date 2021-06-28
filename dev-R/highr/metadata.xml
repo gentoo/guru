@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Syntax Highlighting for R Source Code // Provides syntax
 		highlighting for R source code. Currently it supports LaTeX and
 		HTML output. Source code of other languages is supported via

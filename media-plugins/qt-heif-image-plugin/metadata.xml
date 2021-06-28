@@ -5,7 +5,7 @@
     <email>torokhov-s-a@yandex.ru</email>
     <name>Sergey Torokhov</name>
   </maintainer>
-  <longdescription>
+  <longdescription lang="en">
     This is a Qt image plugin for HEIF images, wrapping libheif.
     It enables existing Qt applications to open and save .heic files.
 

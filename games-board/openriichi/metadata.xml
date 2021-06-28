@@ -5,7 +5,7 @@
 		<email>torokhov-s-a@yandex.ru</email>
 		<name>Sergey Torokhov</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		OpenRiichi is an open source Japanese Mahjong client written in the Vala programming language.
 		It supports singleplayer and multiplayer, with or without bots.
 		It features all the standard riichi rules, as well as some optional ones.

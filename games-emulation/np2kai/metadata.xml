@@ -5,7 +5,7 @@
 		<email>linobigatti@protonmail.com</email>
 		<name>Lino Bigatti</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Neko project 2 kai (np2kai for short) is a PC-9801 emulator
 		written in C and C++. It allows for i286, ia32 and haxm emulation.
 		It is based on Neko project II.

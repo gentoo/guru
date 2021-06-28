@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Axis Labeling // Functions which provide a range of axis labeling
 		algorithms.
 	</longdescription>

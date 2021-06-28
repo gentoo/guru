@@ -5,7 +5,7 @@
         <email>coppens.matthias.abc@gmail.com</email>
         <description>Matthias Coppens</description>
     </maintainer>
-    <longdescription>
+    <longdescription lang="en">
         Given a path on your hard-drive (which could also be the root path,
         eg. /). diskonaut scans it and indexes its metadata to memory so that
         you could explore its contents (even while still scanning!).

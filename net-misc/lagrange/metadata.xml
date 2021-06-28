@@ -9,7 +9,7 @@
 		<email>cyber+gentoo@sysrq.in</email>
 		<name>Anna</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Lagrange is a desktop GUI client for browsing Geminispace.
 		It offers modern conveniences familiar from web browsers,
 		such as smooth scrolling, inline image viewing, multiple

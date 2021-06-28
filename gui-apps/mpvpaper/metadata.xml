@@ -5,7 +5,7 @@
 		<name>Matthias Coppens</name>
 		<email>coppens.matthias.abc@gmail.com</email>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		MPVPaper is a wallpaper program for wlroots based wayland compositors,
 		such as sway. That allows you to play videos with mpv as your wallpaper.
 	</longdescription>

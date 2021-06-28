@@ -6,5 +6,5 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>'GitHub' 'API' // Minimal client to access the 'GitHub' 'API'.</longdescription>
+	<longdescription lang="en">'GitHub' 'API' // Minimal client to access the 'GitHub' 'API'.</longdescription>
 </pkgmetadata>

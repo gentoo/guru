@@ -5,7 +5,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 A dynamic instrumentation package to trace programs compiled and run with the shared 
 memory model (like OpenMP and pthreads), the message passing (MPI) programming model or 
 both programming models (different MPI processes using OpenMP or pthreads within each MPI 

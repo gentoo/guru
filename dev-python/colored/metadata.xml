@@ -5,7 +5,7 @@
         <email>coppens.matthias.abc@gmail.com</email>
         <name>Matthias Coppens</name>
     </maintainer>
-    <longdescription>
+    <longdescription lang="en">
         Very simple Python library for color and formatting in terminal.
         Collection of color codes and names for 256 color terminal setups.
     </longdescription>

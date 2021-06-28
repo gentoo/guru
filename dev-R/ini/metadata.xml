@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Read and Write '.ini' Files // Parse simple '.ini' configuration
 		files to an structured list. Users can manipulate this
 		resulting list with lapply() functions. This same structured

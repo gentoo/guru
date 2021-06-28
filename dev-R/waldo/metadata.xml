@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Find Differences Between R Objects // Compare complex R objects
 		and reveal the key differences.  Designed particularly for use
 		in testing packages where being able to quickly isolate key

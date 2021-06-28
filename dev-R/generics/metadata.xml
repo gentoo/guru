@@ -6,7 +6,7 @@
     <email>lssndrbarbieri@gmail.com</email>
     <name>Alessandro Barbieri</name>
   </maintainer>
-  <longdescription>In order to reduce potential package dependencies and conflicts, generics provides a number of commonly used S3 generics.</longdescription>
+  <longdescription lang="en">In order to reduce potential package dependencies and conflicts, generics provides a number of commonly used S3 generics.</longdescription>
   <upstream>
     <bugs-to>https://github.com/r-lib/generics/issues</bugs-to>
     <doc lang="en">https://cran.r-project.org/web/packages/generics/generics.pdf</doc>

@@ -8,7 +8,7 @@
 	<upstream>
 		<remote-id type="github">stenzek/duckstation</remote-id>
 	</upstream>
-	<longdescription>
+	<longdescription lang="en">
 		DuckStation is a fast emulator of the Sony PlayStation (PSX),
 		focused on playability, speed, and long-term maintainability.
 	</longdescription>

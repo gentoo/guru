@@ -5,7 +5,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 Bring your ZSH history to Fish shell
 
 This is a simple tool to ease the migration from ZSH to Fish shell, without losing your hard-earned history commands.

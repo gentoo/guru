@@ -5,7 +5,7 @@
 		<email>ahvenas@gmail.com</email>
 		<name>Henrik Pihl</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 	A graphical user interface which displays the systemd's journal and 
 	lets the user filter the output without the command line.
 	</longdescription>

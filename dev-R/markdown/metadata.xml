@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Render Markdown with the C Library 'Sundown' // Provides R
 		bindings to the 'Sundown' Markdown rendering library
 		(https://github.com/vmg/sundown). Markdown is a plain-text

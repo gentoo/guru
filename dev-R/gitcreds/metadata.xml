@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Query 'git' Credentials from 'R' // Query, set, delete
 		credentials from the 'git' credential store. Manage 'GitHub'
 		tokens and other 'git' credentials. This package is to be used

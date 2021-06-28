@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Tidy Output from Regular Expression Matching // Wrappers on
 		'regexpr' and 'gregexpr' to return the match results in tidy
 		data frames.

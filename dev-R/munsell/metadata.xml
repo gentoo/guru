@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Utilities for Using Munsell Colours // Provides easy access to,
 		and manipulation of, the Munsell colours. Provides a mapping
 		between Munsell's original notation (e.g. "5R 5/10") and

@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		High Performance Colour Space Manipulation // The encoding of
 		colour can be handled in many different ways, using different
 		colour spaces. As different colour spaces have different uses,

@@ -5,7 +5,7 @@
   <upstream>
     <remote-id type="github">cdr/code-server</remote-id>
   </upstream>
-  <longdescription>
+  <longdescription lang="en">
       Run VS Code on any machine anywhere and access it in the browser.
       Code on your Chromebook, tablet, and laptop with a consistent development environment.
       Develop on a Linux machine and pick up from any device with a web browser.

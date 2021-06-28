@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		'Rcpp' Integration for the 'Armadillo' Templated Linear Algebra
 		Library // 'Armadillo' is a templated C++ linear algebra
 		library (by Conrad Sanderson) that aims towards a good balance

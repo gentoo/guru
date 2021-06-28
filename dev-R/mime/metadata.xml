@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Map Filenames to MIME Types // Guesses the MIME type from a
 		filename extension using the data derived from /etc/mime.types
 		in UNIX-type systems.

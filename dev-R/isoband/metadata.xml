@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Generate Isolines and Isobands from Regularly Spaced Elevation
 		Grids // A fast C++ implementation to generate contour lines
 		(isolines) and contour polygons (isobands) from regularly

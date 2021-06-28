@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Create Elegant Data Visualisations Using the Grammar of Graphics
 		// A system for 'declaratively' creating graphics, based on
 		"The Grammar of Graphics". You provide the data, tell 'ggplot2'

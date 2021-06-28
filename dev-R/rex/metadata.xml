@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Friendly Regular Expressions // A friendly interface for the
 		construction of regular expressions.
 	</longdescription>

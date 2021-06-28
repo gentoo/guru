@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Trellis Graphics for R // A powerful and elegant high-level data
 		visualization system inspired by Trellis graphics, with an
 		emphasis on multivariate data. Lattice is sufficient for

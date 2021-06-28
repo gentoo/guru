@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		High Performance CommonMark and Github Markdown Rendering in R //
 		The CommonMark specification defines a rationalized version of
 		markdown syntax. This package uses the 'cmark' reference

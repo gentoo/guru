@@ -5,7 +5,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 Dynamic Load Balancing Library
 DLB is a dynamic library designed to speed up HPC hybrid 
 applications (i.e., two levels of parallelism) by improving the load balance of the outer 

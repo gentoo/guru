@@ -13,7 +13,7 @@
     <flag name="tecio">Enable TECIO support</flag>
     <flag name="tutorials">Install Tutorials files</flag>
   </use>
-  <longdescription>
+  <longdescription lang="en">
     The SU2 suite is an open-source collection of C++ based software tools
     for performing Partial Differential Equation (PDE) analysis and solving
     PDE-constrained optimization problems.

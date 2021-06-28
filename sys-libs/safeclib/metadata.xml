@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<longdescription>
+	<longdescription lang="en">
 This library implements the secure C11 Annex K functions on top of most libc implementations, which are missing from them.
 
 The ISO TR24731 Bounds Checking Interface documents indicate that the key motivation for the new specification is to help mitigate the ever increasing security attacks, specifically the buffer overrun.

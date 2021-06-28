@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		A Modern and Flexible Web Client for R // The curl() and
 		curl_download() functions provide highly configurable drop-in
 		replacements for base url() and download.file() with better

@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Powerful and Reliable Tools for Running System Commands in R //
 		Drop-in replacements for the base system2() function with fine
 		control and consistent behavior across platforms. Supports

@@ -5,7 +5,7 @@
 		<email>torokhov-s-a@yandex.ru</email>
 		<name>Sergey Torokhov</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		The Fortran Template Library (FTL) is a general purpose library for Fortran 2003. 
 		Its intention is to bring all these nice things we take for granted in modern languages 
 		like Python and C++ to the Fortran world: Generic containers, versatile algorithms, 

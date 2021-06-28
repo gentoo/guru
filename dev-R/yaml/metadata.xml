@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Methods to Convert R Data to YAML and Back // Implements the
 		'libyaml' 'YAML' 1.1 parser and emitter
 		(http://pyyaml.org/wiki/LibYAML) for R.
