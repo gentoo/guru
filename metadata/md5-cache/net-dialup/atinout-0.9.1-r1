@@ -8,4 +8,4 @@ LICENSE=GPL-3
 SLOT=0
 SRC_URI=https://netix.dl.sourceforge.net/project/atinout/v0.9.1/atinout-0.9.1.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
-_md5_=71ff7ec2f2083acb9bdbf86488a5f1f5
+_md5_=01d1ad18e6b7cc9a232a53882cb0caad

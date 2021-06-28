@@ -420,5 +420,4 @@ x11-libs/gtk-fortran:plplot - Build with sci-libs/plplot support
 x11-libs/sdl-fakeqwerty:sdl - Enable support for libsdl
 x11-libs/sdl-fakeqwerty:sdl2 - Enable support for libsdl2
 x11-libs/sdl-fakeqwerty:xlib - Enable support for libX11
-x11-misc/autorandr:launcher - Install the launcher
 x11-themes/arc-darkest-colors:icons - Install icon themes

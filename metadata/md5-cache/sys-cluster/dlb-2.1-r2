@@ -1,16 +1,17 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+BDEPEND=test? ( sys-devel/bc ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare setup
 DEPEND=hwloc? ( sys-apps/hwloc ) mpi? ( virtual/mpi )
 DESCRIPTION=Dynamically react to application imbalance by modifying the number of resources
 EAPI=7
 HOMEPAGE=https://github.com/bsc-pm/dlb
 INHERIT=autotools python-single-r1
-IUSE=hwloc instrumentation mpi openmp python_single_target_python3_8 python_single_target_python3_9
+IUSE=hwloc instrumentation mpi openmp test python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~amd64
 LICENSE=LGPL-3
 RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8[tk] >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9[tk] >=dev-lang/python-exec-2:=[python_targets_python3_9] ) hwloc? ( sys-apps/hwloc ) mpi? ( virtual/mpi ) dev-lang/tk python_single_target_python3_8? ( dev-python/matplotlib[tk,python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/matplotlib[tk,python_targets_python3_9(-)] )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bsc-pm/dlb/archive/v2.1.tar.gz -> dlb-2.1.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	977ed3240c7c676eb18a277e65663c1c	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75
-_md5_=9fd7a5e367106be9342369df2fcdf8b7
+_md5_=398b6abe38b4dd02a1c221ff4ffb2cae
