@@ -21,3 +21,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 distutils_enable_tests pytest
+
+pkg_setup() {
+	export SETUPTOOLS_SCM_PRETEND_VERSION="${PV%_*}"
+}
