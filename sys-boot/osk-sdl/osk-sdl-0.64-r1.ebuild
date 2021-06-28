@@ -14,7 +14,8 @@ SRC_URI="https://gitlab.com/postmarketOS/osk-sdl/-/archive/${COMMIT}.tar.gz -> $
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-RESTRICT="test"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	app-portage/gentoolkit
@@ -28,13 +29,23 @@ RDEPEND="
 	sys-kernel/dracut
 "
 
-BDEPEND="app-text/scdoc"
+BDEPEND="
+	app-text/scdoc
+	test? (
+		x11-misc/xdotool
+		x11-misc/xvfb-run
+	)
+"
 
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 src_prepare() {
 	default
 	sed -e s/ttf-dejavu/dejavu/ -i osk.conf || die "Failed to sed"
+}
+
+src_test() {
+	meson_src_test
 }
 
 src_install() {
