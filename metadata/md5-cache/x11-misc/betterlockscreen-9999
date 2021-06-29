@@ -9,5 +9,5 @@ LICENSE=MIT
 PROPERTIES=live
 RDEPEND=media-gfx/feh media-gfx/imagemagick sys-devel/bc x11-apps/xdpyinfo x11-apps/xrandr >=x11-misc/i3lock-color-2.11:=
 SLOT=0
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	fdf0d765c3f11f91fe54f8def9a8c0e6	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	bd82a2f06f5594b2ed0889539a4f9a9f	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
 _md5_=0bfd450d612a2c4921011d023ec25f06
