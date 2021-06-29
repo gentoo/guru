@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/adobe-type-tools/psautohint/archive/refs/tags/v2.3.0.tar.gz -> psautohint-2.3.0.tar.gz test? ( https://github.com/adobe-type-tools/psautohint-testdata/archive/1e4c5061d328105c4dcfcb6fdbc27ec49b3e9d23.tar.gz -> psautohint-testdata-1e4c5061d328105c4dcfcb6fdbc27ec49b3e9d23.tar.gz )
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	977ed3240c7c676eb18a277e65663c1c	meson	5bc3f1b890f90cc00cf1d1dddc10233e	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	ab5cf7189d651fc1d8a4a8184a54cb52
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	977ed3240c7c676eb18a277e65663c1c	meson	5bc3f1b890f90cc00cf1d1dddc10233e	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	dcb037e956a1d89345ea58b971597882
 _md5_=1582fac94dfcb985699b541f0c47bbab

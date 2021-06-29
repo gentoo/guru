@@ -532,6 +532,7 @@ dev-util/codespell 2.0.0 2.1.0: Check text files for common misspellings
 dev-util/devscripts 2.21.2: Scripts to make the life of a Debian Package maintainer easier
 dev-util/fontmake 2.4.0: A wrapper for several Python libraries to compile fonts from sources
 dev-util/gammaray 2.11.2: High-level runtime introspection tool for Qt applications
+dev-util/gftools 0.7.2: Miscellaneous tools for working with the Google Fonts collection
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/osc 0.173.0 9999: Command line tool for Open Build Service
