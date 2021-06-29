@@ -25,7 +25,7 @@ distutils_enable_tests pytest
 distutils_enable_sphinx docs dev-python/sphinx_rtd_theme
 
 python_test() {
-        #it want a git repo
+	#it want a git repo
 	git init || die
 	git config --global user.email "you@example.com" || die
 	git config --global user.name "Your Name" || die
