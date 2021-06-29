@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit rebar
 
@@ -13,10 +13,12 @@ SRC_URI="https://github.com/ninenines/${PN}/archive/${PV}.tar.gz
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64"
+RESTRICT="mirror"
 
 DEPEND="dev-erlang/cowlib"
 RDEPEND="${DEPEND}
-	 =dev-erlang/ranch-1.7.1*"
+	=dev-erlang/ranch-1.7.1*
+"
 
 DOCS=( README.asciidoc )
 
