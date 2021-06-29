@@ -1,0 +1,10 @@
+DEFINED_PHASES=install prepare
+DESCRIPTION=Common files shared between multiple slots of .NET
+EAPI=7
+HOMEPAGE=https://dotnet.microsoft.com/
+KEYWORDS=~amd64 ~arm ~arm64
+LICENSE=MIT
+RDEPEND=!dev-dotnet/dotnet-aspnet-bin !dev-dotnet/dotnet-runtime-bin ~dev-dotnet/dotnet-sdk-bin-5.0.301
+SLOT=0
+SRC_URI=amd64? ( https://dotnetcli.azureedge.net/dotnet/Sdk/5.0.301/dotnet-sdk-5.0.301-linux-x64.tar.gz ) arm? ( https://dotnetcli.azureedge.net/dotnet/Sdk/5.0.301/dotnet-sdk-5.0.301-linux-arm.tar.gz ) arm64? ( https://dotnetcli.azureedge.net/dotnet/Sdk/5.0.301/dotnet-sdk-5.0.301-linux-arm64.tar.gz )
+_md5_=10714df14c36a5553642bb1f981e4a7d

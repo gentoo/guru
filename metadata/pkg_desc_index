@@ -80,11 +80,13 @@ app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
 app-misc/grit 0.3.0: An personal task manager that represents tasks as multitree nodes
+app-misc/hollywood 0_pre20200822: Fill your console with Hollywood melodrama technobabble
 app-misc/lf 20 22: Terminal file manager
 app-misc/liquidctl 1.4.2: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/mat2 0.11.0 0.12.1: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
 app-misc/navi 2.15.1 2.16.0 9999: An interactive cheatsheet tool for the command-line
+app-misc/nonsense 0.6: Generates random text from datafiles and templates
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/pup 0.4.0_p1: Parsing HTML at the command line
@@ -243,8 +245,7 @@ dev-db/pg_repack 1.4.6: Reorganize tables in PostgreSQL databases with minimal l
 dev-db/rum 1.3.7: RUM access method - inverted index with additional information in posting lists
 dev-dotnet/dotnet-aspnet-bin 5.0.5: .NET ASP.NET Runtime Store
 dev-dotnet/dotnet-runtime-bin 5.0.5: .NET Runtime
-dev-dotnet/dotnet-sdk-bin 5.0.202: .NET SDK (includes runtime + aspnet)
-dev-dotnet/dotnet-sdk-bin-common 5.0.202: Common files shared between multiple slots of .NET
+dev-dotnet/dotnet-sdk-bin-common 5.0.301: Common files shared between multiple slots of .NET
 dev-embedded/mv88e6xxx-dump 0.2.0_pre20210327: Dump information about Marvell mv88e6xxx Ethernet switches
 dev-embedded/rauc 1.5.1: Lightweight update client that runs on your Embedded Linux device
 dev-erlang/cowboy 2.8.0: Small, fast, modern HTTP server for Erlang/OTP.
@@ -330,7 +331,7 @@ dev-python/base58 2.1.0: Base58 and Base58Check implementation
 dev-python/billiard 3.6.3.0 3.6.4.0: Python multiprocessing fork
 dev-python/bitbox02 5.3.0: Python API for communicating with the BitBox02 device
 dev-python/browserstack-local-python 1.2.2: Python bindings for BrowserStack Local
-dev-python/bson 0.5.8: Independent BSON codec for Python that doesn’t depend on MongoDB
+dev-python/bson 0.5.8: Independent BSON codec for Python that doesn't depend on MongoDB
 dev-python/castellan 3.6.0: Generic Key Manager interface for OpenStack
 dev-python/cattrs 1.2.0 1.7.0: Complex custom class converters for attrs
 dev-python/cchardet 2.1.7: cChardet is high speed universal character encoding detector
