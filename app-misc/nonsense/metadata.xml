@@ -18,6 +18,8 @@ write for Humorix.  You might be able to use it as an alternative to fortune(6)
 or as a way to add random content to your website.
 	</longdescription>
 	<upstream>
+		<bugs-to>https://github.com/aduial/nonsense/issues</bugs-to>
+		<remote-id type="github">aduial/nonsense</remote-id>
 		<remote-id type="sourceforge">nonsense</remote-id>
 	</upstream>
 </pkgmetadata>
