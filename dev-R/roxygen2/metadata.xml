@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		In-Line Documentation for R // Generate your Rd documentation,
 		'NAMESPACE' file, and collation field using specially formatted
 		comments. Writing documentation in-line with code makes it

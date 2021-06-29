@@ -5,7 +5,7 @@
 		<name>François-Xavier Carton</name>
 		<email>fx.carton91@gmail.com</email>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 Why3 is a platform for deductive program verification. It provides
 a rich language for specification and programming, called WhyML,
 and relies on external theorem provers, both automated and interactive,

@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Unit Testing for R // Software testing is important, but, in part
 		because it is frustrating and boring, many of us avoid it.
 		'testthat' is a testing framework for R that is easy to learn

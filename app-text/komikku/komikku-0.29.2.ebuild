@@ -3,8 +3,8 @@
 
 EAPI=7
 
-MY_PN="Komikku"
-MY_P="${MY_PN}-${PV}"
+MY_PN="${PN^}"
+MY_P="${MY_PN}-v${PV}"
 
 PYTHON_COMPAT=( python3_{8,9} )
 
@@ -12,7 +12,7 @@ inherit python-single-r1 meson gnome2-utils xdg
 
 DESCRIPTION="An online/offline manga reader for GNOME"
 HOMEPAGE="https://gitlab.com/valos/Komikku"
-SRC_URI="https://gitlab.com/valos/${MY_PN}/-/archive/v${PV}/${MY_PN}-v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://gitlab.com/valos/${MY_PN}/-/archive/v${PV}/${MY_P}.tar.gz -> ${P}.tar.gz"
 
 RESTRICT="test"
 KEYWORDS="~amd64"
@@ -23,7 +23,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
 	>=gui-libs/libhandy-1.2.0
-	>=x11-libs/gtk+-3.24.10
+	>=x11-libs/gtk+-3.24.10:3
 	$(python_gen_cond_dep '
 		dev-python/beautifulsoup:4[${PYTHON_USEDEP}]
 		dev-python/cloudscraper[${PYTHON_USEDEP}]
@@ -42,7 +42,7 @@ RDEPEND="
 	${DEPEND}
 "
 
-S="${WORKDIR}/${MY_PN}-v${PV}"
+S="${WORKDIR}/${MY_P}"
 
 pkg_setup() {
 	python-single-r1_pkg_setup
@@ -52,9 +52,8 @@ src_install() {
 	meson_src_install
 	python_optimize
 
-	# Dirty hack (python_doscript doesn't work)
-	echo "#!/usr/bin/${EPYTHON}
-	$(cat ${D}/usr/bin/${PN})" > "${D}/usr/bin/${PN}"
+	sed -i "s/#!.*/#!${EPYTHON}/" "${D}/usr/bin/${PN}"  ||
+		die "Failed to fix ${D}/usr/bin/${PN} interpreter"
 }
 
 pkg_preinst() {

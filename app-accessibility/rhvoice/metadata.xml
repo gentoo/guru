@@ -25,7 +25,7 @@
 			Build utilities needed for the ones creating voices
 		</flag>
 	</use>
-	<longdescription>
+	<longdescription lang="en">
 		RHVoice is a free and open source speech synthesizer.
 
 		Voices are built from recordings of natural speech. They have

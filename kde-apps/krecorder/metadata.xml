@@ -9,7 +9,7 @@
 		<email>cyber+gentoo@sysrq.in</email>
 		<name>Anna</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Krecorder is a convergent audio recording application for Plasma.
 		Features:
 		- Record audio with a visualizer, and pausing functionality

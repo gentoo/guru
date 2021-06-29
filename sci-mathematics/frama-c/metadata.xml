@@ -38,7 +38,7 @@
 		<flag name="variadic">Build the variadic plugin</flag>
 		<flag name="wp">Build the WP plugin</flag>
 	</use>
-	<longdescription>
+	<longdescription lang="en">
 Frama-C is a suite of tools dedicated to the analysis of the source code
 of software written in C. It gathers several static analysis techniques
 in a single collaborative framework. The collaborative approach of

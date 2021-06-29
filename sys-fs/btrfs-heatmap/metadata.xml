@@ -5,5 +5,5 @@
 		<email>gentoo-guru@steev.me.uk</email>
 		<name>Steven Davies</name>
 	</maintainer>
-	<longdescription>The btrfs heatmap script creates a visualization of how a btrfs filesystem is using the underlying disk space of the block devices that are added to it.</longdescription>
+	<longdescription lang="en">The btrfs heatmap script creates a visualization of how a btrfs filesystem is using the underlying disk space of the block devices that are added to it.</longdescription>
 </pkgmetadata>

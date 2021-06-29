@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Simulate Package Installation and Attach // Simulates the process
 		of installing a package and then attaching it. This is a key
 		part of the 'devtools' package as it allows you to rapidly

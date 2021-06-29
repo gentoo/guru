@@ -5,7 +5,7 @@
 		<email>torokhov-s-a@yandex.ru</email>
 		<name>Sergey Torokhov</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Openoffice is the opensource version of staroffice.
 		This is the binary version of Openoffice. Use this if you don't want to wait
 		for the source version to build, but be advised that this may not perform as quickly once installed as a natively compiled version.

@@ -11,7 +11,7 @@
 			<name>Denis Howe</name>
 		</maintainer>
 	</upstream>
-	<longdescription>
+	<longdescription lang="en">
 		A database for 'dict'-compatible dictionary software, based on the Free On-line Dictionary of Computing describing various topics in computing.
 	</longdescription>
 </pkgmetadata>

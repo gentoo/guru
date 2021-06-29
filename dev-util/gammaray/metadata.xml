@@ -9,7 +9,7 @@
 		<email>petross404@gmail.com</email>
 		<name>Petros S</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 GammaRay is a software introspection tool for Qt applications developed by KDAB.
 Leveraging the QObject introspection mechanism it allows you to observe and manipulate
 your application at runtime. This works both locally on your workstation and remotely

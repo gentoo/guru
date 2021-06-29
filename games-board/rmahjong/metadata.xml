@@ -5,7 +5,7 @@
 		<email>torokhov-s-a@yandex.ru</email>
 		<name>Sergey Torokhov</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Riichi Mahjong is the Japanese variant to the Chinese game for four players.
 		RMahjong is the computer implementation of this game.
 

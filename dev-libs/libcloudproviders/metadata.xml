@@ -5,8 +5,7 @@
 		<email>telans@posteo.de</email>
 		<name>James Beddek</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		libcloudproviders is a DBus API that allows cloud storage sync clients to expose their services. Clients such as file managers and desktop environments can then provide integrated access to the cloud providers services.
-
 	</longdescription>
 </pkgmetadata>

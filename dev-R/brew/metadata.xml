@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Templating Framework for Report Generation // brew implements a
 		templating framework for mixing text and R code for report
 		generation. brew template syntax is similar to PHP, Ruby's erb

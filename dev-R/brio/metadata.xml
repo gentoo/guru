@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Basic R Input Output // Functions to handle basic input output,
 		these functions always read and write UTF-8 (8-bit Unicode
 		Transformation Format) files and provide more explicit control

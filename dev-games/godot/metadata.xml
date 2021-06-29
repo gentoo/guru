@@ -5,7 +5,7 @@
 		<email>rossbridger.cc@gmail.com</email>
 		<name>Ross Charles Campbell</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 Godot Engine is a feature-packed, cross-platform game engine to create 2D and
 3D games from a unified interface. It provides a comprehensive set of common
 tools, so users can focus on making games without having to reinvent the wheel.

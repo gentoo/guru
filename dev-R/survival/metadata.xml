@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Survival Analysis // Contains the core survival analysis
 		routines, including definition of Surv objects, Kaplan-Meier
 		and Aalen-Johansen (multi-state) curves, Cox models, and

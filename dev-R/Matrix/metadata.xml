@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Sparse and Dense Matrix Classes and Methods // A rich hierarchy
 		of matrix classes, including triangular, symmetric, and
 		diagonal matrices, both dense and sparse and with pattern,

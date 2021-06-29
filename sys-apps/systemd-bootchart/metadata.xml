@@ -4,6 +4,5 @@
 	<maintainer type="person">
 		<email>gentoo-guru@steev.me.uk</email>
 		<name>Steven Davies</name>
-		<description>Boot performance and graphing tool spun out of the systemd project.</description>
 	</maintainer>
 </pkgmetadata>

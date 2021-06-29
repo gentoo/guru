@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Run Code 'With' Temporarily Modified Global State // A set of
 		functions to run code 'with' safely and temporarily modified
 		global state. Many of these functions were originally a part of

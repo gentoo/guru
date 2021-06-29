@@ -5,7 +5,7 @@
     <upstream>
         <remote-id type="github">fangfufu/httpdirfs</remote-id>
     </upstream>
-    <longdescription>
+    <longdescription lang="en">
         A filesystem which allows you to mount HTTP directory listings, with a permanent cache.
         Now with Airsonic / Subsonic support!
         Have you ever wanted to mount those HTTP directory listings as if it was a partition?

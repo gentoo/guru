@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Test Coverage for Packages // Track and report code coverage for
 		your package and (optionally) upload the results to a coverage
 		service like 'Codecov' https://codecov.io or 'Coveralls'

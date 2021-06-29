@@ -16,7 +16,7 @@
 			<email>gls@think.com</email>
 		</maintainer>
 	</upstream>
-	<longdescription>
+	<longdescription lang="en">
 		A database for 'dict'-compatible dictionary software, based on the classic Jargon File describing the slang that developed around computer programming in the '70s and '80s.
 	</longdescription>
 </pkgmetadata>

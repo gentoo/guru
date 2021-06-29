@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Finding Files in Project Subdirectories // Robust, reliable and
 		flexible paths to files below a project root. The 'root' of a
 		project is defined as a directory that matches a certain

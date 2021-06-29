@@ -6,7 +6,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
+	<longdescription lang="en">
 		Simple, Consistent Wrappers for Common String Operations // A
 		consistent, simple and easy to use set of wrappers around the
 		fantastic 'stringi' package. All function and argument names
