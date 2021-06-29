@@ -2,7 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>dev@mtbk.me</email>
+		<name>Matthew Bakhtiari</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">Jugran/lyrics-in-terminal</remote-id>
 		<remote-id type="pypi">lyrics-in-terminal</remote-id>
