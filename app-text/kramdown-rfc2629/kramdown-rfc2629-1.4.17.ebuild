@@ -15,10 +15,8 @@ DESCRIPTION="An RFC2629 (XML2RFC) backend for Thomas Leitner's kramdown markdown
 HOMEPAGE="https://github.com/cabo/kramdown-rfc2629"
 
 LICENSE="MIT"
-
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE=""
+KEYWORDS="~amd64"
 
 ruby_add_rdepend "
 	>=dev-ruby/kramdown-2.3.0

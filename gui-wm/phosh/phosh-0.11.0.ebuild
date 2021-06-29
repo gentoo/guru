@@ -6,13 +6,15 @@ EAPI=7
 inherit desktop gnome2-utils meson pam readme.gentoo-r1 vala systemd xdg
 
 MY_P="${PN}-v${PV}"
+MY_COMMIT="c5ab6037f460406ac9799b1e5765de3ce0097a8b"
 
 DESCRIPTION="A pure Wayland shell prototype for GNOME on mobile devices"
 HOMEPAGE="https://source.puri.sm/Librem5/phosh"
 SRC_URI="
 	https://source.puri.sm/Librem5/phosh/-/archive/v0.11.0/${MY_P}.tar.gz
-	https://gitlab.gnome.org/GNOME/libgnome-volume-control/-/archive/c5ab6037f460406ac9799b1e5765de3ce0097a8b.tar.gz
+	https://gitlab.gnome.org/GNOME/libgnome-volume-control/-/archive/${MY_COMMIT}.tar.gz -> libgnome-volume-control-${MY_COMMIT}.tar.gz
 "
+S="${WORKDIR}/${MY_P}"
 
 KEYWORDS="~amd64 ~arm64"
 LICENSE="GPL-3"
@@ -46,10 +48,6 @@ PATCHES=(
 	"${FILESDIR}"/0005-calls-manager.patch
 	"${FILESDIR}"/0006-calls-manager.patch
 )
-
-S="${WORKDIR}/${MY_P}"
-
-MY_COMMIT="c5ab6037f460406ac9799b1e5765de3ce0097a8b"
 
 src_prepare() {
 	default
