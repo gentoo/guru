@@ -330,6 +330,7 @@ dev-python/base58 2.1.0: Base58 and Base58Check implementation
 dev-python/billiard 3.6.3.0 3.6.4.0: Python multiprocessing fork
 dev-python/bitbox02 5.3.0: Python API for communicating with the BitBox02 device
 dev-python/browserstack-local-python 1.2.2: Python bindings for BrowserStack Local
+dev-python/bson 0.5.8: Independent BSON codec for Python that doesn’t depend on MongoDB
 dev-python/castellan 3.6.0: Generic Key Manager interface for OpenStack
 dev-python/cattrs 1.2.0 1.7.0: Complex custom class converters for attrs
 dev-python/cchardet 2.1.7: cChardet is high speed universal character encoding detector
@@ -356,6 +357,7 @@ dev-python/doxypypy 0.8.8.6_p20210405: A more Pythonic version of doxypy, a Doxy
 dev-python/factory_boy 3.2.0: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11-r1: Up to date simple useragent faker with real world database
 dev-python/fchroot 0.1.2: Franken-chroot tool. Chroot arm/64 arches into amd64/x86
+dev-python/font-v 1.0.5: Font version string reporting and modification library
 dev-python/fontMath 0.6.0 0.8.1: A collection of objects that implement fast font math
 dev-python/fontParts 0.9.10: An API for interacting with the parts of fonts
 dev-python/fontPens 0.2.4: A collection of classes implementing the pen protocol for manipulating glyphs
@@ -421,6 +423,7 @@ dev-python/ovsdbapp 1.5.0: A library for creating OVSDB applications
 dev-python/pdfminer-six 20201018: Community maintained fork of pdfminer
 dev-python/pep517 0.9.1: standard API for systems which build Python packages
 dev-python/phx-class-registry 3.0.5: An intersection of the Registry and Factory pattern
+dev-python/pip-api 0.0.14: An unofficial, importable pip API
 dev-python/portio 0.5: Python low level port I/O for Linux x86
 dev-python/pproxy 2.7.8: TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio
 dev-python/promise 2.3.0: Promises/A+ implementation for Python
@@ -720,7 +723,7 @@ net-dialup/tio 1.32: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.5 9.0_rc1-r1 9.0: XMPP gateway to IRC
-net-im/discord-canary-bin 0.0.125: All-in-one voice and text chat
+net-im/discord-canary-bin 0.0.126: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-im/guilded-bin 1.0.9101267: Drop Discord, get Guilded
 net-im/kaidan 0.7.0 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!
@@ -809,7 +812,7 @@ sys-block/systemd-swap 4.4.0 9999: Script for creating swap space from zram swap
 sys-boot/bmaptools 3.6: Bmaptool is a tool for creating and copyng files using block maps
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
-sys-boot/osk-sdl 0.64: Lightweight On-Screen-Keyboard based on SDL2
+sys-boot/osk-sdl 0.64-r1: Lightweight On-Screen-Keyboard based on SDL2
 sys-cluster/AXL 0.4.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
 sys-cluster/KVTree 1.1.1: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/cinder 17.1.0: Cinder is the OpenStack Block storage service, a spin out of nova-volumes
