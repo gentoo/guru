@@ -12,10 +12,10 @@ S="${WORKDIR}/${PN}-version-${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="cluster debug dlb execution-workflow extrae papi unwind"
+IUSE="cluster debug dlb execution-workflow extrae memkind papi unwind"
 #chrono-arch build fail
 #jemalloc require custom stuff
-#TODO: cuda pqos mercurium memkind k1om
+#TODO: cuda pqos mercurium k1om babeltrace2
 #TODO: llvm-libunwind
 
 RDEPEND="
@@ -27,6 +27,7 @@ RDEPEND="
 	cluster? ( virtual/mpi )
 	dlb? ( sys-cluster/dlb )
 	extrae? ( sys-cluster/extrae[nanos] )
+	memkind? ( dev-libs/memkind )
 	papi? ( dev-libs/papi )
 	unwind? ( sys-libs/libunwind )
 "
@@ -40,7 +41,6 @@ src_prepare() {
 
 src_configure() {
 	local myconf=(
-		--disable-chrono-arch
 		--disable-embed-code-changes
 		--disable-openacc
 		--disable-static
@@ -63,10 +63,20 @@ src_configure() {
 	)
 	use dlb && myconf+=( "--with-dlb=${EPREFIX}/usr" )
 
+#	if use babeltrace; then
+#		myconf+=( "--with-babeltrace2=${EPREFIX}/usr" )
+#	else
+#		myconf+=( "--without-babeltrace2" )
+#	fi
 	if use extrae; then
 		myconf+=( "--with-extrae=${EPREFIX}/usr" )
 	else
 		myconf+=( "--without-extrae" )
+	fi
+	if use memkind; then
+		myconf+=( "--with-memkind=${EPREFIX}/usr" )
+	else
+		myconf+=( "--without-memkind" )
 	fi
 	if use papi; then
 		myconf+=( "--with-papi=${EPREFIX}/usr" )
@@ -82,9 +92,7 @@ src_configure() {
 	econf "${myconf[@]}"
 }
 #		--without-pqos
-#		--without-jemalloc
 #		--without-cuda
-#		--without-memkind
 
 src_install() {
 	default

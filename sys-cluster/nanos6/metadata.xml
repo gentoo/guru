@@ -10,7 +10,6 @@
 		<remote-id type="github">bsc-pm/nanos6</remote-id>
 	</upstream>
 	<use>
-		<!--<flag name="chrono-arch">use an architecture-dependent chrono for timing instead of the default one</flag>-->
 		<flag name="cluster">Enable OmpSs@Cluster support. This requires an MPI version that supports MPI_THREAD_MULTIPLE to be present in your environment</flag>
 		<!--<flag name="cuda">enable CUDA</flag>-->
 		<flag name="debug">enable extra assertions and checks in debug - may cause significant slowdown</flag>
@@ -19,7 +18,7 @@
 		<flag name="extrae">to generate execution traces for offline performance analysis with paraver</flag>
 		<!--<flag name="jemalloc">use jemalloc as the default memory allocator, providing better performance than the default glibc implementation</flag>-->
 		<!--<flag name="k1om">specify the installation prefix of the k1om GNU compilers</flag>-->
-		<!--<flag name="memkind">specify the installation prefix of memkind</flag>-->
+		<flag name="memkind">Add support for <pkg>dev-libs/memkind</pkg> in memory allocator</flag>
 		<!--<flag name="mercurium">specify the installation prefix of the Nanos6 Mercurium compiler</flag>-->
 		<flag name="papi">enable <pkg>dev-libs/papi</pkg> support</flag>
 		<!--<flag name="pqos"> to generate real-time statistics of hardware counters</flag>-->
