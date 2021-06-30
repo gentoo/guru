@@ -38,6 +38,7 @@ RDEPEND="
 	x11-libs/libX11
 	x11-libs/libXScrnSaver
 	x11-libs/libxcb
+	x11-libs/libxkbcommon
 	x11-libs/libXcomposite
 	x11-libs/libXcursor
 	x11-libs/libXdamage
