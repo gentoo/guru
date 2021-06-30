@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=>=dev-libs/boost-1.59:= sys-apps/hwloc sys-process/numactl virtual/libelf cluster? ( virtual/mpi ) dlb? ( sys-cluster/dlb ) extrae? ( sys-cluster/extrae[nanos] ) memkind? ( dev-libs/memkind ) papi? ( dev-libs/papi ) unwind? ( sys-libs/libunwind )
+DESCRIPTION=runtime that implements the OmpSs-2 parallel programming model
+EAPI=7
+HOMEPAGE=https://github.com/bsc-pm/nanos6
+INHERIT=autotools
+IUSE=cluster debug dlb execution-workflow extrae memkind papi unwind
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=>=dev-libs/boost-1.59:= sys-apps/hwloc sys-process/numactl virtual/libelf cluster? ( virtual/mpi ) dlb? ( sys-cluster/dlb ) extrae? ( sys-cluster/extrae[nanos] ) memkind? ( dev-libs/memkind ) papi? ( dev-libs/papi ) unwind? ( sys-libs/libunwind )
+REQUIRED_USE=cluster? ( execution-workflow )
+SLOT=0
+SRC_URI=https://github.com/bsc-pm/nanos6/archive/refs/tags/version-2.6.tar.gz -> nanos6-2.6.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354
+_md5_=b75519cb93118f94fef173708ff59dc8
