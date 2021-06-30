@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="An unofficial, importable pip API"
 HOMEPAGE="https://github.com/di/pip-api"
-SRC_URI="https://github.com/di/pip-api/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -27,11 +27,5 @@ DEPEND="
 distutils_enable_tests pytest
 
 python_test() {
-	#https://github.com/di/pip-api/issues/81
-	epytest -vv \
-		--deselect tests/test_installed_distributions.py::test_installed_distributions \
-		--deselect tests/test_tests.py::test_isolation[True] \
-		--deselect tests/test_tests.py::test_isolation[False] \
-		--deselect tests/test_tests.py::test_all_the_right_pips \
-		|| die
+	epytest -vv --deselect tests/test_installed_distributions.py::test_installed_distributions_legacy_version || die
 }
