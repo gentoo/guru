@@ -69,9 +69,8 @@ RDEPEND="
 	dev-libs/wayland
 	dev-libs/wayland-protocols
 	gnome-base/gnome-desktop
-	gui-libs/gtk
 	media-fonts/noto-emoji
-	x11-libs/gtk+:3
+	x11-libs/gtk+:3[wayland]
 "
 
 BDEPEND="
