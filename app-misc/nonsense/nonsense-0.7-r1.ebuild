@@ -17,8 +17,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 src_install() {
-	newbin nonsense.pl nonsense
+	newbin "${FILESDIR}/nonsense.sh" nonsense
 	dodoc README.md CHANGELOG.md HOWTO.md
 	insinto /usr/share/nonsense
-	doins *.data *.html *.template
+	doins *.data *.html *.template nonsense.pl
 }
