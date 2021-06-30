@@ -10,6 +10,6 @@ LICENSE=ISC
 RDEPEND=dev-lang/erlang:=
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/ninenines/ranch/archive/1.7.1.tar.gz -> ranch-1.7.1.tar.gz
+SRC_URI=https://github.com/ninenines/ranch/archive/1.8.0.tar.gz -> ranch-1.8.0.tar.gz
 _eclasses_=rebar	f13843e18f4ec00f45f7158bd3f3d3bb
 _md5_=5238bbd434e21790db9ab3e243817206

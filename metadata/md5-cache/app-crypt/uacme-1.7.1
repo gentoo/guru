@@ -1,0 +1,14 @@
+BDEPEND=man? ( >=app-text/asciidoc-9.0.5-r1 )
+DEFINED_PHASES=configure
+DEPEND=>=net-misc/curl-7.77.0-r1 !gnutls? ( !mbedtls? ( >=dev-libs/openssl-1.1.1k ) ) gnutls? ( >=net-libs/gnutls-3.7.1 ) mbedtls? ( >=net-libs/mbedtls-2.26.0 )
+DESCRIPTION=ACMEv2 client written in plain C with minimal dependencies
+EAPI=7
+HOMEPAGE=https://github.com/ndilieto/uacme
+IUSE=gnutls mbedtls +ualpn +man
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=>=net-misc/curl-7.77.0-r1 !gnutls? ( !mbedtls? ( >=dev-libs/openssl-1.1.1k ) ) gnutls? ( >=net-libs/gnutls-3.7.1 ) mbedtls? ( >=net-libs/mbedtls-2.26.0 )
+REQUIRED_USE=gnutls? ( !mbedtls )
+SLOT=0
+SRC_URI=https://github.com/ndilieto/uacme/archive/upstream/1.7.1.tar.gz -> uacme-1.7.1.tar.gz
+_md5_=945626f72be08947e853a57c1a3c98d4

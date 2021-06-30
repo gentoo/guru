@@ -43,6 +43,7 @@ app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generat
 app-crypt/mkp224o 1.5.0: Vanity address generator for v3 Tor hidden service addresses
 app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-crypt/tomb 2.9-r6: Tomb :: File Encryption on GNU/Linux
+app-crypt/uacme 1.7.1: ACMEv2 client written in plain C with minimal dependencies
 app-dicts/dictd-devils 20150822: The Devil's Dictionary for dict
 app-dicts/dictd-elements 20030309: Jay Kominek's database of the elements for dict
 app-dicts/dictd-foldoc 20180405: The Free On-line Dictionary of Computing for dict
@@ -65,7 +66,7 @@ app-emulation/nvidia-container-toolkit 1.4.2 1.5.0: NVIDIA container runtime too
 app-emulation/spice-html5 0.2.1 0.2.2: Spice Javascript client
 app-eselect/eselect-scheme 3.1.0: Manages scheme implementations
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
-app-misc/afetch 2.1.0: Simple system info written in C
+app-misc/afetch 2.2.0: Simple system info written in C
 app-misc/apidb 5.8.0_beta 5.11.0_beta: API Generator for Database access
 app-misc/brightness-control 2.0_p20210331: Qt Brightness Controller in Python
 app-misc/brightnessctl 0.5.1: A program to read and control device brightness
@@ -86,7 +87,7 @@ app-misc/liquidctl 1.4.2: Cross-platform tool and drivers for liquid coolers and
 app-misc/mat2 0.11.0 0.12.1: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
 app-misc/navi 2.15.1 2.16.0 9999: An interactive cheatsheet tool for the command-line
-app-misc/nonsense 0.6: Generates random text from datafiles and templates
+app-misc/nonsense 0.6 0.7: Generates random text from datafiles and templates
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/pup 0.4.0_p1: Parsing HTML at the command line
@@ -131,7 +132,7 @@ app-text/epubgrep 0.5.1 0.6.0: Search tool for EPUB e-books
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/klogg 20.12: A GUI application to browse and search through long and complex log files
 app-text/komikku 0.28.1 0.29.2: An online/offline manga reader for GNOME
-app-text/kramdown-rfc2629 1.4.17: An RFC2629 (XML2RFC) backend for Thomas Leitner's kramdown markdown parser
+app-text/kramdown-rfc2629 1.4.18: An RFC2629 (XML2RFC) backend for Thomas Leitner's kramdown markdown parser
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
 app-text/mdbook 0.4.7 0.4.8 0.4.9 0.4.10: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
@@ -248,9 +249,9 @@ dev-dotnet/dotnet-runtime-bin 5.0.5: .NET Runtime
 dev-dotnet/dotnet-sdk-bin-common 5.0.301: Common files shared between multiple slots of .NET
 dev-embedded/mv88e6xxx-dump 0.2.0_pre20210327: Dump information about Marvell mv88e6xxx Ethernet switches
 dev-embedded/rauc 1.5.1: Lightweight update client that runs on your Embedded Linux device
-dev-erlang/cowboy 2.8.0: Small, fast, modern HTTP server for Erlang/OTP.
-dev-erlang/cowlib 2.10.1: Support library for manipulating Web protocols.
-dev-erlang/ranch 1.7.1: Socket acceptor pool for TCP protocols.
+dev-erlang/cowboy 2.9.0: Small, fast, modern HTTP server for Erlang/OTP.
+dev-erlang/cowlib 2.11.0: Support library for manipulating Web protocols.
+dev-erlang/ranch 1.7.1 1.8.0 2.0.0: Socket acceptor pool for TCP protocols.
 dev-games/godot 3.3.2-r1: Multi-platform 2D and 3D game engine
 dev-games/surgescript 0.5.4.4 0.5.5 9999: scripting language made for opensurge
 dev-go/lichen 0.1.4: Go binary license checker
@@ -406,7 +407,7 @@ dev-python/os-win 5.1.0: Windows / Hyper-V library for OpenStack projects.
 dev-python/os-xenapi 0.3.4-r1: XenAPI library for OpenStack projects
 dev-python/oscrypto 1.2.1: TLS sockets, key generation, encryption, decryption, signing, verification
 dev-python/oslo-cache 2.6.1: Oslo Caching around dogpile.cache
-dev-python/oslo-concurrency 4.3.1: library for running multi-thread, multi-process applications
+dev-python/oslo-concurrency 4.4.0: library for running multi-thread, multi-process applications
 dev-python/oslo-db 8.4.0: OpenStack Common DB Code
 dev-python/oslo-messaging 12.5.1: Messaging API for RPC and notifications over different messaging transports
 dev-python/oslo-middleware 4.1.1: Components injected into wsgi pipelines to intercept request/response flows.
@@ -724,7 +725,8 @@ net-dialup/tio 1.32: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.5 9.0_rc1-r1 9.0: XMPP gateway to IRC
-net-im/discord-canary-bin 0.0.126: All-in-one voice and text chat
+net-im/discord-canary-bin 0.0.126-r1: All-in-one voice and text chat
+net-im/discord-ptb-bin 0.0.25: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-im/guilded-bin 1.0.9101267: Drop Discord, get Guilded
 net-im/kaidan 0.7.0 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!

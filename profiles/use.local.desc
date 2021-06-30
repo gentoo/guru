@@ -25,6 +25,10 @@ app-crypt/mkp224o:pcre2 - Enable the regex engine and use pcre2
 app-crypt/mkp224o:ref10 - Use portable ref10 SUPERCOP implementation
 app-crypt/mkp224o:statistics - Collect performance statistics
 app-crypt/tomb:tray - add a tomb tray in a QT desktop toolbar
+app-crypt/uacme:gnutls - Use net-libs/gnutls instead of dev-libs/openssl
+app-crypt/uacme:man - Build and install man pages
+app-crypt/uacme:mbedtls - Use net-libs/mbedtls instead of dev-libs/openssl
+app-crypt/uacme:ualpn - Build the ualpn proxy that transparently handles tls-alpn-01
 app-dicts/dictd-mueller:ipa - convert transcription into the IPA Unicode
 app-emulation/arnold:inkz80 - Use inkz80 processor emulation
 app-misc/apidb:commands - Build commands

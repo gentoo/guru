@@ -12,6 +12,6 @@ RDEPEND=ruby_targets_ruby26? ( >=dev-ruby/kramdown-2.3.0[ruby_targets_ruby26(-)]
 REQUIRED_USE=|| ( ruby_targets_ruby26 ruby_targets_ruby27 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
-SRC_URI=https://rubygems.org/gems/kramdown-rfc2629-1.4.17.gem
+SRC_URI=https://rubygems.org/gems/kramdown-rfc2629-1.4.18.gem
 _eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	97566c1a256d07b00848aa767e38a352	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	ruby-utils	685587efe9ff6315b82811810827f69a	ruby-ng	b97a1a9a3103f9a66f622ea3eb2ce12b	ruby-fakegem	5e2d0d0c89a1e9425bc8dacd73e7e940
 _md5_=7688d46bc2c4365022bb3b4df12ee7c0
