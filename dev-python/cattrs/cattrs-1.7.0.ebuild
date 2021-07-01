@@ -3,28 +3,38 @@
 
 EAPI=7
 
+DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_SETUPTOOLS=pyproject.toml
 PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 SRC_URI="https://github.com/Tinche/cattrs/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS=""
+KEYWORDS="~amd64"
 DESCRIPTION="Complex custom class converters for attrs"
 HOMEPAGE="https://github.com/Tinche/cattrs"
 LICENSE="MIT"
 SLOT="0"
 
-RDEPEND=">=dev-python/attrs-20[${PYTHON_USEDEP}]"
+RDEPEND="
+	${PYTHON_DEPS}
+	$(python_gen_cond_dep '>=dev-python/attrs-20[${PYTHON_USEDEP}]')
+"
 DEPEND="
 	${RDEPEND}
 	test? (
-		dev-python/bson[${PYTHON_USEDEP}]
-		dev-python/immutables[${PYTHON_USEDEP}]
-		dev-python/hypothesis[${PYTHON_USEDEP}]
-		dev-python/orjson[${PYTHON_USEDEP}]
-		dev-python/pytest-benchmark[${PYTHON_USEDEP}]
-		dev-python/ujson[${PYTHON_USEDEP}]
+		$(python_gen_cond_dep '
+			dev-python/bson[${PYTHON_USEDEP}]
+			dev-python/immutables[${PYTHON_USEDEP}]
+			dev-python/hypothesis[${PYTHON_USEDEP}]
+			dev-python/msgpack[${PYTHON_USEDEP}]
+			dev-python/pendulum[${PYTHON_USEDEP}]
+			dev-python/pytest-benchmark[${PYTHON_USEDEP}]
+			dev-python/pyyaml[${PYTHON_USEDEP}]
+			dev-python/tomlkit[${PYTHON_USEDEP}]
+			dev-python/ujson[${PYTHON_USEDEP}]
+		')
+		dev-python/orjson[${PYTHON_SINGLE_USEDEP}]
 	)
 "
 
