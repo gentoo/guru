@@ -5,29 +5,35 @@ EAPI="7"
 
 COMMIT="13e5b90eecc79ec6704efb333c4c100187520e80"
 
-inherit autotools elisp-common java-pkg-opt-2
+inherit autotools elisp-common flag-o-matic java-pkg-opt-2
 
 DESCRIPTION="The Aldor Programming Language"
 HOMEPAGE="http://pippijn.github.io/aldor"
 SRC_URI="
 	https://github.com/pippijn/aldor/archive/${COMMIT}.tar.gz -> ${P}.tar.gz
-	doc? ( http://aldor.org/docs/libaldor.pdf.gz )
+	doc? (
+		http://aldor.org/docs/libaldor.pdf.gz
+		https://github.com/pippijn/aldor/files/5469932/algebra.pdf
+	)
 	emacs? ( http://hemmecke.de/aldor/aldor.el.nw )
 "
-
+S="${WORKDIR}/${PN}-${COMMIT}/aldor"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-#force boehm-gc for now, without it won't build ...
-IUSE="+boehm-gc doc emacs java"
+IUSE="doc emacs java"
 
-PATCHES=( "${FILESDIR}/respect-flags.diff" )
+PATCHES=(
+	"${FILESDIR}/${PN}-respect-cflags.patch"
+	"${FILESDIR}/${PN}-respect-ar.patch"
+)
 
 #is junit dep. only for test?
 #TODO: choose a slot for junit
 CDEPEND="
-	boehm-gc? ( dev-libs/boehm-gc )
+	dev-libs/boehm-gc
+
 	emacs? ( app-editors/emacs:= )
 	java? ( dev-java/junit:= )
 "
@@ -46,8 +52,6 @@ BDEPEND="
 	emacs? ( app-text/noweb )
 "
 
-S="${WORKDIR}/${PN}-${COMMIT}/aldor"
-
 DOCS=( AUTHORS README.building README.binary-only README.library ../README.md )
 
 src_unpack() {
@@ -60,7 +64,8 @@ src_unpack() {
 }
 
 src_prepare() {
-	use boehm-gc && sed -i 's|-L /usr/X11/lib|-L /usr/X11/lib -lgc|' aldor/src/aldor.conf || die
+	#should be conditional with boehm-gc
+	sed -i 's|-L /usr/X11/lib|-L /usr/X11/lib -lgc|' aldor/src/aldor.conf || die
 
 	default
 	eautoreconf
@@ -68,28 +73,31 @@ src_prepare() {
 
 src_configure() {
 	#install headers in a subfolder to avoid collisions with another packages
+	#force boehm-gc for now, without it won't build ...
 	local myconf=(
-		--prefix="${EPREFIX}/usr"
-		--includedir="${EPREFIX}/usr/include/aldor"
 		--disable-static
 		--enable-libraries
 		--enable-shared
+		--includedir="${EPREFIX}/usr/include/aldor"
+		--prefix="${EPREFIX}/usr"
+		--with-boehm-gc
+
 		$(use_enable java)
 		$(use_with java java-junit)
-		$(use_with boehm-gc)
 	)
 	econf "${myconf[@]}"
 }
 
 src_compile() {
 	if use doc ; then
-		cd "${S}/aldorug"
+		pushd "${S}/aldorug"
 		emake aldorug.pdf || die "make aldorug.pdf failed"
+		popd
 
-		cd "${S}/lib/aldor/tutorial"
+		pushd "${S}/lib/aldor/tutorial"
 		pdflatex tutorial.tex || die "make tutorial.pdf failed"
+		popd
 	fi
-	cd "${S}"
 	if use emacs ; then
 		notangle "aldor.el.nw" > aldor.el
 		notangle -Rinit.el "aldor.el.nw" | sed -e '1s/^.*$/;; aldor mode/' > 64aldor-gentoo.el
@@ -99,12 +107,11 @@ src_compile() {
 			pdflatex aldor-mode.tex || die "make aldor-mode.pdf failed"
 		fi
 	fi
-	cd "${S}"
 	default
 }
 
 src_install() {
-	use doc && DOCS+=( aldorug/aldorug.pdf lib/aldor/tutorial/tutorial.pdf libaldor.pdf )
+	use doc && DOCS+=( aldorug/aldorug.pdf lib/aldor/tutorial/tutorial.pdf libaldor.pdf "${DISTDIR}/algebra.pdf" )
 
 	if use emacs ; then
 		use doc && DOCS+=( aldor-mode.pdf )
