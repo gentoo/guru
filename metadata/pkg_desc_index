@@ -75,7 +75,7 @@ app-misc/cpufetch 0.94_p20210409 0.98: Simplistic yet fancy CPU architecture fet
 app-misc/diff-so-fancy 1.4.2: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
 app-misc/doublecmd-bin 0.9.10: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1: Simple drag-and-drop source/sink for X and Wayland
-app-misc/far2l 2.3.20210426_alpha 9999: Linux port of FAR Manager v2
+app-misc/far2l 2.3.20210426_alpha 2.3.20210630_alpha 9999: Linux port of FAR Manager v2
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -132,7 +132,6 @@ app-text/epubgrep 0.5.1 0.6.0: Search tool for EPUB e-books
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/klogg 20.12: A GUI application to browse and search through long and complex log files
 app-text/komikku 0.28.1 0.29.2: An online/offline manga reader for GNOME
-app-text/kramdown-rfc2629 1.4.18: An RFC2629 (XML2RFC) backend for Thomas Leitner's kramdown markdown parser
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
 app-text/mdbook 0.4.7 0.4.8 0.4.9 0.4.10: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
@@ -521,7 +520,6 @@ dev-python/yams 0.7.3 9999: A Last.FM scrobbler for MPD (Yet Another Mpd Scrobbl
 dev-python/yaql 1.1.3: YAQL: Yet Another Query Language
 dev-python/zVMCloudConnector 1.4.1: a development sdk for managing z/VM
 dev-ruby/byebug 11.1.3: a Ruby 2 debugger
-dev-ruby/certified 1.0.0: Ensure using OpenSSL::SSL::VERIFY_PEER and provide certificate bundle if needed
 dev-ruby/pry-byebug 3.9.0: Step-by-step debugging and stack navigation in Pry
 dev-ruby/rspec-wait 0.0.9: enables time-resilient expectations in your RSpec test suite
 dev-scheme/chez 9.5.4: A programming language based on R6RS
