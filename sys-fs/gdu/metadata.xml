@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/dundee/gdu</bugs-to>
+		<remote-id type="github">dundee/gdu</remote-id>
+	</upstream>
+	<longdescription lang="en">
+Gdu is intended primarily for SSD disks where it can fully utilize parallel processing.
+However HDDs work as well, but the performance gain is not so huge.
+	</longdescription>
+</pkgmetadata>
