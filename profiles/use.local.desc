@@ -2,12 +2,6 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
-app-accessibility/espeak-ng:doc - Builds and installs manpage with app-text/ronn
-app-accessibility/espeak-ng:klatt - Enables Klatt formant synthesis and implementation
-app-accessibility/espeak-ng:l10n_ru - Builds extended Russian Dictionary file
-app-accessibility/espeak-ng:l10n_zh - Builds extended Chinese (Mandarin and Cantonese) Dictionary files
-app-accessibility/espeak-ng:mbrola - Adds support for mbrola voices
-app-accessibility/espeak-ng:sonic - Enables the sonic library to speed up the audio
 app-accessibility/rhvoice:cli - Build a CLI application that allows you to synthesize speech
 app-accessibility/rhvoice:client - Build a client allowing to speak text (deprecated - use speech-dispatcher)
 app-accessibility/rhvoice:server - Build a server application
@@ -171,6 +165,7 @@ games-fps/crispy-doom:midi - Basic support for MIDI files
 games-fps/crispy-doom:truecolor - Enable true-color rendering (experimental)
 games-fps/quakespasm:sdl2 - Use media-libs/libsdl2 instead of media-libs/libsdl
 games-puzzle/atris:sound - Enable atris sound pack
+games-server/among-sus:notifications - Notify players you're moving
 games-util/itch-bin:system-ffmpeg - Use the system-wide media-video/ffmpeg instead of bundled.
 gui-apps/azote:imagemagick - enable colorpicker using imagemagick
 gui-apps/azote:simple-colorpicker - enable colorpicker without imagemagick

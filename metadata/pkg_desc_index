@@ -22,7 +22,6 @@ acct-user/owncast 0: User for media-video/owncast
 acct-user/purritobin 0: User for net-misc/purritobin
 acct-user/trezord 0: User for TREZOR Bridge
 acct-user/wsdd 0: User for net-misc/wsdd
-app-accessibility/espeak-ng 1.50: Software speech synthesizer for English, and some other languages
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
 app-accessibility/rhvoice 1.2.4: TTS engine with extended languages support (including Russian)
 app-admin/ananicy 2.2.1 2.2.1-r1: ANother Auto NICe daemon
@@ -235,7 +234,7 @@ dev-cpp/gsl-lite 0.38.0: C++ Guideline Support Library implementation
 dev-cpp/indicators 2.2: Activity indicators for modern C++
 dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
 dev-cpp/parallel-hashmap 1.33: Family of header-only, fast and memory-friendly hashmap and btree containers
-dev-cpp/pcg-cpp 0.98.1_p20210406: Family of better random number generators
+dev-cpp/pcg-cpp 0.98.1_p20210406-r1: Family of better random number generators
 dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging library
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
 dev-cpp/termcolor 2.0.0: Header-only library for printing colored messages to the terminal
@@ -583,6 +582,7 @@ games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 termina
 games-puzzle/atris 1.0.7: Alizarin tetris
 games-puzzle/krank 8: Little casual game
 games-puzzle/superflu-riteurnz 1.0.0: Artisanal video-game about Superflu, the useless super-hero (french)
+games-server/among-sus 20210519: Among Us, but it's a text adventure
 games-util/NotEnoughProduction 0.0.4: Tool for building production chains for modded minecraft
 games-util/dwarf-therapist 41.2.2: For managing dwarves in Dwarf Fortress
 games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
@@ -683,7 +683,6 @@ media-libs/fcft 2.3.3 2.4.0 2.4.1 9999: A simple library for font loading and gl
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
 media-libs/libjxl 9999: JPEG XL image format reference implementation
-media-libs/pcaudiolib 1.1: Portable C Audio Library
 media-libs/rtmidi 4.0.0: A set of C++ classes that provide a common API for realtime MIDI input/output
 media-libs/skia 80_p20191220-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-libs/sonic 0.3.0_pre20210316: Simple library to speed up or slow down speech
@@ -780,7 +779,7 @@ net-voip/calls 0.3.4: Phone dialer and call handler
 net-wireless/rtl8192eu 0_pre20210403: Realtek 8192EU driver module for Linux kernel
 net-wireless/rtl8821ce 0_pre20210321: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20210327: Realtek 8821CU/RTL8811CU module for Linux kernel
-sci-biology/cmdock 0.1.2 0.1.3: Program for docking ligands to proteins and nucleic acids
+sci-biology/cmdock 0.1.3: Program for docking ligands to proteins and nucleic acids
 sci-biology/geneathome 1.10: BOINC application for expanding Gene Regulatory Networks (GRN)
 sci-electronics/bsc 0_pre20210124 9999: Bluespec high level hardware design language compiler
 sci-electronics/dsview 1.12-r1 9999: An open source multi-function instrument
