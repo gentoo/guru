@@ -81,9 +81,12 @@ BDEPEND="
 	dev-util/maturin
 "
 
-QA_FLAGS_IGNORED="$(python_get_sitedir)/${PN}*.so"
-
 distutils_enable_tests pytest
+
+pkg_setup() {
+	python_setup
+	export QA_FLAGS_IGNORED="$(python_get_sitedir)/${PN}*.so"
+}
 
 src_compile() {
 	maturin build --no-sdist --manylinux off --interpreter ${EPYTHON} $(usex debug "" --release) || die
