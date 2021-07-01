@@ -62,6 +62,7 @@ src_configure() {
 		$(use_enable execution-workflow)
 	)
 	use dlb && myconf+=( "--with-dlb=${EPREFIX}/usr" )
+	use memkind && myconf+=( "--with-memkind=${EPREFIX}/usr" )
 
 #	if use babeltrace; then
 #		myconf+=( "--with-babeltrace2=${EPREFIX}/usr" )
@@ -72,11 +73,6 @@ src_configure() {
 		myconf+=( "--with-extrae=${EPREFIX}/usr" )
 	else
 		myconf+=( "--without-extrae" )
-	fi
-	if use memkind; then
-		myconf+=( "--with-memkind=${EPREFIX}/usr" )
-	else
-		myconf+=( "--without-memkind" )
 	fi
 	if use papi; then
 		myconf+=( "--with-papi=${EPREFIX}/usr" )
