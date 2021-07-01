@@ -11,5 +11,5 @@ LICENSE=LGPL-2
 RDEPEND=>=dev-lang/ocaml-4.05.0[ocamlopt?] >=dev-ml/menhir-20151112 dev-ml/num coq? ( >=sci-mathematics/coq-8.6 ) doc? ( dev-python/sphinx dev-python/sphinxcontrib-bibtex || ( dev-texlive/texlive-latex dev-tex/latexmk dev-tex/rubber ) ) emacs? ( app-editors/emacs:* ) gtk? ( dev-ml/lablgtk:*[sourceview,ocamlopt?] ) re? ( dev-ml/re dev-ml/seq ) sexp? ( dev-ml/ppx_deriving[ocamlopt?] dev-ml/ppx_sexp_conv[ocamlopt?] dev-ml/sexplib[ocamlopt?] ) zarith? ( dev-ml/zarith ) zip? ( dev-ml/camlzip ) dev-lang/ocaml:=[ocamlopt?]
 SLOT=0
 SRC_URI=https://gforge.inria.fr/frs/download.php/file/38425/why3-1.4.0.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	findlib	cd985dd86f7bdcad48517896678366c3
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	findlib	1470b3b78030acb2c8fcd04414f4c611
 _md5_=700d894dda0fd3b47a6542fd4463ee15
