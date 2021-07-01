@@ -400,6 +400,7 @@ dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your outpu
 dev-python/mnemonic 0.19: Reference implementation of BIP-0039 for generating deterministic keys
 dev-python/neutron-lib 2.6.1: Neutron shared routines and utilities.
 dev-python/noiseprotocol 0.3.1: Python implementation of Noise Protocol Framework
+dev-python/orjson 3.5.3: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
 dev-python/os-brick 4.0.1-r1: OpenStack Cinder brick library for managing local volume attaches
 dev-python/os-ken 1.2.0: OpenStack Cinder brick library for managing local volume attaches
 dev-python/os-resource-classes 1.0.0: A list of standardized resource classes for OpenStack.
@@ -427,7 +428,7 @@ dev-python/ovsdbapp 1.5.0: A library for creating OVSDB applications
 dev-python/pdfminer-six 20201018: Community maintained fork of pdfminer
 dev-python/pep517 0.9.1: standard API for systems which build Python packages
 dev-python/phx-class-registry 3.0.5: An intersection of the Registry and Factory pattern
-dev-python/pip-api 0.0.14: An unofficial, importable pip API
+dev-python/pip-api 0.0.20: An unofficial, importable pip API
 dev-python/portio 0.5: Python low level port I/O for Linux x86
 dev-python/pproxy 2.7.8: TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio
 dev-python/promise 2.3.0: Promises/A+ implementation for Python
@@ -890,7 +891,7 @@ x11-libs/gtk-fortran 20.04: A GTK+ binding to build Graphical User Interfaces in
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial videos
 x11-misc/betterlockscreen 3.1.1 3.2.0 9999: sweet looking lockscreen for linux system
-x11-misc/betterlockscreen_rapid 0.0.0_pre20201222 0.0.0_pre20210606: A rapid and good-looking screen locker
+x11-misc/betterlockscreen_rapid 0.0.0_pre20201222 0.0.0_pre20210606 0.0.0_pre20210701: A rapid and good-looking screen locker
 x11-misc/caffeine-ng 3.5.1 9999: Aplication able to temporarily inhibit the screensaver.
 x11-misc/gammy 0.9.60 0.9.64: Adaptive screen brightness/temperature
 x11-misc/gromit-mpx 1.4 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
