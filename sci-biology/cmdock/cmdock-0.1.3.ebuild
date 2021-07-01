@@ -1,9 +1,9 @@
 # Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..10} pypy3 )
+PYTHON_COMPAT=( python3_{8..10} pypy3 )
 DOCS_BUILDER="sphinx"
 DOCS_AUTODOC=0
 DOCS_DIR="docs"
@@ -26,14 +26,13 @@ RDEPEND="
 BDEPEND="
 	dev-cpp/eigen:3
 	dev-cpp/indicators
-	dev-cpp/pcg-cpp
+	>=dev-cpp/pcg-cpp-0.98.1_p20210406-r1
 	dev-libs/cxxopts
 "
 
 src_prepare() {
 	default
 	rm -r include/indicators || die
-	sed "s|pcg_cpp_dep = dependency.*|pcg_cpp_dep = declare_dependency(include_directories: '/usr/include')|" -i meson.build || die
 }
 
 src_configure() {
@@ -55,13 +54,9 @@ src_install() {
 	if use boinc ; then
 		insinto /var/lib/boinc/projects/www.sidock.si_sidock
 		newins "${FILESDIR}/app_info_${PV}.xml" app_info.xml
-		doins "${FILESDIR}/cmdock-boinc_job_${PV}.xml"
 		doins "${FILESDIR}/cmdock-boinc-zcp_job_${PV}.xml"
-		newins "${FILESDIR}/cmdock-boinc-zcp_job_${PV}.xml" cmdock-boinc-zip_job_${PV}.xml
 
-		dosym ../../../../../usr/bin/boinc-wrapper /var/lib/boinc/projects/www.sidock.si_sidock/cmdock-wrapper_${PV}
-		dosym ../../../../../usr/bin/boinc-wrapper /var/lib/boinc/projects/www.sidock.si_sidock/cmdock-boinc-zcp_wrapper_${PV}
-		dosym ../../../../../usr/bin/boinc-wrapper /var/lib/boinc/projects/www.sidock.si_sidock/cmdock-boinc-zip_wrapper_${PV}
+		dosym -r /usr/bin/boinc-wrapper /var/lib/boinc/projects/www.sidock.si_sidock/cmdock-boinc-zcp_wrapper_${PV}
 	fi
 }
 

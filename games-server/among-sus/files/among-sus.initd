@@ -1,0 +1,18 @@
+#!/sbin/openrc-run
+# Copyright 2021 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="among-sus server"
+description="Among Us, but it's a text adventure"
+
+AMOGUS_PORT=${AMOGUS_PORT:-1234}
+
+command="/usr/bin/among-sus"
+command_args="-p ${AMOGUS_PORT}"
+command_user=nobody:nobody
+command_background=1
+pidfile=/run/among-sus.pid
+
+depend() {
+	need net
+}
