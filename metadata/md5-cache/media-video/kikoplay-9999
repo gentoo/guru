@@ -10,5 +10,5 @@ LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) dev-libs/qhttpengine:5 dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsql:5 dev-qt/qtwidgets:5 media-video/mpv[libmpv,lua] net-misc/aria2
 SLOT=0
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	a2553e8a65058f277bf0b2da4be361b0	lua-single	20268f317853c44164a3065f1e6ff68b	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47	xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	a2553e8a65058f277bf0b2da4be361b0	lua-single	20268f317853c44164a3065f1e6ff68b	qmake-utils	dc74fe3891abc25e80dad5cd3d7c6e47	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
 _md5_=e1758d6ef5d56c37385c34365554dbdb

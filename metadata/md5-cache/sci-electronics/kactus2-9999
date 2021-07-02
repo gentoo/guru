@@ -9,5 +9,5 @@ LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qthelp:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5
 SLOT=0
-_eclasses_=xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_eclasses_=xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
 _md5_=02c72bf31579ba47f2bc14f5610aaea1

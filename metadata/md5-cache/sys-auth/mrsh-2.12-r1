@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=sys-auth/munge pam? ( sys-libs/pam ) shadow? ( sys-apps/shadow )
 SLOT=0
 SRC_URI=https://github.com/chaos/mrsh/archive/2.12.tar.gz -> mrsh-2.12.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	bd82a2f06f5594b2ed0889539a4f9a9f
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18
 _md5_=d5ac33941cb1168ee9474500e198aadc

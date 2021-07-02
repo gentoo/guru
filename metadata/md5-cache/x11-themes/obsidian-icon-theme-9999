@@ -9,5 +9,5 @@ LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=x11-themes/adwaita-icon-theme
 SLOT=0
-_eclasses_=xdg-utils	ff2ff954e6b17929574eee4efc5152ba	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_eclasses_=xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	c7ba313ea1eaf266f95cc6235f7d6a07	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
 _md5_=a09b7a9fe64d97fe97d8992003f8ab58
