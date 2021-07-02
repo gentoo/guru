@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+      <description>co-maintainers welcome</description>
+      <email>lssndrbarbieri@gmail.com</email>
+      <name>Alessandro Barbieri</name>
+    </maintainer>
+    <upstream>
+        <bugs-to>https://github.com/VirusTotal/yara/issues</bugs-to>
+    </upstream>
+    <use>
+        <flag name="cpu-profiler">compile with CPU profiling support</flag>
+        <flag name="cuckoo">enable cuckoo module</flag>
+        <flag name="debug-dex">enable dex module debugging</flag>
+        <flag name="dex">enable dex module</flag>
+        <flag name="dotnet">enable dotnet module</flag>
+        <flag name="jemalloc">use jemalloc to debug heap-related issues</flag>
+        <flag name="macho">enable macho module</flag>
+        <flag name="magic">enable magic module</flag>
+        <flag name="profile">enable rules profiling support</flag>
+        <flag name="tcmalloc">use tcmalloc as the default heap allocator</flag>
+    </use>
+</pkgmetadata>
