@@ -18,6 +18,7 @@ SRC_URI="
 	emacs? ( http://hemmecke.de/aldor/aldor.el.nw )
 "
 S="${WORKDIR}/${PN}-${COMMIT}/aldor"
+
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -56,11 +57,13 @@ DOCS=( AUTHORS README.building README.binary-only README.library ../README.md )
 
 src_unpack() {
 	unpack "${P}.tar.gz"
-	if use doc ; then
-		cp "${DISTDIR}/libaldor.pdf.gz" "${S}"
-		gunzip "${S}/libaldor.pdf.gz"
+	if use doc; then
+		cp "${DISTDIR}/libaldor.pdf.gz" "${S}" || die
+		gunzip "${S}/libaldor.pdf.gz" || die
 	fi
-	use emacs && cp "${DISTDIR}/aldor.el.nw" "${S}"
+	if use emacs; then
+		cp "${DISTDIR}/aldor.el.nw" "${S}" || die
+	fi
 }
 
 src_prepare() {
@@ -89,21 +92,21 @@ src_configure() {
 }
 
 src_compile() {
-	if use doc ; then
-		pushd "${S}/aldorug"
+	if use doc; then
+		pushd "${S}/aldorug" || die
 		emake aldorug.pdf || die "make aldorug.pdf failed"
-		popd
+		popd || die
 
-		pushd "${S}/lib/aldor/tutorial"
+		pushd "${S}/lib/aldor/tutorial" || die
 		pdflatex tutorial.tex || die "make tutorial.pdf failed"
-		popd
+		popd || die
 	fi
-	if use emacs ; then
-		notangle "aldor.el.nw" > aldor.el
-		notangle -Rinit.el "aldor.el.nw" | sed -e '1s/^.*$/;; aldor mode/' > 64aldor-gentoo.el
-		if use doc ; then
+	if use emacs; then
+		notangle "aldor.el.nw" > aldor.el || die
+		notangle -Rinit.el "aldor.el.nw" | sed -e '1s/^.*$/;; aldor mode/' > 64aldor-gentoo.el || die
+		if use doc; then
 			einfo "Documentation for the aldor emacs mode"
-			noweave "aldor.el.nw" > aldor-mode.tex
+			noweave "aldor.el.nw" > aldor-mode.tex || die
 			pdflatex aldor-mode.tex || die "make aldor-mode.pdf failed"
 		fi
 	fi
@@ -113,7 +116,7 @@ src_compile() {
 src_install() {
 	use doc && DOCS+=( aldorug/aldorug.pdf lib/aldor/tutorial/tutorial.pdf libaldor.pdf "${DISTDIR}/algebra.pdf" )
 
-	if use emacs ; then
+	if use emacs; then
 		use doc && DOCS+=( aldor-mode.pdf )
 		#TODO: rename aldor.el
 		elisp-site-file-install aldor.el
