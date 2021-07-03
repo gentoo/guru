@@ -28,6 +28,7 @@ BDEPEND="
 	dev-util/intltool
 	sys-devel/bison
 	>=sys-devel/gcc-8.1
+	sys-devel/libtool
 "
 
 S="${WORKDIR}/${PN}-${MYPV}"
