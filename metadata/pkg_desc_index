@@ -24,7 +24,7 @@ acct-user/trezord 0: User for TREZOR Bridge
 acct-user/wsdd 0: User for net-misc/wsdd
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
 app-accessibility/rhvoice 1.2.4: TTS engine with extended languages support (including Russian)
-app-admin/ananicy 2.2.1 2.2.1-r1: ANother Auto NICe daemon
+app-admin/ananicy 2.2.1-r1: ANother Auto NICe daemon
 app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
 app-admin/chezmoi 1.8.10 2.0.12: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
@@ -43,7 +43,7 @@ app-crypt/mkp224o 1.5.0: Vanity address generator for v3 Tor hidden service addr
 app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-crypt/tomb 2.9-r6: Tomb :: File Encryption on GNU/Linux
 app-crypt/uacme 1.7.1: ACMEv2 client written in plain C with minimal dependencies
-app-dicts/dictd-devils 20150822: The Devil's Dictionary for dict
+app-dicts/dictd-devils 20210627: The Devil's Dictionary for dict
 app-dicts/dictd-elements 20030309: Jay Kominek's database of the elements for dict
 app-dicts/dictd-foldoc 20180405: The Free On-line Dictionary of Computing for dict
 app-dicts/dictd-gazetteer 1.3: The original U.S. Gazetteer Place and Zipcode Files for dict
@@ -64,6 +64,7 @@ app-emulation/dxvk-bin 1.8.1 1.9: Vulkan-based implementation of D3D9, D3D10 and
 app-emulation/nvidia-container-toolkit 1.4.2 1.5.0: NVIDIA container runtime toolkit
 app-emulation/spice-html5 0.2.1 0.2.2: Spice Javascript client
 app-eselect/eselect-scheme 3.1.0: Manages scheme implementations
+app-forensics/yara 4.1.1: A malware identification and classification tool
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/afetch 2.2.0: Simple system info written in C
 app-misc/apidb 5.8.0_beta 5.11.0_beta: API Generator for Database access
@@ -122,7 +123,7 @@ app-shells/fish-history-merge 0_pre20201121: Plugin that modifies built-in up-or
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
 app-shells/ohmyzsh 9999: A framework for managing your zsh configuration.
-app-shells/starship 0.52.1: The minimal, blazing-fast, and infinitely customizable prompt for any shell!
+app-shells/starship 0.55.0: The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 app-shells/zsh-autosuggestions 0.6.4: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
 app-shells/zsh-history-to-fish 0.3.0: Bring your ZSH history to Fish shell
@@ -259,7 +260,7 @@ dev-java/gradle-build-operations 6.8.2: Build automation tool for JVM Languages,
 dev-java/gradle-hashing 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/mill-bin 0.9.8: A Java/Scala build tool
 dev-java/openjdk-sts-bin 15.0.2_p7: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
-dev-lang/aldor 1.2.0_p20190730: The Aldor Programming Language
+dev-lang/aldor 1.2.0_p20190730-r1: The Aldor Programming Language
 dev-lang/ammonite-repl-bin 2.4.0: Scala language-based scripting and REPL
 dev-lang/fbc 1.07.3: A free/open source, multi-platform BASIC compiler.
 dev-lang/fbc-bootstrap 1.07.3: Bootstrap package for dev-lang/fbc
@@ -278,7 +279,7 @@ dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
 dev-libs/imsg-compat 6.8.2 9999: linux port of OpenBSD imsg
 dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
 dev-libs/libdwarf 20210528: The DWARF Debugging Information Format
-dev-libs/libnodave 0.8.5.1-r1: Connect to and exchange data with Siemens PLCs
+dev-libs/libnodave 0.8.5.1-r2: Connect to and exchange data with Siemens PLCs
 dev-libs/memkind 1.11.0: user extensible heap manager built on top of jemalloc
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
 dev-libs/mtxclient 0.4.1 0.5.1: Client API library for Matrix, built on top of Boost.Asio
@@ -329,6 +330,7 @@ dev-python/b2sdk 1.8.0: The client library for BackBlaze's B2 product
 dev-python/babelfont 2.0.1: Interrogate and manipulate UFO, TTF and OTF fonts with a common interface
 dev-python/baron 0.9: Full Syntax Tree for python to make writing refactoring code a realist task
 dev-python/base58 2.1.0: Base58 and Base58Check implementation
+dev-python/beziers 0.3.1: Python bezier manipulation library
 dev-python/billiard 3.6.3.0 3.6.4.0: Python multiprocessing fork
 dev-python/bitbox02 5.3.0: Python API for communicating with the BitBox02 device
 dev-python/browserstack-local-python 1.2.2: Python bindings for BrowserStack Local
@@ -342,6 +344,7 @@ dev-python/check-manifest 0.46: Tool to check the completeness of MANIFEST.in fo
 dev-python/click-didyoumean 0.0.3: Enable git-like did-you-mean feature in click
 dev-python/click-repl 0.2.0: Subcommand REPL for click apps
 dev-python/clufter 0.77.2: Tool/library for transforming/analyzing cluster configuration formats
+dev-python/cmarkgfm 0.5.3: Python bindings for GitHub's cmark
 dev-python/colored 1.4.2 9999: Very simple Python library for color and formatting in terminal
 dev-python/compreffor 0.5.1: A CFF table subroutinizer for FontTools
 dev-python/convertdate 2.3.0 2.3.1: Utils for converting between date formats and calculating holidays
@@ -510,14 +513,17 @@ dev-python/ufo2ft 2.21.0: A bridge from UFOs to FontTool objects
 dev-python/ufoLib2 0.11.1: A UFO font library
 dev-python/ufoNormalizer 0.5.4: A tool that will normalize the XML and other data inside of a UFO.
 dev-python/ufoProcessor 1.9.0: A Python package for processing and generating UFO files
+dev-python/uharfbuzz 0.16.1: Streamlined Cython bindings for the HarfBuzz shaping engine
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/unicodedata2 13.0.0.2: Unicodedata backport for python 2/3 updated to the latest unicode version
+dev-python/vharfbuzz 0.1.1: A user-friendlier way to use Harfbuzz in Python
 dev-python/vttlib 0.11.0: Dump, merge and compile Visual TrueType data in UFO3 with FontTools
 dev-python/watchgod 0.7: Simple, modern file watching and code reload
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
 dev-python/xunitparser 1.3.3: Read JUnit/XUnit XML files and map them to Python objects
 dev-python/yams 0.7.3 9999: A Last.FM scrobbler for MPD (Yet Another Mpd Scrobbler)
 dev-python/yaql 1.1.3: YAQL: Yet Another Query Language
+dev-python/yara-python 4.1.0: Python interface for a malware identification and classification tool
 dev-python/zVMCloudConnector 1.4.1: a development sdk for managing z/VM
 dev-ruby/byebug 11.1.3: a Ruby 2 debugger
 dev-ruby/pry-byebug 3.9.0: Step-by-step debugging and stack navigation in Pry
@@ -549,6 +555,7 @@ dev-util/rpmlint 2.0.0: Tool for checking common errors in RPM packages
 dev-util/rust-analyzer-bin 9999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/xdp-tools 1.1.1: Utilities and example programs for use with XDP
+dev-vcs/bit 1.1.1: Bit is a modern Git CLI
 dev-vcs/git-blame-someone-else 0_pre20180613: Blame someone else for your bad code.
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
 dev-vcs/git-repo-updater 0.5.1-r1: Easily update multiple git repositories at once
@@ -613,8 +620,8 @@ gui-apps/coreterminal 4.2.0 9999: A terminal emulator for C Suite
 gui-apps/coretime 4.2.0 9999: A time related task manager for C Suite
 gui-apps/coretoppings 4.1.0-r1 4.2.0 9999: Additional features, plugins, widgets etc for C Suite
 gui-apps/coreuniverse 4.2.0 9999: Shows information about apps for C Suite
-gui-apps/foot 1.7.1 1.7.2 1.8.0 9999: A fast, lightweight and minimalistic Wayland terminal emulator
-gui-apps/foot-terminfo 1.7.1 1.7.2 9999: Terminfo for foot, a great Wayland terminal emulator
+gui-apps/foot 1.7.1 1.7.2 1.8.0 1.8.1 9999: A fast, lightweight and minimalistic Wayland terminal emulator
+gui-apps/foot-terminfo 1.7.1 1.7.2 1.8.1 9999: Terminfo for foot, a great Wayland terminal emulator
 gui-apps/mpvpaper 1.0 1.1 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.4.3 0.4.4 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperde 0.1.1_p20210426 9999: Simple, sleek QT based DE for wayland using wayfire
@@ -660,6 +667,7 @@ media-fonts/warframe-fonts 0_pre20191111: Fonts from the Warframe game
 media-gfx/akira 0.0.13 9999: Native Linux App for UI and UX Design built in Vala and GTK.
 media-gfx/azpainter 3.0.1: Full color painting software for Linux for illustration drawing
 media-gfx/bonzomatic 2021.03.07 9999: Live shader coding tool and Shader Showdown workhorse
+media-gfx/dehinter 3.1.0: Python bindings for GitHub's cmark
 media-gfx/dustr 9999: light and interactive tool your crops need
 media-gfx/fontdiff 0.2.3: A tool for finding visual differences between two font versions
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
@@ -842,6 +850,7 @@ sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
 sys-fs/dwarfs 0.4.1 0.5.4 0.5.4-r2 0.5.4-r3: A fast very high compression read-only FUSE file system
 sys-fs/erofs-utils 1.2.1: Userspace tools for EROFS images
 sys-fs/gcsfuse 0.35.1: A user-space file system for interacting with Google Cloud Storage
+sys-fs/gdu 5.1.1: Disk usage analyzer with console interface written in Go
 sys-fs/gfs2-utils 3.2.0 3.3.0: Shared-disk cluster file system
 sys-fs/git-mount 1.0.0_p20160321: git-mount let's you mount your repo as a filesystem based on a revision.
 sys-fs/python-btrfs 12 13: Python 3 module to inspect btrfs filesystems

@@ -25,6 +25,16 @@ app-crypt/uacme:mbedtls - Use net-libs/mbedtls instead of dev-libs/openssl
 app-crypt/uacme:ualpn - Build the ualpn proxy that transparently handles tls-alpn-01
 app-dicts/dictd-mueller:ipa - convert transcription into the IPA Unicode
 app-emulation/arnold:inkz80 - Use inkz80 processor emulation
+app-forensics/yara:cpu-profiler - compile with CPU profiling support
+app-forensics/yara:cuckoo - enable cuckoo module
+app-forensics/yara:debug-dex - enable dex module debugging
+app-forensics/yara:dex - enable dex module
+app-forensics/yara:dotnet - enable dotnet module
+app-forensics/yara:jemalloc - use jemalloc to debug heap-related issues
+app-forensics/yara:macho - enable macho module
+app-forensics/yara:magic - enable magic module
+app-forensics/yara:profile - enable rules profiling support
+app-forensics/yara:tcmalloc - use tcmalloc as the default heap allocator
 app-misc/apidb:commands - Build commands
 app-misc/apidb:corelibs - Build Abtract layer
 app-misc/apidb:mariadb - Build MariaDB Layer
@@ -75,7 +85,6 @@ dev-games/godot:raycast - Enable raycast module using media-libs/embree
 dev-java/openjdk-sts-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (package manager, eselect, java-config, EXPERIMENTAL!)
 dev-java/openjdk-sts-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
 dev-java/openjdk-sts-bin:source - Install JVM sources
-dev-lang/aldor:boehm-gc - Use Boehm Garbage Collector instead of built-in
 dev-libs/hts_engine:speech-tools - use memory allocation/free functions of app-accessibility/speech-tools
 dev-libs/libdwarf:dwarfexample - enable dwarfexample compilation
 dev-libs/libdwarf:dwarfgen - enable dwarfgen compilation

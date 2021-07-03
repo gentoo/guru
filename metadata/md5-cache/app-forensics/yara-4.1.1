@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 doc? ( || ( ( dev-lang/python:3.10 dev-python/sphinx[python_targets_python3_10(-)] ) ( dev-lang/python:3.9 dev-python/sphinx[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/sphinx[python_targets_python3_8(-)] ) ( >=dev-python/pypy3-7.3.0:0 dev-python/sphinx[python_targets_pypy3(-)] ) ) )
+DEFINED_PHASES=compile configure install prepare setup
+DEPEND=dev-libs/openssl:0= cpu-profiler? ( dev-util/google-perftools ) cuckoo? ( dev-libs/jansson ) jemalloc? ( dev-libs/jemalloc ) magic? ( sys-apps/file ) tcmalloc? ( dev-util/google-perftools )
+DESCRIPTION=A malware identification and classification tool
+EAPI=7
+HOMEPAGE=http://virustotal.github.io/yara https://github.com/virustotal/yara
+INHERIT=autotools python-any-r1 docs
+IUSE=cpu-profiler cuckoo +dex debug-dex dotnet jemalloc macho magic profile tcmalloc doc
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=dev-libs/openssl:0= cpu-profiler? ( dev-util/google-perftools ) cuckoo? ( dev-libs/jansson ) jemalloc? ( dev-libs/jemalloc ) magic? ( sys-apps/file ) tcmalloc? ( dev-util/google-perftools )
+REQUIRED_USE=?? ( jemalloc tcmalloc )
+SLOT=0
+SRC_URI=https://github.com/virustotal/yara/archive/v4.1.1.tar.gz -> yara-4.1.1.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-any-r1	901d9e22c7a848a1196502edf060f330	docs	7c38d94fa7c1b4235fe571dc09e018df
+_md5_=c05defacc256dc748c111c6e2e3895bf
