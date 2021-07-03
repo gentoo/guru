@@ -62,7 +62,6 @@ src_compile() {
 	docs_compile
 }
 
-
 src_install() {
 	default
 	einstalldocs
