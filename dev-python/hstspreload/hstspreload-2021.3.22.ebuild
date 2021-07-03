@@ -18,3 +18,7 @@ SRC_URI="https://github.com/sethmlarson/hstspreload/archive/${PV}.tar.gz -> ${P}
 LICENSE="BSD"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
+
+RESTRICT="mirror"
+
+distutils_enable_tests pytest

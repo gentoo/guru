@@ -12,18 +12,19 @@ SRC_URI="mirror://sourceforge/libnodave/libnodave-${PV}.tar.gz"
 LICENSE="LGPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc perl"
+IUSE="perl"
+
 RESTRICT="test" #no tests
-DEPEND=""
+
 RDEPEND="
 	perl? ( dev-lang/perl:= )
 "
-BDEPEND=""
+
+DOCS=( ChangeLog readme faq.txt )
 PATCHES=(
 	"${FILESDIR}/makefile-${PV}.patch"
 	"${FILESDIR}/perl-makefile.patch"
 )
-DOCS=( ChangeLog readme faq.txt FAQ.de.txt )
 
 src_configure() {
 	if use perl; then
@@ -36,8 +37,9 @@ src_configure() {
 src_compile() {
 	append-cflags "-L${S} -fPIC"
 	emake clean
-	emake CC="$(tc-getCC)" all
+	emake CC="$(tc-getCC)" libnodave.so
 	ln -s libnodave.so.0 libnodave.so || die
+	emake CC="$(tc-getCC)" all
 
 	if use perl; then
 		cd "${S}/PERL" || die
@@ -62,13 +64,14 @@ src_install() {
 		isotest4
 		ibhsim5
 	)
-	exeinto "/usr/libexec"
+	exeinto "/usr/libexec/${PN}"
 	doexe "${programs[@]}"
-
 	dolib.so libnodave.so.0 libnodave.so
 	doheader nodave.h
-	use doc && HTML_DOCS=( doc/*.html )
+	HTML_DOCS=( doc/*.html )
 	einstalldocs
+	insinto "/usr/share/${PF}/doc/de"
+	doins FAQ.de.txt
 
 	if use perl; then
 		cd "${S}/PERL" || die

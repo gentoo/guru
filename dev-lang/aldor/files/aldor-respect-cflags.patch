@@ -1,6 +1,5 @@
-diff -ur a/aldor/src/Makefile.am b/aldor/src/Makefile.am
---- a/aldor/src/Makefile.am	2019-07-30 01:13:14.000000000 +0200
-+++ b/aldor/src/Makefile.am	2020-03-04 21:14:57.582054633 +0100
+--- a/aldor/src/Makefile.am
++++ b/aldor/src/Makefile.am
 @@ -40,12 +40,12 @@
  
  javagen_LDADD = libphase.a libstruct.a libgen.a libport.a -lm
@@ -33,9 +32,8 @@ diff -ur a/aldor/src/Makefile.am b/aldor/src/Makefile.am
  
  #
  # Special rules
-diff -ur a/m4/strict_compile.m4 b/m4/strict_compile.m4
---- a/m4/strict_compile.m4	2019-07-30 01:13:14.000000000 +0200
-+++ b/m4/strict_compile.m4	2020-03-04 21:17:33.394968306 +0100
+--- a/m4/strict_compile.m4
++++ b/m4/strict_compile.m4
 @@ -12,7 +12,7 @@
     ALDOR_CC_OPTION(-Wno-sign-compare,cfg_no_sign_compare)
     AC_MSG_CHECKING(Strict options for C compiler)

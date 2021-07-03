@@ -6,13 +6,13 @@ command_args="start"
 command_background=true
 
 start_pre() {
-       /sbin/sysctl -e kernel.sched_autogroup_enabled=0
+	/usr/sbin/sysctl -e kernel.sched_autogroup_enabled=0
 }
 
 stop_post() {
-       /sbin/sysctl -e kernel.sched_autogroup_enabled=1
+	/usr/sbin/sysctl -e kernel.sched_autogroup_enabled=1
 }
 
 stop() {
-       start-stop-daemon --stop --pidfile "$pidfile"
+	start-stop-daemon --stop --pidfile "$pidfile"
 }

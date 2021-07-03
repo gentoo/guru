@@ -73,19 +73,23 @@ DEPEND="
 
 		$(python_gen_cond_dep 'dev-python/numpy[${PYTHON_USEDEP}]' python3_{8,9})
 		$(python_gen_cond_dep '>=dev-python/xxhash-1.4.3[${PYTHON_USEDEP}]' python3_8)
-	)"
+	)
+"
 BDEPEND="
 	app-arch/unzip
 	dev-lang/rust[nightly]
 	dev-util/maturin
 "
 
-QA_FLAGS_IGNORED="*"
-
 distutils_enable_tests pytest
 
+pkg_setup() {
+	python_setup
+	export QA_FLAGS_IGNORED="$(python_get_sitedir)/${PN}*.so"
+}
+
 src_compile() {
-	maturin build --no-sdist --strip --manylinux off --interpreter "${EPYTHON}" $(usex debug "" --release) || die
+	maturin build --no-sdist --manylinux off --interpreter ${EPYTHON} $(usex debug "" --release) || die
 	unzip "target/wheels/${P}-*.whl" || die
 }
 

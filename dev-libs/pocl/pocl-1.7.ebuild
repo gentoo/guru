@@ -6,7 +6,7 @@ EAPI="7"
 DOCS_AUTODOC=0
 DOCS_BUILDER="sphinx"
 DOCS_DIR="doc/sphinx/source"
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} pypy3 )
 
 inherit cmake llvm python-any-r1 docs
 
@@ -22,7 +22,9 @@ SRC_URI="https://github.com/pocl/pocl/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="accel cl20 +conformance cuda debug examples float-conversion hardening +hwloc memmanager" #hsa tce
+IUSE="accel cl20 +conformance cuda debug examples float-conversion hardening +hwloc memmanager test" #hsa tce
+
+RESTRICT="!test? ( test )"
 
 #TODO: add dependencies for cuda
 RDEPEND="
@@ -49,7 +51,7 @@ src_configure() {
 		-DBUILD_SHARED_LIBS=ON
 		-DENABLE_HSA=OFF
 		-DENABLE_ICD=ON
-		-DENABLE_POCL_BUILDING=OFF
+		-DENABLE_POCL_BUILDING=ON
 		-DKERNELLIB_HOST_CPU_VARIANTS=native
 		-DPOCL_ICD_ABSOLUTE_PATH=ON
 		-DSTATIC_LLVM=OFF
@@ -84,4 +86,10 @@ src_install() {
 		dodoc -r examples
 		docompress -x "/usr/share/doc/${P}/examples"
 	fi
+}
+
+src_test() {
+	export POCL_BUILDING=1
+	export CTEST_OUTPUT_ON_FAILURE=1
+	cmake_src_test
 }

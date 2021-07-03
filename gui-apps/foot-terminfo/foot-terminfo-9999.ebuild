@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -21,9 +21,12 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND="sys-libs/ncurses"
 
+src_compile() {
+	tic -x -o "${S}" -e foot,foot-direct "${S}/foot.info" || die "Failed to compile terminfo"
+}
+
 src_install() {
-	tic -x -o "${S}" -e foot,foot-direct "${S}/foot.info"
 	dodir /usr/share/terminfo/f/
-	cp "${S}/f/foot" "${D}/usr/share/terminfo/f/foot"
-	cp "${S}/f/foot-direct" "${D}/usr/share/terminfo/f/foot-direct"
+	cp "${S}/f/foot" "${D}/usr/share/terminfo/f/foot" || die
+	cp "${S}/f/foot-direct" "${D}/usr/share/terminfo/f/foot-direct" || die
 }
