@@ -9,6 +9,7 @@
 	<upstream>
 		<changelog>https://github.com/WerWolv/ImHex/releases</changelog>
 		<bugs-to>https://github.com/WerWolv/ImHex/issues</bugs-to>
+		<remote-id type="github">WerWolv/ImHex</remote-id>
 	</upstream>
 	<longdescription lang="en">
 Features
