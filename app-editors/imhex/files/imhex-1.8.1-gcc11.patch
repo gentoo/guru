@@ -1,0 +1,11 @@
+--- a/plugins/libimhex/include/hex/helpers/utils.hpp
++++ b/plugins/libimhex/include/hex/helpers/utils.hpp
+@@ -25,7 +25,7 @@
+     #define fopen64 fopen
+     #define fseeko64 fseek
+     #define ftello64 ftell
+-#else
++#elif __cplusplus < 201703L
+     template<>
+     struct std::is_integral<u128> : public std::true_type { };
+     template<>

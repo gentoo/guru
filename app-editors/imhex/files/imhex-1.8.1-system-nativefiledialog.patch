@@ -1,0 +1,19 @@
+--- a/plugins/libimhex/CMakeLists.txt
++++ b/plugins/libimhex/CMakeLists.txt
+@@ -12,7 +12,6 @@
+   find_package(nlohmann_json REQUIRED)
+ endif()
+ 
+-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../external/nativefiledialog ${CMAKE_CURRENT_BINARY_DIR}/external/nativefiledialog EXCLUDE_FROM_ALL)
+ if(NOT USE_SYSTEM_FMT)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../external/fmt ${CMAKE_CURRENT_BINARY_DIR}/external/fmt)
+ else()
+@@ -32,7 +31,7 @@
+   pkg_check_modules(LIBCURL REQUIRED IMPORTED_TARGET libcurl)
+ endif()
+ 
+-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
++set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -lnfd")
+ 
+ set(CMAKE_SHARED_LIBRARY_PREFIX "")
+ 
