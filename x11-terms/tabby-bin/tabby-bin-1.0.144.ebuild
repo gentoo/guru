@@ -5,20 +5,20 @@ EAPI=7
 
 inherit desktop xdg
 
-MY_PV="terminus-${PV}-linux"
+MY_P="tabby-${PV}-linux"
 
 DESCRIPTION="A terminal for a more modern age"
-HOMEPAGE="https://eugeny.github.io/terminus/"
+HOMEPAGE="https://eugeny.github.io/tabby"
 SRC_URI="
-	https://github.com/Eugeny/terminus/releases/download/v${PV}/${MY_PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/ScardracS/icons/releases/download/release/terminus-icons.tar.gz
+	https://github.com/Eugeny/tabby/releases/download/v${PV}/${MY_P}.tar.gz
+	https://github.com/scardracs/icons/releases/download/release/tabby-icons.tar.gz
 "
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-S="${WORKDIR}/${MY_PV}"
+S="${WORKDIR}/${MY_P}"
 
 DEPEND="
 	app-accessibility/at-spi2-atk
@@ -49,14 +49,14 @@ src_prepare(){
 src_install(){
 	insinto /opt/"${PN}"
 	doins -r "${S}"/*
-	dosym ../../opt/"${PN}"/terminus "${EPREFIX}"/usr/bin/terminus
-	fperms +x /opt/"${PN}"/terminus
-	make_desktop_entry "/opt/${PN}/terminus %U" "Terminus" "terminus" \
+	dosym ../../opt/"${PN}"/"${PN}" "${EPREFIX}"/usr/bin/"${PN}"
+	fperms +x /opt/"${PN}"/"${PN}"
+	make_desktop_entry "/opt/${PN}/tabby %U" "Tabby" "tabby" \
 		"GNOME;GTK;Utility;" \
-		"GenericName=Terminus\n\nStartupNotify=true\nStartupWMClass=terminus"
-	doicon ../terminus.svg
-	doicon ../terminus.ico
+		"GenericName=Tabby\n\nStartupNotify=true\nStartupWMClass=tabby"
+	doicon ../tabby.svg
+	doicon ../tabby.ico
 	for i in {16,24,32,48,64,72,96,128,512}; do
-		doicon -s "${i}" ../terminus-"${i}".png
+		doicon -s "${i}" ../tabby-"${i}".png
 	done
 }

@@ -1,0 +1,11 @@
+--- a/plugins/libimhex/CMakeLists.txt
++++ b/plugins/libimhex/CMakeLists.txt
+@@ -19,7 +19,7 @@
+   find_package(fmt REQUIRED)
+ endif()
+ 
+-set(XDGPP_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/../../external/xdgpp")
++set(XDGPP_INCLUDE_DIRS "/usr/include")
+ set(CMAKE_USE_MBEDTLS ON)
+ set(BUILD_CURL_EXE OFF)
+ set(FPHSA_NAME_MISMATCHED ON CACHE BOOL "")

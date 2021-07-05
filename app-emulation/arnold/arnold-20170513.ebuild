@@ -9,26 +9,27 @@ inherit cmake desktop wxwidgets
 
 DESCRIPTION="Amstrad CPC emulator"
 HOMEPAGE="http://www.cpctech.org.uk"
-SRC_URI="https://cpctech.cpc-live.com/arnsrc.zip -> ${P}.zip"
+SRC_URI="http://cpctech.cpc-live.com/arnsrc.zip -> ${P}.zip"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="inkz80"
 
-DEPEND="
+RDEPEND="
 	media-libs/libsdl2
 	virtual/opengl
+	x11-libs/wxGTK:${WX_GTK_VER}
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}"
 BDEPEND="app-arch/unzip"
 
-S="${WORKDIR}/src"
+S=${WORKDIR}/src
 
 src_prepare() {
 	setup-wxwidgets
 	sed -i "4421s:=.*$:=wxT(\"/usr/share/${PN}/\");:" arngui/arnguiApp.cpp || die
-	# Prevent running at 150% of original speed
+	# Prevent running at 150%
 	sed -i '390s/20000/30000/' arngui/sdl2/SDL2PlatformSpecific.cpp || die
 	cmake_src_prepare
 }

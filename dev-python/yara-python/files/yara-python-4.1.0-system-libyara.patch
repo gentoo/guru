@@ -1,0 +1,10 @@
+--- a/setup.py
++++ b/setup.py
+@@ -370,5 +370,6 @@
+         'update': UpdateCommand},
+     ext_modules=[Extension(
+         name='yara',
+-        include_dirs=['yara/libyara/include', 'yara/libyara/', '.'],
++        include_dirs=['/usr/include', 'yara/libyara/include', 'yara/libyara/', '.'],
++	libraries=['yara'],
+         sources=['yara-python.c'])])

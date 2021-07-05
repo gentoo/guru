@@ -1,0 +1,12 @@
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -23,8 +23,7 @@
+ endif()
+ 
+ # Define the library
+-add_library(${TARGET_NAME} STATIC
+-  ${SOURCE_FILES})
++add_library(${TARGET_NAME} ${SOURCE_FILES})
+ 
+ # Allow includes from include/
+ target_include_directories(${TARGET_NAME}

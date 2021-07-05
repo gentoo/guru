@@ -1,11 +1,12 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} pypy3 )
+#with pypy3 undefined symbol: PyDescr_NewGetSet
+PYTHON_COMPAT=( python3_{8..10} )
 
-inherit distutils-r1 eutils
+inherit distutils-r1
 
 DESCRIPTION="Python interface for a malware identification and classification tool"
 HOMEPAGE="https://github.com/VirusTotal/yara-python"
@@ -20,6 +21,8 @@ RDEPEND="
 	=app-forensics/yara-$(ver_cut 1-2)*
 "
 DEPEND="${RDEPEND}"
+
+PATCHES=( "${FILESDIR}/${P}-system-libyara.patch" )
 
 distutils_enable_tests setup.py
 
