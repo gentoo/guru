@@ -3,50 +3,68 @@
 
 EAPI=7
 
-SSL_DEPS_SKIP=1
 SSL_DAYS=36500
-
-inherit ssl-cert toolchain-funcs
+inherit git-r3 ssl-cert toolchain-funcs
 
 DESCRIPTION="Simple and secure Gemini server"
 HOMEPAGE="https://www.omarpolo.com/pages/gmid.html"
-
-if [[ ${PV} == "9999" ]] ; then
-	inherit git-r3
-	EGIT_REPO_URI="https://git.omarpolo.com/${PN}"
-else
-	SRC_URI="https://git.omarpolo.com/${PN}/snapshot/${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-fi
+EGIT_REPO_URI="https://github.com/omar-polo/${PN}.git https://git.omarpolo.com/${PN}"
 
 LICENSE="ISC"
 SLOT="0"
+IUSE="+seccomp test"
+RESTRICT="
+	!test? ( test )
+	seccomp? ( test )
+"
 
-DEPEND="acct-user/gemini
+DEPEND="
+	acct-user/gemini
 	dev-libs/libevent
 	dev-libs/libretls
 "
-BDEPEND="sys-devel/flex
-	virtual/yacc"
+BDEPEND="
+	virtual/pkgconfig
+	virtual/yacc
+"
 RDEPEND="${DEPEND}"
 
 DOCS=( README.md ChangeLog )
 
 src_configure() {
+	local conf_args
+
 	# note: not an autoconf configure script
-	./configure \
-		CC="$(tc-getCC)" \
-		PREFIX="${EPREFIX}"/usr/share \
-		BINDIR="${EPREFIX}"/usr/bin \
-		CFLAGS="${CFLAGS}" \
-		LDFLAGS="${LDFLAGS} -ltls -lssl -lcrypto -levent" || die
+	conf_args=(
+		CC="$(tc-getCC)"
+		PREFIX="${EPREFIX}"/usr/share
+		BINDIR="${EPREFIX}"/usr/bin
+		CFLAGS="${CFLAGS}"
+		LDFLAGS="${LDFLAGS} -ltls -lssl -lcrypto -levent"
+	)
+	if ! use seccomp ; then
+		conf_args+=( --disable-sandbox )
+	fi
+
+	./configure "${conf_args[@]}" || die
+}
+
+src_compile() {
+	emake gmid
+	if use test ; then
+		emake -C regress gg puny-test testdata iri_test
+	fi
+}
+
+src_test() {
+	emake regress
 }
 
 src_install() {
 	default
 
-	dodir /etc/gmid
-	cp "${FILESDIR}"/gmid.conf "${ED}"/etc/gmid/gmid.conf || die
+	insinto /etc/gmid
+	doins "${FILESDIR}"/gmid.conf
 
 	newinitd "${FILESDIR}"/gmid.initd gmid
 	newconfd "${FILESDIR}"/gmid.confd gmid
