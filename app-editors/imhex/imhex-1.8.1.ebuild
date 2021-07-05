@@ -21,7 +21,7 @@ KEYWORDS="~amd64"
 
 DEPEND="
 	${PYTHON_DEPS}
-	app-forensics/yara
+	app-forensics/yara[tcmalloc]
 	dev-cpp/nlohmann_json
 	dev-cpp/xdgpp
 	dev-libs/capstone
