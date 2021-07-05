@@ -1,0 +1,12 @@
+DEFINED_PHASES=install
+DEPEND=media-libs/glew:0
+DESCRIPTION=Bloat-free graphical user interface library for C++
+EAPI=8
+HOMEPAGE=https://github.com/ocornut/imgui
+IUSE=examples
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=media-libs/glew:0
+SLOT=0
+SRC_URI=https://github.com/ocornut/imgui/archive/v1.83.tar.gz -> imgui-1.83.tar.gz
+_md5_=942ed0f47829d32e878587f978a9038a
