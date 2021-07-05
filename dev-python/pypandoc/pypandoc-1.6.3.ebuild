@@ -1,9 +1,10 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} )
+DISTUTILS_USE_SETUPTOOLS=rdepend
+PYTHON_COMPAT=( python3_{8..10} pypy3 )
 
 inherit distutils-r1
 
@@ -17,6 +18,7 @@ SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="test"
 
 RDEPEND="
 	app-text/pandoc
@@ -30,11 +32,9 @@ DEPEND="
 	dev-python/urllib3[${PYTHON_USEDEP}]
 "
 
-python_test() {
-	# Skip tests. Wants: internet access
-	sed -i -e 's:test_basic_conversion_from_http_url:_&:' tests.py || die
-	# Skip tests. Wants: nonexistent font
-	sed -i -e 's:test_pdf_conversion:_&:' tests.py || die
+PROPERTIES="test_network"
+RESTRICT="test"
 
+python_test() {
 	"${EPYTHON}" tests.py || die "Tests fail with ${EPYTHON}"
 }
