@@ -3,6 +3,8 @@
 
 EAPI="7"
 
+# testsuite needs it own source
+DISTUTILS_IN_SOURCE_BUILD=1
 DISTUTILS_USE_SETUPTOOLS=rdepend
 MYPV="${PV/_beta/b}"
 PYTHON_COMPAT=( python3_8 )
@@ -17,11 +19,12 @@ HOMEPAGE="
 "
 SRC_URI="https://github.com/celery/celery/archive/v${MYPV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${MYPV}"
+
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-# There are a number of other optional 'extras'
-IUSE="examples"
+IUSE="examples" # There are a number of other optional 'extras'
+
 #RESTRICT="!test? ( test )"
 RESTRICT="test" # 'celery' not found in `markers` configuration option
 
@@ -61,8 +64,6 @@ DEPEND="
 	)
 "
 
-# testsuite needs it own source
-DISTUTILS_IN_SOURCE_BUILD=1
 distutils_enable_tests pytest
 distutils_enable_sphinx docs --no-autodoc
 
