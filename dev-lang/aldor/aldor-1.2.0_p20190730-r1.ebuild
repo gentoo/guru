@@ -5,7 +5,7 @@ EAPI="7"
 
 COMMIT="13e5b90eecc79ec6704efb333c4c100187520e80"
 
-inherit autotools elisp-common flag-o-matic java-pkg-opt-2
+inherit autotools elisp-common flag-o-matic java-pkg-opt-2 toolchain-funcs
 
 DESCRIPTION="The Aldor Programming Language"
 HOMEPAGE="http://pippijn.github.io/aldor"
@@ -67,8 +67,11 @@ src_unpack() {
 }
 
 src_prepare() {
+	tc-export CC
 	#should be conditional with boehm-gc
-	sed -i 's|-L /usr/X11/lib|-L /usr/X11/lib -lgc|' aldor/src/aldor.conf || die
+	sed -e 's|-L /usr/X11/lib|-L /usr/X11/lib -lgc|g' -i aldor/src/aldor.conf || die
+	#fix hardcoded cc
+	sed -e "s|cc-name\", \"cc\"|cc-name\", \"${CC}\"|g" -i aldor/subcmd/unitools/unicl.c || die
 
 	default
 	eautoreconf
