@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 
 DEPEND="
 	app-arch/lz4
-	app-arch/snappy
+	<app-arch/snappy-1.1.9
 	app-arch/zstd
 	dev-cpp/gflags
 	dev-cpp/glog[gflags]
