@@ -23,7 +23,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
 
-RDEPEND="dev-cpp/catch:1"
+RDEPEND="dev-cpp/catch:0"
 DEPEND="${RDEPEND}"
 
 RESTRICT="!test? ( test )"
