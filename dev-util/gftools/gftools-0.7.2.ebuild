@@ -24,6 +24,7 @@ RESTRICT="test"
 PROPERTIES="test_network"
 
 RDEPEND="
+	dev-python/statmake[${PYTHON_SINGLE_USEDEP}]
 	$(python_gen_cond_dep '
 		app-arch/brotli[python,${PYTHON_USEDEP}]
 		dev-python/absl-py[${PYTHON_USEDEP}]
@@ -37,7 +38,6 @@ RDEPEND="
 		dev-python/pygit2[${PYTHON_USEDEP}]
 		dev-python/PyGithub[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
-		dev-python/statmake[${PYTHON_USEDEP}]
 		dev-python/strictyaml[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/tabulate[${PYTHON_USEDEP}]
