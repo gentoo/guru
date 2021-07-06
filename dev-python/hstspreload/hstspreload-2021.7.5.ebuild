@@ -20,5 +20,6 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 RESTRICT="mirror"
+PROPERTIES="test_network"
 
 distutils_enable_tests pytest
