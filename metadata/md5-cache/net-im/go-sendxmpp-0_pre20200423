@@ -9,5 +9,5 @@ LICENSE=BSD-2
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://salsa.debian.org/mdosch/go-sendxmpp/-/archive/cbac6dbe8d983d792c8a683c68535bb499896098/go-sendxmpp-cbac6dbe8d983d792c8a683c68535bb499896098.tar.bz2 -> go-sendxmpp-0_pre20200423.tar.bz2 mirror://goproxy//github.com/mattn/go-xmpp/@v/v0.0.0-20200309091041-899ef71e80d2.zip -> github.com%2Fmattn%2Fgo-xmpp%2F@v%2Fv0.0.0-20200309091041-899ef71e80d2.zip mirror://goproxy//github.com/mattn/go-xmpp/@v/v0.0.0-20200309091041-899ef71e80d2.mod -> github.com%2Fmattn%2Fgo-xmpp%2F@v%2Fv0.0.0-20200309091041-899ef71e80d2.mod mirror://goproxy//github.com/pborman/getopt/@v/v0.0.0-20190409184431-ee0cd42419d3.zip -> github.com%2Fpborman%2Fgetopt%2F@v%2Fv0.0.0-20190409184431-ee0cd42419d3.zip mirror://goproxy//github.com/pborman/getopt/@v/v0.0.0-20190409184431-ee0cd42419d3.mod -> github.com%2Fpborman%2Fgetopt%2F@v%2Fv0.0.0-20190409184431-ee0cd42419d3.mod
-_eclasses_=go-module	bf028003684a8b018e4de9e3c272ed33
+_eclasses_=go-module	8aabf8812bab7a6f07e7a32958c505ef
 _md5_=0225385a875ea0501fe2c1ba914dbded
