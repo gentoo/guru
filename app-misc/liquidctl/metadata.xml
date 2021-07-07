@@ -6,6 +6,6 @@
 		<name>Alexey Sokolov</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">jonasmalacofilho/liquidctl</remote-id>
+		<remote-id type="github">liquidctl/liquidctl</remote-id>
 	</upstream>
 </pkgmetadata>
