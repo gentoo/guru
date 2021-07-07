@@ -68,6 +68,10 @@ src_install(){
 	fperms +x /opt/"${PN}"/resources/app/apm/bin/node
 	fperms +x /opt/"${PN}"/resources/app/apm/bin/npm
 
+	# Bug 798459
+	fperms +x /opt/"${PN}"/resources/app.asar.unpacked/node_modules/vscode-ripgrep/bin/rg
+	fperms +x /opt/"${PN}"/resources/app.asar.unpacked/node_modules/dugite/git/bin/git
+
 	doicon atom.png
 	make_desktop_entry "/opt/atom-bin/atom %U" "Atom" "atom" \
 		"GNOME;GTK;Utility;TextEditor;Development;" \

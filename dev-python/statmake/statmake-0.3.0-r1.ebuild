@@ -1,8 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
+DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_SETUPTOOLS=pyproject.toml
 PYTHON_COMPAT=( python3_{8..9} )
 
@@ -17,13 +18,15 @@ SLOT="0"
 IUSE="test"
 
 RDEPEND="
-	dev-python/fonttools[${PYTHON_USEDEP}]
-	dev-python/cattrs[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		dev-python/fonttools[${PYTHON_USEDEP}]
+	')
+	dev-python/cattrs[${PYTHON_SINGLE_USEDEP}]
 "
 DEPEND="
 	${RDEPEND}
 	test? (
-		dev-python/ufo2ft[${PYTHON_USEDEP}]
+		$(python_gen_cond_dep 'dev-python/ufo2ft[${PYTHON_USEDEP}]')
 	)
 "
 

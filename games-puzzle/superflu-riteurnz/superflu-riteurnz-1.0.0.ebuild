@@ -12,7 +12,7 @@ DESCRIPTION="Artisanal video-game about Superflu, the useless super-hero (french
 HOMEPAGE="https://ptilouk.net/superflu-riteurnz/"
 SRC_URI="
 	https://framagit.org/Gee/sosage/-/archive/v${PV}/${MY_P}.tar.gz
-	https://dl.bintray.com/ptilouk/superflu-riteurnz/zip/${MY_DATA_P}.zip
+	https://ptilouk.net/superflu-riteurnz/superflu-riteurnz-v1.0.0-xmas2020demo-data.zip
 "
 S="${WORKDIR}/${MY_P}"
 LICENSE="CC-BY-SA-2.0 GPL-3+ CC-BY-3.0"

@@ -49,8 +49,8 @@ src_prepare(){
 src_install(){
 	insinto /opt/"${PN}"
 	doins -r "${S}"/*
-	dosym ../../opt/"${PN}"/"${PN}" "${EPREFIX}"/usr/bin/"${PN}"
-	fperms +x /opt/"${PN}"/"${PN}"
+	dosym ../../opt/"${PN}"/tabby "${EPREFIX}"/usr/bin/tabby
+	fperms +x /opt/"${PN}"/tabby
 	make_desktop_entry "/opt/${PN}/tabby %U" "Tabby" "tabby" \
 		"GNOME;GTK;Utility;" \
 		"GenericName=Tabby\n\nStartupNotify=true\nStartupWMClass=tabby"
