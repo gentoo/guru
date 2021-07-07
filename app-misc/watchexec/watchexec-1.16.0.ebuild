@@ -132,3 +132,8 @@ src_install() {
 	insinto /usr/share/zsh/site-functions
 	newins completions/zsh _watchexec
 }
+
+src_test() {
+	cargo_src_test --manifest-path lib/Cargo.toml --lib
+	cargo_src_test --manifest-path cli/Cargo.toml
+}
