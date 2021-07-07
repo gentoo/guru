@@ -2,15 +2,15 @@ BDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=dev-python/pbr-2.0.0[python_targets_python3_8(-)?] !~dev-python/pbr-2.1.0[python_targets_python3_8(-)?]
 DESCRIPTION=A library to do [jobs, tasks, flows] in a HA manner using different backends
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/openstack/taskflow
 INHERIT=distutils-r1
 IUSE=python_targets_python3_8
 KEYWORDS=~amd64 ~arm64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=Apache-2.0
-RDEPEND=>=dev-python/pbr-2.0.0[python_targets_python3_8(-)?] !~dev-python/pbr-2.1.0[python_targets_python3_8(-)?] >=dev-python/six-1.10.0[python_targets_python3_8(-)?] >=dev-python/futurist-1.2.0[python_targets_python3_8(-)?] >=dev-python/fasteners-0.7.0[python_targets_python3_8(-)?] >=dev-python/networkx-2.1.0[python_targets_python3_8(-)?] >=dev-python/contextlib2-0.4.0[python_targets_python3_8(-)?] >=dev-python/stevedore-1.20.0[python_targets_python3_8(-)?] >=dev-python/jsonschema-3.2.0[python_targets_python3_8(-)?] >=dev-python/automaton-1.9.0[python_targets_python3_8(-)?] >=dev-python/oslo-utils-3.33.0[python_targets_python3_8(-)?] >=dev-python/oslo-serialization-1.18.0[python_targets_python3_8(-)?] !~dev-python/oslo-serialization-2.19.1[python_targets_python3_8(-)?] >=dev-python/tenacity-6.0.0[python_targets_python3_8(-)?] >=dev-python/cachetools-2.0.0[python_targets_python3_8(-)?] >=dev-python/pydot-1.2.4[python_targets_python3_8(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?]
+RDEPEND=>=dev-python/pbr-2.0.0[python_targets_python3_8(-)?] !~dev-python/pbr-2.1.0[python_targets_python3_8(-)?] >=dev-python/six-1.10.0[python_targets_python3_8(-)?] >=dev-python/futurist-1.2.0[python_targets_python3_8(-)?] >=dev-python/fasteners-0.7.0[python_targets_python3_8(-)?] >=dev-python/networkx-2.1.0[python_targets_python3_8(-)?] >=dev-python/stevedore-1.20.0[python_targets_python3_8(-)?] >=dev-python/jsonschema-3.2.0[python_targets_python3_8(-)?] >=dev-python/automaton-1.9.0[python_targets_python3_8(-)?] >=dev-python/oslo-utils-3.33.0[python_targets_python3_8(-)?] >=dev-python/oslo-serialization-1.18.0[python_targets_python3_8(-)?] !~dev-python/oslo-serialization-2.19.1[python_targets_python3_8(-)?] >=dev-python/tenacity-6.0.0[python_targets_python3_8(-)?] >=dev-python/cachetools-2.0.0[python_targets_python3_8(-)?] >=dev-python/pydot-1.2.4[python_targets_python3_8(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 )
 SLOT=0
 SRC_URI=mirror://pypi/t/taskflow/taskflow-4.5.0.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	943c17c3afd0f811ad36a0b5c8dedba9
-_md5_=a00f9bdf2bf33510adabcb95b57ca5d4
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	943c17c3afd0f811ad36a0b5c8dedba9
+_md5_=f26f4f871189f761e1f94181bf12c597
