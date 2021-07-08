@@ -24,12 +24,17 @@ SLOT="0"
 IUSE="static-libs test"
 RESTRICT="!test? ( test )"
 
+src_prepare() {
+	default
+	sed "s/@LIBDIR@/$(get_libdir)/" -i libimsg.pc.in || die
+}
+
 src_configure() {
 	tc-export CC AR
 }
 
 src_install() {
-	emake DESTDIR="${ED}" LIBDIR="/usr/$(get_libdir)" install
+	emake DESTDIR="${D}" PREFIX="${EPREIFX}/usr" LIBDIR="${EPREFIX}/usr/$(get_libdir)" install
 	if ! use static-libs ; then
 		find "${ED}"/usr/$(get_libdir) -name "*.a" -delete || die
 	fi
