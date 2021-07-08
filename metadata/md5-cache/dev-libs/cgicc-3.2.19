@@ -11,4 +11,4 @@ LICENSE=LGPL-3 doc? ( FDL-1.2 )
 SLOT=0
 SRC_URI=mirror://gnu/cgicc/cgicc-3.2.19.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354
-_md5_=fbb17145c7a391df899762e9bf9a6e8c
+_md5_=44fe2078de9aa3d16bcdc230e9f2a6e1

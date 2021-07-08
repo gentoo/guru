@@ -126,6 +126,7 @@ app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
 app-shells/ohmyzsh 9999: A framework for managing your zsh configuration.
 app-shells/starship 0.55.0: The minimal, blazing-fast, and infinitely customizable prompt for any shell!
+app-shells/zoxide 0.7.2: A smarter cd command for your terminal
 app-shells/zsh-autosuggestions 0.6.4: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
 app-shells/zsh-history-to-fish 0.3.0: Bring your ZSH history to Fish shell
@@ -697,7 +698,7 @@ media-gfx/ufolint 1.2.0: UFO source format linter
 media-libs/alsa-ucm-pinephone 20210507: ALSA ucm configuration files for PinePhone
 media-libs/alvr 15.2.1_p20210604: Wireless driver for Oculus Quest
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.1.2: AMD Open Source Driver for Vulkan
-media-libs/fcft 2.3.3 2.4.0 2.4.1 9999: A simple library for font loading and glyph rasterization
+media-libs/fcft 2.3.3 2.4.0 2.4.1 2.4.2 9999: A simple library for font loading and glyph rasterization
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
 media-libs/imgui 1.83: Bloat-free graphical user interface library for C++
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
@@ -833,7 +834,7 @@ sys-apps/systemd-bootchart 234: systemd boot performance graphing tool
 sys-auth/keystone 18.0.0: The Openstack authentication, authorization, and service catalog
 sys-auth/mrsh 2.12 2.12-r1: Mrsh is a set of remote shell programs that use munge authentication.
 sys-block/systemd-swap 4.4.0 9999: Script for creating swap space from zram swaps, swap files and swap partitions.
-sys-boot/bmaptools 3.6: Bmaptool is a tool for creating and copyng files using block maps
+sys-boot/bmaptools 3.6 3.6-r1: Bmaptool is a tool for creating and copyng files using block maps
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/osk-sdl 0.64-r1: Lightweight On-Screen-Keyboard based on SDL2
@@ -923,7 +924,7 @@ x11-misc/squeekboard 1.14.0: Virtual keyboard supporting Wayland, built primaril
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-misc/xob 0.2: A lightweight overlay volume (or anything) bar for the X Window System
 x11-plugins/purple-mm-sms 0.1.7: Purple SMS plugin using ModemManager
-x11-terms/tabby-bin 1.0.144: A terminal for a more modern age
+x11-terms/tabby-bin 1.0.145: A terminal for a more modern age
 x11-themes/arc-darkest-colors 0_pre20200818 0_pre20201112: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
 x11-themes/materia-theme 20210322: A Material Design theme for GNOME/GTK based desktop environments

@@ -1,15 +1,15 @@
 BDEPEND=virtual/pkgconfig virtual/yacc >=dev-vcs/git-1.8.2.1[curl] ssl? ( dev-libs/openssl:0 )
 DEFINED_PHASES=compile configure install postinst test unpack
-DEPEND=acct-user/gemini dev-libs/libevent dev-libs/libretls
+DEPEND=acct-user/gemini dev-libs/imsg-compat dev-libs/libevent dev-libs/libretls
 DESCRIPTION=Simple and secure Gemini server
 EAPI=7
 HOMEPAGE=https://www.omarpolo.com/pages/gmid.html
 INHERIT=git-r3 ssl-cert toolchain-funcs
 IUSE=+seccomp test ssl
-LICENSE=ISC
+LICENSE=BSD ISC MIT
 PROPERTIES=live
-RDEPEND=acct-user/gemini dev-libs/libevent dev-libs/libretls
+RDEPEND=acct-user/gemini dev-libs/imsg-compat dev-libs/libevent dev-libs/libretls
 RESTRICT=!test? ( test ) seccomp? ( test )
 SLOT=0
 _eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	ssl-cert	f89abc915c0b80c4a66bd4c321169d3d	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
-_md5_=abde4517bd661c52d664f5f787ac69a5
+_md5_=4dd5c1a07e02824165ce1a4b2a5fa771
