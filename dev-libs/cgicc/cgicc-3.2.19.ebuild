@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -18,6 +18,9 @@ RDEPEND=""
 DEPEND="doc? ( app-doc/doxygen )"
 
 PATCHES=( "${FILESDIR}/${PN}-3.2.19-optional-doc.patch" )
+
+# False positive, bug #785328.
+QA_SONAME="usr/lib*/libcgicc.so*"
 
 src_prepare() {
 	default

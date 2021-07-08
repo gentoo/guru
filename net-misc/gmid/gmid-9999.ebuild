@@ -10,7 +10,7 @@ DESCRIPTION="Simple and secure Gemini server"
 HOMEPAGE="https://www.omarpolo.com/pages/gmid.html"
 EGIT_REPO_URI="https://github.com/omar-polo/${PN}.git https://git.omarpolo.com/${PN}"
 
-LICENSE="ISC"
+LICENSE="BSD ISC MIT"
 SLOT="0"
 IUSE="+seccomp test"
 RESTRICT="
@@ -20,6 +20,7 @@ RESTRICT="
 
 DEPEND="
 	acct-user/gemini
+	dev-libs/imsg-compat
 	dev-libs/libevent
 	dev-libs/libretls
 "
@@ -33,18 +34,14 @@ DOCS=( README.md ChangeLog )
 
 src_configure() {
 	local conf_args
+	tc-export CC
 
 	# note: not an autoconf configure script
 	conf_args=(
-		CC="$(tc-getCC)"
 		PREFIX="${EPREFIX}"/usr/share
 		BINDIR="${EPREFIX}"/usr/bin
-		CFLAGS="${CFLAGS}"
-		LDFLAGS="${LDFLAGS} -ltls -lssl -lcrypto -levent"
+		$(use_enable seccomp sandbox)
 	)
-	if ! use seccomp ; then
-		conf_args+=( --disable-sandbox )
-	fi
 
 	./configure "${conf_args[@]}" || die
 }

@@ -99,3 +99,9 @@ src_install() {
 
 	dodoc CHANGELOG.md README.md
 }
+
+src_test() {
+	# Workaround for the upstream bug <https://github.com/shssoichiro/oxipng/issues/412>.
+	cargo_src_test -- --skip issue_182
+	cargo_src_test -- issue_182
+}
