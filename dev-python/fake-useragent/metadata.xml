@@ -8,11 +8,11 @@
   </maintainer>
   <longdescription lang="en">
 Features
-
-    grabs up to date useragent from useragentstring.com
-    randomize with real world statistic via w3schools.com
+grabs up to date useragent from useragentstring.com
+randomize with real world statistic via w3schools.com
   </longdescription>
   <upstream>
+    <remote-id type="github">hellysmile/fake-useragent</remote-id>
     <remote-id type="pypi">fake-useragent</remote-id>
   </upstream>
 </pkgmetadata>
