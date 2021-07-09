@@ -3,7 +3,7 @@
 
 EAPI=7
 
-MY_REV="f3014321f49f7e62dfeb5489e70c0fad8469d13e"
+MY_REV="95dc752f8e41ab37cfcc3a8decb5fcf334e6e7d3"
 
 DESCRIPTION="A rapid and good-looking screen locker"
 HOMEPAGE="https://github.com/oakszyjrnrdy/betterlockscreen_rapid"

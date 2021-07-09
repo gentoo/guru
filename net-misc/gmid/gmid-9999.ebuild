@@ -4,23 +4,28 @@
 EAPI=7
 
 SSL_DAYS=36500
-inherit git-r3 ssl-cert toolchain-funcs
+inherit ssl-cert toolchain-funcs
 
 DESCRIPTION="Simple and secure Gemini server"
 HOMEPAGE="https://www.omarpolo.com/pages/gmid.html"
-EGIT_REPO_URI="https://github.com/omar-polo/${PN}.git https://git.omarpolo.com/${PN}"
+
+if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="https://github.com/omar-polo/${PN}.git https://git.omarpolo.com/${PN}"
+	inherit git-r3
+else
+	SRC_URI="https://git.omarpolo.com/${PN}/snapshot/${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="BSD ISC MIT"
 SLOT="0"
 IUSE="+seccomp test"
-RESTRICT="
-	!test? ( test )
-	seccomp? ( test )
-"
+RESTRICT="!test? ( test )"
 
 DEPEND="
 	acct-user/gemini
 	dev-libs/imsg-compat
+	dev-libs/libbsd
 	dev-libs/libevent
 	dev-libs/libretls
 "
@@ -44,12 +49,16 @@ src_configure() {
 	)
 
 	./configure "${conf_args[@]}" || die
+
+	if use seccomp && has usersandbox ${FEATURES} ; then
+		export SKIP_RUNTIME_TESTS=1
+	fi
 }
 
 src_compile() {
 	emake gmid
 	if use test ; then
-		emake -C regress gg puny-test testdata iri_test
+		emake -C regress gg data puny-test fcgi-test
 	fi
 }
 
