@@ -21,7 +21,7 @@ KEYWORDS="~amd64"
 
 DEPEND="
 	${PYTHON_DEPS}
-	app-forensics/yara[tcmalloc]
+	app-forensics/yara
 	dev-cpp/nlohmann_json
 	dev-cpp/xdgpp
 	dev-libs/capstone
@@ -56,9 +56,10 @@ src_prepare() {
 }
 
 src_configure() {
-	python_setup
+	python-single-r1_pkg_setup
 	local mycmakeargs=(
 		-DPROJECT_VERSION="${PV}"
+		-DPYTHON_VERSION_MAJOR_MINOR="\"${EPYTHON/python/}\""
 		-DUSE_SYSTEM_CURL=ON
 		-DUSE_SYSTEM_FMT=ON
 		-DUSE_SYSTEM_LLVM=ON
@@ -66,6 +67,7 @@ src_configure() {
 		-DUSE_SYSTEM_YARA=ON
 	)
 	cmake_src_configure
+
 }
 
 src_install() {
