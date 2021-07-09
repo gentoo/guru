@@ -736,7 +736,7 @@ media-video/kikoplay 0.8.0 0.8.1 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.0.1: A GTK3 camera application that knows how to deal with the media request api
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
 media-video/owncast 0.0.7: A self-hosted live video and web chat server
-media-video/qliveplayer 3.22.1 3.22.3: A player and recorder for live streams and videos with danmaku support
+media-video/qliveplayer 3.22.3 3.22.4: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/uxplay 0_pre20210525: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
@@ -911,7 +911,7 @@ x11-libs/gtk-fortran 20.04: A GTK+ binding to build Graphical User Interfaces in
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial videos
 x11-misc/betterlockscreen 3.1.1 3.2.0 9999: sweet looking lockscreen for linux system
-x11-misc/betterlockscreen_rapid 0.0.0_pre20201222 0.0.0_pre20210606 0.0.0_pre20210701: A rapid and good-looking screen locker
+x11-misc/betterlockscreen_rapid 0.0.0_pre20210701 0.0.0_pre20210708: A rapid and good-looking screen locker
 x11-misc/caffeine-ng 3.5.1 9999: Aplication able to temporarily inhibit the screensaver.
 x11-misc/gammy 0.9.60 0.9.64: Adaptive screen brightness/temperature
 x11-misc/gromit-mpx 1.4 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool

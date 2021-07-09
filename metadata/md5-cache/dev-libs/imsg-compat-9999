@@ -1,5 +1,5 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure install unpack
+DEFINED_PHASES=configure install prepare unpack
 DESCRIPTION=linux port of OpenBSD imsg
 EAPI=7
 HOMEPAGE=https://man.openbsd.org/imsg_init.3 https://github.com/bsd-ac/imsg-compat
@@ -10,4 +10,4 @@ PROPERTIES=live
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=13937ddbcbed9584dcaa215e5ce68a61
+_md5_=42838b051e8882a05777c359d86eaaa5
