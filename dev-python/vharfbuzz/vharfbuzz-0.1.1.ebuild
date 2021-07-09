@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/simoncozens/vharfbuzz"
 SRC_URI="https://github.com/simoncozens/vharfbuzz/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
-KEYWORDS=""
+KEYWORDS="~amd64"
 SLOT="0"
 
 RDEPEND="
