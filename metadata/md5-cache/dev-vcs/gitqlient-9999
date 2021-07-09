@@ -9,5 +9,5 @@ LICENSE=LGPL-2.1
 PROPERTIES=live
 RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwebchannel:5 dev-qt/qtwebengine:5[widgets] dev-qt/qtwidgets:5 dev-vcs/git
 SLOT=0
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	qmake-utils	8d97008fa49744cf997d627ec6f9cd30	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
 _md5_=478946bef4eecee65580ee034d9a20e4
