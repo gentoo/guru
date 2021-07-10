@@ -5,7 +5,7 @@
      long_description = f.read()
  
 -define_macros = [('HB_NO_MT', '1'), ('HB_EXPERIMENTAL_API', '1')]
-+define_macros = []
++define_macros = [('HB_EXPERIMENTAL_API', '1')]
  linetrace = False
  if int(os.environ.get('CYTHON_LINETRACE', '0')):
      linetrace = True
