@@ -25,7 +25,6 @@ process). Extrae generates trace files that can be later visualized with sys-clu
 		<flag name="dwarf">Build with <pkg>dev-libs/libdwarf</pkg></flag>
 		<!--<flag name="dyninst">Build with dyninst</flag>-->
 		<flag name="elf">Build with <pkg>virtual/libelf</pkg></flag>
-		<flag name="fft">Search for FFT package (which?)</flag>
 		<flag name="heterogeneous">Enable support for heterogeneous tracing</flag>
 		<flag name="inotify">Enable inotify support</flag>
 		<flag name="instrument-dynamic-memory">Enables instrumentation for dynamic memory (malloc, free, realloc) calls</flag>
@@ -43,7 +42,7 @@ process). Extrae generates trace files that can be later visualized with sys-clu
 		<flag name="posix-clock">Use POSIX clock (clock_gettime call) instead of low level timing routines. Use this option if the system where you install the instrumentation package modifies the frequency of its processors at runtime.</flag>
 		<flag name="pthread">Enable support for tracing pthread library</flag>
 		<flag name="sampling">Enable PAPI sampling support</flag>
-		<!--<flag name="spectral">This package enables support for on-line spectral analysis.</flag>-->
+		<flag name="spectral">This package enables support for on-line spectral analysis.</flag>
 		<flag name="single-mpi-lib">Produces a single instrumentation library for MPI that contains both Fortran and C wrappers. Applications that call the MPI library from both C and Fortran languages need this flag to be enabled.</flag>
 		<flag name="sionlib">Enable support for <pkg>sys-cluster/sionlib</pkg></flag>
 		<flag name="smpss">Enable support for tracing SMP-superscalar</flag>

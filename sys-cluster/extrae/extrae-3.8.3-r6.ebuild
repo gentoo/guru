@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( pypy3 python3_{8,9} )
+PYTHON_COMPAT=( pypy3 python3_{8..10} )
 
 inherit autotools java-pkg-opt-2 python-single-r1
 
@@ -14,25 +14,22 @@ SRC_URI="https://github.com/bsc-performance-tools/extrae/archive/${PV}.tar.gz ->
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="boost clustering doc dwarf elf fft heterogeneous inotify +instrument-dynamic-memory +instrument-io +instrument-syscall merge-in-trace nanos opencl openmp +parallel-merge pebs-sampling +posix-clock pthread sampling +single-mpi-lib sionlib smpss +xml"
+IUSE="boost clustering doc dwarf elf heterogeneous inotify +instrument-dynamic-memory
++instrument-io +instrument-syscall memkind merge-in-trace nanos opencl openmp +parallel-merge
+pebs-sampling +posix-clock pthread sampling +single-mpi-lib sionlib smpss spectral +xml"
+
 #aspectj and aspectj-weaver need to both be enabled at the same time
 #current dev-java/aspectj package only provides aspectj.jar
 #aspectj needs foo/lib/aspectj.jar and foo/bin/ajc
 #aspectj-weaver needs bar/aspectjweaver.jar
-#TODO: find out who is pulling in libpfm
-#TODO: find out which FFT library is used
-#TODO: remove some useflags (boost fft elf dwarf)
-#TODO: pmapi online dyninst cuda spectral cupti openshmem gm mx synapse memkind aspectj
+#TODO: remove some useflags (boost elf dwarf)
+#TODO: pmapi online dyninst cuda cupti openshmem gm mx synapse aspectj
 #TODO: support llvm libunwind, llvm rt, elftoolchain
 
 CDEPEND="
 	${PYTHON_DEPS}
-	app-arch/xz-utils
-	dev-libs/icu
-	dev-libs/libpfm
 	dev-libs/libxml2
 	dev-libs/papi
-	sys-apps/hwloc
 	!<sys-cluster/openmpi-4.0.5-r1
 	!>=sys-cluster/openmpi-4.0.5-r1[libompitrace]
 	sys-libs/zlib
@@ -46,8 +43,13 @@ CDEPEND="
 	dwarf? ( dev-libs/libdwarf )
 	elf? ( virtual/libelf )
 	inotify? ( dev-libs/libevent )
+	memkind? ( dev-libs/memkind )
 	opencl? ( dev-util/opencl-headers )
 	sionlib? ( sys-cluster/sionlib:= )
+	spectral? (
+		sci-libs/fftw
+		sys-cluster/spectral
+	)
 "
 #	aspectj? ( >=dev-java/aspectj-1.9.6 )
 DEPEND="
@@ -75,7 +77,6 @@ REQUIRED_USE="
 #	dyninst? ( boost dwarf elf )
 #	online? ( synapse )
 #	aspectj? ( java )
-#	spectral? ( fft )
 
 src_prepare() {
 	default
@@ -105,9 +106,7 @@ src_configure() {
 
 		--without-dyninst
 		--without-cupti
-		--without-memkind
 		--without-synapse
-		--without-spectral
 		--without-openshmem
 		--without-gm
 		--without-mx
@@ -159,20 +158,27 @@ src_configure() {
 	else
 		myconf+=( "--without-elf" )
 	fi
-	if use fft; then
-		myconf+=( "--with-fft=${EPREFIX}/usr" )
-	else
-		myconf+=( "--without-fft" )
-	fi
 	if use java; then
 		myconf+=( "--with-java-jdk=$(java-config -O)" )
 	else
 		myconf+=( "--without-java-jdk" )
 	fi
+	if use memkind; then
+		myconf+=( "--with-memkind=${EPREFIX}/usr" )
+	else
+		myconf+=( "--without-memkind" )
+	fi
 	if use opencl; then
 		myconf+=( "--with-opencl=${EPREFIX}/usr" )
 	else
 		myconf+=( "--without-opencl" )
+	fi
+	if use spectral; then
+		myconf+=( "--with-fft=${EPREFIX}/usr" )
+		myconf+=( "--with-spectral=${EPREFIX}/usr" )
+	else
+		myconf+=( "--without-fft" )
+		myconf+=( "--without-spectral" )
 	fi
 
 	use sionlib && myconf+=( "--with-sionlib=${EPREFIX}/usr" )
