@@ -8,5 +8,5 @@ KEYWORDS=~amd64 ~x86
 LICENSE=Info-ZIP LGPL-3+
 SLOT=0
 SRC_URI=https://github.com/BOINC/boinc/archive/client_release/7.16/7.16.16.tar.gz -> boinc-7.16.16.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e63f92c2a5d867fea55ecb160c7d354
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da
 _md5_=cdcd1122b7f25c742c47cbcb8b8a6a5d
