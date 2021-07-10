@@ -42,7 +42,7 @@ The [GURU regulations](https://wiki.gentoo.org/wiki/Project:GURU#The_regulations
 - https://devmanual.gentoo.org/ebuild-writing/variables
 - https://devmanual.gentoo.org/function-reference
 - https://devmanual.gentoo.org/function-reference/install-functions
-
+- [GURU outdated packages](https://repology.org/projects/?search=&maintainer=&category=&inrepo=gentoo_ovl_guru&notinrepo=&repos=&families=&repos_newest=&families_newest=&outdated=on)
 
 ## Email Addresses <a name="email"></a>
 
