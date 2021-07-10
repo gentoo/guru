@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit cmake python-single-r1
 
@@ -44,14 +44,14 @@ RDEPEND="
 	glut? ( media-libs/freeglut )
 	ipopt? ( sci-libs/ipopt )
 	nlopt? ( >=sci-libs/nlopt-2.4.1 )
+	ode? ( dev-games/ode )
+	openscenegraph? ( dev-games/openscenegraph )
 	python? (
 		${PYTHON_DEPS}
 		$(python_gen_cond_dep '
 			dev-python/pybind11[${PYTHON_USEDEP}]
 		')
 	)
-	ode? ( dev-games/ode )
-	openscenegraph? ( dev-games/openscenegraph )
 	urdfdom? ( dev-libs/urdfdom )
 "
 DEPEND="
@@ -85,6 +85,6 @@ src_compile() {
 src_install() {
 	cmake_src_install
 	#TODO: python examples tests tutorials
-	mv "${ED}/usr/share/doc/dart" "${ED}/usr/share/doc/${P}" || die
-	docompress -x "/usr/share/doc/${P}"
+	mv "${ED}/usr/share/doc/dart" "${ED}/usr/share/doc/${PF}" || die
+	docompress -x "/usr/share/doc/${PF}"
 }
