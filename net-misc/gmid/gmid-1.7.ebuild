@@ -8,23 +8,28 @@ inherit ssl-cert toolchain-funcs
 
 DESCRIPTION="Simple and secure Gemini server"
 HOMEPAGE="https://www.omarpolo.com/pages/gmid.html"
-SRC_URI="https://git.omarpolo.com/${PN}/snapshot/${P}.tar.gz"
 
-LICENSE="ISC"
+if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="https://github.com/omar-polo/${PN}.git https://git.omarpolo.com/${PN}"
+	inherit git-r3
+else
+	SRC_URI="https://git.omarpolo.com/${PN}/snapshot/${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
+
+LICENSE="BSD ISC MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 IUSE="+seccomp test"
 RESTRICT="!test? ( test )"
 
-PATCHES=( "${FILESDIR}"/${P}-make-pidfile.patch )
-
 DEPEND="
 	acct-user/gemini
+	dev-libs/imsg-compat
+	dev-libs/libbsd
 	dev-libs/libevent
 	dev-libs/libretls
 "
 BDEPEND="
-	sys-devel/flex
 	virtual/pkgconfig
 	virtual/yacc
 "
@@ -35,34 +40,32 @@ DOCS=( README.md ChangeLog )
 src_prepare() {
 	default
 
-	if use seccomp && has usersandbox ${FEATURES} ; then
-		eapply "${FILESDIR}"/${P}-disable-runtime-test.patch
-	fi
+	# QA Notice: make jobserver unavailable
+	sed 's/make -C regress/${MAKE} -C regress/' -i Makefile || die
 }
 
 src_configure() {
 	local conf_args
+	tc-export CC
 
 	# note: not an autoconf configure script
 	conf_args=(
-		CC="$(tc-getCC)"
 		PREFIX="${EPREFIX}"/usr/share
 		BINDIR="${EPREFIX}"/usr/bin
-		CFLAGS="${CFLAGS}"
-		LDFLAGS="${LDFLAGS} -ltls -lssl -lcrypto -levent"
+		$(use_enable seccomp sandbox)
 	)
-	if ! use seccomp ; then
-		conf_args+=( --disable-sandbox )
-	fi
 
 	./configure "${conf_args[@]}" || die
+
+	if use seccomp && has usersandbox ${FEATURES} ; then
+		export SKIP_RUNTIME_TESTS=1
+	fi
 }
 
 src_compile() {
 	emake gmid
 	if use test ; then
-		emake gg
-		emake -C regress puny-test testdata iri_test
+		emake -C regress gg data puny-test fcgi-test
 	fi
 }
 
