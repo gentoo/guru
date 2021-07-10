@@ -21,4 +21,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=( "${FILESDIR}/${P}-fix-package-dir.patch" )
+
 distutils_enable_sphinx docs dev-python/sphinxcontrib-napoleon

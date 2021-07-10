@@ -1,0 +1,11 @@
+--- a/setup.py
++++ b/setup.py
+@@ -29,7 +29,7 @@
+         "Development Status :: 4 - Beta"
+ 
+     ],
+-    'package_dir': {'':'Lib'},
++    'package_dir': {'':'lib'},
+     'packages': ["vharfbuzz"]
+ ,
+ }
