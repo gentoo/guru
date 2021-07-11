@@ -19,9 +19,9 @@ IUSE="test"
 
 RDEPEND="
 	$(python_gen_cond_dep '
+		dev-python/cattrs[${PYTHON_USEDEP}]
 		dev-python/fonttools[${PYTHON_USEDEP}]
 	')
-	dev-python/cattrs[${PYTHON_SINGLE_USEDEP}]
 "
 DEPEND="
 	${RDEPEND}
