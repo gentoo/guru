@@ -1,6 +1,5 @@
-diff -ur a/jdlib/Makefile b/jdlib/Makefile
---- a/jdlib/Makefile	1996-08-23 10:50:41.000000000 +0200
-+++ b/jdlib/Makefile	2020-04-28 20:06:19.373359811 +0200
+--- a/jdlib/Makefile
++++ b/jdlib/Makefile
 @@ -2,21 +2,18 @@
  #     Coded by Diederik R. Fokkema
  #
@@ -31,9 +30,8 @@ diff -ur a/jdlib/Makefile b/jdlib/Makefile
 -	$(FC) -u -O1 -c jdqz.f
 -	$(AR) rv $(LIB) jdqz.o
 -	-rm jdqz.o
-diff -ur a/jdtest/Makefile b/jdtest/Makefile
---- a/jdtest/Makefile	1996-09-02 10:13:34.000000000 +0200
-+++ b/jdtest/Makefile	2020-04-28 20:12:09.021605638 +0200
+--- a/jdtest/Makefile
++++ b/jdtest/Makefile
 @@ -1,13 +1,10 @@
 -FC = f77
 -FFLAGS = -u -O
@@ -50,9 +48,8 @@ diff -ur a/jdtest/Makefile b/jdtest/Makefile
  
  clean:
  	-rm -f example
-diff -ur a/Makefile b/Makefile
---- a/Makefile	1996-08-23 10:47:42.000000000 +0200
-+++ b/Makefile	2020-04-28 20:13:35.101159047 +0200
+--- a/Makefile
++++ b/Makefile
 @@ -1,14 +1,11 @@
 -FC = f77
 -FFLAGS = -u -O

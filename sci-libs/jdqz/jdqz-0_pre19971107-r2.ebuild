@@ -6,31 +6,29 @@ EAPI="7"
 inherit flag-o-matic fortran-2 toolchain-funcs
 
 DESCRIPTION="Jacobi-Davidson type method for the generalized standard eigenvalue problem."
-HOMEPAGE="https://www.win.tue.nl/~hochsten/jd/"
+HOMEPAGE="https://www.win.tue.nl/~hochsten/jd"
 SRC_URI="https://www.win.tue.nl/~hochsten/jd/${PN}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc"
+IUSE="doc test"
 
 # virtual/lapack does not pull in [deprecated] so we have to deal with this mess like this until it does
 DEPEND="
 	virtual/blas
 	virtual/lapack
-	|| ( sci-libs/openblas sci-libs/lapack[deprecated(-)] )
+	|| ( sci-libs/openblas !sci-libs/lapack[-deprecated(-)] )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="doc? ( dev-texlive/texlive-latex )"
 
 PATCHES=( "${FILESDIR}/makefile.patch" )
-
-S="${WORKDIR}/${PN}"
+RESTRICT="!test? ( test )"
 
 src_prepare() {
-	libs="$($(tc-getPKG_CONFIG) --libs blas)"
-	libs+=" $($(tc-getPKG_CONFIG) --libs lapack)"
-	append-fflags "${libs}"
+	append-fflags "$($(tc-getPKG_CONFIG) --libs blas) $($(tc-getPKG_CONFIG) --libs lapack)"
 	default
 }
 
@@ -48,7 +46,7 @@ src_test() {
 	pushd "jdtest" || die
 	emake
 	popd || die
-	LD_LIBRARY_PATH="./jdlib" ./jdtest/example || die
+	LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:./jdlib" ./jdtest/example || die
 }
 
 src_install() {
