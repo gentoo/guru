@@ -28,7 +28,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DINSTALL_TESTS=$(usex tests test)
+		-DINSTALL_TESTS=$(usex tests)
 		-DMUSTER_USE_PMPI=$(usex pmpi)
 	)
 	cmake_src_configure
