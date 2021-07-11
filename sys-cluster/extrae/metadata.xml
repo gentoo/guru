@@ -31,6 +31,7 @@ process). Extrae generates trace files that can be later visualized with sys-clu
 		<flag name="instrument-io">Enables instrumentation for basic I/O (read, write) calls</flag>
 		<flag name="instrument-syscall">Enables instrumentation for system calls (other than I/O and mallocs)</flag>
 		<flag name="java">Enable support for tracing Java. This is necessary to create the connectors between |TRACE| and Java applications.</flag>
+		<flag name="memkind">Enable <pkg>dev-libs/memkind</pkg> support</flag>
 		<flag name="merge-in-trace">Embed the merging process in the tracing library so the final tracefile can be generated automatically from the application run</flag>
 		<flag name="nanos">Enable support for tracing <pkg>sys-cluster/nanos6</pkg> run-time</flag>
 		<!--<flag name="online">Enable on-line analysis</flag>-->
