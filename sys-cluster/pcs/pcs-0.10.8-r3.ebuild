@@ -4,8 +4,8 @@
 EAPI=7
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
-PYTHON_COMPAT=( python3_{8..9} )
-USE_RUBY="ruby25 ruby26"
+PYTHON_COMPAT=( python3_{8..10} )
+USE_RUBY="ruby26"
 
 inherit python-single-r1 ruby-ng systemd
 
@@ -13,12 +13,11 @@ DESCRIPTION="Pacemaker/Corosync Configuration System"
 HOMEPAGE="https://github.com/ClusterLabs/pcs"
 SRC_URI="https://github.com/ClusterLabs/pcs/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/all/${P}"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="systemd"
-
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
 	dev-libs/libffi
@@ -45,6 +44,7 @@ RDEPEND="
 	sys-process/psmisc
 "
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 PATCHES=(
 	"${FILESDIR}/remove-ruby-bundle-path.patch"
 	"${FILESDIR}/openrc-${PV}.patch"
