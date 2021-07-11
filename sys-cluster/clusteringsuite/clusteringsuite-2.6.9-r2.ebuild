@@ -17,8 +17,8 @@ SRC_URI="https://ftp.tools.bsc.es/clusteringsuite/clusteringsuite-${PV}-src.tar.
 LICENSE="LGPL-2.1+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc mpi"
-#TODO: muster treedbscan
+IUSE="doc mpi muster"
+#TODO: treedbscan
 
 PATCHES=( "${FILESDIR}/${P}-unbundle-libANN.patch" )
 
@@ -27,6 +27,7 @@ RDEPEND="
 	sci-libs/ann
 	sys-cluster/libbsctools
 	mpi? ( virtual/mpi )
+	muster? ( sys-cluster/muster )
 "
 #	treedbscan? (
 #		dev-libs/boost[threads]:=
@@ -64,11 +65,11 @@ src_configure() {
 	else
 		myconf+=( "--without-mpi" )
 	fi
-#	if use muster; then
-#		myconf+=( "--with-muster=${EPREFIX}/usr" )
-#	else
+	if use muster; then
+		myconf+=( "--with-muster=${EPREFIX}/usr" )
+	else
 		myconf+=( "--without-muster" )
-#	fi
+	fi
 #	if use treedbscan; then
 #		myconf+=( "--enable-treedbscan" )
 #		myconf+=( "--with-cgal=${EPREFIX}/usr" )
