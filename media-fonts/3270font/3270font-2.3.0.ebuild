@@ -14,15 +14,17 @@ SRC_URI="https://github.com/rbanffy/3270font/archive/v${PV}.tar.gz -> ${P}.tar.g
 LICENSE="BSD CC-BY-SA-3.0 GPL-3 OFL"
 SLOT="0"
 KEYWORDS="~amd64"
-
 IUSE="test"
-RESTRICT="!test? ( test )"
 
+RESTRICT="test"
+PROPERTIES="test_network"
 DOCS=( CHANGELOG.md README.md  )
 HTML_DOCS=( "DESCRIPTION.en_us.html" )
-PATCHES=( "${FILESDIR}/remove-useless-tests.patch" )
+PATCHES=(
+	"${FILESDIR}/remove-useless-tests.patch"
+	"${FILESDIR}/${P}-correctly-pass-options.patch"
+)
 
-RDEPEND=""
 DEPEND="
 	${PYTHON_DEPS}
 	media-gfx/fontforge
@@ -31,6 +33,7 @@ DEPEND="
 			dev-python/ipdb[${PYTHON_USEDEP}]
 			dev-python/pillow[${PYTHON_USEDEP}]
 			dev-util/gftools[${PYTHON_SINGLE_USEDEP}]
+			media-gfx/fontbakery[${PYTHON_USEDEP}]
 		')
 	)
 "
@@ -40,7 +43,8 @@ FONT_SUFFIX="otf ttf pfm woff"
 
 python_check_deps() {
 	has_version -d "dev-python/ipdb[${PYTHON_USEDEP}]" && \
-	has_version -d "dev-python/pillow[${PYTHON_USEDEP}]"
+	has_version -d "dev-python/pillow[${PYTHON_USEDEP}]" && \
+	has_version -d "dev-util/gftools[${PYTHON_SINGLE_USEDEP}]"
 }
 
 pkg_setup() {
@@ -53,4 +57,5 @@ src_compile() {
 
 src_test() {
 	emake test
+	emake fbchecks
 }
