@@ -2,16 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-USE_RUBY="ruby25 ruby26 ruby27 ruby30"
-
-RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md GUIDE.md README.md"
-
-RUBY_FAKEGEM_GEMSPEC=${PN}.gemspec
 
 RUBY_FAKEGEM_BINDIR="exe"
-
 RUBY_FAKEGEM_EXTENSIONS=(ext/byebug/extconf.rb)
 RUBY_FAKEGEM_EXTENSION_LIBDIR=lib/byebug
+RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md GUIDE.md README.md"
+RUBY_FAKEGEM_GEMSPEC=${PN}.gemspec
+USE_RUBY="ruby26 ruby27 ruby30"
 
 inherit ruby-fakegem
 
@@ -22,15 +19,16 @@ SRC_URI="https://github.com/deivid-rodriguez/byebug/archive/v${PV}.tar.gz -> ${P
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 # Tests require bundler and hang when run from portage
 RESTRICT="test"
 
-ruby_add_bdepend "test? (
-	dev-ruby/byebug
-	dev-ruby/pry
-)"
+ruby_add_bdepend "
+	test? (
+		dev-ruby/byebug
+		dev-ruby/pry
+	)
+"
 
 all_ruby_prepare() {
 	sed -i -e '/simplecov/ s:^:#:' test/test_helper.rb || die
