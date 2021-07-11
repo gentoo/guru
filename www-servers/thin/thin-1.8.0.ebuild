@@ -1,13 +1,11 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-USE_RUBY="ruby24 ruby25 ruby26"
-
-RUBY_FAKEGEM_RECIPE_TEST="rspec3"
-
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
+RUBY_FAKEGEM_RECIPE_TEST="rspec3"
+USE_RUBY="ruby26"
 
 inherit ruby-fakegem
 
@@ -56,7 +54,9 @@ all_ruby_prepare() {
 
 	sed -i -e "s/Spec::Runner/Rspec/" spec/spec_helper.rb || die
 	# nasty but too complex to fix up for now :(
-	use doc || rm tasks/rdoc.rake
+	if ! use doc; then
+		rm tasks/rdoc.rake || die
+	fi
 }
 
 each_ruby_configure() {
@@ -76,8 +76,8 @@ all_ruby_install() {
 	all_fakegem_install
 
 	keepdir /etc/thin
-	newinitd "${FILESDIR}"/${PN}.initd-r4 ${PN}
-	newconfd "${FILESDIR}"/${PN}.confd-2 ${PN}
+	newinitd "${FILESDIR}/${PN}.initd-r4" "${PN}"
+	newconfd "${FILESDIR}/${PN}.confd-2" "${PN}"
 
 	einfo
 	elog "Thin is now shipped with init scripts."
