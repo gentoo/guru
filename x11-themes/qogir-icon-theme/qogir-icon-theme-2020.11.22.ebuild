@@ -44,6 +44,9 @@ src_prepare() {
 src_install() {
 	mkdir -p "${D}/usr/share/icons"
 	CURSOR_DIR="${D}/usr/share/cursors/xorg-x11" "${S}"/install.sh -d "${D}/usr/share/icons"
+
+	# Remove broken symlink to avoid QA warning
+	rm "${D}/usr/share/icons/Qogir/scalable/apps/org.aegisub.Aegisub.svg"
 }
 
 pkg_postinst() {
