@@ -7,7 +7,7 @@ SSL_DAYS=36500
 inherit ssl-cert toolchain-funcs
 
 DESCRIPTION="Simple and secure Gemini server"
-HOMEPAGE="https://www.omarpolo.com/pages/gmid.html"
+HOMEPAGE="https://gmid.omarpolo.com"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/omar-polo/${PN}.git https://git.omarpolo.com/${PN}"
@@ -36,13 +36,6 @@ BDEPEND="
 RDEPEND="${DEPEND}"
 
 DOCS=( README.md ChangeLog )
-
-src_prepare() {
-	default
-
-	# QA Notice: make jobserver unavailable
-	sed 's/make -C regress/${MAKE} -C regress/' -i Makefile || die
-}
 
 src_configure() {
 	local conf_args

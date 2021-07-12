@@ -4,10 +4,10 @@
 EAPI=7
 
 SSL_DAYS=36500
-inherit ssl-cert toolchain-funcs
+inherit ssl-cert systemd toolchain-funcs
 
 DESCRIPTION="Simple and secure Gemini server"
-HOMEPAGE="https://www.omarpolo.com/pages/gmid.html"
+HOMEPAGE="https://gmid.omarpolo.com"
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/omar-polo/${PN}.git https://git.omarpolo.com/${PN}"
@@ -35,7 +35,13 @@ BDEPEND="
 "
 RDEPEND="${DEPEND}"
 
-DOCS=( README.md ChangeLog )
+DOCS=( README.md ChangeLog contrib/README )
+
+src_prepare() {
+	default
+
+	sed "s:/etc/gmid.conf:/etc/gmid/gmid.conf:" -i contrib/gmid.service || die
+}
 
 src_configure() {
 	local conf_args
@@ -72,6 +78,10 @@ src_install() {
 	insinto /etc/gmid
 	doins "${FILESDIR}"/gmid.conf
 
+	insinto /usr/share/vim/vimfiles
+	doins -r contrib/vim/*
+
+	systemd_dounit contrib/gmid.service
 	newinitd "${FILESDIR}"/gmid.initd gmid
 	newconfd "${FILESDIR}"/gmid.confd gmid
 
