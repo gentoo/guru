@@ -69,7 +69,7 @@ src_install() {
 	dobin build/*/bin/*
 	insinto /usr/include
 	doins -r xplat/include/*
-	doins -r include/*
+	doins -r include/mrnet*
 	doheader build/*/*.h
 	dodoc README ACKNOWLEDGMENTS
 }
