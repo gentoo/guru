@@ -3,21 +3,14 @@
 
 EAPI="7"
 
-inherit toolchain-funcs
-
 MYP="${PN}${PV}"
 
-MAJOR=$(ver_cut 1)
-MINOR=$(ver_cut 2)
-REVISION=$(ver_cut 3)
-LIBNAME="lib${PN}.so"
-MAJLIBNAME="${LIBNAME}.${MAJOR}"
-MINMAJLIBNAME="${MAJLIBNAME}.${MINOR}"
-FULLLIBNAME="${MINMAJLIBNAME}.${REVISION}"
+inherit toolchain-funcs
 
 DESCRIPTION="Reference implementations of algorithms and forms the basis of QEPCAD"
 HOMEPAGE="https://www.usna.edu/Users/cs/wcbrown/qepcad/B/QEPCAD.html"
 SRC_URI="https://www.usna.edu/Users/cs/wcbrown/qepcad/INSTALL/${MYP}.tar.gz"
+S="${WORKDIR}/${MYP}"
 
 LICENSE="MIT"
 SLOT="0"
@@ -25,23 +18,26 @@ KEYWORDS="~amd64"
 
 IUSE="debug"
 
-RDEPEND=""
-DEPEND=""
 BDEPEND="
 	app-shells/bash
 	app-shells/tcsh
 "
 
-S="${WORKDIR}/${MYP}"
-
 PATCHES=( "${FILESDIR}/makefile.patch" )
-
 DOCS=( doc/saclib.pdf doc/saclocal.dvi doc/desc.doc )
 
 src_prepare() {
+	MAJOR=$(ver_cut 1)
+	MINOR=$(ver_cut 2)
+	REVISION=$(ver_cut 3)
+	export LIBNAME="lib${PN}.so"
+	export MAJLIBNAME="${LIBNAME}.${MAJOR}"
+	export MINMAJLIBNAME="${MAJLIBNAME}.${MINOR}"
+	export FULLLIBNAME="${MINMAJLIBNAME}.${REVISION}"
 	export saclib="${S}"
-	export FULLLIBNAME
-	export CC=$(tc-getCC)
+	tc-export CC
+	#no main, it's a library
+	rm src/main.c || die
 	default
 }
 
@@ -53,19 +49,18 @@ src_configure() {
 }
 
 src_compile() {
-	cd "${saclib}/bin" || die
+	pushd "${saclib}/bin" || die
 	if use debug ; then
 		./mklib deb || die
-		cd ../lib/objd || die
 	else
 		./mklib opt || die
-		cd ../lib/objo || die
 	fi
-
-	cd .. || die
+	popd || die
+	pushd lib || die
 	ln -s "${FULLLIBNAME}" "${MINMAJLIBNAME}" || die
 	ln -s "${MINMAJLIBNAME}" "${MAJLIBNAME}" || die
 	ln -s "${MAJLIBNAME}" "${LIBNAME}" || die
+	popd || die
 }
 
 src_install() {
