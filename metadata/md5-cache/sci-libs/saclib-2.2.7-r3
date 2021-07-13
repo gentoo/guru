@@ -10,4 +10,4 @@ LICENSE=MIT
 SLOT=0
 SRC_URI=https://www.usna.edu/Users/cs/wcbrown/qepcad/INSTALL/saclib2.2.7.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
-_md5_=23ab7129562ae84f506d1dcc301ef553
+_md5_=0331452153ab513501a60d0305c417d6

@@ -1,0 +1,15 @@
+BDEPEND=doc? ( app-doc/doxygen )
+DEFINED_PHASES=compile configure install prepare setup
+DEPEND=dev-libs/boost:= sci-libs/ann sys-cluster/libbsctools mpi? ( virtual/mpi ) muster? ( sys-cluster/muster ) || ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 >=dev-python/pypy3-7.3.0:0 )
+DESCRIPTION=Expose the main performance trends in applications computation structure
+EAPI=8
+HOMEPAGE=https://tools.bsc.es/cluster-analysis https://github.com/bsc-performance-tools/clustering-suite
+INHERIT=python-any-r1
+IUSE=doc mpi muster
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1+
+RDEPEND=dev-libs/boost:= sci-libs/ann sys-cluster/libbsctools mpi? ( virtual/mpi ) muster? ( sys-cluster/muster )
+SLOT=0
+SRC_URI=https://ftp.tools.bsc.es/clusteringsuite/clusteringsuite-2.6.9-src.tar.bz2
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-any-r1	901d9e22c7a848a1196502edf060f330
+_md5_=c4ceb5f84acd70fe58c8adf3e053d077

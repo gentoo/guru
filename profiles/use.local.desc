@@ -265,6 +265,7 @@ sci-geosciences/GeographicLib-data:magnetic-models-igrf12 - the International Ge
 sci-geosciences/GeographicLib-data:magnetic-models-wmm2010 - the World Magnetic Model 2010, which approximates the main magnetic field for the period 2010–2015.
 sci-geosciences/GeographicLib-data:magnetic-models-wmm2015v2 - the World Magnetic Model 2015, which approximates the main magnetic field for the period 2015–2020.
 sci-geosciences/GeographicLib-data:magnetic-models-wmm2020 - the World Magnetic Model 2020, which approximates the main magnetic field for the period 2020–2025.
+sci-libs/ann:profile - Enable performance evaluation. (This may slow execution slightly.)
 sci-libs/dart:bullet - Bullet Collision Detector Support
 sci-libs/dart:examples - Build the examples
 sci-libs/dart:extras - Build the experimental projects that are derived from the core DART project
@@ -342,6 +343,7 @@ sys-cluster/cinder:tcp - Enables tcp support for the iscsi backend
 sys-cluster/cinder:tgt - Enable tgt storage backend support
 sys-cluster/cinder:volume - Installs the initscripts for the cinder volume service
 sys-cluster/clusteringsuite:mpi - enable mpi for distributed version
+sys-cluster/clusteringsuite:muster - enable support for sys-cluster/muster algorithms
 sys-cluster/clusteringsuite:old-pcfparser - enable compilation with old pcfparser
 sys-cluster/dlb:hwloc - add sys-apps/hwlocsupport
 sys-cluster/dlb:instrumentation - enable sys-cluster/extrae instrumentation
@@ -350,13 +352,13 @@ sys-cluster/extrae:clustering - Enable sys-cluster/clusteringsuite support
 sys-cluster/extrae:doc - Generates the documentation of this instrumentation package
 sys-cluster/extrae:dwarf - Build with dev-libs/libdwarf
 sys-cluster/extrae:elf - Build with virtual/libelf
-sys-cluster/extrae:fft - Search for FFT package (which?)
 sys-cluster/extrae:heterogeneous - Enable support for heterogeneous tracing
 sys-cluster/extrae:inotify - Enable inotify support
 sys-cluster/extrae:instrument-dynamic-memory - Enables instrumentation for dynamic memory (malloc, free, realloc) calls
 sys-cluster/extrae:instrument-io - Enables instrumentation for basic I/O (read, write) calls
 sys-cluster/extrae:instrument-syscall - Enables instrumentation for system calls (other than I/O and mallocs)
 sys-cluster/extrae:java - Enable support for tracing Java. This is necessary to create the connectors between |TRACE| and Java applications.
+sys-cluster/extrae:memkind - Enable dev-libs/memkind support
 sys-cluster/extrae:merge-in-trace - Embed the merging process in the tracing library so the final tracefile can be generated automatically from the application run
 sys-cluster/extrae:nanos - Enable support for tracing sys-cluster/nanos6 run-time
 sys-cluster/extrae:opencl - Enable support for tracing OpenCL
@@ -369,8 +371,11 @@ sys-cluster/extrae:sampling - Enable PAPI sampling support
 sys-cluster/extrae:single-mpi-lib - Produces a single instrumentation library for MPI that contains both Fortran and C wrappers. Applications that call the MPI library from both C and Fortran languages need this flag to be enabled.
 sys-cluster/extrae:sionlib - Enable support for sys-cluster/sionlib
 sys-cluster/extrae:smpss - Enable support for tracing SMP-superscalar
+sys-cluster/extrae:spectral - This package enables support for on-line spectral analysis.
 sys-cluster/extrae:xml - Enable support for XML configuration
 sys-cluster/heat:memcached - Installs the memcached server
+sys-cluster/muster:pmpi - Build with PMPI bindings
+sys-cluster/muster:tests - Build and install test programs
 sys-cluster/nanos6:cluster - Enable OmpSs@Cluster support. This requires an MPI version that supports MPI_THREAD_MULTIPLE to be present in your environment
 sys-cluster/nanos6:debug - enable extra assertions and checks in debug - may cause significant slowdown
 sys-cluster/nanos6:dlb - enable dynamic management and sharing of computing resources
@@ -403,6 +408,8 @@ sys-cluster/sionlib:openmp - enable openmp
 sys-cluster/sionlib:parutils - Enable compilation of parutils (used for benchmarking)
 sys-cluster/sionlib:pthreads - configure SIONlib to use pthreads for locking
 sys-cluster/sionlib:python - enable python support
+sys-cluster/spectral:extrae - Add sys-cluster/extrae support
+sys-cluster/spectral:libbsctools - Add sys-cluster/libbsctools support
 sys-cluster/swift:account - adds swift account support
 sys-cluster/swift:container - adds swift container support
 sys-cluster/swift:memcached - adds memcached support

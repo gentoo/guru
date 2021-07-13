@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig virtual/yacc ssl? ( dev-libs/openssl:0 )
+DEFINED_PHASES=compile configure install postinst test
+DEPEND=acct-user/gemini dev-libs/imsg-compat dev-libs/libbsd dev-libs/libevent dev-libs/libretls
+DESCRIPTION=Simple and secure Gemini server
+EAPI=7
+HOMEPAGE=https://gmid.omarpolo.com
+INHERIT=ssl-cert toolchain-funcs
+IUSE=+seccomp test ssl
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD ISC MIT
+RDEPEND=acct-user/gemini dev-libs/imsg-compat dev-libs/libbsd dev-libs/libevent dev-libs/libretls
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://git.omarpolo.com/gmid/snapshot/gmid-1.7.1.tar.gz
+_eclasses_=ssl-cert	f89abc915c0b80c4a66bd4c321169d3d	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
+_md5_=84c6361749ef398dcbc26f4d8bc52901

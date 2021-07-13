@@ -9,4 +9,4 @@ RESTRICT=binchecks strip
 SLOT=0
 SRC_URI=https://github.com/vinceliuice/qogir-icon-theme/archive/refs/tags/2020-11-22.tar.gz
 _eclasses_=xdg-utils	27f9a2f19502b925ac117bd657aa2979
-_md5_=9070691e712ca56956c64ebeee0bc49a
+_md5_=819ef89507794bfdc93ce1ae6978fe06
