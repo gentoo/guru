@@ -70,5 +70,6 @@ src_install() {
 	insinto /usr/include
 	doins -r xplat/include/*
 	doins -r include/*
+	doheader build/*/*.h
 	dodoc README ACKNOWLEDGMENTS
 }
