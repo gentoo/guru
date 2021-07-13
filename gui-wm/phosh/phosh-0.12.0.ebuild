@@ -11,7 +11,7 @@ MY_COMMIT="c5ab6037f460406ac9799b1e5765de3ce0097a8b"
 DESCRIPTION="A pure Wayland shell prototype for GNOME on mobile devices"
 HOMEPAGE="https://source.puri.sm/Librem5/phosh"
 SRC_URI="
-	https://source.puri.sm/Librem5/phosh/-/archive/v0.11.0/${MY_P}.tar.gz
+	https://source.puri.sm/Librem5/phosh/-/archive/v${PV}/${MY_P}.tar.gz
 	https://gitlab.gnome.org/GNOME/libgnome-volume-control/-/archive/${MY_COMMIT}.tar.gz -> libgnome-volume-control-${MY_COMMIT}.tar.gz
 "
 S="${WORKDIR}/${MY_P}"
@@ -39,15 +39,6 @@ BDEPEND="
 	dev-util/ctags
 	dev-util/meson
 "
-
-PATCHES=(
-	"${FILESDIR}"/0001-system-prompt-allow-blank-passwords.patch
-	"${FILESDIR}"/0002-fix-locale-issue.patch
-	"${FILESDIR}"/0003-fix-locale-issue-in-service-file.patch
-	"${FILESDIR}"/0004-calls-manager.patch
-	"${FILESDIR}"/0005-calls-manager.patch
-	"${FILESDIR}"/0006-calls-manager.patch
-)
 
 src_prepare() {
 	default
