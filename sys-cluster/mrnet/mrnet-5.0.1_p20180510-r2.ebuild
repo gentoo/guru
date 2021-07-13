@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="threadsafe" #launchmon libi slurm
 
-DEPEND="dev-libs/boost:="
+RDEPEND="dev-libs/boost:="
 DEPEND="
 	${RDEPEND}
 "
