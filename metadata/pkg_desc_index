@@ -830,7 +830,6 @@ sys-apps/dust 0.5.3 0.5.4 0.6.0: A more intuitive version of du
 sys-apps/hex 0.3.2 0.4.0 0.4.1: Futuristic take on hexdump
 sys-apps/procs 0.11.5 0.11.6: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
-sys-apps/ripgrep-all 0.9.6: Like ripgrep, but also search in PDFs, E-Books, Office documents, archives, etc.
 sys-apps/rogdrv 0.0.5_p20210208: ASUS ROG userspace mouse driver for Linux.
 sys-apps/ryzen-stabilizator 0_pre20180309: Small utility to control a few parameters on Ryzen
 sys-apps/sampler 1.1.0: visualizer for shell commands, executions and alerting
