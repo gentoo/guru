@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{8..10} pypy3 )
 inherit distutils-r1
 
 SRC_URI="https://github.com/harfbuzz/uharfbuzz/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS=""
+KEYWORDS="~amd64"
 DESCRIPTION="Streamlined Cython bindings for the HarfBuzz shaping engine"
 HOMEPAGE="https://github.com/harfbuzz/uharfbuzz"
 LICENSE="Apache-2.0"

@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
@@ -26,7 +26,6 @@ RDEPEND="
 		dev-python/ipython_genutils[${PYTHON_USEDEP}]
 		dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/packaging[${PYTHON_USEDEP}]
-		dev-python/pathlib2[${PYTHON_USEDEP}]
 		dev-python/pexpect[${PYTHON_USEDEP}]
 		dev-python/pickleshare[${PYTHON_USEDEP}]
 		dev-python/pluggy[${PYTHON_USEDEP}]
@@ -44,13 +43,12 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+RESTRICT="test"
+PROPERTIES="test_network"
+
 python_prepare_all() {
 	# do not depend on pytest-cov
 	sed -i -e '/addopts/d' pytest.ini || die
-
-	# skip online tests
-	rm tests/test_fake.py || die
-	rm tests/test_utils.py || die
 
 	distutils-r1_python_prepare_all
 }

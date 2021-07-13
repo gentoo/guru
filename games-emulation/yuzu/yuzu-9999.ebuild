@@ -101,6 +101,12 @@ src_prepare() {
 		sed -i '/PS5_RUMBLE/d' src/input_common/sdl/sdl_impl.cpp
 	fi
 
+	# Workaround: GenerateSCMRev fails
+	sed -i -e "s/@GIT_BRANCH@/${EGIT_BRANCH:-master}/" \
+		-e "s/@GIT_REV@/$(git rev-parse --short HEAD)/" \
+		-e "s/@GIT_DESC@/$(git describe --always --long)/" \
+		src/common/scm_rev.cpp.in || die
+
 	cmake_src_prepare
 }
 

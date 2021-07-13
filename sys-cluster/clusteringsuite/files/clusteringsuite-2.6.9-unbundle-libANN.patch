@@ -1,0 +1,193 @@
+--- a/configure
++++ b/configure
+@@ -19970,7 +19970,7 @@
+ 
+ 
+ 
+-ac_config_files="$ac_config_files Makefile include/Makefile common_utilities/Makefile pcfparser_svn3942/Makefile src/Makefile src/BasicClasses/Makefile src/libParaverTraceParser/Makefile src/libSharedComponents/Makefile src/libSharedComponents/kalign2/Makefile src/libANN/Makefile src/libClustering/gmeans/Makefile src/libClustering/Makefile src/libTraceClustering/Makefile src/DBSCANParametersApproximation/Makefile src/BurstClustering/Makefile src/ClusteringDataExtractor/Makefile src/ClustersDiff/Makefile src/ClustersSequenceScore/Makefile scripts/Makefile src/MusterDistributedClustering/Makefile src/libDistributedClustering/Makefile src/TreeDBSCAN/Makefile src/TreeDBSCAN/scripts/Makefile doc/Makefile"
++ac_config_files="$ac_config_files Makefile include/Makefile common_utilities/Makefile pcfparser_svn3942/Makefile src/Makefile src/BasicClasses/Makefile src/libParaverTraceParser/Makefile src/libSharedComponents/Makefile src/libSharedComponents/kalign2/Makefile src/libClustering/gmeans/Makefile src/libClustering/Makefile src/libTraceClustering/Makefile src/DBSCANParametersApproximation/Makefile src/BurstClustering/Makefile src/ClusteringDataExtractor/Makefile src/ClustersDiff/Makefile src/ClustersSequenceScore/Makefile scripts/Makefile src/MusterDistributedClustering/Makefile src/libDistributedClustering/Makefile src/TreeDBSCAN/Makefile src/TreeDBSCAN/scripts/Makefile doc/Makefile"
+ 
+ 
+ ac_config_links="$ac_config_links include/types.h:include/types.h common_utilities/Error.hpp:common_utilities/Error.hpp src/BasicClasses/Error.hpp:src/BasicClasses/Error.hpp common_utilities/EventEncoding.h:common_utilities/EventEncoding.h common_utilities/Dimemas_Generation.h:common_utilities/Dimemas_Generation.h common_utilities/ParaverColors.h:common_utilities/ParaverColors.h src/BasicClasses/Utilities.hpp:src/BasicClasses/Utilities.hpp src/BasicClasses/SystemMessages.hpp:src/BasicClasses/SystemMessages.hpp src/BasicClasses/Timer.hpp:src/BasicClasses/Timer.hpp src/BasicClasses/FileNameManipulator.hpp:src/BasicClasses/FileNameManipulator.hpp doc/clusteringsuite_manual.tex:doc/clusteringsuite_manual.tex doc/clusteringsuite_manual.pdf:doc/clusteringsuite_manual.pdf doc/clustering_manual_structure.txt:doc/clustering_manual_structure.txt doc/clusteringsuite_design.tex:doc/clusteringsuite_design.tex doc/clusteringsuite_bsctools.pdf:doc/clusteringsuite_bsctools.pdf doc/clusteringsuite_design.pdf:doc/clusteringsuite_design.pdf doc/figure_sources/uml_design/libclustering_uml.pdf:doc/figure_sources/uml_design/libclustering_uml.pdf doc/figure_sources/uml_design/libtraceclustering_uml.pdf:doc/figure_sources/uml_design/libtraceclustering_uml.pdf doc/figure_sources/uml_design/libClustering_uml.graffle:doc/figure_sources/uml_design/libClustering_uml.graffle doc/figure_sources/uml_design/libTraceClustering_uml.graffle:doc/figure_sources/uml_design/libTraceClustering_uml.graffle doc/figure_sources/plots_example/int_vs_fop_plot.pdf:doc/figure_sources/plots_example/int_vs_fop_plot.pdf doc/figure_sources/plots_example/inst_vs_ipc_plot.pdf:doc/figure_sources/plots_example/inst_vs_ipc_plot.pdf doc/figure_sources/plots_example/mainmem_vs_l2_plot.pdf:doc/figure_sources/plots_example/mainmem_vs_l2_plot.pdf doc/figure_sources/plots_example/int_vs_fop_plot.png:doc/figure_sources/plots_example/int_vs_fop_plot.png doc/figure_sources/plots_example/inst_vs_ipc_plot.png:doc/figure_sources/plots_example/inst_vs_ipc_plot.png doc/figure_sources/plots_example/stores_vs_loads_plot.pdf:doc/figure_sources/plots_example/stores_vs_loads_plot.pdf doc/figure_sources/plots_example/stores_vs_loads_plot.png:doc/figure_sources/plots_example/stores_vs_loads_plot.png doc/figure_sources/plots_example/mainmem_vs_l2_plot.png:doc/figure_sources/plots_example/mainmem_vs_l2_plot.png doc/figure_sources/stats_plot/GADGET-DEISA.MEDIUM.256.1HWCG.chop1.bursts.dat:doc/figure_sources/stats_plot/GADGET-DEISA.MEDIUM.256.1HWCG.chop1.bursts.dat doc/figure_sources/stats_plot/GADGET-DEISA.MEDIUM.256.1HWCG.chop1.bursts.gnuplot:doc/figure_sources/stats_plot/GADGET-DEISA.MEDIUM.256.1HWCG.chop1.bursts.gnuplot doc/figure_sources/stats_plot/stats_plot.pdf:doc/figure_sources/stats_plot/stats_plot.pdf doc/figure_sources/clustering_xml/xml_plot_definition.pdf:doc/figure_sources/clustering_xml/xml_plot_definition.pdf doc/figure_sources/clustering_xml/xml_structure.pdf:doc/figure_sources/clustering_xml/xml_structure.pdf doc/figure_sources/clustering_xml/xml_single_event_definition.pdf:doc/figure_sources/clustering_xml/xml_single_event_definition.pdf doc/figure_sources/clustering_xml/xml_mixed_events_definition.pdf:doc/figure_sources/clustering_xml/xml_mixed_events_definition.pdf doc/figure_sources/clustering_xml/xml_algorithm_definition.pdf:doc/figure_sources/clustering_xml/xml_algorithm_definition.pdf doc/figure_sources/clustering_xml/clustering_xml_definition.graffle:doc/figure_sources/clustering_xml/clustering_xml_definition.graffle doc/cluster_analysis_thesis_bibliography.bib:doc/cluster_analysis_thesis_bibliography.bib doc/extra_commands.tex:doc/extra_commands.tex doc/figures/uml_design/libclustering_uml.pdf:doc/figures/uml_design/libclustering_uml.pdf doc/figures/uml_design/libtraceclustering_uml.pdf:doc/figures/uml_design/libtraceclustering_uml.pdf doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.LD_vs_ST.gnuplot:doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.LD_vs_ST.gnuplot doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.L2DATA_vs_MainMEMData.gnuplot:doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.L2DATA_vs_MainMEMData.gnuplot doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.CLUSTERED.FULL_POINTS.Cluster3.csv:doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.CLUSTERED.FULL_POINTS.Cluster3.csv doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.L2DATA_vs_MainMEMData.PNG.gnuplot:doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.L2DATA_vs_MainMEMData.PNG.gnuplot doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.CLUSTERED.FULL_POINTS.Cluster1.csv:doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.CLUSTERED.FULL_POINTS.Cluster1.csv doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.FPU_vs_FXU.PNG.gnuplot:doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.FPU_vs_FXU.PNG.gnuplot doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.CLUSTERED.FULL_POINTS.Cluster4.csv:doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.CLUSTERED.FULL_POINTS.Cluster4.csv doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.FPU_vs_FXU.gnuplot:doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.FPU_vs_FXU.gnuplot doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.LD_vs_ST.PNG.gnuplot:doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.LD_vs_ST.PNG.gnuplot doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.INST_vs_IPC.gnuplot:doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.INST_vs_IPC.gnuplot doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.INST_vs_IPC.PNG.gnuplot:doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.INST_vs_IPC.PNG.gnuplot doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.CLUSTERED.FULL_POINTS.Cluster2.csv:doc/figure_sources/plots_example/GAPGEOFEM.16.mref.ALL_HWC.TIME_SPACE_SHIFTING.chop1.CLUSTERED.FULL_POINTS.Cluster2.csv doc/figures/plots_example/int_vs_fop_plot.pdf:doc/figures/plots_example/int_vs_fop_plot.pdf doc/figures/plots_example/inst_vs_ipc_plot.pdf:doc/figures/plots_example/inst_vs_ipc_plot.pdf doc/figures/plots_example/mainmem_vs_l2_plot.pdf:doc/figures/plots_example/mainmem_vs_l2_plot.pdf doc/figures/plots_example/int_vs_fop_plot.png:doc/figures/plots_example/int_vs_fop_plot.png doc/figures/plots_example/inst_vs_ipc_plot.png:doc/figures/plots_example/inst_vs_ipc_plot.png doc/figures/plots_example/stores_vs_loads_plot.pdf:doc/figures/plots_example/stores_vs_loads_plot.pdf doc/figures/plots_example/stores_vs_loads_plot.png:doc/figures/plots_example/stores_vs_loads_plot.png doc/figures/plots_example/mainmem_vs_l2_plot.png:doc/figures/plots_example/mainmem_vs_l2_plot.png doc/figures/stats_plot/stats_plot.pdf:doc/figures/stats_plot/stats_plot.pdf doc/figures/refinement_tree/refinement_tree.pdf:doc/figures/refinement_tree/refinement_tree.pdf doc/figures/clustering_xml/xml_plot_definition.pdf:doc/figures/clustering_xml/xml_plot_definition.pdf doc/figures/clustering_xml/xml_structure.pdf:doc/figures/clustering_xml/xml_structure.pdf doc/figures/clustering_xml/xml_single_event_definition.pdf:doc/figures/clustering_xml/xml_single_event_definition.pdf doc/figures/clustering_xml/xml_mixed_events_definition.pdf:doc/figures/clustering_xml/xml_mixed_events_definition.pdf doc/figures/clustering_xml/xml_algorithm_definition.pdf:doc/figures/clustering_xml/xml_algorithm_definition.pdf doc/figures/paraver_example/paraver_clusters_timeline.png:doc/figures/paraver_example/paraver_clusters_timeline.png doc/figures/paraver_example/paraver_clusters_profile.png:doc/figures/paraver_example/paraver_clusters_profile.png doc/figures/sequences_example/gromacs_step10_sequences.png:doc/figures/sequences_example/gromacs_step10_sequences.png doc/figures/sequences_example/sequences_clustalx.png:doc/figures/sequences_example/sequences_clustalx.png example/README:example/README example/su3.lat256_2it.16tasks.pcf:example/su3.lat256_2it.16tasks.pcf example/su3.lat256_2it.16tasks.row:example/su3.lat256_2it.16tasks.row example/cluster_explained.xml:example/cluster_explained.xml example/cluster.xml:example/cluster.xml example/su3.lat256_2it.16tasks.prv:example/su3.lat256_2it.16tasks.prv"
+@@ -21184,7 +21184,6 @@
+     "src/libParaverTraceParser/Makefile") CONFIG_FILES="$CONFIG_FILES src/libParaverTraceParser/Makefile" ;;
+     "src/libSharedComponents/Makefile") CONFIG_FILES="$CONFIG_FILES src/libSharedComponents/Makefile" ;;
+     "src/libSharedComponents/kalign2/Makefile") CONFIG_FILES="$CONFIG_FILES src/libSharedComponents/kalign2/Makefile" ;;
+-    "src/libANN/Makefile") CONFIG_FILES="$CONFIG_FILES src/libANN/Makefile" ;;
+     "src/libClustering/gmeans/Makefile") CONFIG_FILES="$CONFIG_FILES src/libClustering/gmeans/Makefile" ;;
+     "src/libClustering/Makefile") CONFIG_FILES="$CONFIG_FILES src/libClustering/Makefile" ;;
+     "src/libTraceClustering/Makefile") CONFIG_FILES="$CONFIG_FILES src/libTraceClustering/Makefile" ;;
+--- a/configure.ac
++++ b/configure.ac
+@@ -552,7 +552,6 @@
+ src/libParaverTraceParser/Makefile
+ src/libSharedComponents/Makefile
+ src/libSharedComponents/kalign2/Makefile
+-src/libANN/Makefile
+ src/libClustering/gmeans/Makefile
+ src/libClustering/Makefile
+ src/libTraceClustering/Makefile
+--- a/PATHS
++++ b/PATHS
+@@ -4,4 +4,3 @@
+ CLUSTERING_DIR       = $(SRC_DIR)/libClustering
+ CLUSTERING_ALG_DIR   = $(SRC_DIR)/libClusteringAlgorithms
+ PARAVER_PARSER_DIR    = $(SRC_DIR)/libParaverTraceParser
+-ANN_DIR              = $(SRC_DIR)/libANN
+--- a/src/libClustering/Makefile.am
++++ b/src/libClustering/Makefile.am
+@@ -70,11 +70,10 @@
+ 
+ endif
+ 
+-libClustering_la_CPPFLAGS=@CLUSTERING_CPPFLAGS@ -I$(top_srcdir)/src/libANN
+-libClustering_la_LDFLAGS=@CLUSTERING_LDFLAGS@ @CLUSTERING_CPPFLAGS@
++libClustering_la_CPPFLAGS=@CLUSTERING_CPPFLAGS@ -I/usr/include/ANN
++libClustering_la_LDFLAGS=@CLUSTERING_LDFLAGS@ @CLUSTERING_CPPFLAGS@ -lann
+ libClustering_la_LIBADD= \
+ 	$(top_builddir)/src/BasicClasses/libBasicClasses.la \
+-	$(top_builddir)/src/libANN/libANN.la \
+ 	./gmeans/libInternalGMeans.la \
+ 	@CLUSTERING_LIBS@
+ 
+--- a/src/libClustering/Makefile.in
++++ b/src/libClustering/Makefile.in
+@@ -155,7 +155,6 @@
+ LTLIBRARIES = $(lib_LTLIBRARIES)
+ libClustering_la_DEPENDENCIES =  \
+ 	$(top_builddir)/src/BasicClasses/libBasicClasses.la \
+-	$(top_builddir)/src/libANN/libANN.la \
+ 	./gmeans/libInternalGMeans.la
+ am__libClustering_la_SOURCES_DIST = Classifier.hpp \
+ 	ClusteringAlgorithm.hpp ClusteringAlgorithmsFactory.cpp \
+@@ -530,11 +529,10 @@
+ 	NearestNeighbourClassifier.hpp Point.cpp Point.hpp \
+ 	clustering_types.h Partition.hpp Partition.cpp $(am__append_2) \
+ 	$(am__append_3) $(am__append_4)
+-libClustering_la_CPPFLAGS = @CLUSTERING_CPPFLAGS@ -I$(top_srcdir)/src/libANN
+-libClustering_la_LDFLAGS = @CLUSTERING_LDFLAGS@ @CLUSTERING_CPPFLAGS@
++libClustering_la_CPPFLAGS = @CLUSTERING_CPPFLAGS@ -I/usr/include/ANN
++libClustering_la_LDFLAGS = @CLUSTERING_LDFLAGS@ @CLUSTERING_CPPFLAGS@ -lann
+ libClustering_la_LIBADD = \
+ 	$(top_builddir)/src/BasicClasses/libBasicClasses.la \
+-	$(top_builddir)/src/libANN/libANN.la \
+ 	./gmeans/libInternalGMeans.la \
+ 	@CLUSTERING_LIBS@
+ 
+--- a/src/libDistributedClustering/Makefile.am
++++ b/src/libDistributedClustering/Makefile.am
+@@ -32,7 +32,7 @@
+  -I$(top_srcdir)/src/libSharedComponents\
+  -I$(top_srcdir)/pcfparser_svn3942\
+  -I$(top_srcdir)/src/libParaverTraceParser\
+- -I$(top_srcdir)/src/libANN
++ -I/usr/include/ANN
+  
+ libDistributedClustering_la_LDFLAGS  = @CLUSTERING_LDFLAGS@ @CLUSTERING_CPPFLAGS@
+ libDistributedClustering_la_LIBADD= \
+--- a/src/libDistributedClustering/Makefile.in
++++ b/src/libDistributedClustering/Makefile.in
+@@ -446,7 +446,7 @@
+  -I$(top_srcdir)/src/libSharedComponents\
+  -I$(top_srcdir)/pcfparser_svn3942\
+  -I$(top_srcdir)/src/libParaverTraceParser\
+- -I$(top_srcdir)/src/libANN
++ -I/usr/include/ANN
+ 
+ libDistributedClustering_la_LDFLAGS = @CLUSTERING_LDFLAGS@ @CLUSTERING_CPPFLAGS@
+ libDistributedClustering_la_LIBADD = \
+--- a/src/libSharedComponents/Makefile.am
++++ b/src/libSharedComponents/Makefile.am
+@@ -76,7 +76,7 @@
+ libSharedComponents_la_CPPFLAGS = @CLUSTERING_CPPFLAGS@\
+   -I${top_srcdir}/src/libClustering\
+   -I${top_srcdir}/src/libParaverTraceParser\
+-  -I${top_srcdir}/src/libANN
++  -I/usr/include/ANN
+ if MAKE_OLD_PCFPARSER
+   libSharedComponents_la_CPPFLAGS += -I${top_srcdir}/pcfparser_svn3942/old
+ else
+--- a/src/libSharedComponents/Makefile.in
++++ b/src/libSharedComponents/Makefile.in
+@@ -551,7 +551,7 @@
+ libSharedComponents_la_CPPFLAGS = @CLUSTERING_CPPFLAGS@ \
+ 	-I${top_srcdir}/src/libClustering \
+ 	-I${top_srcdir}/src/libParaverTraceParser \
+-	-I${top_srcdir}/src/libANN $(am__append_2) $(am__append_3)
++	-I/usr/include/ANN $(am__append_2) $(am__append_3)
+ libSharedComponents_la_LDFLAGS = @CLUSTERING_LDFLAGS@ @CLUSTERING_CPPFLAGS@
+ libSharedComponents_la_LIBADD = \
+ 	$(top_builddir)/pcfparser_svn3942/libparavertraceconfig.la \
+--- a/src/libTraceClustering/Makefile.am
++++ b/src/libTraceClustering/Makefile.am
+@@ -7,7 +7,7 @@
+ AM_CPPFLAGS = \
+ 	-I$(top_srcdir)/include \
+ 	-I$(top_srcdir)/src/BasicClasses \
+-	-I$(top_srcdir)/src/libANN \
++	-I/usr/include/ANN \
+ 	-I$(top_srcdir)/src/libSharedComponents \
+ 	-I$(top_srcdir)/src/libParaverTraceParser \
+ 	-I$(top_srcdir)/common_utilities \
+@@ -28,7 +28,7 @@
+   -I$(top_srcdir)/src/libClustering\
+   -I$(top_srcdir)/src/libSharedComponents\
+   -I$(top_srcdir)/pcfparser_svn3942\
+-  -I$(top_srcdir)/src/libANN\
++  -I/usr/include/ANN \
+   -I$(top_srcdir)/src/libParaverTraceParser
+ 
+ libTraceClustering_la_LDFLAGS  = @CLUSTERING_CPPFLAGS@ @CLUSTERING_LDFLAGS@
+--- a/src/libTraceClustering/Makefile.in
++++ b/src/libTraceClustering/Makefile.in
+@@ -418,7 +418,7 @@
+ AM_CPPFLAGS = \
+ 	-I$(top_srcdir)/include \
+ 	-I$(top_srcdir)/src/BasicClasses \
+-	-I$(top_srcdir)/src/libANN \
++	-I/usr/include/ANN \
+ 	-I$(top_srcdir)/src/libSharedComponents \
+ 	-I$(top_srcdir)/src/libParaverTraceParser \
+ 	-I$(top_srcdir)/common_utilities \
+@@ -438,7 +438,7 @@
+   -I$(top_srcdir)/src/libClustering\
+   -I$(top_srcdir)/src/libSharedComponents\
+   -I$(top_srcdir)/pcfparser_svn3942\
+-  -I$(top_srcdir)/src/libANN\
++  -I/usr/include/ANN \
+   -I$(top_srcdir)/src/libParaverTraceParser
+ 
+ libTraceClustering_la_LDFLAGS = @CLUSTERING_CPPFLAGS@ @CLUSTERING_LDFLAGS@
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -5,7 +5,6 @@
+ SUBDIRS = \
+ 	BasicClasses \
+ 	libParaverTraceParser \
+-	libANN \
+ 	libClustering \
+ 	libSharedComponents \
+ 	libTraceClustering \
+--- a/src/Makefile.in
++++ b/src/Makefile.in
+@@ -151,7 +151,7 @@
+   done | $(am__uniquify_input)`
+ ETAGS = etags
+ CTAGS = ctags
+-DIST_SUBDIRS = BasicClasses libParaverTraceParser libANN libClustering \
++DIST_SUBDIRS = BasicClasses libParaverTraceParser libClustering \
+ 	libSharedComponents libTraceClustering ClusteringDataExtractor \
+ 	DBSCANParametersApproximation BurstClustering ClustersDiff \
+ 	ClustersSequenceScore MusterDistributedClustering \
+@@ -380,10 +380,9 @@
+ CLUSTERING_DIR = $(SRC_DIR)/libClustering
+ CLUSTERING_ALG_DIR = $(SRC_DIR)/libClusteringAlgorithms
+ PARAVER_PARSER_DIR = $(SRC_DIR)/libParaverTraceParser
+-ANN_DIR = $(SRC_DIR)/libANN
+ 
+ # common_filesdir = @common_filesdir@
+-SUBDIRS = BasicClasses libParaverTraceParser libANN libClustering \
++SUBDIRS = BasicClasses libParaverTraceParser libClustering \
+ 	libSharedComponents libTraceClustering ClusteringDataExtractor \
+ 	DBSCANParametersApproximation BurstClustering ClustersDiff \
+ 	ClustersSequenceScore $(am__append_1) $(am__append_2)

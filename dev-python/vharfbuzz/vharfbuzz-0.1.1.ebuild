@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/simoncozens/vharfbuzz"
 SRC_URI="https://github.com/simoncozens/vharfbuzz/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
-KEYWORDS=""
+KEYWORDS="~amd64"
 SLOT="0"
 
 RDEPEND="
@@ -20,5 +20,7 @@ RDEPEND="
 	dev-python/uharfbuzz[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
+
+PATCHES=( "${FILESDIR}/${P}-fix-package-dir.patch" )
 
 distutils_enable_sphinx docs dev-python/sphinxcontrib-napoleon

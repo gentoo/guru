@@ -3,8 +3,8 @@
 
 EAPI=7
 
-USE_RUBY="ruby25 ruby26 ruby27 ruby30"
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
+USE_RUBY="ruby26 ruby27 ruby30"
 
 inherit ruby-fakegem
 
@@ -16,7 +16,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
-RESTRICT="!test? ( test )"
+
 RDEPEND=">=app-shells/zsh-4.3.11"
 BDEPEND="
 	test? (
@@ -28,7 +28,8 @@ BDEPEND="
 		dev-ruby/rspec-wait
 	)
 "
-DEPEND=""
+
+RESTRICT="!test? ( test )"
 
 src_install() {
 	insinto "/usr/share/zsh/site-functions/"
