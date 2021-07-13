@@ -45,9 +45,9 @@ multicast operations may be in progress simultaneously.
 * Open source licensing.
 	</longdescription>
 	<use>
-		<!--<flag name="libi">Use libi as tree instantiation method instead of ssh</flag>-->
+		<flag name="libi">Use libi as tree instantiation method instead of ssh</flag>
 		<flag name="threadsafe">Build threasafe version of lightweight MRNet and XPlat libraries</flag>
-		<!--<flag name="slurm">Use slurm as libi tree instantiation method instead of ssh</flag>-->
+		<flag name="slurm">Use slurm as libi tree instantiation method instead of ssh</flag>
 	</use>
 	<upstream>
 		<bugs-to>https://github.com/dyninst/mrnet/issues</bugs-to>
