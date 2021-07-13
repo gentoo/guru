@@ -21,8 +21,6 @@ RDEPEND="
 	media-libs/libraw
 "
 
-PATCHES=( "${FILESDIR}"/fix-preview-color.patch )
-
 pkg_postinst() {
 	xdg_pkg_postinst
 	gnome2_schemas_update
