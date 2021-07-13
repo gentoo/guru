@@ -24,7 +24,10 @@ DEPEND="
 	slurm? ( sys-cluster/slurm )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-create-libdir.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-create-libdir.patch"
+	"${FILESDIR}/${PN}-link-launchmon.patch"
+)
 
 src_configure() {
 	local myconf=(
