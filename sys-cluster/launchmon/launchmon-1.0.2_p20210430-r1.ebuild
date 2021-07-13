@@ -50,4 +50,6 @@ src_configure() {
 src_install() {
 	default
 	mv "${ED}/usr/etc" "${ED}" || die
+	find "${ED}" -name '*.la' -delete || die
+	find "${ED}" -name '*.a' -delete || die
 }
