@@ -1,33 +1,35 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 inherit cmake multilib
 
-MY_PN="RHVoice"
 DESCRIPTION="TTS engine with extended languages support (including Russian)"
 HOMEPAGE="https://rhvoice.su https://github.com/RHVoice/RHVoice"
 SRC_URI="
-	https://github.com/${MY_PN}/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
-	l10n_en? ( https://github.com/${MY_PN}/evgeniy-eng/archive/refs/tags/4.0.tar.gz -> rhvoice-evgeniy-eng-4.0.tar.gz )
+	https://github.com/${PN}/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	l10n_en? ( https://github.com/${PN}/evgeniy-eng/archive/refs/tags/4.0.tar.gz -> rhvoice-evgeniy-eng-4.0.tar.gz )
 	l10n_ru? (
-		https://github.com/${MY_PN}/evgeniy-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-evgeniy-rus-4.0.tar.gz
-		https://github.com/${MY_PN}/victoria-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-victoria-4.0.tar.gz
+		https://github.com/${PN}/aleksandr-hq-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-aleksandr-hq-4.0.tar.gz
+		https://github.com/${PN}/evgeniy-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-evgeniy-rus-4.0.tar.gz
+		https://github.com/${PN}/victoria-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-victoria-4.0.tar.gz
+		https://github.com/${PN}/yuriy-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-yuriy.tar.gz
 	)
+	l10n_uk? ( https://github.com/${PN}/volodymyr-ukr/archive/refs/tags/4.0.tar.gz -> rhvoice-volodymyr-4.0.tar.gz )
 "
-S="${WORKDIR}/${MY_PN}-${PV}"
+S="${WORKDIR}/RHVoice-${PV}"
 CMAKE_REMOVE_MODULES_LIST="Hardening VersionFromGit"
 
-LICENSE="l10n_pt-BR? ( CC-BY-SA-4.0 ) BSD GPL-2 GPL-3+ LGPL-2.1+"
+LICENSE="l10n_pt-BR? ( CC-BY-SA-4.0 ) l10n_mk? ( AGPL-3 ) BSD GPL-2 GPL-3+ LGPL-2.1+"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-IUSE="ao bindist cli client portaudio +pulseaudio +server +speech-dispatcher utils"
+IUSE="ao cli client portaudio +pulseaudio +server +speech-dispatcher utils"
 REQUIRED_USE="|| ( ao portaudio pulseaudio )"
 
 CC_NC_LANGS=( en eo ky ru uk )
 NC_LANGS=( ka tt )
-LANGS=" ${CC_NC_LANGS[@]} ${NC_LANGS[@]} pt-BR"
+LANGS=" ${CC_NC_LANGS[@]} ${NC_LANGS[@]} mk pt-BR"
 IUSE+="${LANGS// / l10n_}"
 
 for lang in "${CC_NC_LANGS[@]}" ; do
@@ -42,15 +44,15 @@ done
 
 RDEPEND="
 	!dev-libs/hts_engine
-	media-libs/sonic
 	ao? ( media-libs/libao )
+	client? ( sys-apps/dbus )
 	portaudio? ( media-libs/portaudio )
 	pulseaudio? ( media-sound/pulseaudio )
-	speech-dispatcher? ( app-accessibility/speech-dispatcher )
 	server? (
 		dev-libs/glib[dbus]
 		>=dev-cpp/glibmm-2.66.1:2
 	)
+	speech-dispatcher? ( app-accessibility/speech-dispatcher )
 "
 BDEPEND="${DEPEND}
 	dev-cpp/cli11
@@ -59,7 +61,7 @@ BDEPEND="${DEPEND}
 "
 REQUIRED_USE="|| ( ao portaudio pulseaudio )"
 
-DOCS=( README.md NEWS doc config/dicts )
+DOCS=( README.md doc config/dicts )
 
 delete_voices() {
 	for voice in "$@"; do
@@ -71,15 +73,21 @@ src_unpack() {
 	default
 
 	# git submodules, which are not present in the snapshot
-	rmdir "${S}"/data/voices/{victoria,evgeniy-rus,evgeniy-eng} || die
+	rmdir "${S}"/data/voices/{aleksandr-hq,evgeniy-rus,evgeniy-eng,victoria,volodymyr,yuriy} || die
 
 	if use l10n_ru ; then
-		mv "${WORKDIR}"/victoria-rus-4.0 "${S}"/data/voices/victoria || die
+		mv "${WORKDIR}"/aleksandr-hq-rus-4.0 "${S}"/data/voices/aleksandr-hq || die
 		mv "${WORKDIR}"/evgeniy-rus-4.0 "${S}"/data/voices/evgeniy-rus || die
+		mv "${WORKDIR}"/victoria-rus-4.0 "${S}"/data/voices/victoria || die
+		mv "${WORKDIR}"/yuriy-rus-4.0 "${S}"/data/voices/yuriy || die
 	fi
 
 	if use l10n_en ; then
 		mv "${WORKDIR}"/evgeniy-eng-4.0 "${S}"/data/voices/evgeniy-eng || die
+	fi
+
+	if use l10n_uk ; then
+		mv "${WORKDIR}"/volodymyr-ukr-4.0 "${S}"/data/voices/volodymyr || die
 	fi
 }
 
@@ -92,8 +100,7 @@ src_prepare() {
 	sed 's|/systemd/system||' \
 		-i src/service/CMakeLists.txt || die
 
-	sed -e "/sonic/d" \
-		-e "/set(RAPIDXML_INCLUDE_DIR/d" \
+	sed -e "/set(RAPIDXML_INCLUDE_DIR/d" \
 		-i src/third-party/CMakeLists.txt || die
 	sed "/set(UTF8_INCLUDE_DIR/d" -i src/CMakeLists.txt || die
 
@@ -111,13 +118,14 @@ src_prepare() {
 		-i src/*/CMakeLists.txt \
 		-i src/third-party/*/CMakeLists.txt || die
 
-	use l10n_ru || delete_voices aleksandr anna arina artemiy elena irina pavel
 	use l10n_en || delete_voices alan bdl clb slt
-	use l10n_uk || delete_voices anatol natalia
 	use l10n_eo || delete_voices spomenka
 	use l10n_ka || delete_voices natia
 	use l10n_ky || delete_voices azamat nazgul
+	use l10n_mk || delete_voices kiko
+	use l10n_ru || delete_voices aleksandr anna arina artemiy elena irina pavel
 	use l10n_tt || delete_voices talgat
+	use l10n_uk || delete_voices anatol natalia
 	use l10n_pt-BR || delete_voices Leticia-F123
 }
 
