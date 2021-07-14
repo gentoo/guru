@@ -70,7 +70,7 @@ mixed
 * [tides](https://sourceforge.net/projects/tidesodes/)
 * [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet)
 * [deadbeef](https://github.com/DeaDBeeF-Player/deadbeef)
-* [gridatudio](https://github.com/ricklamers/gridstudio)
+* [gridstudio](https://github.com/ricklamers/gridstudio)
 
 ML
 * [google-drive-ocamlfuse](https://github.com/astrada/google-drive-ocamlfuse)
