@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install prepare
+DEPEND=dev-libs/boost:= libi? ( sys-cluster/launchmon sys-cluster/libi ) slurm? ( sys-cluster/slurm )
+DESCRIPTION=A Multicast/Reduction Network
+EAPI=7
+HOMEPAGE=http://www.paradyn.org/mrnet
+INHERIT=flag-o-matic
+IUSE=libi slurm threadsafe
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1+
+RDEPEND=dev-libs/boost:= libi? ( sys-cluster/launchmon sys-cluster/libi )
+REQUIRED_USE=slurm? ( libi )
+SLOT=0
+SRC_URI=https://github.com/dyninst/mrnet/archive/7375ba5bb0df87c68e58ad15e9e5e351ae020c08.tar.gz -> mrnet-5.0.1_p20180510.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5
+_md5_=fc25739a2143986a516aa43bce521267

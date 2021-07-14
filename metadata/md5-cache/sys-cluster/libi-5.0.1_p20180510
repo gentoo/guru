@@ -1,0 +1,11 @@
+DEFINED_PHASES=configure install
+DEPEND=slurm? ( sys-cluster/slurm )
+DESCRIPTION=A framework for bootstrapping extreme scale software systems
+EAPI=8
+HOMEPAGE=http://www.paradyn.org/mrnet
+IUSE=slurm
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1
+SLOT=0
+SRC_URI=https://github.com/dyninst/mrnet/archive/7375ba5bb0df87c68e58ad15e9e5e351ae020c08.tar.gz -> mrnet-5.0.1_p20180510.tar.gz
+_md5_=e353f7f919711ef6c8e6ddf775edbf54

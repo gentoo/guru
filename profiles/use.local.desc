@@ -374,6 +374,12 @@ sys-cluster/extrae:smpss - Enable support for tracing SMP-superscalar
 sys-cluster/extrae:spectral - This package enables support for on-line spectral analysis.
 sys-cluster/extrae:xml - Enable support for XML configuration
 sys-cluster/heat:memcached - Installs the memcached server
+sys-cluster/launchmon:munge - enable munge for connection authentication
+sys-cluster/launchmon:tracing-cost - enable tracing cost measuring codes
+sys-cluster/libi:slurm - Use slurm as tree instantiation method instead of ssh
+sys-cluster/mrnet:libi - Use libi as tree instantiation method instead of ssh
+sys-cluster/mrnet:slurm - Use slurm as libi tree instantiation method instead of ssh
+sys-cluster/mrnet:threadsafe - Build threasafe version of lightweight MRNet and XPlat libraries
 sys-cluster/muster:pmpi - Build with PMPI bindings
 sys-cluster/muster:tests - Build and install test programs
 sys-cluster/nanos6:cluster - Enable OmpSs@Cluster support. This requires an MPI version that supports MPI_THREAD_MULTIPLE to be present in your environment

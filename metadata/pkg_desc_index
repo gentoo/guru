@@ -104,7 +104,7 @@ app-misc/watchexec 1.15.3 1.16.0 1.16.1 1.16.2: Executes commands in response to
 app-misc/wego 2.0_p20190211-r1: Wego is a weather client for the terminal
 app-mobilephone/flashlight 0.1.1-r2: It's a flashlight, what do you expect?
 app-mobilephone/mobile-config-firefox 2.1.0: Mobile and privacy friendly configuration for Firefox
-app-mobilephone/pinephone-meta 0.1: Meta-package for installing phosh on pinephone
+app-mobilephone/pinephone-meta 0.2: Meta-package for installing phosh on pinephone
 app-mobilephone/pinephone-modem-scripts 0.20.8: Modem scripts for the PinePhone
 app-mobilephone/usb-tethering 0.1: USB tethering on Pine64/ConfigFS systems
 app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
@@ -531,7 +531,7 @@ dev-python/ufoProcessor 1.9.0: A Python package for processing and generating UF
 dev-python/uharfbuzz 0.16.1: Streamlined Cython bindings for the HarfBuzz shaping engine
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/unicodedata2 13.0.0.2: Unicodedata backport for python 2/3 updated to the latest unicode version
-dev-python/vharfbuzz 0.1.1: A user-friendlier way to use Harfbuzz in Python
+dev-python/vharfbuzz 0.1.1 0.1.2: A user-friendlier way to use Harfbuzz in Python
 dev-python/vttlib 0.11.0: Dump, merge and compile Visual TrueType data in UFO3 with FontTools
 dev-python/watchgod 0.7: Simple, modern file watching and code reload
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
@@ -569,7 +569,7 @@ dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/rpmlint 2.0.0: Tool for checking common errors in RPM packages
 dev-util/rust-analyzer-bin 9999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
-dev-util/xdp-tools 1.1.1: Utilities and example programs for use with XDP
+dev-util/xdp-tools 1.2.0: Utilities and example programs for use with XDP
 dev-vcs/bit 1.1.1 1.1.2: Bit is a modern Git CLI
 dev-vcs/git-blame-someone-else 0_pre20180613: Blame someone else for your bad code.
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
@@ -656,7 +656,7 @@ gui-libs/libcsys 4.2.0 9999: Library for managing the device
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.3 0.1.4 9999: A Wayland kiosk
 gui-wm/dwl 0.2.1: dwm for Wayland
-gui-wm/phosh 0.12.0: A pure Wayland shell prototype for GNOME on mobile devices
+gui-wm/phosh 0.12.1: A pure Wayland shell prototype for GNOME on mobile devices
 gui-wm/phosh-meta 0.2: Meta package for Phosh
 kde-apps/alligator 21.05 21.06: A convergent RSS/Atom feed reader for Plasma
 kde-apps/kclock 21.05 21.06: A convergent clock application for Plasma
@@ -692,7 +692,7 @@ media-gfx/glimpse 0.2.0: Image editor based on the GNU Image Manipulation Progra
 media-gfx/grafx2 2.7.2978 2.7.2978-r100: A pixelart-oriented painting program
 media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/oda-file-converter 22.5.0.0-r1: For converting between different versions of .dwg and .dxf
-media-gfx/oxipng 3.0.1 4.0.3: A lossless PNG compression optimizer
+media-gfx/oxipng 3.0.1 4.0.3 5.0.0: A lossless PNG compression optimizer
 media-gfx/qview 4.0: Practical and minimal image viewer
 media-gfx/sic 0.19.0: Accessible image processing and conversion from the terminal tool.
 media-gfx/silicon 0.4.0 0.4.1 0.4.3: Create beautiful image of your code
@@ -736,7 +736,7 @@ media-video/av1an 1.12 9999: Cross-platform framework to streamline encoding
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
 media-video/jellyfin-media-player 1.6.0: Jellyfin Desktop Client based on Plex Media Player
 media-video/jellyfin-mpv-shim 2.0.1: MPV Cast Client for Jellyfin
-media-video/kikoplay 0.8.0 0.8.1 9999: KikoPlay is a full-featured danmu player
+media-video/kikoplay 0.8.1 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.1.0: A GTK3 camera application that knows how to deal with the media request api
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
 media-video/owncast 0.0.7: A self-hosted live video and web chat server
@@ -758,7 +758,7 @@ net-im/guilded-bin 1.0.9101267: Drop Discord, get Guilded
 net-im/kaidan 0.7.0 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!
 net-im/nheko 0.8.1 0.8.2 0.8.2-r1: Desktop client for Matrix using Qt and C++14
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
-net-im/whatsapp-for-linux 1.1.7: An unofficial WhatsApp desktop application for Linux
+net-im/whatsapp-for-linux 1.2.0: An unofficial WhatsApp desktop application for Linux
 net-irc/catgirl 1.7 1.8: TLS-only terminal IRC client
 net-irc/srain 1.1.3 1.2.1: Modern, beautiful IRC client written in GTK+ 3
 net-libs/kcgi 0.12.4 0.12.5 9999: minimal CGI library for web applications
@@ -841,7 +841,6 @@ sys-block/systemd-swap 4.4.0 9999: Script for creating swap space from zram swap
 sys-boot/bmaptools 3.6 3.6-r1: Bmaptool is a tool for creating and copyng files using block maps
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
-sys-boot/osk-sdl 0.64-r1: Lightweight On-Screen-Keyboard based on SDL2
 sys-cluster/AXL 0.4.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
 sys-cluster/KVTree 1.1.1: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/cinder 17.1.0: Cinder is the OpenStack Block storage service, a spin out of nova-volumes
@@ -851,7 +850,10 @@ sys-cluster/er 0.0.4: High-level distributed erasure coding lib combining shuffi
 sys-cluster/extrae 3.8.3-r6: Instrumentation framework to generate execution traces of parallel runtimes
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
 sys-cluster/heat 15.0.0: A CloudFormation-compatible openstack-native cloud orchestration engine.
+sys-cluster/launchmon 1.0.2_p20210430-r1: software infrastructure that enables HPC run-time tools to co-locate tool daemons with a parallel job
 sys-cluster/libbsctools 1.0.6: libbsctools
+sys-cluster/libi 5.0.1_p20180510: A framework for bootstrapping extreme scale software systems
+sys-cluster/mrnet 5.0.1_p20180510-r3: A Multicast/Reduction Network
 sys-cluster/muster 1.0.1: Massively Scalable Clustering
 sys-cluster/nanos6 2.6: runtime that implements the OmpSs-2 parallel programming model
 sys-cluster/neutron 17.1.1 17.1.2: A virtual network service for Openstack
