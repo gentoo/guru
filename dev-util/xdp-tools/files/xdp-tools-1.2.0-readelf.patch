@@ -21,7 +21,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  	SHARED_LIBS := $(OBJDIR)/libxdp.so \
 @@ -89,12 +89,12 @@ $(SHARED_OBJDIR)/%.o: %.c $(EXTRA_LIB_DE
  
- XDP_IN_SHARED	:= $(SHARED_OBJDIR)/libxdp.o
+ XDP_IN_SHARED	:= $(SHARED_OBJDIR)/libxdp.o $(SHARED_OBJDIR)/xsk.o
  
 -GLOBAL_SYM_COUNT = $(shell readelf -s --wide $(XDP_IN_SHARED) | \
 +GLOBAL_SYM_COUNT = $(shell $(READELF) -s --wide $(XDP_IN_SHARED) | \

@@ -3,7 +3,10 @@
 
 EAPI="7"
 
-inherit cmake
+DOCS_BUILDER="doxygen"
+DOCS_DIR="${S}"
+
+inherit cmake docs
 
 DESCRIPTION="Massively Scalable Clustering"
 HOMEPAGE="https://github.com/LLNL/muster"
@@ -19,7 +22,6 @@ RDEPEND="
 	virtual/mpi
 "
 DEPEND="${RDEPEND}"
-BDEPEND="doc? ( app-doc/doxygen )"
 
 src_prepare() {
 	sed -e "s|DESTINATION lib|DESTINATION $(get_libdir)|g" -i src/CMakeLists.txt || die
@@ -36,14 +38,12 @@ src_configure() {
 
 src_compile() {
 	cmake_src_compile
-	if use doc; then
-		doxygen || die
-	fi
+	docs_compile
 }
 
 src_install() {
 	cmake_src_install
-	use doc && dodoc -r doc/html
+	einstalldocs
 	if use tests; then
 		mkdir -p "${ED}/usr/libexec/${PN}/" || die
 		mv "${ED}"/usr/bin/*-test "${ED}/usr/libexec/${PN}/" || die

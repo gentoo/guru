@@ -10,6 +10,14 @@ C
 * [blasfeo](https://github.com/giaf/blasfeo)
 * [dimemas](https://github.com/bsc-performance-tools/dimemas)
 * [libfixmath](https://github.com/PetteriAimonen/libfixmath)
+* [hpmpc](https://github.com/giaf/hpmpc)
+* [parsec](https://bitbucket.org/icldistcomp/parsec)
+* [scr](https://github.com/LLNL/scr)
+* [the-omega-project](https://github.com/davewathaverford/the-omega-project)
+* [xpmem](https://github.com/hjelmn/xpmem)
+* [sandia openshmem](https://github.com/Sandia-OpenSHMEM/SOS)
+* [otf2](https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/docs/otf2-2.2/html/index.html)
+* [dyninst](https://github.com/dyninst/dyninst)
 
 C++
 * [machinekit](https://github.com/machinekit/machinekit) 
@@ -39,6 +47,10 @@ C++
 * [codipack](https://www.scicomp.uni-kl.de/software/codi/)
 * [medipack](http://www.scicomp.uni-kl.de/software/medi/)
 * [tecio](https://www.tecplot.com/products/tecio-library/)
+* [TCL](https://github.com/bsc-pm/TCL)
+* [synapse](https://github.com/bsc-performance-tools/synapse)
+* [paraver-kernel](https://github.com/bsc-performance-tools/paraver-kernel)
+* [wxparaver](https://github.com/bsc-performance-tools/wxparaver)
 
 GO
 * [open-match](https://github.com/googleforgames/open-match)
@@ -58,6 +70,7 @@ mixed
 * [tides](https://sourceforge.net/projects/tidesodes/)
 * [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet)
 * [deadbeef](https://github.com/DeaDBeeF-Player/deadbeef)
+* [gridatudio](https://github.com/ricklamers/gridstudio)
 
 ML
 * [google-drive-ocamlfuse](https://github.com/astrada/google-drive-ocamlfuse)
@@ -65,6 +78,9 @@ ML
 * [Cakeml](https://cakeml.org/)
 * [HOL4](http://hol-theorem-prover.org/)
 * [PolyML](http://www.polyml.org/)
+
+LISP
+* [predictive](https://www.dr-qubit.org/predictive.html)
 
 OCTAVE
 * [matlab2tikz](https://github.com/matlab2tikz/matlab2tikz)
@@ -78,6 +94,7 @@ PYTHON
 * [blockify](https://github.com/serialoverflow/blockify)
 * [foobnix](https://github.com/foobnix/foobnix)
 * [TauonMusicBox](https://github.com/Taiko2k/TauonMusicBox)
+* [temanejo](https://www.hlrs.de/solutions-services/service-portfolio/programming/hpc-development-tools/temanejo)
 
 RUST
 * [enarx](https://enarx.dev/)

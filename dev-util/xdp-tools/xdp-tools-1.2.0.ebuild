@@ -5,12 +5,9 @@ EAPI=7
 
 inherit linux-info llvm multilib toolchain-funcs
 
-# version v1.1.1 is not tagged, use commit
-MY_COMMIT="69827a07b395b78a2b577c3e1af6075f8c47fdd8"
-
 DESCRIPTION="Utilities and example programs for use with XDP"
 HOMEPAGE="https://github.com/xdp-project/xdp-tools"
-SRC_URI="https://github.com/xdp-project/${PN}/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/xdp-project/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-2"
@@ -27,7 +24,7 @@ QA_PREBUILT="usr/lib*/bpf/*.o usr/share/xdp-tools/*.o"
 # XDP should be enabled
 CONFIG_CHECK="~XDP_SOCKETS"
 
-LLVM_MAX_SLOT=10
+LLVM_MAX_SLOT=12
 
 BDEPEND="
 	virtual/pkgconfig
@@ -39,16 +36,14 @@ RDEPEND="
 	virtual/libelf
 "
 DEPEND="${RDEPEND}
-	sys-devel/clang:10
-	sys-devel/llvm:10
+	sys-devel/clang
+	sys-devel/llvm
 "
 
 PATCHES=(
 	"${FILESDIR}/${P}-install.patch"
 	"${FILESDIR}/${P}-readelf.patch"
 )
-
-S="${WORKDIR}/xdp-tools-${MY_COMMIT}"
 
 pkg_setup() {
 	llvm_pkg_setup

@@ -15,13 +15,12 @@ IUSE="+eg25-manager"
 
 RDEPEND="
 	app-mobilephone/pinephone-modem-scripts
+	app-mobilephone/usb-tethering
 	gnome-extra/iio-sensor-proxy
 	gui-wm/phosh-meta
-	app-mobilephone/usb-tethering
 	media-libs/alsa-ucm-pinephone
 	media-tv/v4l-utils
 	net-misc/eg25-manager
-	sys-boot/osk-sdl
 	sys-firmware/pinephone-firmware
 	x11-themes/sound-theme-librem5
 "
