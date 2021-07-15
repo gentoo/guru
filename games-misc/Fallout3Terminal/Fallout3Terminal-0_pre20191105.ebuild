@@ -5,7 +5,7 @@ EAPI=7
 
 COMMIT="04cad950ca949d1a437a5718b40d3d0b9e33ee0d"
 
-DESCRIPTION=" A recreation of the Fallout 3 terminal via a linux bash script!"
+DESCRIPTION="A recreation of the Fallout 3 terminal via a linux bash script!"
 HOMEPAGE="https://github.com/fohtla/Fallout3Terminal"
 SRC_URI="https://github.com/fohtla/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
