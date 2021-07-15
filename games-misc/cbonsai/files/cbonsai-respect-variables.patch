@@ -1,0 +1,13 @@
+--- a/Makefile
++++ b/Makefile
+@@ -1,9 +1,7 @@
+ .POSIX:
+-CC	= cc
+ PKG_CONFIG	?= pkg-config
+ CFLAGS	+= -Wall -Wextra -Wshadow -Wpointer-arith -Wcast-qual -pedantic $(shell $(PKG_CONFIG) --cflags ncursesw panelw)
+-LDLIBS	= $(shell $(PKG_CONFIG) --libs ncursesw panelw || echo "-lncursesw -ltinfo -lpanelw")
+-PREFIX	= /usr/local
++LDLIBS	= $(shell $(PKG_CONFIG) --libs ncursesw panelw || echo "-lncursesw -ltinfo -lpanelw") ${LDFLAGS}
+ 
+ cbonsai: cbonsai.c
+ 
