@@ -8,5 +8,5 @@ KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-2+
 SLOT=0
 SRC_URI=https://github.com/tio/tio/releases/download/v1.32/tio-1.32.tar.xz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	bash-completion-r1	8e7c071081c68c2c398b77fe3a1d6908
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	bash-completion-r1	d3a60385655d9b402be765a6de333245
 _md5_=4bff1fd106075ae966ec547c0d5eb57e
