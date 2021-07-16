@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
@@ -23,10 +23,20 @@ KEYWORDS="~amd64"
 
 IUSE="examples"
 
+# Tests require local instance of Oracle DB
+RESTRICT="test"
+
 DEPEND="dev-db/oracle-instantclient"
 RDEPEND="${DEPEND}"
 
 S=${WORKDIR}/${MY_P}
+
+python_prepare_all() {
+	# do not install LICENSE and README to /usr/
+	sed -i -e '/data_files/d' setup.py || die
+
+	distutils-r1_python_prepare_all
+}
 
 pkg_postinst() {
 	return
