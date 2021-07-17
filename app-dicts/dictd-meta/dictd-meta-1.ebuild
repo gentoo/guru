@@ -16,6 +16,7 @@ RDEPEND="
 	app-dicts/dictd-foldoc
 	app-dicts/dictd-gazetteer
 	app-dicts/dictd-jargon
+	app-dicts/dictd-misc
 	app-dicts/dictd-vera
 	app-dicts/dictd-wn
 
