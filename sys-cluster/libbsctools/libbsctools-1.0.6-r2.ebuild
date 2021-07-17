@@ -24,6 +24,7 @@ src_prepare() {
 src_install() {
 	MAKEOPTS="-j1" emake DESTDIR="${D}" install
 	dodoc NEWS README AUTHORS
+	rm -r "${ED}/usr/share/example" || die
 	find "${D}" -name '*.la' -delete || die
 	find "${D}" -name '*.a' -delete || die
 }
