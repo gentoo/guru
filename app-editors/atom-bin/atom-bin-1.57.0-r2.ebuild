@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop optfeature xdg
+inherit desktop xdg
 
 DESCRIPTION="A hackable text editor for the 21st Century"
 HOMEPAGE="https://atom.io/"
@@ -84,9 +84,4 @@ src_install(){
 
 pkg_postinst(){
 	xdg_desktop_database_update
-	optfeature_header "If you want to use atom-beautify please install following packages:"
-	optfeature "python code beautifier" dev-python/autopep8
-	optfeature "python code beautifier" dev-python/black
-	optfeature "shell code beautifier" dev-util/beautysh
-	optfeature "C, C++, Java code beautifier" dev-util/uncrustify
 }
