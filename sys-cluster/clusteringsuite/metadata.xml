@@ -8,7 +8,6 @@
 	<use>
 		<flag name="mpi">enable mpi for distributed version</flag>
 		<flag name="muster">enable support for <pkg>sys-cluster/muster</pkg> algorithms</flag>
-		<flag name="old-pcfparser">enable compilation with old pcfparser</flag>
 		<!--<flag name="treedbscan">enable compilation of TreeDBSCAN support for <pkg>sys-cluster/extrae</pkg></flag>-->
 	</use>
 	<upstream>
