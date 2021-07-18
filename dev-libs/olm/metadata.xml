@@ -5,10 +5,6 @@
 		<email>gentoo@tastytea.de</email>
 		<name>Ronny (tastytea) Gutbrod</name>
 	</maintainer>
-	<maintainer type="person">
-		<email>marco@scardovi.com</email>
-		<name>Marco Scardovi</name>
-	</maintainer>
 	<longdescription lang="en">
 		An implementation of the Double Ratchet cryptographic ratchet written in
 		C and C++11 and exposed as a C API.
