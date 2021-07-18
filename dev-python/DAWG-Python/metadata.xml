@@ -5,4 +5,8 @@
 		<email>shaoyu0209@tuta.io</email>
 		<name>Shaoyu Tseng</name>
 	</maintainer>
+	<upstream>
+	  <remote-id type="pypi">DAWG-Python</remote-id>
+	  <remote-id type="github">pytries/DAWG-Python</remote-id>
+	</upstream>
 </pkgmetadata>
