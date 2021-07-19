@@ -420,9 +420,6 @@ sys-cluster/swift:container - adds swift container support
 sys-cluster/swift:memcached - adds memcached support
 sys-cluster/swift:object - adds swift object support
 sys-cluster/swift:proxy - adds swift proxy support
-sys-cluster/synapse:libi - Use libi as tree instantiation method instead of ssh
-sys-cluster/synapse:slurm - Use slurm as libi tree instantiation method instead of ssh
-sys-cluster/synapse:threadsafe - Build threasafe version of lightweight MRNet and XPlat libraries
 sys-cluster/veloc:alps - Use ALPS (Application Level Placement Scheduler) as resource manager
 sys-cluster/veloc:lsf - Use LFS (Load Sharing Facility) as resource manager
 sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager
