@@ -1,50 +1,55 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit autotools toolchain-funcs
+inherit toolchain-funcs
 
+MY_PN=${PN%%-*}
 MY_PV=$(ver_cut 1-2)
-
-DESCRIPTION="use non-BOINC apps with BOINC"
+DESCRIPTION="Wrapper to use non-BOINC apps with BOINC"
 HOMEPAGE="https://boinc.berkeley.edu/trac/wiki/WrapperApp"
 
-SRC_URI="https://github.com/BOINC/boinc/archive/client_release/${MY_PV}/${PV}.tar.gz -> boinc-${PV}.tar.gz"
-KEYWORDS="~amd64 ~x86"
-S="${WORKDIR}/boinc-client_release-${MY_PV}-${PV}/samples/wrapper"
+SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/client_release/${MY_PV}/${PV}.tar.gz -> ${MY_PN}-${PV}.tar.gz"
+KEYWORDS="~amd64 ~arm64 ~x86"
+S="${WORKDIR}/${MY_PN}-client_release-${MY_PV}-${PV}/samples/${PN#*-}"
 
 LICENSE="LGPL-3+ regexp-UofT"
 SLOT="0"
 
+# sci-misc/boinc doesn't have all necessary headers, so
+# we have to include from build root. All that said,
+# versions must not mismatch.
 RDEPEND="
 	~sci-misc/boinc-${PV}
-	~dev-libs/boinc-zip-${PV}
+	>=dev-libs/boinc-zip-${PV}
 "
 DEPEND="${RDEPEND}"
 
 PATCHES=( "${FILESDIR}"/${PN}-$(ver_cut 1-2)-makefile.patch )
-DOCS=( ReadMe.txt job.xml )
-
-src_prepare() {
-	default
-
-	cd ../.. || die
-	eautoreconf
-	bash ./generate_svn_version.sh || die
-}
+DOCS=( job.xml )
 
 src_configure() {
 	cd ../.. || die
-	econf --enable-pkg-devel --disable-static --disable-fcgi --without-x
-}
 
-src_compile() {
+	bash ./generate_svn_version.sh || die
+
+	# autotools would take an eternity to configure
+	cat <<-EOF > "config.h"
+		#ifndef BOINC_CONFIG_H
+		#define BOINC_CONFIG_H
+
+		#define HAVE_SYS_RESOURCE_H 1
+		#define HAVE_SYS_TIME_H 1
+		#define HAVE_SYS_WAIT_H 1
+
+		#endif
+	EOF
+
 	tc-export CC CXX
-	default
 }
 
 src_install() {
-	default
+	einstalldocs
 	newbin wrapper boinc-wrapper
 }
