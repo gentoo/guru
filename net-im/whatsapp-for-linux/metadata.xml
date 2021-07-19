@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>marco@scardovi.com</email>
-		<name>Marco Scardovi</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<upstream>
 		<remote-id type="github">eneshecan/whatsapp-for-linux</remote-id>
 		<bugs-to>https://github.com/eneshecan/whatsapp-for-linux/issues</bugs-to>

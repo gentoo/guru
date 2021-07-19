@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit ecm
+inherit ecm optfeature
 
 DESCRIPTION="Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors"
 HOMEPAGE="https://store.kde.org/p/998915/
@@ -19,9 +19,12 @@ fi
 LICENSE="GPL-2+"
 SLOT="5"
 
-# block against slot 0 of self, to prevent file collision
-DEPEND="
-	!kde-misc/plasma-applet-thermal-monitor:0
-	>=kde-frameworks/plasma-5.60.0:5
+DEPEND="kde-frameworks/plasma:5"
+RDEPEND="${DEPEND}
+	kde-plasma/ksysguard:5[lm-sensors]
 "
-RDEPEND="${DEPEND}"
+
+pkg_postinst() {
+	ecm_pkg_postinst
+	optfeature "monitor temperature of NVMe drives" sys-apps/nvme-cli
+}
