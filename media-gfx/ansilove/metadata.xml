@@ -16,9 +16,6 @@
     (including all the 14 MS-DOS charsets), Amiga fonts, and iCE colors.
     This is a complete rewrite of AnsiLove/PHP in the C programming language.
   </longdescription>
-  <use>
-    <flag name="seccomp">enable experimental seccomp support</flag>
-  </use>
   <upstream>
     <changelog>
       https://github.com/ansilove/ansilove/blob/master/ChangeLog

@@ -18,20 +18,13 @@ fi
 
 LICENSE="BSD-2"
 SLOT="0"
-IUSE="-seccomp"
 
 RDEPEND="dev-libs/libansilove"
 DEPEND="${RDEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		-DENABLE_SECCOMP=$(usex seccomp)
+		-DENABLE_SECCOMP=NO
 	)
 	cmake_src_configure
-}
-
-pkg_postinst() {
-	if use seccomp; then
-		ewarn "Experimental seccomp support is enabled."
-	fi
 }
