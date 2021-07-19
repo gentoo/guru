@@ -15,7 +15,7 @@ HOMEPAGE="https://github.com/harfbuzz/uharfbuzz"
 LICENSE="Apache-2.0"
 SLOT="0"
 
-RDEPEND=">=media-libs/harfbuzz-2.8.1[experimental]"
+RDEPEND=">=media-libs/harfbuzz-2.8.1[experimental(-)]"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-python/setuptools_scm[${PYTHON_USEDEP}]

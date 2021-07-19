@@ -24,8 +24,8 @@ src_prepare() {
 src_install() {
 	MAKEOPTS="-j1" emake DESTDIR="${D}" install
 	dodoc NEWS README AUTHORS
-        mv "${ED}/usr/share/example" "${ED}/usr/share/doc/${PF}/examples" || die
-        docompress -x "/usr/share/doc/${PF}/examples"
+		mv "${ED}/usr/share/example" "${ED}/usr/share/doc/${PF}/examples" || die
+		docompress -x "/usr/share/doc/${PF}/examples"
 	find "${D}" -name '*.la' -delete || die
 	find "${D}" -name '*.a' -delete || die
 }

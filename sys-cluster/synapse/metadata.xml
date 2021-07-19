@@ -5,11 +5,6 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<use>
-		<flag name="libi">Use libi as tree instantiation method instead of ssh</flag>
-		<flag name="threadsafe">Build threasafe version of lightweight MRNet and XPlat libraries</flag>
-		<flag name="slurm">Use slurm as libi tree instantiation method instead of ssh</flag>
-	</use>
 	<upstream>
 		<bugs-to>https://github.com/bsc-performance-tools/synapse/issues</bugs-to>
 		<remote-id type="github">bsc-performance-tools/synapse</remote-id>

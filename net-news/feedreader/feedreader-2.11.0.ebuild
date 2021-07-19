@@ -12,7 +12,7 @@ MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="Simple News Feed Reader for feeds aggregated by Tiny Tiny RSS or feedly"
 HOMEPAGE="https://github.com/jangernert/FeedReader"
-SRC_URI="https://github.com/jangernert/${MY_PN}/archive/v${PV}.tar.gz"
+SRC_URI="https://github.com/jangernert/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
