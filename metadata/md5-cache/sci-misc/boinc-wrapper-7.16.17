@@ -1,13 +1,13 @@
 DEFINED_PHASES=configure install
-DEPEND=~sci-misc/boinc-7.16.16 >=dev-libs/boinc-zip-7.16.16
+DEPEND=~sci-misc/boinc-7.16.17 >=dev-libs/boinc-zip-7.16.17
 DESCRIPTION=Wrapper to use non-BOINC apps with BOINC
 EAPI=8
 HOMEPAGE=https://boinc.berkeley.edu/trac/wiki/WrapperApp
 INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=LGPL-3+ regexp-UofT
-RDEPEND=~sci-misc/boinc-7.16.16 >=dev-libs/boinc-zip-7.16.16
+RDEPEND=~sci-misc/boinc-7.16.17 >=dev-libs/boinc-zip-7.16.17
 SLOT=0
-SRC_URI=https://github.com/boinc/boinc/archive/client_release/7.16/7.16.16.tar.gz -> boinc-7.16.16.tar.gz
+SRC_URI=https://github.com/boinc/boinc/archive/client_release/7.16/7.16.17.tar.gz -> boinc-7.16.17.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
 _md5_=859177b20a296e60160894f756bb7169

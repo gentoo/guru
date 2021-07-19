@@ -1,0 +1,11 @@
+BDEPEND=>=app-text/dictd-1.13.0-r3
+DEFINED_PHASES=compile install
+DESCRIPTION=Hitchcock's and Easton's Bible Dictionaries
+EAPI=8
+HOMEPAGE=http://www.dict.org
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=>=app-text/dictd-1.13.0-r3
+SLOT=0
+SRC_URI=https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/dict-misc/1.5A-2/dict-misc_1.5A.orig.tar.gz https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/dict-misc/1.5A-2/dict-misc_1.5A-2.diff.gz
+_md5_=492ada3a3a05ab2ecf2649859f1c9c32

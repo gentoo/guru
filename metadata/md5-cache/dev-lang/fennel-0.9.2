@@ -1,16 +1,16 @@
-BDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
+BDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
 DEFINED_PHASES=install setup
-DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
 DESCRIPTION=Fennel is a lisp that compiles to Lua
 EAPI=7
 HOMEPAGE=https://fennel-lang.org/
 INHERIT=lua-single
-IUSE=lua_single_target_luajit lua_single_target_lua5-2 lua_single_target_lua5-3 lua_single_target_lua5-4
+IUSE=lua_single_target_luajit lua_single_target_lua5-3 lua_single_target_lua5-4
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-2? ( dev-lang/lua:5.2 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
-REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-2 lua_single_target_lua5-3 lua_single_target_lua5-4 )
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
+REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-3 lua_single_target_lua5-4 )
 SLOT=0
 SRC_URI=https://git.sr.ht/~technomancy/fennel/archive/0.9.2.tar.gz -> fennel-0.9.2.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	a2950af9f524361296ff10564515822c	lua-single	42a0ce9ea0dccefeb9279fda02fc5e5f
-_md5_=17feb713cc03e63a2061580d3368322c
+_md5_=38162c4482e001f6adc87e0ce8925989

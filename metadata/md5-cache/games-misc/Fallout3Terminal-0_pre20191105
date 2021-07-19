@@ -7,4 +7,4 @@ LICENSE=MIT
 RDEPEND=app-shells/bash media-sound/sox sys-apps/pv x11-terms/cool-retro-term
 SLOT=0
 SRC_URI=https://github.com/fohtla/Fallout3Terminal/archive/04cad950ca949d1a437a5718b40d3d0b9e33ee0d.tar.gz -> Fallout3Terminal-0_pre20191105.tar.gz
-_md5_=5414c88b523b998d2566f0404fd6f8d5
+_md5_=2e1cd6bf15b14f92732a12a44a2ee028

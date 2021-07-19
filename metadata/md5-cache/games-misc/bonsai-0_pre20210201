@@ -1,0 +1,9 @@
+DEFINED_PHASES=install
+DESCRIPTION=bonsai tree generator written in bash
+EAPI=8
+HOMEPAGE=https://gitlab.com/jallbrit/bonsai.sh
+KEYWORDS=~amd64
+LICENSE=GPL-3
+SLOT=0
+SRC_URI=https://gitlab.com/jallbrit/bonsai.sh/-/archive/5e6e6aa7f44e1a770d9c56687ad1b660c409de00/bonsai.sh-5e6e6aa7f44e1a770d9c56687ad1b660c409de00.tar.bz2
+_md5_=f6ef57f97fdabbab0488a50b1208fe33
