@@ -5,7 +5,4 @@
 	<email>egorr.berd@gmail.com</email>
 	<name>Yahor Berdnikau</name>
 </maintainer>
-<longdescription lang="en">
-	Powerline like shell written in Golang.
-</longdescription>
 </pkgmetadata>
