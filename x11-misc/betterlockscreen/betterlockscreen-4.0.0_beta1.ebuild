@@ -52,7 +52,7 @@ pkg_postinst() {
 	elog ''
 	elog 'How to use:'
 	elog '1. Updating image cache(required)'
-	elog 'betterlockscreen -u ~/Pictures'
+	elog 'betterlockscreen -u "/path/to/img.jpg"'
 	elog '2. Lockscreen'
 	elog 'betterlockscreen -l dim '
 }
