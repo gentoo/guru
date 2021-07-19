@@ -21,8 +21,15 @@ DEPEND="
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
+python_prepare_all () {
+	# sed to remove the data_files option, which are necessary to include
+	# data files in the packaged version, but will install files into
+	# /usr/data if not removed before converting it to setup.py
+	sed -i -e '/options\.data_files/,+4d' setup.cfg
+	distutils-r1_python_prepare_all
+}
 python_install() {
+	distutils-r1_python_install
 	newicon icon.png ssmtool.png
 	domenu ssmtool.desktop
-	distutils-r1_python_install
 }
