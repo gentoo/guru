@@ -36,13 +36,14 @@ RDEPEND="
 	acct-group/hinsightd
 	sys-libs/liburing
 	sys-libs/zlib
+	virtual/libcrypt
 	openssl? ( dev-libs/openssl )
 "
 
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/hinsightd-defines-v3.patch"
+	"${FILESDIR}/defines-v4.patch"
 )
 
 src_configure() {
@@ -54,7 +55,8 @@ src_configure() {
 
 src_install() {
 	newsbin "${BUILD_DIR}/hin9" $PN
-	newinitd "${FILESDIR}/initd-v1.sh" $PN
+	newinitd "${S}/external/packaging/$PN.initd.sh" $PN
+	newconfd "${S}/external/packaging/$PN.confd.sh" $PN
 	systemd_dounit "${FILESDIR}/$PN.service" # not tested
 
 	# config
@@ -65,7 +67,7 @@ src_install() {
 
 	# logrotate
 	insinto /etc/logrotate.d
-	newins "${FILESDIR}"/logrotate.d.sh $PN
+	newins "${S}/external/packaging/$PN.logrotate.sh" $PN
 
 	keepdir /var/www/localhost/htdocs
 }

@@ -3,7 +3,7 @@ Description=hinsightd is a http/1.1 webserver
 After=syslog.target network.target
 
 [Service]
-ExecStart=/usr/bin/hinsightd --config /etc/hinsightd/hinsightd.lua
+ExecStart=/usr/sbin/hinsightd --config /etc/hinsightd/hinsightd.lua
 ExecReload=/bin/kill -USR1 $MAINPID
 
 [Install]
