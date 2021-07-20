@@ -35,6 +35,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+DOCS=( CONTRIBUTORS sample.{file,rules} )
+
 src_prepare() {
 	default
 	eautoreconf
@@ -42,6 +44,13 @@ src_prepare() {
 
 src_configure() {
 	local myconf=(
+		--disable-address-sanitizer
+		--disable-debug
+		--disable-gcov
+		--disable-pb-tests
+		--enable-optimization
+		--with-crypto
+
 		$(use_enable cuckoo)
 		$(use_enable debug-dex)
 		$(use_enable dex)
@@ -65,7 +74,5 @@ src_compile() {
 src_install() {
 	default
 	einstalldocs
-	dodoc CONTRIBUTORS sample.{file,rules}
-	find "${ED}" -name '*.la' -delete || die
-	find "${ED}" -name '*.a' -delete || die
+	find "${ED}" \( -name "*.a" -o -name "*.la" \) -delete || die
 }

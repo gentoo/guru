@@ -8,11 +8,14 @@ HOMEPAGE="https://github.com/pavanjadhaw/betterlockscreen"
 
 inherit systemd
 
+MY_PV=${PV//_beta/-beta}
+MY_P="${PN}-${MY_PV}"
+
 if [[ "${PV}" == 9999 ]];then
 	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}"
 else
-	SRC_URI="https://github.com/pavanjadhaw/betterlockscreen/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/pavanjadhaw/betterlockscreen/archive/refs/tags/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
@@ -29,6 +32,12 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+S="${WORKDIR}/${MY_P}"
+
+src_configure() {
+	sed -i '19s/i3lock-color/i3lock/' betterlockscreen || die
+}
+
 src_install() {
 	dobin betterlockscreen
 
@@ -43,7 +52,7 @@ pkg_postinst() {
 	elog ''
 	elog 'How to use:'
 	elog '1. Updating image cache(required)'
-	elog 'betterlockscreen -u ~/Pictures'
+	elog 'betterlockscreen -u "/path/to/img.jpg"'
 	elog '2. Lockscreen'
 	elog 'betterlockscreen -l dim '
 }

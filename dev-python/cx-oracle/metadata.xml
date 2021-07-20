@@ -11,7 +11,4 @@
 		<email>rozstrojenie.jazni@gmail.com</email>
 		<name>Michał Gasewicz</name>
 	</maintainer>
-	<use>
-		<flag name="examples">Install examples, usually source code</flag>
-	</use>
 </pkgmetadata>
