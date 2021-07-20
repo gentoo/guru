@@ -96,7 +96,7 @@ app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/pup 0.4.0_p1: Parsing HTML at the command line
 app-misc/rdfind 1.4.1: Find duplicate files
 app-misc/rememberthemilk 1.3.0: Freemium simple to-do tasks manager
-app-misc/ssmtool 0.1.11: A simple sentence mining tool written in PyQt5
+app-misc/ssmtool 0.1.12: A simple sentence mining tool written in PyQt5
 app-misc/tai 0.0.4 0.0.5: tai (Terminal Ascii Image) tool to convert images to ascii
 app-misc/tealdeer 1.4.1: A very fast implementation of tldr in Rust.
 app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the command-line
