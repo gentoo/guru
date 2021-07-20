@@ -122,7 +122,6 @@ dev-libs/zfp:openmp - Enable OpenMP parallel compression
 dev-libs/zfp:strided - Enable strided access for progressive zfp streams
 dev-libs/zfp:twoway - Use two-way skew-associative cache
 dev-libs/zfp:utilities - Build command line utilities
-dev-python/cx-oracle:examples - Install examples, usually source code
 dev-python/glance_store:cinder - enable cinder backend supprt
 dev-python/glance_store:swift - enable swift backend supprt
 dev-python/glance_store:vmware - enable vmware backend supprt
