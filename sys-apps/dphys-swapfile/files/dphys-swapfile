@@ -1,0 +1,33 @@
+#!/sbin/openrc-run
+# /etc/init.d/dphys-swapfile - automatically set up an swapfile
+# author Neil Franklin, last modification 2006.10.13
+# This script is copyright ETH Zuerich Physics Departement,
+#   use under either modified/non-advertising BSD or GPL license
+#
+# Ported to Gentoo by ShorTie, enjoy .. :)~
+#rc-update -v add dphys-swapfile default
+
+name="dphys-swapfile"
+description="AutoMagically create and maintain swap files"
+
+start_pre() {
+  ebegin "Setting up dphys-swapfile swapfile ..."
+  # (re-)size/-generate (and also first time install)
+  dphys-swapfile setup
+  eend $?
+}
+
+start () {
+    ebegin "Starting dphys-swapfile"
+    dphys-swapfile swapon
+    eend $?
+}
+
+stop () {
+    ebegin "Stopping dphys-swapfile swapfile"
+    dphys-swapfile swapoff
+    eend $?
+}
+
+
+

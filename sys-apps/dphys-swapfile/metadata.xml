@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<remote-id type="github">https://github.com/ShorTie8/guru</remote-id>
+	</upstream>
+	<maintainer type="person">
+		<email>IPDaily@gmail.com</email>
+		<name>Isabel P. Daily</name>
+	</maintainer>
+</pkgmetadata>
