@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>contact@hacktivis.me</email>
+		<name>Haelwenn (lanodan) Monnier</name>
+	</maintainer>
+	<use>
+		<flag name="dbus">Enable dbus support (for BLE support)</flag>
+		<flag name="egl">Enable OpenGL on EGL Graphics API support</flag>
+		<flag name="ffmpeg">Enable ffmpeg testing video driver</flag>
+		<flag name="gles">Enable OpenGL-ES Graphics API support</flag>
+		<flag name="gstreamer">Enable gstreamer</flag>
+		<flag name="opencv">Enable OpenCV backend</flag>
+		<flag name="opengl">Enable OpenGL Graphics API support</flag>
+		<flag name="psvr">Enable PSVR HMD driver</flag>
+		<flag name="sdl">Enable use of SDL2</flag>
+		<flag name="systemd">Enable systemd support (for socket activation of service)</flag>
+		<flag name="uvc">Enable libuvc video driver</flag>
+		<flag name="vive">Enable driver for HTC Vive, Vive Pro, Valve Index, and their controllers</flag>
+		<flag name="vulkan">Enable Vulkan Graphics API support (also needed for compositor)</flag>
+		<flag name="wayland">Enable Wayland support</flag>
+		<flag name="X">Enable xlib/xlib-randr/xcb support</flag>
+	</use>
+</pkgmetadata>
