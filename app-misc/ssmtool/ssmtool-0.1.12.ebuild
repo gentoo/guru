@@ -17,6 +17,7 @@ DEPEND="
 	dev-python/pymorphy2-dicts-ru[${PYTHON_USEDEP}]
 	dev-python/PyQt5[${PYTHON_USEDEP}]
 	dev-python/beautifulsoup:4[${PYTHON_USEDEP}]
+	dev-python/lxml[${PYTHON_USEDEP}]
 "
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
