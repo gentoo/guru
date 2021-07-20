@@ -20,7 +20,16 @@ LICENSE="MIT"
 SLOT="0"
 IUSE=""
 
-RDEPEND="x11-misc/rofi"
+BDEPEND="virtual/pkgconfig"
+COMMON_DEPEND="dev-libs/glib:2"
+DEPEND="
+	${COMMON_DEPEND}
+	x11-libs/cairo
+"
+RDEPEND="
+	${COMMON_DEPEND}
+	x11-misc/rofi
+"
 
 PATCHES=(
 	"${FILESDIR}/${P}-do-not-install-man-page.patch"
