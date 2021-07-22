@@ -40,7 +40,10 @@ DOCS=( README.md ChangeLog contrib/README )
 src_prepare() {
 	default
 
-	sed "s:/etc/gmid.conf:/etc/gmid/gmid.conf:" -i contrib/gmid.service || die
+	sed \
+		-e "s:/usr/local/bin/gmid:/usr/bin/gmid:" \
+		-e "s:/etc/gmid.conf:/etc/gmid/gmid.conf:" \
+		-i contrib/gmid.service || die
 }
 
 src_configure() {
