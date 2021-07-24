@@ -8,7 +8,7 @@ MYPV="$(ver_cut 1-3)"
 
 inherit autotools flag-o-matic
 
-DESCRIPTION="software infrastructure that enables HPC run-time tools to co-locate tool daemons with a parallel job"
+DESCRIPTION="Enables HPC run-time tools to co-locate tool daemons with a parallel job"
 HOMEPAGE="https://github.com/LLNL/LaunchMON"
 SRC_URI="https://github.com/LLNL/LaunchMON/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/LaunchMON-${COMMIT}"
