@@ -1,0 +1,18 @@
+diff --git a/src/calls-call-display.c b/src/calls-call-display.c
+index 7d17772..f4aa855 100644
+--- a/src/calls-call-display.c
++++ b/src/calls-call-display.c
+@@ -261,11 +261,11 @@ call_state_changed_cb (CallsCallDisplay *self,
+          state != CALLS_CALL_STATE_DIALING
+          && state != CALLS_CALL_STATE_ALERTING);
+ 
+-      call_audio_select_mode_async (CALL_AUDIO_MODE_CALL, select_mode_complete);
++      call_audio_select_mode_async (CALL_AUDIO_MODE_CALL, select_mode_complete, NULL);
+       break;
+ 
+     case CALLS_CALL_STATE_DISCONNECTED:
+-      call_audio_select_mode_async (CALL_AUDIO_MODE_DEFAULT, select_mode_complete);
++      call_audio_select_mode_async (CALL_AUDIO_MODE_DEFAULT, select_mode_complete, NULL);
+       break;
+     }
+ 
