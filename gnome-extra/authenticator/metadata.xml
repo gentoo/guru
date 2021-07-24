@@ -5,9 +5,6 @@
 		<email>gjdijkman@gjdwebserver.nl</email>
 		<name>Gerben Jan Dijkman</name>
 	</maintainer>
-	<longdescription lang="en">
-	Generate Two-Factor Codes.
-	</longdescription>
 	<upstream>
 		<doc>https://gitlab.gnome.org/World/Authenticator</doc>
 		<bugs-to>https://gitlab.gnome.org/World/Authenticator/-/issues</bugs-to>

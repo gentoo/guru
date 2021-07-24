@@ -12,7 +12,7 @@ SRC_URI="https://gitlab.gnome.org/World/Authenticator/-/archive/${PV}/${PN}-${PV
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~arm64"
+#KEYWORDS="~arm64"
 IUSE="+introspection +vala"
 REQUIRED_USE="vala? ( introspection )"
 
