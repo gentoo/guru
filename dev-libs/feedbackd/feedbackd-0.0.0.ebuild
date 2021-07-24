@@ -36,7 +36,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 		dev-libs/gobject-introspection
 		dev-util/meson
-		dev-util/pkgconfig
+		virtual/pkgconfig
 		vala? ( $(vala_depend) )
 "
 
