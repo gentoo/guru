@@ -5,7 +5,7 @@ EAPI=7
 
 inherit flag-o-matic
 
-DESCRIPTION="Signal processing techniques to select representative regions from Paraver traces"
+DESCRIPTION="Signal processing to select representative regions from Paraver traces"
 HOMEPAGE="https://github.com/bsc-performance-tools/spectral"
 SRC_URI="https://ftp.tools.bsc.es/spectral/spectral-${PV}-src.tar.bz2"
 

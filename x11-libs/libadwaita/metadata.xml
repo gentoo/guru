@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gjdijkman@gjdwebserver.nl</email>
+		<name>Gerben Jan Dijkman</name>
+	</maintainer>
+	<upstream>
+		<doc>https://gitlab.gnome.org/GNOME/libadwaita</doc>
+		<bugs-to>https://gitlab.gnome.org/GNOME/libadwaita/-/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

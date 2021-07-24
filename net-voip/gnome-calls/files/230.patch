@@ -1,0 +1,126 @@
+From eaed62151bd533a4021ba937a959464383ddc0cb Mon Sep 17 00:00:00 2001
+From: Arnaud Ferraris <arnaud.ferraris@collabora.com>
+Date: Tue, 12 Jan 2021 18:40:12 +0100
+Subject: [PATCH 1/4] call-display: update libcallaudio API calls
+
+Upstream modified the async API, make sure we use it.
+---
+ src/calls-call-display.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/src/calls-call-display.c b/src/calls-call-display.c
+index 7d17772..2bfb8fc 100644
+--- a/src/calls-call-display.c
++++ b/src/calls-call-display.c
+@@ -211,7 +211,7 @@ stop_timeout (CallsCallDisplay *self)
+ 
+ 
+ static void
+-select_mode_complete (gboolean success, GError *error)
++select_mode_complete (gboolean success, GError *error, gpointer data)
+ {
+   if (error)
+     {
+@@ -261,11 +261,15 @@ call_state_changed_cb (CallsCallDisplay *self,
+          state != CALLS_CALL_STATE_DIALING
+          && state != CALLS_CALL_STATE_ALERTING);
+ 
+-      call_audio_select_mode_async (CALL_AUDIO_MODE_CALL, select_mode_complete);
++      call_audio_select_mode_async (CALL_AUDIO_MODE_CALL,
++                                    select_mode_complete,
++                                    NULL);
+       break;
+ 
+     case CALLS_CALL_STATE_DISCONNECTED:
+-      call_audio_select_mode_async (CALL_AUDIO_MODE_DEFAULT, select_mode_complete);
++      call_audio_select_mode_async (CALL_AUDIO_MODE_DEFAULT,
++                                    select_mode_complete,
++                                    NULL);
+       break;
+     }
+ 
+-- 
+2.26.2
+
+
+From b371ee665c981c3ea9f398da04fdf1536560cae6 Mon Sep 17 00:00:00 2001
+From: Arnaud Ferraris <arnaud.ferraris@collabora.com>
+Date: Tue, 12 Jan 2021 18:42:29 +0100
+Subject: [PATCH 2/4] src: meson.build: update libcallaudio dependency
+
+---
+ src/meson.build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/meson.build b/src/meson.build
+index 6222432..9be8cd8 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -36,7 +36,7 @@ calls_deps = [ dependency('gobject-2.0', version: '>= 2.58'),
+                dependency('gom-1.0'),
+                dependency('libebook-contacts-1.2'),
+                dependency('folks'),
+-               dependency('libcallaudio-0'),
++               dependency('libcallaudio-0.1'),
+              ]
+ 
+ if wl_scanner.found()
+-- 
+2.26.2
+
+
+From 2f37394f2e4d3947db967abfa7257cb563b5b4cd Mon Sep 17 00:00:00 2001
+From: Arnaud Ferraris <arnaud.ferraris@collabora.com>
+Date: Tue, 12 Jan 2021 18:45:22 +0100
+Subject: [PATCH 3/4] d/control: add version requirement on libcallaudio build
+ dependency
+
+The new API appeared in version 0.0.5.
+---
+ debian/control | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/debian/control b/debian/control
+index dc26174..1804e63 100644
+--- a/debian/control
++++ b/debian/control
+@@ -8,7 +8,7 @@ Build-Depends:
+  debhelper (>= 11),
+  desktop-file-utils,
+  gtk-doc-tools <!nodoc>,
+- libcallaudio-dev,
++ libcallaudio-dev (>= 0.0.5),
+  libfeedback-dev,
+  libhandy-1-dev (>= 1.0.0),
+  libgtk-3-dev,
+-- 
+2.26.2
+
+
+From 5d3ee0acbda6f15c31e9538287ce9323ded19b37 Mon Sep 17 00:00:00 2001
+From: Arnaud Ferraris <arnaud.ferraris@gmail.com>
+Date: Tue, 19 Jan 2021 22:13:54 +0100
+Subject: [PATCH 4/4] flatpak: update callaudiod version
+
+---
+ sm.puri.Calls.json | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/sm.puri.Calls.json b/sm.puri.Calls.json
+index da08789..10e5a36 100644
+--- a/sm.puri.Calls.json
++++ b/sm.puri.Calls.json
+@@ -267,8 +267,8 @@
+             "sources" : [
+                 {
+                     "type" : "archive",
+-                    "url" : "https://gitlab.com/mobian1/callaudiod/-/archive/0.0.4/callaudiod-0.0.4.tar.gz",
+-                    "sha256" : "a9620dee2999fa85a7ca8f0314be3317a99fc225439ac193d5f727ff9397f93d"
++                    "url" : "https://gitlab.com/mobian1/callaudiod/-/archive/0.0.5/callaudiod-0.0.5.tar.gz",
++                    "sha256" : "0016a5800749d408dbaa14d8a7886bf492068d56508c83a352dee9b1920754b4"
+                 }
+             ]
+         },
+-- 
+2.26.2
+

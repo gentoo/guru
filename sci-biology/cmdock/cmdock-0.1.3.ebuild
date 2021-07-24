@@ -10,7 +10,7 @@ DOCS_DIR="docs"
 inherit python-any-r1 docs meson
 
 DESCRIPTION="Program for docking ligands to proteins and nucleic acids"
-HOMEPAGE="https://gitlab.com/Jukic/cmdock"
+HOMEPAGE="https://gitlab.com/Jukic/cmdock https://www.rxdock.org"
 SRC_URI="https://gitlab.com/Jukic/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
 S="${WORKDIR}/${PN}-v${PV}"
 
@@ -30,6 +30,8 @@ BDEPEND="
 	dev-libs/cxxopts
 "
 
+MY_PREFIX="${EPREFIX}/opt/${P}"
+
 src_prepare() {
 	default
 	rm -r include/indicators || die
@@ -38,7 +40,7 @@ src_prepare() {
 src_configure() {
 	# very weird directory layout
 	local emesonargs=(
-		--prefix="${EPREFIX}/opt/cmdock-${PV}"
+		--prefix="${MY_PREFIX}"
 	)
 	meson_src_configure
 }
@@ -52,17 +54,32 @@ src_install() {
 	meson_src_install
 
 	if use boinc ; then
-		insinto /var/lib/boinc/projects/www.sidock.si_sidock
-		newins "${FILESDIR}/app_info_${PV}.xml" app_info.xml
-		doins "${FILESDIR}/cmdock-boinc-zcp_job_${PV}.xml"
+		local project_root="/var/lib/boinc/projects/www.sidock.si_sidock"
 
-		dosym -r /usr/bin/boinc-wrapper /var/lib/boinc/projects/www.sidock.si_sidock/cmdock-boinc-zcp_wrapper_${PV}
+		local wrappers=( ${PN}-boinc-zcp )
+
+		insinto ${project_root}
+		insopts --owner boinc --group boinc
+
+		newins "${FILESDIR}"/app_info_${PV}.xml app_info.xml
+		touch "${ED}${project_root}"/docking_out.sd || die
+		fowners boinc:boinc ${project_root}/docking_out.sd
+
+		for app in "${wrappers[@]}" ; do
+			wrapperjob="${app}_job_${PV}.xml"
+			wrapperexe="${app}_wrapper_${PV}"
+
+			dosym -r /usr/bin/boinc-wrapper "${project_root}/${wrapperexe}"
+
+			cp "${FILESDIR}"/${wrapperjob} "${S}" || die
+			sed "s:@PREFIX@:${MY_PREFIX}:g" -i ${wrapperjob} || die
+			doins ${wrapperjob}
+		done
 	fi
 }
 
 pkg_postinst() {
 	if use boinc ; then
-		touch /var/lib/boinc/projects/www.sidock.si_sidock/docking_out.sd || die
 		elog
 		elog "The easiest way to do something useful with this application"
 		elog "is to attach it to SiDock@home BOINC project."

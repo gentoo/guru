@@ -1,13 +1,13 @@
 <job_desc>
 	<task>
-		<application>/opt/cmdock-0.1.3/build/cmdock</application>
+		<application>@PREFIX@/build/cmdock</application>
 		<stdout_filename>docking_log</stdout_filename>
-		<command_line>-c -j 1 -r target.prm -p /opt/cmdock-0.1.3/data/scripts/dock.prm -f htvs.ptc -i ligands.sdf -o docking_out</command_line>
+		<command_line>-c -j 1 -r target.prm -p @PREFIX@/data/scripts/dock.prm -f htvs.ptc -i ligands.sdf -o docking_out</command_line>
 		<checkpoint_filename>docking_out.chk</checkpoint_filename>
 		<fraction_done_filename>docking_out.progress</fraction_done_filename>
-		<setenv>CMDOCK_ROOT=/opt/cmdock-0.1.3</setenv>
-		<setenv>LD_LIBRARY_PATH=/opt/cmdock-0.1.3/build:$LD_LIBRARY_PATH</setenv>
-		<setenv>PERL5LIB=/opt/cmdock-0.1.3/lib:$PERL5LIB</setenv>
+		<setenv>CMDOCK_ROOT=@PREFIX@</setenv>
+		<setenv>LD_LIBRARY_PATH=@PREFIX@/build:$LD_LIBRARY_PATH</setenv>
+		<setenv>PERL5LIB=@PREFIX@/lib:$PERL5LIB</setenv>
 	</task>
 	<unzip_input>
 		<zipfilename>ligands.zip</zipfilename>

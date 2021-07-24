@@ -7,7 +7,7 @@ COMMIT="322d1bc2a98c7b8236195d458643ac8e76391011"
 
 inherit cmake
 
-DESCRIPTION="Cross platform native file dialog library with C and C++ bindings, based on nativefiledialog"
+DESCRIPTION="File dialog library with C and C++ bindings, based on nativefiledialog"
 HOMEPAGE="https://github.com/btzy/nativefiledialog-extended"
 SRC_URI="https://github.com/btzy/nativefiledialog-extended/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"

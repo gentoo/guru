@@ -473,11 +473,11 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/alvr-org/ALVR.git"
 	inherit git-r3
 else
+	COMMIT="ab9f6eb78114181ff3e8252706e578bb5de6343c"
 	#SRC_URI="https://github.com/alvr-org/ALVR/archive/refs/tags/v${PV}.tar.gz"
-	EGIT_REPO_URI="https://github.com/alvr-org/ALVR.git"
-	EGIT_COMMIT="ab9f6eb78114181ff3e8252706e578bb5de6343c"
-	inherit git-r3
-	KEYWORDS=""
+	SRC_URI="https://github.com/alvr-org/ALVR/archive/${COMMIT}.tar.gz"
+	S="${WORKDIR}/${PN}-${COMMIT}"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI="${SRC_URI} $(cargo_crate_uris ${CRATES})"

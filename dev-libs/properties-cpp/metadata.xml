@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gjdijkman@gjdwebserver.nl</email>
+		<name>Gerben Jan Dijkman</name>
+	</maintainer>
+	<longdescription lang="en">
+	process-cpp is a simple header-only implementation of properties and signals. It is meant to be used for developing low-level system services.
+	</longdescription>
+	<upstream>
+		<doc>https://github.com/lib-cpp/properties-cpp</doc>
+		<bugs-to>https://github.com/lib-cpp/properties-cpp/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
