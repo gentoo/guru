@@ -35,4 +35,3 @@ src_install() {
 pkg_postinst() {
 	systemd_reenable --all eg25-manager
 }
-
