@@ -475,7 +475,7 @@ if [[ ${PV} == 9999 ]]; then
 else
 	COMMIT="ab9f6eb78114181ff3e8252706e578bb5de6343c"
 	#SRC_URI="https://github.com/alvr-org/ALVR/archive/refs/tags/v${PV}.tar.gz"
-	SRC_URI="https://github.com/alvr-org/ALVR/archive/${COMMIT}.tar.gz"
+	SRC_URI="https://github.com/alvr-org/ALVR/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT}.tar.gz"
 	S="${WORKDIR}/${PN}-${COMMIT}"
 	KEYWORDS="~amd64"
 fi
