@@ -4,16 +4,15 @@
 EAPI=7
 VALA_USE_DEPEND="vapigen"
 
-inherit vala meson gnome2-utils git-r3 xdg
+inherit vala meson gnome2-utils xdg
 
 DESCRIPTION="Cawbird is a fork of the Corebird Twitter client from Baedert."
 HOMEPAGE="https://github.com/IBBoard/cawbird"
 SRC_URI="https://github.com/IBBoard/cawbird/archive/refs/tags/v${PV}.tar.gz"
-EGIT_REPO_URI="https://github.com/IBBoard/cawbird.git"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~arm64"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="+introspection +vala"
 REQUIRED_USE="vala? ( introspection )"
 
