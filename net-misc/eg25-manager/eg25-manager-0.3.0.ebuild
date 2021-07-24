@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -26,8 +26,13 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 src_install() {
 	meson_src_install
 	systemd_dounit "${FILESDIR}"/eg25-manager.service
+	insinto /etc/eg25-manager
+	newins "${FILESDIR}"/eg25-pinephone-1.0.toml pine64,pinephone-1.0.toml
+	newins "${FILESDIR}"/eg25-pinephone-1.1.toml pine64,pinephone-1.1.toml
+	newins "${FILESDIR}"/eg25-pinephone-1.2.toml pine64,pinephone-1.2.toml
 }
 
 pkg_postinst() {
 	systemd_reenable --all eg25-manager
 }
+
