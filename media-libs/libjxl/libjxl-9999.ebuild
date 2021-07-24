@@ -21,7 +21,7 @@ DEPEND="app-arch/brotli
 	virtual/opengl
 	media-libs/freeglut
 	media-libs/giflib
-	media-libs/openexr
+	media-libs/openexr:=
 	dev-util/google-perftools
 	x11-misc/shared-mime-info
 	dev-qt/qtwidgets
