@@ -1,0 +1,15 @@
+BDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Yet another Discord overlay for Linux written in Python using GTK3.
+EAPI=7
+HOMEPAGE=https://github.com/trigg/Discover
+INHERIT=distutils-r1
+IUSE=python_targets_python3_8 python_targets_python3_9
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=>=dev-python/pygobject-3.22 dev-python/websocket-client dev-python/pyxdg dev-python/requests >=dev-python/python-pidfile-3.0.0 dev-python/pillow python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+SLOT=0
+SRC_URI=mirror://pypi/d/discover-overlay/discover-overlay-0.3.3.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	943c17c3afd0f811ad36a0b5c8dedba9
+_md5_=a312dabecdc50f66446ea7c84566a8fc

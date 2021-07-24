@@ -52,7 +52,6 @@ app-misc/mat2:video - Use media-video/ffmpeg for video support
 app-misc/ntfy:dbus - Support for desktop notifications
 app-misc/ntfy:telegram - Add support for telegram backend
 app-misc/termdown:speak - Support for spoken countdown
-app-mobilephone/pinephone-meta:eg25-manager - Enable eg25 modem manager
 app-portage/emlop:fish-completion - Enable fish completion support.
 app-shells/starship:battery - Include support for laptop battery information.
 app-shells/starship:http - If enabled, starship can help you file bugs with itself
@@ -209,6 +208,21 @@ media-libs/libbpg:bpgview - Compile bpgview (media-libs/libsdl and media-libs/sd
 media-libs/libbpg:emcc - Enable compilation of Javascript decoder with Emscripten
 media-libs/libbpg:jctvc - Enable the JCTVC code (best quality but slow) for the encoder
 media-libs/libbpg:x265 - Enable x265 for the encoder
+media-libs/monado:X - Enable xlib/xlib-randr/xcb support
+media-libs/monado:dbus - Enable dbus support (for BLE support)
+media-libs/monado:egl - Enable OpenGL on EGL Graphics API support
+media-libs/monado:ffmpeg - Enable ffmpeg testing video driver
+media-libs/monado:gles - Enable OpenGL-ES Graphics API support
+media-libs/monado:gstreamer - Enable gstreamer
+media-libs/monado:opencv - Enable OpenCV backend
+media-libs/monado:opengl - Enable OpenGL Graphics API support
+media-libs/monado:psvr - Enable PSVR HMD driver
+media-libs/monado:sdl - Enable use of SDL2
+media-libs/monado:systemd - Enable systemd support (for socket activation of service)
+media-libs/monado:uvc - Enable libuvc video driver
+media-libs/monado:vive - Enable driver for HTC Vive, Vive Pro, Valve Index, and their controllers
+media-libs/monado:vulkan - Enable Vulkan Graphics API support (also needed for compositor)
+media-libs/monado:wayland - Enable Wayland support
 media-libs/vips:fits - Enable support for the FITS image format through sci-libs/cfitsio
 media-libs/vips:gsf - Enable support for creating image pyramids with dzsave
 media-libs/vips:heif - Enable support for HEIC images
@@ -244,6 +258,7 @@ net-p2p/monero:wallet-cli - Build the command line wallet, monero-wallet-cli.
 net-p2p/monero:wallet-rpc - Build the RPC wallet, monero-wallet-rpc.
 net-p2p/trezord-go:systemd - Install systemd service file
 net-p2p/trezord-go:udev - Install udev rules
+sci-biology/cmdock:apidoc - Build API documentation using app-doc/doxygen
 sci-biology/cmdock:boinc - Use CmDock with SiDock@home BOINC project
 sci-geosciences/GeographicLib-data:geoids-datasets-egm2008-1 - http://earth-info.nga.mil/GandG/wgs84/gravitymod/egm2008 1' grid
 sci-geosciences/GeographicLib-data:geoids-datasets-egm2008-2-5 - http://earth-info.nga.mil/GandG/wgs84/gravitymod/egm2008 2.5' grid

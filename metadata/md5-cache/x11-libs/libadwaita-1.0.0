@@ -1,0 +1,16 @@
+BDEPEND=vala? ( || ( dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] ) ) dev-util/meson dev-libs/gobject-introspection >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=gnome-base/gnome-common gui-libs/gtk dev-libs/fribidi dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Building blocks for modern GNOME applications.
+EAPI=7
+HOMEPAGE=https://gitlab.gnome.org/GNOME/libadwaita
+INHERIT=vala meson gnome2-utils xdg
+IUSE=+introspection +vala
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=GPL-3
+RDEPEND=gnome-base/gnome-common gui-libs/gtk dev-libs/fribidi
+REQUIRED_USE=vala? ( introspection )
+SLOT=0
+SRC_URI=https://gitlab.gnome.org/GNOME/libadwaita/-/archive/main/libadwaita-main.tar.gz
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	multilib	97566c1a256d07b00848aa767e38a352	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	vala	5ef05fa2f1612e51f4aea8c92b09e08d	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	meson	5bc3f1b890f90cc00cf1d1dddc10233e	xdg-utils	27f9a2f19502b925ac117bd657aa2979	gnome2-utils	c8e3fff820d850c0e003e22208d2eea3	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_md5_=4e20fc264c5966c45db44d3f891e5156

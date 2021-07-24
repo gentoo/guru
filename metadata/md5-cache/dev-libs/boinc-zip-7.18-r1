@@ -1,0 +1,13 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815
+DEFINED_PHASES=compile configure install prepare unpack
+DESCRIPTION=Wrapper for the zip/unzip functions to expose to BOINC clients
+EAPI=8
+HOMEPAGE=https://boinc.berkeley.edu/trac/wiki/FileCompression
+INHERIT=boinc autotools
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=Info-ZIP LGPL-3+
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/BOINC/boinc/archiveclient_release/7.18/7.18.0.tar.gz -> boinc-7.18.0.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	boinc	93ad94b430d88adec56e8e7c6e6daf6d	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da
+_md5_=ae571952e34ef5decfe998de0a35cdf2
