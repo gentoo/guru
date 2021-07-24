@@ -812,7 +812,7 @@ net-p2p/monero 0.17.2.0 9999: The secure, private, untraceable cryptocurrency
 net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for Linux
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1 0.3.14 0.3.15: An experiment in scalable routing as an encrypted IPv6 overlay network
-net-voip/discover-overlay 0.3.3: Yet another Discord overlay for Linux written in Python using GTK3.
+net-voip/discover-overlay 0.3.3: Yet another Discord overlay for Linux written in Python using GTK3
 net-voip/gnome-calls 0.3.4: Phone dialer and call handler
 net-wireless/iwdgui 0.1.0: A graphical frontend for IWD, Intel's iNet Wireless Daemon
 net-wireless/rtl8192eu 0_pre20210403: Realtek 8192EU driver module for Linux kernel
