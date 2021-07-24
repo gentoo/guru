@@ -4,16 +4,15 @@
 EAPI=7
 VALA_USE_DEPEND="vapigen"
 
-inherit vala meson gnome2-utils git-r3 xdg
+inherit vala meson gnome2-utils xdg
 
 DESCRIPTION="Simple application for generating Two-Factor Authentication Codes."
 HOMEPAGE="https://gitlab.gnome.org/World/Authenticator"
 SRC_URI="https://gitlab.gnome.org/World/Authenticator/-/archive/${PV}/${PN}-${PV}.tar.gz"
-EGIT_REPO_URI="https://gitlab.gnome.org/World/Authenticator.git"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~arm64"
 IUSE="+introspection +vala"
 REQUIRED_USE="vala? ( introspection )"
 
