@@ -5,9 +5,6 @@
 		<email>gjdijkman@gjdwebserver.nl</email>
 		<name>Gerben Jan Dijkman</name>
 	</maintainer>
-	<longdescription lang="en">
-	A daemon to provide haptic (and later more) feedback on events.
-	</longdescription>
 	<upstream>
 		<doc>https://source.puri.sm/Librem5/feedbackd/</doc>
 		<bugs-to>https://source.puri.sm/Librem5/feedbackd/-/issues</bugs-to>

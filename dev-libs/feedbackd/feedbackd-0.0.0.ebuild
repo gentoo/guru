@@ -17,7 +17,7 @@ MY_THEME_COMMIT="516e80e0b00bbd904e64b0c272c40218290fe9f5"
 DESCRIPTION="A daemon to provide haptic feedback on events"
 HOMEPAGE="https://source.puri.sm/Librem5/feedbackd"
 
-SRC_URI="https://source.puri.sm/Librem5/feedbackd/-/archive/${MY_COMMIT}/${MY_COMMIT}.tar.gz
+SRC_URI="https://source.puri.sm/Librem5/feedbackd/-/archive/${MY_COMMIT}/${MY_COMMIT}.tar.gz -> ${P}-${MY_COMMIT}.tar.gz
 https://source.puri.sm/Librem5/feedbackd-device-themes/-/archive/${MY_THEME_COMMIT}/feedbackd-device-themes-${MY_THEME_COMMIT}.tar.gz
 "
 
@@ -44,13 +44,13 @@ src_prepare() {
 	default
 	eapply_user
 	use vala && vala_src_prepare
-	sed -i 's/-G feedbackd/-G video/g' ${S}/debian/feedbackd.udev
+	sed -i 's/-G feedbackd/-G video/g' "${S}/debian/feedbackd.udev"
 }
 
 src_install() {
 	default
 	meson_src_install
 	insinto /usr/share/feedbackd/themes
-	doins ${WORKDIR}/feedbackd-device-themes-${MY_THEME_COMMIT}/data/*.json
-	udev_newrules ${S}/debian/feedbackd.udev 90-feedbackd.rules
+	doins "${WORKDIR}/feedbackd-device-themes-${MY_THEME_COMMIT}/data/"*.json
+	udev_newrules "${S}/debian/feedbackd.udev" 90-feedbackd.rules
 }
