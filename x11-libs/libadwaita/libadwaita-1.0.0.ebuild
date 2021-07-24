@@ -4,16 +4,15 @@
 EAPI=7
 VALA_USE_DEPEND="vapigen"
 
-inherit vala meson gnome2-utils git-r3 xdg
+inherit vala meson gnome2-utils xdg
 
 DESCRIPTION="Building blocks for modern GNOME applications."
 HOMEPAGE="https://gitlab.gnome.org/GNOME/libadwaita"
 SRC_URI="https://gitlab.gnome.org/GNOME/libadwaita/-/archive/main/libadwaita-main.tar.gz"
-EGIT_REPO_URI="https://gitlab.gnome.org/GNOME/libadwaita.git"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="+introspection +vala"
 REQUIRED_USE="vala? ( introspection )"
 
