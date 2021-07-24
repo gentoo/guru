@@ -13,7 +13,7 @@ EGIT_REPO_URI="https://github.com/IBBoard/cawbird.git"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64 ~arm64"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="+introspection +vala"
 REQUIRED_USE="vala? ( introspection )"
 
