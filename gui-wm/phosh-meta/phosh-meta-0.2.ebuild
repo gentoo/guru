@@ -8,7 +8,7 @@ HOMEPAGE="https://github.com/dreemurrs-embedded/Pine64-Arch"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 DEPEND="
 	app-editors/gedit
@@ -21,7 +21,7 @@ DEPEND="
 	gnome-extra/gnome-calculator
 	gnome-extra/gnome-calendar
 	gui-wm/phosh
-	net-voip/calls
+	net-voip/gnome-calls
 	net-dns/dnsmasq
 	sys-power/gtherm
 	sys-auth/rtkit
