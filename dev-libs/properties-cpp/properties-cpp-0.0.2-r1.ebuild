@@ -1,10 +1,10 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 URELEASE="groovy"
-inherit cmake-utils
+inherit cmake
 
 # Handle version strings here so as not to use 'ubuntu-versionator' eclass #
 MY_PV="${PV:0:5}"
@@ -17,13 +17,14 @@ SRC_URI="https://launchpad.net/ubuntu/+archive/primary/+files/${PN}_${MY_PV}.ori
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm ~arm64"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="doc test"
-RESTRICT="mirror"
+RESTRICT="!test? ( test ) mirror"
 
 DEPEND="dev-libs/boost
 	doc? ( app-doc/doxygen )
-        test? ( >=dev-cpp/gtest-1.8.1 )"
+	test? ( >=dev-cpp/gtest-1.8.1 )
+"
 
 S="${WORKDIR}/${MY_P}"
 MAKEOPTS="${MAKEOPTS} -j1"
@@ -31,5 +32,5 @@ MAKEOPTS="${MAKEOPTS} -j1"
 src_prepare() {
 	use !doc && truncate -s0 doc/CMakeLists.txt
 	use !test && truncate -s0 tests/CMakeLists.txt
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
