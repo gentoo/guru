@@ -6,7 +6,7 @@ VALA_USE_DEPEND="vapigen"
 
 inherit vala meson udev
 
-KEYWORDS="~arm ~arm64"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 IUSE="+introspection +vala"
 REQUIRED_USE="vala? ( introspection )"
