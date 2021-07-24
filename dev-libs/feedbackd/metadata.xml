@@ -1,5 +1,15 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>gjdijkman@gjdwebserver.nl</email>
+		<name>Gerben Jan Dijkman</name>
+	</maintainer>
+	<longdescription lang="en">
+	A daemon to provide haptic (and later more) feedback on events.
+	</longdescription>
+	<upstream>
+		<doc>https://source.puri.sm/Librem5/feedbackd/</doc>
+		<bugs-to>https://source.puri.sm/Librem5/feedbackd/-/issues</bugs-to>
+	</upstream>
 </pkgmetadata>
