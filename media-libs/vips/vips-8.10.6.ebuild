@@ -34,7 +34,7 @@ RDEPEND="
 	gsf? ( gnome-extra/libgsf:= )
 	lcms? ( media-libs/lcms )
 	matio? ( >=sci-libs/matio-1.3.4 )
-	openexr? ( >=media-libs/openexr-1.2.2 )
+	openexr? ( >=media-libs/openexr-1.2.2:= )
 	orc? ( >=dev-lang/orc-0.4.11 )
 	pango? ( x11-libs/pango )
 	pdf? ( app-text/poppler[cairo] )
