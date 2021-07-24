@@ -4,12 +4,11 @@
 EAPI=7
 VALA_USE_DEPEND="vapigen"
 
-inherit vala meson gnome2-utils git-r3 xdg
+inherit vala meson gnome2-utils xdg
 
 DESCRIPTION="Phone dialer and call handler"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/calls"
 SRC_URI="https://gitlab.gnome.org/GNOME/calls/-/archive/v${PV}/calls-v${PV}.tar.gz"
-EGIT_REPO_URI="https://gitlab.gnome.org//GNOME/calls.git"
 
 LICENSE="GPL-3"
 SLOT="0"
