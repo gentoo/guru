@@ -13,7 +13,7 @@ EGIT_REPO_URI="https://github.com/IBBoard/cawbird.git"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~arm64"
 IUSE="+introspection +vala"
 REQUIRED_USE="vala? ( introspection )"
 
@@ -41,11 +41,11 @@ BDEPEND="
 S="${WORKDIR}/$PN-${PV}"
 
 src_configure() {
-        local emesonargs=(
-                -Dconsumer_key_base64=VmY5dG9yRFcyWk93MzJEZmhVdEk5Y3NMOA==
+	local emesonargs=(
+	        -Dconsumer_key_base64=VmY5dG9yRFcyWk93MzJEZmhVdEk5Y3NMOA==
 		-Dconsumer_secret_base64=MThCRXIxbWRESDQ2Y0podzVtVU13SGUyVGlCRXhPb3BFRHhGYlB6ZkpybG5GdXZaSjI=                
-        )        
-        meson_src_configure
+	)        
+	meson_src_configure
 }
 
 src_install() {
