@@ -6,9 +6,11 @@ VALA_USE_DEPEND="vapigen"
 
 inherit vala meson gnome2-utils xdg
 
+COMMIT="f5932ab4250c8e709958c6e75a1a4941a5f0f386"
+
 DESCRIPTION="Building blocks for modern GNOME applications."
 HOMEPAGE="https://gitlab.gnome.org/GNOME/libadwaita"
-SRC_URI="https://gitlab.gnome.org/GNOME/libadwaita/-/archive/main/libadwaita-main.tar.gz"
+SRC_URI="https://gitlab.gnome.org/GNOME/libadwaita/-/archive/${COMMIT}/libadwaita-${COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
