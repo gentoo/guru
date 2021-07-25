@@ -32,7 +32,22 @@ Please don't use symlinks in the repository (e.g. foobar-x.y.z.ebuild -> foobar-
 
 Sometimes a upstream lists dependencies which are considered deprecated. If possible, packages should **not** depend on these deprecated dependencies. Reasons a dependency might be deprecated is that it is too old, unmaintained, or the features it adds are not useful to Gentoo. You can find an overview of the currently deprecated dependencies and the reason they are deprecated in `$(portageq get_repo_path / gentoo)/profiles/package.deprecated`. `repoman -dx full` will warn you if your package depends on a deprecated dependency.
 
-For Python packages there are some additional (test) dependencies that are considered undesirable or not useful, but are not considered deprecated. You can find an overview of those [here](https://dev.gentoo.org/~mgorny/python-guide/distutils.html#enabling-tests).
+For Python packages there are some additional (test) dependencies that are considered undesirable or not useful, but are not considered deprecated. You can find an overview of those [here](https://dev.gentoo.org/~mgorny/python-guide/distutils.html#enabling-tests) and in the list below:
+- dev-python/black
+- dev-python/check-manifest
+- dev-python/coverage
+- dev-python/docutils
+- dev-python/flake8
+- dev-python/isort
+- dev-python/mypy
+- dev-python/multilint
+- dev-python/pep8
+- dev-python/pycodestyle
+- dev-python/pytest-cov
+- dev-python/pytest-runner
+- dev-python/readme_renderer
+- dev-python/tox
+- dev-python/twine
 
 - #### Licenses of bundled libraries
 
