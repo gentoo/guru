@@ -35,11 +35,3 @@ S="${WORKDIR}/$PN-${PV}"
 src_install() {
 	meson_src_install
 }
-
-pkg_postinst() {
-	gnome2_schemas_update
-}
-
-pkg_postrm() {
-	gnome2_schemas_update
-}

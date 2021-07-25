@@ -5,9 +5,6 @@
 		<email>gjdijkman@gjdwebserver.nl</email>
 		<name>Gerben Jan Dijkman</name>
 	</maintainer>
-	<longdescription lang="en">
-	Building blocks for modern GNOME applications.
-	</longdescription>
 	<upstream>
 		<doc>https://gitlab.gnome.org/GNOME/libadwaita</doc>
 		<bugs-to>https://gitlab.gnome.org/GNOME/libadwaita/-/issues</bugs-to>
