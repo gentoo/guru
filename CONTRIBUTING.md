@@ -87,3 +87,7 @@ See the [dev manual](https://devmanual.gentoo.org/eclass-reference/distutils-r1.
 Installation of small files, like documentation, completions, man pages, etc, does not have to be toggle-able with an USE flag. Instead, just install these files unconditionally. This avoids unnecessary recompilations when an user forgot to enable a flag that installs a small file.
 
 The same holds for optional runtime dependencies. It is not necessary to introduce a USE flag, that does not alter the compiled binary and just pulls in an extra optional runtime dependency. Instead, you can notify the user of these optional runtime dependencies with the `optfeature` function from the [optfeature](https://devmanual.gentoo.org/eclass-reference/optfeature.eclass/) eclass (early from currently deprecated [eutils](https://devmanual.gentoo.org/eclass-reference/eutils.eclass/) eclass). If, for whatever reason, it is still desired to introduce an USE flag for optional runtime dependencies, one can still use the `optfeature` function as well to allow the user to choose to avoid recompiling a package.
+
+- #### Clean your patches
+
+See the [dev manual](https://devmanual.gentoo.org/ebuild-writing/misc-files/patches/#clean-patch-howto) for a guide on how to write clean patches
