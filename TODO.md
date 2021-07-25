@@ -16,7 +16,6 @@ C
 * [the-omega-project](https://github.com/davewathaverford/the-omega-project)
 * [xpmem](https://github.com/hjelmn/xpmem)
 * [sandia openshmem](https://github.com/Sandia-OpenSHMEM/SOS)
-* [otf2](https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/docs/otf2-2.2/html/index.html)
 * [dyninst](https://github.com/dyninst/dyninst)
 
 C++
