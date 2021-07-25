@@ -56,7 +56,7 @@ get_boinc_src() {
 		*) die "${FUNCNAME}: unknown release type '${RELEASE_TYPE}'"
 	esac
 
-	local _SRC_URI="https://github.com/BOINC/boinc/archive"
+	local _SRC_URI="https://github.com/BOINC/boinc/archive/"
 	_SRC_URI+="${RELEASE_TYPE}_release/${RELEASE_MINOR}/${RELEASE_PATCH}.tar.gz"
 	_SRC_URI+=" -> boinc${SUFFIX}-${RELEASE_PATCH}.tar.gz"
 
