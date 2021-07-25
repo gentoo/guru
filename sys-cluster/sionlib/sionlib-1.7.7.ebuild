@@ -12,13 +12,16 @@ inherit docs flag-o-matic fortran-2 python-any-r1 toolchain-funcs
 
 DESCRIPTION="Scalable I/O library for parallel access to task-local files"
 HOMEPAGE="https://www.fz-juelich.de/ias/jsc/EN/Expertise/Support/Software/SIONlib/_node.html"
-SRC_URI="http://apps.fz-juelich.de/jsc/sionlib/download.php?version=${PV}l -> ${P}.tar.gz"
-S="${WORKDIR}/sionlib"
+SRC_URI="
+	!tools? ( http://apps.fz-juelich.de/jsc/sionlib/download.php?version=${PV} -> ${P}.tar.gz )
+	tools? ( http://apps.fz-juelich.de/jsc/sionlib/download.php?version=${PV}l -> ${PN}l-${PV}.tar.gz )
+"
+S="${WORKDIR}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+cxx debug doc examples +fortran +mpi +ompi +openmp +parutils +pthreads python"
+IUSE="+cxx debug doc examples +fortran +mpi +ompi +openmp +parutils +pthreads python tools"
 #TODO: cuda sionfwd msa
 #--enable-sionfwd=/path/to/sionfwd
 #--msa=(hostname-regex|deep-est-sdv)]	MSA aware collective operations for the given system
