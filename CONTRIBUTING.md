@@ -91,3 +91,7 @@ The same holds for optional runtime dependencies. It is not necessary to introdu
 - #### Clean your patches
 
 See the [dev manual](https://devmanual.gentoo.org/ebuild-writing/misc-files/patches/#clean-patch-howto) for a guide on how to write clean patches
+
+- #### Avoid colon as a sed delimiter
+
+As seen in https://bugs.gentoo.org/685160 colon as a sed delimiter can break \*FLAGS. You must not use it to modify \*FLAGS, better if you avoid using it completely.
