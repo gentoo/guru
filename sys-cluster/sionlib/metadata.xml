@@ -18,17 +18,22 @@ Both, the estimated chunk size and file system block size are used to align indi
 
 SIONlib provides two different interfaces: one for parallel access (with implementations for different parallel programming technologies such as MPI, OpenMP and hybrid MPI+OpenMP) and one for sequential access which is also used internally by the SIONlib utilities.
 	</longdescription>
+	<upstream>
+		<bugs-to>https://gitlab.jsc.fz-juelich.de/cstao-public/SIONlib/SIONlib/-/issues</bugs-to>
+	</upstream>
 	<use>
 		<!--<flag name="cuda">enable CUDA aware interface</flag>-->
 		<flag name="cxx">Enable C++ support</flag>
 		<flag name="debug">enable SIONlib debug</flag>
+		<flag name="deep-est-sdv">deep-est-sdv collector selection plug-in for MSA-aware collective I/O</flag>
 		<flag name="fortran">Enable Fortran support</flag>
+		<flag name="hostname-regex">hostname-regex collector selection plug-in for MSA-aware collective I/O</flag>
 		<flag name="mpi">enable mpi</flag>
 		<flag name="python">enable python support</flag>
 		<flag name="ompi">enable hybrid openmp mpi</flag>
 		<flag name="openmp">enable openmp</flag>
 		<flag name="parutils">Enable compilation of parutils (used for benchmarking)</flag>
 		<flag name="pthreads">configure SIONlib to use pthreads for locking</flag>
-		<!--<flag name="sionfwd">enable I/O forwarding with SIONfwd</flag>-->
+		<flag name="sionfwd">enable I/O forwarding with <pkg>sys-cluster/SIONfwd</pkg></flag>
 	</use>
 </pkgmetadata>

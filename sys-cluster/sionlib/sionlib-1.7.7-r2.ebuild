@@ -18,11 +18,9 @@ S="${WORKDIR}/${PN}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+cxx debug doc examples +fortran +mpi +ompi +openmp +parutils +pthreads python"
-#TODO: cuda sionfwd msa
-#--enable-sionfwd=/path/to/sionfwd
-#--msa=(hostname-regex|deep-est-sdv)]	MSA aware collective operations for the given system
+IUSE="+cxx debug deep-est-sdv doc examples +fortran hostname-regex +mpi +ompi +openmp +parutils +pthreads python sionfwd" #cuda
 
+REQUIRED_USE="?? ( hostname-regex deep-est-sdv )"
 PATCHES=( "${FILESDIR}/${PN}-respect-flags.patch" )
 
 RDEPEND="
@@ -32,6 +30,7 @@ RDEPEND="
 		virtual/mpi
 	)
 	openmp? ( || ( sys-devel/gcc:*[openmp] sys-libs/libomp ) )
+	sionfwd? ( sys-cluster/SIONfwd )
 "
 DEPEND="
 	${RDEPEND}
@@ -64,8 +63,14 @@ src_configure() {
 
 	append-fflags -fallow-argument-mismatch
 
+	local msa="none"
+	use deep-est-sdv && msa="deep-est-sdv"
+	use hostname-regex && msa="hostname-regex"
+
 	local myconf=(
+		--disable-ime
 		--disable-mic
+		--msa="${msa}"
 		--prefix="${T}/prefix/usr"
 	)
 
@@ -80,6 +85,7 @@ src_configure() {
 
 	use debug && myconf+=( "--enable-debug" )
 	use python && myconf+=( "--enable-python=3" )
+	use sionfwd && myconf+=( "--enable-sionfwd=${EPREFIX}/usr" )
 
 	./configure "${myconf[@]}" || die
 }
