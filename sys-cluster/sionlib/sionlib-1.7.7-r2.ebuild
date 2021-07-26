@@ -68,7 +68,6 @@ src_configure() {
 	use hostname-regex && msa="hostname-regex"
 
 	local myconf=(
-		--disable-ime
 		--disable-mic
 		--msa="${msa}"
 		--prefix="${T}/prefix/usr"
