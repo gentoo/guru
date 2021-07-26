@@ -31,6 +31,5 @@ MAKEOPTS="${MAKEOPTS} -j1"
 
 src_prepare() {
 	use !doc && truncate -s0 doc/CMakeLists.txt
-	use !test && truncate -s0 tests/CMakeLists.txt
 	cmake_src_prepare
 }
