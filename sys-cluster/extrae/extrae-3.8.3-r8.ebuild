@@ -47,7 +47,7 @@ CDEPEND="
 	memkind? ( dev-libs/memkind )
 	online? ( sys-cluster/synapse )
 	opencl? ( dev-util/opencl-headers )
-	sionlib? ( sys-cluster/sionlib:=[-tools] )
+	sionlib? ( sys-cluster/sionlib:= )
 	spectral? (
 		sci-libs/fftw
 		sys-cluster/spectral
@@ -178,6 +178,10 @@ src_configure() {
 	else
 		myconf+=( "--without-opencl" )
 	fi
+	if use sionlib; then
+		myconf+=( "--with-sionlib=${EPREFIX}/usr" )
+		myconf+=( "--with-sionlib-headers=${EPREFIX}/usr/include/sionlib" )
+	fi
 	if use spectral; then
 		myconf+=( "--with-fft=${EPREFIX}/usr" )
 		myconf+=( "--with-spectral=${EPREFIX}/usr" )
@@ -185,8 +189,6 @@ src_configure() {
 		myconf+=( "--without-fft" )
 		myconf+=( "--without-spectral" )
 	fi
-
-	use sionlib && myconf+=( "--with-sionlib=${EPREFIX}/usr" )
 
 	econf "${myconf[@]}"
 }
