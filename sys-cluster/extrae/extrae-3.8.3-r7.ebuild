@@ -15,15 +15,16 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="boost clustering doc dwarf elf heterogeneous inotify +instrument-dynamic-memory
-+instrument-io +instrument-syscall memkind merge-in-trace nanos opencl openmp +parallel-merge
-pebs-sampling +posix-clock pthread sampling +single-mpi-lib sionlib smpss spectral +xml"
++instrument-io +instrument-syscall memkind merge-in-trace nanos online opencl openmp
++parallel-merge pebs-sampling +posix-clock pthread sampling +single-mpi-lib sionlib smpss
+spectral +xml"
 
 #aspectj and aspectj-weaver need to both be enabled at the same time
 #current dev-java/aspectj package only provides aspectj.jar
 #aspectj needs foo/lib/aspectj.jar and foo/bin/ajc
 #aspectj-weaver needs bar/aspectjweaver.jar
 #TODO: remove some useflags (boost elf dwarf)
-#TODO: pmapi online dyninst cuda cupti openshmem gm mx synapse aspectj
+#TODO: pmapi online dyninst cuda cupti openshmem gm mx aspectj
 #TODO: support llvm libunwind, llvm rt, elftoolchain
 
 CDEPEND="
@@ -44,8 +45,9 @@ CDEPEND="
 	elf? ( virtual/libelf )
 	inotify? ( dev-libs/libevent )
 	memkind? ( dev-libs/memkind )
+	online? ( sys-cluster/synapse )
 	opencl? ( dev-util/opencl-headers )
-	sionlib? ( sys-cluster/sionlib:= )
+	sionlib? ( sys-cluster/sionlib:=[-tools] )
 	spectral? (
 		sci-libs/fftw
 		sys-cluster/spectral
@@ -75,7 +77,6 @@ REQUIRED_USE="
 "
 #	cupti? ( cuda )
 #	dyninst? ( boost dwarf elf )
-#	online? ( synapse )
 #	aspectj? ( java )
 
 src_prepare() {
@@ -106,7 +107,6 @@ src_configure() {
 
 		--without-dyninst
 		--without-cupti
-		--without-synapse
 		--without-openshmem
 		--without-gm
 		--without-mx
@@ -167,6 +167,11 @@ src_configure() {
 		myconf+=( "--with-memkind=${EPREFIX}/usr" )
 	else
 		myconf+=( "--without-memkind" )
+	fi
+	if use online; then
+		myconf+=( "--with-synapse=${EPREFIX}/usr" )
+	else
+		myconf+=( "--without-synapse" )
 	fi
 	if use opencl; then
 		myconf+=( "--with-opencl=${EPREFIX}/usr" )

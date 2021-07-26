@@ -34,7 +34,7 @@ process). Extrae generates trace files that can be later visualized with sys-clu
 		<flag name="memkind">Enable <pkg>dev-libs/memkind</pkg> support</flag>
 		<flag name="merge-in-trace">Embed the merging process in the tracing library so the final tracefile can be generated automatically from the application run</flag>
 		<flag name="nanos">Enable support for tracing <pkg>sys-cluster/nanos6</pkg> run-time</flag>
-		<!--<flag name="online">Enable on-line analysis</flag>-->
+		<flag name="online">Enable on-line analysis</flag>
 		<flag name="opencl">Enable support for tracing OpenCL</flag>
 		<flag name="openmp">Enable support for tracing OpenMP</flag>
 		<flag name="parallel-merge">Build the parallel mergers (mpimpi2prv/mpimpi2dim) based on MPI</flag>
