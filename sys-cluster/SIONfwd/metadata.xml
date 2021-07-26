@@ -12,5 +12,8 @@ The server prints the information that the client needs to connect to its stdout
 The client expects to find this information in certain environment variables.
 A shell function that reads the information from the server and exports the environment variables required by the client is provided by the server (sionfwd-server bash-defs).
 See the file test.sh for details.
-</longdescription>
+  </longdescription>
+  <upstream>
+    <bugs-to>https://gitlab.jsc.fz-juelich.de/cstao-public/SIONlib/SIONfwd/-/issues</bugs-to>
+  </upstream>
 </pkgmetadata>
