@@ -1,6 +1,5 @@
-diff '--color=auto' -ru a/config/determine-cc.sh b/config/determine-cc.sh
---- a/config/determine-cc.sh	2021-04-25 01:09:35.175990108 +0200
-+++ b/config/determine-cc.sh	2021-04-25 01:10:02.876433713 +0200
+--- a/config/determine-cc.sh
++++ b/config/determine-cc.sh
 @@ -1,7 +1,6 @@
  #!/bin/sh
  # determine what compiler is behind "cc" (and presumably "CC" and "ftn") wrapper
@@ -9,9 +8,8 @@ diff '--color=auto' -ru a/config/determine-cc.sh b/config/determine-cc.sh
  COMP=
  if [ -z "$CC" ]; then
    echo "No 'cc' located!"
-diff '--color=auto' -ru a/config/select-compiler.sh b/config/select-compiler.sh
---- a/config/select-compiler.sh	2021-04-25 01:09:35.175990108 +0200
-+++ b/config/select-compiler.sh	2021-04-25 01:10:26.882817842 +0200
+--- a/config/select-compiler.sh
++++ b/config/select-compiler.sh
 @@ -9,7 +9,7 @@
  CPS=""
  COMP=""
@@ -21,9 +19,8 @@ diff '--color=auto' -ru a/config/select-compiler.sh b/config/select-compiler.sh
  if [ -n "${GNU}" ]
  then
    NCPS=`expr ${NCPS} + 1`
-diff '--color=auto' -ru a/config/select-mpi.sh b/config/select-mpi.sh
---- a/config/select-mpi.sh	2021-04-25 01:09:35.175990108 +0200
-+++ b/config/select-mpi.sh	2021-04-25 01:12:41.269962840 +0200
+--- a/config/select-mpi.sh
++++ b/config/select-mpi.sh
 @@ -76,7 +76,6 @@
    if [ -z "${MPIS}" ]; then MPIS="${MPI}"; else MPIS="${MPIS}|${MPI}"; fi
  fi
@@ -41,9 +38,8 @@ diff '--color=auto' -ru a/config/select-mpi.sh b/config/select-mpi.sh
    MINCDIR=`cat mpiconf.txt | sed -e 's#^.* "##' -e 's#/mpi.h".*##'`
    if [ -n "${MINCDIR}" ]
    then
-diff '--color=auto' -ru a/mf/Makefile.defs.linux-gomp b/mf/Makefile.defs.linux-gomp
---- a/mf/Makefile.defs.linux-gomp	2021-04-25 01:09:35.119989211 +0200
-+++ b/mf/Makefile.defs.linux-gomp	2021-04-25 01:52:32.378951608 +0200
+--- a/mf/Makefile.defs.linux-gomp
++++ b/mf/Makefile.defs.linux-gomp
 @@ -23,24 +23,19 @@
  #------------------------------------------------------------------------------
  # SIONlib General Settings
@@ -95,23 +91,13 @@ diff '--color=auto' -ru a/mf/Makefile.defs.linux-gomp b/mf/Makefile.defs.linux-g
  SZLIB_LIBPATH  = -L$(TOPDIR)/utils/szlib
  SZLIB_LIB      = -lsc.z
  
-diff '--color=auto' -ru a/src/fortraninterface/Makefile b/src/fortraninterface/Makefile
---- a/src/fortraninterface/Makefile	2021-04-25 01:09:35.141989563 +0200
-+++ b/src/fortraninterface/Makefile	2021-04-25 01:23:48.055976593 +0200
-@@ -109,7 +110,7 @@
- 	$(CPP) $(F90FLAGS) $(F90FLAGS_CPP) -P -E -I ../lib sion_f90.F90 > sion_f90.f90
- sion_f90.mod : sion_f90.o
- sion_f90.o : sion_f90.f90 sion_f77.h $(SION_HDRS)
--	$(F90) -c sion_f90.f90
-+	$(F90) $(F90FLAGS) -c sion_f90.f90
- 
- sion_f90_omp.o: sion_f90.o
- sion_f90_mpi.o: sion_f90.o
+--- a/src/fortraninterface/Makefile
++++ b/src/fortraninterface/Makefile
 @@ -121,21 +122,21 @@
  	$(CPP) $(F90FLAGS) $(F90FLAGS_CPP) $(F90MPIFLAGS) -P -E -I ../lib sion_f90_mpi.F90 > sion_f90_mpi.f90
  sion_f90_mpi.mod : sion_f90_mpi.o
  sion_f90_mpi.o : sion_f90_mpi.f90 sion_f90.mod $(SION_HDRS)
--	$(MPIF90) -c sion_f90_mpi.f90
+-	$(MPIF90) $(F90FLAGS) -c sion_f90_mpi.f90
 +	$(MPIF90) $(F90FLAGS) $(F90MPIFLAGS) -c sion_f90_mpi.f90
  
  # F90 Interface (OMP)
@@ -119,7 +105,7 @@ diff '--color=auto' -ru a/src/fortraninterface/Makefile b/src/fortraninterface/M
  	$(CPP) $(F90OMPFLAGS) $(F90FLAGS) $(F90FLAGS_CPP) -P -E -I ../lib sion_f90_omp.F90 > sion_f90_omp.f90
  sion_f90_omp.mod : sion_f90_omp.o 
  sion_f90_omp.o : sion_f90_omp.f90 sion_f90.mod $(SION_HDRS)
--	$(OMPF90) -c sion_f90_omp.f90
+-	$(OMPF90) $(F90FLAGS) -c sion_f90_omp.f90
 +	$(OMPF90) $(F90FLAGS) $(F90OMPFLAGS) -c sion_f90_omp.f90
  
  # F90 Interface (OMPI)
@@ -127,7 +113,7 @@ diff '--color=auto' -ru a/src/fortraninterface/Makefile b/src/fortraninterface/M
  	$(CPP) $(F90MPIFLAGS) $(F90OMPFLAGS) $(F90FLAGS) $(F90FLAGS_CPP) -P -E -I ../lib sion_f90_ompi.F90 > sion_f90_ompi.f90
  sion_f90_ompi.mod : sion_f90_ompi.o
  sion_f90_ompi.o : sion_f90_ompi.f90 $(SION_HDRS)
--	$(MPIF90) -c sion_f90_ompi.f90
+-	$(MPIF90) $(F90FLAGS) -c sion_f90_ompi.f90
 +	$(MPIF90) $(F90FLAGS) $(F90MPIFLAGS) -c sion_f90_ompi.f90
  
  

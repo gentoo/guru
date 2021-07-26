@@ -1,27 +1,32 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DOCS_BUILDER="doxygen"
 DOCS_CONFIG_NAME="doxy"
 FORTRAN_NEEDED="fortran"
-PYTHON_COMPAT=( pypy3 python3_{7,8,9} )
+PYTHON_COMPAT=( pypy3 python3_{8..10} )
+
 inherit docs flag-o-matic fortran-2 python-any-r1 toolchain-funcs
 
 DESCRIPTION="Scalable I/O library for parallel access to task-local files"
 HOMEPAGE="https://www.fz-juelich.de/ias/jsc/EN/Expertise/Support/Software/SIONlib/_node.html"
-SRC_URI="http://apps.fz-juelich.de/jsc/sionlib/download.php?version=${PV} -> ${P}.tar.gz"
+SRC_URI="
+	!tools? ( http://apps.fz-juelich.de/jsc/sionlib/download.php?version=${PV} -> ${P}.tar.gz )
+	tools? ( http://apps.fz-juelich.de/jsc/sionlib/download.php?version=${PV}l -> ${PN}l-${PV}.tar.gz )
+"
+S="${WORKDIR}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+cxx debug doc examples +fortran +mpi +ompi +openmp +parutils +pthreads python"
+IUSE="+cxx debug doc examples +fortran +mpi +ompi +openmp +parutils +pthreads python tools"
 #TODO: cuda sionfwd msa
 #--enable-sionfwd=/path/to/sionfwd
 #--msa=(hostname-regex|deep-est-sdv)]	MSA aware collective operations for the given system
 
-PATCHES=( "${FILESDIR}/respect-flags.patch" )
+PATCHES=( "${FILESDIR}/${PN}-respect-flags.patch" )
 
 RDEPEND="
 	mpi? ( virtual/mpi )
@@ -35,7 +40,6 @@ DEPEND="
 	${RDEPEND}
 	${PYTHON_DEPS}
 "
-S="${WORKDIR}/${PN}"
 
 pkg_setup() {
 	FORTRAN_NEED_OPENMP=0

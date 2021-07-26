@@ -20,7 +20,7 @@ SIONlib provides two different interfaces: one for parallel access (with impleme
 	</longdescription>
 	<use>
 		<!--<flag name="cuda">enable CUDA aware interface</flag>-->
-		<flag name="cxx">Disable C++ support</flag>
+		<flag name="cxx">Enable C++ support</flag>
 		<flag name="debug">enable SIONlib debug</flag>
 		<flag name="fortran">Enable Fortran support</flag>
 		<flag name="mpi">enable mpi</flag>
@@ -30,5 +30,6 @@ SIONlib provides two different interfaces: one for parallel access (with impleme
 		<flag name="parutils">Enable compilation of parutils (used for benchmarking)</flag>
 		<flag name="pthreads">configure SIONlib to use pthreads for locking</flag>
 		<!--<flag name="sionfwd">enable I/O forwarding with SIONfwd</flag>-->
+		<flag name="tools">Build the tooling version instead</flag>
 	</use>
 </pkgmetadata>

@@ -32,7 +32,24 @@ Please don't use symlinks in the repository (e.g. foobar-x.y.z.ebuild -> foobar-
 
 Sometimes a upstream lists dependencies which are considered deprecated. If possible, packages should **not** depend on these deprecated dependencies. Reasons a dependency might be deprecated is that it is too old, unmaintained, or the features it adds are not useful to Gentoo. You can find an overview of the currently deprecated dependencies and the reason they are deprecated in `$(portageq get_repo_path / gentoo)/profiles/package.deprecated`. `repoman -dx full` will warn you if your package depends on a deprecated dependency.
 
-For Python packages there are some additional (test) dependencies that are considered undesirable or not useful, but are not considered deprecated. You can find an overview of those [here](https://dev.gentoo.org/~mgorny/python-guide/distutils.html#enabling-tests).
+For Python packages there are some additional (test) dependencies that are considered undesirable or not useful, but are not considered deprecated. You can find an overview of those [here](https://dev.gentoo.org/~mgorny/python-guide/distutils.html#enabling-tests) and in the list below:
+```
+dev-python/black
+dev-python/check-manifest
+dev-python/coverage
+dev-python/docutils
+dev-python/flake8
+dev-python/isort
+dev-python/mypy
+dev-python/multilint
+dev-python/pep8
+dev-python/pycodestyle
+dev-python/pytest-cov
+dev-python/pytest-runner
+dev-python/readme_renderer
+dev-python/tox
+dev-python/twine
+```
 
 - #### Licenses of bundled libraries
 
@@ -72,3 +89,11 @@ See the [dev manual](https://devmanual.gentoo.org/eclass-reference/distutils-r1.
 Installation of small files, like documentation, completions, man pages, etc, does not have to be toggle-able with an USE flag. Instead, just install these files unconditionally. This avoids unnecessary recompilations when an user forgot to enable a flag that installs a small file.
 
 The same holds for optional runtime dependencies. It is not necessary to introduce a USE flag, that does not alter the compiled binary and just pulls in an extra optional runtime dependency. Instead, you can notify the user of these optional runtime dependencies with the `optfeature` function from the [optfeature](https://devmanual.gentoo.org/eclass-reference/optfeature.eclass/) eclass (early from currently deprecated [eutils](https://devmanual.gentoo.org/eclass-reference/eutils.eclass/) eclass). If, for whatever reason, it is still desired to introduce an USE flag for optional runtime dependencies, one can still use the `optfeature` function as well to allow the user to choose to avoid recompiling a package.
+
+- #### Clean your patches
+
+See the [dev manual](https://devmanual.gentoo.org/ebuild-writing/misc-files/patches/#clean-patch-howto) for a guide on how to write clean patches
+
+- #### Avoid colon as a sed delimiter
+
+As seen in https://bugs.gentoo.org/685160 colon as a sed delimiter can break \*FLAGS. You must not use it to modify \*FLAGS, better if you avoid using it completely.

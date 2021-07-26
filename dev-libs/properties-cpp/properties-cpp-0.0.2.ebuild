@@ -18,12 +18,12 @@ SRC_URI="https://launchpad.net/ubuntu/+archive/primary/+files/${PN}_${MY_PV}.ori
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-IUSE="doc test"
-RESTRICT="!test? ( test ) mirror"
+IUSE="doc"
+RESTRICT="mirror"
 
-DEPEND="dev-libs/boost
+DEPEND="
+	dev-libs/boost
 	doc? ( app-doc/doxygen )
-	test? ( >=dev-cpp/gtest-1.8.1 )
 "
 
 S="${WORKDIR}/${MY_P}"

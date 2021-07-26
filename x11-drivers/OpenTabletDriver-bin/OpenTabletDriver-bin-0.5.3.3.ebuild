@@ -9,7 +9,7 @@ MY_PN=OpenTabletDriver
 
 DESCRIPTION="Cross platform tablet driver (binary package)"
 HOMEPAGE="https://github.com/OpenTabletDriver"
-SRC_URI="https://github.com/OpenTabletDriver/OpenTabletDriver/archive/refs/tags/v${PV}.tar.gz -> OpenTabletDriver-source-${PV}.tar.gz https://github.com/OpenTabletDriver/OpenTabletDriver/releases/download/v${PV}/OpenTabletDriver.linux-x64.tar.gz -> OpenTabletDriver-${PV}.tar.gz"
+SRC_URI="https://github.com/OpenTabletDriver/OpenTabletDriver/archive/refs/tags/v${PV}.tar.gz -> OpenTabletDriver-source-${PV}.tar.gz https://github.com/OpenTabletDriver/OpenTabletDriver/releases/download/v${PV}/OpenTabletDriver.linux-x64.tar.gz -> OpenTabletDriver-v${PV}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -34,19 +34,14 @@ src_install() {
 
 	cd "${S}" || die
 
-	# install -do root "${D}/usr/share/${PN}"
-
 	exeinto "/usr/share/${MY_PN}"
 	exeopts -o root -Dm755
 
 	for binary in *.dll *.json; do
-		# install -Dm 755 -o root "$binary" -t "${D}/usr/share/${PN}"
 		doexe "$binary"
-		#fowners root "$binary"
 	done
 
 	for bin in *.Daemon *.UX.Gtk *.Console; do
-		# install -Dm 755 -o root "$bin" -t "${D}/usr/share/${PN}"
 		doexe "$bin"
 	done
 
@@ -55,13 +50,10 @@ src_install() {
 
 	insinto "/lib/udev/rules.d"
 	doins -r "${S}/99-${LP}.rules"
-	#install -Dm 644 -o root "${S}/99-${LP}.rules" -t "${D}/usr/lib/udev/rules.d"
 	udevadm control --reload || die
 
 	cd "${FILESDIR}" || die
-	#install -Dm 755 -o root "${SP}" -t "${D}/usr/bin"
 	dobin "${SP}"
-	#install -Dm 755 -o root "${SP}-gui" -t "${D}/usr/bin"
 	dobin "${SP}-gui"
 
 	cd "${WORKDIR}/${MY_PN}-${PV}/${MY_PN}.UX/Assets" || die
@@ -73,6 +65,4 @@ pkg_postinst() {
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		elog "Please replug your tablet before attempting to use the driver"
 	fi
-	ewarn "otd-gui is currently broken while the daemon is running https://github.com/OpenTabletDriver/OpenTabletDriver/issues/1041"
-	#ewarn "please replug your tablet."
 }
