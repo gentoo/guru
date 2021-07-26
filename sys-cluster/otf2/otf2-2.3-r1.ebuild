@@ -20,7 +20,7 @@ RDEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep 'dev-python/six[${PYTHON_USEDEP}]')
 
-	sionlib? ( sys-cluster/sionlib[tools] )
+	sionlib? ( sys-cluster/sionlibl:= )
 "
 DEPEND="${RDEPEND}"
 
@@ -36,8 +36,14 @@ src_configure() {
 
 		$(use_enable test backend-test-runs)
 		$(use_enable debug)
-		$(use_with sionlib)
 	)
+
+        if use sionlib; then
+                myconf+=( "--with-sionlib=${EPREFIX}/usr" )
+                myconf+=( "--with-sionlib-headers=${EPREFIX}/usr/include/sionlibl" )
+	else
+                myconf+=( "--without-sionlib" )
+        fi
 
 	econf "${myconf[@]}"
 }

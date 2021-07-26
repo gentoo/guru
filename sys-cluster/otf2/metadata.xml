@@ -6,6 +6,6 @@
 		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<use>
-		<flag name="sionlib">Enable <pkg>sys-cluster/sionlib</pkg> support</flag>
+		<flag name="sionlib">Enable <pkg>sys-cluster/sionlibl</pkg> support</flag>
 	</use>
 </pkgmetadata>
