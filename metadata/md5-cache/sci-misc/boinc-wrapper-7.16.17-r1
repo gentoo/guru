@@ -8,6 +8,6 @@ KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=LGPL-3+ regexp-UofT
 RDEPEND=~sci-misc/boinc-7.16.17 >=dev-libs/boinc-zip-7.16.17
 SLOT=0
-SRC_URI=https://github.com/BOINC/boinc/archiveclient_release/7.16/7.16.17.tar.gz -> boinc-7.16.17.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	boinc	93ad94b430d88adec56e8e7c6e6daf6d
+SRC_URI=https://github.com/BOINC/boinc/archive/client_release/7.16/7.16.17.tar.gz -> boinc-7.16.17.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	boinc	e0ab4cb618835186ebb9709c613bc2a6
 _md5_=c55b7289176e29e500890b476055fa5a

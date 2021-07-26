@@ -418,7 +418,8 @@ sys-cluster/nova:memcached - Installs the memcached server
 sys-cluster/nova:novncproxy - Installs the initscripts for the nova novncproxy service
 sys-cluster/nova:openvswitch - Installs openvswitch for the neutron openvswitch support
 sys-cluster/nova:rabbitmq - Installs the rabbitmq server
-sys-cluster/sionlib:cxx - Disable C++ support
+sys-cluster/otf2:sionlib - Enable sys-cluster/sionlib support
+sys-cluster/sionlib:cxx - Enable C++ support
 sys-cluster/sionlib:debug - enable SIONlib debug
 sys-cluster/sionlib:fortran - Enable Fortran support
 sys-cluster/sionlib:mpi - enable mpi
@@ -427,6 +428,7 @@ sys-cluster/sionlib:openmp - enable openmp
 sys-cluster/sionlib:parutils - Enable compilation of parutils (used for benchmarking)
 sys-cluster/sionlib:pthreads - configure SIONlib to use pthreads for locking
 sys-cluster/sionlib:python - enable python support
+sys-cluster/sionlib:tools - Build the tooling version instead
 sys-cluster/spectral:extrae - Add sys-cluster/extrae support
 sys-cluster/spectral:libbsctools - Add sys-cluster/libbsctools support
 sys-cluster/swift:account - adds swift account support

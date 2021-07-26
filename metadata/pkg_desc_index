@@ -295,7 +295,7 @@ dev-libs/mtxclient 0.4.1 0.5.1: Client API library for Matrix, built on top of B
 dev-libs/nativefiledialog-extended 0_pre20210430: File dialog library with C and C++ bindings, based on nativefiledialog
 dev-libs/octetos-biblion 0.1.1_alpha: Library for reading biblia.
 dev-libs/octetos-core 2.15.0_beta 2.20.0_beta 2.25.0_beta 2.25.1_beta: C/C++ library to mainly provide Semantic Versioned implementation
-dev-libs/octetos-coreutils 0.11.1_alpha 0.13.0_alpha: Similar to coreutils but is a C++ API.
+dev-libs/octetos-coreutils 0.11.1_alpha 0.13.0_alpha 0.17.0_alpha: Similar to coreutils but is a C++ API.
 dev-libs/octetos-db 1.3.2_alpha 1.3.3_alpha: C++ library for Database Acces.
 dev-libs/octetos-db-abstract 0.1.2_alpha 0.6.0_alpha: API to access database, abstract component.
 dev-libs/octetos-db-maria 1.4.2_alpha 1.9.2_alpha 9999: C++ library for Database Acces.
@@ -303,7 +303,7 @@ dev-libs/octetos-db-postgresql 1.3.9_alpha 1.3.10_alpha: C++ library for Databas
 dev-libs/olm 3.2.3 3.2.4 3.2.4-r1: Implementation of the olm and megolm cryptographic ratchets
 dev-libs/open62541 1.2.2: Open source C implementation of OPC UA
 dev-libs/pocl 1.7: Portable Computing Language (an implementation of OpenCL)
-dev-libs/properties-cpp 0.0.2-r1: Simple convenience library for handling properties and signals in C++11
+dev-libs/properties-cpp 0.0.2: Simple convenience library for handling properties and signals in C++11
 dev-libs/protothreads 1.4: Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
 dev-libs/randomx 1.1.8: Proof of work algorithm based on random code execution
@@ -330,11 +330,13 @@ dev-python/aiosqlite 0.17.0-r1: asyncio bridge to the standard sqlite3 module
 dev-python/aiounittest 1.4.0: Test python asyncio-based code with ease
 dev-python/almost 0.1.5: A helper for approximate comparison
 dev-python/aodhclient 2.1.1: A client for the OpenStack Aodh API
+dev-python/argparse 1.4.0: Python command-line parsing library
 dev-python/asciimatics 1.13.0 9999: Package for curses-like operations, text UIs and ASCII art animations
 dev-python/ascim 0.1.1 9999: Manipulate ASCII art as you would do with raster images
 dev-python/aspectlib 1.5.2: An aspect-oriented programming, monkey-patch and decorators library
 dev-python/asyncpg 0.23.0: A fast PostgreSQL Database Client Library for Python/asyncio.
 dev-python/asyncssh 2.6.0 2.7.0: Asynchronous SSHv2 client and server library
+dev-python/auditok 0.2.0: A module for Audio/Acoustic Activity Detection
 dev-python/autoflake 1.4: Removes unused imports and unused variables as reported by pyflakes
 dev-python/automaton 2.2.0: Friendly state machines for python.
 dev-python/azure-storage-blob 12.8.1: Microsoft Azure Blob Storage Client Library for Python
@@ -376,6 +378,7 @@ dev-python/doxypypy 0.8.8.6_p20210405: A more Pythonic version of doxypy, a Doxy
 dev-python/factory_boy 3.2.0: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11-r1: Up to date simple useragent faker with real world database
 dev-python/fchroot 0.1.2: Franken-chroot tool. Chroot arm/64 arches into amd64/x86
+dev-python/ffmpeg-python 0.2.0: Python bindings for FFmpeg - with complex filtering support
 dev-python/font-v 1.0.5: Font version string reporting and modification library
 dev-python/fontMath 0.6.0 0.8.1: A collection of objects that implement fast font math
 dev-python/fontParts 0.9.10: An API for interacting with the parts of fonts
@@ -469,6 +472,7 @@ dev-python/pypowervm 1.1.24: Python binding for the PowerVM REST API
 dev-python/pysaml2 6.1.0: Python implementation of SAML Version 2 to be used in a WSGI environment
 dev-python/pysftp 0.2.9: A friendly face on SFTP
 dev-python/pystray 0.17.3: System tray icon creation via python
+dev-python/pysubs2 1.2.0: A library for editing subtitle files
 dev-python/pytest-benchmark 3.4.1: py.test fixture for benchmarking code
 dev-python/pytest-celery 0.0.0: a shim pytest plugin to enable celery.contrib.pytest
 dev-python/pytest-cython 0.1.1: Plugin for testing Cython extension modules
@@ -521,6 +525,7 @@ dev-python/sphinxcontrib-napoleon 0.7: Allow a different format in dosctrings fo
 dev-python/sphinxcontrib-restbuilder 0.3: A Sphinx builder/writer to output reStructuredText (rst) files
 dev-python/spotipy 2.17.1: A light weight Python library for the Spotify Web API
 dev-python/sre_yield 1.2: Python module to generate regular all expression matches
+dev-python/srt 3.4.1: A tiny library for parsing, modifying, and composing SRT files
 dev-python/sse-starlette 0.6.1 0.7.2: Server Sent Events for Starlette
 dev-python/starlette 0.14.2: The little ASGI framework that shines
 dev-python/statmake 0.3.0-r1: Generate STAT tables for variable fonts from .stylespace files
@@ -544,6 +549,7 @@ dev-python/vharfbuzz 0.1.1 0.1.2: A user-friendlier way to use Harfbuzz in Pytho
 dev-python/vttlib 0.11.0: Dump, merge and compile Visual TrueType data in UFO3 with FontTools
 dev-python/watchgod 0.7: Simple, modern file watching and code reload
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
+dev-python/webrtcvad 2.0.10: Python interface to the Google WebRTC Voice Activity Detector (VAD)
 dev-python/xunitparser 1.3.3: Read JUnit/XUnit XML files and map them to Python objects
 dev-python/yams 0.7.3 9999: A Last.FM scrobbler for MPD (Yet Another Mpd Scrobbler)
 dev-python/yaql 1.1.3: YAQL: Yet Another Query Language
@@ -745,6 +751,7 @@ media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
 media-sound/zita-ajbridge 0.8.4 0.8.4-r1: zita-a2j and zita-j2a - bridges between ALSA and JACK
 media-video/av1an 1.12 9999: Cross-platform framework to streamline encoding
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
+media-video/ffsubsync 0.4.11: Automagically syncronize subtitles with video
 media-video/jellyfin-media-player 1.6.0: Jellyfin Desktop Client based on Plex Media Player
 media-video/jellyfin-mpv-shim 2.0.1: MPV Cast Client for Jellyfin
 media-video/kikoplay 0.8.1 9999: KikoPlay is a full-featured danmu player
@@ -819,7 +826,7 @@ net-wireless/rtl8192eu 0_pre20210403: Realtek 8192EU driver module for Linux ker
 net-wireless/rtl8821ce 0_pre20210321: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20210327: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-biology/cmdock 0.1.3 0.1.3-r1: Program for docking ligands to proteins and nucleic acids
-sci-biology/geneathome 1.10 1.10-r1: BOINC application for expanding Gene Regulatory Networks (GRN)
+sci-biology/geneathome 1.10 1.10-r2: BOINC application for expanding Gene Regulatory Networks (GRN)
 sci-electronics/bsc 0_pre20210124 9999: Bluespec high level hardware design language compiler
 sci-electronics/dsview 1.12-r1 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
@@ -872,12 +879,13 @@ sys-cluster/muster 1.0.1: Massively Scalable Clustering
 sys-cluster/nanos6 2.6: runtime that implements the OmpSs-2 parallel programming model
 sys-cluster/neutron 17.1.1 17.1.2: A virtual network service for Openstack
 sys-cluster/nova 22.2.0 22.2.1: Cloud computing fabric controller
+sys-cluster/otf2 2.3: highly scalable, memory efficient event trace data format
 sys-cluster/pcs 0.10.8-r3: Pacemaker/Corosync Configuration System
 sys-cluster/placement 4.0.0: A HTTP service for managing, selecting, and claiming cloud resources.
 sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on string values
 sys-cluster/redset 0.0.5: Low-level distributed erasure coding lib to protect datasets of MPI applications
 sys-cluster/shuffile 0.0.4: SHUFFILE Shuffle files between processes
-sys-cluster/sionlib 1.7.6-r1: Scalable I/O library for parallel access to task-local files
+sys-cluster/sionlib 1.7.7: Scalable I/O library for parallel access to task-local files
 sys-cluster/spectral 3.4.1: Signal processing to select representative regions from Paraver traces
 sys-cluster/swift 2.26.0 2.27.0: A highly available, distributed, and eventually consistent object/blob store
 sys-cluster/synapse 2.0.1: synapse
@@ -930,7 +938,7 @@ www-misc/gorss 0.3: Go Terminal Feed Reader
 www-servers/hinsightd 0.9.7 9999: hinsightd a http/1.1 webserver with (hopefully) minimal goals
 www-servers/thin 1.8.0: This a Ruby gem that delivers a thin and fast web server
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
-x11-drivers/OpenTabletDriver-bin 0.5.3.1 0.5.3.2: Cross platform tablet driver (binary package)
+x11-drivers/OpenTabletDriver-bin 0.5.3.3: Cross platform tablet driver (binary package)
 x11-libs/gtk-fortran 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
 x11-libs/libadwaita 1.0.0: Building blocks for modern GNOME applications.
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
