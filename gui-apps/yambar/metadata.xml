@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>leonardohn@null.net</email>
+		<name>Leonardo H. Neumann</name>
+	</maintainer>
+	<longdescription lang="en">
+		Simplistic and highly configurable status panel for X and Wayland
+	</longdescription>
+	<use>
+		<flag name="lto">Build with Link Time Optimization (LTO)</flag>
+	</use>
+	<upstream>
+		<bugs-to>https://codeberg.org/dnkl/yambar/issues</bugs-to>
+		<changelog>https://codeberg.org/dnkl/yambar/releases</changelog>
+	</upstream>
+</pkgmetadata>
