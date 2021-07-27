@@ -38,12 +38,12 @@ src_configure() {
 		$(use_enable debug)
 	)
 
-        if use sionlib; then
-                myconf+=( "--with-sionlib=${EPREFIX}/usr" )
-                myconf+=( "--with-sionlib-headers=${EPREFIX}/usr/include/sionlibl" )
+	if use sionlib; then
+		myconf+=( "--with-sionlib=${EPREFIX}/usr" )
+		myconf+=( "--with-sionlib-headers=${EPREFIX}/usr/include/sionlibl" )
 	else
-                myconf+=( "--without-sionlib" )
-        fi
+		myconf+=( "--without-sionlib" )
+	fi
 
 	econf "${myconf[@]}"
 }
