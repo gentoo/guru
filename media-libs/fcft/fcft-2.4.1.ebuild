@@ -21,7 +21,7 @@ SLOT="0/3"
 IUSE="examples +text-shaping test"
 RESTRICT="!test? ( test )"
 
-DEPEND="
+RDEPEND="
 	dev-libs/tllist
 	media-libs/fontconfig
 	media-libs/freetype
