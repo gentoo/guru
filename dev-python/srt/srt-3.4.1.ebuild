@@ -15,6 +15,14 @@ LICENSE="public-domain"
 SLOT="0"
 KEYWORDS="~amd64"
 
+distutils_enable_tests pytest
+
+DEPEND="
+	test? (
+		dev-python/hypothesis[${PYTHON_USEDEP}]
+	)
+	"
+
 src_prepare() {
 	default
 
