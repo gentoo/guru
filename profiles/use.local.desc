@@ -190,6 +190,7 @@ gui-apps/swaylock-effects:man - Build and install man pages
 gui-apps/wofi:dmenu - Enable dmenu mode
 gui-apps/wofi:drun - Enable drun mode
 gui-apps/wofi:run - Enable run mode
+gui-apps/yambar:lto - Build with Link Time Optimization (LTO)
 gui-wm/cage:X - Enable support for X11 applications (XWayland)
 kde-misc/geminipart:konqueror - Make Konqueror handle gemini:// URLs
 media-gfx/bonzomatic:system-glew - Use the systems installed version of GLEW (upstream-unsupported)
@@ -246,6 +247,8 @@ net-im/biboumi:logrotate - Use app-admin/logrotate for rotating logs
 net-im/biboumi:udns - Asynchronously resolve domain names using net-libs/udns
 net-im/ruqola:speech - Enable text-to-speech support
 net-libs/usockets:libuv - Enable bindings to use the libuv dispatcher
+net-misc/lagrange:fribidi - Use dev-libs/fribidi for bidirectional text
+net-misc/lagrange:harfbuzz - Use media-libs/harfbuzz to shape text
 net-misc/megasync:cryptopp - Compile with Crypto++ Library.
 net-misc/megasync:dolphin - Upload your files to your Mega account from Dolphin file manager.
 net-misc/megasync:freeimage - Use freeimage to manage graphic images format.
@@ -358,6 +361,7 @@ sys-cluster/cinder:tgt - Enable tgt storage backend support
 sys-cluster/cinder:volume - Installs the initscripts for the cinder volume service
 sys-cluster/clusteringsuite:mpi - enable mpi for distributed version
 sys-cluster/clusteringsuite:muster - enable support for sys-cluster/muster algorithms
+sys-cluster/clusteringsuite:treedbscan - enable compilation of TreeDBSCAN support for sys-cluster/extrae
 sys-cluster/dlb:hwloc - add sys-apps/hwlocsupport
 sys-cluster/dlb:instrumentation - enable sys-cluster/extrae instrumentation
 sys-cluster/extrae:boost - Search for boost
@@ -374,6 +378,7 @@ sys-cluster/extrae:java - Enable support for tracing Java. This is necessary to 
 sys-cluster/extrae:memkind - Enable dev-libs/memkind support
 sys-cluster/extrae:merge-in-trace - Embed the merging process in the tracing library so the final tracefile can be generated automatically from the application run
 sys-cluster/extrae:nanos - Enable support for tracing sys-cluster/nanos6 run-time
+sys-cluster/extrae:online - Enable on-line analysis
 sys-cluster/extrae:opencl - Enable support for tracing OpenCL
 sys-cluster/extrae:openmp - Enable support for tracing OpenMP
 sys-cluster/extrae:parallel-merge - Build the parallel mergers (mpimpi2prv/mpimpi2dim) based on MPI
@@ -418,17 +423,31 @@ sys-cluster/nova:memcached - Installs the memcached server
 sys-cluster/nova:novncproxy - Installs the initscripts for the nova novncproxy service
 sys-cluster/nova:openvswitch - Installs openvswitch for the neutron openvswitch support
 sys-cluster/nova:rabbitmq - Installs the rabbitmq server
-sys-cluster/otf2:sionlib - Enable sys-cluster/sionlib support
+sys-cluster/otf2:sionlib - Enable sys-cluster/sionlibl support
 sys-cluster/sionlib:cxx - Enable C++ support
 sys-cluster/sionlib:debug - enable SIONlib debug
+sys-cluster/sionlib:deep-est-sdv - deep-est-sdv collector selection plug-in for MSA-aware collective I/O
 sys-cluster/sionlib:fortran - Enable Fortran support
+sys-cluster/sionlib:hostname-regex - hostname-regex collector selection plug-in for MSA-aware collective I/O
 sys-cluster/sionlib:mpi - enable mpi
 sys-cluster/sionlib:ompi - enable hybrid openmp mpi
 sys-cluster/sionlib:openmp - enable openmp
 sys-cluster/sionlib:parutils - Enable compilation of parutils (used for benchmarking)
 sys-cluster/sionlib:pthreads - configure SIONlib to use pthreads for locking
 sys-cluster/sionlib:python - enable python support
-sys-cluster/sionlib:tools - Build the tooling version instead
+sys-cluster/sionlib:sionfwd - enable I/O forwarding with sys-cluster/SIONfwd
+sys-cluster/sionlibl:cxx - Enable C++ support
+sys-cluster/sionlibl:debug - enable SIONlib debug
+sys-cluster/sionlibl:deep-est-sdv - deep-est-sdv collector selection plug-in for MSA-aware collective I/O
+sys-cluster/sionlibl:fortran - Enable Fortran support
+sys-cluster/sionlibl:hostname-regex - hostname-regex collector selection plug-in for MSA-aware collective I/O
+sys-cluster/sionlibl:mpi - enable mpi
+sys-cluster/sionlibl:ompi - enable hybrid openmp mpi
+sys-cluster/sionlibl:openmp - enable openmp
+sys-cluster/sionlibl:parutils - Enable compilation of parutils (used for benchmarking)
+sys-cluster/sionlibl:pthreads - configure SIONlib to use pthreads for locking
+sys-cluster/sionlibl:python - enable python support
+sys-cluster/sionlibl:sionfwd - enable I/O forwarding with sys-cluster/SIONfwd
 sys-cluster/spectral:extrae - Add sys-cluster/extrae support
 sys-cluster/spectral:libbsctools - Add sys-cluster/libbsctools support
 sys-cluster/swift:account - adds swift account support

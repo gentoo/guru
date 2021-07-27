@@ -1,0 +1,16 @@
+DEFINED_PHASES=configure install setup
+DEPEND=python_single_target_pypy3? ( >=dev-python/pypy3-7.3.0:0= >=dev-lang/python-exec-2:=[python_targets_pypy3] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) python_single_target_pypy3? ( dev-python/six[python_targets_pypy3(-)] ) python_single_target_python3_8? ( dev-python/six[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/six[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/six[python_targets_python3_10(-)] ) sionlib? ( sys-cluster/sionlibl:= )
+DESCRIPTION=highly scalable, memory efficient event trace data format
+EAPI=8
+HOMEPAGE=https://www.vi-hps.org/projects/score-p
+INHERIT=python-single-r1
+IUSE=debug sionlib test python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=python_single_target_pypy3? ( >=dev-python/pypy3-7.3.0:0= >=dev-lang/python-exec-2:=[python_targets_pypy3] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) python_single_target_pypy3? ( dev-python/six[python_targets_pypy3(-)] ) python_single_target_python3_8? ( dev-python/six[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/six[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/six[python_targets_python3_10(-)] ) sionlib? ( sys-cluster/sionlibl:= )
+REQUIRED_USE=^^ ( python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+RESTRICT=test
+SLOT=0
+SRC_URI=http://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/otf2-2.3/otf2-2.3.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75
+_md5_=f35d3669147be4a20c0096e321f85586

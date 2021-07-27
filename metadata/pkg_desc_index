@@ -63,7 +63,7 @@ app-emacs/flycheck 31: On the fly syntax checking for GNU Emacs
 app-emacs/idris-mode 1.0 9999: Idris syntax highlighting, compiler-supported editing, and interactive REPL
 app-emacs/prop-menu 0.1.2: Compute pop-up menus from text and overlay properties
 app-emulation/arnold 20170513: Amstrad CPC emulator
-app-emulation/dxvk-bin 1.8.1 1.9: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
+app-emulation/dxvk-bin 1.9 1.9.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.4.2 1.5.0: NVIDIA container runtime toolkit
 app-emulation/spice-html5 0.2.1 0.2.2: Spice Javascript client
 app-eselect/eselect-scheme 3.1.0: Manages scheme implementations
@@ -231,7 +231,7 @@ dev-R/withr 2.4.2: Run Code With Temporarily Modified Global State
 dev-R/xfun 0.24: Supporting Functions for Package maintained by Yihui Xie
 dev-R/xml2 1.3.2: Parse XML
 dev-R/yaml 2.2.1: Methods to Convert R Data to YAML and Back
-dev-cpp/cli11 1.9.1: Command line parser for C++11
+dev-cpp/cli11 1.9.1 2.0.0: Command line parser for C++11
 dev-cpp/dtl 1.19_p20210531: diff template library written by C++
 dev-cpp/fbthrift 2021.06.14.00 2021.06.28.00: Facebook's branch of Apache Thrift, including a new C++ server
 dev-cpp/fizz 2021.06.14.00 2021.06.28.00: C++14 implementation of the TLS-1.3 standard
@@ -406,6 +406,7 @@ dev-python/hypercorn 0.11.2: ASGI Server based on Hyper libraries and inspired b
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
 dev-python/injector 0.18.4: Python dependency injection framework
 dev-python/jellyfin-apiclient-python 1.6.2 1.7.2: Python API client for Jellyfin
+dev-python/jplephem 2.16: Python version of NASA DE4xx ephemerides for Astronomical Alamanac
 dev-python/jupyter-sphinx 0.3.2: Jupyter Sphinx Extensions
 dev-python/k5test 0.9.2: A library for setting up self-contained Kerberos 5 environments
 dev-python/keystonemiddleware 9.1.0: A middleware for the OpenStack Keystone API
@@ -458,6 +459,7 @@ dev-python/py3nvml 0.2.6: Python 3 Bindings for the NVIDIA Management Library
 dev-python/pybeam 0.7: Python module to parse Erlang BEAM files
 dev-python/pybrowserstack-screenshots 0.1: A python api wrapper and client for Browserstack Screenshots API
 dev-python/pycadf 3.1.1: python implementation of DMTF Cloud Audit (CADF) data model
+dev-python/pydub 0.25.1: Manipulate audio with an simple and easy high level interface
 dev-python/pyfiglet 0.8_p1 9999: Pure-python FIGlet implementation
 dev-python/pygaljs 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
 dev-python/pygsl 2.3.0: Python interface for the GNU scientific library (gsl)
@@ -580,7 +582,7 @@ dev-util/psautohint 2.3.0: A standalone version of AFDKO autohinter
 dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's OpenGL Shader Builder
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/rpmlint 2.0.0: Tool for checking common errors in RPM packages
-dev-util/rust-analyzer-bin 2021.07.19: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer-bin 2021.07.26: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/xdp-tools 1.2.0: Utilities and example programs for use with XDP
 dev-vcs/bit 1.1.1 1.1.2: Bit is a modern Git CLI
@@ -667,14 +669,15 @@ gui-apps/wlr-randr 0.1.0 0.2.0 9999: xrandr clone for wlroots compositors
 gui-apps/wlsunset 0.2.0 9999: Day/night gamma adjustments for Wayland
 gui-apps/wob 0.11: Lightweight overlay volume/backlight/progress/anything bar for Wayland
 gui-apps/wofi 1.2.3 1.2.4 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
+gui-apps/yambar 1.6.2 9999: Simplistic and highly configurable status panel for X and Wayland
 gui-libs/libcprime 4.2.0 4.2.2 9999: Library for managing settings of CoreApps
 gui-libs/libcsys 4.2.0 9999: Library for managing the device
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.3 0.1.4 9999: A Wayland kiosk
 gui-wm/dwl 0.2.1: dwm for Wayland
 gui-wm/phosh 0.12.1: A pure Wayland shell prototype for GNOME on mobile devices
-kde-apps/alligator 21.05 21.06: A convergent RSS/Atom feed reader for Plasma
-kde-apps/kclock 21.05 21.06: A convergent clock application for Plasma
+kde-apps/alligator 21.06 21.07: A convergent RSS/Atom feed reader for Plasma
+kde-apps/kclock 21.06 21.07: A convergent clock application for Plasma
 kde-apps/krecorder 21.05 21.06: A convergent audio recording application for Plasma
 kde-apps/tokodon 21.06: Mastodon client for Plasma and Plasma Mobile
 kde-frameworks/kirigami-addons 0.2: Convergent visual components for Kirigami-based applications
@@ -779,7 +782,7 @@ net-im/nheko 0.8.1 0.8.2 0.8.2-r1: Desktop client for Matrix using Qt and C++14
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
 net-im/whatsapp-for-linux 1.2.0: An unofficial WhatsApp desktop application for Linux
 net-irc/catgirl 1.7 1.8: TLS-only terminal IRC client
-net-irc/srain 1.1.3 1.2.1: Modern, beautiful IRC client written in GTK+ 3
+net-irc/srain 1.2.1 1.2.4: Modern, beautiful IRC client written in GTK+ 3
 net-libs/kcgi 0.12.4 0.12.5 9999: minimal CGI library for web applications
 net-libs/usockets 0.7.1_p20210214-r2 9999: tiny eventing, networking & crypto for async applications
 net-mail/remail 0.13: A set of tools for crypted mailing lists
@@ -793,7 +796,7 @@ net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/gmid 1.7.2 9999: Simple and secure Gemini server
 net-misc/kristall 0.3-r1 9999: Visual cross-platform gemini browser
-net-misc/lagrange 1.5.2: Desktop GUI client for browsing Geminispace
+net-misc/lagrange 1.5.2 1.6.0: Desktop GUI client for browsing Geminispace
 net-misc/lyrics-in-terminal 1.4.2: Command Line Lyrics fetcher for MPRIS media players
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
@@ -864,11 +867,12 @@ sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of cu
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-cluster/AXL 0.4.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
 sys-cluster/KVTree 1.1.1: KVTree provides a fully extensible C data structure modeled after Perl hashes
+sys-cluster/SIONfwd 1.0.1: A minimalistic I/O forwarding server and client library for SIONlib
 sys-cluster/cinder 17.1.0: Cinder is the OpenStack Block storage service, a spin out of nova-volumes
 sys-cluster/clusteringsuite 2.6.9-r3: Expose the main performance trends in applications computation structure
 sys-cluster/dlb 2.1-r2: Dynamically react to application imbalance by modifying the number of resources
 sys-cluster/er 0.0.4: High-level distributed erasure coding lib combining shuffile and redset
-sys-cluster/extrae 3.8.3-r6: Instrumentation framework to generate execution traces of parallel runtimes
+sys-cluster/extrae 3.8.3-r8: Instrumentation framework to generate execution traces of parallel runtimes
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
 sys-cluster/heat 15.0.0: A CloudFormation-compatible openstack-native cloud orchestration engine.
 sys-cluster/launchmon 1.0.2_p20210430-r1: Enables HPC run-time tools to co-locate tool daemons with a parallel job
@@ -879,13 +883,14 @@ sys-cluster/muster 1.0.1: Massively Scalable Clustering
 sys-cluster/nanos6 2.6: runtime that implements the OmpSs-2 parallel programming model
 sys-cluster/neutron 17.1.1 17.1.2: A virtual network service for Openstack
 sys-cluster/nova 22.2.0 22.2.1: Cloud computing fabric controller
-sys-cluster/otf2 2.3: highly scalable, memory efficient event trace data format
+sys-cluster/otf2 2.3-r1: highly scalable, memory efficient event trace data format
 sys-cluster/pcs 0.10.8-r3: Pacemaker/Corosync Configuration System
 sys-cluster/placement 4.0.0: A HTTP service for managing, selecting, and claiming cloud resources.
 sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on string values
 sys-cluster/redset 0.0.5: Low-level distributed erasure coding lib to protect datasets of MPI applications
 sys-cluster/shuffile 0.0.4: SHUFFILE Shuffle files between processes
-sys-cluster/sionlib 1.7.7: Scalable I/O library for parallel access to task-local files
+sys-cluster/sionlib 1.7.7-r2: Scalable I/O library for parallel access to task-local files
+sys-cluster/sionlibl 1.7.7-r1: Scalable I/O library for parallel access to task-local files
 sys-cluster/spectral 3.4.1: Signal processing to select representative regions from Paraver traces
 sys-cluster/swift 2.26.0 2.27.0: A highly available, distributed, and eventually consistent object/blob store
 sys-cluster/synapse 2.0.1: synapse

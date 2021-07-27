@@ -1,14 +1,14 @@
 DEFINED_PHASES=compile configure install postinst prepare test
 DESCRIPTION=Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/doitsujin/dxvk
 INHERIT=multilib-minimal
 IUSE=video_cards_nvidia abi_x86_32 abi_x86_64
 KEYWORDS=~amd64
 LICENSE=ZLIB
-RDEPEND=|| ( video_cards_nvidia? ( >=x11-drivers/nvidia-drivers-440.31 ) >=media-libs/mesa-19.2 ) || ( >=app-emulation/wine-staging-4.5[abi_x86_32(-)?,abi_x86_64(-)?,vulkan] >=app-emulation/wine-vanilla-4.5[abi_x86_32(-)?,abi_x86_64(-)?,vulkan] )
+RDEPEND=|| ( video_cards_nvidia? ( >=x11-drivers/nvidia-drivers-440.31 ) >=media-libs/mesa-20.2 ) || ( >=app-emulation/wine-staging-4.5[abi_x86_32(-)?,abi_x86_64(-)?,vulkan] >=app-emulation/wine-vanilla-4.5[abi_x86_32(-)?,abi_x86_64(-)?,vulkan] )
 REQUIRED_USE=|| ( abi_x86_32 abi_x86_64 )
 SLOT=0
-SRC_URI=https://github.com/doitsujin/dxvk/releases/download/v1.8.1/dxvk-1.8.1.tar.gz -> dxvk-bin-1.8.1.tar.gz
+SRC_URI=https://github.com/doitsujin/dxvk/releases/download/v1.9.1/dxvk-1.9.1.tar.gz -> dxvk-bin-1.9.1.tar.gz
 _eclasses_=multibuild	05a584848db4901c97fcd94ae7cc3a97	multilib	97566c1a256d07b00848aa767e38a352	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib-build	effd4508d5e8209273d82d8f67ee93a0	multilib-minimal	7187f259f207bf5b69e4ff01498a7269
-_md5_=a202ee24f688156372d33cfeb879a723
+_md5_=4083757c5f7cc597fb2f8f8d18c566a8

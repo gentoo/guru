@@ -1,0 +1,16 @@
+BDEPEND=doc? ( app-doc/doxygen ) fortran? ( virtual/fortran )
+DEFINED_PHASES=compile configure install prepare setup
+DEPEND=mpi? ( virtual/mpi ) ompi? ( || ( sys-devel/gcc:*[openmp] sys-libs/libomp ) virtual/mpi ) openmp? ( || ( sys-devel/gcc:*[openmp] sys-libs/libomp ) ) sionfwd? ( sys-cluster/SIONfwd ) || ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 >=dev-python/pypy3-7.3.0:0 ) fortran? ( virtual/fortran )
+DESCRIPTION=Scalable I/O library for parallel access to task-local files
+EAPI=8
+HOMEPAGE=https://www.fz-juelich.de/ias/jsc/EN/Expertise/Support/Software/SIONlib/_node.html
+INHERIT=docs flag-o-matic fortran-2 python-any-r1 toolchain-funcs
+IUSE=+cxx debug deep-est-sdv doc examples +fortran hostname-regex +mpi +ompi +openmp +parutils +pthreads python sionfwd doc
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=mpi? ( virtual/mpi ) ompi? ( || ( sys-devel/gcc:*[openmp] sys-libs/libomp ) virtual/mpi ) openmp? ( || ( sys-devel/gcc:*[openmp] sys-libs/libomp ) ) sionfwd? ( sys-cluster/SIONfwd ) fortran? ( virtual/fortran )
+REQUIRED_USE=?? ( hostname-regex deep-est-sdv )
+SLOT=0
+SRC_URI=http://apps.fz-juelich.de/jsc/sionlib/download.php?version=1.7.7 -> sionlib-1.7.7.tar.gz
+_eclasses_=docs	7c38d94fa7c1b4235fe571dc09e018df	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-any-r1	901d9e22c7a848a1196502edf060f330
+_md5_=e455cb14407c4783464ac5a14864570c

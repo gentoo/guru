@@ -1,0 +1,14 @@
+BDEPEND=dev-util/ninja dev-util/cmake doc? ( app-doc/doxygen )
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Command line parser for C++11
+EAPI=7
+HOMEPAGE=https://github.com/CLIUtils/CLI11 https://cliutils.github.io/CLI11/book
+INHERIT=cmake docs
+IUSE=test doc
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/CLIUtils/cli11/archive/refs/tags/v2.0.0.tar.gz -> cli11-2.0.0.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	docs	7c38d94fa7c1b4235fe571dc09e018df
+_md5_=e81f7f0dc2d33804a5b6cf0a25414a7c
