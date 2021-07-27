@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-3 lua_single_target_lua5-4 )
 SLOT=0
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	a2950af9f524361296ff10564515822c	lua-single	42a0ce9ea0dccefeb9279fda02fc5e5f	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	b2a391a6023bd5e1245bf27407f2f684	lua-single	d7fc7edcf6eef719ce5cc76acbde4f18	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
 _md5_=38162c4482e001f6adc87e0ce8925989
