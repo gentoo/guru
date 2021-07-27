@@ -1,7 +1,7 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( pypy3 python3_{8..10} )
 
@@ -18,30 +18,32 @@ S="${WORKDIR}/clustering-suite-${PV}"
 LICENSE="LGPL-2.1+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc mpi muster" # treedbscan
+IUSE="doc mpi muster treedbscan"
 
 PATCHES=(
 	"${FILESDIR}/${P}-unbundle-libANN.patch"
 	"${FILESDIR}/${P}-do-not-add-boost-thread-ldpath.patch"
+	"${FILESDIR}/${P}-Build-fix-for-GCC-11-invocable-as-const.patch"
 )
+# attempt at unbundling libbsctools failed
+# current libbsctools seems to be too old (missing headers)
+#	"${FILESDIR}/${PN}-unbundle-libbsctools.patch"
 
 RDEPEND="
 	app-arch/bzip2
 	dev-libs/boost:=
 	sci-libs/ann
-	sys-cluster/libbsctools
+	!sys-cluster/libbsctools
 	mpi? ( virtual/mpi )
 	muster? ( sys-cluster/muster )
+	treedbscan? (
+		dev-libs/boost:=[threads]
+		dev-libs/gmp
+		dev-libs/mpfr
+		sci-mathematics/cgal[shared(-)]
+		sys-cluster/synapse
+	)
 "
-# https://github.com/bsc-performance-tools/clustering-suite/issues/8
-#	treedbscan? (
-#		dev-libs/boost:=[threads]
-#		dev-libs/gmp
-#		dev-libs/mpfr
-#		sci-mathematics/cgal[shared]
-#		sys-cluster/synapse
-#	)
-#"
 
 DEPEND="
 	${RDEPEND}
@@ -53,6 +55,7 @@ src_prepare() {
 	use muster && PATCHES+=( "${FILESDIR}/${P}-force-muster-discovery.patch" )
 	rm -r src/libANN || die
 #	rm -r pcfparser_svn3942 || die
+#	rm -r src/libParaverTraceParser || die
 	default
 	sed -e "s|iterate/lib|iterate/$(get_libdir)|g" -i config/gmp_mpfr.m4 || die
 	sed -e "s|dir/lib|dir/$(get_libdir)|g" -i config/ax_muster.m4 || die
@@ -88,18 +91,18 @@ src_configure() {
 	else
 		myconf+=( "--without-muster" )
 	fi
-#	if use treedbscan; then
-#		myconf+=( "--enable-treedbscan" )
-#		myconf+=( "--with-cgal=${EPREFIX}/usr" )
-#		myconf+=( "--with-gmp=${EPREFIX}/usr" )
-#		myconf+=( "--with-mpfr=${EPREFIX}/usr" )
-#		myconf+=( "--with-synapse=${EPREFIX}/usr" )
-#	else
+	if use treedbscan; then
+		myconf+=( "--enable-treedbscan" )
+		myconf+=( "--with-cgal=${EPREFIX}/usr" )
+		myconf+=( "--with-gmp=${EPREFIX}/usr" )
+		myconf+=( "--with-mpfr=${EPREFIX}/usr" )
+		myconf+=( "--with-synapse=${EPREFIX}/usr" )
+	else
 		myconf+=( "--without-cgal" )
 		myconf+=( "--without-gmp" )
 		myconf+=( "--without-mpfr" )
 		myconf+=( "--without-synapse" )
-#	fi
+	fi
 
 	econf "${myconf[@]}" || die
 }

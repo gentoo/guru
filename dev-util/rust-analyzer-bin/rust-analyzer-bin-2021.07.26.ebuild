@@ -5,7 +5,7 @@ EAPI=7
 
 DESCRIPTION="An implementation of Language Server Protocol for the Rust programming language"
 HOMEPAGE="https://rust-analyzer.github.io"
-SRC_URI="https://github.com/rust-analyzer/rust-analyzer/releases/download/2021-07-19/rust-analyzer-x86_64-unknown-linux-gnu.gz"
+SRC_URI="https://github.com/rust-analyzer/rust-analyzer/releases/download/2021-07-26/rust-analyzer-x86_64-unknown-linux-gnu.gz"
 
 LICENSE="Apache-2.0 MIT-with-advertising"
 SLOT="0"

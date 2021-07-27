@@ -12,20 +12,15 @@ inherit docs flag-o-matic fortran-2 python-any-r1 toolchain-funcs
 
 DESCRIPTION="Scalable I/O library for parallel access to task-local files"
 HOMEPAGE="https://www.fz-juelich.de/ias/jsc/EN/Expertise/Support/Software/SIONlib/_node.html"
-SRC_URI="
-	!tools? ( http://apps.fz-juelich.de/jsc/sionlib/download.php?version=${PV} -> ${P}.tar.gz )
-	tools? ( http://apps.fz-juelich.de/jsc/sionlib/download.php?version=${PV}l -> ${PN}l-${PV}.tar.gz )
-"
+SRC_URI="http://apps.fz-juelich.de/jsc/sionlib/download.php?version=${PV} -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+cxx debug doc examples +fortran +mpi +ompi +openmp +parutils +pthreads python tools"
-#TODO: cuda sionfwd msa
-#--enable-sionfwd=/path/to/sionfwd
-#--msa=(hostname-regex|deep-est-sdv)]	MSA aware collective operations for the given system
+IUSE="+cxx debug deep-est-sdv doc examples +fortran hostname-regex +mpi +ompi +openmp +parutils +pthreads python sionfwd" #cuda
 
+REQUIRED_USE="?? ( hostname-regex deep-est-sdv )"
 PATCHES=( "${FILESDIR}/${PN}-respect-flags.patch" )
 
 RDEPEND="
@@ -35,6 +30,7 @@ RDEPEND="
 		virtual/mpi
 	)
 	openmp? ( || ( sys-devel/gcc:*[openmp] sys-libs/libomp ) )
+	sionfwd? ( sys-cluster/SIONfwd )
 "
 DEPEND="
 	${RDEPEND}
@@ -67,8 +63,13 @@ src_configure() {
 
 	append-fflags -fallow-argument-mismatch
 
+	local msa="none"
+	use deep-est-sdv && msa="deep-est-sdv"
+	use hostname-regex && msa="hostname-regex"
+
 	local myconf=(
 		--disable-mic
+		--msa="${msa}"
 		--prefix="${T}/prefix/usr"
 	)
 
@@ -83,6 +84,7 @@ src_configure() {
 
 	use debug && myconf+=( "--enable-debug" )
 	use python && myconf+=( "--enable-python=3" )
+	use sionfwd && myconf+=( "--enable-sionfwd=${EPREFIX}/usr" )
 
 	./configure "${myconf[@]}" || die
 }
@@ -102,6 +104,14 @@ src_install() {
 	else
 		rm -r "${T}/prefix/usr/examples" || die
 	fi
+
+	insinto "/usr/include/sionlib"
+	doins -r "${T}"/prefix/usr/include/*
+	rm -r "${T}/prefix/usr/include" || die
+
+	exeinto "/usr/libexec/${PN}"
+	doexe "${T}"/prefix/usr/bin/*partest
+	rm "${T}"/prefix/usr/bin/*partest || die
 
 	# move 64 bit libraries to lib64
 	libs64=( "${T}"/prefix/usr/lib/*64* )

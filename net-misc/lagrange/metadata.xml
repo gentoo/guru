@@ -22,6 +22,14 @@
 		hardware-accelerated graphics. OpenSSL is used for secure
 		communications.
 	</longdescription>
+	<use>
+		<flag name="fribidi" restrict="&gt;=net-misc/lagrange-1.6.0">
+			Use <pkg>dev-libs/fribidi</pkg> for bidirectional text
+		</flag>
+		<flag name="harfbuzz" restrict="&gt;=net-misc/lagrange-1.6.0">
+			Use <pkg>media-libs/harfbuzz</pkg> to shape text
+		</flag>
+	</use>
 	<upstream>
 		<maintainer>
 			<email>jaakko.keranen@iki.fi</email>

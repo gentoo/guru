@@ -1,0 +1,12 @@
+# Copyright 1999-2021 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-07-26)
+# treedbscan needs old cgal
+# https://github.com/bsc-performance-tools/clustering-suite/issues/8
+sys-cluster/clusteringsuite treedbscan
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-07-26)
+# current muster doesn't provide density.h
+# https://github.com/bsc-performance-tools/clustering-suite/issues/9
+sys-cluster/clusteringsuite muster
