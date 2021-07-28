@@ -14,3 +14,11 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+
+RESTRICT="test" # https://github.com/mosquito/python-pidfile/issues/7
+
+distutils_enable_tests unittest
+
+python_test() {
+	eunittest tests/
+}
