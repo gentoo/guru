@@ -1,6 +1,9 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# NOTICE:
+# melonds bundles teakra, its upstream haven't had a release since 2020
+
 EAPI=7
 
 MY_PN="melonDS"
@@ -57,6 +60,13 @@ src_configure() {
 src_compile() {
 	tc-export AR
 	cmake_src_compile
+}
+
+src_install() {
+	# install teakra
+	dolib.so "${BUILD_DIR}/src/teakra/src/libteakra.so"
+
+	cmake_src_install
 }
 
 pkg_postinst() {
