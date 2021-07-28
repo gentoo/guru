@@ -17,14 +17,11 @@ process). Extrae generates trace files that can be later visualized with sys-clu
 	</upstream>
 	<use>
 		<!--<flag name="aspectj">Enable support for tracing Java through <pkg>dev-java/aspectj</pkg> (experimental)</flag>-->
-		<flag name="boost">Search for boost</flag>
 		<flag name="clustering">Enable <pkg>sys-cluster/clusteringsuite</pkg> support</flag>
 		<!--<flag name="cuda">Enable support for tracing CUDA calls on nVidia hardware and needs to point to the CUDA SDK installation path. This instrumentation is only valid in binaries that use the shared version of the CUDA library.</flag>-->
 		<!--<flag name="cupti">CUPTI is used to instrument CUDA calls</flag>-->
 		<flag name="doc">Generates the documentation of this instrumentation package</flag>
-		<flag name="dwarf">Build with <pkg>dev-libs/libdwarf</pkg></flag>
-		<!--<flag name="dyninst">Build with dyninst</flag>-->
-		<flag name="elf">Build with <pkg>virtual/libelf</pkg></flag>
+		<flag name="dyninst">Build with dyninst</flag>
 		<flag name="heterogeneous">Enable support for heterogeneous tracing</flag>
 		<flag name="inotify">Enable inotify support</flag>
 		<flag name="instrument-dynamic-memory">Enables instrumentation for dynamic memory (malloc, free, realloc) calls</flag>
@@ -47,7 +44,6 @@ process). Extrae generates trace files that can be later visualized with sys-clu
 		<flag name="single-mpi-lib">Produces a single instrumentation library for MPI that contains both Fortran and C wrappers. Applications that call the MPI library from both C and Fortran languages need this flag to be enabled.</flag>
 		<flag name="sionlib">Enable support for <pkg>sys-cluster/sionlib</pkg></flag>
 		<flag name="smpss">Enable support for tracing SMP-superscalar</flag>
-		<!--<flag name="synapse">This library is a front-end of the MRNet library</flag>-->
 		<flag name="xml">Enable support for XML configuration</flag>
 	</use>
 </pkgmetadata>
