@@ -28,3 +28,5 @@ RDEPEND="
 	dev-python/tqdm[${PYTHON_USEDEP}]
 	dev-python/webrtcvad[${PYTHON_USEDEP}]
 	"
+
+distutils_enable_tests pytest
