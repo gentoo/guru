@@ -4,7 +4,7 @@
 # Cyclone is a self-hosting Scheme to C compiler
 # cyclone-bootstrap is the Cyclone SOURCE transpiled by it to C
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic toolchain-funcs
 
@@ -23,22 +23,14 @@ fi
 LICENSE="MIT"
 SLOT="0"
 
-DEPEND="
-	dev-libs/concurrencykit
-"
-RDEPEND="
-	${DEPEND}
-"
+DEPEND="dev-libs/concurrencykit"
+RDEPEND="${DEPEND}"
 
 src_configure() {
 	export CYC_GCC_OPT_FLAGS="${CFLAGS}"
 	append-cflags -fPIC -Iinclude
 	append-ldflags -L.
 	tc-export AR CC RANLIB
-}
-
-src_test() {
-	emake test LDFLAGS=""
 }
 
 src_compile() {
@@ -50,6 +42,10 @@ src_compile() {
 		RANLIB="$(tc-getRANLIB)"
 	)
 	emake "${myopts[@]}"
+}
+
+src_test() {
+	emake LDFLAGS="" test
 }
 
 src_install() {
