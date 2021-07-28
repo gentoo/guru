@@ -16,9 +16,6 @@ C
 * [the-omega-project](https://github.com/davewathaverford/the-omega-project)
 * [xpmem](https://github.com/hjelmn/xpmem)
 * [sandia openshmem](https://github.com/Sandia-OpenSHMEM/SOS)
-* [spath](https://github.com/ECP-VeloC/spath)
-* [lwgrp](https://github.com/LLNL/lwgrp)
-* [dtcmp](https://github.com/LLNL/dtcmp)
 * [ummunotify](https://github.com/Portals4/ummunotify)
 * [portals4](https://github.com/Portals4/portals4)
 
