@@ -13,9 +13,9 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 DEPEND="
-	dev-python/pymorphy2[${PYTHON_USEDEP}]
-	dev-python/pymorphy2-dicts-ru[${PYTHON_USEDEP}]
 	dev-python/PyQt5[${PYTHON_USEDEP}]
+	dev-python/simplemma[${PYTHON_USEDEP}]
+	=dev-python/googletrans-4.0.0_rc1[${PYTHON_USEDEP}]
 	dev-python/beautifulsoup:4[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
 "
