@@ -36,7 +36,7 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	!appmisc/anki
+	!app-misc/anki
 "
 BDEPEND="app-arch/unzip
 ${PYTHON_DEPS}"
