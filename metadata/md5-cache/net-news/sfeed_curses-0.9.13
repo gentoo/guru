@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install postinst
+DEPEND=sys-libs/ncurses
+DESCRIPTION=A curses UI front-end for sfeed
+EAPI=7
+HOMEPAGE=https://codemadness.org/sfeed_ui.html
+INHERIT=savedconfig toolchain-funcs
+IUSE=+theme-mono theme-mono-highlight theme-newsboat theme-templeos savedconfig
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=sys-libs/ncurses
+REQUIRED_USE=^^ ( theme-mono theme-mono-highlight theme-newsboat theme-templeos )
+SLOT=0
+SRC_URI=https://codemadness.org/releases/sfeed_curses/sfeed_curses-0.9.13.tar.gz
+_eclasses_=portability	d1186f1e621de7b27ddcae82e6253259	savedconfig	0bc45cb0429003c9abc73bae24a0d5bd	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
+_md5_=954e113d0703a5c2c13d434b04c2e191

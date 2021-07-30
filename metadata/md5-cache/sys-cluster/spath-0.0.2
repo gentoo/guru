@@ -1,15 +1,17 @@
-BDEPEND=virtual/pkgconfig dev-util/ninja dev-util/cmake
+BDEPEND=dev-util/ninja dev-util/cmake
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=sys-libs/ncurses:0=[unicode?] x11-drivers/nvidia-drivers
-DESCRIPTION=NVIDIA GPUs htop like monitoring tool
+DEPEND=mpi? ( virtual/mpi ) sys-libs/zlib test? ( slurm? ( sys-cluster/slurm ) )
+DESCRIPTION=Path manipulation functions
 EAPI=7
-HOMEPAGE=https://github.com/Syllo/nvtop
+HOMEPAGE=https://github.com/ECP-VeloC/spath
 INHERIT=cmake
-IUSE=debug unicode
-KEYWORDS=~amd64 ~x86
-LICENSE=GPL-3
-RDEPEND=sys-libs/ncurses:0=[unicode?] x11-drivers/nvidia-drivers
+IUSE=lsf +mpi slurm test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=mpi? ( virtual/mpi )
+REQUIRED_USE=?? ( lsf slurm ) test? ( mpi )
+RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/Syllo/nvtop/archive/1.2.1.tar.gz -> nvtop-1.2.1.tar.gz https://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-455.38.tar.bz2
+SRC_URI=https://github.com/ECP-VeloC/spath/archive/v0.0.2.tar.gz -> spath-0.0.2.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da
-_md5_=f06299627a8472c2f2742fa465ebc3b6
+_md5_=48f4701c36a030e8101f4183d8bde802

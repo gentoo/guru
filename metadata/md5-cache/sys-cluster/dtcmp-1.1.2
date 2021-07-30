@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=sys-cluster/lwgrp virtual/mpi
+DESCRIPTION=Datatype Compare Library for sorting and ranking distributed data using MPI
+EAPI=7
+HOMEPAGE=https://github.com/LLNL/dtcmp
+INHERIT=autotools
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=sys-cluster/lwgrp virtual/mpi
+SLOT=0
+SRC_URI=https://github.com/LLNL/dtcmp/archive/refs/tags/v1.1.2.tar.gz -> dtcmp-1.1.2.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da
+_md5_=ec2ff58e49247811630bac19f99038e9

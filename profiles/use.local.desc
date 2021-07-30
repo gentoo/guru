@@ -255,6 +255,10 @@ net-misc/megasync:freeimage - Use freeimage to manage graphic images format.
 net-misc/megasync:nautilus - Upload your files to your Mega account from nautilus.
 net-misc/megasync:thunar - Upload your files to your Mega account from Thunar.
 net-misc/tinyssh:sodium - Use dev-libs/libsodium for cryptography
+net-news/sfeed_curses:theme-mono - Use mono theme
+net-news/sfeed_curses:theme-mono-highlight - Use mono_highlight theme
+net-news/sfeed_curses:theme-newsboat - Use newsboat theme
+net-news/sfeed_curses:theme-templeos - Use templeos theme
 net-p2p/monero:daemon - Build the Monero daemon used to connect to the P2P network.
 net-p2p/monero:tools - Build tools used to manipulate the blockchain as it is stored on disk.
 net-p2p/monero:wallet-cli - Build the command line wallet, monero-wallet-cli.
@@ -364,11 +368,11 @@ sys-cluster/clusteringsuite:muster - enable support for sys-cluster/muster algor
 sys-cluster/clusteringsuite:treedbscan - enable compilation of TreeDBSCAN support for sys-cluster/extrae
 sys-cluster/dlb:hwloc - add sys-apps/hwlocsupport
 sys-cluster/dlb:instrumentation - enable sys-cluster/extrae instrumentation
-sys-cluster/extrae:boost - Search for boost
+sys-cluster/dyninst:openmp - Enable parallel code parsing
+sys-cluster/dyninst:valgrind - Enable annotations for Valgrind analysis
 sys-cluster/extrae:clustering - Enable sys-cluster/clusteringsuite support
 sys-cluster/extrae:doc - Generates the documentation of this instrumentation package
-sys-cluster/extrae:dwarf - Build with dev-libs/libdwarf
-sys-cluster/extrae:elf - Build with virtual/libelf
+sys-cluster/extrae:dyninst - Build with dyninst
 sys-cluster/extrae:heterogeneous - Enable support for heterogeneous tracing
 sys-cluster/extrae:inotify - Enable inotify support
 sys-cluster/extrae:instrument-dynamic-memory - Enables instrumentation for dynamic memory (malloc, free, realloc) calls
@@ -395,6 +399,7 @@ sys-cluster/heat:memcached - Installs the memcached server
 sys-cluster/launchmon:munge - enable munge for connection authentication
 sys-cluster/launchmon:tracing-cost - enable tracing cost measuring codes
 sys-cluster/libi:slurm - Use slurm as tree instantiation method instead of ssh
+sys-cluster/lwgrp:mpianysource - Specify whether to use MPI_ANY_SOURCE
 sys-cluster/mrnet:libi - Use libi as tree instantiation method instead of ssh
 sys-cluster/mrnet:slurm - Use slurm as libi tree instantiation method instead of ssh
 sys-cluster/mrnet:threadsafe - Build threasafe version of lightweight MRNet and XPlat libraries
@@ -448,6 +453,8 @@ sys-cluster/sionlibl:parutils - Enable compilation of parutils (used for benchma
 sys-cluster/sionlibl:pthreads - configure SIONlib to use pthreads for locking
 sys-cluster/sionlibl:python - enable python support
 sys-cluster/sionlibl:sionfwd - enable I/O forwarding with sys-cluster/SIONfwd
+sys-cluster/spath:lsf - Use LFS (Load Sharing Facility) as resource manager
+sys-cluster/spath:slurm - Use sys-cluster/slurm as resource manager
 sys-cluster/spectral:extrae - Add sys-cluster/extrae support
 sys-cluster/spectral:libbsctools - Add sys-cluster/libbsctools support
 sys-cluster/swift:account - adds swift account support
