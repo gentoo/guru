@@ -6,12 +6,13 @@ EAPI=7
 PYTHON_COMPAT=( python3_{8,9} )
 inherit python-single-r1 desktop xdg
 
+MY_PN=${PN%-bin}
 DESCRIPTION="A spaced-repetition memory training program (flash cards)"
 HOMEPAGE="https://apps.ankiweb.net/"
 SRC_URI="
-	https://files.pythonhosted.org/packages/1d/da/199c378dd483bea4b38e94c2951bbb903dae8be023484577ba41b9c75ada/anki-${PV}-cp38-abi3-manylinux2014_x86_64.whl -> ${P}.zip
-	https://files.pythonhosted.org/packages/25/1a/7b94d38b897c942c206258b7b1c758586250ebeb4804a33a4191a047fb2a/aqt-${PV}-py3-none-any.whl -> aqt-${PV}.zip
-	https://github.com/ankitects/anki/blob/${PV}/qt/linux/anki.png
+	https://files.pythonhosted.org/packages/cp38/${MY_PN:0:1}/${MY_PN}/${MY_PN}-${PV}-cp38-abi3-manylinux2014_x86_64.whl -> ${P}.zip
+	https://files.pythonhosted.org/packages/py3/a/aqt/aqt-${PV}-py3-none-any.whl -> aqt-${PV}.zip
+	https://raw.githubusercontent.com/ankitects/anki/${PV}/qt/linux/anki.png
 "
 
 LICENSE="AGPL-3"
@@ -20,7 +21,7 @@ KEYWORDS="~amd64"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
-	$(python_gen_cond_dep '
+$(python_gen_cond_dep '
 	dev-python/decorator[${PYTHON_USEDEP}]
 	dev-python/protobuf-python[${PYTHON_USEDEP}]
 	dev-python/orjson-bin[${PYTHON_USEDEP}]
