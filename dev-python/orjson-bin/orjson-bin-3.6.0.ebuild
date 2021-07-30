@@ -24,7 +24,13 @@ SRC_URI="
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
+
+RESTRICT="!test? ( test )"
 IUSE="test"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
+BDEPEND="app-arch/unzip"
+RDEPEND="${PYTHON_DEPS}"
 
 S="${WORKDIR}/"
 
