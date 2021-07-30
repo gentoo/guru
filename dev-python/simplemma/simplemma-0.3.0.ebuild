@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="A simple multilingual lemmatizer for Python."
 HOMEPAGE="https://github.com/adbar/simplemma https://pypi.org/project/simplemma/"
-SRC_URI="https://github.com/adbar/${PN}/archive/refs/tags/v${PV}.tar.gz"
+SRC_URI="https://github.com/adbar/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 DEPEND=""
 
 LICENSE="MIT"
