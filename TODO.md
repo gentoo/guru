@@ -16,7 +16,8 @@ C
 * [the-omega-project](https://github.com/davewathaverford/the-omega-project)
 * [xpmem](https://github.com/hjelmn/xpmem)
 * [sandia openshmem](https://github.com/Sandia-OpenSHMEM/SOS)
-* [dyninst](https://github.com/dyninst/dyninst)
+* [ummunotify](https://github.com/Portals4/ummunotify)
+* [portals4](https://github.com/Portals4/portals4)
 
 C++
 * [machinekit](https://github.com/machinekit/machinekit) 
@@ -47,9 +48,9 @@ C++
 * [medipack](http://www.scicomp.uni-kl.de/software/medi/)
 * [tecio](https://www.tecplot.com/products/tecio-library/)
 * [TCL](https://github.com/bsc-pm/TCL)
-* [synapse](https://github.com/bsc-performance-tools/synapse)
 * [paraver-kernel](https://github.com/bsc-performance-tools/paraver-kernel)
 * [wxparaver](https://github.com/bsc-performance-tools/wxparaver)
+* [alpaka](https://github.com/alpaka-group/alpaka)
 
 GO
 * [open-match](https://github.com/googleforgames/open-match)
@@ -60,8 +61,9 @@ JAVA
 
 JAVASCRIPT
 * [ijavascript](https://github.com/n-riesco/ijavascript)
-* [cocalc](https://github.com/sagemathinc/cocalc) (commonsclause)
+* [cocalc](https://github.com/sagemathinc/cocalc) (commonsclause?)
 * [pelias](https://github.com/pelias/pelias)
+* [hsd](https://github.com/handshake-org/hsd)
 
 mixed
 * [flexiblas](https://www.mpi-magdeburg.mpg.de/projects/flexiblas) 
@@ -94,6 +96,7 @@ PYTHON
 * [foobnix](https://github.com/foobnix/foobnix)
 * [TauonMusicBox](https://github.com/Taiko2k/TauonMusicBox)
 * [temanejo](https://www.hlrs.de/solutions-services/service-portfolio/programming/hpc-development-tools/temanejo)
+* [mmtracking](https://github.com/open-mmlab/mmtracking)
 
 RUST
 * [enarx](https://enarx.dev/)

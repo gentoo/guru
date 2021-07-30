@@ -14,17 +14,15 @@ SRC_URI="https://github.com/bsc-performance-tools/extrae/archive/${PV}.tar.gz ->
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="boost clustering doc dwarf elf heterogeneous inotify +instrument-dynamic-memory
-+instrument-io +instrument-syscall memkind merge-in-trace nanos online opencl openmp
-+parallel-merge pebs-sampling +posix-clock pthread sampling +single-mpi-lib sionlib smpss
-spectral +xml"
+IUSE="clustering doc dyninst heterogeneous inotify +instrument-dynamic-memory +instrument-io
++instrument-syscall memkind merge-in-trace nanos online opencl openmp +parallel-merge
+pebs-sampling +posix-clock pthread sampling +single-mpi-lib sionlib smpss spectral +xml"
 
 #aspectj and aspectj-weaver need to both be enabled at the same time
 #current dev-java/aspectj package only provides aspectj.jar
 #aspectj needs foo/lib/aspectj.jar and foo/bin/ajc
 #aspectj-weaver needs bar/aspectjweaver.jar
-#TODO: remove some useflags (boost elf dwarf)
-#TODO: pmapi online dyninst cuda cupti openshmem gm mx aspectj
+#TODO: pmapi cuda cupti openshmem gm mx aspectj
 #TODO: support llvm libunwind, llvm rt, elftoolchain
 
 CDEPEND="
@@ -39,10 +37,13 @@ CDEPEND="
 	|| ( sys-libs/libunwind sys-libs/llvm-libunwind )
 	|| ( sys-devel/binutils:* sys-libs/binutils-libs )
 
-	boost? ( dev-libs/boost:= )
-	clustering? ( sys-cluster/clusteringsuite )
-	dwarf? ( dev-libs/libdwarf )
-	elf? ( virtual/libelf )
+	clustering? ( sys-cluster/clusteringsuite[treedbscan] )
+	dyninst? (
+		dev-libs/boost:=
+		dev-libs/libdwarf
+		sys-cluster/dyninst
+		virtual/libelf
+	)
 	inotify? ( dev-libs/libevent )
 	memkind? ( dev-libs/memkind )
 	online? ( sys-cluster/synapse )
@@ -76,7 +77,6 @@ REQUIRED_USE="
 	java? ( pthread )
 "
 #	cupti? ( cuda )
-#	dyninst? ( boost dwarf elf )
 #	aspectj? ( java )
 
 src_prepare() {
@@ -105,7 +105,6 @@ src_configure() {
 		--with-pic
 		--with-unwind="${EPREFIX}/usr"
 
-		--without-dyninst
 		--without-cupti
 		--without-openshmem
 		--without-gm
@@ -119,6 +118,7 @@ src_configure() {
 		$(use_enable instrument-syscall)
 		$(use_enable merge-in-trace)
 		$(use_enable nanos)
+		$(use_enable online)
 		$(use_enable openmp)
 		$(use_enable sampling)
 		$(use_enable parallel-merge)
@@ -138,24 +138,21 @@ src_configure() {
 		myconf+=( "--without-java-aspectj-weaver" )
 		myconf+=( "--without-java-aspectj" )
 #	fi
-	if use boost; then
-		myconf+=( "--with-boost=${EPREFIX}/usr" )
-	else
-		myconf+=( "--without-boost" )
-	fi
 	if use clustering; then
 		myconf+=( "--with-clustering=${EPREFIX}/usr" )
 	else
 		myconf+=( "--without-clustering" )
 	fi
-	if use dwarf; then
+	if use dyninst; then
+		myconf+=( "--with-boost=${EPREFIX}/usr" )
+		myconf+=( "--with-dyninst=${EPREFIX}/usr" )
+		myconf+=( "--with-dyninst-headers=${EPREFIX}/usr/include/dyninst" )
 		myconf+=( "--with-dwarf=${EPREFIX}/usr" )
-	else
-		myconf+=( "--without-dwarf" )
-	fi
-	if use elf; then
 		myconf+=( "--with-elf=${EPREFIX}/usr" )
 	else
+		myconf+=( "--without-boost" )
+		myconf+=( "--without-dyninst" )
+		myconf+=( "--without-dwarf" )
 		myconf+=( "--without-elf" )
 	fi
 	if use java; then

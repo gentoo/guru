@@ -9,8 +9,10 @@ inherit distutils-r1
 
 DESCRIPTION="A library for editing subtitle files"
 HOMEPAGE="https://github.com/tkarabela/pysubs2"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/tkarabela/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+
+distutils_enable_tests nose

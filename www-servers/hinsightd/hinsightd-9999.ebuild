@@ -43,7 +43,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/defines-v4.patch"
+	"${FILESDIR}/${PN}-defines-v4.patch"
 )
 
 src_configure() {
@@ -55,6 +55,7 @@ src_configure() {
 
 src_install() {
 	newsbin "${BUILD_DIR}/hin9" $PN
+	newbin "${BUILD_DIR}/hin9_pid_helper" ${PN}_pid_helper
 	newinitd "${S}/external/packaging/$PN.initd.sh" $PN
 	newconfd "${S}/external/packaging/$PN.confd.sh" $PN
 	systemd_dounit "${FILESDIR}/$PN.service" # not tested

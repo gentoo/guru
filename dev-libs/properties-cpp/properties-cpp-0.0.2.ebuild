@@ -31,5 +31,9 @@ MAKEOPTS="${MAKEOPTS} -j1"
 
 src_prepare() {
 	use !doc && truncate -s0 doc/CMakeLists.txt
+
+	#Remove the test from the build
+	truncate -s0 tests/CMakeLists.txt
+
 	cmake_src_prepare
 }

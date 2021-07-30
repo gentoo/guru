@@ -5,6 +5,7 @@
 # treedbscan needs old cgal
 # https://github.com/bsc-performance-tools/clustering-suite/issues/8
 sys-cluster/clusteringsuite treedbscan
+sys-cluster/extrae clustering
 
 # Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-07-26)
 # current muster doesn't provide density.h

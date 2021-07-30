@@ -43,7 +43,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/defines-v4.patch"
+	"${FILESDIR}/${PN}-defines-v4.patch"
 )
 
 src_configure() {
