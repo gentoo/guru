@@ -20,7 +20,7 @@ SRC_URI="mirror://pypi/${P:0:1}/${PN}/${PN}-${VNAME}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~arm ~arm64"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
