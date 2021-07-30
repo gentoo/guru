@@ -57,7 +57,6 @@ RDEPEND=""
 DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-lang/go-1.14
-	sys-devel/gcc
 "
 
 src_install() {
