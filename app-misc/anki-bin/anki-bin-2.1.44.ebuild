@@ -9,37 +9,39 @@ inherit python-single-r1 desktop xdg
 DESCRIPTION="A spaced-repetition memory training program (flash cards)"
 HOMEPAGE="https://apps.ankiweb.net/"
 SRC_URI="
-	https://files.pythonhosted.org/packages/1d/da/199c378dd483bea4b38e94c2951bbb903dae8be023484577ba41b9c75ada/anki-2.1.44-cp38-abi3-manylinux2014_x86_64.whl -> ${P}.zip
-	https://files.pythonhosted.org/packages/25/1a/7b94d38b897c942c206258b7b1c758586250ebeb4804a33a4191a047fb2a/aqt-2.1.44-py3-none-any.whl -> aqt-${PV}.zip
-	https://github.com/ankitects/anki/blob/2.1.44/qt/linux/anki.png
+	https://files.pythonhosted.org/packages/1d/da/199c378dd483bea4b38e94c2951bbb903dae8be023484577ba41b9c75ada/anki-${PV}-cp38-abi3-manylinux2014_x86_64.whl -> ${P}.zip
+	https://files.pythonhosted.org/packages/25/1a/7b94d38b897c942c206258b7b1c758586250ebeb4804a33a4191a047fb2a/aqt-${PV}-py3-none-any.whl -> aqt-${PV}.zip
+	https://github.com/ankitects/anki/blob/${PV}/qt/linux/anki.png
 "
 
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
-	dev-python/decorator
-	dev-python/protobuf-python
-	dev-python/orjson-bin
-	dev-python/distro
-	dev-python/beautifulsoup
-	dev-python/requests
-	dev-python/flask
-	dev-python/waitress
-	dev-python/send2trash
-	dev-python/markdown
-	dev-python/jsonschema
-	dev-python/flask-cors
-	dev-python/PyQt5
-	dev-python/PyQtWebEngine
+	$(python_gen_cond_dep '
+	dev-python/decorator[${PYTHON_USEDEP}]
+	dev-python/protobuf-python[${PYTHON_USEDEP}]
+	dev-python/orjson-bin[${PYTHON_USEDEP}]
+	dev-python/distro[${PYTHON_USEDEP}]
+	dev-python/beautifulsoup[${PYTHON_USEDEP}]
+	dev-python/requests[${PYTHON_USEDEP}]
+	dev-python/flask[${PYTHON_USEDEP}]
+	dev-python/waitress[${PYTHON_USEDEP}]
+	dev-python/send2trash[${PYTHON_USEDEP}]
+	dev-python/markdown[${PYTHON_USEDEP}]
+	dev-python/jsonschema[${PYTHON_USEDEP}]
+	dev-python/flask-cors[${PYTHON_USEDEP}]
+	dev-python/PyQt5[${PYTHON_USEDEP}]
+	dev-python/PyQtWebEngine[${PYTHON_USEDEP}]
+	')
 "
-RDEPEND="
-	${DEPEND}
+RDEPEND="${DEPEND}
+	${PYTHON_DEPS}
 	!app-misc/anki
 "
-BDEPEND="app-arch/unzip
-${PYTHON_DEPS}"
+BDEPEND="app-arch/unzip"
 
 S="${WORKDIR}"
 
