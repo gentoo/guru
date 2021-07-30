@@ -14,7 +14,7 @@ C
 * [parsec](https://bitbucket.org/icldistcomp/parsec)
 * [scr](https://github.com/LLNL/scr)
 * [the-omega-project](https://github.com/davewathaverford/the-omega-project)
-* [xpmem](https://github.com/hjelmn/xpmem)
+* [xpmem](https://gitlab.com/hjelmn/xpmem)
 * [sandia openshmem](https://github.com/Sandia-OpenSHMEM/SOS)
 * [ummunotify](https://github.com/Portals4/ummunotify)
 
