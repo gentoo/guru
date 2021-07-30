@@ -45,7 +45,9 @@ src_install() {
 	cmake_src_install
 
 	einstalldocs
-	use doc && mv "${ED}"/usr/share/doc/*.pdf "${ED}/usr/share/doc/${PF}" || die
+	if use doc; then
+		mv "${ED}"/usr/share/doc/*.pdf "${ED}/usr/share/doc/${PF}" || die
+	fi
 
 	if [[ ! -e "${ED}/usr/$(get_libdir)" ]]; then
 		mv "${ED}/usr/lib" "${ED}/usr/$(get_libdir)" || die
