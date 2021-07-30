@@ -20,7 +20,7 @@ BDEPEND=""
 src_install(){
 	insinto /opt
 	doins -r "${S}"/opt/Koodo\ Reader
-	dosym ../../opt/Koodo\ Reader/koodo-reader ${EPREFIX}/usr/bin/koodo-reader
+	dosym ../../opt/Koodo\ Reader/koodo-reader "${EPREFIX}/usr/bin/koodo-reader"
 	fperms +x /opt/Koodo\ Reader/koodo-reader
 	insinto /usr
 	doins -r "${S}"/usr/share
