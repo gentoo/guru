@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="slurm"
 
-DEPEND="
+RDEPEND="
 	sys-cluster/launchmon
 	sys-cluster/mrnet
 "
