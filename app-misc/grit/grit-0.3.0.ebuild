@@ -45,11 +45,11 @@ go-module_set_globals
 DESCRIPTION="An personal task manager that represents tasks as multitree nodes"
 HOMEPAGE="https://github.com/climech/grit"
 SRC_URI="
-	https://github.com/climech/grit/archive/refs/tags/v0.3.0.tar.gz -> ${P}.tar.gz
+	https://github.com/climech/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}
 "
 
-LICENSE="MIT ISC BSD"
+LICENSE="MIT ISC BSD BSD-2 Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
