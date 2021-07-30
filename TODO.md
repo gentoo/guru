@@ -17,7 +17,6 @@ C
 * [xpmem](https://github.com/hjelmn/xpmem)
 * [sandia openshmem](https://github.com/Sandia-OpenSHMEM/SOS)
 * [ummunotify](https://github.com/Portals4/ummunotify)
-* [portals4](https://github.com/Portals4/portals4)
 
 C++
 * [machinekit](https://github.com/machinekit/machinekit) 
