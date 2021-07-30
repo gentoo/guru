@@ -16,11 +16,11 @@ SLOT="0"
 
 IUSE="
 	+theme-mono
-	theme-mono_highlight
+	theme-mono-highlight
 	theme-newsboat
 	theme-templeos
 "
-REQUIRED_USE="^^ ( theme-mono theme-mono_highlight theme-newsboat theme-templeos )"
+REQUIRED_USE="^^ ( theme-mono theme-mono-highlight theme-newsboat theme-templeos )"
 
 DEPEND="sys-libs/ncurses"
 RDEPEND="${DEPEND}"
@@ -33,7 +33,7 @@ src_configure() {
 
 	if use theme-mono ; then
 		SFEED_THEME="mono"
-	elif use theme-mono_highlight ; then
+	elif use theme-mono-highlight ; then
 		SFEED_THEME="mono_highlight"
 	elif use theme-newsboat ; then
 		SFEED_THEME="newsboat"
