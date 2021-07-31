@@ -7,38 +7,38 @@ EAPI=7
 
 CRATES="
 	aho-corasick-0.7.18
-	anyhow-1.0.40
+	anyhow-1.0.42
 	atty-0.2.14
 	autocfg-1.0.1
 	bitflags-1.2.1
 	cfg-if-1.0.0
 	clap-3.0.0-beta.2
 	clap_derive-3.0.0-beta.2
-	crossbeam-channel-0.5.0
+	crossbeam-channel-0.5.1
 	crossbeam-deque-0.8.0
-	crossbeam-epoch-0.9.3
-	crossbeam-utils-0.8.3
-	crossterm-0.19.0
-	crossterm_winapi-0.7.0
+	crossbeam-epoch-0.9.5
+	crossbeam-utils-0.8.5
+	crossterm-0.20.0
+	crossterm_winapi-0.8.0
 	directories-next-2.0.0
 	dirs-sys-next-0.1.2
 	dtoa-0.4.8
 	edit-0.1.3
 	either-1.6.1
-	getrandom-0.2.2
+	getrandom-0.2.3
 	hashbrown-0.9.1
-	heck-0.3.2
+	heck-0.3.3
 	hermit-abi-0.1.18
 	indexmap-1.6.2
 	instant-0.1.9
 	lazy_static-1.4.0
-	libc-0.2.92
+	libc-0.2.97
 	linked-hash-map-0.5.4
-	lock_api-0.4.3
+	lock_api-0.4.4
 	log-0.4.14
 	memchr-2.4.0
-	memoffset-0.6.3
-	mio-0.7.11
+	memoffset-0.6.4
+	mio-0.7.13
 	miow-0.3.7
 	ntapi-0.3.6
 	num_cpus-1.13.0
@@ -48,15 +48,15 @@ CRATES="
 	ppv-lite86-0.2.10
 	proc-macro-error-1.0.4
 	proc-macro-error-attr-1.0.4
-	proc-macro2-1.0.26
+	proc-macro2-1.0.27
 	quote-1.0.9
 	rand-0.8.3
-	rand_chacha-0.3.0
+	rand_chacha-0.3.1
 	rand_core-0.6.2
 	rand_hc-0.3.0
-	rayon-1.5.0
-	rayon-core-1.9.0
-	redox_syscall-0.2.5
+	rayon-1.5.1
+	rayon-core-1.9.1
+	redox_syscall-0.2.8
 	redox_users-0.4.0
 	regex-1.5.4
 	regex-syntax-0.6.25
@@ -68,20 +68,21 @@ CRATES="
 	serde_derive-1.0.126
 	serde_yaml-0.8.17
 	shellwords-1.1.0
-	signal-hook-0.1.17
-	signal-hook-registry-1.3.0
+	signal-hook-0.3.9
+	signal-hook-mio-0.2.1
+	signal-hook-registry-1.4.0
 	smallvec-1.6.1
 	strip-ansi-escapes-0.1.0
 	strsim-0.10.0
-	syn-1.0.68
+	syn-1.0.73
 	tempfile-3.2.0
 	termcolor-1.1.2
 	textwrap-0.12.1
-	thiserror-1.0.25
-	thiserror-impl-1.0.25
+	thiserror-1.0.26
+	thiserror-impl-1.0.26
 	unicode-segmentation-1.7.1
 	unicode-width-0.1.8
-	unicode-xid-0.2.1
+	unicode-xid-0.2.2
 	utf8parse-0.1.1
 	vec_map-0.8.2
 	version_check-0.9.3
