@@ -15,13 +15,13 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-distutils_enable_tests unittest
-
 BDEPEND="
 	test? (
 		media-video/ffmpeg
 	)
 	"
+
+distutils_enable_tests unittest
 
 python_test() {
 	eunittest test/
