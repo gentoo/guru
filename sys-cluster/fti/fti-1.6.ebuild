@@ -39,7 +39,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-sionlib-includedir.patch"
 	"${FILESDIR}/${PN}-add-spinx-ext-autodoc.patch"
 )
-RESTRICT="!test? ( test )"
+#RESTRICT="!test? ( test )"
+RESTRICT="test"
 
 pkg_setup() {
 	fortran-2_pkg_setup
