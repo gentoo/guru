@@ -22,15 +22,16 @@ SLOT="0"
 RDEPEND="
 	x11-libs/gtk+:3
 	dev-cpp/gtkmm:3.0
-	dev-cpp/nlohmann_json"
+	dev-cpp/nlohmann_json
+	layershell? ( gui-libs/gtk-layer-shell )"
 DEPEND="${RDEPEND}"
 
 RESTRICT="mirror"
 
-IUSE="+bar +dmenu +grid"
+IUSE="+bar +dmenu +grid layershell"
 
 src_configure() {
-	meson_src_configure $(meson_use bar) $(meson_use dmenu) $(meson_use grid)
+	meson_src_configure $(meson_use bar) $(meson_use dmenu) $(meson_use grid) $(meson_feature layershell layer-shell)
 }
 
 src_install() {
