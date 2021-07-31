@@ -46,6 +46,13 @@ src_install() {
 	elif use arm64; then
 		ARCH="aarch64"
 	fi
-	python_foreach_impl python_domodule ${PN//-bin}.cpython-310-${ARCH}-linux-gnu.so
+	do_install() {
+		insinto "$(python_get_sitedir)"
+		# Even though the soname is compatible, the python version has to be
+		# corrected in order for it to work
+		newins ${PN//-bin}.cpython-310-${ARCH}-linux-gnu.so ${PN//-bin}.cpython-3${EPYTHON##python3.}-${ARCH}-linux-gnu.so
+		python_domodule ${P//-bin}.dist-info
+	}
+	python_foreach_impl do_install
 }
 
