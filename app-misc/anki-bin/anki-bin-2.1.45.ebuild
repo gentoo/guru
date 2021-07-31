@@ -36,6 +36,7 @@ $(python_gen_cond_dep '
 	dev-python/flask-cors[${PYTHON_USEDEP}]
 	dev-python/PyQt5[${PYTHON_USEDEP}]
 	dev-python/PyQtWebEngine[${PYTHON_USEDEP}]
+	dev-python/stringcase[${PYTHON_USEDEP}]
 	')
 "
 RDEPEND="${DEPEND}
@@ -52,7 +53,7 @@ src_unpack() {
 
 src_install() {
 	python_domodule anki
-	python_domodule anki-2.1.44.dist-info
+	python_domodule anki-${PV}.dist-info
 	python_domodule aqt
 	python_domodule aqt-${PV}.dist-info
 	printf "#!/usr/bin/python3\nimport sys;from aqt import run;sys.exit(run())" > runanki
