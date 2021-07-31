@@ -23,6 +23,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc examples fi-io hdf5 lustre fortran openssl sionlib test tutorial"
 
+#TODO: unbundle jerasure bpp iniparser
 RDEPEND="
 	sys-libs/zlib
 	virtual/mpi

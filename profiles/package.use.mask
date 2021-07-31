@@ -11,3 +11,7 @@ sys-cluster/extrae clustering
 # current muster doesn't provide density.h
 # https://github.com/bsc-performance-tools/clustering-suite/issues/9
 sys-cluster/clusteringsuite muster
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-07-31)
+# https://github.com/leobago/fti/issues/399
+sys-cluster/fti fortran

@@ -4,7 +4,6 @@ If you find an interesting piece of software here, consider to package it, also 
 
 C
 * [spacelib](https://github.com/Alessandro-Barbieri/SpaceLib) 
-* [fti](https://github.com/leobago/fti)
 * [silk-guardian](https://github.com/NateBrune/silk-guardian)
 * [qepcad](https://www.usna.edu/Users/cs/wcbrown/qepcad/B/QEPCAD.html)
 * [blasfeo](https://github.com/giaf/blasfeo)
