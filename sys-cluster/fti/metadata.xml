@@ -20,6 +20,6 @@ FTI stands for Fault Tolerance Interface and is a library that aims to give comp
     <flag name="hdf5">Enables the HDF5 checkpoints for FTI</flag>
     <flag name="tutorial">Enables the generation of tutorial files</flag>
     <flag name="fi-io">Enables the I/O failure injection mechanism</flag>
-    <flag name="tests">Enables the generation of tests</flag>
+    <flag name="test">Enables the generation of tests</flag>
   </use>
 </pkgmetadata>
