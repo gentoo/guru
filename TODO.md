@@ -95,6 +95,7 @@ PYTHON
 * [TauonMusicBox](https://github.com/Taiko2k/TauonMusicBox)
 * [temanejo](https://www.hlrs.de/solutions-services/service-portfolio/programming/hpc-development-tools/temanejo)
 * [mmtracking](https://github.com/open-mmlab/mmtracking)
+* [ueberzug](https://github.com/seebye/ueberzug)
 
 RUST
 * [enarx](https://enarx.dev/)
