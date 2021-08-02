@@ -1,7 +1,7 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools
 
@@ -41,13 +41,15 @@ src_configure() {
 		$(use_enable instrumentation)
 	)
 
+	if use debug && use instrumentation; then
+		myconf+=( "--enable-instrumentation-debug" )
+	else
+		myconf+=( "--disable-instrumentation-debug" )
+	fi
 	if use fti; then
 		myconf+=( "--with-fti=${EPREFIX}/usr" )
 	else
 		myconf+=( "--without-fti" )
-	fi
-	if use instrumentation; then
-		myconf+=( $(use_enable instrumentation-debug debug) )
 	fi
 	if use scr; then
 		myconf+=( "--with-scr=${EPREFIX}/usr" )
@@ -66,5 +68,5 @@ src_configure() {
 src_install() {
 	default
 	dodoc NEWS AUTHORS INSTALL
-        find "${ED}" -name '*.la' -delete || die
+	find "${ED}" -name '*.la' -delete || die
 }
