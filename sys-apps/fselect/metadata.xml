@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>qaidvoid@gmail.com</email>
+		<name>Rabindra Dhakal</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/jhspetersson/fselect/issues</bugs-to>
+		<changelog>https://github.com/jhspetersson/fselect/commits/master</changelog>
+		<remote-id type="github">jhspetersson/fselect</remote-id>
+	</upstream>
+	<use>
+		<flag name='users'>Add support for getting system users and groups</flag>
+	</use>
+</pkgmetadata>
