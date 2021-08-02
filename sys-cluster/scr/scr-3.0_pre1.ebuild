@@ -17,16 +17,18 @@ HOMEPAGE="
 	https://github.com/LLNL/scr
 "
 SRC_URI="https://github.com/LLNL/scr/archive/refs/tags/v${MYPV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${MYPV}"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc examples fcntl +flock +fortran mysql pdsh pmix slurm syslog txt-log +yogrt"
+IUSE="doc examples fcntl +flock +fortran mysql pmix slurm syslog test txt-log +yogrt"
 
 #cppr
 RDEPEND="
 	${PYTHON_DEPS}
 
+	app-shells/pdsh
 	sys-cluster/AXL
 	sys-cluster/dtcmp
 	sys-cluster/er
@@ -38,7 +40,6 @@ RDEPEND="
 	virtual/mpi
 
 	mysql? ( dev-db/mysql-connector-c  )
-	pdsh? ( app-shells/pdsh )
 	pmix? ( sys-cluster/pmix )
 	slurm? ( sys-cluster/slurm )
 	yogrt? ( sys-cluster/libyogrt[slurm?] )
@@ -51,6 +52,7 @@ REQUIRED_USE="
 	?? ( pmix slurm )
 	?? ( fcntl flock )
 "
+RESTRICT="!test? ( test )"
 
 pkg_setup() {
 	fortran-2_pkg_setup
@@ -75,7 +77,8 @@ src_configure() {
 		-DBUILD_PDSH=OFF
 		-DENABLE_INTEL_CPPR=OFF
 		-DENABLE_ENABLE_CRAY_DW=OFF
-		-DENABLE_IBM_BBAPI=OF
+		-DENABLE_IBM_BBAPI=OFF
+		-DENABLE_PDSH=ON
 		-DSCR_ASYNC_API="${asyncapi}"
 		-DSCR_FILE_LOCK="${lock}"
 		-DSCR_LINK_STATIC=OFF
@@ -84,7 +87,6 @@ src_configure() {
 
 		-DENABLE_EXAMPLES=$(usex examples)
 		-DENABLE_FORTRAN=$(usex fortran)
-		-DENABLE_PDSH=$(usex pdsh)
 		-DENABLE_TESTS=$(usex test)
 		-DENABLE_YOGRT=$(usex yogrt)
 		-DSCR_LOG_SYSLOG_ENABLE=$(usex syslog 0 1)

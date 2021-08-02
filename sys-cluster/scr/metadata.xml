@@ -17,7 +17,6 @@ The Scalable Checkpoint / Restart (SCR) library enables MPI applications to util
     <flag name="flock">use flock as a file locking type</flag>
     <flag name="fortran">Enables Fortran support</flag>
     <flag name="mysql">Enable use of mysql for logging SCR activities</flag>
-    <flag name="pdsh">Enable use of pdsh for scalable restart and scavenge</flag>
     <flag name="pmix">use pmix as resource manager</flag>
     <flag name="slurm">use slurm as resource manager</flag>
     <flag name="syslog">Whether to enable syslog logging</flag>
