@@ -170,7 +170,6 @@ src_install() {
 	diropts -m 0755 -o owncast -g owncast
 	insopts -m 0644 -o owncast -g owncast
 
-	dodir /var/lib/${PN}
 	insinto /var/lib/${PN}
 	doins -r static webroot
 }
