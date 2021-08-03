@@ -15,3 +15,7 @@ sys-cluster/clusteringsuite muster
 # Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-07-31)
 # https://github.com/leobago/fti/issues/399
 sys-cluster/fti fortran
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-08-03)
+# https://github.com/hjelmn/xpmem/issues/43
+sys-kernel/xpmem modules
