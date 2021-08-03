@@ -102,6 +102,5 @@ src_compile() {
 
 src_install() {
 	cmake_src_install
-	einstalldocs
 	find "${ED}" -name '*.a' -delete || die
 }
