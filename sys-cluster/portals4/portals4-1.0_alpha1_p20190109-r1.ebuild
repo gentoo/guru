@@ -10,7 +10,7 @@ DOCS_DIR="doc"
 
 inherit autotools docs
 
-DESCRIPTION="low-level network API for high-performance networking on high-performance computing systems"
+DESCRIPTION="low-level network API for high-performance networking"
 HOMEPAGE="
 	https://www.cs.sandia.gov/Portals/portals4.html
 	https://github.com/Portals4/portals4
