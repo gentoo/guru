@@ -184,6 +184,7 @@ gui-apps/foot:ime - Enable IME support
 gui-apps/nwg-launchers:bar - Installs nwgbar, a horizontal or vertical button bar.
 gui-apps/nwg-launchers:dmenu - Installs nwgdmenu, GTK dynamic menu windows.
 gui-apps/nwg-launchers:grid - Installs nwggrid, a GNOME-like application grid.
+gui-apps/nwg-launchers:layershell - Enable Wayland layer shell support
 gui-apps/swaylock-effects:fish-completion - Enable fish completion support
 gui-apps/swaylock-effects:gdk-pixbuf - Enable additional image format support via the x11-libs/gdk-pixbuf library
 gui-apps/swaylock-effects:man - Build and install man pages
@@ -348,12 +349,17 @@ sci-physics/SU2:openblas - Enable OpenBLAS support
 sci-physics/SU2:tecio - Enable TECIO support
 sci-physics/SU2:tutorials - Install Tutorials files
 sys-apps/drm_info:pci - Print PCI device names via libpci
+sys-apps/fselect:users - Add support for getting system users and groups
 sys-auth/keystone:memcached - Installs dependencies needed for using memcached as a backend
 sys-auth/keystone:mongo - Installs dependencies needed for using mongo as a backend
 sys-auth/mrsh:pam - build with pam support
 sys-auth/mrsh:shadow - build with shadow file support
 sys-cluster/KVTree:fcntl - Set the type of file locking to fcntl.
 sys-cluster/KVTree:flock - Set the type of file locking to flock.
+sys-cluster/TCL:fti - Enable sys-cluster/fti backend
+sys-cluster/TCL:instrumentation - Build the instrumentation version
+sys-cluster/TCL:scr - Enable sys-cluster/scr backend
+sys-cluster/TCL:veloc - Enable sys-cluster/veloc backend
 sys-cluster/cinder:api - Installs the initscripts for the cinder api service
 sys-cluster/cinder:iscsi - Allow using an iSCSI remote storage server as pool for disk image storage
 sys-cluster/cinder:lvm - Allow using the Logical Volume Manager (sys-fs/lvm2) as pool for disk image storage
@@ -395,10 +401,19 @@ sys-cluster/extrae:sionlib - Enable support for sys-cluster/sionlib
 sys-cluster/extrae:smpss - Enable support for tracing SMP-superscalar
 sys-cluster/extrae:spectral - This package enables support for on-line spectral analysis.
 sys-cluster/extrae:xml - Enable support for XML configuration
+sys-cluster/fti:fi-io - Enables the I/O failure injection mechanism
+sys-cluster/fti:fortran - Enables the build of a Fortran wrapper
+sys-cluster/fti:hdf5 - Enables the HDF5 checkpoints for FTI
+sys-cluster/fti:lustre - Enables Lustre Support
+sys-cluster/fti:openssl - To use the dev-libs/openssl MD5 rather than the built-in
+sys-cluster/fti:sionlib - Enables the parallel I/O sys-cluster/sionlib for FTI
+sys-cluster/fti:test - Enables the generation of tests
+sys-cluster/fti:tutorial - Enables the generation of tutorial files
 sys-cluster/heat:memcached - Installs the memcached server
 sys-cluster/launchmon:munge - enable munge for connection authentication
 sys-cluster/launchmon:tracing-cost - enable tracing cost measuring codes
 sys-cluster/libi:slurm - Use slurm as tree instantiation method instead of ssh
+sys-cluster/libyogrt:slurm - Add support for the slurm resource manager
 sys-cluster/lwgrp:mpianysource - Specify whether to use MPI_ANY_SOURCE
 sys-cluster/mrnet:libi - Use libi as tree instantiation method instead of ssh
 sys-cluster/mrnet:slurm - Use slurm as libi tree instantiation method instead of ssh
@@ -429,6 +444,25 @@ sys-cluster/nova:novncproxy - Installs the initscripts for the nova novncproxy s
 sys-cluster/nova:openvswitch - Installs openvswitch for the neutron openvswitch support
 sys-cluster/nova:rabbitmq - Installs the rabbitmq server
 sys-cluster/otf2:sionlib - Enable sys-cluster/sionlibl support
+sys-cluster/portals4:knem - Use sys-cluster/knem for bulk message transfer
+sys-cluster/portals4:me-triggered - Enable extended (non-standard) triggered operations. Experimental
+sys-cluster/portals4:pmi - Enable PMI support
+sys-cluster/portals4:ppe - Enable process-offload engine for Portals. Experimental
+sys-cluster/portals4:reliable-udp - Use reliable UDP for remote communication
+sys-cluster/portals4:transport-ib - Use IB for remote communication
+sys-cluster/portals4:transport-shmem - Use Shared memory for on-node communication. This is currently experimental and should be avoided
+sys-cluster/portals4:transport-udp - Use UDP for remote communication
+sys-cluster/portals4:unordered-matching - Enable unordered (hashed) match list searching. Experimental
+sys-cluster/portals4:zero-mrs - Enable this when using MOFED V2.2+ or Qlogic InfiniPath Hardware of IB communication
+sys-cluster/scr:fcntl - use fcntl as a file locking type
+sys-cluster/scr:flock - use flock as a file locking type
+sys-cluster/scr:fortran - Enables Fortran support
+sys-cluster/scr:mysql - Enable use of mysql for logging SCR activities
+sys-cluster/scr:pmix - use pmix as resource manager
+sys-cluster/scr:slurm - use slurm as resource manager
+sys-cluster/scr:syslog - Whether to enable syslog logging
+sys-cluster/scr:txt-log - Whether to enable text file logging
+sys-cluster/scr:yogrt - Enable use of yogrt for time remaining in a job allocation
 sys-cluster/sionlib:cxx - Enable C++ support
 sys-cluster/sionlib:debug - enable SIONlib debug
 sys-cluster/sionlib:deep-est-sdv - deep-est-sdv collector selection plug-in for MSA-aware collective I/O
@@ -468,6 +502,7 @@ sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager
 sys-fs/erofs-utils:fuse - Enable support for Filesystem in Userspace via sys-fs/fuse
 sys-fs/erofs-utils:uuid - Allow interaction with libuuid in sys-apps/util-linux. It's recommended turn on
 sys-kernel/dkms:kernel-hooks - Enable automatic rebuilding of modules via kernel source makefile hooks
+sys-kernel/xpmem:modules - Build the kernel module
 sys-libs/safeclib:constraint-handler - enable C11 invoke_safe_{str,mem}_constraint_handler for less performance, bigger size and more flexibility
 sys-libs/safeclib:extensions - enable additional functions not defined in the C11 specification
 sys-libs/safeclib:norm-compat - Enable NFKC and NFKD modes for wcsnorm

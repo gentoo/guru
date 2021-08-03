@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install
+DEPEND=dev-libs/libpcre2 test? ( dev-util/cmocka )
+DESCRIPTION=Generate help for Makefile
+EAPI=7
+HOMEPAGE=https://github.com/oz123/mh
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=dev-libs/libpcre2
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/oz123/mh/archive/refs/tags/v1.0.3.tar.gz -> mh-1.0.3.tar.gz
+_md5_=d69af8946641a4eb2131e645535069c9

@@ -70,7 +70,7 @@ app-eselect/eselect-scheme 3.1.0: Manages scheme implementations
 app-forensics/yara 4.1.1: A malware identification and classification tool
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/afetch 2.2.0: Simple system info written in C
-app-misc/anki-bin 2.1.44: A spaced-repetition memory training program (flash cards)
+app-misc/anki-bin 2.1.45: A spaced-repetition memory training program (flash cards)
 app-misc/apidb 5.8.0_beta 5.11.0_beta: API Generator for Database access
 app-misc/brightness-control 2.0_p20210331: Qt Brightness Controller in Python
 app-misc/brightnessctl 0.5.1: A program to read and control device brightness
@@ -94,7 +94,7 @@ app-misc/nonsense 0.7-r1: Generates random text from datafiles and templates
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/pup 0.4.0_p1: Parsing HTML at the command line
-app-misc/rememberthemilk 1.3.0: Freemium simple to-do tasks manager
+app-misc/rememberthemilk 1.3.11: Freemium simple to-do tasks manager
 app-misc/ssmtool 0.2.0: A simple sentence mining tool written in PyQt5
 app-misc/tai 0.0.4 0.0.5: tai (Terminal Ascii Image) tool to convert images to ascii
 app-misc/tealdeer 1.4.1: A very fast implementation of tldr in Rust.
@@ -102,7 +102,7 @@ app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the c
 app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
-app-misc/watchexec 1.15.3 1.16.0 1.16.1 1.16.2 1.17.0: Executes commands in response to file modifications
+app-misc/watchexec 1.15.3 1.16.0 1.16.1 1.16.2 1.17.0 1.17.1: Executes commands in response to file modifications
 app-misc/wego 2.0_p20190211-r1: Wego is a weather client for the terminal
 app-mobilephone/flashlight 0.1.1-r2: It's a flashlight, what do you expect?
 app-mobilephone/mobile-config-firefox 2.1.0: Mobile and privacy friendly configuration for Firefox
@@ -537,6 +537,7 @@ dev-python/starlette 0.14.2: The little ASGI framework that shines
 dev-python/statmake 0.3.0-r1: Generate STAT tables for variable fonts from .stylespace files
 dev-python/strictyaml 1.3.2: A type-safe YAML parser built atop ruamel.yaml
 dev-python/stringbrewer 0.0.1: Generate random strings matching a pattern
+dev-python/stringcase 1.2.0: Convert string cases between camel case, pascal case, snake case etc.
 dev-python/sysv_ipc 1.0.1 1.1.0: System V IPC primitives for python
 dev-python/taskflow 4.5.0: A library to do [jobs, tasks, flows] in a HA manner using different backends
 dev-python/tinyrpc 1.0.1: A protocol neutral RPC library that supports JSON-RPC and zmq.
@@ -580,6 +581,7 @@ dev-util/gammaray 2.11.2: High-level runtime introspection tool for Qt applicati
 dev-util/gftools 0.7.2: Miscellaneous tools for working with the Google Fonts collection
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
+dev-util/mh 1.0.3: Generate help for Makefile
 dev-util/osc 0.173.0 9999: Command line tool for Open Build Service
 dev-util/ots 8.1.4: An util for validating and sanitising OpenType files
 dev-util/psautohint 2.3.0: A standalone version of AFDKO autohinter
@@ -660,7 +662,7 @@ gui-apps/coreuniverse 4.2.0 9999: Shows information about apps for C Suite
 gui-apps/foot 1.7.1 1.7.2 1.8.0 1.8.1 1.8.2 9999: A fast, lightweight and minimalistic Wayland terminal emulator
 gui-apps/foot-terminfo 1.7.1 1.7.2 1.8.1 9999: Terminfo for foot, a great Wayland terminal emulator
 gui-apps/mpvpaper 1.0 1.1 9999: A video wallpaper program for wlroots based wayland compositors
-gui-apps/nwg-launchers 0.4.3 0.4.4 9999: GTK+ launchers for sway, i3 and some other WMs
+gui-apps/nwg-launchers 0.4.4 0.5.0 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperde 0.1.1_p20210426 9999: Simple, sleek QT based DE for wayland using wayfire
 gui-apps/sfwbar 0.9.7 0.9.8: Sway Floating Window Bar
 gui-apps/swaykbdd 1.0: Per-window keyboard layout switcher for Sway
@@ -800,7 +802,7 @@ net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/gmid 1.7.2 9999: Simple and secure Gemini server
 net-misc/kristall 0.3-r1 9999: Visual cross-platform gemini browser
-net-misc/lagrange 1.5.2 1.6.0: Desktop GUI client for browsing Geminispace
+net-misc/lagrange 1.6.0 1.6.1: Desktop GUI client for browsing Geminispace
 net-misc/lyrics-in-terminal 1.4.2: Command Line Lyrics fetcher for MPRIS media players
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
@@ -819,7 +821,7 @@ net-misc/whatscli 1.0.6: A command line interface for WhatsApp
 net-misc/wsdd 0.6.4: A Web Service Discovery host daemon.
 net-misc/xmrig-mo 6.12.1: RandomX, CryptoNight, KawPow, AstroBWT and Argon2 miner for the MoneroOcean pool
 net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny Tiny RSS or feedly
-net-news/sfeed 0.9.23 9999: simple RSS and Atom parser
+net-news/sfeed 0.9.25 9999: simple RSS and Atom parser
 net-news/sfeed_curses 0.9.13: A curses UI front-end for sfeed
 net-p2p/bisq 1.7.2: The decentralized bitcoin exchange (non-atomic, with arbitration)
 net-p2p/lbry 0.48.2 0.49.1 0.50.2: A browser for the LBRY network, a digital marketplace controlled by its users.
@@ -856,6 +858,7 @@ sys-apps/0xFFFF 0.8 0.9: The 0pen Free Fiasco Firmware Flasher
 sys-apps/dool 0.8_pre20191010-r1 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
 sys-apps/drm_info 2.2.0 2.3.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3 0.5.4 0.6.0 0.6.1: A more intuitive version of du
+sys-apps/fselect 0.7.6: Find files with SQL-like queries
 sys-apps/hex 0.3.2 0.4.0 0.4.1: Futuristic take on hexdump
 sys-apps/procs 0.11.5 0.11.6: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
@@ -873,6 +876,7 @@ sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of
 sys-cluster/AXL 0.4.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
 sys-cluster/KVTree 1.1.1: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/SIONfwd 1.0.1: A minimalistic I/O forwarding server and client library for SIONlib
+sys-cluster/TCL 1.0: Transparent Checkpointing Library
 sys-cluster/cinder 17.1.0: Cinder is the OpenStack Block storage service, a spin out of nova-volumes
 sys-cluster/clusteringsuite 2.6.9-r3: Expose the main performance trends in applications computation structure
 sys-cluster/dlb 2.1-r2: Dynamically react to application imbalance by modifying the number of resources
@@ -880,11 +884,13 @@ sys-cluster/dtcmp 1.1.2: Datatype Compare Library for sorting and ranking distri
 sys-cluster/dyninst 11.0.1: Tools for binary instrumentation, analysis, and modification
 sys-cluster/er 0.0.4: High-level distributed erasure coding lib combining shuffile and redset
 sys-cluster/extrae 3.8.3-r8: Instrumentation framework to generate execution traces of parallel runtimes
+sys-cluster/fti 1.6: Fault Tolerance Interface
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
 sys-cluster/heat 15.0.0: A CloudFormation-compatible openstack-native cloud orchestration engine.
 sys-cluster/launchmon 1.0.2_p20210430-r1: Enables HPC run-time tools to co-locate tool daemons with a parallel job
 sys-cluster/libbsctools 1.0.6-r2: libbsctools
 sys-cluster/libi 5.0.1_p20180510: A framework for bootstrapping extreme scale software systems
+sys-cluster/libyogrt 1.24: Your One Get Remaining Time library
 sys-cluster/lwgrp 1.0.3: Light-weight Group Library
 sys-cluster/mrnet 5.0.1_p20180510-r3: A Multicast/Reduction Network
 sys-cluster/muster 1.0.1: Massively Scalable Clustering
@@ -894,8 +900,10 @@ sys-cluster/nova 22.2.0 22.2.1: Cloud computing fabric controller
 sys-cluster/otf2 2.3-r1: highly scalable, memory efficient event trace data format
 sys-cluster/pcs 0.10.8-r3: Pacemaker/Corosync Configuration System
 sys-cluster/placement 4.0.0: A HTTP service for managing, selecting, and claiming cloud resources.
+sys-cluster/portals4 1.0_alpha1_p20190109-r1: low-level network API for high-performance networking
 sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on string values
 sys-cluster/redset 0.0.5: Low-level distributed erasure coding lib to protect datasets of MPI applications
+sys-cluster/scr 3.0_pre1: Scalable Checkpoint / Restart Library
 sys-cluster/shuffile 0.0.4: SHUFFILE Shuffle files between processes
 sys-cluster/sionlib 1.7.7-r2: Scalable I/O library for parallel access to task-local files
 sys-cluster/sionlibl 1.7.7-r1: Scalable I/O library for parallel access to task-local files
@@ -917,6 +925,7 @@ sys-fs/python-btrfs 12 13: Python 3 module to inspect btrfs filesystems
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
 sys-kernel/tirdad 0_p20200926: kernel module for random ISN generation
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
+sys-kernel/xpmem 2.6.3_p20210217: Linux Cross-Memory Attach
 sys-libs/libnvidia-container 1.4.0: NVIDIA container runtime library
 sys-libs/nss-tls 1.0 1.1 9999: A DNS over HTTPS resolver for glibc
 sys-libs/safeclib 3.6.0_p20210407-r2 3.6.0_p20210407-r3: safec libc extension with all C11 Annex K functions
@@ -961,6 +970,7 @@ x11-misc/betterlockscreen 3.2.0 4.0.0_beta1 9999: sweet looking lockscreen for l
 x11-misc/betterlockscreen_rapid 0.0.0_pre20210701 0.0.0_pre20210708: A rapid and good-looking screen locker
 x11-misc/caffeine-ng 3.5.1: Aplication able to temporarily inhibit the screensaver
 x11-misc/gammy 0.9.60 0.9.64: Adaptive screen brightness/temperature
+x11-misc/greenclip-bin 4.2: Simple clipboard manager to be integrated with rofi
 x11-misc/gromit-mpx 1.4 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
 x11-misc/i3lock-color 2.13.2 2.13.4 9999: The world's most popular non-default computer lockscreen
 x11-misc/i3lock-fancy-rapid 0.0.0_pre20201109-r1 0.0.0_pre20210421: A faster implementation of i3lock-fancy
@@ -969,6 +979,7 @@ x11-misc/ksnip 1.8.1 1.9.0: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/rofi-file-browser-extended 1.2.0-r2: A file browser for rofi
 x11-misc/squeekboard 1.14.0: Virtual keyboard supporting Wayland, built primarily for the Librem 5 phone
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
+x11-misc/xbanish 1.7: Banish the mouse cursor when typing, show it again when the mouse moves
 x11-misc/xob 0.2 0.3: A lightweight overlay volume (or anything) bar for the X Window System
 x11-plugins/purple-mm-sms 0.1.7: Purple SMS plugin using ModemManager
 x11-terms/tabby-bin 1.0.146: A terminal for a more modern age

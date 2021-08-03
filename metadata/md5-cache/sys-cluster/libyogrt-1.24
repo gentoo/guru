@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815
+DEFINED_PHASES=configure install prepare
+DEPEND=slurm? ( sys-cluster/slurm )
+DESCRIPTION=Your One Get Remaining Time library
+EAPI=8
+HOMEPAGE=https://github.com/LLNL/libyogrt
+INHERIT=autotools
+IUSE=slurm
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1
+RDEPEND=slurm? ( sys-cluster/slurm )
+SLOT=0
+SRC_URI=https://github.com/LLNL/libyogrt/archive/refs/tags/1.24.tar.gz -> libyogrt-1.24.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da
+_md5_=4a98094a27fa800e67c2360a69d98417
