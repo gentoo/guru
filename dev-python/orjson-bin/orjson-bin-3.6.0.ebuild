@@ -6,7 +6,6 @@ EAPI=7
 PYTHON_COMPAT=( python3_{8..9} )
 inherit python-r1
 
-
 DESCRIPTION="Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy"
 HOMEPAGE="https://github.com/ijl/orjson"
 
@@ -55,4 +54,3 @@ src_install() {
 	}
 	python_foreach_impl do_install
 }
-
