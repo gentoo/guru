@@ -4,7 +4,6 @@ If you find an interesting piece of software here, consider to package it, also 
 
 C
 * [spacelib](https://github.com/Alessandro-Barbieri/SpaceLib) 
-* [fti](https://github.com/leobago/fti)
 * [silk-guardian](https://github.com/NateBrune/silk-guardian)
 * [qepcad](https://www.usna.edu/Users/cs/wcbrown/qepcad/B/QEPCAD.html)
 * [blasfeo](https://github.com/giaf/blasfeo)
@@ -12,12 +11,9 @@ C
 * [libfixmath](https://github.com/PetteriAimonen/libfixmath)
 * [hpmpc](https://github.com/giaf/hpmpc)
 * [parsec](https://bitbucket.org/icldistcomp/parsec)
-* [scr](https://github.com/LLNL/scr)
 * [the-omega-project](https://github.com/davewathaverford/the-omega-project)
-* [xpmem](https://github.com/hjelmn/xpmem)
 * [sandia openshmem](https://github.com/Sandia-OpenSHMEM/SOS)
 * [ummunotify](https://github.com/Portals4/ummunotify)
-* [portals4](https://github.com/Portals4/portals4)
 
 C++
 * [machinekit](https://github.com/machinekit/machinekit) 
@@ -47,7 +43,6 @@ C++
 * [codipack](https://www.scicomp.uni-kl.de/software/codi/)
 * [medipack](http://www.scicomp.uni-kl.de/software/medi/)
 * [tecio](https://www.tecplot.com/products/tecio-library/)
-* [TCL](https://github.com/bsc-pm/TCL)
 * [paraver-kernel](https://github.com/bsc-performance-tools/paraver-kernel)
 * [wxparaver](https://github.com/bsc-performance-tools/wxparaver)
 * [alpaka](https://github.com/alpaka-group/alpaka)
@@ -97,6 +92,7 @@ PYTHON
 * [TauonMusicBox](https://github.com/Taiko2k/TauonMusicBox)
 * [temanejo](https://www.hlrs.de/solutions-services/service-portfolio/programming/hpc-development-tools/temanejo)
 * [mmtracking](https://github.com/open-mmlab/mmtracking)
+* [ueberzug](https://github.com/seebye/ueberzug)
 
 RUST
 * [enarx](https://enarx.dev/)

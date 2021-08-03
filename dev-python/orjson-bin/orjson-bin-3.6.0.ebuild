@@ -4,22 +4,23 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{8..9} )
-inherit python-r1 python-utils-r1
-
-MY_PN=${PN//-bin/}
-MY_P=${MY_PN}-${PV}
+inherit python-r1
 
 DESCRIPTION="Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy"
 HOMEPAGE="https://github.com/ijl/orjson"
 
+# As per PEP 600 manylinux platform tag specfication, a wheel tagged
+# manylinux_x_y should work with systems with >=glibc-x.y , and on Python
+# versions 3.8 to 3.10
 SRC_URI="
 	amd64? (
-	https://files.pythonhosted.org/packages/cp310/${P:0:1}/${MY_PN}/${MY_P}-cp310-cp310-manylinux_2_24_x86_64.whl -> ${P}_x86_64.zip
+		https://files.pythonhosted.org/packages/cp310/${P:0:1}/${PN%%-bin}/${P//-bin}-cp310-cp310-manylinux_2_24_x86_64.whl
+		-> ${P}-amd64.zip
 	)
 	arm64? (
-	https://files.pythonhosted.org/packages/cp310/${P:0:1}/${MY_PN}/${MY_P}-cp310-cp310-manylinux_2_24_aarch64.whl -> ${P}_aarch64.zip
+		https://files.pythonhosted.org/packages/cp310/${P:0:1}/${PN%%-bin}/${P//-bin}-cp310-cp310-manylinux_2_24_aarch64.whl
+		-> ${P}-arm64.zip
 	)
-
 	"
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -32,23 +33,24 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 BDEPEND="app-arch/unzip"
 RDEPEND="${PYTHON_DEPS}"
 
-S="${WORKDIR}/"
-
 pkg_setup() {
 	python_setup
 }
 
-src_install(){
-	insinto "$(python_get_sitedir)"
+S="${WORKDIR}"
+
+src_install() {
 	if use amd64; then
-		doins orjson.cpython-310-x86_64-linux-gnu.so
-		dosym  $(python_get_sitedir)/orjson.cpython-310-x86_64-linux-gnu.so $(python_get_sitedir)/orjson.cpython-39-x86_64-linux-gnu.so
-		dosym  $(python_get_sitedir)/orjson.cpython-310-x86_64-linux-gnu.so $(python_get_sitedir)/orjson.cpython-38-x86_64-linux-gnu.so
-		dosym  $(python_get_sitedir)/orjson.cpython-310-x86_64-linux-gnu.so $(python_get_sitedir)/orjson.cpython-37-x86_64-linux-gnu.so
+		ARCH="x86_64"
 	elif use arm64; then
-		doins orjson.cpython-310-aarch64-linux-gnu.so
-		dosym  $(python_get_sitedir)/orjson.cpython-310-aarch64-linux-gnu.so $(python_get_sitedir)/orjson.cpython-39-aarch64-linux-gnu.so
-		dosym  $(python_get_sitedir)/orjson.cpython-310-aarch64-linux-gnu.so $(python_get_sitedir)/orjson.cpython-38-aarch64-linux-gnu.so
-		dosym  $(python_get_sitedir)/orjson.cpython-310-aarch64-linux-gnu.so $(python_get_sitedir)/orjson.cpython-37-aarch64-linux-gnu.so
+		ARCH="aarch64"
 	fi
+	do_install() {
+		insinto "$(python_get_sitedir)"
+		# Even though the soname is compatible, the python version has to be
+		# corrected in order for it to work
+		newins ${PN//-bin}.cpython-310-${ARCH}-linux-gnu.so ${PN//-bin}.cpython-3${EPYTHON##python3.}-${ARCH}-linux-gnu.so
+		python_domodule ${P//-bin}.dist-info
+	}
+	python_foreach_impl do_install
 }

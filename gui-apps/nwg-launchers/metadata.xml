@@ -12,6 +12,7 @@
             GTK dynamic menu windows.</flag>
         <flag name="grid">Installs nwggrid,
             a GNOME-like application grid.</flag>
+        <flag name="layershell">Enable Wayland layer shell support</flag>
     </use>
     <upstream>
         <maintainer>
