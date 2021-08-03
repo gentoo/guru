@@ -1,15 +1,12 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit elisp-common toolchain-funcs wrapper
+inherit elisp-common toolchain-funcs wrapper xdg-utils
 
 DESCRIPTION="Dialect of Scheme designed for Systems Programming"
-HOMEPAGE="
-	https://cons.io/
-	https://github.com/vyzo/gerbil
-"
+HOMEPAGE="https://cons.io/ https://github.com/vyzo/gerbil"
 
 if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
@@ -23,7 +20,8 @@ LICENSE="Apache-2.0 LGPL-2.1"
 SLOT="0"
 IUSE="emacs leveldb lmdb mysql +sqlite +xml yaml +zlib"
 
-DEPEND="
+BDEPEND="dev-scheme/gambit"
+RDEPEND="
 	dev-scheme/gambit
 	emacs? ( >=app-editors/emacs-23.1:* )
 	leveldb? ( dev-libs/leveldb )
@@ -34,17 +32,29 @@ DEPEND="
 	yaml? ( dev-libs/libyaml )
 	zlib? ( sys-libs/zlib )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/${P}/src"
 
 SITEFILE="70${PN}-gentoo.el"
 
-src_configure() {
+src_prepare() {
 	# Just to be safe, because './configure --help' says:
 	# "Set default GERBIL_HOME (environment variable still overrides)"
 	unset GERBIL_HOME
+	xdg_environment_reset
 
+	# Verbose build process
+	GAMBCOMP_VERBOSE="yes"
+	export GAMBCOMP_VERBOSE
+
+	default
+
+	sed -i "s|gcc|$(tc-getCC)|g" ./build.sh || die "Failed to fix CC setting"
+	sed -i "s|-O2|${CFLAGS}|g" ./build.sh || die "Failed to fix CFLAGS setting"
+}
+
+src_configure() {
 	local myconf=(
 		$(use_enable leveldb)
 		$(use_enable lmdb)
@@ -56,41 +66,35 @@ src_configure() {
 		--prefix="${D}/usr/share/${PN}"
 	)
 	# This is not a standard 'configure' script!
-	gsi ./configure "${myconf[@]}" \
-		|| die "Failed to configure using the 'configure' script"
+	gsi ./configure "${myconf[@]}" ||
+		die "Failed to configure using the 'configure' script"
 }
 
 src_compile() {
-	# Verbose build process
-	GAMBCOMP_VERBOSE="yes"
-	export GAMBCOMP_VERBOSE
-
 	# The 'build.sh' script uses environment variables that are exported
 	# by portage, ie.: CFLAGS, LDFLAGS, ...
-	sh ./build.sh \
-		|| die "Failed to compile using the 'build.sh' script"
+	sh ./build.sh ||
+		die "Failed to compile using the 'build.sh' script"
 }
 
 src_install() {
-	mkdir -p "${D}/usr/share/${PN}" \
-		|| die "Failed to make ${D}/usr/share/${PN} directory"
-	gsi ./install \
-		|| die "Failed to install using the 'install' script"
+	mkdir -p "${D}/usr/share/${PN}" ||
+		die "Failed to make ${D}/usr/share/${PN} directory"
+	gsi ./install || die "Failed to install using the 'install' script"
 
-	sed -i "s|${D}|${EPREFIX}|g" "${D}/usr/share/${PN}/bin/gxc" \
-		|| die "Failed to fix the 'gxc' executable script"
+	sed -i "s|${D}|${EPREFIX}|g" "${D}/usr/share/${PN}/bin/gxc" ||
+		die "Failed to fix the 'gxc' executable script"
 
-	mv "${D}/usr/share/${PN}/share/emacs" "${D}/usr/share/emacs" \
-		|| die "Failed to fix '/usr/share/emacs' install path"
-	mv "${D}/usr/share/${PN}/share/${PN}/TAGS" "${D}/usr/share/${PN}/TAGS" \
-		|| die "Failed to fix '/usr/share/gerbil/TAGS' install path"
+	mv "${D}/usr/share/${PN}/share/emacs" "${D}/usr/share/emacs" ||
+		die "Failed to fix '/usr/share/emacs' install path"
+	mv "${D}/usr/share/${PN}/share/${PN}/TAGS" "${D}/usr/share/${PN}/TAGS" ||
+		die "Failed to fix '/usr/share/gerbil/TAGS' install path"
 
 	# Compile the 'gerbil-mode.el'
 	if use emacs; then
-		pushd "${D}/usr/share/emacs/site-lisp/gerbil" || die
-		elisp-compile *.el || die "Failed to compile elisp files"
+		elisp-compile "${D}/usr/share/emacs/site-lisp/gerbil"/*.el ||
+			die "Failed to compile elisp files"
 		elisp-site-file-install "${FILESDIR}/${SITEFILE}"
-		popd || die
 	fi
 
 	# Create wrappers for gerbil executables in GERBIL_HOME (/usr/share/gerbil)
@@ -102,9 +106,7 @@ src_install() {
 	popd || die
 
 	# Without this the programs compiled with gxc will break!
-	# FIXME: Patch gerbil to compile with te correct 'GERBIL_HOME'?
-	insinto "/etc/profile.d"
-	doins "${FILESDIR}/gerbil_home.sh"
+	doenvd "${FILESDIR}/99${PN}"
 }
 
 pkg_postinst() {
