@@ -17,7 +17,7 @@ KEYWORDS="~amd64"
 
 BDEPEND="
 	test? (
-		media-video/ffmpeg
+		media-video/ffmpeg[mp3,vorbis]
 	)
 	"
 
