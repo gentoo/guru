@@ -1,7 +1,7 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 COMMIT="71fc5d04c9f8fc9818a05cdc608e2d13af825d83"
 DOCS_BUILDER="doxygen"
@@ -21,7 +21,7 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="knem me-triggered pmi reliable-udp test transport-ib transport-shmem +transport-udp unordered-matching zero-mrs" #ppe
+IUSE="knem me-triggered pmi ppe reliable-udp test transport-ib transport-shmem +transport-udp unordered-matching zero-mrs"
 
 RDEPEND="
 	dev-libs/libev
@@ -29,19 +29,19 @@ RDEPEND="
 
 	knem? ( sys-cluster/knem )
 	pmi? ( sys-cluster/pmix[pmi] )
+	ppe? ( sys-kernel/xpmem )
 	transport-ib? ( sys-fabric/ofed )
 "
-#	ppe? ( sys-cluster/xpmem )
 DEPEND="${RDEPEND}"
 
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
+	?? ( ppe transport-shmem )
 	^^ ( transport-ib transport-udp )
 
 	knem? ( transport-shmem )
 	reliable-udp? ( transport-udp )
 "
-#	^^ ( ppe transport-shmem )
 
 src_prepare() {
 	default
@@ -58,6 +58,7 @@ src_configure() {
 		--with-ev="${EPREFIX}/usr"
 
 		$(use_enable me-triggered)
+		$(use_enable ppe)
 		$(use_enable reliable-udp)
 		$(use_enable test testing)
 		$(use_enable transport-ib)
@@ -66,18 +67,17 @@ src_configure() {
 		$(use_enable unordered-matching)
 		$(use_enable zero-mrs)
 	)
-#		$(use_enable ppe)
 
 	if use knem; then
 		myconf+=( "--with-knem=${EPREFIX}/usr" )
 	else
 		myconf+=( "--without-knem" )
 	fi
-#	if use ppe; then
-#		myconf+=( "--with-xpmem=${EPREFIX}/usr" )
-#	else
-#		myconf+=( "--without-xpmem" )
-#	fi
+	if use ppe; then
+		myconf+=( "--with-xpmem=${EPREFIX}/usr" )
+	else
+		myconf+=( "--without-xpmem" )
+	fi
 	if use pmi; then
 		myconf+=( "--with-pmi=${EPREFIX}/usr" )
 	else

@@ -13,7 +13,7 @@
 		<flag name="knem">Use <pkg>sys-cluster/knem</pkg> for bulk message transfer</flag>
 		<flag name="me-triggered">Enable extended (non-standard) triggered operations. Experimental</flag>
 		<flag name="pmi">Enable PMI support</flag>
-		<!--<flag name="ppe">Enable process-offload engine for Portals. Experimental</flag>-->
+		<flag name="ppe">Enable process-offload engine for Portals. Experimental</flag>
 		<flag name="reliable-udp">Use reliable UDP for remote communication</flag>
 		<flag name="transport-ib">Use IB for remote communication</flag>
 		<flag name="transport-shmem">Use Shared memory for on-node communication. This is currently experimental and should be avoided</flag>
