@@ -18,12 +18,15 @@ SLOT="0"
 IUSE=""
 
 # NOTE: x11-libs/libXext might become a dep next version (1.7+)
-DEPEND="
+RDEPEND="
 	x11-libs/libX11
 	x11-libs/libXfixes
 	x11-libs/libXi
 "
-RDEPEND="${DEPEND}"
+DEPEND="
+	${RDEPEND}
+	x11-libs/libXt
+"
 
 src_configure() {
 	# Makefile doesn't respect user's LDFLAGS
