@@ -15,14 +15,15 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="clustering doc dyninst heterogeneous inotify +instrument-dynamic-memory +instrument-io
-+instrument-syscall memkind merge-in-trace nanos online opencl openmp +parallel-merge
-pebs-sampling +posix-clock pthread sampling +single-mpi-lib sionlib smpss spectral +xml"
++instrument-syscall memkind merge-in-trace nanos online opencl openmp openshmem
++parallel-merge pebs-sampling +posix-clock pthread sampling +single-mpi-lib sionlib smpss
+spectral +xml"
 
 #aspectj and aspectj-weaver need to both be enabled at the same time
 #current dev-java/aspectj package only provides aspectj.jar
 #aspectj needs foo/lib/aspectj.jar and foo/bin/ajc
 #aspectj-weaver needs bar/aspectjweaver.jar
-#TODO: pmapi cuda cupti openshmem gm mx aspectj
+#TODO: pmapi cuda cupti gm mx aspectj
 #TODO: support llvm libunwind, llvm rt, elftoolchain
 
 CDEPEND="
@@ -48,6 +49,7 @@ CDEPEND="
 	memkind? ( dev-libs/memkind )
 	online? ( sys-cluster/synapse )
 	opencl? ( dev-util/opencl-headers )
+	openshmem? ( sys-cluster/SOS )
 	sionlib? ( sys-cluster/sionlib:= )
 	spectral? (
 		sci-libs/fftw
@@ -106,7 +108,6 @@ src_configure() {
 		--with-unwind="${EPREFIX}/usr"
 
 		--without-cupti
-		--without-openshmem
 		--without-gm
 		--without-mx
 
@@ -174,6 +175,11 @@ src_configure() {
 		myconf+=( "--with-opencl=${EPREFIX}/usr" )
 	else
 		myconf+=( "--without-opencl" )
+	fi
+	if use openshmem; then
+		myconf+=( "--with-openshmem=${EPREFIX}/usr" )
+	else
+		myconf+=( "--without-openshmem" )
 	fi
 	if use sionlib; then
 		myconf+=( "--with-sionlib=${EPREFIX}/usr" )
