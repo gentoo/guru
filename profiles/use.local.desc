@@ -145,6 +145,11 @@ dev-util/gammaray:webengine - Enable support for dev-qt/qtwebengine
 dev-util/ots:sanitize - Sanitize Graphite tables
 games-arcade/taisei:lto - Enable link time optimization
 games-arcade/taisei:zip - Enable loading of game data from ZIP packages via dev-libs/libzip
+games-emulation/citra:cubeb - Enables the cubeb audio backend
+games-emulation/citra:hle-sound - Enable HLE sound via FFmpeg audio (AAC) decoder
+games-emulation/citra:system-libfmt - Use system libfmt
+games-emulation/citra:telemetry - Enable web services (telemetry, etc.)
+games-emulation/citra:video - Enable FFmpeg video dumper
 games-emulation/duckstation:discord - Enable Discord Rich Presence to show the current game on Discord
 games-emulation/duckstation:egl - Enable EGL support
 games-emulation/duckstation:evdev - Support EVDev controller interface
@@ -164,6 +169,7 @@ games-emulation/yuzu:boxcat - Enable the Boxcat service, a yuzu high-level imple
 games-emulation/yuzu:compatibility-list - Downloads the latest compatibility list
 games-emulation/yuzu:cubeb - Enables the cubeb audio backend
 games-emulation/yuzu:discord - Enables Discord Rich Presence
+games-emulation/yuzu:system-vulkan - Use system dev-util/vulkan-headers
 games-emulation/yuzu:webengine - Use QtWebEngine for web applet implementation
 games-emulation/yuzu:webservice - Enable web services (telemetry, etc.)
 games-engines/instead:doc - Include some additional documentation on how to create games for the instead engine
@@ -356,6 +362,34 @@ sys-auth/mrsh:pam - build with pam support
 sys-auth/mrsh:shadow - build with shadow file support
 sys-cluster/KVTree:fcntl - Set the type of file locking to fcntl.
 sys-cluster/KVTree:flock - Set the type of file locking to flock.
+sys-cluster/SOS:av-map - enable av-map instead of av-table in the OFI transport
+sys-cluster/SOS:bounce-buffers - Enable bounce buffers by default
+sys-cluster/SOS:cma - Use cross-memory attach for on-node communication
+sys-cluster/SOS:completion-polling - Enable polling in quiet, fence, and local completion operations
+sys-cluster/SOS:cxx - Enable C++ bindings
+sys-cluster/SOS:error-checking - Enable error checking in SHMEM calls. This will increase the overhead of communication operations.
+sys-cluster/SOS:fortran - Enable fortran bindings
+sys-cluster/SOS:long-fortran-header - Enable long Fortran header, including all function declarations
+sys-cluster/SOS:manual-progress - Enable intermittent progress calls inside transport layer
+sys-cluster/SOS:memcpy - Use memcpy to perform local put/get operations
+sys-cluster/SOS:ofi - Use libfabric as transport layer
+sys-cluster/SOS:ofi-fence - Use FI_FENCE feature to optimize put-with-signal operations
+sys-cluster/SOS:ofi-mr-basic - OFI memory registration mode: basic
+sys-cluster/SOS:ofi-mr-rma-event - The OFI transport will use FI_MR_RMA_EVENT
+sys-cluster/SOS:ofi-mr-scalable - The OFI transport will use FI_MR_SCALABLE
+sys-cluster/SOS:pmi-mpi - Use MPI for process management
+sys-cluster/SOS:pmi-simple - Include support for interfacing with a PMI 1.0 launcher. The launcher must be provided by a separate package, such as MPICH, Hydra, or SLURM.
+sys-cluster/SOS:portals4 - Use portals4 as transport layer
+sys-cluster/SOS:profiling - Enable profiling (pshmem) interface
+sys-cluster/SOS:pthread-mutexes - Use pthread mutexes instead of internal queueing locks
+sys-cluster/SOS:remote-virtual-addressing - Enable optimizations assuming the symmetric heap is always symmetric with regards to virtual address. This may cause applications to abort during shmem_init() if such a symmetric heap can not be created, but will reduce the instruction count for some operations. This optimization also requires that the Portals 4 implementation support BIND_INACCESSIBLE on LEs. This optimization will reduce the overhead of communication calls.
+sys-cluster/SOS:thread-completion - Support SHMEM_THREAD_MULTIPLE in OFI transport using FI_THREAD_COMPLETION thread safety model instead of FI_THREAD_SAFE
+sys-cluster/SOS:threads - Enable threading support
+sys-cluster/SOS:total-data-ordering-always - Always assume total data ordering is available and abort a job if that's not the case
+sys-cluster/SOS:total-data-ordering-check - Check will result in slightly higher overhead but will provide a fallback if the network doesn't provide total data ordering
+sys-cluster/SOS:total-data-ordering-never - Never use total data ordering optimizations
+sys-cluster/SOS:ucx - Use ucx transport
+sys-cluster/SOS:xpmem - Use xpmem transport
 sys-cluster/TCL:fti - Enable sys-cluster/fti backend
 sys-cluster/TCL:instrumentation - Build the instrumentation version
 sys-cluster/TCL:scr - Enable sys-cluster/scr backend
@@ -391,6 +425,7 @@ sys-cluster/extrae:nanos - Enable support for tracing sys-cluster/nanos6 run-tim
 sys-cluster/extrae:online - Enable on-line analysis
 sys-cluster/extrae:opencl - Enable support for tracing OpenCL
 sys-cluster/extrae:openmp - Enable support for tracing OpenMP
+sys-cluster/extrae:openshmem - OpenSHMEM to be used for the instrumentation package
 sys-cluster/extrae:parallel-merge - Build the parallel mergers (mpimpi2prv/mpimpi2dim) based on MPI
 sys-cluster/extrae:pebs-sampling - enable PEBS sampling
 sys-cluster/extrae:posix-clock - Use POSIX clock (clock_gettime call) instead of low level timing routines. Use this option if the system where you install the instrumentation package modifies the frequency of its processors at runtime.

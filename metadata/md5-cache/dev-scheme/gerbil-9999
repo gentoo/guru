@@ -1,14 +1,14 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-scheme/gambit >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm prepare unpack
 DEPEND=dev-scheme/gambit emacs? ( >=app-editors/emacs-23.1:* ) leveldb? ( dev-libs/leveldb ) lmdb? ( dev-db/lmdb ) mysql? ( dev-db/mariadb:* ) sqlite? ( dev-db/sqlite ) xml? ( dev-libs/libxml2 ) yaml? ( dev-libs/libyaml ) zlib? ( sys-libs/zlib )
 DESCRIPTION=Dialect of Scheme designed for Systems Programming
-EAPI=7
+EAPI=8
 HOMEPAGE=https://cons.io/ https://github.com/vyzo/gerbil
-INHERIT=elisp-common toolchain-funcs wrapper git-r3
+INHERIT=elisp-common toolchain-funcs wrapper xdg-utils git-r3
 IUSE=emacs leveldb lmdb mysql +sqlite +xml yaml +zlib
 LICENSE=Apache-2.0 LGPL-2.1
 PROPERTIES=live
 RDEPEND=dev-scheme/gambit emacs? ( >=app-editors/emacs-23.1:* ) leveldb? ( dev-libs/leveldb ) lmdb? ( dev-db/lmdb ) mysql? ( dev-db/mariadb:* ) sqlite? ( dev-db/sqlite ) xml? ( dev-libs/libxml2 ) yaml? ( dev-libs/libyaml ) zlib? ( sys-libs/zlib )
 SLOT=0
-_eclasses_=elisp-common	cf4fd1b0835b9f3e638724840468064a	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	wrapper	4251d4c84c25f59094fd557e0063a974	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=5de0440820a22c663254a7ff11360c7c
+_eclasses_=elisp-common	cf4fd1b0835b9f3e638724840468064a	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	wrapper	4251d4c84c25f59094fd557e0063a974	xdg-utils	27f9a2f19502b925ac117bd657aa2979	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=db1ba7e4c521ee0ecf1ea090d907520e

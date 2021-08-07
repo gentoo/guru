@@ -13,7 +13,7 @@ acct-user/_bgpd 0-r1: User for OpenBGPD
 acct-user/_rpki-client 0: User for rpki-client
 acct-user/biboumi 0: User for net-im/biboumi
 acct-user/fort 0-r1: User for FORT RPKI validator
-acct-user/gemini 0: User for gemini daemon
+acct-user/gemini 0: System user: gemini
 acct-user/gogs 1-r1: www-apps/gogs user
 acct-user/hinsightd 0: A user account for www-servers/hinsightd
 acct-user/jackett 0: User for www-apps/jackett-bin
@@ -25,6 +25,7 @@ acct-user/wsdd 0: User for net-misc/wsdd
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
 app-accessibility/rhvoice 1.4.2: TTS engine with extended languages support (including Russian)
 app-accessibility/speakup-tools 20121017: Tools to customize speakup module
+app-admin/akita 0.1.4: An HTTP log monitoring tool for your terminal
 app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
 app-admin/chezmoi 1.8.10 2.0.12: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
@@ -54,6 +55,7 @@ app-dicts/dictd-misc 1.5_alpha2: Hitchcock's and Easton's Bible Dictionaries
 app-dicts/dictd-moby-thesaurus 1.0: Grady Ward's Moby Thesaurus; 35000 root words and 2.5 million synonyms
 app-dicts/dictd-mueller 3.1-r1: V. K. Mueller English-Russian Dictionary
 app-dicts/dictd-web1913 0.5.0_p1: Webster's Revised Unabridged Dictionary (1913) for dict
+app-doc/anarchism 15.3: An anarchist FAQ
 app-doc/openbsd-manpages 6.9: OpenBSD manual pages
 app-editors/atom-bin 1.57.0-r2: A hackable text editor for the 21st Century
 app-editors/imhex 1.8.1-r1: A hex editor for reverse engineers, programmers, and eyesight
@@ -71,7 +73,7 @@ app-forensics/yara 4.1.1: A malware identification and classification tool
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/afetch 2.2.0: Simple system info written in C
 app-misc/anki-bin 2.1.45: A spaced-repetition memory training program (flash cards)
-app-misc/apidb 5.8.0_beta 5.11.0_beta: API Generator for Database access
+app-misc/apidb 5.8.0_beta 5.11.0_beta 5.13.1_beta: API Generator for Database access
 app-misc/brightness-control 2.0_p20210331: Qt Brightness Controller in Python
 app-misc/brightnessctl 0.5.1: A program to read and control device brightness
 app-misc/cheat 4.2.2: cheat allows you to create and view interactive cheatsheets on the command-line
@@ -140,7 +142,7 @@ app-text/klogg 20.12: A GUI application to browse and search through long and co
 app-text/komikku 0.28.1 0.29.2: An online/offline manga reader for GNOME
 app-text/koodo-reader-bin 1.2.9: A modern ebook manager and reader with sync and backup capacities
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
-app-text/mdbook 0.4.9 0.4.10 0.4.11: Creates a book from markdown files
+app-text/mdbook 0.4.9 0.4.10 0.4.11 0.4.12: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
 app-text/stdman 2019.08.27 2020.11.17 9999: Formatted C++ stdlib man pages (cppreference)
 app-vim/openbsd-style 1.1: vim plugin: indent code according to the OpenBSD and FreeBSD style(9)
@@ -266,7 +268,7 @@ dev-go/lichen 0.1.4: Go binary license checker
 dev-java/gradle-base-annotations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-build-operations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-hashing 6.8.2: Build automation tool for JVM Languages, C(++), etc.
-dev-java/mill-bin 0.9.8: A Java/Scala build tool
+dev-java/mill-bin 0.9.8 0.9.9: A Java/Scala build tool
 dev-java/openjdk-sts-bin 15.0.2_p7: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730-r1: The Aldor Programming Language
 dev-lang/ammonite-repl-bin 2.4.0: Scala language-based scripting and REPL
@@ -588,7 +590,7 @@ dev-util/psautohint 2.3.0: A standalone version of AFDKO autohinter
 dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's OpenGL Shader Builder
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/rpmlint 2.0.0: Tool for checking common errors in RPM packages
-dev-util/rust-analyzer-bin 2021.07.26: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer-bin 2021.08.02: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/xdp-tools 1.2.0: Utilities and example programs for use with XDP
 dev-vcs/bit 1.1.1 1.1.2: Bit is a modern Git CLI
@@ -597,6 +599,7 @@ dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
 dev-vcs/git-repo-updater 0.5.1-r1: Easily update multiple git repositories at once
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
 dev-vcs/gitqlient 1.3.2 1.4.0 9999: Multi-platform Git client written with Qt
+dev-vcs/got 0_p20210217: Portable version of the Game of Trees version control system
 dev-vcs/lazygit 0.27.4 0.28.1 0.28.2 9999: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
 games-action/blackvoxel 2.42 9999: Blackvoxel Video Game
@@ -607,6 +610,7 @@ games-arcade/opensurge 0.5.2.1 9999: fun 2D retro platformer inspired by old-sch
 games-arcade/taisei 1.3.2-r1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 games-board/openriichi 0.2.1.1: OpenRiichi is an open source Japanese Mahjong client
 games-board/rmahjong 0.4_p20201106: Riichi Mahjong, the Japanese variant of the Chinese game Mahjong for 4 players
+games-emulation/citra 9999: A Nintendo 3DS Emulator
 games-emulation/duckstation 9999: Fast Sony PlayStation (PSX) emulator
 games-emulation/melonds 0.9.2 9999: Nintendo DS emulator, sorta
 games-emulation/mupen64plus-qt 1.14 9999: A basic launcher for Mupen64Plus
@@ -766,7 +770,7 @@ media-video/jellyfin-mpv-shim 2.0.1: MPV Cast Client for Jellyfin
 media-video/kikoplay 0.8.1 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.1.0: A GTK3 camera application that knows how to deal with the media request api
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
-media-video/owncast 0.0.7: A self-hosted live video and web chat server
+media-video/owncast 0.0.7-r1: A self-hosted live video and web chat server
 media-video/qliveplayer 3.22.3 3.22.4: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/uxplay 0_pre20210525: AirPlay Unix mirroring server
@@ -802,7 +806,7 @@ net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/gmid 1.7.2 9999: Simple and secure Gemini server
 net-misc/kristall 0.3-r1 9999: Visual cross-platform gemini browser
-net-misc/lagrange 1.6.0 1.6.1: Desktop GUI client for browsing Geminispace
+net-misc/lagrange 1.6.1 1.6.2: Desktop GUI client for browsing Geminispace
 net-misc/lyrics-in-terminal 1.4.2: Command Line Lyrics fetcher for MPRIS media players
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
@@ -857,7 +861,7 @@ sci-physics/SU2 7.1.1: SU2: An Open-Source Suite for Multiphysics Simulation and
 sys-apps/0xFFFF 0.8 0.9: The 0pen Free Fiasco Firmware Flasher
 sys-apps/dool 0.8_pre20191010-r1 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
 sys-apps/drm_info 2.2.0 2.3.0 9999: Small utility to dump info about DRM devices
-sys-apps/dust 0.5.3 0.5.4 0.6.0 0.6.1: A more intuitive version of du
+sys-apps/dust 0.5.3 0.5.4 0.6.0 0.6.1 0.6.2: A more intuitive version of du
 sys-apps/fselect 0.7.6: Find files with SQL-like queries
 sys-apps/hex 0.3.2 0.4.0 0.4.1: Futuristic take on hexdump
 sys-apps/procs 0.11.5 0.11.6: A modern replacement for ps
@@ -876,6 +880,7 @@ sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of
 sys-cluster/AXL 0.4.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
 sys-cluster/KVTree 1.1.1: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/SIONfwd 1.0.1: A minimalistic I/O forwarding server and client library for SIONlib
+sys-cluster/SOS 1.5.0: implementation of the OpenSHMEM specification
 sys-cluster/TCL 1.0: Transparent Checkpointing Library
 sys-cluster/cinder 17.1.0: Cinder is the OpenStack Block storage service, a spin out of nova-volumes
 sys-cluster/clusteringsuite 2.6.9-r3: Expose the main performance trends in applications computation structure
@@ -883,7 +888,7 @@ sys-cluster/dlb 2.1-r2: Dynamically react to application imbalance by modifying 
 sys-cluster/dtcmp 1.1.2: Datatype Compare Library for sorting and ranking distributed data using MPI
 sys-cluster/dyninst 11.0.1: Tools for binary instrumentation, analysis, and modification
 sys-cluster/er 0.0.4: High-level distributed erasure coding lib combining shuffile and redset
-sys-cluster/extrae 3.8.3-r8: Instrumentation framework to generate execution traces of parallel runtimes
+sys-cluster/extrae 3.8.3-r9: Instrumentation framework to generate execution traces of parallel runtimes
 sys-cluster/fti 1.6: Fault Tolerance Interface
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
 sys-cluster/heat 15.0.0: A CloudFormation-compatible openstack-native cloud orchestration engine.

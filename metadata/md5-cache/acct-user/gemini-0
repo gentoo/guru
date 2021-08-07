@@ -1,9 +1,9 @@
 DEFINED_PHASES=install postinst preinst prerm pretend
-DESCRIPTION=User for gemini daemon
-EAPI=7
+DESCRIPTION=System user: gemini
+EAPI=8
 INHERIT=acct-user
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~mips ~ppc64 ~s390 ~x86
 RDEPEND=acct-group/gemini
 SLOT=0
 _eclasses_=user-info	2e75eaea3582b052ec16d9d5aa74ced3	user	1033b6bed7cf367c4507ea9a3ff503d0	acct-user	b3a6f9d710c598ea09935e86d45fbc36
-_md5_=a40b9bda0aaa32eba558fc676e96bb94
+_md5_=3e434fc345859bfeba07e31c89434819
