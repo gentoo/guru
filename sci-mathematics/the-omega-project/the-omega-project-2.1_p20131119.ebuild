@@ -36,7 +36,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-respect-flags.patch"
 	"${FILESDIR}/${PN}-include-Exit-h-in-util-h.patch"
 	"${FILESDIR}/${PN}-remove-default-argument-of-friend-function.patch"
-	"${FILESDIR}/${PN}-petit-remove-default-argument-of-friend-function.patch"
+	"${FILESDIR}/${PN}-fix-fpermissive-errors.patch"
 )
 
 src_prepare() {
