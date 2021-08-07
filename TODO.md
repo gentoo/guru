@@ -11,7 +11,6 @@ C
 * [libfixmath](https://github.com/PetteriAimonen/libfixmath)
 * [hpmpc](https://github.com/giaf/hpmpc)
 * [parsec](https://bitbucket.org/icldistcomp/parsec)
-* [the-omega-project](https://github.com/davewathaverford/the-omega-project)
 * [ummunotify](https://github.com/Portals4/ummunotify)
 
 C++
