@@ -12,5 +12,5 @@ REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=amd64? ( https://files.pythonhosted.org/packages/cp310/o/orjson/orjson-3.6.0-cp310-cp310-manylinux_2_24_x86_64.whl -> orjson-bin-3.6.0-amd64.zip ) arm64? ( https://files.pythonhosted.org/packages/cp310/o/orjson/orjson-3.6.0-cp310-cp310-manylinux_2_24_aarch64.whl -> orjson-bin-3.6.0-arm64.zip )
-_eclasses_=multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	2f5967e7ced9abfa71ff7b0ea8d61b3a	python-r1	e20b80360497e6215aed0dd4ca7d6bad
+_eclasses_=multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	f5408c7f165c2c81b787182c52bc41dd	python-r1	e20b80360497e6215aed0dd4ca7d6bad
 _md5_=60bc88b4e48f3cef59177a65062f426c
