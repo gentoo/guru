@@ -43,7 +43,7 @@ src_prepare() {
 	default
 	append-cxxflags '-DSTILL_CHECK_MULT=1'
 	use debug || append-cxxflags '-DNDEBUG'
-	use gui && append-cxxflags '-DBATCH_ONLY_PETIT'
+	use gui || append-cxxflags '-DBATCH_ONLY_PETIT'
 	tc-export CXX RANLIB
 	sed -e "s|/usr/lib|/usr/$(get_libdir)|g" -i Makefile.config || die
 }
