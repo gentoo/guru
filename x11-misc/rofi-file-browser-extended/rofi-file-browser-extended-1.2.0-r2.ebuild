@@ -21,15 +21,15 @@ SLOT="0"
 IUSE=""
 
 BDEPEND="virtual/pkgconfig"
-COMMON_DEPEND="dev-libs/glib:2"
+COMMON_DEPEND="
+	dev-libs/glib:2
+	x11-misc/rofi
+"
 DEPEND="
 	${COMMON_DEPEND}
 	x11-libs/cairo
 "
-RDEPEND="
-	${COMMON_DEPEND}
-	x11-misc/rofi
-"
+RDEPEND="${COMMON_DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${P}-do-not-install-man-page.patch"

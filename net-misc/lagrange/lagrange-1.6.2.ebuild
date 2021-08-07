@@ -35,6 +35,10 @@ src_configure() {
 		-DENABLE_HARFBUZZ=$(usex harfbuzz)
 		-DENABLE_MPG123=$(usex mp3)
 
+		# never build bundled libs
+		-DENABLE_FRIBIDI_BUILD=OFF
+		-DENABLE_HARFBUZZ_MINIMAL=OFF
+
 		# lib/the_Foundation
 		-DTFDN_ENABLE_WARN_ERROR=OFF
 		-DTFDN_ENABLE_SSE41=$(usex cpu_flags_x86_sse4_1)
@@ -44,9 +48,13 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ewarn "Lagrange 1.6 introduces some breaking changes:"
-	ewarn
-	ewarn "- A new TOFU trust store will be created. The old one is kept around but ignored."
-	ewarn "- App state serialization format has been updated. Downgrading to a previous release"
-	ewarn "  will cause app state to be reset (e.g., tabs closed, navigation history cleared)."
+	xdg_pkg_postinst
+
+	if [[ -n ${REPLACING_VERSIONS} ]] && ver_test ${REPLACING_VERSIONS} -lt 1.6.0 ; then
+		ewarn "Lagrange 1.6 introduces some breaking changes:"
+		ewarn
+		ewarn "- A new TOFU trust store will be created. The old one is kept around but ignored."
+		ewarn "- App state serialization format has been updated. Downgrading to a previous release"
+		ewarn "  will cause app state to be reset (e.g., tabs closed, navigation history cleared)."
+	fi
 }

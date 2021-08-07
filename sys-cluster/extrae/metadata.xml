@@ -34,6 +34,7 @@ process). Extrae generates trace files that can be later visualized with sys-clu
 		<flag name="online">Enable on-line analysis</flag>
 		<flag name="opencl">Enable support for tracing OpenCL</flag>
 		<flag name="openmp">Enable support for tracing OpenMP</flag>
+		<flag name="openshmem">OpenSHMEM to be used for the instrumentation package</flag>
 		<flag name="parallel-merge">Build the parallel mergers (mpimpi2prv/mpimpi2dim) based on MPI</flag>
 		<flag name="pebs-sampling">enable PEBS sampling</flag>
 		<!--<flag name="pmapi">Enable PMAPI library to gather CPU performance counters</flag>-->

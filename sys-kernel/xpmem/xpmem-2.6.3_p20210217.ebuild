@@ -1,12 +1,13 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit autotools linux-mod
-
 MODULES_OPTIONAL_USE="modules"
+MODULES_OPTIONAL_USE_IUSE_DEFAULT=1
 MY_REV="242eaa1eca92567c2118afe21e37cafc524f9166"
+
+inherit autotools linux-mod
 
 DESCRIPTION="Linux Cross-Memory Attach"
 HOMEPAGE="https://github.com/hjelmn/xpmem"
@@ -16,7 +17,6 @@ S="${WORKDIR}/${PN}-${MY_REV}"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+modules"
 
 MODULE_NAMES="xpmem(misc:${WORKDIR}/module/kernel:${WORKDIR}/module/kernel)"
 BUILD_TARGETS="all"

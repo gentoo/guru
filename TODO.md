@@ -12,7 +12,6 @@ C
 * [hpmpc](https://github.com/giaf/hpmpc)
 * [parsec](https://bitbucket.org/icldistcomp/parsec)
 * [the-omega-project](https://github.com/davewathaverford/the-omega-project)
-* [sandia openshmem](https://github.com/Sandia-OpenSHMEM/SOS)
 * [ummunotify](https://github.com/Portals4/ummunotify)
 
 C++
