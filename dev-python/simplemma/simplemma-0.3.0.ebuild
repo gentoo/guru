@@ -15,3 +15,5 @@ DEPEND=""
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+
+distutils_enable_tests pytest
