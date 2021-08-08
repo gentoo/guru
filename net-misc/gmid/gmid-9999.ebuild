@@ -4,6 +4,7 @@
 EAPI=7
 
 SSL_DAYS=36500
+SSL_CERT_MANDATORY=1
 inherit ssl-cert systemd toolchain-funcs
 
 DESCRIPTION="Simple and secure Gemini server"
