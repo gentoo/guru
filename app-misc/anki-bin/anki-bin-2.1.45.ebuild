@@ -20,6 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
+QA_PREBUILT="usr/lib/*"
 DEPEND="
 $(python_gen_cond_dep '
 	dev-python/decorator[${PYTHON_USEDEP}]
