@@ -1,0 +1,55 @@
+--- a/Makefile
++++ b/Makefile
+@@ -370,7 +370,7 @@ compats.o: config.h
+ # The FastCGI manager is pretty standalone.
+ 
+ kfcgi: kfcgi.o compats.o
+-	$(CC) $(CFLAGS) -o $@ kfcgi.o compats.o $(LDADD_LIB_SOCKET)
++	$(CC) $(CFLAGS) -o $@ kfcgi.o compats.o $(LDFLAGS) $(LDADD_LIB_SOCKET)
+ 
+ kfcgi.o: config.h
+ 
+@@ -389,7 +389,8 @@ $(REGRESS): libkcgi.a libkcgiregress.a libkcgijson.a libkcgihtml.a
+ .for BIN in $(REGRESS)
+ $(BIN): $(BIN).c
+ 	$(CC) $(CFLAGS) $(REGRESS_CFLAGS) -o $@ $(BIN).c regress/regress.o \
+-		libkcgiregress.a libkcgijson.a libkcgihtml.a libkcgi.a $(REGRESS_LIBS)
++		libkcgiregress.a libkcgijson.a libkcgihtml.a libkcgi.a \
++		$(LDFLAGS) $(REGRESS_LIBS)
+ .endfor
+ 
+ regress/regress.o: regress/regress.h kcgiregress.h config.h
+@@ -404,7 +405,8 @@ regress/regress.o: regress/regress.c
+ $(BIN).o: $(BIN).c config.h kcgi.h extern.h
+ 	$(CC) $(CFLAGS) -c -o $@ $(BIN).c
+ $(BIN): $(BIN).o libkcgi.a
+-	$(CC) $(CFLAGS) $(CFLAGS_PKG) -o $@ $(BIN).o libkcgi.a $(LIBS_PKG) $(LDADD_MD5)
++	$(CC) $(CFLAGS) $(CFLAGS_PKG) -o $@ $(BIN).o libkcgi.a \
++		$(LDFLAGS) $(LIBS_PKG) $(LDADD_MD5)
+ .endfor
+ 
+ # The main kcgi library.
+@@ -442,16 +444,19 @@ libkcgiregress.a: kcgiregress.o
+ # These demonstrate FastCGI, CGI, and standard.
+ 
+ samplepp: samplepp.cc libkcgi.a libkcgihtml.a kcgi.h
+-	c++ $(CFLAGS) $(CFLAGS_PKG) $(LDADD_STATIC) -o $@ samplepp.cc -L. libkcgi.a $(LIBS_PKG)
++	c++ $(CFLAGS) $(CFLAGS_PKG) $(LDADD_STATIC) -o $@ samplepp.cc -L. libkcgi.a \
++		$(LDFLAGS) $(LIBS_PKG)
+ 
+ sample: sample.o libkcgi.a libkcgihtml.a kcgi.h kcgihtml.h
+-	$(CC) -o $@ $(LDADD_STATIC) sample.o -L. libkcgihtml.a libkcgi.a $(LIBS_PKG)
++	$(CC) -o $@ $(LDADD_STATIC) sample.o -L. libkcgihtml.a libkcgi.a \
++		$(LDFLAGS) $(LIBS_PKG)
+ 
+ sample-fcgi: sample-fcgi.o libkcgi.a kcgi.h
+-	$(CC) -o $@ $(LDADD_STATIC) sample-fcgi.o -L. libkcgi.a $(LIBS_PKG)
++	$(CC) -o $@ $(LDADD_STATIC) sample-fcgi.o -L. libkcgi.a \
++		$(LDFLAGS) $(LIBS_PKG)
+ 
+ sample-cgi: sample-cgi.o 
+-	$(CC) -o $@ $(LDADD_STATIC) sample-cgi.o 
++	$(CC) -o $@ $(LDADD_STATIC) sample-cgi.o $(LDFLAGS)
+ 
+ # Now a lot of HTML and web media files.
+ # These are only used with the `www' target, so we can assume
