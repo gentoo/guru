@@ -26,6 +26,7 @@ SLOT="0"
 
 src_prepare() {
 	eapply -p1 "${FILESDIR}/${PN}-${PVR}-fixes-1.patch"
+	eapply -p1 "${FILESDIR}/${PN}-${PVR}-enable-ldflags.patch"
 	eapply_user
 }
 
