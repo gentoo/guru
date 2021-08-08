@@ -1,6 +1,3 @@
-# Theo Anderson <telans@posteo.de> (2021-01-04)
-# SELinux profiles do not support systemd
-#
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2021-03-29)
 # Per profile masking in an overlay is currently not working
 # with pkgcore/pkgdev/pkgcheck. Masking this for all profiles
@@ -23,3 +20,8 @@
 # Use net-misc/tuir or reddio (https://gitlab.com/aaronNG/reddio) instead.
 # Masked for removal in 30 days.
 net-misc/rtv
+
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2021-08-08)
+# Latest release 9 years ago, no reverse dependencies, almost one-liner.
+# Masked for removal in 30 days.
+dev-python/pytest-marks
