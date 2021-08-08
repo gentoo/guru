@@ -23,3 +23,9 @@ media-gfx/glimpse
 # Mask BH until next release
 # Depend on boost version no longer available
 =dev-R/BH-1.75.0.0
+
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2021-08-08)
+# No longer maintained (see https://github.com/michael-lazar/rtv/issues/696).
+# Use net-misc/tuir or reddio (https://gitlab.com/aaronNG/reddio) instead.
+# Masked for removal in 30 days.
+net-misc/rtv
