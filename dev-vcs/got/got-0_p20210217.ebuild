@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools
+inherit autotools toolchain-funcs
 
 MY_PN="${PN}-portable"
 COMMIT="36536ee0b0fb5108076d8238a4b78c59db9dac3d"  # "linux" branch
@@ -17,7 +17,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="
-	app-crypt/libmd
 	dev-libs/openssl:=
 	sys-libs/ncurses:=
 	sys-libs/zlib:=
@@ -26,6 +25,7 @@ DEPEND="
 	!elibc_Darwin? (
 		dev-libs/libbsd
 		!elibc_SunOS? (
+			app-crypt/libmd
 			sys-apps/util-linux
 		)
 	)
@@ -48,6 +48,10 @@ src_prepare() {
 	sed "/AM_CFLAGS += -g/d" -i Makefile.am || die
 
 	eautoreconf
+}
+
+src_compile() {
+	emake AR=$(tc-getAR)
 }
 
 src_install() {
