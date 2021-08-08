@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<upstream>
+<remote-id type="pypi">PyStarDict</remote-id>
+<remote-id type="github">lig/pystardict</remote-id>
+</upstream>
+<maintainer type="person">
+<email>shaoyu0209@tuta.io</email>
+<name>shaoyu</name>
+</maintainer>
+</pkgmetadata>
