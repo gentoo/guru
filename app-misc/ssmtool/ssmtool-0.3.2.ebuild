@@ -18,6 +18,9 @@ DEPEND="
 	~dev-python/googletrans-4.0.0_rc1[${PYTHON_USEDEP}]
 	dev-python/beautifulsoup:4[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
+	dev-python/flask[${PYTHON_USEDEP}]
+	dev-python/bidict[${PYTHON_USEDEP}]
+	dev-python/pystardict[${PYTHON_USEDEP}]
 "
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
