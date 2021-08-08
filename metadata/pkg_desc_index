@@ -618,7 +618,6 @@ games-emulation/np2kai 22 22_p20210211: NP2kai is an emulator for the japanese P
 games-emulation/yuzu 9999: An emulator for Nintendo Switch
 games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
 games-engines/fs2_open 21.2.0: FreeSpace2 Source Code Project game engine
-games-engines/instead 3.3.5 9999: INSTEAD text-based quest game engine
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
 games-fps/crispy-doom 5.10.0 5.10.1: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
