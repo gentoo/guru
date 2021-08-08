@@ -13,12 +13,6 @@
 # this entry to the relevant package.mask files in ::gentoo
 >=sys-block/systemd-swap-4.4.0
 
-# Ronny (tastytea) Gutbrod <gentoo@tastytea.de> (2021-06-12)
-# Project is “On Hiatus” since 2021-05, it does not look like it will be
-# revived. Upstream recommends switching to media-gfx/gimp.
-# Masked for removal in 30 days.
-media-gfx/glimpse
-
 # Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-06-20)
 # Mask BH until next release
 # Depend on boost version no longer available
