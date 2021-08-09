@@ -34,6 +34,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=( "${FILESDIR}/${PN}-fix-PPE-related-compile-and-link-errors.patch" )
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	?? ( ppe transport-shmem )
