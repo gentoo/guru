@@ -7,7 +7,7 @@ DESCRIPTION="Firmwares files for PinePhone"
 HOMEPAGE="https://xff.cz/git/linux-firmware"
 SRC_URI="https://xff.cz/git/linux-firmware/tree/ov5640_af.bin?id=4ec2645b007ba4c3f2962e38b50c06f274abbf7c -> ov5640_af.bin
 https://xff.cz/git/linux-firmware/tree/anx7688-fw.bin?id=4ec2645b007ba4c3f2962e38b50c06f274abbf7c -> anx7688-fw.bin
-https://xff.cz/git/linux-firmware/tree/rtl_bt/rtl8723cs_xx_fw.bin?id=4ec2645b007ba4c3f2962e38b50c06f274abbf7c -> rtl8723cs_xx_fw.bin
+https://xff.cz/git/linux-firmware/tree/rtl_bt/rtl8723cs_xx_fw.bin?id=4ec2645b007ba4c3f2962e38b50c06f274abbf7c -> rtl8723cs_xx-fw.bin
 "
 
 LICENSE="linux-fw-redistributable no-source-code"
@@ -19,7 +19,7 @@ S="${WORKDIR}"
 src_install() {
 	mkdir -p "${D}"/lib/firmware/ || die
 	insinto /lib/firmware/
-	doins anx7688-fw.bin
-	doins ov5640-fw.bin
-	doins rtl8723cs_xx-fw.bin
+	doins "${DISTDIR}"/anx7688-fw.bin
+	doins "${DISTDIR}"/ov5640_af.bin
+	doins "${DISTDIR}"/rtl8723cs_xx-fw.bin
 }
