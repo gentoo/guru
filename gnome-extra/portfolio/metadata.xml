@@ -1,5 +1,15 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>gjdijkman@gjdwebserver.nl</email>
+		<name>Gerben Jan Dijkman</name>
+	</maintainer>
+	<longdescription lang="en">
+	A minimalist file manager for those who want to use Linux mobile devices.
+	</longdescription>
+	<upstream>
+		<doc>https://github.com/tchx84/Portfolio</doc>
+		<bugs-to>https://github.com/tchx84/Portfolio/issues</bugs-to>
+	</upstream>
 </pkgmetadata>
