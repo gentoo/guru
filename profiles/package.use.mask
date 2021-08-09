@@ -22,11 +22,6 @@ sys-cluster/fti fortran
 # https://github.com/hjelmn/xpmem/issues/43
 sys-kernel/xpmem modules
 
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-08-03)
-# build failure
-# https://github.com/Portals4/portals4/issues/83
-sys-cluster/portals4 ppe
-
 # Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-08-06)
 # sys-cluster/SOS doesn't get recognized as valid openshmem
 # https://github.com/bsc-performance-tools/extrae/issues/35
