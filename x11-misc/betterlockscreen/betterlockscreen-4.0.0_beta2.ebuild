@@ -34,10 +34,6 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_P}"
 
-src_configure() {
-	sed -i '19s/i3lock-color/i3lock/' betterlockscreen || die
-}
-
 src_install() {
 	dobin betterlockscreen
 
