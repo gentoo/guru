@@ -12,6 +12,7 @@ C
 * [hpmpc](https://github.com/giaf/hpmpc)
 * [parsec](https://bitbucket.org/icldistcomp/parsec)
 * [ummunotify](https://github.com/Portals4/ummunotify)
+* [retroarch](https://www.retroarch.com/)
 
 C++
 * [machinekit](https://github.com/machinekit/machinekit) 
@@ -44,6 +45,7 @@ C++
 * [paraver-kernel](https://github.com/bsc-performance-tools/paraver-kernel)
 * [wxparaver](https://github.com/bsc-performance-tools/wxparaver)
 * [alpaka](https://github.com/alpaka-group/alpaka)
+* [emptyepsilon](https://daid.github.io/EmptyEpsilon/)
 
 GO
 * [open-match](https://github.com/googleforgames/open-match)
@@ -94,6 +96,7 @@ PYTHON
 
 RUST
 * [enarx](https://enarx.dev/)
+* [airshipper](https://gitlab.com/veloren/airshipper)
 
 SCALA
 * [kaitai](https://github.com/kaitai-io/kaitai_struct)
