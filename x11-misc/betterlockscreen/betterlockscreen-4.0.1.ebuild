@@ -25,7 +25,7 @@ DEPEND="
 	sys-devel/bc
 	x11-apps/xdpyinfo
 	x11-apps/xrandr
-	>=x11-misc/i3lock-color-2.11:=
+	>=x11-misc/i3lock-color-2.13.3:=
 "
 RDEPEND="${DEPEND}"
 
