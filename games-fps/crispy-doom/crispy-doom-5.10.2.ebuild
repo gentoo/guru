@@ -14,7 +14,7 @@ SRC_URI="https://github.com/fabiangreffrath/${PN}/archive/${P}.tar.gz"
 LICENSE="BSD GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="bash-completion doc libsamplerate +midi png truecolor vorbis zlib"
+IUSE="doc libsamplerate +midi png truecolor vorbis zlib"
 
 DEPEND="
 	media-libs/libsdl2[video]
@@ -24,8 +24,9 @@ DEPEND="
 	png? ( media-libs/libpng:= )
 	zlib? ( sys-libs/zlib )"
 RDEPEND="${DEPEND}"
+# ${PYTHON_DEPS} for bash-completion
 BDEPEND="
-	bash-completion? ( ${PYTHON_DEPS} )
+	${PYTHON_DEPS}
 	doc? ( ${PYTHON_DEPS} )"
 
 S="${WORKDIR}"/${PN}-${P}
@@ -51,7 +52,7 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		$(use_enable bash-completion) \
+		--enable-bash-completion \
 		$(use_enable doc) \
 		--disable-fonts \
 		--disable-icons \
