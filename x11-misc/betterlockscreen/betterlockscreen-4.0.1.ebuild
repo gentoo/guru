@@ -8,14 +8,11 @@ HOMEPAGE="https://github.com/pavanjadhaw/betterlockscreen"
 
 inherit systemd
 
-MY_PV=${PV//_beta/-beta}
-MY_P="${PN}-${MY_PV}"
-
 if [[ "${PV}" == 9999 ]];then
 	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}"
 else
-	SRC_URI="https://github.com/pavanjadhaw/betterlockscreen/archive/refs/tags/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/pavanjadhaw/betterlockscreen/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
@@ -31,8 +28,6 @@ DEPEND="
 	>=x11-misc/i3lock-color-2.11:=
 "
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${MY_P}"
 
 src_install() {
 	dobin betterlockscreen
