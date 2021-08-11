@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>alex@alexsdigital.rodeo</email>
+		<name>Alex Holcomb</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/jbruchon/jdupes/issues</bugs-to>
+	</upstream>
+	<longdescription>
+	jdupes is a program for finding and dealing with duplicate files. It was forked from fdupes, and intends to accomplish the same result while adding features and being noticeably faster.
+	</longdescription>
+</pkgmetadata>
+
