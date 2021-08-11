@@ -70,7 +70,7 @@ src_install() {
 	insinto /etc/logrotate.d
 	newins "${S}/external/packaging/$PN.logrotate.sh" $PN
 
-	keepdir /var/www/localhost/htdocs
+	keepdir /var/www/localhost
 }
 
 pkg_postinst() {

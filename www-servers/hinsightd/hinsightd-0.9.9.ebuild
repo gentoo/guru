@@ -55,6 +55,7 @@ src_configure() {
 
 src_install() {
 	newsbin "${BUILD_DIR}/hin9" $PN
+	newbin "${BUILD_DIR}/hin9_pid_helper" ${PN}_pid_helper
 	newinitd "${S}/external/packaging/$PN.initd.sh" $PN
 	newconfd "${S}/external/packaging/$PN.confd.sh" $PN
 	systemd_dounit "${FILESDIR}/$PN.service" # not tested
@@ -69,7 +70,7 @@ src_install() {
 	insinto /etc/logrotate.d
 	newins "${S}/external/packaging/$PN.logrotate.sh" $PN
 
-	keepdir /var/www/localhost/htdocs
+	keepdir /var/www/localhost
 }
 
 pkg_postinst() {
