@@ -9,5 +9,5 @@ LICENSE=GPL-3
 RDEPEND=dev-libs/libgpiod virtual/libusb:1 net-misc/modemmanager
 SLOT=0
 SRC_URI=https://gitlab.com/mobian1/devices/eg25-manager/-/archive/73e16f76994b1d3c587796a35766cc668e30c0cd.tar.gz -> eg25-manager-0.3.0.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	f5408c7f165c2c81b787182c52bc41dd	meson	5bc3f1b890f90cc00cf1d1dddc10233e	systemd	c846b9e02ac8293bfc9ca38a195c2a18
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	6551f7b3f1289e7f2956f3a1632e9d26	meson	5bc3f1b890f90cc00cf1d1dddc10233e	systemd	c846b9e02ac8293bfc9ca38a195c2a18
 _md5_=d53b815e67aa1486cb67c9cbe90a870f
