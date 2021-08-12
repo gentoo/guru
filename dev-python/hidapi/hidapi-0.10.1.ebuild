@@ -1,10 +1,10 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} )
-
+PYTHON_COMPAT=( python3_{8..10} pypy3 )
+DISTUTILS_USE_SETUPTOOLS="rdepend"
 inherit distutils-r1
 
 DESCRIPTION="A Cython interface to the hidapi"
@@ -19,9 +19,10 @@ DEPEND="
 	dev-python/cython[${PYTHON_USEDEP}]
 	dev-libs/hidapi
 "
+RDEPEND="${DEPEND}"
 
 distutils_enable_tests pytest
 
 python_test() {
-	pytest -vv tests.py || die "Tests failed with ${EPYTHON}"
+	epytest tests.py
 }

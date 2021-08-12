@@ -13,10 +13,28 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=""
+DEPEND="
+	x11-libs/libXcomposite
+	x11-libs/libXdamage
+	x11-libs/libXfixes
+	x11-libs/libXrandr
+	media-libs/alsa-lib
+	dev-libs/atk
+	app-accessibility/at-spi2-atk
+	app-accessibility/at-spi2-core
+	net-print/cups
+	x11-libs/libdrm
+	media-libs/mesa
+	x11-libs/gtk+
+	x11-libs/gdk-pixbuf
+	dev-libs/nss
+	x11-libs/pango
+	x11-libs/libxkbcommon
+"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
+QA_PREBUILT="opt/*"
 src_install(){
 	insinto /opt
 	doins -r "${S}"/opt/Koodo\ Reader

@@ -5,7 +5,4 @@
 		<email>gjdijkman@gjdwebserver.nl</email>
 		<name>Gerben Jan Dijkman</name>
 	</maintainer>
-	<upstream>
-		<doc>https://github.com/google/libphonenumber</doc>
-	</upstream>
 </pkgmetadata>

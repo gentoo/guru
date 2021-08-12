@@ -7,7 +7,7 @@ PLOCALES="cs de en es fr it nl pt ru uk"
 PLOCALE_BACKUP="en"
 LUA_COMPAT=( lua5-1 luajit )
 
-inherit cmake lua-single l10n
+inherit cmake lua-single plocale
 
 if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/instead-hub/${PN}.git"
@@ -61,16 +61,16 @@ DEPEND="${COMMON_DEPEND}"
 DOCS=( AUTHORS ChangeLog README.md )
 
 src_prepare() {
-	l10n_find_plocales_changes "${S}/lang" "" ".ini"
+	plocale_find_changes "${S}/lang" "" ".ini"
 
 	rm_loc() { rm "lang/$1.ini" || die; }
-	l10n_for_each_disabled_locale_do rm_loc
+	plocale_for_each_disabled_locale rm_loc
 
 	# The docs dir contains some code to build pdf out of the Markdown docs, but it requires some
 	# weird util called multimarkdown, so we will just install the md's themselfs.
 	if use doc; then
 		EXTRA_DOCS=()
-		for l in $(l10n_get_locales) ${PLOCALE_BACKUP}; do
+		for l in $(plocale_get_locales) ${PLOCALE_BACKUP}; do
 			for d in "docs/modules-$l.md" "docs/stead3-$l.md"; do
 				if [[ -f "$d" ]]; then
 					EXTRA_DOCS=( "${EXTRA_DOCS[@]}" "$d" )

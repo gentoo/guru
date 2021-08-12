@@ -16,7 +16,6 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-python/auditok[${PYTHON_USEDEP}]
-	dev-python/argparse[${PYTHON_USEDEP}]
 	dev-python/cchardet[${PYTHON_USEDEP}]
 	dev-python/ffmpeg-python[${PYTHON_USEDEP}]
 	dev-python/future[${PYTHON_USEDEP}]
@@ -27,6 +26,11 @@ RDEPEND="
 	>=dev-python/srt-3.0.0[${PYTHON_USEDEP}]
 	dev-python/tqdm[${PYTHON_USEDEP}]
 	dev-python/webrtcvad[${PYTHON_USEDEP}]
-	"
+"
 
 distutils_enable_tests pytest
+
+python_prepare_all() {
+	sed "/argparse/d" -i requirements.txt || die
+	distutils-r1_python_prepare_all
+}
