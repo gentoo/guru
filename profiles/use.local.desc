@@ -205,8 +205,6 @@ media-gfx/bonzomatic:system-glfw - Use the systems installed version of GLFW (up
 media-gfx/bonzomatic:system-kissfft - Use the systems installed version of Kissfft (upstream-unsupported)
 media-gfx/bonzomatic:system-stb - Use the systems installed version of STB (upstream-unsupported)
 media-gfx/bonzomatic:wayland - Build non-system-glfw for wayland instead of X11
-media-gfx/glimpse:heif - Enable support for ISO/IEC 23008-12:2017 HEIF files
-media-gfx/glimpse:vector-icons - Enable support for vector icons (experimental)
 media-gfx/grafx2:ttf - Install TTF Fonts
 media-libs/alvr:x264 - Use x264 for h264 software encoding
 media-libs/alvr:x265 - Use x265 for h265 software encoding
@@ -342,6 +340,9 @@ sci-mathematics/frama-c:studia - Build the studia plugin
 sci-mathematics/frama-c:users - Build the users plugin
 sci-mathematics/frama-c:variadic - Build the variadic plugin
 sci-mathematics/frama-c:wp - Build the WP plugin
+sci-mathematics/the-omega-project:gui - Build petit with gui
+sci-mathematics/the-omega-project:htmldoc - Build html documentation
+sci-mathematics/the-omega-project:petit - Build Petit, a educational/research tool for analyzing array data dependences
 sci-mathematics/why3:coq - Add sci-mathematics/coq support
 sci-mathematics/why3:gtk - Build the IDE x11-libs/gtk+
 sci-mathematics/why3:re - Use Re (dev-ml/re) instead of Str for regular expressions
