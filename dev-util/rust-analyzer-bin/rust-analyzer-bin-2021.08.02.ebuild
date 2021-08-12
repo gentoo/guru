@@ -13,6 +13,8 @@ KEYWORDS="~amd64"
 
 S=${WORKDIR}
 
+QA_FLAGS_IGNORED="usr/bin/rust-analyzer"
+
 src_install() {
 	newbin ${P} rust-analyzer
 }
