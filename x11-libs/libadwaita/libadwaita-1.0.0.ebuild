@@ -23,6 +23,7 @@ DEPEND="
 	gui-libs/gtk
 	dev-libs/fribidi
 "
+
 RDEPEND="${DEPEND}"
 BDEPEND="
 		vala? ( $(vala_depend) )
@@ -30,7 +31,7 @@ BDEPEND="
 		dev-libs/gobject-introspection
 "
 
-S="${WORKDIR}/$PN-${PV}"
+S="${WORKDIR}/$PN-${COMMIT}"
 
 src_install() {
 	meson_src_install
