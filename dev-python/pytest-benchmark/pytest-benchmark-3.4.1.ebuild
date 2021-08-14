@@ -1,11 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
-DISTUTILS_USE_SETUPTOOLS=rdepend
-PYTHON_COMPAT=( python3_{8..9} )
-
+PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="py.test fixture for benchmarking code "
@@ -19,34 +17,35 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-# during tests import fails because conflict with the already installed files
-# not sure how to fix, it would require setting some python variables but that would
-# probably lead to all other packages being unfindable by the tests
-RESTRICT="test"
+DOCS=( AUTHORS.rst CHANGELOG.rst README.rst )
 
-RDEPEND="
-	dev-python/py-cpuinfo[${PYTHON_USEDEP}]
-"
-BDEPEND="
-	${RDEPEND}
-	test? (
-		dev-python/aspectlib[${PYTHON_USEDEP}]
-		dev-python/elasticsearch-py[${PYTHON_USEDEP}]
-		dev-python/freezegun[${PYTHON_USEDEP}]
-		dev-python/hunter[${PYTHON_USEDEP}]
-		dev-python/pygal[${PYTHON_USEDEP}]
-		dev-python/pygaljs[${PYTHON_USEDEP}]
-		dev-python/pytest-instafail[${PYTHON_USEDEP}]
-		dev-python/pytest-xdist[${PYTHON_USEDEP}]
-	)
-"
+RDEPEND="dev-python/py-cpuinfo[${PYTHON_USEDEP}]"
+BDEPEND="test? (
+	dev-python/aspectlib[${PYTHON_USEDEP}]
+	dev-python/freezegun[${PYTHON_USEDEP}]
+	dev-python/hunter[${PYTHON_USEDEP}]
+	dev-python/pygal[${PYTHON_USEDEP}]
+	dev-python/pygaljs[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep \
+		'dev-python/elasticsearch-py[${PYTHON_USEDEP}]' python3_8 python3_9 )
+)"
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs dev-python/sphinx-py3doc-enhanced-theme
 
+python_prepare() {
+	if [[ ${EPYTHON} == python3.10 ]]; then
+		rm tests/test_elasticsearch_storage.py || die
+	fi
+}
+
 python_test() {
-	# has to be run in source dir
-	PYTHONPATH="${S}"
-	cd "${S}" || die
-	pytest -vv || die "Tests fail with ${EPYTHON}"
+	local -x PYTHONPATH="${S}/tests:${BUILD_DIR}/lib:${PYTHONPATH}"
+	local epytest_args=(
+		-o markers=benchmark
+		--deselect tests/test_cli.py::test_help
+		--deselect tests/test_cli.py::test_help_compare
+	)
+
+	epytest "${epytest_args[@]}"
 }
