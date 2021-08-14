@@ -1,37 +1,45 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1 optfeature
 
-DESCRIPTION="aiopg is a library for accessing a PostgreSQL database from the asyncio"
+MY_PV=${PV/_beta/b}
+DESCRIPTION="Postgres integration with asyncio"
 HOMEPAGE="
 	https://aiopg.readthedocs.io
 	https://github.com/aio-libs/aiopg
 "
-SRC_URI="https://github.com/aio-libs/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/aio-libs/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-# tests seem to be wanting to send/recieve things
-# which is probably not allowed inside emerge so they fail?
+# tests use docker containers -- that's wild!
 RESTRICT="test"
 
 RDEPEND="dev-python/psycopg[${PYTHON_USEDEP}]"
 
 DEPEND="test? (
+	dev-python/docker-py[${PYTHON_USEDEP}]
 	dev-python/pytest-timeout[${PYTHON_USEDEP}]
 	dev-python/sqlalchemy[${PYTHON_USEDEP}]
 )"
 
-pkg_postinst() {
-	optfeature "sqlalchemy support" dev-python/sqlalchemy
-}
+DOCS=( CHANGES.txt README.rst )
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs dev-python/sphinxcontrib-asyncio
+
+python_test() {
+	epytest --no-pull
+}
+
+pkg_postinst() {
+	optfeature "sqlalchemy support" dev-python/sqlalchemy
+}
