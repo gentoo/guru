@@ -23,10 +23,10 @@
 		communications.
 	</longdescription>
 	<use>
-		<flag name="fribidi" restrict="&gt;=net-misc/lagrange-1.6.0">
+		<flag name="fribidi">
 			Use <pkg>dev-libs/fribidi</pkg> for bidirectional text
 		</flag>
-		<flag name="harfbuzz" restrict="&gt;=net-misc/lagrange-1.6.0">
+		<flag name="harfbuzz">
 			Use <pkg>media-libs/harfbuzz</pkg> to shape text
 		</flag>
 	</use>
