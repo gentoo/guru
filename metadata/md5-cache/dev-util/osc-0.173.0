@@ -12,5 +12,5 @@ REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 
 RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/openSUSE/osc/archive/0.173.0.tar.gz -> osc-0.173.0.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	bash-completion-r1	d3a60385655d9b402be765a6de333245	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	6551f7b3f1289e7f2956f3a1632e9d26	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75	distutils-r1	e297e8afd355d60fb9d2d7b37b81214f
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	bash-completion-r1	d3a60385655d9b402be765a6de333245	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	08d890890f70fe0096093016e55438d5	python-single-r1	73f113f91928e0d16bceb65ecbcd8e75	distutils-r1	e297e8afd355d60fb9d2d7b37b81214f
 _md5_=c6057e6260690a90e156bdf74361c90b
