@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure install prepare
 DEPEND=virtual/mpi fti? ( sys-cluster/fti ) scr? ( sys-cluster/scr ) veloc? ( sys-cluster/veloc )
 DESCRIPTION=Transparent Checkpointing Library
@@ -12,5 +12,5 @@ RDEPEND=virtual/mpi fti? ( sys-cluster/fti ) scr? ( sys-cluster/scr ) veloc? ( s
 REQUIRED_USE=|| ( fti scr veloc )
 SLOT=0
 SRC_URI=https://github.com/bsc-pm/TCL/archive/refs/tags/v1.0.tar.gz -> TCL-1.0.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
 _md5_=df952030f7c6977a750333e81d44ec5e

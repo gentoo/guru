@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig virtual/yacc sys-devel/gnuconfig >=app-portage/elt-patches-20170815
+BDEPEND=virtual/pkgconfig virtual/yacc sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile install prepare
 DEPEND=dev-libs/openssl:= sys-libs/ncurses:= sys-libs/zlib:= elibc_Darwin? ( sys-libs/native-uuid ) elibc_SunOS? ( sys-libs/libuuid ) !elibc_Darwin? ( dev-libs/libbsd !elibc_SunOS? ( app-crypt/libmd sys-apps/util-linux ) )
 DESCRIPTION=Portable version of the Game of Trees version control system
@@ -10,5 +10,5 @@ LICENSE=ISC
 RDEPEND=dev-libs/openssl:= sys-libs/ncurses:= sys-libs/zlib:= elibc_Darwin? ( sys-libs/native-uuid ) elibc_SunOS? ( sys-libs/libuuid ) !elibc_Darwin? ( dev-libs/libbsd !elibc_SunOS? ( app-crypt/libmd sys-apps/util-linux ) ) dev-vcs/git
 SLOT=0
 SRC_URI=https://git.gameoftrees.org/gitweb/?p=got-portable.git;a=snapshot;h=36536ee0b0fb5108076d8238a4b78c59db9dac3d;sf=tgz -> got-0_p20210217.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
 _md5_=f569ce7aa885669673199301e092b186

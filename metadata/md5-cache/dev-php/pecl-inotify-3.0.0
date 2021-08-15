@@ -12,5 +12,5 @@ RDEPEND=php_targets_php7-3? ( dev-lang/php:7.3 ) php_targets_php7-4? ( dev-lang/
 REQUIRED_USE=|| ( php_targets_php7-3 php_targets_php7-4 php_targets_php8-0 )
 SLOT=0/3
 SRC_URI=https://pecl.php.net/get/inotify-3.0.0.tgz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2a36908d5f63f41614b450a2459567da	php-ext-source-r3	59705d3e8b4658c589d46b4c7f90150c	php-ext-pecl-r3	aa1126f832eb58d6b04711a39840710d
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	php-ext-source-r3	59705d3e8b4658c589d46b4c7f90150c	php-ext-pecl-r3	aa1126f832eb58d6b04711a39840710d
 _md5_=dfdb091859935b6bdeca90976ac2f421
