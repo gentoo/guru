@@ -3,32 +3,28 @@
 
 EAPI=7
 
-inherit toolchain-funcs
-
 DESCRIPTION="Identify and manipulate duplicate files"
-HOMEPAGE="https://www.jodybruchon.com/software/#jdupes
-https://github.com/jbruchon/jdupes"
-SRC_URI="https://github.com/jbruchon/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-
+HOMEPAGE="https://www.jodybruchon.com/software/#jdupes"
+SRC_URI="https://github.com/jbruchon/jdupes/archive/refs/tags/v${PV}.tar.gz"
+PATCHES=(
+	"${FILESDIR}/${P}-test.sh.patch")
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="low-memory"
+IUSE=""
 
-# ./test.sh: No such file or directory
-RESTRICT="test"
+RDEPEND=""
 
-DOCS=( CHANGES README.md README.stupid_dupes )
-
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
+src_prepare(){
+	eapply "${FILESDIR}/${P}-test.sh.patch"
+	chmod +x test.sh
+	eapply_user
+}
 src_configure() {
-	tc-export CC
+	sed -in 's/local//' Makefile
 }
-
 src_compile() {
-	emake ENABLE_DEDUPE=1 HARDEN=1 LOW_MEMORY=$(usex low-memory 1 0)
-}
-
-src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
-	einstalldocs
+	emake
 }

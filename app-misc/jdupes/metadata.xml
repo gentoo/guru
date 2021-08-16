@@ -14,10 +14,5 @@
 		files. It was forked from fdupes, and intends to accomplish the
 		same result while adding features and being noticeably faster.
 	</longdescription>
-	<use>
-		<flag name="low-memory">
-			Build for low memory usage at the expense of speed and features
-		</flag>
-	</use>
 </pkgmetadata>
 
