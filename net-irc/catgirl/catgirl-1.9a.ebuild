@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit readme.gentoo-r1 toolchain-funcs
 
 DESCRIPTION="TLS-only terminal IRC client"
 HOMEPAGE="https://git.causal.agency/catgirl/about/"
@@ -33,8 +33,11 @@ src_compile() {
 	emake all
 }
 
+src_install() {
+	default
+	readme.gentoo_create_doc
+}
+
 pkg_postinst() {
-	einfo "You are encouraged to patch your own text macros in edit.c"
-	einfo "See Gentoo Wiki article on user patches:"
-	einfo "https://wiki.gentoo.org/wiki//etc/portage/patches"
+	readme.gentoo_print_elog
 }
