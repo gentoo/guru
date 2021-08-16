@@ -26,3 +26,7 @@ RDEPEND="
 BDEPEND="test? ( dev-python/vcrpy )"
 
 distutils_enable_tests pytest
+
+python_test() {
+	epytest --deselect tests/test_content.py::test_content_humanize_timestamp
+}

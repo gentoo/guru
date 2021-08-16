@@ -26,3 +26,8 @@ sys-kernel/xpmem modules
 # sys-cluster/SOS doesn't get recognized as valid openshmem
 # https://github.com/bsc-performance-tools/extrae/issues/35
 sys-cluster/extrae openshmem
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-08-14)
+# petit gui doesn't build
+# https://github.com/davewathaverford/the-omega-project/issues/5
+sci-mathematics/the-omega-project gui

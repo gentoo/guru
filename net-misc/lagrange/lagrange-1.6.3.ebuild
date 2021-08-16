@@ -48,6 +48,8 @@ src_configure() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
+
 	if [[ -n ${REPLACING_VERSIONS} ]] && ver_test ${REPLACING_VERSIONS} -lt 1.6.0 ; then
 		ewarn "Lagrange 1.6 introduces some breaking changes:"
 		ewarn

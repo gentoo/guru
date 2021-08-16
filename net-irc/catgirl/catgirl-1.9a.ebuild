@@ -1,9 +1,9 @@
 # Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit toolchain-funcs
+inherit readme.gentoo-r1 toolchain-funcs
 
 DESCRIPTION="TLS-only terminal IRC client"
 HOMEPAGE="https://git.causal.agency/catgirl/about/"
@@ -26,9 +26,18 @@ src_configure() {
 	./configure \
 		--prefix="${EPREFIX}"/usr \
 		--mandir="${EPREFIX}"/usr/share/man || die
+	tc-export CC
 }
 
 src_compile() {
-	tc-export CC
 	emake all
+}
+
+src_install() {
+	default
+	readme.gentoo_create_doc
+}
+
+pkg_postinst() {
+	readme.gentoo_print_elog
 }

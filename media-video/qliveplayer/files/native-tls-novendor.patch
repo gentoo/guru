@@ -1,0 +1,45 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -11,17 +11,13 @@
+ find_package(ECM 1.0 REQUIRED)
+ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+ include(ECMUninstallTarget)
+-find_program(MPV_PATH NAMES mpv REQUIRED)
+-IF(${MPV_PATH} STREQUAL MPV_PATH-NOTFOUND)
+-	message(FATAL_ERROR "mpv not found!!!")
+-ENDIF()
+ 
+ include(FeatureSummary)
+ find_package(Cargo REQUIRED)
+ find_package(Rust REQUIRED)
+ set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
+ find_package(Threads REQUIRED)
+-#find_package(OpenSSL REQUIRED)
++find_package(OpenSSL REQUIRED)
+ find_package(Qt5 COMPONENTS Core Gui Widgets Network Quick Qml QuickWidgets REQUIRED)
+ 
+ install(FILES "icon/qliveplayer.svg"
+--- a/src/qlphelper/CMakeLists.txt
++++ b/src/qlphelper/CMakeLists.txt
+@@ -21,6 +21,8 @@ target_link_libraries(qlphelper
+   Qt5::Network
+   Threads::Threads
+   "${RUST_LIB}"
++  ${OPENSSL_CRYPTO_LIBRARY}
++  ${OPENSSL_SSL_LIBRARY}
+   ${CMAKE_DL_LIBS}
+ )
+
+--- a/src/QLivePlayer-Lib/Cargo.toml
++++ b/src/QLivePlayer-Lib/Cargo.toml
+@@ -11,8 +11,8 @@ tokio = { version = "1.8", features = ["full"] }
+ # tokio-rustls = "0.22"
+ # webpki-roots = "*"
+ # tokio-tungstenite = { version = "0.15", features = ["rustls-tls"] }
+-tokio-tungstenite = { version = "*", features = ["native-tls-vendored"] }
+-reqwest = { version = "*", default-features = false, features = ["gzip", "json", "native-tls-vendored"] }
++tokio-tungstenite = { version = "*", features = ["native-tls"] }
++reqwest = { version = "*", default-features = false, features = ["gzip", "json", "native-tls"] }
+ log = "*"
+ env_logger = "*"
+ httparse = "*"
