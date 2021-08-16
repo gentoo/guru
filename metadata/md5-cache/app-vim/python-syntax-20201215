@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=vim plugin: Enhanced Python syntax highlighting
+EAPI=7
+HOMEPAGE=https://github.com/vim-python/python-syntax
+INHERIT=vim-plugin
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+SLOT=0
+SRC_URI=https://github.com/vim-python/python-syntax/archive/2cc00ba72929ea5f9456a26782db57fb4cc56a65.tar.gz -> python-syntax-20201215.tar.gz
+_eclasses_=vim-doc	e063cddf18e5d2f2cfb21388252579ec	vim-plugin	a7b5f19bc94a311ca1cf7127c8b84c41
+_md5_=2e3182045de3c14327df5f92451b5821

@@ -90,7 +90,7 @@ app-misc/hollywood 0_pre20200822: Fill your console with Hollywood melodrama tec
 app-misc/jdupes 1.20.0: Identify and manipulate duplicate files
 app-misc/lf 20 22: Terminal file manager
 app-misc/liquidctl 1.7.1: Cross-platform tool and drivers for liquid coolers and other devices
-app-misc/mat2 0.11.0 0.12.1: Metadata Anonymisation Toolkit: handy tool to trash your metadata
+app-misc/mat2 0.12.1: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
 app-misc/navi 2.16.0 2.17.0 9999: An interactive cheatsheet tool for the command-line
 app-misc/nonsense 0.7-r1: Generates random text from datafiles and templates
@@ -147,6 +147,7 @@ app-text/mdbook 0.4.9 0.4.10 0.4.11 0.4.12: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
 app-text/stdman 2019.08.27 2020.11.17 9999: Formatted C++ stdlib man pages (cppreference)
 app-vim/openbsd-style 1.1: vim plugin: indent code according to the OpenBSD and FreeBSD style(9)
+app-vim/python-syntax 20201215: vim plugin: Enhanced Python syntax highlighting
 app-vim/vim-nix 9999: vim plugin: Vim configuration files for Nix
 dev-R/BH 1.75.0.0: Boost C++ Header Files
 dev-R/MASS 7.3.54: Support Functions and Datasets for variables and Ripley's MASS
@@ -275,7 +276,7 @@ dev-lang/aldor 1.2.0_p20190730-r1: The Aldor Programming Language
 dev-lang/ammonite-repl-bin 2.4.0: Scala language-based scripting and REPL
 dev-lang/fbc 1.07.3: A free/open source, multi-platform BASIC compiler.
 dev-lang/fbc-bootstrap 1.07.3: Bootstrap package for dev-lang/fbc
-dev-lang/fennel 0.9.1 0.9.2 9999: Fennel is a lisp that compiles to Lua
+dev-lang/fennel 0.9.2 0.10.0 9999: Fennel is a lisp that compiles to Lua
 dev-lang/gleam 0.16.0: A statically typed functional language for the BEAM
 dev-lang/quickjs 2020.11.08 2021.03.27: Small embeddable Javascript engine
 dev-lang/wren 0.3.0: The Wren Programming Language
@@ -330,7 +331,7 @@ dev-python/MutatorMath 3.0.1: A library for piecewise linear interpolation in mu
 dev-python/WSME 0.10.0: Simplify the writing of REST APIs, and extend them with additional protocols.
 dev-python/XenAPI 2.14: Xen API SDK, for communication with Citrix XenServer and Xen Cloud Platform
 dev-python/aionotify 0.2.0: Simple, asyncio-based inotify library for Python
-dev-python/aiopg 1.1.0 1.2.1: aiopg is a library for accessing a PostgreSQL database from the asyncio
+dev-python/aiopg 1.2.1 1.3.2_beta1: Postgres integration with asyncio
 dev-python/aiosmtplib 1.1.6: Asynchronous SMTP client for use with asyncio
 dev-python/aiosqlite 0.17.0-r1: asyncio bridge to the standard sqlite3 module
 dev-python/aiounittest 1.4.0: Test python asyncio-based code with ease
@@ -350,7 +351,7 @@ dev-python/babelfont 2.0.1: Interrogate and manipulate UFO, TTF and OTF fonts wi
 dev-python/baron 0.9: Full Syntax Tree for python to make writing refactoring code a realist task
 dev-python/base58 2.1.0: Base58 and Base58Check implementation
 dev-python/beziers 0.3.1: Python bezier manipulation library
-dev-python/bidict 0.21.2: The bidirectional mapping library for Python.
+dev-python/bidict 0.21.2: The bidirectional mapping library for Python
 dev-python/billiard 3.6.3.0 3.6.4.0: Python multiprocessing fork
 dev-python/bitbox02 5.3.0: Python API for communicating with the BitBox02 device
 dev-python/browserstack-local-python 1.2.2: Python bindings for BrowserStack Local
@@ -407,7 +408,7 @@ dev-python/hidapi 0.10.1: A Cython interface to the hidapi
 dev-python/hijri-converter 2.1.1 2.1.3: Accurate Hijri-Gregorian date converter based on the Umm al-Qura calendar
 dev-python/hstspreload 2021.7.5: Chromium HSTS Preload list as a Python package
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
-dev-python/hunter 3.3.5 3.3.8: Hunter is a flexible code tracing toolkit
+dev-python/hunter 3.3.8: Hunter is a flexible code tracing toolkit
 dev-python/hwi 1.2.1 2.0.2: Library and command line tool for interacting with hardware wallets
 dev-python/hypercorn 0.11.2: ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
@@ -530,6 +531,7 @@ dev-python/schedule 1.1.0: Python job scheduling for humans
 dev-python/simplemma 0.3.0: A simple multilingual lemmatizer for Python.
 dev-python/skia-pathops 0.4.1 0.6.0_p2: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
+dev-python/sortedcollections 2.1.0: Apache2 licensed Python sorted collections library
 dev-python/sphinx-argparse 0.2.5: Sphinx extension that automatically documents argparse commands and options
 dev-python/sphinx-click 3.0.0 3.0.1: Sphinx plugin to automatically document click-based applications
 dev-python/sphinxcontrib-katex 0.8.6: KaTeX Sphinx extension for rendering of math in HTML pages
@@ -538,7 +540,7 @@ dev-python/sphinxcontrib-restbuilder 0.3: A Sphinx builder/writer to output reSt
 dev-python/spotipy 2.17.1: A light weight Python library for the Spotify Web API
 dev-python/sre_yield 1.2: Python module to generate regular all expression matches
 dev-python/srt 3.4.1: A tiny library for parsing, modifying, and composing SRT files
-dev-python/sse-starlette 0.6.1 0.7.2: Server Sent Events for Starlette
+dev-python/sse-starlette 0.7.2: Server Sent Events for Starlette
 dev-python/starlette 0.14.2: The little ASGI framework that shines
 dev-python/statmake 0.3.0-r1: Generate STAT tables for variable fonts from .stylespace files
 dev-python/strictyaml 1.3.2: A type-safe YAML parser built atop ruamel.yaml
@@ -594,8 +596,8 @@ dev-util/psautohint 2.3.0: A standalone version of AFDKO autohinter
 dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's OpenGL Shader Builder
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/rpmlint 2.0.0: Tool for checking common errors in RPM packages
-dev-util/rust-analyzer 20210809 99999999: An implementation of Language Server Protocol for the Rust programming language
-dev-util/rust-analyzer-bin 2021.08.02: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer 20210809 20210816 99999999: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer-bin 2021.08.02 2021.08.09: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/xdp-tools 1.2.0: Utilities and example programs for use with XDP
 dev-vcs/bit 1.1.1 1.1.2: Bit is a modern Git CLI
@@ -735,7 +737,7 @@ media-gfx/ufolint 1.2.0: UFO source format linter
 media-libs/alsa-ucm-pinephone 20210507: ALSA ucm configuration files for PinePhone
 media-libs/alvr 15.2.1_p20210604: Wireless driver for Oculus Quest
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.1.2: AMD Open Source Driver for Vulkan
-media-libs/fcft 2.3.3 2.4.0 2.4.1 2.4.2 2.4.3 2.4.4 9999: A simple library for font loading and glyph rasterization
+media-libs/fcft 2.3.3 2.4.0 2.4.1 2.4.2 2.4.3 2.4.4 2.4.5 9999: A simple library for font loading and glyph rasterization
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
 media-libs/imgui 1.83: Bloat-free graphical user interface library for C++
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
@@ -774,8 +776,8 @@ media-video/jellyfin-mpv-shim 2.0.1: MPV Cast Client for Jellyfin
 media-video/kikoplay 0.8.1 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.2.0: A GTK3 camera application that knows how to deal with the media request api
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
-media-video/owncast 0.0.7-r1: A self-hosted live video and web chat server
-media-video/qliveplayer 3.22.3 3.22.4: A player and recorder for live streams and videos with danmaku support
+media-video/owncast 0.0.7-r1 0.0.8: A self-hosted live video and web chat server
+media-video/qliveplayer 3.22.4 4.0.1: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/uxplay 0_pre20210525: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
@@ -795,7 +797,7 @@ net-im/kaidan 0.7.0 0.8.0: A simple, user-friendly Jabber/XMPP client for every 
 net-im/nheko 0.8.1 0.8.2 0.8.2-r1: Desktop client for Matrix using Qt and C++14
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
 net-im/whatsapp-for-linux 1.2.0: An unofficial WhatsApp desktop application for Linux
-net-irc/catgirl 1.7 1.8: TLS-only terminal IRC client
+net-irc/catgirl 1.9a: TLS-only terminal IRC client
 net-irc/srain 1.2.1 1.2.4: Modern, beautiful IRC client written in GTK+ 3
 net-libs/kcgi 0.12.5: Minimal CGI library for web applications
 net-libs/usockets 0.7.1_p20210214-r2 9999: tiny eventing, networking & crypto for async applications
@@ -810,7 +812,7 @@ net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/gmid 1.7.2 9999: Simple and secure Gemini server
 net-misc/kristall 0.3-r1 9999: Visual cross-platform gemini browser
-net-misc/lagrange 1.6.1 1.6.2: Desktop GUI client for browsing Geminispace
+net-misc/lagrange 1.6.2 1.6.3: Desktop GUI client for browsing Geminispace
 net-misc/lyrics-in-terminal 1.4.2: Command Line Lyrics fetcher for MPRIS media players
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
@@ -921,6 +923,7 @@ sys-cluster/spath 0.0.2: Path manipulation functions
 sys-cluster/spectral 3.4.1: Signal processing to select representative regions from Paraver traces
 sys-cluster/swift 2.26.0 2.27.0: A highly available, distributed, and eventually consistent object/blob store
 sys-cluster/synapse 2.0.1: synapse
+sys-cluster/temanejo 1.3: a debugger for task-parallel programming
 sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
 sys-firmware/pinephone-firmware 20210809: Firmwares files for PinePhone
 sys-fs/btrfs-heatmap 9: Python 3 script to draw a heatmap of a btrfs filesystem

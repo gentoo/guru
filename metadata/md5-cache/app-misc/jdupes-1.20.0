@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig
-DEFINED_PHASES=compile configure
+DEFINED_PHASES=compile configure prepare
 DESCRIPTION=Identify and manipulate duplicate files
 EAPI=7
 HOMEPAGE=https://www.jodybruchon.com/software/#jdupes
@@ -7,4 +7,4 @@ KEYWORDS=~amd64 ~x86
 LICENSE=MIT
 SLOT=0
 SRC_URI=https://github.com/jbruchon/jdupes/archive/refs/tags/v1.20.0.tar.gz
-_md5_=ae2d7a85ef55bcc40257730ea24d4694
+_md5_=c39163bca00ba263ef107dfe02bc5eff
