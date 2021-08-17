@@ -6,13 +6,15 @@ EAPI=7
 inherit desktop gnome2-utils meson pam readme.gentoo-r1 vala systemd xdg
 
 MY_P="${PN}-v${PV}"
-MY_COMMIT="c5ab6037f460406ac9799b1e5765de3ce0097a8b"
+LVC_COMMIT="c5ab6037f460406ac9799b1e5765de3ce0097a8b"
+LCU_COMMIT="465f6add090b623fb80c6c5cbb9ab2880ff531a4"
 
 DESCRIPTION="A pure Wayland shell prototype for GNOME on mobile devices"
 HOMEPAGE="https://gitlab.gnome.org/World/Phosh/phosh/"
 SRC_URI="
 	https://gitlab.gnome.org/World/Phosh/phosh/-/archive/v${PV}/${MY_P}.tar.gz
-	https://gitlab.gnome.org/GNOME/libgnome-volume-control/-/archive/${MY_COMMIT}.tar.gz -> libgnome-volume-control-${MY_COMMIT}.tar.gz
+	https://gitlab.gnome.org/GNOME/libgnome-volume-control/-/archive/${LVC_COMMIT}/libgnome-volume-control-${LVC_COMMIT}.tar.gz
+	https://gitlab.gnome.org/World/Phosh/libcall-ui/-/archive/${LCU_COMMIT}/libcall-ui-${LCU_COMMIT}.tar.gz
 "
 S="${WORKDIR}/${MY_P}"
 
@@ -44,7 +46,9 @@ src_prepare() {
 	default
 	eapply_user
 	rm -r "${S}"/subprojects/gvc || die
-	mv "${WORKDIR}"/libgnome-volume-control-"${MY_COMMIT}" "${S}"/subprojects/gvc || die
+	mv "${WORKDIR}"/libgnome-volume-control-"${LVC_COMMIT}" "${S}"/subprojects/gvc || die
+	rm -r "${S}"/subprojects/libcall-ui || die
+	mv "${WORKDIR}"/libcall-ui-"${LCU_COMMIT}" "${S}"/subprojects/libcall-ui || die
 }
 
 src_install() {
