@@ -9,9 +9,9 @@ MY_P="${PN}-v${PV}"
 MY_COMMIT="c5ab6037f460406ac9799b1e5765de3ce0097a8b"
 
 DESCRIPTION="A pure Wayland shell prototype for GNOME on mobile devices"
-HOMEPAGE="https://source.puri.sm/Librem5/phosh"
+HOMEPAGE="https://gitlab.gnome.org/World/Phosh/phosh/"
 SRC_URI="
-	https://source.puri.sm/Librem5/phosh/-/archive/v${PV}/${MY_P}.tar.gz
+	https://gitlab.gnome.org/World/Phosh/phosh/-/archive/v${PV}/${MY_P}.tar.gz
 	https://gitlab.gnome.org/GNOME/libgnome-volume-control/-/archive/${MY_COMMIT}.tar.gz -> libgnome-volume-control-${MY_COMMIT}.tar.gz
 "
 S="${WORKDIR}/${MY_P}"
@@ -52,13 +52,12 @@ src_install() {
 	meson_src_install
 	newpamd "${FILESDIR}"/pam_phosh 'phosh'
 	systemd_newunit "${FILESDIR}"/phosh.service 'phosh.service'
-	domenu "${FILESDIR}"/sm.puri.OSK0.desktop
+	insinto /usr/share/applications/
+	doins "${FILESDIR}"/sm.puri.OSK0.desktop
 
-	DOC_CONTENTS="
-	To amend the existing password policy please see the man 5 passwdqc.conf
-	page and then edit the /etc/security/passwdqc.conf file to change enforce=none
-	to allow use digit only password as phosh only support passcode for now
-	"
+	DOC_CONTENTS="To amend the existing password policy please see the man 5 passwdqc.conf
+				page and then edit the /etc/security/passwdqc.conf file to change enforce=none
+				to allow use digit only password as phosh only support passcode for now"
 	readme.gentoo_create_doc
 }
 

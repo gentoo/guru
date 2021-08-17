@@ -1,5 +1,15 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>gjdijkman@gjdwebserver.nl</email>
+		<name>Gerben Jan Dijkman</name>
+	</maintainer>
+	<longdescription lang="en">
+	A pure Wayland shell prototype for GNOME on mobile devices. For a matching compositor see x11-wm/phoc but others implementing wlr-layer-shell should work as well.
+	</longdescription>
+	<upstream>
+		<doc>https://source.puri.sm/Librem5/phosh</doc>
+		<bugs-to>https://source.puri.sm/Librem5/phosh/-/issues</bugs-to>
+	</upstream>
 </pkgmetadata>
