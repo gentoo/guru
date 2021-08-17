@@ -59,6 +59,9 @@ app-shells/starship:tls-vendored - Use a bundled openssl instead of the system o
 app-text/OCRmyPDF:jbig2enc - Uses media-libs/jbig2enc for a better compression algorithm
 app-text/klogg:lto - Build with link time optimization (LTO).
 app-text/klogg:sentry - Enable crash reporting using sentry.io.
+dev-cpp/drogon:brotli - Enable support for brotli compression
+dev-cpp/drogon:mariadb - Add support for the mariadb database
+dev-cpp/drogon:redis - Add support for the Redis database via dev-libs/hiredis
 dev-cpp/sprout:texconv - Install texconv from subproject compost
 dev-cpp/sprout:wavconv - Install texconv from subproject darkroom
 dev-cpp/tiny-dnn:double-precision - Build tiny-dnn with double precision computations

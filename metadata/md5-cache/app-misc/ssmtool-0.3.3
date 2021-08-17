@@ -1,16 +1,15 @@
-BDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/pyproject2setuppy-18[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+BDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pyproject2setuppy-18[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-python/PyQt5[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/simplemma[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ~dev-python/googletrans-4.0.0_rc1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/beautifulsoup:4[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/lxml[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/flask[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/bidict[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/pystardict[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 DESCRIPTION=A simple sentence mining tool written in PyQt5
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/FreeLanguageTools/ssmtool/ https://pypi.org/project/ssmtool/
 INHERIT=distutils-r1 desktop
-IUSE=python_targets_python3_8 python_targets_python3_9
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+IUSE=python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
-REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+RDEPEND=dev-python/PyQt5[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/simplemma[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ~dev-python/googletrans-4.0.0_rc1[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/beautifulsoup:4[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/lxml[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/flask[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/bidict[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pystardict[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
 SRC_URI=mirror://pypi/s/ssmtool/ssmtool-0.3.3.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	08d890890f70fe0096093016e55438d5	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	e297e8afd355d60fb9d2d7b37b81214f	desktop	c0d27bf73aa08ca05b663dbd31fbef28
-_md5_=16aa95f6afb273fca079323e0737d86f
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	08d890890f70fe0096093016e55438d5	python-r1	e20b80360497e6215aed0dd4ca7d6bad	distutils-r1	e297e8afd355d60fb9d2d7b37b81214f	desktop	c0d27bf73aa08ca05b663dbd31fbef28
+_md5_=16211aaa0df4883f70e488f5b9aaf9aa

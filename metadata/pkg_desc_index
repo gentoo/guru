@@ -237,6 +237,7 @@ dev-R/xfun 0.24: Supporting Functions for Package maintained by Yihui Xie
 dev-R/xml2 1.3.2: Parse XML
 dev-R/yaml 2.2.1: Methods to Convert R Data to YAML and Back
 dev-cpp/cli11 1.9.1 2.0.0: Command line parser for C++11
+dev-cpp/drogon 1.7.1: C++14/17 based HTTP web application framework
 dev-cpp/dtl 1.19_p20210531: diff template library written by C++
 dev-cpp/fbthrift 2021.06.14.00 2021.06.28.00: Facebook's branch of Apache Thrift, including a new C++ server
 dev-cpp/fizz 2021.06.14.00 2021.06.28.00: C++14 implementation of the TLS-1.3 standard
@@ -250,6 +251,7 @@ dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging librar
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
 dev-cpp/termcolor 2.0.0: Header-only library for printing colored messages to the terminal
 dev-cpp/tiny-dnn 1.0.0_alpha3: header only, dependency-free deep learning framework in C++14
+dev-cpp/trantor 1.5.1: Non-blocking I/O tcp network lib based on c++14/17
 dev-cpp/vectorwrapper 1.1.2 9999: A template vector wrapper class for C++
 dev-cpp/vexcl 1.4.2-r1: VexCL - Vector expression template library for OpenCL
 dev-cpp/wangle 2021.06.14.00 2021.06.28.00: Framework providing common client/server abstractions
@@ -575,7 +577,7 @@ dev-ruby/pry-byebug 3.9.0: Step-by-step debugging and stack navigation in Pry
 dev-ruby/rspec-wait 0.0.9: enables time-resilient expectations in your RSpec test suite
 dev-scheme/chez 9.5.4: A programming language based on R6RS
 dev-scheme/chibi 0.10 9999: Minimal Scheme implementation for use as an extension language
-dev-scheme/cyclone 0.28.0 0.31.0 9999: R7RS Scheme to C compiler
+dev-scheme/cyclone 0.31.0 0.32.0 9999: R7RS Scheme to C compiler
 dev-scheme/gerbil 0.16 9999: Dialect of Scheme designed for Systems Programming
 dev-scheme/guile-colorized 0.1_p20191205 9999: Colorized REPL for GNU Guile
 dev-scheme/guile-gi 0.3.1 9999: Bindings for GObject Introspection and libgirepository for Guile
@@ -692,7 +694,7 @@ gui-libs/libcsys 4.2.0 9999: Library for managing the device
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.3 0.1.4 9999: A Wayland kiosk
 gui-wm/dwl 0.2.1: dwm for Wayland
-gui-wm/phosh 0.12.1: A pure Wayland shell prototype for GNOME on mobile devices
+gui-wm/phosh 0.13.0: A pure Wayland shell prototype for GNOME on mobile devices
 kde-apps/alligator 21.06 21.07: A convergent RSS/Atom feed reader for Plasma
 kde-apps/kclock 21.06 21.07: A convergent clock application for Plasma
 kde-apps/krecorder 21.05 21.06: A convergent audio recording application for Plasma
@@ -971,7 +973,7 @@ www-client/torbrowser-launcher 0.3.3 9999: A program to download, updated, and r
 www-client/woob 3.0-r1 9999: Web Outside Of Browsers (core, site modules and applications)
 www-misc/gitea2rss 0.7.0: Generates RSS feeds from Gitea releases, tags and commits
 www-misc/gorss 0.3: Go Terminal Feed Reader
-www-servers/hinsightd 0.9.9 9999: hinsightd a http/1.1 webserver with (hopefully) minimal goals
+www-servers/hinsightd 0.9.10 9999: hinsightd a http/1.1 webserver with (hopefully) minimal goals
 www-servers/thin 1.8.0: This a Ruby gem that delivers a thin and fast web server
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-drivers/OpenTabletDriver-bin 0.5.3.3: Cross platform tablet driver (binary package)
