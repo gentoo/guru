@@ -81,10 +81,4 @@ pkg_postinst() {
 		ewarn "hinsightd requires io_uring and kernel ~5.6.0"
 		ewarn ""
 	fi
-
-	ewarn ""
-	ewarn "hinsightd requires a higher than default RLIMIT_MEMLOCK for"
-	ewarn "things like graceful restarting"
-	ewarn "memory limit can be increased in /etc/security/limits.conf"
-	ewarn ""
 }

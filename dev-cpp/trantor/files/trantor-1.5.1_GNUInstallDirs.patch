@@ -1,0 +1,34 @@
+From 68aa2e7d41002d00c5d3bd3c6a7d55b0ebb8154d Mon Sep 17 00:00:00 2001
+From: tastytea <tastytea@tastytea.de>
+Date: Mon, 16 Aug 2021 21:43:59 +0200
+Subject: [PATCH] cmake: Use GNUInstallDirs to figure out install dirs.
+
+And set initial value for INSTALL_BIN_DIR.
+---
+ CMakeLists.txt | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ad5a1b3..44ca114 100755
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -11,12 +11,13 @@ set(TRANTOR_PATCH_VERSION 1)
+ set(TRANTOR_VERSION
+     ${TRANTOR_MAJOR_VERSION}.${TRANTOR_MINOR_VERSION}.${TRANTOR_PATCH_VERSION})
+ 
++include(GNUInstallDirs)
+ # Offer the user the choice of overriding the installation directories
+-set(INSTALL_LIB_DIR lib CACHE PATH "Installation directory for libraries")
++set(INSTALL_LIB_DIR ${CMAKE_INSTALL_LIBDIR} CACHE PATH "Installation directory for libraries")
+ set(INSTALL_INCLUDE_DIR
+-    include
++    ${CMAKE_INSTALL_INCLUDEDIR}
+     CACHE PATH "Installation directory for header files")
+-set(DEF_INSTALL_TRANTOR_CMAKE_DIR lib/cmake/Trantor)
++set(DEF_INSTALL_TRANTOR_CMAKE_DIR ${CMAKE_INSTALL_LIBDIR}/cmake/Trantor)
+ set(INSTALL_TRANTOR_CMAKE_DIR
+     ${DEF_INSTALL_TRANTOR_CMAKE_DIR}
+     CACHE PATH "Installation directory for cmake files")
+-- 
+2.31.1
+
