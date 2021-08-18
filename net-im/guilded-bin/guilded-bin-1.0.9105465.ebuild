@@ -10,7 +10,7 @@ inherit desktop linux-info pax-utils unpacker xdg
 
 DESCRIPTION="Drop Discord, get Guilded"
 HOMEPAGE="https://www.guilded.gg"
-SRC_URI="https://www.guilded.gg/downloads/${MY_BIN}-Linux.deb"
+SRC_URI="https://www.guilded.gg/downloads/${MY_BIN}-Linux.deb -> ${P}.deb"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
