@@ -3,7 +3,7 @@
 
 EAPI=8
 
-COMMIT="2220ba975b0d4173512749141498083dd3999bd0"
+COMMIT="a9df6936128ebe10374350c719a0fba74bc89803"
 DOCS_BUILDER="doxygen"
 DOCS_CONFIG_NAME="doxy-nanox"
 DOCS_DIR="doc"
@@ -21,7 +21,14 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="allocator ayudame debug dlb +extrae gasnet +instrumentation hwloc memkind memtracker mpi opencl papi sqlite resiliency task-callback +threads"
+IUSE_NANOX="
+	nanox-debug
+	+nanox-instrumentation
+	nanox-instrumentation-debug
+	+nanox-performance
+"
+IUSE_EXPAND="NANOX"
+IUSE="${IUSE_NANOX} allocator ayudame dlb +extrae gasnet hwloc memkind memtracker mpi opencl papi sqlite resiliency task-callback +threads"
 
 CDEPEND="
 	ayudame? ( sys-cluster/temanejo )
@@ -43,11 +50,12 @@ DEPEND="
 	opencl? ( dev-util/opencl-headers )
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-no-jemalloc.patch"
-	"${FILESDIR}/${PN}-no-Werror.patch"
-)
-REQUIRED_USE="instrumentation? ( extrae )"
+PATCHES=( "${FILESDIR}/${PN}-no-Werror.patch" )
+REQUIRED_USE="
+	^^ ( ${IUSE_NANOX//+/} )
+	nanox-instrumentation? ( extrae )
+	nanox-instrumentation-debug? ( extrae )
+"
 
 src_prepare() {
 	default
@@ -64,25 +72,35 @@ src_configure() {
 		--enable-performance
 		--enable-shared
 		--without-cellsdk
+		--without-chapel
 		--without-cuda
 		--without-mcc
+		--without-nextsim
 		--without-xdma
 
 		$(use_enable allocator)
-		$(use_enable debug)
-		$(use_enable instrumentation)
 		$(use_enable memtracker)
+		$(use_enable nanox-debug debug)
+		$(use_enable nanox-instrumentation instrumentation)
+		$(use_enable nanox-instrumentation-debug instrumentation-debug)
+		$(use_enable nanox-performance performance)
 		$(use_enable resiliency)
 		$(use_enable task-callback)
 		$(use_enable threads ult)
 
-		$(use_with dlb)
 		$(use_with opencl)
 	)
-	use ayudame && myconf+=( "--with-ayudame=${EPREFIX}/usr" )
-	use hwloc && myconf+=( "--with-hwloc=${EPREFIX}/usr" )
-	use debug && use instrumentation && myconf+=( "--enable-instrumentation-debug" )
 
+	if use ayudame; then
+		myconf+=( "--with-ayudame=${EPREFIX}/usr" )
+	else
+		myconf+=( "--without-ayudame" )
+	fi
+	if use dlb; then
+		myconf+=( "--with-dlb=${EPREFIX}/usr" )
+	else
+		myconf+=( "--without-dlb" )
+	fi
 	if use extrae; then
 		myconf+=( "--with-extrae=${EPREFIX}/usr" )
 	else
@@ -92,6 +110,11 @@ src_configure() {
 		myconf+=( "--with-gasnet=${EPREFIX}/usr" )
 	else
 		myconf+=( "--without-gasnet" )
+	fi
+	if use hwloc; then
+		myconf+=( "--with-hwloc=${EPREFIX}/usr" )
+	else
+		myconf+=( "--without-hwloc" )
 	fi
 	if use memkind; then
 		myconf+=( "--with-memkind=${EPREFIX}/usr" )
@@ -116,9 +139,6 @@ src_configure() {
 
 	econf "${myconf[@]}"
 }
-
-#		--without-chapel
-#		--without-nextsim
 
 src_compile() {
 	default
