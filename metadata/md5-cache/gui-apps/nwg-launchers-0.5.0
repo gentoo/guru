@@ -12,5 +12,5 @@ RDEPEND=x11-libs/gtk+:3 dev-cpp/gtkmm:3.0 dev-cpp/nlohmann_json layershell? ( gu
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/nwg-piotr/nwg-launchers/archive/v0.5.0.tar.gz -> nwg-launchers-0.5.0.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	5bc3f1b890f90cc00cf1d1dddc10233e	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	5bc3f1b890f90cc00cf1d1dddc10233e	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	e73b9df80596ab8f9c542c01196dec23
 _md5_=c543d833c324b77a7da81fd8b7f0415c

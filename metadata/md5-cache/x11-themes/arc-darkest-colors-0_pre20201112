@@ -10,5 +10,5 @@ LICENSE=GPL-3 MIT
 RDEPEND=x11-themes/gtk-engines-murrine
 SLOT=0
 SRC_URI=https://github.com/rtlewis88/rtl88-Themes/archive/a2c0286932466476159d9a2194a5e6980f1a66f8.tar.gz -> arc-darkest-colors-0_pre20201112.tar.gz
-_eclasses_=xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_eclasses_=xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	e73b9df80596ab8f9c542c01196dec23
 _md5_=4e245f01639e1400a06a2c53df08ed83

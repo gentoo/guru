@@ -11,5 +11,5 @@ RDEPEND=app-accessibility/at-spi2-atk:2 app-accessibility/at-spi2-core:2 dev-lib
 RESTRICT=mirror bindist
 SLOT=0
 SRC_URI=https://dl-ptb.discordapp.net/apps/linux/0.0.25/discord-ptb-0.0.25.deb
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	pax-utils	fce6ad998516159787b92e8043167889	unpacker	2eeba54233fa41bdb15dcddcb63fba3a	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	c7ba313ea1eaf266f95cc6235f7d6a07
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	pax-utils	fce6ad998516159787b92e8043167889	unpacker	2eeba54233fa41bdb15dcddcb63fba3a	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	e73b9df80596ab8f9c542c01196dec23
 _md5_=4d2d6671467fcdf05e6b3d44701e1231
