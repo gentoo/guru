@@ -11,7 +11,6 @@ HOMEPAGE="
 	https://github.com/bsc-performance-tools/paraver-kernel
 "
 SRC_URI="https://github.com/bsc-performance-tools/paraver-kernel/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-#S="${WORKDIR}/clustering-suite-${PV}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
