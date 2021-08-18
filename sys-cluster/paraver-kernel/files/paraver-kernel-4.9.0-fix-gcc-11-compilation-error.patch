@@ -1,0 +1,20 @@
+From 6ed43d980aba622e27402efdaaf32591fcb72b02 Mon Sep 17 00:00:00 2001
+From: Eloy Martinez <eloy.martinez@bsc.es>
+Date: Wed, 30 Jun 2021 11:27:15 +0200
+Subject: [PATCH] Fixed GCC 11 compilation error
+
+---
+ api/recordlist.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--- a/api/recordlist.h
++++ b/api/recordlist.h
+@@ -142,7 +142,7 @@ struct RLRecord
+ // r1 is less than r2?
+ struct ltrecord
+ {
+-  bool operator()( const RLRecord& r1, const RLRecord& r2 )
++  bool operator()( const RLRecord& r1, const RLRecord& r2 ) const
+   {
+     if ( r1.getTime() < r2.getTime() )
+       return true;
