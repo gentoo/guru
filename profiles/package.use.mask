@@ -34,11 +34,6 @@ sci-mathematics/the-omega-project gui
 
 # Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-08-18)
 # build failure
-# https://github.com/bsc-pm/nanox/issues/15
-sys-cluster/nanox resiliency
-
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-08-18)
-# build failure
 # https://github.com/bsc-pm/nanox/issues/18
 sys-cluster/nanox gasnet
 
