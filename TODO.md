@@ -50,6 +50,9 @@ C++
 GO
 * [open-match](https://github.com/googleforgames/open-match)
 
+HASKELL
+* [greenclip](https://github.com/erebe/greenclip) (non-bin, source ebuild)
+
 JAVA
 * [osmosis](https://wiki.openstreetmap.org/wiki/Osmosis)
 * [Opensearch](https://github.com/opensearch-project/OpenSearch)
