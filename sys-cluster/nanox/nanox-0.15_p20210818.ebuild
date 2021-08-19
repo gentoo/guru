@@ -52,7 +52,7 @@ DEPEND="
 
 PATCHES=( "${FILESDIR}/${PN}-no-Werror.patch" )
 REQUIRED_USE="
-	^^ ( ${IUSE_NANOX//+/} )
+	|| ( ${IUSE_NANOX//+/} )
 	nanox-instrumentation? ( extrae )
 	nanox-instrumentation-debug? ( extrae )
 "
