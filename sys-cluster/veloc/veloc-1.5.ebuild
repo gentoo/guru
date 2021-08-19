@@ -1,67 +1,69 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=7
 
 DISTUTILS_USE_SETUPTOOLS=no
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit cmake distutils-r1
 
 DESCRIPTION="Very-Low Overhead Checkpointing System"
 HOMEPAGE="https://github.com/ECP-VeloC/VELOC"
-SRC_URI="https://github.com/ECP-VeloC/${PN^^}/archive/${P}.tar.gz"
+SRC_URI="https://github.com/ECP-VeloC/VELOC/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN^^}-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="alps lsf python +slurm"
-# Tests not working with python yet
-RESTRICT="python? ( test )"
-
-REQUIRED_USE="
-		?? ( alps lsf slurm )
+IUSE_COMM_QUEUE="
+	+comm-queue-ipc
+	comm-queue-socket
 "
+#	comm-queue-thallium
+IUSE_EXPAND="COMM_QUEUE"
+IUSE="${IUSE_COMM_QUEUE} python +slurm" #alps lsf
 
 RDEPEND="
+	comm-queue-ipc? ( dev-libs/boost )
 	slurm? ( sys-cluster/slurm )
 
 	app-shells/pdsh
-	>=dev-libs/boost-1.60.0
+	dev-libs/openssl
 	sys-cluster/AXL
 	sys-cluster/er
 	virtual/mpi
 "
+#	comm-queue-thallium? ( thallium )
 DEPEND="${RDEPEND}"
-BDEPEND="
-	>=dev-util/cmake-2.8
-"
+BDEPEND=">=dev-util/cmake-2.8"
 
-S="${WORKDIR}/${PN^^}-${P}"
+PATCHES=( "${FILESDIR}/${PN}-strip-cflags.patch" )
+# Tests not working with python yet
+#RESTRICT="python? ( test )"
+REQUIRED_USE="
+	^^ ( ${IUSE_COMM_QUEUE/+/} )
+"
+#		?? ( alps lsf slurm )
 
 distutils_enable_sphinx "${S}/docs" --no-autodoc
 
-src_prepare() {
-	#strip CFLAGS
-	sed -i 's/-O2 -g//g' CMakeLists.txt || die
-	sed -i 's/LIBRARY DESTINATION lib/LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/g' src/modules/CMakeLists.txt || die
-	sed -i 's/LIBRARY DESTINATION lib/LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/g' src/lib/CMakeLists.txt || die
-	sed -i 's/LIBRARY DESTINATION lib/LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/g' src/backend/CMakeLists.txt || die
-	#do not auto install README
-#       sed -i '/FILES README.md DESTINATION/d' CMakeLists.txt || die
-	default
-	cmake_src_prepare
-}
-
 src_configure() {
-	RESMAN="NONE"
-	use alps	&& RESMAN="ALPS"
-	use lsf		&& RESMAN="LSF"
-	use slurm	&& RESMAN="SLURM"
+	local resman="NONE"
+#	use alps && resman="ALPS"
+#	use lsf && resman="LSF"
+	use slurm && resman="SLURM"
+
+	local queue
+	use comm-queue-ipc && queue="ipc_queue"
+	use comm-queue-socket && queue="socket_queue"
+#	use comm-queue-thallium && queue="thallium_queue"
 
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_LIBDIR="$(get_libdir)"
+		-DCOMM_QUEUE="${queue}"
+		-DVELOC_RESOURCE_MANAGER="${resman}"
 		-DX_LIBDIR="$(get_libdir)"
 	)
 	cmake_src_configure
