@@ -10,5 +10,5 @@ LICENSE=GPL-3+
 RDEPEND=dev-libs/libretls sys-libs/ncurses
 SLOT=0
 SRC_URI=https://git.causal.agency/catgirl/snapshot/catgirl-1.9a.tar.gz
-_eclasses_=readme.gentoo-r1	e51390d48521eb3d400db57d557b7530	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
+_eclasses_=readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
 _md5_=439cb280a4f7a524025b6223cb8152c5
