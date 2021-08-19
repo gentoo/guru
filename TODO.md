@@ -13,6 +13,11 @@ C
 * [parsec](https://bitbucket.org/icldistcomp/parsec)
 * [ummunotify](https://github.com/Portals4/ummunotify)
 * [retroarch](https://www.retroarch.com/)
+* [argobots](https://www.argobots.org/)
+* [mercury](https://github.com/mercury-hpc/mercury)
+* [mochi-ssg](https://github.com/mochi-hpc/mochi-ssg)
+* [mochi-margo](https://github.com/mochi-hpc/mochi-margo)
+* [mochi-abt-io](https://github.com/mochi-hpc/mochi-abt-io)
 
 C++
 * [machinekit](https://github.com/machinekit/machinekit) 
@@ -44,6 +49,7 @@ C++
 * [wxparaver](https://github.com/bsc-performance-tools/wxparaver)
 * [alpaka](https://github.com/alpaka-group/alpaka)
 * [emptyepsilon](https://daid.github.io/EmptyEpsilon/)
+* [mochi-thallium](https://github.com/mochi-hpc/mochi-thallium)
 
 GO
 * [open-match](https://github.com/googleforgames/open-match)
