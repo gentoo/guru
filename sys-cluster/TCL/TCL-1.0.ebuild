@@ -31,7 +31,7 @@ DEPEND="${RDEPEND}"
 
 REQUIRED_USE="
 	|| ( fti scr veloc )
-	|| ( ${IUSE_TCL//+/} )
+	?? ( ${IUSE_TCL//+/} )
 "
 
 src_prepare() {
