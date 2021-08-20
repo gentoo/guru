@@ -14,28 +14,33 @@ SRC_URI="https://github.com/bsc-performance-tools/extrae/archive/${PV}.tar.gz ->
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="clustering doc dyninst heterogeneous inotify +instrument-dynamic-memory +instrument-io
-+instrument-syscall memkind merge-in-trace nanos online opencl openmp openshmem
-+parallel-merge pebs-sampling +posix-clock pthread sampling +single-mpi-lib sionlib smpss
-spectral +xml"
+
+IUSE_INSTRUMENT="
+	+instrument-dynamic-memory
+	+instrument-io
+	+instrument-syscall
+"
+IUSE_EXPAND="INSTRUMENT"
+IUSE="${IUSE_INSTRUMENT} clustering dlsym doc dyninst heterogeneous inotify memkind
+merge-in-trace nanos online opencl openmp openshmem +parallel-merge pebs-sampling
+peruse +posix-clock pthread sampling +single-mpi-lib sionlib smpss spectral +xml"
 
 #aspectj and aspectj-weaver need to both be enabled at the same time
 #current dev-java/aspectj package only provides aspectj.jar
 #aspectj needs foo/lib/aspectj.jar and foo/bin/ajc
 #aspectj-weaver needs bar/aspectjweaver.jar
-#TODO: pmapi cuda cupti gm mx aspectj
+#TODO: cuda cupti gm mx
 #TODO: support llvm libunwind, llvm rt, elftoolchain
 
 CDEPEND="
 	${PYTHON_DEPS}
 	dev-libs/libxml2
 	dev-libs/papi
-	!<sys-cluster/openmpi-4.0.5-r1
-	!>=sys-cluster/openmpi-4.0.5-r1[libompitrace]
+	!sys-cluster/openmpi[libompitrace(+)]
+	sys-libs/libunwind
 	sys-libs/zlib
 	virtual/mpi
 
-	|| ( sys-libs/libunwind sys-libs/llvm-libunwind )
 	|| ( sys-devel/binutils:* sys-libs/binutils-libs )
 
 	clustering? ( sys-cluster/clusteringsuite[treedbscan] )
@@ -50,6 +55,7 @@ CDEPEND="
 	online? ( sys-cluster/synapse )
 	opencl? ( dev-util/opencl-headers )
 	openshmem? ( sys-cluster/SOS )
+	peruse? ( sys-cluster/openmpi[peruse(-)] )
 	sionlib? ( sys-cluster/sionlib:= )
 	spectral? (
 		sci-libs/fftw
@@ -74,8 +80,12 @@ BDEPEND="
 		dev-texlive/texlive-latexextra
 	)
 "
+
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
+
+	|| ( ${IUSE_INSTRUMENT//+/} )
+
 	java? ( pthread )
 "
 #	cupti? ( cuda )
@@ -94,8 +104,6 @@ src_configure() {
 		--datarootdir="${T}"
 
 		--disable-mic
-		--disable-online
-		--disable-peruse
 		--disable-pmapi
 		--disable-static
 
@@ -104,7 +112,6 @@ src_configure() {
 		--with-librt="${EPREFIX}/usr"
 		--with-mpi="${EPREFIX}/usr"
 		--with-papi="${EPREFIX}/usr"
-		--with-pic
 		--with-unwind="${EPREFIX}/usr"
 
 		--without-cupti
@@ -121,16 +128,18 @@ src_configure() {
 		$(use_enable nanos)
 		$(use_enable online)
 		$(use_enable openmp)
-		$(use_enable sampling)
 		$(use_enable parallel-merge)
 		$(use_enable pebs-sampling)
+		$(use_enable peruse)
 		$(use_enable posix-clock)
 		$(use_enable pthread)
+		$(use_enable sampling)
 		$(use_enable single-mpi-lib)
 		$(use_enable smpss)
 		$(use_enable xml)
 	)
-#--with-pmpi-hook (Choose method to call PMPI (dlsym or pmpi))
+
+	use dlsym && myconf+=( "--with-pmpi-hook=dlsym" )
 
 #	if use aspectj; then
 #		myconf+=( "--with-java-aspectj=${EPREFIX}/usr/share/aspectj/lib" )
