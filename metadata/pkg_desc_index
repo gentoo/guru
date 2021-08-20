@@ -146,9 +146,17 @@ app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the 
 app-text/mdbook 0.4.9 0.4.10 0.4.11 0.4.12: Creates a book from markdown files
 app-text/noweb 2.12: a literate programming tool, lighter than web
 app-text/stdman 2019.08.27 2020.11.17 9999: Formatted C++ stdlib man pages (cppreference)
+app-vim/apkbuild-vim 20210723: vim plugin: edit and work with APKBUILD files
+app-vim/css-color 20210530: vim plugin: preview colours in source code while editing
+app-vim/gemini-vim 20210625: vim plugin: syntax highlighting for Gemini Text, the text/gemini media type
+app-vim/nerdtree-git 20210728: vim plugin: display git status flags in NERDTree
 app-vim/openbsd-style 1.1: vim plugin: indent code according to the OpenBSD and FreeBSD style(9)
 app-vim/python-syntax 20201215: vim plugin: Enhanced Python syntax highlighting
+app-vim/rainbow 3.4.0_p20200528: vim plugin: Rainbow Parentheses Improved
+app-vim/tex-conceal 20210409: vim plugin: extends the Conceal feature for LaTeX
+app-vim/themis 1.5.5: A testing framework for Vim script
 app-vim/vim-nix 9999: vim plugin: Vim configuration files for Nix
+app-vim/vim-sensible 1.2: vim plugin: a universal set of defaults that (hopefully) everyone can agree on
 dev-R/BH 1.75.0.0: Boost C++ Header Files
 dev-R/MASS 7.3.54: Support Functions and Datasets for variables and Ripley's MASS
 dev-R/Matrix 1.3.4: Sparse and Dense Matrix Classes and Methods
@@ -239,9 +247,9 @@ dev-R/yaml 2.2.1: Methods to Convert R Data to YAML and Back
 dev-cpp/cli11 1.9.1 2.0.0: Command line parser for C++11
 dev-cpp/drogon 1.7.1: C++14/17 based HTTP web application framework
 dev-cpp/dtl 1.19_p20210531: diff template library written by C++
-dev-cpp/fbthrift 2021.06.14.00 2021.06.28.00: Facebook's branch of Apache Thrift, including a new C++ server
-dev-cpp/fizz 2021.06.14.00 2021.06.28.00: C++14 implementation of the TLS-1.3 standard
-dev-cpp/folly 2021.06.14.00 2021.06.28.00: An open-source C++ library developed and used at Facebook
+dev-cpp/fbthrift 2021.08.02.00: Facebook's branch of Apache Thrift, including a new C++ server
+dev-cpp/fizz 2021.08.02.00: C++14 implementation of the TLS-1.3 standard
+dev-cpp/folly 2021.08.02.00: An open-source C++ library developed and used at Facebook
 dev-cpp/gsl-lite 0.38.0: C++ Guideline Support Library implementation
 dev-cpp/indicators 2.2: Activity indicators for modern C++
 dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
@@ -254,7 +262,7 @@ dev-cpp/tiny-dnn 1.0.0_alpha3: header only, dependency-free deep learning framew
 dev-cpp/trantor 1.5.1: Non-blocking I/O tcp network lib based on c++14/17
 dev-cpp/vectorwrapper 1.1.2 9999: A template vector wrapper class for C++
 dev-cpp/vexcl 1.4.2-r1: VexCL - Vector expression template library for OpenCL
-dev-cpp/wangle 2021.06.14.00 2021.06.28.00: Framework providing common client/server abstractions
+dev-cpp/wangle 2021.08.02.00: Framework providing common client/server abstractions
 dev-cpp/xdgpp 0_pre20201007: C++17 header-only implementation of the XDG Base Directory Specification
 dev-db/pg_repack 1.4.6: Reorganize tables in PostgreSQL databases with minimal locks
 dev-db/rum 1.3.7: RUM access method - inverted index with additional information in posting lists
@@ -285,7 +293,7 @@ dev-lang/wren 0.3.0: The Wren Programming Language
 dev-libs/StringiFor 1.1.1: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
 dev-libs/boinc-zip 7.18 7.18-r1: Wrapper for the zip/unzip functions to expose to BOINC clients
 dev-libs/cgicc 3.2.19: A C++ class library for writing CGI applications
-dev-libs/cglm 0.8.2-r1 0.8.3 9999: OpenGL Mathematics (glm) for C
+dev-libs/cglm 0.8.3 0.8.4 9999: OpenGL Mathematics (glm) for C
 dev-libs/feedbackd 0.0.0: A daemon to provide haptic feedback on events
 dev-libs/fsst 0_pre20200830: Fast Static Symbol Table: fast text compression that allows random access
 dev-libs/ftl 1.0_p20210308: The Fortran Template Library (FTL) is a general purpose library for Fortran 2003
@@ -296,7 +304,7 @@ dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync client
 dev-libs/libdatrie 0.2.13: Double-Array Trie Library
 dev-libs/libdwarf 20210528: The DWARF Debugging Information Format
 dev-libs/libnodave 0.8.5.1-r2: Connect to and exchange data with Siemens PLCs
-dev-libs/libphonenumber 8.12.29: library for parsing, formatting, and validating international phone numbers
+dev-libs/libphonenumber 8.12.30: library for parsing, formatting, and validating international phone numbers
 dev-libs/libthai 0.1.28: A a set of Thai language support routines
 dev-libs/memkind 1.11.0: user extensible heap manager built on top of jemalloc
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
@@ -609,7 +617,7 @@ dev-vcs/git-repo-updater 0.5.1-r1: Easily update multiple git repositories at on
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
 dev-vcs/gitqlient 1.3.2 1.4.0 9999: Multi-platform Git client written with Qt
 dev-vcs/got 0_p20210217: Portable version of the Game of Trees version control system
-dev-vcs/lazygit 0.27.4 0.28.1 0.28.2 9999: Lazygit, a simple terminal UI for git commands
+dev-vcs/lazygit 0.28.2 0.29 9999: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
 games-action/blackvoxel 2.42 9999: Blackvoxel Video Game
 games-action/netrek-brmh 2.6.0: brmh client for netrek
@@ -630,7 +638,7 @@ games-engines/fs2_open 21.2.0: FreeSpace2 Source Code Project game engine
 games-engines/instead 3.3.5 9999: INSTEAD text-based quest game engine
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
-games-fps/crispy-doom 5.10.0 5.10.1 5.10.2: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
+games-fps/crispy-doom 5.10.0 5.10.1 5.10.2 5.10.3: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 games-fps/quakespasm 0.93.2-r1 9999: Modern, cross-platform Quake 1 engine based on FitzQuake
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
 games-misc/bonsai 0_pre20210201: bonsai tree generator written in bash
@@ -794,7 +802,7 @@ net-im/cawbird 1.4.1: Cawbird is a fork of the Corebird Twitter client from Baed
 net-im/discord-canary-bin 0.0.126-r1: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.25: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
-net-im/guilded-bin 1.0.9101267: Drop Discord, get Guilded
+net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
 net-im/kaidan 0.7.0 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!
 net-im/nheko 0.8.1 0.8.2 0.8.2-r1: Desktop client for Matrix using Qt and C++14
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
@@ -806,7 +814,7 @@ net-libs/usockets 0.7.1_p20210214-r2 9999: tiny eventing, networking & crypto fo
 net-mail/remail 0.13: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.4.1 1.4.2 1.5.0: FORT validator is an open source RPKI validator
 net-misc/amfora 1.8.0: A fancy terminal browser for the Gemini protocol.
-net-misc/can-utils 2020.02.04 2020.12.0-r1 9999-r3: CAN userspace utilities and tools
+net-misc/can-utils 2020.02.04 2020.12.0-r1 2021.08.0 9999-r3: CAN userspace utilities and tools
 net-misc/castor 0.8.15 0.8.16: A graphical browser for plain-text protocols
 net-misc/eg25-manager 0.3.0: Daemon for managing the Quectel EG25 modem
 net-misc/freetube-bin 0.11.3 0.12.0: https://github.com/FreeTubeApp/FreeTube
@@ -897,7 +905,7 @@ sys-cluster/dlb 2.1-r2: Dynamically react to application imbalance by modifying 
 sys-cluster/dtcmp 1.1.2: Datatype Compare Library for sorting and ranking distributed data using MPI
 sys-cluster/dyninst 11.0.1: Tools for binary instrumentation, analysis, and modification
 sys-cluster/er 0.0.4: High-level distributed erasure coding lib combining shuffile and redset
-sys-cluster/extrae 3.8.3-r9: Instrumentation framework to generate execution traces of parallel runtimes
+sys-cluster/extrae 3.8.3-r10: Instrumentation framework to generate execution traces of parallel runtimes
 sys-cluster/fti 1.6: Fault Tolerance Interface
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
 sys-cluster/heat 15.0.0: A CloudFormation-compatible openstack-native cloud orchestration engine.
@@ -909,9 +917,11 @@ sys-cluster/lwgrp 1.0.3: Light-weight Group Library
 sys-cluster/mrnet 5.0.1_p20180510-r3: A Multicast/Reduction Network
 sys-cluster/muster 1.0.1: Massively Scalable Clustering
 sys-cluster/nanos6 2.6: runtime that implements the OmpSs-2 parallel programming model
+sys-cluster/nanox 0.15_p20210818: Nanos++ is a runtime designed to serve as runtime support in parallel environments
 sys-cluster/neutron 17.1.1 17.1.2: A virtual network service for Openstack
 sys-cluster/nova 22.2.0 22.2.1: Cloud computing fabric controller
 sys-cluster/otf2 2.3-r1: highly scalable, memory efficient event trace data format
+sys-cluster/paraver-kernel 4.9.0: paraver kernel library
 sys-cluster/pcs 0.10.8-r3: Pacemaker/Corosync Configuration System
 sys-cluster/placement 4.0.0: A HTTP service for managing, selecting, and claiming cloud resources.
 sys-cluster/portals4 1.0_alpha1_p20190109-r2: low-level network API for high-performance networking
@@ -926,7 +936,7 @@ sys-cluster/spectral 3.4.1: Signal processing to select representative regions f
 sys-cluster/swift 2.26.0 2.27.0: A highly available, distributed, and eventually consistent object/blob store
 sys-cluster/synapse 2.0.1: synapse
 sys-cluster/temanejo 1.3: a debugger for task-parallel programming
-sys-cluster/veloc 1.2: Very-Low Overhead Checkpointing System
+sys-cluster/veloc 1.5: Very-Low Overhead Checkpointing System
 sys-firmware/pinephone-firmware 20210809: Firmwares files for PinePhone
 sys-fs/btrfs-heatmap 9: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
@@ -991,7 +1001,6 @@ x11-misc/i3lock-color 2.13.2 2.13.4 9999: The world's most popular non-default c
 x11-misc/i3lock-fancy-rapid 0.0.0_pre20201109-r1 0.0.0_pre20210421: A faster implementation of i3lock-fancy
 x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement for i3status, written in Rust.
 x11-misc/ksnip 1.8.1 1.9.0: Ksnip is a Qt based cross-platform screenshot tool
-x11-misc/rofi-file-browser-extended 1.2.0-r2: A file browser for rofi
 x11-misc/squeekboard 1.14.0: Virtual keyboard supporting Wayland, built primarily for the Librem 5 phone
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-misc/xbanish 1.7: Banish the mouse cursor when typing, show it again when the mouse moves

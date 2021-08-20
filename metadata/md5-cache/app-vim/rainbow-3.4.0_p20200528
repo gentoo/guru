@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=vim plugin: Rainbow Parentheses Improved
+EAPI=7
+HOMEPAGE=http://www.vim.org/scripts/script.php?script_id=4176 https://github.com/luochen1990/rainbow
+INHERIT=readme.gentoo-r1 vim-plugin
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+SLOT=0
+SRC_URI=https://github.com/luochen1990/rainbow/archive/4d15633cdaf61602e1d9fd216a77fc02e0881b2d.tar.gz -> rainbow-3.4.0_p20200528.tar.gz
+_eclasses_=readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	vim-doc	e063cddf18e5d2f2cfb21388252579ec	vim-plugin	a7b5f19bc94a311ca1cf7127c8b84c41
+_md5_=6c7e5a35f34408cc5df6a2bbd698be67

@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm prepare
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=vim plugin: extends the Conceal feature for LaTeX
+EAPI=7
+HOMEPAGE=https://github.com/KeitaNakamura/tex-conceal.vim
+INHERIT=vim-plugin
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+SLOT=0
+SRC_URI=https://github.com/KeitaNakamura/tex-conceal.vim/archive/822712d80b4ad5bc5c241ab0a778ede812ec501f.tar.gz -> tex-conceal-20210409.tar.gz
+_eclasses_=vim-doc	e063cddf18e5d2f2cfb21388252579ec	vim-plugin	a7b5f19bc94a311ca1cf7127c8b84c41
+_md5_=9721207567f136fb044d4ddf4bd012e6

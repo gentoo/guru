@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm prepare
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=vim plugin: preview colours in source code while editing
+EAPI=7
+HOMEPAGE=http://www.vim.org/scripts/script.php?script_id=5056 https://github.com/ap/vim-css-color
+INHERIT=vim-plugin
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+SLOT=0
+SRC_URI=https://github.com/ap/vim-css-color/archive/7337c35588e9027b516f80f03c3b9621a271e168.tar.gz -> css-color-20210530.tar.gz
+_eclasses_=vim-doc	e063cddf18e5d2f2cfb21388252579ec	vim-plugin	a7b5f19bc94a311ca1cf7127c8b84c41
+_md5_=1d4a2c7a76f226845f88e6b61bd5086e

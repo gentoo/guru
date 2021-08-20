@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-libs/boost:= dev-libs/libxml2 sys-libs/zlib sys-cluster/libbsctools:= extrae? ( sys-cluster/extrae ) otf2? ( sys-cluster/otf2 )
+DESCRIPTION=paraver kernel library
+EAPI=8
+HOMEPAGE=http://tools.bsc.es/paraver https://github.com/bsc-performance-tools/paraver-kernel
+INHERIT=autotools
+IUSE=extended-objects extrae ompss openmp otf2
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1
+RDEPEND=dev-libs/boost:= dev-libs/libxml2 sys-libs/zlib sys-cluster/libbsctools:= extrae? ( sys-cluster/extrae ) otf2? ( sys-cluster/otf2 )
+REQUIRED_USE=extrae? ( openmp )
+SLOT=0
+SRC_URI=https://github.com/bsc-performance-tools/paraver-kernel/archive/refs/tags/v4.9.0.tar.gz -> paraver-kernel-4.9.0.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
+_md5_=7ae28ff1d6e3002e289d4b2010ab74dd

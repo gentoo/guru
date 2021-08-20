@@ -395,8 +395,10 @@ sys-cluster/SOS:total-data-ordering-never - Never use total data ordering optimi
 sys-cluster/SOS:ucx - Use ucx transport
 sys-cluster/SOS:xpmem - Use xpmem transport
 sys-cluster/TCL:fti - Enable sys-cluster/fti backend
-sys-cluster/TCL:instrumentation - Build the instrumentation version
 sys-cluster/TCL:scr - Enable sys-cluster/scr backend
+sys-cluster/TCL:tcl-debug - Build the debug version
+sys-cluster/TCL:tcl-instrumentation - Build the instrumentation version
+sys-cluster/TCL:tcl-instrumentation-debug - Build the instrumentation-debug version
 sys-cluster/TCL:veloc - Enable sys-cluster/veloc backend
 sys-cluster/cinder:api - Installs the initscripts for the cinder api service
 sys-cluster/cinder:iscsi - Allow using an iSCSI remote storage server as pool for disk image storage
@@ -415,8 +417,9 @@ sys-cluster/dlb:instrumentation - enable sys-cluster/extrae instrumentation
 sys-cluster/dyninst:openmp - Enable parallel code parsing
 sys-cluster/dyninst:valgrind - Enable annotations for Valgrind analysis
 sys-cluster/extrae:clustering - Enable sys-cluster/clusteringsuite support
+sys-cluster/extrae:dlsym - Use dlsym instead of PMPI
 sys-cluster/extrae:doc - Generates the documentation of this instrumentation package
-sys-cluster/extrae:dyninst - Build with dyninst
+sys-cluster/extrae:dyninst - Build with sys-cluster/dyninst
 sys-cluster/extrae:heterogeneous - Enable support for heterogeneous tracing
 sys-cluster/extrae:inotify - Enable inotify support
 sys-cluster/extrae:instrument-dynamic-memory - Enables instrumentation for dynamic memory (malloc, free, realloc) calls
@@ -432,13 +435,14 @@ sys-cluster/extrae:openmp - Enable support for tracing OpenMP
 sys-cluster/extrae:openshmem - OpenSHMEM to be used for the instrumentation package
 sys-cluster/extrae:parallel-merge - Build the parallel mergers (mpimpi2prv/mpimpi2dim) based on MPI
 sys-cluster/extrae:pebs-sampling - enable PEBS sampling
+sys-cluster/extrae:peruse - Enable gathering information with PerUse
 sys-cluster/extrae:posix-clock - Use POSIX clock (clock_gettime call) instead of low level timing routines. Use this option if the system where you install the instrumentation package modifies the frequency of its processors at runtime.
 sys-cluster/extrae:pthread - Enable support for tracing pthread library
-sys-cluster/extrae:sampling - Enable PAPI sampling support
+sys-cluster/extrae:sampling - Enable dev-libs/papi sampling support
 sys-cluster/extrae:single-mpi-lib - Produces a single instrumentation library for MPI that contains both Fortran and C wrappers. Applications that call the MPI library from both C and Fortran languages need this flag to be enabled.
 sys-cluster/extrae:sionlib - Enable support for sys-cluster/sionlib
 sys-cluster/extrae:smpss - Enable support for tracing SMP-superscalar
-sys-cluster/extrae:spectral - This package enables support for on-line spectral analysis.
+sys-cluster/extrae:spectral - This package enables support for on-line sys-cluster/spectral analysis.
 sys-cluster/extrae:xml - Enable support for XML configuration
 sys-cluster/fti:fi-io - Enables the I/O failure injection mechanism
 sys-cluster/fti:fortran - Enables the build of a Fortran wrapper
@@ -467,6 +471,24 @@ sys-cluster/nanos6:extrae - to generate execution traces for offline performance
 sys-cluster/nanos6:memkind - Add support for dev-libs/memkind in memory allocator
 sys-cluster/nanos6:papi - enable dev-libs/papi support
 sys-cluster/nanos6:unwind - to generate sample-based profiling
+sys-cluster/nanox:allocator - Enables Allocator module
+sys-cluster/nanox:ayudame - Enables ayudame support from sys-cluster/temanejo
+sys-cluster/nanox:dlb - build with sys-cluster/dlb library support
+sys-cluster/nanox:extrae - build with sys-cluster/extrae support
+sys-cluster/nanox:gasnet - Enable sys-cluster/gasnet support
+sys-cluster/nanox:hwloc - Enable sys-apps/hwloc support
+sys-cluster/nanox:memkind - Enables dev-libs/memkind support
+sys-cluster/nanox:memtracker - Enables Memtracker module
+sys-cluster/nanox:nanox-debug - Enable generation of debug version
+sys-cluster/nanox:nanox-instrumentation - Enable generation of instrumentation version
+sys-cluster/nanox:nanox-instrumentation-debug - Enable generation of instrumentation-debug version
+sys-cluster/nanox:nanox-performance - Enable generation of performance version
+sys-cluster/nanox:opencl - Enables openCL support
+sys-cluster/nanox:papi - enable dev-libs/papi support
+sys-cluster/nanox:resiliency - Enables task-level resiliency
+sys-cluster/nanox:sqlite - enable dev-db/sqlite support
+sys-cluster/nanox:task-callback - Enables task callback feature
+sys-cluster/nanox:threads - Enable user level threads
 sys-cluster/neutron:compute-only - Only install things needed on compute hosts
 sys-cluster/neutron:dhcp - Installs the initscripts for the neutron dhcp service
 sys-cluster/neutron:haproxy - haproxy backend support
@@ -483,6 +505,11 @@ sys-cluster/nova:novncproxy - Installs the initscripts for the nova novncproxy s
 sys-cluster/nova:openvswitch - Installs openvswitch for the neutron openvswitch support
 sys-cluster/nova:rabbitmq - Installs the rabbitmq server
 sys-cluster/otf2:sionlib - Enable sys-cluster/sionlibl support
+sys-cluster/paraver-kernel:extended-objects - Enable extra number of objects
+sys-cluster/paraver-kernel:extrae - Enable extrae support
+sys-cluster/paraver-kernel:ompss - Enable OmpSs parallel version
+sys-cluster/paraver-kernel:openmp - Enable OpenMP parallel version
+sys-cluster/paraver-kernel:otf2 - Enable otf2 support
 sys-cluster/portals4:knem - Use sys-cluster/knem for bulk message transfer
 sys-cluster/portals4:me-triggered - Enable extended (non-standard) triggered operations. Experimental
 sys-cluster/portals4:pmi - Enable PMI support
@@ -526,7 +553,6 @@ sys-cluster/sionlibl:parutils - Enable compilation of parutils (used for benchma
 sys-cluster/sionlibl:pthreads - configure SIONlib to use pthreads for locking
 sys-cluster/sionlibl:python - enable python support
 sys-cluster/sionlibl:sionfwd - enable I/O forwarding with sys-cluster/SIONfwd
-sys-cluster/spath:lsf - Use LFS (Load Sharing Facility) as resource manager
 sys-cluster/spath:slurm - Use sys-cluster/slurm as resource manager
 sys-cluster/spectral:extrae - Add sys-cluster/extrae support
 sys-cluster/spectral:libbsctools - Add sys-cluster/libbsctools support
@@ -539,8 +565,8 @@ sys-cluster/temanejo:ompss - enable ompss plugin
 sys-cluster/temanejo:ompt - Acquire debugging events through OMPT (OpenMP, OmpSs)
 sys-cluster/temanejo:socket - Enable connection to socket
 sys-cluster/temanejo:stdout - Enable output to stdout
-sys-cluster/veloc:alps - Use ALPS (Application Level Placement Scheduler) as resource manager
-sys-cluster/veloc:lsf - Use LFS (Load Sharing Facility) as resource manager
+sys-cluster/veloc:comm-queue-ipc - Use ipc as the communication protocol between client library and active backend
+sys-cluster/veloc:comm-queue-socket - Use socket as the communication protocol between client library and active backend
 sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager
 sys-fs/erofs-utils:fuse - Enable support for Filesystem in Userspace via sys-fs/fuse
 sys-fs/erofs-utils:uuid - Allow interaction with libuuid in sys-apps/util-linux. It's recommended turn on
