@@ -12,7 +12,7 @@ SRC_URI="https://github.com/LLNL/libyogrt/archive/refs/tags/${PV}.tar.gz -> ${P}
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="slurm" #lsf moab lcrm
+IUSE="slurm"
 
 RDEPEND="slurm? ( sys-cluster/slurm )"
 DEPEND="${RDEPEND}"

@@ -21,7 +21,8 @@ process). Extrae generates trace files that can be later visualized with sys-clu
 		<!--<flag name="cuda">Enable support for tracing CUDA calls on nVidia hardware and needs to point to the CUDA SDK installation path. This instrumentation is only valid in binaries that use the shared version of the CUDA library.</flag>-->
 		<!--<flag name="cupti">CUPTI is used to instrument CUDA calls</flag>-->
 		<flag name="doc">Generates the documentation of this instrumentation package</flag>
-		<flag name="dyninst">Build with dyninst</flag>
+		<flag name="dlsym">Use dlsym instead of PMPI</flag>
+		<flag name="dyninst">Build with <pkg>sys-cluster/dyninst</pkg></flag>
 		<flag name="heterogeneous">Enable support for heterogeneous tracing</flag>
 		<flag name="inotify">Enable inotify support</flag>
 		<flag name="instrument-dynamic-memory">Enables instrumentation for dynamic memory (malloc, free, realloc) calls</flag>
@@ -37,11 +38,11 @@ process). Extrae generates trace files that can be later visualized with sys-clu
 		<flag name="openshmem">OpenSHMEM to be used for the instrumentation package</flag>
 		<flag name="parallel-merge">Build the parallel mergers (mpimpi2prv/mpimpi2dim) based on MPI</flag>
 		<flag name="pebs-sampling">enable PEBS sampling</flag>
-		<!--<flag name="pmapi">Enable PMAPI library to gather CPU performance counters</flag>-->
+		<flag name="peruse">Enable gathering information with PerUse</flag>
 		<flag name="posix-clock">Use POSIX clock (clock_gettime call) instead of low level timing routines. Use this option if the system where you install the instrumentation package modifies the frequency of its processors at runtime.</flag>
 		<flag name="pthread">Enable support for tracing pthread library</flag>
-		<flag name="sampling">Enable PAPI sampling support</flag>
-		<flag name="spectral">This package enables support for on-line spectral analysis.</flag>
+		<flag name="sampling">Enable <pkg>dev-libs/papi</pkg> sampling support</flag>
+		<flag name="spectral">This package enables support for on-line <pkg>sys-cluster/spectral</pkg> analysis.</flag>
 		<flag name="single-mpi-lib">Produces a single instrumentation library for MPI that contains both Fortran and C wrappers. Applications that call the MPI library from both C and Fortran languages need this flag to be enabled.</flag>
 		<flag name="sionlib">Enable support for <pkg>sys-cluster/sionlib</pkg></flag>
 		<flag name="smpss">Enable support for tracing SMP-superscalar</flag>

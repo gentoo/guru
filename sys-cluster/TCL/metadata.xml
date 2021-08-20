@@ -11,8 +11,10 @@
 	</upstream>
 	<use>
 		<flag name="fti">Enable <pkg>sys-cluster/fti</pkg> backend</flag>
-		<flag name="instrumentation">Build the instrumentation version</flag>
 		<flag name="scr">Enable <pkg>sys-cluster/scr</pkg> backend</flag>
+		<flag name="tcl-debug">Build the debug version</flag>
+		<flag name="tcl-instrumentation">Build the instrumentation version</flag>
+		<flag name="tcl-instrumentation-debug">Build the instrumentation-debug version</flag>
 		<flag name="veloc">Enable <pkg>sys-cluster/veloc</pkg> backend</flag>
 	</use>
 </pkgmetadata>

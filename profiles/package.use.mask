@@ -31,3 +31,9 @@ sys-cluster/extrae openshmem
 # petit gui doesn't build
 # https://github.com/davewathaverford/the-omega-project/issues/5
 sci-mathematics/the-omega-project gui
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-08-18)
+# build failure
+# https://github.com/bsc-pm/nanox/issues/18
+sys-cluster/nanox gasnet
+

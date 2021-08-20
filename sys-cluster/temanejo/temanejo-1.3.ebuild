@@ -23,6 +23,7 @@ REQUIRED_USE=""
 DEPEND=""
 RDEPEND="
 	${DEPEND}
+	ompss? ( !sys-cluster/nanox[ayudame] )
 "
 #	${PYTHON_DEPS}
 #	$(python_gen_cond_dep '

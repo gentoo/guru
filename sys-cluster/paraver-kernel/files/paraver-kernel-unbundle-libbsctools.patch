@@ -1,0 +1,264 @@
+--- a/api/eventlabels.cpp
++++ b/api/eventlabels.cpp
+@@ -24,11 +24,6 @@
+ 
+ #include "eventlabels.h"
+ 
+-#ifdef OLD_PCFPARSER
+-#include "utils/pcfparser/old/ParaverEventType.h"
+-#include "utils/pcfparser/old/ParaverEventValue.h"
+-#endif
+-
+ using namespace std;
+ 
+ const string EventLabels::unknownLabel = "Unknown";
+--- a/api/eventlabels.h
++++ b/api/eventlabels.h
+@@ -29,11 +29,7 @@
+ #include <map>
+ #include "paraverkerneltypes.h"
+ 
+-#ifdef OLD_PCFPARSER
+-#include "utils/pcfparser/old/ParaverTraceConfig.h"
+-#else
+-#include "utils/pcfparser/UIParaverTraceConfig.h"
+-#endif
++#include "UIParaverTraceConfig.h"
+ 
+ using namespace libparaver;
+ 
+--- a/api/Makefile.am
++++ b/api/Makefile.am
+@@ -1,22 +1,7 @@
+-
+ pkglib_LTLIBRARIES = libparaver-api.la
+ 
+-
+-if MAKE_OLD_PCFPARSER
+-  PCFPARSER_FILES=  ../utils/pcfparser/old/LibException.cpp \
+-                    ../utils/pcfparser/old/ParaverEventType.cpp \
+-                    ../utils/pcfparser/old/ParaverEventValue.cpp \
+-                    ../utils/pcfparser/old/ParaverGradientColor.cpp \
+-                    ../utils/pcfparser/old/ParaverGradientNames.cpp \
+-                    ../utils/pcfparser/old/ParaverState.cpp \
+-                    ../utils/pcfparser/old/ParaverStatesColor.cpp \
+-                    ../utils/pcfparser/old/ParaverTraceConfig.cpp \
+-                    ../utils/pcfparser/old/ParaverTraceConfigGrammar.cpp 
+-else
+-  PCFPARSER_FILES=../utils/pcfparser/ParaverTraceConfig.cpp \
+-                  ../utils/pcfparser/UIParaverTraceConfig.cpp
+-endif
+-
++libparaver_api_la_LIBADD = -lparavertraceconfig
++libparaver_api_la_LDFLAGS = -lparavertraceconfig
+ 
+ libparaver_api_la_SOURCES = \
+                     cfg.cpp \
+@@ -53,8 +38,7 @@
+                     tracesoftwarecounters.cpp \
+                     window.cpp \
+                     workspace.cpp \
+-                    workspacemanager.cpp \
+-                    $(PCFPARSER_FILES)
++                    workspacemanager.cpp
+ 
+ include_HEADERS = \
+                   cfg.h\
+@@ -110,18 +94,6 @@
+                   traceeditstates.cpp\
+                   zoomhistory.cpp
+ 
+-install-data-hook:
+-	$(mkdir_p) $(DESTDIR)$(includedir)/utils/pcfparser
+-	cp -f ../utils/pcfparser/UIParaverTraceConfig.h $(DESTDIR)$(includedir)/utils/pcfparser
+-	cp -f ../utils/pcfparser/UIParaverTraceConfig.ipp $(DESTDIR)$(includedir)/utils/pcfparser
+-
+-	$(mkdir_p) $(DESTDIR)$(includedir)/utils/pcfparser/old
+-	cp -f ../utils/pcfparser/old/ParaverTraceConfig.h $(DESTDIR)$(includedir)/utils/pcfparser/old
+-
+-uninstall-hook:
+-	test -d $(DESTDIR)$(includedir)/utils/pcfparser && rm -rf $(DESTDIR)$(includedir)/utils/pcfparser
+-
+-
+ # Erases everything which should not be uploaded to CVS
+ mrproper: distclean
+ 	rm -fr Makefile.in
+--- a/api/paramedir.cpp
++++ b/api/paramedir.cpp
+@@ -54,11 +54,7 @@
+ #include "eventdrivencutter.h"
+ #include "eventtranslator.h"
+ 
+-#ifdef OLD_PCFPARSER
+-#include "utils/pcfparser/old/ParaverTraceConfig.h"
+-#else
+-#include "utils/pcfparser/UIParaverTraceConfig.h"
+-#endif
++#include "UIParaverTraceConfig.h"
+ 
+ // PARAMEDIR OPTIONS
+ typedef struct TOptionParamedir
+--- a/api/statelabels.cpp
++++ b/api/statelabels.cpp
+@@ -24,10 +24,6 @@
+ 
+ #include "statelabels.h"
+ 
+-#ifdef OLD_PCFPARSER
+-#include "utils/pcfparser/old/ParaverState.h"
+-#endif
+-
+ using namespace std;
+ 
+ const string StateLabels::unknownLabel = "Unknown";
+--- a/api/statelabels.h
++++ b/api/statelabels.h
+@@ -28,11 +28,7 @@
+ #include <map>
+ #include "paraverkerneltypes.h"
+ 
+-#ifdef OLD_PCFPARSER
+-#include "utils/pcfparser/old/ParaverTraceConfig.h"
+-#else
+-#include "utils/pcfparser/UIParaverTraceConfig.h"
+-#endif
++#include "UIParaverTraceConfig.h"
+ 
+ using namespace libparaver;
+ 
+--- a/api/trace.cpp
++++ b/api/trace.cpp
+@@ -24,13 +24,7 @@
+ #include "kernelconnection.h"
+ #include "trace.h"
+ 
+-#ifdef OLD_PCFPARSER
+-#include "utils/pcfparser/old/ParaverTraceConfig.h"
+-#include "utils/pcfparser/old/ParaverStatesColor.h"
+-#include "utils/pcfparser/old/ParaverGradientColor.h"
+-#else
+-#include "utils/pcfparser/UIParaverTraceConfig.h"
+-#endif
++#include "UIParaverTraceConfig.h"
+ 
+ #include "progresscontroller.h"
+ #include <sstream>
+--- a/api/tracecutter.cpp
++++ b/api/tracecutter.cpp
+@@ -28,11 +28,7 @@
+ //#include "ktracecutter.h"
+ #include "kernelconnection.h"
+ 
+-#ifdef OLD_PCFPARSER
+-#include "utils/pcfparser/old/ParaverTraceConfig.h"
+-#else
+-#include "utils/pcfparser/UIParaverTraceConfig.h"
+-#endif
++#include "UIParaverTraceConfig.h"
+ 
+ using namespace libparaver;
+ 
+--- a/configure.ac
++++ b/configure.ac
+@@ -52,7 +52,6 @@
+ AC_CONFIG_HEADERS(config_traits.h)
+ AX_PROG_ENABLE_DEPENDENCIES_AWARE_INSTALL
+ AX_PROG_ENABLE_EXTENDED_OBJECTS
+-AX_PROG_ENABLE_OLD_PCFPARSER
+ AX_PROG_ENABLE_OMPSS
+ AX_PROG_ENABLE_OPENMP
+ AX_PROG_ENABLE_MINGW
+@@ -82,4 +81,4 @@
+ CXXFLAGS="-I../include/ -I../api/ -I../ -I../../ $CXXFLAGS $BOOST_CPPFLAGS $CXXFLAGS_EXTRAE $XML_CPPFLAGS $MINGW_CPPFLAGS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -DBOOST_DATE_TIME_POSIX_TIME_STD_CONFIG"
+ LDFLAGS="$LDFLAGS $BOOST_LDFLAGS $BOOST_SERIALIZATION_LIB $BOOST_DATE_TIME_LIB $LDFLAGS_EXTRAE $BOOST_RPATH $XML_LIBS $MINGW_LIBS"
+ 
+-AC_OUTPUT([Makefile src/Makefile api/Makefile include/Makefile utils/Makefile utils/include/Makefile utils/src/Makefile utils/pcfparser/Makefile utils/pcfparser/old/Makefile])
++AC_OUTPUT([Makefile src/Makefile api/Makefile include/Makefile utils/Makefile utils/include/Makefile utils/src/Makefile])
+--- a/m4/macros.m4
++++ b/m4/macros.m4
+@@ -36,29 +36,6 @@
+ 
+ 
+ 
+-# AX_PROG_ENABLE_OLD_PCFPARSER
+-# ----------------------------
+-AC_DEFUN([AX_PROG_ENABLE_OLD_PCFPARSER],
+-[
+-   AC_ARG_ENABLE(old_pcfparser,
+-      AC_HELP_STRING(
+-         [--enable-old-pcfparser],
+-         [enable compilation with old pcfparser (default: disabled)]
+-      ),
+-      [enable_old_pcfparser="${enableval}"],
+-      [enable_old_pcfparser="no"]
+-   )
+-
+-   if test "${enable_old_pcfparser}" = "yes" ; then
+-      AC_MSG_NOTICE([Using old pcfparser.])
+-      AC_DEFINE([OLD_PCFPARSER], 1, [Old pcfparser enabled by user.])
+-   fi
+-
+-   AM_CONDITIONAL(MAKE_OLD_PCFPARSER, test "${enable_old_pcfparser}" = "yes" )
+-])
+-
+-
+-
+ # AX_PROG_ENABLE_OMPSS
+ # --------------------
+ AC_DEFUN([AX_PROG_ENABLE_OMPSS],
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -15,7 +15,7 @@
+ 	api/paramedir.cpp
+ 
+ paramedir_bin_LDADD = \
+-	-lz \
++	-lz -lparavertraceconfig \
+ 	api/libparaver-api.la \
+ 	src/libparaver-kernel.la
+ 
+--- a/src/ktraceeditactions.cpp
++++ b/src/ktraceeditactions.cpp
+@@ -42,11 +42,7 @@
+ #include "traceoptions.h"
+ #include "ParaverMetadataManager.h"
+ #include "ktrace.h"
+-#ifdef OLD_PCFPARSER
+-#include "utils/pcfparser/old/ParaverTraceConfig.h"
+-#else
+-#include "utils/pcfparser/UIParaverTraceConfig.h"
+-#endif
++#include "UIParaverTraceConfig.h"
+ 
+ using std::set;
+ 
+@@ -841,4 +837,4 @@
+   tmpSequence->executeNextAction( whichTrace );
+ 
+   return true;
+-}
+\ Manca newline alla fine del file
++}
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -58,7 +58,10 @@
+     traceeditblocks.cpp \
+     traceheaderexception.cpp\
+     tracestream.cpp
+-          
++
++libparaver_kernel_la_LIBADD = -lparavertraceconfig
++libparaver_kernel_la_LDFLAGS = -lparavertraceconfig
++
+ noinst_HEADERS = \
+     cell.cpp \
+     column.cpp \
+--- a/utils/Makefile.am
++++ b/utils/Makefile.am
+@@ -1,6 +1,5 @@
+ SUBDIRS = \
+ 	include \
+-	pcfparser \
+ 	src
+ 
+ 

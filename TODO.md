@@ -13,6 +13,11 @@ C
 * [parsec](https://bitbucket.org/icldistcomp/parsec)
 * [ummunotify](https://github.com/Portals4/ummunotify)
 * [retroarch](https://www.retroarch.com/)
+* [argobots](https://www.argobots.org/)
+* [mercury](https://github.com/mercury-hpc/mercury)
+* [mochi-ssg](https://github.com/mochi-hpc/mochi-ssg)
+* [mochi-margo](https://github.com/mochi-hpc/mochi-margo)
+* [mochi-abt-io](https://github.com/mochi-hpc/mochi-abt-io)
 
 C++
 * [machinekit](https://github.com/machinekit/machinekit) 
@@ -25,7 +30,6 @@ C++
 * [opensiv3d](https://github.com/Siv3D/OpenSiv3D)
 * [grive2](https://github.com/vitalif/grive2)
 * [graph-tool](https://graph-tool.skewed.de/)
-* [nanox](https://github.com/bsc-pm/nanox)
 * [mcxx](https://github.com/bsc-pm/mcxx)
 * [chapel](https://github.com/chapel-lang/chapel)
 * [osmium](https://wiki.openstreetmap.org/wiki/Osmium)
@@ -42,13 +46,16 @@ C++
 * [codipack](https://www.scicomp.uni-kl.de/software/codi/)
 * [medipack](http://www.scicomp.uni-kl.de/software/medi/)
 * [tecio](https://www.tecplot.com/products/tecio-library/)
-* [paraver-kernel](https://github.com/bsc-performance-tools/paraver-kernel)
 * [wxparaver](https://github.com/bsc-performance-tools/wxparaver)
 * [alpaka](https://github.com/alpaka-group/alpaka)
 * [emptyepsilon](https://daid.github.io/EmptyEpsilon/)
+* [mochi-thallium](https://github.com/mochi-hpc/mochi-thallium)
 
 GO
 * [open-match](https://github.com/googleforgames/open-match)
+
+HASKELL
+* [greenclip](https://github.com/erebe/greenclip) (non-bin, source ebuild)
 
 JAVA
 * [osmosis](https://wiki.openstreetmap.org/wiki/Osmosis)
