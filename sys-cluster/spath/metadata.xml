@@ -13,7 +13,6 @@
 The spath libary defines a data structure and a number of functions to manipulate paths, including combining, slicing, simplification, computing relative paths, and converting to/from character strings.
   </longdescription>
   <use>
-    <flag name="lsf">Use LFS (Load Sharing Facility) as resource manager</flag>
     <flag name="slurm">Use <pkg>sys-cluster/slurm</pkg> as resource manager</flag>
   </use>
 </pkgmetadata>

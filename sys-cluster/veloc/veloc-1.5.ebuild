@@ -23,7 +23,7 @@ IUSE_COMM_QUEUE="
 "
 #	comm-queue-thallium
 IUSE_EXPAND="COMM_QUEUE"
-IUSE="${IUSE_COMM_QUEUE} python +slurm" #alps lsf
+IUSE="${IUSE_COMM_QUEUE} python +slurm"
 
 RDEPEND="
 	comm-queue-ipc? ( dev-libs/boost )
@@ -45,14 +45,11 @@ PATCHES=( "${FILESDIR}/${PN}-strip-cflags.patch" )
 REQUIRED_USE="
 	^^ ( ${IUSE_COMM_QUEUE/+/} )
 "
-#		?? ( alps lsf slurm )
 
 distutils_enable_sphinx "${S}/docs" --no-autodoc
 
 src_configure() {
 	local resman="NONE"
-#	use alps && resman="ALPS"
-#	use lsf && resman="LSF"
 	use slurm && resman="SLURM"
 
 	local queue

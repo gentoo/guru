@@ -12,7 +12,7 @@ SRC_URI="https://github.com/ECP-VeloC/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="lsf +mpi slurm test"
+IUSE="+mpi slurm test"
 
 #remove zlib in the next release (not used) https://github.com/ECP-VeloC/spath/issues/12
 RDEPEND="
@@ -28,13 +28,11 @@ DEPEND="
 PATCHES=( "${FILESDIR}/${P}-no-static.patch" )
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
-	?? ( lsf slurm )
 	test? ( mpi )
 "
 
 src_configure() {
 	local vrm="NONE"
-	use lsf && vrm="LSF"
 	use slurm && vrm="SLURM"
 
 	local mycmakeargs=(
