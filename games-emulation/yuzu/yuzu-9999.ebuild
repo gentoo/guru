@@ -27,7 +27,7 @@ DEPEND="
 		>=dev-qt/qtwidgets-5.15
 	)
 	sdl? (
-		>=media-libs/libsdl2-2.0.14
+		>=media-libs/libsdl2-2.0.16
 		>=dev-libs/inih-52
 	)
 	system-vulkan? (
@@ -103,12 +103,6 @@ src_prepare() {
 
 	# Unbundle discord rapidjson
 	sed -i '/NOT RAPIDJSONTEST/,/endif(NOT RAPIDJSONTEST)/d;/find_file(RAPIDJSON/d;s:\${RAPIDJSON}:"/usr/include/rapidjson":' externals/discord-rpc/CMakeLists.txt || die
-
-	# Force disable bundled sdl2, use 2.0.14 in tree
-	if use sdl; then
-		sed -i '/find_package(SDL2/{s/2.0.15/2.0.14/;s/ QUIET//}' CMakeLists.txt || die
-		sed -i '/PS5_RUMBLE/d' src/input_common/sdl/sdl_impl.cpp
-	fi
 
 	# Workaround: GenerateSCMRev fails
 	sed -i -e "s/@GIT_BRANCH@/${EGIT_BRANCH:-master}/" \
