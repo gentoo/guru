@@ -31,7 +31,7 @@ IUSE_EXPAND="NANOX"
 IUSE="${IUSE_NANOX} allocator ayudame dlb +extrae gasnet hwloc memkind memtracker mpi opencl papi sqlite resiliency task-callback +threads"
 
 CDEPEND="
-	ayudame? ( sys-cluster/temanejo )
+	ayudame? ( sys-cluster/temanejo[-ompss] )
 	dlb? ( sys-cluster/dlb )
 	extrae? ( sys-cluster/extrae[nanos] )
 	gasnet? ( sys-cluster/gasnet )
