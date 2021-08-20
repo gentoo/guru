@@ -12,7 +12,13 @@ SRC_URI="https://github.com/bsc-pm/TCL/archive/refs/tags/v${PV}.tar.gz -> ${P}.t
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="debug fti instrumentation scr veloc"
+IUSE_TCL="
+	tcl-debug
+	tcl-instrumentation
+	tcl-instrumentation-debug
+"
+USE_EXPAND="TCL"
+IUSE="${IUSE_TCL} fti scr veloc"
 
 RDEPEND="
 	virtual/mpi
@@ -22,7 +28,11 @@ RDEPEND="
 	veloc? ( sys-cluster/veloc )
 "
 DEPEND="${RDEPEND}"
-REQUIRED_USE="|| ( fti scr veloc )"
+
+REQUIRED_USE="
+	|| ( fti scr veloc )
+	|| ( ${IUSE_TCL//+/} )
+"
 
 src_prepare() {
 	default
@@ -36,15 +46,11 @@ src_configure() {
 		--includedir="${EPREFIX}/usr/include/TCL"
 		--with-mpi="${EPREFIX}/usr"
 
-		$(use_enable debug)
-		$(use_enable instrumentation)
+		$(use_enable tcl-debug debug)
+		$(use_enable tcl-instrumentation instrumentation)
+		$(use_enable tcl-instrumentation-debug instrumentation-debug)
 	)
 
-	if use debug && use instrumentation; then
-		myconf+=( "--enable-instrumentation-debug" )
-	else
-		myconf+=( "--disable-instrumentation-debug" )
-	fi
 	if use fti; then
 		myconf+=( "--with-fti=${EPREFIX}/usr" )
 	else
