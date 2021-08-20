@@ -37,3 +37,8 @@ sci-mathematics/the-omega-project gui
 # https://github.com/bsc-pm/nanox/issues/18
 sys-cluster/nanox gasnet
 
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-08-21)
+# build failure with dyninst-1.10
+# https://github.com/bsc-performance-tools/extrae/issues/30
+# https://github.com/bsc-performance-tools/extrae/issues/38
+sys-cluster/extrae dyninst
