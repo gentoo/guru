@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
+  <!-- maintainer-needed -->
   <longdescription lang="en">
 This package is meant to be the core testing utility and clients for testing Sanic applications. It is mainly derived from sanic.testing which has (or will be) removed from the main Sanic repository in the future.
   </longdescription>
