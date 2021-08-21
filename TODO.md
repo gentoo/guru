@@ -30,7 +30,6 @@ C++
 * [opensiv3d](https://github.com/Siv3D/OpenSiv3D)
 * [grive2](https://github.com/vitalif/grive2)
 * [graph-tool](https://graph-tool.skewed.de/)
-* [mcxx](https://github.com/bsc-pm/mcxx)
 * [chapel](https://github.com/chapel-lang/chapel)
 * [osmium](https://wiki.openstreetmap.org/wiki/Osmium)
 * [bonmin](https://projects.coin-or.org/Bonmin)
@@ -74,6 +73,8 @@ mixed
 * [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet)
 * [deadbeef](https://github.com/DeaDBeeF-Player/deadbeef)
 * [gridstudio](https://github.com/ricklamers/gridstudio)
+* [intel-cmt-cat](https://github.com/intel/intel-cmt-cat)
+* [babeltrace2](https://babeltrace.org/)
 
 ML
 * [google-drive-ocamlfuse](https://github.com/astrada/google-drive-ocamlfuse)
