@@ -1,0 +1,21 @@
+Description: xcursor: strncpy truncation warning with GCC 10 on s390x
+ Fix false positive stringop-truncation warning/error with GCC 10 on s390x
+ .
+Author: Lukas Märdian <slyon@ubuntu.com>
+Bug: https://github.com/swaywm/wlroots/issues/2018
+Last-Update: 2021-03-03
+---
+--- wlroots-0.12.0.orig/xcursor/xcursor.c
++++ wlroots-0.12.0/xcursor/xcursor.c
+@@ -655,8 +655,11 @@ _XcursorAddPathElt (char *path, const ch
+ 	elt++;
+ 	len--;
+     }
++#pragma GCC diagnostic push
++#pragma GCC diagnostic ignored "-Wstringop-truncation"
+     strncpy (path + pathlen, elt, len);
+     path[pathlen + len] = '\0';
++#pragma GCC diagnostic pop
+ }
+ 
+ static char *
