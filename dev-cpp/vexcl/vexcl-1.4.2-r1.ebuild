@@ -20,18 +20,27 @@ SRC_URI="https://github.com/ddemidov/vexcl/archive/refs/tags/${PV}.tar.gz -> ${P
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="amdsi clhpp compute examples jit +opencl test" #cuda clogs
-REQUIRED_USE="^^ ( compute jit opencl )" #cuda
-RESTRICT="!test? ( test )"
+IUSE_BACKEND="
+	backend-compute
+	backend-jit
+	+backend-opencl
+"
+#	backend-cuda
+IUSE_EXPAND="BACKEND"
+IUSE="${IUSE_BACKEND} amdsi clhpp examples test" #clogs
 
 RDEPEND="
-	compute? ( dev-libs/boost:= )
-	jit? ( virtual/opencl )
-	opencl? ( virtual/opencl )
+	dev-libs/boost:=
+	backend-jit? ( virtual/opencl )
+	backend-opencl? ( virtual/opencl )
 "
 DEPEND="${RDEPEND}"
 
 PATCHES=( "${FILESDIR}/add-sphinx-ext-autodoc-to-conf-py.patch" )
+REQUIRED_USE="
+	^^ ( ${IUSE_BACKEND//+/} )
+"
+RESTRICT="!test? ( test )"
 
 src_prepare() {
 	sed -e "s|git_version()|\'${PV}\'|g" -i docs/conf.py || die
@@ -41,10 +50,10 @@ src_prepare() {
 src_configure() {
 	local backend
 #	use  && backend="All"
-	use compute && backend="Compute"
-#	use cuda && backend="CUDA"
-	use jit && backend="JIT"
-	use opencl && backend="OpenCL"
+	use backend-compute && backend="Compute"
+#	use backend-cuda && backend="CUDA"
+	use backend-jit && backend="JIT"
+	use backend-opencl && backend="OpenCL"
 
 	local mycmakeargs=(
 		-DVEXCL_BUILD_EXAMPLES=OFF
