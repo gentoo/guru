@@ -13,7 +13,7 @@ S="${WORKDIR}/${PN}-version-${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="debug dlb execution-workflow extrae memkind mercurium papi unwind"
+IUSE="debug dlb execution-workflow extrae memkind mercurium papi test unwind"
 #jemalloc require custom stuff
 #TODO: cuda pqos babeltrace2
 #TODO: llvm-libunwind
@@ -33,6 +33,10 @@ RDEPEND="
 "
 #	jemalloc? ( dev-libs/jemalloc )
 DEPEND="${RDEPEND}"
+
+# https://github.com/bsc-pm/nanos6/issues/3
+RESTRICT="test"
+#RESTRICT="!test? ( test )"
 
 src_prepare() {
 	default
