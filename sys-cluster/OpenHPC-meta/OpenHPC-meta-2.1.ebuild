@@ -23,6 +23,7 @@ RDEPEND="
 	${PYTHON_DEPS}
 	|| ( sys-libs/libunwind sys-libs/llvm-libunwind )
 
+	app-shells/pdsh
 	sys-process/numactl
 	virtual/mpi
 
