@@ -45,7 +45,7 @@ Name | Buildsystem | Category | User | RFH
 [deadbeef](https://github.com/DeaDBeeF-Player/deadbeef) | autotools | audio | |
 [babeltrace2](https://babeltrace.org/) | autotools | devel | Alessandro-Barbieri | no
 [temanejo](https://www.hlrs.de/solutions-services/service-portfolio/programming/hpc-development-tools/temanejo) | autotools | cluster | Alessandro-Barbieri | no
-[blasfeo](https://github.com/giaf/blasfeo) | cmake | science | Alessandro-Barbieri | no
+[blasfeo](https://github.com/giaf/blasfeo) | cmake | science | Alessandro-Barbieri | yes
 [libfixmath](https://github.com/PetteriAimonen/libfixmath) | cmake | devel | Alessandro-Barbieri | no
 [hpmpc](https://github.com/giaf/hpmpc) | cmake | science | Alessandro-Barbieri | no
 [parsec](https://bitbucket.org/icldistcomp/parsec) | cmake | science | Alessandro-Barbieri | no
