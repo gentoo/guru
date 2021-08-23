@@ -24,6 +24,7 @@ RDEPEND="
 	|| ( sys-libs/libunwind sys-libs/llvm-libunwind )
 
 	app-shells/pdsh
+	sys-apps/ipmitool
 	sys-process/numactl
 	virtual/mpi
 
