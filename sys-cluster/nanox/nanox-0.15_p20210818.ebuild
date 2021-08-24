@@ -10,7 +10,7 @@ DOCS_DIR="doc"
 
 inherit autotools docs
 
-DESCRIPTION="Nanos++ is a runtime designed to serve as runtime support in parallel environments"
+DESCRIPTION="Runtime designed to serve as runtime support in parallel environments"
 HOMEPAGE="
 	https://pm.bsc.es/nanox
 	https://github.com/bsc-pm/nanox
