@@ -2,7 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <!-- maintainer-needed -->
-  </maintainer>
   <upstream>
     <remote-id type="github">sanic-org/sanic-routing</remote-id>
   </upstream>
