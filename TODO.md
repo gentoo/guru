@@ -18,7 +18,6 @@ Name | Buildsystem | Category | User | RFH
 [matlab2tikz](https://github.com/matlab2tikz/matlab2tikz) | none | octave | Alessandro-Barbieri | no
 [silk-guardian](https://github.com/NateBrune/silk-guardian) | make | util | Alessandro-Barbieri | no
 [qepcad](https://www.usna.edu/Users/cs/wcbrown/qepcad/B/QEPCAD.html) | make | math | Alessandro-Barbieri | no
-[ummunotify](https://github.com/Portals4/ummunotify) | make | kernel | Alessandro-Barbieri | no
 [retroarch](https://www.retroarch.com/) | make | game | |
 [lucida](https://github.com/claritylab/lucida) | make | | Alessandro-Barbieri | yes
 [embedded fuzzy logic library](https://github.com/zerokol/eFLL) | make | devel | Alessandro-Barbieri | no
