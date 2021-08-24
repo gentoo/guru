@@ -69,7 +69,7 @@ src_configure() {
 	use syslog && log="1"
 	use txt-log && log="1"
 
-	local resman="NONE" #APRUN LSF
+	local resman="NONE"
 	use pmix && resman="PMIX"
 	use slurm && resman="SLURM"
 

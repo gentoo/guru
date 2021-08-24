@@ -8,7 +8,7 @@ DOCS_BUILDER="doxygen"
 DOCS_CONFIG_NAME="doxygen.conf"
 DOCS_DIR="doc"
 
-inherit autotools docs
+inherit autotools docs optfeature
 
 DESCRIPTION="low-level network API for high-performance networking"
 HOMEPAGE="
@@ -21,7 +21,13 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="knem me-triggered pmi ppe reliable-udp test transport-ib transport-shmem +transport-udp unordered-matching zero-mrs"
+IUSE_TRANSPORT="
+	transport-ib
+	transport-shmem
+	+transport-udp
+"
+IUSE_EXPAND="TRANSPORT"
+IUSE="${IUSE_TRANSPORT} knem me-triggered pmi ppe reliable-udp test unordered-matching zero-mrs"
 
 RDEPEND="
 	dev-libs/libev
@@ -32,7 +38,10 @@ RDEPEND="
 	ppe? ( sys-kernel/xpmem )
 	transport-ib? ( sys-fabric/ofed )
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? ( sys-cluster/pmix[pmi] )
+"
 
 PATCHES=( "${FILESDIR}/${PN}-fix-PPE-related-compile-and-link-errors.patch" )
 RESTRICT="!test? ( test )"
@@ -102,4 +111,8 @@ src_install() {
 	default
 	einstalldocs
 	find "${D}" -name '*.la' -delete || die
+}
+
+pkg_postinst() {
+	optfeature "Required for correctness with the IB transport. Ensure that /dev/ummunotify is readable/writable by the user running the portals software." sys-kernel/ummunotify
 }

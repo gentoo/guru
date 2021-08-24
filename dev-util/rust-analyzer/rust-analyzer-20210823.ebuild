@@ -14,9 +14,9 @@ CRATES="
 	atty-0.2.14
 	autocfg-1.0.1
 	backtrace-0.3.61
-	bitflags-1.2.1
+	bitflags-1.3.1
 	camino-1.0.5
-	cargo-platform-0.1.1
+	cargo-platform-0.1.2
 	cargo_metadata-0.14.0
 	cc-1.0.69
 	cfg-if-1.0.0
@@ -39,7 +39,7 @@ CRATES="
 	ena-0.14.0
 	env_logger-0.9.0
 	expect-test-1.1.0
-	filetime-0.2.14
+	filetime-0.2.15
 	fixedbitset-0.2.0
 	flate2-1.0.20
 	form_urlencoded-1.0.1
@@ -59,8 +59,10 @@ CRATES="
 	itertools-0.10.1
 	itoa-0.4.7
 	jod-thread-0.1.2
+	kqueue-1.0.4
+	kqueue-sys-1.0.3
 	lazy_static-1.4.0
-	libc-0.2.98
+	libc-0.2.99
 	libloading-0.7.0
 	libmimalloc-sys-0.1.22
 	lock_api-0.4.4
@@ -68,7 +70,7 @@ CRATES="
 	lsp-server-0.5.2
 	lsp-types-0.89.2
 	matchers-0.0.1
-	matches-0.1.8
+	matches-0.1.9
 	memchr-2.4.0
 	memmap2-0.3.0
 	memoffset-0.6.4
@@ -76,7 +78,7 @@ CRATES="
 	miniz_oxide-0.4.4
 	mio-0.7.13
 	miow-0.3.7
-	notify-5.0.0-pre.10
+	notify-5.0.0-pre.12
 	ntapi-0.3.6
 	num_cpus-1.13.0
 	object-0.26.0
@@ -84,21 +86,19 @@ CRATES="
 	oorandom-11.1.3
 	parking_lot-0.11.1
 	parking_lot_core-0.8.3
-	paste-0.1.18
-	paste-impl-0.1.18
+	paste-1.0.5
 	percent-encoding-2.1.0
 	perf-event-0.4.7
 	perf-event-open-sys-1.0.1
 	petgraph-0.5.1
 	pin-project-lite-0.2.7
-	proc-macro-hack-0.5.19
 	proc-macro2-1.0.28
 	pulldown-cmark-0.8.0
 	pulldown-cmark-to-cmark-6.0.2
 	quote-1.0.9
 	rayon-1.5.1
 	rayon-core-1.9.1
-	redox_syscall-0.2.9
+	redox_syscall-0.2.10
 	regex-1.5.4
 	regex-automata-0.1.10
 	regex-syntax-0.6.25
@@ -116,9 +116,8 @@ CRATES="
 	serde-1.0.127
 	serde_derive-1.0.127
 	serde_json-1.0.66
-	serde_path_to_error-0.1.4
 	serde_repr-0.1.7
-	sharded-slab-0.1.1
+	sharded-slab-0.1.3
 	smallvec-1.6.1
 	smol_str-0.1.18
 	snap-1.0.5
@@ -128,8 +127,8 @@ CRATES="
 	text-size-1.1.0
 	thread_local-1.1.3
 	threadpool-1.8.1
-	tikv-jemalloc-ctl-0.4.1
-	tikv-jemalloc-sys-0.4.1+5.2.1-patched
+	tikv-jemalloc-ctl-0.4.2
+	tikv-jemalloc-sys-0.4.2+5.2.1-patched.2
 	tikv-jemallocator-0.4.1
 	tinyvec-1.3.1
 	tinyvec_macros-0.1.0
@@ -139,9 +138,9 @@ CRATES="
 	tracing-log-0.1.2
 	tracing-subscriber-0.2.19
 	tracing-tree-0.1.9
-	ungrammar-1.14.2
+	ungrammar-1.14.4
 	unicase-2.6.0
-	unicode-bidi-0.3.5
+	unicode-bidi-0.3.6
 	unicode-normalization-0.1.19
 	unicode-segmentation-1.8.0
 	unicode-xid-0.2.2

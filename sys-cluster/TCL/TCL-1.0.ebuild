@@ -16,8 +16,9 @@ IUSE_TCL="
 	tcl-debug
 	tcl-instrumentation
 	tcl-instrumentation-debug
+	+tcl-performance
 "
-USE_EXPAND="TCL"
+IUSE_EXPAND="TCL"
 IUSE="${IUSE_TCL} fti scr veloc"
 
 RDEPEND="
@@ -49,6 +50,7 @@ src_configure() {
 		$(use_enable tcl-debug debug)
 		$(use_enable tcl-instrumentation instrumentation)
 		$(use_enable tcl-instrumentation-debug instrumentation-debug)
+		$(use_enable tcl-performance performance)
 	)
 
 	if use fti; then

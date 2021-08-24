@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit meson vala xdg
+inherit meson vala xdg gnome2-utils
 
 MY_PV="v${PV}"
 MY_P="${PN}-${MY_PV}"
@@ -12,7 +12,7 @@ WL_PV="0.12.0"
 WL_P="wlroots-${WL_PV}"
 
 DESCRIPTION="Wlroots based Phone compositor"
-HOMEPAGE="https://source.puri.sm/Librem5/phoc"
+HOMEPAGE="https://gitlab.gnome.org/World/Phosh/phoc"
 
 # we don't use the version on gentoo because it breaks
 # the phoc installation. we follow method used in archlinuxarm
@@ -51,7 +51,6 @@ BDEPEND="
 	virtual/pkgconfig
 	x11-base/xorg-server
 "
-
 PATCHES=(
 	"${FILESDIR}/0001-seat-Don-t-notify-on-key-release.patch"
 	"${FILESDIR}/0002-seat-inhibit-touch-events-when-in-power-save-mode-or.patch"
@@ -63,25 +62,29 @@ src_prepare() {
 	default
 	rm -r "${S}"/subprojects/wlroots || die "Failed to remove bundled wlroots"
 	cp -r "${WORKDIR}/${WL_P}" "${S}"/subprojects/wlroots || die "Failed to copy right version of wlroots"
+
+	cd "${S}"/subprojects/wlroots
+	eapply "${FILESDIR}"/xcursor-fix-false-positive-stringop-truncation.diff
+	eapply "${FILESDIR}"/Revert-layer-shell-error-on-0-dimension-without-anchors.diff
+
 }
 
 src_configure() {
 	local emesonargs=(
 		-Ddefault_library=shared
 		-Dtests=false
-		-Dwlroots:logind-provider=systemd
-		-Dwlroots:libseat=disabled
 	)
 	meson_src_configure
 }
 
 src_install() {
 	DESTDIR="${D}" meson_src_install
-#	dobin "${S}"/helpers/scale-to-fit
+	dobin "${S}"/helpers/scale-to-fit
 }
 
 pkg_postinst() {
 	xdg_pkg_postinst
+	gnome2_schemas_update
 }
 
 pkg_postrm() {

@@ -3,11 +3,13 @@
 
 EAPI=7
 
+MAX_KV_MAJ="5"
+MAX_KV_MIN="8"
 MODULES_OPTIONAL_USE="modules"
 MODULES_OPTIONAL_USE_IUSE_DEFAULT=1
 MY_REV="242eaa1eca92567c2118afe21e37cafc524f9166"
 
-inherit autotools linux-mod
+inherit autotools linux-info linux-mod
 
 DESCRIPTION="Linux Cross-Memory Attach"
 HOMEPAGE="https://github.com/hjelmn/xpmem"
@@ -20,6 +22,16 @@ KEYWORDS="~amd64"
 
 MODULE_NAMES="xpmem(misc:${WORKDIR}/module/kernel:${WORKDIR}/module/kernel)"
 BUILD_TARGETS="all"
+
+pkg_pretend() {
+	# https://github.com/hjelmn/xpmem/issues/43
+	if use modules; then
+		if kernel_is ge ${MAX_KV_MAJ} ${MAX_KV_MINOR}; then
+			eerror "Unsupported kernel version"
+			die
+		fi
+	fi
+}
 
 src_prepare() {
 	default

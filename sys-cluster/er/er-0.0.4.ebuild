@@ -12,7 +12,8 @@ SRC_URI="https://github.com/ECP-VeloC/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-PATCHES=( "${FILESDIR}/no-static-${PV}.patch" )
+IUSE="test"
+
 RDEPEND="
 	sys-cluster/KVTree[mpi]
 	sys-cluster/redset
@@ -24,3 +25,6 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-util/cmake-2.8
 "
+
+PATCHES=( "${FILESDIR}/no-static-${PV}.patch" )
+RESTRICT="test" # https://github.com/ECP-VeloC/er/issues/20

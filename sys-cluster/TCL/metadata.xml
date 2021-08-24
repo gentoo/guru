@@ -15,6 +15,7 @@
 		<flag name="tcl-debug">Build the debug version</flag>
 		<flag name="tcl-instrumentation">Build the instrumentation version</flag>
 		<flag name="tcl-instrumentation-debug">Build the instrumentation-debug version</flag>
+		<flag name="tcl-performance">Build the performance version</flag>
 		<flag name="veloc">Enable <pkg>sys-cluster/veloc</pkg> backend</flag>
 	</use>
 </pkgmetadata>

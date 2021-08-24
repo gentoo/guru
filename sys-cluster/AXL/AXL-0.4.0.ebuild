@@ -13,11 +13,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
-RESTRICT="!test? ( test )"
-PATCHES=(
-	"${FILESDIR}/no-static-${PV}.patch"
-	"${FILESDIR}/no-install-readme.patch"
-)
+
 RDEPEND="
 	sys-libs/zlib
 	sys-cluster/KVTree
@@ -26,6 +22,13 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-util/cmake-2.8
 "
+
+RESTRICT="test" # https://github.com/ECP-VeloC/AXL/issues/110
+#RESTRICT="!test? ( test )"
+PATCHES=(
+	"${FILESDIR}/no-static-${PV}.patch"
+	"${FILESDIR}/no-install-readme.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(

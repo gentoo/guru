@@ -5,26 +5,27 @@ EAPI=7
 
 DESCRIPTION="Identify and manipulate duplicate files"
 HOMEPAGE="https://www.jodybruchon.com/software/#jdupes"
-SRC_URI="https://github.com/jbruchon/jdupes/archive/refs/tags/v${PV}.tar.gz"
-PATCHES=(
-	"${FILESDIR}/${P}-test.sh.patch")
+SRC_URI="https://github.com/jbruchon/jdupes/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
-RDEPEND=""
+PATCHES=(
+	"${FILESDIR}/${P}-test.sh.patch"
+)
 
-DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
+
 src_prepare(){
-	eapply "${FILESDIR}/${P}-test.sh.patch"
-	chmod +x test.sh
-	eapply_user
+	default
+	chmod +x test.sh || die
 }
+
 src_configure() {
-	sed -in 's/local//' Makefile
+	sed -in 's/local//' Makefile || die
 }
+
 src_compile() {
 	emake
 }

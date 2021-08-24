@@ -17,7 +17,7 @@ RDEPEND="${DEPEND}"
 src_prepare() {
 	default
 	sed -e 's/\(`pkg-config --cflags .*`\) \(`pkg-config --libs .*`\)/\1 $(CFLAGS) \2 $(LDFLAGS)/' \
-		-i Makefile
+		-i Makefile || die "sed failed"
 }
 
 src_install() {

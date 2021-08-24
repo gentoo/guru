@@ -1,9 +1,11 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit autotools linux-info
+PYTHON_COMPAT=( python3_{8..10} pypy3 )
+
+inherit autotools linux-info python-any-r1
 
 DESCRIPTION="user extensible heap manager built on top of jemalloc"
 HOMEPAGE="https://memkind.github.io/memkind"
@@ -12,14 +14,19 @@ KEYWORDS="~amd64"
 
 LICENSE="BSD"
 SLOT="0"
-IUSE="+heap-manager openmp secure +tls" #daxctl
-#RESTRICT="test"
+IUSE="+heap-manager openmp secure test +tls" #daxctl
 
-DEPEND="
+RDEPEND="
 	sys-block/ndctl
 	sys-process/numactl
 "
-RDEPEND="${DEPEND}"
+DEPEND="
+	${RDEPEND}
+	${PYTHON_DEPS}
+"
+
+RESTRICT="test" # ERROR: ./test/test.sh requires a NUMA enabled system with more than one node.
+#RESTRICT="!test? ( test )"
 
 src_prepare() {
 	default
