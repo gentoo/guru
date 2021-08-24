@@ -5,9 +5,6 @@
 		<email>gjdijkman@gjdwebserver.nl</email>
 		<name>Gerben Jan Dijkman</name>
 	</maintainer>
-	<longdescription lang="en">
-	A minimalist file manager for those who want to use Linux mobile devices.
-	</longdescription>
 	<upstream>
 		<doc>https://github.com/tchx84/Portfolio</doc>
 		<bugs-to>https://github.com/tchx84/Portfolio/issues</bugs-to>
