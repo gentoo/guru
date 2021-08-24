@@ -1,0 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install postinst unpack
+DESCRIPTION=File manager written in awk
+EAPI=8
+HOMEPAGE=https://github.com/huijunchen9260/fm.awk/
+INHERIT=optfeature git-r3
+LICENSE=GPL-3+
+PROPERTIES=live
+RDEPEND=virtual/awk
+SLOT=0
+_eclasses_=optfeature	30ce9dec2b8943338c9b015bd32bac6a	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=f59eae552448127719150bcc4d01cbe7

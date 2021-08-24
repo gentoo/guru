@@ -1,17 +1,17 @@
 BDEPEND=dev-util/ninja dev-util/cmake doc? ( || ( ( dev-lang/python:3.9 dev-python/sphinx[python_targets_python3_9(-)] dev-python/breathe[python_targets_python3_9(-)] dev-python/sphinx-bootstrap-theme[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/sphinx[python_targets_python3_8(-)] dev-python/breathe[python_targets_python3_8(-)] dev-python/sphinx-bootstrap-theme[python_targets_python3_8(-)] ) ) )
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=compute? ( dev-libs/boost:= ) jit? ( virtual/opencl ) opencl? ( virtual/opencl )
+DEPEND=dev-libs/boost:= backend-jit? ( virtual/opencl ) backend-opencl? ( virtual/opencl )
 DESCRIPTION=VexCL - Vector expression template library for OpenCL
 EAPI=7
 HOMEPAGE=https://github.com/ddemidov/vexcl
 INHERIT=cmake python-any-r1 docs
-IUSE=amdsi clhpp compute examples jit +opencl test doc
+IUSE=backend-compute backend-jit +backend-opencl amdsi clhpp examples test doc
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=compute? ( dev-libs/boost:= ) jit? ( virtual/opencl ) opencl? ( virtual/opencl )
-REQUIRED_USE=^^ ( compute jit opencl )
+RDEPEND=dev-libs/boost:= backend-jit? ( virtual/opencl ) backend-opencl? ( virtual/opencl )
+REQUIRED_USE=^^ ( backend-compute backend-jit backend-opencl )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ddemidov/vexcl/archive/refs/tags/1.4.2.tar.gz -> vexcl-1.4.2.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	08d890890f70fe0096093016e55438d5	python-any-r1	901d9e22c7a848a1196502edf060f330	docs	7c38d94fa7c1b4235fe571dc09e018df
-_md5_=c0ce97b17e1755a8ca33feb4d4c58291
+_md5_=8441cc020af4affc7de3f619c09ce614

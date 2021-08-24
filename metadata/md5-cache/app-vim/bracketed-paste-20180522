@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=vim plugin: handles bracketed-paste-mode in vim (aka. automatic `:set paste`)
+EAPI=7
+HOMEPAGE=https://github.com/ConradIrwin/vim-bracketed-paste
+INHERIT=readme.gentoo-r1 vim-plugin
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+SLOT=0
+SRC_URI=https://github.com/ConradIrwin/vim-bracketed-paste/archive/c4c639f3cacd1b874ed6f5f196fac772e089c932.tar.gz -> bracketed-paste-20180522.tar.gz
+_eclasses_=readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	vim-doc	e063cddf18e5d2f2cfb21388252579ec	vim-plugin	a7b5f19bc94a311ca1cf7127c8b84c41
+_md5_=7f52e51b9d66bca9daf38d7d52642d0b

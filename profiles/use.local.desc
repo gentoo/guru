@@ -69,10 +69,10 @@ dev-cpp/tiny-dnn:opencl - Build tiny-dnn with OpenCL library support
 dev-cpp/tiny-dnn:serialization - Build tiny-dnn with Serialization support
 dev-cpp/tiny-dnn:tbb - Build tiny-dnn with TBB library support
 dev-cpp/vexcl:amdsi - Implement workaround for AMD SI GPUs
+dev-cpp/vexcl:backend-compute - Use Boost.Compute algorithms
+dev-cpp/vexcl:backend-jit - Use the JIT backend
+dev-cpp/vexcl:backend-opencl - Use OpenCL as backend
 dev-cpp/vexcl:clhpp - Install the OpenCL C++ header provided by VexCL
-dev-cpp/vexcl:compute - Use Boost.Compute algorithms
-dev-cpp/vexcl:jit - Use the JIT backend
-dev-cpp/vexcl:opencl - Use OpenCL as backend
 dev-embedded/rauc:gpt - Add GPT support
 dev-embedded/rauc:json - Add JSON support
 dev-embedded/rauc:network - Add network update support
@@ -366,6 +366,14 @@ sys-auth/mrsh:pam - build with pam support
 sys-auth/mrsh:shadow - build with shadow file support
 sys-cluster/KVTree:fcntl - Set the type of file locking to fcntl.
 sys-cluster/KVTree:flock - Set the type of file locking to flock.
+sys-cluster/OpenHPC-meta:io-libs - Collection of IO libraries
+sys-cluster/OpenHPC-meta:parallel - Collection of parallel libraries
+sys-cluster/OpenHPC-meta:perf-tools - Collection of performance tools
+sys-cluster/OpenHPC-meta:python - Collection of python related libraries
+sys-cluster/OpenHPC-meta:runtimes - Collection of runtimes
+sys-cluster/OpenHPC-meta:serial - Collection of serial libraries
+sys-cluster/OpenHPC-meta:slurm-client - Collection of client packages for SLURM
+sys-cluster/OpenHPC-meta:slurm-server - Collection of server packages for SLURM
 sys-cluster/SOS:av-map - enable av-map instead of av-table in the OFI transport
 sys-cluster/SOS:bounce-buffers - Enable bounce buffers by default
 sys-cluster/SOS:cma - Use cross-memory attach for on-node communication
@@ -399,6 +407,7 @@ sys-cluster/TCL:scr - Enable sys-cluster/scr backend
 sys-cluster/TCL:tcl-debug - Build the debug version
 sys-cluster/TCL:tcl-instrumentation - Build the instrumentation version
 sys-cluster/TCL:tcl-instrumentation-debug - Build the instrumentation-debug version
+sys-cluster/TCL:tcl-performance - Build the performance version
 sys-cluster/TCL:veloc - Enable sys-cluster/veloc backend
 sys-cluster/cinder:api - Installs the initscripts for the cinder api service
 sys-cluster/cinder:iscsi - Allow using an iSCSI remote storage server as pool for disk image storage
@@ -458,17 +467,33 @@ sys-cluster/launchmon:tracing-cost - enable tracing cost measuring codes
 sys-cluster/libi:slurm - Use slurm as tree instantiation method instead of ssh
 sys-cluster/libyogrt:slurm - Add support for the slurm resource manager
 sys-cluster/lwgrp:mpianysource - Specify whether to use MPI_ANY_SOURCE
+sys-cluster/mcxx:analysis - Enables analysis phase
+sys-cluster/mcxx:array-descriptors - Enable GNU Fortran compiler > 8 array descriptors
+sys-cluster/mcxx:bison-reporting - Use this when debugging bison grammars
+sys-cluster/mcxx:examples - Build and install TL example phases
+sys-cluster/mcxx:extrae - Enables Extrae instrumentation of Mercurium itself
+sys-cluster/mcxx:mpi - Enables the MPI Nanos++ Lowering phase in Mercurium
+sys-cluster/mcxx:nanox - Enables support for Nanos++
+sys-cluster/mcxx:ompss - Enables support of OmpSs Programming Model using Nanos++
+sys-cluster/mcxx:ompss2 - Enables support of OmpSs-2 using Nanos6
+sys-cluster/mcxx:opencl - Enables the OpenCL Nanos++ Lowering phase in Mercurium
+sys-cluster/mcxx:openmp - Enables support of OpenMP using Nanos++
+sys-cluster/mcxx:quad - Enables support for __float128 and __int128. It also enables REAL(KIND=16) and INTEGER(KIND=16) in Fortran
+sys-cluster/mcxx:tcl - Enable support for Transparent Checkpoint Library
+sys-cluster/mcxx:tl-openmp-gomp - Enables support of OpenMP TL for GOMP (EXPERIMENTAL and UNSUPPORTED)
+sys-cluster/mcxx:tl-openmp-profile - Enables support of OpenMP profile mode
+sys-cluster/mcxx:vectorization - Enables Vectorization phase
 sys-cluster/mrnet:libi - Use libi as tree instantiation method instead of ssh
 sys-cluster/mrnet:slurm - Use slurm as libi tree instantiation method instead of ssh
 sys-cluster/mrnet:threadsafe - Build threasafe version of lightweight MRNet and XPlat libraries
 sys-cluster/muster:pmpi - Build with PMPI bindings
 sys-cluster/muster:tests - Build and install test programs
-sys-cluster/nanos6:cluster - Enable OmpSs@Cluster support. This requires an MPI version that supports MPI_THREAD_MULTIPLE to be present in your environment
 sys-cluster/nanos6:debug - enable extra assertions and checks in debug - may cause significant slowdown
 sys-cluster/nanos6:dlb - enable dynamic management and sharing of computing resources
 sys-cluster/nanos6:execution-workflow - Enable execution using the Execution Workflow
 sys-cluster/nanos6:extrae - to generate execution traces for offline performance analysis with paraver
 sys-cluster/nanos6:memkind - Add support for dev-libs/memkind in memory allocator
+sys-cluster/nanos6:mercurium - Enable sys-cluster/mcxx support
 sys-cluster/nanos6:papi - enable dev-libs/papi support
 sys-cluster/nanos6:unwind - to generate sample-based profiling
 sys-cluster/nanox:allocator - Enables Allocator module

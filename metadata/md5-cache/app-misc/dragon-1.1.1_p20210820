@@ -7,5 +7,5 @@ KEYWORDS=~amd64
 LICENSE=GPL-3
 RDEPEND=>=x11-libs/gtk+-3
 SLOT=0
-SRC_URI=https://github.com/mwh/dragon/archive/v1.1.1.tar.gz -> dragon-1.1.1.tar.gz
-_md5_=34cbd340d18972df599b689d8cf579da
+SRC_URI=https://github.com/mwh/dragon/archive/c0ddf8d4f0a57b984570ceacb1f3e587639d8bda.tar.gz -> dragon-1.1.1_p20210820.tar.gz
+_md5_=524abe30de02f66adc1c93752a2e3c0d

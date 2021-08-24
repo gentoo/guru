@@ -1,11 +1,11 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 doc? ( app-doc/doxygen )
-DEFINED_PHASES=compile configure install prepare
-DEPEND=dev-libs/libev dev-libs/libxml2 knem? ( sys-cluster/knem ) pmi? ( sys-cluster/pmix[pmi] ) ppe? ( sys-kernel/xpmem ) transport-ib? ( sys-fabric/ofed )
+DEFINED_PHASES=compile configure install postinst prepare
+DEPEND=dev-libs/libev dev-libs/libxml2 knem? ( sys-cluster/knem ) pmi? ( sys-cluster/pmix[pmi] ) ppe? ( sys-kernel/xpmem ) transport-ib? ( sys-fabric/ofed ) test? ( sys-cluster/pmix[pmi] )
 DESCRIPTION=low-level network API for high-performance networking
 EAPI=8
 HOMEPAGE=https://www.cs.sandia.gov/Portals/portals4.html https://github.com/Portals4/portals4
-INHERIT=autotools docs
-IUSE=knem me-triggered pmi ppe reliable-udp test transport-ib transport-shmem +transport-udp unordered-matching zero-mrs doc
+INHERIT=autotools docs optfeature
+IUSE=transport-ib transport-shmem +transport-udp knem me-triggered pmi ppe reliable-udp test unordered-matching zero-mrs doc
 KEYWORDS=~amd64
 LICENSE=BSD
 RDEPEND=dev-libs/libev dev-libs/libxml2 knem? ( sys-cluster/knem ) pmi? ( sys-cluster/pmix[pmi] ) ppe? ( sys-kernel/xpmem ) transport-ib? ( sys-fabric/ofed )
@@ -13,5 +13,5 @@ REQUIRED_USE=?? ( ppe transport-shmem ) ^^ ( transport-ib transport-udp ) knem? 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Portals4/portals4/archive/71fc5d04c9f8fc9818a05cdc608e2d13af825d83.tar.gz -> portals4-1.0_alpha1_p20190109.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	docs	7c38d94fa7c1b4235fe571dc09e018df
-_md5_=1a32fd5968ee5192aebd9e462a60d118
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	docs	7c38d94fa7c1b4235fe571dc09e018df	optfeature	30ce9dec2b8943338c9b015bd32bac6a
+_md5_=fb0944e95ea3dc7d934ffb5b967cda84

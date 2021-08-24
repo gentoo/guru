@@ -1,7 +1,7 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 doc? ( app-doc/doxygen )
 DEFINED_PHASES=compile configure install prepare
 DEPEND=ayudame? ( sys-cluster/temanejo[-ompss] ) dlb? ( sys-cluster/dlb ) extrae? ( sys-cluster/extrae[nanos] ) gasnet? ( sys-cluster/gasnet ) hwloc? ( sys-apps/hwloc ) memkind? ( dev-libs/memkind ) mpi? ( virtual/mpi ) papi? ( dev-libs/papi ) sqlite? ( dev-db/sqlite ) opencl? ( dev-util/opencl-headers )
-DESCRIPTION=Nanos++ is a runtime designed to serve as runtime support in parallel environments
+DESCRIPTION=Runtime designed to serve as runtime support in parallel environments
 EAPI=8
 HOMEPAGE=https://pm.bsc.es/nanox https://github.com/bsc-pm/nanox
 INHERIT=autotools docs
@@ -13,4 +13,4 @@ REQUIRED_USE=|| ( nanox-debug nanox-instrumentation nanox-instrumentation-debug 
 SLOT=0
 SRC_URI=https://github.com/bsc-pm/nanox/archive/a9df6936128ebe10374350c719a0fba74bc89803.tar.gz -> nanox-0.15_p20210818.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	docs	7c38d94fa7c1b4235fe571dc09e018df
-_md5_=1d2a189fe399056881380d251529e2ad
+_md5_=87d265ef0b2663bb08929376c7c53a6f

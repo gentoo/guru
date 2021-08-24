@@ -1,0 +1,17 @@
+BDEPEND=dev-util/gperf sys-devel/flex virtual/pkgconfig virtual/yacc sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 virtual/fortran doc? ( app-doc/doxygen )
+DEFINED_PHASES=compile configure install prepare setup
+DEPEND=dev-db/sqlite extrae? ( sys-cluster/extrae ) mpi? ( virtual/mpi ) nanox? ( sys-cluster/nanox ) ompss2? ( sys-cluster/nanos6 ) tcl? ( sys-cluster/TCL ) || ( dev-lang/python:3.10 dev-lang/python:3.9 dev-lang/python:3.8 >=dev-python/pypy3-7.3.0:0 ) opencl? ( dev-util/opencl-headers ) virtual/fortran
+DESCRIPTION=C/C++/Fortran source-to-source compilation aimed at fast prototyping
+EAPI=8
+HOMEPAGE=https://github.com/bsc-pm/mcxx
+INHERIT=autotools flag-o-matic fortran-2 python-any-r1 docs
+IUSE=+analysis array-descriptors bison-reporting examples extrae +mpi +nanox ompss ompss2 +opencl openmp +quad tcl test tl-openmp-gomp tl-openmp-profile vectorization doc
+KEYWORDS=~amd64
+LICENSE=LGPL-3
+RDEPEND=dev-db/sqlite extrae? ( sys-cluster/extrae ) mpi? ( virtual/mpi ) nanox? ( sys-cluster/nanox ) ompss2? ( sys-cluster/nanos6 ) tcl? ( sys-cluster/TCL ) opencl? ( virtual/opencl ) virtual/fortran
+REQUIRED_USE=mpi? ( nanox ) ompss? ( nanox ) opencl? ( nanox ) openmp? ( nanox ) !analysis? ( !vectorization )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/bsc-pm/mcxx/archive/refs/tags/github-release-2021.06.tar.gz -> mcxx-2021.06.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	08d890890f70fe0096093016e55438d5	python-any-r1	901d9e22c7a848a1196502edf060f330	docs	7c38d94fa7c1b4235fe571dc09e018df
+_md5_=905b82ef1d3b10bc06af2b7fc0680a8f
