@@ -11,7 +11,7 @@ PYTHON_COMPAT=( python3_{8..10} pypy3 )
 
 inherit autotools flag-o-matic fortran-2 python-any-r1 docs
 
-DESCRIPTION="C/C++/Fortran source-to-source compilation infrastructure aimed at fast prototyping"
+DESCRIPTION="C/C++/Fortran source-to-source compilation aimed at fast prototyping"
 HOMEPAGE="https://github.com/bsc-pm/mcxx"
 SRC_URI="https://github.com/bsc-pm/mcxx/archive/refs/tags/${MYPV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${MYPV}"
