@@ -8,7 +8,7 @@ DOCS_BUILDER="doxygen"
 DOCS_CONFIG_NAME="doxygen.conf"
 DOCS_DIR="doc"
 
-inherit autotools docs
+inherit autotools docs optfeature
 
 DESCRIPTION="low-level network API for high-performance networking"
 HOMEPAGE="
@@ -111,4 +111,8 @@ src_install() {
 	default
 	einstalldocs
 	find "${D}" -name '*.la' -delete || die
+}
+
+pkg_postinst() {
+	optfeature "Required for correctness with the IB transport. Ensure that /dev/ummunotify is readable/writable by the user running the portals software." sys-kernel/ummunotify
 }
