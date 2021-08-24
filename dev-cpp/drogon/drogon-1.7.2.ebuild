@@ -29,8 +29,8 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	test? ( dev-cpp/gtest )
-
 "
+BDEPEND="doc? ( app-doc/doxygen )"
 
 DOCS=( CONTRIBUTING.md ChangeLog.md README.md README.zh-CN.md README.zh-TW.md )
 
@@ -40,6 +40,7 @@ src_prepare() {
 		lib/tests/CMakeLists.txt || die
 	use brotli || sed -i '/find_package(Brotli)/d' CMakeLists.txt || die
 	use ssl || sed -i '/find_package(OpenSSL)/d' CMakeLists.txt || die
+	use doc || sed -i '/find_package(Doxygen/d' CMakeLists.txt || die
 
 	use examples && DOCS+=( "${S}/examples" )
 
