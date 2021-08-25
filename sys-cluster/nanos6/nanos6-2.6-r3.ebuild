@@ -35,6 +35,7 @@ RDEPEND="
 #	jemalloc? ( dev-libs/jemalloc )
 DEPEND="${RDEPEND}"
 
+PATCHES=( "${FILESDIR}/${P}-include-string.patch" )
 # https://github.com/bsc-pm/nanos6/issues/3
 RESTRICT="test"
 #RESTRICT="!test? ( test )"
