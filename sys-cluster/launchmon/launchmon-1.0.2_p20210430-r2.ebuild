@@ -1,7 +1,7 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 COMMIT="98ab769c53563f47c4319ce3c98ac394b4870bac"
 MYPV="$(ver_cut 1-3)"
@@ -16,17 +16,21 @@ S="${WORKDIR}/LaunchMON-${COMMIT}"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+munge tracing-cost"
+IUSE="+munge test tracing-cost"
 
 RDEPEND="
 	dev-libs/boost:=
 	dev-libs/libgcrypt
 	dev-libs/libgpg-error
 	virtual/libelf
+	virtual/mpi
 
 	munge? ( sys-auth/munge )
 "
 DEPEND="${RDEPEND}"
+
+PATCHES=( "${FILESDIR}/${P}-fix-bashism.patch" )
+RESTRICT="!test? ( test )"
 
 src_prepare() {
 	default
