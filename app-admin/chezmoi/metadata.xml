@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>phil@demona.co</email>
-		<name>Phil DeMonaco</name>
+		<email>codeswhite@pm.me</email>
+		<name>Max Grinberg</name>
 	</maintainer>
 	<longdescription lang="en">
 			Dotfile management application which provides a configuration
