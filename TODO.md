@@ -24,7 +24,6 @@ Name | Buildsystem | Category | User | RFH
 [Intel-sgx](https://01.org/intel-softwareguard-extensions) | make | devel | Alessandro-Barbieri | yes
 [codipack](https://www.scicomp.uni-kl.de/software/codi/) | make | science | Alessandro-Barbieri | no
 [medipack](http://www.scicomp.uni-kl.de/software/medi/) | make | science | Alessandro-Barbieri | no
-[intel-cmt-cat](https://github.com/intel/intel-cmt-cat) | make | util | Alessandro-Barbieri | no
 [compcert](https://compcert.org) | make | compiler | Alessandro-Barbieri | yes
 [predictive](https://www.dr-qubit.org/predictive.html) | make | emacs | Alessandro-Barbieri | yes
 [dimemas](https://github.com/bsc-performance-tools/dimemas) | autotools | cluster | Alessandro-Barbieri | no
