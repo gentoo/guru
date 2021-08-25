@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} pypy3 )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1 perl-module
 
@@ -21,14 +21,22 @@ IUSE="perl"
 
 RDEPEND="
 	${PYTHON_DEPS}
+	dev-python/jsonschema[${PYTHON_USEDEP}]
+
 	perl? ( dev-lang/perl:= )
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? ( dev-python/mock[${PYTHON_USEDEP}] )
+"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 PATCHES=( "${FILESDIR}/${PN}-perl-makefile.patch" )
 
 distutils_enable_tests unittest
+distutils_enable_tests pytest
+
+#TODO: install appqos
 
 src_prepare() {
 	mkdir -p "${T}/prefix" || die
@@ -48,9 +56,6 @@ src_compile() {
 	pushd "lib/python" || die
 	python_foreach_impl distutils-r1_python_compile
 	popd || die
-#	pushd "appqos" || die
-#	python_foreach_impl distutils-r1_python_compile
-#	popd || die
 }
 
 src_install() {
@@ -80,6 +85,9 @@ src_install() {
 	docinto appqos
 	dodoc appqos/README.md
 
+	unset DOCS
+	python_foreach_impl python_install
+
 	if use perl ; then
 		pushd "lib/perl" || die
 		unset DOCS
@@ -89,20 +97,26 @@ src_install() {
 		docinto lib/perl
 		dodoc lib/perl/README
 	fi
-	unset DOCS
-	pushd "lib/python" || die
-	python_foreach_impl distutils-r1_python_install
-	popd || die
-#	pushd "appqos" || die
-#	python_foreach_impl distutils-r1_python_install
-#	popd || die
 }
 
 src_test() {
-	pushd "lib/python" || die
 	python_foreach_impl python_test
+}
+
+python_install() {
+	pushd "lib/python" || die
+	distutils-r1_python_install
 	popd || die
+
+#	python_domodule appqos
+}
+
+python_test() {
+	pushd "lib/python" || die
+	eunittest
+	popd || die
+
 #	pushd "appqos" || die
-#	python_foreach_impl python_test
+#	epytest -vv tests
 #	popd || die
 }
