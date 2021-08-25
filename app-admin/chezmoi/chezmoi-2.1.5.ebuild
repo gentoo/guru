@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit go-module
+inherit go-module bash-completion-r1
 
 DESCRIPTION="Manage your dotfiles across multiple machines, securely"
 HOMEPAGE="https://chezmoi.io"
