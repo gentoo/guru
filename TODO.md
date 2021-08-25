@@ -73,6 +73,7 @@ Name | Buildsystem | Category | User | RFH
 [pelias](https://github.com/pelias/pelias) | npm | geography | Alessandro-Barbieri | yes
 [hsd](https://github.com/handshake-org/hsd) | npm | dns | Alessandro-Barbieri | yes
 [Gitfs](https://github.com/presslabs/gitfs) | setuptools | filesystem | Alessandro-Barbieri | no
+[CommsPowerManagement](https://github.com/intel/CommsPowerManagement) | setuptools | utils | Alessandro-Barbieri | no
 [usbkill](https://github.com/hephaest0s/usbkill) | setuptools | util | Alessandro-Barbieri | no
 [mapillary_tools](https://github.com/mapillary/mapillary_tools) | setuptools | geography | Alessandro-Barbieri | no
 [blockify](https://github.com/serialoverflow/blockify) | setuptools | audio | Alessandro-Barbieri | no
