@@ -8,6 +8,19 @@
  COMP=
  if [ -z "$CC" ]; then
    echo "No 'cc' located!"
+--- a/config/determine-compiler-version.sh
++++ b/config/determine-compiler-version.sh
+@@ -24,8 +24,8 @@
+          | cut -d\  -f 1`
+        COMPVER="${CVER}/${FVER}"
+        ;;
+-  gnu) COMPVER=`gcc -dumpfullversion -dumpversion`
+-       #COMPVER=`gcc -v 2>&1 | grep -i 'Version [0-9]' \
++  gnu) COMPVER=`${CC} -dumpfullversion -dumpversion`
++       #COMPVER=`${CC} -v 2>&1 | grep -i 'Version [0-9]' \
+        #  | sed -e 's/^.*ersion \(.\..\..\).*$/\1/'`
+        ;;
+   *)   ErrorAndExit "Unknown compiler '${COMP}'"
 --- a/config/select-compiler.sh
 +++ b/config/select-compiler.sh
 @@ -9,7 +9,7 @@
@@ -93,7 +106,7 @@
  
 --- a/src/fortraninterface/Makefile
 +++ b/src/fortraninterface/Makefile
-@@ -121,21 +122,21 @@
+@@ -121,21 +121,21 @@
  	$(CPP) $(F90FLAGS) $(F90FLAGS_CPP) $(F90MPIFLAGS) -P -E -I ../lib sion_f90_mpi.F90 > sion_f90_mpi.f90
  sion_f90_mpi.mod : sion_f90_mpi.o
  sion_f90_mpi.o : sion_f90_mpi.f90 sion_f90.mod $(SION_HDRS)
