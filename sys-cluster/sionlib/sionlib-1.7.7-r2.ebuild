@@ -21,7 +21,7 @@ KEYWORDS="~amd64"
 IUSE="+cxx debug deep-est-sdv doc examples +fortran hostname-regex +mpi +ompi +openmp +parutils +pthreads python sionfwd" #cuda
 
 REQUIRED_USE="?? ( hostname-regex deep-est-sdv )"
-PATCHES=( "${FILESDIR}/${PN}-respect-flags.patch" )
+PATCHES=( "${FILESDIR}/${PN}-respect-flags-v2.patch" )
 
 RDEPEND="
 	mpi? ( virtual/mpi )
@@ -43,12 +43,6 @@ pkg_setup() {
 	use ompi && FORTRAN_NEED_OPENMP=1
 
 	fortran-2_pkg_setup
-}
-
-src_prepare() {
-	default
-	sed 's/CXXFLAGS = $(CXXFLAGS)/CXXFLAGS = /' -i test/serial/Makefile || die
-	sed 's/`gcc/`${CC}/' -i config/determine-compiler-version.sh || die
 }
 
 src_configure() {
