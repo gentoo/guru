@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..10} ) #pypy3 has warnings
 
 inherit distutils-r1 perl-module
 
@@ -17,17 +17,24 @@ SRC_URI="https://github.com/intel/intel-cmt-cat/archive/refs/tags/v${PV}.tar.gz 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="perl"
+IUSE="appqos perl"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	dev-python/jsonschema[${PYTHON_USEDEP}]
-
+	appqos? (
+		dev-python/flask[${PYTHON_USEDEP}]
+		dev-python/flask-restful[${PYTHON_USEDEP}]
+		dev-python/gevent[${PYTHON_USEDEP}]
+		dev-python/jsonschema[${PYTHON_USEDEP}]
+		dev-python/pexpect[${PYTHON_USEDEP}]
+		dev-python/psutil[${PYTHON_USEDEP}]
+		sys-apps/CommsPowerManagement[${PYTHON_USEDEP}]
+	)
 	perl? ( dev-lang/perl:= )
 "
 DEPEND="
 	${RDEPEND}
-	test? ( dev-python/mock[${PYTHON_USEDEP}] )
+	test? ( appqos? ( dev-python/mock[${PYTHON_USEDEP}] ) )
 "
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -35,8 +42,6 @@ PATCHES=( "${FILESDIR}/${PN}-perl-makefile.patch" )
 
 distutils_enable_tests unittest
 distutils_enable_tests pytest
-
-#TODO: install appqos
 
 src_prepare() {
 	mkdir -p "${T}/prefix" || die
@@ -47,15 +52,16 @@ src_prepare() {
 src_compile() {
 	emake all PREFIX="${T}/prefix"
 
+	pushd "lib/python" || die
+	python_foreach_impl distutils-r1_python_compile
+	popd || die
+
 	if use perl; then
 		pushd "lib/perl" || die
 		perl-module_src_configure
 		perl-module_src_compile
 		popd || die
 	fi
-	pushd "lib/python" || die
-	python_foreach_impl distutils-r1_python_compile
-	popd || die
 }
 
 src_install() {
@@ -82,8 +88,11 @@ src_install() {
 	dodoc snmp/README
 	docinto rdtset
 	dodoc rdtset/README
-	docinto appqos
-	dodoc appqos/README.md
+
+	if use appqos; then
+		docinto appqos
+		dodoc appqos/README.md
+	fi
 
 	unset DOCS
 	python_foreach_impl python_install
@@ -108,7 +117,9 @@ python_install() {
 	distutils-r1_python_install
 	popd || die
 
-#	python_domodule appqos
+	if use appqos; then
+		python_domodule appqos
+	fi
 }
 
 python_test() {
@@ -116,7 +127,9 @@ python_test() {
 	eunittest
 	popd || die
 
-#	pushd "appqos" || die
-#	epytest -vv tests
-#	popd || die
+	if use appqos; then
+		pushd "appqos" || die
+		epytest -vv tests
+		popd || die
+	fi
 }

@@ -48,4 +48,7 @@ PID API compile time option has been removed and the APIs are always available.
 Note that proper operation of these APIs depends on availability and
 selection of OS interface.
 	</longdescription>
+	<use>
+		<flag name="appqos">Install App QoS, a software created to demonstrate the use of Intel(R) RDT technologies (CAT, MBA) to improve QoS for applications via partitioning system resources.</flag>
+	</use>
 </pkgmetadata>
