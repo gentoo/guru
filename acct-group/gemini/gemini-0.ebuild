@@ -5,6 +5,4 @@ EAPI=8
 
 inherit acct-group
 
-KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc64 ~s390 ~x86"
-
 ACCT_GROUP_ID=-1
