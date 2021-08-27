@@ -27,7 +27,7 @@ app-accessibility/rhvoice 1.4.2: TTS engine with extended languages support (inc
 app-accessibility/speakup-tools 20121017: Tools to customize speakup module
 app-admin/akita 0.1.4: An HTTP log monitoring tool for your terminal
 app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
-app-admin/chezmoi 1.8.10 2.0.12: Manage your dotfiles across multiple machines, securely
+app-admin/chezmoi 1.8.10 2.0.12 2.1.5 2.1.6: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.12.0 0.12.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/glance 21.0.0: Services for discovering, registering, and retrieving VM images
@@ -141,7 +141,7 @@ app-text/cmark-gfm 0.29.0.0: GitHub's fork of cmark
 app-text/epubgrep 0.5.1 0.6.0: Search tool for EPUB e-books
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/klogg 20.12: A GUI application to browse and search through long and complex log files
-app-text/komikku 0.28.1 0.29.2: An online/offline manga reader for GNOME
+app-text/komikku 0.28.1 0.29.2 0.30.0: An online/offline manga reader for GNOME
 app-text/koodo-reader-bin 1.3.0: A modern ebook manager and reader with sync and backup capacities
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
 app-text/mdbook 0.4.9 0.4.10 0.4.11 0.4.12: Creates a book from markdown files
@@ -307,7 +307,7 @@ dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync client
 dev-libs/libdatrie 0.2.13: Double-Array Trie Library
 dev-libs/libdwarf 20210528: The DWARF Debugging Information Format
 dev-libs/libnodave 0.8.5.1-r2: Connect to and exchange data with Siemens PLCs
-dev-libs/libphonenumber 8.12.30: library for parsing, formatting, and validating international phone numbers
+dev-libs/libphonenumber 8.12.31: library for parsing, formatting, and validating international phone numbers
 dev-libs/libthai 0.1.28: A a set of Thai language support routines
 dev-libs/memkind 1.11.0-r1: user extensible heap manager built on top of jemalloc
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
@@ -720,6 +720,7 @@ mail-client/mailspring-bin 1.9.0 1.9.1: A beautiful, fast and fully open source 
 media-fonts/3270font 2.3.0: A IBM 3270 Terminal font in a modern format
 media-fonts/gohufont 2.1_p20170627: A monospace bitmap font
 media-fonts/inconsolata_dz 20201205: A beautiful sans-serif monotype font designed for code listings
+media-fonts/last-resort 13.001: A collection of glyphs used as the backup of "last resort" to any other font
 media-fonts/linja-pona 4.2: Font for sitelen pona, a script for toki pona
 media-fonts/overpass 3.0.4: An open source webfont family inspired by Highway Gothic
 media-fonts/source-han-serif 1.001: Pan-CJK OpenType/CFF font family
@@ -778,6 +779,7 @@ media-sound/noson-app 4.4.9: The essential to control music from your SONOS devi
 media-sound/nuclear-bin 0.6.15: Nuclear is a streaming program that pulls content from free sources on internet
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
 media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file or stream as a PulseAudio source
+media-sound/spotify_dl 7.6.0: Downloads songs from a Spotify Playlist/Track/Album that you provide
 media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
 media-sound/zita-ajbridge 0.8.4 0.8.4-r1: zita-a2j and zita-j2a - bridges between ALSA and JACK
 media-video/av1an 1.12 9999: Cross-platform framework to streamline encoding
@@ -801,7 +803,7 @@ net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a perm
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.5 9.0_rc1-r1 9.0: XMPP gateway to IRC
 net-im/cawbird 1.4.1: Cawbird is a fork of the Corebird Twitter client from Baedert.
-net-im/discord-canary-bin 0.0.126-r1: All-in-one voice and text chat
+net-im/discord-canary-bin 0.0.127: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.25: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
@@ -824,7 +826,7 @@ net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/gmid 1.7.2 9999: Simple and secure Gemini server
 net-misc/kristall 0.3-r1 9999: Visual cross-platform gemini browser
-net-misc/lagrange 1.6.2 1.6.3: Desktop GUI client for browsing Geminispace
+net-misc/lagrange 1.6.3 1.6.4: Desktop GUI client for browsing Geminispace
 net-misc/lyrics-in-terminal 1.4.2: Command Line Lyrics fetcher for MPRIS media players
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
@@ -834,6 +836,7 @@ net-misc/purritobin 0.6.7 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
 net-misc/rtv 1.27.0: Browse Reddit from your terminal
 net-misc/smcroute 2.4.4: A static multicast routing daemon
+net-misc/telescope 0.5: w3m-like browser for Gemini
 net-misc/tinyssh 20210601 99999999: A small SSH server with state-of-the-art cryptography
 net-misc/tootle 1.0_alpha2 1.0 9999: Mastodon client written in GTK3
 net-misc/tuir 1.29.0: A text-based interface (TUI) to view and interact with Reddit from your terminal
@@ -878,11 +881,13 @@ sci-mathematics/why3 1.3.3 1.4.0: Platform for deductive program verification
 sci-misc/boinc-wrapper 7.16.16 7.16.17 7.16.17-r1: Wrapper to use non-BOINC apps with BOINC
 sci-physics/SU2 7.1.1: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sys-apps/0xFFFF 0.8 0.9: The 0pen Free Fiasco Firmware Flasher
+sys-apps/CommsPowerManagement 0.2.1: Python library providing various tools to work with Intel processors
 sys-apps/dool 0.8_pre20191010-r1 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
 sys-apps/drm_info 2.2.0 2.3.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3 0.5.4 0.6.0 0.6.1 0.6.2: A more intuitive version of du
 sys-apps/fselect 0.7.6: Find files with SQL-like queries
 sys-apps/hex 0.3.2 0.4.0 0.4.1: Futuristic take on hexdump
+sys-apps/intel-cmt-cat 4.2.0-r1: User space software for Intel(R) Resource Director Technology
 sys-apps/procs 0.11.5 0.11.6: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
 sys-apps/rogdrv 0.0.5_p20210208: ASUS ROG userspace mouse driver for Linux.
@@ -912,7 +917,7 @@ sys-cluster/extrae 3.8.3-r10: Instrumentation framework to generate execution tr
 sys-cluster/fti 1.6: Fault Tolerance Interface
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
 sys-cluster/heat 15.0.0: A CloudFormation-compatible openstack-native cloud orchestration engine.
-sys-cluster/launchmon 1.0.2_p20210430-r1: Enables HPC run-time tools to co-locate tool daemons with a parallel job
+sys-cluster/launchmon 1.0.2_p20210430-r2: Enables HPC run-time tools to co-locate tool daemons with a parallel job
 sys-cluster/libbsctools 1.0.6-r2: libbsctools
 sys-cluster/libi 5.0.1_p20180510: A framework for bootstrapping extreme scale software systems
 sys-cluster/libyogrt 1.24: Your One Get Remaining Time library
@@ -920,7 +925,7 @@ sys-cluster/lwgrp 1.0.3: Light-weight Group Library
 sys-cluster/mcxx 2021.06: C/C++/Fortran source-to-source compilation aimed at fast prototyping
 sys-cluster/mrnet 5.0.1_p20180510-r3: A Multicast/Reduction Network
 sys-cluster/muster 1.0.1: Massively Scalable Clustering
-sys-cluster/nanos6 2.6-r1: runtime that implements the OmpSs-2 parallel programming model
+sys-cluster/nanos6 2.6-r3: runtime that implements the OmpSs-2 parallel programming model
 sys-cluster/nanox 0.15_p20210818: Runtime designed to serve as runtime support in parallel environments
 sys-cluster/neutron 17.1.1 17.1.2: A virtual network service for Openstack
 sys-cluster/nova 22.2.0 22.2.1: Cloud computing fabric controller

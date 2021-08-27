@@ -10,6 +10,6 @@ LICENSE=all-rights-reserved
 RDEPEND=app-accessibility/at-spi2-atk:2 app-accessibility/at-spi2-core:2 dev-libs/atk dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss media-libs/alsa-lib media-libs/fontconfig:1.0 media-libs/freetype:2 net-print/cups sys-apps/dbus sys-apps/util-linux x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libxkbcommon x11-libs/libxcb x11-libs/libXcomposite x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXi x11-libs/libXrandr x11-libs/libXrender x11-libs/libXtst x11-libs/pango
 RESTRICT=mirror bindist
 SLOT=0
-SRC_URI=https://dl-canary.discordapp.net/apps/linux/0.0.126/discord-canary-0.0.126.deb
+SRC_URI=https://dl-canary.discordapp.net/apps/linux/0.0.127/discord-canary-0.0.127.deb
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	linux-info	7e8ed4c6a1d136fb291c52386f996c2c	pax-utils	fce6ad998516159787b92e8043167889	unpacker	2eeba54233fa41bdb15dcddcb63fba3a	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	e73b9df80596ab8f9c542c01196dec23
 _md5_=a9db7fb3d9457db4871f3c98ea502c77

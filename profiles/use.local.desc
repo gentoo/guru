@@ -262,6 +262,7 @@ net-misc/megasync:dolphin - Upload your files to your Mega account from Dolphin 
 net-misc/megasync:freeimage - Use freeimage to manage graphic images format.
 net-misc/megasync:nautilus - Upload your files to your Mega account from nautilus.
 net-misc/megasync:thunar - Upload your files to your Mega account from Thunar.
+net-misc/telescope:libbsd - Use dev-libs/libbsd instead of internal funcs
 net-misc/tinyssh:sodium - Use dev-libs/libsodium for cryptography
 net-news/sfeed_curses:theme-mono - Use mono theme
 net-news/sfeed_curses:theme-mono-highlight - Use mono_highlight theme
@@ -358,8 +359,10 @@ sci-physics/SU2:mpp - Enable Mutation++ library support
 sci-physics/SU2:openblas - Enable OpenBLAS support
 sci-physics/SU2:tecio - Enable TECIO support
 sci-physics/SU2:tutorials - Install Tutorials files
+sys-apps/CommsPowerManagement:ansible - Install ansible playbook
 sys-apps/drm_info:pci - Print PCI device names via libpci
 sys-apps/fselect:users - Add support for getting system users and groups
+sys-apps/intel-cmt-cat:appqos - Install App QoS, a software created to demonstrate the use of Intel(R) RDT technologies (CAT, MBA) to improve QoS for applications via partitioning system resources.
 sys-auth/keystone:memcached - Installs dependencies needed for using memcached as a backend
 sys-auth/keystone:mongo - Installs dependencies needed for using mongo as a backend
 sys-auth/mrsh:pam - build with pam support
@@ -495,6 +498,7 @@ sys-cluster/nanos6:extrae - to generate execution traces for offline performance
 sys-cluster/nanos6:memkind - Add support for dev-libs/memkind in memory allocator
 sys-cluster/nanos6:mercurium - Enable sys-cluster/mcxx support
 sys-cluster/nanos6:papi - enable dev-libs/papi support
+sys-cluster/nanos6:pqos - to generate real-time statistics of hardware counters
 sys-cluster/nanos6:unwind - to generate sample-based profiling
 sys-cluster/nanox:allocator - Enables Allocator module
 sys-cluster/nanox:ayudame - Enables ayudame support from sys-cluster/temanejo
