@@ -21,7 +21,7 @@ KEYWORDS="~amd64"
 IUSE="+cxx debug deep-est-sdv doc examples +fortran hostname-regex +mpi +ompi +openmp +parutils +pthreads python sionfwd" #cuda
 
 REQUIRED_USE="?? ( hostname-regex deep-est-sdv )"
-PATCHES=( "${FILESDIR}/${PN}-respect-flags-v2.patch" )
+PATCHES=( "${FILESDIR}/${PN}-respect-flags-v3.patch" )
 
 RDEPEND="
 	mpi? ( virtual/mpi )
