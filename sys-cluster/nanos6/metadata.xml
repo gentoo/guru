@@ -19,7 +19,7 @@
 		<flag name="memkind">Add support for <pkg>dev-libs/memkind</pkg> in memory allocator</flag>
 		<flag name="mercurium">Enable <pkg>sys-cluster/mcxx</pkg> support</flag>
 		<flag name="papi">enable <pkg>dev-libs/papi</pkg> support</flag>
-		<!--<flag name="pqos"> to generate real-time statistics of hardware counters</flag>-->
+		<flag name="pqos"> to generate real-time statistics of hardware counters</flag>
 		<flag name="unwind">to generate sample-based profiling</flag>
 	</use>
 </pkgmetadata>

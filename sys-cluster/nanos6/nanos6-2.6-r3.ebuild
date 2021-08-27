@@ -13,9 +13,9 @@ S="${WORKDIR}/${PN}-version-${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="debug dlb execution-workflow extrae memkind mercurium papi test unwind"
+IUSE="debug dlb execution-workflow extrae memkind mercurium papi pqos test unwind"
 #jemalloc require custom stuff
-#TODO: cuda pqos babeltrace2
+#TODO: cuda babeltrace2
 #TODO: llvm-libunwind
 
 RDEPEND="
@@ -29,11 +29,13 @@ RDEPEND="
 	memkind? ( dev-libs/memkind )
 	mercurium? ( sys-cluster/mcxx[ompss2] )
 	papi? ( dev-libs/papi )
+	pqos? ( sys-apps/intel-cmt-cat )
 	unwind? ( sys-libs/libunwind )
 "
 #	jemalloc? ( dev-libs/jemalloc )
 DEPEND="${RDEPEND}"
 
+PATCHES=( "${FILESDIR}/${P}-include-string.patch" )
 # https://github.com/bsc-pm/nanos6/issues/3
 RESTRICT="test"
 #RESTRICT="!test? ( test )"
@@ -64,6 +66,7 @@ src_configure() {
 	)
 	use dlb && myconf+=( "--with-dlb=${EPREFIX}/usr" )
 	use memkind && myconf+=( "--with-memkind=${EPREFIX}/usr" )
+	use pqos && myconf+=( "--with-pqos=${EPREFIX}/usr" )
 
 #	if use babeltrace; then
 #		myconf+=( "--with-babeltrace2=${EPREFIX}/usr" )
@@ -98,7 +101,6 @@ src_configure() {
 
 	econf "${myconf[@]}"
 }
-#		--without-pqos
 #		--without-cuda
 
 src_install() {
