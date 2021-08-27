@@ -1,13 +1,11 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit acct-user
 
 DESCRIPTION="User for net-im/biboumi"
-KEYWORDS="~amd64"
-
 ACCT_USER_ID=-1
 ACCT_USER_GROUPS=( biboumi )
 
