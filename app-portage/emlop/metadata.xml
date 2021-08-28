@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<upstream>
+		<maintainer>
+			<email>moltonel@gmail.com</email>
+			<name>Vincent de Phily</name>
+		</maintainer>
+	</upstream>
 	<maintainer type="person">
 		<email>telans@posteo.de</email>
 		<name>James Beddek</name>
