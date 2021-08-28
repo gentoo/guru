@@ -1,4 +1,4 @@
-# Copyright 2017-2020 Gentoo Authors
+# Copyright 2017-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -90,16 +90,16 @@ src_install() {
 	cargo_src_install
 	einstalldocs
 	if use bash-completion; then
-		emlop complete bash > emlop
+		./target/release/emlop complete bash > emlop
 		dobashcomp emlop
 	fi
 	if use zsh-completion; then
-		emlop complete zsh > _emlop
+		./target/release/emlop complete zsh > _emlop
 		insinto /usr/share/zsh/site-functions
 		doins _emlop
 	fi
 	if use fish-completion; then
-		emlop complete fish > emlop.fish
+		./target/release/emlop complete fish > emlop.fish
 		insinto /usr/share/fish/vendor_completions.d
 		doins emlop.fish
 	fi
