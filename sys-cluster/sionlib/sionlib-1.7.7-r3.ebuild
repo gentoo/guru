@@ -20,9 +20,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+cxx debug deep-est-sdv doc examples +fortran hostname-regex +mpi +ompi +openmp +parutils +pthreads python sionfwd" #cuda
 
-REQUIRED_USE="?? ( hostname-regex deep-est-sdv )"
-PATCHES=( "${FILESDIR}/${PN}-respect-flags-v3.patch" )
-
 RDEPEND="
 	mpi? ( virtual/mpi )
 	ompi? (
@@ -36,6 +33,12 @@ DEPEND="
 	${RDEPEND}
 	${PYTHON_DEPS}
 "
+
+REQUIRED_USE="?? ( hostname-regex deep-est-sdv )"
+PATCHES=(
+	"${FILESDIR}/${PN}-respect-flags-v3.patch"
+	"${FILESDIR}/${PN}-build-shared-libraries.patch"
+)
 
 pkg_setup() {
 	FORTRAN_NEED_OPENMP=0
@@ -119,7 +122,5 @@ src_install() {
 	rsync -ravXHA "${T}/prefix/usr" "${ED}/" || die
 	docompress -x "/usr/share/doc/${PF}/examples"
 
-	#TODO: build shared libs
-	#find "${ED}" -name '*.a' -delete || die
 	find "${ED}" -name '*.la' -delete || die
 }
