@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>lssndrbarbieri@gmail.com</email>
+    <name>Alessandro Barbieri</name>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://bitbucket.org/icldistcomp/parsec/issues</bugs-to>
+    <remote-id type="bitbucket">icldistcomp/parsec</remote-id>
+  </upstream>
+  <longdescription lang="en">
+PaRSEC is a generic framework for architecture aware scheduling and management of micro-tasks on distributed many-core heterogeneous architectures. Applications we consider can be expressed as a Direct Acyclic Graph of tasks with labeled edges designating data dependencies. PaRSEC assigns computation threads to the cores, overlaps communications and computations and uses a dynamic, fully-distributed scheduler based on architectural features such as NUMA nodes and algorithmic features such as data reuse.
+Several high level languages are proposed to expose the DAG from the applications. You can either build the DAG as you go, by using a mechanism called dynamic task generation (DTG), or use the JDF language to expose a compact problem-size independent format that can be queried on-demand to discover data dependencies in a totally distributed fashion.
+The framework includes libraries, a runtime system, and development tools to help application developers tackle the difficult task of porting their applications to highly heterogeneous and diverse environment.
+</longdescription>
+  <use>
+    <!--<flag name="cuda">Enable GPU support using CUDA kernels</flag>-->
+    <flag name="devel-headers">Install additional headers in include/parsec allowing external compilation</flag>
+    <flag name="home-config-files">Should the runtime check for the parameter configuration file in the user home (\$HOME/.parsec/mca-params.conf)</flag>
+    <!--<flag name="opencl">Enable GPU support using OpenCL kernels</flag>-->
+    <flag name="sched-deps-mask">Use a complete bitmask to track the dependencies, instead of a counter -- increase the debugging features, but limits to a maximum of 30 input dependencies</flag>
+    <flag name="parsec-debug-history">Keep a summarized history of critical events in memory that can be dumped in gdb when deadlock occur</flag>
+    <flag name="parsec-debug-mem-addr">Enable the memory access checker</flag>
+    <flag name="parsec-debug-mem-leak">Enable only the memory leak checker</flag>
+    <flag name="parsec-debug-mem-race">Enable the memory thread-race checker</flag>
+    <flag name="parsec-debug-noisier">Enable chatterbox-like verbose debugging (may impact performance)</flag>
+    <flag name="parsec-debug-paranoid">Enable extra paranoid checks (may impact performance)</flag>
+    <flag name="parsec-dist-collectives">Use optimized asynchronous operations where collective communication pattern is detected</flag>
+    <flag name="parsec-dist-priorities">Favor the communications that unlock the most prioritary tasks</flag>
+    <flag name="parsec-dist-thread">Use an extra thread to progress the data movements</flag>
+    <flag name="parsec-prof-active-arena-set">Enable the profiling of active arena set to track memory usage of parsec handles</flag>
+    <flag name="parsec-prof-btf">Force PaRSEC Binary Tracing Format to be the profiling system</flag>
+    <flag name="parsec-prof-dry-body">Disable calls to the actual bodies, no computation is performed</flag>
+    <flag name="parsec-prof-dry-dep">Disable calls to the actual data transport, remote dependencies are notified, but no data movement takes place</flag>
+    <flag name="parsec-prof-dry-run">Disable calls to the actual bodies and do not move the data between nodes, unfold the dependencies only</flag>
+    <flag name="parsec-prof-grapher">Enable the generation of the dot graph representation during execution</flag>
+    <flag name="parsec-prof-mmap">Use MMAP to create the profile files</flag>
+    <flag name="parsec-prof-otf2">Force otf2 to be the profiling system</flag>
+    <flag name="parsec-prof-pins">Enable the use of the PaRSEC callback instrumentation system</flag>
+    <flag name="parsec-prof-ptg">Generate Profiling traces for the internal_init tasks in the PTG interface</flag>
+    <flag name="parsec-prof-rusage">Print the rusage per execution unit for each progress</flag>
+    <flag name="parsec-prof-scheduling-events">Enable the tracing of fine-grained scheduling details during execution</flag>
+    <!--<flag name="parsec-prof-tau">Experimental usage of TAU profiling framework</flag>-->
+    <flag name="parsec-prof-thread">Use a Helper Thread to create the profile files</flag>
+    <flag name="sim">Enable the computation of the critical path, through simulation</flag>
+    <flag name="tools">Build the helper tools such as the pre-compilers, profiling manipulation and so on</flag>
+  </use>
+</pkgmetadata>
