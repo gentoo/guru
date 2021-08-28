@@ -11,6 +11,7 @@ inherit cmake fortran-2 docs
 DESCRIPTION="Parallel Runtime Scheduler and Execution Controller for micro-tasks on distributed heterogeneous systems"
 HOMEPAGE="https://bitbucket.org/icldistcomp/parsec"
 SRC_URI="https://bitbucket.org/icldistcomp/parsec/get/${P}.tar.bz2"
+S="${WORKDIR}/icldistcomp-${PN}-d2ae4175f072"
 
 LICENSE="BSD"
 SLOT="0"
@@ -44,7 +45,7 @@ IUSE_PARSEC_PROF="
 	+parsec-prof-thread
 "
 IUSE_EXPAND="PARSEC_DEBUG PARSEC_DIST PARSEC_PROF"
-IUSE="${IUSE_PARSEC_DEBUG} ${IUSE_PARSEC_DIST} ${IUSE_PARSEC_PROF} +cxx +devel-headers fortran +home-config-files +mpi +sched-deps-mask sim test +tools"
+IUSE="${IUSE_PARSEC_DEBUG} ${IUSE_PARSEC_DIST} ${IUSE_PARSEC_PROF} +cxx debug +devel-headers fortran +home-config-files +mpi profile +sched-deps-mask sim test +tools"
 
 #TODO: gd vite
 RDEPEND="
@@ -98,19 +99,19 @@ src_configure() {
 		-DPARSEC_DIST_WITH_MPI=$(usex mpi)
 		-DPARSEC_SCHED_DEPS_MASK=$(usex sched-deps-mask)
 		-DPARSEC_SIM=$(usex sim)
-		-DPARSEC_PROF_DRY_BODY=$(usex parser-prof-dry-body)
-		-DPARSEC_PROF_DRY_DEP=$(usex parser-prof-dry-dep)
-		-DPARSEC_PROF_DRY_RUN=$(usex parser-prof-dry-run)
-		-DPARSEC_PROF_GRAPHER=$(usex parser-prof-grapher)
-		-DPARSEC_PROF_PINS=$(usex parser-prof-pins)
-		-DPARSEC_PROF_RUSAGE_EU=$(usex parser-prof-rusage)
+		-DPARSEC_PROF_DRY_BODY=$(usex parsec-prof-dry-body)
+		-DPARSEC_PROF_DRY_DEP=$(usex parsec-prof-dry-dep)
+		-DPARSEC_PROF_DRY_RUN=$(usex parsec-prof-dry-run)
+		-DPARSEC_PROF_GRAPHER=$(usex parsec-prof-grapher)
+		-DPARSEC_PROF_PINS=$(usex parsec-prof-pins)
+		-DPARSEC_PROF_RUSAGE_EU=$(usex parsec-prof-rusage)
 		-DPARSEC_PROF_TRACE=$(usex profile)
-		-DPARSEC_PROF_TRACE_ACTIVE_ARENA_SET=$(usex parser-prof-active-arena-set)
-		-DPARSEC_PROF_TRACE_PTG_INTERNAL_INIT=$(usex parser-prof-ptg)
-		-DPARSEC_PROF_TRACE_SCHEDULING_EVENTS=$(usex parser-prof-scheduling-events)
+		-DPARSEC_PROF_TRACE_ACTIVE_ARENA_SET=$(usex parsec-prof-active-arena-set)
+		-DPARSEC_PROF_TRACE_PTG_INTERNAL_INIT=$(usex parsec-prof-ptg)
+		-DPARSEC_PROF_TRACE_SCHEDULING_EVENTS=$(usex parsec-prof-scheduling-events)
 		-DPARSEC_PROF_TRACE_SYSTEM=${trace}
-		-DPARSEC_PROFILING_USE_HELPER_THREAD=$(usex parser-prof-thread)
-		-DPARSEC_PROFILING_USE_MMAP=$(usex parser-prof-mmap)
+		-DPARSEC_PROFILING_USE_HELPER_THREAD=$(usex parsec-prof-thread)
+		-DPARSEC_PROFILING_USE_MMAP=$(usex parsec-prof-mmap)
 		-DPARSEC_WANT_HOME_CONFIG_FILES=$(usex home-config-files)
 		-DPARSEC_WITH_DEVEL_HEADERS=$(usex devel-headers)
 		-DSUPPORT_CXX=$(usex cxx)
