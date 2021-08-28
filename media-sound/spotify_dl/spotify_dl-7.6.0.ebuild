@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
-MY_PN="spotify-dl"
+MY_PN="${PN/_/-}"
 
 DESCRIPTION="Downloads songs from a Spotify Playlist/Track/Album that you provide"
 HOMEPAGE="https://github.com/SathyaBhat/spotify-dl/"
@@ -26,5 +26,5 @@ RDEPEND="
 	media-libs/mutagen[${PYTHON_USEDEP}]
 	dev-python/sentry-sdk[${PYTHON_USEDEP}]
 	dev-python/peewee[${PYTHON_USEDEP}]
-	>=net-misc/youtube-dl-2021.06.06
+	>=net-misc/youtube-dl-2021.06.06[${PYTHON_USEDEP}]
 "
