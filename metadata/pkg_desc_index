@@ -115,7 +115,7 @@ app-mobilephone/usb-tethering 0.1: USB tethering on Pine64/ConfigFS systems
 app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
 app-office/openoffice-bin 4.1.10: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.6: Pyspread is a non-traditional spreadsheet written in Python
-app-portage/emlop 0.4.1: A fast, accurate, ergonomic emerge.log parser
+app-portage/emlop 0.4.1 0.4.2: A fast, accurate, ergonomic emerge.log parser
 app-portage/gentoo-sweep 0.1.2a: Check your gentoo installation for unwanted cruft, forgotten files
 app-portage/pacvis 0.4.2: Displays dependency graphs of packages
 app-portage/portage-lostfiles 0.2.2: A simple script to identify files not tracked by Portage package manager
@@ -615,6 +615,7 @@ dev-util/xdp-tools 1.2.0: Utilities and example programs for use with XDP
 dev-vcs/bit 1.1.1 1.1.2: Bit is a modern Git CLI
 dev-vcs/git-blame-someone-else 0_pre20180613: Blame someone else for your bad code.
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
+dev-vcs/git-repair 1.20210629: repairs a damaged git repository
 dev-vcs/git-repo-updater 0.5.1-r1: Easily update multiple git repositories at once
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
 dev-vcs/gitqlient 1.3.2 1.4.0 9999: Multi-platform Git client written with Qt
@@ -682,8 +683,8 @@ gui-apps/coreterminal 4.2.0 9999: A terminal emulator for C Suite
 gui-apps/coretime 4.2.0 9999: A time related task manager for C Suite
 gui-apps/coretoppings 4.1.0-r1 4.2.0 9999: Additional features, plugins, widgets etc for C Suite
 gui-apps/coreuniverse 4.2.0 9999: Shows information about apps for C Suite
-gui-apps/foot 1.7.1 1.7.2 1.8.0 1.8.1 1.8.2 9999: A fast, lightweight and minimalistic Wayland terminal emulator
-gui-apps/foot-terminfo 1.7.1 1.7.2 1.8.1 9999: Terminfo for foot, a great Wayland terminal emulator
+gui-apps/foot 1.7.1 1.7.2 1.8.0 1.8.1 1.8.2 1.9.0 9999: A fast, lightweight and minimalistic Wayland terminal emulator
+gui-apps/foot-terminfo 1.7.1 1.7.2 1.8.1 1.9.0 9999: Terminfo for foot, a great Wayland terminal emulator
 gui-apps/mpvpaper 1.0 1.1 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.4.4 0.5.0 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperde 0.1.1_p20210426 9999: Simple, sleek QT based DE for wayland using wayfire
@@ -803,7 +804,7 @@ net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a perm
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/biboumi 8.5 9.0_rc1-r1 9.0: XMPP gateway to IRC
 net-im/cawbird 1.4.1: Cawbird is a fork of the Corebird Twitter client from Baedert.
-net-im/discord-canary-bin 0.0.127: All-in-one voice and text chat
+net-im/discord-canary-bin 0.0.128: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.25: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
@@ -835,8 +836,8 @@ net-misc/openbgpd 6.8_p0 6.9_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.6.7 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
 net-misc/rtv 1.27.0: Browse Reddit from your terminal
-net-misc/smcroute 2.4.4: A static multicast routing daemon
-net-misc/telescope 0.5: w3m-like browser for Gemini
+net-misc/smcroute 2.5.2: A static multicast routing daemon
+net-misc/telescope 0.5 0.5.1: w3m-like browser for Gemini
 net-misc/tinyssh 20210601 99999999: A small SSH server with state-of-the-art cryptography
 net-misc/tootle 1.0_alpha2 1.0 9999: Mastodon client written in GTK3
 net-misc/tuir 1.29.0: A text-based interface (TUI) to view and interact with Reddit from your terminal
@@ -886,7 +887,7 @@ sys-apps/dool 0.8_pre20191010-r1 9999: Versatile replacement for vmstat, iostat 
 sys-apps/drm_info 2.2.0 2.3.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.3 0.5.4 0.6.0 0.6.1 0.6.2: A more intuitive version of du
 sys-apps/fselect 0.7.6: Find files with SQL-like queries
-sys-apps/hex 0.3.2 0.4.0 0.4.1: Futuristic take on hexdump
+sys-apps/hex 0.3.2 0.4.0 0.4.1 0.4.2: Futuristic take on hexdump
 sys-apps/intel-cmt-cat 4.2.0-r1: User space software for Intel(R) Resource Director Technology
 sys-apps/procs 0.11.5 0.11.6: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
@@ -931,6 +932,7 @@ sys-cluster/neutron 17.1.1 17.1.2: A virtual network service for Openstack
 sys-cluster/nova 22.2.0 22.2.1: Cloud computing fabric controller
 sys-cluster/otf2 2.3-r1: highly scalable, memory efficient event trace data format
 sys-cluster/paraver-kernel 4.9.0: paraver kernel library
+sys-cluster/parsec 3.0.2012: Parallel Runtime Scheduler and Execution Controller for micro-tasks on distributed heterogeneous systems
 sys-cluster/pcs 0.10.8-r3: Pacemaker/Corosync Configuration System
 sys-cluster/placement 4.0.0: A HTTP service for managing, selecting, and claiming cloud resources.
 sys-cluster/portals4 1.0_alpha1_p20190109-r2: low-level network API for high-performance networking
@@ -938,8 +940,8 @@ sys-cluster/rankstr 0.0.2: Split an MPI communicator into subcomms based on stri
 sys-cluster/redset 0.0.5: Low-level distributed erasure coding lib to protect datasets of MPI applications
 sys-cluster/scr 3.0_pre1: Scalable Checkpoint / Restart Library
 sys-cluster/shuffile 0.0.4: SHUFFILE Shuffle files between processes
-sys-cluster/sionlib 1.7.7-r2: Scalable I/O library for parallel access to task-local files
-sys-cluster/sionlibl 1.7.7-r1: Scalable I/O library for parallel access to task-local files
+sys-cluster/sionlib 1.7.7-r3: Scalable I/O library for parallel access to task-local files
+sys-cluster/sionlibl 1.7.7-r2: Scalable I/O library for parallel access to task-local files
 sys-cluster/spath 0.0.2: Path manipulation functions
 sys-cluster/spectral 3.4.1: Signal processing to select representative regions from Paraver traces
 sys-cluster/swift 2.26.0 2.27.0: A highly available, distributed, and eventually consistent object/blob store

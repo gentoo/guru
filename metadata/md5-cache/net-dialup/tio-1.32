@@ -1,7 +1,7 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure
 DESCRIPTION=Simple TTY terminal application
-EAPI=7
+EAPI=8
 HOMEPAGE=https://tio.github.io/
 INHERIT=autotools bash-completion-r1
 KEYWORDS=~amd64 ~arm64 ~x86
@@ -9,4 +9,4 @@ LICENSE=GPL-2+
 SLOT=0
 SRC_URI=https://github.com/tio/tio/releases/download/v1.32/tio-1.32.tar.xz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	bash-completion-r1	d3a60385655d9b402be765a6de333245
-_md5_=4bff1fd106075ae966ec547c0d5eb57e
+_md5_=0d90babbfb6a4b453c4c21ea7bc9d8d5

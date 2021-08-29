@@ -1,8 +1,8 @@
-BDEPEND=dev-util/gdbus-codegen virtual/pkgconfig test? ( dev-libs/opensc net-misc/casync sys-fs/mtd-utils sys-fs/squashfs-tools sys-libs/libfaketime ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 doc? ( || ( ( dev-lang/python:3.9 dev-python/sphinx[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/sphinx[python_targets_python3_8(-)] ) ) )
+BDEPEND=dev-util/gdbus-codegen virtual/pkgconfig test? ( dev-libs/opensc net-misc/casync sys-fs/mtd-utils sys-fs/squashfs-tools sys-libs/libfaketime ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 doc? ( || ( ( dev-lang/python:3.10 dev-python/sphinx[python_targets_python3_10(-)] ) ( dev-lang/python:3.9 dev-python/sphinx[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/sphinx[python_targets_python3_8(-)] ) ) )
 DEFINED_PHASES=compile configure prepare setup
 DEPEND=dev-libs/glib:2 dev-libs/openssl:0= json? ( dev-libs/json-glib ) network? ( net-misc/curl ) service? ( sys-apps/dbus )
 DESCRIPTION=Lightweight update client that runs on your Embedded Linux device
-EAPI=7
+EAPI=8
 HOMEPAGE=https://rauc.io/
 INHERIT=autotools python-any-r1 docs
 IUSE=gpt json network service test doc
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/glib:2 dev-libs/openssl:0= json? ( dev-libs/json-glib ) network
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/rauc/rauc/releases/download/v1.5.1/rauc-1.5.1.tar.xz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	08d890890f70fe0096093016e55438d5	python-any-r1	901d9e22c7a848a1196502edf060f330	docs	7c38d94fa7c1b4235fe571dc09e018df
-_md5_=86bdf2060055876c85e5545374d3b744
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	08d890890f70fe0096093016e55438d5	python-any-r1	901d9e22c7a848a1196502edf060f330	docs	7c38d94fa7c1b4235fe571dc09e018df
+_md5_=c8e1a604897e06ede19065f99c7ad81e

@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/bison sys-devel/flex dev-util/ninja dev-util/cmake virtual/fortran doc? ( app-doc/doxygen )
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-util/valgrind sys-apps/hwloc sys-cluster/temanejo mpi? ( virtual/mpi ) parsec-prof-otf2? ( sys-cluster/otf2 ) parsec-prof-pins? ( dev-libs/papi ) virtual/fortran
+DESCRIPTION=Parallel Runtime Scheduler and Execution Controller for micro-tasks on distributed heterogeneous systems
+EAPI=7
+HOMEPAGE=https://bitbucket.org/icldistcomp/parsec
+INHERIT=cmake fortran-2 docs
+IUSE=parsec-debug-history parsec-debug-mem-addr parsec-debug-mem-leak parsec-debug-mem-race parsec-debug-noisier parsec-debug-paranoid +parsec-dist-collectives +parsec-dist-priorities +parsec-dist-thread parsec-prof-active-arena-set parsec-prof-btf parsec-prof-dry-body parsec-prof-dry-dep parsec-prof-dry-run parsec-prof-grapher +parsec-prof-mmap parsec-prof-otf2 parsec-prof-pins parsec-prof-ptg parsec-prof-rusage parsec-prof-scheduling-events +parsec-prof-thread +cxx debug +devel-headers fortran +home-config-files +mpi profile +sched-deps-mask sim test +tools doc
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=dev-util/valgrind sys-apps/hwloc sys-cluster/temanejo mpi? ( virtual/mpi ) parsec-prof-otf2? ( sys-cluster/otf2 ) parsec-prof-pins? ( dev-libs/papi ) virtual/fortran
+REQUIRED_USE=?? ( mpi sim ) ?? ( parsec-debug-mem-addr parsec-debug-mem-leak parsec-debug-mem-race ) ?? ( parsec-prof-btf parsec-prof-otf2 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://bitbucket.org/icldistcomp/parsec/get/parsec-3.0.2012.tar.bz2
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a	docs	7c38d94fa7c1b4235fe571dc09e018df
+_md5_=41b52f1088ed5ab804c1e16dfb52a064

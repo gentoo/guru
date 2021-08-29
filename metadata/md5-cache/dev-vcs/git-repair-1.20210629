@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install postinst postrm setup test
+DEPEND=dev-haskell/async:=[profile?] dev-haskell/attoparsec:=[profile?] dev-haskell/data-default:=[profile?] >=dev-haskell/exceptions-0.6:=[profile?] >=dev-haskell/filepath-bytestring-1.4.2.1.0:=[profile?] dev-haskell/hslogger:=[profile?] dev-haskell/ifelse:=[profile?] dev-haskell/mtl:=[profile?] >=dev-haskell/network-2.6:=[profile?] >=dev-haskell/network-uri-2.6:=[profile?] >=dev-haskell/optparse-applicative-0.14.1:=[profile?] dev-haskell/quickcheck:2=[profile?] dev-haskell/split:=[profile?] dev-haskell/text:=[profile?] >=dev-haskell/unix-compat-0.5:=[profile?] dev-haskell/utf8-string:=[profile?] >=dev-lang/ghc-8.4.3:=[profile?] >=dev-haskell/cabal-2.2.0.1 >=dev-haskell/filepath-bytestring-1.4.2.1.1
+DESCRIPTION=repairs a damaged git repository
+EAPI=8
+HOMEPAGE=https://git-repair.branchable.com/
+INHERIT=haskell-cabal
+IUSE=doc profile
+KEYWORDS=~amd64
+LICENSE=AGPL-3
+RDEPEND=dev-haskell/async:=[profile?] dev-haskell/attoparsec:=[profile?] dev-haskell/data-default:=[profile?] >=dev-haskell/exceptions-0.6:=[profile?] >=dev-haskell/filepath-bytestring-1.4.2.1.0:=[profile?] dev-haskell/hslogger:=[profile?] dev-haskell/ifelse:=[profile?] dev-haskell/mtl:=[profile?] >=dev-haskell/network-2.6:=[profile?] >=dev-haskell/network-uri-2.6:=[profile?] >=dev-haskell/optparse-applicative-0.14.1:=[profile?] dev-haskell/quickcheck:2=[profile?] dev-haskell/split:=[profile?] dev-haskell/text:=[profile?] >=dev-haskell/unix-compat-0.5:=[profile?] dev-haskell/utf8-string:=[profile?] >=dev-lang/ghc-8.4.3:=[profile?]
+SLOT=0
+SRC_URI=https://hackage.haskell.org/package/git-repair-1.20210629/git-repair-1.20210629.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ghc-package	6344fef4405bc9a6cca6a0a39eee4a32	multilib	97566c1a256d07b00848aa767e38a352	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	haskell-cabal	c532267df7d5d305ca17c3d0c5f81bb2
+_md5_=1badd88fc6d87c05ef38fbfb4c2aa714

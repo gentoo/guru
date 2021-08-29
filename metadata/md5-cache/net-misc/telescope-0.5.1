@@ -1,0 +1,13 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure
+DEPEND=dev-libs/imsg-compat dev-libs/libevent:= dev-libs/libretls sys-libs/ncurses:= libbsd? ( dev-libs/libbsd )
+DESCRIPTION=w3m-like browser for Gemini
+EAPI=8
+HOMEPAGE=https://telescope.omarpolo.com
+IUSE=+libbsd
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=!libbsd? ( BSD MIT ) ISC unicode
+RDEPEND=dev-libs/imsg-compat dev-libs/libevent:= dev-libs/libretls sys-libs/ncurses:= libbsd? ( dev-libs/libbsd )
+SLOT=0
+SRC_URI=https://github.com/omar-polo/telescope/releases/download/0.5.1/telescope-0.5.1.tar.gz
+_md5_=ed041aff62b2a23613058cde6c419d1b

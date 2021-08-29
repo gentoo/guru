@@ -539,6 +539,33 @@ sys-cluster/paraver-kernel:extrae - Enable extrae support
 sys-cluster/paraver-kernel:ompss - Enable OmpSs parallel version
 sys-cluster/paraver-kernel:openmp - Enable OpenMP parallel version
 sys-cluster/paraver-kernel:otf2 - Enable otf2 support
+sys-cluster/parsec:devel-headers - Install additional headers in include/parsec allowing external compilation
+sys-cluster/parsec:home-config-files - Should the runtime check for the parameter configuration file in the user home (\$HOME/.parsec/mca-params.conf)
+sys-cluster/parsec:parsec-debug-history - Keep a summarized history of critical events in memory that can be dumped in gdb when deadlock occur
+sys-cluster/parsec:parsec-debug-mem-addr - Enable the memory access checker
+sys-cluster/parsec:parsec-debug-mem-leak - Enable only the memory leak checker
+sys-cluster/parsec:parsec-debug-mem-race - Enable the memory thread-race checker
+sys-cluster/parsec:parsec-debug-noisier - Enable chatterbox-like verbose debugging (may impact performance)
+sys-cluster/parsec:parsec-debug-paranoid - Enable extra paranoid checks (may impact performance)
+sys-cluster/parsec:parsec-dist-collectives - Use optimized asynchronous operations where collective communication pattern is detected
+sys-cluster/parsec:parsec-dist-priorities - Favor the communications that unlock the most prioritary tasks
+sys-cluster/parsec:parsec-dist-thread - Use an extra thread to progress the data movements
+sys-cluster/parsec:parsec-prof-active-arena-set - Enable the profiling of active arena set to track memory usage of parsec handles
+sys-cluster/parsec:parsec-prof-btf - Force PaRSEC Binary Tracing Format to be the profiling system
+sys-cluster/parsec:parsec-prof-dry-body - Disable calls to the actual bodies, no computation is performed
+sys-cluster/parsec:parsec-prof-dry-dep - Disable calls to the actual data transport, remote dependencies are notified, but no data movement takes place
+sys-cluster/parsec:parsec-prof-dry-run - Disable calls to the actual bodies and do not move the data between nodes, unfold the dependencies only
+sys-cluster/parsec:parsec-prof-grapher - Enable the generation of the dot graph representation during execution
+sys-cluster/parsec:parsec-prof-mmap - Use MMAP to create the profile files
+sys-cluster/parsec:parsec-prof-otf2 - Force otf2 to be the profiling system
+sys-cluster/parsec:parsec-prof-pins - Enable the use of the PaRSEC callback instrumentation system
+sys-cluster/parsec:parsec-prof-ptg - Generate Profiling traces for the internal_init tasks in the PTG interface
+sys-cluster/parsec:parsec-prof-rusage - Print the rusage per execution unit for each progress
+sys-cluster/parsec:parsec-prof-scheduling-events - Enable the tracing of fine-grained scheduling details during execution
+sys-cluster/parsec:parsec-prof-thread - Use a Helper Thread to create the profile files
+sys-cluster/parsec:sched-deps-mask - Use a complete bitmask to track the dependencies, instead of a counter -- increase the debugging features, but limits to a maximum of 30 input dependencies
+sys-cluster/parsec:sim - Enable the computation of the critical path, through simulation
+sys-cluster/parsec:tools - Build the helper tools such as the pre-compilers, profiling manipulation and so on
 sys-cluster/portals4:knem - Use sys-cluster/knem for bulk message transfer
 sys-cluster/portals4:me-triggered - Enable extended (non-standard) triggered operations. Experimental
 sys-cluster/portals4:pmi - Enable PMI support
