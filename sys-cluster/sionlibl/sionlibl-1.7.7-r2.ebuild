@@ -35,7 +35,10 @@ DEPEND="
 "
 
 REQUIRED_USE="?? ( hostname-regex deep-est-sdv )"
-PATCHES=( "${FILESDIR}/${PN}-respect-flags-v2.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-respect-flags-v3.patch"
+	"${FILESDIR}/${PN}-build-shared-libraries.patch"
+)
 
 pkg_setup() {
 	FORTRAN_NEED_OPENMP=0

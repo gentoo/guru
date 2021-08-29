@@ -2,4 +2,3 @@ move x11-themes/sweet-gtk-theme x11-themes/sweet-dark-gtk-theme
 move app-text/git-delta dev-util/git-delta
 move dev-libs/wren dev-lang/wren
 move app-editors/atom app-editors/atom-bin
-move x11-terms/terminus x11-terms/terminus-bin
