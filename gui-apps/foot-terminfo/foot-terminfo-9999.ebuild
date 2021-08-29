@@ -26,7 +26,7 @@ src_compile() {
 }
 
 src_install() {
-	dodir /usr/share/foot/terminfo/f/
-	cp "${S}/f/foot" "${D}/usr/share/foot/terminfo/f/foot" || die
-	cp "${S}/f/foot-direct" "${D}/usr/share/foot/terminfo/f/foot-direct" || die
+	dodir /usr/share/terminfo/f/
+	cp "${S}/f/foot" "${D}/usr/share/terminfo/f/foot" || die
+	cp "${S}/f/foot-direct" "${D}/usr/share/terminfo/f/foot-direct" || die
 }
