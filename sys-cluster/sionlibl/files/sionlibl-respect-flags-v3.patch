@@ -115,18 +115,18 @@
  
 -CC       = gcc
 -CFLAGS   = -std=c99 $(PFLAG) $(OPTFLAGS) -fPIC
-+CXXFLAGS += $(PFLAG)
++CXXFLAGS += $(PFLAG) -fPIC
  
 -CXX      = g++
 -CXXFLAGS = $(PFLAG) $(OPTFLAGS) -O3
 -
 -F77      = gfortran
 -FFLAGS   = $(PFLAG) $(OPTFLAGS) -fallow-argument-mismatch
-+FFLAGS   += $(PFLAG) -fallow-argument-mismatch
++FFLAGS   += $(PFLAG) -fallow-argument-mismatch -fPIC
  
  F90      = $(F77)
 -F90FLAGS = $(PFLAG) $(OPTFLAGS) -ffree-form -fallow-argument-mismatch
-+F90FLAGS += $(PFLAG) -ffree-form -fallow-argument-mismatch
++F90FLAGS += $(PFLAG) -ffree-form -fallow-argument-mismatch -fPIC $(FCFLAGS)
  
  FPP      =
  FDOPT    = -D
