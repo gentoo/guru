@@ -38,7 +38,6 @@ REQUIRED_USE="?? ( hostname-regex deep-est-sdv )"
 PATCHES=(
 	"${FILESDIR}/${PN}-respect-flags-v3.patch"
 	"${FILESDIR}/${PN}-build-shared-libraries.patch"
-	"${FILESDIR}/${PN}-fix-linking.patch"
 )
 
 pkg_setup() {
