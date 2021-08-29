@@ -38,6 +38,7 @@ REQUIRED_USE="?? ( hostname-regex deep-est-sdv )"
 PATCHES=(
 	"${FILESDIR}/${PN}-respect-flags-v3.patch"
 	"${FILESDIR}/${PN}-build-shared-libraries.patch"
+	"${FILESDIR}/${PN}-fix-linking.patch"
 )
 
 pkg_setup() {
@@ -65,9 +66,13 @@ src_configure() {
 	use hostname-regex && msa="hostname-regex"
 
 	local myconf=(
+		--disable-gcovr
+		--disable-kcov
 		--disable-mic
 		--msa="${msa}"
 		--prefix="${T}/prefix/usr"
+		$(use_enable debug)
+		$(use_enable pthreads)
 	)
 
 	#custom configure?
@@ -77,9 +82,7 @@ src_configure() {
 	use ompi || myconf+=( "--disable-ompi" )
 	use openmp || myconf+=( "--disable-omp" )
 	use parutils || myconf+=( "--disable-parutils" )
-	use pthreads || myconf+=( "--disable-pthreads" )
 
-	use debug && myconf+=( "--enable-debug" )
 	use python && myconf+=( "--enable-python=3" )
 	use sionfwd && myconf+=( "--enable-sionfwd=${EPREFIX}/usr" )
 
