@@ -1,6 +1,5 @@
-diff '--color=auto' -ru sionlib-ori/src/cppinterface/Makefile sionlib/src/cppinterface/Makefile
---- sionlib-ori/src/cppinterface/Makefile	2021-08-29 01:04:54.919546800 +0200
-+++ sionlib/src/cppinterface/Makefile	2021-08-29 00:44:20.564541936 +0200
+--- a/src/cppinterface/Makefile
++++ b/src/cppinterface/Makefile
 @@ -30,7 +30,7 @@
  ifeq ($(CXXENABLE),1)
  
@@ -36,9 +35,8 @@ diff '--color=auto' -ru sionlib-ori/src/cppinterface/Makefile sionlib/src/cppint
  
  #------------------------------------------------------------------------------
  # Dependencies
-diff '--color=auto' -ru sionlib-ori/src/fortraninterface/Makefile sionlib/src/fortraninterface/Makefile
---- sionlib-ori/src/fortraninterface/Makefile	2021-08-29 01:04:54.928546844 +0200
-+++ sionlib/src/fortraninterface/Makefile	2021-08-29 01:21:47.153471098 +0200
+--- a/src/fortraninterface/Makefile
++++ b/src/fortraninterface/Makefile
 @@ -39,7 +39,7 @@
  
  USER_HDRS = sion_f77.H sion_f77.h 
@@ -52,24 +50,24 @@ diff '--color=auto' -ru sionlib-ori/src/fortraninterface/Makefile sionlib/src/fo
    SION_OBJS_F77_SER += sion_f77_omp.o sion_fortran_omp.o
    SION_OBJS_F90_SER += sion_f90_omp.o sion_fortran_omp.o
    USER_MODS += sion_f90_omp.mod
-+  F77_SER_LIBS = $(OMPFLAG) -l$(SION_LIBNAME_OMP)
-+  F90_SER_LIBS = $(OMPFLAG) -l$(SION_LIBNAME_OMP)
++  F77_SER_LIBS = $(OMPFLAG) -L../parlib -l$(SION_LIBNAME_OMP)
++  F90_SER_LIBS = $(OMPFLAG) -L../parlib -l$(SION_LIBNAME_OMP)
  endif
  
  ifeq ($(MPIENABLE),1)
    SION_OBJS_F77_MPI += sion_f77_mpi.o sion_fortran_mpi.o sion_fortran_writeread_mpi_f77.o
    SION_OBJS_F90_MPI += sion_f90_mpi.o sion_fortran_mpi.o sion_fortran_writeread_mpi_f90.o
    USER_MODS += sion_f90_mpi.mod
-+  F77_MPI_LIBS = -l$(SION_LIBNAME_MPI)
-+  F90_MPI_LIBS = -l$(SION_LIBNAME_MPI)
++  F77_MPI_LIBS = -L../parlib -l$(SION_LIBNAME_MPI)
++  F90_MPI_LIBS = -L../parlib -l$(SION_LIBNAME_MPI)
  endif
  
  ifeq ($(HYBENABLE),1)
    SION_OBJS_F77_MPI += sion_f77_ompi.o sion_fortran_ompi.o
    SION_OBJS_F90_MPI += sion_f90_ompi.o sion_fortran_ompi.o
    USER_MODS += sion_f90_ompi.mod
-+  F77_MPI_LIBS = $(HYBFLAG) -l$(SION_LIBNAME_OMPI)
-+  F90_MPI_LIBS = $(HYBFLAG) -l$(SION_LIBNAME_OMPI)
++  F77_MPI_LIBS = $(HYBFLAG) -L../parlib -l$(SION_LIBNAME_OMPI)
++  F90_MPI_LIBS = $(HYBFLAG) -L../parlib -l$(SION_LIBNAME_OMPI)
  endif   
  
  SION_DEPEND_OBJS=sion_fortran.o sion_fortran_omp.o sion_fortran_mpi.o sion_fortran_ompi.o sion_fortran_writeread_f77.o sion_fortran_writeread_f90.o  sion_fortran_writeread_mpi_f77.o sion_fortran_writeread_mpi_f90.o 
@@ -111,9 +109,8 @@ diff '--color=auto' -ru sionlib-ori/src/fortraninterface/Makefile sionlib/src/fo
  
  #------------------------------------------------------------------------------
  # Dependencies
-diff '--color=auto' -ru sionlib-ori/src/lib/Makefile sionlib/src/lib/Makefile
---- sionlib-ori/src/lib/Makefile	2021-08-29 01:04:54.930546854 +0200
-+++ sionlib/src/lib/Makefile	2021-08-29 00:44:20.574541984 +0200
+--- a/src/lib/Makefile
++++ b/src/lib/Makefile
 @@ -67,25 +67,25 @@
  endif
  
@@ -159,9 +156,8 @@ diff '--color=auto' -ru sionlib-ori/src/lib/Makefile sionlib/src/lib/Makefile
  
  #------------------------------------------------------------------------------
  # Dependencies
-diff '--color=auto' -ru sionlib-ori/src/parlib/Makefile sionlib/src/parlib/Makefile
---- sionlib-ori/src/parlib/Makefile	2021-08-29 01:04:54.921546810 +0200
-+++ sionlib/src/parlib/Makefile	2021-08-29 01:03:58.041270101 +0200
+--- a/src/parlib/Makefile
++++ b/src/parlib/Makefile
 @@ -29,7 +29,7 @@
  .SUFFIXES:  .cpp .c .f
  
@@ -247,10 +243,23 @@ diff '--color=auto' -ru sionlib-ori/src/parlib/Makefile sionlib/src/parlib/Makef
  
  #------------------------------------------------------------------------------
  # Dependencies
-diff '--color=auto' -ru sionlib-ori/src/parutils/Makefile sionlib/src/parutils/Makefile
---- sionlib-ori/src/parutils/Makefile	2021-08-29 01:04:54.928546844 +0200
-+++ sionlib/src/parutils/Makefile	2021-08-29 00:44:20.571541969 +0200
-@@ -75,10 +75,10 @@
+--- a/src/parutils/Makefile
++++ b/src/parutils/Makefile
+@@ -55,6 +55,13 @@
+ ifeq ($(FORTRANENABLE),1)
+   ifeq ($(MPIENABLE),1)
+     USER_UTILS += fpartest
++    F77_MPI_LIBS = -L../parlib -l$(SION_LIBNAME_MPI)
++  endif
++  ifeq ($(OMPENABLE),1)
++    F77_SER_LIBS = $(OMPFLAG) -L../parlib -l$(SION_LIBNAME_OMP)
++  endif
++  ifeq ($(HYBENABLE),1)
++    F77_MPI_LIBS = $(HYBFLAG) -L../parlib -l$(SION_LIBNAME_OMPI)
+   endif
+ endif
+ 
+@@ -75,10 +82,10 @@
  
  all: $(USER_UTILS)
  
@@ -263,16 +272,18 @@ diff '--color=auto' -ru sionlib-ori/src/parutils/Makefile sionlib/src/parutils/M
  	$(HYBCC) -o $@ $(PARTEST_OMPI_OBJS) $(CHYBLDFLAGS) -L../parlib -l$(SION_LIBNAME_OMP) -L../lib -l$(SION_LIBNAME_SER)  $(MPILIB)
  
  ompi_partest.o : ompi_partest.c
-@@ -114,7 +114,7 @@
+@@ -114,8 +121,8 @@
  fpartest.o : fpartest.F90
  	$(MPIF90) $(FFLAGS) -c fpartest.F90
  
 -fpartest: fpartest.o  ../parlib/lib$(SION_LIBNAME_MPI).a  ../parlib/lib$(SION_LIBNAME_GEN).a ../lib/lib$(SION_LIBNAME_SER).a ../fortraninterface/lib$(SION_LIBNAME_F77_MPI).a ../fortraninterface/lib$(SION_LIBNAME_F77_SER).a
+-	$(MPIF90) -o $@ fpartest.o  -L../fortraninterface -l$(SION_LIBNAME_F77_MPI) -l$(SION_LIBNAME_F77_SER) $(FMPILDFLAGS) $(MPILIB) 
 +fpartest: fpartest.o  ../parlib/lib$(SION_LIBNAME_MPI).so  ../parlib/lib$(SION_LIBNAME_GEN).so ../lib/lib$(SION_LIBNAME_SER).so ../fortraninterface/lib$(SION_LIBNAME_F77_MPI).so ../fortraninterface/lib$(SION_LIBNAME_F77_SER).so
- 	$(MPIF90) -o $@ fpartest.o  -L../fortraninterface -l$(SION_LIBNAME_F77_MPI) -l$(SION_LIBNAME_F77_SER) $(FMPILDFLAGS) $(MPILIB) 
++	$(MPIF90) -o $@ fpartest.o  -L../fortraninterface -l$(SION_LIBNAME_F77_MPI) -l$(SION_LIBNAME_F77_SER) $(FMPILDFLAGS) $(MPILIB) $(F77_MPI_LIBS) $(F77_SER_LIBS)
  
  
-@@ -161,7 +161,7 @@
+ install: all
+@@ -161,7 +168,7 @@
  	@rm -f header.tmp
  
  clean:
@@ -281,9 +292,8 @@ diff '--color=auto' -ru sionlib-ori/src/parutils/Makefile sionlib/src/parutils/M
  
  #------------------------------------------------------------------------------
  # Dependencies
-diff '--color=auto' -ru sionlib-ori/src/utils/Makefile sionlib/src/utils/Makefile
---- sionlib-ori/src/utils/Makefile	2021-08-29 01:04:54.925546830 +0200
-+++ sionlib/src/utils/Makefile	2021-08-29 00:44:20.568541955 +0200
+--- a/src/utils/Makefile
++++ b/src/utils/Makefile
 @@ -45,32 +45,32 @@
  siondump.o : siondump.c 
  	$(CC) $(CFLAGS) -c siondump.c
