@@ -11,7 +11,7 @@ SRC_URI="https://github.com/troglobit/${PN}/releases/download/${PV}/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-2+"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="caps systemd"
 
 BDEPEND="
