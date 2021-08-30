@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/meson-0.53 || ( dev-lang/python:3.9 dev-lang/python:3.8 ) doc? ( dev-python/docutils ) >=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=dev-util/meson-0.53 || ( dev-lang/python:3.9 dev-lang/python:3.8 ) doc? ( dev-python/docutils ) >=dev-util/meson-0.57.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
 DEPEND=media-libs/freetype:2 >=media-libs/libpng-1.5 media-libs/libsdl2 media-libs/opusfile media-libs/libwebp app-arch/zstd sys-libs/zlib zip? ( dev-libs/libzip ) >=dev-libs/cglm-0.7.8 dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
@@ -10,5 +10,5 @@ LICENSE=MIT CC-BY-4.0 CC0-1.0 public-domain
 PROPERTIES=live
 RDEPEND=media-libs/freetype:2 >=media-libs/libpng-1.5 media-libs/libsdl2 media-libs/opusfile media-libs/libwebp app-arch/zstd sys-libs/zlib zip? ( dev-libs/libzip )
 SLOT=0
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	2871b3a63996e0056676445b355c3d60	python-any-r1	901d9e22c7a848a1196502edf060f330	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	e73b9df80596ab8f9c542c01196dec23	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	493198f00f20d2ecf10552d2737f2f13	python-any-r1	901d9e22c7a848a1196502edf060f330	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	e73b9df80596ab8f9c542c01196dec23	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
 _md5_=2547167f724cc8024f496b6471593a2e

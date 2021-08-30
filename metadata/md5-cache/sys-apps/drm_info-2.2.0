@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/meson-0.56.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=>=dev-util/meson-0.57.0 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install test
 DEPEND=x11-libs/libdrm dev-libs/json-c:=
 DESCRIPTION=Small utility to dump info about DRM devices
@@ -10,5 +10,5 @@ LICENSE=MIT
 RDEPEND=x11-libs/libdrm dev-libs/json-c:=
 SLOT=0
 SRC_URI=https://github.com/ascent12/drm_info/archive/v2.2.0.tar.gz -> drm_info-2.2.0.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	2871b3a63996e0056676445b355c3d60
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	08d890890f70fe0096093016e55438d5	meson	493198f00f20d2ecf10552d2737f2f13
 _md5_=32011955e099965d2e08c4038c907ca6
