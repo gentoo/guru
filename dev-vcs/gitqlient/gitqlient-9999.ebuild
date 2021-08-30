@@ -10,7 +10,7 @@ MY_PN="GitQlient"
 DESCRIPTION="Multi-platform Git client written with Qt"
 HOMEPAGE="https://github.com/francescmm/GitQlient"
 
-EGIT_BRANCH="develop"
+#EGIT_BRANCH="develop"
 EGIT_REPO_URI="https://github.com/francescmm/${MY_PN}.git"
 SRC_URI=""
 KEYWORDS=""
