@@ -28,7 +28,10 @@ DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/${PN}-v${PV}"
 
-PATCHES=( "${FILESDIR}/${P}-install.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-install.patch"
+	"${FILESDIR}/${P}-poppler.patch"
+)
 
 src_configure() {
 	eqmake5 PREFIX="${EPREFIX}/usr"
