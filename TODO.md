@@ -26,6 +26,7 @@ Name | Buildsystem | Category | User | RFH
 [medipack](http://www.scicomp.uni-kl.de/software/medi/) | make | science | Alessandro-Barbieri | no
 [compcert](https://compcert.org) | make | compiler | Alessandro-Barbieri | yes
 [predictive](https://www.dr-qubit.org/predictive.html) | make | emacs | Alessandro-Barbieri | yes
+[wxpropgrid](http://wxpropgrid.sourceforge.net/cgi-bin/index) | bakefile | gui | Alessandro-Barbieri | no
 [dimemas](https://github.com/bsc-performance-tools/dimemas) | autotools | cluster | Alessandro-Barbieri | no
 [argobots](https://www.argobots.org/) | autotools | devel | Alessandro-Barbieri | no
 [mochi-ssg](https://github.com/mochi-hpc/mochi-ssg) | autotools | cluster | Alessandro-Barbieri | no
@@ -46,7 +47,6 @@ Name | Buildsystem | Category | User | RFH
 [blasfeo](https://github.com/giaf/blasfeo) | cmake | science | Alessandro-Barbieri | yes
 [libfixmath](https://github.com/PetteriAimonen/libfixmath) | cmake | devel | Alessandro-Barbieri | no
 [hpmpc](https://github.com/giaf/hpmpc) | cmake | science | Alessandro-Barbieri | no
-[parsec](https://bitbucket.org/icldistcomp/parsec) | cmake | science | Alessandro-Barbieri | no
 [mercury](https://github.com/mercury-hpc/mercury) | cmake | cluster | Alessandro-Barbieri | no
 [chrono](https://projectchrono.org/) | cmake | science | Alessandro-Barbieri | no
 [cocos2d-x](https://github.com/cocos2d/cocos2d-x) | cmake | game | Alessandro-Barbieri | yes
