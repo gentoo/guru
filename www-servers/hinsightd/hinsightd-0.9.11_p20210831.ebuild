@@ -9,18 +9,23 @@ inherit fcaps lua-single systemd cmake linux-info
 
 DESCRIPTION="hinsightd a http/1.1 webserver with (hopefully) minimal goals"
 HOMEPAGE="https://gitlab.com/tiotags/hin9"
+LICENSE="BSD"
+SLOT="0"
+KEYWORDS="~amd64"
+
+mycommit="f04d7703f6cdbd2e33f8a7289d80a01dba5e970f"
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/tiotags/hin9.git"
+	KEYWORDS=
+elif [[ ! -z "$mycommit" ]]; then
+	SRC_URI="https://gitlab.com/tiotags/hin9/-/archive/${mycommit}/hin9-${mycommit}.tar.gz"
+	S="${WORKDIR}/hin9-${mycommit}"
 else
 	SRC_URI="https://gitlab.com/tiotags/hin9/-/archive/v${PV}/hin9-v${PV}.tar.gz"
 	S="${WORKDIR}/hin9-v${PV}"
-	KEYWORDS="~amd64"
 fi
-
-LICENSE="BSD"
-SLOT="0"
 
 IUSE="+openssl"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
