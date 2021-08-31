@@ -1,7 +1,7 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CRATES="
 addr2line-0.13.0
@@ -197,10 +197,13 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+RDEPEND="!app-text/tldr"
+
 QA_FLAGS_IGNORED="usr/bin/tldr"
 
 # Tests require network connection
 RESTRICT="test"
+PROPERTIES="test_network"
 
 src_install() {
 	cargo_src_install
