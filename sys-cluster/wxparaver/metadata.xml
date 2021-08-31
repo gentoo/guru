@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<use>
+		<flag name="extrae">Enable extrae support</flag>
+		<flag name="ompss">Enable OmpSs parallel version</flag>
+		<flag name="openmp">Enable OpenMP parallel version</flag>
+	</use>
+	<upstream>
+		<bugs-to>https://github.com/bsc-performance-tools/wxparaver/issues</bugs-to>
+		<remote-id type="github">bsc-performance-tools/wxparaver</remote-id>
+	</upstream>
+</pkgmetadata>
