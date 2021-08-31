@@ -12,4 +12,18 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
+BDEPEND="
+	app-text/scdoc
+	virtual/pkgconfig
+"
+
 PATCHES=( "${FILESDIR}/${PN}-respect-variables.patch" )
+
+src_compile() {
+	emake cbonsai
+	emake cbonsai.1
+}
+
+src_install() {
+	PREFIX="${EPREFIX}/usr" DESTDIR="${D}" emake install
+}
