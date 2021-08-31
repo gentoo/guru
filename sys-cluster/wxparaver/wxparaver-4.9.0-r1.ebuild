@@ -7,8 +7,9 @@ DOCS_AUTODOC=0
 DOCS_BUILDER="sphinx"
 DOCS_DIR="docs/wxparaver_help_contents/sphinx/2.paraver_toolset/source"
 PYTHON_COMPAT=( python3_{8..10} pypy3 )
+WX_GTK_VER="3.0-gtk3"
 
-inherit autotools python-any-r1 docs
+inherit autotools python-any-r1 docs wxwidgets
 
 DESCRIPTION="paraver gui"
 HOMEPAGE="
@@ -26,7 +27,6 @@ RDEPEND="
 	dev-libs/boost:=
 	dev-libs/openssl
 	sys-cluster/paraver-kernel
-	x11-libs/wxGTK
 
 	extrae? ( sys-cluster/extrae )
 "
@@ -46,6 +46,8 @@ src_prepare() {
 }
 
 src_configure() {
+	setup-wxwidgets
+
 	local myconf=(
 		--disable-old-pcfparser
 		--with-boost="${EPREFIX}/usr"
@@ -73,7 +75,6 @@ src_compile() {
 }
 
 src_install() {
-	default
 	# only a part of the docs can be built from source
 	if use doc; then
 		# remove a part of the prebuilt docs
@@ -89,8 +90,10 @@ src_install() {
 	# override eclass variable
 	unset HTML_DOCS
 	HTML_DOCS=( docs/wxparaver_help_contents/install/html/. )
-	einstalldocs
+
+	default
+
 	rm -r "${ED}/usr/share/doc/wxparaver_help_contents" || die
 	chrpath -d "${ED}/usr/bin/wxparaver.bin" || die
-	find "${ED}" -name '*.la' -delete || die
+#	find "${ED}" -name '*.la' -delete || die
 }
