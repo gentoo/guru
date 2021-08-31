@@ -3,20 +3,25 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{6,7,8,9} )
+PYTHON_COMPAT=( python3_{8..10} pypy3 )
+
 inherit distutils-r1
 
 DESCRIPTION="Python command line client for tldr pages"
-HOMEPAGE="https://github.com/tldr-pages/tldr-python-client/"
+HOMEPAGE="https://github.com/tldr-pages/tldr-python-client"
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="
-	dev-python/termcolor
-	dev-python/colorama
-	dev-python/argcomplete
+DEPEND="
+	${PYTHON_DEPS}
+	dev-python/argcomplete[${PYTHON_USEDEP}]
+	dev-python/colorama[${PYTHON_USEDEP}]
+	dev-python/termcolor[${PYTHON_USEDEP}]
 "
-DEPEND="${RDEPEND}"
+RDEPEND="
+	${DEPEND}
+	!app-misc/tealdeer
+"
