@@ -64,10 +64,6 @@ Name | Buildsystem | Category | User | RFH
 [airshipper](https://gitlab.com/veloren/airshipper) | cargo | game | | 
 [open-match](https://github.com/googleforgames/open-match) | go | devel | Alessandro-Barbieri | yes
 [gridstudio](https://github.com/ricklamers/gridstudio) | go | visualization | Alessandro-Barbieri | yes
-[ptpckeck](https://github.com/facebookincubator/ptp) | go | time | Alessandro-Barbieri | no
-[ptp4u](https://github.com/facebookincubator/ptp) | go | time | Alessandro-Barbieri | no
-[ziffy](https://github.com/facebookincubator/ptp) | go | time | Alessandro-Barbieri | no
-[pshark](https://github.com/facebookincubator/ptp) | go | time | Alessandro-Barbieri | no
 [osmosis](https://wiki.openstreetmap.org/wiki/Osmosis) | gradle | geography | Alessandro-Barbieri | yes
 [Opensearch](https://github.com/opensearch-project/OpenSearch) | gradle |  | Alessandro-Barbieri | yes
 [ijavascript](https://github.com/n-riesco/ijavascript) | npm | jupyter | Alessandro-Barbieri | yes
