@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit meson python-single-r1
 
@@ -16,7 +16,9 @@ SRC_URI="
 	tutorials? ( https://github.com/su2code/Tutorials/archive/v${PV}.tar.gz -> ${P}-Tutorials.tar.gz )
 "
 
-LICENSE="LGPL-2.1"
+# SU2: LGPL-2.1; cgnslib: ZLIB, TecIO: all-rights-reserved;
+# Metis: Apache-2.0; Parmetis: all-rights-reserved, free-noncomm; Mutationpp: LGPL-3.0.
+LICENSE="Apache-2.0 LGPL-2.1 LGPL-3 ZLIB all-rights-reserved free-noncomm"
 SLOT="0"
 KEYWORDS="~amd64"
 
