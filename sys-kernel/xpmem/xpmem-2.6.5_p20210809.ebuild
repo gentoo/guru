@@ -7,13 +7,13 @@ MAX_KV_MAJ="5"
 MAX_KV_MIN="8"
 MODULES_OPTIONAL_USE="modules"
 MODULES_OPTIONAL_USE_IUSE_DEFAULT=1
-MY_REV="242eaa1eca92567c2118afe21e37cafc524f9166"
+MY_REV="8700f281383a83b86d3bff5e46168eb24558b842"
 
 inherit autotools linux-info linux-mod
 
 DESCRIPTION="Linux Cross-Memory Attach"
 HOMEPAGE="https://github.com/hjelmn/xpmem"
-SRC_URI="https://github.com/hjelmn/xpmem/archive/${MY_REV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/hjelmn/xpmem/archive/${MY_REV}.tar.gz -> ${PF}.tar.gz"
 S="${WORKDIR}/${PN}-${MY_REV}"
 
 LICENSE="LGPL-2.1"
