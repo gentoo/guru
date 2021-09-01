@@ -47,9 +47,9 @@ BDEPEND="
 "
 
 PATCHES=(
-	${FILESDIR}/0001-system-prompt-allow-blank-passwords.patch
-	${FILESDIR}/0002-fix-locale-issue.patch
-	${FILESDIR}/0003-fix-locale-issue-in-service-file-1.patch
+	$"{FILESDIR}"/0001-system-prompt-allow-blank-passwords.patch
+	$"{FILESDIR}"/0002-fix-locale-issue.patch
+	$"{FILESDIR}"/0003-fix-locale-issue-in-service-file-1.patch
 )
 
 src_prepare() {
@@ -68,7 +68,7 @@ src_install() {
 	systemd_newunit "${FILESDIR}"/phosh.service 'phosh.service'
 	insinto /usr/share/applications/
 	doins "${FILESDIR}"/sm.puri.OSK0.desktop
-	
+
 	DOC_CONTENTS="To amend the existing password policy please see the man 5 passwdqc.conf
 				page and then edit the /etc/security/passwdqc.conf file to change enforce=none
 				to allow use digit only password as phosh only support passcode for now"
