@@ -47,9 +47,9 @@ BDEPEND="
 "
 
 PATCHES=(
-	$"{FILESDIR}"/0001-system-prompt-allow-blank-passwords.patch
-	$"{FILESDIR}"/0002-fix-locale-issue.patch
-	$"{FILESDIR}"/0003-fix-locale-issue-in-service-file-1.patch
+	"${FILESDIR}"/0001-system-prompt-allow-blank-passwords.patch
+	"${FILESDIR}"/0002-fix-locale-issue.patch
+	"${FILESDIR}"/0003-fix-locale-issue-in-service-file-1.patch
 )
 
 src_prepare() {
