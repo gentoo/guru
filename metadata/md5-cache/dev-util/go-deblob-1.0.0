@@ -9,5 +9,5 @@ LICENSE=BSD ISC MIT
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://hacktivis.me/releases/go-deblob-1.0.0.tar.gz mirror://goproxy//git.sr.ht/~sircmpwn/getopt/@v/v0.0.0-20190808004552-daaf1274538b.zip -> git.sr.ht%2F~sircmpwn%2Fgetopt%2F@v%2Fv0.0.0-20190808004552-daaf1274538b.zip mirror://goproxy//git.sr.ht/~sircmpwn/getopt/@v/v0.0.0-20190808004552-daaf1274538b.mod -> git.sr.ht%2F~sircmpwn%2Fgetopt%2F@v%2Fv0.0.0-20190808004552-daaf1274538b.mod mirror://goproxy//github.com/davecgh/go-spew/@v/v1.1.0.zip -> github.com%2Fdavecgh%2Fgo-spew%2F@v%2Fv1.1.0.zip mirror://goproxy//github.com/davecgh/go-spew/@v/v1.1.0.mod -> github.com%2Fdavecgh%2Fgo-spew%2F@v%2Fv1.1.0.mod mirror://goproxy//github.com/pmezard/go-difflib/@v/v1.0.0.zip -> github.com%2Fpmezard%2Fgo-difflib%2F@v%2Fv1.0.0.zip mirror://goproxy//github.com/pmezard/go-difflib/@v/v1.0.0.mod -> github.com%2Fpmezard%2Fgo-difflib%2F@v%2Fv1.0.0.mod mirror://goproxy//github.com/stretchr/objx/@v/v0.1.0.mod -> github.com%2Fstretchr%2Fobjx%2F@v%2Fv0.1.0.mod mirror://goproxy//github.com/stretchr/testify/@v/v1.3.0.zip -> github.com%2Fstretchr%2Ftestify%2F@v%2Fv1.3.0.zip mirror://goproxy//github.com/stretchr/testify/@v/v1.3.0.mod -> github.com%2Fstretchr%2Ftestify%2F@v%2Fv1.3.0.mod
-_eclasses_=go-module	8aabf8812bab7a6f07e7a32958c505ef
+_eclasses_=go-module	236ecaf8d66b4f4c8d98f6f868defed5
 _md5_=fe30fc8d1b8b2401a3b9849ead96fc05
