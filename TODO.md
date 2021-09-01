@@ -40,7 +40,6 @@ Name | Buildsystem | Category | User | RFH
 [tides](https://sourceforge.net/projects/tidesodes/) | autotools | math | Alessandro-Barbieri | no
 [Cakeml](https://cakeml.org/) | autotools | ML | Alessandro-Barbieri | yes
 [deadbeef](https://github.com/DeaDBeeF-Player/deadbeef) | autotools | audio | |
-[babeltrace2](https://babeltrace.org/) | autotools | devel | Alessandro-Barbieri | no
 [temanejo](https://www.hlrs.de/solutions-services/service-portfolio/programming/hpc-development-tools/temanejo) | autotools | cluster | Alessandro-Barbieri | no
 [blasfeo](https://github.com/giaf/blasfeo) | cmake | science | Alessandro-Barbieri | yes
 [libfixmath](https://github.com/PetteriAimonen/libfixmath) | cmake | devel | Alessandro-Barbieri | no
