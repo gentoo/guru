@@ -12,5 +12,5 @@ RDEPEND=>=dev-libs/libbpf-0.0.7 net-libs/libpcap sys-libs/zlib virtual/libelf
 RESTRICT=strip test
 SLOT=0
 SRC_URI=https://github.com/xdp-project/xdp-tools/archive/v1.2.0.tar.gz -> xdp-tools-1.2.0.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	linux-info	a99e3ead651192b4866986c9640612da	llvm	19c0cdeff39b0e08d1454df31b588316
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	linux-info	fac9fc514a517caeef5d45bf5a60411b	llvm	19c0cdeff39b0e08d1454df31b588316
 _md5_=d4386b12ce59a464bba8e7381b488e04
