@@ -17,8 +17,6 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
 
-PATCHES=( "${FILESDIR}/legendary-0.20.7_Fix-missing-package.patch" )
-
 RDEPEND="
 	$(python_gen_cond_dep '
 		<dev-python/requests-3.0[${PYTHON_USEDEP}]
