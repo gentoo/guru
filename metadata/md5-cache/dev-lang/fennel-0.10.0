@@ -12,5 +12,5 @@ RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-3
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-3 lua_single_target_lua5-4 )
 SLOT=0
 SRC_URI=https://git.sr.ht/~technomancy/fennel/archive/0.10.0.tar.gz -> fennel-0.10.0.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	8a84526af28ac04cf0e21eee9e65a02c
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	lua-utils	7b7cd623ac8b9dd4a7a6ee27219cada6	lua-single	ba92a0c9d413e015c6625cdb0b9aaf99
 _md5_=38162c4482e001f6adc87e0ce8925989
