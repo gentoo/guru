@@ -10,5 +10,5 @@ RDEPEND=app-accessibility/at-spi2-atk app-accessibility/at-spi2-core app-crypt/l
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/atom/atom/releases/download/v1.57.0/atom-amd64.tar.gz -> atom-bin-1.57.0.tar.gz
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	e73b9df80596ab8f9c542c01196dec23
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857
 _md5_=8190149a2e3e0926fbe86c57d46682bf
