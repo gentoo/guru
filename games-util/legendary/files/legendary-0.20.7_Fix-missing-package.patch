@@ -1,0 +1,21 @@
+From ea05ea255932f1b80a498093d547356bd0520dd7 Mon Sep 17 00:00:00 2001
+From: derrod <xlnedder@gmail.com>
+Date: Wed, 1 Sep 2021 19:12:14 +0200
+Subject: [PATCH] Fix missing package in setup.py
+
+---
+ setup.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/setup.py b/setup.py
+index be343fd..38b315b 100644
+--- a/setup.py
++++ b/setup.py
+@@ -26,6 +26,7 @@
+         'legendary',
+         'legendary.api',
+         'legendary.downloader',
++        'legendary.downloader.mp',
+         'legendary.lfs',
+         'legendary.models',
+         'legendary.utils',
