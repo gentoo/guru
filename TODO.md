@@ -26,6 +26,9 @@ Name | Buildsystem | Category | User | RFH
 [medipack](http://www.scicomp.uni-kl.de/software/medi/) | make | science | Alessandro-Barbieri | no
 [compcert](https://compcert.org) | make | compiler | Alessandro-Barbieri | yes
 [predictive](https://www.dr-qubit.org/predictive.html) | make | emacs | Alessandro-Barbieri | yes
+[tau](http://www.cs.uoregon.edu/research/tau/home.php) | make | tools | Alessandro-Barbieri | no
+[plasma](https://github.com/NLAFET/plasma) | make | science | Alessandro-Barbieri | yes
+[imb](https://software.intel.com/content/www/us/en/develop/articles/intel-mpi-benchmarks.html) | make | cluster | Alessandro-Barbieri | no
 [dimemas](https://github.com/bsc-performance-tools/dimemas) | autotools | cluster | Alessandro-Barbieri | no
 [argobots](https://www.argobots.org/) | autotools | devel | Alessandro-Barbieri | no
 [mochi-ssg](https://github.com/mochi-hpc/mochi-ssg) | autotools | cluster | Alessandro-Barbieri | no
@@ -41,6 +44,12 @@ Name | Buildsystem | Category | User | RFH
 [Cakeml](https://cakeml.org/) | autotools | ML | Alessandro-Barbieri | yes
 [deadbeef](https://github.com/DeaDBeeF-Player/deadbeef) | autotools | audio | |
 [temanejo](https://www.hlrs.de/solutions-services/service-portfolio/programming/hpc-development-tools/temanejo) | autotools | cluster | Alessandro-Barbieri | no
+[geopm](https://geopm.github.io/) | autotools | power | Alessandro-Barbieri | no
+[warewulf](https://warewulf.lbl.gov/) | autotools | cluster | Alessandro-Barbieri | no
+[pnetcdf](https://parallel-netcdf.github.io/) | autotools | libs | Alessandro-Barbieri | no
+[omb](http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.8.tgz) | autotools | cluster | Alessandro-Barbieri | no
+[scalasca](https://scalasca.org/) | autotools | cluster | Alessandro-Barbieri | no
+[scorep](https://www.vi-hps.org/projects/score-p/) | autotools | cluster | Alessandro-Barbieri | no
 [blasfeo](https://github.com/giaf/blasfeo) | cmake | science | Alessandro-Barbieri | yes
 [libfixmath](https://github.com/PetteriAimonen/libfixmath) | cmake | devel | Alessandro-Barbieri | no
 [hpmpc](https://github.com/giaf/hpmpc) | cmake | science | Alessandro-Barbieri | no
@@ -59,6 +68,13 @@ Name | Buildsystem | Category | User | RFH
 [emptyepsilon](https://daid.github.io/EmptyEpsilon/) | cmake | game | |
 [mochi-thallium](https://github.com/mochi-hpc/mochi-thallium) | cmake | cluster | Alessandro-Barbieri | no
 [flexiblas](https://www.mpi-magdeburg.mpg.de/projects/flexiblas) | cmake | science | Alessandro-Barbieri | yes
+[blitz](https://github.com/blitzpp/blitz) | cmake | c++ | Alessandro-Barbieri | no
+[strumpack](https://portal.nersc.gov/project/sparse/strumpack/) | cmake | science | Alessandro-Barbieri | no
+[butterflypack](https://github.com/liuyangzhuan/ButterflyPACK) | cmake | math | Alessandro-Barbieri | no
+[adios](https://csmd.ornl.gov/adios) | cmake | cluster | Alessandro-Barbieri | no
+[superlu_dist](https://github.com/xiaoyeli/superlu_dist) | cmake | science | Alessandro-Barbieri | no
+[opencoarrays](http://www.opencoarrays.org/) | cmake | dev | Alessandro-Barbieri | no
+[mfem](https://mfem.org/) | cmake | science | Alessandro-Barbieri | no
 [enarx](https://enarx.dev/) | cargo | util | Alessandro-Barbieri | no
 [airshipper](https://gitlab.com/veloren/airshipper) | cargo | game | | 
 [open-match](https://github.com/googleforgames/open-match) | go | devel | Alessandro-Barbieri | yes
