@@ -1,4 +1,4 @@
-BDEPEND=app-text/pandoc dev-util/ninja dev-util/cmake filecaps? ( sys-libs/libcap )
+BDEPEND=app-text/pandoc dev-util/ninja >=dev-util/cmake-3.20.5 filecaps? ( sys-libs/libcap )
 DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=dev-libs/expat virtual/libiconv sys-apps/util-linux sqlite? ( dev-db/sqlite ) postgres? ( dev-db/postgresql:* ) idn? ( net-dns/libidn ) udns? ( net-libs/udns ) ssl? ( dev-libs/botan:2 ) !ssl? ( dev-libs/libgcrypt ) systemd? ( sys-apps/systemd )
 DESCRIPTION=XMPP gateway to IRC
@@ -11,5 +11,5 @@ LICENSE=ZLIB
 RDEPEND=dev-libs/expat virtual/libiconv sys-apps/util-linux sqlite? ( dev-db/sqlite ) postgres? ( dev-db/postgresql:* ) idn? ( net-dns/libidn ) udns? ( net-libs/udns ) ssl? ( dev-libs/botan:2 ) !ssl? ( dev-libs/libgcrypt ) systemd? ( sys-apps/systemd ) acct-user/biboumi filecaps? ( sys-libs/libcap )
 SLOT=0/8
 SRC_URI=https://git.louiz.org/biboumi/snapshot/biboumi-8.5.tar.xz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	518e4c9a6a38dfd7afc54b6a7c5de3da	fcaps	ac252c3cc67b265cd7ea456f8d58e150
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	fcaps	ac252c3cc67b265cd7ea456f8d58e150
 _md5_=b9729774ab0ce951b09f3040662db3d5
