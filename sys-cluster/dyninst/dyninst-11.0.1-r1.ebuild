@@ -29,6 +29,8 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="doc? ( dev-texlive/texlive-latex )"
 
+PATCHES=( "${FILESDIR}/${P}-remove-executable-flag-from-dyninst_heap-section.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_STATIC_LIBS=NO
