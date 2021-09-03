@@ -38,7 +38,11 @@ DEPEND="
 "
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-PATCHES=( "${FILESDIR}/${PN}-perl-makefile.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-perl-makefile.patch"
+	"${FILESDIR}/${PN}-do-not-strip.patch"
+	"${FILESDIR}/${PN}-respect-flags.patch"
+)
 
 distutils_enable_tests unittest
 distutils_enable_tests pytest
