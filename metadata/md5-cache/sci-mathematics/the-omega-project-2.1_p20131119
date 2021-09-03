@@ -11,5 +11,5 @@ LICENSE=BSD-2
 RDEPEND=petit? ( gui? ( x11-libs/motif ) )
 SLOT=0
 SRC_URI=https://github.com/davewathaverford/the-omega-project/archive/2e2890cacc1fe6e25f11255aecda063717f71f5b.tar.gz -> the-omega-project-2.1_p20131119.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5
 _md5_=b09d8302b38ea134c639e87fb54d2665

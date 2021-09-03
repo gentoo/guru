@@ -10,5 +10,5 @@ LICENSE=MIT
 RDEPEND=x11-base/xorg-proto x11-libs/libX11 x11-libs/libXmu
 SLOT=0
 SRC_URI=https://github.com/bgloyer/netrek-client-brmh/archive/v2.6.0.tar.gz -> netrek-brmh-2.6.0.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
 _md5_=a6ba11465e88fee0fc42cfb49a478123

@@ -7,5 +7,5 @@ KEYWORDS=~amd64
 LICENSE=ISC
 SLOT=0
 SRC_URI=https://www.codemadness.org/releases/sfeed/sfeed-1.0.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
 _md5_=1323aa9ea64613bff1648f08d47f0a63

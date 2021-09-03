@@ -9,5 +9,5 @@ LICENSE=MIT
 RDEPEND=dev-libs/concurrencykit
 SLOT=0
 SRC_URI=https://github.com/justinethier/cyclone-bootstrap/archive/refs/tags/v0.32.0.tar.gz -> cyclone-0.32.0.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5
 _md5_=93850d669f365c8281f539576f14a2b0

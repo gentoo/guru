@@ -7,5 +7,5 @@ KEYWORDS=~amd64
 LICENSE=MIT
 SLOT=0
 SRC_URI=https://github.com/Dr-Noob/cpufetch/archive/8f2f3d3a1652b87162f763a88a5070cf25c2e6d7.tar.gz -> cpufetch-0.94_p20210409.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
 _md5_=649bd449afd5f1e3d8d57a8a57de18dc

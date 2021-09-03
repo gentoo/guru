@@ -10,5 +10,5 @@ RDEPEND=dev-libs/expat dev-libs/gumbo net-misc/curl sys-fs/e2fsprogs sys-fs/fuse
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/fangfufu/httpdirfs/archive/1.2.0.tar.gz -> httpdirfs-1.2.0.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
 _md5_=cfe5c754ce9dedaebcbd1ee7e09d62c5

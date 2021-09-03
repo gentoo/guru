@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/daltonmaag/statmake/archive/refs/tags/v0.3.0.tar.gz -> statmake-0.3.0.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	python-utils-r1	08d890890f70fe0096093016e55438d5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	distutils-r1	5e8c25e37e261f4306d82487f673a1bf
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	08d890890f70fe0096093016e55438d5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	distutils-r1	5e8c25e37e261f4306d82487f673a1bf
 _md5_=3d36abdc96f489c840dcc3ae145d4471
