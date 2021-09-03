@@ -11,5 +11,5 @@ RDEPEND=sys-fs/fuse:0
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/taterbase/git-mount/archive/706b4f400b831fd093eda2aa264938c2868b42e2.tar.gz -> github-com-taterbase-git-mount-706b4f400b831fd093eda2aa264938c2868b42e2.tar.gz https://github.com/taterbase/git-mount/archive/706b4f400b831fd093eda2aa264938c2868b42e2.tar.gz -> github.com-taterbase-git-mount-706b4f400b831fd093eda2aa264938c2868b42e2.tar.gz https://github.com/bazil/fuse/archive/fb710f7dfd05053a3bc9516dd5a7a8f84ead8aab.tar.gz -> github.com-bazil-fuse-fb710f7dfd05053a3bc9516dd5a7a8f84ead8aab.tar.gz https://github.com/golang/net/archive/fe42d452be8f3a2de6a60623c315a49bd37f0a9a.tar.gz -> github.com-golang-net-fe42d452be8f3a2de6a60623c315a49bd37f0a9a.tar.gz https://github.com/golang/sys/archive/0cec03c779c1270924b29437a17b8a99ae590592.tar.gz -> github.com-golang-sys-0cec03c779c1270924b29437a17b8a99ae590592.tar.gz
-_eclasses_=golang-base	b8fb27dacacea08140c53857f439fc7d	golang-vcs-snapshot	ff485cabd3f37b060f110b0be95092ec	golang-build	91472d4e18894e738c69b415e236a664
+_eclasses_=golang-base	b8fb27dacacea08140c53857f439fc7d	golang-vcs-snapshot	ee98df2c8a27c4347826db72f6dc2d50	golang-build	f037bca330974d0c1a23c7390ddcba09
 _md5_=30a80ff93221a081627bb6fcd413053a

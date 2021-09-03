@@ -9,5 +9,5 @@ LICENSE=Apache-2.0 MIT
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/qrwteyrutiyoup/ryzen-stabilizator/archive/90a2f7adc94baa484cbf2590455fb1f4a25126d8.tar.gz -> ryzen-stabilizator-0_pre20180309.tar.gz https://github.com/BurntSushi/toml/archive/3012a1dbe2e4bd1391d42b32f0577cb7bbc7f005.tar.gz -> github.com-BurntSushi-toml-3012a1dbe2e4bd1391d42b32f0577cb7bbc7f005.tar.gz https://github.com/klauspost/cpuid/archive/5a626f7029c910cc8329dae5405ee4f65034bce5.tar.gz -> github.com-klauspost-cpuid-5a626f7029c910cc8329dae5405ee4f65034bce5.tar.gz
-_eclasses_=golang-base	b8fb27dacacea08140c53857f439fc7d	golang-vcs-snapshot	ff485cabd3f37b060f110b0be95092ec	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18
+_eclasses_=golang-base	b8fb27dacacea08140c53857f439fc7d	golang-vcs-snapshot	ee98df2c8a27c4347826db72f6dc2d50	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	97566c1a256d07b00848aa767e38a352	systemd	c846b9e02ac8293bfc9ca38a195c2a18
 _md5_=5d373a7ee419aab157bf2e4595320118

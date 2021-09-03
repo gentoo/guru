@@ -9,5 +9,5 @@ LICENSE=BSD ISC
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/schachmat/wego/archive/994e4f141759a1070d7b0c8fbe5fad2cc7ee7d45.tar.gz -> wego-2.0_p20190211.tar.gz https://github.com/mattn/go-runewidth/archive/43a826dcfbd.tar.gz -> github.com-mattn-go-runewidth-43a826dcfbd.tar.gz https://github.com/mattn/go-colorable/archive/2e1b0c1546e01.tar.gz -> github.com-mattn-go-colorable-2e1b0c1546e01.tar.gz https://github.com/schachmat/ingo/archive/a4bdc0729a3f.tar.gz -> github.com-schachmat-ingo-a4bdc0729a3f.tar.gz https://github.com/mattn/go-isatty/archive/7b513a986450.tar.gz -> github.com-mattn-go-isatty-7b513a986450.tar.gz https://github.com/rivo/uniseg/archive/f8f8f751c732.tar.gz -> github.com-rivo-uniseg-f8f8f751c732.tar.gz https://github.com/golang/sys/archive/d5e6a3e2c0ae.tar.gz -> github.com-golang-sys-d5e6a3e2c0ae.tar.gz
-_eclasses_=golang-base	b8fb27dacacea08140c53857f439fc7d	golang-vcs-snapshot	ff485cabd3f37b060f110b0be95092ec	golang-build	91472d4e18894e738c69b415e236a664
+_eclasses_=golang-base	b8fb27dacacea08140c53857f439fc7d	golang-vcs-snapshot	ee98df2c8a27c4347826db72f6dc2d50	golang-build	f037bca330974d0c1a23c7390ddcba09
 _md5_=4bfa5bb2b8b335a89f030000f5c0c0b5
