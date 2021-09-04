@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit R-packages
+inherit R-packages toolchain-funcs
 
 DESCRIPTION='Toolkit for Encryption, Signatures and certificates based on openssl'
 KEYWORDS="~amd64"
@@ -14,3 +14,8 @@ RDEPEND="
 	${DEPEND}
 	dev-libs/openssl
 "
+
+src_prepare() {
+	tc-export AR
+	R-packages_src_prepare
+}
