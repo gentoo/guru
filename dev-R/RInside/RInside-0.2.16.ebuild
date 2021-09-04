@@ -17,3 +17,8 @@ DEPEND="
 	dev-R/Rcpp
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	tc-export AR
+	R-packages_src_prepare
+}
