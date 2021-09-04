@@ -5,7 +5,7 @@ EAPI=7
 
 MYPV="$(ver_rs 2 -)"
 
-inherit R-packages
+inherit R-packages toolchain-funcs
 
 DESCRIPTION='Sparse and Dense Matrix Classes and Methods'
 KEYWORDS="~amd64"
