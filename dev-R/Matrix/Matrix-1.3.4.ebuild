@@ -17,3 +17,8 @@ DEPEND="
 	virtual/lattice
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	tc-export AR
+	R-packages_src_prepare
+}
