@@ -10,5 +10,5 @@ LICENSE=GPL-2 LGPL-2.1
 RDEPEND=systemd? ( >=sys-apps/systemd-221 )
 SLOT=0
 SRC_URI=https://github.com/systemd/systemd-bootchart/releases/download/v234/systemd-bootchart-234.tar.xz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	fac9fc514a517caeef5d45bf5a60411b
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	c884c7720f3fea70f8326b23b5581abe
 _md5_=8289e13f63b7ba91d360a3ca33fe61a3
