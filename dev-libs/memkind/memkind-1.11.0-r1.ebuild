@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} pypy3 )
 
-inherit autotools linux-info python-any-r1
+inherit autotools linux-info python-any-r1 toolchain-funcs
 
 DESCRIPTION="user extensible heap manager built on top of jemalloc"
 HOMEPAGE="https://memkind.github.io/memkind"
@@ -25,6 +25,7 @@ DEPEND="
 	${PYTHON_DEPS}
 "
 
+PATCHES=( "${FILESDIR}/${PN}-respect-ar.patch" )
 RESTRICT="test" # ERROR: ./test/test.sh requires a NUMA enabled system with more than one node.
 #RESTRICT="!test? ( test )"
 
@@ -35,6 +36,7 @@ src_prepare() {
 }
 
 src_configure() {
+	tc-export AR
 	local myconf=(
 		--disable-silent-rules
 		--enable-shared
