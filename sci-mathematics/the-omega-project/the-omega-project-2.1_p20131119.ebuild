@@ -45,7 +45,7 @@ src_prepare() {
 	use debug || append-cxxflags '-DNDEBUG'
 	use gui || append-cxxflags '-DBATCH_ONLY_PETIT'
 	tc-export CXX RANLIB
-	sed -e "s|/usr/lib|/usr/$(get_libdir)|g" -i Makefile.config || die
+	sed -e "s|/usr/lib64|/usr/$(get_libdir)|g" -i Makefile.config || die
 }
 
 src_compile() {

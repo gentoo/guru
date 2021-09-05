@@ -32,7 +32,7 @@
 -LIB_DESTDIR=$(DESTDIR)/lib
 -BIN_DESTDIR=$(DESTDIR)/bin
 +INCL_DESTDIR=$(DESTDIR)/usr/include/omega
-+LIB_DESTDIR=$(DESTDIR)/usr/lib
++LIB_DESTDIR=$(DESTDIR)/usr/lib64
 +BIN_DESTDIR=$(DESTDIR)/usr/bin
  
  # This is only used if you modify the grammar file.  Use bison if you have it.
@@ -43,3 +43,22 @@
  MAKEDEPEND=makedepend
 -AR=ar
 -
+--- a/Makefile.rules
++++ b/Makefile.rules
+@@ -32,14 +32,14 @@
+ LIBS=$(REQ_LIBS) $(STD_LIBS) $(TARGET_LIBS) $(OS_LIBS) $(EXTRA_LIBS)
+ 
+ CFLAGS=$(STD_CFLAGS) $(OPTIMIZATION_CFLAGS) $(COMPILER_CFLAGS) $(OS_CFLAGS) $(TARGET_CFLAGS) $(INCL_PATH)
+-LDFLAGS=$(STD_LDFLAGS) $(OPTIMIZATION_CFLAGS) $(TARGET_LDFLAGS) $(LIB_PATH) $(LIBS)
++LDFLAGS+=$(STD_LDFLAGS) $(OPTIMIZATION_CFLAGS) $(TARGET_LDFLAGS) $(LIB_PATH) $(LIBS)
+ 
+ ALLDIRS=omega_lib omega_calc petit uniform code_gen basic parse_lib
+ #ALLDIRS=omega_lib omega_calc petit code_gen basic
+ 
+ # Executable target; can have only one per directory 
+ .executable: required_libs $(OBJS)
+-	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -o $(TARGET)
++	$(CC) $(CFLAGS) $(OBJS) $(LDFLAGS) -fPIE -o $(TARGET)
+ 	touch .executable
+ 
+ 
