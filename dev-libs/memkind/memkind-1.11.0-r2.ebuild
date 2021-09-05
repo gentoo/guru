@@ -14,10 +14,11 @@ KEYWORDS="~amd64"
 
 LICENSE="BSD"
 SLOT="0"
-IUSE="+heap-manager openmp secure test +tls" #daxctl
+IUSE="+daxctl debug decorators +heap-manager hwloc initial-exec-tls openmp secure test +tls"
 
 RDEPEND="
-	sys-block/ndctl
+	daxctl? ( sys-block/ndctl )
+	hwloc? ( sys-apps/hwloc )
 	sys-process/numactl
 "
 DEPEND="
@@ -29,6 +30,19 @@ PATCHES=( "${FILESDIR}/${PN}-respect-ar.patch" )
 RESTRICT="test" # ERROR: ./test/test.sh requires a NUMA enabled system with more than one node.
 #RESTRICT="!test? ( test )"
 
+pkg_pretend() {
+	linux-info_pkg_setup
+	CONFIG_CHECK_MODULES=""
+	if use daxctl; then
+		CONFIG_CHECK_MODULES+="DEV_DAX_KMEM "
+	fi
+	if linux_config_exists; then
+		for module in ${CONFIG_CHECK_MODULES}; do
+			linux_chkconfig_present ${module} || ewarn "${module} needs to be enabled"
+		done
+	fi
+}
+
 src_prepare() {
 	default
 	eautoreconf
@@ -38,16 +52,27 @@ src_prepare() {
 src_configure() {
 	tc-export AR
 	local myconf=(
-		--disable-silent-rules
+		--disable-debug
+		--disable-gcov
 		--enable-shared
 		--enable-static
-		--enable-daxctl
+		$(use_enable daxctl)
+		$(use_enable decorators)
+		$(use_enable debug debug-jemalloc)
 		$(use_enable heap-manager)
+		$(use_enable hwloc)
+		$(use_enable initial-exec-tls memkind-initial-exec-tls)
 		$(use_enable openmp)
 		$(use_enable secure)
 		$(use_enable tls)
 	)
 	econf "${myconf[@]}"
+}
+
+src_install() {
+	default
+	find "${ED}" -name '*.la' -delete || die
+	find "${ED}" -name '*.a' -delete || die
 }
 
 src_test() {
