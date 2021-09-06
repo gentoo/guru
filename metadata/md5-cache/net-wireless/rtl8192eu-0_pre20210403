@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RDEPEND=kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
 SLOT=0
 SRC_URI=https://github.com/Mange/rtl8192eu-linux-driver/archive/ab35c7e9672f37d75b7559758c99f6d027607687.tar.gz -> rtl8192eu-0_pre20210403.tar.gz
-_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	2c5e96c87e446b5c09f5f73c70a915ab	linux-mod	cfc41dee70216e98532c48ca80fe70b3
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	2c5e96c87e446b5c09f5f73c70a915ab	linux-mod	42a7a0aa05c4a383593bdaad7958058a
 _md5_=e333a03b4cca77b07d05e80f3b14950a
