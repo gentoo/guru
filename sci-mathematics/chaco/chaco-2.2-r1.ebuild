@@ -8,12 +8,16 @@ inherit toolchain-funcs
 DESCRIPTION="Software for Partitioning Graphs"
 HOMEPAGE="https://www3.cs.stonybrook.edu/~algorith/implement/chaco/implement.shtml"
 SRC_URI="https://www3.cs.stonybrook.edu/~algorith/implement/${PN}/distrib/Chaco-${PV}.tar.gz"
+S="${WORKDIR}/Chaco-${PV}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-PATCHES=( "${FILESDIR}/makefile.patch" )
-S="${WORKDIR}/Chaco-${PV}"
+PATCHES=(
+	"${FILESDIR}/${P}-lib.patch"
+	"${FILESDIR}/${P}-respect-flags.patch"
+	"${FILESDIR}/${P}-shared.patch"
+)
 
 src_compile() {
 	cd code || die
@@ -22,6 +26,11 @@ src_compile() {
 }
 
 src_install() {
-	dobin "exec/chaco"
 	dodoc -r doc/.
+	dodoc -r "code/matlab"
+	cd "exec" || die
+	dobin "chaco"
+	dolib.so "libchaco.so"
+	dodoc *.coords *.graph "User_Params"
+	newdoc README README_exec
 }
