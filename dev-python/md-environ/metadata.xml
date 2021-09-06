@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>torokhov-s-a@yandex.ru</email>
+		<name>Sergey Torokhov</name>
+	</maintainer>
+	<longdescription>
+		This is an extension to Python-Markdown which allows environment variables to be used in the text.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">cmacmackin/md-environ</remote-id>
+		<remote-id type="pypi">md-environ</remote-id>
+	</upstream>
+</pkgmetadata>
