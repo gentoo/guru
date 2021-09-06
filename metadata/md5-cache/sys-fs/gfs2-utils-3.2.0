@@ -11,5 +11,5 @@ LICENSE=GPL-2 LGPL-2.1
 RDEPEND=sys-libs/zlib sys-apps/util-linux sys-libs/ncurses
 SLOT=0
 SRC_URI=https://releases.pagure.org/gfs2-utils/gfs2-utils-3.2.0.tar.xz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	linux-info	e0906e20a7f2c13fa9af8a03dc738011
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	linux-info	2c5e96c87e446b5c09f5f73c70a915ab
 _md5_=56d52bfcdda5f2faafb84a7ea305cd91
