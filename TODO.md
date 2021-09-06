@@ -50,6 +50,7 @@ Name | Buildsystem | Category | User | RFH
 [omb](http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.8.tgz) | autotools | cluster | Alessandro-Barbieri | no
 [scalasca](https://scalasca.org/) | autotools | cluster | Alessandro-Barbieri | no
 [scorep](https://www.vi-hps.org/projects/score-p/) | autotools | cluster | Alessandro-Barbieri | no
+[jmodelica](https://github.com/jnorthrup/jmodelica) | autotools | science | Alessandro-Barbieri | yes
 [blasfeo](https://github.com/giaf/blasfeo) | cmake | science | Alessandro-Barbieri | yes
 [libfixmath](https://github.com/PetteriAimonen/libfixmath) | cmake | devel | Alessandro-Barbieri | no
 [hpmpc](https://github.com/giaf/hpmpc) | cmake | science | Alessandro-Barbieri | no
@@ -75,6 +76,9 @@ Name | Buildsystem | Category | User | RFH
 [superlu_dist](https://github.com/xiaoyeli/superlu_dist) | cmake | science | Alessandro-Barbieri | no
 [opencoarrays](http://www.opencoarrays.org/) | cmake | dev | Alessandro-Barbieri | no
 [mfem](https://mfem.org/) | cmake | science | Alessandro-Barbieri | no
+[fmi-library](https://github.com/modelon-community/fmi-library) | cmake | science | Alessandro-Barbieri | no
+[aerodyn](https://github.com/OpenFAST/openfast/tree/main/modules/aerodyn) | cmake | science | Alessandro-Barbieri | no
+[llvm-ompss2](https://github.com/bsc-pm/llvm) | cmake | science | Alessandro-Barbieri | yes
 [enarx](https://enarx.dev/) | cargo | util | Alessandro-Barbieri | no
 [airshipper](https://gitlab.com/veloren/airshipper) | cargo | game | | 
 [open-match](https://github.com/googleforgames/open-match) | go | devel | Alessandro-Barbieri | yes
