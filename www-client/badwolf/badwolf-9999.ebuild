@@ -33,24 +33,18 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	[[ "${PV}" == "9999" ]] || restore_config config.h
-	default
-}
 
-src_compile() {
-	emake \
-		CC="${CC:-cc}" \
-		CFLAGS="${CFLAGS:--02 -Wall -Wextra}" \
-		LDFLAGS="${LDFLAGS}" \
-		PREFIX="/usr"
+	CC="${CC:-cc}" \
+	CFLAGS="${CFLAGS:--02 -Wall -Wextra}" \
+	LDFLAGS="${LDFLAGS}" \
+	DOCDIR="/usr/share/doc/${PF}" \
+	WITH_WEBKITGTK=4.0 \
+	PREFIX="/usr" \
+	./configure
 }
 
 src_install() {
-	emake \
-		DESTDIR="${D}" \
-		DOCDIR="/usr/share/doc/${PF}" \
-		PREFIX="/usr" \
-		install
+	default
 
 	[[ "${PV}" == "9999" ]] || save_config config.h
-	einstalldocs
 }
