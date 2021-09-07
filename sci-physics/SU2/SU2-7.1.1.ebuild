@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit meson python-single-r1
 
@@ -16,7 +16,9 @@ SRC_URI="
 	tutorials? ( https://github.com/su2code/Tutorials/archive/v${PV}.tar.gz -> ${P}-Tutorials.tar.gz )
 "
 
-LICENSE="LGPL-2.1"
+# SU2: LGPL-2.1; cgnslib: ZLIB, TecIO: all-rights-reserved;
+# Metis: Apache-2.0; Parmetis: all-rights-reserved, free-noncomm; Mutationpp: LGPL-3.0.
+LICENSE="Apache-2.0 LGPL-2.1 LGPL-3 ZLIB all-rights-reserved free-noncomm"
 SLOT="0"
 KEYWORDS="~amd64"
 
@@ -93,11 +95,11 @@ src_configure() {
 }
 
 src_test() {
-	ln -s ../../${P}-build/SU2_CFD/src/SU2_CFD SU2_PY/SU2_CFD
-	ln -s ../../${P}-build/SU2_DEF/src/SU2_DEF SU2_PY/SU2_DEF
-	ln -s ../../${P}-build/SU2_DOT/src/SU2_DOT SU2_PY/SU2_DOT
-	ln -s ../../${P}-build/SU2_GEO/src/SU2_GEO SU2_PY/SU2_GEO
-	ln -s ../../${P}-build/SU2_SOL/src/SU2_SOL SU2_PY/SU2_SOL
+	ln -s ../../${P}-build/SU2_CFD/src/SU2_CFD SU2_PY/SU2_CFD || die
+	ln -s ../../${P}-build/SU2_DEF/src/SU2_DEF SU2_PY/SU2_DEF || die
+	ln -s ../../${P}-build/SU2_DOT/src/SU2_DOT SU2_PY/SU2_DOT || die
+	ln -s ../../${P}-build/SU2_GEO/src/SU2_GEO SU2_PY/SU2_GEO || die
+	ln -s ../../${P}-build/SU2_SOL/src/SU2_SOL SU2_PY/SU2_SOL || die
 
 	export SU2_RUN="${S}/SU2_PY"
 	export SU2_HOME="${S}"
@@ -105,13 +107,18 @@ src_test() {
 	export PYTHONPATH=$PYTHONPATH:$SU2_RUN
 
 	einfo "Running UnitTests ..."
-	../${P}-build/UnitTests/test_driver
+	../${P}-build/UnitTests/test_driver || die
 
-	pushd TestCases/
-	use mpi && python parallel_regression.py
-	use mpi || python serial_regression.py
-	use tutorials && use mpi && python tutorials.py
-	popd
+	pushd TestCases/ || die
+	if use mpi ; then
+		${EPYTHON} parallel_regression.py || die
+		if use tutorials ; then
+			${EPYTHON} tutorials.py || die
+		fi
+	else
+		${EPYTHON} serial_regression.py || die
+	fi
+	popd || die
 }
 
 src_install() {

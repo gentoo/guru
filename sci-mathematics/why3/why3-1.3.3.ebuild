@@ -70,7 +70,7 @@ src_compile() {
 
 src_install(){
 	findlib_src_preinst
-	emake install install-lib DESTDIR="${ED}" || die "make failed"
+	emake install install-lib DESTDIR="${ED}"
 
 	doman doc/why3.1
 	einstalldocs

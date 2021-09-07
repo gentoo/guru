@@ -7,7 +7,7 @@ inherit cmake flag-o-matic
 
 MY_REV="633500ad8c8759995049ccd022107d1fa8a1bbc9"
 
-DESCRIPTION="Fast cryyptographic operations for Monero wallets"
+DESCRIPTION="Fast cryptographic operations for Monero wallets"
 HOMEPAGE="https://github.com/monero-project/supercop"
 SRC_URI="https://github.com/monero-project/supercop/archive/${MY_REV}.tar.gz -> ${PN}-${MY_REV}.tar.gz"
 

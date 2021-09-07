@@ -11,3 +11,5 @@ LICENSE='MIT'
 
 DEPEND=">=dev-lang/R-3.1"
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${PN}-respect-LDFLAGS.patch" )

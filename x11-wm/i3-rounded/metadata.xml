@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>linobigatti@protonmail.com</email>
+		<name>Lino Bigatti</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">linobigatti/i3-rounded</remote-id>
+	</upstream>
+</pkgmetadata>

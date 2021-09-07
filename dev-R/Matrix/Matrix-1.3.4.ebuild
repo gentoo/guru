@@ -5,7 +5,7 @@ EAPI=7
 
 MYPV="$(ver_rs 2 -)"
 
-inherit R-packages
+inherit R-packages toolchain-funcs
 
 DESCRIPTION='Sparse and Dense Matrix Classes and Methods'
 KEYWORDS="~amd64"
@@ -17,3 +17,8 @@ DEPEND="
 	virtual/lattice
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	tc-export AR
+	R-packages_src_prepare
+}

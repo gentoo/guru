@@ -21,4 +21,14 @@
 		number generator, and 'bignum' math methods for manually
 		performing crypto calculations on large multibyte integers.
 	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/jeroen/openssl/issues</bugs-to>
+		<doc lang="en">https://cran.r-project.org/web/packages/openssl/openssl.pdf</doc>
+		<changelog>https://cran.r-project.org/web/packages/openssl/NEWS</changelog>
+		<maintainer>
+			<name>Jeroen Ooms</name>
+			<email>jeroen@berkeley.edu</email>
+		</maintainer>
+		<remote-id type="github">jeroen/openssl</remote-id>
+	</upstream>
 </pkgmetadata>

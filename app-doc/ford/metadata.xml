@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>torokhov-s-a@yandex.ru</email>
+		<name>Sergey Torokhov</name>
+	</maintainer>
+	<longdescription lang="en">
+		FORD, standing for FORtran Documenter,
+		is an automatic documentation generator for modern Fortran programs.
+	</longdescription>
+	<upstream>
+		<remote-id type="pypi">FORD</remote-id>
+		<remote-id type="github">Fortran-FOSS-Programmers/ford</remote-id>
+	</upstream>
+</pkgmetadata>

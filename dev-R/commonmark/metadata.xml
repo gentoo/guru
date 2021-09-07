@@ -16,4 +16,14 @@
 		opt-in support for GFM extensions including tables, autolinks,
 		and strikethrough text.
 	</longdescription>
+	<upstream>
+		<bugs-to>http://github.com/jeroen/commonmark/issues</bugs-to>
+		<doc lang="en">https://cran.r-project.org/web/packages/commonmark/commonmark.pdf</doc>
+		<changelog>https://cran.r-project.org/web/packages/commonmark/NEWS</changelog>
+		<maintainer>
+			<name>Jeroen Ooms</name>
+			<email>jeroen@berkeley.edu</email>
+		</maintainer>
+		<remote-id type="github">jeroen/commonmark</remote-id>
+	</upstream>
 </pkgmetadata>

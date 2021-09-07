@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit R-packages
+inherit R-packages toolchain-funcs
 
 DESCRIPTION='High-Performance Stemmer, Tokenizer and Spell Checker'
 KEYWORDS="~amd64"
@@ -20,3 +20,7 @@ RDEPEND="
 "
 
 #bundling status: https://github.com/ropensci/hunspell/issues/34
+src_prepare() {
+	tc-export AR
+	R-packages_src_prepare
+}

@@ -20,4 +20,14 @@
 		consistently for use with dynamic data in systems and
 		applications.
 	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/jeroen/jsonlite/issues</bugs-to>
+		<doc lang="en">https://cran.r-project.org/web/packages/jsonlite/jsonlite.pdf</doc>
+		<changelog>https://cran.r-project.org/web/packages/jsonlite/NEWS</changelog>
+		<maintainer>
+			<name>Jeroen Ooms</name>
+			<email>jeroen@berkeley.edu</email>
+		</maintainer>
+		<remote-id type="github">jeroen/jsonlite</remote-id>
+	</upstream>
 </pkgmetadata>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>torokhov-s-a@yandex.ru</email>
+		<name>Sergey Torokhov</name>
+	</maintainer>
+	<longdescription>
+		A web based tool to extract numerical data from plot images.
+		Supports XY, Polar, Ternary diagrams and Maps.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">ankitrohatgi/WebPlotDigitizer</remote-id>
+	</upstream>
+</pkgmetadata>

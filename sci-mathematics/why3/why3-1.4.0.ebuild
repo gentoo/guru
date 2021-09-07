@@ -74,7 +74,7 @@ src_compile() {
 
 src_install(){
 	findlib_src_preinst
-	emake install install-lib DESTDIR="${ED}" || die "make failed"
+	emake install install-lib DESTDIR="${ED}"
 
 	einstalldocs
 	docompress -x /usr/share/doc/${PF}/examples

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit R-packages
+inherit R-packages toolchain-funcs
 
 DESCRIPTION='C++ Classes to Embed R in C++ (and C) Applications'
 KEYWORDS="~amd64"
@@ -17,3 +17,8 @@ DEPEND="
 	dev-R/Rcpp
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	tc-export AR
+	R-packages_src_prepare
+}

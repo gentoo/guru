@@ -26,14 +26,15 @@ REQUIRED_USE="
 PATCHES=(
 	"${WORKDIR}/debian/patches/${PN}_${PV}-13.diff"
 	"${WORKDIR}/debian/patches/${PN}_${PV}-13.configure.diff"
-	"${FILESDIR}/makefile.patch"
 	"${FILESDIR}/configure.patch"
+	"${FILESDIR}/${PN}-2-mbdyn.diff"
+	"${FILESDIR}/${PN}-makefile.patch"
 )
 
 src_prepare() {
 	default
-	use old && sed -i -- 's/all: shared static/all: oldpart shared static/g' makefile.in
 	mv configure.in configure.ac || die
+	use old && sed -i -- 's/all: shared static/all: oldpart shared static/g' makefile.ac
 	tc-export AR CC
 	eautoreconf
 }

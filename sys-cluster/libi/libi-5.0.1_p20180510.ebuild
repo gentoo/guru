@@ -27,6 +27,7 @@ DEPEND="
 PATCHES=(
 	"${FILESDIR}/${PN}-create-libdir.patch"
 	"${FILESDIR}/${PN}-link-launchmon.patch"
+	"${FILESDIR}/${PN}-shared-library.patch"
 )
 
 src_configure() {

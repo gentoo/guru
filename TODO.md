@@ -26,6 +26,9 @@ Name | Buildsystem | Category | User | RFH
 [medipack](http://www.scicomp.uni-kl.de/software/medi/) | make | science | Alessandro-Barbieri | no
 [compcert](https://compcert.org) | make | compiler | Alessandro-Barbieri | yes
 [predictive](https://www.dr-qubit.org/predictive.html) | make | emacs | Alessandro-Barbieri | yes
+[tau](http://www.cs.uoregon.edu/research/tau/home.php) | make | tools | Alessandro-Barbieri | no
+[plasma](https://github.com/NLAFET/plasma) | make | science | Alessandro-Barbieri | yes
+[imb](https://software.intel.com/content/www/us/en/develop/articles/intel-mpi-benchmarks.html) | make | cluster | Alessandro-Barbieri | no
 [dimemas](https://github.com/bsc-performance-tools/dimemas) | autotools | cluster | Alessandro-Barbieri | no
 [argobots](https://www.argobots.org/) | autotools | devel | Alessandro-Barbieri | no
 [mochi-ssg](https://github.com/mochi-hpc/mochi-ssg) | autotools | cluster | Alessandro-Barbieri | no
@@ -37,16 +40,20 @@ Name | Buildsystem | Category | User | RFH
 [latte-integrale](https://www.math.ucdavis.edu/~latte/) | autotools | math | Alessandro-Barbieri | yes
 [bonmin](https://projects.coin-or.org/Bonmin) | autotools | math | Alessandro-Barbieri | no
 [graph-tool](https://graph-tool.skewed.de/) | autotools | visualization | Alessandro-Barbieri | no
-[wxparaver](https://github.com/bsc-performance-tools/wxparaver) | autotools | cluster | Alessandro-Barbieri | no
 [tides](https://sourceforge.net/projects/tidesodes/) | autotools | math | Alessandro-Barbieri | no
 [Cakeml](https://cakeml.org/) | autotools | ML | Alessandro-Barbieri | yes
 [deadbeef](https://github.com/DeaDBeeF-Player/deadbeef) | autotools | audio | |
-[babeltrace2](https://babeltrace.org/) | autotools | devel | Alessandro-Barbieri | no
 [temanejo](https://www.hlrs.de/solutions-services/service-portfolio/programming/hpc-development-tools/temanejo) | autotools | cluster | Alessandro-Barbieri | no
+[geopm](https://geopm.github.io/) | autotools | power | Alessandro-Barbieri | no
+[warewulf](https://warewulf.lbl.gov/) | autotools | cluster | Alessandro-Barbieri | no
+[pnetcdf](https://parallel-netcdf.github.io/) | autotools | libs | Alessandro-Barbieri | no
+[omb](http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.8.tgz) | autotools | cluster | Alessandro-Barbieri | no
+[scalasca](https://scalasca.org/) | autotools | cluster | Alessandro-Barbieri | no
+[scorep](https://www.vi-hps.org/projects/score-p/) | autotools | cluster | Alessandro-Barbieri | no
+[jmodelica](https://github.com/jnorthrup/jmodelica) | autotools | science | Alessandro-Barbieri | yes
 [blasfeo](https://github.com/giaf/blasfeo) | cmake | science | Alessandro-Barbieri | yes
 [libfixmath](https://github.com/PetteriAimonen/libfixmath) | cmake | devel | Alessandro-Barbieri | no
 [hpmpc](https://github.com/giaf/hpmpc) | cmake | science | Alessandro-Barbieri | no
-[parsec](https://bitbucket.org/icldistcomp/parsec) | cmake | science | Alessandro-Barbieri | no
 [mercury](https://github.com/mercury-hpc/mercury) | cmake | cluster | Alessandro-Barbieri | no
 [chrono](https://projectchrono.org/) | cmake | science | Alessandro-Barbieri | no
 [cocos2d-x](https://github.com/cocos2d/cocos2d-x) | cmake | game | Alessandro-Barbieri | yes
@@ -62,6 +69,16 @@ Name | Buildsystem | Category | User | RFH
 [emptyepsilon](https://daid.github.io/EmptyEpsilon/) | cmake | game | |
 [mochi-thallium](https://github.com/mochi-hpc/mochi-thallium) | cmake | cluster | Alessandro-Barbieri | no
 [flexiblas](https://www.mpi-magdeburg.mpg.de/projects/flexiblas) | cmake | science | Alessandro-Barbieri | yes
+[blitz](https://github.com/blitzpp/blitz) | cmake | c++ | Alessandro-Barbieri | no
+[strumpack](https://portal.nersc.gov/project/sparse/strumpack/) | cmake | science | Alessandro-Barbieri | no
+[butterflypack](https://github.com/liuyangzhuan/ButterflyPACK) | cmake | math | Alessandro-Barbieri | no
+[adios](https://csmd.ornl.gov/adios) | cmake | cluster | Alessandro-Barbieri | no
+[superlu_dist](https://github.com/xiaoyeli/superlu_dist) | cmake | science | Alessandro-Barbieri | no
+[opencoarrays](http://www.opencoarrays.org/) | cmake | dev | Alessandro-Barbieri | no
+[mfem](https://mfem.org/) | cmake | science | Alessandro-Barbieri | no
+[fmi-library](https://github.com/modelon-community/fmi-library) | cmake | science | Alessandro-Barbieri | no
+[aerodyn](https://github.com/OpenFAST/openfast/tree/main/modules/aerodyn) | cmake | science | Alessandro-Barbieri | no
+[llvm-ompss2](https://github.com/bsc-pm/llvm) | cmake | science | Alessandro-Barbieri | yes
 [enarx](https://enarx.dev/) | cargo | util | Alessandro-Barbieri | no
 [airshipper](https://gitlab.com/veloren/airshipper) | cargo | game | | 
 [open-match](https://github.com/googleforgames/open-match) | go | devel | Alessandro-Barbieri | yes
