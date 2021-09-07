@@ -27,6 +27,7 @@ RDEPEND="
 	dev-libs/boost:=
 	dev-libs/openssl
 	sys-cluster/paraver-kernel
+	x11-libs/wxGTK:${WX_GTK_VER}
 
 	extrae? ( sys-cluster/extrae )
 "
