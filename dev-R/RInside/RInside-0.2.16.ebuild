@@ -22,3 +22,8 @@ src_prepare() {
 	tc-export AR
 	R-packages_src_prepare
 }
+
+src_install() {
+	R-packages_src_install
+	find "${D}" -name "*.a" -delete || die
+}
