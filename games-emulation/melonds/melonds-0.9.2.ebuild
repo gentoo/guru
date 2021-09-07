@@ -31,10 +31,11 @@ DEPEND="
 	app-arch/libarchive
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
 	dev-qt/qtwidgets:5
 	media-libs/libsdl2[sound,video]
-	net-libs/libslirp
 	net-libs/libpcap
+	net-libs/libslirp
 	opengl? ( media-libs/libepoxy )
 "
 RDEPEND="${DEPEND}"
