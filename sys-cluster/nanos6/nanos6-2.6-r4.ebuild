@@ -13,7 +13,7 @@ S="${WORKDIR}/${PN}-version-${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="babeltrace debug dlb execution-workflow extrae memkind mercurium papi pqos test unwind"
+IUSE="ctf2prv debug dlb execution-workflow extrae memkind mercurium papi pqos test unwind"
 #jemalloc require custom jemalloc
 #TODO: cuda
 #TODO: llvm-libunwind
@@ -24,7 +24,7 @@ RDEPEND="
 	sys-process/numactl
 	virtual/libelf
 
-	babeltrace? ( dev-util/babeltrace2 )
+	ctf2prv? ( dev-util/babeltrace2 )
 	dlb? ( sys-cluster/dlb )
 	extrae? ( sys-cluster/extrae[nanos] )
 	memkind? ( dev-libs/memkind )
@@ -38,7 +38,6 @@ DEPEND="${RDEPEND}"
 PATCHES=( "${FILESDIR}/${P}-include-string.patch" )
 RESTRICT="!test? ( test )"
 REQUIRED_USE="test? ( !mercurium )" # https://github.com/bsc-pm/nanos6/issues/3
-
 
 src_prepare() {
 	default
@@ -68,7 +67,7 @@ src_configure() {
 	use memkind && myconf+=( "--with-memkind=${EPREFIX}/usr" )
 	use pqos && myconf+=( "--with-pqos=${EPREFIX}/usr" )
 
-	if use babeltrace; then
+	if use ctf2prv; then
 		myconf+=( "--with-babeltrace2=${EPREFIX}/usr" )
 	else
 		myconf+=( "--without-babeltrace2" )
