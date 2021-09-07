@@ -14,10 +14,12 @@ SRC_URI="https://github.com/dartsim/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="bullet doc examples extras glut +ipopt +nlopt ode openscenegraph python test tutorials urdfdom"
+IUSE="bullet doc examples extras glut +ipopt +nlopt ode openscenegraph python test tests tutorials urdfdom"
 #TODO: pagmo
+#TODO: unbundle imgui
 RESTRICT="!test? ( test )"
 
+PATCHES=( "${FILESDIR}/${PN}-respect-ldflags.patch" )
 REQUIRED_USE="
 	python? ( ${PYTHON_REQUIRED_USE} )
 
@@ -28,7 +30,6 @@ RDEPEND="
 	app-arch/lz4
 	>=dev-cpp/eigen-3.0.5
 	dev-libs/boost
-	dev-libs/tinyxml
 	dev-libs/tinyxml2
 	>=sci-libs/libccd-2.0
 	>=media-libs/assimp-3.0.0
@@ -76,10 +77,10 @@ src_configure() {
 
 src_compile() {
 	cmake_src_compile
-	use examples && cmake_src_compile examples
-#	use python && cmake_src_compile dartpy
-#	use test && cmake_src_compile tests
-#	use tutorials && cmake_src_compile tutorials
+	use examples && cmake_build examples
+	use python && cmake_build dartpy # no work to do ...
+	use test && cmake_build tests
+	use tutorials && cmake_build tutorials
 }
 
 src_install() {

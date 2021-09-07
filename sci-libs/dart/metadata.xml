@@ -17,6 +17,7 @@
 		<flag name="nlopt">NLopt Optimization Support</flag>
 		<flag name="ode">ODE Collision Detector Support</flag>
 		<flag name="openscenegraph">OpenSceneGraph GUI and examples</flag>
+		<flag name="tests">Build the tests</flag>
 		<flag name="tutorials">Build the tutorials</flag>
 		<flag name="urdfdom">URDF parser</flag>
 	</use>
