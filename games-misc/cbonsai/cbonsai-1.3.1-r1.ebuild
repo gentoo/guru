@@ -12,6 +12,8 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
+RDEPEND="sys-libs/ncurses"
+DEPEND="${RDEPEND}"
 BDEPEND="
 	app-text/scdoc
 	virtual/pkgconfig
@@ -26,4 +28,5 @@ src_compile() {
 
 src_install() {
 	PREFIX="${EPREFIX}/usr" DESTDIR="${D}" emake install
+	dodoc README.md
 }
