@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install prepare
+DEPEND=~sci-mathematics/frama-c-23.1:=[gtk?,ocamlopt?] ~sci-mathematics/frama-c-eva-23.1:=[gtk?,ocamlopt?] ~sci-mathematics/frama-c-inout-23.1:=[ocamlopt?] >=dev-ml/findlib-1.0.4-r1
+DESCRIPTION=Scope plugin for frama-c
+EAPI=7
+HOMEPAGE=https://frama-c.com
+INHERIT=autotools findlib toolchain-funcs
+IUSE=gtk +ocamlopt ocamlopt
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1
+RDEPEND=~sci-mathematics/frama-c-23.1:=[gtk?,ocamlopt?] ~sci-mathematics/frama-c-eva-23.1:=[gtk?,ocamlopt?] ~sci-mathematics/frama-c-inout-23.1:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?]
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://frama-c.com/download/frama-c-23.1-Vanadium.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	findlib	1470b3b78030acb2c8fcd04414f4c611
+_md5_=a3e26b9566b925cccfb64e3f8f88d240

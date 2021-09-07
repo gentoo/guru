@@ -9,4 +9,4 @@ LICENSE=LGPL-2.1
 RDEPEND=sys-cluster/launchmon sys-cluster/mrnet
 SLOT=0
 SRC_URI=https://github.com/dyninst/mrnet/archive/7375ba5bb0df87c68e58ad15e9e5e351ae020c08.tar.gz -> mrnet-5.0.1_p20180510.tar.gz
-_md5_=13a4b3df317ebf222fb69507b0186c3f
+_md5_=b68bea546474598948a364c8df1da713

@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install
+DEPEND=~sci-mathematics/frama-c-23.1:=[gtk?,ocamlopt?] >=dev-ml/findlib-1.0.4-r1
+DESCRIPTION=Qed plugin for frama-c
+EAPI=7
+HOMEPAGE=https://frama-c.com
+INHERIT=findlib toolchain-funcs
+IUSE=gtk +ocamlopt ocamlopt
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1
+RDEPEND=~sci-mathematics/frama-c-23.1:=[gtk?,ocamlopt?] dev-lang/ocaml:=[ocamlopt?]
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://frama-c.com/download/frama-c-23.1-Vanadium.tar.gz
+_eclasses_=findlib	1470b3b78030acb2c8fcd04414f4c611	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
+_md5_=7d38803ae4242911f8bd27fd702b4e6b

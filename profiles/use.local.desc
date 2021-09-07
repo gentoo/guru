@@ -96,7 +96,12 @@ dev-libs/libdwarf:namestable - enable name string functions implemented as binar
 dev-libs/libdwarf:nonstandardprintf - Use a special printf format for 64bit
 dev-libs/libdwarf:oldframecol - enable old frame columns
 dev-libs/libdwarf:sanitize - build with sanitizers
+dev-libs/memkind:daxctl - Build library with daxctl support
+dev-libs/memkind:debug - Build debugging jemalloc code
+dev-libs/memkind:decorators - Enable decorators
 dev-libs/memkind:heap-manager - Allow switching allocator at runtime
+dev-libs/memkind:hwloc - Build library with hwloc support
+dev-libs/memkind:initial-exec-tls - Build library with initial-exec-tls support
 dev-libs/memkind:secure - Build libraries with security enhancements
 dev-libs/memkind:tls - Enable thread local storage
 dev-libs/open62541:encryption - Enable encryption support
@@ -344,6 +349,8 @@ sci-mathematics/frama-c:studia - Build the studia plugin
 sci-mathematics/frama-c:users - Build the users plugin
 sci-mathematics/frama-c:variadic - Build the variadic plugin
 sci-mathematics/frama-c:wp - Build the WP plugin
+sci-mathematics/frama-c-aorai:eva - Build support for the Eva plugin
+sci-mathematics/frama-c-wp:coq - Precompile coq libraries
 sci-mathematics/the-omega-project:gui - Build petit with gui
 sci-mathematics/the-omega-project:htmldoc - Build html documentation
 sci-mathematics/the-omega-project:petit - Build Petit, a educational/research tool for analyzing array data dependences
@@ -357,6 +364,7 @@ sci-physics/SU2:cgns - Build with CGNS support (bundled)
 sci-physics/SU2:mkl - Enable Intel MKL support
 sci-physics/SU2:mpp - Enable Mutation++ library support
 sci-physics/SU2:openblas - Enable OpenBLAS support
+sci-physics/SU2:parmetis - Enable Parmetis support (Metis support is always on)
 sci-physics/SU2:tecio - Enable TECIO support
 sci-physics/SU2:tutorials - Install Tutorials files
 sys-apps/CommsPowerManagement:ansible - Install ansible playbook
@@ -624,6 +632,9 @@ sys-cluster/temanejo:stdout - Enable output to stdout
 sys-cluster/veloc:comm-queue-ipc - Use ipc as the communication protocol between client library and active backend
 sys-cluster/veloc:comm-queue-socket - Use socket as the communication protocol between client library and active backend
 sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager
+sys-cluster/wxparaver:extrae - Enable extrae support
+sys-cluster/wxparaver:ompss - Enable OmpSs parallel version
+sys-cluster/wxparaver:openmp - Enable OpenMP parallel version
 sys-fs/erofs-utils:fuse - Enable support for Filesystem in Userspace via sys-fs/fuse
 sys-fs/erofs-utils:uuid - Allow interaction with libuuid in sys-apps/util-linux. It's recommended turn on
 sys-kernel/dkms:kernel-hooks - Enable automatic rebuilding of modules via kernel source makefile hooks

@@ -1,0 +1,15 @@
+BDEPEND=app-admin/chrpath sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 doc? ( || ( ( dev-lang/python:3.10 dev-python/sphinx[python_targets_python3_10(-)] ) ( dev-lang/python:3.9 dev-python/sphinx[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/sphinx[python_targets_python3_8(-)] ) ( >=dev-python/pypy3-7.3.0:0 dev-python/sphinx[python_targets_pypy3(-)] ) ) )
+DEFINED_PHASES=compile configure install prepare setup unpack
+DEPEND=dev-libs/boost:= dev-libs/openssl sys-cluster/paraver-kernel extrae? ( sys-cluster/extrae )
+DESCRIPTION=paraver gui
+EAPI=8
+HOMEPAGE=http://tools.bsc.es/paraver https://github.com/bsc-performance-tools/wxparaver
+INHERIT=autotools python-any-r1 docs wxwidgets
+IUSE=extrae ompss openmp doc
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1
+RDEPEND=dev-libs/boost:= dev-libs/openssl sys-cluster/paraver-kernel extrae? ( sys-cluster/extrae )
+SLOT=0
+SRC_URI=https://github.com/bsc-performance-tools/wxparaver/archive/refs/tags/v4.9.0.tar.gz -> wxparaver-4.9.0.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	08d890890f70fe0096093016e55438d5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	docs	7c38d94fa7c1b4235fe571dc09e018df	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	wxwidgets	7e8a20d3bacea0e3ecf6e96fb72180aa
+_md5_=8712432470ee938ca5fbe41722ac3762
