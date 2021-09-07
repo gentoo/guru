@@ -7,7 +7,7 @@ inherit meson optfeature
 
 DESCRIPTION="i3-gaps fork with rounded corners support."
 HOMEPAGE="https://github.com/linobigatti/i3-rounded"
-SRC_URI="https://github.com/linobigatti/i3-rounded/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/linobigatti/i3-rounded/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
