@@ -20,7 +20,7 @@ RESTRICT="!test? ( test )"
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 RDEPEND="
-	dev-python/beautifulsoup:4[${PYTHON_USEDEP}]
+	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 	dev-python/graphviz[${PYTHON_USEDEP}]
 	dev-python/jinja[${PYTHON_USEDEP}]
 	dev-python/markdown[${PYTHON_USEDEP}]
