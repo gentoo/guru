@@ -308,6 +308,7 @@ sci-libs/dart:ipopt - IPopt Optimization Support
 sci-libs/dart:nlopt - NLopt Optimization Support
 sci-libs/dart:ode - ODE Collision Detector Support
 sci-libs/dart:openscenegraph - OpenSceneGraph GUI and examples
+sci-libs/dart:tests - Build the tests
 sci-libs/dart:tutorials - Build the tutorials
 sci-libs/dart:urdfdom - URDF parser
 sci-libs/meschach:complex - incorporate complex functions.
@@ -499,6 +500,7 @@ sys-cluster/mrnet:slurm - Use slurm as libi tree instantiation method instead of
 sys-cluster/mrnet:threadsafe - Build threasafe version of lightweight MRNet and XPlat libraries
 sys-cluster/muster:pmpi - Build with PMPI bindings
 sys-cluster/muster:tests - Build and install test programs
+sys-cluster/nanos6:ctf2prv - Build ctf2prv fast converter
 sys-cluster/nanos6:debug - enable extra assertions and checks in debug - may cause significant slowdown
 sys-cluster/nanos6:dlb - enable dynamic management and sharing of computing resources
 sys-cluster/nanos6:execution-workflow - Enable execution using the Execution Workflow

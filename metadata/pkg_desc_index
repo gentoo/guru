@@ -27,7 +27,7 @@ app-accessibility/rhvoice 1.4.2: TTS engine with extended languages support (inc
 app-accessibility/speakup-tools 20121017: Tools to customize speakup module
 app-admin/akita 0.1.4: An HTTP log monitoring tool for your terminal
 app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
-app-admin/chezmoi 1.8.10 2.0.12 2.1.5 2.1.6 2.2.0: Manage your dotfiles across multiple machines, securely
+app-admin/chezmoi 1.8.10 2.0.12 2.1.5 2.1.6 2.2.0 2.3.0: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.12.0 0.12.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/glance 21.0.0: Services for discovering, registering, and retrieving VM images
@@ -290,8 +290,8 @@ dev-java/mill-bin 0.9.8 0.9.9: A Java/Scala build tool
 dev-java/openjdk-sts-bin 15.0.2_p7: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730-r1: The Aldor Programming Language
 dev-lang/ammonite-repl-bin 2.4.0: Scala language-based scripting and REPL
-dev-lang/fbc 1.07.3: A free/open source, multi-platform BASIC compiler.
-dev-lang/fbc-bootstrap 1.07.3: Bootstrap package for dev-lang/fbc
+dev-lang/fbc 1.07.3 1.08.1: A free/open source, multi-platform BASIC compiler.
+dev-lang/fbc-bootstrap 1.07.3 1.08.1: Bootstrap package for dev-lang/fbc
 dev-lang/fennel 0.9.2 0.10.0 9999: Fennel is a lisp that compiles to Lua
 dev-lang/gleam 0.16.0: A statically typed functional language for the BEAM
 dev-lang/quickjs 2020.11.08 2021.03.27: Small embeddable Javascript engine
@@ -616,7 +616,7 @@ dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's Open
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/rpmlint 2.0.0: Tool for checking common errors in RPM packages
 dev-util/rust-analyzer 20210830 20210906 99999999: An implementation of Language Server Protocol for the Rust programming language
-dev-util/rust-analyzer-bin 2021.08.09 2021.08.30: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer-bin 2021.08.30 2021.09.06: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/xdp-tools 1.2.0: Utilities and example programs for use with XDP
 dev-vcs/bit 1.1.1 1.1.2: Bit is a modern Git CLI
@@ -652,7 +652,7 @@ games-fps/crispy-doom 5.10.0 5.10.1 5.10.2 5.10.3: A limit-removing enhanced-res
 games-fps/quakespasm 0.93.2-r1 9999: Modern, cross-platform Quake 1 engine based on FitzQuake
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
 games-misc/bonsai 0_pre20210201: bonsai tree generator written in bash
-games-misc/cbonsai 1.3.1: grow bonsai trees in your terminal
+games-misc/cbonsai 1.3.1-r1: grow bonsai trees in your terminal
 games-puzzle/atris 1.0.7: Alizarin tetris
 games-puzzle/krank 8: Little casual game
 games-puzzle/superflu-riteurnz 1.0.0: Artisanal video-game about Superflu, the useless super-hero (french)
@@ -882,10 +882,10 @@ sci-libs/ann 1.1.2_p7 1.1.2_p7-r1: A Library for Approximate Nearest Neighbor Se
 sci-libs/dart 6.10.1-r2: Dynamic Animation and Robotics Toolkit
 sci-libs/ensmallen 2.14.2 2.15.0 2.15.1 2.16.0 2.16.2: header only C++ library for numerical optimization
 sci-libs/jdqz 0_pre19971107-r2: Jacobi-Davidson type method for the generalized standard eigenvalue problem.
-sci-libs/meschach 1.2b: Meschach is a C-language library of routines for performing matrix computations
+sci-libs/meschach 1.2b 1.2b_p20170511: Meschach is a C-language library of routines for performing matrix computations
 sci-libs/saclib 2.2.8: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
-sci-mathematics/chaco 2.2-r1: Software for Partitioning Graphs
+sci-mathematics/chaco 2.2-r2: Software for Partitioning Graphs
 sci-mathematics/frama-c 22.0 23.1: Framework for analysis of source codes written in C
 sci-mathematics/frama-c-aorai 23.1: Aorai (automaton annotations) plugin for frama-c
 sci-mathematics/frama-c-callgraph 23.1: Callgraph plugin for frama-c
@@ -966,7 +966,7 @@ sys-cluster/lwgrp 1.0.3: Light-weight Group Library
 sys-cluster/mcxx 2021.06: C/C++/Fortran source-to-source compilation aimed at fast prototyping
 sys-cluster/mrnet 5.0.1_p20180510-r3: A Multicast/Reduction Network
 sys-cluster/muster 1.0.1: Massively Scalable Clustering
-sys-cluster/nanos6 2.6-r3: runtime that implements the OmpSs-2 parallel programming model
+sys-cluster/nanos6 2.6-r4: runtime that implements the OmpSs-2 parallel programming model
 sys-cluster/nanox 0.15_p20210818: Runtime designed to serve as runtime support in parallel environments
 sys-cluster/neutron 17.1.1 17.1.2: A virtual network service for Openstack
 sys-cluster/nova 22.2.0 22.2.1: Cloud computing fabric controller
@@ -1014,7 +1014,6 @@ sys-power/disable-c6 0_p20190603: disable the C6 state upon system boot, prevent
 sys-power/gtherm 0.0.2: A simple daemon to monitor thermal zones and cooling devices
 sys-power/gwe 0.15.3: NVIDIA settings alternative with overclocking, fan control, and information
 sys-process/gotop 4.1.2: A terminal based graphical activity monitor inspired by gtop and vtop
-sys-process/iotop-c 1.17-r1: top utility for IO (C port)
 sys-process/nq 0.4: Unix command line queue utility
 sys-process/nvtop 1.2.2 9999: NVIDIA GPUs htop like monitoring tool
 virtual/MASS 0: Virtual of a R recommended package

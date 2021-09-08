@@ -1,5 +1,5 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install postinst postrm preinst prepare unpack
+DEFINED_PHASES=configure install postinst postrm preinst prepare unpack
 DEPEND=x11-libs/gtk+:3 net-libs/webkit-gtk:4= dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Minimalist and privacy-oriented WebKitGTK+ browser
 EAPI=7
@@ -10,4 +10,4 @@ PROPERTIES=live
 RDEPEND=x11-libs/gtk+:3 net-libs/webkit-gtk:4=
 SLOT=0
 _eclasses_=xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=157b9e237d486b26651459f272906f8a
+_md5_=d83dbad23fb8cda35ed69f00c35e61fb

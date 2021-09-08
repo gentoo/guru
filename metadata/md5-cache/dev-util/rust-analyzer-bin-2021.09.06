@@ -5,5 +5,5 @@ HOMEPAGE=https://rust-analyzer.github.io
 KEYWORDS=~amd64
 LICENSE=Apache-2.0 MIT-with-advertising
 SLOT=0
-SRC_URI=https://github.com/rust-analyzer/rust-analyzer/releases/download/2021-08-09/rust-analyzer-x86_64-unknown-linux-gnu.gz -> rust-analyzer-bin-2021.08.09.gz
-_md5_=4d082ae9ca59be0b368e286b6dba44f8
+SRC_URI=https://github.com/rust-analyzer/rust-analyzer/releases/download/2021-09-06/rust-analyzer-x86_64-unknown-linux-gnu.gz -> rust-analyzer-bin-2021.09.06.gz
+_md5_=f88fcf134712bb1947809da40dfde114

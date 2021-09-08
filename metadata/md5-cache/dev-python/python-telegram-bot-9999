@@ -1,6 +1,6 @@
 BDEPEND=test? ( dev-python/certifi[python_targets_python3_8(-)?] dev-python/cryptography[python_targets_python3_8(-)?] dev-python/decorator[python_targets_python3_8(-)?] dev-python/future[python_targets_python3_8(-)?] dev-python/PySocks[python_targets_python3_8(-)?] dev-python/ujson[python_targets_python3_8(-)?] dev-python/urllib3[python_targets_python3_8(-)?] www-servers/tornado[python_targets_python3_8(-)?] >=dev-python/pytest-4.5.0[python_targets_python3_8(-)?] ) doc? ( || ( ( dev-lang/python:3.8 dev-python/sphinx[python_targets_python3_8(-)] dev-python/sphinx_rtd_theme[python_targets_python3_8(-)] ) ) ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?] >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=test? ( dev-python/APScheduler[python_targets_python3_8(-)?] dev-python/attrs[python_targets_python3_8(-)?] dev-python/beautifulsoup:4[python_targets_python3_8(-)?] dev-python/flaky[python_targets_python3_8(-)?] dev-python/pytest-timeout[python_targets_python3_8(-)?] dev-python/pytz[python_targets_python3_8(-)?] dev-python/yapf[python_targets_python3_8(-)?] )
+DEPEND=test? ( dev-python/APScheduler[python_targets_python3_8(-)?] dev-python/attrs[python_targets_python3_8(-)?] dev-python/beautifulsoup4[python_targets_python3_8(-)?] dev-python/flaky[python_targets_python3_8(-)?] dev-python/pytest-timeout[python_targets_python3_8(-)?] dev-python/pytz[python_targets_python3_8(-)?] dev-python/yapf[python_targets_python3_8(-)?] )
 DESCRIPTION=Python wrapper of telegram bots API
 EAPI=7
 HOMEPAGE=https://python-telegram-bot.org https://github.com/python-telegram-bot/python-telegram-bot
@@ -13,4 +13,4 @@ REQUIRED_USE=|| ( python_targets_python3_8 )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	08d890890f70fe0096093016e55438d5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	5e8c25e37e261f4306d82487f673a1bf	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=3874e0e3ae35d7b6bed15c0598500b12
+_md5_=f564965b6a7a788515a7003ddc1f2bce
