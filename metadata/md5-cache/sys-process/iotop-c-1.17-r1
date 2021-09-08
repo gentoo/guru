@@ -11,5 +11,5 @@ LICENSE=GPL-2+
 RDEPEND=sys-libs/ncurses:= !sys-process/iotop filecaps? ( sys-libs/libcap )
 SLOT=0
 SRC_URI=https://github.com/Tomas-M/iotop/archive/v1.17.tar.gz -> iotop-c-1.17.tar.gz
-_eclasses_=fcaps	ac252c3cc67b265cd7ea456f8d58e150	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	2c5e96c87e446b5c09f5f73c70a915ab
+_eclasses_=fcaps	ac252c3cc67b265cd7ea456f8d58e150	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	ffb37fb9f244ba768773f153972c9a52
 _md5_=cdcf10eaf59b8c5ec9463f3f639d0ce6
