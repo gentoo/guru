@@ -19,7 +19,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-python/beautifulsoup-4.9.3[${PYTHON_USEDEP}]
+	>=dev-python/beautifulsoup4-4.9.3[${PYTHON_USEDEP}]
 	>=dev-python/beziers-0.3.1[${PYTHON_USEDEP}]
 	>=dev-python/cmarkgfm-0.5.3[${PYTHON_USEDEP}]
 	>=dev-python/collidoscope-0.0.6[${PYTHON_USEDEP}]

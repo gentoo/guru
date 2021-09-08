@@ -27,10 +27,12 @@ src_compile() {
 
 src_install() {
 	dodoc -r doc/.
-	dodoc -r "code/matlab"
+	insinto "/usr/share/octave/packages/${PN}"
+	doins -r code/matlab/*
 	cd "exec" || die
 	dobin "chaco"
 	dolib.so "libchaco.so"
-	dodoc *.coords *.graph "User_Params"
+	insinto "/usr/share/${PN}"
+	doins *.coords *.graph "User_Params"
 	newdoc README README_exec
 }

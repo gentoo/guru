@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit R-packages toolchain-funcs
+inherit R-packages
 
 HOMEPAGE="
 	https://github.com/patperry/r-utf8
@@ -14,8 +14,3 @@ LICENSE='Apache-2.0'
 KEYWORDS="~amd64"
 DEPEND=">=dev-lang/R-2.1.0"
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	tc-export AR
-	R-packages_src_prepare
-}

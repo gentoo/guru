@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/Gottox/${PN}.git"
@@ -17,9 +19,14 @@ HOMEPAGE="https://github.com/Gottox/smu"
 LICENSE="MIT"
 SLOT="0"
 
+pkg_setup() {
+	export CC="$(tc-getCC)"
+}
+
 src_prepare() {
 	default
 	sed -i \
+		-e '/^CC/d' \
 		-e '/^CFLAGS/ s|-g -O0 ||;s|-Werror ||;s|^CFLAGS =|CFLAGS +=|;' \
 		-e '/^LDFLAGS/ s|^LDFLAGS =|LDFLAGS +=|' \
 		config.mk || die "sed failed"

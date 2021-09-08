@@ -24,7 +24,7 @@ RDEPEND="
 BDEPEND="
 	${RDEPEND}
 	test? (
-		>=dev-python/beautifulsoup-4.6.0[${PYTHON_USEDEP}]
+		>=dev-python/beautifulsoup4-4.6.0[${PYTHON_USEDEP}]
 		>=dev-python/sphinx-testing-1.0.1[${PYTHON_USEDEP}]
 		>=dev-python/subunit-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]

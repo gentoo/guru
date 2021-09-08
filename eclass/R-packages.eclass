@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-inherit eutils
+inherit eutils toolchain-funcs
 
 EXPORT_FUNCTIONS src_unpack src_prepare src_compile src_install
 
@@ -34,7 +34,7 @@ R-packages_src_prepare() {
 
 
 R-packages_src_compile() {
-	MAKEFLAGS="CFLAGS=${CFLAGS// /\\ } CXXFLAGS=${CXXFLAGS// /\\ } FFLAGS=${FFLAGS// /\\ } FCFLAGS=${FCFLAGS// /\\ } LDFLAGS=${LDFLAGS// /\\ }" R CMD INSTALL . -l "${WORKDIR}" "--byte-compile" || die
+	MAKEFLAGS="AR=$(tc-getAR) CFLAGS=${CFLAGS// /\\ } CXXFLAGS=${CXXFLAGS// /\\ } FFLAGS=${FFLAGS// /\\ } FCFLAGS=${FCFLAGS// /\\ } LDFLAGS=${LDFLAGS// /\\ }" R CMD INSTALL . -l "${WORKDIR}" "--byte-compile" || die
 }
 
 R-packages_src_install() {

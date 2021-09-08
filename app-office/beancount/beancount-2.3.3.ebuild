@@ -27,7 +27,7 @@ PATCHES=(
 
 RDEPEND="
 	$(python_gen_cond_dep '
-		>=dev-python/beautifulsoup-4[${PYTHON_USEDEP}]
+		dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 		>=dev-python/bottle-0.12[${PYTHON_USEDEP}]
 		>=dev-python/google-api-python-client-1.8.2[${PYTHON_USEDEP}]
 		>=dev-python/httplib2-0.10[${PYTHON_USEDEP}]

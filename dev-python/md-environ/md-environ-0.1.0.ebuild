@@ -16,3 +16,9 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 RDEPEND="dev-python/markdown[${PYTHON_USEDEP}]"
+
+src_prepare() {
+	# Fix QA Notice: setuptools warning
+	sed -i "s/description-file/description_file/" setup.cfg || die
+	eapply_user
+}

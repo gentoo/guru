@@ -3,15 +3,10 @@
 
 EAPI=7
 
-inherit R-packages toolchain-funcs
+inherit R-packages
 
 DESCRIPTION='High Performance CommonMark and github markdown rendering in R'
 KEYWORDS="~amd64"
 LICENSE='BSD-2'
 
 RDEPEND="${DEPEND}"
-
-src_prepare() {
-	tc-export AR
-	R-packages_src_prepare
-}

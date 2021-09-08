@@ -78,7 +78,8 @@ Name | Buildsystem | Category | User | RFH
 [mfem](https://mfem.org/) | cmake | science | Alessandro-Barbieri | no
 [fmi-library](https://github.com/modelon-community/fmi-library) | cmake | science | Alessandro-Barbieri | no
 [aerodyn](https://github.com/OpenFAST/openfast/tree/main/modules/aerodyn) | cmake | science | Alessandro-Barbieri | no
-[llvm-ompss2](https://github.com/bsc-pm/llvm) | cmake | science | Alessandro-Barbieri | yes
+[llvm-ompss2](https://github.com/bsc-pm/llvm) | cmake | cluster | Alessandro-Barbieri | yes
+[pagmo](https://github.com/bsc-pm/llvm) | cmake | science | Alessandro-Barbieri | no
 [enarx](https://enarx.dev/) | cargo | util | Alessandro-Barbieri | no
 [airshipper](https://gitlab.com/veloren/airshipper) | cargo | game | | 
 [open-match](https://github.com/googleforgames/open-match) | go | devel | Alessandro-Barbieri | yes

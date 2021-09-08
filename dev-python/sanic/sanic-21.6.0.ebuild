@@ -31,7 +31,7 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	test? (
-		dev-python/beautifulsoup[${PYTHON_USEDEP}]
+		dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 		>=dev-python/httpcore-0.3.0[${PYTHON_USEDEP}]
 		>=dev-python/pytest-5.2.1[${PYTHON_USEDEP}]
 		dev-python/pytest-benchmark[${PYTHON_USEDEP}]
