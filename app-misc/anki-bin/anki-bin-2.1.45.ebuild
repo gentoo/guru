@@ -27,7 +27,7 @@ $(python_gen_cond_dep '
 	dev-python/protobuf-python[${PYTHON_USEDEP}]
 	dev-python/orjson-bin[${PYTHON_USEDEP}]
 	dev-python/distro[${PYTHON_USEDEP}]
-	dev-python/beautifulsoup[${PYTHON_USEDEP}]
+	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/flask[${PYTHON_USEDEP}]
 	dev-python/waitress[${PYTHON_USEDEP}]

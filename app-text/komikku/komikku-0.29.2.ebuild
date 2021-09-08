@@ -25,7 +25,7 @@ DEPEND="
 	>=gui-libs/libhandy-1.2.0
 	>=x11-libs/gtk+-3.24.10:3
 	$(python_gen_cond_dep '
-		dev-python/beautifulsoup:4[${PYTHON_USEDEP}]
+		dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 		dev-python/cloudscraper[${PYTHON_USEDEP}]
 		dev-python/dateparser[${PYTHON_USEDEP}]
 		dev-python/keyring[${PYTHON_USEDEP}]
