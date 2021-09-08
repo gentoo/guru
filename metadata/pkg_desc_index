@@ -57,7 +57,7 @@ app-dicts/dictd-moby-thesaurus 1.0: Grady Ward's Moby Thesaurus; 35000 root word
 app-dicts/dictd-mueller 3.1-r1: V. K. Mueller English-Russian Dictionary
 app-dicts/dictd-web1913 0.5.0_p1: Webster's Revised Unabridged Dictionary (1913) for dict
 app-doc/anarchism 15.3: An anarchist FAQ
-app-doc/ford 6.1.1: FORD, automatic documentation generator for modern Fortran programs
+app-doc/ford 6.1.1 6.1.2: FORD, automatic documentation generator for modern Fortran programs
 app-doc/openbsd-manpages 6.9: OpenBSD manual pages
 app-editors/atom-bin 1.57.0-r2: A hackable text editor for the 21st Century
 app-editors/imhex 1.8.1-r1: A hex editor for reverse engineers, programmers, and eyesight
