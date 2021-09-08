@@ -32,6 +32,11 @@ RDEPEND="${PYTHON_DEPS}"
 
 S="${WORKDIR}/${MY_PN}-${PV}-linux-x64"
 
+QA_FLAGS_IGNORED="
+	/opt/${P}/chrome-sandbox
+	/opt/${P}/libvulkan.so*
+"
+
 src_install() {
 	insinto "/opt/${P}"
 	doins -r "${S}/."
