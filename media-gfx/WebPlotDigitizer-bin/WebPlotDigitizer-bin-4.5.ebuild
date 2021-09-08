@@ -28,13 +28,23 @@ QA_PREBUILT="
 
 ## RDEPEND is still required to be filled with actual runtime-deps:
 ## python is just assumed runtime-dependency.
-RDEPEND="${PYTHON_DEPS}"
+RDEPEND="
+	${PYTHON_DEPS}
+	dev-libs/nss
+	x11-libs/gtk+:3[X,cups,introspection]
+"
 
 S="${WORKDIR}/${MY_PN}-${PV}-linux-x64"
 
 QA_FLAGS_IGNORED="
 	/opt/${P}/chrome-sandbox
 	/opt/${P}/libvulkan.so*
+"
+
+## It seems media-libs/alsa-lib is required by chrome-sandbox.
+## Actually this library isn't required to work.
+QA_SONAME="
+	/usr/lib*/libasound.so.2
 "
 
 src_install() {
