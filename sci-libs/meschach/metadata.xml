@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
-  <upstream>
-    <maintainer>
-      <email>dstewart@math.uiowa.edu</email>
-      <name>David Stewart</name>
-    </maintainer>
-  </upstream>
-  <longdescription lang="en">
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">yageek/Meschach</remote-id>
+		<maintainer>
+			<email>dstewart@math.uiowa.edu</email>
+			<name>David Stewart</name>
+		</maintainer>
+	</upstream>
+	<longdescription lang="en">
 The Meschach Library is a numerical library of C routines for performing
 calculations on matrices and vectors. It is intended for solving systems of
 linear equations (dense and sparse), solve least squares problems,
@@ -26,15 +27,15 @@ comprises a coherent system. The current version is enhanced with many
 features comparing with previous versions. Since the memory requirements
 are nontrivial for large problems we have paid more attention to
 allocation/deallocation of memory.
-  </longdescription>
-  <use>
-    <flag name="complex">incorporate complex functions.</flag>
-    <flag name="double">double precision</flag>
-    <flag name="float">single precision</flag>
-    <flag name="munroll">unroll low level loops on matrices</flag>
-    <flag name="old">build no longer supported functions</flag>
-    <flag name="segmem">should be set if you are working with a machine or compiler that does not allow large arrays to be allocated. See README</flag>
-    <flag name="sparse">incorporate sparse matrix functions</flag>
-    <flag name="unroll">unroll low level loops on vectors</flag>
-  </use>
+	</longdescription>
+	<use>
+		<flag name="complex">incorporate complex functions</flag>
+		<flag name="double-precision">double precision</flag>
+		<flag name="munroll">unroll low level loops on matrices</flag>
+		<!--<flag name="old">build no longer supported functions</flag>-->
+		<flag name="segmem">should be set if you are working with a machine or compiler that does not allow large arrays to be allocated. See README</flag>
+		<flag name="single-precision">single precision</flag>
+		<flag name="sparse">incorporate sparse matrix functions</flag>
+		<flag name="vunroll">unroll low level loops on vectors</flag>
+	</use>
 </pkgmetadata>
