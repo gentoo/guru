@@ -9,9 +9,3 @@
 # TODO: Either fix per profile masking in overlays, or move
 # this entry to the relevant package.mask files in ::gentoo
 >=sys-block/systemd-swap-4.4.0
-
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2021-08-08)
-# No longer maintained (see https://github.com/michael-lazar/rtv/issues/696).
-# Use net-misc/tuir or reddio (https://gitlab.com/aaronNG/reddio) instead.
-# Masked for removal in 30 days.
-net-misc/rtv
