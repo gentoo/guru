@@ -207,6 +207,7 @@ RDEPEND="
 "
 DEPEND="
 	${COMMON_DEPEND}
+	>=dev-qt/qtconcurrent-5.15:5
 	kde-frameworks/extra-cmake-modules:5
 "
 BDEPEND="
