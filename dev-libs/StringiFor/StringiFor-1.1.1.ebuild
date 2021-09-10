@@ -4,8 +4,9 @@
 EAPI=7
 
 FORTRAN_STANDARD=2003
+PYTHON_COMPAT=( python3_{8..10} )
 
-inherit  fortran-2 toolchain-funcs
+inherit  fortran-2 python-any-r1 toolchain-funcs
 
 # Unfortunately the releases don't have appropriate release-tags
 # so there commits sha-1 checksum are used
@@ -18,9 +19,9 @@ DESCRIPTION="StringiFor, Strings Fortran Manipulator, yet another strings Fortra
 HOMEPAGE="https://github.com/szaghi/StringiFor"
 SRC_URI="
 	https://github.com/szaghi/${PN}/archive/"${StringiFor_sha}".tar.gz -> ${P}.tar.gz
+	https://github.com/szaghi/BeFoR64/archive/"${BeFoR64_sha}".tar.gz -> BeFoR64-1.1.4.tar.gz
 	https://github.com/szaghi/FACE/archive/"${FACE_sha}".tar.gz -> FACE-1.1.2.tar.gz
 	https://github.com/szaghi/PENF/archive/"${PENF_sha}".tar.gz -> PENF-1.2.2.tar.gz
-	https://github.com/szaghi/BeFoR64/archive/"${BeFoR64_sha}".tar.gz -> BeFoR64-1.1.4.tar.gz
 "
 
 S="${WORKDIR}/${PN}-${StringiFor_sha}"
@@ -34,7 +35,12 @@ KEYWORDS="~amd64 ~x86"
 IUSE="static-libs test"
 RESTRICT="!test? ( test )"
 
-BDEPEND="dev-util/FoBiS"
+BDEPEND="
+	${PYTHON_DEPS}
+	$(python_gen_any_dep '
+		dev-util/FoBiS[${PYTHON_USEDEP}]
+	')
+"
 
 PATCHES=(
 	"${FILESDIR}/stringifor-1.1.1_fobos_soname.patch"
@@ -62,9 +68,9 @@ pkg_setup() {
 }
 
 src_prepare() {
-	mv -T "${WORKDIR}"/BeFoR64-"${BeFoR64_sha}" "${S}"/src/third_party/BeFoR64
-	mv -T "${WORKDIR}"/FACE-"${FACE_sha}" "${S}"/src/third_party/FACE
-	mv -T "${WORKDIR}"/PENF-"${PENF_sha}" "${S}"/src/third_party/PENF
+	mv -T "${WORKDIR}"/BeFoR64-"${BeFoR64_sha}" "${S}"/src/third_party/BeFoR64 || die
+	mv -T "${WORKDIR}"/FACE-"${FACE_sha}" "${S}"/src/third_party/FACE || die
+	mv -T "${WORKDIR}"/PENF-"${PENF_sha}" "${S}"/src/third_party/PENF || die
 	default
 
 	sed -i -e 's:\$OPTIMIZE    = -O2:\$OPTIMIZE    = '"${FFLAGS}"':' \
@@ -72,27 +78,27 @@ src_prepare() {
 }
 
 src_compile() {
-	FoBiS.py build -verbose -compiler custom -fc $(tc-getFC) ${BUILD_MODE_SHARED}
-	use static-libs && FoBiS.py build -verbose -compiler custom -fc $(tc-getFC) ${BUILD_MODE_STATIC}
+	${EPYTHON} FoBiS.py build -verbose -compiler custom -fc $(tc-getFC) ${BUILD_MODE_SHARED} || die
+	use static-libs && { ${EPYTHON} FoBiS.py build -verbose -compiler custom -fc $(tc-getFC) ${BUILD_MODE_STATIC} || die; }
 }
 
 src_test() {
-	FoBiS.py build -compiler custom -fc $(tc-getFC) ${BUILD_MODE_TESTS}
+	${EPYTHON} FoBiS.py build -compiler custom -fc $(tc-getFC) ${BUILD_MODE_TESTS} || die
 	for e in $( find ./exe/ -type f -executable -print ); do
 		if [ "$e" != "./exe/stringifor_test_parse_large_csv" ] ; then
-			echo "  run test $e :" && $e
+			echo "  run test $e :" && { $e || die; }
 		else
 			# The output of this test is too huge so it's cutted here
-			echo "  run test $e :" && $e | tail -n 10
+			echo "  run test $e :" && { $e | tail -n 10 || die; }
 		fi
 	done
 }
 
 src_install() {
-	mv lib/mod lib/stringifor
+	mv lib/mod lib/stringifor || die
 	doheader -r lib/stringifor/
 
-	mv lib/libstringifor.so{,.1}
+	mv lib/libstringifor.so{,.1} || die
 	dosym libstringifor.so.1 /usr/$(get_libdir)/libstringifor.so
 	dolib.so lib/libstringifor.so.1
 
