@@ -9,19 +9,3 @@
 # TODO: Either fix per profile masking in overlays, or move
 # this entry to the relevant package.mask files in ::gentoo
 >=sys-block/systemd-swap-4.4.0
-
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-06-20)
-# Mask BH until next release
-# Depend on boost version no longer available
-=dev-R/BH-1.75.0.0
-
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2021-08-08)
-# No longer maintained (see https://github.com/michael-lazar/rtv/issues/696).
-# Use net-misc/tuir or reddio (https://gitlab.com/aaronNG/reddio) instead.
-# Masked for removal in 30 days.
-net-misc/rtv
-
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2021-08-08)
-# Latest release 9 years ago, no reverse dependencies, almost one-liner.
-# Masked for removal in 30 days.
-dev-python/pytest-marks

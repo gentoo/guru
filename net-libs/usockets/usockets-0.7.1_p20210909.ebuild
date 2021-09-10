@@ -12,7 +12,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/uNetworking/uSockets.git"
 else
-	COMMIT=5440dbac79bd76444175b76ee95dfcade12a6aac
+	COMMIT="c06112c89b4c1cf5a09b5f8daa2def756b925889"
 	SRC_URI="https://github.com/uNetworking/uSockets/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm64 ~x86"
 	S="${WORKDIR}/uSockets-${COMMIT}"
@@ -20,24 +20,27 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="libuv +ssl"
+IUSE="asio libuv +ssl"
+REQUIRED_USE="?? ( asio libuv )"
 
 DEPEND="
+	asio? ( dev-cpp/asio[ssl?] )
 	libuv? ( dev-libs/libuv )
 	ssl? ( >=dev-libs/openssl-1.1.0 )
 "
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.7.1-Makefile.patch"
+	"${FILESDIR}/${PN}-0.7.1_p20210909-Makefile.patch"
 )
 
 src_configure() {
 	tc-export CC CXX AR
 	export VERSION="${PV%_*}" \
 	       LIB="$(get_libdir)" \
-	       WITH_OPENSSL="$(usex ssl 1 0)"
-	       WITH_LIBUV="$(usex libuv 1 0)"
+	       WITH_OPENSSL="$(usex ssl 1 0)" \
+	       WITH_LIBUV="$(usex libuv 1 0)" \
+	       WITH_ASIO="$(usex asio 1 0)"
 	default
 }
 

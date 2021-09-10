@@ -1,7 +1,7 @@
 # Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( lua5-{1..4} luajit )
 
@@ -12,8 +12,6 @@ HOMEPAGE="https://gitlab.com/tiotags/hin9"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-
-mycommit="f04d7703f6cdbd2e33f8a7289d80a01dba5e970f"
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
@@ -27,7 +25,7 @@ else
 	S="${WORKDIR}/hin9-v${PV}"
 fi
 
-IUSE="+openssl"
+IUSE="+openssl cgi +fcgi +rproxy"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
 BDEPEND="
@@ -51,16 +49,22 @@ PATCHES=(
 	"${FILESDIR}/${PN}-defines-v4.patch"
 )
 
+FILECAPS=(
+	cap_net_bind_service usr/sbin/${PN}
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DUSE_OPENSSL=$(usex openssl)
+		-DUSE_CGI=$(usex cgi)
+		-DUSE_FCGI=$(usex fcgi)
+		-DUSE_RPROXY=$(usex rproxy)
 	)
 	cmake_src_configure
 }
 
 src_install() {
-	newsbin "${BUILD_DIR}/hin9" $PN
-	newbin "${BUILD_DIR}/hin9_pid_helper" ${PN}_pid_helper
+	cmake_src_install
 	newinitd "${S}/external/packaging/$PN.initd.sh" $PN
 	newconfd "${S}/external/packaging/$PN.confd.sh" $PN
 	systemd_dounit "${FILESDIR}/$PN.service" # not tested
@@ -74,12 +78,10 @@ src_install() {
 	# logrotate
 	insinto /etc/logrotate.d
 	newins "${S}/external/packaging/$PN.logrotate.sh" $PN
-
-	keepdir /var/www/localhost
 }
 
 pkg_postinst() {
-	fcaps CAP_NET_BIND_SERVICE /usr/sbin/$PN
+	fcaps_pkg_postinst
 
 	if kernel_is lt 5 7; then
 		ewarn ""

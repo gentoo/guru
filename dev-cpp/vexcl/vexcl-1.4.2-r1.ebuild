@@ -26,7 +26,6 @@ IUSE_BACKEND="
 	+backend-opencl
 "
 #	backend-cuda
-IUSE_EXPAND="BACKEND"
 IUSE="${IUSE_BACKEND} amdsi clhpp examples test" #clogs
 
 RDEPEND="

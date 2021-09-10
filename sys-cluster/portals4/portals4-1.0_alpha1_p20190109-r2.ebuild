@@ -26,7 +26,6 @@ IUSE_TRANSPORT="
 	transport-shmem
 	+transport-udp
 "
-IUSE_EXPAND="TRANSPORT"
 IUSE="${IUSE_TRANSPORT} knem me-triggered pmi ppe reliable-udp test unordered-matching zero-mrs"
 
 RDEPEND="

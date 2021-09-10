@@ -18,7 +18,6 @@ IUSE_TCL="
 	tcl-instrumentation-debug
 	+tcl-performance
 "
-IUSE_EXPAND="TCL"
 IUSE="${IUSE_TCL} fti scr veloc"
 
 RDEPEND="

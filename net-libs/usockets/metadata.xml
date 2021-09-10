@@ -6,6 +6,7 @@
 		<name>Aisha Tammy</name>
 	</maintainer>
 	<use>
+		<flag name="asio">Enable bindings to use the boost asio dispatcher</flag>
 		<flag name="libuv">Enable bindings to use the libuv dispatcher</flag>
 	</use>
 </pkgmetadata>

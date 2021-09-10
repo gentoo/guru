@@ -22,7 +22,6 @@ IUSE_COMM_QUEUE="
 	comm-queue-socket
 "
 #	comm-queue-thallium
-IUSE_EXPAND="COMM_QUEUE"
 IUSE="${IUSE_COMM_QUEUE} python +slurm"
 
 RDEPEND="

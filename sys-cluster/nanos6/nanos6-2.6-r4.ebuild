@@ -63,15 +63,12 @@ src_configure() {
 		$(use_enable debug extra-debug)
 	)
 
+	# https://github.com/bsc-pm/nanos6/issues/6
+	use ctf2prv && myconf+=( "--with-babeltrace2=${EPREFIX}/usr" )
 	use dlb && myconf+=( "--with-dlb=${EPREFIX}/usr" )
 	use memkind && myconf+=( "--with-memkind=${EPREFIX}/usr" )
 	use pqos && myconf+=( "--with-pqos=${EPREFIX}/usr" )
 
-	if use ctf2prv; then
-		myconf+=( "--with-babeltrace2=${EPREFIX}/usr" )
-	else
-		myconf+=( "--without-babeltrace2" )
-	fi
 	if use extrae; then
 		myconf+=( "--with-extrae=${EPREFIX}/usr" )
 	else
@@ -100,7 +97,6 @@ src_configure() {
 
 	econf "${myconf[@]}"
 }
-#		--without-cuda
 
 src_install() {
 	default

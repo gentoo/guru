@@ -24,7 +24,6 @@ IUSE_TOTAL_DATA_ORDERING="
 	+total-data-ordering-check
 	total-data-ordering-never
 "
-IUSE_EXPAND="OFI_MR TOTAL_DATA_ORDERING"
 IUSE="${IUSE_OFI_MR} ${IUSE_TOTAL_DATA_ORDERING} av-map bounce-buffers cma completion-polling cxx
 debug error-checking fortran long-fortran-header manual-progress memcpy ofi ofi-fence openmp
 +pmi-mpi pmi-simple portals4 profiling pthread-mutexes remote-virtual-addressing threads

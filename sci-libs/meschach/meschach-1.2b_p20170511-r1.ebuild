@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
 inherit cmake
 
@@ -21,7 +21,8 @@ LICENSE="meschach"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="+complex +double munroll old segmem +float +sparse unroll"
+IUSE="+complex +double-precision munroll segmem +single-precision +sparse vunroll"
+#TODO: build old functions, torture
 
 #PATCHES=(
 #	"${FILESDIR}/.patch"
@@ -31,12 +32,12 @@ src_configure() {
 	mycmakeargs=(
 		-DANDROID_COMPILE=OFF
 		-DCOMPLEX_OPTION=$(usex complex)
-		-DREAL_DBL_OPTION=$(usex double)
-		-DREAL_FLT_OPTION=$(usex float)
+		-DREAL_DBL_OPTION=$(usex double-precision)
 		-DMUNROLL_OPTION=$(usex munroll)
 		-DSEGMENTED_OPTION=$(usex segmem)
+		-DREAL_FLT_OPTION=$(usex single-precision)
 		-DSPARSE_OPTION=$(usex sparse)
-		-DVUNROLL_OPTION=$(usex unroll)
+		-DVUNROLL_OPTION=$(usex vunroll)
 	)
 	cmake_src_configure
 }
