@@ -259,6 +259,7 @@ net-analyzer/munin-contrib:tools - munin contrib tools
 net-im/biboumi:logrotate - Use app-admin/logrotate for rotating logs
 net-im/biboumi:udns - Asynchronously resolve domain names using net-libs/udns
 net-im/ruqola:speech - Enable text-to-speech support
+net-libs/usockets:asio - Enable bindings to use the boost asio dispatcher
 net-libs/usockets:libuv - Enable bindings to use the libuv dispatcher
 net-misc/lagrange:fribidi - Use dev-libs/fribidi for bidirectional text
 net-misc/lagrange:harfbuzz - Use media-libs/harfbuzz to shape text
@@ -311,14 +312,13 @@ sci-libs/dart:openscenegraph - OpenSceneGraph GUI and examples
 sci-libs/dart:tests - Build the tests
 sci-libs/dart:tutorials - Build the tutorials
 sci-libs/dart:urdfdom - URDF parser
-sci-libs/meschach:complex - incorporate complex functions.
-sci-libs/meschach:double - double precision
-sci-libs/meschach:float - single precision
+sci-libs/meschach:complex - incorporate complex functions
+sci-libs/meschach:double-precision - double precision
 sci-libs/meschach:munroll - unroll low level loops on matrices
-sci-libs/meschach:old - build no longer supported functions
 sci-libs/meschach:segmem - should be set if you are working with a machine or compiler that does not allow large arrays to be allocated. See README
+sci-libs/meschach:single-precision - single precision
 sci-libs/meschach:sparse - incorporate sparse matrix functions
-sci-libs/meschach:unroll - unroll low level loops on vectors
+sci-libs/meschach:vunroll - unroll low level loops on vectors
 sci-mathematics/frama-c:aorai - Build the Aorai plugin
 sci-mathematics/frama-c:callgraph - Build the callgraph plugin
 sci-mathematics/frama-c:dive - Build the Dive plugin
@@ -652,7 +652,10 @@ sys-process/nq:shell - Use shell implementation
 sys-process/nq:tq - Install tq, a tmux & screen wrapper
 www-apps/gogs:cert - Adds support for self-signed certificates
 www-client/torbrowser-launcher:apparmor - Enable AppArmor support
+www-servers/hinsightd:cgi - Enable old/slow cgi support (legacy should not be used)
+www-servers/hinsightd:fcgi - Enable fast cgi support
 www-servers/hinsightd:openssl - Enable tls encryption with openssl
+www-servers/hinsightd:rproxy - Enable reverse proxying support
 x11-libs/gtk-fortran:examples - Install examples source code files
 x11-libs/gtk-fortran:high-level - Build high-level interface to the gtk-fortran package
 x11-libs/gtk-fortran:plplot - Build with sci-libs/plplot support
