@@ -168,14 +168,15 @@ CARGO_OPTIONAL=1
 
 inherit cargo cmake readme.gentoo-r1 xdg
 
-QLIVEPLAYER_LIB_COMMIT="03d3c7b0bf010986710182ba4ab9a887b4c3b42d"
+LIB_COMMIT="03d3c7b0bf010986710182ba4ab9a887b4c3b42d"
+LIB_P="QLivePlayer-Lib-${LIB_COMMIT}"
 MY_P="QLivePlayer-${PV}"
 
 DESCRIPTION="A player and recorder for live streams and videos with danmaku support"
 HOMEPAGE="https://github.com/IsoaSFlus/QLivePlayer"
 SRC_URI="
 	https://github.com/IsoaSFlus/QLivePlayer/archive/refs/tags/${PV}.tar.gz -> ${MY_P}.tar.gz
-	https://github.com/IsoaSFlus/QLivePlayer-Lib/archive/${QLIVEPLAYER_LIB_COMMIT}.tar.gz -> qliveplayer-lib.tar.gz
+	https://github.com/IsoaSFlus/QLivePlayer-Lib/archive/${LIB_COMMIT}.tar.gz -> ${LIB_P}.tar.gz
 	$(cargo_crate_uris ${CRATES})
 "
 PATCHES=(
@@ -207,6 +208,7 @@ RDEPEND="
 "
 DEPEND="
 	${COMMON_DEPEND}
+	>=dev-qt/qtconcurrent-5.15:5
 	kde-frameworks/extra-cmake-modules:5
 "
 BDEPEND="
@@ -214,36 +216,9 @@ BDEPEND="
 "
 
 src_unpack() {
-	mkdir -p "${ECARGO_VENDOR}" || die
-
-	local archive shasum pkg
-
-	unpack "${MY_P}.tar.gz"
-
-	unpack qliveplayer-lib.tar.gz
-	rmdir "${MY_P}/src/QLivePlayer-Lib" || die
-	mv "QLivePlayer-Lib-${QLIVEPLAYER_LIB_COMMIT}" "${MY_P}/src/QLivePlayer-Lib" || die
-
-	for archive in ${A}; do
-		case "${archive}" in
-			*.crate)
-				ebegin "Loading ${archive} into Cargo registry"
-				tar -xf "${DISTDIR}"/${archive} -C "${ECARGO_VENDOR}/" || die
-				# generate sha256sum of the crate itself as cargo needs this
-				shasum=$(sha256sum "${DISTDIR}"/${archive} | cut -d ' ' -f 1)
-				pkg=$(basename ${archive} .crate)
-				cat <<- EOF > ${ECARGO_VENDOR}/${pkg}/.cargo-checksum.json
-				{
-					"package": "${shasum}",
-					"files": {}
-				}
-				EOF
-				eend $?
-				;;
-		esac
-	done
-
-	cargo_gen_config
+	cargo_src_unpack
+	rm -rf "${LIB_P}" || die
+	tar -C "${MY_P}"/src/QLivePlayer-Lib --strip-components=1 -xzf "${DISTDIR}/${LIB_P}.tar.gz" || die
 }
 
 src_prepare() {
