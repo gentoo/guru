@@ -288,6 +288,7 @@ dev-java/gradle-build-operations 6.8.2: Build automation tool for JVM Languages,
 dev-java/gradle-hashing 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/mill-bin 0.9.8 0.9.9: A Java/Scala build tool
 dev-java/openjdk-sts-bin 15.0.2_p7: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
+dev-js/core-js 3.17.3: A modular standard library for JavaScript
 dev-lang/aldor 1.2.0_p20190730-r1: The Aldor Programming Language
 dev-lang/ammonite-repl-bin 2.4.0: Scala language-based scripting and REPL
 dev-lang/fbc 1.07.3 1.08.1: A free/open source, multi-platform BASIC compiler.
@@ -613,6 +614,7 @@ dev-util/ots 8.1.4: An util for validating and sanitising OpenType files
 dev-util/psautohint 2.3.0: A standalone version of AFDKO autohinter
 dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's OpenGL Shader Builder
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
+dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
 dev-util/rpmlint 2.0.0: Tool for checking common errors in RPM packages
 dev-util/rust-analyzer 20210830 20210906 99999999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/rust-analyzer-bin 2021.08.30 2021.09.06: An implementation of Language Server Protocol for the Rust programming language
@@ -800,7 +802,7 @@ media-video/kikoplay 0.8.1 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.2.0: A GTK3 camera application that knows how to deal with the media request api
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
 media-video/owncast 0.0.7-r1 0.0.8: A self-hosted live video and web chat server
-media-video/qliveplayer 3.22.4 4.0.1: A player and recorder for live streams and videos with danmaku support
+media-video/qliveplayer 3.22.4 4.0.1-r1: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/uxplay 0_pre20210525: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
