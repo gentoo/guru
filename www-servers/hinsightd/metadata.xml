@@ -18,5 +18,8 @@
 	</longdescription>
 	<use>
 		<flag name="openssl">Enable tls encryption with openssl</flag>
+		<flag name="cgi">Enable old/slow cgi support (legacy should not be used)</flag>
+		<flag name="fcgi">Enable fast cgi support</flag>
+		<flag name="rproxy">Enable reverse proxying support</flag>
 	</use>
 </pkgmetadata>
