@@ -20,7 +20,6 @@ IUSE_INSTRUMENT="
 	+instrument-io
 	+instrument-syscall
 "
-IUSE_EXPAND="INSTRUMENT"
 IUSE="${IUSE_INSTRUMENT} clustering dlsym doc dyninst heterogeneous inotify memkind
 merge-in-trace nanos online opencl openmp openshmem +parallel-merge pebs-sampling
 peruse +posix-clock pthread sampling +single-mpi-lib sionlib smpss spectral +xml"

@@ -27,7 +27,6 @@ IUSE_NANOX="
 	nanox-instrumentation-debug
 	+nanox-performance
 "
-IUSE_EXPAND="NANOX"
 IUSE="${IUSE_NANOX} allocator ayudame dlb +extrae gasnet hwloc memkind memtracker mpi opencl papi sqlite resiliency task-callback +threads"
 
 CDEPEND="

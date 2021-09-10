@@ -44,7 +44,6 @@ IUSE_PARSEC_PROF="
 	parsec-prof-scheduling-events
 	+parsec-prof-thread
 "
-IUSE_EXPAND="PARSEC_DEBUG PARSEC_DIST PARSEC_PROF"
 IUSE="${IUSE_PARSEC_DEBUG} ${IUSE_PARSEC_DIST} ${IUSE_PARSEC_PROF} +cxx debug +devel-headers fortran +home-config-files +mpi profile +sched-deps-mask sim test +tools"
 
 #TODO: gd vite

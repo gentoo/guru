@@ -8,6 +8,7 @@ MYPN="${PN/-data/}"
 DESCRIPTION="Datasets for GeographicLib"
 HOMEPAGE="https://sourceforge.net/projects/geographiclib"
 S="${WORKDIR}"
+
 SLOT="0"
 KEYWORDS="~amd64"
 LICENSE="public-domain"
@@ -38,7 +39,7 @@ IUSE_MAGNETIC_MODELS="
 	magnetic-models-emm2017
 "
 IUSE="${IUSE_GEOIDS_DATASETS} ${IUSE_GRAVITY_MODELS} ${IUSE_MAGNETIC_MODELS}"
-IUSE_EXPAND="GEOIDS_DATASETS GRAVITY_MODELS MAGNETIC_MODELS"
+
 REQUIRED_USE="
 	|| (
 		${IUSE_GEOIDS_DATASETS/+/}
