@@ -1,5 +1,15 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>gjdijkman@gjdwebserver.nl</email>
+		<name>Gerben Jan Dijkman</name>
+	</maintainer>
+	<longdescription lang="en">
+	Manager daemon for the Quectel EG25 mobile broadband modem.
+	</longdescription>
+	<upstream>
+		<doc>https://gitlab.com/mobian1/devices/eg25-manager</doc>
+		<bugs-to>https://gitlab.com/mobian1/devices/eg25-manager/-/issues</bugs-to>
+	</upstream>
 </pkgmetadata>
