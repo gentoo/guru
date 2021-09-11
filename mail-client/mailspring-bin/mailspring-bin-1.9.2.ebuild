@@ -39,17 +39,17 @@ RDEPEND="
 	x11-libs/libXtst
 	x11-libs/pango
 	x11-misc/xdg-utils
-    x11-libs/cairo
-    x11-libs/gdk-pixbuf:2
-    x11-libs/gtk+:3
-    x11-libs/libX11
-    x11-libs/libxcb
-    x11-libs/libXcomposite
-    x11-libs/libXcursor
-    x11-libs/libXdamage
-    x11-libs/libXext
-    x11-libs/libXfixes
-    x11-libs/libXi
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
+	x11-libs/gtk+:3
+	x11-libs/libX11
+	x11-libs/libxcb
+	x11-libs/libXcomposite
+	x11-libs/libXcursor
+	x11-libs/libXdamage
+	x11-libs/libXext
+	x11-libs/libXfixes
+	x11-libs/libXi
 "
 
 QA_PREBUILT="*"
