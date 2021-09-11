@@ -7,7 +7,6 @@ CMAKE_REMOVE_MODULES_LIST=( FindFreetype )
 
 inherit xdg cmake
 
-
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/nowrep/obs-vkcapture"
