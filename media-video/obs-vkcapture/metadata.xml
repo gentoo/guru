@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Adel Kara Slimane</name>
+		<email>adel.ks@zegrapher.com</email>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>David Rosca</name>
+			<email>nowrep@gmail.com</email>
+		</maintainer>
+		<remote-id type="github">nowrep/obs-vkcapture</remote-id>
+		<bugs-to>https://github.com/nowrep/obs-vkcapture/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
