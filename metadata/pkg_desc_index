@@ -27,7 +27,7 @@ app-accessibility/rhvoice 1.4.2: TTS engine with extended languages support (inc
 app-accessibility/speakup-tools 20121017: Tools to customize speakup module
 app-admin/akita 0.1.4: An HTTP log monitoring tool for your terminal
 app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
-app-admin/chezmoi 1.8.10 2.0.12 2.1.5 2.1.6 2.2.0 2.3.0: Manage your dotfiles across multiple machines, securely
+app-admin/chezmoi 1.8.10 2.0.12 2.1.5 2.1.6 2.2.0 2.3.0 2.4.0: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.12.0 0.12.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/glance 21.0.0: Services for discovering, registering, and retrieving VM images
@@ -801,6 +801,7 @@ media-video/jellyfin-mpv-shim 2.0.1: MPV Cast Client for Jellyfin
 media-video/kikoplay 0.8.1 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.2.0: A GTK3 camera application that knows how to deal with the media request api
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
+media-video/obs-vkcapture 1.0 9999: OBS Linux Vulkan/OpenGL game capture
 media-video/owncast 0.0.7-r1 0.0.8: A self-hosted live video and web chat server
 media-video/qliveplayer 3.22.4 4.0.1-r1: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
@@ -831,7 +832,7 @@ net-misc/FORT-validator 1.4.1 1.4.2 1.5.0: FORT validator is an open source RPKI
 net-misc/amfora 1.8.0: A fancy terminal browser for the Gemini protocol.
 net-misc/can-utils 2020.02.04 2020.12.0-r1 2021.08.0 9999-r3: CAN userspace utilities and tools
 net-misc/castor 0.8.16 0.8.18: A graphical browser for plain-text protocols
-net-misc/eg25-manager 0.3.0: Daemon for managing the Quectel EG25 modem
+net-misc/eg25-manager 0.4.0: Daemon for managing the Quectel EG25 modem
 net-misc/facebook-ptp 0_pre20210831: Facebook's PTP libraries
 net-misc/freetube-bin 0.11.3 0.12.0: https://github.com/FreeTubeApp/FreeTube
 net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
