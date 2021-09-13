@@ -23,6 +23,7 @@ SLOT="0"
 IUSE=""
 
 DEPEND="
+	dev-util/vulkan-headers
 	>=media-video/obs-studio-27
 "
 RDEPEND="${DEPEND}"
