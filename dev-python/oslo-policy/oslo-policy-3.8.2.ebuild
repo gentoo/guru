@@ -9,7 +9,11 @@ PYTHON_COMPAT=( python3_8 )
 inherit distutils-r1
 
 DESCRIPTION="Support for RBAC policy enforcement across all OpenStack services"
-HOMEPAGE="https://pypi.org/project/oslo.policy"
+HOMEPAGE="
+	https://opendev.org/openstack/oslo.policy
+	https://pypi.org/project/oslo.policy
+	https://github.com/openstack/oslo.policy
+"
 SRC_URI="mirror://pypi/${PN:0:1}/oslo.policy/oslo.policy-${PV}.tar.gz"
 S="${WORKDIR}/oslo.policy-${PV}"
 

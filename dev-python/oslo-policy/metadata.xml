@@ -8,6 +8,8 @@
   </maintainer>
   <stabilize-allarches/>
   <upstream>
+    <bugs-to>https://bugs.launchpad.net/oslo.policy</bugs-to>
     <remote-id type="pypi">oslo.policy</remote-id>
+    <remote-id type="github">openstack/oslo.policy</remote-id>
   </upstream>
 </pkgmetadata>
