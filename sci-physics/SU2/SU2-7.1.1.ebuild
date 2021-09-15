@@ -74,6 +74,9 @@ src_prepare(){
 	if has_version ">=dev-libs/boost-1.75.0" ; then
 		sed -i -e 's:cpp_std=c++11:cpp_std=c++14:' meson.build || die
 	fi
+
+	# Disable python-wrapper tests
+	sed -i "/append(pywrapper_/s/./#&/" TestCases/parallel_regression.py || die
 }
 
 src_configure() {
@@ -111,10 +114,10 @@ src_test() {
 
 	pushd TestCases/ || die
 	if use mpi ; then
-		${EPYTHON} parallel_regression.py || die
 		if use tutorials ; then
 			${EPYTHON} tutorials.py || die
 		fi
+		${EPYTHON} parallel_regression.py || die
 	else
 		${EPYTHON} serial_regression.py || die
 	fi

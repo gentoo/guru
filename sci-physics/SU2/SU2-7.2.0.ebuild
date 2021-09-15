@@ -76,6 +76,14 @@ src_prepare(){
 
 	# Force Disable parmetis support in meson.build (configure.ac has optional switch)
 	use !parmetis && { sed -i -e "/parmetis/Id" meson.build || die ; }
+
+	# Disable python-wrapper tests
+	sed -i "/append(pywrapper_/s/./#&/" TestCases/parallel_regression.py || die
+
+	# Copy absence mesh file
+	if use test ; then
+		cp "${S}/TestCases/nonequilibrium/viscwedge/viscwedge.su2" "${S}/TestCases/nonequilibrium/axi_visccone/" || die
+	fi
 }
 
 src_configure() {
@@ -113,10 +121,10 @@ src_test() {
 
 	pushd TestCases/ || die
 	if use mpi ; then
-		${EPYTHON} parallel_regression.py || die
 		if use tutorials ; then
 			${EPYTHON} tutorials.py || die
 		fi
+		${EPYTHON} parallel_regression.py || die
 	else
 		${EPYTHON} serial_regression.py || die
 	fi
