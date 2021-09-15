@@ -2,12 +2,9 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>leonardohn@null.net</email>
-		<name>Leonardo H. Neumann</name>
+		<email>leonardo@neumann.dev.br</email>
+		<name>Leonardo Neumann</name>
 	</maintainer>
-	<use>
-		<flag name="lto">Build with Link Time Optimization (LTO)</flag>
-	</use>
 	<upstream>
 		<bugs-to>https://codeberg.org/dnkl/yambar/issues</bugs-to>
 		<changelog>https://codeberg.org/dnkl/yambar/releases</changelog>

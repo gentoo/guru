@@ -18,7 +18,7 @@ DESCRIPTION="Simplistic and highly configurable status panel for X and Wayland"
 HOMEPAGE="https://codeberg.org/dnkl/yambar"
 LICENSE="MIT"
 SLOT="0"
-IUSE="lto wayland X"
+IUSE="wayland X"
 REQUIRED_USE="|| ( wayland X )"
 
 RDEPEND="
@@ -53,7 +53,6 @@ src_configure() {
 	local emesonargs=(
 		$(meson_feature wayland backend-wayland)
 		$(meson_feature X backend-x11)
-		$(meson_use lto b_lto)
 		-Dwerror=false
 	)
 	meson_src_configure

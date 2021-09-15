@@ -26,6 +26,9 @@ DEPEND="app-arch/brotli
 	x11-misc/shared-mime-info
 	dev-qt/qtwidgets
 	dev-qt/qtx11extras
+	dev-cpp/gtest
+	dev-cpp/highway
+	media-libs/lcms
 "
 
 BDEPEND=""
@@ -40,10 +43,13 @@ src_configure() {
 		-DJPEGXL_ENABLE_SJPEG=OFF
 		-DJPEGXL_WARNINGS_AS_ERRORS=OFF
 
+		-DJPEGXL_ENABLE_SKCMS=ON
 		-DJPEGXL_ENABLE_EXAMPLES=ON
 		-DJPEGXL_ENABLE_VIEWERS=ON
 		-DJPEGXL_ENABLE_PLUGINS=ON
 		-DJPEGXL_FORCE_SYSTEM_BROTLI=ON
+		-DJPEGXL_FORCE_SYSTEM_HWY=ON
+		-DJPEGXL_FORCE_SYSTEM_GTEST=ON
 	)
 
 	cmake_src_configure
