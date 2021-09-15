@@ -205,7 +205,6 @@ gui-apps/swaylock-effects:man - Build and install man pages
 gui-apps/wofi:dmenu - Enable dmenu mode
 gui-apps/wofi:drun - Enable drun mode
 gui-apps/wofi:run - Enable run mode
-gui-apps/yambar:lto - Build with Link Time Optimization (LTO)
 gui-wm/cage:X - Enable support for X11 applications (XWayland)
 kde-misc/geminipart:konqueror - Make Konqueror handle gemini:// URLs
 media-gfx/bonzomatic:system-glew - Use the systems installed version of GLEW (upstream-unsupported)
