@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>torokhov-s-a@yandex.ru</email>
+		<name>Sergey Torokhov</name>
+	</maintainer>
+	<longdescription lang="en">
+		Fypp is a Python powered preprocessor.
+		It can be used for any programming languages but its primary aim is to offer a Fortran preprocessor,
+		which helps to extend Fortran with condititional compiling and template metaprogramming capabilities.
+	</longdescription>
+	<upstream>
+		<remote-id type="pypi">fypp</remote-id>
+		<remote-id type="github">aradi/fypp</remote-id>
+</upstream>
+</pkgmetadata>
