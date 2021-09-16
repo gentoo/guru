@@ -22,7 +22,7 @@ REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 DEPEND="sys-devel/flex"
 RDEPEND="${PYTHON_DEPS}
-		dev-libs/boost[context,threads,python?]
+		dev-libs/boost[context,python?]
 		dev-libs/double-conversion
 		dev-libs/libfmt
 		dev-libs/libevent
