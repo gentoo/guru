@@ -255,6 +255,7 @@ media-video/wlrobs:scpy - Enable the screen copy backend
 net-analyzer/munin-contrib:plugins - contrib munin plugins
 net-analyzer/munin-contrib:templates - contrib munin tools
 net-analyzer/munin-contrib:tools - munin contrib tools
+net-im/Quaternion:keychain - Enable support for password storage via dev-libs/qtkeychain
 net-im/biboumi:logrotate - Use app-admin/logrotate for rotating logs
 net-im/biboumi:udns - Asynchronously resolve domain names using net-libs/udns
 net-im/ruqola:speech - Enable text-to-speech support

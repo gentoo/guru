@@ -34,6 +34,7 @@ app-admin/glance 21.0.0: Services for discovering, registering, and retrieving V
 app-admin/gnome-passwordsafe 4.0-r1 4.1: A password manager for GNOME
 app-admin/grub-customizer 5.1.0: A graphical grub2 settings manager
 app-admin/krapplet 0.1.0-r1 0.2.0 0.3.1: Krapplet (keyring applet): a Linux graphical password manager
+app-admin/pass-update 2.1: pass extension that provides an easy flow for updating passwords
 app-admin/s-tui 1.0.2 1.1.1: Stress-Terminal UI monitoring tool
 app-arch/libarchive-qt 2.0.3 2.0.4 9999: A Qt based archiving solution with libarchive backend
 app-arch/unalz 0.65-r1: Extract ALZ archives
@@ -579,7 +580,6 @@ dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/unicodedata2 13.0.0.2: Unicodedata backport for python 2/3 updated to the latest unicode version
 dev-python/vharfbuzz 0.1.1 0.1.2: A user-friendlier way to use Harfbuzz in Python
 dev-python/vttlib 0.11.0: Dump, merge and compile Visual TrueType data in UFO3 with FontTools
-dev-python/watchgod 0.7: Simple, modern file watching and code reload
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
 dev-python/webrtcvad 2.0.10: Python interface to the Google WebRTC Voice Activity Detector (VAD)
 dev-python/xunitparser 1.3.3: Read JUnit/XUnit XML files and map them to Python objects
@@ -814,6 +814,7 @@ net-dialup/atinout 0.9.1-r1: AT commands as input are sent to modem and response
 net-dialup/tio 1.32: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
+net-im/Quaternion 0.0.9.4e: A Qt5-based IM client for the Matrix protocol
 net-im/biboumi 9.0 9.0-r1: XMPP gateway to IRC
 net-im/cawbird 1.4.1: Cawbird is a fork of the Corebird Twitter client from Baedert.
 net-im/discord-canary-bin 0.0.129: All-in-one voice and text chat
@@ -827,6 +828,7 @@ net-im/whatsapp-for-linux 1.2.0: An unofficial WhatsApp desktop application for 
 net-irc/catgirl 1.9a: TLS-only terminal IRC client
 net-irc/srain 1.2.1 1.2.4: Modern, beautiful IRC client written in GTK+ 3
 net-libs/kcgi 0.12.5: Minimal CGI library for web applications
+net-libs/libqmatrixclient 0.5.3.2: A Qt5 library to write cross-platfrom clients for Matrix
 net-libs/usockets 0.7.1_p20210909 9999: tiny eventing, networking & crypto for async applications
 net-mail/remail 0.13: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.4.1 1.4.2 1.5.0: FORT validator is an open source RPKI validator
