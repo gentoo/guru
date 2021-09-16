@@ -24,7 +24,10 @@ IUSE=""
 
 DEPEND="
 	dev-util/vulkan-headers
+	media-libs/libglvnd
+	media-libs/mesa[vulkan]
 	>=media-video/obs-studio-27
+	x11-libs/libxcb:=
 "
 RDEPEND="${DEPEND}"
 
