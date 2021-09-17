@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>alex@alexsdigital.rodeo</email>
+		<name>Alex Holcomb</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://tools.suckless.org/quark/</bugs-to>
+	</upstream>
+	<longdescription>
+	quark is a lightweight webserver, writen to serve static files quickly. quark supports only HTTP GET/HEAD requests. quark does not natively support TLS.
+	</longdescription>
+</pkgmetadata>
+
