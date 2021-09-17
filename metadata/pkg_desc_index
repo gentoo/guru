@@ -651,7 +651,7 @@ games-engines/instead 3.3.5 9999: INSTEAD text-based quest game engine
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
 games-fps/crispy-doom 5.10.0 5.10.1 5.10.2 5.10.3: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
-games-fps/quakespasm 0.93.2-r1 9999: Modern, cross-platform Quake 1 engine based on FitzQuake
+games-fps/quakespasm 0.94.1 9999: Modern, cross-platform Quake 1 engine based on FitzQuake
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
 games-misc/bonsai 0_pre20210201: bonsai tree generator written in bash
 games-misc/cbonsai 1.3.1-r1: grow bonsai trees in your terminal
@@ -768,7 +768,7 @@ media-libs/imgui 1.83: Bloat-free graphical user interface library for C++
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
 media-libs/libjxl 9999: JPEG XL image format reference implementation
 media-libs/monado 9999: The open source OpenXR runtime.
-media-libs/openxr-loader 1.0.17 9999: OpenXR loader
+media-libs/openxr-loader 1.0.19 9999: OpenXR loader
 media-libs/rtmidi 4.0.0: A set of C++ classes that provide a common API for realtime MIDI input/output
 media-libs/skia 80_p20191220-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-libs/svt-hevc 1.5.0 9999: Scalable Video Technology for HEVC (SVT-HEVC Encoder)
