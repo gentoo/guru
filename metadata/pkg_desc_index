@@ -750,6 +750,7 @@ media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer writ
 media-gfx/gephi-bin 0.9.2: The Open Graph Viz Platform
 media-gfx/grafx2 2.7.2978 2.7.2978-r100: A pixelart-oriented painting program
 media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
+media-gfx/nsxiv 27.1: Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer
 media-gfx/oda-file-converter 22.5.0.0-r1: For converting between different versions of .dwg and .dxf
 media-gfx/oxipng 3.0.1 4.0.3 5.0.0: A lossless PNG compression optimizer
 media-gfx/qview 4.0: Practical and minimal image viewer
