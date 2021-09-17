@@ -7,19 +7,20 @@ MY_PN=OpenXR-SDK
 inherit cmake
 
 if [[ ${PV} == *9999* ]]; then
-	EGIT_REPO_URI="https://github.com/KhronosGroup/${MY_PN}.git"
 	inherit git-r3
+	EGIT_REPO_URI="https://github.com/KhronosGroup/${MY_PN}.git"
+	SLOT="0"
 else
 	SRC_URI="https://github.com/KhronosGroup/${MY_PN}/archive/release-${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}"/${MY_PN}-release-${PV}
+	S="${WORKDIR}"/${MY_PN}-${PV}
+	SLOT="0/${PV}"
 fi
 
 DESCRIPTION="OpenXR loader"
 HOMEPAGE="https://github.com/KhronosGroup/OpenXR-SDK"
 
 LICENSE="Apache-2.0"
-SLOT="0"
 
 IUSE="+wayland +X"
 
