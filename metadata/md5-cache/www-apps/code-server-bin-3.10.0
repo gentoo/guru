@@ -12,5 +12,5 @@ RDEPEND=!www-apps/code-server >=net-libs/nodejs-12.16.1:0/12[ssl] sys-apps/ripgr
 RESTRICT=test
 SLOT=0
 SRC_URI=amd64? ( https://github.com/cdr/code-server/releases/download/v3.10.0/code-server-3.10.0-linux-amd64.tar.gz ) arm64? ( https://github.com/cdr/code-server/releases/download/v3.10.0/code-server-3.10.0-linux-arm64.tar.gz )
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	systemd	c846b9e02ac8293bfc9ca38a195c2a18
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	systemd	2736b403a83f194b59b767f3b344c2c1
 _md5_=e52d0a4dd575b1c94c0f9da451cb45af
