@@ -30,6 +30,7 @@ DEPEND="
 		dev-python/dateparser[${PYTHON_USEDEP}]
 		dev-python/keyring[${PYTHON_USEDEP}]
 		dev-python/lxml[${PYTHON_USEDEP}]
+		dev-python/natsort[${PYTHON_USEDEP}]
 		dev-python/pillow[${PYTHON_USEDEP}]
 		dev-python/pure-protobuf[${PYTHON_USEDEP}]
 		dev-python/pygobject[${PYTHON_USEDEP}]
@@ -52,7 +53,7 @@ src_install() {
 	meson_src_install
 	python_optimize
 
-	sed -i "s/#!.*/#!${EPYTHON}/" "${D}/usr/bin/${PN}"  ||
+	sed -i "s|#!.*|#!/usr/bin/${EPYTHON}|" "${D}/usr/bin/${PN}"  ||
 		die "Failed to fix ${D}/usr/bin/${PN} interpreter"
 }
 

@@ -35,7 +35,6 @@ DEPEND="
 		dev-python/pygobject[${PYTHON_USEDEP}]
 		dev-python/python-magic[${PYTHON_USEDEP}]
 		dev-python/unidecode[${PYTHON_USEDEP}]
-		dev-python/natsort[${PYTHON_USEDEP}]
 	')
 "
 RDEPEND="
@@ -53,7 +52,7 @@ src_install() {
 	meson_src_install
 	python_optimize
 
-	sed -i "s/#!.*/#!${EPYTHON}/" "${D}/usr/bin/${PN}"  ||
+	sed -i "s|#!.*|#!/usr/bin/${EPYTHON}|" "${D}/usr/bin/${PN}"  ||
 		die "Failed to fix ${D}/usr/bin/${PN} interpreter"
 }
 
