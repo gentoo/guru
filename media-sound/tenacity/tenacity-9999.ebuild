@@ -80,6 +80,5 @@ src_install() {
 	# TODO: Improve installation upstream
 	rm "${ED}/usr/tenacity" || die
 	mv "${ED}/usr/share/doc/${PN}" "${ED}/usr/share/doc/${PF}" || die
-	into "/usr/$(get_libdir)/${PN}"
-	dolib.so "${BUILD_DIR}/lib-src/libnyquist/liblibnyquist.so"
+	mv "${BUILD_DIR}/lib-src/libnyquist/liblibnyquist.so" "${ED}/usr/$(get_libdir)/${PN}/liblibnyquist.so" || die
 }
