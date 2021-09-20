@@ -247,15 +247,6 @@ media-sound/6pm:nls - Add support for localization
 media-sound/6pm:presets - Install presets. Recommended
 media-sound/add64:presets - Install presets. Recommended
 media-sound/ncpamixer:wide - Add ncurses wide characters support
-media-sound/tenacity:id3tag - Enables ID3 tagging with id3tag library
-media-sound/tenacity:lv2 - Enables LV2 plugin support
-media-sound/tenacity:midi - Enables MIDI support
-media-sound/tenacity:mp2 - Enables MP2 encoding support
-media-sound/tenacity:mp3 - Enables MP3 decoding support
-media-sound/tenacity:sbsms - Enables SBSMS timestretching support
-media-sound/tenacity:soundtouch - Enables SoundTouch timestretching support
-media-sound/tenacity:vamp - Enables VAMP plugin support
-media-sound/tenacity:vst2 - Enables VST2 plugin support
 media-video/mpv-mpris:autoload - Load plugin automatically
 media-video/syncplay:client - Install the Syncplay client
 media-video/syncplay:server - Install the Syncplay server
@@ -268,6 +259,7 @@ net-im/Quaternion:keychain - Enable support for password storage via dev-libs/qt
 net-im/biboumi:logrotate - Use app-admin/logrotate for rotating logs
 net-im/biboumi:udns - Asynchronously resolve domain names using net-libs/udns
 net-im/ruqola:speech - Enable text-to-speech support
+net-libs/ixwebsocket:ws - Build the ws utility
 net-libs/usockets:asio - Enable bindings to use the boost asio dispatcher
 net-libs/usockets:libuv - Enable bindings to use the libuv dispatcher
 net-misc/lagrange:fribidi - Use dev-libs/fribidi for bidirectional text
@@ -662,7 +654,7 @@ sys-process/nq:tq - Install tq, a tmux & screen wrapper
 www-apps/gogs:cert - Adds support for self-signed certificates
 www-client/torbrowser-launcher:apparmor - Enable AppArmor support
 www-servers/hinsightd:cgi - Enable old/slow cgi support (legacy should not be used)
-www-servers/hinsightd:fcgi - Enable fast cgi support
+www-servers/hinsightd:fcgi - Enable fast cgi support (disabling will break the default config)
 www-servers/hinsightd:openssl - Enable tls encryption with openssl
 www-servers/hinsightd:rproxy - Enable reverse proxying support
 x11-libs/gtk-fortran:examples - Install examples source code files
