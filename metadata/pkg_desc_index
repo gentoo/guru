@@ -64,7 +64,6 @@ app-editors/atom-bin 1.57.0-r2: A hackable text editor for the 21st Century
 app-editors/imhex 1.8.1-r1: A hex editor for reverse engineers, programmers, and eyesight
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/typora-bin 0.10.7: a markdown editor,markdown reader.
-app-emacs/flycheck 31: On the fly syntax checking for GNU Emacs
 app-emacs/idris-mode 1.0 9999: Idris syntax highlighting, compiler-supported editing, and interactive REPL
 app-emacs/prop-menu 0.1.2: Compute pop-up menus from text and overlay properties
 app-emulation/arnold 20170513: Amstrad CPC emulator
