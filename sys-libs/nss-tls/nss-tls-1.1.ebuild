@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,7 +7,7 @@ DESCRIPTION="A DNS over HTTPS resolver for glibc"
 HOMEPAGE="https://github.com/dimkr/nss-tls"
 SRC_URI="https://github.com/dimkr/nss-tls/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-inherit meson ninja-utils
+inherit meson ninja-utils systemd
 
 LICENSE="LGPL-2.1"
 KEYWORDS="~amd64 ~x86"
