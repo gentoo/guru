@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Adrian Schollmeyer</name>
+		<email>nex+b-g-o@nexadn.de</email>
+	</maintainer>
+	<use>
+		<flag name="ws">Build the ws utility</flag>
+	</use>
+</pkgmetadata>

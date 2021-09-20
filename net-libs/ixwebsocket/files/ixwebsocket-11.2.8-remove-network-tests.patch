@@ -1,0 +1,28 @@
+diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
+index 661aebb..bab73c7 100644
+--- a/test/CMakeLists.txt
++++ b/test/CMakeLists.txt
+@@ -11,15 +11,12 @@ option(USE_TLS "Add TLS support" ON)
+ 
+ # Shared sources
+ set (TEST_TARGET_NAMES
+-  IXSocketTest
+   IXSocketConnectTest
+   IXWebSocketServerTest
+   IXWebSocketTestConnectionDisconnection
+   IXUrlParserTest
+-  IXHttpClientTest
+   IXUnityBuildsTest
+   IXHttpTest
+-  IXDNSLookupTest
+   IXWebSocketSubProtocolTest
+   # IXWebSocketBroadcastTest ## FIXME was depending on cobra / take a broadcast server from ws
+   IXStrCaseCompareTest
+@@ -33,7 +30,6 @@ if (UNIX)
+ 
+     # Fail on Windows in CI probably because the pathing is wrong and
+     # some resource files cannot be found
+-    IXHttpServerTest
+     IXWebSocketChatTest
+   )
+ endif()
