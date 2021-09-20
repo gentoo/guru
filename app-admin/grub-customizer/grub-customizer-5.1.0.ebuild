@@ -1,18 +1,17 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="8"
+EAPI=8
 
 inherit cmake flag-o-matic
 
 DESCRIPTION="A graphical grub2 settings manager"
 HOMEPAGE="https://launchpad.net/grub-customizer"
-SRC_URI="https://launchpad.net/grub-customizer/5.1/5.1.0/+download/grub-customizer_5.1.0.tar.gz"
+SRC_URI="https://launchpad.net/grub-customizer/$(ver_cut 1-2)/${PV}/+download/grub-customizer_${PV}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 DEPEND="dev-cpp/gtkmm:3.0
 	dev-libs/openssl
