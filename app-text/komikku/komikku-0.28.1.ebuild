@@ -52,9 +52,8 @@ src_install() {
 	meson_src_install
 	python_optimize
 
-	# Dirty hack (python_doscript doesn't work)
-	echo "#!/usr/bin/${EPYTHON}
-	$(cat ${D}/usr/bin/${PN})" > "${D}/usr/bin/${PN}"
+	sed -i "s|#!.*|#!/usr/bin/${EPYTHON}|" "${D}/usr/bin/${PN}"  ||
+		die "Failed to fix ${D}/usr/bin/${PN} interpreter"
 }
 
 pkg_preinst() {

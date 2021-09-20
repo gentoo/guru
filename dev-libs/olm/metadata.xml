@@ -10,6 +10,6 @@
 		C and C++11 and exposed as a C API.
 	</longdescription>
 	<upstream>
-		<bugs-to>https://gitlab.matrix.org/matrix-org/olm/-/issues</bugs-to>
+		<bugs-to>https://github.com/matrix-org/olm/issues</bugs-to>
 	</upstream>
 </pkgmetadata>

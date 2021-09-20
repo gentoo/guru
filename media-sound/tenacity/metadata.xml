@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>flewkey@2a03.party</email>
+		<name>Ryan Fox</name>
+	</maintainer>
+	<use>
+		<flag name="midi">Enables MIDI support</flag>
+		<flag name="id3tag">Enables ID3 tagging with id3tag library</flag>
+		<flag name="mp3">Enables MP3 decoding support</flag>
+		<flag name="mp2">Enables MP2 encoding support</flag>
+		<flag name="sbsms">Enables SBSMS timestretching support</flag>
+		<flag name="soundtouch">Enables SoundTouch timestretching support</flag>
+		<flag name="vamp">Enables VAMP plugin support</flag>
+		<flag name="lv2">Enables LV2 plugin support</flag>
+		<flag name="vst2">Enables VST2 plugin support</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">tenacityteam/tenacity</remote-id>
+	</upstream>
+</pkgmetadata>

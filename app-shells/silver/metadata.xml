@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Leonardo Hernandez Hernandez</name>
+		<email>leohdz172@outlook.com</email>
+	</maintainer>
+	<longdescription lang="en">
+		A cross-shell customizable powerline-like prompt heavily inspired by Agnoster.
+		The faster rust port of bronze.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/reujab/silver/issues</bugs-to>
+		<doc>https://github.com/reujab/silver/blob/master/readme.md</doc>
+	</upstream>
+</pkgmetadata>
