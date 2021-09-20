@@ -21,10 +21,10 @@ CRATES="
 	cargo_metadata-0.14.0
 	cc-1.0.70
 	cfg-if-1.0.0
-	chalk-derive-0.70.0
-	chalk-ir-0.70.0
-	chalk-recursive-0.70.0
-	chalk-solve-0.70.0
+	chalk-derive-0.71.0
+	chalk-ir-0.71.0
+	chalk-recursive-0.71.0
+	chalk-solve-0.71.0
 	countme-2.0.4
 	cov-mark-2.0.0-pre.1
 	crc32fast-1.2.1
@@ -95,7 +95,7 @@ CRATES="
 	pin-project-lite-0.2.7
 	proc-macro2-1.0.29
 	pulldown-cmark-0.8.0
-	pulldown-cmark-to-cmark-6.0.2
+	pulldown-cmark-to-cmark-6.0.3
 	quote-1.0.9
 	rayon-1.5.1
 	rayon-core-1.9.1
@@ -103,7 +103,7 @@ CRATES="
 	regex-1.5.4
 	regex-automata-0.1.10
 	regex-syntax-0.6.25
-	rowan-0.13.2
+	rowan-0.14.0
 	rustc-ap-rustc_lexer-725.0.0
 	rustc-demangle-0.1.21
 	rustc-hash-1.1.0
@@ -138,7 +138,7 @@ CRATES="
 	tracing-core-0.1.19
 	tracing-log-0.1.2
 	tracing-subscriber-0.2.20
-	tracing-tree-0.1.9
+	tracing-tree-0.1.10
 	ungrammar-1.14.4
 	unicase-2.6.0
 	unicode-bidi-0.3.6
@@ -155,8 +155,8 @@ CRATES="
 	write-json-0.1.2
 	xflags-0.2.3
 	xflags-macros-0.2.3
-	xshell-0.1.15
-	xshell-macros-0.1.15
+	xshell-0.1.17
+	xshell-macros-0.1.17
 "
 
 inherit cargo
