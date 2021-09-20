@@ -10,13 +10,7 @@ S="${WORKDIR}/${P}"
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE=""
 
-RDEPEND=""
-
-DEPEND="${RDEPEND}"
-BDEPEND=""
 src_configure() {
 	sed -in 's/local//' config.mk
 	sed -in 's/d -s/d/' config.mk
