@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	dev-qt/qtcore
 	dev-qt/qtgui
-	>=media-libs/libheif-1.10.0:0=[libde265]
+	>=media-libs/libheif-1.10.0:0=
 "
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"

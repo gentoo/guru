@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,7 +7,7 @@ EGIT_REPO_URI="https://github.com/dimkr/nss-tls.git"
 DESCRIPTION="A DNS over HTTPS resolver for glibc"
 HOMEPAGE="https://github.com/dimkr/nss-tls"
 
-inherit git-r3 meson ninja-utils
+inherit git-r3 meson ninja-utils systemd
 
 S="${WORKDIR}/${PN}-9999"
 LICENSE="LGPL-2.1"

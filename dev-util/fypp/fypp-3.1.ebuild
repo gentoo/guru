@@ -8,7 +8,7 @@ inherit distutils-r1
 
 DESCRIPTION="Fypp - Python powered Fortran preprocessor"
 HOMEPAGE="https://github.com/aradi/fypp"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${PN}-${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"

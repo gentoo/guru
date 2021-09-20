@@ -5,9 +5,6 @@
 		<email>gjdijkman@gjdwebserver.nl</email>
 		<name>Gerben Jan Dijkman</name>
 	</maintainer>
-	<longdescription lang="en">
-	Manager daemon for the Quectel EG25 mobile broadband modem.
-	</longdescription>
 	<upstream>
 		<doc>https://gitlab.com/mobian1/devices/eg25-manager</doc>
 		<bugs-to>https://gitlab.com/mobian1/devices/eg25-manager/-/issues</bugs-to>

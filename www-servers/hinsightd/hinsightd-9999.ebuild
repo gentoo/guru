@@ -11,18 +11,18 @@ DESCRIPTION="hinsightd a http/1.1 webserver with (hopefully) minimal goals"
 HOMEPAGE="https://gitlab.com/tiotags/hin9"
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64"
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/tiotags/hin9.git"
-	KEYWORDS=
 elif [[ ! -z "$mycommit" ]]; then
 	SRC_URI="https://gitlab.com/tiotags/hin9/-/archive/${mycommit}/hin9-${mycommit}.tar.gz"
 	S="${WORKDIR}/hin9-${mycommit}"
+	KEYWORDS="~amd64"
 else
 	SRC_URI="https://gitlab.com/tiotags/hin9/-/archive/v${PV}/hin9-v${PV}.tar.gz"
 	S="${WORKDIR}/hin9-v${PV}"
+	KEYWORDS="~amd64"
 fi
 
 IUSE="+openssl cgi +fcgi +rproxy"

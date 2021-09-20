@@ -9,7 +9,7 @@ MY_PN=${PN%-*}
 inherit desktop python-single-r1 xdg
 
 DESCRIPTION="Web based tool to extract data from plots, images, and maps"
-HOMEPAGE="https://automeris.io/${MY_PN}/"
+HOMEPAGE="https://automeris.io/WebPlotDigitizer/"
 SRC_URI="https://automeris.io/downloads/${MY_PN}-${PV}-linux-x64.zip"
 
 LICENSE="AGPL-3"
@@ -33,6 +33,7 @@ RDEPEND="
 	dev-libs/nss
 	x11-libs/gtk+:3[X,cups,introspection]
 "
+BDEPEND="app-arch/unzip"
 
 S="${WORKDIR}/${MY_PN}-${PV}-linux-x64"
 
