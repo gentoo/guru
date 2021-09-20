@@ -73,7 +73,7 @@ src_install() {
 	insinto /etc/$PN
 	doins "${S}/workdir/main.lua"
 	doins "${S}/workdir/lib.lua"
-	doins "${S}/workdir/default_config.lua"
+	doins -r "${S}/workdir/config/"
 
 	# logrotate
 	insinto /etc/logrotate.d
