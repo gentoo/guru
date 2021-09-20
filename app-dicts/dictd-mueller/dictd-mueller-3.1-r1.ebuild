@@ -6,12 +6,13 @@ EAPI=7
 MY_PN="mueller-dict"
 MY_P="${MY_PN}-${PV}"
 
-inherit eutils autotools
+inherit autotools
 
 DESCRIPTION="V. K. Mueller English-Russian Dictionary"
 HOMEPAGE="http://mueller-dict.sourceforge.net"
 SRC_URI="mirror://sourceforge/${MY_PN}/${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
+
 LICENSE="GPL-2"
 IUSE="ipa"
 SLOT="0"
