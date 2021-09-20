@@ -5,10 +5,6 @@
 		<email>torokhov-s-a@yandex.ru</email>
 		<name>Sergey Torokhov</name>
 	</maintainer>
-	<longdescription lang="en">
-		FORD, standing for FORtran Documenter,
-		is an automatic documentation generator for modern Fortran programs.
-	</longdescription>
 	<upstream>
 		<remote-id type="pypi">FORD</remote-id>
 		<remote-id type="github">Fortran-FOSS-Programmers/ford</remote-id>
