@@ -843,7 +843,7 @@ net-misc/facebook-ptp 0_pre20210831: Facebook's PTP libraries
 net-misc/freetube-bin 0.11.3 0.12.0: https://github.com/FreeTubeApp/FreeTube
 net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
-net-misc/gmid 1.7.2 9999: Simple and secure Gemini server
+net-misc/gmid 1.7.2 1.7.3 9999: Simple and secure Gemini server
 net-misc/kristall 0.3-r1 9999: Visual cross-platform gemini browser
 net-misc/lagrange 1.6.4 1.6.5: Desktop GUI client for browsing Geminispace
 net-misc/lyrics-in-terminal 1.4.2: Command Line Lyrics fetcher for MPRIS media players
@@ -854,7 +854,7 @@ net-misc/openbgpd 6.8_p0 6.9_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.6.7 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
 net-misc/smcroute 2.5.2: A static multicast routing daemon
-net-misc/telescope 0.5 0.5.1: w3m-like browser for Gemini
+net-misc/telescope 0.5.1 0.5.2: w3m-like browser for Gemini
 net-misc/tinyssh 20210601 99999999: A small SSH server with state-of-the-art cryptography
 net-misc/tootle 1.0_alpha2 1.0 9999: Mastodon client written in GTK3
 net-misc/tuir 1.29.0: A text-based interface (TUI) to view and interact with Reddit from your terminal
