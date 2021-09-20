@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit gnome2-utils meson systemd udev
+inherit gnome2-utils meson systemd udev xdg
 
 DESCRIPTION="IIO sensors to D-Bus proxy"
 HOMEPAGE="https://gitlab.freedesktop.org/hadess/iio-sensor-proxy/"
