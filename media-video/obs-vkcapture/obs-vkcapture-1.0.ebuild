@@ -22,14 +22,17 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
 
-DEPEND="
+BDEPEND="
 	dev-util/vulkan-headers
+	media-libs/shaderc
+	media-libs/vulkan-loader
+	>=media-video/obs-studio-27
+"
+RDEPEND="
 	media-libs/libglvnd
-	media-libs/mesa[vulkan]
 	>=media-video/obs-studio-27
 	x11-libs/libxcb:=
 "
-RDEPEND="${DEPEND}"
 
 src_unpack() {
 	default
