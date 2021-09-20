@@ -17,17 +17,26 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+ssl test zlib ws"
 
 DEPEND="
-	sys-libs/zlib:=
-
+	ssl? (
+		dev-libs/openssl:=
+	)
 	ws? (
 		>=dev-libs/spdlog-1.8.0:=
+	)
+	zlib? (
+		sys-libs/zlib:=
 	)
 	test? (
 		>=dev-libs/spdlog-1.8.0:=
 	)
 "
 RDEPEND="
-	sys-libs/zlib:=
+	ssl? (
+		dev-libs/openssl:=
+	)
+	zlib? (
+		sys-libs/zlib:=
+	)
 "
 BDEPEND=""
 
