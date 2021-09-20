@@ -247,6 +247,15 @@ media-sound/6pm:nls - Add support for localization
 media-sound/6pm:presets - Install presets. Recommended
 media-sound/add64:presets - Install presets. Recommended
 media-sound/ncpamixer:wide - Add ncurses wide characters support
+media-sound/tenacity:id3tag - Enables ID3 tagging with id3tag library
+media-sound/tenacity:lv2 - Enables LV2 plugin support
+media-sound/tenacity:midi - Enables MIDI support
+media-sound/tenacity:mp2 - Enables MP2 encoding support
+media-sound/tenacity:mp3 - Enables MP3 decoding support
+media-sound/tenacity:sbsms - Enables SBSMS timestretching support
+media-sound/tenacity:soundtouch - Enables SoundTouch timestretching support
+media-sound/tenacity:vamp - Enables VAMP plugin support
+media-sound/tenacity:vst2 - Enables VST2 plugin support
 media-video/mpv-mpris:autoload - Load plugin automatically
 media-video/syncplay:client - Install the Syncplay client
 media-video/syncplay:server - Install the Syncplay server

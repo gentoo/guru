@@ -1,0 +1,11 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=configure unpack
+DESCRIPTION=A small, GET-only static HTTP server
+EAPI=7
+HOMEPAGE=https://tools.suckless.org/quark/
+INHERIT=git-r3
+LICENSE=ISC
+PROPERTIES=live
+SLOT=0
+_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=335affab2d4b4a59876bbfcbf05171c8

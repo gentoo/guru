@@ -1,0 +1,13 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install postinst unpack
+DEPEND=app-shells/zsh app-shells/silver
+DESCRIPTION=Zsh plugin for silver
+EAPI=8
+HOMEPAGE=https://github.com/silver-prompt/zsh
+INHERIT=git-r3
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=app-shells/zsh app-shells/silver
+SLOT=0
+_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=cdbdfa96be04e7b7b5b37fef323e2170
