@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit multilib xdg cmake
+inherit xdg cmake
 
 DESCRIPTION="A Qt based archiving solution with libarchive backend"
 HOMEPAGE="https://gitlab.com/marcusbritanicus/libarchive-qt"
