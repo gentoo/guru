@@ -3,9 +3,10 @@
 
 EAPI=8
 
-inherit multilib toolchain-funcs
+inherit toolchain-funcs
 
 COMMIT="ffd522e7188bef30a00c74dc7eb9de5faff90092"
+
 DESCRIPTION="Family of better random number generators"
 HOMEPAGE="https://www.pcg-random.org https://github.com/imneme/pcg-cpp"
 SRC_URI="https://github.com/imneme/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
