@@ -3,12 +3,12 @@
 
 EAPI=7
 
-inherit rpm xdg desktop
+inherit rpm xdg
 DESCRIPTION="A modern ebook manager and reader with sync and backup capacities"
 HOMEPAGE="https://koodo.960960.xyz/"
 SRC_URI="https://github.com/troyeguo/koodo-reader/releases/download/v${PV}/Koodo.Reader-${PV}.rpm"
-
 S="${WORKDIR}"
+
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="-* ~amd64"
