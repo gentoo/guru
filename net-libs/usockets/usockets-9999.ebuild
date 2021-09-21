@@ -24,7 +24,7 @@ IUSE="asio libuv +ssl"
 REQUIRED_USE="?? ( asio libuv )"
 
 DEPEND="
-	asio? ( dev-cpp/asio[ssl?] )
+	asio? ( dev-cpp/asio[ssl(+)?] )
 	libuv? ( dev-libs/libuv )
 	ssl? ( >=dev-libs/openssl-1.1.0 )
 "
