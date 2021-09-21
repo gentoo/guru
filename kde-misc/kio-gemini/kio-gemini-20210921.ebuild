@@ -1,11 +1,11 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-COMMIT="679b4b9125e9980aea22dace35afd76a5ca9e85e"
+COMMIT="d9ee2370202d7c0106004cd0b79dbed1a862aef7"
 ECM_HANDBOOK="forceoptional"
-KFMIN=5.38.0
+KFMIN=5.83.0
 QTMIN=5.4.0
 inherit ecm
 
@@ -19,6 +19,7 @@ SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 DEPEND="
+	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 "
