@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure install
-DEPEND=asio? ( dev-cpp/asio[ssl?] ) libuv? ( dev-libs/libuv ) ssl? ( >=dev-libs/openssl-1.1.0 )
+DEPEND=asio? ( dev-cpp/asio[ssl(+)?] ) libuv? ( dev-libs/libuv ) ssl? ( >=dev-libs/openssl-1.1.0 )
 DESCRIPTION=tiny eventing, networking & crypto for async applications
 EAPI=7
 HOMEPAGE=https://github.com/uNetworking/uSockets
@@ -7,9 +7,9 @@ INHERIT=toolchain-funcs
 IUSE=asio libuv +ssl
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=Apache-2.0
-RDEPEND=asio? ( dev-cpp/asio[ssl?] ) libuv? ( dev-libs/libuv ) ssl? ( >=dev-libs/openssl-1.1.0 )
+RDEPEND=asio? ( dev-cpp/asio[ssl(+)?] ) libuv? ( dev-libs/libuv ) ssl? ( >=dev-libs/openssl-1.1.0 )
 REQUIRED_USE=?? ( asio libuv )
 SLOT=0
 SRC_URI=https://github.com/uNetworking/uSockets/archive/c06112c89b4c1cf5a09b5f8daa2def756b925889.tar.gz -> usockets-0.7.1_p20210909.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
-_md5_=4c53eb5af1d1715c6c914bab47faa0bd
+_md5_=4c67fcc8f0f00c394b1eee47c8c90ef4

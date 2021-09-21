@@ -1,0 +1,10 @@
+DEFINED_PHASES=install
+DESCRIPTION=Terminal based Mattermost client
+EAPI=8
+HOMEPAGE=https://github.com/matterhorn-chat/matterhorn
+KEYWORDS=-* ~amd64
+LICENSE=BSD
+RDEPEND=dev-libs/gmp:0 sys-libs/ncurses:0/6 sys-libs/zlib:0/1
+SLOT=0
+SRC_URI=https://github.com/matterhorn-chat/matterhorn/releases/download/50200.13.0/matterhorn-50200.13.0-fedora-29-x86_64.tar.bz2 -> matterhorn-bin-50200.13.0.tar.bz2
+_md5_=989033a8eba5d06ab80283ea1913dc92
