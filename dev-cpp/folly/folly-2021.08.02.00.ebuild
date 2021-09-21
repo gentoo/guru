@@ -19,7 +19,7 @@ DEPEND="
 	app-arch/zstd
 	dev-cpp/gflags
 	dev-cpp/glog[gflags]
-	dev-libs/boost[context,threads]
+	dev-libs/boost[context,threads(+)]
 	dev-libs/double-conversion
 	dev-libs/libevent
 	dev-libs/libfmt

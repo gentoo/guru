@@ -5,11 +5,12 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{8..9} )
 
-inherit distutils-r1
+inherit distutils-r1 toolchain-funcs
 
 DESCRIPTION="Adobe Font Development Kit for OpenType"
 HOMEPAGE="https://adobe-type-tools.github.io/afdko"
 SRC_URI="https://github.com/adobe-type-tools/afdko/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+
 KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
 SLOT="0"

@@ -132,14 +132,16 @@ DEPEND="
 
 DOCS="readme.md"
 
+QA_FLAGS_IGNORED="/usr/bin/silver"
+
 PATCHES=( "$FILESDIR/add-gentoo-support.patch" )
 
 src_configure() {
 	export LIBGIT2_SYS_USE_PKG_CONFIG=1
 	export PKG_CONFIG_ALLOW_CROSS=1
 
-	# Some obscure LDFLAGS cause error during linking
-	strip-flags
+	# Breaks compilation
+	filter-flags '-flto*'
 }
 
 src_install() {
