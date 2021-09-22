@@ -27,7 +27,7 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" UEBERZUG_SUPPORT=YES install
+	emake DESTDIR="${D}" install
 	einstalldocs
 }
 
