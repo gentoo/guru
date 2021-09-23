@@ -9,4 +9,4 @@ PROPERTIES=live
 RDEPEND=virtual/awk
 SLOT=0
 _eclasses_=optfeature	30ce9dec2b8943338c9b015bd32bac6a	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=f59eae552448127719150bcc4d01cbe7
+_md5_=71d280dc2360ac41a56368d66864b531

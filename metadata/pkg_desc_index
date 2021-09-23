@@ -83,7 +83,7 @@ app-misc/cpufetch 0.94_p20210409 0.98: Simplistic yet fancy CPU architecture fet
 app-misc/diff-so-fancy 1.4.2: Good-lookin' diffs. Actually... nah... The best-lookin' diffs.
 app-misc/doublecmd-bin 0.9.10: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820: Simple drag-and-drop source/sink for X and Wayland
-app-misc/far2l 2.3.20210426_alpha 2.3.20210630_alpha 9999: Linux port of FAR Manager v2
+app-misc/far2l 2.3.20210630_alpha 2.3.20210921_alpha 9999: Linux port of FAR Manager v2
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/fmawk 1.0 9999: File manager written in awk
@@ -252,7 +252,7 @@ dev-R/withr 2.4.2: Run Code With Temporarily Modified Global State
 dev-R/xfun 0.24: Supporting Functions for Package maintained by Yihui Xie
 dev-R/xml2 1.3.2: Parse XML
 dev-R/yaml 2.2.1: Methods to Convert R Data to YAML and Back
-dev-cpp/cli11 1.9.1 2.0.0: Command line parser for C++11
+dev-cpp/cli11 2.0.0 2.1.0: Command line parser for C++11
 dev-cpp/drogon 1.7.1 1.7.2: C++14/17 based HTTP web application framework
 dev-cpp/dtl 1.19_p20210531: diff template library written by C++
 dev-cpp/fbthrift 2021.08.02.00: Facebook's branch of Apache Thrift, including a new C++ server
@@ -330,7 +330,6 @@ dev-libs/octetos-db-maria 1.4.2_alpha 1.9.2_alpha 9999: C++ library for Database
 dev-libs/octetos-db-postgresql 1.3.9_alpha 1.3.10_alpha: C++ library for Database Acces.
 dev-libs/olm 3.2.4-r1 3.2.6: Implementation of the olm and megolm cryptographic ratchets
 dev-libs/open62541 1.2.2: Open source C implementation of OPC UA
-dev-libs/pocl 1.7: Portable Computing Language (an implementation of OpenCL)
 dev-libs/properties-cpp 0.0.2: Simple convenience library for handling properties and signals in C++11
 dev-libs/protothreads 1.4: Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
@@ -618,8 +617,9 @@ dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
 dev-util/rpmlint 2.0.0: Tool for checking common errors in RPM packages
 dev-util/rust-analyzer 20210913 20210920 99999999: An implementation of Language Server Protocol for the Rust programming language
-dev-util/rust-analyzer-bin 2021.08.30 2021.09.06: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
+dev-util/wakatime-cli 1.27.0: Command line interface to WakaTime used by all WakaTime plugins
 dev-util/xdp-tools 1.2.0: Utilities and example programs for use with XDP
 dev-vcs/bit 1.1.1 1.1.2: Bit is a modern Git CLI
 dev-vcs/git-blame-someone-else 0_pre20180613: Blame someone else for your bad code.
@@ -720,8 +720,8 @@ kde-apps/kclock 21.07 21.08: A convergent clock application for Plasma
 kde-apps/krecorder 21.05 21.06: A convergent audio recording application for Plasma
 kde-apps/tokodon 21.06: Mastodon client for Plasma and Plasma Mobile
 kde-frameworks/kirigami-addons 0.2: Convergent visual components for Kirigami-based applications
-kde-misc/geminipart 20210807: KPart for viewing text/gemini files
-kde-misc/kio-gemini 20210516: Gemini KIO slave
+kde-misc/geminipart 20210921: KPart for viewing text/gemini files
+kde-misc/kio-gemini 20210921: Gemini KIO slave
 kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 kde-misc/plasma5-wallpapers-dynamic 3.3.9 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
 kde-misc/skanpage 0_p20210402: Simple pdf scanning application based on libksane and KDE Frameworks
@@ -820,7 +820,7 @@ net-im/Quaternion 0.0.9.4e: A Qt5-based IM client for the Matrix protocol
 net-im/abaddon 0.1.0: Alternative Discord client using GTK instead of Electron
 net-im/biboumi 9.0 9.0-r1: XMPP gateway to IRC
 net-im/cawbird 1.4.1: Cawbird is a fork of the Corebird Twitter client from Baedert.
-net-im/discord-canary-bin 0.0.130: All-in-one voice and text chat
+net-im/discord-canary-bin 0.0.131: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.25: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423: A little tool to send messages to an XMPP contact or MUC
 net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
@@ -1022,7 +1022,7 @@ sys-power/amdgpu-fan 0.1.0-r1: Fan controller for AMD graphics cards running the
 sys-power/disable-c6 0_p20190603: disable the C6 state upon system boot, preventing Ryzen freezes
 sys-power/gtherm 0.0.2: A simple daemon to monitor thermal zones and cooling devices
 sys-power/gwe 0.15.3: NVIDIA settings alternative with overclocking, fan control, and information
-sys-process/btop 1.0.2: A monitor of resources
+sys-process/btop 1.0.4: A monitor of resources
 sys-process/gotop 4.1.2: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/nq 0.4: Unix command line queue utility
 sys-process/nvtop 1.2.2 9999: NVIDIA GPUs htop like monitoring tool

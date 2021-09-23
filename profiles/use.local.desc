@@ -111,14 +111,6 @@ dev-libs/open62541:openssl - Use openssl for encryption
 dev-libs/open62541:pubsub - Enable OPC/UA Pub/Sub extensions
 dev-libs/open62541:tools - Build additional shell tools
 dev-libs/open62541:xdp - Enable pub/sub with eXpress Data Path (XDP)
-dev-libs/pocl:accel - Enable the generic hardware accelerator device driver
-dev-libs/pocl:cl20 - Enable reporting OpenCL 2.0 for the CPU device
-dev-libs/pocl:conformance - Ensures that certain build options which would result in non-conformant pocl build stay disabled. Note that this does not quarantee a fully conformant build of pocl by itself
-dev-libs/pocl:cuda - Enable the CUDA backend for NVIDIA GPUs
-dev-libs/pocl:float-conversion - When enabled, OpenCL printf() call's f/e/g formatters are handled by pocl. When disabled, these are handled by system C library.
-dev-libs/pocl:hardening - Enable hardening against various attacks. May worsen performance
-dev-libs/pocl:hwloc - Enable hwloc support
-dev-libs/pocl:memmanager - Enables custom memory manager. Except for special circumstances, this should be disabled
 dev-libs/xqilla:tidy - Add Tidy-HTML5 support
 dev-libs/zfp:aligned - Enable aligned memory allocation
 dev-libs/zfp:cfp - Build CFP arrays library
