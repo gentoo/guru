@@ -26,11 +26,11 @@ BDEPEND="
 	dev-util/vulkan-headers
 	media-libs/shaderc
 	media-libs/vulkan-loader
-	>=media-video/obs-studio-27
+	>=media-video/obs-studio-27[wayland]
 "
 RDEPEND="
 	media-libs/libglvnd
-	>=media-video/obs-studio-27
+	>=media-video/obs-studio-27[wayland]
 	x11-libs/libxcb:=
 "
 
