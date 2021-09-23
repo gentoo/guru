@@ -736,7 +736,7 @@ src_compile() {
 		-gcflags "-trimpath=${S}"
 	)
 
-	go build "${mygoargs[@]}" -o ${PN} || die
+	go build "${mygoargs[@]}" -o ${MY_PN} || die
 }
 
 src_test() {
@@ -744,5 +744,5 @@ src_test() {
 }
 
 src_install() {
-	dobin ${PN}
+	dobin ${MY_PN}
 }
