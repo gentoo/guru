@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>cyber+gentoo@sysrq.in</email>
-		<name>Anna</name>
-	</maintainer>
-	<longdescription>
-		Game of Trees (Got) is a version control system which prioritizes
-		ease of use and simplicity over flexibility.
+<maintainer type="person">
+	<email>cyber+gentoo@sysrq.in</email>
+	<name>Anna</name>
+</maintainer>
+<longdescription>
+	Game of Trees (Got) is a version control system which prioritizes ease
+	of use and simplicity over flexibility.
 
-		Got uses Git repositories to store versioned data. Git can be used
-		for any functionality which has not yet been implemented in Got.
-		It will always remain possible to work with both Got and Git on the
-		same repository.
-	</longdescription>
-	<upstream>
-		<maintainer>
-			<email>thomas@xteddy.org</email>
-			<name>Thomas Adam</name>
-		</maintainer>
-		<bugs-to>mailto:gameoftrees@openbsd.org</bugs-to>
-		<doc>https://gameoftrees.org/examples.html</doc>
-		<changelog>https://git.gameoftrees.org/gitweb/?p=got-portable.git;a=blob_plain;f=CHANGES</changelog>
-	</upstream>
+	Got uses Git repositories to store versioned data. Git can be used for
+	any functionality which has not yet been implemented in Got. It will
+	always remain possible to work with both Got and Git on the same
+	repository.
+</longdescription>
+<upstream>
+	<maintainer>
+		<email>thomas@xteddy.org</email>
+		<name>Thomas Adam</name>
+	</maintainer>
+	<bugs-to>mailto:gameoftrees@openbsd.org</bugs-to>
+	<doc>https://gameoftrees.org/examples.html</doc>
+	<changelog>https://git.gameoftrees.org/gitweb/?p=got-portable.git;a=blob_plain;f=CHANGES</changelog>
+</upstream>
 </pkgmetadata>
