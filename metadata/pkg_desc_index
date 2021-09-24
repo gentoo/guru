@@ -315,7 +315,7 @@ dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync client
 dev-libs/libdatrie 0.2.13: Double-Array Trie Library
 dev-libs/libdwarf 20210528: The DWARF Debugging Information Format
 dev-libs/libnodave 0.8.5.1-r2: Connect to and exchange data with Siemens PLCs
-dev-libs/libphonenumber 8.12.32: library for parsing, formatting, and validating international phone numbers
+dev-libs/libphonenumber 8.12.33: library for parsing, formatting, and validating international phone numbers
 dev-libs/libthai 0.1.28: A a set of Thai language support routines
 dev-libs/memkind 1.11.0-r2: user extensible heap manager built on top of jemalloc
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
@@ -628,7 +628,7 @@ dev-vcs/git-repair 1.20210629: repairs a damaged git repository
 dev-vcs/git-repo-updater 0.5.1-r1: Easily update multiple git repositories at once
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
 dev-vcs/gitqlient 1.4.0 1.4.3 9999: Multi-platform Git client written with Qt
-dev-vcs/got 0_p20210217: Portable version of the Game of Trees version control system
+dev-vcs/got 0_p20210217 0.60: Portable version of the Game of Trees version control system
 dev-vcs/lazygit 0.28.2 0.29 9999: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
 games-action/blackvoxel 2.42 9999: Blackvoxel Video Game
