@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop xdg-utils savedconfig toolchain-funcs
+inherit desktop xdg-utils savedconfig toolchain-funcs linux-info
 
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/nsxiv/nsxiv.git"
@@ -18,7 +18,7 @@ HOMEPAGE="https://github.com/nsxiv/nsxiv"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="exif gif +jpeg +png webp tiff"
+IUSE="exif +gif +jpeg +png webp tiff +inotify"
 
 RDEPEND="
 	exif? ( media-libs/libexif )
@@ -28,6 +28,17 @@ RDEPEND="
 	x11-libs/libXft
 "
 DEPEND="${RDEPEND}"
+
+pkg_setup() {
+	if use inotify; then
+		nsxiv_autoreload="inotify"
+		CONFIG_CHECK+=" ~INOTIFY_USER"
+		ERROR_INOTIFY_USER="${P} requires inotify in-kernel support."
+		linux-info_pkg_setup
+	else
+		nsxiv_autoreload="nop"
+	fi
+}
 
 src_prepare() {
 	default
@@ -44,7 +55,10 @@ src_configure() {
 }
 
 src_compile() {
-	emake CC="$(tc-getCC)" HAVE_LIBEXIF=$(usex exif 1 0) HAVE_LIBGIF=$(usex gif 1 0)
+	emake CC="$(tc-getCC)" \
+		HAVE_LIBEXIF=$(usex exif 1 0) \
+		HAVE_LIBGIF=$(usex gif 1 0) \
+		AUTORELOAD="${nsxiv_autoreload}"
 }
 
 src_install() {
