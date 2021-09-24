@@ -1,4 +1,4 @@
-# Copyright 2019-2020 Gentoo Authors
+# Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -20,7 +20,6 @@ LICENSE="GPL-2"
 SLOT="0"
 
 RDEPEND="
-	media-libs/phonon:=[gstreamer]
 	media-libs/gst-plugins-good
 	dev-qt/qtmultimedia:=[alsa,gstreamer,qml,widgets]
 	dev-qt/qtgraphicaleffects
