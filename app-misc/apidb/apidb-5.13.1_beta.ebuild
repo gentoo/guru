@@ -19,7 +19,6 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/azaeldevel/apidb.git"
 else
-	inherit autotools
 	SRC_URI="https://github.com/azaeldevel/${PN}/archive/${MYPV}.tar.gz"
 	KEYWORDS="~amd64"
 fi
