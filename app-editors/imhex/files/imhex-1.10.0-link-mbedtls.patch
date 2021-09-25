@@ -1,0 +1,14 @@
+--- a/plugins/libimhex/CMakeLists.txt
++++ b/plugins/libimhex/CMakeLists.txt
+@@ -95,9 +95,9 @@
+ 
+ if (APPLE)
+     find_library(FOUNDATION NAMES Foundation)
+-    target_link_libraries(libimhex PUBLIC imgui mbedcrypto ${FOUNDATION} nfd fmt-header-only libcurl magic)
++    target_link_libraries(libimhex PUBLIC imgui mbedtls ${FOUNDATION} nfd fmt-header-only libcurl magic)
+ else ()
+-    target_link_libraries(libimhex PUBLIC imgui mbedcrypto nfd magic)
++    target_link_libraries(libimhex PUBLIC imgui mbedtls nfd magic)
+ 
+     if (NOT USE_SYSTEM_FMT)
+         target_link_libraries(libimhex PUBLIC fmt-header-only)
