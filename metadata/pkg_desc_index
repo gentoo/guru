@@ -9,6 +9,7 @@ acct-group/monero 0: System group: monero
 acct-group/owncast 0: Group for media-video/owncast
 acct-group/purritobin 0: Group for net-misc/purritobin
 acct-group/wsdd 0: Group for net-misc/wsdd
+acct-group/yggdrasil 1: System group: yggdrasil
 acct-user/_bgpd 0-r1: User for OpenBGPD
 acct-user/_rpki-client 0: User for rpki-client
 acct-user/biboumi 0: User for net-im/biboumi
@@ -22,6 +23,7 @@ acct-user/owncast 0: User for media-video/owncast
 acct-user/purritobin 0: User for net-misc/purritobin
 acct-user/trezord 0: User for TREZOR Bridge
 acct-user/wsdd 0: User for net-misc/wsdd
+acct-user/yggdrasil 1: Yggdrasil user
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
 app-accessibility/rhvoice 1.4.2: TTS engine with extended languages support (including Russian)
 app-accessibility/speakup-tools 20121017: Tools to customize speakup module
@@ -134,7 +136,7 @@ app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code t
 app-shells/ohmyzsh 9999: A framework for managing your zsh configuration.
 app-shells/powerline-go 1.21.0: A powerline like prompt for Bash, Zsh, Fish written in Go lang.
 app-shells/silver 2.0.0: A cross-shell customizable powerline-like prompt with icons
-app-shells/starship 0.56.0: The minimal, blazing-fast, and infinitely customizable prompt for any shell!
+app-shells/starship 0.58.0: The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 app-shells/zoxide 0.7.2: A smarter cd command for your terminal
 app-shells/zsh-autosuggestions 0.6.4: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
@@ -556,7 +558,7 @@ dev-python/sphinxcontrib-napoleon 0.7: Allow a different format in dosctrings fo
 dev-python/sphinxcontrib-restbuilder 0.3: A Sphinx builder/writer to output reStructuredText (rst) files
 dev-python/spotipy 2.17.1: A light weight Python library for the Spotify Web API
 dev-python/sre_yield 1.2: Python module to generate regular all expression matches
-dev-python/srt 3.4.1: A tiny library for parsing, modifying, and composing SRT files
+dev-python/srt 3.4.1 3.5.0: A tiny library for parsing, modifying, and composing SRT files
 dev-python/sse-starlette 0.7.2: Server Sent Events for Starlette
 dev-python/starlette 0.14.2: The little ASGI framework that shines
 dev-python/statmake 0.3.0-r1: Generate STAT tables for variable fonts from .stylespace files
@@ -601,7 +603,7 @@ dev-util/afdko 3.6.2: Adobe Font Development Kit for OpenType
 dev-util/babeltrace2 2.0.4: A command-line tool and library to read and convert trace files
 dev-util/cdecl 9.10: Composing and deciphering C (or C++) declarations or casts, aka "gibberish."
 dev-util/devscripts 2.21.2 2.21.3: Scripts to make the life of a Debian Package maintainer easier
-dev-util/eclipse-parallel-bin 4.20: Eclipse IDE for Scientific Computing (C, C++, Fortran)
+dev-util/eclipse-parallel-bin 4.20 4.21: Eclipse IDE for Scientific Computing (C, C++, Fortran)
 dev-util/fontmake 2.4.0: A wrapper for several Python libraries to compile fonts from sources
 dev-util/fypp 3.1: Fypp - Python powered Fortran preprocessor
 dev-util/gammaray 2.11.2: High-level runtime introspection tool for Qt applications
@@ -845,7 +847,7 @@ net-misc/facebook-ptp 0_pre20210831: Facebook's PTP libraries
 net-misc/freetube-bin 0.11.3 0.12.0: https://github.com/FreeTubeApp/FreeTube
 net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
-net-misc/gmid 1.7.2 1.7.3 9999: Simple and secure Gemini server
+net-misc/gmid 1.7.3 1.7.4 9999: Simple and secure Gemini server
 net-misc/kristall 0.3-r1 9999: Visual cross-platform gemini browser
 net-misc/lagrange 1.6.4 1.6.5: Desktop GUI client for browsing Geminispace
 net-misc/lyrics-in-terminal 1.4.2: Command Line Lyrics fetcher for MPRIS media players
@@ -855,7 +857,7 @@ net-misc/myip 1.2.0: Get your external IP address using STUN server
 net-misc/openbgpd 6.8_p0 6.9_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.6.7 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
-net-misc/smcroute 2.5.2: A static multicast routing daemon
+net-misc/smcroute 2.5.3: A static multicast routing daemon
 net-misc/telescope 0.5.1 0.5.2: w3m-like browser for Gemini
 net-misc/tinyssh 20210601 99999999: A small SSH server with state-of-the-art cryptography
 net-misc/tootle 1.0_alpha2 1.0 9999: Mastodon client written in GTK3
@@ -873,7 +875,7 @@ net-p2p/lbry 0.49.1 0.50.2 0.51.2: A browser for the LBRY network, a digital mar
 net-p2p/monero 0.17.2.0 0.17.2.3 9999: The secure, private, untraceable cryptocurrency
 net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for Linux
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
-net-p2p/yggdrasil-go 0.3.13-r1 0.3.14 0.3.15: An experiment in scalable routing as an encrypted IPv6 overlay network
+net-p2p/yggdrasil-go 0.3.13-r1 0.3.14 0.3.15 0.4.0: An experiment in scalable routing as an encrypted IPv6 overlay network
 net-voip/discover-overlay 0.3.3: Yet another Discord overlay for Linux written in Python using GTK3
 net-voip/gnome-calls 0.3.4: Phone dialer and call handler
 net-wireless/iwdgui 0.1.0 0.2.0: A graphical frontend for IWD, Intel's iNet Wireless Daemon
@@ -1033,12 +1035,12 @@ virtual/mgcv 0: Virtual of a R recommended package
 virtual/nlme 0: Virtual of a R recommended package
 virtual/nnet 0: Virtual of a R recommended package
 virtual/survival 0: Virtual of a R recommended package
-www-apps/code-server-bin 3.9.2 3.9.3 3.10.0: VS Code in the browser (binary version with unbundled node and ripgrep)
+www-apps/code-server-bin 3.10.0 3.12.0: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/jackett-bin 0.17.933 0.18.15 9999: API Support for your favorite torrent trackers
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/twint 2.1.20-r1: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
-www-apps/uwebsockets 19.6.0 9999: ultra fast, simple, secure & standards compliant web I/O
+www-apps/uwebsockets 19.9.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.1.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/browsh 1.6.4_p1: A fully-modern text-based browser, rendering to TTY and browsers
 www-client/torbrowser-launcher 0.3.3 9999: A program to download, updated, and run the Tor Browser Bundle
@@ -1052,7 +1054,7 @@ x11-drivers/OpenTabletDriver-bin 0.5.3.3: Cross platform tablet driver (binary p
 x11-libs/gtk-fortran 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
 x11-libs/libadwaita 1.0.0: Building blocks for modern GNOME applications.
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
-x11-misc/aerial-sddm-theme 0_pre20191018 9999: SDDM theme with Apple TV Aerial videos
+x11-misc/aerial-sddm-theme 0_pre20191018-r1 9999: SDDM theme with Apple TV Aerial videos
 x11-misc/betterlockscreen 3.2.0 4.0.3 9999: sweet looking lockscreen for linux system
 x11-misc/betterlockscreen_rapid 0.0.0_pre20210701 0.0.0_pre20210708: A rapid and good-looking screen locker
 x11-misc/caffeine-ng 3.5.1: Aplication able to temporarily inhibit the screensaver
