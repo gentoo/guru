@@ -1,34 +1,35 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 SSL_DAYS=36500
 SSL_CERT_MANDATORY=1
-inherit ssl-cert toolchain-funcs
+inherit ssl-cert systemd toolchain-funcs
 
 DESCRIPTION="Simple and secure Gemini server"
 HOMEPAGE="https://gmid.omarpolo.com"
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/omar-polo/${PN}.git https://git.omarpolo.com/${PN}"
+	EGIT_REPO_URI="https://git.omarpolo.com/${PN} https://github.com/omar-polo/${PN}.git"
 	inherit git-r3
 else
 	SRC_URI="https://git.omarpolo.com/${PN}/snapshot/${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
 LICENSE="BSD ISC MIT"
 SLOT="0"
-IUSE="+seccomp test"
+IUSE="seccomp test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
+	!elibc_Darwin? ( dev-libs/libbsd )
 	acct-user/gemini
 	dev-libs/imsg-compat
-	dev-libs/libbsd
-	dev-libs/libevent
+	dev-libs/libevent:=
 	dev-libs/libretls
+	dev-libs/openssl:=
 "
 BDEPEND="
 	virtual/pkgconfig
@@ -36,7 +37,16 @@ BDEPEND="
 "
 RDEPEND="${DEPEND}"
 
-DOCS=( README.md ChangeLog )
+DOCS=( README.md ChangeLog contrib/README )
+
+src_prepare() {
+	default
+
+	sed \
+		-e "s:/usr/local/bin/gmid:/usr/bin/gmid:" \
+		-e "s:/etc/gmid.conf:/etc/gmid/gmid.conf:" \
+		-i contrib/gmid.service || die
+}
 
 src_configure() {
 	local conf_args
@@ -73,6 +83,10 @@ src_install() {
 	insinto /etc/gmid
 	doins "${FILESDIR}"/gmid.conf
 
+	insinto /usr/share/vim/vimfiles
+	doins -r contrib/vim/*
+
+	systemd_dounit contrib/gmid.service
 	newinitd "${FILESDIR}"/gmid.initd gmid
 	newconfd "${FILESDIR}"/gmid.confd gmid
 

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <!-- maintainer-needed -->
+  <maintainer type="person">
+    <name>Leonardo Hernandez Hernandez</name>
+    <email>leohdz172@outlook.com</email>
+  </maintainer>
   <upstream>
     <remote-id type="github">cdr/code-server</remote-id>
   </upstream>

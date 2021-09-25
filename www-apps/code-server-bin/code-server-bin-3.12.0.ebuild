@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MY_PN="${PN/-bin/}"
 MY_P="${MY_PN}-${PV}"
@@ -22,13 +22,9 @@ SLOT="0"
 KEYWORDS="-* ~amd64 ~arm64"
 IUSE="gnome-keyring"
 
-# In case we ever make a non-"-binary" pkg
-DEPEND="
-	!www-apps/code-server
-"
 RDEPEND="
 	${DEPEND}
-	>=net-libs/nodejs-12.16.1:0/12[ssl]
+	>=net-libs/nodejs-14.17.5:0/14[ssl]
 	sys-apps/ripgrep
 	gnome-keyring? (
 		app-crypt/libsecret
@@ -42,11 +38,11 @@ PATCHES=( "${FILESDIR}/${PN}-node.patch" )
 DOCS=( "README.md" "ThirdPartyNotices.txt" )
 
 QA_PREBUILT="
-	/usr/lib/code-server/lib/coder-cloud-agent
-	/usr/lib/code-server/lib/vscode/node_modules/*
+	/usr/lib64/code-server/lib/coder-cloud-agent
+	/usr/lib64/code-server/vendor/modules/code-oss-dev/node_modules/*
 "
 QA_PRESTRIPPED="
-	/usr/lib/code-server/lib/coder-cloud-agent
+	/usr/lib64/code-server/lib/coder-cloud-agent
 "
 
 src_prepare() {
@@ -61,7 +57,7 @@ src_prepare() {
 		|| die "failed to remove bundled nodejs"
 
 	# remove bundled ripgrep binary
-	rm ./lib/vscode/node_modules/vscode-ripgrep/bin/rg \
+	rm ./vendor/modules/code-oss-dev/node_modules/vscode-ripgrep/bin/rg \
 		|| die "failed to remove bundled ripgrep"
 
 	# not needed
@@ -75,12 +71,12 @@ src_prepare() {
 src_install() {
 	einstalldocs
 
-	insinto "/usr/lib/${MY_PN}"
+	insinto "/usr/$(get_libdir)/${MY_PN}"
 	doins -r .
-	fperms +x "/usr/lib/${MY_PN}/bin/${MY_PN}"
-	dosym "../../usr/lib/${MY_PN}/bin/${MY_PN}" "${EPREFIX}/usr/bin/${MY_PN}"
+	fperms +x "/usr/$(get_libdir)/${MY_PN}/bin/${MY_PN}"
+	dosym -r "/usr/$(get_libdir)/${MY_PN}/bin/${MY_PN}" "${EPREFIX}/usr/bin/${MY_PN}"
 
-	dosym "../../../../../../../../usr/bin/rg" "${EPREFIX}/usr/lib/${MY_PN}/lib/vscode/node_modules/vscode-ripgrep/bin/rg"
+	dosym -r "/usr/bin/rg" "${EPREFIX}/usr/$(get_libdir)/${MY_PN}/vendor/modules/code-oss-dev/node_modules/vscode-ripgrep/bin/rg"
 
 	systemd_dounit "${FILESDIR}/${MY_PN}.service"
 }
