@@ -102,7 +102,7 @@ KEYWORDS="~amd64"
 RESTRICT="mirror"
 
 DEPEND="
-    acct-user/yggdrasil
+	acct-user/yggdrasil
 	acct-group/yggdrasil
 "
 RDEPEND=">=dev-vcs/git-1.7.3"
@@ -120,7 +120,7 @@ pkg_setup() {
 
 src_compile() {
 	local PKGSRC="github.com/yggdrasil-network/yggdrasil-go/src/version"
-	local PKGNAME="${PN}-${PV}"
+	local PKGNAME="${P}"
 	local PKGVER="v${PV}"
 	local LDGOFLAGS="-X ${PKGSRC}.buildName=${PKGNAME} -X ${PKGSRC}.buildVersion=${PKGVER}"
 	for CMD in yggdrasil yggdrasilctl ; do
