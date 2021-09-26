@@ -33,7 +33,6 @@ DEPEND="
 	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
 	test? (
 		>=dev-python/hacking-3.0[${PYTHON_USEDEP}]
-		<dev-python/hacking-3.1.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.5.0[${PYTHON_USEDEP}]
 		>=dev-python/oslo-serialization-2.21.1[${PYTHON_USEDEP}]
 	)
