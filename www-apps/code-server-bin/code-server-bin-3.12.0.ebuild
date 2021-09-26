@@ -40,6 +40,7 @@ DOCS=( "README.md" "ThirdPartyNotices.txt" )
 QA_PREBUILT="
 	/usr/lib64/code-server/lib/coder-cloud-agent
 	/usr/lib64/code-server/vendor/modules/code-oss-dev/node_modules/*
+	/usr/lib64/code-server/node_modules/*
 "
 QA_PRESTRIPPED="
 	/usr/lib64/code-server/lib/coder-cloud-agent
