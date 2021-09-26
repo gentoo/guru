@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=no
 PYTHON_COMPAT=( python3_{8..10} )
@@ -30,13 +30,12 @@ RDEPEND="
 
 	app-shells/pdsh
 	dev-libs/openssl
-	sys-cluster/AXL
+	<sys-cluster/AXL-0.4.0
 	sys-cluster/er
 	virtual/mpi
 "
 #	comm-queue-thallium? ( thallium )
 DEPEND="${RDEPEND}"
-BDEPEND=">=dev-util/cmake-2.8"
 
 PATCHES=( "${FILESDIR}/${PN}-strip-cflags.patch" )
 # Tests not working with python yet
@@ -46,6 +45,11 @@ REQUIRED_USE="
 "
 
 distutils_enable_sphinx "${S}/docs" --no-autodoc
+distutils_enable_tests pytest
+
+src_prepare() {
+	cmake_src_prepare
+}
 
 src_configure() {
 	local resman="NONE"
@@ -66,11 +70,11 @@ src_configure() {
 }
 
 src_compile() {
-	default
+	cmake_src_compile
 	if use python; then
-		cd "src/bindings/python"
+		pushd "src/bindings/python" || die
 		distutils-r1_src_compile
-		cd "${S}"
+		popd || die
 	else
 		# If USE="-python doc" we still
 		# want to compile the doc files
@@ -81,8 +85,9 @@ src_compile() {
 src_install() {
 	cmake_src_install
 	if use python; then
-		cd "${S}/src/bindings/python"
+		pushd "${S}/src/bindings/python" || die
 		distutils-r1_src_install
+		popd || die
 	fi
 }
 
@@ -90,10 +95,12 @@ src_test() {
 	cd test
 	default
 	if use python; then
-		cd "${S}/src/bindings/python"
-		python_test() {
-			"${EPYTHON}" test.py -v || die
-		}
+		pushd "${S}/src/bindings/python" || die
+#		python_test() {
+#			"${EPYTHON}" test.py -v || die
+#		}
 		distutils-r1_src_test
+		popd || die
 	fi
 }
+
