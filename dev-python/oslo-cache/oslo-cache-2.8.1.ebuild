@@ -36,7 +36,6 @@ DEPEND="
 	${RDEPEND}
 	test? (
 		>=dev-python/hacking-3.0.1[${PYTHON_USEDEP}]
-		<dev-python/hacking-3.1.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/pifpaf-0.10.0[${PYTHON_USEDEP}]
 		>=dev-python/pymemcache-3.4.0[${PYTHON_USEDEP}]
