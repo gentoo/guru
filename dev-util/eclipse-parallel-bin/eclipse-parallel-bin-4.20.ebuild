@@ -3,14 +3,15 @@
 
 EAPI=7
 
-inherit desktop eutils xdg
+inherit desktop wrapper xdg
 
 MY_PN="eclipse"
+MY_PV="2021-06"
 DESCRIPTION="Eclipse IDE for Scientific Computing (C, C++, Fortran)"
 HOMEPAGE="https://www.eclipse.org/"
 SRC_URI="
-	amd64? ( https://download.eclipse.org/technology/epp/downloads/release/2021-06/R/eclipse-parallel-2021-06-R-linux-gtk-x86_64.tar.gz )
-	arm64? ( https://download.eclipse.org/technology/epp/downloads/release/2021-06/R/eclipse-parallel-2021-06-R-linux-gtk-aarch64.tar.gz )
+	amd64? ( https://download.eclipse.org/technology/epp/downloads/release/${MY_PV}/R/eclipse-parallel-${MY_PV}-R-linux-gtk-x86_64.tar.gz )
+	arm64? ( https://download.eclipse.org/technology/epp/downloads/release/${MY_PV}/R/eclipse-parallel-${MY_PV}-R-linux-gtk-aarch64.tar.gz )
 "
 
 S="${WORKDIR}/${MY_PN}"
@@ -27,7 +28,7 @@ RDEPEND="
 
 QA_FLAGS_IGNORED="
 	/opt/eclipse-parallel-bin/eclipse
-	/opt/eclipse-parallel-bin/plugins/org.eclipse.equinox.launcher.gtk.linux.*/eclipse_*.so
+	/opt/eclipse-parallel-bin/plugins/org.eclipse.equinox.launcher.gtk.linux[.].*/eclipse_.*[.]so
 "
 
 src_install() {
@@ -39,5 +40,5 @@ src_install() {
 	make_wrapper ${PN%-*} "/opt/${PN}/${MY_PN} -vm /opt/openjdk*/bin/java" "" "/opt/${PN}" "/opt/bin"
 
 	doicon -s 48 plugins/org.eclipse.platform_4.20.0.v20210611-1600/eclipse48.png
-	make_desktop_entry eclipse-parallel "Eclipse IDE Parallel 2021-06" eclipse48 "Development;" || die "Failed making desktop entry!"
+	make_desktop_entry eclipse-parallel "Eclipse IDE Parallel ${MY_PV}" eclipse48 "Development;" || die "Failed making desktop entry!"
 }
