@@ -8,7 +8,9 @@
 	</maintainer>
 	<stabilize-allarches/>
 	<upstream>
-		<remote-id type="launchpad">oslo</remote-id>
+		<bugs-to>https://bugs.launchpad.net/oslo.cache</bugs-to>
+		<remote-id type="launchpad">oslo.cache</remote-id>
+		<remote-id type="github">openstack/oslo.cache</remote-id>
 		<remote-id type="pypi">oslo.cache</remote-id>
 	</upstream>
 </pkgmetadata>
