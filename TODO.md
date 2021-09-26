@@ -42,7 +42,6 @@ Name | Buildsystem | Category | User | RFH
 [graph-tool](https://graph-tool.skewed.de/) | autotools | visualization | Alessandro-Barbieri | no
 [tides](https://sourceforge.net/projects/tidesodes/) | autotools | math | Alessandro-Barbieri | no
 [Cakeml](https://cakeml.org/) | autotools | ML | Alessandro-Barbieri | yes
-[deadbeef](https://github.com/DeaDBeeF-Player/deadbeef) | autotools | audio | |
 [temanejo](https://www.hlrs.de/solutions-services/service-portfolio/programming/hpc-development-tools/temanejo) | autotools | cluster | Alessandro-Barbieri | no
 [geopm](https://geopm.github.io/) | autotools | power | Alessandro-Barbieri | no
 [warewulf](https://warewulf.lbl.gov/) | autotools | cluster | Alessandro-Barbieri | no
