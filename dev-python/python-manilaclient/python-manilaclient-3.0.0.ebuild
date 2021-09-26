@@ -39,7 +39,6 @@ DEPEND="
 	${RDEPEND}
 	test? (
 		>=dev-python/hacking-3.0.1[${PYTHON_USEDEP}]
-		<dev-python/hacking-3.1.0[${PYTHON_USEDEP}]
 		>=dev-python/ddt-1.0.1[${PYTHON_USEDEP}]
 		>=dev-python/mock-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/tempest-17.1.0[${PYTHON_USEDEP}]
