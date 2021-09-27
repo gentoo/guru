@@ -17,8 +17,8 @@ SRC_URI="
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="cpu_flags_arm_v7 cpu_flags_x86_avx2 cpu_flags_x86_popcnt cpu_flags_x86_sse allvariants debug
-	general-32 general-64 largeboards +optimize python test"
+IUSE="cpu_flags_arm_v7 cpu_flags_x86_avx2 cpu_flags_x86_popcnt cpu_flags_x86_sse debug
+	general-32 general-64 largeboards test"
 
 RESTRICT="!test? ( test )"
 
@@ -78,13 +78,14 @@ src_compile() {
 	# a nice hack in the Makefile that overrides the value of CXX with
 	# COMPILER to support Travis CI and we abuse it to make sure that we
 	# build with our compiler of choice.
+	# Build all variants (add Amazons game) and disable default optimize (-O3/-ffast)
 	emake all ARCH="${my_arch}" \
 		COMP=$(tc-getCXX) \
 		COMPILER=$(tc-getCXX) \
-		all=$(usex allvariants "yes" "no") \
+		all=yes \
 		debug=$(usex debug "yes" "no") \
-		largeboards=$(usex largeboards "yes" "no")
-		optimize=$(usex optimize "yes" "no")
+		largeboards=$(usex largeboards "yes" "no") \
+		optimize=no
 }
 
 src_test() {
