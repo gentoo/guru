@@ -103,7 +103,7 @@ CRATES="
 	regex-1.5.4
 	regex-automata-0.1.10
 	regex-syntax-0.6.25
-	rowan-0.13.2
+	rowan-0.14.0
 	rustc-ap-rustc_lexer-725.0.0
 	rustc-demangle-0.1.21
 	rustc-hash-1.1.0
@@ -139,7 +139,7 @@ CRATES="
 	tracing-log-0.1.2
 	tracing-subscriber-0.2.20
 	tracing-tree-0.1.10
-	ungrammar-1.14.4
+	ungrammar-1.14.5
 	unicase-2.6.0
 	unicode-bidi-0.3.6
 	unicode-normalization-0.1.19
