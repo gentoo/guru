@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{8..10} pypy3 )
 
 inherit distutils-r1
 
-DESCRIPTION="Apache Avro™ is a data serialization system"
+DESCRIPTION="Apache Avro is a data serialization system"
 HOMEPAGE="
 	https://pypi.org/project/avro
 	https://avro.apache.org
