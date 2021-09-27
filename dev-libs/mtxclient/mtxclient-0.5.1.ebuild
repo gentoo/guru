@@ -18,7 +18,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-libs/boost-1.70.0
-	dev-libs/olm
+	<dev-libs/olm-3.2.5
 	>=dev-libs/openssl-1.1.0
 	dev-cpp/nlohmann_json
 "
