@@ -5,7 +5,7 @@ EAPI="7"
 
 COMMIT="13e5b90eecc79ec6704efb333c4c100187520e80"
 
-inherit autotools elisp-common flag-o-matic java-pkg-opt-2 toolchain-funcs
+inherit autotools elisp-common java-pkg-opt-2 toolchain-funcs
 
 DESCRIPTION="The Aldor Programming Language"
 HOMEPAGE="http://pippijn.github.io/aldor"
