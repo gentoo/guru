@@ -4,7 +4,7 @@
 EAPI=8
 
 EPYTEST_DESELECT=( tests/test_fastavro.py::test_cython_python )
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_8 )
 
 inherit distutils-r1
 
