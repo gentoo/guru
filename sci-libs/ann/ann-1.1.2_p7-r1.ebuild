@@ -6,7 +6,7 @@ EAPI="7"
 MY_PV="${PV//_p*/}"
 MY_P="${PN}-${MY_PV}"
 
-inherit autotools eutils flag-o-matic
+inherit autotools flag-o-matic
 
 DESCRIPTION="A Library for Approximate Nearest Neighbor Searching"
 HOMEPAGE="
