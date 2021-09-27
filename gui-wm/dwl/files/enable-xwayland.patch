@@ -1,0 +1,22 @@
+From 4c643fa8a1f1370fb3e21548fa7a2cad33cb4bec Mon Sep 17 00:00:00 2001
+From: Leonardo Hernandez Hernandez <leohdz172@outlook.com>
+Date: Sun, 26 Sep 2021 19:12:42 -0500
+Subject: [PATCH] enable xwayland
+
+---
+ config.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/config.mk b/config.mk
+index cd4e821..9a886cc 100644
+--- a/config.mk
++++ b/config.mk
+@@ -5,4 +5,4 @@ PREFIX = /usr/local
+ CFLAGS ?= -g -Wall -Wextra -Werror -Wno-unused-parameter -Wno-sign-compare -Wno-unused-function -Wno-unused-variable -Wdeclaration-after-statement
+ 
+ # Uncomment to build XWayland support
+-#CFLAGS += -DXWAYLAND
++CFLAGS += -DXWAYLAND
+-- 
+2.32.0
+

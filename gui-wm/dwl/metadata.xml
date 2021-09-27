@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+    <maintainer restrict="=gui-wm/dwl-9999" type="person">
+        <email>leohdz172@outlook.com</email>
+        <name>Leonardo Hernandez Hernandez</name>
+    </maintainer>
     <maintainer type="person">
         <email>svdm-gentoo@protonmail.com</email>
         <name>Simon van der Maas</name>
