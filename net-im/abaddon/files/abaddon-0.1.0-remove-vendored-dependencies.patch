@@ -1,0 +1,29 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 82d405f..5a2f75b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -15,13 +15,7 @@ find_package(CURL)
+ find_package(ZLIB REQUIRED)
+ find_package(SQLite3 REQUIRED)
+ find_package(gtkmm REQUIRED)
+-
+-find_path(IXWEBSOCKET_INCLUDE_DIRS ixwebsocket/IXWebSocket.h)
+-find_library(IXWEBSOCKET_LIBRARY ixwebsocket)
+-if (NOT IXWEBSOCKET_LIBRARY)
+-	add_subdirectory(thirdparty/IXWebSocket)
+-	include_directories(IXWEBSOCKET_INCLUDE_DIRS)
+-endif()
++find_package(ixwebsocket REQUIRED)
+ 
+ include_directories(thirdparty/simpleini)
+ 
+@@ -63,6 +57,9 @@ target_include_directories(abaddon PUBLIC ${GTKMM_INCLUDE_DIRS})
+ target_include_directories(abaddon PUBLIC ${ZLIB_INCLUDE_DIRS})
+ target_include_directories(abaddon PUBLIC ${SQLite3_INCLUDE_DIRS})
+ target_include_directories(abaddon PUBLIC ${NLOHMANN_JSON_INCLUDE_DIRS})
++target_include_directories(abaddon PUBLIC /usr/include/simpleini)
++
++target_link_libraries(abaddon simpleini)
+ 
+ if ((CMAKE_CXX_COMPILER_ID STREQUAL "GNU") OR
+ 	(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND

@@ -5,13 +5,10 @@ EAPI=7
 
 inherit cmake desktop
 
-SIMPLEINI_COMMIT="7bca74f6535a37846162383e52071f380c99a43a"
-
 DESCRIPTION="Alternative Discord client using GTK instead of Electron"
 HOMEPAGE="https://github.com/uowuo/abaddon"
 SRC_URI="
 	https://github.com/uowuo/abaddon/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/brofield/simpleini/archive/${SIMPLEINI_COMMIT}.tar.gz -> simpleini.tar.gz
 "
 
 LICENSE="GPL-3"
@@ -19,6 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	>=dev-cpp/simpleini-4.17_p20210831
 	dev-cpp/gtkmm:3.0=
 	dev-db/sqlite:3
 	net-misc/curl
@@ -31,11 +29,9 @@ DEPEND="
 "
 BDEPEND=""
 
-src_unpack() {
-	default
-	rm -r "${S}/thirdparty/simpleini" || die
-	ln -s "../../simpleini-${SIMPLEINI_COMMIT}" "${S}/thirdparty/simpleini" || die
-}
+PATCHES=(
+	"${FILESDIR}/${P}-remove-vendored-dependencies.patch"
+)
 
 src_install() {
 	dodoc README.md
