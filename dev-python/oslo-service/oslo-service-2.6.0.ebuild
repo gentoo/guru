@@ -1,14 +1,19 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_{7,8} )
+EAPI=8
+
 DISTUTILS_USE_SETUPTOOLS=bdepend
+PYTHON_COMPAT=( python3_8 )
 
 inherit distutils-r1
 
 DESCRIPTION="Library for running OpenStack services"
-HOMEPAGE="https://pypi.org/project/oslo.service/"
+HOMEPAGE="
+	https://pypi.org/project/oslo.service
+	https://opendev.org/openstack/oslo.service
+	https://launchpad.net/oslo.service
+"
 SRC_URI="mirror://pypi/${PN:0:1}/oslo.service/oslo.service-${PV}.tar.gz"
 S="${WORKDIR}/oslo.service-${PV}"
 
@@ -17,13 +22,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND="
-	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
-	!~dev-python/pbr-2.1.0[${PYTHON_USEDEP}]
-"
 RDEPEND="
-	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
-	!~dev-python/pbr-2.1.0[${PYTHON_USEDEP}]
 	>=dev-python/webob-1.7.1[${PYTHON_USEDEP}]
 	>=dev-python/debtcollector-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/eventlet-0.25.2[${PYTHON_USEDEP}]
@@ -39,3 +38,16 @@ RDEPEND="
 	>=dev-python/paste-2.0.2[${PYTHON_USEDEP}]
 	>=dev-python/yappi-1.0[${PYTHON_USEDEP}]
 "
+DEPEND="
+	${RDEPEND}
+	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
+	test? (
+		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
+		>=dev-python/hacking-3.0.1[${PYTHON_USEDEP}]
+		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
+		>=dev-python/requests-2.14.2[${PYTHON_USEDEP}]
+		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
+	)
+"
+
+distutils_enable_tests pytest
