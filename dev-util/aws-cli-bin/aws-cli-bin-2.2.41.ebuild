@@ -22,5 +22,5 @@ S="${WORKDIR}/${MY_PN_BASE}"
 src_install() {
 	local install_dir="${D}/${EPREFIX}/opt/${PN}"
 
-	./install -i ${install_dir} -b "${D}/${EPREFIX}/usr/bin"
+	./install -i ${install_dir} -b "${D}/${EPREFIX}/usr/bin" || die
 }
