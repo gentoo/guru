@@ -6,7 +6,7 @@ EAPI=8
 FORTRAN_NEEDED=fortran
 MYP="pnetcdf-${PV}"
 
-inherit fortran-2
+inherit autotools fortran-2
 
 DESCRIPTION="Parallel extension to netCDF"
 HOMEPAGE="
@@ -29,15 +29,26 @@ RDEPEND="
 "
 #	adios? ( sys-cluster/adios )
 DEPEND="${RDEPEND}"
-BDEPEND="doc? ( app-doc/doxygen )"
+BDEPEND="
+	doc? (
+		app-doc/doxygen
+		dev-texlive/texlive-latex
+	)
+"
 
 pkg_setup() {
 	fortran-2_pkg_setup
 }
 
+src_prepare() {
+	default
+	eautoreconf
+}
+
 src_configure() {
 	export MPIF77=/usr/bin/mpif77
 	export MPIF90=/usr/bin/mpif90
+	export VARTEXFONTS="${T}/fonts"
 
 	local myconf=(
 		--enable-shared
@@ -71,10 +82,9 @@ src_configure() {
 	econf "${myconf[@]}"
 }
 
-src_compile() {
-	emake
-}
-
 src_install() {
-	emake DESTDIR="${D}" install
+	default
+	dodoc doc/README.{ADIOS.md,NetCDF4.md,burst_buffering,consistency,large_files} doc/pbs.script
+	use doc && dodoc doc/pnetcdf-api/pnetcdf-api.pdf
+	find "${ED}" -name '*.la' -delete || die
 }
