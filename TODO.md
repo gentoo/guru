@@ -45,7 +45,6 @@ Name | Buildsystem | Category | User | RFH
 [temanejo](https://www.hlrs.de/solutions-services/service-portfolio/programming/hpc-development-tools/temanejo) | autotools | cluster | Alessandro-Barbieri | no
 [geopm](https://geopm.github.io/) | autotools | power | Alessandro-Barbieri | no
 [warewulf](https://warewulf.lbl.gov/) | autotools | cluster | Alessandro-Barbieri | no
-[pnetcdf](https://parallel-netcdf.github.io/) | autotools | libs | Alessandro-Barbieri | no
 [omb](http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.8.tgz) | autotools | cluster | Alessandro-Barbieri | no
 [scalasca](https://scalasca.org/) | autotools | cluster | Alessandro-Barbieri | no
 [scorep](https://www.vi-hps.org/projects/score-p/) | autotools | cluster | Alessandro-Barbieri | no
