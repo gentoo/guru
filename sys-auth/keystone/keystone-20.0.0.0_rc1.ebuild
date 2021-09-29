@@ -1,37 +1,32 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_8 )
+EAPI=8
+
 DISTUTILS_USE_SETUPTOOLS=rdepend
+MYP="${P/_/}"
+PYTHON_COMPAT=( python3_8 )
 
 inherit distutils-r1
 
 DESCRIPTION="The Openstack authentication, authorization, and service catalog"
-HOMEPAGE="https://launchpad.net/keystone"
-if [[ ${PV} == *9999 ]];then
-	inherit git-r3
-	SRC_URI="https://dev.gentoo.org/~prometheanfire/dist/openstack/keystone/victoria/keystone.conf.sample -> keystone.conf.sample-${PV}"
-	EGIT_REPO_URI="https://github.com/openstack/keystone.git"
-	EGIT_BRANCH="stable/victoria"
-else
-	SRC_URI="https://dev.gentoo.org/~prometheanfire/dist/openstack/keystone/victoria/keystone.conf.sample -> keystone.conf.sample-${PV}
-	https://tarballs.openstack.org/${PN}/${P}.tar.gz"
-	KEYWORDS="~amd64"
-fi
+HOMEPAGE="
+	https://opendev.org/openstack/keystone
+	https://launchpad.net/keystone
+	https://pypi.org/project/keystone
+"
+SRC_URI="
+	https://dev.gentoo.org/~prometheanfire/dist/openstack/keystone/victoria/keystone.conf.sample -> keystone.conf.sample-${PV}
+	https://tarballs.openstack.org/${PN}/${MYP}.tar.gz
+"
+S="${WORKDIR}/${MYP}"
 
+KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="+sqlite ldap memcached mongo mysql postgres test"
-RESTRICT="!test? ( test )"
-REQUIRED_USE="|| ( mysql postgres sqlite )"
+IUSE="+sqlite ldap memcached mongo mysql postgres"
 
-CDEPEND=">=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
-	!~dev-python/pbr-2.1.0"
-DEPEND="
-	${CDEPEND}"
 RDEPEND="
-	${CDEPEND}
 	>=dev-python/webob-1.7.1[${PYTHON_USEDEP}]
 	>=dev-python/flask-1.0.2[${PYTHON_USEDEP}]
 	>=dev-python/flask-restful-0.3.5[${PYTHON_USEDEP}]
@@ -41,7 +36,6 @@ RDEPEND="
 	)
 	mysql? (
 		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
-		!~dev-python/pymysql-0.7.7[${PYTHON_USEDEP}]
 		>=dev-python/sqlalchemy-1.3.0[${PYTHON_USEDEP}]
 	)
 	postgres? (
@@ -56,17 +50,16 @@ RDEPEND="
 	>=dev-python/bcrypt-3.1.3[${PYTHON_USEDEP}]
 	>=dev-python/scrypt-0.8.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-cache-1.26.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-config-5.2.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-config-6.8.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-context-2.22.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-messaging-5.29.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-db-6.0.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-i18n-3.15.3[${PYTHON_USEDEP}]
 	>=dev-python/oslo-log-3.44.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-middleware-3.31.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-policy-3.0.2[${PYTHON_USEDEP}]
-	>=dev-python/oslo-serialization-1.18.0[${PYTHON_USEDEP}]
-	!~dev-python/oslo-serialization-1.19.1[${PYTHON_USEDEP}]
-	>=dev-python/oslo-upgradecheck-0.1.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-policy-3.7.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-serialization-2.18.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-upgradecheck-1.3.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-utils-3.33.0[${PYTHON_USEDEP}]
 	>=dev-python/oauthlib-0.6.2[${PYTHON_USEDEP}]
 	>=dev-python/pysaml2-5.0.0[${PYTHON_USEDEP}]
@@ -74,7 +67,6 @@ RDEPEND="
 	>=dev-python/dogpile-cache-1.0.2[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-3.2.0[${PYTHON_USEDEP}]
 	>=dev-python/pycadf-1.1.0[${PYTHON_USEDEP}]
-	!~dev-python/pycadf-2.0.0[${PYTHON_USEDEP}]
 	>=dev-python/msgpack-0.5.0[${PYTHON_USEDEP}]
 	>=dev-python/osprofiler-1.4.0[${PYTHON_USEDEP}]
 	>=dev-python/pytz-2013.6[${PYTHON_USEDEP}]
@@ -83,7 +75,6 @@ RDEPEND="
 	)
 	mongo? (
 		>=dev-python/pymongo-3.0.2[${PYTHON_USEDEP}]
-		!~dev-python/pymongo-3.1[${PYTHON_USEDEP}]
 	)
 	ldap? (
 		>=dev-python/python-ldap-3.1.0[${PYTHON_USEDEP}]
@@ -95,7 +86,33 @@ RDEPEND="
 		www-servers/gunicorn[${PYTHON_USEDEP}]
 	)
 	acct-user/keystone
-	acct-group/keystone"
+	acct-group/keystone
+"
+DEPEND="
+	${RDEPEND}
+	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
+	test? (
+		>=dev-python/bashate-0.5.1[${PYTHON_USEDEP}]
+		>=dev-python/stestr-1.0.0[${PYTHON_USEDEP}]
+		>=dev-python/freezegun-0.3.6[${PYTHON_USEDEP}]
+		>=dev-python/pytz-2013.6[${PYTHON_USEDEP}]
+		>=dev-python/oslo-db-6.0.0[${PYTHON_USEDEP}]
+		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
+		>=dev-python/lxml-4.5.0[${PYTHON_USEDEP}]
+		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
+		>=dev-python/webtest-2.0.27[${PYTHON_USEDEP}]
+		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
+		>=dev-python/tempest-17.1.0[${PYTHON_USEDEP}]
+		>=dev-python/requests-2.14.2[${PYTHON_USEDEP}]
+	)
+"
+
+REQUIRED_USE="
+	|| ( mysql postgres sqlite )
+	test? ( ldap )
+"
+
+distutils_enable_tests pytest
 
 python_prepare_all() {
 	# it's in git, but not in the tarball.....
@@ -106,14 +123,6 @@ python_prepare_all() {
 	# allow useage of renamed msgpack
 	sed -i '/^msgpack/d' requirements.txt || die
 	distutils-r1_python_prepare_all
-}
-
-python_test() {
-	nosetests -I 'test_keystoneclient*' \
-		-e test_static_translated_string_is_Message \
-		-e test_get_token_id_error_handling \
-		-e test_provider_token_expiration_validation \
-		-e test_import --process-restartworker --process-timeout=60 || die "testsuite failed under python2.7"
 }
 
 python_install_all() {
@@ -132,7 +141,7 @@ python_install_all() {
 
 	fowners keystone:keystone /etc/keystone /etc/keystone/httpd /var/log/keystone
 	# stupid python doing stupid things
-	rm -r "${ED}"/usr/etc
+	rm -r "${ED}/usr/etc" || die
 }
 
 pkg_postinst() {
