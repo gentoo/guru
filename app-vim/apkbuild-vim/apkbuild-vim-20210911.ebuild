@@ -6,7 +6,7 @@ EAPI=7
 inherit vim-plugin
 
 MY_PN=${PN/-/.}
-COMMIT="423e6948efcbec2d708345ae21d9566cad3ad304"
+COMMIT="8dbd9745f76fb284656711238e8cd42d021da85e"
 DESCRIPTION="vim plugin: edit and work with APKBUILD files"
 HOMEPAGE="https://gitlab.alpinelinux.org/Leo/apkbuild.vim"
 SRC_URI="https://gitlab.alpinelinux.org/Leo/${MY_PN}/-/archive/${COMMIT}/${MY_PN}-${COMMIT}.tar.gz"
