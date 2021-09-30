@@ -1,0 +1,14 @@
+BDEPEND=app-misc/jq net-misc/rsync net-libs/nodejs[npm]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=net-libs/nodejs
+DESCRIPTION=Generic Node.js kernel for the Jupyter notebook
+EAPI=7
+HOMEPAGE=https://n-riesco.github.io/jp-kernel https://www.npmjs.com/package/jp-kernel
+INHERIT=node
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=net-libs/nodejs dev-js/jmp dev-js/nel dev-js/uuid net-libs/nodejs
+SLOT=0
+SRC_URI=mirror://npm/jp-kernel/-/jp-kernel-2.0.0.tgz
+_eclasses_=node	be407b7db6f35ccce8e333b9a511faed
+_md5_=2a69076b07db4417a20672b7dc5e0480

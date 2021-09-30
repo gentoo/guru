@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=vim plugin: edit and work with APKBUILD files
+EAPI=7
+HOMEPAGE=https://gitlab.alpinelinux.org/Leo/apkbuild.vim
+INHERIT=vim-plugin
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+SLOT=0
+SRC_URI=https://gitlab.alpinelinux.org/Leo/apkbuild.vim/-/archive/8dbd9745f76fb284656711238e8cd42d021da85e/apkbuild.vim-8dbd9745f76fb284656711238e8cd42d021da85e.tar.gz
+_eclasses_=vim-doc	e063cddf18e5d2f2cfb21388252579ec	vim-plugin	a7b5f19bc94a311ca1cf7127c8b84c41
+_md5_=ef04f489508dfd903521abea83696cbe

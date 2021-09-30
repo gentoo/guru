@@ -1,14 +1,11 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
 DEFINED_PHASES=install prepare
 DEPEND=dev-libs/boost:=
 DESCRIPTION=libbsctools
 EAPI=7
 HOMEPAGE=https://github.com/bsc-performance-tools/libbsctools
-INHERIT=autotools
 KEYWORDS=~amd64
 LICENSE=LGPL-2.1
 RDEPEND=dev-libs/boost:=
 SLOT=0
 SRC_URI=https://github.com/bsc-performance-tools/libbsctools/archive/refs/tags/1.0.6.tar.gz -> libbsctools-1.0.6.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1
-_md5_=e871db4d6aef4bcaed7b66906c81d412
+_md5_=2a0b79847ecf294bee554465c9480a71

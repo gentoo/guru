@@ -1,0 +1,11 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=install
+DESCRIPTION=A unified command line interface to Amazon Web Services
+EAPI=8
+HOMEPAGE=https://aws.amazon.com/cli/
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 MIT LGPL-2.1
+RDEPEND=!!app-admin/awscli
+SLOT=0
+SRC_URI=https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.2.41.zip -> aws-cli-bin-2.2.41.zip
+_md5_=295b5bd7db7bce197eda89c62395cd48

@@ -3,10 +3,8 @@
 # * generated automatically using pmaint *
 
 app-accessibility/rhvoice:cli - Build a CLI application that allows you to synthesize speech
-app-accessibility/rhvoice:client - Build a client allowing to speak text (deprecated - use speech-dispatcher)
 app-accessibility/rhvoice:server - Build a server application
 app-accessibility/rhvoice:speech-dispatcher - Build a speech-dispatcher middleware module
-app-accessibility/rhvoice:utils - Build utilities needed for the ones creating voices
 app-admin/glance:swift - Adds swift storage support
 app-admin/krapplet:pass - Add support for pass compatible storage
 app-crypt/mkp224o:amd64-51-30k - Use x86_64 amd64-51-30k SUPERCOP implementation
@@ -87,6 +85,7 @@ dev-games/godot:raycast - Enable raycast module using media-libs/embree
 dev-java/openjdk-sts-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (package manager, eselect, java-config, EXPERIMENTAL!)
 dev-java/openjdk-sts-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
 dev-java/openjdk-sts-bin:source - Install JVM sources
+dev-js/zeromq:drafts - Build the draft API
 dev-libs/hts_engine:speech-tools - use memory allocation/free functions of app-accessibility/speech-tools
 dev-libs/libdwarf:dwarfexample - enable dwarfexample compilation
 dev-libs/libdwarf:dwarfgen - enable dwarfgen compilation
@@ -145,6 +144,9 @@ dev-util/gammaray:webengine - Enable support for dev-qt/qtwebengine
 dev-util/ots:sanitize - Sanitize Graphite tables
 games-arcade/taisei:lto - Enable link time optimization
 games-arcade/taisei:zip - Enable loading of game data from ZIP packages via dev-libs/libzip
+games-board/fairy-stockfish:general-32 - Generic unoptimized 32-bits build
+games-board/fairy-stockfish:general-64 - Generic unoptimized 64-bits build
+games-board/fairy-stockfish:largeboards - Support for board sizes more than 8x8 (e.g., Xiangqi, Shogi). Engine is slower
 games-emulation/citra:cubeb - Enables the cubeb audio backend
 games-emulation/citra:hle-sound - Enable HLE sound via FFmpeg audio (AAC) decoder
 games-emulation/citra:system-libfmt - Use system libfmt
@@ -242,6 +244,7 @@ media-sound/ncpamixer:wide - Add ncurses wide characters support
 media-video/mpv-mpris:autoload - Load plugin automatically
 media-video/syncplay:client - Install the Syncplay client
 media-video/syncplay:server - Install the Syncplay server
+media-video/uxplay:zoomfix - supported mirrored window for screen-sharing applications such as Zoom
 media-video/wlrobs:dmabuf - Enable the dmabuf backend
 media-video/wlrobs:scpy - Enable the screen copy backend
 net-analyzer/munin-contrib:plugins - contrib munin plugins
@@ -537,6 +540,16 @@ sys-cluster/nova:novncproxy - Installs the initscripts for the nova novncproxy s
 sys-cluster/nova:openvswitch - Installs openvswitch for the neutron openvswitch support
 sys-cluster/nova:rabbitmq - Installs the rabbitmq server
 sys-cluster/otf2:sionlib - Enable sys-cluster/sionlibl support
+sys-cluster/parallel-netcdf:burst-buffering - Enable burst buffer driver support
+sys-cluster/parallel-netcdf:cxx - Turn on support for the C++ interface
+sys-cluster/parallel-netcdf:erange-fill - Disable use of fill value when out-of-range type conversion causes NC_ERANGE error
+sys-cluster/parallel-netcdf:file-sync - Disable MPI file sync if you know your file system can provide data consistency
+sys-cluster/parallel-netcdf:fortran - Turn on support for the Fortran interface
+sys-cluster/parallel-netcdf:netcdf - Enable NetCDF-4 feature
+sys-cluster/parallel-netcdf:null-byte-header-padding - Enable check for null-byte header padding when reading files in classic formats
+sys-cluster/parallel-netcdf:relax-coord-bound - Use stricter rule for error NC_EINVALCOORDS to disallow coordinate start argument equal to dimension size when argument count is zero
+sys-cluster/parallel-netcdf:subfiling - Enable subfiling support
+sys-cluster/parallel-netcdf:threadsafe - Enable thread-safe capability
 sys-cluster/paraver-kernel:extended-objects - Enable extra number of objects
 sys-cluster/paraver-kernel:extrae - Enable extrae support
 sys-cluster/paraver-kernel:ompss - Enable OmpSs parallel version

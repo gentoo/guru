@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://github.com/openstack/glance_store
 INHERIT=distutils-r1
 IUSE=cinder swift vmware python_targets_python3_8
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=~amd64
 LICENSE=Apache-2.0
 RDEPEND=>=dev-python/pbr-1.8[python_targets_python3_8(-)?] >=dev-python/oslo-config-5.2.0[python_targets_python3_8(-)?] >=dev-python/oslo-i18n-3.15.3[python_targets_python3_8(-)?] >=dev-python/oslo-serialization-1.18.0[python_targets_python3_8(-)?] !~dev-python/oslo-serialization-1.19.1[python_targets_python3_8(-)?] >=dev-python/oslo-utils-3.33.0[python_targets_python3_8(-)?] >=dev-python/oslo-concurrency-3.26.0[python_targets_python3_8(-)?] >=dev-python/stevedore-1.20.0[python_targets_python3_8(-)?] >=dev-python/eventlet-0.18.4[python_targets_python3_8(-)?] >=dev-python/six-1.10.0[python_targets_python3_8(-)?] >=dev-python/debtcollector-1.2.0[python_targets_python3_8(-)?] >=dev-python/jsonschema-3.2.0[python_targets_python3_8(-)?] >=dev-python/keystoneauth-3.4.0[python_targets_python3_8(-)?] >=dev-python/python-keystoneclient-3.8.0[python_targets_python3_8(-)?] >=dev-python/requests-2.14.2[python_targets_python3_8(-)?] cinder? ( >=dev-python/python-cinderclient-4.1.0[python_targets_python3_8(-)?] >=dev-python/os-brick-2.6.0[python_targets_python3_8(-)?] >=dev-python/oslo-rootwrap-5.8.0[python_targets_python3_8(-)?] >=dev-python/oslo-privsep-1.23.0[python_targets_python3_8(-)?] ) swift? ( >=dev-python/httplib2-0.9.1[python_targets_python3_8(-)?] >=dev-python/python-swiftclient-3.2.0[python_targets_python3_8(-)?] ) vmware? ( >=dev-python/oslo-vmware-2.17.0[python_targets_python3_8(-)?] ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 )
 SLOT=0
 SRC_URI=mirror://pypi/g/glance_store/glance_store-2.3.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	252d4f554e611b0af601160a9c7be049
-_md5_=26609ec8480d1384ea234f83d9231274
+_md5_=40093ee86826dd4307756a997fbc7622

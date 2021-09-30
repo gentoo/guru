@@ -1,0 +1,15 @@
+BDEPEND=doc? ( app-doc/doxygen dev-texlive/texlive-latex ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 fortran? ( virtual/fortran )
+DEFINED_PHASES=configure install prepare setup
+DEPEND=netcdf? ( sci-libs/netcdf[mpi] ) virtual/mpi fortran? ( virtual/fortran )
+DESCRIPTION=Parallel extension to netCDF
+EAPI=8
+HOMEPAGE=https://parallel-netcdf.github.io http://cucis.ece.northwestern.edu/projects/PnetCDF http://www-unix.mcs.anl.gov/parallel-netcdf
+INHERIT=autotools fortran-2
+IUSE=burst-buffering +cxx debug doc +erange-fill +file-sync +fortran netcdf null-byte-header-padding +relax-coord-bound subfiling threadsafe
+KEYWORDS=~amd64
+LICENSE=UCAR-Unidata
+RDEPEND=netcdf? ( sci-libs/netcdf[mpi] ) virtual/mpi fortran? ( virtual/fortran )
+SLOT=0
+SRC_URI=http://cucis.ece.northwestern.edu/projects/PnetCDF/Release/pnetcdf-1.12.2.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c7052b276346587968d52ea8eaf5aca1	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a
+_md5_=ee7b93079d10a7e5eb2be768db164eff

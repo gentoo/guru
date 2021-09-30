@@ -1,0 +1,17 @@
+BDEPEND=test? ( dev-python/daiquiri[python_targets_python3_8(-)?] dev-python/click[python_targets_python3_8(-)?] dev-python/pbr[python_targets_python3_8(-)?] dev-python/jinja[python_targets_python3_8(-)?] dev-python/fixtures[python_targets_python3_8(-)?] dev-python/psutil[python_targets_python3_8(-)?] dev-python/pyxattr[python_targets_python3_8(-)?] >=dev-python/pytest-4.5.0[python_targets_python3_8(-)?] ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-python/daiquiri[python_targets_python3_8(-)?] dev-python/click[python_targets_python3_8(-)?] dev-python/pbr[python_targets_python3_8(-)?] dev-python/jinja[python_targets_python3_8(-)?] dev-python/fixtures[python_targets_python3_8(-)?] dev-python/psutil[python_targets_python3_8(-)?] dev-python/pyxattr[python_targets_python3_8(-)?] dev-python/pbr[python_targets_python3_8(-)?] test? ( dev-python/requests[python_targets_python3_8(-)?] dev-python/testrepository[python_targets_python3_8(-)?] dev-python/testtools[python_targets_python3_8(-)?] dev-python/mock[python_targets_python3_8(-)?] )
+DESCRIPTION=Python fixtures and daemon managing tools for functional testing
+EAPI=8
+HOMEPAGE=https://pypi.org/project/pifpaf https://github.com/jd/pifpaf
+INHERIT=distutils-r1
+IUSE=test python_targets_python3_8
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=dev-python/daiquiri[python_targets_python3_8(-)?] dev-python/click[python_targets_python3_8(-)?] dev-python/pbr[python_targets_python3_8(-)?] dev-python/jinja[python_targets_python3_8(-)?] dev-python/fixtures[python_targets_python3_8(-)?] dev-python/psutil[python_targets_python3_8(-)?] dev-python/pyxattr[python_targets_python3_8(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?]
+REQUIRED_USE=|| ( python_targets_python3_8 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://pypi/p/pifpaf/pifpaf-3.1.5.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	252d4f554e611b0af601160a9c7be049
+_md5_=5fcf806d00e6412421d25507877e3090

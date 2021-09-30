@@ -1,0 +1,17 @@
+BDEPEND=doc? ( dev-python/sphinx ) test? ( comm-queue-ipc? ( dev-libs/boost ) slurm? ( sys-cluster/slurm ) app-shells/pdsh dev-libs/openssl <sys-cluster/AXL-0.4.0 sys-cluster/er virtual/mpi >=dev-python/pytest-4.5.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) dev-util/ninja >=dev-util/cmake-3.20.5 python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=comm-queue-ipc? ( dev-libs/boost ) slurm? ( sys-cluster/slurm ) app-shells/pdsh dev-libs/openssl <sys-cluster/AXL-0.4.0 sys-cluster/er virtual/mpi
+DESCRIPTION=Very-Low Overhead Checkpointing System
+EAPI=8
+HOMEPAGE=https://github.com/ECP-VeloC/VELOC
+INHERIT=cmake distutils-r1
+IUSE=+comm-queue-ipc comm-queue-socket python +slurm doc test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=comm-queue-ipc? ( dev-libs/boost ) slurm? ( sys-cluster/slurm ) app-shells/pdsh dev-libs/openssl <sys-cluster/AXL-0.4.0 sys-cluster/er virtual/mpi python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+REQUIRED_USE=^^ ( comm-queue-ipc comm-queue-socket ) || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/ECP-VeloC/VELOC/archive/refs/tags/1.5.tar.gz -> veloc-1.5.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	252d4f554e611b0af601160a9c7be049
+_md5_=c850ce364e2a66b725f8dcb3fbe544a2

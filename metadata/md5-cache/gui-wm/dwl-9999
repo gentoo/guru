@@ -1,0 +1,14 @@
+BDEPEND=dev-libs/wayland-protocols dev-util/wayland-scanner virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install postinst prepare unpack
+DEPEND=dev-libs/libinput dev-libs/wayland x11-libs/libxcb x11-libs/libxkbcommon >=gui-libs/wlroots-0.14:=[X(-)?] <gui-libs/wlroots-0.15:=[X(-)?]
+DESCRIPTION=dwm for Wayland
+EAPI=7
+HOMEPAGE=https://github.com/djpohly/dwl
+INHERIT=savedconfig git-r3
+IUSE=X savedconfig
+LICENSE=CC0-1.0 GPL-3 MIT
+PROPERTIES=live
+RDEPEND=dev-libs/libinput dev-libs/wayland x11-libs/libxcb x11-libs/libxkbcommon >=gui-libs/wlroots-0.14:=[X(-)?] <gui-libs/wlroots-0.15:=[X(-)?]
+SLOT=0
+_eclasses_=portability	d1186f1e621de7b27ddcae82e6253259	savedconfig	ed1a8cb208fa9ffa1861271194406651	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=6e70b72fa8d9de213eacfa47035bb3c3
