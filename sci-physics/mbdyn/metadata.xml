@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://public.gitlab.polimi.it/DAER/mbdyn/-/issues</bugs-to>
+	</upstream>
+	<use>
+		<flag name="ann">With ANN<pkg>sci-libs/ann</pkg> support</flag>
+		<flag name="arpack">With <pkg>sci-libs/arpack</pkg> math library</flag>
+		<flag name="autodiff">Enable automatic differentiation in order to compute the Jacobian matrix</flag>
+		<flag name="blender">Install <pkg>media-gfx/blender</pkg> plugins</flag>
+		<flag name="boost">With <pkg>dev-libs/boost</pkg> support</flag>
+		<flag name="bullet">With <pkg>sci-physics/bullet</pkg> support</flag>
+		<flag name="chaco">With <pkg>sci-mathematics/chaco</pkg> model partitioning support</flag>
+		<flag name="crypt">Enable crypt</flag>
+		<flag name="eig">Enable direct eigensolution</flag>
+		<flag name="ginac">With <pkg>sci-mathematics/ginac</pkg> support</flag>
+		<flag name="jdqz">With <pkg>sci-libs/jdqz</pkg> math library</flag>
+		<flag name="mbc">Enable MBC - multibody communication library</flag>
+		<!--<flag name="mbdyn-module-FMU">This is a module to import and cosimulation of FMUs, developed using FMI standards, for MBDyn</flag>-->
+		<!--<flag name="mbdyn-module-aerodyn">This is MBDyn's module for the wind-turbine aerodynamics library AeroDyn</flag>-->
+		<flag name="mbdyn-module-asynchronous-machine">The purpose of this code is the simulation of an asynchronous electrical machine as a part of a multibody model</flag>
+		<flag name="mbdyn-module-autodiff-test">This element implements a inline joint with friction</flag>
+		<flag name="mbdyn-module-ballbearing-contact">ball bearing contact</flag>
+		<flag name="mbdyn-module-bullet"><pkg>sci-physics/bullet</pkg> module</flag>
+		<flag name="mbdyn-module-charm">This module implements a user-defined induced velocity element based on CDI's CHARM free wake</flag>
+		<flag name="mbdyn-module-constlaw-f90">This directory contains an example of run-time loadable constitutive law written in Fortran 90</flag>
+		<flag name="mbdyn-module-constlaw-f95">This directory contains an example of run-time loadable constitutive law written in Fortran 95</flag>
+		<flag name="mbdyn-module-constlaw">This directory contains an example of run-time loadable constitutive law</flag>
+		<flag name="mbdyn-module-cont-contact">continuous contact</flag>
+		<flag name="mbdyn-module-controller">controller module</flag>
+		<flag name="mbdyn-module-convtest">convergence test module</flag>
+		<!--<flag name="mbdyn-module-cudatest"></flag>-->
+		<flag name="mbdyn-module-cyclocopter">This module implements induced velocity models for cycloidal rotors</flag>
+		<flag name="mbdyn-module-damper-gandhi">Gandhi, F. and Chopra, I., "An analytical model for a nonlinear elastomeric lag damper and its effect on aeromechanical stability in hover" Journal of the American Helicopter Society, Vol. 39, 1994, pp. 59-69.</flag>
+		<flag name="mbdyn-module-damper-graall">GRAALL Damper Constitutive Law</flag>
+		<flag name="mbdyn-module-damper-hydraulic">Hydraulic Damper Constitutive Law</flag>
+		<flag name="mbdyn-module-damper">It implements a 1D constitutive law based on a generic nonlinear rheological formula, whose coefficients are computed by means of parameter identification from experimental measurements</flag>
+		<flag name="mbdyn-module-diff">diff drive module</flag>
+		<flag name="mbdyn-module-dot">dot language module</flag>
+		<flag name="mbdyn-module-drive-test">drive test module</flag>
+		<flag name="mbdyn-module-drive">example of run-time loadable drive</flag>
+		<flag name="mbdyn-module-dummy">Dummy module --- does nothing, used to test the infrastructure</flag>
+		<flag name="mbdyn-module-eu2phi">converts three Euler angles into the corresponding Euler vector</flag>
+		<flag name="mbdyn-module-fab-electric">Library of electric components for "digital fabrication" machines</flag>
+		<flag name="mbdyn-module-fab-motion">Library of motion transmission components for "digital fabrication" machines</flag>
+		<flag name="mbdyn-module-fab-sbearings">Library of bearings for "digital fabrication" machines</flag>
+		<flag name="mbdyn-module-fabricate">Library of components of "digital fabrication" machines</flag>
+		<flag name="mbdyn-module-flightgear">flightgear module</flag>
+		<flag name="mbdyn-module-friction">eXperimental friction model</flag>
+		<flag name="mbdyn-module-friction3">eXperimental friction model (2nd try)</flag>
+		<flag name="mbdyn-module-hfelem">Harmonic Excitation Element</flag>
+		<flag name="mbdyn-module-hid">This module registers a file driver that captures the input from HID USB devices (only tested with some joysticks)</flag>
+		<flag name="mbdyn-module-hunt-crossley">HuntCrossley constitutive law</flag>
+		<flag name="mbdyn-module-hydrodynamic-plain-bearing">This module implements a hydrodynamic plain bearing according to Hans Juergen Butenschoen 1976 Das hydrodynamische zylindrische Gleitlager endlicher Breite unter instationaerer Belastung</flag>
+		<flag name="mbdyn-module-hydrodynamic-plain-bearing2">module hydrodynamic plain bearing2</flag>
+		<flag name="mbdyn-module-imu">implements two uses of a IMU</flag>
+		<flag name="mbdyn-module-indvel">This module implements a dummy induced velocity model</flag>
+		<flag name="mbdyn-module-inline-friction">This element implements a inline joint with friction</flag>
+		<flag name="mbdyn-module-inplane-friction">In plane friction</flag>
+		<flag name="mbdyn-module-journal-bearing">This element implements a journal bearing with lugre friction</flag>
+		<flag name="mbdyn-module-leapmotion">leapmotion hand</flag>
+		<flag name="mbdyn-module-loadinc">load increment normalization</flag>
+		<flag name="mbdyn-module-marble">marble model for icecube robot</flag>
+		<flag name="mbdyn-module-md">MD module</flag>
+		<flag name="mbdyn-module-mds">mds module</flag>
+		<flag name="mbdyn-module-minmaxdrive">minmaxdrive module</flag>
+		<flag name="mbdyn-module-multi-step-drive">multi step drive module</flag>
+		<flag name="mbdyn-module-muscles">muscle module</flag>
+		<flag name="mbdyn-module-namespace">namespace module</flag>
+		<flag name="mbdyn-module-nodedistdrive">node dist drive module</flag>
+		<flag name="mbdyn-module-nonsmooth-node">Defines a unilateral constraint in form of a contact between a node and one or more planes, optionally with friction</flag>
+		<flag name="mbdyn-module-ns">ns1 module</flag>
+		<flag name="mbdyn-module-octave">octave module</flag>
+		<flag name="mbdyn-module-randdrive">rand drive module</flag>
+		<flag name="mbdyn-module-rollercoaster">rollercoaster module</flag>
+		<flag name="mbdyn-module-rotor-loose-coupling">rotor loose coupling</flag>
+		<flag name="mbdyn-module-scalarfunc">example of run-time loadable scalar function</flag>
+		<flag name="mbdyn-module-switch-drive">switch drive module</flag>
+		<flag name="mbdyn-module-tclpgin">tcl plugin</flag>
+		<flag name="mbdyn-module-template">template module; use it as guideline for user-defined elements</flag>
+		<flag name="mbdyn-module-template2">template module; use it as guideline for user-defined elements</flag>
+		<flag name="mbdyn-module-triangular-contact">This element implements unilateral contact with friction between an arbitrary rigid body, represented by a triangular mesh, and a set of nodes with arbitrary offsets</flag>
+		<flag name="mbdyn-module-udunits">This module adds a namespace "units" with the only function "convert", which is thus invoked as "units::convert"</flag>
+		<flag name="mbdyn-module-uni-in-plane">This element implements the unilateral contact between a point and a plane</flag>
+		<flag name="mbdyn-module-wheel2">Connects 2 structural nodes: Wheel Ground</flag>
+		<flag name="mbdyn-module-wheel4">L. Gagnon, M. J. Richard, P. Masarati, M. Morandini, and G. Dore. Multibody simulation of tires operating on an uneven road. In Multibody Dynamics 2011, 4-7 July 2011</flag>
+		<flag name="metis">With <pkg>sci-libs/metis</pkg> model partitioning support</flag>
+		<flag name="mpi">With MPI support</flag>
+		<flag name="multithread-naive">Enable multithread naive solver</flag>
+		<flag name="netcdf">Enable NetCDF based binary output</flag>
+		<flag name="octave">Enable <pkg>sci-mathematics/octave</pkg> support</flag>
+		<flag name="openblas">With <pkg>sci-libs/openblas</pkg> implementation</flag>
+		<flag name="pam">With <pkg>sys-libs/pam</pkg> support</flag>
+		<flag name="pastix">With <pkg>sci-libs/pastix</pkg> math library</flag>
+		<flag name="pmpi">With pmpi for MPI profiling</flag>
+		<flag name="qrupdate">With <pkg>sci-libs/qrupdate</pkg> library</flag>
+		<flag name="rt">With POSIX realtime support</flag>
+		<flag name="sasl">With <pkg>dev-libs/cyrus-sasl</pkg> support</flag>
+		<flag name="schur">Enable Schur parallel solver</flag>
+		<flag name="sparse">Enable sparse solvers</flag>
+		<flag name="superlu">With <pkg>sci-libs/superlu</pkg> math library - eXperimental</flag>
+		<flag name="taucs">With <pkg>sci-libs/taucs</pkg> math library - eXperimental</flag>
+		<flag name="tests">Enable installation of some test programs which are otherwise not installed</flag>
+		<flag name="threads">With threads</flag>
+		<flag name="y12">With Y12 sparse math library</flag>
+		<flag name="udunits">With <pkg>sci-libs/udunits</pkg></flag>
+	</use>
+</pkgmetadata>
