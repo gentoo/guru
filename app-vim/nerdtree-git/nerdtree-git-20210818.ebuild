@@ -5,7 +5,7 @@ EAPI=7
 
 inherit vim-plugin
 
-COMMIT="ff9b14f14dceecb6c08cb05053ad649c3b6ac250"
+COMMIT="e1fe727127a813095854a5b063c15e955a77eafb"
 DESCRIPTION="vim plugin: display git status flags in NERDTree"
 HOMEPAGE="https://github.com/Xuyuanp/nerdtree-git-plugin"
 SRC_URI="https://github.com/Xuyuanp/${PN}-plugin/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
