@@ -6,7 +6,7 @@ EAPI=7
 inherit vim-plugin
 
 MY_PN=${PN/-/.}
-COMMIT="d5d2767dbcfd7ceb8dd53f13162458a824e650c9"
+COMMIT="18654218da069865716179d7f07640869a5e1fe8"
 DESCRIPTION="vim plugin: syntax highlighting for Gemini Text, the text/gemini media type"
 HOMEPAGE="https://sr.ht/~torresjrjr/gemini.vim/"
 SRC_URI="https://git.sr.ht/~torresjrjr/${MY_PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
