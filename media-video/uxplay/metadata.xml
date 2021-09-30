@@ -5,19 +5,26 @@
 		<email>vowstar@gmail.com</email>
 		<name>Huang Rui</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>petrus.zy.07@gmail.com</email>
+		<name>Petrus Zhao</name>
+	</maintainer>
 	<upstream>
-		<remote-id type="github">antimof/UxPlay</remote-id>
+		<remote-id type="github">FDH2/UxPlay</remote-id>
 	</upstream>
 	<longdescription lang="en">
-	UxPlay - AirPlay Unix mirroring server.
-	This project is an early stage prototype of unix AirPlay server. Work is
-	based on https://github.com/FD-/RPiPlay. Tested on Ubuntu 19.10 desktop.
-	5G Wifi connection is the must.
-	Features:
-	Based on Gstreamer.
-	Video and audio are supported out of the box.
-	Gstreamer decoding is plugin agnostic.
-	Uses accelerated decoders if availible. VAAPI is preferable.
-	Automatic screen orientation.
+		UxPlay - AirPlay Unix mirroring server.
+		This project is an early stage prototype of unix AirPlay server. Work is
+		based on https://github.com/FD-/RPiPlay. Tested on Ubuntu 19.10 desktop.
+		5G Wifi connection is the must.
+		Features:
+		Based on Gstreamer.
+		Video and audio are supported out of the box.
+		Gstreamer decoding is plugin agnostic.
+		Uses accelerated decoders if availible. VAAPI is preferable.
+		Automatic screen orientation.
 	</longdescription>
+	<use>
+		<flag name="zoomfix">supported mirrored window for screen-sharing applications such as Zoom</flag>
+	</use>
 </pkgmetadata>

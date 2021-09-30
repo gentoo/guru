@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop eutils xdg
+inherit desktop wrapper xdg
 
 MY_PN="eclipse"
 MY_PV="2021-09"
@@ -28,7 +28,7 @@ RDEPEND="
 
 QA_FLAGS_IGNORED="
 	/opt/eclipse-parallel-bin/eclipse
-	/opt/eclipse-parallel-bin/plugins/org.eclipse.equinox.launcher.gtk.linux.*/eclipse_*.so
+	/opt/eclipse-parallel-bin/plugins/org.eclipse.equinox.launcher.gtk.linux[.].*/eclipse_.*[.]so
 "
 
 src_install() {

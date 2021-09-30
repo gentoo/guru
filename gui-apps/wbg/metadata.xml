@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Leonardo Hernandez Hernandez</name>
+		<email>leohdz172@outlook.com</email>
+	</maintainer>
+	<longdescription lang="en">
+		Super simple wallpaper application for Wayland compositors implementing the layer-shell protocol.
+		Wbg takes a single command line argument: a path to an image file. This image is displayed scaled-to-fit on all monitors.
+		More display options, and/or the ability to set a per-monitor wallpaper may be added in the future.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://codeberg.org/dnkl/wbg/issues</bugs-to>
+		<doc>https://codeberg.org/dnkl/wbg/src/branch/master/README.md</doc>
+	</upstream>
+</pkgmetadata>

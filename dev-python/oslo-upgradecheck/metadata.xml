@@ -8,6 +8,7 @@
 	</maintainer>
 	<stabilize-allarches/>
 	<upstream>
+		<bugs-to>https://bugs.launchpad.net/oslo.upgradecheck</bugs-to>
 		<remote-id type="pypi">oslo.upgradecheck</remote-id>
 		<remote-id type="launchpad">oslo</remote-id>
 	</upstream>

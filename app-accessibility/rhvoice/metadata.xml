@@ -1,45 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<upstream>
-		<remote-id type="github">RHVoice/RHVoice</remote-id>
-	</upstream>
-	<maintainer type="person">
-		<email>cyber+gentoo@sysrq.in</email>
-		<name>Anna</name>
-	</maintainer>
-	<use>
-		<flag name="cli">
-			Build a CLI application that allows you to synthesize speech
-		</flag>
-		<flag name="client">
-			Build a client allowing to speak text (deprecated - use speech-dispatcher)
-		</flag>
-		<flag name="server">
-			Build a server application
-		</flag>
-		<flag name="speech-dispatcher">
-			Build a speech-dispatcher middleware module
-		</flag>
-		<flag name="utils">
-			Build utilities needed for the ones creating voices
-		</flag>
-	</use>
-	<longdescription lang="en">
-		RHVoice is a free and open source speech synthesizer.
+<upstream>
+	<remote-id type="github">RHVoice/RHVoice</remote-id>
+</upstream>
+<maintainer type="person">
+	<email>cyber+gentoo@sysrq.in</email>
+	<name>Anna</name>
+</maintainer>
+<use>
+	<flag name="cli">Build a CLI application that allows you to synthesize speech</flag>
+	<flag name="server">Build a server application</flag>
+	<flag name="speech-dispatcher">Build a speech-dispatcher middleware module</flag>
+	<!-- flag name="utils">Build utilities needed for the ones creating voices</flag -->
+</use>
+<longdescription lang="en">
+	RHVoice is a free and open source speech synthesizer.
 
-		Voices are built from recordings of natural speech. They have
-		small footprints, because only statistical models are stored
-		on users' computers. And though the voices lack the
-		naturalness of the synthesizers which generate speech by
-		combining segments of the recordings themselves, they are
-		still very intelligible and resemble the speakers who recorded
-		the source material.
+	Voices are built from recordings of natural speech. They have small
+	footprints, because only statistical models are stored on users'
+	computers. And though the voices lack the naturalness of the
+	synthesizers which generate speech by combining segments of the
+	recordings themselves, they are still very intelligible and resemble
+	the speakers who recorded the source material.
 
-		Initially, RHVoice could speak only Russian. Now it also
-		supports American English, Brazilian Portuguese, Esperanto,
-		Georgian, Ukrainian, Kyrgyz and Tatar. In theory, it is
-		possible to implement support for other languages, if all the
-		necessary resources can be found or created.
-	</longdescription>
+	Initially, RHVoice could speak only Russian. Now it also supports
+	American English, Brazilian Portuguese, Esperanto, Georgian, Ukrainian,
+	Kyrgyz and Tatar. In theory, it is possible to implement support for
+	other languages, if all the necessary resources can be found or created.
+</longdescription>
 </pkgmetadata>

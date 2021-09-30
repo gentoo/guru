@@ -37,7 +37,7 @@ RDEPEND="
 	mpi? ( virtual/mpi )
 	muster? ( sys-cluster/muster )
 	treedbscan? (
-		dev-libs/boost:=[threads]
+		dev-libs/boost:=[threads(+)]
 		dev-libs/gmp
 		dev-libs/mpfr
 		sci-mathematics/cgal[shared(-)]

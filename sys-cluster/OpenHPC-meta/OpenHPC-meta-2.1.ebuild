@@ -33,6 +33,7 @@ RDEPEND="
 		sci-libs/netcdf[hdf5,mpi]
 		sci-libs/netcdf-cxx
 		sci-libs/netcdf-fortran
+		sys-cluster/parallel-netcdf
 	)
 
 	parallel? (
@@ -96,7 +97,6 @@ RDEPEND="
 "
 #	io-libs
 	#adios[mpi]
-	#pnetcdf[mpi]
 	#phdf5[mpi]
 
 #	parallel

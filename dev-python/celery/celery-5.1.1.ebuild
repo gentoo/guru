@@ -7,7 +7,7 @@ DISTUTILS_USE_SETUPTOOLS=rdepend
 MYPV="${PV/_beta/b}"
 PYTHON_COMPAT=( python3_8 )
 
-inherit bash-completion-r1 distutils-r1 eutils optfeature
+inherit bash-completion-r1 distutils-r1 optfeature
 
 DESCRIPTION="Asynchronous task queue/job queue based on distributed message passing"
 HOMEPAGE="

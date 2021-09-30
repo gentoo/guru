@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">
+A pure python module (thread safe) to access memcached via it's binary with SASL auth support.
+The main purpose of this module it to be able to communicate with memcached using binary protocol and support authentication, so it can work with Heroku for example.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">jaysonsantos/python-binary-memcached</remote-id>
+		<remote-id type="pypi">python-binary-memcached</remote-id>
+	</upstream>
+</pkgmetadata>

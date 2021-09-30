@@ -3,8 +3,8 @@
 
 EAPI=7
 
-# cvs inherit hack for making it live
-inherit cvs systemd unpacker
+inherit systemd unpacker
+PROPERTIES+="live"
 
 DESCRIPTION="API Support for your favorite torrent trackers"
 HOMEPAGE="https://github.com/Jackett/Jackett"
@@ -39,7 +39,7 @@ src_unpack() {
 src_install() {
 	dodir /opt/jackett
 	cp -a "${S}"/. "${ED}"/opt/jackett || die
-	newinitd "${FILESDIR}"/jackett.initd jackett
+	newinitd "${FILESDIR}"/jackett.initd-r1 jackett
 	systemd_dounit "${FILESDIR}"/jackett.service
 	doenvd "${FILESDIR}"/99jackett
 }

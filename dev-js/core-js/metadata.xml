@@ -2,4 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<!-- maintainer-needed -->
+	<upstream>
+		<bugs-to>https://github.com/zloirock/core-js/issues</bugs-to>
+		<remote-id type="github">zloirock/core-js</remote-id>
+	</upstream>
 </pkgmetadata>

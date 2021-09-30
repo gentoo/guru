@@ -1,0 +1,24 @@
+diff -ur a/index.js b/index.js
+--- a/index.js	1985-10-26 09:15:00.000000000 +0100
++++ b/index.js	2021-02-15 16:02:25.296238209 +0100
+@@ -33,7 +33,7 @@
+  */
+ 
+ var crypto = require("crypto");
+-var uuid = require("uuid/v4");
++const { v4: uuidv4 } = require('uuid');
+ var zmq = require("zeromq");
+ 
+ var DEBUG = global.DEBUG || false;
+diff -ur a/test/index.js b/test/index.js
+--- a/test/index.js	1985-10-26 09:15:00.000000000 +0100
++++ b/test/index.js	2021-02-15 16:02:01.816099481 +0100
+@@ -37,7 +37,7 @@
+ var assert = require("assert");
+ var crypto = require("crypto");
+ 
+-var uuid = require("uuid/v4");
++const { v4: uuidv4 } = require('uuid');
+ 
+ var jmp = require("..");
+ var zmq = jmp.zmq;
