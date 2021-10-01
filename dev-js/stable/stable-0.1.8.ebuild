@@ -511,6 +511,7 @@ HOMEPAGE="
 "
 SRC_URI="
 	https://github.com/Two-Screen/stable/archive/refs/tags/v${PV}.tar.gz -> ${P}.tgz
+	https://raw.githubusercontent.com/Alessandro-Barbieri/guru-large-files/master/${CATEGORY}/${PN}/${P}-package-lock.json
 	$(npm_packages_uris ${NPM_PACKAGES[@]})
 "
 S="${WORKDIR}/${P}"
@@ -521,6 +522,6 @@ KEYWORDS="~amd64"
 NPM_FLAGS="--save-dev"
 
 src_prepare() {
-	cp -f "${FILESDIR}/package-lock-${PV}.json" package-lock.json || die
+	cp -f "${DISTDIR}/${P}-package-lock.json" package-lock.json || die
 	node_src_prepare
 }
