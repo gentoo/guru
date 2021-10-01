@@ -13,27 +13,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 KEYWORDS="~amd64"
-IUSE="test"
-#no tests in tarball
-RESTRICT="test"
 
-BDEPEND="
-	${NODEJS_BDEPEND}
-	test? (
-		dev-js/colors
-		dev-js/deep-diff
-		dev-js/istanbul
-		dev-js/jshint
-		dev-js/naivedb
-		dev-js/pelias-mock-logger
-		dev-js/precommit-hook
-		dev-js/proxyquire
-		dev-js/stream-mock
-		dev-js/taginfo
-		dev-js/tap-spec
-		dev-js/tape
-	)
-"
 RDEPEND="
 	${NODEJS_RDEPEND}
 	dev-js/async
