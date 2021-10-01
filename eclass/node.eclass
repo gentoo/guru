@@ -9,7 +9,7 @@
 # @BLURB: Eclass used to create and maintain node based packages
 # @DESCRIPTION: Node eclass for nodejs' based packages
 
-EXPORT_FUNCTIONS src_unpack src_prepare src_compile src_install src_test src_configure
+EXPORT_FUNCTIONS src_unpack src_prepare src_compile src_install src_configure
 
 SLOT="0"
 PN_LEFT="${PN%%+*}"
@@ -147,9 +147,9 @@ node_src_install() {
 	fi
 }
 
-node_src_test() {
-	npm test || die
-}
+#node_src_test() {
+#	npm test || die
+#}
 
 # ugh
 sha256sum() {
