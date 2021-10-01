@@ -84,9 +84,7 @@ Name | Buildsystem | Category | User | RFH
 [gridstudio](https://github.com/ricklamers/gridstudio) | go | visualization | Alessandro-Barbieri | yes
 [osmosis](https://wiki.openstreetmap.org/wiki/Osmosis) | gradle | geography | Alessandro-Barbieri | yes
 [Opensearch](https://github.com/opensearch-project/OpenSearch) | gradle |  | Alessandro-Barbieri | yes
-[ijavascript](https://github.com/n-riesco/ijavascript) | npm | jupyter | Alessandro-Barbieri | yes
 [cocalc](https://github.com/sagemathinc/cocalc) | npm | math | Alessandro-Barbieri | yes
-[pelias](https://github.com/pelias/pelias) | npm | geography | Alessandro-Barbieri | yes
 [Gitfs](https://github.com/presslabs/gitfs) | setuptools | filesystem | Alessandro-Barbieri | no
 [usbkill](https://github.com/hephaest0s/usbkill) | setuptools | util | Alessandro-Barbieri | no
 [mapillary_tools](https://github.com/mapillary/mapillary_tools) | setuptools | geography | Alessandro-Barbieri | no
