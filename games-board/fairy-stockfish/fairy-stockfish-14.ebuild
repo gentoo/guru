@@ -10,10 +10,8 @@ HOMEPAGE="https://github.com/ianfab/Fairy-Stockfish"
 
 MY_PV=$(ver_rs 1 _)
 
-SRC_URI="
-	https://github.com/ianfab/Fairy-Stockfish/archive/fairy_sf_${MY_PV}.tar.gz -> ${P}.tar.gz
-	test? ( https://api.github.com/repos/niklasf/python-chess/tarball/9b9aa13f9f36d08aadfabff872882f4ab1494e95 -> ${PN}-test-syzygy-${PV}.tar.gz )
-"
+SRC_URI="https://github.com/ianfab/Fairy-Stockfish/archive/fairy_sf_${MY_PV}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -34,7 +32,6 @@ src_prepare() {
 	default
 
 	local item
-	use test && { mv -T ../../niklasf-python-chess-9b9aa13 ../tests/syzygy || die; }
 	# Rename Stockfish to Fairy-Stockfish
 	sed -i -e 's:EXE = stockfish:EXE = fairy-stockfish:' Makefile || die
 		for item in ../tests/*.sh ; do
@@ -42,8 +39,8 @@ src_prepare() {
 		done
 	# protocol.sh test 'ucci.exp' fails for timeout 5 but pass with 15
 	sed -i -e 's:timeout 5:timeout 15:' ../tests/protocol.sh || die
-	# instrumented.sh syzygy test runs infinitly with USE="largeboards", drop it
-	use largeboards && { sed -i -e '112,141d' ../tests/instrumented.sh || die; }
+	# instrumented.sh syzygy test data tarball get differ size every time, drop it
+	sed -i -e '112,141d' ../tests/instrumented.sh || die
 
 	# prevent pre-stripping
 	sed -e 's:-strip $(BINDIR)/$(EXE)::' -i Makefile \

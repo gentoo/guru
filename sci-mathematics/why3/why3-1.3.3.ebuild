@@ -7,7 +7,7 @@ inherit autotools findlib
 
 DESCRIPTION="Platform for deductive program verification"
 HOMEPAGE="http://why3.lri.fr/"
-SRC_URI="https://gforge.inria.fr/frs/download.php/file/38367/${P}.tar.gz"
+SRC_URI="https://why3.gitlabpages.inria.fr/releases/${P}.tar.gz"
 
 LICENSE="LGPL-2"
 SLOT="0"
