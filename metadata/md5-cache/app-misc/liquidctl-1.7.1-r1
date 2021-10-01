@@ -1,16 +1,16 @@
 BDEPEND=test? ( dev-python/colorlog[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/docopt[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/hidapi[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/pyusb[python_targets_python3_8(-)?,python_targets_python3_9(-)?] sys-apps/i2c-tools[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python] >=dev-python/pytest-4.5.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?] virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Cross-platform tool and drivers for liquid coolers and other devices
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/liquidctl/liquidctl
 INHERIT=distutils-r1 udev
 IUSE=test python_targets_python3_8 python_targets_python3_9
 KEYWORDS=~amd64
 LICENSE=GPL-3+
-RDEPEND=dev-python/colorlog[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/docopt[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/hidapi[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/pyusb[python_targets_python3_8(-)?,python_targets_python3_9(-)?] sys-apps/i2c-tools[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+RDEPEND=dev-python/colorlog[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/docopt[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/hidapi[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/pyusb[python_targets_python3_8(-)?,python_targets_python3_9(-)?] sys-apps/i2c-tools[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python] python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/liquidctl/liquidctl/releases/download/v1.7.1/liquidctl-1.7.1.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	252d4f554e611b0af601160a9c7be049	udev	2d229ad4bfa09058e0184b1ca900db32
-_md5_=6a67ce20c0653dc58b3aa5ca6ee22fac
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	252d4f554e611b0af601160a9c7be049	udev	2d229ad4bfa09058e0184b1ca900db32
+_md5_=f1d40cb26de289eee3b63cbab2268baa

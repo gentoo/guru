@@ -40,7 +40,7 @@ app-admin/pass-update 2.1: pass extension that provides an easy flow for updatin
 app-admin/s-tui 1.0.2 1.1.1: Stress-Terminal UI monitoring tool
 app-arch/libarchive-qt 2.0.3 2.0.4 9999: A Qt based archiving solution with libarchive backend
 app-arch/unalz 0.65-r1: Extract ALZ archives
-app-backup/b2 2.5.0: Command-line tool for BackBlaze's B2 product
+app-backup/b2 2.5.0-r1 3.0.3: Command-line tool for BackBlaze's B2 product
 app-backup/timeshift 20.11.1: A system restore utility for Linux
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
@@ -94,7 +94,7 @@ app-misc/grit 0.3.0: An personal task manager that represents tasks as multitree
 app-misc/hollywood 0_pre20200822: Fill your console with Hollywood melodrama technobabble
 app-misc/jdupes 1.20.0: Identify and manipulate duplicate files
 app-misc/lf 20 22: Terminal file manager
-app-misc/liquidctl 1.7.1: Cross-platform tool and drivers for liquid coolers and other devices
+app-misc/liquidctl 1.7.1-r1: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/mat2 0.12.2: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
 app-misc/navi 2.16.0 2.17.0 9999: An interactive cheatsheet tool for the command-line
@@ -378,7 +378,7 @@ dev-python/autoflake 1.4: Removes unused imports and unused variables as reporte
 dev-python/automaton 2.2.0: Friendly state machines for python.
 dev-python/avro 1.10.2: Apache Avro is a data serialization system
 dev-python/azure-storage-blob 12.8.1: Microsoft Azure Blob Storage Client Library for Python
-dev-python/b2sdk 1.8.0: The client library for BackBlaze's B2 product
+dev-python/b2sdk 1.8.0 1.12.0: The client library for BackBlaze's B2 product
 dev-python/babelfont 2.0.1: Interrogate and manipulate UFO, TTF and OTF fonts with a common interface
 dev-python/baron 0.9: Full Syntax Tree for python to make writing refactoring code a realist task
 dev-python/base58 2.1.0: Base58 and Base58Check implementation
