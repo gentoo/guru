@@ -25,11 +25,15 @@ SLOT="0"
 
 DOCS=("README.md" "KnowledgeBase.md")
 
+IUSE="test"
+RESTRICT="!test? ( test )"
+
 DEPEND="
 	x11-libs/gtk+:3
 	net-libs/webkit-gtk:4=
 "
 RDEPEND="${DEPEND}"
+BDEPEND="test? ( app-text/mandoc )"
 
 src_configure() {
 	[[ "${PV}" == "9999" ]] || restore_config config.h
