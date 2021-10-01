@@ -1,0 +1,35 @@
+diff -ur a/lib/auth.js b/lib/auth.js
+--- a/lib/auth.js	1985-10-26 08:15:00.000000000 -0000
++++ b/lib/auth.js	2021-02-12 16:39:59.871468071 -0000
+@@ -1,7 +1,7 @@
+ 'use strict'
+ 
+ var caseless = require('caseless')
+-var uuid = require('uuid/v4')
++const { v4: uuid } = require('uuid');
+ var helpers = require('./helpers')
+ 
+ var md5 = helpers.md5
+diff -ur a/lib/multipart.js b/lib/multipart.js
+--- a/lib/multipart.js	1985-10-26 08:15:00.000000000 -0000
++++ b/lib/multipart.js	2021-02-12 16:39:59.871468071 -0000
+@@ -1,6 +1,6 @@
+ 'use strict'
+ 
+-var uuid = require('uuid/v4')
++const { v4: uuid } = require('uuid');
+ var CombinedStream = require('combined-stream')
+ var isstream = require('isstream')
+ var Buffer = require('safe-buffer').Buffer
+diff -ur a/lib/oauth.js b/lib/oauth.js
+--- a/lib/oauth.js	1985-10-26 08:15:00.000000000 -0000
++++ b/lib/oauth.js	2021-02-12 16:39:59.871468071 -0000
+@@ -3,7 +3,7 @@
+ var url = require('url')
+ var qs = require('qs')
+ var caseless = require('caseless')
+-var uuid = require('uuid/v4')
++const { v4: uuid } = require('uuid');
+ var oauth = require('oauth-sign')
+ var crypto = require('crypto')
+ var Buffer = require('safe-buffer').Buffer

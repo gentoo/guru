@@ -1,0 +1,10 @@
+--- a/index.js	2021-01-30 09:56:31.448661130 -0000
++++ b/index.js	2021-01-30 09:57:24.401003210 -0000
+@@ -1,6 +1,6 @@
+ 'use strict';
+ 
+-var PassThrough = require('readable-stream/passthrough');
++var PassThrough = require('readable-stream').PassThrough;
+ var split = require('split');
+ var trim = require('trim');
+ var util = require('util');
