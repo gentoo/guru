@@ -104,9 +104,9 @@ node_src_configure() {
 
 node_src_compile() {
 	if [[ "${NODE_BUNDLE}" == 1 ]]; then
-		"${NPM}" ci ${NPM_FLAGS} || die
+		"${NPM}" ci --loglevel verbose ${NPM_FLAGS} || die
 	fi
-	"${NPM}" install ${NPM_FLAGS} --global || die
+	"${NPM}" install --loglevel verbose ${NPM_FLAGS} --global || die
 }
 
 node_src_install() {
