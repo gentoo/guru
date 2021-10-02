@@ -25,32 +25,30 @@ SLOT="0"
 
 DOCS=("README.md" "KnowledgeBase.md")
 
+IUSE="test"
+RESTRICT="!test? ( test )"
+
 DEPEND="
 	x11-libs/gtk+:3
 	net-libs/webkit-gtk:4=
 "
 RDEPEND="${DEPEND}"
+BDEPEND="test? ( app-text/mandoc )"
 
 src_configure() {
 	[[ "${PV}" == "9999" ]] || restore_config config.h
-	default
-}
 
-src_compile() {
-	emake \
-		CC="${CC:-cc}" \
-		CFLAGS="${CFLAGS:--02 -Wall -Wextra}" \
-		LDFLAGS="${LDFLAGS}" \
-		PREFIX="/usr"
+	CC="${CC:-cc}" \
+	CFLAGS="${CFLAGS:--02 -Wall -Wextra}" \
+	LDFLAGS="${LDFLAGS}" \
+	DOCDIR="/usr/share/doc/${PF}" \
+	WITH_WEBKITGTK=4.0 \
+	PREFIX="/usr" \
+	./configure
 }
 
 src_install() {
-	emake \
-		DESTDIR="${D}" \
-		DOCDIR="/usr/share/doc/${PF}" \
-		PREFIX="/usr" \
-		install
+	default
 
 	[[ "${PV}" == "9999" ]] || save_config config.h
-	einstalldocs
 }
