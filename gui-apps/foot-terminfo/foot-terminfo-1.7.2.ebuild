@@ -4,7 +4,7 @@
 EAPI=7
 
 if [[ ${PV} != *9999* ]]; then
-	SRC_URI="https://codeberg.org/dnkl/foot/archive/${PV}.tar.gz  -> ${P}.tar.gz"
+	SRC_URI="https://codeberg.org/dnkl/foot/archive/${PV}.tar.gz  -> foot-${PV}.tar.gz"
 	KEYWORDS="~amd64"
 	S="${WORKDIR}/foot"
 else
