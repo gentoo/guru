@@ -11,13 +11,14 @@ EGIT_REPO_URI="https://git.sr.ht/~emersion/mrsh"
 LICENSE="MIT"
 SLOT="0"
 
-IUSE="libedit +readline"
+IUSE="+readline libedit"
+REQUIRED_USE="?? ( libedit readline )"
+
 DEPEND="
 	libedit? ( dev-libs/libedit )
 	readline? ( sys-libs/readline:= )
 "
 RDEPEND="${DEPEND}"
-REQUIRED_USE="?? ( libedit readline )"
 
 RESTRICT="test"
 
