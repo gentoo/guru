@@ -717,8 +717,8 @@ gui-apps/coreterminal 4.2.0 9999: A terminal emulator for C Suite
 gui-apps/coretime 4.2.0 9999: A time related task manager for C Suite
 gui-apps/coretoppings 4.1.0-r1 4.2.0 9999: Additional features, plugins, widgets etc for C Suite
 gui-apps/coreuniverse 4.2.0 9999: Shows information about apps for C Suite
-gui-apps/foot 1.7.1 1.7.2 1.8.0 1.8.1 1.8.2 1.9.0 9999: A fast, lightweight and minimalistic Wayland terminal emulator
-gui-apps/foot-terminfo 1.7.1 1.7.2 1.8.1 1.9.0 9999: Terminfo for foot, a great Wayland terminal emulator
+gui-apps/foot 1.7.1 1.7.2 1.8.0 1.8.1 1.8.2 1.9.0 1.9.1 9999: A fast, lightweight and minimalistic Wayland terminal emulator
+gui-apps/foot-terminfo 1.7.1 1.7.2 1.8.1 1.9.0 1.9.1 9999: Terminfo for foot, a great Wayland terminal emulator
 gui-apps/mpvpaper 1.0 1.1 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.4.4 0.5.0 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperde 0.1.1_p20210426 9999: Simple, sleek QT based DE for wayland using wayfire

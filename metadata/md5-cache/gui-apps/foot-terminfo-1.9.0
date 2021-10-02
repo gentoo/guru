@@ -6,5 +6,5 @@ HOMEPAGE=https://codeberg.org/dnkl/foot
 KEYWORDS=~amd64
 LICENSE=MIT
 SLOT=0
-SRC_URI=https://codeberg.org/dnkl/foot/archive/1.9.0.tar.gz -> foot-terminfo-1.9.0.tar.gz
-_md5_=81aee098a4218d8ad48a6cf25c27cf85
+SRC_URI=https://codeberg.org/dnkl/foot/archive/1.9.0.tar.gz -> foot-1.9.0.tar.gz
+_md5_=61f5de7d57edb1e5a1cbb15e4d92e9fb
