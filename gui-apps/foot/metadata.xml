@@ -8,5 +8,7 @@
 	<use>
 		<flag name="ime">Enable IME support</flag>
 		<flag name="grapheme-clustering">Enable grapheme clustering support</flag>
+		<flag name="lto">Build with link time optimizations</flag>
+		<flag name="pgo">Build with full profile guided optimizations</flag>
 	</use>
 </pkgmetadata>
