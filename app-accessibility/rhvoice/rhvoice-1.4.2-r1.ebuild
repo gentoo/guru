@@ -56,9 +56,9 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!dev-libs/hts_engine
 "
+# TODO: readd dev-libs/rapidxml in ::guru
 BDEPEND="
-	dev-cpp/cli11:=
-	dev-libs/rapidxml
+	dev-cpp/cli11
 	dev-libs/utfcpp
 "
 REQUIRED_USE="|| ( ao portaudio pulseaudio )"
@@ -99,13 +99,15 @@ src_prepare() {
 	sed "s|/lib/speech-dispatcher-modules|/$(get_libdir)/speech-dispatcher-modules|" \
 		-i src/sd_module/CMakeLists.txt || die
 
+	# fix dbus service install path
 	sed "s|/systemd/system||" \
 		-i src/service/CMakeLists.txt || die
 
-	sed -e "/set(RAPIDXML_INCLUDE_DIR/d" \
-		-i src/third-party/CMakeLists.txt || die
+	#sed -e "/set(RAPIDXML_INCLUDE_DIR/d" \
+	#	-i src/third-party/CMakeLists.txt || die
 	sed "/set(UTF8_INCLUDE_DIR/d" -i src/CMakeLists.txt || die
 
+	# fix build failure
 	sed 's/ "RHVoice_question_match"//' \
 		-i src/third-party/mage/CMakeLists.txt || die
 
@@ -145,7 +147,7 @@ src_configure() {
 		-DWITH_PULSE=$(usex pulseaudio)
 		-DWITH_PORTAUDIO=$(usex portaudio)
 		# src/third-party/CMakeLists.txt
-		-DRAPIDXML_INCLUDE_DIR=/usr/include/rapidxml
+		#-DRAPIDXML_INCLUDE_DIR=/usr/include/rapidxml
 		-DUTF8_INCLUDE_DIR=/usr/include/utf8cpp
 	)
 
