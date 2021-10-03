@@ -1,61 +1,50 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
+MYP="${P//_/}"
 PYTHON_COMPAT=( python3_8 )
-DISTUTILS_USE_SETUPTOOLS=rdepend
-inherit distutils-r1 linux-info multilib udev
+
+inherit distutils-r1 linux-info udev
 
 DESCRIPTION="Cloud computing fabric controller"
-HOMEPAGE="https://launchpad.net/nova"
+HOMEPAGE="
+	https://launchpad.net/nova
+	https://opendev.org/openstack/nova
+	https://pypi.org/project/nova
+"
+SRC_URI="
+	https://dev.gentoo.org/~prometheanfire/dist/openstack/nova/victoria/nova.conf.sample -> nova.conf.sample-${PV}
+	https://tarballs.openstack.org/${PN}/${MYP}.tar.gz
+"
+S="${WORKDIR}/${MYP}"
 
-if [[ ${PV} == *9999 ]];then
-	inherit git-r3
-	SRC_URI="https://dev.gentoo.org/~prometheanfire/dist/openstack/nova/victoria/nova.conf.sample -> nova.conf.sample-${PV}"
-	EGIT_REPO_URI="https://github.com/openstack/nova.git"
-	EGIT_BRANCH="stable/victoria"
-else
-	SRC_URI="https://dev.gentoo.org/~prometheanfire/dist/openstack/nova/victoria/nova.conf.sample -> nova.conf.sample-${PV}
-	https://tarballs.openstack.org/${PN}/${P}.tar.gz"
-	KEYWORDS="~amd64"
-fi
-
+KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
 SLOT="0"
 IUSE="+compute compute-only iscsi +memcached +mysql +novncproxy openvswitch postgres +rabbitmq sqlite"
-REQUIRED_USE="
-	!compute-only? ( || ( mysql postgres sqlite ) )
-	compute-only? ( compute !rabbitmq !memcached !mysql !postgres !sqlite )"
-
-CDEPEND="
-	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
-	!~dev-python/pbr-2.1.0[${PYTHON_USEDEP}]"
-DEPEND="
-	${CDEPEND}
-	app-admin/sudo"
 
 RDEPEND="
-	${CDEPEND}
+	>=dev-python/pbr-5.5.1[${PYTHON_USEDEP}]
 	compute-only? (
-		>=dev-python/sqlalchemy-1.2.19[${PYTHON_USEDEP}]
+		>=dev-python/sqlalchemy-1.4.13[${PYTHON_USEDEP}]
 	)
 	sqlite? (
-		>=dev-python/sqlalchemy-1.2.19[sqlite,${PYTHON_USEDEP}]
+		>=dev-python/sqlalchemy-1.4.13[sqlite,${PYTHON_USEDEP}]
 	)
 	mysql? (
 		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
-		!~dev-python/pymysql-0.7.7[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.2.19[${PYTHON_USEDEP}]
+		>=dev-python/sqlalchemy-1.4.13[${PYTHON_USEDEP}]
 	)
 	postgres? (
 		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.2.19[${PYTHON_USEDEP}]
+		>=dev-python/sqlalchemy-1.4.13[${PYTHON_USEDEP}]
 	)
 	>=dev-python/decorator-4.1.0[${PYTHON_USEDEP}]
-	>=dev-python/eventlet-0.22.0[${PYTHON_USEDEP}]
+	>=dev-python/eventlet-0.30.1[${PYTHON_USEDEP}]
 	>=dev-python/jinja-2.10[${PYTHON_USEDEP}]
-	>=dev-python/keystonemiddleware-4.17.0[${PYTHON_USEDEP}]
+	>=dev-python/keystonemiddleware-4.20.0[${PYTHON_USEDEP}]
 	>=dev-python/lxml-4.5.0[${PYTHON_USEDEP}]
 	>=dev-python/routes-2.3.1[${PYTHON_USEDEP}]
 	>=dev-python/cryptography-2.7[${PYTHON_USEDEP}]
@@ -64,7 +53,6 @@ RDEPEND="
 	>=dev-python/pastedeploy-1.5.0-r1[${PYTHON_USEDEP}]
 	>=dev-python/paste-2.0.2[${PYTHON_USEDEP}]
 	>=dev-python/prettytable-0.7.1[${PYTHON_USEDEP}]
-	<dev-python/prettytable-0.8[${PYTHON_USEDEP}]
 	>=dev-python/sqlalchemy-migrate-0.13.0[${PYTHON_USEDEP}]
 	>=dev-python/netaddr-0.7.18[${PYTHON_USEDEP}]
 	>=dev-python/netifaces-0.10.4[${PYTHON_USEDEP}]
@@ -72,40 +60,37 @@ RDEPEND="
 	>=dev-python/iso8601-0.1.11[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-3.2.0[${PYTHON_USEDEP}]
 	>=dev-python/python-cinderclient-3.3.0[${PYTHON_USEDEP}]
-	!~dev-python/python-cinderclient-4.0.0[${PYTHON_USEDEP}]
 	>=dev-python/keystoneauth-3.16.0[${PYTHON_USEDEP}]
-	>=dev-python/python-neutronclient-6.7.0[${PYTHON_USEDEP}]
+	>=dev-python/python-neutronclient-7.1.0[${PYTHON_USEDEP}]
 	>=dev-python/python-glanceclient-2.8.0[${PYTHON_USEDEP}]
-	>=dev-python/requests-2.23.0[${PYTHON_USEDEP}]
-	>=dev-python/six-1.11.0[${PYTHON_USEDEP}]
+	>=dev-python/requests-2.25.1[${PYTHON_USEDEP}]
 	>=dev-python/stevedore-1.20.0[${PYTHON_USEDEP}]
 	>=dev-python/websockify-0.9.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-cache-1.26.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-concurrency-3.29.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-config-6.8.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-context-2.22.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-log-3.36.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-concurrency-4.4.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-config-8.6.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-context-3.1.1[${PYTHON_USEDEP}]
+	>=dev-python/oslo-log-4.4.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-reports-1.18.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-serialization-1.21.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-upgradecheck-0.1.1[${PYTHON_USEDEP}]
-	!~dev-python/oslo-serialization-2.19.1[${PYTHON_USEDEP}]
-	>=dev-python/oslo-utils-4.5.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-db-4.44.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-serialization-4.1.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-upgradecheck-1.3.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-utils-4.8.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-db-10.0.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-rootwrap-5.8.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-messaging-10.3.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-policy-3.4.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-privsep-1.33.2[${PYTHON_USEDEP}]
-	>=dev-python/oslo-i18n-3.15.3[${PYTHON_USEDEP}]
-	>=dev-python/oslo-service-1.40.1[${PYTHON_USEDEP}]
+	>=dev-python/oslo-policy-3.7.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-privsep-2.4.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-i18n-5.0.1[${PYTHON_USEDEP}]
+	>=dev-python/oslo-service-2.5.0[${PYTHON_USEDEP}]
 	>=dev-python/rfc3986-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-middleware-3.31.0[${PYTHON_USEDEP}]
 	>=dev-python/psutil-3.2.2[${PYTHON_USEDEP}]
 	>=dev-python/oslo-versionedobjects-1.35.0[${PYTHON_USEDEP}]
-	>=dev-python/os-brick-3.1.0[${PYTHON_USEDEP}]
-	>=dev-python/os-resource-classes-0.4.0[${PYTHON_USEDEP}]
-	>=dev-python/os-traits-2.4.0[${PYTHON_USEDEP}]
-	>=dev-python/os-vif-1.14.0[${PYTHON_USEDEP}]
-	>=dev-python/os-win-4.2.0[${PYTHON_USEDEP}]
+	>=dev-python/os-brick-4.3.1[${PYTHON_USEDEP}]
+	>=dev-python/os-resource-classes-1.0.0[${PYTHON_USEDEP}]
+	>=dev-python/os-traits-2.5.0[${PYTHON_USEDEP}]
+	>=dev-python/os-vif-1.15.2[${PYTHON_USEDEP}]
+	>=dev-python/os-win-5.4.0[${PYTHON_USEDEP}]
 	>=dev-python/castellan-0.16.0[${PYTHON_USEDEP}]
 	>=dev-python/microversion-parse-0.2.1[${PYTHON_USEDEP}]
 	>=dev-python/os-xenapi-0.3.4[${PYTHON_USEDEP}]
@@ -115,10 +100,11 @@ RDEPEND="
 	>=dev-python/retrying-1.3.3[${PYTHON_USEDEP}]
 	>=dev-python/os-service-types-1.7.0[${PYTHON_USEDEP}]
 	>=dev-python/taskflow-3.8.0[${PYTHON_USEDEP}]
-	>=dev-python/python-dateutil-2.5.3[${PYTHON_USEDEP}]
+	>=dev-python/python-dateutil-2.7.0[${PYTHON_USEDEP}]
 	>=dev-python/zVMCloudConnector-1.3.0[${PYTHON_USEDEP}]
+	>=dev-python/futurist-1.8.0[${PYTHON_USEDEP}]
 	>=dev-python/openstacksdk-0.35.0[${PYTHON_USEDEP}]
-	>=dev-python/pyyaml-3.13[${PYTHON_USEDEP}]
+	>=dev-python/pyyaml-5.1[${PYTHON_USEDEP}]
 	dev-python/libvirt-python[${PYTHON_USEDEP}]
 	app-emulation/libvirt[iscsi?]
 	app-emulation/spice-html5
@@ -143,10 +129,42 @@ RDEPEND="
 		>=sys-block/open-iscsi-2.0.873-r1
 	)
 	acct-user/nova
-	acct-group/nova"
+	acct-group/nova
+"
+DEPEND="
+	${RDEPEND}
+	app-admin/sudo
+	test? (
+		>=dev-python/types-paramiko-0.1.3[${PYTHON_USEDEP}]
+		>=dev-python/ddt-1.2.1[${PYTHON_USEDEP}]
+		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
+		>=dev-python/mock-3.0.0[${PYTHON_USEDEP}]
+		dev-python/psycopg:2[${PYTHON_USEDEP}]
+		>=dev-python/pymysql-0.8.0[${PYTHON_USEDEP}]
+		>=dev-python/python-barbicanclient-4.5.2[${PYTHON_USEDEP}]
+		>=dev-python/python-ironicclient-3.0.0[${PYTHON_USEDEP}]
+		>=dev-python/oslotest-3.8.0[${PYTHON_USEDEP}]
+		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
+		>=dev-python/osprofiler-1.4.0[${PYTHON_USEDEP}]
+		>=dev-python/testresources-2.0.0[${PYTHON_USEDEP}]
+		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
+		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
+		>=dev-python/bandit-1.1.0[${PYTHON_USEDEP}]
+		>=dev-python/gabbi-1.35.0[${PYTHON_USEDEP}]
+		>=dev-python/wsgi_intercept-1.7.0[${PYTHON_USEDEP}]
+		>=dev-python/oslo-vmware-3.6.0[${PYTHON_USEDEP}]
+	)
+"
 
+REQUIRED_USE="
+	!compute-only? ( || ( mysql postgres sqlite ) )
+	compute-only? ( compute !rabbitmq !memcached !mysql !postgres !sqlite )
+	test? ( mysql )
+"
 #PATCHES=(
 #)
+
+distutils_enable_tests pytest
 
 pkg_setup() {
 	linux-info_pkg_setup
