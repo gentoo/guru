@@ -1,0 +1,10 @@
+--- a/timeshift-autosnap
++++ b/timeshift-autosnap
+@@ -53,7 +53,7 @@ if $(get_property "deleteSnapshots" "boolean" "true") ; then
+     fi
+ fi;
+ 
+-if $(get_property "updateGrub" "boolean" "true") && [ "$(pacman -Qs ^grub-btrfs$)" ]; then
++if $(get_property "updateGrub" "boolean" "true") ; then
+     grub-mkconfig -o /boot/grub/grub.cfg
+ fi;

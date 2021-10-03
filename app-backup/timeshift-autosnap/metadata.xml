@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>pascal.jaeger@leimstift.de</email>
+		<name>Pascal Jäger</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Antynea/grub-btrfs</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		Improves Grub by adding "btrfs snapshots" to the Grub menu.
+
+		You can boot your system on a "snapshot" from the Grub menu.
+		Supports manual snapshots, snapper, timeshift ...
+	</longdescription>
+</pkgmetadata>
