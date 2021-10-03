@@ -132,6 +132,7 @@ app-shells/fish-command-timer 0.1.3 0.1.3_p20201002: Fish shell extension for pr
 app-shells/fish-history-merge 0_pre20201121: Plugin that modifies built-in up-or-search command to merge the command history
 app-shells/fzf-fish 7.1: Augment your fish command line with fzf key bindings
 app-shells/k 0.0.5: Directory listings for zsh with git features
+app-shells/mrsh 9999: minimal strictly POSIX compliant shell
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
 app-shells/ohmyzsh 9999: A framework for managing your zsh configuration.
 app-shells/powerline-go 1.21.0: A powerline like prompt for Bash, Zsh, Fish written in Go lang.
@@ -1066,7 +1067,7 @@ www-apps/jackett-bin 0.18.827 9999: API Support for your favorite torrent tracke
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/twint 2.1.20-r1: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 19.9.0 9999: ultra fast, simple, secure & standards compliant web I/O
-www-client/badwolf 1.1.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
+www-client/badwolf 1.2.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/browsh 1.6.4_p1: A fully-modern text-based browser, rendering to TTY and browsers
 www-client/torbrowser-launcher 0.3.3 9999: A program to download, updated, and run the Tor Browser Bundle
 www-client/woob 3.0-r1 9999: Web Outside Of Browsers (core, site modules and applications)
