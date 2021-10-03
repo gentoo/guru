@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/chjj/buffer-map/issues</bugs-to>
-		<remote-id type="github">git://github.com/chjj/buffer-map.git</remote-id>
+		<remote-id type="github">chjj/buffer-map</remote-id>
 	</upstream>
 </pkgmetadata>

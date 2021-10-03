@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/bcoin-org/bfilter/issues</bugs-to>
-		<remote-id type="github">git://github.com/bcoin-org/bfilter.git</remote-id>
+		<remote-id type="github">bcoin-org/bfilter</remote-id>
 	</upstream>
 </pkgmetadata>

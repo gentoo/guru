@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/bcoin-org/bheep/issues</bugs-to>
-		<remote-id type="github">git://github.com/bcoin-org/bheep.git</remote-id>
+		<remote-id type="github">bcoin-org/bheep</remote-id>
 	</upstream>
 </pkgmetadata>

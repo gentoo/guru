@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/bcoin-org/bsock/issues</bugs-to>
-		<remote-id type="github">git://github.com/bcoin-org/bsock.git</remote-id>
+		<remote-id type="github">bcoin-org/bsock</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/chjj/n64/issues</bugs-to>
-		<remote-id type="github">git://github.com/chjj/n64.git</remote-id>
+		<remote-id type="github">chjj/n64</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -3,7 +3,7 @@
 <pkgmetadata>
 	<upstream>
 		<doc>http://www.grantjenks.com/docs/sortedcollections/</doc>
-		<remote-id type="github">https://github.com/grantjenks/python-sortedcollections</remote-id>
+		<remote-id type="github">grantjenks/python-sortedcollections</remote-id>
 		<remote-id type="pypi">sortedcollections</remote-id>
 	</upstream>
 	<maintainer type="person">

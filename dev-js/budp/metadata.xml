@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/bcoin-org/budp/issues</bugs-to>
-		<remote-id type="github">git://github.com/bcoin-org/budp.git</remote-id>
+		<remote-id type="github">bcoin-org/budp</remote-id>
 	</upstream>
 </pkgmetadata>

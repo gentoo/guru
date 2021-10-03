@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/bcoin-org/blgr/issues</bugs-to>
-		<remote-id type="github">git://github.com/bcoin-org/blgr.git</remote-id>
+		<remote-id type="github">bcoin-org/blgr</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/handshake-org/hsd/issues</bugs-to>
-		<remote-id type="github">git://github.com/handshake-org/hsd.git</remote-id>
+		<remote-id type="github">handshake-org/hsd</remote-id>
 	</upstream>
 </pkgmetadata>

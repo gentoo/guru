@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/chjj/unbound/issues</bugs-to>
-		<remote-id type="github">git://github.com/chjj/unbound.git</remote-id>
+		<remote-id type="github">chjj/unbound</remote-id>
 	</upstream>
 </pkgmetadata>

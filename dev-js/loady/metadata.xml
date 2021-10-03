@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/chjj/loady/issues</bugs-to>
-		<remote-id type="github">git://github.com/chjj/loady.git</remote-id>
+		<remote-id type="github">chjj/loady</remote-id>
 	</upstream>
 </pkgmetadata>
