@@ -7,7 +7,7 @@ EAPI=8
 
 CRATES="
 	aho-corasick-0.7.18
-	anyhow-1.0.43
+	anyhow-1.0.44
 	arrayvec-0.5.2
 	atty-0.2.14
 	autocfg-1.0.1
@@ -67,7 +67,7 @@ CRATES="
 	scopeguard-1.1.0
 	serde-1.0.130
 	serde_derive-1.0.130
-	serde_yaml-0.8.20
+	serde_yaml-0.8.21
 	shellwords-1.1.0
 	signal-hook-0.3.9
 	signal-hook-mio-0.2.1
