@@ -1,10 +1,10 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-DISTUTILS_USE_SETUPTOOLS=rdepend
 PYTHON_COMPAT=( python3_{8..9} )
+
 inherit distutils-r1
 
 DESCRIPTION="A library to provide a bridge from Glyphs source files to UFOs"
@@ -19,7 +19,6 @@ RDEPEND="
 	>=dev-python/fonttools-4.14[${PYTHON_USEDEP}]
 	>=dev-python/ufoLib2-0.8[${PYTHON_USEDEP}]
 "
-
 BDEPEND="
 	app-arch/unzip
 	dev-python/setuptools_scm[${PYTHON_USEDEP}]
