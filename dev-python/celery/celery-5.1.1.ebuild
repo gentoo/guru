@@ -11,7 +11,7 @@ inherit bash-completion-r1 distutils-r1 optfeature
 
 DESCRIPTION="Asynchronous task queue/job queue based on distributed message passing"
 HOMEPAGE="
-	http://celeryproject.org
+	https://docs.celeryproject.org/en/stable/index.html
 	https://pypi.org/project/celery
 	https://github.com/celery/celery
 "
