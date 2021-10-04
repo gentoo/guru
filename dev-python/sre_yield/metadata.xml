@@ -6,8 +6,8 @@
       <name>Alessandro Barbieri</name>
     </maintainer>
     <upstream>
-        <bugs-to>https://github.com/simoncozens/sre_yield/issues</bugs-to>
-        <remote-id type="github">simoncozens/sre_yield</remote-id>
+        <bugs-to>https://github.com/google/sre_yield/issues</bugs-to>
+        <remote-id type="github">google/sre_yield</remote-id>
         <remote-id type="pypi">sre_yield</remote-id>
     </upstream>
 </pkgmetadata>
