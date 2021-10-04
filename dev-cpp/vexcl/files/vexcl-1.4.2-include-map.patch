@@ -1,0 +1,26 @@
+From 555a838850c96ab838a299255157fbe4fd4df2ee Mon Sep 17 00:00:00 2001
+From: Denis Demidov <dennis.demidov@gmail.com>
+Date: Mon, 4 Oct 2021 10:46:03 +0300
+Subject: [PATCH] Missing <map> include in backend/{opencl/compute}/filter.hpp
+
+Fixes #290
+--- a/vexcl/backend/compute/filter.hpp
++++ b/vexcl/backend/compute/filter.hpp
+@@ -35,6 +35,7 @@ THE SOFTWARE.
+ #include <fstream>
+ #include <string>
+ #include <vector>
++#include <map>
+ #include <functional>
+ #include <cstdlib>
+ 
+--- a/vexcl/backend/opencl/filter.hpp
++++ b/vexcl/backend/opencl/filter.hpp
+@@ -35,6 +35,7 @@ THE SOFTWARE.
+ #include <fstream>
+ #include <string>
+ #include <vector>
++#include <map>
+ #include <functional>
+ #include <cstdlib>
+ 

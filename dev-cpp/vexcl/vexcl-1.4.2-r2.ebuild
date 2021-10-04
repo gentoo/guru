@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DOCS_BUILDER="sphinx"
 DOCS_DEPEND="
@@ -9,7 +9,7 @@ DOCS_DEPEND="
 	dev-python/sphinx-bootstrap-theme
 "
 DOCS_DIR="docs"
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit cmake python-any-r1 docs
 
@@ -35,7 +35,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}/add-sphinx-ext-autodoc-to-conf-py.patch" )
+PATCHES=(
+	"${FILESDIR}/add-sphinx-ext-autodoc-to-conf-py.patch"
+	"${FILESDIR}/${P}-include-map.patch"
+)
 REQUIRED_USE="
 	^^ ( ${IUSE_BACKEND//+/} )
 "
