@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Automatically creats a snapshot everytime before portage installs a package"
+DESCRIPTION="Automatically creates a timeshift-snapshot when executed"
 HOMEPAGE="https://gitlab.com/gobonja/timeshift-autosnap"
 SRC_URI="https://gitlab.com/gobonja/timeshift-autosnap/-/archive/${PV}/{$P}.tar.gz -> ${P}.tar.gz"
 
@@ -37,7 +37,8 @@ src_install(){
 }
 
 pkg_postinst() {
-	touch /etc/portage/bashrc
-        grep -q  '#!/bin/' /etc/portage/bashrc || awk -i inplace 'BEGINFILE{print "#!/bin/sh"}{print}' /etc/portage/bashrc
-        grep -q 'timeshift-autosnap' /etc/portage/bashrc || echo 'function pre_pkg_setup() { /usr/bin/timeshift-autosnap ; }' >> /etc/portage/bashrc
+	echo "to run timeshift-autosnap everytime you emerge a package run: 
+'touch /etc/portage/bashrc' 
+'grep -q  '#!/bin/' /etc/portage/bashrc || awk -i inplace 'BEGINFILE{print "#!/bin/sh"}{print}' /etc/portage/bashrc 
+'grep -q 'timeshift-autosnap' /etc/portage/bashrc || echo 'function pre_pkg_setup() { /usr/bin/timeshift-autosnap ; }' >> /etc/portage/bashrc'"
 }
