@@ -32,4 +32,5 @@ distutils_enable_tests pytest
 src_prepare() {
 	distutils-r1_src_prepare
 	sed -i -e '/setup_requires/d' -e '/extras_require/d' setup.py || die
+	sed -i 's/description-file/description_file/' setup.cfg || die # bug #800581
 }
