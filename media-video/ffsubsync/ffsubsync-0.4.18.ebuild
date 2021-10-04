@@ -28,6 +28,10 @@ RDEPEND="
 	dev-python/webrtcvad[${PYTHON_USEDEP}]
 "
 
+PATCHES=(
+	"${FILESDIR}"/"${P}"-remove-future_annotations.patch
+)
+
 distutils_enable_tests pytest
 
 python_prepare_all() {
