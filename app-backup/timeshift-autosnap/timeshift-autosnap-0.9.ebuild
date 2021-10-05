@@ -37,7 +37,7 @@ src_install(){
 }
 
 pkg_postinst() {
-	echo "to run timeshift-autosnap everytime you emerge a package run: 
+	elog "to run timeshift-autosnap everytime you emerge a package run: 
 'touch /etc/portage/bashrc' 
 'grep -q  '#!/bin/' /etc/portage/bashrc || awk -i inplace 'BEGINFILE{print "#!/bin/sh"}{print}' /etc/portage/bashrc 
 'grep -q 'timeshift-autosnap' /etc/portage/bashrc || echo 'function pre_pkg_setup() { /usr/bin/timeshift-autosnap ; }' >> /etc/portage/bashrc'"
