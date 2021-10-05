@@ -27,5 +27,5 @@ src_compile(){
 }
 
 pkg_postinst() {
-	echo "run 'grub-mkconfig -o /boot/grub/grub.cfg' to update your Grub menu."
+	elog "run 'grub-mkconfig -o /boot/grub/grub.cfg' to update your Grub menu."
 }
