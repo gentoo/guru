@@ -13,7 +13,7 @@ inherit cmake python-single-r1 fortran-2 docs
 
 DESCRIPTION="Scalable Checkpoint / Restart Library"
 HOMEPAGE="
-	http://computing.llnl.gov/projects/scalable-checkpoint-restart-for-mpi
+	https://computing.llnl.gov/projects/scalable-checkpoint-restart-for-mpi
 	https://github.com/LLNL/scr
 "
 SRC_URI="https://github.com/LLNL/scr/archive/refs/tags/v${MYPV}.tar.gz -> ${P}.tar.gz"

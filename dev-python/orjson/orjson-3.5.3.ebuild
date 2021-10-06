@@ -90,11 +90,11 @@ pkg_setup() {
 
 src_compile() {
 	maturin build --no-sdist --manylinux off --interpreter ${EPYTHON} $(usex debug "" --release) || die
-	unzip "target/wheels/${P}-*.whl" || die
+	unzip target/wheels/${P}-*.whl || die
 }
 
 src_install() {
-	python_domodule "${PN}"*.so
+	python_domodule orjson/orjson*.so
 	dodoc README.md
 }
 

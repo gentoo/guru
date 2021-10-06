@@ -76,5 +76,6 @@ python_test() {
 		--deselect tests/integration/test_mmhint.py::test_vfotf[tests/integration/data/vf_tests/CJKSparseVar.subset.hinted.otf] \
 		--deselect tests/integration/test_mmhint.py::test_vfotf[tests/integration/data/vf_tests/bug816.hinted.otf] \
 		--deselect tests/integration/test_cli.py::test_multi_outpath \
+		--deselect tests/integration/test_cli.py::test_multi_different_formats \
 		|| die
 }

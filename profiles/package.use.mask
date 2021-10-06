@@ -37,3 +37,13 @@ sys-cluster/nanox gasnet
 # https://github.com/bsc-performance-tools/extrae/issues/30
 # https://github.com/bsc-performance-tools/extrae/issues/38
 sys-cluster/extrae dyninst
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-10-01)
+# can't locate MPI cxx headers
+# https://public.gitlab.polimi.it/DAER/mbdyn/-/issues/91
+sci-physics/mbdyn mpi
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-10-01)
+# superlu renamed some files
+# https://public.gitlab.polimi.it/DAER/mbdyn/-/issues/97
+sci-physics/mbdyn superlu

@@ -9,7 +9,7 @@ inherit distutils-r1 perl-module
 
 DESCRIPTION="User space software for Intel(R) Resource Director Technology"
 HOMEPAGE="
-	http://www.intel.com/content/www/us/en/architecture-and-technology/resource-director-technology.html
+	https://www.intel.com/content/www/us/en/architecture-and-technology/resource-director-technology.html
 	https://github.com/intel/intel-cmt-cat
 "
 SRC_URI="https://github.com/intel/intel-cmt-cat/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"

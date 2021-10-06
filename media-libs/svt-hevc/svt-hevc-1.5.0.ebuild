@@ -20,7 +20,7 @@ fi
 LICENSE="AOM BSD-2"
 SLOT="0/1"
 
-DEPEND="dev-lang/nasm"
+BDEPEND="dev-lang/nasm"
 
 src_prepare() {
 	append-ldflags -Wl,-z,noexecstack

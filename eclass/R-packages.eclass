@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-inherit eutils toolchain-funcs
+inherit eutils optfeature toolchain-funcs
 
-EXPORT_FUNCTIONS src_unpack src_prepare src_compile src_install
+EXPORT_FUNCTIONS src_unpack src_prepare src_compile src_install pkg_postinst
 
 SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
 HOMEPAGE="https://cran.r-project.org/package=${PN}"
@@ -31,7 +31,6 @@ R-packages_src_prepare() {
 	rm -f LICENSE || die
 	default
 }
-
 
 R-packages_src_compile() {
 	MAKEFLAGS="AR=$(tc-getAR) CFLAGS=${CFLAGS// /\\ } CXXFLAGS=${CXXFLAGS// /\\ } FFLAGS=${FFLAGS// /\\ } FCFLAGS=${FCFLAGS// /\\ } LDFLAGS=${LDFLAGS// /\\ }" R CMD INSTALL . -l "${WORKDIR}" "--byte-compile" || die
@@ -61,4 +60,10 @@ R-packages_src_install() {
 
 	insinto "/usr/$(get_libdir)/R/site-library"
 	doins -r "${WORKDIR}/${PN//_/.}"
+}
+
+R-packages_pkg_postinst() {
+	if [ -v SUGGESTED_PACKAGES ]; then
+		optfeature "having the upstream suggested packages" "${SUGGESTED_PACKAGES}"
+	fi
 }
