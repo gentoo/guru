@@ -42,6 +42,8 @@ DEPEND="
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 		>=dev-python/reno-2.5.0[${PYTHON_USEDEP}]
+
+		dev-python/mock[${PYTHON_USEDEP}]
 	)
 "
 
