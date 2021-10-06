@@ -3,7 +3,6 @@
 
 EAPI=8
 
-DISTUTILS_USE_SETUPTOOLS=rdepend
 MYP="${P/_/}"
 PYTHON_COMPAT=( python3_8 )
 
