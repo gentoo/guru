@@ -43,11 +43,9 @@ RDEPEND="${DEPEND}"
 BDEPEND="app-admin/chrpath"
 
 PATCHES=(
+	"${FILESDIR}/${P}-no-lLLVMDemangle.patch"
 	"${FILESDIR}/${PN}-1.8.1-system-xdgpp.patch"
-	"${FILESDIR}/${PN}-1.8.1-system-nativefiledialog.patch"
-	"${FILESDIR}/${P}-fix-yara-linking.patch"
-	"${FILESDIR}/${P}-no-lnlohmann_json.patch"
-	"${FILESDIR}/${P}-link-mbedtls.patch"
+	"${FILESDIR}/${P}-system-nativefiledialog.patch"
 )
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
