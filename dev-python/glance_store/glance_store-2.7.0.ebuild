@@ -58,9 +58,13 @@ DEPEND="
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
+		>=dev-python/boto3-1.9.199[${PYTHON_USEDEP}]
 	)
 "
-# where to put this?
-#		>=dev-python/boto3-1.9.199[${PYTHON_USEDEP}]
+
+REQUIRED_USE="
+	${PYTHON_REQUIRED_USE}
+	test? ( cinder swift vmware )
+"
 
 distutils_enable_tests pytest
