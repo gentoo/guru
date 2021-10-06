@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 DOCS_BUILDER="sphinx"
@@ -10,6 +10,7 @@ DOCS_DEPEND="
 	dev-python/pydata-sphinx-theme
 "
 DOCS_DIR="${S}/docs"
+EPYTEST_DESELECT=( tests/trio/test_keep_alive.py::test_http1_keep_alive_pre_request )
 PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1 docs optfeature
@@ -29,7 +30,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-python/h11[${PYTHON_USEDEP}]
-	>=dev-python/hyper-h2-3.1.0[${PYTHON_USEDEP}]
+	>=dev-python/h2-3.1.0[${PYTHON_USEDEP}]
 	dev-python/priority[${PYTHON_USEDEP}]
 	dev-python/toml[${PYTHON_USEDEP}]
 	>=dev-python/wsproto-0.14.0[${PYTHON_USEDEP}]
@@ -47,10 +48,6 @@ BDEPEND="
 PATCHES=( "${FILESDIR}/${P}-no-coverage.patch" )
 
 distutils_enable_tests pytest
-
-python_test() {
-	epytest -vv --deselect tests/trio/test_keep_alive.py::test_http1_keep_alive_pre_request || die
-}
 
 pkg_postinst() {
 	optfeature "asyncio event loop on top of libuv" dev-python/uvloop
