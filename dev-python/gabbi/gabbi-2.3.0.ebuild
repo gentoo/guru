@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="8"
+EAPI=8
 
 PYTHON_COMPAT=( python3_8 )
 
@@ -36,5 +36,8 @@ DEPEND="
 		dev-python/hacking[${PYTHON_USEDEP}]
 	)
 "
+
+RESTRICT="test"
+PROPERTIES="test_network"
 
 distutils_enable_tests pytest
