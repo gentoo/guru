@@ -1,8 +1,12 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="8"
+EAPI=8
 
+EPYTEST_DESELECT=(
+	jsonpath_rw_ext/tests/test_jsonpath_rw_ext.py::TestJsonpath_rw_ext::test_fields_value
+	jsonpath_rw_ext/tests/test_jsonpath_rw_ext.py::TestJsonpath_rw_ext::test_shortcut_functions
+)
 PYTHON_COMPAT=( python3_8 )
 
 inherit distutils-r1
