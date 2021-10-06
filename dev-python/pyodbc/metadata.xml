@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <description>co-maintainers welcome</description>
+    <email>lssndrbarbieri@gmail.com</email>
+    <name>Alessandro Barbieri</name>
+  </maintainer>
+  <upstream>
+    <bugs-to>https://github.com/mkleehammer/pyodbc/issues</bugs-to>
+    <remote-id type="pypi">pyodbc</remote-id>
+    <remote-id type="github">mkleehammer/pyodbc</remote-id>
+  </upstream>
+</pkgmetadata>
