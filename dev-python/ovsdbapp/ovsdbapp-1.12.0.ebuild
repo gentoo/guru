@@ -3,6 +3,15 @@
 
 EAPI=8
 
+EPYTEST_DESELECT=(
+	ovsdbapp/tests/functional/backend/ovs_idl/test_backend.py
+	ovsdbapp/tests/functional/backend/ovs_idl/test_connection.py
+	ovsdbapp/tests/functional/backend/ovs_idl/test_indexing.py
+	ovsdbapp/tests/functional/schema/open_vswitch/test_common_db.py
+	ovsdbapp/tests/functional/schema/open_vswitch/test_impl_idl.py
+	ovsdbapp/tests/functional/schema/ovn_northbound/test_impl_idl.py
+	ovsdbapp/tests/functional/schema/ovn_southbound/test_impl_idl.py
+)
 PYTHON_COMPAT=( python3_8 )
 
 inherit distutils-r1
