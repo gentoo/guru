@@ -1,6 +1,6 @@
 BDEPEND=>=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install test unpack
-DEPEND=|| ( >=dev-lang/rust-1.54.0[rls] >=dev-lang/rust-bin-1.54.0[rls] )
+DEPEND=|| ( >=dev-lang/rust-1.55.0[rls] >=dev-lang/rust-bin-1.55.0[rls] )
 DESCRIPTION=An implementation of Language Server Protocol for the Rust programming language
 EAPI=8
 HOMEPAGE=https://rust-analyzer.github.io
@@ -8,8 +8,8 @@ INHERIT=cargo git-r3
 IUSE=debug
 LICENSE=0BSD Apache-2.0 Artistic-2 BSD Boost-1.0 CC0-1.0 ISC MIT Unlicense ZLIB
 PROPERTIES=live
-RDEPEND=|| ( >=dev-lang/rust-1.54.0[rls] >=dev-lang/rust-bin-1.54.0[rls] )
+RDEPEND=|| ( >=dev-lang/rust-1.55.0[rls] >=dev-lang/rust-bin-1.55.0[rls] )
 RESTRICT=mirror
 SLOT=0
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	cargo	c7fefacaebdcb455d2a7b59429eb47a6	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=186ef49134ff991fc7de1bd8d7aabeb0
+_md5_=361d00078b20b2bbc9f5587e6fe0ff95

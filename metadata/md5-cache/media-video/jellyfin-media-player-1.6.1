@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm preinst unpack
+DESCRIPTION=Jellyfin Desktop Client based on Plex Media Player
+EAPI=8
+HOMEPAGE=https://github.com/jellyfin/jellyfin-media-player
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=xdg unpacker
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=dev-libs/libcec dev-qt/qtdbus dev-qt/qtquickcontrols2 dev-qt/qtwebchannel dev-qt/qtwebengine dev-qt/qtx11extras dev-qt/qtxml media-libs/libsdl2 media-video/mpv[libmpv]
+SLOT=0
+SRC_URI=https://github.com/jellyfin/jellyfin-media-player/releases/download/v1.6.1/jellyfin-media-player_1.6.1-1_amd64-groovy.deb -> jellyfin-media-player-1.6.1.deb
+_eclasses_=xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	unpacker	928e1f35ef78ba9fc2b214e29c2b55a4
+_md5_=11a27b947191cb2e6b7e1d7f3394126b

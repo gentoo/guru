@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=>=dev-python/billiard-3.6.4.0[python_targets_python3_8(-)?] <dev-python/billiard-4.0.0[python_targets_python3_8(-)?] >=dev-python/click-7[python_targets_python3_8(-)?] <dev-python/click-8[python_targets_python3_8(-)?] >=dev-python/click-didyoumean-0.0.3[python_targets_python3_8(-)?] >=dev-python/click-plugins-1.1.1[python_targets_python3_8(-)?] >=dev-python/click-repl-0.1.6[python_targets_python3_8(-)?] <dev-python/kombu-6.0[python_targets_python3_8(-)?] >=dev-python/kombu-5[python_targets_python3_8(-)?] dev-python/pytz[python_targets_python3_8(-)?] >=dev-python/vine-5[python_targets_python3_8(-)?] <dev-python/vine-6[python_targets_python3_8(-)?] test? ( >=dev-python/boto3-1.9.178[python_targets_python3_8(-)?] >=dev-python/case-1.3.1[python_targets_python3_8(-)?] >=dev-python/moto-1.3.7[python_targets_python3_8(-)?] >=dev-python/pytest-6.2[python_targets_python3_8(-)?] dev-python/pytest-celery[python_targets_python3_8(-)?] dev-python/pytest-subtests[python_targets_python3_8(-)?] >=dev-python/pytest-timeout-1.4.2[python_targets_python3_8(-)?] >=dev-python/pyyaml-3.10[python_targets_python3_8(-)?] >=dev-python/pyzmq-13.1.0[python_targets_python3_8(-)?] ) doc? ( dev-python/docutils[python_targets_python3_8(-)?] >=dev-python/sphinx_celery-2.0.0[python_targets_python3_8(-)?] >=dev-python/sphinx-click-2.5.0[python_targets_python3_8(-)?] dev-python/jinja[python_targets_python3_8(-)?] dev-python/sqlalchemy[python_targets_python3_8(-)?] )
 DESCRIPTION=Asynchronous task queue/job queue based on distributed message passing
 EAPI=7
-HOMEPAGE=http://celeryproject.org https://pypi.org/project/celery https://github.com/celery/celery
+HOMEPAGE=https://docs.celeryproject.org/en/stable/index.html https://pypi.org/project/celery https://github.com/celery/celery
 INHERIT=bash-completion-r1 distutils-r1 optfeature
 IUSE=examples test doc python_targets_python3_8
 KEYWORDS=~amd64
@@ -14,4 +14,4 @@ RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/celery/celery/archive/v5.1.1.tar.gz -> celery-5.1.1.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	bash-completion-r1	d3a60385655d9b402be765a6de333245	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	252d4f554e611b0af601160a9c7be049	optfeature	30ce9dec2b8943338c9b015bd32bac6a
-_md5_=757723927ddbf0541ac2f9531256f08f
+_md5_=28a105c4c136726550bc0900311edb43

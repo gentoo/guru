@@ -1,0 +1,15 @@
+BDEPEND=sys-apps/help2man sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install prepare
+DEPEND=media-libs/harfbuzz media-libs/freetype qt5? ( dev-qt/qtgui:5 )
+DESCRIPTION=A library for automated hinting of truetype fonts
+EAPI=8
+HOMEPAGE=https://www.freetype.org/ttfautohint/index.html
+INHERIT=autotools qmake-utils
+IUSE=doc qt5
+KEYWORDS=~amd64
+LICENSE=|| ( FTL GPL-2+ )
+RDEPEND=media-libs/harfbuzz media-libs/freetype qt5? ( dev-qt/qtgui:5 )
+SLOT=0
+SRC_URI=https://download.savannah.gnu.org/releases/freetype/ttfautohint-1.8.4.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1
+_md5_=d38482041346fe3da661e166e0b1a083

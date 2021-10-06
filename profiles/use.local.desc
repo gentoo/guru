@@ -85,7 +85,6 @@ dev-games/godot:raycast - Enable raycast module using media-libs/embree
 dev-java/openjdk-sts-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (package manager, eselect, java-config, EXPERIMENTAL!)
 dev-java/openjdk-sts-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
 dev-java/openjdk-sts-bin:source - Install JVM sources
-dev-js/zeromq:drafts - Build the draft API
 dev-libs/hts_engine:speech-tools - use memory allocation/free functions of app-accessibility/speech-tools
 dev-libs/libdwarf:dwarfexample - enable dwarfexample compilation
 dev-libs/libdwarf:dwarfgen - enable dwarfgen compilation
@@ -236,6 +235,7 @@ media-libs/vips:heif - Enable support for HEIC images
 media-libs/vips:imagequant - Enable support for 8bpp PNG via media-gfx/libimagequant
 media-libs/vips:matio - Enable support for reading images from Matlab files through sci-libs/matio
 media-libs/vips:pango - Enable support for text rendering
+media-plugins/gst-plugins-qt5:egl - Enable EGL support.
 media-sound/6pm:midimaps - Install midi maps for that synth. Recommended
 media-sound/6pm:nls - Add support for localization
 media-sound/6pm:presets - Install presets. Recommended
@@ -253,6 +253,8 @@ net-analyzer/munin-contrib:tools - munin contrib tools
 net-im/Quaternion:keychain - Enable support for password storage via dev-libs/qtkeychain
 net-im/biboumi:logrotate - Use app-admin/logrotate for rotating logs
 net-im/biboumi:udns - Asynchronously resolve domain names using net-libs/udns
+net-im/nheko:video - Enables video calls
+net-im/nheko:voip - Enables audio calls
 net-im/ruqola:speech - Enable text-to-speech support
 net-libs/ixwebsocket:ws - Build the ws utility
 net-libs/usockets:asio - Enable bindings to use the boost asio dispatcher
@@ -364,6 +366,103 @@ sci-physics/SU2:openblas - Enable OpenBLAS support
 sci-physics/SU2:parmetis - Enable Parmetis support (Metis support is always on)
 sci-physics/SU2:tecio - Enable TECIO support
 sci-physics/SU2:tutorials - Install Tutorials files
+sci-physics/mbdyn:ann - With ANNsci-libs/ann support
+sci-physics/mbdyn:arpack - With sci-libs/arpack math library
+sci-physics/mbdyn:autodiff - Enable automatic differentiation in order to compute the Jacobian matrix
+sci-physics/mbdyn:blender - Install media-gfx/blender plugins
+sci-physics/mbdyn:boost - With dev-libs/boost support
+sci-physics/mbdyn:bullet - With sci-physics/bullet support
+sci-physics/mbdyn:chaco - With sci-mathematics/chaco model partitioning support
+sci-physics/mbdyn:crypt - Enable crypt
+sci-physics/mbdyn:eig - Enable direct eigensolution
+sci-physics/mbdyn:ginac - With sci-mathematics/ginac support
+sci-physics/mbdyn:jdqz - With sci-libs/jdqz math library
+sci-physics/mbdyn:mbc - Enable MBC - multibody communication library
+sci-physics/mbdyn:mbdyn-module-asynchronous-machine - The purpose of this code is the simulation of an asynchronous electrical machine as a part of a multibody model
+sci-physics/mbdyn:mbdyn-module-autodiff-test - This element implements a inline joint with friction
+sci-physics/mbdyn:mbdyn-module-ballbearing-contact - ball bearing contact
+sci-physics/mbdyn:mbdyn-module-bullet - sci-physics/bullet module
+sci-physics/mbdyn:mbdyn-module-charm - This module implements a user-defined induced velocity element based on CDI's CHARM free wake
+sci-physics/mbdyn:mbdyn-module-constlaw - This directory contains an example of run-time loadable constitutive law
+sci-physics/mbdyn:mbdyn-module-constlaw-f90 - This directory contains an example of run-time loadable constitutive law written in Fortran 90
+sci-physics/mbdyn:mbdyn-module-constlaw-f95 - This directory contains an example of run-time loadable constitutive law written in Fortran 95
+sci-physics/mbdyn:mbdyn-module-cont-contact - continuous contact
+sci-physics/mbdyn:mbdyn-module-controller - controller module
+sci-physics/mbdyn:mbdyn-module-convtest - convergence test module
+sci-physics/mbdyn:mbdyn-module-cyclocopter - This module implements induced velocity models for cycloidal rotors
+sci-physics/mbdyn:mbdyn-module-damper - It implements a 1D constitutive law based on a generic nonlinear rheological formula, whose coefficients are computed by means of parameter identification from experimental measurements
+sci-physics/mbdyn:mbdyn-module-damper-gandhi - Gandhi, F. and Chopra, I., "An analytical model for a nonlinear elastomeric lag damper and its effect on aeromechanical stability in hover" Journal of the American Helicopter Society, Vol. 39, 1994, pp. 59-69.
+sci-physics/mbdyn:mbdyn-module-damper-graall - GRAALL Damper Constitutive Law
+sci-physics/mbdyn:mbdyn-module-damper-hydraulic - Hydraulic Damper Constitutive Law
+sci-physics/mbdyn:mbdyn-module-diff - diff drive module
+sci-physics/mbdyn:mbdyn-module-dot - dot language module
+sci-physics/mbdyn:mbdyn-module-drive - example of run-time loadable drive
+sci-physics/mbdyn:mbdyn-module-drive-test - drive test module
+sci-physics/mbdyn:mbdyn-module-dummy - Dummy module --- does nothing, used to test the infrastructure
+sci-physics/mbdyn:mbdyn-module-eu2phi - converts three Euler angles into the corresponding Euler vector
+sci-physics/mbdyn:mbdyn-module-fab-electric - Library of electric components for "digital fabrication" machines
+sci-physics/mbdyn:mbdyn-module-fab-motion - Library of motion transmission components for "digital fabrication" machines
+sci-physics/mbdyn:mbdyn-module-fab-sbearings - Library of bearings for "digital fabrication" machines
+sci-physics/mbdyn:mbdyn-module-fabricate - Library of components of "digital fabrication" machines
+sci-physics/mbdyn:mbdyn-module-flightgear - flightgear module
+sci-physics/mbdyn:mbdyn-module-friction - eXperimental friction model
+sci-physics/mbdyn:mbdyn-module-friction3 - eXperimental friction model (2nd try)
+sci-physics/mbdyn:mbdyn-module-hfelem - Harmonic Excitation Element
+sci-physics/mbdyn:mbdyn-module-hid - This module registers a file driver that captures the input from HID USB devices (only tested with some joysticks)
+sci-physics/mbdyn:mbdyn-module-hunt-crossley - HuntCrossley constitutive law
+sci-physics/mbdyn:mbdyn-module-hydrodynamic-plain-bearing - This module implements a hydrodynamic plain bearing according to Hans Juergen Butenschoen 1976 Das hydrodynamische zylindrische Gleitlager endlicher Breite unter instationaerer Belastung
+sci-physics/mbdyn:mbdyn-module-hydrodynamic-plain-bearing2 - module hydrodynamic plain bearing2
+sci-physics/mbdyn:mbdyn-module-imu - implements two uses of a IMU
+sci-physics/mbdyn:mbdyn-module-indvel - This module implements a dummy induced velocity model
+sci-physics/mbdyn:mbdyn-module-inline-friction - This element implements a inline joint with friction
+sci-physics/mbdyn:mbdyn-module-inplane-friction - In plane friction
+sci-physics/mbdyn:mbdyn-module-journal-bearing - This element implements a journal bearing with lugre friction
+sci-physics/mbdyn:mbdyn-module-leapmotion - leapmotion hand
+sci-physics/mbdyn:mbdyn-module-loadinc - load increment normalization
+sci-physics/mbdyn:mbdyn-module-marble - marble model for icecube robot
+sci-physics/mbdyn:mbdyn-module-md - MD module
+sci-physics/mbdyn:mbdyn-module-mds - mds module
+sci-physics/mbdyn:mbdyn-module-minmaxdrive - minmaxdrive module
+sci-physics/mbdyn:mbdyn-module-multi-step-drive - multi step drive module
+sci-physics/mbdyn:mbdyn-module-muscles - muscle module
+sci-physics/mbdyn:mbdyn-module-namespace - namespace module
+sci-physics/mbdyn:mbdyn-module-nodedistdrive - node dist drive module
+sci-physics/mbdyn:mbdyn-module-nonsmooth-node - Defines a unilateral constraint in form of a contact between a node and one or more planes, optionally with friction
+sci-physics/mbdyn:mbdyn-module-ns - ns1 module
+sci-physics/mbdyn:mbdyn-module-octave - octave module
+sci-physics/mbdyn:mbdyn-module-randdrive - rand drive module
+sci-physics/mbdyn:mbdyn-module-rollercoaster - rollercoaster module
+sci-physics/mbdyn:mbdyn-module-rotor-loose-coupling - rotor loose coupling
+sci-physics/mbdyn:mbdyn-module-scalarfunc - example of run-time loadable scalar function
+sci-physics/mbdyn:mbdyn-module-switch-drive - switch drive module
+sci-physics/mbdyn:mbdyn-module-tclpgin - tcl plugin
+sci-physics/mbdyn:mbdyn-module-template - template module; use it as guideline for user-defined elements
+sci-physics/mbdyn:mbdyn-module-template2 - template module; use it as guideline for user-defined elements
+sci-physics/mbdyn:mbdyn-module-triangular-contact - This element implements unilateral contact with friction between an arbitrary rigid body, represented by a triangular mesh, and a set of nodes with arbitrary offsets
+sci-physics/mbdyn:mbdyn-module-udunits - This module adds a namespace "units" with the only function "convert", which is thus invoked as "units::convert"
+sci-physics/mbdyn:mbdyn-module-uni-in-plane - This element implements the unilateral contact between a point and a plane
+sci-physics/mbdyn:mbdyn-module-wheel2 - Connects 2 structural nodes: Wheel Ground
+sci-physics/mbdyn:mbdyn-module-wheel4 - L. Gagnon, M. J. Richard, P. Masarati, M. Morandini, and G. Dore. Multibody simulation of tires operating on an uneven road. In Multibody Dynamics 2011, 4-7 July 2011
+sci-physics/mbdyn:metis - With sci-libs/metis model partitioning support
+sci-physics/mbdyn:mpi - With MPI support
+sci-physics/mbdyn:multithread-naive - Enable multithread naive solver
+sci-physics/mbdyn:netcdf - Enable NetCDF based binary output
+sci-physics/mbdyn:octave - Enable sci-mathematics/octave support
+sci-physics/mbdyn:openblas - With sci-libs/openblas implementation
+sci-physics/mbdyn:pam - With sys-libs/pam support
+sci-physics/mbdyn:pastix - With sci-libs/pastix math library
+sci-physics/mbdyn:pmpi - With pmpi for MPI profiling
+sci-physics/mbdyn:qrupdate - With sci-libs/qrupdate library
+sci-physics/mbdyn:rt - With POSIX realtime support
+sci-physics/mbdyn:sasl - With dev-libs/cyrus-sasl support
+sci-physics/mbdyn:schur - Enable Schur parallel solver
+sci-physics/mbdyn:sparse - Enable sparse solvers
+sci-physics/mbdyn:superlu - With sci-libs/superlu math library - eXperimental
+sci-physics/mbdyn:taucs - With sci-libs/taucs math library - eXperimental
+sci-physics/mbdyn:tests - Enable installation of some test programs which are otherwise not installed
+sci-physics/mbdyn:threads - With threads
+sci-physics/mbdyn:udunits - With sci-libs/udunits
+sci-physics/mbdyn:y12 - With Y12 sparse math library
 sys-apps/CommsPowerManagement:ansible - Install ansible playbook
 sys-apps/drm_info:pci - Print PCI device names via libpci
 sys-apps/fselect:users - Add support for getting system users and groups

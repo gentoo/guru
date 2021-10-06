@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/adobe-type-tools/psautohint/archive/refs/tags/v2.3.0.tar.gz -> psautohint-2.3.0.tar.gz test? ( https://github.com/adobe-type-tools/psautohint-testdata/archive/1e4c5061d328105c4dcfcb6fdbc27ec49b3e9d23.tar.gz -> psautohint-testdata-1e4c5061d328105c4dcfcb6fdbc27ec49b3e9d23.tar.gz )
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	655fe65f186504e455c2f3116808fda8	meson	58dcef01376272b61b5c99ff57a11129	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	252d4f554e611b0af601160a9c7be049
-_md5_=542517b835350b8ca610e36fe4cca025
+_md5_=c38327215fed015311db53f85fcc567b

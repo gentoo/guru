@@ -1,0 +1,17 @@
+BDEPEND=test? ( app-text/ghostscript-gpl app-text/tesseract app-text/unpaper dev-python/cffi[python_targets_python3_8(-)?] dev-python/coloredlogs[python_targets_python3_8(-)?] >=dev-python/pdfminer-six-20191110[python_targets_python3_8(-)?] <=dev-python/pdfminer-six-20201018[python_targets_python3_8(-)?] dev-python/pikepdf[python_targets_python3_8(-)?] dev-python/pillow[python_targets_python3_8(-)?] dev-python/pluggy[python_targets_python3_8(-)?] dev-python/reportlab[python_targets_python3_8(-)?] dev-python/tqdm[python_targets_python3_8(-)?] media-gfx/img2pdf[python_targets_python3_8(-)?] media-gfx/pngquant media-libs/leptonica virtual/python-cffi[python_targets_python3_8(-)?] jbig2enc? ( media-libs/jbig2enc ) >=dev-python/pytest-4.5.0[python_targets_python3_8(-)?] ) doc? ( dev-python/sphinx ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=test? ( dev-python/pytest-helpers-namespace[python_targets_python3_8(-)?] dev-python/pytest-xdist[python_targets_python3_8(-)?] ~dev-python/python-xmp-toolkit-2.0.1[python_targets_python3_8(-)?] )
+DESCRIPTION=OCRmyPDF adds an OCR text layer to scanned PDF files
+EAPI=8
+HOMEPAGE=https://github.com/jbarlow83/OCRmyPDF
+INHERIT=bash-completion-r1 distutils-r1
+IUSE=jbig2enc test doc python_targets_python3_8
+KEYWORDS=~amd64
+LICENSE=MPL-2.0
+RDEPEND=app-text/ghostscript-gpl app-text/tesseract app-text/unpaper dev-python/cffi[python_targets_python3_8(-)?] dev-python/coloredlogs[python_targets_python3_8(-)?] >=dev-python/pdfminer-six-20191110[python_targets_python3_8(-)?] <=dev-python/pdfminer-six-20201018[python_targets_python3_8(-)?] dev-python/pikepdf[python_targets_python3_8(-)?] dev-python/pillow[python_targets_python3_8(-)?] dev-python/pluggy[python_targets_python3_8(-)?] dev-python/reportlab[python_targets_python3_8(-)?] dev-python/tqdm[python_targets_python3_8(-)?] media-gfx/img2pdf[python_targets_python3_8(-)?] media-gfx/pngquant media-libs/leptonica virtual/python-cffi[python_targets_python3_8(-)?] jbig2enc? ( media-libs/jbig2enc ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?]
+REQUIRED_USE=|| ( python_targets_python3_8 )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/jbarlow83/OCRmyPDF/archive/v12.6.0.tar.gz -> OCRmyPDF-12.6.0.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	bash-completion-r1	d3a60385655d9b402be765a6de333245	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	252d4f554e611b0af601160a9c7be049
+_md5_=f49ed2a165db0e898cf392d39d3d204c
