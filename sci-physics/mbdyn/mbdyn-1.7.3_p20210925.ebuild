@@ -223,10 +223,11 @@ src_configure() {
 		$(use_with sparse suitesparseqr)
 		$(use_with sparse umfpack)
 		$(use_with superlu)
-		$(use_with taucs)
 		$(use_with threads)
 		$(use_with y12)
 	)
+
+	use taucs && myconf+=( "--with-taucs" )
 
 	if ( use autodiff && use sparse ); then
 		myconf+=( "--enable-sparse-autodiff" )
