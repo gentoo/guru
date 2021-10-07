@@ -1,0 +1,31 @@
+--- a/setup.py
++++ b/setup.py
+@@ -13,7 +13,7 @@
+ with open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
+     long_description = f.read()
+ 
+-define_macros = [('HB_NO_MT', '1'), ('HB_EXPERIMENTAL_API', '1')]
++define_macros = [('HB_EXPERIMENTAL_API', '1')]
+ linetrace = False
+ if int(os.environ.get('CYTHON_LINETRACE', '0')):
+     linetrace = True
+@@ -21,7 +21,7 @@
+ 
+ extra_compile_args = []
+ extra_link_args = []
+-libraries = []
++libraries=['harfbuzz']
+ if platform.system() != 'Windows':
+     extra_compile_args.append('-std=c++11')
+     define_macros.append(('HAVE_MMAP', '1'))
+@@ -39,8 +39,8 @@
+ extension = Extension(
+     'uharfbuzz._harfbuzz',
+     define_macros=define_macros,
+-    include_dirs=['harfbuzz/src'],
+-    sources=['src/uharfbuzz/_harfbuzz.pyx', 'harfbuzz/src/harfbuzz.cc'],
++    include_dirs=['/usr/include/harfbuzz'],
++    sources=['src/uharfbuzz/_harfbuzz.pyx'],
+     language='c++',
+     libraries=libraries,
+     extra_compile_args=extra_compile_args,

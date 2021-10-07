@@ -23,7 +23,7 @@ DEPEND="
 	dev-python/cython[${PYTHON_USEDEP}]
 "
 
-PATCHES=( "${FILESDIR}/${PN}-0.16.1-system-harfbuzz.patch" )
+PATCHES=( "${FILESDIR}/${P}-system-harfbuzz.patch" )
 
 distutils_enable_tests pytest
 
