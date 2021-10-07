@@ -22,7 +22,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}/${P}-system-libyara.patch" )
+PATCHES=( "${FILESDIR}/${PN}-4.1.0-system-libyara.patch" )
 
 distutils_enable_tests setup.py
 
