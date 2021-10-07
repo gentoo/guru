@@ -18,7 +18,7 @@ IUSE="+systemd"
 RDEPEND="
 	dev-libs/glib:*
 	gnome-base/gnome-common
-	dev-libs/libgudev
+	>=dev-libs/libgudev-237
 	systemd? (
 		!sys-apps/openrc
 		sys-apps/systemd
