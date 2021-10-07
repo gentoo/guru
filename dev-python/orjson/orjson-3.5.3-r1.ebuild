@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CRATES="
 	ahash-0.7.4
@@ -39,7 +39,17 @@ CRATES="
 "
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_SETUPTOOLS=no
+EPYTEST_DESELECT=(
+	test/test_datetime.py::DatetimeTests::test_datetime_pendulum_positive
+	test/test_datetime.py::DatetimeTests::test_datetime_partial_second_pendulum_supported
+	test/test_datetime.py::DatetimeTests::test_datetime_pendulum_negative_dst
+	test/test_datetime.py::DatetimeTests::test_datetime_pendulum_negative_non_dst
+	test/test_datetime.py::DatetimeTests::test_datetime_partial_hour
+	test/test_datetime.py::DatetimeTests::test_datetime_pendulum_partial_hour
+	test/test_api.py::ApiTests::test_version
+)
 PYTHON_COMPAT=( python3_{8..9} )
+QA_FLAGS_IGNORED="*"
 
 inherit cargo distutils-r1
 
@@ -96,15 +106,4 @@ src_compile() {
 src_install() {
 	python_domodule orjson/orjson*.so
 	dodoc README.md
-}
-
-python_test() {
-	epytest -vv \
-		--deselect test/test_datetime.py::DatetimeTests::test_datetime_pendulum_positive \
-		--deselect test/test_datetime.py::DatetimeTests::test_datetime_partial_second_pendulum_supported \
-		--deselect test/test_datetime.py::DatetimeTests::test_datetime_pendulum_negative_dst \
-		--deselect test/test_datetime.py::DatetimeTests::test_datetime_pendulum_negative_non_dst \
-		--deselect test/test_datetime.py::DatetimeTests::test_datetime_partial_hour \
-		--deselect test/test_datetime.py::DatetimeTests::test_datetime_pendulum_partial_hour \
-		|| die
 }
