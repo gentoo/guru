@@ -11,6 +11,8 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
+PATCHES=( "${FILESDIR}/${P}-remove-docs-from-make.patch" )
+
 
 DEPEND="
 	sys-fs/btrfs-progs
@@ -24,6 +26,12 @@ src_prepare() {
 }
 src_compile(){
 	true
+}
+src_install(){
+	default
+	dodoc README.md
+	mv ./initramfs/readme.md initramfs-overlayfs.md
+	dodoc initramfs-overlayfs.md
 }
 
 pkg_postinst() {
