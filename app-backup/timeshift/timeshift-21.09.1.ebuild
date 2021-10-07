@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-PATCHES=( "${FILESDIR}/${P}-fix-xapp-2.0.patch" "${FILESDIR}/${P}-fix-util-linux-update.patch" )
+#PATCHES=( "${FILESDIR}/${P}-fix-xapp-2.0.patch" "${FILESDIR}/${P}-fix-util-linux-update.patch" )
 
 DEPEND="
 	dev-libs/json-glib
