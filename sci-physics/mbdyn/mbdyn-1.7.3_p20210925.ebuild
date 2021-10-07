@@ -7,7 +7,7 @@ COMMIT="ae57618c4e7b030b59707b8c156a6e2a94a6efd0"
 MYP="${PN}-${COMMIT}"
 PYTHON_COMPAT=( python3_{8..10} )
 
-inherit autotools fortran-2 pam python-single-r1
+inherit autotools flag-o-matic fortran-2 pam python-single-r1
 
 DESCRIPTION="A general purpose Multibody Dynamics analysis software"
 HOMEPAGE="https://www.mbdyn.org"
@@ -138,6 +138,7 @@ DEPEND="
 BDEPEND="python? ( dev-lang/swig )"
 
 PATCHES=(
+	"${FILESDIR}/${PN}-find-bullet.patch"
 	"${FILESDIR}/${PN}-octave-no-global-install.patch"
 )
 #	"${FILESDIR}/${PN}-respect-libtool.patch"
@@ -176,7 +177,7 @@ src_prepare() {
 
 src_configure() {
 	python_setup
-#	append-cxxflags "-I/usr/include/openmpi/ompi/mpi/cxx/"
+	append-cxxflags "-I/usr/include/bullet"
 	local myconf=(
 		--disable-static
 		--disable-Werror
