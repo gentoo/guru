@@ -29,7 +29,7 @@ app-accessibility/rhvoice 1.4.2-r1: TTS engine with extended languages support (
 app-accessibility/speakup-tools 20121017: Tools to customize speakup module
 app-admin/akita 0.1.4: An HTTP log monitoring tool for your terminal
 app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
-app-admin/chezmoi 1.8.10 2.0.12 2.1.5 2.1.6 2.2.0 2.3.0 2.4.0: Manage your dotfiles across multiple machines, securely
+app-admin/chezmoi 1.8.10 2.6.1: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.12.2: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/glance 22.0.0: Services for discovering, registering, and retrieving VM images
@@ -41,8 +41,8 @@ app-admin/s-tui 1.0.2 1.1.1: Stress-Terminal UI monitoring tool
 app-arch/libarchive-qt 2.0.3 2.0.4 9999: A Qt based archiving solution with libarchive backend
 app-arch/unalz 0.65-r1: Extract ALZ archives
 app-backup/b2 2.5.0-r1 3.0.3: Command-line tool for BackBlaze's B2 product
-app-backup/grub-btrfs 4.10.1: Improves Grub by adding btrfs snapshots to the Grub menu.
-app-backup/timeshift 20.11.1: A system restore utility for Linux
+app-backup/grub-btrfs 4.10.2: Improves Grub by adding btrfs snapshots to the Grub menu.
+app-backup/timeshift 21.09.1: A system restore utility for Linux
 app-backup/timeshift-autosnap 0.9: Automatically creates a timeshift-snapshot when executed
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
@@ -74,7 +74,6 @@ app-emulation/arnold 20170513: Amstrad CPC emulator
 app-emulation/dxvk-bin 1.9.1 1.9.2: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.5.0: NVIDIA container runtime toolkit
 app-emulation/spice-html5 0.2.1 0.2.2: Spice Javascript client
-app-eselect/eselect-scheme 3.1.0: Manages scheme implementations
 app-forensics/yara 4.1.1: A malware identification and classification tool
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/afetch 2.2.0: Simple system info written in C
@@ -119,7 +118,7 @@ app-mobilephone/mobile-config-firefox 2.1.0: Mobile and privacy friendly configu
 app-mobilephone/pinephone-modem-scripts 0.20.8: Modem scripts for the PinePhone
 app-mobilephone/usb-tethering 0.1: USB tethering on Pine64/ConfigFS systems
 app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
-app-office/openoffice-bin 4.1.10: Apache OpenOffice productivity suite
+app-office/openoffice-bin 4.1.11: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.6: Pyspread is a non-traditional spreadsheet written in Python
 app-portage/emlop 0.4.2: A fast, accurate, ergonomic emerge.log parser
 app-portage/gentoo-sweep 0.1.2a: Check your gentoo installation for unwanted cruft, forgotten files
@@ -318,7 +317,7 @@ dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync client
 dev-libs/libdatrie 0.2.13: Double-Array Trie Library
 dev-libs/libdwarf 20210528: The DWARF Debugging Information Format
 dev-libs/libnodave 0.8.5.1-r2: Connect to and exchange data with Siemens PLCs
-dev-libs/libphonenumber 8.12.33: library for parsing, formatting, and validating international phone numbers
+dev-libs/libphonenumber 8.12.34: library for parsing, formatting, and validating international phone numbers
 dev-libs/libthai 0.1.28: A a set of Thai language support routines
 dev-libs/memkind 1.11.0-r2: user extensible heap manager built on top of jemalloc
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
@@ -351,6 +350,7 @@ dev-perl/List-Compare 0.55: Compare elements of two or more lists
 dev-php/pecl-inotify 3.0.0: Inotify binding for PHP
 dev-python/DAWG-Python 0.7.2: Pure-python reader for DAWGs (DAFSAs) created by dawgdic C++ library.
 dev-python/MutatorMath 3.0.1: A library for piecewise linear interpolation in multiple dimensions
+dev-python/SQLAlchemy-Utils 0.37.8: Various utility functions and datatypes for SQLAlchemy
 dev-python/WSME 0.10.0: Simplify the writing of REST APIs, and extend them with additional protocols.
 dev-python/XenAPI 2.14: Xen API SDK, for communication with Citrix XenServer and Xen Cloud Platform
 dev-python/aionotify 0.2.0: Simple, asyncio-based inotify library for Python
@@ -428,7 +428,7 @@ dev-python/glance_store 2.7.0: A library for glance
 dev-python/glicko2 2.0.0: glicko2 implementation in python
 dev-python/glyphsLib 5.3.2-r1: A library to provide a bridge from Glyphs source files to UFOs
 dev-python/glyphtools 0.7.3 0.7.4: Routines for extracting information from fontTools glyphs
-dev-python/gnocchi 4.4.1: OpenTracing API for Python
+dev-python/gnocchi 4.4.1: Timeseries database
 dev-python/google-cloud-storage 1.36.0: Google Cloud Storage API client library
 dev-python/googletrans 4.0.0_rc1: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/googletransx 2.4.2-r1: Free Google Translate API for Python. Translates totally free of charge.
@@ -442,7 +442,7 @@ dev-python/hstspreload 2021.7.5 2021.10.1: Chromium HSTS Preload list as a Pytho
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/hunter 3.3.8: Hunter is a flexible code tracing toolkit
 dev-python/hwi 1.2.1 2.0.2: Library and command line tool for interacting with hardware wallets
-dev-python/hypercorn 0.11.2: ASGI Server based on Hyper libraries and inspired by Gunicorn
+dev-python/hypercorn 0.11.2-r1: ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
 dev-python/injector 0.18.4: Python dependency injection framework
 dev-python/jaeger-client 4.8.0: Jaeger Bindings for Python OpenTracing API
@@ -462,12 +462,13 @@ dev-python/md-environ 0.1.0: Syntax which allows for inclusion of contents of ot
 dev-python/microversion-parse 1.0.1: A simple parser for OpenStack microversion headers
 dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your output
 dev-python/mnemonic 0.19: Reference implementation of BIP-0039 for generating deterministic keys
+dev-python/monotonic 1.6: An implementation of time.monotonic() for Python 2 & < 3.3
 dev-python/neutron-lib 2.15.0: Neutron shared routines and utilities.
 dev-python/noiseprotocol 0.3.1: Python implementation of Noise Protocol Framework
 dev-python/opentracing 2.4.0: OpenTracing API for Python
 dev-python/opentracing_instrumentation 3.3.1: A collection of Python instrumentation tools for the OpenTracing API
 dev-python/opentypespec 1.8.4: Python bezier manipulation library
-dev-python/orjson 3.5.3: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
+dev-python/orjson 3.5.3-r1: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
 dev-python/orjson-bin 3.6.0: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
 dev-python/os-api-ref 2.2.0: Sphinx Extensions to support API reference sites in OpenStack
 dev-python/os-brick 5.0.1: OpenStack Cinder brick library for managing local volume attaches
@@ -497,12 +498,14 @@ dev-python/ots-python 8.1.4: A Python wrapper for OpenType Sanitizer
 dev-python/ovsdbapp 1.12.0: A library for creating OVSDB applications
 dev-python/pdfminer-six 20201018: Community maintained fork of pdfminer
 dev-python/pep517 0.9.1: standard API for systems which build Python packages
+dev-python/pg8000 1.21.2: A Pure-Python PostgreSQL Driver
 dev-python/phx-class-registry 3.0.5: An intersection of the Registry and Factory pattern
 dev-python/pifpaf 3.1.5: Python fixtures and daemon managing tools for functional testing
 dev-python/pip-api 0.0.20: An unofficial, importable pip API
 dev-python/portio 0.5: Python low level port I/O for Linux x86
 dev-python/pproxy 2.7.8: TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio
 dev-python/promise 2.3.0: Promises/A+ implementation for Python
+dev-python/psycopg2cffi 2.9.0: Implementation of the psycopg2 module using cffi. Compatible with Psycopg 2.5.
 dev-python/pure-protobuf 2.0.0-r1 2.0.1: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/py3nvml 0.2.6: Python 3 Bindings for the NVIDIA Management Library
 dev-python/pybeam 0.7: Python module to parse Erlang BEAM files
@@ -520,6 +523,7 @@ dev-python/pymemcache 3.5.0: A comprehensive, fast, pure-Python memcached client
 dev-python/pymorphy2 0.9.1: Morphological analyzer (POS tagger + inflection engine) for Russian language.
 dev-python/pymorphy2-dicts-ru 2.4.417127.4579844: Russian dictionary for PyMorphy2
 dev-python/pyngus 2.3.1: A connection oriented messaging framework using QPID Proton
+dev-python/pyodbc 4.0.32: Python ODBC library
 dev-python/pypandoc 1.6.3: Pypandoc provides a thin wrapper for pandoc, a universal document converter
 dev-python/pypowervm 1.1.24: Python binding for the PowerVM REST API
 dev-python/pysaml2 7.0.1: Python implementation of SAML Version 2 to be used in a WSGI environment
@@ -551,6 +555,7 @@ dev-python/python-multipart 0.0.5: A streaming multipart parser for Python
 dev-python/python-octaviaclient 2.2.0: A client for the OpenStack Zun API
 dev-python/python-pidfile 3.0.0: PIDFile context processor. Supported py2 and py3
 dev-python/python-pkcs11 0.7.0: PKCS#11 (Cryptoki) support for Python
+dev-python/python-qpid-proton 0.35.0: An AMQP based messaging library
 dev-python/python-saharaclient 3.2.1: This is a client for the OpenStack Sahara API, aka HADOOP
 dev-python/python-senlinclient 2.1.1: A client for the OpenStack Senlin API
 dev-python/python-telegram-bot 13.1 9999: Python wrapper of telegram bots API
@@ -570,6 +575,7 @@ dev-python/sanic-routing 0.7.0 0.7.1: Internal handler routing for Sanic
 dev-python/sanic-testing 0.4.0 0.6.0: Test clients for Sanic
 dev-python/scenedetect 0.5.5 0.5.6: Video Scene Cut Detection and Analysis Tool
 dev-python/schedule 1.1.0: Python job scheduling for humans
+dev-python/scramp 1.4.1: A pure-Python implementation of the SCRAM authentication protocol.
 dev-python/simplemma 0.3.0: A simple multilingual lemmatizer for Python.
 dev-python/skia-pathops 0.4.1 0.6.0_p2: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
@@ -702,7 +708,7 @@ games-util/joycond 9999: Combine joy-cons using hid-nintendo
 games-util/legendary 0.20.9 0.20.10: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.2: A simple GOG client for Linux
 gnome-extra/authenticator 4.0.3: Simple application for generating Two-Factor Authentication Codes.
-gnome-extra/iio-sensor-proxy 3.1: IIO sensors to D-Bus proxy
+gnome-extra/iio-sensor-proxy 3.3: IIO sensors to D-Bus proxy
 gnome-extra/portfolio 0.9.10 0.9.12: A minimalist file manager for those who want to use Linux mobile devices
 gui-apps/azote 1.9.0 1.9.1 9999: wallpaper manager for wlroots compositors
 gui-apps/coreaction 4.2.0 9999: A side bar for showing widgets for C Suite
@@ -819,7 +825,7 @@ media-plugins/qt-jpegxl-image-plugin 9999: Qt plug-in to allow Qt and KDE based 
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
 media-sound/add64 3.8.0 3.9.3: Add64 is a realtime additive/subtractive-synthesis softsynth
-media-sound/callaudiod 0.1.0-r2: Call audio routing daemon
+media-sound/callaudiod 0.1.1: Call audio routing daemon
 media-sound/hushboard 0.0_pre20210317 9999: Mutes your microphone while you are typing
 media-sound/ibniz 1.18: virtual machine designed for extremely compact low-level audiovisual programs
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
@@ -836,10 +842,10 @@ media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
 media-video/ffsubsync 0.4.18: Automagically syncronize subtitles with video
 media-video/jellyfin-media-player 1.6.0 1.6.1: Jellyfin Desktop Client based on Plex Media Player
 media-video/kikoplay 0.8.1 9999: KikoPlay is a full-featured danmu player
-media-video/megapixels 1.2.0: A GTK3 camera application that knows how to deal with the media request api
+media-video/megapixels 1.3.0: A GTK3 camera application that knows how to deal with the media request api
 media-video/mpv-mpris 0.5 9999: MPRIS plugin for mpv
 media-video/obs-vkcapture 1.0 9999: OBS Linux Vulkan/OpenGL game capture
-media-video/owncast 0.0.7-r1 0.0.8 0.0.9: A self-hosted live video and web chat server
+media-video/owncast 0.0.7-r1 0.0.8 0.0.9 0.0.10: A self-hosted live video and web chat server
 media-video/qliveplayer 3.22.4 4.0.1-r1: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/uxplay 1.37: AirPlay Unix mirroring server
@@ -961,7 +967,7 @@ sci-mathematics/frama-c-variadic 23.1: Variadic function transformation plugin f
 sci-mathematics/frama-c-wp 23.1: Deductive proof of ACSL contracts (WP) plugin for frama-c
 sci-mathematics/the-omega-project 2.1_p20131119: Tools from Pugh et al.'s for constraint-based compiler tools
 sci-mathematics/why3 1.3.3 1.4.0: Platform for deductive program verification
-sci-misc/boinc-wrapper 7.16.16 7.16.17 7.16.17-r1: Wrapper to use non-BOINC apps with BOINC
+sci-misc/boinc-wrapper 7.16.17 7.16.17-r1: Wrapper to use non-BOINC apps with BOINC
 sci-physics/SU2 7.1.1 7.2.0: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sci-physics/mbdyn 1.7.3_p20210925: A general purpose Multibody Dynamics analysis software
 sys-apps/0xFFFF 0.8 0.9: The 0pen Free Fiasco Firmware Flasher

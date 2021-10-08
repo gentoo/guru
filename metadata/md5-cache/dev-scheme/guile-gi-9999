@@ -8,7 +8,7 @@ INHERIT=git-r3
 LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=>=dev-scheme/guile-2.0.9:= dev-libs/gobject-introspection x11-libs/gtk+:3[introspection]
-RESTRICT=strip test
+RESTRICT=test
 SLOT=0
 _eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=43af2919d98aef87960f790ea84549c6
+_md5_=caa5048b5a23af7e4f3ce3599cdf8fa1

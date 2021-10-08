@@ -122,6 +122,15 @@ dev-libs/zfp:utilities - Build command line utilities
 dev-python/glance_store:cinder - enable cinder backend supprt
 dev-python/glance_store:swift - enable swift backend supprt
 dev-python/glance_store:vmware - enable vmware backend supprt
+dev-python/gnocchi:amqp - Installs dependencies needed for AMQP 1.0 support
+dev-python/gnocchi:ceph - Installs dependencies needed for Ceph storage support
+dev-python/gnocchi:keystone - Installs dependencies needed for Keystone authentication support
+dev-python/gnocchi:mysql - Installs dependencies needed for MYSQL indexer support
+dev-python/gnocchi:postgresql - Installs dependencies needed for PostgreSQL indexer support
+dev-python/gnocchi:prometheus - Installs dependencies needed for Prometheus Remote Write support
+dev-python/gnocchi:redis - Installs dependencies needed for Redis storage support
+dev-python/gnocchi:s3 - Installs dependencies needed for Amazon S3 storage support
+dev-python/gnocchi:swift - Installs dependencies needed for OpenStack Swift storage support
 dev-python/tinyrpc:gevent - Add support for gevent
 dev-python/tinyrpc:httpclient - Add support for httpclient
 dev-python/tinyrpc:jsonext - Add support for jsonext
@@ -458,7 +467,6 @@ sci-physics/mbdyn:sasl - With dev-libs/cyrus-sasl support
 sci-physics/mbdyn:schur - Enable Schur parallel solver
 sci-physics/mbdyn:sparse - Enable sparse solvers
 sci-physics/mbdyn:superlu - With sci-libs/superlu math library - eXperimental
-sci-physics/mbdyn:taucs - With sci-libs/taucs math library - eXperimental
 sci-physics/mbdyn:tests - Enable installation of some test programs which are otherwise not installed
 sci-physics/mbdyn:threads - With threads
 sci-physics/mbdyn:udunits - With sci-libs/udunits

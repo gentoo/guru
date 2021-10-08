@@ -1,0 +1,17 @@
+BDEPEND=test? ( dev-python/six[python_targets_python3_8(-)?] >=dev-python/sqlalchemy-1.0[python_targets_python3_8(-)?] >=dev-python/pytest-4.5.0[python_targets_python3_8(-)?] ) python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-python/six[python_targets_python3_8(-)?] >=dev-python/sqlalchemy-1.0[python_targets_python3_8(-)?] test? ( >=dev-python/pygments-2.7.1[python_targets_python3_8(-)?] >=dev-python/jinja-2.3[python_targets_python3_8(-)?] >=dev-python/docutils-0.10[python_targets_python3_8(-)?] >=dev-python/flexmock-0.9.7[python_targets_python3_8(-)?] >=dev-python/mock-2.0.0[python_targets_python3_8(-)?] >=dev-python/psycopg-2.5.1[python_targets_python3_8(-)?] >=dev-python/psycopg2cffi-2.8.1[python_targets_python3_8(-)?] >=dev-python/pg8000-1.12.4[python_targets_python3_8(-)?] >=dev-python/pytz-2014.2[python_targets_python3_8(-)?] >=dev-python/python-dateutil-2.6[python_targets_python3_8(-)?] dev-python/pymysql[python_targets_python3_8(-)?] dev-python/pyodbc[python_targets_python3_8(-)?] )
+DESCRIPTION=Various utility functions and datatypes for SQLAlchemy
+EAPI=8
+HOMEPAGE=https://github.com/kvesteri/sqlalchemy-utils https://pypi.org/project/SQLAlchemy-Utils
+INHERIT=distutils-r1
+IUSE=test python_targets_python3_8
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=dev-python/six[python_targets_python3_8(-)?] >=dev-python/sqlalchemy-1.0[python_targets_python3_8(-)?] python_targets_python3_8? ( dev-lang/python:3.8 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?]
+REQUIRED_USE=|| ( python_targets_python3_8 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://pypi/S/SQLAlchemy-Utils/SQLAlchemy-Utils-0.37.8.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	252d4f554e611b0af601160a9c7be049
+_md5_=5b4151f30988922210a0190e320c9217
