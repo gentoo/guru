@@ -103,4 +103,3 @@ src_test() {
 		popd || die
 	fi
 }
-
