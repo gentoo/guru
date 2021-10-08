@@ -13,7 +13,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 PATCHES=( "${FILESDIR}/${P}-remove-docs-from-make.patch" )
 
-
 DEPEND="
 	sys-fs/btrfs-progs
 	sys-boot/grub
