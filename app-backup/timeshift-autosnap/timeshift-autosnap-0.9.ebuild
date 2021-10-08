@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit readme.gentoo-r1
+
 DESCRIPTION="Automatically creates a timeshift-snapshot when executed"
 HOMEPAGE="https://gitlab.com/gobonja/timeshift-autosnap"
 SRC_URI="https://gitlab.com/gobonja/timeshift-autosnap/-/archive/${PV}/{$P}.tar.gz -> ${P}.tar.gz"
@@ -10,16 +12,20 @@ SRC_URI="https://gitlab.com/gobonja/timeshift-autosnap/-/archive/${PV}/{$P}.tar.
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DEPEND="
 	app-backup/timeshift
 	>=sys-apps/portage-2.1
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 PATCHES=( "${FILESDIR}/${PN}-remove-arch-specific.patch" )
+
+DISABLE_AUTOFORMATTING=1
+DOC_CONTENTS='to run timeshift-autosnap everytime you emerge a package run:
+$ touch /etc/portage/bashrc
+$ grep -q  "#!/bin/" /etc/portage/bashrc || awk -i inplace "BEGINFILE{print "#!/bin/sh"}{print}" /etc/portage/bashrc
+$ grep -q timeshift-autosnap /etc/portage/bashrc || echo "function pre_pkg_setup() { /usr/bin/timeshift-autosnap ; }" >> /etc/portage/bashrc'
 
 src_unpack() {
 	default
@@ -27,18 +33,16 @@ src_unpack() {
 }
 
 src_compile(){
-	true
+	:
 }
 
 src_install(){
 	dobin timeshift-autosnap
 	insinto /etc
 	doins timeshift-autosnap.conf
+	readme.gentoo_create_doc
 }
 
 pkg_postinst() {
-	elog "to run timeshift-autosnap everytime you emerge a package run: 
-'touch /etc/portage/bashrc' 
-'grep -q  '#!/bin/' /etc/portage/bashrc || awk -i inplace 'BEGINFILE{print "#!/bin/sh"}{print}' /etc/portage/bashrc 
-'grep -q 'timeshift-autosnap' /etc/portage/bashrc || echo 'function pre_pkg_setup() { /usr/bin/timeshift-autosnap ; }' >> /etc/portage/bashrc'"
+	readme.gentoo_print_elog
 }
