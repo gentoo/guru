@@ -82,8 +82,6 @@
 		<flag name="mbdyn-module-scalarfunc">example of run-time loadable scalar function</flag>
 		<flag name="mbdyn-module-switch-drive">switch drive module</flag>
 		<flag name="mbdyn-module-tclpgin">tcl plugin</flag>
-		<flag name="mbdyn-module-template">template module; use it as guideline for user-defined elements</flag>
-		<flag name="mbdyn-module-template2">template module; use it as guideline for user-defined elements</flag>
 		<flag name="mbdyn-module-triangular-contact">This element implements unilateral contact with friction between an arbitrary rigid body, represented by a triangular mesh, and a set of nodes with arbitrary offsets</flag>
 		<flag name="mbdyn-module-udunits">This module adds a namespace "units" with the only function "convert", which is thus invoked as "units::convert"</flag>
 		<flag name="mbdyn-module-uni-in-plane">This element implements the unilateral contact between a point and a plane</flag>

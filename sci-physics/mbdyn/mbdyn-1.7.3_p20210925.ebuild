@@ -79,8 +79,6 @@ IUSE_MBDYN_MODULE="
 	mbdyn-module-scalarfunc
 	mbdyn-module-switch_drive
 	mbdyn-module-tclpgin
-	mbdyn-module-template
-	mbdyn-module-template2
 	mbdyn-module-triangular_contact
 	mbdyn-module-udunits
 	mbdyn-module-uni_in_plane
