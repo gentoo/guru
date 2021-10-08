@@ -88,9 +88,9 @@ IUSE_MBDYN_MODULE="
 	mbdyn-module-wheel4
 "
 IUSE="${IUSE_MBDYN_MODULE//_/-} ann arpack autodiff blender boost bullet chaco crypt
-debug eig ginac jdqz +mbc metis mpi multithread-naive netcdf octave openblas
-pam pastix pmpi python qrupdate rt sasl schur sparse superlu taucs tests threads
-udunits +y12"
+debug eig ginac jdqz +mbc metis mpi multithread-naive netcdf octave openblas pam
+pastix pmpi python qrupdate rt sasl schur sparse superlu tests threads udunits +y12"
+# taucs rtai
 
 #	dev-libs/blitz
 RDEPEND="
@@ -126,11 +126,10 @@ RDEPEND="
 		sci-libs/umfpack
 	)
 	superlu? ( sci-libs/superlu_mt )
-	taucs? ( sci-libs/taucs )
 	threads? ( dev-libs/libatomic_ops )
 	udunits? ( sci-libs/udunits )
 "
-#	rtai? ( sys-libs/rtai )
+#	taucs? ( sci-libs/taucs )
 DEPEND="
 	${RDEPEND}
 	blender? ( sys-apps/pkgcore )
@@ -227,8 +226,6 @@ src_configure() {
 		$(use_with threads)
 		$(use_with y12)
 	)
-
-	use taucs && myconf+=( "--with-taucs" )
 
 	if ( use autodiff && use sparse ); then
 		myconf+=( "--enable-sparse-autodiff" )
