@@ -123,7 +123,8 @@ src_configure() {
 		-DENABLE_SDL2=$(usex sdl)
 		-DENABLE_WEB_SERVICE=$(usex webservice)
 		-DUSE_DISCORD_PRESENCE=$(usex discord)
-		-DYUZU_ENABLE_BOXCAT=$(usex boxcat)
+		# -DYUZU_ENABLE_BOXCAT=$(usex boxcat) # feature removed
+		# upstream is now fixing it, will be reintroduced
 		-DYUZU_USE_EXTERNAL_SDL2=OFF
 		-DYUZU_USE_QT_WEB_ENGINE=$(usex webengine)
 	)

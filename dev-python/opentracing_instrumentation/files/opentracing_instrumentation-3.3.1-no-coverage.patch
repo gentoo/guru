@@ -1,0 +1,11 @@
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -14,7 +14,7 @@
+ 	tests/*
+ 
+ [tool:pytest]
+-addopts = --cov=opentracing_instrumentation --cov-append -rs
++addopts = -rs
+ 
+ [egg_info]
+ tag_build = 

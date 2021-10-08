@@ -7,7 +7,7 @@ COMMIT="ae57618c4e7b030b59707b8c156a6e2a94a6efd0"
 MYP="${PN}-${COMMIT}"
 PYTHON_COMPAT=( python3_{8..10} )
 
-inherit autotools fortran-2 pam python-single-r1
+inherit autotools flag-o-matic fortran-2 pam python-single-r1
 
 DESCRIPTION="A general purpose Multibody Dynamics analysis software"
 HOMEPAGE="https://www.mbdyn.org"
@@ -88,9 +88,9 @@ IUSE_MBDYN_MODULE="
 	mbdyn-module-wheel4
 "
 IUSE="${IUSE_MBDYN_MODULE//_/-} ann arpack autodiff blender boost bullet chaco crypt
-debug eig ginac jdqz +mbc metis mpi multithread-naive netcdf octave openblas
-pam pastix pmpi python qrupdate rt sasl schur sparse superlu taucs tests threads
-udunits +y12"
+debug eig ginac jdqz +mbc metis mpi multithread-naive netcdf octave openblas pam
+pastix pmpi python qrupdate rt sasl schur sparse superlu tests threads udunits +y12"
+# taucs rtai
 
 #	dev-libs/blitz
 RDEPEND="
@@ -126,11 +126,10 @@ RDEPEND="
 		sci-libs/umfpack
 	)
 	superlu? ( sci-libs/superlu_mt )
-	taucs? ( sci-libs/taucs )
 	threads? ( dev-libs/libatomic_ops )
 	udunits? ( sci-libs/udunits )
 "
-#	rtai? ( sys-libs/rtai )
+#	taucs? ( sci-libs/taucs )
 DEPEND="
 	${RDEPEND}
 	blender? ( sys-apps/pkgcore )
@@ -138,6 +137,7 @@ DEPEND="
 BDEPEND="python? ( dev-lang/swig )"
 
 PATCHES=(
+	"${FILESDIR}/${PN}-find-bullet.patch"
 	"${FILESDIR}/${PN}-octave-no-global-install.patch"
 )
 #	"${FILESDIR}/${PN}-respect-libtool.patch"
@@ -176,7 +176,7 @@ src_prepare() {
 
 src_configure() {
 	python_setup
-#	append-cxxflags "-I/usr/include/openmpi/ompi/mpi/cxx/"
+	append-cxxflags "-I/usr/include/bullet"
 	local myconf=(
 		--disable-static
 		--disable-Werror
@@ -223,7 +223,6 @@ src_configure() {
 		$(use_with sparse suitesparseqr)
 		$(use_with sparse umfpack)
 		$(use_with superlu)
-		$(use_with taucs)
 		$(use_with threads)
 		$(use_with y12)
 	)

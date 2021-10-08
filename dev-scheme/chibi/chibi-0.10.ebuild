@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit multilib toolchain-funcs
+inherit toolchain-funcs
 
 DESCRIPTION="Minimal Scheme implementation for use as an extension language"
 HOMEPAGE="http://synthcode.com/scheme/chibi/"
@@ -26,16 +26,12 @@ src_configure() {
 	export PREFIX="${EPREFIX}/usr"
 	export LIBDIR="${EPREFIX}/usr/$(get_libdir)"
 	export SOLIBDIR="${EPREFIX}/usr/$(get_libdir)"
-	export DESTDIR="${D}"
 
 	# if ldconfig (stored in LDCONFIG variable) exists it is ran
 	export LDCONFIG="0"
 }
 
 src_install() {
-	einstalldocs
-
-	emake install
-
+	default
 	dosym chibi-scheme /usr/bin/chibi
 }

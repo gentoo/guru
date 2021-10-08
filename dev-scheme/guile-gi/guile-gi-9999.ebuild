@@ -15,7 +15,7 @@ else
 fi
 
 # Tests fail
-RESTRICT="strip test"
+RESTRICT="test"
 LICENSE="GPL-3"
 SLOT="0"
 
@@ -31,7 +31,8 @@ RDEPEND="${DEPEND}"
 
 # guile generates ELF files without use of C or machine code
 # It's a portage's false positive. bug #677600
-QA_FLAGS_IGNORED=".*[.]go"
+QA_FLAGS_IGNORED='.*[.]go'
+QA_PREBUILT='.*[.]go'
 
 src_prepare() {
 	default
@@ -61,6 +62,5 @@ src_configure() {
 src_install() {
 	default
 
-	mv "${D}/usr/share/doc/${PN}"/* "${D}/usr/share/doc/${PF}" || die
-	rm -r "${D}/usr/share/doc/${PN}" || die
+	mv "${D}/usr/share/doc/${PN}" "${D}/usr/share/doc/${PF}" || die
 }

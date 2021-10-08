@@ -1,0 +1,11 @@
+--- a/setup.py
++++ b/setup.py
+@@ -148,7 +148,7 @@
+     author='Abhinav Gupta',
+     author_email='abg@uber.com',
+     url='https://github.com/thriftrw/thriftrw-python',
+-    packages=find_packages(exclude=('tests', 'tests.*')),
++    packages=find_packages(exclude=('tests', 'tests.*', 'examples', 'examples*')),
+     license='MIT',
+     install_requires=['six', 'ply'],
+     tests_require=['pytest', 'mock'],

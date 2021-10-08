@@ -3,6 +3,14 @@
 
 EAPI=8
 
+EPYTEST_DESELECT=(
+	osprofiler/tests/functional/test_driver.py::DriverTestCase::test_get_report
+	osprofiler/tests/functional/test_driver.py::RedisDriverTestCase::test_get_report
+	osprofiler/tests/functional/test_driver.py::RedisDriverTestCase::test_list_traces
+	osprofiler/tests/unit/test_opts.py::ConfigTestCase::test_options_defaults
+	osprofiler/tests/unit/test_profiler.py::ProfilerGlobMethodsTestCase::test_get_profiler_and_init
+	osprofiler/tests/unit/test_profiler.py::test_fn_exc
+)
 PYTHON_COMPAT=( python3_8 )
 
 inherit distutils-r1

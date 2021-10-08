@@ -20,7 +20,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=">=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]"
+RDEPEND=">=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]"
 DEPEND="
 	${RDEPEND}
 	test? (

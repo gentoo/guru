@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="8"
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} pypy3 )
 
@@ -26,5 +26,8 @@ DEPEND="
 		>=dev-python/urllib3-1.11.0[${PYTHON_USEDEP}]
 	)
 "
+
+RESTRICT="test"
+PROPERTIES="test_network"
 
 distutils_enable_tests pytest

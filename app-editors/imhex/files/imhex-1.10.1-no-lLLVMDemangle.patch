@@ -1,0 +1,18 @@
+--- a/plugins/builtin/CMakeLists.txt
++++ b/plugins/builtin/CMakeLists.txt
+@@ -25,7 +25,7 @@
+ # Add additional include directories here #
+ target_include_directories(${PROJECT_NAME} PRIVATE include)
+ # Add additional libraries here #
+-target_link_libraries(${PROJECT_NAME} PRIVATE libimhex LLVMDemangle)
++target_link_libraries(${PROJECT_NAME} PRIVATE libimhex)
+ 
+ 
+ 
+@@ -43,4 +43,4 @@
+ 
+ if (NOT TARGET libimhex)
+     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../libimhex ${CMAKE_CURRENT_BINARY_DIR}/plugins/libimhex)
+-endif()
+\ Manca newline alla fine del file
++endif()

@@ -143,6 +143,7 @@ DEPEND="
 		>=dev-python/pymysql-0.8.0[${PYTHON_USEDEP}]
 		>=dev-python/python-barbicanclient-4.5.2[${PYTHON_USEDEP}]
 		>=dev-python/python-ironicclient-3.0.0[${PYTHON_USEDEP}]
+		>=dev-python/requests-mock-1.2.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.8.0[${PYTHON_USEDEP}]
 		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/osprofiler-1.4.0[${PYTHON_USEDEP}]

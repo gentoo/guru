@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="8"
+EAPI=8
 
 PYTHON_COMPAT=( python3_8 )
 
@@ -43,5 +43,7 @@ DEPEND="
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
 	)
 "
+
+PATCHES=( "${FILESDIR}/${P}-no-coverage.patch" )
 
 distutils_enable_tests pytest

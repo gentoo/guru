@@ -3,6 +3,14 @@
 
 EAPI=8
 
+EPYTEST_DESELECT=(
+	neutron_lib/tests/unit/api/test_attributes.py::TestCoreResources::test_core_resource_attrs
+	neutron_lib/tests/unit/objects/test_common_types.py::TestField::test_coerce_good_values
+	neutron_lib/tests/unit/objects/test_common_types.py::TestField::test_coerce_bad_values
+	neutron_lib/tests/unit/objects/test_common_types.py::TestField::test_to_primitive
+	neutron_lib/tests/unit/objects/test_common_types.py::TestField::test_to_primitive_json_serializable
+	neutron_lib/tests/unit/objects/test_common_types.py::TestField::test_from_primitive
+)
 PYTHON_COMPAT=( python3_8 )
 
 inherit distutils-r1

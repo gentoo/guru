@@ -104,7 +104,7 @@
 		<flag name="schur">Enable Schur parallel solver</flag>
 		<flag name="sparse">Enable sparse solvers</flag>
 		<flag name="superlu">With <pkg>sci-libs/superlu</pkg> math library - eXperimental</flag>
-		<flag name="taucs">With <pkg>sci-libs/taucs</pkg> math library - eXperimental</flag>
+		<!--<flag name="taucs">With <pkg>sci-libs/taucs</pkg> math library - eXperimental</flag>-->
 		<flag name="tests">Enable installation of some test programs which are otherwise not installed</flag>
 		<flag name="threads">With threads</flag>
 		<flag name="y12">With Y12 sparse math library</flag>
