@@ -13,8 +13,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="
-        app-backup/timeshift
-        >=sys-apps/portage-2.1
+	app-backup/timeshift
+	>=sys-apps/portage-2.1
 "
 RDEPEND="${DEPEND}"
 BDEPEND=""
@@ -22,7 +22,7 @@ BDEPEND=""
 PATCHES=( "${FILESDIR}/${PN}-remove-arch-specific.patch" )
 
 src_unpack() {
-        default
+	default
 	mv ${WORKDIR}/timeshift-autosnap-${PV}* ${WORKDIR}/timeshift-autosnap-${PV}
 }
 
