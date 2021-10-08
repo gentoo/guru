@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit multilib toolchain-funcs
+inherit toolchain-funcs
 
 DESCRIPTION="Minimal Scheme implementation for use as an extension language"
 HOMEPAGE="http://synthcode.com/scheme/chibi/"
