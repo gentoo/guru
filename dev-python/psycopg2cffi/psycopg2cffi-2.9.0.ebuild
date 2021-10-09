@@ -19,7 +19,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-db/postgresql
+	dev-db/postgresql:*
 	virtual/python-cffi[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
+
+distutils_enable_tests pytest
