@@ -26,6 +26,9 @@ DEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${P}-no-install-examples.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-no-install-examples.patch"
+	"${FILESDIR}/${P}-tool-pytest.patch"
+)
 
 distutils_enable_tests pytest
