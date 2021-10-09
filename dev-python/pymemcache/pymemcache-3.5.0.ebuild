@@ -30,4 +30,6 @@ DEPEND="
 	)
 "
 
+PATCHES=( "${FILESDIR}/${P}-no-coverage.patch" )
+
 distutils_enable_tests pytest

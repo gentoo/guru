@@ -11,7 +11,7 @@ EPYTEST_DESELECT=(
 	tests/test_main_cli.py::test_cli_arg_schema
 	tests/test_main_cli.py::test_cli_arg_codecs
 )
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 

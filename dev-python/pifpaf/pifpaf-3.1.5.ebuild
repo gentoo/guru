@@ -4,7 +4,7 @@
 EAPI=8
 
 EPYTEST_DESELECT=( pifpaf/tests/test_cli.py::TestCli::test_non_existing_command )
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..10} pypy3  )
 
 inherit distutils-r1
 

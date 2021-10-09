@@ -64,7 +64,7 @@ EPYTEST_DESELECT=(
 	testrepository/tests/commands/test_run.py::TestReturnCodeToSubunit::test_returncode_nonzero_fail_appended_to_content
 	testrepository/tests/ui/test_cli.py::TestCLIUI::test_dash_dash_help_shows_help
 )
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..10} pypy3 )
 PYTHON_REQ_USE="threads(+)"
 
 inherit distutils-r1

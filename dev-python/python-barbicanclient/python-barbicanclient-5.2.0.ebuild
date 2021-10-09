@@ -43,4 +43,7 @@ DEPEND="
 	)
 "
 
+RESTRICT="test"
+PROPERTIES="test_network"
+
 distutils_enable_tests nose

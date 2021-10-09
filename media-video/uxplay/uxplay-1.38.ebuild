@@ -4,7 +4,7 @@
 EAPI=8
 
 MY_PN="UxPlay"
-MY_PV="${PV}b"
+MY_PV="${PV}"
 
 inherit cmake
 
@@ -15,7 +15,7 @@ if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/FDH2/${MY_PN}.git"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/FDH2/${MY_PN}/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/FDH2/${MY_PN}/archive/refs/tags/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm ~x86"
 	S="${WORKDIR}/${MY_PN}-${MY_PV}"
 fi
