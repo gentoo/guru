@@ -3,12 +3,12 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( )
+PYTHON_COMPAT=( python3_9 )
 
 inherit ninja-utils python-any-r1 toolchain-funcs
 
 #https://github.com/google/skia/blob/master/include/core/SkMilestone.h
-COMMIT="1c9ebb50024f80f3bf289838298e15185d8f6966"
+COMMIT="f2093bf1b076210bd017f237eaab84ea4d3d6771"
 
 SRC_URI="https://github.com/google/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64"
@@ -64,15 +64,9 @@ src_prepare() {
 	default
 	# https://chromium.googlesource.com/chromium/src/third_party/zlib
 	# https://github.com/jtkukunas/zlib
-	sed \
-		-e '/:zlib_x86/d' \
+	sed -e '/:zlib_x86/d' \
 		-e '/third_party("zlib_x86/,/^}/d' \
 		-i third_party/zlib/BUILD.gn
-
-	#remove questionable cflags
-	sed -i 's|-O3||g' gn/BUILD.gn || die
-	sed -i 's|-ffunction-sections||g' gn/BUILD.gn || die
-	sed -i 's|-fdata-sections||g' gn/BUILD.gn || die
 }
 
 src_configure() {
@@ -99,6 +93,7 @@ src_configure() {
 		skia_use_dng_sdk=false
 		skia_use_metal=false
 		skia_use_sfntly=false
+		skia_use_zlib=false # disable to build
 	)
 #		skia_enable_pdf=$(usex pdf true false)
 #
@@ -111,7 +106,6 @@ src_configure() {
 #		skia_use_libpng_encode=$(usex png true false)
 #		skia_use_libwebp_decode=$(usex webp true false)
 #		skia_use_libwebp_encode=$(usex webp true false)
-#		skia_use_zlib=$(usex zlib true false)
 
 #		skia_use_angle=$(usex angle true false)
 #		skia_use_egl=$(usex egl true false)
