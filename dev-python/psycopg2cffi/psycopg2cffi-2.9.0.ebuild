@@ -18,7 +18,8 @@ LICENSE="LGPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="
+RDEPEND="
+	dev-db/postgresql
 	virtual/python-cffi[${PYTHON_USEDEP}]
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}"
