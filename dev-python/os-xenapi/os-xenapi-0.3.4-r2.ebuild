@@ -3,6 +3,10 @@
 
 EAPI=8
 
+EPYTEST_DESELECT=(
+	os_xenapi/tests/plugins/test_agent.py::AgentTestCase::test_inject_file_with_old_agent
+	os_xenapi/tests/plugins/test_xenhost.py::NetworkTestCase::test_iptables_config
+)
 PYTHON_COMPAT=( python3_8 )
 
 inherit distutils-r1
