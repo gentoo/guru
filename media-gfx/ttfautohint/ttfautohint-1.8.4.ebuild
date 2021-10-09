@@ -25,7 +25,7 @@ BDEPEND="sys-apps/help2man"
 src_prepare() {
 	default
 	#set version
-	sed -e "s|m4_esyscmd.*VERSION])|${PV//_/-}|" -i configure.ac || die
+	sed -e "s|m4_esyscmd.*VERSION)|${PV//_/-}|" -i configure.ac || die
 
 	eautoreconf
 }
