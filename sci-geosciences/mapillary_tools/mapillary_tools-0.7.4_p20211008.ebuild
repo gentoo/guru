@@ -11,6 +11,7 @@ inherit distutils-r1
 DESCRIPTION="Command line tools for processing and uploading Mapillary imagery"
 HOMEPAGE="https://github.com/mapillary/mapillary_tools"
 SRC_URI="https://github.com/mapillary/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="BSD"
 KEYWORDS="~amd64"
