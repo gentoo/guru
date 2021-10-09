@@ -1,11 +1,10 @@
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2021-03-29)
-# Per profile masking in an overlay is currently not working
-# with pkgcore/pkgdev/pkgcheck. Masking this for all profiles
+# James Beddek <telans@posteo.de> (2021-10-09)
+# Per profile masking in overlays is currently not working
+# with pkgcore/pkgdev/pkgcheck. Mask offending packages for all profiles
 # as a workaround that both makes repoman happy and works with
 # pkgcore/pkgdev/pkgcheck.
-# Users of non-SELinux profiles can safely unmask this.
 # Sorry for the inconvenience.
 #
 # TODO: Either fix per profile masking in overlays, or move
-# this entry to the relevant package.mask files in ::gentoo
->=sys-block/systemd-swap-4.4.0
+# relevant entries to the relevant package.mask files in ::gentoo
