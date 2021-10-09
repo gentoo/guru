@@ -379,7 +379,7 @@ dev-python/beziers 0.3.1: Python bezier manipulation library
 dev-python/bidict 0.21.2: The bidirectional mapping library for Python
 dev-python/billiard 3.6.4.0: Python multiprocessing fork
 dev-python/bitbox02 5.3.0: Python API for communicating with the BitBox02 device
-dev-python/browserstack-local-python 1.2.2: Python bindings for BrowserStack Local
+dev-python/browserstack-local-python 1.2.2-r1: Python bindings for BrowserStack Local
 dev-python/bson 0.5.8: Independent BSON codec for Python that doesn't depend on MongoDB
 dev-python/castellan 3.9.1: Generic Key Manager interface for OpenStack
 dev-python/cchardet 2.1.7: cChardet is high speed universal character encoding detector
@@ -411,6 +411,7 @@ dev-python/dotmap 1.3.8 1.3.24: Dot access dictionary with dynamic hierarchy cre
 dev-python/doubles 1.5.3: Test doubles for Python
 dev-python/doxypypy 0.8.8.6_p20210405: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/etcd3gw 1.0.0: A python client for etcd3 grpc-gateway v3 API
+dev-python/exifread 2.3.2: Easy to use Python module to extract Exif metadata from tiff and jpeg files
 dev-python/factory_boy 3.2.0: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11-r1: Up to date simple useragent faker with real world database
 dev-python/fastavro 1.4.5: Fast Avro for Python
@@ -432,6 +433,7 @@ dev-python/gnocchi 4.4.1: Timeseries database
 dev-python/google-cloud-storage 1.36.0: Google Cloud Storage API client library
 dev-python/googletrans 4.0.0_rc1: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/googletransx 2.4.2-r1: Free Google Translate API for Python. Translates totally free of charge.
+dev-python/gpxpy 1.4.2: GPX file parser and GPS track manipulation library
 dev-python/graphene 3.0.0_beta7: GraphQL Framework for Python
 dev-python/graphql-core 3.1.5: GraphQL for Python
 dev-python/graphql-relay 3.1.0: Relay library for graphql-core-next
@@ -522,7 +524,9 @@ dev-python/pymeeus 0.3.13 0.4.2: Python implementation of Jean Meeus astronomica
 dev-python/pymemcache 3.5.0: A comprehensive, fast, pure-Python memcached client
 dev-python/pymorphy2 0.9.1: Morphological analyzer (POS tagger + inflection engine) for Russian language.
 dev-python/pymorphy2-dicts-ru 2.4.417127.4579844: Russian dictionary for PyMorphy2
+dev-python/pymp4 1.2.0: A Python MP4 Parser and toolkit
 dev-python/pyngus 2.3.1: A connection oriented messaging framework using QPID Proton
+dev-python/pynmea2 1.18.0: Python library for the NMEA 0183 protcol
 dev-python/pyodbc 4.0.32: Python ODBC library
 dev-python/pypandoc 1.6.3: Pypandoc provides a thin wrapper for pandoc, a universal document converter
 dev-python/pypowervm 1.1.24: Python binding for the PowerVM REST API
@@ -562,7 +566,7 @@ dev-python/python-telegram-bot 13.1 9999: Python wrapper of telegram bots API
 dev-python/python-troveclient 5.1.1: A client for the OpenStack Trove API, a scalable relational database service
 dev-python/python-vitrageclient 4.1.1: A client for the OpenStack Vitrage API
 dev-python/python-zaqarclient 2.0.1: A client for the OpenStack Zaqar API
-dev-python/python-zunclient 4.1.1: A client for the OpenStack Zun API
+dev-python/python-zunclient 4.3.0: A client for the OpenStack Zun API
 dev-python/pywebview 3.4 3.5: A lightweight cross-platform wrapper around a webview component
 dev-python/recordclass 0.14.3: Mutable variants of tupe and collections.namedtuple
 dev-python/redbaron 0.9 0.9.2: A FST for python to make writing refactoring code a realistic task
@@ -614,6 +618,7 @@ dev-python/uharfbuzz 0.16.1 0.18.0: Streamlined Cython bindings for the HarfBuzz
 dev-python/uhashring 2.1: Full featured consistent hashing python library compatible with ketama
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/unicodedata2 13.0.0.2: Unicodedata backport for python 2/3 updated to the latest unicode version
+dev-python/urlmatch 1.0.1: A Python library for easily pattern matching wildcard URLs
 dev-python/vharfbuzz 0.1.1 0.1.2: A user-friendlier way to use Harfbuzz in Python
 dev-python/vttlib 0.11.0: Dump, merge and compile Visual TrueType data in UFO3 with FontTools
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
@@ -848,7 +853,8 @@ media-video/obs-vkcapture 1.0 9999: OBS Linux Vulkan/OpenGL game capture
 media-video/owncast 0.0.7-r1 0.0.8 0.0.9 0.0.10: A self-hosted live video and web chat server
 media-video/qliveplayer 3.22.4 4.0.1-r1: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
-media-video/uxplay 1.37: AirPlay Unix mirroring server
+media-video/trakt-scrobbler 1.3.2: Scrobbler for trakt.tv that supports VLC, Plex, MPC-HC, and MPV
+media-video/uxplay 1.38: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
 net-analyzer/munin-contrib 0.2021.04.27: user contributed stuff related to munin
 net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various plugins for Munin
@@ -887,7 +893,7 @@ net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/gmid 1.7.3 1.7.4 9999: Simple and secure Gemini server
 net-misc/kristall 0.3-r1 9999: Visual cross-platform gemini browser
-net-misc/lagrange 1.6.5 1.7.0: Desktop GUI client for browsing Geminispace
+net-misc/lagrange 1.7.0 1.7.1: Desktop GUI client for browsing Geminispace
 net-misc/lyrics-in-terminal 1.4.2: Command Line Lyrics fetcher for MPRIS media players
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
@@ -926,6 +932,7 @@ sci-electronics/dsview 1.12-r1 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/verilator 4.204 4.210 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/GeographicLib-data 0-r1: Datasets for GeographicLib
+sci-geosciences/mapillary_tools 0.7.4_p20211008: Command line tools for processing and uploading Mapillary imagery
 sci-libs/ann 1.1.2_p7-r2: A Library for Approximate Nearest Neighbor Searching
 sci-libs/dart 6.10.1-r2: Dynamic Animation and Robotics Toolkit
 sci-libs/ensmallen 2.16.2 2.17.0: header only C++ library for numerical optimization
@@ -985,7 +992,7 @@ sys-apps/ryzen-stabilizator 0_pre20180309: Small utility to control a few parame
 sys-apps/sampler 1.1.0: visualizer for shell commands, executions and alerting
 sys-apps/sampler-bin 1.1.0: visualizer for shell commands, executions and alerting
 sys-apps/systemd-bootchart 234: systemd boot performance graphing tool
-sys-apps/sysz 1.4.0: An fzf terminal UI for systemctl
+sys-apps/sysz 1.4.0 1.4.1: An fzf terminal UI for systemctl
 sys-auth/keystone 20.0.0.0_rc1: The Openstack authentication, authorization, and service catalog
 sys-auth/mrsh 2.12 2.12-r1: Mrsh is a set of remote shell programs that use munge authentication.
 sys-block/systemd-swap 4.4.0 9999: Script for creating swap space from zram swaps, swap files and swap partitions.
@@ -1064,7 +1071,7 @@ sys-power/amdgpu-fan 0.1.0-r1: Fan controller for AMD graphics cards running the
 sys-power/disable-c6 0_p20190603: disable the C6 state upon system boot, preventing Ryzen freezes
 sys-power/gtherm 0.0.2: A simple daemon to monitor thermal zones and cooling devices
 sys-power/gwe 0.15.3: NVIDIA settings alternative with overclocking, fan control, and information
-sys-process/btop 1.0.10: A monitor of resources
+sys-process/btop 1.0.14: A monitor of resources
 sys-process/gotop 4.1.2: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/nq 0.4: Unix command line queue utility
 sys-process/nvtop 1.2.2 9999: NVIDIA GPUs htop like monitoring tool
@@ -1079,7 +1086,7 @@ www-apps/code-server-bin 3.10.0 3.12.0: VS Code in the browser (binary version w
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/jackett-bin 0.18.827 9999: API Support for your favorite torrent trackers
 www-apps/selfoss 2.18-r1: The multipurpose rss reader, live stream, mashup, aggregation web application
-www-apps/twint 2.1.20-r1: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
+www-apps/twint 2.1.20-r2: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 19.9.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.2.0 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/browsh 1.6.4_p1: A fully-modern text-based browser, rendering to TTY and browsers

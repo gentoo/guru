@@ -445,8 +445,6 @@ sci-physics/mbdyn:mbdyn-module-rotor-loose-coupling - rotor loose coupling
 sci-physics/mbdyn:mbdyn-module-scalarfunc - example of run-time loadable scalar function
 sci-physics/mbdyn:mbdyn-module-switch-drive - switch drive module
 sci-physics/mbdyn:mbdyn-module-tclpgin - tcl plugin
-sci-physics/mbdyn:mbdyn-module-template - template module; use it as guideline for user-defined elements
-sci-physics/mbdyn:mbdyn-module-template2 - template module; use it as guideline for user-defined elements
 sci-physics/mbdyn:mbdyn-module-triangular-contact - This element implements unilateral contact with friction between an arbitrary rigid body, represented by a triangular mesh, and a set of nodes with arbitrary offsets
 sci-physics/mbdyn:mbdyn-module-udunits - This module adds a namespace "units" with the only function "convert", which is thus invoked as "units::convert"
 sci-physics/mbdyn:mbdyn-module-uni-in-plane - This element implements the unilateral contact between a point and a plane
