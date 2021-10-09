@@ -41,9 +41,14 @@ sys-cluster/extrae dyninst
 # Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-10-01)
 # can't locate MPI cxx headers
 # https://public.gitlab.polimi.it/DAER/mbdyn/-/issues/91
-sci-physics/mbdyn mpi
+sci-physics/mbdyn mpi pmpi schur
 
 # Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-10-01)
 # superlu renamed some files
 # https://public.gitlab.polimi.it/DAER/mbdyn/-/issues/97
 sci-physics/mbdyn superlu
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-10-09)
+# build failure with metis
+# https://public.gitlab.polimi.it/DAER/mbdyn/-/issues/101
+sci-physics/mbdyn metis
