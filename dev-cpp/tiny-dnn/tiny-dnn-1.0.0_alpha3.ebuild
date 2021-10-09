@@ -7,7 +7,7 @@ DOCS_BUILDER="sphinx"
 DOCS_DEPEND="dev-python/recommonmark"
 DOCS_DIR="docs"
 MYPV="${PV/_alpha/a}"
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8,9} )
 
 inherit cmake python-any-r1 docs
 

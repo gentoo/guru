@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_8 )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 inherit distutils-r1 vcs-snapshot
 

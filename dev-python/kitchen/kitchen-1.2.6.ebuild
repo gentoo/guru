@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{7..9} pypy3 )
+PYTHON_COMPAT=( python3_{8..9} pypy3 )
 inherit distutils-r1
 
 DESCRIPTION="Kitchen contains a cornucopia of useful code"

@@ -17,7 +17,7 @@ case "${PV}" in
 		S="${WORKDIR}/${P0}"
 esac
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_8 )
 inherit distutils-r1
 distutils_enable_sphinx docs
 distutils_enable_tests pytest

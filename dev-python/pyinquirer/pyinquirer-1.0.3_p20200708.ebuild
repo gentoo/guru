@@ -18,7 +18,7 @@ case "${PV}" in
 		S="${WORKDIR}/${PN0}-${COMMIT}"
 esac
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_8 )
 inherit distutils-r1
 # conf.py gone???
 #distutils_enable_sphinx docs
