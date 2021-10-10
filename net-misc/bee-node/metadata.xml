@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">
+About
+The IOTA Foundation aims to allow machines of all performance levels 
+to contribute to the IOTA network, from microcontrollers to phones, web browsers, and 
+servers. Therefore, Bee is being developed as a modular collection of extendable crates, 
+which expose foreign function interfaces (FFIs) for the next iteration of client 
+libraries. Note: You can find details about future development plans in our roadmap. 
+
+Design
+Bee will be a central reference implementation for the most important data 
+structures and algorithms. This implementation will be verified during a Request for 
+Comments (RFC) process and eventually certified. By using this approach, we hope that 
+improvements to core components will quickly propagate to all other client libraries, 
+rather than having to fix each one individually. Note: The Rust programming language was 
+chosen for Bee because of its C/C++ like performance and its strong memory safety 
+guarantees.
+
+Supporting the project
+If you want to discuss Bee or have some questions about it, join us on the IOTA Discord server in the #bee-dev and #bee-discussion channels.
+If you want to be a part of development, please see the contributing guidelines for information on how to contribute.
+
+Joining the discussion
+If you want to get involved in the community, need help getting started, have any issues related to the repository or just want to discuss blockchain, distributed ledgers, and IoT with other people, feel free to join our Discord.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">iotaledger/bee</remote-id>
+	</upstream>
+</pkgmetadata>
