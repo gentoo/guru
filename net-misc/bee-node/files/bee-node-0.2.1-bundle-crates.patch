@@ -1,6 +1,5 @@
-diff '--color=auto' -ru /var/tmp/portage/net-misc/bee-node-0.2.1/work/bee-0.2.1/bee-api/bee-rest-api/Cargo.toml bee-0.2.1/bee-api/bee-rest-api/Cargo.toml
---- /var/tmp/portage/net-misc/bee-node-0.2.1/work/bee-0.2.1/bee-api/bee-rest-api/Cargo.toml	2021-09-14 10:54:23.000000000 +0200
-+++ bee-0.2.1/bee-api/bee-rest-api/Cargo.toml	2021-10-10 22:00:43.353946070 +0200
+--- a/bee-api/bee-rest-api/Cargo.toml
++++ b/bee-api/bee-rest-api/Cargo.toml
 @@ -11,15 +11,15 @@
  homepage = "https://www.iota.org"
  
@@ -25,9 +24,8 @@ diff '--color=auto' -ru /var/tmp/portage/net-misc/bee-node-0.2.1/work/bee-0.2.1/
  
  async-trait = { version = "0.1", optional = true }
  bech32 = { version = "0.8", optional = true }
-diff '--color=auto' -ru /var/tmp/portage/net-misc/bee-node-0.2.1/work/bee-0.2.1/bee-node/Cargo.toml bee-0.2.1/bee-node/Cargo.toml
---- /var/tmp/portage/net-misc/bee-node-0.2.1/work/bee-0.2.1/bee-node/Cargo.toml	2021-09-14 10:54:23.000000000 +0200
-+++ bee-0.2.1/bee-node/Cargo.toml	2021-10-10 22:21:40.364436245 +0200
+--- a/bee-node/Cargo.toml
++++ b/bee-node/Cargo.toml
 @@ -11,24 +11,24 @@
  homepage = "https://www.iota.org"
  
@@ -64,9 +62,8 @@ diff '--color=auto' -ru /var/tmp/portage/net-misc/bee-node-0.2.1/work/bee-0.2.1/
  futures = "0.3"
  fxhash = "0.2"
  hex = "0.4"
-diff '--color=auto' -ru /var/tmp/portage/net-misc/bee-node-0.2.1/work/bee-0.2.1/bee-protocol/Cargo.toml bee-0.2.1/bee-protocol/Cargo.toml
---- /var/tmp/portage/net-misc/bee-node-0.2.1/work/bee-0.2.1/bee-protocol/Cargo.toml	2021-09-14 10:54:23.000000000 +0200
-+++ bee-0.2.1/bee-protocol/Cargo.toml	2021-10-10 22:02:27.810214924 +0200
+--- a/bee-protocol/Cargo.toml
++++ b/bee-protocol/Cargo.toml
 @@ -11,16 +11,16 @@
  homepage = "https://www.iota.org"
  
