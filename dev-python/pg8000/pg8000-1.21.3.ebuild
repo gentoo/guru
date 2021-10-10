@@ -3,7 +3,6 @@
 
 EAPI=8
 
-EPYTEST_DESELECT=( "test/native/test_typeconversion.py" )
 PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
