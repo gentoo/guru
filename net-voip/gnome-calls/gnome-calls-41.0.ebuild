@@ -8,7 +8,7 @@ inherit vala meson gnome2-utils xdg
 
 DESCRIPTION="Phone dialer and call handler"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/calls"
-SRC_URI="https://gitlab.gnome.org/GNOME/calls/-/archive/v${PV}/calls-v${PV}.tar.gz"
+SRC_URI="https://gitlab.gnome.org/GNOME/calls/-/archive/${PV}/calls-${PV}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -36,7 +36,7 @@ BDEPEND="
 		dev-util/wayland-scanner
 "
 
-S="${WORKDIR}/$PN-${PV}"
+S="${WORKDIR}/calls-${PV}"
 
 src_prepare() {
 	default
