@@ -173,10 +173,10 @@ LIB_P="QLivePlayer-Lib-${LIB_COMMIT}"
 MY_P="QLivePlayer-${PV}"
 
 DESCRIPTION="A player and recorder for live streams and videos with danmaku support"
-HOMEPAGE="https://github.com/IsoaSFlus/QLivePlayer"
+HOMEPAGE="https://github.com/THMonster/QLivePlayer"
 SRC_URI="
-	https://github.com/IsoaSFlus/QLivePlayer/archive/refs/tags/${PV}.tar.gz -> ${MY_P}.tar.gz
-	https://github.com/IsoaSFlus/QLivePlayer-Lib/archive/${LIB_COMMIT}.tar.gz -> ${LIB_P}.tar.gz
+	https://github.com/THMonster/QLivePlayer/archive/refs/tags/${PV}.tar.gz -> ${MY_P}.tar.gz
+	https://github.com/THMonster/QLivePlayer-Lib/archive/${LIB_COMMIT}.tar.gz -> ${LIB_P}.tar.gz
 	$(cargo_crate_uris ${CRATES})
 "
 PATCHES=(
