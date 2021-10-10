@@ -440,7 +440,7 @@ src_prepare() {
 }
 
 src_compile() {
-	LIBCLANG_PATH="$(get_llvm_prefix)/lib64" cargo_src_compile
+	LIBCLANG_PATH="$(get_llvm_prefix)/$(get_libdir)" cargo_src_compile
 }
 
 src_install() {
