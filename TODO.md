@@ -64,7 +64,6 @@ Name | Buildsystem | Category | User | RFH
 [valhalla](https://github.com/valhalla/valhalla) | cmake | geography | Alessandro-Barbieri | no
 [openenclave](https://openenclave.io/sdk/) | cmake | util | Alessandro-Barbieri | no
 [alpaka](https://github.com/alpaka-group/alpaka) | cmake | science | Alessandro-Barbieri | no
-[emptyepsilon](https://daid.github.io/EmptyEpsilon/) | cmake | game | |
 [mochi-thallium](https://github.com/mochi-hpc/mochi-thallium) | cmake | cluster | Alessandro-Barbieri | no
 [flexiblas](https://www.mpi-magdeburg.mpg.de/projects/flexiblas) | cmake | science | Alessandro-Barbieri | yes
 [blitz](https://github.com/blitzpp/blitz) | cmake | c++ | Alessandro-Barbieri | no
