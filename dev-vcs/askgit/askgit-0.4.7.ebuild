@@ -855,7 +855,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-db/sqlite
-	~dev-libs/libgit2-1.2.0
+	~dev-libs/libgit2-1.2.0:=
 "
 DEPEND="${RDEPEND}"
 
