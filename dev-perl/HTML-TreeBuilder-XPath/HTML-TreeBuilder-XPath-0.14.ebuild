@@ -13,8 +13,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
-RDEPEND=""
+RDEPEND="
 	virtual/perl-ExtUtils-MakeMaker
+"
 DEPEND="
 	${RDEPEND}
 	dev-perl/XML-XPathEngine
