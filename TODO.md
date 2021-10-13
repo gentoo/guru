@@ -71,7 +71,6 @@ Name | Buildsystem | Category | User | RFH
 [butterflypack](https://github.com/liuyangzhuan/ButterflyPACK) | cmake | math | Alessandro-Barbieri | no
 [adios](https://csmd.ornl.gov/adios) | cmake | cluster | Alessandro-Barbieri | no
 [superlu_dist](https://github.com/xiaoyeli/superlu_dist) | cmake | science | Alessandro-Barbieri | no
-[opencoarrays](http://www.opencoarrays.org/) | cmake | dev | Alessandro-Barbieri | no
 [mfem](https://mfem.org/) | cmake | science | Alessandro-Barbieri | no
 [fmi-library](https://github.com/modelon-community/fmi-library) | cmake | science | Alessandro-Barbieri | no
 [aerodyn](https://github.com/OpenFAST/openfast/tree/main/modules/aerodyn) | cmake | science | Alessandro-Barbieri | no
