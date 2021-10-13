@@ -43,6 +43,7 @@ DEPEND="
 		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
+		net-misc/openvswitch
 	)
 "
 

@@ -1,0 +1,93 @@
+--- a/bee-api/bee-rest-api/Cargo.toml
++++ b/bee-api/bee-rest-api/Cargo.toml
+@@ -11,15 +11,15 @@
+ homepage = "https://www.iota.org"
+ 
+ [dependencies]
+-bee-common = { git = "https://github.com/iotaledger/bee.git", branch = "dev", optional = true }
+-bee-ledger = { git = "https://github.com/iotaledger/bee.git", branch = "dev" }
+-bee-message = { git = "https://github.com/iotaledger/bee.git", branch = "dev" }
+-bee-network = { git = "https://github.com/iotaledger/bee.git", branch = "dev", optional = true }
+-bee-pow = { git = "https://github.com/iotaledger/bee.git", branch = "dev" }
++bee-common = { path = "../../../bee/bee-common/bee-common", optional = true }
++bee-ledger = { path = "../../../bee/bee-ledger" }
++bee-message = { path = "../../../bee/bee-message" }
++bee-network = { path = "../../../bee/bee-network", optional = true }
++bee-pow = { path = "../../../bee/bee-pow" }
+ bee-protocol = { path = "../../bee-protocol" }
+-bee-runtime = { git = "https://github.com/iotaledger/bee.git", branch = "dev", optional = true  }
+-bee-storage = { git = "https://github.com/iotaledger/bee.git", branch = "dev", optional = true }
+-bee-tangle = { git = "https://github.com/iotaledger/bee.git", branch = "dev", optional = true }
++bee-runtime = { path = "../../../bee/bee-runtime", optional = true  }
++bee-storage = { path = "../../../bee/bee-storage/bee-storage", optional = true }
++bee-tangle = { path = "../../../bee/bee-tangle", optional = true }
+ 
+ async-trait = { version = "0.1", optional = true }
+ bech32 = { version = "0.8", optional = true }
+--- a/bee-node/Cargo.toml
++++ b/bee-node/Cargo.toml
+@@ -11,24 +11,24 @@
+ homepage = "https://www.iota.org"
+ 
+ [dependencies]
+-bee-common = { git = "https://github.com/iotaledger/bee.git", branch = "dev", features = [ "auth" ] }
+-bee-crypto = { git = "https://github.com/iotaledger/bee.git", branch = "dev" }
+-bee-ledger = { git = "https://github.com/iotaledger/bee.git", branch = "dev", features = [ "workers" ] }
+-bee-message = { git = "https://github.com/iotaledger/bee.git", branch = "dev" }
+-bee-network = { git = "https://github.com/iotaledger/bee.git", branch = "dev", features = [ "full" ] }
++bee-common = { path = "../../bee/bee-common/bee-common", features = [ "auth" ] }
++bee-crypto = { path = "../../bee/bee-crypto" }
++bee-ledger = { path = "../../bee/bee-ledger", features = [ "workers" ] }
++bee-message = { path = "../../bee/bee-message" }
++bee-network = { path = "../../bee/bee-network", features = [ "full" ] }
+ bee-protocol = { path = "../bee-protocol" }
+ bee-rest-api = { path = "../bee-api/bee-rest-api", features = [ "endpoints" ] }
+-bee-runtime = { git = "https://github.com/iotaledger/bee.git", branch = "dev" }
+-bee-storage = { git = "https://github.com/iotaledger/bee.git", branch = "dev" }
+-bee-storage-rocksdb = { git = "https://github.com/iotaledger/bee.git", branch = "dev", optional = true }
+-bee-storage-sled = { git = "https://github.com/iotaledger/bee.git", branch = "dev", optional = true }
+-bee-tangle = { git = "https://github.com/iotaledger/bee.git", branch = "dev" }
++bee-runtime = { path = "../../bee/bee-runtime" }
++bee-storage = { path = "../../bee/bee-storage/bee-storage" }
++bee-storage-rocksdb = { path = "../../bee/bee-storage/bee-storage-rocksdb", optional = true }
++bee-storage-sled = { path = "../../bee/bee-storage/bee-storage-sled", optional = true }
++bee-tangle = { path = "../../bee/bee-tangle" }
+ 
+ anymap = "0.12"
+ async-trait = "0.1"
+ cap = { version = "0.1", optional = true }
+ chrono = "0.4"
+-console-subscriber = { git = "https://github.com/tokio-rs/console.git", branch = "main", optional = true }
++console-subscriber = { path = "../../console/console-subscriber", optional = true }
+ futures = "0.3"
+ fxhash = "0.2"
+ hex = "0.4"
+--- a/bee-protocol/Cargo.toml
++++ b/bee-protocol/Cargo.toml
+@@ -11,16 +11,16 @@
+ homepage = "https://www.iota.org"
+ 
+ [dependencies]
+-bee-common = { git = "https://github.com/iotaledger/bee.git", branch = "dev", optional = true }
+-bee-crypto = { git = "https://github.com/iotaledger/bee.git", branch = "dev", optional = true }
+-bee-ledger = { git = "https://github.com/iotaledger/bee.git", branch = "dev", features = [ "workers" ], optional = true }
+-bee-message = { git = "https://github.com/iotaledger/bee.git", branch = "dev", features = [ "serde" ] }
+-bee-network = { git = "https://github.com/iotaledger/bee.git", branch = "dev" }
+-bee-pow = { git = "https://github.com/iotaledger/bee.git", branch = "dev" }
+-bee-runtime = { git = "https://github.com/iotaledger/bee.git", branch = "dev", optional = true }
+-bee-storage = { git = "https://github.com/iotaledger/bee.git", branch = "dev", optional = true }
+-bee-tangle = { git = "https://github.com/iotaledger/bee.git", branch = "dev", optional = true }
+-bee-ternary = { git = "https://github.com/iotaledger/bee.git", branch = "dev", optional = true }
++bee-common = { path = "../../bee/bee-common/bee-common", optional = true }
++bee-crypto = { path = "../../bee/bee-crypto", optional = true }
++bee-ledger = { path = "../../bee/bee-ledger", features = [ "workers" ], optional = true }
++bee-message = { path = "../../bee/bee-message", features = [ "serde" ] }
++bee-network = { path = "../../bee/bee-network" }
++bee-pow = { path = "../../bee/bee-pow" }
++bee-runtime = { path = "../../bee/bee-runtime", optional = true }
++bee-storage = { path = "../../bee/bee-storage/bee-storage", optional = true }
++bee-tangle = { path = "../../bee/bee-tangle", optional = true }
++bee-ternary = { path = "../../bee/bee-ternary", optional = true }
+ 
+ async-channel = { version = "1.6", optional = true }
+ async-priority-queue = { version = "0.1", optional = true }

@@ -18,4 +18,6 @@ SLOT="0"
 RDEPEND="dev-python/psutil[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
 
+RESTRICT="test" # tests need API key
+
 distutils_enable_tests unittest

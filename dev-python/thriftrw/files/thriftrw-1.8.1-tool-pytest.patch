@@ -1,0 +1,11 @@
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -2,7 +2,7 @@
+ create-wheel = yes
+ python-file-with-version = thriftrw/__init__.py
+ 
+-[pytest]
++[tool:pytest]
+ addopts = --tb short --benchmark-autosave --benchmark-save-data
+ 
+ [egg_info]

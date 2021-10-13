@@ -40,6 +40,7 @@ DEPEND="
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 
 		dev-python/lxml[${PYTHON_USEDEP}]
+		dev-python/ncclient[${PYTHON_USEDEP}]
 		dev-python/sqlalchemy[${PYTHON_USEDEP}]
 		app-admin/sudo
 	)

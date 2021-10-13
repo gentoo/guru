@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="An AMQP based messaging library"
 HOMEPAGE="
-	http://qpid.apache.org/proton/
+	https://qpid.apache.org/proton
 	https://pypi.org/project/python-qpid-proton
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.zip"

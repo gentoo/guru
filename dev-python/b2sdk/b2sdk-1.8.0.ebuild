@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7..9} )
+PYTHON_COMPAT=( python3_{8..9} )
 inherit distutils-r1
 
 DESCRIPTION="The client library for BackBlaze's B2 product"

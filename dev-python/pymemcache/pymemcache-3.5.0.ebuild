@@ -25,6 +25,7 @@ DEPEND="
 	test? (
 		dev-python/future[${PYTHON_USEDEP}]
 		dev-python/gevent[${PYTHON_USEDEP}]
+		dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/pylibmc[${PYTHON_USEDEP}]
 		dev-python/python-memcached[${PYTHON_USEDEP}]
 	)

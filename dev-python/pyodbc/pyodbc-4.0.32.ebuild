@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} pypy3 )
+PYTHON_COMPAT=( python3_{8..10} ) # pypy3 https://github.com/mkleehammer/pyodbc/issues/915
 
 inherit distutils-r1
 

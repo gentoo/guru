@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-PYTHON_COMPAT=( pypy3 python3_{7..9} )
+PYTHON_COMPAT=( pypy3 python3_{8..9} )
 inherit distutils-r1
 
 DESCRIPTION="Enable git-like did-you-mean feature in click"

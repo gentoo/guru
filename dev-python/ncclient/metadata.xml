@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">
+Python library that facilitates client-side scripting and application development around the NETCONF protocol
+	</longdescription>
+	<upstream>
+		<remote-id type="github">ncclient/ncclient</remote-id>
+		<remote-id type="pypi">ncclient</remote-id>
+	</upstream>
+</pkgmetadata>

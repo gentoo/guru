@@ -37,6 +37,7 @@ DEPEND="
 		>=dev-python/python-dateutil-2.6[${PYTHON_USEDEP}]
 		dev-python/pymysql[${PYTHON_USEDEP}]
 		dev-python/pyodbc[${PYTHON_USEDEP}]
+		dev-python/greenlet[${PYTHON_USEDEP}]
 	)
 "
 

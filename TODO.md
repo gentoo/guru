@@ -64,7 +64,6 @@ Name | Buildsystem | Category | User | RFH
 [valhalla](https://github.com/valhalla/valhalla) | cmake | geography | Alessandro-Barbieri | no
 [openenclave](https://openenclave.io/sdk/) | cmake | util | Alessandro-Barbieri | no
 [alpaka](https://github.com/alpaka-group/alpaka) | cmake | science | Alessandro-Barbieri | no
-[emptyepsilon](https://daid.github.io/EmptyEpsilon/) | cmake | game | |
 [mochi-thallium](https://github.com/mochi-hpc/mochi-thallium) | cmake | cluster | Alessandro-Barbieri | no
 [flexiblas](https://www.mpi-magdeburg.mpg.de/projects/flexiblas) | cmake | science | Alessandro-Barbieri | yes
 [blitz](https://github.com/blitzpp/blitz) | cmake | c++ | Alessandro-Barbieri | no
@@ -82,7 +81,6 @@ Name | Buildsystem | Category | User | RFH
 [airshipper](https://gitlab.com/veloren/airshipper) | cargo | game | | 
 [open-match](https://github.com/googleforgames/open-match) | go | devel | Alessandro-Barbieri | yes
 [gridstudio](https://github.com/ricklamers/gridstudio) | go | visualization | Alessandro-Barbieri | yes
-[askgit](https://github.com/askgitdev/askgit) | go | vcs | Alessandro-Barbieri | no
 [osmosis](https://wiki.openstreetmap.org/wiki/Osmosis) | gradle | geography | Alessandro-Barbieri | yes
 [Opensearch](https://github.com/opensearch-project/OpenSearch) | gradle |  | Alessandro-Barbieri | yes
 [cocalc](https://github.com/sagemathinc/cocalc) | npm | math | Alessandro-Barbieri | yes

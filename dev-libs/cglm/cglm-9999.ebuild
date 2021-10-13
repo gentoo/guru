@@ -7,7 +7,7 @@ DOCS_BUILDER="sphinx"
 DOCS_AUTODOC=0
 DOCS_DIR="${S}/docs/source"
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8,9} )
 
 inherit python-any-r1
 inherit docs meson
