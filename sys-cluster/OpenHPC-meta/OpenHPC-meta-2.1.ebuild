@@ -46,6 +46,7 @@ RDEPEND="
 		sci-libs/trilinos[boost,hypre,mumps,scotch,scalapack,petsc]
 		sci-mathematics/petsc[fftw,hypre,mpi,mumps,scotch]
 		sci-mathematics/slepc[mpi]
+		sys-cluster/opencoarrays
 
 		io-libs? (
 			sci-libs/trilinos[hdf5,netcdf]
@@ -101,7 +102,6 @@ RDEPEND="
 
 #	parallel
 	#sci-libs/superlu_dist
-	#opencoarrays
 	#mfem
 
 #	perf-tools
