@@ -20,6 +20,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-db/postgresql:*
+	dev-python/six[${PYTHON_USEDEP}]
 	virtual/python-cffi[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
