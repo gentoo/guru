@@ -3,15 +3,13 @@
 
 EAPI=8
 
-COMMIT="40c44336286ea0ea66002247ed28753a4216bc36"
 PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 DESCRIPTION="Command line tools for processing and uploading Mapillary imagery"
 HOMEPAGE="https://github.com/mapillary/mapillary_tools"
-SRC_URI="https://github.com/mapillary/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${COMMIT}"
+SRC_URI="https://github.com/mapillary/mapillary_tools/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 KEYWORDS="~amd64"
@@ -32,9 +30,9 @@ DEPEND="
 	${RDEPEND}
 	>=dev-python/pillow-8.1.2[${PYTHON_USEDEP}]
 	dev-python/pyinstaller[${PYTHON_USEDEP}]
+	dev-python/types-python-dateutil[${PYTHON_USEDEP}]
+	dev-python/types-pytz[${PYTHON_USEDEP}]
+	dev-python/types-requests[${PYTHON_USEDEP}]
 "
-#	dev-python/types-python-dateutil[${PYTHON_USEDEP}]
-#	dev-python/types-pytz[${PYTHON_USEDEP}]
-#	dev-python/types-requests[${PYTHON_USEDEP}]
 
 distutils_enable_tests pytest
