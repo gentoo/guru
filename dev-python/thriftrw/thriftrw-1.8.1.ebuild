@@ -7,9 +7,12 @@ PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
-DESCRIPTION="OpenTracing API for Python"
-HOMEPAGE="https://github.com/thriftrw/thriftrw-python"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+DESCRIPTION="A Thrift encoding library for Python"
+HOMEPAGE="
+	https://github.com/thriftrw/thriftrw-python
+	https://pypi.org/project/thriftrw
+"
+SRC_URI="https://github.com/thriftrw/thriftrw-python/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 SLOT="0"
 LICENSE="MIT"
