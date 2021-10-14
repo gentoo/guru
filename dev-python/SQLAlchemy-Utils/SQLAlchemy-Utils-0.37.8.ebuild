@@ -3,6 +3,7 @@
 
 EAPI=8
 
+EPYTEST_DESELECT=( tests/types/test_timezone.py )
 PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
