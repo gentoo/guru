@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="Python implementation of SAML Version 2 to be used in a WSGI environment"
 HOMEPAGE="https://github.com/rohe/pysaml2"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/IdentityPython/pysaml2/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
