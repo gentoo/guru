@@ -3,6 +3,53 @@
 
 EAPI=8
 
+EPYTEST_DESELECT=(
+	senlinclient/tests/functional/test_actions.py::ActionTest::test_action_list
+	senlinclient/tests/functional/test_cluster_policy.py::ClusterPolicyTest::test_cluster_policy_attach_and_detach
+	senlinclient/tests/functional/test_cluster_policy.py::ClusterPolicyTest::test_cluster_policy_list
+	senlinclient/tests/functional/test_cluster_policy.py::ClusterPolicyTest::test_cluster_policy_update
+	senlinclient/tests/functional/test_clusters.py::ClusterTest::test_cluster_check
+	senlinclient/tests/functional/test_clusters.py::ClusterTest::test_cluster_create
+	senlinclient/tests/functional/test_clusters.py::ClusterTest::test_cluster_expand_and_shrink
+	senlinclient/tests/functional/test_clusters.py::ClusterTest::test_cluster_full_id
+	senlinclient/tests/functional/test_clusters.py::ClusterTest::test_cluster_limit
+	senlinclient/tests/functional/test_clusters.py::ClusterTest::test_cluster_list
+	senlinclient/tests/functional/test_clusters.py::ClusterTest::test_cluster_list_filters
+	senlinclient/tests/functional/test_clusters.py::ClusterTest::test_cluster_list_sort
+	senlinclient/tests/functional/test_clusters.py::ClusterTest::test_cluster_members_add_and_del
+	senlinclient/tests/functional/test_clusters.py::ClusterTest::test_cluster_members_list
+	senlinclient/tests/functional/test_clusters.py::ClusterTest::test_cluster_members_replace
+	senlinclient/tests/functional/test_clusters.py::ClusterTest::test_cluster_recover
+	senlinclient/tests/functional/test_clusters.py::ClusterTest::test_cluster_resize
+	senlinclient/tests/functional/test_clusters.py::ClusterTest::test_cluster_show
+	senlinclient/tests/functional/test_clusters.py::ClusterTest::test_cluster_update
+	senlinclient/tests/functional/test_clusters.py::ClusterTest::test_cluster_update_profile_only
+	senlinclient/tests/functional/test_events.py::EventTest::test_event_list
+	senlinclient/tests/functional/test_help.py::HelpTest::test_help_cmd
+	senlinclient/tests/functional/test_nodes.py::NodeTest::test_node_check
+	senlinclient/tests/functional/test_nodes.py::NodeTest::test_node_create
+	senlinclient/tests/functional/test_nodes.py::NodeTest::test_node_detail
+	senlinclient/tests/functional/test_nodes.py::NodeTest::test_node_list
+	senlinclient/tests/functional/test_nodes.py::NodeTest::test_node_recover
+	senlinclient/tests/functional/test_nodes.py::NodeTest::test_node_update
+	senlinclient/tests/functional/test_policies.py::PolicyTest::test_policy_create
+	senlinclient/tests/functional/test_policies.py::PolicyTest::test_policy_list
+	senlinclient/tests/functional/test_policies.py::PolicyTest::test_policy_update
+	senlinclient/tests/functional/test_policy_types.py::PolicyTypeTest::test_policy_type_list
+	senlinclient/tests/functional/test_policy_types.py::PolicyTypeTest::test_policy_type_show
+	senlinclient/tests/functional/test_profile_types.py::ProfileTypeTest::test_profile_list_debug
+	senlinclient/tests/functional/test_profile_types.py::ProfileTypeTest::test_profile_type_list
+	senlinclient/tests/functional/test_profile_types.py::ProfileTypeTest::test_profile_type_show
+	senlinclient/tests/functional/test_profile_types.py::ProfileTypeTest::test_profile_type_show_json
+	senlinclient/tests/functional/test_profiles.py::ProfileTest::test_pofile_create
+	senlinclient/tests/functional/test_profiles.py::ProfileTest::test_profile_list
+	senlinclient/tests/functional/test_profiles.py::ProfileTest::test_profile_update
+	senlinclient/tests/functional/test_readonly_senlin.py::FakeTest::test_fake_action
+	senlinclient/tests/functional/test_receivers.py::ReceiverTest::test_receiver_create
+	senlinclient/tests/functional/test_receivers.py::ReceiverTest::test_receiver_list
+	senlinclient/tests/functional/test_receivers.py::ReceiverTest::test_receiver_update
+	senlinclient/tests/functional/test_version.py::VersionTest::test_openstack_version
+)
 PYTHON_COMPAT=( python3_8 )
 
 inherit distutils-r1
