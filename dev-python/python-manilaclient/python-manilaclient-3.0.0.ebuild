@@ -4,6 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
+EPYTEST_IGNORE=( manilaclient/tests/functional )
 PYTHON_COMPAT=( python3_8 )
 
 inherit distutils-r1
