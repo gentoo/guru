@@ -12,14 +12,12 @@ HOMEPAGE="
 	https://github.com/kennknowles/python-jsonpath-rw
 	https://pypi.org/project/jsonpath-rw
 "
-SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/kennknowles/python-jsonpath-rw/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
-
-RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-python/decorator[${PYTHON_USEDEP}]
@@ -34,6 +32,8 @@ DEPEND="
 		dev-python/pytest[${PYTHON_USEDEP}]
 	)
 "
+
+RESTRICT="!test? ( test )"
 
 python_test() {
 	nosetests --verbose || die
