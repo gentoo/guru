@@ -298,8 +298,8 @@ EGO_SUM=(
 	"github.com/lib/pq v1.2.0/go.mod"
 	"github.com/lib/pq v1.10.3"
 	"github.com/lib/pq v1.10.3/go.mod"
-	"github.com/libgit2/git2go/v32 v32.0.4"
-	"github.com/libgit2/git2go/v32 v32.0.4/go.mod"
+	"github.com/libgit2/git2go/v33 v33.0.0"
+	"github.com/libgit2/git2go/v33 v33.0.0/go.mod"
 	"github.com/magiconair/properties v1.8.5/go.mod"
 	"github.com/markbates/oncer v0.0.0-20181203154359-bf2de49a0be2/go.mod"
 	"github.com/markbates/safe v1.0.1/go.mod"
@@ -854,7 +854,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-db/sqlite
-	~dev-libs/libgit2-1.2.0:=
+	~dev-libs/libgit2-1.3.0:=
 "
 DEPEND="${RDEPEND}"
 
@@ -871,7 +871,15 @@ src_compile() {
 	export CGO_CFLAGS="${CFLAGS} -DUSE_LIBSQLITE"
 	export CGO_LDFLAGS="${LDFLAGS} -Wl,--unresolved-symbols=ignore-in-object-files -lsqlite3"
 	local tags="sqlite_vtable,vtable,sqlite_json1,system_libgit2"
-	go build --buildmode=c-shared -tags="${tags},shared" -v -x -o "libaskgit.so" shared.go || die "build failed"
+	go build \
+		--buildmode=c-shared \
+		-ldflags '-extldflags -Wl,-soname,libaskgit.so' \
+		-tags="${tags},shared" \
+		-v \
+		-x \
+		-o "libaskgit.so" \
+		shared.go \
+		|| die "build failed"
 	go build -tags="static,${tags}" -v -x askgit.go || die "build failed"
 
 }
