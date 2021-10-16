@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Supporting library for Bats test helpers"
+DESCRIPTION="Common assertions for Bats"
 HOMEPAGE="https://github.com/bats-core/bats-assert"
 SRC_URI="https://github.com/bats-core/bats-assert/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
