@@ -33,6 +33,7 @@ RDEPEND="
 	voip? (
 		dev-qt/qtmultimedia:5[gstreamer]
 		>=media-plugins/gst-plugins-dtls-${MY_GST_V}
+		media-plugins/gst-plugins-libnice
 		>=media-plugins/gst-plugins-meta-${MY_GST_V}[opus]
 		>=media-plugins/gst-plugins-srtp-${MY_GST_V}
 		>=media-plugins/gst-plugins-webrtc-${MY_GST_V}
