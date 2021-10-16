@@ -25,7 +25,6 @@ DEPEND=">=games-emulation/mupen64plus-core-2.5
 		${RDEPEND}"
 
 src_prepare() {
-	sed -i -e '/MatchWildcard/{s/Wildcard/RegExp/; s/"\*"/".*"/}' src/dialogs/settingsdialog.cpp || die
 	sed -i -e '/include.*quazip5/s/quazip5/QuaZip-Qt5-1.1\/quazip/' \
 		src/emulation/emulatorhandler.cpp src/common.cpp || die
 	sed -i -e 's/lquazip5/lquazip1-qt5/' mupen64plus-qt.pro || die
