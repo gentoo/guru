@@ -19,11 +19,16 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
-RESTRICT="!test? ( test )"
+
+#! Disable tests due for most versions of openmpi and mpich failed it with error:
+#! "No network interfaces were found for out-of-band communications.
+#!  We require at least one available network for out-of-band messaging."
+#! But tests run successfully with FEATURES="-network-sandbox"
+#IUSE="test"
+#RESTRICT="!test? ( test )"
 
 RDEPEND="
-	virtual/mpi[fortran]
+	|| ( >=sys-cluster/openmpi-1.10.7[fortran] >=sys-cluster/mpich-3.3[fortran] )
 "
 DEPEND="
 	${RDEPEND}
@@ -33,6 +38,6 @@ pkg_setup() {
 	fortran-2_pkg_setup
 }
 
-src_test() {
-	cmake_build test
-}
+#src_test() {
+#	cmake_build test
+#}
