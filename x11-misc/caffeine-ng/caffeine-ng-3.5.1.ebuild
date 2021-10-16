@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{8..10} )
 
-inherit distutils-r1 gnome2-utils
+inherit distutils-r1 gnome2-utils xdg
 
 DESCRIPTION="Aplication able to temporarily inhibit the screensaver"
 HOMEPAGE="https://github.com/caffeine-ng/caffeine-ng"
@@ -42,14 +42,17 @@ src_prepare() {
 
 pkg_preinst() {
 	gnome2_schemas_savelist
+	xdg_pkg_preinst
 }
 
 pkg_postinst() {
 	gnome2_gconf_install
 	gnome2_schemas_update
+	xdg_pkg_postinst
 }
 
 pkg_postrm() {
 	gnome2_gconf_uninstall
 	gnome2_schemas_update
+	xdg_pkg_postrm
 }
