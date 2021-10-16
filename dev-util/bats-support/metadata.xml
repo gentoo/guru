@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>lssndrbarbieri@gmail.com</email>
+    <name>Alessandro Barbieri</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">bats-core/bats-support</remote-id>
+  </upstream>
+  <longdescription lang="en">
+bats-support is a supporting library providing common functions to test helper libraries written for Bats.
+
+Features:
+
+error reporting
+output formatting
+language tools
+See the shared documentation to learn how to install and load this library.
+
+If you want to use this library in your own helpers or just want to learn about its internals see the developer documentation in the source files.
+  </longdescription>
+</pkgmetadata>
