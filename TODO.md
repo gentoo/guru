@@ -35,7 +35,6 @@ Name | Buildsystem | Category | User | RFH
 [mochi-margo](https://github.com/mochi-hpc/mochi-margo) | autotools | cluster | Alessandro-Barbieri | no
 [mochi-abt-io](https://github.com/mochi-hpc/mochi-abt-io) | autotools | cluster | Alessandro-Barbieri | no
 [machinekit](https://github.com/machinekit/machinekit) | autotools | science | Alessandro-Barbieri | yes
-[mbdyn](https://www.mbdyn.org/) | autotools | science | Alessandro-Barbieri | no
 [libreoffice-online](https://github.com/LibreOffice/online) | autotools | office | Alessandro-Barbieri | yes
 [latte-integrale](https://www.math.ucdavis.edu/~latte/) | autotools | math | Alessandro-Barbieri | yes
 [bonmin](https://projects.coin-or.org/Bonmin) | autotools | math | Alessandro-Barbieri | no
