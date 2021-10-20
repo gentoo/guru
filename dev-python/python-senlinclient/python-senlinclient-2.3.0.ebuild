@@ -3,6 +3,7 @@
 
 EAPI=8
 
+EPYTEST_IGNORE=( senlinclient/tests/functional )
 PYTHON_COMPAT=( python3_8 )
 
 inherit distutils-r1

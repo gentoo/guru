@@ -3,25 +3,7 @@
 
 EAPI=8
 
-EPYTEST_DESELECT=(
-	aodhclient/tests/functional/test_alarm.py::AodhClientTest::test_alarm_id_or_name_scenario
-	aodhclient/tests/functional/test_alarm.py::AodhClientTest::test_composite_scenario
-	aodhclient/tests/functional/test_alarm.py::AodhClientTest::test_event_alarm_create_show_query
-	aodhclient/tests/functional/test_alarm.py::AodhClientTest::test_event_scenario
-	aodhclient/tests/functional/test_alarm.py::AodhClientTest::test_help
-	aodhclient/tests/functional/test_alarm.py::AodhClientTest::test_set_get_alarm_state
-	aodhclient/tests/functional/test_alarm.py::AodhClientTest::test_threshold_alarm_create_show_query
-	aodhclient/tests/functional/test_alarm.py::AodhClientTest::test_threshold_scenario
-	aodhclient/tests/functional/test_alarm.py::AodhClientTest::test_update_type_event_composite
-	aodhclient/tests/functional/test_alarm.py::AodhClientGnocchiRulesTest::test_gnocchi_aggr_by_metrics_scenario
-	aodhclient/tests/functional/test_alarm.py::AodhClientGnocchiRulesTest::test_gnocchi_aggr_by_resources_scenario
-	aodhclient/tests/functional/test_alarm.py::AodhClientGnocchiRulesTest::test_gnocchi_resources_threshold_scenario
-	aodhclient/tests/functional/test_alarm.py::AodhClientGnocchiRulesTest::test_update_gnaggrresthr_gnaggrmetricthr
-	aodhclient/tests/functional/test_alarm.py::AodhClientGnocchiRulesTest::test_update_gnresthr_gnaggrresthr
-	aodhclient/tests/functional/test_alarm_history.py::AlarmHistoryTest::test_alarm_history_scenario
-	aodhclient/tests/functional/test_alarm_history.py::AlarmHistoryTest::test_help
-	aodhclient/tests/functional/test_capabilities.py::CapabilitiesClientTest::test_capabilities_scenario
-)
+EPYTEST_IGNORE=( aodhclient/tests/functional )
 PYTHON_COMPAT=( python3_8 )
 
 inherit distutils-r1

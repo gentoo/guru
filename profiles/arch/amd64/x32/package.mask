@@ -1,0 +1,3 @@
+# Ronny (tastytea) Gutbrod <gentoo@tastytea.de> (2021-10-17)
+# Requires dev-python/PyQtWebEngine, which is masked.
+dev-python/pywebview

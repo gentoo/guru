@@ -30,4 +30,6 @@ DEPEND="
 	)
 "
 
+RESTRICT="test" # tests require a running postgresql
+
 distutils_enable_tests pytest

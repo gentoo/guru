@@ -35,7 +35,6 @@ Name | Buildsystem | Category | User | RFH
 [mochi-margo](https://github.com/mochi-hpc/mochi-margo) | autotools | cluster | Alessandro-Barbieri | no
 [mochi-abt-io](https://github.com/mochi-hpc/mochi-abt-io) | autotools | cluster | Alessandro-Barbieri | no
 [machinekit](https://github.com/machinekit/machinekit) | autotools | science | Alessandro-Barbieri | yes
-[mbdyn](https://www.mbdyn.org/) | autotools | science | Alessandro-Barbieri | no
 [libreoffice-online](https://github.com/LibreOffice/online) | autotools | office | Alessandro-Barbieri | yes
 [latte-integrale](https://www.math.ucdavis.edu/~latte/) | autotools | math | Alessandro-Barbieri | yes
 [bonmin](https://projects.coin-or.org/Bonmin) | autotools | math | Alessandro-Barbieri | no
@@ -60,7 +59,6 @@ Name | Buildsystem | Category | User | RFH
 [chapel](https://github.com/chapel-lang/chapel) | make | science | Alessandro-Barbieri | yes
 [osmium](https://wiki.openstreetmap.org/wiki/Osmium) | cmake | geography | Alessandro-Barbieri | no
 [fuzzylite](https://github.com/fuzzylite/fuzzylite) | cmake | devel | Alessandro-Barbieri | no
-[lean](https://github.com/leanprover/lean/) | cmake | math | Alessandro-Barbieri | no
 [valhalla](https://github.com/valhalla/valhalla) | cmake | geography | Alessandro-Barbieri | no
 [openenclave](https://openenclave.io/sdk/) | cmake | util | Alessandro-Barbieri | no
 [alpaka](https://github.com/alpaka-group/alpaka) | cmake | science | Alessandro-Barbieri | no
@@ -71,7 +69,6 @@ Name | Buildsystem | Category | User | RFH
 [butterflypack](https://github.com/liuyangzhuan/ButterflyPACK) | cmake | math | Alessandro-Barbieri | no
 [adios](https://csmd.ornl.gov/adios) | cmake | cluster | Alessandro-Barbieri | no
 [superlu_dist](https://github.com/xiaoyeli/superlu_dist) | cmake | science | Alessandro-Barbieri | no
-[opencoarrays](http://www.opencoarrays.org/) | cmake | dev | Alessandro-Barbieri | no
 [mfem](https://mfem.org/) | cmake | science | Alessandro-Barbieri | no
 [fmi-library](https://github.com/modelon-community/fmi-library) | cmake | science | Alessandro-Barbieri | no
 [aerodyn](https://github.com/OpenFAST/openfast/tree/main/modules/aerodyn) | cmake | science | Alessandro-Barbieri | no

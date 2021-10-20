@@ -39,7 +39,6 @@ src_prepare() {
 }
 
 src_configure() {
-	append-cxxflags "-Wl,-soname=libann.so.0"
 	use profile && append-cxxflags -DANN_PERF
 	econf --disable-static
 }

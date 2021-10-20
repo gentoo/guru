@@ -9,14 +9,17 @@
  else
  USER_HDRS = 
  USER_LIBS = 
-@@ -58,12 +58,12 @@
+@@ -57,13 +57,15 @@
+ 
  all: $(USER_LIBS)
  
++../lib/lib$(SION_LIBNAME_SER).so :
++	make -C ../lib lib$(SION_LIBNAME_SER).so
  
 -lib$(SION_LIBNAME_CXX_SER).a : $(SION_OBJS_SER)
 -	$(C_AR) $(AFLAG) -rcs $@ $(SION_OBJS_SER)
-+lib$(SION_LIBNAME_CXX_SER).so : $(SION_OBJS_SER)
-+	$(CXX) $(LDFLAGS) -Wl,-soname,lib$(SION_LIBNAME_CXX_SER).so -shared -o $@ $(SION_OBJS_SER)
++lib$(SION_LIBNAME_CXX_SER).so : $(SION_OBJS_SER) ../lib/lib$(SION_LIBNAME_SER).so
++	$(CXX) $(LDFLAGS) -Wl,-soname,lib$(SION_LIBNAME_CXX_SER).so -shared -o $@ $(SION_OBJS_SER) -L../lib -l$(SION_LIBNAME_SER)
  	@echo "*** $@ built"
  
 -lib$(SION_LIBNAME_CXX_MPI).a : $(SION_OBJS_MPI)
@@ -26,7 +29,7 @@
  	@echo "*** $@ built"
  
  sion_cxx_base.o :
-@@ -118,7 +118,7 @@
+@@ -118,7 +120,7 @@
  	done
  
  clean:
@@ -46,12 +49,12 @@
  else
  USER_HDRS = 
  USER_MODS =
-@@ -56,18 +56,24 @@
+@@ -56,39 +56,47 @@
    SION_OBJS_F77_SER += sion_f77_omp.o sion_fortran_omp.o
    SION_OBJS_F90_SER += sion_f90_omp.o sion_fortran_omp.o
    USER_MODS += sion_f90_omp.mod
-+  F77_SER_LIBS = $(OMPFLAG) -L../parlib -l$(SION_LIBNAME_OMP)
-+  F90_SER_LIBS = $(OMPFLAG) -L../parlib -l$(SION_LIBNAME_OMP)
++  F77_SER_LIBS = $(OMPFLAG) -L../parlib -l$(SION_LIBNAME_OMP) -L../lib -l$(SION_LIBNAME_GEN)
++  F90_SER_LIBS = $(OMPFLAG) -L../parlib -l$(SION_LIBNAME_OMP) -L../lib -l$(SION_LIBNAME_GEN)
  endif
  
  ifeq ($(MPIENABLE),1)
@@ -71,13 +74,15 @@
  endif   
  
  SION_DEPEND_OBJS=sion_fortran.o sion_fortran_omp.o sion_fortran_mpi.o sion_fortran_ompi.o sion_fortran_writeread_f77.o sion_fortran_writeread_f90.o  sion_fortran_writeread_mpi_f77.o sion_fortran_writeread_mpi_f90.o 
-@@ -75,20 +81,20 @@
+ 
  all: $(USER_LIBS) $(USER_MODS)
  
++../lib/lib$(SION_LIBNAME_SER).so :
++	make -C ../lib lib$(SION_LIBNAME_SER).so
  
 -lib$(SION_LIBNAME_F77_SER).a : $(SION_OBJS_F77_SER)
 -	$(C_AR) $(AFLAG) -rcs $@ $(SION_OBJS_F77_SER)
-+lib$(SION_LIBNAME_F77_SER).so : $(SION_OBJS_F77_SER)
++lib$(SION_LIBNAME_F77_SER).so : $(SION_OBJS_F77_SER) ../lib/lib$(SION_LIBNAME_SER).so
 +	$(F77) $(LDFLAGS) -Wl,-soname,lib$(SION_LIBNAME_F77_SER).so -shared -o $@ $(SION_OBJS_F77_SER) $(F77_SER_LIBS)
  	@echo "*** $@ built"
  
@@ -89,7 +94,7 @@
  
 -lib$(SION_LIBNAME_F90_SER).a : $(SION_OBJS_F90_SER)
 -	$(C_AR) $(AFLAG) -rcs $@ $(SION_OBJS_F90_SER)
-+lib$(SION_LIBNAME_F90_SER).so : $(SION_OBJS_F90_SER)
++lib$(SION_LIBNAME_F90_SER).so : $(SION_OBJS_F90_SER) ../lib/lib$(SION_LIBNAME_SER).so
 +	$(F90) $(LDFLAGS) -Wl,-soname,lib$(SION_LIBNAME_F90_SER).so -shared -o $@ $(SION_OBJS_F90_SER) $(F90_SER_LIBS)
  	@echo "*** $@ built"
  
@@ -100,7 +105,7 @@
  	@echo "*** $@ built"
  
  # F77 interface
-@@ -206,7 +212,7 @@
+@@ -206,7 +214,7 @@
  	done
  
  clean:
@@ -111,23 +116,23 @@
  # Dependencies
 --- a/src/lib/Makefile
 +++ b/src/lib/Makefile
-@@ -66,26 +66,32 @@
+@@ -66,26 +66,31 @@
  SION_CXX_HDR = sion_cxx.h
  endif
  
+-USER_HDRS = sion.h sion_common.h sion_serial.h sion_const.h sion_datatypes.h sion_platform.h sion_debug.h $(SION_CXX_HDR)
+-USER_LIBS = lib$(SION_LIBNAME_SER).a lib$(SION_LIBNAME_COM).a lib$(SION_LIBNAME_COM_LOCK_PTHREADS).a lib$(SION_LIBNAME_COM_LOCK_NONE).a 
 +ifneq ($(PTHREADSUPPORT),"no")
 +LOCKLIB = $(SION_LIBNAME_COM_LOCK_PTHREADS)
 +else
 +LOCKLIB = $(SION_LIBNAME_COM_LOCK_NONE)
 +endif
-+
- USER_HDRS = sion.h sion_common.h sion_serial.h sion_const.h sion_datatypes.h sion_platform.h sion_debug.h $(SION_CXX_HDR)
--USER_LIBS = lib$(SION_LIBNAME_SER).a lib$(SION_LIBNAME_COM).a lib$(SION_LIBNAME_COM_LOCK_PTHREADS).a lib$(SION_LIBNAME_COM_LOCK_NONE).a 
+ 
++USER_HDRS = sion.h sion_common.h sion_serial.h sion_const.h sion_datatypes.h sion_platform.h sion_debug.h $(SION_CXX_HDR)
 +USER_LIBS = lib$(SION_LIBNAME_SER).so lib$(SION_LIBNAME_COM).so lib$(SION_LIBNAME_COM_LOCK_PTHREADS).so lib$(SION_LIBNAME_COM_LOCK_NONE).so
  
- 
 -all: lib$(SION_LIBNAME_COM).a lib$(SION_LIBNAME_SER).a  lib$(SION_LIBNAME_COM_LOCK_PTHREADS).a lib$(SION_LIBNAME_COM_LOCK_NONE).a 
-+all: lib$(SION_LIBNAME_COM).so lib$(SION_LIBNAME_SER).so  lib$(SION_LIBNAME_COM_LOCK_PTHREADS).so lib$(SION_LIBNAME_COM_LOCK_NONE).so
++all: lib$(SION_LIBNAME_COM).so lib$(SION_LIBNAME_SER).so lib$(SION_LIBNAME_COM_LOCK_PTHREADS).so lib$(SION_LIBNAME_COM_LOCK_NONE).so
  
 -lib$(SION_LIBNAME_COM).a : $(SION_COMMON_OBJS)
 -	$(C_AR) $(AFLAG) -rcs $@ $(SION_COMMON_OBJS)
@@ -149,12 +154,12 @@
  
 -lib$(SION_LIBNAME_SER).a : $(SION_SER_OBJS)
 -	$(C_AR) $(AFLAG) -rcs $@ $(SION_SER_OBJS)
-+lib$(SION_LIBNAME_SER).so : $(SION_SER_OBJS)
-+	$(CC) $(LDFLAGS) -Wl,-soname,lib$(SION_LIBNAME_SER).so -shared -o $@ $(SION_SER_OBJS)
++lib$(SION_LIBNAME_SER).so : $(SION_SER_OBJS) lib$(SION_LIBNAME_COM).so
++	$(CC) $(LDFLAGS) -Wl,-soname,lib$(SION_LIBNAME_SER).so -shared -o $@ $(SION_SER_OBJS) -L. -l$(SION_LIBNAME_COM)
  	@echo "*** $@ built"
  
  sion_lock_pthreads.o: sion_lock.c
-@@ -178,7 +184,7 @@
+@@ -178,7 +183,7 @@
  	done
  
  clean:
@@ -212,12 +217,15 @@
  else
    LOCKCC    =$(CC)
    LOCKCFLAGS=$(CFLAGS)
-@@ -87,20 +89,20 @@
+@@ -87,20 +89,23 @@
  
  all: $(USER_LIBS)
  
 -lib$(SION_LIBNAME_GEN).a : $(SION_OBJS_GEN) $(SION_OBJS_INTERNAL)
 -	$(C_AR) $(AFLAG) -rcs $@ $(SION_OBJS_GEN) $(SION_OBJS_INTERNAL)
++../lib/lib$(SION_LIBNAME_COM).so :
++	make -C ../lib lib$(SION_LIBNAME_COM).so
++
 +lib$(SION_LIBNAME_GEN).so : $(SION_OBJS_GEN) $(SION_OBJS_INTERNAL) ../lib/lib$(SION_LIBNAME_COM).so
 +	$(CC) $(LDFLAGS) -Wl,-soname,lib$(SION_LIBNAME_GEN).so -shared -o $@ $(SION_OBJS_GEN) $(SION_OBJS_INTERNAL) $(LOCKLINK) -L../lib -l$(SION_LIBNAME_COM)
  	@echo "*** $@ built"
@@ -241,7 +249,7 @@
  	@echo "*** $@ built"
  
  sion_generic.o : sion_generic.c
-@@ -224,7 +226,7 @@
+@@ -224,7 +229,7 @@
  	done
  
  clean:
@@ -294,7 +302,7 @@
  all: $(USER_UTILS)
  
 -partest: $(PARTEST_OBJS) ../parlib/lib$(SION_LIBNAME_MPI).a  ../parlib/lib$(SION_LIBNAME_GEN).a  ../lib/lib$(SION_LIBNAME_SER).a 
-+partest: $(PARTEST_OBJS) ../parlib/lib$(SION_LIBNAME_MPI).so  ../parlib/lib$(SION_LIBNAME_GEN).so  ../lib/lib$(SION_LIBNAME_SER).so
++partest: $(PARTEST_OBJS) ../parlib/lib$(SION_LIBNAME_MPI).so ../parlib/lib$(SION_LIBNAME_GEN).so ../lib/lib$(SION_LIBNAME_SER).so
  	$(MPICC) -o $@ $(PARTEST_OBJS) -L../lib -l$(SION_LIBNAME_SER) $(CMPILDFLAGS) $(MPILIB)
  
 -ompi_partest: $(PARTEST_OMPI_OBJS) ../parlib/lib$(SION_LIBNAME_OMPI).a ../parlib/lib$(SION_LIBNAME_OMP).a ../lib/lib$(SION_LIBNAME_SER).a 
@@ -308,8 +316,8 @@
  
 -fpartest: fpartest.o  ../parlib/lib$(SION_LIBNAME_MPI).a  ../parlib/lib$(SION_LIBNAME_GEN).a ../lib/lib$(SION_LIBNAME_SER).a ../fortraninterface/lib$(SION_LIBNAME_F77_MPI).a ../fortraninterface/lib$(SION_LIBNAME_F77_SER).a
 -	$(MPIF90) -o $@ fpartest.o  -L../fortraninterface -l$(SION_LIBNAME_F77_MPI) -l$(SION_LIBNAME_F77_SER) $(FMPILDFLAGS) $(MPILIB) 
-+fpartest: fpartest.o  ../parlib/lib$(SION_LIBNAME_MPI).so  ../parlib/lib$(SION_LIBNAME_GEN).so ../lib/lib$(SION_LIBNAME_SER).so ../fortraninterface/lib$(SION_LIBNAME_F77_MPI).so ../fortraninterface/lib$(SION_LIBNAME_F77_SER).so
-+	$(MPIF90) -o $@ fpartest.o  -L../fortraninterface -l$(SION_LIBNAME_F77_MPI) -l$(SION_LIBNAME_F77_SER) $(FMPILDFLAGS) $(MPILIB) $(F77_MPI_LIBS) $(F77_SER_LIBS)
++fpartest: fpartest.o ../parlib/lib$(SION_LIBNAME_MPI).so ../parlib/lib$(SION_LIBNAME_GEN).so ../lib/lib$(SION_LIBNAME_SER).so ../fortraninterface/lib$(SION_LIBNAME_F77_MPI).so ../fortraninterface/lib$(SION_LIBNAME_F77_SER).so
++	$(MPIF90) -o $@ fpartest.o -L../fortraninterface -l$(SION_LIBNAME_F77_MPI) -l$(SION_LIBNAME_F77_SER) $(FMPILDFLAGS) $(MPILIB) $(F77_MPI_LIBS) $(F77_SER_LIBS)
  
  
  install: all
@@ -345,24 +353,24 @@
  	$(CC) $(CFLAGS) -c sionversion.c
  
 -siondump: siondump.o ../lib/lib$(SION_LIBNAME_SER).a  ../lib/lib$(SION_LIBNAME_COM).a  ../lib/lib$(SION_LIBNAME_COM_LOCK_NONE).a
-+siondump: siondump.o ../lib/lib$(SION_LIBNAME_SER).so  ../lib/lib$(SION_LIBNAME_COM).so  ../lib/lib$(SION_LIBNAME_COM_LOCK_NONE).so
++siondump: siondump.o ../lib/lib$(SION_LIBNAME_SER).so ../lib/lib$(SION_LIBNAME_COM).so ../lib/lib$(SION_LIBNAME_COM_LOCK_NONE).so
  	$(CC)  -o $@ siondump.o $(LDFLAGS)
  	cp siondump $(TOPDIR)/..
  
 -siondefrag: siondefrag.o ../lib/lib$(SION_LIBNAME_SER).a  ../lib/lib$(SION_LIBNAME_COM).a  ../lib/lib$(SION_LIBNAME_COM_LOCK_NONE).a
-+siondefrag: siondefrag.o ../lib/lib$(SION_LIBNAME_SER).so  ../lib/lib$(SION_LIBNAME_COM).so  ../lib/lib$(SION_LIBNAME_COM_LOCK_NONE).so
++siondefrag: siondefrag.o ../lib/lib$(SION_LIBNAME_SER).so ../lib/lib$(SION_LIBNAME_COM).so ../lib/lib$(SION_LIBNAME_COM_LOCK_NONE).so
  	$(CC)  -o $@ siondefrag.o $(LDFLAGS)
  
 -sionsplit: sionsplit.o ../lib/lib$(SION_LIBNAME_SER).a  ../lib/lib$(SION_LIBNAME_COM).a  ../lib/lib$(SION_LIBNAME_COM_LOCK_NONE).a
-+sionsplit: sionsplit.o ../lib/lib$(SION_LIBNAME_SER).so  ../lib/lib$(SION_LIBNAME_COM).so  ../lib/lib$(SION_LIBNAME_COM_LOCK_NONE).so
++sionsplit: sionsplit.o ../lib/lib$(SION_LIBNAME_SER).so ../lib/lib$(SION_LIBNAME_COM).so ../lib/lib$(SION_LIBNAME_COM_LOCK_NONE).so
  	$(CC)  -o $@ sionsplit.o $(LDFLAGS)
  
 -sioncat: sioncat.o ../lib/lib$(SION_LIBNAME_SER).a  ../lib/lib$(SION_LIBNAME_COM).a  ../lib/lib$(SION_LIBNAME_COM_LOCK_NONE).a
-+sioncat: sioncat.o ../lib/lib$(SION_LIBNAME_SER).so  ../lib/lib$(SION_LIBNAME_COM).so  ../lib/lib$(SION_LIBNAME_COM_LOCK_NONE).so
++sioncat: sioncat.o ../lib/lib$(SION_LIBNAME_SER).so ../lib/lib$(SION_LIBNAME_COM).so ../lib/lib$(SION_LIBNAME_COM_LOCK_NONE).so
  	$(CC)  -o $@ sioncat.o $(LDFLAGS)
  
 -sionversion: sionversion.o ../lib/lib$(SION_LIBNAME_SER).a  ../lib/lib$(SION_LIBNAME_COM).a  ../lib/lib$(SION_LIBNAME_COM_LOCK_NONE).a
-+sionversion: sionversion.o ../lib/lib$(SION_LIBNAME_SER).so  ../lib/lib$(SION_LIBNAME_COM).so  ../lib/lib$(SION_LIBNAME_COM_LOCK_NONE).so
++sionversion: sionversion.o ../lib/lib$(SION_LIBNAME_SER).so ../lib/lib$(SION_LIBNAME_COM).so ../lib/lib$(SION_LIBNAME_COM_LOCK_NONE).so
  	$(CC)  -o $@ sionversion.o $(LDFLAGS)
  
  

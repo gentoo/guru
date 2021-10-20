@@ -15,7 +15,7 @@ else
 fi
 
 # Tests fail
-RESTRICT="test"
+RESTRICT="strip test"
 LICENSE="GPL-3"
 SLOT="0"
 
@@ -31,8 +31,7 @@ RDEPEND="${DEPEND}"
 
 # guile generates ELF files without use of C or machine code
 # It's a portage's false positive. bug #677600
-QA_FLAGS_IGNORED='.*[.]go'
-QA_PREBUILT='.*[.]go'
+QA_PREBUILT='*[.]go'
 
 src_prepare() {
 	default

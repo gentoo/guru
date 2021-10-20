@@ -1,0 +1,44 @@
+From 8c6e60e59c1c99341492d79608388f6cf12c9d40 Mon Sep 17 00:00:00 2001
+From: QaidVoid <qaidvoid@gmail.com>
+Date: Tue, 19 Oct 2021 00:33:57 +0545
+Subject: [PATCH] check helix runtime in /usr/share
+
+---
+ helix-core/src/lib.rs | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/helix-core/src/lib.rs b/helix-core/src/lib.rs
+index 2823959..60c3bb7 100644
+--- a/helix-core/src/lib.rs
++++ b/helix-core/src/lib.rs
+@@ -69,6 +69,11 @@ pub fn runtime_dir() -> std::path::PathBuf {
+         return conf_dir;
+     }
+ 
++    let sys_dir = sys_share_dir().join(RT_DIR);
++    if sys_dir.exists() {
++        return sys_dir;
++    }
++
+     if let Ok(dir) = std::env::var("CARGO_MANIFEST_DIR") {
+         // this is the directory of the crate being run by cargo, we need the workspace path so we take the parent
+         return std::path::PathBuf::from(dir).parent().unwrap().join(RT_DIR);
+@@ -81,6 +86,15 @@ pub fn runtime_dir() -> std::path::PathBuf {
+         .unwrap()
+ }
+ 
++pub fn sys_share_dir() -> std::path::PathBuf {
++    let mut path = std::path::Path::new("/usr/share/").to_path_buf();
++    if !path.exists() {
++        panic!("Unable to find system share directory!");
++    }
++    path.push("helix");
++    path
++}
++
+ pub fn config_dir() -> std::path::PathBuf {
+     // TODO: allow env var override
+     let strategy = choose_base_strategy().expect("Unable to find the config directory!");
+-- 
+2.33.1
+

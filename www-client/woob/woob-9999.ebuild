@@ -1,15 +1,12 @@
 # Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..9} )
-DISTUTILS_USE_SETUPTOOLS=rdepend
-
 inherit distutils-r1
 
-if [[ "${PV}" == "9999" ]]
-then
+if [[ "${PV}" == "9999" ]]; then
 	EGIT_REPO_URI="https://gitlab.com/${PN}/${PN}.git"
 	inherit git-r3
 else
@@ -35,20 +32,19 @@ RDEPEND="
 	dev-python/Babel[${PYTHON_USEDEP}]
 
 	dev-python/feedparser[${PYTHON_USEDEP}]
-	dev-python/geopy[${PYTHON_USEDEP}]
 	dev-python/prettytable[${PYTHON_USEDEP}]
 	dev-python/python-jose[${PYTHON_USEDEP}]
 	dev-python/selenium[${PYTHON_USEDEP}]
 	dev-python/termcolor[${PYTHON_USEDEP}]
-	dev-python/unidecode[${PYTHON_USEDEP}]
+	sci-geosciences/geopy[${PYTHON_USEDEP}]
 "
-BDEPEND="test? ( ${RDEPEND} )"
 
 distutils_enable_tests nose
 
 distutils_enable_sphinx docs/source
 
 python_prepare_all() {
+	# disable failing tests
 	sed -i \
 		-e '/woob.browser.browsers,/d' \
 		-e '/woob.browser.pages,/d' \
