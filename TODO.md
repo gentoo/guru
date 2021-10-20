@@ -59,7 +59,6 @@ Name | Buildsystem | Category | User | RFH
 [chapel](https://github.com/chapel-lang/chapel) | make | science | Alessandro-Barbieri | yes
 [osmium](https://wiki.openstreetmap.org/wiki/Osmium) | cmake | geography | Alessandro-Barbieri | no
 [fuzzylite](https://github.com/fuzzylite/fuzzylite) | cmake | devel | Alessandro-Barbieri | no
-[lean](https://github.com/leanprover/lean/) | cmake | math | Alessandro-Barbieri | no
 [valhalla](https://github.com/valhalla/valhalla) | cmake | geography | Alessandro-Barbieri | no
 [openenclave](https://openenclave.io/sdk/) | cmake | util | Alessandro-Barbieri | no
 [alpaka](https://github.com/alpaka-group/alpaka) | cmake | science | Alessandro-Barbieri | no
