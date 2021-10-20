@@ -1,0 +1,13 @@
+DEFINED_PHASES=install test
+DEPEND=dev-util/bats
+DESCRIPTION=Supporting library for Bats test helpers
+EAPI=8
+HOMEPAGE=https://github.com/bats-core/bats-support
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=CC0-1.0
+RDEPEND=dev-util/bats
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/bats-core/bats-support/archive/v0.3.0.tar.gz -> bats-support-0.3.0.tar.gz
+_md5_=819998a318b432e765b299801bb4d532

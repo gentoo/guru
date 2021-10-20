@@ -1,16 +1,14 @@
 BDEPEND=sys-devel/make >=dev-util/cmake-3.20.5 virtual/fortran
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=virtual/mpi[fortran] virtual/fortran
+DEPEND=|| ( >=sys-cluster/openmpi-1.10.7[fortran] >=sys-cluster/mpich-3.3[fortran] ) virtual/fortran
 DESCRIPTION=A parallel application binary interface for Fortran 2018 compilers
 EAPI=8
 HOMEPAGE=http://www.opencoarrays.org/
 INHERIT=cmake fortran-2
-IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
-RDEPEND=virtual/mpi[fortran] virtual/fortran
-RESTRICT=!test? ( test )
+RDEPEND=|| ( >=sys-cluster/openmpi-1.10.7[fortran] >=sys-cluster/mpich-3.3[fortran] ) virtual/fortran
 SLOT=0
 SRC_URI=https://github.com/sourceryinstitute/OpenCoarrays/archive/2.9.2.tar.gz -> opencoarrays-2.9.2.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a
-_md5_=332b6488a89bfd27131d3f573b9be4ca
+_md5_=f19495d4e1b7962475c8c99708d60459

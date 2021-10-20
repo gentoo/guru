@@ -7,6 +7,7 @@ app-accessibility/rhvoice:server - Build a server application
 app-accessibility/rhvoice:speech-dispatcher - Build a speech-dispatcher middleware module
 app-admin/glance:swift - Adds swift storage support
 app-admin/krapplet:pass - Add support for pass compatible storage
+app-crypt/gnome-encfs-manager:appindicator - Build in support for notifications using the libindicate or libappindicator plugin
 app-crypt/mkp224o:amd64-51-30k - Use x86_64 amd64-51-30k SUPERCOP implementation
 app-crypt/mkp224o:amd64-64-24k - Use x86_64 amd64-64-24k SUPERCOP implementation
 app-crypt/mkp224o:besort - Force intfilter binary search case to use big endian sorting; useful if your filters aren't of the same length
@@ -85,6 +86,7 @@ dev-games/godot:raycast - Enable raycast module using media-libs/embree
 dev-java/openjdk-sts-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (package manager, eselect, java-config, EXPERIMENTAL!)
 dev-java/openjdk-sts-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
 dev-java/openjdk-sts-bin:source - Install JVM sources
+dev-lang/lean:json - Enable JSON support
 dev-libs/hts_engine:speech-tools - use memory allocation/free functions of app-accessibility/speech-tools
 dev-libs/libdwarf:dwarfexample - enable dwarfexample compilation
 dev-libs/libdwarf:dwarfgen - enable dwarfgen compilation
@@ -150,6 +152,8 @@ dev-util/gammaray:script - Enable scripting support from the Qt5 framework
 dev-util/gammaray:scxml - Build support for Qt5 State Chart XML (SCXML)
 dev-util/gammaray:webengine - Enable support for dev-qt/qtwebengine
 dev-util/ots:sanitize - Sanitize Graphite tables
+dev-vcs/gitui:nerdfonts - Use nerd-fonts icons
+dev-vcs/gitui:trace - Enable libgit tracing
 games-arcade/taisei:lto - Enable link time optimization
 games-arcade/taisei:zip - Enable loading of game data from ZIP packages via dev-libs/libzip
 games-board/fairy-stockfish:general-32 - Generic unoptimized 32-bits build
@@ -190,6 +194,7 @@ games-fps/quakespasm:sdl2 - Use media-libs/libsdl2 instead of media-libs/libsdl
 games-puzzle/atris:sound - Enable atris sound pack
 games-server/among-sus:notifications - Notify players you're moving
 games-util/itch-bin:system-ffmpeg - Use the system-wide media-video/ffmpeg instead of bundled.
+games-util/legendary:webview - Use dev-python/pywebview for the sign-in process
 gui-apps/azote:imagemagick - enable colorpicker using imagemagick
 gui-apps/azote:simple-colorpicker - enable colorpicker without imagemagick
 gui-apps/azote:yaml - enable support for reading yaml files

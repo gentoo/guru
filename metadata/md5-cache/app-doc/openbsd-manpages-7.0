@@ -1,0 +1,9 @@
+DEFINED_PHASES=install postinst prepare
+DESCRIPTION=OpenBSD manual pages
+EAPI=8
+HOMEPAGE=https://man.openbsd.org
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86
+LICENSE=BSD BSD-2 BSD-4 ISC MIT icu openssl
+SLOT=0
+SRC_URI=https://ftp.openbsd.org/pub/OpenBSD/7.0/amd64/comp70.tgz https://ftp.openbsd.org/pub/OpenBSD/7.0/amd64/man70.tgz
+_md5_=d38a9643c74522ca135ae9563757a582

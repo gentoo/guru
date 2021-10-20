@@ -11,4 +11,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/a/ann/ann_1.1.2+doc.orig.tar.gz mirror://debian/pool/main/a/ann/ann_1.1.2+doc-7.debian.tar.xz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5
-_md5_=a8aa3a75b699771543d4b5483bad84e1
+_md5_=d84480d1e493f662aa5553dc12569ca7

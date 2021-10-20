@@ -1,0 +1,13 @@
+DEFINED_PHASES=install test
+DEPEND=app-shells/fish test? ( app-shells/fishtape )
+DESCRIPTION=100% pure-Fish test runner
+EAPI=8
+HOMEPAGE=https://github.com/jorgebucaran/fishtape
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=app-shells/fish
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/jorgebucaran/fishtape/archive/refs/tags/3.0.1.tar.gz -> fishtape-3.0.1.tar.gz
+_md5_=06ec901fe72c4953cc5a19a076604135

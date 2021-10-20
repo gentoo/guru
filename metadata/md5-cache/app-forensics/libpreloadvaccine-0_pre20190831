@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile install
+DESCRIPTION=Whitelisting LD_PRELOAD libraries using LD_AUDIT
+EAPI=8
+HOMEPAGE=https://github.com/ForensicITGuy/libpreloadvaccine
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/ForensicITGuy/libpreloadvaccine/archive/634e0155e77bb539a5b35c0ea964bbc525ae3f74.tar.gz -> libpreloadvaccine-0_pre20190831.tar.gz
+_md5_=6379d53b20f0e00ca5d41fd86cefd40d

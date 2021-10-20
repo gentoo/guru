@@ -1,0 +1,13 @@
+DEFINED_PHASES=install test
+DEPEND=dev-util/bats dev-util/bats-support
+DESCRIPTION=Common assertions for Bats
+EAPI=8
+HOMEPAGE=https://github.com/bats-core/bats-assert
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=CC0-1.0
+RDEPEND=dev-util/bats dev-util/bats-support
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/bats-core/bats-assert/archive/v2.0.0.tar.gz -> bats-assert-2.0.0.tar.gz
+_md5_=ab88c4e07d67483a2a4259d8e997b617
