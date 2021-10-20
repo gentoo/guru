@@ -37,7 +37,7 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	dev-lang/lean
+	dev-lang/lean:0/3
 "
 
 distutils_enable_tests pytest
