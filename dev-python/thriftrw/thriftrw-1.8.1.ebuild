@@ -3,6 +3,7 @@
 
 EAPI=8
 
+MYPN="${PN}-python"
 PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
@@ -12,7 +13,8 @@ HOMEPAGE="
 	https://github.com/thriftrw/thriftrw-python
 	https://pypi.org/project/thriftrw
 "
-SRC_URI="https://github.com/thriftrw/thriftrw-python/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/thriftrw/${MYPN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${MYPN}-${PV}"
 
 SLOT="0"
 LICENSE="MIT"
