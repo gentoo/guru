@@ -247,14 +247,24 @@ DESCRIPTION="The minimal, blazing-fast, and infinitely customizable prompt for a
 HOMEPAGE="https://github.com/starship/starship"
 SRC_URI="$(cargo_crate_uris ${CRATES})"
 
-# License set may be more restrictive as OR is not respected
-# use cargo-license for a more accurate license picture
-LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 ISC MIT MPL-2.0 Unlicense ZLIB"
+LICENSE="
+	|| ( Apache-2.0 Apache-2.0-with-LLVM-exceptions MIT )
+	|| ( Apache-2.0 Boost-1.0 )
+	|| ( Apache-2.0 MIT )
+	|| ( Apache-2.0 MIT ZLIB )
+	|| ( MIT Unlicense )
+	Apache-2.0
+	BSD-2
+	ISC
+	MIT
+	MPL-2.0
+"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+battery +http tls-vendored"
 
 DEPEND="
+	>=dev-libs/libgit2-1.2.0:=
 	!tls-vendored? ( dev-libs/openssl:0= )
 "
 RDEPEND="${DEPEND}
