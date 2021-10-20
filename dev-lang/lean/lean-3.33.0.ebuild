@@ -5,7 +5,7 @@ EAPI=7
 
 CMAKE_IN_SOURCE_BUILD="ON"
 
-inherit cmake
+inherit cmake optfeature
 
 DESCRIPTION="The Lean Theorem Prover"
 HOMEPAGE="https://leanprover-community.github.io/"
@@ -40,6 +40,12 @@ src_configure() {
 }
 
 pkg_postinst() {
-	elog "You probably want to use lean with mathlib, to install it use leanpkg."
-	elog "For example: leanpkg install https://github.com/leanprover-community/mathlib"
+	elog "You probably want to use lean with mathlib, to install it you can either:"
+	elog " - Do not install mathlib globally and use local versions"
+	elog " - Use leanproject from sci-mathematics/mathlib-tools"
+	elog "   $ leanproject global-install"
+	elog " - Use leanpkg and compile mathlib (which will take long time)"
+	elog "   $ leanpkg install https://github.com/leanprover-community/mathlib"
+
+	optfeature "project management with leanproject" sci-mathematics/mathlib-tools
 }
