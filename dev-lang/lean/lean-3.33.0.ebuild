@@ -11,9 +11,11 @@ DESCRIPTION="The Lean Theorem Prover"
 HOMEPAGE="https://leanprover-community.github.io/"
 
 if [[ "${PV}" == *9999* ]]; then
+	MAJOR=3  # sync this periodically for the live version
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/leanprover-community/lean.git"
 else
+	MAJOR=$(ver_cut 1)
 	SRC_URI="https://github.com/leanprover-community/lean/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
@@ -21,7 +23,7 @@ S="${WORKDIR}/lean-${PV}/src"
 
 RESTRICT="!test? ( test )"
 LICENSE="Apache-2.0"
-SLOT="0"
+SLOT="0/${MAJOR}"
 IUSE="+json test +threads"
 
 RDEPEND="dev-libs/gmp"
