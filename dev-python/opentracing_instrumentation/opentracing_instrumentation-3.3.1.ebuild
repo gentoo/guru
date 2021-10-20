@@ -3,6 +3,7 @@
 
 EAPI=8
 
+MYPN="${PN/_/-python-}"
 PYTHON_COMPAT=( python3_8 )
 
 inherit distutils-r1
@@ -11,7 +12,8 @@ DESCRIPTION="A collection of Python instrumentation tools for the OpenTracing AP
 HOMEPAGE="
 	https://github.com/uber-common/opentracing-python-instrumentation
 "
-SRC_URI="https://github.com/uber-common/opentracing-python-instrumentation/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/uber-common/${MYPN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${MYPN}-${PV}"
 
 SLOT="0"
 LICENSE="MIT"
