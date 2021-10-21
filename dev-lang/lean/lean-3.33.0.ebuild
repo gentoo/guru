@@ -21,10 +21,9 @@ else
 fi
 S="${WORKDIR}/lean-${PV}/src"
 
-RESTRICT="!test? ( test )"
 LICENSE="Apache-2.0"
 SLOT="0/${MAJOR}"
-IUSE="+json test +threads"
+IUSE="+json +threads"
 
 RDEPEND="dev-libs/gmp"
 DEPEND="${RDEPEND}"
