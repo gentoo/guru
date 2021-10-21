@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CMAKE_IN_SOURCE_BUILD="ON"
 
@@ -23,12 +23,21 @@ S="${WORKDIR}/lean-${PV}/src"
 
 LICENSE="Apache-2.0"
 SLOT="0/${MAJOR}"
-IUSE="+json +threads"
+IUSE="debug +json +threads"
 
 RDEPEND="dev-libs/gmp"
 DEPEND="${RDEPEND}"
 
+PATCHES=( "${FILESDIR}/fix_flags.patch" )
+
 src_configure() {
+	local CMAKE_BUILD_TYPE
+	if use debug; then
+		CMAKE_BUILD_TYPE="Debug"
+	else
+		CMAKE_BUILD_TYPE="Release"
+	fi
+
 	local mycmakeargs=(
 		-DALPHA=ON
 		-DAUTO_THREAD_FINALIZATION=ON
