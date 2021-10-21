@@ -41,6 +41,15 @@ src_configure() {
 	cmake_src_configure
 }
 
+src_test() {
+	local myctestargs=(
+		# Disable problematic "style_check" cpplint test,
+		# this also removes python test dependency
+		--exclude-regex style_check
+	)
+	cmake_src_test
+}
+
 pkg_postinst() {
 	elog "You probably want to use lean with mathlib, to install it you can either:"
 	elog " - Do not install mathlib globally and use local versions"
