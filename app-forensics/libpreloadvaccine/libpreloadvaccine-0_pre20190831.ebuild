@@ -16,8 +16,12 @@ KEYWORDS="~amd64"
 IUSE="test"
 
 DOCS=( README.md )
-PATCHES=( "${FILESDIR}/${PN}-makefile.patch" )
-RESTRICT="!test? ( test )"
+PATCHES=(
+	"${FILESDIR}/${PN}-makefile.patch"
+	"${FILESDIR}/${PN}-fix-typo.patch"
+)
+#RESTRICT="!test? ( test )"
+RESTRICT="test"
 
 src_compile() {
 	emake build
@@ -27,6 +31,8 @@ src_compile() {
 src_install() {
 	dolib.so libpreloadvaccine.so
 	einstalldocs
-	echo "😃LD_AUDIT=/usr/$(get_libdir)/libpreloadvaccine.so" > 99libpreloadvaccine || die
+	cat > 99libpreloadvaccine <<- EOF
+		😃LD_AUDIT="/usr/$(get_libdir)/libpreloadvaccine.so"
+	EOF
 	doenvd 99libpreloadvaccine
 }
