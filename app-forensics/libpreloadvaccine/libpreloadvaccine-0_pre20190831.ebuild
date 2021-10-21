@@ -31,8 +31,4 @@ src_compile() {
 src_install() {
 	dolib.so libpreloadvaccine.so
 	einstalldocs
-	cat > 99libpreloadvaccine <<- EOF
-		😃LD_AUDIT="/usr/$(get_libdir)/libpreloadvaccine.so"
-	EOF
-	doenvd 99libpreloadvaccine
 }
