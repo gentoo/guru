@@ -31,6 +31,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=( "${FILESDIR}/00-fix-betterlockscreen-path-in-unit.patch" )
+
 src_install() {
 	dobin betterlockscreen
 
