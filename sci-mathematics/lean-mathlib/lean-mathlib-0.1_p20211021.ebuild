@@ -32,7 +32,7 @@ src_compile() {
 }
 
 src_install() {
-	dodoc -r docs
+	dodoc -r docs/*
 	rm -r docs || die
 	insinto /usr/lib/lean/mathlib
 	doins -r .
