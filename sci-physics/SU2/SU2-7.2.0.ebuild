@@ -35,7 +35,7 @@ REQUIRED_USE="
 
 RDEPEND="
 	${PYTHON_DEPS}
-	mpi? ( virtual/mpi[cxx] )
+	mpi? ( || ( >=sys-cluster/openmpi-1.10.7[cxx] >=sys-cluster/mpich-3.3[cxx] ) )
 	mkl? ( sci-libs/mkl )
 	openblas? ( sci-libs/openblas )
 "
@@ -87,6 +87,11 @@ src_prepare(){
 }
 
 src_configure() {
+	if use mpi ; then
+		export CC=mpicc
+		export CXX=mpicxx
+	fi
+
 	local emesonargs=(
 		-Denable-autodiff=false
 		-Denable-directdiff=false
@@ -94,6 +99,7 @@ src_configure() {
 		-Denable-pywrapper=false
 		-Dwith-omp=false
 		$(meson_feature mpi with-mpi)
+		$(meson_use mpi custom-mpi)
 		$(meson_use cgns enable-cgns)
 		$(meson_use mkl enable-mkl)
 		$(meson_use mpp enable-mpp)
