@@ -35,3 +35,8 @@ src_configure() {
 
 	cmake_src_configure
 }
+
+src_install() {
+	dodoc g3doc/*
+	cmake_src_install
+}
