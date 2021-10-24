@@ -1,23 +1,19 @@
 certificate version 0.1
-pusher torokhov-s-a@yandex.ru 1635088008 +0300
-pushee git+ssh://git.gentoo.org/repo/proj/guru.git
-nonce 1635088008-d735b54040127cf7c43f8bc488ac4e18e627ac74
+pusher 0xA84CACB200CCC172 1635095127 +0300
+pushee git.gentoo.org:repo/proj/guru.git
+nonce 1635095127-b339bf7e60d9f175925cb6b3fd021f57d5b4af03
 
-d9faaebbd0cbf547f9f496b312b1a6daa7bf8319 c89d51cba6a0bd88c4adad232d51dfd5bd2a2751 refs/heads/dev
+c89d51cba6a0bd88c4adad232d51dfd5bd2a2751 e78a00f599163e85f972264d6b5616f54a20c1b8 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iQJLBAABCAA1FiEE9ENucPfUBrMMmlEhZ4eqcTBJFeMFAmF1dogXHHRvcm9raG92
-LXMtYUB5YW5kZXgucnUACgkQZ4eqcTBJFeMBmA/+O5DTi9S4UNJ8D4tozKfSDAxZ
-NqM2cTSF/hbthW3nD+ZCXzzhVokDKrDWLKJxMouzRwNxBrxqRQdm1FLBnv2YPV3D
-eorioEh+Aoxlb/Qxxi1XnvfS/E1r60lWPr2eTggpax/F2I/mz7qXCx16F20smiIe
-VB1apuj3WqIXFzo3hVOxw8PC9Luit5fqerEQ8ime9vB+2klA1Nz4Gl+g1+N5SPbu
-vyYOeNwCiJLg+9GnNl2IBK1LhjIeORBlq5w5WrJD7naTDr/6IGYlg/1lmL/8mOJ2
-Y/P0rMM57GgQbJBaXRYFlNr90r7ChT2odHKwzh9mbTRT93d6tV+5nlheDrMd/vPC
-Xok7l+YFD6XHtsekjRzHaRaoX80EZbf7xBSAz7EndthLvoj1JHNzyOD2pSfDcU+s
-1P+iYnnthFVUx9boXnOdIoKJ9T86hM83/XOUorv3AEkUkdDRV1oX9ZcAoNYyCwne
-OIbn8+o1MJhMKx/1AvngDUowDAvVNHkqcHTQpocbJuuxrbQqjoHbo2CHToUrTT4W
-3QHGgMiorvackbPir0swsnTGkQQjwR9DLSbtahR3Rub6pckeZhGBX8dyRo9LPINW
-wQS15Fb0wE0BT9r6yaclwDn0BgYS33RPs2BXA2B7v6y1JAqD9Ieh2ejOOcNScL0V
-/2lz3i3k0rgwJG5QZyw=
-=ejWh
+iQGTBAABCgB9FiEExREQKeh/hg6RDiDIqEyssgDMwXIFAmF1kldfFIAAAAAALgAo
+aXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5maWZ0aGhvcnNlbWFuLm5ldEM1
+MTExMDI5RTg3Rjg2MEU5MTBFMjBDOEE4NENBQ0IyMDBDQ0MxNzIACgkQqEyssgDM
+wXLFdgf/VPmqY3EVecTv6bom4euRGdf0k4M3E0qlU9WiYlw5PD5lQXobJDRbv2Pv
+fxUXdmcSnAJ26A7us/L4rFaPr+TFz980X+JTrZq1QiF+AKUjh31F6gxtlejh9mrQ
+gbBvCiEw+UcuGfHvnii/CS2DAQXjGdSq0wc75pwq2Cf+YjbdWc2zZ4Ab2GL2GPwo
+bukA/eLDODMeh7QXXK74xvVB/WwQm9zCjEqpPYgNMpBjCcflYbgGEugWNYCTornv
+YovA7ckfFQlJ2BCyK9aWS+CiO5WThRRdODt6y1r+vpv6XpamQy9acZHbKTMlCW+m
+KsimjdnqnzaHm4x8Hu8XxlT0H4D5HA==
+=NWs+
 -----END PGP SIGNATURE-----
