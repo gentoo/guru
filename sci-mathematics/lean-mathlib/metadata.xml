@@ -6,8 +6,6 @@
     <email>lssndrbarbieri@gmail.com</email>
     <name>Alessandro Barbieri</name>
   </maintainer>
-  <longdescription lang="en">
-  </longdescription>
   <upstream>
     <bugs-to>https://github.com/leanprover-community/mathlib/issues</bugs-to>
     <remote-id type="github">leanprover-community/mathlib</remote-id>
