@@ -12,7 +12,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/uNetworking/uSockets.git"
 else
-	COMMIT="c06112c89b4c1cf5a09b5f8daa2def756b925889"
+	COMMIT="c2c1bbfa1644f1f6eb7fc9375650f41c5f9b7b06"
 	SRC_URI="https://github.com/uNetworking/uSockets/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm64 ~x86"
 	S="${WORKDIR}/uSockets-${COMMIT}"
@@ -20,8 +20,9 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="asio libuv +ssl"
-REQUIRED_USE="?? ( asio libuv )"
+IUSE="asio libuv +ssl test"
+REQUIRED_USE="?? ( asio libuv ) test? ( ssl )"
+RESTRICT="!test? ( test )"
 
 DEPEND="
 	asio? ( dev-cpp/asio[ssl(+)?] )
@@ -31,7 +32,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.7.1_p20210909-Makefile.patch"
+	"${FILESDIR}/${PN}-0.8.1_p20211023-Makefile.patch"
+	"${FILESDIR}/${PN}-0.8.1_p20211023-pkg-config.patch"
+	"${FILESDIR}/${PN}-0.8.1_p20211023-gen-ssl-config.patch"
+	"${FILESDIR}/${PN}-0.8.1_p20211023-hammer-test.patch"
 )
 
 src_configure() {
