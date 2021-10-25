@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake flag-o-matic
 
 DESCRIPTION="An open-source C++ library developed and used at Facebook"
 HOMEPAGE="https://github.com/facebook/folly"
@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 
 DEPEND="
 	app-arch/lz4
-	<app-arch/snappy-1.1.9
+	<app-arch/snappy-1.1.9:=
 	app-arch/zstd
 	dev-cpp/gflags
 	dev-cpp/glog[gflags]
@@ -29,6 +29,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_prepare() {
+	filter-flags "-fno-rtti"
 	cmake_src_prepare
 	sed \
 		-e "s/lib CACHE/$(get_libdir) CACHE/" \
