@@ -4,12 +4,13 @@ DESCRIPTION=tiny eventing, networking & crypto for async applications
 EAPI=7
 HOMEPAGE=https://github.com/uNetworking/uSockets
 INHERIT=toolchain-funcs
-IUSE=asio libuv +ssl
+IUSE=asio libuv +ssl test
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=Apache-2.0
 RDEPEND=asio? ( dev-cpp/asio[ssl(+)?] ) libuv? ( dev-libs/libuv ) ssl? ( >=dev-libs/openssl-1.1.0 )
-REQUIRED_USE=?? ( asio libuv )
+REQUIRED_USE=?? ( asio libuv ) test? ( ssl )
+RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/uNetworking/uSockets/archive/c06112c89b4c1cf5a09b5f8daa2def756b925889.tar.gz -> usockets-0.7.1_p20210909.tar.gz
+SRC_URI=https://github.com/uNetworking/uSockets/archive/c2c1bbfa1644f1f6eb7fc9375650f41c5f9b7b06.tar.gz -> usockets-0.8.1_p20211023.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
-_md5_=4c67fcc8f0f00c394b1eee47c8c90ef4
+_md5_=4ce35caeaa456a2d02e46c4fa4ab6a20

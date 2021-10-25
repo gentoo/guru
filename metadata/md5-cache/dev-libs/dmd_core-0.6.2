@@ -1,0 +1,14 @@
+BDEPEND=>=virtual/rust-1.47.0 >=virtual/rust-1.37.0
+DEFINED_PHASES=compile configure install test unpack
+DESCRIPTION=Core logic for an AT&T / Teletype DMD 5620 terminal emulator
+EAPI=7
+HOMEPAGE=https://github.com/sethm/dmd_core
+INHERIT=cargo toolchain-funcs
+IUSE=debug
+KEYWORDS=~amd64
+LICENSE=MIT
+RESTRICT=test mirror
+SLOT=0
+SRC_URI=https://github.com/sethm/dmd_core/archive/v0.6.2.tar.gz -> dmd_core-0.6.2.tar.gz https://crates.io/api/v1/crates/lazy_static/1.4.0/download -> lazy_static-1.4.0.crate https://crates.io/api/v1/crates/libc/0.2.103/download -> libc-0.2.103.crate
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	cargo	c7fefacaebdcb455d2a7b59429eb47a6
+_md5_=e8428988feedf85fab1399adbaff6701
