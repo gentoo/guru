@@ -15,8 +15,10 @@ KEYWORDS="~amd64"
 IUSE="+brotli doc examples mariadb postgres redis sqlite +ssl test"
 RESTRICT="!test? ( test )"
 
+# NOTE: The trantor[adns] dependency should not be needed,
+# see <https://github.com/drogonframework/drogon/issues/1058>
 RDEPEND="
-	>=dev-cpp/trantor-1.5.2
+	>=dev-cpp/trantor-1.5.2[adns]
 	dev-libs/jsoncpp
 	sys-libs/zlib
 	brotli? ( app-arch/brotli )
@@ -35,7 +37,7 @@ BDEPEND="doc? ( app-doc/doxygen )"
 DOCS=( CONTRIBUTING.md ChangeLog.md README.md README.zh-CN.md README.zh-TW.md )
 
 src_prepare() {
-	sed -i '/add_subdirectory(trantor)/d' CMakeLists.txt || die
+	cmake_comment_add_subdirectory "trantor"
 	sed -i '/${PROJECT_SOURCE_DIR}\/trantor\/trantor\/tests\/server.pem/d' \
 		lib/tests/CMakeLists.txt || die
 	use ssl || sed -i '/find_package(OpenSSL)/d' CMakeLists.txt || die
