@@ -300,7 +300,6 @@ dev-java/gradle-hashing 6.8.2: Build automation tool for JVM Languages, C(++), e
 dev-java/mill-bin 0.9.8 0.9.9: A Java/Scala build tool
 dev-java/openjdk-sts-bin 15.0.2_p7: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730-r1: The Aldor Programming Language
-dev-lang/ammonite-repl-bin 2.4.0: Scala language-based scripting and REPL
 dev-lang/fbc 1.07.3 1.08.1: A free/open source, multi-platform BASIC compiler.
 dev-lang/fbc-bootstrap 1.07.3 1.08.1: Bootstrap package for dev-lang/fbc
 dev-lang/fennel 0.9.2 0.10.0 9999: Fennel is a lisp that compiles to Lua
