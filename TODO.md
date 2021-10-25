@@ -29,6 +29,7 @@ Name | Buildsystem | Category | User | RFH
 [tau](http://www.cs.uoregon.edu/research/tau/home.php) | make | tools | Alessandro-Barbieri | no
 [plasma](https://github.com/NLAFET/plasma) | make | science | Alessandro-Barbieri | yes
 [imb](https://software.intel.com/content/www/us/en/develop/articles/intel-mpi-benchmarks.html) | make | cluster | Alessandro-Barbieri | no
+[lodepng](https://github.com/lvandeve/lodepng) | make | multimedia | Alessandro-Barbieri | no
 [dimemas](https://github.com/bsc-performance-tools/dimemas) | autotools | cluster | Alessandro-Barbieri | no
 [argobots](https://www.argobots.org/) | autotools | devel | Alessandro-Barbieri | no
 [mochi-ssg](https://github.com/mochi-hpc/mochi-ssg) | autotools | cluster | Alessandro-Barbieri | no
@@ -74,6 +75,8 @@ Name | Buildsystem | Category | User | RFH
 [aerodyn](https://github.com/OpenFAST/openfast/tree/main/modules/aerodyn) | cmake | science | Alessandro-Barbieri | no
 [llvm-ompss2](https://github.com/bsc-pm/llvm) | cmake | cluster | Alessandro-Barbieri | yes
 [pagmo](https://github.com/bsc-pm/llvm) | cmake | science | Alessandro-Barbieri | no
+[sjpeg](https://github.com/webmproject/sjpeg) | cmake | multimedia | Alessandro-Barbieri | no
+[skcms](https://skia.googlesource.com/skcms/) | bazel | multimedia | Alessandro-Barbieri | no
 [enarx](https://enarx.dev/) | cargo | util | Alessandro-Barbieri | no
 [airshipper](https://gitlab.com/veloren/airshipper) | cargo | game | | 
 [open-match](https://github.com/googleforgames/open-match) | go | devel | Alessandro-Barbieri | yes

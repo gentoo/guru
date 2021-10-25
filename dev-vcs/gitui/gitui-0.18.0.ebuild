@@ -210,6 +210,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 DOCS=( {README,KEY_CONFIG,THEMES}.md vim_style_key_config.ron )
+QA_FLAGS_IGNORED="usr/bin/gitui"
 
 src_prepare() {
 	# https://github.com/extrawurst/gitui/issues/459

@@ -27,13 +27,15 @@ RDEPEND="
 	dev-python/importlib_resources[${PYTHON_USEDEP}]
 	>=dev-python/xmlschema-1.2.1[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	test? (
 		dev-python/toml[${PYTHON_USEDEP}]
 		dev-python/pyasn1[${PYTHON_USEDEP}]
 		dev-python/pymongo[${PYTHON_USEDEP}]
 		dev-python/responses[${PYTHON_USEDEP}]
+
+		dev-python/mock[${PYTHON_USEDEP}]
 	)
 "
 

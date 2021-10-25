@@ -143,7 +143,33 @@ PATCHES=(
 	"${FILESDIR}/${PN}-0.4.1.patch"
 )
 
-QA_FLAGS_IGNORED="/usr/bin/hx"
+QA_FLAGS_IGNORED="
+	usr/share/helix/runtime/grammars/agda.so
+	usr/share/helix/runtime/grammars/bash.so
+	usr/share/helix/runtime/grammars/c-sharp.so
+	usr/share/helix/runtime/grammars/c.so
+	usr/share/helix/runtime/grammars/cpp.so
+	usr/share/helix/runtime/grammars/css.so
+	usr/share/helix/runtime/grammars/elixir.so
+	usr/share/helix/runtime/grammars/go.so
+	usr/share/helix/runtime/grammars/html.so
+	usr/share/helix/runtime/grammars/java.so
+	usr/share/helix/runtime/grammars/javascript.so
+	usr/share/helix/runtime/grammars/json.so
+	usr/share/helix/runtime/grammars/julia.so
+	usr/share/helix/runtime/grammars/latex.so
+	usr/share/helix/runtime/grammars/nix.so
+	usr/share/helix/runtime/grammars/php.so
+	usr/share/helix/runtime/grammars/python.so
+	usr/share/helix/runtime/grammars/ruby.so
+	usr/share/helix/runtime/grammars/rust.so
+	usr/share/helix/runtime/grammars/scala.so
+	usr/share/helix/runtime/grammars/swift.so
+	usr/share/helix/runtime/grammars/toml.so
+	usr/share/helix/runtime/grammars/tsx.so
+	usr/share/helix/runtime/grammars/typescript.so
+	usr/bin/hx
+"
 
 src_prepare() {
 	einfo "Helix branch: ${EGIT_BRANCH}"
