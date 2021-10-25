@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-
 VALA_USE_DEPEND="vapigen"
-inherit vala meson xdg
+
+inherit vala meson gnome2-utils xdg
 
 DESCRIPTION="Cawbird is a fork of the Corebird Twitter client from Baedert."
 HOMEPAGE="https://github.com/IBBoard/cawbird"
@@ -22,7 +22,7 @@ DEPEND="
 	>=dev-libs/glib-2.44
 	>=dev-libs/json-glib-1.0
 	>=dev-db/sqlite-3.0
-	>=net-libs/libsoup-2.4
+	>=net-libs/libsoup-2.4:*
 	net-libs/liboauth
 	>=sys-devel/gettext-0.19
 	media-libs/gst-plugins-base
@@ -37,7 +37,12 @@ BDEPEND="
 		dev-libs/gobject-introspection
 "
 
+S="${WORKDIR}/$PN-${PV}"
+
 src_configure() {
+	local mycmakeargs+=(
+		"-DVALA_EXECUTABLE=${VALAC}"
+	)
 	local emesonargs=(
 		-Dconsumer_key_base64=VmY5dG9yRFcyWk93MzJEZmhVdEk5Y3NMOA==
 		-Dconsumer_secret_base64=MThCRXIxbWRESDQ2Y0podzVtVU13SGUyVGlCRXhPb3BFRHhGYlB6ZkpybG5GdXZaSjI=
