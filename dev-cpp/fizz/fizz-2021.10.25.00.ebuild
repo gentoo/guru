@@ -7,14 +7,12 @@ inherit cmake
 
 DESCRIPTION="C++14 implementation of the TLS-1.3 standard"
 HOMEPAGE="https://github.com/facebookincubator/fizz"
-
 SRC_URI="https://github.com/facebookincubator/fizz/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-
-CMAKE_USE_DIR="${S}/fizz"
+IUSE="examples test"
 
 RDEPEND="
 	~dev-cpp/folly-${PV}:=
@@ -29,8 +27,11 @@ RDEPEND="
 #TODO: discover if gtest is linked
 DEPEND="
 	${RDEPEND}
-	dev-cpp/gtest
+	test? ( <dev-cpp/gtest-1.11.0 )
 "
+
+RESTRICT="!test? ( test )"
+CMAKE_USE_DIR="${S}/fizz"
 
 src_prepare() {
 	cmake_src_prepare
@@ -39,6 +40,8 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DBUILD_EXAMPLES=$(usex examples)
+		-DBUILD_TESTS=$(usex test)
 		-DLIB_INSTALL_DIR=$(get_libdir)
 	)
 
