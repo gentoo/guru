@@ -15,10 +15,8 @@ KEYWORDS="~amd64"
 IUSE="+brotli doc examples mariadb postgres redis sqlite +ssl test"
 RESTRICT="!test? ( test )"
 
-# NOTE: The trantor[adns] dependency should not be needed,
-# see <https://github.com/drogonframework/drogon/issues/1058>
 RDEPEND="
-	>=dev-cpp/trantor-1.5.2[adns]
+	>=dev-cpp/trantor-1.5.2
 	dev-libs/jsoncpp
 	sys-libs/zlib
 	brotli? ( app-arch/brotli )
