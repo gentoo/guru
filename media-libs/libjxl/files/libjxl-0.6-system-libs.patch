@@ -1,6 +1,5 @@
-diff '--color=auto' -ru /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/lib/jxl.cmake libjxl-0.6/lib/jxl.cmake
---- /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/lib/jxl.cmake	2021-10-04 20:02:44.000000000 +0200
-+++ libjxl-0.6/lib/jxl.cmake	2021-10-26 16:20:37.332839340 +0200
+--- a/lib/jxl.cmake
++++ b/lib/jxl.cmake
 @@ -387,17 +387,6 @@
  target_link_libraries(jxl_enc-obj PUBLIC jxl_profiler)
  endif()
@@ -19,9 +18,8 @@ diff '--color=auto' -ru /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/l
  # Headers for exporting/importing public headers
  include(GenerateExportHeader)
  set_target_properties(jxl_dec-obj PROPERTIES
-diff '--color=auto' -ru /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/plugins/gdk-pixbuf/CMakeLists.txt libjxl-0.6/plugins/gdk-pixbuf/CMakeLists.txt
---- /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/plugins/gdk-pixbuf/CMakeLists.txt	2021-10-26 15:59:28.124828026 +0200
-+++ libjxl-0.6/plugins/gdk-pixbuf/CMakeLists.txt	2021-10-26 16:24:08.540453940 +0200
+--- a/plugins/gdk-pixbuf/CMakeLists.txt
++++ b/plugins/gdk-pixbuf/CMakeLists.txt
 @@ -23,7 +23,7 @@
  
  # Note: This only needs the decoder library, but we don't install the decoder
@@ -31,9 +29,8 @@ diff '--color=auto' -ru /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/p
  
  pkg_get_variable(GDK_PIXBUF_MODULEDIR gdk-pixbuf-2.0 gdk_pixbuf_moduledir)
  install(TARGETS pixbufloader-jxl LIBRARY DESTINATION "${GDK_PIXBUF_MODULEDIR}")
-diff '--color=auto' -ru /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/third_party/CMakeLists.txt libjxl-0.6/third_party/CMakeLists.txt
---- /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/third_party/CMakeLists.txt	2021-10-26 15:59:28.123828010 +0200
-+++ libjxl-0.6/third_party/CMakeLists.txt	2021-10-26 16:13:51.758212796 +0200
+--- a/third_party/CMakeLists.txt
++++ b/third_party/CMakeLists.txt
 @@ -113,15 +113,6 @@
    endif()  # JPEGXL_DEP_LICENSE_DIR
  endif()
