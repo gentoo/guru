@@ -19,7 +19,7 @@ CRATES="
 	camino-1.0.5
 	cargo-platform-0.1.2
 	cargo_metadata-0.14.0
-	cc-1.0.70
+	cc-1.0.71
 	cfg-if-1.0.0
 	chalk-derive-0.71.0
 	chalk-ir-0.71.0
@@ -54,7 +54,7 @@ CRATES="
 	home-0.5.3
 	idna-0.2.3
 	indexmap-1.7.0
-	inotify-0.9.4
+	inotify-0.9.5
 	inotify-sys-0.1.5
 	instant-0.1.11
 	itertools-0.10.1
@@ -64,12 +64,12 @@ CRATES="
 	kqueue-sys-1.0.3
 	lazy_static-1.4.0
 	libc-0.2.103
-	libloading-0.7.0
+	libloading-0.7.1
 	libmimalloc-sys-0.1.22
 	lock_api-0.4.5
 	log-0.4.14
 	lsp-server-0.5.2
-	lsp-types-0.90.0
+	lsp-types-0.91.0
 	matchers-0.0.1
 	matches-0.1.9
 	memchr-2.4.1
@@ -93,10 +93,10 @@ CRATES="
 	perf-event-open-sys-1.0.1
 	petgraph-0.5.1
 	pin-project-lite-0.2.7
-	proc-macro2-1.0.29
+	proc-macro2-1.0.30
 	pulldown-cmark-0.8.0
 	pulldown-cmark-to-cmark-6.0.4
-	quote-1.0.9
+	quote-1.0.10
 	rayon-1.5.1
 	rayon-core-1.9.1
 	redox_syscall-0.2.10
@@ -118,12 +118,12 @@ CRATES="
 	serde_derive-1.0.130
 	serde_json-1.0.68
 	serde_repr-0.1.7
-	sharded-slab-0.1.3
+	sharded-slab-0.1.4
 	smallvec-1.7.0
 	smol_str-0.1.18
 	snap-1.0.5
-	syn-1.0.77
-	synstructure-0.12.5
+	syn-1.0.80
+	synstructure-0.12.6
 	termcolor-1.1.2
 	text-size-1.1.0
 	thread_local-1.1.3
@@ -133,15 +133,15 @@ CRATES="
 	tikv-jemallocator-0.4.1
 	tinyvec-1.5.0
 	tinyvec_macros-0.1.0
-	tracing-0.1.28
-	tracing-attributes-0.1.16
-	tracing-core-0.1.20
+	tracing-0.1.29
+	tracing-attributes-0.1.18
+	tracing-core-0.1.21
 	tracing-log-0.1.2
-	tracing-subscriber-0.2.24
+	tracing-subscriber-0.2.25
 	tracing-tree-0.1.10
-	ungrammar-1.14.8
+	ungrammar-1.14.9
 	unicase-2.6.0
-	unicode-bidi-0.3.6
+	unicode-bidi-0.3.7
 	unicode-normalization-0.1.19
 	unicode-segmentation-1.8.0
 	unicode-xid-0.2.2
