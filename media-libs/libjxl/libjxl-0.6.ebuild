@@ -12,7 +12,7 @@ SRC_URI="https://github.com/libjxl/libjxl/archive/refs/tags/v${PV}.tar.gz -> ${P
 KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="abi_x86_64 cpu_flags_arm_neon benchmark devtools examples man +openexr plugins profile +sjpeg +skcms tcmalloc tools viewers"
+IUSE="abi_x86_64 cpu_flags_arm_neon benchmark devtools examples man +openexr plugins profile +sjpeg +skcms tcmalloc tools viewers" #java
 
 RDEPEND="
 	app-arch/brotli
@@ -23,7 +23,6 @@ RDEPEND="
 	sys-libs/zlib
 	virtual/jpeg
 
-	!skcms? ( media-libs/lcms )
 	openexr? ( media-libs/openexr:= )
 	plugins? (
 		dev-libs/glib:2
@@ -35,6 +34,7 @@ RDEPEND="
 		x11-misc/shared-mime-info
 	)
 	sjpeg? ( media-libs/sjpeg:= )
+	!skcms? ( media-libs/lcms )
 	skcms? ( media-libs/skcms:= )
 	tcmalloc? ( dev-util/google-perftools )
 	viewers? ( media-libs/lcms )
@@ -84,4 +84,10 @@ src_configure() {
 	)
 
 	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+	find "${D}" -name '*.a' -delete || die
+	#TODO: install documentation
 }
