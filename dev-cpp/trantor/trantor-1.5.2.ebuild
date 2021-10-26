@@ -25,7 +25,7 @@ DEPEND="
 	test? ( dev-cpp/gtest )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-1.5.2_skip-dnstest.patch" )
+PATCHES=( "${FILESDIR}/${PN}-1.5.2_adns-fix.patch" )
 
 src_prepare() {
 	use ssl || sed -i '/find_package(OpenSSL)/d' CMakeLists.txt || die
