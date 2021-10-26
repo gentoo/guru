@@ -1,0 +1,87 @@
+diff '--color=auto' -ru /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/lib/jxl.cmake libjxl-0.6/lib/jxl.cmake
+--- /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/lib/jxl.cmake	2021-10-04 20:02:44.000000000 +0200
++++ libjxl-0.6/lib/jxl.cmake	2021-10-26 16:20:37.332839340 +0200
+@@ -387,17 +387,6 @@
+ target_link_libraries(jxl_enc-obj PUBLIC jxl_profiler)
+ endif()
+ 
+-#TODO(lode): don't depend on CMS for the core library
+-if (JPEGXL_ENABLE_SKCMS)
+-  target_include_directories(jxl_enc-obj PRIVATE
+-    $<TARGET_PROPERTY:skcms,INCLUDE_DIRECTORIES>
+-  )
+-else ()
+-  target_include_directories(jxl_enc-obj PRIVATE
+-    $<TARGET_PROPERTY:lcms2,INCLUDE_DIRECTORIES>
+-  )
+-endif ()
+-
+ # Headers for exporting/importing public headers
+ include(GenerateExportHeader)
+ set_target_properties(jxl_dec-obj PROPERTIES
+diff '--color=auto' -ru /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/plugins/gdk-pixbuf/CMakeLists.txt libjxl-0.6/plugins/gdk-pixbuf/CMakeLists.txt
+--- /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/plugins/gdk-pixbuf/CMakeLists.txt	2021-10-26 15:59:28.124828026 +0200
++++ libjxl-0.6/plugins/gdk-pixbuf/CMakeLists.txt	2021-10-26 16:24:08.540453940 +0200
+@@ -23,7 +23,7 @@
+ 
+ # Note: This only needs the decoder library, but we don't install the decoder
+ # shared library.
+-target_link_libraries(pixbufloader-jxl jxl jxl_threads skcms-interface PkgConfig::Gdk-Pixbuf)
++target_link_libraries(pixbufloader-jxl jxl jxl_threads skcms PkgConfig::Gdk-Pixbuf)
+ 
+ pkg_get_variable(GDK_PIXBUF_MODULEDIR gdk-pixbuf-2.0 gdk_pixbuf_moduledir)
+ install(TARGETS pixbufloader-jxl LIBRARY DESTINATION "${GDK_PIXBUF_MODULEDIR}")
+diff '--color=auto' -ru /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/third_party/CMakeLists.txt libjxl-0.6/third_party/CMakeLists.txt
+--- /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/third_party/CMakeLists.txt	2021-10-26 15:59:28.123828010 +0200
++++ libjxl-0.6/third_party/CMakeLists.txt	2021-10-26 16:13:51.758212796 +0200
+@@ -113,15 +113,6 @@
+   endif()  # JPEGXL_DEP_LICENSE_DIR
+ endif()
+ 
+-# lodepng
+-if( NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/lodepng/lodepng.h" )
+-  message(FATAL_ERROR "Please run ${PROJECT_SOURCE_DIR}/deps.sh to fetch the "
+-          "build dependencies.")
+-endif()
+-include(lodepng.cmake)
+-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/lodepng/LICENSE"
+-               ${PROJECT_BINARY_DIR}/LICENSE.lodepng COPYONLY)
+-
+ # brotli
+ if (NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/brotli/c/include/brotli/decode.h" OR
+     JPEGXL_FORCE_SYSTEM_BROTLI)
+@@ -190,34 +181,3 @@
+     endforeach()
+   endif()  # BROTLI_EMSCRIPTEN
+ endif()
+-
+-# *cms
+-if (JPEGXL_ENABLE_SKCMS OR JPEGXL_ENABLE_PLUGINS)
+-  if( NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/skcms/skcms.h" )
+-    message(FATAL_ERROR "Please run ${PROJECT_SOURCE_DIR}/deps.sh to fetch the "
+-            "build dependencies.")
+-  endif()
+-  include(skcms.cmake)
+-  configure_file("${CMAKE_CURRENT_SOURCE_DIR}/skcms/LICENSE"
+-                 ${PROJECT_BINARY_DIR}/LICENSE.skcms COPYONLY)
+-endif ()
+-if (JPEGXL_ENABLE_VIEWERS OR NOT JPEGXL_ENABLE_SKCMS)
+-  if( NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/lcms/.git" )
+-    message(SEND_ERROR "Please run git submodule update --init")
+-  endif()
+-  include(lcms2.cmake)
+-  configure_file("${CMAKE_CURRENT_SOURCE_DIR}/lcms/COPYING"
+-                 ${PROJECT_BINARY_DIR}/LICENSE.lcms COPYONLY)
+-endif()
+-
+-# sjpeg
+-if (JPEGXL_ENABLE_SJPEG)
+-  if (NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/sjpeg/CMakeLists.txt")
+-    message(FATAL_ERROR "Please run ${PROJECT_SOURCE_DIR}/deps.sh to fetch the "
+-            "build dependencies.")
+-  endif()
+-  include(sjpeg.cmake)
+-  configure_file("${CMAKE_CURRENT_SOURCE_DIR}/sjpeg/COPYING"
+-                 ${PROJECT_BINARY_DIR}/LICENSE.sjpeg COPYONLY)
+-endif ()
+-

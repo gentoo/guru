@@ -5,4 +5,15 @@
 		<email>dnovomesky@gmail.com</email>
 		<name>Daniel Novomesky</name>
 	</maintainer>
+	<use>
+		<flag name="benchmark">Build JPEGXL benchmark tools</flag>
+		<flag name="devtools">Build JPEGXL developer tools</flag>
+		<flag name="openexr">Build JPEGXL with support for OpenEXR</flag>
+		<flag name="plugins">Build third-party plugins to support JPEG XL in other applications</flag>
+		<flag name="sjpeg">Build JPEGXL with support for encoding with sjpeg</flag>
+		<flag name="skcms">Build with skcms instead of lcms2</flag>
+		<flag name="tcmalloc">Build JPEGXL using gperftools (tcmalloc) allocator</flag>
+		<flag name="tools">Build JPEGXL user tools: cjxl and djxl</flag>
+		<flag name="viewers">Build JPEGXL viewer tools for evaluation</flag>
+	</use>
 </pkgmetadata>
