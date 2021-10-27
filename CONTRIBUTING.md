@@ -3,14 +3,14 @@
 1. [Common Mistakes](#CommMist)
 2. [Other Tips and Tricks](#tips)
 
-</td>
-</tr></table>
-
 ## Common Mistakes <a name="CommMist"></a>
 
 - #### Gentoo projects shouldn't be in the metadata files
 
 Please don't put Gentoo projects (e.g. the proxy-maint project) in the metadata.xml files. Gentoo projects and developers are **not** responsible for the packages in GURU, as such they should not be listed in the metadata files.
+
+> "New maintainers can only be added with their consent. In particular, it is not acceptable to add generic projects (such as the Python project) as package maintainers without the approval of their members or against their explicit policy."
+> -- [Package Maintainers](https://devmanual.gentoo.org/general-concepts/package-maintainers/index.html#adding-and-removing-maintainers) section of the devmanual
 
 When moving a package from a Pull Request in the [main Gentoo Repository](https://github.com/gentoo/gentoo) to GURU it is easy to forget to remove the [proxy-maint](https://wiki.gentoo.org/wiki/Project:Proxy_Maintainers) project from the metadata.xml file. The same is true for moving from GURU to a ::gentoo Pull Request, if you forget to add proxy-maint to the metadata file the `gentoo-repo-qa-bot` will complain.
 
