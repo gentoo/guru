@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -10,12 +10,12 @@ inherit cmake fortran-2
 
 DESCRIPTION="A GTK+ binding to build Graphical User Interfaces in Fortran"
 HOMEPAGE="https://github.com/vmagnin/gtk-fortran"
-SRC_URI="https://github.com/vmagnin/${PN}/archive/v${PV}.gtk3.24.18.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/vmagnin/${PN}/archive/v20.04.gtk${PV}.tar.gz -> ${P}.tar.gz"
 
-S="${WORKDIR}/${P}.gtk3.24.18"
+S="${WORKDIR}/${PN}-20.04.gtk${PV}"
 
 LICENSE="GPL-3"
-SLOT="0"
+SLOT="3"
 KEYWORDS="~amd64 ~x86"
 
 IUSE="examples high-level plplot static-libs"
