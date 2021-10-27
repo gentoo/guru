@@ -24,7 +24,10 @@ RDEPEND="
 	dev-python/pytz[${PYTHON_USEDEP}]
 	>=dev-python/netaddr-0.7.12[${PYTHON_USEDEP}]
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	dev-python/wheel[${PYTHON_USEDEP}]
+"
 BDEPEND="
 	test? (
 		dev-python/transaction[${PYTHON_USEDEP}]

@@ -35,7 +35,7 @@ BDEPEND="doc? ( app-doc/doxygen )"
 DOCS=( CONTRIBUTING.md ChangeLog.md README.md README.zh-CN.md README.zh-TW.md )
 
 src_prepare() {
-	sed -i '/add_subdirectory(trantor)/d' CMakeLists.txt || die
+	cmake_comment_add_subdirectory "trantor"
 	sed -i '/${PROJECT_SOURCE_DIR}\/trantor\/trantor\/tests\/server.pem/d' \
 		lib/tests/CMakeLists.txt || die
 	use ssl || sed -i '/find_package(OpenSSL)/d' CMakeLists.txt || die

@@ -11,6 +11,7 @@ inherit distutils-r1
 DESCRIPTION="A collection of Python instrumentation tools for the OpenTracing API"
 HOMEPAGE="
 	https://github.com/uber-common/opentracing-python-instrumentation
+	https://pypi.org/project/opentracing-instrumentation
 "
 SRC_URI="https://github.com/uber-common/${MYPN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MYPN}-${PV}"
@@ -26,8 +27,8 @@ RDEPEND="
 	>=dev-python/opentracing-2[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	test? (
 		dev-python/boto3[${PYTHON_USEDEP}]
 		dev-python/botocore[${PYTHON_USEDEP}]

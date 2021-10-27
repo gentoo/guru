@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9,10} )
+PYTHON_COMPAT=( python3_{9,10} )
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_SETUPTOOLS="bdepend"
 
@@ -16,11 +16,15 @@ SRC_URI="https://github.com/derrod/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="webview"
 
+# NOTE: dev-python/pywebview[qt5] is not much tested and does not function
+# correctly in some cases, according to release notes for 0.20.16.
 RDEPEND="
 	$(python_gen_cond_dep '
 		<dev-python/requests-3.0[${PYTHON_USEDEP}]
 		dev-python/wheel[${PYTHON_USEDEP}]
+		webview? ( dev-python/pywebview[gtk,${PYTHON_USEDEP}] )
 	')
 "
 DEPEND="${RDEPEND}"

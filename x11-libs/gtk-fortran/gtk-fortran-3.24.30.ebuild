@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -10,12 +10,10 @@ inherit cmake fortran-2
 
 DESCRIPTION="A GTK+ binding to build Graphical User Interfaces in Fortran"
 HOMEPAGE="https://github.com/vmagnin/gtk-fortran"
-SRC_URI="https://github.com/vmagnin/${PN}/archive/v${PV}.gtk3.24.18.tar.gz -> ${P}.tar.gz"
-
-S="${WORKDIR}/${P}.gtk3.24.18"
+SRC_URI="https://github.com/vmagnin/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="0"
+SLOT="3"
 KEYWORDS="~amd64 ~x86"
 
 IUSE="examples high-level plplot static-libs"
@@ -43,8 +41,6 @@ src_prepare() {
 	sed -i -e "s:CMAKE_INSTALL_LIBDIR lib:CMAKE_INSTALL_LIBDIR $(get_libdir):" \
 	-e "s:    add_subdirectory(sketcher)::" CMakeLists.txt || die
 
-	use !static-libs && eapply "${FILESDIR}/${P}_skip-static-build.patch"
-
 	cmake_src_prepare
 }
 
@@ -56,4 +52,13 @@ src_configure() {
 		-DNO_BUILD_EXAMPLES=true
 	)
 	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+
+	# Remove static library here as it's used to build additional tools
+	if use !static-libs ; then
+		rm "${ED}/usr/$(get_libdir)/libgtk-${SLOT}-fortran.a" || die
+	fi
 }

@@ -1,0 +1,84 @@
+--- a/lib/jxl.cmake
++++ b/lib/jxl.cmake
+@@ -387,17 +387,6 @@
+ target_link_libraries(jxl_enc-obj PUBLIC jxl_profiler)
+ endif()
+ 
+-#TODO(lode): don't depend on CMS for the core library
+-if (JPEGXL_ENABLE_SKCMS)
+-  target_include_directories(jxl_enc-obj PRIVATE
+-    $<TARGET_PROPERTY:skcms,INCLUDE_DIRECTORIES>
+-  )
+-else ()
+-  target_include_directories(jxl_enc-obj PRIVATE
+-    $<TARGET_PROPERTY:lcms2,INCLUDE_DIRECTORIES>
+-  )
+-endif ()
+-
+ # Headers for exporting/importing public headers
+ include(GenerateExportHeader)
+ set_target_properties(jxl_dec-obj PROPERTIES
+--- a/plugins/gdk-pixbuf/CMakeLists.txt
++++ b/plugins/gdk-pixbuf/CMakeLists.txt
+@@ -23,7 +23,7 @@
+ 
+ # Note: This only needs the decoder library, but we don't install the decoder
+ # shared library.
+-target_link_libraries(pixbufloader-jxl jxl jxl_threads skcms-interface PkgConfig::Gdk-Pixbuf)
++target_link_libraries(pixbufloader-jxl jxl jxl_threads skcms PkgConfig::Gdk-Pixbuf)
+ 
+ pkg_get_variable(GDK_PIXBUF_MODULEDIR gdk-pixbuf-2.0 gdk_pixbuf_moduledir)
+ install(TARGETS pixbufloader-jxl LIBRARY DESTINATION "${GDK_PIXBUF_MODULEDIR}")
+--- a/third_party/CMakeLists.txt
++++ b/third_party/CMakeLists.txt
+@@ -113,15 +113,6 @@
+   endif()  # JPEGXL_DEP_LICENSE_DIR
+ endif()
+ 
+-# lodepng
+-if( NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/lodepng/lodepng.h" )
+-  message(FATAL_ERROR "Please run ${PROJECT_SOURCE_DIR}/deps.sh to fetch the "
+-          "build dependencies.")
+-endif()
+-include(lodepng.cmake)
+-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/lodepng/LICENSE"
+-               ${PROJECT_BINARY_DIR}/LICENSE.lodepng COPYONLY)
+-
+ # brotli
+ if (NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/brotli/c/include/brotli/decode.h" OR
+     JPEGXL_FORCE_SYSTEM_BROTLI)
+@@ -190,34 +181,3 @@
+     endforeach()
+   endif()  # BROTLI_EMSCRIPTEN
+ endif()
+-
+-# *cms
+-if (JPEGXL_ENABLE_SKCMS OR JPEGXL_ENABLE_PLUGINS)
+-  if( NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/skcms/skcms.h" )
+-    message(FATAL_ERROR "Please run ${PROJECT_SOURCE_DIR}/deps.sh to fetch the "
+-            "build dependencies.")
+-  endif()
+-  include(skcms.cmake)
+-  configure_file("${CMAKE_CURRENT_SOURCE_DIR}/skcms/LICENSE"
+-                 ${PROJECT_BINARY_DIR}/LICENSE.skcms COPYONLY)
+-endif ()
+-if (JPEGXL_ENABLE_VIEWERS OR NOT JPEGXL_ENABLE_SKCMS)
+-  if( NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/lcms/.git" )
+-    message(SEND_ERROR "Please run git submodule update --init")
+-  endif()
+-  include(lcms2.cmake)
+-  configure_file("${CMAKE_CURRENT_SOURCE_DIR}/lcms/COPYING"
+-                 ${PROJECT_BINARY_DIR}/LICENSE.lcms COPYONLY)
+-endif()
+-
+-# sjpeg
+-if (JPEGXL_ENABLE_SJPEG)
+-  if (NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/sjpeg/CMakeLists.txt")
+-    message(FATAL_ERROR "Please run ${PROJECT_SOURCE_DIR}/deps.sh to fetch the "
+-            "build dependencies.")
+-  endif()
+-  include(sjpeg.cmake)
+-  configure_file("${CMAKE_CURRENT_SOURCE_DIR}/sjpeg/COPYING"
+-                 ${PROJECT_BINARY_DIR}/LICENSE.sjpeg COPYONLY)
+-endif ()
+-

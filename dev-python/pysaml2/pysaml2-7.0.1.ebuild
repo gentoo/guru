@@ -17,6 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	dev-libs/xmlsec
 	>=dev-python/cryptography-1.4[${PYTHON_USEDEP}]
 	dev-python/defusedxml[${PYTHON_USEDEP}]
 	dev-python/pyopenssl[${PYTHON_USEDEP}]

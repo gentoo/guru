@@ -1,7 +1,7 @@
 # Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit meson
 
@@ -73,5 +73,5 @@ src_configure() {
 src_install() {
 	meson_src_install
 	use examples && newbin "${BUILD_DIR}/example/example" fcft-example
-	mv "${D}/usr/share/doc/${PN}" "${D}/usr/share/doc/${PF}"
+	mv "${D}/usr/share/doc/${PN}" "${D}/usr/share/doc/${PF}" || die "Failed to install docs"
 }
