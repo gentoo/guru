@@ -1,9 +1,9 @@
 # Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
-inherit xdg cmake
+inherit xdg cmake java-pkg-opt-2
 
 DESCRIPTION="JPEG XL image format reference implementation"
 HOMEPAGE="https://github.com/libjxl/libjxl"
@@ -12,17 +12,21 @@ SRC_URI="https://github.com/libjxl/libjxl/archive/refs/tags/v${PV}.tar.gz -> ${P
 KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="abi_x86_64 cpu_flags_arm_neon benchmark devtools examples man +openexr plugins profile +sjpeg +skcms tcmalloc tools viewers" #java
+IUSE="abi_x86_64 cpu_flags_arm_neon benchmark devtools examples java man +openexr plugins profile +sjpeg +skcms tcmalloc tools viewers" #emscripten
 
-RDEPEND="
+CDEPEND="
 	app-arch/brotli
 	dev-cpp/highway:=
 	media-libs/libpng
 	media-libs/lodepng:=
 	media-libs/giflib
 	sys-libs/zlib
-	virtual/jpeg
 
+	benchmark? (
+		media-libs/libavif
+		media-libs/libwebp
+		virtual/jpeg
+	)
 	openexr? ( media-libs/openexr:= )
 	plugins? (
 		dev-libs/glib:2
@@ -37,17 +41,33 @@ RDEPEND="
 	!skcms? ( media-libs/lcms )
 	skcms? ( media-libs/skcms:= )
 	tcmalloc? ( dev-util/google-perftools )
-	viewers? ( media-libs/lcms )
+	viewers? (
+		dev-qt/qtconcurrent
+		dev-qt/qtwidgets
+		dev-qt/qtx11extras
+		media-libs/lcms
+		x11-libs/libxcb
+	)
+"
+RDEPEND="
+	${CDEPEND}
+	java? ( virtual/jre:1.8 )
 "
 DEPEND="
-	${RDEPEND}
+	${CDEPEND}
 	dev-cpp/gtest
+	kde-frameworks/extra-cmake-modules
+	java? ( virtual/jdk:1.8 )
 	plugins? ( x11-misc/xdg-utils )
 "
-BDEPEND="man? ( app-text/asciidoc )"
+BDEPEND="
+	virtual/pkgconfig
+	man? ( app-text/asciidoc )
+"
 
 PATCHES=( "${FILESDIR}/${P}-system-libs.patch" )
 REQUIRED_USE="tcmalloc? ( abi_x86_64 )"
+DOCS=( AUTHORS README.md SECURITY.md PATENTS CONTRIBUTORS CHANGELOG.md )
 
 src_prepare() {
 	# remove bundled libs cmake
@@ -60,6 +80,7 @@ src_configure() {
 		-DJPEGXL_ENABLE_BENCHMARK=$(usex benchmark)
 		-DJPEGXL_ENABLE_DEVTOOLS=$(usex devtools)
 		-DJPEGXL_ENABLE_EXAMPLES=$(usex examples)
+		-DJPEGXL_ENABLE_JNI=$(usex java)
 		-DJPEGXL_ENABLE_MANPAGES=$(usex man)
 		-DJPEGXL_ENABLE_OPENEXR=$(usex openexr)
 		-DJPEGXL_ENABLE_PLUGINS=$(usex plugins)
@@ -88,6 +109,15 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
-	find "${D}" -name '*.a' -delete || die
+	einstalldocs
 	#TODO: install documentation
+	pushd "${BUILD_DIR}/tools" || die
+	exeinto "/usr/libexe/${PN}"
+	doexe conformance/djxl_conformance tests/libjxl_test
+	use devtools && doexe box/box_list
+	use viewers && doexe comparison_viewer/compare_{codec,image}s flicker_test/flicker_test viewer/viewe
+	use benchmark && doexe benchmark_xl
+	insinto "/usr/share/${PN}"
+	use java && doins *.jar
+	find "${D}" -name '*.a' -delete || die
 }

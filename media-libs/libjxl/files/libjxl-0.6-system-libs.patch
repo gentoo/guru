@@ -1,5 +1,5 @@
---- a/lib/jxl.cmake
-+++ b/lib/jxl.cmake
+--- /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/lib/jxl.cmake
++++ libjxl-0.6/lib/jxl.cmake
 @@ -387,17 +387,6 @@
  target_link_libraries(jxl_enc-obj PUBLIC jxl_profiler)
  endif()
@@ -18,8 +18,24 @@
  # Headers for exporting/importing public headers
  include(GenerateExportHeader)
  set_target_properties(jxl_dec-obj PROPERTIES
---- a/plugins/gdk-pixbuf/CMakeLists.txt
-+++ b/plugins/gdk-pixbuf/CMakeLists.txt
+--- /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/lib/jxl_extras.cmake
++++ libjxl-0.6/lib/jxl_extras.cmake
+@@ -92,7 +92,7 @@
+ endif ()
+ 
+ if (JPEGXL_ENABLE_OPENEXR)
+-pkg_check_modules(OpenEXR IMPORTED_TARGET OpenEXR)
++pkg_check_modules(OpenEXR IMPORTED_TARGET OpenEXR-3)
+ if (OpenEXR_FOUND)
+   target_sources(jxl_extras-static PRIVATE
+     extras/codec_exr.cc
+@@ -114,3 +114,4 @@
+   endif()
+ endif() # OpenEXR_FOUND
+ endif() # JPEGXL_ENABLE_OPENEXR
++
+--- /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/plugins/gdk-pixbuf/CMakeLists.txt
++++ libjxl-0.6/plugins/gdk-pixbuf/CMakeLists.txt
 @@ -23,7 +23,7 @@
  
  # Note: This only needs the decoder library, but we don't install the decoder
@@ -29,8 +45,8 @@
  
  pkg_get_variable(GDK_PIXBUF_MODULEDIR gdk-pixbuf-2.0 gdk_pixbuf_moduledir)
  install(TARGETS pixbufloader-jxl LIBRARY DESTINATION "${GDK_PIXBUF_MODULEDIR}")
---- a/third_party/CMakeLists.txt
-+++ b/third_party/CMakeLists.txt
+--- /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/third_party/CMakeLists.txt
++++ libjxl-0.6/third_party/CMakeLists.txt
 @@ -113,15 +113,6 @@
    endif()  # JPEGXL_DEP_LICENSE_DIR
  endif()
@@ -82,3 +98,28 @@
 -                 ${PROJECT_BINARY_DIR}/LICENSE.sjpeg COPYONLY)
 -endif ()
 -
+--- /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/tools/comparison_viewer/CMakeLists.txt
++++ libjxl-0.6/tools/comparison_viewer/CMakeLists.txt
+@@ -24,9 +24,6 @@
+   image_loading.cc
+   image_loading.h
+ )
+-target_include_directories(image_loading PRIVATE
+-  $<TARGET_PROPERTY:lcms2,INCLUDE_DIRECTORIES>
+-)
+ target_link_libraries(image_loading PUBLIC
+   Qt5::Widgets
+   jxl-static
+--- /var/tmp/portage/media-libs/libjxl-0.6/work/libjxl-0.6/tools/viewer/CMakeLists.txt
++++ libjxl-0.6/tools/viewer/CMakeLists.txt
+@@ -26,10 +26,6 @@
+   viewer_window.h
+   viewer_window.ui
+ )
+-target_include_directories(viewer PRIVATE
+-  $<TARGET_PROPERTY:lcms2,INCLUDE_DIRECTORIES>
+-  "${PROJECT_SOURCE_DIR}"
+-)
+ target_link_libraries(viewer
+   Qt5::Widgets
+   icc_detect
