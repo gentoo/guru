@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install test
+DESCRIPTION=A complete 2D graphic library for drawing Text, Geometries, and Images
+EAPI=7
+HOMEPAGE=https://skia.googlesource.com/skcms
+INHERIT=toolchain-funcs
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=BSD
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://skia.googlesource.com/skcms/+archive/0d549648032490dbdb091e9f1e31be56ea031599.tar.gz -> skcms-0_pre20211006.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
+_md5_=0f9b27989942eb2a3f932caafa6cdf2f

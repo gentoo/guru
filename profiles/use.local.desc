@@ -228,6 +228,18 @@ media-libs/libbpg:bpgview - Compile bpgview (media-libs/libsdl and media-libs/sd
 media-libs/libbpg:emcc - Enable compilation of Javascript decoder with Emscripten
 media-libs/libbpg:jctvc - Enable the JCTVC code (best quality but slow) for the encoder
 media-libs/libbpg:x265 - Enable x265 for the encoder
+media-libs/libjxl:benchmark - Build JPEGXL benchmark tools
+media-libs/libjxl:devtools - Build JPEGXL developer tools
+media-libs/libjxl:openexr - Build JPEGXL with support for OpenEXR
+media-libs/libjxl:plugins - Build third-party plugins to support JPEG XL in other applications
+media-libs/libjxl:sjpeg - Build JPEGXL with support for encoding with sjpeg
+media-libs/libjxl:skcms - Build with skcms instead of lcms2
+media-libs/libjxl:tcmalloc - Build JPEGXL using gperftools (tcmalloc) allocator
+media-libs/libjxl:tools - Build JPEGXL user tools: cjxl and djxl
+media-libs/libjxl:viewers - Build JPEGXL viewer tools for evaluation
+media-libs/lodepng:benchmark - Benchmark for lodepng
+media-libs/lodepng:pngdetail - Prints detailed info of PNG images, including filter types and huffman symbols
+media-libs/lodepng:showpng - Show PNG image
 media-libs/monado:X - Enable xlib/xlib-randr/xcb support
 media-libs/monado:dbus - Enable dbus support (for BLE support)
 media-libs/monado:egl - Enable OpenGL on EGL Graphics API support
@@ -243,6 +255,7 @@ media-libs/monado:uvc - Enable libuvc video driver
 media-libs/monado:vive - Enable driver for HTC Vive, Vive Pro, Valve Index, and their controllers
 media-libs/monado:vulkan - Enable Vulkan Graphics API support (also needed for compositor)
 media-libs/monado:wayland - Enable Wayland support
+media-libs/sjpeg:tools - Build the sjpeg / vjpeg command line tools
 media-libs/vips:fits - Enable support for the FITS image format through sci-libs/cfitsio
 media-libs/vips:gsf - Enable support for creating image pyramids with dzsave
 media-libs/vips:heif - Enable support for HEIC images

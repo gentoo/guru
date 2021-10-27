@@ -265,9 +265,9 @@ dev-cpp/cli11 2.1.0 2.1.2: Command line parser for C++11
 dev-cpp/coeurl 0.0.1_pre20210813: A simple async wrapper around CURL for C++
 dev-cpp/drogon 1.7.2 1.7.3: C++14/17 based HTTP web application framework
 dev-cpp/dtl 1.19_p20210531: diff template library written by C++
-dev-cpp/fbthrift 2021.08.02.00 2021.10.04.00 2021.10.18.00 2021.10.25.00: Facebook's branch of Apache Thrift, including a new C++ server
-dev-cpp/fizz 2021.08.02.00 2021.10.04.00 2021.10.18.00 2021.10.25.00: C++14 implementation of the TLS-1.3 standard
-dev-cpp/folly 2021.08.02.00 2021.10.04.00 2021.10.18.00 2021.10.25.00: An open-source C++ library developed and used at Facebook
+dev-cpp/fbthrift 2021.10.25.00: Facebook's branch of Apache Thrift, including a new C++ server
+dev-cpp/fizz 2021.10.25.00: C++14 implementation of the TLS-1.3 standard
+dev-cpp/folly 2021.10.25.00: An open-source C++ library developed and used at Facebook
 dev-cpp/gsl-lite 0.38.0: C++ Guideline Support Library implementation
 dev-cpp/highway 0.14.2 9999: Performance-portable, length-agnostic SIMD with runtime dispatch
 dev-cpp/indicators 2.2: Activity indicators for modern C++
@@ -282,7 +282,7 @@ dev-cpp/tiny-dnn 1.0.0_alpha3: header only, dependency-free deep learning framew
 dev-cpp/trantor 1.5.1 1.5.2: Non-blocking I/O tcp network lib based on c++14/17
 dev-cpp/vectorwrapper 1.1.2 9999: A template vector wrapper class for C++
 dev-cpp/vexcl 1.4.2-r2: VexCL - Vector expression template library for OpenCL
-dev-cpp/wangle 2021.08.02.00 2021.10.04.00 2021.10.18.00 2021.10.25.00: Framework providing common client/server abstractions
+dev-cpp/wangle 2021.10.25.00: Framework providing common client/server abstractions
 dev-cpp/xdgpp 0_pre20201007: C++17 header-only implementation of the XDG Base Directory Specification
 dev-db/pg_repack 1.4.7: Reorganize tables in PostgreSQL databases with minimal locks
 dev-db/rum 1.3.7: RUM access method - inverted index with additional information in posting lists
@@ -297,7 +297,6 @@ dev-go/lichen 0.1.4: Go binary license checker
 dev-java/gradle-base-annotations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-build-operations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-hashing 6.8.2: Build automation tool for JVM Languages, C(++), etc.
-dev-java/mill-bin 0.9.8 0.9.9: A Java/Scala build tool
 dev-java/openjdk-sts-bin 15.0.2_p7: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730-r1: The Aldor Programming Language
 dev-lang/fbc 1.07.3 1.08.1: A free/open source, multi-platform BASIC compiler.
@@ -460,7 +459,7 @@ dev-python/jsonpath-rw 1.4.0: A robust and significantly extended implementation
 dev-python/jsonpath-rw-ext 1.2.2: Extensions for JSONPath RW
 dev-python/jupyter-sphinx 0.3.2: Jupyter Sphinx Extensions
 dev-python/k5test 0.9.2 0.10.0: A library for setting up self-contained Kerberos 5 environments
-dev-python/keystonemiddleware 9.1.0: A middleware for the OpenStack Keystone API
+dev-python/keystonemiddleware 9.3.0: A middleware for the OpenStack Keystone API
 dev-python/kitchen 1.2.6: Kitchen contains a cornucopia of useful code
 dev-python/ldappool 2.4.1: A connection pool for python-ldap
 dev-python/libusb1 1.9.2: Pure-python wrapper for libusb-1.0
@@ -669,7 +668,7 @@ dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's Open
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
 dev-util/rpmlint 2.0.0 2.1.0: Tool for checking common errors in RPM packages
-dev-util/rust-analyzer 20211011 20211018 99999999: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer 20211018 20211025 99999999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/wakatime-cli 1.27.0: Command line interface to WakaTime used by all WakaTime plugins
@@ -684,7 +683,7 @@ dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage sourc
 dev-vcs/gitqlient 1.4.3 9999: Multi-platform Git client written with Qt
 dev-vcs/gitui 0.18.0: Blazing fast terminal-ui for git
 dev-vcs/got 0.60 0.61 0.62: Portable version of the Game of Trees version control system
-dev-vcs/lazygit 0.29 0.30 9999: Lazygit, a simple terminal UI for git commands
+dev-vcs/lazygit 0.29 0.30 0.30.1 9999: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
 games-action/blackvoxel 2.42 9999: Blackvoxel Video Game
 games-action/netrek-brmh 2.6.0: brmh client for netrek
@@ -721,7 +720,7 @@ games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
 games-util/hid-nintendo 9999: A Nintendo HID kernel module
 games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launcher
 games-util/joycond 9999: Combine joy-cons using hid-nintendo
-games-util/legendary 0.20.9 0.20.10 0.20.16: A free and open-source replacement for the Epic Games Launcher
+games-util/legendary 0.20.16 0.20.17: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.2: A simple GOG client for Linux
 gnome-extra/authenticator 4.0.3: Simple application for generating Two-Factor Authentication Codes.
 gnome-extra/iio-sensor-proxy 3.3: IIO sensors to D-Bus proxy
@@ -823,11 +822,14 @@ media-libs/fcft 2.3.3 2.4.0 2.4.1 2.4.2 2.4.3 2.4.4 2.4.5 2.4.6 9999: A simple l
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
 media-libs/imgui 1.83: Bloat-free graphical user interface library for C++
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
-media-libs/libjxl 9999: JPEG XL image format reference implementation
+media-libs/libjxl 0.6 9999: JPEG XL image format reference implementation
+media-libs/lodepng 20210627: PNG encoder and decoder
 media-libs/monado 9999: The open source OpenXR runtime.
 media-libs/openxr-loader 1.0.19 9999: OpenXR loader
 media-libs/portsmf 239 9999: C++ library for Standard Midi Files (SMF)
 media-libs/rtmidi 4.0.0: A set of C++ classes that provide a common API for realtime MIDI input/output
+media-libs/sjpeg 1.0_p20210422: simple jpeg encoder
+media-libs/skcms 0_pre20211006: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-libs/skia 97: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-libs/svt-hevc 1.5.0 1.5.1 9999: Scalable Video Technology for HEVC (SVT-HEVC Encoder)
 media-libs/svt-vp9 0.3.0 9999: Scalable Video Technology for VP9 (SVT-VP9 Encoder)
@@ -1113,7 +1115,7 @@ www-servers/hinsightd 0.9.11_p20210831 9999: hinsightd a http/1.1 webserver with
 www-servers/quark 9999: A small, GET-only static HTTP server
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-drivers/OpenTabletDriver-bin 0.5.3.3: Cross platform tablet driver (binary package)
-x11-libs/gtk-fortran 20.04: A GTK+ binding to build Graphical User Interfaces in Fortran
+x11-libs/gtk-fortran 3.24.18 3.24.30 4.1.0: A GTK+ binding to build Graphical User Interfaces in Fortran
 x11-libs/libadwaita 1.0.0: Building blocks for modern GNOME applications.
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018-r1 9999: SDDM theme with Apple TV Aerial videos
@@ -1142,5 +1144,6 @@ x11-themes/obsidian2-gtk-theme 2.19 9999: Obsidian Gnome Theme, based upon Adwai
 x11-themes/papirus-claws-mail-theme 0_pre20181023 0_pre20201019: Papirus icon theme for Claws Mail
 x11-themes/qogir-icon-theme 2020.11.22: A flat colorful design icon theme for linux desktops
 x11-themes/sound-theme-librem5 0.1.0: Sound theme for the Librem 5/PinePhone
+x11-themes/vimix-xcursors 20200224: Vimix-cursors for Linux desktop.
 x11-wm/i3-rounded 4.19.1: i3-gaps fork with rounded corners support.
 x11-wm/phoc 0.8.0: Wlroots based Phone compositor

@@ -10,7 +10,7 @@ KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=x11-libs/gtk+:3 plplot? ( >=sci-libs/plplot-5.13.0[cairo,fortran] ) virtual/fortran
 REQUIRED_USE=plplot? ( high-level )
-SLOT=0
-SRC_URI=https://github.com/vmagnin/gtk-fortran/archive/v20.04.gtk3.24.18.tar.gz -> gtk-fortran-20.04.tar.gz
+SLOT=3
+SRC_URI=https://github.com/vmagnin/gtk-fortran/archive/v20.04.gtk3.24.18.tar.gz -> gtk-fortran-3.24.18.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a
-_md5_=beb4bc69ccf69851e88ee46848c5a56b
+_md5_=7313db6b5d3bb9eca41d5b03432e230b

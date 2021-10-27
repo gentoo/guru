@@ -1,0 +1,9 @@
+DEFINED_PHASES=install
+DESCRIPTION=Vimix-cursors for Linux desktop.
+EAPI=8
+HOMEPAGE=https://github.com/vinceliuice/Vimix-cursors
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+SLOT=0
+SRC_URI=https://github.com/vinceliuice/Vimix-cursors/archive/refs/tags/2020-02-24.tar.gz -> vimix-xcursors-20200224.tar.gz
+_md5_=6230c5d852c87076b1d7280bb49e1f5a

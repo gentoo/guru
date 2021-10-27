@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install test
+DEPEND=benchmark? ( media-libs/libsdl ) showpng? ( media-libs/libsdl )
+DESCRIPTION=PNG encoder and decoder
+EAPI=8
+HOMEPAGE=http://lodev.org/lodepng https://github.com/lvandeve/lodepng
+IUSE=benchmark pngdetail showpng test
+KEYWORDS=~amd64
+LICENSE=ZLIB
+RDEPEND=benchmark? ( media-libs/libsdl ) showpng? ( media-libs/libsdl )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/lvandeve/lodepng/archive/8c6a9e30576f07bf470ad6f09458a2dcd7a6a84a.tar.gz -> lodepng-20210627-8c6a9e30576f07bf470ad6f09458a2dcd7a6a84a.tar.gz
+_md5_=b988b9c082a3ab8565b20e3b0da88359
