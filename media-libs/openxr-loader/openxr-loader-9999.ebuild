@@ -13,7 +13,7 @@ if [[ ${PV} == *9999* ]]; then
 else
 	SRC_URI="https://github.com/KhronosGroup/${MY_PN}/archive/release-${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}"/${MY_PN}-${PV}
+	S="${WORKDIR}/${MY_PN}-release-${PV}"
 	SLOT="0/${PV}"
 fi
 
