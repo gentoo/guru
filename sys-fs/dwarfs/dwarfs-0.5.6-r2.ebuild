@@ -9,19 +9,12 @@ inherit check-reqs cmake flag-o-matic python-single-r1
 
 DESCRIPTION="A fast very high compression read-only FUSE file system"
 HOMEPAGE="https://github.com/mhx/dwarfs"
-
 SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
-
+KEYWORDS="~amd64"
 IUSE="python +jemalloc test"
-RESTRICT="!test? ( test )"
-REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
-
-PATCHES=( "${FILESDIR}/unbundle.patch" )
-#TODO: unbundle libfsst
 
 RDEPEND="
 	${PYTHON_DEPS}
@@ -36,7 +29,7 @@ RDEPEND="
 	dev-cpp/glog[gflags]
 	dev-cpp/parallel-hashmap:=
 	dev-cpp/sparsehash
-	dev-libs/boost[context,threads,python?]
+	dev-libs/boost[context,threads(+),python?]
 	dev-libs/double-conversion
 	dev-libs/fsst:=
 	dev-libs/libevent
@@ -61,24 +54,24 @@ BDEPEND="
 	test? ( dev-cpp/gtest )
 "
 
-CHECKREQS_DISK_BUILD="1300M"
-
 DOCS=( "README.md" "CHANGES.md" "TODO" )
+RESTRICT="!test? ( test )"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+PATCHES=( "${FILESDIR}/${P}-unbundle.patch" )
 
+CHECKREQS_DISK_BUILD="1300M"
 CMAKE_IN_SOURCE_BUILD=1
 CMAKE_WARN_UNUSED_CLI=0
 
 src_prepare(){
-	rm -r fsst zstd fbthrift folly xxHash parallel-hashmap || die
+	rm -r fsst zstd fbthrift/* folly xxHash parallel-hashmap || die
 	cmake_src_prepare
-	einfo "setting library path to $(get_libdir)"
 	sed "s/DESTINATION lib/DESTINATION $(get_libdir)/" -i CMakeLists.txt || die
 }
 
 src_configure(){
 	append-cxxflags "-I/usr/include"
 
-	einfo "setting configuration flags to:"
 	mycmakeargs=(
 		-DUSE_JEMALLOC=$(usex jemalloc ON OFF)
 		-DWITH_PYTHON=$(usex python ON OFF)
@@ -88,8 +81,7 @@ src_configure(){
 		-DPREFER_SYSTEM_GTEST=1
 		-DWITH_LEGACY_FUSE=0
 	)
-	if use python; then mycmakeargs+=( -DWITH_PYTHON_VERSION=${EPYTHON#python} ); fi
-	einfo ${mycmakeargs}
+	use python && mycmakeargs+=( "-DWITH_PYTHON_VERSION=${EPYTHON#python}" )
 	cmake_src_configure
 }
 
