@@ -142,7 +142,7 @@ src_install() {
 
 	# keep in /usr/bin only the executables with jxl in the name
 	rm -f "${ED}"/usr/libexec/${PN}/tools/*jxl* || die
-	rm -f "${ED}"/usr/bin{fuzzer_corpus,*_main,decode_and_encode,*_hlg,tone_map,xyb_range} || die
+	rm -f "${ED}"/usr/bin/{fuzzer_corpus,*_main,decode_and_encode,*_hlg,tone_map,xyb_range} || die
 
 	find "${D}" -name '*.a' -delete || die
 }
