@@ -8,6 +8,7 @@
 	<use>
 		<flag name="benchmark">Build JPEGXL benchmark tools</flag>
 		<flag name="devtools">Build JPEGXL developer tools</flag>
+		<!--<flag name="fuzzers">Build the fuzzers</flag>-->
 		<flag name="openexr">Build JPEGXL with support for OpenEXR</flag>
 		<flag name="plugins">Build third-party plugins to support JPEG XL in other applications</flag>
 		<flag name="sjpeg">Build JPEGXL with support for encoding with sjpeg</flag>

@@ -12,7 +12,7 @@ SRC_URI="https://github.com/libjxl/libjxl/archive/refs/tags/v${PV}.tar.gz -> ${P
 KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="abi_x86_64 cpu_flags_arm_neon benchmark devtools examples java man +openexr plugins profile +sjpeg +skcms tcmalloc tools viewers" #emscripten
+IUSE="abi_x86_64 cpu_flags_arm_neon benchmark devtools examples java man +openexr plugins profile +sjpeg +skcms tcmalloc tools viewers" #emscripten fuzzers
 
 CDEPEND="
 	app-arch/brotli
@@ -69,6 +69,8 @@ PATCHES=( "${FILESDIR}/${P}-system-libs.patch" )
 REQUIRED_USE="tcmalloc? ( abi_x86_64 )"
 DOCS=( AUTHORS README.md SECURITY.md PATENTS CONTRIBUTORS CHANGELOG.md )
 
+CMAKE_IN_SOURCE_BUILD=1
+
 src_prepare() {
 	# remove bundled libs cmake
 	rm third_party/*.cmake || die
@@ -111,13 +113,44 @@ src_install() {
 	cmake_src_install
 	einstalldocs
 	#TODO: install documentation
+	exeinto "/usr/libexec/${PN}"
+	if use examples; then
+		doexe {en,de}code_oneshot
+		dobin jxlinfo
+	fi
 	pushd "${BUILD_DIR}/tools" || die
-	exeinto "/usr/libexe/${PN}"
-	doexe conformance/djxl_conformance tests/libjxl_test
-	use devtools && doexe box/box_list
-	use viewers && doexe comparison_viewer/compare_{codec,image}s flicker_test/flicker_test viewer/viewe
-	use benchmark && doexe benchmark_xl
 	insinto "/usr/share/${PN}"
-	use java && doins *.jar
+	doins progressive_saliency.conf example_tree.txt
+	if use java; then
+		dolib.so libjxl_jni.so
+		rm libjxl_jni.so || die
+		doins *.jar
+	fi
+	if use benchmark; then
+		docinto "/usr/share/doc/${PF}/benchmark/hm"
+		dodoc benchmark/hm/README.md
+	else
+		rm -r benchmark || die
+	fi
+	# remove non executable or non .m files
+	find . -type f \! -name '*.m' \! -executable -delete || die
+	# delete empty dirs
+	find . -type d -empty -print -delete || die
+	mkdir -p "${ED}/usr/libexec/${PN}/tools/" || die
+	# install tools
+	cp -r . "${ED}/usr/libexec/${PN}/tools/" || die
+
+	# keep in /usr/bin only the executables with jxl in the name
+	rm -f "${ED}"/usr/libexec/${PN}/tools/*jxl* || die
+	rm -f "${ED}"/usr/bin{fuzzer_corpus,*_main,decode_and_encode,*_hlg,tone_map,xyb_range} || die
+
 	find "${D}" -name '*.a' -delete || die
+}
+
+pkg_postinst() {
+	xdg_mimeinfo_database_update
+}
+
+pkg_postrm() {
+	xdg_mimeinfo_database_update
 }
