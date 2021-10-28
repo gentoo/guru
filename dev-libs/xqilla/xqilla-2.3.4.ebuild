@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -12,7 +12,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="static-libs tidy"
 
-DEPEND=">=dev-libs/xerces-c-3.2.1 tidy? ( app-text/tidy-html5 )"
+DEPEND=">=dev-libs/xerces-c-3.2.1 tidy? ( app-text/htmltidy )"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
@@ -22,6 +22,11 @@ PATCHES=(
 
 S="${WORKDIR}"/XQilla-${PV}
 
+src_prepare() {
+	eapply -p1 "${FILESDIR}/lib_to_lib64.patch"
+	eapply_user
+	sed  -i 's/buffio.h/tidybuffio.h/g' src/functions/FunctionParseHTML.cpp || die "sed failed"
+}
 src_configure() {
 	econf $(use_enable static-libs static) \
 	--with-tidy=$(usex tidy /usr no) \
