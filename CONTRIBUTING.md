@@ -3,14 +3,14 @@
 1. [Common Mistakes](#CommMist)
 2. [Other Tips and Tricks](#tips)
 
-</td>
-</tr></table>
-
 ## Common Mistakes <a name="CommMist"></a>
 
 - #### Gentoo projects shouldn't be in the metadata files
 
 Please don't put Gentoo projects (e.g. the proxy-maint project) in the metadata.xml files. Gentoo projects and developers are **not** responsible for the packages in GURU, as such they should not be listed in the metadata files.
+
+> "New maintainers can only be added with their consent. In particular, it is not acceptable to add generic projects (such as the Python project) as package maintainers without the approval of their members or against their explicit policy."
+> -- [Package Maintainers](https://devmanual.gentoo.org/general-concepts/package-maintainers/index.html#adding-and-removing-maintainers) section of the devmanual
 
 When moving a package from a Pull Request in the [main Gentoo Repository](https://github.com/gentoo/gentoo) to GURU it is easy to forget to remove the [proxy-maint](https://wiki.gentoo.org/wiki/Project:Proxy_Maintainers) project from the metadata.xml file. The same is true for moving from GURU to a ::gentoo Pull Request, if you forget to add proxy-maint to the metadata file the `gentoo-repo-qa-bot` will complain.
 
@@ -70,7 +70,7 @@ The xdg eclass will automatically export the correct functions to the `src_prepa
 
 - #### Use the latest EAPI whenever possible
 
-Since the packages in GURU are all 'new packages' (not in ::gentoo). It is good practice to use the latest [EAPI](https://devmanual.gentoo.org/ebuild-writing/eapi/index.html) (7 at the moment), this makes your ebuilds more future proof.
+Since the packages in GURU are all 'new packages' (not in ::gentoo). It is good practice to use the latest [EAPI](https://devmanual.gentoo.org/ebuild-writing/eapi/index.html) (8 at the moment), this makes your ebuilds more future proof.
 
 - #### `repoman -dx full` and `pkgcheck scan`
 
@@ -86,9 +86,9 @@ See the [dev manual](https://devmanual.gentoo.org/eclass-reference/distutils-r1.
 
 - #### Avoid introducing USE flags for small files and optional runtime dependencies.
 
-Installation of small files, like documentation, completions, man pages, etc, does not have to be toggle-able with an USE flag. Instead, just install these files unconditionally. This avoids unnecessary recompilations when an user forgot to enable a flag that installs a small file.
+Installation of small files, like documentation, completions, man pages, etc, does not have to be toggle-able with an USE flag. Instead, just install these files unconditionally. This avoids unnecessary recompilations when an user forgot to enable a flag that installs a small file ([PG 0301](https://projects.gentoo.org/qa/policy-guide/installed-files.html#pg0301)).
 
-The same holds for optional runtime dependencies. It is not necessary to introduce a USE flag, that does not alter the compiled binary and just pulls in an extra optional runtime dependency. Instead, you can notify the user of these optional runtime dependencies with the `optfeature` function from the [optfeature](https://devmanual.gentoo.org/eclass-reference/optfeature.eclass/) eclass (early from currently deprecated [eutils](https://devmanual.gentoo.org/eclass-reference/eutils.eclass/) eclass). If, for whatever reason, it is still desired to introduce an USE flag for optional runtime dependencies, one can still use the `optfeature` function as well to allow the user to choose to avoid recompiling a package.
+The same holds for optional runtime dependencies ([PG 0001](https://projects.gentoo.org/qa/policy-guide/dependencies.html#pg0001)). It is not necessary to introduce a USE flag, that does not alter the compiled binary and just pulls in an extra optional runtime dependency. Instead, you can notify the user of these optional runtime dependencies with the `optfeature` function from the [optfeature](https://devmanual.gentoo.org/eclass-reference/optfeature.eclass/) eclass (early from currently deprecated [eutils](https://devmanual.gentoo.org/eclass-reference/eutils.eclass/) eclass). If, for whatever reason, it is still desired to introduce an USE flag for optional runtime dependencies, one can still use the `optfeature` function as well to allow the user to choose to avoid recompiling a package.
 
 - #### Clean your patches
 

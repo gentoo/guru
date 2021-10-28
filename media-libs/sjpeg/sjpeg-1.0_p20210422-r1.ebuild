@@ -27,6 +27,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES="${FILESDIR}/${PN}-rename-libutils.patch"
 DOCS=( AUTHORS NEWS README README.md ChangeLog )
 
 src_configure() {
@@ -46,4 +47,5 @@ src_configure() {
 src_install() {
 	cmake_src_install
 	einstalldocs
+	dolib.so "${BUILD_DIR}/libsjpeg-utils.so"
 }

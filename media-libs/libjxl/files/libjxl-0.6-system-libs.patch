@@ -18,6 +18,22 @@
  # Headers for exporting/importing public headers
  include(GenerateExportHeader)
  set_target_properties(jxl_dec-obj PROPERTIES
+--- a/lib/jxl_extras.cmake
++++ b/lib/jxl_extras.cmake
+@@ -92,7 +92,7 @@
+ endif ()
+ 
+ if (JPEGXL_ENABLE_OPENEXR)
+-pkg_check_modules(OpenEXR IMPORTED_TARGET OpenEXR)
++pkg_check_modules(OpenEXR IMPORTED_TARGET OpenEXR-3)
+ if (OpenEXR_FOUND)
+   target_sources(jxl_extras-static PRIVATE
+     extras/codec_exr.cc
+@@ -114,3 +114,4 @@
+   endif()
+ endif() # OpenEXR_FOUND
+ endif() # JPEGXL_ENABLE_OPENEXR
++
 --- a/plugins/gdk-pixbuf/CMakeLists.txt
 +++ b/plugins/gdk-pixbuf/CMakeLists.txt
 @@ -23,7 +23,7 @@
@@ -82,3 +98,28 @@
 -                 ${PROJECT_BINARY_DIR}/LICENSE.sjpeg COPYONLY)
 -endif ()
 -
+--- a/tools/comparison_viewer/CMakeLists.txt
++++ b/tools/comparison_viewer/CMakeLists.txt
+@@ -24,9 +24,6 @@
+   image_loading.cc
+   image_loading.h
+ )
+-target_include_directories(image_loading PRIVATE
+-  $<TARGET_PROPERTY:lcms2,INCLUDE_DIRECTORIES>
+-)
+ target_link_libraries(image_loading PUBLIC
+   Qt5::Widgets
+   jxl-static
+--- a/tools/viewer/CMakeLists.txt
++++ b/tools/viewer/CMakeLists.txt
+@@ -26,10 +26,6 @@
+   viewer_window.h
+   viewer_window.ui
+ )
+-target_include_directories(viewer PRIVATE
+-  $<TARGET_PROPERTY:lcms2,INCLUDE_DIRECTORIES>
+-  "${PROJECT_SOURCE_DIR}"
+-)
+ target_link_libraries(viewer
+   Qt5::Widgets
+   icc_detect

@@ -617,7 +617,7 @@ EGO_SUM=(
 	"rsc.io/binaryregexp v0.2.0/go.mod"
 	"rsc.io/quote/v3 v3.1.0/go.mod"
 	"rsc.io/sampler v1.3.0/go.mod"
-)
+	)
 go-module_set_globals
 
 DESCRIPTION="Disk usage analyzer with console interface written in Go"

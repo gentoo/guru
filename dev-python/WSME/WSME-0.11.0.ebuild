@@ -26,6 +26,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
+	dev-python/pbr[${PYTHON_USEDEP}]
 	dev-python/wheel[${PYTHON_USEDEP}]
 "
 BDEPEND="

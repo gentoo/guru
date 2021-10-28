@@ -33,7 +33,7 @@ BDEPEND="
 
 src_prepare() {
 	# remove bundled libraries
-	rm "${S}"/src/libtelnet.c "${S}"/src/libtelnet.h "${S}"/lib/libdmd_core.a
+	rm "${S}"/src/libtelnet.c "${S}"/src/libtelnet.h "${S}"/lib/libdmd_core.a || die "failed to remove bundled libraries"
 	rmdir "${S}"/lib
 	# apply patches
 	eapply "${FILESDIR}/${PN}-1.2.0-systemlibs-nostrip.patch"

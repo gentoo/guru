@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..9} )
 
@@ -27,7 +27,13 @@ KEYWORDS="~amd64"
 # pastix is disabled as it's require additional external bundled libs;
 # autodiff (medi), directdiff (opti) features require additional external bundled libs.
 IUSE="cgns mkl +mpi mpp openblas parmetis tecio test tutorials"
+
+# Tests fail with FEATURES="network-sandbox" for most versions of openmpi and mpich it with error:
+# "No network interfaces were found for out-of-band communications.
+#  We require at least one available network for out-of-band messaging."
+PROPERTIES="test_network"
 RESTRICT="!test? ( test )"
+
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 	mkl? ( !openblas )

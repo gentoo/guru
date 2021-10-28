@@ -1,15 +1,15 @@
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -298,7 +298,7 @@
- if(WITH_TESTS OR WITH_BENCHMARKS)
-   add_library(test_helpers test/test_helpers.cpp test/test_strings.cpp
-                            test/loremipsum.cpp)
--  target_link_libraries(test_helpers dwarfs folly)
-+  target_link_libraries(test_helpers dwarfs)
-   set_property(TARGET test_helpers PROPERTY CXX_STANDARD 17)
- endif()
+@@ -151,8 +151,6 @@
+     ON
+     CACHE BOOL "only build thrift compiler")
  
-@@ -364,70 +364,7 @@
+-add_subdirectory(folly EXCLUDE_FROM_ALL)
+-add_subdirectory(fbthrift EXCLUDE_FROM_ALL)
+ if(NOT (ZSTD_FOUND AND PREFER_SYSTEM_ZSTD))
+   add_subdirectory(zstd/build/cmake EXCLUDE_FROM_ALL)
+ endif()
+@@ -383,23 +381,6 @@
  
  list(
    APPEND
@@ -30,24 +30,13 @@
 -
 -list(
 -  APPEND
--  METADATA_THRIFT_SRC
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_constants.cpp
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_constants.h
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_data.cpp
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_data.h
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_for_each_field.h
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_layouts.cpp
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_layouts.h
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_metadata.cpp
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_metadata.h
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_types.cpp
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_types.h
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_types.tcc
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_types_custom_protocol.h
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_visit_union.h
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_visitation.h)
--
--add_custom_command(
+   METADATA_THRIFT_SRC
+   ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_constants.cpp
+   ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_constants.h
+@@ -418,35 +399,20 @@
+   ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_visitation.h)
+ 
+ add_custom_command(
 -  OUTPUT ${FROZEN_THRIFT_SRC}
 -  COMMAND mkdir -p ${CMAKE_CURRENT_BINARY_DIR}/thrift/lib/thrift
 -  COMMAND
@@ -59,32 +48,33 @@
 -          ${CMAKE_CURRENT_SOURCE_DIR}/fbthrift/thrift/lib/thrift/frozen.thrift)
 -
 -add_custom_command(
--  OUTPUT ${METADATA_THRIFT_SRC}
--  COMMAND mkdir -p ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs
--  COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/thrift/metadata.thrift
--          thrift/dwarfs/metadata.thrift
--  COMMAND
--    cd ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs &&
+   OUTPUT ${METADATA_THRIFT_SRC}
+   COMMAND mkdir -p ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs
+   COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/thrift/metadata.thrift
+           thrift/dwarfs/metadata.thrift
+   COMMAND
+     cd ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs &&
 -    ${CMAKE_CURRENT_BINARY_DIR}/bin/thrift1 --gen mstch_cpp2:frozen2
--    metadata.thrift
++    thrift1 --gen mstch_cpp2:frozen2
+     metadata.thrift
 -  DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/bin/thrift1
 -          ${CMAKE_CURRENT_SOURCE_DIR}/thrift/metadata.thrift)
--
--list(
--  APPEND
++  DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/thrift/metadata.thrift)
+ 
+ list(
+   APPEND
    INCLUDE_DIRS
 -  ${CMAKE_CURRENT_BINARY_DIR}/folly
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift
+   ${CMAKE_CURRENT_BINARY_DIR}/thrift
 -  ${CMAKE_CURRENT_SOURCE_DIR}/folly
 -  ${CMAKE_CURRENT_SOURCE_DIR}/fbthrift
    ${CMAKE_CURRENT_BINARY_DIR})
  
  if(NOT (ZSTD_FOUND AND PREFER_SYSTEM_ZSTD))
-@@ -445,39 +382,6 @@
-   list(APPEND INCLUDE_DIRS ${Jemalloc_INCLUDE_DIRS})
+@@ -472,43 +438,24 @@
  endif()
  
--add_library(
+ add_library(
 -  thrift_light
 -  ${CMAKE_CURRENT_SOURCE_DIR}/fbthrift/thrift/lib/cpp2/FieldRef.cpp
 -  ${CMAKE_CURRENT_SOURCE_DIR}/fbthrift/thrift/lib/cpp2/protocol/CompactProtocol.cpp
@@ -106,44 +96,62 @@
 -target_include_directories(thrift_light PRIVATE ${INCLUDE_DIRS})
 -
 -add_library(
--  metadata_thrift
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_layouts.cpp
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_types.cpp
--  ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_data.cpp)
+   metadata_thrift
++  STATIC
+   ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_layouts.cpp
+   ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_types.cpp
+   ${CMAKE_CURRENT_BINARY_DIR}/thrift/dwarfs/gen-cpp2/metadata_data.cpp)
+ 
+ set_property(TARGET metadata_thrift PROPERTY CXX_STANDARD 17)
 -
--set_property(TARGET metadata_thrift PROPERTY CXX_STANDARD 17)
--
--target_include_directories(metadata_thrift PRIVATE ${INCLUDE_DIRS})
++set_property(TARGET metadata_thrift PROPERTY POSITION_INDEPENDENT_CODE ON)
++set_property(TARGET metadata_thrift PROPERTY CXX_VISIBILITY_PRESET hidden)
++set_property(TARGET metadata_thrift PROPERTY VISIBILITY_INLINES_HIDDEN 1)
+ target_include_directories(metadata_thrift PRIVATE ${INCLUDE_DIRS})
 -
 -add_dependencies(metadata_thrift thrift_light)
--
++target_link_libraries(metadata_thrift fmt glog folly)
+ 
  foreach(tgt dwarfs ${BINARY_TARGETS})
    target_include_directories(
      ${tgt} SYSTEM
-@@ -501,8 +405,6 @@
-   set_property(TARGET ${tgt} PROPERTY CXX_STANDARD_REQUIRED ON)
-   set_property(TARGET ${tgt} PROPERTY CXX_EXTENSIONS OFF)
+     PRIVATE ${Boost_INCLUDE_DIRS} ${Python3_INCLUDE_DIRS} ${INCLUDE_DIRS}
+-            ${CMAKE_CURRENT_SOURCE_DIR}/parallel-hashmap)
++            )
  
--  add_dependencies(${tgt} metadata_thrift)
+   target_include_directories(${tgt} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+ 
+@@ -565,23 +512,11 @@
+   endif()
+ endforeach()
+ 
+-# not sure why exactly, copied from fsst/CMakeLists.txt
+-if(CMAKE_BUILD_TYPE STREQUAL Release)
+-  set_source_files_properties(fsst/fsst_avx512.cpp PROPERTIES COMPILE_FLAGS -O1)
+-endif()
 -
-   if(ENABLE_ASAN)
-     target_compile_options(${tgt} PRIVATE -fsanitize=address
-                                           -fno-omit-frame-pointer)
-@@ -550,9 +452,6 @@
- 
+-add_library(
+-  fsst
+-  fsst/libfsst.cpp fsst/fsst_avx512.cpp fsst/fsst_avx512_unroll1.inc
+-  fsst/fsst_avx512_unroll2.inc fsst/fsst_avx512_unroll3.inc
+-  fsst/fsst_avx512_unroll4.inc)
+-
+-target_include_directories(dwarfs PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/fsst)
+-
  target_link_libraries(
    dwarfs
--  metadata_thrift
++  thriftprotocol
++  thriftfrozen2
+   metadata_thrift
 -  thrift_light
--  folly
+   folly
    fsst
    ${Boost_LIBRARIES}
-   PkgConfig::LIBARCHIVE
-@@ -582,11 +481,6 @@
+@@ -612,11 +547,6 @@
    if(USE_JEMALLOC)
      target_link_libraries(${tgt} ${Jemalloc_LIBRARIES})
    endif()
--  if(TARGET folly_exception_tracer)
+-  if(DWARFS_USE_EXCEPTION_TRACER)
 -    target_link_libraries(
 -      ${tgt} -Wl,--whole-archive folly_exception_tracer_base
 -      folly_exception_tracer -Wl,--no-whole-archive)
