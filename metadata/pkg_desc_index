@@ -492,7 +492,7 @@ dev-python/oslo-cache 2.8.1: Oslo Caching around dogpile.cache
 dev-python/oslo-db 11.0.0: OpenStack Common DB Code
 dev-python/oslo-messaging 12.9.1: Messaging API for RPC and notifications over different messaging transports
 dev-python/oslo-metrics 0.3.0: OpenStack library for collecting metrics from Oslo libraries
-dev-python/oslo-middleware 4.1.1: Components injected into wsgi pipelines to intercept request/response flows.
+dev-python/oslo-middleware 4.4.0: Components injected into wsgi pipelines to intercept request/response flows
 dev-python/oslo-policy 3.5.0 3.8.2: Support for RBAC policy enforcement across all OpenStack services
 dev-python/oslo-privsep 2.4.0: OpenStack library for privilege separation.
 dev-python/oslo-reports 2.3.0: generified reports for openstack
@@ -787,7 +787,7 @@ media-fonts/3270font 2.3.0: A IBM 3270 Terminal font in a modern format
 media-fonts/gohufont 2.1_p20170627: A monospace bitmap font
 media-fonts/inconsolata_dz 20201205: A beautiful sans-serif monotype font designed for code listings
 media-fonts/last-resort 13.001: A collection of glyphs used as the backup of "last resort" to any other font
-media-fonts/linja-pona 4.2: Font for sitelen pona, a script for toki pona
+media-fonts/linja-pona 4.2 4.9: Font for sitelen pona, a script for toki pona
 media-fonts/overpass 3.0.4: An open source webfont family inspired by Highway Gothic
 media-fonts/source-han-serif 1.001: Pan-CJK OpenType/CFF font family
 media-fonts/symbola 7.17 13.00: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
@@ -822,13 +822,13 @@ media-libs/fcft 2.3.3 2.4.0 2.4.1 2.4.2 2.4.3 2.4.4 2.4.5 2.4.6 9999: A simple l
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
 media-libs/imgui 1.83: Bloat-free graphical user interface library for C++
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
-media-libs/libjxl 0.6 9999: JPEG XL image format reference implementation
+media-libs/libjxl 0.6-r2 9999: JPEG XL image format reference implementation
 media-libs/lodepng 20210627: PNG encoder and decoder
 media-libs/monado 9999: The open source OpenXR runtime.
 media-libs/openxr-loader 1.0.19 9999: OpenXR loader
 media-libs/portsmf 239 9999: C++ library for Standard Midi Files (SMF)
 media-libs/rtmidi 4.0.0: A set of C++ classes that provide a common API for realtime MIDI input/output
-media-libs/sjpeg 1.0_p20210422: simple jpeg encoder
+media-libs/sjpeg 1.0_p20210422-r1: simple jpeg encoder
 media-libs/skcms 0_pre20211006: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-libs/skia 97: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-libs/svt-hevc 1.5.0 1.5.1 9999: Scalable Video Technology for HEVC (SVT-HEVC Encoder)
@@ -1067,10 +1067,10 @@ sys-cluster/wxparaver 4.9.0-r1: paraver gui
 sys-firmware/pinephone-firmware 20210809: Firmwares files for PinePhone
 sys-fs/btrfs-heatmap 9: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
-sys-fs/dwarfs 0.5.4-r2 0.5.4-r3 0.5.6-r1: A fast very high compression read-only FUSE file system
+sys-fs/dwarfs 0.5.6-r1 0.5.6-r2: A fast very high compression read-only FUSE file system
 sys-fs/erofs-utils 1.2.1 1.3: Userspace tools for EROFS images
 sys-fs/gcsfuse 0.36.0: A user-space file system for interacting with Google Cloud Storage
-sys-fs/gdu 5.8.1: Disk usage analyzer with console interface written in Go
+sys-fs/gdu 5.9.0: Disk usage analyzer with console interface written in Go
 sys-fs/gfs2-utils 3.3.0 3.4.1: Shared-disk cluster file system
 sys-fs/git-mount 1.0.0_p20160321: git-mount let's you mount your repo as a filesystem based on a revision.
 sys-fs/python-btrfs 12 13: Python 3 module to inspect btrfs filesystems
@@ -1144,6 +1144,6 @@ x11-themes/obsidian2-gtk-theme 2.19 9999: Obsidian Gnome Theme, based upon Adwai
 x11-themes/papirus-claws-mail-theme 0_pre20181023 0_pre20201019: Papirus icon theme for Claws Mail
 x11-themes/qogir-icon-theme 2020.11.22: A flat colorful design icon theme for linux desktops
 x11-themes/sound-theme-librem5 0.1.0: Sound theme for the Librem 5/PinePhone
-x11-themes/vimix-xcursors 20200224: Vimix-cursors for Linux desktop.
+x11-themes/vimix-xcursors 20200224-r1: Vimix-cursors for Linux desktop
 x11-wm/i3-rounded 4.19.1: i3-gaps fork with rounded corners support.
 x11-wm/phoc 0.8.0: Wlroots based Phone compositor
