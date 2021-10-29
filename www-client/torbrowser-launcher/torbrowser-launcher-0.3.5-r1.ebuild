@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=no
 PYTHON_COMPAT=( python3_{8..9} )
@@ -28,6 +28,7 @@ RDEPEND="
 	app-crypt/gpgme[python,${PYTHON_USEDEP}]
 	dev-python/PyQt5[${PYTHON_USEDEP},widgets]
 	dev-python/PySocks[${PYTHON_USEDEP}]
+	dev-python/distro[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	apparmor? ( sys-libs/libapparmor )
