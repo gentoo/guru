@@ -3,13 +3,11 @@
 
 EAPI=7
 
-COMMIT="0d549648032490dbdb091e9f1e31be56ea031599"
-
 inherit toolchain-funcs
 
 DESCRIPTION="A complete 2D graphic library for drawing Text, Geometries, and Images"
 HOMEPAGE="https://skia.googlesource.com/skcms"
-SRC_URI="https://skia.googlesource.com/skcms/+archive/${COMMIT}.tar.gz -> ${PF}.tar.gz"
+SRC_URI="https://drive.google.com/uc?export=download&id=1BmWRhwDnribygNRsR2UwaxIMrAB7GZw4 -> ${PF}.tar.gz"
 S="${WORKDIR}"
 
 KEYWORDS="~amd64"
