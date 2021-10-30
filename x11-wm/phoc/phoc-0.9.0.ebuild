@@ -17,7 +17,7 @@ HOMEPAGE="https://gitlab.gnome.org/World/Phosh/phoc"
 # we don't use the version on gentoo because it breaks
 # the phoc installation. we follow method used in archlinuxarm
 SRC_URI="
-	https://source.puri.sm/Librem5/phoc/-/archive/${MY_PV}/${MY_P}.tar.gz
+	https://source.puri.sm/World/Phosh/phoc/-/archive/${MY_PV}/${MY_P}.tar.gz
 	https://github.com/swaywm/wlroots/releases/download/${WL_PV}/${WL_P}.tar.gz
 "
 
@@ -43,6 +43,7 @@ RDEPEND="
 	x11-libs/xcb-util
 	x11-libs/xcb-util-wm
 	x11-wm/mutter
+	sys-auth/seatd
 "
 
 BDEPEND="
