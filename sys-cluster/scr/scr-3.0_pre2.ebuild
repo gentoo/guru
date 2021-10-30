@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
 DOCS_BUILDER="sphinx"
 DOCS_DIR="${S}/doc/rst"
@@ -22,14 +22,13 @@ S="${WORKDIR}/${PN}-${MYPV}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc examples fcntl +flock +fortran mysql pmix slurm syslog test txt-log +yogrt"
+IUSE="doc examples fcntl +flock +fortran mysql slurm syslog test txt-log +yogrt"
 
-#cppr
 RDEPEND="
 	${PYTHON_DEPS}
 
 	app-shells/pdsh
-	sys-cluster/AXL
+	>=sys-cluster/AXL-0.5.0
 	sys-cluster/dtcmp
 	sys-cluster/er
 	sys-cluster/KVTree
@@ -40,16 +39,18 @@ RDEPEND="
 	virtual/mpi
 
 	mysql? ( dev-db/mysql-connector-c  )
-	pmix? ( sys-cluster/pmix )
 	slurm? ( sys-cluster/slurm )
 	yogrt? ( sys-cluster/libyogrt[slurm?] )
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/${P}-shared-libscr_base.patch"
+	"${FILESDIR}/${P}-no-static.patch"
+)
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 
-	?? ( pmix slurm )
 	?? ( fcntl flock )
 "
 RESTRICT="!test? ( test )"
@@ -59,8 +60,6 @@ pkg_setup() {
 }
 
 src_configure() {
-	local asyncapi="NONE" #INTEL_CPPR
-
 	local lock="NONE"
 	use fcntl && lock="FCNTL"
 	use flock && lock="FLOCK"
@@ -70,18 +69,17 @@ src_configure() {
 	use txt-log && log="1"
 
 	local resman="NONE"
-	use pmix && resman="PMIX"
 	use slurm && resman="SLURM"
 
 	local mycmakeargs=(
 		-DBUILD_PDSH=OFF
-		-DENABLE_INTEL_CPPR=OFF
-		-DENABLE_ENABLE_CRAY_DW=OFF
+		-DBUILD_SHARED_LIBS=ON
+		-DENABLE_CRAY_DW=OFF
 		-DENABLE_IBM_BBAPI=OFF
 		-DENABLE_PDSH=ON
-		-DSCR_ASYNC_API="${asyncapi}"
-		-DSCR_FILE_LOCK="${lock}"
 		-DSCR_LINK_STATIC=OFF
+
+		-DSCR_FILE_LOCK="${lock}"
 		-DSCR_LOG_ENABLE="${log}"
 		-DSCR_RESOURCE_MANAGER="${resman}"
 
@@ -102,5 +100,5 @@ src_compile() {
 
 src_install() {
 	cmake_src_install
-	find "${ED}" -name '*.a' -delete || die
+#	find "${ED}" -name '*.a' -delete || die
 }
