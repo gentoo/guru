@@ -109,7 +109,6 @@ REQUIRED_USE="
 distutils_enable_tests pytest
 
 python_prepare_all() {
-	sed -i '/xattr/d' test-requirements.txt || die
 	sed -i '/pysendfile/d' test-requirements.txt || die
 	sed -i '/^hacking/d' test-requirements.txt || die
 	distutils-r1_python_prepare_all
