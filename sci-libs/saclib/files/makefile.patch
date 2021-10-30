@@ -1,6 +1,5 @@
-diff -ur a/bin/mklib b/bin/mklib
---- a/bin/mklib	2018-01-30 22:09:32.000000000 +0100
-+++ b/bin/mklib	2020-04-28 21:03:24.823472623 +0200
+--- a/bin/mklib
++++ b/bin/mklib
 @@ -2,31 +2,17 @@
  
  # USAGE:
@@ -77,9 +76,8 @@ diff -ur a/bin/mklib b/bin/mklib
    popd >/dev/null
    pushd >/dev/null  $saclib/lib/objo
    make  CC=$CC "SACFLAG=" EXTENSION=o
-diff -ur a/bin/mkmake b/bin/mkmake
---- a/bin/mkmake	2018-01-30 22:09:32.000000000 +0100
-+++ b/bin/mkmake	2020-04-28 21:29:02.709088176 +0200
+--- a/bin/mkmake
++++ b/bin/mkmake
 @@ -25,20 +25,16 @@
  #       E.g. if <flag> is -g and <character> is d, the library will be
  #   compiled with the debug option set and the library name will be
@@ -126,7 +124,7 @@ diff -ur a/bin/mkmake b/bin/mkmake
 -#	${AR} ts ${TARGET}
 -#       Use "ranlib" if your system's "ar" does not have the option "s".
 -	${RANLIB} ${TARGET}
-+	$(CC) ${OBJS1} ${OBJS2a} ${OBJS2b} ${OBJS3} ${OBJS4} -fPIC -shared ${CFLAGS} -o $@ ${LDFLAGS} -Wl,-soname,${FULLLIBNAME}
++	$(CXX) ${OBJS1} ${OBJS2a} ${OBJS2b} ${OBJS3} ${OBJS4} ${saclib}/src/gcword.cc -I${saclib}/include -I${saclib}/src -fPIC -shared ${CXXFLAGS} -o $@ ${LDFLAGS} -Wl,-soname,${FULLLIBNAME}
  	@echo "Created '${TARGET}'."
  
  EOF

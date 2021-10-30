@@ -23,7 +23,10 @@ BDEPEND="
 	app-shells/tcsh
 "
 
-PATCHES=( "${FILESDIR}/makefile.patch" )
+PATCHES=(
+	"${FILESDIR}/qepcad-compat.patch"
+	"${FILESDIR}/makefile.patch"
+)
 DOCS=( doc/saclib.pdf doc/saclocal.dvi doc/desc.doc )
 
 src_prepare() {
@@ -35,8 +38,8 @@ src_prepare() {
 	export MINMAJLIBNAME="${MAJLIBNAME}.${MINOR}"
 	export FULLLIBNAME="${MINMAJLIBNAME}.${REVISION}"
 	export saclib="${S}"
-	tc-export CC
-	#no main, it's a library
+	tc-export CC CXX
+	# no main, it's a library
 	rm src/main.c || die
 	default
 }
