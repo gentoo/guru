@@ -17,7 +17,7 @@ HOMEPAGE="https://gitlab.gnome.org/World/Phosh/phoc"
 # we don't use the version on gentoo because it breaks
 # the phoc installation. we follow method used in archlinuxarm
 SRC_URI="
-	https://source.puri.sm/World/Phosh/phoc/-/archive/${MY_PV}/${MY_P}.tar.gz
+	https://gitlab.gnome.org/World/Phosh/phoc/-/archive/${MY_PV}/${MY_P}.tar.gz
 	https://github.com/swaywm/wlroots/releases/download/${WL_PV}/${WL_P}.tar.gz
 "
 
