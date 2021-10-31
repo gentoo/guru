@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 ECM_TEST="true"
 KFMIN=5.67.0
@@ -39,6 +39,8 @@ DEPEND="
 	kde? ( >=kde-frameworks/knotifications-${KFMIN}:5 )
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}"/${P}-no-knotifications.patch )
 
 src_configure() {
 	local mycmakeargs=(
