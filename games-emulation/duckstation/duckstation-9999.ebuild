@@ -72,9 +72,9 @@ src_install() {
 
 	if use nogui; then
 		for i in {16,32,48,64,128,256}; do
-			newicon -s ${i} dist/icon-${i}px.png duckstation-nogui.png
+			newicon -s ${i} extras/icons/icon-${i}px.png duckstation-nogui.png
 		done
-		domenu dist/duckstation-nogui.desktop
+		domenu extras/linux-desktop-files/duckstation-nogui.desktop
 
 		doins "${BUILD_DIR}"/bin/duckstation-nogui
 		dosym ../../opt/${PN}/duckstation-nogui usr/bin/duckstation-nogui
@@ -83,15 +83,12 @@ src_install() {
 
 	if use qt5; then
 		for i in {16,32,48,64,128,256}; do
-			newicon -s ${i} dist/icon-${i}px.png duckstation-qt.png
+			newicon -s ${i} extras/icons/icon-${i}px.png duckstation-qt.png
 		done
-		domenu dist/duckstation-qt.desktop
+		domenu extras/linux-desktop-files/duckstation-qt.desktop
 
 		doins "${BUILD_DIR}"/bin/duckstation-qt
 		dosym ../../opt/${PN}/duckstation-qt usr/bin/duckstation-qt
 		fperms +x /opt/${PN}/duckstation-qt
 	fi
-
-	insinto /usr/share/metainfo
-	doins dist/org.duckstation.DuckStation.metainfo.xml
 }
