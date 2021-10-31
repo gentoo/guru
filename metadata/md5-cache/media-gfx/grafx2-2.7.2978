@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RESTRICT=test
 SLOT=0
 SRC_URI=http://www.pulkomandy.tk/projects/GrafX2/downloads/grafx2-2.7.2978-src.tgz
-_eclasses_=xdg-utils	27f9a2f19502b925ac117bd657aa2979	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
 _md5_=b86ef3d51154973bff01df889c9651dd

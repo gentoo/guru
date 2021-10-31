@@ -13,5 +13,5 @@ RDEPEND=app-text/cmark >=dev-db/lmdb++-1.0.0 >=dev-libs/mtxclient-0.5.2_pre20210
 REQUIRED_USE=video? ( voip )
 SLOT=0
 SRC_URI=https://github.com/Nheko-Reborn/nheko/archive/c43c2bd4b9481f761e9f1b16453f0e7f5b1beabe.tar.gz -> nheko-0.9.0_pre20211003.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	27f9a2f19502b925ac117bd657aa2979	cmake	11fee991ab428a3370e5c20fa8231fb6	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	xdg	6024fbc93167fad782e2032933654857
 _md5_=d51d2490e5cf40d192267791296ee7d1

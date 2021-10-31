@@ -11,5 +11,5 @@ RDEPEND=net-libs/libtelnet dev-libs/dmd_core x11-libs/gtk+:3 x11-libs/gdk-pixbuf
 RESTRICT=test mirror
 SLOT=0
 SRC_URI=https://github.com/sethm/dmd_gtk/archive/v1.2.0.tar.gz -> dmd5620-1.2.0.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	xdg-utils	27f9a2f19502b925ac117bd657aa2979
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
 _md5_=4945aab42c193386aa687210508cec23
