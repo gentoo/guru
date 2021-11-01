@@ -30,6 +30,8 @@ RDEPEND=""
 DEPEND="
 	${RDEPEND}
 	dev-python/cython[${PYTHON_USEDEP}]
+"
+BDEPEND="
 	test? (
 		dev-python/numpy[${PYTHON_USEDEP}]
 		dev-python/pandas[${PYTHON_USEDEP}]
@@ -38,5 +40,7 @@ DEPEND="
 		dev-python/lz4[${PYTHON_USEDEP}]
 	)
 "
+
+FASTAVRO_USE_CYTHON=1
 
 distutils_enable_tests pytest
