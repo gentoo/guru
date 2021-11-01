@@ -22,9 +22,11 @@ KEYWORDS="~amd64"
 RDEPEND=">=dev-python/pbr-2.0[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
 BDEPEND="
-	>=dev-python/hacking-3.0.1[${PYTHON_USEDEP}]
-	>=dev-python/oslotest-1.10.0[${PYTHON_USEDEP}]
-	>=dev-python/testtools-1.4.0[${PYTHON_USEDEP}]
+	test? (
+		>=dev-python/hacking-3.0.1[${PYTHON_USEDEP}]
+		>=dev-python/oslotest-1.10.0[${PYTHON_USEDEP}]
+		>=dev-python/testtools-1.4.0[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_tests pytest
