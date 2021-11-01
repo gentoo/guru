@@ -1,8 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
+EPYTEST_DESELECT=( tests/test_installed_distributions.py::test_installed_distributions_legacy_version )
 DISTUTILS_SETUPTOOLS="pyproject.toml"
 PYTHON_COMPAT=( python3_{8..10} pypy3 )
 
@@ -16,8 +17,9 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="
-	dev-python/pip[${PYTHON_USEDEP}]
+DEPEND="<=dev-python/pip-21.3.1[${PYTHON_USEDEP}]"
+RDEPEND="${DEPEND}"
+BDEPEND="
 	test? (
 		dev-python/pretend[${PYTHON_USEDEP}]
 		>=dev-python/virtualenv-20[${PYTHON_USEDEP}]
@@ -25,7 +27,3 @@ DEPEND="
 "
 
 distutils_enable_tests pytest
-
-python_test() {
-	epytest -vv --deselect tests/test_installed_distributions.py::test_installed_distributions_legacy_version || die
-}
