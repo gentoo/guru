@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DOCS_BUILDER="sphinx"
 DOCS_DIR="docs"
@@ -22,8 +22,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND=">=dev-python/cryptography-2.8[${PYTHON_USEDEP}]"
+DEPEND="${REDEPEND}"
 BDEPEND="
-	${REDEPEND}
 	test? (
 		>=dev-python/bcrypt-3.1.3[${PYTHON_USEDEP}]
 		>=dev-python/gssapi-1.2.0[${PYTHON_USEDEP}]
@@ -35,12 +35,6 @@ BDEPEND="
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs
-
-#python_test() {
-#	epytest \
-#		--deselect tests/test_agent.py::_TestAgent::test_confirm \
-#		--deselect tests/test_x509.py::_TestX509::test_expired_root
-#}
 
 pkg_postinst() {
 	optfeature "support for OpenSSH private key encryption" dev-python/bcrypt
