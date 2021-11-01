@@ -46,11 +46,12 @@ IUSE_PARSEC_PROF="
 "
 IUSE="${IUSE_PARSEC_DEBUG} ${IUSE_PARSEC_DIST} ${IUSE_PARSEC_PROF} +cxx debug +devel-headers fortran +home-config-files +mpi profile +sched-deps-mask sim test +tools"
 
-#TODO: gd vite
+#TODO: gd vite tau
 RDEPEND="
 	dev-util/valgrind
 	sys-apps/hwloc
 	sys-cluster/temanejo
+
 	mpi? ( virtual/mpi )
 	parsec-prof-otf2? ( sys-cluster/otf2 )
 	parsec-prof-pins? ( dev-libs/papi )
@@ -85,8 +86,8 @@ src_configure() {
 		-DPARSEC_PROF_TAU=OFF
 
 		-DBUILD_TOOLS=$(usex tools)
-		-DPARSEC_DEBUG_HISTORY=$(usex parsec-debug-history)
 		-DPARSEC_DEBUG=$(usex debug)
+		-DPARSEC_DEBUG_HISTORY=$(usex parsec-debug-history)
 		-DPARSEC_DEBUG_MEM_ADDR=$(usex parsec-debug-mem-addr)
 		-DPARSEC_DEBUG_MEM_LEAK=$(usex parsec-debug-mem-leak)
 		-DPARSEC_DEBUG_MEM_RACE=$(usex parsec-debug-mem-race)
@@ -108,7 +109,7 @@ src_configure() {
 		-DPARSEC_PROF_TRACE_ACTIVE_ARENA_SET=$(usex parsec-prof-active-arena-set)
 		-DPARSEC_PROF_TRACE_PTG_INTERNAL_INIT=$(usex parsec-prof-ptg)
 		-DPARSEC_PROF_TRACE_SCHEDULING_EVENTS=$(usex parsec-prof-scheduling-events)
-		-DPARSEC_PROF_TRACE_SYSTEM=${trace}
+		-DPARSEC_PROF_TRACE_SYSTEM="${trace}"
 		-DPARSEC_PROFILING_USE_HELPER_THREAD=$(usex parsec-prof-thread)
 		-DPARSEC_PROFILING_USE_MMAP=$(usex parsec-prof-mmap)
 		-DPARSEC_WANT_HOME_CONFIG_FILES=$(usex home-config-files)
