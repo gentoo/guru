@@ -23,8 +23,8 @@ RDEPEND="
 	dev-python/six[${PYTHON_USEDEP}]
 	>=dev-python/sqlalchemy-1.0[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	test? (
 		>=dev-python/pygments-2.7.1[${PYTHON_USEDEP}]
 		>=dev-python/jinja-2.3[${PYTHON_USEDEP}]
