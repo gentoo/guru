@@ -42,6 +42,7 @@ src_prepare() {
 	# Just to be safe, because './configure --help' says:
 	# "Set default GERBIL_HOME (environment variable still overrides)"
 	unset GERBIL_HOME
+	unset GERBIL_PATH
 	xdg_environment_reset
 
 	# Verbose build process
