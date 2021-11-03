@@ -1,0 +1,17 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 fortran? ( virtual/fortran ) doc? ( python_single_target_pypy3? ( dev-python/sphinx[python_targets_pypy3(-)] ) python_single_target_python3_8? ( dev-python/sphinx[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/sphinx[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/sphinx[python_targets_python3_10(-)] ) )
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=python_single_target_pypy3? ( >=dev-python/pypy3-7.3.0:0= >=dev-lang/python-exec-2:=[python_targets_pypy3] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) app-shells/pdsh >=sys-cluster/AXL-0.5.0 sys-cluster/dtcmp sys-cluster/er sys-cluster/KVTree sys-cluster/rankstr sys-cluster/redset sys-cluster/spath sys-libs/zlib virtual/mpi mysql? ( dev-db/mysql-connector-c ) slurm? ( sys-cluster/slurm ) yogrt? ( sys-cluster/libyogrt[slurm?] ) fortran? ( virtual/fortran )
+DESCRIPTION=Scalable Checkpoint / Restart Library
+EAPI=8
+HOMEPAGE=https://computing.llnl.gov/projects/scalable-checkpoint-restart-for-mpi https://github.com/LLNL/scr
+INHERIT=cmake python-single-r1 fortran-2 docs
+IUSE=doc examples fcntl +flock +fortran mysql slurm syslog test txt-log +yogrt python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 doc
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=python_single_target_pypy3? ( >=dev-python/pypy3-7.3.0:0= >=dev-lang/python-exec-2:=[python_targets_pypy3] ) python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) app-shells/pdsh >=sys-cluster/AXL-0.5.0 sys-cluster/dtcmp sys-cluster/er sys-cluster/KVTree sys-cluster/rankstr sys-cluster/redset sys-cluster/spath sys-libs/zlib virtual/mpi mysql? ( dev-db/mysql-connector-c ) slurm? ( sys-cluster/slurm ) yogrt? ( sys-cluster/libyogrt[slurm?] ) fortran? ( virtual/fortran )
+REQUIRED_USE=^^ ( python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) ?? ( fcntl flock )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/LLNL/scr/archive/refs/tags/v3.0rc2.tar.gz -> scr-3.0_pre2.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	python-utils-r1	655fe65f186504e455c2f3116808fda8	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a	docs	7c38d94fa7c1b4235fe571dc09e018df
+_md5_=c60094db63d6ff09834c113e4ae2c3bf

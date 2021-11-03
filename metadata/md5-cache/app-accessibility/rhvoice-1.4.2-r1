@@ -1,16 +1,16 @@
 BDEPEND=dev-cpp/cli11 dev-libs/utfcpp dev-util/ninja >=dev-util/cmake-3.20.5
-DEFINED_PHASES=compile configure install prepare test unpack
+DEFINED_PHASES=compile configure install prepare test
 DEPEND=ao? ( media-libs/libao ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-sound/pulseaudio ) server? ( dev-libs/glib:2[dbus] dev-libs/libsigc++:2 >=dev-cpp/glibmm-2.66.1:2 ) speech-dispatcher? ( app-accessibility/speech-dispatcher )
 DESCRIPTION=TTS engine with extended languages support (including Russian)
 EAPI=8
 HOMEPAGE=https://rhvoice.su https://github.com/RHVoice/RHVoice
 INHERIT=cmake
-IUSE=ao cli portaudio +pulseaudio +server +speech-dispatcher l10n_en l10n_eo l10n_ky l10n_ru l10n_uk l10n_ka l10n_tt l10n_mk l10n_pt-BR
+IUSE=l10n_mk l10n_pt-BR l10n_en l10n_eo l10n_ky l10n_ru l10n_uk l10n_ka l10n_tt ao cli portaudio +pulseaudio +server +speech-dispatcher
 KEYWORDS=~amd64 ~x86
-LICENSE=l10n_pt-BR? ( CC-BY-SA-4.0 ) l10n_mk? ( AGPL-3 ) BSD GPL-2 GPL-3+ LGPL-2.1+ l10n_en? ( CC-BY-NC-ND-4.0 ) l10n_eo? ( CC-BY-NC-ND-4.0 ) l10n_ky? ( CC-BY-NC-ND-4.0 ) l10n_ru? ( CC-BY-NC-ND-4.0 ) l10n_uk? ( CC-BY-NC-ND-4.0 ) l10n_ka? ( free-noncomm ) l10n_tt? ( free-noncomm )
+LICENSE=BSD GPL-2 GPL-3+ LGPL-2.1+ l10n_mk? ( AGPL-3 ) l10n_pt-BR? ( CC-BY-SA-4.0 ) l10n_en? ( CC-BY-NC-ND-4.0 ) l10n_eo? ( CC-BY-NC-ND-4.0 ) l10n_ky? ( CC-BY-NC-ND-4.0 ) l10n_ru? ( CC-BY-NC-ND-4.0 ) l10n_uk? ( CC-BY-NC-ND-4.0 ) l10n_ka? ( free-noncomm ) l10n_tt? ( free-noncomm )
 RDEPEND=ao? ( media-libs/libao ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-sound/pulseaudio ) server? ( dev-libs/glib:2[dbus] dev-libs/libsigc++:2 >=dev-cpp/glibmm-2.66.1:2 ) speech-dispatcher? ( app-accessibility/speech-dispatcher ) !dev-libs/hts_engine
 REQUIRED_USE=|| ( ao portaudio pulseaudio )
 SLOT=0
-SRC_URI=https://github.com/rhvoice/rhvoice/archive/refs/tags/1.4.2.tar.gz -> rhvoice-1.4.2.tar.gz l10n_en? ( https://github.com/rhvoice/evgeniy-eng/archive/refs/tags/4.0.tar.gz -> rhvoice-evgeniy-eng-4.0.tar.gz ) l10n_ru? ( https://github.com/rhvoice/aleksandr-hq-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-aleksandr-hq-4.0.tar.gz https://github.com/rhvoice/evgeniy-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-evgeniy-rus-4.0.tar.gz https://github.com/rhvoice/victoria-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-victoria-4.0.tar.gz https://github.com/rhvoice/yuriy-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-yuriy-4.0.tar.gz ) l10n_uk? ( https://github.com/rhvoice/volodymyr-ukr/archive/refs/tags/4.0.tar.gz -> rhvoice-volodymyr-4.0.tar.gz )
+SRC_URI=https://github.com/rhvoice/rhvoice/releases/download/1.4.2/rhvoice-1.4.2.tar.gz -> rhvoice-1.4.2-release.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
-_md5_=510ef755c3aca1cd6e48066482e5d792
+_md5_=df6f38812d6fd3ed067ff283bec93700

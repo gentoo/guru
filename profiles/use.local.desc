@@ -715,11 +715,11 @@ sys-cluster/portals4:transport-shmem - Use Shared memory for on-node communicati
 sys-cluster/portals4:transport-udp - Use UDP for remote communication
 sys-cluster/portals4:unordered-matching - Enable unordered (hashed) match list searching. Experimental
 sys-cluster/portals4:zero-mrs - Enable this when using MOFED V2.2+ or Qlogic InfiniPath Hardware of IB communication
+sys-cluster/redset:slurm - Use sys-cluster/slurm as resource manager
 sys-cluster/scr:fcntl - use fcntl as a file locking type
 sys-cluster/scr:flock - use flock as a file locking type
 sys-cluster/scr:fortran - Enables Fortran support
 sys-cluster/scr:mysql - Enable use of mysql for logging SCR activities
-sys-cluster/scr:pmix - use pmix as resource manager
 sys-cluster/scr:slurm - use slurm as resource manager
 sys-cluster/scr:syslog - Whether to enable syslog logging
 sys-cluster/scr:txt-log - Whether to enable text file logging
