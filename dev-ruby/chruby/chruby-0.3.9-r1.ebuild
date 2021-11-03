@@ -15,7 +15,8 @@ DEPEND="|| ( >=app-shells/bash-3.0:* app-shells/zsh )"
 RDEPEND="${DEPEND}"
 
 src_install() {
-	emake DESTDIR="${D}" install
+	# TODO: Remove `${D}` from PREFIX in >=chruby-0.3.10 (https://git.io/JPQ25)
+	emake DESTDIR="${D}" PREFIX="${D}/usr" install
 
 	insinto "/etc/profile.d"
 	newins "${FILESDIR}/systemwide.sh" "chruby.sh"
