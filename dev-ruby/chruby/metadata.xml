@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>alexey@zapparov.com</email>
+		<name>Alexey Zapparov</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/postmodern/chruby/issues</bugs-to>
+		<changelog>https://github.com/postmodern/chruby/blob/master/ChangeLog.md</changelog>
+		<remote-id type="github">postmodern/chruby</remote-id>
+	</upstream>
+</pkgmetadata>

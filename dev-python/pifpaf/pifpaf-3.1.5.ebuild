@@ -4,7 +4,7 @@
 EAPI=8
 
 EPYTEST_DESELECT=( pifpaf/tests/test_cli.py::TestCli::test_non_existing_command )
-PYTHON_COMPAT=( python3_{8..10} pypy3  )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
@@ -26,7 +26,7 @@ RDEPEND="
 	dev-python/jinja[${PYTHON_USEDEP}]
 	dev-python/fixtures[${PYTHON_USEDEP}]
 	dev-python/psutil[${PYTHON_USEDEP}]
-	dev-python/pyxattr[${PYTHON_USEDEP}]
+	dev-python/xattr[${PYTHON_USEDEP}]
 "
 DEPEND="
 	${RDEPEND}

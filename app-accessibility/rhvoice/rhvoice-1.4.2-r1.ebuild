@@ -3,44 +3,29 @@
 
 EAPI=8
 
-CMAKE_REMOVE_MODULES_LIST=( VersionFromGit )
+CMAKE_REMOVE_MODULES_LIST=( Hardening VersionFromGit )
 inherit cmake
 
 DESCRIPTION="TTS engine with extended languages support (including Russian)"
 HOMEPAGE="https://rhvoice.su https://github.com/RHVoice/RHVoice"
-SRC_URI="
-	https://github.com/${PN}/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
-	l10n_en? ( https://github.com/${PN}/evgeniy-eng/archive/refs/tags/4.0.tar.gz -> rhvoice-evgeniy-eng-4.0.tar.gz )
-	l10n_ru? (
-		https://github.com/${PN}/aleksandr-hq-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-aleksandr-hq-4.0.tar.gz
-		https://github.com/${PN}/evgeniy-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-evgeniy-rus-4.0.tar.gz
-		https://github.com/${PN}/victoria-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-victoria-4.0.tar.gz
-		https://github.com/${PN}/yuriy-rus/archive/refs/tags/4.0.tar.gz -> rhvoice-yuriy-4.0.tar.gz
-	)
-	l10n_uk? ( https://github.com/${PN}/volodymyr-ukr/archive/refs/tags/4.0.tar.gz -> rhvoice-volodymyr-4.0.tar.gz )
-"
-S="${WORKDIR}/RHVoice-${PV}"
+SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.gz -> ${P}-release.tar.gz"
 
-LICENSE="l10n_pt-BR? ( CC-BY-SA-4.0 ) l10n_mk? ( AGPL-3 ) BSD GPL-2 GPL-3+ LGPL-2.1+"
-KEYWORDS="~amd64 ~x86"
-SLOT="0"
-IUSE="ao cli portaudio +pulseaudio +server +speech-dispatcher"
-REQUIRED_USE="|| ( ao portaudio pulseaudio )"
-
+AGPL_LANGS=( mk )
+CC_SA_LANGS=( pt-BR )
 CC_NC_LANGS=( en eo ky ru uk )
 NC_LANGS=( ka tt )
-LANGS=" ${CC_NC_LANGS[@]} ${NC_LANGS[@]} mk pt-BR"
-IUSE+="${LANGS// / l10n_}"
+LANGS=( "${AGPL_LANGS[@]}" "${CC_SA_LANGS[@]}" "${CC_NC_LANGS[@]}" "${NC_LANGS[@]}" )
 
-for lang in "${CC_NC_LANGS[@]}" ; do
-	LICENSE+=" l10n_${lang}?"
-	LICENSE+=" ( CC-BY-NC-ND-4.0 )"
-done
-
-for lang in "${NC_LANGS[@]}" ; do
-	LICENSE+=" l10n_${lang}?"
-	LICENSE+=" ( free-noncomm )"
-done
+LICENSE="BSD GPL-2 GPL-3+ LGPL-2.1+
+	$(printf 'l10n_%s? ( AGPL-3 )\n' "${AGPL_LANGS[@]}")
+	$(printf 'l10n_%s? ( CC-BY-SA-4.0 )\n' "${CC_SA_LANGS[@]}")
+	$(printf 'l10n_%s? ( CC-BY-NC-ND-4.0 )\n' "${CC_NC_LANGS[@]}")
+	$(printf 'l10n_%s? ( free-noncomm )\n' "${NC_LANGS[@]}")
+"
+KEYWORDS="~amd64 ~x86"
+IUSE="$(printf 'l10n_%s ' ${LANGS[@]}) ao cli portaudio +pulseaudio +server +speech-dispatcher"
+SLOT="0"
+REQUIRED_USE="|| ( ao portaudio pulseaudio )"
 
 DEPEND="
 	ao? ( media-libs/libao )
@@ -71,28 +56,6 @@ delete_voices() {
 	done
 }
 
-src_unpack() {
-	default
-
-	# git submodules, which are not present in the snapshot
-	rmdir "${S}"/data/voices/{aleksandr-hq,evgeniy-rus,evgeniy-eng,victoria,volodymyr,yuriy} || die
-
-	if use l10n_ru; then
-		mv "${WORKDIR}"/aleksandr-hq-rus-4.0 "${S}"/data/voices/aleksandr-hq || die
-		mv "${WORKDIR}"/evgeniy-rus-4.0 "${S}"/data/voices/evgeniy-rus || die
-		mv "${WORKDIR}"/victoria-rus-4.0 "${S}"/data/voices/victoria || die
-		mv "${WORKDIR}"/yuriy-rus-4.0 "${S}"/data/voices/yuriy || die
-	fi
-
-	if use l10n_en; then
-		mv "${WORKDIR}"/evgeniy-eng-4.0 "${S}"/data/voices/evgeniy-eng || die
-	fi
-
-	if use l10n_uk; then
-		mv "${WORKDIR}"/volodymyr-ukr-4.0 "${S}"/data/voices/volodymyr || die
-	fi
-}
-
 src_prepare() {
 	cmake_src_prepare
 
@@ -112,21 +75,25 @@ src_prepare() {
 		-i src/third-party/mage/CMakeLists.txt || die
 
 	sed -e "/include(VersionFromGit)/d" \
+		-e "/include(Hardening)/d" \
 		-e "/find_package(Sanitizers)/d" \
 		-e "/getVersionFromGit/d" \
+		-e "/harden/d" \
 		-i CMakeLists.txt || die
 	sed -e "/add_sanitizers/d" \
+		-e "/harden/d" \
 		-i src/*/CMakeLists.txt \
 		-i src/third-party/*/CMakeLists.txt || die
 
-	use l10n_en || delete_voices alan bdl clb slt
+	use l10n_en || delete_voices alan bdl clb evgeniy-eng slt
 	use l10n_eo || delete_voices spomenka
 	use l10n_ka || delete_voices natia
 	use l10n_ky || delete_voices azamat nazgul
 	use l10n_mk || delete_voices kiko
-	use l10n_ru || delete_voices aleksandr anna arina artemiy elena irina pavel
+	use l10n_ru || delete_voices aleksandr aleksandr-hq anna arina artemiy \
+		elena evgeniy-rus irina pavel victoria yuriy
 	use l10n_tt || delete_voices talgat
-	use l10n_uk || delete_voices anatol natalia
+	use l10n_uk || delete_voices anatol natalia volodymyr
 	use l10n_pt-BR || delete_voices Leticia-F123
 }
 

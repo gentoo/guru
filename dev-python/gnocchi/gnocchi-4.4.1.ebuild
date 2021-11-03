@@ -102,7 +102,7 @@ DEPEND="
 		>=dev-python/webtest-2.0.16[${PYTHON_USEDEP}]
 		>=dev-python/keystonemiddleware-4.0.0[${PYTHON_USEDEP}]
 		>=dev-python/wsgi_intercept-1.4.1[${PYTHON_USEDEP}]
-		dev-python/pyxattr[${PYTHON_USEDEP}]
+		dev-python/xattr[${PYTHON_USEDEP}]
 		dev-python/python-swiftclient[${PYTHON_USEDEP}]
 	)
 "

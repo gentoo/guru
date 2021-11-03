@@ -7,5 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/vinceliuice/Vimix-cursors/issues</bugs-to>
+		<remote-id type="github">vinceliuice/Vimix-cursors</remote-id>
 	</upstream>
 </pkgmetadata>

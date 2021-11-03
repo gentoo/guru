@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>alexey@zapparov.com</email>
+		<name>Alexey Zapparov</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/aws/aws-cli/issues</bugs-to>
+		<changelog>https://github.com/aws/aws-cli/blob/v2/CHANGELOG.rst</changelog>
+		<remote-id type="github">aws/aws-cli</remote-id>
+	</upstream>
+</pkgmetadata>

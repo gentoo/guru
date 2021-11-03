@@ -39,9 +39,10 @@ pkg_setup() {
 
 src_prepare() {
 	default
-	# Fix library installation path and disable 'sketcher' build
+	# Fix library installation path, disable 'sketcher' build, pass LDFLAGS
 	sed -i -e "s:CMAKE_INSTALL_LIBDIR lib:CMAKE_INSTALL_LIBDIR $(get_libdir):" \
-	-e "s:    add_subdirectory(sketcher)::" CMakeLists.txt || die
+		-e "s:    add_subdirectory(sketcher)::" \
+		-e 's:"-rdynamic":"-rdynamic '"${LDFLAGS}"'":' CMakeLists.txt || die
 
 	use !static-libs && eapply "${FILESDIR}/${P}_skip-static-build.patch"
 
