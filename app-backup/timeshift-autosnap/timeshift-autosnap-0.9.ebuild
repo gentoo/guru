@@ -29,7 +29,7 @@ $ grep -q timeshift-autosnap /etc/portage/bashrc || echo "function pre_pkg_setup
 
 src_unpack() {
 	default
-	mv ${WORKDIR}/timeshift-autosnap-${PV}* ${WORKDIR}/timeshift-autosnap-${PV}
+	mv "${WORKDIR}"/timeshift-autosnap-${PV}* "${WORKDIR}"/timeshift-autosnap-${PV} || die
 }
 
 src_compile(){

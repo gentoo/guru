@@ -8,7 +8,7 @@ DOCS_DIR="docs/doxygen"
 
 inherit cmake fortran-2 docs
 
-DESCRIPTION="Parallel Runtime Scheduler and Execution Controller for micro-tasks on distributed heterogeneous systems"
+DESCRIPTION="Parallel Runtime Scheduler and Execution Controller"
 HOMEPAGE="https://bitbucket.org/icldistcomp/parsec"
 SRC_URI="https://bitbucket.org/icldistcomp/parsec/get/${P}.tar.bz2"
 S="${WORKDIR}/icldistcomp-${PN}-d2ae4175f072"

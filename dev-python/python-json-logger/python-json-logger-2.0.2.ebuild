@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{8..10} pypy3 )
 
 inherit distutils-r1
 
-DESCRIPTION="This library is provided to allow standard python logging to output log data as json objects"
+DESCRIPTION="Standard python logging to output log data as json objects"
 HOMEPAGE="
 	https://github.com/madzak/python-json-logger
 	https://pypi.org/project/python-json-logger
