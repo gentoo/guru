@@ -168,7 +168,6 @@ RDEPEND="${DEPEND}"
 
 QA_FLAGS_IGNORED="usr/bin/*"
 
-
 src_compile() {
 	cd leftwm || die
 	use systemd && features="--features=journald"
@@ -189,4 +188,3 @@ pkg_postinst() {
 pkg_postrm() {
 	xdg_desktop_database_update
 }
-
