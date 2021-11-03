@@ -144,7 +144,6 @@ SRC_URI="
 	$(cargo_crate_uris)
 "
 
-
 DESCRIPTION="A system information fetcher, with an (unhealthy) emphasis on performance."
 # Double check the homepage as the cargo_metadata crate
 # does not provide this value so instead repository is used
