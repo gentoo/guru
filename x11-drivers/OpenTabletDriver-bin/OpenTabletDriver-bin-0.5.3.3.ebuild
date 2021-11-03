@@ -22,7 +22,7 @@ DEPEND="
 	dev-libs/libevdev
 	x11-libs/gtk+:3
 	virtual/udev
-	|| ( dev-dotnet/dotnet-sdk-bin dev-dotnet/dotnet-runtime-bin )
+	dev-dotnet/dotnet-sdk-bin
 "
 
 QA_PREBUILT="*"
