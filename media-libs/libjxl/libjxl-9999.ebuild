@@ -10,9 +10,9 @@ HOMEPAGE="https://github.com/libjxl/libjxl"
 
 EGIT_REPO_URI="https://github.com/libjxl/libjxl.git"
 
-LICENSE="Apache-2.0"
+LICENSE="BSD"
 SLOT="0"
-IUSE=""
+IUSE="examples"
 
 DEPEND="app-arch/brotli
 	sys-libs/zlib
@@ -24,8 +24,6 @@ DEPEND="app-arch/brotli
 	media-libs/openexr:=
 	dev-util/google-perftools
 	x11-misc/shared-mime-info
-	dev-qt/qtwidgets
-	dev-qt/qtx11extras
 	dev-cpp/gtest
 	dev-cpp/highway
 	media-libs/lcms
@@ -37,6 +35,7 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_SKIP_RPATH=ON
 		-DJPEGXL_ENABLE_BENCHMARK=OFF
 		-DJPEGXL_ENABLE_COVERAGE=OFF
 		-DJPEGXL_ENABLE_FUZZERS=OFF
@@ -44,8 +43,8 @@ src_configure() {
 		-DJPEGXL_WARNINGS_AS_ERRORS=OFF
 
 		-DJPEGXL_ENABLE_SKCMS=ON
-		-DJPEGXL_ENABLE_EXAMPLES=ON
-		-DJPEGXL_ENABLE_VIEWERS=ON
+		-DJPEGXL_ENABLE_EXAMPLES=$(usex examples)
+		-DJPEGXL_ENABLE_VIEWERS=OFF
 		-DJPEGXL_ENABLE_PLUGINS=ON
 		-DJPEGXL_FORCE_SYSTEM_BROTLI=ON
 		-DJPEGXL_FORCE_SYSTEM_HWY=ON
@@ -53,4 +52,11 @@ src_configure() {
 	)
 
 	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+	if use examples; then
+		dobin "${BUILD_DIR}/jxlinfo"
+	fi
 }
