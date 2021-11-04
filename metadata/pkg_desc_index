@@ -29,7 +29,7 @@ app-accessibility/rhvoice 1.4.2-r1: TTS engine with extended languages support (
 app-accessibility/speakup-tools 20121017: Tools to customize speakup module
 app-admin/akita 0.1.4: An HTTP log monitoring tool for your terminal
 app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
-app-admin/awscli-bin 2.3.2: Universal Command Line Interface for Amazon Web Services version 2
+app-admin/awscli-bin 2.3.2 2.3.2-r1: Universal Command Line Interface for Amazon Web Services version 2
 app-admin/chezmoi 1.8.10 2.6.1 2.7.2: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.12.2 0.12.3: A system rescue cd or usbstick for desktop and server based on gentoo
@@ -37,7 +37,7 @@ app-admin/glance 23.0.0: Services for discovering, registering, and retrieving V
 app-admin/gnome-passwordsafe 4.0-r1 4.1: A password manager for GNOME
 app-admin/grub-customizer 5.1.0: A graphical grub2 settings manager
 app-admin/krapplet 0.1.0-r1 0.2.0 0.3.1: Krapplet (keyring applet): a Linux graphical password manager
-app-admin/overmind 2.2.2: Process manager for Procfile-based applications and tmux
+app-admin/overmind 2.2.2 2.2.2-r1: Process manager for Procfile-based applications and tmux
 app-admin/pass-update 2.1: pass extension that provides an easy flow for updating passwords
 app-admin/s-tui 1.1.1 1.1.3: Stress-Terminal UI monitoring tool
 app-arch/libarchive-qt 2.0.3 2.0.4 2.0.6 9999: A Qt based archiving solution with libarchive backend
@@ -274,6 +274,7 @@ dev-cpp/folly 2021.10.25.00: An open-source C++ library developed and used at Fa
 dev-cpp/gsl-lite 0.38.0: C++ Guideline Support Library implementation
 dev-cpp/highway 0.14.2 9999: Performance-portable, length-agnostic SIMD with runtime dispatch
 dev-cpp/indicators 2.2: Activity indicators for modern C++
+dev-cpp/libstudxml 1.1.0_beta10: Streaming XML pull parser/serializer for modern C++
 dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
 dev-cpp/parallel-hashmap 1.33: Family of header-only, fast and memory-friendly hashmap and btree containers
 dev-cpp/pcg-cpp 0.98.1_p20210406-r1: Family of better random number generators
@@ -631,14 +632,14 @@ dev-python/vttlib 0.11.0: Dump, merge and compile Visual TrueType data in UFO3 w
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
 dev-python/webrtcvad 2.0.10: Python interface to the Google WebRTC Voice Activity Detector (VAD)
 dev-python/wsgi_intercept 1.9.2: wsgi_intercept installs a WSGI application in place of a real URI for testing
-dev-python/xattr 0.9.7: OpenTracing API for Python
+dev-python/xattr 0.9.7: Python wrapper for extended filesystem attributes
 dev-python/xunitparser 1.3.3: Read JUnit/XUnit XML files and map them to Python objects
 dev-python/yams 0.7.3 9999: A Last.FM scrobbler for MPD (Yet Another Mpd Scrobbler)
 dev-python/yaql 1.1.3: YAQL: Yet Another Query Language
 dev-python/yara-python 4.1.0 4.1.2: Python interface for a malware identification and classification tool
 dev-python/zVMCloudConnector 1.4.1: a development sdk for managing z/VM
 dev-ruby/byebug 11.1.3: a Ruby 2 debugger
-dev-ruby/chruby 0.3.9: Changes the current Ruby
+dev-ruby/chruby 0.3.9-r1: Changes the current Ruby
 dev-ruby/pry-byebug 3.9.0: Step-by-step debugging and stack navigation in Pry
 dev-ruby/rspec-wait 0.0.9: enables time-resilient expectations in your RSpec test suite
 dev-scheme/chez 9.5.4: A programming language based on R6RS
