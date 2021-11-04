@@ -2,14 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit qmake-utils
-inherit xdg-utils
+inherit qmake-utils xdg-utils
 
 DESCRIPTION="GameStream client for PCs"
 
 HOMEPAGE="https://github.com/moonlight-stream/moonlight-qt"
 
-SRC_URI="https://github.com/moonlight-stream/moonlight-qt/releases/download/v3.1.4/MoonlightSrc-3.1.4.tar.gz"
+SRC_URI="https://github.com/moonlight-stream/moonlight-qt/releases/download/v${PV}/MoonlightSrc-${PV}.tar.gz"
 
 S="${WORKDIR}"
 
@@ -19,9 +18,6 @@ SLOT="0"
 
 KEYWORDS="~amd64"
 
-# Comprehensive list of any and all USE flags leveraged in the ebuild,
-# with some exceptions, e.g., ARCH specific flags like "amd64" or "ppc".
-# Not needed if the ebuild doesn't use any USE flags.
 IUSE="vaapi"
 
 RDEPEND="
