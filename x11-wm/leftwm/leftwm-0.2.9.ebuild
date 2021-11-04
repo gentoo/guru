@@ -137,7 +137,7 @@ CRATES="
 	xdg-2.2.0
 "
 
-inherit cargo xdg-utils
+inherit cargo xdg-utils desktop
 
 DESCRIPTION="A window manager for Adventurers"
 HOMEPAGE="https://github.com/leftwm/leftwm"
@@ -154,6 +154,10 @@ LICENSE="
 	|| ( Apache-2.0 MIT MPL-2.0 )
 	|| ( MIT )
 	|| ( MIT Unlicense )
+	Apache-2.0
+	MIT
+	Unlicense
+	MPL-2.0
 "
 SLOT="0"
 KEYWORDS="~amd64"
@@ -166,7 +170,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-QA_FLAGS_IGNORED="usr/bin/*"
+QA_FLAGS_IGNORED="usr/bin/leftwm{,-worker,-state,-check,-command}"
 
 src_compile() {
 	cd leftwm || die
@@ -176,7 +180,7 @@ src_compile() {
 
 src_install() {
 	dodoc README.md CHANGELOG
-	cp leftwm.desktop /usr/share/xsessions/ || die
+	make_desktop_entry leftwm.desktop /usr/share/xsessions/
 	cd target/release || die
 	dobin leftwm{,-worker,-state,-check,-command}
 }

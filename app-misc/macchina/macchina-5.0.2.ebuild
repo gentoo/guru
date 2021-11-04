@@ -166,7 +166,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-QA_FLAGS_IGNORED="usr/bin/*"
+QA_FLAGS_IGNORED="usr/bin/macchina"
 
 src_compile() {
 	cargo build --release || die

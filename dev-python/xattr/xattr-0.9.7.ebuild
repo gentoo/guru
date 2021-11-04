@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
-DESCRIPTION="OpenTracing API for Python"
+DESCRIPTION="Python wrapper for extended filesystem attributes"
 HOMEPAGE="https://github.com/xattr/xattr"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
