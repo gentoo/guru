@@ -8,5 +8,5 @@ KEYWORDS=~amd64
 LICENSE=GPL-3
 SLOT=0
 SRC_URI=https://github.com/13-CF/afetch/archive/refs/tags/V2.2.0.tar.gz -> afetch-2.2.0.tar.gz
-_eclasses_=portability	d1186f1e621de7b27ddcae82e6253259	savedconfig	ed1a8cb208fa9ffa1861271194406651
+_eclasses_=portability	d1186f1e621de7b27ddcae82e6253259	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d
 _md5_=310106e6b6f58c6ff1f1db70e6f4a64c
