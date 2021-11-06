@@ -95,6 +95,7 @@ src_configure() {
 		-DJPEGXL_FORCE_NEON=$(usex cpu_flags_arm_neon)
 
 		-DBUILD_SHARED_LIBS=ON
+		-DCMAKE_SKIP_RPATH=ON
 		-DJPEGXL_BUNDLE_SKCMS=OFF
 		-DJPEGXL_ENABLE_COVERAGE=OFF
 		-DJPEGXL_ENABLE_FUZZERS=OFF
@@ -111,6 +112,7 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
+	dolib.so libjxl_dec.so*
 	einstalldocs
 	#TODO: install documentation
 	exeinto "/usr/libexec/${PN}"
