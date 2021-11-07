@@ -78,8 +78,10 @@ BDEPEND="
 		dev-tex/latexmk
 		dev-texlive/texlive-latexextra
 	)
+	java? ( app-admin/chrpath )
 "
 
+PATCHES=( "${FILESDIR}/${P}-link-sionlib.patch" )
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 
@@ -225,6 +227,11 @@ src_install() {
 	fi
 	docompress -x "/usr/share/doc/${PF}/examples"
 	docompress -x "/usr/share/doc/${PF}/tests"
+
+	if use java; then
+		chrpath -d "${ED}/usr/$(get_libdir)/libextrae-jvmti-agent.so" || die
+		chrpath -d "${ED}/usr/$(get_libdir)/libjavatrace.so" || die
+	fi
 
 	find "${ED}" -name '*.a' -delete || die
 	find "${ED}" -name '*.la' -delete || die
