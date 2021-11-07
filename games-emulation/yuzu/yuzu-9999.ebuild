@@ -1,57 +1,65 @@
 # Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit cmake git-r3 flag-o-matic toolchain-funcs xdg
+inherit cmake git-r3 toolchain-funcs xdg
 
 DESCRIPTION="An emulator for Nintendo Switch"
 HOMEPAGE="https://yuzu-emu.org"
 EGIT_REPO_URI="https://github.com/yuzu-emu/yuzu"
-EGIT_SUBMODULES=( '*' '-ffmpeg' '-inih' '-libressl' '-libusb' '-libzip' '-opus' '-SDL' )
+EGIT_SUBMODULES=( '*' '-ffmpeg' '-inih' '-libressl' '-libusb' '-opus' '-SDL' )
+# TODO '-libzip' when boxcat feature is reintroduced
 # TODO '-xbyak' wait for bump in tree
 # TODO cubeb auto-links to jack, pulse, alsa .., allow determining cubeb output
 #      media-libs/cubeb would benefit to a lot of packages: dolphin-emu, firefox, citra, self, ...
 # TODO many submodules produce static libraries which forces to unset BUILD_SHARED_LIBS
 #      this may be better to generate shared libraries and install them under /usr/$(get_libdir)/yuzu
 
-LICENSE="GPL-3"
+LICENSE="|| ( Apache-2.0 GPL-2+ ) 0BSD BSD GPL-2+ ISC MIT
+	!system-vulkan? ( Apache-2.0 )"
 SLOT="0"
 KEYWORDS=""
 IUSE="+boxcat +compatibility-list +cubeb discord +qt5 sdl system-vulkan webengine +webservice"
 
-DEPEND="
-	discord? ( >=dev-libs/rapidjson-1.1.0 )
+RDEPEND="
+	>=app-arch/lz4-1.8:=
+	>=app-arch/zstd-1.5
+	>=dev-libs/boost-1.73:=[context]
+	>=dev-libs/libfmt-8:=
+	>=dev-libs/openssl-1.1:=
+	>=media-libs/opus-1.3
+	media-video/ffmpeg:=
+	>=sys-libs/zlib-1.2
+	virtual/libusb:1
 	qt5? (
-		>=dev-qt/qtgui-5.15
-		>=dev-qt/qtwidgets-5.15
+		>=dev-qt/qtcore-5.15:5
+		>=dev-qt/qtgui-5.15:5
+		>=dev-qt/qtwidgets-5.15:5
 	)
 	sdl? (
 		>=media-libs/libsdl2-2.0.16
 		>=dev-libs/inih-52
 	)
+"
+DEPEND="${RDEPEND}
 	system-vulkan? (
 		>=dev-util/vulkan-headers-1.2.180
 	)
-	>=app-arch/lz4-1.8
-	>=app-arch/zstd-1.5
+"
+BDEPEND="
 	>=dev-cpp/catch-2.13:0
 	>=dev-cpp/nlohmann_json-3.8.0
-	>=dev-libs/boost-1.73:=[context]
-	>=dev-libs/libfmt-8
-	>=dev-libs/libzip-1.5
-	>=media-libs/opus-1.3.1
-	>=sys-libs/zlib-1.2
-	virtual/libusb:1
+	dev-util/glslang
+	discord? ( >=dev-libs/rapidjson-1.1.0 )
 "
-RDEPEND="${DEPEND}"
 REQUIRED_USE="boxcat? ( webservice ) || ( qt5 sdl )"
 
 PATCHES=( "${FILESDIR}"/${P}-assert.patch )
 
 pkg_setup() {
-	if [ tc-is-gcc ]; then
-		[ "$(gcc-major-version)" -lt 11 ] && \
+	if tc-is-gcc; then
+		[[ "$(gcc-major-version)" -lt 11 ]] && \
 			die "You need gcc version 11 or clang to compile this package"
 	fi
 	grep -q 'ThreadEngineStarter<void>' /usr/include/qt5/QtConcurrent/qtconcurrentthreadengine.h \
@@ -70,22 +78,11 @@ src_unpack() {
 }
 
 src_prepare() {
-	# Set yuzu dev flags
-	filter-flags '-*'
-	append-cflags '-O3 -DNDEBUG'
-	append-cxxflags '-O3 -DNDEBUG'
-
 	# headers is not a valid boost component
 	sed -i -e '/find_package(Boost/{s/headers //;s/CONFIG //}' CMakeLists.txt || die
 
 	# Allow skip submodule downloading
-	rm .gitmodules
-
-	# unbundle opus (thx to https://github.com/Alex-Aralis/yuzu-overlay/blob/master/games-emulation/yuzu/files/unbundle-opus.patch)
-	sed -i -e "s!add_subdirectory(opus)!add_library(opus INTERFACE)\ntarget_include_directories(opus SYSTEM INTERFACE /usr/include/opus)\ntarget_link_libraries(opus INTERFACE /usr/$(get_libdir)/libopus.so)!" externals/CMakeLists.txt || die
-
-	# Fix libzip detection
-	sed -i -e '/Libzip/s:.*:include(find-modules/FindLibzip.cmake)\n&:' externals/CMakeLists.txt || die
+	rm .gitmodules || die
 
 	# Unbundle inih
 	sed -i -e '/inih/d' externals/CMakeLists.txt || die
