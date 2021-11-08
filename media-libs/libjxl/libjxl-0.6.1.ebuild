@@ -65,7 +65,7 @@ BDEPEND="
 	man? ( app-text/asciidoc )
 "
 
-PATCHES=( "${FILESDIR}/${P}-system-libs.patch" )
+PATCHES=( "${FILESDIR}/${PN}-0.6-system-libs.patch" )
 REQUIRED_USE="tcmalloc? ( abi_x86_64 )"
 DOCS=( AUTHORS README.md SECURITY.md PATENTS CONTRIBUTORS CHANGELOG.md )
 
@@ -95,6 +95,7 @@ src_configure() {
 		-DJPEGXL_FORCE_NEON=$(usex cpu_flags_arm_neon)
 
 		-DBUILD_SHARED_LIBS=ON
+		-DCMAKE_SKIP_RPATH=ON
 		-DJPEGXL_BUNDLE_SKCMS=OFF
 		-DJPEGXL_ENABLE_COVERAGE=OFF
 		-DJPEGXL_ENABLE_FUZZERS=OFF
@@ -111,6 +112,7 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
+	dolib.so libjxl_dec.so*
 	einstalldocs
 	#TODO: install documentation
 	exeinto "/usr/libexec/${PN}"

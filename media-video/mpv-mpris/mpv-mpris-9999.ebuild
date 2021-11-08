@@ -20,23 +20,21 @@ SLOT="0"
 LICENSE="MIT"
 IUSE="+autoload"
 
-BDEPEND="virtual/pkgconfig"
-RDEPEND="media-video/mpv:=[cplugins,libmpv]
-	dev-libs/glib"
+RDEPEND="
+	dev-libs/glib:2
+	media-video/mpv:=[cplugins,libmpv]
+"
 DEPEND="${RDEPEND}"
-
-DOCS=(
-	README.md
-)
+BDEPEND="virtual/pkgconfig"
 
 src_compile() {
-	emake CC="$(tc-getCC)" PKG_CONFIG="$(tc-getPKG_CONFIG)"
+	tc-export CC
+	emake PKG_CONFIG="$(tc-getPKG_CONFIG)"
 }
 
 src_install() {
-	insinto "/usr/$(get_libdir)/mpv"
-	doins mpris.so
-	use autoload && dosym "/usr/$(get_libdir)/mpv/mpris.so" "/etc/mpv/scripts/mpris.so"
+	dolib.so mpris.so
+	use autoload && dosym -r /usr/$(get_libdir)/mpv/mpris.so /etc/mpv/scripts/mpris.so
 	einstalldocs
 }
 
@@ -45,8 +43,8 @@ pkg_postinst() {
 		elog
 		elog "The plugin has not been installed to /etc/mpv/scripts for autoloading."
 		elog "You have to activate it manually by passing"
-		elog " \"/usr/$(get_libdir)/mpv/mpris.so\" "
-		elog "as script option to mpv or symlinking the library to \"scripts/\" in your mpv"
+		elog " '${EPREFIX}/usr/$(get_libdir)/mpv/mpris.so' "
+		elog "as a script option to mpv or symlinking the library to 'scripts' in your mpv"
 		elog "config directory."
 		elog "Alternatively, activate the autoload use flag."
 		elog

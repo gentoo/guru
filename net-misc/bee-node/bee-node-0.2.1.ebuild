@@ -411,7 +411,6 @@ KEYWORDS="~amd64"
 RDEPEND="
 	<sys-devel/clang-${LLVM_MAX_SLOT}:=
 	|| (
-		( sys-devel/llvm:10 sys-devel/clang:10 )
 		( sys-devel/llvm:11 sys-devel/clang:11 )
 		( sys-devel/llvm:12 sys-devel/clang:12 )
 	)
