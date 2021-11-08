@@ -3,7 +3,7 @@
 <pkgmetadata>
 	<maintainer type="person">
 		<email>andrewathalye@outlook.com</email>
-		<description>Andrew Athalye</description>
+		<name>Andrew Athalye</name>
 	</maintainer>
 	<use>
 		<flag name="vaapi">
