@@ -16,7 +16,7 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	default
-	mv "${PN}.sh" "${PN}"
+	mv "${PN}.sh" "${PN}" || die
 }
 
 src_install() {
