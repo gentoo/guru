@@ -75,11 +75,8 @@ src_prepare() {
 		-i src/third-party/mage/CMakeLists.txt || die
 
 	sed -e "/include(VersionFromGit)/d" \
-		-e "/find_package(Sanitizers)/d" \
 		-e "/getVersionFromGit/d" \
 		-i CMakeLists.txt || die
-	sed -e "/add_sanitizers/d" \
-		-i src/*/CMakeLists.txt src/third-party/*/CMakeLists.txt || die
 
 	use l10n_en || delete_voices alan bdl clb evgeniy-eng slt
 	use l10n_eo || delete_voices spomenka
