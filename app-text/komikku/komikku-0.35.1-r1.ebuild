@@ -41,6 +41,7 @@ DEPEND="
 RDEPEND="
 	${PYTHON_DEPS}
 	${DEPEND}
+	net-libs/webkit-gtk
 "
 
 S="${WORKDIR}/${MY_P}"
