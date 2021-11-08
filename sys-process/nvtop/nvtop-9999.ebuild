@@ -30,7 +30,7 @@ SLOT="0"
 IUSE="debug unicode"
 
 RDEPEND="
-	sys-libs/ncurses:0=[unicode(-)?]
+	sys-libs/ncurses:0=
 	x11-drivers/nvidia-drivers
 "
 
