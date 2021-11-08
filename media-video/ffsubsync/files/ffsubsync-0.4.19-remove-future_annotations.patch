@@ -1,0 +1,176 @@
+Removes the dependency from future-annotations, since the ebuild does
+not support <dev-lang/python-3.7, using the __future__ module instead.
+Patch by Nicola Smaniotto.
+
+diff --git a/ffsubsync/__init__.py b/ffsubsync/__init__.py
+index 1ce6e51..965cb46 100644
+--- a/ffsubsync/__init__.py
++++ b/ffsubsync/__init__.py
+@@ -1,4 +1,4 @@
+-# -*- coding: future_annotations -*- 
++from __future__ import annotations 
+ import logging
+ import sys
+ 
+diff --git a/ffsubsync/aligners.py b/ffsubsync/aligners.py
+index 6c7afc7..d777eff 100644
+--- a/ffsubsync/aligners.py
++++ b/ffsubsync/aligners.py
+@@ -1,4 +1,4 @@
+-# -*- coding: future_annotations -*- 
++from __future__ import annotations 
+ import logging
+ import math
+ from typing import TYPE_CHECKING
+diff --git a/ffsubsync/constants.py b/ffsubsync/constants.py
+index 99d08e9..176e786 100644
+--- a/ffsubsync/constants.py
++++ b/ffsubsync/constants.py
+@@ -1,4 +1,4 @@
+-# -*- coding: future_annotations -*-
++from __future__ import annotations
+ from typing import TYPE_CHECKING
+ 
+ if TYPE_CHECKING:
+diff --git a/ffsubsync/ffmpeg_utils.py b/ffsubsync/ffmpeg_utils.py
+index ee96da3..10dd923 100644
+--- a/ffsubsync/ffmpeg_utils.py
++++ b/ffsubsync/ffmpeg_utils.py
+@@ -1,4 +1,4 @@
+-# -*- coding: future_annotations -*-
++from __future__ import annotations
+ import logging
+ import os
+ import platform
+diff --git a/ffsubsync/ffsubsync.py b/ffsubsync/ffsubsync.py
+index d10e969..6005b5c 100755
+--- a/ffsubsync/ffsubsync.py
++++ b/ffsubsync/ffsubsync.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python
+-# -*- coding: future_annotations -*-
++from __future__ import annotations
+ import argparse
+ from datetime import datetime
+ import logging
+diff --git a/ffsubsync/ffsubsync_gui.py b/ffsubsync/ffsubsync_gui.py
+index a8c7ba1..b29607c 100755
+--- a/ffsubsync/ffsubsync_gui.py
++++ b/ffsubsync/ffsubsync_gui.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python
+-# -*- coding: future_annotations -*-
++from __future__ import annotations
+ import logging
+ import os
+ import sys
+diff --git a/ffsubsync/file_utils.py b/ffsubsync/file_utils.py
+index cfb3867..2aa7a9a 100644
+--- a/ffsubsync/file_utils.py
++++ b/ffsubsync/file_utils.py
+@@ -1,4 +1,4 @@
+-# -*- coding: future_annotations -*- 
++from __future__ import annotations 
+ import six
+ import sys
+ 
+diff --git a/ffsubsync/generic_subtitles.py b/ffsubsync/generic_subtitles.py
+index 65c3729..a293eab 100644
+--- a/ffsubsync/generic_subtitles.py
++++ b/ffsubsync/generic_subtitles.py
+@@ -1,4 +1,4 @@
+-# -*- coding: future_annotations -*-
++from __future__ import annotations
+ import copy
+ from datetime import timedelta
+ import logging
+diff --git a/ffsubsync/sklearn_shim.py b/ffsubsync/sklearn_shim.py
+index d127e6a..f9d060d 100644
+--- a/ffsubsync/sklearn_shim.py
++++ b/ffsubsync/sklearn_shim.py
+@@ -1,4 +1,4 @@
+-# -*- coding: future_annotations -*-
++from __future__ import annotations
+ """
+ This module borrows and adapts `Pipeline` from `sklearn.pipeline` and
+ `TransformerMixin` from `sklearn.base` in the scikit-learn framework
+diff --git a/ffsubsync/speech_transformers.py b/ffsubsync/speech_transformers.py
+index 21a042a..ead16de 100644
+--- a/ffsubsync/speech_transformers.py
++++ b/ffsubsync/speech_transformers.py
+@@ -1,4 +1,4 @@
+-# -*- coding: future_annotations -*-
++from __future__ import annotations
+ from contextlib import contextmanager
+ import logging
+ import io
+diff --git a/ffsubsync/subtitle_parser.py b/ffsubsync/subtitle_parser.py
+index 92a01db..74a7b5b 100755
+--- a/ffsubsync/subtitle_parser.py
++++ b/ffsubsync/subtitle_parser.py
+@@ -1,4 +1,4 @@
+-# -*- coding: future_annotations -*-
++from __future__ import annotations
+ from datetime import timedelta
+ import logging
+ from typing import TYPE_CHECKING
+diff --git a/ffsubsync/subtitle_transformers.py b/ffsubsync/subtitle_transformers.py
+index fbb498b..f18151d 100644
+--- a/ffsubsync/subtitle_transformers.py
++++ b/ffsubsync/subtitle_transformers.py
+@@ -1,4 +1,4 @@
+-# -*- coding: future_annotations -*-
++from __future__ import annotations
+ from datetime import timedelta
+ import logging
+ import numbers
+diff --git a/ffsubsync/version.py b/ffsubsync/version.py
+index fadd2c7..ef01e83 100644
+--- a/ffsubsync/version.py
++++ b/ffsubsync/version.py
+@@ -1,4 +1,4 @@
+-# -*- coding: future_annotations -*-
++from __future__ import annotations
+ import os
+ from ffsubsync.constants import SUBSYNC_RESOURCES_ENV_MAGIC
+ from ffsubsync._version import get_versions
+diff --git a/tests/test_alignment.py b/tests/test_alignment.py
+index 13d60d0..9aa476e 100644
+--- a/tests/test_alignment.py
++++ b/tests/test_alignment.py
+@@ -1,4 +1,4 @@
+-# -*- coding: future_annotations -*- 
++from __future__ import annotations 
+ import pytest
+ from ffsubsync.aligners import FFTAligner, MaxScoreAligner
+ 
+diff --git a/tests/test_integration.py b/tests/test_integration.py
+index dd470a5..7f36769 100644
+--- a/tests/test_integration.py
++++ b/tests/test_integration.py
+@@ -1,4 +1,4 @@
+-# -*- coding: future_annotations -*-
++from __future__ import annotations
+ 
+ import filecmp
+ import os
+diff --git a/tests/test_misc.py b/tests/test_misc.py
+index 135f4ae..3168493 100644
+--- a/tests/test_misc.py
++++ b/tests/test_misc.py
+@@ -1,4 +1,4 @@
+-# -*- coding: future_annotations -*-
++from __future__ import annotations
+ import pytest
+ from ffsubsync.version import make_version_tuple
+ 
+diff --git a/tests/test_subtitles.py b/tests/test_subtitles.py
+index ae6f42b..29ffa21 100644
+--- a/tests/test_subtitles.py
++++ b/tests/test_subtitles.py
+@@ -1,4 +1,4 @@
+-# -*- coding: future_annotations -*- 
++from __future__ import annotations 
+ import itertools
+ from io import BytesIO
+ from datetime import timedelta
