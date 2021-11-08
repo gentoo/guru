@@ -4,7 +4,7 @@
 EAPI=8
 
 CMAKE_REMOVE_MODULES_LIST=( BackwardConfig )
-inherit cmake optfeature xdg
+inherit cmake optfeature virtualx xdg
 
 DESCRIPTION="High-level runtime introspection tool for Qt applications"
 HOMEPAGE="https://www.kdab.com/gammaray https://github.com/KDAB/GammaRay"
@@ -19,12 +19,9 @@ fi
 
 LICENSE="BSD-2 GPL-2+ MIT"
 SLOT=0
+
 IUSE="3d bluetooth designer doc geolocation printsupport script scxml svg test qml wayland webengine"
-
-# broken tests
-RESTRICT="test"
-
-DOCS=( CHANGES CONTRIBUTORS.txt README.txt )
+RESTRICT="!test? ( test )"
 
 # TODO: fix automagic sci-libs/vtk (and many other) dependencies
 RDEPEND="
@@ -52,11 +49,15 @@ DEPEND="${RDEPEND}
 	test? ( dev-qt/qttest:5 )
 "
 
+DOCS=( CHANGES CONTRIBUTORS.txt README.txt )
+
+PATCHES=( "${FILESDIR}"/${P}-deselect-tests.patch )
+
 src_prepare(){
-	sed -i \
-		-e "/BackwardConfig.cmake/d" \
-		-e "/set(KDE_INSTALL_USE_QT_SYS_PATHS/d" -i CMakeLists.txt || die
 	sed -i "/add_backward(gammaray_core)/d" core/CMakeLists.txt || die
+	sed -i CMakeLists.txt  \
+		-e "/BackwardConfig.cmake/d" \
+		-e "/set(KDE_INSTALL_USE_QT_SYS_PATHS/d" || die
 
 	cmake_src_prepare
 }
@@ -85,13 +86,15 @@ src_configure(){
 		-DGAMMARAY_BUILD_DOCS=$(usex doc)
 		-DGAMMARAY_BUILD_UI=ON
 		-DGAMMARAY_DISABLE_FEEDBACK=ON
-
-		# fix install paths
-# 		-DDOC_INSTALL_DIR="doc/${PF}"
 		-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
 	)
 
 	cmake_src_configure
+}
+
+src_test() {
+# 	export QT_QPA_PLATFORM=offscreen
+	virtx cmake_src_test
 }
 
 src_install() {
