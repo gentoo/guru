@@ -47,6 +47,7 @@ app-backup/grub-btrfs 4.10.2: Improves Grub by adding btrfs snapshots to the Gru
 app-backup/timeshift 21.09.1: A system restore utility for Linux
 app-backup/timeshift-autosnap 0.9: Automatically creates a timeshift-snapshot when executed
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
+app-crypt/certbot-dns-digitalocean 1.18.0 1.19.0 1.20.0 1.21.0: Digitalocean DNS Authenticator plugin for Certbot (Let's Encrypt Client)
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/gnome-encfs-manager 1.9: An easy to use manager and mounter for encfs stashes
 app-crypt/mkp224o 1.5.0: Vanity address generator for v3 Tor hidden service addresses
@@ -307,7 +308,7 @@ dev-lang/fbc 1.07.3 1.08.1: A free/open source, multi-platform BASIC compiler.
 dev-lang/fbc-bootstrap 1.07.3 1.08.1: Bootstrap package for dev-lang/fbc
 dev-lang/fennel 0.9.2 0.10.0 9999: Fennel is a lisp that compiles to Lua
 dev-lang/gleam 0.16.0: A statically typed functional language for the BEAM
-dev-lang/lean 3.33.0 3.34.0: The Lean Theorem Prover
+dev-lang/lean 3.33.0 3.34.0 3.35.0: The Lean Theorem Prover
 dev-lang/quickjs 2020.11.08 2021.03.27: Small embeddable Javascript engine
 dev-lang/wren 0.3.0: The Wren Programming Language
 dev-libs/StringiFor 1.1.1 1.1.3: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
@@ -346,6 +347,7 @@ dev-libs/protothreads 1.4: Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
 dev-libs/randomx 1.1.8 1.1.9: Proof of work algorithm based on random code execution
 dev-libs/supercop 0_p20200827: Fast cryptographic operations for Monero wallets
+dev-libs/tfdn 1.0.1: Opinionated C11 library for low-level functionality
 dev-libs/tllist 1.0.5 9999: A C header file only implementation of a typed linked list
 dev-libs/tweeny 3.1.1 3.2.0: C++ tweening (inbetweening) library
 dev-libs/xqilla 2.3.4: An XQuery and XPath 2 library and command line utility written in C++
@@ -416,6 +418,7 @@ dev-python/daiquiri 3.0.1: Python library to easily setup basic logging function
 dev-python/databases 0.4.3: Async database support for Python.
 dev-python/dateparser 1.0.0: Date parsing library designed to parse dates from HTML pages
 dev-python/devtools 0.6.1: Dev tools for python
+dev-python/digitalocean 1.16.0 1.17.0: Digitalocean API access library
 dev-python/dotmap 1.3.25: Dot access dictionary with dynamic hierarchy creation and ordered iteration
 dev-python/doubles 1.5.3: Test doubles for Python
 dev-python/doxypypy 0.8.8.6_p20210405: A more Pythonic version of doxypy, a Doxygen filter for Python
@@ -464,7 +467,7 @@ dev-python/jupyter-sphinx 0.3.2: Jupyter Sphinx Extensions
 dev-python/keystonemiddleware 9.3.0: A middleware for the OpenStack Keystone API
 dev-python/kitchen 1.2.6: Kitchen contains a cornucopia of useful code
 dev-python/ldappool 2.4.1: A connection pool for python-ldap
-dev-python/libusb1 1.9.2: Pure-python wrapper for libusb-1.0
+dev-python/libusb1 2.0.1: Pure-python wrapper for libusb-1.0
 dev-python/manhole 1.8.0-r1: Debugging manhole for python application
 dev-python/markdown-include 0.6.0: Syntax which allows for inclusion of contents of other Markdown docs
 dev-python/md-environ 0.1.0: Syntax which allows for inclusion of contents of other Markdown docs
@@ -609,7 +612,7 @@ dev-python/testrepository 0.0.20-r200: A repository of test results
 dev-python/threadloop 1.0.2: Run Tornado Coroutines from Synchronous Python
 dev-python/thriftrw 1.8.1: A Thrift encoding library for Python
 dev-python/tinyrpc 1.0.1: A protocol neutral RPC library that supports JSON-RPC and zmq.
-dev-python/tooz 2.7.1: Library centralizing the most common distributed primitives
+dev-python/tooz 2.9.0: Library centralizing the most common distributed primitives
 dev-python/transaction 3.0.1: Transaction management for Python
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill Algorithm
 dev-python/ttfautohint-py 0.4.3: A Python wrapper for ttfautohint
@@ -634,8 +637,8 @@ dev-python/webrtcvad 2.0.10: Python interface to the Google WebRTC Voice Activit
 dev-python/wsgi_intercept 1.9.2: wsgi_intercept installs a WSGI application in place of a real URI for testing
 dev-python/xattr 0.9.7: Python wrapper for extended filesystem attributes
 dev-python/xunitparser 1.3.3: Read JUnit/XUnit XML files and map them to Python objects
-dev-python/yams 0.7.3 9999: A Last.FM scrobbler for MPD (Yet Another Mpd Scrobbler)
-dev-python/yaql 1.1.3: YAQL: Yet Another Query Language
+dev-python/yams 0.7.3 9999: Yet Another MPD Scrobbler (for Last.FM)
+dev-python/yaql 2.0.0: YAQL: Yet Another Query Language
 dev-python/yara-python 4.1.0 4.1.2: Python interface for a malware identification and classification tool
 dev-python/zVMCloudConnector 1.4.1: a development sdk for managing z/VM
 dev-ruby/byebug 11.1.3: a Ruby 2 debugger
@@ -660,7 +663,7 @@ dev-util/devscripts 2.21.2 2.21.3: Scripts to make the life of a Debian Package 
 dev-util/eclipse-parallel-bin 4.20 4.21: Eclipse IDE for Scientific Computing (C, C++, Fortran)
 dev-util/fontmake 2.4.0: A wrapper for several Python libraries to compile fonts from sources
 dev-util/fypp 3.1: Fypp - Python powered Fortran preprocessor
-dev-util/gammaray 2.11.2: High-level runtime introspection tool for Qt applications
+dev-util/gammaray 2.11.3: High-level runtime introspection tool for Qt applications
 dev-util/gftools 0.7.2: Miscellaneous tools for working with the Google Fonts collection
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
@@ -692,6 +695,7 @@ games-action/blackvoxel 2.42 9999: Blackvoxel Video Game
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
 games-action/technic-launcher 4.625: Minecraft launcher for community-made modpacks on the Technic Platform
+games-arcade/SpaceCadetPinball 2.0: Decompilation of 3D Pinball for Windows - Space Cadet
 games-arcade/opensurge 0.5.2.1 9999: fun 2D retro platformer inspired by old-school Sonic games
 games-arcade/taisei 1.3.2-r1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 games-board/fairy-stockfish 14: Chess variant engine derived from Stockfish to support fairy chess variants
@@ -756,6 +760,7 @@ gui-apps/mpvpaper 1.0 1.1 9999: A video wallpaper program for wlroots based wayl
 gui-apps/nwg-launchers 0.5.0 0.6.3 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperde 0.1.1_p20210426 9999: Simple, sleek QT based DE for wayland using wayfire
 gui-apps/sfwbar 0.9.7 0.9.8 0.9.9.3 0.9.10.1: Sway Floating Window Bar
+gui-apps/sway-launcher-desktop 1.5.4: TUI Application launcher with Desktop Entry support
 gui-apps/swaykbdd 1.0: Per-window keyboard layout switcher for Sway
 gui-apps/swaylock-effects 1.6.2 1.6.3 9999: Swaylock, with fancy effects
 gui-apps/szyszka 1.0.0: Simple, powerful and easy to use file renamer
@@ -825,7 +830,7 @@ media-libs/fcft 2.3.3 2.4.0 2.4.1 2.4.2 2.4.3 2.4.4 2.4.5 2.4.6 9999: A simple l
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
 media-libs/imgui 1.83: Bloat-free graphical user interface library for C++
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
-media-libs/libjxl 0.6-r2 9999: JPEG XL image format reference implementation
+media-libs/libjxl 0.6.1 9999: JPEG XL image format reference implementation
 media-libs/lodepng 20210627: PNG encoder and decoder
 media-libs/monado 9999: The open source OpenXR runtime.
 media-libs/openxr-loader 1.0.20 9999: OpenXR loader
@@ -860,7 +865,7 @@ media-sound/spotify_dl 7.6.0: Downloads songs from a Spotify Playlist/Track/Albu
 media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
 media-sound/zita-ajbridge 0.8.4 0.8.4-r1: zita-a2j and zita-j2a - bridges between ALSA and JACK
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
-media-video/ffsubsync 0.4.18: Automagically syncronize subtitles with video
+media-video/ffsubsync 0.4.18 0.4.19: Automagically syncronize subtitles with video
 media-video/jellyfin-media-player 1.6.0 1.6.1: Jellyfin Desktop Client based on Plex Media Player
 media-video/kikoplay 0.8.1 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.3.0: A GTK3 camera application that knows how to deal with the media request api
@@ -870,7 +875,7 @@ media-video/owncast 0.0.7-r1 0.0.8 0.0.9 0.0.10: A self-hosted live video and we
 media-video/qliveplayer 4.0.1-r2 4.1.0: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/trakt-scrobbler 1.3.2: Scrobbler for trakt.tv that supports VLC, Plex, MPC-HC, and MPV
-media-video/uxplay 1.38: AirPlay Unix mirroring server
+media-video/uxplay 1.39: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
 net-analyzer/munin-contrib 0.2021.04.27: user contributed stuff related to munin
 net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various plugins for Munin
@@ -886,7 +891,7 @@ net-im/discord-canary-bin 0.0.131: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.25: All-in-one voice and text chat
 net-im/go-sendxmpp 0_pre20200423 0.1.1: A little tool to send messages to an XMPP contact or MUC
 net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
-net-im/kaidan 0.7.0 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!
+net-im/kaidan 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!
 net-im/matterhorn-bin 50200.13.0: Terminal based Mattermost client
 net-im/nheko 0.8.2-r1 0.9.0_pre20211003-r1: Desktop client for Matrix using Qt and C++14
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
@@ -896,6 +901,7 @@ net-irc/srain 1.2.1 1.2.4: Modern, beautiful IRC client written in GTK+ 3
 net-libs/ixwebsocket 11.2.8: C++ websocket client and server library
 net-libs/kcgi 0.12.5: Minimal CGI library for web applications
 net-libs/libqmatrixclient 0.5.3.2: A Qt5 library to write cross-platfrom clients for Matrix
+net-libs/telepathy-haze 0.8.1: Telepathy connection manager providing libpurple supported protocols
 net-libs/usockets 0.8.1_p20211023 9999: tiny eventing, networking & crypto for async applications
 net-mail/remail 0.13: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.4.1 1.4.2 1.5.0: FORT validator is an open source RPKI validator
@@ -910,10 +916,11 @@ net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.4.4 0.4.5: A gemini Server written in rust
 net-misc/gmid 1.7.4 1.7.5 9999: Simple and secure Gemini server
 net-misc/kristall 0.3-r1 9999: Visual cross-platform gemini browser
-net-misc/lagrange 1.7.2 1.7.3: Desktop GUI client for browsing Geminispace
+net-misc/lagrange 1.7.3 1.8.1: Desktop GUI client for browsing Geminispace
 net-misc/lyrics-in-terminal 1.4.2: Command Line Lyrics fetcher for MPRIS media players
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
+net-misc/moonlight 3.1.4: GameStream client for PCs
 net-misc/myip 1.2.0: Get your external IP address using STUN server
 net-misc/openbgpd 6.8_p0 6.9_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.6.7 9999: minimalistic commandline pastebin

@@ -1,0 +1,17 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 kde-frameworks/kitemmodels:5 3d? ( dev-qt/qt3d:5 ) bluetooth? ( dev-qt/qtbluetooth:5 ) designer? ( dev-qt/designer:5 ) geolocation? ( dev-qt/qtpositioning:5 ) printsupport? ( dev-qt/qtprintsupport:5 ) qml? ( dev-qt/qtdeclarative:5[widgets] ) script? ( dev-qt/qtscript:5[scripttools] ) scxml? ( dev-qt/qtscxml:5 ) svg? ( dev-qt/qtsvg:5 ) webengine? ( dev-qt/qtwebengine:5[widgets] ) wayland? ( dev-qt/qtwayland:5 ) test? ( dev-qt/qttest:5 )
+DESCRIPTION=High-level runtime introspection tool for Qt applications
+EAPI=8
+HOMEPAGE=https://www.kdab.com/gammaray https://github.com/KDAB/GammaRay
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake optfeature virtualx xdg
+IUSE=3d bluetooth designer doc geolocation printsupport script scxml svg test qml wayland webengine test
+KEYWORDS=~amd64
+LICENSE=BSD-2 GPL-2+ MIT
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtconcurrent:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 kde-frameworks/kitemmodels:5 3d? ( dev-qt/qt3d:5 ) bluetooth? ( dev-qt/qtbluetooth:5 ) designer? ( dev-qt/designer:5 ) geolocation? ( dev-qt/qtpositioning:5 ) printsupport? ( dev-qt/qtprintsupport:5 ) qml? ( dev-qt/qtdeclarative:5[widgets] ) script? ( dev-qt/qtscript:5[scripttools] ) scxml? ( dev-qt/qtscxml:5 ) svg? ( dev-qt/qtsvg:5 ) webengine? ( dev-qt/qtwebengine:5[widgets] ) wayland? ( dev-qt/qtwayland:5 )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/KDAB/GammaRay/releases/download/v2.11.3/gammaray-2.11.3.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	optfeature	30ce9dec2b8943338c9b015bd32bac6a	virtualx	fa024aa649b6bd544144bf94893d402c	xdg	6024fbc93167fad782e2032933654857
+_md5_=2e23291cfe7002dd0b820968ce0b7541

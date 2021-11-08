@@ -1,15 +1,16 @@
-BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=dev-cpp/catch-2.13:0 >=dev-cpp/nlohmann_json-3.8.0 dev-util/glslang discord? ( >=dev-libs/rapidjson-1.1.0 ) dev-util/ninja >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
-DEPEND=discord? ( >=dev-libs/rapidjson-1.1.0 ) qt5? ( >=dev-qt/qtgui-5.15 >=dev-qt/qtwidgets-5.15 ) sdl? ( >=media-libs/libsdl2-2.0.16 >=dev-libs/inih-52 ) system-vulkan? ( >=dev-util/vulkan-headers-1.2.180 ) >=app-arch/lz4-1.8 >=app-arch/zstd-1.5 >=dev-cpp/catch-2.13:0 >=dev-cpp/nlohmann_json-3.8.0 >=dev-libs/boost-1.73:=[context] >=dev-libs/libfmt-8 >=dev-libs/libzip-1.5 >=media-libs/opus-1.3.1 >=sys-libs/zlib-1.2 virtual/libusb:1 dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=>=app-arch/lz4-1.8:= >=app-arch/zstd-1.5 >=dev-libs/boost-1.73:=[context] >=dev-libs/libfmt-8:= >=dev-libs/openssl-1.1:= >=media-libs/opus-1.3 media-video/ffmpeg:= >=sys-libs/zlib-1.2 virtual/libusb:1 qt5? ( >=dev-qt/qtcore-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtwidgets-5.15:5 ) sdl? ( >=media-libs/libsdl2-2.0.16 >=dev-libs/inih-52 ) system-vulkan? ( >=dev-util/vulkan-headers-1.2.180 )
 DESCRIPTION=An emulator for Nintendo Switch
-EAPI=7
+EAPI=8
 HOMEPAGE=https://yuzu-emu.org
-INHERIT=cmake git-r3 flag-o-matic toolchain-funcs xdg
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake git-r3 toolchain-funcs xdg
 IUSE=+boxcat +compatibility-list +cubeb discord +qt5 sdl system-vulkan webengine +webservice
-LICENSE=GPL-3
+LICENSE=|| ( Apache-2.0 GPL-2+ ) 0BSD BSD GPL-2+ ISC MIT !system-vulkan? ( Apache-2.0 )
 PROPERTIES=live
-RDEPEND=discord? ( >=dev-libs/rapidjson-1.1.0 ) qt5? ( >=dev-qt/qtgui-5.15 >=dev-qt/qtwidgets-5.15 ) sdl? ( >=media-libs/libsdl2-2.0.16 >=dev-libs/inih-52 ) system-vulkan? ( >=dev-util/vulkan-headers-1.2.180 ) >=app-arch/lz4-1.8 >=app-arch/zstd-1.5 >=dev-cpp/catch-2.13:0 >=dev-cpp/nlohmann_json-3.8.0 >=dev-libs/boost-1.73:=[context] >=dev-libs/libfmt-8 >=dev-libs/libzip-1.5 >=media-libs/opus-1.3.1 >=sys-libs/zlib-1.2 virtual/libusb:1
+RDEPEND=>=app-arch/lz4-1.8:= >=app-arch/zstd-1.5 >=dev-libs/boost-1.73:=[context] >=dev-libs/libfmt-8:= >=dev-libs/openssl-1.1:= >=media-libs/opus-1.3 media-video/ffmpeg:= >=sys-libs/zlib-1.2 virtual/libusb:1 qt5? ( >=dev-qt/qtcore-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtwidgets-5.15:5 ) sdl? ( >=media-libs/libsdl2-2.0.16 >=dev-libs/inih-52 )
 REQUIRED_USE=boxcat? ( webservice ) || ( qt5 sdl )
 SLOT=0
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	xdg	6024fbc93167fad782e2032933654857
-_md5_=37281c5721b82e644cc2fc4b48ef5aca
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	xdg	6024fbc93167fad782e2032933654857
+_md5_=a31c16dac5913686c4e4b14df4799bb0

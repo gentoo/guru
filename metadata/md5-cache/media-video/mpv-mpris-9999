@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst unpack
-DEPEND=media-video/mpv:=[cplugins,libmpv] dev-libs/glib
+DEPEND=dev-libs/glib:2 media-video/mpv:=[cplugins,libmpv]
 DESCRIPTION=MPRIS plugin for mpv
 EAPI=8
 HOMEPAGE=https://github.com/hoyon/mpv-mpris
@@ -8,7 +8,7 @@ INHERIT=toolchain-funcs git-r3
 IUSE=+autoload
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=media-video/mpv:=[cplugins,libmpv] dev-libs/glib
+RDEPEND=dev-libs/glib:2 media-video/mpv:=[cplugins,libmpv]
 SLOT=0
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=0d9ba7ef106823ca7457d9723a706e9a
+_md5_=f475eb3779786dba1bcaf7e947f00977
