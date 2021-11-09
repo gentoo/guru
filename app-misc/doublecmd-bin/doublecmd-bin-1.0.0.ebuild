@@ -52,7 +52,7 @@ RDEPEND="
 src_prepare(){
 	default
 	## Create partial init config that allows to store config within user home directory
-	cp "${FILESDIR}/doublecmd.xml" "${S}/"
+	cp "${FILESDIR}/doublecmd.xml" "${S}/" || die
 }
 
 src_install(){
