@@ -147,7 +147,6 @@ SRC_URI="
 "
 
 # License set may be more restrictive as OR is not respected
-# use cargo-license for a more accurate license picture
 LICENSE="
 	|| ( Apache-2.0 MIT )
 	|| ( Apache-2.0 MIT )
