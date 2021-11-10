@@ -6,7 +6,7 @@ EAPI=7
 inherit linux-mod toolchain-funcs
 BUILD_PARAMS="CC=$(tc-getCC) V=1"
 
-COMMIT="f1bc7e86c4a1c67bee04c361dd978683869d2347"
+COMMIT="9828dcb51d81171330e3e1fd1de9b58ba2f7a62a"
 
 DESCRIPTION="Realtek 8821CU/RTL8811CU module for Linux kernel"
 HOMEPAGE="https://github.com/brektrou/rtl8821CU"
@@ -22,6 +22,3 @@ S="${WORKDIR}/rtl8821CU-${COMMIT}"
 MODULE_NAMES="8821cu(net/wireless)"
 BUILD_TARGETS="all"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-recv_linux.patch
-)
