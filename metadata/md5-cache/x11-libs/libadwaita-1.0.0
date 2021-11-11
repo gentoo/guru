@@ -1,4 +1,4 @@
-BDEPEND=vala? ( || ( dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] ) ) dev-util/meson dev-libs/gobject-introspection >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=vala? ( || ( dev-lang/vala:0.54[vapigen(+)] dev-lang/vala:0.52[vapigen(+)] dev-lang/vala:0.50[vapigen(+)] dev-lang/vala:0.48[vapigen(+)] dev-lang/vala:0.46[vapigen(+)] dev-lang/vala:0.44[vapigen(+)] ) ) dev-util/meson dev-libs/gobject-introspection >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=gnome-base/gnome-common gui-libs/gtk dev-libs/fribidi dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Building blocks for modern GNOME applications.
@@ -12,5 +12,5 @@ RDEPEND=gnome-base/gnome-common gui-libs/gtk dev-libs/fribidi
 REQUIRED_USE=vala? ( introspection )
 SLOT=0
 SRC_URI=https://gitlab.gnome.org/GNOME/libadwaita/-/archive/f5932ab4250c8e709958c6e75a1a4941a5f0f386/libadwaita-f5932ab4250c8e709958c6e75a1a4941a5f0f386.tar.gz -> libadwaita-1.0.0.tar.gz
-_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	vala	5ef05fa2f1612e51f4aea8c92b09e08d	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	gnome2-utils	355c758ccc0d6df60d43a066640e642c	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	vala	ba63120449f0238a2f0c39303871ad99	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	gnome2-utils	355c758ccc0d6df60d43a066640e642c	xdg	6024fbc93167fad782e2032933654857
 _md5_=6d342e42f1f0262893e3f7976106a72a
