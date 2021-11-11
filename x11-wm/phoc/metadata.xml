@@ -5,6 +5,9 @@
 		<email>gjdijkman@gjdwebserver.nl</email>
 		<name>Gerben Jan Dijkman</name>
 	</maintainer>
+	<longdescription lang="en">
+	Wayland compositor for mobile phones like the Librem 5.
+	</longdescription>
 	<upstream>
 		<doc>https://source.puri.sm/Librem5/phoc</doc>
 		<bugs-to>https://source.puri.sm/Librem5/phoc/-/issues</bugs-to>

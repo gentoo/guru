@@ -7,9 +7,9 @@ inherit meson vala xdg gnome2-utils
 
 MY_PV="v${PV}"
 MY_P="${PN}-${MY_PV}"
-# 0.13.0 does not work atm
-WL_PV="0.12.0"
-WL_P="wlroots-${WL_PV}"
+
+WL_COMMIT="5413b1ec61c6e3390929db595c0ec92f92ea2594"
+WL_P="wlroots-${WL_COMMIT}"
 
 DESCRIPTION="Wlroots based Phone compositor"
 HOMEPAGE="https://gitlab.gnome.org/World/Phosh/phoc"
@@ -18,7 +18,7 @@ HOMEPAGE="https://gitlab.gnome.org/World/Phosh/phoc"
 # the phoc installation. we follow method used in archlinuxarm
 SRC_URI="
 	https://gitlab.gnome.org/World/Phosh/phoc/-/archive/${MY_PV}/${MY_P}.tar.gz
-	https://github.com/swaywm/wlroots/releases/download/${WL_PV}/${WL_P}.tar.gz
+	https://source.puri.sm/Librem5/wlroots/-/archive/${WL_COMMIT}/${WL_P}.tar.gz
 "
 
 LICENSE="GPL-3"
@@ -44,6 +44,7 @@ RDEPEND="
 	x11-libs/xcb-util-wm
 	x11-wm/mutter
 	sys-auth/seatd
+	!gui-libs/wlroots
 "
 
 BDEPEND="
@@ -52,9 +53,9 @@ BDEPEND="
 	virtual/pkgconfig
 	x11-base/xorg-server
 "
+
 PATCHES=(
 	"${FILESDIR}/0001-seat-Don-t-notify-on-key-release.patch"
-	"${FILESDIR}/0002-seat-inhibit-touch-events-when-in-power-save-mode-or.patch"
 )
 
 S="${WORKDIR}/${MY_P}"
@@ -66,7 +67,6 @@ src_prepare() {
 
 	cd "${S}"/subprojects/wlroots
 	eapply "${FILESDIR}"/xcursor-fix-false-positive-stringop-truncation.diff
-	eapply "${FILESDIR}"/Revert-layer-shell-error-on-0-dimension-without-anchors.diff
 
 }
 
