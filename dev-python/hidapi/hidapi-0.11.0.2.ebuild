@@ -9,7 +9,8 @@ inherit distutils-r1
 
 DESCRIPTION="A Cython interface to the hidapi"
 HOMEPAGE="https://github.com/trezor/cython-hidapi"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+MY_PV=$(ver_rs 3 .post)
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${PN}-${MY_PV}.tar.gz"
 
 LICENSE="|| ( BSD GPL-3 )"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
@@ -22,6 +23,8 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 distutils_enable_tests pytest
+S="${WORKDIR}/cython-${PN}-${MY_PV}"
+
 python_configure_all() {
 	mydistutilsargs=( --with-system-hidapi )
 }
