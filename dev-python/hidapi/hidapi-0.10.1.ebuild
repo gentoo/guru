@@ -23,7 +23,7 @@ RDEPEND="${DEPEND}"
 
 distutils_enable_tests pytest
 python_configure_all() {
-	mydistutilsargs=( --with-system-hidapi )
+	DISTUTILS_ARGS=( --with-system-hidapi )
 }
 
 python_test() {

@@ -23,10 +23,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 distutils_enable_tests pytest
-S="${WORKDIR}/cython-${PN}-${MY_PV}"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 python_configure_all() {
-	mydistutilsargs=( --with-system-hidapi )
+	DISTUTILS_ARGS=( --with-system-hidapi )
 }
 
 python_test() {
