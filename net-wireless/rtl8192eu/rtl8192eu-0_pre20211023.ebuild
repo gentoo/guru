@@ -22,3 +22,9 @@ BUILD_TARGETS="all"
 
 CONFIG_CHECK="~!RTL8XXXU"
 ERROR_RTL8XXXU="The RTL8XXXXU module is enabled in the kernel; it conflicts with this module."
+
+pkg_setup() {
+	linux-mod_pkg_setup
+	BUILD_PARAMS="KSRC=${KERNEL_DIR}"
+}
+
