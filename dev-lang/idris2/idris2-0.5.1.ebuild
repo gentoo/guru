@@ -24,8 +24,9 @@ SLOT="0"
 IUSE="+chez doc racket test-full"
 REQUIRED_USE="^^ ( chez racket )"
 
+RDEPEND="dev-libs/gmp"
+DEPEND="${RDEPEND}"
 BDEPEND="
-	dev-libs/gmp
 	chez? ( dev-scheme/chez )
 	racket? ( dev-scheme/racket )
 	doc? ( dev-python/sphinx_rtd_theme )
