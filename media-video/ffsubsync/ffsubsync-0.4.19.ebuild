@@ -26,6 +26,7 @@ RDEPEND="
 	>=dev-python/srt-3.0.0[${PYTHON_USEDEP}]
 	dev-python/tqdm[${PYTHON_USEDEP}]
 	dev-python/webrtcvad[${PYTHON_USEDEP}]
+	dev-python/typing-extensions[${PYTHON_USEDEP}]
 "
 
 PATCHES=(
