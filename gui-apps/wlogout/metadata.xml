@@ -14,5 +14,6 @@
 	</use>
 	<upstream>
 		<remote-id type="github">ArtsyMacaw/wlogout</remote-id>
+		<bugs-to>https://github.com/ArtsyMacaw/wlogout/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
