@@ -7,5 +7,6 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="github">Biont/sway-launcher-desktop</remote-id>
+		<bugs-to>https://github.com/Biont/sway-launcher-desktop/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
