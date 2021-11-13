@@ -52,17 +52,20 @@ src_compile() {
 }
 
 src_install() {
-	java-pkg_doso library-src/libCLIPSJNI.so
+	java-pkg_doso ./library-src/libCLIPSJNI.so
 	java-pkg_dojar CLIPSIDE.jar CLIPSJNI.jar
-
-	doicon ./java-src/net/sf/clipsrules/jni/examples/ide/resources/CLIPS.png
 
 	local e
 	for e in clipside clipsjni ; do
 		java-pkg_dolauncher ${e} --jar ${e^^}.jar
-		make_desktop_entry  \
-			${e} ${e^^} CLIPS "Development;ComputerScience;" "Terminal=true"
 	done
+
+	doicon ./java-src/net/sf/clipsrules/jni/examples/ide/resources/CLIPS.png
+
+	make_desktop_entry  \
+		clipside CLIPSIDE CLIPS "Development;IDE"
+	make_desktop_entry  \
+		clipsjni CLIPSJNI CLIPS "Development;ConsoleOnly;" "Terminal=true"
 
 	if use examples ; then
 		insinto /usr/share/clipsjni/examples
