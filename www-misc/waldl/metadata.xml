@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+	<email>ceamac.paragon@gmail.com</email>
+	<description>Primary maintainer</description>
+</maintainer>
+<upstream>
+	<remote-id type="github">pystardust/waldl</remote-id>
+</upstream>
+</pkgmetadata>
