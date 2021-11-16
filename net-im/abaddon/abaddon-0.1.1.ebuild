@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	>=dev-cpp/simpleini-4.17_p20210831
+	>=dev-cpp/simpleini-4.17_p20210901
 	dev-cpp/gtkmm:3.0=
 	dev-db/sqlite:3
 	net-misc/curl
@@ -41,5 +41,5 @@ src_install() {
 	insinto /usr/share/${PN}
 	doins -r css res
 
-	make_desktop_entry /usr/bin/${PN} ${PN}
+	make_desktop_entry /usr/bin/${PN}
 }
