@@ -5,7 +5,7 @@ EAPI=8
 
 inherit toolchain-funcs
 
-SIMPLEINI_COMMIT="7bca74f6535a37846162383e52071f380c99a43a"
+SIMPLEINI_COMMIT="67156f64b3447ce1eb81d6be44d29132fb49b70a"
 
 DESCRIPTION="C++ library for reading/writing INI files"
 HOMEPAGE="https://github.com/brofield/simpleini"
