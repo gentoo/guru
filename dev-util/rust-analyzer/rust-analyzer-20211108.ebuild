@@ -191,6 +191,11 @@ src_unpack() {
 	fi
 }
 
+src_test() {
+	# Requires out of source git repo.
+	cargo_src_test -- --skip "tidy::check_merge_commits"
+}
+
 src_install() {
 	cargo_src_install --path "./crates/rust-analyzer"
 }
