@@ -13,5 +13,5 @@ RDEPEND=>=dev-qt/qtgui-5.4.0:5 >=dev-qt/qtnetwork-5.4.0:5 >=dev-qt/qtwidgets-5.4
 RESTRICT=!test? ( test )
 SLOT=5
 SRC_URI=https://gitlab.com/tobiasrautenkranz/geminipart/-/archive/16adcdb6413b41489c47637a71a630021ea43a16/geminipart-16adcdb6413b41489c47637a71a630021ea43a16.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	virtualx	fa024aa649b6bd544144bf94893d402c	xdg	6024fbc93167fad782e2032933654857	ecm	9fe70cc0ef1ddfecce7548500987215d
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	virtualx	fa024aa649b6bd544144bf94893d402c	xdg	6024fbc93167fad782e2032933654857	ecm	3efe514b4cd196a075e50ab6552a203d
 _md5_=c58cbb5c1aa78d50b1f361c1a38122fe
