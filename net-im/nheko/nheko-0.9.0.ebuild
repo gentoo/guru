@@ -12,7 +12,7 @@ SRC_URI="https://github.com/Nheko-Reborn/${PN}/archive/v${PV}.tar.gz -> ${P}.tar
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="video voip"
+IUSE="X video voip"
 REQUIRED_USE="video? ( voip )"
 
 MY_GST_V="1.18"
@@ -26,6 +26,7 @@ RDEPEND="
 	dev-qt/qtconcurrent:5
 	dev-qt/qtgraphicaleffects:5
 	dev-qt/qtgui:5[gif,jpeg,png]
+	dev-qt/qtimageformats
 	dev-qt/qtmultimedia:5[gstreamer,qml]
 	dev-qt/qtquickcontrols2:5
 	dev-qt/qtsvg:5
@@ -39,8 +40,10 @@ RDEPEND="
 			>=media-libs/gst-plugins-base-${MY_GST_V}[opengl]
 			>=media-plugins/gst-plugins-meta-${MY_GST_V}[v4l,vpx]
 			>=media-plugins/gst-plugins-qt5-${MY_GST_V}
-			>=media-plugins/gst-plugins-ximagesrc-${MY_GST_V}
-			x11-libs/xcb-util-wm
+			X? (
+				>=media-plugins/gst-plugins-ximagesrc-${MY_GST_V}
+				x11-libs/xcb-util-wm
+			)
 		)
 	)
 "
@@ -53,8 +56,12 @@ BDEPEND="dev-qt/linguist-tools:5"
 src_configure() {
 	local -a mycmakeargs=(
 		"-DVOIP=$(usex voip)"
-		"-DSCREENSHARE_X11=$(usex video)"
 	)
+	if use video && use X; then
+		mycmakeargs+=("-DSCREENSHARE_X11=yes")
+	else
+		mycmakeargs+=("-DSCREENSHARE_X11=no")
+	fi
 
 	cmake_src_configure
 }
