@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CRATES="
 	adler-1.0.2
@@ -21,12 +21,12 @@ CRATES="
 	byteorder-1.4.3
 	bzip2-0.4.3
 	bzip2-sys-0.1.11+1.0.8
-	cc-1.0.70
+	cc-1.0.72
 	cfg-if-0.1.10
 	cfg-if-1.0.0
 	chrono-0.4.19
 	chrono-english-0.1.6
-	clipboard-win-4.2.1
+	clipboard-win-4.2.2
 	cloudabi-0.0.3
 	cpufeatures-0.2.1
 	crc32fast-1.2.1
@@ -61,10 +61,10 @@ CRATES="
 	kamadak-exif-0.5.4
 	keccak-0.1.0
 	lazy_static-1.4.0
-	libc-0.2.103
+	libc-0.2.107
 	lock_api-0.3.4
 	log-0.4.14
-	lscolors-0.8.0
+	lscolors-0.8.1
 	matroska-0.7.0
 	memchr-1.0.2
 	memchr-2.4.1
@@ -86,10 +86,10 @@ CRATES="
 	phf_generator-0.8.0
 	phf_macros-0.8.0
 	phf_shared-0.8.0
-	pkg-config-0.3.20
-	ppv-lite86-0.2.10
+	pkg-config-0.3.22
+	ppv-lite86-0.2.15
 	proc-macro-hack-0.5.19
-	proc-macro2-1.0.29
+	proc-macro2-1.0.32
 	quote-1.0.10
 	radix_trie-0.2.1
 	rand-0.7.3
@@ -113,7 +113,7 @@ CRATES="
 	scopeguard-1.1.0
 	serde-1.0.130
 	serde_derive-1.0.130
-	serde_json-1.0.68
+	serde_json-1.0.71
 	sha-1-0.9.8
 	sha2-0.9.8
 	sha3-0.9.1
@@ -122,10 +122,10 @@ CRATES="
 	static_assertions-1.1.0
 	str-buf-1.0.5
 	svg-0.10.0
-	syn-1.0.80
+	syn-1.0.81
 	termcolor-1.1.2
-	thiserror-1.0.29
-	thiserror-impl-1.0.29
+	thiserror-1.0.30
+	thiserror-impl-1.0.30
 	time-0.1.43
 	toml-0.5.8
 	tree_magic-0.2.3
@@ -154,7 +154,7 @@ HOMEPAGE="https://github.com/jhspetersson/fselect"
 SRC_URI="https://github.com/jhspetersson/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 $(cargo_crate_uris ${CRATES})"
 
-LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 CC0-1.0 MIT MPL-2.0 Unlicense ZLIB"
+LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 Boost-1.0 CC0-1.0 MIT MPL-2.0 Unlicense ZLIB"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="+users"
@@ -170,7 +170,7 @@ src_configure() {
 }
 
 src_compile() {
-	cargo_src_compile --workspace
+	cargo_src_compile
 }
 
 src_install() {
