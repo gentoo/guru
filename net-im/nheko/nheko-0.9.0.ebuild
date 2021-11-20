@@ -12,7 +12,7 @@ SRC_URI="https://github.com/Nheko-Reborn/${PN}/archive/v${PV}.tar.gz -> ${P}.tar
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="X video voip"
+IUSE="X pipewire video voip"
 REQUIRED_USE="video? ( voip )"
 
 MY_GST_V="1.18"
@@ -30,6 +30,7 @@ RDEPEND="
 	dev-qt/qtmultimedia:5[gstreamer,qml]
 	dev-qt/qtquickcontrols2:5
 	dev-qt/qtsvg:5
+	pipewire? ( media-video/pipewire[gstreamer] )
 	voip? (
 		>=media-plugins/gst-plugins-dtls-${MY_GST_V}
 		media-plugins/gst-plugins-libnice
