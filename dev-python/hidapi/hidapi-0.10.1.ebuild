@@ -22,6 +22,9 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 distutils_enable_tests pytest
+python_configure_all() {
+	DISTUTILS_ARGS=( --with-system-hidapi )
+}
 
 python_test() {
 	epytest tests.py

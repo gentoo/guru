@@ -28,6 +28,8 @@ IUSE=""
 DEPEND="|| ( >=dev-lang/rust-1.56.0[rls] >=dev-lang/rust-bin-1.56.0[rls] )"
 RDEPEND="${DEPEND}"
 
+QA_FLAGS_IGNORED="usr/bin/rust-analyzer"
+
 src_unpack() {
 	if [[ "${PV}" == *9999* ]]; then
 		git-r3_src_unpack
@@ -36,6 +38,11 @@ src_unpack() {
 		cargo_src_unpack
 		mv -T "${PN}-${MY_PV}" "${P}" || die
 	fi
+}
+
+src_test() {
+	# Requires out of source git repo.
+	cargo_src_test -- --skip "tidy::check_merge_commits"
 }
 
 src_install() {

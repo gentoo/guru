@@ -3,7 +3,7 @@
 
 EAPI=8
 
-CMAKE_REMOVE_MODULES_LIST=( Hardening VersionFromGit )
+CMAKE_REMOVE_MODULES_LIST=( VersionFromGit )
 inherit cmake
 
 DESCRIPTION="TTS engine with extended languages support (including Russian)"
@@ -75,15 +75,8 @@ src_prepare() {
 		-i src/third-party/mage/CMakeLists.txt || die
 
 	sed -e "/include(VersionFromGit)/d" \
-		-e "/include(Hardening)/d" \
-		-e "/find_package(Sanitizers)/d" \
 		-e "/getVersionFromGit/d" \
-		-e "/harden/d" \
 		-i CMakeLists.txt || die
-	sed -e "/add_sanitizers/d" \
-		-e "/harden/d" \
-		-i src/*/CMakeLists.txt \
-		-i src/third-party/*/CMakeLists.txt || die
 
 	use l10n_en || delete_voices alan bdl clb evgeniy-eng slt
 	use l10n_eo || delete_voices spomenka
@@ -116,6 +109,9 @@ src_configure() {
 		# src/third-party/CMakeLists.txt
 		#-DRAPIDXML_INCLUDE_DIR=/usr/include/rapidxml
 		-DUTF8_INCLUDE_DIR=/usr/include/utf8cpp
+		# Hardening.cmake: don't mess with flags
+		-DHARDENING_COMPILE_FLAGS=
+		-DHARDENING_LINK_FLAGS=
 	)
 
 	cmake_src_configure

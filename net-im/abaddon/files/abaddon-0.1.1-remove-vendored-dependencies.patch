@@ -1,0 +1,22 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 638be3e..ea76f4e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -23,11 +23,7 @@ if (NOT IXWebSocket_FOUND)
+ endif()
+ 
+ add_compile_definitions(SI_NO_CONVERSION) # only CSimpleIniA is used
+-find_package(simpleini QUIET)
+-if (NOT simpleini_FOUND)
+-	message("simpleini was not found and will be included as a submodule")
+-	include_directories(thirdparty/simpleini)
+-endif()
++include_directories(/usr/include/simpleini)
+ 
+ if(MINGW OR WIN32)
+ 	link_libraries(ws2_32)
+@@ -103,3 +99,4 @@ target_link_libraries(abaddon ${GTKMM_LIBRARIES})
+ target_link_libraries(abaddon ${CURL_LIBRARIES})
+ target_link_libraries(abaddon ${ZLIB_LIBRARY})
+ target_link_libraries(abaddon ${NLOHMANN_JSON_LIBRARIES})
++target_link_libraries(abaddon simpleini)

@@ -146,8 +146,7 @@ SRC_URI="
 	$(cargo_crate_uris)
 "
 
-# License set may be more restrictive as OR is not respected
-# use cargo-license for a more accurate license picture
+# License set may be more restrictive as OR is not respected 
 LICENSE="
 	|| ( Apache-2.0 MIT )
 	|| ( Apache-2.0 MIT )

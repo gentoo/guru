@@ -5,6 +5,10 @@
 		<email>alexey@zapparov.com</email>
 		<name>Alexey Zapparov</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>ezzieyguywuf@gmail.com</email>
+		<name>Wolfgang E. Sanyer</name>
+	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/aws/aws-cli/issues</bugs-to>
 		<changelog>https://github.com/aws/aws-cli/blob/v2/CHANGELOG.rst</changelog>

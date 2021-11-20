@@ -22,7 +22,7 @@ IUSE="vaapi"
 
 RDEPEND="
 	>=dev-libs/openssl-1.1.1l:0/1.1
-	>=media-libs/libsdl2-2.0.16-r1:0
+	>=media-libs/libsdl2-2.0.16-r1:0[kms]
 	>=media-libs/sdl2-ttf-2.0.15:0
 	>=media-video/ffmpeg-4.4-r1:0
 	>=dev-qt/qtsvg-5.15.2-r10:5/5.15

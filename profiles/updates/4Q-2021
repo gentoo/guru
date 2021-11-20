@@ -1,2 +1,3 @@
 move dev-python/geopy sci-geosciences/geopy
 move dev-util/xdp-tools net-libs/xdp-tools
+move dev-lisp/arc dev-lang/arc

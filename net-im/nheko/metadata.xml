@@ -9,6 +9,7 @@
 		<remote-id type="github">Nheko-Reborn/nheko</remote-id>
 	</upstream>
 	<use>
+		<flag name="pipewire">Pull in dependencies for media-video/pipewire support</flag>
 		<flag name="video">Enables video calls</flag>
 		<flag name="voip">Enables audio calls</flag>
 	</use>
