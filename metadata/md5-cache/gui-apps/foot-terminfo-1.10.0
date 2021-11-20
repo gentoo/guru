@@ -1,0 +1,10 @@
+BDEPEND=sys-libs/ncurses
+DEFINED_PHASES=compile install prepare
+DESCRIPTION=Terminfo for foot, a great Wayland terminal emulator
+EAPI=7
+HOMEPAGE=https://codeberg.org/dnkl/foot
+KEYWORDS=~amd64
+LICENSE=MIT
+SLOT=0
+SRC_URI=https://codeberg.org/dnkl/foot/archive/1.10.0.tar.gz -> foot-1.10.0.tar.gz
+_md5_=bb07ace86efd422e878f9353cea3fc79

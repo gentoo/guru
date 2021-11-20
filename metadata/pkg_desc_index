@@ -29,7 +29,7 @@ app-accessibility/rhvoice 1.4.2-r1: TTS engine with extended languages support (
 app-accessibility/speakup-tools 20121017: Tools to customize speakup module
 app-admin/akita 0.1.4: An HTTP log monitoring tool for your terminal
 app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
-app-admin/awscli-bin 2.3.2 2.3.2-r1: Universal Command Line Interface for Amazon Web Services version 2
+app-admin/awscli-bin 2.3.2-r1: Universal Command Line Interface for Amazon Web Services version 2
 app-admin/chezmoi 1.8.10 2.6.1 2.7.2: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.12.2 0.12.3: A system rescue cd or usbstick for desktop and server based on gentoo
@@ -118,7 +118,7 @@ app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the c
 app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
-app-misc/watchexec 1.15.3 1.16.0 1.16.1 1.16.2 1.17.0 1.17.1: Executes commands in response to file modifications
+app-misc/watchexec 1.15.3 1.16.2 1.17.0 1.17.1: Executes commands in response to file modifications
 app-misc/wego 2.0_p20190211-r1: Wego is a weather client for the terminal
 app-mobilephone/flashlight 0.1.1-r2: It's a flashlight, what do you expect?
 app-mobilephone/mobile-config-firefox 2.1.0: Mobile and privacy friendly configuration for Firefox
@@ -147,7 +147,6 @@ app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code t
 app-shells/ohmyzsh 9999: A framework for managing your zsh configuration.
 app-shells/powerline-go 1.21.0: A powerline like prompt for Bash, Zsh, Fish written in Go lang.
 app-shells/silver 2.0.0: A cross-shell customizable powerline-like prompt with icons
-app-shells/starship 0.58.0: The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 app-shells/zoxide 0.7.2: A smarter cd command for your terminal
 app-shells/zsh-autosuggestions 0.6.4: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
@@ -158,7 +157,7 @@ app-text/cmark-gfm 0.29.0.0: GitHub's fork of cmark
 app-text/epubgrep 0.5.1 0.6.0: Search tool for EPUB e-books
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/klogg 20.12: A GUI application to browse and search through long and complex log files
-app-text/komikku 0.28.1 0.29.2-r1 0.30.0-r1 0.35.1: An online/offline manga reader for GNOME
+app-text/komikku 0.30.0-r2 0.35.1-r1 0.35.2-r1: An online/offline manga reader for GNOME
 app-text/koodo-reader-bin 1.3.0: A modern ebook manager and reader with sync and backup capacities
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
 app-text/mdbook 0.4.9 0.4.10 0.4.11 0.4.12 0.4.13: Creates a book from markdown files
@@ -266,7 +265,7 @@ dev-R/xfun 0.26: Supporting Functions for Package maintained by Yihui Xie
 dev-R/xml2 1.3.2: Parse XML
 dev-R/yaml 2.2.1: Methods to Convert R Data to YAML and Back
 dev-cpp/cli11 2.1.0 2.1.2: Command line parser for C++11
-dev-cpp/coeurl 0.0.1_pre20210813: A simple async wrapper around CURL for C++
+dev-cpp/coeurl 0.0.1_pre20210813 0.1.0: A simple async wrapper around CURL for C++
 dev-cpp/drogon 1.7.2 1.7.3: C++14/17 based HTTP web application framework
 dev-cpp/dtl 1.19_p20210531: diff template library written by C++
 dev-cpp/fbthrift 2021.10.25.00: Facebook's branch of Apache Thrift, including a new C++ server
@@ -280,7 +279,8 @@ dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
 dev-cpp/parallel-hashmap 1.33: Family of header-only, fast and memory-friendly hashmap and btree containers
 dev-cpp/pcg-cpp 0.98.1_p20210406-r1: Family of better random number generators
 dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging library
-dev-cpp/simpleini 4.17_p20210831: C++ library for reading/writing INI files
+dev-cpp/qt-jdenticon 0.2.1: Qt5 / C++14 Port of Jdenticon
+dev-cpp/simpleini 4.17_p20210901: C++ library for reading/writing INI files
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
 dev-cpp/termcolor 2.0.0: Header-only library for printing colored messages to the terminal
 dev-cpp/tiny-dnn 1.0.0_alpha3: header only, dependency-free deep learning framework in C++14
@@ -304,10 +304,14 @@ dev-java/gradle-build-operations 6.8.2: Build automation tool for JVM Languages,
 dev-java/gradle-hashing 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/openjdk-sts-bin 15.0.2_p7: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730-r1: The Aldor Programming Language
+dev-lang/arc 3.2-r1: New dialect of Lisp, works well for basic web apps
+dev-lang/clips 6.40: Tool for building Expert Systems (native version)
+dev-lang/clipsjni 6.40: Tool for building Expert Systems (Java version)
 dev-lang/fbc 1.07.3 1.08.1: A free/open source, multi-platform BASIC compiler.
 dev-lang/fbc-bootstrap 1.07.3 1.08.1: Bootstrap package for dev-lang/fbc
 dev-lang/fennel 0.9.2 0.10.0 9999: Fennel is a lisp that compiles to Lua
 dev-lang/gleam 0.16.0: A statically typed functional language for the BEAM
+dev-lang/idris2 0.5.1 0.5.1_p20211112: Purely functional programming language with first class types
 dev-lang/lean 3.33.0 3.34.0 3.35.0: The Lean Theorem Prover
 dev-lang/quickjs 2020.11.08 2021.03.27: Small embeddable Javascript engine
 dev-lang/wren 0.3.0: The Wren Programming Language
@@ -327,11 +331,11 @@ dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync client
 dev-libs/libdatrie 0.2.13: Double-Array Trie Library
 dev-libs/libdwarf 20210528: The DWARF Debugging Information Format
 dev-libs/libnodave 0.8.5.1-r2: Connect to and exchange data with Siemens PLCs
-dev-libs/libphonenumber 8.12.35: library for parsing, formatting, and validating international phone numbers
+dev-libs/libphonenumber 8.12.37: library for parsing, formatting, and validating international phone numbers
 dev-libs/libthai 0.1.28: A a set of Thai language support routines
 dev-libs/memkind 1.11.0-r2: user extensible heap manager built on top of jemalloc
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
-dev-libs/mtxclient 0.5.1 0.5.2_pre20210916: Client API library for Matrix, built on top of Boost.Asio
+dev-libs/mtxclient 0.5.2_pre20210916 0.6.0: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/nativefiledialog-extended 0_pre20210430: File dialog library with C and C++ bindings, based on nativefiledialog
 dev-libs/octetos-biblion 0.1.1_alpha: Library for reading biblia.
 dev-libs/octetos-core 2.15.0_beta 2.20.0_beta 2.25.0_beta 2.25.1_beta 2.31.2_beta 2.31.3_beta 2.31.5_beta: C/C++ library to mainly provide Semantic Versioned implementation
@@ -352,7 +356,6 @@ dev-libs/tllist 1.0.5 9999: A C header file only implementation of a typed linke
 dev-libs/tweeny 3.1.1 3.2.0: C++ tweening (inbetweening) library
 dev-libs/xqilla 2.3.4: An XQuery and XPath 2 library and command line utility written in C++
 dev-libs/zfp 0.5.5: Compressed numerical arrays that support high-speed random access
-dev-lisp/arc 3.2: New dialect of Lisp, works well for basic web apps
 dev-perl/File-DirList 0.05: provide a sorted list of directory content
 dev-perl/File-Touch 0.12: Update file access and modification times, creating files if needed
 dev-perl/GitLab-API-v4 0.26: A complete GitLab API v4 client
@@ -406,7 +409,7 @@ dev-python/colored 1.4.2: Very simple Python library for color and formatting in
 dev-python/commandlines 0.4.1: Routines for extracting information from fontTools glyphs
 dev-python/compreffor 0.5.1: A CFF table subroutinizer for FontTools
 dev-python/confluent-kafka 1.7.0: Confluent's Kafka Python Client
-dev-python/convertdate 2.3.0 2.3.1: Utils for converting between date formats and calculating holidays
+dev-python/convertdate 2.3.0 2.3.1 2.3.2: Utils for converting between date formats and calculating holidays
 dev-python/cotyledon 1.7.3: Cotyledon provides a framework for defining long-running services
 dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
 dev-python/curio 0.9 1.4-r1 1.5: Curio is a coroutine-based library for concurrent systems programming
@@ -416,7 +419,7 @@ dev-python/dacite 1.6.0: This module simplifies creation of data classes (PEP 55
 dev-python/daff 1.3.46: Diff and patch tables
 dev-python/daiquiri 3.0.1: Python library to easily setup basic logging functionality
 dev-python/databases 0.4.3: Async database support for Python.
-dev-python/dateparser 1.0.0: Date parsing library designed to parse dates from HTML pages
+dev-python/dateparser 1.0.0 1.1.0: Date parsing library designed to parse dates from HTML pages
 dev-python/devtools 0.6.1: Dev tools for python
 dev-python/digitalocean 1.16.0 1.17.0: Digitalocean API access library
 dev-python/dotmap 1.3.25: Dot access dictionary with dynamic hierarchy creation and ordered iteration
@@ -449,7 +452,7 @@ dev-python/graphene 3.0.0_beta7: GraphQL Framework for Python
 dev-python/graphql-core 3.1.5: GraphQL for Python
 dev-python/graphql-relay 3.1.0: Relay library for graphql-core-next
 dev-python/guidata 1.7.9: Library for user interfaces for easy dataset editing and display
-dev-python/hidapi 0.10.1: A Cython interface to the hidapi
+dev-python/hidapi 0.10.1 0.11.0.2: A Cython interface to the hidapi
 dev-python/hijri-converter 2.1.3 2.2.2: Accurate Hijri-Gregorian date converter based on the Umm al-Qura calendar
 dev-python/hstspreload 2021.7.5 2021.10.1: Chromium HSTS Preload list as a Python package
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
@@ -458,6 +461,8 @@ dev-python/hwi 1.2.1 2.0.2: Library and command line tool for interacting with h
 dev-python/hypercorn 0.11.2-r1: ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
 dev-python/injector 0.18.4: Python dependency injection framework
+dev-python/itemadapter 0.4.0: Common interface for scrapy data container classes
+dev-python/itemloaders 1.0.4: Library to populate items using XPath and CSS with a convenient API
 dev-python/jaeger-client 4.8.0: Jaeger Bindings for Python OpenTracing API
 dev-python/jellyfin-apiclient-python 1.6.2 1.7.2: Python API client for Jellyfin
 dev-python/jplephem 2.16: Python version of NASA DE4xx ephemerides for Astronomical Alamanac
@@ -509,6 +514,7 @@ dev-python/oslo-vmware 3.9.1: Oslo VMware library for OpenStack projects
 dev-python/osprofiler 3.4.2: OpenStack Profiler Library
 dev-python/ots-python 8.1.4: A Python wrapper for OpenType Sanitizer
 dev-python/ovsdbapp 1.12.0: A library for creating OVSDB applications
+dev-python/parsel 1.6.0: Utility to extract data from XML/HTML documents using XPath or CSS selectors
 dev-python/pdfminer-six 20201018: Community maintained fork of pdfminer
 dev-python/pep517 0.9.1: standard API for systems which build Python packages
 dev-python/pg8000 1.22.0: A Pure-Python PostgreSQL Driver
@@ -519,12 +525,14 @@ dev-python/playsound 1.3.0: Single function module with no dependencies for play
 dev-python/portio 0.5: Python low level port I/O for Linux x86
 dev-python/pproxy 2.7.8: TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio
 dev-python/promise 2.3.0: Promises/A+ implementation for Python
+dev-python/protego 0.1.16: robots.txt parser with support for modern conventions.
 dev-python/psycopg2cffi 2.9.0: Implementation of the psycopg2 module using cffi. Compatible with Psycopg 2.5.
 dev-python/pure-protobuf 2.0.0-r1 2.0.1: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/py3nvml 0.2.6: Python 3 Bindings for the NVIDIA Management Library
 dev-python/pybeam 0.7: Python module to parse Erlang BEAM files
 dev-python/pybrowserstack-screenshots 0.1: A python api wrapper and client for Browserstack Screenshots API
 dev-python/pycadf 3.1.1: python implementation of DMTF Cloud Audit (CADF) data model
+dev-python/pydispatcher 2.0.5: Multi-producer-multi-consumer signal dispatching mechanism
 dev-python/pydub 0.25.1: Manipulate audio with an simple and easy high level interface
 dev-python/pyfiglet 0.8_p1 9999: Pure-python FIGlet implementation
 dev-python/pygaljs 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
@@ -577,6 +585,7 @@ dev-python/python-vitrageclient 4.4.0: A client for the OpenStack Vitrage API
 dev-python/python-zaqarclient 2.2.0: A client for the OpenStack Zaqar API
 dev-python/python-zunclient 4.3.0: A client for the OpenStack Zun API
 dev-python/pywebview 3.5: A lightweight cross-platform wrapper around a webview component
+dev-python/queuelib 1.6.2: Collection of persistent and non-persistent queues for Python
 dev-python/recordclass 0.14.3: Mutable variants of tupe and collections.namedtuple
 dev-python/redbaron 0.9 0.9.2: A FST for python to make writing refactoring code a realistic task
 dev-python/rst2ansi 0.1.5: Render reStructuredText documents to the terminal
@@ -588,6 +597,7 @@ dev-python/sanic-routing 0.7.0 0.7.1: Internal handler routing for Sanic
 dev-python/sanic-testing 0.4.0 0.6.0: Test clients for Sanic
 dev-python/schedule 1.1.0: Python job scheduling for humans
 dev-python/scramp 1.4.1: A pure-Python implementation of the SCRAM authentication protocol.
+dev-python/scrapy 2.5.1: A high-level Web Crawling and Web Scraping framework
 dev-python/simplemma 0.3.0: A simple multilingual lemmatizer for Python.
 dev-python/skia-pathops 0.6.0_p2: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
@@ -632,20 +642,22 @@ dev-python/unicodedata2 13.0.0.2: Unicodedata backport for python 2/3 updated to
 dev-python/urlmatch 1.0.1: A Python library for easily pattern matching wildcard URLs
 dev-python/vharfbuzz 0.1.1 0.1.2: A user-friendlier way to use Harfbuzz in Python
 dev-python/vttlib 0.11.0: Dump, merge and compile Visual TrueType data in UFO3 with FontTools
+dev-python/w3lib 1.22.0: Library of web-related functions
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
 dev-python/webrtcvad 2.0.10: Python interface to the Google WebRTC Voice Activity Detector (VAD)
 dev-python/wsgi_intercept 1.9.2: wsgi_intercept installs a WSGI application in place of a real URI for testing
 dev-python/xattr 0.9.7: Python wrapper for extended filesystem attributes
 dev-python/xunitparser 1.3.3: Read JUnit/XUnit XML files and map them to Python objects
+dev-python/yamllint 1.26.3: A linter for YAML files
 dev-python/yams 0.7.3 9999: Yet Another MPD Scrobbler (for Last.FM)
 dev-python/yaql 2.0.0: YAQL: Yet Another Query Language
 dev-python/yara-python 4.1.0 4.1.2: Python interface for a malware identification and classification tool
 dev-python/zVMCloudConnector 1.4.1: a development sdk for managing z/VM
 dev-ruby/byebug 11.1.3: a Ruby 2 debugger
-dev-ruby/chruby 0.3.9-r1: Changes the current Ruby
+dev-ruby/chruby 0.3.9-r2: Changes the current Ruby
 dev-ruby/pry-byebug 3.9.0: Step-by-step debugging and stack navigation in Pry
 dev-ruby/rspec-wait 0.0.9: enables time-resilient expectations in your RSpec test suite
-dev-scheme/chez 9.5.4: A programming language based on R6RS
+dev-scheme/chez 9.5.4 9.5.6: A programming language based on R6RS
 dev-scheme/chibi 0.10 9999: Minimal Scheme implementation for use as an extension language
 dev-scheme/cyclone 0.31.0 0.32.0 0.33.0 9999: R7RS Scheme to C compiler
 dev-scheme/gerbil 0.16 9999: Dialect of Scheme designed for Systems Programming
@@ -654,7 +666,6 @@ dev-scheme/guile-gi 0.3.1 9999: Bindings for GObject Introspection and libgirepo
 dev-scheme/owl-lisp 0.2 9999: Purely functional dialect of Scheme
 dev-util/FoBiS 3.0.5: FoBiS.py, a Fortran Building System for poor men
 dev-util/afdko 3.6.2: Adobe Font Development Kit for OpenType
-dev-util/aws-cli-bin 2.2.41: A unified command line interface to Amazon Web Services
 dev-util/babeltrace2 2.0.4: A command-line tool and library to read and convert trace files
 dev-util/bats-assert 2.0.0: Common assertions for Bats
 dev-util/bats-support 0.3.0: Supporting library for Bats test helpers
@@ -675,7 +686,7 @@ dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's Open
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
 dev-util/rpmlint 2.0.0 2.1.0: Tool for checking common errors in RPM packages
-dev-util/rust-analyzer 20211025 20211101 99999999: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer 20211108 20211115 99999999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/wakatime-cli 1.27.0: Command line interface to WakaTime used by all WakaTime plugins
@@ -689,7 +700,7 @@ dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage sourc
 dev-vcs/gitqlient 1.4.3 9999: Multi-platform Git client written with Qt
 dev-vcs/gitui 0.18.0: Blazing fast terminal-ui for git
 dev-vcs/got 0.60 0.61 0.62: Portable version of the Game of Trees version control system
-dev-vcs/lazygit 0.29 0.30 0.30.1 9999: Lazygit, a simple terminal UI for git commands
+dev-vcs/lazygit 0.29 0.30 0.30.1 0.31.3 9999: Lazygit, a simple terminal UI for git commands
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
 games-action/blackvoxel 2.42 9999: Blackvoxel Video Game
 games-action/netrek-brmh 2.6.0: brmh client for netrek
@@ -709,7 +720,7 @@ games-emulation/np2kai 22 22_p20210211: NP2kai is an emulator for the japanese P
 games-emulation/yuzu 9999: An emulator for Nintendo Switch
 games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
 games-engines/fs2_open 21.4.0: FreeSpace2 Source Code Project game engine
-games-engines/instead 3.3.5 9999: INSTEAD text-based quest game engine
+games-engines/instead 3.3.5 3.4.1 9999: INSTEAD text-based quest game engine
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
 games-fps/crispy-doom 5.10.0 5.10.1 5.10.2 5.10.3: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
@@ -728,7 +739,7 @@ games-util/hid-nintendo 9999: A Nintendo HID kernel module
 games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launcher
 games-util/joycond 9999: Combine joy-cons using hid-nintendo
 games-util/legendary 0.20.17 0.20.18: A free and open-source replacement for the Epic Games Launcher
-games-util/minigalaxy 1.0.2: A simple GOG client for Linux
+games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
 gnome-extra/authenticator 4.0.3: Simple application for generating Two-Factor Authentication Codes.
 gnome-extra/iio-sensor-proxy 3.3: IIO sensors to D-Bus proxy
 gnome-extra/portfolio 0.9.10 0.9.12: A minimalist file manager for those who want to use Linux mobile devices
@@ -754,8 +765,8 @@ gui-apps/coreterminal 4.2.0 9999: A terminal emulator for C Suite
 gui-apps/coretime 4.2.0 9999: A time related task manager for C Suite
 gui-apps/coretoppings 4.1.0-r1 4.2.0 9999: Additional features, plugins, widgets etc for C Suite
 gui-apps/coreuniverse 4.2.0 9999: Shows information about apps for C Suite
-gui-apps/foot 1.7.1 1.7.2 1.8.0 1.8.1 1.8.2 1.9.0 1.9.1 9999: A fast, lightweight and minimalistic Wayland terminal emulator
-gui-apps/foot-terminfo 1.7.1 1.7.2 1.8.1 1.9.0 1.9.1 9999: Terminfo for foot, a great Wayland terminal emulator
+gui-apps/foot 1.7.1 1.7.2 1.8.0 1.8.1 1.8.2 1.9.0 1.9.1 1.10.0 9999: A fast, lightweight and minimalistic Wayland terminal emulator
+gui-apps/foot-terminfo 1.7.1 1.7.2 1.8.1 1.9.0 1.9.1 1.10.0 9999: Terminfo for foot, a great Wayland terminal emulator
 gui-apps/mpvpaper 1.0 1.1 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.5.0 0.6.3 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperde 0.1.1_p20210426 9999: Simple, sleek QT based DE for wayland using wayfire
@@ -768,6 +779,7 @@ gui-apps/tiramisu 1.0_p20201110 9999: minimalistic desktop notifications provide
 gui-apps/wbg 1.0.2: Super simple wallpaper application
 gui-apps/wdisplays 1.0-r3 1.1 9999: GUI display configurator for wlroots compositors
 gui-apps/wev 1.0.0: Wayland event viewer
+gui-apps/wlogout 1.1.1: A wayland based logout menu
 gui-apps/wlr-randr 0.1.0 0.2.0 9999: xrandr clone for wlroots compositors
 gui-apps/wlsunset 0.2.0 9999: Day/night gamma adjustments for Wayland
 gui-apps/wob 0.11: Lightweight overlay volume/backlight/progress/anything bar for Wayland
@@ -816,7 +828,7 @@ media-gfx/grafx2 2.7.2978 2.7.2978-r100: A pixelart-oriented painting program
 media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/nsxiv 27.1: Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer
 media-gfx/oda-file-converter 22.5.0.0-r1: For converting between different versions of .dwg and .dxf
-media-gfx/oxipng 3.0.1 4.0.3 5.0.0: A lossless PNG compression optimizer
+media-gfx/oxipng 3.0.1 4.0.3 5.0.0 5.0.1: A lossless PNG compression optimizer
 media-gfx/qview 4.0: Practical and minimal image viewer
 media-gfx/sic 0.19.0: Accessible image processing and conversion from the terminal tool.
 media-gfx/silicon 0.4.0 0.4.1 0.4.3: Create beautiful image of your code
@@ -826,7 +838,7 @@ media-gfx/ufolint 1.2.0: UFO source format linter
 media-libs/alsa-ucm-pinephone 20210507: ALSA ucm configuration files for PinePhone
 media-libs/alvr 15.2.1_p20210604: Wireless driver for Oculus Quest
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.1.2: AMD Open Source Driver for Vulkan
-media-libs/fcft 2.3.3 2.4.0 2.4.1 2.4.2 2.4.3 2.4.4 2.4.5 2.4.6 9999: A simple library for font loading and glyph rasterization
+media-libs/fcft 2.3.3 2.4.0 2.4.1 2.4.2 2.4.3 2.4.4 2.4.5 2.4.6 2.5.0 9999: A simple library for font loading and glyph rasterization
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
 media-libs/imgui 1.83: Bloat-free graphical user interface library for C++
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
@@ -875,7 +887,7 @@ media-video/owncast 0.0.7-r1 0.0.8 0.0.9 0.0.10: A self-hosted live video and we
 media-video/qliveplayer 4.0.1-r2 4.1.0: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/trakt-scrobbler 1.3.2: Scrobbler for trakt.tv that supports VLC, Plex, MPC-HC, and MPV
-media-video/uxplay 1.39: AirPlay Unix mirroring server
+media-video/uxplay 1.42: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
 net-analyzer/munin-contrib 0.2021.04.27: user contributed stuff related to munin
 net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various plugins for Munin
@@ -884,22 +896,22 @@ net-dialup/tio 1.32: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/Quaternion 0.0.9.4e: A Qt5-based IM client for the Matrix protocol
-net-im/abaddon 0.1.0: Alternative Discord client using GTK instead of Electron
+net-im/abaddon 0.1.1: Alternative Discord client using GTK instead of Electron
 net-im/biboumi 9.0 9.0-r1: XMPP gateway to IRC
 net-im/cawbird 1.4.2: Cawbird is a fork of the Corebird Twitter client from Baedert.
 net-im/discord-canary-bin 0.0.131: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.25: All-in-one voice and text chat
-net-im/go-sendxmpp 0_pre20200423 0.1.1: A little tool to send messages to an XMPP contact or MUC
+net-im/go-sendxmpp 0.1.1 0.1.2: A little tool to send messages to an XMPP contact or MUC
 net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
 net-im/kaidan 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!
 net-im/matterhorn-bin 50200.13.0: Terminal based Mattermost client
-net-im/nheko 0.8.2-r1 0.9.0_pre20211003-r1: Desktop client for Matrix using Qt and C++14
+net-im/nheko 0.9.0_pre20211003-r1 0.9.0: Desktop client for Matrix using Qt and C++14
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
-net-im/whatsapp-for-linux 1.2.0: An unofficial WhatsApp desktop application for Linux
+net-im/whatsapp-for-linux 1.2.0 1.3.0: An unofficial WhatsApp desktop application for Linux
 net-irc/catgirl 1.9a: TLS-only terminal IRC client
 net-irc/srain 1.2.1 1.2.4: Modern, beautiful IRC client written in GTK+ 3
 net-libs/ixwebsocket 11.2.8: C++ websocket client and server library
-net-libs/kcgi 0.12.5: Minimal CGI library for web applications
+net-libs/kcgi 0.12.5 0.13.0: Minimal CGI library for web applications
 net-libs/libqmatrixclient 0.5.3.2: A Qt5 library to write cross-platfrom clients for Matrix
 net-libs/telepathy-haze 0.8.1: Telepathy connection manager providing libpurple supported protocols
 net-libs/usockets 0.8.1_p20211023 9999: tiny eventing, networking & crypto for async applications
@@ -937,18 +949,18 @@ net-misc/wsdd 0.6.4: A Web Service Discovery host daemon.
 net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny Tiny RSS or feedly
 net-news/sfeed 1.0 9999: simple RSS and Atom parser
 net-news/sfeed_curses 1.0: A curses UI front-end for sfeed
-net-p2p/bisq 1.7.4: The decentralized bitcoin exchange (non-atomic, with arbitration)
+net-p2p/bisq 1.7.5: The decentralized bitcoin exchange (non-atomic, with arbitration)
 net-p2p/lbry 0.49.1 0.50.2 0.51.2: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.2.0 0.17.2.3 9999: The secure, private, untraceable cryptocurrency
 net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for Linux
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1 0.3.14 0.3.15 0.4.0: An experiment in scalable routing as an encrypted IPv6 overlay network
 net-voip/discover-overlay 0.3.3: Yet another Discord overlay for Linux written in Python using GTK3
-net-voip/gnome-calls 41.0: Phone dialer and call handler
+net-voip/gnome-calls 41.1: Phone dialer and call handler
 net-wireless/iwdgui 0.1.0 0.2.0: A graphical frontend for IWD, Intel's iNet Wireless Daemon
-net-wireless/rtl8192eu 0_pre20210403: Realtek 8192EU driver module for Linux kernel
+net-wireless/rtl8192eu 0_pre20211023: Realtek 8192EU driver module for Linux kernel
 net-wireless/rtl8821ce 0_pre20210321: Realtek RTL8821CE Driver module for Linux kernel
-net-wireless/rtl8821cu 0_pre20210327: Realtek 8821CU/RTL8811CU module for Linux kernel
+net-wireless/rtl8821cu 0_pre20210911: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-biology/cmdock 0.1.3 0.1.3-r1: Program for docking ligands to proteins and nucleic acids
 sci-biology/geneathome 1.10 1.10-r2: BOINC application for expanding Gene Regulatory Networks (GRN)
 sci-electronics/bsc 0_pre20210124 9999: Bluespec high level hardware design language compiler
@@ -1008,8 +1020,8 @@ sys-apps/0xFFFF 0.8 0.9: The 0pen Free Fiasco Firmware Flasher
 sys-apps/CommsPowerManagement 0.2.1: Python library providing various tools to work with Intel processors
 sys-apps/dool 0.8_pre20191010-r1 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
 sys-apps/drm_info 2.2.0 2.3.0 9999: Small utility to dump info about DRM devices
-sys-apps/dust 0.5.3 0.5.4 0.6.0 0.6.1 0.6.2 0.7.5: A more intuitive version of du
-sys-apps/fselect 0.7.7: Find files with SQL-like queries
+sys-apps/dust 0.5.4 0.6.2 0.7.5: A more intuitive version of du
+sys-apps/fselect 0.7.8: Find files with SQL-like queries
 sys-apps/hex 0.3.2 0.4.0 0.4.1 0.4.2: Futuristic take on hexdump
 sys-apps/intel-cmt-cat 4.2.0-r2: User space software for Intel(R) Resource Director Technology
 sys-apps/procs 0.11.6 0.11.9: A modern replacement for ps
@@ -1096,9 +1108,9 @@ sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC s
 sys-power/ZenStates-Linux 0_p20170507: Dynamically edit AMD Ryzen processor P-States
 sys-power/amdgpu-fan 0.1.0-r1: Fan controller for AMD graphics cards running the amdgpu driver on Linux
 sys-power/disable-c6 0_p20190603: disable the C6 state upon system boot, preventing Ryzen freezes
-sys-power/gtherm 0.0.2: A simple daemon to monitor thermal zones and cooling devices
+sys-power/gtherm 0.0.3: A simple daemon to monitor thermal zones and cooling devices
 sys-power/gwe 0.15.3: NVIDIA settings alternative with overclocking, fan control, and information
-sys-process/btop 1.0.21: A monitor of resources
+sys-process/btop 1.1.1: A monitor of resources
 sys-process/gotop 4.1.2: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/nq 0.4: Unix command line queue utility
 sys-process/nvtop 1.2.2 9999: NVIDIA GPUs htop like monitoring tool
@@ -1121,6 +1133,7 @@ www-client/torbrowser-launcher 0.3.3 0.3.5-r1 9999: A program to download, updat
 www-client/woob 3.0-r1 9999: Web Outside Of Browsers (core, site modules and applications)
 www-misc/gitea2rss 0.7.0: Generates RSS feeds from Gitea releases, tags and commits
 www-misc/gorss 0.3: Go Terminal Feed Reader
+www-misc/waldl 0.0.1_pre20211112: Browse and download wallpapers from wallhaven.cc using sxiv
 www-servers/hinsightd 0.9.11_p20210831 9999: hinsightd a http/1.1 webserver with (hopefully) minimal goals
 www-servers/quark 9999: A small, GET-only static HTTP server
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images

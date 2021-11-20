@@ -12,4 +12,4 @@ RDEPEND=|| ( >=dev-lang/rust-1.56.0[rls] >=dev-lang/rust-bin-1.56.0[rls] )
 RESTRICT=mirror
 SLOT=0
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	cargo	c7fefacaebdcb455d2a7b59429eb47a6	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=a3d580ef3451a3b3f62ffd16ddf12fdf
+_md5_=5ca51781907f28ec925738eac8adb49c

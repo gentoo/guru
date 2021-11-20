@@ -1,0 +1,16 @@
+BDEPEND=doc? ( dev-python/sphinx_rtd_theme ) test-full? ( dev-scheme/chez dev-scheme/racket net-libs/nodejs )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=chez? ( dev-scheme/chez ) racket? ( dev-scheme/racket ) dev-libs/gmp
+DESCRIPTION=Purely functional programming language with first class types
+EAPI=8
+HOMEPAGE=https://github.com/idris-lang/Idris2/
+INHERIT=toolchain-funcs xdg-utils
+IUSE=+chez doc racket test-full
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=chez? ( dev-scheme/chez ) racket? ( dev-scheme/racket ) dev-libs/gmp
+REQUIRED_USE=^^ ( chez racket )
+SLOT=0
+SRC_URI=https://github.com/idris-lang/Idris2/archive/ba180706d607945d8b419301f4362471d97a306a.tar.gz -> idris2-0.5.1_p20211112.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_md5_=8d3e6b9be010bc5bf7d8439e9a1f2d25

@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=net-misc/curl dev-libs/libevent dev-libs/spdlog test? ( dev-cpp/doctest )
+DESCRIPTION=A simple async wrapper around CURL for C++
+EAPI=8
+HOMEPAGE=https://nheko.im/nheko-reborn/coeurl
+INHERIT=meson
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=net-misc/curl dev-libs/libevent dev-libs/spdlog
+RESTRICT=test
+SLOT=0
+SRC_URI=https://nheko.im/nheko-reborn/coeurl/-/archive/v0.1.0/coeurl-v0.1.0.tar.bz2 -> coeurl-0.1.0.tar.bz2
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc
+_md5_=e761d31626affa6f92d0b678ac3a53da

@@ -52,9 +52,6 @@ app-misc/ntfy:dbus - Support for desktop notifications
 app-misc/ntfy:telegram - Add support for telegram backend
 app-misc/termdown:speak - Support for spoken countdown
 app-portage/emlop:fish-completion - Enable fish completion support.
-app-shells/starship:battery - Include support for laptop battery information.
-app-shells/starship:http - If enabled, starship can help you file bugs with itself
-app-shells/starship:tls-vendored - Use a bundled openssl instead of the system openssl
 app-text/OCRmyPDF:jbig2enc - Uses media-libs/jbig2enc for a better compression algorithm
 app-text/klogg:lto - Build with link time optimization (LTO).
 app-text/klogg:sentry - Enable crash reporting using sentry.io.
@@ -86,6 +83,9 @@ dev-games/godot:raycast - Enable raycast module using media-libs/embree
 dev-java/openjdk-sts-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (package manager, eselect, java-config, EXPERIMENTAL!)
 dev-java/openjdk-sts-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
 dev-java/openjdk-sts-bin:source - Install JVM sources
+dev-lang/idris2:chez - build using dev-scheme/chez
+dev-lang/idris2:racket - build using dev-scheme/racket
+dev-lang/idris2:test-full - pull in depedndencies to run all tests
 dev-lang/lean:json - Enable JSON support
 dev-libs/hts_engine:speech-tools - use memory allocation/free functions of app-accessibility/speech-tools
 dev-libs/libdwarf:dwarfexample - enable dwarfexample compilation
@@ -209,6 +209,11 @@ gui-apps/nwg-launchers:layershell - Enable Wayland layer shell support
 gui-apps/swaylock-effects:fish-completion - Enable fish completion support
 gui-apps/swaylock-effects:gdk-pixbuf - Enable additional image format support via the x11-libs/gdk-pixbuf library
 gui-apps/swaylock-effects:man - Build and install man pages
+gui-apps/wlogout:bash-completions - Enable completions for bash shell
+gui-apps/wlogout:doc - Install man pages
+gui-apps/wlogout:fish-completions - Enable completions for fish shell
+gui-apps/wlogout:layershell - Enable transparency
+gui-apps/wlogout:zsh-completions - Enable completions for zsh shell
 gui-apps/wofi:dmenu - Enable dmenu mode
 gui-apps/wofi:drun - Enable drun mode
 gui-apps/wofi:run - Enable run mode
@@ -280,6 +285,7 @@ net-analyzer/munin-contrib:tools - munin contrib tools
 net-im/Quaternion:keychain - Enable support for password storage via dev-libs/qtkeychain
 net-im/biboumi:logrotate - Use app-admin/logrotate for rotating logs
 net-im/biboumi:udns - Asynchronously resolve domain names using net-libs/udns
+net-im/nheko:pipewire - Pull in dependencies for media-video/pipewire support
 net-im/nheko:video - Enables video calls
 net-im/nheko:voip - Enables audio calls
 net-im/ruqola:speech - Enable text-to-speech support

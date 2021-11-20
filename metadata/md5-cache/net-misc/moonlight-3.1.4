@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig dev-qt/qtcore
 DEFINED_PHASES=configure postinst postrm
-DEPEND=>=dev-libs/openssl-1.1.1l:0/1.1 >=media-libs/libsdl2-2.0.16-r1:0 >=media-libs/sdl2-ttf-2.0.15:0 >=media-video/ffmpeg-4.4-r1:0 >=dev-qt/qtsvg-5.15.2-r10:5/5.15 >=dev-qt/qtquickcontrols2-5.15.2-r11:5 >=media-libs/opus-1.3.1-r2:0 >=media-sound/pulseaudio-15.0-r1:0 vaapi? ( >=x11-libs/libva-2.12.0:0 )
+DEPEND=>=dev-libs/openssl-1.1.1l:0/1.1 >=media-libs/libsdl2-2.0.16-r1:0[kms] >=media-libs/sdl2-ttf-2.0.15:0 >=media-video/ffmpeg-4.4-r1:0 >=dev-qt/qtsvg-5.15.2-r10:5/5.15 >=dev-qt/qtquickcontrols2-5.15.2-r11:5 >=media-libs/opus-1.3.1-r2:0 >=media-sound/pulseaudio-15.0-r1:0 vaapi? ( >=x11-libs/libva-2.12.0:0 )
 DESCRIPTION=GameStream client for PCs
 EAPI=8
 HOMEPAGE=https://github.com/moonlight-stream/moonlight-qt
@@ -8,8 +8,8 @@ INHERIT=qmake-utils xdg-utils
 IUSE=vaapi
 KEYWORDS=~amd64
 LICENSE=GPL-3
-RDEPEND=>=dev-libs/openssl-1.1.1l:0/1.1 >=media-libs/libsdl2-2.0.16-r1:0 >=media-libs/sdl2-ttf-2.0.15:0 >=media-video/ffmpeg-4.4-r1:0 >=dev-qt/qtsvg-5.15.2-r10:5/5.15 >=dev-qt/qtquickcontrols2-5.15.2-r11:5 >=media-libs/opus-1.3.1-r2:0 >=media-sound/pulseaudio-15.0-r1:0 vaapi? ( >=x11-libs/libva-2.12.0:0 )
+RDEPEND=>=dev-libs/openssl-1.1.1l:0/1.1 >=media-libs/libsdl2-2.0.16-r1:0[kms] >=media-libs/sdl2-ttf-2.0.15:0 >=media-video/ffmpeg-4.4-r1:0 >=dev-qt/qtsvg-5.15.2-r10:5/5.15 >=dev-qt/qtquickcontrols2-5.15.2-r11:5 >=media-libs/opus-1.3.1-r2:0 >=media-sound/pulseaudio-15.0-r1:0 vaapi? ( >=x11-libs/libva-2.12.0:0 )
 SLOT=0
 SRC_URI=https://github.com/moonlight-stream/moonlight-qt/releases/download/v3.1.4/MoonlightSrc-3.1.4.tar.gz
 _eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
-_md5_=9da25a462a6f989a6e922a26ed31f2d9
+_md5_=0ee3becbcc1a359b69705a2daa24370b

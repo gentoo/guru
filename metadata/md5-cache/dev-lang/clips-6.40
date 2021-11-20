@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile install prepare
+DESCRIPTION=Tool for building Expert Systems (native version)
+EAPI=8
+HOMEPAGE=http://www.clipsrules.net/
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64
+LICENSE=public-domain
+SLOT=0
+SRC_URI=https://sourceforge.net/projects/clipsrules/files/CLIPS/6.40/clips_core_source_640.tar.gz -> clips-6.40.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
+_md5_=79ac1c4a1e5f83e4ae7c8992d616fb04

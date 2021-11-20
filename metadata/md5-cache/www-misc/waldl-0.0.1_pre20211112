@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DEPEND=app-misc/jq media-gfx/sxiv net-misc/curl x11-libs/libnotify x11-misc/dmenu
+DESCRIPTION=Browse and download wallpapers from wallhaven.cc using sxiv
+EAPI=8
+HOMEPAGE=https://github.com/pystardust/waldl
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=app-misc/jq media-gfx/sxiv net-misc/curl x11-libs/libnotify x11-misc/dmenu
+SLOT=0
+SRC_URI=https://github.com/pystardust/waldl/archive/727640c1583cf627c075db7239e09e7bbdfecf17.tar.gz -> waldl-0.0.1_pre20211112.tar.gz
+_md5_=644c06a9a0eb986f81fb477e6e2065cc
