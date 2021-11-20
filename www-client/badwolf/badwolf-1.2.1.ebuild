@@ -30,6 +30,7 @@ RESTRICT="!test? ( test )"
 
 DEPEND="
 	x11-libs/gtk+:3
+	net-libs/libsoup:2.4
 	net-libs/webkit-gtk:4=
 "
 RDEPEND="${DEPEND}"
