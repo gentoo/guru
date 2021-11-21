@@ -10,6 +10,7 @@ inherit multilib
 DESCRIPTION="A programming language based on R6RS"
 HOMEPAGE="https://cisco.github.io/ChezScheme/ https://github.com/cisco/ChezScheme"
 SRC_URI="https://github.com/cisco/ChezScheme/releases/download/v${PV}/${CSV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${CSV}"
 
 # Chez Scheme itself is Apache 2.0, but it vendors LZ4 (BSD-2),
 # Nanopass (MIT), stex (MIT), and zlib (ZLIB).
@@ -22,18 +23,16 @@ DEPEND="
 	X? ( x11-libs/libX11 )
 	ncurses? ( sys-libs/ncurses )
 "
-RDEPEND="
-	${DEPEND}
-"
-
-S="${WORKDIR}/${CSV}"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
-	default
+	tc-export AR CC CXX LD RANLIB
 
 	if use ncurses; then
 		eapply "${FILESDIR}/tinfo.patch"
 	fi
+
+	default
 }
 
 src_configure() {
@@ -51,7 +50,7 @@ src_configure() {
 		--installscriptname=chezscheme-script
 		--nogzip-man-pages
 	)
-	./configure "${myconfargs[@]}" || die
+	sh ./configure "${myconfargs[@]}" || die
 }
 
 src_install() {
