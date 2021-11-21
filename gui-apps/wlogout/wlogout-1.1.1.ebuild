@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="layershell doc bash-completions fish-completions zsh-completions"
 
-DEPEND="gui-libs/gtk:=
+DEPEND="x11-libs/gtk+[wayland(-)]
 		dev-libs/gobject-introspection
 		doc? ( app-text/scdoc )
 		layershell? ( gui-libs/gtk-layer-shell )"
