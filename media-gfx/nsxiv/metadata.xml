@@ -7,4 +7,7 @@
 	<upstream>
 		<remote-id type="github">nsxiv/nsxiv</remote-id>
 	</upstream>
+	<use>
+		<flag name="statusbar">Enable statusbar</flag>
+	</use>
 </pkgmetadata>
