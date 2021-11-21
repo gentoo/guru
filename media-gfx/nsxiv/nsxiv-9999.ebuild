@@ -36,10 +36,6 @@ pkg_setup() {
 		ERROR_INOTIFY_USER="${P} requires inotify in-kernel support."
 		linux-info_pkg_setup
 	fi
-
-	export DESTDIR="${ED}"
-	export PREFIX="/usr"
-	export EGPREFIX="${PREFIX}/share/doc/${P}/examples"
 }
 
 src_prepare() {
@@ -64,6 +60,10 @@ src_compile() {
 }
 
 src_install() {
+	export DESTDIR="${ED}"
+	export PREFIX="/usr"
+	export EGPREFIX="${PREFIX}/share/doc/${P}/examples"
+
 	emake install
 	emake install-icon
 	dodoc README.md
