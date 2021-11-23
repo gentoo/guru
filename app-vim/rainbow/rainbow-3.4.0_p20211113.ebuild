@@ -5,7 +5,7 @@ EAPI=7
 
 inherit readme.gentoo-r1 vim-plugin
 
-COMMIT="4d15633cdaf61602e1d9fd216a77fc02e0881b2d"
+COMMIT="c18071e5c7790928b763c2e88c487dfc93d84a15"
 DESCRIPTION="vim plugin: Rainbow Parentheses Improved"
 HOMEPAGE="http://www.vim.org/scripts/script.php?script_id=4176
 https://github.com/luochen1990/rainbow"
