@@ -15,6 +15,15 @@ RESTRICT="test"
 DEPEND="|| ( >=app-shells/bash-3.0:* app-shells/zsh )"
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	default
+
+	if [ -n "${PVR}" ] ; then
+		sed -i Makefile -e "s/^VERSION=${PV}$/VERSION=${PVR}/" \
+			|| die "can't fix doc location to follow Gentoo/FHS guidelines"
+	fi
+}
+
 src_install() {
 	# TODO: Remove `${D}` from PREFIX in >=chruby-0.3.10 (https://git.io/JPQ25)
 	emake DESTDIR="${D}" PREFIX="${D}/usr" install
