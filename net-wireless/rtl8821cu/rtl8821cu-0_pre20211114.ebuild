@@ -4,9 +4,9 @@
 EAPI=7
 
 inherit linux-mod toolchain-funcs
-BUILD_PARAMS="CC=$(tc-getCC) V=1"
+BUILD_PARAMS="CC=$(tc-getCC) V=1 KSRC=${KERNEL_DIR}"
 
-COMMIT="9828dcb51d81171330e3e1fd1de9b58ba2f7a62a"
+COMMIT="ef3ff12118a75ea9ca1db8f4806bb0861e4fffef"
 
 DESCRIPTION="Realtek 8821CU/RTL8811CU module for Linux kernel"
 HOMEPAGE="https://github.com/brektrou/rtl8821CU"
