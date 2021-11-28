@@ -45,8 +45,6 @@ S="${WORKDIR}/${MY_P}"
 RESTRICT="!test? ( test )"
 
 PATCHES=(
-	# Upstream installs to hardcoded lib- and include-dirs
-	"${FILESDIR}/${P}-use-gnuinstalldirs.patch"
 	# Some tests require network connectivity
 	"${FILESDIR}/${P}-remove-network-tests.patch"
 	# Upstream uses git submodules
