@@ -16,11 +16,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	>=dev-cpp/simpleini-4.17_p20210901
 	dev-cpp/gtkmm:3.0=
 	dev-db/sqlite:3
 	net-misc/curl
-	>=net-libs/ixwebsocket-11.2.8
+	>=net-libs/ixwebsocket-11.0.8
 	sys-libs/zlib:=
 "
 DEPEND="
@@ -29,17 +28,13 @@ DEPEND="
 "
 BDEPEND=""
 
-PATCHES=(
-	"${FILESDIR}/${P}-remove-vendored-dependencies.patch"
-)
-
 src_install() {
 	dodoc README.md
 
 	dobin "${BUILD_DIR}"/abaddon
 
 	insinto /usr/share/${PN}
-	doins -r css res
+	doins -r res/*
 
 	make_desktop_entry /usr/bin/${PN}
 }
