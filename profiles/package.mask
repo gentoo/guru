@@ -8,3 +8,8 @@
 #
 # TODO: Either fix per profile masking in overlays, or move
 # relevant entries to the relevant package.mask files in ::gentoo
+
+# Nickolas Raymond Kaczynski <nrk@disroot.org> (2021-11-28)
+# sfeed_curses has been merged to sfeed and is available via ncurses USEFLAG.
+# removal in 30 days.
+net-news/sfeed_curses
