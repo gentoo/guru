@@ -5,6 +5,9 @@
 		<email>contact@hacktivis.me</email>
 		<name>Haelwenn (lanodan) Monnier</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>nrk@disroot.org</email>
+	</maintainer>
 	<upstream>
 		<bugs-to>mailto:hiltjo@codemadness.org</bugs-to>
 	</upstream>
