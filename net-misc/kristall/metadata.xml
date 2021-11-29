@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>gentoo@tastytea.de</email>
-		<name>Ronny (tastytea) Gutbrod</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">
 		Graphical small-internet client for windows, linux, MacOS X and
 		BSDs. Supports gemini, http, https, gopher, finger.
