@@ -3,11 +3,11 @@
 
 EAPI=8
 
-COMMIT="16adcdb6413b41489c47637a71a630021ea43a16"
+COMMIT="117b525d7a33f7ecc3bb772323c7609c76a6aeb4"
 ECM_TEST="forceoptional"
 KFMIN=5.77.0
 QTMIN=5.4.0
-inherit ecm
+inherit ecm optfeature
 
 DESCRIPTION="KPart for viewing text/gemini files"
 HOMEPAGE="https://gitlab.com/tobiasrautenkranz/geminipart"
@@ -17,7 +17,6 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 LICENSE="LGPL-2+"
 SLOT="5"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="konqueror"
 
 DEPEND="
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -29,22 +28,22 @@ DEPEND="
 	>=kde-frameworks/kparts-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
 "
-RDEPEND="${DEPEND}
-	konqueror? (
-		kde-apps/konqueror:5
-		kde-misc/kio-gemini:5
-	)
-"
+RDEPEND="${DEPEND}"
 
 src_test() {
 	export QT_QPA_PLATFORM=offscreen
 	ecm_src_test
 }
 
-src_install() {
-	ecm_src_install
+src_prepare() {
+	# Konqueror may not be installed, don't make it default text/gemini handler
+	sed "/MimeType=/d" -i integration/gemini-konqueror.desktop || die
+	ecm_src_prepare
+}
 
-	if ! use konqueror ; then
-		rm "${ED}"/usr/share/applications/gemini-konqueror.desktop || die
-	fi
+pkg_postinst() {
+	ecm_pkg_postinst
+
+	optfeature "handling gemini:// URLs in Konqueror browser" \
+		"kde-apps/konqueror kde-misc/kio-gemini"
 }
