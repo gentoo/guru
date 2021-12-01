@@ -31,7 +31,10 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	gui-apps/foot-terminfo
+	|| (
+		>=sys-libs/ncurses-6.3
+		gui-apps/foot-terminfo
+	)
 "
 BDEPEND="
 	app-text/scdoc

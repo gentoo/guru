@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-    <maintainer type="person">
-        <description>co-maintainers welcome</description>
-        <email>xgqt@riseup.net</email>
-        <name>Maciej Barć</name>
-    </maintainer>
-    <use>
-        <flag name="location">
-            Enable location discovery
-        </flag>
-    </use>
+  <!-- maintainer-needed -->
+  <use>
+    <flag name="location">
+      Enable location discovery
+    </flag>
+  </use>
 </pkgmetadata>

@@ -35,6 +35,7 @@ distutils_enable_sphinx docs dev-python/sphinx-py3doc-enhanced-theme
 distutils_enable_tests --install pytest
 
 python_test() {
+	local -x PYTHONPATH="${S}/src:${PYTHONPATH}"
 	local EPYTEST_DESELECT=(
 		tests/test_manhole.py::test_connection_handler_exec
 		tests/test_manhole.py::test_non_daemon_connection

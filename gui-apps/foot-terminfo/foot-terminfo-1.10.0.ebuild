@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 if [[ ${PV} != *9999* ]]; then
 	SRC_URI="https://codeberg.org/dnkl/foot/archive/${PV}.tar.gz  -> foot-${PV}.tar.gz"
@@ -18,7 +18,7 @@ LICENSE="MIT"
 SLOT="0"
 
 DEPEND=""
-RDEPEND="${DEPEND}"
+RDEPEND="<sys-libs/ncurses-6.3"
 BDEPEND="sys-libs/ncurses"
 
 src_prepare() {
