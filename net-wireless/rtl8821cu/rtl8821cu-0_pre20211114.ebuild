@@ -21,4 +21,3 @@ S="${WORKDIR}/rtl8821CU-${COMMIT}"
 
 MODULE_NAMES="8821cu(net/wireless)"
 BUILD_TARGETS="all"
-
