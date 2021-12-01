@@ -26,7 +26,7 @@ RDEPEND="${PYTHON_DEPS}
 	dev-python/lxml[${PYTHON_USEDEP}]
 	dev-python/parsel[${PYTHON_USEDEP}]
 	dev-python/protego[${PYTHON_USEDEP}]
-	~dev-python/pydispatcher-2.0.5[${PYTHON_USEDEP}]
+	>=dev-python/pydispatcher-2.0.5[${PYTHON_USEDEP}]
 	dev-python/pyopenssl[${PYTHON_USEDEP}]
 	dev-python/queuelib[${PYTHON_USEDEP}]
 	dev-python/service_identity[${PYTHON_USEDEP}]
