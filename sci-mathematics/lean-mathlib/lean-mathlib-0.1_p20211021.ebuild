@@ -15,7 +15,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 IUSE="test"
 
-RDEPEND=">=dev-lang/lean-3.34.0"
+RDEPEND=">=sci-mathematics/lean-3.34.0"
 DEPEND="
 	${RDEPEND}
 	sci-mathematics/mathlib-tools
