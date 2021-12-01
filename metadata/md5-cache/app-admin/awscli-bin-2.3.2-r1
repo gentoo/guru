@@ -8,4 +8,4 @@ LICENSE=Apache-2.0 MIT LGPL-2.1
 RDEPEND=!app-admin/awscli
 SLOT=0
 SRC_URI=https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.3.2.zip -> awscli-bin-2.3.2.zip
-_md5_=d1058a51f4f418bd00188bc83bd62fb0
+_md5_=59bcc092ca54f9bd3fb3007593c80ade

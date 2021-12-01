@@ -1,14 +1,15 @@
 BDEPEND=app-text/scdoc dev-libs/tllist dev-libs/wayland-protocols sys-libs/ncurses >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
-DEPEND=dev-libs/libutf8proc dev-libs/wayland media-libs/fcft media-libs/fontconfig media-libs/freetype x11-libs/libxkbcommon x11-libs/pixman dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEFINED_PHASES=compile configure install postinst postrm preinst test unpack
+DEPEND=dev-libs/libutf8proc dev-libs/wayland media-libs/fcft media-libs/fontconfig media-libs/freetype x11-libs/libxkbcommon x11-libs/pixman
 DESCRIPTION=A fast, lightweight and minimalistic Wayland terminal emulator
-EAPI=7
+EAPI=8
 HOMEPAGE=https://codeberg.org/dnkl/foot
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=meson xdg git-r3
-IUSE=ime +grapheme-clustering
+IUSE=ime +themes +grapheme-clustering
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=dev-libs/libutf8proc dev-libs/wayland media-libs/fcft media-libs/fontconfig media-libs/freetype x11-libs/libxkbcommon x11-libs/pixman gui-apps/foot-terminfo
+RDEPEND=dev-libs/libutf8proc dev-libs/wayland media-libs/fcft media-libs/fontconfig media-libs/freetype x11-libs/libxkbcommon x11-libs/pixman || ( >=sys-libs/ncurses-6.3 gui-apps/foot-terminfo )
 SLOT=0
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=0f60458256dc11efdc0f7b14b38ae9c3
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=53801e9a349c1aa09ac9a8c704eb8cea

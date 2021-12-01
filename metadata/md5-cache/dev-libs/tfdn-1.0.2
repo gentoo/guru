@@ -1,0 +1,15 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 doc? ( app-doc/doxygen app-doc/doxygen[dot] )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/libpcre:3 dev-libs/libunistring:= sys-libs/zlib:= curl? ( net-misc/curl ) ssl? ( dev-libs/openssl:= )
+DESCRIPTION=Opinionated C11 library for low-level functionality
+EAPI=8
+HOMEPAGE=https://git.skyjake.fi/skyjake/the_Foundation
+INHERIT=cmake docs
+IUSE=cpu_flags_x86_sse4_1 curl debug ssl doc
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2
+RDEPEND=dev-libs/libpcre:3 dev-libs/libunistring:= sys-libs/zlib:= curl? ( net-misc/curl ) ssl? ( dev-libs/openssl:= )
+SLOT=0/1
+SRC_URI=https://git.skyjake.fi/skyjake/the_foundation/archive/v1.0.2.tar.gz -> tfdn-1.0.2.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	docs	7c38d94fa7c1b4235fe571dc09e018df
+_md5_=7d60cff50d7a07256e5437f5fdc3d98a

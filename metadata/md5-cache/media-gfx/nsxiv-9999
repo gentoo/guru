@@ -1,0 +1,14 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DEPEND=statusbar? ( x11-libs/libXft ) exif? ( media-libs/libexif ) gif? ( media-libs/giflib:0= ) webp? ( media-libs/libwebp ) media-libs/imlib2[X,gif?,jpeg?,png?,webp?,tiff?] x11-libs/libX11
+DESCRIPTION=Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer
+EAPI=7
+HOMEPAGE=https://github.com/nsxiv/nsxiv
+INHERIT=desktop xdg-utils savedconfig toolchain-funcs linux-info git-r3
+IUSE=+statusbar exif +inotify +gif +jpeg +png webp tiff savedconfig kernel_linux
+LICENSE=GPL-2
+PROPERTIES=live
+RDEPEND=statusbar? ( x11-libs/libXft ) exif? ( media-libs/libexif ) gif? ( media-libs/giflib:0= ) webp? ( media-libs/libwebp ) media-libs/imlib2[X,gif?,jpeg?,png?,webp?,tiff?] x11-libs/libX11
+SLOT=0
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	portability	d1186f1e621de7b27ddcae82e6253259	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	linux-info	6b67971d8a0a029d13181f2cfb9f5fa9	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=60df8d939392a13f882cd0650fdf242e

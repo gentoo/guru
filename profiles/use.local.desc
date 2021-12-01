@@ -83,10 +83,6 @@ dev-games/godot:raycast - Enable raycast module using media-libs/embree
 dev-java/openjdk-sts-bin:gentoo-vm - Allow this JDK to be recognised by Gentoo (package manager, eselect, java-config, EXPERIMENTAL!)
 dev-java/openjdk-sts-bin:headless-awt - Don't install the X backend for AWT, needed by some GUIs (used to be X flag)
 dev-java/openjdk-sts-bin:source - Install JVM sources
-dev-lang/idris2:chez - build using dev-scheme/chez
-dev-lang/idris2:racket - build using dev-scheme/racket
-dev-lang/idris2:test-full - pull in depedndencies to run all tests
-dev-lang/lean:json - Enable JSON support
 dev-libs/hts_engine:speech-tools - use memory allocation/free functions of app-accessibility/speech-tools
 dev-libs/libdwarf:dwarfexample - enable dwarfexample compilation
 dev-libs/libdwarf:dwarfgen - enable dwarfgen compilation
@@ -139,9 +135,6 @@ dev-python/tinyrpc:jsonext - Add support for jsonext
 dev-python/tinyrpc:websocket - Add support for websocket
 dev-python/tinyrpc:wsgi - Add support for wsgi
 dev-python/tinyrpc:zmq - Add support for zmq
-dev-scheme/gerbil:leveldb - Add support for using dev-libs/leveldb
-dev-scheme/gerbil:lmdb - Add support for using dev-db/lmdb
-dev-scheme/gerbil:yaml - Add support for yaml file format
 dev-util/FoBiS:graphviz - Add support of generation of a dependencies graph
 dev-util/gammaray:3d - Build support for Qt5 3D modules
 dev-util/gammaray:designer - Widget .ui file export
@@ -202,6 +195,7 @@ gui-apps/coreapps-meta:location - Enable location discovery
 gui-apps/coretoppings:location - Enable location discovery
 gui-apps/foot:grapheme-clustering - Enable grapheme clustering support
 gui-apps/foot:ime - Enable IME support
+gui-apps/foot:themes - Install example theme files
 gui-apps/nwg-launchers:bar - Installs nwgbar, a horizontal or vertical button bar.
 gui-apps/nwg-launchers:dmenu - Installs nwgdmenu, GTK dynamic menu windows.
 gui-apps/nwg-launchers:grid - Installs nwggrid, a GNOME-like application grid.
@@ -218,13 +212,13 @@ gui-apps/wofi:dmenu - Enable dmenu mode
 gui-apps/wofi:drun - Enable drun mode
 gui-apps/wofi:run - Enable run mode
 gui-wm/cage:X - Enable support for X11 applications (XWayland)
-kde-misc/geminipart:konqueror - Make Konqueror handle gemini:// URLs
 media-gfx/bonzomatic:system-glew - Use the systems installed version of GLEW (upstream-unsupported)
 media-gfx/bonzomatic:system-glfw - Use the systems installed version of GLFW (upstream-unsupported)
 media-gfx/bonzomatic:system-kissfft - Use the systems installed version of Kissfft (upstream-unsupported)
 media-gfx/bonzomatic:system-stb - Use the systems installed version of STB (upstream-unsupported)
 media-gfx/bonzomatic:wayland - Build non-system-glfw for wayland instead of X11
 media-gfx/grafx2:ttf - Install TTF Fonts
+media-gfx/nsxiv:statusbar - Add statusbar support
 media-libs/alvr:x264 - Use x264 for h264 software encoding
 media-libs/alvr:x265 - Use x265 for h265 software encoding
 media-libs/fcft:text-shaping - Support text shaping using HarfBuzz
@@ -302,6 +296,10 @@ net-misc/megasync:thunar - Upload your files to your Mega account from Thunar.
 net-misc/moonlight:vaapi - Enable support for hardware video decoding using x11-libs/libva.
 net-misc/telescope:libbsd - Use dev-libs/libbsd instead of internal funcs
 net-misc/tinyssh:sodium - Use dev-libs/libsodium for cryptography
+net-news/sfeed:theme-mono - Use mono theme
+net-news/sfeed:theme-mono-highlight - Use mono_highlight theme
+net-news/sfeed:theme-newsboat - Use newsboat theme
+net-news/sfeed:theme-templeos - Use templeos theme
 net-news/sfeed_curses:theme-mono - Use mono theme
 net-news/sfeed_curses:theme-mono-highlight - Use mono_highlight theme
 net-news/sfeed_curses:theme-newsboat - Use newsboat theme

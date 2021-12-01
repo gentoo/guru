@@ -1,0 +1,14 @@
+BDEPEND=dev-cpp/eigen:3 dev-cpp/indicators >=dev-cpp/pcg-cpp-0.98.1_p20210406-r1 dev-libs/cxxopts doc? ( app-doc/doxygen ) doc? ( || ( ( dev-lang/python:3.10 dev-python/sphinx[python_targets_python3_10(-)] ) ( dev-lang/python:3.9 dev-python/sphinx[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/sphinx[python_targets_python3_8(-)] ) ( >=dev-python/pypy3-7.3.7:0 dev-python/sphinx[python_targets_pypy3(-)] ) ) ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm setup test
+DESCRIPTION=Program for docking ligands to proteins and nucleic acids
+EAPI=8
+HOMEPAGE=https://gitlab.com/Jukic/cmdock https://www.rxdock.org
+INHERIT=python-any-r1 boinc-app docs flag-o-matic meson
+IUSE=apidoc boinc cpu_flags_x86_sse2 doc
+KEYWORDS=~amd64
+LICENSE=LGPL-3 ZLIB
+RDEPEND=dev-lang/perl boinc? ( sci-misc/boinc-wrapper )
+SLOT=0/0.1.4
+SRC_URI=https://gitlab.com/Jukic/cmdock/-/archive/v0.1.4/cmdock-v0.1.4.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	boinc-app	8d8de9d57216f2f1777dee32c941a5fc	docs	7c38d94fa7c1b4235fe571dc09e018df	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	meson	9f3e84959ae1d60e19bc91f212774dcc
+_md5_=9cf1fe4cd4722be0eb9eeb0ab72a1eb7

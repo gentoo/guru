@@ -1,11 +1,12 @@
 BDEPEND=sys-libs/ncurses >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install prepare unpack
 DESCRIPTION=Terminfo for foot, a great Wayland terminal emulator
-EAPI=7
+EAPI=8
 HOMEPAGE=https://codeberg.org/dnkl/foot
 INHERIT=git-r3
 LICENSE=MIT
 PROPERTIES=live
+RDEPEND=<sys-libs/ncurses-6.3
 SLOT=0
 _eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=bb07ace86efd422e878f9353cea3fc79
+_md5_=6060451ca51662f2641ff0c85bfcb430
