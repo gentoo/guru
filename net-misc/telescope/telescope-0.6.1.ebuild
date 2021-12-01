@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 DESCRIPTION="w3m-like browser for Gemini"
 HOMEPAGE="https://telescope.omarpolo.com"
 SRC_URI="https://github.com/omar-polo/${PN}/releases/download/${PV}/${P}.tar.gz"
@@ -15,7 +17,7 @@ IUSE="+libbsd"
 DEPEND="
 	dev-libs/imsg-compat
 	dev-libs/libevent:=
-	dev-libs/libretls
+	dev-libs/libretls:=
 	sys-libs/ncurses:=
 	libbsd? ( dev-libs/libbsd )
 "
@@ -23,5 +25,13 @@ RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 src_configure() {
-	econf --with-libimsg $(use_with libbsd)
+	tc-export_build_env BUILD_CC
+	local econf_args=(
+		HOSTCC="${BUILD_CC}"
+		HOSTCFLAGS="${BUILD_CFLAGS}"
+		$(use_with libbsd)
+		--with-libimsg
+	)
+
+	econf "${econf_args[@]}"
 }
