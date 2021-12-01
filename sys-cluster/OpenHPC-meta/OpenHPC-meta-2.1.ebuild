@@ -43,7 +43,7 @@ RDEPEND="
 		sci-libs/mumps[mpi,scotch]
 		sci-libs/scalapack
 		sci-libs/scotch[mpi,threads]
-		sci-libs/trilinos[boost,hypre,mumps,scotch,scalapack,petsc]
+		sci-libs/trilinos[hypre,mumps,scotch,scalapack,petsc]
 		sci-mathematics/petsc[fftw,hypre,mpi,mumps,scotch]
 		sci-mathematics/slepc[mpi]
 		sys-cluster/opencoarrays
