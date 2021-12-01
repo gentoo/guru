@@ -1,17 +1,17 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-lang/perl:= dev-perl/File-DesktopEntry dev-perl/File-DirList dev-perl/File-HomeDir dev-perl/File-Touch dev-perl/IPC-Run dev-perl/Moo dev-perl/libwww-perl dev-util/distro-info python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) test? ( app-arch/zip dev-perl/Git-Wrapper dev-perl/GitLab-API-v4 dev-perl/List-Compare dev-perl/Software-License dev-perl/String-ShellQuote dev-perl/UNIVERSAL-require dev-python/pyftpdlib[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/python-debian[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-util/shunit2 dev-vcs/subversion sys-libs/libfaketime virtual/perl-DB_File )
+DEPEND=dev-lang/perl:= dev-perl/File-DesktopEntry dev-perl/File-DirList dev-perl/File-HomeDir dev-perl/File-Touch dev-perl/IPC-Run dev-perl/Moo dev-perl/libwww-perl dev-util/distro-info python? ( python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_9(-)?] ) test? ( app-arch/zip dev-perl/Git-Wrapper dev-perl/GitLab-API-v4 dev-perl/List-Compare dev-perl/Software-License dev-perl/String-ShellQuote dev-perl/UNIVERSAL-require dev-python/pyftpdlib[python_targets_python3_9(-)?] dev-python/python-debian[python_targets_python3_9(-)?] dev-util/shunit2 dev-vcs/subversion sys-libs/libfaketime virtual/perl-DB_File )
 DESCRIPTION=Scripts to make the life of a Debian Package maintainer easier
 EAPI=7
 HOMEPAGE=https://salsa.debian.org/debian/devscripts
 INHERIT=distutils-r1
-IUSE=python test python_targets_python3_8 python_targets_python3_9
+IUSE=python test python_targets_python3_9
 KEYWORDS=~amd64
 LICENSE=GPL-2+
-RDEPEND=dev-lang/perl:= dev-perl/File-DesktopEntry dev-perl/File-DirList dev-perl/File-HomeDir dev-perl/File-Touch dev-perl/IPC-Run dev-perl/Moo dev-perl/libwww-perl dev-util/distro-info python? ( python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) app-arch/dpkg app-crypt/gnupg app-text/wdiff dev-util/debhelper dev-util/patchutils sys-apps/fakeroot
-REQUIRED_USE=python? ( || ( python_targets_python3_8 python_targets_python3_9 ) )
+RDEPEND=dev-lang/perl:= dev-perl/File-DesktopEntry dev-perl/File-DirList dev-perl/File-HomeDir dev-perl/File-Touch dev-perl/IPC-Run dev-perl/Moo dev-perl/libwww-perl dev-util/distro-info python? ( python_targets_python3_9? ( dev-lang/python:3.9 ) >=dev-lang/python-exec-2:=[python_targets_python3_9(-)?] ) app-arch/dpkg app-crypt/gnupg app-text/wdiff dev-util/debhelper dev-util/patchutils sys-apps/fakeroot
+REQUIRED_USE=python? ( || ( python_targets_python3_9 ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/d/devscripts/devscripts_2.21.2.tar.xz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	multibuild	05a584848db4901c97fcd94ae7cc3a97	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	8041037f74e1f9d149c038c2fe2c97cf
-_md5_=805f00bf051716ce97bd4c598fa05323
+_md5_=67857837ce8fd834fdea2b1aff950706

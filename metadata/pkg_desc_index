@@ -36,7 +36,7 @@ app-admin/customrescuecd-x86_64 0.12.2 0.12.3: A system rescue cd or usbstick fo
 app-admin/glance 23.0.0: Services for discovering, registering, and retrieving VM images
 app-admin/gnome-passwordsafe 4.0-r1 4.1: A password manager for GNOME
 app-admin/grub-customizer 5.1.0: A graphical grub2 settings manager
-app-admin/krapplet 0.1.0-r1 0.2.0 0.3.1: Krapplet (keyring applet): a Linux graphical password manager
+app-admin/krapplet 0.3.1: Krapplet (keyring applet): a Linux graphical password manager
 app-admin/overmind 2.2.2-r1: Process manager for Procfile-based applications and tmux
 app-admin/pass-update 2.1: pass extension that provides an easy flow for updating passwords
 app-admin/s-tui 1.1.1 1.1.3: Stress-Terminal UI monitoring tool
@@ -47,7 +47,7 @@ app-backup/grub-btrfs 4.10.2: Improves Grub by adding btrfs snapshots to the Gru
 app-backup/timeshift 21.09.1: A system restore utility for Linux
 app-backup/timeshift-autosnap 0.9: Automatically creates a timeshift-snapshot when executed
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
-app-crypt/certbot-dns-digitalocean 1.18.0 1.19.0 1.20.0 1.21.0: Digitalocean DNS Authenticator plugin for Certbot (Let's Encrypt Client)
+app-crypt/certbot-dns-digitalocean 1.19.0 1.20.0 1.21.0: Digitalocean DNS Authenticator plugin for Certbot (Let's Encrypt Client)
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/gnome-encfs-manager 1.9: An easy to use manager and mounter for encfs stashes
 app-crypt/mkp224o 1.5.0: Vanity address generator for v3 Tor hidden service addresses
