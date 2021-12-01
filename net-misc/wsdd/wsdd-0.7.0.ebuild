@@ -27,17 +27,17 @@ src_install() {
 
 	# remove dependency on samba from init.d script if samba is not in use flags
 	if ! use samba ; then
-		sed -i -e '/need samba/d' etc/openrc/init.d/wsdd
+		sed -i -e '/need samba/d' etc/openrc/init.d/wsdd || die
 	fi
 
-	sed -i -e "s/daemon:daemon/${PN}:${PN}/" etc/openrc/init.d/wsdd
+	sed -i -e "s/daemon:daemon/${PN}:${PN}/" etc/openrc/init.d/wsdd || die
 
 	doinitd etc/openrc/init.d/wsdd
 	doconfd etc/openrc/conf.d/wsdd
 
 	# install systemd unit file with dependency on samba service if use flag is set
 	if use samba; then
-		sed -i -e 's/;Wants=smb.service/Wants=samba.service/' etc/systemd/wsdd.service
+		sed -i -e 's/;Wants=smb.service/Wants=samba.service/' etc/systemd/wsdd.service || die
 	fi
 	systemd_dounit etc/systemd/wsdd.service
 
