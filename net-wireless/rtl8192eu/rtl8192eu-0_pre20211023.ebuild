@@ -27,4 +27,3 @@ pkg_setup() {
 	linux-mod_pkg_setup
 	BUILD_PARAMS="KSRC=${KERNEL_DIR}"
 }
-
