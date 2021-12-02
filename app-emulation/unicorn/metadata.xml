@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>hayley@foxes.systems</email>
+		<name>Hayley Hughes</name>
+	</maintainer>
+	<longdescription lang="en">
+		Unicorn is a lightweight multi-platform, multi-architecture CPU emulator
+		framework. Unicorn is based on QEMU, but it goes much further with a lot
+		more to offer.
+	</longdescription>
+	<use>
+		<flag name="python">Enable python bindings</flag>
+	</use>
+</pkgmetadata>
