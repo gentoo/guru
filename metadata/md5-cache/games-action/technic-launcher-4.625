@@ -12,5 +12,5 @@ RDEPEND=virtual/jre:1.8 >=dev-java/java-config-2.2.0-r3
 RESTRICT=bindist mirror
 SLOT=0
 SRC_URI=http://launcher.technicpack.net/launcher4/625/TechnicLauncher.jar -> technic-launcher-4.625.jar https://www.technicpack.net/favicon.ico -> technic-launcher.ico
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	java-utils-2	8a3af9303fdbeca4510a6ba6e91b1460	java-pkg-2	a3d583b3f640032c3eff643a4191bd03	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	java-utils-2	32fe52795e36e76dcbcf92d89bb1c4d0	java-pkg-2	2d0eb1353bf1264bd6e61736d3e409a2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
 _md5_=e2bde053574107174a4ab683bc70b2bd
