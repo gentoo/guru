@@ -1,0 +1,20 @@
+https://bugs.gentoo.org/761541
+--- a/src/libslic3r/miniz_extension.hpp	2021-01-11 08:01:51.000000000 -0500
++++ b/src/libslic3r/miniz_extension.hpp	2021-01-12 01:16:10.503404521 -0500
+@@ -4,4 +4,5 @@
+ #include <string>
+ #include <miniz.h>
++#include <miniz_zip.h>
+ 
+ namespace Slic3r {
+
+--- a/src/libslic3r/Format/3mf.cpp
++++ b/src/libslic3r/Format/3mf.cpp
+@@ -30,6 +30,7 @@ namespace pt = boost::property_tree;
+ #include <expat.h>
+ #include <Eigen/Dense>
+ #include "miniz_extension.hpp"
++#include <miniz_zip.h>
+
+ // VERSION NUMBERS
+ // 0 : .3mf, files saved by older slic3r or other applications. No version definition in them.

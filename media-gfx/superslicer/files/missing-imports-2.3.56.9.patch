@@ -1,0 +1,118 @@
+--- a/src/libslic3r/AppConfig.cpp
++++ b/src/libslic3r/AppConfig.cpp
+@@ -10,6 +10,7 @@
+
+ #include <boost/filesystem/path.hpp>
+ #include <boost/filesystem/operations.hpp>
++#include <boost/locale/generator.hpp>
+ #include <boost/nowide/cenv.hpp>
+ #include <boost/nowide/fstream.hpp>
+ #include <boost/property_tree/ini_parser.hpp>
+
+--- a/src/libslic3r/Format/CWS.cpp
++++ b/src/libslic3r/Format/CWS.cpp
+@@ -1,6 +1,8 @@
+ #include "libslic3r/Format/CWS.hpp"
+ #include "libslic3r/PrintConfig.hpp"
+ #include "libslic3r/Time.hpp"
++#include <boost/filesystem.hpp>
++#include <boost/log/trivial.hpp>
+
+ namespace Slic3r {
+
+--- a/src/slic3r/GUI/CalibrationAbstractDialog.cpp
++++ b/src/slic3r/GUI/CalibrationAbstractDialog.cpp
+@@ -5,6 +5,7 @@
+ #include "GUI.hpp"
+ #include "GUI_ObjectList.hpp"
+ #include "Tab.hpp"
++#include <boost/filesystem.hpp>
+ #include <wx/scrolwin.h>
+ #include <wx/display.h>
+ #include <wx/file.h>
+
+--- a/src/slic3r/GUI/Preferences.cpp
++++ b/src/slic3r/GUI/Preferences.cpp
+@@ -4,6 +4,7 @@
+ #include "Plater.hpp"
+ #include "I18N.hpp"
+ #include "libslic3r/AppConfig.hpp"
++#include <boost/filesystem.hpp>
+ #include <wx/notebook.h>
+
+ namespace Slic3r {
+
+--- a/src/slic3r/GUI/GUI_ObjectList.cpp
++++ b/src/slic3r/GUI/GUI_ObjectList.cpp
+@@ -15,6 +15,7 @@
+ #include "Selection.hpp"
+
+ #include <boost/algorithm/string.hpp>
++#include <boost/log/trivial.hpp>
+ #include "slic3r/Utils/FixModelByWin10.hpp"
+
+ #ifdef __WXMSW__
+--- a/src/slic3r/GUI/Tab.cpp
++++ b/src/slic3r/GUI/Tab.cpp
+@@ -22,6 +22,7 @@
+
+ #include <wx/bmpcbox.h>
+ #include <wx/bmpbuttn.h>
++#include <wx/collpane.h>
+ #include <wx/treectrl.h>
+ #include <wx/imaglist.h>
+ #include <wx/settings.h>
+--- a/src/slic3r/GUI/3DBed.cpp
++++ b/src/slic3r/GUI/3DBed.cpp
+@@ -16,7 +16,11 @@
+
+ #include <boost/algorithm/string/predicate.hpp>
+ #include <boost/filesystem/operations.hpp>
++#include <boost/locale/generator.hpp>
+ #include <boost/log/trivial.hpp>
++#include <boost/property_tree/ini_parser.hpp>
++#include <boost/property_tree/ptree.hpp>
++#include <boost/nowide/fstream.hpp>
+
+ static const float GROUND_Z = -0.02f;
+
+--- a/src/slic3r/Utils/PresetUpdater.cpp
++++ b/src/slic3r/Utils/PresetUpdater.cpp
+@@ -12,6 +12,8 @@
+ #include <boost/filesystem/fstream.hpp>
+ #include <boost/lexical_cast.hpp>
+ #include <boost/log/trivial.hpp>
++#include <boost/property_tree/ptree.hpp>
++#include <boost/property_tree/json_parser.hpp>
+
+ #include <wx/app.h>
+ #include <wx/msgdlg.h>
+--- a/src/slic3r/GUI/NotificationManager.hpp
++++ b/src/slic3r/GUI/NotificationManager.hpp
+@@ -6,6 +6,7 @@
+
+ #include <libslic3r/ObjectID.hpp>
+ #include <libslic3r/Technologies.hpp>
++#include "libslic3r_version.h"
+
+ #include <wx/time.h>
+
+--- a/src/slic3r/GUI/Search.cpp
++++ b/src/slic3r/GUI/Search.cpp
+@@ -2,6 +2,7 @@
+
+ #include <cstddef>
+ #include <string>
++#include <regex>
+ #include <boost/algorithm/string.hpp>
+ #include <boost/optional.hpp>
+ #include <boost/nowide/convert.hpp>
+--- a/src/libslic3r/Optimize/Optimizer.hpp
++++ b/src/libslic3r/Optimize/Optimizer.hpp
+@@ -8,5 +8,6 @@
+ #include <functional>
+ #include <limits>
+ #include <cassert>
++#include <optional>
+
+ namespace Slic3r { namespace opt {

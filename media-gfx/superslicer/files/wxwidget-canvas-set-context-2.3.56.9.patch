@@ -1,0 +1,11 @@
+--- a/src/slic3r/GUI/GLCanvas3D.cpp
++++ b/src/slic3r/GUI/GLCanvas3D.cpp
+@@ -4834,5 +4833,5 @@ bool GLCanvas3D::_init_collapse_toolbar()
+
+ bool GLCanvas3D::_set_current()
+ {
+-    return m_context != nullptr && m_canvas->SetCurrent(*m_context);
++    return m_context != nullptr && _is_shown_on_screen() && m_canvas->SetCurrent(*m_context);
+     }
+
+ void GLCanvas3D::_resize(unsigned int w, unsigned int h)

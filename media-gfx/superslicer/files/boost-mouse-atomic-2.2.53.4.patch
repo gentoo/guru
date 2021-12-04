@@ -1,0 +1,9 @@
+--- a/src/slic3r/GUI/Mouse3DController.hpp
++++ b/src/slic3r/GUI/Mouse3DController.hpp
+@@ -11,5 +11,6 @@
+ #include "hidapi.h"
+
+ #include <queue>
++#include <atomic>
+ #include <thread>
+ #include <vector>
