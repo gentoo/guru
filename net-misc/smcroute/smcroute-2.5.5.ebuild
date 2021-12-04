@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools linux-info
+inherit linux-info
 
 DESCRIPTION="A static multicast routing daemon"
 HOMEPAGE="https://troglobit.com/projects/smcroute/"
