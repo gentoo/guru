@@ -6,7 +6,7 @@ EAPI=8
 inherit cmake xdg
 
 MY_COMMIT="c43c2bd4b9481f761e9f1b16453f0e7f5b1beabe"
-DESCRIPTION="Desktop client for Matrix using Qt and C++14"
+DESCRIPTION="Native desktop client for Matrix using Qt"
 HOMEPAGE="https://github.com/Nheko-Reborn/nheko"
 SRC_URI="https://github.com/Nheko-Reborn/${PN}/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${MY_COMMIT}"
