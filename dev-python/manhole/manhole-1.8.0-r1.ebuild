@@ -32,26 +32,28 @@ BDEPEND="test? (
 DOCS=( AUTHORS.rst CHANGELOG.rst README.rst )
 
 distutils_enable_sphinx docs dev-python/sphinx-py3doc-enhanced-theme
-distutils_enable_tests --install pytest
+distutils_enable_tests pytest
 
 python_test() {
+	distutils_install_for_testing
+
 	local -x PYTHONPATH="${S}/src:${PYTHONPATH}"
 	local EPYTEST_DESELECT=(
 		tests/test_manhole.py::test_connection_handler_exec
 		tests/test_manhole.py::test_non_daemon_connection
 		tests/test_manhole.py::test_daemon_connection
+		tests/test_manhole.py::test_environ_variable_activation
 		tests/test_manhole.py::test_fork_exec
 		tests/test_manhole.py::test_uwsgi
 		tests/test_manhole_cli.py::test_help
-	)
 
-	# usually passes but sometimes fails (bug #792225)
-	EPYTEST_DESELECT+=( tests/test_manhole.py::test_stderr_doesnt_deadlock )
+		# usually passes but sometimes fails (bug #792225)
+		tests/test_manhole.py::test_stderr_doesnt_deadlock
+	)
 
 	if [[ ${EPYTHON} == pypy3 ]]; then
 		EPYTEST_DESELECT+=(
 			tests/test_manhole.py::test_log_fh
-			tests/test_manhole.py::test_environ_variable_activation
 		)
 	fi
 
