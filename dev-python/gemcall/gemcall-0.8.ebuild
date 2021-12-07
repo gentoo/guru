@@ -4,7 +4,6 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} pypy3 )
-PYTHON_REQ_USE="sqlite"
 inherit distutils-r1
 
 DESCRIPTION="A library and CLI tool for making gemini requests"
