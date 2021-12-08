@@ -25,7 +25,7 @@ RESTRICT="mirror"
 SLOT="0"
 IUSE=""
 
-DEPEND="|| ( >=dev-lang/rust-1.56.1[rls] >=dev-lang/rust-bin-1.56.1[rls] )"
+DEPEND="|| ( >=dev-lang/rust-1.57.0[rust-src] >=dev-lang/rust-bin-1.57.0[rust-src] )"
 RDEPEND="${DEPEND}"
 
 QA_FLAGS_IGNORED="usr/bin/rust-analyzer"
