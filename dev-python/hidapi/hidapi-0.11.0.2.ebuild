@@ -3,14 +3,14 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} pypy3 )
-DISTUTILS_USE_SETUPTOOLS="rdepend"
+PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
+MY_PV=$(ver_rs 3 .post)
 DESCRIPTION="A Cython interface to the hidapi"
 HOMEPAGE="https://github.com/trezor/cython-hidapi"
-MY_PV=$(ver_rs 3 .post)
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${PN}-${MY_PV}.tar.gz"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="|| ( BSD GPL-3 )"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
@@ -23,7 +23,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 distutils_enable_tests pytest
-S="${WORKDIR}/${PN}-${MY_PV}"
 
 python_configure_all() {
 	DISTUTILS_ARGS=( --with-system-hidapi )

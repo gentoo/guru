@@ -46,6 +46,8 @@ RDEPEND="
 	x11-libs/pango
 "
 
+QA_FLAGS_IGNORED="/opt/rememberthemilk/.*"
+
 src_install() {
 	insinto "/opt/${PN}"
 	doins -r opt/RememberTheMilk/{*.pak,*.dat,locales,resources,*.bin,swiftshader,*.json}

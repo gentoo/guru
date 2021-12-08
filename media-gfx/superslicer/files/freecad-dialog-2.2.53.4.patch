@@ -1,0 +1,9 @@
+--- a/src/slic3r/GUI/FreeCADDialog.cpp
++++ b/src/slic3r/GUI/FreeCADDialog.cpp
+@@ -706,5 +706,5 @@
+     m_text->Bind(wxEVT_KEY_DOWN, &FreeCADDialog::on_key_type, this);
+     m_text->Bind(wxEVT_CHAR, &FreeCADDialog::on_char_type, this);
+-    m_text->Bind(wxEVT_STC_AUTOCOMP_COMPLETED, &FreeCADDialog::on_autocomp_complete, this);
++   //m_text->Bind(wxEVT_STC_AUTOCOMP_COMPLETED, &FreeCADDialog::on_autocomp_complete, this);
+     m_text->Connect(wxID_ANY,
+            wxEVT_KEY_DOWN,

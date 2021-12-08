@@ -1,0 +1,64 @@
+From a13b35ce92efed202ef43f02debb83dfb533d9b0 Mon Sep 17 00:00:00 2001
+From: Vojtech Bubnik <bubnikv@gmail.com>
+Date: Tue, 15 Dec 2020 12:14:30 +0100
+Subject: [PATCH] Support for HiDPI in OpenGL on Linux / GTK3. wxGTK3 HiDPI
+ support seems to emulate what OSX does quite closely, thus the changes are
+ relatively minimal.
+
+Also fixed an ugly rounding issue when populating the ImGUI font map
+with image thumbnails.
+
+Fixes Gtk3 issue on 4k+ screens #4135
+Fixes HiDPI screens with Wayland on Fedora 30 cause Plater view to be too small. #3245
+
+Signed-off-by: Yahor Berdnikau <egorr.berd@gmail.com>
+---
+ src/slic3r/GUI/GLCanvas3D.cpp   | 10 +++++++++-
+ src/slic3r/GUI/GLCanvas3D.hpp   |  5 +++--
+ src/slic3r/GUI/ImGuiWrapper.cpp |  8 ++++++--
+ src/slic3r/GUI/MainFrame.cpp    |  3 ++-
+ 4 files changed, 20 insertions(+), 6 deletions(-)
+
+diff --git a/src/slic3r/GUI/GLCanvas3D.cpp b/src/slic3r/GUI/GLCanvas3D.cpp
+index e778de879..c2e442431 100644
+--- a/src/slic3r/GUI/GLCanvas3D.cpp
++++ b/src/slic3r/GUI/GLCanvas3D.cpp
+@@ -86,6 +86,13 @@ static const size_t VERTEX_BUFFER_RESERVE_SIZE_SUM_MAX = 1024 * 1024 * 128 / 4;
+ namespace Slic3r {
+ namespace GUI {
+ 
++#ifdef __WXGTK3__
++// wxGTK3 seems to simulate OSX behavior in regard to HiDPI scaling support.
++RetinaHelper::RetinaHelper(wxWindow* window) : m_window(window), m_self(nullptr) {}
++RetinaHelper::~RetinaHelper() {}
++float RetinaHelper::get_scale_factor() { return float(m_window->GetContentScaleFactor()); }
++#endif // __WXGTK3__
++
+ Size::Size()
+     : m_width(0)
+     , m_height(0)
+@@ -3732,7 +3739,8 @@ void GLCanvas3D::update_ui_from_settings()
+ {
+     m_dirty = true;
+ 
+-#if ENABLE_RETINA_GL
++#if __APPLE__
++    // Update OpenGL scaling on OSX after the user toggled the "use_retina_opengl" settings in Preferences dialog.
+     const float orig_scaling = m_retina_helper->get_scale_factor();
+ 
+     const bool use_retina = wxGetApp().app_config->get("use_retina_opengl") == "1";
+diff --git a/src/slic3r/GUI/GLCanvas3D.hpp b/src/slic3r/GUI/GLCanvas3D.hpp
+index 9c80aa236..e64e65d1b 100644
+--- a/src/slic3r/GUI/GLCanvas3D.hpp
++++ b/src/slic3r/GUI/GLCanvas3D.hpp
+@@ -31,7 +31,8 @@ class wxPaintEvent;
+ class wxGLCanvas;
+ class wxGLContext;
+ 
+-// Support for Retina OpenGL on Mac OS
+-#define ENABLE_RETINA_GL __APPLE__
++// Support for Retina OpenGL on Mac OS.
++// wxGTK3 seems to simulate OSX behavior in regard to HiDPI scaling support, enable it as well.
++#define ENABLE_RETINA_GL (__APPLE__ || __WXGTK3__)
+ 
+ namespace Slic3r {

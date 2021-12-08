@@ -169,7 +169,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-QA_FLAGS_IGNORED="usr/bin/leftwm{,-worker,-state,-check,-command}"
+QA_FLAGS_IGNORED="usr/bin/.*"
 
 src_compile() {
 	cd leftwm || die
