@@ -25,7 +25,7 @@ acct-user/trezord 0: User for TREZOR Bridge
 acct-user/wsdd 0: User for net-misc/wsdd
 acct-user/yggdrasil 1: Yggdrasil user
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
-app-accessibility/rhvoice 1.4.2-r1: TTS engine with extended languages support (including Russian)
+app-accessibility/rhvoice 1.4.2-r1 1.6.0: TTS engine with extended languages support (including Russian)
 app-accessibility/speakup-tools 20121017: Tools to customize speakup module
 app-admin/akita 0.1.4: An HTTP log monitoring tool for your terminal
 app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
@@ -80,6 +80,7 @@ app-emulation/arnold 20170513: Amstrad CPC emulator
 app-emulation/dxvk-bin 1.9.1 1.9.2: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.5.0: NVIDIA container runtime toolkit
 app-emulation/spice-html5 0.2.2 0.3.0: Spice Javascript client
+app-emulation/unicorn 1.0.3: Unicorn CPU emulator framework
 app-forensics/libpreloadvaccine 0_pre20190831: Whitelisting LD_PRELOAD libraries using LD_AUDIT
 app-forensics/yara 4.1.1: A malware identification and classification tool
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
@@ -93,7 +94,7 @@ app-misc/cpufetch 0.98 1.00: Simplistic yet fancy CPU architecture fetching tool
 app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs
 app-misc/doublecmd-bin 0.9.10 1.0.0 1.0.1: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820: Simple drag-and-drop source/sink for X and Wayland
-app-misc/far2l 2.3.20210630_alpha 2.3.20210921_alpha 9999: Linux port of FAR Manager v2
+app-misc/far2l 2.3.20210921_alpha 2.3.20211204_alpha 9999: Linux port of FAR Manager v2
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -172,7 +173,7 @@ app-vim/openbsd-style 1.1: vim plugin: indent code according to the OpenBSD and 
 app-vim/python-syntax 20201215: vim plugin: Enhanced Python syntax highlighting
 app-vim/rainbow 3.4.0_p20211113: vim plugin: Rainbow Parentheses Improved
 app-vim/tex-conceal 20210409: vim plugin: extends the Conceal feature for LaTeX
-app-vim/themis 1.5.5 1.6.0: A testing framework for Vim script
+app-vim/themis 1.6.0 1.7.0: A testing framework for Vim script
 app-vim/vim-nix 9999: vim plugin: Vim configuration files for Nix
 app-vim/vim-sensible 1.2: vim plugin: a universal set of defaults that (hopefully) everyone can agree on
 dev-R/BH 1.75.0.0: Boost C++ Header Files
@@ -280,7 +281,6 @@ dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging librar
 dev-cpp/qt-jdenticon 0.2.1: Qt5 / C++14 Port of Jdenticon
 dev-cpp/simpleini 4.17_p20210901: C++ library for reading/writing INI files
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
-dev-cpp/termcolor 2.0.0: Header-only library for printing colored messages to the terminal
 dev-cpp/tiny-dnn 1.0.0_alpha3: header only, dependency-free deep learning framework in C++14
 dev-cpp/trantor 1.5.1 1.5.2 1.5.3: Non-blocking I/O tcp network lib based on c++14/17
 dev-cpp/vectorwrapper 1.1.2 9999: A template vector wrapper class for C++
@@ -334,7 +334,7 @@ dev-libs/octetos-db 1.3.2_alpha 1.3.3_alpha: C++ library for Database Acces.
 dev-libs/octetos-db-abstract 0.1.2_alpha 0.6.0_alpha: API to access database, abstract component.
 dev-libs/octetos-db-maria 1.4.2_alpha 1.9.2_alpha 9999: C++ library for Database Acces.
 dev-libs/octetos-db-postgresql 1.3.9_alpha 1.3.10_alpha: C++ library for Database Acces.
-dev-libs/olm 3.2.4-r1 3.2.6: Implementation of the olm and megolm cryptographic ratchets
+dev-libs/olm 3.2.6 3.2.7: Implementation of the olm and megolm cryptographic ratchets
 dev-libs/open62541 1.2.2: Open source C implementation of OPC UA
 dev-libs/properties-cpp 0.0.2: Simple convenience library for handling properties and signals in C++11
 dev-libs/protothreads 1.4: Lightweight, Stackless Threads in C
@@ -385,6 +385,7 @@ dev-python/billiard 3.6.4.0: Python multiprocessing fork
 dev-python/bitbox02 5.3.0: Python API for communicating with the BitBox02 device
 dev-python/browserstack-local-python 1.2.2-r1: Python bindings for BrowserStack Local
 dev-python/bson 0.5.8: Independent BSON codec for Python that doesn't depend on MongoDB
+dev-python/build 0.7.0: A simple, correct PEP517 build frontend
 dev-python/castellan 3.9.1: Generic Key Manager interface for OpenStack
 dev-python/celery 5.1.1: Asynchronous task queue/job queue based on distributed message passing
 dev-python/cffsubr 0.2.8: Standalone CFF subroutinizer based on AFDKO tx tool
@@ -427,6 +428,7 @@ dev-python/fontParts 0.9.10 0.9.11: An API for interacting with the parts of fon
 dev-python/fontPens 0.2.4: A collection of classes implementing the pen protocol for manipulating glyphs
 dev-python/futurist 2.3.0: Useful additions to futures, from the future
 dev-python/gabbi 2.3.0: Declarative HTTP testing library
+dev-python/gemcall 0.8: A library and CLI tool for making gemini requests
 dev-python/github-sublee-glicko2 0_pre20191010-r1: An implementation of the Glicko-2 rating system for Python
 dev-python/glance_store 2.7.0: A library for glance
 dev-python/glicko2 2.0.0: glicko2 implementation in python
@@ -513,7 +515,7 @@ dev-python/playsound 1.3.0: Single function module with no dependencies for play
 dev-python/portio 0.5: Python low level port I/O for Linux x86
 dev-python/pproxy 2.7.8: TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio
 dev-python/promise 2.3.0: Promises/A+ implementation for Python
-dev-python/protego 0.1.16: robots.txt parser with support for modern conventions.
+dev-python/protego 0.1.16: robots.txt parser with support for modern conventions
 dev-python/psycopg2cffi 2.9.0: Implementation of the psycopg2 module using cffi. Compatible with Psycopg 2.5.
 dev-python/pure-protobuf 2.0.0-r1 2.0.1: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/py3nvml 0.2.6: Python 3 Bindings for the NVIDIA Management Library
@@ -590,6 +592,7 @@ dev-python/skia-pathops 0.6.0_p2: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/sortedcollections 2.1.0: Apache2 licensed Python sorted collections library
 dev-python/sphinx-argparse 0.2.5: Sphinx extension that automatically documents argparse commands and options
+dev-python/sphinx-argparse-cli 1.8.2: Render CLI arguments (sub-commands friendly) defined by argparse module
 dev-python/sphinx-click 3.0.0 3.0.1: Sphinx plugin to automatically document click-based applications
 dev-python/sphinxcontrib-katex 0.8.6: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-napoleon 0.7: Allow a different format in dosctrings for better clarity
@@ -643,7 +646,6 @@ dev-ruby/byebug 11.1.3: a Ruby 2 debugger
 dev-ruby/chruby 0.3.9-r3: Changes the current Ruby
 dev-ruby/pry-byebug 3.9.0: Step-by-step debugging and stack navigation in Pry
 dev-ruby/rspec-wait 0.0.9: enables time-resilient expectations in your RSpec test suite
-dev-scheme/guile-gi 0.3.1 9999: Bindings for GObject Introspection and libgirepository for Guile
 dev-util/FoBiS 3.0.5: FoBiS.py, a Fortran Building System for poor men
 dev-util/afdko 3.6.2: Adobe Font Development Kit for OpenType
 dev-util/babeltrace2 2.0.4: A command-line tool and library to read and convert trace files
@@ -666,7 +668,7 @@ dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's Open
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
 dev-util/rpmlint 2.0.0 2.1.0: Tool for checking common errors in RPM packages
-dev-util/rust-analyzer 20211115 20211122 99999999: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer 20211122 20211129 99999999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/wakatime-cli 1.27.0 1.28.6: Command line interface to WakaTime used by all WakaTime plugins
@@ -720,7 +722,6 @@ games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launch
 games-util/joycond 9999: Combine joy-cons using hid-nintendo
 games-util/legendary 0.20.17 0.20.18: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
-gnome-extra/authenticator 4.0.3: Simple application for generating Two-Factor Authentication Codes.
 gnome-extra/iio-sensor-proxy 3.3: IIO sensors to D-Bus proxy
 gnome-extra/portfolio 0.9.10 0.9.12: A minimalist file manager for those who want to use Linux mobile devices
 gui-apps/azote 1.9.0 1.9.1 9999: wallpaper manager for wlroots compositors
@@ -786,8 +787,9 @@ mail-client/mailspring-bin 1.9.2: A beautiful, fast and fully open source mail c
 media-fonts/3270font 2.3.0: A IBM 3270 Terminal font in a modern format
 media-fonts/gohufont 2.1_p20170627: A monospace bitmap font
 media-fonts/inconsolata_dz 20201205: A beautiful sans-serif monotype font designed for code listings
-media-fonts/last-resort 13.001: A collection of glyphs used as the backup of "last resort" to any other font
+media-fonts/last-resort 13.001 14.000: A collection of glyphs used as the backup of "last resort" to any other font
 media-fonts/linja-pona 4.2 4.9: Font for sitelen pona, a script for toki pona
+media-fonts/linja-wawa 1.21: Font for sitelen pona, a script for toki pona
 media-fonts/overpass 3.0.4: An open source webfont family inspired by Highway Gothic
 media-fonts/source-han-serif 1.001: Pan-CJK OpenType/CFF font family
 media-fonts/symbola 7.17 13.00: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
@@ -811,6 +813,7 @@ media-gfx/oxipng 3.0.1 4.0.3 5.0.0 5.0.1: A lossless PNG compression optimizer
 media-gfx/qview 4.0: Practical and minimal image viewer
 media-gfx/sic 0.19.0: Accessible image processing and conversion from the terminal tool.
 media-gfx/silicon 0.4.0 0.4.1 0.4.3: Create beautiful image of your code
+media-gfx/superslicer 2.2.53.4 2.3.56.9: A mesh slicer to generated G-Code for fused-filament fabrication
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-gfx/ttfautohint 1.8.3 1.8.4: A library for automated hinting of truetype fonts
 media-gfx/ufolint 1.2.0: UFO source format linter
@@ -826,7 +829,7 @@ media-libs/lodepng 20210627: PNG encoder and decoder
 media-libs/monado 9999: The open source OpenXR runtime.
 media-libs/openxr-loader 1.0.20 9999: OpenXR loader
 media-libs/portsmf 239 9999: C++ library for Standard Midi Files (SMF)
-media-libs/rtmidi 4.0.0: A set of C++ classes that provide a common API for realtime MIDI input/output
+media-libs/rtmidi 4.0.0 5.0.0: A set of C++ classes that provide a common API for realtime MIDI input/output
 media-libs/sjpeg 1.0_p20210422-r1: simple jpeg encoder
 media-libs/skcms 0_pre20211006: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-libs/skia 97: A complete 2D graphic library for drawing Text, Geometries, and Images
@@ -848,6 +851,7 @@ media-sound/ibniz 1.18: virtual machine designed for extremely compact low-level
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/mopidy 3.2.0: An extensible music server written in Python.
 media-sound/ncpamixer 1.3.3.1: A ncurses mixer for PulseAudio inspired by pavucontrol
+media-sound/netcat-cpi 2014.04.29: Kernel module edition of the Cycles Per Instruction (2014) album
 media-sound/noson-app 4.4.9: The essential to control music from your SONOS devices on Linux platforms
 media-sound/nuclear-bin 0.6.15: Nuclear is a streaming program that pulls content from free sources on internet
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
@@ -857,9 +861,8 @@ media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
 media-sound/zita-ajbridge 0.8.4 0.8.4-r1: zita-a2j and zita-j2a - bridges between ALSA and JACK
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
 media-video/ffsubsync 0.4.18 0.4.19: Automagically syncronize subtitles with video
-media-video/jellyfin-media-player 1.6.0 1.6.1: Jellyfin Desktop Client based on Plex Media Player
 media-video/kikoplay 0.8.1 9999: KikoPlay is a full-featured danmu player
-media-video/megapixels 1.3.0: A GTK3 camera application that knows how to deal with the media request api
+media-video/megapixels 1.4.2: A GTK3 camera application that knows how to deal with the media request api
 media-video/mpv-mpris 0.5 0.6 9999: MPRIS plugin for mpv
 media-video/obs-vkcapture 1.0 9999: OBS Linux Vulkan/OpenGL game capture
 media-video/owncast 0.0.7-r1 0.0.8 0.0.9 0.0.10: A self-hosted live video and web chat server
@@ -884,7 +887,7 @@ net-im/go-sendxmpp 0.1.1 0.1.2: A little tool to send messages to an XMPP contac
 net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
 net-im/kaidan 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!
 net-im/matterhorn-bin 50200.13.0: Terminal based Mattermost client
-net-im/nheko 0.9.0_pre20211003-r1 0.9.0-r1: Desktop client for Matrix using Qt and C++14
+net-im/nheko 0.9.0_pre20211003-r1 0.9.0-r1: Native desktop client for Matrix using Qt
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
 net-im/whatsapp-for-linux 1.2.0 1.3.0: An unofficial WhatsApp desktop application for Linux
 net-irc/catgirl 1.9a: TLS-only terminal IRC client
@@ -902,9 +905,9 @@ net-misc/can-utils 2020.02.04 2020.12.0-r1 2021.08.0 9999-r3: CAN userspace util
 net-misc/castor 0.8.16 0.8.18: A graphical browser for plain-text protocols
 net-misc/eg25-manager 0.4.0: Daemon for managing the Quectel EG25 modem
 net-misc/facebook-ptp 0_pre20210831: Facebook's PTP libraries
-net-misc/freetube-bin 0.11.3 0.12.0: https://github.com/FreeTubeApp/FreeTube
+net-misc/freetube-bin 0.11.3 0.12.0 0.15.1: https://github.com/FreeTubeApp/FreeTube
 net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
-net-misc/gemserv 0.4.9 0.5.0: A gemini Server written in rust
+net-misc/gemserv 0.5.0 0.6.0: A gemini Server written in rust
 net-misc/gmid 1.7.4 1.7.5 9999: Simple and secure Gemini server
 net-misc/kristall 0.3-r1 9999: Visual cross-platform gemini browser
 net-misc/lagrange 1.9.0 1.9.1: Desktop GUI client for browsing Geminispace
@@ -916,7 +919,7 @@ net-misc/myip 1.2.0: Get your external IP address using STUN server
 net-misc/openbgpd 6.8_p0 6.9_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.6.7 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
-net-misc/smcroute 2.5.3: A static multicast routing daemon
+net-misc/smcroute 2.5.5: A static multicast routing daemon
 net-misc/telescope 0.5.2 0.6.1: w3m-like browser for Gemini
 net-misc/tinyssh 20210601 99999999: A small SSH server with state-of-the-art cryptography
 net-misc/tootle 1.0_alpha2 1.0 9999: Mastodon client written in GTK3
@@ -1012,7 +1015,7 @@ sys-apps/systemd-bootchart 234: systemd boot performance graphing tool
 sys-apps/sysz 1.4.1 1.4.3: An fzf terminal UI for systemctl
 sys-auth/keystone 20.0.0.0_rc1: The Openstack authentication, authorization, and service catalog
 sys-auth/mrsh 2.12 2.12-r1: Mrsh is a set of remote shell programs that use munge authentication.
-sys-boot/bmaptools 3.6 3.6-r1: Bmaptool is a tool for creating and copyng files using block maps
+sys-boot/bmaptools 3.6-r1 3.6-r2: Bmaptool is a tool for creating and copyng files using block maps
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-cluster/AXL 0.3.0 0.4.0 0.5.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
@@ -1069,7 +1072,7 @@ sys-fs/btrfs-heatmap 9: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
 sys-fs/dwarfs 0.5.6-r1 0.5.6-r2 0.5.6-r3: A fast very high compression read-only FUSE file system
 sys-fs/erofs-utils 1.2.1 1.3: Userspace tools for EROFS images
-sys-fs/gcsfuse 0.36.0: A user-space file system for interacting with Google Cloud Storage
+sys-fs/gcsfuse 0.38.0: A user-space file system for interacting with Google Cloud Storage
 sys-fs/gdu 5.9.0: Disk usage analyzer with console interface written in Go
 sys-fs/gfs2-utils 3.3.0 3.4.1: Shared-disk cluster file system
 sys-fs/git-mount 1.0.0_p20160321: git-mount let's you mount your repo as a filesystem based on a revision.
@@ -1106,7 +1109,7 @@ www-apps/twint 2.1.20-r2: Twitter scraping & OSINT tool written in Python that d
 www-apps/uwebsockets 19.9.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.2.1 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/browsh 1.6.4_p1: A fully-modern text-based browser, rendering to TTY and browsers
-www-client/torbrowser-launcher 0.3.3 0.3.5-r1 9999: A program to download, updated, and run the Tor Browser Bundle
+www-client/torbrowser-launcher 0.3.5-r1 0.3.5-r2 9999: A program to download, updated, and run the Tor Browser Bundle
 www-client/woob 3.0-r1 9999: Web Outside Of Browsers (core, site modules and applications)
 www-misc/gitea2rss 0.7.0: Generates RSS feeds from Gitea releases, tags and commits
 www-misc/gorss 0.3: Go Terminal Feed Reader
@@ -1128,7 +1131,7 @@ x11-misc/gromit-mpx 1.4 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gro
 x11-misc/i3lock-color 2.13.2 2.13.4 9999: The world's most popular non-default computer lockscreen
 x11-misc/i3lock-fancy-rapid 0.0.0_pre20201109-r1 0.0.0_pre20210421: A faster implementation of i3lock-fancy
 x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement for i3status, written in Rust.
-x11-misc/ksnip 1.8.1 1.9.0: Ksnip is a Qt based cross-platform screenshot tool
+x11-misc/ksnip 1.9.1 1.9.2: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/squeekboard 1.14.0: Virtual keyboard supporting Wayland, built primarily for the Librem 5 phone
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-misc/xbanish 1.7: Banish the mouse cursor when typing, show it again when the mouse moves

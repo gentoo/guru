@@ -1,0 +1,15 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack )
+DESCRIPTION=A set of C++ classes that provide a common API for realtime MIDI input/output
+EAPI=8
+HOMEPAGE=https://www.music.mcgill.ca/~gary/rtmidi
+INHERIT=cmake
+IUSE=+alsa jack
+KEYWORDS=~amd64 ~x86
+LICENSE=RtMidi
+RDEPEND=alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack )
+SLOT=0
+SRC_URI=https://www.music.mcgill.ca/~gary/rtmidi/release/rtmidi-5.0.0.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
+_md5_=75a842dab86007bd43d1a30ab06a4440

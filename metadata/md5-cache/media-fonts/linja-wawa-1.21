@@ -1,0 +1,13 @@
+BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=install postinst postrm setup unpack
+DESCRIPTION=Font for sitelen pona, a script for toki pona
+EAPI=7
+HOMEPAGE=https://github.com/janMelon/linjawawa
+INHERIT=font
+IUSE=X
+KEYWORDS=~amd64 ~x86
+LICENSE=OFL-1.1
+SLOT=0
+SRC_URI=https://github.com/janMelon/linjawawa/archive/52737d952f91eb046ecfef27d4245fa81d7c141f.tar.gz -> linja-wawa-1.21.tar.gz
+_eclasses_=font	0667878c2b594871023dd1833d05996f
+_md5_=2db2351ed084e98aa37e992d4e040f20
