@@ -5,7 +5,7 @@ EAPI=7
 
 inherit meson systemd
 
-COMMIT="c11f68f40212981e82cdbc09cff005bc02670705"
+COMMIT="a91bc71e23e5a8d5e17b32bb5fa8f3691251dfeb"
 
 DESCRIPTION="Daemon for managing the Quectel EG25 modem"
 HOMEPAGE="https://gitlab.com/mobian1/devices/eg25-manager"
@@ -30,6 +30,7 @@ src_install() {
 	newins "${FILESDIR}"/eg25-pinephone-1.0.toml pine64,pinephone-1.0.toml
 	newins "${FILESDIR}"/eg25-pinephone-1.1.toml pine64,pinephone-1.1.toml
 	newins "${FILESDIR}"/eg25-pinephone-1.2.toml pine64,pinephone-1.2.toml
+	newins "${FILESDIR}"/eg25-pinephone-pro.toml pine64,pinephone-pro.toml
 }
 
 pkg_postinst() {
