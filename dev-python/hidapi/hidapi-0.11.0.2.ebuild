@@ -4,6 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
+DISTUTILS_USE_SETUPTOOLS="rdepend"
 inherit distutils-r1
 
 MY_PV=$(ver_rs 3 .post)
