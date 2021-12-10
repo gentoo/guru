@@ -5,7 +5,8 @@ EAPI=8
 
 SSL_DAYS=36500
 SSL_CERT_MANDATORY=1
-inherit ssl-cert systemd toolchain-funcs
+VERIFY_SIG_METHOD="signify"
+inherit ssl-cert systemd toolchain-funcs verify-sig
 
 DESCRIPTION="Simple and secure Gemini server"
 HOMEPAGE="https://gmid.omarpolo.com"
@@ -14,8 +15,9 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://git.omarpolo.com/${PN} https://github.com/omar-polo/${PN}.git"
 	inherit git-r3
 else
-	SRC_URI="https://git.omarpolo.com/${PN}/snapshot/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+	SRC_URI="https://github.com/omar-polo/${PN}/releases/download/${PV}/${P}.tar.gz
+		verify-sig? ( https://github.com/omar-polo/${PN}/releases/download/${PV}/SHA256.sig -> ${P}.sha.sig )"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="BSD ISC MIT"
@@ -28,16 +30,34 @@ DEPEND="
 	acct-user/gemini
 	dev-libs/imsg-compat
 	dev-libs/libevent:=
-	dev-libs/libretls
+	dev-libs/libretls:=
 	dev-libs/openssl:=
 "
 BDEPEND="
 	virtual/pkgconfig
 	virtual/yacc
+	verify-sig? ( sec-keys/signify-keys-gmid:$(ver_cut 1-2) )
 "
 RDEPEND="${DEPEND}"
 
+VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/signify-keys/${PN}-$(ver_cut 1-2).pub"
+
 DOCS=( README.md ChangeLog contrib/README )
+
+src_unpack() {
+	if [[ ${PV} == 9999 ]]; then
+		git-r3_src_unpack
+	else
+		if use verify-sig; then
+			# Too many levels of symbolic links
+			cp "${DISTDIR}"/${P}.{sha.sig,tar.gz} "${WORKDIR}" || die
+			cd "${WORKDIR}" || die
+			verify-sig_verify_signed_checksums \
+				${P}.sha.sig sha256 ${P}.tar.gz
+		fi
+		default
+	fi
+}
 
 src_prepare() {
 	default
