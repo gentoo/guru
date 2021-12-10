@@ -21,6 +21,7 @@ QA_PREBUILT="
 	/opt/FreeTube/libffmpeg.so
 	/opt/FreeTube/libGLESv2.so
 	/opt/FreeTube/libvulkan.so*
+	/opt/FreeTube/chrome_crashpad_handler
 	/opt/FreeTube/chrome-sandbox
 	/opt/FreeTube/libvk_swiftshader.so
 	/opt/FreeTube/swiftshader/libEGL.so
