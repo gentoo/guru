@@ -3,7 +3,6 @@
 
 EAPI=8
 
-EPYTEST_DESELECT=( tests/test_installed_distributions.py::test_installed_distributions_legacy_version )
 DISTUTILS_SETUPTOOLS="pyproject.toml"
 PYTHON_COMPAT=( python3_{8..10} pypy3 )
 
@@ -22,8 +21,13 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	test? (
 		dev-python/pretend[${PYTHON_USEDEP}]
+		dev-python/toml[${PYTHON_USEDEP}]
 		>=dev-python/virtualenv-20[${PYTHON_USEDEP}]
 	)
 "
 
 distutils_enable_tests pytest
+
+EPYTEST_DESELECT=(
+	tests/test_installed_distributions.py::test_installed_distributions_legacy_version
+)
