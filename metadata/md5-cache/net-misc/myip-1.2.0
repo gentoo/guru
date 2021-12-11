@@ -9,5 +9,5 @@ LICENSE=MIT BSD
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/Snawoot/myip/archive/v1.2.0.tar.gz -> myip-1.2.0.tar.gz mirror://goproxy//github.com/!snawoot/extip/@v/v1.0.0.mod -> github.com%2F!snawoot%2Fextip%2F@v%2Fv1.0.0.mod mirror://goproxy//github.com/!snawoot/extip/@v/v1.0.0.zip -> github.com%2F!snawoot%2Fextip%2F@v%2Fv1.0.0.zip mirror://goproxy//gortc.io/stun/@v/v1.22.2.mod -> gortc.io%2Fstun%2F@v%2Fv1.22.2.mod mirror://goproxy//gortc.io/stun/@v/v1.22.2.zip -> gortc.io%2Fstun%2F@v%2Fv1.22.2.zip
-_eclasses_=go-module	34c2d0a98b291ac9acda0cb54c9ffd61
+_eclasses_=go-module	82631624a3653e595cf9c18164a8c500
 _md5_=4145a55c6a7e47ea56f410dfe2f18e28
