@@ -23,13 +23,13 @@ REQUIRED_USE="test? ( gui )"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-		dev-cpp/tbb
+		~dev-cpp/tbb-2020.3
 		>=dev-libs/boost-1.73.0:=[nls,threads(+)]
 		dev-libs/c-blosc
 		dev-libs/cereal
 		dev-libs/openssl
 		>=dev-libs/miniz-2.1.0-r2
-		>=media-gfx/openvdb-5.0.0
+		media-gfx/openvdb:0/7
 		media-libs/qhull:=
 		media-libs/openexr:=
 		sci-libs/libigl
