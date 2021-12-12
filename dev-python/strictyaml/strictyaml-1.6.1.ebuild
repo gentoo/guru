@@ -15,8 +15,6 @@ KEYWORDS="~amd64 ~x86"
 LICENSE="MIT"
 SLOT="0"
 
-RDEPEND="
-	dev-python/ruamel-yaml[${PYTHON_USEDEP}]
-	dev-python/python-dateutil[${PYTHON_USEDEP}]
-"
-DEPEND="${RDEPEND}"
+RDEPEND="dev-python/python-dateutil[${PYTHON_USEDEP}]"
+
+DOCS=( CHANGELOG.md README.md docs )
