@@ -19,7 +19,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-	 =app-crypt/certbot-1.19.0-r0[${PYTHON_USEDEP}]
+	 ~app-crypt/certbot-1.20.0[${PYTHON_USEDEP}]
 	 >=dev-python/digitalocean-1.11-r0[${PYTHON_USEDEP}]
 	 dev-python/zope-interface[${PYTHON_USEDEP}]
 "
