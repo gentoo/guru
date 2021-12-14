@@ -11,5 +11,5 @@ LICENSE=Apache-2.0
 RDEPEND=tools? ( media-libs/libpng sys-libs/zlib virtual/jpeg virtual/opengl )
 SLOT=0
 SRC_URI=https://github.com/webmproject/sjpeg/archive/676de227d75877eb5863ec805ba0a4b97fc2fc6c.tar.gz -> sjpeg-1.0_p20210422-r1.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
 _md5_=ca23544a5ba0f0b857e0d3205fb20b92

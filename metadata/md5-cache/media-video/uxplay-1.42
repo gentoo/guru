@@ -11,5 +11,5 @@ LICENSE=GPL-3
 RDEPEND=app-pda/libplist dev-libs/openssl media-libs/gstreamer media-libs/gst-plugins-bad media-libs/gst-plugins-base media-plugins/gst-plugins-libav vaapi? ( media-plugins/gst-plugins-vaapi ) net-dns/avahi[mdnsresponder-compat] zoomfix? ( x11-libs/libX11 )
 SLOT=0
 SRC_URI=https://github.com/FDH2/UxPlay/archive/refs/tags/v1.42.tar.gz -> uxplay-1.42.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
 _md5_=a1724d10919d0bf012e0e199cc1e2c2f

@@ -10,5 +10,5 @@ LICENSE=ISC
 RDEPEND=sys-libs/ncurses:=[unicode(+)] sys-libs/zlib:= elibc_Darwin? ( sys-libs/native-uuid ) elibc_SunOS? ( sys-libs/libuuid ) !elibc_Darwin? ( dev-libs/libbsd ) !elibc_Darwin? ( !elibc_SunOS? ( app-crypt/libmd sys-apps/util-linux ) )
 SLOT=0
 SRC_URI=https://gameoftrees.org/releases/portable/got-portable-0.62.tar.gz
-_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988
 _md5_=cb60dcd050ca9495ffacb69b809d6c3e

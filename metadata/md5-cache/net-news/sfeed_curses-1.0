@@ -11,5 +11,5 @@ RDEPEND=sys-libs/ncurses
 REQUIRED_USE=^^ ( theme-mono theme-mono-highlight theme-newsboat theme-templeos )
 SLOT=0
 SRC_URI=https://codemadness.org/releases/sfeed_curses/sfeed_curses-1.0.tar.gz
-_eclasses_=portability	d1186f1e621de7b27ddcae82e6253259	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988
+_eclasses_=portability	d1186f1e621de7b27ddcae82e6253259	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988
 _md5_=954e113d0703a5c2c13d434b04c2e191

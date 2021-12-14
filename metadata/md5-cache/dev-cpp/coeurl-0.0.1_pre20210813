@@ -11,5 +11,5 @@ RDEPEND=net-misc/curl dev-libs/libevent dev-libs/spdlog
 RESTRICT=test
 SLOT=0
 SRC_URI=https://nheko.im/nheko-reborn/coeurl/-/archive/22f58922da16c3b94d293d98a07cb7caa7a019e8/coeurl-22f58922da16c3b94d293d98a07cb7caa7a019e8.tar.bz2 -> coeurl-0.0.1_pre20210813.tar.bz2
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc
 _md5_=ebd0932c5da45d620fc50731365261b8
