@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools toolchain-funcs linux-info
+inherit autotools linux-info
 
 DESCRIPTION="Shared-disk cluster file system"
 HOMEPAGE="https://pagure.io/gfs2-utils"
