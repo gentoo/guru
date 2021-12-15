@@ -7,7 +7,7 @@ DESCRIPTION="A DNS over HTTPS resolver for glibc"
 HOMEPAGE="https://github.com/dimkr/nss-tls"
 SRC_URI="https://github.com/dimkr/nss-tls/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-inherit meson ninja-utils systemd
+inherit meson systemd
 
 LICENSE="LGPL-2.1"
 KEYWORDS="~amd64 ~x86"
