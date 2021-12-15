@@ -129,7 +129,7 @@ CRATES="
 	yaml-rust-0.4.5
 "
 
-inherit cargo flag-o-matic desktop
+inherit xdg cargo
 
 DESCRIPTION="A hackable, minimal, fast TUI file explorer"
 # Double check the homepage as the cargo_metadata crate
