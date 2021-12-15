@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>degni.public@gmail.com</email>
+		<name>Luciano Degni</name>
+	</maintainer>
+	<upstream>
+		<doc>https://xplr.dev/en/</doc>
+		<bugs-to>https://github.com/sayanarijit/xplr/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
+
