@@ -54,8 +54,8 @@ src_test() {
 src_install() {
 	b install \
 		config.install.chroot="${D}" \
-                config.install.root="${EPREFIX}"/usr \
-                config.install.lib="${EPREFIX}"/usr/$(get_libdir) \
-                config.install.doc="${EPREFIX}"/usr/share/doc/${PF} \
+		config.install.root="${EPREFIX}"/usr \
+		config.install.lib="${EPREFIX}"/usr/$(get_libdir) \
+		config.install.doc="${EPREFIX}"/usr/share/doc/${PF} \
 		--no-progress
 }

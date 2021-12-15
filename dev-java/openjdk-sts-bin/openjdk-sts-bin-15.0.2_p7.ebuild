@@ -4,7 +4,7 @@
 # java-vm not yet ported to EAPI 7
 EAPI=6
 
-inherit java-vm-2 toolchain-funcs eapi7-ver
+inherit java-vm-2 toolchain-funcs
 
 abi_uri() {
 	echo "${2-$1}? (

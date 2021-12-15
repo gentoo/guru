@@ -7,7 +7,7 @@ inherit vala xdg
 
 DESCRIPTION="An easy to use manager and mounter for encfs stashes"
 HOMEPAGE="https://launchpad.net/gencfsm"
-SRC_URI="https://launchpad.net/gencfsm/trunk/1.9/+download/${PN}_${PV}.tar.xz -> ${P}.tar.xz"
+SRC_URI="https://launchpad.net/gencfsm/trunk/${PV}/+download/${PN}_${PV}.tar.xz -> ${P}.tar.xz"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"

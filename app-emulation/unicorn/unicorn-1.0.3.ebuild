@@ -10,13 +10,14 @@ inherit cmake distutils-r1
 
 DESCRIPTION="Unicorn CPU emulator framework"
 HOMEPAGE="http://www.unicorn-engine.org/"
-SRC_URI="https://github.com/unicorn-engine/${PN}/archive/${PV}.tar.gz"
+SRC_URI="https://github.com/unicorn-engine/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
 IUSE="test python"
+RESTRICT="!test? ( test )"
 RDEPEND="python? ( ${PYTHON_DEPS} )"
 DEPEND="${RDEPEND}
 	python? ( dev-python/setuptools[${PYTHON_USEDEP}] )

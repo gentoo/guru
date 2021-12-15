@@ -4,7 +4,7 @@
 EAPI=7
 PYTHON_COMPAT=( python3_{8..9} )
 
-inherit desktop python-any-r1 scons-utils xdg
+inherit desktop python-any-r1 scons-utils toolchain-funcs xdg
 
 DESCRIPTION="Multi-platform 2D and 3D game engine"
 HOMEPAGE="https://godotengine.org"
