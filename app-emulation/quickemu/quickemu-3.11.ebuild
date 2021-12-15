@@ -8,7 +8,7 @@ inherit python-single-r1
 
 DESCRIPTION="Create and run optimised Windows, macOS and Linux desktop virtual machines"
 HOMEPAGE="https://github.com/quickemu-project/quickemu"
-SRC_URI="https://github.com/quickemu-project/${PN}/archive/refs/tags/${PV}.tar.gz"
+SRC_URI="https://github.com/quickemu-project/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
