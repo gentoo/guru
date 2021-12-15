@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit flag-o-matic qmake-utils virtualx xdg
+inherit flag-o-matic qmake-utils toolchain-funcs virtualx xdg
 
 DESCRIPTION="Practical and minimal image viewer"
 HOMEPAGE="https://github.com/jurplel/qView https://interversehq.com/qview"
