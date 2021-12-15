@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+	<email>cyber+gentoo@sysrq.in</email>
+	<name>Anna</name>
+</maintainer>
+<upstream>
+	<remote-id type="github">starfish-app/Starfish</remote-id>
+	<maintainer>
+		<email>josip.antolis@protonmail.com</email>
+		<name>Josip Antoliš</name>
+	</maintainer>
+</upstream>
+<longdescription>
+	Surf the Geminispace
+
+	Browse Gemini sites on the small internet. Read personal stories and
+	fictional tales. Enjoy written words without flashy distractions. Keep
+	your browsing private and stay safe from tracking.
+
+	Starfish is a begginer-friendly desktop client for Gemini protol. It
+	supports all core features of Gemini, such as beautiful rendering of
+	text based content and encrypted communication with servers. On top of
+	those Starfish offers comforts of modern browsers, like local browsing
+	history, tabs and favorites.
+</longdescription>
+</pkgmetadata>

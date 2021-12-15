@@ -12,18 +12,12 @@ ProtectKernelTunables=true
 ProtectSystem=strict
 RestrictSUIDSGID=true
 PrivateTmp=true
-ProtectedKernelModules=true
 MemoryDenyWriteExecute=true
 PrivateMounts=true
 NoNewPrivileges=true
 CapabilityBoundingSet=
-ProtectProc=true
-ProtectDevices=true
-DeviceAllow=/dev/ttyS2
 LockPersonality=true
-PrivateNetwork=true
-ProtectClock=true
-ProtectKernelLog=true
 
 [Install]
 WantedBy=multi-user.target
+

@@ -134,8 +134,6 @@ EGIT_COMMIT="1caedc18ca47d07b30a5997c092f2683cce3042e"
 SRC_URI="$(cargo_crate_uris)"
 LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 ISC MIT MPL-2.0 Unlicense ZLIB"
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE=""
 
 BDEPEND="virtual/rust"
 

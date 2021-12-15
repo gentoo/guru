@@ -1,11 +1,9 @@
 # Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..9} )
-DISTUTILS_USE_SETUPTOOLS=rdepend
-
 inherit distutils-r1 udev
 
 DESCRIPTION="Library and command line tool for interacting with hardware wallets"
@@ -14,13 +12,13 @@ HOMEPAGE="https://github.com/bitcoin-core/HWI"
 MY_PN="HWI"
 MY_P="${MY_PN}-${PV}"
 SRC_URI="https://github.com/bitcoin-core/${MY_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="udev doc"
+IUSE="udev"
 
-BDEPEND=""
 RDEPEND="
 	>=dev-python/bitbox02-5.3.0[${PYTHON_USEDEP}]
 	>=dev-python/ecdsa-0.13.0[${PYTHON_USEDEP}]
@@ -32,18 +30,20 @@ RDEPEND="
 
 distutils_enable_tests unittest
 
-S="${WORKDIR}/${MY_P}"
+distutils_enable_sphinx docs \
+	dev-python/sphinx_rtd_theme \
+	dev-python/sphinxcontrib-autoprogram
 
 python_prepare_all() {
 	# remove upper bounds on dependencies from setup.py file
-	sed 's/,<[0-9.]\+//' -i setup.py || die "sed failed"
+	sed 's/,<[0-9.]\+//' -i setup.py || die
 
-	pushd test
+	pushd test || die
 	# remove tests that require hardware emulation
-	rm test_coldcard.py test_device.py test_digitalbitbox.py test_keepkey.py test_ledger.py test_trezor.py
+	rm test_coldcard.py test_device.py test_digitalbitbox.py test_keepkey.py test_ledger.py test_trezor.py || die
 	# remove udev tests because it expects the rules are installed in the libs folder
-	rm test_udevrules.py
-	popd
+	rm test_udevrules.py || die
+	popd || die
 
 	distutils-r1_python_prepare_all
 }

@@ -10,12 +10,4 @@
 		<remote-id type="github">mbr/tinyrpc</remote-id>
 		<remote-id type="pypi">tinyrpc</remote-id>
 	</upstream>
-	<use>
-		<flag name="gevent">Add support for gevent</flag>
-		<flag name="httpclient">Add support for httpclient</flag>
-		<flag name="jsonext">Add support for jsonext</flag>
-		<flag name="websocket">Add support for websocket</flag>
-		<flag name="wsgi">Add support for wsgi</flag>
-		<flag name="zmq">Add support for zmq</flag>
-	</use>
 </pkgmetadata>

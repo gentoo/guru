@@ -4,11 +4,12 @@
 EAPI=8
 
 CMAKE_REMOVE_MODULES_LIST=( VersionFromGit )
-inherit cmake
+inherit cmake verify-sig
 
 DESCRIPTION="TTS engine with extended languages support (including Russian)"
 HOMEPAGE="https://rhvoice.su https://github.com/RHVoice/RHVoice"
-SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.gz"
+SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.gz
+	verify-sig? ( https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.gz.sig )"
 
 AGPL_LANGS=( mk )
 CC_SA_LANGS=( pt-BR )
@@ -52,8 +53,11 @@ RDEPEND="${DEPEND}
 BDEPEND="
 	dev-cpp/cli11
 	dev-libs/utfcpp
+	verify-sig? ( app-crypt/openpgp-key-aepaneshnikov )
 "
 REQUIRED_USE="|| ( ao portaudio pulseaudio )"
+
+VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/aepaneshnikov.asc"
 
 DOCS=( README.md doc config/dicts )
 

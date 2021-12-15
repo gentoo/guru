@@ -5,39 +5,6 @@
 		<name>François-Xavier Carton</name>
 		<email>fx.carton91@gmail.com</email>
 	</maintainer>
-	<use>
-		<flag name="aorai">Build the Aorai plugin</flag>
-		<flag name="callgraph">Build the callgraph plugin</flag>
-		<flag name="dive">Build the Dive plugin</flag>
-		<flag name="e-acsl">Build the E-ACSL plugin</flag>
-		<flag name="eva">Build the value analysis plugin</flag>
-		<flag name="from-analysis">Build the from analysis plugin</flag>
-		<flag name="gtk">Build the graphical user interface</flag>
-		<flag name="impact">Build the impact plugin</flag>
-		<flag name="inout">Build the inout analysis plugin</flag>
-		<flag name="instantiate">Build the instantiate plugin</flag>
-		<flag name="loop-analysis">Build the loop analysis plugin</flag>
-		<flag name="metrics">Build the metrics analysis plugin</flag>
-		<flag name="nonterm">Build the nonterm plugin</flag>
-		<flag name="obfuscator">Build the Obfuscator plugin</flag>
-		<flag name="occurrence">Build the occurrence analysis plugin</flag>
-		<flag name="pdg">Build the pdg plugin</flag>
-		<flag name="postdominators">Build the postdominators plugin</flag>
-		<flag name="print-api">Build the print_api plugin</flag>
-		<flag name="qed">Build the qed plugin</flag>
-		<flag name="report">Build the report plugin</flag>
-		<flag name="rtegen">Build the runtime error annotation plugin</flag>
-		<flag name="scope">Build the scope plugin</flag>
-		<flag name="security-slicing">Build the Security slicing plugin</flag>
-		<flag name="semantic-constant-folding">Build the constant propagation plugin</flag>
-		<flag name="server">Build the Server plugin</flag>
-		<flag name="slicing">Build the slicing plugin</flag>
-		<flag name="sparecode">Build the sparecode plugin</flag>
-		<flag name="studia">Build the studia plugin</flag>
-		<flag name="users">Build the users plugin</flag>
-		<flag name="variadic">Build the variadic plugin</flag>
-		<flag name="wp">Build the WP plugin</flag>
-	</use>
 	<longdescription lang="en">
 Frama-C is a suite of tools dedicated to the analysis of the source code
 of software written in C. It gathers several static analysis techniques
