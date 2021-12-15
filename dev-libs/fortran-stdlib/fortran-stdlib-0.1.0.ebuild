@@ -6,7 +6,7 @@ EAPI=7
 FORTRAN_STANDARD="2003"
 PYTHON_COMPAT=( python3_{8..9} )
 
-inherit cmake fortran-2 python-any-r1 toolchain-funcs
+inherit cmake fortran-2 python-any-r1
 
 MY_PN="stdlib"
 SRC_URI="https://github.com/fortran-lang/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
