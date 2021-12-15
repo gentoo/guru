@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools libtool
+inherit autotools
 
 MY_COMMIT="25fa4d07d7a5551fee6d8d7ad128cdffd50532c8"
 
