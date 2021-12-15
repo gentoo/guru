@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools findlib toolchain-funcs
+inherit autotools toolchain-funcs
 
 DESCRIPTION="Framework for analysis of source codes written in C"
 HOMEPAGE="https://frama-c.com"
