@@ -5,7 +5,7 @@ EAPI=8
 
 DESCRIPTION="TUI Application launcher with Desktop Entry support"
 HOMEPAGE="https://github.com/Biont/sway-launcher-desktop"
-SRC_URI="https://github.com/Biont/${PN}/archive/refs/tags/v${PV}.tar.gz"
+SRC_URI="https://github.com/Biont/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"

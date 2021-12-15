@@ -4,6 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..9} )
+DISTUTILS_USE_SETUPTOOLS=pyproject.toml
 
 inherit distutils-r1 optfeature
 
@@ -36,8 +37,6 @@ RDEPEND="
 	dev-python/urlmatch[${PYTHON_USEDEP}]
 	dev-python/crashtest[${PYTHON_USEDEP}]
 "
-
-DISTUTILS_USE_SETUPTOOLS=pyproject.toml
 
 distutils_enable_tests unittest
 

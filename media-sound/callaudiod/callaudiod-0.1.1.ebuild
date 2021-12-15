@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit meson systemd
+inherit meson
 
 COMMIT="c9550e17e6e26802dda23c6070d100aca0cc2810"
 

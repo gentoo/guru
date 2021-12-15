@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop qmake-utils xdg
+inherit qmake-utils xdg
 
 MY_PN="GitQlient"
 MY_PV=$(ver_rs 3 -)
@@ -17,7 +17,6 @@ S="${WORKDIR}/${MY_PN}-${MY_PV}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE=""
 
 DEPEND="
 	dev-qt/qtcore:5

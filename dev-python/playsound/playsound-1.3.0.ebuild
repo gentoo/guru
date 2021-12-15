@@ -7,7 +7,7 @@ inherit distutils-r1
 
 DESCRIPTION="Single function module with no dependencies for playing sounds."
 HOMEPAGE="https://pypi.org/project/playsound/ https://github.com/TaylorSMarks/playsound"
-SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz -> ${P}.tar.gz"
+SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"

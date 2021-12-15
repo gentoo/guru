@@ -7,7 +7,7 @@ inherit meson
 
 DESCRIPTION="A wayland based logout menu"
 HOMEPAGE="https://github.com/ArtsyMacaw/wlogout"
-SRC_URI="https://github.com/ArtsyMacaw/${PN}/archive/refs/tags/${PV}.tar.gz"
+SRC_URI="https://github.com/ArtsyMacaw/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"

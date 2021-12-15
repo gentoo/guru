@@ -5,9 +5,6 @@
   <email>egorr.berd@gmail.com</email>
   <name>Yahor Berdnikau</name>
 </maintainer>
-<longdescription lang="en">
-  A mesh slicer to generated G-Code for fused-filament fabrication based on PrusaSlicer.
-</longdescription>
 <use>
   <flag name="profiles">Install additional 3d printer profiles.</flag>
 </use>

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit ecm optfeature
+inherit ecm kde.org optfeature
 
 DESCRIPTION="Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors"
 HOMEPAGE="https://store.kde.org/p/998915/
