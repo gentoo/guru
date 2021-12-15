@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools bash-completion-r1
+inherit bash-completion-r1
 
 DESCRIPTION="Simple TTY terminal application"
 HOMEPAGE="https://tio.github.io/"
