@@ -5,7 +5,7 @@ EAPI=7
 
 FONT_SUFFIX="otf pcf ttf"
 
-inherit toolchain-funcs font
+inherit font
 
 DESCRIPTION="Set of bitmapped Unicode fonts based on classic system fonts"
 HOMEPAGE="http://viznut.fi/unscii/"
