@@ -23,7 +23,7 @@ RDEPEND="
 	>=dev-python/click-7[${PYTHON_USEDEP}]
 	dev-python/docutils[${PYTHON_USEDEP}]
 "
-iBDEPEND=">=dev-python/pbr-2.0[${PYTHON_USEDEP}]"
+BDEPEND=">=dev-python/pbr-2.0[${PYTHON_USEDEP}]"
 
 distutils_enable_tests pytest
 
