@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop git-r3 qmake-utils xdg
+inherit git-r3 qmake-utils xdg
 
 MY_PN="GitQlient"
 
@@ -12,12 +12,9 @@ HOMEPAGE="https://github.com/francescmm/GitQlient"
 
 #EGIT_BRANCH="develop"
 EGIT_REPO_URI="https://github.com/francescmm/${MY_PN}.git"
-SRC_URI=""
-KEYWORDS=""
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-IUSE=""
 
 DEPEND="
 	dev-qt/qtcore:5
