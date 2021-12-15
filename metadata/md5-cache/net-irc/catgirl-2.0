@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst
+DEPEND=dev-libs/libretls:= sys-libs/ncurses:=
+DESCRIPTION=TLS-only terminal IRC client
+EAPI=8
+HOMEPAGE=https://git.causal.agency/catgirl/about/
+INHERIT=readme.gentoo-r1 toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=dev-libs/libretls:= sys-libs/ncurses:=
+SLOT=0
+SRC_URI=https://git.causal.agency/catgirl/snapshot/catgirl-2.0.tar.gz
+_eclasses_=readme.gentoo-r1	c9646d622541c023f5159b86a14e930c	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988
+_md5_=efdd0b3ddf750a9661c79b7d0ed1b9f1

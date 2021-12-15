@@ -1,0 +1,12 @@
+BDEPEND=>=media-libs/alsa-ucm-conf-1.2.6
+DEFINED_PHASES=install
+DEPEND=>=media-libs/alsa-ucm-conf-1.2.6
+DESCRIPTION=ALSA ucm configuration files for PinePhone bases on the Manjaro ARM repo
+EAPI=7
+HOMEPAGE=https://gitlab.manjaro.org/manjaro-arm/packages/community/pinephone/alsa-ucm-pinephone
+KEYWORDS=~arm64
+LICENSE=BSD
+RDEPEND=>=media-libs/alsa-ucm-conf-1.2.6
+SLOT=0
+SRC_URI=https://gitlab.manjaro.org/manjaro-arm/packages/community/pinephone/alsa-ucm-pinephone/-/archive/0156de7f6cded94d8dc0c7ac76cfa8fbc4b38151.tar.gz -> alsa-ucm-pinephone-20211215.tar.gz
+_md5_=34a9eaa0e6af4e49e822281eccc94f13

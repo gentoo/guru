@@ -1,0 +1,13 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-cpp/gtkmm:3.0= dev-db/sqlite:3 net-misc/curl >=net-libs/ixwebsocket-11.0.8 sys-libs/zlib:= dev-cpp/nlohmann_json
+DESCRIPTION=Alternative Discord client using GTK instead of Electron
+EAPI=8
+HOMEPAGE=https://github.com/uowuo/abaddon
+INHERIT=cmake desktop git-r3
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=dev-cpp/gtkmm:3.0= dev-db/sqlite:3 net-misc/curl >=net-libs/ixwebsocket-11.0.8 sys-libs/zlib:=
+SLOT=0
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	desktop	c0d27bf73aa08ca05b663dbd31fbef28	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=be0a4b30ab4c2593750bf7ca75863608

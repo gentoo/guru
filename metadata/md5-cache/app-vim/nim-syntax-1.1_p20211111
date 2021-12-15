@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=vim plugin: nim language support
+EAPI=7
+HOMEPAGE=https://github.com/zah/nim.vim https://www.vim.org/scripts/script.php?script_id=2632
+INHERIT=vim-plugin
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+SLOT=0
+SRC_URI=https://github.com/zah/nim.vim/archive/a15714fea392b0f06ff2b282921a68c7033e39a2.tar.gz -> nim-syntax-1.1_p20211111.tar.gz
+_eclasses_=vim-doc	e063cddf18e5d2f2cfb21388252579ec	vim-plugin	a7b5f19bc94a311ca1cf7127c8b84c41
+_md5_=32b879ede339dc36dd45ba1a57e6f4d2

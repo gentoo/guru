@@ -1,0 +1,13 @@
+BDEPEND=>=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst test
+DESCRIPTION=Daemon for managing the Quectel EG25 modem
+EAPI=7
+HOMEPAGE=https://gitlab.com/mobian1/devices/eg25-manager
+INHERIT=meson systemd
+KEYWORDS=~arm64
+LICENSE=GPL-3
+RDEPEND=dev-libs/libgpiod virtual/libusb:1 net-misc/modemmanager
+SLOT=0
+SRC_URI=https://gitlab.com/mobian1/devices/eg25-manager/-/archive/a91bc71e23e5a8d5e17b32bb5fa8f3691251dfeb.tar.gz -> eg25-manager-0.4.2.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=34642d12535a8180f9977501cd846276

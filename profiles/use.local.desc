@@ -130,12 +130,6 @@ dev-python/gnocchi:prometheus - Installs dependencies needed for Prometheus Remo
 dev-python/gnocchi:redis - Installs dependencies needed for Redis storage support
 dev-python/gnocchi:s3 - Installs dependencies needed for Amazon S3 storage support
 dev-python/gnocchi:swift - Installs dependencies needed for OpenStack Swift storage support
-dev-python/tinyrpc:gevent - Add support for gevent
-dev-python/tinyrpc:httpclient - Add support for httpclient
-dev-python/tinyrpc:jsonext - Add support for jsonext
-dev-python/tinyrpc:websocket - Add support for websocket
-dev-python/tinyrpc:wsgi - Add support for wsgi
-dev-python/tinyrpc:zmq - Add support for zmq
 dev-util/FoBiS:graphviz - Add support of generation of a dependencies graph
 dev-util/gammaray:3d - Build support for Qt5 3D modules
 dev-util/gammaray:designer - Widget .ui file export
@@ -351,48 +345,11 @@ sci-libs/meschach:segmem - should be set if you are working with a machine or co
 sci-libs/meschach:single-precision - single precision
 sci-libs/meschach:sparse - incorporate sparse matrix functions
 sci-libs/meschach:vunroll - unroll low level loops on vectors
-sci-mathematics/frama-c:aorai - Build the Aorai plugin
-sci-mathematics/frama-c:callgraph - Build the callgraph plugin
-sci-mathematics/frama-c:dive - Build the Dive plugin
-sci-mathematics/frama-c:e-acsl - Build the E-ACSL plugin
-sci-mathematics/frama-c:eva - Build the value analysis plugin
-sci-mathematics/frama-c:from-analysis - Build the from analysis plugin
-sci-mathematics/frama-c:gtk - Build the graphical user interface
-sci-mathematics/frama-c:impact - Build the impact plugin
-sci-mathematics/frama-c:inout - Build the inout analysis plugin
-sci-mathematics/frama-c:instantiate - Build the instantiate plugin
-sci-mathematics/frama-c:loop-analysis - Build the loop analysis plugin
-sci-mathematics/frama-c:metrics - Build the metrics analysis plugin
-sci-mathematics/frama-c:nonterm - Build the nonterm plugin
-sci-mathematics/frama-c:obfuscator - Build the Obfuscator plugin
-sci-mathematics/frama-c:occurrence - Build the occurrence analysis plugin
-sci-mathematics/frama-c:pdg - Build the pdg plugin
-sci-mathematics/frama-c:postdominators - Build the postdominators plugin
-sci-mathematics/frama-c:print-api - Build the print_api plugin
-sci-mathematics/frama-c:qed - Build the qed plugin
-sci-mathematics/frama-c:report - Build the report plugin
-sci-mathematics/frama-c:rtegen - Build the runtime error annotation plugin
-sci-mathematics/frama-c:scope - Build the scope plugin
-sci-mathematics/frama-c:security-slicing - Build the Security slicing plugin
-sci-mathematics/frama-c:semantic-constant-folding - Build the constant propagation plugin
-sci-mathematics/frama-c:server - Build the Server plugin
-sci-mathematics/frama-c:slicing - Build the slicing plugin
-sci-mathematics/frama-c:sparecode - Build the sparecode plugin
-sci-mathematics/frama-c:studia - Build the studia plugin
-sci-mathematics/frama-c:users - Build the users plugin
-sci-mathematics/frama-c:variadic - Build the variadic plugin
-sci-mathematics/frama-c:wp - Build the WP plugin
 sci-mathematics/frama-c-aorai:eva - Build support for the Eva plugin
 sci-mathematics/frama-c-wp:coq - Precompile coq libraries
 sci-mathematics/the-omega-project:gui - Build petit with gui
 sci-mathematics/the-omega-project:htmldoc - Build html documentation
 sci-mathematics/the-omega-project:petit - Build Petit, a educational/research tool for analyzing array data dependences
-sci-mathematics/why3:coq - Add sci-mathematics/coq support
-sci-mathematics/why3:gtk - Build the IDE x11-libs/gtk+
-sci-mathematics/why3:re - Use Re (dev-ml/re) instead of Str for regular expressions
-sci-mathematics/why3:sexp - Add support for outputting S-expressions with dev-ml/ppx_sexp_conv
-sci-mathematics/why3:zarith - Use Zarith (dev-ml/zarith) instead of Nums (dev-ml/num) for computations
-sci-mathematics/why3:zip - Enable compression of session files
 sci-physics/SU2:cgns - Build with CGNS support (bundled)
 sci-physics/SU2:mkl - Enable Intel MKL support
 sci-physics/SU2:mpp - Enable Mutation++ library support
