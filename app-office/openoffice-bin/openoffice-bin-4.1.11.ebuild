@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit desktop multilib gnome2-utils pax-utils prefix rpm xdg
+inherit desktop pax-utils prefix rpm xdg
 
 IUSE="gnome java"
 
