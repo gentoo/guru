@@ -4,7 +4,8 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{8..9} )
-inherit xdg gnome2-utils meson python-single-r1
+
+inherit xdg meson python-single-r1
 
 DESCRIPTION="NVIDIA settings alternative with overclocking, fan control, and information"
 HOMEPAGE="https://gitlab.com/leinardi/gwe"
