@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop qmake-utils xdg
+inherit qmake-utils xdg
 
 DESCRIPTION="Adaptive screen brightness/temperature"
 HOMEPAGE="https://getgammy.com/"

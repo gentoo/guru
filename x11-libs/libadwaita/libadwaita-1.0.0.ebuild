@@ -4,7 +4,7 @@
 EAPI=7
 VALA_USE_DEPEND="vapigen"
 
-inherit vala meson gnome2-utils xdg
+inherit vala meson xdg
 
 COMMIT="f5932ab4250c8e709958c6e75a1a4941a5f0f386"
 

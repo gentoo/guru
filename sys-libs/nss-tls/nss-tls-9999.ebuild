@@ -7,7 +7,7 @@ EGIT_REPO_URI="https://github.com/dimkr/nss-tls.git"
 DESCRIPTION="A DNS over HTTPS resolver for glibc"
 HOMEPAGE="https://github.com/dimkr/nss-tls"
 
-inherit git-r3 meson ninja-utils systemd
+inherit git-r3 meson systemd
 
 S="${WORKDIR}/${PN}-9999"
 LICENSE="LGPL-2.1"
