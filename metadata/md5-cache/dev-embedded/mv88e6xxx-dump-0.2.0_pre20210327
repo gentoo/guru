@@ -4,10 +4,10 @@ DEPEND=net-libs/libmnl:=
 DESCRIPTION=Dump information about Marvell mv88e6xxx Ethernet switches
 EAPI=7
 HOMEPAGE=https://github.com/lunn/mv88e6xxx_dump
-INHERIT=autotools libtool
+INHERIT=autotools
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-2
 SLOT=0
 SRC_URI=https://github.com/lunn/mv88e6xxx_dump/archive/25fa4d07d7a5551fee6d8d7ad128cdffd50532c8.tar.gz -> mv88e6xxx-dump-0.2.0_pre20210327.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
-_md5_=b326430195cbf99fb2358db2749cea80
+_md5_=7b858f3c6f19ae2b537bbbabbb219041

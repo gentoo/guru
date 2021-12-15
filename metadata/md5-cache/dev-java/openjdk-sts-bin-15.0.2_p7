@@ -3,7 +3,7 @@ DEPEND=dev-java/java-config app-eselect/eselect-java
 DESCRIPTION=Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 EAPI=6
 HOMEPAGE=https://adoptopenjdk.net
-INHERIT=java-vm-2 toolchain-funcs eapi7-ver
+INHERIT=java-vm-2 toolchain-funcs
 IUSE=alsa cups gentoo-vm headless-awt source
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64
 LICENSE=GPL-2-with-classpath-exception
@@ -11,5 +11,5 @@ RDEPEND=media-libs/fontconfig:1.0 media-libs/freetype:2 >=sys-apps/baselayout-ja
 RESTRICT=preserve-libs splitdebug
 SLOT=15
 SRC_URI=arm? ( https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.2+7/OpenJDK15U-jdk_arm_linux_hotspot_15.0.2_7.tar.gz ) arm64? ( https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.2+7/OpenJDK15U-jdk_aarch64_linux_hotspot_15.0.2_7.tar.gz ) ppc64? ( https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.2+7/OpenJDK15U-jdk_ppc64le_linux_hotspot_15.0.2_7.tar.gz ) amd64? ( https://github.com/AdoptOpenJDK/openjdk15-binaries/releases/download/jdk-15.0.2+7/OpenJDK15U-jdk_x64_linux_hotspot_15.0.2_7.tar.gz )
-_eclasses_=multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	pax-utils	fce6ad998516159787b92e8043167889	prefix	d04f14b297013ad1410550c0757f14f8	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	java-vm-2	13d8685b21341659c8861cf747ee8ab2	eapi7-ver	1a0a60ad07c8b32d2faba2d085dc0f24
-_md5_=daadd24bc152daba47ddaf86ce68a05e
+_eclasses_=multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	pax-utils	fce6ad998516159787b92e8043167889	prefix	d04f14b297013ad1410550c0757f14f8	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	java-vm-2	13d8685b21341659c8861cf747ee8ab2
+_md5_=ba20d6b2a3fe5062627a1aa7d6142daf

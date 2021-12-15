@@ -10,6 +10,6 @@ LICENSE=MIT
 RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) python_single_target_python3_10? ( dev-lang/python:3.10 >=dev-lang/python-exec-2:=[python_targets_python3_10] ) >=app-emulation/qemu-6.0.0[gtk,sdl,spice] >=app-shells/bash-4.0:= app-cdr/cdrtools app-crypt/swtpm app-misc/jq net-misc/spice-gtk[gtk3] net-misc/wget net-misc/zsync sys-apps/usbutils sys-apps/util-linux sys-firmware/edk2-ovmf sys-process/procps x11-apps/xrandr x11-misc/xdg-user-dirs
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
 SLOT=0
-SRC_URI=https://github.com/quickemu-project/quickemu/archive/refs/tags/3.11.tar.gz
+SRC_URI=https://github.com/quickemu-project/quickemu/archive/refs/tags/3.11.tar.gz -> quickemu-3.11.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c
-_md5_=bad641f827dc338cdd0e96967fa8401b
+_md5_=18cbb82536de30d89b773c672576e1cc
