@@ -5,8 +5,6 @@ EAPI="7"
 
 USE_RUBY="ruby26 ruby27 ruby30"
 
-inherit ruby-fakegem
-
 DESCRIPTION="Download an entire website from the Wayback Machine"
 HOMEPAGE="https://github.com/hartator/wayback-machine-downloader"
 
