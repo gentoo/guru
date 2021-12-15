@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
 		<email>torokhov-s-a@yandex.ru</email>
@@ -9,6 +9,7 @@
 		<flag name="general-32">Generic unoptimized 32-bits build</flag>
 		<flag name="general-64">Generic unoptimized 64-bits build</flag>
 		<flag name="largeboards">Support for board sizes more than 8x8 (e.g., Xiangqi, Shogi). Engine is slower</flag>
+		<flag name="nnue">Embed and enable NNUE support (built-in for Xiangqi and Janggi, executable file is larger)</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">ianfab/Fairy-Stockfish</remote-id>
