@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit systemd
+inherit systemd toolchain-funcs
 
 DESCRIPTION="A small SSH server with state-of-the-art cryptography"
 HOMEPAGE="https://tinyssh.org"
