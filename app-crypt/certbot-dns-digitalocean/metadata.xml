@@ -5,7 +5,4 @@
   <email>egorr.berd@gmail.com</email>
   <name>Yahor Berdnikau</name>
 </maintainer>
-<longdescription lang="en">
-  Digitalocean DNS Authenticator plugin for Certbot (Let's Encrypt Client)
-</longdescription>
 </pkgmetadata>
