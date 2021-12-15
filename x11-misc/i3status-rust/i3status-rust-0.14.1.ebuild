@@ -1,4 +1,4 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -104,7 +104,7 @@ winapi-util-0.1.5
 winapi-x86_64-pc-windows-gnu-0.4.0
 "
 
-inherit cargo eutils
+inherit cargo
 
 DESCRIPTION="A feature-rich and resource-friendly replacement for i3status, written in Rust."
 HOMEPAGE="https://github.com/greshake/i3status-rust/"
