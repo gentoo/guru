@@ -18,23 +18,30 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RESTRICT="test" # missing python slot fot backports-* packages
+RESTRICT="!test? ( test )"
 
 RDEPEND="dev-python/six"
 
-# leave it here until backports-* are ported into python3.9 and 10
+DEPEND="
+	${RDEPEND}
+	test? (
+		dev-python/mock[${PYTHON_USEDEP}]
+		dev-python/nose[${PYTHON_USEDEP}]
+	)
+"
 
-#DEPEND="
-#	${RDEPEND}
-#	test? (
-#		dev-python/backports-tempfile[${PYTHON_USEDEP}]
-#		dev-python/mock[${PYTHON_USEDEP}]
-#		dev-python/nose[${PYTHON_USEDEP}]
-#	)
-#"
+src_prepare() {
+	eapply_user
+	if use test; then
+		rm requirements-test.txt || die "Failed to remove old requirement-test.txt"
+		cp "${FILESDIR}"/requirements-test.txt ./ || die "Failed to copy new requirement-test.txt"
+		rm tests/{test_bmap_helpers,test_api_base}.py || die "Failed to remove broken tests"
+		cp "${FILESDIR}"/{test_bmap_helpers,test_api_base}.py tests/ || die "Failed to copy new tests"
+	fi
+}
 
 python_install_all() {
 	distutils-r1_python_install_all
 }
 
-#distutils_enable_tests nose
+distutils_enable_tests nose

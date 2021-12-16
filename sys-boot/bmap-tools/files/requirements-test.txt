@@ -1,0 +1,4 @@
+six
+nose
+backports.tempfile ; python_version < '3.2'
+mock ; python_version < '3.3'
