@@ -1,0 +1,22 @@
+From f52a1ff5a6064597aca8a77a05cad9c3d049f75d Mon Sep 17 00:00:00 2001
+From: Sathyajith Bhat <sathya@sathyasays.com>
+Date: Sun, 17 Oct 2021 16:31:18 +0000
+Subject: [PATCH] switch to yt_dlp from youtube_dl
+
+---
+ spotify_dl/youtube.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/spotify_dl/youtube.py b/spotify_dl/youtube.py
+index e9a09d4..84cc5a9 100644
+--- a/spotify_dl/youtube.py
++++ b/spotify_dl/youtube.py
+@@ -2,7 +2,7 @@
+ from os import path
+ 
+ import mutagen
+-import youtube_dl
++import yt_dlp as youtube_dl
+ from mutagen.easyid3 import EasyID3
+ from mutagen.id3 import APIC, ID3
+ from mutagen.mp3 import MP3
