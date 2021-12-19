@@ -53,7 +53,7 @@ RDEPEND="${DEPEND}
 BDEPEND="
 	dev-cpp/cli11
 	dev-libs/utfcpp
-	verify-sig? ( app-crypt/openpgp-key-aepaneshnikov )
+	verify-sig? ( sec-keys/openpgp-keys-aepaneshnikov )
 "
 REQUIRED_USE="|| ( ao portaudio pulseaudio )"
 
