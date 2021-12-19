@@ -12,5 +12,5 @@ RDEPEND=ao? ( media-libs/libao ) portaudio? ( media-libs/portaudio ) pulseaudio?
 REQUIRED_USE=|| ( ao portaudio pulseaudio )
 SLOT=0
 SRC_URI=https://github.com/rhvoice/rhvoice/releases/download/1.6.0/rhvoice-1.6.0.tar.gz verify-sig? ( https://github.com/rhvoice/rhvoice/releases/download/1.6.0/rhvoice-1.6.0.tar.gz.sig )
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	verify-sig	c777c0c815c60c9460f1ded02a8edb0a
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4b66d835ec72e021e359bb81eacfe988	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	verify-sig	5cf1b4c749926e7fdeef16c8c3245267
 _md5_=568f602bccb465ea7709ad34fe573463
