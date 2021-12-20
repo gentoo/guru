@@ -4,3 +4,4 @@ move dev-lisp/arc dev-lang/arc
 move dev-lang/lean sci-mathematics/lean
 move sys-boot/bmaptools sys-boot/bmap-tools
 move app-crypt/openpgp-key-aepaneshnikov sec-keys/openpgp-keys-aepaneshnikov
+move net-misc/telescope net-client/telescope
