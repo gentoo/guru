@@ -29,4 +29,5 @@ distutils_enable_tests pytest
 
 EPYTEST_DESELECT=(
 	tests/test_installed_distributions.py::test_installed_distributions_legacy_version
+	tests/test_installed_distributions.py::test_installed_distributions_multiple_paths
 )
