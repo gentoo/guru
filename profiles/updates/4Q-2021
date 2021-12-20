@@ -6,3 +6,4 @@ move sys-boot/bmaptools sys-boot/bmap-tools
 move app-crypt/openpgp-key-aepaneshnikov sec-keys/openpgp-keys-aepaneshnikov
 move net-misc/telescope net-client/telescope
 move net-misc/amfora net-client/amfora
+move net-misc/lagrange net-client/lagrange
