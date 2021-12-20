@@ -13,43 +13,37 @@ SRC_URI="https://github.com/IBBoard/cawbird/archive/refs/tags/v${PV}.tar.gz -> $
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
-IUSE="+introspection +vala"
-REQUIRED_USE="vala? ( introspection )"
+IUSE="+X gstreamer spell"
 
 DEPEND="
-	gui-libs/gtk
-	>=x11-libs/gtk+-3.22
-	>=dev-libs/glib-2.44
-	>=dev-libs/json-glib-1.0
-	>=dev-db/sqlite-3.0
-	>=net-libs/libsoup-2.4:*
+	dev-db/sqlite:3
+	dev-libs/glib:2
+	dev-libs/json-glib
+	net-libs/libsoup:2.4
 	net-libs/liboauth
-	>=sys-devel/gettext-0.19
-	media-libs/gst-plugins-base
-	media-libs/gst-plugins-bad
 	media-plugins/gst-plugins-libav
-	>=app-text/gspell-1.0
+	sys-devel/gettext
+	x11-libs/gtk+:3
+	X? ( x11-libs/libX11 )
+	gstreamer? (
+		media-libs/gst-plugins-base
+		media-libs/gst-plugins-bad
+	)
+	spell? ( app-text/gspell )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-		vala? ( $(vala_depend) )
-		dev-util/meson
-		dev-libs/gobject-introspection
+	$(vala_depend)
+	dev-libs/gobject-introspection
 "
 
-S="${WORKDIR}/$PN-${PV}"
-
 src_configure() {
-	local mycmakeargs+=(
-		"-DVALA_EXECUTABLE=${VALAC}"
-	)
 	local emesonargs=(
+		$(meson_use X x11)
+		$(meson_use gstreamer video)
+		$(meson_use spell spellcheck)
 		-Dconsumer_key_base64=VmY5dG9yRFcyWk93MzJEZmhVdEk5Y3NMOA==
 		-Dconsumer_secret_base64=MThCRXIxbWRESDQ2Y0podzVtVU13SGUyVGlCRXhPb3BFRHhGYlB6ZkpybG5GdXZaSjI=
 	)
 	meson_src_configure
-}
-
-src_install() {
-	meson_src_install
 }
