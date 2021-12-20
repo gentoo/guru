@@ -18,7 +18,10 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="dev-python/sphinx[${PYTHON_USEDEP}]"
+RDEPEND="
+	dev-python/six[${PYTHON_USEDEP}]
+	dev-python/sphinx[${PYTHON_USEDEP}]
+"
 
 distutils_enable_tests pytest
 
