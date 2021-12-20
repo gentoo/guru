@@ -9,3 +9,4 @@ move net-misc/amfora net-client/amfora
 move net-misc/lagrange net-client/lagrange
 move net-misc/kristall net-client/kristall
 move net-misc/starfish net-client/starfish
+move net-misc/castor net-client/castor
