@@ -55,7 +55,7 @@ dev-python/twine
 
 Some packages include files that are licensed under a different license then the rest of the package. In this case all the licenses should be specified in the LICENSE variable. This is very often the case for packages written in Rust or Go.
 
-Rust and Go packages automagically collect all dependencies. The licenses of the things that are statically linked in these packages should be checked *manually*.
+Rust and Go packages automagically collect all dependencies. The licenses of the things that are statically linked in these packages should be checked *manually* with `dev-util/cargo-license` and `dev-go/golicense`.
 
 
 ## Other Tips and Tricks <a name="tips"></a>
