@@ -24,6 +24,9 @@ RDEPEND="
 	dev-python/flask[${PYTHON_USEDEP}]
 	dev-python/bidict[${PYTHON_USEDEP}]
 	dev-python/pystardict[${PYTHON_USEDEP}]
+	dev-python/pymorphy2[${PYTHON_USEDEP}]
+	dev-python/pymorphy2-dicts-ru[${PYTHON_USEDEP}]
+	dev-python/playsound[${PYTHON_USEDEP}]
 "
 
 python_prepare_all () {
