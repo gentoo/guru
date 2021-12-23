@@ -155,7 +155,6 @@ EGIT_REPO_URI="https://github.com/leftwm/leftwm-theme.git"
 
 SLOT="0"
 KEYWORDS="~amd64"
-RESTRICT="network-sandbox"
 
 LICENSE="
 	|| ( Apache-2.0 MIT )
