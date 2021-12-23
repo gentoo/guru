@@ -27,7 +27,6 @@ DEPEND="
 	sys-cluster/rdma-core
 	sys-process/numactl
 "
-RDEPEND="${DEPEND}"
 BDEPEND="
 	${PYTHON_DEPS}
 "
