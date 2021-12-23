@@ -158,7 +158,6 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="~amd64"
-RESTRICT="network-sandbox"
 IUSE="systemd"
 
 DEPEND="
