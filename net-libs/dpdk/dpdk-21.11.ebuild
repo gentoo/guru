@@ -56,7 +56,7 @@ src_configure() {
 
 src_install() {
 	meson_src_install
-	local pyfiles=( "${ED}/usr/bin/*.py" )
+	local pyfiles=( "${ED}"/usr/bin/*.py )
 	for pyfile in "${pyfiles[@]}"; do
 		python_fix_shebang "${pyfile}"
 	done
