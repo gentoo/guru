@@ -21,7 +21,10 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RESTRICT="test"
 
 DEPEND="${PYTHON_DEPS}
-	~sys-kernel/rte_kni-kmod-${PV}
+	$(python_gen_cond_dep '
+		dev-python/pyelftools[${PYTHON_USEDEP}]
+	')
+	~sys-kernel/rte_kni-kmod-${PV}[${PYTHON_SINGLE_USEDEP}]
 	app-crypt/intel-ipsec-mb
 	dev-libs/elfutils
 	dev-libs/isa-l
@@ -38,12 +41,10 @@ DEPEND="${PYTHON_DEPS}
 RDEPEND="${DEPEND}"
 BDEPEND="
 	dev-lang/nasm
-	test? ( $(python_gen_cond_dep '
-		dev-python/pyelftools[${PYTHON_USEDEP}]
-	') )
 "
 
 src_configure() {
+	python-single-r1_pkg_setup
 	local emesonargs=(
 		-Denable_kmods=false
 		-Dmachine=default
@@ -51,7 +52,6 @@ src_configure() {
 		$(meson_use test tests)
 	)
 	meson_src_configure
-	python_setup
 }
 
 src_install() {

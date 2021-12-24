@@ -4,7 +4,7 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{8..10} )
-inherit linux-mod python-any-r1 meson
+inherit linux-mod python-single-r1 meson
 
 DESCRIPTION="DPDK Kernel Nic Interface module"
 HOMEPAGE="https://dpdk.org/"
@@ -14,9 +14,15 @@ S="${WORKDIR}/dpdk-${PV}"
 LICENSE="BSD GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-DEPEND="
+DEPEND="${PYTHON_DEPS}
+	$(python_gen_cond_dep '
+		dev-python/pyelftools[${PYTHON_USEDEP}]
+	')
+	app-crypt/intel-ipsec-mb
 	dev-libs/elfutils
+	dev-libs/isa-l
 	dev-libs/jansson
 	dev-libs/libbpf
 	dev-libs/libbsd
@@ -35,10 +41,12 @@ CONFIG_CHECK="~IOMMU_SUPPORT ~AMD_IOMMU ~VFIO ~VFIO_PCI ~UIO ~UIO_PDRV_GENIRQ ~U
 
 pkg_setup() {
 	linux-mod_pkg_setup
-	python-any-r1_pkg_setup
+	python-single-r1_pkg_setup
 }
 
 src_configure() {
+	linux-mod_pkg_setup
+	python-single-r1_pkg_setup
 	# we still have to do meson configuration as it creates
 	# header files needed for compiling the rte_kni module
 	local emesonargs=(
