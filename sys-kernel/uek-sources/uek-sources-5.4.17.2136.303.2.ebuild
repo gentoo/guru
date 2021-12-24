@@ -35,6 +35,7 @@ IUSE="+gentoo experimental"
 
 PATCHES=(
 	"${FILESDIR}"/uek-sources-5.4.17.2136.303.1-ip6_sock_set_v6only.patch
+	"${FILESDIR}"/uek-sources-5.4.17.2136.303.1-O3.patch
 )
 
 src_unpack() {
