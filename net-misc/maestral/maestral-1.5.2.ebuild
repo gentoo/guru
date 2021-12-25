@@ -29,10 +29,11 @@ DEPEND="
 	>=dev-python/Pyro5-5.10[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.6.2[${PYTHON_USEDEP}]
 	>=dev-python/sdnotify-0.3.2[${PYTHON_USEDEP}]
-	dev-python/setuptools[${PYTHON_USEDEP}]
+	>=dev-python/setuptools-41.0.0[${PYTHON_USEDEP}]
 	>=dev-python/survey-3.4.3[${PYTHON_USEDEP}]
 	<dev-python/survey-4.0.0[${PYTHON_USEDEP}]
 	>=dev-python/watchdog-2.0.1[${PYTHON_USEDEP}]
+	dev-python/wheel[${PYTHON_USEDEP}]
 	python_targets_python3_8? ( dev-python/importlib_metadata[${PYTHON_USEDEP}] )
 "
 RDEPEND="${DEPEND}"
