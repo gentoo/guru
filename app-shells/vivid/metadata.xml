@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>alexey@zapparov.com</email>
+		<name>Alexey Zapparov</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/sharkdp/vivid/issues</bugs-to>
+		<changelog>https://github.com/sharkdp/vivid/blob/master/CHANGELOG.md</changelog>
+		<remote-id type="github">sharkdp/vivid</remote-id>
+	</upstream>
+</pkgmetadata>
