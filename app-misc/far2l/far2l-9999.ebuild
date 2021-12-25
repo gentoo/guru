@@ -18,10 +18,10 @@ if [[ "${PV}" == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/elfmz/far2l"
 	EGIT_BRANCH="master"
 else
-	MY_PV="${PV:4:4}-${PV:8:2}-${PV:10:8}"
+	MY_PV="v_${PV/_alpha/}"
 	MY_P="${PN}-${MY_PV}"
 	S="${WORKDIR}/${MY_P}"
-	SRC_URI="https://github.com/elfmz/far2l/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/elfmz/far2l/archive/${MY_PV}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
@@ -29,6 +29,7 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="+ssl sftp samba nfs webdav +archive +wxwidgets python"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+RESTRICT="mirror"
 
 BDEPEND="sys-devel/m4"
 
