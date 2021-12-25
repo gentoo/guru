@@ -51,7 +51,7 @@ SRC_URI="
 	$(cargo_crate_uris)
 	"
 
-LICENSE="Apache-2.0 MIT LGPL-3+"
+LICENSE="LGPL-3+ MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
