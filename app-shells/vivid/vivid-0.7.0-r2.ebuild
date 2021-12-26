@@ -55,6 +55,8 @@ LICENSE="LGPL-3+ MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+QA_FLAGS_IGNORED="usr/bin/${PN}"
+
 src_install() {
 	cargo_src_install
 	dodoc CHANGELOG.md README.md
