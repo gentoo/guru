@@ -143,11 +143,13 @@ CRATES="
 inherit cargo
 
 DESCRIPTION="Sampling profiler for Ruby"
-HOMEPAGE="https://rbspy.github.io/"
+HOMEPAGE="https://rbspy.github.io https://github.com/rbspy/rbspy"
 SRC_URI="
 	https://github.com/rbspy/rbspy/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	$(cargo_crate_uris)
 	"
+
+QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 LICENSE="Apache-2.0 BSD-2 BSD CDDL ISC MIT"
 SLOT="0"
