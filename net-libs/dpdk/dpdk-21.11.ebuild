@@ -25,6 +25,7 @@ DEPEND="${PYTHON_DEPS}
 		dev-python/pyelftools[${PYTHON_USEDEP}]
 	')
 	~sys-kernel/rte_kni-kmod-${PV}[${PYTHON_SINGLE_USEDEP}]
+	app-arch/libarchive
 	app-crypt/intel-ipsec-mb
 	dev-libs/elfutils
 	dev-libs/isa-l
