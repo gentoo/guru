@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>alexey@zapparov.com</email>
+		<name>Alexey Zapparov</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/chmln/sd/issues</bugs-to>
+		<changelog>https://github.com/chmln/sd/blob/master/CHANGELOG.md</changelog>
+		<remote-id type="github">chmln/sd</remote-id>
+	</upstream>
+</pkgmetadata>

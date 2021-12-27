@@ -25,7 +25,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-IUSE="+openssl cgi +fcgi +rproxy"
+IUSE="+openssl cgi +fcgi +rproxy +ffcall"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
 BDEPEND="
@@ -41,6 +41,7 @@ RDEPEND="
 	sys-libs/zlib
 	virtual/libcrypt
 	openssl? ( dev-libs/openssl )
+	ffcall? ( dev-libs/ffcall )
 "
 
 DEPEND="${RDEPEND}"
@@ -59,6 +60,7 @@ src_configure() {
 		-DUSE_CGI=$(usex cgi)
 		-DUSE_FCGI=$(usex fcgi)
 		-DUSE_RPROXY=$(usex rproxy)
+		-DUSE_FFCALL=$(usex ffcall)
 	)
 	cmake_src_configure
 }
