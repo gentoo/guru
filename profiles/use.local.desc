@@ -8,6 +8,9 @@ app-accessibility/rhvoice:speech-dispatcher - Build a speech-dispatcher middlewa
 app-admin/glance:swift - Adds swift storage support
 app-admin/krapplet:pass - Add support for pass compatible storage
 app-crypt/gnome-encfs-manager:appindicator - Build in support for notifications using the libindicate or libappindicator plugin
+app-crypt/intel-ipsec-mb:safe-data - sensitive information is cleared on completion of a function call
+app-crypt/intel-ipsec-mb:safe-lookup - lookups which depend on sensitive information are implemented with constant time functions
+app-crypt/intel-ipsec-mb:safe-param - input parameters are checked, looking generally for NULL pointers or an incorrect input length
 app-crypt/mkp224o:amd64-51-30k - Use x86_64 amd64-51-30k SUPERCOP implementation
 app-crypt/mkp224o:amd64-64-24k - Use x86_64 amd64-64-24k SUPERCOP implementation
 app-crypt/mkp224o:besort - Force intfilter binary search case to use big endian sorting; useful if your filters aren't of the same length
@@ -147,6 +150,7 @@ games-arcade/taisei:zip - Enable loading of game data from ZIP packages via dev-
 games-board/fairy-stockfish:general-32 - Generic unoptimized 32-bits build
 games-board/fairy-stockfish:general-64 - Generic unoptimized 64-bits build
 games-board/fairy-stockfish:largeboards - Support for board sizes more than 8x8 (e.g., Xiangqi, Shogi). Engine is slower
+games-board/fairy-stockfish:nnue - Embed and enable NNUE support (built-in for Xiangqi and Janggi, executable file is larger)
 games-emulation/citra:cubeb - Enables the cubeb audio backend
 games-emulation/citra:hle-sound - Enable HLE sound via FFmpeg audio (AAC) decoder
 games-emulation/citra:system-libfmt - Use system libfmt
@@ -207,6 +211,8 @@ gui-apps/wofi:dmenu - Enable dmenu mode
 gui-apps/wofi:drun - Enable drun mode
 gui-apps/wofi:run - Enable run mode
 gui-wm/cage:X - Enable support for X11 applications (XWayland)
+media-fonts/victor-mono:otf - Install the OpenType version of the font
+media-fonts/victor-mono:ttf - Install the TrueType version of the font
 media-gfx/bonzomatic:system-glew - Use the systems installed version of GLEW (upstream-unsupported)
 media-gfx/bonzomatic:system-glfw - Use the systems installed version of GLFW (upstream-unsupported)
 media-gfx/bonzomatic:system-kissfft - Use the systems installed version of Kissfft (upstream-unsupported)
@@ -272,6 +278,9 @@ media-video/wlrobs:scpy - Enable the screen copy backend
 net-analyzer/munin-contrib:plugins - contrib munin plugins
 net-analyzer/munin-contrib:templates - contrib munin tools
 net-analyzer/munin-contrib:tools - munin contrib tools
+net-client/lagrange:fribidi - Use dev-libs/fribidi for bidirectional text
+net-client/lagrange:harfbuzz - Use media-libs/harfbuzz to shape text
+net-client/telescope:libbsd - Use dev-libs/libbsd instead of internal funcs
 net-im/Quaternion:keychain - Enable support for password storage via dev-libs/qtkeychain
 net-im/biboumi:logrotate - Use app-admin/logrotate for rotating logs
 net-im/biboumi:udns - Asynchronously resolve domain names using net-libs/udns
@@ -282,15 +291,12 @@ net-im/ruqola:speech - Enable text-to-speech support
 net-libs/ixwebsocket:ws - Build the ws utility
 net-libs/usockets:asio - Enable bindings to use the boost asio dispatcher
 net-libs/usockets:libuv - Enable bindings to use the libuv dispatcher
-net-misc/lagrange:fribidi - Use dev-libs/fribidi for bidirectional text
-net-misc/lagrange:harfbuzz - Use media-libs/harfbuzz to shape text
 net-misc/megasync:cryptopp - Compile with Crypto++ Library.
 net-misc/megasync:dolphin - Upload your files to your Mega account from Dolphin file manager.
 net-misc/megasync:freeimage - Use freeimage to manage graphic images format.
 net-misc/megasync:nautilus - Upload your files to your Mega account from nautilus.
 net-misc/megasync:thunar - Upload your files to your Mega account from Thunar.
 net-misc/moonlight:vaapi - Enable support for hardware video decoding using x11-libs/libva.
-net-misc/telescope:libbsd - Use dev-libs/libbsd instead of internal funcs
 net-misc/tinyssh:sodium - Use dev-libs/libsodium for cryptography
 net-news/sfeed:theme-mono - Use mono theme
 net-news/sfeed:theme-mono-highlight - Use mono_highlight theme
@@ -733,6 +739,8 @@ sys-cluster/wxparaver:openmp - Enable OpenMP parallel version
 sys-fs/erofs-utils:fuse - Enable support for Filesystem in Userspace via sys-fs/fuse
 sys-fs/erofs-utils:uuid - Allow interaction with libuuid in sys-apps/util-linux. It's recommended turn on
 sys-kernel/dkms:kernel-hooks - Enable automatic rebuilding of modules via kernel source makefile hooks
+sys-kernel/uek-sources:experimental - apply experimental gentoo genpatches
+sys-kernel/uek-sources:gentoo - apply base gentoo genpatches
 sys-kernel/xpmem:modules - Build the kernel module
 sys-libs/safeclib:constraint-handler - enable C11 invoke_safe_{str,mem}_constraint_handler for less performance, bigger size and more flexibility
 sys-libs/safeclib:extensions - enable additional functions not defined in the C11 specification
@@ -746,7 +754,8 @@ sys-process/nq:tq - Install tq, a tmux & screen wrapper
 www-apps/gogs:cert - Adds support for self-signed certificates
 www-client/torbrowser-launcher:apparmor - Enable AppArmor support
 www-servers/hinsightd:cgi - Enable old/slow cgi support (legacy should not be used)
-www-servers/hinsightd:fcgi - Enable fast cgi support (disabling will break the default config)
+www-servers/hinsightd:fcgi - Enable fast cgi support
+www-servers/hinsightd:ffcall - Use ffcall library for better logging format support
 www-servers/hinsightd:openssl - Enable tls encryption with openssl
 www-servers/hinsightd:rproxy - Enable reverse proxying support
 x11-libs/gtk-fortran:examples - Install examples source code files

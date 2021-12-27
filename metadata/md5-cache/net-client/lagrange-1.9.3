@@ -1,0 +1,16 @@
+BDEPEND=app-arch/zip verify-sig? ( sec-keys/openpgp-keys-skyjake ) dev-util/ninja >=dev-util/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=dev-libs/tfdn:=[ssl] media-libs/libsdl2[sound(+),video(+)] fribidi? ( dev-libs/fribidi ) harfbuzz? ( media-libs/harfbuzz:=[truetype(+)] ) mp3? ( media-sound/mpg123 ) webp? ( media-libs/libwebp:= )
+DESCRIPTION=Desktop GUI client for browsing Geminispace
+EAPI=8
+HOMEPAGE=https://gmi.skyjake.fi/lagrange/ https://git.skyjake.fi/gemini/lagrange
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake verify-sig xdg
+IUSE=+fribidi +harfbuzz mp3 webp verify-sig
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( MIT Unlicense ) Apache-2.0 BSD-2 CC-BY-SA-4.0 OFL-1.1
+RDEPEND=dev-libs/tfdn:=[ssl] media-libs/libsdl2[sound(+),video(+)] fribidi? ( dev-libs/fribidi ) harfbuzz? ( media-libs/harfbuzz:=[truetype(+)] ) mp3? ( media-sound/mpg123 ) webp? ( media-libs/libwebp:= )
+SLOT=0
+SRC_URI=https://git.skyjake.fi/gemini/lagrange/releases/download/v1.9.3/lagrange-1.9.3.tar.gz verify-sig? ( https://git.skyjake.fi/gemini/lagrange/releases/download/v1.9.3/lagrange-1.9.3.tar.gz.sig )
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	verify-sig	5cf1b4c749926e7fdeef16c8c3245267	xdg	6024fbc93167fad782e2032933654857
+_md5_=cd1eaae21d3b3ba9997aab628b6dd362

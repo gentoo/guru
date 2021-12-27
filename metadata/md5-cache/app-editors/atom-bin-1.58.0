@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst postrm preinst prepare
+DESCRIPTION=A hackable text editor for the 21st Century
+EAPI=8
+HOMEPAGE=https://atom.io/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop xdg
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=app-accessibility/at-spi2-atk app-accessibility/at-spi2-core app-crypt/libsecret dev-libs/atk dev-libs/nss dev-libs/openssl dev-libs/openssl-compat dev-vcs/git media-libs/alsa-lib net-print/cups x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+ x11-libs/libnotify x11-libs/libX11 x11-libs/libxcb x11-libs/libXcomposite x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXi x11-libs/libxkbfile x11-libs/libXrandr x11-libs/libXrender x11-libs/libXScrnSaver x11-libs/libXtst x11-libs/pango
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/atom/atom/releases/download/v1.58.0/atom-amd64.tar.gz -> atom-bin-1.58.0.tar.gz
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_md5_=088a5fa8c31ebf96dcd685b0f7404e48

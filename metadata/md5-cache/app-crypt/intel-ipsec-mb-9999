@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/nasm-2.13.03 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install test unpack
+DESCRIPTION=Multi-Buffer Crypto for IPSec from Intel
+EAPI=7
+HOMEPAGE=https://github.com/intel/intel-ipsec-mb
+INHERIT=toolchain-funcs git-r3
+IUSE=+safe-data +safe-lookup +safe-param test
+LICENSE=BSD
+PROPERTIES=live
+RESTRICT=!test? ( test )
+SLOT=0
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=95781deab10d09a5a9593192dc740a37

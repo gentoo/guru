@@ -1,0 +1,14 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install prepare unpack
+DEPEND=|| ( >=app-shells/bash-3.0:* app-shells/zsh )
+DESCRIPTION=Changes the current Ruby
+EAPI=8
+HOMEPAGE=https://github.com/postmodern/chruby
+INHERIT=git-r3
+LICENSE=MIT
+PROPERTIES=live
+RDEPEND=|| ( >=app-shells/bash-3.0:* app-shells/zsh )
+RESTRICT=test
+SLOT=0
+_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=f03eaf2be20248827656f51902bc0b16

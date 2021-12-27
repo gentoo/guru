@@ -1,4 +1,4 @@
-BDEPEND=dev-cpp/cli11 dev-libs/utfcpp verify-sig? ( app-crypt/openpgp-key-aepaneshnikov ) dev-util/ninja >=dev-util/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+BDEPEND=dev-cpp/cli11 dev-libs/utfcpp verify-sig? ( sec-keys/openpgp-keys-aepaneshnikov ) dev-util/ninja >=dev-util/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=ao? ( media-libs/libao ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-sound/pulseaudio ) server? ( dev-libs/glib:2[dbus] dev-libs/libsigc++:2 >=dev-cpp/glibmm-2.66.1:2 ) speech-dispatcher? ( app-accessibility/speech-dispatcher )
 DESCRIPTION=TTS engine with extended languages support (including Russian)
@@ -13,4 +13,4 @@ REQUIRED_USE=|| ( ao portaudio pulseaudio )
 SLOT=0
 SRC_URI=https://github.com/rhvoice/rhvoice/releases/download/1.6.0/rhvoice-1.6.0.tar.gz verify-sig? ( https://github.com/rhvoice/rhvoice/releases/download/1.6.0/rhvoice-1.6.0.tar.gz.sig )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	verify-sig	5cf1b4c749926e7fdeef16c8c3245267
-_md5_=568f602bccb465ea7709ad34fe573463
+_md5_=fbfd7607ea51ce19d21117d309c30e3e

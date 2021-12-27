@@ -1,16 +1,16 @@
-BDEPEND=virtual/pkgconfig virtual/yacc dev-libs/openssl:0 virtual/pkgconfig
-DEFINED_PHASES=compile configure install postinst prepare test
+BDEPEND=virtual/pkgconfig virtual/yacc verify-sig? ( sec-keys/signify-keys-gmid:1.7 ) dev-libs/openssl:0 virtual/pkgconfig verify-sig? ( app-crypt/signify )
+DEFINED_PHASES=compile configure install postinst prepare test unpack
 DEPEND=!elibc_Darwin? ( dev-libs/libbsd ) acct-user/gemini dev-libs/imsg-compat dev-libs/libevent:= dev-libs/libretls dev-libs/openssl:=
 DESCRIPTION=Simple and secure Gemini server
 EAPI=8
 HOMEPAGE=https://gmid.omarpolo.com
-INHERIT=ssl-cert systemd toolchain-funcs
-IUSE=seccomp test
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+INHERIT=ssl-cert systemd toolchain-funcs verify-sig
+IUSE=seccomp test verify-sig
+KEYWORDS=~amd64 ~x86
 LICENSE=BSD ISC MIT
 RDEPEND=!elibc_Darwin? ( dev-libs/libbsd ) acct-user/gemini dev-libs/imsg-compat dev-libs/libevent:= dev-libs/libretls dev-libs/openssl:=
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://git.omarpolo.com/gmid/snapshot/gmid-1.7.5.tar.gz
-_eclasses_=ssl-cert	1283a22296251a63df6c137c9b929269	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=05cf163afe70867363c0db51c67e2f71
+SRC_URI=https://github.com/omar-polo/gmid/releases/download/1.7.5/gmid-1.7.5.tar.gz verify-sig? ( https://github.com/omar-polo/gmid/releases/download/1.7.5/SHA256.sig -> gmid-1.7.5.sha.sig )
+_eclasses_=ssl-cert	1283a22296251a63df6c137c9b929269	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257	systemd	2736b403a83f194b59b767f3b344c2c1	verify-sig	5cf1b4c749926e7fdeef16c8c3245267
+_md5_=297927456bca23db5e377472af1d456c
