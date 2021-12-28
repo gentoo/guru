@@ -14,7 +14,7 @@ SRC_URI="https://github.com/samschott/maestral/archive/refs/tags/v${PV}.tar.gz -
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	>=dev-python/click-8.0.2[${PYTHON_USEDEP}]

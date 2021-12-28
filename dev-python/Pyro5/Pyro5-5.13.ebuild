@@ -13,7 +13,7 @@ SRC_URI="https://github.com/irmen/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	>=dev-python/serpent-1.40[${PYTHON_USEDEP}]
