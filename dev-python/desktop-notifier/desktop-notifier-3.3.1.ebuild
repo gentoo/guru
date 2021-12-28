@@ -16,6 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
+	dev-python/wheel[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/python-dbus-next[${PYTHON_USEDEP}]
 	python_targets_python3_8? ( dev-python/importlib_resources )
