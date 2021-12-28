@@ -22,7 +22,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
+	test? (
+		dev-python/keyring[${PYTHON_USEDEP}]
+		dev-python/pytest[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_tests pytest
