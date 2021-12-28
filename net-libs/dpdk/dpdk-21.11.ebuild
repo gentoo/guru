@@ -4,7 +4,7 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{8..10} )
-inherit python-single-r1 meson
+inherit toolchain-funcs python-single-r1 meson
 
 DESCRIPTION="Data Plane Development Kit libraries for fast userspace networking"
 HOMEPAGE="https://dpdk.org/"
@@ -44,12 +44,15 @@ BDEPEND="
 	dev-lang/nasm
 "
 
+PATCHES=( "${FILESDIR}/dpdk-21.11-static_linker.patch" )
+
 src_configure() {
 	python-single-r1_pkg_setup
 	local emesonargs=(
 		-Denable_kmods=false
 		-Dmachine=default
 		-Dplatform=generic
+		-Dstatic_linker=$(tc-getAR)
 		$(meson_use test tests)
 	)
 	meson_src_configure
