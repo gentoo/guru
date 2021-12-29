@@ -19,7 +19,7 @@ DEPEND="
 	dev-python/wheel[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/python-dbus-next[${PYTHON_USEDEP}]
-	python_targets_python3_8? ( dev-python/importlib_resources )
+	$(python_gen_cond_dep 'dev-python/importlib_resources[${PYTHON_USEDEP}]' python3_8)
 "
 RDEPEND="${DEPEND}"
 BDEPEND=""
