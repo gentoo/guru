@@ -21,9 +21,7 @@ DEPEND="
 	>=dev-python/stone-2.0.0[${PYTHON_USEDEP}]
 "
 RDEPEND="${DEPEND}"
-BDEPEND="
-	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
-"
+BDEPEND=""
 
 distutils_enable_tests pytest
 
