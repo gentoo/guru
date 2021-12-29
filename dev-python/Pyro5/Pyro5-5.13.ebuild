@@ -19,9 +19,7 @@ DEPEND="
 	>=dev-python/serpent-1.40[${PYTHON_USEDEP}]
 "
 RDEPEND="${DEPEND}"
-BDEPEND="
-	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
-"
+BDEPEND=""
 
 distutils_enable_tests pytest
 
