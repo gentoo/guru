@@ -21,7 +21,7 @@ DEPEND="
 	dev-python/packaging[${PYTHON_USEDEP}]
 	>=dev-python/PyQt5-5.9[widgets,gui,${PYTHON_USEDEP}]
 	~net-misc/maestral-${PV}[${PYTHON_USEDEP}]
-	python_targets_python3_8? ( dev-python/importlib_resources )
+	$(python_gen_cond_dep 'dev-python/importlib_resources[${PYTHON_USEDEP}]' python3_8)
 "
 RDEPEND="${DEPEND}"
 BDEPEND=""
