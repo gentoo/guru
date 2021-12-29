@@ -18,12 +18,10 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	dev-python/keyring[${PYTHON_USEDEP}]
-	>=dev-python/setuptools-56.0.0[${PYTHON_USEDEP}]
-	>=dev-python/setuptools_scm-3.4.1[${PYTHON_USEDEP}]
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
+	>=dev-python/setuptools_scm-3.4.1[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
