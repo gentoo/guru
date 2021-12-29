@@ -20,9 +20,7 @@ DEPEND="
 	>=dev-python/six-1.3.0[${PYTHON_USEDEP}]
 "
 RDEPEND="${DEPEND}"
-BDEPEND="
-	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
-"
+BDEPEND=""
 
 distutils_enable_tests pytest
 
