@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person" proxied="yes">
+    <email>me@kevinthomas.dev</email>
+    <name>Kevin Thomas</name>
+  </maintainer>
+  <longdescription lang="en">
+    MoneroOcean fork of XMRig - a RandomX, CryptoNight, KawPow,
+    AstroBWT, and Argon2 CPU/GPU miner that supports algo switching.
+  </longdescription>
+  <use>
+    <flag name="donate">
+      Set the default donation level to 1% instead of 0
+    </flag>
+    <flag name="hwloc">
+      Use <pkg>sys-apps/hwloc</pkg> for CPU affinity support
+    </flag>
+    <flag name="opencl">
+      Enable OpenCL support
+    </flag>
+  </use>
+  <upstream>
+    <remote-id type="github">MoneroOcean/xmrig</remote-id>
+  </upstream>
+</pkgmetadata>
