@@ -21,11 +21,10 @@ CRATES="
 	cargo_metadata-0.14.1
 	cc-1.0.72
 	cfg-if-1.0.0
-	chalk-derive-0.74.0
-	chalk-ir-0.74.0
-	chalk-recursive-0.74.0
-	chalk-solve-0.74.0
-	countme-2.0.4
+	chalk-derive-0.75.0
+	chalk-ir-0.75.0
+	chalk-recursive-0.75.0
+	chalk-solve-0.75.0
 	countme-3.0.0
 	cov-mark-2.0.0-pre.1
 	crc32fast-1.3.0
@@ -40,7 +39,7 @@ CRATES="
 	drop_bomb-0.1.5
 	either-1.6.1
 	ena-0.14.0
-	expect-test-1.2.1
+	expect-test-1.2.2
 	filetime-0.2.15
 	fixedbitset-0.2.0
 	flate2-1.0.22
@@ -58,20 +57,20 @@ CRATES="
 	inotify-0.9.6
 	inotify-sys-0.1.5
 	instant-0.1.12
-	itertools-0.10.1
-	itoa-0.4.8
+	itertools-0.10.3
+	itoa-1.0.1
 	jod-thread-0.1.2
 	kqueue-1.0.4
 	kqueue-sys-1.0.3
 	lazy_static-1.4.0
-	libc-0.2.108
+	libc-0.2.112
 	libloading-0.7.2
 	libmimalloc-sys-0.1.23
 	lock_api-0.4.5
 	log-0.4.14
 	lsp-server-0.5.2
 	lsp-types-0.91.1
-	matchers-0.0.1
+	matchers-0.1.0
 	matches-0.1.9
 	memchr-2.4.1
 	memmap2-0.5.0
@@ -85,7 +84,8 @@ CRATES="
 	ntapi-0.3.6
 	num_cpus-1.13.0
 	object-0.27.1
-	once_cell-1.8.0
+	object-0.28.1
+	once_cell-1.9.0
 	oorandom-11.1.3
 	parking_lot-0.11.2
 	parking_lot_core-0.8.5
@@ -95,9 +95,9 @@ CRATES="
 	perf-event-open-sys-1.0.1
 	petgraph-0.5.1
 	pin-project-lite-0.2.7
-	proc-macro2-1.0.32
+	proc-macro2-1.0.34
 	pulldown-cmark-0.8.0
-	pulldown-cmark-to-cmark-7.1.0
+	pulldown-cmark-to-cmark-7.1.1
 	quote-1.0.10
 	rayon-1.5.1
 	rayon-core-1.9.1
@@ -105,20 +105,20 @@ CRATES="
 	regex-1.5.4
 	regex-automata-0.1.10
 	regex-syntax-0.6.25
-	rowan-0.14.1
+	rowan-0.15.2
 	rustc-ap-rustc_lexer-725.0.0
 	rustc-demangle-0.1.21
 	rustc-hash-1.1.0
-	ryu-1.0.6
+	ryu-1.0.9
 	salsa-0.17.0-pre.2
 	salsa-macros-0.17.0-pre.2
 	same-file-1.0.6
 	scoped-tls-1.0.0
 	scopeguard-1.1.0
 	semver-1.0.4
-	serde-1.0.130
-	serde_derive-1.0.130
-	serde_json-1.0.72
+	serde-1.0.132
+	serde_derive-1.0.132
+	serde_json-1.0.73
 	serde_repr-0.1.7
 	sharded-slab-0.1.4
 	smallvec-1.7.0
@@ -138,8 +138,9 @@ CRATES="
 	tracing-attributes-0.1.18
 	tracing-core-0.1.21
 	tracing-log-0.1.2
-	tracing-subscriber-0.2.25
-	tracing-tree-0.1.11
+	tracing-subscriber-0.3.3
+	tracing-tree-0.2.0
+	typed-arena-2.0.1
 	ungrammar-1.14.9
 	unicase-2.6.0
 	unicode-bidi-0.3.7
