@@ -298,6 +298,9 @@ net-misc/megasync:nautilus - Upload your files to your Mega account from nautilu
 net-misc/megasync:thunar - Upload your files to your Mega account from Thunar.
 net-misc/moonlight:vaapi - Enable support for hardware video decoding using x11-libs/libva.
 net-misc/tinyssh:sodium - Use dev-libs/libsodium for cryptography
+net-misc/xmrig-mo:donate - Set the default donation level to 1% instead of 0
+net-misc/xmrig-mo:hwloc - Use sys-apps/hwloc for CPU affinity support
+net-misc/xmrig-mo:opencl - Enable OpenCL support
 net-news/sfeed:theme-mono - Use mono theme
 net-news/sfeed:theme-mono-highlight - Use mono_highlight theme
 net-news/sfeed:theme-newsboat - Use newsboat theme
