@@ -1,0 +1,45 @@
+allow setting static linker
+
+diff --git a/buildtools/meson.build b/buildtools/meson.build
+index 22ea0ba..1da02ad 100644--- a/buildtools/meson.build
++++ b/buildtools/meson.build
+@@ -24,14 +24,19 @@ binutils_avx512_check = (py3 + files('binutils-avx512-check.py') +
+ # select library and object file format
+ pmdinfo = py3 + files('gen-pmdinfo-cfile.py') + [meson.current_build_dir()]
+ pmdinfogen = py3 + files('pmdinfogen.py')
++ar = ''
++if cc.get_id() == 'gcc' or host_machine.system() != 'windows'
++    ar = 'ar'
++else
++    ar = 'llvm-ar'
++endif
++if get_option('static_linker') != ''
++    ar = get_option('static_linker')
++endif
+ if host_machine.system() == 'windows'
+-    if cc.get_id() == 'gcc'
+-        pmdinfo += 'ar'
+-    else
+-        pmdinfo += 'llvm-ar'
+-    endif
++    pmdinfo += ar
+     pmdinfogen += 'coff'
+ else
+-    pmdinfo += 'ar'
++    pmdinfo += ar
+     pmdinfogen += 'elf'
+ endif
+
+diff --git a/meson_options.txt b/meson_options.txt
+index 7c220ad..c5c09b4 100644
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -26,6 +26,8 @@ option('flexran_sdk', type: 'string', value: '', description:
+        'Path to FlexRAN SDK optional Libraries for BBDEV device')
+ option('ibverbs_link', type: 'combo', choices : ['static', 'shared', 'dlopen'], value: 'shared', description:
+        'Linkage method (static/shared/dlopen) for Mellanox PMDs with ibverbs dependencies.')
++option('static_linker', type: 'string', value: '', description:
++       'Linker to use for creating static libraries.')
+ option('include_subdir_arch', type: 'string', value: '', description:
+        'subdirectory where to install arch-dependent headers')
+ option('kernel_dir', type: 'string', value: '', description:

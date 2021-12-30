@@ -13,13 +13,11 @@ SRC_URI="https://github.com/altdesktop/${PN}/archive/refs/tags/v${PV}.tar.gz -> 
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND="
-	test? ( dev-python/pytest )
-"
+BDEPEND=""
 
 distutils_enable_tests pytest
 

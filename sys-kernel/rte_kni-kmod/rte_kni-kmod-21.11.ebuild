@@ -15,6 +15,8 @@ LICENSE="BSD GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+# tests need root
+RESTRICT="test"
 
 DEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep '

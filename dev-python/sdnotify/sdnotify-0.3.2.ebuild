@@ -10,11 +10,11 @@ inherit distutils-r1
 
 DESCRIPTION="Python implementation of the systemd sd_notify protocol"
 HOMEPAGE="https://github.com/bb4242/sdnotify"
-SRC_URI="https://github.com/bb4242/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/bb4242/${PN}/archive/refs/tags/v${PV}.tar.gz -> bb4242-${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND=""
 RDEPEND="${DEPEND}"

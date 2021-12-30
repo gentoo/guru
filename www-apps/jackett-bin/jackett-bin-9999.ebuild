@@ -19,6 +19,7 @@ RDEPEND="
 	dev-libs/icu
 	dev-util/lttng-ust
 "
+DEPEND="${RDEPEND}"
 
 QA_PREBUILT="*"
 S="${WORKDIR}"/Jackett

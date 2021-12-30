@@ -14,15 +14,14 @@ SRC_URI="https://github.com/jaraco/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> $
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
-	>=dev-python/setuptools-56.0.0[${PYTHON_USEDEP}]
-	>=dev-python/setuptools_scm-3.4.1[${PYTHON_USEDEP}]
+	dev-python/keyring[${PYTHON_USEDEP}]
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
+	>=dev-python/setuptools_scm-3.4.1[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest

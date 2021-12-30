@@ -13,16 +13,14 @@ SRC_URI="https://github.com/dropbox/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	>=dev-python/ply-3.4[${PYTHON_USEDEP}]
 	>=dev-python/six-1.3.0[${PYTHON_USEDEP}]
 "
 RDEPEND="${DEPEND}"
-BDEPEND="
-	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
-"
+BDEPEND=""
 
 distutils_enable_tests pytest
 

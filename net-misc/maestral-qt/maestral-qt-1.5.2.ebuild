@@ -13,15 +13,15 @@ SRC_URI="https://github.com/samschott/${PN}/archive/refs/tags/v${PV}.tar.gz -> $
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	>=dev-python/click-8.0.2[${PYTHON_USEDEP}]
 	dev-python/markdown2[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
-	>=dev-python/PyQt5-5.9[${PYTHON_USEDEP}]
+	>=dev-python/PyQt5-5.9[widgets,gui,${PYTHON_USEDEP}]
 	~net-misc/maestral-${PV}[${PYTHON_USEDEP}]
-	python_targets_python3_8? ( dev-python/importlib_resources )
+	$(python_gen_cond_dep 'dev-python/importlib_resources[${PYTHON_USEDEP}]' python3_8)
 "
 RDEPEND="${DEPEND}"
 BDEPEND=""

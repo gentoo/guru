@@ -10,6 +10,10 @@ SRC_URI="https://github.com/postmodern/ruby-install/archive/v${PV}.tar.gz -> ${P
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="test"
+
+PROPERTIES="test_network"
+RESTRICT="!test? ( test )"
 
 DEPEND=">=app-shells/bash-3.0:*"
 RDEPEND="${DEPEND}
@@ -20,6 +24,12 @@ RDEPEND="${DEPEND}
 	app-arch/bzip2
 	sys-devel/patch
 	|| ( >=sys-devel/gcc-4.2 sys-devel/clang )"
+BDEPEND="test? ( dev-util/shunit2 )"
+
+# XXX: `make check` seems to be broken (violates shellcheck tests)
+src_test() {
+	emake test
+}
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="/usr" install

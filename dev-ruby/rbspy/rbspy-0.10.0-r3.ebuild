@@ -154,3 +154,8 @@ QA_FLAGS_IGNORED="usr/bin/${PN}"
 LICENSE="Apache-2.0 BSD-2 BSD CDDL ISC MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="test"
+
+RESTRICT="!test? ( test )"
+
+BDEPEND="test? ( dev-lang/ruby )"

@@ -14,7 +14,7 @@ SRC_URI="https://github.com/samschott/maestral/archive/refs/tags/v${PV}.tar.gz -
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	>=dev-python/click-8.0.2[${PYTHON_USEDEP}]
@@ -29,22 +29,29 @@ DEPEND="
 	>=dev-python/Pyro5-5.10[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.6.2[${PYTHON_USEDEP}]
 	>=dev-python/sdnotify-0.3.2[${PYTHON_USEDEP}]
-	>=dev-python/setuptools-41.0.0[${PYTHON_USEDEP}]
 	>=dev-python/survey-3.4.3[${PYTHON_USEDEP}]
 	<dev-python/survey-4.0.0[${PYTHON_USEDEP}]
 	>=dev-python/watchdog-2.0.1[${PYTHON_USEDEP}]
 	dev-python/wheel[${PYTHON_USEDEP}]
-	python_targets_python3_8? ( dev-python/importlib_metadata[${PYTHON_USEDEP}] )
+	$(python_gen_cond_dep 'dev-python/importlib_metadata[${PYTHON_USEDEP}]' python3_8)
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
+	test? ( dev-python/pytest-benchmark[${PYTHON_USEDEP}] )
 "
 
-# Skipped: Requires auth token
-RESTRICT=test
+distutils_enable_tests pytest
 
-distutils_enable_tests setup.py
+python_prepare_all()
+{
+	# this test requires systemd
+	sed -i -e 's/test_autostart/_&/' tests/offline/test_cli.py || die
+
+	# this test requires network
+	sed -i -e 's/test_check_for_updates/_&/' tests/offline/test_main.py || die
+
+	distutils-r1_python_prepare_all
+}
 
 pkg_postinst()
 {
