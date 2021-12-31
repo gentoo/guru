@@ -50,6 +50,11 @@ python_prepare_all()
 	# this test requires network
 	sed -i -e 's/test_check_for_updates/_&/' tests/offline/test_main.py || die
 
+	# this test fails on default gentoo instalation as `/usr/local/share` is missing
+	# so use `/usr/share` instead
+	# inform upstream https://github.com/samschott/maestral/issues/562
+	sed -i -e 's:/local/:/:g' tests/offline/utils/test_path.py || die
+
 	distutils-r1_python_prepare_all
 }
 
