@@ -361,7 +361,7 @@ dev-perl/List-Compare 0.55: Compare elements of two or more lists
 dev-php/pecl-inotify 3.0.0: Inotify binding for PHP
 dev-python/DAWG-Python 0.7.2: Pure-python reader for DAWGs (DAFSAs) created by dawgdic C++ library.
 dev-python/MutatorMath 3.0.1: A library for piecewise linear interpolation in multiple dimensions
-dev-python/Pyro5 5.13: Distributed object middleware for Python (RPC)
+dev-python/Pyro5 5.13.1: Distributed object middleware for Python (RPC)
 dev-python/SQLAlchemy-Utils 0.37.9: Various utility functions and datatypes for SQLAlchemy
 dev-python/WSME 0.11.0: Simplify the writing of REST APIs, and extend them with additional protocols
 dev-python/XenAPI 2.14-r1: Xen API SDK, for communication with Citrix XenServer and Xen Cloud Platform
