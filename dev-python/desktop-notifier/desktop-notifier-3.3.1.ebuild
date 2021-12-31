@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="desktop-notifier is a Python library for cross-platform desktop notifications"
-HOMEPAGE="https://github.com/altdesktop/python-dbus-next"
+HOMEPAGE="https://desktop-notifier.readthedocs.io/"
 SRC_URI="https://github.com/samschott/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
