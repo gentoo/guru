@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,8 @@ SRC_URI="https://github.com/atom/atom/releases/download/v${PV}/atom-amd64.tar.gz
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+# Atom works only on amd64
+KEYWORDS="-* ~amd64"
 RESTRICT="test"
 
 S="${WORKDIR}/atom-${PV}-amd64"
@@ -50,10 +51,11 @@ RDEPEND="
 QA_PREBUILT="/opt/${PN}/*"
 QA_PRESTRIPPED="/opt/${PN}/resources/*"  # Files are already stripped
 
-DOCS=( resources/LICENSE.md )
-
 src_prepare(){
 	default
+
+	# We do not install licenses
+	rm resources/LICENSE.md || die "Failed to remove LICENSE"
 }
 
 src_install(){
@@ -64,13 +66,10 @@ src_install(){
 
 	# I will use only npm provided with package itself
 	# as nodejs is not required to make it working (and it is really big).
-	fperms +x /opt/"${PN}"/resources/app/apm/bin/apm
-	fperms +x /opt/"${PN}"/resources/app/apm/bin/node
-	fperms +x /opt/"${PN}"/resources/app/apm/bin/npm
+	fperms +x /opt/"${PN}"/resources/app/apm/bin/{apm,node,npm}
 
 	# Bug 798459
-	fperms +x /opt/"${PN}"/resources/app.asar.unpacked/node_modules/vscode-ripgrep/bin/rg
-	fperms +x /opt/"${PN}"/resources/app.asar.unpacked/node_modules/dugite/git/bin/git
+	fperms +x /opt/"${PN}"/resources/app.asar.unpacked/node_modules/{vscode-ripgrep/bin/rg,dugite/git/bin/git}
 
 	doicon atom.png
 	make_desktop_entry "/opt/atom-bin/atom %U" "Atom" "atom" \
