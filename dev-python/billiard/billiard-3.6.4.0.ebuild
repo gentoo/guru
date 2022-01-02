@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
@@ -22,8 +22,6 @@ RDEPEND=""
 DEPEND="
 	test? (
 		>=dev-python/case-1.3.1[${PYTHON_USEDEP}]
-		>=dev-python/pytest-3.0[${PYTHON_USEDEP}]
-		<dev-python/pytest-6.2[${PYTHON_USEDEP}]
 		dev-python/psutil[${PYTHON_USEDEP}]
 	)
 "
