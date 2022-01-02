@@ -1,5 +1,5 @@
 BDEPEND=test? ( dev-util/shunit2 )
-DEFINED_PHASES=install test
+DEFINED_PHASES=install prepare test
 DEPEND=>=app-shells/bash-3.0:*
 DESCRIPTION=Installs Ruby, JRuby, Rubinius, TruffleRuby (native / GraalVM), or mruby.
 EAPI=8
@@ -12,4 +12,4 @@ RDEPEND=>=app-shells/bash-3.0:* sys-apps/grep || ( >net-misc/wget-1.12 net-misc/
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/postmodern/ruby-install/archive/v0.8.3.tar.gz -> ruby-install-0.8.3.tar.gz
-_md5_=548e6c0262fbc573be9e706b84e499fb
+_md5_=6cd6a643e4d4fc3a0745df4fa4269450

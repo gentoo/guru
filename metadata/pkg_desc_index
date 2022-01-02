@@ -465,7 +465,7 @@ dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
 dev-python/injector 0.18.4: Python dependency injection framework
 dev-python/itemadapter 0.4.0: Common interface for scrapy data container classes
 dev-python/itemloaders 1.0.4: Library to populate items using XPath and CSS with a convenient API
-dev-python/iuliia 0.11.4: Transliterate Cyrillic → Latin in every possible way
+dev-python/iuliia 0.11.4: Transliterate Cyrillic to Latin in every possible way
 dev-python/jaeger-client 4.8.0: Jaeger Bindings for Python OpenTracing API
 dev-python/jellyfin-apiclient-python 1.6.2 1.7.2: Python API client for Jellyfin
 dev-python/jplephem 2.16: Python version of NASA DE4xx ephemerides for Astronomical Alamanac
@@ -664,7 +664,7 @@ dev-ruby/chruby 0.3.9-r3 9999: Changes the current Ruby
 dev-ruby/pry-byebug 3.9.0: Step-by-step debugging and stack navigation in Pry
 dev-ruby/rbspy 0.10.0-r3: Sampling profiler for Ruby
 dev-ruby/rspec-wait 0.0.9: enables time-resilient expectations in your RSpec test suite
-dev-ruby/ruby-install 0.8.3-r1: Installs Ruby, JRuby, Rubinius, TruffleRuby (native / GraalVM), or mruby.
+dev-ruby/ruby-install 0.8.3-r2: Installs Ruby, JRuby, Rubinius, TruffleRuby (native / GraalVM), or mruby.
 dev-util/FoBiS 3.0.5: FoBiS.py, a Fortran Building System for poor men
 dev-util/afdko 3.6.2: Adobe Font Development Kit for OpenType
 dev-util/babeltrace2 2.0.4: A command-line tool and library to read and convert trace files
@@ -1023,7 +1023,7 @@ sci-misc/boinc-wrapper 7.16.17 7.16.17-r1: Wrapper to use non-BOINC apps with BO
 sci-physics/SU2 7.2.0: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sci-physics/mbdyn 1.7.3_p20210925: A general purpose Multibody Dynamics analysis software
 sec-keys/openpgp-keys-aepaneshnikov 20211208: OpenPGP keys used by Alexander Epaneshnikov
-sec-keys/openpgp-keys-skyjake 20211224: OpenPGP keys used by Jaakko Keränen
+sec-keys/openpgp-keys-skyjake 20211224: OpenPGP keys used by Jaakko Keranen
 sec-keys/signify-keys-gmid 1.7: Signify keys used to sign gmid releases
 sec-keys/signify-keys-telescope 0.6.1: Signify keys used to sign telescope releases
 sys-apps/0xFFFF 0.8 0.9: The 0pen Free Fiasco Firmware Flasher
