@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
@@ -24,6 +24,7 @@ DEPEND="app-arch/brotli
 	media-libs/openexr:=
 	dev-util/google-perftools
 	x11-misc/shared-mime-info
+	dev-cpp/gflags
 	dev-cpp/gtest
 	dev-cpp/highway
 	media-libs/lcms
