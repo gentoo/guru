@@ -9,5 +9,5 @@ LICENSE=BSD
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://drive.google.com/uc?export=download&id=1BmWRhwDnribygNRsR2UwaxIMrAB7GZw4 -> skcms-0_pre20211006.tar.gz
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	8a0248f83ae77f945d376ff4a7953257
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
 _md5_=d2c1762007d2eee709cc8770136dc72b
