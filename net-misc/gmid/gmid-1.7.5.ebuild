@@ -33,12 +33,14 @@ DEPEND="
 	dev-libs/libretls
 	dev-libs/openssl:=
 "
+RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 	virtual/yacc
-	verify-sig? ( sec-keys/signify-keys-gmid:$(ver_cut 1-2) )
 "
-RDEPEND="${DEPEND}"
+if [[ ${PV} != 9999 ]]; then
+	BDEPEND+="verify-sig? ( sec-keys/signify-keys-gmid:$(ver_cut 1-2) )"
+fi
 
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/signify-keys/${PN}-$(ver_cut 1-2).pub"
 

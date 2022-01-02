@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,6 +29,13 @@ BDEPEND="test? ( dev-util/shunit2 )"
 # XXX: `make check` seems to be broken (violates shellcheck tests)
 src_test() {
 	emake test
+}
+
+src_prepare() {
+	default
+
+	sed -i Makefile -e "s/^VERSION=.\+$/VERSION=${PVR}/" \
+		|| die "Cannot fix doc location to follow Gentoo/FHS guidelines"
 }
 
 src_install() {
