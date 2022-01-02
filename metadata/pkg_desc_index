@@ -934,7 +934,7 @@ net-misc/facebook-ptp 0_pre20210831: Facebook's PTP libraries
 net-misc/freetube-bin 0.11.3 0.12.0 0.15.1: https://github.com/FreeTubeApp/FreeTube
 net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.6.0 0.6.1 0.6.3: A gemini Server written in rust
-net-misc/gmid 1.7.4 1.7.5 9999: Simple and secure Gemini server
+net-misc/gmid 1.7.4 1.7.5: Simple and secure Gemini server
 net-misc/lyrics-in-terminal 1.4.2: Command Line Lyrics fetcher for MPRIS media players
 net-misc/maestral 1.5.2: Maestral is an open-source Dropbox client written in Python
 net-misc/maestral-qt 1.5.2: Maestral is an open-source Dropbox client written in Python

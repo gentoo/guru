@@ -1,4 +1,4 @@
-BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+BDEPEND=app-arch/unzip X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
 DEFINED_PHASES=install postinst postrm setup
 DESCRIPTION=A free programming font with cursive italics and ligatures
 EAPI=7
@@ -8,8 +8,8 @@ IUSE=+otf ttf X
 KEYWORDS=~amd64 ~x86
 LICENSE=OFL-1.1
 REQUIRED_USE=|| ( otf ttf )
-RESTRICT=primaryuri binchecks strip
+RESTRICT=binchecks strip
 SLOT=0
 SRC_URI=https://github.com/rubjo/victor-mono/raw/v1.5.1/public/VictorMonoAll.zip -> victor-mono-1.5.1.zip
 _eclasses_=font	0667878c2b594871023dd1833d05996f
-_md5_=5d2e8172986362487a5ed26c0f27feb8
+_md5_=8f234fd0bb8967296e068142abe807ac
