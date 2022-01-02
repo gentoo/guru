@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -8,7 +8,7 @@ inherit font
 DESCRIPTION="A free programming font with cursive italics and ligatures"
 HOMEPAGE="https://rubjo.github.io/victor-mono/"
 SRC_URI="https://github.com/rubjo/victor-mono/raw/v${PV}/public/VictorMonoAll.zip -> ${P}.zip"
-RESTRICT="primaryuri binchecks strip"
+RESTRICT="binchecks strip"
 
 LICENSE="OFL-1.1"
 SLOT="0"
@@ -16,6 +16,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+otf ttf"
 
 REQUIRED_USE="|| ( otf ttf )"
+
+BDEPEND="app-arch/unzip"
 
 S="${WORKDIR}"
 
