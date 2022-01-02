@@ -14,17 +14,17 @@ cryptography.
 
 RSAREF 2.0 supports the following algorithms:
 
-     o    RSA encryption and key generation, as defined by RSA
-          Laboratories' Public-Key Cryptography Standards (PKCS)
+	o    RSA encryption and key generation, as defined by RSA
+		Laboratories' Public-Key Cryptography Standards (PKCS)
 
-     o    MD2 and MD5 message digests
+	o    MD2 and MD5 message digests
 
-     o    DES (Data Encryption Standard) in cipher-block chaining mode
+	o    DES (Data Encryption Standard) in cipher-block chaining mode
 
-     o    Diffie-Hellman key agreement
+	o    Diffie-Hellman key agreement
 
-     o    DESX, RSA Data Security's efficient, secure DES enhancement
+	o    DESX, RSA Data Security's efficient, secure DES enhancement
 
-     o    Triple-DES, for added security with three DES operations
+	o    Triple-DES, for added security with three DES operations
 </longdescription>
 </pkgmetadata>
