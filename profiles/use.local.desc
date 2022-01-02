@@ -221,6 +221,9 @@ media-gfx/bonzomatic:wayland - Build non-system-glfw for wayland instead of X11
 media-gfx/grafx2:ttf - Install TTF Fonts
 media-gfx/nsxiv:statusbar - Add statusbar support
 media-gfx/superslicer:profiles - Install additional 3d printer profiles.
+media-libs/alvr:client - Build ALVR client and launcher
+media-libs/alvr:server - Build ALVR server
+media-libs/alvr:vulkan - Build ALVR vulkan layer
 media-libs/alvr:x264 - Use x264 for h264 software encoding
 media-libs/alvr:x265 - Use x265 for h265 software encoding
 media-libs/fcft:text-shaping - Support text shaping using HarfBuzz
