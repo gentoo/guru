@@ -154,7 +154,6 @@ HOMEPAGE="https://github.com/leftwm/leftwm-theme"
 EGIT_REPO_URI="https://github.com/leftwm/leftwm-theme.git"
 
 SLOT="0"
-KEYWORDS="~amd64"
 
 LICENSE="
 	|| ( Apache-2.0 MIT )
@@ -179,7 +178,6 @@ DEPEND="
 
 RDEPEND="
 	${DEPEND}
-	x11-wm/left-wm
 "
 
 src_unpack() {
