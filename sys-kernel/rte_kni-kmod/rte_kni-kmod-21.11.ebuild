@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -18,7 +18,9 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 # tests need root
 RESTRICT="test"
 
-DEPEND="${PYTHON_DEPS}
+RDEPEND="${PYTHON_DEPS}"
+
+DEPEND="${RDEPEND}
 	$(python_gen_cond_dep '
 		dev-python/pyelftools[${PYTHON_USEDEP}]
 	')
