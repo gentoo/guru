@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -35,7 +35,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	test? (
-		>=dev-python/hacking-3.0.1[${PYTHON_USEDEP}]
 		>=dev-python/python-openstackclient-3.12.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/requests-mock-1.2.0[${PYTHON_USEDEP}]
