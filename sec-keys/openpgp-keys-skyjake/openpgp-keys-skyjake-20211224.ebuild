@@ -1,10 +1,10 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 MY_PN="${PN#openpgp-key-}"
-DESCRIPTION="OpenPGP keys used by Jaakko Keränen"
+DESCRIPTION="OpenPGP keys used by Jaakko Keranen"
 HOMEPAGE="https://gmi.skyjake.fi"
 SRC_URI="https://gmi.skyjake.fi/pgp_public_key.txt -> ${P}.asc"
 S="${WORKDIR}"
