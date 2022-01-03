@@ -8,7 +8,10 @@ PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="Handling event-based streams in Python"
-HOMEPAGE="https://github.com/Exahilosys/wrapio"
+HOMEPAGE="
+	https://github.com/Exahilosys/wrapio
+	https://pypi.org/project/wrapio
+	"
 SRC_URI="https://github.com/Exahilosys/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
