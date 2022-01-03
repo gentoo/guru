@@ -3,7 +3,7 @@
 
 EAPI=8
 
-MY_PN="${PN#openpgp-key-}"
+MY_PN="${PN#openpgp-keys-}"
 DESCRIPTION="OpenPGP keys used by Jaakko Keranen"
 HOMEPAGE="https://gmi.skyjake.fi"
 SRC_URI="https://gmi.skyjake.fi/pgp_public_key.txt -> ${P}.asc"
