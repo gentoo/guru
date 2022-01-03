@@ -20,10 +20,18 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND=""
+BDEPEND="
+	doc? (
+		dev-python/sphinxcontrib-asyncio
+		dev-python/sphinxcontrib-fulltoc
+	)
+	test? ( dev-python/pytest-asyncio )
+"
 
 distutils_enable_tests pytest
+distutils_enable_sphinx docs
 
 # some tests fail with:
 # dbus_next.errors.InvalidAddressError: DBUS_SESSION_BUS_ADDRESS not set and could not get DISPLAY environment variable to get bus addres
+# or require certain services to be installed (like org.freedesktop.DBus.Debug.Stats)
 RESTRICT="test"
