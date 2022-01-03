@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,6 +26,7 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 
 distutils_enable_tests pytest
+distutils_enable_sphinx docs/source
 
 PROPERTIES="test_network"
 RESTRICT="test"
