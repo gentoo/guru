@@ -20,16 +20,12 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND="
-	doc? (
-		dev-python/sphinxcontrib-asyncio
-		dev-python/sphinxcontrib-fulltoc
-	)
-	test? ( dev-python/pytest-asyncio )
-"
+BDEPEND="test? ( dev-python/pytest-asyncio[${PYTHON_USEDEP}] )"
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs
+distutils_enable_sphinx docs \
+	dev-python/sphinxcontrib-asyncio \
+	dev-python/sphinxcontrib-fulltoc
 
 # some tests fail with:
 # dbus_next.errors.InvalidAddressError: DBUS_SESSION_BUS_ADDRESS not set and could not get DISPLAY environment variable to get bus addres
