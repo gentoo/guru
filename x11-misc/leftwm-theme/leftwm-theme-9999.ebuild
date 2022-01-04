@@ -173,7 +173,7 @@ QA_FLAGS_IGNORED="usr/bin/.*"
 DEPEND="
 	dev-libs/openssl
 	sys-libs/zlib
-	>=dev-lang/rust-1.52.0
+	>=dev-lang/rust-1.55.0
 "
 
 RDEPEND="
