@@ -3,11 +3,12 @@
 
 EAPI=8
 
-inherit xdg cmake
+inherit cmake verify-sig xdg
 
 DESCRIPTION="Desktop GUI client for browsing Geminispace"
 HOMEPAGE="https://gmi.skyjake.fi/lagrange/ https://git.skyjake.fi/gemini/lagrange"
-SRC_URI="https://git.skyjake.fi/gemini/${PN}/releases/download/v${PV}/${P}.tar.gz"
+SRC_URI="https://git.skyjake.fi/gemini/${PN}/releases/download/v${PV}/${P}.tar.gz
+	verify-sig? ( https://git.skyjake.fi/gemini/${PN}/releases/download/v${PV}/${P}.tar.gz.sig )"
 
 LICENSE="|| ( MIT Unlicense ) Apache-2.0 BSD-2 CC-BY-SA-4.0 OFL-1.1"
 SLOT="0"
@@ -23,7 +24,10 @@ DEPEND="
 	webp? ( media-libs/libwebp:= )
 "
 RDEPEND="${DEPEND}"
-BDEPEND="app-arch/zip"
+BDEPEND="app-arch/zip
+	verify-sig? ( sec-keys/openpgp-keys-skyjake )"
+
+VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/skyjake.asc"
 
 src_prepare() {
 	# checked by Depends.cmake
