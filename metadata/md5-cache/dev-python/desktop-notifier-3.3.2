@@ -1,17 +1,16 @@
-BDEPEND=test? ( dev-python/wheel[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/packaging[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/python-dbus-next[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( dev-python/importlib_resources[python_targets_python3_8(-)?] ) ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+BDEPEND=doc? ( || ( ( dev-lang/python:3.10 dev-python/sphinx[python_targets_python3_10(-)] ) ( dev-lang/python:3.9 dev-python/sphinx[python_targets_python3_9(-)] ) ( dev-lang/python:3.8 dev-python/sphinx[python_targets_python3_8(-)] ) ) ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-python/wheel[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/packaging[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/python-dbus-next[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( dev-python/importlib_resources[python_targets_python3_8(-)?] )
 DESCRIPTION=desktop-notifier is a Python library for cross-platform desktop notifications
 EAPI=8
-HOMEPAGE=https://desktop-notifier.readthedocs.io/
+HOMEPAGE=https://desktop-notifier.readthedocs.io https://pypi.org/project/desktop-notifier https://github.com/samschott/desktop-notifier
 INHERIT=distutils-r1
-IUSE=test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+IUSE=doc python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
 RDEPEND=dev-python/wheel[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/packaging[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/python-dbus-next[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( dev-python/importlib_resources[python_targets_python3_8(-)?] ) python_targets_python3_8? ( dev-lang/python:3.8 ) python_targets_python3_9? ( dev-lang/python:3.9 ) python_targets_python3_10? ( dev-lang/python:3.10 ) >=dev-lang/python-exec-2:=[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
-RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/samschott/desktop-notifier/archive/refs/tags/v3.3.1.tar.gz -> desktop-notifier-3.3.1.tar.gz
+SRC_URI=https://github.com/samschott/desktop-notifier/archive/refs/tags/v3.3.2.tar.gz -> desktop-notifier-3.3.2.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	a8b7938ade305f087865de7e52d079b5	python-r1	e574a3642f886323f18f867ecc4d91c4	distutils-r1	63df6e5a6bbff9ec3cf60cf7cdc94f23
-_md5_=d21a77eba3ea1e3e1330d8064f0d8f4d
+_md5_=db7fe66ad19c1c708d27af3c2f88f78b

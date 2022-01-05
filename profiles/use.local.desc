@@ -312,6 +312,10 @@ net-news/sfeed_curses:theme-mono - Use mono theme
 net-news/sfeed_curses:theme-mono-highlight - Use mono_highlight theme
 net-news/sfeed_curses:theme-newsboat - Use newsboat theme
 net-news/sfeed_curses:theme-templeos - Use templeos theme
+net-nntp/inn:gzip - Compress logs using gzip
+net-nntp/inn:keywords - Enable automatic innd keyword generation
+net-nntp/inn:largefile - Support files larger than 2GB
+net-nntp/inn:low-memory - Use tagged hash table for history to reduce memory footprint
 net-p2p/monero:daemon - Build the Monero daemon used to connect to the P2P network.
 net-p2p/monero:tools - Build tools used to manipulate the blockchain as it is stored on disk.
 net-p2p/monero:wallet-cli - Build the command line wallet, monero-wallet-cli.

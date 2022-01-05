@@ -419,7 +419,7 @@ dev-python/daff 1.3.46: Diff and patch tables
 dev-python/daiquiri 3.0.1: Python library to easily setup basic logging functionality
 dev-python/databases 0.4.3 0.5.3: Async database support for Python.
 dev-python/dateparser 1.0.0 1.1.0: Date parsing library designed to parse dates from HTML pages
-dev-python/desktop-notifier 3.3.1: desktop-notifier is a Python library for cross-platform desktop notifications
+dev-python/desktop-notifier 3.3.2: desktop-notifier is a Python library for cross-platform desktop notifications
 dev-python/devtools 0.6.1: Dev tools for python
 dev-python/digitalocean 1.16.0 1.17.0: Digitalocean API access library
 dev-python/dotmap 1.3.25: Dot access dictionary with dynamic hierarchy creation and ordered iteration
@@ -609,6 +609,7 @@ dev-python/sortedcollections 2.1.0: Apache2 licensed Python sorted collections l
 dev-python/sphinx-argparse 0.3.1: Sphinx extension that automatically documents argparse commands and options
 dev-python/sphinx-argparse-cli 1.8.2: Render CLI arguments (sub-commands friendly) defined by argparse module
 dev-python/sphinx-click 3.0.1 3.0.2: Sphinx plugin to automatically document click-based applications
+dev-python/sphinxcontrib-fulltoc 1.2: python-dbus-next is a Python library for DBus
 dev-python/sphinxcontrib-katex 0.8.6: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-napoleon 0.7: Allow a different format in dosctrings for better clarity
 dev-python/sphinxcontrib-restbuilder 0.3: A Sphinx builder/writer to output reStructuredText (rst) files
@@ -687,7 +688,7 @@ dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's Open
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
 dev-util/rpmlint 2.0.0 2.1.0: Tool for checking common errors in RPM packages
-dev-util/rust-analyzer 20211220 20211227 99999999: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer 20211227 20220103 99999999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/wakatime-cli 1.27.0 1.28.6: Command line interface to WakaTime used by all WakaTime plugins
@@ -942,6 +943,7 @@ net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/moonlight 3.1.4: GameStream client for PCs
 net-misc/myip 1.2.0: Get your external IP address using STUN server
+net-misc/ooni-probe-cli 3.13.0: OONI Probe network measurement tool for detecting internet censorship
 net-misc/openbgpd 6.8_p0 6.9_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.6.7 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
@@ -958,6 +960,7 @@ net-news/comitium 1.8.1: feed aggregator for gemini supporting many formats and 
 net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny Tiny RSS or feedly
 net-news/sfeed 1.1 9999: simple RSS and Atom parser
 net-news/sfeed_curses 1.0: A curses UI front-end for sfeed
+net-nntp/inn 2.6.4: InterNetNews -- the Internet meets Netnews
 net-p2p/bisq 1.8.0: The decentralized bitcoin exchange (non-atomic, with arbitration)
 net-p2p/lbry 0.49.1 0.50.2 0.51.2: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.2.0 0.17.2.3 9999: The secure, private, untraceable cryptocurrency
@@ -1023,6 +1026,7 @@ sci-misc/boinc-wrapper 7.16.17 7.16.17-r1: Wrapper to use non-BOINC apps with BO
 sci-physics/SU2 7.2.0: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sci-physics/mbdyn 1.7.3_p20210925: A general purpose Multibody Dynamics analysis software
 sec-keys/openpgp-keys-aepaneshnikov 20211208: OpenPGP keys used by Alexander Epaneshnikov
+sec-keys/openpgp-keys-russallbery 20090528: OpenPGP keys used by Russ Allbery (Eagle)
 sec-keys/openpgp-keys-skyjake 20211224: OpenPGP keys used by Jaakko Keranen
 sec-keys/signify-keys-gmid 1.7: Signify keys used to sign gmid releases
 sec-keys/signify-keys-telescope 0.6.1: Signify keys used to sign telescope releases
@@ -1031,7 +1035,7 @@ sys-apps/CommsPowerManagement 0.2.1: Python library providing various tools to w
 sys-apps/dool 0.8_pre20191010-r1 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
 sys-apps/drm_info 2.2.0 2.3.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.4 0.6.2 0.7.5: A more intuitive version of du
-sys-apps/fselect 0.7.8: Find files with SQL-like queries
+sys-apps/fselect 0.7.9: Find files with SQL-like queries
 sys-apps/hex 0.3.2 0.4.0 0.4.1 0.4.2: Futuristic take on hexdump
 sys-apps/intel-cmt-cat 4.2.0-r2: User space software for Intel(R) Resource Director Technology
 sys-apps/procs 0.11.6 0.11.9: A modern replacement for ps
@@ -1134,12 +1138,14 @@ virtual/lattice 0: Virtual of a R recommended package
 virtual/mgcv 0: Virtual of a R recommended package
 virtual/nlme 0: Virtual of a R recommended package
 virtual/nnet 0: Virtual of a R recommended package
+virtual/sendmail 0: Virtual for sendmail program
 virtual/survival 0: Virtual of a R recommended package
 www-apps/code-server-bin 3.10.0 3.12.0: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/jackett-bin 0.20.195-r1 9999: API Support for your favorite torrent trackers
 www-apps/twint 2.1.20-r2: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 20.8.0 9999: ultra fast, simple, secure & standards compliant web I/O
+www-apps/zola 0.15.2: A fast static site generator in a single binary with everything built-in
 www-client/badwolf 1.2.1 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/browsh 1.6.4_p1: A fully-modern text-based browser, rendering to TTY and browsers
 www-client/torbrowser-launcher 0.3.5-r1 0.3.5-r2 9999: A program to download, updated, and run the Tor Browser Bundle
@@ -1166,7 +1172,7 @@ x11-misc/i3lock-fancy-rapid 0.0.0_pre20201109-r1 0.0.0_pre20210421: A faster imp
 x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement for i3status, written in Rust.
 x11-misc/ksnip 1.9.1 1.9.2: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/leftwm-theme 9999: A theme mangager for LeftWM
-x11-misc/squeekboard 1.14.0: Virtual keyboard supporting Wayland, built primarily for the Librem 5 phone
+x11-misc/squeekboard 1.14.0 1.15.0: Virtual keyboard supporting Wayland, built primarily for the Librem 5 phone
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-misc/xbanish 1.7: Banish the mouse cursor when typing, show it again when the mouse moves
 x11-misc/xob 0.2 0.3: A lightweight overlay volume (or anything) bar for the X Window System
@@ -1185,4 +1191,4 @@ x11-themes/sound-theme-librem5 0.1.0: Sound theme for the Librem 5/PinePhone
 x11-themes/vimix-xcursors 20200224-r2: Theme inspired by Materia design and based on capitaine-cursors
 x11-wm/i3-rounded 4.19.1: i3-gaps fork with rounded corners support.
 x11-wm/leftwm 0.2.9 0.2.10 0.2.11: A window manager for Adventurers
-x11-wm/phoc 0.9.0: Wlroots based Phone compositor
+x11-wm/phoc 0.9.0 0.11.0: Wlroots based Phone compositor

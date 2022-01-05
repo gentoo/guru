@@ -1,6 +1,6 @@
 BDEPEND=>=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm test unpack
-DEPEND=dev-libs/openssl sys-libs/zlib >=dev-lang/rust-1.52.0
+DEPEND=dev-libs/openssl sys-libs/zlib >=dev-lang/rust-1.55.0
 DESCRIPTION=A theme mangager for LeftWM
 EAPI=8
 HOMEPAGE=https://github.com/leftwm/leftwm-theme
@@ -8,7 +8,7 @@ INHERIT=cargo xdg-utils git-r3
 IUSE=debug
 LICENSE=|| ( Apache-2.0 MIT ) || ( Apache-2.0 MIT ) || ( Apache-2.0 MIT MPL-2.0 ) || ( MIT ) || ( MIT Unlicense ) Apache-2.0 MIT Unlicense MPL-2.0 BSD
 PROPERTIES=live
-RDEPEND=dev-libs/openssl sys-libs/zlib >=dev-lang/rust-1.52.0
+RDEPEND=dev-libs/openssl sys-libs/zlib >=dev-lang/rust-1.55.0
 SLOT=0
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	cargo	c7fefacaebdcb455d2a7b59429eb47a6	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=1d824dcb5713f40570cc6a5eaf810ddd
+_md5_=fd9833f31cc5468037dad0130218b97e
