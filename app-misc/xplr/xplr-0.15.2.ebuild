@@ -1,7 +1,9 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+LUA_COMPAT=( luajit )
 
 CRATES="
 	ansi-to-tui-0.4.1
@@ -129,7 +131,7 @@ CRATES="
 	yaml-rust-0.4.5
 "
 
-inherit cargo
+inherit cargo lua-single
 
 DESCRIPTION="A hackable, minimal, fast TUI file explorer"
 # Double check the homepage as the cargo_metadata crate
@@ -153,18 +155,24 @@ LICENSE="
 SLOT="0"
 KEYWORDS="~amd64"
 
+REQUIRED_USE="${LUA_REQUIRED_USE}"
+RDEPEND="
+	${LUA_DEPS}
+"
 DEPEND="
-	dev-vcs/git
-	sys-devel/make
-	sys-devel/gcc
+	${RDEPEND}
 "
 
 QA_FLAGS_IGNORED="usr/bin/.*"
 
 src_configure() {
-	cargo_src_configure --locked --bin xplr
-	sed "s:\$(CROSS)::g" -i ../cargo_home/gentoo/luajit-src-210.3.2+resty1085a4d/luajit2/src/Makefile || die
+	cargo_src_configure --bin xplr
+}
 
+src_prepare() {
+	sed -i Cargo.toml -e 's/"vendored"\s*,//' || die
+	# for dynamic linking with lua
+	default
 }
 
 src_compile() {

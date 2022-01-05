@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021,2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,11 @@ PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="desktop-notifier is a Python library for cross-platform desktop notifications"
-HOMEPAGE="https://desktop-notifier.readthedocs.io/"
+HOMEPAGE="
+	https://desktop-notifier.readthedocs.io
+	https://pypi.org/project/desktop-notifier
+	https://github.com/samschott/desktop-notifier
+"
 SRC_URI="https://github.com/samschott/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
@@ -24,4 +28,4 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
-distutils_enable_tests setup.py
+distutils_enable_sphinx docs

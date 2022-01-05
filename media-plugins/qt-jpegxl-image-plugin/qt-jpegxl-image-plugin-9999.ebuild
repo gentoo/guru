@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
@@ -19,6 +19,6 @@ DEPEND=">=dev-qt/qtgui-5.14.0:5
 	>=media-libs/libjxl-0.6.1
 "
 
-BDEPEND=">=kde-frameworks/extra-cmake-modules-5.70:5"
+BDEPEND=">=kde-frameworks/extra-cmake-modules-5.89"
 
 RDEPEND="${DEPEND}"

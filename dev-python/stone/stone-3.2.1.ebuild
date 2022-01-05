@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,11 @@ PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="The Official Api Spec Language for Dropbox"
-HOMEPAGE="https://www.dropbox.com/developers"
+HOMEPAGE="
+	https://www.dropbox.com/developers
+	https://github.com/dropbox/stone
+	https://pypi.org/project/stone
+"
 SRC_URI="https://github.com/dropbox/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"

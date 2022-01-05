@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+	<email>cyber+gentoo@sysrq.in</email>
+	<name>Anna</name>
+</maintainer>
+<upstream>
+	<remote-id type="github">InterNetNews/inn</remote-id>
+	<bugs-to>https://github.com/InterNetNews/inn/issues</bugs-to>
+	<doc>https://www.eyrie.org/~eagle/software/inn/docs/</doc>
+	<maintainer>
+		<email>eagle@eyrie.org</email>
+		<name>Russ Allbery</name>
+	</maintainer>
+</upstream>
+<longdescription>
+InterNetNews is a complete Usenet system. The cornerstone of the package is
+innd, an NNTP server that multiplexes all I/O. Newsreading is handled by a
+separate server, nnrpd, that is spawned for each client. Both innd and nnrpd
+have some slight variances from the NNTP protocol.
+</longdescription>
+<use>
+	<!--flag name="bzip2">Compress logs using bzip2</flag-->
+	<flag name="gzip">Compress logs using gzip</flag>
+	<flag name="keywords">Enable automatic innd keyword generation</flag>
+	<flag name="low-memory">Use tagged hash table for history to reduce memory footprint</flag>
+	<flag name="largefile">Support files larger than 2GB</flag>
+</use>
+</pkgmetadata>

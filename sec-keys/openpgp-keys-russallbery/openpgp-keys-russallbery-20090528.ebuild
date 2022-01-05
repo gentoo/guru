@@ -4,9 +4,9 @@
 EAPI=8
 
 MY_PN="${PN#openpgp-keys-}"
-DESCRIPTION="OpenPGP keys used by Jaakko Keranen"
-HOMEPAGE="https://gmi.skyjake.fi"
-SRC_URI="https://gmi.skyjake.fi/pgp_public_key.txt -> ${P}.asc"
+DESCRIPTION="OpenPGP keys used by Russ Allbery (Eagle)"
+HOMEPAGE="https://www.eyrie.org/~eagle/personal/contact.html"
+SRC_URI="https://www.eyrie.org/~eagle/personal/82004173.txt -> ${P}.asc"
 S="${WORKDIR}"
 
 LICENSE="public-domain"

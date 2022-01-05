@@ -8,7 +8,7 @@ inherit meson vala xdg gnome2-utils
 MY_PV="v${PV}"
 MY_P="${PN}-${MY_PV}"
 
-WL_COMMIT="5413b1ec61c6e3390929db595c0ec92f92ea2594"
+WL_COMMIT="2fce64d30d378d7009a5770b2472231a0e535ada"
 WL_P="wlroots-${WL_COMMIT}"
 
 DESCRIPTION="Wlroots based Phone compositor"
@@ -54,20 +54,12 @@ BDEPEND="
 	x11-base/xorg-server
 "
 
-PATCHES=(
-	"${FILESDIR}/0001-seat-Don-t-notify-on-key-release.patch"
-)
-
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
 	default
 	rm -r "${S}"/subprojects/wlroots || die "Failed to remove bundled wlroots"
 	cp -r "${WORKDIR}/${WL_P}" "${S}"/subprojects/wlroots || die "Failed to copy right version of wlroots"
-
-	cd "${S}"/subprojects/wlroots
-	eapply "${FILESDIR}"/xcursor-fix-false-positive-stringop-truncation.diff
-
 }
 
 src_configure() {

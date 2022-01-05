@@ -5,4 +5,9 @@
 		<email>cyber+gentoo@sysrq.in</email>
 		<name>Anna</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">ooni/probe-cli</remote-id>
+		<bugs-to>https://github.com/ooni/probe/issues/new?labels=ooni/probe-cli&amp;assignee=bassosimone</bugs-to>
+		<doc>https://ooni.org/support/ooni-probe-cli</doc>
+	</upstream>
 </pkgmetadata>

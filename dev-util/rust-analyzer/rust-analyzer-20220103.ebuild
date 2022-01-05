@@ -1,4 +1,4 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -39,7 +39,7 @@ CRATES="
 	drop_bomb-0.1.5
 	either-1.6.1
 	ena-0.14.0
-	expect-test-1.2.1
+	expect-test-1.2.2
 	filetime-0.2.15
 	fixedbitset-0.2.0
 	flate2-1.0.22
@@ -140,6 +140,7 @@ CRATES="
 	tracing-log-0.1.2
 	tracing-subscriber-0.3.3
 	tracing-tree-0.2.0
+	typed-arena-2.0.1
 	ungrammar-1.14.9
 	unicase-2.6.0
 	unicode-bidi-0.3.7

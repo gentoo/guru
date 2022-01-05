@@ -27,7 +27,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="app-arch/zip
 	verify-sig? ( sec-keys/openpgp-keys-skyjake )"
 
-VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/openpgp-keys-skyjake.asc"
+VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/skyjake.asc"
 
 src_prepare() {
 	# checked by Depends.cmake
