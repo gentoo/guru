@@ -1,0 +1,8 @@
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# Options for innd
+#INND_OPTS=""
+
+# Options for news.daily
+#INND_NEWSDAILY_OPTS=""

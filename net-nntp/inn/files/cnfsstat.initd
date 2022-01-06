@@ -1,0 +1,7 @@
+#!/sbin/openrc-run
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+command=/opt/inn/bin/cnfsstat
+command_args="-i ${CNFSSTAT_DELAY:=60} -s -l -P ${CNFSSTAT_OPTS}"
+pidfile=/run/news/cnfsstat.pid
