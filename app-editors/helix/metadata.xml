@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>qaidvoid@gmail.com</email>
-		<name>Rabindra Dhakal</name>
+		<email>degni.public@gmail.com</email>
+		<name>Degni Luciano</name>
 	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/helix-editor/helix/issues</bugs-to>
