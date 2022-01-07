@@ -140,9 +140,9 @@ DESCRIPTION="A post-modern text editor."
 # Double check the homepage as the cargo_metadata crate
 # does not provide this value so instead repository is used
 HOMEPAGE="https://github.com/helix-editor/helix"
-#	https://github.com/tree-sitter/tree-sitter-agda/archive/refs/tags/v1.3.1.zip
+
 SRC_URI="
-	https://github.com/helix-editor/helix/archive/refs/tags/v0.6.0.tar.gz -> ${P}.tar.gz
+	https://github.com/helix-editor/helix/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/tree-sitter/tree-sitter-agda/archive/ca69cdf485e9ce2b2ef0991a720aa88d87d30231.zip
 	https://github.com/tree-sitter/tree-sitter-bash/archive/a8eb5cb57c66f74c63ab950de081207cccf52017.zip
 	https://github.com/tree-sitter/tree-sitter-c/archive/f05e279aedde06a25801c3f2b2cc8ac17fac52ae.zip
@@ -222,55 +222,55 @@ QA_FLAGS_IGNORED="usr/bin/.*"
 PATCHES=( "${FILESDIR}/helix-0.6.0-helix-core-lib_rs.patch" )
 
 src_prepare() {
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-agda-ca69cdf485e9ce2b2ef0991a720aa88d87d30231/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-agda/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-bash-a8eb5cb57c66f74c63ab950de081207cccf52017/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-bash/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-c-f05e279aedde06a25801c3f2b2cc8ac17fac52ae/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-c/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-cmake-f6616f1e417ee8b62daf251aa1daa5d73781c596/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-cmake/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-comment-5dd3c62f1bbe378b220fe16b317b85247898639e/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-comment/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-cpp-e8dcc9d2b404c542fd236ea5f7208f90be8a6e89/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-cpp/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-c-sharp-53a65a908167d6556e1fcdb67f1ee62aac101dda/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-c-sharp/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-css-94e10230939e702b4fa3fa2cb5c3bc7173b95d07/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-css/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-dart-6a25376685d1d47968c2cef06d4db8d84a70025e/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-dart/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-dockerfile-7af32bc04a66ab196f5b9f92ac471f29372ae2ce/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-dockerfile/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-elixir-f5d7bda543da788bd507b05bd722627dde66c9ec/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-elixir/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-fish-04e54ab6585dfd4fee6ddfe5849af56f101b6d4f/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-fish/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-git-commit-066e395e1107df17183cf3ae4230f1a1406cc972/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-git-commit/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-git-diff-c12e6ecb54485f764250556ffd7ccb18f8e2942b/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-git-diff/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-git-rebase-332dc528f27044bc4427024dbb33e6941fc131f2/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-git-rebase/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-glsl-88408ffc5e27abcffced7010fc77396ae3636d7e/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-glsl/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-go-2a83dfdd759a632651f852aa4dc0af2525fae5cd/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-go/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-haskell-237f4eb4417c28f643a29d795ed227246afb66f9/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-haskell/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-html-d93af487cc75120c89257195e6be46c999c6ba18/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-html/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-java-bd6186c24d5eb13b4623efac9d944dcc095c0dad/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-java/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-javascript-4a95461c4761c624f2263725aca79eeaefd36cad/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-javascript/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-json-65bceef69c3b0f24c0b19ce67d79f57c96e90fcb/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-json/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-julia-12ea597262125fc22fd2e91aa953ac69b19c26ca/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-julia/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-latex-7f720661de5316c0f8fee956526d4002fa1086d8/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-latex/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-ledger-0cdeb0e51411a3ba5493662952c3039de08939ca/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-ledger/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-llvm-3b213925b9c4f42c1acfe2e10bfbb438d9c6834d/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-llvm/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-agda-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-agda/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-bash-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-bash/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-c-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-c/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-cmake-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-cmake/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-comment-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-comment/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-cpp-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-cpp/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-c-sharp-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-c-sharp/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-css-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-css/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-dart-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-dart/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-dockerfile-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-dockerfile/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-elixir-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-elixir/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-fish-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-fish/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-git-commit-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-git-commit/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-git-diff-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-git-diff/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-git-rebase-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-git-rebase/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-glsl-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-glsl/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-go-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-go/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-haskell-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-haskell/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-html-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-html/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-java-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-java/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-javascript-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-javascript/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-json-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-json/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-julia-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-julia/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-latex-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-latex/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-ledger-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-ledger/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-llvm-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-llvm/ || die
 #	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-llvm-mir-06fabca19454b2dc00c1b211a7cb7ad0bc2585f1/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-llvm-mir/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-lua-6f5d40190ec8a0aa8c8410699353d820f4f7d7a6/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-lua/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-markdown-ad8c32917a16dfbb387d1da567bf0c3fb6fffde2/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-markdown/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-nix-50f38ceab667f9d482640edfee803d74f4edeba5/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-nix/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-ocaml-23d419ba45789c5a47d31448061557716b02750a/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-ocaml/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-perl-0ac2c6da562c7a2c26ed7e8691d4a590f7e8b90a/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-perl/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-php-0d63eaf94e8d6c0694551b016c802787e61b3fb2/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-php/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-protobuf-19c211a01434d9f03efff99f85e19f967591b175/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-protobuf/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-python-d6210ceab11e8d812d4ab59c07c81458ec6e5184/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-python/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-lua-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-lua/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-markdown-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-markdown/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-nix-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-nix/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-ocaml-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-ocaml/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-perl-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-perl/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-php-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-php/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-protobuf-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-protobuf/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-python-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-python/ || die
 #	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-regex-e1cfca3c79896ff79842f057ea13e529b66af636/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-regex/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-ruby-dfff673b41df7fadcbb609c6338f38da3cdd018e/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-ruby/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-rust-a360da0a29a19c281d08295a35ecd0544d2da211/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-rust/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-scala-0a3dd53a7fc4b352a538397d054380aaa28be54c/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-scala/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-svelte-349a5984513b4a4a9e143a6e746120c6ff6cf6ed/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-svelte/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-swift-a22fa5e19bae50098e2252ea96cba3aba43f4c58/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-swift/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-toml-7cff70bbcbbc62001b465603ca1ea88edd668704/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-toml/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-tablegen-568dd8a937347175fd58db83d4c4cdaeb6069bd2/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-tablegen/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-tsq-b665659d3238e6036e22ed0e24935e60efb39415/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-tsq/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-typescript-3e897ea5925f037cfae2e551f8e6b12eec2a201a/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-typescript/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-vue-91fe2754796cd8fba5f229505a23fa08f3546c06/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-vue/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-wgsl-f00ff52251edbd58f4d39c9c3204383253032c11/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-wgsl/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-yaml-0e36bed171768908f331ff7dff9d956bae016efb/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-yaml/ || die
-	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-zig-1f27fd1dfe7f352408f01b4894c7825f3a1d6c47/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-zig/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-ruby-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-ruby/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-rust-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-rust/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-scala-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-scala/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-svelte-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-svelte/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-swift-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-swift/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-toml-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-toml/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-tablegen-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-tablegen/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-tsq-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-tsq/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-typescript-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-typescript/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-vue-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-vue/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-wgsl-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-wgsl/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-yaml-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-yaml/ || die
+	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-zig-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-zig/ || die
 	eapply_user
 }
 
@@ -285,7 +285,6 @@ src_compile() {
 src_install() {
 	insinto /usr/share/helix
 	doins -r runtime
-	cd target/release || die
-	dobin hx
-
+	dodoc README.md CHANGELOG.md
+	cargo_src_install --path helix-term
 }
