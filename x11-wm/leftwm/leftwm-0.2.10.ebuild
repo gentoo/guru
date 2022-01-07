@@ -158,15 +158,26 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="systemd"
+IUSE="systemd xinerama doc"
 
 DEPEND="
-	x11-libs/libXinerama:0=
-	x11-apps/xrandr:0=
-	x11-base/xorg-server:0=
+	x11-base/xorg-server[xorg,udev]
+	x11-apps/xrandr
+	xinerama? (
+		x11-libs/libXinerama
+	)
 	>=dev-lang/rust-1.52.0
+	systemd? (
+		sys-apps/systemd
+	)
 "
-RDEPEND="${DEPEND}"
+BDEPEND="
+	$DEPEND
+"
+RDEPEND="
+	$DEPEND
+	!x11-wm/$PN-bin
+"
 
 QA_FLAGS_IGNORED="usr/bin/.*"
 
@@ -177,7 +188,7 @@ src_compile() {
 }
 
 src_install() {
-	dodoc README.md CHANGELOG
+	use doc && dodoc README.md CHANGELOG
 	make_desktop_entry leftwm.desktop /usr/share/xsessions/
 	cd target/release || die
 	dobin leftwm{,-worker,-state,-check,-command}
@@ -185,6 +196,7 @@ src_install() {
 
 pkg_postinst() {
 	xdg_desktop_database_update
+	elog "Emerge 'x11-misc/leftwm-theme' to manage themes for $PN"
 }
 
 pkg_postrm() {
