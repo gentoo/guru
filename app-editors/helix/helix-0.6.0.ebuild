@@ -204,13 +204,17 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="doc"
 
 DEPEND="
 	app-shells/bash
 	dev-vcs/git
 "
 
-RDEPEND="app-shells/bash"
+RDEPEND="
+	app-shells/bash
+	!app-editors/${PN}-bin
+"
 
 QA_FLAGS_IGNORED="usr/bin/.*"
 
@@ -280,6 +284,7 @@ src_compile() {
 src_install() {
 	insinto /usr/share/helix
 	doins -r runtime
-	dodoc README.md CHANGELOG.md
+	use doc && dodoc README.md CHANGELOG.md
+	use doc && dodoc -r docs/
 	cargo_src_install --path helix-term
 }
