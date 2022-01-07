@@ -13,5 +13,5 @@ RDEPEND=>=dev-qt/qtdeclarative-5.15.0:5 >=dev-qt/qtgui-5.15.0:5 >=dev-qt/qtnetwo
 RESTRICT=!test? ( test )
 SLOT=5
 SRC_URI=mirror://kde/stable/plasma-mobile/21.12/alligator-21.12.tar.xz
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	virtualx	fa024aa649b6bd544144bf94893d402c	xdg	6024fbc93167fad782e2032933654857	ecm	3efe514b4cd196a075e50ab6552a203d
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	virtualx	fa024aa649b6bd544144bf94893d402c	xdg	6024fbc93167fad782e2032933654857	ecm	9aedfc2c624fcb3ae562606fccbf5177
 _md5_=67aa386b68ae2467edb2e1fa34d83382
