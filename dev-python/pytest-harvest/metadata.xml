@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">pytest-harvest</remote-id>
+		<remote-id type="github">smarie/python-pytest-harvest</remote-id>
+		<doc>https://smarie.github.io/python-pytest-harvest/</doc>
+		<maintainer>
+			<email>sylvain.marie@schneider-electric.com</email>
+			<name>Sylvain Marie</name>
+		</maintainer>
+	</upstream>
+</pkgmetadata>

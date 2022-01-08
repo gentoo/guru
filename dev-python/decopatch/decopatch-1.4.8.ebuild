@@ -17,6 +17,9 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# ImportError: cannot import name 'case_name' from 'pytest_cases'
+RESTRICT="test"
+
 RDEPEND="dev-python/makefun[${PYTHON_USEDEP}]"
 BDEPEND="
 	dev-python/setuptools_scm[${PYTHON_USEDEP}]
