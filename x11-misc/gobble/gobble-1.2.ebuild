@@ -15,10 +15,7 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="Rust rewrite of Devour: Gobble hides your current window before launching an external program 
-			and unhides it after quitting. 
-			Useful in terminals and file managers to keep your screen uncluttered.
-	"
+DESCRIPTION="Rust rewrite of Devour: Gobble hides your current window before launching an external program and unhides it after quitting."
 HOMEPAGE="https://github.com/EmperorPenguin18/gobble"
 SRC_URI="
 	https://github.com/EmperorPenguin18/gobble/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
