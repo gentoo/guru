@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -11,8 +11,8 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="+introspection +vala"
 REQUIRED_USE="vala? ( introspection )"
 
-MY_COMMIT="48b4bb97d62fa1917a9e54852f593d3190ef188c"
-MY_THEME_COMMIT="516e80e0b00bbd904e64b0c272c40218290fe9f5"
+MY_COMMIT="753fff3e7ae1d0bce4f58cef721e45c50c404786"
+MY_THEME_COMMIT="d0ac6ae01b184d65f32a640e02539e807bf2a3bf"
 
 DESCRIPTION="A daemon to provide haptic feedback on events"
 HOMEPAGE="https://source.puri.sm/Librem5/feedbackd"
