@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
@@ -15,15 +15,8 @@ LICENSE="BSD-4"
 SLOT="0"
 KEYWORDS="~amd64"
 
-# Requires access to the internet
+PROPERTIES="test_network"
 RESTRICT="test"
-
-DEPEND="test? (
-	dev-python/ruamel-yaml[${PYTHON_USEDEP}]
-	dev-python/parameterized[${PYTHON_USEDEP}]
-	dev-python/GitPython[${PYTHON_USEDEP}]
-	dev-python/ordered-set[${PYTHON_USEDEP}]
-)"
 
 RDEPEND="
 	dev-python/convertdate[${PYTHON_USEDEP}]
@@ -33,6 +26,13 @@ RDEPEND="
 	dev-python/regex[${PYTHON_USEDEP}]
 	dev-python/tzlocal[${PYTHON_USEDEP}]
 "
+BDEPEND="test? (
+	dev-python/ruamel-yaml[${PYTHON_USEDEP}]
+	dev-python/parameterized[${PYTHON_USEDEP}]
+	dev-python/GitPython[${PYTHON_USEDEP}]
+	dev-python/ordered-set[${PYTHON_USEDEP}]
+)"
 
 distutils_enable_tests pytest
+
 distutils_enable_sphinx docs
