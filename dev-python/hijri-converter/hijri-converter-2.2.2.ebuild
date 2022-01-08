@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} pypy3 )
 
 inherit distutils-r1
 
@@ -16,4 +16,5 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 distutils_enable_tests pytest
+
 distutils_enable_sphinx docs
