@@ -58,8 +58,8 @@ BDEPEND="
 REQUIRED_USE="|| ( qt5 sdl )"
 
 pkg_setup() {
-	if [ tc-is-gcc ]; then
-		[ "$(gcc-major-version)" -lt 11 ] && \
+	if tc-is-gcc; then
+		[[ "$(gcc-major-version)" -lt 11 ]] && \
 			die "You need gcc version 11 or clang to compile this package"
 	fi
 	grep -q 'ThreadEngineStarter<void>' /usr/include/qt5/QtConcurrent/qtconcurrentthreadengine.h \
