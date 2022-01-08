@@ -6,7 +6,6 @@
 	<email>samuel.bauer@yahoo.fr</email>
 </maintainer>
 <use>
-	<flag name="boxcat">Enable the Boxcat service, a yuzu high-level implementation of BCAT</flag>
 	<flag name="cubeb">Enables the cubeb audio backend</flag>
 	<flag name="compatibility-list">Downloads the latest compatibility list</flag>
 	<flag name="discord">Enables Discord Rich Presence</flag>
