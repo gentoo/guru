@@ -1,0 +1,17 @@
+--- a/xcursorgen/makefile
++++ b/xcursorgen/makefile
+@@ -1,12 +1,12 @@
+ all: xcursorgen.so
+ 
+-CC= gcc
++CC ?= gcc
+ LIBS= -lX11 -lXcursor -lpng -lz
+ OUT_DIR= ../clickgen
+ CP= cp -f
+ 
+ xcursorgen.so: xcursorgen.c
+-	$(CC) -Wl,-zdefs -shared -o xcursorgen.so -fPIC  xcursorgen.c $(LIBS) 
++	$(CC) $(CFLAGS) $(LDFLAGS) -Wl,-zdefs -shared -o xcursorgen.so -fPIC  xcursorgen.c $(LIBS) 
+ 	$(CP) xcursorgen.so $(OUT_DIR)/xcursorgen.so
+ 
+ clean:
