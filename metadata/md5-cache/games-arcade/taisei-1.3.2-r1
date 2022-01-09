@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/meson-0.53 || ( dev-lang/python:3.9 dev-lang/python:3.8 ) doc? ( dev-python/docutils ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=>=dev-util/meson-0.53 || ( >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) doc? ( dev-python/docutils ) >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=media-libs/freetype:2 >=media-libs/libpng-1.5 media-libs/libsdl2 media-libs/sdl2-mixer[opus] media-libs/libwebp sys-libs/zlib zip? ( dev-libs/libzip ) >=dev-libs/cglm-0.7.8 dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
@@ -11,5 +11,5 @@ LICENSE=MIT CC-BY-4.0 CC0-1.0 public-domain
 RDEPEND=media-libs/freetype:2 >=media-libs/libpng-1.5 media-libs/libsdl2 media-libs/sdl2-mixer[opus] media-libs/libwebp sys-libs/zlib zip? ( dev-libs/libzip )
 SLOT=0
 SRC_URI=https://github.com/taisei-project/taisei/releases/download/v1.3.2/taisei-v1.3.2.tar.xz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	a8b7938ade305f087865de7e52d079b5	meson	9f3e84959ae1d60e19bc91f212774dcc	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	b601c48fe339b4c9bc03ffe4f25283e0	meson	9f3e84959ae1d60e19bc91f212774dcc	python-any-r1	13f6d423c5c5bc519a9b552654cc745f	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
 _md5_=0d406bf402bb33792c18609f59f7179f
