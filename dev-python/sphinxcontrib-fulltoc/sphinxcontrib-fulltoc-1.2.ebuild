@@ -19,8 +19,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="dev-python/sphinx[${PYTHON_USEDEP}]"
-RDEPEND="${DEPEND}"
+RDEPEND="dev-python/sphinx[${PYTHON_USEDEP}]"
 BDEPEND="dev-python/pbr[${PYTHON_USEDEP}]"
 
 export OSLO_PACKAGE_VERSION=${PV}
