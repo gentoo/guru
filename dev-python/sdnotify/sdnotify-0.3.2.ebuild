@@ -18,7 +18,3 @@ SRC_URI="https://github.com/bb4242/${PN}/archive/refs/tags/v${PV}.tar.gz -> bb42
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-
-DEPEND=""
-RDEPEND="${DEPEND}"
-BDEPEND=""
