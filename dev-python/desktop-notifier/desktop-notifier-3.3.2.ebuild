@@ -19,13 +19,11 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="
+RDEPEND="
 	dev-python/wheel[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/python-dbus-next[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep 'dev-python/importlib_resources[${PYTHON_USEDEP}]' python3_8)
 "
-RDEPEND="${DEPEND}"
-BDEPEND=""
 
 distutils_enable_sphinx docs
