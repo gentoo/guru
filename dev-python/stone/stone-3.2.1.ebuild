@@ -19,12 +19,10 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="
+RDEPEND="
 	>=dev-python/ply-3.4[${PYTHON_USEDEP}]
 	>=dev-python/six-1.3.0[${PYTHON_USEDEP}]
 "
-RDEPEND="${DEPEND}"
-BDEPEND=""
 
 distutils_enable_tests pytest
 
