@@ -18,6 +18,7 @@ RDEPEND="
 	dev-python/auditok[${PYTHON_USEDEP}]
 	dev-python/cchardet[${PYTHON_USEDEP}]
 	dev-python/ffmpeg-python[${PYTHON_USEDEP}]
+	dev-python/future[${PYTHON_USEDEP}]
 	>=dev-python/numpy-1.12.0[${PYTHON_USEDEP}]
 	>=dev-python/pysubs2-1.2.0[${PYTHON_USEDEP}]
 	dev-python/rich[${PYTHON_USEDEP}]
