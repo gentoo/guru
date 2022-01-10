@@ -164,7 +164,6 @@ SRC_URI="
 	https://github.com/latex-lsp/tree-sitter-latex/archive/7f720661de5316c0f8fee956526d4002fa1086d8.zip
 	https://github.com/cbarrete/tree-sitter-ledger/archive/0cdeb0e51411a3ba5493662952c3039de08939ca.zip
 	https://github.com/benwilliamgraham/tree-sitter-llvm/archive/3b213925b9c4f42c1acfe2e10bfbb438d9c6834d.zip
-	https://github.com/Flakebi/tree-sitter-llvm-mir/archive/06fabca19454b2dc00c1b211a7cb7ad0bc2585f1.zip
 	https://github.com/nvim-treesitter/tree-sitter-lua/archive/6f5d40190ec8a0aa8c8410699353d820f4f7d7a6.zip
 	https://github.com/MDeiml/tree-sitter-markdown/archive/ad8c32917a16dfbb387d1da567bf0c3fb6fffde2.zip
 	https://github.com/cstrahan/tree-sitter-nix/archive/50f38ceab667f9d482640edfee803d74f4edeba5.zip
@@ -173,7 +172,6 @@ SRC_URI="
 	https://github.com/tree-sitter/tree-sitter-php/archive/0d63eaf94e8d6c0694551b016c802787e61b3fb2.zip
 	https://github.com/yusdacra/tree-sitter-protobuf/archive/19c211a01434d9f03efff99f85e19f967591b175.zip
 	https://github.com/tree-sitter/tree-sitter-python/archive/d6210ceab11e8d812d4ab59c07c81458ec6e5184.zip
-	https://github.com/tree-sitter/tree-sitter-regex/archive/e1cfca3c79896ff79842f057ea13e529b66af636.zip
 	https://github.com/tree-sitter/tree-sitter-ruby/archive/dfff673b41df7fadcbb609c6338f38da3cdd018e.zip
 	https://github.com/tree-sitter/tree-sitter-rust/archive/a360da0a29a19c281d08295a35ecd0544d2da211.zip
 	https://github.com/tree-sitter/tree-sitter-scala/archive/0a3dd53a7fc4b352a538397d054380aaa28be54c.zip
@@ -246,7 +244,6 @@ src_prepare() {
 	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-latex-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-latex/ || die
 	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-ledger-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-ledger/ || die
 	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-llvm-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-llvm/ || die
-#	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-llvm-mir-06fabca19454b2dc00c1b211a7cb7ad0bc2585f1/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-llvm-mir/ || die
 	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-lua-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-lua/ || die
 	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-markdown-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-markdown/ || die
 	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-nix-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-nix/ || die
@@ -255,7 +252,6 @@ src_prepare() {
 	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-php-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-php/ || die
 	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-protobuf-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-protobuf/ || die
 	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-python-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-python/ || die
-#	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-regex-e1cfca3c79896ff79842f057ea13e529b66af636/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-regex/ || die
 	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-ruby-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-ruby/ || die
 	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-rust-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-rust/ || die
 	cp -r  ${PORTAGE_BUILDDIR}/work/tree-sitter-scala-*/* ${PORTAGE_BUILDDIR}/work/helix-0.6.0/helix-syntax/languages/tree-sitter-scala/ || die
