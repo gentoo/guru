@@ -213,7 +213,10 @@ RDEPEND="
 "
 BDEPEND="app-arch/unzip"
 
-QA_FLAGS_IGNORED="usr/bin/.*"
+QA_FLAGS_IGNORED="
+	usr/bin/.*
+	usr/bin/hx
+"
 
 PATCHES=( "${FILESDIR}/helix-0.6.0-helix-core-lib_rs.patch" )
 
