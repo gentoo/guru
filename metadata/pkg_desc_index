@@ -71,7 +71,7 @@ app-doc/anarchism 15.3: An anarchist FAQ
 app-doc/ford 6.1.4 6.1.5: FORD, automatic documentation generator for modern Fortran programs
 app-doc/openbsd-manpages 6.9 7.0: OpenBSD manual pages
 app-editors/atom-bin 1.58.0: A hackable text editor for the 21st Century
-app-editors/helix 0.4.1: A post-modern text editor.
+app-editors/helix 0.4.1 0.6.0: A post-modern text editor.
 app-editors/imhex 1.8.1-r1 1.10.0 1.10.1: A hex editor for reverse engineers, programmers, and eyesight
 app-editors/kak-lsp 11.1.0: Kakoune Language Server Protocol Client
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
@@ -106,6 +106,7 @@ app-misc/hollywood 1.22: Fill your console with Hollywood melodrama technobabble
 app-misc/lf 20 22: Terminal file manager
 app-misc/liquidctl 1.7.2: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/macchina 5.0.2: A system information fetcher, with an (unhealthy) emphasis on performance.
+app-misc/mangadesk 0.7.5: Terminal Client for MangaDex
 app-misc/mat2 0.12.2: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
 app-misc/navi 2.16.0 2.17.0 9999: An interactive cheatsheet tool for the command-line
@@ -127,7 +128,7 @@ app-misc/xplr 0.15.2 0.17.0: A hackable, minimal, fast TUI file explorer
 app-mobilephone/flashlight 0.1.1-r2: It's a flashlight, what do you expect?
 app-mobilephone/mobile-config-firefox 2.1.0: Mobile and privacy friendly configuration for Firefox
 app-mobilephone/pinephone-modem-scripts 0.20.8: Modem scripts for the PinePhone
-app-mobilephone/usb-tethering 0.2: USB tethering on Pine64/ConfigFS systems
+app-mobilephone/usb-tethering 0.3: USB tethering on Pine64/ConfigFS systems
 app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
 app-office/openoffice-bin 4.1.11: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.6: Pyspread is a non-traditional spreadsheet written in Python
@@ -162,7 +163,7 @@ app-text/cmark-gfm 0.29.0.0: GitHub's fork of cmark
 app-text/epubgrep 0.5.1 0.6.0: Search tool for EPUB e-books
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/klogg 20.12: A GUI application to browse and search through long and complex log files
-app-text/komikku 0.30.0-r2 0.35.1-r1 0.35.2-r1: An online/offline manga reader for GNOME
+app-text/komikku 0.35.2-r1 0.36.0: An online/offline manga reader for GNOME
 app-text/koodo-reader-bin 1.3.0: A modern ebook manager and reader with sync and backup capacities
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
 app-text/noweb 2.12: a literate programming tool, lighter than web
@@ -306,7 +307,6 @@ dev-go/lichen 0.1.4: Go binary license checker
 dev-java/gradle-base-annotations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-build-operations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-hashing 6.8.2: Build automation tool for JVM Languages, C(++), etc.
-dev-java/openjdk-sts-bin 15.0.2_p7: Prebuilt Java JDK binaries provided by AdoptOpenJDK. Short Term Supported
 dev-lang/aldor 1.2.0_p20190730-r1: The Aldor Programming Language
 dev-lang/fbc 1.07.3 1.08.1: A free/open source, multi-platform BASIC compiler.
 dev-lang/fbc-bootstrap 1.07.3 1.08.1: Bootstrap package for dev-lang/fbc
@@ -318,7 +318,7 @@ dev-libs/boinc-zip 7.18 7.18-r1: Wrapper for the zip/unzip functions to expose t
 dev-libs/cgicc 3.2.19: A C++ class library for writing CGI applications
 dev-libs/cglm 0.8.3 0.8.4 9999: OpenGL Mathematics (glm) for C
 dev-libs/dmd_core 0.6.2: Core logic for an AT&T / Teletype DMD 5620 terminal emulator
-dev-libs/feedbackd 0.0.0: A daemon to provide haptic feedback on events
+dev-libs/feedbackd 0.0.0-r1: A daemon to provide haptic feedback on events
 dev-libs/fortran-stdlib 0.1.0 9999: A community driven standard library for (modern) Fortran
 dev-libs/fsst 0_pre20200830: Fast Static Symbol Table: fast text compression that allows random access
 dev-libs/ftl 1.0_p20210308: The Fortran Template Library (FTL) is a general purpose library for Fortran 2003
@@ -340,7 +340,7 @@ dev-libs/octetos-db 1.3.2_alpha 1.3.3_alpha: C++ library for Database Acces.
 dev-libs/octetos-db-abstract 0.1.2_alpha 0.6.0_alpha: API to access database, abstract component.
 dev-libs/octetos-db-maria 1.4.2_alpha 1.9.2_alpha 9999: C++ library for Database Acces.
 dev-libs/octetos-db-postgresql 1.3.9_alpha 1.3.10_alpha: C++ library for Database Acces.
-dev-libs/olm 3.2.8: Implementation of the olm and megolm cryptographic ratchets
+dev-libs/olm 3.2.8 3.2.9: Implementation of the olm and megolm cryptographic ratchets
 dev-libs/open62541 1.2.3: Open source C implementation of OPC UA
 dev-libs/properties-cpp 0.0.2: Simple convenience library for handling properties and signals in C++11
 dev-libs/protothreads 1.4: Lightweight, Stackless Threads in C
@@ -393,7 +393,6 @@ dev-python/billiard 3.6.4.0: Python multiprocessing fork
 dev-python/bitbox02 5.3.0: Python API for communicating with the BitBox02 device
 dev-python/browserstack-local-python 1.2.2-r1: Python bindings for BrowserStack Local
 dev-python/bson 0.5.8: Independent BSON codec for Python that doesn't depend on MongoDB
-dev-python/build 0.7.0: A simple, correct PEP517 build frontend
 dev-python/castellan 3.9.1: Generic Key Manager interface for OpenStack
 dev-python/celery 5.1.1: Asynchronous task queue/job queue based on distributed message passing
 dev-python/cffsubr 0.2.8: Standalone CFF subroutinizer based on AFDKO tx tool
@@ -408,7 +407,7 @@ dev-python/colored 1.4.2: Very simple Python library for color and formatting in
 dev-python/commandlines 0.4.1: Routines for extracting information from fontTools glyphs
 dev-python/compreffor 0.5.1: A CFF table subroutinizer for FontTools
 dev-python/confluent-kafka 1.7.0: Confluent's Kafka Python Client
-dev-python/convertdate 2.3.0 2.3.1 2.3.2: Utils for converting between date formats and calculating holidays
+dev-python/convertdate 2.3.1 2.3.2: Utils for converting between date formats and calculating holidays
 dev-python/cotyledon 1.7.3: Cotyledon provides a framework for defining long-running services
 dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
 dev-python/curio 0.9 1.4-r1 1.5: Curio is a coroutine-based library for concurrent systems programming
@@ -419,6 +418,7 @@ dev-python/daff 1.3.46: Diff and patch tables
 dev-python/daiquiri 3.0.1: Python library to easily setup basic logging functionality
 dev-python/databases 0.4.3 0.5.3: Async database support for Python.
 dev-python/dateparser 1.0.0 1.1.0: Date parsing library designed to parse dates from HTML pages
+dev-python/decopatch 1.4.8: Create decorators easily in python
 dev-python/desktop-notifier 3.3.2: desktop-notifier is a Python library for cross-platform desktop notifications
 dev-python/devtools 0.6.1: Dev tools for python
 dev-python/digitalocean 1.16.0 1.17.0: Digitalocean API access library
@@ -477,6 +477,7 @@ dev-python/keystonemiddleware 9.3.0: A middleware for the OpenStack Keystone API
 dev-python/kitchen 1.2.6: Kitchen contains a cornucopia of useful code
 dev-python/ldappool 2.4.1: A connection pool for python-ldap
 dev-python/libusb1 2.0.1: Pure-python wrapper for libusb-1.0
+dev-python/makefun 1.13.1: Small library to dynamically create python functions
 dev-python/manhole 1.8.0-r1: Debugging manhole for python application
 dev-python/markdown-include 0.6.0: Syntax which allows for inclusion of contents of other Markdown docs
 dev-python/md-environ 0.1.0: Syntax which allows for inclusion of contents of other Markdown docs
@@ -523,14 +524,14 @@ dev-python/pdfminer-six 20201018: Community maintained fork of pdfminer
 dev-python/pg8000 1.22.0: A Pure-Python PostgreSQL Driver
 dev-python/phx-class-registry 3.0.5: An intersection of the Registry and Factory pattern
 dev-python/pifpaf 3.1.5: Python fixtures and daemon managing tools for functional testing
-dev-python/pip-api 0.0.23 0.0.26: An unofficial, importable pip API
+dev-python/pip-api 0.0.26: An unofficial, importable pip API
 dev-python/playsound 1.3.0: Single function module with no dependencies for playing sounds.
 dev-python/portio 0.5: Python low level port I/O for Linux x86
 dev-python/pproxy 2.7.8: TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio
 dev-python/promise 2.3.0: Promises/A+ implementation for Python
 dev-python/protego 0.1.16: robots.txt parser with support for modern conventions
 dev-python/psycopg2cffi 2.9.0: Implementation of the psycopg2 module using cffi. Compatible with Psycopg 2.5.
-dev-python/pure-protobuf 2.0.0-r1 2.0.1: A more Pythonic version of doxypy, a Doxygen filter for Python
+dev-python/pure-protobuf 2.0.0-r1 2.0.1: Python implementation of Protocol Buffers data types with dataclasses support
 dev-python/py3nvml 0.2.6: Python 3 Bindings for the NVIDIA Management Library
 dev-python/pybeam 0.7: Python module to parse Erlang BEAM files
 dev-python/pybrowserstack-screenshots 0.1: A python api wrapper and client for Browserstack Screenshots API
@@ -542,7 +543,7 @@ dev-python/pygsl 2.3.0: Python interface for the GNU scientific library (gsl)
 dev-python/pyinquirer 1.0.3_p20200708 9999: A Python module for common interactive command line UIs
 dev-python/pyinstaller 4.2: Bundles a Python application and all its dependencies into a single package.
 dev-python/pykeepass 4.0.0 4.0.1: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
-dev-python/pymeeus 0.3.13 0.4.2 0.5.11: Python implementation of Jean Meeus astronomical routines
+dev-python/pymeeus 0.4.2 0.5.11: Python implementation of Jean Meeus astronomical routines
 dev-python/pymemcache 3.5.0: A comprehensive, fast, pure-Python memcached client
 dev-python/pymorphy2 0.9.1: Morphological analyzer (POS tagger + inflection engine) for Russian language.
 dev-python/pymorphy2-dicts-ru 2.4.417127.4579844: Russian dictionary for PyMorphy2
@@ -557,13 +558,16 @@ dev-python/pysftp 0.2.9: A friendly face on SFTP
 dev-python/pystardict 0.8: Library for manipulating StarDict dictionaries from within Python
 dev-python/pysubs2 1.2.0 1.3.0 1.3.1: A library for editing subtitle files
 dev-python/pytest-benchmark 3.4.1: py.test fixture for benchmarking code
+dev-python/pytest-cases 3.6.8: Separate test code from test cases in pytest
 dev-python/pytest-celery 0.0.0: a shim pytest plugin to enable celery.contrib.pytest
 dev-python/pytest-cython 0.1.1: Plugin for testing Cython extension modules
+dev-python/pytest-harvest 1.10.3: Store and retrieve data created during your pytest tests execution
 dev-python/pytest-instafail 0.4.2: Plugin for pytest that shows failures and errors instantly
 dev-python/pytest-isort 1.3.0: Plugin to check import ordering using isort
 dev-python/pytest-pythonpath 0.7.3: Plugin for adding to the PYTHONPATH from the pytests.ini file before tests run
 dev-python/pytest-randomly 3.10.1: Pytest plugin to randomly order tests and control random.seed
 dev-python/pytest-sanic 1.7.1: a Pytest Plugin for Sanic
+dev-python/pytest-steps 1.8.0: Create step-wise / incremental tests in pytest
 dev-python/python-barbicanclient 5.2.0: Client library for Barbican API
 dev-python/python-binary-memcached 0.30.1: access memcached via it's binary protocol with SASL auth support
 dev-python/python-blazarclient 3.3.1: This is a client for the OpenStack Blazar API
@@ -701,7 +705,7 @@ dev-vcs/git-repo-updater 0.5.1-r1: Easily update multiple git repositories at on
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
 dev-vcs/gitqlient 1.4.3 9999: Multi-platform Git client written with Qt
 dev-vcs/gitui 0.18.0: Blazing fast terminal-ui for git
-dev-vcs/got 0.62 0.64: Portable version of the Game of Trees version control system
+dev-vcs/got 0.64 0.65: Portable version of the Game of Trees version control system
 dev-vcs/lazygit 0.31.3 0.31.4 9999: Lazygit, a simple terminal UI for git commands
 dev-vcs/lefthook 0.7.7: Fast and powerful Git hooks manager for any type of projects.
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
@@ -815,7 +819,7 @@ media-fonts/overpass 3.0.4: An open source webfont family inspired by Highway Go
 media-fonts/source-han-serif 1.001: Pan-CJK OpenType/CFF font family
 media-fonts/symbola 7.17 13.00: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
 media-fonts/unscii 2.1: Set of bitmapped Unicode fonts based on classic system fonts
-media-fonts/victor-mono 1.5.1: A free programming font with cursive italics and ligatures
+media-fonts/victor-mono 1.5.1 1.5.2: A free programming font with cursive italics and ligatures
 media-fonts/warframe-fonts 0_pre20191111: Fonts from the Warframe game
 media-gfx/WebPlotDigitizer-bin 4.5: Web based tool to extract data from plots, images, and maps
 media-gfx/akira 0.0.13 9999: Native Linux App for UI and UX Design built in Vala and GTK.
@@ -867,14 +871,14 @@ media-plugins/qt-jpegxl-image-plugin 9999: Qt plug-in to allow Qt and KDE based 
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
 media-sound/add64 3.8.0 3.9.3: Add64 is a realtime additive/subtractive-synthesis softsynth
-media-sound/callaudiod 0.1.1: Call audio routing daemon
+media-sound/callaudiod 0.1.3: Call audio routing daemon
 media-sound/hushboard 0.0_pre20210317-r1 9999: Mutes your microphone while you are typing
 media-sound/ibniz 1.18: virtual machine designed for extremely compact low-level audiovisual programs
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/mopidy 3.2.0: An extensible music server written in Python.
 media-sound/ncpamixer 1.3.3.1: A ncurses mixer for PulseAudio inspired by pavucontrol
 media-sound/netcat-cpi 2014.04.29: Kernel module edition of the Cycles Per Instruction (2014) album
-media-sound/noson-app 4.5.0: The essential to control music from your SONOS devices on Linux platforms
+media-sound/noson-app 4.5.1: The essential to control music from your SONOS devices on Linux platforms
 media-sound/nuclear-bin 0.6.15: Nuclear is a streaming program that pulls content from free sources on internet
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
 media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file or stream as a PulseAudio source
@@ -882,7 +886,7 @@ media-sound/spotify_dl 7.6.0 7.6.0-r1: Downloads songs from a Spotify Playlist/T
 media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
 media-sound/zita-ajbridge 0.8.4 0.8.4-r1: zita-a2j and zita-j2a - bridges between ALSA and JACK
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
-media-video/ffsubsync 0.4.18 0.4.19: Automagically syncronize subtitles with video
+media-video/ffsubsync 0.4.18 0.4.19 0.4.20: Automagically syncronize subtitles with video
 media-video/kikoplay 0.8.1 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.4.3: A GTK3 camera application that knows how to deal with the media request api
 media-video/mpv-mpris 0.5 0.6 9999: MPRIS plugin for mpv
@@ -898,7 +902,8 @@ net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various pl
 net-client/amfora 1.8.0 1.9.2: A fancy terminal browser for the Gemini protocol.
 net-client/castor 0.8.16 0.8.18: A graphical browser for plain-text protocols
 net-client/kristall 0.3-r1 9999: Visual cross-platform gemini browser
-net-client/lagrange 1.9.1 1.9.3: Desktop GUI client for browsing Geminispace
+net-client/lagrange 1.9.3 1.9.5: Desktop GUI client for browsing Geminispace
+net-client/offpunk 0.1: A command-line, text-based and offline-first Gemini browser
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
 net-client/telescope 0.5.2 0.6.1: w3m-like browser for Gemini
 net-dialup/atinout 0.9.1-r1: AT commands as input are sent to modem and responses given as output
@@ -959,8 +964,7 @@ net-misc/xmrig-mo 6.16.2: MoneroOcean fork of xmrig that supports algo switching
 net-news/comitium 1.8.1: feed aggregator for gemini supporting many formats and protocols
 net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny Tiny RSS or feedly
 net-news/sfeed 1.1 9999: simple RSS and Atom parser
-net-news/sfeed_curses 1.0: A curses UI front-end for sfeed
-net-nntp/inn 2.6.4: InterNetNews -- the Internet meets Netnews
+net-nntp/inn 2.6.4-r1: InterNetNews -- the Internet meets Netnews
 net-p2p/bisq 1.8.0: The decentralized bitcoin exchange (non-atomic, with arbitration)
 net-p2p/lbry 0.49.1 0.50.2 0.51.2: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.2.0 0.17.2.3 9999: The secure, private, untraceable cryptocurrency
@@ -1164,6 +1168,7 @@ x11-misc/betterlockscreen 3.2.0-r1 4.0.3-r1 9999: sweet looking lockscreen for l
 x11-misc/betterlockscreen_rapid 0.0.0_pre20210701 0.0.0_pre20210708: A rapid and good-looking screen locker
 x11-misc/caffeine-ng 3.5.1: Aplication able to temporarily inhibit the screensaver
 x11-misc/gammy 0.9.60 0.9.64: Adaptive screen brightness/temperature
+x11-misc/gobble 1.2: Rust rewrite of Devour: Gobble hides your current window before launching an external program and unhides it after quitting.
 x11-misc/greenclip-bin 4.2: Simple clipboard manager to be integrated with rofi
 x11-misc/gromit-mpx 1.4 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
 x11-misc/i3lock-color 2.13.2 2.13.4 9999: The world's most popular non-default computer lockscreen

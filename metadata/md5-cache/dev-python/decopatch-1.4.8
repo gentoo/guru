@@ -1,0 +1,16 @@
+BDEPEND=dev-python/setuptools_scm[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] test? ( dev-python/pytest-cases[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) test? ( dev-python/makefun[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pytest-6.2.5-r2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] doc? ( || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-python/mkdocs[python_targets_python3_10(-)] dev-python/mkdocs-material[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-python/mkdocs[python_targets_python3_9(-)] dev-python/mkdocs-material[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-python/mkdocs[python_targets_python3_8(-)] dev-python/mkdocs-material[python_targets_python3_8(-)] ) ) )
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Create decorators easily in python
+EAPI=8
+HOMEPAGE=https://pypi.org/project/decopatch/ https://github.com/smarie/python-decopatch
+INHERIT=distutils-r1 docs
+IUSE=test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 doc
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=dev-python/makefun[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=mirror://pypi/d/decopatch/decopatch-1.4.8.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	multibuild	05a584848db4901c97fcd94ae7cc3a97	python-utils-r1	b601c48fe339b4c9bc03ffe4f25283e0	python-r1	4c008ab1e6c02cbead059dfe8b864c26	distutils-r1	f57fddd704fa9e86e732403aaa7ab164	docs	7c38d94fa7c1b4235fe571dc09e018df
+_md5_=649c7b586f61889278999575553fe69b
