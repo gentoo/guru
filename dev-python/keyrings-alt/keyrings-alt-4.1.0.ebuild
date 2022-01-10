@@ -1,4 +1,4 @@
-# Copyright 2021,2022 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,10 +19,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="
+RDEPEND="
 	dev-python/keyring[${PYTHON_USEDEP}]
 "
-RDEPEND="${DEPEND}"
 BDEPEND="
 	>=dev-python/setuptools_scm-3.4.1[${PYTHON_USEDEP}]
 "

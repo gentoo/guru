@@ -18,10 +18,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="
+RDEPEND="
 	>=dev-python/wrapio-1.0.0[${PYTHON_USEDEP}]
 "
-RDEPEND="${DEPEND}"
-BDEPEND=""
 
 distutils_enable_sphinx docs

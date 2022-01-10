@@ -1,4 +1,4 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,9 +7,9 @@ inherit cmake git-r3 toolchain-funcs xdg
 
 DESCRIPTION="An emulator for Nintendo Switch"
 HOMEPAGE="https://yuzu-emu.org"
-EGIT_REPO_URI="https://github.com/yuzu-emu/yuzu"
-EGIT_SUBMODULES=( '*' '-ffmpeg' '-inih' '-libressl' '-libusb' '-opus' '-SDL' )
-# TODO '-libzip' when boxcat feature is reintroduced
+EGIT_REPO_URI="https://github.com/yuzu-emu/yuzu-mainline"
+EGIT_SUBMODULES=( '*' '-ffmpeg' '-inih' '-libressl' '-libusb' '-opus' '-SDL'
+	'-externals/sirit/externals/SPIRV-Headers' )
 # TODO '-xbyak' wait for bump in tree
 # TODO cubeb auto-links to jack, pulse, alsa .., allow determining cubeb output
 #      media-libs/cubeb would benefit to a lot of packages: dolphin-emu, firefox, citra, self, ...
@@ -20,7 +20,7 @@ LICENSE="|| ( Apache-2.0 GPL-2+ ) 0BSD BSD GPL-2+ ISC MIT
 	!system-vulkan? ( Apache-2.0 )"
 SLOT="0"
 KEYWORDS=""
-IUSE="+boxcat +compatibility-list +cubeb discord +qt5 sdl system-vulkan webengine +webservice"
+IUSE="+compatibility-list +cubeb discord +qt5 sdl system-vulkan webengine +webservice"
 
 RDEPEND="
 	>=app-arch/lz4-1.8:=
@@ -28,8 +28,8 @@ RDEPEND="
 	>=dev-libs/boost-1.73:=[context]
 	>=dev-libs/libfmt-8:=
 	>=dev-libs/openssl-1.1:=
-	>=media-libs/opus-1.3
-	media-video/ffmpeg:=
+	>=media-libs/opus-1.3.1
+	>=media-video/ffmpeg-4.3:=
 	>=sys-libs/zlib-1.2
 	virtual/libusb:1
 	qt5? (
@@ -43,19 +43,19 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
+	dev-util/spirv-headers
 	system-vulkan? (
-		>=dev-util/vulkan-headers-1.2.180
+		>=dev-util/vulkan-headers-1.2.198
 	)
 "
 BDEPEND="
 	>=dev-cpp/catch-2.13:0
 	>=dev-cpp/nlohmann_json-3.8.0
+	dev-cpp/robin-map
 	dev-util/glslang
 	discord? ( >=dev-libs/rapidjson-1.1.0 )
 "
-REQUIRED_USE="boxcat? ( webservice ) || ( qt5 sdl )"
-
-PATCHES=( "${FILESDIR}"/${P}-assert.patch )
+REQUIRED_USE="|| ( qt5 sdl )"
 
 pkg_setup() {
 	if tc-is-gcc; then
@@ -67,6 +67,10 @@ pkg_setup() {
 }
 
 src_unpack() {
+	if ! use discord; then
+		EGIT_SUBMODULES+=('-discord-rpc')
+	fi
+
 	if use system-vulkan; then
 		EGIT_SUBMODULES+=('-Vulkan-Headers')
 	fi
@@ -95,11 +99,7 @@ src_prepare() {
 
 	if use system-vulkan; then # Unbundle vulkan headers
 		sed -i -e 's:../../externals/Vulkan-Headers/include:/usr/include/vulkan/:' src/video_core/CMakeLists.txt src/yuzu/CMakeLists.txt src/yuzu_cmd/CMakeLists.txt || die
-		sed -i -e '/VK_ERROR_INCOMPATIBLE_VERSION_KHR/d' src/video_core/vulkan_common/vulkan_wrapper.cpp || die
 	fi
-
-	# Unbundle discord rapidjson
-	sed -i '/NOT RAPIDJSONTEST/,/endif(NOT RAPIDJSONTEST)/d;/find_file(RAPIDJSON/d;s:\${RAPIDJSON}:"/usr/include/rapidjson":' externals/discord-rpc/CMakeLists.txt || die
 
 	# Workaround: GenerateSCMRev fails
 	sed -i -e "s/@GIT_BRANCH@/${EGIT_BRANCH:-master}/" \
@@ -107,12 +107,27 @@ src_prepare() {
 		-e "s/@GIT_DESC@/$(git describe --always --long)/" \
 		src/common/scm_rev.cpp.in || die
 
+	# Lower sdl requirement
+	sed -i -e '/SDL2/s/18/16/' CMakeLists.txt || die
+
+	# Use system SPIRV headers
+	sed -i -e '/SPIRV/d' externals/sirit/CMakeLists.txt || die
+
+	if ! use discord; then
+		sed -i -e '/discord-rpc/d' externals/CMakeLists.txt || die
+	else
+		# Unbundle discord rapidjson
+		sed -i '/NOT RAPIDJSONTEST/,/endif(NOT RAPIDJSONTEST)/d;/find_file(RAPIDJSON/d;s:\${RAPIDJSON}:"/usr/include/rapidjson":' \
+			externals/discord-rpc/CMakeLists.txt || die
+	fi
+
 	cmake_src_prepare
 }
 
 src_configure() {
 	local -a mycmakeargs=(
 		-DBUILD_SHARED_LIBS=OFF
+		-DDYNARMIC_NO_BUNDLED_ROBIN_MAP=ON
 		-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=$(usex compatibility-list)
 		-DENABLE_CUBEB=$(usex cubeb)
 		-DENABLE_QT=$(usex qt5)
@@ -120,8 +135,6 @@ src_configure() {
 		-DENABLE_SDL2=$(usex sdl)
 		-DENABLE_WEB_SERVICE=$(usex webservice)
 		-DUSE_DISCORD_PRESENCE=$(usex discord)
-		# -DYUZU_ENABLE_BOXCAT=$(usex boxcat) # feature removed
-		# upstream is now fixing it, will be reintroduced
 		-DYUZU_USE_EXTERNAL_SDL2=OFF
 		-DYUZU_USE_QT_WEB_ENGINE=$(usex webengine)
 	)

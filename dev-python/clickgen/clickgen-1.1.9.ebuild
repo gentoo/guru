@@ -3,20 +3,38 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} pypy3 )
-inherit distutils-r1
+PYTHON_COMPAT=( python3_{8..10} )
+inherit distutils-r1 toolchain-funcs
 
 DESCRIPTION="X11 & Windows cursor building API"
-HOMEPAGE="https://github.com/ful1e5/clickgen"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+HOMEPAGE="https://github.com/ful1e5/clickgen https://pypi.org/project/clickgen"
+SRC_URI="https://github.com/ful1e5/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="
-	dev-python/pillow[${PYTHON_USEDEP}]
+DEPEND="
 	media-libs/libpng
 	x11-libs/libX11
 	x11-libs/libXcursor
-	"
+"
+RDEPEND="${DEPEND}
+	dev-python/pillow[${PYTHON_USEDEP}]
+"
+
+PATCHES=( "${FILESDIR}"/${PN}-flags.patch )
+
+distutils_enable_tests pytest
+
+distutils_enable_sphinx docs/source dev-python/sphinx_rtd_theme
+
+src_configure() {
+	distutils-r1_src_configure
+	tc-export CC
+}
+
+python_compile() {
+	emake -C xcursorgen
+	distutils-r1_python_compile
+}

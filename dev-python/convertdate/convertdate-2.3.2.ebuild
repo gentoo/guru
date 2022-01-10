@@ -3,8 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
-
+PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="Utils for converting between date formats and calculating holidays"
@@ -21,4 +20,5 @@ RDEPEND="
 "
 
 distutils_enable_tests pytest
+
 distutils_enable_sphinx docs dev-python/sphinx_rtd_theme

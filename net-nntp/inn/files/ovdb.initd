@@ -1,0 +1,16 @@
+#!/sbin/openrc-run
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+command=/opt/inn/bin/ovdb_init
+pidfile=/run/news/ovdb_server.pid
+
+stop() {
+	ebegin "Stopping ovdb_server"
+	start-stop-daemon --stop --pidfile /run/news/ovdb_server.pid
+	eend $?
+
+	ebegin "Stopping ovdb_monitor"
+	start-stop-daemon --stop --pidfile /run/news/ovdb_monitor.pid
+	ewend $?
+}

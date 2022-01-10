@@ -19,11 +19,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="
+RDEPEND="
 	>=dev-python/serpent-1.40[${PYTHON_USEDEP}]
 "
-RDEPEND="${DEPEND}"
-BDEPEND=""
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs/source

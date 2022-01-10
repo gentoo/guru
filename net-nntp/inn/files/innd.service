@@ -1,0 +1,27 @@
+[Unit]
+Description=InterNetNews News Server
+Documentation=https://www.eyrie.org/~eagle/software/inn/
+After=network-online.target
+Wants=network-online.target
+ConditionPathExists=/etc/news/inn.conf
+
+[Service]
+Type=notify
+Restart=on-abort
+ExecStart=/opt/inn/bin/rc.news
+ExecReload=/opt/inn/bin/ctlinnd -t 20 reload '' 'systemd unit reload'
+ExecStop=/opt/inn/bin/rc.news stop
+PIDFile=/run/news/innd.pid
+User=news
+Group=news
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+PrivateTmp=true
+ProtectControlGroups=true
+ProtectHome=true
+ProtectSystem=full
+RuntimeDirectory=news
+LimitNOFILE=infinity
+ReadWritePaths=/var/spool/news
+
+[Install]
+WantedBy=multi-user.target

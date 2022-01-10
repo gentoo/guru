@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,12 +11,13 @@ SRC_URI="https://archive.netbsd.org/pub/pkgsrc-archive/distfiles/2021Q3/pgp263is
 S="${WORKDIR}"
 
 LICENSE="PGP-2"
-SLOT="0/2"
+SLOT="0"
 KEYWORDS="~amd64"
 IUSE="bindist debug"
 
 RDEPEND="bindist? ( dev-libs/rsaref )"
 DEPEND="${RDEPEND}"
+BDEPEND="sys-devel/libtool"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-sparc.patch
@@ -47,7 +48,8 @@ src_configure() {
 
 src_compile() {
 	emake -C src all \
-		CC=$(tc-getCC) LD=$(tc-getCC) CFLAGS="${CFLAGS}" \
+		CC=$(tc-getCC) LD=$(tc-getCC) \
+		CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" \
 		OBJS_EXT=$(usex x86 "_80386.o _zmatch.o" "") \
 		RSALIBS=$(usex bindist "-lrsaref" "") \
 		RSAOBJS=rsaglue$(usex bindist "2" "1").o

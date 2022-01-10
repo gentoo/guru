@@ -18,8 +18,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND=""
-RDEPEND="${DEPEND}"
 BDEPEND="test? ( dev-python/pytest-asyncio[${PYTHON_USEDEP}] )"
 
 distutils_enable_tests pytest

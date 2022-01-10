@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="
+RDEPEND="
 	>=dev-python/click-8.0.2[${PYTHON_USEDEP}]
 	>=dev-python/desktop-notifier-3.3.0[${PYTHON_USEDEP}]
 	>=dev-python/dropbox-sdk-python-10.9.0[${PYTHON_USEDEP}]
@@ -35,7 +35,6 @@ DEPEND="
 	dev-python/wheel[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep 'dev-python/importlib_metadata[${PYTHON_USEDEP}]' python3_8)
 "
-RDEPEND="${DEPEND}"
 BDEPEND="
 	test? ( dev-python/pytest-benchmark[${PYTHON_USEDEP}] )
 "
