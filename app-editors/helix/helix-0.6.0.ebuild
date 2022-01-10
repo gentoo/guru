@@ -207,14 +207,13 @@ KEYWORDS="~amd64"
 IUSE="doc"
 
 DEPEND="
-	app-shells/bash
 	dev-vcs/git
 "
 
 RDEPEND="
-	app-shells/bash
 	!app-editors/${PN}-bin
 "
+BDEPEND="app-arch/unzip"
 
 QA_FLAGS_IGNORED="usr/bin/.*"
 
