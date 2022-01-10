@@ -136,7 +136,7 @@ CRATES="
 	xdg-2.4.0
 "
 
-inherit cargo xdg-utils desktop
+inherit cargo xdg-utils desktop optfeature
 
 DESCRIPTION="A window manager for Adventurers"
 HOMEPAGE="https://github.com/leftwm/leftwm"
@@ -198,7 +198,7 @@ src_install() {
 
 pkg_postinst() {
 	xdg_desktop_database_update
-	elog "Emerge 'x11-misc/leftwm-theme' to manage themes for $PN"
+	optfeature "Emerge 'x11-misc/leftwm-theme' to manage themes for $PN"
 }
 
 pkg_postrm() {
