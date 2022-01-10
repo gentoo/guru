@@ -54,7 +54,7 @@ src_compile() {
 }
 
 src_install() {
-	use doc && dodoc gobble.1.gz 
+	use doc && dodoc gobble.1.gz
 	cd target/release || die
 	dobin gobble
 }
