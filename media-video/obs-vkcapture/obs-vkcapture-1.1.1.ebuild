@@ -27,10 +27,12 @@ BDEPEND="
 	media-libs/shaderc
 	media-libs/vulkan-loader
 	>=media-video/obs-studio-27[wayland]
+	x11-libs/libdrm
 "
 RDEPEND="
 	media-libs/libglvnd
 	>=media-video/obs-studio-27[wayland]
+	x11-libs/libdrm
 	x11-libs/libxcb:=
 "
 
