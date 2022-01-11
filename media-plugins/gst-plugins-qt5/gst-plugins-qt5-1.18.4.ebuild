@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -17,7 +17,10 @@ REQUIRED_USE="
 
 RDEPEND="
 	>=media-libs/gst-plugins-base-${PV}:${SLOT}[egl?,opengl,wayland?,X?]
-	media-libs/mesa[egl?,X?]
+	|| (
+		<media-libs/mesa-21.3.2[egl?,X?]
+		>=media-libs/mesa-21.3.2[X?]
+	)
 	dev-qt/qtcore:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
