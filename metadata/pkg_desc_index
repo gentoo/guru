@@ -79,7 +79,7 @@ app-editors/typora-bin 0.10.7: a markdown editor,markdown reader.
 app-emacs/idris-mode 1.0 9999: Idris syntax highlighting, compiler-supported editing, and interactive REPL
 app-emacs/prop-menu 0.1.2: Compute pop-up menus from text and overlay properties
 app-emulation/arnold 20170513: Amstrad CPC emulator
-app-emulation/dxvk-bin 1.9.1 1.9.2: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
+app-emulation/dxvk-bin 1.9.2 1.9.3: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/nvidia-container-toolkit 1.5.0: NVIDIA container runtime toolkit
 app-emulation/quickemu 3.11: Create and run optimised Windows, macOS and Linux desktop virtual machines
 app-emulation/spice-html5 0.2.2 0.3.0: Spice Javascript client
@@ -744,11 +744,11 @@ games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
 games-util/hid-nintendo 9999: A Nintendo HID kernel module
 games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launcher
 games-util/joycond 9999: Combine joy-cons using hid-nintendo
-games-util/legendary 0.20.18 0.20.22: A free and open-source replacement for the Epic Games Launcher
+games-util/legendary 0.20.22 0.20.24: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
 gnome-extra/iio-sensor-proxy 3.3: IIO sensors to D-Bus proxy
 gnome-extra/portfolio 0.9.10 0.9.12: A minimalist file manager for those who want to use Linux mobile devices
-gui-apps/azote 1.9.0 1.9.1 1.9.2 9999: wallpaper manager for wlroots compositors
+gui-apps/azote 1.9.0 1.9.1 1.9.2 1.9.3 9999: wallpaper manager for wlroots compositors
 gui-apps/coreaction 4.2.0 9999: A side bar for showing widgets for C Suite
 gui-apps/coreapps-meta 4.2.0 9999: Meta package for coreapps
 gui-apps/corearchiver 4.2.0 9999: Archiver for C Suite, to create and extract archives
@@ -890,7 +890,7 @@ media-video/ffsubsync 0.4.18 0.4.19 0.4.20: Automagically syncronize subtitles w
 media-video/kikoplay 0.8.1 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.4.3: A GTK3 camera application that knows how to deal with the media request api
 media-video/mpv-mpris 0.5 0.6 9999: MPRIS plugin for mpv
-media-video/obs-vkcapture 1.1 9999: OBS Linux Vulkan/OpenGL game capture
+media-video/obs-vkcapture 1.1.1 9999: OBS Linux Vulkan/OpenGL game capture
 media-video/owncast 0.0.7-r1 0.0.8 0.0.9 0.0.10: A self-hosted live video and web chat server
 media-video/qliveplayer 4.0.1-r2 4.1.0: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
@@ -914,7 +914,7 @@ net-im/Quaternion 0.0.9.4e: A Qt5-based IM client for the Matrix protocol
 net-im/abaddon 0.1.2 9999: Alternative Discord client using GTK instead of Electron
 net-im/biboumi 9.0 9.0-r1: XMPP gateway to IRC
 net-im/cawbird 1.4.2: Cawbird is a fork of the Corebird Twitter client from Baedert.
-net-im/discord-canary-bin 0.0.131: All-in-one voice and text chat
+net-im/discord-canary-bin 0.0.132: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.25: All-in-one voice and text chat
 net-im/go-sendxmpp 0.1.1 0.1.2: A little tool to send messages to an XMPP contact or MUC
 net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
@@ -1147,7 +1147,7 @@ www-apps/code-server-bin 3.10.0 3.12.0: VS Code in the browser (binary version w
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/jackett-bin 0.20.195-r1 9999: API Support for your favorite torrent trackers
 www-apps/twint 2.1.20-r2: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
-www-apps/uwebsockets 20.8.0 9999: ultra fast, simple, secure & standards compliant web I/O
+www-apps/uwebsockets 20.9.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-apps/zola 0.15.2: A fast static site generator in a single binary with everything built-in
 www-client/badwolf 1.2.1 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/browsh 1.6.4_p1: A fully-modern text-based browser, rendering to TTY and browsers
