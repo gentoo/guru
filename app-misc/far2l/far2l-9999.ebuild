@@ -64,9 +64,7 @@ pkg_setup() {
 src_prepare() {
 	sed -e "s:execute_process(COMMAND ln -sf \../../bin/far2l \${CMAKE_INSTALL_PREFIX}/lib/far2l/far2l_askpass)::" -i "${S}"/CMakeLists.txt || die
 	sed -e "s:execute_process(COMMAND ln -sf \../../bin/far2l \${CMAKE_INSTALL_PREFIX}/lib/far2l/far2l_sudoapp)::" -i "${S}"/CMakeLists.txt || die
-	sed -e "s:execute_process(COMMAND rm -f \${CMAKE_INSTALL_PREFIX}/lib/far2l/Plugins/objinfo/plug/objinfo.far-plug-mb)::" -i "${S}"/CMakeLists.txt || die
-	sed -e "s:execute_process(COMMAND rm -f \${CMAKE_INSTALL_PREFIX}/lib/far2l/Plugins/farftp/plug/farftp.far-plug-mb && echo Removed existing farftp plugin)::" -i "${S}"/CMakeLists.txt || die
-	sed -e "s:execute_process(COMMAND rm -f \${CMAKE_INSTALL_PREFIX}/lib/far2l/Plugins/python/plug/python.far-plug-wide && echo Removed existing python plugin)::" -i "${S}"/CMakeLists.txt || die
+	sed -e "s:execute_process(COMMAND rm -f \${CMAKE_INSTALL_PREFIX}/lib/far2l/Plugins/.*::" -i "${S}"/CMakeLists.txt || die
 	sed -e "s:execute_process(COMMAND echo Python\: prepaing virtual environment)::" -i "${S}"/CMakeLists.txt || die
 	sed -e "s:execute_process(COMMAND \${PYTHON3} -m venv --system-site-packages \${CMAKE_INSTALL_PREFIX}/lib/far2l/Plugins/python/plug/python)::" -i "${S}"/CMakeLists.txt || die
 	sed -e "s:execute_process(COMMAND echo Python\: installing packages)::" -i "${S}"/CMakeLists.txt || die
