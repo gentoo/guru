@@ -9,7 +9,7 @@ inherit gstreamer-meson
 
 DESCRIPTION="Qt5 QML video sink plugin for GStreamer"
 KEYWORDS="~amd64"
-IUSE="+egl orc wayland +X"
+IUSE="+egl wayland +X"
 
 REQUIRED_USE="
 	wayland? ( egl )
@@ -17,10 +17,7 @@ REQUIRED_USE="
 
 RDEPEND="
 	>=media-libs/gst-plugins-base-${PV}:${SLOT}[egl?,opengl,wayland?,X?]
-	|| (
-		<media-libs/mesa-21.3.2[egl?,X?]
-		>=media-libs/mesa-21.3.2[X?]
-	)
+	media-libs/mesa[egl(+)?,X?]
 	dev-qt/qtcore:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
