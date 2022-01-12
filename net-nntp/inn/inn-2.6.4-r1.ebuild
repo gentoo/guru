@@ -115,7 +115,7 @@ src_install() {
 
 	find "${ED}" -name '*.la' -delete || die
 	rm "${ED}"/usr/share/doc/${PF}/{GPL,LICENSE} || die
-	rm -r "${ED}"/{run} || die
+	rm -r "${ED}"/run || die
 
 	# collision with sys-apps/man-pages
 	mv "${ED}"/usr/share/man/man3/{list,inn-list}.3 || die
