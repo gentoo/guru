@@ -97,7 +97,7 @@ app-misc/cpufetch 0.98 1.00: Simplistic yet fancy CPU architecture fetching tool
 app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs
 app-misc/doublecmd-bin 1.0.1 1.0.2: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820: Simple drag-and-drop source/sink for X and Wayland
-app-misc/far2l 2.3.2_alpha 9999: Linux port of FAR Manager v2
+app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -1161,14 +1161,13 @@ www-servers/quark 9999: A small, GET-only static HTTP server
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-drivers/OpenTabletDriver-bin 0.5.3.3: Cross platform tablet driver (binary package)
 x11-libs/gtk-fortran 3.24.18 3.24.30 4.1.0: A GTK+ binding to build Graphical User Interfaces in Fortran
-x11-libs/libadwaita 1.0.0: Building blocks for modern GNOME applications.
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018-r1 9999: SDDM theme with Apple TV Aerial videos
 x11-misc/betterlockscreen 3.2.0-r1 4.0.3-r1 9999: sweet looking lockscreen for linux system
 x11-misc/betterlockscreen_rapid 0.0.0_pre20210701 0.0.0_pre20210708: A rapid and good-looking screen locker
 x11-misc/caffeine-ng 3.5.1: Aplication able to temporarily inhibit the screensaver
 x11-misc/gammy 0.9.60 0.9.64: Adaptive screen brightness/temperature
-x11-misc/gobble 1.2: Rust rewrite of Devour: Gobble hides your current window before launching an external program and unhides it after quitting.
+x11-misc/gobble 1.2: Hide current window before launching external program, unhide after quitting
 x11-misc/greenclip-bin 4.2: Simple clipboard manager to be integrated with rofi
 x11-misc/gromit-mpx 1.4 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
 x11-misc/i3lock-color 2.13.2 2.13.4 9999: The world's most popular non-default computer lockscreen
