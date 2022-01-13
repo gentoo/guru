@@ -1,5 +1,6 @@
 # Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
+
 EAPI=8
 
 CRATES="
@@ -138,13 +139,13 @@ HOMEPAGE="https://github.com/helix-editor/helix"
 
 SRC_URI="
 	https://github.com/helix-editor/helix/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/tree-sitter/tree-sitter-agda/archive/ca69cdf485e9ce2b2ef0991a720aa88d87d30231.tar.gz 
-	https://github.com/tree-sitter/tree-sitter-bash/archive/a8eb5cb57c66f74c63ab950de081207cccf52017.tar.gz 
+	https://github.com/tree-sitter/tree-sitter-agda/archive/ca69cdf485e9ce2b2ef0991a720aa88d87d30231.tar.gz
+	https://github.com/tree-sitter/tree-sitter-bash/archive/a8eb5cb57c66f74c63ab950de081207cccf52017.tar.gz
 	https://github.com/tree-sitter/tree-sitter-c/archive/f05e279aedde06a25801c3f2b2cc8ac17fac52ae.tar.gz
-	https://github.com/tree-sitter/tree-sitter-c-sharp/archive/53a65a908167d6556e1fcdb67f1ee62aac101dda.tar.gz 
+	https://github.com/tree-sitter/tree-sitter-c-sharp/archive/53a65a908167d6556e1fcdb67f1ee62aac101dda.tar.gz
 	https://github.com/uyha/tree-sitter-cmake/archive/f6616f1e417ee8b62daf251aa1daa5d73781c596.tar.gz
 	https://github.com/stsewd/tree-sitter-comment/archive/5dd3c62f1bbe378b220fe16b317b85247898639e.tar.gz
-	https://github.com/tree-sitter/tree-sitter-cpp/archive/e8dcc9d2b404c542fd236ea5f7208f90be8a6e89.tar.gz 
+	https://github.com/tree-sitter/tree-sitter-cpp/archive/e8dcc9d2b404c542fd236ea5f7208f90be8a6e89.tar.gz
 	https://github.com/tree-sitter/tree-sitter-css/archive/94e10230939e702b4fa3fa2cb5c3bc7173b95d07.tar.gz
 	https://github.com/UserNobody14/tree-sitter-dart/archive/6a25376685d1d47968c2cef06d4db8d84a70025e.tar.gz
 	https://github.com/camdencheek/tree-sitter-dockerfile/archive/7af32bc04a66ab196f5b9f92ac471f29372ae2ce.tar.gz

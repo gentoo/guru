@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,7 +26,6 @@ RDEPEND="
 		dev-java/openjdk:11 dev-java/openjdk:17
 		dev-java/openjdk-bin:11 dev-java/openjdk-bin:17
 		dev-java/openjdk-jre-bin:11
-		dev-java/openjdk-sts-bin:15
 	)
 	x11-libs/gtk+:3
 "
