@@ -184,8 +184,6 @@ RDEPEND="${DEPEND}"
 
 QA_FLAGS_IGNORED="usr/bin/.*"
 
-IUSE="strip"
-
 src_compile() {
 	cargo_src_compile
 }
@@ -193,10 +191,6 @@ src_compile() {
 src_install() {
 	dodoc CHANGELOG.txt CONTRIBUTING.md README.md
 	cd target/release || die
-	if use strip ; then
-		einfo "Strip macchina bin"
-		strip macchina
-	fi
 	dobin macchina
 }
 
