@@ -186,7 +186,7 @@ xdg-2.4.0
 zip-0.5.13
 "
 
-inherit cargo bash-completion-r1
+inherit cargo flag-o-matic bash-completion-r1
 
 DESCRIPTION="A very fast implementation of tldr in Rust."
 HOMEPAGE="https://github.com/tldr-pages/tldr
@@ -199,12 +199,18 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="!app-text/tldr"
+BDEPEND=">=virtual/rust-1.54.0"
 
 QA_FLAGS_IGNORED="usr/bin/tldr"
 
 # Tests require network connection
 RESTRICT="test"
 PROPERTIES="test_network"
+
+src_configure() {
+	filter-flags '-flto*' # ring crate fails compile with lto
+	cargo_src_configure
+}
 
 src_install() {
 	cargo_src_install

@@ -36,6 +36,7 @@ src_prepare() {
 
 src_configure() {
 	export ENABLE_QED=yes
+	export ENABLE_RTEGEN=yes
 	econf --enable-wp \
 		$(use_enable coq wp-coq)
 }
