@@ -105,7 +105,7 @@ app-misc/grit 0.3.0: An personal task manager that represents tasks as multitree
 app-misc/hollywood 1.22: Fill your console with Hollywood melodrama technobabble
 app-misc/lf 20 22: Terminal file manager
 app-misc/liquidctl 1.7.2: Cross-platform tool and drivers for liquid coolers and other devices
-app-misc/macchina 5.0.2: A system information fetcher, with an (unhealthy) emphasis on performance.
+app-misc/macchina 5.0.2 6.0.5: A system information fetcher, with an (unhealthy) emphasis on performance.
 app-misc/mangadesk 0.7.5: Terminal Client for MangaDex
 app-misc/mat2 0.12.2: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
@@ -878,7 +878,7 @@ media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/mopidy 3.2.0: An extensible music server written in Python.
 media-sound/ncpamixer 1.3.3.1: A ncurses mixer for PulseAudio inspired by pavucontrol
 media-sound/netcat-cpi 2014.04.29: Kernel module edition of the Cycles Per Instruction (2014) album
-media-sound/noson-app 4.5.1: The essential to control music from your SONOS devices on Linux platforms
+media-sound/noson-app 4.5.2: The essential to control music from your SONOS devices on Linux platforms
 media-sound/nuclear-bin 0.6.15: Nuclear is a streaming program that pulls content from free sources on internet
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
 media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file or stream as a PulseAudio source
@@ -971,7 +971,7 @@ net-p2p/monero 0.17.2.0 0.17.2.3 9999: The secure, private, untraceable cryptocu
 net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for Linux
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.13-r1 0.3.14 0.3.15 0.4.0: An experiment in scalable routing as an encrypted IPv6 overlay network
-net-voip/discover-overlay 0.3.3: Yet another Discord overlay for Linux written in Python using GTK3
+net-voip/discover-overlay 0.3.3 0.4.0: Yet another Discord overlay for Linux written in Python using GTK3
 net-voip/gnome-calls 41.1: Phone dialer and call handler
 net-wireless/iwdgui 0.1.0 0.2.0: A graphical frontend for IWD, Intel's iNet Wireless Daemon
 net-wireless/rtl8192eu 0_pre20211023: Realtek 8192EU driver module for Linux kernel
@@ -993,37 +993,37 @@ sci-libs/meschach 1.2b_p20170511-r1: Meschach is a C-language library of routine
 sci-libs/saclib 2.2.8: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
 sci-mathematics/chaco 2.2-r2: Software for Partitioning Graphs
-sci-mathematics/frama-c 23.1: Framework for analysis of source codes written in C
-sci-mathematics/frama-c-aorai 23.1: Aorai (automaton annotations) plugin for frama-c
-sci-mathematics/frama-c-callgraph 23.1: Callgraph plugin for frama-c
-sci-mathematics/frama-c-constant-folding 23.1: Constant folding plugin for frama-c
-sci-mathematics/frama-c-dive 23.1: Dive plugin for frama-c
-sci-mathematics/frama-c-e-acsl 23.1: Runtime verification of ACSL (E-ACSL) plugin for frama-c
-sci-mathematics/frama-c-eva 23.1: Value analysis (EVA) plugin for frama-c
-sci-mathematics/frama-c-from 23.1: From analysis plugin for frama-c
-sci-mathematics/frama-c-impact 23.1: Impact plugin for frama-c
-sci-mathematics/frama-c-inout 23.1: In/out analysis plugin for frama-c
-sci-mathematics/frama-c-instantiate 23.1: Instantiate analysis plugin for frama-c
-sci-mathematics/frama-c-loopanalysis 23.1: Loop analysis plugin for frama-c
-sci-mathematics/frama-c-metrics 23.1: Metrics plugin for frama-c
-sci-mathematics/frama-c-nonterm 23.1: Nonterm plugin for frama-c
-sci-mathematics/frama-c-obfuscator 23.1: Obfuscator plugin for frama-c
-sci-mathematics/frama-c-occurrence 23.1: Occurrence analysis plugin for frama-c
-sci-mathematics/frama-c-pdg 23.1: Program dependence graph plugin for frama-c
-sci-mathematics/frama-c-postdominators 23.1: Postdominators plugin for frama-c
-sci-mathematics/frama-c-printapi 23.1: Plugin generating .mli interface files for plugin APIs for frama-c
-sci-mathematics/frama-c-qed 23.1: Qed plugin for frama-c
-sci-mathematics/frama-c-report 23.1: Report plugin for frama-c
-sci-mathematics/frama-c-rtegen 23.1: Runtime error annotation (RTE) generation plugin for frama-c
-sci-mathematics/frama-c-scope 23.1: Scope plugin for frama-c
-sci-mathematics/frama-c-security-slicing 23.1: Security slicing plugin for frama-c
-sci-mathematics/frama-c-server 23.1: Server plugin for frama-c
-sci-mathematics/frama-c-slicing 23.1: Slicing plugin for frama-c
-sci-mathematics/frama-c-sparecode 23.1: Spare code plugin for frama-c
-sci-mathematics/frama-c-studia 23.1: Studia plugin for frama-c
-sci-mathematics/frama-c-users 23.1: Users plugin for frama-c
-sci-mathematics/frama-c-variadic 23.1: Variadic function transformation plugin for frama-c
-sci-mathematics/frama-c-wp 23.1: Deductive proof of ACSL contracts (WP) plugin for frama-c
+sci-mathematics/frama-c 23.1 24.0: Framework for analysis of source codes written in C
+sci-mathematics/frama-c-aorai 23.1 24.0: Aorai (automaton annotations) plugin for frama-c
+sci-mathematics/frama-c-callgraph 23.1 24.0: Callgraph plugin for frama-c
+sci-mathematics/frama-c-constant-folding 23.1 24.0: Constant folding plugin for frama-c
+sci-mathematics/frama-c-dive 23.1 24.0: Dive plugin for frama-c
+sci-mathematics/frama-c-e-acsl 23.1 24.0: Runtime verification of ACSL (E-ACSL) plugin for frama-c
+sci-mathematics/frama-c-eva 23.1 24.0: Value analysis (EVA) plugin for frama-c
+sci-mathematics/frama-c-from 23.1 24.0: From analysis plugin for frama-c
+sci-mathematics/frama-c-impact 23.1 24.0: Impact plugin for frama-c
+sci-mathematics/frama-c-inout 23.1 24.0: In/out analysis plugin for frama-c
+sci-mathematics/frama-c-instantiate 23.1 24.0: Instantiate analysis plugin for frama-c
+sci-mathematics/frama-c-loopanalysis 23.1 24.0: Loop analysis plugin for frama-c
+sci-mathematics/frama-c-metrics 23.1 24.0: Metrics plugin for frama-c
+sci-mathematics/frama-c-nonterm 23.1 24.0: Nonterm plugin for frama-c
+sci-mathematics/frama-c-obfuscator 23.1 24.0: Obfuscator plugin for frama-c
+sci-mathematics/frama-c-occurrence 23.1 24.0: Occurrence analysis plugin for frama-c
+sci-mathematics/frama-c-pdg 23.1 24.0: Program dependence graph plugin for frama-c
+sci-mathematics/frama-c-postdominators 23.1 24.0: Postdominators plugin for frama-c
+sci-mathematics/frama-c-printapi 23.1 24.0: Plugin generating .mli interface files for plugin APIs for frama-c
+sci-mathematics/frama-c-qed 23.1 24.0: Qed plugin for frama-c
+sci-mathematics/frama-c-report 23.1 24.0: Report plugin for frama-c
+sci-mathematics/frama-c-rtegen 23.1 24.0: Runtime error annotation (RTE) generation plugin for frama-c
+sci-mathematics/frama-c-scope 23.1 24.0: Scope plugin for frama-c
+sci-mathematics/frama-c-security-slicing 23.1 24.0: Security slicing plugin for frama-c
+sci-mathematics/frama-c-server 23.1 24.0: Server plugin for frama-c
+sci-mathematics/frama-c-slicing 23.1 24.0: Slicing plugin for frama-c
+sci-mathematics/frama-c-sparecode 23.1 24.0: Spare code plugin for frama-c
+sci-mathematics/frama-c-studia 23.1 24.0: Studia plugin for frama-c
+sci-mathematics/frama-c-users 23.1 24.0: Users plugin for frama-c
+sci-mathematics/frama-c-variadic 23.1 24.0: Variadic function transformation plugin for frama-c
+sci-mathematics/frama-c-wp 23.1 24.0: Deductive proof of ACSL contracts (WP) plugin for frama-c
 sci-mathematics/lean-mathlib 0.1_p20211021: Lean mathematical components library
 sci-mathematics/the-omega-project 2.1_p20131119: Tools from Pugh et al.'s for constraint-based compiler tools
 sci-misc/boinc-wrapper 7.16.17 7.16.17-r1: Wrapper to use non-BOINC apps with BOINC

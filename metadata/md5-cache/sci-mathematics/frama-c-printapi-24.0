@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install
+DEPEND=~sci-mathematics/frama-c-24.0:=[ocamlopt?] >=dev-ml/findlib-1.0.4-r1
+DESCRIPTION=Plugin generating .mli interface files for plugin APIs for frama-c
+EAPI=7
+HOMEPAGE=https://frama-c.com
+INHERIT=findlib toolchain-funcs
+IUSE=+ocamlopt +ocamlopt
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1
+RDEPEND=~sci-mathematics/frama-c-24.0:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?]
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://frama-c.com/download/frama-c-24.0-Chromium.tar.gz
+_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
+_md5_=27e5049e26dc2664f2d29ddc8fc32e5a

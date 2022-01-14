@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install prepare
+DEPEND=~sci-mathematics/frama-c-24.0:=[gtk?,ocamlopt?] ~sci-mathematics/frama-c-callgraph-24.0:=[gtk?,ocamlopt?] ~sci-mathematics/frama-c-eva-24.0:=[gtk?,ocamlopt?] ~sci-mathematics/frama-c-postdominators-24.0:=[ocamlopt?] >=dev-ml/findlib-1.0.4-r1
+DESCRIPTION=From analysis plugin for frama-c
+EAPI=7
+HOMEPAGE=https://frama-c.com
+INHERIT=autotools findlib toolchain-funcs
+IUSE=gtk +ocamlopt +ocamlopt
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1
+RDEPEND=~sci-mathematics/frama-c-24.0:=[gtk?,ocamlopt?] ~sci-mathematics/frama-c-callgraph-24.0:=[gtk?,ocamlopt?] ~sci-mathematics/frama-c-eva-24.0:=[gtk?,ocamlopt?] ~sci-mathematics/frama-c-postdominators-24.0:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?]
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://frama-c.com/download/frama-c-24.0-Chromium.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	findlib	e6df6108c2d753998b1206f4d5ea4a2d
+_md5_=f767ec28128d3533df37c04412bbb994
