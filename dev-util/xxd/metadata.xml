@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <description>new maintainers welcome</description>
+    <name>Peter Levine</name>
+    <email>plevine457@gmail.com</email>
+  </maintainer>
+  <upstream>
+    <maintainer>
+      <name>Bram Moolenaar</name>
+      <email>Bram@vim.org</email>
+    </maintainer>
+    <bugs-to>https://github.com/vim/vim/issues</bugs-to>
+    <remote-id type="github">vim/vim</remote-id>
+  </upstream>
+</pkgmetadata>
