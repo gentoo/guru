@@ -1,11 +1,11 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 inherit vim-plugin
 
-COMMIT="7337c35588e9027b516f80f03c3b9621a271e168"
+COMMIT="8bf943681f92c81a8cca19762a1ccec8bc29098a"
 DESCRIPTION="vim plugin: preview colours in source code while editing"
 HOMEPAGE="http://www.vim.org/scripts/script.php?script_id=5056
 https://github.com/ap/vim-css-color"
