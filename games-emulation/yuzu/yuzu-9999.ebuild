@@ -8,11 +8,10 @@ inherit cmake git-r3 toolchain-funcs xdg
 DESCRIPTION="An emulator for Nintendo Switch"
 HOMEPAGE="https://yuzu-emu.org"
 EGIT_REPO_URI="https://github.com/yuzu-emu/yuzu-mainline"
-EGIT_SUBMODULES=( '*' '-ffmpeg' '-inih' '-libressl' '-libusb' '-opus' '-SDL'
-	'-externals/sirit/externals/SPIRV-Headers' )
-# TODO '-xbyak' wait for bump in tree
-# TODO cubeb auto-links to jack, pulse, alsa .., allow determining cubeb output
-#      media-libs/cubeb would benefit to a lot of packages: dolphin-emu, firefox, citra, self, ...
+EGIT_SUBMODULES=( '-*' 'dynarmic' 'soundtouch' 'sirit' 'mbedtls' 'xbyak' 'externals/cpp-httplib' )
+# Soundtouch cannot be unbundled -> custom version
+# Dynarmic is heavily tweaked to emulate switch cpu non sense to unbundle
+# TODO wait 'xbyak' for bump in tree, require 5.96
 # TODO many submodules produce static libraries which forces to unset BUILD_SHARED_LIBS
 #      this may be better to generate shared libraries and install them under /usr/$(get_libdir)/yuzu
 
@@ -32,6 +31,7 @@ RDEPEND="
 	>=media-video/ffmpeg-4.3:=
 	>=sys-libs/zlib-1.2
 	virtual/libusb:1
+	cubeb? ( media-libs/cubeb )
 	qt5? (
 		>=dev-qt/qtcore-5.15:5
 		>=dev-qt/qtgui-5.15:5
@@ -67,12 +67,12 @@ pkg_setup() {
 }
 
 src_unpack() {
-	if ! use discord; then
-		EGIT_SUBMODULES+=('-discord-rpc')
+	if use discord; then
+		EGIT_SUBMODULES+=('discord-rpc')
 	fi
 
-	if use system-vulkan; then
-		EGIT_SUBMODULES+=('-Vulkan-Headers')
+	if !use system-vulkan; then
+		EGIT_SUBMODULES+=('Vulkan-Headers')
 	fi
 
 	git-r3_src_unpack
@@ -120,6 +120,10 @@ src_prepare() {
 		sed -i '/NOT RAPIDJSONTEST/,/endif(NOT RAPIDJSONTEST)/d;/find_file(RAPIDJSON/d;s:\${RAPIDJSON}:"/usr/include/rapidjson":' \
 			externals/discord-rpc/CMakeLists.txt || die
 	fi
+
+	# Unbundle cubeb
+	use cubeb && sed -i '$afind_package(Threads REQUIRED)' CMakeLists.txt || die
+	sed -i '/cubeb/d' externals/CMakeLists.txt || die
 
 	cmake_src_prepare
 }
