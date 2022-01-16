@@ -1,7 +1,7 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake git-r3 xdg
 
@@ -16,6 +16,7 @@ KEYWORDS=""
 IUSE="cubeb +hle-sound nls +qt5 sdl system-libfmt +telemetry video"
 
 DEPEND="
+	cubeb? ( media-libs/cubeb )
 	!hle-sound? ( media-libs/fdk-aac )
 	hle-sound? ( media-video/ffmpeg[fdk] )
 	qt5? ( nls? ( dev-qt/linguist )
@@ -82,7 +83,7 @@ src_prepare() {
 	if use system-libfmt; then # Unbundle libfmt
 		sed -i -e '/fmt/d' externals/CMakeLists.txt || die
 		sed -i -e 's/fmt/&::&/' -e '1ifind_package(fmt)' \
-			src/{core,citra,citra_qt,dedicated_room,input_common,tests,video_core}/CMakeLists.txt
+			src/{core,citra,citra_qt,dedicated_room,input_common,tests,video_core}/CMakeLists.txt || die
 		sed -i -e '1ifind_package(fmt)' externals/dynarmic/src/CMakeLists.txt || die
 	fi
 
@@ -106,12 +107,18 @@ src_prepare() {
 		src/core/CMakeLists.txt || die
 	sed -i -e '/cryptopp/d' externals/CMakeLists.txt || die
 
-	# TODO unbundle catch
+	# Unbundle catch
 	sed -i -e '1ifind_package(Catch2)' src/tests/CMakeLists.txt externals/{dynarmic,teakra}/tests/CMakeLists.txt || die
 	sed -i -e '/target_link_libraries/s/catch/Catch2::Catch2/' externals/{dynarmic,teakra}/tests/CMakeLists.txt || die
 	sed -i -e '/target_link_libraries/s/catch-single-include/Catch2::Catch2/' src/tests/CMakeLists.txt || die
 	sed -i -e '/catch/d' externals/CMakeLists.txt externals/{dynarmic,teakra}/externals/CMakeLists.txt || die
 	grep -rl 'include <catch.hpp>' externals/{dynarmic,teakra} | xargs sed -i -e '/include/s:catch.hpp:catch/&:' || die
+
+	# Unbundle cubeb
+	sed -i -e '/CUBEB/,/endif()/d' externals/CMakeLists.txt || die
+	if use cubeb; then
+		sed -i -e '$afind_package(cubeb REQUIRED)\n'
+	fi
 
 	# TODO unbundle xbyak (wait for 5.96 in ytree)
 	cmake_src_prepare
