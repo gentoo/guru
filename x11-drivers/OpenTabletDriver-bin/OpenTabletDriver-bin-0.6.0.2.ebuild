@@ -22,7 +22,7 @@ DEPEND="
 	dev-libs/libevdev
 	x11-libs/gtk+:3
 	virtual/udev
-	dev-dotnet/dotnet-sdk-bin:5.0
+	dev-dotnet/dotnet-sdk-bin:6.0
 "
 
 QA_PREBUILT="*"
@@ -44,9 +44,6 @@ src_install() {
 	for bin in *.Daemon *.UX.Gtk *.Console; do
 		doexe "$bin"
 	done
-
-	insinto "/usr/share/${MY_PN}"
-	doins -r "Configurations"
 
 	insinto "/lib/udev/rules.d"
 	doins -r "${S}/99-${LP}.rules"
