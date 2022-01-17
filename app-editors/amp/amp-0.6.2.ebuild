@@ -201,6 +201,9 @@ BDEPEND="
 
 QA_FLAGS_IGNORED="usr/bin/.*"
 
+python_setup () {
+	default
+}
 src_configure() {
 	cargo_src_configure
 }
@@ -211,8 +214,8 @@ src_compile() {
 
 src_install() {
     if use doc; then
-	    local DOCS=( LICENSE README.md CHANGELOG.md documentation/* )
-	    einstalldocs -r
+	local DOCS=( LICENSE README.md CHANGELOG.md documentation/* )
+	einstalldocs -r
     fi
 	dobin target/release/amp
 }
