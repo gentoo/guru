@@ -180,7 +180,7 @@ src_compile() {
 }
 
 src_install() {
-	if use doc; then 
+	if use doc;then 
 		dodoc README.md LICENSE
 		local DOCS=( docs/* )
 		einstalldocs
