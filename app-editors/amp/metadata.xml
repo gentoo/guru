@@ -6,7 +6,7 @@
 		<name>Luciano Degni</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">/jmacdonald/amp</remote-id>
+		<remote-id type="github">jmacdonald/amp</remote-id>
 	</upstream>
 </pkgmetadata>
 
