@@ -182,7 +182,7 @@ LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD MIT MPL-2.0 Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+#REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
 	x11-libs/libxcb
@@ -212,8 +212,8 @@ src_compile() {
 
 src_install() {
     if use doc; then
-	local DOCS=( LICENSE README.md CHANGELOG.md documentation/* )
-	einstalldocs -r
+	    local DOCS=( LICENSE README.md CHANGELOG.md documentation/* )
+	    einstalldocs -r
     fi
 	dobin target/release/amp
 }
