@@ -153,6 +153,7 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="doc"
 
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 RDEPEND="
@@ -171,7 +172,7 @@ src_configure() {
 src_prepare() {
 	sed -i Cargo.toml -e 's/"vendored"\s*,//' || die
 	# for dynamic linking with lua
-    default
+	default
 }
 
 src_compile() {
@@ -179,8 +180,10 @@ src_compile() {
 }
 
 src_install() {
-	dodoc README.md LICENSE
-	local DOCS=( docs/* )
-	einstalldocs
+	if use doc; then 
+		dodoc README.md LICENSE
+		local DOCS=( docs/* )
+		einstalldocs
+	fi
 	dobin target/release/xplr
 }
