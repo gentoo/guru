@@ -1,3 +1,4 @@
+Password:
 # Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
@@ -181,6 +182,7 @@ LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD MIT MPL-2.0 Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
 	x11-libs/libxcb
