@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python{3_8,3_10} )
+PYTHON_COMPAT=( python3_{7,8,9} )
 
 CRATES="
 	aho-corasick-0.5.3
@@ -169,7 +169,7 @@ CRATES="
 	yaml-rust-0.4.0
 "
 
-inherit cargo python-utils-r1 
+inherit cargo python-utils-r1
 
 DESCRIPTION="A complete text editor for your terminal."
 HOMEPAGE="https://github.com/jmacdonald/amp"
@@ -193,7 +193,7 @@ RDEPEND="
 BDEPEND="
 	${DEPEND}
 	${PYTHON_DEPS}
-    dev-vcs/git
+	dev-vcs/git
 	>=dev-lang/rust-1.53.0
 	dev-util/cmake
 "
@@ -201,7 +201,7 @@ BDEPEND="
 QA_FLAGS_IGNORED="usr/bin/.*"
 
 src_configure() {
-	cargo_src_configure	
+	cargo_src_configure
 }
 
 src_compile() {
@@ -210,8 +210,8 @@ src_compile() {
 
 src_install() {
     if use doc; then
-        dodoc LICENSE README.md CHANGELOG.md
-        dodoc -r documentation
+	local DOCS=( LICENSE README.md CHANGELOG.md documentation/* )
+	einstalldocs -r
     fi
 	dobin target/release/amp
 }
