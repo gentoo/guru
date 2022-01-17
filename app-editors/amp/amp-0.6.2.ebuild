@@ -3,6 +3,8 @@
 
 EAPI=8
 
+PYTHON_COMPAT=( python{3_8,3_10} )
+
 CRATES="
 	aho-corasick-0.5.3
 	aho-corasick-0.6.4
@@ -167,7 +169,7 @@ CRATES="
 	yaml-rust-0.4.0
 "
 
-inherit cargo
+inherit cargo python-utils-r1 
 
 DESCRIPTION="A complete text editor for your terminal."
 HOMEPAGE="https://github.com/jmacdonald/amp"
@@ -190,8 +192,8 @@ RDEPEND="
 "
 BDEPEND="
 	${DEPEND}
-	dev-vcs/git
-	dev-lang/python
+	${PYTHON_DEPS}
+    dev-vcs/git
 	>=dev-lang/rust-1.53.0
 	dev-util/cmake
 "
