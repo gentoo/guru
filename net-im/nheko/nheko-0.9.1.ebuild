@@ -1,4 +1,4 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,11 +24,12 @@ RDEPEND="
 	>=dev-libs/qtkeychain-0.12.0
 	dev-libs/spdlog
 	dev-qt/qtconcurrent:5
+	dev-qt/qtdeclarative:5[widgets]
 	dev-qt/qtgraphicaleffects:5
 	dev-qt/qtgui:5[gif,jpeg,png]
 	dev-qt/qtimageformats
-	dev-qt/qtmultimedia:5[gstreamer,qml]
-	dev-qt/qtquickcontrols2:5
+	dev-qt/qtmultimedia:5[gstreamer,qml,widgets]
+	dev-qt/qtquickcontrols2:5[widgets]
 	dev-qt/qtsvg:5
 	pipewire? ( media-video/pipewire[gstreamer] )
 	voip? (
