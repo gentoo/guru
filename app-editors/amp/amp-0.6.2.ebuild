@@ -213,9 +213,10 @@ src_compile() {
 }
 
 src_install() {
-    if use doc; then
-	local DOCS=( LICENSE README.md CHANGELOG.md documentation/* )
-	einstalldocs -r
-    fi
+	if use doc; then
+		dodoc README.md CHANGELOG.md
+		dodoc -r documentation/*
+		einstalldocs
+	fi
 	dobin target/release/amp
 }
