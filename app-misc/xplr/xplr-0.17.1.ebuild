@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -157,10 +157,10 @@ IUSE="doc"
 
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 RDEPEND="
-	$LUA_DEPS
+	${LUA_DEPS}
 "
 DEPEND="
-	$RDEPEND
+	${RDEPEND}
 "
 
 QA_FLAGS_IGNORED="usr/bin/.*"
@@ -180,9 +180,9 @@ src_compile() {
 }
 
 src_install() {
-	if use doc;then 
-		dodoc README.md LICENSE
-		local DOCS=( docs/* )
+	if use doc; then
+		dodoc README.md
+		dodc -r docs/*
 		einstalldocs
 	fi
 	dobin target/release/xplr
