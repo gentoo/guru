@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig verify-sig? ( sec-keys/signify-keys-telescope:0.7 ) verify-sig? ( app-crypt/signify )
+DEFINED_PHASES=configure unpack
+DEPEND=dev-libs/imsg-compat dev-libs/libevent:= dev-libs/libretls:= sys-libs/ncurses:= libbsd? ( dev-libs/libbsd )
+DESCRIPTION=w3m-like browser for Gemini
+EAPI=8
+HOMEPAGE=https://telescope.omarpolo.com
+INHERIT=toolchain-funcs verify-sig
+IUSE=+libbsd verify-sig
+KEYWORDS=~amd64 ~x86
+LICENSE=!libbsd? ( BSD MIT ) ISC unicode
+RDEPEND=dev-libs/imsg-compat dev-libs/libevent:= dev-libs/libretls:= sys-libs/ncurses:= libbsd? ( dev-libs/libbsd )
+SLOT=0
+SRC_URI=https://github.com/omar-polo/telescope/releases/download/0.7.1/telescope-0.7.1.tar.gz verify-sig? ( https://github.com/omar-polo/telescope/releases/download/0.7.1/SHA256.sig -> telescope-0.7.1.sha.sig )
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	verify-sig	5cf1b4c749926e7fdeef16c8c3245267
+_md5_=7e26bd620ecbb053dac430a1270effb0

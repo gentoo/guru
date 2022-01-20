@@ -46,6 +46,7 @@ app-backup/b2 2.5.0-r1 3.0.3: Command-line tool for BackBlaze's B2 product
 app-backup/grub-btrfs 4.10.2: Improves Grub by adding btrfs snapshots to the Grub menu.
 app-backup/timeshift 21.09.1: A system restore utility for Linux
 app-backup/timeshift-autosnap 0.9: Automatically creates a timeshift-snapshot when executed
+app-containers/nvidia-container-toolkit 1.5.0 1.7.0 1.8.0_rc1: NVIDIA container runtime toolkit
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
 app-crypt/certbot-dns-digitalocean 1.21.0 1.22.0: Digitalocean DNS Authenticator plugin for Certbot (Let's Encrypt Client)
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
@@ -70,17 +71,18 @@ app-dicts/dictd-web1913 0.5.0_p1: Webster's Revised Unabridged Dictionary (1913)
 app-doc/anarchism 15.3: An anarchist FAQ
 app-doc/ford 6.1.4 6.1.5: FORD, automatic documentation generator for modern Fortran programs
 app-doc/openbsd-manpages 6.9 7.0: OpenBSD manual pages
+app-editors/amp 0.6.2: A complete text editor for your terminal.
 app-editors/atom-bin 1.58.0: A hackable text editor for the 21st Century
 app-editors/helix 0.4.1 0.6.0: A post-modern text editor.
 app-editors/imhex 1.8.1-r1 1.10.0 1.10.1: A hex editor for reverse engineers, programmers, and eyesight
 app-editors/kak-lsp 11.1.0: Kakoune Language Server Protocol Client
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
+app-editors/mined 2015.25: A powerful text editor with extensive Unicode and CJK support
 app-editors/typora-bin 0.10.7: a markdown editor,markdown reader.
 app-emacs/idris-mode 1.0 9999: Idris syntax highlighting, compiler-supported editing, and interactive REPL
 app-emacs/prop-menu 0.1.2: Compute pop-up menus from text and overlay properties
 app-emulation/arnold 20170513: Amstrad CPC emulator
 app-emulation/dxvk-bin 1.9.2 1.9.3: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
-app-emulation/nvidia-container-toolkit 1.5.0: NVIDIA container runtime toolkit
 app-emulation/quickemu 3.11: Create and run optimised Windows, macOS and Linux desktop virtual machines
 app-emulation/spice-html5 0.2.2 0.3.0: Spice Javascript client
 app-emulation/unicorn 1.0.3: Unicorn CPU emulator framework
@@ -122,9 +124,9 @@ app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the c
 app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
-app-misc/watchexec 1.15.3 1.16.2 1.17.0 1.17.1: Executes commands in response to file modifications
+app-misc/watchexec 1.15.3 1.16.2 1.17.0 1.17.1 1.18.0: Executes commands in response to file modifications
 app-misc/wego 2.0_p20190211-r1: Wego is a weather client for the terminal
-app-misc/xplr 0.15.2 0.17.0: A hackable, minimal, fast TUI file explorer
+app-misc/xplr 0.15.2 0.17.0 0.17.1: A hackable, minimal, fast TUI file explorer
 app-mobilephone/flashlight 0.1.1-r2: It's a flashlight, what do you expect?
 app-mobilephone/mobile-config-firefox 2.1.0: Mobile and privacy friendly configuration for Firefox
 app-mobilephone/pinephone-modem-scripts 0.20.8: Modem scripts for the PinePhone
@@ -163,7 +165,7 @@ app-text/cmark-gfm 0.29.0.0: GitHub's fork of cmark
 app-text/epubgrep 0.5.1 0.6.0: Search tool for EPUB e-books
 app-text/katarakt 0.2: Simple PDF viewer
 app-text/klogg 20.12: A GUI application to browse and search through long and complex log files
-app-text/komikku 0.35.2-r1 0.36.0: An online/offline manga reader for GNOME
+app-text/komikku 0.35.2-r1 0.36.1: An online/offline manga reader for GNOME
 app-text/koodo-reader-bin 1.3.0: A modern ebook manager and reader with sync and backup capacities
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
 app-text/noweb 2.12: a literate programming tool, lighter than web
@@ -172,7 +174,7 @@ app-text/stdman 2019.08.27 2020.11.17 9999: Formatted C++ stdlib man pages (cppr
 app-text/tldr 2.0.0-r1: Python command line client for tldr pages
 app-vim/apkbuild-vim 20210911: vim plugin: edit and work with APKBUILD files
 app-vim/bracketed-paste 20180522: vim plugin: handles bracketed-paste-mode in vim (aka. automatic `:set paste`)
-app-vim/css-color 20210530 20211219: vim plugin: preview colours in source code while editing
+app-vim/css-color 20211219 20211229: vim plugin: preview colours in source code while editing
 app-vim/gemini-vim 20210923: vim plugin: syntax highlighting for Gemini Text, the text/gemini media type
 app-vim/nerdtree-git 20210818: vim plugin: display git status flags in NERDTree
 app-vim/nim-syntax 1.1_p20211111: vim plugin: nim language support
@@ -692,10 +694,11 @@ dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's Open
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
 dev-util/rpmlint 2.0.0 2.1.0: Tool for checking common errors in RPM packages
-dev-util/rust-analyzer 20211227 20220103 99999999: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer 20220110 20220117 99999999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/wakatime-cli 1.27.0 1.28.6: Command line interface to WakaTime used by all WakaTime plugins
+dev-util/xxd 8.2.4092: Hexdump utility from vim
 dev-vcs/askgit 0.4.9: Query git repositories with SQL
 dev-vcs/bit 1.1.1 1.1.2: Bit is a modern Git CLI
 dev-vcs/git-blame-someone-else 0_pre20180613: Blame someone else for your bad code.
@@ -705,7 +708,7 @@ dev-vcs/git-repo-updater 0.5.1-r1: Easily update multiple git repositories at on
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
 dev-vcs/gitqlient 1.4.3 9999: Multi-platform Git client written with Qt
 dev-vcs/gitui 0.18.0: Blazing fast terminal-ui for git
-dev-vcs/got 0.64 0.65: Portable version of the Game of Trees version control system
+dev-vcs/got 0.65 0.66: Portable version of the Game of Trees version control system
 dev-vcs/lazygit 0.31.3 0.31.4 9999: Lazygit, a simple terminal UI for git commands
 dev-vcs/lefthook 0.7.7: Fast and powerful Git hooks manager for any type of projects.
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
@@ -746,8 +749,10 @@ games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launch
 games-util/joycond 9999: Combine joy-cons using hid-nintendo
 games-util/legendary 0.20.22 0.20.24: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
+games-util/steamtinkerlaunch 8.0: Wrapper script for Steam custom launch options
 gnome-extra/iio-sensor-proxy 3.3: IIO sensors to D-Bus proxy
 gnome-extra/portfolio 0.9.10 0.9.12: A minimalist file manager for those who want to use Linux mobile devices
+gnome-extra/yad 10.1: Display GTK+ dialog boxes from command line or shell scripts
 gui-apps/azote 1.9.0 1.9.1 1.9.2 1.9.3 9999: wallpaper manager for wlroots compositors
 gui-apps/coreaction 4.2.0 9999: A side bar for showing widgets for C Suite
 gui-apps/coreapps-meta 4.2.0 9999: Meta package for coreapps
@@ -905,7 +910,7 @@ net-client/kristall 0.3-r1 9999: Visual cross-platform gemini browser
 net-client/lagrange 1.9.3 1.9.5: Desktop GUI client for browsing Geminispace
 net-client/offpunk 0.1: A command-line, text-based and offline-first Gemini browser
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
-net-client/telescope 0.5.2 0.6.1: w3m-like browser for Gemini
+net-client/telescope 0.6.1 0.7.1: w3m-like browser for Gemini
 net-dialup/atinout 0.9.1-r1: AT commands as input are sent to modem and responses given as output
 net-dialup/tio 1.32: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a permanent cache
@@ -922,7 +927,7 @@ net-im/kaidan 0.8.0: A simple, user-friendly Jabber/XMPP client for every device
 net-im/matterhorn-bin 50200.13.0: Terminal based Mattermost client
 net-im/nheko 0.9.0-r1 0.9.1: Native desktop client for Matrix using Qt
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
-net-im/whatsapp-for-linux 1.2.0 1.3.0 1.3.1: An unofficial WhatsApp desktop application for Linux
+net-im/whatsapp-for-linux 1.2.0 1.3.0 1.3.1 1.3.2: An unofficial WhatsApp desktop application for Linux
 net-irc/catgirl 1.9a 2.0: TLS-only terminal IRC client
 net-irc/srain 1.2.1 1.2.4: Modern, beautiful IRC client written in GTK+ 3
 net-libs/dpdk 21.11: Data Plane Development Kit libraries for fast userspace networking
@@ -1033,7 +1038,7 @@ sec-keys/openpgp-keys-aepaneshnikov 20211208: OpenPGP keys used by Alexander Epa
 sec-keys/openpgp-keys-russallbery 20090528: OpenPGP keys used by Russ Allbery (Eagle)
 sec-keys/openpgp-keys-skyjake 20211224: OpenPGP keys used by Jaakko Keranen
 sec-keys/signify-keys-gmid 1.7: Signify keys used to sign gmid releases
-sec-keys/signify-keys-telescope 0.6.1: Signify keys used to sign telescope releases
+sec-keys/signify-keys-telescope 0.6.1 0.7: Signify keys used to sign telescope releases
 sys-apps/0xFFFF 0.8 0.9: The 0pen Free Fiasco Firmware Flasher
 sys-apps/CommsPowerManagement 0.2.1: Python library providing various tools to work with Intel processors
 sys-apps/dool 0.8_pre20191010-r1 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
@@ -1122,7 +1127,7 @@ sys-kernel/uek-sources 5.4.17.2136.303.2: Unbreakable Enterprise Kernel (UEK) so
 sys-kernel/ummunotify 2: Userspace support for MMU notifications
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-kernel/xpmem 2.6.5_p20210809: Linux Cross-Memory Attach
-sys-libs/libnvidia-container 1.4.0: NVIDIA container runtime library
+sys-libs/libnvidia-container 1.4.0 1.7.0 1.8.0_rc1: NVIDIA container runtime library
 sys-libs/nss-tls 1.0 1.1 9999: A DNS over HTTPS resolver for glibc
 sys-libs/safeclib 3.6.0_p20210407-r2 3.6.0_p20210407-r3: safec libc extension with all C11 Annex K functions
 sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC security key
@@ -1131,7 +1136,7 @@ sys-power/amdgpu-fan 0.1.0-r1: Fan controller for AMD graphics cards running the
 sys-power/disable-c6 0_p20190603: disable the C6 state upon system boot, preventing Ryzen freezes
 sys-power/gtherm 0.0.3: A simple daemon to monitor thermal zones and cooling devices
 sys-power/gwe 0.15.3: NVIDIA settings alternative with overclocking, fan control, and information
-sys-process/btop 1.1.3: A monitor of resources
+sys-process/btop 1.2.0: A monitor of resources
 sys-process/gotop 4.1.2: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/nq 0.4: Unix command line queue utility
 sys-process/nvtop 1.2.2 9999: NVIDIA GPUs htop like monitoring tool
@@ -1148,7 +1153,6 @@ www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/jackett-bin 0.20.195-r1 9999: API Support for your favorite torrent trackers
 www-apps/twint 2.1.20-r2: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 20.9.0 9999: ultra fast, simple, secure & standards compliant web I/O
-www-apps/zola 0.15.2: A fast static site generator in a single binary with everything built-in
 www-client/badwolf 1.2.1 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/browsh 1.6.4_p1: A fully-modern text-based browser, rendering to TTY and browsers
 www-client/torbrowser-launcher 0.3.5-r1 0.3.5-r2 9999: A program to download, updated, and run the Tor Browser Bundle
@@ -1159,7 +1163,7 @@ www-misc/waldl 0.0.1_pre20211112: Browse and download wallpapers from wallhaven.
 www-servers/hinsightd 0.9.11_p20210831 9999: hinsightd a http/1.1 webserver with (hopefully) minimal goals
 www-servers/quark 9999: A small, GET-only static HTTP server
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
-x11-drivers/OpenTabletDriver-bin 0.5.3.3: Cross platform tablet driver (binary package)
+x11-drivers/OpenTabletDriver-bin 0.5.3.3 0.6.0.2: Cross platform tablet driver (binary package)
 x11-libs/gtk-fortran 3.24.18 3.24.30 4.1.0: A GTK+ binding to build Graphical User Interfaces in Fortran
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018-r1 9999: SDDM theme with Apple TV Aerial videos
@@ -1184,7 +1188,7 @@ x11-terms/dmd5620 1.2.0: GTK+ 3.0 implementation of an AT&T / Teletype DMD 5620 
 x11-terms/tabby-bin 1.0.146: A terminal for a more modern age
 x11-themes/arc-darkest-colors 0_pre20200818 0_pre20201112: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5
-x11-themes/bibata-xcursors 1.1.2: Opensource, compact, and material-designed cursor set
+x11-themes/bibata-xcursors 1.1.2-r1: Opensource, compact, and material-designed cursor set
 x11-themes/materia-theme 20210322: A Material Design theme for GNOME/GTK based desktop environments
 x11-themes/obsidian-icon-theme 4.15 9999: Obsidian Icon Theme is intuitive Faenza-like icon theme
 x11-themes/obsidian2-gtk-theme 2.19 9999: Obsidian Gnome Theme, based upon Adwaita-Maia dark skin

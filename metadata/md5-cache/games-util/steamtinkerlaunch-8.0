@@ -1,0 +1,13 @@
+DEFINED_PHASES=postinst postrm preinst prepare
+DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Wrapper script for Steam custom launch options
+EAPI=7
+HOMEPAGE=https://github.com/frostworx/steamtinkerlaunch
+INHERIT=optfeature xdg
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=app-arch/unzip || ( app-editors/vim-core dev-util/xxd ) x11-apps/xprop x11-apps/xrandr x11-apps/xwininfo x11-misc/xdotool >=gnome-extra/yad-7.2
+SLOT=0
+SRC_URI=https://github.com/frostworx/steamtinkerlaunch/archive/refs/tags/v8.0.tar.gz -> steamtinkerlaunch-8.0.tar.gz
+_eclasses_=optfeature	30ce9dec2b8943338c9b015bd32bac6a	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_md5_=0ff7e00ce1d2b5e3a3cdc39b188a1c1e

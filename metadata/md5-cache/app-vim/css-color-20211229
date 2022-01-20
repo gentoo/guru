@@ -8,6 +8,6 @@ KEYWORDS=~amd64 ~x86
 LICENSE=MIT
 RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
 SLOT=0
-SRC_URI=https://github.com/ap/vim-css-color/archive/7337c35588e9027b516f80f03c3b9621a271e168.tar.gz -> css-color-20210530.tar.gz
+SRC_URI=https://github.com/ap/vim-css-color/archive/8bf943681f92c81a8cca19762a1ccec8bc29098a.tar.gz -> css-color-20211229.tar.gz
 _eclasses_=vim-doc	e063cddf18e5d2f2cfb21388252579ec	vim-plugin	a7b5f19bc94a311ca1cf7127c8b84c41
-_md5_=1d4a2c7a76f226845f88e6b61bd5086e
+_md5_=8a92e3ff748a9b5bc9ae0fede57ec1ce

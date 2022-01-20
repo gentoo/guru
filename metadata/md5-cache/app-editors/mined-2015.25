@@ -1,0 +1,10 @@
+DEFINED_PHASES=compile install
+DESCRIPTION=A powerful text editor with extensive Unicode and CJK support
+EAPI=7
+HOMEPAGE=http://towo.net/mined/
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RESTRICT=test
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/project/mined/mined/mined%202015.25/mined-2015.25.tar.gz?ts=gAAAAABhfF-EKWvxGfwH7tpfR0NI8LV87Muimvh4jUigxZZZAD1fN8xgcbBPJc1TQ3f8djMFDbHXXz6rQZI4_qwwEsqakvBpqg%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fmined%2Ffiles%2Fmined%2Fmined%25202015.25%2Fmined-2015.25.tar.gz%2Fdownload -> mined-2015.25.tar.gz
+_md5_=038684e4fc3b3eb532406ebf1f459326

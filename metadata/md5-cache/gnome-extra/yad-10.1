@@ -1,0 +1,16 @@
+BDEPEND=>=app-portage/elt-patches-20170815 app-arch/xz-utils
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=>=x11-libs/gtk+-3.22.0:3= spell? ( app-text/gspell:0 ) webkit? ( net-libs/webkit-gtk:4 )
+DESCRIPTION=Display GTK+ dialog boxes from command line or shell scripts
+EAPI=8
+HOMEPAGE=https://github.com/v1cont/yad
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome2
+IUSE=nls spell webkit
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=>=x11-libs/gtk+-3.22.0:3= spell? ( app-text/gspell:0 ) webkit? ( net-libs/webkit-gtk:4 )
+SLOT=0
+SRC_URI=https://github.com/v1cont/yad/releases/download/v10.1/yad-10.1.tar.xz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	gnome.org	b5c48cddff1da36a205d924d722b28c9	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	gnome2-utils	239e7afa214b50012f83b8bb61de7555	xdg	6024fbc93167fad782e2032933654857	gnome2	397207e07bdf58b07ce295d0bc1049fe
+_md5_=1f4e6685b1d38381995a186e66bac87a
