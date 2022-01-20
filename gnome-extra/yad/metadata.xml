@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <description>new maintainers welcome</description>
+    <name>Peter Levine</name>
+    <email>plevine457@gmail.com</email>
+  </maintainer>
+  <upstream>
+    <maintainer>
+      <name>Victor Ananjevsky</name>
+      <email>victor@sanana.kiev.ua</email>
+    </maintainer>
+    <bugs-to>https://github.com/v1cont/yad/issues</bugs-to>
+    <remote-id type="github">v1cont/yad</remote-id>
+  </upstream>
+  <use>
+    <flag name="spell">Enable spell check support with <pkg>app-text/gspell</pkg></flag>
+  </use>
+</pkgmetadata>

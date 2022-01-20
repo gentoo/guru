@@ -3,6 +3,9 @@
 
 EAPI=8
 
+PYTHON_COMPAT=( python3_{8..10} )
+inherit python-any-r1
+
 MY_PN="Bibata_Cursor"
 
 DESCRIPTION="Opensource, compact, and material-designed cursor set"
@@ -18,11 +21,23 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="x11-libs/libXcursor"
 BDEPEND="
-	dev-python/clickgen
+	${RDEPEND}
+	${PYTHON_DEPS}
+	$(python_gen_any_dep '
+		dev-python/clickgen[${PYTHON_USEDEP}]
+	')
 	app-arch/unzip
 "
 
 S="${WORKDIR}/${MY_PN}-${PV}"
+
+python_check_deps() {
+	has_version -b "dev-python/clickgen[${PYTHON_USEDEP}]"
+}
+
+pkg_setup() {
+	python-any-r1_pkg_setup
+}
 
 src_unpack() {
 	unpack "${P}.tar.gz"

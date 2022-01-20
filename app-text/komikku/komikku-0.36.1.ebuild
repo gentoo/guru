@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
-inherit python-single-r1 meson gnome2-utils xdg
+inherit python-single-r1 meson gnome2-utils virtualx xdg
 
 MY_PN="${PN^}"
 MY_P="${MY_PN}-v${PV}"
@@ -56,8 +56,30 @@ BDEPEND="test? (
 	')
 )"
 
+EPYTEST_DESELECT=(
+	'tests/servers/test_dankefurslesen.py::test_dankefurslesen[get_manga_data]'
+	'tests/servers/test_dankefurslesen.py::test_dankefurslesen[get_chapter_data]'
+	'tests/servers/test_dankefurslesen.py::test_dankefurslesen[get_page_image]'
+	tests/servers/test_dynasty.py
+	tests/servers/test_genkan.py::test_edelgardescans
+	tests/servers/test_genkan.py::test_hatigarmscans
+	'tests/servers/test_japscan.py::test_japscan[get_page_image]'
+	tests/servers/test_leomanga.py
+	'tests/servers/test_mangahub.py::test_mangahub[get_page_image]'
+	tests/servers/test_mangakawaii.py
+	tests/servers/test_mangalib.py
+	tests/servers/test_mangasin.py
+	tests/servers/test_nhentai.py
+	'tests/servers/test_romance24h.py::test_romance24h[get_page_image]'
+	tests/servers/test_scanmanga.py
+	tests/servers/test_scanonepiece.py
+	'tests/servers/test_wakascan.py::test_wakascan[get_manga_data]'
+	'tests/servers/test_wakascan.py::test_wakascan[get_chapter_data]'
+	'tests/servers/test_wakascan.py::test_wakascan[get_page_image]'
+)
+
 src_test() {
-	epytest
+	virtx epytest
 }
 
 src_install() {

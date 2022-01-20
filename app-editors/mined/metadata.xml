@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>alex@alexsdigital.rodeo</email>
+		<name>Alex Holcomb</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>http://towo.net/mined/</bugs-to>
+	</upstream>
+	<longdescription>
+	Mined is a flexible terminal-based text editor, designed to be easy to use while still being lightweight.
+	</longdescription>
+</pkgmetadata>
