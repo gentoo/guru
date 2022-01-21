@@ -22,6 +22,7 @@ dev-python/taskflow
 app-admin/glance
 sys-cluster/cinder
 sys-cluster/nova
+dev-python/pypowervm
 
 # Unavailable dep <dev-python/prettytable-0.8.0
 dev-python/ldappool
