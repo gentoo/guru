@@ -50,6 +50,10 @@ app-misc/far2l:sftp - SFTP support in NetRocks
 app-misc/far2l:ssl - FTPS support in NetRocks
 app-misc/far2l:webdav - WebDav support in NetRocks
 app-misc/far2l:wxwidgets - GUI backend support
+app-misc/fastfetch:pci - Enables reading GPU via sys-apps/pciutils
+app-misc/fastfetch:vulkan - Enables reading GPU via media-libs/vulkan-loader
+app-misc/fastfetch:xfce - Enables support for XFCE config
+app-misc/fastfetch:xrandr - Enables support for Xrandr
 app-misc/mat2:sandbox - Enable sandboxing functionality through sys-apps/bubblewrap
 app-misc/mat2:video - Use media-video/ffmpeg for video support
 app-misc/ntfy:dbus - Support for desktop notifications
@@ -150,7 +154,6 @@ games-board/fairy-stockfish:largeboards - Support for board sizes more than 8x8 
 games-board/fairy-stockfish:nnue - Embed and enable NNUE support (built-in for Xiangqi and Janggi, executable file is larger)
 games-emulation/citra:cubeb - Enables the cubeb audio backend
 games-emulation/citra:hle-sound - Enable HLE sound via FFmpeg audio (AAC) decoder
-games-emulation/citra:system-libfmt - Use system libfmt
 games-emulation/citra:telemetry - Enable web services (telemetry, etc.)
 games-emulation/citra:video - Enable FFmpeg video dumper
 games-emulation/duckstation:discord - Enable Discord Rich Presence to show the current game on Discord

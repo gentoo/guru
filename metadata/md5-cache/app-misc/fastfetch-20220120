@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=X? ( x11-libs/libX11 ) gnome? ( dev-libs/glib gnome-base/dconf ) pci? ( sys-apps/pciutils ) vulkan? ( media-libs/vulkan-loader ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xfce? ( xfce-base/xfconf ) xrandr? ( x11-libs/libXrandr )
+DESCRIPTION=Like neofetch but faster
+EAPI=8
+HOMEPAGE=https://github.com/LinusDierheimer/fastfetch
+INHERIT=bash-completion-r1 cmake
+IUSE=X gnome pci vulkan wayland xcb xfce xrandr
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=X? ( x11-libs/libX11 ) gnome? ( dev-libs/glib gnome-base/dconf ) pci? ( sys-apps/pciutils ) vulkan? ( media-libs/vulkan-loader ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xfce? ( xfce-base/xfconf ) xrandr? ( x11-libs/libXrandr )
+REQUIRED_USE=xrandr? ( X )
+SLOT=0
+SRC_URI=https://github.com/LinusDierheimer/fastfetch/archive/e30a64e97e0bf1c6bf68aa6f54a25c5995c2fdd2.tar.gz -> fastfetch-20220120.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	bash-completion-r1	d3a60385655d9b402be765a6de333245	flag-o-matic	d5e1306543bc457213f68bb18f830d14	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
+_md5_=ed6760348d82db24e7aef48652df621a

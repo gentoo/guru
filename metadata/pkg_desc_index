@@ -29,7 +29,9 @@ app-accessibility/rhvoice 1.4.2-r1 1.6.0: TTS engine with extended languages sup
 app-accessibility/speakup-tools 20121017: Tools to customize speakup module
 app-admin/akita 0.1.4: An HTTP log monitoring tool for your terminal
 app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
+app-admin/aws-vault 6.4.0: Securely store and access AWS credentials in development environments
 app-admin/awscli-bin 2.3.2-r1: Universal Command Line Interface for Amazon Web Services version 2
+app-admin/chamber 2.10.7: Managing secrets in AWS SSM Parameter Store
 app-admin/chezmoi 2.6.1 2.7.2 2.9.0: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.12.2 0.12.3: A system rescue cd or usbstick for desktop and server based on gentoo
@@ -100,6 +102,7 @@ app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best
 app-misc/doublecmd-bin 1.0.1 1.0.2: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
+app-misc/fastfetch 20220120: Like neofetch but faster
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -117,7 +120,7 @@ app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when com
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/pup 0.4.0_p1: Parsing HTML at the command line
 app-misc/rememberthemilk 1.3.11-r1: Freemium simple to-do tasks manager
-app-misc/ssmtool 0.5.3: A simple sentence mining tool written in PyQt5
+app-misc/ssmtool 0.6.2: A simple sentence mining tool written in PyQt5
 app-misc/tai 0.0.4 0.0.5: tai (Terminal Ascii Image) tool to convert images to ascii
 app-misc/tealdeer 1.5.0: A very fast implementation of tldr in Rust.
 app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the command-line
@@ -362,8 +365,10 @@ dev-perl/HTTP-Tiny-Multipart 0.08: Add post_multipart to HTTP::Tiny
 dev-perl/List-Compare 0.55: Compare elements of two or more lists
 dev-php/pecl-inotify 3.0.0: Inotify binding for PHP
 dev-python/DAWG-Python 0.7.2: Pure-python reader for DAWGs (DAFSAs) created by dawgdic C++ library.
+dev-python/EbookLib 0.17.1: Ebook library which can handle EPUB2/EPUB3 and Kindle format
 dev-python/MutatorMath 3.0.1: A library for piecewise linear interpolation in multiple dimensions
 dev-python/Pyro5 5.13.1: Distributed object middleware for Python (RPC)
+dev-python/SLPP 1.2.3: Simple lua-python parser
 dev-python/SQLAlchemy-Utils 0.37.9: Various utility functions and datatypes for SQLAlchemy
 dev-python/WSME 0.11.0: Simplify the writing of REST APIs, and extend them with additional protocols
 dev-python/XenAPI 2.14-r1: Xen API SDK, for communication with Citrix XenServer and Xen Cloud Platform
@@ -486,6 +491,7 @@ dev-python/md-environ 0.1.0: Syntax which allows for inclusion of contents of ot
 dev-python/microversion-parse 1.0.1: A simple parser for OpenStack microversion headers
 dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your output
 dev-python/mnemonic 0.19: Reference implementation of BIP-0039 for generating deterministic keys
+dev-python/mobi 0.3.2: unpack unencrypted mobi files
 dev-python/monotonic 1.6: An implementation of time.monotonic() for Python 2 & < 3.3
 dev-python/ncclient 0.6.12: Python library for NETCONF clients
 dev-python/neutron-lib 2.15.0: Neutron shared routines and utilities.
@@ -608,6 +614,7 @@ dev-python/schedule 1.1.0: Python job scheduling for humans
 dev-python/scramp 1.4.1: A pure-Python implementation of the SCRAM authentication protocol.
 dev-python/scrapy 2.5.1: A high-level Web Crawling and Web Scraping framework
 dev-python/sdnotify 0.3.2: Python implementation of the systemd sd_notify protocol
+dev-python/sentence_splitter 1.4: Sentence splitter using heuristic algorithm by Philipp Koehn and Josh Schroeder
 dev-python/simplemma 0.3.0 0.5.0: A simple multilingual lemmatizer for Python.
 dev-python/skia-pathops 0.6.0_p2 0.7.2: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
@@ -712,7 +719,7 @@ dev-vcs/got 0.65 0.66: Portable version of the Game of Trees version control sys
 dev-vcs/lazygit 0.31.3 0.31.4 9999: Lazygit, a simple terminal UI for git commands
 dev-vcs/lefthook 0.7.7: Fast and powerful Git hooks manager for any type of projects.
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
-games-action/blackvoxel 2.42 9999: Blackvoxel Video Game
+games-action/blackvoxel 2.50 9999: Blackvoxel Video Game
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
 games-action/technic-launcher 4.625: Minecraft launcher for community-made modpacks on the Technic Platform
@@ -848,7 +855,7 @@ media-gfx/superslicer 2.2.53.4 2.3.56.9-r1 2.3.57.7: A mesh slicer to generated 
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-gfx/ttfautohint 1.8.3 1.8.4: A library for automated hinting of truetype fonts
 media-gfx/ufolint 1.2.0: UFO source format linter
-media-libs/alsa-ucm-pinephone 20220102: ALSA ucm configuration files for PinePhone bases on the Manjaro ARM repo
+media-libs/alsa-ucm-pinephone 1.2.6.3: ALSA ucm configuration files for the PinePhone (Pro)
 media-libs/alvr 15.2.1_p20210604 16.0.0: ALVR is an open source remote VR display for the Oculus Go/Quest
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.4.2: AMD Open Source Driver for Vulkan
 media-libs/fcft 2.3.3 2.4.0 2.4.1 2.4.2 2.4.3 2.4.4 2.4.5 2.4.6 2.5.0 2.5.1 9999: A simple library for font loading and glyph rasterization
