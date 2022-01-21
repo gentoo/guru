@@ -6,8 +6,6 @@ EAPI=8
 inherit bash-completion-r1 cmake
 
 COMMIT="e30a64e97e0bf1c6bf68aa6f54a25c5995c2fdd2"
-VERSION_MAJOR="554"
-VERSION_MINOR="cd4739e"
 
 DESCRIPTION="Like neofetch but faster"
 HOMEPAGE="https://github.com/LinusDierheimer/fastfetch"
@@ -58,10 +56,13 @@ src_configure() {
 	use xfce || disable_check XFCONF libxfconf
 	use xrandr || disable_check XRANDR xrandr
 
+	VERSION_MAJOR="$(ver_cut 1)"
+	VERSION_MINOR="$(ver_cut 2)"
+
 	# version comes from git, fake it
 	sed -i -e "
-		s/\(PROJECT_VERSION\) .*$/\1 "r${VERSION_MAJOR}.${VERSION_MINOR}")/
-		s/\(PROJECT_VERSION_MAJOR\) .*$/\1 "${VERSION_MAJOR}")/" CMakeLists.txt || die "Cannot patch version"
+		s/\(PROJECT_VERSION\) .*$/\1 \"r${VERSION_MAJOR}.${VERSION_MINOR}\")/
+		s/\(PROJECT_VERSION_MAJOR\) .*$/\1 \"${VERSION_MAJOR}\")/" CMakeLists.txt || die "Cannot patch version"
 
 	cmake_src_configure
 }
