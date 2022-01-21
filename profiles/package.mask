@@ -16,9 +16,37 @@
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-01-21)
 # Unavailable dep <dev-python/prettytable-0.8.0
 dev-python/automaton
+# requires dev-python/automaton
+dev-python/taskflow
+# requires dev-python/taskflow
+app-admin/glance
+sys-cluster/cinder
+sys-cluster/nova
+dev-python/pypowervm
+
+# Unavailable dep <dev-python/prettytable-0.8.0
 dev-python/ldappool
+# requires dev-python/ldappool
+sys-auth/keystone
+
+# Unavailable dep <dev-python/prettytable-0.8.0
 dev-python/python-manilaclient
+# requires dev-python/python-manilaclient
+sys-cluster/heat
+
 # Unavailable dep dev-libs/boost[threads]
 net-p2p/monero
+
 # Unavailable dep sys-fabric/ofed
 sys-cluster/portals4
+# requires sys-cluster/portals4
+sys-cluster/SOS
+sys-cluster/extrae
+# requires sys-cluster/extrae
+sys-cluster/mcxx
+sys-cluster/nanos6
+sys-cluster/nanox
+sys-cluster/OpenHPC-meta
+sys-cluster/paraver-kernel
+sys-cluster/spectral
+sys-cluster/wxparaver
