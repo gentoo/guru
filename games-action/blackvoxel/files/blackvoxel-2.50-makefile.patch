@@ -1,18 +1,8 @@
-From a68c7c2d10bed88a5148828b6f8f02175af696ca Mon Sep 17 00:00:00 2001
-From: tastytea <tastytea@tastytea.de>
-Date: Mon, 3 May 2021 21:25:36 +0200
-Subject: [PATCH] Don't strip files.
-
----
- Makefile                     | 10 +++++-----
- src/sc_Squirrel3/sq/Makefile |  4 ++--
- 2 files changed, 7 insertions(+), 7 deletions(-)
-
 diff --git a/Makefile b/Makefile
-index 62c50cb..57f27d4 100644
+index 3e5933a..840d26a 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -19,7 +19,7 @@ OBJ= $(SRC:src/%.cpp=obj/%.o)
+@@ -56,7 +56,7 @@ OBJ= $(SRC:src/%.cpp=obj/%.o)
  ifeq ($(OS),Windows_NT)
    CPU_BITS=32
    CXXFLAGS+= -O3 -c -fmessage-length=0 -march=i686
@@ -21,17 +11,17 @@ index 62c50cb..57f27d4 100644
  else
    # Unix like operating systems
    CPU_BITS= $(shell getconf LONG_BIT)
-@@ -28,18 +28,18 @@ else
+@@ -65,18 +65,18 @@ else
  
    ifeq ($(KERNELNAME),Linux)
      CXXFLAGS+= -O3 -c -fmessage-length=0
--    LDFLAGS+=-s -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
+-    LDFLAGS+=-s -zrelro -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
 +    LDFLAGS+=-L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
    else ifeq ($(KERNELNAME), FreeBSD)
      # To be done...
      CXXFLAGS+= -O3 -c -fmessage-length=0
 -    LDFLAGS+=-s -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
-+    LDFLAGS+= -L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
++    LDFLAGS+=-L"src/sc_Squirrel3/lib" -lGLU -lSDL -lGLEW -lGL -lsquirrel -lsqstdlib
    else ifeq ($(KERNELNAME), Darwin)
      CXXFLAGS+= -O3 -c -fmessage-length=0
 -    LDFLAGS+=-s -L"src/sc_Squirrel3/lib" -L"/usr/local/Cellar/glew" -L"/usr/local/Cellar/sdl" -I"/usr/local/Cellar/glew" -I"/usr/local/Cellar/sdl" -framework Cocoa -framework OpenGL -lSDLmain -lSDL -lGLEW -lsquirrel -lsqstdlib
@@ -44,6 +34,76 @@ index 62c50cb..57f27d4 100644
    endif
  endif
  
+@@ -94,11 +94,11 @@ installable: BV_DATA_LOCATION_DIR=$(BV_DATA_INSTALL_DIR)
+ installable: all
+ 
+ squirrel: 
+-	cd src/sc_Squirrel3 ; $(MAKE) sq$(CPU_BITS)
++	$(MAKE) -C src/sc_Squirrel3  sq$(CPU_BITS)
+ 
+ clean:
+ 	@rm -rf obj
+-	@cd src/sc_Squirrel3 ; $(MAKE) clean
++	@$(MAKE) -C src/sc_Squirrel3  clean
+ 	@rm -f $(PROGNAME)
+ 
+ mrproper: clean
+diff --git a/src/sc_Squirrel3/Makefile b/src/sc_Squirrel3/Makefile
+index 8bc76c8..fb396eb 100644
+--- a/src/sc_Squirrel3/Makefile
++++ b/src/sc_Squirrel3/Makefile
+@@ -2,33 +2,33 @@
+ SQUIRREL=.
+ 
+ sq32:
+-	cd squirrel; $(MAKE) 
+-	cd sqstdlib; $(MAKE) 
+-	cd sq; $(MAKE) 
++	$(MAKE) -C squirrel 
++	$(MAKE) -C sqstdlib 
++	$(MAKE) -C sq 
+ 
+ sqprof:
+-	cd squirrel; $(MAKE) sqprof
+-	cd sqstdlib; $(MAKE) sqprof
+-	cd sq; $(MAKE) sqprof
++	$(MAKE) -C squirrel sqprof
++	$(MAKE) -C sqstdlib sqprof
++	$(MAKE) -C sq sqprof
+ 
+ sq64:
+-	cd squirrel; $(MAKE) sq64
+-	cd sqstdlib; $(MAKE) sq64
+-	cd sq; $(MAKE) sq64
++	$(MAKE) -C squirrel sq64
++	$(MAKE) -C sqstdlib sq64
++	$(MAKE) -C sq sq64
+ 	
+ sq64d:
+-	cd squirrel; $(MAKE) sq64d
+-	cd sqstdlib; $(MAKE) sq64d
+-	cd sq; $(MAKE) sq64d
++	$(MAKE) -C squirrel sq64d
++	$(MAKE) -C sqstdlib sq64d
++	$(MAKE) -C sq sq64d
+ 
+ .PHONY: clean mrproper
+ 
+ clean:
+-	cd squirrel; $(MAKE) clean
+-	cd sqstdlib; $(MAKE) clean
+-	cd sq; $(MAKE) clean
++	$(MAKE) -C squirrel clean
++	$(MAKE) -C sqstdlib clean
++	$(MAKE) -C sq clean
+ 
+ mrproper:
+-	cd squirrel; $(MAKE) mrproper
+-	cd sqstdlib; $(MAKE) mrproper
+-	cd sq; $(MAKE) mrproper
++	$(MAKE) -C squirrel mrproper
++	$(MAKE) -C sqstdlib mrproper
++	$(MAKE) -C sq mrproper
 diff --git a/src/sc_Squirrel3/sq/Makefile b/src/sc_Squirrel3/sq/Makefile
 index 08fb2ef..8cc1cbc 100644
 --- a/src/sc_Squirrel3/sq/Makefile
@@ -64,6 +124,3 @@ index 08fb2ef..8cc1cbc 100644
  	
  sq64d:
  	$(CXX) -O0 -g3 -m64 -fno-exceptions -fno-rtti -D_SQ64 -o $(OUT) $(SRCS) $(INCZ) $(LIBZ) $(LIB)
--- 
-2.26.3
-
