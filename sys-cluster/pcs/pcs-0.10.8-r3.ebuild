@@ -39,7 +39,8 @@ RDEPEND="
 	')
 	dev-libs/openssl
 	>=sys-cluster/corosync-3.0
-	>=sys-cluster/pacemaker-2.0
+	>=sys-cluster/pacemaker-2.0.0
+	<sys-cluster/pacemaker-2.1.0
 	sys-libs/pam
 	sys-process/psmisc
 "
