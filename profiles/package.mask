@@ -12,3 +12,13 @@
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2022-01-09)
 # Depends on masked libhandy 1.5.0
 >=app-text/komikku-0.36.0
+
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-01-21)
+# Unavailable dep <dev-python/prettytable-0.8.0
+dev-python/automaton
+dev-python/ldappool
+dev-python/python-manilaclient
+# Unavailable dep dev-libs/boost[threads]
+net-p2p/monero
+# Unavailable dep sys-fabric/ofed
+sys-cluster/portals4

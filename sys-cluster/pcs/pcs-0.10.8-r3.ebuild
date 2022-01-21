@@ -5,7 +5,7 @@ EAPI=7
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 PYTHON_COMPAT=( python3_{8..10} )
-USE_RUBY="ruby26"
+USE_RUBY="ruby26 ruby27"
 
 inherit python-single-r1 ruby-ng systemd
 
@@ -39,7 +39,8 @@ RDEPEND="
 	')
 	dev-libs/openssl
 	>=sys-cluster/corosync-3.0
-	>=sys-cluster/pacemaker-2.0
+	>=sys-cluster/pacemaker-2.0.0
+	<sys-cluster/pacemaker-2.1.0
 	sys-libs/pam
 	sys-process/psmisc
 "
