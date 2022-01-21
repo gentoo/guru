@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,23 +22,23 @@ RDEPEND="
 	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
 	dev-python/flask[${PYTHON_USEDEP}]
+	dev-python/flask-sqlalchemy[${PYTHON_USEDEP}]
 	dev-python/bidict[${PYTHON_USEDEP}]
 	dev-python/pystardict[${PYTHON_USEDEP}]
 	dev-python/pymorphy2[${PYTHON_USEDEP}]
 	dev-python/pymorphy2-dicts-ru[${PYTHON_USEDEP}]
 	dev-python/playsound[${PYTHON_USEDEP}]
+	dev-python/charset_normalizer[${PYTHON_USEDEP}]
+	dev-python/EbookLib[${PYTHON_USEDEP}]
+	dev-python/sentence_splitter[${PYTHON_USEDEP}]
+	dev-python/mobi[${PYTHON_USEDEP}]
+	dev-python/SLPP[${PYTHON_USEDEP}]
 "
 
 python_prepare_all () {
-	# sed to remove the data_files option, which are necessary to include
-	# data files in the packaged version, but will install files into
-	# /usr/data if not removed before converting it to setup.py
-	sed -i -e '/options\.data_files/,+4d' setup.cfg || die
 	distutils-r1_python_prepare_all
 }
 
 python_install() {
 	distutils-r1_python_install
-	newicon icon.png ssmtool.png
-	domenu ssmtool.desktop
 }

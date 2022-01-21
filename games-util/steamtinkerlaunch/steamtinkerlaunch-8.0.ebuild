@@ -32,7 +32,7 @@ src_prepare() {
 	sed -e 's|PREFIX := /usr|PREFIX := $(DESTDIR)/usr|g' \
 		-e "s|share/doc/${PN}|share/doc/${PF}|g" \
 		-e '/sed "s:^PREFIX/d' \
-		-i Makefile
+		-i Makefile || die
 }
 
 pkg_postinst() {

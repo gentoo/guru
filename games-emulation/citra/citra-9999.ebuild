@@ -8,12 +8,17 @@ inherit cmake git-r3 xdg
 DESCRIPTION="A Nintendo 3DS Emulator"
 HOMEPAGE="https://citra-emu.org"
 EGIT_REPO_URI="https://github.com/citra-emu/citra"
-EGIT_SUBMODULES=( "*" "-boost" "-catch" "-cryptopp" "-enet" "-inih" "-libressl" "-externals/dynarmic/externals/xbyak" "-zstd" )
+EGIT_SUBMODULES=( '*'
+	'-boost' '-catch' '-cryptopp' '-cubeb' '-enet'
+	'-fmt' '-inih' '-libressl' '-libusb' '-zstd'
+	'-externals/dynarmic/externals/fmt'
+	'-externals/dynarmic/externals/xbyak'
+)
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="cubeb +hle-sound nls +qt5 sdl system-libfmt +telemetry video"
+IUSE="cubeb +hle-sound nls +qt5 sdl +telemetry video"
 
 DEPEND="
 	cubeb? ( media-libs/cubeb )
@@ -29,22 +34,21 @@ DEPEND="
 		media-libs/libsdl2
 		>=dev-libs/inih-52
 	)
-	system-libfmt? ( <=dev-libs/libfmt-8 )
 	video? ( media-video/ffmpeg )
 	>=app-arch/zstd-1.4.8
+	>=dev-libs/libfmt-8
 	>=dev-libs/openssl-1.1
 	dev-cpp/catch:0
+	dev-cpp/robin-map
 	dev-libs/boost:=
 	dev-libs/crypto++
 	net-libs/enet:1.3
+	virtual/libusb:1
 "
 RDEPEND="${DEPEND}"
 REQUIRED_USE="|| ( qt5 sdl )"
 
 src_unpack() {
-	if use system-libfmt; then
-		EGIT_SUBMODULES+=( "-fmt" "-externals/dynarmic/externals/fmt" )
-	fi
 	git-r3_src_unpack
 
 	cp -a "${S}"/externals/xbyak "${S}"/externals/dynarmic/externals/ || die
@@ -54,6 +58,11 @@ src_unpack() {
 }
 
 src_prepare() {
+	# Dynarmic: ensure those are unbundled
+	for ext in fmt catch robin-map; do
+		rm -rf externals/dynarmic/externals/${ext} || die
+	done
+
 	# Do not care about submodules wanted one are already fetched
 	sed -i -e '/check_submodules_present()/d' CMakeLists.txt || die
 
@@ -80,12 +89,12 @@ src_prepare() {
 		src/{citra,citra_qt,dedicated_room,tests}/CMakeLists.txt || die
 	sed -i -e '1ifind_package(OpenSSL 1.1)' src/{citra,citra_qt,dedicated_room,tests}/CMakeLists.txt || die
 
-	if use system-libfmt; then # Unbundle libfmt
-		sed -i -e '/fmt/d' externals/CMakeLists.txt || die
-		sed -i -e 's/fmt/&::&/' -e '1ifind_package(fmt)' \
-			src/{core,citra,citra_qt,dedicated_room,input_common,tests,video_core}/CMakeLists.txt || die
-		sed -i -e '1ifind_package(fmt)' externals/dynarmic/src/CMakeLists.txt || die
-	fi
+	# Unbundle libfmt
+	sed -i -e '/fmt/d' externals/CMakeLists.txt || die
+	sed -i -e 's/fmt/&::&/' -e '1ifind_package(fmt)' \
+		src/{core,citra,citra_qt,dedicated_room,input_common,tests,video_core}/CMakeLists.txt || die
+	sed -i -e '1ifind_package(fmt)' externals/dynarmic/src/CMakeLists.txt || die
+	sed -i -e '/^#pragma once$/a#include <algorithm>' src/common/logging/log.h || die
 
 	# Unbundle zstd
 	sed -i -e 's:libzstd_static:${ZSTD_LIBRARIES}:' \
