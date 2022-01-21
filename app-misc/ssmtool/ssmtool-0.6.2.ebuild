@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 DISTUTILS_USE_SETUPTOOLS=pyproject.toml
-inherit distutils-r1 desktop
+inherit distutils-r1
 
 DESCRIPTION="A simple sentence mining tool written in PyQt5"
 HOMEPAGE="https://github.com/FreeLanguageTools/ssmtool/ https://pypi.org/project/ssmtool/"
@@ -34,11 +34,3 @@ RDEPEND="
 	dev-python/mobi[${PYTHON_USEDEP}]
 	dev-python/SLPP[${PYTHON_USEDEP}]
 "
-
-python_prepare_all () {
-	distutils-r1_python_prepare_all
-}
-
-python_install() {
-	distutils-r1_python_install
-}
