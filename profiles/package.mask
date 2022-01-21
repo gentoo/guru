@@ -18,6 +18,10 @@
 dev-python/automaton
 # requires dev-python/automaton
 dev-python/taskflow
+# requires dev-python/taskflow
+app-admin/glance
+sys-cluster/cinder
+sys-cluster/nova
 
 # Unavailable dep <dev-python/prettytable-0.8.0
 dev-python/ldappool
@@ -36,3 +40,4 @@ net-p2p/monero
 sys-cluster/portals4
 # requires sys-cluster/portals4
 sys-cluster/SOS
+sys-cluster/extrae
