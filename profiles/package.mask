@@ -41,3 +41,11 @@ sys-cluster/portals4
 # requires sys-cluster/portals4
 sys-cluster/SOS
 sys-cluster/extrae
+# requires sys-cluster/extrae
+sys-cluster/mcxx
+sys-cluster/nanos6
+sys-cluster/nanox
+sys-cluster/OpenHPC-meta
+sys-cluster/paraver-kernel
+sys-cluster/spectral
+sys-cluster/wxparaver
