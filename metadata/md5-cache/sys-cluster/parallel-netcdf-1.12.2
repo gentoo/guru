@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen dev-texlive/texlive-latex ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 fortran? ( virtual/fortran )
+BDEPEND=doc? ( app-doc/doxygen dev-texlive/texlive-latex ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 fortran? ( virtual/fortran )
 DEFINED_PHASES=configure install prepare setup
 DEPEND=netcdf? ( sci-libs/netcdf[mpi] ) virtual/mpi fortran? ( virtual/fortran )
 DESCRIPTION=Parallel extension to netCDF
@@ -11,5 +11,5 @@ LICENSE=UCAR-Unidata
 RDEPEND=netcdf? ( sci-libs/netcdf[mpi] ) virtual/mpi fortran? ( virtual/fortran )
 SLOT=0
 SRC_URI=http://cucis.ece.northwestern.edu/projects/PnetCDF/Release/pnetcdf-1.12.2.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a
 _md5_=ee7b93079d10a7e5eb2be768db164eff
