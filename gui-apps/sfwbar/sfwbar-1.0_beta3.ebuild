@@ -17,7 +17,8 @@ IUSE=""
 DEPEND="
 	>=x11-libs/gtk+-3.22.0:3[introspection,wayland]
 	gui-libs/gtk-layer-shell
-	dev-libs/libucl
+	dev-libs/json-c
+	dev-util/wayland-scanner
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
