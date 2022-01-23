@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm prepare
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=Dark theme for Vim
+EAPI=7
+HOMEPAGE=https://draculatheme.com/vim
+INHERIT=vim-plugin
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+SLOT=0
+SRC_URI=https://github.com/dracula/vim/archive/refs/tags/v2.0.0.tar.gz -> dracula-2.0.0-vim.tar.gz
+_eclasses_=vim-doc	e063cddf18e5d2f2cfb21388252579ec	vim-plugin	a7b5f19bc94a311ca1cf7127c8b84c41
+_md5_=02073bbbf6e22ba4b3e99d487418808f

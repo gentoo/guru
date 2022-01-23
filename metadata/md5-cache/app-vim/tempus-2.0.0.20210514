@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=Accessible themes for Vim
+EAPI=7
+HOMEPAGE=https://protesilaos.com/tempus-themes/
+INHERIT=vim-plugin
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+SLOT=0
+SRC_URI=https://gitlab.com/protesilaos/tempus-themes-vim/-/archive/b720ee2d4c5588b5a27bb3544d3ded5ee1acab45/tempus-themes-vim-b720ee2d4c5588b5a27bb3544d3ded5ee1acab45.tar.gz
+_eclasses_=vim-doc	e063cddf18e5d2f2cfb21388252579ec	vim-plugin	a7b5f19bc94a311ca1cf7127c8b84c41
+_md5_=7fc176a2790ca7f62d02e2723e0d5316

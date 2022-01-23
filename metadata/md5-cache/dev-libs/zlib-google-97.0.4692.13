@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install
+DEPEND=sys-libs/zlib
+DESCRIPTION=google zlib extras
+EAPI=8
+HOMEPAGE=https://chromium.googlesource.com/chromium/src/+/refs/heads/main/third_party/zlib/google
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=sys-libs/zlib
+SLOT=0
+SRC_URI=https://chromium.googlesource.com/chromium/src/+archive/refs/tags/97.0.4692.13/third_party/zlib.tar.gz -> zlib-google-97.0.4692.13.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
+_md5_=3081532141506ad4e6789e4f0116a60b

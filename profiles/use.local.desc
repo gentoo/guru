@@ -686,7 +686,6 @@ sys-cluster/portals4:me-triggered - Enable extended (non-standard) triggered ope
 sys-cluster/portals4:pmi - Enable PMI support
 sys-cluster/portals4:ppe - Enable process-offload engine for Portals. Experimental
 sys-cluster/portals4:reliable-udp - Use reliable UDP for remote communication
-sys-cluster/portals4:transport-ib - Use IB for remote communication
 sys-cluster/portals4:transport-shmem - Use Shared memory for on-node communication. This is currently experimental and should be avoided
 sys-cluster/portals4:transport-udp - Use UDP for remote communication
 sys-cluster/portals4:unordered-matching - Enable unordered (hashed) match list searching. Experimental
