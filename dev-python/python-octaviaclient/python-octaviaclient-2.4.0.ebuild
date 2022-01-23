@@ -35,7 +35,6 @@ DEPEND="
 	test? (
 		>=dev-python/requests-mock-1.2.0[${PYTHON_USEDEP}]
 		>=dev-python/pygments-2.2.0[${PYTHON_USEDEP}]
-		>=dev-python/bandit-1.1.0[${PYTHON_USEDEP}]
 		>=dev-python/subunit-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]

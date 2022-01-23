@@ -150,7 +150,6 @@ DEPEND="
 		>=dev-python/testresources-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
-		>=dev-python/bandit-1.1.0[${PYTHON_USEDEP}]
 		>=dev-python/gabbi-1.35.0[${PYTHON_USEDEP}]
 		>=dev-python/wsgi_intercept-1.7.0[${PYTHON_USEDEP}]
 		>=dev-python/oslo-vmware-3.6.0[${PYTHON_USEDEP}]

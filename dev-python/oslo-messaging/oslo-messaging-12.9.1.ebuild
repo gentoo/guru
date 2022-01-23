@@ -51,7 +51,6 @@ DEPEND="
 		>=dev-python/pifpaf-2.2.0[${PYTHON_USEDEP}]
 		>=dev-python/confluent-kafka-1.3.0[${PYTHON_USEDEP}]
 		>=dev-python/pyngus-2.2.0[${PYTHON_USEDEP}]
-		>=dev-python/bandit-1.6.0[${PYTHON_USEDEP}]
 		>=dev-python/eventlet-0.23.0[${PYTHON_USEDEP}]
 		>=dev-python/greenlet-0.4.15[${PYTHON_USEDEP}]
 	)

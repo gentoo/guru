@@ -51,7 +51,6 @@ BDEPEND="
 		>=dev-python/python-memcached-1.59[${PYTHON_USEDEP}]
 		>=dev-python/webtest-2.0.27[${PYTHON_USEDEP}]
 		>=dev-python/oslo-messaging-5.29.0[${PYTHON_USEDEP}]
-		>=dev-python/bandit-1.1.0[${PYTHON_USEDEP}]
 	)
 "
 

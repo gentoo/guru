@@ -41,7 +41,6 @@ BDEPEND="
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 		>=dev-python/oslo-serialization-2.18.0[${PYTHON_USEDEP}]
-		>=dev-python/bandit-1.1.0[${PYTHON_USEDEP}]
 		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 	)
 "

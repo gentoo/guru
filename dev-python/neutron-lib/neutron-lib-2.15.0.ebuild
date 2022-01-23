@@ -56,7 +56,6 @@ DEPEND="
 	${RDEPEND}
 	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
 	test? (
-		>=dev-python/bandit-1.1.0[${PYTHON_USEDEP}]
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/subunit-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]

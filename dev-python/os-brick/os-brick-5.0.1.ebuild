@@ -45,7 +45,6 @@ DEPEND="
 		>=dev-python/oslo-vmware-3.8.0[${PYTHON_USEDEP}]
 		>=dev-python/castellan-3.7.0[${PYTHON_USEDEP}]
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
-		>=dev-python/bandit-1.6.0[${PYTHON_USEDEP}]
 	)
 "
 

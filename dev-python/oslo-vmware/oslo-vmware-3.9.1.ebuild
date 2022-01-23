@@ -43,7 +43,6 @@ DEPEND="
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
-		>=dev-python/bandit-1.3.0[${PYTHON_USEDEP}]
 		>=dev-python/ddt-1.0.1[${PYTHON_USEDEP}]
 		>=dev-python/oslo-context-2.19.2[${PYTHON_USEDEP}]
 	)

@@ -43,7 +43,6 @@ DEPEND="
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
-		>=dev-python/bandit-1.6.0[${PYTHON_USEDEP}]
 		>=dev-python/pifpaf-0.10.0[${PYTHON_USEDEP}]
 	)
 "

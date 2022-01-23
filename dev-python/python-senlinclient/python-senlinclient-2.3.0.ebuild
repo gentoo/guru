@@ -37,7 +37,6 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	test? (
-		>=dev-python/bandit-1.1.0[${PYTHON_USEDEP}]
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/requests-mock-1.2.0[${PYTHON_USEDEP}]
 		>=dev-python/python-openstackclient-3.12.0[${PYTHON_USEDEP}]

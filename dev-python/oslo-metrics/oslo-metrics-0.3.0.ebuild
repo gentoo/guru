@@ -32,7 +32,6 @@ DEPEND="
 	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
 	test? (
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
-		>=dev-python/bandit-1.6.0[${PYTHON_USEDEP}]
 		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 	)
 "
