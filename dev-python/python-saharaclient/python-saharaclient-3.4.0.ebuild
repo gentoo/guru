@@ -37,7 +37,6 @@ DEPEND="
 	${RDEPEND}
 	test? (
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
-		>=dev-python/stestr-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/requests-mock-1.2.0[${PYTHON_USEDEP}]
 	)
 "

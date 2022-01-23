@@ -39,7 +39,6 @@ DEPEND="
 		>=dev-python/python-barbicanclient-4.5.2[${PYTHON_USEDEP}]
 		>=dev-python/subunit-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
-		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]

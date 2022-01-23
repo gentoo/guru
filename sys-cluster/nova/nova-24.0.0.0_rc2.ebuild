@@ -145,7 +145,6 @@ DEPEND="
 		>=dev-python/python-ironicclient-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/requests-mock-1.2.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.8.0[${PYTHON_USEDEP}]
-		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/osprofiler-1.4.0[${PYTHON_USEDEP}]
 		>=dev-python/testresources-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]

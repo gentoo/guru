@@ -45,7 +45,6 @@ DEPEND="
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/requests-2.14.2[${PYTHON_USEDEP}]
-		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 	)
 "
 

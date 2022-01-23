@@ -41,7 +41,6 @@ DEPEND="
 		>=dev-python/oslotest-4.4.1[${PYTHON_USEDEP}]
 		>=dev-python/testscenarios-0.5.0[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.4.0[${PYTHON_USEDEP}]
-		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslo-vmware-3.8.0[${PYTHON_USEDEP}]
 		>=dev-python/castellan-3.7.0[${PYTHON_USEDEP}]
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]

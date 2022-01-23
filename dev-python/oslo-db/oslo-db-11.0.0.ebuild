@@ -53,7 +53,6 @@ DEPEND="
 		>=dev-python/subunit-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/oslo-context-2.19.2[${PYTHON_USEDEP}]
-		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/pifpaf-0.10.0[${PYTHON_USEDEP}]
 		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]

@@ -43,7 +43,6 @@ DEPEND="
 		>=dev-python/python-openstackclient-3.12.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/osprofiler-1.4.0[${PYTHON_USEDEP}]
-		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 	)

@@ -32,7 +32,6 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	test? (
-		>=dev-python/stestr-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 	)

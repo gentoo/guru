@@ -42,7 +42,6 @@ DEPEND="
 	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
 	test? (
 		>=dev-python/ddt-1.0.1[${PYTHON_USEDEP}]
-		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 		>=dev-python/pymongo-3.0.2[${PYTHON_USEDEP}]
 		>=dev-python/elasticsearch-py-2.0.0[${PYTHON_USEDEP}]

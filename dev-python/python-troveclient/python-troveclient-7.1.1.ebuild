@@ -39,7 +39,6 @@ DEPEND="
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/requests-mock-1.2.0[${PYTHON_USEDEP}]
-		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 		>=dev-python/httplib2-0.9.1[${PYTHON_USEDEP}]

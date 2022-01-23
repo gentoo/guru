@@ -39,7 +39,6 @@ DEPEND="
 		>=dev-python/oslotest-1.10.0[${PYTHON_USEDEP}]
 		>=dev-python/reno-1.6.2[${PYTHON_USEDEP}]
 		>=dev-python/tempest-10[${PYTHON_USEDEP}]
-		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testtools-1.4.0[${PYTHON_USEDEP}]
 		>=dev-python/pifpaf-0.23[${PYTHON_USEDEP}]
 		dev-python/gnocchi[${PYTHON_USEDEP}]
