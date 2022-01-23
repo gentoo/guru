@@ -13,11 +13,6 @@
 # Depends on masked libhandy 1.5.0
 >=app-text/komikku-0.36.0
 
-# Unavailable dep <dev-python/prettytable-0.8.0
-dev-python/python-manilaclient
-# requires dev-python/python-manilaclient
-sys-cluster/heat
-
 # Unavailable dep dev-libs/boost[threads]
 net-p2p/monero
 
