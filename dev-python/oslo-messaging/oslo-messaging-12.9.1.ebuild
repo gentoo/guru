@@ -44,14 +44,12 @@ DEPEND="
 	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
 	test? (
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
-		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/pifpaf-2.2.0[${PYTHON_USEDEP}]
 		>=dev-python/confluent-kafka-1.3.0[${PYTHON_USEDEP}]
 		>=dev-python/pyngus-2.2.0[${PYTHON_USEDEP}]
-		>=dev-python/bandit-1.6.0[${PYTHON_USEDEP}]
 		>=dev-python/eventlet-0.23.0[${PYTHON_USEDEP}]
 		>=dev-python/greenlet-0.4.15[${PYTHON_USEDEP}]
 	)

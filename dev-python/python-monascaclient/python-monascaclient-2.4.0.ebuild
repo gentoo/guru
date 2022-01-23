@@ -32,8 +32,6 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	test? (
-		>=dev-python/bandit-1.1.0[${PYTHON_USEDEP}]
-		>=dev-python/stestr-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 	)

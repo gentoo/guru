@@ -21,7 +21,6 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
-	>=dev-python/stestr-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/subunit-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 "

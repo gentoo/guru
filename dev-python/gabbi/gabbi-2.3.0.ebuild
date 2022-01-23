@@ -32,7 +32,6 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	test? (
-		dev-python/stestr[${PYTHON_USEDEP}]
 	)
 "
 

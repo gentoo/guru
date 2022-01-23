@@ -35,7 +35,6 @@ DEPEND="
 	test? (
 		>=dev-python/subunit-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
-		>=dev-python/stestr-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 
 		dev-python/lxml[${PYTHON_USEDEP}]

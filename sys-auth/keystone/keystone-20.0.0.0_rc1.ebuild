@@ -92,7 +92,6 @@ DEPEND="
 	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
 	test? (
 		>=dev-python/bashate-0.5.1[${PYTHON_USEDEP}]
-		>=dev-python/stestr-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/freezegun-0.3.6[${PYTHON_USEDEP}]
 		>=dev-python/pytz-2013.6[${PYTHON_USEDEP}]
 		>=dev-python/oslo-db-6.0.0[${PYTHON_USEDEP}]

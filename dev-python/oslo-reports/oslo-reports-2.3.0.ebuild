@@ -32,11 +32,9 @@ DEPEND="
 	${RDEPEND}
 	test? (
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
-		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslo-config-5.2.0[${PYTHON_USEDEP}]
 		>=dev-python/eventlet-0.18.2[${PYTHON_USEDEP}]
 		>=dev-python/greenlet-0.4.15[${PYTHON_USEDEP}]
-		>=dev-python/bandit-1.6.0[${PYTHON_USEDEP}]
 	)
 "
 

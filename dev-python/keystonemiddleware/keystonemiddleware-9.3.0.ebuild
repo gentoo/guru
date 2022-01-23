@@ -45,13 +45,11 @@ BDEPEND="
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/requests-mock-1.2.0[${PYTHON_USEDEP}]
 		>=dev-python/stevedore-1.20.0[${PYTHON_USEDEP}]
-		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testresources-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 		>=dev-python/python-memcached-1.59[${PYTHON_USEDEP}]
 		>=dev-python/webtest-2.0.27[${PYTHON_USEDEP}]
 		>=dev-python/oslo-messaging-5.29.0[${PYTHON_USEDEP}]
-		>=dev-python/bandit-1.1.0[${PYTHON_USEDEP}]
 	)
 "
 

@@ -60,7 +60,6 @@ DEPEND="
 	test? (
 		>=dev-python/ddt-1.2.1[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.8.0[${PYTHON_USEDEP}]
-		>=dev-python/stestr-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 	)

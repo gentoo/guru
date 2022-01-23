@@ -47,7 +47,6 @@ src_install() {
 
 	insinto "/lib/udev/rules.d"
 	doins -r "${S}/99-${LP}.rules"
-	udevadm control --reload || die
 
 	cd "${FILESDIR}" || die
 	dobin "${SP}"
@@ -59,6 +58,7 @@ src_install() {
 }
 
 pkg_postinst() {
+	udevadm control --reload || die
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		elog "Please replug your tablet before attempting to use the driver"
 	fi

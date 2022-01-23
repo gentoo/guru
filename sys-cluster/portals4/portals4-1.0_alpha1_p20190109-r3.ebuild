@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,7 +22,6 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE_TRANSPORT="
-	transport-ib
 	transport-shmem
 	+transport-udp
 "
@@ -35,7 +34,6 @@ RDEPEND="
 	knem? ( sys-cluster/knem )
 	pmi? ( sys-cluster/pmix[pmi] )
 	ppe? ( sys-kernel/xpmem )
-	transport-ib? ( sys-fabric/ofed )
 "
 DEPEND="
 	${RDEPEND}
@@ -46,7 +44,6 @@ PATCHES=( "${FILESDIR}/${PN}-fix-PPE-related-compile-and-link-errors.patch" )
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	?? ( ppe transport-shmem )
-	^^ ( transport-ib transport-udp )
 
 	knem? ( transport-shmem )
 	reliable-udp? ( transport-udp )
@@ -64,13 +61,14 @@ src_configure() {
 		--disable-picky
 		--disable-pmi-from-portals
 		--disable-static
+		--disable-transport-ib
 		--with-ev="${EPREFIX}/usr"
+		--without-ofed
 
 		$(use_enable me-triggered)
 		$(use_enable ppe)
 		$(use_enable reliable-udp)
 		$(use_enable test testing)
-		$(use_enable transport-ib)
 		$(use_enable transport-shmem)
 		$(use_enable transport-udp)
 		$(use_enable unordered-matching)
@@ -91,11 +89,6 @@ src_configure() {
 		myconf+=( "--with-pmi=${EPREFIX}/usr" )
 	else
 		myconf+=( "--without-pmi" )
-	fi
-	if use transport-ib; then
-		myconf+=( "--with-ofed=${EPREFIX}/usr" )
-	else
-		myconf+=( "--without-ofed" )
 	fi
 
 	econf "${myconf[@]}"
