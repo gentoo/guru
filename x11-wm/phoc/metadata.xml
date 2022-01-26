@@ -6,7 +6,6 @@
 		<name>Gerben Jan Dijkman</name>
 	</maintainer>
 	<upstream>
-		<doc>https://source.puri.sm/Librem5/phoc</doc>
 		<bugs-to>https://source.puri.sm/Librem5/phoc/-/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
