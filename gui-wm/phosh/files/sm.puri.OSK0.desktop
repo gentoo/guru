@@ -2,7 +2,7 @@
 Type=Application
 Name=On-screen keyboard
 Comment=Default on-screen keyboard
-Exec=/usr/bin/osk-wayland
+Exec=/usr/bin/phosh-osk-stub
 Categories=GNOME;Core;
 OnlyShowIn=GNOME;
 NoDisplay=true

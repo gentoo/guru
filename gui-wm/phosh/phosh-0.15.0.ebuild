@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,7 +7,7 @@ inherit desktop gnome2-utils meson pam readme.gentoo-r1 vala systemd xdg
 
 MY_P="${PN}-v${PV}"
 LVC_COMMIT="ae1a34aafce7026b8c0f65a43c9192d756fe1057"
-LCU_COMMIT="0d255a96cc166d890e8785d3acbe04c269401af0"
+LCU_COMMIT="5c79ccfc017db217d3a23a211919604083438846"
 
 DESCRIPTION="A pure Wayland shell prototype for GNOME on mobile devices"
 HOMEPAGE="https://gitlab.gnome.org/World/Phosh/phosh/"
@@ -46,12 +46,6 @@ BDEPEND="
 	dev-util/meson
 "
 
-PATCHES=(
-	"${FILESDIR}"/0001-system-prompt-allow-blank-passwords.patch
-	"${FILESDIR}"/0002-fix-locale-issue.patch
-	"${FILESDIR}"/0003-fix-locale-issue-in-service-file-1.patch
-)
-
 src_prepare() {
 	default
 	eapply_user
@@ -66,7 +60,8 @@ src_install() {
 	meson_src_install
 	newpamd "${FILESDIR}"/pam_phosh 'phosh'
 	systemd_newunit "${FILESDIR}"/phosh.service 'phosh.service'
-	domenu "${FILESDIR}"/sm.puri.OSK0.desktop
+	insinto /usr/share/applications/
+	doins "${FILESDIR}"/sm.puri.OSK0.desktop
 
 	DOC_CONTENTS="To amend the existing password policy please see the man 5 passwdqc.conf
 				page and then edit the /etc/security/passwdqc.conf file to change enforce=none
