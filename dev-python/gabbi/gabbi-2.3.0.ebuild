@@ -29,11 +29,6 @@ RDEPEND="
 	>=dev-python/wsgi_intercept-1.8.1[${PYTHON_USEDEP}]
 	dev-python/colorama[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
-	test? (
-	)
-"
 
 RESTRICT="test"
 PROPERTIES="test_network"
