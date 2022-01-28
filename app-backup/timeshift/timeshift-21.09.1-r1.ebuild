@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -22,7 +22,7 @@ DEPEND="
 	net-misc/rsync
 	sys-process/cronie
 	x11-libs/gtk+:3
-	x11-libs/xapps
+	x11-libs/xapp
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
