@@ -29,6 +29,9 @@ python_prepare_all() {
 	# this is wrong
 	sed -i -e "s/^import mock$/from unittest import mock/" test/unit/test_dropbox_unit.py || die
 
+	# setuptools warning
+	sed -i -e 's/description-file/description_file/' setup.cfg
+
 	# disable tests that need SCOPED_USER_DROPBOX_TOKEN
 	mv test/integration/test_dropbox.py test/integration/_test_dropbox.py || die
 	sed -i -e "s/\(class\) \(TestClient\)/\\1 _\\2/
