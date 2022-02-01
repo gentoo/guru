@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -31,7 +31,7 @@ RDEPEND="
 		>=dev-libs/miniz-2.1.0-r2
 		media-gfx/openvdb:0/7
 		media-libs/qhull:=
-		media-libs/openexr:=
+		media-libs/openexr:0=
 		sci-libs/libigl
 		sci-libs/nlopt
 		>=sci-mathematics/cgal-5.0:=

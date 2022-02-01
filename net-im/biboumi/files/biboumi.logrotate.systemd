@@ -1,8 +1,0 @@
-/var/log/biboumi/*.log {
-	missingok
-	notifempty
-	sharedscripts
-	postrotate
-		systemctl reload biboumi.service
-	endscript
-}
