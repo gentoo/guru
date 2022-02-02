@@ -30,7 +30,7 @@ RDEPEND="
 	dev-python/playsound[${PYTHON_USEDEP}]
 	dev-python/charset_normalizer[${PYTHON_USEDEP}]
 	dev-python/EbookLib[${PYTHON_USEDEP}]
-	dev-python/sentence_splitter[${PYTHON_USEDEP}]
+	dev-python/sentence-splitter[${PYTHON_USEDEP}]
 	dev-python/mobi[${PYTHON_USEDEP}]
 	dev-python/SLPP[${PYTHON_USEDEP}]
 "

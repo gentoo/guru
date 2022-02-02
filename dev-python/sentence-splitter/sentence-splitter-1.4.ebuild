@@ -8,7 +8,7 @@ inherit distutils-r1
 
 DESCRIPTION="Sentence splitter using heuristic algorithm by Philipp Koehn and Josh Schroeder"
 HOMEPAGE="https://github.com/mediacloud/sentence-splitter https://pypi.org/project/sentence-splitter/"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN/-/_}/${P/-/_}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0"
