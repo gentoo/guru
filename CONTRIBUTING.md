@@ -90,11 +90,15 @@ There are [make.conf flags](https://wiki.gentoo.org/wiki/Package_testing#make.co
 
 The [app-portage/iwdevtools](https://github.com/ionenwks/iwdevtools) package contains scripts that help with ebuild development: finding incorrect dependencies, detectng [ABI changes](https://devmanual.gentoo.org/general-concepts/slotting/index.html#abi-breakage) etc.
 
-- #### Tests and documentation for Python packages.
+- #### Tests and documentation for Python packages
 
 Many Python packages have tests and documentation. Unlike some other eclasses the [distutils-r1 eclass](https://devmanual.gentoo.org/eclass-reference/distutils-r1.eclass/index.html) does not enable support for these tests automatically. This is because there are multiple test runners available for Python. To enable tests for your Python ebuilds, use the `distutils_enable_tests <test-runner>` function. Similarly, support for documentation building with Sphinx can be added with the `distutils_enable_sphinx <subdir> [--no-autodoc | <plugin-pkgs>...]` function. Please note that these functions already append to IUSE and RESTRICT, so there is no need to specify this manually. 
 
 See the [dev manual](https://devmanual.gentoo.org/eclass-reference/distutils-r1.eclass/index.html) and the [Gentoo Python Guide](https://projects.gentoo.org/python/guide/distutils.html) for more information.
+
+- #### Prefer the PEP 517 mode for `distutils-r1` packages
+
+If you are writing a new ebuild or doing a version bump for a project that has `pyproject.toml` file, consider switching to [the PEP 517 mode](https://projects.gentoo.org/python/guide/distutils.html#the-pep-517-and-legacy-modes).
 
 - #### Avoid introducing USE flags for small files and optional runtime dependencies.
 
