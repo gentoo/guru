@@ -24,6 +24,12 @@ In GURU we use ['thin manifests'](https://wiki.gentoo.org/wiki/Repository_format
 
 String variables should be quoted (e.g. not `$P` or `${P}` but `"${P}"`). `repoman -dx full` will warn you about any unquoted variables you might have forgotten about.
 
+- #### Run tests if you enable them
+
+You can enable `FEATURES="test"` for GURU in your [package.env](https://wiki.gentoo.org/wiki//etc/portage/package.env) or on the command line:
+
+`sudo env FEATURES=test USE=test ebuild foo-1.0.ebuild test`
+
 - #### No Symlinks in the repository
 
 Please don't use symlinks in the repository (e.g. foobar-x.y.z.ebuild -> foobar-9999.ebuild), see [this forum posts](https://forums.gentoo.org/viewtopic-t-1079126-start-0.html) on why this is not a good idea.
