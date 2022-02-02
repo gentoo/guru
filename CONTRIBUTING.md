@@ -84,6 +84,12 @@ Running `repoman -dx full` in the directory your ebuild is in will preform some 
 
 Pkgcheck does even more checks than repoman. While it is good practice to make repoman as happy as possible, it is not necessary to fix *every* issue that pkgcheck reports. Because pkgcheck is *very* strict. That being said, pkgcheck is a very useful tool to perfect your ebuilds.
 
+- #### Establish your package testing workflow
+
+There are [make.conf flags](https://wiki.gentoo.org/wiki/Package_testing#make.conf_.26_test.conf) you might want to set to enable more QA checks.
+
+The [app-portage/iwdevtools](https://github.com/ionenwks/iwdevtools) package contains scripts that help with ebuild development: finding incorrect dependencies, detectng [ABI changes](https://devmanual.gentoo.org/general-concepts/slotting/index.html#abi-breakage) etc.
+
 - #### Tests and documentation for Python packages.
 
 Many Python packages have tests and documentation. Unlike some other eclasses the [distutils-r1 eclass](https://devmanual.gentoo.org/eclass-reference/distutils-r1.eclass/index.html) does not enable support for these tests automatically. This is because there are multiple test runners available for Python. To enable tests for your Python ebuilds, use the `distutils_enable_tests <test-runner>` function. Similarly, support for documentation building with Sphinx can be added with the `distutils_enable_sphinx <subdir> [--no-autodoc | <plugin-pkgs>...]` function. Please note that these functions already append to IUSE and RESTRICT, so there is no need to specify this manually. 
