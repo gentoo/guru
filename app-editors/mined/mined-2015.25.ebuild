@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -14,13 +14,18 @@ IUSE=""
 RDEPEND=""
 DEPEND="${RDEPEND}"
 BDEPEND=""
-#src_configure() {
-#	econf
-#}
-src_compile() {
-	emake -j1
+S=${S}/src
+src_configure() {
+	sed -in 's/OBJDIR=..\/bin\/sh/OBJDIR=bin\/sh/' mkmined
+	sed -in 's/\"\${COPT--DTERMIO \$W}\"/\"${CFLAGS} \${COPT--DTERMIO}\"/' mkmined
 }
+
+src_compile() {
+	mkdir bin/
+	./mkmined
+}
+
 src_install() {
-	dobin bin/Linux.x86_64/mined
-	doman man/mined.1
+	dobin bin/sh/mined
+	doman ../man/mined.1
 }
