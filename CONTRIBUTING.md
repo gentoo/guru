@@ -24,6 +24,12 @@ In GURU we use ['thin manifests'](https://wiki.gentoo.org/wiki/Repository_format
 
 String variables should be quoted (e.g. not `$P` or `${P}` but `"${P}"`). `repoman -dx full` will warn you about any unquoted variables you might have forgotten about.
 
+- #### Run tests if you enable them
+
+You can enable `FEATURES="test"` for GURU in your [package.env](https://wiki.gentoo.org/wiki//etc/portage/package.env) or on the command line:
+
+`sudo env FEATURES=test USE=test ebuild foo-1.0.ebuild test`
+
 - #### No Symlinks in the repository
 
 Please don't use symlinks in the repository (e.g. foobar-x.y.z.ebuild -> foobar-9999.ebuild), see [this forum posts](https://forums.gentoo.org/viewtopic-t-1079126-start-0.html) on why this is not a good idea.
@@ -32,7 +38,7 @@ Please don't use symlinks in the repository (e.g. foobar-x.y.z.ebuild -> foobar-
 
 Sometimes a upstream lists dependencies which are considered deprecated. If possible, packages should **not** depend on these deprecated dependencies. Reasons a dependency might be deprecated is that it is too old, unmaintained, or the features it adds are not useful to Gentoo. You can find an overview of the currently deprecated dependencies and the reason they are deprecated in `$(portageq get_repo_path / gentoo)/profiles/package.deprecated`. `repoman -dx full` will warn you if your package depends on a deprecated dependency.
 
-For Python packages there are some additional (test) dependencies that are considered undesirable or not useful, but are not considered deprecated. You can find an overview of those [here](https://dev.gentoo.org/~mgorny/python-guide/distutils.html#enabling-tests) and in the list below:
+For Python packages there are some additional (test) dependencies that are considered undesirable or not useful, but are not considered deprecated. You can find an overview of those [here](https://projects.gentoo.org/python/guide/distutils.html#enabling-tests) and in the list below:
 ```
 dev-python/black
 dev-python/check-manifest
@@ -78,11 +84,21 @@ Running `repoman -dx full` in the directory your ebuild is in will preform some 
 
 Pkgcheck does even more checks than repoman. While it is good practice to make repoman as happy as possible, it is not necessary to fix *every* issue that pkgcheck reports. Because pkgcheck is *very* strict. That being said, pkgcheck is a very useful tool to perfect your ebuilds.
 
-- #### Tests and documentation for Python packages.
+- #### Establish your package testing workflow
+
+There are [make.conf flags](https://wiki.gentoo.org/wiki/Package_testing#make.conf_.26_test.conf) you might want to set to enable more QA checks.
+
+The [app-portage/iwdevtools](https://github.com/ionenwks/iwdevtools) package contains scripts that help with ebuild development: finding incorrect dependencies, detectng [ABI changes](https://devmanual.gentoo.org/general-concepts/slotting/index.html#abi-breakage) etc.
+
+- #### Tests and documentation for Python packages
 
 Many Python packages have tests and documentation. Unlike some other eclasses the [distutils-r1 eclass](https://devmanual.gentoo.org/eclass-reference/distutils-r1.eclass/index.html) does not enable support for these tests automatically. This is because there are multiple test runners available for Python. To enable tests for your Python ebuilds, use the `distutils_enable_tests <test-runner>` function. Similarly, support for documentation building with Sphinx can be added with the `distutils_enable_sphinx <subdir> [--no-autodoc | <plugin-pkgs>...]` function. Please note that these functions already append to IUSE and RESTRICT, so there is no need to specify this manually. 
 
-See the [dev manual](https://devmanual.gentoo.org/eclass-reference/distutils-r1.eclass/index.html) and the [Gentoo Python Guide](https://dev.gentoo.org/~mgorny/python-guide/distutils.html) for more information.
+See the [dev manual](https://devmanual.gentoo.org/eclass-reference/distutils-r1.eclass/index.html) and the [Gentoo Python Guide](https://projects.gentoo.org/python/guide/distutils.html) for more information.
+
+- #### Prefer the PEP 517 mode for `distutils-r1` packages
+
+If you are writing a new ebuild or doing a version bump for a project that has `pyproject.toml` file, consider switching to [the PEP 517 mode](https://projects.gentoo.org/python/guide/distutils.html#the-pep-517-and-legacy-modes).
 
 - #### Avoid introducing USE flags for small files and optional runtime dependencies.
 

@@ -61,7 +61,7 @@ SRC_URI+=" $(cargo_crate_uris ${CRATES})"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~arm64"
 IUSE="+wayland"
 
 RDEPEND="

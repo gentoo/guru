@@ -1,11 +1,12 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 SSL_DAYS=36500
 SSL_CERT_MANDATORY=1
-inherit ssl-cert systemd toolchain-funcs
+VERIFY_SIG_METHOD="signify"
+inherit ssl-cert systemd toolchain-funcs verify-sig
 
 DESCRIPTION="Simple and secure Gemini server"
 HOMEPAGE="https://gmid.omarpolo.com"
@@ -14,8 +15,9 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://git.omarpolo.com/${PN} https://github.com/omar-polo/${PN}.git"
 	inherit git-r3
 else
-	SRC_URI="https://git.omarpolo.com/${PN}/snapshot/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+	SRC_URI="https://github.com/omar-polo/${PN}/releases/download/${PV}/${P}.tar.gz
+		verify-sig? ( https://github.com/omar-polo/${PN}/releases/download/${PV}/SHA256.sig -> ${P}.sha.sig )"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="BSD ISC MIT"
@@ -28,24 +30,35 @@ DEPEND="
 	acct-user/gemini
 	dev-libs/imsg-compat
 	dev-libs/libevent:=
-	dev-libs/libretls
+	dev-libs/libretls:=
 	dev-libs/openssl:=
 "
+RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 	virtual/yacc
 "
-RDEPEND="${DEPEND}"
+if [[ ${PV} != 9999 ]]; then
+	BDEPEND+="verify-sig? ( sec-keys/signify-keys-gmid:$(ver_cut 1-2) )"
+fi
+
+VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/signify-keys/${PN}-$(ver_cut 1-2).pub"
 
 DOCS=( README.md ChangeLog contrib/README )
 
-src_prepare() {
-	default
-
-	sed \
-		-e "s:/usr/local/bin/gmid:/usr/bin/gmid:" \
-		-e "s:/etc/gmid.conf:/etc/gmid/gmid.conf:" \
-		-i contrib/gmid.service || die
+src_unpack() {
+	if [[ ${PV} == 9999 ]]; then
+		git-r3_src_unpack
+	else
+		if use verify-sig; then
+			# Too many levels of symbolic links
+			cp "${DISTDIR}"/${P}.{sha.sig,tar.gz} "${WORKDIR}" || die
+			cd "${WORKDIR}" || die
+			verify-sig_verify_signed_checksums \
+				${P}.sha.sig sha256 ${P}.tar.gz
+		fi
+		default
+	fi
 }
 
 src_configure() {
@@ -66,13 +79,6 @@ src_configure() {
 	fi
 }
 
-src_compile() {
-	emake gmid
-	if use test ; then
-		emake -C regress gg data puny-test fcgi-test
-	fi
-}
-
 src_test() {
 	emake regress
 }
@@ -86,7 +92,7 @@ src_install() {
 	insinto /usr/share/vim/vimfiles
 	doins -r contrib/vim/*
 
-	systemd_dounit contrib/gmid.service
+	systemd_dounit "${FILESDIR}"/gmid.service
 	newinitd "${FILESDIR}"/gmid.initd gmid
 	newconfd "${FILESDIR}"/gmid.confd gmid
 

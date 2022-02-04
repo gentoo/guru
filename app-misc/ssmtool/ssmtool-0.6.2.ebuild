@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
-DISTUTILS_USE_SETUPTOOLS=pyproject.toml
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 DESCRIPTION="A simple sentence mining tool written in PyQt5"
@@ -30,7 +30,7 @@ RDEPEND="
 	dev-python/playsound[${PYTHON_USEDEP}]
 	dev-python/charset_normalizer[${PYTHON_USEDEP}]
 	dev-python/EbookLib[${PYTHON_USEDEP}]
-	dev-python/sentence_splitter[${PYTHON_USEDEP}]
+	dev-python/sentence-splitter[${PYTHON_USEDEP}]
 	dev-python/mobi[${PYTHON_USEDEP}]
 	dev-python/SLPP[${PYTHON_USEDEP}]
 "
