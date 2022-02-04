@@ -2,7 +2,7 @@ BDEPEND=sys-devel/bison sys-devel/flex sys-devel/gnuconfig >=app-portage/elt-pat
 DEFINED_PHASES=configure prepare
 DEPEND=sys-libs/ncurses:0= readline? ( sys-libs/readline:0= )
 DESCRIPTION=Composing and deciphering C (or C++) declarations or casts, aka "gibberish."
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/paul-j-lucas/cdecl
 INHERIT=autotools
 IUSE=+readline
@@ -10,6 +10,6 @@ KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=sys-libs/ncurses:0= readline? ( sys-libs/readline:0= )
 SLOT=0
-SRC_URI=https://github.com/paul-j-lucas/cdecl/archive/cdecl-9.10.tar.gz
+SRC_URI=https://github.com/paul-j-lucas/cdecl/archive/cdecl-11.11.tar.gz
 _eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
-_md5_=e3d9882d25c7cbe75e5d61ba3974c6cd
+_md5_=a4c0ed53bc673c09f660c959ae562fb7
