@@ -686,7 +686,6 @@ dev-util/afdko 3.6.2: Adobe Font Development Kit for OpenType
 dev-util/babeltrace2 2.0.4: A command-line tool and library to read and convert trace files
 dev-util/bats-assert 2.0.0: Common assertions for Bats
 dev-util/bats-support 0.3.0: Supporting library for Bats test helpers
-dev-util/cdecl 11.11: Composing and deciphering C (or C++) declarations or casts, aka "gibberish."
 dev-util/devscripts 2.21.2 2.21.3: Scripts to make the life of a Debian Package maintainer easier
 dev-util/eclipse-parallel-bin 4.20 4.21 4.22: Eclipse IDE for Scientific Computing (C, C++, Fortran)
 dev-util/fontmake 2.4.0: A wrapper for several Python libraries to compile fonts from sources
