@@ -8,7 +8,7 @@ CRATES="
 	adler-1.0.2
 	always-assert-0.1.2
 	ansi_term-0.12.1
-	anyhow-1.0.51
+	anyhow-1.0.52
 	anymap-0.12.1
 	arbitrary-1.0.3
 	arrayvec-0.7.2
@@ -16,23 +16,24 @@ CRATES="
 	autocfg-1.0.1
 	backtrace-0.3.63
 	bitflags-1.3.2
-	camino-1.0.5
+	camino-1.0.7
 	cargo-platform-0.1.2
 	cargo_metadata-0.14.1
 	cc-1.0.72
 	cfg-if-1.0.0
-	chalk-derive-0.75.0
-	chalk-ir-0.75.0
-	chalk-recursive-0.75.0
-	chalk-solve-0.75.0
+	chalk-derive-0.76.0
+	chalk-ir-0.76.0
+	chalk-recursive-0.76.0
+	chalk-solve-0.76.0
 	countme-3.0.0
 	cov-mark-2.0.0-pre.1
-	crc32fast-1.3.0
-	crossbeam-channel-0.5.1
+	crc32fast-1.3.1
+	crossbeam-channel-0.5.2
 	crossbeam-deque-0.8.1
-	crossbeam-epoch-0.9.5
-	crossbeam-utils-0.8.5
+	crossbeam-epoch-0.9.6
+	crossbeam-utils-0.8.6
 	dashmap-4.0.2
+	dashmap-5.0.0
 	derive_arbitrary-1.0.2
 	dissimilar-1.0.3
 	dot-0.1.4
@@ -45,15 +46,16 @@ CRATES="
 	flate2-1.0.22
 	form_urlencoded-1.0.1
 	fs_extra-1.2.0
-	fsevent-sys-4.0.0
+	fsevent-sys-4.1.0
 	fst-0.4.7
 	gimli-0.26.1
 	hashbrown-0.11.2
+	hashbrown-0.12.0
 	heck-0.3.3
 	hermit-abi-0.1.19
 	home-0.5.3
 	idna-0.2.3
-	indexmap-1.7.0
+	indexmap-1.8.0
 	inotify-0.9.6
 	inotify-sys-0.1.5
 	instant-0.1.12
@@ -63,8 +65,8 @@ CRATES="
 	kqueue-1.0.4
 	kqueue-sys-1.0.3
 	lazy_static-1.4.0
-	libc-0.2.112
-	libloading-0.7.2
+	libc-0.2.113
+	libloading-0.7.3
 	libmimalloc-sys-0.1.23
 	lock_api-0.4.5
 	log-0.4.14
@@ -73,7 +75,7 @@ CRATES="
 	matchers-0.1.0
 	matches-0.1.9
 	memchr-2.4.1
-	memmap2-0.5.0
+	memmap2-0.5.2
 	memoffset-0.6.5
 	mimalloc-0.1.27
 	miniz_oxide-0.4.4
@@ -82,9 +84,9 @@ CRATES="
 	miow-0.4.0
 	notify-5.0.0-pre.13
 	ntapi-0.3.6
-	num_cpus-1.13.0
+	num_cpus-1.13.1
 	object-0.27.1
-	object-0.28.1
+	object-0.28.3
 	once_cell-1.9.0
 	oorandom-11.1.3
 	parking_lot-0.11.2
@@ -94,11 +96,11 @@ CRATES="
 	perf-event-0.4.7
 	perf-event-open-sys-1.0.1
 	petgraph-0.5.1
-	pin-project-lite-0.2.7
-	proc-macro2-1.0.34
-	pulldown-cmark-0.8.0
-	pulldown-cmark-to-cmark-7.1.1
-	quote-1.0.10
+	pin-project-lite-0.2.8
+	proc-macro2-1.0.36
+	pulldown-cmark-0.9.1
+	pulldown-cmark-to-cmark-9.0.0
+	quote-1.0.14
 	rayon-1.5.1
 	rayon-core-1.9.1
 	redox_syscall-0.2.10
@@ -116,15 +118,15 @@ CRATES="
 	scoped-tls-1.0.0
 	scopeguard-1.1.0
 	semver-1.0.4
-	serde-1.0.132
-	serde_derive-1.0.132
-	serde_json-1.0.73
+	serde-1.0.134
+	serde_derive-1.0.134
+	serde_json-1.0.75
 	serde_repr-0.1.7
 	sharded-slab-0.1.4
-	smallvec-1.7.0
+	smallvec-1.8.0
 	smol_str-0.1.21
 	snap-1.0.5
-	syn-1.0.82
+	syn-1.0.86
 	synstructure-0.12.6
 	text-size-1.1.0
 	thread_local-1.1.3
@@ -138,7 +140,7 @@ CRATES="
 	tracing-attributes-0.1.18
 	tracing-core-0.1.21
 	tracing-log-0.1.2
-	tracing-subscriber-0.3.3
+	tracing-subscriber-0.3.6
 	tracing-tree-0.2.0
 	typed-arena-2.0.1
 	ungrammar-1.14.9
@@ -148,7 +150,7 @@ CRATES="
 	unicode-segmentation-1.8.0
 	unicode-xid-0.2.2
 	url-2.2.2
-	version_check-0.9.3
+	version_check-0.9.4
 	walkdir-2.3.2
 	winapi-0.3.9
 	winapi-i686-pc-windows-gnu-0.4.0
