@@ -17,7 +17,11 @@ SRC_URI="
 "
 
 RESTRICT="test"
-LICENSE="MIT"
+LICENSE="MIT 0BSD ISC PYTHON BSD-2 BSD Apache-2.0 Unlicense LGPL-2.1+
+	|| ( BSD-2 MIT Apache-2.0 )
+	|| ( MIT CC0-1.0 )
+	|| ( MIT WTFPL )
+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 IUSE="gnome-keyring"

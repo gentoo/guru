@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,12 @@ SRC_URI="
 "
 
 RESTRICT="test"
-LICENSE="MIT"
+LICENSE="MIT 0BSD ISC PYTHON BSD-2 BSD Apache-2.0 Unlicense LGPL-2.1+
+	|| ( BSD-2 MIT Apache-2.0 )
+	|| ( MIT CC0-1.0 )
+	|| ( MIT WTFPL )
+"
+
 SLOT="0"
 KEYWORDS="-* ~amd64 ~arm64"
 IUSE="gnome-keyring"

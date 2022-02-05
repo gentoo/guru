@@ -17,7 +17,11 @@ SRC_URI="
 "
 
 RESTRICT="test"
-LICENSE="MIT "
+LICENSE="MIT 0BSD ISC PYTHON BSD-2 BSD Apache-2.0 Unlicense LGPL-2.1+
+	|| ( BSD-2 MIT Apache-2.0 )
+	|| ( MIT CC0-1.0 )
+	|| ( MIT WTFPL )
+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 IUSE="gnome-keyring"
@@ -84,11 +88,9 @@ src_prepare() {
 	# already in /usr/portage/licenses/MIT
 	rm ./LICENSE.txt || die
 
-	# Other OS's
+	# For windows
 	rm -rf ./vendor/modules/code-oss-dev/node_modules/windows-foreground-love || die
 	rm -rf .vendor/modules/code-oss-dev/node_modules/@parcel/watcher/prebuilds/win32-x64 || die
-	rm -rf .vendor/modules/code-oss-dev/node_modules/@parcel/watcher/prebuilds/darwin-x64 || die
-	rm -rf .vendor/modules/code-oss-dev/node_modules/@parcel/watcher/prebuilds/darwin-arm64 || die
 
 	if [[ $ELIBC != "musl" ]]; then
 		rm -rf ./node_modules/@node-rs/argon2-linux-x64-musl || die
