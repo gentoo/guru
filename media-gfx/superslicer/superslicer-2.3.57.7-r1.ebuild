@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -11,7 +11,7 @@ MY_PN="SuperSlicer"
 DESCRIPTION="A mesh slicer to generated G-Code for fused-filament fabrication"
 HOMEPAGE="https://github.com/supermerill/SuperSlicer"
 SRC_URI="https://github.com/supermerill/SuperSlicer/archive/${PV}.tar.gz -> ${P}.tar.gz
-	profiles? ( https://github.com/slic3r/slic3r-profiles/archive/118aa919c16837eb2ff6ba97e2934fa4144ef806.tar.gz -> ${P}-profiles.tar.gz )"
+	profiles? ( https://github.com/slic3r/slic3r-profiles/archive/118aa919c16837eb2ff6ba97e2934fa4144ef806.zip -> ${P}-profiles.zip )"
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="AGPL-3"
@@ -23,6 +23,7 @@ IUSE="gui test profiles"
 REQUIRED_USE="test? ( gui )"
 RESTRICT="!test? ( test )"
 
+BDEPEND="profiles? ( app-arch/unzip )"
 RDEPEND="
 		dev-cpp/eigen:3
 		dev-cpp/tbb
@@ -75,7 +76,7 @@ src_unpack() {
 	mv "${S}/resources/icons/SuperSlicer-gcodeviewer_192px.png" "${S}/resources/icons/SuperSlicer2.3-gcodeviewer_192px.png" || die "Failed to rename icons"
 	cp "${S}/resources/icons/SuperSlicer.png" "${S}/resources/icons/SuperSlicer2.3_logo.png" || die "Failed to make logo icon"
 
-	use profiles && unpack ${P}-profiles.tar.gz &&
+	use profiles && unpack ${P}-profiles.zip &&
 	if use profiles ; then
 		cp -r "${WORKDIR}/slic3r-profiles-118aa919c16837eb2ff6ba97e2934fa4144ef806/"* "${S}/resources/profiles" || die "Failed to copy profiles"
 	fi
@@ -102,11 +103,7 @@ src_install() {
 	cmake_src_install
 
 	if use gui; then
-		newicon -s 128 resources/icons/Slic3r_128px.png SuperSli3er_2.3.png
+		newicon -s 128 resources/icons/SuperSlicer2.3_128px.png SuperSlicer2.3.png
 		dosym superslicer-2.3 /usr/bin/superslicer-2.3-gcodeviewer
-		make_desktop_entry superslicer "SuperSlicer 2.3" "SuperSli3er_2.3" "Graphics;3DGraphics;Engineering;" \
-			"MimeType=model/stl;application/vnd.ms-3mfdocument;application/prs.wavefront-obj;application/x-amf;" \
-			"GenericName=3D Printing Software" \
-			"Keywords=3D;Printing;Slicer;slice;3D;printer;convert;gcode;stl;obj;amf;SLA"
 	fi
 }
