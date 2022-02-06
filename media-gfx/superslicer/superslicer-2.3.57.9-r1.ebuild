@@ -103,11 +103,7 @@ src_install() {
 	cmake_src_install
 
 	if use gui; then
-		newicon -s 128 resources/icons/Slic3r_128px.png SuperSli3er_2.3.png
+		newicon -s 128 resources/icons/SuperSlicer2.3_128px.png SuperSlicer2.3.png
 		dosym superslicer-2.3 /usr/bin/superslicer-2.3-gcodeviewer
-		make_desktop_entry superslicer "SuperSlicer 2.3" "SuperSli3er_2.3" "Graphics;3DGraphics;Engineering;" \
-			"MimeType=model/stl;application/vnd.ms-3mfdocument;application/prs.wavefront-obj;application/x-amf;" \
-			"GenericName=3D Printing Software" \
-			"Keywords=3D;Printing;Slicer;slice;3D;printer;convert;gcode;stl;obj;amf;SLA"
 	fi
 }
