@@ -19,6 +19,7 @@ DEPEND="
 	gui-libs/gtk-layer-shell
 	dev-libs/json-c
 	dev-util/wayland-scanner
+	>=dev-libs/wayland-protocols-1.17
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
