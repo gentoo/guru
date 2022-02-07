@@ -3,8 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
-# NOTE: python3.10 is supported, but not by the spotipy version in ::guru
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
