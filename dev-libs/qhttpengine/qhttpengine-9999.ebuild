@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
 inherit cmake
 
@@ -43,7 +43,6 @@ src_configure() {
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
 		-DLIB_INSTALL_DIR=$(get_libdir)
 		-DDOC_INSTALL_DIR="share/doc/${PF}"
-		${CMAKE_CONF}
 	)
 
 	cmake_src_configure

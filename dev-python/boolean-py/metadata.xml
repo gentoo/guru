@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<email>basti.kr@gmail.com</email>
+			<name>Sebastian Kraemer</name>
+		</maintainer>
+		<remote-id type="pypi">boolean.py</remote-id>
+		<remote-id type="github">bastikr/boolean.py</remote-id>
+	</upstream>
+</pkgmetadata>
