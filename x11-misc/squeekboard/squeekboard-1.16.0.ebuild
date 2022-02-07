@@ -52,11 +52,9 @@ CRATES="
 
 inherit cargo gnome2-utils meson toolchain-funcs xdg
 
-MY_COMMIT="19630334b07d6d2949932cf05018925cb3ab9613"
-
 DESCRIPTION="Virtual keyboard supporting Wayland, built primarily for the Librem 5 phone"
-HOMEPAGE="https://gitlab.gnome.org/Phosh/squeekboard"
-SRC_URI="https://gitlab.gnome.org/Phosh/squeekboard/-/archive/v${PV}/squeekboard-v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://gitlab.gnome.org/World/Phosh/squeekboard"
+SRC_URI="https://gitlab.gnome.org/World/Phosh/squeekboard/-/archive/v${PV}/squeekboard-v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" $(cargo_crate_uris ${CRATES})"
 
 LICENSE="GPL-3"
@@ -80,7 +78,7 @@ BDEPEND="
 	virtual/rust
 "
 
-S="${WORKDIR}/${PN}-${MY_COMMIT}"
+S="${WORKDIR}/${PN}-v${PV}"
 
 QA_FLAGS_IGNORED="/usr/bin/squeekboard-test-layout"
 
