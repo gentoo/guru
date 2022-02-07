@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-python/mock[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) doc? ( || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-python/sphinx[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-python/sphinx[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-python/sphinx[python_targets_python3_8(-)] ) ) ) test? ( dev-python/requests[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/six[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/urllib3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pytest-6.2.5-r2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=A light weight Python library for the Spotify Web API
+EAPI=8
+HOMEPAGE=https://spotipy.readthedocs.io https://github.com/plamere/spotipy
+INHERIT=distutils-r1
+IUSE=examples doc test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-python/requests[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/six[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/urllib3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/plamere/spotipy/archive/2.19.0.tar.gz -> spotipy-2.19.0.tar.gz
+_eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	7ee47726753a2bd062a05f6643d849da	python-r1	0e7a98958af67ee30e3c2b2e3b37c0be	distutils-r1	242601d395f54f27cfbc76e53f5e0203
+_md5_=cd22e0579dff7dd547da87f0cff07c4d
