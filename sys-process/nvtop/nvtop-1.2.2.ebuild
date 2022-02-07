@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
@@ -27,7 +27,7 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 
-IUSE="debug unicode"
+IUSE="unicode"
 
 RDEPEND="
 	sys-libs/ncurses:0=
@@ -41,15 +41,10 @@ BDEPEND="
 "
 
 src_configure() {
-	local CMAKE_CONF="
-		!debug? ( -DCMAKE_BUILD_TYPE=Release )
-		debug? ( -DCMAKE_BUILD_TYPE=Debug )
-		unicode? ( -DCURSES_NEED_WIDE=TRUE )
-	"
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
 		-DNVML_INCLUDE_DIRS="${S}/include"
-		${CMAKE_CONF}
+		-DCURSES_NEED_WIDE=$(usex unicode)
 	)
 
 	cp "${WORKDIR}/nvidia-settings-${NVIDIA_PV}/src/nvml.h" "${S}/include/nvml.h" || die
