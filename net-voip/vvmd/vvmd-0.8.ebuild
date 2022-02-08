@@ -11,13 +11,14 @@ SRC_URI="https://gitlab.com/kop316/vvmd/-/archive/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~arm64"
 
 RDEPEND="
 	>=dev-libs/glib-2.16
 	>=net-misc/curl-7.70
 	>=dev-cpp/glibmm-1.14
 	dev-libs/libphonenumber
+	net-misc/modemmanager
 "
 
 DEPEND=""
