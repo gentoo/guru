@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>arsen@aarsen.me</email>
+    <name>Arsen Arsenović</name>
+  </maintainer>
+  <use>
+    <flag name="eltorito-efi">
+        Enable building eltorito-efi.bin using <pkg>sys-fs/mtools</pkg>
+    </flag>
+  </use>
+</pkgmetadata>
