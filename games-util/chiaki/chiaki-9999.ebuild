@@ -25,6 +25,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	dev-libs/jerasure
 	dev-libs/openssl
+	dev-qt/qtconcurrent
 	dev-qt/qtmultimedia
 	dev-qt/qtsvg
 	media-libs/libsdl2
