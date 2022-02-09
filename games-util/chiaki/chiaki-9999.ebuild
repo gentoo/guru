@@ -27,13 +27,17 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	${PYTHON_DEPS}
 	dev-libs/jerasure
-	dev-libs/openssl
-	dev-qt/qtconcurrent
-	dev-qt/qtmultimedia
-	dev-qt/qtsvg
+	dev-libs/libevdev
+	dev-libs/openssl:=
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtconcurrent:5
+	dev-qt/qtmultimedia:5
+	dev-qt/qtsvg:5
+	dev-qt/qtwidgets:5
 	media-libs/libsdl2
 	media-libs/opus
-	media-video/ffmpeg
+	media-video/ffmpeg:=
 "
 
 DEPEND="${RDEPEND}"
@@ -47,11 +51,7 @@ BDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
-		-DCMAKE_BUILD_TYPE=Release
 		-DPYTHON_EXECUTABLE="${PYTHON}"
-		-DPYTHON_LIBRARY="$(python_get_library_path)"
-		-DPYTHON_INCLUDE_DIR="$(python_get_includedir)"
 		-DCHIAKI_USE_SYSTEM_JERASURE=TRUE
 		-DCHIAKI_ENABLE_TESTS=$(usex test)
 		-DCHIAKI_ENABLE_CLI=$(usex cli)
