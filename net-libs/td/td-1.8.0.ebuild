@@ -4,7 +4,7 @@
 EAPI=8
 
 DOCS_BUILDER="doxygen"
-inherit cmake docs
+inherit cmake java-utils-2 docs
 
 DESCRIPTION="Cross-platform library for building Telegram clients"
 HOMEPAGE="https://core.telegram.org/tdlib https://github.com/tdlib/td"
