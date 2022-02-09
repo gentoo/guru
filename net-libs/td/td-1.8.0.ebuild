@@ -4,7 +4,7 @@
 EAPI=8
 
 DOCS_BUILDER="doxygen"
-inherit cmake java-utils-2 docs
+inherit cmake docs java-pkg-opt-2
 
 DESCRIPTION="Cross-platform library for building Telegram clients"
 HOMEPAGE="https://core.telegram.org/tdlib https://github.com/tdlib/td"
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/tdlib/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.
 LICENSE="Boost-1.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="benchmark dotnet java +jumbo-build static-libs test"
+IUSE="benchmark dotnet +jumbo-build static-libs test"
 
 RESTRICT="!test? ( test )"
 
