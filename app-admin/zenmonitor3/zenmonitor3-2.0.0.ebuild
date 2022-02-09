@@ -12,11 +12,11 @@ SRC_URI="https://github.com/Ta180m/${PN}/archive/v${PV}.tar.gz -> ${PN}-${PV}.ta
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="+caps cli policykit"
+IUSE="cli +filecaps policykit"
 
 DEPEND="
-	caps? ( sys-libs/libcap )
 	cli? ( sys-libs/ncurses )
+	filecaps? ( sys-libs/libcap )
 	x11-libs/gtk+:3
 "
 RDEPEND="
@@ -42,7 +42,9 @@ src_install() {
 		mkdir -p "${ED}/usr/share/polkit-1/actions" || die
 		DESTDIR="${D}" emake install-polkit
 	fi
+}
 
-	fcaps cap_sys_rawio,cap_dac_read_search+ep usr/bin/zenmonitor
-	use cli && fcaps cap_sys_rawio,cap_dac_read_search+ep usr/bin/zenmonitor-cli
+pkg_postinst() {
+	fcaps cap_sys_rawio,cap_dac_read_search usr/bin/zenmonitor
+	use cli && fcaps cap_sys_rawio,cap_dac_read_search usr/bin/zenmonitor-cli
 }
