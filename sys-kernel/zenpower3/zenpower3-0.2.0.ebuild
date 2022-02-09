@@ -7,7 +7,7 @@ inherit linux-info linux-mod
 
 DESCRIPTION="Linux kernel driver for reading sensors of AMD Zen family CPUs"
 HOMEPAGE="https://github.com/Ta180m/zenpower3"
-SRC_URI="https://github.com/Ta180m/zenpower3/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/Ta180m/zenpower3/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -23,7 +23,7 @@ PATCHES="${FILESDIR}/${P}-use-symlink-to-detect-kernel-version.patch"
 CONFIG_CHECK="HWMON PCI AMD_NB"
 
 BUILD_TARGETS="modules"
-MODULE_NAMES="zenpower(kernel/drivers/hwmon:${S})"
+MODULE_NAMES="zenpower(misc:${S})"
 
 src_compile() {
 	export KV_FULL
