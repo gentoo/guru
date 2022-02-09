@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit gnome2-utils meson systemd udev
+inherit gnome2-utils meson xdg
 
 DESCRIPTION="Visual Voicemail Player"
 HOMEPAGE="https://gitlab.com/kop316/vvmplayer"
@@ -22,8 +22,7 @@ RDEPEND="
 	media-sound/callaudiod
 	net-voip/vvmd
 "
-
-DEPEND=""
+DEPEND="${RDEPEND}"
 
 src_install() {
 	meson_src_install
