@@ -1,7 +1,7 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit go-module
 
@@ -214,7 +214,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 BDEPEND="dev-go/go-bindata"
-DEPEND="|| ( www-client/firefox www-client/firefox-bin )"
+DEPEND="|| ( www-client/firefox:* www-client/firefox-bin:* )"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
