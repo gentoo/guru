@@ -1,11 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 
-inherit python-single-r1
+inherit python-r1
 
 DESCRIPTION="Python 3 script to draw a heatmap of a btrfs filesystem"
 HOMEPAGE="https://github.com/knorrie/btrfs-heatmap"
@@ -19,9 +19,8 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	$(python_gen_cond_dep '
-		>=sys-fs/python-btrfs-12[${PYTHON_MULTI_USEDEP}]
-	')"
+	>=sys-fs/python-btrfs-12
+	"
 DEPEND="${RDEPEND}"
 
 src_install()
