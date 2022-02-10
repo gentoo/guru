@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit flag-o-matic
+inherit flag-o-matic toolchain-funcs
 
 COMMIT="554e60bf52e3fa931661b9414189a92bb8f69d78"
 DESCRIPTION="Among Us, but it's a text adventure"
@@ -17,6 +17,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+notifications"
 
 src_configure() {
+	tc-export CC
+	append-cflags -Wno-unused-result
 	append-cppflags \
 		-DVERSION=\\\"${COMMIT:0:7}\\\" \
 		-DMOVEMENT_NOTIFICATIONS=$(usex notifications 1 0)
