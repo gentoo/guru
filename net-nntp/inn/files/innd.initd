@@ -29,7 +29,7 @@ daily() {
 expirerm() {
 	local rmfile=/var/log/news/expire.rm
 	for f in ${rmfile} ${rmfile}.*; do
-		if [[ -s ${f} ]]; then
+		if [ -s "${f}" ]; then
 			/opt/inn/bin/expirerm "${f}"
 		fi
 	done
@@ -38,20 +38,20 @@ expirerm() {
 start_pre() {
 	local active=/var/db/news/active
 	local old_newsdaily=$(find /var/db/news/.news.daily -mtime +1 -print 2>/dev/null)
-	if [[ ! -f /var/db/news/.news.daily ]] || [[ -n ${old_newsdaily} ]]; then
+	if [ ! -f /var/db/news/.news.daily ] || [ -n "${old_newsdaily}" ]; then
 		daily
 	fi
 
-	if [[ -f ${pidfile} ]] || [[ -f /run/news/.rebuildoverview ]] || [[ ! -s ${active} ]] ; then
+	if [ -f ${pidfile} ] || [ -f /run/news/.rebuildoverview ] || [ ! -s ${active} ]; then
 		# active needs to be renumbered
-		command_args+=" -r"
+		command_args="${command_args} -r"
 	fi
 
 	# active file recovery
-	if [[ ! -s ${active} ]] ; then
-		if [[ -s ${active}.tmp ]]; then
+	if [ ! -s ${active} ]; then
+		if [ -s ${active}.tmp ]; then
 			mv ${active}.tmp ${active} || return 1
-		elif [[ -s ${active}.old ]]; then
+		elif [ -s ${active}.old ]; then
 			cp ${active}.old ${active} || return 1
 		else
 			eerror "${RC_SVCNAME} failed to start: ${active} does not exist"
