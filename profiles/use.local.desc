@@ -11,15 +11,6 @@ app-crypt/gnome-encfs-manager:appindicator - Build in support for notifications 
 app-crypt/intel-ipsec-mb:safe-data - sensitive information is cleared on completion of a function call
 app-crypt/intel-ipsec-mb:safe-lookup - lookups which depend on sensitive information are implemented with constant time functions
 app-crypt/intel-ipsec-mb:safe-param - input parameters are checked, looking generally for NULL pointers or an incorrect input length
-app-crypt/mkp224o:amd64-51-30k - Use x86_64 amd64-51-30k SUPERCOP implementation
-app-crypt/mkp224o:amd64-64-24k - Use x86_64 amd64-64-24k SUPERCOP implementation
-app-crypt/mkp224o:besort - Force intfilter binary search case to use big endian sorting; useful if your filters aren't of the same length
-app-crypt/mkp224o:binsearch - Enable binary search algo; much faster if there are a lot of filters
-app-crypt/mkp224o:donna - Use portable ed25519-donna implementation
-app-crypt/mkp224o:donna-sse2 - Use x86 + SSE2 ed25519-donna implementation
-app-crypt/mkp224o:pcre2 - Enable the regex engine and use pcre2
-app-crypt/mkp224o:ref10 - Use portable ref10 SUPERCOP implementation
-app-crypt/mkp224o:statistics - Collect performance statistics
 app-crypt/tomb:tray - add a tomb tray in a QT desktop toolbar
 app-crypt/uacme:gnutls - Use net-libs/gnutls instead of dev-libs/openssl
 app-crypt/uacme:man - Build and install man pages

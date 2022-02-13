@@ -52,7 +52,6 @@ app-crypt/certbot-dns-digitalocean 1.22.0: Digitalocean DNS Authenticator plugin
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/gnome-encfs-manager 1.9: An easy to use manager and mounter for encfs stashes
 app-crypt/intel-ipsec-mb 1.1 9999: Multi-Buffer Crypto for IPSec from Intel
-app-crypt/mkp224o 1.5.0: Vanity address generator for v3 Tor hidden service addresses
 app-crypt/pgp 2.6.3a: Public-key encryption and digital signature utility
 app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-crypt/tomb 2.9-r6: Tomb :: File Encryption on GNU/Linux
