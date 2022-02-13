@@ -18,7 +18,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-libs/boost[nls]
-	app-arch/libarchive[bzip2,iconv,lzma,zlib]
+	app-arch/libarchive[bzip2,iconv,lzma,zlib(+)]
 	dev-libs/libfmt
 	dev-libs/pugixml
 "

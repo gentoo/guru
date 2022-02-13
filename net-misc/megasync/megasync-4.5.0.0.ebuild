@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools desktop qmake-utils xdg cmake
 
@@ -132,17 +132,17 @@ src_configure() {
 }
 
 src_compile() {
-	emake -C src INSTALL_ROOT="${D}" || die
+	emake -C src INSTALL_ROOT=. || die
 	use dolphin && cmake_src_compile
 }
 
 src_install() {
 	use dolphin && cmake_src_install
 	einstalldocs
+
 	dobin src/MEGASync/${PN}
-	insinto usr/share/licenses/${PN}
-	doins LICENCE.md installer/terms.txt
 	domenu src/MEGASync/platform/linux/data/${PN}.desktop
+
 	cd src/MEGASync/platform/linux/data/icons/hicolor
 	for size in 16x16 32x32 48x48 128x128 256x256;do
 		doicon -s $size $size/apps/mega.png

@@ -3,7 +3,8 @@
 
 EAPI=8
 
-inherit cmake xdg
+PYTHON_COMPAT=( python3_{8..10} )
+inherit cmake python-single-r1 xdg
 
 DESCRIPTION="Client for PlayStation 4 and PlayStation 5 Remote Play"
 HOMEPAGE="https://git.sr.ht/~thestr4ng3r/chiaki"
@@ -20,30 +21,37 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 IUSE="+cli +gui test"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	${PYTHON_DEPS}
 	dev-libs/jerasure
-	dev-libs/openssl
-	dev-qt/qtmultimedia
-	dev-qt/qtsvg
+	dev-libs/libevdev
+	dev-libs/openssl:=
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtconcurrent:5
+	dev-qt/qtmultimedia:5
+	dev-qt/qtsvg:5
+	dev-qt/qtwidgets:5
 	media-libs/libsdl2
 	media-libs/opus
-	media-video/ffmpeg
+	media-video/ffmpeg:=
 "
 
 DEPEND="${RDEPEND}"
 
 BDEPEND="
+	${PYTHON_DEPS}
+	$(python_gen_cond_dep 'dev-python/protobuf-python[${PYTHON_USEDEP}]')
 	dev-libs/protobuf
-	dev-python/protobuf-python
 	virtual/pkgconfig
 "
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
-		-DCMAKE_BUILD_TYPE=Release
+		-DPYTHON_EXECUTABLE="${PYTHON}"
 		-DCHIAKI_USE_SYSTEM_JERASURE=TRUE
 		-DCHIAKI_ENABLE_TESTS=$(usex test)
 		-DCHIAKI_ENABLE_CLI=$(usex cli)

@@ -1,4 +1,4 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,10 +21,10 @@ CRATES="
 	der-parser-6.0.0
 	digest-0.9.0
 	form_urlencoded-1.0.1
-	futures-core-0.3.18
-	futures-macro-0.3.18
-	futures-task-0.3.18
-	futures-util-0.3.18
+	futures-core-0.3.19
+	futures-macro-0.3.19
+	futures-task-0.3.19
+	futures-util-0.3.19
 	generic-array-0.14.4
 	half-1.7.1
 	hermit-abi-0.1.19
@@ -33,7 +33,7 @@ CRATES="
 	itoa-0.4.8
 	js-sys-0.3.55
 	lazy_static-1.4.0
-	libc-0.2.108
+	libc-0.2.112
 	lock_api-0.4.5
 	log-0.4.14
 	matches-0.1.9
@@ -48,16 +48,16 @@ CRATES="
 	num-bigint-0.4.3
 	num-integer-0.1.44
 	num-traits-0.2.14
-	num_cpus-1.13.0
+	num_cpus-1.13.1
 	oid-registry-0.2.0
-	once_cell-1.8.0
+	once_cell-1.9.0
 	opaque-debug-0.3.0
 	parking_lot-0.11.2
 	parking_lot_core-0.8.5
 	percent-encoding-2.1.0
 	pin-project-lite-0.2.7
 	pin-utils-0.1.0
-	proc-macro2-1.0.32
+	proc-macro2-1.0.34
 	quote-1.0.10
 	redox_syscall-0.2.10
 	ring-0.16.20
@@ -66,24 +66,24 @@ CRATES="
 	rustls-pemfile-0.2.1
 	scopeguard-1.1.0
 	sct-0.7.0
-	serde-1.0.130
-	serde_derive-1.0.130
+	serde-1.0.132
+	serde_derive-1.0.132
 	sha2-0.9.8
 	signal-hook-registry-1.4.0
-	simple_logger-1.15.0
+	simple_logger-1.16.0
 	slab-0.4.5
 	smallvec-1.7.0
 	spin-0.5.2
-	syn-1.0.82
+	syn-1.0.83
 	thiserror-1.0.30
 	thiserror-impl-1.0.30
 	time-0.3.5
 	time-macros-0.2.3
 	tinyvec-1.5.1
 	tinyvec_macros-0.1.0
-	tokio-1.14.0
-	tokio-macros-1.6.0
-	tokio-rustls-0.23.1
+	tokio-1.15.0
+	tokio-macros-1.7.0
+	tokio-rustls-0.23.2
 	toml-0.5.8
 	typenum-1.14.0
 	unicase-2.6.0
@@ -115,7 +115,8 @@ SRC_URI="
 	$(cargo_crate_uris ${CRATES})
 "
 
-LICENSE="Apache-2.0 BSD MIT MPL-2.0 ZLIB"
+# openssl and SSLeay come from the “ring” crate.
+LICENSE="Apache-2.0 BSD ISC MIT MPL-2.0 openssl SSLeay ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 

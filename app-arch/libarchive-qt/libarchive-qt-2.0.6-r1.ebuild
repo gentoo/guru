@@ -23,7 +23,7 @@ SLOT="0"
 IUSE="static-libs"
 
 DEPEND="
-	app-arch/libarchive[lzma,bzip2,zlib]
+	app-arch/libarchive[lzma,bzip2,zlib(+)]
 	app-arch/lrzip
 	app-arch/lzip
 	app-arch/lzop

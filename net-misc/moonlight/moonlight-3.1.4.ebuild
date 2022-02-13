@@ -5,19 +5,13 @@ EAPI=8
 inherit qmake-utils xdg-utils
 
 DESCRIPTION="GameStream client for PCs"
-
 HOMEPAGE="https://github.com/moonlight-stream/moonlight-qt"
-
 SRC_URI="https://github.com/moonlight-stream/moonlight-qt/releases/download/v${PV}/MoonlightSrc-${PV}.tar.gz"
-
 S="${WORKDIR}"
 
 LICENSE="GPL-3"
-
 SLOT="0"
-
 KEYWORDS="~amd64"
-
 IUSE="vaapi"
 
 RDEPEND="
@@ -33,16 +27,19 @@ RDEPEND="
 		>=x11-libs/libva-2.12.0:0
 	)
 "
-
 DEPEND="${RDEPEND}"
-
 BDEPEND="
 	virtual/pkgconfig
 	dev-qt/qtcore
 "
 
 src_configure() {
-	eqmake5 PREFIX="${D}/usr"
+	eqmake5 PREFIX="${EPREFIX}/usr"
+}
+
+src_install() {
+	emake install INSTALL_ROOT="${D}"
+	einstalldocs
 }
 
 pkg_postinst() {

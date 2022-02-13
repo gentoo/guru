@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit meson systemd udev
+inherit meson
 
 DESCRIPTION="vvmd is a lower level daemon that retrieves Visual Voicemail"
 HOMEPAGE="https://gitlab.com/kop316/vvmd"
@@ -18,9 +18,9 @@ RDEPEND="
 	>=net-misc/curl-7.70
 	>=dev-cpp/glibmm-1.14
 	dev-libs/libphonenumber
+	net-misc/modemmanager
 "
-
-DEPEND=""
+DEPEND="${RDEPEND}"
 
 src_install() {
 	meson_src_install
