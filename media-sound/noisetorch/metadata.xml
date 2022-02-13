@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Adel Kara Slimane</name>
+		<email>adel.ks@zegrapher.com</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">lawl/NoiseTorch</remote-id>
+		<bugs-to>https://github.com/lawl/NoiseTorch/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
