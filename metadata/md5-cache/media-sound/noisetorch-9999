@@ -11,4 +11,4 @@ RDEPEND=filecaps? ( sys-libs/libcap )
 RESTRICT=strip
 SLOT=0
 _eclasses_=go-module	a5549ce5cf5b836fcc14e388fe516f90	desktop	c0d27bf73aa08ca05b663dbd31fbef28	fcaps	ac252c3cc67b265cd7ea456f8d58e150	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=f36c8dd60f58fa1f1bc881fe3a55bfa0
+_md5_=cc6ff6c330f4f7f5ac902c67da35d9df
