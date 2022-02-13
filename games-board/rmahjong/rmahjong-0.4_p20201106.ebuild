@@ -34,8 +34,8 @@ RDEPEND="
 	${PYTHON_DEPS}
 	dev-python/pygame[X,opengl]
 	$(python_gen_cond_dep '
-		dev-python/pygame[${PYTHON_MULTI_USEDEP}]
-		dev-python/pyopengl[${PYTHON_MULTI_USEDEP}]
+		dev-python/pygame[${PYTHON_USEDEP}]
+		dev-python/pyopengl[${PYTHON_USEDEP}]
 	')
 "
 
@@ -47,7 +47,10 @@ src_prepare(){
 	sed -i "/logging.basicConfig/d" "${S}/server/server.py" || die
 	sed -i "/logging.info/d" "${S}/server/server.py" || die
 
-	echo $'#!/bin/sh\ncd '"$(python_get_sitedir)/${PN}"' && ./start.sh' > "${S}/rmahjong"
+	cat > "${S}/rmahjong" <<- EOF || die
+		#!/bin/sh
+		cd "$(python_get_sitedir)/${PN}" && ./start.sh
+	EOF
 
 	# pass compiler and CFLAGS to 'Bot' makefile
 	sed -i -e 's:gcc:'"$(tc-getCC)"':g' bot/makefile \
@@ -57,11 +60,13 @@ src_prepare(){
 
 src_compile() {
 	# Build bots
-	cd "${S}/bot/" && emake
+	cd "${S}/bot/" || die
+	emake
 }
 
 src_test() {
-	cd "${S}/server/" && python3 test.py -v
+	cd "${S}/server/" || die
+	"${EPYTHON}" test.py -v || die
 }
 
 src_install() {
