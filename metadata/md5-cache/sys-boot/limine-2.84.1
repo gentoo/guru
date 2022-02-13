@@ -1,0 +1,13 @@
+BDEPEND=sys-apps/findutils dev-lang/nasm app-arch/gzip eltorito-efi? ( sys-fs/mtools ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71
+DEFINED_PHASES=configure
+DESCRIPTION=Limine is a modern, advanced x86/x86_64 BIOS/UEFI multiprotocol bootloader.
+EAPI=8
+HOMEPAGE=https://limine-bootloader.org/
+INHERIT=autotools
+IUSE=+eltorito-efi
+KEYWORDS=~amd64
+LICENSE=BSD-2
+SLOT=0
+SRC_URI=https://github.com/limine-bootloader/limine/releases/download/v2.84.1/limine-2.84.1.tar.xz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e
+_md5_=3e49e7c2cb1b85092d2b2320705348ba

@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.16 app-arch/unzip filecaps? ( sys-libs/libcap )
+DEFINED_PHASES=install postinst prepare unpack
+DESCRIPTION=Real-time microphone noise suppression on Linux.
+EAPI=7
+HOMEPAGE=https://github.com/lawl/NoiseTorch
+INHERIT=go-module desktop fcaps
+IUSE=+filecaps
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=filecaps? ( sys-libs/libcap )
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/lawl/NoiseTorch/archive/refs/tags/0.11.4.tar.gz -> noisetorch-0.11.4.tar.gz
+_eclasses_=go-module	a5549ce5cf5b836fcc14e388fe516f90	desktop	c0d27bf73aa08ca05b663dbd31fbef28	fcaps	ac252c3cc67b265cd7ea456f8d58e150
+_md5_=f36c8dd60f58fa1f1bc881fe3a55bfa0

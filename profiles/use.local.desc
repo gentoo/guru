@@ -27,7 +27,6 @@ app-crypt/uacme:mbedtls - Use net-libs/mbedtls instead of dev-libs/openssl
 app-crypt/uacme:ualpn - Build the ualpn proxy that transparently handles tls-alpn-01
 app-dicts/dictd-mueller:ipa - convert transcription into the IPA Unicode
 app-emulation/arnold:inkz80 - Use inkz80 processor emulation
-app-emulation/unicorn:python - Enable python bindings
 app-misc/apidb:commands - Build commands
 app-misc/apidb:corelibs - Build Abtract layer
 app-misc/apidb:mariadb - Build MariaDB Layer
@@ -180,7 +179,6 @@ games-fps/quakespasm:sdl2 - Use media-libs/libsdl2 instead of media-libs/libsdl
 games-puzzle/atris:sound - Enable atris sound pack
 games-server/among-sus:notifications - Notify players you're moving
 games-util/chiaki:cli - Build CLI interface
-games-util/chiaki:gui - Build GUI interface
 games-util/itch-bin:system-ffmpeg - Use the system-wide media-video/ffmpeg instead of bundled.
 games-util/legendary:webview - Use dev-python/pywebview for the sign-in process
 gnome-extra/yad:spell - Enable spell check support with app-text/gspell
@@ -285,6 +283,9 @@ net-im/nheko:video - Enables video calls
 net-im/nheko:voip - Enables audio calls
 net-im/ruqola:speech - Enable text-to-speech support
 net-libs/ixwebsocket:ws - Build the ws utility
+net-libs/td:benchmark - Enable benchmarking
+net-libs/td:dotnet - Add support for .NET
+net-libs/td:jumbo-build - Combine source files to speed up build process
 net-libs/usockets:asio - Enable bindings to use the boost asio dispatcher
 net-libs/usockets:libuv - Enable bindings to use the libuv dispatcher
 net-misc/megasync:cryptopp - Compile with Crypto++ Library.
@@ -464,6 +465,7 @@ sys-auth/keystone:memcached - Installs dependencies needed for using memcached a
 sys-auth/keystone:mongo - Installs dependencies needed for using mongo as a backend
 sys-auth/mrsh:pam - build with pam support
 sys-auth/mrsh:shadow - build with shadow file support
+sys-boot/limine:eltorito-efi - Enable building eltorito-efi.bin using sys-fs/mtools
 sys-cluster/KVTree:fcntl - Set the type of file locking to fcntl.
 sys-cluster/KVTree:flock - Set the type of file locking to flock.
 sys-cluster/OpenHPC-meta:io-libs - Collection of IO libraries

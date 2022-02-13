@@ -7,9 +7,9 @@ INHERIT=python-single-r1
 IUSE=doc examples python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_8? ( dev-python/pyyaml[${PYTHON_MULTI_USEDEP}] net-mail/notmuch[python,${PYTHON_MULTI_USEDEP}] ) python_single_target_python3_9? ( dev-python/pyyaml[${PYTHON_MULTI_USEDEP}] net-mail/notmuch[python,${PYTHON_MULTI_USEDEP}] )
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_8? ( dev-python/pyyaml[python_targets_python3_8(-)] net-mail/notmuch[python,python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pyyaml[python_targets_python3_9(-)] net-mail/notmuch[python,python_targets_python3_9(-)] )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://git.kernel.org/pub/scm/linux/kernel/git/tglx/quilttools.git/snapshot/quilttools-0.3.tar.gz
 _eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	ce976d20176213d68719e1a760f6e9fe	python-single-r1	3c5721adc30f98c39739c5970a4762d8
-_md5_=48180bb5d922854330ed9ce0f0af48e3
+_md5_=05878e595117f64ac60aaceb66562655

@@ -7,10 +7,10 @@ INHERIT=desktop python-single-r1 toolchain-funcs xdg
 IUSE=test python_single_target_python3_8 python_single_target_python3_9
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) dev-python/pygame[X,opengl] python_single_target_python3_8? ( dev-python/pygame[${PYTHON_MULTI_USEDEP}] dev-python/pyopengl[${PYTHON_MULTI_USEDEP}] ) python_single_target_python3_9? ( dev-python/pygame[${PYTHON_MULTI_USEDEP}] dev-python/pyopengl[${PYTHON_MULTI_USEDEP}] )
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) dev-python/pygame[X,opengl] python_single_target_python3_8? ( dev-python/pygame[python_targets_python3_8(-)] dev-python/pyopengl[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pygame[python_targets_python3_9(-)] dev-python/pyopengl[python_targets_python3_9(-)] )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/spirali/rmahjong/archive/7a37ade640bc24eb2cc9f0ad6c7ce26773be2856.tar.gz -> rmahjong-0.4_p20201106.tar.gz https://github.com/KDE/kmahjongg/raw/master/icons/48-apps-kmahjongg.png -> kmahjongg_rmahjong.png
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	ce976d20176213d68719e1a760f6e9fe	python-single-r1	3c5721adc30f98c39739c5970a4762d8	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
-_md5_=7fe023abf677a678cffdeafa94c0846d
+_md5_=25f09654fa994928e55652f4f9401df2

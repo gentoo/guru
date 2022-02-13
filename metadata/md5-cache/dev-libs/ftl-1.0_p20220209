@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig virtual/fortran
+DEFINED_PHASES=compile configure install setup test
+DEPEND=pcre? ( dev-libs/libpcre:3 ) virtual/fortran
+DESCRIPTION=The Fortran Template Library (FTL) is a general purpose library for Fortran 2003
+EAPI=8
+HOMEPAGE=https://github.com/SCM-NV/ftl
+INHERIT=flag-o-matic fortran-2 toolchain-funcs
+IUSE=pcre test
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-3
+RDEPEND=pcre? ( dev-libs/libpcre:3 ) virtual/fortran
+REQUIRED_USE=test? ( pcre )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/SCM-NV/ftl/archive/69fa39bbf9441d1686e65b7e19b1606f8cab4b9f.tar.gz -> ftl-1.0_p20220209.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	fortran-2	7e39eb204d37699d5f1eaf9f4d61888a
+_md5_=f11e321f0e3b928476b33f2338c8a908

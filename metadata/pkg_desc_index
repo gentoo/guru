@@ -32,7 +32,7 @@ app-admin/awscli-bin 2.3.2-r1: Universal Command Line Interface for Amazon Web S
 app-admin/chamber 2.10.7: Managing secrets in AWS SSM Parameter Store
 app-admin/chezmoi 2.6.1 2.7.2 2.9.0: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
-app-admin/customrescuecd-x86_64 0.12.4: A system rescue cd or usbstick for desktop and server based on gentoo
+app-admin/customrescuecd-x86_64 0.12.5: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/glance 23.0.0: Services for discovering, registering, and retrieving VM images
 app-admin/gnome-passwordsafe 4.0-r1 4.1: A password manager for GNOME
 app-admin/grub-customizer 5.1.0: A graphical grub2 settings manager
@@ -40,7 +40,7 @@ app-admin/krapplet 0.3.1: Krapplet (keyring applet): a Linux graphical password 
 app-admin/overmind 2.2.2-r1: Process manager for Procfile-based applications and tmux
 app-admin/pass-update 2.1: pass extension that provides an easy flow for updating passwords
 app-admin/s-tui 1.1.1 1.1.3: Stress-Terminal UI monitoring tool
-app-arch/libarchive-qt 2.0.3 2.0.4 2.0.6 9999: A Qt based archiving solution with libarchive backend
+app-arch/libarchive-qt 2.0.6-r1 9999: A Qt based archiving solution with libarchive backend
 app-arch/unalz 0.65-r1: Extract ALZ archives
 app-backup/b2 2.5.0-r1 3.0.3: Command-line tool for BackBlaze's B2 product
 app-backup/grub-btrfs 4.10.2: Improves Grub by adding btrfs snapshots to the Grub menu.
@@ -48,7 +48,7 @@ app-backup/timeshift 21.09.1-r1: A system restore utility for Linux
 app-backup/timeshift-autosnap 0.9: Automatically creates a timeshift-snapshot when executed
 app-containers/nvidia-container-toolkit 1.5.0 1.7.0 1.8.0_rc1: NVIDIA container runtime toolkit
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
-app-crypt/certbot-dns-digitalocean 1.21.0 1.22.0: Digitalocean DNS Authenticator plugin for Certbot (Let's Encrypt Client)
+app-crypt/certbot-dns-digitalocean 1.22.0: Digitalocean DNS Authenticator plugin for Certbot (Let's Encrypt Client)
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/gnome-encfs-manager 1.9: An easy to use manager and mounter for encfs stashes
 app-crypt/intel-ipsec-mb 1.1 9999: Multi-Buffer Crypto for IPSec from Intel
@@ -85,7 +85,6 @@ app-emulation/arnold 20170513: Amstrad CPC emulator
 app-emulation/dxvk-bin 1.9.3 1.9.4: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/quickemu 3.11: Create and run optimised Windows, macOS and Linux desktop virtual machines
 app-emulation/spice-html5 0.2.2 0.3.0: Spice Javascript client
-app-emulation/unicorn 1.0.3: Unicorn CPU emulator framework
 app-forensics/libpreloadvaccine 0_pre20190831: Whitelisting LD_PRELOAD libraries using LD_AUDIT
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-misc/afetch 2.2.0: Simple system info written in C
@@ -99,7 +98,7 @@ app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best
 app-misc/doublecmd-bin 1.0.1 1.0.2: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
-app-misc/fastfetch 0.569 9999: Like neofetch but faster
+app-misc/fastfetch 0.583 9999: Like neofetch but faster
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -162,7 +161,7 @@ app-shells/zsh-history-to-fish 0.3.0: Bring your ZSH history to Fish shell
 app-shells/zsh-silver 9999: Zsh plugin for silver
 app-text/OCRmyPDF 12.0.2 12.6.0 13.2.0: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/cmark-gfm 0.29.0.0: GitHub's fork of cmark
-app-text/epubgrep 0.5.1 0.6.0: Search tool for EPUB e-books
+app-text/epubgrep 0.5.1-r1 0.6.0-r1: Search tool for EPUB e-books
 app-text/klogg 20.12: A GUI application to browse and search through long and complex log files
 app-text/komikku 0.35.2-r1 0.36.1: An online/offline manga reader for GNOME
 app-text/koodo-reader-bin 1.3.0: A modern ebook manager and reader with sync and backup capacities
@@ -324,7 +323,7 @@ dev-libs/dmd_core 0.6.2: Core logic for an AT&T / Teletype DMD 5620 terminal emu
 dev-libs/feedbackd 0.0.0-r1: A daemon to provide haptic feedback on events
 dev-libs/fortran-stdlib 0.1.0 9999: A community driven standard library for (modern) Fortran
 dev-libs/fsst 0_pre20200830: Fast Static Symbol Table: fast text compression that allows random access
-dev-libs/ftl 1.0_p20210308: The Fortran Template Library (FTL) is a general purpose library for Fortran 2003
+dev-libs/ftl 1.0_p20210308 1.0_p20220209: The Fortran Template Library (FTL) is a general purpose library for Fortran 2003
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
 dev-libs/imsg-compat 6.8.2 9999: linux port of OpenBSD imsg
 dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
@@ -353,7 +352,7 @@ dev-libs/rsaref 2.0: Encryption/authentication library, RSA/MDX/DES
 dev-libs/supercop 0_p20200827: Fast cryptographic operations for Monero wallets
 dev-libs/tfdn 1.0.3 1.1.0: Opinionated C11 library for low-level functionality
 dev-libs/tweeny 3.1.1 3.2.0: C++ tweening (inbetweening) library
-dev-libs/xqilla 2.3.4: An XQuery and XPath 2 library and command line utility written in C++
+dev-libs/xqilla 2.3.4 2.3.4-r1: An XQuery and XPath 2 library and command line utility written in C++
 dev-libs/zfp 0.5.5: Compressed numerical arrays that support high-speed random access
 dev-libs/zlib-google 97.0.4692.13: google zlib extras
 dev-perl/File-DirList 0.05: provide a sorted list of directory content
@@ -568,7 +567,7 @@ dev-python/pysftp 0.2.9: A friendly face on SFTP
 dev-python/pystardict 0.8: Library for manipulating StarDict dictionaries from within Python
 dev-python/pysubs2 1.2.0 1.3.0 1.3.1: A library for editing subtitle files
 dev-python/pytest-benchmark 3.4.1: py.test fixture for benchmarking code
-dev-python/pytest-cases 3.6.8: Separate test code from test cases in pytest
+dev-python/pytest-cases 3.6.8 3.6.9: Separate test code from test cases in pytest
 dev-python/pytest-celery 0.0.0: a shim pytest plugin to enable celery.contrib.pytest
 dev-python/pytest-cython 0.1.1: Plugin for testing Cython extension modules
 dev-python/pytest-harvest 1.10.3: Store and retrieve data created during your pytest tests execution
@@ -743,7 +742,7 @@ games-engines/fs2_open 21.4.0: FreeSpace2 Source Code Project game engine
 games-engines/instead 3.3.5 3.4.1 9999: INSTEAD text-based quest game engine
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
-games-fps/crispy-doom 5.10.0 5.10.1 5.10.2 5.10.3: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
+games-fps/crispy-doom 5.10.0 5.10.1 5.10.2 5.10.3 5.11.1: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 games-fps/quakespasm 0.94.1 9999: Modern, cross-platform Quake 1 engine based on FitzQuake
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
 games-misc/bonsai 0_pre20210201: bonsai tree generator written in bash
@@ -753,12 +752,11 @@ games-puzzle/krank 8: Little casual game
 games-puzzle/superflu-riteurnz 1.0.0: Artisanal video-game about Superflu, the useless super-hero (french)
 games-server/among-sus 20210519: Among Us, but it's a text adventure
 games-util/NotEnoughProduction 0.0.4: Tool for building production chains for modded minecraft
-games-util/chiaki 2.1.1 9999: Client for PlayStation 4 and PlayStation 5 Remote Play
+games-util/chiaki 2.1.1-r1 9999: Client for PlayStation 4 and PlayStation 5 Remote Play
 games-util/dwarf-therapist 41.2.2: For managing dwarves in Dwarf Fortress
 games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
 games-util/hid-nintendo 9999: A Nintendo HID kernel module
 games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launcher
-games-util/joycond 9999: Combine joy-cons using hid-nintendo
 games-util/legendary 0.20.24 0.20.25: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
 games-util/steamtinkerlaunch 8.0: Wrapper script for Steam custom launch options
@@ -788,6 +786,7 @@ gui-apps/coreterminal 4.2.0 9999: A terminal emulator for C Suite
 gui-apps/coretime 4.2.0 9999: A time related task manager for C Suite
 gui-apps/coretoppings 4.1.0-r1 4.2.0 9999: Additional features, plugins, widgets etc for C Suite
 gui-apps/coreuniverse 4.2.0 9999: Shows information about apps for C Suite
+gui-apps/fnott 1.2.0: Keyboard driven and lightweight Wayland notification daemon.
 gui-apps/mpvpaper 1.1 1.2 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.5.0 0.6.3 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperde 0.1.1_p20210426 9999: Simple, sleek QT based DE for wayland using wayfire
@@ -887,13 +886,15 @@ media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
 media-sound/add64 3.8.0 3.9.3: Add64 is a realtime additive/subtractive-synthesis softsynth
 media-sound/callaudiod 0.1.3: Call audio routing daemon
+media-sound/helvum 0.3.4: A GTK patchbay for pipewire
 media-sound/hushboard 0.0_pre20210317-r1 9999: Mutes your microphone while you are typing
 media-sound/ibniz 1.18: virtual machine designed for extremely compact low-level audiovisual programs
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/mopidy 3.2.0: An extensible music server written in Python.
 media-sound/ncpamixer 1.3.3.1: A ncurses mixer for PulseAudio inspired by pavucontrol
 media-sound/netcat-cpi 2014.04.29: Kernel module edition of the Cycles Per Instruction (2014) album
-media-sound/noson-app 4.5.2: The essential to control music from your SONOS devices on Linux platforms
+media-sound/noisetorch 0.11.4 9999: Real-time microphone noise suppression on Linux.
+media-sound/noson-app 5.0.2: The essential to control music from your SONOS devices on Linux platforms
 media-sound/nuclear-bin 0.6.15 0.6.17: Nuclear is a streaming program that pulls content from free sources on internet
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
 media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file or stream as a PulseAudio source
@@ -905,7 +906,7 @@ media-video/ffsubsync 0.4.18 0.4.19 0.4.20: Automagically syncronize subtitles w
 media-video/kikoplay 0.8.1 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.4.3: A GTK3 camera application that knows how to deal with the media request api
 media-video/mpv-mpris 0.5 0.6 9999: MPRIS plugin for mpv
-media-video/obs-vkcapture 1.1.1 9999: OBS Linux Vulkan/OpenGL game capture
+media-video/obs-vkcapture 1.1.2 9999: OBS Linux Vulkan/OpenGL game capture
 media-video/owncast 0.0.7-r1 0.0.8 0.0.9 0.0.10: A self-hosted live video and web chat server
 media-video/qliveplayer 4.0.1-r2 4.1.0: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
@@ -928,9 +929,9 @@ net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/Quaternion 0.0.9.4e: A Qt5-based IM client for the Matrix protocol
 net-im/abaddon 0.1.2 9999: Alternative Discord client using GTK instead of Electron
 net-im/cawbird 1.4.2: Cawbird is a fork of the Corebird Twitter client from Baedert.
-net-im/discord-canary-bin 0.0.132: All-in-one voice and text chat
+net-im/discord-canary-bin 0.0.133: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.25: All-in-one voice and text chat
-net-im/go-sendxmpp 0.1.1 0.1.2 0.1.3: A little tool to send messages to an XMPP contact or MUC
+net-im/go-sendxmpp 0.1.3 0.2.0: A little tool to send messages to an XMPP contact or MUC
 net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
 net-im/kaidan 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!
 net-im/matterhorn-bin 50200.13.0: Terminal based Mattermost client
@@ -943,6 +944,7 @@ net-libs/dpdk 21.11: Data Plane Development Kit libraries for fast userspace net
 net-libs/ixwebsocket 11.3.2: C++ websocket client and server library
 net-libs/kcgi 0.12.5 0.13.0: Minimal CGI library for web applications
 net-libs/libqmatrixclient 0.5.3.2: A Qt5 library to write cross-platfrom clients for Matrix
+net-libs/td 1.8.0: Cross-platform library for building Telegram clients
 net-libs/telepathy-haze 0.8.1: Telepathy connection manager providing libpurple supported protocols
 net-libs/usockets 0.8.1_p20211023 9999: tiny eventing, networking & crypto for async applications
 net-mail/remail 0.13: A set of tools for crypted mailing lists
@@ -953,7 +955,7 @@ net-misc/eg25-manager 0.4.2: Daemon for managing the Quectel EG25 modem
 net-misc/facebook-ptp 0_pre20210831: Facebook's PTP libraries
 net-misc/freetube-bin 0.16.0: https://github.com/FreeTubeApp/FreeTube
 net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
-net-misc/gemserv 0.6.0 0.6.1 0.6.3: A gemini Server written in rust
+net-misc/gemserv 0.6.3 0.6.5: A gemini Server written in rust
 net-misc/gmid 1.7.5 1.8 9999: Simple and secure Gemini server
 net-misc/lyrics-in-terminal 1.4.2: Command Line Lyrics fetcher for MPRIS media players
 net-misc/maestral 1.5.2 1.5.3: Maestral is an open-source Dropbox client written in Python
@@ -1073,6 +1075,7 @@ sys-auth/mrsh 2.12 2.12-r1: Mrsh is a set of remote shell programs that use mung
 sys-boot/bmap-tools 3.6-r3: Bmaptool is a tool for creating and copyng files using block maps
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
+sys-boot/limine 2.83 2.84 2.84.1: Limine is a modern, advanced x86/x86_64 BIOS/UEFI multiprotocol bootloader.
 sys-cluster/AXL 0.3.0 0.4.0 0.5.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
 sys-cluster/KVTree 1.1.1 1.2.0: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/OpenHPC-meta 2.1: OpenHPC metapackage
@@ -1123,12 +1126,12 @@ sys-cluster/temanejo 1.3: a debugger for task-parallel programming
 sys-cluster/veloc 1.5-r1: Very-Low Overhead Checkpointing System
 sys-cluster/wxparaver 4.9.0-r1: paraver gui
 sys-firmware/pinephone-firmware 20210809: Firmwares files for PinePhone
-sys-fs/btrfs-heatmap 9: Python 3 script to draw a heatmap of a btrfs filesystem
+sys-fs/btrfs-heatmap 9-r1: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
 sys-fs/dwarfs 0.5.6-r1 0.5.6-r2 0.5.6-r3: A fast very high compression read-only FUSE file system
 sys-fs/gcsfuse 0.39.2: A user-space file system for interacting with Google Cloud Storage
 sys-fs/gdu 5.9.0: Disk usage analyzer with console interface written in Go
-sys-fs/gfs2-utils 3.3.0 3.4.1: Shared-disk cluster file system
+sys-fs/gfs2-utils 3.4.1: Shared-disk cluster file system
 sys-fs/git-mount 1.0.0_p20160321: git-mount let's you mount your repo as a filesystem based on a revision.
 sys-fs/python-btrfs 12 13: Python 3 module to inspect btrfs filesystems
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
@@ -1147,7 +1150,7 @@ sys-power/amdgpu-fan 0.1.0-r1: Fan controller for AMD graphics cards running the
 sys-power/disable-c6 0_p20190603: disable the C6 state upon system boot, preventing Ryzen freezes
 sys-power/gtherm 0.0.3: A simple daemon to monitor thermal zones and cooling devices
 sys-power/gwe 0.15.3: NVIDIA settings alternative with overclocking, fan control, and information
-sys-process/btop 1.2.0: A monitor of resources
+sys-process/btop 1.2.2: A monitor of resources
 sys-process/gotop 4.1.2: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/nq 0.4: Unix command line queue utility
 sys-process/nvtop 1.2.2 9999: NVIDIA GPUs htop like monitoring tool
@@ -1184,7 +1187,7 @@ x11-misc/caffeine-ng 3.5.1: Aplication able to temporarily inhibit the screensav
 x11-misc/gammy 0.9.60 0.9.64: Adaptive screen brightness/temperature
 x11-misc/gobble 1.2: Hide current window before launching external program, unhide after quitting
 x11-misc/greenclip-bin 4.2: Simple clipboard manager to be integrated with rofi
-x11-misc/gromit-mpx 1.4 1.4.1 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
+x11-misc/gromit-mpx 1.4.1 1.4.2 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
 x11-misc/i3lock-color 2.13.2 2.13.4 9999: The world's most popular non-default computer lockscreen
 x11-misc/i3lock-fancy-rapid 0.0.0_pre20201109-r1 0.0.0_pre20210421: A faster implementation of i3lock-fancy
 x11-misc/i3status-rust 0.14.1: A feature-rich and resource-friendly replacement for i3status, written in Rust.
