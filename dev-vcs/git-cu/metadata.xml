@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>matt@offtopica.uk</email>
-    <name>Matt Smith</name>
-  </maintainer>
+  <!-- maintainer-needed -->
   <longdescription lang="en">
     git-cu helps keep your local git repositories organized by cloning
     them into a directory structure based on their URL.
