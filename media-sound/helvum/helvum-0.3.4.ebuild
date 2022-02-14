@@ -148,3 +148,5 @@ SRC_URI="
 LICENSE="Apache-2.0 BSD Boost-1.0 GPL-3 ISC MIT Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
+
+DEPEND="x11-libs/pango"
