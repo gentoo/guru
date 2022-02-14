@@ -35,6 +35,11 @@ src_prepare() {
 src_install() {
 	R-packages_src_install
 
-	dosym8 -r /usr/include/armadillo_bits "/usr/$(get_libdir)/R/site-library/${PN}/include/armadillo_bits"
-	dosym8 -r /usr/include/armadillo "/usr/$(get_libdir)/R/site-library/${PN}/include/armadillo"
+	R_includedir="/usr/$(get_libdir)/R/site-library/${PN}/include"
+	dosym8 -r /usr/include/armadillo "${R_includedir}/armadillo"
+
+	for file in "${ED}/${R_includedir}"/armadillo_bits/*; do
+		filename=$(basename "${file}")
+		dosym8 -r /usr/include/armadillo_bits/${file} "${R_includedir}/armadillo_bits/${file}"
+	done
 }
