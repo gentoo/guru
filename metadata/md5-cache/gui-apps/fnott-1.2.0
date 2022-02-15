@@ -10,5 +10,5 @@ LICENSE=MIT ZLIB
 RDEPEND=x11-libs/pixman media-libs/libpng dev-libs/wayland sys-apps/dbus media-libs/fcft media-libs/freetype media-libs/fontconfig dev-libs/wayland-protocols
 SLOT=0
 SRC_URI=https://codeberg.org/dnkl/fnott/archive/1.2.0.tar.gz -> fnott-1.2.0.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	ce976d20176213d68719e1a760f6e9fe	meson	9f3e84959ae1d60e19bc91f212774dcc
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	meson	9f3e84959ae1d60e19bc91f212774dcc
 _md5_=5d823215820da98d30b4e578853b04a6
