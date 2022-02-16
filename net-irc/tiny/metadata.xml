@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<remote-id type="github">osa1/tiny</remote-id>
+	</upstream>
+	<use>
+		<flag name="openssl">Use dev-libs/openssl as TLS backend instead of compiled-in rustls</flag>
+		<flag name="dbus">Enable desktop notifications</flag>
+	</use>
+</pkgmetadata>
