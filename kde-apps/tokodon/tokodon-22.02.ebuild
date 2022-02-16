@@ -1,7 +1,7 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 KFMIN=5.77.0
 QTMIN=5.15.0
@@ -16,10 +16,11 @@ SLOT="5"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="
-	dev-libs/qtkeychain
+	dev-libs/qtkeychain:=
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtmultimedia-${QTMIN}:5
+	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwebsockets-${QTMIN}:5
@@ -31,9 +32,6 @@ DEPEND="
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
 "
-
-src_prepare() {
-	sed "s/SocialMedia//" -i org.kde.tokodon.desktop || die
-	ecm_src_prepare
-}
+RDEPEND="${DEPEND}"
