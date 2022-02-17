@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<email>bbzbryce@gmail.com</email>
+			<name>Bryce Boe</name>
+		</maintainer>
+		<remote-id type="pypi">praw</remote-id>
+		<remote-id type="github">praw-dev/praw</remote-id>
+		<changelog>https://pypi.org/rss/project/praw/releases.xml</changelog>
+		<doc>https://praw.readthedocs.io</doc>
+	</upstream>
+</pkgmetadata>
