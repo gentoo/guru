@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<email>graffatcolmingov@gmail.com</email>
+			<name>Ian Cordasco</name>
+		</maintainer>
+		<remote-id type="pypi">betamax-serializers</remote-id>
+		<remote-id type="gitlab">betamax/serializers</remote-id>
+		<changelog>https://pypi.org/rss/project/betamax-serializers/releases.xml</changelog>
+	</upstream>
+</pkgmetadata>
