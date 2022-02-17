@@ -26,17 +26,18 @@ IUSE="seccomp test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	!elibc_Darwin? ( dev-libs/libbsd )
 	acct-user/gemini
 	dev-libs/imsg-compat
 	dev-libs/libevent:=
 	dev-libs/libretls:=
 	dev-libs/openssl:=
+	!elibc_Darwin? ( dev-libs/libbsd )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 	virtual/yacc
+	seccomp? ( sys-kernel/linux-headers )
 "
 if [[ ${PV} != 9999 ]]; then
 	BDEPEND+="verify-sig? ( sec-keys/signify-keys-gmid:$(ver_cut 1-2) )"

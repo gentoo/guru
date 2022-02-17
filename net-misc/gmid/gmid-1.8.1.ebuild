@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,17 +26,18 @@ IUSE="seccomp test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	!elibc_Darwin? ( dev-libs/libbsd )
 	acct-user/gemini
 	dev-libs/imsg-compat
 	dev-libs/libevent:=
-	dev-libs/libretls
+	dev-libs/libretls:=
 	dev-libs/openssl:=
+	!elibc_Darwin? ( dev-libs/libbsd )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 	virtual/yacc
+	seccomp? ( sys-kernel/linux-headers )
 "
 if [[ ${PV} != 9999 ]]; then
 	BDEPEND+="verify-sig? ( sec-keys/signify-keys-gmid:$(ver_cut 1-2) )"
@@ -61,15 +62,6 @@ src_unpack() {
 	fi
 }
 
-src_prepare() {
-	default
-
-	sed \
-		-e "s:/usr/local/bin/gmid:/usr/bin/gmid:" \
-		-e "s:/etc/gmid.conf:/etc/gmid/gmid.conf:" \
-		-i contrib/gmid.service || die
-}
-
 src_configure() {
 	local conf_args
 	tc-export CC
@@ -88,13 +80,6 @@ src_configure() {
 	fi
 }
 
-src_compile() {
-	emake gmid
-	if use test ; then
-		emake -C regress gg data puny-test fcgi-test
-	fi
-}
-
 src_test() {
 	emake regress
 }
@@ -108,7 +93,7 @@ src_install() {
 	insinto /usr/share/vim/vimfiles
 	doins -r contrib/vim/*
 
-	systemd_dounit contrib/gmid.service
+	systemd_dounit "${FILESDIR}"/gmid.service
 	newinitd "${FILESDIR}"/gmid.initd gmid
 	newconfd "${FILESDIR}"/gmid.confd gmid
 
