@@ -8,7 +8,8 @@ inherit cmake flag-o-matic git-r3 xdg
 DESCRIPTION="PS3 emulator/debugger"
 HOMEPAGE="https://rpcs3.net/"
 EGIT_REPO_URI="https://github.com/RPCS3/rpcs3"
-EGIT_SUBMODULES=( '-*' 'asmjit' 'llvm' '3rdparty/flatbuffers' '3rdparty/wolfssl' )
+EGIT_SUBMODULES=( 'asmjit' 'llvm' '3rdparty/flatbuffers' '3rdparty/wolfssl'
+	'3rdparty/SoundTouch/soundtouch' )
 # Delete sources when ensuring yaml-cpp compiled with fexceptions
 EGIT_SUBMODULES+=( '3rdparty/yaml-cpp' )
 
