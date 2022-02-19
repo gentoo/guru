@@ -12,21 +12,16 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="git://git.codemadness.org/sfeed"
 else
-	SRC_URI="https://www.codemadness.org/releases/sfeed/sfeed-${PV}.tar.gz"
+	SRC_URI="https://www.codemadness.org/releases/${PN}/${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
 LICENSE="ISC"
 SLOT="0"
 
-IUSE="
-	+ncurses
-	+theme-mono
-	theme-mono-highlight
-	theme-newsboat
-	theme-templeos
-"
-REQUIRED_USE="ncurses? ( ^^ ( theme-mono theme-mono-highlight theme-newsboat theme-templeos ) )"
+THEMES=( mono{,-highlight} newsboat templeos )
+IUSE="+ncurses +$(printf "theme-%s " ${THEMES[@]})"
+REQUIRED_USE="ncurses? ( ^^ ( $(printf "theme-%s " ${THEMES[@]}) ) )"
 
 DEPEND="ncurses? ( sys-libs/ncurses )"
 RDEPEND="${DEPEND}
@@ -35,23 +30,15 @@ RDEPEND="${DEPEND}
 BDEPEND="virtual/pkgconfig"
 
 src_configure() {
-	if use theme-mono ; then
-		SFEED_THEME="mono"
-	elif use theme-mono-highlight ; then
-		SFEED_THEME="mono_highlight"
-	elif use theme-newsboat ; then
-		SFEED_THEME="newsboat"
-	elif use theme-templeos ; then
-		SFEED_THEME="templeos"
-	fi
+	for name in "${THEMES[@]}"; do
+		if use theme-${name}; then
+			SFEED_THEME="${name//-/_}"
+		fi
+	done
 
-	if use ncurses ; then
-		SFEED_CURSES="sfeed_curses"
-	else
-		SFEED_CURSES=""
-	fi
+	use ncurses && SFEED_CURSES="sfeed_curses"
 
-	restore_config themes/mono.h themes/mono_highlight.h themes/newsboat.h themes/templeos.h
+	restore_config $(printf "themes/%s.h " ${THEMES[@]//-/_})
 }
 
 src_compile() {
@@ -72,5 +59,5 @@ src_install() {
 
 	einstalldocs
 
-	save_config themes/mono.h themes/mono_highlight.h themes/newsboat.h themes/templeos.h
+	save_config $(printf "themes/%s.h " ${THEMES[@]//-/_})
 }
