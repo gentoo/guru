@@ -66,9 +66,9 @@ src_install() {
 	DESTDIR="${D}" \
 		emake install \
 		SFEED_CURSES="${SFEED_CURSES}" \
-		PREFIX="/usr" \
-		MANPREFIX="/usr/share/man" \
-		DOCPREFIX="/usr/share/doc/${P}"
+		PREFIX="${EPREFIX}/usr" \
+		MANPREFIX="${EPREFIX}/usr/share/man" \
+		DOCPREFIX="${EPREFIX}/usr/share/doc/${PF}"
 
 	einstalldocs
 
