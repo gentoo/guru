@@ -29,14 +29,12 @@ IUSE="
 REQUIRED_USE="ncurses? ( ^^ ( theme-mono theme-mono-highlight theme-newsboat theme-templeos ) )"
 
 DEPEND="ncurses? ( sys-libs/ncurses )"
-RDEPEND="ncurses? ( !net-news/sfeed_curses ) ${DEPEND}"
+RDEPEND="${DEPEND}
+	ncurses? ( !net-news/sfeed_curses )
+"
+BDEPEND="virtual/pkgconfig"
 
 src_configure() {
-	# Gentoo requires -ltinfo
-	sed -i \
-		-e "/^#SFEED_CURSES_LDFLAGS.*-ltinfo/{s|#||g}" \
-		Makefile || die "sed failed"
-
 	if use theme-mono ; then
 		SFEED_THEME="mono"
 	elif use theme-mono-highlight ; then
@@ -60,7 +58,8 @@ src_compile() {
 	tc-export AR CC
 	emake RANLIB=$(tc-getRANLIB) \
 		SFEED_CURSES="${SFEED_CURSES}" \
-		SFEED_THEME="${SFEED_THEME}"
+		SFEED_THEME="${SFEED_THEME}" \
+		SFEED_CURSES_LDFLAGS="${LDFLAGS} $(pkg-config --libs ncurses)"
 }
 
 src_install() {
