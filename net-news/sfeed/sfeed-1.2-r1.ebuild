@@ -23,7 +23,7 @@ THEMES=( mono{,-highlight} newsboat templeos )
 IUSE="+ncurses +$(printf "theme-%s " ${THEMES[@]})"
 REQUIRED_USE="ncurses? ( ^^ ( $(printf "theme-%s " ${THEMES[@]}) ) )"
 
-DEPEND="ncurses? ( sys-libs/ncurses )"
+DEPEND="ncurses? ( sys-libs/ncurses:= )"
 RDEPEND="${DEPEND}
 	ncurses? ( !net-news/sfeed_curses )
 "
