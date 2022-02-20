@@ -1143,7 +1143,7 @@ sys-fs/python-btrfs 12 13: Python 3 module to inspect btrfs filesystems
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
 sys-kernel/rte_kni-kmod 21.11: DPDK Kernel Nic Interface module
 sys-kernel/tirdad 0_p20200926: kernel module for random ISN generation
-sys-kernel/uek-sources 5.4.17.2136.303.2 5.4.17.2136.304.3: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
+sys-kernel/uek-sources 5.4.17.2136.303.2 5.4.17.2136.304.3 5.4.17.2136.305.2: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
 sys-kernel/ummunotify 2: Userspace support for MMU notifications
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-kernel/xpmem 2.6.5_p20210809: Linux Cross-Memory Attach
