@@ -9,6 +9,11 @@
 # TODO: Either fix per profile masking in overlays, or move
 # relevant entries to the relevant package.mask files in ::gentoo
 
+# Yuan Liao <liaoyuan@gmail.com> (2022-02-20)
+# Depends on net-libs/libsoup:3.0, which is masked in ::gentoo.
+# Masked until all dependencies are unmasked.
+gnome-extra/extension-manager
+
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2022-01-09)
 # Depends on masked libhandy 1.5.0
 >=app-text/komikku-0.36.0
