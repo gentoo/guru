@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit desktop xdg cmake wrapper flag-o-matic
 
@@ -28,7 +28,7 @@ RDEPEND="
 	app-text/cmark
 	dev-qt/qtconcurrent:5
 	dev-qt/qtcore:5
-	dev-qt/qtgui:5
+	dev-qt/qtgui:5[jpeg]
 	dev-qt/qtnetwork:5
 	dev-qt/qtprintsupport:5
 	dev-qt/qttest:5

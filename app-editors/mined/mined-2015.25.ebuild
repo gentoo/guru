@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -17,7 +17,10 @@ BDEPEND=""
 S=${S}/src
 src_configure() {
 	sed -in 's/OBJDIR=..\/bin\/sh/OBJDIR=bin\/sh/' mkmined
-	sed -in 's/\"\${COPT--DTERMIO \$W}\"/\"${CFLAGS} \${COPT--DTERMIO}\"/' mkmined
+	sed -in 's/\"\${COPT--DTERMIO \$W}\"/\"${CFLAGS} \${COPT--DTERMIO} \${LDFLAGS}\"/' mkmined
+	sed -in 's/name.o/name.o \$LDFLAGS/' mkmined
+	sed -in 's/link=false/link=true/' mkmined
+	sed -in 142's/$/ \$LDFLAGS/' mkmined
 }
 
 src_compile() {

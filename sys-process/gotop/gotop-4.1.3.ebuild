@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -23,6 +23,8 @@ EGO_SUM=(
 	"github.com/davecgh/go-spew v1.1.0/go.mod"
 	"github.com/distatus/battery v0.10.0"
 	"github.com/distatus/battery v0.10.0/go.mod"
+	"github.com/droundy/goopt v0.0.0-20170604162106-0b8effe182da"
+	"github.com/droundy/goopt v0.0.0-20170604162106-0b8effe182da/go.mod"
 	"github.com/fsnotify/fsnotify v1.4.7/go.mod"
 	"github.com/fsnotify/fsnotify v1.4.9"
 	"github.com/fsnotify/fsnotify v1.4.9/go.mod"
@@ -78,10 +80,10 @@ EGO_SUM=(
 	"github.com/valyala/fastrand v1.0.0/go.mod"
 	"github.com/valyala/histogram v1.0.1"
 	"github.com/valyala/histogram v1.0.1/go.mod"
+	"github.com/xxxserxxx/goopt v0.0.0-20220210150945-f4719cb0883e"
+	"github.com/xxxserxxx/goopt v0.0.0-20220210150945-f4719cb0883e/go.mod"
 	"github.com/xxxserxxx/lingo/v2 v2.0.1"
 	"github.com/xxxserxxx/lingo/v2 v2.0.1/go.mod"
-	"github.com/xxxserxxx/opflag v1.0.5"
-	"github.com/xxxserxxx/opflag v1.0.5/go.mod"
 	"golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod"
 	"golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9/go.mod"
 	"golang.org/x/net v0.0.0-20180906233101-161cd47e91fd/go.mod"

@@ -1,0 +1,22 @@
+From 3ff7047e3bafd17a3b3b284f9e054557d4f66602 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Arsen=20Arsenovi=C4=87?= <arsen@aarsen.me>
+Date: Mon, 14 Feb 2022 12:57:34 +0100
+Subject: [PATCH] limine-install: respect ldflags
+
+---
+ limine-install/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/limine-install/Makefile b/limine-install/Makefile
+index ef29143..1f6ccbe 100644
+--- a/limine-install/Makefile
++++ b/limine-install/Makefile
+@@ -35,4 +35,4 @@ clean:
+ 	rm -f limine-install limine-install.exe
+ 
+ limine-install: limine-install.c
+-	$(CC) $(CFLAGS) -std=c11 limine-install.c -o $@
++	$(CC) $(LDFLAGS) $(CFLAGS) -std=c11 limine-install.c -o $@
+-- 
+2.34.1
+

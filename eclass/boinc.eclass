@@ -9,7 +9,7 @@
 # @DESCRIPTION:
 # This eclass provides helper functions to build BOINC applications and libraries.
 
-inherit toolchain-funcs
+inherit autotools toolchain-funcs
 
 case ${EAPI} in
 	8) ;;
@@ -44,6 +44,8 @@ if [[ ! ${_BOINC_ECLASS} ]]; then
 # @USAGE: <SRC_URI|S> <release> [client|server]
 # @RETURN: SRC_URI snippet or temporary build directory for given BOINC release
 get_boinc_src() {
+	debug-print-function ${FUNCNAME} "${@}"]
+
 	local query_var=${1}
 	local RELEASE_PATCH=${2}
 	local RELEASE_MINOR=$(ver_cut 1-2 ${RELEASE_PATCH})
@@ -87,6 +89,8 @@ get_boinc_src() {
 # If no BOINC version is given, this function assumes it equal to client
 # release $PV.
 boinc_require_source() {
+	debug-print-function ${FUNCNAME} "${@}"]
+
 	local boinc_version=${1:-${PV}}
 	SRC_URI+=" $(get_boinc_src SRC_URI ${boinc_version} ${2})"
 
@@ -104,7 +108,8 @@ boinc_require_source() {
 #
 # This function must be called in global scope.
 boinc_enable_autotools() {
-	inherit autotools
+	debug-print-function ${FUNCNAME} "${@}"]
+
 	_BOINC_RUN_AUTOTOOLS=1
 	_BOINC_ECONF_ARGS=${@:---enable-pkg-devel}
 }
@@ -120,6 +125,8 @@ boinc_enable_autotools() {
 #
 # This function must be called in global scope.
 boinc_override_config() {
+	debug-print-function ${FUNCNAME} "${@}"]
+
 	_BOINC_CONFIG_OVERRIDE="${1}"
 }
 
@@ -128,6 +135,8 @@ boinc_override_config() {
 # @DESCRIPTION:
 # Make sure BOINC_BUILD_DIR has a value.
 boinc_builddir_check() {
+	debug-print-function ${FUNCNAME} "${@}"]
+
 	if [[ ! ${BOINC_BUILD_DIR} ]]; then
 		eerror "BOINC_BUILD_DIR is not set."
 		die "Did you forget to call boinc_require_source?"
@@ -137,6 +146,8 @@ boinc_builddir_check() {
 }
 
 boinc_src_unpack() {
+	debug-print-function ${FUNCNAME} "${@}"]
+
 	default_src_unpack
 	boinc_builddir_check
 
@@ -166,6 +177,8 @@ boinc_src_unpack() {
 }
 
 boinc_src_prepare() {
+	debug-print-function ${FUNCNAME} "${@}"]
+
 	boinc_builddir_check
 	default_src_prepare
 
@@ -177,6 +190,8 @@ boinc_src_prepare() {
 }
 
 boinc_src_configure() {
+	debug-print-function ${FUNCNAME} "${@}"]
+
 	boinc_builddir_check
 	pushd "${BOINC_BUILD_DIR}" >/dev/null || die
 

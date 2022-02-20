@@ -1,0 +1,119 @@
+From c7e849a63327166b77e01e6d1683f44e129b3ef7 Mon Sep 17 00:00:00 2001
+From: Stewart Reive <3587451+st3w@users.noreply.github.com>
+Date: Sat, 18 Dec 2021 21:43:47 -0800
+Subject: [PATCH 11/12] Fixes for building with ncursesw
+
+This commit makes three improvements for building with ncursesw:
+
+1. Include "ncursesw/ncurses.h" if it exists
+2. Explicitly link against libtinfow or libtinfo if necessary
+3. Define _XOPEN_SOURCE_EXTENDED for Mac builds because it should
+   enable some of the widechar functions with the system's default
+   version of ncurses.h.
+---
+ configure.ac    | 18 +++++++++++++++++-
+ src/Makefile.am |  1 -
+ src/cloud.h     | 12 ++++++++++--
+ src/neo.cpp     | 12 +++++++++++-
+ 4 files changed, 38 insertions(+), 5 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 67fc25f..7b33b91 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -6,7 +6,23 @@ AC_LANG(C++)
+ AC_PROG_CXX
+ AC_PROG_INSTALL
+ AC_PROG_MAKE_SET
+-AC_CHECK_LIB(ncursesw, initscr)
++AC_CHECK_LIB(ncursesw, mvadd_wch)
+ AC_CHECK_HEADERS(getopt.h locale.h ncurses.h)
++
++dnl Some systems have both ncurses.h and ncursesw/ncurses.h.
++dnl On many systems, the headers are identical (e.g. Ubuntu),
++dnl but for some systems they differ. So we should always try
++dnl to use ncursesw/ncurses.h if it exists.
++AC_CHECK_HEADER(ncursesw/ncurses.h, AC_DEFINE(HAVE_NCURSESW_H))
++
++dnl Some systems build ncurses with a separate "termlib" library.
++dnl This will usually be libtinfo or less frequently libtinfow.
++dnl These libraries provide functions that do not depend on whether
++dnl or not ncurses is using widechars (e.g. cbreak). This line adds
++dnl -ltinfow or -ltinfo to LIBS, if needed. If libncursesw
++dnl already provides cbreak, then the configure script should
++dnl print a message saying "none required", but it should not fail.
++AC_SEARCH_LIBS(cbreak, [tinfow tinfo])
++
+ AC_CONFIG_FILES([Makefile doc/Makefile src/Makefile])
+ AC_OUTPUT
+diff --git a/src/Makefile.am b/src/Makefile.am
+index e34d8e3..6673492 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -2,7 +2,6 @@ bin_PROGRAMS = neo
+ AM_CXXFLAGS =\
+     -DNCURSES_WIDECHAR\
+     -std=c++11
+-LDADD = -lncursesw
+ neo_SOURCES = \
+     droplet.h \
+     cloud.h \
+diff --git a/src/cloud.h b/src/cloud.h
+index aca7630..20342d8 100644
+--- a/src/cloud.h
++++ b/src/cloud.h
+@@ -25,11 +25,19 @@
+ #include "droplet.h"
+ #include "neo.h"
+ 
+-#include <ncurses.h>
+-
+ #include <random>
+ #include <vector>
+ 
++#ifdef __APPLE__
++    #define _XOPEN_SOURCE_EXTENDED 1
++#endif
++
++#ifdef HAVE_NCURSESW_H
++    #include <ncursesw/ncurses.h>
++#else
++    #include <ncurses.h>
++#endif
++
+ using namespace std;
+ 
+ class Cloud {
+diff --git a/src/neo.cpp b/src/neo.cpp
+index fd288f7..8fda940 100644
+--- a/src/neo.cpp
++++ b/src/neo.cpp
+@@ -23,7 +23,6 @@
+ 
+ #include <getopt.h>
+ #include <locale.h>
+-#include <ncurses.h>
+ #include <cassert>
+ #include <climits>
+ #include <cstdarg>
+@@ -32,6 +31,17 @@
+ #include <random>
+ #include <thread>
+ #include <utility>
++
++#ifdef __APPLE__
++    #define _XOPEN_SOURCE_EXTENDED 1
++#endif
++
++#ifdef HAVE_NCURSESW_H
++    #include <ncursesw/ncurses.h>
++#else
++    #include <ncurses.h>
++#endif
++
+ using namespace std;
+ using namespace chrono;
+ 
+-- 
+2.35.1
+

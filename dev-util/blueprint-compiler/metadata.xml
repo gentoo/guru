@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>liaoyuan@gmail.com</email>
+		<name>Yuan Liao</name>
+	</maintainer>
+	<upstream>
+		<doc>https://jwestman.pages.gitlab.gnome.org/blueprint-compiler/</doc>
+	</upstream>
+</pkgmetadata>

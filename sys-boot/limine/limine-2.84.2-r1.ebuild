@@ -4,7 +4,7 @@
 EAPI=8
 
 WANT_LIBTOOL=none
-inherit autotools
+inherit autotools toolchain-funcs
 
 DESCRIPTION="Limine is a modern, advanced x86/x86_64 BIOS/UEFI multiprotocol bootloader."
 HOMEPAGE="https://limine-bootloader.org/"
@@ -22,10 +22,20 @@ BDEPEND="
 	eltorito-efi? ( sys-fs/mtools )
 "
 
+PATCHES=(
+	"${FILESDIR}/${PN}-2.84.2-r1-limine-install-respect-ldflags.patch"
+)
+
 src_configure() {
 	local myconf=(
 		"$(use_enable eltorito-efi)"
 	)
 
+	LIMINE_LD="$(tc-getLD)" \
+	LIMINE_AR="$(tc-getAR)" \
+	LIMINE_AS="$(tc-getAS)" \
+	LIMINE_OBJCOPY="$(tc-getOBJCOPY)" \
+	LIMINE_OBJDUMP="$(tc-getOBJDUMP)" \
+	LIMINE_READELF="$(tc-getREADELF)" \
 	econf "${myconf[@]}"
 }
