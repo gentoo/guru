@@ -1,0 +1,16 @@
+BDEPEND=dev-python/setuptools_scm[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] test? ( dev-python/pytest-cases[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) test? ( dev-python/makefun[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pytest-6.2.5-r2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=dev-python/installer-0.4.0_p20220124[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/tomli-1.2.3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/setuptools-60.5.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/wheel[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] doc? ( || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-python/mkdocs[python_targets_python3_10(-)] dev-python/mkdocs-material[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-python/mkdocs[python_targets_python3_9(-)] dev-python/mkdocs-material[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-python/mkdocs[python_targets_python3_8(-)] dev-python/mkdocs-material[python_targets_python3_8(-)] ) ) )
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Create decorators easily in python
+EAPI=8
+HOMEPAGE=https://pypi.org/project/decopatch/ https://github.com/smarie/python-decopatch
+INHERIT=distutils-r1 docs
+IUSE=test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 doc
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=dev-python/makefun[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://pypi/d/decopatch/decopatch-1.4.9.tar.gz
+_eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-r1	bcd408f1e4a9669198ef4dfcd5ab8696	distutils-r1	aa61c3eb77ddf72c59f1346547510d74	docs	7c38d94fa7c1b4235fe571dc09e018df
+_md5_=26f5d7fa40bcb937e74803e1ee398f9b

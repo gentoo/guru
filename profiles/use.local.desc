@@ -273,6 +273,8 @@ net-im/nheko:pipewire - Pull in dependencies for media-video/pipewire support
 net-im/nheko:video - Enables video calls
 net-im/nheko:voip - Enables audio calls
 net-im/ruqola:speech - Enable text-to-speech support
+net-irc/tiny:dbus - Enable desktop notifications
+net-irc/tiny:openssl - Use dev-libs/openssl as TLS backend instead of compiled-in rustls
 net-libs/ixwebsocket:ws - Build the ws utility
 net-libs/td:benchmark - Enable benchmarking
 net-libs/td:dotnet - Add support for .NET

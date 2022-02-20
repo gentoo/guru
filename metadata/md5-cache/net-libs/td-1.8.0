@@ -1,16 +1,16 @@
 BDEPEND=dev-lang/php[cli] dev-util/gperf dev-util/ninja >=dev-util/cmake-3.20.5 doc? ( app-doc/doxygen )
-DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/openssl:= sys-libs/zlib:= dotnet? ( virtual/dotnet-sdk:* ) java? ( virtual/jdk:*[-headless-awt] )
+DEFINED_PHASES=compile configure install preinst prepare setup test
+DEPEND=dev-libs/openssl:= sys-libs/zlib:= dotnet? ( virtual/dotnet-sdk:* ) java? ( virtual/jdk:*[-headless-awt] ) java? ( >=dev-java/java-config-2.2.0-r3 )
 DESCRIPTION=Cross-platform library for building Telegram clients
 EAPI=8
 HOMEPAGE=https://core.telegram.org/tdlib https://github.com/tdlib/td
-INHERIT=cmake java-utils-2 docs
-IUSE=benchmark dotnet java +jumbo-build static-libs test doc
+INHERIT=cmake docs java-pkg-opt-2
+IUSE=benchmark dotnet +jumbo-build static-libs test doc java
 KEYWORDS=~amd64
 LICENSE=Boost-1.0
-RDEPEND=dev-libs/openssl:= sys-libs/zlib:= dotnet? ( virtual/dotnet-sdk:* ) java? ( virtual/jdk:*[-headless-awt] )
+RDEPEND=dev-libs/openssl:= sys-libs/zlib:= dotnet? ( virtual/dotnet-sdk:* ) java? ( virtual/jdk:*[-headless-awt] ) java? ( >=dev-java/java-config-2.2.0-r3 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tdlib/td/archive/refs/tags/v1.8.0.tar.gz -> td-1.8.0.tar.gz
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	java-utils-2	fe178a2da6b16798a2363acc5543dffa	docs	7c38d94fa7c1b4235fe571dc09e018df
-_md5_=e018a17949584506a79a613dcaf23c9c
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	docs	7c38d94fa7c1b4235fe571dc09e018df	java-utils-2	fe178a2da6b16798a2363acc5543dffa	java-pkg-opt-2	e5029f11aa150c447c7e006015f84356
+_md5_=9e4da88ae830443fcb52200fe3e7191d

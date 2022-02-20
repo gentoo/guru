@@ -30,7 +30,7 @@ app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
 app-admin/aws-vault 6.4.0: Securely store and access AWS credentials in development environments
 app-admin/awscli-bin 2.3.2-r1: Universal Command Line Interface for Amazon Web Services version 2
 app-admin/chamber 2.10.7: Managing secrets in AWS SSM Parameter Store
-app-admin/chezmoi 2.6.1 2.7.2 2.9.0: Manage your dotfiles across multiple machines, securely
+app-admin/chezmoi 2.11.2: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.12.5: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/glance 23.0.0: Services for discovering, registering, and retrieving VM images
@@ -97,7 +97,7 @@ app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best
 app-misc/doublecmd-bin 1.0.1 1.0.2: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
-app-misc/fastfetch 0.583 9999: Like neofetch but faster
+app-misc/fastfetch 0.599 9999: Like neofetch but faster
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -110,6 +110,7 @@ app-misc/mangadesk 0.7.5: Terminal Client for MangaDex
 app-misc/mat2 0.12.2: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
 app-misc/navi 2.17.0 2.19.0 9999: An interactive cheatsheet tool for the command-line
+app-misc/neo 0.6 9999: cmatrix clone with 32-bit color and Unicode support
 app-misc/nonsense 0.7-r1: Generates random text from datafiles and templates
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
@@ -390,6 +391,7 @@ dev-python/babelfont 2.0.1: Interrogate and manipulate UFO, TTF and OTF fonts wi
 dev-python/baron 0.9: Full Syntax Tree for python to make writing refactoring code a realist task
 dev-python/base58 2.1.0: Base58 and Base58Check implementation
 dev-python/basictracer 3.2.0: Python implementation of the BasicTracer reference implementation
+dev-python/betamax-serializers 0.2.1: A set of third-party serializers for Betamax
 dev-python/beziers 0.3.1: Python bezier manipulation library
 dev-python/bidict 0.21.3: The bidirectional mapping library for Python
 dev-python/billiard 3.6.4.0: Python multiprocessing fork
@@ -422,7 +424,7 @@ dev-python/daff 1.3.46: Diff and patch tables
 dev-python/daiquiri 3.0.1: Python library to easily setup basic logging functionality
 dev-python/databases 0.4.3 0.5.3: Async database support for Python.
 dev-python/dateparser 1.0.0 1.1.0: Date parsing library designed to parse dates from HTML pages
-dev-python/decopatch 1.4.8: Create decorators easily in python
+dev-python/decopatch 1.4.8 1.4.9: Create decorators easily in python
 dev-python/desktop-notifier 3.3.2: desktop-notifier is a Python library for cross-platform desktop notifications
 dev-python/devtools 0.6.1: Dev tools for python
 dev-python/digitalocean 1.16.0 1.17.0: Digitalocean API access library
@@ -535,6 +537,8 @@ dev-python/pip-api 0.0.26: An unofficial, importable pip API
 dev-python/playsound 1.3.0: Single function module with no dependencies for playing sounds.
 dev-python/portio 0.5: Python low level port I/O for Linux x86
 dev-python/pproxy 2.7.8: TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio
+dev-python/praw 7.5.0: Python Reddit API Wrapper
+dev-python/prawcore 2.3.0: Low-level communication layer for PRAW
 dev-python/promise 2.3.0: Promises/A+ implementation for Python
 dev-python/protego 0.1.16: robots.txt parser with support for modern conventions
 dev-python/psycopg2cffi 2.9.0: Implementation of the psycopg2 module using cffi. Compatible with Psycopg 2.5.
@@ -546,7 +550,7 @@ dev-python/pycadf 3.1.1: python implementation of DMTF Cloud Audit (CADF) data m
 dev-python/pydub 0.25.1: Manipulate audio with an simple and easy high level interface
 dev-python/pyfiglet 0.8_p1 9999: Pure-python FIGlet implementation
 dev-python/pygaljs 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
-dev-python/pygments-promql 0.0.8: A PromQL lexer for Pygments
+dev-python/pygments-promql 0.0.9: A PromQL lexer for Pygments
 dev-python/pygsl 2.3.0: Python interface for the GNU scientific library (gsl)
 dev-python/pyinquirer 1.0.3_p20200708 9999: A Python module for common interactive command line UIs
 dev-python/pyinstaller 4.2: Bundles a Python application and all its dependencies into a single package.
@@ -684,6 +688,7 @@ dev-util/afdko 3.6.2: Adobe Font Development Kit for OpenType
 dev-util/babeltrace2 2.0.4: A command-line tool and library to read and convert trace files
 dev-util/bats-assert 2.0.0: Common assertions for Bats
 dev-util/bats-support 0.3.0: Supporting library for Bats test helpers
+dev-util/blueprint-compiler 0.1.0_pre20220219 9999: Compiler for Blueprint, a markup language for GTK user interfaces
 dev-util/devscripts 2.21.2 2.21.3: Scripts to make the life of a Debian Package maintainer easier
 dev-util/eclipse-parallel-bin 4.20 4.21 4.22: Eclipse IDE for Scientific Computing (C, C++, Fortran)
 dev-util/fontmake 2.4.0: A wrapper for several Python libraries to compile fonts from sources
@@ -701,7 +706,7 @@ dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
 dev-util/reuse 0.14.0: A tool for compliance with the REUSE recommendations
 dev-util/rpmlint 2.0.0 2.1.0: Tool for checking common errors in RPM packages
-dev-util/rust-analyzer 20220124 20220131 99999999: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer 20220207 20220214 99999999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/wakatime-cli 1.27.0 1.28.6: Command line interface to WakaTime used by all WakaTime plugins
@@ -785,7 +790,7 @@ gui-apps/coreterminal 4.2.0 9999: A terminal emulator for C Suite
 gui-apps/coretime 4.2.0 9999: A time related task manager for C Suite
 gui-apps/coretoppings 4.1.0-r1 4.2.0 9999: Additional features, plugins, widgets etc for C Suite
 gui-apps/coreuniverse 4.2.0 9999: Shows information about apps for C Suite
-gui-apps/fnott 1.2.0: Keyboard driven and lightweight Wayland notification daemon.
+gui-apps/fnott 1.2.1: Keyboard driven and lightweight Wayland notification daemon.
 gui-apps/mpvpaper 1.1 1.2 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.5.0 0.6.3 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperde 0.1.1_p20210426 9999: Simple, sleek QT based DE for wayland using wayfire
@@ -810,11 +815,11 @@ gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.3 0.1.4 9999: A Wayland kiosk
 gui-wm/dwl 0.2.1 9999: dwm for Wayland
 gui-wm/phosh 0.15.0: A pure Wayland shell prototype for GNOME on mobile devices
-kde-apps/alligator 21.07 21.12: A convergent RSS/Atom feed reader for Plasma
-kde-apps/kclock 21.08 21.12: A convergent clock application for Plasma
-kde-apps/krecorder 21.06 21.12: A convergent audio recording application for Plasma
+kde-apps/alligator 21.12 22.02: A convergent RSS/Atom feed reader for Plasma
+kde-apps/kclock 21.12 22.02: A convergent clock application for Plasma
+kde-apps/krecorder 21.12 22.02: A convergent audio recording application for Plasma
 kde-apps/plasma-settings 21.12: Settings application for Plasma Mobile
-kde-apps/tokodon 21.06 21.12: Mastodon client for Plasma and Plasma Mobile
+kde-apps/tokodon 21.12 22.02: Mastodon client for Plasma and Plasma Mobile
 kde-frameworks/kirigami-addons 0.2: Convergent visual components for Kirigami-based applications
 kde-misc/geminipart 2021125: KPart for viewing text/gemini files
 kde-misc/kio-gemini 20211107: Gemini KIO slave
@@ -854,7 +859,7 @@ media-gfx/oxipng 3.0.1 4.0.3 5.0.0 5.0.1: A lossless PNG compression optimizer
 media-gfx/qview 4.0: Practical and minimal image viewer
 media-gfx/sic 0.19.0: Accessible image processing and conversion from the terminal tool.
 media-gfx/silicon 0.4.0 0.4.1 0.4.3: Create beautiful image of your code
-media-gfx/superslicer 2.2.53.4-r1 2.3.57.7-r1 2.3.57.9-r1 2.3.57.10: A mesh slicer to generated G-Code for fused-filament fabrication
+media-gfx/superslicer 2.2.53.4-r1 2.3.57.7-r1 2.3.57.9-r1 2.3.57.10 2.3.57.11: A mesh slicer to generated G-Code for fused-filament fabrication
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-gfx/ttfautohint 1.8.3 1.8.4: A library for automated hinting of truetype fonts
 media-gfx/ufolint 1.2.0: UFO source format linter
@@ -893,7 +898,7 @@ media-sound/mopidy 3.2.0: An extensible music server written in Python.
 media-sound/ncpamixer 1.3.3.1: A ncurses mixer for PulseAudio inspired by pavucontrol
 media-sound/netcat-cpi 2014.04.29: Kernel module edition of the Cycles Per Instruction (2014) album
 media-sound/noisetorch 0.11.4 9999: Real-time microphone noise suppression on Linux.
-media-sound/noson-app 5.0.2: The essential to control music from your SONOS devices on Linux platforms
+media-sound/noson-app 5.0.7: The essential to control music from your SONOS devices on Linux platforms
 media-sound/nuclear-bin 0.6.15 0.6.17: Nuclear is a streaming program that pulls content from free sources on internet
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
 media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file or stream as a PulseAudio source
@@ -902,7 +907,7 @@ media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
 media-sound/zita-ajbridge 0.8.4 0.8.4-r1: zita-a2j and zita-j2a - bridges between ALSA and JACK
 media-video/ciano 0.2.4: A multimedia file converter focused on simplicity
 media-video/ffsubsync 0.4.18 0.4.19 0.4.20: Automagically syncronize subtitles with video
-media-video/kikoplay 0.8.1 9999: KikoPlay is a full-featured danmu player
+media-video/kikoplay 0.8.2 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.4.3: A GTK3 camera application that knows how to deal with the media request api
 media-video/mpv-mpris 0.5 0.6 9999: MPRIS plugin for mpv
 media-video/obs-vkcapture 1.1.2 9999: OBS Linux Vulkan/OpenGL game capture
@@ -917,8 +922,8 @@ net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various pl
 net-client/amfora 1.8.0 1.9.2: A fancy terminal browser for the Gemini protocol.
 net-client/castor 0.8.16 0.8.18: A graphical browser for plain-text protocols
 net-client/kristall 0.3-r1 9999: Visual cross-platform gemini browser
-net-client/lagrange 1.10.3 1.10.4: Desktop GUI client for browsing Geminispace
-net-client/offpunk 0.1: A command-line, text-based and offline-first Gemini browser
+net-client/lagrange 1.10.4 1.10.5: Desktop GUI client for browsing Geminispace
+net-client/offpunk 0.1 0.3: A command-line, text-based and offline-first Gemini browser
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
 net-client/telescope 0.6.1 0.7.1: w3m-like browser for Gemini
 net-dialup/atinout 0.9.1-r1: AT commands as input are sent to modem and responses given as output
@@ -939,6 +944,7 @@ net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
 net-im/whatsapp-for-linux 1.2.0 1.3.0 1.3.1 1.3.2: An unofficial WhatsApp desktop application for Linux
 net-irc/catgirl 2.0 2.0a: TLS-only terminal IRC client
 net-irc/srain 1.2.1 1.2.4: Modern, beautiful IRC client written in GTK+ 3
+net-irc/tiny 0.10.0: An IRC client
 net-libs/dpdk 21.11: Data Plane Development Kit libraries for fast userspace networking
 net-libs/ixwebsocket 11.3.2: C++ websocket client and server library
 net-libs/kcgi 0.12.5 0.13.0: Minimal CGI library for web applications
@@ -955,7 +961,7 @@ net-misc/facebook-ptp 0_pre20210831: Facebook's PTP libraries
 net-misc/freetube-bin 0.16.0: https://github.com/FreeTubeApp/FreeTube
 net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.6.3 0.6.5: A gemini Server written in rust
-net-misc/gmid 1.7.5 1.8 9999: Simple and secure Gemini server
+net-misc/gmid 1.8 1.8.1 9999: Simple and secure Gemini server
 net-misc/lyrics-in-terminal 1.4.2: Command Line Lyrics fetcher for MPRIS media players
 net-misc/maestral 1.5.2 1.5.3: Maestral is an open-source Dropbox client written in Python
 net-misc/maestral-qt 1.5.2 1.5.3: Maestral is an open-source Dropbox client written in Python
@@ -998,7 +1004,7 @@ sci-biology/geneathome 1.10 1.10-r2: BOINC application for expanding Gene Regula
 sci-electronics/bsc 0_pre20210124 9999: Bluespec high level hardware design language compiler
 sci-electronics/dsview 1.12-r1 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
-sci-electronics/verilator 4.204 4.210 9999: The fast free Verilog/SystemVerilog simulator
+sci-electronics/verilator 4.204 4.210 4.218 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/GeographicLib-data 0-r1: Datasets for GeographicLib
 sci-geosciences/mapillary_tools 0.8.0: Command line tools for processing and uploading Mapillary imagery
 sci-libs/ann 1.1.2_p7-r2: A Library for Approximate Nearest Neighbor Searching
@@ -1058,6 +1064,7 @@ sys-apps/dust 0.5.4 0.6.2 0.7.5: A more intuitive version of du
 sys-apps/fchroot 0.1.2: Funtoo's franken-chroot tool - chroot from AMD64 to ARM system
 sys-apps/fselect 0.7.9: Find files with SQL-like queries
 sys-apps/hex 0.3.2 0.4.0 0.4.1 0.4.2: Futuristic take on hexdump
+sys-apps/hexyl 0.9.0: A command-line hex viewer
 sys-apps/intel-cmt-cat 4.2.0-r2: User space software for Intel(R) Resource Director Technology
 sys-apps/procs 0.11.6 0.11.9: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
@@ -1074,7 +1081,7 @@ sys-auth/mrsh 2.12 2.12-r1: Mrsh is a set of remote shell programs that use mung
 sys-boot/bmap-tools 3.6-r3: Bmaptool is a tool for creating and copyng files using block maps
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
-sys-boot/limine 2.83 2.84 2.84.1: Limine is a modern, advanced x86/x86_64 BIOS/UEFI multiprotocol bootloader.
+sys-boot/limine 2.84.2-r1 2.85: Limine is a modern, advanced x86/x86_64 BIOS/UEFI multiprotocol bootloader.
 sys-cluster/AXL 0.3.0 0.4.0 0.5.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
 sys-cluster/KVTree 1.1.1 1.2.0: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/OpenHPC-meta 2.1: OpenHPC metapackage
@@ -1150,7 +1157,7 @@ sys-power/disable-c6 0_p20190603: disable the C6 state upon system boot, prevent
 sys-power/gtherm 0.0.3: A simple daemon to monitor thermal zones and cooling devices
 sys-power/gwe 0.15.3: NVIDIA settings alternative with overclocking, fan control, and information
 sys-process/btop 1.2.2: A monitor of resources
-sys-process/gotop 4.1.2: A terminal based graphical activity monitor inspired by gtop and vtop
+sys-process/gotop 4.1.3: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/nq 0.4: Unix command line queue utility
 sys-process/nvtop 1.2.2 9999: NVIDIA GPUs htop like monitoring tool
 virtual/MASS 0: Virtual of a R recommended package
@@ -1194,7 +1201,7 @@ x11-misc/ksnip 1.9.1 1.9.2: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/leftwm-theme 9999: A theme mangager for LeftWM
 x11-misc/squeekboard 1.15.0 1.16.0: Virtual keyboard supporting Wayland, built primarily for the Librem 5 phone
 x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
-x11-misc/xbanish 1.7: Banish the mouse cursor when typing, show it again when the mouse moves
+x11-misc/xbanish 1.7 1.8: Banish the mouse cursor when typing, show it again when the mouse moves
 x11-misc/xob 0.2 0.3: A lightweight overlay volume (or anything) bar for the X Window System
 x11-plugins/purple-mm-sms 0.1.7: Purple SMS plugin using ModemManager
 x11-terms/dmd5620 1.2.0: GTK+ 3.0 implementation of an AT&T / Teletype DMD 5620 emulator.

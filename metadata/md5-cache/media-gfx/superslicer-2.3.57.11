@@ -1,0 +1,18 @@
+BDEPEND=profiles? ( app-arch/unzip ) dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=dev-cpp/eigen:3 dev-cpp/tbb >=dev-libs/boost-1.73.0:=[nls,threads(+)] dev-libs/cereal dev-libs/expat dev-libs/c-blosc dev-libs/gmp:= >=dev-libs/miniz-2.1.0-r2 dev-libs/mpfr:= >=media-gfx/openvdb-5.0.0 media-libs/ilmbase:= media-libs/libpng:0= media-libs/openexr:0= media-libs/qhull:= sci-libs/libigl sci-libs/nlopt >=sci-mathematics/cgal-5.0:= sys-apps/dbus sys-libs/zlib:= gui? ( dev-libs/glib:2 media-libs/glew:0= net-misc/curl virtual/glu virtual/opengl x11-libs/gtk+:3 >=x11-libs/wxGTK-3.0.5.1:=[X,opengl] ) media-libs/qhull[static-libs] test? ( dev-cpp/gtest )
+DESCRIPTION=A mesh slicer to generated G-Code for fused-filament fabrication
+EAPI=8
+HOMEPAGE=https://github.com/supermerill/SuperSlicer
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=xdg cmake desktop wxwidgets
+IUSE=gui test profiles
+KEYWORDS=~amd64
+LICENSE=AGPL-3
+RDEPEND=dev-cpp/eigen:3 dev-cpp/tbb >=dev-libs/boost-1.73.0:=[nls,threads(+)] dev-libs/cereal dev-libs/expat dev-libs/c-blosc dev-libs/gmp:= >=dev-libs/miniz-2.1.0-r2 dev-libs/mpfr:= >=media-gfx/openvdb-5.0.0 media-libs/ilmbase:= media-libs/libpng:0= media-libs/openexr:0= media-libs/qhull:= sci-libs/libigl sci-libs/nlopt >=sci-mathematics/cgal-5.0:= sys-apps/dbus sys-libs/zlib:= gui? ( dev-libs/glib:2 media-libs/glew:0= net-misc/curl virtual/glu virtual/opengl x11-libs/gtk+:3 >=x11-libs/wxGTK-3.0.5.1:=[X,opengl] )
+REQUIRED_USE=test? ( gui )
+RESTRICT=!test? ( test )
+SLOT=23
+SRC_URI=https://github.com/supermerill/SuperSlicer/archive/2.3.57.11.tar.gz -> superslicer-2.3.57.11.tar.gz profiles? ( https://github.com/slic3r/slic3r-profiles/archive/0b8261ae8bbd7c31d736f371323476d6aff3ef3b.zip -> superslicer-2.3.57.11-profiles.zip )
+_eclasses_=xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	cmake	11fee991ab428a3370e5c20fa8231fb6	desktop	c0d27bf73aa08ca05b663dbd31fbef28	wxwidgets	7e8a20d3bacea0e3ecf6e96fb72180aa
+_md5_=b7b6ccfa0532f7622eba5038754b8351
