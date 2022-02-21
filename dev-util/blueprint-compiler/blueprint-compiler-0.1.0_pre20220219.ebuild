@@ -28,14 +28,21 @@ HOMEPAGE="https://jwestman.pages.gitlab.gnome.org/blueprint-compiler/"
 LICENSE="LGPL-3+"
 SLOT="0"
 
-IUSE="doc"
+IUSE="doc test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+RESTRICT="!test? ( test )"
 
 BDEPEND="
 	${PYTHON_DEPS}
 	doc? (
 		dev-python/sphinx[${PYTHON_USEDEP}]
 		dev-python/furo[${PYTHON_USEDEP}]
+	)
+"
+
+DEPEND="
+	test? (
+		gui-libs/gtk:4[introspection]
 	)
 "
 
