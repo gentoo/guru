@@ -1,36 +1,34 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-EGO_PN="github.com/jesseduffield/lazygit"
+inherit go-module
 
-inherit golang-build golang-vcs-snapshot
-
-DESCRIPTION="Lazygit, a simple terminal UI for git commands"
+DESCRIPTION="Simple terminal UI for git commands"
 HOMEPAGE="https://github.com/jesseduffield/lazygit"
 SRC_URI="https://github.com/jesseduffield/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc"
 
-DEPEND=( sys-libs/glibc )
-RDEPEND=(
-	${DEPEND}
-	dev-vcs/git
-)
+# TestCanDeactivatePopupContextsWithoutViews fails
+RESTRICT="test"
 
-DOCS=( src/${EGO_PN}/{CONTRIBUTING,README}.md )
+RDEPEND="dev-vcs/git"
+
+DOCS=( {CODE-OF-CONDUCT,CONTRIBUTING,README}.md docs )
 
 src_compile() {
-	GOPATH="${S}" go build -v -o bin/lazygit src/${EGO_PN}/main.go || die
+	go build -o bin/lazygit || die
+}
+
+src_test() {
+	./test.sh || die
 }
 
 src_install() {
 	dobin bin/lazygit
-
-	use doc && dodoc -r "src/${EGO_PN}/docs/."
 	einstalldocs
 }
