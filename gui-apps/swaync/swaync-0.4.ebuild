@@ -21,7 +21,7 @@ DEPEND="
 	dev-libs/json-glib
 	dev-libs/libgee
 	dev-libs/wayland
-	gui-libs/gtk-layer-shell
+	>=gui-libs/gtk-layer-shell-0.6.0
 	gui-libs/libhandy
 	sys-apps/dbus
 	x11-libs/gtk+:3
