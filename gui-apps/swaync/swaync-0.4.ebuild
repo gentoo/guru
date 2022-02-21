@@ -24,7 +24,7 @@ DEPEND="
 	gui-libs/gtk-layer-shell
 	gui-libs/libhandy
 	sys-apps/dbus
-	x11-libs/gtk+
+	x11-libs/gtk+:3
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
