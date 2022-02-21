@@ -46,6 +46,15 @@ RDEPEND="
 	${DEPEND}
 "
 
+src_configure() {
+	local emesonargs=()
+	if has live ${PROPERTIES}; then
+		# Produce a development build for live ebuild
+		emesonargs+=( -Ddevelopment=true )
+	fi
+	meson_src_configure
+}
+
 pkg_postinst() {
 	xdg_pkg_postinst
 	gnome2_schemas_update
