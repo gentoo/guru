@@ -19,21 +19,6 @@ HOMEPAGE="https://github.com/mjakeman/extension-manager"
 LICENSE="GPL-3+"
 SLOT="0"
 
-IUSE="test"
-# 'Validate appstream file' test case requires Internet connection
-PROPERTIES="test_network"
-RESTRICT="test"
-
-BDEPEND="
-	dev-libs/glib:2
-	dev-util/blueprint-compiler
-	virtual/pkgconfig
-	test? (
-		dev-libs/appstream-glib
-		dev-util/desktop-file-utils
-	)
-"
-
 DEPEND="
 	dev-libs/glib:2
 	dev-libs/json-glib
@@ -41,10 +26,17 @@ DEPEND="
 	gui-libs/libadwaita:1[introspection]
 	net-libs/libsoup:3.0
 "
-
-RDEPEND="
-	${DEPEND}
+RDEPEND="${DEPEND}"
+BDEPEND="
+	dev-libs/glib:2
+	dev-util/blueprint-compiler
+	virtual/pkgconfig
 "
+
+# disable AppStream test
+src_test() {
+:
+}
 
 pkg_preinst() {
 	xdg_pkg_preinst
