@@ -46,6 +46,11 @@ RDEPEND="
 	${DEPEND}
 "
 
+pkg_preinst() {
+	xdg_pkg_preinst
+	gnome2_schemas_savelist
+}
+
 pkg_postinst() {
 	xdg_pkg_postinst
 	gnome2_schemas_update
