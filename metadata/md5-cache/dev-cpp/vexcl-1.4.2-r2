@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( backend-compute backend-jit backend-opencl )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ddemidov/vexcl/archive/refs/tags/1.4.2.tar.gz -> vexcl-1.4.2.tar.gz
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-any-r1	bc1411c089dadb4205aafaf7c464a7a0	docs	7c38d94fa7c1b4235fe571dc09e018df
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-any-r1	bc1411c089dadb4205aafaf7c464a7a0	docs	7c38d94fa7c1b4235fe571dc09e018df
 _md5_=6cc675e0191cffc4912d701980c2d7e1
