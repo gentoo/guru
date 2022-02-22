@@ -38,6 +38,7 @@ src_install() {
 	R_includedir="/usr/$(get_libdir)/R/site-library/${PN}/include"
 	dosym8 -r /usr/include/armadillo "${R_includedir}/armadillo"
 
+	dodir /usr/include/armadillo_bits
 	for file in "${ED}/${R_includedir}"/armadillo_bits/*; do
 		filename=$(basename "${file}")
 		dosym8 -r /usr/include/armadillo_bits/${file} "${R_includedir}/armadillo_bits/${file}"
