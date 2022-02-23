@@ -42,9 +42,24 @@ src_configure() {
 	meson_src_configure
 }
 
-# disable AppStream test
+# Tests are skipped because as of version 0.2.3, the tests only validate
+# resource files and do not verify any functionality of the program.  Those
+# validations are either already handled by QA checks or are not relevant on
+# Gentoo.  For more information about the rationale, please refer to:
+# https://github.com/gentoo/guru/commit/f896bee213fbb62c70e818c1bf503fee2a41919a#comments
+#
+# If tests are to be executed in the future because the upstream adds
+# functionality tests in the future or for other reasons, and should there be
+# no convenient way to skip the validations, the following variable values need
+# to be set:
+#
+# IUSE="test"
+# # 'Validate appstream file' test case requires Internet connection
+# PROPERTIES="test_network"
+# RESTRICT="test"
+# BDEPEND="test? ( dev-libs/appstream-glib dev-util/desktop-file-utils )"
 src_test() {
-:
+	:
 }
 
 pkg_postinst() {
