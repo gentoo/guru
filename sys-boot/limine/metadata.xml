@@ -6,8 +6,30 @@
     <name>Arsen Arsenović</name>
   </maintainer>
   <use>
+    <flag name="uefi">
+      Enable UEFI support.
+    </flag>
+    <flag name="uefi32">
+      Enable 32-bit UEFI support.
+    </flag>
+    <flag name="uefi64">
+      Enable 64-bit UEFI support.
+    </flag>
     <flag name="eltorito-efi">
-        Enable building eltorito-efi.bin using <pkg>sys-fs/mtools</pkg>
+      Enable building eltorito-efi.bin using <pkg>sys-fs/mtools</pkg>.
+    </flag>
+
+    <flag name="bios">
+      Enable BIOS/MBR boot support.
+    </flag>
+    <flag name="bios-pxe">
+      Enables BIOS PXE boot support.
+    </flag>
+    <flag name="bios-cd">
+      Enables BIOS boot support for CDs.
+    </flag>
+    <flag name="limine-install">
+      Enables building the limine-install program.
     </flag>
   </use>
 </pkgmetadata>
