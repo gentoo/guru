@@ -185,6 +185,11 @@ gui-apps/nwg-launchers:layershell - Enable Wayland layer shell support
 gui-apps/swaylock-effects:fish-completion - Enable fish completion support
 gui-apps/swaylock-effects:gdk-pixbuf - Enable additional image format support via the x11-libs/gdk-pixbuf library
 gui-apps/swaylock-effects:man - Build and install man pages
+gui-apps/swaync:bash-completion - Install bash shell completions
+gui-apps/swaync:fish-completion - Install fish shell completions
+gui-apps/swaync:scripting - Enable notification scripting
+gui-apps/swaync:systemd - Install systemd user service unit
+gui-apps/swaync:zsh-completion - Install bash shell completions
 gui-apps/wlogout:bash-completions - Enable completions for bash shell
 gui-apps/wlogout:doc - Install man pages
 gui-apps/wlogout:fish-completions - Enable completions for fish shell
@@ -273,6 +278,7 @@ net-im/nheko:pipewire - Pull in dependencies for media-video/pipewire support
 net-im/nheko:video - Enables video calls
 net-im/nheko:voip - Enables audio calls
 net-im/ruqola:speech - Enable text-to-speech support
+net-irc/pounce:palaver - Provide push notifications for the Palaver IRC app
 net-irc/tiny:dbus - Enable desktop notifications
 net-irc/tiny:openssl - Use dev-libs/openssl as TLS backend instead of compiled-in rustls
 net-libs/ixwebsocket:ws - Build the ws utility

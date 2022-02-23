@@ -1,13 +1,13 @@
-BDEPEND=sys-devel/autoconf sys-devel/autoconf-archive >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=sys-devel/autoconf sys-devel/autoconf-archive sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=prepare unpack
 DEPEND=sys-libs/ncurses
 DESCRIPTION=cmatrix clone with 32-bit color and Unicode support
 EAPI=8
 HOMEPAGE=https://github.com/st3w/neo
-INHERIT=git-r3
+INHERIT=autotools git-r3
 LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=sys-libs/ncurses
 SLOT=0
-_eclasses_=git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
-_md5_=40c340a115b9df8a4774dd31d7ee0afa
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_md5_=ed25d674503646d718fef529e2dab9a1
