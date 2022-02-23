@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit bash-completion-r1
+inherit meson bash-completion-r1
 
 DESCRIPTION="Simple TTY terminal application"
 HOMEPAGE="https://tio.github.io/"
@@ -14,5 +14,9 @@ LICENSE="GPL-2+"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 src_configure() {
-	econf --with-bash-completion-dir="$(get_bashcompdir)"
+	local emesonargs=(
+		-Dbashcompletiondir="$(get_bashcompdir)"
+	)
+
+	meson_src_configure
 }

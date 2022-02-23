@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Jonas Frei</name>
+		<email>freijon@pm.me</email>
+	</maintainer>
+	<longdescription lang="en">
+		A simple notification daemon with a GTK gui for notifications
+		and the control center
+	</longdescription>
+	<upstream>
+		<remote-id type="github">ErikReider/SwayNotificationCenter</remote-id>
+		<bugs-to>https://github.com/ErikReider/SwayNotificationCenter/issues</bugs-to>
+	</upstream>
+	<use>
+		<flag name="bash-completion">Install bash shell completions</flag>
+		<flag name="fish-completion">Install fish shell completions</flag>
+		<flag name="systemd">Install systemd user service unit</flag>
+		<flag name="scripting">Enable notification scripting</flag>
+		<flag name="zsh-completion">Install bash shell completions</flag>
+	</use>
+</pkgmetadata>

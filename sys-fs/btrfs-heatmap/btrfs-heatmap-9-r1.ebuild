@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8,9,10} )
 
-inherit python-r1
+inherit python-single-r1
 
 DESCRIPTION="Python 3 script to draw a heatmap of a btrfs filesystem"
 HOMEPAGE="https://github.com/knorrie/btrfs-heatmap"

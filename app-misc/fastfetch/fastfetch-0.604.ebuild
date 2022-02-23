@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit bash-completion-r1 cmake
+inherit cmake
 
 DESCRIPTION="Like neofetch but faster"
 HOMEPAGE="https://github.com/LinusDierheimer/fastfetch"
@@ -11,8 +11,8 @@ if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/LinusDierheimer/fastfetch.git"
 else
-	COMMIT="ed63ef1a28d58f7f582b52c8a49495f27ae8885a"
-	VERSION_REV="ed63ef1"
+	COMMIT="0cb6e40bacfed8c217afc4bd580b7905d6d6893b"
+	VERSION_REV="0cb6e40"
 	SRC_URI="https://github.com/LinusDierheimer/fastfetch/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-${COMMIT}"
 fi
@@ -55,31 +55,18 @@ src_configure() {
 		-DENABLE_XFCONF=$(usex xfce)
 	)
 
-	if [[ ${PV} != *9999 ]]; then
-		# version comes from git, fake it
-		VERSION_MAJOR="$(ver_cut 2)"
-		sed -i -e "
-			s/\(PROJECT_VERSION\) .*$/\1 \"r${VERSION_MAJOR}.${VERSION_REV}\")/
-			s/\(PROJECT_VERSION_MAJOR\) .*$/\1 \"${VERSION_MAJOR}\")/" CMakeLists.txt || die "Cannot patch version"
-	fi
-
-	cmake_src_configure
-}
-
-src_install() {
 	if [[ ${PV} == *9999 ]]; then
 		elog "REV=\"r$(git rev-list --count HEAD)\""
 		elog "COMMIT=\"$(git rev-parse HEAD)\""
 		elog "VERSION_REV=\"$(git rev-parse --short HEAD)\""
+	else
+		# version comes from git, fake it
+		local project_version_major=$(ver_cut 2)
+		mycmakeargs+=(
+			-DPROJECT_VERSION="r${project_version_major}.${VERSION_REV}"
+			-DPROJECT_VERSION_MAJOR="${project_version_major}"
+		)
 	fi
 
-	pushd "${BUILD_DIR}" || die
-	dobin fastfetch
-	popd
-
-	newbashcomp completions/bash fastfetch
-	insinto /usr/share/${PN}/presets
-	doins presets/*
-
-	einstalldocs
+	cmake_src_configure
 }

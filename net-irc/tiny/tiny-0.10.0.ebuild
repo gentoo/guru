@@ -142,6 +142,8 @@ IUSE="dbus openssl"
 DEPEND="openssl? ( dev-libs/openssl:= ) dbus? ( sys-apps/dbus )"
 RDEPEND="${DEPEND}"
 
+QA_FLAGS_IGNORED="usr/bin/tiny"
+
 src_configure() {
 	local myfeatures=()
 	if use openssl
