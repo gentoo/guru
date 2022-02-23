@@ -34,6 +34,13 @@ python_test(){
 	eunittest tests/
 }
 
+python_install() {
+	distutils-r1_python_install
+
+	insinto "/usr/share/zsh/site-functions"
+	newins "${S}/completions/trakts.zsh" "_trakts"
+}
+
 pkg_postinst() {
 	optfeature "start at boot support (see the trakts autostart command)" sys-apps/systemd
 }
