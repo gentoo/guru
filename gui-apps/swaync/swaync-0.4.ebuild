@@ -13,7 +13,7 @@ S="${WORKDIR}/SwayNotificationCenter-${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="bash-completion fish-completion scripting systemd zsh-completion"
+IUSE="scripting"
 
 DEPEND="
 	dev-libs/glib
@@ -34,11 +34,7 @@ BDEPEND="
 
 src_configure() {
 	local emesonargs=(
-		$(meson_use bash-completion bash-completions)
-		$(meson_use fish-completion fish-completions)
 		$(meson_use scripting)
-		$(meson_use systemd systemd-service)
-		$(meson_use zsh-completion zsh-completions)
 	)
 	meson_src_configure
 }
