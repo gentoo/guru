@@ -38,12 +38,6 @@ src_prepare() {
 		-i data/gschema.xml || die
 }
 
-pkg_preinst() {
-	gnome2_schemas_savelist
-	gnome2_gdk_pixbuf_update
-	xdg_pkg_preinst
-}
-
 pkg_postinst() {
 	gnome2_gconf_install
 	gnome2_schemas_update
