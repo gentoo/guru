@@ -27,11 +27,6 @@ src_prepare() {
 	xdg_src_prepare
 }
 
-pkg_preinst() {
-	gnome2_schemas_savelist
-	xdg_pkg_preinst
-}
-
 src_install() {
 	meson_src_install
 	dosym com.github.robertsanseries.ciano usr/bin/ciano
