@@ -326,7 +326,7 @@ SRC_URI="https://github.com/diamondburned/${MY_PN}/archive/refs/tags/v${PV}.tar.
 	${EGO_SUM_SRC_URI}"
 S="${WORKDIR}/${MY_PN}-${PV}"
 
-LICENSE="Apache-2.0 BSD BSD-2 GPL-3 ISC MIT MPL-2.0 WTFPL"
+LICENSE="Apache-2.0 BSD BSD-2 GPL-3 ISC MIT MPL-2.0 WTFPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
