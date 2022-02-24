@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream><remote-id type="github">vrmiguel/bustd</remote-id></upstream>
+	<maintainer type="person">
+		<email>carana2099@gmail.com</email>
+		<name>Carlos Eduardo</name>
+	</maintainer>
+	<use>
+		<flag name="glob">Enable excluding processes with glob patterns</flag>
+	</use>
+</pkgmetadata>
