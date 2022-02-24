@@ -41,6 +41,6 @@ src_install() {
 	dodir /usr/include/armadillo_bits
 	for file in "${ED}/${R_includedir}"/armadillo_bits/*; do
 		filename=$(basename "${file}")
-		dosym8 -r /usr/include/armadillo_bits/${file} "${R_includedir}/armadillo_bits/${file}"
+		dosym8 -r /usr/include/armadillo_bits/${filename} "${R_includedir}/armadillo_bits/${filename}"
 	done
 }
