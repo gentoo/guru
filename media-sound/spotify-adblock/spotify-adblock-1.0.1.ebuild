@@ -44,13 +44,13 @@ RDEPEND="
 src_install(){
 	# executable
 	SPOTIFY_HOME=/opt/spotify/spotify-client
-	cat <<-EOF >"${ED}"/usr/bin/spotify-adblock || die
+	cat <<-EOF > "${T}/spotify-adblock" || die
 		#! /bin/sh
 		LD_LIBRARY_PATH="${SPOTIFY_HOME}" \\
 		LD_PRELOAD=/usr/$(get_libdir)/spotify-adblock.so \\
 		exec ${SPOTIFY_HOME}/spotify "\$@"
 	EOF
-	fperms +x /usr/bin/spotify-adblock
+	dobin "${T}/spotify-adblock"
 
 	# library
 	newlib.so target/release/libspotifyadblock.so ${PN}.so
