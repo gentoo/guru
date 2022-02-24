@@ -90,11 +90,6 @@ src_install() {
 		die "Failed to fix ${ED}/usr/bin/${PN} interpreter"
 }
 
-pkg_preinst() {
-	gnome2_schemas_savelist
-	xdg_pkg_preinst
-}
-
 pkg_postinst() {
 	gnome2_schemas_update
 	xdg_pkg_postinst

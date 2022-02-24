@@ -6,8 +6,7 @@
 		<name>Anna</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="pypi">makefun</remote-id>
-		<remote-id type="github">smarie/python-makefun</remote-id>
-		<doc>https://smarie.github.io/python-makefun/</doc>
+		<remote-id type="github">diamondburned/gtkcord3</remote-id>
+		<bugs-to>https://github.com/diamondburned/gtkcord3/issues</bugs-to>
 	</upstream>
 </pkgmetadata>

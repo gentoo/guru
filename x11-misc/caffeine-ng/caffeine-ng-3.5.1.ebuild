@@ -40,11 +40,6 @@ src_prepare() {
 	distutils-r1_src_prepare
 }
 
-pkg_preinst() {
-	gnome2_schemas_savelist
-	xdg_pkg_preinst
-}
-
 pkg_postinst() {
 	gnome2_gconf_install
 	gnome2_schemas_update

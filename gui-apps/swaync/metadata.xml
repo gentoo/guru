@@ -14,10 +14,6 @@
 		<bugs-to>https://github.com/ErikReider/SwayNotificationCenter/issues</bugs-to>
 	</upstream>
 	<use>
-		<flag name="bash-completion">Install bash shell completions</flag>
-		<flag name="fish-completion">Install fish shell completions</flag>
-		<flag name="systemd">Install systemd user service unit</flag>
 		<flag name="scripting">Enable notification scripting</flag>
-		<flag name="zsh-completion">Install bash shell completions</flag>
 	</use>
 </pkgmetadata>

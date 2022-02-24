@@ -38,8 +38,9 @@ src_install() {
 	R_includedir="/usr/$(get_libdir)/R/site-library/${PN}/include"
 	dosym8 -r /usr/include/ensmallen.hpp "${R_includedir}/ensmallen.hpp"
 
+	dodir /usr/include/ensmallen_bits
 	for file in "${ED}/${R_includedir}"/ensmallen_bits/*; do
 		filename=$(basename "${file}")
-		dosym8 -r /usr/include/ensmallen_bits/${file} "${R_includedir}/ensmallen_bits/${file}"
+		dosym8 -r /usr/include/ensmallen_bits/${filename} "${R_includedir}/ensmallen_bits/${filename}"
 	done
 }

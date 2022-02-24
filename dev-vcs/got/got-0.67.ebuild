@@ -29,6 +29,7 @@ DEPEND="
 BDEPEND="
 	virtual/pkgconfig
 	virtual/yacc
+	kernel_linux? ( sys-kernel/linux-headers )
 "
 RDEPEND="${DEPEND}"
 
