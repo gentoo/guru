@@ -9,16 +9,20 @@ DESCRIPTION="Simple terminal UI for git commands"
 HOMEPAGE="https://github.com/jesseduffield/lazygit"
 SRC_URI="https://github.com/jesseduffield/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="MIT"
+LICENSE="Apache-2.0 BSD ISC MIT Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
-
-# TestCanDeactivatePopupContextsWithoutViews fails
-RESTRICT="test"
 
 RDEPEND="dev-vcs/git"
 
 DOCS=( {CODE-OF-CONDUCT,CONTRIBUTING,README}.md docs )
+
+src_prepare() {
+	default
+
+	# remove failing tests
+	rm pkg/gui/*_test.go || die
+}
 
 src_compile() {
 	go build -o bin/lazygit || die
