@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig virtual/yacc
+BDEPEND=virtual/pkgconfig virtual/yacc kernel_linux? ( sys-kernel/linux-headers )
 DEFINED_PHASES=compile
 DEPEND=sys-libs/ncurses:=[unicode(+)] sys-libs/zlib:= elibc_Darwin? ( sys-libs/native-uuid ) elibc_SunOS? ( sys-libs/libuuid ) !elibc_Darwin? ( dev-libs/libbsd ) !elibc_Darwin? ( !elibc_SunOS? ( app-crypt/libmd sys-apps/util-linux ) )
 DESCRIPTION=Portable version of the Game of Trees version control system
@@ -9,6 +9,6 @@ KEYWORDS=~amd64 ~x86
 LICENSE=ISC
 RDEPEND=sys-libs/ncurses:=[unicode(+)] sys-libs/zlib:= elibc_Darwin? ( sys-libs/native-uuid ) elibc_SunOS? ( sys-libs/libuuid ) !elibc_Darwin? ( dev-libs/libbsd ) !elibc_Darwin? ( !elibc_SunOS? ( app-crypt/libmd sys-apps/util-linux ) )
 SLOT=0
-SRC_URI=https://gameoftrees.org/releases/portable/got-portable-0.65.tar.gz
+SRC_URI=https://gameoftrees.org/releases/portable/got-portable-0.67.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
-_md5_=f3740b7b541c86133300ea8d361988cc
+_md5_=93d5efdcbac55fc0a4def3678cb84613

@@ -1,10 +1,10 @@
 BDEPEND=sys-devel/gettext virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) vala? ( || ( dev-lang/vala:0.54 dev-lang/vala:0.52 ) ) app-arch/xz-utils >=dev-util/meson-0.58.2-r1 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
-DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/fribidi dev-libs/glib:2 dev-libs/libpcre2:= dev-libs/libxml2:2 gui-libs/gtk:4 media-libs/fontconfig x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/pango introspection? ( dev-libs/gobject-introspection:= )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-libs/fribidi dev-libs/glib:2 dev-libs/libpcre2:= dev-libs/libxml2:2 gui-libs/gtk:4 media-libs/fontconfig x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/pango introspection? ( dev-libs/gobject-introspection:= ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=GTK 4 syntax highlighting widget
 EAPI=7
 HOMEPAGE=https://gitlab.gnome.org/GNOME/gtksourceview
-INHERIT=gnome.org meson vala virtualx
+INHERIT=gnome.org meson vala virtualx xdg
 IUSE=gtk-doc +introspection +vala test
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2.1+
@@ -13,5 +13,5 @@ REQUIRED_USE=vala? ( introspection )
 RESTRICT=!test? ( test )
 SLOT=5
 SRC_URI=mirror://gnome/sources/gtksourceview/5.2/gtksourceview-5.2.0.tar.xz
-_eclasses_=gnome.org	b5c48cddff1da36a205d924d722b28c9	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	meson	9f3e84959ae1d60e19bc91f212774dcc	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	vala	77f49b69eeaec5a1f2aeb4dc688e0e80	virtualx	fa024aa649b6bd544144bf94893d402c
-_md5_=daa51208ea9cdd609bf0c76fe0ad8dab
+_eclasses_=gnome.org	b5c48cddff1da36a205d924d722b28c9	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	meson	9f3e84959ae1d60e19bc91f212774dcc	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	vala	77f49b69eeaec5a1f2aeb4dc688e0e80	virtualx	fa024aa649b6bd544144bf94893d402c	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_md5_=fa1913e7bf06eee2017ef581c28bdbba

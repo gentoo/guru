@@ -68,7 +68,7 @@ app-dicts/dictd-moby-thesaurus 1.0: Grady Ward's Moby Thesaurus; 35000 root word
 app-dicts/dictd-mueller 3.1-r1: V. K. Mueller English-Russian Dictionary
 app-dicts/dictd-web1913 0.5.0_p1: Webster's Revised Unabridged Dictionary (1913) for dict
 app-doc/anarchism 15.3: An anarchist FAQ
-app-doc/ford 6.1.4 6.1.5: FORD, automatic documentation generator for modern Fortran programs
+app-doc/ford 6.1.4 6.1.5 6.1.7 6.1.8: FORD, automatic documentation generator for modern Fortran programs
 app-doc/openbsd-manpages 6.9 7.0: OpenBSD manual pages
 app-editors/amp 0.6.2: A complete text editor for your terminal.
 app-editors/atom-bin 1.58.0-r1: A hackable text editor for the 21st Century
@@ -485,7 +485,6 @@ dev-python/kitchen 1.2.6: Kitchen contains a cornucopia of useful code
 dev-python/ldappool 3.0.0: A connection pool for python-ldap
 dev-python/libusb1 2.0.1: Pure-python wrapper for libusb-1.0
 dev-python/license-expression 21.6.14: A comprehensive utility library to parse license expressions using boolean logic
-dev-python/makefun 1.13.1: Small library to dynamically create python functions
 dev-python/manhole 1.8.0-r1: Debugging manhole for python application
 dev-python/markdown-include 0.6.0: Syntax which allows for inclusion of contents of other Markdown docs
 dev-python/md-environ 0.1.0: Syntax which allows for inclusion of contents of other Markdown docs
@@ -721,8 +720,8 @@ dev-vcs/git-repo-updater 0.5.1-r1: Easily update multiple git repositories at on
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
 dev-vcs/gitqlient 1.4.3 9999: Multi-platform Git client written with Qt
 dev-vcs/gitui 0.18.0: Blazing fast terminal-ui for git
-dev-vcs/got 0.65 0.66: Portable version of the Game of Trees version control system
-dev-vcs/lazygit 0.31.4 0.33 9999: Lazygit, a simple terminal UI for git commands
+dev-vcs/got 0.66 0.67: Portable version of the Game of Trees version control system
+dev-vcs/lazygit 0.33: Simple terminal UI for git commands
 dev-vcs/lefthook 0.7.7: Fast and powerful Git hooks manager for any type of projects.
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
 games-action/blackvoxel 2.50 9999: Blackvoxel Video Game
@@ -800,7 +799,7 @@ gui-apps/sfwbar 1.0_beta2 1.0_beta3 1.0_beta4: Sway Floating Window Bar
 gui-apps/sway-launcher-desktop 1.5.4: TUI Application launcher with Desktop Entry support
 gui-apps/swaykbdd 1.0: Per-window keyboard layout switcher for Sway
 gui-apps/swaylock-effects 1.6.2 1.6.3 9999: Swaylock, with fancy effects
-gui-apps/swaync 0.4: A simple notification daemon with a GTK gui for notifications and control center
+gui-apps/swaync 0.4-r1: A simple notification daemon with a GTK gui for notifications and control center
 gui-apps/szyszka 1.0.0: Simple, powerful and easy to use file renamer
 gui-apps/tiramisu 1.0_p20201110 2.0.20211107 9999: minimalistic desktop notifications provider
 gui-apps/wbg 1.0.2: Super simple wallpaper application
@@ -902,7 +901,7 @@ media-sound/mopidy 3.2.0: An extensible music server written in Python.
 media-sound/ncpamixer 1.3.3.1: A ncurses mixer for PulseAudio inspired by pavucontrol
 media-sound/netcat-cpi 2014.04.29: Kernel module edition of the Cycles Per Instruction (2014) album
 media-sound/noisetorch 0.11.4 9999: Real-time microphone noise suppression on Linux.
-media-sound/noson-app 5.0.8: The essential to control music from your SONOS devices on Linux platforms
+media-sound/noson-app 5.1.0: The essential to control music from your SONOS devices on Linux platforms
 media-sound/nuclear-bin 0.6.15 0.6.17: Nuclear is a streaming program that pulls content from free sources on internet
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
 media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file or stream as a PulseAudio source
@@ -927,7 +926,7 @@ net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various pl
 net-client/amfora 1.8.0 1.9.2: A fancy terminal browser for the Gemini protocol.
 net-client/castor 0.8.16 0.8.18: A graphical browser for plain-text protocols
 net-client/kristall 0.3-r1 9999: Visual cross-platform gemini browser
-net-client/lagrange 1.10.4 1.10.5: Desktop GUI client for browsing Geminispace
+net-client/lagrange 1.10.5 1.10.6: Desktop GUI client for browsing Geminispace
 net-client/offpunk 0.1 0.3: A command-line, text-based and offline-first Gemini browser
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
 net-client/telescope 0.6.1 0.7.1: w3m-like browser for Gemini
@@ -941,6 +940,7 @@ net-im/cawbird 1.4.2: Cawbird is a fork of the Corebird Twitter client from Baed
 net-im/discord-canary-bin 0.0.133: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.25: All-in-one voice and text chat
 net-im/go-sendxmpp 0.1.3 0.2.0: A little tool to send messages to an XMPP contact or MUC
+net-im/gtkcord 0.1.0: A Gtk3 Discord client in Golang
 net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
 net-im/kaidan 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!
 net-im/matterhorn-bin 50200.13.0: Terminal based Mattermost client
@@ -1088,7 +1088,7 @@ sys-auth/mrsh 2.12 2.12-r1: Mrsh is a set of remote shell programs that use mung
 sys-boot/bmap-tools 3.6-r3: Bmaptool is a tool for creating and copyng files using block maps
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
-sys-boot/limine 2.84.2-r1 2.85 2.85.1: Limine is a modern, advanced x86/x86_64 BIOS/UEFI multiprotocol bootloader.
+sys-boot/limine 2.84.2-r1 2.85 2.85.1 2.85.4: Limine is a modern, advanced x86/x86_64 BIOS/UEFI multiprotocol bootloader.
 sys-cluster/AXL 0.3.0 0.4.0 0.5.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
 sys-cluster/KVTree 1.1.1 1.2.0: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/OpenHPC-meta 2.1: OpenHPC metapackage
@@ -1150,7 +1150,7 @@ sys-fs/python-btrfs 12 13: Python 3 module to inspect btrfs filesystems
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
 sys-kernel/rte_kni-kmod 21.11: DPDK Kernel Nic Interface module
 sys-kernel/tirdad 0_p20200926: kernel module for random ISN generation
-sys-kernel/uek-sources 5.4.17.2136.303.2 5.4.17.2136.304.3 5.4.17.2136.305.2: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
+sys-kernel/uek-sources 5.4.17.2136.305.2: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
 sys-kernel/ummunotify 2: Userspace support for MMU notifications
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-kernel/xpmem 2.6.5_p20210809: Linux Cross-Memory Attach
