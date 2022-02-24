@@ -3,7 +3,7 @@
 
 EAPI=7
 VALA_MIN_API_VERSION="0.52"
-inherit gnome.org meson vala virtualx
+inherit gnome.org meson vala virtualx xdg
 
 DESCRIPTION="GTK 4 syntax highlighting widget"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/gtksourceview"
