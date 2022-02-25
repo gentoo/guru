@@ -185,6 +185,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
 	x11-libs/libxcb
+	dev-lang/python-exec[native-symlink]
 "
 
 RDEPEND="
