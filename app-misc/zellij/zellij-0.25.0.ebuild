@@ -335,7 +335,7 @@ DEPEND="
 		app-shells/zsh
 	)
 	dev-lang/rust
-
+"
 BDEPEND="
 	$DEPEND
 "
