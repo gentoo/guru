@@ -295,7 +295,7 @@ CRATES="
 	zeroize-1.4.3
 "
 
-inherit cargo xdg-utils optfeature
+inherit cargo xdg-utils optfeature desktop
 
 DESCRIPTION="A terminal workspace with batteries included"
 HOMEPAGE="https://github.com/zellij-org/zellij"
@@ -314,12 +314,11 @@ LICENSE="
 	BSD
 	Unlicense
 	MPL-2.0
+	WTFPL
 "
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc examples zsh-completion fish-completion bash-completion"
-#REQUIRED_USE="|| ( bash-completion fish-completion zsh-completion )"
-
 DEPEND="
 	bash-completion? (
 		app-shells/bash
@@ -372,8 +371,8 @@ src_install() {
 		use zsh && doins assets/completions/_zellij
 	fi
 
-	#insinto /usr/share/xsessions/
-	#doins assets/zellij.desktop
+	domenu assets/zellij.desktop
+	doicon asserts/logo.png
 
 	use doc && dodoc README.md GOVERNANCE.md
 }
