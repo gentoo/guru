@@ -2,6 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<maintainer type="person">
 		<email>degni.public@gmail.com</email>
 		<name>Luciano Degni</name>
 	</maintainer>
@@ -10,4 +14,3 @@
 		<bugs-to>https://github.com/zellij-org/zellij/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
-

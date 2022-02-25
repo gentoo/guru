@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -295,96 +295,92 @@ CRATES="
 	zeroize-1.4.3
 "
 
-inherit cargo xdg-utils optfeature desktop
+inherit bash-completion-r1 cargo desktop xdg-utils
 
 DESCRIPTION="A terminal workspace with batteries included"
-HOMEPAGE="https://github.com/zellij-org/zellij"
+HOMEPAGE="
+	https://zellij.dev
+	https://github.com/zellij-org/zellij
+"
 SRC_URI="
 	https://github.com/zellij-org/zellij/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	$(cargo_crate_uris)
 "
 LICENSE="
+	|| ( 0BSD Apache-2.0 MIT )
+	|| ( Apache-2.0 Apache-2.0-with-LLVM-exceptions MIT )
+	|| ( Apache-2.0 BSD-2 MIT )
+	|| ( Apache-2.0 Boost-1.0 )
 	|| ( Apache-2.0 MIT )
-	|| ( Apache-2.0 MIT )
-	|| ( Apache-2.0 MIT MPL-2.0 )
-	|| ( MIT )
+	|| ( Apache-2.0 MIT ZLIB )
+	|| ( Apache-2.0-with-LLVM-exceptions MIT )
 	|| ( MIT Unlicense )
 	Apache-2.0
-	MIT
+	Apache-2.0-with-LLVM-exceptions
 	BSD
-	Unlicense
+	BSD-2
+	CC0-1.0
+	ISC
+	MIT
 	MPL-2.0
-	WTFPL
+	WTFPL-2
 "
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc examples zsh-completion fish-completion bash-completion"
-DEPEND="
-	bash-completion? (
-		app-shells/bash
-	)
-	fish-completion? (
-		app-shells/fish
-	)
-	zsh-completion? (
-		app-shells/zsh
-	)
-	dev-lang/rust
-"
-BDEPEND="
-	$DEPEND
-"
-RDEPEND="
-	$DEPEND
-	!app-misc/$PN-bin
-"
 
-QA_FLAGS_IGNORED="usr/bin/.*"
+BDEPEND="
+	app-text/mandown
+"
+#	dev-util/binaryen
+#	dev-util/cargo-make
+#"
+
+src_configure() {
+	local myfeatures=(
+		disable_automatic_asset_installation
+	)
+	cargo_src_configure
+}
 
 src_compile() {
 	cargo_src_compile
-	./target/release/zellij setup --generate-completion bash > target/zellij
-	./target/release/zellij setup --generate-completion fish > target/zellij.fish
-	./target/release/zellij setup --generate-completion zsh > target/_zellij
+#	cargo make build-release || die
+#	cargo make manpage || die
+#	cargo make wasm-opt-plugins || die
+	mkdir -p assets/man || die
+	mandown docs/MANPAGE.md ZELLIJ 1 > assets/man/zellij.1 || die
+	mkdir -p assets/completions || die
+	./target/release/zellij setup --generate-completion bash > assets/completions/zellij.bash || die
+	./target/release/zellij setup --generate-completion fish > assets/completions/zellij.fish || die
+	./target/release/zellij setup --generate-completion zsh > assets/completions/_zellij || die
 }
 
 src_install() {
-	dobin target/release/"$PN"
+#	cargo make install --root "${ED}" || die
+	cargo_src_install
+#	dobin "target/release/${PN}"
 
-	if use examples; then
-		insinto "/usr/share/zellij/layouts/"
-		doins -r assets/example/layouts/*
-	fi
+	insinto /usr/share/zellij/layouts/
+	doins -r example/layouts/*
 
-	insinto "/usr/share/zellij/plugins/"
+	insinto /usr/share/zellij/plugins/
 	doins -r assets/plugins/*
 
-	if use bash-completion; then
-		insinto "usr/share/bash-completion/completions/"
-		doins target/zellij
-	fi
+	doman assets/man/zellij.1
 
-	if use fish-completion; then
-		insinto "usr/share/fish/vendor_completions.d/"
-		doins target/zellij.fish
-	fi
+	insinto /usr/share/xsessions/
+	doins assets/zellij.desktop
 
-	if use zsh-completion; then
-		insinto "usr/share/zsh/site-functions/"
-		doins target/_zellij
-	fi
+	dodoc README.md CHANGELOG.md docs/*.md
 
-	domenu assets/zellij.desktop
-	#doicon asserts/logo.png
-
-	use doc && dodoc README.md GOVERNANCE.md
-	use doc && dodoc docs/MANPAGE.md
+	newbashcomp assets/completions/zellij.bash zellij
+	insinto /usr/share/fish/vendor_completions.d
+	doins assets/completions/zellij.fish
+	insinto /usr/share/fish/vendor-completions
+	doins assets/completions/_zellij
 }
 
 pkg_postinst() {
-	elog "Read the documentation for $PN at <https://zellij.dev/documentation>"
-	elog "for usage, customization and other instructions"
-	optfeature "install nerdfonts for best experience" 
 	xdg_desktop_database_update
 }
 
