@@ -295,7 +295,7 @@ CRATES="
 	zeroize-1.4.3
 "
 
-inherit cargo xdg-utils desktop optfeature
+inherit cargo xdg-utils optfeature
 
 DESCRIPTION="A terminal workspace with batteries included"
 HOMEPAGE="https://github.com/zellij-org/zellij"
@@ -317,17 +317,17 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="bash fish zsh doc examples zsh-completion fish-completion bash-completion"
-REQUIRED_USE="|| ( bash fish zsh )"
+IUSE="doc examples zsh-completion fish-completion bash-completion"
+#REQUIRED_USE="|| ( bash-completion fish-completion zsh-completion )"
 
 DEPEND="
-	bash? (
+	bash-completion? (
 		app-shells/bash
 	)
-	fish? (
+	fish-completion? (
 		app-shells/fish
 	)
-	zsh? (
+	zsh-completion? (
 		app-shells/zsh
 	)
 	dev-lang/rust
@@ -354,10 +354,8 @@ src_install() {
 		doins -r assets/example/layouts/*
 	fi
 
-
 	insinto "/usr/share/zellij/plugins/"
 	doins-r assets/plugins/*
-
 
 	if use bash-completion; then
 		insinto "usr/share/bash-completion/completions/"
@@ -374,7 +372,6 @@ src_install() {
 		use zsh && doins assets/completions/_zellij
 	fi
 
-
 	#insinto /usr/share/xsessions/
 	#doins assets/zellij.desktop
 
@@ -384,7 +381,7 @@ src_install() {
 pkg_postinst() {
 	elog "Read the documentation for $PN at <https://zellij.dev/documentation>"
 	elog "for usage, customization and other instructions"
-	optfeature "Emerge nerdfonts for best experience" 
+	optfeature "install nerdfonts for best experience" 
 	xdg_desktop_database_update
 }
 
