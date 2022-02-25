@@ -314,7 +314,8 @@ LICENSE="
 	BSD
 	Unlicense
 	MPL-2.0
-"SLOT="0"
+"
+SLOT="0"
 KEYWORDS="~amd64"
 IUSE="bash fish zsh doc examples zsh-completion fish-completion bash-completion"
 REQUIRED_USE="|| ( bash fish zsh )"
