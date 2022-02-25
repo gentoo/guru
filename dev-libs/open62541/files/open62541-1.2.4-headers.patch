@@ -1,0 +1,31 @@
+From a5697f1eb69822e172bc31d1549222c8ca718844 Mon Sep 17 00:00:00 2001
+From: Kurt Kanzenbach <kurt@kmk-computers.de>
+Date: Sun, 12 Jul 2020 10:39:31 +0200
+Subject: [PATCH 2/3] cmake: Install ETF and XDP plugin headers
+
+When the corresponding features are enabled, the headers should be installed as
+well.
+
+Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
+---
+ CMakeLists.txt |    2 ++
+ 1 file changed, 2 insertions(+)
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -907,6 +907,7 @@ if(UA_ENABLE_PUBSUB)
+     list(APPEND default_plugin_headers ${PROJECT_SOURCE_DIR}/plugins/include/open62541/plugin/pubsub_udp.h)
+     list(APPEND default_plugin_sources ${PROJECT_SOURCE_DIR}/plugins/ua_pubsub_udp.c)
+     if(UA_ENABLE_PUBSUB_ETH_UADP_ETF)
++        list(APPEND default_plugin_headers ${PROJECT_SOURCE_DIR}/plugins/include/open62541/plugin/pubsub_ethernet_etf.h)
+         list(APPEND default_plugin_sources ${PROJECT_SOURCE_DIR}/plugins/ua_pubsub_ethernet_etf.c)
+     endif()
+     if(UA_ENABLE_PUBSUB_ETH_UADP)
+@@ -916,6 +917,7 @@ if(UA_ENABLE_PUBSUB)
+     if(UA_ENABLE_PUBSUB_ETH_UADP_XDP)
+         if(EXISTS "${XDP_LIBRARY}")
+             list(APPEND open62541_LIBRARIES ${XDP_LIBRARY})
++            list(APPEND default_plugin_headers ${PROJECT_SOURCE_DIR}/plugins/include/open62541/plugin/pubsub_ethernet_xdp.h)
+             list(APPEND default_plugin_sources ${PROJECT_SOURCE_DIR}/plugins/ua_pubsub_ethernet_xdp.c)
+         else()
+             MESSAGE(WARNING "samples in bpf-next directory were not built. Build the bpf-next to use XDP")
