@@ -325,13 +325,13 @@ IUSE="bash-completion fish-completion zsh-completion doc examples"
 REQUIRED_USE="|| ( bash-completion fish-completion zsh-completion )"
 
 DEPEND="
-	bash? (
+	bash-completion? (
 		app-shells/bash
 	)
-	fish? (
+	fish-completion? (
 		app-shells/fish
 	)
-	zsh? (
+	zsh-completion? (
 		app-shells/zsh
 	)
 	dev-lang/rust
