@@ -309,29 +309,24 @@ LICENSE="
 	|| ( Apache-2.0 MIT MPL-2.0 )
 	|| ( MIT )
 	|| ( MIT Unlicense )
-	|| ( BSD )
-	|| ( BSD-2 )
-	||
 	Apache-2.0
 	MIT
+	BSD
 	Unlicense
 	MPL-2.0
-	BSD
-	BSD-2
-"
-SLOT="0"
+"SLOT="0"
 KEYWORDS="~amd64"
-IUSE="bash-completion fish-completion zsh-completion doc examples"
-REQUIRED_USE="|| ( bash-completion fish-completion zsh-completion )"
+IUSE="bash fish zsh doc examples zsh-completion fish-completion bash-completion"
+REQUIRED_USE="|| ( bash fish zsh )"
 
 DEPEND="
-	bash-completion? (
+	bash? (
 		app-shells/bash
 	)
-	fish-completion? (
+	fish? (
 		app-shells/fish
 	)
-	zsh-completion? (
+	zsh? (
 		app-shells/zsh
 	)
 	dev-lang/rust
@@ -341,7 +336,7 @@ BDEPEND="
 "
 RDEPEND="
 	$DEPEND
-	!x11-wm/$PN-bin
+	!app-misc/$PN-bin
 "
 
 QA_FLAGS_IGNORED="usr/bin/.*"
