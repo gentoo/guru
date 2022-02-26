@@ -23,6 +23,7 @@ IUSE="doc +picojson test"
 
 DEPEND="${RDEPEND}
 	dev-cpp/nlohmann_json
+	dev-libs/openssl
 	picojson? ( dev-cpp/picojson )
 	doc? ( app-doc/doxygen[dot] )"
 RESTRICT="!picojson? ( test )"
