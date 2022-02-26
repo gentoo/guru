@@ -24,9 +24,10 @@ IUSE="doc +picojson test"
 DEPEND="${RDEPEND}
 	dev-cpp/nlohmann_json
 	dev-libs/openssl
-	picojson? ( dev-cpp/picojson )
-	doc? ( app-doc/doxygen[dot] )"
+	picojson? ( dev-cpp/picojson )"
+BDEPEND="doc? ( app-doc/doxygen[dot] )"
 RESTRICT="!picojson? ( test )"
+DOCS=( README.md docs/{faqs,ssl,traits}.md )
 
 src_prepare() {
 	# Unbundle dev-cpp/nlohmann_json.
@@ -51,6 +52,19 @@ src_configure() {
 			-DJWT_CMAKE_FILES_INSTALL_DIR="${EPREFIX}"/usr/share/cmake
 			)
 	cmake_src_configure
+}
+
+src_compile() {
+	cmake_src_compile
+	if use doc; then
+		doxygen || die
+	fi
+}
+
+src_install() {
+	cmake_src_install
+	use doc && local HTML_DOCS=(doxy/html/.)
+	einstalldocs
 }
 
 src_test() {
