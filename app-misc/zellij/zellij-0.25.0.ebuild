@@ -343,6 +343,9 @@ QA_FLAGS_IGNORED="usr/bin/.*"
 
 src_compile() {
 	cargo_src_compile
+	./target/release/zellij setup --generate-completion bash > target/zellij
+	./target/release/zellij setup --generate-completion fish > target/zellij.fish
+	./target/release/zellij setup --generate-completion zsh > target/_zellij
 }
 
 src_install() {
@@ -354,27 +357,28 @@ src_install() {
 	fi
 
 	insinto "/usr/share/zellij/plugins/"
-	doins-r assets/plugins/*
+	doins -r assets/plugins/*
 
 	if use bash-completion; then
 		insinto "usr/share/bash-completion/completions/"
-		doins assets/completions/zellij.bash
+		doins target/zellij
 	fi
 
 	if use fish-completion; then
-		insinto usr/share/fish/vendor_completions.d/
-		doins assets/completions/zellij.fish
+		insinto "usr/share/fish/vendor_completions.d/"
+		doins target/zellij.fish
 	fi
 
 	if use zsh-completion; then
-		insinto usr/share/zsh/vendor-completions/
-		use zsh && doins assets/completions/_zellij
+		insinto "usr/share/zsh/vendor-completions/"
+		doins target/_zellij
 	fi
 
 	domenu assets/zellij.desktop
-	doicon asserts/logo.png
+	#doicon asserts/logo.png
 
 	use doc && dodoc README.md GOVERNANCE.md
+	use doc && dodoc docs/MANPAGE.md
 }
 
 pkg_postinst() {
