@@ -22,34 +22,30 @@ SLOT="0"
 IUSE="doc +picojson test"
 
 DEPEND="${RDEPEND}
-	dev-cpp/nlohmann_json
 	dev-libs/openssl
 	picojson? ( dev-cpp/picojson )"
 BDEPEND="doc? ( app-doc/doxygen[dot] )"
 RESTRICT="!picojson? ( test )"
-DOCS=( README.md docs/{faqs,ssl,traits}.md )
 
 src_prepare() {
-	# Unbundle dev-cpp/nlohmann_json.
-	rm -vrf include/nhlomann || die
 	# Unbundle dev-cpp/picojson and fix include paths.
 	# See also: https://github.com/Thalhammer/jwt-cpp/issues/213
 	rm -vrf include/picojson || die
 	find -name '*.h' -type f -print0 | xargs -0 sed -r -e "s:picojson/picojson\.h:picojson.h:g" -i || die
 	# Prevent installation of bundled dev-cpp/picojson.
-	sed -i -e 's:^\s*install.*picojson/picojson\.h.*$::' CMakeLists.txt || die
+	sed -i -e 's:^\s*install.*include/picojson.*$::' CMakeLists.txt || die
+	# Fix installation paths for .cmake files.
+	sed -i -e 's:DESTINATION ${CMAKE_INSTALL_PREFIX}/jwt-cpp:DESTINATION ${CMAKE_INSTALL_PREFIX}/share/jwt-cpp:' CMakeLists.txt || die
+	sed -i -e 's:DESTINATION jwt-cpp:DESTINATION ${CMAKE_INSTALL_PREFIX}/share/jwt-cpp:' CMakeLists.txt || die
 	cmake_src_prepare
 }
 
 src_configure() {
 	local mycmakeargs=(
-			-DJWT_DISABLE_PICOJSON="$(usex picojson OFF ON)"
 			# Not useful for now, asks for non-existent CMake module.
 			#-DJWT_EXTERNAL_PICOJSON="$(usex picojson)"
 			# Examples are not installed and for development only.
-			-DJWT_BUILD_EXAMPLES=NO
-			-DJWT_BUILD_TESTS="$(usex test)"
-			-DJWT_CMAKE_FILES_INSTALL_DIR="${EPREFIX}"/usr/share/cmake
+			-DBUILD_TESTS="$(usex test)"
 			)
 	cmake_src_configure
 }
@@ -63,7 +59,7 @@ src_compile() {
 
 src_install() {
 	cmake_src_install
-	use doc && local HTML_DOCS=(doxy/html/.)
+	use doc && local HTML_DOCS=(docs/html/.)
 	einstalldocs
 }
 
