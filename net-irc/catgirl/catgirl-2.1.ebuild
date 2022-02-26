@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,12 +17,13 @@ DEPEND="
 	dev-libs/libretls:=
 	sys-libs/ncurses:=
 "
-BDEPEND="virtual/pkgconfig"
 RDEPEND="${DEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 DOCS=( README.7 scripts/chat.tmux.conf )
 
 src_configure() {
+	# note: not an autoconf configure script
 	./configure \
 		--prefix="${EPREFIX}"/usr \
 		--mandir="${EPREFIX}"/usr/share/man || die

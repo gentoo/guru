@@ -1,9 +1,10 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 CRATES="
+	aho-corasick-0.7.18
 	atty-0.2.14
 	autocfg-1.0.1
 	base64-0.13.0
@@ -60,6 +61,8 @@ CRATES="
 	proc-macro2-1.0.34
 	quote-1.0.10
 	redox_syscall-0.2.10
+	regex-1.5.4
+	regex-syntax-0.6.25
 	ring-0.16.20
 	rusticata-macros-4.0.0
 	rustls-0.20.2

@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ IUSE="+brotli doc examples mariadb postgres redis sqlite +ssl test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-cpp/trantor-1.5.2
+	>=dev-cpp/trantor-1.5.5
 	dev-libs/jsoncpp:=
 	sys-libs/zlib
 	brotli? ( app-arch/brotli:= )

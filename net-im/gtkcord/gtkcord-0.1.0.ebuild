@@ -330,6 +330,9 @@ LICENSE="Apache-2.0 BSD BSD-2 GPL-3 ISC MIT MPL-2.0 WTFPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# https://bugs.gentoo.org/833992
+RESTRICT="test"
+
 DEPEND="
 	dev-libs/glib:2
 	dev-libs/gobject-introspection

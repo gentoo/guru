@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,18 +25,13 @@ DEPEND="
 "
 BDEPEND="doc? ( app-doc/doxygen )"
 
-src_prepare() {
-	use ssl || sed -i '/find_package(OpenSSL)/d' CMakeLists.txt || die
-
-	cmake_src_prepare
-}
-
 src_configure() {
 	local -a mycmakeargs=(
 		"-DBUILD_TRANTOR_SHARED=YES"
 		"-DBUILD_DOC=$(usex doc)"
 		"-DBUILD_TESTING=$(usex test)"
 		"-DBUILD_C-ARES=$(usex adns)"
+		"$(cmake_use_find_package ssl OpenSSL)"
 	)
 
 	cmake_src_configure
