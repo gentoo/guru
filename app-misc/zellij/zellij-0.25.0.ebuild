@@ -370,7 +370,7 @@ src_install() {
 	fi
 
 	if use zsh-completion; then
-		insinto "usr/share/zsh/vendor-completions/"
+		insinto "usr/share/zsh/site-functions/"
 		doins target/_zellij
 	fi
 
