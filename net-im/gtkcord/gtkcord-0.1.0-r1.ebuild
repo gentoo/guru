@@ -334,12 +334,16 @@ KEYWORDS="~amd64"
 RESTRICT="test"
 
 DEPEND="
+	dev-libs/atk
 	dev-libs/glib:2
 	dev-libs/gobject-introspection
 	gui-libs/gtk-layer-shell
 	gui-libs/libhandy:1
+	media-libs/harfbuzz:=
+	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
+	x11-libs/pango
 "
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
