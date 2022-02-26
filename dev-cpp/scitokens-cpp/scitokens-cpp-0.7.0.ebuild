@@ -25,7 +25,10 @@ DEPEND="${RDEPEND}
 	<dev-cpp/jwt-cpp-0.5.0
 	dev-db/sqlite
 	dev-libs/openssl
+	net-misc/curl
+	sys-apps/util-linux
 	test? ( dev-cpp/gtest )"
+BDEPEND="virtual/pkgconfig"
 
 src_prepare() {
 	# Unbundle dev-cpp/gtest, dev-cpp/jwt-cpp
