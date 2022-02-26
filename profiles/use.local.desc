@@ -46,6 +46,7 @@ app-text/klogg:sentry - Enable crash reporting using sentry.io.
 dev-cpp/drogon:brotli - Enable support for brotli compression
 dev-cpp/drogon:mariadb - Add support for the mariadb database
 dev-cpp/drogon:redis - Add support for the Redis database via dev-libs/hiredis
+dev-cpp/jwt-cpp:picojson - Enable use of dev-cpp/picojson
 dev-cpp/sprout:texconv - Install texconv from subproject compost
 dev-cpp/sprout:wavconv - Install texconv from subproject darkroom
 dev-cpp/tiny-dnn:double-precision - Build tiny-dnn with double precision computations
@@ -453,6 +454,7 @@ sci-physics/mbdyn:threads - With threads
 sci-physics/mbdyn:udunits - With sci-libs/udunits
 sci-physics/mbdyn:y12 - With Y12 sparse math library
 sys-apps/CommsPowerManagement:ansible - Install ansible playbook
+sys-apps/bustd:glob - Enable excluding processes with glob patterns
 sys-apps/drm_info:pci - Print PCI device names via libpci
 sys-apps/fselect:users - Add support for getting system users and groups
 sys-apps/intel-cmt-cat:appqos - Install App QoS, a software created to demonstrate the use of Intel(R) RDT technologies (CAT, MBA) to improve QoS for applications via partitioning system resources.
