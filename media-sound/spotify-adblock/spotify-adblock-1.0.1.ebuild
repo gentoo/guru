@@ -41,6 +41,8 @@ RDEPEND="
 	media-sound/spotify
 "
 
+QA_FLAGS_IGNORED="usr/bin/${PN}"
+
 src_install(){
 	# executable
 	SPOTIFY_HOME=/opt/spotify/spotify-client
