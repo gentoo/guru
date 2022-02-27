@@ -23,7 +23,8 @@ IUSE="doc +picojson test"
 
 DEPEND="${RDEPEND}
 	dev-libs/openssl
-	picojson? ( dev-cpp/picojson )"
+	picojson? ( dev-cpp/picojson )
+	test? ( dev-cpp/gtest )"
 BDEPEND="doc? ( app-doc/doxygen[dot] )"
 RESTRICT="!picojson? ( test )"
 
