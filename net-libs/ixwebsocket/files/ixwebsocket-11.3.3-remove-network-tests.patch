@@ -1,5 +1,5 @@
 diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
-index 661aebb..bab73c7 100644
+index c8822a4..9ec705c 100644
 --- a/test/CMakeLists.txt
 +++ b/test/CMakeLists.txt
 @@ -11,15 +11,12 @@ option(USE_TLS "Add TLS support" ON)
@@ -18,7 +18,7 @@ index 661aebb..bab73c7 100644
    IXWebSocketSubProtocolTest
    # IXWebSocketBroadcastTest ## FIXME was depending on cobra / take a broadcast server from ws
    IXStrCaseCompareTest
-@@ -33,7 +30,6 @@ if (UNIX)
+@@ -34,7 +31,6 @@ if (UNIX)
  
      # Fail on Windows in CI probably because the pathing is wrong and
      # some resource files cannot be found
