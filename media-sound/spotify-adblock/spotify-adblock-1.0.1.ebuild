@@ -41,7 +41,11 @@ RDEPEND="
 	media-sound/spotify
 "
 
-QA_FLAGS_IGNORED="usr/bin/${PN}"
+src_prepare(){
+	default
+	# assigned here to use get_libdir
+	QA_FLAGS_IGNORED="usr/$(get_libdir)/${PN}.so"
+}
 
 src_install(){
 	# executable
