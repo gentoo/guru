@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -45,8 +45,8 @@ src_prepare() {
 }
 
 src_configure() {
-	sed -i  -e '/^install: / s|: all|:|' \
-		-e 's|^CFLAGS ?=|CFLAGS +=|' \
+	sed -i -e '/^install: / s|: all|:|' \
+		-e 's|^CFLAGS =|CFLAGS +=|' \
 		Makefile || die "sed failed"
 }
 
@@ -60,12 +60,11 @@ src_compile() {
 }
 
 src_install() {
-	export DESTDIR="${ED}"
-	export PREFIX="/usr"
-	export EGPREFIX="${PREFIX}/share/doc/${P}/examples"
-
-	emake install
-	emake install-icon
+	emake \
+		DESTDIR="${ED}" \
+		PREFIX="/usr" \
+		EGPREFIX="/usr/share/doc/${P}/examples" \
+		install install-icon
 	dodoc README.md
 	domenu nsxiv.desktop
 

@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -18,25 +18,23 @@ HOMEPAGE="https://github.com/nsxiv/nsxiv"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="exif +gif +jpeg +png webp tiff +inotify"
+IUSE="+statusbar exif +inotify +gif +jpeg +png webp tiff"
 
 RDEPEND="
+	statusbar? ( x11-libs/libXft )
 	exif? ( media-libs/libexif )
 	gif? ( media-libs/giflib:0= )
+	webp? ( media-libs/libwebp )
 	media-libs/imlib2[X,gif?,jpeg?,png?,webp?,tiff?]
 	x11-libs/libX11
-	x11-libs/libXft
 "
 DEPEND="${RDEPEND}"
 
 pkg_setup() {
 	if use inotify; then
-		nsxiv_autoreload="inotify"
 		CONFIG_CHECK+=" ~INOTIFY_USER"
 		ERROR_INOTIFY_USER="${P} requires inotify in-kernel support."
 		linux-info_pkg_setup
-	else
-		nsxiv_autoreload="nop"
 	fi
 }
 
@@ -47,23 +45,26 @@ src_prepare() {
 }
 
 src_configure() {
-	sed -i \
-		-e '/-include config.mk/d' \
-		-e '/\$(OBJS): / s|config.mk||' \
-		-e '/^install: / s|: all|:|' \
+	sed -i -e '/^install: / s|: all|:|' \
+		-e 's|^CFLAGS =|CFLAGS +=|' \
 		Makefile || die "sed failed"
 }
 
 src_compile() {
-	emake CC="$(tc-getCC)" \
-		HAVE_LIBEXIF=$(usex exif 1 0) \
-		HAVE_LIBGIF=$(usex gif 1 0) \
-		AUTORELOAD="${nsxiv_autoreload}"
+	emake CC="$(tc-getCC)" OPT_DEP_DEFAULT=0 \
+		HAVE_INOTIFY="$(usex inotify 1 0)" \
+		HAVE_LIBFONTS="$(usex statusbar 1 0)" \
+		HAVE_LIBGIF="$(usex gif 1 0)" \
+		HAVE_LIBWEBP="$(usex webp 1 0)" \
+		HAVE_LIBEXIF="$(usex exif 1 0)"
 }
 
 src_install() {
-	emake DESTDIR="${ED}" PREFIX=/usr install
-	emake -C icon DESTDIR="${ED}" PREFIX=/usr install
+	emake \
+		DESTDIR="${ED}" \
+		PREFIX="/usr" \
+		EGPREFIX="/usr/share/doc/${P}/examples" \
+		install install-icon
 	dodoc README.md
 	domenu nsxiv.desktop
 
