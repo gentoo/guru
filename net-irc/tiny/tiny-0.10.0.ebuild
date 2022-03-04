@@ -132,7 +132,7 @@ inherit cargo
 
 DESCRIPTION="An IRC client"
 HOMEPAGE="https://github.com/osa1/tiny"
-SRC_URI="https://github.com/osa1/tiny/archive/refs/tags/v0.10.0.tar.gz $(cargo_crate_uris ${CRATES})"
+SRC_URI="https://github.com/osa1/tiny/archive/refs/tags/v0.10.0.tar.gz -> ${P}.tar.gz $(cargo_crate_uris ${CRATES})"
 RESTRICT="mirror"
 LICENSE="MIT"
 SLOT="0"
