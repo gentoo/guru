@@ -10,5 +10,5 @@ PROPERTIES=live
 RDEPEND=filecaps? ( sys-libs/libcap )
 RESTRICT=strip
 SLOT=0
-_eclasses_=go-module	11f18b20461f1739e17be1fd5e5f5974	desktop	c0d27bf73aa08ca05b663dbd31fbef28	fcaps	ac252c3cc67b265cd7ea456f8d58e150	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_eclasses_=go-module	886a55b833edaab530aa5f2e5cea8ccb	desktop	c0d27bf73aa08ca05b663dbd31fbef28	fcaps	ac252c3cc67b265cd7ea456f8d58e150	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
 _md5_=cc6ff6c330f4f7f5ac902c67da35d9df
