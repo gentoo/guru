@@ -5,10 +5,9 @@ EAPI=8
 
 inherit cmake
 
-if [[ ${PV} == 9999 ]]; then
+if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/scitokens/scitokens-cpp"
-	KEYWORDS=""
 else
 	SRC_URI="https://github.com/scitokens/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
@@ -29,6 +28,7 @@ DEPEND="${RDEPEND}
 	sys-apps/util-linux
 	test? ( dev-cpp/gtest )"
 BDEPEND="virtual/pkgconfig"
+RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}"/"${PN}"-0.7.0-install-when-testing.patch
