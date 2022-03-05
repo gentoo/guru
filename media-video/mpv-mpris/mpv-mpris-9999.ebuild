@@ -51,7 +51,8 @@ src_test() {
 }
 
 src_install() {
-	dolib.so mpris.so
+	insinto "/usr/$(get_libdir)/mpv"
+	doins mpris.so
 	use autoload && dosym -r /usr/$(get_libdir)/mpv/mpris.so /etc/mpv/scripts/mpris.so
 	einstalldocs
 }
