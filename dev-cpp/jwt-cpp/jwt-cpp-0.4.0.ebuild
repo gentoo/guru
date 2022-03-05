@@ -5,10 +5,9 @@ EAPI=8
 
 inherit cmake
 
-if [[ ${PV} == 9999 ]]; then
+if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/Thalhammer/jwt-cpp.git"
-	KEYWORDS=""
 else
 	SRC_URI="https://github.com/Thalhammer/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
@@ -23,10 +22,11 @@ IUSE="doc +picojson test"
 
 DEPEND="${RDEPEND}
 	dev-libs/openssl
-	picojson? ( dev-cpp/picojson )
-	test? ( dev-cpp/gtest )"
+	picojson? ( dev-cpp/picojson )"
 BDEPEND="doc? ( app-doc/doxygen[dot] )"
-RESTRICT="!picojson? ( test )"
+RESTRICT="
+	!picojson? ( test )
+	!test? ( test )"
 
 src_prepare() {
 	# Unbundle dev-cpp/picojson and fix include paths.
