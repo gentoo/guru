@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,18 +18,36 @@ fi
 
 SLOT="0"
 LICENSE="MIT"
-IUSE="+autoload"
+IUSE="+autoload test"
 
 RDEPEND="
 	dev-libs/glib:2
 	media-video/mpv:=[cplugins,libmpv]
 "
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig"
+BDEPEND="virtual/pkgconfig
+	test? (
+		app-misc/jq
+		app-shells/bash
+		app-text/jo
+		media-sound/playerctl
+		net-misc/socat
+		sys-apps/dbus
+		virtual/awk
+		x11-apps/xauth
+		x11-misc/xvfb-run
+		x11-themes/sound-theme-freedesktop
+	)
+"
+RESTRICT="!test? ( test )"
 
 src_compile() {
 	tc-export CC
 	emake PKG_CONFIG="$(tc-getPKG_CONFIG)"
+}
+
+src_test() {
+	emake test
 }
 
 src_install() {
