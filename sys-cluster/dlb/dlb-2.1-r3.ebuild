@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 PYTHON_REQ_USE="tk"
 
 inherit autotools python-single-r1
@@ -35,11 +35,11 @@ BDEPEND="test? ( sys-devel/bc )"
 PATCHES=(
 	"${FILESDIR}/${P}-pygen-python3.patch"
 	"${FILESDIR}/${P}-tkinter.patch"
+	"${FILESDIR}/${P}-chmod.patch"
 )
 
 src_prepare() {
 	default
-	sed -e "s|chmod +x \$(|chmod +x ${ED}/\$(|g" -i Makefile.am || die
 	sed -e "s|lib/|$(get_libdir)/|" -i scripts/viewer/dlb_wrapper.py || die
 
 	eautoreconf
@@ -59,7 +59,7 @@ src_configure() {
 }
 
 src_install() {
-	default
+	DESTDIR="${ED}" default
 	find "${D}" -name '*.la' -delete || die
 	find "${D}" -name '*.a' -delete || die
 }
