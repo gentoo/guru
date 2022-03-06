@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -37,7 +37,7 @@ src_compile() {
 		SAFE_LOOKUP=$(usex safe-lookup y n)
 		SAFE_PARAM=$(usex safe-param y n)
 	)
-	emake "${myconf[@]}" EXTRA_CFLAGS="${CFLAGS}"
+	emake "${myconf[@]}" NOLDCONFIG=y EXTRA_CFLAGS="${CFLAGS}"
 }
 
 src_install() {
