@@ -295,7 +295,7 @@ CRATES="
 	zeroize-1.4.3
 "
 
-inherit bash-completion-r1 cargo desktop xdg-utils
+inherit bash-completion-r1 cargo xdg-utils
 
 DESCRIPTION="A terminal workspace with batteries included"
 HOMEPAGE="
