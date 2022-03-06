@@ -1007,7 +1007,6 @@ EGO_SUM=(
 	)
 go-module_set_globals
 
-
 DESCRIPTION="Query git repositories with SQL"
 HOMEPAGE="https://github.com/mergestat/mergestat"
 SRC_URI="
