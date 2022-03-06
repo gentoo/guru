@@ -45,7 +45,7 @@ CONFIG_CHECK="PSI"
 
 inherit linux-info cargo
 
-DESCRIPTION="bustd"
+DESCRIPTION="Process killer daemon for out-of-memory scenarios"
 HOMEPAGE="https://github.com/vrmiguel/bustd"
 SRC_URI="$(cargo_crate_uris)"
 LICENSE="MIT"
