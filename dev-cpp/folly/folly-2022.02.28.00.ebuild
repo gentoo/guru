@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 
 DEPEND="
 	app-arch/lz4
-	<app-arch/snappy-1.1.9:=
+	app-arch/snappy:=
 	app-arch/zstd
 	dev-cpp/gflags
 	dev-cpp/glog[gflags]
