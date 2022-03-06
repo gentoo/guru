@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,6 +23,11 @@ RDEPEND="pcre? ( dev-libs/libpcre:3 )"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
+# Checking of supported fortran standard version is required here
+pkg_setup() {
+	fortran-2_pkg_setup
+}
+
 get_platform() {
 	case $(tc-getFC) in
 		*gfortran*) echo "gnu" ;;
@@ -30,6 +35,13 @@ get_platform() {
 		*nagfor*) echo "nag" ;;
 		*) die "Unsupported compiler: $(tc-getFC)" ;;
 	esac
+}
+
+src_prepare() {
+	default
+
+	# Pass LDFLAGS to respect it
+	sed -i '/SOLDFLAGS =/ s/$/ '"${LDFLAGS}"'/' makefile || die
 }
 
 src_configure() {
@@ -61,6 +73,7 @@ src_test() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}"/usr LIBDIR=$(get_libdir) install
+	# Set BUILD to custom as default type is debug
+	emake BUILD=custom DESTDIR="${D}" PREFIX="${EPREFIX}"/usr LIBDIR=$(get_libdir) install
 	einstalldocs
 }
