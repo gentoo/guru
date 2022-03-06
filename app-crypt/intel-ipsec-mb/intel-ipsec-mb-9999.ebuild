@@ -37,11 +37,12 @@ src_compile() {
 		SAFE_LOOKUP=$(usex safe-lookup y n)
 		SAFE_PARAM=$(usex safe-param y n)
 	)
-	emake "${myconf[@]}" NOLDCONFIG=y EXTRA_CFLAGS="${CFLAGS}"
+	emake "${myconf[@]}" EXTRA_CFLAGS="${CFLAGS}"
 }
 
 src_install() {
 	emake PREFIX="${ED}/usr" \
+		NOLDCONFIG=y \
 		LIB_INSTALL_DIR="${ED}/usr/$(get_libdir)" \
 		MAN_DIR="${ED}/usr/share/man/man7" \
 		install
