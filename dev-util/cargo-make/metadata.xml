@@ -5,7 +5,4 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<use>
-		<flag name="tls">Add TLS support</flag>
-	</use>
 </pkgmetadata>

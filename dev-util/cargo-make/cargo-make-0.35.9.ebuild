@@ -190,15 +190,15 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+tls"
+IUSE="+ssl"
 
-DEPEND="tls? ( dev-libs/openssl )"
+DEPEND="ssl? ( dev-libs/openssl )"
 RDEPEND="${DEPEND}"
 
 QA_FLAGS_IGNORED="usr/bin/.*"
 
 src_configure() {
-	use tls || features="--no-default-features"
+	use ssl || features="--no-default-features"
 	cargo_src_configure "${features}"
 }
 
