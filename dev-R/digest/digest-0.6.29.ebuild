@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
@@ -14,3 +14,8 @@ LICENSE='GPL-2+'
 KEYWORDS="~amd64"
 RDEPEND=">=dev-lang/R-3.3.0"
 DEPEND="${RDEPEND}"
+
+SUGGESTES_PACKAGES="
+	dev-R/tinytest
+	dev-R/simplermarkdown
+"
