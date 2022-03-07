@@ -8,7 +8,7 @@ inherit distutils-r1
 
 DESCRIPTION="A PromQL lexer for Pygments"
 HOMEPAGE="https://github.com/pabluk/pygments-promql"
-SRC_URI="https://github.com/pabluk/${PN}/archive/refs/tags/${PV}.tar.gz"
+SRC_URI="https://github.com/pabluk/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"

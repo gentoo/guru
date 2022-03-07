@@ -20,7 +20,7 @@ RDEPEND="
 	app-text/cmark
 	dev-cpp/qt-jdenticon
 	>=dev-db/lmdb++-1.0.0
-	>=dev-libs/mtxclient-0.6.1
+	>=dev-libs/mtxclient-0.6.1:=
 	>=dev-libs/qtkeychain-0.12.0
 	dev-libs/spdlog
 	dev-qt/qtconcurrent:5

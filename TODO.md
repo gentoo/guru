@@ -16,6 +16,7 @@ Name | Buildsystem | Category | User | RFH
 [openocl](https://openocl.org/) | none | octave | Alessandro-Barbieri | no
 [octave-scicosim](https://wiki.octave.org/Sci_cosim) | none | octave | Alessandro-Barbieri | no
 [matlab2tikz](https://github.com/matlab2tikz/matlab2tikz) | none | octave | Alessandro-Barbieri | no
+[nerd-fonts](https://nerdfonts.com) | none | fonts | Alessandro-Barbieri | yes
 [silk-guardian](https://github.com/NateBrune/silk-guardian) | make | util | Alessandro-Barbieri | no
 [qepcad](https://www.usna.edu/Users/cs/wcbrown/qepcad/B/QEPCAD.html) | make | math | Alessandro-Barbieri | no
 [retroarch](https://www.retroarch.com/) | make | game | |
@@ -48,6 +49,7 @@ Name | Buildsystem | Category | User | RFH
 [scalasca](https://scalasca.org/) | autotools | cluster | Alessandro-Barbieri | no
 [scorep](https://www.vi-hps.org/projects/score-p/) | autotools | cluster | Alessandro-Barbieri | no
 [jmodelica](https://github.com/jnorthrup/jmodelica) | autotools | science | Alessandro-Barbieri | yes
+[flux-core](https://github.com/flux-framework/flux-core) | autotools | cluster | Alessandro-Barbieri | yes
 [blasfeo](https://github.com/giaf/blasfeo) | cmake | science | Alessandro-Barbieri | yes
 [libfixmath](https://github.com/PetteriAimonen/libfixmath) | cmake | devel | Alessandro-Barbieri | no
 [hpmpc](https://github.com/giaf/hpmpc) | cmake | science | Alessandro-Barbieri | no

@@ -37,7 +37,7 @@ src_compile() {
 		SAFE_LOOKUP=$(usex safe-lookup y n)
 		SAFE_PARAM=$(usex safe-param y n)
 	)
-	emake "${myconf[@]}" EXTRA_CFLAGS="${CFLAGS}"
+	emake "${myconf[@]}" NOLDCONFIG=y EXTRA_CFLAGS="${CFLAGS}"
 }
 
 src_install() {
