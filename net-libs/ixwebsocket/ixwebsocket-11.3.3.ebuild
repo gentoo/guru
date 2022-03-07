@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/machinezone/IXWebSocket"
 SRC_URI="https://github.com/machinezone/IXWebSocket/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
-SLOT="0"
+SLOT="0/11.3.2"
 KEYWORDS="~amd64 ~x86"
 IUSE="+ssl test zlib ws"
 
@@ -49,8 +49,6 @@ PATCHES=(
 	"${FILESDIR}/${P}-remove-network-tests.patch"
 	# Upstream uses git submodules
 	"${FILESDIR}/${P}-use-system-spdlog.patch"
-	# Upstream detects deflate dynamically, so let's remove it
-	"${FILESDIR}/${P}-remove-deflate.patch"
 )
 
 src_configure() {

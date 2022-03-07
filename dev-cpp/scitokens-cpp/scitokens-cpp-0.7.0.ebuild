@@ -30,6 +30,10 @@ DEPEND="${RDEPEND}
 	test? ( dev-cpp/gtest )"
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=(
+	"${FILESDIR}"/"${PN}"-0.7.0-install-when-testing.patch
+)
+
 src_prepare() {
 	# Unbundle dev-cpp/gtest, dev-cpp/jwt-cpp
 	rm -rvf vendor

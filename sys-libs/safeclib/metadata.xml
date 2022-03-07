@@ -49,5 +49,6 @@ The C11 Standard adopted many of these points, and added some secure _s variants
 		<flag name="nullslack">enable to null out the remaining part of a string if it is not completely used</flag>
 		<flag name="unsafe">Include unsafe std C11 functions: tmpnam_s</flag>
 		<flag name="valgrind">enable Valgrind on the unit tests</flag>
+		<flag name="wchar">enable multibyte and wchar support</flag>
 	</use>
 </pkgmetadata>
