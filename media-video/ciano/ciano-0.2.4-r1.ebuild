@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{8,9} )
 inherit gnome2-utils meson python-any-r1 vala xdg
 
 DESCRIPTION="A multimedia file converter focused on simplicity"
-HOMEPAGE="https://robertsanseries.github.io/ciano"
+HOMEPAGE="https://robertsanseries.github.io/ciano/"
 SRC_URI="https://github.com/robertsanseries/ciano/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
