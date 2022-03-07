@@ -7,6 +7,7 @@ app-accessibility/rhvoice:server - Build a server application
 app-accessibility/rhvoice:speech-dispatcher - Build a speech-dispatcher middleware module
 app-admin/glance:swift - Adds swift storage support
 app-admin/krapplet:pass - Add support for pass compatible storage
+app-admin/zenmonitor3:cli - Build zenmonitor-cli
 app-crypt/gnome-encfs-manager:appindicator - Build in support for notifications using the libindicate or libappindicator plugin
 app-crypt/intel-ipsec-mb:safe-data - sensitive information is cleared on completion of a function call
 app-crypt/intel-ipsec-mb:safe-lookup - lookups which depend on sensitive information are implemented with constant time functions
@@ -750,6 +751,7 @@ sys-libs/safeclib:norm-compat - Enable NFKC and NFKD modes for wcsnorm
 sys-libs/safeclib:nullslack - enable to null out the remaining part of a string if it is not completely used
 sys-libs/safeclib:unsafe - Include unsafe std C11 functions: tmpnam_s
 sys-libs/safeclib:valgrind - enable Valgrind on the unit tests
+sys-libs/safeclib:wchar - enable multibyte and wchar support
 sys-power/ZenStates-Linux:togglecode - Install the togglecode utility to turn on/off the Q-Code display on ASUS Crosshair VI Hero motherboards (and other boards with a compatible Super I/O chip)
 sys-process/nq:shell - Use shell implementation
 sys-process/nq:tq - Install tq, a tmux & screen wrapper

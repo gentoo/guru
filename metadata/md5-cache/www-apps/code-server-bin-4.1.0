@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://coder.com/
 INHERIT=systemd
 IUSE=gnome-keyring
-KEYWORDS=-* ~amd64 ~arm64
+KEYWORDS=~amd64 ~arm64
 LICENSE=MIT 0BSD ISC PYTHON BSD-2 BSD Apache-2.0 Unlicense LGPL-2.1+ || ( BSD-2 MIT Apache-2.0 ) || ( MIT CC0-1.0 ) || ( MIT WTFPL )
-RDEPEND=>=net-libs/nodejs-14.17.5:0/14[ssl] sys-apps/ripgrep gnome-keyring? ( app-crypt/libsecret )
+RDEPEND=>=net-libs/nodejs-14.0[ssl] sys-apps/ripgrep gnome-keyring? ( app-crypt/libsecret )
 RESTRICT=test
 SLOT=0
-SRC_URI=amd64? ( https://github.com/cdr/code-server/releases/download/v3.12.0/code-server-3.12.0-linux-amd64.tar.gz ) arm64? ( https://github.com/cdr/code-server/releases/download/v3.12.0/code-server-3.12.0-linux-arm64.tar.gz )
+SRC_URI=amd64? ( https://github.com/coder/code-server/releases/download/v4.1.0/code-server-4.1.0-linux-amd64.tar.gz ) arm64? ( https://github.com/coder/code-server/releases/download/v4.1.0/code-server-4.1.0-linux-arm64.tar.gz )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=4652b5756902af036d35cf02482d6c13
+_md5_=ecd7f39866a17a2476ff1375912b39ad

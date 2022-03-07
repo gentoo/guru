@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install postinst
+DEPEND=cli? ( sys-libs/ncurses ) filecaps? ( sys-libs/libcap ) x11-libs/gtk+:3
+DESCRIPTION=Zen monitor is monitoring software for AMD Zen-based CPUs
+EAPI=8
+HOMEPAGE=https://github.com/Ta180m/zenmonitor3
+IDEPEND=filecaps? ( sys-libs/libcap )
+INHERIT=fcaps toolchain-funcs
+IUSE=cli +filecaps policykit +filecaps
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=cli? ( sys-libs/ncurses ) filecaps? ( sys-libs/libcap ) x11-libs/gtk+:3 policykit? ( sys-auth/polkit ) sys-kernel/zenpower3
+SLOT=0
+SRC_URI=https://github.com/Ta180m/zenmonitor3/archive/v2.0.0.tar.gz -> zenmonitor3-2.0.0.tar.gz
+_eclasses_=fcaps	ac252c3cc67b265cd7ea456f8d58e150	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784
+_md5_=7a0277fbc38d1262574ddb94405c140d

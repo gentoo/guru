@@ -1,0 +1,13 @@
+DEFINED_PHASES=install test
+DEPEND=test? ( app-shells/fish app-shells/fishtape app-shells/spark-fish )
+DESCRIPTION=Sparklines for Fish
+EAPI=8
+HOMEPAGE=https://github.com/jorgebucaran/spark.fish
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=app-shells/fish
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/jorgebucaran/spark.fish/archive/refs/tags/1.2.0.tar.gz -> spark-fish-1.2.0.tar.gz
+_md5_=838ab61fc8d0d8541ab7a5134eb6170f

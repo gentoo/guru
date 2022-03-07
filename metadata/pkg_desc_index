@@ -40,6 +40,8 @@ app-admin/krapplet 0.3.1: Krapplet (keyring applet): a Linux graphical password 
 app-admin/overmind 2.2.2-r1: Process manager for Procfile-based applications and tmux
 app-admin/pass-update 2.1: pass extension that provides an easy flow for updating passwords
 app-admin/s-tui 1.1.1 1.1.3: Stress-Terminal UI monitoring tool
+app-admin/zenmonitor3 2.0.0: Zen monitor is monitoring software for AMD Zen-based CPUs
+app-antivirus/lkrg 0.9.1_p20211124: Linux Kernel Runtime Guard
 app-arch/libarchive-qt 2.0.6-r1 9999: A Qt based archiving solution with libarchive backend
 app-arch/unalz 0.65-r1: Extract ALZ archives
 app-backup/b2 2.5.0-r1 3.0.3: Command-line tool for BackBlaze's B2 product
@@ -106,7 +108,7 @@ app-misc/hollywood 1.22: Fill your console with Hollywood melodrama technobabble
 app-misc/lf 20 22: Terminal file manager
 app-misc/liquidctl 1.7.2: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/macchina 5.0.2 6.0.5 6.0.6: A system information fetcher, with an (unhealthy) emphasis on performance.
-app-misc/mangadesk 0.7.5: Terminal Client for MangaDex
+app-misc/mangadesk 0.7.6: Terminal Client for MangaDex
 app-misc/mat2 0.12.2: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
 app-misc/navi 2.17.0 2.19.0 9999: An interactive cheatsheet tool for the command-line
@@ -116,6 +118,7 @@ app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when com
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/pup 0.4.0_p1: Parsing HTML at the command line
 app-misc/rememberthemilk 1.3.11-r1: Freemium simple to-do tasks manager
+app-misc/spark 1.0.1: sparklines for your shell
 app-misc/ssmtool 0.6.2: A simple sentence mining tool written in PyQt5
 app-misc/tai 0.0.4 0.0.5: tai (Terminal Ascii Image) tool to convert images to ascii
 app-misc/tealdeer 1.5.0: A very fast implementation of tldr in Rust.
@@ -124,7 +127,7 @@ app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
 app-misc/watchexec 1.15.3 1.16.2 1.17.0 1.17.1 1.18.1 1.18.5 1.18.6: Executes commands in response to file modifications
-app-misc/wego 2.0_p20190211-r1: Wego is a weather client for the terminal
+app-misc/wego 2.1: Wego is a weather client for the terminal
 app-misc/xplr 0.15.2 0.17.0 0.17.1 0.17.2: A hackable, minimal, fast TUI file explorer
 app-misc/zellij 0.25.0: A terminal workspace with batteries included
 app-mobilephone/flashlight 0.1.1-r2: It's a flashlight, what do you expect?
@@ -154,6 +157,7 @@ app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code t
 app-shells/ohmyzsh 9999: A framework for managing your zsh configuration.
 app-shells/powerline-go 1.21.0: A powerline like prompt for Bash, Zsh, Fish written in Go lang.
 app-shells/silver 2.0.0: A cross-shell customizable powerline-like prompt with icons
+app-shells/spark-fish 1.2.0: Sparklines for Fish
 app-shells/vivid 0.7.0-r2 0.8.0: A themeable LS_COLORS generator with a rich filetype datebase
 app-shells/zoxide 0.7.2: A smarter cd command for your terminal
 app-shells/zsh-autosuggestions 0.6.4: Fish-like autosuggestions for zsh
@@ -167,6 +171,7 @@ app-text/klogg 20.12: A GUI application to browse and search through long and co
 app-text/komikku 0.35.2-r1 0.36.1: An online/offline manga reader for GNOME
 app-text/koodo-reader-bin 1.3.0: A modern ebook manager and reader with sync and backup capacities
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
+app-text/mandown 0.1.2: Markdown to groff (man page) converter
 app-text/noweb 2.12: a literate programming tool, lighter than web
 app-text/smu 1.5 9999: Simple markup - markdown like syntax
 app-text/stdman 2019.08.27 2020.11.17 9999: Formatted C++ stdlib man pages (cppreference)
@@ -428,7 +433,7 @@ dev-python/daiquiri 3.0.1: Python library to easily setup basic logging function
 dev-python/databases 0.4.3 0.5.3: Async database support for Python.
 dev-python/dateparser 1.0.0 1.1.0: Date parsing library designed to parse dates from HTML pages
 dev-python/decopatch 1.4.8 1.4.9: Create decorators easily in python
-dev-python/desktop-notifier 3.3.2: desktop-notifier is a Python library for cross-platform desktop notifications
+dev-python/desktop-notifier 3.3.2 3.3.4: desktop-notifier is a Python library for cross-platform desktop notifications
 dev-python/devtools 0.6.1: Dev tools for python
 dev-python/digitalocean 1.16.0 1.17.0: Digitalocean API access library
 dev-python/dotmap 1.3.25: Dot access dictionary with dynamic hierarchy creation and ordered iteration
@@ -709,7 +714,7 @@ dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
 dev-util/reuse 0.14.0: A tool for compliance with the REUSE recommendations
 dev-util/rpmlint 2.0.0 2.1.0: Tool for checking common errors in RPM packages
-dev-util/rust-analyzer 20220214 20220222 99999999: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer 20220222 20220228 99999999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/wakatime-cli 1.27.0 1.28.6: Command line interface to WakaTime used by all WakaTime plugins
@@ -754,6 +759,7 @@ games-fps/quakespasm 0.94.1 9999: Modern, cross-platform Quake 1 engine based on
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
 games-misc/bonsai 0_pre20210201: bonsai tree generator written in bash
 games-misc/cbonsai 1.3.1-r1: grow bonsai trees in your terminal
+games-misc/gay 1.2.8: Colour your text / terminal to be more gay
 games-puzzle/atris 1.0.7: Alizarin tetris
 games-puzzle/krank 8: Little casual game
 games-puzzle/superflu-riteurnz 1.0.0: Artisanal video-game about Superflu, the useless super-hero (french)
@@ -859,7 +865,7 @@ media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer writ
 media-gfx/gephi-bin 0.9.2: The Open Graph Viz Platform
 media-gfx/grafx2 2.7.2978 2.7.2978-r100: A pixelart-oriented painting program
 media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
-media-gfx/nsxiv 27.1 28 9999: Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer
+media-gfx/nsxiv 28 29 9999: Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer
 media-gfx/oda-file-converter 22.5.0.0-r1: For converting between different versions of .dwg and .dxf
 media-gfx/oxipng 3.0.1 4.0.3 5.0.0 5.0.1: A lossless PNG compression optimizer
 media-gfx/qview 4.0: Practical and minimal image viewer
@@ -904,7 +910,7 @@ media-sound/mopidy 3.2.0: An extensible music server written in Python.
 media-sound/ncpamixer 1.3.3.1: A ncurses mixer for PulseAudio inspired by pavucontrol
 media-sound/netcat-cpi 2014.04.29: Kernel module edition of the Cycles Per Instruction (2014) album
 media-sound/noisetorch 0.11.4 9999: Real-time microphone noise suppression on Linux.
-media-sound/noson-app 5.1.0: The essential to control music from your SONOS devices on Linux platforms
+media-sound/noson-app 5.2.0: The essential to control music from your SONOS devices on Linux platforms
 media-sound/nuclear-bin 0.6.15 0.6.17: Nuclear is a streaming program that pulls content from free sources on internet
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
 media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file or stream as a PulseAudio source
@@ -938,12 +944,12 @@ net-dialup/tio 1.35: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/Quaternion 0.0.9.4e: A Qt5-based IM client for the Matrix protocol
-net-im/abaddon 0.1.2 9999: Alternative Discord client using GTK instead of Electron
+net-im/abaddon 0.1.4 9999: Alternative Discord client using GTK instead of Electron
 net-im/cawbird 1.4.2: Cawbird is a fork of the Corebird Twitter client from Baedert.
 net-im/discord-canary-bin 0.0.133: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.25: All-in-one voice and text chat
 net-im/go-sendxmpp 0.1.3 0.2.0: A little tool to send messages to an XMPP contact or MUC
-net-im/gtkcord 0.1.0: A Gtk3 Discord client in Golang
+net-im/gtkcord 0.1.0-r1: A Gtk3 Discord client in Golang
 net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
 net-im/kaidan 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!
 net-im/matterhorn-bin 50200.13.0: Terminal based Mattermost client
@@ -955,7 +961,7 @@ net-irc/pounce 3.0: Multi-client, TLS-only IRC bouncer
 net-irc/srain 1.2.1 1.2.4: Modern, beautiful IRC client written in GTK+ 3
 net-irc/tiny 0.10.0: An IRC client
 net-libs/dpdk 21.11: Data Plane Development Kit libraries for fast userspace networking
-net-libs/ixwebsocket 11.3.2: C++ websocket client and server library
+net-libs/ixwebsocket 11.3.3: C++ websocket client and server library
 net-libs/kcgi 0.12.5 0.13.0: Minimal CGI library for web applications
 net-libs/libqmatrixclient 0.5.3.2: A Qt5 library to write cross-platfrom clients for Matrix
 net-libs/td 1.8.0: Cross-platform library for building Telegram clients
@@ -967,7 +973,7 @@ net-misc/bee-node 0.2.1: IOTA node written in rust
 net-misc/can-utils 2020.02.04 2020.12.0-r1 2021.08.0 9999-r3: CAN userspace utilities and tools
 net-misc/eg25-manager 0.4.2: Daemon for managing the Quectel EG25 modem
 net-misc/facebook-ptp 0_pre20210831: Facebook's PTP libraries
-net-misc/freetube-bin 0.16.0: https://github.com/FreeTubeApp/FreeTube
+net-misc/freetube-bin 0.16.0: A private YouTube desktop client
 net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.6.5 0.6.6: A gemini Server written in rust
 net-misc/giara 9999: An app for Reddit
@@ -984,7 +990,7 @@ net-misc/openbgpd 6.8_p0 6.9_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/purritobin 0.6.7 9999: minimalistic commandline pastebin
 net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
 net-misc/smcroute 2.5.5: A static multicast routing daemon
-net-misc/tinyssh 20210601 99999999: A small SSH server with state-of-the-art cryptography
+net-misc/tinyssh 20210601 20220222 99999999: A small SSH server with state-of-the-art cryptography
 net-misc/tootle 1.0_alpha2 1.0 9999: Mastodon client written in GTK3
 net-misc/tuir 1.29.0: A text-based interface (TUI) to view and interact with Reddit from your terminal
 net-misc/tuxi 9999: Tuxi is a cli assistant. Get answers of your questions instantly.
@@ -1077,6 +1083,7 @@ sys-apps/fselect 0.7.9: Find files with SQL-like queries
 sys-apps/hex 0.3.2 0.4.0 0.4.1 0.4.2: Futuristic take on hexdump
 sys-apps/hexyl 0.9.0: A command-line hex viewer
 sys-apps/intel-cmt-cat 4.2.0-r2: User space software for Intel(R) Resource Director Technology
+sys-apps/ov 0.9.6: Feature-rich terminal pager
 sys-apps/procs 0.11.6 0.11.9: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
 sys-apps/rogdrv 0.0.5_p20210208: ASUS ROG userspace mouse driver for Linux.
@@ -1132,7 +1139,7 @@ sys-cluster/portals4 1.0_alpha1_p20190109-r3: low-level network API for high-per
 sys-cluster/rankstr 0.0.3 0.1.0: Split an MPI communicator into subcomms based on string values
 sys-cluster/redset 0.0.5 0.1.0: Low-level distributed erasure coding lib to protect datasets of MPI applications
 sys-cluster/scr 3.0_pre2: Scalable Checkpoint / Restart Library
-sys-cluster/shuffile 0.0.4 0.1.0: SHUFFILE Shuffle files between processes
+sys-cluster/shuffile 0.0.4 0.1.0 0.1.0-r1: SHUFFILE Shuffle files between processes
 sys-cluster/sionlib 1.7.7-r4: Scalable I/O library for parallel access to task-local files
 sys-cluster/sionlibl 1.7.7-r3: Scalable I/O library for parallel access to task-local files
 sys-cluster/spath 0.1.0: Path manipulation functions
@@ -1158,9 +1165,10 @@ sys-kernel/uek-sources 5.4.17.2136.305.4: Unbreakable Enterprise Kernel (UEK) so
 sys-kernel/ummunotify 2: Userspace support for MMU notifications
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-kernel/xpmem 2.6.5_p20210809: Linux Cross-Memory Attach
+sys-kernel/zenpower3 0.2.0: Linux kernel driver for reading sensors of AMD Zen family CPUs
 sys-libs/libnvidia-container 1.4.0 1.7.0 1.8.0_rc1: NVIDIA container runtime library
 sys-libs/nss-tls 1.0 1.1 9999: A DNS over HTTPS resolver for glibc
-sys-libs/safeclib 3.6.0_p20210407-r2 3.6.0_p20210407-r3: safec libc extension with all C11 Annex K functions
+sys-libs/safeclib 3.6.0_p20210407-r2 3.6.0_p20210407-r3 3.7.1: safec libc extension with all C11 Annex K functions
 sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC security key
 sys-power/ZenStates-Linux 0_p20170507: Dynamically edit AMD Ryzen processor P-States
 sys-power/amdgpu-fan 0.1.0-r1: Fan controller for AMD graphics cards running the amdgpu driver on Linux
@@ -1179,7 +1187,7 @@ virtual/nlme 0: Virtual of a R recommended package
 virtual/nnet 0: Virtual of a R recommended package
 virtual/sendmail 0: Virtual for sendmail program
 virtual/survival 0: Virtual of a R recommended package
-www-apps/code-server-bin 3.12.0 4.0.1 4.0.2: VS Code in the browser (binary version with unbundled node and ripgrep)
+www-apps/code-server-bin 4.0.1 4.0.2 4.1.0: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/jackett-bin 0.20.514 9999: API Support for your favorite torrent trackers
 www-apps/twint 2.1.20-r2: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
