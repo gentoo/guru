@@ -1,0 +1,11 @@
+DEFINED_PHASES=install prepare
+DEPEND=>=x11-libs/gtk+-3
+DESCRIPTION=Simple drag-and-drop source/sink for X and Wayland
+EAPI=7
+HOMEPAGE=https://github.com/mwh/dragon
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=>=x11-libs/gtk+-3
+SLOT=0
+SRC_URI=https://github.com/mwh/dragon/archive/v1.2.0.tar.gz -> dragon-1.2.0.tar.gz
+_md5_=bb20f04c8a6753c5d38f8df2248be2fa

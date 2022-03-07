@@ -295,10 +295,6 @@ net-misc/tinyssh:sodium - Use dev-libs/libsodium for cryptography
 net-misc/xmrig-mo:donate - Set the default donation level to 1% instead of 0
 net-misc/xmrig-mo:hwloc - Use sys-apps/hwloc for CPU affinity support
 net-misc/xmrig-mo:opencl - Enable OpenCL support
-net-news/sfeed:theme-mono - Use mono theme
-net-news/sfeed:theme-mono-highlight - Use mono_highlight theme
-net-news/sfeed:theme-newsboat - Use newsboat theme
-net-news/sfeed:theme-templeos - Use templeos theme
 net-nntp/inn:gzip - Compress logs using gzip
 net-nntp/inn:keywords - Enable automatic innd keyword generation
 net-nntp/inn:largefile - Support files larger than 2GB
