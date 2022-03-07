@@ -1,4 +1,4 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/Nheko-Reborn/mtxclient"
 SRC_URI="https://github.com/Nheko-Reborn/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="0/${PV}" # ABI may break even on patch version changes
 KEYWORDS="~amd64"
 
 IUSE="test"
@@ -20,7 +20,7 @@ RDEPEND="
 	dev-libs/olm
 	>=dev-libs/openssl-1.1.0
 	dev-libs/spdlog
-	>=dev-cpp/coeurl-0.1.1
+	>=dev-cpp/coeurl-0.1.1:=
 "
 DEPEND="
 	${RDEPEND}
