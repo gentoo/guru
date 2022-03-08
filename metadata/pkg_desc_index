@@ -126,7 +126,7 @@ app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the c
 app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
-app-misc/watchexec 1.15.3 1.16.2 1.17.0 1.17.1 1.18.1 1.18.5 1.18.6: Executes commands in response to file modifications
+app-misc/watchexec 1.15.3 1.16.2 1.17.0 1.17.1 1.18.1 1.18.5 1.18.6 1.18.7: Executes commands in response to file modifications
 app-misc/wego 2.1: Wego is a weather client for the terminal
 app-misc/xplr 0.15.2 0.17.0 0.17.1 0.17.2: A hackable, minimal, fast TUI file explorer
 app-misc/zellij 0.25.0-r1: A terminal workspace with batteries included
@@ -168,7 +168,7 @@ app-text/OCRmyPDF 12.0.2 12.6.0 13.2.0 13.4.0: OCRmyPDF adds an OCR text layer t
 app-text/cmark-gfm 0.29.0.0: GitHub's fork of cmark
 app-text/epubgrep 0.5.1-r1 0.6.0-r1: Search tool for EPUB e-books
 app-text/klogg 20.12: A GUI application to browse and search through long and complex log files
-app-text/komikku 0.35.2-r1 0.36.1: An online/offline manga reader for GNOME
+app-text/komikku 0.36.1 0.37.0: An online/offline manga reader for GNOME
 app-text/koodo-reader-bin 1.3.0: A modern ebook manager and reader with sync and backup capacities
 app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
 app-text/mandown 0.1.2: Markdown to groff (man page) converter
@@ -357,7 +357,7 @@ dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
 dev-libs/randomx 1.1.8 1.1.9: Proof of work algorithm based on random code execution
 dev-libs/rsaref 2.0: Encryption/authentication library, RSA/MDX/DES
 dev-libs/supercop 0_p20200827: Fast cryptographic operations for Monero wallets
-dev-libs/tfdn 1.0.3 1.1.0: Opinionated C11 library for low-level functionality
+dev-libs/tfdn 1.1.0 1.2.0: Opinionated C11 library for low-level functionality
 dev-libs/tweeny 3.1.1 3.2.0: C++ tweening (inbetweening) library
 dev-libs/xqilla 2.3.4 2.3.4-r1: An XQuery and XPath 2 library and command line utility written in C++
 dev-libs/zfp 0.5.5: Compressed numerical arrays that support high-speed random access
@@ -431,7 +431,7 @@ dev-python/daff 1.3.46: Diff and patch tables
 dev-python/daiquiri 3.0.1: Python library to easily setup basic logging functionality
 dev-python/databases 0.4.3 0.5.3: Async database support for Python.
 dev-python/dateparser 1.0.0 1.1.0: Date parsing library designed to parse dates from HTML pages
-dev-python/decopatch 1.4.8 1.4.9: Create decorators easily in python
+dev-python/decopatch 1.4.9 1.4.10: Create decorators easily in python
 dev-python/desktop-notifier 3.3.2 3.3.4: desktop-notifier is a Python library for cross-platform desktop notifications
 dev-python/devtools 0.6.1: Dev tools for python
 dev-python/digitalocean 1.16.0 1.17.0: Digitalocean API access library
@@ -935,7 +935,7 @@ net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various pl
 net-client/amfora 1.8.0 1.9.2: A fancy terminal browser for the Gemini protocol.
 net-client/castor 0.8.16 0.8.18: A graphical browser for plain-text protocols
 net-client/kristall 0.3-r1 9999: Visual cross-platform gemini browser
-net-client/lagrange 1.10.5 1.10.6: Desktop GUI client for browsing Geminispace
+net-client/lagrange 1.10.6 1.11.1: Desktop GUI client for browsing Geminispace
 net-client/offpunk 0.1 0.3: A command-line, text-based and offline-first Gemini browser
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
 net-client/telescope 0.6.1 0.7.1: w3m-like browser for Gemini
@@ -955,7 +955,7 @@ net-im/kaidan 0.8.0: A simple, user-friendly Jabber/XMPP client for every device
 net-im/matterhorn-bin 50200.13.0: Terminal based Mattermost client
 net-im/nheko 0.9.0-r1 0.9.1: Native desktop client for Matrix using Qt
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
-net-im/whatsapp-for-linux 1.2.0 1.3.0 1.3.1 1.3.2: An unofficial WhatsApp desktop application for Linux
+net-im/whatsapp-for-linux 1.3.2 1.3.2-r1: An unofficial WhatsApp desktop application for Linux
 net-irc/catgirl 2.0a 2.1: TLS-only terminal IRC client
 net-irc/pounce 3.0: Multi-client, TLS-only IRC bouncer
 net-irc/srain 1.2.1 1.2.4: Modern, beautiful IRC client written in GTK+ 3
@@ -995,7 +995,7 @@ net-misc/tootle 1.0_alpha2 1.0 9999: Mastodon client written in GTK3
 net-misc/tuir 1.29.0: A text-based interface (TUI) to view and interact with Reddit from your terminal
 net-misc/tuxi 9999: Tuxi is a cli assistant. Get answers of your questions instantly.
 net-misc/wayback_machine_downloader 2.3.0 2.3.1: Download an entire website from the Wayback Machine
-net-misc/whatscli 1.0.6: A command line interface for WhatsApp
+net-misc/whatscli 1.0.6 1.0.11: A command line interface for WhatsApp
 net-misc/wsdd 0.6.4 0.7.0: A Web Service Discovery host daemon.
 net-misc/xmrig-mo 6.16.2 6.16.3 6.16.4: MoneroOcean fork of xmrig that supports algo switching
 net-news/comitium 1.8.1: feed aggregator for gemini supporting many formats and protocols
@@ -1094,7 +1094,6 @@ sys-apps/systemd-bootchart 234: systemd boot performance graphing tool
 sys-apps/sysz 1.4.1 1.4.3: An fzf terminal UI for systemctl
 sys-auth/keystone 20.0.0.0_rc1: The Openstack authentication, authorization, and service catalog
 sys-auth/mrsh 2.12 2.12-r1: Mrsh is a set of remote shell programs that use munge authentication.
-sys-boot/bmap-tools 3.6-r3: Bmaptool is a tool for creating and copyng files using block maps
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/limine 2.84.2-r1 2.85 2.85.1 2.85.4: Limine is a modern, advanced x86/x86_64 BIOS/UEFI multiprotocol bootloader.
