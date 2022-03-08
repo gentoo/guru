@@ -24,7 +24,10 @@ DEPEND="${RDEPEND}
 	dev-cpp/nlohmann_json
 	dev-libs/openssl
 	picojson? ( dev-cpp/picojson )"
-BDEPEND="doc? ( app-doc/doxygen[dot] )"
+BDEPEND="
+	doc? ( app-doc/doxygen[dot] )
+	test? ( dev-cpp/gtest )
+"
 RESTRICT="
 	!picojson? ( test )
 	!test? ( test )"

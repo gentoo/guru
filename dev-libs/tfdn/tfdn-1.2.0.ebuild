@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,7 +15,7 @@ SRC_URI="https://git.skyjake.fi/skyjake/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.t
 S="${WORKDIR}/${MY_PN}"
 
 LICENSE="BSD-2"
-SLOT="0/1"
+SLOT="0/1.2"
 KEYWORDS="~amd64 ~x86"
 IUSE="cpu_flags_x86_sse4_1 curl debug ssl"
 

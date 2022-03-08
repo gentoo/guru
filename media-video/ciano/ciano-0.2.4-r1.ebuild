@@ -24,8 +24,8 @@ RDEPEND="
 "
 
 src_prepare() {
-	vala_src_prepare
-	xdg_src_prepare
+	vala_setup
+	default
 }
 
 src_install() {

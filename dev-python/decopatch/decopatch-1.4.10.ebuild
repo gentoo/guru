@@ -4,9 +4,12 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
+DISTUTILS_USE_PEP517=setuptools
+
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="dev-python/mkdocs-material"
 DOCS_DIR="docs"
+
 inherit distutils-r1 docs
 
 DESCRIPTION="Create decorators easily in python"
@@ -17,9 +20,6 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
-# ImportError: cannot import name 'case_name' from 'pytest_cases'
-RESTRICT="test"
-
 RDEPEND="dev-python/makefun[${PYTHON_USEDEP}]"
 BDEPEND="
 	dev-python/setuptools_scm[${PYTHON_USEDEP}]
@@ -29,7 +29,7 @@ BDEPEND="
 distutils_enable_tests pytest
 
 python_prepare_all() {
-	sed "s/'pytest-runner', //" -i setup.py || die
+	sed "/pytest-runner/d" -i setup.cfg || die
 	distutils-r1_python_prepare_all
 }
 

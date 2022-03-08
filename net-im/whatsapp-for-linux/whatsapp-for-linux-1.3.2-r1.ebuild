@@ -13,12 +13,14 @@ KEYWORDS="~amd64"
 LICENSE="GPL-3"
 SLOT="0"
 
-RDEPEND="dev-cpp/gtkmm:3.0
-		net-libs/webkit-gtk
-		dev-libs/libappindicator:3"
-
+RDEPEND="
+	dev-cpp/atkmm
+	dev-cpp/glibmm:2
+	dev-cpp/gtkmm:3.0
+	dev-libs/glib:2
+	dev-libs/libappindicator:3
+	dev-libs/libsigc++:2
+	net-libs/webkit-gtk:4=
+	x11-libs/gtk+:3
+"
 DEPEND="${RDEPEND}"
-
-src_prepare() {
-	cmake_src_prepare
-}

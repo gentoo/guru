@@ -327,6 +327,7 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="~amd64"
+QA_FLAGS_IGNORED="usr/bin/.*"
 
 BDEPEND="
 	app-text/mandown

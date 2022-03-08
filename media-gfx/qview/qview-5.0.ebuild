@@ -25,6 +25,7 @@ RDEPEND="
 "
 
 DEPEND="${RDEPEND}
+	dev-qt/linguist-tools:5
 	test? ( dev-qt/qttest:5 )
 "
 
