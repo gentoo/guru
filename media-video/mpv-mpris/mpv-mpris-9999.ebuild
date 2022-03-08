@@ -51,9 +51,8 @@ src_test() {
 }
 
 src_install() {
-	insinto "/usr/$(get_libdir)/mpv"
-	doins mpris.so
-	use autoload && dosym -r /usr/$(get_libdir)/mpv/mpris.so /etc/mpv/scripts/mpris.so
+	newlib.so mpris.so ${PN}.so
+	use autoload && dosym -r /usr/$(get_libdir)/${PN}.so /etc/mpv/scripts/mpris.so
 	einstalldocs
 }
 
@@ -62,7 +61,7 @@ pkg_postinst() {
 		elog
 		elog "The plugin has not been installed to /etc/mpv/scripts for autoloading."
 		elog "You have to activate it manually by passing"
-		elog " '${EPREFIX}/usr/$(get_libdir)/mpv/mpris.so' "
+		elog " '${EPREFIX}/usr/$(get_libdir)/${PN}.so'"
 		elog "as a script option to mpv or symlinking the library to 'scripts' in your mpv"
 		elog "config directory."
 		elog "Alternatively, activate the autoload use flag."
