@@ -169,7 +169,7 @@ CRATES="
 	yaml-rust-0.4.0
 "
 
-inherit cargo python-utils-r1
+inherit cargo python-single-r1
 
 DESCRIPTION="A complete text editor for your terminal."
 HOMEPAGE="https://github.com/jmacdonald/amp"
