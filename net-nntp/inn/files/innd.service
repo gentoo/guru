@@ -1,6 +1,7 @@
 [Unit]
 Description=InterNetNews News Server
 Documentation=https://www.eyrie.org/~eagle/software/inn/
+Documentation=man:innd(8)
 After=network-online.target
 Wants=network-online.target
 ConditionPathExists=/etc/news/inn.conf
@@ -9,11 +10,17 @@ ConditionPathExists=/etc/news/inn.conf
 Type=notify
 Restart=on-abort
 ExecStart=/opt/inn/bin/rc.news
-ExecReload=/opt/inn/bin/ctlinnd -t 20 reload '' 'systemd unit reload'
 ExecStop=/opt/inn/bin/rc.news stop
+ExecReload=/opt/inn/bin/ctlinnd -t 20 reload all 'by systemd'
 PIDFile=/run/news/innd.pid
 User=news
 Group=news
+ConfigurationDirectory=news
+LogsDirectory=news
+LogsDirectoryMode=775
+RuntimeDirectory=news
+StateDirectory=news
+StateDirectoryMode=775
 AmbientCapabilities=CAP_NET_BIND_SERVICE
 PrivateTmp=true
 ProtectControlGroups=true
