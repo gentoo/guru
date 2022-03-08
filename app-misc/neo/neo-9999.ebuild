@@ -9,7 +9,6 @@ HOMEPAGE="https://github.com/st3w/neo"
 if [ "$PV" = 9999 ]; then
 	inherit autotools git-r3
 	EGIT_REPO_URI="https://github.com/st3w/neo/"
-	KEYWORDS=""
 else
 	SRC_URI="https://github.com/st3w/neo/releases/download/v${PV}/${P}.tar.gz"
 	KEYWORDS="~amd64"
