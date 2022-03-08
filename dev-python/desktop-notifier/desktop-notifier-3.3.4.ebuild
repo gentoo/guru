@@ -26,5 +26,8 @@ RDEPEND="
 	dev-python/python-dbus-next[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep 'dev-python/importlib_resources[${PYTHON_USEDEP}]' python3_8)
 "
+BDEPEND="
+	dev-python/build[${PYTHON_USEDEP}]
+"
 
 distutils_enable_sphinx docs
