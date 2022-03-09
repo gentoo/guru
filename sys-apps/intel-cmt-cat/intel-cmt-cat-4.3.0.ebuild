@@ -41,7 +41,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 PATCHES=(
 	"${FILESDIR}/${PN}-perl-makefile.patch"
 	"${FILESDIR}/${PN}-do-not-strip.patch"
-	"${FILESDIR}/${PN}-respect-flags.patch"
+	"${FILESDIR}/${P}-respect-flags.patch"
 )
 
 distutils_enable_tests unittest
@@ -79,7 +79,7 @@ src_install() {
 	dobin tools/membw/membw
 	dobin snmp/rdt-agentx.pl
 
-	dodoc ChangeLog README
+	dodoc ChangeLog README.md
 	docinto membw
 	dodoc tools/membw/README
 	docinto pqos
@@ -87,7 +87,7 @@ src_install() {
 	docinto lib
 	dodoc lib/README
 	docinto lib/python
-	dodoc lib/python/README.txt
+	dodoc lib/python/README.md
 	docinto snmp
 	dodoc snmp/README
 	docinto rdtset
