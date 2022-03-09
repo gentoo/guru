@@ -1,9 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cmake
+PYTHON_COMPAT=( python3_{8..10} pypy3 )
+
+inherit cmake python-single-r1
 
 DESCRIPTION="Facebook's branch of Apache Thrift, including a new C++ server"
 HOMEPAGE="https://github.com/facebook/fbthrift"
@@ -23,12 +25,18 @@ RDEPEND="
 	dev-libs/libfmt
 	dev-libs/openssl:0=
 	sys-libs/zlib
+	${PYTHON_DEPS}
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	$(python_gen_cond_dep 'dev-python/six[${PYTHON_USEDEP}]')
+"
 BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
 "
+
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 src_configure() {
 	local mycmakeargs=(
