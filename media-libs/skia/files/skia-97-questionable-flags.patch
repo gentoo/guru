@@ -1,0 +1,52 @@
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/gn/skia/BUILD.gn
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/gn/skia/BUILD.gn
+@@ -335,7 +335,7 @@
+ config("no_exceptions") {
+   # Exceptions are disabled by default on Windows.  (Use /EHsc to enable them.)
+   if (!is_win) {
+-    cflags_cc = [ "-fno-exceptions" ]
++    cflags_cc = [ "" ]
+   }
+ }
+ 
+@@ -572,7 +572,7 @@
+     if (is_win) {
+       cflags_cc = [ "/GR-" ]
+     } else {
+-      cflags_cc = [ "-fno-rtti" ]
++      cflags_cc = [ "" ]
+     }
+   }
+ }
+@@ -592,10 +592,6 @@
+     if (is_mac || is_ios) {
+       ldflags = [ "-dead_strip" ]
+     } else {
+-      cflags += [
+-        "-fdata-sections",
+-        "-ffunction-sections",
+-      ]
+       ldflags = [ "-Wl,--gc-sections" ]
+     }
+     if (target_cpu == "wasm") {
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/modules/canvaskit/compile.sh
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/modules/canvaskit/compile.sh
+@@ -358,7 +358,6 @@
+     -DSK_DISABLE_AAA \
+     -DSK_FORCE_8_BYTE_ALIGNMENT \
+     -DEMSCRIPTEN_HAS_UNBOUND_TYPE_NAMES=0 \
+-    -fno-rtti \
+     $WASM_GPU \
+     $WASM_PATHOPS \
+     $WASM_RT_SHADER \
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/modules/pathkit/compile.sh
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/modules/pathkit/compile.sh
+@@ -113,7 +113,7 @@
+ --no-entry \
+ --pre-js $BASE_DIR/helper.js \
+ --pre-js $BASE_DIR/chaining.js \
+--fno-rtti -fno-exceptions -DEMSCRIPTEN_HAS_UNBOUND_TYPE_NAMES=0 \
++-DEMSCRIPTEN_HAS_UNBOUND_TYPE_NAMES=0 \
+ $WASM_CONF \
+ -s ERROR_ON_UNDEFINED_SYMBOLS=1 \
+ -s EXPORT_NAME="PathKitInit" \

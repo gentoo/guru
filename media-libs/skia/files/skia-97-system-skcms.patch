@@ -1,0 +1,52 @@
+--- a/BUILD.gn
++++ b/BUILD.gn
+@@ -93,7 +93,7 @@
+       "GR_TEST_UTILS=1",
+     ]
+   }
+-  libs = []
++  libs = [ "skcms" ]
+   lib_dirs = []
+   if (skia_use_gl && skia_use_angle) {
+     defines += [ "SK_ANGLE" ]
+@@ -1110,21 +1110,6 @@
+   sources = [ "src/codec/SkRawCodec.cpp" ]
+ }
+ 
+-import("third_party/skcms/skcms.gni")
+-skia_source_set("skcms") {
+-  cflags = []
+-  if (!is_win || is_clang) {
+-    cflags += [
+-      "-w",
+-      "-std=c11",
+-    ]
+-  }
+-
+-  public = [ "include/third_party/skcms/skcms.h" ]
+-  include_dirs = [ "include/third_party/skcms" ]
+-  sources = rebase_path(skcms_sources, ".", "third_party/skcms")
+-}
+-
+ optional("typeface_freetype") {
+   enabled = skia_use_freetype
+ 
+@@ -1225,7 +1210,6 @@
+     ":gpu",
+     ":graphite",
+     ":pdf",
+-    ":skcms",
+     ":xps",
+   ]
+ 
+@@ -2096,9 +2080,9 @@
+     test_app("imgcvt") {
+       sources = [ "tools/imgcvt.cpp" ]
+       deps = [
+-        ":skcms",
+         ":skia",
+       ]
++      libs = [ "skcms" ]
+     }
+     test_app("fm") {
+       sources = [

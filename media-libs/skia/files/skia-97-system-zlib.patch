@@ -1,0 +1,16 @@
+--- a/third_party/zlib/BUILD.gn
++++ b/third_party/zlib/BUILD.gn
+@@ -196,13 +196,3 @@
+ 
+ config("zlib_config") {
+ }
+-
+-third_party("compression_utils_portable") {
+-  visibility = [ "//third_party/externals/angle2:*" ]
+-  public_include_dirs = [ "../externals/zlib/google" ]
+-  sources = [
+-    "../externals/zlib/google/compression_utils_portable.cc",
+-    "../externals/zlib/google/compression_utils_portable.h",
+-  ]
+-  public_deps = [ ":zlib" ]  # either system or from source
+-}
