@@ -10,9 +10,9 @@ inherit distutils-r1
 DESCRIPTION="System V IPC primitives for python"
 HOMEPAGE="
 	https://pypi.org/project/sysv-ipc/
-	http://semanchuk.com/philip/sysv_ipc/
+	https://semanchuk.com/philip/sysv_ipc/
 "
-SRC_URI="http://semanchuk.com/philip/${PN}/${P}.tar.gz"
+SRC_URI="https://semanchuk.com/philip/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
