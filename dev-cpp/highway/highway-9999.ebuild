@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,7 +22,6 @@ IUSE="test"
 
 DEPEND="test? ( dev-cpp/gtest )"
 
-PATCHES=( "${FILESDIR}/${PN}-shared-libraries.patch" )
 RESTRICT="!test? ( test )"
 
 src_configure() {
