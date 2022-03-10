@@ -1,0 +1,232 @@
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/dm/DMSrcSink.cpp
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/dm/DMSrcSink.cpp
+@@ -28,7 +28,7 @@
+ #include "include/ports/SkImageGeneratorWIC.h"
+ #include "include/private/SkImageInfoPriv.h"
+ #include "include/private/SkTLogic.h"
+-#include "include/third_party/skcms/skcms.h"
++#include "skcms.h"
+ #include "include/utils/SkNullCanvas.h"
+ #include "include/utils/SkPaintFilterCanvas.h"
+ #include "include/utils/SkRandom.h"
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/experimental/wasm-skp-debugger/compile.sh
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/experimental/wasm-skp-debugger/compile.sh
+@@ -130,7 +130,7 @@
+     $RELEASE_CONF \
+     -I. \
+     -Ithird_party/icu \
+-    -Ithird_party/skcms \
++    -lskcms \
+     -DSK_DISABLE_AAA \
+     -DSK_FORCE_8_BYTE_ALIGNMENT \
+     -std=c++17 \
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/gm/pictureshadercache.cpp
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/gm/pictureshadercache.cpp
+@@ -22,7 +22,7 @@
+ #include "include/core/SkString.h"
+ #include "include/core/SkSurface.h"
+ #include "include/core/SkTileMode.h"
+-#include "include/third_party/skcms/skcms.h"
++#include "skcms.h"
+ 
+ #include <utility>
+ 
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/gm/readpixels.cpp
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/gm/readpixels.cpp
+@@ -23,7 +23,7 @@
+ #include "include/core/SkString.h"
+ #include "include/core/SkTypes.h"
+ #include "include/gpu/GrDirectContext.h"
+-#include "include/third_party/skcms/skcms.h"
++#include "skcms.h"
+ #include "tools/Resources.h"
+ 
+ #include <string.h>
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/gn/gn_to_bp.py
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/gn/gn_to_bp.py
+@@ -485,10 +485,6 @@
+ gn_to_bp_utils.GrabDependentValues(js, '//:nanobench', 'sources',
+                                    nanobench_srcs, 'skia')
+ 
+-# skcms is a little special, kind of a second-party library.
+-local_includes.add("include/third_party/skcms")
+-dm_includes   .add("include/third_party/skcms")
+-
+ # Android's build will choke if we list headers.
+ def strip_headers(sources):
+   return {s for s in sources if not s.endswith('.h')}
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/include/core/SkColorSpace.h
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/include/core/SkColorSpace.h
+@@ -11,7 +11,7 @@
+ #include "include/core/SkRefCnt.h"
+ #include "include/private/SkFixed.h"
+ #include "include/private/SkOnce.h"
+-#include "include/third_party/skcms/skcms.h"
++#include "skcms.h"
+ #include <memory>
+ 
+ class SkData;
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/include/private/SkEncodedInfo.h
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/include/private/SkEncodedInfo.h
+@@ -12,7 +12,7 @@
+ 
+ #include "include/core/SkData.h"
+ #include "include/core/SkImageInfo.h"
+-#include "include/third_party/skcms/skcms.h"
++#include "skcms.h"
+ 
+ struct SkEncodedInfo {
+ public:
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/modules/canvaskit/compile.sh
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/modules/canvaskit/compile.sh
+@@ -353,7 +353,7 @@
+     $RELEASE_CONF \
+     -I. \
+     -Ithird_party/icu \
+-    -Ithird_party/skcms \
++    -lskcms \
+     -Ithird_party/externals/icu/source/common/ \
+     -DSK_DISABLE_AAA \
+     -DSK_FORCE_8_BYTE_ALIGNMENT \
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/public.bzl
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/public.bzl
+@@ -534,7 +534,6 @@
+     "include/pathops",
+     "include/ports",
+     "include/private",
+-    "include/third_party/skcms",
+     "include/utils",
+     "include/utils/mac",
+     "src/codec",
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/src/core/SkColorSpace.cpp
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/src/core/SkColorSpace.cpp
+@@ -8,7 +8,7 @@
+ #include "include/core/SkColorSpace.h"
+ #include "include/core/SkData.h"
+ #include "include/private/SkTemplates.h"
+-#include "include/third_party/skcms/skcms.h"
++#include "skcms.h"
+ #include "src/core/SkColorSpacePriv.h"
+ #include "src/core/SkOpts.h"
+ 
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/src/core/SkColorSpaceXformSteps.cpp
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/src/core/SkColorSpaceXformSteps.cpp
+@@ -5,7 +5,7 @@
+  * found in the LICENSE file.
+  */
+ 
+-#include "include/third_party/skcms/skcms.h"
++#include "skcms.h"
+ #include "src/core/SkColorSpacePriv.h"
+ #include "src/core/SkColorSpaceXformSteps.h"
+ #include "src/core/SkRasterPipeline.h"
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/src/gpu/GrDataUtils.cpp
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/src/gpu/GrDataUtils.cpp
+@@ -8,7 +8,7 @@
+ #include "src/gpu/GrDataUtils.h"
+ 
+ #include "include/private/SkTPin.h"
+-#include "include/third_party/skcms/skcms.h"
++#include "skcms.h"
+ #include "src/core/SkColorSpaceXformSteps.h"
+ #include "src/core/SkCompressedDataUtils.h"
+ #include "src/core/SkConvertPixels.h"
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/src/images/SkImageEncoderFns.h
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/src/images/SkImageEncoderFns.h
+@@ -12,7 +12,7 @@
+ #include "include/core/SkICC.h"
+ #include "include/core/SkTypes.h"
+ #include "include/private/SkColorData.h"
+-#include "include/third_party/skcms/skcms.h"
++#include "skcms.h"
+ 
+ typedef void (*transform_scanline_proc)(char* dst, const char* src, int width, int bpp);
+ 
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tests/AndroidCodecTest.cpp
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tests/AndroidCodecTest.cpp
+@@ -18,7 +18,7 @@
+ #include "include/core/SkSize.h"
+ #include "include/core/SkString.h"
+ #include "include/core/SkTypes.h"
+-#include "include/third_party/skcms/skcms.h"
++#include "skcms.h"
+ #include "src/codec/SkCodecImageGenerator.h"
+ #include "src/core/SkPixmapPriv.h"
+ #include "tests/Test.h"
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tests/CodecTest.cpp
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tests/CodecTest.cpp
+@@ -37,7 +37,7 @@
+ #include "include/encode/SkWebpEncoder.h"
+ #include "include/private/SkMalloc.h"
+ #include "include/private/SkTemplates.h"
+-#include "include/third_party/skcms/skcms.h"
++#include "skcms.h"
+ #include "include/utils/SkRandom.h"
+ #include "src/codec/SkCodecImageGenerator.h"
+ #include "src/core/SkAutoMalloc.h"
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tests/ColorSpaceTest.cpp
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tests/ColorSpaceTest.cpp
+@@ -12,7 +12,7 @@
+ #include "include/core/SkRefCnt.h"
+ #include "include/core/SkStream.h"
+ #include "include/core/SkTypes.h"
+-#include "include/third_party/skcms/skcms.h"
++#include "skcms.h"
+ #include "src/core/SkColorSpacePriv.h"
+ #include "tests/Test.h"
+ #include "tools/Resources.h"
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tests/ICCTest.cpp
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tests/ICCTest.cpp
+@@ -9,7 +9,7 @@
+ 
+ #include "include/core/SkICC.h"
+ #include "include/core/SkString.h"
+-#include "include/third_party/skcms/skcms.h"
++#include "skcms.h"
+ #include "src/core/SkColorSpacePriv.h"
+ #include "tests/Test.h"
+ #include "tools/Resources.h"
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tests/NonlinearBlendingTest.cpp
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tests/NonlinearBlendingTest.cpp
+@@ -6,7 +6,7 @@
+  */
+ 
+ #include "include/core/SkColorSpace.h"
+-#include "include/third_party/skcms/skcms.h"
++#include "skcms.h"
+ #include "src/core/SkColorSpaceXformSteps.h"
+ #include "tests/Test.h"
+ 
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tools/doxygen/Doxyfile
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tools/doxygen/Doxyfile
+@@ -795,7 +795,6 @@
+   ../../include/docs \
+   ../../include/gpu \
+   ../../include/pathops \
+-  ../../third_party/skcms \
+   ../../modules/particles/include \
+   ../../modules/skottie/include \
+   ../../modules/sksg/include \
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tools/imgcvt.cpp
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tools/imgcvt.cpp
+@@ -10,7 +10,7 @@
+ #include "include/core/SkImage.h"
+ #include "include/core/SkStream.h"
+ #include "include/core/SkSurface.h"
+-#include "include/third_party/skcms/skcms.h"
++#include "skcms.h"
+ #include "src/core/SkColorSpacePriv.h"
+ 
+ static void write_png(const char* path, sk_sp<SkImage> img) {
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tools/rewrite_includes.py
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tools/rewrite_includes.py
+@@ -76,8 +76,7 @@
+ need_rewriting = []
+ for file_path in to_rewrite():
+   if ('/generated/' in file_path or
+-      'tests/sksl/' in file_path or
+-      'third_party/skcms' in file_path):
++      'tests/sksl/' in file_path):
+     continue
+   if (file_path.endswith('.h') or
+       file_path.endswith('.c') or

@@ -1,32 +1,32 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 MODULE_OPTIONAL_USE=modules
-inherit autotools linux-info linux-mod
 
-MY_REV="986f6d34e49637d68cb41221307231f0ea79ca4d"
+inherit autotools linux-info linux-mod
 
 DESCRIPTION="safec libc extension with all C11 Annex K functions"
 HOMEPAGE="https://github.com/rurban/safeclib"
-SRC_URI="https://github.com/rurban/safeclib/archive/${MY_REV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/rurban/safeclib/releases/download/v${PV}/${P}.tar.xz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+constraint-handler doc +extensions modules norm-compat +nullslack test unsafe valgrind"
+IUSE="+constraint-handler doc +extensions modules norm-compat +nullslack test unsafe valgrind +wchar"
+
 RESTRICT="!test? ( test )"
-PATCHES=( "${FILESDIR}/gh96.patch" )
 BDEPEND="
 	doc? ( app-doc/doxygen[dot] )
 	valgrind? ( dev-util/valgrind )
 "
 
-S="${WORKDIR}/${PN}-${MY_REV}"
+PATCHES=( "${FILESDIR}/${P}-stdarg.patch" )
+
 MODULE_NAMES="slkm(misc:${S}:${S})"
 BUILD_TARGETS="all"
-BUILD_PARAMS="-f Makefile.kernel"
+BUILD_PARAMS="-f Makefile.kernel V=1"
 
 pkg_setup() {
 	if use modules ; then
@@ -40,8 +40,8 @@ src_prepare() {
 	default
 	eautoreconf
 
-	#duplicate the working folder
-	#one for the library and one for the module
+	# duplicate the working folder
+	# one for the library and one for the module
 	cd "${WORKDIR}" || die
 	cp -r "${S}" "${S}-lib" || die
 }
@@ -49,18 +49,11 @@ src_prepare() {
 src_configure() {
 	export VARTEXFONTS="${T}/fonts"
 
-	if use modules ; then
-		set_kvobj ko
-		econf "${myconf[@]}" --disable-wchar
-	fi
-
-	cd "${S}-lib" || die
-	#forcing wchar because of https://github.com/rurban/safeclib/issues/95
 	local myconf=(
 		--disable-static
 		--disable-valgrind-sgcheck
-		--enable-shared
 		--disable-Werror
+		--enable-shared
 		$(use_enable constraint-handler)
 		$(use_enable doc)
 		$(use_enable extensions)
@@ -68,8 +61,17 @@ src_configure() {
 		$(use_enable nullslack)
 		$(use_enable unsafe)
 		$(use_enable valgrind)
+		$(use_enable wchar)
 	)
-	econf "${myconf[@]}" --enable-wchar
+
+	if use modules ; then
+		set_kvobj ko
+		ECONF_PARAMS="${myconf[@]} --disable-wchar"
+	fi
+
+	cd "${S}-lib" || die
+
+	econf "${myconf[@]}"
 }
 
 src_compile() {
@@ -91,7 +93,9 @@ src_install() {
 	einstalldocs
 
 	if use doc ; then
+		rm -rf doc/man || die
 		dodoc -r doc/.
+		docompress -x "/usr/share/doc/${PF}/html"
 
 		# wcsstr towupper towlower manpages collide with sys-apps/man-pages
 		rm "${ED}/usr/share/man/man3/towlower.3" || die

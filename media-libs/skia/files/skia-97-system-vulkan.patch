@@ -1,0 +1,101 @@
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/BUILD.gn
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/BUILD.gn
+@@ -1479,10 +1479,6 @@
+   deps = [ "experimental/sktext" ]
+ }
+ 
+-config("our_vulkan_headers") {
+-  include_dirs = [ "include/third_party/vulkan" ]
+-}
+-
+ # Targets guarded by skia_enable_tools may use //third_party freely.
+ if (skia_enable_tools) {
+   skia_public_includes = [
+@@ -1569,7 +1565,6 @@
+   skia_source_set("public_headers_warnings_check") {
+     sources = [ "tools/public_headers_warnings_check.cpp" ]
+     configs = [
+-      ":our_vulkan_headers",
+       ":cpp14",
+     ]
+     if (defined(skia_header_target_default_configs)) {
+@@ -1681,10 +1676,6 @@
+   test_lib("gpu_tool_utils") {
+     public_defines = []
+ 
+-    # Bots and even devs may not have Vulkan headers, so put
+-    # include/third_party/vulkan on our path so they're always available.
+-    all_dependent_configs = [ ":our_vulkan_headers" ]
+-
+     defines = []
+     if (skia_enable_discrete_gpu) {
+       defines += [ "SK_ENABLE_DISCRETE_GPU" ]
+@@ -2204,7 +2195,6 @@
+ 
+   test_app("skpinfo") {
+     sources = [ "tools/skpinfo.cpp" ]
+-    configs = [ ":our_vulkan_headers" ]
+     deps = [
+       ":flags",
+       ":skia",
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/include/gpu/vk/GrVkVulkan.h
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/include/gpu/vk/GrVkVulkan.h
+@@ -11,7 +11,7 @@
+ #include "include/core/SkTypes.h"
+ 
+ #if SKIA_IMPLEMENTATION || !defined(SK_VULKAN)
+-#include "include/third_party/vulkan/vulkan/vulkan_core.h"
++#include "vulkan/vulkan_core.h"
+ #else
+ // For google3 builds we don't set SKIA_IMPLEMENTATION so we need to make sure that the vulkan
+ // headers stay up to date for our needs
+@@ -21,7 +21,7 @@
+ #ifdef SK_BUILD_FOR_ANDROID
+ // This is needed to get android extensions for external memory
+ #if SKIA_IMPLEMENTATION || !defined(SK_VULKAN)
+-#include "include/third_party/vulkan/vulkan/vulkan_android.h"
++#include "vulkan/vulkan_android.h"
+ #else
+ // For google3 builds we don't set SKIA_IMPLEMENTATION so we need to make sure that the vulkan
+ // headers stay up to date for our needs
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/modules/particles/BUILD.gn
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/modules/particles/BUILD.gn
+@@ -27,7 +27,6 @@
+     sources = skia_particle_sources
+     configs += [
+       "../../:skia_private",
+-      "../../:our_vulkan_headers",
+     ]
+   }
+ }
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/third_party/vulkanmemoryallocator/BUILD.gn
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/third_party/vulkanmemoryallocator/BUILD.gn
+@@ -12,7 +12,6 @@
+ 
+   include_dirs = [
+     "../..",
+-    "../../include/third_party/vulkan",
+   ]
+ 
+   sources = [
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tools/check-headers-self-sufficient
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tools/check-headers-self-sufficient
+@@ -32,7 +32,6 @@
+     r'include/private/.*_impl\.h',
+     r'include/private/.*_neon\.h',
+     r'include/private/.*_sse\.h',
+-    r'include/third_party/vulkan/.*',
+     r'include/utils/mac/SkCGUtils\.h',
+     r'include/views/SkOSWindow_.*\.h',
+     r'modules/.*',
+--- /var/tmp/portage/media-libs/skia-97-r1/work/skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tools/rewrite_includes.py
++++ skia-f2093bf1b076210bd017f237eaab84ea4d3d6771/tools/rewrite_includes.py
+@@ -43,7 +43,7 @@
+ # Don't count our local Vulkan headers as Skia headers;
+ # we don't want #include <vulkan/vulkan_foo.h> rewritten to point to them.
+ # Nor do we care about things in node_modules, used by *Kits.
+-ignorelist = ['include/third_party/vulkan', 'node_modules']
++ignorelist = ['node_modules']
+ 
+ assert '/' in [os.sep, os.altsep]
+ def fix_path(p):

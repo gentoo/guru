@@ -327,7 +327,6 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="~amd64"
-QA_FLAGS_IGNORED="usr/bin/.*"
 
 BDEPEND="
 	app-text/mandown
@@ -335,6 +334,8 @@ BDEPEND="
 #	dev-util/binaryen
 #	dev-util/cargo-make
 #"
+
+QA_FLAGS_IGNORED="usr/bin/zellij"
 
 src_configure() {
 	local myfeatures=(
