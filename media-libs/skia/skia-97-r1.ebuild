@@ -21,7 +21,7 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 KEYWORDS="~amd64"
 LICENSE="BSD"
 SLOT="0"
-IUSE="+ccpr debug ffmpeg +fontconfig +freetype +harfbuzz +icu jit +jpeg +lottie lua opencl +opengl +pdf +png +rive vulkan +webp +zlib +X +xml"
+IUSE="+ccpr debug ffmpeg +fontconfig +freetype gpu +harfbuzz +icu jit +jpeg +lottie lua opencl +opengl +pdf +png +rive svg vulkan +webp +zlib +X +xml"
 #TODO: find out how to enable and link: angle dawn piex sfntly wuffs
 
 CDEPEND="
@@ -92,10 +92,11 @@ src_configure() {
 		ar=\"${AR}\"
 		cc=\"${CC}\"
 		cxx=\"${CXX}\"
-		is_component_build=false
+		is_component_build=true
 		is_official_build=true
 		is_shared_library=true
 		skia_build_fuzzers=false
+		skia_compile_processors = true
 		skia_compile_sksl_tests=false
 		skia_enable_android_utils=false #android
 		skia_enable_api_available_macro = true
@@ -128,8 +129,7 @@ src_configure() {
 		skia_use_wuffs=false #todo
 		skia_use_xps=false #windows
 
-		skia_compile_processors = $(usex processors true false)
-		skia_enable_ccpr=$(usex cppr true false)
+		skia_enable_ccpr=$(usex ccpr true false)
 		skia_enable_gpu=$(usex gpu true false)
 		skia_enable_gpu_debug_layers=$(usex debug true false)
 		skia_enable_pdf=$(usex pdf true false)

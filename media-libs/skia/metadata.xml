@@ -12,10 +12,12 @@ Skia is an open source 2D graphics library which provides common APIs that work 
   <use>
     <flag name="ccpr">enable coverage counting path renderer</flag>
     <flag name="freetype">enable <pkg>media-libs/freetype</pkg> support</flag>
+    <flag name="gpu">enable GPU backend</flag>
     <flag name="harfbuzz">enable <pkg>media-libs/harfbuzz</pkg> support</flag>
     <flag name="lottie">Play back bodymovin lottie files</flag>
     <flag name="opencl">enable opencl support</flag>
     <flag name="rive">enable support for rive files</flag>
+    <flag name="svg">enable support for SVG files</flag>
     <flag name="vulkan">enable vulkan backend</flag>
   </use>
 </pkgmetadata>
