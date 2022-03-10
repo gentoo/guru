@@ -32,7 +32,7 @@ app-admin/awscli-bin 2.3.2-r1: Universal Command Line Interface for Amazon Web S
 app-admin/chamber 2.10.7: Managing secrets in AWS SSM Parameter Store
 app-admin/chezmoi 2.11.2: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
-app-admin/customrescuecd-x86_64 0.12.5: A system rescue cd or usbstick for desktop and server based on gentoo
+app-admin/customrescuecd-x86_64 0.12.5 0.12.6: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/glance 23.0.0: Services for discovering, registering, and retrieving VM images
 app-admin/gnome-passwordsafe 4.0-r1 4.1: A password manager for GNOME
 app-admin/grub-customizer 5.1.0: A graphical grub2 settings manager
@@ -99,7 +99,7 @@ app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best
 app-misc/doublecmd-bin 1.0.1 1.0.2 1.0.4: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
-app-misc/fastfetch 0.604 9999: Like neofetch but faster
+app-misc/fastfetch 0.612 9999: Like neofetch but faster
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -208,7 +208,7 @@ dev-R/callr 3.7.0: Call R from R
 dev-R/cellranger 1.1.0: Translate Spreadsheet Cell Ranges to Rows and Columns
 dev-R/cli 3.2.0: Helpers for Developing Command Line Interfaces
 dev-R/colorspace 2.0.1: A Toolbox for Manipulating and Assessing colors and palettes
-dev-R/commonmark 1.7: High Performance CommonMark and github markdown rendering in R
+dev-R/commonmark 1.8.0: High Performance CommonMark and github markdown rendering in R
 dev-R/covr 3.5.1: Test Coverage for Packages
 dev-R/crayon 1.5.0: Colored Terminal Output
 dev-R/curl 4.3.2: A Modern and Flexible Web Client for R
@@ -230,22 +230,22 @@ dev-R/highr 0.9: Syntax Highlighting for R Source Code
 dev-R/httr 1.4.2: Tools for Working with URLs and HTTP
 dev-R/hunspell 3.0.1: High-Performance Stemmer, Tokenizer and Spell Checker
 dev-R/ini 0.3.1: Read and Write .ini Files
-dev-R/isoband 0.2.4: Generate Isolines and Isobands from regularky spaced elevation grids
-dev-R/jsonlite 1.7.2: A Simple and Robust JSON Parser and generator for R
-dev-R/knitr 1.33: A General-Purpose Package for Dynamic report generation in R
+dev-R/isoband 0.2.5: Generate Isolines and Isobands from regularky spaced elevation grids
+dev-R/jsonlite 1.8.0: A Simple and Robust JSON Parser and generator for R
+dev-R/knitr 1.37: A General-Purpose Package for Dynamic report generation in R
 dev-R/labeling 0.4.2: Axis Labeling
 dev-R/lattice 0.20.44 0.20.45: Trellis Graphics for R
 dev-R/lazyeval 0.2.2: Lazy (Non-Standard) Evaluation
 dev-R/lifecycle 1.0.1: Manage the Life Cycle of your Package Functions
-dev-R/magrittr 2.0.1: A Forward-Pipe Operator for R
+dev-R/magrittr 2.0.2: A Forward-Pipe Operator for R
 dev-R/markdown 1.1: Render Markdown with the C Library Sundown
 dev-R/mgcv 1.8.36: Mixed GAM Computation Vehicle with automatic smoothness estimation
-dev-R/mime 0.10: Map Filenames to MIME Types
+dev-R/mime 0.12: Map Filenames to MIME Types
 dev-R/munsell 0.5.0: Utilities for Using Munsell Colours
 dev-R/nlme 3.1.152: Linear and Nonlinear Mixed Effects Models
 dev-R/nnet 7.3.16: Feed-Forward Neural Networks and multinomial log-linear models
-dev-R/openssl 1.4.5: Toolkit for Encryption, Signatures and certificates based on openssl
-dev-R/pillar 1.6.1: Coloured Formatting for Columns
+dev-R/openssl 2.0.0: Toolkit for Encryption, Signatures and certificates based on openssl
+dev-R/pillar 1.7.0: Coloured Formatting for Columns
 dev-R/pkgconfig 2.0.3: Private Configuration for R Packages
 dev-R/pkgload 1.2.1: Simulate Package Installation and Attach
 dev-R/plogr 0.2.0: The plog C++ Logging Library
@@ -266,7 +266,7 @@ dev-R/stringi 1.6.2: Character String Processing Facilities
 dev-R/stringr 1.4.0: Simple, Consistent Wrappers for common string operations
 dev-R/survival 3.2.11: Survival Analysis
 dev-R/sys 3.4: Powerful and Reliable Tools for Running System Commands in R
-dev-R/testthat 3.0.3: Unit Testing for R
+dev-R/testthat 3.1.2: Unit Testing for R
 dev-R/tibble 3.1.6: Simple Data Frames
 dev-R/tidyselect 1.1.2: Select from a Set of Strings
 dev-R/utf8 1.2.2: Unicode Text Processing
@@ -282,7 +282,7 @@ dev-cpp/cli11 2.1.0 2.1.2: Command line parser for C++11
 dev-cpp/coeurl 0.1.1 0.2.0: A simple async wrapper around CURL for C++
 dev-cpp/drogon 1.7.4 1.7.5: C++14/17 based HTTP web application framework
 dev-cpp/dtl 1.19_p20210531: diff template library written by C++
-dev-cpp/fbthrift 2022.02.28.00: Facebook's branch of Apache Thrift, including a new C++ server
+dev-cpp/fbthrift 2022.02.28.00-r1: Facebook's branch of Apache Thrift, including a new C++ server
 dev-cpp/fizz 2022.02.28.00: C++14 implementation of the TLS-1.3 standard
 dev-cpp/gsl-lite 0.38.0: C++ Guideline Support Library implementation
 dev-cpp/highway 0.14.2 0.15.0 9999: Performance-portable, length-agnostic SIMD with runtime dispatch
@@ -647,6 +647,7 @@ dev-python/strictyaml 1.5.0 1.6.1: A type-safe YAML parser built atop ruamel.yam
 dev-python/stringbrewer 0.0.1: Generate random strings matching a pattern
 dev-python/stringcase 1.2.0: Convert string cases between camel case, pascal case, snake case etc.
 dev-python/survey 3.4.3: A simple library for creating beautiful interactive prompts
+dev-python/sysv_ipc 1.1.0: System V IPC primitives for python
 dev-python/taskflow 4.6.3: A library to do [jobs, tasks, flows] in a HA manner using different backends
 dev-python/tchannel 2.1.0: Network multiplexing and framing protocol for RPC
 dev-python/tempus-themes 2.3.0.20220206: Accessible themes for Pygments
@@ -654,7 +655,7 @@ dev-python/testrepository 0.0.20-r200: A repository of test results
 dev-python/threadloop 1.0.2: Run Tornado Coroutines from Synchronous Python
 dev-python/thriftrw 1.8.1: A Thrift encoding library for Python
 dev-python/tinyrpc 1.1.2: A protocol neutral RPC library that supports JSON-RPC and zmq.
-dev-python/tooz 2.9.0: Library centralizing the most common distributed primitives
+dev-python/tooz 2.10.1: Library centralizing the most common distributed primitives
 dev-python/transaction 3.0.1: Transaction management for Python
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill Algorithm
 dev-python/ttfautohint-py 0.4.3: A Python wrapper for ttfautohint
@@ -684,6 +685,7 @@ dev-python/xunitparser 1.3.3: Read JUnit/XUnit XML files and map them to Python 
 dev-python/yams 0.7.3 9999: Yet Another MPD Scrobbler (for Last.FM)
 dev-python/yaql 2.0.0: YAQL: Yet Another Query Language
 dev-python/zVMCloudConnector 1.4.1: a development sdk for managing z/VM
+dev-python/zake 0.2.2: Provide a nice set of testing utilities for the kazoo library
 dev-ruby/byebug 11.1.3: a Ruby 2 debugger
 dev-ruby/chruby 0.3.9-r3 9999: Changes the current Ruby
 dev-ruby/pry-byebug 3.9.0: Step-by-step debugging and stack navigation in Pry
@@ -840,7 +842,7 @@ kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU
 kde-misc/plasma5-wallpapers-dynamic 3.3.9 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
 kde-misc/skanpage 0_p20210402: Simple pdf scanning application based on libksane and KDE Frameworks
 mail-client/heirloom-mailx 12.5: The mailx utility from CentOS
-mail-client/mailspring-bin 1.9.2: A beautiful, fast and fully open source mail client for Mac, Windows and Linux
+mail-client/mailspring-bin 1.9.2 1.10.0: A beautiful, fast and fully open source mail client for Mac, Windows and Linux
 media-fonts/3270font 2.3.0: A IBM 3270 Terminal font in a modern format
 media-fonts/gohufont 2.1_p20170627: A monospace bitmap font
 media-fonts/inconsolata_dz 20201205: A beautiful sans-serif monotype font designed for code listings
@@ -888,7 +890,7 @@ media-libs/openxr-loader 1.0.20 9999: OpenXR loader
 media-libs/portsmf 239 9999: C++ library for Standard Midi Files (SMF)
 media-libs/sjpeg 1.0_p20210422-r1: simple jpeg encoder
 media-libs/skcms 0_pre20211006: A complete 2D graphic library for drawing Text, Geometries, and Images
-media-libs/skia 97: A complete 2D graphic library for drawing Text, Geometries, and Images
+media-libs/skia 97 97-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-libs/svt-hevc 1.5.0 1.5.1 9999: Scalable Video Technology for HEVC (SVT-HEVC Encoder)
 media-libs/svt-vp9 0.3.0 9999: Scalable Video Technology for VP9 (SVT-VP9 Encoder)
 media-libs/vips 8.10.6: VIPS Image Processing Library
@@ -1165,7 +1167,7 @@ sys-kernel/xpmem 2.6.5_p20210809: Linux Cross-Memory Attach
 sys-kernel/zenpower3 0.2.0: Linux kernel driver for reading sensors of AMD Zen family CPUs
 sys-libs/libnvidia-container 1.4.0 1.7.0 1.8.0_rc1: NVIDIA container runtime library
 sys-libs/nss-tls 1.0 1.1 9999: A DNS over HTTPS resolver for glibc
-sys-libs/safeclib 3.6.0_p20210407-r2 3.6.0_p20210407-r3 3.7.1: safec libc extension with all C11 Annex K functions
+sys-libs/safeclib 3.7.1-r1: safec libc extension with all C11 Annex K functions
 sys-libs/solo-udev-rules 4.0.0-r1: udev rules for the Solo FIDO2 & U2F USB+NFC security key
 sys-power/ZenStates-Linux 0_p20170507: Dynamically edit AMD Ryzen processor P-States
 sys-power/amdgpu-fan 0.1.0-r1: Fan controller for AMD graphics cards running the amdgpu driver on Linux

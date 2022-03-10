@@ -247,6 +247,13 @@ media-libs/monado:vive - Enable driver for HTC Vive, Vive Pro, Valve Index, and 
 media-libs/monado:vulkan - Enable Vulkan Graphics API support (also needed for compositor)
 media-libs/monado:wayland - Enable Wayland support
 media-libs/sjpeg:tools - Build the sjpeg / vjpeg command line tools
+media-libs/skia:ccpr - enable coverage counting path renderer
+media-libs/skia:freetype - enable media-libs/freetype support
+media-libs/skia:harfbuzz - enable media-libs/harfbuzz support
+media-libs/skia:lottie - Play back bodymovin lottie files
+media-libs/skia:opencl - enable opencl support
+media-libs/skia:rive - enable support for rive files
+media-libs/skia:vulkan - enable vulkan backend
 media-libs/vips:fits - Enable support for the FITS image format through sci-libs/cfitsio
 media-libs/vips:gsf - Enable support for creating image pyramids with dzsave
 media-libs/vips:heif - Enable support for HEIC images
