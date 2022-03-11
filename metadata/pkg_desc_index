@@ -32,7 +32,7 @@ app-admin/awscli-bin 2.3.2-r1: Universal Command Line Interface for Amazon Web S
 app-admin/chamber 2.10.7: Managing secrets in AWS SSM Parameter Store
 app-admin/chezmoi 2.11.2: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
-app-admin/customrescuecd-x86_64 0.12.5 0.12.6: A system rescue cd or usbstick for desktop and server based on gentoo
+app-admin/customrescuecd-x86_64 0.12.6: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/glance 23.0.0: Services for discovering, registering, and retrieving VM images
 app-admin/gnome-passwordsafe 4.0-r1 4.1: A password manager for GNOME
 app-admin/grub-customizer 5.1.0: A graphical grub2 settings manager
@@ -191,14 +191,14 @@ app-vim/tex-conceal 20210409: vim plugin: extends the Conceal feature for LaTeX
 app-vim/themis 1.6.0 1.7.0: A testing framework for Vim script
 app-vim/vim-nix 9999: vim plugin: Vim configuration files for Nix
 app-vim/vim-sensible 1.2: vim plugin: a universal set of defaults that (hopefully) everyone can agree on
-dev-R/BH 1.75.0.0: Boost C++ Header Files
+dev-R/BH 1.75.0.0 1.78.0.0: Boost C++ Header Files
 dev-R/MASS 7.3.54: Support Functions and Datasets for variables and Ripley's MASS
 dev-R/Matrix 1.3.4: Sparse and Dense Matrix Classes and Methods
-dev-R/R6 2.5.0: Encapsulated Classes with Reference Semantics
+dev-R/R6 2.5.1: Encapsulated Classes with Reference Semantics
 dev-R/RColorBrewer 1.1.2: ColorBrewer Palettes
 dev-R/RInside 0.2.16: C++ Classes to Embed R in C++ (and C) Applications
-dev-R/Rcpp 1.0.6: Seamless R and C++ Integration
-dev-R/RcppArmadillo 0.10.2.2.0: Rcpp Integration for the Armadillo templated linear algebra library
+dev-R/Rcpp 1.0.8: Seamless R and C++ Integration
+dev-R/RcppArmadillo 0.10.2.2.0 0.10.8.1.0: Rcpp Integration for the Armadillo templated linear algebra library
 dev-R/RcppEnsmallen 0.2.17.0.1: Header-Only C++ Mathematical Optimization library for armadillo
 dev-R/askpass 1.1: Safe Password Entry for R, Git and SSH
 dev-R/assertthat 0.2.1: Easy Pre and Post Assertions
@@ -210,6 +210,7 @@ dev-R/cli 3.2.0: Helpers for Developing Command Line Interfaces
 dev-R/colorspace 2.0.1: A Toolbox for Manipulating and Assessing colors and palettes
 dev-R/commonmark 1.8.0: High Performance CommonMark and github markdown rendering in R
 dev-R/covr 3.5.1: Test Coverage for Packages
+dev-R/cpp11 0.4.2: A C++11 Interface for Rs C Interface
 dev-R/crayon 1.5.0: Colored Terminal Output
 dev-R/curl 4.3.2: A Modern and Flexible Web Client for R
 dev-R/desc 1.4.1: Manipulate DESCRIPTION Files
@@ -247,7 +248,7 @@ dev-R/nnet 7.3.16: Feed-Forward Neural Networks and multinomial log-linear model
 dev-R/openssl 2.0.0: Toolkit for Encryption, Signatures and certificates based on openssl
 dev-R/pillar 1.7.0: Coloured Formatting for Columns
 dev-R/pkgconfig 2.0.3: Private Configuration for R Packages
-dev-R/pkgload 1.2.1: Simulate Package Installation and Attach
+dev-R/pkgload 1.2.4: Simulate Package Installation and Attach
 dev-R/plogr 0.2.0: The plog C++ Logging Library
 dev-R/praise 1.0.0: Praise Users
 dev-R/processx 3.5.2: Execute and Control System Processes
@@ -255,14 +256,14 @@ dev-R/ps 1.6.0: List, Query, Manipulate System Processes
 dev-R/purrr 0.3.4: Functional Programming Tools
 dev-R/rematch 1.0.1: Match Regular Expressions with a Nicer API
 dev-R/rematch2 2.1.2: Tidy Output from Regular Expression Matching
-dev-R/rex 1.2.0: Friendly Regular Expressions
+dev-R/rex 1.2.1: Friendly Regular Expressions
 dev-R/rlang 1.0.2: Functions for Base Types and Core R and Tidyverse Features
-dev-R/roxygen2 7.1.1: In-Line Documentation for R
+dev-R/roxygen2 7.1.2: In-Line Documentation for R
 dev-R/rprojroot 2.0.2: Finding Files in Project Subdirectories
 dev-R/rstudioapi 0.13: Safely Access the RStudio API
 dev-R/scales 1.1.1: Scale Functions for Visualization
 dev-R/spelling 2.2: Tools for Spell Checking in R
-dev-R/stringi 1.6.2: Character String Processing Facilities
+dev-R/stringi 1.7.6: Character String Processing Facilities
 dev-R/stringr 1.4.0: Simple, Consistent Wrappers for common string operations
 dev-R/survival 3.2.11: Survival Analysis
 dev-R/sys 3.4: Powerful and Reliable Tools for Running System Commands in R
@@ -404,7 +405,7 @@ dev-python/bidict 0.21.3: The bidirectional mapping library for Python
 dev-python/billiard 3.6.4.0: Python multiprocessing fork
 dev-python/bitbox02 5.3.0: Python API for communicating with the BitBox02 device
 dev-python/boolean-py 3.8: Define boolean algebras, create boolean expressions and custom boolean DSL
-dev-python/browserstack-local-python 1.2.2-r1: Python bindings for BrowserStack Local
+dev-python/browserstack-local-python 1.2.3: Python bindings for BrowserStack Local
 dev-python/bson 0.5.8: Independent BSON codec for Python that doesn't depend on MongoDB
 dev-python/castellan 3.9.1: Generic Key Manager interface for OpenStack
 dev-python/celery 5.1.1: Asynchronous task queue/job queue based on distributed message passing
@@ -474,7 +475,7 @@ dev-python/hstspreload 2021.7.5 2021.10.1: Chromium HSTS Preload list as a Pytho
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/hunter 3.3.8: Hunter is a flexible code tracing toolkit
 dev-python/hwi 1.2.1 2.0.2: Library and command line tool for interacting with hardware wallets
-dev-python/hypercorn 0.11.2-r1: ASGI Server based on Hyper libraries and inspired by Gunicorn
+dev-python/hypercorn 0.11.2-r1 0.13.2: ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
 dev-python/injector 0.18.4: Python dependency injection framework
 dev-python/itemadapter 0.4.0: Common interface for scrapy data container classes
@@ -578,7 +579,7 @@ dev-python/pystardict 0.8: Library for manipulating StarDict dictionaries from w
 dev-python/pysubs2 1.3.1 1.4.0 1.4.1: A library for editing subtitle files
 dev-python/pytest-benchmark 3.4.1: py.test fixture for benchmarking code
 dev-python/pytest-cases 3.6.8 3.6.9: Separate test code from test cases in pytest
-dev-python/pytest-celery 0.0.0: a shim pytest plugin to enable celery.contrib.pytest
+dev-python/pytest-celery 0.1.0: a shim pytest plugin to enable celery.contrib.pytest
 dev-python/pytest-cython 0.1.1: Plugin for testing Cython extension modules
 dev-python/pytest-harvest 1.10.3: Store and retrieve data created during your pytest tests execution
 dev-python/pytest-instafail 0.4.2: Plugin for pytest that shows failures and errors instantly
@@ -587,27 +588,27 @@ dev-python/pytest-pythonpath 0.7.3: Plugin for adding to the PYTHONPATH from the
 dev-python/pytest-randomly 3.10.1: Pytest plugin to randomly order tests and control random.seed
 dev-python/pytest-sanic 1.7.1: a Pytest Plugin for Sanic
 dev-python/pytest-steps 1.8.0: Create step-wise / incremental tests in pytest
-dev-python/python-barbicanclient 5.2.0: Client library for Barbican API
-dev-python/python-binary-memcached 0.30.1: access memcached via it's binary protocol with SASL auth support
-dev-python/python-blazarclient 3.3.1: This is a client for the OpenStack Blazar API
+dev-python/python-barbicanclient 5.3.0: Client library for Barbican API
+dev-python/python-binary-memcached 0.31.1: access memcached via it's binary protocol with SASL auth support
+dev-python/python-blazarclient 3.4.0: This is a client for the OpenStack Blazar API
 dev-python/python-dbus-next 0.2.3: python-dbus-next is a Python library for DBus
-dev-python/python-designateclient 4.3.0: Python bindings to the Designate API.
-dev-python/python-heatclient 2.4.0: OpenStack Orchestration API Client Library
+dev-python/python-designateclient 4.5.0: Python bindings to the Designate API
+dev-python/python-heatclient 2.5.1: OpenStack Orchestration API Client Library
 dev-python/python-json-logger 2.0.2: Standard python logging to output log data as json objects
-dev-python/python-magnumclient 3.5.0: A client for the OpenStack Magnum API
-dev-python/python-manilaclient 3.1.0: A client for the OpenStack Manila API
-dev-python/python-mistralclient 4.3.0: A client for the OpenStack Mistral API
-dev-python/python-monascaclient 2.4.0: A client for the OpenStack Monasca API
+dev-python/python-magnumclient 3.6.0: A client for the OpenStack Magnum API
+dev-python/python-manilaclient 3.3.0: A client for the OpenStack Manila API
+dev-python/python-mistralclient 4.4.0: A client for the OpenStack Mistral API
+dev-python/python-monascaclient 2.5.0: A client for the OpenStack Monasca API
 dev-python/python-multipart 0.0.5: A streaming multipart parser for Python
-dev-python/python-octaviaclient 2.4.0: A client for the Octavia Load Balancing
+dev-python/python-octaviaclient 2.5.0: A client for the Octavia Load Balancing
 dev-python/python-pidfile 3.0.0: PIDFile context processor. Supported py2 and py3
 dev-python/python-pkcs11 0.7.0: PKCS#11 (Cryptoki) support for Python
-dev-python/python-qpid-proton 0.35.0: An AMQP based messaging library
-dev-python/python-saharaclient 3.4.0: This is a client for the OpenStack Sahara API, aka HADOOP
-dev-python/python-senlinclient 2.3.0: A client for the OpenStack Senlin API
+dev-python/python-qpid-proton 0.36.0: An AMQP based messaging library
+dev-python/python-saharaclient 3.5.0: This is a client for the OpenStack Sahara API, aka HADOOP
+dev-python/python-senlinclient 2.4.0: A client for the OpenStack Senlin API
 dev-python/python-telegram-bot 13.1 9999: Python wrapper of telegram bots API
-dev-python/python-troveclient 7.1.1: A client for the OpenStack Trove API, a scalable relational database service
-dev-python/python-vitrageclient 4.4.0: A client for the OpenStack Vitrage API
+dev-python/python-troveclient 7.2.0: A client for the OpenStack Trove API, a scalable relational database service
+dev-python/python-vitrageclient 4.5.0: A client for the OpenStack Vitrage API
 dev-python/python-zaqarclient 2.2.0: A client for the OpenStack Zaqar API
 dev-python/python-zunclient 4.3.0: A client for the OpenStack Zun API
 dev-python/pywebview 3.5 3.6.1: A lightweight cross-platform wrapper around a webview component
@@ -1084,7 +1085,7 @@ sys-apps/fselect 0.7.9: Find files with SQL-like queries
 sys-apps/hex 0.3.2 0.4.0 0.4.1 0.4.2: Futuristic take on hexdump
 sys-apps/hexyl 0.9.0: A command-line hex viewer
 sys-apps/intel-cmt-cat 4.2.0-r2 4.3.0: User space software for Intel(R) Resource Director Technology
-sys-apps/ov 0.9.6: Feature-rich terminal pager
+sys-apps/ov 0.9.6 0.10.0: Feature-rich terminal pager
 sys-apps/procs 0.11.6 0.11.9: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
 sys-apps/rogdrv 0.0.5_p20210208: ASUS ROG userspace mouse driver for Linux.
@@ -1098,7 +1099,7 @@ sys-auth/keystone 20.0.0.0_rc1: The Openstack authentication, authorization, and
 sys-auth/mrsh 2.12 2.12-r1: Mrsh is a set of remote shell programs that use munge authentication.
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
-sys-boot/limine 2.84.2-r1 2.85 2.85.1 2.85.4: Limine is a modern, advanced x86/x86_64 BIOS/UEFI multiprotocol bootloader.
+sys-boot/limine 2.85 2.85.1 2.85.4 2.88: Limine is a modern, advanced x86/x86_64 BIOS/UEFI multiprotocol bootloader.
 sys-cluster/AXL 0.3.0 0.4.0 0.5.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy.
 sys-cluster/KVTree 1.1.1 1.2.0: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/OpenHPC-meta 2.1: OpenHPC metapackage
