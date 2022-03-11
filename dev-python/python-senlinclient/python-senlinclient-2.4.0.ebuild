@@ -4,7 +4,7 @@
 EAPI=8
 
 EPYTEST_IGNORE=( senlinclient/tests/functional )
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
@@ -13,7 +13,7 @@ HOMEPAGE="
 	https://github.com/openstack/python-senlinclient
 	https://opendev.org/openstack/python-senlinclient
 	https://launchpad.net/python-senlinclient
-	https://pypi.org/project/python-senlinclient
+	https://pypi.org/project/python-senlinclient/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
