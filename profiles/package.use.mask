@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-07-26)
@@ -56,3 +56,7 @@ sci-physics/mbdyn metis
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2021-12-29)
 # build failure, needs patching
 app-crypt/pgp bindist
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-03-10)
+# build failure
+media-libs/skia ffmpeg

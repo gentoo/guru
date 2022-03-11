@@ -1,18 +1,18 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 MYPV="${PV/_beta/b}"
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit bash-completion-r1 distutils-r1 optfeature
 
 DESCRIPTION="Asynchronous task queue/job queue based on distributed message passing"
 HOMEPAGE="
 	https://docs.celeryproject.org/en/stable/index.html
-	https://pypi.org/project/celery
+	https://pypi.org/project/celery/
 	https://github.com/celery/celery
 "
 SRC_URI="https://github.com/celery/celery/archive/v${MYPV}.tar.gz -> ${P}.tar.gz"

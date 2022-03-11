@@ -11,7 +11,7 @@ EPYTEST_DESELECT=(
 	osprofiler/tests/unit/test_profiler.py::ProfilerGlobMethodsTestCase::test_get_profiler_and_init
 	osprofiler/tests/unit/test_profiler.py::test_fn_exc
 )
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
@@ -19,7 +19,7 @@ DESCRIPTION="OpenStack Profiler Library"
 HOMEPAGE="
 	https://launchpad.net/osprofiler
 	https://opendev.org/openstack/osprofiler
-	https://pypi.org/project/osprofiler
+	https://pypi.org/project/osprofiler/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
@@ -12,7 +12,7 @@ HOMEPAGE="
 	https://github.com/openstack/python-vitrageclient
 	https://opendev.org/openstack/python-vitrageclient
 	https://launchpad.net/python-vitrageclient
-	https://pypi.org/project/python-vitrageclient
+	https://pypi.org/project/python-vitrageclient/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

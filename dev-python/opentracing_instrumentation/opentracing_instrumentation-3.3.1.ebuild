@@ -1,17 +1,17 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 MYPN="${PN/_/-python-}"
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 DESCRIPTION="A collection of Python instrumentation tools for the OpenTracing API"
 HOMEPAGE="
 	https://github.com/uber-common/opentracing-python-instrumentation
-	https://pypi.org/project/opentracing-instrumentation
+	https://pypi.org/project/opentracing-instrumentation/
 "
 SRC_URI="https://github.com/uber-common/${MYPN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MYPN}-${PV}"

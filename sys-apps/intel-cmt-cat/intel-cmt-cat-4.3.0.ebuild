@@ -40,7 +40,7 @@ DEPEND="
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 PATCHES=(
 	"${FILESDIR}/${PN}-perl-makefile.patch"
-	"${FILESDIR}/${PN}-do-not-strip.patch"
+	"${FILESDIR}/${P}-no-strip.patch"
 	"${FILESDIR}/${P}-respect-flags.patch"
 )
 

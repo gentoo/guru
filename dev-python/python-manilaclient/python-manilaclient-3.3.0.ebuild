@@ -3,7 +3,6 @@
 
 EAPI=8
 
-DISTUTILS_USE_SETUPTOOLS=rdepend
 EPYTEST_IGNORE=( manilaclient/tests/functional )
 PYTHON_COMPAT=( python3_8 )
 
@@ -13,7 +12,7 @@ DESCRIPTION="A client for the OpenStack Manila API"
 HOMEPAGE="
 	https://opendev.org/openstack/python-manilaclient
 	https://github.com/openstack/python-manilaclient
-	https://pypi.org/project/python-manilaclient
+	https://pypi.org/project/python-manilaclient/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

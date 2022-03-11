@@ -4,7 +4,7 @@
 EAPI=8
 
 WANT_LIBTOOL=none
-inherit autotools toolchain-funcs
+inherit autotools
 
 DESCRIPTION="Limine is a modern, advanced x86/x86_64 BIOS/UEFI multiprotocol bootloader."
 HOMEPAGE="https://limine-bootloader.org/"
@@ -13,7 +13,18 @@ SRC_URI="https://github.com/limine-bootloader/limine/releases/download/v${PV}/li
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+eltorito-efi"
+IUSE="+bios +bios-pxe +bios-cd +limine-install +uefi +eltorito-efi +uefi32 +uefi64"
+REQUIRED_USE="
+	uefi32? ( uefi )
+	uefi64? ( uefi )
+	eltorito-efi? ( uefi )
+	uefi? ( || ( uefi32 uefi64 eltorito-efi ) )
+
+	bios-pxe? ( bios )
+	bios-cd? ( bios )
+	limine-install? ( bios )
+	bios? ( || ( bios-pxe bios-cd limine-install ) )
+"
 
 BDEPEND="
 	sys-apps/findutils
@@ -22,20 +33,19 @@ BDEPEND="
 	eltorito-efi? ( sys-fs/mtools )
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-2.84.2-r1-limine-install-respect-ldflags.patch"
-)
-
 src_configure() {
 	local myconf=(
+		"$(use_enable bios)"
+		"$(use_enable bios-cd)"
+		"$(use_enable bios-pxe)"
+		"$(use_enable limine-install)"
+
+		"$(use_enable uefi)"
+		"$(use_enable uefi32)"
+		"$(use_enable uefi64)"
 		"$(use_enable eltorito-efi)"
 	)
 
-	LIMINE_LD="$(tc-getLD)" \
-	LIMINE_AR="$(tc-getAR)" \
-	LIMINE_AS="$(tc-getAS)" \
-	LIMINE_OBJCOPY="$(tc-getOBJCOPY)" \
-	LIMINE_OBJDUMP="$(tc-getOBJDUMP)" \
-	LIMINE_READELF="$(tc-getREADELF)" \
+	TOOLCHAIN="${CHOST}" \
 	econf "${myconf[@]}"
 }

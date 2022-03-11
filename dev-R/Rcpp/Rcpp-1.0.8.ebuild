@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
@@ -14,3 +14,10 @@ HOMEPAGE="
 	https://cran.r-project.org/package=Rcpp
 "
 KEYWORDS="~amd64"
+
+SUGGESTED_PACKAGES="
+	dev-R/tinytest
+	dev-R/inline
+	dev-R/rbenchmark
+	>=dev-R/pkgKitten-0.1.2
+"

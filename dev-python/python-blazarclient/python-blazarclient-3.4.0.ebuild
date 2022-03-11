@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
@@ -11,7 +11,7 @@ DESCRIPTION="This is a client for the OpenStack Blazar API"
 HOMEPAGE="
 	https://github.com/openstack/python-blazarclient
 	https://opendev.org/openstack/python-blazarclient
-	https://pypi.org/project/python-blazarclient
+	https://pypi.org/project/python-blazarclient/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
