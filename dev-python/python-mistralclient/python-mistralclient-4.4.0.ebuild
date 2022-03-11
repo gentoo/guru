@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
@@ -12,7 +12,7 @@ HOMEPAGE="
 	https://github.com/openstack/python-mistralclient
 	https://opendev.org/openstack/python-blazarclient
 	https://pypi.org/project/python-blazarclient
-	https://launchpad.net/python-mistralclient
+	https://launchpad.net/python-mistralclient/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
