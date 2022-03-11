@@ -1,17 +1,22 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+MYP="${P/-python/}"
+MYPN="${PN/-python/}"
 PYTHON_COMPAT=( python3_{8..10} pypy3 )
 
 inherit distutils-r1
 
 DESCRIPTION="Python bindings for BrowserStack Local"
-HOMEPAGE="https://github.com/browserstack/browserstack-local-python"
-SRC_URI="https://github.com/browserstack/browserstack-local-python/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-
-KEYWORDS="~amd64 ~x86"
+HOMEPAGE="
+	https://github.com/browserstack/browserstack-local-python
+	https://pypi.org/project/browserstack-local/
+"
+SRC_URI="mirror://pypi/${MYPN:0:1}/${MYPN}/${MYP}.tar.gz"
+S="${WORKDIR}/${MYP}"
+KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"
 
