@@ -7,7 +7,7 @@ inherit desktop gnome2-utils meson pam readme.gentoo-r1 systemd xdg
 
 MY_P="${PN}-v${PV}"
 LVC_COMMIT="ae1a34aafce7026b8c0f65a43c9192d756fe1057"
-LCU_COMMIT="5c79ccfc017db217d3a23a211919604083438846"
+LCU_COMMIT="acfbb136bbf74514e0b9801ce6c1e8acf36350b6"
 
 DESCRIPTION="A pure Wayland shell prototype for GNOME on mobile devices"
 HOMEPAGE="https://gitlab.gnome.org/World/Phosh/phosh/"
@@ -48,6 +48,7 @@ BDEPEND="
 
 src_prepare() {
 	default
+	eapply_user
 	rm -r "${S}"/subprojects/gvc || die
 	mv "${WORKDIR}"/libgnome-volume-control-"${LVC_COMMIT}" "${S}"/subprojects/gvc || die
 	rm -r "${S}"/subprojects/libcall-ui || die
