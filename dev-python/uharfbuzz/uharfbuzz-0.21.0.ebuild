@@ -1,10 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DISTUTILS_USE_SETUPTOOLS="pyproject.toml"
-EPYTEST_DESELECT=( "tests/test_uharfbuzz.py::TestCallbacks::test_message_func" )
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} pypy3 )
 
 inherit distutils-r1
@@ -20,11 +19,12 @@ SLOT="0"
 RDEPEND=">=media-libs/harfbuzz-2.8.1[experimental(-)]"
 DEPEND="
 	${RDEPEND}
-	dev-python/setuptools_scm[${PYTHON_USEDEP}]
-	dev-python/cython[${PYTHON_USEDEP}]
+	>=dev-python/cython-0.28.1[${PYTHON_USEDEP}]
+	>=dev-python/setuptools_scm-2.1[${PYTHON_USEDEP}]
+	>=dev-python/wheel-0.31[${PYTHON_USEDEP}]
 "
 
-PATCHES=( "${FILESDIR}/${P}-system-harfbuzz.patch" )
+PATCHES=( "${FILESDIR}/${PN}-0.18.0-system-harfbuzz.patch" )
 
 distutils_enable_tests pytest
 

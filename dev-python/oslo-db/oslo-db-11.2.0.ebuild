@@ -4,13 +4,13 @@
 EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=bdepend
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 DESCRIPTION="OpenStack Common DB Code"
 HOMEPAGE="
-	https://pypi.org/project/oslo.db
+	https://pypi.org/project/oslo.db/
 	https://opendev.org/openstack/oslo.db
 	https://launchpad.net/oslo.db
 "

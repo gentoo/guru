@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
@@ -30,8 +30,8 @@ RDEPEND="
 	>=dev-python/oslo-utils-4.7.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-serialization-1.10.0[${PYTHON_USEDEP}]
 "
-DEPEND="${RDEPEND}"
-BDEPEND="
+DEPEND="
+	${RDEPEND}
 	test? (
 		>=dev-python/subunit-0.0.18[${PYTHON_USEDEP}]
 		>=dev-python/testtools-1.4.0[${PYTHON_USEDEP}]
@@ -44,6 +44,7 @@ BDEPEND="
 		dev-python/etcd3gw[${PYTHON_USEDEP}]
 		dev-python/pymemcache[${PYTHON_USEDEP}]
 		dev-python/pymysql[${PYTHON_USEDEP}]
+		dev-python/pyyaml[${PYTHON_USEDEP}]
 		dev-python/sysv_ipc[${PYTHON_USEDEP}]
 		dev-python/zake[${PYTHON_USEDEP}]
 	)
@@ -52,7 +53,7 @@ BDEPEND="
 distutils_enable_tests nose
 
 python_prepare_all() {
-	# allow useage of renamed msgpack
+	# allow usage of renamed msgpack
 	sed -i '/^msgpack/d' requirements.txt || die
 	distutils-r1_python_prepare_all
 }

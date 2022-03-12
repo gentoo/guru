@@ -4,13 +4,13 @@
 EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=bdepend
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 DESCRIPTION="Components injected into wsgi pipelines to intercept request/response flows"
 HOMEPAGE="
-	https://pypi.org/project/oslo.middleware
+	https://pypi.org/project/oslo.middleware/
 	https://launchpad.net/oslo.middleware
 	https://opendev.org/openstack/oslo.middleware
 "
@@ -34,8 +34,8 @@ RDEPEND="
 	>=dev-python/statsd-3.2.1[${PYTHON_USEDEP}]
 	>=dev-python/bcrypt-3.1.3[${PYTHON_USEDEP}]
 "
-DEPEND="${RDEPEND}"
-BDEPEND="
+DEPEND="
+	${RDEPEND}
 	test? (
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]

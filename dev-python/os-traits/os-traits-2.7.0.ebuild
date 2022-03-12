@@ -3,14 +3,14 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
-DESCRIPTION="os-traits is a library containing standardized trait strings."
+DESCRIPTION="os-traits is a library containing standardized trait strings"
 HOMEPAGE="
 	https://github.com/openstack/os-traits
-	https://pypi.org/project/os-traits
+	https://pypi.org/project/os-traits/
 	https://opendev.org/openstack/os-traits
 	https://launchpad.net/os-traits
 "

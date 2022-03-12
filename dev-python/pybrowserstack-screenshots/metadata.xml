@@ -9,6 +9,6 @@
     <upstream>
         <bugs-to>https://github.com/cmck/pybrowserstack-screenshots/issues</bugs-to>
         <remote-id type="github">cmck/pybrowserstack-screenshots</remote-id>
-        <remote-id type="pypi">pybrowserstack-screenshot</remote-id>
+        <remote-id type="pypi">pybrowserstack-screenshots</remote-id>
         </upstream>
 </pkgmetadata>

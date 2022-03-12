@@ -3,6 +3,7 @@
 
 EAPI=8
 
+EPYTEST_IGNORE=( designateclient/functionaltests/ )
 PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
@@ -32,8 +33,8 @@ RDEPEND="
 	>=dev-python/stevedore-1.20.0[${PYTHON_USEDEP}]
 	>=dev-python/debtcollector-1.2.0[${PYTHON_USEDEP}]
 "
-DEPEND="${RDEPEND}"
-BDEPEND="
+DEPEND="
+	${RDEPEND}
 	test? (
 		>=dev-python/oslo-config-5.2.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]

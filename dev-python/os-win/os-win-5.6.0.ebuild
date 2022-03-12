@@ -28,12 +28,13 @@ EPYTEST_DESELECT=(
 	os_win/tests/unit/utils/network/test_networkutils.py::NetworkUtilsTestCase::test_create_default_setting_data
 	os_win/tests/unit/utils/network/test_networkutils.py::NetworkUtilsTestCase::test_is_port_vm_started_false
 	os_win/tests/unit/utils/network/test_networkutils.py::NetworkUtilsTestCase::test_is_port_vm_started_true
+	os_win/tests/unit/test_hacking.py
 )
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
-DESCRIPTION="Windows / Hyper-V library for OpenStack projects."
+DESCRIPTION="Windows / Hyper-V library for OpenStack projects"
 HOMEPAGE="
 	https://github.com/openstack/os-win
 	https://opendev.org/openstack/os-win

@@ -9,6 +9,6 @@
     <upstream>
         <bugs-to>https://github.com/googlefonts/ots-python/issues</bugs-to>
         <remote-id type="github">googlefonts/ots-python</remote-id>
-        <remote-id type="pypi">ots-python</remote-id>
+        <remote-id type="pypi">opentype-sanitizers</remote-id>
     </upstream>
 </pkgmetadata>

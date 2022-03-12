@@ -42,3 +42,7 @@ DEPEND="
 "
 
 distutils_enable_tests pytest
+
+EPYTEST_IGNORE=(
+	octaviaclient/tests/unit/test_hacking.py
+)
