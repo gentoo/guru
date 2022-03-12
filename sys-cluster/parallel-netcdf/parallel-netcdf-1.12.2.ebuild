@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ DESCRIPTION="Parallel extension to netCDF"
 HOMEPAGE="
 	https://parallel-netcdf.github.io
 	http://cucis.ece.northwestern.edu/projects/PnetCDF
-	http://www-unix.mcs.anl.gov/parallel-netcdf
+	https://trac.mcs.anl.gov/projects/parallel-netcdf
 "
 SRC_URI="http://cucis.ece.northwestern.edu/projects/PnetCDF/Release/${MYP}.tar.gz"
 S="${WORKDIR}/${MYP}"
