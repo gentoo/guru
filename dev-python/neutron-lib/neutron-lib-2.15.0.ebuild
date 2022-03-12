@@ -11,15 +11,15 @@ EPYTEST_DESELECT=(
 	neutron_lib/tests/unit/objects/test_common_types.py::TestField::test_to_primitive_json_serializable
 	neutron_lib/tests/unit/objects/test_common_types.py::TestField::test_from_primitive
 )
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
-DESCRIPTION="Neutron shared routines and utilities."
+DESCRIPTION="Neutron shared routines and utilities"
 HOMEPAGE="
 	https://github.com/openstack/neutron-lib
 	https://opendev.org/openstack/neutron-lib
-	https://pypi.org/project/neutron-lib
+	https://pypi.org/project/neutron-lib/
 
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
@@ -65,5 +65,4 @@ DEPEND="
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 	)
 "
-
 distutils_enable_tests pytest
