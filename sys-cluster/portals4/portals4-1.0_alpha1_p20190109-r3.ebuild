@@ -12,7 +12,7 @@ inherit autotools docs optfeature
 
 DESCRIPTION="low-level network API for high-performance networking"
 HOMEPAGE="
-	https://www.cs.sandia.gov/Portals/portals4.html
+	https://www.sandia.gov/portals/portals-4-0/
 	https://github.com/Portals4/portals4
 "
 SRC_URI="https://github.com/Portals4/portals4/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
