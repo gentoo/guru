@@ -3,15 +3,15 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
-DESCRIPTION="A library that provides a generic versioned and RPC-friendly  object model."
+DESCRIPTION="A library that provides a generic versioned and RPC-friendly object model"
 HOMEPAGE="
 	https://docs.openstack.org/developer/oslo.versionedobjects
 	https://opendev.org/openstack/oslo.versionedobjects
-	https://pypi.org/project/oslo.versionedobjects
+	https://pypi.org/project/oslo.versionedobjects/
 	https://launchpad.net/oslo.versionedobjects
 "
 SRC_URI="mirror://pypi/${PN:0:1}/oslo.versionedobjects/oslo.versionedobjects-${PV}.tar.gz"
