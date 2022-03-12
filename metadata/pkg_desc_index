@@ -129,7 +129,7 @@ app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
 app-misc/watchexec 1.15.3 1.16.2 1.17.0 1.17.1 1.18.1 1.18.5 1.18.6 1.18.7: Executes commands in response to file modifications
 app-misc/wego 2.1: Wego is a weather client for the terminal
 app-misc/xplr 0.15.2 0.17.0 0.17.1 0.17.2: A hackable, minimal, fast TUI file explorer
-app-misc/zellij 0.25.0-r1: A terminal workspace with batteries included
+app-misc/zellij 0.26.0: A terminal workspace with batteries included
 app-mobilephone/flashlight 0.1.1-r2: It's a flashlight, what do you expect?
 app-mobilephone/mobile-config-firefox 2.1.0: Mobile and privacy friendly configuration for Firefox
 app-mobilephone/pinephone-modem-scripts 0.20.8: Modem scripts for the PinePhone
@@ -409,7 +409,7 @@ dev-python/browserstack-local-python 1.2.3: Python bindings for BrowserStack Loc
 dev-python/bson 0.5.8: Independent BSON codec for Python that doesn't depend on MongoDB
 dev-python/castellan 3.9.1: Generic Key Manager interface for OpenStack
 dev-python/celery 5.1.1: Asynchronous task queue/job queue based on distributed message passing
-dev-python/cffsubr 0.2.8: Standalone CFF subroutinizer based on AFDKO tx tool
+dev-python/cffsubr 0.2.8 0.2.9_p1: Standalone CFF subroutinizer based on AFDKO tx tool
 dev-python/check-manifest 0.46: Tool to check the completeness of MANIFEST.in for Python packages
 dev-python/click-didyoumean 0.0.3: Enable git-like did-you-mean feature in click
 dev-python/click-repl 0.2.0: Subcommand REPL for click apps
@@ -419,7 +419,7 @@ dev-python/cmarkgfm 0.6.0: Python bindings for GitHub's cmark
 dev-python/collidoscope 0.0.6: Brute force detection of glyph collisions
 dev-python/colored 1.4.2 1.4.3: Very simple Python library for color and formatting in terminal
 dev-python/commandlines 0.4.1: Routines for extracting information from fontTools glyphs
-dev-python/compreffor 0.5.1: A CFF table subroutinizer for FontTools
+dev-python/compreffor 0.5.1 0.5.1_p1: A CFF table subroutinizer for FontTools
 dev-python/confluent-kafka 1.7.0: Confluent's Kafka Python Client
 dev-python/convertdate 2.3.2 2.4.0: Utils for converting between date formats and calculating holidays
 dev-python/cotyledon 1.7.3: Cotyledon provides a framework for defining long-running services
@@ -441,7 +441,7 @@ dev-python/doubles 1.5.3: Test doubles for Python
 dev-python/doxypypy 0.8.8.6_p20210405: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/dropbox-sdk-python 11.27.0: The offical Dropbox SDK for Python
 dev-python/etcd3 0.12.0: Python client for the etcd API v3
-dev-python/etcd3gw 1.0.0: A python client for etcd3 grpc-gateway v3 API
+dev-python/etcd3gw 1.0.0 1.0.1: A python client for etcd3 grpc-gateway v3 API
 dev-python/exifread 2.3.2: Easy to use Python module to extract Exif metadata from tiff and jpeg files
 dev-python/factory_boy 3.2.0: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11-r1: Up to date simple useragent faker with real world database
@@ -452,7 +452,7 @@ dev-python/font-v 1.0.5: Font version string reporting and modification library
 dev-python/fontMath 0.6.0 0.8.1: A collection of objects that implement fast font math
 dev-python/fontParts 0.9.10 0.9.11: An API for interacting with the parts of fonts
 dev-python/fontPens 0.2.4: A collection of classes implementing the pen protocol for manipulating glyphs
-dev-python/futurist 2.3.0: Useful additions to futures, from the future
+dev-python/futurist 2.3.0-r1: Useful additions to futures, from the future
 dev-python/gabbi 2.3.0: Declarative HTTP testing library
 dev-python/gemcall 0.8: A library and CLI tool for making gemini requests
 dev-python/github-sublee-glicko2 0_pre20191010-r1: An implementation of the Glicko-2 rating system for Python
@@ -502,7 +502,7 @@ dev-python/mnemonic 0.19: Reference implementation of BIP-0039 for generating de
 dev-python/mobi 0.3.2-r1: unpack unencrypted mobi files
 dev-python/monotonic 1.6: An implementation of time.monotonic() for Python 2 & < 3.3
 dev-python/ncclient 0.6.12: Python library for NETCONF clients
-dev-python/neutron-lib 2.15.0: Neutron shared routines and utilities.
+dev-python/neutron-lib 2.15.0: Neutron shared routines and utilities
 dev-python/noiseprotocol 0.3.1: Python implementation of Noise Protocol Framework
 dev-python/opentracing 2.4.0: OpenTracing API for Python
 dev-python/opentracing_instrumentation 3.3.1: A collection of Python instrumentation tools for the OpenTracing API
@@ -511,29 +511,29 @@ dev-python/orjson 3.5.3-r1: Fast, correct Python JSON library supporting datacla
 dev-python/orjson-bin 3.6.4: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
 dev-python/os-api-ref 2.2.0: Sphinx Extensions to support API reference sites in OpenStack
 dev-python/os-brick 5.0.1: OpenStack Cinder brick library for managing local volume attaches
-dev-python/os-ken 2.1.0: OpenStack Cinder brick library for managing local volume attaches
+dev-python/os-ken 2.3.1: OpenStack Cinder brick library for managing local volume attaches
 dev-python/os-resource-classes 1.1.0: A list of standardized resource classes for OpenStack
 dev-python/os-testr 2.0.1: A testr wrapper to provide functionality for OpenStack projects
-dev-python/os-traits 2.6.0: os-traits is a library containing standardized trait strings.
+dev-python/os-traits 2.7.0: os-traits is a library containing standardized trait strings
 dev-python/os-vif 2.6.0: OpenStack Cinder brick library for managing local volume attaches
-dev-python/os-win 5.5.0: Windows / Hyper-V library for OpenStack projects.
+dev-python/os-win 5.6.0: Windows / Hyper-V library for OpenStack projects
 dev-python/os-xenapi 0.3.4-r2: XenAPI library for OpenStack projects
 dev-python/oscrypto 1.2.1: TLS sockets, key generation, encryption, decryption, signing, verification
 dev-python/oslo-cache 2.8.1: Oslo Caching around dogpile.cache
-dev-python/oslo-db 11.0.0: OpenStack Common DB Code
+dev-python/oslo-db 11.2.0: OpenStack Common DB Code
 dev-python/oslo-messaging 12.9.1: Messaging API for RPC and notifications over different messaging transports
 dev-python/oslo-metrics 0.3.0: OpenStack library for collecting metrics from Oslo libraries
 dev-python/oslo-middleware 4.4.0: Components injected into wsgi pipelines to intercept request/response flows
-dev-python/oslo-policy 3.5.0 3.8.2: Support for RBAC policy enforcement across all OpenStack services
+dev-python/oslo-policy 3.8.2: Support for RBAC policy enforcement across all OpenStack services
 dev-python/oslo-privsep 2.4.0: OpenStack library for privilege separation.
 dev-python/oslo-reports 2.3.0: generified reports for openstack
 dev-python/oslo-rootwrap 6.3.0: Allows fine filtering of shell commands to run as root from OpenStack services
 dev-python/oslo-service 2.6.0: Library for running OpenStack services
 dev-python/oslo-upgradecheck 1.4.0: Common code for writing OpenStack upgrade checks
-dev-python/oslo-versionedobjects 2.5.0: A library that provides a generic versioned and RPC-friendly object model.
+dev-python/oslo-versionedobjects 2.5.0: A library that provides a generic versioned and RPC-friendly object model
 dev-python/oslo-vmware 3.9.1: Oslo VMware library for OpenStack projects
 dev-python/osprofiler 3.4.2: OpenStack Profiler Library
-dev-python/ots-python 8.1.4: A Python wrapper for OpenType Sanitizer
+dev-python/ots-python 8.1.4-r1: A Python wrapper for OpenType Sanitizer
 dev-python/ovsdbapp 1.12.0: A library for creating OVSDB applications
 dev-python/parsel 1.6.0: Utility to extract data from XML/HTML documents using XPath or CSS selectors
 dev-python/pdfminer-six 20201018: Community maintained fork of pdfminer
@@ -553,7 +553,7 @@ dev-python/psycopg2cffi 2.9.0: Implementation of the psycopg2 module using cffi.
 dev-python/pure-protobuf 2.1.0: Python implementation of Protocol Buffers data types with dataclasses support
 dev-python/py3nvml 0.2.6: Python 3 Bindings for the NVIDIA Management Library
 dev-python/pybeam 0.7: Python module to parse Erlang BEAM files
-dev-python/pybrowserstack-screenshots 0.1: A python api wrapper and client for Browserstack Screenshots API
+dev-python/pybrowserstack-screenshots 0.1-r1: A python api wrapper and client for Browserstack Screenshots API
 dev-python/pycadf 3.1.1: python implementation of DMTF Cloud Audit (CADF) data model
 dev-python/pydub 0.25.1: Manipulate audio with an simple and easy high level interface
 dev-python/pyfiglet 0.8_p1 9999: Pure-python FIGlet implementation
@@ -661,18 +661,19 @@ dev-python/transaction 3.0.1: Transaction management for Python
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill Algorithm
 dev-python/ttfautohint-py 0.4.3: A Python wrapper for ttfautohint
 dev-python/tweepy 3.10.0: An easy-to-use Python library for accessing the Twitter API.
-dev-python/types-paramiko 2.7.3: Typing stubs for paramiko
-dev-python/types-python-dateutil 2.8.2: Typing stubs for python-dateutil
-dev-python/types-pytz 2021.3.0: Typing stubs for paramiko
-dev-python/types-requests 2.25.11: Typing stubs for requests
-dev-python/ufo2ft 2.21.0: A bridge from UFOs to FontTool objects
-dev-python/ufoLib2 0.11.1 0.11.4: A UFO font library
+dev-python/types-paramiko 2.7.3 2.8.16: Typing stubs for paramiko
+dev-python/types-python-dateutil 2.8.2 2.8.9: Typing stubs for python-dateutil
+dev-python/types-pytz 2021.3.0 2021.3.5: Typing stubs for pytz
+dev-python/types-requests 2.25.11 2.27.11: Typing stubs for requests
+dev-python/types-urllib3 1.26.10: Typing stubs for urllib3
+dev-python/ufo2ft 2.21.0 2.25.3: A bridge from UFOs to FontTool objects
+dev-python/ufoLib2 0.11.4 0.13.1: A UFO font library
 dev-python/ufoNormalizer 0.5.4 0.6.1: A tool that will normalize the XML and other data inside of a UFO
 dev-python/ufoProcessor 1.9.0: A Python package for processing and generating UFO files
-dev-python/uharfbuzz 0.16.1 0.18.0: Streamlined Cython bindings for the HarfBuzz shaping engine
+dev-python/uharfbuzz 0.18.0 0.21.0: Streamlined Cython bindings for the HarfBuzz shaping engine
 dev-python/uhashring 2.1: Full featured consistent hashing python library compatible with ketama
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
-dev-python/unicodedata2 13.0.0.2: Unicodedata backport for python 2/3 updated to the latest unicode version
+dev-python/unicodedata2 13.0.0.2 14.0.0: Unicodedata backport for python 2/3 updated to the latest unicode version
 dev-python/urlmatch 1.0.1-r1: A Python library for easily pattern matching wildcard URLs
 dev-python/vharfbuzz 0.1.1 0.1.2: A user-friendlier way to use Harfbuzz in Python
 dev-python/vttlib 0.11.0: Dump, merge and compile Visual TrueType data in UFO3 with FontTools
@@ -680,8 +681,8 @@ dev-python/w3lib 1.22.0: Library of web-related functions
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
 dev-python/webrtcvad 2.0.10: Python interface to the Google WebRTC Voice Activity Detector (VAD)
 dev-python/wrapio 2.0.0: Handling event-based streams in Python
-dev-python/wsgi_intercept 1.9.2: wsgi_intercept installs a WSGI application in place of a real URI for testing
-dev-python/xattr 0.9.7: Python wrapper for extended filesystem attributes
+dev-python/wsgi_intercept 1.9.2 1.9.3: wsgi_intercept installs a WSGI application in place of a real URI for testing
+dev-python/xattr 0.9.7 0.9.9: Python wrapper for extended filesystem attributes
 dev-python/xunitparser 1.3.3: Read JUnit/XUnit XML files and map them to Python objects
 dev-python/yams 0.7.3 9999: Yet Another MPD Scrobbler (for Last.FM)
 dev-python/yaql 2.0.0: YAQL: Yet Another Query Language
