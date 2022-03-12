@@ -8,6 +8,5 @@
     </maintainer>
     <upstream>
         <remote-id type="github">so-fancy/diff-so-fancy</remote-id>
-        <remote-id type="gitlab">so-fancy/diff-so-fancy</remote-id>
     </upstream>
 </pkgmetadata>
