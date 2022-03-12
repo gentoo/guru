@@ -4,13 +4,13 @@
 EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=bdepend
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 DESCRIPTION="Library for running OpenStack services"
 HOMEPAGE="
-	https://pypi.org/project/oslo.service
+	https://pypi.org/project/oslo.service/
 	https://opendev.org/openstack/oslo.service
 	https://launchpad.net/oslo.service
 "
@@ -20,7 +20,6 @@ S="${WORKDIR}/oslo.service-${PV}"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 RDEPEND="
 	>=dev-python/webob-1.7.1[${PYTHON_USEDEP}]
