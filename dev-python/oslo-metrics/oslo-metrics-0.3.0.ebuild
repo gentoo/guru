@@ -3,13 +3,13 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 DESCRIPTION="OpenStack library for collecting metrics from Oslo libraries"
 HOMEPAGE="
-	https://pypi.org/project/oslo.metrics
+	https://pypi.org/project/oslo.metrics/
 	https://opendev.org/openstack/oslo.metrics
 	https://launchpad.net/oslo.metrics
 "
