@@ -28,8 +28,8 @@ EPYTEST_DESELECT=(
 	os_win/tests/unit/utils/network/test_networkutils.py::NetworkUtilsTestCase::test_create_default_setting_data
 	os_win/tests/unit/utils/network/test_networkutils.py::NetworkUtilsTestCase::test_is_port_vm_started_false
 	os_win/tests/unit/utils/network/test_networkutils.py::NetworkUtilsTestCase::test_is_port_vm_started_true
-	os_win/tests/unit/test_hacking.py
 )
+EPYTEST_IGNORE=( os_win/tests/unit/test_hacking.py )
 PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
@@ -56,8 +56,8 @@ RDEPEND="
 	>=dev-python/oslo-utils-4.7.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-i18n-3.15.3[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	test? (
 		>=dev-python/ddt-1.2.1[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.8.0[${PYTHON_USEDEP}]
