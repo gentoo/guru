@@ -4,13 +4,13 @@
 EAPI=8
 
 EPYTEST_DESELECT=( oslo_vmware/tests/test_service.py::RequestsTransportTest::test_send_with_local_file_url )
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 DESCRIPTION="Oslo VMware library for OpenStack projects"
 HOMEPAGE="
-	https://pypi.org/project/oslo.vmware
+	https://pypi.org/project/oslo.vmware/
 	https://opendev.org/openstack/oslo.vmware
 	https://launchpad.net/oslo.vmware
 "
@@ -36,9 +36,8 @@ RDEPEND="
 	>=dev-python/oslo-concurrency-3.26.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-context-2.19.2[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
-	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
+DEPEND="${RDEPEND}"
+BDEPEND="
 	test? (
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
@@ -48,7 +47,3 @@ DEPEND="
 "
 
 distutils_enable_tests pytest
-
-python_prepare() {
-	sed -i '/^suds-jurko/d' requirements.txt || die
-}
