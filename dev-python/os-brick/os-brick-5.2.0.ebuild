@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
@@ -11,7 +11,7 @@ DESCRIPTION="OpenStack Cinder brick library for managing local volume attaches"
 HOMEPAGE="
 	https://opendev.org/openstack/os-brick
 	https://launchpad.net/os-brick
-	https://pypi.org/project/os-brick
+	https://pypi.org/project/os-brick/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
@@ -34,8 +34,8 @@ RDEPEND="
 	>=dev-python/tenacity-6.3.1[${PYTHON_USEDEP}]
 	>=dev-python/os-win-5.4.0[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	test? (
 		>=dev-python/ddt-1.4.1[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-4.4.1[${PYTHON_USEDEP}]
