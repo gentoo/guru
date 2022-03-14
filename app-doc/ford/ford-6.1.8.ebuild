@@ -36,6 +36,11 @@ DOCS=( CHANGELOG.md README.md README.rst )
 
 distutils_enable_tests pytest
 
+EPYTEST_IGNORE=(
+	# app-doc/ford-6.1.8 'test/test_projects/test_external_project.py' use external url
+	test/test_projects/test_external_project.py
+)
+
 python_test(){
 	# The 'test/test_projects' tests use subprocess, i.e. require FORD to be installed.
 	distutils_install_for_testing
