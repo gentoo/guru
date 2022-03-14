@@ -30,8 +30,8 @@ RDEPEND="
 	>=dev-python/oslo-utils-4.7.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-serialization-1.10.0[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	test? (
 		>=dev-python/subunit-0.0.18[${PYTHON_USEDEP}]
 		>=dev-python/testtools-1.4.0[${PYTHON_USEDEP}]
@@ -56,4 +56,13 @@ python_prepare_all() {
 	# allow usage of renamed msgpack
 	sed -i '/^msgpack/d' requirements.txt || die
 	distutils-r1_python_prepare_all
+}
+
+python_test() {
+	nosetests \
+		-e tooz.tests.test_coordination.TestAPI \
+		-e tooz.tests.test_memcache.TestMemcacheDriverFailures.test_client_failure_join \
+		-e tooz.tests.test_memcache.TestMemcacheDriverFailures.test_client_failure_leave \
+		-e tooz.tests.test_partitioner \
+		|| die
 }
