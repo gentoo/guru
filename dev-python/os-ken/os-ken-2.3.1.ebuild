@@ -32,6 +32,8 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
+"
+BDEPEND="
 	test? (
 		>=dev-python/subunit-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
@@ -40,8 +42,11 @@ DEPEND="
 		dev-python/lxml[${PYTHON_USEDEP}]
 		dev-python/ncclient[${PYTHON_USEDEP}]
 		dev-python/sqlalchemy[${PYTHON_USEDEP}]
-		app-admin/sudo
 	)
 "
 
 distutils_enable_tests nose
+
+python_test() {
+	nosetests -e "os_ken.tests.integrated.common.docker_base" || die
+}
