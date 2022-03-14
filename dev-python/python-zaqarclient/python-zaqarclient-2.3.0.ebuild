@@ -4,14 +4,14 @@
 EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=bdepend
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 DESCRIPTION="A client for the OpenStack Zaqar API"
 HOMEPAGE="
 	https://github.com/openstack/python-zaqarclient
-	https://pypi.org/project/python-zaqarclient
+	https://pypi.org/project/python-zaqarclient/
 	https://launchpad.net/python-zaqarclient
 	https://opendev.org/openstack/python-zaqarclient
 "
