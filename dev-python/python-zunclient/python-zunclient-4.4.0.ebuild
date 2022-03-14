@@ -3,14 +3,14 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 DESCRIPTION="A client for the OpenStack Zun API"
 HOMEPAGE="
 	https://github.com/openstack/python-zunclient
-	https://pypi.org/project/python-zunclient
+	https://pypi.org/project/python-zunclient/
 	https://launchpad.net/python-zunclient
 	https://opendev.org/openstack/python-zunclient
 "
