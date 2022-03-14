@@ -4,14 +4,14 @@
 EAPI=8
 
 EPYTEST_IGNORE=( ovsdbapp/tests/functional )
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 DESCRIPTION="A library for creating OVSDB applications"
 HOMEPAGE="
 	https://opendev.org/openstack/ovsdbapp
-	https://pypi.org/project/ovsdbapp
+	https://pypi.org/project/ovsdbapp/
 	https://launchpad.net/ovsdbapp
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
@@ -26,8 +26,8 @@ RDEPEND="
 	>=dev-python/ovs-2.10.0[${PYTHON_USEDEP}]
 	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	test? (
 		>=dev-python/subunit-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
