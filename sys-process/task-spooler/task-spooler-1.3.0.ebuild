@@ -5,7 +5,8 @@ EAPI=8
 
 inherit cmake
 
-DESCRIPTION="A scheduler for CPU tasks "
+DESCRIPTION="A scheduler for CPU tasks"
+HOMEPAGE="https://github.com/justanhduc/task-spooler"
 SRC_URI="https://github.com/justanhduc/${PN}/archive/refs/tags/v${PV}-cpu.tar.gz -> ${P}.tar.gz"
 
 # A GPU version does exist, if anyone needs it, it can be added through a use flag

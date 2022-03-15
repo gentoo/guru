@@ -6,7 +6,7 @@
 		<name>Adel KARA SLIMANE</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">ustanhduc/task-spooler</remote-id>
-		<bugs-to>https://github.com/ustanhduc/task-spooler/issues</bugs-to>
+		<remote-id type="github">justanhduc/task-spooler</remote-id>
+		<bugs-to>https://github.com/justanhduc/task-spooler/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
