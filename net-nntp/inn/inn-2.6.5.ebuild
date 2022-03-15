@@ -90,7 +90,7 @@ src_configure() {
 src_install() {
 	default
 
-	keepdir /var/log/inn/OLD
+	keepdir /var/log/news/OLD
 	keepdir /var/tmp/news
 	keepdir /var/spool/news/{archive,articles,incoming/bad,innfeed,outgoing,overview}
 
@@ -115,4 +115,6 @@ pkg_postinst() {
 		optfeature "innreport script" dev-perl/GD
 		optfeature "send-uucp backend" net-misc/taylor-uucp
 	fi
+
+	tmpfiles_process inn.conf
 }
