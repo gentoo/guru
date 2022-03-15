@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=bdepend
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
@@ -13,7 +13,7 @@ HOMEPAGE="
 	https://github.com/openstack/keystonemiddleware
 	https://opendev.org/openstack/keystonemiddleware
 	https://launchpad.net/keystonemiddleware
-	https://pypi.org/project/keystonemiddleware
+	https://pypi.org/project/keystonemiddleware/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
