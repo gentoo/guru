@@ -9,6 +9,11 @@
 # TODO: Either fix per profile masking in overlays, or move
 # relevant entries to the relevant package.mask files in ::gentoo
 
+# Adrian Schollmeyer <nex+b-g-o@nexadn.de> (2022-03-15)
+# Package will be removed after 2022-04-15 from ::guru, since it is no longer
+# being used by net-im/abaddon and has no other reverse dependencies.
+dev-cpp/simpleini
+
 # Yuan Liao <liaoyuan@gmail.com> (2022-02-20)
 # Depends on net-libs/libsoup:3.0, which is masked in ::gentoo.
 # Masked until all dependencies are unmasked.

@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=bdepend
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
@@ -13,7 +13,7 @@ MY_PN=${PN/-/.}
 DESCRIPTION="Oslo Caching around dogpile.cache"
 HOMEPAGE="
 	https://opendev.org/openstack/oslo.cache
-	https://pypi.org/project/oslo.cache
+	https://pypi.org/project/oslo.cache/
 	https://github.com/openstack/oslo.cache
 "
 SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_PN}-${PV}.tar.gz -> ${P}.tar.gz"
@@ -32,8 +32,8 @@ RDEPEND="
 	>=dev-python/oslo-log-4.2.1[${PYTHON_USEDEP}]
 	>=dev-python/oslo-utils-4.2.0[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	test? (
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/pifpaf-0.10.0[${PYTHON_USEDEP}]

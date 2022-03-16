@@ -18,10 +18,15 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="dev-python/uhashring[${PYTHON_USEDEP}]"
+RDEPEND="
+	dev-python/six[${PYTHON_USEDEP}]
+	dev-python/uhashring[${PYTHON_USEDEP}]
+"
 DEPEND="
 	${RDEPEND}
-	dev-python/six[${PYTHON_USEDEP}]
+	test? ( net-misc/memcached )
+"
+BDEPEND="
 	test? (
 		>=dev-python/m2r-0.2.1[${PYTHON_USEDEP}]
 		dev-python/mistune[${PYTHON_USEDEP}]
@@ -30,5 +35,7 @@ DEPEND="
 		>=dev-python/mock-4.0[${PYTHON_USEDEP}]
 	)
 "
+
+RESTRICT="test" # tests require a running memcached
 
 distutils_enable_tests pytest
