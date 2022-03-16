@@ -3,7 +3,9 @@
 
 EAPI=8
 
-inherit cmake
+PYTHON_COMPAT=( python3_{8..10} pypy3 )
+
+inherit cmake python-any-r1
 
 DESCRIPTION="Compiler and toolchain infrastructure library for WebAssembly"
 HOMEPAGE="https://github.com/WebAssembly/binaryen"
@@ -14,6 +16,14 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
+
+DEPEND="
+	test? (
+		${PYTHON_DEPS}
+		$(python_gen_any_dep '>=dev-python/filecheck-0.0.17[${PYTHON_USEDEP}]')
+		$(python_gen_any_dep 'dev-python/lit[${PYTHON_USEDEP}]')
+	)
+"
 
 RESTRICT="!test? ( test )"
 
@@ -26,5 +36,5 @@ src_configure() {
 }
 
 src_test() {
-	./check.py || die
+	LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${BUILD_DIR}/lib" "${EPYTHON}" check.py --binaryen-bin="${BUILD_DIR}/bin" || die
 }
