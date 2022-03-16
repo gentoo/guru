@@ -1,15 +1,15 @@
 BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
-DEPEND=app-arch/brotli dev-cpp/gflags dev-cpp/gtest dev-cpp/highway dev-util/google-perftools media-libs/freeglut media-libs/giflib media-libs/lcms media-libs/libpng media-libs/openexr:= sys-libs/zlib virtual/jpeg virtual/opengl x11-misc/shared-mime-info gdk-pixbuf? ( x11-libs/gdk-pixbuf:2 ) gimp210? ( >=media-gfx/gimp-2.10.28:0/2 )
+DEPEND=app-arch/brotli dev-cpp/gflags >=dev-cpp/highway-0.16.0 media-libs/giflib media-libs/libpng openexr? ( media-libs/openexr:= ) sys-libs/zlib virtual/jpeg x11-misc/shared-mime-info gdk-pixbuf? ( x11-libs/gdk-pixbuf:2 ) gimp210? ( >=media-gfx/gimp-2.10.28:0/2 )
 DESCRIPTION=JPEG XL image format reference implementation
 EAPI=8
 HOMEPAGE=https://github.com/libjxl/libjxl
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake git-r3 xdg
-IUSE=examples gdk-pixbuf gimp210
+IUSE=examples gdk-pixbuf gimp210 openexr
 LICENSE=BSD
 PROPERTIES=live
-RDEPEND=app-arch/brotli dev-cpp/gflags dev-cpp/gtest dev-cpp/highway dev-util/google-perftools media-libs/freeglut media-libs/giflib media-libs/lcms media-libs/libpng media-libs/openexr:= sys-libs/zlib virtual/jpeg virtual/opengl x11-misc/shared-mime-info gdk-pixbuf? ( x11-libs/gdk-pixbuf:2 ) gimp210? ( >=media-gfx/gimp-2.10.28:0/2 )
+RDEPEND=app-arch/brotli dev-cpp/gflags >=dev-cpp/highway-0.16.0 media-libs/giflib media-libs/libpng openexr? ( media-libs/openexr:= ) sys-libs/zlib virtual/jpeg x11-misc/shared-mime-info gdk-pixbuf? ( x11-libs/gdk-pixbuf:2 ) gimp210? ( >=media-gfx/gimp-2.10.28:0/2 )
 SLOT=0
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	9f12546ab831b81c615d90e6b9e34e68	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	xdg	6024fbc93167fad782e2032933654857
-_md5_=af559af53ad9c8f5f41cc4292e33be6f
+_md5_=0d72c8e06cba5356e06f49afaa0f1038

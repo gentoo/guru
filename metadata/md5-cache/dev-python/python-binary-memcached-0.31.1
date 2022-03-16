@@ -1,6 +1,6 @@
-BDEPEND=test? ( dev-python/uhashring[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/pytest-6.2.5-r2[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+BDEPEND=test? ( >=dev-python/m2r-0.2.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/mistune[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/pytest-6.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/trustme-0.9.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/mock-4.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) test? ( dev-python/six[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/uhashring[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/pytest-6.2.5-r2[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-python/uhashring[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/six[python_targets_python3_8(-)?,python_targets_python3_9(-)?] test? ( >=dev-python/m2r-0.2.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/mistune[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/pytest-6.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/trustme-0.9.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/mock-4.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] )
+DEPEND=dev-python/six[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/uhashring[python_targets_python3_8(-)?,python_targets_python3_9(-)?] test? ( net-misc/memcached )
 DESCRIPTION=access memcached via it's binary protocol with SASL auth support
 EAPI=8
 HOMEPAGE=https://github.com/jaysonsantos/python-binary-memcached https://pypi.org/project/python-binary-memcached/
@@ -8,10 +8,10 @@ INHERIT=distutils-r1
 IUSE=test python_targets_python3_8 python_targets_python3_9
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=dev-python/uhashring[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 )
+RDEPEND=dev-python/six[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/uhashring[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
-RESTRICT=!test? ( test )
+RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/p/python-binary-memcached/python-binary-memcached-0.31.1.tar.gz
 _eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-r1	bcd408f1e4a9669198ef4dfcd5ab8696	distutils-r1	d540d96908dd5622f3dfa41d167e632d
-_md5_=29c2b628acf1bf3354f9e1ed0cdffb65
+_md5_=1593998681cd1609f62706e9438496a6
