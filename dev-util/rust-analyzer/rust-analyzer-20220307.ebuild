@@ -145,7 +145,7 @@ CRATES="
 	tracing-subscriber-0.3.8
 	tracing-tree-0.2.0
 	typed-arena-2.0.1
-	ungrammar-1.14.9
+	ungrammar-1.16.1
 	unicase-2.6.0
 	unicode-bidi-0.3.7
 	unicode-normalization-0.1.19
