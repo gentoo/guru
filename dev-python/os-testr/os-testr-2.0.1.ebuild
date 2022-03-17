@@ -34,4 +34,4 @@ DEPEND="
 	)
 "
 
-distutils_enable_tests pytest
+distutils_enable_tests --install pytest
