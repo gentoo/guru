@@ -3,13 +3,13 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 DOCS_DEPEND="
 	dev-python/sphinx_rtd_theme
 	dev-python/typing-extensions
 "
 DOCS_DIR="${S}/docs/source"
 DOCS_BUILDER="sphinx"
-DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1 docs
@@ -37,4 +37,9 @@ DEPEND="
 		dev-python/typing-extensions[${PYTHON_USEDEP}]
 	)
 "
+
+pkg_setup() {
+	export SETUPTOOLS_SCM_PRETEND_VERSION="${PV%_*}"
+}
+
 distutils_enable_tests pytest
