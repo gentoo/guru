@@ -367,6 +367,6 @@ src_install() {
 	newbashcomp assets/completions/zellij.bash zellij
 	insinto /usr/share/fish/vendor_completions.d
 	doins assets/completions/zellij.fish
-	insinto /usr/share/zsh/vendor-completions
+	insinto /usr/share/zsh/site-functions
 	doins assets/completions/_zellij
 }
