@@ -128,7 +128,7 @@ app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
 app-misc/watchexec 1.15.3 1.16.2 1.17.0 1.17.1 1.18.1 1.18.5 1.18.6 1.18.7: Executes commands in response to file modifications
 app-misc/wego 2.1: Wego is a weather client for the terminal
 app-misc/xplr 0.15.2 0.17.0 0.17.1 0.17.2: A hackable, minimal, fast TUI file explorer
-app-misc/zellij 0.26.0: A terminal workspace with batteries included
+app-misc/zellij 0.26.0 0.26.1: A terminal workspace with batteries included
 app-mobilephone/flashlight 0.1.1-r2: It's a flashlight, what do you expect?
 app-mobilephone/mobile-config-firefox 2.1.0: Mobile and privacy friendly configuration for Firefox
 app-mobilephone/pinephone-modem-scripts 0.20.8: Modem scripts for the PinePhone
@@ -272,7 +272,7 @@ dev-R/tidyselect 1.1.2: Select from a Set of Strings
 dev-R/utf8 1.2.2: Unicode Text Processing
 dev-R/vctrs 0.3.8: Vector Helpers
 dev-R/viridisLite 0.4.0: Colorblind-Friendly Color Maps (Lite Version)
-dev-R/waldo 0.3.1: Find Differences Between R Objects
+dev-R/waldo 0.4.0: Find Differences Between R Objects
 dev-R/whoami 1.3.0: Username, Full Name, Email Address, GitHub username of the current user
 dev-R/withr 2.5.0: Run Code With Temporarily Modified Global State
 dev-R/xfun 0.30: Supporting Functions for Package maintained by Yihui Xie
@@ -387,34 +387,34 @@ dev-python/asciimatics 1.13.0 9999: Package for curses-like operations, text UIs
 dev-python/ascim 0.1.1 9999: Manipulate ASCII art as you would do with raster images
 dev-python/aspectlib 1.5.2: An aspect-oriented programming, monkey-patch and decorators library
 dev-python/asyncpg 0.23.0 0.25.0: A fast PostgreSQL Database Client Library for Python/asyncio.
-dev-python/asyncssh 2.7.2: Asynchronous SSHv2 client and server library
+dev-python/asyncssh 2.7.2 2.9.0: Asynchronous SSHv2 client and server library
 dev-python/auditok 0.2.0: A module for Audio/Acoustic Activity Detection
 dev-python/autoflake 1.4-r1: Removes unused imports and unused variables as reported by pyflakes
 dev-python/automaton 2.4.0 2.5.0: Friendly state machines for python
 dev-python/avro 1.11.0: Apache Avro is a data serialization system
 dev-python/azure-storage-blob 12.8.1: Microsoft Azure Blob Storage Client Library for Python
 dev-python/b2sdk 1.8.0 1.12.0: The client library for BackBlaze's B2 product
-dev-python/babelfont 2.0.1: Interrogate and manipulate UFO, TTF and OTF fonts with a common interface
+dev-python/babelfont 2.0.1 2.0.2: Interrogate and manipulate UFO, TTF and OTF fonts with a common interface
 dev-python/baron 0.9: Full Syntax Tree for python to make writing refactoring code a realist task
 dev-python/base58 2.1.0: Base58 and Base58Check implementation
 dev-python/basictracer 3.2.0: Python implementation of the BasicTracer reference implementation
 dev-python/betamax-serializers 0.2.1: A set of third-party serializers for Betamax
-dev-python/beziers 0.3.1: Python bezier manipulation library
+dev-python/beziers 0.3.1 0.4.0: Python bezier manipulation library
 dev-python/bidict 0.21.3: The bidirectional mapping library for Python
 dev-python/billiard 3.6.4.0: Python multiprocessing fork
 dev-python/bitbox02 5.3.0: Python API for communicating with the BitBox02 device
 dev-python/browserstack-local-python 1.2.3: Python bindings for BrowserStack Local
-dev-python/bson 0.5.8: Independent BSON codec for Python that doesn't depend on MongoDB
+dev-python/bson 0.5.8 0.5.10: Independent BSON codec for Python that doesn't depend on MongoDB
 dev-python/castellan 3.10.1: Generic Key Manager interface for OpenStack
 dev-python/celery 5.1.1: Asynchronous task queue/job queue based on distributed message passing
 dev-python/cffsubr 0.2.8 0.2.9_p1: Standalone CFF subroutinizer based on AFDKO tx tool
 dev-python/check-manifest 0.46: Tool to check the completeness of MANIFEST.in for Python packages
-dev-python/click-didyoumean 0.0.3: Enable git-like did-you-mean feature in click
+dev-python/click-didyoumean 0.0.3 0.3.0: Enable git-like did-you-mean feature in click
 dev-python/click-repl 0.2.0: Subcommand REPL for click apps
 dev-python/clickgen 1.1.9: X11 & Windows cursor building API
 dev-python/clufter 0.77.2: Tool/library for transforming/analyzing cluster configuration formats
-dev-python/cmarkgfm 0.6.0: Python bindings for GitHub's cmark
-dev-python/collidoscope 0.0.6: Brute force detection of glyph collisions
+dev-python/cmarkgfm 0.6.0 2022.3.4: Python bindings for GitHub's cmark
+dev-python/collidoscope 0.0.6 0.4.1: Brute force detection of glyph collisions
 dev-python/colored 1.4.2 1.4.3: Very simple Python library for color and formatting in terminal
 dev-python/commandlines 0.4.1: Routines for extracting information from fontTools glyphs
 dev-python/compreffor 0.5.1 0.5.1_p1: A CFF table subroutinizer for FontTools
@@ -434,45 +434,45 @@ dev-python/decopatch 1.4.9 1.4.10: Create decorators easily in python
 dev-python/desktop-notifier 3.3.2 3.3.4: desktop-notifier is a Python library for cross-platform desktop notifications
 dev-python/devtools 0.6.1: Dev tools for python
 dev-python/digitalocean 1.16.0 1.17.0: Digitalocean API access library
-dev-python/dotmap 1.3.25: Dot access dictionary with dynamic hierarchy creation and ordered iteration
+dev-python/dotmap 1.3.25 1.3.26: Dot access dictionary with dynamic hierarchy creation and ordered iteration
 dev-python/doubles 1.5.3: Test doubles for Python
 dev-python/doxypypy 0.8.8.6_p20210405: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/dropbox-sdk-python 11.27.0: The offical Dropbox SDK for Python
 dev-python/etcd3 0.12.0: Python client for the etcd API v3
 dev-python/etcd3gw 1.0.0 1.0.1: A python client for etcd3 grpc-gateway v3 API
 dev-python/exifread 2.3.2: Easy to use Python module to extract Exif metadata from tiff and jpeg files
-dev-python/factory_boy 3.2.0: A fixtures replacement tool
+dev-python/factory_boy 3.2.0 3.2.1: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11-r1: Up to date simple useragent faker with real world database
-dev-python/fastavro 1.4.7: Fast Avro for Python
+dev-python/fastavro 1.4.7 1.4.10: Fast Avro for Python
 dev-python/fchroot 0.1.2: Franken-chroot tool. Chroot arm/64 arches into amd64/x86
 dev-python/ffmpeg-python 0.2.0: Python bindings for FFmpeg - with complex filtering support
 dev-python/filecheck 0.0.22: Python port of LLVM's FileCheck, flexible pattern matching file verifier
-dev-python/font-v 1.0.5: Font version string reporting and modification library
+dev-python/font-v 1.0.5 2.1.0: Font version string reporting and modification library
 dev-python/fontMath 0.6.0 0.8.1: A collection of objects that implement fast font math
-dev-python/fontParts 0.9.10 0.9.11: An API for interacting with the parts of fonts
+dev-python/fontParts 0.9.11 0.10.3: An API for interacting with the parts of fonts
 dev-python/fontPens 0.2.4: A collection of classes implementing the pen protocol for manipulating glyphs
 dev-python/futurist 2.3.0-r1: Useful additions to futures, from the future
 dev-python/gabbi 2.3.0 2.4.0: Declarative HTTP testing library
 dev-python/gemcall 0.8: A library and CLI tool for making gemini requests
 dev-python/github-sublee-glicko2 0_pre20191010-r1: An implementation of the Glicko-2 rating system for Python
-dev-python/glance_store 2.7.0: A library for glance
+dev-python/glance_store 3.0.0: A library for glance
 dev-python/glicko2 2.0.0: glicko2 implementation in python
-dev-python/glyphsLib 5.3.2-r1: A library to provide a bridge from Glyphs source files to UFOs
-dev-python/glyphtools 0.7.3 0.7.4: Routines for extracting information from fontTools glyphs
+dev-python/glyphsLib 5.3.2-r1 6.0.4: A library to provide a bridge from Glyphs source files to UFOs
+dev-python/glyphtools 0.7.4 0.8.0: Routines for extracting information from fontTools glyphs
 dev-python/gnocchi 4.4.1: Timeseries database
 dev-python/google-cloud-storage 1.36.0: Google Cloud Storage API client library
 dev-python/googletrans 4.0.0_rc1: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/googletransx 2.4.2-r1: Free Google Translate API for Python. Translates totally free of charge.
-dev-python/gpxpy 1.4.2: GPX file parser and GPS track manipulation library
+dev-python/gpxpy 1.4.2 1.5.0: GPX file parser and GPS track manipulation library
 dev-python/graphene 3.0.0_beta7 3.0.0: GraphQL Framework for Python
 dev-python/graphql-core 3.1.5 3.1.6: GraphQL for Python
 dev-python/graphql-relay 3.1.0: Relay library for graphql-core-next
 dev-python/guidata 1.7.9: Library for user interfaces for easy dataset editing and display
 dev-python/hidapi 0.10.1 0.11.0.2: A Cython interface to the hidapi
 dev-python/hijri-converter 2.2.2 2.2.3: Accurate Hijri-Gregorian date converter based on the Umm al-Qura calendar
-dev-python/hstspreload 2021.7.5 2021.10.1: Chromium HSTS Preload list as a Python package
+dev-python/hstspreload 2021.10.1 2021.12.1: Chromium HSTS Preload list as a Python package
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
-dev-python/hunter 3.3.8: Hunter is a flexible code tracing toolkit
+dev-python/hunter 3.3.8 3.4.3: Hunter is a flexible code tracing toolkit
 dev-python/hwi 1.2.1 2.0.2: Library and command line tool for interacting with hardware wallets
 dev-python/hypercorn 0.11.2-r1 0.13.2: ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
@@ -500,7 +500,7 @@ dev-python/mnemonic 0.19: Reference implementation of BIP-0039 for generating de
 dev-python/mobi 0.3.2-r1: unpack unencrypted mobi files
 dev-python/monotonic 1.6: An implementation of time.monotonic() for Python 2 & < 3.3
 dev-python/ncclient 0.6.12: Python library for NETCONF clients
-dev-python/neutron-lib 2.15.0: Neutron shared routines and utilities
+dev-python/neutron-lib 2.20.0: Neutron shared routines and utilities
 dev-python/noiseprotocol 0.3.1: Python implementation of Noise Protocol Framework
 dev-python/opentracing 2.4.0: OpenTracing API for Python
 dev-python/opentracing_instrumentation 3.3.1: A collection of Python instrumentation tools for the OpenTracing API
@@ -652,13 +652,14 @@ dev-python/thriftrw 1.8.1: A Thrift encoding library for Python
 dev-python/tinyrpc 1.1.2 1.1.4: A protocol neutral RPC library that supports JSON-RPC and zmq
 dev-python/tooz 2.10.1: Library centralizing the most common distributed primitives
 dev-python/transaction 3.0.1: Transaction management for Python
+dev-python/trivup 0.10.0: Trivially Up a cluster of applications
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill Algorithm
 dev-python/ttfautohint-py 0.4.3 0.5.1: A Python wrapper for ttfautohint
 dev-python/tweepy 3.10.0: An easy-to-use Python library for accessing the Twitter API.
-dev-python/types-paramiko 2.7.3 2.8.16: Typing stubs for paramiko
-dev-python/types-python-dateutil 2.8.2 2.8.9: Typing stubs for python-dateutil
+dev-python/types-paramiko 2.8.16 2.8.17: Typing stubs for paramiko
+dev-python/types-python-dateutil 2.8.9 2.8.10: Typing stubs for python-dateutil
 dev-python/types-pytz 2021.3.0 2021.3.5: Typing stubs for pytz
-dev-python/types-requests 2.25.11 2.27.11 2.27.12: Typing stubs for requests
+dev-python/types-requests 2.27.12 2.27.13: Typing stubs for requests
 dev-python/types-urllib3 1.26.10 1.26.11: Typing stubs for urllib3
 dev-python/ufo2ft 2.21.0 2.25.3: A bridge from UFOs to FontTool objects
 dev-python/ufoLib2 0.11.4 0.13.1: A UFO font library
@@ -819,7 +820,6 @@ gui-apps/wlsunset 0.2.0 9999: Day/night gamma adjustments for Wayland
 gui-apps/wob 0.12: Lightweight overlay volume/backlight/progress/anything bar for Wayland
 gui-apps/wofi 1.2.3 1.2.4 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 gui-apps/yambar 1.6.2 1.7.0 1.8.0 9999: Simplistic and highly configurable status panel for X and Wayland
-gui-libs/gtksourceview 5.2.0: GTK 4 syntax highlighting widget
 gui-libs/libcprime 4.2.0 4.2.2 9999: Library for managing settings of CoreApps
 gui-libs/libcsys 4.2.0 9999: Library for managing the device
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
@@ -926,7 +926,7 @@ media-video/owncast 0.0.10 0.0.11: A self-hosted live video and web chat server
 media-video/qliveplayer 4.0.1-r2 4.1.0: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/trakt-scrobbler 1.3.2 1.4.0 1.4.2: Scrobbler for trakt.tv that supports VLC, Plex, MPC-HC, and MPV
-media-video/uxplay 1.47: AirPlay Unix mirroring server
+media-video/uxplay 1.48: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
 net-analyzer/munin-contrib 0.2021.04.27: user contributed stuff related to munin
 net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various plugins for Munin

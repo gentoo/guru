@@ -1,17 +1,17 @@
-BDEPEND=test? ( >=dev-python/six-1.10.0[python_targets_python3_8(-)?] >=dev-python/pytest-6.2.5-r2[python_targets_python3_8(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?]
+BDEPEND=test? ( >=dev-python/fixtures-3.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/testtools-2.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/oslotest-3.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/eventlet-0.18.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/reno-3.1.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) test? ( >=dev-python/six-1.10.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/pytest-6.2.5-r2[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-python/six-1.10.0[python_targets_python3_8(-)?] >=dev-python/pbr-2.0.0[python_targets_python3_8(-)?] test? ( >=dev-python/fixtures-3.0.0[python_targets_python3_8(-)?] >=dev-python/testtools-2.2.0[python_targets_python3_8(-)?] >=dev-python/oslotest-3.2.0[python_targets_python3_8(-)?] >=dev-python/eventlet-0.18.2[python_targets_python3_8(-)?] >=dev-python/reno-3.1.0[python_targets_python3_8(-)?] )
+DEPEND=>=dev-python/six-1.10.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/pbr-2.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 DESCRIPTION=Allows fine filtering of shell commands to run as root from OpenStack services
 EAPI=8
-HOMEPAGE=https://pypi.org/project/oslo.rootwrap https://opendev.org/openstack/oslo.rootwrap https://launchpad.net/oslo.rootwrap
+HOMEPAGE=https://pypi.org/project/oslo.rootwrap/ https://opendev.org/openstack/oslo.rootwrap https://launchpad.net/oslo.rootwrap
 INHERIT=distutils-r1
-IUSE=test python_targets_python3_8
+IUSE=test python_targets_python3_8 python_targets_python3_9
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
-RDEPEND=>=dev-python/six-1.10.0[python_targets_python3_8(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 )
-REQUIRED_USE=|| ( python_targets_python3_8 )
+RDEPEND=>=dev-python/six-1.10.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/o/oslo.rootwrap/oslo.rootwrap-6.3.0.tar.gz
 _eclasses_=multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-r1	bcd408f1e4a9669198ef4dfcd5ab8696	distutils-r1	d540d96908dd5622f3dfa41d167e632d
-_md5_=22e33cb2cd3bc98ace8bc8b94252c52e
+_md5_=21a7ce0ce348e79d7731e11e1df6f353
