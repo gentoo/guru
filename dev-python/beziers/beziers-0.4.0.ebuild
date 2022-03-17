@@ -29,4 +29,6 @@ BDEPEND="
 	)
 "
 
+PATCHES=( "${FILESDIR}/${P}-no-install-tests.patch" )
+
 distutils_enable_tests pytest
