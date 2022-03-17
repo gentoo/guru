@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -15,7 +15,7 @@ DEPEND="
 	dev-R/fansi
 	dev-R/glue
 	dev-R/rematch2
-	>=dev-R/rlang-0.4.10
+	>=dev-R/rlang-1.0.0
 	dev-R/tibble
 "
 RDEPEND="${DEPEND}"
