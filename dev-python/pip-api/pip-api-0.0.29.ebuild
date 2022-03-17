@@ -14,7 +14,7 @@ inherit distutils-r1
 
 DESCRIPTION="An unofficial, importable pip API"
 HOMEPAGE="https://github.com/di/pip-api"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/di/pip-api/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
