@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{8..9} )
 inherit distutils-r1
 
 DESCRIPTION="A library to provide a bridge from Glyphs source files to UFOs"
-HOMEPAGE="https://github.com/googlei18n/glyphsLib"
+HOMEPAGE="https://github.com/googlefonts/glyphsLib"
 SRC_URI="https://github.com/googlefonts/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0 MIT"
