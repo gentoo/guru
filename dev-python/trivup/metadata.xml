@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>lssndrbarbieri@gmail.com</email>
+    <name>Alessandro Barbieri</name>
+  </maintainer>
+  <longdescription lang="en">
+trivup is a flexible, pluggable, light-weight, partly naiivistic, framework for trivially bringing up a cluster of applications.
+
+The initial use-case is to bring up a simple Kafka cluster for easily testing librdkafka on different broker versions.
+
+Featured apps:
+
+    Apache Kafka cluster with optional KRaft (ZooKeeper-less) support
+    Apache ZooKeeper
+    Confluent's Schema-Registry
+    Kerberos 5 KDC for GSSAPI/Kerberos authentication
+    OAUTHBEARER OIDC JWK ticket server
+    SSL CA/public/private certificate generation
+
+SECURITY WARNING: trivup will run unprotected, wide-open, poorly-configured, server applications on your machine, providing an ingress vector for intrusion, theft and data-loss. DO NOT RUN ON PUBLIC NETWORKS.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">edenhill/trivup</remote-id>
+    <remote-id type="pypi">trivup</remote-id>
+  </upstream>
+</pkgmetadata>
