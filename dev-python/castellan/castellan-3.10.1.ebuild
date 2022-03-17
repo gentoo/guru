@@ -37,6 +37,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	test? (
 		>=dev-python/python-barbicanclient-4.5.2[${PYTHON_USEDEP}]
+		>=dev-python/requests-mock-1.2.0[${PYTHON_USEDEP}]
 		>=dev-python/subunit-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
