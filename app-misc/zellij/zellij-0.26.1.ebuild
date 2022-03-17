@@ -324,7 +324,7 @@ BDEPEND="
 
 QA_FLAGS_IGNORED="usr/bin/zellij"
 
-PATCHES=( "${FILESDIR}/1226.patch" )
+PATCHES=( "${FILESDIR}/${PN}-PR-1226.patch" )
 
 src_configure() {
 	local myfeatures=(
