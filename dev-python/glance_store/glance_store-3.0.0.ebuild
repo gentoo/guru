@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
@@ -11,7 +11,7 @@ DESCRIPTION="A library for glance"
 HOMEPAGE="
 	https://github.com/openstack/glance_store
 	https://opendev.org/openstack/glance_store
-	https://pypi.org/project/glance-store
+	https://pypi.org/project/glance-store/
 	https://launchpad.net/glance-store
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
@@ -46,8 +46,8 @@ RDEPEND="
 	)
 	vmware? ( >=dev-python/oslo-vmware-3.6.0[${PYTHON_USEDEP}] )
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	test? (
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/subunit-1.0.0[${PYTHON_USEDEP}]
