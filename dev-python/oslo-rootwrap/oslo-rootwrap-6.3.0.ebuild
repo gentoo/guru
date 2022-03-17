@@ -3,13 +3,13 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 DESCRIPTION="Allows fine filtering of shell commands to run as root from OpenStack services"
 HOMEPAGE="
-	https://pypi.org/project/oslo.rootwrap
+	https://pypi.org/project/oslo.rootwrap/
 	https://opendev.org/openstack/oslo.rootwrap
 	https://launchpad.net/oslo.rootwrap
 "
@@ -24,6 +24,8 @@ RDEPEND=">=dev-python/six-1.10.0[${PYTHON_USEDEP}]"
 DEPEND="
 	${RDEPEND}
 	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
+"
+BDEPEND="
 	test? (
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]

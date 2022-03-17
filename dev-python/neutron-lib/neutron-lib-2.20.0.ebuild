@@ -29,6 +29,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	>=dev-python/pbr-4.0.0[${PYTHON_USEDEP}]
 	>=dev-python/sqlalchemy-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/pecan-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/keystoneauth-3.14.0[${PYTHON_USEDEP}]
@@ -52,9 +53,8 @@ RDEPEND="
 	>=dev-python/webob-1.7.1[${PYTHON_USEDEP}]
 	>=dev-python/os-traits-0.9.0[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
-	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
+DEPEND="${RDEPEND}"
+BDEPEND="
 	test? (
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/subunit-1.0.0[${PYTHON_USEDEP}]

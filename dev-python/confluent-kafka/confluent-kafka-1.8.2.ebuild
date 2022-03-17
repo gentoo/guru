@@ -6,7 +6,7 @@ EAPI=8
 MYPN="${PN}-python"
 PYTHON_COMPAT=( python3_{8,9} )
 
-inherit distutils-r1
+inherit distutils-r1 optfeature
 
 DESCRIPTION="Confluent's Kafka Python Client"
 HOMEPAGE="
@@ -20,20 +20,24 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="
-	dev-libs/librdkafka
-	>=dev-python/fastavro-1.0[${PYTHON_USEDEP}]
-	>=dev-python/avro-1.10.0[${PYTHON_USEDEP}]
-	dev-python/requests[${PYTHON_USEDEP}]
-	dev-python/pyrsistent[${PYTHON_USEDEP}]
-	dev-python/jsonschema[${PYTHON_USEDEP}]
-	dev-python/protobuf-python[${PYTHON_USEDEP}]
-"
+RDEPEND="dev-libs/librdkafka"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	test? (
+		>=dev-python/fastavro-1.0[${PYTHON_USEDEP}]
+		>=dev-python/avro-1.10.0[${PYTHON_USEDEP}]
+		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/pytest-timeout[${PYTHON_USEDEP}]
+		dev-python/requests-mock[${PYTHON_USEDEP}]
+		>=dev-python/trivup-0.8.3[${PYTHON_USEDEP}]
 	)
 "
 
 distutils_enable_tests pytest
+
+pkg_postinst() {
+	optfeature "avro support" dev-python/fastavro dev-python/avro dev-python/requests
+	optfeature "json support" dev-python/jsonschema dev-python/pyrsistent dev-python/requests
+	optfeature "protobuf support" dev-python/protobuf-python dev-python/requests
+	optfeature "schema-registry support" dev-python/requests
+}

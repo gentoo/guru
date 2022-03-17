@@ -47,6 +47,7 @@ BDEPEND="
 
 distutils_enable_tests nose
 
-python_test() {
-	nosetests -e "os_ken.tests.integrated.common.docker_base" || die
+source_prepare() {
+	rm -r os-ken/os-ken/tests/integrated || die
+	default
 }

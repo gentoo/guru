@@ -6,8 +6,6 @@ EAPI=8
 EPYTEST_DESELECT=(
 	tests/test_etcd3.py::TestClient::test_compact
 	tests/test_etcd3.py::TestClient::test_user_pwd_auth
-)
-EPYTEST_IGNORE=(
 	tests/test_etcd3.py::TestEtcd3
 	tests/test_etcd3.py::TestAlarms
 )
