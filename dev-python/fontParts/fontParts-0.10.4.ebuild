@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,10 +23,8 @@ RDEPEND="
 	>=dev-python/fontMath-0.4.8[${PYTHON_USEDEP}]
 	>=dev-python/fonttools-3.32.0[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
-	test? ( dev-python/fontPens[${PYTHON_USEDEP}] )
-"
+DEPEND="${RDEPEND}"
+BDEPEND="test? ( dev-python/fontPens[${PYTHON_USEDEP}] )"
 
 RESTRICT="!test? ( test )"
 
