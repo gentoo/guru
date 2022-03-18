@@ -3,6 +3,7 @@
 
 EAPI=8
 
+EPYTEST_DESELECT=( castellan/tests/unit/test_utils.py::TestUtils::test_oslo_context_to_keystone_token )
 PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
