@@ -21,7 +21,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/jwcrypto[${PYTHON_USEDEP}]
-	dev-python/pyjwt[${PYTHON_USEDEP}]
+	dev-python/python_jwt[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
 
