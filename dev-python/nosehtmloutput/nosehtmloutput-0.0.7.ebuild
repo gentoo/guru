@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
-DESCRIPTION=""
+DESCRIPTION="Nose plugin for generating HTML output"
 HOMEPAGE="
 	https://opendev.org/openstack/nose-html-output
 	https://pypi.org/project/nosehtmloutput/
