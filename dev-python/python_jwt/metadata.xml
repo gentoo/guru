@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>lssndrbarbieri@gmail.com</email>
+    <name>Alessandro Barbieri</name>
+  </maintainer>
+  <longdescription lang="en">
+Module for generating and verifying JSON Web Tokens.
+
+    Note: From version 2.0.1 the namespace has changed from jwt to python_jwt, in order to avoid conflict with PyJWT.
+    Note: Versions 1.0.0 and later fix a vulnerability in JSON Web Token verification so please upgrade if you're using this functionality. The API has changed so you will need to update your application. verify_jwt now requires you to specify which signature algorithms are allowed.
+    Uses jwcrypto to do the heavy lifting.
+    Supports RS256, RS384, RS512, PS256, PS384, PS512, HS256, HS384, HS512, ES256, ES384, ES512, ES256K, EdDSA and none signature algorithms.
+    Unit tests, including tests for interoperability with jose.
+    Supports Python 2,7 and 3.6+. Note: generate_jwt returns the token as a Unicode string, even on Python 2.7.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">davedoesdev/python-jwt</remote-id>
+    <remote-id type="pypi">python-jwt</remote-id>
+  </upstream>
+</pkgmetadata>
