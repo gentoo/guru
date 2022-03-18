@@ -12,7 +12,7 @@ HOMEPAGE="
 	https://github.com/jaysonsantos/python-binary-memcached
 	https://pypi.org/project/python-binary-memcached/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/jaysonsantos/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}-gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
