@@ -3,16 +3,9 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=poetry
-DOCS_BUILDER="sphinx"
-DOCS_DEPEND="
-	dev-python/sphinxcontrib-napoleon
-	dev-python/pydata-sphinx-theme
-"
-DOCS_DIR="${S}/docs"
+DISTUTILS_USE_SETUPTOOLS=pyproject.toml
 PYTHON_COMPAT=( python3_{8..10} )
-
-inherit distutils-r1 docs
+inherit distutils-r1
 
 DESCRIPTION="ASGI Server based on Hyper libraries and inspired by Gunicorn"
 HOMEPAGE="
@@ -21,7 +14,7 @@ HOMEPAGE="
 	https://github.com/pgjones/hypercorn
 	https://pypi.org/project/Hypercorn/
 "
-SRC_URI="https://github.com/pgjones/hypercorn/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/pgjones/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -47,3 +40,7 @@ BDEPEND="
 PATCHES=( "${FILESDIR}/${P}-no-coverage.patch" )
 
 distutils_enable_tests pytest
+
+distutils_enable_sphinx docs \
+	dev-python/sphinxcontrib-napoleon \
+	dev-python/pydata-sphinx-theme
