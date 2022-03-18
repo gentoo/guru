@@ -3,7 +3,10 @@
 
 EAPI=8
 
-EPYTEST_IGNORE=( vif_plug_ovs/tests/functional )
+EPYTEST_IGNORE=(
+	os_vif/tests/functional
+	vif_plug_ovs/tests/functional
+)
 PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
