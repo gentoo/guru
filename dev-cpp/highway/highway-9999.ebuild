@@ -3,7 +3,8 @@
 
 EAPI=8
 
-inherit cmake
+CMAKE_ECLASS=cmake
+inherit cmake-multilib
 
 DESCRIPTION="Performance-portable, length-agnostic SIMD with runtime dispatch"
 HOMEPAGE="https://github.com/google/highway"
@@ -13,18 +14,18 @@ if [[ "${PV}" == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/google/highway.git"
 else
 	SRC_URI="https://github.com/google/highway/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
 IUSE="test"
 
-DEPEND="test? ( dev-cpp/gtest )"
+DEPEND="test? ( dev-cpp/gtest[${MULTILIB_USEDEP}] )"
 
 RESTRICT="!test? ( test )"
 
-src_configure() {
+multilib_src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTING=$(usex test)
 		-DHWY_WARNINGS_ARE_ERRORS=OFF
@@ -33,9 +34,4 @@ src_configure() {
 	use test && mycmakeargs+=( "-DHWY_SYSTEM_GTEST=ON" )
 
 	cmake_src_configure
-}
-
-src_install() {
-	dodoc g3doc/*
-	cmake_src_install
 }
