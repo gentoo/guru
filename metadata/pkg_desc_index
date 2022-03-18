@@ -69,7 +69,7 @@ app-dicts/dictd-moby-thesaurus 1.0: Grady Ward's Moby Thesaurus; 35000 root word
 app-dicts/dictd-mueller 3.1-r1: V. K. Mueller English-Russian Dictionary
 app-dicts/dictd-web1913 0.5.0_p1: Webster's Revised Unabridged Dictionary (1913) for dict
 app-doc/anarchism 15.3: An anarchist FAQ
-app-doc/ford 6.1.4 6.1.5 6.1.7 6.1.8: FORD, automatic documentation generator for modern Fortran programs
+app-doc/ford 6.1.4 6.1.5 6.1.7 6.1.8 6.1.10: FORD, automatic documentation generator for modern Fortran programs
 app-doc/openbsd-manpages 6.9 7.0: OpenBSD manual pages
 app-editors/amp 0.6.2: A complete text editor for your terminal.
 app-editors/atom-bin 1.58.0-r1: A hackable text editor for the 21st Century
@@ -98,7 +98,7 @@ app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best
 app-misc/doublecmd-bin 1.0.1 1.0.2 1.0.4: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
-app-misc/fastfetch 0.614 9999: Like neofetch but faster
+app-misc/fastfetch 0.619 9999: Like neofetch but faster
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -125,10 +125,10 @@ app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the c
 app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
-app-misc/watchexec 1.15.3 1.16.2 1.17.0 1.17.1 1.18.1 1.18.5 1.18.6 1.18.7: Executes commands in response to file modifications
+app-misc/watchexec 1.15.3 1.16.2 1.17.0 1.17.1 1.18.1 1.18.5 1.18.6 1.18.7 1.18.8: Executes commands in response to file modifications
 app-misc/wego 2.1: Wego is a weather client for the terminal
 app-misc/xplr 0.15.2 0.17.0 0.17.1 0.17.2: A hackable, minimal, fast TUI file explorer
-app-misc/zellij 0.26.0 0.26.1: A terminal workspace with batteries included
+app-misc/zellij 0.26.1-r1: A terminal workspace with batteries included
 app-mobilephone/flashlight 0.1.1-r2: It's a flashlight, what do you expect?
 app-mobilephone/mobile-config-firefox 2.1.0: Mobile and privacy friendly configuration for Firefox
 app-mobilephone/pinephone-modem-scripts 0.20.8: Modem scripts for the PinePhone
@@ -196,7 +196,7 @@ dev-R/Matrix 1.3.4: Sparse and Dense Matrix Classes and Methods
 dev-R/R6 2.5.1: Encapsulated Classes with Reference Semantics
 dev-R/RColorBrewer 1.1.2: ColorBrewer Palettes
 dev-R/RInside 0.2.16: C++ Classes to Embed R in C++ (and C) Applications
-dev-R/Rcpp 1.0.8.2: Seamless R and C++ Integration
+dev-R/Rcpp 1.0.8.3: Seamless R and C++ Integration
 dev-R/RcppArmadillo 0.10.2.2.0 0.10.8.1.0: Rcpp Integration for the Armadillo templated linear algebra library
 dev-R/RcppEnsmallen 0.2.17.0.1: Header-Only C++ Mathematical Optimization library for armadillo
 dev-R/askpass 1.1: Safe Password Entry for R, Git and SSH
@@ -585,6 +585,7 @@ dev-python/pytest-isort 1.3.0: Plugin to check import ordering using isort
 dev-python/pytest-pythonpath 0.7.3: Plugin for adding to the PYTHONPATH from the pytests.ini file before tests run
 dev-python/pytest-randomly 3.10.1 3.11.0: Pytest plugin to randomly order tests and control random.seed
 dev-python/pytest-steps 1.8.0: Create step-wise / incremental tests in pytest
+dev-python/pytest-vcr 1.0.2: Plugin for managing VCR.py cassettes
 dev-python/python-barbicanclient 5.3.0: Client library for Barbican API
 dev-python/python-binary-memcached 0.31.1: access memcached via it's binary protocol with SASL auth support
 dev-python/python-blazarclient 3.4.0: This is a client for the OpenStack Blazar API
@@ -728,7 +729,7 @@ dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage sourc
 dev-vcs/gitqlient 1.4.3 9999: Multi-platform Git client written with Qt
 dev-vcs/gitui 0.18.0 0.20.1: Blazing fast terminal-ui for git
 dev-vcs/got 0.66 0.67: Portable version of the Game of Trees version control system
-dev-vcs/lazygit 0.33: Simple terminal UI for git commands
+dev-vcs/lazygit 0.33 0.34: Simple terminal UI for git commands
 dev-vcs/lefthook 0.7.7: Fast and powerful Git hooks manager for any type of projects.
 dev-vcs/mergestat 0.5.4: Query git repositories with SQL
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
@@ -998,7 +999,7 @@ net-misc/wsdd 0.6.4 0.7.0: A Web Service Discovery host daemon.
 net-misc/xmrig-mo 6.16.2 6.16.3 6.16.4: MoneroOcean fork of xmrig that supports algo switching
 net-news/comitium 1.8.1: feed aggregator for gemini supporting many formats and protocols
 net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny Tiny RSS or feedly
-net-nntp/inn 2.6.4-r1: InterNetNews -- the Internet meets Netnews
+net-nntp/inn 2.6.4-r1 2.6.5: InterNetNews -- the Internet meets Netnews
 net-p2p/bisq 1.8.2: The decentralized bitcoin exchange (non-atomic, with arbitration)
 net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.2.0 0.17.2.3 9999: The secure, private, untraceable cryptocurrency
