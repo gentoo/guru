@@ -32,6 +32,7 @@ BDEPEND="
 distutils_enable_tests pytest
 
 python_prepare_all() {
+	export SETUPTOOLS_SCM_PRETEND_VERSION="${PV}"
 	sed -e '/\<wheel\>/d' -i setup.cfg
 	distutils-r1_python_prepare_all
 }
