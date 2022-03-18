@@ -11,7 +11,6 @@ DESCRIPTION="Generic Key Manager interface for OpenStack"
 HOMEPAGE="
 	https://pypi.org/project/castellan/
 	https://opendev.org/openstack/castellan
-	https://pypi.org/project/castellan
 	https://launchpad.net/castellan
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"

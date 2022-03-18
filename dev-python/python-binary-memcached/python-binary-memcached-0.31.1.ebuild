@@ -24,11 +24,11 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
+	>=dev-python/m2r-0.2.1[${PYTHON_USEDEP}]
 	test? ( net-misc/memcached )
 "
 BDEPEND="
 	test? (
-		>=dev-python/m2r-0.2.1[${PYTHON_USEDEP}]
 		dev-python/mistune[${PYTHON_USEDEP}]
 		>=dev-python/pytest-6.2[${PYTHON_USEDEP}]
 		>=dev-python/trustme-0.9.0[${PYTHON_USEDEP}]

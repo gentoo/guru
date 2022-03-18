@@ -11,8 +11,8 @@ if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/LinusDierheimer/fastfetch.git"
 else
-	COMMIT="07a685bb9a1edc6b804d722e118f8c2bba85b527"
-	VERSION_REV="07a685b"
+	COMMIT="0f6e266fc3142cb214920852fd127e868dc7a61c"
+	VERSION_REV="0f6e266"
 	SRC_URI="https://github.com/LinusDierheimer/fastfetch/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-${COMMIT}"
 fi

@@ -62,7 +62,7 @@ start_pre() {
 	# remove temporary batchfiles and lock files
 	rm -f /var/spool/news/outgoing/bch*
 	rm -f /run/news/LOCK*
-	rm -f /run/news/{control,nntpin,.rebuildoverview}
+	rm -f /run/news/control /run/news/nntpin /run/news/.rebuildoverview
 
 	expirerm
 }

@@ -8,7 +8,7 @@
 	</maintainer>
 	<stabilize-allarches/>
 	<upstream>
-		<remote-id type="pypi">glance_store</remote-id>
+		<remote-id type="pypi">glance-store</remote-id>
 		<remote-id type="launchpad">oslo</remote-id>
 		<remote-id type="github">openstack/glance_store</remote-id>
 	</upstream>
