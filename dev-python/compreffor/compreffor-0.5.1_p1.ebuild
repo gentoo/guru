@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 MYPV="${PV/_p/.post}"
 MYP="${PN}-${MYPV}"
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
@@ -24,8 +24,7 @@ SLOT="0"
 RDEPEND="
 	>=dev-python/fonttools-4[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
+BDEPEND="
 	>=dev-python/cython-0.29.24[${PYTHON_USEDEP}]
 	dev-python/setuptools_scm[${PYTHON_USEDEP}]
 "
@@ -35,7 +34,12 @@ PATCHES=( "${FILESDIR}/${P}-remove-unwanted-dependencies.patch" )
 
 distutils_enable_tests pytest
 
+python_compile() {
+	distutils-r1_python_compile
+	esetup.py build_ext --inplace
+}
+
 python_test() {
-	distutils_install_for_testing
-	default
+	cd "${S}/src/python" || die
+	PYTHONPATH=".:${PYTHONPATH}" epytest compreffor/test
 }
