@@ -19,7 +19,7 @@ Name | Buildsystem | Category | User | RFH
 [nerd-fonts](https://nerdfonts.com) | none | fonts | Alessandro-Barbieri | yes
 [silk-guardian](https://github.com/NateBrune/silk-guardian) | make | util | Alessandro-Barbieri | no
 [qepcad](https://www.usna.edu/Users/cs/wcbrown/qepcad/B/QEPCAD.html) | make | math | Alessandro-Barbieri | no
-[retroarch](https://www.retroarch.com/) | make | game | |
+[retroarch](https://www.retroarch.com/) | make | game | NicolaSmaniotto |
 [lucida](https://github.com/claritylab/lucida) | make | | Alessandro-Barbieri | yes
 [embedded fuzzy logic library](https://github.com/zerokol/eFLL) | make | devel | Alessandro-Barbieri | no
 [Intel-sgx](https://01.org/intel-softwareguard-extensions) | make | devel | Alessandro-Barbieri | yes
@@ -30,6 +30,7 @@ Name | Buildsystem | Category | User | RFH
 [tau](http://www.cs.uoregon.edu/research/tau/home.php) | make | tools | Alessandro-Barbieri | no
 [plasma](https://github.com/NLAFET/plasma) | make | science | Alessandro-Barbieri | yes
 [imb](https://software.intel.com/content/www/us/en/develop/articles/intel-mpi-benchmarks.html) | make | cluster | Alessandro-Barbieri | no
+[gnat-llvm](https://github.com/AdaCore/gnat-llvm) | make | compiler | Alessandro-Barbieri | yes
 [dimemas](https://github.com/bsc-performance-tools/dimemas) | autotools | cluster | Alessandro-Barbieri | no
 [argobots](https://www.argobots.org/) | autotools | devel | Alessandro-Barbieri | no
 [mochi-ssg](https://github.com/mochi-hpc/mochi-ssg) | autotools | cluster | Alessandro-Barbieri | no
@@ -77,23 +78,30 @@ Name | Buildsystem | Category | User | RFH
 [llvm-ompss2](https://github.com/bsc-pm/llvm) | cmake | cluster | Alessandro-Barbieri | yes
 [pagmo](https://github.com/bsc-pm/llvm) | cmake | science | Alessandro-Barbieri | no
 [enarx](https://enarx.dev/) | cargo | util | Alessandro-Barbieri | no
-[airshipper](https://gitlab.com/veloren/airshipper) | cargo | game | | 
+[airshipper](https://gitlab.com/veloren/airshipper) | cargo | game | NicolaSmaniotto | 
+[ruplacer](https://github.com/dmerejkowsky/ruplacer) | cargo | sys | Alessandro-Barbieri | no
+[gping](https://github.com/orf/gping) | cargo | net | Alessandro-Barbieri | no
 [open-match](https://github.com/googleforgames/open-match) | go | devel | Alessandro-Barbieri | yes
 [gridstudio](https://github.com/ricklamers/gridstudio) | go | visualization | Alessandro-Barbieri | yes
 [osmosis](https://wiki.openstreetmap.org/wiki/Osmosis) | gradle | geography | Alessandro-Barbieri | yes
 [Opensearch](https://github.com/opensearch-project/OpenSearch) | gradle |  | Alessandro-Barbieri | yes
 [cocalc](https://github.com/sagemathinc/cocalc) | npm | math | Alessandro-Barbieri | yes
-[Gitfs](https://github.com/presslabs/gitfs) | setuptools | filesystem | Alessandro-Barbieri | no
+[node-red](https://nodered.org/) | npm | programming | Alessandro-Barbieri | yes 
+[tangram](https://github.com/tangrams/tangram) | npm | geoscience | Alessandro-Barbieri | yes 
+[ijavascript](https://github.com/n-riesco/ijavascript) | npm | jupyter | Alessandro-Barbieri | yes 
+[pelias](https://github.com/pelias/pelias) | npm | geoscience | Alessandro-Barbieri | yes 
+[carto](https://github.com/mapbox/carto) | npm | geoscience | Alessandro-Barbieri | yes 
+[Gitfs](https://github.com/presslabs/gitfs) | setuptools | filesystem | Alessandro-Barbieri | yes
 [usbkill](https://github.com/hephaest0s/usbkill) | setuptools | util | Alessandro-Barbieri | no
-[mapillary_tools](https://github.com/mapillary/mapillary_tools) | setuptools | geography | Alessandro-Barbieri | no
 [blockify](https://github.com/serialoverflow/blockify) | setuptools | audio | Alessandro-Barbieri | no
 [foobnix](https://github.com/foobnix/foobnix) | setuptools | audio | |
 [TauonMusicBox](https://github.com/Taiko2k/TauonMusicBox) | setuptools | audio | |
 [mmtracking](https://github.com/open-mmlab/mmtracking) | setuptools | science | Alessandro-Barbieri | no
-[ueberzug](https://github.com/seebye/ueberzug) | setuptools | cli | |
-[greenclip](https://github.com/erebe/greenclip) | cabal | desktop | |
+[ueberzug](https://github.com/seebye/ueberzug) | setuptools | cli | N-R-K |
+[greenclip](https://github.com/erebe/greenclip) | cabal | desktop | N-R-K |
 [google-drive-ocamlfuse](https://github.com/astrada/google-drive-ocamlfuse) | dune | filesystem | Alessandro-Barbieri | yes
 [kaitai](https://github.com/kaitai-io/kaitai_struct) | sbt | util | Alessandro-Barbieri | yes
 [casadi](https://web.casadi.org/) | cmake swig | science | Alessandro-Barbieri | no
 [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet) | setuptools yarn | jupyter | Alessandro-Barbieri | yes
+[gitlab](https://gitlab.com/gitlab-org/gitlab-foss) | yarn gem | vcs | Alessandro-Barbieri | yes 
 [HOL4](http://hol-theorem-prover.org/) | ? | math | Alessandro-Barbieri | yes
