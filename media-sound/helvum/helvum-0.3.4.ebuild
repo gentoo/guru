@@ -149,4 +149,12 @@ LICENSE="Apache-2.0 BSD Boost-1.0 GPL-3 ISC MIT Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="x11-libs/pango"
+DEPEND="
+	dev-libs/glib:2
+	gui-libs/gtk:4
+	media-libs/graphene
+	media-video/pipewire:=
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
+	x11-libs/pango
+"
