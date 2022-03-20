@@ -1,10 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+EPYTEST_DESELECT=( nova/tests/unit/test_hacking.py )
 MYP="${P//_/}"
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1 linux-info udev
 
@@ -12,7 +13,7 @@ DESCRIPTION="Cloud computing fabric controller"
 HOMEPAGE="
 	https://launchpad.net/nova
 	https://opendev.org/openstack/nova
-	https://pypi.org/project/nova
+	https://pypi.org/project/nova/
 "
 SRC_URI="
 	https://dev.gentoo.org/~prometheanfire/dist/openstack/nova/victoria/nova.conf.sample -> nova.conf.sample-${PV}
@@ -26,21 +27,7 @@ SLOT="0"
 IUSE="+compute compute-only iscsi +memcached +mysql +novncproxy openvswitch postgres +rabbitmq sqlite"
 
 RDEPEND="
-	>=dev-python/pbr-5.5.1[${PYTHON_USEDEP}]
-	compute-only? (
-		>=dev-python/sqlalchemy-1.4.13[${PYTHON_USEDEP}]
-	)
-	sqlite? (
-		>=dev-python/sqlalchemy-1.4.13[sqlite,${PYTHON_USEDEP}]
-	)
-	mysql? (
-		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.4.13[${PYTHON_USEDEP}]
-	)
-	postgres? (
-		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.4.13[${PYTHON_USEDEP}]
-	)
+	>=dev-python/pbr-5.8.0[${PYTHON_USEDEP}]
 	>=dev-python/decorator-4.1.0[${PYTHON_USEDEP}]
 	>=dev-python/eventlet-0.30.1[${PYTHON_USEDEP}]
 	>=dev-python/jinja-2.10[${PYTHON_USEDEP}]
@@ -54,6 +41,7 @@ RDEPEND="
 	>=dev-python/paste-2.0.2[${PYTHON_USEDEP}]
 	>=dev-python/prettytable-0.7.1[${PYTHON_USEDEP}]
 	>=dev-python/sqlalchemy-migrate-0.13.0[${PYTHON_USEDEP}]
+	>=dev-python/alembic-1.5.0[${PYTHON_USEDEP}]
 	>=dev-python/netaddr-0.7.18[${PYTHON_USEDEP}]
 	>=dev-python/netifaces-0.10.4[${PYTHON_USEDEP}]
 	>=dev-python/paramiko-2.7.1[${PYTHON_USEDEP}]
@@ -67,73 +55,92 @@ RDEPEND="
 	>=dev-python/stevedore-1.20.0[${PYTHON_USEDEP}]
 	>=dev-python/websockify-0.9.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-cache-1.26.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-concurrency-4.4.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-concurrency-4.5.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-config-8.6.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-context-3.1.1[${PYTHON_USEDEP}]
-	>=dev-python/oslo-log-4.4.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-context-3.4.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-log-4.6.1[${PYTHON_USEDEP}]
 	>=dev-python/oslo-reports-1.18.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-serialization-4.1.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-serialization-4.2.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-upgradecheck-1.3.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-utils-4.8.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-utils-4.12.1[${PYTHON_USEDEP}]
 	>=dev-python/oslo-db-10.0.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-rootwrap-5.8.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-messaging-10.3.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-policy-3.7.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-privsep-2.4.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-i18n-5.0.1[${PYTHON_USEDEP}]
-	>=dev-python/oslo-service-2.5.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-privsep-2.6.2[${PYTHON_USEDEP}]
+	>=dev-python/oslo-i18n-5.1.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-service-2.8.0[${PYTHON_USEDEP}]
 	>=dev-python/rfc3986-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-middleware-3.31.0[${PYTHON_USEDEP}]
 	>=dev-python/psutil-3.2.2[${PYTHON_USEDEP}]
 	>=dev-python/oslo-versionedobjects-1.35.0[${PYTHON_USEDEP}]
-	>=dev-python/os-brick-4.3.1[${PYTHON_USEDEP}]
-	>=dev-python/os-resource-classes-1.0.0[${PYTHON_USEDEP}]
-	>=dev-python/os-traits-2.5.0[${PYTHON_USEDEP}]
+	>=dev-python/os-brick-5.2[${PYTHON_USEDEP}]
+	>=dev-python/os-resource-classes-1.1.0[${PYTHON_USEDEP}]
+	>=dev-python/os-traits-2.7.0[${PYTHON_USEDEP}]
 	>=dev-python/os-vif-1.15.2[${PYTHON_USEDEP}]
-	>=dev-python/os-win-5.4.0[${PYTHON_USEDEP}]
 	>=dev-python/castellan-0.16.0[${PYTHON_USEDEP}]
 	>=dev-python/microversion-parse-0.2.1[${PYTHON_USEDEP}]
-	>=dev-python/os-xenapi-0.3.4[${PYTHON_USEDEP}]
 	>=dev-python/tooz-1.58.0[${PYTHON_USEDEP}]
 	>=dev-python/cursive-0.2.1[${PYTHON_USEDEP}]
-	>=dev-python/pypowervm-1.1.15[${PYTHON_USEDEP}]
 	>=dev-python/retrying-1.3.3[${PYTHON_USEDEP}]
 	>=dev-python/os-service-types-1.7.0[${PYTHON_USEDEP}]
 	>=dev-python/taskflow-3.8.0[${PYTHON_USEDEP}]
 	>=dev-python/python-dateutil-2.7.0[${PYTHON_USEDEP}]
-	>=dev-python/zVMCloudConnector-1.3.0[${PYTHON_USEDEP}]
 	>=dev-python/futurist-1.8.0[${PYTHON_USEDEP}]
 	>=dev-python/openstacksdk-0.35.0[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-5.1[${PYTHON_USEDEP}]
-	dev-python/libvirt-python[${PYTHON_USEDEP}]
+
+	>=dev-python/pypowervm-1.1.15[${PYTHON_USEDEP}]
+	>=dev-python/zVMCloudConnector-1.3.0[${PYTHON_USEDEP}]
+	>=dev-python/os-win-5.5.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-vmware-3.6.0[${PYTHON_USEDEP}]
+
+	acct-user/nova
+	acct-group/nova
 	app-emulation/libvirt[iscsi?]
 	app-emulation/spice-html5
-	novncproxy? ( www-apps/novnc )
+	dev-python/libvirt-python[${PYTHON_USEDEP}]
+	net-misc/bridge-utils
 	sys-apps/iproute2
-	openvswitch? ( net-misc/openvswitch )
-	rabbitmq? ( net-misc/rabbitmq-server )
-	memcached? (
-		net-misc/memcached
-		>=dev-python/python-memcached-1.58
-	)
 	sys-fs/sysfsutils
 	sys-fs/multipath-tools
-	net-misc/bridge-utils
+
 	compute? (
 		app-cdr/cdrtools
 		sys-fs/dosfstools
 		app-emulation/qemu
 	)
+	compute-only? (
+		>=dev-python/sqlalchemy-1.4.13[${PYTHON_USEDEP}]
+	)
 	iscsi? (
 		sys-fs/lsscsi
 		>=sys-block/open-iscsi-2.0.873-r1
 	)
-	acct-user/nova
-	acct-group/nova
+	memcached? (
+		net-misc/memcached
+		>=dev-python/python-memcached-1.58[${PYTHON_USEDEP}]
+	)
+	mysql? (
+		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
+		>=dev-python/sqlalchemy-1.4.13[${PYTHON_USEDEP}]
+	)
+	novncproxy? ( www-apps/novnc )
+	openvswitch? ( net-misc/openvswitch )
+	postgres? (
+		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
+		>=dev-python/sqlalchemy-1.4.13[${PYTHON_USEDEP}]
+	)
+	rabbitmq? ( net-misc/rabbitmq-server )
+	sqlite? (
+		>=dev-python/sqlalchemy-1.4.13[sqlite,${PYTHON_USEDEP}]
+	)
 "
 DEPEND="
 	${RDEPEND}
 	app-admin/sudo
+"
+BDEPEND="
 	test? (
 		>=dev-python/types-paramiko-0.1.3[${PYTHON_USEDEP}]
 		>=dev-python/ddt-1.2.1[${PYTHON_USEDEP}]
@@ -152,6 +159,8 @@ DEPEND="
 		>=dev-python/gabbi-1.35.0[${PYTHON_USEDEP}]
 		>=dev-python/wsgi_intercept-1.7.0[${PYTHON_USEDEP}]
 		>=dev-python/oslo-vmware-3.6.0[${PYTHON_USEDEP}]
+
+		sys-cluster/placement[${PYTHON_USEDEP}]
 	)
 "
 
@@ -220,7 +229,7 @@ python_install_all() {
 		insinto /etc/nova/
 		doins "${FILESDIR}/scsi-openscsi-link.sh"
 	fi
-	rm -r "${ED}/usr/etc"
+	rm -r "${ED}/usr/etc" || die
 }
 
 pkg_postinst() {
