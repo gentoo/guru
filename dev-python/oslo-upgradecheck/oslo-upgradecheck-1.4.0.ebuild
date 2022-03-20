@@ -5,14 +5,14 @@ EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=bdepend
 MY_PN=${PN/-/.}
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 DESCRIPTION="Common code for writing OpenStack upgrade checks"
 HOMEPAGE="
 	https://opendev.org/openstack/oslo.upgradecheck
-	https://pypi.org/project/oslo.upgradecheck
+	https://pypi.org/project/oslo.upgradecheck/
 "
 SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_PN}-${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MY_PN}-${PV}"
@@ -31,6 +31,8 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
+"
+BDEPEND="
 	test? (
 		>=dev-python/oslotest-3.5.0[${PYTHON_USEDEP}]
 		>=dev-python/oslo-serialization-2.21.1[${PYTHON_USEDEP}]
