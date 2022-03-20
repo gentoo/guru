@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>	
+	<longdescription lang="en">
+		A plugin for GCC that records extra information in the files that it compiles.
+		This information can be used to analyze the files, and provide the loader
+		with extra information about the requirements of the loaded file.
+	</longdescription>
+	<use>
+		<flag name="clang">Build the clang plugin</flag>
+		<flag name="llvm">Build the LLVM plugin</flag>
+	</use>
+</pkgmetadata>
