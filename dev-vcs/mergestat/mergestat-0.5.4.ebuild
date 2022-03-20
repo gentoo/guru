@@ -1025,6 +1025,8 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 DOCS=( README.md )
+RESTRICT="test"
+PROPERTIES="test_network"
 
 src_prepare() {
 	# remove bundled sqlite
@@ -1034,7 +1036,7 @@ src_prepare() {
 
 src_compile() {
 	export CGO_CPPFLAGS="${CPPFLAGS}"
-	export CGO_CFLAGS="${CFLAGS} -DUSE_LIBSQLITE"
+	export CGO_CFLAGS="${CFLAGS} -DUSE_LIBSQLITE3"
 	export CGO_LDFLAGS="${LDFLAGS} -Wl,--unresolved-symbols=ignore-in-object-files -lsqlite3"
 	local tags="sqlite_vtable,vtable,sqlite_json1,system_libgit2"
 	go build \
@@ -1054,4 +1056,8 @@ src_install() {
 	einstalldocs
 	dobin mergestat
 	dolib.so libmergestat.so
+}
+
+src_test() {
+	go test -x -v -tags="sqlite_vtable,vtable,sqlite_json1,system_libgit2,static" ./... || die
 }
