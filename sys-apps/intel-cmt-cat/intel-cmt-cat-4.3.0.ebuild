@@ -34,7 +34,9 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	test? ( appqos? ( dev-python/mock[${PYTHON_USEDEP}] ) )
+	test? (
+		appqos? ( dev-python/mock[${PYTHON_USEDEP}] )
+	)
 "
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -101,7 +103,7 @@ src_install() {
 	unset DOCS
 	python_foreach_impl python_install
 
-	if use perl ; then
+	if use perl; then
 		pushd "lib/perl" || die
 		unset DOCS
 		myinst=( DESTDIR="${D}" )
@@ -113,7 +115,7 @@ src_install() {
 }
 
 src_test() {
-	python_foreach_impl python_test
+	LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${S}/lib" python_foreach_impl python_test
 }
 
 python_install() {
