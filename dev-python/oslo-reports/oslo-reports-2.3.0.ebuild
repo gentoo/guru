@@ -3,14 +3,14 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 DESCRIPTION="generified reports for openstack"
 HOMEPAGE="
 	https://opendev.org/openstack/oslo.reports
-	https://pypi.org/project/oslo.reports
+	https://pypi.org/project/oslo.reports/
 	https://launchpad.net/oslo.reports
 "
 SRC_URI="mirror://pypi/${PN:0:1}/oslo.reports/oslo.reports-${PV}.tar.gz"
@@ -28,8 +28,8 @@ RDEPEND="
 	>=dev-python/oslo-i18n-3.15.3[${PYTHON_USEDEP}]
 	>=dev-python/oslo-utils-3.33.0[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	test? (
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/oslo-config-5.2.0[${PYTHON_USEDEP}]
