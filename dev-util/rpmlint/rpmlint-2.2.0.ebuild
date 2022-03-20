@@ -1,10 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
 DISTUTILS_SINGLE_IMPL=1
-PYTHON_COMPAT=( python3_{8,9} )
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
@@ -56,12 +57,3 @@ DEPEND="
 PATCHES=( "${FILESDIR}/no-coverage.patch" )
 
 distutils_enable_tests pytest
-
-python_test() {
-	pytest -vv \
-			--deselect test/test_speccheck.py::test_check_invalid_url[spec/SpecCheck2] \
-			--deselect test/test_lint.py::test_run_installed_and_no_files \
-			--deselect test/test_lint.py::test_run_installed[packages0] \
-			--deselect test/test_ldd_parser.py::test_dependencies \
-	|| die
-}
