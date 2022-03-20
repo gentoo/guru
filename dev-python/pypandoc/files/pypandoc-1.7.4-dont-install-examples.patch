@@ -1,0 +1,23 @@
+From 44fa67fc92993301ec3e446d342a74c49d58334c Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Anna=20=E2=80=9CCyberTailor=E2=80=9D?= <cyber@sysrq.in>
+Date: Fri, 18 Mar 2022 08:41:08 +0500
+Subject: [PATCH] Don't install examples
+
+See Gentoo Bugzilla: https://bugs.gentoo.org/835475
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -32,14 +32,6 @@ packages = [
+     { include = "pypandoc" },
+ ]
+ 
+-include = [
+-"examples/*",
+-"LICENSE",
+-"README.md",
+-"tests.py",
+-"filter_test.md",
+-]
+-
+ [tool.poetry.dependencies]
+ python = "^2.7 || ^3.6"
+ 
