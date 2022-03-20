@@ -8,6 +8,6 @@
   <upstream>
     <bugs-to>https://github.com/uber/tchannel/issues</bugs-to>
     <remote-id type="pypi">tchannel</remote-id>
-    <remote-id type="github">uber/tchannel</remote-id>
+    <remote-id type="github">uber/tchannel-python</remote-id>
   </upstream>
 </pkgmetadata>
