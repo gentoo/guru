@@ -19,18 +19,22 @@ HOMEPAGE="https://github.com/mjakeman/extension-manager"
 LICENSE="GPL-3+"
 SLOT="0"
 
-DEPEND="
+BDEPEND="
+	dev-libs/glib:2
+	dev-util/blueprint-compiler
+	virtual/pkgconfig
+"
+
+RDEPEND="
 	dev-libs/glib:2
 	dev-libs/json-glib
 	gui-libs/gtk:4[introspection]
 	gui-libs/libadwaita:1[introspection]
 	net-libs/libsoup:3.0
 "
-RDEPEND="${DEPEND}"
-BDEPEND="
-	dev-libs/glib:2
-	dev-util/blueprint-compiler
-	virtual/pkgconfig
+
+DEPEND="
+	${RDEPEND}
 "
 
 src_configure() {
@@ -44,14 +48,13 @@ src_configure() {
 
 # Tests are skipped because as of version 0.2.3, the tests only validate
 # resource files and do not verify any functionality of the program.  Those
-# validations are either already handled by QA checks or are not relevant on
+# validations are either already handled by QA checks or not relevant on
 # Gentoo.  For more information about the rationale, please refer to:
 # https://github.com/gentoo/guru/commit/f896bee213fbb62c70e818c1bf503fee2a41919a#comments
 #
 # If tests are to be executed in the future because the upstream adds
-# functionality tests in the future or for other reasons, and should there be
-# no convenient way to skip the validations, the following variable values need
-# to be set:
+# functionality tests or for other reasons, and should there be no convenient
+# way to skip the validations, the following variable values need to be set:
 #
 # IUSE="test"
 # # 'Validate appstream file' test case requires Internet connection
