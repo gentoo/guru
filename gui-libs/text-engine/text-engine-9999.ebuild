@@ -42,5 +42,5 @@ RDEPEND="
 src_prepare() {
 	default
 	sed -i -e "/subdir('demo')/d" meson.build ||
-		die "Failed to modify meson.ebuild to exclude the demo program"
+		die "Failed to modify meson.build to exclude the demo program"
 }
