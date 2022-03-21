@@ -21,7 +21,7 @@ SRC_URI="https://github.com/leobago/fti/archive/refs/tags/v${PV}.tar.gz -> ${P}.
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc examples fi-io hdf5 lustre fortran openssl sionlib test tutorial"
+IUSE="doc examples fi-io hdf5 fortran openssl sionlib test tutorial"
 
 #TODO: unbundle jerasure bpp iniparser
 RDEPEND="
@@ -29,7 +29,6 @@ RDEPEND="
 	virtual/mpi
 
 	hdf5? ( sci-libs/hdf5[mpi] )
-	lustre? ( sys-cluster/lustre )
 	openssl? ( dev-libs/openssl )
 	sionlib? ( sys-cluster/sionlib )
 "
@@ -58,7 +57,6 @@ src_configure() {
 		-DENABLE_FI_IO=$(usex fi-io)
 		-DENABLE_FORTRAN=$(usex fortran)
 		-DENABLE_HDF5=$(usex hdf5)
-		-DENABLE_LUSTRE=$(usex lustre)
 		-DENABLE_OPENSSL=$(usex openssl)
 		-DENABLE_SIONLIB=$(usex sionlib)
 		-DENABLE_TESTS=$(usex test)
