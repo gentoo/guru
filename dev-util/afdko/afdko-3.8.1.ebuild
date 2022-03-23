@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="Adobe Font Development Kit for OpenType"
 HOMEPAGE="
-	https://adobe-type-tools.github.io/afdko
+	https://adobe-type-tools.github.io/afdko/
 	https://github.com/adobe-type-tools/afdko
 "
 SRC_URI="https://github.com/adobe-type-tools/afdko/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
