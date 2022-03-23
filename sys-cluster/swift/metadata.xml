@@ -15,5 +15,6 @@
   </use>
   <upstream>
     <remote-id type="launchpad">swift</remote-id>
+    <remote-id type="github">openstack/swift</remote-id>
   </upstream>
 </pkgmetadata>

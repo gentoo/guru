@@ -1,48 +1,60 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_8 python3_9 )
-DISTUTILS_USE_SETUPTOOLS=rdepend
+EAPI=8
+
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1 linux-info
 
 DESCRIPTION="A highly available, distributed, and eventually consistent object/blob store"
-HOMEPAGE="https://launchpad.net/swift"
-if [[ ${PV} == *9999 ]];then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/openstack/swift.git"
-	EGIT_BRANCH="stable/victoria"
-else
-	SRC_URI="https://tarballs.openstack.org/${PN}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
-fi
+HOMEPAGE="
+	https://github.com/openstack/swift
+	https://launchpad.net/swift
+"
+SRC_URI="https://tarballs.openstack.org/${PN}/${P}.tar.gz"
+KEYWORDS="~amd64"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 IUSE="account container doc +memcached +object proxy"
-REQUIRED_USE="|| ( proxy account container object )"
 
-CDEPEND=">=dev-python/pbr-1.8.0[${PYTHON_USEDEP}]"
-DEPEND="${CDEPEND}"
 RDEPEND="
-	${CDEPEND}
 	>=dev-python/eventlet-0.25.0[${PYTHON_USEDEP}]
 	>=dev-python/greenlet-0.3.2[${PYTHON_USEDEP}]
 	>=dev-python/netifaces-0.8[${PYTHON_USEDEP}]
-	!~dev-python/netifaces-0.10.0[${PYTHON_USEDEP}]
-	!~dev-python/netifaces-0.10.1[${PYTHON_USEDEP}]
-	>=dev-python/pastedeploy-1.3.3[${PYTHON_USEDEP}]
+	>=dev-python/pastedeploy-2.0.0[${PYTHON_USEDEP}]
 	>=dev-python/lxml-3.4.1[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.14.2[${PYTHON_USEDEP}]
 	>=dev-python/six-1.10.0[${PYTHON_USEDEP}]
-	dev-python/pyxattr[${PYTHON_USEDEP}]
+	>=dev-python/xattr-0.4[${PYTHON_USEDEP}]
 	>=dev-python/PyECLib-1.3.1[${PYTHON_USEDEP}]
 	>=dev-python/cryptography-2.0.2[${PYTHON_USEDEP}]
-	memcached? ( net-misc/memcached )
 	net-misc/rsync[xattr]
 	acct-user/swift
-	acct-group/swift"
+	acct-group/swift
+
+	memcached? ( net-misc/memcached )
+"
+DEPEND="${RDEPEND}"
+BDEPEND="
+	test? (
+		>=dev-python/nosexcover-1.0.10[${PYTHON_USEDEP}]
+		>=dev-python/nosehtmloutput-0.0.3[${PYTHON_USEDEP}]
+		>=dev-python/mock-2.0[${PYTHON_USEDEP}]
+		>=dev-python/python-swiftclient-3.2.0[${PYTHON_USEDEP}]
+		>=dev-python/python-keystoneclient-2.0.0[${PYTHON_USEDEP}]
+		>=dev-python/boto-2.32.1[${PYTHON_USEDEP}]
+		>=dev-python/boto3-1.9[${PYTHON_USEDEP}]
+		>=dev-python/botocore-1.12[${PYTHON_USEDEP}]
+		>=dev-python/requests-mock-1.2.0[${PYTHON_USEDEP}]
+		>=dev-python/keystonemiddleware-4.17.0[${PYTHON_USEDEP}]
+	)
+"
+
+REQUIRED_USE="|| ( proxy account container object )"
+
+distutils_enable_tests nose
 
 pkg_pretend() {
 	linux-info_pkg_setup
@@ -57,7 +69,6 @@ pkg_pretend() {
 }
 
 src_prepare() {
-	sed -i 's/xattr/pyxattr/g' requirements.txt || die
 	sed -i '/^hacking/d' test-requirements.txt || die
 	distutils-r1_python_prepare_all
 }

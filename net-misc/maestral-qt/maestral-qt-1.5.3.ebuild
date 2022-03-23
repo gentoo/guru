@@ -32,7 +32,7 @@ distutils_enable_tests setup.py
 
 python_install_all()
 {
-	default
+	distutils-r1_python_install_all
 
 	domenu src/maestral_qt/resources/maestral.desktop
 }

@@ -12,7 +12,7 @@ HOMEPAGE="
 	https://github.com/edenhill/trivup
 	https://pypi.org/project/trivup/
 "
-SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/edenhill/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}-gh.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
@@ -21,7 +21,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/jwcrypto[${PYTHON_USEDEP}]
-	dev-python/pyjwt[${PYTHON_USEDEP}]
+	dev-python/python_jwt[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
 

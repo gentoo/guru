@@ -10,6 +10,7 @@ EPYTEST_DESELECT=(
 	neutron_lib/tests/unit/objects/test_common_types.py::TestField::test_to_primitive
 	neutron_lib/tests/unit/objects/test_common_types.py::TestField::test_to_primitive_json_serializable
 	neutron_lib/tests/unit/objects/test_common_types.py::TestField::test_from_primitive
+	neutron_lib/tests/unit/test_context.py::TestNeutronContext::test_neutron_context_to_dict
 )
 EPYTEST_IGNORE=( neutron_lib/tests/unit/hacking )
 PYTHON_COMPAT=( python3_{8..9} )

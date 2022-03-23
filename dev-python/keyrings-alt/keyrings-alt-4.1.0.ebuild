@@ -31,6 +31,8 @@ distutils_enable_sphinx docs \
 	dev-python/rst-linker \
 	dev-python/jaraco-packaging
 
-export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
+pkg_setup() {
+	export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
+}
 
 S="${WORKDIR}/${MY_PN}-${PV}"

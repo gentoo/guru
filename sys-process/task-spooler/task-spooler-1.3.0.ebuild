@@ -29,6 +29,7 @@ src_prepare() {
 }
 
 src_test() {
+	cp ${BUILD_DIR}/ts ${S}/ || die "failed to copy ts executable to source folder for tests"
 	sh testbench.sh || die "tests failed"
 }
 

@@ -23,6 +23,7 @@ DEPEND="
 	${RDEPEND}
 	dev-python/cython[${PYTHON_USEDEP}]
 "
+# toml is an indirect dependency (needed by ipdb)
 BDEPEND="
 	>=dev-python/setuptools_scm-3.3.1[${PYTHON_USEDEP}]
 	test? (
@@ -32,6 +33,8 @@ BDEPEND="
 		dev-python/process-tests[${PYTHON_USEDEP}]
 		dev-python/pytest-benchmark[${PYTHON_USEDEP}]
 		dev-python/six[${PYTHON_USEDEP}]
+
+		dev-python/toml[${PYTHON_USEDEP}]
 	)
 "
 
