@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install test
+DEPEND=>=sci-mathematics/lean-3.41.0 sci-mathematics/mathlib-tools
+DESCRIPTION=Lean mathematical components library
+EAPI=8
+HOMEPAGE=https://github.com/leanprover-community/mathlib
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=>=sci-mathematics/lean-3.41.0
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/leanprover-community/mathlib/archive/d04fff95f686d5c372f7895551c40e7fa683ed6b.tar.gz -> lean-mathlib-0.1_p20220318.tar.gz
+_md5_=5a914864710f5c6f7d28e335b83b6a68

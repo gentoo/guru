@@ -392,6 +392,7 @@ dev-python/auditok 0.2.0: A module for Audio/Acoustic Activity Detection
 dev-python/autoflake 1.4-r1: Removes unused imports and unused variables as reported by pyflakes
 dev-python/automaton 2.4.0 2.5.0: Friendly state machines for python
 dev-python/avro 1.11.0: Apache Avro is a data serialization system
+dev-python/axisregistry 0.2.0: A Python API to access data from the Google Fonts variable fonts Axis Registry
 dev-python/azure-storage-blob 12.8.1: Microsoft Azure Blob Storage Client Library for Python
 dev-python/b2sdk 1.8.0 1.12.0: The client library for BackBlaze's B2 product
 dev-python/babelfont 2.0.1 2.0.2: Interrogate and manipulate UFO, TTF and OTF fonts with a common interface
@@ -417,7 +418,7 @@ dev-python/cmarkgfm 0.6.0 2022.3.4: Python bindings for GitHub's cmark
 dev-python/collidoscope 0.0.6 0.4.1: Brute force detection of glyph collisions
 dev-python/colored 1.4.2 1.4.3: Very simple Python library for color and formatting in terminal
 dev-python/commandlines 0.4.1: Routines for extracting information from fontTools glyphs
-dev-python/compreffor 0.5.1 0.5.1_p1: A CFF table subroutinizer for FontTools
+dev-python/compreffor 0.5.1_p1: A CFF table subroutinizer for FontTools
 dev-python/confluent-kafka 1.8.2: Confluent's Kafka Python Client
 dev-python/convertdate 2.3.2 2.4.0: Utils for converting between date formats and calculating holidays
 dev-python/cotyledon 1.7.3: Cotyledon provides a framework for defining long-running services
@@ -448,16 +449,18 @@ dev-python/fchroot 0.1.2: Franken-chroot tool. Chroot arm/64 arches into amd64/x
 dev-python/ffmpeg-python 0.2.0: Python bindings for FFmpeg - with complex filtering support
 dev-python/filecheck 0.0.22: Python port of LLVM's FileCheck, flexible pattern matching file verifier
 dev-python/font-v 1.0.5 2.1.0: Font version string reporting and modification library
-dev-python/fontMath 0.6.0 0.8.1: A collection of objects that implement fast font math
-dev-python/fontParts 0.9.11 0.10.3: An API for interacting with the parts of fonts
+dev-python/fontMath 0.8.1 0.9.1: A collection of objects that implement fast font math
+dev-python/fontParts 0.10.3 0.10.4: An API for interacting with the parts of fonts
 dev-python/fontPens 0.2.4: A collection of classes implementing the pen protocol for manipulating glyphs
 dev-python/futurist 2.3.0-r1: Useful additions to futures, from the future
 dev-python/gabbi 2.3.0 2.4.0: Declarative HTTP testing library
 dev-python/gemcall 0.8: A library and CLI tool for making gemini requests
+dev-python/gflanguages 0.4.0: A python API for evaluating language support in the Google Fonts collection
 dev-python/github-sublee-glicko2 0_pre20191010-r1: An implementation of the Glicko-2 rating system for Python
 dev-python/glance_store 3.0.0: A library for glance
 dev-python/glicko2 2.0.0: glicko2 implementation in python
 dev-python/glyphsLib 5.3.2-r1 6.0.4: A library to provide a bridge from Glyphs source files to UFOs
+dev-python/glyphsets 0.2.1: A python API for evaluating coverage of glyph sets in font projects
 dev-python/glyphtools 0.7.4 0.8.0: Routines for extracting information from fontTools glyphs
 dev-python/gnocchi 4.4.1: Timeseries database
 dev-python/google-cloud-storage 1.36.0: Google Cloud Storage API client library
@@ -474,7 +477,8 @@ dev-python/hstspreload 2021.10.1 2021.12.1: Chromium HSTS Preload list as a Pyth
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/hunter 3.3.8 3.4.3: Hunter is a flexible code tracing toolkit
 dev-python/hwi 1.2.1 2.0.2: Library and command line tool for interacting with hardware wallets
-dev-python/hypercorn 0.11.2-r1 0.13.2: ASGI Server based on Hyper libraries and inspired by Gunicorn
+dev-python/hypercorn 0.13.2: ASGI Server based on Hyper libraries and inspired by Gunicorn
+dev-python/hyperglot 0.3.8: Detect language support for font binaries
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
 dev-python/injector 0.18.4: Python dependency injection framework
 dev-python/itemadapter 0.4.0: Common interface for scrapy data container classes
@@ -502,10 +506,12 @@ dev-python/monotonic 1.6: An implementation of time.monotonic() for Python 2 & <
 dev-python/ncclient 0.6.12: Python library for NETCONF clients
 dev-python/neutron-lib 2.20.0: Neutron shared routines and utilities
 dev-python/noiseprotocol 0.3.1: Python implementation of Noise Protocol Framework
+dev-python/nosehtmloutput 0.0.7: Nose plugin for generating HTML output
+dev-python/nosexcover 1.0.11: Extends nose.plugins.cover to add Cobertura-style XML reports
 dev-python/opentracing 2.4.0: OpenTracing API for Python
 dev-python/opentracing_instrumentation 3.3.1: A collection of Python instrumentation tools for the OpenTracing API
 dev-python/opentypespec 1.8.4: Python bezier manipulation library
-dev-python/orjson 3.5.3-r1: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
+dev-python/orjson 3.5.3-r1 3.6.7: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
 dev-python/orjson-bin 3.6.4: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
 dev-python/os-api-ref 2.3.0: Sphinx Extensions to support API reference sites in OpenStack
 dev-python/os-brick 5.2.0: OpenStack Cinder brick library for managing local volume attaches
@@ -516,7 +522,7 @@ dev-python/os-traits 2.7.0: os-traits is a library containing standardized trait
 dev-python/os-vif 2.7.1: OpenStack Cinder brick library for managing local volume attaches
 dev-python/os-win 5.6.0: Windows / Hyper-V library for OpenStack projects
 dev-python/os-xenapi 0.3.4-r2: XenAPI library for OpenStack projects
-dev-python/oscrypto 1.2.1: TLS sockets, key generation, encryption, decryption, signing, verification
+dev-python/oscrypto 1.3.0: TLS sockets, key generation, encryption, decryption, signing, verification
 dev-python/oslo-cache 2.8.1: Oslo Caching around dogpile.cache
 dev-python/oslo-db 11.2.0: OpenStack Common DB Code
 dev-python/oslo-messaging 12.9.1: Messaging API for RPC and notifications over different messaging transports
@@ -531,7 +537,7 @@ dev-python/oslo-upgradecheck 1.4.0: Common code for writing OpenStack upgrade ch
 dev-python/oslo-versionedobjects 2.5.0: A library that provides a generic versioned and RPC-friendly object model
 dev-python/oslo-vmware 3.9.1: Oslo VMware library for OpenStack projects
 dev-python/osprofiler 3.4.2: OpenStack Profiler Library
-dev-python/ots-python 8.1.4-r1: A Python wrapper for OpenType Sanitizer
+dev-python/ots-python 8.1.4-r1 8.2.1: A Python wrapper for OpenType Sanitizer
 dev-python/ovsdbapp 1.15.1: A library for creating OVSDB applications
 dev-python/parsel 1.6.0: Utility to extract data from XML/HTML documents using XPath or CSS selectors
 dev-python/pdfminer-six 20201018: Community maintained fork of pdfminer
@@ -544,12 +550,14 @@ dev-python/portio 0.5: Python low level port I/O for Linux x86
 dev-python/pproxy 2.7.8: TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio
 dev-python/praw 7.5.0: Python Reddit API Wrapper
 dev-python/prawcore 2.3.0: Low-level communication layer for PRAW
+dev-python/preggy 1.4.4: preggy is an assertion library for Python. What were you expecting?
 dev-python/promise 2.3.0: Promises/A+ implementation for Python
 dev-python/protego 0.1.16: robots.txt parser with support for modern conventions
 dev-python/proxy_tools 0.1.0: Simple proxy (as in the GoF design pattern)
 dev-python/psycopg2cffi 2.9.0: Implementation of the psycopg2 module using cffi. Compatible with Psycopg 2.5.
 dev-python/pure-protobuf 2.1.0: Python implementation of Protocol Buffers data types with dataclasses support
 dev-python/py3nvml 0.2.6: Python 3 Bindings for the NVIDIA Management Library
+dev-python/pyVows 3.0.0: (fast) parallel running of tests, code coverage reports, test profiling, and more
 dev-python/pybeam 0.7: Python module to parse Erlang BEAM files
 dev-python/pybrowserstack-screenshots 0.1-r1: A python api wrapper and client for Browserstack Screenshots API
 dev-python/pycadf 3.1.1-r1: python implementation of DMTF Cloud Audit (CADF) data model
@@ -569,7 +577,7 @@ dev-python/pymp4 1.2.0: A Python MP4 Parser and toolkit
 dev-python/pyngus 2.3.1: A connection oriented messaging framework using QPID Proton
 dev-python/pynmea2 1.18.0: Python library for the NMEA 0183 protcol
 dev-python/pyodbc 4.0.32: Python ODBC library
-dev-python/pypandoc 1.6.3 1.7.2: Pypandoc provides a thin wrapper for pandoc, a universal document converter
+dev-python/pypandoc 1.7.2 1.7.4: Pypandoc provides a thin wrapper for pandoc, a universal document converter
 dev-python/pypowervm 1.1.27: Python binding for the PowerVM REST API
 dev-python/pysaml2 7.1.2: Python implementation of SAML Version 2 to be used in a WSGI environment
 dev-python/pysftp 0.2.9: A friendly face on SFTP
@@ -609,6 +617,7 @@ dev-python/python-troveclient 7.2.0: A client for the OpenStack Trove API, a sca
 dev-python/python-vitrageclient 4.5.0: A client for the OpenStack Vitrage API
 dev-python/python-zaqarclient 2.3.0: A client for the OpenStack Zaqar API
 dev-python/python-zunclient 4.4.0: A client for the OpenStack Zun API
+dev-python/python_jwt 3.3.2: Python module for generating and verifying JSON Web Tokens
 dev-python/pywebview 3.5 3.6.1: A lightweight cross-platform wrapper around a webview component
 dev-python/queuelib 1.6.2: Collection of persistent and non-persistent queues for Python
 dev-python/recordclass 0.14.3: Mutable variants of tupe and collections.namedtuple
@@ -662,7 +671,7 @@ dev-python/types-python-dateutil 2.8.9 2.8.10: Typing stubs for python-dateutil
 dev-python/types-pytz 2021.3.0 2021.3.5: Typing stubs for pytz
 dev-python/types-requests 2.27.12 2.27.13: Typing stubs for requests
 dev-python/types-urllib3 1.26.10 1.26.11: Typing stubs for urllib3
-dev-python/ufo2ft 2.21.0 2.25.3: A bridge from UFOs to FontTool objects
+dev-python/ufo2ft 2.25.3 2.26.0: A bridge from UFOs to FontTool objects
 dev-python/ufoLib2 0.11.4 0.13.1: A UFO font library
 dev-python/ufoNormalizer 0.5.4 0.6.1: A tool that will normalize the XML and other data inside of a UFO
 dev-python/ufoProcessor 1.9.0: A Python package for processing and generating UFO files
@@ -681,6 +690,7 @@ dev-python/wsgi_intercept 1.9.2 1.9.3: wsgi_intercept installs a WSGI applicatio
 dev-python/xattr 0.9.7 0.9.9: Python wrapper for extended filesystem attributes
 dev-python/xunitparser 1.3.3: Read JUnit/XUnit XML files and map them to Python objects
 dev-python/yams 0.7.3 9999: Yet Another MPD Scrobbler (for Last.FM)
+dev-python/yanc 0.3.3: Yet another nose colorer
 dev-python/yaql 2.0.0: YAQL: Yet Another Query Language
 dev-python/zVMCloudConnector 1.4.1: a development sdk for managing z/VM
 dev-python/zake 0.2.2: Provide a nice set of testing utilities for the kazoo library
@@ -691,7 +701,7 @@ dev-ruby/rbspy 0.10.0-r3: Sampling profiler for Ruby
 dev-ruby/rspec-wait 0.0.9: enables time-resilient expectations in your RSpec test suite
 dev-ruby/ruby-install 0.8.3-r2: Installs Ruby, JRuby, Rubinius, TruffleRuby (native / GraalVM), or mruby.
 dev-util/FoBiS 3.0.5: FoBiS.py, a Fortran Building System for poor men
-dev-util/afdko 3.6.2: Adobe Font Development Kit for OpenType
+dev-util/afdko 3.6.2 3.8.1: Adobe Font Development Kit for OpenType
 dev-util/babeltrace2 2.0.4: A command-line tool and library to read and convert trace files
 dev-util/bats-assert 2.0.0: Common assertions for Bats
 dev-util/bats-support 0.3.0: Supporting library for Bats test helpers
@@ -700,16 +710,16 @@ dev-util/blueprint-compiler 0.1.0_pre20220219 9999: Compiler for Blueprint, a ma
 dev-util/cargo-make 0.35.9: Rust task runner and build tool
 dev-util/devscripts 2.21.2 2.21.3: Scripts to make the life of a Debian Package maintainer easier
 dev-util/eclipse-parallel-bin 4.20 4.21 4.22: Eclipse IDE for Scientific Computing (C, C++, Fortran)
-dev-util/fontmake 2.4.0: A wrapper for several Python libraries to compile fonts from sources
+dev-util/fontmake 2.4.0 3.2.0: A wrapper for several Python libraries to compile fonts from sources
 dev-util/fypp 3.1: Fypp - Python powered Fortran preprocessor
 dev-util/gammaray 2.11.3: High-level runtime introspection tool for Qt applications
-dev-util/gftools 0.7.2: Miscellaneous tools for working with the Google Fonts collection
+dev-util/gftools 0.7.2 0.9.2: Miscellaneous tools for working with the Google Fonts collection
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/mh 1.0.3: Generate help for Makefile
 dev-util/osc 0.173.0 9999: Command line tool for Open Build Service
-dev-util/ots 8.1.4: An util for validating and sanitising OpenType files
-dev-util/psautohint 2.3.0: A standalone version of AFDKO autohinter
+dev-util/ots 8.1.4 8.2.1: An util for validating and sanitising OpenType files
+dev-util/psautohint 2.3.0 2.4.0: A standalone version of AFDKO autohinter
 dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's OpenGL Shader Builder
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
@@ -857,7 +867,7 @@ media-gfx/WebPlotDigitizer-bin 4.5: Web based tool to extract data from plots, i
 media-gfx/akira 0.0.13 9999: Native Linux App for UI and UX Design built in Vala and GTK.
 media-gfx/azpainter 3.0.3 3.0.4: Full color painting software for Linux for illustration drawing
 media-gfx/bonzomatic 2021.03.07 9999: Live shader coding tool and Shader Showdown workhorse
-media-gfx/dehinter 3.1.0: Python bindings for GitHub's cmark
+media-gfx/dehinter 3.1.0 4.0.0: A tool for the removal of TrueType hints in fonts
 media-gfx/dustr 9999: light and interactive tool your crops need
 media-gfx/fontbakery 0.7.38: Font quality assurance tool
 media-gfx/fontdiff 0.2.3: A tool for finding visual differences between two font versions
@@ -893,7 +903,7 @@ media-libs/svt-vp9 0.3.0 9999: Scalable Video Technology for VP9 (SVT-VP9 Encode
 media-libs/vips 8.10.6: VIPS Image Processing Library
 media-plugins/alsa-sndio 0.2: ALSA PCM to play audio on sndio servers
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
-media-plugins/gimp-avif-plugin 9999: Plug-in for development GIMP 2.99.3 for loading/saving AVIF images.
+media-plugins/gimp-avif-plugin 9999: Plug-in for development GIMP 2.99.11 for loading/saving AVIF images.
 media-plugins/gst-plugins-qt5 1.18.4: Qt5 QML video sink plugin for GStreamer
 media-plugins/qt-heif-image-plugin 0.3.3-r1 0.3.3-r2: Qt plugin for HEIF images
 media-plugins/qt-jpegxl-image-plugin 9999: Qt plug-in to allow Qt and KDE based applications to read/write JXL images.
@@ -1060,7 +1070,7 @@ sci-mathematics/frama-c-studia 23.1 24.0: Studia plugin for frama-c
 sci-mathematics/frama-c-users 23.1 24.0: Users plugin for frama-c
 sci-mathematics/frama-c-variadic 23.1 24.0: Variadic function transformation plugin for frama-c
 sci-mathematics/frama-c-wp 23.1 24.0: Deductive proof of ACSL contracts (WP) plugin for frama-c
-sci-mathematics/lean-mathlib 0.1_p20211021: Lean mathematical components library
+sci-mathematics/lean-mathlib 0.1_p20211021 0.1_p20220318: Lean mathematical components library
 sci-mathematics/the-omega-project 2.1_p20131119: Tools from Pugh et al.'s for constraint-based compiler tools
 sci-misc/boinc-wrapper 7.16.17 7.16.17-r1: Wrapper to use non-BOINC apps with BOINC
 sci-physics/SU2 7.2.0: SU2: An Open-Source Suite for Multiphysics Simulation and Design
@@ -1140,7 +1150,7 @@ sys-cluster/sionlib 1.7.7-r4: Scalable I/O library for parallel access to task-l
 sys-cluster/sionlibl 1.7.7-r3: Scalable I/O library for parallel access to task-local files
 sys-cluster/spath 0.1.0: Path manipulation functions
 sys-cluster/spectral 3.4.1: Signal processing to select representative regions from Paraver traces
-sys-cluster/swift 2.26.0 2.27.0: A highly available, distributed, and eventually consistent object/blob store
+sys-cluster/swift 2.28.0: A highly available, distributed, and eventually consistent object/blob store
 sys-cluster/synapse 2.0.1: synapse
 sys-cluster/temanejo 1.3: a debugger for task-parallel programming
 sys-cluster/veloc 1.5-r1: Very-Low Overhead Checkpointing System
@@ -1149,6 +1159,7 @@ sys-firmware/pinephone-firmware 20210809: Firmwares files for PinePhone
 sys-fs/btrfs-heatmap 9-r1: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
 sys-fs/dwarfs 0.5.6-r1 0.5.6-r2 0.5.6-r3: A fast very high compression read-only FUSE file system
+sys-fs/dwarfs-bin 0.5.6: Static version of a fast very high compression read-only FUSE file system
 sys-fs/gcsfuse 0.39.2: A user-space file system for interacting with Google Cloud Storage
 sys-fs/gdu 5.9.0 5.13.2: Disk usage analyzer with console interface written in Go
 sys-fs/gfs2-utils 3.4.1: Shared-disk cluster file system
