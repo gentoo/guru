@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="Detect language support for font binaries"
 HOMEPAGE="
-	http://hyperglot.rosettatype.com/
+	https://hyperglot.rosettatype.com/
 	https://github.com/rosettatype/hyperglot
 	https://pypi.org/project/hyperglot/
 "
