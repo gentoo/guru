@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="SHUFFILE Shuffle files between processes"
 HOMEPAGE="https://github.com/ECP-VeloC/shuffile"
-SRC_URI="https://github.com/ECP-VeloC/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/ECP-VeloC/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -20,11 +20,8 @@ RDEPEND="
 	virtual/mpi
 "
 DEPEND="${RDEPEND}"
-BDEPEND="
-	>=dev-util/cmake-2.8
-"
 
-PATCHES=( "${FILESDIR}/${P}-no-static.patch" )
+PATCHES=( "${FILESDIR}/${PN}-0.1.0-no-static.patch" )
 RESTRICT="!test? ( test )"
 
 src_configure() {
@@ -34,4 +31,13 @@ src_configure() {
 		-DSHUFFILE_LINK_STATIC=OFF
 	)
 	cmake_src_configure
+}
+
+src_test() {
+	if mountpoint -q /dev/shm ; then
+		cmake_src_test
+	else
+		eerror "make sure to mount /dev/shm or tests will fail"
+		die
+	fi
 }
