@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
 inherit cmake
 
@@ -18,13 +18,21 @@ RDEPEND="
 	sys-cluster/KVTree[mpi]
 	sys-cluster/redset
 	sys-cluster/shuffile
-	sys-libs/zlib
 	virtual/mpi
 "
-DEPEND="${RDEPEND}"
-BDEPEND="
-	>=dev-util/cmake-2.8
+DEPEND="
+	${RDEPEND}
+	test? ( sys-cluster/rankstr )
 "
 
-PATCHES=( "${FILESDIR}/no-static-${PV}.patch" )
-RESTRICT="test" # https://github.com/ECP-VeloC/er/issues/20
+PATCHES=( "${FILESDIR}/${PN}-0.1.0-no-static.patch" )
+RESTRICT="!test? ( test )"
+
+src_configure() {
+	mycmakeargs=(
+		-DBUILD_SHARED_LIBS=ON
+		-DENABLE_TESTS=$(usex test)
+		-DER_LINK_STATIC=OFF
+	)
+	cmake_src_configure
+}
