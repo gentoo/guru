@@ -15,7 +15,7 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE=""
 
-DEPEND=">media-gfx/gimp-2.99.11
+DEPEND=">=media-gfx/gimp-2.99.11
 	>=media-libs/gexiv2-0.12.2
 "
 
