@@ -27,11 +27,12 @@ QA_PREBUILT="
 "
 src_prepare() {
 	default
-	echo "Removing legacy fuse2-related stuff"
+	einfo "Removing legacy fuse2-related stuff..."
 	rm sbin/dwarfs2 sbin/mount.dwarfs2
-	echo "Correcting man paths"
+	einfo "Done. Correcting man paths..."
 	mkdir -p usr/
 	mv share/ usr/
+	einfo "Done."
 }
 
 src_install(){
