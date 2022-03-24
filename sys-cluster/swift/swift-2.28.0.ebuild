@@ -53,6 +53,7 @@ BDEPEND="
 "
 
 REQUIRED_USE="|| ( proxy account container object )"
+RESTRICT="test" # tests run forever
 
 distutils_enable_tests nose
 
