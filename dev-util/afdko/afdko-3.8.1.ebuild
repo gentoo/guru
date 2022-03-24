@@ -42,6 +42,7 @@ DEPEND="
 	>=dev-python/cython-0.29.5[${PYTHON_USEDEP}]
 	>=dev-python/scikit-build-0.11.1[${PYTHON_USEDEP}]
 	>=dev-python/setuptools_scm-3.2.0[${PYTHON_USEDEP}]
+	dev-python/wheel[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	dev-util/ninja
@@ -50,10 +51,7 @@ BDEPEND="
 
 DOCS=( {README,NEWS}.md docs )
 
-PATCHES=(
-	"${FILESDIR}/${PN}-nowheel.diff"
-	"${FILESDIR}/${PN}-3.6.2-_get_scripts-to-data_files.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-3.6.2-_get_scripts-to-data_files.patch" )
 
 distutils_enable_tests pytest
 
