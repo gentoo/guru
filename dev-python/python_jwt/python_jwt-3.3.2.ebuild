@@ -3,6 +3,8 @@
 
 EAPI=8
 
+COMMIT="3d9747df616d209c07bffe2bcf28b42e92a7d8d4"
+MYPN="${PN/_/-}"
 PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
@@ -12,7 +14,8 @@ HOMEPAGE="
 	https://github.com/davedoesdev/python-jwt
 	https://pypi.org/project/python-jwt/
 "
-SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/davedoesdev/${MYPN}/archive/${COMMIT}.tar.gz -> ${PN}-${COMMIT}.tar.gz"
+S="${WORKDIR}/${MYPN}-${COMMIT}"
 
 LICENSE="MIT"
 SLOT="0"
