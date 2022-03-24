@@ -13,15 +13,20 @@ HOMEPAGE="https://github.com/googlefonts/glyphsLib"
 SRC_URI="https://github.com/googlefonts/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0 MIT"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 SLOT="0"
 
 RDEPEND="
-	>=dev-python/fonttools-4.14[${PYTHON_USEDEP}]
-	>=dev-python/ufoLib2-0.8[${PYTHON_USEDEP}]
+	>=dev-python/fonttools-4.27.1[${PYTHON_USEDEP}]
+	>=dev-python/ufoLib2-0.6.2[${PYTHON_USEDEP}]
+	>=dev-python/openstep-plist-0.3.0[${PYTHON_USEDEP}]
+"
+DEPEND="
+	${RDEPEND}
+	>=dev-python/setuptools_scm-6.0[${PYTHON_USEDEP}]
+	dev-python/wheel[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	>=dev-python/setuptools_scm-6.0[${PYTHON_USEDEP}]
 	test? (
 		dev-python/defcon[${PYTHON_USEDEP}]
 		dev-python/ufoNormalizer[${PYTHON_USEDEP}]
@@ -33,6 +38,5 @@ distutils_enable_tests pytest
 
 python_prepare_all() {
 	export SETUPTOOLS_SCM_PRETEND_VERSION="${PV}"
-	sed -e '/\<wheel\>/d' -i setup.cfg
 	distutils-r1_python_prepare_all
 }
