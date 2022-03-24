@@ -10,5 +10,5 @@ LICENSE=|| ( Apache-2.0 MIT ) || ( Apache-2.0 MIT ) || ( Apache-2.0 MIT MPL-2.0 
 PROPERTIES=live
 RDEPEND=dev-libs/openssl sys-libs/zlib >=dev-lang/rust-1.55.0
 SLOT=0
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	cargo	7ea27a358c2ff39754bf66a96c06f3de	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	cargo	52a92ed3815080c5f2caac1905687b1c	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
 _md5_=fd9833f31cc5468037dad0130218b97e

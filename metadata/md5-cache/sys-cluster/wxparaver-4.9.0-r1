@@ -11,5 +11,5 @@ LICENSE=LGPL-2.1
 RDEPEND=dev-libs/boost:= dev-libs/openssl sys-cluster/paraver-kernel x11-libs/wxGTK:3.0-gtk3 extrae? ( sys-cluster/extrae )
 SLOT=0
 SRC_URI=https://github.com/bsc-performance-tools/wxparaver/archive/refs/tags/v4.9.0.tar.gz -> wxparaver-4.9.0.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6cc26735fa9dd59e8c62880beda05b6e	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	python-any-r1	54666a8fa603df658d9284845fc3d755	docs	7c38d94fa7c1b4235fe571dc09e018df	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	wxwidgets	7e8a20d3bacea0e3ecf6e96fb72180aa
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	ed3ef2014ee93d24bde80f0c0ea9732e	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	dfa3a38467793e97fcf791b156510654	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	docs	8ed2a8a28ff109e7a3582c9abb7fe327	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6
 _md5_=f49eb795b663bc2c5d53eba88d92b248

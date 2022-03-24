@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/adobe-type-tools/psautohint/archive/refs/tags/v2.4.0.tar.gz -> psautohint-2.4.0.tar.gz test? ( https://github.com/adobe-type-tools/psautohint-testdata/archive/1e4c5061d328105c4dcfcb6fdbc27ec49b3e9d23.tar.gz -> psautohint-testdata-1e4c5061d328105c4dcfcb6fdbc27ec49b3e9d23.tar.gz )
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	d3d7da5aff94a677154819e0cb95ee36	meson	96bca76bf96533b38e3d4e09d1306490	multibuild	d79bd5b4bc4edcb1f5bc19591f8d4714	python-r1	bcd408f1e4a9669198ef4dfcd5ab8696	distutils-r1	d540d96908dd5622f3dfa41d167e632d
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	dfa3a38467793e97fcf791b156510654	meson	2d8a51910bc57e004c37aa55c7d99ce4	multibuild	d26d81f242cb193d899a72bca423d0bd	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	e91901adfcf0640d2daa4dc863ff5377
 _md5_=cbbb8b1f230b0dbb948b45376c791c8a

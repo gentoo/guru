@@ -8,5 +8,5 @@ LICENSE=Apache-2.0
 RDEPEND=app-misc/byobu app-misc/tmux
 SLOT=0
 SRC_URI=https://github.com/dustinkirkland/hollywood/archive/35275a68c37bbc39d8b2b0e4664a0c2f5451e5f6.tar.gz -> hollywood-1.22.tar.gz
-_eclasses_=optfeature	30ce9dec2b8943338c9b015bd32bac6a
+_eclasses_=optfeature	d524f291c80f9d21ad80fe978e3ca760
 _md5_=d04d057a1ca7826269f86f96ec00a7d9

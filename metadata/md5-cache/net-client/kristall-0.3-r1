@@ -10,5 +10,5 @@ LICENSE=GPL-3
 RDEPEND=dev-qt/qtmultimedia:5[widgets] dev-qt/qtsvg:5 dev-qt/qtnetwork:5[ssl]
 SLOT=0
 SRC_URI=https://github.com/MasterQ32/kristall/archive/V0.3.tar.gz -> kristall-0.3.tar.gz
-_eclasses_=xdg-utils	4f29a8b760a594a212abe9c2ba957c31	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
 _md5_=86cc2f085dc918fd88e567999be3c63c
