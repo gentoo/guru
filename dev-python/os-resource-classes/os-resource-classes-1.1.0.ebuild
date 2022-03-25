@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
@@ -11,7 +11,7 @@ DESCRIPTION="A list of standardized resource classes for OpenStack"
 HOMEPAGE="
 	https://github.com/openstack/os-resource-classes
 	https://opendev.org/openstack/os-resource-classes
-	https://pypi.org/project/os-resource-classes
+	https://pypi.org/project/os-resource-classes/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

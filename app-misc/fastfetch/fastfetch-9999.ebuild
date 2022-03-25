@@ -11,10 +11,7 @@ if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/LinusDierheimer/fastfetch.git"
 else
-	COMMIT="0cb6e40bacfed8c217afc4bd580b7905d6d6893b"
-	VERSION_REV="0cb6e40"
-	SRC_URI="https://github.com/LinusDierheimer/fastfetch/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}-${COMMIT}"
+	SRC_URI="https://github.com/LinusDierheimer/fastfetch/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
 LICENSE="MIT"
@@ -53,19 +50,6 @@ src_configure() {
 		-DENABLE_DCONF=$(usex gnome)
 		-DENABLE_XFCONF=$(usex xfce)
 	)
-
-	if [[ ${PV} == *9999 ]]; then
-		elog "REV=\"r$(git rev-list --count HEAD)\""
-		elog "COMMIT=\"$(git rev-parse HEAD)\""
-		elog "VERSION_REV=\"$(git rev-parse --short HEAD)\""
-	else
-		# version comes from git, fake it
-		local project_version_major=$(ver_cut 2)
-		mycmakeargs+=(
-			-DPROJECT_VERSION="r${project_version_major}.${VERSION_REV}"
-			-DPROJECT_VERSION_MAJOR="${project_version_major}"
-		)
-	fi
 
 	cmake_src_configure
 }

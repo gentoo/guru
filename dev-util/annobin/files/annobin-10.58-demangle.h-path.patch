@@ -1,0 +1,12 @@
+diff '--color=auto' -ru /var/tmp/portage/dev-util/annobin-10.58/work/annobin-10.58/annocheck/annocheck.h annobin-10.58/annocheck/annocheck.h
+--- /var/tmp/portage/dev-util/annobin-10.58/work/annobin-10.58/annocheck/annocheck.h	2022-03-14 12:43:07.000000000 +0100
++++ annobin-10.58/annocheck/annocheck.h	2022-03-20 08:36:28.373389297 +0100
+@@ -38,7 +38,7 @@
+ #include <elfutils/libdw.h>
+ 
+ #include <libiberty.h>
+-#include <demangle.h>
++#include <libiberty/demangle.h>
+ 
+ #define PACKAGE                         "annocheck"
+ 

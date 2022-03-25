@@ -15,7 +15,6 @@ FTI stands for Fault Tolerance Interface and is a library that aims to give comp
   <use>
     <flag name="openssl">To use the <pkg>dev-libs/openssl</pkg> MD5 rather than the built-in</flag>
     <flag name="fortran">Enables the build of a Fortran wrapper</flag>
-    <flag name="lustre">Enables Lustre Support</flag>
     <flag name="sionlib">Enables the parallel I/O <pkg>sys-cluster/sionlib</pkg> for FTI</flag>
     <flag name="hdf5">Enables the HDF5 checkpoints for FTI</flag>
     <flag name="tutorial">Enables the generation of tutorial files</flag>

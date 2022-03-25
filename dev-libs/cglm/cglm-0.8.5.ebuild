@@ -1,13 +1,13 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DOCS_BUILDER="sphinx"
 DOCS_AUTODOC=0
 DOCS_DIR="${S}/docs/source"
 
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8,9,10} )
 
 inherit python-any-r1
 inherit docs meson

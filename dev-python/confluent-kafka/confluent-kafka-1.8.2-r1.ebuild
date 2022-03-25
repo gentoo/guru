@@ -35,6 +35,11 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
+python_install_all() {
+	distutils-r1_python_install_all
+	rm "${ED}/usr/LICENSE.txt" || die
+}
+
 pkg_postinst() {
 	optfeature "avro support" dev-python/fastavro dev-python/avro dev-python/requests
 	optfeature "json support" dev-python/jsonschema dev-python/pyrsistent dev-python/requests

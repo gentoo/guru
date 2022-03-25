@@ -66,3 +66,8 @@ REQUIRED_USE="
 "
 
 distutils_enable_tests pytest
+
+python_install_all() {
+	distutils-r1_python_install_all
+	mv "${ED}/usr/etc" "${ED}/etc" || die
+}

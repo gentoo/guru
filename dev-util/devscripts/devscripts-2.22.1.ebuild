@@ -1,12 +1,12 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_9 )
 DISTUTILS_OPTIONAL=true
+PYTHON_COMPAT=( python3_{9..10} )
 
-inherit distutils-r1
+inherit bash-completion-r1 distutils-r1
 
 DESCRIPTION="Scripts to make the life of a Debian Package maintainer easier"
 HOMEPAGE="https://salsa.debian.org/debian/devscripts"
@@ -16,8 +16,6 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="python test"
-REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
-RESTRICT="!test? ( test )"
 
 CDEPEND="
 	dev-lang/perl:=
@@ -31,7 +29,9 @@ CDEPEND="
 	dev-util/distro-info
 	python? ( ${PYTHON_DEPS} )
 "
-DEPEND="${CDEPEND}
+DEPEND="
+	${CDEPEND}
+	app-text/docbook-xsl-stylesheets
 	test? (
 		app-arch/zip
 		dev-perl/Git-Wrapper
@@ -48,7 +48,8 @@ DEPEND="${CDEPEND}
 		virtual/perl-DB_File
 	)
 "
-RDEPEND="${CDEPEND}
+RDEPEND="
+	${CDEPEND}
 	app-arch/dpkg
 	app-crypt/gnupg
 	app-text/wdiff
@@ -58,19 +59,24 @@ RDEPEND="${CDEPEND}
 "
 BDEPEND="virtual/pkgconfig"
 
+REQUIRED_USE="
+	python? ( ${PYTHON_REQUIRED_USE} )
+	test? ( python )
+"
+RESTRICT="!test? ( test )"
 PATCHES=(
 	"${FILESDIR}/distutils-r1.patch"
 	"${FILESDIR}/Remove-failing-tests.patch"
 	"${FILESDIR}/Replace-Debian-xsl-stylesheets-paths-with-Gentoos.patch"
 )
 
-DISTUTILS_S="${S}"/scripts
+DISTUTILS_S="${S}/scripts"
 
 src_prepare() {
 	default
 
 	# Avoid file collision with app-shells/bash-completion
-	rm "${DISTUTILS_S}"/bts.bash_completion || die
+	rm "${DISTUTILS_S}/bts.bash_completion" || die
 }
 
 src_configure() {
@@ -78,7 +84,7 @@ src_configure() {
 
 	if use python; then
 		pushd "${DISTUTILS_S}" > /dev/null || die
-		distutils-r1_src_configure
+		python_foreach_impl distutils-r1_src_configure
 		popd > /dev/null || die
 	fi
 }
@@ -88,7 +94,7 @@ src_compile() {
 
 	if use python; then
 		pushd "${DISTUTILS_S}" > /dev/null || die
-		distutils-r1_src_compile
+		python_foreach_impl distutils-r1_src_compile
 		popd > /dev/null || die
 	fi
 }
@@ -99,22 +105,21 @@ src_install() {
 
 	if use python; then
 		pushd "${DISTUTILS_S}" > /dev/null || die
-		distutils-r1_src_install
+		python_foreach_impl distutils-r1_src_install
 		popd > /dev/null || die
 	fi
 
-	mv "${ED}"/usr/share/doc/${PN} "${ED}"/usr/share/doc/${PF} || die
+	mv "${ED}/usr/share/doc/${PN}" "${ED}/usr/share/doc/${PF}" || die
 
-	# "incorrect name, no completions for command defined"
-	rm "${ED}"/usr/share/bash-completion/completions/{debcheckout,pkgnames} || die
+	rm "${ED}/usr/share/bash-completion/completions/debcheckout" || die
+	mv "${ED}"/usr/share/bash-completion/completions/{pkgnames,debsnap} || die
+	bashcomp_alias debsnap wnpp-alert wnpp-check mk-build-deps rmadison mass-bug dd-list build-rdeps who-uploads transition-check getbuildlog grep-excuses rc-alert whodepends dget pts-subscribe pts-unsubscribe
 }
 
 src_test() {
 	default
 
-	if use python; then
-		pushd "${DISTUTILS_S}" > /dev/null || die
-		distutils-r1_src_test
-		popd > /dev/null || die
-	fi
+	pushd "${DISTUTILS_S}" > /dev/null || die
+	python_foreach_impl distutils-r1_src_test
+	popd > /dev/null || die
 }

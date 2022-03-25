@@ -194,7 +194,7 @@ HOMEPAGE="https://github.com/tldr-pages/tldr
 SRC_URI="https://github.com/dbrgn/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	$(cargo_crate_uris ${CRATES})"
 
-LICENSE="MIT"
+LICENSE="Apache-2.0 ISC MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 

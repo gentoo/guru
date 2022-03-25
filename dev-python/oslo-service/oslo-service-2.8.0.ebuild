@@ -40,6 +40,8 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
+"
+BDEPEND="
 	test? (
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
