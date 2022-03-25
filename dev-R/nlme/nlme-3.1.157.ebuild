@@ -14,7 +14,7 @@ KEYWORDS="~amd64"
 LICENSE='GPL-2+'
 
 DEPEND="
-	>=dev-lang/R-3.4.0
+	>=dev-lang/R-3.5.0
 	!dev-lang/R[-minimal]
 	virtual/lattice
 "
@@ -23,4 +23,5 @@ RDEPEND="${DEPEND}"
 SUGGESTED_PACKAGES="
 	dev-R/Hmisc
 	dev-R/MASS
+	dev-R/SASmixed
 "
