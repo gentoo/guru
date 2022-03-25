@@ -1,0 +1,16 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=sys-cluster/KVTree[mpi] sys-cluster/rankstr sys-libs/zlib virtual/mpi test? ( slurm? ( sys-cluster/slurm ) )
+DESCRIPTION=Low-level distributed erasure coding lib to protect datasets of MPI applications
+EAPI=8
+HOMEPAGE=https://github.com/ECP-VeloC/redset
+INHERIT=cmake
+IUSE=slurm test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=sys-cluster/KVTree[mpi] sys-cluster/rankstr sys-libs/zlib virtual/mpi
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/ECP-VeloC/redset/archive/refs/tags/v0.2.0.tar.gz -> redset-0.2.0.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149
+_md5_=a5d89c582a3f2c380aae29c3bb4054b8

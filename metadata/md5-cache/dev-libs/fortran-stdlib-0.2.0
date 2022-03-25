@@ -1,15 +1,16 @@
-BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 virtual/fortran >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare setup test unpack
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 virtual/fortran
+DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=|| ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-util/fypp[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-util/fypp[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-util/fypp[python_targets_python3_8(-)] ) ) doc? ( || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 app-doc/ford[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 app-doc/ford[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 app-doc/ford[python_targets_python3_8(-)] ) ) ) test? ( dev-util/fortran-test-drive ) virtual/fortran
 DESCRIPTION=A community driven standard library for (modern) Fortran
 EAPI=8
 HOMEPAGE=https://stdlib.fortran-lang.org/
-INHERIT=cmake fortran-2 git-r3 python-any-r1
+INHERIT=cmake fortran-2 python-any-r1
 IUSE=doc test
+KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-PROPERTIES=live
 RDEPEND=virtual/fortran
 RESTRICT=mirror !test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	git-r3	b9ac6f96d2a88edb5b351df634dc5e53	python-utils-r1	dfa3a38467793e97fcf791b156510654	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
-_md5_=ec36d9f3478449e1a1e2319071a8032b
+SRC_URI=https://github.com/fortran-lang/stdlib/archive/refs/tags/v0.2.0.tar.gz -> fortran-stdlib-0.2.0.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	python-utils-r1	dfa3a38467793e97fcf791b156510654	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
+_md5_=4417cad9bedd7f33fecc21e306c72e11

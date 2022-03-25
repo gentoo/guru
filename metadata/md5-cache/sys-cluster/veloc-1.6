@@ -1,0 +1,17 @@
+BDEPEND=doc? ( dev-python/sphinx ) test? ( comm-queue-ipc? ( dev-libs/boost ) slurm? ( sys-cluster/slurm ) dev-libs/openssl <sys-cluster/AXL-0.4.0 sys-cluster/er virtual/mpi >=dev-python/pytest-6.2.5-r2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) dev-util/ninja >=dev-util/cmake-3.20.5 python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=comm-queue-ipc? ( dev-libs/boost ) slurm? ( sys-cluster/slurm ) dev-libs/openssl <sys-cluster/AXL-0.4.0 sys-cluster/er virtual/mpi
+DESCRIPTION=Very-Low Overhead Checkpointing System
+EAPI=8
+HOMEPAGE=https://github.com/ECP-VeloC/VELOC
+INHERIT=cmake distutils-r1
+IUSE=+comm-queue-ipc comm-queue-socket python +slurm doc test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=comm-queue-ipc? ( dev-libs/boost ) slurm? ( sys-cluster/slurm ) dev-libs/openssl <sys-cluster/AXL-0.4.0 sys-cluster/er virtual/mpi python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=^^ ( comm-queue-ipc comm-queue-socket ) || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/ECP-VeloC/VELOC/archive/refs/tags/1.6.tar.gz -> veloc-1.6.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149	multibuild	d26d81f242cb193d899a72bca423d0bd	python-utils-r1	dfa3a38467793e97fcf791b156510654	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	e91901adfcf0640d2daa4dc863ff5377
+_md5_=87e9ca1a2fd034d41fb0c2857a0718c8

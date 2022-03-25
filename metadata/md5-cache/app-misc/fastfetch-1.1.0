@@ -11,6 +11,6 @@ LICENSE=MIT
 RDEPEND=X? ( x11-libs/libX11 ) gnome? ( dev-libs/glib gnome-base/dconf ) pci? ( sys-apps/pciutils ) vulkan? ( media-libs/vulkan-loader ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xfce? ( xfce-base/xfconf ) xrandr? ( x11-libs/libXrandr )
 REQUIRED_USE=xrandr? ( X )
 SLOT=0
-SRC_URI=https://github.com/LinusDierheimer/fastfetch/archive/refs/tags/1.0.0.tar.gz -> fastfetch-1.0.0.tar.gz
+SRC_URI=https://github.com/LinusDierheimer/fastfetch/archive/refs/tags/1.1.0.tar.gz -> fastfetch-1.1.0.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149
 _md5_=df15b1402dc432a42dd2ca464e0870a7

@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile install postinst prepare unpack
-DEPEND=>=dev-lang/R-3.4.0 virtual/lattice dev-lang/R[minimal] dev-lang/R
-DESCRIPTION=Linear and Nonlinear Mixed Effects Models
+DEPEND=>=dev-lang/R-3.0.0 !dev-lang/R[-minimal] dev-lang/R
+DESCRIPTION=Feed-Forward Neural Networks and multinomial log-linear models
 EAPI=7
-HOMEPAGE=https://cran.r-project.org/package=nlme
+HOMEPAGE=https://cran.r-project.org/package=nnet
 INHERIT=R-packages
 KEYWORDS=~amd64
-LICENSE=GPL-2+
-RDEPEND=>=dev-lang/R-3.4.0 virtual/lattice dev-lang/R[minimal] dev-lang/R
+LICENSE=|| ( GPL-2 GPL-3 )
+RDEPEND=>=dev-lang/R-3.0.0 !dev-lang/R[-minimal] dev-lang/R
 SLOT=0
-SRC_URI=http://cran.r-project.org/src/contrib/nlme_3.1-152.tar.gz
+SRC_URI=mirror://cran/src/contrib/nnet_7.3-17.tar.gz
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	optfeature	d524f291c80f9d21ad80fe978e3ca760	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	R-packages	33e1468a652d3e68a29f4c1e4742f527
-_md5_=91163b87860c7329e5b9e473e3b7b8e1
+_md5_=eb7b719a441441ce84b19cf30b573775

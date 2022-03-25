@@ -1,0 +1,17 @@
+BDEPEND=dev-qt/linguist-tools:5 dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-cpp/nlohmann_json || ( app-text/asciidoc dev-ruby/asciidoctor ) app-text/cmark dev-cpp/qt-jdenticon >=dev-db/lmdb++-1.0.0 >=dev-libs/mtxclient-0.7.0:= >=dev-libs/qtkeychain-0.12.0 dev-libs/spdlog dev-qt/qtconcurrent:5 dev-qt/qtdeclarative:5[widgets] dev-qt/qtgraphicaleffects:5 dev-qt/qtgui:5[gif,jpeg,png] dev-qt/qtimageformats dev-qt/qtmultimedia:5[gstreamer,qml,widgets] dev-qt/qtquickcontrols2:5[widgets] dev-qt/qtsvg:5 voip? ( >=media-plugins/gst-plugins-dtls-1.18 media-plugins/gst-plugins-libnice >=media-plugins/gst-plugins-meta-1.18[opus] >=media-plugins/gst-plugins-srtp-1.18 >=media-plugins/gst-plugins-webrtc-1.18 video? ( >=media-libs/gst-plugins-base-1.18[opengl] >=media-plugins/gst-plugins-meta-1.18[v4l,vpx] >=media-plugins/gst-plugins-qt5-1.18 X? ( >=media-plugins/gst-plugins-ximagesrc-1.18 x11-libs/xcb-util-wm ) ) )
+DESCRIPTION=Native desktop client for Matrix using Qt
+EAPI=8
+HOMEPAGE=https://github.com/Nheko-Reborn/nheko
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake optfeature xdg
+IUSE=X video voip
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=|| ( app-text/asciidoc dev-ruby/asciidoctor ) app-text/cmark dev-cpp/qt-jdenticon >=dev-db/lmdb++-1.0.0 >=dev-libs/mtxclient-0.7.0:= >=dev-libs/qtkeychain-0.12.0 dev-libs/spdlog dev-qt/qtconcurrent:5 dev-qt/qtdeclarative:5[widgets] dev-qt/qtgraphicaleffects:5 dev-qt/qtgui:5[gif,jpeg,png] dev-qt/qtimageformats dev-qt/qtmultimedia:5[gstreamer,qml,widgets] dev-qt/qtquickcontrols2:5[widgets] dev-qt/qtsvg:5 voip? ( >=media-plugins/gst-plugins-dtls-1.18 media-plugins/gst-plugins-libnice >=media-plugins/gst-plugins-meta-1.18[opus] >=media-plugins/gst-plugins-srtp-1.18 >=media-plugins/gst-plugins-webrtc-1.18 video? ( >=media-libs/gst-plugins-base-1.18[opengl] >=media-plugins/gst-plugins-meta-1.18[v4l,vpx] >=media-plugins/gst-plugins-qt5-1.18 X? ( >=media-plugins/gst-plugins-ximagesrc-1.18 x11-libs/xcb-util-wm ) ) )
+REQUIRED_USE=video? ( voip )
+SLOT=0
+SRC_URI=https://github.com/Nheko-Reborn/nheko/archive/v0.9.3.tar.gz -> nheko-0.9.3.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149	optfeature	d524f291c80f9d21ad80fe978e3ca760	xdg	6024fbc93167fad782e2032933654857
+_md5_=08da786ec26dd9f728ca129019da67bd

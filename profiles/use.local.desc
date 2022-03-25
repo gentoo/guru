@@ -219,17 +219,6 @@ media-libs/libbpg:bpgview - Compile bpgview (media-libs/libsdl and media-libs/sd
 media-libs/libbpg:emcc - Enable compilation of Javascript decoder with Emscripten
 media-libs/libbpg:jctvc - Enable the JCTVC code (best quality but slow) for the encoder
 media-libs/libbpg:x265 - Enable x265 for the encoder
-media-libs/libjxl:benchmark - Build JPEGXL benchmark tools
-media-libs/libjxl:devtools - Build JPEGXL developer tools
-media-libs/libjxl:gdk-pixbuf - Build a gdk-pixbuf loader
-media-libs/libjxl:gimp210 - Enable plugin for GIMP 2.10.x series
-media-libs/libjxl:openexr - Build JPEGXL with support for OpenEXR
-media-libs/libjxl:plugins - Build third-party plugins to support JPEG XL in other applications
-media-libs/libjxl:sjpeg - Build JPEGXL with support for encoding with sjpeg
-media-libs/libjxl:skcms - Build with skcms instead of lcms2
-media-libs/libjxl:tcmalloc - Build JPEGXL using gperftools (tcmalloc) allocator
-media-libs/libjxl:tools - Build JPEGXL user tools: cjxl and djxl
-media-libs/libjxl:viewers - Build JPEGXL viewer tools for evaluation
 media-libs/lodepng:benchmark - Benchmark for lodepng
 media-libs/lodepng:pngdetail - Prints detailed info of PNG images, including filter types and huffman symbols
 media-libs/lodepng:showpng - Show PNG image
@@ -283,7 +272,6 @@ net-client/lagrange:fribidi - Use dev-libs/fribidi for bidirectional text
 net-client/lagrange:harfbuzz - Use media-libs/harfbuzz to shape text
 net-client/telescope:libbsd - Use dev-libs/libbsd instead of internal funcs
 net-im/Quaternion:keychain - Enable support for password storage via dev-libs/qtkeychain
-net-im/nheko:pipewire - Pull in dependencies for media-video/pipewire support
 net-im/nheko:video - Enables video calls
 net-im/nheko:voip - Enables audio calls
 net-im/ruqola:speech - Enable text-to-speech support

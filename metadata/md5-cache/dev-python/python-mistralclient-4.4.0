@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=dev-python/cliff-2.8.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/osc-lib-1.8.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/oslo-utils-3.33.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/oslo-i18n-3.15.3[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/oslo-serialization-2.18.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/pbr-2.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/keystoneauth-3.4.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/pyyaml-3.13[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/requests-2.14.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/stevedore-1.20.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 DESCRIPTION=A client for the OpenStack Mistral API
 EAPI=8
-HOMEPAGE=https://github.com/openstack/python-mistralclient https://opendev.org/openstack/python-blazarclient https://pypi.org/project/python-blazarclient https://launchpad.net/python-mistralclient/
+HOMEPAGE=https://github.com/openstack/python-mistralclient https://opendev.org/openstack/python-blazarclient https://pypi.org/project/python-blazarclient/ https://launchpad.net/python-mistralclient/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_8 python_targets_python3_9
 KEYWORDS=~amd64
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/p/python-mistralclient/python-mistralclient-4.4.0.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	dfa3a38467793e97fcf791b156510654	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	e91901adfcf0640d2daa4dc863ff5377
-_md5_=9eba06e7fcf14dcbdffa5b3df5e493a1
+_md5_=2f9066623095b26914202e4beba813c1
