@@ -16,8 +16,8 @@ DESCRIPTION="FreeSpace2 Source Code Project game engine"
 HOMEPAGE="https://github.com/scp-fs2open/fs2open.github.com/"
 SRC_URI="
 	https://github.com/scp-fs2open/fs2open.github.com/archive/refs/tags/release_${_PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/asarium/libRocket/archive/${HASH_LIBROCKET}.tar.gz -> ${P}-lib_libRocket.tar.gz
-	https://github.com/asarium/cmake-modules/archive/${HASH_CMAKE_MODULES}.tar.gz -> ${P}-cmake_external_rpavlik-cmake-modules.tar.gz
+	https://github.com/asarium/libRocket/archive/${HASH_LIBROCKET}.tar.gz -> ${P}-ext_libRocket.tar.gz
+	https://github.com/asarium/cmake-modules/archive/${HASH_CMAKE_MODULES}.tar.gz -> ${P}-ext_rpavlik-cmake-modules.tar.gz
 "
 
 LICENSE="Unlicense MIT Boost-1.0"
@@ -39,31 +39,19 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND=""
+PATCHES="
+	${FILESDIR}/${P}-make-arch-independent.patch
+	${FILESDIR}/${P}-version-fix.patch
+"
 
 CMAKE_BUILD_TYPE=Release
+
 S="${WORKDIR}/fs2open.github.com-release_${_PV}"
 
 src_unpack() {
-	unpack ${P}.tar.gz
-
-	cd "${S}" || die
-	local list=(
-		lib_libRocket
-		cmake_external_rpavlik-cmake-modules
-	)
-
-	local i
-	for i in "${list[@]}"; do
-		tar xf "${DISTDIR}/${P}-${i}.tar.gz" --strip-components 1 -C "${i//_//}" ||
-			die "Failed to unpack ${P}-${i}.tar.gz"
-	done
-}
-
-src_prepare() {
-	eapply "${FILESDIR}/${P}-make-arch-independent.patch"
-	eapply "${FILESDIR}/${P}-version-fix.patch"
-	eapply_user
-	cmake_src_prepare
+	unpack ${A}
+	mv libRocket-${HASH_LIBROCKET}/* "${S}/lib/libRocket/" || die
+	mv cmake-modules-${HASH_CMAKE_MODULES}/* "${S}/cmake/external/rpavlik-cmake-modules/" || die
 }
 
 src_install() {
