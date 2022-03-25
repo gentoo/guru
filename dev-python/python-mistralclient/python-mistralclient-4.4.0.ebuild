@@ -12,7 +12,7 @@ DESCRIPTION="A client for the OpenStack Mistral API"
 HOMEPAGE="
 	https://github.com/openstack/python-mistralclient
 	https://opendev.org/openstack/python-blazarclient
-	https://pypi.org/project/python-blazarclient
+	https://pypi.org/project/python-blazarclient/
 	https://launchpad.net/python-mistralclient/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
