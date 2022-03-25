@@ -1,0 +1,13 @@
+BDEPEND=virtual/pkgconfig >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-libs/glib:2 dev-libs/libxml2:2 gui-libs/gtk:4 dev-libs/json-glib
+DESCRIPTION=A lightweight rich-text framework for GTK 4
+EAPI=8
+HOMEPAGE=https://github.com/mjakeman/text-engine
+INHERIT=meson git-r3
+LICENSE=MIT
+PROPERTIES=live
+RDEPEND=dev-libs/glib:2 dev-libs/libxml2:2 gui-libs/gtk:4 x11-libs/pango
+SLOT=0
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	dfa3a38467793e97fcf791b156510654	meson	2d8a51910bc57e004c37aa55c7d99ce4	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=2aaf4f198c8f23a3458ec1a5d4d801a7

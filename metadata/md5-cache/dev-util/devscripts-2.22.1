@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/perl:= dev-perl/File-DesktopEntry dev-perl/File-DirList dev-perl/File-HomeDir dev-perl/File-Touch dev-perl/IPC-Run dev-perl/Moo dev-perl/libwww-perl dev-util/distro-info python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) app-text/docbook-xsl-stylesheets test? ( app-arch/zip dev-perl/Git-Wrapper dev-perl/GitLab-API-v4 dev-perl/List-Compare dev-perl/Software-License dev-perl/String-ShellQuote dev-perl/UNIVERSAL-require dev-python/pyftpdlib[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/python-debian[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-util/shunit2 dev-vcs/subversion sys-libs/libfaketime virtual/perl-DB_File )
+DESCRIPTION=Scripts to make the life of a Debian Package maintainer easier
+EAPI=8
+HOMEPAGE=https://salsa.debian.org/debian/devscripts
+INHERIT=bash-completion-r1 distutils-r1
+IUSE=python test python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=dev-lang/perl:= dev-perl/File-DesktopEntry dev-perl/File-DirList dev-perl/File-HomeDir dev-perl/File-Touch dev-perl/IPC-Run dev-perl/Moo dev-perl/libwww-perl dev-util/distro-info python? ( python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) ) app-arch/dpkg app-crypt/gnupg app-text/wdiff dev-util/debhelper dev-util/patchutils sys-apps/fakeroot
+REQUIRED_USE=python? ( || ( python_targets_python3_9 python_targets_python3_10 ) ) test? ( python )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://debian/pool/main/d/devscripts/devscripts_2.22.1.tar.xz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	bash-completion-r1	d3a60385655d9b402be765a6de333245	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	dfa3a38467793e97fcf791b156510654	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	e91901adfcf0640d2daa4dc863ff5377
+_md5_=8ad641e5bf8ec0bcfe2c70f990d94249

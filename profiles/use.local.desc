@@ -117,6 +117,8 @@ dev-python/gnocchi:redis - Installs dependencies needed for Redis storage suppor
 dev-python/gnocchi:s3 - Installs dependencies needed for Amazon S3 storage support
 dev-python/gnocchi:swift - Installs dependencies needed for OpenStack Swift storage support
 dev-util/FoBiS:graphviz - Add support of generation of a dependencies graph
+dev-util/annobin:clang - Build the clang plugin
+dev-util/annobin:llvm - Build the LLVM plugin
 dev-util/gammaray:3d - Build support for Qt5 3D modules
 dev-util/gammaray:designer - Widget .ui file export
 dev-util/gammaray:geolocation - Physical position determination support from Qt5 framework
@@ -568,7 +570,6 @@ sys-cluster/extrae:xml - Enable support for XML configuration
 sys-cluster/fti:fi-io - Enables the I/O failure injection mechanism
 sys-cluster/fti:fortran - Enables the build of a Fortran wrapper
 sys-cluster/fti:hdf5 - Enables the HDF5 checkpoints for FTI
-sys-cluster/fti:lustre - Enables Lustre Support
 sys-cluster/fti:openssl - To use the dev-libs/openssl MD5 rather than the built-in
 sys-cluster/fti:sionlib - Enables the parallel I/O sys-cluster/sionlib for FTI
 sys-cluster/fti:test - Enables the generation of tests
@@ -773,4 +774,8 @@ x11-libs/gtk-fortran:plplot - Build with sci-libs/plplot support
 x11-libs/sdl-fakeqwerty:sdl - Enable support for libsdl
 x11-libs/sdl-fakeqwerty:sdl2 - Enable support for libsdl2
 x11-libs/sdl-fakeqwerty:xlib - Enable support for libX11
+x11-misc/picom-jonaburg:config-file - Enable config file support
+x11-misc/picom-jonaburg:doc - Build documentation and man pages (requires app-text/asciidoc)
+x11-misc/picom-jonaburg:drm - Enable support for using drm for vsync
+x11-misc/picom-jonaburg:opengl - Enable features that require opengl (opengl backend, and opengl vsync methods)
 x11-themes/arc-darkest-colors:icons - Install icon themes

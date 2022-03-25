@@ -1,0 +1,17 @@
+BDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) doc? ( dev-python/sphinx[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/furo[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=test? ( gui-libs/gtk:4[introspection] )
+DESCRIPTION=Compiler for Blueprint, a markup language for GTK user interfaces
+EAPI=8
+HOMEPAGE=https://jwestman.pages.gitlab.gnome.org/blueprint-compiler/
+INHERIT=meson python-r1
+IUSE=doc test python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64
+LICENSE=LGPL-3+
+RDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.gnome.org/jwestman/blueprint-compiler/-/archive/3f37380c25c66d81166d2871ffa1c7bc16c6af1d/blueprint-compiler-3f37380c25c66d81166d2871ffa1c7bc16c6af1d.tar.gz -> blueprint-compiler-0.1.0_pre20220319.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	dfa3a38467793e97fcf791b156510654	meson	2d8a51910bc57e004c37aa55c7d99ce4	multibuild	d26d81f242cb193d899a72bca423d0bd	python-r1	8638751691200e941f26fe0ac3aef1d1
+_md5_=44eb6bfa11bc68408224279024696a54
