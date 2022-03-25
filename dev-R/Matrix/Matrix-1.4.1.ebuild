@@ -19,3 +19,8 @@ DEPEND="
 	virtual/lattice
 "
 RDEPEND="${DEPEND}"
+
+SUGGESTED_PACKAGES="
+	dev-R/expm
+	dev-R/MASS
+"
