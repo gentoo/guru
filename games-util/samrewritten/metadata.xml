@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>telans@posteo.de</email>
+    <name>James Beddek</name>
+  </maintainer>
+  <use>
+    <flag name="zenity">Support for dialog display messages</flag>
+  </use>
+  <upstream>
+    <remote-id type="github">PaulCombal/SamRewritten</remote-id>
+  </upstream>
+</pkgmetadata>
