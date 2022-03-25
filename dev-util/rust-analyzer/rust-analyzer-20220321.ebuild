@@ -8,7 +8,7 @@ CRATES="
 	adler-1.0.2
 	always-assert-0.1.2
 	ansi_term-0.12.1
-	anyhow-1.0.53
+	anyhow-1.0.56
 	anymap-0.12.1
 	arbitrary-1.1.0
 	arrayvec-0.7.2
@@ -18,22 +18,21 @@ CRATES="
 	bitflags-1.3.2
 	camino-1.0.7
 	cargo-platform-0.1.2
-	cargo_metadata-0.14.1
-	cc-1.0.72
+	cargo_metadata-0.14.2
+	cc-1.0.73
 	cfg-if-1.0.0
-	chalk-derive-0.76.0
-	chalk-ir-0.76.0
-	chalk-recursive-0.76.0
-	chalk-solve-0.76.0
-	countme-3.0.0
+	chalk-derive-0.79.0
+	chalk-ir-0.79.0
+	chalk-recursive-0.79.0
+	chalk-solve-0.79.0
+	countme-3.0.1
 	cov-mark-2.0.0-pre.1
 	crc32fast-1.3.2
-	crossbeam-channel-0.5.2
+	crossbeam-channel-0.5.3
 	crossbeam-deque-0.8.1
-	crossbeam-epoch-0.9.7
-	crossbeam-utils-0.8.7
-	dashmap-4.0.2
-	dashmap-5.1.0
+	crossbeam-epoch-0.9.8
+	crossbeam-utils-0.8.8
+	dashmap-5.2.0
 	derive_arbitrary-1.1.0
 	dissimilar-1.0.3
 	dot-0.1.4
@@ -65,9 +64,9 @@ CRATES="
 	kqueue-1.0.4
 	kqueue-sys-1.0.3
 	lazy_static-1.4.0
-	libc-0.2.117
+	libc-0.2.120
 	libloading-0.7.3
-	libmimalloc-sys-0.1.23
+	libmimalloc-sys-0.1.24
 	lock_api-0.4.6
 	log-0.4.14
 	lsp-server-0.5.2
@@ -77,17 +76,17 @@ CRATES="
 	memchr-2.4.1
 	memmap2-0.5.3
 	memoffset-0.6.5
-	mimalloc-0.1.27
+	mimalloc-0.1.28
 	miniz_oxide-0.4.4
-	mio-0.7.14
+	mio-0.8.1
 	miow-0.3.7
 	miow-0.4.0
-	notify-5.0.0-pre.13
+	notify-5.0.0-pre.14
 	ntapi-0.3.7
 	num_cpus-1.13.1
 	object-0.27.1
 	object-0.28.3
-	once_cell-1.9.0
+	once_cell-1.10.0
 	oorandom-11.1.3
 	parking_lot-0.11.2
 	parking_lot-0.12.0
@@ -101,15 +100,15 @@ CRATES="
 	pin-project-lite-0.2.8
 	proc-macro2-1.0.36
 	pulldown-cmark-0.9.1
-	pulldown-cmark-to-cmark-10.0.0
+	pulldown-cmark-to-cmark-10.0.1
 	quote-1.0.15
 	rayon-1.5.1
 	rayon-core-1.9.1
-	redox_syscall-0.2.10
-	regex-1.5.4
+	redox_syscall-0.2.11
+	regex-1.5.5
 	regex-automata-0.1.10
 	regex-syntax-0.6.25
-	rowan-0.15.3
+	rowan-0.15.4
 	rustc-ap-rustc_lexer-725.0.0
 	rustc-demangle-0.1.21
 	rustc-hash-1.1.0
@@ -119,7 +118,7 @@ CRATES="
 	same-file-1.0.6
 	scoped-tls-1.0.0
 	scopeguard-1.1.0
-	semver-1.0.5
+	semver-1.0.6
 	serde-1.0.136
 	serde_derive-1.0.136
 	serde_json-1.0.79
@@ -128,21 +127,21 @@ CRATES="
 	smallvec-1.8.0
 	smol_str-0.1.21
 	snap-1.0.5
-	syn-1.0.86
+	syn-1.0.89
 	synstructure-0.12.6
 	text-size-1.1.0
 	thread_local-1.1.4
 	threadpool-1.8.1
 	tikv-jemalloc-ctl-0.4.2
-	tikv-jemalloc-sys-0.4.2+5.2.1-patched.2
-	tikv-jemallocator-0.4.1
+	tikv-jemalloc-sys-0.4.3+5.2.1-patched.2
+	tikv-jemallocator-0.4.3
 	tinyvec-1.5.1
 	tinyvec_macros-0.1.0
-	tracing-0.1.30
-	tracing-attributes-0.1.19
-	tracing-core-0.1.22
+	tracing-0.1.32
+	tracing-attributes-0.1.20
+	tracing-core-0.1.23
 	tracing-log-0.1.2
-	tracing-subscriber-0.3.8
+	tracing-subscriber-0.3.9
 	tracing-tree-0.2.0
 	typed-arena-2.0.1
 	ungrammar-1.16.1
@@ -155,6 +154,7 @@ CRATES="
 	valuable-0.1.0
 	version_check-0.9.4
 	walkdir-2.3.2
+	wasi-0.11.0+wasi-snapshot-preview1
 	winapi-0.3.9
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-util-0.1.5
@@ -172,10 +172,10 @@ CRATES="
 	windows_x86_64_msvc-0.28.0
 	windows_x86_64_msvc-0.32.0
 	write-json-0.1.2
-	xflags-0.2.3
-	xflags-macros-0.2.3
-	xshell-0.1.17
-	xshell-macros-0.1.17
+	xflags-0.2.4
+	xflags-macros-0.2.4
+	xshell-0.2.1
+	xshell-macros-0.2.1
 "
 
 inherit cargo
@@ -192,7 +192,7 @@ fi
 DESCRIPTION="An implementation of Language Server Protocol for the Rust programming language"
 HOMEPAGE="https://rust-analyzer.github.io"
 
-LICENSE="0BSD Apache-2.0 Artistic-2 BSD Boost-1.0 CC0-1.0 ISC MIT Unlicense ZLIB"
+LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions Artistic-2 BSD Boost-1.0 CC0-1.0 ISC MIT Unlicense ZLIB"
 RESTRICT="mirror"
 SLOT="0"
 IUSE=""
