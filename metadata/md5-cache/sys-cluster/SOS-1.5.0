@@ -12,5 +12,5 @@ RDEPEND=ofi? ( sys-block/libfabric ) pmi-simple? ( sys-cluster/pmix[pmi] ) pmi-m
 REQUIRED_USE=^^ ( ofi-mr-basic ofi-mr-scalable ofi-mr-rma-event ) ^^ ( total-data-ordering-always total-data-ordering-check total-data-ordering-never ) ^^ ( pmi-mpi pmi-simple ) ?? ( cma xpmem ) ?? ( ofi portals4 )
 SLOT=0
 SRC_URI=https://github.com/Sandia-OpenSHMEM/SOS/archive/refs/tags/v1.5.0.tar.gz -> SOS-1.5.0.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	libtool	241a8f577b9781a42a7421e53448a44e	autotools	ed3ef2014ee93d24bde80f0c0ea9732e	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	ed3ef2014ee93d24bde80f0c0ea9732e	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
 _md5_=271b3da3603631c8c6e3c88afafbc280

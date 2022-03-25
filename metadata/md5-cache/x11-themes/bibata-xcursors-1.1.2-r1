@@ -9,5 +9,5 @@ LICENSE=GPL-3
 RDEPEND=x11-libs/libXcursor
 SLOT=0
 SRC_URI=https://github.com/ful1e5/Bibata_Cursor/archive/v1.1.2.tar.gz -> bibata-xcursors-1.1.2.tar.gz https://github.com/ful1e5/Bibata_Cursor/releases/download/v1.1.2/bitmaps.zip -> bibata-xcursors-1.1.2-bitmaps.zip
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	python-utils-r1	dfa3a38467793e97fcf791b156510654	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	dfa3a38467793e97fcf791b156510654	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
 _md5_=62ca7d752b422f0d221f06da4b7ee990

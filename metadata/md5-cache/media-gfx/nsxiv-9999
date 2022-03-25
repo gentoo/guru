@@ -10,5 +10,5 @@ LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=statusbar? ( x11-libs/libXft ) exif? ( media-libs/libexif ) gif? ( media-libs/giflib:0= ) webp? ( media-libs/libwebp ) media-libs/imlib2[X,gif?,jpeg?,png?,webp?,tiff?] x11-libs/libX11
 SLOT=0
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	portability	d1186f1e621de7b27ddcae82e6253259	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	de4beb52bfa93c4c5d96792a6b5e1784	linux-info	8b7b99d1e4401a7a903cdfe1d2bf29de	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	portability	d33a77692bb47e8227f27e17fb9c3c05	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	linux-info	8b7b99d1e4401a7a903cdfe1d2bf29de	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
 _md5_=a7cb66a31f100cc84900f8c3511788a1
