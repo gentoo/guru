@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{8..10} )
 DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1 xdg-utils
+inherit distutils-r1 xdg
 
 DESCRIPTION="Maestral is an open-source Dropbox client written in Python"
 HOMEPAGE="https://maestral.app"
@@ -50,14 +50,4 @@ python_prepare_all()
 	sed -i -e 's/test_check_for_updates/_&/' tests/offline/test_main.py || die
 
 	distutils-r1_python_prepare_all
-}
-
-pkg_postinst()
-{
-	xdg_icon_cache_update
-}
-
-pkg_postrm()
-{
-	xdg_icon_cache_update
 }
