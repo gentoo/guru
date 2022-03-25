@@ -39,3 +39,8 @@ BDEPEND="
 RESTRICT="test" # tests require a running memcached
 
 distutils_enable_tests pytest
+
+src_prepare() {
+	rm README.rst || die
+	default
+}

@@ -12,7 +12,7 @@ HOMEPAGE="
 	https://pgjones.gitlab.io/hypercorn
 	https://gitlab.com/pgjones/hypercorn
 	https://github.com/pgjones/hypercorn
-	https://pypi.org/project/Hypercorn/
+	https://pypi.org/project/hypercorn/
 "
 SRC_URI="https://github.com/pgjones/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 

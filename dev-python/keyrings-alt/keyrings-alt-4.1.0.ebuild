@@ -11,7 +11,7 @@ MY_PN=${PN/-/.}
 DESCRIPTION="Alternate keyring backend implementations for use with the keyring package"
 HOMEPAGE="
 	https://github.com/jaraco/keyrings.alt
-	https://pypi.org/project/keyrings.alt
+	https://pypi.org/project/keyrings.alt/
 "
 SRC_URI="https://github.com/jaraco/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 

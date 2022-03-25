@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -10,7 +10,7 @@ inherit distutils-r1
 SRC_URI="https://github.com/googlefonts/fontmake/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64"
 DESCRIPTION="A wrapper for several Python libraries to compile fonts from sources"
-HOMEPAGE="https://github.com/googlei18n/fontmake"
+HOMEPAGE="https://github.com/googlefonts/fontmake"
 LICENSE="Apache-2.0"
 SLOT="0"
 

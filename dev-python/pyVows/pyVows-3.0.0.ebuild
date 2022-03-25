@@ -3,6 +3,7 @@
 
 EAPI=8
 
+COMMIT="5b0e2a202603c1fc00d1fa0c6134c92c15b7e2b7"
 PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
@@ -12,7 +13,8 @@ HOMEPAGE="
 	https://github.com/heynemann/pyvows
 	https://pypi.org/project/pyVows/
 "
-SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/heynemann/${PN}/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT}.tar.gz" # only for 3.0.0
+S="${WORKDIR}/${PN,,}-${COMMIT}"
 
 LICENSE="MIT"
 SLOT="0"

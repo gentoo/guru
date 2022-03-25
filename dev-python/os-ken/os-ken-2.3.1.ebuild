@@ -48,6 +48,6 @@ BDEPEND="
 distutils_enable_tests nose
 
 src_prepare() {
-	rm -r os-ken/os-ken/tests/integrated || die
+	rm -r "${S}/os_ken/tests/integrated" || die
 	default
 }

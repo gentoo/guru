@@ -4,7 +4,7 @@
 	<!-- maintainer-needed -->
 	<stabilize-allarches/>
 	<upstream>
-		<remote-id type="pypi">microversion_parse</remote-id>
+		<remote-id type="pypi">microversion-parse</remote-id>
 		<remote-id type="github">openstack/microversion-parse</remote-id>
 	</upstream>
 </pkgmetadata>

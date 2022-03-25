@@ -7,7 +7,7 @@
 		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="pypi">cmheisel/nosexcover</remote-id>
+		<remote-id type="pypi">nosexcover</remote-id>
 		<remote-id type="github">cmheisel/nose-xcover</remote-id>
 		<bugs-to>https://github.com/cmheisel/nose-xcover/issues</bugs-to>
 	</upstream>

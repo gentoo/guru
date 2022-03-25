@@ -32,7 +32,7 @@ DOCS=(
 	docs/{DesignDoc,HowToFix,HowToTest}.md
 )
 
-PATCHES=( "${FILESDIR}/meson-gtest.diff" )
+PATCHES=( "${FILESDIR}/${P}-meson-gtest.diff" )
 
 src_configure() {
 	local emesonargs=(
