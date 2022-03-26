@@ -7,7 +7,7 @@ MYPV="$(ver_rs 2 -)"
 
 inherit R-packages
 
-DESCRIPTION='Sparse and Dense Matrix Classes and Methods'
+DESCRIPTION='Linear and Nonlinear Mixed Effects Models'
 SRC_URI="mirror://cran/src/contrib/${PN}_${MYPV}.tar.gz"
 
 KEYWORDS="~amd64"
@@ -19,3 +19,9 @@ DEPEND="
 	virtual/lattice
 "
 RDEPEND="${DEPEND}"
+
+SUGGESTED_PACKAGES="
+	dev-R/Hmisc
+	dev-R/MASS
+	dev-R/SASmixed
+"

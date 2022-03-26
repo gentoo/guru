@@ -18,3 +18,10 @@ DEPEND="
 	!dev-lang/R[-minimal]
 "
 RDEPEND="${DEPEND}"
+
+SUGGESTED_PACKAGES="
+	dev-R/lattice
+	dev-R/nlme
+	dev-R/nnet
+	dev-R/survival
+"

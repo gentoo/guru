@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-COMMIT="3c11bd771ef17197a9e9fcd4a3fabfa2804d950c"
+COMMIT="7c48d65cd4546dcb1cfa01073cbe016fa7f3fbcc"
 
 DESCRIPTION="Lean mathematical components library"
 HOMEPAGE="https://github.com/leanprover-community/mathlib"
@@ -15,7 +15,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 IUSE="test"
 
-RDEPEND=">=sci-mathematics/lean-3.34.0"
+RDEPEND=">=sci-mathematics/lean-3.42.0"
 DEPEND="
 	${RDEPEND}
 	sci-mathematics/mathlib-tools

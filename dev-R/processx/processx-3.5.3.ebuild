@@ -3,24 +3,26 @@
 
 EAPI=7
 
-MYPV="$(ver_rs 2 -)"
-
 inherit R-packages
 
-DESCRIPTION='Linear and Nonlinear Mixed Effects Models'
-SRC_URI="mirror://cran/src/contrib/${PN}_${MYPV}.tar.gz"
-
+DESCRIPTION='Execute and Control System Processes'
 KEYWORDS="~amd64"
-LICENSE='GPL-2+'
+LICENSE='MIT'
 
 DEPEND="
 	>=dev-lang/R-3.4.0
-	!dev-lang/R[-minimal]
-	virtual/lattice
+	>=dev-R/ps-1.2.0
+	dev-R/R6
 "
 RDEPEND="${DEPEND}"
 
 SUGGESTED_PACKAGES="
-	dev-R/Hmisc
-	dev-R/MASS
+	>=dev-R/callr-3.7.0
+	>=dev-R/cli-1.1.0
+	dev-R/codetools
+	dev-R/covr
+	dev-R/curl
+	dev-R/debugme
+	>=dev-R/testthat-3.0.0
+	dev-R/withr
 "

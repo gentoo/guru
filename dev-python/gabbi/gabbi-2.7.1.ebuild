@@ -3,14 +3,14 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 DESCRIPTION="Declarative HTTP testing library"
 HOMEPAGE="
 	https://github.com/cdent/gabbi
-	https://pypi.org/project/gabbi
+	https://pypi.org/project/gabbi/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
@@ -23,10 +23,10 @@ RDEPEND="
 	dev-python/pytest[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
-	>=dev-python/urllib3-1.11.0[${PYTHON_USEDEP}]
+	>=dev-python/urllib3-1.26.9[${PYTHON_USEDEP}]
 	dev-python/certifi[${PYTHON_USEDEP}]
 	>=dev-python/jsonpath-rw-ext-1.0.0[${PYTHON_USEDEP}]
-	>=dev-python/wsgi_intercept-1.8.1[${PYTHON_USEDEP}]
+	>=dev-python/wsgi_intercept-1.9.3[${PYTHON_USEDEP}]
 	dev-python/colorama[${PYTHON_USEDEP}]
 "
 

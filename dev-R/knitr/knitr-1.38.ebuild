@@ -11,10 +11,10 @@ LICENSE='GPL-2+'
 
 DEPEND="
 	>=dev-R/yaml-2.1.19
-	>=dev-R/xfun-0.27
-	>=dev-R/evaluate-0.10
+	>=dev-R/xfun-0.29
+	>=dev-R/evaluate-0.15
 	dev-R/highr
-	>=dev-lang/R-3.2.3
+	>=dev-lang/R-3.3.0
 	>=dev-R/stringr-0.6
 "
 RDEPEND="
