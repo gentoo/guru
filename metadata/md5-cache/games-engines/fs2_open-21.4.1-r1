@@ -1,14 +1,14 @@
 BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst prepare test unpack
-DEPEND=media-libs/libjpeg-turbo media-libs/libpng media-libs/libtheora media-libs/libvorbis >=dev-lang/lua-5.1.0:* media-libs/mesa media-libs/openal media-libs/libsdl2 media-libs/glu dev-libs/jansson app-arch/lz4
+DEPEND=app-arch/lz4 <dev-lang/lua-5.1.6:5.1 dev-libs/jansson media-libs/freetype:2 media-libs/glu media-libs/libjpeg-turbo media-libs/libpng media-libs/libsdl2 media-libs/libtheora media-libs/libvorbis media-libs/mesa media-libs/openal media-video/ffmpeg
 DESCRIPTION=FreeSpace2 Source Code Project game engine
 EAPI=8
 HOMEPAGE=https://github.com/scp-fs2open/fs2open.github.com/
 INHERIT=cmake
 KEYWORDS=~amd64
 LICENSE=Unlicense MIT Boost-1.0
-RDEPEND=media-libs/libjpeg-turbo media-libs/libpng media-libs/libtheora media-libs/libvorbis >=dev-lang/lua-5.1.0:* media-libs/mesa media-libs/openal media-libs/libsdl2 media-libs/glu dev-libs/jansson app-arch/lz4
+RDEPEND=app-arch/lz4 <dev-lang/lua-5.1.6:5.1 dev-libs/jansson media-libs/freetype:2 media-libs/glu media-libs/libjpeg-turbo media-libs/libpng media-libs/libsdl2 media-libs/libtheora media-libs/libvorbis media-libs/mesa media-libs/openal media-video/ffmpeg
 SLOT=0
 SRC_URI=https://github.com/scp-fs2open/fs2open.github.com/archive/refs/tags/release_21_4_1.tar.gz -> fs2_open-21.4.1.tar.gz https://github.com/asarium/libRocket/archive/ecd648a43aff8a9f3daf064d75ca5725237d5b38.tar.gz -> fs2_open-21.4.1-ext_libRocket.tar.gz https://github.com/asarium/cmake-modules/archive/7cef9577d6fc35057ea57f46b4986a8a28aeff50.tar.gz -> fs2_open-21.4.1-ext_rpavlik-cmake-modules.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149
-_md5_=fb5bdd60ad01eb9f1bfb3216d91b8a86
+_md5_=80c22beba84ca88f73b5b392f78e04dc

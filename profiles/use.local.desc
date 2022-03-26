@@ -82,6 +82,7 @@ dev-libs/libdwarf:sanitize - build with sanitizers
 dev-libs/memkind:daxctl - Build library with daxctl support
 dev-libs/memkind:debug - Build debugging jemalloc code
 dev-libs/memkind:decorators - Enable decorators
+dev-libs/memkind:filelog - Log to file for each process
 dev-libs/memkind:heap-manager - Allow switching allocator at runtime
 dev-libs/memkind:hwloc - Build library with hwloc support
 dev-libs/memkind:initial-exec-tls - Build library with initial-exec-tls support
@@ -299,10 +300,6 @@ net-nntp/inn:gzip - Compress logs using gzip
 net-nntp/inn:keywords - Enable automatic innd keyword generation
 net-nntp/inn:largefile - Support files larger than 2GB
 net-nntp/inn:low-memory - Use tagged hash table for history to reduce memory footprint
-net-p2p/monero:daemon - Build the Monero daemon used to connect to the P2P network.
-net-p2p/monero:tools - Build tools used to manipulate the blockchain as it is stored on disk.
-net-p2p/monero:wallet-cli - Build the command line wallet, monero-wallet-cli.
-net-p2p/monero:wallet-rpc - Build the RPC wallet, monero-wallet-rpc.
 net-p2p/trezord-go:systemd - Install systemd service file
 net-p2p/trezord-go:udev - Install udev rules
 sci-biology/cmdock:apidoc - Build API documentation using app-doc/doxygen

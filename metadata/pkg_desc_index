@@ -119,7 +119,7 @@ app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/pup 0.4.0_p1: Parsing HTML at the command line
 app-misc/rememberthemilk 1.3.11-r1: Freemium simple to-do tasks manager
 app-misc/spark 1.0.1: sparklines for your shell
-app-misc/ssmtool 0.6.2: A simple sentence mining tool written in PyQt5
+app-misc/ssmtool 0.6.4: A simple sentence mining tool written in PyQt5
 app-misc/tai 0.0.4 0.0.5: tai (Terminal Ascii Image) tool to convert images to ascii
 app-misc/tealdeer 1.5.0: A very fast implementation of tldr in Rust.
 app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the command-line
@@ -291,9 +291,9 @@ dev-cpp/indicators 2.2: Activity indicators for modern C++
 dev-cpp/jwt-cpp 0.4.0 0.6.0: header only library for creating and validating JSON Web Tokens in C++11
 dev-cpp/libstudxml 1.1.0_beta10: Streaming XML pull parser/serializer for modern C++
 dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
-dev-cpp/parallel-hashmap 1.33: Family of header-only, fast and memory-friendly hashmap and btree containers
+dev-cpp/parallel-hashmap 1.33 1.34: Family of header-only, fast and memory-friendly hashmap and btree containers
 dev-cpp/pcg-cpp 0.98.1_p20210406-r1: Family of better random number generators
-dev-cpp/plog 1.1.5_p20200501: Portable, simple and extensible C++ logging library
+dev-cpp/plog 1.1.5_p20200501 1.1.6: Portable, simple and extensible C++ logging library
 dev-cpp/qt-jdenticon 0.2.1 0.3.0: Qt5 / C++14 Port of Jdenticon
 dev-cpp/scitokens-cpp 0.7.0: A C++ implementation of the SciTokens library with a C library interface
 dev-cpp/simpleini 4.17_p20210901: C++ library for reading/writing INI files
@@ -339,7 +339,7 @@ dev-libs/libdatrie 0.2.13: Double-Array Trie Library
 dev-libs/libdwarf 20210528: The DWARF Debugging Information Format
 dev-libs/libnodave 0.8.5.1-r2: Connect to and exchange data with Siemens PLCs
 dev-libs/libthai 0.1.28: A a set of Thai language support routines
-dev-libs/memkind 1.11.0-r2: user extensible heap manager built on top of jemalloc
+dev-libs/memkind 1.11.0-r2 1.13.0: user extensible heap manager built on top of jemalloc
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
 dev-libs/mtxclient 0.6.2-r1 0.7.0: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/nativefiledialog-extended 0_pre20210430: File dialog library with C and C++ bindings, based on nativefiledialog
@@ -397,7 +397,7 @@ dev-python/avro 1.11.0: Apache Avro is a data serialization system
 dev-python/axisregistry 0.2.0: A Python API to access data from the Google Fonts variable fonts Axis Registry
 dev-python/azure-storage-blob 12.8.1: Microsoft Azure Blob Storage Client Library for Python
 dev-python/b2sdk 1.8.0 1.12.0: The client library for BackBlaze's B2 product
-dev-python/babelfont 2.0.1 2.0.2: Interrogate and manipulate UFO, TTF and OTF fonts with a common interface
+dev-python/babelfont 2.0.2 3.0.0_alpha8: Interrogate and manipulate UFO, TTF and OTF fonts with a common interface
 dev-python/baron 0.9: Full Syntax Tree for python to make writing refactoring code a realist task
 dev-python/base58 2.1.0: Base58 and Base58Check implementation
 dev-python/basictracer 3.2.0: Python implementation of the BasicTracer reference implementation
@@ -504,7 +504,7 @@ dev-python/md-environ 0.1.0: Syntax which allows for inclusion of contents of ot
 dev-python/microversion-parse 1.0.1-r1: A simple parser for OpenStack microversion headers
 dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your output
 dev-python/mnemonic 0.19: Reference implementation of BIP-0039 for generating deterministic keys
-dev-python/mobi 0.3.2-r1: unpack unencrypted mobi files
+dev-python/mobi 0.3.3: unpack unencrypted mobi files
 dev-python/monotonic 1.6: An implementation of time.monotonic() for Python 2 & < 3.3
 dev-python/ncclient 0.6.12: Python library for NETCONF clients
 dev-python/neutron-lib 2.20.0: Neutron shared routines and utilities
@@ -529,6 +529,7 @@ dev-python/os-xenapi 0.3.4-r2: XenAPI library for OpenStack projects
 dev-python/oscrypto 1.3.0: TLS sockets, key generation, encryption, decryption, signing, verification
 dev-python/oslo-cache 2.8.1: Oslo Caching around dogpile.cache
 dev-python/oslo-db 11.2.0: OpenStack Common DB Code
+dev-python/oslo-limit 1.5.0: Limit enforcement library to assist with quota calculation
 dev-python/oslo-messaging 12.9.1: Messaging API for RPC and notifications over different messaging transports
 dev-python/oslo-metrics 0.3.0: OpenStack library for collecting metrics from Oslo libraries
 dev-python/oslo-middleware 4.4.0: Components injected into wsgi pipelines to intercept request/response flows
@@ -561,7 +562,7 @@ dev-python/proxy_tools 0.1.0: Simple proxy (as in the GoF design pattern)
 dev-python/psycopg2cffi 2.9.0: Implementation of the psycopg2 module using cffi. Compatible with Psycopg 2.5.
 dev-python/pure-protobuf 2.1.0: Python implementation of Protocol Buffers data types with dataclasses support
 dev-python/py3nvml 0.2.6: Python 3 Bindings for the NVIDIA Management Library
-dev-python/pyVows 3.0.0: (fast) parallel running of tests, code coverage reports, test profiling, and more
+dev-python/pyVows 3.0.0: Parallel running of tests, code coverage reports, test profiling, and more
 dev-python/pybeam 0.7: Python module to parse Erlang BEAM files
 dev-python/pybrowserstack-screenshots 0.1-r1: A python api wrapper and client for Browserstack Screenshots API
 dev-python/pycadf 3.1.1-r1: python implementation of DMTF Cloud Audit (CADF) data model
@@ -576,6 +577,7 @@ dev-python/pykeepass 4.0.0 4.0.1: Python library to interact with keepass databa
 dev-python/pymeeus 0.4.2 0.5.11: Python implementation of Jean Meeus astronomical routines
 dev-python/pymemcache 3.5.1: A comprehensive, fast, pure-Python memcached client
 dev-python/pymorphy2 0.9.1: Morphological analyzer (POS tagger + inflection engine) for Russian language.
+dev-python/pymorphy2-dicts 2.4.393442.3710985: Russian dictionary for PyMorphy2
 dev-python/pymorphy2-dicts-ru 2.4.417127.4579844: Russian dictionary for PyMorphy2
 dev-python/pymp4 1.2.0: A Python MP4 Parser and toolkit
 dev-python/pyngus 2.3.1: A connection oriented messaging framework using QPID Proton
@@ -679,7 +681,7 @@ dev-python/ufo2ft 2.25.3 2.26.0: A bridge from UFOs to FontTool objects
 dev-python/ufoLib2 0.11.4 0.13.1: A UFO font library
 dev-python/ufoNormalizer 0.5.4 0.6.1: A tool that will normalize the XML and other data inside of a UFO
 dev-python/ufoProcessor 1.9.0: A Python package for processing and generating UFO files
-dev-python/uharfbuzz 0.21.0 0.22.0: Streamlined Cython bindings for the HarfBuzz shaping engine
+dev-python/uharfbuzz 0.22.0 0.23.0: Streamlined Cython bindings for the HarfBuzz shaping engine
 dev-python/uhashring 2.1: Full featured consistent hashing python library compatible with ketama
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/unicodedata2 13.0.0.2 14.0.0: Unicodedata backport for python 2/3 updated to the latest unicode version
@@ -696,6 +698,7 @@ dev-python/xunitparser 1.3.3: Read JUnit/XUnit XML files and map them to Python 
 dev-python/yams 0.7.3 9999: Yet Another MPD Scrobbler (for Last.FM)
 dev-python/yanc 0.3.3: Yet another nose colorer
 dev-python/yaql 2.0.0: YAQL: Yet Another Query Language
+dev-python/youseedee 0.3.0: Interface to the Unicode Character Database
 dev-python/zVMCloudConnector 1.4.1-r1: a development sdk for managing z/VM
 dev-python/zake 0.2.2: Provide a nice set of testing utilities for the kazoo library
 dev-ruby/byebug 11.1.3: a Ruby 2 debugger
@@ -767,7 +770,7 @@ games-emulation/np2kai 22 22_p20210211: NP2kai is an emulator for the japanese P
 games-emulation/rpcs3 9999: PS3 emulator/debugger
 games-emulation/yuzu 9999: An emulator for Nintendo Switch
 games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
-games-engines/fs2_open 21.4.0 21.4.1: FreeSpace2 Source Code Project game engine
+games-engines/fs2_open 21.4.0 21.4.1-r1: FreeSpace2 Source Code Project game engine
 games-engines/instead 3.3.5 3.4.1 9999: INSTEAD text-based quest game engine
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
@@ -956,7 +959,7 @@ net-client/offpunk 0.1 0.3: A command-line, text-based and offline-first Gemini 
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
 net-client/telescope 0.6.1 0.7.1: w3m-like browser for Gemini
 net-dialup/atinout 0.9.1-r1: AT commands as input are sent to modem and responses given as output
-net-dialup/tio 1.35: Simple TTY terminal application
+net-dialup/tio 1.36: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/Quaternion 0.0.9.4e: A Qt5-based IM client for the Matrix protocol
@@ -1018,7 +1021,6 @@ net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny
 net-nntp/inn 2.6.4-r1 2.6.5: InterNetNews -- the Internet meets Netnews
 net-p2p/bisq 1.8.2: The decentralized bitcoin exchange (non-atomic, with arbitration)
 net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital marketplace controlled by its users.
-net-p2p/monero 0.17.2.0 0.17.2.3 9999: The secure, private, untraceable cryptocurrency
 net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for Linux
 net-p2p/popura 0.4.3 9999: Popura: alternative Yggdrasil network client
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
@@ -1122,8 +1124,8 @@ sys-cluster/TCL 1.0: Transparent Checkpointing Library
 sys-cluster/cinder 17.1.0: Cinder is the OpenStack Block storage service, a spin out of nova-volumes
 sys-cluster/clusteringsuite 2.6.9-r3: Expose the main performance trends in applications computation structure
 sys-cluster/dlb 2.1-r3: Dynamically react to application imbalance by modifying the number of resources
-sys-cluster/dtcmp 1.1.2: Datatype Compare Library for sorting and ranking distributed data using MPI
-sys-cluster/dyninst 11.0.1-r1: Tools for binary instrumentation, analysis, and modification
+sys-cluster/dtcmp 1.1.2 1.1.4: Datatype Compare Library for sorting and ranking distributed data using MPI
+sys-cluster/dyninst 11.0.1-r1 12.1.0: Tools for binary instrumentation, analysis, and modification
 sys-cluster/er 0.1.0 0.3.0: High-level distributed erasure coding lib combining shuffile and redset
 sys-cluster/extrae 3.8.3-r10: Instrumentation framework to generate execution traces of parallel runtimes
 sys-cluster/fti 1.6-r1: Fault Tolerance Interface
@@ -1133,7 +1135,7 @@ sys-cluster/launchmon 1.0.2_p20210430-r2: Enables HPC run-time tools to co-locat
 sys-cluster/libbsctools 1.0.6-r2: libbsctools
 sys-cluster/libi 5.0.1_p20180510: A framework for bootstrapping extreme scale software systems
 sys-cluster/libyogrt 1.24 1.27: Your One Get Remaining Time library
-sys-cluster/lwgrp 1.0.3: Light-weight Group Library
+sys-cluster/lwgrp 1.0.3 1.0.5: Light-weight Group Library
 sys-cluster/mcxx 2021.06: C/C++/Fortran source-to-source compilation aimed at fast prototyping
 sys-cluster/mrnet 5.0.1_p20180510-r3: A Multicast/Reduction Network
 sys-cluster/muster 1.0.1: Massively Scalable Clustering
@@ -1151,7 +1153,7 @@ sys-cluster/placement 7.0.0.0_rc1: A HTTP service for managing, selecting, and c
 sys-cluster/portals4 1.0_alpha1_p20190109-r3: low-level network API for high-performance networking
 sys-cluster/rankstr 0.1.0 0.2.0: Split an MPI communicator into subcomms based on string values
 sys-cluster/redset 0.1.0 0.2.0: Low-level distributed erasure coding lib to protect datasets of MPI applications
-sys-cluster/scr 3.0_pre2 3.0: Scalable Checkpoint / Restart Library
+sys-cluster/scr 3.0: Scalable Checkpoint / Restart Library
 sys-cluster/shuffile 0.1.0-r1 0.2.0: SHUFFILE Shuffle files between processes
 sys-cluster/sionlib 1.7.7-r4: Scalable I/O library for parallel access to task-local files
 sys-cluster/sionlibl 1.7.7-r3: Scalable I/O library for parallel access to task-local files
@@ -1161,7 +1163,7 @@ sys-cluster/swift 2.29.1: A highly available, distributed, and eventually consis
 sys-cluster/synapse 2.0.1: synapse
 sys-cluster/temanejo 1.3: a debugger for task-parallel programming
 sys-cluster/veloc 1.5-r1 1.6: Very-Low Overhead Checkpointing System
-sys-cluster/wxparaver 4.9.0-r1: paraver gui
+sys-cluster/wxparaver 4.9.0-r1 4.10.0: Performance analyzer based on event traces
 sys-firmware/pinephone-firmware 20210809: Firmwares files for PinePhone
 sys-fs/btrfs-heatmap 9-r1: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator

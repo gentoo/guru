@@ -1,7 +1,7 @@
 BDEPEND=test? ( >=dev-python/colorama-0.3.7[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) test? ( >=dev-python/gevent-1.2.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/preggy-1.3.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pytest-6.2.5-r2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=dev-python/gevent-1.2.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/preggy-1.3.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
-DESCRIPTION=(fast) parallel running of tests, code coverage reports, test profiling, and more
+DESCRIPTION=Parallel running of tests, code coverage reports, test profiling, and more
 EAPI=8
 HOMEPAGE=https://github.com/heynemann/pyvows https://pypi.org/project/pyVows/
 INHERIT=distutils-r1
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/heynemann/pyVows/archive/5b0e2a202603c1fc00d1fa0c6134c92c15b7e2b7.tar.gz -> pyVows-3.0.0-5b0e2a202603c1fc00d1fa0c6134c92c15b7e2b7.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	dfa3a38467793e97fcf791b156510654	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	e91901adfcf0640d2daa4dc863ff5377
-_md5_=d9d3972b3ee177d8b71059ae8ccdccda
+_md5_=ea613f555635814bc275cc6ed173b90f

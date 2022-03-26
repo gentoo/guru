@@ -1,12 +1,14 @@
 BDEPEND=>=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install test
+DEPEND=dev-libs/inih
 DESCRIPTION=Simple TTY terminal application
 EAPI=8
 HOMEPAGE=https://tio.github.io/
 INHERIT=meson bash-completion-r1
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-2+
+RDEPEND=dev-libs/inih
 SLOT=0
-SRC_URI=https://github.com/tio/tio/releases/download/v1.35/tio-1.35.tar.xz
+SRC_URI=https://github.com/tio/tio/releases/download/v1.36/tio-1.36.tar.xz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	dfa3a38467793e97fcf791b156510654	meson	2d8a51910bc57e004c37aa55c7d99ce4	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
-_md5_=52402161bcb5f6fbe8e47f3bdb1086c7
+_md5_=138baa0dc8fa8a2add32abcaa1a169f2
