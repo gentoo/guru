@@ -30,6 +30,7 @@ BDEPEND="
 	test? (
 		dev-python/defcon[${PYTHON_USEDEP}]
 		dev-python/ufoNormalizer[${PYTHON_USEDEP}]
+		dev-python/ufo2ft[${PYTHON_USEDEP}]
 		>=app-text/xmldiff-2.2[${PYTHON_USEDEP}]
 	)
 "
