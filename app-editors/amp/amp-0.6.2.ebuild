@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{7,8,9} )
+PYTHON_COMPAT=( python3_{8..9} )
 
 CRATES="
 	aho-corasick-0.5.3
@@ -183,15 +183,13 @@ KEYWORDS="~amd64"
 IUSE="doc"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-DEPEND="
+DEPEND="${PYTHON_DEPS}
 	x11-libs/libxcb
 	dev-lang/python-exec[native-symlinks]
 "
 
-RDEPEND="
-	${DEPEND}
-	!app-editors/${PN}-bin
-"
+RDEPEND="${DEPEND}"
+
 BDEPEND="
 	${DEPEND}
 	${PYTHON_DEPS}
