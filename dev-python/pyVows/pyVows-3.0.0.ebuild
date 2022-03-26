@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
-DESCRIPTION="(fast) parallel running of tests, code coverage reports, test profiling, and more"
+DESCRIPTION="Parallel running of tests, code coverage reports, test profiling, and more"
 HOMEPAGE="
 	https://github.com/heynemann/pyvows
 	https://pypi.org/project/pyVows/
