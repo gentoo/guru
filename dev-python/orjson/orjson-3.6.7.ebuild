@@ -95,6 +95,7 @@ BDEPEND="
 "
 
 QA_FLAGS_IGNORED=".*"
+PATCHES=( "${FILESDIR}/${P}-no-strip.patch" )
 
 distutils_enable_tests pytest
 
