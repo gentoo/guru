@@ -39,10 +39,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND=""
-PATCHES="
-	${FILESDIR}/${P}-make-arch-independent.patch
-	${FILESDIR}/${P}-version-fix.patch
-"
+PATCHES=(
+	"${FILESDIR}/${P}-make-arch-independent.patch"
+	"${FILESDIR}/${P}-version-fix.patch"
+)
 
 CMAKE_BUILD_TYPE=Release
 
