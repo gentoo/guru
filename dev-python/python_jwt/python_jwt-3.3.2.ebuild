@@ -20,6 +20,7 @@ S="${WORKDIR}/${MYPN}-${COMMIT}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="test"
 
 RDEPEND=">=dev-python/jwcrypto-1.0.0[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
@@ -31,4 +32,8 @@ BDEPEND="
 	)
 "
 
-distutils_enable_tests pytest
+RESTRICT="!test? ( test )"
+
+python_test() {
+	"${EPYTHON}" test/run/run_pyvows.py -v test || die
+}
