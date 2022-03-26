@@ -19,6 +19,7 @@ The memkind library is a user extensible heap manager built on top of jemalloc w
 		<flag name="decorators">Enable decorators</flag>
 		<flag name="heap-manager">Allow switching allocator at runtime</flag>
 		<flag name="hwloc">Build library with hwloc support</flag>
+		<flag name="filelog">Log to file for each process</flag>
 		<flag name="initial-exec-tls">Build library with initial-exec-tls support</flag>
 		<flag name="secure">Build libraries with security enhancements</flag>
 		<flag name="tls">Enable thread local storage</flag>
