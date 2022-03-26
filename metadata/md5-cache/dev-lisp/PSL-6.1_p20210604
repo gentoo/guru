@@ -1,0 +1,11 @@
+BDEPEND=doc? ( app-text/texlive-core dev-texlive/texlive-latex )
+DEFINED_PHASES=compile install
+DESCRIPTION=Portable Standard Lisp
+EAPI=8
+HOMEPAGE=https://github.com/blakemcbride/PSL
+IUSE=doc
+KEYWORDS=~amd64
+LICENSE=BSD-2
+SLOT=0
+SRC_URI=https://github.com/blakemcbride/PSL/archive/f489ea67801d04d44cc65d63365d187cdd58dbe9.tar.gz -> PSL-6.1_p20210604.tar.gz
+_md5_=f2968ad7003da0046f665c03a2ae68e1

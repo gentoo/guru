@@ -1,0 +1,15 @@
+DEFINED_PHASES=install postinst postrm preinst
+DEPEND=dev-cpp/gtkmm:3.0 dev-libs/yajl net-libs/gnutls
+DESCRIPTION=Steam Achievement Manager For Linux
+EAPI=8
+HOMEPAGE=https://github.com/PaulCombal/SamRewritten/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=xdg
+IUSE=+zenity
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-cpp/gtkmm:3.0 dev-libs/yajl net-libs/gnutls zenity? ( gnome-extra/zenity )
+SLOT=0
+SRC_URI=https://github.com/PaulCombal/samrewritten/archive/202008.tar.gz -> samrewritten-202008.tar.gz
+_eclasses_=xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=cb4011bc04ee7a07b57cafea3f45bb53

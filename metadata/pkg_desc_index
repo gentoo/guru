@@ -193,8 +193,8 @@ app-vim/themis 1.6.0 1.7.0: A testing framework for Vim script
 app-vim/vim-nix 9999: vim plugin: Vim configuration files for Nix
 app-vim/vim-sensible 1.2: vim plugin: a universal set of defaults that (hopefully) everyone can agree on
 dev-R/BH 1.75.0.0 1.78.0.0: Boost C++ Header Files
-dev-R/MASS 7.3.54: Support Functions and Datasets for variables and Ripley's MASS
-dev-R/Matrix 1.3.4: Sparse and Dense Matrix Classes and Methods
+dev-R/MASS 7.3.56: Support Functions and Datasets for variables and Ripley's MASS
+dev-R/Matrix 1.4.1: Sparse and Dense Matrix Classes and Methods
 dev-R/R6 2.5.1: Encapsulated Classes with Reference Semantics
 dev-R/RColorBrewer 1.1.2: ColorBrewer Palettes
 dev-R/RInside 0.2.16: C++ Classes to Embed R in C++ (and C) Applications
@@ -220,7 +220,7 @@ dev-R/digest 0.6.29: Create Compact Hash Digests of R Objects
 dev-R/dplyr 1.0.8: A Grammar of Data Manipulation
 dev-R/ellipsis 0.3.2: Tools for Working with ...
 dev-R/evaluate 0.15: Parsing and Evaluation Tools that provide more details than the default
-dev-R/fansi 1.0.2: ANSI Control Sequence Aware String Functions
+dev-R/fansi 1.0.3: ANSI Control Sequence Aware String Functions
 dev-R/farver 2.1.0: High Performance Colour Space Manipulation
 dev-R/generics 0.1.2: Common S3 Generics not Provided by Base R Methods Related to Model Fitting
 dev-R/ggplot2 3.3.5: Create Elegant Data Visualisations using the grammar of graphics
@@ -234,17 +234,17 @@ dev-R/hunspell 3.0.1: High-Performance Stemmer, Tokenizer and Spell Checker
 dev-R/ini 0.3.1: Read and Write .ini Files
 dev-R/isoband 0.2.5: Generate Isolines and Isobands from regularky spaced elevation grids
 dev-R/jsonlite 1.8.0: A Simple and Robust JSON Parser and generator for R
-dev-R/knitr 1.37: A General-Purpose Package for Dynamic report generation in R
+dev-R/knitr 1.38: A General-Purpose Package for Dynamic report generation in R
 dev-R/labeling 0.4.2: Axis Labeling
 dev-R/lattice 0.20.44 0.20.45: Trellis Graphics for R
 dev-R/lazyeval 0.2.2: Lazy (Non-Standard) Evaluation
 dev-R/lifecycle 1.0.1: Manage the Life Cycle of your Package Functions
 dev-R/magrittr 2.0.2: A Forward-Pipe Operator for R
 dev-R/markdown 1.1: Render Markdown with the C Library Sundown
-dev-R/mgcv 1.8.36: Mixed GAM Computation Vehicle with automatic smoothness estimation
+dev-R/mgcv 1.8.39: Mixed GAM Computation Vehicle with automatic smoothness estimation
 dev-R/mime 0.12: Map Filenames to MIME Types
 dev-R/munsell 0.5.0: Utilities for Using Munsell Colours
-dev-R/nlme 3.1.155: Linear and Nonlinear Mixed Effects Models
+dev-R/nlme 3.1.157: Linear and Nonlinear Mixed Effects Models
 dev-R/nnet 7.3.17: Feed-Forward Neural Networks and multinomial log-linear models
 dev-R/openssl 2.0.0: Toolkit for Encryption, Signatures and certificates based on openssl
 dev-R/pillar 1.7.0: Coloured Formatting for Columns
@@ -252,7 +252,7 @@ dev-R/pkgconfig 2.0.3: Private Configuration for R Packages
 dev-R/pkgload 1.2.4: Simulate Package Installation and Attach
 dev-R/plogr 0.2.0: The plog C++ Logging Library
 dev-R/praise 1.0.0: Praise Users
-dev-R/processx 3.5.2: Execute and Control System Processes
+dev-R/processx 3.5.3: Execute and Control System Processes
 dev-R/ps 1.6.0: List, Query, Manipulate System Processes
 dev-R/purrr 0.3.4: Functional Programming Tools
 dev-R/rematch 1.0.1: Match Regular Expressions with a Nicer API
@@ -363,6 +363,7 @@ dev-libs/tweeny 3.1.1 3.2.0: C++ tweening (inbetweening) library
 dev-libs/xqilla 2.3.4 2.3.4-r1: An XQuery and XPath 2 library and command line utility written in C++
 dev-libs/zfp 0.5.5: Compressed numerical arrays that support high-speed random access
 dev-libs/zlib-google 97.0.4692.13: google zlib extras
+dev-lisp/PSL 6.1_p20210604: Portable Standard Lisp
 dev-perl/File-DirList 0.05: provide a sorted list of directory content
 dev-perl/File-Touch 0.12: Update file access and modification times, creating files if needed
 dev-perl/GitLab-API-v4 0.26: A complete GitLab API v4 client
@@ -450,11 +451,12 @@ dev-python/fchroot 0.1.2: Franken-chroot tool. Chroot arm/64 arches into amd64/x
 dev-python/ffmpeg-python 0.2.0: Python bindings for FFmpeg - with complex filtering support
 dev-python/filecheck 0.0.22: Python port of LLVM's FileCheck, flexible pattern matching file verifier
 dev-python/font-v 1.0.5 2.1.0: Font version string reporting and modification library
+dev-python/fontFeatures 1.6.4: Python library for manipulating OpenType font features
 dev-python/fontMath 0.8.1 0.9.1: A collection of objects that implement fast font math
 dev-python/fontParts 0.10.3 0.10.4: An API for interacting with the parts of fonts
 dev-python/fontPens 0.2.4: A collection of classes implementing the pen protocol for manipulating glyphs
 dev-python/futurist 2.3.0-r1: Useful additions to futures, from the future
-dev-python/gabbi 2.3.0 2.4.0: Declarative HTTP testing library
+dev-python/gabbi 2.4.0 2.7.1: Declarative HTTP testing library
 dev-python/gemcall 0.8: A library and CLI tool for making gemini requests
 dev-python/gflanguages 0.4.0: A python API for evaluating language support in the Google Fonts collection
 dev-python/github-sublee-glicko2 0_pre20191010-r1: An implementation of the Glicko-2 rating system for Python
@@ -611,7 +613,7 @@ dev-python/python-multipart 0.0.5: A streaming multipart parser for Python
 dev-python/python-octaviaclient 2.5.0: A client for the Octavia Load Balancing
 dev-python/python-pidfile 3.0.0: PIDFile context processor. Supported py2 and py3
 dev-python/python-pkcs11 0.7.0: PKCS#11 (Cryptoki) support for Python
-dev-python/python-qpid-proton 0.36.0: An AMQP based messaging library
+dev-python/python-qpid-proton 0.37.0: An AMQP based messaging library
 dev-python/python-saharaclient 3.5.0: This is a client for the OpenStack Sahara API, aka HADOOP
 dev-python/python-senlinclient 2.4.0: A client for the OpenStack Senlin API
 dev-python/python-telegram-bot 13.1 9999: Python wrapper of telegram bots API
@@ -670,8 +672,8 @@ dev-python/ttfautohint-py 0.4.3 0.5.1: A Python wrapper for ttfautohint
 dev-python/tweepy 3.10.0: An easy-to-use Python library for accessing the Twitter API.
 dev-python/types-paramiko 2.8.16 2.8.17: Typing stubs for paramiko
 dev-python/types-python-dateutil 2.8.9 2.8.10: Typing stubs for python-dateutil
-dev-python/types-pytz 2021.3.0 2021.3.5: Typing stubs for pytz
-dev-python/types-requests 2.27.12 2.27.13: Typing stubs for requests
+dev-python/types-pytz 2021.3.5 2021.3.6: Typing stubs for pytz
+dev-python/types-requests 2.27.13 2.27.14: Typing stubs for requests
 dev-python/types-urllib3 1.26.10 1.26.11: Typing stubs for urllib3
 dev-python/ufo2ft 2.25.3 2.26.0: A bridge from UFOs to FontTool objects
 dev-python/ufoLib2 0.11.4 0.13.1: A UFO font library
@@ -717,7 +719,7 @@ dev-util/fontmake 2.4.0 3.2.0: A wrapper for several Python libraries to compile
 dev-util/fortran-test-drive 0.4.0: The simple testing framework (for Fortran)
 dev-util/fypp 3.1: Fypp - Python powered Fortran preprocessor
 dev-util/gammaray 2.11.3: High-level runtime introspection tool for Qt applications
-dev-util/gftools 0.7.2 0.9.2: Miscellaneous tools for working with the Google Fonts collection
+dev-util/gftools 0.9.2 0.9.4: Miscellaneous tools for working with the Google Fonts collection
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/mh 1.0.3: Generate help for Makefile
@@ -729,7 +731,7 @@ dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
 dev-util/reuse 0.14.0: A tool for compliance with the REUSE recommendations
 dev-util/rpmlint 2.1.0 2.2.0: Tool for checking common errors in RPM packages
-dev-util/rust-analyzer 20220307 20220314 99999999: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer 20220314 20220321 99999999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/wakatime-cli 1.27.0 1.28.6: Command line interface to WakaTime used by all WakaTime plugins
@@ -765,7 +767,7 @@ games-emulation/np2kai 22 22_p20210211: NP2kai is an emulator for the japanese P
 games-emulation/rpcs3 9999: PS3 emulator/debugger
 games-emulation/yuzu 9999: An emulator for Nintendo Switch
 games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
-games-engines/fs2_open 21.4.0: FreeSpace2 Source Code Project game engine
+games-engines/fs2_open 21.4.0 21.4.1: FreeSpace2 Source Code Project game engine
 games-engines/instead 3.3.5 3.4.1 9999: INSTEAD text-based quest game engine
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
@@ -787,6 +789,7 @@ games-util/hid-nintendo 9999: A Nintendo HID kernel module
 games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launcher
 games-util/legendary 0.20.24 0.20.25: A free and open-source replacement for the Epic Games Launcher
 games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
+games-util/samrewritten 9999 202008: Steam Achievement Manager For Linux
 games-util/steamtinkerlaunch 8.0: Wrapper script for Steam custom launch options
 gnome-extra/extension-manager 0.2.3 9999: A native tool for browsing and installing GNOME Shell Extensions
 gnome-extra/iio-sensor-proxy 3.3: IIO sensors to D-Bus proxy
@@ -1074,7 +1077,7 @@ sci-mathematics/frama-c-studia 23.1 24.0: Studia plugin for frama-c
 sci-mathematics/frama-c-users 23.1 24.0: Users plugin for frama-c
 sci-mathematics/frama-c-variadic 23.1 24.0: Variadic function transformation plugin for frama-c
 sci-mathematics/frama-c-wp 23.1 24.0: Deductive proof of ACSL contracts (WP) plugin for frama-c
-sci-mathematics/lean-mathlib 0.1_p20211021 0.1_p20220318: Lean mathematical components library
+sci-mathematics/lean-mathlib 0.1_p20220324: Lean mathematical components library
 sci-mathematics/the-omega-project 2.1_p20131119: Tools from Pugh et al.'s for constraint-based compiler tools
 sci-misc/boinc-wrapper 7.16.17 7.16.17-r1: Wrapper to use non-BOINC apps with BOINC
 sci-physics/SU2 7.2.0: SU2: An Open-Source Suite for Multiphysics Simulation and Design
@@ -1154,7 +1157,7 @@ sys-cluster/sionlib 1.7.7-r4: Scalable I/O library for parallel access to task-l
 sys-cluster/sionlibl 1.7.7-r3: Scalable I/O library for parallel access to task-local files
 sys-cluster/spath 0.1.0 0.2.0: Path manipulation functions
 sys-cluster/spectral 3.4.1: Signal processing to select representative regions from Paraver traces
-sys-cluster/swift 2.28.0: A highly available, distributed, and eventually consistent object/blob store
+sys-cluster/swift 2.29.1: A highly available, distributed, and eventually consistent object/blob store
 sys-cluster/synapse 2.0.1: synapse
 sys-cluster/temanejo 1.3: a debugger for task-parallel programming
 sys-cluster/veloc 1.5-r1 1.6: Very-Low Overhead Checkpointing System

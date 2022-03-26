@@ -176,6 +176,7 @@ games-server/among-sus:notifications - Notify players you're moving
 games-util/chiaki:cli - Build CLI interface
 games-util/itch-bin:system-ffmpeg - Use the system-wide media-video/ffmpeg instead of bundled.
 games-util/legendary:webview - Use dev-python/pywebview for the sign-in process
+games-util/samrewritten:zenity - Support for dialog display messages
 gnome-extra/yad:spell - Enable spell check support with app-text/gspell
 gui-apps/azote:imagemagick - enable colorpicker using imagemagick
 gui-apps/azote:simple-colorpicker - enable colorpicker without imagemagick
