@@ -1,0 +1,13 @@
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -3,9 +3,7 @@
+ 	"setuptools",
+ 	"wheel",
+ 	"setuptools_scm",
+-	"scikit-build",
+-	"cmake",
+-	"ninja"
++	"scikit-build"
+ ]
+ build-backend = "setuptools.build_meta"
+ 
