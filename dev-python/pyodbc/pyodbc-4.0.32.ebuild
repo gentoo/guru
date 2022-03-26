@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,9 +9,8 @@ inherit distutils-r1
 
 DESCRIPTION="Python ODBC library"
 HOMEPAGE="
-	http://code.google.com/p/pyodbc
 	https://github.com/mkleehammer/pyodbc
-	https://pypi.org/project/pyodbc
+	https://pypi.org/project/pyodbc/
 "
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
@@ -25,3 +24,5 @@ RDEPEND="
 	mssql? ( >=dev-db/freetds-0.64[odbc] )
 "
 DEPEND="${RDEPEND}"
+
+RESTRICT="test" # need running databases
