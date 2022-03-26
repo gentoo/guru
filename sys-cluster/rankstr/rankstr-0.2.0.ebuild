@@ -18,7 +18,7 @@ RDEPEND="virtual/mpi"
 DEPEND="${RDEPEND}"
 
 PATCHES=( "${FILESDIR}/${PN}-0.1.0-no-static.patch" )
-RESTRICT="!test? ( test )"
+RESTRICT="test" # tests require an MPI setup
 
 src_configure() {
 	local mycmakeargs=(
