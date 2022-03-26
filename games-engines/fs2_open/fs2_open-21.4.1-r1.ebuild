@@ -5,6 +5,9 @@ EAPI=8
 
 inherit cmake
 
+DESCRIPTION="FreeSpace2 Source Code Project game engine"
+HOMEPAGE="https://github.com/scp-fs2open/fs2open.github.com/"
+
 # Replace "." with "_" in version
 _PV=${PV//./_}
 
@@ -12,8 +15,6 @@ _PV=${PV//./_}
 HASH_LIBROCKET="ecd648a43aff8a9f3daf064d75ca5725237d5b38"
 HASH_CMAKE_MODULES="7cef9577d6fc35057ea57f46b4986a8a28aeff50"
 
-DESCRIPTION="FreeSpace2 Source Code Project game engine"
-HOMEPAGE="https://github.com/scp-fs2open/fs2open.github.com/"
 SRC_URI="
 	https://github.com/scp-fs2open/fs2open.github.com/archive/refs/tags/release_${_PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/asarium/libRocket/archive/${HASH_LIBROCKET}.tar.gz -> ${P}-ext_libRocket.tar.gz
@@ -25,21 +26,24 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
+	app-arch/lz4
+	<dev-lang/lua-5.1.6:5.1
+	dev-libs/jansson
+	media-libs/freetype:2
+	media-libs/glu
 	media-libs/libjpeg-turbo
 	media-libs/libpng
+	media-libs/libsdl2
 	media-libs/libtheora
 	media-libs/libvorbis
-	>=dev-lang/lua-5.1.0:*
 	media-libs/mesa
 	media-libs/openal
-	media-libs/libsdl2
-	media-libs/glu
-	dev-libs/jansson
-	app-arch/lz4
+	media-video/ffmpeg
 "
 RDEPEND="${DEPEND}"
 BDEPEND=""
 PATCHES=(
+	"${FILESDIR}/${P}-dont-build-lz4.patch"
 	"${FILESDIR}/${P}-make-arch-independent.patch"
 	"${FILESDIR}/${P}-version-fix.patch"
 )
