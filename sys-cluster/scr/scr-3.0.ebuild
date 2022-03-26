@@ -47,6 +47,7 @@ DEPEND="${RDEPEND}"
 PATCHES=(
 	"${FILESDIR}/${PN}-3.0_pre2-shared-libscr_base.patch"
 	"${FILESDIR}/${PN}-3.0_pre2-no-static.patch"
+	"${FILESDIR}/${P}-add-YOGRT_LIBRARIES-to-SCR_EXTERNAL_SERIAL_LIBS.patch"
 )
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}

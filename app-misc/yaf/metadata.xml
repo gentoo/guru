@@ -8,7 +8,7 @@
 	</maintainer>
 	<longdescription lang="en">
 		Yet Another Fetch is a tool that fetches system information and shows it in a beautiful way for some extra upvotes on r/unixporn.
-		 Yet another system fetch that is minimal and customizable.
+		Yet another system fetch that is minimal and customizable.
 	</longdescription>
 	<upstream>
 		<remote-id type="github">deepjyoti30/yaf</remote-id>

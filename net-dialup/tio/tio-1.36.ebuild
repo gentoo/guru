@@ -13,6 +13,13 @@ SLOT="0"
 LICENSE="GPL-2+"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
+RDEPEND="
+	dev-libs/inih
+"
+DEPEND="
+	${RDEPEND}
+"
+
 src_configure() {
 	local emesonargs=(
 		-Dbashcompletiondir="$(get_bashcompdir)"

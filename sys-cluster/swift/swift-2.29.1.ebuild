@@ -36,7 +36,10 @@ RDEPEND="
 
 	memcached? ( net-misc/memcached )
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	dev-python/pbr[${PYTHON_USEDEP}]
+"
 BDEPEND="
 	test? (
 		>=dev-python/nosexcover-1.0.10[${PYTHON_USEDEP}]

@@ -22,5 +22,11 @@ RDEPEND="
 	>=dev-python/beziers-0.1.0[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
+BDEPEND="
+	test? (
+		>=dev-python/youseedee-0.3.0[${PYTHON_USEDEP}]
+		>=dev-python/babelfont-3.0.0_alpha1[${PYTHON_USEDEP}]
+	)
+"
 
 distutils_enable_tests pytest

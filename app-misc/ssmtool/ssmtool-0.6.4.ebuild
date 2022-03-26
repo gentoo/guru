@@ -18,7 +18,6 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	dev-python/PyQt5[${PYTHON_USEDEP}]
 	dev-python/simplemma[${PYTHON_USEDEP}]
-	~dev-python/googletrans-4.0.0_rc1[${PYTHON_USEDEP}]
 	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
 	dev-python/flask[${PYTHON_USEDEP}]

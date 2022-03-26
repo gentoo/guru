@@ -100,6 +100,7 @@ RDEPEND="
 	app-emulation/libvirt[iscsi?]
 	app-emulation/spice-html5
 	dev-python/libvirt-python[${PYTHON_USEDEP}]
+	dev-python/oslo-limit[${PYTHON_USEDEP}]
 	net-misc/bridge-utils
 	sys-apps/iproute2
 	sys-fs/sysfsutils

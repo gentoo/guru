@@ -5,7 +5,7 @@ EAPI=8
 
 DESCRIPTION="Yet another system fetch that is minimal and customizable."
 HOMEPAGE="https://github.com/deepjyoti30/yaf"
-SRC_URI="https://github.com/deepjyoti30/${PN}/archive/refs/tags/${PV}.tar.gz"
+SRC_URI="https://github.com/deepjyoti30/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"

@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 COMMIT="f489ea67801d04d44cc65d63365d187cdd58dbe9"
 
 DESCRIPTION="Portable Standard Lisp"
@@ -28,6 +30,7 @@ DOCS=( README.md README.2 manual/sl.pdf manual/lispman.pdf )
 PATCHES="${FILESDIR}/${P}-respect-flags.patch"
 
 src_compile() {
+	tc-export CC
 	default
 	emake sizes
 	if use doc; then
