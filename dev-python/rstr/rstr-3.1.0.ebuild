@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=pyproject.toml
-PYTHON_COMPAT=( python3_{8..10} pypy3 )
+PYTHON_COMPAT=( python3_{8..10} ) # pypy3 https://bugs.gentoo.org/835474
 
 inherit distutils-r1
 
@@ -20,10 +20,6 @@ SLOT=0
 KEYWORDS="~amd64"
 
 distutils_enable_tests unittest
-
-python_test() {
-	"${PYTHON}" -m unittest discover -v rstr/tests || die "tests failed with ${EPYTHON}"
-}
 
 python_install_all() {
 	distutils-r1_python_install_all
