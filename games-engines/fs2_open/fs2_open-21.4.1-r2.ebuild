@@ -24,6 +24,7 @@ SRC_URI="
 LICENSE="Unlicense MIT Boost-1.0"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="discord"
 
 DEPEND="
 	app-arch/lz4
@@ -59,6 +60,12 @@ src_unpack() {
 	mv cmake-modules-${HASH_CMAKE_MODULES}/* "${S}/cmake/external/rpavlik-cmake-modules/" || die
 }
 
+src_prepare() {
+	use discord || eapply "${FILESDIR}/${P}-disable-discord.patch"
+	eapply_user
+	cmake_src_prepare
+}
+
 src_install() {
 	exeinto "/opt/${PN}"
 	doexe "${BUILD_DIR}/bin/${PN}_${_PV}"
@@ -68,7 +75,7 @@ src_install() {
 	doins "${BUILD_DIR}/bin/libRocketCore.so"
 	doins "${BUILD_DIR}/bin/libRocketCoreLua.so"
 	doins "${BUILD_DIR}/bin/libRocketDebugger.so"
-	doins "${BUILD_DIR}/bin/libdiscord-rpc.so"
+	use discord && doins "${BUILD_DIR}/bin/libdiscord-rpc.so"
 }
 
 pkg_postinst() {

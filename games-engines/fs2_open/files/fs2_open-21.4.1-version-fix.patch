@@ -1,5 +1,5 @@
---- fs2_open-21.4.1/version_override.cmake	2022-03-25 22:22:13.424199518 +0100
-+++ fs2_open-21.4.1/version_override.cmake	2022-03-25 22:22:30.378200320 +0100
+--- fs2_open/version_override.cmake
++++ fs2_open/version_override.cmake
 @@ -1,5 +1,5 @@
  set(FSO_VERSION_MAJOR 21)
  set(FSO_VERSION_MINOR 4)

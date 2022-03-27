@@ -1,5 +1,5 @@
---- fs2_open-21.4.1/cmake/toolchain-gcc.cmake	2021-11-01 18:00:53.000000000 +0100
-+++ fs2_open-21.4.1/cmake/toolchain-gcc.cmake	2022-03-27 17:52:26.738107292 +0200
+--- fs2_open/cmake/toolchain-gcc.cmake	2021-11-01 18:00:53.000000000 +0100
++++ fs2_open/cmake/toolchain-gcc.cmake	2022-03-27 17:52:26.738107292 +0200
 @@ -27,6 +27,11 @@
  set(COMPILER_FLAGS "")
  set(LINKER_FLAGS "")
