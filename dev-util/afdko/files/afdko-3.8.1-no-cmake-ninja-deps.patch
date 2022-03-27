@@ -11,3 +11,16 @@
  ]
  build-backend = "setuptools.build_meta"
  
+--- a/setup.py
++++ b/setup.py
+@@ -196,9 +196,7 @@
+           setup_requires=[
+               'wheel',
+               'setuptools_scm',
+-              'scikit-build',
+-              'cmake',
+-              'ninja'
++              'scikit-build'
+           ],
+           tests_require=[
+               'pytest',
