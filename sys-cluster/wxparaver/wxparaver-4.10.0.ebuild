@@ -18,7 +18,7 @@ HOMEPAGE="
 	https://github.com/bsc-performance-tools/wxparaver
 "
 SRC_URI="https://github.com/bsc-performance-tools/wxparaver/archive/${COMMIT}.tar.gz -> ${PF}.tar.gz"
-S="${WORKDIR}/${P}-${COMMIT}"
+S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
