@@ -44,6 +44,7 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 PATCHES=(
 	"${FILESDIR}/${P}-dont-build-lz4.patch"
+	"${FILESDIR}/${P}-dont-override-ldflags.patch"
 	"${FILESDIR}/${P}-make-arch-independent.patch"
 	"${FILESDIR}/${P}-version-fix.patch"
 )
