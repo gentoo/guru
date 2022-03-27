@@ -24,7 +24,7 @@ DEPEND="
 	>=dev-python/wheel-0.31[${PYTHON_USEDEP}]
 "
 
-PATCHES=( "${FILESDIR}/${PN}-0.18.0-system-harfbuzz.patch" )
+PATCHES=( "${FILESDIR}/${P}-system-harfbuzz.patch" )
 
 distutils_enable_tests pytest
 
