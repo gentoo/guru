@@ -26,6 +26,7 @@ RDEPEND=">=dev-python/jwcrypto-1.0.0[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	test? (
+		>=dev-python/coverage-4.0.3[${PYTHON_USEDEP}]
 		>=dev-python/gevent-1.2.2[${PYTHON_USEDEP}]
 		>=dev-python/pyVows-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/mock-1.3.0[${PYTHON_USEDEP}]
