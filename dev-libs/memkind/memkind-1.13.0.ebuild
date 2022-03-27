@@ -64,7 +64,7 @@ src_configure() {
 		$(use_enable heap-manager)
 		$(use_enable hwloc)
 		$(use_enable initial-exec-tls memkind-initial-exec-tls)
-		$(use_enable logging-to-file filelog)
+		$(use_enable filelog logging-to-file)
 		$(use_enable openmp)
 		$(use_enable secure)
 		$(use_enable tls)
