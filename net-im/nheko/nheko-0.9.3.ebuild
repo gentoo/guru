@@ -17,10 +17,6 @@ REQUIRED_USE="video? ( voip )"
 
 MY_GST_V="1.18"
 RDEPEND="
-	|| (
-		app-text/asciidoc
-		dev-ruby/asciidoctor
-	)
 	app-text/cmark
 	dev-cpp/qt-jdenticon
 	>=dev-db/lmdb++-1.0.0
@@ -56,7 +52,13 @@ DEPEND="
 	dev-cpp/nlohmann_json
 	${RDEPEND}
 "
-BDEPEND="dev-qt/linguist-tools:5"
+BDEPEND="
+	dev-qt/linguist-tools:5
+	|| (
+		app-text/asciidoc
+		dev-ruby/asciidoctor
+	)
+"
 
 src_configure() {
 	local -a mycmakeargs=(
