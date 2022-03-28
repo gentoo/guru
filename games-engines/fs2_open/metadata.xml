@@ -16,6 +16,7 @@
 		<bugs-to>https://github.com/scp-fs2open/fs2open.github.com/issues</bugs-to>
 	</upstream>
 	<use>
+		<flag name="debug">Debug build to collect logfiles</flag>
 		<flag name="discord">Enable Discord RPC support</flag>
 	</use>
 </pkgmetadata>

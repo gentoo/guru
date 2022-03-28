@@ -24,7 +24,7 @@ SRC_URI="
 LICENSE="Unlicense MIT Boost-1.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="discord"
+IUSE="debug discord"
 
 DEPEND="
 	app-arch/lz4
@@ -64,11 +64,16 @@ src_prepare() {
 	use discord || eapply "${FILESDIR}/${P}-disable-discord.patch"
 	eapply_user
 	cmake_src_prepare
+	use debug && CMAKE_BUILD_TYPE=Debug
 }
 
 src_install() {
 	exeinto "/opt/${PN}"
-	doexe "${BUILD_DIR}/bin/${PN}_${_PV}"
+	if use debug ; then
+		doexe "${BUILD_DIR}/bin/${PN}_${_PV}-DEBUG"
+	else
+		doexe "${BUILD_DIR}/bin/${PN}_${_PV}"
+	fi
 	insinto "/opt/${PN}"
 	doins "${BUILD_DIR}/bin/libRocketControls.so"
 	doins "${BUILD_DIR}/bin/libRocketControlsLua.so"
