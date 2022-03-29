@@ -173,6 +173,13 @@ games-engines/instead:doc - Include some additional documentation on how to crea
 games-engines/instead:sdl2 - Use libsdl2 instead of libsdl
 games-fps/crispy-doom:midi - Basic support for MIDI files
 games-fps/crispy-doom:truecolor - Enable true-color rendering (experimental)
+games-fps/etlegacy:autoupdate - Enable autoupdate
+games-fps/etlegacy:freetype - Enable freetype
+games-fps/etlegacy:gettext - Enable gettext
+games-fps/etlegacy:irc - Enable built-in IRC client
+games-fps/etlegacy:omnibot - Built with Omnibot
+games-fps/etlegacy:renderer-gles - Enable renderer-gles
+games-fps/etlegacy:renderer2 - Enable renderer2
 games-fps/quakespasm:sdl2 - Use media-libs/libsdl2 instead of media-libs/libsdl
 games-puzzle/atris:sound - Enable atris sound pack
 games-server/among-sus:notifications - Notify players you're moving

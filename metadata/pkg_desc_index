@@ -775,6 +775,7 @@ games-engines/instead 3.3.5 3.4.1 9999: INSTEAD text-based quest game engine
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
 games-fps/crispy-doom 5.10.0 5.10.1 5.10.2 5.10.3 5.11.1: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
+games-fps/etlegacy 2.79.0: Wolfenstein: Enemy Territory 2.60b compatible client/server
 games-fps/quakespasm 0.94.1 9999: Modern, cross-platform Quake 1 engine based on FitzQuake
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
 games-misc/bonsai 0_pre20210201: bonsai tree generator written in bash
