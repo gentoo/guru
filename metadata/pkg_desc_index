@@ -675,13 +675,13 @@ dev-python/tweepy 3.10.0: An easy-to-use Python library for accessing the Twitte
 dev-python/types-paramiko 2.8.16 2.8.17: Typing stubs for paramiko
 dev-python/types-python-dateutil 2.8.9 2.8.10: Typing stubs for python-dateutil
 dev-python/types-pytz 2021.3.5 2021.3.6: Typing stubs for pytz
-dev-python/types-requests 2.27.13 2.27.14: Typing stubs for requests
+dev-python/types-requests 2.27.14 2.27.15: Typing stubs for requests
 dev-python/types-urllib3 1.26.10 1.26.11: Typing stubs for urllib3
 dev-python/ufo2ft 2.25.3 2.26.0: A bridge from UFOs to FontTool objects
 dev-python/ufoLib2 0.11.4 0.13.1: A UFO font library
 dev-python/ufoNormalizer 0.5.4 0.6.1: A tool that will normalize the XML and other data inside of a UFO
 dev-python/ufoProcessor 1.9.0: A Python package for processing and generating UFO files
-dev-python/uharfbuzz 0.22.0 0.23.0: Streamlined Cython bindings for the HarfBuzz shaping engine
+dev-python/uharfbuzz 0.23.0: Streamlined Cython bindings for the HarfBuzz shaping engine
 dev-python/uhashring 2.1: Full featured consistent hashing python library compatible with ketama
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/unicodedata2 13.0.0.2 14.0.0: Unicodedata backport for python 2/3 updated to the latest unicode version
@@ -1039,7 +1039,7 @@ sci-electronics/dsview 1.12-r1 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/verilator 4.204 4.210 4.218 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/GeographicLib-data 0-r1: Datasets for GeographicLib
-sci-geosciences/mapillary_tools 0.8.0: Command line tools for processing and uploading Mapillary imagery
+sci-geosciences/mapillary_tools 0.8.0 0.8.2: Command line tools for processing and uploading Mapillary imagery
 sci-libs/ann 1.1.2_p7-r2: A Library for Approximate Nearest Neighbor Searching
 sci-libs/dart 6.10.1-r2 6.12.1: Dynamic Animation and Robotics Toolkit
 sci-libs/ensmallen 2.16.2 2.17.0: header only C++ library for numerical optimization
@@ -1142,7 +1142,7 @@ sys-cluster/muster 1.0.1: Massively Scalable Clustering
 sys-cluster/nanos6 2.6-r4: runtime that implements the OmpSs-2 parallel programming model
 sys-cluster/nanox 0.15_p20210818: Runtime designed to serve as runtime support in parallel environments
 sys-cluster/neutron 17.1.2: A virtual network service for Openstack
-sys-cluster/nova 25.0.0.0_rc1: Cloud computing fabric controller
+sys-cluster/nova 25.0.0.0_rc1-r1: Cloud computing fabric controller
 sys-cluster/opencoarrays 2.9.2: A parallel application binary interface for Fortran 2018 compilers
 sys-cluster/otf2 2.3-r1: highly scalable, memory efficient event trace data format
 sys-cluster/parallel-netcdf 1.12.2: Parallel extension to netCDF
