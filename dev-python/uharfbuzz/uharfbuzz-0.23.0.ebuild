@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
 SLOT="0"
 
-RDEPEND=">=media-libs/harfbuzz-2.8.1[experimental(-)]"
+RDEPEND=">=media-libs/harfbuzz-4.0.0[experimental(-)]"
 DEPEND="
 	${RDEPEND}
 	>=dev-python/cython-0.28.1[${PYTHON_USEDEP}]
@@ -32,9 +32,4 @@ python_prepare_all() {
 	distutils-r1_python_prepare_all
 	export SETUPTOOLS_SCM_PRETEND_VERSION="${PV%_*}"
 	export USE_SYSTEM_HARFBUZZ=1
-}
-
-python_install() {
-	distutils-r1_python_install
-	python_optimize "$(python_get_sitedir)/${PN}"
 }

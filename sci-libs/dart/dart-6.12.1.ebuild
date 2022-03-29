@@ -63,7 +63,10 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	examples? ( dev-libs/urdfdom_headers )
-	extras? ( dev-libs/urdfdom_headers )
+	extras? (
+		dev-cpp/gtest
+		dev-libs/urdfdom_headers
+	)
 	test? (
 		dev-cpp/gtest
 		python? ( $(python_gen_cond_dep 'dev-python/pytest[${PYTHON_USEDEP}]') )
