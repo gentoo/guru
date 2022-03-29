@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type='person'>
+		<name>Florian Schmaus</name>
+		<email>flow@gentoo.org</email>
+	</maintainer>
+	<use>
+		<flag name="autoupdate">Enable autoupdate</flag>
+		<flag name="freetype">Enable freetype</flag>
+		<flag name="gettext">Enable gettext</flag>
+		<flag name="irc">Enable built-in IRC client</flag>
+		<flag name="omnibot">Built with Omnibot</flag>
+		<flag name="renderer2">Enable renderer2</flag>
+		<flag name="renderer-gles">Enable renderer-gles</flag>
+	</use>
+</pkgmetadata>
