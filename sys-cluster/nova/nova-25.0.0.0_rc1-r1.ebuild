@@ -3,11 +3,10 @@
 
 EAPI=8
 
-EPYTEST_DESELECT=( nova/tests/unit/test_hacking.py )
 MYP="${P//_/}"
 PYTHON_COMPAT=( python3_{8..9} )
 
-inherit distutils-r1 linux-info udev
+inherit bash-completion-r1 distutils-r1 linux-info udev
 
 DESCRIPTION="Cloud computing fabric controller"
 HOMEPAGE="
@@ -15,14 +14,11 @@ HOMEPAGE="
 	https://opendev.org/openstack/nova
 	https://pypi.org/project/nova/
 "
-SRC_URI="
-	https://dev.gentoo.org/~prometheanfire/dist/openstack/nova/victoria/nova.conf.sample -> nova.conf.sample-${PV}
-	https://tarballs.openstack.org/${PN}/${MYP}.tar.gz
-"
+SRC_URI="https://tarballs.openstack.org/${PN}/${MYP}.tar.gz"
 S="${WORKDIR}/${MYP}"
 
 KEYWORDS="~amd64"
-LICENSE="Apache-2.0"
+LICENSE="Apache-2.0 iscsi? ( GPL-2 )"
 SLOT="0"
 IUSE="+compute compute-only iscsi +memcached +mysql +novncproxy openvswitch postgres +rabbitmq sqlite"
 
@@ -170,8 +166,6 @@ REQUIRED_USE="
 	compute-only? ( compute !rabbitmq !memcached !mysql !postgres !sqlite )
 	test? ( mysql )
 "
-#PATCHES=(
-#)
 
 distutils_enable_tests pytest
 
@@ -189,8 +183,14 @@ pkg_setup() {
 }
 
 python_prepare_all() {
+	rm nova/tests/unit/test_hacking.py || die
 	sed -i '/^hacking/d' test-requirements.txt || die
 	distutils-r1_python_prepare_all
+}
+
+python_compile_all() {
+	oslo-config-generator --config-file=etc/nova/nova-config-generator.conf || die
+	oslopolicy-sample-generator --config-file=etc/nova/nova-policy-generator.conf || die
 }
 
 python_install_all() {
@@ -210,9 +210,13 @@ python_install_all() {
 
 	insinto /etc/nova
 	insopts -m 0640 -o nova -g nova
-	newins "${DISTDIR}/nova.conf.sample-${PV}" "nova.conf.sample"
+
+	doins "nova.conf.sample"
 	doins "${FILESDIR}/nova-compute.conf"
+	dodoc etc/nova/README*.txt
+	rm etc/nova/README*.txt || die
 	doins "${S}/etc/nova/"*
+	doins policy.yaml
 	# rootwrap filters
 	insopts -m 0644
 	insinto /etc/nova/rootwrap.d
@@ -222,6 +226,8 @@ python_install_all() {
 	insinto /etc/sudoers.d/
 	insopts -m 0600 -o root -g root
 	doins "${FILESDIR}/nova-sudoers"
+
+	newbashcomp tools/nova-manage.bash_completion nova-manage
 
 	if use iscsi ; then
 		# Install udev rules for handle iscsi disk with right links under /dev
