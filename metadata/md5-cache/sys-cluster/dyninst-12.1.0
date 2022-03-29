@@ -1,6 +1,6 @@
 BDEPEND=doc? ( dev-texlive/texlive-latex ) sys-devel/make >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-cpp/tbb dev-libs/boost:= virtual/libelf virtual/mpi valgrind? ( dev-util/valgrind )
+DEPEND=<dev-cpp/tbb-2021 dev-libs/boost:= virtual/libelf virtual/mpi valgrind? ( dev-util/valgrind )
 DESCRIPTION=Tools for binary instrumentation, analysis, and modification
 EAPI=8
 HOMEPAGE=https://dyninst.org/dyninst https://github.com/dyninst/dyninst
@@ -8,8 +8,8 @@ INHERIT=cmake
 IUSE=doc openmp valgrind
 KEYWORDS=~amd64
 LICENSE=LGPL-2.1+
-RDEPEND=dev-cpp/tbb dev-libs/boost:= virtual/libelf virtual/mpi valgrind? ( dev-util/valgrind )
+RDEPEND=<dev-cpp/tbb-2021 dev-libs/boost:= virtual/libelf virtual/mpi valgrind? ( dev-util/valgrind )
 SLOT=0
 SRC_URI=https://github.com/dyninst/dyninst/archive/v12.1.0.tar.gz -> dyninst-12.1.0.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149
-_md5_=20ec67e931d3d2d409329c448bff08dc
+_md5_=e1d32e5763b540b259f060f158ad7b5f

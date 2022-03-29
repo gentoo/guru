@@ -167,6 +167,8 @@ games-emulation/yuzu:discord - Enables Discord Rich Presence
 games-emulation/yuzu:system-vulkan - Use system dev-util/vulkan-headers
 games-emulation/yuzu:webengine - Use QtWebEngine for web applet implementation
 games-emulation/yuzu:webservice - Enable web services (telemetry, etc.)
+games-engines/fs2_open:debug - Debug build to collect logfiles
+games-engines/fs2_open:discord - Enable Discord RPC support
 games-engines/instead:doc - Include some additional documentation on how to create games for the instead engine
 games-engines/instead:sdl2 - Use libsdl2 instead of libsdl
 games-fps/crispy-doom:midi - Basic support for MIDI files
@@ -217,6 +219,13 @@ media-libs/alvr:vulkan - Build ALVR vulkan layer
 media-libs/alvr:x264 - Use x264 for h264 software encoding
 media-libs/alvr:x265 - Use x265 for h265 software encoding
 media-libs/gl4es:egl - Enable EGL support.
+media-libs/imgui:allegro - Enable allegro backend and renderer
+media-libs/imgui:freetype - Use FreeType to build and rasterize the font atlas
+media-libs/imgui:glfw - Enable glfw backend
+media-libs/imgui:glut - Enable glut backen
+media-libs/imgui:opengl - Enable opengl renderer
+media-libs/imgui:sdl - Enable sdl backend
+media-libs/imgui:vulkan - Enable vulkan renderer
 media-libs/libbpg:bpgview - Compile bpgview (media-libs/libsdl and media-libs/sdl-image needed)
 media-libs/libbpg:emcc - Enable compilation of Javascript decoder with Emscripten
 media-libs/libbpg:jctvc - Enable the JCTVC code (best quality but slow) for the encoder
@@ -327,6 +336,7 @@ sci-libs/ann:profile - Enable performance evaluation. (This may slow execution s
 sci-libs/dart:bullet - Bullet Collision Detector Support
 sci-libs/dart:examples - Build the examples
 sci-libs/dart:extras - Build the experimental projects that are derived from the core DART project
+sci-libs/dart:gui - OpenSceneGraph GUI
 sci-libs/dart:ipopt - IPopt Optimization Support
 sci-libs/dart:nlopt - NLopt Optimization Support
 sci-libs/dart:ode - ODE Collision Detector Support

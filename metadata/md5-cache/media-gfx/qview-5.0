@@ -1,6 +1,6 @@
-BDEPEND=test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=dev-qt/linguist-tools:5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=configure install postinst postrm preinst prepare test
-DEPEND=dev-qt/qtconcurrent:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 dev-qt/linguist-tools:5 test? ( dev-qt/qttest:5 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=dev-qt/qtconcurrent:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 test? ( dev-qt/qttest:5 ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Practical and minimal image viewer
 EAPI=7
 HOMEPAGE=https://github.com/jurplel/qView https://interversehq.com/qview
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/jurplel/qView/archive/5.0.tar.gz -> qview-5.0.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1	virtualx	975d49ff3b3f451efe7a95f230532135	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=6935949a8e7314d312d1ad58dc0042d4
+_md5_=64058f1e199107281d0b2d8379516fb1

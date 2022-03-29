@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.16.0 >=dev-lang/go-1.16 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install setup unpack
+DEPEND=acct-user/yggdrasil acct-group/yggdrasil
+DESCRIPTION=An experiment in scalable routing as an encrypted IPv6 overlay network
+EAPI=8
+HOMEPAGE=https://yggdrasil-network.github.io/
+INHERIT=go-module linux-info systemd
+KEYWORDS=~amd64
+LICENSE=LGPL-3 MIT Apache-2.0 BSD ZLIB
+RESTRICT=mirror strip
+SLOT=0
+SRC_URI=https://github.com/yggdrasil-network/yggdrasil-go/archive/v0.4.3.tar.gz -> yggdrasil-go-0.4.3.tar.gz https://gitea.minecast.xyz/BratishkaErik/distfiles/media/branch/master/yggdrasil-go-0.4.3-deps.tar.bz2
+_eclasses_=go-module	3b47b6e0e18257d2abb17663c575fc36	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	linux-info	8b7b99d1e4401a7a903cdfe1d2bf29de	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=37f3fedb0ce4c0c2f38a87edf3955ebd
