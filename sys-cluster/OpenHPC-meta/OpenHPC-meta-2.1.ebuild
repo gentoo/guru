@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -73,7 +73,7 @@ RDEPEND="
 
 	runtimes? (
 		sys-cluster/charliecloud[${PYTHON_SINGLE_USEDEP}]
-		sys-cluster/singularity
+		|| ( app-containers/apptainer sys-cluster/singularity )
 	)
 
 	serial? (

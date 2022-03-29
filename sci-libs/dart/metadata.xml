@@ -13,6 +13,7 @@
 		<flag name="bullet">Bullet Collision Detector Support</flag>
 		<flag name="examples">Build the examples</flag>
 		<flag name="extras">Build the experimental projects that are derived from the core DART project</flag>
+		<flag name="gui">OpenSceneGraph GUI</flag>
 		<flag name="ipopt">IPopt Optimization Support</flag>
 		<flag name="nlopt">NLopt Optimization Support</flag>
 		<flag name="ode">ODE Collision Detector Support</flag>

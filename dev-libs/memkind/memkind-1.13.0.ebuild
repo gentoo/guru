@@ -46,7 +46,9 @@ pkg_pretend() {
 src_prepare() {
 	default
 	eautoreconf
-	cd jemalloc && eautoreconf
+	pushd jemalloc || die
+	eautoreconf
+	popd || die
 }
 
 src_configure() {
@@ -62,7 +64,7 @@ src_configure() {
 		$(use_enable heap-manager)
 		$(use_enable hwloc)
 		$(use_enable initial-exec-tls memkind-initial-exec-tls)
-		$(use_enable logging-to-file filelog)
+		$(use_enable filelog logging-to-file)
 		$(use_enable openmp)
 		$(use_enable secure)
 		$(use_enable tls)
@@ -78,6 +80,8 @@ src_install() {
 
 src_test() {
 	addwrite /proc/sys/vm/nr_hugepages
-	echo 3000 > /proc/sys/vm/nr_hugepages
+	NR_HUGEPAGES_INITIAL="$(cat /proc/sys/vm/nr_hugepages)" || die
+	echo 3000 > /proc/sys/vm/nr_hugepages || die
 	emake check
+	echo ${NR_HUGEPAGES_INITIAL} > /proc/sys/vm/nr_hugepages || die
 }

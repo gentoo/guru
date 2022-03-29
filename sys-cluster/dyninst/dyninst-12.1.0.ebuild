@@ -20,7 +20,7 @@ KEYWORDS="~amd64"
 IUSE="doc openmp valgrind"
 
 RDEPEND="
-	dev-cpp/tbb
+	<dev-cpp/tbb-2021
 	dev-libs/boost:=
 	virtual/libelf
 	virtual/mpi

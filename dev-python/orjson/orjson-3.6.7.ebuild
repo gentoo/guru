@@ -76,7 +76,7 @@ KEYWORDS="~amd64"
 SLOT="0"
 IUSE="debug"
 
-DEPEND="
+BDEPEND="
 	test? (
 		$(python_gen_cond_dep '
 			dev-python/arrow[${PYTHON_USEDEP}]
@@ -89,19 +89,15 @@ DEPEND="
 		$(python_gen_cond_dep 'dev-python/numpy[${PYTHON_USEDEP}]' python3_{8,9})
 		$(python_gen_cond_dep '>=dev-python/xxhash-1.4.3[${PYTHON_USEDEP}]' python3_8)
 	)
-"
-BDEPEND="
 	app-arch/unzip
 	dev-lang/rust[nightly]
 	dev-util/maturin
 "
 
-distutils_enable_tests pytest
+QA_FLAGS_IGNORED=".*"
+PATCHES=( "${FILESDIR}/${P}-no-strip.patch" )
 
-pkg_setup() {
-	python_setup
-	export QA_FLAGS_IGNORED="$(python_get_sitedir)/${PN}*.so"
-}
+distutils_enable_tests pytest
 
 src_compile() {
 	maturin build --no-sdist --manylinux off --interpreter ${EPYTHON} $(usex debug "" --release) || die

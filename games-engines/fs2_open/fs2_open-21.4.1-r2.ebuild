@@ -24,6 +24,7 @@ SRC_URI="
 LICENSE="Unlicense MIT Boost-1.0"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="debug discord"
 
 DEPEND="
 	app-arch/lz4
@@ -44,6 +45,7 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 PATCHES=(
 	"${FILESDIR}/${P}-dont-build-lz4.patch"
+	"${FILESDIR}/${P}-dont-override-ldflags.patch"
 	"${FILESDIR}/${P}-make-arch-independent.patch"
 	"${FILESDIR}/${P}-version-fix.patch"
 )
@@ -58,16 +60,27 @@ src_unpack() {
 	mv cmake-modules-${HASH_CMAKE_MODULES}/* "${S}/cmake/external/rpavlik-cmake-modules/" || die
 }
 
+src_prepare() {
+	use discord || eapply "${FILESDIR}/${P}-disable-discord.patch"
+	eapply_user
+	cmake_src_prepare
+	use debug && CMAKE_BUILD_TYPE=Debug
+}
+
 src_install() {
 	exeinto "/opt/${PN}"
-	doexe "${BUILD_DIR}/bin/${PN}_${_PV}"
+	if use debug ; then
+		doexe "${BUILD_DIR}/bin/${PN}_${_PV}-DEBUG"
+	else
+		doexe "${BUILD_DIR}/bin/${PN}_${_PV}"
+	fi
 	insinto "/opt/${PN}"
 	doins "${BUILD_DIR}/bin/libRocketControls.so"
 	doins "${BUILD_DIR}/bin/libRocketControlsLua.so"
 	doins "${BUILD_DIR}/bin/libRocketCore.so"
 	doins "${BUILD_DIR}/bin/libRocketCoreLua.so"
 	doins "${BUILD_DIR}/bin/libRocketDebugger.so"
-	doins "${BUILD_DIR}/bin/libdiscord-rpc.so"
+	use discord && doins "${BUILD_DIR}/bin/libdiscord-rpc.so"
 }
 
 pkg_postinst() {
