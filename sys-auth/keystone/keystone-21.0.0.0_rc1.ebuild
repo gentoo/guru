@@ -1,10 +1,10 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 MYP="${P/_/}"
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
@@ -12,12 +12,9 @@ DESCRIPTION="The Openstack authentication, authorization, and service catalog"
 HOMEPAGE="
 	https://opendev.org/openstack/keystone
 	https://launchpad.net/keystone
-	https://pypi.org/project/keystone
+	https://pypi.org/project/keystone/
 "
-SRC_URI="
-	https://dev.gentoo.org/~prometheanfire/dist/openstack/keystone/victoria/keystone.conf.sample -> keystone.conf.sample-${PV}
-	https://tarballs.openstack.org/${PN}/${MYP}.tar.gz
-"
+SRC_URI="https://tarballs.openstack.org/${PN}/${MYP}.tar.gz"
 S="${WORKDIR}/${MYP}"
 
 KEYWORDS="~amd64"
@@ -26,21 +23,11 @@ SLOT="0"
 IUSE="+sqlite ldap memcached mongo mysql postgres"
 
 RDEPEND="
+	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
 	>=dev-python/webob-1.7.1[${PYTHON_USEDEP}]
 	>=dev-python/flask-1.0.2[${PYTHON_USEDEP}]
 	>=dev-python/flask-restful-0.3.5[${PYTHON_USEDEP}]
 	>=dev-python/cryptography-2.7[${PYTHON_USEDEP}]
-	sqlite? (
-		>=dev-python/sqlalchemy-1.3.0[sqlite,${PYTHON_USEDEP}]
-	)
-	mysql? (
-		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.3.0[${PYTHON_USEDEP}]
-	)
-	postgres? (
-		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.3.0[${PYTHON_USEDEP}]
-	)
 	>=dev-python/sqlalchemy-migrate-0.13.0[${PYTHON_USEDEP}]
 	>=dev-python/stevedore-1.20.0[${PYTHON_USEDEP}]
 	>=dev-python/passlib-1.7.0[${PYTHON_USEDEP}]
@@ -69,16 +56,29 @@ RDEPEND="
 	>=dev-python/msgpack-0.5.0[${PYTHON_USEDEP}]
 	>=dev-python/osprofiler-1.4.0[${PYTHON_USEDEP}]
 	>=dev-python/pytz-2013.6[${PYTHON_USEDEP}]
+
+	ldap? (
+		>=dev-python/python-ldap-3.1.0[${PYTHON_USEDEP}]
+		>=dev-python/ldappool-2.3.1[${PYTHON_USEDEP}]
+	)
+	mysql? (
+		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
+		>=dev-python/sqlalchemy-1.3.0[${PYTHON_USEDEP}]
+	)
 	memcached? (
 		>=dev-python/python-memcached-1.56[${PYTHON_USEDEP}]
 	)
 	mongo? (
 		>=dev-python/pymongo-3.0.2[${PYTHON_USEDEP}]
 	)
-	ldap? (
-		>=dev-python/python-ldap-3.1.0[${PYTHON_USEDEP}]
-		>=dev-python/ldappool-2.3.1[${PYTHON_USEDEP}]
+	postgres? (
+		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
+		>=dev-python/sqlalchemy-1.3.0[${PYTHON_USEDEP}]
 	)
+	sqlite? (
+		>=dev-python/sqlalchemy-1.3.0[sqlite,${PYTHON_USEDEP}]
+	)
+
 	|| (
 		www-servers/uwsgi[python,${PYTHON_USEDEP}]
 		www-apache/mod_wsgi[${PYTHON_USEDEP}]
@@ -87,9 +87,8 @@ RDEPEND="
 	acct-user/keystone
 	acct-group/keystone
 "
-DEPEND="
-	${RDEPEND}
-	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
+DEPEND="${RDEPEND}"
+BDEPEND="
 	test? (
 		>=dev-python/bashate-0.5.1[${PYTHON_USEDEP}]
 		>=dev-python/freezegun-0.3.6[${PYTHON_USEDEP}]
@@ -105,6 +104,7 @@ DEPEND="
 	)
 "
 
+PATCHES=( "${FILESDIR}/${P}-no-usr-local-bin.patch" )
 REQUIRED_USE="
 	|| ( mysql postgres sqlite )
 	test? ( ldap )
@@ -113,14 +113,15 @@ REQUIRED_USE="
 distutils_enable_tests pytest
 
 python_prepare_all() {
-	# it's in git, but not in the tarball.....
 	sed -i '/^hacking/d' test-requirements.txt || die
-	mkdir -p ${PN}/tests/tmp/ || die
-	sed -i 's|/usr/local|/usr|g' httpd/keystone-uwsgi-* || die
-	sed -i 's|python|python27|g' httpd/keystone-uwsgi-* || die
-	# allow useage of renamed msgpack
+	# allow usage of renamed msgpack
 	sed -i '/^msgpack/d' requirements.txt || die
 	distutils-r1_python_prepare_all
+}
+
+python_compile_all() {
+	oslo-config-generator --config-file=config-generator/keystone.conf || die
+	oslopolicy-sample-generator --config-file config-generator/keystone-policy-generator.conf || die
 }
 
 python_install_all() {
@@ -129,16 +130,16 @@ python_install_all() {
 	diropts -m 0750
 	keepdir /etc/keystone /var/log/keystone
 	insinto /etc/keystone
-	insopts -m0640 -okeystone -gkeystone
-	newins "${DISTDIR}/keystone.conf.sample-${PV}" keystone.conf.sample
+	insopts -m 0640 -o keystone -g keystone
+	doins etc/nova/keystone.conf.sample
+	doins etc/nova/policy.yaml.sample
 	doins etc/logging.conf.sample
 	doins etc/default_catalog.templates
-#	doins etc/policy.v3cloudsample.json
 	insinto /etc/keystone/httpd
 	doins httpd/*
 
 	fowners keystone:keystone /etc/keystone /etc/keystone/httpd /var/log/keystone
-	# stupid python doing stupid things
+
 	rm -r "${ED}/usr/etc" || die
 }
 
@@ -153,10 +154,10 @@ pkg_postinst() {
 }
 
 pkg_config() {
-	if [ ! -d "${ROOT}"/etc/keystone/ssl ] ; then
+	if [ ! -d "${ROOT}/etc/keystone/ssl" ] ; then
 		einfo "Press ENTER to configure the keystone PKI, or Control-C to abort now..."
 		read
-		"${ROOT}"/usr/bin/keystone-manage pki_setup --keystone-user keystone --keystone-group keystone
+		"${ROOT}/usr/bin/keystone-manage" pki_setup --keystone-user keystone --keystone-group keystone
 	else
 		einfo "keystone PKI certificates directory already present, skipping configuration"
 	fi
