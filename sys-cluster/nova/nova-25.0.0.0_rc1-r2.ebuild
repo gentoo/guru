@@ -211,16 +211,16 @@ python_install_all() {
 	insinto /etc/nova
 	insopts -m 0640 -o nova -g nova
 
-	doins "nova.conf.sample"
+	doins etc/nova/nova.conf.sample
 	doins "${FILESDIR}/nova-compute.conf"
 	dodoc etc/nova/README*.txt
 	rm etc/nova/README*.txt || die
 	doins "${S}/etc/nova/"*
-	doins policy.yaml
+	doins etc/nova/policy.yaml.sample
 	# rootwrap filters
 	insopts -m 0644
 	insinto /etc/nova/rootwrap.d
-	doins "etc/nova/rootwrap.d/compute.filters"
+	doins etc/nova/rootwrap.d/compute.filters
 
 	# add sudoers definitions for user nova
 	insinto /etc/sudoers.d/
