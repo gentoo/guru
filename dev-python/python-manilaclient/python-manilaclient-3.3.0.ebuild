@@ -4,7 +4,7 @@
 EAPI=8
 
 EPYTEST_IGNORE=( manilaclient/tests/functional )
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
