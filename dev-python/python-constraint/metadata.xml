@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <!-- comaintainers-welcomed -->
+  <maintainer type="person">
+    <email>gaboroszkar@protonmail.com</email>
+    <name>Gábor Oszkár Dénes</name>
+  </maintainer>
+  <longdescription>
+    The Python constraint module offers solvers for Constraint Satisfaction Problems (CSPs) over finite domains in simple and pure Python. CSP is class of problems which may be represented in terms of variables (a, b, ...), domains (a in [1, 2, 3], ...), and constraints (a &lt; b, ...).
+  </longdescription>
+</pkgmetadata>
