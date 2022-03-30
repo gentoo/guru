@@ -6,7 +6,7 @@ EAPI=8
 MYP="${P/_/}"
 PYTHON_COMPAT=( python3_{8..9} )
 
-inherit distutils-r1
+inherit distutils-r1 tmpfiles
 
 DESCRIPTION="The Openstack authentication, authorization, and service catalog"
 HOMEPAGE="
@@ -131,14 +131,19 @@ python_install_all() {
 	keepdir /etc/keystone /var/log/keystone
 	insinto /etc/keystone
 	insopts -m 0640 -o keystone -g keystone
-	doins etc/nova/keystone.conf.sample
-	doins etc/nova/policy.yaml.sample
+	doins etc/keystone.conf.sample
+	doins etc/keystone.policy.yaml.sample
 	doins etc/logging.conf.sample
 	doins etc/default_catalog.templates
 	insinto /etc/keystone/httpd
 	doins httpd/*
 
 	fowners keystone:keystone /etc/keystone /etc/keystone/httpd /var/log/keystone
+
+	newtmpfiles "${FILESDIR}/keystone.tmpfile" keystone.conf
+
+	insinto /etc/logrotate.d
+	newins "${FILESDIR}/keystone.logrotate" keystone.conf
 
 	rm -r "${ED}/usr/etc" || die
 }
