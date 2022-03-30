@@ -6,7 +6,7 @@ EAPI=8
 MYP="${P//_/}"
 PYTHON_COMPAT=( python3_{8..9} )
 
-inherit bash-completion-r1 distutils-r1 linux-info udev
+inherit bash-completion-r1 distutils-r1 linux-info systemd tmpfiles udev
 
 DESCRIPTION="Cloud computing fabric controller"
 HOMEPAGE="
@@ -196,13 +196,13 @@ python_compile_all() {
 python_install_all() {
 	distutils-r1_python_install_all
 
-	if use !compute-only; then
-		for svc in api conductor consoleauth network scheduler spicehtml5proxy xvpvncproxy; do
-			newinitd "${FILESDIR}/nova.initd" "nova-${svc}"
-		done
-	fi
-	use compute && newinitd "${FILESDIR}/nova.initd" "nova-compute"
-	use novncproxy && newinitd "${FILESDIR}/nova.initd" "nova-novncproxy"
+	for svc in api compute conductor consoleauth network novncproxy scheduler spicehtml5proxy xvpvncproxy; do
+		newinitd "${FILESDIR}/nova.initd" "nova-${svc}"
+	done
+
+	for svc in api compute conductor metadata-api novncproxy os-compute-api scheduler; do
+		systemd_dounit "${FILESDIR}/openstack-nova-${svc}.service"
+	done
 
 	diropts -m 0750 -o nova -g qemu
 	dodir /var/log/nova /var/lib/nova/instances
@@ -228,6 +228,11 @@ python_install_all() {
 	doins "${FILESDIR}/nova-sudoers"
 
 	newbashcomp tools/nova-manage.bash_completion nova-manage
+
+	newtmpfiles "${FILESDIR}/nova.tmpfile" nova.conf
+
+	insinto /etc/logrotate.d
+	newins "${FILESDIR}/nova.logrotate" nova.conf
 
 	if use iscsi ; then
 		# Install udev rules for handle iscsi disk with right links under /dev
