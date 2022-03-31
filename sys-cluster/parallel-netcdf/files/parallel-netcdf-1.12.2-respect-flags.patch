@@ -5,7 +5,7 @@
  
  cdfdiff$(EXEEXT): cdfdiff.c Makefile
 -	$(SEQ_CC) -I$(top_srcdir)/src/utils/ncvalidator -o $@ $<
-+	$(SEQ_CC) $(CFLAGS) $(LDFLAGS) -PIE -I$(top_srcdir)/src/utils/ncvalidator -o $@ $<
++	$(SEQ_CC) $(CFLAGS) $(LDFLAGS) -fPIE -I$(top_srcdir)/src/utils/ncvalidator -o $@ $<
  
  $(top_builddir)/src/libs/libpnetcdf.la:
  	set -e; cd $(top_builddir)/src/libs && $(MAKE) $(MFLAGS)
@@ -16,7 +16,7 @@
  
  ncoffsets$(EXEEXT): ncoffsets.c
 -	$(SEQ_CC) -o $@ $<
-+	$(SEQ_CC) $(CFLAGS) $(LDFLAGS) -PIE -o $@ $<
++	$(SEQ_CC) $(CFLAGS) $(LDFLAGS) -fPIE -o $@ $<
  
  dist_man_MANS = ncoffsets.1
  
@@ -27,7 +27,7 @@
  
  ncvalidator$(EXEEXT): ncvalidator.c Makefile
 -	$(SEQ_CC) -o $@ $<
-+	$(SEQ_CC) $(CFLAGS) $(LDFLAGS) -PIE -o $@ $<
++	$(SEQ_CC) $(CFLAGS) $(LDFLAGS) -fPIE -o $@ $<
  
  # autimake 1.11.3 has not yet implemented AM_TESTS_ENVIRONMENT
  # For newer versions, we can use AM_TESTS_ENVIRONMENT instead
@@ -38,7 +38,7 @@
  
  pnetcdf_version$(EXEEXT): pnetcdf_version.c
 -	$(SEQ_CC) $(XDEFS) -o $@ $<
-+	$(SEQ_CC) $(CFLAGS) $(LDFLAGS) -PIE $(XDEFS) -o $@ $<
++	$(SEQ_CC) $(CFLAGS) $(LDFLAGS) -fPIE $(XDEFS) -o $@ $<
  
  dist_man_MANS = pnetcdf_version.1
  
