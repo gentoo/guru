@@ -1,11 +1,11 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2028 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 COMMIT="7375ba5bb0df87c68e58ad15e9e5e351ae020c08"
 
-inherit flag-o-matic
+inherit flag-o-matic toolchain-funcs
 
 DESCRIPTION="A Multicast/Reduction Network"
 HOMEPAGE="http://www.paradyn.org/mrnet"
@@ -29,7 +29,10 @@ DEPEND="
 	slurm? ( sys-cluster/slurm )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-no-libi.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-respect-LDFLAGS.patch"
+	"${FILESDIR}/${PN}-no-libi.patch"
+)
 REQUIRED_USE="slurm? ( libi )"
 
 src_prepare() {
@@ -38,6 +41,8 @@ src_prepare() {
 }
 
 src_configure() {
+	tc-export AR CC CXX
+
 	use libi && append-cxxflags "-llibi"
 	local myconf=(
 		--enable-shared
