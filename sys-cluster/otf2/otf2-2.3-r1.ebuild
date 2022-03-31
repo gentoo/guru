@@ -1,11 +1,11 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 PYTHON_COMPAT=( pypy3 python3_{8..10} )
 
-inherit python-single-r1
+inherit python-single-r1 toolchain-funcs
 
 DESCRIPTION="highly scalable, memory efficient event trace data format"
 HOMEPAGE="https://www.vi-hps.org/projects/score-p"
@@ -29,6 +29,8 @@ RESTRICT="test" #tests are failing
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 src_configure() {
+	tc-export CC
+
 	local myconf=(
 		--disable-platform-mic
 		--disable-static
