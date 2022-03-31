@@ -26,17 +26,18 @@ IUSE="seccomp test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	!elibc_Darwin? ( dev-libs/libbsd )
 	acct-user/gemini
 	dev-libs/imsg-compat
 	dev-libs/libevent:=
 	dev-libs/libretls:=
 	dev-libs/openssl:=
+	!elibc_Darwin? ( dev-libs/libbsd )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 	virtual/yacc
+	seccomp? ( sys-kernel/linux-headers )
 "
 if [[ ${PV} != 9999 ]]; then
 	BDEPEND+="verify-sig? ( sec-keys/signify-keys-gmid:$(ver_cut 1-2) )"
@@ -67,8 +68,8 @@ src_configure() {
 
 	# note: not an autoconf configure script
 	conf_args=(
-		PREFIX="${EPREFIX}"/usr/share
-		BINDIR="${EPREFIX}"/usr/bin
+		PREFIX="${EPREFIX}"/usr
+		MANDIR="${EPREFIX}"/usr/share/man
 		$(use_enable seccomp sandbox)
 	)
 
@@ -77,10 +78,6 @@ src_configure() {
 	if use seccomp && has usersandbox ${FEATURES} ; then
 		export SKIP_RUNTIME_TESTS=1
 	fi
-}
-
-src_test() {
-	emake regress
 }
 
 src_install() {
