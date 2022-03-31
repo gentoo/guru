@@ -6,17 +6,14 @@ EAPI=8
 MYP="${P//_/}"
 PYTHON_COMPAT=( python3_{8..9} )
 
-inherit distutils-r1
+inherit distutils-r1 tmpfiles
 
 DESCRIPTION="A HTTP service for managing, selecting, and claiming cloud resources"
 HOMEPAGE="
 	https://github.com/openstack/placement
 	https://opendev.org/openstack/placement
 "
-SRC_URI="
-	https://dev.gentoo.org/~prometheanfire/dist/openstack/placement/victoria/placement.conf.sample -> placement.conf.sample-${PV}
-	https://tarballs.openstack.org/${PN}/openstack-${MYP}.tar.gz
-"
+SRC_URI="https://tarballs.openstack.org/${PN}/openstack-${MYP}.tar.gz"
 KEYWORDS="~amd64"
 S="${WORKDIR}/openstack-${MYP}"
 
@@ -79,14 +76,23 @@ REQUIRED_USE="
 
 distutils_enable_tests pytest
 
+python_compile_all() {
+	oslo-config-generator --config-file=etc/placement/config-generator.conf || die
+	oslopolicy-sample-generator --config-file=etc/placement/policy-generator.conf || die
+}
+
 python_install_all() {
 	distutils-r1_python_install_all
 
 	diropts -m 0750 -o placement -g placement
 	insinto /etc/placement
 	insopts -m 0640 -o placement -g placement
-	newins "${DISTDIR}/placement.conf.sample-${PV}" placement.conf.sample
+
+	doins etc/placement/placement.conf.sample
+	doins etc/placement/policy.yaml.sample
 
 	dobin tools/mysql-migrate-db.sh
 	dobin tools/postgresql-migrate-db.sh
+
+	newtmpfiles "${FILESDIR}/placement.tmpfile" placement.conf
 }
