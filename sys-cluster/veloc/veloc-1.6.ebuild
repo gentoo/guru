@@ -30,7 +30,7 @@ RDEPEND="
 	slurm? ( sys-cluster/slurm )
 
 	dev-libs/openssl
-	<sys-cluster/AXL-0.4.0
+	~sys-cluster/AXL-0.5.0
 	sys-cluster/er
 	virtual/mpi
 "
