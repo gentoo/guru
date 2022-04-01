@@ -17,6 +17,7 @@ IUSE="+man +seccomp"
 RDEPEND="dev-libs/wayland"
 DEPEND="${RDEPEND}
 	dev-libs/wayland-protocols
+	seccomp? ( sys-libs/libseccomp )
 "
 BDEPEND="
 	dev-util/wayland-scanner
