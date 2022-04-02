@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.gnome.org/jwestman/blueprint-compiler/-/archive/8ce748e62b6f7d10cf16a075a37c8f4b1f0267e4/blueprint-compiler-8ce748e62b6f7d10cf16a075a37c8f4b1f0267e4.tar.gz -> blueprint-compiler-0.1.0_pre20220219.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	dfa3a38467793e97fcf791b156510654	meson	2d8a51910bc57e004c37aa55c7d99ce4	multibuild	d26d81f242cb193d899a72bca423d0bd	python-r1	8638751691200e941f26fe0ac3aef1d1
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	59dddabd6a41ab69723654916142f63b	meson	2d8a51910bc57e004c37aa55c7d99ce4	multibuild	d26d81f242cb193d899a72bca423d0bd	python-r1	8638751691200e941f26fe0ac3aef1d1
 _md5_=90def0cd9ebe64cd0655cdf7f157b545
