@@ -18,6 +18,10 @@
     <flag name="eltorito-efi">
       Enable building eltorito-efi.bin using <pkg>sys-fs/mtools</pkg>.
     </flag>
+    <flag name="cd-efi">
+        Enable building cd-efi.bin using <pkg>sys-fs/mtools</pkg>.
+        This flag was previously known as eltorito-efi.
+    </flag>
 
     <flag name="bios">
       Enable BIOS/MBR boot support.
@@ -30,6 +34,10 @@
     </flag>
     <flag name="limine-install">
       Enables building the limine-install program.
+    </flag>
+    <flag name="limine-deploy">
+      Enables building the limine-deploy program.
+      This flag was previously known as limine-deploy.
     </flag>
   </use>
 </pkgmetadata>
