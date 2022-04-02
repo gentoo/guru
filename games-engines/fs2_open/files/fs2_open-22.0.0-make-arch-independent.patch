@@ -1,5 +1,5 @@
---- fs2_open-21.2.0/cmake/version.cmake	2021-05-22 20:20:18.448441242 +0200
-+++ fs2_open-21.2.0/cmake/version.cmake	2021-05-22 20:21:05.493447003 +0200
+--- fs2_open/cmake/version.cmake	2021-05-22 20:20:18.448441242 +0200
++++ fs2_open/cmake/version.cmake	2021-05-22 20:21:05.493447003 +0200
 @@ -35,11 +35,6 @@
      SET(FSO_BINARY_SUFFIX "${FSO_VERSION_MAJOR}_${FSO_VERSION_MINOR}_${FSO_VERSION_BUILD}_${FSO_VERSION_REVISION_STR}")
  ENDIF()
