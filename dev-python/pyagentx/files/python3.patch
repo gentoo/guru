@@ -1,0 +1,255 @@
+commit dd1f0e84f8e321789264aec5ada0f1cb4d9ac8af
+Author: Ondrej Mular <omular@redhat.com>
+Date:   Tue Nov 21 08:40:55 2017 +0100
+
+    Port to python3
+
+diff --git a/pyagentx/__init__.py b/pyagentx/__init__.py
+index efeef10..d4fd627 100644
+--- a/pyagentx/__init__.py
++++ b/pyagentx/__init__.py
+@@ -1,5 +1,10 @@
+ #!/usr/bin/env python
+ # -*- coding: utf-8 -*-
++from __future__ import (
++    absolute_import,
++    division,
++    print_function,
++)
+ 
+ import logging
+ 
+diff --git a/pyagentx/agent.py b/pyagentx/agent.py
+index b6c0e2a..2db39db 100644
+--- a/pyagentx/agent.py
++++ b/pyagentx/agent.py
+@@ -1,5 +1,10 @@
+ #!/usr/bin/env python
+ # -*- coding: utf-8 -*-
++from __future__ import (
++    absolute_import,
++    division,
++    print_function,
++)
+ 
+ # --------------------------------------------
+ import logging
+@@ -11,8 +16,11 @@ logger.addHandler(NullHandler())
+ # --------------------------------------------
+ 
+ import time
+-import Queue
+ import inspect
++try:
++    import queue
++except ImportError:
++    import Queue as queue
+ 
+ import pyagentx
+ from pyagentx.updater import Updater
+@@ -57,18 +65,18 @@ class Agent(object):
+         pass
+ 
+     def start(self):
+-        queue = Queue.Queue(maxsize=20)
++        update_queue = queue.Queue(maxsize=20)
+         self.setup()
+         # Start Updaters
+         for u in self._updater_list:
+             logger.debug('Starting updater [%s]' % u['oid'])
+             t = u['class']()
+-            t.agent_setup(queue, u['oid'], u['freq'])
++            t.agent_setup(update_queue, u['oid'], u['freq'])
+             t.start()
+             self._threads.append(t)
+         # Start Network
+         oid_list = [u['oid'] for u in self._updater_list]
+-        t = Network(queue, oid_list, self._sethandlers)
++        t = Network(update_queue, oid_list, self._sethandlers)
+         t.start()
+         self._threads.append(t)
+         # Do nothing ... just wait for someone to stop you
+diff --git a/pyagentx/network.py b/pyagentx/network.py
+index 9711398..f30edad 100644
+--- a/pyagentx/network.py
++++ b/pyagentx/network.py
+@@ -1,5 +1,10 @@
+ #!/usr/bin/env python
+ # -*- coding: utf-8 -*-
++from __future__ import (
++    absolute_import,
++    division,
++    print_function,
++)
+ 
+ # --------------------------------------------
+ import logging
+@@ -13,7 +18,10 @@ logger.addHandler(NullHandler())
+ import socket
+ import time
+ import threading
+-import Queue
++try:
++    import queue
++except ImportError:
++    import Queue as queue
+ 
+ import pyagentx
+ from pyagentx.pdu import PDU
+@@ -21,10 +29,10 @@ from pyagentx.pdu import PDU
+ 
+ class Network(threading.Thread):
+ 
+-    def __init__(self, queue, oid_list, sethandlers):
++    def __init__(self, update_queue, oid_list, sethandlers):
+         threading.Thread.__init__(self)
+         self.stop = threading.Event()
+-        self._queue = queue
++        self._queue = update_queue
+         self._oid_list = oid_list
+         self._sethandlers = sethandlers
+ 
+@@ -84,7 +92,7 @@ class Network(threading.Thread):
+                 update_oid = item['oid']
+                 update_data = item['data']
+                 # clear values with prefix oid
+-                for oid in self.data.keys():
++                for oid in list(self.data.keys()):
+                     if oid.startswith(update_oid):
+                         del(self.data[oid])
+                 # insert updated value
+@@ -94,7 +102,7 @@ class Network(threading.Thread):
+                                       'value':row['value']}
+                 # recalculate reverse index if data changed
+                 self.data_idx = sorted(self.data.keys(), key=lambda k: tuple(int(part) for part in k.split('.')))
+-            except Queue.Empty:
++            except queue.Empty:
+                 break
+ 
+ 
+diff --git a/pyagentx/pdu.py b/pyagentx/pdu.py
+index 0af8e82..ac02a77 100644
+--- a/pyagentx/pdu.py
++++ b/pyagentx/pdu.py
+@@ -1,5 +1,10 @@
+ #!/usr/bin/env python
+ # -*- coding: utf-8 -*-
++from __future__ import (
++    absolute_import,
++    division,
++    print_function,
++)
+ 
+ # --------------------------------------------
+ import logging
+@@ -68,10 +73,11 @@ class PDU(object):
+ 
+ 
+     def encode_octet(self, octet):
++        octet = octet.encode("utf-8")
+         buf = struct.pack('!L', len(octet))
+-        buf += str(octet)
++        buf += octet
+         padding = ( 4 - ( len(octet) % 4 ) ) % 4
+-        buf += chr(0)* padding
++        buf += chr(0).encode() * padding
+         return buf
+ 
+ 
+@@ -107,7 +113,7 @@ class PDU(object):
+ 
+ 
+     def encode(self):
+-        buf = ''
++        buf = b''
+         if self.type == pyagentx.AGENTX_OPEN_PDU:
+             # timeout
+             buf += struct.pack('!BBBB', 5, 0, 0, 0)
+@@ -169,7 +175,7 @@ class PDU(object):
+                 sub_ids.append(t[0])
+             oid = '.'.join(str(i) for i in sub_ids)
+             return oid, ret['include']
+-        except Exception, e:
++        except Exception as e:
+             logger.exception('Invalid packing OID header')
+             logger.debug('%s' % pprint.pformat(self.decode_buf))
+ 
+@@ -196,7 +202,7 @@ class PDU(object):
+             buf = self.decode_buf[:l]
+             self.decode_buf = self.decode_buf[l+padding:]
+             return buf
+-        except Exception, e:
++        except Exception as e:
+             logger.exception('Invalid packing octet header')
+ 
+ 
+@@ -204,7 +210,7 @@ class PDU(object):
+         try:
+             vtype,_ = struct.unpack('!HH', self.decode_buf[:4])
+             self.decode_buf = self.decode_buf[4:]
+-        except Exception, e:
++        except Exception as e:
+             logger.exception('Invalid packing value header')
+         oid,_ = self.decode_oid()
+         if vtype in [pyagentx.TYPE_INTEGER, pyagentx.TYPE_COUNTER32, pyagentx.TYPE_GAUGE32, pyagentx.TYPE_TIMETICKS]:
+@@ -252,7 +258,7 @@ class PDU(object):
+                 context = self.decode_octet() 
+                 logger.debug('Context: %s' % context)
+             return ret
+-        except Exception, e:
++        except Exception as e:
+             logger.exception('Invalid packing: %d' % len(self.decode_buf))
+             logger.debug('%s' % pprint.pformat(self.decode_buf))
+ 
+diff --git a/pyagentx/sethandler.py b/pyagentx/sethandler.py
+index 30a2db5..97839b2 100644
+--- a/pyagentx/sethandler.py
++++ b/pyagentx/sethandler.py
+@@ -1,5 +1,10 @@
+ #!/usr/bin/env python
+ # -*- coding: utf-8 -*-
++from __future__ import (
++    absolute_import,
++    division,
++    print_function,
++)
+ 
+ # --------------------------------------------
+ import logging
+diff --git a/pyagentx/updater.py b/pyagentx/updater.py
+index 5fb06d4..711f87e 100644
+--- a/pyagentx/updater.py
++++ b/pyagentx/updater.py
+@@ -1,5 +1,10 @@
+ #!/usr/bin/env python
+ # -*- coding: utf-8 -*-
++from __future__ import (
++    absolute_import,
++    division,
++    print_function,
++)
+ 
+ # --------------------------------------------
+ import logging
+@@ -12,7 +17,11 @@ logger.addHandler(NullHandler())
+ 
+ import time
+ import threading
+-import Queue
++try:
++    import queue
++except ImportError:
++    import Queue as queue
++
+ 
+ import pyagentx
+ 
+@@ -39,7 +48,7 @@ class Updater(threading.Thread):
+                     self.update()
+                     self._queue.put_nowait({'oid': self._oid,
+                                             'data':self._data})
+-                except Queue.Full:
++                except queue.Full:
+                     logger.error('Queue full')
+                 except:
+                     logger.exception('Unhandled update exception')
