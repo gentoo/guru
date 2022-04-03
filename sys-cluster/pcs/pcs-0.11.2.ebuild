@@ -40,6 +40,7 @@ RDEPEND="
 				dev-python/setuptools_scm[${PYTHON_USEDEP}]
 				dev-python/pip[${PYTHON_USEDEP}]
 				dev-python/python-dateutil[${PYTHON_USEDEP}]
+				dev-python/pyopenssl[${PYTHON_USEDEP}]
         ')
 		>=sys-cluster/corosync-3.0
 		>=sys-cluster/pacemaker-2.1.0
