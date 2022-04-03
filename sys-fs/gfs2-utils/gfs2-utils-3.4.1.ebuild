@@ -40,7 +40,6 @@ src_prepare() {
 	eapply "${FILESDIR}"/gfs2_withdraw_helper.patch
 	eapply "${FILESDIR}"/python3.patch
 	default
-	./autogen.sh
 	eautoreconf
 }
 
