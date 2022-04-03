@@ -87,13 +87,17 @@ src_configure() {
 src_compile() {
 	set -x || die
 
+	local objects=()
+
 	for i in imgui{,_draw,_demo,_tables,_widgets}; do
-		${CXX} ${CXXFLAGS} ${CPPFLAGS} -c ${i}.cpp -o ${i}.o || die
+		${CXX} ${CXXFLAGS} ${CPPFLAGS} -fPIC -c ${i}.cpp -o ${i}.o || die
+		objects+=( ${i}.o )
 	done
 
 	if use freetype; then
 		pushd misc/freetype || die
-		${CXX} ${CXXFLAGS} ${CPPFLAGS} -c imgui_freetype.cpp -o imgui_freetype.o || die
+		${CXX} ${CXXFLAGS} ${CPPFLAGS} -fPIC -c imgui_freetype.cpp -o imgui_freetype.o || die
+		objects+=( misc/freetype/imgui_freetype.o )
 		popd || die
 		pushd misc/fonts || die
 		${CXX} ${CXXFLAGS} ${CPPFLAGS} ${LDFLAGS} -fPIE binary_to_compressed_c.cpp -o binary_to_compressed_c || die
@@ -102,27 +106,33 @@ src_compile() {
 
 	pushd backends || die
 	if use allegro; then
-		${CXX} ${CXXFLAGS} ${CPPFLAGS} -c imgui_impl_allegro5.cpp -o imgui_impl_allegro5.o || die
+		${CXX} ${CXXFLAGS} ${CPPFLAGS} -fPIC -c imgui_impl_allegro5.cpp -o imgui_impl_allegro5.o || die
+		objects+=( backends/imgui_impl_allegro5.o )
 	fi
 	if use glfw; then
-		${CXX} ${CXXFLAGS} ${CPPFLAGS} -c imgui_impl_glfw.cpp -o imgui_impl_glfw.o || die
+		${CXX} ${CXXFLAGS} ${CPPFLAGS} -fPIC -c imgui_impl_glfw.cpp -o imgui_impl_glfw.o || die
+		objects+=( backends/imgui_impl_glfw.o )
 	fi
 	if use glut; then
-		${CXX} ${CXXFLAGS} ${CPPFLAGS} -c imgui_impl_glut.cpp -o imgui_impl_glut.o || die
+		${CXX} ${CXXFLAGS} ${CPPFLAGS} -fPIC -c imgui_impl_glut.cpp -o imgui_impl_glut.o || die
+		objects+=( backends/imgui_impl_glut.o )
 	fi
 	if use opengl; then
-		${CXX} ${CXXFLAGS} ${CPPFLAGS} -c imgui_impl_opengl2.cpp -o imgui_impl_opengl2.o || die
-		${CXX} ${CXXFLAGS} ${CPPFLAGS} -c imgui_impl_opengl3.cpp -o imgui_impl_opengl3.o || die
+		${CXX} ${CXXFLAGS} ${CPPFLAGS} -fPIC -c imgui_impl_opengl2.cpp -o imgui_impl_opengl2.o || die
+		${CXX} ${CXXFLAGS} ${CPPFLAGS} -fPIC -c imgui_impl_opengl3.cpp -o imgui_impl_opengl3.o || die
+		objects+=( backends/imgui_impl_opengl2.o backends/imgui_impl_opengl3.o )
 	fi
 	if use sdl; then
-		${CXX} ${CXXFLAGS} ${CPPFLAGS} -c imgui_impl_sdl.cpp -o imgui_impl_sdl.o || die
-		${CXX} ${CXXFLAGS} ${CPPFLAGS} -c imgui_impl_sdlrenderer.cpp -o imgui_impl_sdlrenderer.o || die
+		${CXX} ${CXXFLAGS} ${CPPFLAGS} -fPIC -c imgui_impl_sdl.cpp -o imgui_impl_sdl.o || die
+		${CXX} ${CXXFLAGS} ${CPPFLAGS} -fPIC -c imgui_impl_sdlrenderer.cpp -o imgui_impl_sdlrenderer.o || die
+		objects+=( backends/imgui_impl_sdl.o backends/imgui_impl_sdlrenderer.o )
 	fi
 	if use vulkan; then
-		${CXX} ${CXXFLAGS} ${CPPFLAGS} -c imgui_impl_vulkan.cpp -o imgui_impl_vulkan.o || die
+		${CXX} ${CXXFLAGS} ${CPPFLAGS} -fPIC -c imgui_impl_vulkan.cpp -o imgui_impl_vulkan.o || die
+		objects+=( backends/imgui_impl_vulkan.o )
 	fi
 	popd || die
-	${CXX} ${CXXFLAGS} ${CPPFLAGS} ${LDFLAGS} -shared -Wl,-soname,libimgui.so *.o backends/*.o misc/freetype/*.o -o libimgui.so ${LIBS} || die
+	${CXX} ${CXXFLAGS} ${CPPFLAGS} ${LDFLAGS} -shared -Wl,-soname,libimgui.so ${objects[@]} -o libimgui.so ${LIBS} || die
 
 	if use examples; then
 		mkdir ex || die
