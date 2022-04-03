@@ -9,5 +9,5 @@ KEYWORDS=~amd64
 LICENSE=Unicode_Fonts_for_Ancient_Scripts
 SLOT=0
 SRC_URI=https://web.archive.org/web/20140913154759if_/http://users.teilar.gr/~g1951d/Symbola.zip -> symbola-7.17.zip https://web.archive.org/web/20140913154759if_/http://users.teilar.gr/~g1951d/Symbola.pdf -> symbola-7.17.pdf
-_eclasses_=font	b500e97c1ae30f830e84a95be6e9bd36
+_eclasses_=font	d31f12a0f6e13d56dc3062e76ae58a61
 _md5_=8c7631c13cb7280d6073e8f09c77ccd9

@@ -10,5 +10,5 @@ LICENSE=Warframe-EULA
 RESTRICT=bindist mirror
 SLOT=0
 SRC_URI=https://m.box.com/file/401032406918/download?shared_link=https%3A%2F%2Fdigitalextremesltd.app.box.com%2Fs%2Fvh2u41yhdlgp3girffucbynadoi33173 -> Corpus.ttf https://m.box.com/file/401037009816/download?shared_link=https%3A%2F%2Fdigitalextremesltd.app.box.com%2Fs%2Fvh2u41yhdlgp3girffucbynadoi33173 -> CorpusBold.ttf https://m.box.com/file/401042823306/download?shared_link=https%3A%2F%2Fdigitalextremesltd.app.box.com%2Fs%2Fvh2u41yhdlgp3girffucbynadoi33173 -> Grineer.ttf https://m.box.com/file/302545392046/download?shared_link=https%3A%2F%2Fdigitalextremesltd.app.box.com%2Fs%2Fvh2u41yhdlgp3girffucbynadoi33173 -> Solaris.ttf
-_eclasses_=font	b500e97c1ae30f830e84a95be6e9bd36
+_eclasses_=font	d31f12a0f6e13d56dc3062e76ae58a61
 _md5_=f9f9ae320de9a8daf8e232d1fa1fd8fe

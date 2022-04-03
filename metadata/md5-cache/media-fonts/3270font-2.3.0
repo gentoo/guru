@@ -12,5 +12,5 @@ PROPERTIES=test_network
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/rbanffy/3270font/archive/v2.3.0.tar.gz -> 3270font-2.3.0.tar.gz
-_eclasses_=font	b500e97c1ae30f830e84a95be6e9bd36	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	59dddabd6a41ab69723654916142f63b	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
+_eclasses_=font	d31f12a0f6e13d56dc3062e76ae58a61	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	59dddabd6a41ab69723654916142f63b	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
 _md5_=57e7d95ab98096036be799628c8a9f0d

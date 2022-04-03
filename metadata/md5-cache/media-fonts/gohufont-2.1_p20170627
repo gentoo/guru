@@ -9,5 +9,5 @@ KEYWORDS=~amd64
 LICENSE=WTFPL-2
 SLOT=0
 SRC_URI=https://github.com/hchargois/gohufont/archive/cc36b8c9fed7141763e55dcee0a97abffcf08224.tar.gz -> gohufont-2.1_p20170627.tar.gz
-_eclasses_=font-ebdftopcf	840fc70bac32a44ea27e63569c1ffea6	font	b500e97c1ae30f830e84a95be6e9bd36
+_eclasses_=font-ebdftopcf	840fc70bac32a44ea27e63569c1ffea6	font	d31f12a0f6e13d56dc3062e76ae58a61
 _md5_=537491167ea0c25fca55da07c61b68b1

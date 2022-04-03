@@ -9,5 +9,5 @@ KEYWORDS=~amd64 ~x86
 LICENSE=OFL-1.1
 SLOT=0
 SRC_URI=https://github.com/janMelon/linjawawa/archive/52737d952f91eb046ecfef27d4245fa81d7c141f.tar.gz -> linja-wawa-1.21.tar.gz
-_eclasses_=font	b500e97c1ae30f830e84a95be6e9bd36
+_eclasses_=font	d31f12a0f6e13d56dc3062e76ae58a61
 _md5_=2db2351ed084e98aa37e992d4e040f20
