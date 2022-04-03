@@ -36,6 +36,11 @@ RDEPEND="
 	x11-libs/libxcb:=
 "
 
+QA_SONAME="
+	/usr/lib64/libVkLayer_obs_vkcapture.so
+	/usr/lib64/libobs_glcapture.so
+"
+
 src_unpack() {
 	default
 
