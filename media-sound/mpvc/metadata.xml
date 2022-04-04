@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>freijon@pm.me</email>
+		<name>Jonas Frei</name>
+	</maintainer>
+	<longdescription>
+		An mpc-like cli tool for mpv which connects to existing mpv instances through sockets, written in Rust
+
+		This tool is inspired by mpc, a command line interface for the Music Player Daemon.
+		It uses subcommands to control any mpv instance over a given socket.
+	</longdescription>
+</pkgmetadata>

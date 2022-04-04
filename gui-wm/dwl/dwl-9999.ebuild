@@ -1,9 +1,9 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit savedconfig git-r3
+inherit savedconfig git-r3 flag-o-matic
 
 DESCRIPTION="dwm for Wayland"
 HOMEPAGE="https://github.com/djpohly/dwl"
@@ -32,13 +32,16 @@ BDEPEND="
 src_prepare() {
 	restore_config config.h
 
-	use X && eapply "${FILESDIR}"/enable-xwayland.patch
-
 	default
 }
 
+src_configure() {
+	use X && append-cflags $(test-flags-CC -DXWAYLAND)
+	append-cflags $(test-flags-CC -Wno-unused-result)
+}
+
 src_install() {
-	emake PREFIX="${ED}/usr" install
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
 
 	insinto /usr/share/wayland-sessions
 	doins "${FILESDIR}"/dwl.desktop

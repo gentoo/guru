@@ -14,15 +14,15 @@ Please don't put Gentoo projects (e.g. the proxy-maint project) in the metadata.
 
 When moving a package from a Pull Request in the [main Gentoo Repository](https://github.com/gentoo/gentoo) to GURU it is easy to forget to remove the [proxy-maint](https://wiki.gentoo.org/wiki/Project:Proxy_Maintainers) project from the metadata.xml file. The same is true for moving from GURU to a ::gentoo Pull Request, if you forget to add proxy-maint to the metadata file the `gentoo-repo-qa-bot` will complain.
 
-- #### Use repoman for committing
+- #### Use pkgcheck for double checking your ebuilds and use pkgdev for committing
 
-`repoman ci` is strongly preferred over `git commit -S` for committing, because [repoman](https://wiki.gentoo.org/wiki/Repoman) does additional checks and regenerates the manifest before committing. Sometimes committing with repoman is not possible (e.g. when committing eclasses or removing packages), in these cases there is no other possibility but to revert to `git commit -S`. In all other cases it is good practice to use repoman.
+`pkgcheck scan --net` (for QA run) and `pkgdev commit` (for committing) is strongly preferred over a direct `git commit -S`, because [pkgdev](https://blogs.gentoo.org/mgorny/2019/12/12/a-better-ebuild-workflow-with-pure-git-and-pkgcheck/) does additional checks and regenerates the manifest before committing. Sometimes committing with pkgdev is not possible (e.g. when committing eclasses or removing packages), in these cases there is no other possibility but to revert to `git commit -S`. In all other cases it is good practice to use pkgcheck and pkgdev.
 
 In GURU we use ['thin manifests'](https://wiki.gentoo.org/wiki/Repository_format/package/Manifest#Thin_Manifest). Because this is not the default, manifest files should be regenerated when moving a package from another overlay that does not use thin manifests (including your [local overlay](https://wiki.gentoo.org/wiki/Custom_repository) unless it is also configured to use thin manifests).
 
 - #### Quote your variables
 
-String variables should be quoted (e.g. not `$P` or `${P}` but `"${P}"`). `repoman -dx full` will warn you about any unquoted variables you might have forgotten about.
+String variables should be quoted (e.g. not `$P` or `${P}` but `"${P}"`). `pkgcheck scan` will warn you about any unquoted variables you might have forgotten about.
 
 - #### Run tests if you enable them
 
@@ -36,7 +36,7 @@ Please don't use symlinks in the repository (e.g. foobar-x.y.z.ebuild -> foobar-
 
 - #### Undesirable/Deprecated dependencies
 
-Sometimes a upstream lists dependencies which are considered deprecated. If possible, packages should **not** depend on these deprecated dependencies. Reasons a dependency might be deprecated is that it is too old, unmaintained, or the features it adds are not useful to Gentoo. You can find an overview of the currently deprecated dependencies and the reason they are deprecated in `$(portageq get_repo_path / gentoo)/profiles/package.deprecated`. `repoman -dx full` will warn you if your package depends on a deprecated dependency.
+Sometimes a upstream lists dependencies which are considered deprecated. If possible, packages should **not** depend on these deprecated dependencies. Reasons a dependency might be deprecated is that it is too old, unmaintained, or the features it adds are not useful to Gentoo. You can find an overview of the currently deprecated dependencies and the reason they are deprecated in `$(portageq get_repo_path / gentoo)/profiles/package.deprecated`. `pkgcheck scan` will warn you if your package depends on a deprecated dependency.
 
 For Python packages there are some additional (test) dependencies that are considered undesirable or not useful, but are not considered deprecated. You can find an overview of those [here](https://projects.gentoo.org/python/guide/distutils.html#enabling-tests) and in the list below:
 ```
@@ -77,12 +77,6 @@ The xdg eclass will automatically export the correct functions to the `src_prepa
 - #### Use the latest EAPI whenever possible
 
 Since the packages in GURU are all 'new packages' (not in ::gentoo). It is good practice to use the latest [EAPI](https://devmanual.gentoo.org/ebuild-writing/eapi/index.html) (8 at the moment), this makes your ebuilds more future proof.
-
-- #### `repoman -dx full` and `pkgcheck scan`
-
-Running `repoman -dx full` in the directory your ebuild is in will preform some basic checks on your ebuild. Please try to make `repoman -dx full` as happy as possible before committing.
-
-Pkgcheck does even more checks than repoman. While it is good practice to make repoman as happy as possible, it is not necessary to fix *every* issue that pkgcheck reports. Because pkgcheck is *very* strict. That being said, pkgcheck is a very useful tool to perfect your ebuilds.
 
 - #### Establish your package testing workflow
 

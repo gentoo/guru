@@ -1,0 +1,27 @@
+commit 1f0337b2d481d16936a4921498fe67614687bd38
+Author: Mohammed Alshohayeb <moshohayeb@gmail.com>
+Date:   Tue Jun 30 14:40:00 2015 +0300
+
+    permit remote descendants of Updater to be useable
+
+diff --git a/pyagentx/agent.py b/pyagentx/agent.py
+index 173a966..b6c0e2a 100644
+--- a/pyagentx/agent.py
++++ b/pyagentx/agent.py
+@@ -12,6 +12,7 @@ logger.addHandler(NullHandler())
+ 
+ import time
+ import Queue
++import inspect
+ 
+ import pyagentx
+ from pyagentx.updater import Updater
+@@ -30,7 +31,7 @@ class Agent(object):
+         self._threads = []
+ 
+     def register(self, oid, class_, freq=10):
+-        if Updater not in class_.__bases__:
++        if Updater not in inspect.getmro(class_):
+             raise AgentError('Class given isn\'t an updater')
+         # cleanup and test oid
+         try:

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">certbot-dns-desec</remote-id>
+		<remote-id type="github">desec-io/certbot-dns-desec</remote-id>
+		<maintainer>
+			<email>nils@desec.io</email>
+			<name>Nils Wisiol</name>
+		</maintainer>
+	</upstream>
+</pkgmetadata>

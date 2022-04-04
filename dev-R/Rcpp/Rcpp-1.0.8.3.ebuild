@@ -8,7 +8,7 @@ inherit R-packages
 DESCRIPTION='Seamless R and C++ Integration'
 LICENSE='GPL-2+'
 HOMEPAGE="
-	http://www.rcpp.org
+	https://www.rcpp.org
 	http://dirk.eddelbuettel.com/code/rcpp.html
 	https://github.com/RcppCore/Rcpp
 	https://cran.r-project.org/package=Rcpp

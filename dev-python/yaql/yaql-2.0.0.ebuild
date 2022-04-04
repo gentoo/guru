@@ -3,14 +3,14 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 DESCRIPTION="YAQL: Yet Another Query Language"
 HOMEPAGE="
 	https://github.com/openstack/yaql
-	https://pypi.org/project/yaql
+	https://pypi.org/project/yaql/
 	https://launchpad.net/yaql
 	https://opendev.org/openstack/yaql
 "

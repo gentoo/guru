@@ -13,6 +13,7 @@
 		<flag name="ctf2prv">Build ctf2prv fast converter</flag>
 		<!--<flag name="cuda">enable CUDA</flag>-->
 		<flag name="debug">enable extra assertions and checks in debug - may cause significant slowdown</flag>
+		<flag name="dependency-delayed-operations">Delay dependency update operations</flag>
 		<flag name="dlb">enable dynamic management and sharing of computing resources</flag>
 		<flag name="execution-workflow">Enable execution using the Execution Workflow</flag>
 		<flag name="extrae">to generate execution traces for offline performance analysis with paraver</flag>

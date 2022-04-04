@@ -36,6 +36,12 @@ BDEPEND="
 	)
 "
 
+RESTRICT="test" # tests require MPI set up
+PATCHES=(
+	"${FILESDIR}/${P}-no-DESTDIR-for-info-clarity.patch"
+	"${FILESDIR}/${P}-respect-flags.patch"
+)
+
 pkg_setup() {
 	fortran-2_pkg_setup
 }

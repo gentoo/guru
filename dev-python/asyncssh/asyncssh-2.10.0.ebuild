@@ -21,7 +21,10 @@ LICENSE="ECL-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND=">=dev-python/cryptography-2.8[${PYTHON_USEDEP}]"
+RDEPEND="
+	>=dev-python/cryptography-2.8[${PYTHON_USEDEP}]
+	>=dev-python/typing-extensions-3.6[${PYTHON_USEDEP}]
+"
 DEPEND="${REDEPEND}"
 BDEPEND="
 	test? (

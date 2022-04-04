@@ -1,7 +1,9 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+inherit toolchain-funcs
 
 COMMIT="7375ba5bb0df87c68e58ad15e9e5e351ae020c08"
 
@@ -31,6 +33,8 @@ PATCHES=(
 )
 
 src_configure() {
+	tc-export AR
+
 	local myconf=(
 		--enable-shared
 		--with-launchmon="${EPREFIX}/usr"
