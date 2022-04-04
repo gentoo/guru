@@ -34,6 +34,7 @@ src_compile() {
 }
 
 src_install() {
-	dune_src_install mirage-profile mirage-profile-unix
+	dune_src_install mirage-profile
+	dune_src_install mirage-profile-unix
 	use xen && dune_src_install mirage-profile-xen
 }
