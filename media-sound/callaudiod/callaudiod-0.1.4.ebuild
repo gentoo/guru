@@ -3,9 +3,9 @@
 
 EAPI=7
 
-inherit meson
+inherit meson systemd
 
-COMMIT="c9550e17e6e26802dda23c6070d100aca0cc2810"
+COMMIT="a7ca6ce9d4c947f19c3f99ff2cab986c64434e57"
 
 DESCRIPTION="Call audio routing daemon"
 HOMEPAGE="https://gitlab.com/mobian1/callaudiod"
