@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 COMMIT="e33ccf3515cc5b8005a3a50b4163663623649d20"
 DISTUTILS_SINGLE_IMPL=1
@@ -52,6 +52,7 @@ RDEPEND="
 		dev-python/skia-pathops[${PYTHON_USEDEP}]
 		dev-python/jinja[${PYTHON_USEDEP}]
 		dev-python/hyperglot[${PYTHON_USEDEP}]
+		>=dev-python/fontFeatures-1.6.2[${PYTHON_USEDEP}]
 	')
 "
 DEPEND="
