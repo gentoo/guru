@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=rdepend
 PYTHON_COMPAT=( python3_{9..10} )
-USE_RUBY="ruby27 ruby30 ruby31"
+USE_RUBY="ruby27"
 
 inherit autotools systemd python-single-r1 ruby-ng
 
@@ -24,28 +24,28 @@ DEPEND="
 		sys-apps/coreutils
 "
 RDEPEND="
-		${DEPEND}
-		${PYTHON_DEPS}
-		$(python_gen_cond_dep '
-				dev-python/dacite[${PYTHON_USEDEP}]
-				dev-python/lxml[${PYTHON_USEDEP}]
-                dev-python/pycurl[${PYTHON_USEDEP}]
-                dev-python/pyparsing[${PYTHON_USEDEP}]
-                dev-python/python-dateutil[${PYTHON_USEDEP}]
-                >=www-servers/tornado-6.0[${PYTHON_USEDEP}]
-                <www-servers/tornado-7.0[${PYTHON_USEDEP}]
-				dev-python/pyagentx[${PYTHON_USEDEP}]
-				dev-python/cryptography[${PYTHON_USEDEP}]
-				dev-python/setuptools[${PYTHON_USEDEP}]
-				dev-python/setuptools_scm[${PYTHON_USEDEP}]
-				dev-python/pip[${PYTHON_USEDEP}]
-				dev-python/python-dateutil[${PYTHON_USEDEP}]
-				dev-python/pyopenssl[${PYTHON_USEDEP}]
-        ')
-		>=sys-cluster/corosync-3.0
-		>=sys-cluster/pacemaker-2.1.0
-		sys-libs/pam
-		sys-process/psmisc
+	${DEPEND}
+	${PYTHON_DEPS}
+	$(python_gen_cond_dep '
+		dev-python/dacite[${PYTHON_USEDEP}]
+		dev-python/lxml[${PYTHON_USEDEP}]
+		dev-python/pycurl[${PYTHON_USEDEP}]
+		dev-python/pyparsing[${PYTHON_USEDEP}]
+		dev-python/python-dateutil[${PYTHON_USEDEP}]
+		>=www-servers/tornado-6.0[${PYTHON_USEDEP}]
+		<www-servers/tornado-7.0[${PYTHON_USEDEP}]
+		dev-python/pyagentx[${PYTHON_USEDEP}]
+		dev-python/cryptography[${PYTHON_USEDEP}]
+		dev-python/setuptools[${PYTHON_USEDEP}]
+		dev-python/setuptools_scm[${PYTHON_USEDEP}]
+		dev-python/pip[${PYTHON_USEDEP}]
+		dev-python/python-dateutil[${PYTHON_USEDEP}]
+		dev-python/pyopenssl[${PYTHON_USEDEP}]
+	')
+	>=sys-cluster/corosync-3.0
+	>=sys-cluster/pacemaker-2.1.0
+	sys-libs/pam
+	sys-process/psmisc
 "
 
 ruby_add_rdepend "
@@ -68,44 +68,44 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 PATCHES="${FILESDIR}/pcs-0.11-gentoo-support.patch"
 
 src_prepare() {
-			default
-			eautoreconf
+	default
+	eautoreconf
 }
 
 src_configure() {
-			econf
+	econf
 }
 
 src_compile() {
-			return
+	return
 }
 
 src_install() {
-			python-single-r1_pkg_setup
+	python-single-r1_pkg_setup
 
-			local makeopts=(
-			DESTDIR="${D}"
-			)
+	local makeopts=(
+		DESTDIR="${ED}"
+	)
 
-			emake install "${makeopts[@]}"
+	emake install "${makeopts[@]}"
 
-			# mark log directories to be kept
-			keepdir /var/log/pcsd
-			keepdir /var/lib/pcsd
+	# mark log directories to be kept
+	keepdir /var/log/pcsd
+	keepdir /var/lib/pcsd
 
-			#fix statedir
-			sed -i ${D}/usr/share/pcsd/pcsd -e 's/\/var\/lib\/lib\//\/var\/lib\//g'
+	#fix statedir
+	sed -i "${D}/usr/share/pcsd/pcsd" -e 's/\/var\/lib\/lib\//\/var\/lib\//g'
 
-			# custom service file for openRC
-			if ! use systemd ; then
-				newinitd "${FILESDIR}/pcs-0.11.initd" pcs
-				newinitd "${FILESDIR}/pcsd-0.11.initd" pcsd
-			fi
+	# custom service file for openRC
+	if ! use systemd ; then
+		newinitd "${FILESDIR}/pcs-0.11.initd" pcs
+		newinitd "${FILESDIR}/pcsd-0.11.initd" pcsd
+	fi
 
-			if use systemd ; then
-				systemd_newunit "${S}/pcsd/pcsd.service.in" "pcs.service"
-        		systemd_newunit "${S}/pcsd/pcsd-ruby.service.in" "pcsd.service"
-    		fi
+	if use systemd ; then
+		systemd_newunit "${S}/pcsd/pcsd.service.in" "pcs.service"
+		systemd_newunit "${S}/pcsd/pcsd-ruby.service.in" "pcsd.service"
+	fi
 
-			python_optimize
+	python_optimize
 }
