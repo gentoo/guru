@@ -9,7 +9,7 @@ inherit distutils-r1
 DESCRIPTION="Python package providing assets from https://github.com/Kozea/pygal.js"
 HOMEPAGE="
 	https://github.com/ionelmc/python-pygaljs
-	https://pypi.org/project/pygaljs
+	https://pypi.org/project/pygaljs/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

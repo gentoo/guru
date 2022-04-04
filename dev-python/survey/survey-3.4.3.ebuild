@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="A simple library for creating beautiful interactive prompts"
 HOMEPAGE="
 	https://github.com/Exahilosys/survey
-	https://pypi.org/project/survey
+	https://pypi.org/project/survey/
 "
 SRC_URI="https://github.com/Exahilosys/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 

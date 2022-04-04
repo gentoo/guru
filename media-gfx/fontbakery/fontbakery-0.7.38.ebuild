@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="Font quality assurance tool"
 HOMEPAGE="
 	https://github.com/googlefonts/fontbakery
-	https://pypi.org/project/fontbakery
+	https://pypi.org/project/fontbakery/
 "
 SRC_URI="https://github.com/googlefonts/fontbakery/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 

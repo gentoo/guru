@@ -9,9 +9,9 @@ inherit distutils-r1
 
 DESCRIPTION="Xen API SDK, for communication with Citrix XenServer and Xen Cloud Platform"
 HOMEPAGE="
-	https://xenproject.org/developers/teams/xen-api
+	https://xenproject.org/developers/teams/xen-api/
 	https://github.com/xapi-project/xen-api
-	https://pypi.org/project/XenAPI
+	https://pypi.org/project/XenAPI/
 "
 SRC_URI="mirror://pypi/X/${PN}/${P}.tar.gz"
 

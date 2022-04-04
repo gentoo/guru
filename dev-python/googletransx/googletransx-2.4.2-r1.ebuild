@@ -10,7 +10,7 @@ PYTHON_COMPAT=( python3_{8,9} )
 inherit distutils-r1
 
 DESCRIPTION="Free Google Translate API for Python. Translates totally free of charge."
-HOMEPAGE="https://pypi.org/project/googletransx"
+HOMEPAGE="https://pypi.org/project/googletransx/"
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"

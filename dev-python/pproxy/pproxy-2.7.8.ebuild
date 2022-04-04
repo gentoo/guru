@@ -10,7 +10,7 @@ inherit distutils-r1 optfeature
 DESCRIPTION="TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio"
 HOMEPAGE="
 	https://github.com/qwj/python-proxy
-	https://pypi.org/project/pproxy
+	https://pypi.org/project/pproxy/
 "
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 

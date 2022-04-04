@@ -11,7 +11,7 @@ inherit distutils-r1
 DESCRIPTION="Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms"
 HOMEPAGE="
 	https://github.com/McLeopold/PythonSkills
-	https://pypi.org/project/skills
+	https://pypi.org/project/skills/
 "
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.zip"
 

@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="python-dbus-next is a Python library for DBus"
 HOMEPAGE="
 	https://github.com/sphinx-contrib/fulltoc
-	https://pypi.org/project/sphinxcontrib-fulltoc
+	https://pypi.org/project/sphinxcontrib-fulltoc/
 	https://sphinxcontrib-fulltoc.readthedocs.io
 "
 SRC_URI="https://github.com/sphinx-contrib/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"

@@ -6,7 +6,7 @@ EAPI=7
 inherit flag-o-matic qmake-utils toolchain-funcs virtualx xdg
 
 DESCRIPTION="Practical and minimal image viewer"
-HOMEPAGE="https://github.com/jurplel/qView https://interversehq.com/qview"
+HOMEPAGE="https://github.com/jurplel/qView https://interversehq.com/qview/"
 SRC_URI="https://github.com/jurplel/qView/archive/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/qView-${PV}"
 

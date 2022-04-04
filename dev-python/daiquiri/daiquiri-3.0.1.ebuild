@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="Python library to easily setup basic logging functionality"
 HOMEPAGE="
-	https://pypi.org/project/daiquiri
+	https://pypi.org/project/daiquiri/
 	https://github.com/jd/daiquiri
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"

@@ -9,7 +9,7 @@ inherit distutils-r1
 DESCRIPTION="Plugin for pytest that shows failures and errors instantly"
 HOMEPAGE="
 	https://github.com/pytest-dev/pytest-instafail
-	https://pypi.org/project/pytest-instafail
+	https://pypi.org/project/pytest-instafail/
 "
 SRC_URI="https://github.com/pytest-dev/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 

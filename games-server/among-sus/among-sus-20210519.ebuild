@@ -7,7 +7,7 @@ inherit flag-o-matic toolchain-funcs
 
 COMMIT="554e60bf52e3fa931661b9414189a92bb8f69d78"
 DESCRIPTION="Among Us, but it's a text adventure"
-HOMEPAGE="https://sr.ht/~martijnbraam/among-sus"
+HOMEPAGE="https://sr.ht/~martijnbraam/among-sus/"
 SRC_URI="https://tildegit.org/tildeverse/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}"
 

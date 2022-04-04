@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="Simplify the writing of REST APIs, and extend them with additional protocols"
 HOMEPAGE="
 	https://opendev.org/x/wsme
-	https://pypi.org/project/WSME
+	https://pypi.org/project/WSME/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

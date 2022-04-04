@@ -6,7 +6,7 @@ EAPI="7"
 MYPN="${PN/-data/}"
 
 DESCRIPTION="Datasets for GeographicLib"
-HOMEPAGE="https://sourceforge.net/projects/geographiclib"
+HOMEPAGE="https://sourceforge.net/projects/geographiclib/"
 S="${WORKDIR}"
 
 SLOT="0"

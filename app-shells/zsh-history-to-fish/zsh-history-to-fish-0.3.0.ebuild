@@ -9,7 +9,7 @@ inherit distutils-r1
 DESCRIPTION="Bring your ZSH history to Fish shell"
 HOMEPAGE="
 	https://github.com/rsalmei/zsh-history-to-fish
-	https://pypi.org/project/portio
+	https://pypi.org/project/portio/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

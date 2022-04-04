@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="Python library for the NMEA 0183 protcol"
 HOMEPAGE="
 	https://github.com/Knio/pynmea2
-	https://pypi.org/project/pynmea2
+	https://pypi.org/project/pynmea2/
 "
 SRC_URI="https://github.com/Knio/pynmea2/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 

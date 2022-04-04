@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{8..10} pypy3 )
 inherit autotools linux-info python-any-r1 toolchain-funcs
 
 DESCRIPTION="user extensible heap manager built on top of jemalloc"
-HOMEPAGE="https://memkind.github.io/memkind"
+HOMEPAGE="https://memkind.github.io/memkind/"
 SRC_URI="https://github.com/memkind/memkind/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64"
 

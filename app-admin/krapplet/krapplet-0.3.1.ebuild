@@ -9,7 +9,7 @@ DISTUTILS_USE_SETUPTOOLS=bdepend
 inherit distutils-r1 xdg
 
 DESCRIPTION="Krapplet (keyring applet): a Linux graphical password manager"
-HOMEPAGE="https://gitlab.com/hfernh/krapplet https://pypi.org/project/krapplet"
+HOMEPAGE="https://gitlab.com/hfernh/krapplet https://pypi.org/project/krapplet/"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"

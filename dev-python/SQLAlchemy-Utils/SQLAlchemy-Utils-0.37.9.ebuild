@@ -11,7 +11,7 @@ inherit distutils-r1
 DESCRIPTION="Various utility functions and datatypes for SQLAlchemy"
 HOMEPAGE="
 	https://github.com/kvesteri/sqlalchemy-utils
-	https://pypi.org/project/SQLAlchemy-Utils
+	https://pypi.org/project/SQLAlchemy-Utils/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

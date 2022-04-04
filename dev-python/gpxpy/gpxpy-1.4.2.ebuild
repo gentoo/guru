@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="GPX file parser and GPS track manipulation library"
 HOMEPAGE="
 	https://github.com/tkrajina/gpxpy
-	https://pypi.org/project/gpxpy
+	https://pypi.org/project/gpxpy/
 "
 SRC_URI="https://github.com/tkrajina/gpxpy/archive/v${PV}.tar.gz  -> ${P}.tar.gz"
 

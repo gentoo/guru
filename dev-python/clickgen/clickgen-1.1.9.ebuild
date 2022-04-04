@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1 toolchain-funcs
 
 DESCRIPTION="X11 & Windows cursor building API"
-HOMEPAGE="https://github.com/ful1e5/clickgen https://pypi.org/project/clickgen"
+HOMEPAGE="https://github.com/ful1e5/clickgen https://pypi.org/project/clickgen/"
 SRC_URI="https://github.com/ful1e5/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"

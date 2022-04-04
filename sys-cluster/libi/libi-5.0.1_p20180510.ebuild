@@ -8,7 +8,7 @@ inherit toolchain-funcs
 COMMIT="7375ba5bb0df87c68e58ad15e9e5e351ae020c08"
 
 DESCRIPTION="A framework for bootstrapping extreme scale software systems"
-HOMEPAGE="http://www.paradyn.org/mrnet"
+HOMEPAGE="http://www.paradyn.org/mrnet/"
 SRC_URI="https://github.com/dyninst/mrnet/archive/${COMMIT}.tar.gz -> ${P/libi/mrnet}.tar.gz"
 S="${WORKDIR}/mrnet-${COMMIT}/external/libi"
 

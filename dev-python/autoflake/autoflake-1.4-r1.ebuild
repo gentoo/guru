@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="Removes unused imports and unused variables as reported by pyflakes"
 HOMEPAGE="
 	https://github.com/myint/autoflake
-	https://pypi.org/project/autoflake
+	https://pypi.org/project/autoflake/
 "
 SRC_URI="https://github.com/myint/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 

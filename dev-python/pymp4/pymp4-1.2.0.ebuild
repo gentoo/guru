@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="A Python MP4 Parser and toolkit"
 HOMEPAGE="
 	https://github.com/beardypig/pymp4
-	https://pypi.org/project/pymp4
+	https://pypi.org/project/pymp4/
 "
 SRC_URI="https://github.com/beardypig/pymp4/archive/${PV}.tar.gz  -> ${P}.tar.gz"
 

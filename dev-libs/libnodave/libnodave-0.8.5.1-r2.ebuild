@@ -6,7 +6,7 @@ EAPI=7
 inherit flag-o-matic perl-module toolchain-funcs
 
 DESCRIPTION="Connect to and exchange data with Siemens PLCs"
-HOMEPAGE="https://sourceforge.net/projects/libnodave"
+HOMEPAGE="https://sourceforge.net/projects/libnodave/"
 SRC_URI="mirror://sourceforge/libnodave/libnodave-${PV}.tar.gz"
 
 LICENSE="LGPL-2+"

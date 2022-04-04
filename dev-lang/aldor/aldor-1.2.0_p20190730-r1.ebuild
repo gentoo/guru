@@ -8,7 +8,7 @@ COMMIT="13e5b90eecc79ec6704efb333c4c100187520e80"
 inherit autotools elisp-common java-pkg-opt-2 toolchain-funcs
 
 DESCRIPTION="The Aldor Programming Language"
-HOMEPAGE="http://pippijn.github.io/aldor"
+HOMEPAGE="http://pippijn.github.io/aldor/"
 SRC_URI="
 	https://github.com/pippijn/aldor/archive/${COMMIT}.tar.gz -> ${P}.tar.gz
 	doc? (

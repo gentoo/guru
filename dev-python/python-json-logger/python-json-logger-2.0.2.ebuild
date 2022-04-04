@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="Standard python logging to output log data as json objects"
 HOMEPAGE="
 	https://github.com/madzak/python-json-logger
-	https://pypi.org/project/python-json-logger
+	https://pypi.org/project/python-json-logger/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

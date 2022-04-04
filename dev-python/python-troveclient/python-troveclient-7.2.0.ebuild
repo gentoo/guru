@@ -12,7 +12,7 @@ HOMEPAGE="
 	https://github.com/openstack/python-troveclient
 	https://opendev.org/openstack/python-troveclient
 	https://launchpad.net/python-troveclient
-	https://pypi.org/project/python-troveclient
+	https://pypi.org/project/python-troveclient/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

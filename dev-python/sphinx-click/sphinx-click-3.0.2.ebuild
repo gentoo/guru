@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="Sphinx plugin to automatically document click-based applications"
 HOMEPAGE="
 	https://github.com/click-contrib/sphinx-click
-	https://pypi.org/project/sphinx-click
+	https://pypi.org/project/sphinx-click/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

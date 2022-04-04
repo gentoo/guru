@@ -8,7 +8,7 @@ inherit desktop xdg
 MY_P="tabby-${PV}-linux"
 
 DESCRIPTION="A terminal for a more modern age"
-HOMEPAGE="https://eugeny.github.io/tabby"
+HOMEPAGE="https://eugeny.github.io/tabby/"
 SRC_URI="
 	https://github.com/Eugeny/tabby/releases/download/v${PV}/${MY_P}.tar.gz
 	https://github.com/scardracs/icons/releases/download/release/tabby-icons.tar.gz

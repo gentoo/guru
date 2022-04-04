@@ -10,7 +10,7 @@ inherit autotools flag-o-matic
 
 DESCRIPTION="A Library for Approximate Nearest Neighbor Searching"
 HOMEPAGE="
-	https://www.cs.umd.edu/~mount/ANN
+	https://www.cs.umd.edu/~mount/ANN/
 	https://tracker.debian.org/pkg/ann
 "
 SRC_URI="

@@ -11,7 +11,7 @@ inherit distutils-r1
 DESCRIPTION="Tool to check the completeness of MANIFEST.in for Python packages"
 HOMEPAGE="
 	https://github.com/mgedmin/check-manifest
-	https://pypi.org/project/check-manifest
+	https://pypi.org/project/check-manifest/
 "
 SRC_URI="https://github.com/mgedmin/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 

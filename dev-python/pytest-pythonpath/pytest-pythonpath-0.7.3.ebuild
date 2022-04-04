@@ -11,7 +11,7 @@ inherit distutils-r1
 DESCRIPTION="Plugin for adding to the PYTHONPATH from the pytests.ini file before tests run"
 HOMEPAGE="
 	https://github.com/bigsassy/pytest-pythonpath
-	https://pypi.org/project/pytest-pythonpath
+	https://pypi.org/project/pytest-pythonpath/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

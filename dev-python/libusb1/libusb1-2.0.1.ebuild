@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{8..10} pypy3 )
 inherit distutils-r1
 
 DESCRIPTION="Pure-python wrapper for libusb-1.0"
-HOMEPAGE="https://github.com/vpelletier/python-libusb1 https://pypi.org/project/libusb1"
+HOMEPAGE="https://github.com/vpelletier/python-libusb1 https://pypi.org/project/libusb1/"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1+"

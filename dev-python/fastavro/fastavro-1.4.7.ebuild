@@ -18,7 +18,7 @@ inherit distutils-r1
 DESCRIPTION="Fast Avro for Python"
 HOMEPAGE="
 	https://github.com/fastavro/fastavro
-	https://pypi.org/project/fastavro
+	https://pypi.org/project/fastavro/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

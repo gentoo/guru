@@ -9,7 +9,7 @@ inherit distutils-r1
 DESCRIPTION="An aspect-oriented programming, monkey-patch and decorators library"
 HOMEPAGE="
 	https://github.com/ionelmc/python-aspectlib
-	https://pypi.org/project/python-aspectlib
+	https://pypi.org/project/python-aspectlib/
 "
 SRC_URI="https://github.com/ionelmc/python-${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 

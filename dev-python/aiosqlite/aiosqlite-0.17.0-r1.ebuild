@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="asyncio bridge to the standard sqlite3 module"
 HOMEPAGE="
 	https://aiosqlite.omnilib.dev
-	https://pypi.org/project/aiosqlite
+	https://pypi.org/project/aiosqlite/
 	https://github.com/jreese/aiosqlite
 "
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"

@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="Python fixtures and daemon managing tools for functional testing"
 HOMEPAGE="
-	https://pypi.org/project/pifpaf
+	https://pypi.org/project/pifpaf/
 	https://github.com/jd/pifpaf
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"

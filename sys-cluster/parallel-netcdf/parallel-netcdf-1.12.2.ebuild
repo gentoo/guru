@@ -11,7 +11,7 @@ inherit autotools fortran-2
 DESCRIPTION="Parallel extension to netCDF"
 HOMEPAGE="
 	https://parallel-netcdf.github.io
-	http://cucis.ece.northwestern.edu/projects/PnetCDF
+	http://cucis.ece.northwestern.edu/projects/PnetCDF/
 	https://trac.mcs.anl.gov/projects/parallel-netcdf
 "
 SRC_URI="http://cucis.ece.northwestern.edu/projects/PnetCDF/Release/${MYP}.tar.gz"

@@ -12,7 +12,7 @@ VERSION="$(ver_cut 1-2)"
 DESCRIPTION="Meschach is a C-language library of routines for performing matrix computations"
 HOMEPAGE="
 	https://github.com/yageek/Meschach
-	http://homepage.divms.uiowa.edu/~dstewart/meschach
+	http://homepage.divms.uiowa.edu/~dstewart/meschach/
 "
 S="${WORKDIR}/${PN^}-${COMMIT}"
 

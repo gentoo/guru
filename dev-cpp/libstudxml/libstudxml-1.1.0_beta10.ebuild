@@ -10,7 +10,7 @@ inherit multiprocessing
 SRC_URI="https://pkg.cppget.org/1/beta/${PN}/${MY_P}.tar.gz"
 KEYWORDS='~amd64 ~x86'
 DESCRIPTION='Streaming XML pull parser/serializer for modern C++'
-HOMEPAGE='https://www.codesynthesis.com/projects/libstudxml'
+HOMEPAGE='https://www.codesynthesis.com/projects/libstudxml/'
 LICENSE='MIT'
 
 SLOT='0'

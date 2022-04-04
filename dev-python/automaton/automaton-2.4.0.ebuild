@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="Friendly state machines for python."
 HOMEPAGE="
-	https://pypi.org/project/automaton
+	https://pypi.org/project/automaton/
 	https://opendev.org/openstack/automaton
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"

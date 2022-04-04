@@ -11,7 +11,7 @@ inherit distutils-r1
 
 DESCRIPTION="Easy to use Python module to extract Exif metadata from tiff and jpeg files"
 HOMEPAGE="
-	https://pypi.org/project/ExifRead
+	https://pypi.org/project/ExifRead/
 	https://github.com/ianare/exif-py
 "
 SRC_URI="https://github.com/ianare/${MY_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"

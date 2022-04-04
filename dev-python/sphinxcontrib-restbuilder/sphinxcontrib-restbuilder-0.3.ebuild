@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="A Sphinx builder/writer to output reStructuredText (rst) files"
 HOMEPAGE="
 	https://github.com/sphinx-contrib/restbuilder
-	https://pypi.org/project/sphinxcontrib-restbuilder
+	https://pypi.org/project/sphinxcontrib-restbuilder/
 "
 SRC_URI="https://github.com/sphinx-contrib/restbuilder/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${P/sphinxcontrib-/}"

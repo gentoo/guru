@@ -11,7 +11,7 @@ inherit distutils-r1
 DESCRIPTION="Curio is a coroutine-based library for concurrent systems programming"
 HOMEPAGE="
 	https://github.com/dabeaz/curio
-	https://pypi.org/project/curio
+	https://pypi.org/project/curio/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="Transliterate Cyrillic to Latin in every possible way"
 HOMEPAGE="
 	https://dangry.ru/iuliia/
-	https://pypi.org/project/iuliia
+	https://pypi.org/project/iuliia/
 	https://github.com/nalgeon/iuliia-py
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"

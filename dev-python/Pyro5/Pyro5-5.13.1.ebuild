@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="Distributed object middleware for Python (RPC)"
 HOMEPAGE="
 	https://pyro5.readthedocs.io
-	https://pypi.org/project/Pyro5
+	https://pypi.org/project/Pyro5/
 	https://github.com/irmen/Pyro5
 "
 SRC_URI="https://github.com/irmen/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
