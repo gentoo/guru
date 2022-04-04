@@ -7,7 +7,7 @@ MYPN="ocaml-${PN}"
 
 inherit dune
 
-DESCRIPTION="Bindings which allow Unix.file_descrs to be sent and received over Unix domain sockets"
+DESCRIPTION="Send and receive Unix.file_descrs over Unix domain sockets"
 HOMEPAGE="https://github.com/xapi-project/ocaml-fd-send-recv"
 SRC_URI="https://github.com/xapi-project/${MYPN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MYPN}-${PV}"
