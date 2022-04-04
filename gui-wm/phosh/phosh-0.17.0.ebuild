@@ -48,7 +48,6 @@ BDEPEND="
 
 src_prepare() {
 	default
-	eapply_user
 	rm -r "${S}"/subprojects/gvc || die
 	mv "${WORKDIR}"/libgnome-volume-control-"${LVC_COMMIT}" "${S}"/subprojects/gvc || die
 	rm -r "${S}"/subprojects/libcall-ui || die
