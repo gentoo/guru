@@ -5,7 +5,7 @@ EAPI=8
 
 DESCRIPTION="DZR: the command line deezer.com player"
 HOMEPAGE="https://github.com/yne/dzr"
-SRC_URI="https://github.com/yne/${PN}/archive/refs/tags/${PV}.tar.gz"
+SRC_URI="https://github.com/yne/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Unlicense"
 SLOT="0"
