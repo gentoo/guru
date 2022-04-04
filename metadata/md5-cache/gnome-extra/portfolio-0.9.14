@@ -1,0 +1,17 @@
+BDEPEND=>=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=A minimalist file manager for those who want to use Linux mobile devices
+EAPI=7
+HOMEPAGE=https://github.com/tchx84/Portfolio
+INHERIT=gnome2-utils meson python-single-r1 xdg
+IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-3
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) gui-libs/libhandy x11-libs/gtk+
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/tchx84/Portfolio/archive/v0.9.14.tar.gz -> portfolio-0.9.14.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	59dddabd6a41ab69723654916142f63b	meson	2d8a51910bc57e004c37aa55c7d99ce4	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	xdg	6024fbc93167fad782e2032933654857
+_md5_=22931fcb9aefced2acd08f49376a3f7b

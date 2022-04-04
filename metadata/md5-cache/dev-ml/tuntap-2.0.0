@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/cmdliner dev-ml/ipaddr sys-kernel/linux-headers >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Bindings to UNIX tuntap facilities
+EAPI=8
+HOMEPAGE=https://github.com/mirage/ocaml-tuntap
+INHERIT=dune
+IUSE=ocamlopt
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/cmdliner dev-ml/ipaddr >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/2.0.0
+SRC_URI=https://github.com/mirage/ocaml-tuntap/releases/download/v2.0.0/tuntap-v2.0.0.tbz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=55bf8cd26cdb5fcdd9d3e064f0de6223

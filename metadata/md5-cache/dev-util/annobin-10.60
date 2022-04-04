@@ -1,0 +1,17 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.4:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure prepare pretend setup
+DEPEND=app-arch/rpm dev-libs/elfutils sys-libs/binutils-libs clang? ( <sys-devel/clang-14:= ) !clang? ( llvm? ( <sys-devel/llvm-14:= ) ) llvm? ( || ( sys-devel/llvm:11 sys-devel/llvm:12 sys-devel/llvm:13 sys-devel/llvm:14 ) ) !!sys-devel/llvm:0
+DESCRIPTION=Binary annotation compiler plugin and tools
+EAPI=8
+HOMEPAGE=https://nickc.fedorapeople.org
+INHERIT=autotools llvm toolchain-funcs
+IUSE=clang doc llvm test
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=app-arch/rpm dev-libs/elfutils sys-libs/binutils-libs clang? ( <sys-devel/clang-14:= ) !clang? ( llvm? ( <sys-devel/llvm-14:= ) ) llvm? ( || ( sys-devel/llvm:11 sys-devel/llvm:12 sys-devel/llvm:13 sys-devel/llvm:14 ) )
+REQUIRED_USE=clang? ( llvm )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://nickc.fedorapeople.org/annobin-10.60.tar.xz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	ed3ef2014ee93d24bde80f0c0ea9732e	llvm	6f88d422e49b917bf254b2594f3d903c
+_md5_=6dad25178518f3cb0cfc10e21441993b

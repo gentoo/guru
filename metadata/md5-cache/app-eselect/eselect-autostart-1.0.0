@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DESCRIPTION=Manage symlinks in $XDG_CONFIG_HOME/autostart
+EAPI=8
+HOMEPAGE=https://codeberg.org/mmatous/eselect-autostart
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=app-admin/eselect
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://codeberg.org/mmatous/eselect-autostart/archive/1.0.0.tar.gz -> eselect-autostart-1.0.0.tar.gz
+_md5_=942a1fe35a8a5950a3a1925acc222812

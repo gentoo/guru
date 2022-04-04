@@ -1,0 +1,9 @@
+DEFINED_PHASES=install
+DESCRIPTION=Obsidian Gnome Theme, based upon Adwaita-Maia dark skin
+EAPI=8
+HOMEPAGE=https://github.com/madmaxms/theme-obsidian-2
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=GPL-3
+SLOT=0
+SRC_URI=https://github.com/madmaxms/theme-obsidian-2/archive/v2.20.tar.gz -> obsidian2-gtk-theme-2.20.tar.gz
+_md5_=84e4d8816b6792286cd8b91fe1305993

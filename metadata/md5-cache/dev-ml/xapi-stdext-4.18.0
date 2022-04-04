@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=<dev-lang/ocaml-4.14.0 dev-ml/astring dev-ml/fd-send-recv dev-ml/logs dev-ml/ptime dev-ml/xapi-backtrace >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Citrix's (deprecated) extensions to the ocaml standard library
+EAPI=8
+HOMEPAGE=https://xapi-project.github.io/stdext/ https://github.com/xapi-project/stdext
+INHERIT=dune
+IUSE=ocamlopt
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1-with-linking-exception
+RDEPEND=<dev-lang/ocaml-4.14.0 dev-ml/astring dev-ml/fd-send-recv dev-ml/logs dev-ml/ptime dev-ml/xapi-backtrace >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/4.18.0
+SRC_URI=https://github.com/xapi-project/stdext/archive/refs/tags/v4.18.0.tar.gz -> xapi-stdext-4.18.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=46705aa2751cad0f770506e4e7541f6f

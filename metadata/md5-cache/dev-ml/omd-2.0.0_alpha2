@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/dune-build-info >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=An easy interface on top of the Jsonm library
+EAPI=8
+HOMEPAGE=https://github.com/ocaml/omd
+INHERIT=dune
+IUSE=ocamlopt
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/dune-build-info >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/2.0.0_alpha2
+SRC_URI=https://github.com/ocaml/omd/releases/download/2.0.0.alpha2/omd-2.0.0.alpha2.tbz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=6c0297c13e3d519776a8899f8c244ae5

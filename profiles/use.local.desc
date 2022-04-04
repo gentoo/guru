@@ -105,6 +105,7 @@ dev-libs/zfp:openmp - Enable OpenMP parallel compression
 dev-libs/zfp:strided - Enable strided access for progressive zfp streams
 dev-libs/zfp:twoway - Use two-way skew-associative cache
 dev-libs/zfp:utilities - Build command line utilities
+dev-ml/mirage-profile:xen - Adds a Xen MirageOS backend collector
 dev-python/glance_store:cinder - enable cinder backend supprt
 dev-python/glance_store:swift - enable swift backend supprt
 dev-python/glance_store:vmware - enable vmware backend supprt
@@ -117,6 +118,7 @@ dev-python/gnocchi:prometheus - Installs dependencies needed for Prometheus Remo
 dev-python/gnocchi:redis - Installs dependencies needed for Redis storage support
 dev-python/gnocchi:s3 - Installs dependencies needed for Amazon S3 storage support
 dev-python/gnocchi:swift - Installs dependencies needed for OpenStack Swift storage support
+dev-python/qiskit-terra:visualization - Enable visualization modules
 dev-util/FoBiS:graphviz - Add support of generation of a dependencies graph
 dev-util/annobin:clang - Build the clang plugin
 dev-util/annobin:llvm - Build the LLVM plugin
@@ -167,6 +169,7 @@ games-emulation/yuzu:discord - Enables Discord Rich Presence
 games-emulation/yuzu:system-vulkan - Use system dev-util/vulkan-headers
 games-emulation/yuzu:webengine - Use QtWebEngine for web applet implementation
 games-emulation/yuzu:webservice - Enable web services (telemetry, etc.)
+games-engines/fs2_open:clang - Use Clang compiler instead of GCC
 games-engines/fs2_open:debug - Debug build to collect logfiles
 games-engines/fs2_open:discord - Enable Discord RPC support
 games-engines/instead:doc - Include some additional documentation on how to create games for the instead engine
@@ -201,11 +204,19 @@ gui-apps/swaylock-effects:fish-completion - Enable fish completion support
 gui-apps/swaylock-effects:gdk-pixbuf - Enable additional image format support via the x11-libs/gdk-pixbuf library
 gui-apps/swaylock-effects:man - Build and install man pages
 gui-apps/swaync:scripting - Enable notification scripting
+gui-apps/tessen:bemenu - Enable bemenu backend
+gui-apps/tessen:dmenu - Enable dmenu backend
+gui-apps/tessen:gopass - Enable gopass support
+gui-apps/tessen:pass - Enable pass support
+gui-apps/tessen:rofi - Enable rofi backend
+gui-apps/tessen:wofi - Enable wofi backend
 gui-apps/wlogout:bash-completions - Enable completions for bash shell
 gui-apps/wlogout:doc - Install man pages
 gui-apps/wlogout:fish-completions - Enable completions for fish shell
 gui-apps/wlogout:layershell - Enable transparency
 gui-apps/wlogout:zsh-completions - Enable completions for zsh shell
+gui-apps/wob:man - Install man page
+gui-apps/wob:seccomp - Linux kernel syscall filtering
 gui-apps/wofi:dmenu - Enable dmenu mode
 gui-apps/wofi:drun - Enable drun mode
 gui-apps/wofi:run - Enable run mode
@@ -476,7 +487,9 @@ sys-auth/mrsh:shadow - build with shadow file support
 sys-boot/limine:bios - Enable BIOS/MBR boot support.
 sys-boot/limine:bios-cd - Enables BIOS boot support for CDs.
 sys-boot/limine:bios-pxe - Enables BIOS PXE boot support.
+sys-boot/limine:cd-efi - Enable building cd-efi.bin using sys-fs/mtools. This flag was previously known as eltorito-efi.
 sys-boot/limine:eltorito-efi - Enable building eltorito-efi.bin using sys-fs/mtools.
+sys-boot/limine:limine-deploy - Enables building the limine-deploy program. This flag was previously known as limine-deploy.
 sys-boot/limine:limine-install - Enables building the limine-install program.
 sys-boot/limine:uefi - Enable UEFI support.
 sys-boot/limine:uefi32 - Enable 32-bit UEFI support.
@@ -606,6 +619,7 @@ sys-cluster/muster:pmpi - Build with PMPI bindings
 sys-cluster/muster:tests - Build and install test programs
 sys-cluster/nanos6:ctf2prv - Build ctf2prv fast converter
 sys-cluster/nanos6:debug - enable extra assertions and checks in debug - may cause significant slowdown
+sys-cluster/nanos6:dependency-delayed-operations - Delay dependency update operations
 sys-cluster/nanos6:dlb - enable dynamic management and sharing of computing resources
 sys-cluster/nanos6:execution-workflow - Enable execution using the Execution Workflow
 sys-cluster/nanos6:extrae - to generate execution traces for offline performance analysis with paraver

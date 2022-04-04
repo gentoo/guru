@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/angstrom dev-ml/ppx_sexp_conv dev-ml/re dev-ml/sexplib0 dev-ml/stringext >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=RFC3986 URI parsing library for OCaml
+EAPI=8
+HOMEPAGE=https://github.com/mirage/ocaml-uri
+INHERIT=dune
+IUSE=ocamlopt
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/angstrom dev-ml/ppx_sexp_conv dev-ml/re dev-ml/sexplib0 dev-ml/stringext >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/4.2.0
+SRC_URI=https://github.com/mirage/ocaml-uri/archive/v4.2.0.tar.gz -> ocaml-uri-4.2.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=56db2b8bb1faf3e85fc019849b1de448

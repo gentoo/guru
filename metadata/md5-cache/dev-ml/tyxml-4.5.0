@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/markup dev-ml/re dev-ml/ppxlib dev-ml/uutf >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=A libary to build xml trees typechecked by OCaml
+EAPI=8
+HOMEPAGE=https://ocsigen.org/tyxml/ https://github.com/ocsigen/tyxml
+INHERIT=dune
+IUSE=ocamlopt
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1-with-linking-exception
+RDEPEND=dev-ml/markup dev-ml/re dev-ml/ppxlib dev-ml/uutf >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/4.5.0
+SRC_URI=https://github.com/ocsigen/tyxml/archive/4.5.0.tar.gz -> tyxml-4.5.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=2287317a89c99a2fe1ec4fb85be04b9a

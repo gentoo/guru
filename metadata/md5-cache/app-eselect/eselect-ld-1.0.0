@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DESCRIPTION=Manage the ld symlink
+EAPI=8
+HOMEPAGE=https://codeberg.org/mmatous/eselect-ld
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=app-admin/eselect
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://codeberg.org/mmatous/eselect-ld/archive/1.0.0.tar.gz -> eselect-ld-1.0.0.tar.gz
+_md5_=3358d8364fc9ae91279195685face693

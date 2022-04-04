@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/ocamlbuild dev-ml/opam-installer dev-lang/ocaml
+DEFINED_PHASES=compile install
+DEPEND=dev-ml/topkg >=dev-lang/ocaml-4:= >=dev-ml/findlib-1.0.4-r1
+DESCRIPTION=POSIX time for OCaml
+EAPI=7
+HOMEPAGE=http://erratique.ch/software/ptime https://github.com/dbuenzli/ptime
+INHERIT=opam findlib
+IUSE=+ocamlopt
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=>=dev-lang/ocaml-4:= dev-lang/ocaml:=[ocamlopt?]
+SLOT=0/1.0.0
+SRC_URI=http://erratique.ch/software/ptime/releases/ptime-1.0.0.tbz
+_eclasses_=opam	dc11e376d9abc263ca618c5741206216	findlib	e6df6108c2d753998b1206f4d5ea4a2d
+_md5_=41b281c6a5292d80c40efa1804e69b17

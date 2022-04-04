@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst postrm preinst
+DEPEND=x11-themes/adwaita-icon-theme
+DESCRIPTION=Obsidian Icon Theme is intuitive Faenza-like icon theme
+EAPI=8
+HOMEPAGE=https://github.com/madmaxms/iconpack-obsidian
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=xdg
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=GPL-3
+RDEPEND=x11-themes/adwaita-icon-theme
+SLOT=0
+SRC_URI=https://github.com/madmaxms/iconpack-obsidian/archive/v4.15.tar.gz -> obsidian-icon-theme-4.15.tar.gz
+_eclasses_=xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=aed075bd2c5ac5be892261910c9fa797

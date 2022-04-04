@@ -1,0 +1,16 @@
+BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=compile install postinst postrm setup test
+DEPEND=|| ( >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) media-gfx/fontforge test? ( || ( ( >=dev-lang/python-3.9.9-r1:3.9 dev-python/ipdb[python_targets_python3_9(-)] dev-python/pillow[python_targets_python3_9(-)] dev-util/gftools[python_single_target_python3_9(-)] media-gfx/fontbakery[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-python/ipdb[python_targets_python3_8(-)] dev-python/pillow[python_targets_python3_8(-)] dev-util/gftools[python_single_target_python3_8(-)] media-gfx/fontbakery[python_targets_python3_8(-)] ) ) )
+DESCRIPTION=A IBM 3270 Terminal font in a modern format
+EAPI=7
+HOMEPAGE=https://github.com/rbanffy/3270font
+INHERIT=font python-any-r1
+IUSE=test X
+KEYWORDS=~amd64
+LICENSE=BSD CC-BY-SA-3.0 GPL-3 OFL
+PROPERTIES=test_network
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/rbanffy/3270font/archive/v2.3.1.tar.gz -> 3270font-2.3.1.tar.gz
+_eclasses_=font	d31f12a0f6e13d56dc3062e76ae58a61	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	59dddabd6a41ab69723654916142f63b	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
+_md5_=72ef282cbdfcbad87deb03e0275a576b

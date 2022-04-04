@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-ml/bigarray-compat-1.0.0 >=dev-ml/cstruct-1.7.0 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Hexadecimal converter
+EAPI=8
+HOMEPAGE=https://github.com/mirage/ocaml-hex
+INHERIT=dune
+IUSE=ocamlopt
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=>=dev-ml/bigarray-compat-1.0.0 >=dev-ml/cstruct-1.7.0 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/1.4.0
+SRC_URI=https://github.com/mirage/ocaml-hex/releases/download/v1.4.0/hex-v1.4.0.tbz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=cb5da4eb99c750ceb57a2f9f31df2884
