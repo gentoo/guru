@@ -3,12 +3,12 @@
 
 EAPI=7
 
-inherit meson vala xdg gnome2-utils
+inherit meson xdg gnome2-utils
 
 MY_PV="v${PV}"
 MY_P="${PN}-${MY_PV}"
 
-WL_COMMIT="2fce64d30d378d7009a5770b2472231a0e535ada"
+WL_COMMIT="c9cd3502ba6113070020de50e41f0af72e0f5031"
 WL_P="wlroots-${WL_COMMIT}"
 
 DESCRIPTION="Wlroots based Phone compositor"
