@@ -18,14 +18,13 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+pass gopass dmenu bemenu wofi rofi"
+IUSE="+pass gopass bemenu wofi rofi"
 
 REQUIRED_USE="|| ( pass gopass )
-	|| ( dmenu bemenu wofi rofi )"
+	|| ( bemenu wofi rofi )"
 
 DEPEND=""
 RDEPEND="${DEPEND}
-	dmenu? ( x11-misc/dmenu )
 	bemenu? ( dev-libs/bemenu )
 	wofi? ( gui-apps/wofi )
 	rofi? ( x11-misc/rofi )
