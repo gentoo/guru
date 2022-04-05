@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit autotools toolchain-funcs
 
 COMMIT="7375ba5bb0df87c68e58ad15e9e5e351ae020c08"
 
@@ -30,11 +30,20 @@ PATCHES=(
 	"${FILESDIR}/${PN}-create-libdir.patch"
 	"${FILESDIR}/${PN}-link-launchmon.patch"
 	"${FILESDIR}/${PN}-shared-library.patch"
+	"${FILESDIR}/${P}-respect-variables.patch"
 )
 
-src_configure() {
+src_prepare() {
 	tc-export AR
+	default
+	pushd conf || die
+	mv configure.{in,ac} || die
+	eautoreconf
+	popd || die
+	mv conf/configure configure || die
+}
 
+src_configure() {
 	local myconf=(
 		--enable-shared
 		--with-launchmon="${EPREFIX}/usr"
