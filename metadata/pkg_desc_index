@@ -90,6 +90,7 @@ app-eselect/eselect-autostart 1.0.0: Manage symlinks in $XDG_CONFIG_HOME/autosta
 app-eselect/eselect-ld 1.0.0: Manage the ld symlink
 app-forensics/libpreloadvaccine 0_pre20190831: Whitelisting LD_PRELOAD libraries using LD_AUDIT
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
+app-metrics/scaphandre 0.4.1: Electrical power consumption measurement agent.
 app-misc/afetch 2.2.0: Simple system info written in C
 app-misc/ani-cli 1.9: A cli to browse and watch anime.
 app-misc/anki-bin 2.1.49: A spaced-repetition memory training program (flash cards)
@@ -108,6 +109,7 @@ app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
 app-misc/grit 0.3.0: An personal task manager that represents tasks as multitree nodes
 app-misc/hollywood 1.22: Fill your console with Hollywood melodrama technobabble
+app-misc/kloak 0.2.30: A privacy tool that makes keystroke biometrics less effective
 app-misc/lf 20 22: Terminal file manager
 app-misc/liquidctl 1.7.2: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/macchina 5.0.2 6.0.5 6.0.6: A system information fetcher, with an (unhealthy) emphasis on performance.
