@@ -492,7 +492,6 @@ dev-python/factory_boy 3.2.0 3.2.1: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11-r1: Up to date simple useragent faker with real world database
 dev-python/fastavro 1.4.7 1.4.10: Fast Avro for Python
 dev-python/fchroot 0.1.2: Franken-chroot tool. Chroot arm/64 arches into amd64/x86
-dev-python/ffmpeg-python 0.2.0: Python bindings for FFmpeg - with complex filtering support
 dev-python/filecheck 0.0.22: Python port of LLVM's FileCheck, flexible pattern matching file verifier
 dev-python/font-v 1.0.5 2.1.0: Font version string reporting and modification library
 dev-python/fontFeatures 1.6.4: Python library for manipulating OpenType font features
@@ -699,7 +698,6 @@ dev-python/sphinxcontrib-fulltoc 1.2: python-dbus-next is a Python library for D
 dev-python/sphinxcontrib-katex 0.8.6: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-napoleon 0.7: Allow a different format in dosctrings for better clarity
 dev-python/sphinxcontrib-restbuilder 0.3: A Sphinx builder/writer to output reStructuredText (rst) files
-dev-python/spotipy 2.17.1 2.19.0: A light weight Python library for the Spotify Web API
 dev-python/sre_yield 1.2: Python module to generate regular all expression matches
 dev-python/srt 3.5.0 3.5.1 3.5.2: A tiny library for parsing, modifying, and composing SRT files
 dev-python/sse-starlette 0.7.2 0.9.0: Server Sent Events for Starlette
