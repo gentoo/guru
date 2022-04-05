@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>Ronny (tastytea) Gutbrod</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">zsh-users/zsh-history-substring-search</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		A clean-room implementation of the Fish shell's history search
+		feature, where you can type in any part of any command from
+		history and then press chosen keys, such as the UP and DOWN
+		arrows, to cycle through matches.
+	</longdescription>
+</pkgmetadata>
