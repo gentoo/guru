@@ -27,9 +27,22 @@ DEPEND="${RDEPEND}"
 #RESTRICT="!test? ( test )"
 RESTRICT="test" #tests are failing
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+PATCHES=( "${FILESDIR}/${P}-respect-flags.patch" )
 
 src_configure() {
-	tc-export CC
+	tc-export CC CXX FC F77 CPP
+
+	export MPICC=/usr/bin/mpicc
+	export MPICXX=/usr/bin/mpicxx
+	export MPIF77=/usr/bin/mpif77
+	export MPIFC=/usr/bin/mpifc
+
+	export MPI_CFLAGS="${CFLAGS}"
+	export MPI_CXXFLAGS="${CXXFLAGS}"
+	export MPI_CPPFLAGS="${CPPFLAGS}"
+	export MPI_F77LAGS="${F77FLAGS}"
+	export MPI_FCLAGS="${FCFLAGS}"
+	export MPI_LDFLAGS="${LDFLAGS}"
 
 	local myconf=(
 		--disable-platform-mic
