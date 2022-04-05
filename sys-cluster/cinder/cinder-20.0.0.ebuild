@@ -200,6 +200,7 @@ python_install_all() {
 }
 
 pkg_postinst() {
+	tmpfiles_process cinder.conf
 	if use iscsi ; then
 		elog "Cinder needs tgtd to be installed and running to work with iscsi"
 		elog "it also needs 'include /var/lib/cinder/volumes/*' in /etc/tgt/targets.conf"
