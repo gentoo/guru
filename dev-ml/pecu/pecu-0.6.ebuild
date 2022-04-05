@@ -13,7 +13,17 @@ S="${WORKDIR}/${PN}-v${PV}"
 LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="ocamlopt"
+IUSE="ocamlopt test"
 
-DEPEND=""
-RDEPEND="${DEPEND}"
+RDEPEND=""
+DEPEND="
+	${RDEPEND}
+	test? (
+		dev-ml/alcotest
+		dev-ml/astring
+		dev-ml/crowbar
+		dev-ml/fmt
+	)
+"
+
+RESTRICT="!test? ( test )"
