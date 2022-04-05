@@ -154,3 +154,7 @@ python_install_all() {
 	distutils-r1_python_install_all
 	rm -r "${ED}"/usr/etc
 }
+
+pkg_postinst() {
+	tmpfiles_process glance.conf
+}
