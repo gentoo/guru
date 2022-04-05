@@ -12,4 +12,12 @@ SRC_URI="https://github.com/hannesm/domain-name/releases/download/v${PV}/${P}.tb
 LICENSE="ISC"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="ocamlopt"
+IUSE="ocamlopt test"
+
+RESTRICT="!test? ( test )"
+
+RDEPEND=""
+DEPEND="
+	${RDEPEND}
+	test? ( dev-ml/alcotest )
+"
