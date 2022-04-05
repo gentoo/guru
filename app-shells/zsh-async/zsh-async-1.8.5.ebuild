@@ -8,6 +8,7 @@ inherit readme.gentoo-r1
 DESCRIPTION="Run multiple asynchronous jobs with callbacks"
 HOMEPAGE="https://github.com/mafredri/zsh-async"
 SRC_URI="https://github.com/mafredri/zsh-async/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
