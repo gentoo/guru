@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="Low-level communication layer for PRAW"
-HOMEPAGE="https://pypi.org/project/prawcore https://github.com/praw-dev/prawcore"
+HOMEPAGE="https://pypi.org/project/prawcore/ https://github.com/praw-dev/prawcore"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD-2"

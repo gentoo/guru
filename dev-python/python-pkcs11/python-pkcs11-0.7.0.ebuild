@@ -14,7 +14,7 @@ inherit distutils-r1 docs
 DESCRIPTION="PKCS#11 (Cryptoki) support for Python"
 HOMEPAGE="
 	https://github.com/danni/python-pkcs11
-	https://pypi.org/project/python-pkcs11
+	https://pypi.org/project/python-pkcs11/
 "
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 

@@ -9,7 +9,7 @@ inherit distutils-r1
 DESCRIPTION="Python low level port I/O for Linux x86"
 HOMEPAGE="
 	http://portio.inrim.it
-	https://pypi.org/project/portio
+	https://pypi.org/project/portio/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

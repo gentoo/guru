@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="python-dbus-next is a Python library for DBus"
 HOMEPAGE="
 	https://github.com/altdesktop/python-dbus-next
-	https://pypi.org/project/dbus-next
+	https://pypi.org/project/dbus-next/
 "
 SRC_URI="https://github.com/altdesktop/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 

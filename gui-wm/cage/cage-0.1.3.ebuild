@@ -15,7 +15,7 @@ else
 fi
 
 DESCRIPTION="A Wayland kiosk"
-HOMEPAGE="https://www.hjdskes.nl/projects/cage https://github.com/Hjdskes/cage"
+HOMEPAGE="https://www.hjdskes.nl/projects/cage/ https://github.com/Hjdskes/cage"
 LICENSE="MIT"
 SLOT="0"
 

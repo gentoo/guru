@@ -12,7 +12,7 @@ inherit distutils-r1
 DESCRIPTION="A helper for approximate comparison"
 HOMEPAGE="
 	https://github.com/sublee/almost
-	https://pypi.org/project/almost
+	https://pypi.org/project/almost/
 "
 SRC_URI="https://github.com/sublee/almost/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"

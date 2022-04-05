@@ -11,7 +11,7 @@ DESCRIPTION="A library to do [jobs, tasks, flows] in a HA manner using different
 HOMEPAGE="
 	https://github.com/openstack/taskflow
 	https://opendev.org/openstack/taskflow
-	https://pypi.org/project/taskflow
+	https://pypi.org/project/taskflow/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

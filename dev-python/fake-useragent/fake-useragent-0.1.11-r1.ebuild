@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="Up to date simple useragent faker with real world database"
 HOMEPAGE="
 		https://github.com/hellysmile/fake-useragent
-		https://pypi.org/project/fake-useragent
+		https://pypi.org/project/fake-useragent/
 "
 SRC_URI="https://github.com/hellysmile/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 

@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="C++17 header-only implementation of the XDG Base Directory Specification"
-HOMEPAGE="https://sr.ht/~danyspin97/xdgpp"
+HOMEPAGE="https://sr.ht/~danyspin97/xdgpp/"
 SRC_URI="
 	https://git.sr.ht/~danyspin97/xdgpp/commit/d41f2b8189619f27aca1b6f1bf7b1ef4af8bb482.patch -> ${PN}-01.patch
 	https://git.sr.ht/~danyspin97/xdgpp/commit/3ca427d179412892a111b879a4253b146ba94b0c.patch -> ${PN}-02.patch

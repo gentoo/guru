@@ -6,7 +6,7 @@ EAPI=8
 inherit go-module bash-completion-r1
 
 DESCRIPTION="Manage your dotfiles across multiple machines, securely"
-HOMEPAGE="https://chezmoi.io"
+HOMEPAGE="https://chezmoi.io/"
 
 # Building this list can be done by:
 # cd $(mktemp -d)

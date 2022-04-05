@@ -9,7 +9,7 @@ inherit distutils-r1
 DESCRIPTION="Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API"
 HOMEPAGE="
 	https://github.com/twintproject/twint
-	https://pypi.org/project/twint
+	https://pypi.org/project/twint/
 "
 SRC_URI="https://github.com/twintproject/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 

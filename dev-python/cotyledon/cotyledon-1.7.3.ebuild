@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="Cotyledon provides a framework for defining long-running services"
 HOMEPAGE="
 	https://github.com/sileht/cotyledon
-	https://pypi.org/project/cotyledon
+	https://pypi.org/project/cotyledon/
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 

@@ -11,7 +11,7 @@ DESCRIPTION="Chromium HSTS Preload list as a Python package"
 HOMEPAGE="
 	https://hstspreload.org
 	https://github.com/sethmlarson/hstspreload
-	https://pypi.org/project/hstspreload
+	https://pypi.org/project/hstspreload/
 "
 SRC_URI="https://github.com/sethmlarson/hstspreload/archive/${PV}.tar.gz -> ${P}.tar.gz"
 

@@ -12,7 +12,7 @@ MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="GraphQL Framework for Python"
 HOMEPAGE="https://graphene-python.org
-	https://pypi.org/project/graphene
+	https://pypi.org/project/graphene/
 	https://github.com/graphql-python/graphene
 "
 SRC_URI="https://github.com/graphql-python/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz

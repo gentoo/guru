@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="Implementation of the psycopg2 module using cffi. Compatible with Psycopg 2.5."
 HOMEPAGE="
 	https://github.com/chtd/psycopg2cffi
-	https://pypi.org/project/psycopg2cffi
+	https://pypi.org/project/psycopg2cffi/
 "
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 

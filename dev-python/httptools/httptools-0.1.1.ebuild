@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="httptools is a Python binding for the nodejs HTTP parser"
 HOMEPAGE="
 	https://github.com/MagicStack/httptools
-	https://pypi.org/project/httptools
+	https://pypi.org/project/httptools/
 "
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 

@@ -9,7 +9,7 @@ EAPI=8
 inherit autotools #python-single-r1
 
 DESCRIPTION="a debugger for task-parallel programming"
-HOMEPAGE="http://www.hlrs.de/solutions-services/service-portfolio/programming/hpc-development-tools/temanejo"
+HOMEPAGE="http://www.hlrs.de/solutions-services/service-portfolio/programming/hpc-development-tools/temanejo/"
 SRC_URI="http://fs.hlrs.de/projects/temanejo/${P}.tar.gz"
 
 LICENSE="BSD"

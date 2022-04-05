@@ -72,7 +72,7 @@ inherit distutils-r1
 DESCRIPTION="A repository of test results"
 HOMEPAGE="
 	https://launchpad.net/testrepository
-	https://pypi.org/project/testrepository
+	https://pypi.org/project/testrepository/
 	https://github.com/testing-cabal/testrepository
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"

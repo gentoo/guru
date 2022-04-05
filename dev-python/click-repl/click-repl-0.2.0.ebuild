@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="Subcommand REPL for click apps"
 HOMEPAGE="
 	https://github.com/click-contrib/click-repl
-	https://pypi.org/project/click-repl
+	https://pypi.org/project/click-repl/
 "
 SRC_URI="https://github.com/click-contrib/click-repl/archive/${PV}.tar.gz -> ${P}.tar.gz"
 

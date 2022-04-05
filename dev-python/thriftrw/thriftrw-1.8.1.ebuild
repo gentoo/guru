@@ -10,7 +10,7 @@ MY_PN="${PN}-python"
 DESCRIPTION="A Thrift encoding library for Python"
 HOMEPAGE="
 	https://github.com/thriftrw/thriftrw-python
-	https://pypi.org/project/thriftrw
+	https://pypi.org/project/thriftrw/
 "
 SRC_URI="https://github.com/thriftrw/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MY_PN}-${PV}"

@@ -32,6 +32,7 @@ DEPEND="
 	dev-python/urllib3[${PYTHON_USEDEP}]
 "
 
+PATCHES=( "${FILESDIR}/${PN}-1.7.4-dont-install-examples.patch" )
 PROPERTIES="test_network"
 RESTRICT="test"
 

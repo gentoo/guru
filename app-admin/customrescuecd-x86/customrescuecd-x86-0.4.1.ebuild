@@ -5,7 +5,7 @@ EAPI=7
 
 MY_P="CUSTOMRESCUECD-x86"
 DESCRIPTION="A system rescue cd or usbstick for desktop and server based on gentoo"
-HOMEPAGE="https://sourceforge.net/projects/customrescuecd"
+HOMEPAGE="https://sourceforge.net/projects/customrescuecd/"
 SRC_URI="mirror://sourceforge/customrescuecd/"${MY_P}"-"${PV}".iso"
 
 LICENSE="GPL-3"

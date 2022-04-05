@@ -9,7 +9,7 @@ COMMIT="35275a68c37bbc39d8b2b0e4664a0c2f5451e5f6"
 
 DESCRIPTION="Fill your console with Hollywood melodrama technobabble"
 HOMEPAGE="
-	https://hollywood.computer
+	https://hollywood.computer/
 	https://github.com/dustinkirkland/hollywood
 "
 SRC_URI="https://github.com/dustinkirkland/hollywood/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"

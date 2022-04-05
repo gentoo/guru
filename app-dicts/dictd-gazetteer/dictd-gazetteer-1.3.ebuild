@@ -6,7 +6,7 @@ EAPI=7
 inherit autotools
 
 DESCRIPTION="The original U.S. Gazetteer Place and Zipcode Files for dict"
-HOMEPAGE="https://sourceforge.net/projects/dict-gazetteer"
+HOMEPAGE="https://sourceforge.net/projects/dict-gazetteer/"
 SRC_URI="mirror://sourceforge/project/dict-gazetteer/dict-gazetteer_${PV}.orig.tar.gz"
 S="${WORKDIR}/dict-gazetteer-${PV}"
 LICENSE="GPL-2 public-domain"

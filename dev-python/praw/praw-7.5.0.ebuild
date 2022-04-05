@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="Python Reddit API Wrapper"
-HOMEPAGE="https://pypi.org/project/praw https://github.com/praw-dev/praw"
+HOMEPAGE="https://pypi.org/project/praw/ https://github.com/praw-dev/praw"
 SRC_URI="https://github.com/praw-dev/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"

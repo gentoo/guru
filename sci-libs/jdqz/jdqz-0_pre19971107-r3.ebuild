@@ -6,7 +6,7 @@ EAPI=8
 inherit flag-o-matic fortran-2 toolchain-funcs
 
 DESCRIPTION="Jacobi-Davidson type method for the generalized standard eigenvalue problem"
-HOMEPAGE="https://www.win.tue.nl/~hochsten/jd"
+HOMEPAGE="https://www.win.tue.nl/~hochsten/jd/"
 SRC_URI="https://www.win.tue.nl/~hochsten/jd/${PN}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}"
 

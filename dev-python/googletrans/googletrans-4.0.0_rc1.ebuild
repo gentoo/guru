@@ -7,7 +7,7 @@ inherit distutils-r1
 
 MY_PV=${PV/_/}
 DESCRIPTION="Free Google Translate API for Python. Translates totally free of charge."
-HOMEPAGE="https://pypi.org/project/googletrans https://github.com/ssut/py-googletrans"
+HOMEPAGE="https://pypi.org/project/googletrans/ https://github.com/ssut/py-googletrans"
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${PN}-${MY_PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${MY_PV}"
 

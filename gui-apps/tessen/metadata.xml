@@ -9,7 +9,6 @@
 		<remote-id type="github">ayushnix/tessen</remote-id>
 	</upstream>
 	<use>
-		<flag name="dmenu">Enable dmenu backend</flag>
 		<flag name="bemenu">Enable bemenu backend</flag>
 		<flag name="rofi">Enable rofi backend</flag>
 		<flag name="wofi">Enable wofi backend</flag>

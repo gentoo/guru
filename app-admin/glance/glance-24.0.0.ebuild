@@ -1,11 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
-inherit distutils-r1
+inherit distutils-r1 systemd tmpfiles
 
 DESCRIPTION="Services for discovering, registering, and retrieving VM images"
 HOMEPAGE="
@@ -23,17 +23,6 @@ IUSE="mysql postgres +sqlite +swift"
 RDEPEND="
 	>=dev-python/pbr-3.1.1[${PYTHON_USEDEP}]
 	>=dev-python/defusedxml-0.6.0[${PYTHON_USEDEP}]
-	sqlite? (
-		>=dev-python/sqlalchemy-1.0.10[sqlite,${PYTHON_USEDEP}]
-	)
-	mysql? (
-		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.0.10[${PYTHON_USEDEP}]
-	)
-	postgres? (
-		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.0.10[${PYTHON_USEDEP}]
-	)
 	>=dev-python/eventlet-0.25.1[${PYTHON_USEDEP}]
 	>=dev-python/pastedeploy-1.5.0[${PYTHON_USEDEP}]
 	>=dev-python/routes-2.3.1[${PYTHON_USEDEP}]
@@ -50,16 +39,16 @@ RDEPEND="
 	>=dev-python/futurist-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/taskflow-4.0.0[${PYTHON_USEDEP}]
 	>=dev-python/keystoneauth-3.4.0[${PYTHON_USEDEP}]
-	>=dev-python/keystonemiddleware-5.17.0[${PYTHON_USEDEP}]
+	>=dev-python/keystonemiddleware-5.1.0[${PYTHON_USEDEP}]
 	>=dev-python/WSME-0.8.0[${PYTHON_USEDEP}]
 	>=dev-python/prettytable-0.7.1[${PYTHON_USEDEP}]
 	>=dev-python/paste-2.0.2[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-3.2.0[${PYTHON_USEDEP}]
 	>=dev-python/python-keystoneclient-3.8.0[${PYTHON_USEDEP}]
 	>=dev-python/pyopenssl-17.1.0[${PYTHON_USEDEP}]
-	>=dev-python/six-1.11.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-db-5.0.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-i18n-5.0.0[${PYTHON_USEDEP}]
+	>=dev-python/oslo-limit-1.4.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-log-4.3.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-messaging-5.29.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-middleware-3.31.0[${PYTHON_USEDEP}]
@@ -74,6 +63,19 @@ RDEPEND="
 	>=dev-python/iso8601-0.1.11[${PYTHON_USEDEP}]
 	>=dev-python/os-win-4.0.1[${PYTHON_USEDEP}]
 	>=dev-python/castellan-0.17.0[${PYTHON_USEDEP}]
+
+	sqlite? (
+		>=dev-python/sqlalchemy-1.0.10[sqlite,${PYTHON_USEDEP}]
+	)
+	mysql? (
+		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
+		>=dev-python/sqlalchemy-1.0.10[${PYTHON_USEDEP}]
+	)
+	postgres? (
+		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
+		>=dev-python/sqlalchemy-1.0.10[${PYTHON_USEDEP}]
+	)
+
 	acct-user/glance
 	acct-group/glance
 "
@@ -108,6 +110,15 @@ REQUIRED_USE="
 
 distutils_enable_tests pytest
 
+python_compile_all() {
+	oslo-config-generator --config-file etc/oslo-config-generator/glance-api.conf  || die
+	oslo-config-generator --config-file etc/oslo-config-generator/glance-scrubber.conf || die
+	oslo-config-generator --config-file etc/oslo-config-generator/glance-cache.conf || die
+	oslo-config-generator --config-file etc/oslo-config-generator/glance-manage.conf || die
+	oslo-config-generator --config-file etc/oslo-config-generator/glance-image-import.conf || die
+	oslopolicy-sample-generator --config-file=etc/glance-policy-generator.conf || die
+}
+
 python_prepare_all() {
 	sed -i '/pysendfile/d' test-requirements.txt || die
 	sed -i '/^hacking/d' test-requirements.txt || die
@@ -125,6 +136,16 @@ python_install_all() {
 	keepdir /var/log/glance
 	keepdir /var/lib/glance/images
 	keepdir /var/lib/glance/scrubber
+
+	systemd_dounit "${FILESDIR}/openstack-glance-api.service"
+	newtmpfiles "${FILESDIR}/glance.tmpfiles" glance.conf
+
+	insinto /etc/logrotate.d
+	newins "${FILESDIR}/glance.logrotate" glance
+
+	insinto /etc/sudoers.d
+	insopts -m 0440 -o root -g root
+	newins "${FILESDIR}/glance.sudoers" glance
 
 	insinto /etc/glance
 	insopts -m 0640 -o glance -g glance

@@ -8,7 +8,7 @@ inherit distutils-r1
 
 DESCRIPTION="deSEC DNS Authenticator plugin for Certbot"
 HOMEPAGE="
-	https://pypi.org/project/certbot-dns-desec
+	https://pypi.org/project/certbot-dns-desec/
 	https://github.com/desec-io/certbot-dns-desec
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"

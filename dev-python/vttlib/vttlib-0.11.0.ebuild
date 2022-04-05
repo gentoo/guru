@@ -14,7 +14,7 @@ inherit distutils-r1
 DESCRIPTION="Dump, merge and compile Visual TrueType data in UFO3 with FontTools"
 HOMEPAGE="
 	https://github.com/daltonmaag/vttLib
-	https://pypi.org/project/vttlib
+	https://pypi.org/project/vttlib/
 "
 SRC_URI="mirror://pypi/${MYP:0:1}/${MYPN}/${MYP}.zip"
 

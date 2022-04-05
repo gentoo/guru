@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="Python multiprocessing fork"
 HOMEPAGE="
-	https://pypi.org/project/billiard
+	https://pypi.org/project/billiard/
 	https://github.com/celery/billiard
 "
 SRC_URI="https://github.com/celery/billiard/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"

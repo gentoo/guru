@@ -8,7 +8,7 @@ inherit distutils-r1
 
 DESCRIPTION="Apache2 licensed Python sorted collections library"
 HOMEPAGE="
-	https://pypi.org/project/sortedcollections
+	https://pypi.org/project/sortedcollections/
 	https://github.com/grantjenks/python-sortedcollections
 "
 SRC_URI="https://github.com/grantjenks/python-${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"

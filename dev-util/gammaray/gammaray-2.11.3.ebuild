@@ -7,7 +7,7 @@ CMAKE_REMOVE_MODULES_LIST=( BackwardConfig )
 inherit cmake optfeature virtualx xdg
 
 DESCRIPTION="High-level runtime introspection tool for Qt applications"
-HOMEPAGE="https://www.kdab.com/gammaray https://github.com/KDAB/GammaRay"
+HOMEPAGE="https://www.kdab.com/gammaray/ https://github.com/KDAB/GammaRay"
 
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3

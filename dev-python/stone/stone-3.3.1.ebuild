@@ -11,7 +11,7 @@ DESCRIPTION="The Official Api Spec Language for Dropbox"
 HOMEPAGE="
 	https://www.dropbox.com/developers
 	https://github.com/dropbox/stone
-	https://pypi.org/project/stone
+	https://pypi.org/project/stone/
 "
 SRC_URI="https://github.com/dropbox/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 

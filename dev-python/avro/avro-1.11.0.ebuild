@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="Apache Avro is a data serialization system"
 HOMEPAGE="
-	https://pypi.org/project/avro
+	https://pypi.org/project/avro/
 	https://avro.apache.org
 "
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"

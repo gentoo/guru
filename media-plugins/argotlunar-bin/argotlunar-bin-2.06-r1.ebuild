@@ -4,7 +4,7 @@
 EAPI="7"
 
 DESCRIPTION="Argotlunar is a sound granulator. Binary Linux VST"
-HOMEPAGE="http://mourednik.github.io/argotlunar"
+HOMEPAGE="http://mourednik.github.io/argotlunar/"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""

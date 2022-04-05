@@ -10,9 +10,9 @@ inherit bash-completion-r1 distutils-r1 dune pam systemd
 
 DESCRIPTION="Xen API SDK, for communication with Citrix XenServer and Xen Cloud Platform"
 HOMEPAGE="
-	https://xenproject.org/developers/teams/xen-api
+	https://xenproject.org/developers/teams/xen-api/
 	https://github.com/xapi-project/xen-api
-	https://pypi.org/project/XenAPI
+	https://pypi.org/project/XenAPI/
 "
 SRC_URI="https://github.com/xapi-project/xen-api/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/xen-api-${PV}"

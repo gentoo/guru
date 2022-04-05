@@ -8,7 +8,7 @@ CMAKE_IN_SOURCE_BUILD=1
 inherit cmake
 
 DESCRIPTION="Check your gentoo installation for unwanted cruft, forgotten files"
-HOMEPAGE="https://sourceforge.net/projects/gentoo-sweep"
+HOMEPAGE="https://sourceforge.net/projects/gentoo-sweep/"
 SRC_URI="mirror://sourceforge/gentoo-sweep/${P}.tar.gz"
 S="${WORKDIR}/${PN}"
 LICENSE="GPL-2"

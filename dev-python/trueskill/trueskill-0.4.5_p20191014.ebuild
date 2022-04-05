@@ -12,7 +12,7 @@ DESCRIPTION="Python Implementation of the TrueSkill Algorithm"
 HOMEPAGE="
 	https://trueskill.org
 	https://github.com/sublee/trueskill
-	https://pypi.org/project/trueskill
+	https://pypi.org/project/trueskill/
 "
 SRC_URI="https://github.com/sublee/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"

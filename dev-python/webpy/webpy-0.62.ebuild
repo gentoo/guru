@@ -11,7 +11,7 @@ DESCRIPTION="A web framework for python that is as simple as it is powerful"
 HOMEPAGE="
 	https://webpy.org
 	https://github.com/webpy/webpy
-	https://pypi.org/project/web.py
+	https://pypi.org/project/web.py/
 "
 SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 

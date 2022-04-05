@@ -11,7 +11,7 @@ inherit distutils-r1
 DESCRIPTION="desktop-notifier is a Python library for cross-platform desktop notifications"
 HOMEPAGE="
 	https://desktop-notifier.readthedocs.io
-	https://pypi.org/project/desktop-notifier
+	https://pypi.org/project/desktop-notifier/
 	https://github.com/samschott/desktop-notifier
 "
 SRC_URI="https://github.com/samschott/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
