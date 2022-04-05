@@ -158,6 +158,10 @@ pkg_postinst() {
 	elog "Otherwise default values will be used."
 }
 
+pkg_postinst() {
+	tmpfiles_process keystone.conf
+}
+
 pkg_config() {
 	if [ ! -d "${ROOT}/etc/keystone/ssl" ] ; then
 		einfo "Press ENTER to configure the keystone PKI, or Control-C to abort now..."
