@@ -9,4 +9,10 @@
   <upstream>
     <remote-id type="github">mirage/ocaml-ipaddr</remote-id>
   </upstream>
+  <use>
+    <flag name="cstruct">A library for manipulation of IP address representations using Cstructs</flag>
+    <flag name="sexp">A library for manipulation of IP address representations using sexp</flag>
+    <flag name="macaddr-cstruct">A library for manipulation of MAC address representations using Cstructs</flag>
+    <flag name="macaddr-sexp">A library for manipulation of MAC address representations using sexp</flag>
+  </use>
 </pkgmetadata>

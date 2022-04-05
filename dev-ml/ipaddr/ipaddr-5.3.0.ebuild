@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit dune
+inherit dune multiprocessing
 
 DESCRIPTION="OCaml library for manipulation of IP (and MAC) address representations"
 HOMEPAGE="https://github.com/mirage/ocaml-ipaddr"
@@ -13,21 +13,53 @@ S="${WORKDIR}/ocaml-${P}"
 LICENSE="ISC"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="ocamlopt"
+IUSE="cstruct macaddr-cstruct macaddr-sexp ocamlopt sexp test"
 
 RDEPEND="
-	dev-ml/cstruct
 	dev-ml/domain-name
-	dev-ml/ppx_sexp_conv
-	dev-ml/sexplib0
+	dev-ml/stdlib-shims
+
+	cstruct? ( dev-ml/cstruct )
+	macaddr-cstruct? ( dev-ml/cstruct )
+	macaddr-sexp? (
+		dev-ml/ppx_sexp_conv
+		dev-ml/sexplib0
+	)
+	sexp? (
+		dev-ml/ppx_sexp_conv
+		dev-ml/sexplib0
+	)
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? (
+		dev-ml/ounit
+		dev-ml/ppx_sexp_conv
+	)
+"
+
+RESTRICT="!test? ( test )"
+REQUIRED_USE="test? ( cstruct macaddr-cstruct macaddr-sexp sexp )"
+
+src_compile() {
+	local pkgs="ipaddr,macaddr"
+	for u in cstruct sexp ; do
+		if use ${u} ; then
+			pkgs="${pkgs},ipaddr-${u}"
+		fi
+		if use macaddr-${u} ; then
+			pkgs="${pkgs},macaddr-${u}"
+		fi
+	done
+
+	dune build --only-packages "${pkgs}" -j $(makeopts_jobs) --profile release || die
+}
 
 src_install() {
-	dune_src_install ipaddr
-	dune_src_install ipaddr-cstruct
-	dune_src_install ipaddr-sexp
 	dune_src_install macaddr
-	dune_src_install macaddr-cstruct
-	dune_src_install macaddr-sexp
+	dune_src_install ipaddr
+	use cstruct && dune_src_install ipaddr-cstruct
+	use sexp && dune_src_install ipaddr-sexp
+	use macaddr-cstruct && dune_src_install macaddr-cstruct
+	use macaddr-sexp && dune_src_install macaddr-sexp
 }
