@@ -7,10 +7,10 @@ inherit findlib opam
 
 DESCRIPTION="Ocaml XML manipulation module"
 HOMEPAGE="
-	http://erratique.ch/software/xmlm
+	https://erratique.ch/software/xmlm
 	https://github.com/dbuenzli/xmlm
 "
-SRC_URI="http://erratique.ch/software/${PN}/releases/${P}.tbz"
+SRC_URI="https://erratique.ch/software/${PN}/releases/${P}.tbz"
 
 LICENSE="BSD"
 SLOT="0/${PV}"
