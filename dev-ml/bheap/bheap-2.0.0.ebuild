@@ -12,7 +12,12 @@ SRC_URI="https://github.com/backtracking/${PN}/releases/download/${PV}/${P}.tbz"
 LICENSE="LGPL-2.1-with-linking-exception"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="ocamlopt"
+IUSE="ocamlopt test"
 
-DEPEND=""
-RDEPEND="${DEPEND}"
+RDEPEND=""
+DEPEND="
+	${RDEPEND}
+	test? ( dev-ml/stdlib-shims )
+"
+
+RESTRICT="!test? ( test )"
