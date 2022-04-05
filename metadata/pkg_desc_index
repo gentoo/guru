@@ -33,7 +33,7 @@ app-admin/chamber 2.10.7: Managing secrets in AWS SSM Parameter Store
 app-admin/chezmoi 2.11.2: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.12.6: A system rescue cd or usbstick for desktop and server based on gentoo
-app-admin/glance 23.0.0: Services for discovering, registering, and retrieving VM images
+app-admin/glance 24.0.0: Services for discovering, registering, and retrieving VM images
 app-admin/gnome-passwordsafe 4.0-r1 4.1: A password manager for GNOME
 app-admin/grub-customizer 5.1.0: A graphical grub2 settings manager
 app-admin/krapplet 0.3.1: Krapplet (keyring applet): a Linux graphical password manager
@@ -200,8 +200,8 @@ dev-R/BH 1.75.0.0 1.78.0.0: Boost C++ Header Files
 dev-R/MASS 7.3.56: Support Functions and Datasets for variables and Ripley's MASS
 dev-R/Matrix 1.4.1: Sparse and Dense Matrix Classes and Methods
 dev-R/R6 2.5.1: Encapsulated Classes with Reference Semantics
-dev-R/RColorBrewer 1.1.2: ColorBrewer Palettes
-dev-R/RInside 0.2.16: C++ Classes to Embed R in C++ (and C) Applications
+dev-R/RColorBrewer 1.1.3: ColorBrewer Palettes
+dev-R/RInside 0.2.17: C++ Classes to Embed R in C++ (and C) Applications
 dev-R/Rcpp 1.0.8.3: Seamless R and C++ Integration
 dev-R/RcppArmadillo 0.10.2.2.0 0.10.8.1.0: Rcpp Integration for the Armadillo templated linear algebra library
 dev-R/RcppEnsmallen 0.2.17.0.1: Header-Only C++ Mathematical Optimization library for armadillo
@@ -264,7 +264,7 @@ dev-R/rematch2 2.1.2: Tidy Output from Regular Expression Matching
 dev-R/rex 1.2.1: Friendly Regular Expressions
 dev-R/rlang 1.0.2: Functions for Base Types and Core R and Tidyverse Features
 dev-R/roxygen2 7.1.2: In-Line Documentation for R
-dev-R/rprojroot 2.0.2: Finding Files in Project Subdirectories
+dev-R/rprojroot 2.0.3: Finding Files in Project Subdirectories
 dev-R/rstudioapi 0.13: Safely Access the RStudio API
 dev-R/scales 1.1.1: Scale Functions for Visualization
 dev-R/spelling 2.2: Tools for Spell Checking in R
@@ -374,7 +374,7 @@ dev-ml/angstrom 0.15.0-r2: Parser combinators built for speed and memory efficie
 dev-ml/bheap 2.0.0: OCaml binary heap implementation by Jean-Christophe Filliatre
 dev-ml/bigstringaf 0.7.0: Bigstring intrinsics and fast blits based on memcpy/memmove
 dev-ml/cow 2.4.0: Caml on the Web
-dev-ml/cstruct 6.0.0-r2: Map OCaml arrays onto C-like structs
+dev-ml/cstruct 6.0.1: Map OCaml arrays onto C-like structs
 dev-ml/domain-name 0.4.0: RFC 1035 Internet domain names
 dev-ml/emile 1.1: Emile is a library to parse an e-mail address in OCaml
 dev-ml/ezjsonm 1.2.0-r2: An easy interface on top of the Jsonm library
@@ -382,11 +382,11 @@ dev-ml/ezxenstore 0.3.1: An easy-to-use Xenstore library
 dev-ml/fd-send-recv 2.0.1: Send and receive Unix.file_descrs over Unix domain sockets
 dev-ml/hex 1.4.0-r1: Hexadecimal converter
 dev-ml/io-page 2.2.0 2.4.0: IO memory page library for Mirage backends
-dev-ml/ipaddr 5.0.1-r2: OCaml library for manipulation of IP (and MAC) address representations
+dev-ml/ipaddr 5.3.0: OCaml library for manipulation of IP (and MAC) address representations
 dev-ml/js_of_ocaml 4.0.0: A compiler from OCaml bytecode to javascript
 dev-ml/lwt-dllist 1.0.1: Mutable doubly-linked list with Lwt iterators
 dev-ml/mirage 4.0.0: MirageOS is a library operating system that constructs unikernels
-dev-ml/mirage-profile 0.9.0-r2: Collect profiling information
+dev-ml/mirage-profile 0.9.1: Collect profiling information
 dev-ml/mirage-xen 7.2.0: Xen core platform libraries for MirageOS
 dev-ml/omd 2.0.0_alpha2: An easy interface on top of the Jsonm library
 dev-ml/pecu 0.6: Implementation of quoted-printable encoder/decoder from RFC2045
@@ -405,7 +405,7 @@ dev-ml/xen-gnt 4.0.0: OCaml bindings to the Xen grant tables libraries
 dev-ml/xenctrl 0_p20191017: Mock OCaml bindings for the Xen Hypervisor
 dev-ml/xenstore 2.1.1: A Xenstore protocol implementation in pure OCaml
 dev-ml/xenstore-clients 1.1.0: Unix client tools for accessing xenstore
-dev-ml/xmlm 1.3.0-r3: Ocaml XML manipulation module
+dev-ml/xmlm 1.4.0: Ocaml XML manipulation module
 dev-perl/File-DirList 0.05: provide a sorted list of directory content
 dev-perl/File-Touch 0.12: Update file access and modification times, creating files if needed
 dev-perl/GitLab-API-v4 0.26: A complete GitLab API v4 client
@@ -479,7 +479,7 @@ dev-python/decopatch 1.4.9 1.4.10: Create decorators easily in python
 dev-python/desktop-notifier 3.3.2 3.4.0: desktop-notifier is a Python library for cross-platform desktop notifications
 dev-python/devtools 0.6.1: Dev tools for python
 dev-python/digitalocean 1.16.0 1.17.0: Digitalocean API access library
-dev-python/dotmap 1.3.25 1.3.26: Dot access dictionary with dynamic hierarchy creation and ordered iteration
+dev-python/dotmap 1.3.26 1.3.28: Dot access dictionary with dynamic hierarchy creation and ordered iteration
 dev-python/doubles 1.5.3: Test doubles for Python
 dev-python/doxypypy 0.8.8.6_p20210405: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/dropbox-sdk-python 11.28.0: The offical Dropbox SDK for Python
@@ -564,7 +564,7 @@ dev-python/os-api-ref 2.3.0: Sphinx Extensions to support API reference sites in
 dev-python/os-brick 5.2.0: OpenStack Cinder brick library for managing local volume attaches
 dev-python/os-ken 2.3.1: OpenStack Cinder brick library for managing local volume attaches
 dev-python/os-resource-classes 1.1.0: A list of standardized resource classes for OpenStack
-dev-python/os-testr 2.0.1: A testr wrapper to provide functionality for OpenStack projects
+dev-python/os-testr 2.0.1 3.0.0: A testr wrapper to provide functionality for OpenStack projects
 dev-python/os-traits 2.7.0: os-traits is a library containing standardized trait strings
 dev-python/os-vif 2.7.1: OpenStack Cinder brick library for managing local volume attaches
 dev-python/os-win 5.6.0: Windows / Hyper-V library for OpenStack projects
@@ -620,7 +620,7 @@ dev-python/pyinstaller 4.2: Bundles a Python application and all its dependencie
 dev-python/pykeepass 4.0.0 4.0.1: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
 dev-python/pylatexenc 2.10: Simple LaTeX parser providing latex-to-unicode and unicode-to-latex conversion
 dev-python/pymeeus 0.4.2 0.5.11: Python implementation of Jean Meeus astronomical routines
-dev-python/pymemcache 3.5.1: A comprehensive, fast, pure-Python memcached client
+dev-python/pymemcache 3.5.1 3.5.2: A comprehensive, fast, pure-Python memcached client
 dev-python/pymorphy2 0.9.1: Morphological analyzer (POS tagger + inflection engine) for Russian language.
 dev-python/pymorphy2-dicts 2.4.393442.3710985: Russian dictionary for PyMorphy2
 dev-python/pymorphy2-dicts-ru 2.4.417127.4579844: Russian dictionary for PyMorphy2
@@ -628,7 +628,7 @@ dev-python/pymp4 1.2.0: A Python MP4 Parser and toolkit
 dev-python/pyngus 2.3.1: A connection oriented messaging framework using QPID Proton
 dev-python/pynmea2 1.18.0: Python library for the NMEA 0183 protcol
 dev-python/pyodbc 4.0.32: Python ODBC library
-dev-python/pypandoc 1.7.2 1.7.4: Pypandoc provides a thin wrapper for pandoc, a universal document converter
+dev-python/pypandoc 1.7.4 1.7.5: Pypandoc provides a thin wrapper for pandoc, a universal document converter
 dev-python/pypowervm 1.1.27: Python binding for the PowerVM REST API
 dev-python/pysaml2 7.1.2: Python implementation of SAML Version 2 to be used in a WSGI environment
 dev-python/pysftp 0.2.9: A friendly face on SFTP
@@ -715,7 +715,7 @@ dev-python/testrepository 0.0.20-r200: A repository of test results
 dev-python/threadloop 1.0.2: Run Tornado Coroutines from Synchronous Python
 dev-python/thriftrw 1.8.1: A Thrift encoding library for Python
 dev-python/tinyrpc 1.1.2 1.1.4: A protocol neutral RPC library that supports JSON-RPC and zmq
-dev-python/tooz 2.10.1: Library centralizing the most common distributed primitives
+dev-python/tooz 2.10.1 2.11.0: Library centralizing the most common distributed primitives
 dev-python/transaction 3.0.1: Transaction management for Python
 dev-python/trivup 0.10.0: Trivially Up a cluster of applications
 dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill Algorithm
@@ -725,13 +725,13 @@ dev-python/tweepy 3.10.0: An easy-to-use Python library for accessing the Twitte
 dev-python/types-paramiko 2.8.16 2.8.17: Typing stubs for paramiko
 dev-python/types-python-dateutil 2.8.9 2.8.10: Typing stubs for python-dateutil
 dev-python/types-pytz 2021.3.5 2021.3.6: Typing stubs for pytz
-dev-python/types-requests 2.27.14 2.27.15: Typing stubs for requests
+dev-python/types-requests 2.27.15 2.27.16: Typing stubs for requests
 dev-python/types-urllib3 1.26.10 1.26.11: Typing stubs for urllib3
 dev-python/ufo2ft 2.25.3 2.26.0: A bridge from UFOs to FontTool objects
 dev-python/ufoLib2 0.11.4 0.13.1: A UFO font library
 dev-python/ufoNormalizer 0.5.4 0.6.1: A tool that will normalize the XML and other data inside of a UFO
 dev-python/ufoProcessor 1.9.0: A Python package for processing and generating UFO files
-dev-python/uharfbuzz 0.23.0: Streamlined Cython bindings for the HarfBuzz shaping engine
+dev-python/uharfbuzz 0.23.0 0.24.1: Streamlined Cython bindings for the HarfBuzz shaping engine
 dev-python/uhashring 2.1: Full featured consistent hashing python library compatible with ketama
 dev-python/ukpostcodeparser 1.1.2: UK postcode parser library
 dev-python/unicodedata2 13.0.0.2 14.0.0: Unicodedata backport for python 2/3 updated to the latest unicode version
@@ -772,7 +772,7 @@ dev-util/fontmake 2.4.0 3.2.0: A wrapper for several Python libraries to compile
 dev-util/fortran-test-drive 0.4.0: The simple testing framework (for Fortran)
 dev-util/fypp 3.1: Fypp - Python powered Fortran preprocessor
 dev-util/gammaray 2.11.3: High-level runtime introspection tool for Qt applications
-dev-util/gftools 0.9.2 0.9.4: Miscellaneous tools for working with the Google Fonts collection
+dev-util/gftools 0.9.4 0.9.5: Miscellaneous tools for working with the Google Fonts collection
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/mh 1.0.3: Generate help for Makefile
@@ -882,7 +882,7 @@ gui-apps/swaykbdd 1.0: Per-window keyboard layout switcher for Sway
 gui-apps/swaylock-effects 1.6.2 1.6.3 9999: Swaylock, with fancy effects
 gui-apps/swaync 0.5: A simple notification daemon with a GTK gui for notifications and control center
 gui-apps/szyszka 1.0.0: Simple, powerful and easy to use file renamer
-gui-apps/tessen 2.1.2: an interactive menu to autotype and copy pass and gopass data
+gui-apps/tessen 2.1.2 9999: an interactive menu to autotype and copy pass and gopass data
 gui-apps/tiramisu 1.0_p20201110 2.0.20211107 9999: minimalistic desktop notifications provider
 gui-apps/wbg 1.0.2: Super simple wallpaper application
 gui-apps/wdisplays 1.0-r3 1.1 9999: GUI display configurator for wlroots compositors
@@ -1168,7 +1168,7 @@ sys-apps/sd 0.7.6-r1: Intuitive find & replace CLI (sed alternative)
 sys-apps/sdate 0.7: Wrapper program to output dates like the Eternal September 1993
 sys-apps/systemd-bootchart 234: systemd boot performance graphing tool
 sys-apps/sysz 1.4.1 1.4.3: An fzf terminal UI for systemctl
-sys-auth/keystone 21.0.0.0_rc1-r1: The Openstack authentication, authorization, and service catalog
+sys-auth/keystone 21.0.0 21.0.0.0_rc1-r1: The Openstack authentication, authorization, and service catalog
 sys-auth/mrsh 2.12 2.12-r1: Mrsh is a set of remote shell programs that use munge authentication.
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
@@ -1179,7 +1179,7 @@ sys-cluster/OpenHPC-meta 2.1: OpenHPC metapackage
 sys-cluster/SIONfwd 1.0.1: A minimalistic I/O forwarding server and client library for SIONlib
 sys-cluster/SOS 1.5.0: implementation of the OpenSHMEM specification
 sys-cluster/TCL 1.0: Transparent Checkpointing Library
-sys-cluster/cinder 20.0.0.0_rc1: Cinder is the OpenStack Block storage service, a spin out of nova-volumes
+sys-cluster/cinder 20.0.0 20.0.0.0_rc1: Cinder is the OpenStack Block storage service, a spin out of nova-volumes
 sys-cluster/clusteringsuite 2.6.9-r3: Expose the main performance trends in applications computation structure
 sys-cluster/dlb 2.1-r3: Dynamically react to application imbalance by modifying the number of resources
 sys-cluster/dtcmp 1.1.2 1.1.4: Datatype Compare Library for sorting and ranking distributed data using MPI
@@ -1188,7 +1188,7 @@ sys-cluster/er 0.1.0 0.3.0: High-level distributed erasure coding lib combining 
 sys-cluster/extrae 3.8.3-r10: Instrumentation framework to generate execution traces of parallel runtimes
 sys-cluster/fti 1.6-r1: Fault Tolerance Interface
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
-sys-cluster/heat 18.0.0.0_rc1: A CloudFormation-compatible openstack-native cloud orchestration engine
+sys-cluster/heat 18.0.0 18.0.0.0_rc1: A CloudFormation-compatible openstack-native cloud orchestration engine
 sys-cluster/launchmon 1.0.2_p20210430-r2: Enables HPC run-time tools to co-locate tool daemons with a parallel job
 sys-cluster/libbsctools 1.0.6-r2: libbsctools
 sys-cluster/libi 5.0.1_p20180510: A framework for bootstrapping extreme scale software systems
@@ -1199,8 +1199,8 @@ sys-cluster/mrnet 5.0.1_p20180510-r4: A Multicast/Reduction Network
 sys-cluster/muster 1.0.1: Massively Scalable Clustering
 sys-cluster/nanos6 2.6-r4 2.7: runtime that implements the OmpSs-2 parallel programming model
 sys-cluster/nanox 0.15_p20210818: Runtime designed to serve as runtime support in parallel environments
-sys-cluster/neutron 17.1.2 20.0.0.0_rc1: A virtual network service for Openstack
-sys-cluster/nova 25.0.0.0_rc1-r3: Cloud computing fabric controller
+sys-cluster/neutron 17.1.2 20.0.0: A virtual network service for Openstack
+sys-cluster/nova 25.0.0 25.0.0.0_rc1-r3: Cloud computing fabric controller
 sys-cluster/opencoarrays 2.9.2: A parallel application binary interface for Fortran 2018 compilers
 sys-cluster/otf2 2.3-r1: highly scalable, memory efficient event trace data format
 sys-cluster/parallel-netcdf 1.12.2: Parallel extension to netCDF

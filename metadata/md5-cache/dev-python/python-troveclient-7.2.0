@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=dev-python/pbr-2.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/prettytable-0.7.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/requests-2.14.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/simplejson-3.5.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/oslo-i18n-3.15.3[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/oslo-utils-3.33.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/keystoneauth-3.4.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/python-swiftclient-3.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/python-mistralclient-3.1.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/osc-lib-1.8.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/python-openstackclient-3.12.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] test? ( >=dev-python/fixtures-3.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/oslotest-3.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/requests-mock-1.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/testscenarios-0.4[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/testtools-2.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/httplib2-0.9.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] )
 DESCRIPTION=A client for the OpenStack Trove API, a scalable relational database service
 EAPI=8
-HOMEPAGE=https://github.com/openstack/python-troveclient https://opendev.org/openstack/python-troveclient https://launchpad.net/python-troveclient https://pypi.org/project/python-troveclient
+HOMEPAGE=https://github.com/openstack/python-troveclient https://opendev.org/openstack/python-troveclient https://launchpad.net/python-troveclient https://pypi.org/project/python-troveclient/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_8 python_targets_python3_9
 KEYWORDS=~amd64
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/p/python-troveclient/python-troveclient-7.2.0.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	59dddabd6a41ab69723654916142f63b	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	e91901adfcf0640d2daa4dc863ff5377
-_md5_=de7afab7bdb221cd15e99d5d83c4d323
+_md5_=811ea77aab62fd884f8248ad933a5093

@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-python/six[python_targets_python3_8(-)?,python_targets_python3_9(-)?] test? ( >=dev-python/almost-0.1.5[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/mpmath-0.17[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/pytest[python_targets_python3_8(-)?,python_targets_python3_9(-)?] )
 DESCRIPTION=Python Implementation of the TrueSkill Algorithm
 EAPI=8
-HOMEPAGE=https://trueskill.org https://github.com/sublee/trueskill https://pypi.org/project/trueskill
+HOMEPAGE=https://trueskill.org https://github.com/sublee/trueskill https://pypi.org/project/trueskill/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_8 python_targets_python3_9
 KEYWORDS=~amd64
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/sublee/trueskill/archive/91c29b1ab6cd86d6d68fc983fd7ceba3a88ad544.tar.gz -> trueskill-0.4.5_p20191014.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	59dddabd6a41ab69723654916142f63b	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	e91901adfcf0640d2daa4dc863ff5377
-_md5_=c704c48d54ed08b9741e317b48f77e95
+_md5_=e2249da22ba57668cd292412adf94047

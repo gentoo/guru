@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=dev-python/subunit-0.0.18[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/testtools-0.9.30[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/fixtures[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/setuptools[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] test? ( dev-python/testresources[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/testscenarios[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pytz[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
 DESCRIPTION=A repository of test results
 EAPI=8
-HOMEPAGE=https://launchpad.net/testrepository https://pypi.org/project/testrepository https://github.com/testing-cabal/testrepository
+HOMEPAGE=https://launchpad.net/testrepository https://pypi.org/project/testrepository/ https://github.com/testing-cabal/testrepository
 INHERIT=distutils-r1
 IUSE=test python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/t/testrepository/testrepository-0.0.20.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	59dddabd6a41ab69723654916142f63b	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	e91901adfcf0640d2daa4dc863ff5377
-_md5_=73d30dfce80a7258811eb269808eb8ba
+_md5_=89884d58883b0d227b3f49469c1b08fd

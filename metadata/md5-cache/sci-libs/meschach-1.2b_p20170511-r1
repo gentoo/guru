@@ -2,7 +2,7 @@ BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Meschach is a C-language library of routines for performing matrix computations
 EAPI=8
-HOMEPAGE=https://github.com/yageek/Meschach http://homepage.divms.uiowa.edu/~dstewart/meschach
+HOMEPAGE=https://github.com/yageek/Meschach http://homepage.divms.uiowa.edu/~dstewart/meschach/
 INHERIT=cmake
 IUSE=+complex +double-precision munroll segmem +single-precision +sparse vunroll
 KEYWORDS=~amd64
@@ -10,4 +10,4 @@ LICENSE=meschach
 SLOT=0
 SRC_URI=https://github.com/yageek/Meschach/archive/201bcf933bcd4d971c3ab50e0651c6e65ba004b9.tar.gz -> meschach-1.2b_p20170511-r1.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149
-_md5_=feb2b1851fee343f84abe59dce5e26b7
+_md5_=ab763df89d838bcc284031f5c0482a47

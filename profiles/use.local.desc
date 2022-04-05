@@ -205,7 +205,6 @@ gui-apps/swaylock-effects:gdk-pixbuf - Enable additional image format support vi
 gui-apps/swaylock-effects:man - Build and install man pages
 gui-apps/swaync:scripting - Enable notification scripting
 gui-apps/tessen:bemenu - Enable bemenu backend
-gui-apps/tessen:dmenu - Enable dmenu backend
 gui-apps/tessen:gopass - Enable gopass support
 gui-apps/tessen:pass - Enable pass support
 gui-apps/tessen:rofi - Enable rofi backend
