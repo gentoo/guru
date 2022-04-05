@@ -10,6 +10,7 @@
 		<bugs-to>https://github.com/ErikReider/SwayNotificationCenter/issues</bugs-to>
 	</upstream>
 	<use>
+		<flag name="man">Build and install man pages</flag>
 		<flag name="scripting">Enable notification scripting</flag>
 	</use>
 </pkgmetadata>

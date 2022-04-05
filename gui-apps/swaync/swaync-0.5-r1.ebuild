@@ -14,7 +14,10 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="scripting"
+IUSE="+man scripting"
+PATCHES=(
+	"${FILESDIR}/${P}-dont-force-build-manpages.patch"
+)
 
 DEPEND="
 	dev-libs/glib:2
@@ -29,7 +32,10 @@ DEPEND="
 	x11-libs/gtk+:3
 "
 RDEPEND="${DEPEND}"
-BDEPEND="$(vala_depend)"
+BDEPEND="
+	$(vala_depend)
+	man? ( app-text/scdoc )
+"
 
 src_prepare() {
 	default
@@ -38,6 +44,7 @@ src_prepare() {
 
 src_configure() {
 	local emesonargs=(
+		$(meson_use man man-pages)
 		$(meson_use scripting)
 	)
 	meson_src_configure
