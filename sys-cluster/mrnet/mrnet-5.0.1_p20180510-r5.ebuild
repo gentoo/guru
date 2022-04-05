@@ -5,7 +5,7 @@ EAPI=8
 
 COMMIT="7375ba5bb0df87c68e58ad15e9e5e351ae020c08"
 
-inherit flag-o-matic toolchain-funcs
+inherit autotools flag-o-matic toolchain-funcs
 
 DESCRIPTION="A Multicast/Reduction Network"
 HOMEPAGE="http://www.paradyn.org/mrnet"
@@ -30,19 +30,24 @@ DEPEND="
 "
 
 PATCHES=(
+	"${FILESDIR}/${P}-respect-AR-CFLAGS.patch"
 	"${FILESDIR}/${P}-respect-LDFLAGS.patch"
 	"${FILESDIR}/${PN}-no-libi.patch"
 )
 REQUIRED_USE="slurm? ( libi )"
 
 src_prepare() {
+	tc-export AR CC CXX
 	rm -r external || die
 	default
+	pushd conf || die
+	mv configure.{in,ac} || die
+	eautoreconf
+	popd || die
+	mv conf/configure configure || die
 }
 
 src_configure() {
-	tc-export AR CC CXX
-
 	use libi && append-cxxflags "-llibi"
 	local myconf=(
 		--enable-shared
