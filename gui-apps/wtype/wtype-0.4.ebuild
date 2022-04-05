@@ -14,9 +14,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND=""
+DEPEND="dev-libs/wayland
+	x11-libs/libxkbcommon"
 RDEPEND="${DEPEND}"
-BDEPEND=""
+BDEPEND="dev-util/cmake"
 
 src_configure() {
 	meson_src_configure
