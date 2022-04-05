@@ -19,32 +19,95 @@ S="${WORKDIR}/xen-api-${PV}"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS=""
-IUSE="ocamlopt pam python"
+KEYWORDS="~amd64"
+IUSE="ocamlopt pam python test"
 
 RDEPEND="
 	python? ( ${PYTHON_DEPS} )
 
+	app-emulation/xen
+	dev-libs/openssl
 	dev-libs/xxhash
-	dev-ml/cstruct
-	dev-ml/ezjsonm
-	dev-ml/ezxenstore
-	dev-ml/mtime
-	dev-ml/rpc
-	dev-ml/uuidm
-	dev-ml/xapi-backtrace
-	dev-ml/xapi-stdext
-	dev-ml/xcp-inventory
-	dev-ml/xcp-rrd
-	dev-ml/xen-gnt
-	dev-ml/xenctrl
-	dev-ml/xenstore
-	dev-ml/xenstore-clients
-	dev-ml/xmlm
+	dev-ml/alcotest:=
+	dev-ml/angstrom:=
+	dev-ml/astring:=
+	dev-ml/async_inotify:=
+	dev-ml/async_unix:=
+	dev-ml/async:=
+	dev-ml/base-threads:=
+	dev-ml/base-unix:=
+	dev-ml/cdrom:=
+	dev-ml/cmdliner:=
+	dev-ml/cohttp:=[async,lwt,lwt-unix]
+	dev-ml/core:=
+	dev-ml/crc:=
+	dev-ml/cstruct:=[ppx,unix]
+	dev-ml/domain-name:=
+	dev-ml/dune-build-info:=
+	dev-ml/ezjsonm:=
+	dev-ml/ezxenstore:=
+	dev-ml/fd-send-recv:=
+	dev-ml/fmt:=
+	dev-ml/fpath:=
+	dev-ml/inotify:=
+	dev-ml/io-page:=[unix(-)]
+	dev-ml/ipaddr:=
+	dev-ml/logs:=
+	dev-ml/lwt:=
+	dev-ml/lwt_log:=
+	dev-ml/lwt_ssl:=
+	dev-ml/mirage-block-unix:=
+	dev-ml/mirage-crypto:=[pk]
+	dev-ml/mtime:=
+	dev-ml/mustache:=
+	dev-ml/nbd:=[unix]
+	dev-ml/netlink:=
+	dev-ml/ocaml-base64:=
+	dev-ml/ocaml-ctypes:=
+	dev-ml/ocaml-migrate-parsetree:=
+	dev-ml/ocaml-sha:=
+	dev-ml/pci:=
+	dev-ml/polly:=
+	dev-ml/ppx_sexp_conv:=
+	dev-ml/qmp:=
+	dev-ml/re:=
+	dev-ml/result:=
+	dev-ml/rpc:=[async]
+	dev-ml/rresult:=
+	dev-ml/sexplib:=
+	dev-ml/sexplib0:=
+	dev-ml/shared-block-ring:=
+	dev-ml/systemd:=
+	dev-ml/tar:=[unix]
+	dev-ml/uri:=
+	dev-ml/uuidm:=
+	dev-ml/uutf:=
+	dev-ml/vhd:=[lwt]
+	dev-ml/x509:=
+	dev-ml/xapi-backtrace:=
+	dev-ml/xapi-stdext:=
+	dev-ml/xapi-test-utils:=
+	dev-ml/xcp-inventory:=
+	dev-ml/xcp-rrd:=
+	dev-ml/xenctrl:=
+	dev-ml/xen-gnt:=[unix]
+	dev-ml/xenstore:=
+	dev-ml/xenstore-clients:=
+	dev-ml/xmlm:=
+	dev-ml/yojson:=
+	sys-libs/pam
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? (
+		dev-ml/mirage-crypto[rng]
+		>=dev-ml/ounit-2
+		dev-ml/qcheck
+	)
+"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+RESTRICT="!test? ( test )"
 
 src_compile() {
 	dune_src_compile
