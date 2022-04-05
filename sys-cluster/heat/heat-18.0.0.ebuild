@@ -148,7 +148,7 @@ python_install_all() {
 
 	insinto /etc/heat
 	insopts -m 0640 -o heat -g heat
-	doins heat.conf.sample
+	doins etc/heat/heat.conf.sample
 	doins etc/heat/policy.yaml.sample
 	doins "etc/heat/api-paste.ini"
 	insinto /etc/heat/templates
