@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit dune
+inherit dune multiprocessing
 
 MY_P="${PN}-v${PV}"
 
@@ -15,14 +15,28 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="ISC"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="ocamlopt"
+IUSE="ocamlopt test unix"
 
 RDEPEND="
 	dev-ml/bigarray-compat
 	dev-ml/cstruct
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? ( dev-ml/ounit )
+	unix? ( dev-ml/configurator )
+"
+
+RESTRICT="!test? ( test )"
+REQUIRED_USE="test? ( unix )"
+
+src_compile() {
+	local pkgs="io-page"
+	use unix && pkgs="${pkgs},io-page-unix"
+	dune build --only-packages "${pkgs}" -j $(makeopts_jobs) --profile release || die
+}
 
 src_install() {
-	dune_src_install "io-page io-page-unix io-page-xen"
+	dune_src_install io-page
+	use unix && dune_src_install io-page-unix
 }
