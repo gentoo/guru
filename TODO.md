@@ -8,7 +8,6 @@ Name | Buildsystem | Category | User | RFH
 [cpp-fuzzy-logic](https://sourceforge.net/projects/cpp-fuzzy-logic) | none | devel | Alessandro-Barbieri | no
 [free fuzzy logic library](http://ffll.sourceforge.net) | none | devel | Alessandro-Barbieri | no
 [solarized](https://github.com/altercation/solarized) | none | shell | Alessandro-Barbieri | yes
-[zsh-history-substring-search](zsh-history-substring-search) | none | shell | Alessandro-Barbieri | no
 [fizsh](https://github.com/zsh-users/fizsh) | none | shell | Alessandro-Barbieri | no
 [zsh-directory-history](https://github.com/tymm/zsh-directory-history) | none | shell | Alessandro-Barbieri | no
 [zsh-you-should-use](https://github.com/MichaelAquilina/zsh-you-should-use) | none | shell | Alessandro-Barbieri | no

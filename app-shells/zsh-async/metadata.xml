@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>Ronny (tastytea) Gutbrod</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">mafredri/zsh-async</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		With zsh-async you can run multiple asynchronous jobs, enforce
+		unique jobs (multiple instances of the same job will not run),
+		flush all currently running jobs and create multiple workers (each
+		with their own jobs). For each worker you can register a
+		callback-function through which you will be notified about the job
+		results (job name, return code, output and execution time).
+	</longdescription>
+</pkgmetadata>

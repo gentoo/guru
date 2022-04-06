@@ -23,7 +23,7 @@ IUSE="+pass gopass bemenu wofi rofi"
 REQUIRED_USE="|| ( pass gopass )
 	|| ( bemenu wofi rofi )"
 
-DEPEND=""
+DEPEND="app-text/scdoc"
 RDEPEND="${DEPEND}
 	bemenu? ( dev-libs/bemenu )
 	wofi? ( gui-apps/wofi )

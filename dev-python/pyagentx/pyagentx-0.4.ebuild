@@ -18,4 +18,4 @@ KEYWORDS="~amd64"
 PATCHES="${FILESDIR}/updater.patch
 		${FILESDIR}/python3.patch"
 
-distutils_enable_tests pytest
+distutils_enable_tests setup.py
