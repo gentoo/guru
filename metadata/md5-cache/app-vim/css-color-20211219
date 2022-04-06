@@ -9,5 +9,5 @@ LICENSE=MIT
 RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
 SLOT=0
 SRC_URI=https://github.com/ap/vim-css-color/archive/26ff274c20ef3929697ab31bbdeea5b42f890287.tar.gz -> css-color-20211219.tar.gz
-_eclasses_=vim-doc	e063cddf18e5d2f2cfb21388252579ec	vim-plugin	a7b5f19bc94a311ca1cf7127c8b84c41
+_eclasses_=vim-doc	76675474e2c64e01f41faabd9b3ab580	vim-plugin	1f214c929abd959ab2312ed512f624dc
 _md5_=08df82254d69d07649691198ff430386
