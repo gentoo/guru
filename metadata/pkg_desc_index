@@ -827,6 +827,7 @@ games-engines/fs2_open 21.4.1-r2 22.0.0: FreeSpace2 Source Code Project game eng
 games-engines/instead 3.3.5 3.4.1 9999: INSTEAD text-based quest game engine
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
+games-fps/assaultcube 1.3.0.2: Free multiplayer FPS based on the Cube engine
 games-fps/crispy-doom 5.10.0 5.10.1 5.10.2 5.10.3 5.11.1: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 games-fps/etlegacy 2.79.0: Wolfenstein: Enemy Territory 2.60b compatible client/server
 games-fps/quakespasm 0.94.1 9999: Modern, cross-platform Quake 1 engine based on FitzQuake
@@ -1174,6 +1175,7 @@ sys-apps/systemd-bootchart 234: systemd boot performance graphing tool
 sys-apps/sysz 1.4.1 1.4.3: An fzf terminal UI for systemctl
 sys-auth/keystone 21.0.0 21.0.0.0_rc1-r1: The Openstack authentication, authorization, and service catalog
 sys-auth/mrsh 2.12 2.12-r1: Mrsh is a set of remote shell programs that use munge authentication.
+sys-auth/pam-gnupg 0.3: Unlock GnuPG keys on login
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/limine 2.88 3.0: Limine is a modern, advanced x86/x86_64 BIOS/UEFI multiprotocol bootloader.
