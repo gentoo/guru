@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit dune findlib
+inherit dune findlib multiprocessing
 
 DESCRIPTION="A compiler from OCaml bytecode to javascript"
 HOMEPAGE="
@@ -15,23 +15,57 @@ SRC_URI="https://github.com/ocsigen/js_of_ocaml/archive/${PV}.tar.gz -> ${P}.tar
 KEYWORDS="~amd64"
 LICENSE="LGPL-2.1-with-linking-exception"
 SLOT="0/${PV}"
-IUSE="ocamlopt"
+IUSE="lwt ocamlopt ppx ppx-deriving-json test toplevel tyxml"
 
 RDEPEND="
 	dev-ml/cmdliner
-	dev-ml/lwt
 	dev-ml/menhir
 	dev-ml/ppxlib
-	dev-ml/ppx_expect
-	dev-ml/react
-	dev-ml/reactiveData
-	dev-ml/tyxml
 	dev-ml/yojson
+
+	lwt? ( dev-ml/lwt )
+	tyxml? (
+		dev-ml/react
+		dev-ml/reactiveData
+		dev-ml/tyxml
+	)
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? (
+		dev-ml/re
+		dev-ml/ppx_expect
+		dev-ml/num
+		dev-ml/ppxlib
+		dev-ml/graphics
+		dev-ml/cohttp[lwt-unix]
+	)
+"
+
+RESTRICT="!test? ( test )"
+REQUIRED_USE="
+	lwt? ( ppx )
+	test? ( lwt ppx ppx-deriving-json toplevel tyxml )
+	toplevel? ( ppx )
+	tyxml? ( ppx )
+"
+
+src_compile() {
+	local pkgs="js_of_ocaml,js_of_ocaml-compiler"
+	for u in lwt ppx ppx-deriving-json toplevel tyxml ; do
+		if use ${u} ; then
+			pkgs="${pkgs},js_of_ocaml-${u//-/_}"
+		fi
+	done
+	dune build --only-packages "${pkgs}" -j $(makeopts_jobs) --profile release || die
+}
 
 src_install() {
-	for p in js_of_ocaml{,-compiler,-lwt,-ppx,-ppx_deriving_json,-toplevel,-tyxml} ; do
-		dune_src_install ${p}
+	dune_src_install js_of_ocaml-compiler
+	dune_src_install js_of_ocaml
+	for u in lwt ppx ppx-deriving-json toplevel tyxml ; do
+		if use ${u}; then
+			dune_src_install "js_of_ocaml-${u//-/_}"
+		fi
 	done
 }
