@@ -2,11 +2,18 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <description>co-mainteiners welcome</description>
+    <description>co-maintainers welcome</description>
     <email>lssndrbarbieri@gmail.com</email>
     <name>Alessandro Barbieri</name>
   </maintainer>
   <upstream>
     <remote-id type="github">mirage/ocaml-cstruct</remote-id>
   </upstream>
+  <use>
+    <flag name="async">provide Async Pipe and Bigstring support</flag>
+    <flag name="lwt">provide Lwt variants of read/write functions</flag>
+    <flag name="ppx">a PPX syntax extension</flag>
+    <flag name="sexp">serialisers into s-expression format of Cstructs</flag>
+    <flag name="unix">provide Unix variations of the read/write functions using file descriptors</flag>
+  </use>
 </pkgmetadata>
