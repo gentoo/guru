@@ -9,4 +9,7 @@
   <upstream>
     <remote-id type="github">mirage/ezjsonm</remote-id>
   </upstream>
+  <use>
+    <flag name="lwt">Simple Lwt-based interface to the Jsonm JSON library</flag>
+  </use>
 </pkgmetadata>
