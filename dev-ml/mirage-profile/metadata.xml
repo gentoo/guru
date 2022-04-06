@@ -9,6 +9,7 @@
         <remote-id type="github">mirage/mirage-profile</remote-id>
     </upstream>
     <use>
-        <flag name="xen">Adds a Xen MirageOS backend collector</flag>
+        <flag name="unix">Adds a Unix backend collector</flag>
+        <!--<flag name="xen">Adds a Xen MirageOS backend collector</flag>-->
     </use>
 </pkgmetadata>
