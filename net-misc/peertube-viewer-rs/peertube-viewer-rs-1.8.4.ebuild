@@ -129,3 +129,7 @@ QA_FLAGS_IGNORED=(
 	"usr/bin/peertube-viewer-rs"
 )
 
+src_install() {
+	cargo_src_install
+	install -Dm644 -t "${D}/usr/share/man/man1" "${S}/${PN}.1"
+}
