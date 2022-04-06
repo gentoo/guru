@@ -16,7 +16,9 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND=""
 CONFIG_CHECK="~UINPUT"
-
+PATCHES=(
+	"${FILESDIR}"/toolchain-call.patch
+)
 src_install() {
 	dobin eventcap
 	dobin kloak

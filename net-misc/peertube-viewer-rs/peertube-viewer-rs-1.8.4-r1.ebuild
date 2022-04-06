@@ -125,3 +125,11 @@ S="${WORKDIR}/${PN}-v${PV}-72e39500dfe826b180e2264fcee5f914aec04fea"
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
+QA_FLAGS_IGNORED=(
+	"usr/bin/peertube-viewer-rs"
+)
+
+src_install() {
+	cargo_src_install
+	install -Dm644 -t "${D}/usr/share/man/man1" "${S}/${PN}.1"
+}
