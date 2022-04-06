@@ -215,3 +215,4 @@ KEYWORDS="~amd64 ~arm64"
 
 DEPEND=""
 RDEPEND=""
+QA_FLAGS_IGNORED="usr/bin/scaphandre"
