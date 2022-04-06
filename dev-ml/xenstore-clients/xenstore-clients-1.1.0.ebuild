@@ -13,13 +13,18 @@ S="${WORKDIR}/ocaml-${P}"
 LICENSE="LGPL-2.1-with-linking-exception"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="ocamlopt"
+IUSE="ocamlopt test"
 
 DEPEND="
-	dev-ml/cstruct
+	dev-ml/lwt
 	dev-ml/xenstore
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	test? ( dev-ml/ounit )
+"
+
+RESTRICT="!test? ( test )"
 
 src_install() {
 	dune_src_install xenstore_transport
