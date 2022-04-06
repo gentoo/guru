@@ -6,4 +6,4 @@ KEYWORDS=~amd64
 LICENSE=BSD
 SLOT=0
 SRC_URI=https://github.com/Whonix/kloak/archive/refs/tags/0.2.30-2.tar.gz
-_md5_=d5bc45352548d1819ca821b6457ad61f
+_md5_=1cecf81081f21b120f038c579cdd487f
