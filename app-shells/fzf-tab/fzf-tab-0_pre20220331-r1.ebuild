@@ -17,8 +17,8 @@ KEYWORDS="~amd64"
 IUSE="test"
 
 RDEPEND="
-	app-shells/zsh
 	app-shells/fzf
+	app-shells/zsh
 "
 BDEPEND="
 	test? (
@@ -39,7 +39,7 @@ MY_ZSH_LIBDIR="/usr/share/zsh/site-functions"
 
 src_configure() {
 	# Test fails if we modify FZF_TAB_HOME in place
-	sed -E "s|^FZF_TAB_HOME=\"[^\"]+\"$|FZF_TAB_HOME=\"${MY_ZSH_LIBDIR}/${PN}\"|" \
+	sed -E "s|^(FZF_TAB_HOME=\"[^\"]+)\"$|\1/${PN}\"|" \
 		${PN}.zsh > ${PN}-patched.zsh || die "Modifying FZF_TAB_HOME failed"
 
 	pushd modules || die "Changing directory failed"
