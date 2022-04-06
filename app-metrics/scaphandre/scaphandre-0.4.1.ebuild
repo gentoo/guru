@@ -206,7 +206,8 @@ DESCRIPTION="Electrical power consumption measurement agent."
 # does not provide this value so instead repository is used
 HOMEPAGE="https://github.com/hubblo-org/scaphandre"
 SRC_URI="https://github.com/hubblo-org/${PN}/archive/refs/tags/v${PV}.zip -> ${P}.zip $(cargo_crate_uris ${CRATES})"
-RESTRICT="mirror"
+# restricting test because '/proc/modules' does not appear to be present in the CI
+RESTRICT="mirror test"
 # License set may be more restrictive as OR is not respected
 # use cargo-license for a more accurate license picture
 LICENSE="Apache-2.0 Apache-2.0 ISC MIT MPL-2.0 Unlicense"

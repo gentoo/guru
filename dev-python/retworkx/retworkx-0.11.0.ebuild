@@ -99,6 +99,9 @@ RDEPEND=">=dev-python/numpy-1.16.0"
 
 distutils_enable_tests pytest
 
+# Libraries built with rust do not use CFLAGS and LDFLAGS.
+QA_FLAGS_IGNORED="usr/lib.*/py.*/site-packages/retworkx/retworkx.*\\.so"
+
 python_test() {
 	# We have to hide the source code directory so tests
 	# do not use these, but instead the compiled library.
