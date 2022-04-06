@@ -8,4 +8,9 @@
   <upstream>
     <remote-id type="github">mirage/ocaml-rpc</remote-id>
   </upstream>
+  <use>
+    <flag name="async">Async interface</flag>
+    <flag name="html">html documentation generator</flag>
+    <flag name="js">Bindings for js_of_ocaml</flag>
+  </use>
 </pkgmetadata>

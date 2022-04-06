@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit dune
+inherit dune multiprocessing
 
 MY_P="rpclib-${PV}"
 
@@ -15,30 +15,50 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="ISC"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="ocamlopt"
+IUSE="async html js ocamlopt test"
 
 DEPEND="
-	dev-ml/async
-	dev-ml/ocaml-base64
-	dev-ml/cmdliner
-	dev-ml/cow
-	dev-ml/js_of_ocaml
-	dev-ml/lwt
-	dev-ml/ppxlib
-	dev-ml/result
-	dev-ml/rresult
-	dev-ml/xmlm
-	dev-ml/yojson
+	dev-ml/cmdliner:=
+	dev-ml/lwt:=
+	dev-ml/ocaml-base64:=
+	dev-ml/ppxlib:=
+	dev-ml/result:=
+	dev-ml/rresult:=
+	dev-ml/xmlm:=
+	dev-ml/yojson:=
+
+	async? ( dev-ml/async:= )
+	html? ( dev-ml/cow:= )
+	js? ( dev-ml/js_of_ocaml:=[ppx] )
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	test? (
+		dev-ml/alcotest
+		dev-ml/alcotest-lwt
+		sys-apps/which
+	)
+"
 BDEPEND="app-text/md2mld"
 
+RESTRICT="!test? ( test )"
+
+src_compile() {
+	local pkgs="rpclib,rpc,rpclib-lwt,ppx_deriving_rpc"
+	for u in async js html ; do
+		if use ${u} ; then
+			pkgs="${pkgs},rpclib-${u}"
+		fi
+	done
+	dune build --only-packages "${pkgs}" -j $(makeopts_jobs) --profile release || die
+}
+
 src_install() {
-	dune_src_install ppx_deriving_rpc
-	dune_src_install rpc
-	dune_src_install rpclib-async
-	dune_src_install rpclib-html
-	dune_src_install rpclib-js
 	dune_src_install rpclib-lwt
 	dune_src_install rpclib
+	dune_src_install ppx_deriving_rpc
+	dune_src_install rpc
+	use async && dune_src_install rpclib-async
+	use html && dune_src_install rpclib-html
+	use js && dune_src_install rpclib-js
 }
