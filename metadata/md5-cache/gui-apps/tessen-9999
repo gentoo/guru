@@ -1,5 +1,6 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=postinst unpack
+DEPEND=app-text/scdoc
 DESCRIPTION=an interactive menu to autotype and copy pass and gopass data
 EAPI=8
 HOMEPAGE=https://github.com/ayushnix/tessen
@@ -7,8 +8,8 @@ INHERIT=optfeature git-r3
 IUSE=+pass gopass bemenu wofi rofi
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=bemenu? ( dev-libs/bemenu ) wofi? ( gui-apps/wofi ) rofi? ( x11-misc/rofi ) pass? ( app-admin/pass ) gopass? ( app-admin/gopass )
+RDEPEND=app-text/scdoc bemenu? ( dev-libs/bemenu ) wofi? ( gui-apps/wofi ) rofi? ( x11-misc/rofi ) pass? ( app-admin/pass ) gopass? ( app-admin/gopass )
 REQUIRED_USE=|| ( pass gopass ) || ( bemenu wofi rofi )
 SLOT=0
 _eclasses_=optfeature	d524f291c80f9d21ad80fe978e3ca760	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=9ee04c0ad85e341d2db89d26ab7cdb2d
+_md5_=d77311c01fde8423755dc921989c28cd
