@@ -25,6 +25,7 @@ PATCHES=(
 	"${FILESDIR}/assaultcube-1.3.0.2-respect-ldflags.patch
 	${FILESDIR}/assaultcube-1.3.0.2-fix-checkinstall.patch" # a script which checks for required libs and certain parts of the game
 )
+IUSE="debug"
 
 src_prepare() {
 	eapply ${PATCHES}
@@ -34,7 +35,11 @@ src_prepare() {
 
 src_compile() {
 	cd "${S}/source/src"
-	emake
+	if use debug; then
+		DEBUGBUILD=1 emake
+	else
+		emake
+	fi
 }
 
 src_install() {
