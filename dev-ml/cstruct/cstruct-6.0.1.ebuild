@@ -16,24 +16,24 @@ KEYWORDS="~amd64"
 IUSE="async lwt ocamlopt ppx sexp test unix"
 
 RDEPEND="
-	>=dev-lang/ocaml-4.08.0
-	>=dev-ml/fmt-0.8.9
+	>=dev-lang/ocaml-4.08.0:=[ocamlopt?]
+	>=dev-ml/fmt-0.8.9:=
 
 	async? (
-		dev-ml/async
-		dev-ml/async_unix
-		dev-ml/core
+		dev-ml/async:=
+		dev-ml/async_unix:=
+		dev-ml/core:=
 	)
 	lwt? (
-		dev-ml/base-unix
-		dev-ml/lwt
+		dev-ml/base-unix:=
+		dev-ml/lwt:=
 	)
 	ppx? (
-		dev-ml/ppxlib
-		dev-ml/stdlib-shims
+		dev-ml/ppxlib:=
+		dev-ml/stdlib-shims:=
 	)
-	sexp? ( dev-ml/sexplib )
-	unix? ( dev-ml/base-unix )
+	sexp? ( dev-ml/sexplib:= )
+	unix? ( dev-ml/base-unix:= )
 "
 DEPEND="
 	${RDEPEND}
@@ -56,12 +56,13 @@ REQUIRED_USE="
 
 src_compile() {
 	local pkgs="cstruct"
-	for u in async lwt ppx sexp unix ; do
+	use ppx && pkgs="${pkgs},ppx_cstruct"
+	for u in async lwt sexp unix ; do
 		if use ${u} ; then
 			pkgs="${pkgs},cstruct-${u}"
 		fi
 	done
-	dune build --only-packages "${pkgs}" -j $(makeopts_jobs) --profile release || die
+	dune build -p "${pkgs}" -j $(makeopts_jobs) || die
 }
 
 src_install() {
