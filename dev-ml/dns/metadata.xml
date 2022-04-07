@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+   <maintainer type="person">
+        <description>co-maintainers welcome</description>
+        <email>lssndrbarbieri@gmail.com</email>
+        <name>Alessandro Barbieri</name>
+    </maintainer>
+    <upstream>
+        <remote-id type="github">mirage/ocaml-dns</remote-id>
+    </upstream>
+    <use>
+        <flag name="certify">MirageOS let's encrypt certificate retrieval</flag>
+        <flag name="cli">Unix command line utilities using uDNS</flag>
+        <flag name="client">DNS resolver API</flag>
+        <flag name="dnssec">DNSSec support for OCaml-DNS</flag>
+        <flag name="mirage">An opinionated Domain Name System (DNS) library</flag>
+        <flag name="resolver">DNS resolver business logic</flag>
+        <flag name="server">DNS server, primary and secondary</flag>
+        <flag name="stub">DNS stub resolver</flag>
+        <flag name="tsig">TSIG support for DNS</flag>
+    </use>
+</pkgmetadata>
