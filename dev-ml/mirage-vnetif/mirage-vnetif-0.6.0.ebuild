@@ -47,7 +47,7 @@ REQUIRED_USE="test? ( stack )"
 src_compile() {
 	local pkgs="mirage-vnetif"
 	use stack && pkgs="${pkgs},mirage-vnetif-stack"
-	dune build --only-packages "${pkgs}" -j $(makeopts_jobs) --profile release || die
+	dune build -p "${pkgs}" -j $(makeopts_jobs) || die
 }
 
 src_install() {

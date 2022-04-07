@@ -57,7 +57,7 @@ src_compile() {
 			pkgs="${pkgs},js_of_ocaml-${u//-/_}"
 		fi
 	done
-	dune build --only-packages "${pkgs}" -j $(makeopts_jobs) --profile release || die
+	dune build -p "${pkgs}" -j $(makeopts_jobs) || die
 }
 
 src_install() {

@@ -31,7 +31,7 @@ src_compile() {
 	use async && pkgs="${pkgs},angstrom-async"
 	use unix && pkgs="${pkgs},angstrom-unix"
 	use lwt-unix && pkgs="${pkgs},angstrom-lwt-unix"
-	dune build --only-packages "${pkgs}" -j $(makeopts_jobs) --profile release || die
+	dune build -p "${pkgs}" -j $(makeopts_jobs) || die
 }
 
 src_install() {

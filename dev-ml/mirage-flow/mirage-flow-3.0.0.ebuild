@@ -36,7 +36,7 @@ src_compile() {
 			pkgs="${pkgs},mirage-flow-${u}"
 		fi
 	done
-	dune build --only-packages "${pkgs}" -j $(makeopts_jobs) --profile release || die
+	dune build -p "${pkgs}" -j $(makeopts_jobs) || die
 }
 
 src_install() {

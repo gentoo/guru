@@ -33,7 +33,7 @@ REQUIRED_USE="test? ( unix )"
 src_compile() {
 	local pkgs="io-page"
 	use unix && pkgs="${pkgs},io-page-unix"
-	dune build --only-packages "${pkgs}" -j $(makeopts_jobs) --profile release || die
+	dune build -p "${pkgs}" -j $(makeopts_jobs) || die
 }
 
 src_install() {

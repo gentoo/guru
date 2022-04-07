@@ -35,7 +35,7 @@ src_compile() {
 	if use unix ; then
 		pkgs="${pkgs},xen-gnt-unix"
 	fi
-	dune build --only-packages "${pkgs}" -j $(makeopts_jobs) --profile release || die
+	dune build -p "${pkgs}" -j $(makeopts_jobs) || die
 }
 
 src_install() {

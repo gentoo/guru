@@ -35,7 +35,7 @@ REQUIRED_USE="test? ( unix )"
 src_compile() {
 	local pkgs="xen-evtchn"
 	use unix && pkgs="${pkgs},xen-evtchn-unix"
-	dune build --only-packages "${pkgs}" -j $(makeopts_jobs) --profile release || die
+	dune build -p "${pkgs}" -j $(makeopts_jobs) || die
 }
 
 src_install() {

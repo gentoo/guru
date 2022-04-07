@@ -23,7 +23,7 @@ DEPEND="${RDEPEND}"
 src_compile() {
 	local pkgs="mirage-time"
 	use unix && pkgs="${pkgs},mirage-time-unix"
-	dune build --only-packages "${pkgs}" -j $(makeopts_jobs) --profile release || die
+	dune build -p "${pkgs}" -j $(makeopts_jobs) || die
 }
 
 src_install() {
