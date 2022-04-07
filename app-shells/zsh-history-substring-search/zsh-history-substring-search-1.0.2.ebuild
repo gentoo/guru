@@ -11,7 +11,7 @@ SRC_URI="https://github.com/zsh-users/zsh-history-substring-search/archive/refs/
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm"
 
 RDEPEND="app-shells/zsh"
 
