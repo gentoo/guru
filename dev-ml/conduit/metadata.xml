@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+   <maintainer type="person">
+        <email>lssndrbarbieri@gmail.com</email>
+        <name>Alessandro Barbieri</name>
+    </maintainer>
+   <upstream>
+        <remote-id type="github">mirage/ocaml-conduit</remote-id>
+    </upstream>
+    <use>
+        <flag name="async">A network connection establishment library for Async</flag>
+        <flag name="lwt">A portable network connection establishment library using Lwt</flag>
+        <flag name="lwt-unix">A network connection establishment library for Lwt_unix</flag>
+        <flag name="mirage">A network connection establishment library for MirageOS</flag>
+    </use>
+</pkgmetadata>
