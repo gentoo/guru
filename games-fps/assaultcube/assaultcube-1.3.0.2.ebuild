@@ -22,7 +22,8 @@ RDEPEND="sys-libs/zlib
 DEPEND="${RDEPEND}"
 BDEPEND="sys-devel/clang"
 PATCHES=(
-	"${FILESDIR}/assaultcube-1.3.0.2-respect-ldflags.patch"
+	"${FILESDIR}/assaultcube-1.3.0.2-respect-ldflags.patch
+	${FILESDIR}/assaultcube-1.3.0.2-fix-checkinstall.patch" # a script which checks for required libs and certain parts of the game
 )
 
 src_prepare() {
@@ -42,7 +43,7 @@ src_install() {
 
 	install -dm755 "${D}/usr/share/assaultcube"
 	install -Dm755 "${S}"/{assaultcube.sh,check_install.sh,server.sh,server_wizard.sh} -t "${D}/usr/share/assaultcube"
-	install -Dm755 "${S}/bin_unix/native_client" -t "${D}/usr/share/assaultcube/bin_unix"
+	install -Dm755 "${S}"/bin_unix/native_{client,server} -t "${D}/usr/share/assaultcube/bin_unix"
 	cp -r "${S}"/{bot,config,demos,docs,mods,packages} "${D}/usr/share/assaultcube/"
 	install -Dm644 "${S}"/{CONTRIBUTING.md,GOVERNANCE.md,README.{html,md},SECURITY.md} -t "${D}/usr/share/assaultcube"
 
