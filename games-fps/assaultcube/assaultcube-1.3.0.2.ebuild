@@ -12,7 +12,13 @@ S="${WORKDIR}/AC-${PV}"
 LICENSE="ZLIB assaultcube"
 SLOT="0"
 KEYWORDS="~amd64"
-RDEPEND="sys-libs/zlib media-libs/libsdl2 media-libs/sdl2-image x11-libs/libX11 media-libs/libogg media-libs/libvorbis media-libs/openal"
+RDEPEND="sys-libs/zlib
+		media-libs/libsdl2[opengl]
+		media-libs/sdl2-image[jpeg,png]
+		x11-libs/libX11
+		media-libs/libogg
+		media-libs/libvorbis
+		media-libs/openal"
 DEPEND="${RDEPEND}"
 BDEPEND="sys-devel/clang"
 PATCHES=(
