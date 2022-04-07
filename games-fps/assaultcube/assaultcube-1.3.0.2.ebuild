@@ -15,8 +15,12 @@ KEYWORDS="~amd64"
 RDEPEND="sys-libs/zlib media-libs/libsdl2 media-libs/sdl2-image x11-libs/libX11 media-libs/libogg media-libs/libvorbis media-libs/openal"
 DEPEND="${RDEPEND}"
 BDEPEND="sys-devel/clang"
+PATCHES=(
+	"${FILESDIR}/assaultcube-1.3.0.2-respect-ldflags.patch"
+)
 
 src_prepare() {
+	eapply ${PATCHES}
 	eapply_user
 	sed -i 's|//#define PRODUCTION|#define PRODUCTION|' "${S}/source/src/cube.h"
 }
