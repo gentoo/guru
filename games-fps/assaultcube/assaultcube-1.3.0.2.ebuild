@@ -19,7 +19,6 @@ BDEPEND="sys-devel/clang"
 src_prepare() {
 	eapply_user
 	sed -i 's|//#define PRODUCTION|#define PRODUCTION|' "${S}/source/src/cube.h"
-	rm -rf "${S}/source/include"
 }
 
 src_compile() {
