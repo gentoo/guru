@@ -30,14 +30,14 @@ RDEPEND="
 #	)
 DEPEND="
 	${RDEPEND}
-	unix? ( dev-ml/cstruct[ppx] )
+	dev-ml/cstruct[ppx]
 "
 
 src_compile() {
-	local pkgs="mirage-profile-unix"
+	local pkgs="mirage-profile"
 #	use xen && pkgs="${pkgs},mirage-profile-xen"
 	use unix && pkgs="${pkgs},mirage-profile-unix"
-	dune build --only-packages "${pkgs}" -j $(makeopts_jobs) --profile release || die
+	dune build -p "${pkgs}" -j $(makeopts_jobs) || die
 }
 
 src_install() {
