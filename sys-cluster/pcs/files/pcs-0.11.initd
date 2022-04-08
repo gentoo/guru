@@ -13,7 +13,7 @@ PIDFILE=/var/run/$name.pid
 if [ -f /etc/default/pcsd ]; then source /etc/default/pcsd; fi
 
 depend() {
-        need net pcsd-daemon
+        need net pcsd
         use syslog
 }
 
