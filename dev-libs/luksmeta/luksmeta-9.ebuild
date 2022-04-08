@@ -5,7 +5,7 @@ EAPI=8
 
 inherit autotools
 
-DESCRIPTION="UKSMeta is a simple library for storing metadata in the LUKSv1 header"
+DESCRIPTION="LUKSMeta is a simple library for storing metadata in the LUKSv1 header"
 HOMEPAGE="https://github.com/latchset/luksmeta"
 SRC_URI="https://github.com/latchset/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
