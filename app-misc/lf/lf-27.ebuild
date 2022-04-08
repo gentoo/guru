@@ -37,7 +37,7 @@ src_install() {
 
 	doman "${PN}.1"
 
-	# bash & zsh cd
+	# bash & zsh cd script
 	insinto "/usr/share/${PN}"
 	doins "etc/${PN}cd.sh"
 
