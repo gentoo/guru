@@ -9,14 +9,12 @@
 # @DESCRIPTION:
 # This eclass provides helper functions to build BOINC applications and libraries.
 
-inherit autotools toolchain-funcs
-
 case ${EAPI} in
 	8) ;;
 	*) die "${ECLASS}: EAPI ${EAPI} unsupported."
 esac
 
-# @ECLASS-VARIABLE: BOINC_SUBMODULE
+# @ECLASS_VARIABLE: BOINC_SUBMODULE
 # @PRE_INHERIT
 # @DEFAULT_UNSET
 # @DESCRIPTION:
@@ -26,13 +24,19 @@ esac
 #
 # If unset, no functions will be exported.
 
-# @ECLASS-VARIABLE: BOINC_S
+# @ECLASS_VARIABLE: BOINC_S
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # If defined this variable determines the source directory name after
 # unpacking. This defaults to package name and version. Note that this
 # variable supports a wildcard mechanism to help with github tarballs
 # that contain the commit hash as part of the directory name.
+
+if [[ ! ${_BOINC_ECLASS} ]]; then
+
+inherit autotools toolchain-funcs
+
+fi
 
 if [[ ${BOINC_SUBMODULE} ]]; then
 	EXPORT_FUNCTIONS src_unpack src_prepare src_configure
@@ -72,7 +76,7 @@ get_boinc_src() {
 
 }
 
-# @ECLASS-VARIABLE: BOINC_BUILD_DIR
+# @ECLASS_VARIABLE: BOINC_BUILD_DIR
 # @OUTPUT_VARIABLE
 # @DESCRIPTION:
 # Temporary build directory, where BOINC sources are located.
