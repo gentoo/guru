@@ -12,16 +12,22 @@
 # @DESCRIPTION:
 # Utility eclass providing wrapper functions for Qbs build system.
 
-if [[ ! ${_QBS_ECLASS} ]]; then
-
-case ${EAPI} in
+case ${EAPI:-0} in
 	8) ;;
-	*) die "${ECLASS}: EAPI ${EAPI} unsupported."
+	*) die "${ECLASS}: EAPI ${EAPI:-0} unsupported."
 esac
+
+if [[ ! ${_QBS_ECLASS} ]]; then
 
 inherit multiprocessing toolchain-funcs qmake-utils
 
-# @ECLASS-VARIABLE: QBS_COMMAND_ECHO_MODE
+fi
+
+EXPORT_FUNCTIONS src_configure src_compile src_install
+
+if [[ ! ${_QBS_ECLASS} ]]; then
+
+# @ECLASS_VARIABLE: QBS_COMMAND_ECHO_MODE
 # @USER_VARIABLE
 # @DESCRIPTION:
 # Determines what kind of output to show when executing commands.  Possible
@@ -37,8 +43,6 @@ inherit multiprocessing toolchain-funcs qmake-utils
 : ${QBS_COMMAND_ECHO_MODE:=command-line}
 
 BDEPEND="dev-util/qbs"
-
-EXPORT_FUNCTIONS src_configure src_compile src_install
 
 # @FUNCTION: eqbs
 # @USAGE: [<qbs args>...]
