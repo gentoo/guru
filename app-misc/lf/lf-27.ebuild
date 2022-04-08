@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit go-module bash-completion-r1
+inherit go-module bash-completion-r1 desktop
 
 EGO_SUM=(
 	"github.com/gdamore/encoding v1.0.0"
@@ -79,7 +79,6 @@ src_install() {
 	doins "etc/${PN}cd.fish"
 
 	use X && {
-		insinto /usr/share/applications
-		doins "${PN}.desktop"
+		domenu "${PN}.desktop"
 	}
 }
