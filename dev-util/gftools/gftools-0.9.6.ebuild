@@ -53,6 +53,7 @@ RDEPEND="
 		dev-python/jinja[${PYTHON_USEDEP}]
 		dev-python/hyperglot[${PYTHON_USEDEP}]
 		>=dev-python/fontFeatures-1.6.2[${PYTHON_USEDEP}]
+		dev-python/vharfbuzz[${PYTHON_USEDEP}]
 	')
 "
 DEPEND="
