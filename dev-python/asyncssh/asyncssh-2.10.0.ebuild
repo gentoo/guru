@@ -5,6 +5,11 @@ EAPI=8
 
 DOCS_BUILDER="sphinx"
 DOCS_DIR="docs"
+EPYTEST_DESELECT=(
+	tests/test_connection.py::_TestConnection::test_connect_timeout_exceeded
+	tests/test_connection.py::_TestConnection::test_connect_timeout_exceeded_string
+	tests/test_connection.py::_TestConnection::test_connect_timeout_exceeded_tunnel
+) # network tests
 PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1 docs optfeature
