@@ -34,7 +34,7 @@ SRC_URI="https://github.com/gokcehan/lf/archive/r${PV}.tar.gz -> ${P}.tar.gz
 
 DESCRIPTION="Terminal file manager"
 HOMEPAGE="https://github.com/gokcehan/lf"
-IUSE="+static X"
+IUSE="+static"
 
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 LICENSE="MIT"
@@ -78,7 +78,5 @@ src_install() {
 	insinto /usr/share/fish/vendor_functions.d
 	doins "etc/${PN}cd.fish"
 
-	use X && {
-		domenu "${PN}.desktop"
-	}
+	domenu "${PN}.desktop"
 }
