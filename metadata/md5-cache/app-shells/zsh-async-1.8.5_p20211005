@@ -1,0 +1,15 @@
+BDEPEND=test? ( app-shells/zsh dev-vcs/git )
+DEFINED_PHASES=install postinst test
+DESCRIPTION=Run multiple asynchronous jobs with callbacks
+EAPI=8
+HOMEPAGE=https://github.com/mafredri/zsh-async
+INHERIT=readme.gentoo-r1
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=app-shells/zsh
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/mafredri/zsh-async/archive/3ba6e2d1ea874bfb6badb8522ab86c1ae272923d.tar.gz -> zsh-async-1.8.5_p20211005.tar.gz
+_eclasses_=readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55
+_md5_=2f68229fdcad1d2423eba85c1b83e471

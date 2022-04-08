@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst postrm preinst prepare setup unpack
+DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=All-in-one voice and text chat
+EAPI=7
+HOMEPAGE=https://discordapp.com/
+INHERIT=desktop linux-info pax-utils unpacker xdg
+KEYWORDS=~amd64
+LICENSE=all-rights-reserved
+RDEPEND=app-accessibility/at-spi2-atk:2 app-accessibility/at-spi2-core:2 dev-libs/atk dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss media-libs/alsa-lib media-libs/mesa[gbm(+)] net-print/cups sys-apps/dbus sys-libs/glibc x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/libdrm x11-libs/libX11 x11-libs/libxcb x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libxkbcommon x11-libs/libXrandr x11-libs/libXScrnSaver x11-libs/libxshmfence x11-libs/pango
+RESTRICT=mirror bindist
+SLOT=0
+SRC_URI=https://dl-ptb.discordapp.net/apps/linux/0.0.29/discord-ptb-0.0.29.deb
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	linux-info	8b7b99d1e4401a7a903cdfe1d2bf29de	pax-utils	91d47e5d20627c717aa878b9167c62a8	unpacker	697382d119fd3d195f110b7979184285	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=341c18c99397256fb46450ffa0d551fc

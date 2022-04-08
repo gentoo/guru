@@ -8,6 +8,8 @@ app-accessibility/rhvoice:speech-dispatcher - Build a speech-dispatcher middlewa
 app-admin/glance:swift - Adds swift storage support
 app-admin/krapplet:pass - Add support for pass compatible storage
 app-admin/zenmonitor3:cli - Build zenmonitor-cli
+app-crypt/clevis:luks - Enable LUKS support
+app-crypt/clevis:tpm - Enable TPM support
 app-crypt/gnome-encfs-manager:appindicator - Build in support for notifications using the libindicate or libappindicator plugin
 app-crypt/intel-ipsec-mb:safe-data - sensitive information is cleared on completion of a function call
 app-crypt/intel-ipsec-mb:safe-lookup - lookups which depend on sensitive information are implemented with constant time functions
