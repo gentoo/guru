@@ -1,0 +1,20 @@
+diff --git a/source/src/Makefile b/source/src/Makefile
+index bf06195..61da2b7 100644
+--- a/source/src/Makefile
++++ b/source/src/Makefile
+@@ -202,12 +202,12 @@ server_install: server
+ 
+ else
+ client: libenet $(CLIENT_OBJS)
+-	$(CXX) $(CXXFLAGS) -o ac_client $(CLIENT_OBJS) $(CLIENT_LIBS)
++	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o ac_client $(CLIENT_OBJS) $(CLIENT_LIBS)
+ 
+ server: libenet $(SERVER_OBJS)
+-	$(CXX) $(CXXFLAGS) -o ac_server $(SERVER_OBJS) $(SERVER_LIBS)
++	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o ac_server $(SERVER_OBJS) $(SERVER_LIBS)
+ master: libenet $(MASTER_OBJS)
+-	$(CXX) $(CXXFLAGS) -o ac_master $(MASTER_OBJS) $(SERVER_LIBS)
++	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o ac_master $(MASTER_OBJS) $(SERVER_LIBS)
+ 
+ client_install: client
+ 	install -d ../../bin_unix/

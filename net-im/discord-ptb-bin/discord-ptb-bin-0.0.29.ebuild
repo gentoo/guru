@@ -18,6 +18,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="mirror bindist"
 
+# libXScrnSaver is used through dlopen (bug #825370)
 RDEPEND="
 	app-accessibility/at-spi2-atk:2
 	app-accessibility/at-spi2-core:2
@@ -27,27 +28,24 @@ RDEPEND="
 	dev-libs/nspr
 	dev-libs/nss
 	media-libs/alsa-lib
-	media-libs/fontconfig:1.0
-	media-libs/freetype:2
+	media-libs/mesa[gbm(+)]
 	net-print/cups
 	sys-apps/dbus
-	sys-apps/util-linux
+	sys-libs/glibc
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
+	x11-libs/libdrm
 	x11-libs/libX11
-	x11-libs/libXScrnSaver
 	x11-libs/libxcb
-	x11-libs/libxkbcommon
 	x11-libs/libXcomposite
-	x11-libs/libXcursor
 	x11-libs/libXdamage
 	x11-libs/libXext
 	x11-libs/libXfixes
-	x11-libs/libXi
+	x11-libs/libxkbcommon
 	x11-libs/libXrandr
-	x11-libs/libXrender
-	x11-libs/libXtst
+	x11-libs/libXScrnSaver
+	x11-libs/libxshmfence
 	x11-libs/pango
 "
 

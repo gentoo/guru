@@ -9,4 +9,8 @@
         <email>svdm-gentoo@protonmail.com</email>
         <name>Simon van der Maas</name>
     </maintainer>
+    <maintainer type="person">
+        <email>cantcuckthis@danwin1210.de</email>
+        <name>Dex Conner</name>
+    </maintainer>
 </pkgmetadata>

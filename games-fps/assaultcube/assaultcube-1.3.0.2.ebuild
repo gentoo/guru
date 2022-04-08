@@ -12,19 +12,34 @@ S="${WORKDIR}/AC-${PV}"
 LICENSE="ZLIB assaultcube"
 SLOT="0"
 KEYWORDS="~amd64"
-RDEPEND="sys-libs/zlib media-libs/libsdl2 media-libs/sdl2-image x11-libs/libX11 media-libs/libogg media-libs/libvorbis media-libs/openal"
+RDEPEND="sys-libs/zlib
+		media-libs/libsdl2[opengl]
+		media-libs/sdl2-image[jpeg,png]
+		x11-libs/libX11
+		media-libs/libogg
+		media-libs/libvorbis
+		media-libs/openal"
 DEPEND="${RDEPEND}"
 BDEPEND="sys-devel/clang"
+PATCHES=(
+	"${FILESDIR}/assaultcube-1.3.0.2-respect-ldflags.patch
+	${FILESDIR}/assaultcube-1.3.0.2-fix-checkinstall.patch" # a script which checks for required libs and certain parts of the game
+)
+IUSE="debug"
 
 src_prepare() {
+	eapply ${PATCHES}
 	eapply_user
 	sed -i 's|//#define PRODUCTION|#define PRODUCTION|' "${S}/source/src/cube.h"
-	rm -rf "${S}/source/include"
 }
 
 src_compile() {
 	cd "${S}/source/src"
-	emake
+	if use debug; then
+		DEBUGBUILD=1 emake
+	else
+		emake
+	fi
 }
 
 src_install() {
@@ -33,7 +48,7 @@ src_install() {
 
 	install -dm755 "${D}/usr/share/assaultcube"
 	install -Dm755 "${S}"/{assaultcube.sh,check_install.sh,server.sh,server_wizard.sh} -t "${D}/usr/share/assaultcube"
-	install -Dm755 "${S}/bin_unix/native_client" -t "${D}/usr/share/assaultcube/bin_unix"
+	install -Dm755 "${S}"/bin_unix/native_{client,server} -t "${D}/usr/share/assaultcube/bin_unix"
 	cp -r "${S}"/{bot,config,demos,docs,mods,packages} "${D}/usr/share/assaultcube/"
 	install -Dm644 "${S}"/{CONTRIBUTING.md,GOVERNANCE.md,README.{html,md},SECURITY.md} -t "${D}/usr/share/assaultcube"
 

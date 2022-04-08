@@ -65,7 +65,8 @@ ruby_add_rdepend "
 		www-servers/thin"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-PATCHES="${FILESDIR}/pcs-0.11-gentoo-support.patch"
+PATCHES="${FILESDIR}/pcs-0.11-gentoo-support.patch
+		${FILESDIR}/remove_bashism.patch"
 
 src_prepare() {
 	default

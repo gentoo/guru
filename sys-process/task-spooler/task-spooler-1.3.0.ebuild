@@ -22,7 +22,7 @@ HTML_DOCS=( web/index.html web/ts-0.2.1.png web/ts-0.5.4.ebuild web/article_linu
 PATCHES=( "${FILESDIR}"/var-redefinition.patch )
 
 src_test() {
-	cp $"{BUILD_DIR}/ts" "${S}"/ || die "failed to copy ts executable to source folder for tests"
+	cp "${BUILD_DIR}/ts" "${S}"/ || die "failed to copy ts executable to source folder for tests"
 	sh testbench.sh || die "tests failed"
 }
 
