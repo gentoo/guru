@@ -13,5 +13,5 @@ REQUIRED_USE=!compute-only? ( || ( mysql postgres sqlite ) ) compute-only? ( com
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://tarballs.openstack.org/nova/nova-25.0.0.tar.gz
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	59dddabd6a41ab69723654916142f63b	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	f8fb9a72a02c35c58af19c832822cf35	linux-info	8b7b99d1e4401a7a903cdfe1d2bf29de	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	udev	2d229ad4bfa09058e0184b1ca900db32
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-utils-r1	59dddabd6a41ab69723654916142f63b	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	e09c9461a1dcb570a0cb5c43f332b528	linux-info	8b7b99d1e4401a7a903cdfe1d2bf29de	systemd	2736b403a83f194b59b767f3b344c2c1	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f	udev	2d229ad4bfa09058e0184b1ca900db32
 _md5_=1c1824c25fbcce14432e1457840f0a92
