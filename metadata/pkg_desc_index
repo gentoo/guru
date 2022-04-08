@@ -352,7 +352,7 @@ dev-libs/libdatrie 0.2.13: Double-Array Trie Library
 dev-libs/libdwarf 20210528: The DWARF Debugging Information Format
 dev-libs/libnodave 0.8.5.1-r2: Connect to and exchange data with Siemens PLCs
 dev-libs/libthai 0.1.28 0.1.29: A a set of Thai language support routines
-dev-libs/luksmeta 9: UKSMeta is a simple library for storing metadata in the LUKSv1 header
+dev-libs/luksmeta 9: LUKSMeta is a simple library for storing metadata in the LUKSv1 header
 dev-libs/memkind 1.11.0-r2 1.13.0: user extensible heap manager built on top of jemalloc
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
 dev-libs/mtxclient 0.6.2-r1 0.7.0: Client API library for Matrix, built on top of Boost.Asio
