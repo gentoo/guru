@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit flag-o-matic savedconfig toolchain-funcs
+inherit flag-o-matic savedconfig toolchain-funcs desktop
 
 DESCRIPTION="dwm for Wayland"
 HOMEPAGE="https://github.com/djpohly/dwl"
@@ -42,8 +42,7 @@ src_configure() {
 src_install() {
 	emake PREFIX="${ED}/usr" install
 
-	insinto /usr/share/wayland-sessions
-	doins "${FILESDIR}"/dwl.desktop
+	domenu "${FILESDIR}"/dwl.desktop
 
 	einstalldocs
 
