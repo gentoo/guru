@@ -17,7 +17,7 @@ IUSE="X"
 RDEPEND="
 	dev-libs/libinput
 	dev-libs/wayland
-	gui-libs/wlroots[X(-)?]
+	>=gui-libs/wlroots-0.15.1[X(-)?]
 	x11-libs/libxcb
 	x11-libs/libxkbcommon
 "
