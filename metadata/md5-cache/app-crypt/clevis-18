@@ -12,4 +12,4 @@ RDEPEND=luks? ( app-misc/jq ) >=dev-libs/jose-8 luks? ( dev-libs/libpwquality ) 
 SLOT=0
 SRC_URI=https://github.com/latchset/clevis/archive/v18.tar.gz -> clevis-18.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	59dddabd6a41ab69723654916142f63b	meson	2d8a51910bc57e004c37aa55c7d99ce4
-_md5_=fb0a34969f7acd13ce340f6df9ddc181
+_md5_=afe146ff409cc4dfa9af1bad34eb7668
