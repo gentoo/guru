@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="Plugin to check import ordering using isort"
-HOMEPAGE="https://github.com/moccu/pytest-isort"
+HOMEPAGE="https://github.com/stephrdev/pytest-isort"
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
