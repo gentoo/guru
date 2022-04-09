@@ -175,7 +175,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="dev-go/go-md2man
-app-emulation/aardvark-dns"
+app-containers/aardvark-dns"
 RDEPEND=""
 
 src_compile() {
