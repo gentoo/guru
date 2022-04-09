@@ -5,10 +5,6 @@ EAPI=8
 
 inherit meson
 
-PATCHES=(
-	"${FILESDIR}/${PN}-dracut.patch"
-)
-
 DESCRIPTION="Automated Encryption Framework"
 HOMEPAGE="https://github.com/latchset/clevis"
 SRC_URI="https://github.com/latchset/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -27,6 +23,6 @@ DEPEND="luks? ( app-misc/jq )
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
-src_configure() {
-	meson_src_configure
-}
+PATCHES=(
+	"${FILESDIR}/${PN}-dracut.patch"
+)

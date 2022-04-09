@@ -17,6 +17,10 @@ DEPEND="sys-fs/cryptsetup"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
+PATCHES=(
+	"${FILESDIR}/${PN}-tests.patch"
+)
+
 src_prepare() {
 	default
 	eautoreconf

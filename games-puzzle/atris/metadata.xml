@@ -3,7 +3,7 @@
 <pkgmetadata>
 <maintainer type="person">
 	<name>mazes-80</name>
-	<email>mazes-80@none.org</email>
+	<email>samuel.bauer@yahoo.fr</email>
 </maintainer>
 <use>
 	<flag name="sound">Enable atris sound pack</flag>

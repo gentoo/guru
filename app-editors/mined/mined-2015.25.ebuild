@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-
 EAPI=7
+inherit toolchain-funcs
 
 DESCRIPTION="A powerful text editor with extensive Unicode and CJK support"
 HOMEPAGE="http://towo.net/mined/"
@@ -16,6 +16,7 @@ DEPEND="${RDEPEND}"
 BDEPEND=""
 S=${S}/src
 src_configure() {
+	tc-export CC
 	sed -in 's/OBJDIR=..\/bin\/sh/OBJDIR=bin\/sh/' mkmined
 	sed -in 's/\"\${COPT--DTERMIO \$W}\"/\"${CFLAGS} \${COPT--DTERMIO} \${LDFLAGS}\"/' mkmined
 	sed -in 's/name.o/name.o \$LDFLAGS/' mkmined

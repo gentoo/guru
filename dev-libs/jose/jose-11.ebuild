@@ -16,7 +16,3 @@ KEYWORDS="~amd64"
 DEPEND="dev-libs/jansson"
 RDEPEND="${DEPEND}"
 BDEPEND=""
-
-src_configure() {
-	meson_src_configure
-}

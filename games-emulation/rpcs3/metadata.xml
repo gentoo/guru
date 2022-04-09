@@ -3,7 +3,7 @@
 <pkgmetadata>
 <maintainer type="person">
 	<name>mazes-80</name>
-	<email>mazes-80@github.com</email>
+	<email>samuel.bauer@yahoo.fr</email>
 </maintainer>
 <use>
 	<flag name="discord">Enables Discord Rich Presence</flag>
