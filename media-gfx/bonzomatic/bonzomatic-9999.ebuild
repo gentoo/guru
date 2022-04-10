@@ -30,7 +30,7 @@ DEPEND="
 	!system-glfw? (
 		wayland? (
 			dev-libs/wayland
-			media-libs/mesa[egl,wayland]
+			media-libs/mesa[egl(+),wayland]
 			dev-libs/wayland-protocols
 		)
 		!wayland? (
