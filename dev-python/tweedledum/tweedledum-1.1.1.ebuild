@@ -25,6 +25,11 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
+python_compile() {
+	local -x SKBUILD_CONFIGURE_OPTIONS="-DCMAKE_BUILD_TYPE=RelWithDebInfo"
+	distutils-r1_python_compile
+}
+
 python_test() {
 	epytest python/test
 }
