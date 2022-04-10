@@ -5,9 +5,6 @@
 		<email>contact@hacktivis.me</email>
 		<name>Haelwenn (lanodan) Monnier</name>
 	</maintainer>
-	<use>
-		<flag name="egl">Enable EGL support.</flag>
-	</use>
 	<upstream>
 		<remote-id type="github">ptitSeb/gl4es</remote-id>
 	</upstream>
