@@ -1,0 +1,15 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
+DEPEND=>=dev-qt/qtcore-5.6.0:5 >=dev-qt/qttest-5.6.0:5 >=dev-qt/qtconcurrent-5.6.0:5 >=dev-qt/qtgui-5.6.0:5 >=dev-qt/qtnetwork-5.6.0:5 >=dev-qt/qtwidgets-5.6.0:5 >=dev-qt/qtxml-5.6.0:5 >=virtual/jdk-1.8.0:* media-libs/libglvnd sys-libs/zlib >=dev-java/java-config-2.2.0-r3
+DESCRIPTION=A custom, open source Minecraft launcher
+EAPI=8
+HOMEPAGE=https://polymc.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake java-pkg-2 optfeature xdg git-r3
+IUSE=debug
+LICENSE=Apache-2.0 Boost-1.0 BSD BSD-2 GPL-2+ GPL-3 LGPL-3 LGPL-2.1-with-linking-exception OFL-1.1 MIT
+PROPERTIES=live
+RDEPEND=>=dev-qt/qtcore-5.6.0:5 >=dev-qt/qttest-5.6.0:5 >=dev-qt/qtconcurrent-5.6.0:5 >=dev-qt/qtgui-5.6.0:5 >=dev-qt/qtnetwork-5.6.0:5 >=dev-qt/qtwidgets-5.6.0:5 >=dev-qt/qtxml-5.6.0:5 >=virtual/jre-1.8.0:* virtual/opengl sys-libs/zlib >=dev-java/java-config-2.2.0-r3
+SLOT=0
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149	java-utils-2	5faae27f317e090a61b74f53f5e0cbc9	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	optfeature	d524f291c80f9d21ad80fe978e3ca760	xdg	6024fbc93167fad782e2032933654857	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=bcb9376dff3069c03d8512d350755dd9

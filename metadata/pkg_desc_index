@@ -813,6 +813,7 @@ games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple di
 games-action/blackvoxel 2.50 9999: Blackvoxel Video Game
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
+games-action/polymc 1.1.1 9999: A custom, open source Minecraft launcher
 games-action/technic-launcher 4.625: Minecraft launcher for community-made modpacks on the Technic Platform
 games-arcade/SpaceCadetPinball 2.0 2.0.1: Decompilation of 3D Pinball for Windows - Space Cadet
 games-arcade/opensurge 0.5.2.1 9999: fun 2D retro platformer inspired by old-school Sonic games
@@ -886,6 +887,7 @@ gui-apps/mpvpaper 1.1 1.2 9999: A video wallpaper program for wlroots based wayl
 gui-apps/nwg-launchers 0.5.0 0.6.3 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperde 0.1.1_p20210426 9999: Simple, sleek QT based DE for wayland using wayfire
 gui-apps/sfwbar 1.0_beta2 1.0_beta3 1.0_beta4: Sway Floating Window Bar
+gui-apps/somebar 9999: dwm-like bar for dwl
 gui-apps/sway-launcher-desktop 1.5.4: TUI Application launcher with Desktop Entry support
 gui-apps/swaykbdd 1.0: Per-window keyboard layout switcher for Sway
 gui-apps/swaylock-effects 1.6.2 1.6.3 9999: Swaylock, with fancy effects
@@ -956,7 +958,7 @@ media-gfx/oxipng 3.0.1 4.0.3 5.0.0 5.0.1: A lossless PNG compression optimizer
 media-gfx/qview 4.0 5.0: Practical and minimal image viewer
 media-gfx/sic 0.19.0: Accessible image processing and conversion from the terminal tool.
 media-gfx/silicon 0.4.0 0.4.1 0.4.3: Create beautiful image of your code
-media-gfx/superslicer 2.2.53.4-r1 2.3.57.7-r1 2.3.57.9-r1 2.3.57.10 2.3.57.11: A mesh slicer to generated G-Code for fused-filament fabrication
+media-gfx/superslicer 2.2.53.4-r1 2.3.57.7-r1 2.3.57.9-r1 2.3.57.10 2.3.57.11 2.3.57.12: A mesh slicer to generated G-Code for fused-filament fabrication
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-gfx/ufolint 1.2.0: UFO source format linter
 media-libs/alsa-ucm-pinephone 1.2.6.3: ALSA ucm configuration files for the PinePhone (Pro)
@@ -1029,7 +1031,7 @@ net-dialup/tio 1.36: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/Quaternion 0.0.9.4e: A Qt5-based IM client for the Matrix protocol
-net-im/abaddon 0.1.4 9999: Alternative Discord client using GTK instead of Electron
+net-im/abaddon 0.1.5 9999: Alternative Discord client using GTK instead of Electron
 net-im/discord-canary-bin 0.0.134: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.29: All-in-one voice and text chat
 net-im/go-sendxmpp 0.2.0 0.3.0: A little tool to send messages to an XMPP contact or MUC
@@ -1086,7 +1088,7 @@ net-misc/xmrig-mo 6.16.2 6.16.3 6.16.4 6.16.5: MoneroOcean fork of xmrig that su
 net-news/comitium 1.8.1: feed aggregator for gemini supporting many formats and protocols
 net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny Tiny RSS or feedly
 net-nntp/inn 2.6.4-r1 2.6.5: InterNetNews -- the Internet meets Netnews
-net-p2p/bisq 1.8.2: The decentralized bitcoin exchange (non-atomic, with arbitration)
+net-p2p/bisq 1.8.4: The decentralized bitcoin exchange (non-atomic, with arbitration)
 net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.2.0 0.17.2.3 9999: The secure, private, untraceable cryptocurrency
 net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for Linux
