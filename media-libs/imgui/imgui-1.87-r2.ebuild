@@ -3,16 +3,25 @@
 
 EAPI=8
 
-inherit flag-o-matic toolchain-funcs
+inherit cmake flag-o-matic toolchain-funcs
+
+CMAKE_IN_SOURCE_BUILD=1
 
 DESCRIPTION="Bloat-free graphical user interface library for C++"
-HOMEPAGE="https://github.com/ocornut/imgui"
-SRC_URI="https://github.com/ocornut/imgui/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="
+	https://github.com/ocornut/imgui
+	https://github.com/cimgui/cimgui
+"
+SRC_URI="
+	https://github.com/ocornut/imgui/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/cimgui/cimgui/archive/refs/tags/${PV}.tar.gz -> c${P}.tar.gz
+"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="allegro examples freetype glfw glut opengl sdl vulkan"
+IUSE="allegro bindings examples freetype glfw glut opengl sdl vulkan"
+S="${WORKDIR}/c${P}"
 
 RDEPEND="
 	allegro? ( media-libs/allegro:5 )
@@ -27,12 +36,20 @@ DEPEND="
 	${RDEPEND}
 	vulkan? ( dev-util/vulkan-headers )
 "
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	bindings? ( dev-lang/luajit )
+	virtual/pkgconfig
+"
 
+PATCHES=( "${FILESDIR}/c${P}-fix-cmake.patch" )
 REQUIRED_USE="
 	|| (
 		allegro
-		|| ( glfw glut sdl )
+		|| (
+			glfw
+			glut
+			sdl
+		)
 		|| ( opengl vulkan )
 	)
 	examples? (
@@ -46,45 +63,75 @@ REQUIRED_USE="
 "
 
 src_prepare() {
+	pushd ../ || die
+	rm -rf "${S}/imgui" || die
+	mv "${P}" "${S}/imgui" || die
+	pushd "${S}/imgui" || die
+
+	# imgui
 	rm -r examples/libs || die
 	rm -r misc/*/*.ttf || die
 	rm -r misc/single_file || die
-	default
+
+	# cimgui
+	if use bindings; then
+		pushd "${S}" || die
+		cmake_src_prepare
+	else
+		eapply_user
+	fi
 }
 
 src_configure() {
+	pushd imgui || die
+
+	# imgui
 	tc-export CXX
 	append-cppflags "-DIMGUI_USE_WCHAR32"
-	append-cxxflags "-I${S} -I${S}/backends -I${S}/misc/freetype -fPIC -fpermissive"
+	COMMONFLAGS="-I${S}/imgui -I${S}/imgui/backends -I${S}/imgui/misc/freetype -fPIC -fpermissive"
 	local PKGCONF="$(tc-getPKG_CONFIG)" || die
 
 	use allegro && append-libs "-lallegro -lallegro_main -lallegro_primitives"
 	if use freetype; then
 		append-cppflags "-DIMGUI_ENABLE_FREETYPE -DIMGUI_ENABLE_STB_TRUETYPE"
-		append-cxxflags "$(${PKGCONF} --cflags freetype2)" || die
+		COMMONFLAGS="${COMMONFLAGS} $(${PKGCONF} --cflags freetype2)" || die
 		append-libs "$(${PKGCONF} --libs freetype2)" || die
 	fi
 	if use glfw; then
 		append-libs "$(${PKGCONF} --libs glfw3)" || die
-		append-cxxflags "$(${PKGCONF} --cflags glfw3)" || die
+		COMMONFLAGS="${COMMONFLAGS} $(${PKGCONF} --cflags glfw3)" || die
 	fi
 	if use glut; then
 		append-libs "$(${PKGCONF} --libs freeglut)" || die
-		append-cxxflags "$(${PKGCONF} --cflags freeglut)" || die
+		COMMONFLAGS="${COMMONFLAGS} $(${PKGCONF} --cflags freeglut)" || die
 	fi
 	use opengl && append-libs "-lGL"
 	if use sdl; then
 		append-libs "-ldl $(sdl2-config --libs)" || die
-		append-cxxflags "$(sdl2-config --cflags)" || die
+		COMMONFLAGS="${COMMONFLAGS} $(sdl2-config --cflags)" || die
 	fi
 	if use vulkan; then
 		append-libs "$(${PKGCONF} --libs vulkan)" || die
-		append-cxxflags "$(${PKGCONF} --cflags vulkan)" || die
+		COMMONFLAGS="${COMMONFLAGS} $(${PKGCONF} --cflags vulkan)" || die
 		append-cppflags "-DImTextureID=ImU64" || die
+	fi
+	append-cxxflags "${COMMONFLAGS}"
+	popd || die
+
+	# cimgui
+	if use bindings; then
+		local mycmakeargs=(
+			-DIMGUI_FREETYPE=$(usex freetype)
+			-DIMGUI_STATIC=OFF
+		)
+		cmake_src_configure
 	fi
 }
 
 src_compile() {
+	pushd imgui || die
+
+	# imgui
 	set -x || die
 
 	local objects=()
@@ -137,14 +184,39 @@ src_compile() {
 	if use examples; then
 		mkdir ex || die
 		for f in allegro5 glfw_opengl{2,3} glfw_vulkan null sdl_opengl{2,3} sdl_{sdlrenderer,vulkan} glut_opengl2 ; do
-			${CXX} ${CXXFLAGS} ${CPPFLAGS} ${LDFLAGS} -fPIE examples/example_${f}/main.cpp "-L${S}" -limgui ${LIBS} -o "${S}/ex/example_${f}" || die
+			${CXX} ${CXXFLAGS} ${CPPFLAGS} ${LDFLAGS} -fPIE examples/example_${f}/main.cpp "-L${S}/imgui" -limgui ${LIBS} -o "${S}/imgui/ex/example_${f}" || die
 		done
 	fi
 
 	set +x || die
+	popd || die
+
+	# cimgui
+	if use bindings; then
+		pushd generator || die
+		local myargs=()
+		use allegro && myargs+=( allegro5 )
+		use glfw && myargs+=( glfw )
+		use glut && myargs+=( glut )
+		use opengl && myargs+=( opengl3 opengl2 )
+		use sdl && myargs+=( sdl sdlrenderer )
+		use vulkan && myargs+=( vulkan )
+		myargs+=( ${CFLAGS} ${COMMONFLAGS} ${CPPFLAGS} )
+
+		if use freetype ; then
+			luajit ./generator.lua gcc "internal freetype" ${myargs[@]} || die
+		else
+			luajit ./generator.lua gcc "internal" ${myargs[@]} || die
+		fi
+		popd || die
+		cmake_src_compile
+	fi
 }
 
 src_install() {
+	pushd imgui || die
+
+	# imgui
 	dolib.so libimgui.so
 	dodoc docs/*
 	insinto "/usr/include/imgui"
@@ -163,5 +235,15 @@ src_install() {
 		doexe ex/*
 		dodoc -r examples
 		docompress -x "/usr/share/doc/${PF}/examples"
+	fi
+
+	popd || die
+
+	# cimgui
+	if use bindings; then
+		dolib.so libcimgui.so
+		insinto "/usr/share/doc/${PF}/cimgui"
+		doins README.md TODO.txt
+		doheader cimgui.h
 	fi
 }
