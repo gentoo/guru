@@ -12,7 +12,7 @@ DOCS=( README.md )
 KEYWORDS="~amd64"
 SRC_URI="
 	https://github.com/popura-network/Popura/archive/v${PV}+popura1.tar.gz -> ${P}+popura1.tar.gz
-	https://gitea.minecast.xyz/BratishkaErik/distfiles/media/branch/master/${P}+popura1-deps.tar.bz2
+	https://github.com/BratishkaErik/distfiles/raw/master/${P}+popura1-deps.tar.bz2
 "
 
 S="${WORKDIR}/Popura-${PV}-popura1"

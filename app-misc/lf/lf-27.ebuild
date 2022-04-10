@@ -3,38 +3,14 @@
 
 EAPI=7
 
-inherit go-module bash-completion-r1
+inherit go-module bash-completion-r1 desktop
 
-EGO_SUM=(
-	"github.com/gdamore/encoding v1.0.0"
-	"github.com/gdamore/encoding v1.0.0/go.mod"
-	"github.com/gdamore/tcell/v2 v2.3.1"
-	"github.com/gdamore/tcell/v2 v2.3.1/go.mod"
-	"github.com/lucasb-eyer/go-colorful v1.0.3"
-	"github.com/lucasb-eyer/go-colorful v1.0.3/go.mod"
-	"github.com/mattn/go-runewidth v0.0.10"
-	"github.com/mattn/go-runewidth v0.0.10/go.mod"
-	"github.com/rivo/uniseg v0.1.0"
-	"github.com/rivo/uniseg v0.1.0/go.mod"
-	"golang.org/x/sys v0.0.0-20201119102817-f84b799fce68/go.mod"
-	"golang.org/x/sys v0.0.0-20220209214540-3681064d5158"
-	"golang.org/x/sys v0.0.0-20220209214540-3681064d5158/go.mod"
-	"golang.org/x/term v0.0.0-20201210144234-2321bbc49cbf/go.mod"
-	"golang.org/x/term v0.0.0-20210220032956-6a3ed077a48d"
-	"golang.org/x/term v0.0.0-20210220032956-6a3ed077a48d/go.mod"
-	"golang.org/x/text v0.3.0"
-	"golang.org/x/text v0.3.0/go.mod"
-	"gopkg.in/djherbis/times.v1 v1.2.0"
-	"gopkg.in/djherbis/times.v1 v1.2.0/go.mod"
-)
-
-go-module_set_globals
-SRC_URI="https://github.com/gokcehan/lf/archive/r${PV}.tar.gz -> ${P}.tar.gz
-	${EGO_SUM_SRC_URI}"
+SRC_URI="https://github.com/gokcehan/lf/archive/r${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI+=" https://github.com/cantcuckthis/gentoo-lf/raw/main/${P}-deps.tar.xz"
 
 DESCRIPTION="Terminal file manager"
 HOMEPAGE="https://github.com/gokcehan/lf"
-IUSE="+static X"
+IUSE="+static"
 
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 LICENSE="MIT"
@@ -61,7 +37,7 @@ src_install() {
 
 	doman "${PN}.1"
 
-	# bash & zsh
+	# bash & zsh cd script
 	insinto "/usr/share/${PN}"
 	doins "etc/${PN}cd.sh"
 
@@ -78,8 +54,5 @@ src_install() {
 	insinto /usr/share/fish/vendor_functions.d
 	doins "etc/${PN}cd.fish"
 
-	use X && {
-		insinto /usr/share/applications
-		doins "${PN}.desktop"
-	}
+	domenu "${PN}.desktop"
 }

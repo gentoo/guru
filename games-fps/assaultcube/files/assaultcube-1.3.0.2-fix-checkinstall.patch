@@ -1,0 +1,13 @@
+diff --git a/check_install.sh b/check_install.sh
+index 19f22ed..fb0bec9 100755
+--- a/check_install.sh
++++ b/check_install.sh
+@@ -10,7 +10,7 @@ cd "$CUBE_DIR"
+ # check libs
+ 
+ SERVERLIBS="libz"
+-CLIENTLIBS="libSDL-1.2 libz libX11 libSDL_image libogg libvorbis libopenal"
++CLIENTLIBS="libSDL2-2.0 libz libX11 libSDL2_image libogg libvorbis libopenal"
+ 
+ if [ -x "/sbin/ldconfig" ]; then
+   echo "checking libraries:"
