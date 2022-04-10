@@ -642,7 +642,7 @@ dev-python/pypowervm 1.1.27: Python binding for the PowerVM REST API
 dev-python/pysaml2 7.1.2: Python implementation of SAML Version 2 to be used in a WSGI environment
 dev-python/pysftp 0.2.9: A friendly face on SFTP
 dev-python/pystardict 0.8: Library for manipulating StarDict dictionaries from within Python
-dev-python/pysubs2 1.3.1 1.4.0 1.4.1: A library for editing subtitle files
+dev-python/pysubs2 1.3.1 1.4.1 1.4.2: A library for editing subtitle files
 dev-python/pytest-benchmark 3.4.1: py.test fixture for benchmarking code
 dev-python/pytest-cases 3.6.9 3.6.11: Separate test code from test cases in pytest
 dev-python/pytest-celery 0.1.0: a shim pytest plugin to enable celery.contrib.pytest
