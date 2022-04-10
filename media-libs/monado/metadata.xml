@@ -7,7 +7,6 @@
 	</maintainer>
 	<use>
 		<flag name="dbus">Enable dbus support (for BLE support)</flag>
-		<flag name="egl">Enable OpenGL on EGL Graphics API support</flag>
 		<flag name="ffmpeg">Enable ffmpeg testing video driver</flag>
 		<flag name="gles">Enable OpenGL-ES Graphics API support</flag>
 		<flag name="gstreamer">Enable gstreamer</flag>
