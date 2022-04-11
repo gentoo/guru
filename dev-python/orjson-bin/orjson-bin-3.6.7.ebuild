@@ -47,7 +47,9 @@ src_install() {
 		ARCH="aarch64"
 	fi
 	do_install() {
-		insinto "$(python_get_sitedir)"
+		local my_installdir="$(python_get_sitedir)"
+		my_installdir="${my_installdir##${EPREFIX}/}"
+		insinto "${my_installdir}"
 		# Even though the soname is compatible, the python version has to be
 		# corrected in order for it to work
 		newins orjson/${PN//-bin}.cpython-310-${ARCH}-linux-gnu.so ${PN//-bin}.cpython-3${EPYTHON##python3.}-${ARCH}-linux-gnu.so
