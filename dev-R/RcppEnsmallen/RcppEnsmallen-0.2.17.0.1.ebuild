@@ -14,7 +14,7 @@ LICENSE='GPL-2+'
 DEPEND="
 	>=dev-lang/R-3.3.0
 	dev-R/Rcpp
-	=sci-libs/ensmallen-${MY_PV}*
+	=sci-libs/ensmallen-${MY_PV}*:=
 "
 RDEPEND="${DEPEND}
 	>=dev-R/RcppArmadillo-0.8.400.0.0
@@ -38,9 +38,7 @@ src_install() {
 	R_includedir="/usr/$(get_libdir)/R/site-library/${PN}/include"
 	dosym8 -r /usr/include/ensmallen.hpp "${R_includedir}/ensmallen.hpp"
 
-	dodir /usr/include/ensmallen_bits
-	for file in "${ED}/${R_includedir}"/ensmallen_bits/*; do
-		filename=$(basename "${file}")
-		dosym8 -r /usr/include/ensmallen_bits/${filename} "${R_includedir}/ensmallen_bits/${filename}"
-	done
+	# portage doesn't like symlinks to folders, symlink all the files then
+	rm -rf "${ED}/${R_includedir}"/ensmallen_bits/* || die
+	cp -rs "/usr/include/ensmallen_bits" "${ED}/${R_includedir}" || die
 }
