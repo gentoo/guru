@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit go-module bash-completion-r1 desktop xdg-utils
+inherit go-module bash-completion-r1 desktop xdg
 
 SRC_URI="https://github.com/gokcehan/lf/archive/r${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://github.com/cantcuckthis/gentoo-lf/raw/main/${P}-deps.tar.xz"
@@ -55,14 +55,4 @@ src_install() {
 	doins "etc/${PN}cd.fish"
 
 	domenu "${PN}.desktop"
-}
-
-src_postinst() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
-}
-
-src_postrm() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
 }
