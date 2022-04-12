@@ -6,9 +6,13 @@ VALA_USE_DEPEND="vapigen"
 
 inherit vala meson gnome2-utils xdg
 
+LCU_COMMIT="acfbb136bbf74514e0b9801ce6c1e8acf36350b6"
 DESCRIPTION="Phone dialer and call handler"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/calls"
-SRC_URI="https://gitlab.gnome.org/GNOME/calls/-/archive/${PV}/calls-${PV}.tar.gz"
+SRC_URI="
+	https://gitlab.gnome.org/GNOME/calls/-/archive/${PV}/calls-${PV}.tar.gz
+	https://gitlab.gnome.org/World/Phosh/libcall-ui/-/archive/${LCU_COMMIT}/libcall-ui-${LCU_COMMIT}.tar.gz
+"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -42,6 +46,9 @@ src_prepare() {
 	default
 	eapply_user
 	use vala && vala_src_prepare
+	
+	rm -r "${S}"/subprojects/libcall-ui || die
+	mv "${WORKDIR}"/libcall-ui-"${LCU_COMMIT}" "${S}"/subprojects/libcall-ui || die
 }
 
 pkg_postinst() {
