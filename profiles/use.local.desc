@@ -238,7 +238,6 @@ media-libs/alvr:server - Build ALVR server
 media-libs/alvr:vulkan - Build ALVR vulkan layer
 media-libs/alvr:x264 - Use x264 for h264 software encoding
 media-libs/alvr:x265 - Use x265 for h265 software encoding
-media-libs/gl4es:egl - Enable EGL support.
 media-libs/imgui:allegro - Enable allegro backend and renderer
 media-libs/imgui:freetype - Use FreeType to build and rasterize the font atlas
 media-libs/imgui:glfw - Enable glfw backend
@@ -255,7 +254,6 @@ media-libs/lodepng:pngdetail - Prints detailed info of PNG images, including fil
 media-libs/lodepng:showpng - Show PNG image
 media-libs/monado:X - Enable xlib/xlib-randr/xcb support
 media-libs/monado:dbus - Enable dbus support (for BLE support)
-media-libs/monado:egl - Enable OpenGL on EGL Graphics API support
 media-libs/monado:ffmpeg - Enable ffmpeg testing video driver
 media-libs/monado:gles - Enable OpenGL-ES Graphics API support
 media-libs/monado:gstreamer - Enable gstreamer

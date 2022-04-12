@@ -1,0 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install postinst prepare unpack
+DESCRIPTION=Modular status bar for somebar written in c.
+EAPI=7
+HOMEPAGE=https://git.sr.ht/~raphi/someblocks
+INHERIT=savedconfig git-r3
+IUSE=savedconfig
+LICENSE=ISC
+PROPERTIES=live
+SLOT=0
+_eclasses_=portability	d33a77692bb47e8227f27e17fb9c3c05	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=b449a9554faec0d42b6ad214dd07d72f

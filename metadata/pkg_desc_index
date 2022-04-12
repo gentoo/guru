@@ -47,8 +47,8 @@ app-backup/b2 2.5.0-r1 3.0.3: Command-line tool for BackBlaze's B2 product
 app-backup/grub-btrfs 4.10.2: Improves Grub by adding btrfs snapshots to the Grub menu.
 app-backup/timeshift 21.09.1-r1: A system restore utility for Linux
 app-backup/timeshift-autosnap 0.9: Automatically creates a timeshift-snapshot when executed
-app-containers/aardvark-dns 1.0.2: A container-focused DNS server
-app-containers/netavark 1.0.2: A container network stack
+app-containers/aardvark-dns 1.0.2 1.0.2-r1: A container-focused DNS server
+app-containers/netavark 1.0.2 1.0.2-r1: A container network stack
 app-containers/nvidia-container-toolkit 1.9.0: NVIDIA container runtime toolkit
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
 app-crypt/certbot-dns-desec 1.2.0: deSEC DNS Authenticator plugin for Certbot
@@ -374,7 +374,7 @@ dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
 dev-libs/randomx 1.1.8 1.1.9: Proof of work algorithm based on random code execution
 dev-libs/rsaref 2.0: Encryption/authentication library, RSA/MDX/DES
 dev-libs/supercop 0_p20200827: Fast cryptographic operations for Monero wallets
-dev-libs/tfdn 1.1.0 1.2.0: Opinionated C11 library for low-level functionality
+dev-libs/tfdn 1.2.0 1.3.0: Opinionated C11 library for low-level functionality
 dev-libs/tweeny 3.1.1 3.2.0: C++ tweening (inbetweening) library
 dev-libs/xqilla 2.3.4 2.3.4-r1: An XQuery and XPath 2 library and command line utility written in C++
 dev-libs/zfp 0.5.5: Compressed numerical arrays that support high-speed random access
@@ -888,6 +888,7 @@ gui-apps/nwg-launchers 0.5.0 0.6.3 9999: GTK+ launchers for sway, i3 and some ot
 gui-apps/paperde 0.1.1_p20210426 9999: Simple, sleek QT based DE for wayland using wayfire
 gui-apps/sfwbar 1.0_beta2 1.0_beta3 1.0_beta4: Sway Floating Window Bar
 gui-apps/somebar 9999: dwm-like bar for dwl
+gui-apps/someblocks 9999: Modular status bar for somebar written in c.
 gui-apps/sway-launcher-desktop 1.5.4: TUI Application launcher with Desktop Entry support
 gui-apps/swaykbdd 1.0: Per-window keyboard layout switcher for Sway
 gui-apps/swaylock-effects 1.6.2 1.6.3 9999: Swaylock, with fancy effects
@@ -910,7 +911,7 @@ gui-libs/libcsys 4.2.0 9999: Library for managing the device
 gui-libs/text-engine 0.1.0 0.1.1 9999: A lightweight rich-text framework for GTK 4
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.3 0.1.4 9999: A Wayland kiosk
-gui-wm/dwl 0.2.1 0.3 9999: dwm for Wayland
+gui-wm/dwl 0.2.1 0.3 0.3.1 9999: dwm for Wayland
 gui-wm/phosh 0.17.0: A pure Wayland shell prototype for GNOME on mobile devices
 kde-apps/alligator 21.12 22.02: A convergent RSS/Atom feed reader for Plasma
 kde-apps/kclock 21.12 22.02: A convergent clock application for Plasma
@@ -943,7 +944,7 @@ media-fonts/warframe-fonts 0_pre20191111: Fonts from the Warframe game
 media-gfx/WebPlotDigitizer-bin 4.5: Web based tool to extract data from plots, images, and maps
 media-gfx/akira 0.0.13 9999: Native Linux App for UI and UX Design built in Vala and GTK.
 media-gfx/azpainter 3.0.3 3.0.4: Full color painting software for Linux for illustration drawing
-media-gfx/bonzomatic 2021.03.07 9999: Live shader coding tool and Shader Showdown workhorse
+media-gfx/bonzomatic 2021.03.07-r1 9999: Live shader coding tool and Shader Showdown workhorse
 media-gfx/dehinter 3.1.0 4.0.0: A tool for the removal of TrueType hints in fonts
 media-gfx/dustr 9999: light and interactive tool your crops need
 media-gfx/fontbakery 0.7.38: Font quality assurance tool
@@ -1022,7 +1023,7 @@ net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various pl
 net-client/amfora 1.8.0 1.9.2: A fancy terminal browser for the Gemini protocol.
 net-client/castor 0.8.16 0.8.18: A graphical browser for plain-text protocols
 net-client/kristall 0.3-r1 9999: Visual cross-platform gemini browser
-net-client/lagrange 1.11.1 1.11.2: Desktop GUI client for browsing Geminispace
+net-client/lagrange 1.11.2 1.12.1: Desktop GUI client for browsing Geminispace
 net-client/offpunk 0.1 0.3: A command-line, text-based and offline-first Gemini browser
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
 net-client/telescope 0.6.1 0.7.1: w3m-like browser for Gemini
@@ -1053,6 +1054,7 @@ net-libs/libqmatrixclient 0.5.3.2: A Qt5 library to write cross-platfrom clients
 net-libs/td 1.8.0: Cross-platform library for building Telegram clients
 net-libs/telepathy-haze 0.8.1: Telepathy connection manager providing libpurple supported protocols
 net-libs/usockets 0.8.1_p20211023 9999: tiny eventing, networking & crypto for async applications
+net-mail/dovecot-fts-xapian 1.5.2: Dovecot FTS plugin backed by Xapian
 net-mail/remail 0.13: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.4.1 1.4.2 1.5.0: FORT validator is an open source RPKI validator
 net-misc/bee-node 0.2.1: IOTA node written in rust

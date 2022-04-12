@@ -10,5 +10,5 @@ LICENSE=LGPL-3+ regexp-UofT
 RDEPEND=~sci-misc/boinc-7.16.17 >=dev-libs/boinc-zip-7.16.17
 SLOT=0
 SRC_URI=https://github.com/BOINC/boinc/archive/client_release/7.16/7.16.17.tar.gz -> boinc-7.16.17.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	a7813cfab8862ac10bcf3e01efb3f5c4	boinc	aadad5c3b0254e8fb0b163ea0ebdf09e
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	a7813cfab8862ac10bcf3e01efb3f5c4	boinc	b7b2014a7cd8e26250e846731da5fe4b
 _md5_=c55b7289176e29e500890b476055fa5a

@@ -1,14 +1,15 @@
 BDEPEND=>=dev-lang/go-1.16 app-arch/unzip
-DEFINED_PHASES=compile install unpack
+DEFINED_PHASES=compile install postinst postrm preinst prepare unpack
+DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Terminal file manager
 EAPI=7
 HOMEPAGE=https://github.com/gokcehan/lf
-INHERIT=go-module bash-completion-r1 desktop
+INHERIT=go-module bash-completion-r1 desktop xdg
 IUSE=+static
 KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=MIT
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/gokcehan/lf/archive/r27.tar.gz -> lf-27.tar.gz https://github.com/cantcuckthis/gentoo-lf/raw/main/lf-27-deps.tar.xz
-_eclasses_=go-module	3b47b6e0e18257d2abb17663c575fc36	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	desktop	c0d27bf73aa08ca05b663dbd31fbef28
-_md5_=983c31a3cdd9cdf14f4105cc4caf165d
+_eclasses_=go-module	3b47b6e0e18257d2abb17663c575fc36	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=261cbf8708f0da6aaa92344c203e5814

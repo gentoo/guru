@@ -10,5 +10,5 @@ LICENSE=sunpro public-domain
 RDEPEND=sci-misc/boinc
 SLOT=0
 SRC_URI=https://bitbucket.org/francesco-asnicar/pc-boinc/get/3186afba409a.tar.gz -> geneathome-1.10.tar.gz https://github.com/BOINC/boinc/archive/client_release/7.16/7.16.16.tar.gz -> boinc-7.16.16.tar.gz
-_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	a7813cfab8862ac10bcf3e01efb3f5c4	boinc	aadad5c3b0254e8fb0b163ea0ebdf09e	boinc-app	9a8fc1b52c589ad520b0adb3ecbe1a9c
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	a7813cfab8862ac10bcf3e01efb3f5c4	boinc	b7b2014a7cd8e26250e846731da5fe4b	boinc-app	3149d1679d3b47e85f777e8da3dd0fc7
 _md5_=cd81b25ac4c4f99cb67bd71b0b958d8b
