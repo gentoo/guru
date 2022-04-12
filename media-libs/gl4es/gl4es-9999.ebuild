@@ -6,7 +6,7 @@ EAPI=7
 inherit cmake git-r3
 
 DESCRIPTION="OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library"
-HOMEPAGE="http://ptitseb.github.io/gl4es/"
+HOMEPAGE="https://ptitseb.github.io/gl4es/"
 EGIT_REPO_URI="https://github.com/ptitSeb/gl4es.git"
 LICENSE="MIT"
 SLOT="0"
