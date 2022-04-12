@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>git_peep@parallaxshift.com</email>
+		<name>Philippe 'Peep' Chaintreuil</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Joan Moreau</name>
+			<email>jom@grosjo.net</email>
+		</maintainer>
+		<remote-id type="github">grosjo/fts-xapian</remote-id>
+		<changelog>https://github.com/grosjo/fts-xapian/releases</changelog>
+		<bugs-to>https://github.com/grosjo/fts-xapian/issues/new</bugs-to>
+	</upstream>
+</pkgmetadata>
