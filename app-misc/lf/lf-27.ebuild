@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit go-module bash-completion-r1 desktop
+inherit go-module bash-completion-r1 desktop xdg
 
 SRC_URI="https://github.com/gokcehan/lf/archive/r${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://github.com/cantcuckthis/gentoo-lf/raw/main/${P}-deps.tar.xz"

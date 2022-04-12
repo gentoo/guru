@@ -12,13 +12,13 @@ EGIT_REPO_URI="https://gitlab.freedesktop.org/monado/monado.git"
 LICENSE="Boost-1.0"
 SLOT="0"
 
-IUSE="dbus egl ffmpeg gles gstreamer opencv opengl psvr sdl systemd uvc vive vulkan wayland X"
+IUSE="dbus ffmpeg gles gstreamer opencv opengl psvr sdl systemd uvc vive vulkan wayland X"
 
 # TODO: OpenHMD, percetto?, libsurvive?
 BDEPEND=""
 DEPEND="
 	media-libs/openxr-loader
-	media-libs/mesa[egl]
+	media-libs/mesa[egl(+)]
 	dev-cpp/eigen:3
 	dev-util/glslang
 	virtual/libusb:=
@@ -64,7 +64,7 @@ src_configure() {
 		-DXRT_HAVE_VULKAN=$(usex vulkan)
 		-DXRT_HAVE_OPENGL=$(usex opengl)
 		-DXRT_HAVE_OPENGLES=$(usex gles)
-		-DXRT_HAVE_EGL=$(usex egl)
+		-DXRT_HAVE_EGL=ON
 		-DXRT_HAVE_LIBBSD=ON
 		-DXRT_HAVE_SYSTEMD=$(usex systemd)
 		-DXRT_INSTALL_SYSTEMD_UNIT_FILES=ON

@@ -174,15 +174,18 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND="dev-go/go-md2man
-app-containers/aardvark-dns"
+DEPEND="app-containers/aardvark-dns
+	dev-go/go-md2man"
 RDEPEND=""
 
 src_compile() {
-	emake || die "emake failed"
+	cargo_src_compile
+	go-md2man < docs/${PN}.1.md > ./${PN}.1
 }
 
 src_install() {
-	go-md2man < docs/${PN}.1.md > docs/${PN}.1
-	emake DESTDIR="${D}" PREFIX="/usr" install
+	exeinto /usr/libexec/podman
+	doexe target/release/${PN}
+
+	doman ${PN}.1
 }

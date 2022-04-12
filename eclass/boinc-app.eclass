@@ -25,7 +25,7 @@ case ${EAPI} in
 	*) die "${ECLASS}: EAPI ${EAPI} unsupported."
 esac
 
-# @ECLASS-VARIABLE: BOINC_APP_OPTIONAL
+# @ECLASS_VARIABLE: BOINC_APP_OPTIONAL
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # If set to a non-null value, BOINC part in the ebuild will be
@@ -40,7 +40,7 @@ fi
 
 if [[ ! ${_BOINC_APP_ECLASS} ]]; then
 
-# @ECLASS-VARIABLE: BOINC_MASTER_URL
+# @ECLASS_VARIABLE: BOINC_MASTER_URL
 # @REQUIRED
 # @DESCRIPTION:
 # Each project is publicly identified by a master URL. It also serves
@@ -51,20 +51,20 @@ if [[ ! ${_BOINC_APP_ECLASS} ]]; then
 #	grep "<master_url>" /var/lib/boinc/client_state.xml
 # @CODE
 
-# @ECLASS-VARIABLE: BOINC_INVITATION_CODE
+# @ECLASS_VARIABLE: BOINC_INVITATION_CODE
 # @DEFAULT_UNSET
 # @DESCRIPTION:
 # Some projects restrict account creation to those who present an
 # "invitation code". Write it to BOINC_INVITATION_CODE variable if
 # it's published on project's website.
 
-# @ECLASS-VARIABLE: HOMEPAGE
+# @ECLASS_VARIABLE: HOMEPAGE
 # @DESCRIPTION:
 # This variable defines the HOMEPAGE for BOINC projects if BOINC_MASTER_URL
 # was set before inherit.
 : ${HOMEPAGE:=${BOINC_MASTER_URL}}
 
-# @ECLASS-VARIABLE: BOINC_APP_HELPTEXT
+# @ECLASS_VARIABLE: BOINC_APP_HELPTEXT
 # @DESCRIPTION:
 # Help message to display during the pkg_postinst phase
 : ${BOINC_APP_HELPTEXT:=\
