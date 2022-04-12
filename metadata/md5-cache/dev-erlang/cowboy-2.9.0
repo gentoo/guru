@@ -1,4 +1,4 @@
-BDEPEND=dev-util/rebar >=sys-apps/gawk-4.1
+BDEPEND=dev-util/rebar:0 >=sys-apps/gawk-4.1
 DEFINED_PHASES=compile install prepare test
 DEPEND=dev-erlang/cowlib dev-lang/erlang:=
 DESCRIPTION=Small, fast, modern HTTP server for Erlang/OTP.
@@ -11,5 +11,5 @@ RDEPEND=dev-erlang/cowlib =dev-erlang/ranch-1.7.1* dev-lang/erlang:=
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/ninenines/cowboy/archive/2.9.0.tar.gz -> cowboy-2.9.0.tar.gz
-_eclasses_=rebar	9efb776e4b779efc1acbe62dc79366a2
+_eclasses_=rebar	e04a9d90bccd71576da0b8031f1faa58
 _md5_=078ad8cee95d74f0381a58b1fa7dff80
