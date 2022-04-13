@@ -1,0 +1,11 @@
+--- src/Makefile
++++ src/Makefile
+@@ -2,7 +2,7 @@
+ name = sc-im
+ 
+ # The base directory where everything should be installed.
+-prefix  = /usr/local
++prefix  = /usr
+ 
+ EXDIR   = $(prefix)/bin
+ HELPDIR = $(prefix)/share/$(name)
