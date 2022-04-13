@@ -146,6 +146,7 @@ app-mobilephone/usb-tethering 0.3: USB tethering on Pine64/ConfigFS systems
 app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
 app-office/openoffice-bin 4.1.11: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.6: Pyspread is a non-traditional spreadsheet written in Python
+app-office/sc-im 0.8.2: Spreadsheet Calculator Improvised -- An ncurses spreadsheet program for terminal
 app-portage/emlop 0.4.2: A fast, accurate, ergonomic emerge.log parser
 app-portage/gentoo-sweep 0.1.2a: Check your gentoo installation for unwanted cruft, forgotten files
 app-portage/pacvis 0.4.2: Displays dependency graphs of packages
@@ -354,6 +355,7 @@ dev-libs/libdatrie 0.2.13: Double-Array Trie Library
 dev-libs/libdwarf 20210528: The DWARF Debugging Information Format
 dev-libs/libnodave 0.8.5.1-r2: Connect to and exchange data with Siemens PLCs
 dev-libs/libthai 0.1.28 0.1.29: A a set of Thai language support routines
+dev-libs/libxlsxwriter 1.1.4: Libxlsxwriter is a C library for creating Excel XLSX files.
 dev-libs/luksmeta 9: LUKSMeta is a simple library for storing metadata in the LUKSv1 header
 dev-libs/memkind 1.11.0-r2 1.13.0: user extensible heap manager built on top of jemalloc
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero

@@ -42,6 +42,11 @@ app-misc/mat2:video - Use media-video/ffmpeg for video support
 app-misc/ntfy:dbus - Support for desktop notifications
 app-misc/ntfy:telegram - Add support for telegram backend
 app-misc/termdown:speak - Support for spoken countdown
+app-office/sc-im:X - Use x11-misc/xclip for clipboard copy/paste
+app-office/sc-im:ods - Add dev-libs/libzip for ods import support
+app-office/sc-im:plots - Add sci-visualization/gnuplot for plotting support
+app-office/sc-im:tmux - Use app-misc/tmux for clipboard copy/paste
+app-office/sc-im:xls - Add xls/xlsx support. Pulls in dev-python/xlsxwriter, dev-haskell/libxml, dev-libs/libzip and dev-libs/libxls
 app-portage/emlop:fish-completion - Enable fish completion support.
 app-text/OCRmyPDF:jbig2enc - Uses media-libs/jbig2enc for a better compression algorithm
 app-text/klogg:lto - Build with link time optimization (LTO).
@@ -81,6 +86,8 @@ dev-libs/libdwarf:namestable - enable name string functions implemented as binar
 dev-libs/libdwarf:nonstandardprintf - Use a special printf format for 64bit
 dev-libs/libdwarf:oldframecol - enable old frame columns
 dev-libs/libdwarf:sanitize - build with sanitizers
+dev-libs/libxlsxwriter:minizip - Use system minizip library
+dev-libs/libxlsxwriter:openssl - Use dev-libs/openssl for MD5 digest
 dev-libs/memkind:daxctl - Build library with daxctl support
 dev-libs/memkind:debug - Build debugging jemalloc code
 dev-libs/memkind:decorators - Enable decorators
