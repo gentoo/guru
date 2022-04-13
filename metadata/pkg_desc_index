@@ -134,7 +134,7 @@ app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the c
 app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
-app-misc/watchexec 1.15.3 1.16.2 1.17.1 1.18.11: Executes commands in response to file modifications
+app-misc/watchexec 1.15.3 1.16.2 1.17.1 1.18.11 1.18.12: Executes commands in response to file modifications
 app-misc/wego 2.1: Wego is a weather client for the terminal
 app-misc/xplr 0.15.2 0.17.0 0.17.1 0.17.2: A hackable, minimal, fast TUI file explorer
 app-misc/yaf 0.0.3: Yet another system fetch that is minimal and customizable.
@@ -997,7 +997,7 @@ media-sound/mopidy 3.2.0: An extensible music server written in Python.
 media-sound/mpvc 1.0.8-r1: mpc-like tool which connects to existing mpv instances through sockets.
 media-sound/ncpamixer 1.3.3.1: A ncurses mixer for PulseAudio inspired by pavucontrol
 media-sound/netcat-cpi 2014.04.29: Kernel module edition of the Cycles Per Instruction (2014) album
-media-sound/noisetorch 0.11.4 9999: Real-time microphone noise suppression on Linux.
+media-sound/noisetorch 0.11.5 9999: Real-time microphone noise suppression on Linux.
 media-sound/noson-app 5.2.0: The essential to control music from your SONOS devices on Linux platforms
 media-sound/nuclear-bin 0.6.15 0.6.17: Nuclear is a streaming program that pulls content from free sources on internet
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
