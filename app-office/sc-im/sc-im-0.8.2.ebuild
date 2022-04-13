@@ -18,7 +18,7 @@ PATCHES=(
 
 DEPEND="
 	sys-libs/ncurses
-	X? ( || ( app-misc/tmux x11-misc/xclip ) )
+	X? ( x11-misc/xclip )
 	plots? ( sci-visualization/gnuplot )
 	xls? (
 		dev-libs/libxlsxwriter
