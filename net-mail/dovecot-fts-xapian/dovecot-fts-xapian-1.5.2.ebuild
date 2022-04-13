@@ -38,5 +38,5 @@ src_configure() {
 
 src_install() {
 	default
-	use static-libs || find "${ED}" -name '*.la' -delete
+	find "${ED}" -name '*.la' -delete || die
 }

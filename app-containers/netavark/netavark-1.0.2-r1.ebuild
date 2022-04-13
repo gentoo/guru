@@ -178,6 +178,8 @@ DEPEND="app-containers/aardvark-dns
 	dev-go/go-md2man"
 RDEPEND=""
 
+QA_FLAGS_IGNORED="usr/libexec/podman/${PN}"
+
 src_compile() {
 	cargo_src_compile
 	go-md2man < docs/${PN}.1.md > ./${PN}.1

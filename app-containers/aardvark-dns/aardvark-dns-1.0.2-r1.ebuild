@@ -142,6 +142,8 @@ IUSE=""
 DEPEND=""
 RDEPEND=""
 
+QA_FLAGS_IGNORED="usr/libexec/podman/${PN}"
+
 src_install() {
 	exeinto /usr/libexec/podman
 	doexe target/release/${PN}

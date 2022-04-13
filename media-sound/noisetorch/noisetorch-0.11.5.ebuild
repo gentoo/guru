@@ -24,11 +24,6 @@ IUSE=""
 
 go-module_set_globals
 
-src_prepare() {
-	default
-	eapply "${FILESDIR}/fix-make.patch"
-}
-
 src_install() {
 	dobin "${S}/bin/noisetorch"
 	domenu "${S}/assets/noisetorch.desktop"

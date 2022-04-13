@@ -62,7 +62,10 @@ ruby_add_rdepend "
 		dev-ruby/rack-protection
 		dev-ruby/rack-test
 		dev-ruby/sinatra
-		www-servers/thin"
+		www-servers/thin
+		dev-ruby/webrick
+		dev-ruby/json"
+
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 PATCHES="${FILESDIR}/pcs-0.11-gentoo-support.patch
