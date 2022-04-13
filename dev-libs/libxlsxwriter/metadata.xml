@@ -7,6 +7,6 @@
 	</maintainer>
 	<use>
 		<flag name='minizip'>Use system minizip library</flag>
-		<flag name='openssl'>Use <pkg>dev-libs/openssl</pkg> for MD5 digest.</flag>
+		<flag name='openssl'>Use <pkg>dev-libs/openssl</pkg> for MD5 digest</flag>
 	</use>
 </pkgmetadata>
