@@ -10,15 +10,18 @@ SRC_URI="https://github.com/andmarti1424/sc-im/archive/v${PV}.tar.gz -> ${P}.tar
 LICENSE="BSD-4"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="X plots xls lua ods"
+IUSE="X plots xls lua ods tmux"
 
 PATCHES=(
 	"${FILESDIR}/${P}-prefix.patch"
+	"${FILESDIR}/${P}-tmux.patch"
+
 )
 
 DEPEND="
 	sys-libs/ncurses
 	X? ( x11-misc/xclip )
+	tmux? ( app-misc/tmux )
 	plots? ( sci-visualization/gnuplot )
 	xls? (
 		dev-libs/libxlsxwriter
@@ -36,3 +39,9 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND=""
 S="${WORKDIR}/${P}/src"
+
+src_prepare() {
+	eapply "${FILESDIR}/${P}-prefix.patch"
+	use tmux && "${FILESDIR}/${P}-tmux.patch"
+	eapply_user
+}
