@@ -31,6 +31,6 @@ src_prepare() {
 }
 
 src_install() {
-	meson_install
+	meson_src_install
 	save_config src/config.hpp
 }
