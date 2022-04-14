@@ -15,7 +15,6 @@ IUSE="X plots xls lua ods tmux"
 PATCHES=(
 	"${FILESDIR}/${P}-prefix.patch"
 	"${FILESDIR}/${P}-tmux.patch"
-
 )
 
 DEPEND="
@@ -42,6 +41,6 @@ S="${WORKDIR}/${P}/src"
 
 src_prepare() {
 	eapply "${FILESDIR}/${P}-prefix.patch"
-	use tmux && "${FILESDIR}/${P}-tmux.patch"
+	use tmux && eapply "${FILESDIR}/${P}-tmux.patch"
 	eapply_user
 }

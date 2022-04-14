@@ -22,3 +22,7 @@ gnome-extra/extension-manager
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2022-01-09)
 # Depends on masked libhandy 1.5.0
 >=app-text/komikku-0.36.0
+
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-04-14)
+# Depends on unavailable dev-python/regex-2022.3.15
+dev-python/dateparser

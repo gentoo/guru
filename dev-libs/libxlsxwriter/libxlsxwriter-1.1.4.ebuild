@@ -21,10 +21,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-src_prepare() {
-	cmake_src_prepare
-}
-
 src_configure() {
 	DOUBLEFUNCTION=OFF
 	for x in $(plocale_get_locales); do
