@@ -12,7 +12,7 @@ SRC_URI="https://github.com/jmcnamara/libxlsxwriter/archive/RELEASE_${PV}.tar.gz
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="openssl static-libs"
+IUSE="openssl"
 S="${WORKDIR}/${PN}-RELEASE_${PV}"
 
 DEPEND="
@@ -33,7 +33,7 @@ src_configure() {
 		-DCMAKE_BUILD_TYPE=Release
 		-DUSE_OPENSSL_MD5="$(usex openssl ON OFF)"
 		-DUSE_SYSTEM_MINIZIP="ON"
-		-DBUILD_SHARED_LIBS="$(usex static-libs ON OFF)"
+		-DBUILD_SHARED_LIBS="OFF"
 		-DUSE_DTOA_LIBRARY=${DOUBLEFUNCTION}
 	)
 	cmake_src_configure
