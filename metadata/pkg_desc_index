@@ -113,7 +113,7 @@ app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
 app-misc/grit 0.3.0: An personal task manager that represents tasks as multitree nodes
 app-misc/hollywood 1.22: Fill your console with Hollywood melodrama technobabble
 app-misc/kloak 0.2.30: A privacy tool that makes keystroke biometrics less effective
-app-misc/lf 20 22 27: Terminal file manager
+app-misc/lf 27: Terminal file manager
 app-misc/liquidctl 1.7.2: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/macchina 5.0.2 6.0.5 6.0.6: A system information fetcher, with an (unhealthy) emphasis on performance.
 app-misc/mangadesk 0.7.6: Terminal Client for MangaDex
@@ -913,7 +913,7 @@ gui-libs/libcsys 4.2.0 9999: Library for managing the device
 gui-libs/text-engine 0.1.0 0.1.1 9999: A lightweight rich-text framework for GTK 4
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.3 0.1.4 9999: A Wayland kiosk
-gui-wm/dwl 0.2.1 0.3 0.3.1 9999: dwm for Wayland
+gui-wm/dwl 0.3.1 9999: dwm for Wayland
 gui-wm/phosh 0.17.0: A pure Wayland shell prototype for GNOME on mobile devices
 kde-apps/alligator 21.12 22.02: A convergent RSS/Atom feed reader for Plasma
 kde-apps/kclock 21.12 22.02: A convergent clock application for Plasma
@@ -927,7 +927,7 @@ kde-misc/geminipart 2021125: KPart for viewing text/gemini files
 kde-misc/kio-gemini 20211107: Gemini KIO slave
 kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 kde-misc/plasma5-wallpapers-dynamic 3.3.9 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
-kde-misc/skanpage 0_p20210402: Simple pdf scanning application based on libksane and KDE Frameworks
+kde-misc/skanpage 22.03.80 9999: Multi-page scanning application supporting image and pdf files
 mail-client/heirloom-mailx 12.5: The mailx utility from CentOS
 mail-client/mailspring-bin 1.9.2 1.10.2: A beautiful, fast and fully open source mail client for Mac, Windows and Linux
 media-fonts/3270font 2.3.0 2.3.1: A IBM 3270 Terminal font in a modern format
@@ -1012,7 +1012,8 @@ media-video/ciano 0.2.4-r1: A multimedia file converter focused on simplicity
 media-video/ffsubsync 0.4.18 0.4.19 0.4.20: Automagically syncronize subtitles with video
 media-video/kikoplay 0.8.2 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.4.3: A GTK3 camera application that knows how to deal with the media request api
-media-video/mpv-mpris 0.7 0.7.1 9999: MPRIS plugin for mpv
+media-video/mpv-mpris 0.7 0.7.1 0.7.1-r1 9999: MPRIS plugin for mpv
+media-video/mpv_thumbnail_script 0.4.8: A Lua script to show preview thumbnails in mpv's OSC seekbar
 media-video/obs-vkcapture 1.1.3 9999: OBS Linux Vulkan/OpenGL game capture
 media-video/owncast 0.0.10 0.0.11: A self-hosted live video and web chat server
 media-video/qliveplayer 4.0.1-r2 4.1.0: A player and recorder for live streams and videos with danmaku support
