@@ -28,7 +28,7 @@ IUSE="gnome-keyring"
 
 RDEPEND="
 	${DEPEND}
-	>=net-libs/nodejs-14.0[ssl]
+	>=net-libs/nodejs-14[ssl]
 	sys-apps/ripgrep
 	gnome-keyring? (
 		app-crypt/libsecret
@@ -41,29 +41,37 @@ PATCHES=( "${FILESDIR}/${PN}-node.patch" )
 
 DOCS=( "README.md" "ThirdPartyNotices.txt" )
 
+# Relative to parent
+CODE_OSS_MODULES="vendor/modules/code-oss-dev/node_modules"
+
 QA_PREBUILT="
-	/opt/code-server-bin/lib/coder-cloud-agent
-	/opt/code-server-bin/node_modules/@node-rs/argon2-linux-x64-musl/argon2.linux-x64-musl.node
-	/opt/code-server-bin/node_modules/@node-rs/argon2-linux-x64-gnu/argon2.linux-x64-gnu.node
-	/opt/code-server-bin/vendor/modules/code-oss-dev/node_modules/native-is-elevated/build/Release/obj.target/iselevated.node
-	/opt/code-server-bin/vendor/modules/code-oss-dev/node_modules/native-is-elevated/build/Release/iselevated.node
-	/opt/code-server-bin/vendor/modules/code-oss-dev/node_modules/node-pty/build/Release/pty.node
-	/opt/code-server-bin/vendor/modules/code-oss-dev/node_modules/native-watchdog/build/Release/obj.target/watchdog.node
-	/opt/code-server-bin/vendor/modules/code-oss-dev/node_modules/native-watchdog/build/Release/watchdog.node
-	/opt/code-server-bin/vendor/modules/code-oss-dev/node_modules/@parcel/watcher/prebuilds/linux-x64/node.napi.musl.node
-	/opt/code-server-bin/vendor/modules/code-oss-dev/node_modules/@parcel/watcher/prebuilds/linux-x64/node.napi.glibc.node
-	/opt/code-server-bin/vendor/modules/code-oss-dev/node_modules/spdlog/build/Release/obj.target/spdlog.node
-	/opt/code-server-bin/vendor/modules/code-oss-dev/node_modules/spdlog/build/Release/spdlog.node
-	/opt/code-server-bin/vendor/modules/code-oss-dev/node_modules/vscode-nsfw/build/Release/obj.target/nsfw.node
-	/opt/code-server-bin/vendor/modules/code-oss-dev/node_modules/vscode-nsfw/build/Release/nsfw.node
-	/opt/code-server-bin/vendor/modules/code-oss-dev/node_modules/@vscode/sqlite3/build/Release/obj.target/sqlite.node
-	/opt/code-server-bin/vendor/modules/code-oss-dev/node_modules/@vscode/sqlite3/build/Release/sqlite.node
+	/opt/${PN}/lib/coder-cloud-agent
+	/opt/${PN}/node_modules/argon2/lib/binding/napi-v3/argon2.node
+	/opt/${PN}/node_modules/argon2/build-tmp-napi-v3/Release/argon2.node
+	/opt/${PN}/node_modules/argon2/build-tmp-napi-v3/Release/obj.target/argon2.node
+	/opt/${PN}/node_modules/@node-rs/argon2-linux-x64-musl/argon2.linux-x64-musl.node
+	/opt/${PN}/node_modules/@node-rs/argon2-linux-x64-gnu/argon2.linux-x64-gnu.node
+	/opt/${PN}/${CODE_OSS_MODULES}/native-is-elevated/build/Release/obj.target/iselevated.node
+	/opt/${PN}/${CODE_OSS_MODULES}/native-is-elevated/build/Release/iselevated.node
+	/opt/${PN}/${CODE_OSS_MODULES}/node-pty/build/Release/pty.node
+	/opt/${PN}/${CODE_OSS_MODULES}/native-watchdog/build/Release/obj.target/watchdog.node
+	/opt/${PN}/${CODE_OSS_MODULES}/native-watchdog/build/Release/watchdog.node
+	/opt/${PN}/${CODE_OSS_MODULES}/@parcel/watcher/prebuilds/linux-x64/node.napi.musl.node
+	/opt/${PN}/${CODE_OSS_MODULES}/@parcel/watcher/prebuilds/linux-x64/node.napi.glibc.node
+	/opt/${PN}/${CODE_OSS_MODULES}/spdlog/build/Release/obj.target/spdlog.node
+	/opt/${PN}/${CODE_OSS_MODULES}/spdlog/build/Release/spdlog.node
+	/opt/${PN}/${CODE_OSS_MODULES}/vscode-nsfw/build/Release/obj.target/nsfw.node
+	/opt/${PN}/${CODE_OSS_MODULES}/vscode-nsfw/build/Release/nsfw.node
+	/opt/${PN}/${CODE_OSS_MODULES}/@vscode/sqlite3/build/Release/obj.target/sqlite.node
+	/opt/${PN}/${CODE_OSS_MODULES}/@vscode/sqlite3/build/Release/sqlite.node
+	/opt/${PN}/${CODE_OSS_MODULES}/@parcel/watcher/build/Release/watcher.node
+	/opt/${PN}/${CODE_OSS_MODULES}/@parcel/watcher/build/Release/obj.target/watcher.node
 "
 
 QA_PRESTRIPPED="
-	/opt/code-server-bin/vendor/modules/code-oss-dev/node_modules/@parcel/watcher/prebuilds/linux-x64/node.napi.musl.node
-	/opt/code-server-bin/vendor/modules/code-oss-dev/node_modules/@parcel/watcher/prebuilds/linux-x64/node.napi.glibc.node
-	/opt/code-server-bin/node_modules/@node-rs/argon2-linux-x64-musl/argon2.linux-x64-musl.node
+	/opt/${PN}/node_modules/@node-rs/argon2-linux-x64-musl/argon2.linux-x64-musl.node
+	/opt/${PN}/${CODE_OSS_MODULES}/@parcel/watcher/prebuilds/linux-x64/node.napi.musl.node
+	/opt/${PN}/${CODE_OSS_MODULES}/@parcel/watcher/prebuilds/linux-x64/node.napi.glibc.node
 "
 
 src_prepare() {
@@ -78,7 +86,7 @@ src_prepare() {
 		|| die "Failed to remove bundled nodejs"
 
 	# remove bundled ripgrep binary
-	rm ./vendor/modules/code-oss-dev/node_modules/vscode-ripgrep/bin/rg \
+	rm ./"${CODE_OSS_MODULES}"/vscode-ripgrep/bin/rg \
 		|| die "Failed to remove bundled ripgrep"
 
 	# not needed
@@ -89,19 +97,19 @@ src_prepare() {
 	rm ./LICENSE.txt || die
 
 	# For windows
-	rm -rf ./vendor/modules/code-oss-dev/node_modules/windows-foreground-love || die
-	rm -rf .vendor/modules/code-oss-dev/node_modules/@parcel/watcher/prebuilds/win32-x64 || die
+	rm -rf ./"${CODE_OSS_MODULES}"/windows-foreground-love || die
+	rm -rf ."${CODE_OSS_MODULES}"/@parcel/watcher/prebuilds/win32-x64 || die
 
 	if [[ $ELIBC != "musl" ]]; then
 		rm -rf ./node_modules/@node-rs/argon2-linux-x64-musl || die
-		rm ./vendor/modules/code-oss-dev/node_modules/@parcel/watcher/prebuilds/linux-x64/node.napi.musl.node || die
+		rm ./"${CODE_OSS_MODULES}"/@parcel/watcher/prebuilds/linux-x64/node.napi.musl.node || die
 	elif [[ $ELIBC != "glibc" ]]; then
-		rm ./vendor/modules/code-oss-dev/node_modules/@parcel/watcher/prebuilds/linux-x64/node.napi.glibc.node || die
+		rm ./"${CODE_OSS_MODULES}"/@parcel/watcher/prebuilds/linux-x64/node.napi.glibc.node || die
 	fi
 
 	# We don't need electron
-	rm -rf ./vendor/modules/code-oss-dev/node_modules/electron || die
-	rm ./vendor/modules/code-oss-dev/node_modules/.bin/electron
+	rm -rf ./"${CODE_OSS_MODULES}"/electron || die
+	rm ./"${CODE_OSS_MODULES}"/.bin/electron
 }
 
 src_install() {
@@ -113,7 +121,7 @@ src_install() {
 	dosym -r "/opt/${PN}/bin/${MY_PN}" "${EPREFIX}/usr/bin/${PN}"
 
 	dosym -r "/usr/bin/rg" \
-		"${EPREFIX}/opt/${PN}/vendor/modules/code-oss-dev/node_modules/vscode-ripgrep/bin/rg"
+		"${EPREFIX}/opt/${PN}/${CODE_OSS_MODULES}/vscode-ripgrep/bin/rg"
 
 	systemd_douserunit "${FILESDIR}/${MY_PN}.service"
 }
