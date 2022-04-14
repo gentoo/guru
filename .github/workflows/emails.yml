@@ -1,6 +1,10 @@
 name: emails
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
 
 jobs:
   bugzilla:
