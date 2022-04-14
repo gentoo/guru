@@ -22,8 +22,6 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	dev-libs/wayland-protocols
 	dev-util/wayland-scanner
-	dev-util/meson
-	dev-util/ninja
 "
 
 src_prepare() {
