@@ -35,7 +35,7 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	test? (
-		>=dev-ml/ounit-2
+		dev-ml/ounit2
 		dev-ml/mirage-clock-unix
 	)
 "
