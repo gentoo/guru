@@ -7,8 +7,8 @@ PYTHON_COMPAT=( python3_{8..10} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
-DESCRIPTION="A simple sentence mining tool written in PyQt5"
-HOMEPAGE="https://github.com/FreeLanguageTools/ssmtool/ https://pypi.org/project/ssmtool/"
+DESCRIPTION="A simple, effective tool for language learning"
+HOMEPAGE="https://github.com/FreeLanguageTools/vocabsieve/ https://pypi.org/project/vocabsieve/"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
@@ -32,4 +32,5 @@ RDEPEND="
 	dev-python/sentence-splitter[${PYTHON_USEDEP}]
 	dev-python/mobi[${PYTHON_USEDEP}]
 	dev-python/SLPP[${PYTHON_USEDEP}]
+	dev-python/pycountry[${PYTHON_USEDEP}]
 "

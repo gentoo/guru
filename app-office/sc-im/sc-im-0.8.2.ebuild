@@ -36,7 +36,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
+BDEPEND="virtual/pkgconfig"
 S="${WORKDIR}/${P}/src"
 
 src_prepare() {

@@ -182,7 +182,7 @@ QA_FLAGS_IGNORED="usr/libexec/podman/${PN}"
 
 src_compile() {
 	cargo_src_compile
-	go-md2man < docs/${PN}.1.md > ./${PN}.1
+	go-md2man < docs/${PN}.1.md > ./${PN}.1 || die
 }
 
 src_install() {

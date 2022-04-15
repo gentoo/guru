@@ -5,6 +5,10 @@
     <email>aruhier@mailbox.org</email>
     <name>Anthony Ruhier</name>
   </maintainer>
+  <maintainer type="person">
+    <email>leohdz172@outlook.com</email>
+    <name>Leonardo Hernández Hernández</name>
+  </maintainer>
   <upstream>
     <remote-id type="github">ajeetdsouza/zoxide</remote-id>
   </upstream>

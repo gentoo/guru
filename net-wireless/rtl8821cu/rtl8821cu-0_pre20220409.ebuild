@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -6,7 +6,7 @@ EAPI=7
 inherit linux-mod toolchain-funcs
 BUILD_PARAMS="CC=$(tc-getCC) V=1 KSRC=${KERNEL_DIR}"
 
-COMMIT="ef3ff12118a75ea9ca1db8f4806bb0861e4fffef"
+COMMIT="8c2226a74ae718439d56248bd2e44ccf717086d5"
 
 DESCRIPTION="Realtek 8821CU/RTL8811CU module for Linux kernel"
 HOMEPAGE="https://github.com/brektrou/rtl8821CU"

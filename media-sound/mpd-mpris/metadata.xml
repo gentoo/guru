@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>leohdz172@outlook.com</email>
+		<name>Leonardo Hernández Hernández</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/natsukagami/mpd-mpris/issues</bugs-to>
+		<doc>https://github.com/natsukagami/mpd-mpris/blob/master/README.md</doc>
+	</upstream>
+</pkgmetadata>

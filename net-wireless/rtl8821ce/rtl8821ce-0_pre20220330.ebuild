@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -6,7 +6,7 @@ EAPI=7
 inherit linux-mod toolchain-funcs
 BUILD_PARAMS="CC=$(tc-getCC) V=1 KSRC=${KERNEL_DIR}"
 
-COMMIT="ca204c60724d23ab10244f920d4e50759ed1affb"
+COMMIT="dce62b9bbb7c76339b514153fcebb3a19bafdcc7"
 
 DESCRIPTION="Realtek RTL8821CE Driver module for Linux kernel"
 HOMEPAGE="https://github.com/tomaspinho/rtl8821ce"

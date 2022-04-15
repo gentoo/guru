@@ -12,12 +12,11 @@ SRC_URI="https://github.com/jmcnamara/libxlsxwriter/archive/RELEASE_${PV}.tar.gz
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="minizip openssl static-libs"
+IUSE="openssl"
 S="${WORKDIR}/${PN}-RELEASE_${PV}"
 
 DEPEND="
-	sys-libs/zlib
-	minizip? ( sys-libs/zlib[minizip] )
+	sys-libs/zlib[minizip]
 "
 RDEPEND="${DEPEND}"
 
@@ -32,9 +31,9 @@ src_configure() {
 	done
 	local mycmakeargs=(
 		-DCMAKE_BUILD_TYPE=Release
-		-DUSE_SYSTEM_MINIZIP="$(usex minizip ON OFF)"
 		-DUSE_OPENSSL_MD5="$(usex openssl ON OFF)"
-		-DBUILD_SHARED_LIBS="$(usex static-libs ON OFF)"
+		-DUSE_SYSTEM_MINIZIP="ON"
+		-DBUILD_SHARED_LIBS="OFF"
 		-DUSE_DTOA_LIBRARY=${DOUBLEFUNCTION}
 	)
 	cmake_src_configure
