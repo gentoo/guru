@@ -7,7 +7,7 @@
 	</maintainer>
 	<use>
 		<flag name='plots'>Add <pkg>sci-visualization/gnuplot</pkg> for plotting support</flag>
-		<flag name='xls'>Add xls/xlsx support. Pulls in <pkg>dev-python/xlsxwriter</pkg>, <pkg>dev-haskell/libxml</pkg>, <pkg>dev-libs/libzip</pkg> and <pkg>dev-libs/libxls</pkg></flag>
+		<flag name='xls'>Add xls/xlsx support</flag>
 		<flag name='ods'>Add <pkg>dev-libs/libzip</pkg> for ods import support</flag>
 		<flag name='X'>Use <pkg>x11-misc/xclip</pkg> for clipboard copy/paste</flag>
 		<flag name='tmux'>Use <pkg>app-misc/tmux</pkg> for clipboard copy/paste</flag>
