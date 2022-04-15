@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit desktop xdg
 
@@ -42,14 +42,10 @@ DEPEND="
 
 QA_PREBUILT="/opt/nuclear-bin/*"
 
-src_prepare(){
-	default
-}
-
 src_install(){
 	insinto /opt/"${PN}"
 	doins -r "${S}"/*
-	dosym ../../opt/"${PN}"/nuclear "${EPREFIX}"/usr/bin/nuclear
+	dosym -r /opt/"${PN}"/nuclear "${EPREFIX}"/usr/bin/nuclear
 	fperms +x /opt/"${PN}"/nuclear
 	fperms +x /opt/"${PN}"/chrome-sandbox
 	fperms +x /opt/"${PN}"/resources/bin/fpcalc
@@ -67,9 +63,4 @@ src_install(){
 	cd ../scalable || die
 	mv nuclear-icon.svg nuclear.svg || die
 	doicon nuclear.svg
-}
-
-pkg_postinst(){
-	xdg_desktop_database_update
-	xdg_icon_cache_update
 }
