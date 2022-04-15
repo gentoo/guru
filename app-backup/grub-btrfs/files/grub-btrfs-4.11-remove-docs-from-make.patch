@@ -1,0 +1,16 @@
+--- a/Makefile
++++ b/Makefile
+
+36,38c36,38
+< 	@install -Dm644 -t "$(SHARE_DIR)/licenses/$(PKGNAME)/" LICENSE
+< 	@install -Dm644 -t "$(SHARE_DIR)/doc/$(PKGNAME)/" README.md
+< 	@install -Dm644 "initramfs/readme.md" "$(SHARE_DIR)/doc/$(PKGNAME)/initramfs-overlayfs.md"
+---
+> #	@install -Dm644 -t "$(SHARE_DIR)/licenses/$(PKGNAME)/" LICENSE
+> #	@install -Dm644 -t "$(SHARE_DIR)/doc/$(PKGNAME)/" README.md
+> #	@install -Dm644 "initramfs/readme.md" "$(SHARE_DIR)/doc/$(PKGNAME)/initramfs-overlayfs.md"
+86c86
+< 	@echo
+\ No newline at end of file
+---
+> 	@echo
