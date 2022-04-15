@@ -34,7 +34,10 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	test? ( >=dev-ml/ounit-2 )
+	test? (
+		>=dev-ml/ounit-2
+		dev-ml/mirage-clock-unix
+	)
 "
 
 RESTRICT="!test? ( test )"
