@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,12 +18,11 @@ SLOT="0"
 LICENSE="BSD"
 KEYWORDS="~amd64"
 
-RDEPEND="
-	dev-python/scramp[${PYTHON_USEDEP}]
-"
-DEPEND="
-	${RDEPEND}
+RDEPEND=">=dev-python/scramp-1.4.1[${PYTHON_USEDEP}]"
+DEPEND="${RDEPEND}"
+BDEPEND="
 	test? (
+		dev-db/postgresql
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
 		dev-python/pytest-benchmark[${PYTHON_USEDEP}]
 		dev-python/pytz[${PYTHON_USEDEP}]
