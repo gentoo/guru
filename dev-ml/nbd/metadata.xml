@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>lssndrbarbieri@gmail.com</email>
+    <name>Alessandro Barbieri</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">xapi-project/nbd</remote-id>
+  </upstream>
+  <use>
+    <flag name="tool">command line helper for serving and mirroring disks over NBD, and getting information about the disks exported by an NBD server</flag>
+    <flag name="unix">Lwt_unix implementation</flag>
+  </use>
+</pkgmetadata>

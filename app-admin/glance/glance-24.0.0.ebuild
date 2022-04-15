@@ -120,6 +120,7 @@ python_compile_all() {
 }
 
 python_prepare_all() {
+	rm glance/tests/test_hacking.py || die
 	sed -i '/pysendfile/d' test-requirements.txt || die
 	sed -i '/^hacking/d' test-requirements.txt || die
 	distutils-r1_python_prepare_all
@@ -153,4 +154,8 @@ python_install_all() {
 
 	distutils-r1_python_install_all
 	rm -r "${ED}"/usr/etc
+}
+
+pkg_postinst() {
+	tmpfiles_process glance.conf
 }

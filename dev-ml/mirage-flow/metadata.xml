@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+   <maintainer type="person">
+        <email>lssndrbarbieri@gmail.com</email>
+        <name>Alessandro Barbieri</name>
+    </maintainer>
+   <upstream>
+        <remote-id type="github">mirage/mirage-flow</remote-id>
+    </upstream>
+    <use>
+        <flag name="combinators">Flow implementations and combinators for MirageOS specialized to lwt</flag>
+        <flag name="unix">Flow implementations and combinators for MirageOS on Unix</flag>
+    </use>
+</pkgmetadata>

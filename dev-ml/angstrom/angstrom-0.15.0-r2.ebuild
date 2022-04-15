@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit dune
+inherit dune multiprocessing
 
 DESCRIPTION="Parser combinators built for speed and memory efficiency"
 HOMEPAGE="https://github.com/inhabitedtype/angstrom"
@@ -12,19 +12,31 @@ SRC_URI="https://github.com/inhabitedtype/angstrom/archive/${PV}.tar.gz -> ${P}.
 LICENSE="BSD"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="ocamlopt"
+IUSE="async lwt-unix ocamlopt unix"
 
 RDEPEND="
-	dev-ml/async
-	dev-ml/base
+	async? ( dev-ml/async )
+	lwt-unix? (
+		dev-ml/base
+		dev-ml/lwt
+	)
+	unix? ( dev-ml/base )
+
 	dev-ml/bigstringaf
-	dev-ml/lwt
 "
 DEPEND="${RDEPEND}"
 
+src_compile() {
+	local pkgs="angstrom"
+	use async && pkgs="${pkgs},angstrom-async"
+	use unix && pkgs="${pkgs},angstrom-unix"
+	use lwt-unix && pkgs="${pkgs},angstrom-lwt-unix"
+	dune build -p "${pkgs}" -j $(makeopts_jobs) || die
+}
+
 src_install() {
-	dune_src_install angstrom-async
-	dune_src_install angstrom-lwt-unix
-	dune_src_install angstrom-unix
 	dune_src_install angstrom
+	use async && dune_src_install angstrom-async
+	use lwt-unix && dune_src_install angstrom-lwt-unix
+	use unix && dune_src_install angstrom-unix
 }

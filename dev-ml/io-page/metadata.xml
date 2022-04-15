@@ -9,4 +9,7 @@
     <upstream>
         <remote-id type="github">mirage/io-page</remote-id>
     </upstream>
+    <use>
+        <flag name="unix">Support for efficient handling of I/O memory pages on Unix</flag>
+    </use>
 </pkgmetadata>

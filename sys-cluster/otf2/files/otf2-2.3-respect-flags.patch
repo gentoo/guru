@@ -1,0 +1,359 @@
+--- a/build-config/common/platforms/compiler-frontend-clang
++++ b/build-config/common/platforms/compiler-frontend-clang
+@@ -1,12 +1,12 @@
+-CC_FOR_BUILD=clang
+-CXX_FOR_BUILD=clang++
+-F77_FOR_BUILD=flang
+-FC_FOR_BUILD=flang
++CC_FOR_BUILD="$(CC)"
++CXX_FOR_BUILD="$(CXX)"
++F77_FOR_BUILD="$(F77)"
++FC_FOR_BUILD="$(FC)"
+ 
+-#CPPFLAGS_FOR_BUILD=
+-#CFLAGS_FOR_BUILD=
+-#CXXFLAGS_FOR_BUILD=
+-#FFLAGS_FOR_BUILD=
+-#FCFLAGS_FOR_BUILD=
+-#LDFLAGS_FOR_BUILD=
++CPPFLAGS_FOR_BUILD="$(CPPFLAGS)"
++CFLAGS_FOR_BUILD="$(CFLAGS)"
++CXXFLAGS_FOR_BUILD="$(CXXFLAGS)"
++FFLAGS_FOR_BUILD="$(FFLAGS)"
++FCFLAGS_FOR_BUILD="$(FCFLAGS)"
++LDFLAGS_FOR_BUILD="$(LDFLAGS)"
+ #LIBS_FOR_BUILD=
+--- a/build-config/common/platforms/compiler-frontend-gcc
++++ b/build-config/common/platforms/compiler-frontend-gcc
+@@ -1,12 +1,12 @@
+-CC_FOR_BUILD=gcc
+-CXX_FOR_BUILD=g++
+-F77_FOR_BUILD=gfortran
+-FC_FOR_BUILD=gfortran
++CC_FOR_BUILD="$(CC)"
++CXX_FOR_BUILD="$(CXX)"
++F77_FOR_BUILD="$(F77)"
++FC_FOR_BUILD="$(FC)"
+ 
+-#CPPFLAGS_FOR_BUILD=
+-#CFLAGS_FOR_BUILD=
+-#CXXFLAGS_FOR_BUILD=
+-#FFLAGS_FOR_BUILD=
+-#FCFLAGS_FOR_BUILD=
+-#LDFLAGS_FOR_BUILD=
++CPPFLAGS_FOR_BUILD="$(CPPFLAGS)"
++CFLAGS_FOR_BUILD="$(CFLAGS)"
++CXXFLAGS_FOR_BUILD="$(CXXFLAGS)"
++FFLAGS_FOR_BUILD="$(FFLAGS)"
++FCFLAGS_FOR_BUILD="$(FCFLAGS)"
++LDFLAGS_FOR_BUILD="$(LDFLAGS)"
+ #LIBS_FOR_BUILD=
+--- a/build-config/common/platforms/compiler-mpi-mpich
++++ b/build-config/common/platforms/compiler-mpi-mpich
+@@ -1,10 +1,10 @@
+-MPICC=mpicc -cc={CC}
++#MPICC=mpicc -cc={CC}
+ #MPI_CFLAGS
+-MPICXX=mpicxx -CC={CXX}
++#MPICXX=mpicxx -CC={CXX}
+ #MPI_CXXFLAGS=
+-MPIF77=mpif77 -f77={F77}
++#MPIF77=mpif77 -f77={F77}
+ #MPI_FFLAGS=
+-MPIFC=mpif90 -f90={FC}
++#MPIFC=mpif90 -f90={FC}
+ #MPI_FCFLAGS=
+ #MPI_CPPFLAGS=
+ #MPI_LDFLAGS=
+--- a/build-config/common/platforms/compiler-mpi-mpich2
++++ b/build-config/common/platforms/compiler-mpi-mpich2
+@@ -1,12 +1,12 @@
+-MPICC=mpicc -cc={CC}
++#MPICC=mpicc -cc={CC}
+ #MPI_CFLAGS
+-MPICXX=mpicxx -cxx={CXX}
++#MPICXX=mpicxx -cxx={CXX}
+ #MPI_CXXFLAGS=
+-MPIF77=mpif77 -f77={F77}
++#MPIF77=mpif77 -f77={F77}
+ #MPI_FFLAGS=
+-MPIFC=mpif90 -f90={FC}
++#MPIFC=mpif90 -f90={FC}
+ #MPI_FCFLAGS=
+-MPI_CPPFLAGS=-DMPICH_SKIP_MPICXX
++MPI_CPPFLAGS="${MPI_CPPFLAGS} -DMPICH_SKIP_MPICXX"
+ #MPI_LDFLAGS=
+ #MPI_LIBS=
+ 
+--- a/build-config/common/platforms/compiler-mpi-mpich3
++++ b/build-config/common/platforms/compiler-mpi-mpich3
+@@ -1,12 +1,12 @@
+-MPICC=mpicc -cc={CC}
++#MPICC=mpicc -cc={CC}
+ #MPI_CFLAGS
+-MPICXX=mpicxx -cxx={CXX}
++#MPICXX=mpicxx -cxx={CXX}
+ #MPI_CXXFLAGS=
+-MPIF77=mpif77 -fc={F77}
++#MPIF77=mpif77 -fc={F77}
+ #MPI_FFLAGS=
+-MPIFC=mpif90 -fc={FC}
++#MPIFC=mpif90 -fc={FC}
+ #MPI_FCFLAGS=
+-MPI_CPPFLAGS=-DMPICH_SKIP_MPICXX
++MPI_CPPFLAGS="${MPI_CPPFLAGS} -DMPICH_SKIP_MPICXX"
+ #MPI_LDFLAGS=
+ #MPI_LIBS=
+ 
+--- a/build-config/common/platforms/compiler-mpi-openmpi
++++ b/build-config/common/platforms/compiler-mpi-openmpi
+@@ -1,10 +1,10 @@
+-MPICC=mpicc
++#MPICC=mpicc
+ #MPI_CFLAGS
+-MPICXX=mpicxx
++#MPICXX=mpicxx
+ #MPI_CXXFLAGS=
+-MPIF77=mpif77
++#MPIF77=mpif77
+ #MPI_FFLAGS=
+-MPIFC=mpif90
++#MPIFC=mpif90
+ #MPI_FCFLAGS=
+ #MPI_CPPFLAGS=
+ #MPI_LDFLAGS=
+--- a/build-config/common/platforms/compiler-mpi-openmpi3
++++ b/build-config/common/platforms/compiler-mpi-openmpi3
+@@ -1,10 +1,10 @@
+-MPICC=mpicc
++#MPICC=mpicc
+ #MPI_CFLAGS
+-MPICXX=mpicxx
++#MPICXX=mpicxx
+ #MPI_CXXFLAGS=
+-MPIF77=mpif77
++#MPIF77=mpif77
+ #MPI_FFLAGS=
+-MPIFC=mpif90
++#MPIFC=mpif90
+ #MPI_FCFLAGS=
+ #MPI_CPPFLAGS=
+ #MPI_LDFLAGS=
+--- a/build-config/common/platforms/compiler-nocross-clang
++++ b/build-config/common/platforms/compiler-nocross-clang
+@@ -1,7 +1,7 @@
+-CC=clang
+-CXX=clang++
+-F77=flang
+-FC=flang
++#CC=clang
++#CXX=clang++
++#F77=flang
++#FC=flang
+ 
+ #CPPFLAGS=
+ #CFLAGS=
+--- a/build-config/common/platforms/compiler-nocross-gcc
++++ b/build-config/common/platforms/compiler-nocross-gcc
+@@ -1,7 +1,7 @@
+-CC=gcc
+-CXX=g++
+-F77=gfortran
+-FC=gfortran
++#CC=gcc
++#CXX=g++
++#F77=gfortran
++#FC=gfortran
+ 
+ #CPPFLAGS=
+ #CFLAGS=
+--- a/build-config/common/platforms/platform-backend-linux
++++ b/build-config/common/platforms/platform-backend-linux
+@@ -1,7 +1,7 @@
+-CC=gcc
+-CXX=g++
+-F77=gfortran
+-FC=gfortran
++#CC=gcc
++#CXX=g++
++#F77=gfortran
++#FC=gfortran
+ 
+ #CPPFLAGS=
+ #CFLAGS=
+--- a/build-config/common/platforms/platform-backend-user-provided
++++ b/build-config/common/platforms/platform-backend-user-provided
+@@ -1,7 +1,7 @@
+-CC=
+-CXX=
+-F77=
+-FC=
++#CC=
++#CXX=
++#F77=
++#FC=
+ 
+ #CPPFLAGS=
+ #CFLAGS=
+--- a/build-config/common/platforms/platform-frontend-linux
++++ b/build-config/common/platforms/platform-frontend-linux
+@@ -1,14 +1,14 @@
+ # not a cross compile platform, frontend ignored
+ 
+-#CC_FOR_BUILD=
+-#CXX_FOR_BUILD=
+-#F77_FOR_BUILD=
+-#FC_FOR_BUILD=
++#CC_FOR_BUILD="$(CC)"
++#CXX_FOR_BUILD="$(CXX)"
++#F77_FOR_BUILD="$(F77)"
++#FC_FOR_BUILD="$(FC)"
+ 
+-#CPPFLAGS_FOR_BUILD=
+-#CFLAGS_FOR_BUILD=
+-#CXXFLAGS_FOR_BUILD=
+-#FFLAGS_FOR_BUILD=
+-#FCFLAGS_FOR_BUILD=
+-#LDFLAGS_FOR_BUILD=
++#CPPFLAGS_FOR_BUILD="$(CPPFLAGS)"
++#CFLAGS_FOR_BUILD="$(CFLAGS)"
++#CXXFLAGS_FOR_BUILD="$(CXXFLAGS)"
++#FFLAGS_FOR_BUILD="$(FFLAGS)"
++#FCFLAGS_FOR_BUILD="$(FCFLAGS)"
++#LDFLAGS_FOR_BUILD="$(LDFLAGS)"
+ #LIBS_FOR_BUILD=
+--- a/build-config/common/platforms/platform-frontend-user-provided
++++ b/build-config/common/platforms/platform-frontend-user-provided
+@@ -1,12 +1,12 @@
+-CC_FOR_BUILD=
+-CXX_FOR_BUILD=
+-F77_FOR_BUILD=
+-FC_FOR_BUILD=
++CC_FOR_BUILD="$(CC)"
++CXX_FOR_BUILD="$(CXX)"
++F77_FOR_BUILD="$(F77)"
++FC_FOR_BUILD="$(FC)"
+ 
+-CPPFLAGS_FOR_BUILD=
+-CFLAGS_FOR_BUILD=
+-CXXFLAGS_FOR_BUILD=
+-FFLAGS_FOR_BUILD=
+-FCFLAGS_FOR_BUILD=
+-LDFLAGS_FOR_BUILD=
+-LIBS_FOR_BUILD=
++CPPFLAGS_FOR_BUILD="$(CPPFLAGS)"
++CFLAGS_FOR_BUILD="$(CFLAGS)"
++CXXFLAGS_FOR_BUILD="$(CXXFLAGS)"
++FFLAGS_FOR_BUILD="$(FFLAGS)"
++FCFLAGS_FOR_BUILD="$(FCFLAGS)"
++LDFLAGS_FOR_BUILD="$(LDFLAGS)"
++#LIBS_FOR_BUILD=
+--- a/build-config/common/platforms/platform-mpi-user-provided
++++ b/build-config/common/platforms/platform-mpi-user-provided
+@@ -1,7 +1,7 @@
+-MPICC=
+-MPICXX=
+-MPIF77=
+-MPIFC=
++#MPICC=
++#MPICXX=
++#MPIF77=
++#MPIFC=
+ 
+ #MPI_LDFLAGS=
+ #MPI_LIBS=
+--- a/doc/examples/Makefile
++++ b/doc/examples/Makefile
+@@ -37,78 +37,78 @@
+ pthread: $(ALL_PTHREAD)
+ 
+ otf2_reader_example.o: otf2_reader_example.c
+-	gcc -std=c99 `otf2-config --cflags` \
++	$(CC) -fPIC -std=c99 `otf2-config --cflags` \
+             -c otf2_reader_example.c \
+             -o otf2_reader_example.o
+ 
+ otf2_reader_example: otf2_reader_example.o
+-	gcc otf2_reader_example.o \
++	$(CC) -fPIE otf2_reader_example.o \
+             `otf2-config --ldflags` \
+             `otf2-config --libs` \
+             -o otf2_reader_example
+ 
+ otf2_writer_example.o: otf2_writer_example.c
+-	gcc -std=c99 `otf2-config --cflags` \
++	$(CC) -fPIC -std=c99 `otf2-config --cflags` \
+             -c otf2_writer_example.c \
+             -o otf2_writer_example.o
+ 
+ otf2_writer_example: otf2_writer_example.o
+-	gcc otf2_writer_example.o \
++	$(CC) -fPIE otf2_writer_example.o \
+             `otf2-config --ldflags` \
+             `otf2-config --libs` \
+             -o otf2_writer_example
+ 
+ otf2_mpi_reader_example.o: otf2_mpi_reader_example.c
+-	mpicc -std=c99 `otf2-config --cflags` \
++	$(MPICC) -fPIC -std=c99 `otf2-config --cflags` \
+             -c otf2_mpi_reader_example.c \
+             -o otf2_mpi_reader_example.o
+ 
+ otf2_mpi_reader_example: otf2_mpi_reader_example.o
+-	mpicc otf2_mpi_reader_example.o \
++	$(MPICC) -fPIE otf2_mpi_reader_example.o \
+             `otf2-config --ldflags` \
+             `otf2-config --libs` \
+             -o otf2_mpi_reader_example
+ 
+ otf2_mpi_reader_example_cc.o: otf2_mpi_reader_example.cc
+-	mpic++ `otf2-config --cflags` \
++	$(MPICXX) -fPIC `otf2-config --cflags` \
+             -c otf2_mpi_reader_example.cc \
+             -o otf2_mpi_reader_example_cc.o
+ 
+ otf2_mpi_reader_example_cc: otf2_mpi_reader_example_cc.o
+-	mpic++ otf2_mpi_reader_example_cc.o \
++	$(MPICXX) -fPIE otf2_mpi_reader_example_cc.o \
+             `otf2-config --ldflags` \
+             `otf2-config --libs` \
+             -o otf2_mpi_reader_example_cc
+ 
+ otf2_mpi_writer_example.o: otf2_mpi_writer_example.c
+-	mpicc -std=c99 `otf2-config --cflags` \
++	$(MPICC) -fPIC -std=c99 `otf2-config --cflags` \
+             -c otf2_mpi_writer_example.c \
+             -o otf2_mpi_writer_example.o
+ 
+ otf2_mpi_writer_example: otf2_mpi_writer_example.o
+-	mpicc otf2_mpi_writer_example.o \
++	$(MPICC) -fPIE otf2_mpi_writer_example.o \
+             `otf2-config --ldflags` \
+             `otf2-config --libs` \
+             -o otf2_mpi_writer_example
+ 
+ otf2_openmp_writer_example.o: otf2_openmp_writer_example.c
+-	gcc -std=c99 -fopenmp `otf2-config --cflags` \
++	$(CC) -fPIC -std=c99 -fopenmp `otf2-config --cflags` \
+             -c otf2_openmp_writer_example.c \
+             -o otf2_openmp_writer_example.o
+ 
+ otf2_openmp_writer_example: otf2_openmp_writer_example.o
+-	gcc -fopenmp otf2_openmp_writer_example.o \
++	$(CC) -fPIE -fopenmp otf2_openmp_writer_example.o \
+             `otf2-config --ldflags` \
+             `otf2-config --libs` \
+             -o otf2_openmp_writer_example
+ 
+ otf2_pthread_writer_example.o: otf2_pthread_writer_example.c
+-	gcc -std=c99 -pthread `otf2-config --cflags` \
++	$(CC) -fPIC -std=c99 -pthread `otf2-config --cflags` \
+             -c otf2_pthread_writer_example.c \
+             -o otf2_pthread_writer_example.o
+ 
+ otf2_pthread_writer_example: otf2_pthread_writer_example.o
+-	gcc -pthread otf2_pthread_writer_example.o \
++	$(CC) -fPIE -pthread otf2_pthread_writer_example.o \
+             `otf2-config --ldflags` \
+             `otf2-config --libs` \
+             -o otf2_pthread_writer_example

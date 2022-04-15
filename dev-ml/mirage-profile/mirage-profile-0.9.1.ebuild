@@ -13,27 +13,35 @@ S="${WORKDIR}/mirage-profile-${PV}"
 LICENSE="BSD-2"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="ocamlopt xen"
+IUSE="ocamlopt unix" # xen
 
 RDEPEND="
-	dev-ml/mtime
-	dev-ml/io-page
+	dev-ml/cstruct
+	dev-ml/lwt
 	dev-ml/ocplib-endian
 
-	xen? (
-		dev-ml/mirage-xen
-		dev-ml/xenstore
-	)
+	unix? ( dev-ml/mtime )
 "
-DEPEND="${RDEPEND}"
+#	xen? (
+#		dev-ml/io-page[xen]
+#		dev-ml/mirage-xen
+#		dev-ml/mirage-xen-minios
+#		dev-ml/xenstore
+#	)
+DEPEND="
+	${RDEPEND}
+	dev-ml/cstruct[ppx]
+"
 
 src_compile() {
-	local pkgs="mirage-profile-unix,mirage-profile"
-	use xen && pkgs="${pkgs},mirage-profile-xen"
-	dune build --only-packages "${pkgs}" -j $(makeopts_jobs) --profile release || die
+	local pkgs="mirage-profile"
+#	use xen && pkgs="${pkgs},mirage-profile-xen"
+	use unix && pkgs="${pkgs},mirage-profile-unix"
+	dune build -p "${pkgs}" -j $(makeopts_jobs) || die
 }
 
 src_install() {
-	dune_src_install mirage-profile mirage-profile-unix
-	use xen && dune_src_install mirage-profile-xen
+	dune_src_install mirage-profile
+	use unix && dune_src_install mirage-profile-unix
+#	use xen && dune_src_install mirage-profile-xen
 }

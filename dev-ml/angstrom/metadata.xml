@@ -9,4 +9,9 @@
 	<upstream>
 		<remote-id type="github">inhabitedtype/angstrom</remote-id>
 	</upstream>
+	<use>
+		<flag name="async">Async support for Angstrom</flag>
+		<flag name="lwt-unix">Lwt_unix support for Angstrom</flag>
+		<flag name="unix">Unix support for Angstrom</flag>
+	</use>
 </pkgmetadata>

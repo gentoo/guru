@@ -25,6 +25,7 @@ IUSE="+mysql +memcached postgres sqlite"
 RDEPEND="
 	>=dev-python/pbr-3.1.1[${PYTHON_USEDEP}]
 	>=dev-python/Babel-2.3.4[${PYTHON_USEDEP}]
+	>=dev-python/ddt-1.4.1[${PYTHON_USEDEP}]
 	>=dev-python/croniter-0.3.4[${PYTHON_USEDEP}]
 	>=dev-python/cryptography-2.5[${PYTHON_USEDEP}]
 	>=dev-python/debtcollector-1.19.0[${PYTHON_USEDEP}]
@@ -126,13 +127,14 @@ REQUIRED_USE="
 distutils_enable_tests pytest
 
 python_prepare_all() {
+	rm -r heat/tests/test_hacking.py || die
 	sed -i '/^hacking/d' test-requirements.txt || die
 	distutils-r1_python_prepare_all
 }
 
 python_compile_all() {
-	oslo-config-generator --config-file=config-generator.conf
-	oslopolicy-sample-generator --config-file etc/heat/heat-policy-generator.conf
+	oslo-config-generator --config-file=config-generator.conf || die
+	oslopolicy-sample-generator --config-file etc/heat/heat-policy-generator.conf || die
 }
 
 python_install_all() {
@@ -148,7 +150,7 @@ python_install_all() {
 
 	insinto /etc/heat
 	insopts -m 0640 -o heat -g heat
-	doins heat.conf.sample
+	doins etc/heat/heat.conf.sample
 	doins etc/heat/policy.yaml.sample
 	doins "etc/heat/api-paste.ini"
 	insinto /etc/heat/templates

@@ -245,6 +245,8 @@ python_install_all() {
 }
 
 pkg_postinst() {
+	tmpfiles_process nova.conf
+
 	if use iscsi ; then
 		elog "iscsid needs to be running if you want cinder to connect"
 	fi

@@ -95,4 +95,11 @@ python_install_all() {
 	dobin tools/postgresql-migrate-db.sh
 
 	newtmpfiles "${FILESDIR}/placement.tmpfile" placement.conf
+
+	insinto /etc/logrotate.d
+	newins "${FILESDIR}/placement.logrotate" placement
+}
+
+pkg_postinst() {
+	tmpfiles_process placement.conf
 }

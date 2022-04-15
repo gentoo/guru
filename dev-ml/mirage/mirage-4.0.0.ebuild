@@ -18,17 +18,17 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt"
 
 RDEPEND="
-	dev-ml/ipaddr
-	dev-ml/bos
-	dev-ml/astring
-	dev-ml/logs
-	dev-ml/lwt
-	dev-ml/emile
-	dev-ml/cmdliner
-	dev-ml/base
-	dev-ml/result
-	dev-ml/rresult
-	dev-ml/uri
+	dev-ml/ipaddr:=
+	dev-ml/bos:=
+	dev-ml/astring:=
+	dev-ml/logs:=
+	dev-ml/lwt:=
+	dev-ml/emile:=
+	>=dev-ml/cmdliner-1.1.1:=
+	dev-ml/base:=
+	dev-ml/result:=
+	dev-ml/rresult:=
+	dev-ml/uri:=
 "
 DEPEND="${RDEPEND}"
 

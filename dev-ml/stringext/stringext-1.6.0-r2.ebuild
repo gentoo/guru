@@ -12,9 +12,15 @@ SRC_URI="https://github.com/rgrinberg/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="ocamlopt"
+IUSE="ocamlopt test"
 
-RDEPEND="
-	dev-ml/base
+RDEPEND=""
+DEPEND="
+	${RDEPEND}
+	test? (
+		dev-ml/ounit
+		dev-ml/qtest
+	)
 "
-DEPEND="${RDEPEND}"
+
+RESTRICT="!test? ( test )"

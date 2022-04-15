@@ -12,9 +12,12 @@ SRC_URI="https://github.com/inhabitedtype/bigstringaf/archive/${PV}.tar.gz -> ${
 LICENSE="BSD"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="ocamlopt"
+IUSE="ocamlopt test"
 
+RDEPEND="dev-ml/bigarray-compat"
 DEPEND="
-	dev-ml/bigarray-compat
+	${RDEPEND}
+	test? ( dev-ml/alcotest )
 "
-RDEPEND="${DEPEND}"
+
+RESTRICT="!test? ( test )"

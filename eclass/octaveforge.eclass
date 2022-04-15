@@ -1,43 +1,72 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-#
-# Original Author: Rafael G. Martins <rafael@rafaelmartins.eng.br>
-# Purpose: octaveforge helper eclass.
-#
+# @ECLASS: octaveforge.eclass
+# @AUTHOR:
+# Rafael G. Martins <rafael@rafaelmartins.eng.br>
+# Alessandro Barbieri <lssndrbarbieri@gmail.com>
+# @BLURB: octaveforge helper eclass.
+# @MAINTAINER:
+# Alessandro Barbieri <lssndrbarbieri@gmail.com>
+# @SUPPORTED_EAPIS: 8
+
+inherit autotools
+
+case ${EAPI} in
+	8) ;;
+	*) die "${ECLASS}: EAPI ${EAPI} unsupported."
+esac
+
+EXPORT_FUNCTIONS src_unpack src_prepare src_install pkg_postinst pkg_prerm pkg_postrm
 
 # @ECLASS-VARIABLE: OCTAVEFORGE_CAT
 # @DESCRIPTION:
 # the octave-forge category of the package.
 OCTAVEFORGE_CAT="${OCTAVEFORGE_CAT:-main}"
 
+# @ECLASS-VARIABLE: REPO_URI
+# @DESCRIPTION:
+# URI to the sourceforge octave-forge repository
 REPO_URI="http://svn.code.sf.net/p/octave/code/trunk/octave-forge"
 
-inherit autotools
-SRC_URI="mirror://sourceforge/octave/${P}.tar.gz"
+# defining some paths
+
+# @ECLASS-VARIABLE: OCT_ROOT
+# @DESCRIPTION:
+# full path to octave share
+OCT_ROOT="/usr/share/octave"
+
+# @ECLASS-VARIABLE: OCT_PKGDIR
+# @DESCRIPTION:
+# path to octave pkgdir
+OCT_PKGDIR="${OCT_ROOT}/packages"
+
+# @ECLASS-VARIABLE: OCT_BIN
+# @DESCRIPTION:
+# full path to octave binary
+OCT_BIN="$(type -p octave)"
 
 SRC_URI="
-	${SRC_URI}
+	mirror://sourceforge/octave/${P}.tar.gz
 	${REPO_URI}/packages/package_Makefile.in -> octaveforge_Makefile
 	${REPO_URI}/packages/package_configure.in -> octaveforge_configure
 "
 SLOT="0"
 
-# defining some paths
-OCT_ROOT="/usr/share/octave"
-OCT_PKGDIR="${OCT_ROOT}/packages"
-OCT_BIN="$(type -p octave)"
-
-EXPORT_FUNCTIONS src_unpack src_prepare src_install pkg_postinst pkg_prerm pkg_postrm
-
+# @FUNCTION: octaveforge_src_unpack
+# @DESCRIPTION:
+# function to unpack and set the correct S
 octaveforge_src_unpack() {
 	default
 	if [ ! -d "${WORKDIR}/${P}" ]; then
 		S="${WORKDIR}/${PN}"
-		cd "${S}" || die
+		pushd "${S}" || die
 	fi
 }
 
+# @FUNCTION: octaveforge_src_prepare
+# @DESCRIPTION:
+# function to add octaveforge specific makefile and configure and run autogen.sh if available
 octaveforge_src_prepare() {
 	for filename in Makefile configure; do
 		cp "${DISTDIR}/octaveforge_${filename}" "${S}/${filename}" || die
@@ -48,7 +77,9 @@ octaveforge_src_prepare() {
 
 	chmod 0755 "${S}/configure" || die
 	if [ -e "${S}/src/autogen.sh" ]; then
-		cd "${S}/src" && ./autogen.sh || die 'failed to run autogen.sh'
+		pushd "${S}/src" || die
+		 ./autogen.sh || die 'failed to run autogen.sh'
+		popd || die
 	fi
 	if [ -e "${S}/src/Makefile" ]; then
 		sed -i 's/ -s / /g' "${S}/src/Makefile" || die 'sed failed.'
@@ -56,6 +87,10 @@ octaveforge_src_prepare() {
 	eapply_user
 }
 
+# @FUNCTION: octaveforge_src_install
+# @DESCRIPTION:
+# function to install the octave package
+# documentation to docsdir
 octaveforge_src_install() {
 	emake DESTDIR="${D}" DISTPKG='Gentoo' install
 	if [ -d doc/ ]; then
@@ -63,12 +98,20 @@ octaveforge_src_install() {
 	fi
 }
 
+# @FUNCTION: octaveforge_pkg_postinst
+# @DESCRIPTION:
+# function that will rebuild the octave package database
 octaveforge_pkg_postinst() {
 	einfo "Registering ${CATEGORY}/${PF} on the Octave package database."
-	[ -d "${OCT_PKGDIR}" ] || mkdir -p "${OCT_PKGDIR}" || die
+	if [ ! -d "${OCT_PKGDIR}" ] ; then
+		mkdir -p "${OCT_PKGDIR}" || die
+	fi
 	"${OCT_BIN}" -H -q --no-site-file --eval "pkg('rebuild');" &> /dev/null || die 'failed to register the package.'
 }
 
+# @FUNCTION: octaveforge_pkg_prerm
+# @DESCRIPTION:
+# function that will run on_uninstall routines to prepare the package to remove
 octaveforge_pkg_prerm() {
 	einfo 'Running on_uninstall routines to prepare the package to remove.'
 	local pkgdir=$(
@@ -89,8 +132,13 @@ octaveforge_pkg_prerm() {
 	fi
 }
 
+# @FUNCTION: octaveforge_pkg_postrm
+# @DESCRIPTION:
+# function that will rebuild the octave package database
 octaveforge_pkg_postrm() {
 	einfo 'Rebuilding the Octave package database.'
-	[ -d "${OCT_PKGDIR}" ] || mkdir -p "${OCT_PKGDIR}" || die
+	if [ ! -d "${OCT_PKGDIR}" ] ; then
+		mkdir -p "${OCT_PKGDIR}" || die
+	fi
 	"${OCT_BIN}" -H --silent --eval 'pkg rebuild' &> /dev/null || die 'failed to rebuild the package database'
 }

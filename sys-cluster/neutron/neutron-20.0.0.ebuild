@@ -242,6 +242,8 @@ python_install() {
 }
 
 pkg_postinst() {
+	tmpfiles_process neutron.conf
+
 	elog
 	elog "neutron-server's conf.d file may need updating to include additional ini files"
 	elog "We currently assume the ml2 plugin will be used but do not make assumptions"

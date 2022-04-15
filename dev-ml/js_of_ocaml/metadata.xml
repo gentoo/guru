@@ -9,4 +9,11 @@
   <upstream>
     <remote-id type="github">ocsigen/js_of_ocaml</remote-id>
   </upstream>
+  <use>
+    <flag name="lwt">lwt support</flag>
+    <flag name="ppx">a ppx syntax extension</flag>
+    <flag name="ppx-deriving-json">ppx_deriving_json</flag>
+    <flag name="toplevel">lib and tools to build an ocaml toplevel to javascript</flag>
+    <flag name="tyxml">tyxml support</flag>
+  </use>
 </pkgmetadata>

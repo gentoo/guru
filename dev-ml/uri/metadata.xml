@@ -9,4 +9,8 @@
 	<upstream>
 		<remote-id type="github">mirage/ocaml-uri</remote-id>
 	</upstream>
+	<use>
+		<flag name="re">This is an OCaml implementation of the RFC3986 specification for parsing URI or URLs</flag>
+		<flag name="sexp">ocaml-uri with sexp support</flag>
+	</use>
 </pkgmetadata>

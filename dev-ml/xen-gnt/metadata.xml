@@ -8,4 +8,7 @@
   <upstream>
     <remote-id type="github">mirage/ocaml-gnt</remote-id>
   </upstream>
+  <use>
+    <flag name="unix">build the userspace library</flag>
+  </use>
 </pkgmetadata>
