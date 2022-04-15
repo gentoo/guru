@@ -9,6 +9,10 @@
 # TODO: Either fix per profile masking in overlays, or move
 # relevant entries to the relevant package.mask files in ::gentoo
 
+# Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
+# Depends on masked dev-libs/openssl-3.0.*
+app-crypt/tpm2-openssl
+
 # Adrian Schollmeyer <nex+b-g-o@nexadn.de> (2022-03-15)
 # Package will be removed after 2022-04-15 from ::guru, since it is no longer
 # being used by net-im/abaddon and has no other reverse dependencies.
