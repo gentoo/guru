@@ -87,13 +87,3 @@ src_install(){
 	mv nuclear-icon.svg nuclear.svg || die
 	doicon nuclear.svg
 }
-
-pkg_postinst() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
-}
