@@ -18,14 +18,14 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
 RDEPEND="
-	dev-ml/cstruct
-	dev-ml/ipaddr
-	dev-ml/logs
-	dev-ml/mirage-time
-	dev-ml/lwt
-	dev-ml/duration
-	dev-ml/mirage-profile
-	dev-ml/ethernet
+	dev-ml/cstruct:=
+	dev-ml/ipaddr:=
+	dev-ml/logs:=
+	dev-ml/mirage-time:=
+	dev-ml/lwt:=
+	dev-ml/duration:=
+	dev-ml/mirage-profile:=
+	dev-ml/ethernet:=
 "
 DEPEND="
 	${RDEPEND}
@@ -36,6 +36,7 @@ DEPEND="
 		dev-ml/fmt
 		dev-ml/mirage-vnetif
 		dev-ml/mirage-clock
+		dev-ml/mirage-clock-unix
 		dev-ml/mirage-time[unix]
 		dev-ml/mirage-flow
 	)
