@@ -15,22 +15,22 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt stack test"
 
 RDEPEND="
-	dev-ml/result
-	dev-ml/lwt
-	dev-ml/mirage-net
-	dev-ml/cstruct
-	dev-ml/ipaddr
-	dev-ml/mirage-profile
-	dev-ml/duration
-	dev-ml/logs
+	dev-ml/result:=
+	dev-ml/lwt:=
+	dev-ml/mirage-net:=
+	dev-ml/cstruct:=
+	dev-ml/ipaddr:=
+	dev-ml/mirage-profile:=
+	dev-ml/duration:=
+	dev-ml/logs:=
 
 	stack? (
-		dev-ml/mirage-time
-		dev-ml/mirage-clock
-		dev-ml/mirage-random
-		dev-ml/tcpip
-		dev-ml/ethernet
-		dev-ml/arp
+		dev-ml/mirage-time:=
+		dev-ml/mirage-clock:=
+		dev-ml/mirage-random:=
+		dev-ml/tcpip:=
+		dev-ml/ethernet:=
+		dev-ml/arp:=
 	)
 "
 DEPEND="
@@ -38,6 +38,7 @@ DEPEND="
 	test? (
 		dev-ml/alcotest
 		dev-ml/mirage-random-test
+		dev-ml/mirage-clock-unix
 	)
 "
 
