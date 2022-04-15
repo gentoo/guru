@@ -7,6 +7,7 @@ inherit R-packages
 
 DESCRIPTION='Vector Helpers'
 HOMEPAGE="
+	https://vctrs.r-lib.org/
 	https://github.com/r-lib/vctrs
 	https://cran.r-project.org/package=vctrs
 "
