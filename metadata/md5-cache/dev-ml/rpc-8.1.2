@@ -1,15 +1,16 @@
 BDEPEND=app-text/md2mld dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/async dev-ml/ocaml-base64 dev-ml/cmdliner dev-ml/cow dev-ml/js_of_ocaml dev-ml/lwt dev-ml/ppxlib dev-ml/result dev-ml/rresult dev-ml/xmlm dev-ml/yojson >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/cmdliner:= dev-ml/lwt:= dev-ml/ocaml-base64:= dev-ml/ppxlib:= dev-ml/result:= dev-ml/rresult:= dev-ml/xmlm:= dev-ml/yojson:= async? ( dev-ml/async:= ) html? ( dev-ml/cow:= ) js? ( dev-ml/js_of_ocaml:=[ppx] ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Light library to deal with RPCs in OCaml
 EAPI=8
 HOMEPAGE=https://github.com/mirage/ocaml-rpc
-INHERIT=dune
-IUSE=ocamlopt
+INHERIT=dune multiprocessing
+IUSE=async html js ocamlopt test
 KEYWORDS=~amd64
 LICENSE=ISC
-RDEPEND=dev-ml/async dev-ml/ocaml-base64 dev-ml/cmdliner dev-ml/cow dev-ml/js_of_ocaml dev-ml/lwt dev-ml/ppxlib dev-ml/result dev-ml/rresult dev-ml/xmlm dev-ml/yojson >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/cmdliner:= dev-ml/lwt:= dev-ml/ocaml-base64:= dev-ml/ppxlib:= dev-ml/result:= dev-ml/rresult:= dev-ml/xmlm:= dev-ml/yojson:= async? ( dev-ml/async:= ) html? ( dev-ml/cow:= ) js? ( dev-ml/js_of_ocaml:=[ppx] ) test? ( dev-ml/alcotest dev-ml/alcotest-lwt sys-apps/which ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
 SLOT=0/8.1.2
 SRC_URI=https://github.com/mirage/ocaml-rpc/releases/download/8.1.2/rpclib-8.1.2.tbz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=ffc0175908c0988daeccf5faaf9cd4a5
+_md5_=e5f9354a64d1fabec73029d7d7677137

@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/seq test? ( dev-ml/qcheck dev-ml/alcotest ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Functional Priority Search Queues for OCaml
+EAPI=8
+HOMEPAGE=https://github.com/pqwy/psq
+INHERIT=dune
+IUSE=ocamlopt test
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/seq >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/0.2.0
+SRC_URI=https://github.com/pqwy/psq/releases/download/v0.2.0/psq-v0.2.0.tbz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=80e59d72fab21467b42bcab51552bff3

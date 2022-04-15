@@ -1,0 +1,9 @@
+DEFINED_PHASES=-
+DESCRIPTION=Bytes library distributed with the OCaml compiler
+EAPI=8
+HOMEPAGE=https://opam.ocaml.org/packages/base-bytes/
+KEYWORDS=~amd64
+LICENSE=QPL-1.0 LGPL-2
+RDEPEND=dev-lang/ocaml
+SLOT=0
+_md5_=4055a2081a426fcdc8ad7160ccdf9210

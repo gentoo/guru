@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/mirage-crypto dev-ml/mirage-clock dev-ml/x509 dev-ml/logs dev-ml/fmt dev-ml/bos dev-ml/astring dev-ml/cmdliner dev-ml/alcotest >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=X.509 trust anchors extracted from Mozilla's NSS
+EAPI=8
+HOMEPAGE=https://github.com/mirage/ca-certs-nss
+INHERIT=dune
+IUSE=ocamlopt test
+KEYWORDS=~amd64
+LICENSE=BSD-2
+RDEPEND=dev-ml/mirage-crypto dev-ml/mirage-clock dev-ml/x509 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/3.74
+SRC_URI=https://github.com/mirage/ca-certs-nss/releases/download/v3.74/ca-certs-nss-3.74.tbz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=e0e1a040019e374a174a4eea27464581

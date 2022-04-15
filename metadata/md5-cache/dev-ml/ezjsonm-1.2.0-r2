@@ -1,15 +1,17 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/hex >=dev-ml/jsonm-1.0.0 dev-ml/lwt dev-ml/sexplib0 dev-ml/uutf >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/hex >=dev-ml/jsonm-1.0.0 dev-ml/sexplib0 dev-ml/uutf lwt? ( dev-ml/lwt ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=An easy interface on top of the Jsonm library
 EAPI=8
 HOMEPAGE=https://github.com/mirage/ezjsonm
-INHERIT=dune
-IUSE=ocamlopt
+INHERIT=dune multiprocessing
+IUSE=lwt ocamlopt test
 KEYWORDS=~amd64
 LICENSE=ISC
-RDEPEND=dev-ml/hex >=dev-ml/jsonm-1.0.0 dev-ml/lwt dev-ml/sexplib0 dev-ml/uutf >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/hex >=dev-ml/jsonm-1.0.0 dev-ml/sexplib0 dev-ml/uutf lwt? ( dev-ml/lwt ) test? ( dev-ml/alcotest dev-ml/js_of_ocaml net-libs/nodejs[npm] dev-ml/ppx_sexp_conv ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+REQUIRED_USE=test? ( lwt )
+RESTRICT=!test? ( test )
 SLOT=0/1.2.0
 SRC_URI=https://github.com/mirage/ezjsonm/releases/download/v1.2.0/ezjsonm-v1.2.0.tbz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=992bdfaea69014e53d769eb2cdd07656
+_md5_=90d2e677499614e126ae25a5c590ae77

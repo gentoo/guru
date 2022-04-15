@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/lwt unix? ( dev-ml/duration ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Time signatures for MirageOS
+EAPI=8
+HOMEPAGE=https://github.com/mirage/mirage-time
+INHERIT=dune multiprocessing
+IUSE=ocamlopt unix
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/lwt unix? ( dev-ml/duration ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/3.0.0
+SRC_URI=https://github.com/mirage/mirage-time/archive/v3.0.0.tar.gz -> mirage-time-3.0.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=a35ed1ba636c3179d1ad5af7aa2dd0ab

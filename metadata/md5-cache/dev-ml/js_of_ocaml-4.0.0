@@ -1,15 +1,17 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/cmdliner dev-ml/lwt dev-ml/menhir dev-ml/ppxlib dev-ml/ppx_expect dev-ml/react dev-ml/reactiveData dev-ml/tyxml dev-ml/yojson >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:= >=dev-ml/findlib-1.0.4-r1
+DEPEND=dev-ml/cmdliner dev-ml/menhir dev-ml/ppxlib dev-ml/yojson lwt? ( dev-ml/lwt ) tyxml? ( dev-ml/react dev-ml/reactiveData dev-ml/tyxml ) test? ( dev-ml/re dev-ml/ppx_expect dev-ml/num dev-ml/ppxlib dev-ml/graphics dev-ml/cohttp[lwt-unix] ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:= >=dev-ml/findlib-1.0.4-r1
 DESCRIPTION=A compiler from OCaml bytecode to javascript
 EAPI=7
 HOMEPAGE=http://ocsigen.org/js_of_ocaml/ https://github.com/ocsigen/js_of_ocaml
-INHERIT=dune findlib
-IUSE=ocamlopt +ocamlopt
+INHERIT=dune findlib multiprocessing
+IUSE=lwt ocamlopt ppx ppx-deriving-json test toplevel tyxml +ocamlopt
 KEYWORDS=~amd64
 LICENSE=LGPL-2.1-with-linking-exception
-RDEPEND=dev-ml/cmdliner dev-ml/lwt dev-ml/menhir dev-ml/ppxlib dev-ml/ppx_expect dev-ml/react dev-ml/reactiveData dev-ml/tyxml dev-ml/yojson >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:= dev-lang/ocaml:=[ocamlopt?]
+RDEPEND=dev-ml/cmdliner dev-ml/menhir dev-ml/ppxlib dev-ml/yojson lwt? ( dev-ml/lwt ) tyxml? ( dev-ml/react dev-ml/reactiveData dev-ml/tyxml ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:= dev-lang/ocaml:=[ocamlopt?]
+REQUIRED_USE=lwt? ( ppx ) test? ( lwt ppx ppx-deriving-json toplevel tyxml ) toplevel? ( ppx ) tyxml? ( ppx )
+RESTRICT=!test? ( test )
 SLOT=0/4.0.0
 SRC_URI=https://github.com/ocsigen/js_of_ocaml/archive/4.0.0.tar.gz -> js_of_ocaml-4.0.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c	findlib	e6df6108c2d753998b1206f4d5ea4a2d
-_md5_=5ecfbfabc6bc4a35ca0cd9dcca24c639
+_md5_=093fae7629f23cae844ad146c11c44b5

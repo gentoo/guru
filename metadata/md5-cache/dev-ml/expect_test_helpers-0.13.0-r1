@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/async dev-ml/core dev-ml/expect_test_helpers_kernel dev-ml/ppx_jane dev-ml/sexp_pretty >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Async helpers for writing expectation tests
+EAPI=8
+HOMEPAGE=https://github.com/janestreet/expect_test_helpers
+INHERIT=dune
+IUSE=ocamlopt
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-ml/async dev-ml/core dev-ml/expect_test_helpers_kernel dev-ml/ppx_jane dev-ml/sexp_pretty >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/0.13.0
+SRC_URI=https://github.com/janestreet/expect_test_helpers/archive/v0.13.0.tar.gz -> expect_test_helpers-0.13.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=af3010a82183b36b94820cb1d25934b4

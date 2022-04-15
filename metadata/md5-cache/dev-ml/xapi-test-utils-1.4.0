@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=An OCaml package with modules for easy unit testing
+EAPI=8
+HOMEPAGE=https://github.com/xapi-project/xapi-test-utils
+INHERIT=dune
+IUSE=ocamlopt test
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1-with-linking-exception
+RDEPEND=test? ( dev-ml/alcotest ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/1.4.0
+SRC_URI=https://github.com/xapi-project/xapi-test-utils/archive/refs/tags/v1.4.0.tar.gz -> xapi-test-utils-1.4.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=081b13b3d67cb08fdb7b3624f552d0ac

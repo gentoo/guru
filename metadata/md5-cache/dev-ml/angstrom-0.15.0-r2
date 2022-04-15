@@ -1,15 +1,15 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/async dev-ml/base dev-ml/bigstringaf dev-ml/lwt >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=async? ( dev-ml/async ) lwt-unix? ( dev-ml/base dev-ml/lwt ) unix? ( dev-ml/base ) dev-ml/bigstringaf >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Parser combinators built for speed and memory efficiency
 EAPI=8
 HOMEPAGE=https://github.com/inhabitedtype/angstrom
-INHERIT=dune
-IUSE=ocamlopt
+INHERIT=dune multiprocessing
+IUSE=async lwt-unix ocamlopt unix
 KEYWORDS=~amd64
 LICENSE=BSD
-RDEPEND=dev-ml/async dev-ml/base dev-ml/bigstringaf dev-ml/lwt >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=async? ( dev-ml/async ) lwt-unix? ( dev-ml/base dev-ml/lwt ) unix? ( dev-ml/base ) dev-ml/bigstringaf >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/0.15.0
 SRC_URI=https://github.com/inhabitedtype/angstrom/archive/0.15.0.tar.gz -> angstrom-0.15.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=69969d8ada89b8bb420a51cf33fa7000
+_md5_=e9be12accb88f0a78a1d24083b688351

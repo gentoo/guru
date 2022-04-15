@@ -113,7 +113,83 @@ dev-libs/zfp:openmp - Enable OpenMP parallel compression
 dev-libs/zfp:strided - Enable strided access for progressive zfp streams
 dev-libs/zfp:twoway - Use two-way skew-associative cache
 dev-libs/zfp:utilities - Build command line utilities
-dev-ml/mirage-profile:xen - Adds a Xen MirageOS backend collector
+dev-ml/angstrom:async - Async support for Angstrom
+dev-ml/angstrom:lwt-unix - Lwt_unix support for Angstrom
+dev-ml/angstrom:unix - Unix support for Angstrom
+dev-ml/cohttp:async - CoHTTP implementation for the Async concurrency library
+dev-ml/cohttp:bench - Benchmarks binaries for Cohttp
+dev-ml/cohttp:curl - Shared code between the individual cohttp-curl clients
+dev-ml/cohttp:curl-async - Cohttp client using Curl and Async as the backend
+dev-ml/cohttp:curl-lwt - Cohttp client using Curl and Lwt as the backend
+dev-ml/cohttp:lwt - CoHTTP implementation using the Lwt concurrency library
+dev-ml/cohttp:lwt-jsoo - CoHTTP implementation for the Js_of_ocaml JavaScript compiler
+dev-ml/cohttp:lwt-unix - CoHTTP implementation for Unix and Windows using Lwt
+dev-ml/cohttp:mirage - CoHTTP implementation for the MirageOS unikernel
+dev-ml/cohttp:server-lwt-unix - Lightweight Cohttp plus Lwt based HTTP server
+dev-ml/cohttp:top - CoHTTP toplevel pretty printers for HTTP types
+dev-ml/conduit:async - A network connection establishment library for Async
+dev-ml/conduit:lwt - A portable network connection establishment library using Lwt
+dev-ml/conduit:lwt-unix - A network connection establishment library for Lwt_unix
+dev-ml/conduit:mirage - A network connection establishment library for MirageOS
+dev-ml/cstruct:async - provide Async Pipe and Bigstring support
+dev-ml/cstruct:lwt - provide Lwt variants of read/write functions
+dev-ml/cstruct:ppx - a PPX syntax extension
+dev-ml/cstruct:sexp - serialisers into s-expression format of Cstructs
+dev-ml/cstruct:unix - provide Unix variations of the read/write functions using file descriptors
+dev-ml/dns:certify - MirageOS let's encrypt certificate retrieval
+dev-ml/dns:cli - Unix command line utilities using uDNS
+dev-ml/dns:client - DNS resolver API
+dev-ml/dns:dnssec - DNSSec support for OCaml-DNS
+dev-ml/dns:mirage - An opinionated Domain Name System (DNS) library
+dev-ml/dns:resolver - DNS resolver business logic
+dev-ml/dns:server - DNS server, primary and secondary
+dev-ml/dns:stub - DNS stub resolver
+dev-ml/dns:tsig - TSIG support for DNS
+dev-ml/ezjsonm:lwt - Simple Lwt-based interface to the Jsonm JSON library
+dev-ml/happy-eyeballs:lwt - Connecting to a remote host via IP version 4 or 6 using Lwt_unix
+dev-ml/happy-eyeballs:mirage - Connecting to a remote host via IP version 4 or 6 using Mirage
+dev-ml/io-page:unix - Support for efficient handling of I/O memory pages on Unix
+dev-ml/ipaddr:cstruct - A library for manipulation of IP address representations using Cstructs
+dev-ml/ipaddr:macaddr-cstruct - A library for manipulation of MAC address representations using Cstructs
+dev-ml/ipaddr:macaddr-sexp - A library for manipulation of MAC address representations using sexp
+dev-ml/ipaddr:sexp - A library for manipulation of IP address representations using sexp
+dev-ml/js_of_ocaml:lwt - lwt support
+dev-ml/js_of_ocaml:ppx - a ppx syntax extension
+dev-ml/js_of_ocaml:ppx-deriving-json - ppx_deriving_json
+dev-ml/js_of_ocaml:toplevel - lib and tools to build an ocaml toplevel to javascript
+dev-ml/js_of_ocaml:tyxml - tyxml support
+dev-ml/metrics:influx - Influx reporter for the Metrics library
+dev-ml/metrics:lwt - Lwt backend for the Metrics library
+dev-ml/metrics:rusage - Resource usage (getrusage) sources for the Metrics library
+dev-ml/metrics:unix - Unix backend for the Metrics library
+dev-ml/mirage-block:combinators - Build the package specialised to the Lwt concurrency library for IO
+dev-ml/mirage-crypto:ec - Elliptic Curve Cryptography with primitives taken from Fiat
+dev-ml/mirage-crypto:pk - Simple public-key cryptography for the modern age
+dev-ml/mirage-crypto:rng - A cryptographically secure PRNG
+dev-ml/mirage-crypto:rng-async - Feed the entropy source in an Async-friendly way
+dev-ml/mirage-crypto:rng-mirage - Entropy collection for a cryptographically secure PRNG
+dev-ml/mirage-flow:combinators - Flow implementations and combinators for MirageOS specialized to lwt
+dev-ml/mirage-flow:unix - Flow implementations and combinators for MirageOS on Unix
+dev-ml/mirage-profile:unix - Adds a Unix backend collector
+dev-ml/mirage-time:unix - Time operations for MirageOS on Unix
+dev-ml/mirage-vnetif:stack - Vnetif implementation of mirage-stack for Mirage TCP/IP
+dev-ml/nbd:tool - command line helper for serving and mirroring disks over NBD, and getting information about the disks exported by an NBD server
+dev-ml/nbd:unix - Lwt_unix implementation
+dev-ml/ounit:lwt - This library contains helper functions for building Lwt tests using OUnit
+dev-ml/rpc:async - Async interface
+dev-ml/rpc:html - html documentation generator
+dev-ml/rpc:js - Bindings for js_of_ocaml
+dev-ml/tar:mirage - Read and write tar format files via MirageOS interfaces
+dev-ml/tar:unix - Decode and encode tar format files from Unix
+dev-ml/tls:async - Async laye
+dev-ml/tls:mirage - MirageOS layer
+dev-ml/uri:re - This is an OCaml implementation of the RFC3986 specification for parsing URI or URLs
+dev-ml/uri:sexp - ocaml-uri with sexp support
+dev-ml/vchan:unix - Unix support
+dev-ml/vchan:xen - Xen support
+dev-ml/vhd:lwt - provide an Lwt compatible interface to the library
+dev-ml/xen-evtchn:unix - Xen event channel interface for Linux
+dev-ml/xen-gnt:unix - build the userspace library
 dev-python/glance_store:cinder - enable cinder backend supprt
 dev-python/glance_store:swift - enable swift backend supprt
 dev-python/glance_store:vmware - enable vmware backend supprt
@@ -245,6 +321,7 @@ media-libs/alvr:vulkan - Build ALVR vulkan layer
 media-libs/alvr:x264 - Use x264 for h264 software encoding
 media-libs/alvr:x265 - Use x265 for h265 software encoding
 media-libs/imgui:allegro - Enable allegro backend and renderer
+media-libs/imgui:bindings - Build the cimgui C bindigs
 media-libs/imgui:freetype - Use FreeType to build and rasterize the font atlas
 media-libs/imgui:glfw - Enable glfw backend
 media-libs/imgui:glut - Enable glut backen

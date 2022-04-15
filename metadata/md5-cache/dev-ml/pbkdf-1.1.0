@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/cstruct dev-ml/mirage-crypto test? ( dev-ml/alcotest ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Password based key derivation functions (PBKDF) from PKCS#5
+EAPI=8
+HOMEPAGE=https://github.com/abeaumont/ocaml-pbkdf
+INHERIT=dune
+IUSE=ocamlopt test
+KEYWORDS=~amd64
+LICENSE=BSD-2
+RDEPEND=dev-ml/cstruct dev-ml/mirage-crypto >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/1.1.0
+SRC_URI=https://github.com/abeaumont/ocaml-pbkdf/releases/download/1.1.0/pbkdf-1.1.0.tbz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=13f1c24147d23553077bca1c91a7126d

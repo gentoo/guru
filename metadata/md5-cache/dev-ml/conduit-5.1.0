@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/astring dev-ml/ipaddr[sexp] dev-ml/logs dev-ml/ppx_sexp_conv dev-ml/sexplib dev-ml/uri async? ( dev-ml/async dev-ml/async_ssl dev-ml/core dev-ml/ppx_here ) lwt? ( dev-ml/base-unix dev-ml/lwt ) lwt-unix? ( dev-ml/base-unix dev-ml/ca-certs dev-ml/lwt ) mirage? ( dev-ml/base dev-ml/ca-certs-nss dev-ml/cstruct dev-ml/dns[client] dev-ml/fmt dev-ml/mirage-clock dev-ml/mirage-flow[combinators] dev-ml/mirage-random dev-ml/mirage-time dev-ml/tcpip dev-ml/tls[mirage] dev-ml/vchan dev-ml/xenstore ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Dereference URIs into communication channels for Async or Lwt
+EAPI=8
+HOMEPAGE=https://github.com/mirage/ocaml-conduit
+INHERIT=dune multiprocessing
+IUSE=async lwt lwt-unix mirage ocamlopt
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/astring dev-ml/ipaddr[sexp] dev-ml/logs dev-ml/ppx_sexp_conv dev-ml/sexplib dev-ml/uri async? ( dev-ml/async dev-ml/async_ssl dev-ml/core dev-ml/ppx_here ) lwt? ( dev-ml/base-unix dev-ml/lwt ) lwt-unix? ( dev-ml/base-unix dev-ml/ca-certs dev-ml/lwt ) mirage? ( dev-ml/base dev-ml/ca-certs-nss dev-ml/cstruct dev-ml/dns[client] dev-ml/fmt dev-ml/mirage-clock dev-ml/mirage-flow[combinators] dev-ml/mirage-random dev-ml/mirage-time dev-ml/tcpip dev-ml/tls[mirage] dev-ml/vchan dev-ml/xenstore ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+REQUIRED_USE=lwt-unix? ( lwt ) mirage? ( lwt )
+SLOT=0/5.1.0
+SRC_URI=https://github.com/mirage/ocaml-conduit/archive/v5.1.0.tar.gz -> conduit-5.1.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=1055cd1c4c7bf1943efceec062ae5388

@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/opam-installer dev-lang/ocaml
+DEFINED_PHASES=compile configure install
+DEPEND=sys-apps/systemd dev-ml/ocamlbuild >=dev-ml/findlib-1.0.4-r1 >=dev-lang/ocaml-4:=
+DESCRIPTION=OCaml module for native access to the systemd facilities
+EAPI=7
+HOMEPAGE=https://github.com/juergenhoetzel/ocaml-systemd
+INHERIT=findlib opam
+IUSE=ocamlopt +ocamlopt
+KEYWORDS=~amd64
+LICENSE=LGPL-3-with-linking-exception
+RDEPEND=sys-apps/systemd dev-lang/ocaml:=[ocamlopt?] >=dev-lang/ocaml-4:=
+SLOT=0/1.2
+SRC_URI=https://github.com/juergenhoetzel/ocaml-systemd/archive/refs/tags/1.2.tar.gz -> systemd-1.2.tar.gz
+_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d	opam	dc11e376d9abc263ca618c5741206216
+_md5_=017ac806f29cc6a56b6e80406cbe792b

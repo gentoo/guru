@@ -1,0 +1,17 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/result dev-ml/lwt dev-ml/mirage-net dev-ml/cstruct dev-ml/ipaddr dev-ml/mirage-profile dev-ml/duration dev-ml/logs stack? ( dev-ml/mirage-time dev-ml/mirage-clock dev-ml/mirage-random dev-ml/tcpip dev-ml/ethernet dev-ml/arp ) test? ( dev-ml/alcotest dev-ml/mirage-random-test ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Virtual network interface and software bridge for Mirage
+EAPI=8
+HOMEPAGE=https://github.com/mirage/mirage-vnetif
+INHERIT=dune multiprocessing
+IUSE=ocamlopt stack test
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/result dev-ml/lwt dev-ml/mirage-net dev-ml/cstruct dev-ml/ipaddr dev-ml/mirage-profile dev-ml/duration dev-ml/logs stack? ( dev-ml/mirage-time dev-ml/mirage-clock dev-ml/mirage-random dev-ml/tcpip dev-ml/ethernet dev-ml/arp ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+REQUIRED_USE=test? ( stack )
+RESTRICT=!test? ( test )
+SLOT=0/0.6.0
+SRC_URI=https://github.com/mirage/mirage-vnetif/releases/download/v0.6.0/mirage-vnetif-0.6.0.tbz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=928f0deb04087db1822cead0542e2dae

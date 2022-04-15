@@ -1,4 +1,5 @@
-DEFINED_PHASES=compile install postinst prepare unpack
+BDEPEND=sys-apps/pkgcore
+DEFINED_PHASES=compile configure install postinst prepare unpack
 DEPEND=dev-lang/R
 DESCRIPTION=Colorblind-Friendly Color Maps (Lite Version)
 EAPI=7
@@ -9,5 +10,5 @@ LICENSE=MIT
 RDEPEND=dev-lang/R
 SLOT=0
 SRC_URI=mirror://cran/src/contrib/viridisLite_0.4.0.tar.gz
-_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	optfeature	d524f291c80f9d21ad80fe978e3ca760	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	R-packages	33e1468a652d3e68a29f4c1e4742f527
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	optfeature	d524f291c80f9d21ad80fe978e3ca760	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	R-packages	6ede07063666b3e11b38e5a923062e7a
 _md5_=3c672142b7bb9f4312d5c5bc88e9229d

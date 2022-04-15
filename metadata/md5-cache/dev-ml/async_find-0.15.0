@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/async dev-ml/core dev-ml/ppx_jane >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Directory traversal with Async
+EAPI=8
+HOMEPAGE=https://github.com/janestreet/async_find
+INHERIT=dune
+IUSE=ocamlopt
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-ml/async dev-ml/core dev-ml/ppx_jane >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/0.15.0
+SRC_URI=https://github.com/janestreet/async_find/archive/refs/tags/v0.15.0.tar.gz -> async_find-0.15.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=64c1aa31add6b56550609dcfba7d666f

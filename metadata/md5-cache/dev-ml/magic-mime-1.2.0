@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Convert file extensions to MIME types
+EAPI=8
+HOMEPAGE=https://github.com/mirage/ocaml-magic-mime
+INHERIT=dune
+IUSE=ocamlopt
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/1.2.0
+SRC_URI=https://github.com/mirage/ocaml-magic-mime/archive/v1.2.0.tar.gz -> magic-mime-1.2.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=be18716eb753cd87a64e899f3cc23e1e

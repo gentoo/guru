@@ -88,7 +88,7 @@ app-emacs/prop-menu 0.1.2: Compute pop-up menus from text and overlay properties
 app-emulation/arnold 20170513: Amstrad CPC emulator
 app-emulation/dxvk-bin 1.10 1.10.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/quickemu 3.11: Create and run optimised Windows, macOS and Linux desktop virtual machines
-app-emulation/spice-html5 0.2.2 0.3.0: Spice Javascript client
+app-emulation/spice-html5 0.2.2 0.3.0-r1: Spice Javascript client
 app-eselect/eselect-autostart 1.0.0: Manage symlinks in $XDG_CONFIG_HOME/autostart
 app-eselect/eselect-ld 1.0.0: Manage the ld symlink
 app-forensics/libpreloadvaccine 0_pre20190831: Whitelisting LD_PRELOAD libraries using LD_AUDIT
@@ -382,38 +382,106 @@ dev-libs/xqilla 2.3.4 2.3.4-r1: An XQuery and XPath 2 library and command line u
 dev-libs/zfp 0.5.5: Compressed numerical arrays that support high-speed random access
 dev-libs/zlib-google 97.0.4692.13: google zlib extras
 dev-lisp/PSL 6.1_p20210604: Portable Standard Lisp
+dev-ml/afl-persistent 1.3: Persistent-mode afl-fuzz for ocaml
+dev-ml/alcotest-lwt 1.4.0: Lwt-based helpers for Alcotest
 dev-ml/angstrom 0.15.0-r2: Parser combinators built for speed and memory efficiency
+dev-ml/arp 3.0.0: Address resolution protocol (ARP) implementation in OCaml
+dev-ml/asn1-combinators 0.2.5: Embed typed ASN.1 grammars in OCaml
+dev-ml/async_find 0.15.0: Directory traversal with Async
+dev-ml/async_inotify 0.15.0: Async wrapper for inotify
+dev-ml/async_ssl 0.14.0-r1: An Async-pipe-based interface with OpenSSL
+dev-ml/base-bytes 0: Bytes library distributed with the OCaml compiler
+dev-ml/base-threads 0: Threads library distributed with the OCaml compiler
+dev-ml/base-unix 0: Unix library distributed with the OCaml compiler
 dev-ml/bheap 2.0.0: OCaml binary heap implementation by Jean-Christophe Filliatre
-dev-ml/bigstringaf 0.7.0: Bigstring intrinsics and fast blits based on memcpy/memmove
+dev-ml/bigstringaf 0.7.0 0.9.0: Bigstring intrinsics and fast blits based on memcpy/memmove
+dev-ml/ca-certs 0.2.1: Detect root CA certificates from the operating system
+dev-ml/ca-certs-nss 3.74: X.509 trust anchors extracted from Mozilla's NSS
+dev-ml/cdrom 0.9.4: Query the state and contents of CDROM devices under Linux
+dev-ml/cohttp 5.0.0: Very lightweight HTTP server using Lwt or Async
+dev-ml/conduit 5.1.0: Dereference URIs into communication channels for Async or Lwt
+dev-ml/configurator 0.11.0: Helper library for gathering system configuration
+dev-ml/core_unix 0.14.0: Unix-specific extensions to some of the modules defined in [core] and [core_kernel]
 dev-ml/cow 2.4.0: Caml on the Web
+dev-ml/crc 2.1.0: Library for finding the CRC of parts of various kinds of data in-place
+dev-ml/crowbar 0.2.1: Write tests, let a fuzzer find failing cases
 dev-ml/cstruct 6.0.1: Map OCaml arrays onto C-like structs
+dev-ml/diet 0.4: A simple implementation of Discrete Interval Encoding Trees
+dev-ml/dns 5.0.1: A pure OCaml implementation of the DNS protocol
 dev-ml/domain-name 0.4.0: RFC 1035 Internet domain names
 dev-ml/emile 1.1: Emile is a library to parse an e-mail address in OCaml
+dev-ml/eqaf 0.7-r1: Constant time equal function to avoid timing attacks in OCaml
+dev-ml/ethernet 3.0.0: OCaml Ethernet (IEEE 802.3) layer
+dev-ml/expect_test_helpers 0.13.0-r1: Async helpers for writing expectation tests
+dev-ml/expect_test_helpers_core 0.14.0: Helpers for writing expectation tests
+dev-ml/expect_test_helpers_kernel 0.13.0-r1: Helpers for writing expectation tests
 dev-ml/ezjsonm 1.2.0-r2: An easy interface on top of the Jsonm library
 dev-ml/ezxenstore 0.3.1: An easy-to-use Xenstore library
 dev-ml/fd-send-recv 2.0.1: Send and receive Unix.file_descrs over Unix domain sockets
+dev-ml/gmap 0.3.0-r2: Heterogenous Map over a GADT
+dev-ml/happy-eyeballs 0.3.0: An implementation of happy eyeballs (RFC 8305) in OCaml with lwt
 dev-ml/hex 1.4.0-r1: Hexadecimal converter
+dev-ml/hkdf 1.0.4: HMAC-based Extract-and-Expand Key Derivation Function (RFC 5869)
+dev-ml/inotify 2.3_p20211118: OCaml bindings for inotify
 dev-ml/io-page 2.2.0 2.4.0: IO memory page library for Mirage backends
 dev-ml/ipaddr 5.3.0: OCaml library for manipulation of IP (and MAC) address representations
 dev-ml/js_of_ocaml 4.0.0: A compiler from OCaml bytecode to javascript
+dev-ml/lru 0.3.0-r2: Scalable LRU caches for OCaml
 dev-ml/lwt-dllist 1.0.1: Mutable doubly-linked list with Lwt iterators
+dev-ml/magic-mime 1.2.0: Convert file extensions to MIME types
+dev-ml/metrics 0.2.0: Infrastructure to collect metrics from OCaml applications
 dev-ml/mirage 4.0.0: MirageOS is a library operating system that constructs unikernels
+dev-ml/mirage-block 3.0.0: Block implementations for mirage
+dev-ml/mirage-block-unix 2.14.0: Unix implementation of the Mirage_types.BLOCK interface
+dev-ml/mirage-channel 4.1.0: An implementation of channels using page-aligned memory
+dev-ml/mirage-crypto 0.10.1: Simple symmetric cryptography for the modern age
+dev-ml/mirage-flow 3.0.0: Flow implementations for Mirage
+dev-ml/mirage-kv 4.0.1: MirageOS signature for key/value stores
+dev-ml/mirage-net 4.0.0: Network devices for MirageOS
 dev-ml/mirage-profile 0.9.1: Collect profiling information
+dev-ml/mirage-random 3.0.0: Random-related devices for MirageOS
+dev-ml/mirage-random-test 0.1.0: A stub implementation providing the Mirage_random.C interface for testing
+dev-ml/mirage-time 3.0.0: Time signatures for MirageOS
+dev-ml/mirage-unix 5.0.0: Unix core platform libraries for MirageOS
+dev-ml/mirage-vnetif 0.6.0: Virtual network interface and software bridge for Mirage
 dev-ml/mirage-xen 7.2.0: Xen core platform libraries for MirageOS
+dev-ml/mustache 3.1.0: mustache.js logic-less templates in OCaml
+dev-ml/nbd 5.0.0: Ocaml NBD library
+dev-ml/netlink 0.3.4: OCaml bindings to libnl
+dev-ml/ocaml_intrinsics 0.15.0: Functions to invoke amd64 instructions when available
 dev-ml/omd 2.0.0_alpha2: An easy interface on top of the Jsonm library
+dev-ml/ounit 2.2.6: Unit testing framework for OCaml
+dev-ml/pbkdf 1.1.0: Password based key derivation functions (PBKDF) from PKCS#5
+dev-ml/pcap-format 0.5.2-r2: Read and write pcap-formatted network packet traces
+dev-ml/pci 1.0.1: OCaml bindings to libpci using Ctypes
 dev-ml/pecu 0.6: Implementation of quoted-printable encoder/decoder from RFC2045
+dev-ml/polly 0.2.2: OCaml bindings for Linux epoll(2)
+dev-ml/psq 0.2.0-r2: Functional Priority Search Queues for OCaml
 dev-ml/ptime 1.0.0: POSIX time for OCaml
+dev-ml/qmp 0.17.0: A Qemu Message Protocol (QMP) client in OCaml
+dev-ml/randomconv 0.1.3: Convert from random bytes to random native numbers
 dev-ml/rpc 8.1.2: Light library to deal with RPCs in OCaml
+dev-ml/sexp_pretty 0.14.0-r1: S-expression pretty-printer
+dev-ml/shared-block-ring 3.0.0: A simple on-disk fixed length queue
 dev-ml/shared-memory-ring 3.1.0: Xen-style shared memory rings
 dev-ml/stringext 1.6.0-r2: Extra string functions for OCaml
+dev-ml/systemd 1.2: OCaml module for native access to the systemd facilities
+dev-ml/tar 2.0.1: Pure OCaml library to read and write tar files
+dev-ml/tcpip 7.1.0: TCP/IP networking stack in pure OCaml, using the Mirage platform libraries
+dev-ml/tls 0.13.1: Transport Layer Security purely in OCaml
 dev-ml/tuntap 2.0.0: Bindings to UNIX tuntap facilities
 dev-ml/tyxml 4.5.0: A libary to build xml trees typechecked by OCaml
 dev-ml/uri 4.2.0: RFC3986 URI parsing library for OCaml
+dev-ml/vchan 6.0.1: Pure OCaml implementation of the vchan shared-memory communication protocol
+dev-ml/vhd 0.12.2: Read and write .vhd-format format data
+dev-ml/x509 0.13.0: Public Key Infrastructure purely in OCaml
 dev-ml/xapi-backtrace 0.7: Helper functions to preserve and transport exception backtraces
 dev-ml/xapi-stdext 4.18.0: Citrix's (deprecated) extensions to the ocaml standard library
+dev-ml/xapi-test-utils 1.4.0: An OCaml package with modules for easy unit testing
 dev-ml/xcp-inventory 1.2.2: The XCP inventory library
 dev-ml/xcp-rrd 1.8.0: RRD library for use with xapi
-dev-ml/xen-gnt 4.0.0: OCaml bindings to the Xen grant tables libraries
+dev-ml/xen-evtchn 2.1.0: Xen event channel interface for Mirage
+dev-ml/xen-gnt 4.0.1: OCaml bindings to the Xen grant tables libraries
 dev-ml/xenctrl 0_p20191017: Mock OCaml bindings for the Xen Hypervisor
 dev-ml/xenstore 2.1.1: A Xenstore protocol implementation in pure OCaml
 dev-ml/xenstore-clients 1.1.0: Unix client tools for accessing xenstore
@@ -491,7 +559,7 @@ dev-python/decopatch 1.4.9 1.4.10: Create decorators easily in python
 dev-python/desktop-notifier 3.3.2 3.4.0: desktop-notifier is a Python library for cross-platform desktop notifications
 dev-python/devtools 0.6.1: Dev tools for python
 dev-python/digitalocean 1.16.0 1.17.0: Digitalocean API access library
-dev-python/dotmap 1.3.26 1.3.28: Dot access dictionary with dynamic hierarchy creation and ordered iteration
+dev-python/dotmap 1.3.28 1.3.30: Dot access dictionary with dynamic hierarchy creation and ordered iteration
 dev-python/doubles 1.5.3: Test doubles for Python
 dev-python/doxypypy 0.8.8.6_p20210405: A more Pythonic version of doxypy, a Doxygen filter for Python
 dev-python/dropbox-sdk-python 11.28.0: The offical Dropbox SDK for Python
@@ -560,7 +628,7 @@ dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your outpu
 dev-python/mnemonic 0.19: Reference implementation of BIP-0039 for generating deterministic keys
 dev-python/mobi 0.3.3: unpack unencrypted mobi files
 dev-python/monotonic 1.6: An implementation of time.monotonic() for Python 2 & < 3.3
-dev-python/ncclient 0.6.12: Python library for NETCONF clients
+dev-python/ncclient 0.6.12 0.6.13: Python library for NETCONF clients
 dev-python/neutron-lib 2.20.0: Neutron shared routines and utilities
 dev-python/noiseprotocol 0.3.1: Python implementation of Noise Protocol Framework
 dev-python/nosehtmloutput 0.0.7: Nose plugin for generating HTML output
@@ -597,7 +665,7 @@ dev-python/oslo-versionedobjects 2.5.0: A library that provides a generic versio
 dev-python/oslo-vmware 3.10.0: Oslo VMware library for OpenStack projects
 dev-python/osprofiler 3.4.2: OpenStack Profiler Library
 dev-python/ots-python 8.1.4-r1 8.2.1: A Python wrapper for OpenType Sanitizer
-dev-python/ovsdbapp 1.15.1: A library for creating OVSDB applications
+dev-python/ovsdbapp 1.16.0: A library for creating OVSDB applications
 dev-python/parsel 1.6.0: Utility to extract data from XML/HTML documents using XPath or CSS selectors
 dev-python/pdfminer-six 20201018: Community maintained fork of pdfminer
 dev-python/pg8000 1.22.0 1.24.1: A Pure-Python PostgreSQL Driver
@@ -685,6 +753,7 @@ dev-python/pywebview 3.5 3.6.1: A lightweight cross-platform wrapper around a we
 dev-python/qiskit-aer 0.10.3: High performance simulator for quantum circuits that includes noise models
 dev-python/qiskit-terra 0.19.2: Terra is the foundation on which Qiskit is built
 dev-python/queuelib 1.6.2: Collection of persistent and non-persistent queues for Python
+dev-python/rchitect 0.3.36: Interoperate R with Python
 dev-python/recordclass 0.14.3: Mutable variants of tupe and collections.namedtuple
 dev-python/redbaron 0.9 0.9.2: A FST for python to make writing refactoring code a realistic task
 dev-python/retworkx 0.11.0: A high performance Python graph library implemented in Rust
@@ -737,7 +806,7 @@ dev-python/types-python-dateutil 2.8.9 2.8.10: Typing stubs for python-dateutil
 dev-python/types-pytz 2021.3.5 2021.3.6: Typing stubs for pytz
 dev-python/types-requests 2.27.15 2.27.16: Typing stubs for requests
 dev-python/types-urllib3 1.26.10 1.26.11: Typing stubs for urllib3
-dev-python/ufo2ft 2.25.3 2.26.0: A bridge from UFOs to FontTool objects
+dev-python/ufo2ft 2.26.0 2.27.0: A bridge from UFOs to FontTool objects
 dev-python/ufoLib2 0.11.4 0.13.1: A UFO font library
 dev-python/ufoNormalizer 0.5.4 0.6.1: A tool that will normalize the XML and other data inside of a UFO
 dev-python/ufoProcessor 1.9.0: A Python package for processing and generating UFO files
@@ -769,20 +838,20 @@ dev-ruby/rspec-wait 0.0.9: enables time-resilient expectations in your RSpec tes
 dev-ruby/ruby-install 0.8.3-r2: Installs Ruby, JRuby, Rubinius, TruffleRuby (native / GraalVM), or mruby.
 dev-util/FoBiS 3.0.5: FoBiS.py, a Fortran Building System for poor men
 dev-util/afdko 3.6.2 3.8.1: Adobe Font Development Kit for OpenType
-dev-util/annobin 10.60: Binary annotation compiler plugin and tools
+dev-util/annobin 10.60 10.62: Binary annotation compiler plugin and tools
 dev-util/babeltrace2 2.0.4: A command-line tool and library to read and convert trace files
 dev-util/bats-assert 2.0.0: Common assertions for Bats
 dev-util/bats-support 0.3.0: Supporting library for Bats test helpers
 dev-util/binaryen 105: Compiler and toolchain infrastructure library for WebAssembly
 dev-util/blueprint-compiler 0.1.0_pre20220219 0.1.0_pre20220319 9999: Compiler for Blueprint, a markup language for GTK user interfaces
-dev-util/cargo-make 0.35.9: Rust task runner and build tool
+dev-util/cargo-make 0.35.9 0.35.10: Rust task runner and build tool
 dev-util/devscripts 2.21.3 2.22.1: Scripts to make the life of a Debian Package maintainer easier
 dev-util/eclipse-parallel-bin 4.20 4.21 4.22: Eclipse IDE for Scientific Computing (C, C++, Fortran)
 dev-util/fontmake 2.4.0 3.2.0: A wrapper for several Python libraries to compile fonts from sources
 dev-util/fortran-test-drive 0.4.0: The simple testing framework (for Fortran)
 dev-util/fypp 3.1: Fypp - Python powered Fortran preprocessor
 dev-util/gammaray 2.11.3: High-level runtime introspection tool for Qt applications
-dev-util/gftools 0.9.4 0.9.5: Miscellaneous tools for working with the Google Fonts collection
+dev-util/gftools 0.9.5 0.9.6: Miscellaneous tools for working with the Google Fonts collection
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/mh 1.0.3: Generate help for Makefile
@@ -951,7 +1020,7 @@ media-gfx/dustr 9999: light and interactive tool your crops need
 media-gfx/fontbakery 0.7.38: Font quality assurance tool
 media-gfx/fontdiff 0.2.3: A tool for finding visual differences between two font versions
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
-media-gfx/gephi-bin 0.9.2: The Open Graph Viz Platform
+media-gfx/gephi-bin 0.9.2 0.9.3: The Open Graph Viz Platform
 media-gfx/grafx2 2.7.2978 2.7.2978-r100: A pixelart-oriented painting program
 media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/nsxiv 28 29 9999: Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer
@@ -967,7 +1036,7 @@ media-libs/alsa-ucm-pinephone 1.2.6.3: ALSA ucm configuration files for the Pine
 media-libs/alvr 15.2.1_p20210604 16.0.0: ALVR is an open source remote VR display for the Oculus Go/Quest
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.4.2: AMD Open Source Driver for Vulkan
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
-media-libs/imgui 1.83 1.87-r1: Bloat-free graphical user interface library for C++
+media-libs/imgui 1.83 1.87-r2: Bloat-free graphical user interface library for C++
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
 media-libs/lodepng 20210627: PNG encoder and decoder
 media-libs/monado 9999: The open source OpenXR runtime.
@@ -1155,6 +1224,7 @@ sci-mathematics/frama-c-users 23.1 24.0: Users plugin for frama-c
 sci-mathematics/frama-c-variadic 23.1 24.0: Variadic function transformation plugin for frama-c
 sci-mathematics/frama-c-wp 23.1 24.0: Deductive proof of ACSL contracts (WP) plugin for frama-c
 sci-mathematics/lean-mathlib 0.1_p20220324: Lean mathematical components library
+sci-mathematics/radian 0.6.0: A 21 century R console
 sci-mathematics/the-omega-project 2.1_p20131119: Tools from Pugh et al.'s for constraint-based compiler tools
 sci-misc/boinc-wrapper 7.16.17 7.16.17-r1: Wrapper to use non-BOINC apps with BOINC
 sci-physics/SU2 7.2.0: SU2: An Open-Source Suite for Multiphysics Simulation and Design
@@ -1175,7 +1245,7 @@ sys-apps/fselect 0.7.9 0.8.0: Find files with SQL-like queries
 sys-apps/hex 0.3.2 0.4.0 0.4.1 0.4.2: Futuristic take on hexdump
 sys-apps/hexyl 0.9.0: A command-line hex viewer
 sys-apps/intel-cmt-cat 4.2.0-r2 4.3.0: User space software for Intel(R) Resource Director Technology
-sys-apps/ov 0.9.6 0.10.0: Feature-rich terminal pager
+sys-apps/ov 0.10.0 0.10.1: Feature-rich terminal pager
 sys-apps/procs 0.11.6 0.11.9: A modern replacement for ps
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
 sys-apps/rogdrv 0.0.5_p20210208: ASUS ROG userspace mouse driver for Linux.
@@ -1185,7 +1255,7 @@ sys-apps/sd 0.7.6-r1: Intuitive find & replace CLI (sed alternative)
 sys-apps/sdate 0.7: Wrapper program to output dates like the Eternal September 1993
 sys-apps/systemd-bootchart 234: systemd boot performance graphing tool
 sys-apps/sysz 1.4.1 1.4.3: An fzf terminal UI for systemctl
-sys-auth/keystone 21.0.0 21.0.0.0_rc1-r1: The Openstack authentication, authorization, and service catalog
+sys-auth/keystone 21.0.0: The Openstack authentication, authorization, and service catalog
 sys-auth/mrsh 2.12 2.12-r1: Mrsh is a set of remote shell programs that use munge authentication.
 sys-auth/pam-gnupg 0.3: Unlock GnuPG keys on login
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
@@ -1197,7 +1267,7 @@ sys-cluster/OpenHPC-meta 2.1: OpenHPC metapackage
 sys-cluster/SIONfwd 1.0.1: A minimalistic I/O forwarding server and client library for SIONlib
 sys-cluster/SOS 1.5.0: implementation of the OpenSHMEM specification
 sys-cluster/TCL 1.0: Transparent Checkpointing Library
-sys-cluster/cinder 20.0.0 20.0.0.0_rc1: Cinder is the OpenStack Block storage service, a spin out of nova-volumes
+sys-cluster/cinder 20.0.0: Cinder is the OpenStack Block storage service, a spin out of nova-volumes
 sys-cluster/clusteringsuite 2.6.9-r3: Expose the main performance trends in applications computation structure
 sys-cluster/dlb 2.1-r3: Dynamically react to application imbalance by modifying the number of resources
 sys-cluster/dtcmp 1.1.2 1.1.4: Datatype Compare Library for sorting and ranking distributed data using MPI
@@ -1209,18 +1279,18 @@ sys-cluster/genders 1.28.1: Static cluster configuration database used for clust
 sys-cluster/heat 18.0.0 18.0.0.0_rc1: A CloudFormation-compatible openstack-native cloud orchestration engine
 sys-cluster/launchmon 1.0.2_p20210430-r2: Enables HPC run-time tools to co-locate tool daemons with a parallel job
 sys-cluster/libbsctools 1.0.6-r2: libbsctools
-sys-cluster/libi 5.0.1_p20180510: A framework for bootstrapping extreme scale software systems
+sys-cluster/libi 5.0.1_p20180510-r1: A framework for bootstrapping extreme scale software systems
 sys-cluster/libyogrt 1.24 1.27: Your One Get Remaining Time library
 sys-cluster/lwgrp 1.0.3 1.0.5: Light-weight Group Library
 sys-cluster/mcxx 2021.06: C/C++/Fortran source-to-source compilation aimed at fast prototyping
-sys-cluster/mrnet 5.0.1_p20180510-r4: A Multicast/Reduction Network
+sys-cluster/mrnet 5.0.1_p20180510-r5: A Multicast/Reduction Network
 sys-cluster/muster 1.0.1: Massively Scalable Clustering
 sys-cluster/nanos6 2.6-r4 2.7: runtime that implements the OmpSs-2 parallel programming model
 sys-cluster/nanox 0.15_p20210818: Runtime designed to serve as runtime support in parallel environments
 sys-cluster/neutron 17.1.2 20.0.0: A virtual network service for Openstack
-sys-cluster/nova 25.0.0 25.0.0.0_rc1-r3: Cloud computing fabric controller
+sys-cluster/nova 25.0.0: Cloud computing fabric controller
 sys-cluster/opencoarrays 2.9.2: A parallel application binary interface for Fortran 2018 compilers
-sys-cluster/otf2 2.3-r1: highly scalable, memory efficient event trace data format
+sys-cluster/otf2 2.3-r2: highly scalable, memory efficient event trace data format
 sys-cluster/parallel-netcdf 1.12.2: Parallel extension to netCDF
 sys-cluster/paraver-kernel 4.9.0: paraver kernel library
 sys-cluster/parsec 3.0.2012: Parallel Runtime Scheduler and Execution Controller

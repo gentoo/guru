@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt?] dev-ml/cstruct:= dev-ml/cmdliner:= >=dev-ml/io-page-2.4.0:= dev-ml/lwt:= dev-ml/lwt-dllist:= dev-ml/mirage-profile:= unix? ( app-emulation/xen ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=OCaml bindings to the Xen grant tables libraries
+EAPI=8
+HOMEPAGE=https://github.com/mirage/ocaml-gnt
+INHERIT=dune multiprocessing
+IUSE=ocamlopt unix
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt?] dev-ml/cstruct:= dev-ml/cmdliner:= >=dev-ml/io-page-2.4.0:= dev-ml/lwt:= dev-ml/lwt-dllist:= dev-ml/mirage-profile:= unix? ( app-emulation/xen ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/4.0.1
+SRC_URI=https://github.com/mirage/ocaml-gnt/releases/download/v4.0.1/xen-gnt-4.0.1.tbz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=500a7db2bac6161d21a81edb8cbb41b5

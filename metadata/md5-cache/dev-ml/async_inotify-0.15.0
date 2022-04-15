@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/core_unix dev-ml/async dev-ml/async_find dev-ml/core dev-ml/ppx_jane dev-ml/inotify >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Async wrapper for inotify
+EAPI=8
+HOMEPAGE=https://github.com/janestreet/async_inotify
+INHERIT=dune
+IUSE=ocamlopt
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-ml/core_unix dev-ml/async dev-ml/async_find dev-ml/core dev-ml/ppx_jane dev-ml/inotify >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/0.15.0
+SRC_URI=https://github.com/janestreet/async_inotify/archive/refs/tags/v0.15.0.tar.gz -> async_inotify-0.15.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=a8331c2c019706d90c6999c336dbb6eb

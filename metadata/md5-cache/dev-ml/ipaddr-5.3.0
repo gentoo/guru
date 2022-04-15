@@ -1,15 +1,17 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/cstruct dev-ml/domain-name dev-ml/ppx_sexp_conv dev-ml/sexplib0 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/domain-name dev-ml/stdlib-shims cstruct? ( dev-ml/cstruct ) macaddr-cstruct? ( dev-ml/cstruct ) macaddr-sexp? ( dev-ml/ppx_sexp_conv dev-ml/sexplib0 ) sexp? ( dev-ml/ppx_sexp_conv dev-ml/sexplib0 ) test? ( dev-ml/ounit dev-ml/ppx_sexp_conv ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=OCaml library for manipulation of IP (and MAC) address representations
 EAPI=8
 HOMEPAGE=https://github.com/mirage/ocaml-ipaddr
-INHERIT=dune
-IUSE=ocamlopt
+INHERIT=dune multiprocessing
+IUSE=cstruct macaddr-cstruct macaddr-sexp ocamlopt sexp test
 KEYWORDS=~amd64
 LICENSE=ISC
-RDEPEND=dev-ml/cstruct dev-ml/domain-name dev-ml/ppx_sexp_conv dev-ml/sexplib0 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/domain-name dev-ml/stdlib-shims cstruct? ( dev-ml/cstruct ) macaddr-cstruct? ( dev-ml/cstruct ) macaddr-sexp? ( dev-ml/ppx_sexp_conv dev-ml/sexplib0 ) sexp? ( dev-ml/ppx_sexp_conv dev-ml/sexplib0 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+REQUIRED_USE=test? ( cstruct macaddr-cstruct macaddr-sexp sexp )
+RESTRICT=!test? ( test )
 SLOT=0/5.3.0
 SRC_URI=https://github.com/mirage/ocaml-ipaddr/archive/v5.3.0.tar.gz -> ocaml-ipaddr-5.3.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=7706dcbf419c9abef5bcfd404357a71d
+_md5_=102edbec98233e4ae4c123f461939d39

@@ -1,0 +1,17 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/lwt dev-ml/lwt-dllist dev-ml/cmdliner unix? ( app-emulation/xen ) test? ( dev-ml/ounit ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Xen event channel interface for Mirage
+EAPI=8
+HOMEPAGE=https://github.com/mirage/ocaml-evtchn
+INHERIT=dune multiprocessing
+IUSE=ocamlopt test unix
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/lwt dev-ml/lwt-dllist dev-ml/cmdliner unix? ( app-emulation/xen ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+REQUIRED_USE=test? ( unix )
+RESTRICT=!test? ( test )
+SLOT=0/2.1.0
+SRC_URI=https://github.com/mirage/ocaml-evtchn/releases/download/v2.1.0/xen-evtchn-v2.1.0.tbz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=153811bfc8dea8903d256e681f087200

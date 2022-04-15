@@ -1,0 +1,17 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=combinators? ( dev-ml/mirage-clock ) dev-ml/cstruct dev-ml/fmt dev-ml/logs dev-ml/lwt test? ( dev-ml/alcotest ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Flow implementations for Mirage
+EAPI=8
+HOMEPAGE=https://github.com/mirage/mirage-flow
+INHERIT=dune multiprocessing
+IUSE=combinators ocamlopt test unix
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=combinators? ( dev-ml/mirage-clock ) dev-ml/cstruct dev-ml/fmt dev-ml/logs dev-ml/lwt >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+REQUIRED_USE=test? ( combinators unix )
+RESTRICT=!test? ( test )
+SLOT=0/3.0.0
+SRC_URI=https://github.com/mirage/mirage-flow/archive/v3.0.0.tar.gz -> mirage-flow-3.0.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=6a1c73a2a86fcacfa86427380fd5a809

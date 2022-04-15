@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/cstruct[ppx] test? ( dev-ml/ounit dev-ml/mmap ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Read and write pcap-formatted network packet traces
+EAPI=8
+HOMEPAGE=https://github.com/mirage/ocaml-pcap
+INHERIT=dune
+IUSE=ocamlopt test
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/cstruct[ppx] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/0.5.2
+SRC_URI=https://github.com/mirage/ocaml-pcap/archive/0.5.2.tar.gz -> pcap-format-0.5.2.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=8d381f90bc5fee5a8745183f88147c04

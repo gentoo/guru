@@ -1,15 +1,16 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=test? ( dev-ml/lwt ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Mutable doubly-linked list with Lwt iterators
 EAPI=8
 HOMEPAGE=https://github.com/mirage/lwt-dllist
 INHERIT=dune
-IUSE=ocamlopt
+IUSE=ocamlopt test
 KEYWORDS=~amd64
 LICENSE=MIT
 RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
 SLOT=0/1.0.1
 SRC_URI=https://github.com/mirage/lwt-dllist/releases/download/v1.0.1/lwt-dllist-v1.0.1.tbz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=e706f38167bd82b14bc893c2e67f268e
+_md5_=66d42390654b271a6b7f87ff8035294d

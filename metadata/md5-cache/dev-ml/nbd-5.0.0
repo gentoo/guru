@@ -1,0 +1,17 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/cstruct[ppx] dev-ml/io-page dev-ml/mirage-block-unix dev-ml/lwt dev-ml/lwt_log dev-ml/ppx_sexp_conv dev-ml/rresult dev-ml/sexplib dev-ml/uri tool? ( dev-ml/cmdliner ) unix? ( dev-ml/cstruct[lwt] dev-ml/io-page[unix(-)] dev-ml/lwt_ssl dev-ml/ocaml-ssl ) test? ( app-emulation/qemu dev-ml/alcotest dev-ml/io-page[unix(-)] sys-block/nbd || ( net-analyzer/openbsd-netcat net-analyzer/nmap[ncat] ) ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Ocaml NBD library
+EAPI=8
+HOMEPAGE=https://github.com/xapi-project/nbd
+INHERIT=dune multiprocessing
+IUSE=ocamlopt test tool unix
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1-with-linking-exception
+RDEPEND=dev-ml/cstruct[ppx] dev-ml/io-page dev-ml/mirage-block-unix dev-ml/lwt dev-ml/lwt_log dev-ml/ppx_sexp_conv dev-ml/rresult dev-ml/sexplib dev-ml/uri tool? ( dev-ml/cmdliner ) unix? ( dev-ml/cstruct[lwt] dev-ml/io-page[unix(-)] dev-ml/lwt_ssl dev-ml/ocaml-ssl ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+REQUIRED_USE=tool? ( unix ) test? ( tool )
+RESTRICT=!test? ( test )
+SLOT=0/5.0.0
+SRC_URI=https://github.com/xapi-project/nbd/archive/refs/tags/v5.0.0.tar.gz -> nbd-5.0.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=2c6d0b2bf73b260a1f58bfb6ab633c36

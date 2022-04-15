@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/core_kernel dev-ml/expect_test_helpers_core dev-ml/core dev-ml/ppx_jane dev-ml/jane-street-headers dev-ml/jst-config dev-ml/ocaml_intrinsics dev-ml/sexplib dev-ml/timezone dev-ml/base-threads dev-ml/spawn sys-kernel/linux-headers >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Unix-specific extensions to some of the modules defined in [core] and [core_kernel]
+EAPI=8
+HOMEPAGE=https://github.com/janestreet/core_unix
+INHERIT=dune
+IUSE=ocamlopt
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-ml/core_kernel dev-ml/expect_test_helpers_core dev-ml/core dev-ml/ppx_jane dev-ml/jane-street-headers dev-ml/jst-config dev-ml/ocaml_intrinsics dev-ml/sexplib dev-ml/timezone dev-ml/base-threads dev-ml/spawn >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/0.14.0
+SRC_URI=https://github.com/janestreet/core_unix/archive/v0.14.0.tar.gz -> core_unix-0.14.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=c26fa306cd247b2393d3cdcefadc9a3c

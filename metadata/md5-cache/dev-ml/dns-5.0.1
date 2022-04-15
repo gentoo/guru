@@ -1,0 +1,17 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/logs:= dev-ml/ptime:= dev-ml/domain-name:= dev-ml/gmap:= dev-ml/cstruct:= dev-ml/ipaddr:= dev-ml/lru:= dev-ml/duration:= dev-ml/metrics:= dev-ml/ocaml-base64:= dnssec? ( dev-ml/mirage-crypto:=[ec,pk] ) certify? ( dev-ml/randomconv:= dev-ml/mirage-time:= dev-ml/mirage-clock:= dev-ml/tcpip:= dev-ml/mirage-crypto:=[ec,pk,rng] dev-ml/x509:= dev-ml/lwt:= ) cli? ( dev-ml/bos:= dev-ml/cmdliner:= dev-ml/fpath:= dev-ml/x509:= dev-ml/mirage-crypto:=[ec,pk] dev-ml/hex:= dev-ml/mtime:= dev-ml/fmt:= dev-ml/lwt:= dev-ml/randomconv:= ) client? ( dev-ml/fmt:= dev-ml/lwt:= dev-ml/tcpip:= dev-ml/mirage-random:= dev-ml/mirage-time:= dev-ml/mirage-clock:= dev-ml/mirage-crypto:=[rng] dev-ml/happy-eyeballs:= dev-ml/tls:=[mirage] dev-ml/x509:= dev-ml/ca-certs:= dev-ml/ca-certs-nss:= ) mirage? ( dev-ml/lwt:= dev-ml/tcpip:= ) resolver? ( dev-ml/randomconv:= dev-ml/lwt:= dev-ml/mirage-time:= dev-ml/mirage-clock:= dev-ml/mirage-random:= dev-ml/tcpip:= dev-ml/tls:=[mirage] dev-ml/duration:= ) server? ( dev-ml/randomconv:= dev-ml/duration:= dev-ml/lwt:= dev-ml/mirage-time:= dev-ml/mirage-clock:= dev-ml/tcpip:= dev-ml/mirage-crypto:=[rng] ) stub? ( dev-ml/randomconv:= dev-ml/lwt:= dev-ml/mirage-time:= dev-ml/mirage-clock:= dev-ml/mirage-random:= dev-ml/tcpip:= ) tsig? ( dev-ml/mirage-crypto:= ) test? ( dev-ml/alcotest ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=A pure OCaml implementation of the DNS protocol
+EAPI=8
+HOMEPAGE=https://github.com/mirage/ocaml-dns
+INHERIT=dune multiprocessing
+IUSE=certify cli client dnssec mirage ocamlopt resolver server stub test tsig
+KEYWORDS=~amd64
+LICENSE=BSD-2
+RDEPEND=dev-ml/logs:= dev-ml/ptime:= dev-ml/domain-name:= dev-ml/gmap:= dev-ml/cstruct:= dev-ml/ipaddr:= dev-ml/lru:= dev-ml/duration:= dev-ml/metrics:= dev-ml/ocaml-base64:= dnssec? ( dev-ml/mirage-crypto:=[ec,pk] ) certify? ( dev-ml/randomconv:= dev-ml/mirage-time:= dev-ml/mirage-clock:= dev-ml/tcpip:= dev-ml/mirage-crypto:=[ec,pk,rng] dev-ml/x509:= dev-ml/lwt:= ) cli? ( dev-ml/bos:= dev-ml/cmdliner:= dev-ml/fpath:= dev-ml/x509:= dev-ml/mirage-crypto:=[ec,pk] dev-ml/hex:= dev-ml/mtime:= dev-ml/fmt:= dev-ml/lwt:= dev-ml/randomconv:= ) client? ( dev-ml/fmt:= dev-ml/lwt:= dev-ml/tcpip:= dev-ml/mirage-random:= dev-ml/mirage-time:= dev-ml/mirage-clock:= dev-ml/mirage-crypto:=[rng] dev-ml/happy-eyeballs:= dev-ml/tls:=[mirage] dev-ml/x509:= dev-ml/ca-certs:= dev-ml/ca-certs-nss:= ) mirage? ( dev-ml/lwt:= dev-ml/tcpip:= ) resolver? ( dev-ml/randomconv:= dev-ml/lwt:= dev-ml/mirage-time:= dev-ml/mirage-clock:= dev-ml/mirage-random:= dev-ml/tcpip:= dev-ml/tls:=[mirage] dev-ml/duration:= ) server? ( dev-ml/randomconv:= dev-ml/duration:= dev-ml/lwt:= dev-ml/mirage-time:= dev-ml/mirage-clock:= dev-ml/tcpip:= dev-ml/mirage-crypto:=[rng] ) stub? ( dev-ml/randomconv:= dev-ml/lwt:= dev-ml/mirage-time:= dev-ml/mirage-clock:= dev-ml/mirage-random:= dev-ml/tcpip:= ) tsig? ( dev-ml/mirage-crypto:= ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+REQUIRED_USE=certify? ( mirage tsig ) cli? ( certify client dnssec server tsig ) resolver? ( dnssec mirage server ) server? ( mirage ) stub? ( client mirage resolver tsig server ) test? ( cli dnssec resolver server tsig )
+RESTRICT=!test? ( test )
+SLOT=0/5.0.1
+SRC_URI=https://github.com/mirage/ocaml-dns/archive/v5.0.1.tar.gz -> ocaml-dns-5.0.1.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=1dbb3db46b3ef726eb2405465de202ed

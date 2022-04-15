@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/stdlib-shims test? ( dev-ml/ounit ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=A simple implementation of Discrete Interval Encoding Trees
+EAPI=8
+HOMEPAGE=https://github.com/mirage/ocaml-diet
+INHERIT=dune
+IUSE=ocamlopt test
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/stdlib-shims >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/0.4
+SRC_URI=https://github.com/mirage/ocaml-diet/archive/v0.4.tar.gz -> diet-0.4.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=0d36d680c7f8964d245d43eaa95f0d09

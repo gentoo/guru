@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/cstruct dev-ml/logs dev-ml/lwt dev-ml/mirage-flow >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=An implementation of channels using page-aligned memory
+EAPI=8
+HOMEPAGE=https://github.com/mirage/mirage-time
+INHERIT=dune
+IUSE=ocamlopt
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/cstruct dev-ml/logs dev-ml/lwt dev-ml/mirage-flow >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/4.1.0
+SRC_URI=https://github.com/mirage/mirage-channel/archive/v4.1.0.tar.gz -> mirage-channel-4.1.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=06cc076680cfca1e962764b28d7db937

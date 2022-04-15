@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=test? ( dev-ml/calendar dev-ml/fpath dev-ml/pprint dev-ml/uucp dev-ml/uunf dev-ml/uutf ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Write tests, let a fuzzer find failing cases
+EAPI=8
+HOMEPAGE=https://github.com/stedolan/crowbar
+INHERIT=dune
+IUSE=ocamlopt test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-ml/afl-persistent:= >=dev-ml/cmdliner-1.1.0:= dev-ml/ocplib-endian:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/0.2.1
+SRC_URI=https://github.com/stedolan/crowbar/archive/v0.2.1.tar.gz -> crowbar-0.2.1.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=f77a239395a5df14f4592a7828754973

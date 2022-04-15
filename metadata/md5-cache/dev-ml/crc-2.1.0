@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/cstruct dev-ml/rpc dev-ml/ppx_sexp_conv >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Library for finding the CRC of parts of various kinds of data in-place
+EAPI=8
+HOMEPAGE=https://github.com/xapi-project/ocaml-crc
+INHERIT=dune
+IUSE=ocamlopt test
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/cstruct dev-ml/rpc dev-ml/ppx_sexp_conv test? ( dev-ml/ounit ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/2.1.0
+SRC_URI=https://github.com/xapi-project/ocaml-crc/archive/refs/tags/2.1.0.tar.gz -> crc-2.1.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=16428bcb007e1a565bab28d84cbe4b53
