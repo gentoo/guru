@@ -10,4 +10,4 @@ LICENSE=AGPL-3
 SLOT=0
 SRC_URI=https://github.com/nukeop/nuclear/releases/download/v0.6.17/nuclear-v0.6.17.tar.gz -> nuclear-bin-0.6.17.tar.gz
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=5dfef2d8795ba2624641a0d08f56f07f
+_md5_=b6d492e61190517c8ab8a732fc618b52

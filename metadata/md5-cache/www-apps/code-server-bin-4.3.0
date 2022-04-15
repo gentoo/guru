@@ -10,6 +10,6 @@ LICENSE=MIT 0BSD ISC PYTHON BSD-2 BSD Apache-2.0 Unlicense LGPL-2.1+ || ( BSD-2 
 RDEPEND=>=net-libs/nodejs-14.0[ssl] sys-apps/ripgrep gnome-keyring? ( app-crypt/libsecret )
 RESTRICT=test
 SLOT=0
-SRC_URI=amd64? ( https://github.com/cdr/code-server/releases/download/v4.0.1/code-server-4.0.1-linux-amd64.tar.gz ) arm64? ( https://github.com/cdr/code-server/releases/download/v4.0.1/code-server-4.0.1-linux-arm64.tar.gz )
+SRC_URI=amd64? ( https://github.com/coder/code-server/releases/download/v4.3.0/code-server-4.3.0-linux-amd64.tar.gz ) arm64? ( https://github.com/coder/code-server/releases/download/v4.3.0/code-server-4.3.0-linux-arm64.tar.gz )
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=ebf232124e2511553047cd1e5db2fed0
+_md5_=06e08da3fdb18e11664b791440464146

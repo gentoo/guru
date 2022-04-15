@@ -44,7 +44,7 @@ app-admin/zenmonitor3 2.0.0: Zen monitor is monitoring software for AMD Zen-base
 app-arch/libarchive-qt 2.0.6-r1 2.0.7 9999: A Qt based archiving solution with libarchive backend
 app-arch/unalz 0.65-r1: Extract ALZ archives
 app-backup/b2 2.5.0-r1 3.0.3: Command-line tool for BackBlaze's B2 product
-app-backup/grub-btrfs 4.10.2: Improves Grub by adding btrfs snapshots to the Grub menu.
+app-backup/grub-btrfs 4.10.2 4.11: Improves Grub by adding btrfs snapshots to the Grub menu.
 app-backup/timeshift 21.09.1-r1: A system restore utility for Linux
 app-backup/timeshift-autosnap 0.9: Automatically creates a timeshift-snapshot when executed
 app-containers/aardvark-dns 1.0.2 1.0.2-r1: A container-focused DNS server
@@ -127,14 +127,14 @@ app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/pup 0.4.0_p1: Parsing HTML at the command line
 app-misc/rememberthemilk 1.3.11-r1: Freemium simple to-do tasks manager
 app-misc/spark 1.0.1: sparklines for your shell
-app-misc/ssmtool 0.6.4: A simple sentence mining tool written in PyQt5
 app-misc/tai 0.0.4 0.0.5: tai (Terminal Ascii Image) tool to convert images to ascii
 app-misc/tealdeer 1.5.0: A very fast implementation of tldr in Rust.
 app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the command-line
 app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
+app-misc/vocabsieve 0.7.0: A simple, effective tool for language learning
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
-app-misc/watchexec 1.15.3 1.16.2 1.17.1 1.18.11 1.18.12: Executes commands in response to file modifications
+app-misc/watchexec 1.15.3 1.16.2 1.17.1 1.18.11 1.18.12 1.19.0: Executes commands in response to file modifications
 app-misc/wego 2.1: Wego is a weather client for the terminal
 app-misc/xplr 0.15.2 0.17.0 0.17.1 0.17.2: A hackable, minimal, fast TUI file explorer
 app-misc/yaf 0.0.3: Yet another system fetch that is minimal and customizable.
@@ -170,7 +170,7 @@ app-shells/powerline-go 1.21.0: A powerline like prompt for Bash, Zsh, Fish writ
 app-shells/silver 2.0.0: A cross-shell customizable powerline-like prompt with icons
 app-shells/spark-fish 1.2.0: Sparklines for Fish
 app-shells/vivid 0.7.0-r2 0.8.0: A themeable LS_COLORS generator with a rich filetype datebase
-app-shells/zoxide 0.7.2: A smarter cd command for your terminal
+app-shells/zoxide 0.7.2 0.8.0: A smarter cd command for your terminal
 app-shells/zsh-async 1.8.5 1.8.5_p20211005: Run multiple asynchronous jobs with callbacks
 app-shells/zsh-autosuggestions 0.6.4 0.7.0-r1: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
@@ -815,7 +815,6 @@ games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple di
 games-action/blackvoxel 2.50 9999: Blackvoxel Video Game
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
-games-action/polymc 1.1.1 9999: A custom, open source Minecraft launcher
 games-action/technic-launcher 4.625: Minecraft launcher for community-made modpacks on the Technic Platform
 games-arcade/SpaceCadetPinball 2.0 2.0.1: Decompilation of 3D Pinball for Windows - Space Cadet
 games-arcade/opensurge 0.5.2.1 9999: fun 2D retro platformer inspired by old-school Sonic games
@@ -888,7 +887,7 @@ gui-apps/fnott 1.2.1: Keyboard driven and lightweight Wayland notification daemo
 gui-apps/mpvpaper 1.1 1.2 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.5.0 0.6.3 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperde 0.1.1_p20210426 9999: Simple, sleek QT based DE for wayland using wayfire
-gui-apps/sfwbar 1.0_beta2 1.0_beta3 1.0_beta4: Sway Floating Window Bar
+gui-apps/sfwbar 1.0_beta4 1.0_beta6: Sway Floating Window Bar
 gui-apps/somebar 9999: dwm-like bar for dwl
 gui-apps/someblocks 9999: Modular status bar for somebar written in c.
 gui-apps/sway-launcher-desktop 1.5.4: TUI Application launcher with Desktop Entry support
@@ -996,6 +995,7 @@ media-sound/hushboard 0.0_pre20210317-r1 9999: Mutes your microphone while you a
 media-sound/ibniz 1.18: virtual machine designed for extremely compact low-level audiovisual programs
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/mopidy 3.2.0: An extensible music server written in Python.
+media-sound/mpd-mpris 0.3.1: An implementation of the MPRIS protocol for MPD.
 media-sound/mpvc 1.0.8-r1: mpc-like tool which connects to existing mpv instances through sockets.
 media-sound/ncpamixer 1.3.3.1: A ncurses mixer for PulseAudio inspired by pavucontrol
 media-sound/netcat-cpi 2014.04.29: Kernel module edition of the Cycles Per Instruction (2014) album
@@ -1031,7 +1031,7 @@ net-client/offpunk 0.1 0.3: A command-line, text-based and offline-first Gemini 
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
 net-client/telescope 0.6.1 0.7.1: w3m-like browser for Gemini
 net-dialup/atinout 0.9.1-r1: AT commands as input are sent to modem and responses given as output
-net-dialup/tio 1.36: Simple TTY terminal application
+net-dialup/tio 1.37: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/Quaternion 0.0.9.4e: A Qt5-based IM client for the Matrix protocol
@@ -1057,7 +1057,7 @@ net-libs/libqmatrixclient 0.5.3.2: A Qt5 library to write cross-platfrom clients
 net-libs/td 1.8.0: Cross-platform library for building Telegram clients
 net-libs/telepathy-haze 0.8.1: Telepathy connection manager providing libpurple supported protocols
 net-libs/usockets 0.8.1_p20211023 9999: tiny eventing, networking & crypto for async applications
-net-mail/dovecot-fts-xapian 1.5.2: Dovecot FTS plugin backed by Xapian
+net-mail/dovecot-fts-xapian 1.5.2 1.5.4: Dovecot FTS plugin backed by Xapian
 net-mail/remail 0.13: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.4.1 1.4.2 1.5.0: FORT validator is an open source RPKI validator
 net-misc/bee-node 0.2.1: IOTA node written in rust
@@ -1095,7 +1095,7 @@ net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny
 net-nntp/inn 2.6.4-r1 2.6.5: InterNetNews -- the Internet meets Netnews
 net-p2p/bisq 1.8.4: The decentralized bitcoin exchange (non-atomic, with arbitration)
 net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital marketplace controlled by its users.
-net-p2p/monero 0.17.2.0 0.17.2.3 9999: The secure, private, untraceable cryptocurrency
+net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 9999: The secure, private, untraceable cryptocurrency
 net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for Linux
 net-p2p/popura 0.4.3 9999: Popura: alternative Yggdrasil network client
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
@@ -1104,9 +1104,9 @@ net-voip/discover-overlay 0.3.3 0.4.5 0.5.0: Yet another Discord overlay for Lin
 net-voip/gnome-calls 42.0: Phone dialer and call handler
 net-voip/vvmd 0.8: vvmd is a lower level daemon that retrieves Visual Voicemail
 net-wireless/iwdgui 0.1.0 0.2.0: A graphical frontend for IWD, Intel's iNet Wireless Daemon
-net-wireless/rtl8192eu 0_pre20211023: Realtek 8192EU driver module for Linux kernel
-net-wireless/rtl8821ce 0_pre20211119: Realtek RTL8821CE Driver module for Linux kernel
-net-wireless/rtl8821cu 0_pre20211114: Realtek 8821CU/RTL8811CU module for Linux kernel
+net-wireless/rtl8192eu 0_pre20220406: Realtek 8192EU driver module for Linux kernel
+net-wireless/rtl8821ce 0_pre20220330: Realtek RTL8821CE Driver module for Linux kernel
+net-wireless/rtl8821cu 0_pre20220409: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-biology/cmdock 0.1.3-r1 0.1.4: Program for docking ligands to proteins and nucleic acids
 sci-biology/geneathome 1.10 1.10-r2: BOINC application for expanding Gene Regulatory Networks (GRN)
 sci-electronics/bsc 0_pre20210124 9999: Bluespec high level hardware design language compiler
@@ -1280,7 +1280,7 @@ virtual/nlme 0: Virtual of a R recommended package
 virtual/nnet 0: Virtual of a R recommended package
 virtual/sendmail 0: Virtual for sendmail program
 virtual/survival 0: Virtual of a R recommended package
-www-apps/code-server-bin 4.0.1 4.0.2 4.1.0: VS Code in the browser (binary version with unbundled node and ripgrep)
+www-apps/code-server-bin 4.1.0 4.3.0: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/jackett-bin 0.20.514 9999: API Support for your favorite torrent trackers
 www-apps/twint 2.1.20-r2: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
