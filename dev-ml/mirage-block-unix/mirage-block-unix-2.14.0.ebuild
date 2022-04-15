@@ -15,20 +15,20 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
 RDEPEND="
-	dev-ml/cstruct[lwt]
-	dev-ml/lwt
-	dev-ml/mirage-block
-	dev-ml/rresult
-	dev-ml/uri
-	dev-ml/logs
-	dev-ml/io-page
+	dev-ml/cstruct:=[lwt]
+	dev-ml/lwt:=
+	dev-ml/mirage-block:=
+	dev-ml/rresult:=
+	dev-ml/uri:=
+	dev-ml/logs:=
+	dev-ml/io-page:=
 
 "
 DEPEND="
 	${RDEPEND}
 	test? (
 		dev-ml/fmt
-		>=dev-ml/ounit-2
+		dev-ml/ounit2
 		dev-ml/diet
 	)
 "
