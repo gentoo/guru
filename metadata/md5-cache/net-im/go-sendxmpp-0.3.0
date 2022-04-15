@@ -9,5 +9,5 @@ LICENSE=BSD-2 BSD MIT
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://salsa.debian.org/mdosch/go-sendxmpp/-/archive/v0.3.0/go-sendxmpp-v0.3.0.tar.bz2 -> go-sendxmpp-0.3.0.tar.bz2 https://tastytea.de/files/go-sendxmpp-0.3.0-vendor.tar.xz
-_eclasses_=go-module	3b47b6e0e18257d2abb17663c575fc36
+_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a
 _md5_=841049bb0de5c934670fd965498c9b40
