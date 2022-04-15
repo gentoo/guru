@@ -25,18 +25,12 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 src_compile() {
-	local pkgs="ounit,ounit2"
-	use lwt && pkgs="${pkgs},ounit-lwt,ounit2-lwt"
+	local pkgs="ounit"
+	use lwt && pkgs="${pkgs},ounit-lwt"
 	dune build -p "${pkgs}" -j $(makeopts_jobs) || die
 }
 
 src_install() {
-	for p in ounit{,2} ; do
-		dune_src_install "${p}"
-	done
-	if use lwt; then
-		for p in ounit{,2}-lwt ; do
-			dune_src_install "${p}"
-		done
-	fi
+	dune_src_install ounit
+	use lwt && dune_src_install ounit-lwt
 }
