@@ -7,8 +7,7 @@ inherit dune multiprocessing
 
 DESCRIPTION="OCaml bindings to the Xen grant tables libraries"
 HOMEPAGE="https://github.com/mirage/ocaml-gnt"
-SRC_URI="https://github.com/mirage/ocaml-gnt/releases/download/v${PV}/${PN}-v${PV}.tbz"
-S="${WORKDIR}/${PN}-v${PV}"
+SRC_URI="https://github.com/mirage/ocaml-gnt/releases/download/v${PV}/${P}.tbz"
 
 LICENSE="ISC"
 SLOT="0/${PV}"
@@ -16,17 +15,15 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt unix"
 
 DEPEND="
-	dev-ml/cstruct
-	dev-ml/cmdliner
-	dev-ml/io-page
-	dev-ml/lwt
-	dev-ml/lwt-dllist
-	dev-ml/mirage-profile
+	>=dev-lang/ocaml-4.08.0:=[ocamlopt?]
+	dev-ml/cstruct:=
+	dev-ml/cmdliner:=
+	>=dev-ml/io-page-2.4.0:=
+	dev-ml/lwt:=
+	dev-ml/lwt-dllist:=
+	dev-ml/mirage-profile:=
 
-	unix? (
-		app-emulation/xen
-		dev-ml/io-page[unix(-)]
-	)
+	unix? ( app-emulation/xen )
 "
 RDEPEND="${DEPEND}"
 
