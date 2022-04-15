@@ -43,7 +43,7 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 	test? (
-		>=dev-ml/ounit-2
+		dev-ml/ounit2
 		dev-ml/randomconv
 		dev-ml/hex
 		dev-ml/asn1-combinators
