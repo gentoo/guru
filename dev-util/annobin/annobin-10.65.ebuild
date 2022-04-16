@@ -35,7 +35,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-10.58-fix-bashism.patch"
+	"${FILESDIR}/${P}-fix-bashism.patch"
 	"${FILESDIR}/${PN}-10.58-demangle.h-path.patch"
 )
 REQUIRED_USE="
