@@ -101,7 +101,7 @@ DEPEND="
 	${RDEPEND}
 	test? (
 		dev-ml/mirage-crypto[rng]
-		>=dev-ml/ounit-2
+		dev-ml/ounit2
 		dev-ml/qcheck
 	)
 "
