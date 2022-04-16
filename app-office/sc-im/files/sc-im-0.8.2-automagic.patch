@@ -1,4 +1,4 @@
---- src/Makefile	
+--- src/Makefile
 +++ src/Makefile
 @@ -83,7 +83,7 @@
  endif
