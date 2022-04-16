@@ -21,6 +21,7 @@ SLOT="0"
 
 #lxml, unicodedata2, fs, brotli, brotlicffi, zopfli, fontpens are indirect dependencies
 RDEPEND="
+	dev-cpp/antlr-cpp:4
 	>=dev-python/lxml-4.8.0[${PYTHON_USEDEP}]
 	>=dev-python/fs-2.2.0[${PYTHON_USEDEP}]
 	>=app-arch/brotli-1.0.1[python,${PYTHON_USEDEP}]
@@ -54,6 +55,7 @@ DOCS=( {README,NEWS}.md docs )
 PATCHES=(
 	"${FILESDIR}/${PN}-3.6.2-_get_scripts-to-data_files.patch"
 	"${FILESDIR}/${P}-no-cmake-ninja-deps.patch"
+	"${FILESDIR}/${P}-antlr.patch"
 )
 
 distutils_enable_tests pytest
