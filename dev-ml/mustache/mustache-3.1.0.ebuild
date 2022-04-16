@@ -8,7 +8,10 @@ inherit dune
 MYPN="ocaml-${PN}"
 
 DESCRIPTION="mustache.js logic-less templates in OCaml"
-HOMEPAGE="https://github.com/rgrinberg/ocaml-mustache"
+HOMEPAGE="
+	https://github.com/rgrinberg/ocaml-mustache
+	https://opam.ocaml.org/packages/mustache/
+"
 SRC_URI="https://github.com/rgrinberg/${MYPN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MYPN}-${PV}"
 
@@ -18,16 +21,12 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
 DEPEND="
-	dev-ml/jsonm
-	dev-ml/menhir
-	dev-ml/cmdliner
+	dev-ml/menhir:=
+	dev-ml/ezjsonm:=
 "
 RDEPEND="
 	${DEPEND}
-	test? (
-		dev-ml/ounit
-		dev-ml/ezjsonm
-	)
+	test? ( dev-ml/ounit )
 "
 
 RESTRICT="!test? ( test )"
