@@ -16,15 +16,16 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
 DEPEND="
-	dev-ml/lwt
-	dev-ml/xenstore
+	dev-ml/lwt:=
+	dev-ml/xenstore:=
 "
 RDEPEND="
 	${DEPEND}
-	test? ( dev-ml/ounit )
+	test? ( dev-ml/ounit2 )
 "
 
 RESTRICT="!test? ( test )"
+PATCHES="${FILESDIR}/${P}-ounit2.patch"
 
 src_install() {
 	dune_src_install xenstore_transport
