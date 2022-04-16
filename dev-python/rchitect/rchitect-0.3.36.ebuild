@@ -12,7 +12,7 @@ HOMEPAGE="
 	https://pypi.org/project/rchitect/
 	https://github.com/randy3k/rchitect
 "
-SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/randy3k/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}-github.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
