@@ -8,7 +8,10 @@ inherit dune
 MYPN="ocaml-${PN}"
 
 DESCRIPTION="A Qemu Message Protocol (QMP) client in OCaml"
-HOMEPAGE="https://github.com/xapi-project/ocaml-qmp"
+HOMEPAGE="
+	https://github.com/xapi-project/ocaml-qmp
+	https://opam.ocaml.org/packages/qmp/
+"
 SRC_URI="https://github.com/xapi-project/${MYPN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MYPN}-${PV}"
 
@@ -18,13 +21,14 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
 DEPEND="
-	dev-ml/base-unix
-	dev-ml/yojson
-	dev-ml/cmdliner
+	dev-ml/base-unix:=
+	dev-ml/yojson:=
+	dev-ml/cmdliner:=
 "
 RDEPEND="
 	${DEPEND}
-	test? ( dev-ml/ounit )
+	test? ( dev-ml/ounit2 )
 "
 
 RESTRICT="!test? ( test )"
+PATCHES="${FILESDIR}/${P}-ounit2.patch"
