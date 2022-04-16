@@ -8,7 +8,10 @@ inherit dune multiprocessing
 MYPN="ocaml-${PN}"
 
 DESCRIPTION="Read and write .vhd-format format data"
-HOMEPAGE="https://github.com/mirage/ocaml-vhd-format"
+HOMEPAGE="
+	https://github.com/mirage/ocaml-vhd
+	https://opam.ocaml.org/packages/vhd-format/
+"
 SRC_URI="https://github.com/mirage/${MYPN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MYPN}-${PV}"
 
@@ -18,27 +21,28 @@ KEYWORDS="~amd64"
 IUSE="lwt ocamlopt test"
 
 RDEPEND="
-	dev-ml/cstruct
-	dev-ml/io-page
-	dev-ml/rresult
-	dev-ml/uuidm
-	dev-ml/stdlib-shims
+	dev-ml/cstruct:=
+	dev-ml/io-page:=
+	dev-ml/rresult:=
+	dev-ml/uuidm:=
+	dev-ml/stdlib-shims:=
 
 	lwt? (
-		dev-ml/mirage-block
-		dev-ml/lwt
+		dev-ml/mirage-block:=
+		dev-ml/lwt:=
 	)
 "
 DEPEND="
 	${RDEPEND}
 	test? (
-		dev-ml/ounit
+		dev-ml/ounit2
 		dev-ml/io-page[unix(-)]
 	)
 "
 
 RESTRICT="!test? ( test )"
 REQUIRED_USE="test? ( lwt )"
+PATCHES="${FILESDIR}/${P}-ounit2.patch"
 
 src_compile() {
 	local pkgs="vhd-format"
