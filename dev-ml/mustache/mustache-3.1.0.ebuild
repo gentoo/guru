@@ -26,7 +26,8 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	test? ( dev-ml/ounit )
+	test? ( dev-ml/ounit2 )
 "
 
 RESTRICT="!test? ( test )"
+PATCHES="${FILESDIR}/${P}-ounit2.patch"
