@@ -8,7 +8,10 @@ inherit dune
 MYPN="ocaml-${PN}"
 
 DESCRIPTION="A simple implementation of Discrete Interval Encoding Trees"
-HOMEPAGE="https://github.com/mirage/ocaml-diet"
+HOMEPAGE="
+	https://opam.ocaml.org/packages/diet/
+	https://github.com/mirage/ocaml-diet
+"
 SRC_URI="https://github.com/mirage/${MYPN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MYPN}-${PV}"
 
@@ -17,7 +20,7 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
-RDEPEND="dev-ml/stdlib-shims"
+RDEPEND="dev-ml/stdlib-shims:="
 DEPEND="
 	${RDEPEND}
 	test? ( dev-ml/ounit )
