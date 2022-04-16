@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,6 +12,7 @@ SRC_URI="https://github.com/facebook/wangle/archive/v${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="examples test"
 
 RDEPEND="
 	~dev-cpp/fizz-${PV}:=
@@ -28,10 +29,13 @@ DEPEND="
 	dev-cpp/gtest
 "
 
+RESTRICT="!test? ( test )"
 CMAKE_USE_DIR="${S}/wangle"
 
 src_configure() {
 	local mycmakeargs=(
+		-DBUILD_EXAMPLES=$(usex examples)
+		-DBUILD_TESTS=$(usex test)
 		-DLIB_INSTALL_DIR=$(get_libdir)
 	)
 
