@@ -8,7 +8,10 @@ inherit findlib opam
 MY_P="ocaml-${P}"
 
 DESCRIPTION="OCaml bindings to libpci using Ctypes"
-HOMEPAGE="https://github.com/simonjbeaumont/ocaml-pci"
+HOMEPAGE="
+	https://github.com/simonjbeaumont/ocaml-pci
+	https://opam.ocaml.org/packages/pci/
+"
 SRC_URI="https://github.com/simonjbeaumont/ocaml-pci/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
@@ -19,19 +22,20 @@ IUSE="test"
 
 RDEPEND="
 	sys-apps/pciutils
-	dev-ml/ocaml-ctypes
+	dev-ml/ocaml-ctypes:=
 "
 DEPEND="
 	${RDEPEND}
-	dev-ml/ounit
+	test? ( dev-ml/ounit2 )
 "
 
 RESTRICT="!test? ( test )"
+PATCHES="${FILESDIR}/${P}-ounit2.patch"
 OPAM_FILE=opam
 
 src_configure() {
 	myconf=(
-		$(usex test '--enable-test' '')
+		$(usex test '--enable-tests' '')
 		--prefix "/usr"
 		--destdir "${D}"
 		--libdir "/usr/$(get_libdir)"
