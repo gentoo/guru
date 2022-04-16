@@ -6,7 +6,10 @@ EAPI=8
 inherit dune
 
 DESCRIPTION="Extra string functions for OCaml"
-HOMEPAGE="https://github.com/rgrinberg/stringext"
+HOMEPAGE="
+	https://github.com/rgrinberg/stringext
+	https://opam.ocaml.org/packages/stringext/
+"
 SRC_URI="https://github.com/rgrinberg/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
@@ -18,9 +21,10 @@ RDEPEND=""
 DEPEND="
 	${RDEPEND}
 	test? (
-		dev-ml/ounit
+		dev-ml/ounit2
 		dev-ml/qtest
 	)
 "
 
 RESTRICT="!test? ( test )"
+PATCHES="${FILESDIR}/${P}-ounit2.patch"
