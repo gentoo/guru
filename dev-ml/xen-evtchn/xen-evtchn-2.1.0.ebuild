@@ -8,7 +8,10 @@ inherit dune multiprocessing
 MY_P="${PN}-v${PV}"
 
 DESCRIPTION="Xen event channel interface for Mirage"
-HOMEPAGE="https://github.com/mirage/ocaml-evtchn"
+HOMEPAGE="
+	https://github.com/mirage/ocaml-evtchn
+	https://opam.ocaml.org/packages/xen-evtchn/
+"
 SRC_URI="https://github.com/mirage/ocaml-evtchn/releases/download/v${PV}/${MY_P}.tbz"
 S="${WORKDIR}/${MY_P}"
 
@@ -18,19 +21,20 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt test unix"
 
 RDEPEND="
-	dev-ml/lwt
-	dev-ml/lwt-dllist
-	dev-ml/cmdliner
+	dev-ml/lwt:=
+	dev-ml/lwt-dllist:=
+	dev-ml/cmdliner:=
 
 	unix? ( app-emulation/xen )
 "
 DEPEND="
 	${RDEPEND}
-	test? ( dev-ml/ounit )
+	test? ( dev-ml/ounit2 )
 "
 
 RESTRICT="!test? ( test )"
 REQUIRED_USE="test? ( unix )"
+PATCHES="${FILESDIR}/${P}-ounit2.patch"
 
 src_compile() {
 	local pkgs="xen-evtchn"
