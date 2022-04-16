@@ -6,7 +6,10 @@ EAPI=8
 inherit dune
 
 DESCRIPTION="Read and write pcap-formatted network packet traces"
-HOMEPAGE="https://github.com/mirage/ocaml-pcap"
+HOMEPAGE="
+	https://github.com/mirage/ocaml-pcap
+	https://opam.ocaml.org/packages/pcap-format/
+"
 SRC_URI="https://github.com/mirage/ocaml-pcap/archive/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/ocaml-pcap-${PV}"
 
@@ -15,13 +18,14 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
-RDEPEND="dev-ml/cstruct[ppx]"
+RDEPEND="dev-ml/cstruct:=[ppx]"
 DEPEND="
 	${RDEPEND}
 	test? (
-		dev-ml/ounit
+		dev-ml/ounit2
 		dev-ml/mmap
 	)
 "
 
 RESTRICT="!test? ( test )"
+PATCHES="${FILESDIR}/${P}-ounit2.patch"
