@@ -20,6 +20,8 @@ RESTRICT="test"
 RDEPEND=">=app-crypt/tpm2-tss-3.2.0:=
 	=dev-libs/openssl-3.0*:0="
 
+DEPEND="${RDEPEND}"
+
 BDEPEND="sys-devel/autoconf-archive
 	 virtual/pkgconfig"
 
