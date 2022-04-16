@@ -58,12 +58,11 @@ pkg_setup() {
 	export XLS=$(usex xls)
 	export XLSX=$(usex xlsx)
 	export LUA=$(usex lua)
-	export JUAJIT=$(usex lua_single_target_luajit)
 	( use xlsx || use ods ) && export XML_ZIP="yes"
 
 	# Prefer wayland support over X, and tmux support over both wayland and X.
 	use wayland && export X="no"
-	use tmux && X="no" && export WAYLAND="no"
+	use tmux && export X="no" && export WAYLAND="no"
 
 	# Notifying the user about which clipboard support is enabled if conflicting flags are set
 	CONFLICTING=$(usex tmux "tmux " "")$(usex wayland "wayland " "")$(usex X "X" "")

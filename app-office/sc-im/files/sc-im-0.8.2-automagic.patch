@@ -9,7 +9,7 @@
    CFLAGS += -DGNUPLOT
  endif
  
-@@ -116,32 +116,33 @@
+@@ -116,38 +116,31 @@
    endif
  
    # NOTE: libxlsreader (libxls) is required for xls file reading support
@@ -43,8 +43,12 @@
        LDLIBS += $(shell pkg-config --libs lua) -rdynamic
      endif
 -  else ifneq ($(shell pkg-config --exists luajit || echo 'no'),no) # If not found, check for luajit
-+  endif
-+  ifeq ($(LUAJIT),yes)
-     CFLAGS += -DXLUA $(shell pkg-config --cflags luajit)
-     ifneq ($(shell uname -s),Darwin)
-       LDLIBS += $(shell pkg-config --libs luajit) -Wl,--export-dynamic
+-    CFLAGS += -DXLUA $(shell pkg-config --cflags luajit)
+-    ifneq ($(shell uname -s),Darwin)
+-      LDLIBS += $(shell pkg-config --libs luajit) -Wl,--export-dynamic
+-    else
+-      LDLIBS += $(shell pkg-config --libs luajit) -rdynamic
+-    endif
+   endif
+ else ifeq ($(shell uname -s),Darwin)
+   # macOS without pkg-config
