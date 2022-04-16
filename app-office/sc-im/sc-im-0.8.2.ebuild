@@ -60,11 +60,8 @@ pkg_setup() {
 	export LUA=$(usex lua)
 	( use xlsx || use ods ) && export XML_ZIP="yes"
 
-	# Prefer wayland support over X, and tmux support over both wayland and X.
-	use wayland && export X="no"
-	use tmux && export X="no" && export WAYLAND="no"
-
 	# Notifying the user about which clipboard support is enabled if conflicting flags are set
+	# Prefer wayland support over X, and tmux support over both wayland and X.
 	CONFLICTING=$(usex tmux "tmux " "")$(usex wayland "wayland " "")$(usex X "X" "")
 	if ( use tmux && ( use wayland || use X ) ) ; then
 		elog "Conflicting flags for clipboard support are set: ${CONFLICTING}"
