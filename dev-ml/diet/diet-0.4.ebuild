@@ -23,7 +23,8 @@ IUSE="ocamlopt test"
 RDEPEND="dev-ml/stdlib-shims:="
 DEPEND="
 	${RDEPEND}
-	test? ( dev-ml/ounit )
+	test? ( dev-ml/ounit2 )
 "
 
+PATCHES="${FILESDIR}/${P}-ounit2.patch"
 RESTRICT="!test? ( test )"
