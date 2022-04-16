@@ -14,10 +14,10 @@ KEYWORDS="~amd64"
 IUSE="test"
 
 RDEPEND="
-	app-shells/fish
-	app-shells/fzf
-	sys-apps/bat
-	sys-apps/fd
+	>=app-shells/fish-3.2.0
+	>=app-shells/fzf-0.27.2
+	>=sys-apps/bat-0.16.0
+	>=sys-apps/fd-8.3.0
 "
 DEPEND="
 	${RDEPEND}
