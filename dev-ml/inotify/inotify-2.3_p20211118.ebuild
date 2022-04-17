@@ -19,13 +19,13 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
 DEPEND="
-	dev-ml/base-unix
-	dev-ml/base-bytes
+	dev-ml/base-unix:=
+	dev-ml/base-bytes:=
 "
 RDEPEND="
 	${DEPEND}
 	test? (
-		>=dev-ml/ounit-2
+		dev-ml/ounit2
 		dev-ml/ocaml-fileutils
 		dev-ml/lwt
 	)

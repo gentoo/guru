@@ -14,9 +14,9 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
-DEPEND=""
-RDEPEND="
-	${DEPEND}
+RDEPEND=""
+DEPEND="
+	${RDEPEND}
 	test? ( dev-ml/alcotest )
 "
 

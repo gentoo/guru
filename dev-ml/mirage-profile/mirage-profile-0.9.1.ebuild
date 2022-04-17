@@ -16,11 +16,11 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt unix" # xen
 
 RDEPEND="
-	dev-ml/cstruct
-	dev-ml/lwt
-	dev-ml/ocplib-endian
+	dev-ml/cstruct:=
+	dev-ml/lwt:=
+	dev-ml/ocplib-endian:=
 
-	unix? ( dev-ml/mtime )
+	unix? ( dev-ml/mtime:= )
 "
 #	xen? (
 #		dev-ml/io-page[xen]
@@ -30,8 +30,10 @@ RDEPEND="
 #	)
 DEPEND="
 	${RDEPEND}
-	dev-ml/cstruct[ppx]
+	dev-ml/cstruct:=[ppx]
 "
+
+RESTRICT="test" # https://github.com/mirage/mirage-profile/issues/11
 
 src_compile() {
 	local pkgs="mirage-profile"

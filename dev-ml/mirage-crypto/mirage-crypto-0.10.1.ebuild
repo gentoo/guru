@@ -18,33 +18,32 @@ KEYWORDS="~amd64"
 IUSE="ec ocamlopt pk rng rng-async rng-mirage test"
 
 DEPEND="
-	dev-ml/cstruct
-	dev-ml/dune-configurator
-	dev-ml/eqaf
+	dev-ml/cstruct:=
+	dev-ml/eqaf:=
 
 	pk? (
 		dev-libs/gmp
-		dev-ml/mirage
-		dev-ml/sexplib0
-		dev-ml/zarith
+		dev-ml/mirage:=
+		dev-ml/sexplib0:=
+		dev-ml/zarith:=
 	)
 	rng? (
-		dev-ml/duration
-		dev-ml/logs
+		dev-ml/duration:=
+		dev-ml/logs:=
 	)
-	rng-async? ( dev-ml/async )
+	rng-async? ( dev-ml/async:= )
 	rng-mirage? (
-		dev-ml/lwt
-		dev-ml/mirage
-		dev-ml/mirage-clock
-		dev-ml/mirage-time[unix]
-		dev-ml/mirage-unix
+		dev-ml/lwt:=
+		dev-ml/mirage:=
+		dev-ml/mirage-clock:=
+		dev-ml/mirage-time:=[unix]
+		dev-ml/mirage-unix:=
 	)
 "
 RDEPEND="
 	${DEPEND}
 	test? (
-		>=dev-ml/ounit-2
+		dev-ml/ounit2
 		dev-ml/randomconv
 		dev-ml/hex
 		dev-ml/asn1-combinators
@@ -52,9 +51,13 @@ RDEPEND="
 		dev-ml/ppx_deriving_yojson
 		dev-ml/yojson
 		dev-ml/alcotest
+		dev-ml/mirage-clock-unix
 	)
 "
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	dev-ml/dune-configurator
+	virtual/pkgconfig
+"
 
 RESTRICT="!test? ( test )"
 REQUIRED_USE="

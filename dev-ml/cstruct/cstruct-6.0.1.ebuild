@@ -6,7 +6,10 @@ EAPI=8
 inherit dune multiprocessing
 
 DESCRIPTION="Map OCaml arrays onto C-like structs"
-HOMEPAGE="https://github.com/mirage/ocaml-cstruct"
+HOMEPAGE="
+	https://github.com/mirage/ocaml-cstruct
+	https://opam.ocaml.org/packages/cstruct/
+"
 SRC_URI="https://github.com/mirage/ocaml-cstruct/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/ocaml-${P}"
 
@@ -41,7 +44,6 @@ DEPEND="
 		dev-ml/alcotest
 		dev-ml/crowbar
 		dev-ml/ocaml-migrate-parsetree
-		dev-ml/ounit
 		dev-ml/ppx_sexp_conv
 		dev-ml/cppo
 		dev-ml/lwt

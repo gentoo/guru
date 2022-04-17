@@ -1,0 +1,4 @@
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+autoload - Enable the plugin for all users

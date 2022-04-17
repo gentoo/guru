@@ -8,7 +8,10 @@ inherit dune
 MY_P="${PN}-v${PV}"
 
 DESCRIPTION="IO memory page library for Mirage backends"
-HOMEPAGE="https://github.com/mirage/io-page"
+HOMEPAGE="
+	https://github.com/mirage/io-page
+	https://github.com/mirage/io-page
+"
 SRC_URI="https://github.com/mirage/io-page/releases/download/v${PV}/${MY_P}.tbz"
 S="${WORKDIR}/${MY_P}"
 
@@ -18,13 +21,14 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
 RDEPEND="
-	dev-ml/bigarray-compat
-	dev-ml/cstruct
+	dev-ml/bigarray-compat:=
+	dev-ml/cstruct:=
 "
 DEPEND="
 	${RDEPEND}
-	test? ( dev-ml/ounit )
+	test? ( dev-ml/ounit2 )
 "
 BDEPEND="virtual/pkgconfig"
 
 RESTRICT="!test? ( test )"
+PATCHES="${FILESDIR}/${P}-ounit2.patch"

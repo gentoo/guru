@@ -18,32 +18,32 @@ KEYWORDS="~amd64"
 IUSE="async mirage ocamlopt test"
 
 RDEPEND="
-	dev-ml/ppx_sexp_conv
-	dev-ml/cstruct[ppx,sexp]
-	dev-ml/sexplib
-	dev-ml/mirage-crypto[ec,pk,rng]
-	dev-ml/x509
-	dev-ml/domain-name
-	dev-ml/fmt
-	dev-ml/lwt
-	dev-ml/ptime
-	dev-ml/hkdf
-	dev-ml/logs
-	dev-ml/ipaddr[sexp]
+	dev-ml/ppx_sexp_conv:=
+	dev-ml/cstruct:=[ppx,sexp]
+	dev-ml/sexplib:=
+	dev-ml/mirage-crypto:=[ec,pk,rng]
+	dev-ml/x509:=
+	dev-ml/domain-name:=
+	dev-ml/fmt:=
+	dev-ml/lwt:=
+	dev-ml/ptime:=
+	dev-ml/hkdf:=
+	dev-ml/logs:=
+	dev-ml/ipaddr:=[sexp]
 
 	async? (
-		dev-ml/async
-		dev-ml/async_unix
-		dev-ml/core
-		dev-ml/cstruct[async]
-		dev-ml/ppx_jane
-		dev-ml/mirage-crypto[rng-async]
+		dev-ml/async:=
+		dev-ml/async_unix:=
+		dev-ml/core:=
+		dev-ml/cstruct:=[async]
+		dev-ml/ppx_jane:=
+		dev-ml/mirage-crypto:=[rng-async]
 	)
 	mirage? (
-		dev-ml/mirage-flow
-		dev-ml/mirage-kv
-		dev-ml/mirage-clock
-		dev-ml/mirage-crypto[pk]
+		dev-ml/mirage-flow:=
+		dev-ml/mirage-kv:=
+		dev-ml/mirage-clock:=
+		dev-ml/mirage-crypto:=[pk]
 	)
 "
 DEPEND="
@@ -52,7 +52,7 @@ DEPEND="
 		dev-ml/cstruct[unix]
 		dev-ml/alcotest
 		dev-ml/randomconv
-		>=dev-ml/ounit-2
+		dev-ml/ounit2
 	)
 "
 

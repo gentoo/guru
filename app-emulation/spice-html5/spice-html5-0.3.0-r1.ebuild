@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 src_compile() {
-	sed -e "s/VERSION/$(PV)/" < package.json.in > package.json || die
+	sed -e "s/VERSION/${PV}/" < package.json.in > package.json || die
 }
 
 src_install() {

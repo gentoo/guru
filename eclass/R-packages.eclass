@@ -59,6 +59,7 @@ R-packages_src_unpack() {
 R-packages_src_prepare() {
 	rm -f LICENSE || die
 	default
+	mkdir -p "${T}/R" || die
 }
 
 # @FUNCTION: R-packages_src_configure
@@ -88,7 +89,7 @@ R-packages_src_compile() {
 		LDFLAGS=${LDFLAGS// /\\ } \
 		MAKEOPTS=${MAKEOPTS// /\\ } \
 	" \
-	R CMD INSTALL . -l "${WORKDIR}" "--byte-compile" || die
+	R CMD INSTALL . -d -l "${T}/R" "--byte-compile" || die
 }
 
 
@@ -98,24 +99,26 @@ R-packages_src_compile() {
 # documentation and examples to docsdir, symlinked back to R site-library (to allow access from within R)
 # everything else to R site-library
 R-packages_src_install() {
-	pushd "${WORKDIR}/${PN//_/.}" || die
+	pushd "${T}/R/${PN//_/.}" || die
 
-	local DOCS_DIR="${ED}/usr/share/doc/${PF}"
+	local DOCS_DIR="/usr/share/doc/${PF}"
 
-	mkdir -p "${DOCS_DIR}" || die
+	mkdir -p "${ED}/${DOCS_DIR}" || die
 
-	for i in NEWS.md README.md DESCRIPTION examples ; do
-		_movelink "${i}" "${DOCS_DIR}/${i}" || die
+	for i in NEWS.md README.md DESCRIPTION examples CITATION INDEX NEWS WORDLIST News.Rd ; do
+		_movelink "${i}" "${ED}${DOCS_DIR}/${i}" || die
+		docompress -x "${DOCS_DIR}/${i}"
 	done
 
 	if [ -e html ]; then
-		_movelink html "${DOCS_DIR}/html" || die
+		_movelink html "${ED}${DOCS_DIR}/html" || die
 		docompress -x "${DOCS_DIR}/html"
 	fi
 	if [ -e doc ]; then
 		pushd doc || die
 		for i in * ; do
-			_movelink "${i}" "${DOCS_DIR}/${i}" || die
+			_movelink "${i}" "${ED}${DOCS_DIR}/${i}" || die
+			docompress -x "${DOCS_DIR}/${i}"
 		done
 		popd || die
 	fi
@@ -125,7 +128,7 @@ R-packages_src_install() {
 	docompress -x "${DOCS_DIR}"
 
 	insinto "/usr/$(get_libdir)/R/site-library"
-	doins -r "${WORKDIR}/${PN//_/.}"
+	doins -r "${T}/R/${PN//_/.}"
 }
 
 # @FUNCTION: R-packages_pkg_postinst

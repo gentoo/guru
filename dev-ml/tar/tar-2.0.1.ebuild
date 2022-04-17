@@ -18,23 +18,23 @@ KEYWORDS="~amd64"
 IUSE="mirage ocamlopt test unix"
 
 RDEPEND="
-	dev-ml/camlp-streams
-	dev-ml/cstruct
-	dev-ml/re
-	dev-ml/lwt
+	dev-ml/camlp-streams:=
+	dev-ml/cstruct:=
+	dev-ml/re:=
+	dev-ml/lwt:=
 
 	mirage? (
-		dev-ml/io-page
-		dev-ml/mirage-block
-		dev-ml/mirage-kv
-		dev-ml/ptime
+		dev-ml/io-page:=
+		dev-ml/mirage-block:=
+		dev-ml/mirage-kv:=
+		dev-ml/ptime:=
 	)
 "
 DEPEND="
 	${RDEPEND}
 	test? (
 		dev-ml/mirage-block-unix
-		>=dev-ml/ounit-2[lwt]
+		dev-ml/ounit2
 	)
 "
 

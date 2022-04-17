@@ -6,7 +6,10 @@ EAPI=8
 inherit dune multiprocessing
 
 DESCRIPTION="Very lightweight HTTP server using Lwt or Async"
-HOMEPAGE="https://github.com/mirage/ocaml-cohttp"
+HOMEPAGE="
+	https://github.com/mirage/ocaml-cohttp
+	https://opam.ocaml.org/packages/cohttp/
+"
 SRC_URI="https://github.com/mirage/ocaml-cohttp/archive/v${PV}.tar.gz -> ocaml-cohttp-${PV}.tar.gz"
 S="${WORKDIR}/ocaml-cohttp-${PV}"
 
@@ -17,76 +20,78 @@ IUSE="async bench curl curl-async curl-lwt lwt lwt-jsoo lwt-unix mirage ocamlopt
 
 RDEPEND="
 	async? (
-		dev-ml/async
-		dev-ml/async_kernel
-		dev-ml/async_unix
-		dev-ml/base
-		dev-ml/core_unix
-		dev-ml/conduit[async]
-		dev-ml/fmt
-		dev-ml/ipaddr
-		dev-ml/logs
-		dev-ml/magic-mime
-		dev-ml/mirage-crypto
+		dev-ml/async:=
+		dev-ml/async_kernel:=
+		dev-ml/async_unix:=
+		dev-ml/base:=
+		dev-ml/core_unix:=
+		dev-ml/conduit:=[async]
+		dev-ml/fmt:=
+		dev-ml/ipaddr:=
+		dev-ml/logs:=
+		dev-ml/magic-mime:=
+		dev-ml/mirage-crypto:=
 	)
 	bench? (
-		dev-ml/core
-		dev-ml/core_bench
+		dev-ml/core:=
+		dev-ml/core_bench:=
 	)
 	curl-async? (
-		dev-ml/async_kernel
-		dev-ml/async_unix
-		dev-ml/core_kernel
-		dev-ml/ocurl
+		dev-ml/async_kernel:=
+		dev-ml/async_unix:=
+		dev-ml/core_kernel:=
+		dev-ml/ocurl:=
 	)
-	curl? ( dev-ml/ocurl )
+	curl? ( dev-ml/ocurl:= )
 	curl-lwt? (
-		dev-ml/lwt
-		dev-ml/ocurl
+		dev-ml/lwt:=
+		dev-ml/ocurl:=
 	)
 	lwt? (
-		dev-ml/logs
-		dev-ml/lwt
-		dev-ml/ppx_sexp_conv
+		dev-ml/logs:=
+		dev-ml/lwt:=
+		dev-ml/ppx_sexp_conv:=
 	)
 	lwt-jsoo? (
-		dev-ml/js_of_ocaml[lwt,ppx]
-		dev-ml/logs
-		dev-ml/lwt
+		>=dev-ml/js_of_ocaml-3.5.0:=[lwt,ppx]
+		dev-ml/logs:=
+		>=dev-ml/lwt-3.0.0:=
 	)
 	lwt-unix? (
-		dev-ml/base-unix
-		dev-ml/cmdliner
-		dev-ml/conduit[lwt,lwt-unix]
-		dev-ml/fmt
-		dev-ml/logs
-		dev-ml/lwt
-		dev-ml/magic-mime
-		dev-ml/ppx_sexp_conv
+		dev-ml/base-unix:=
+		dev-ml/cmdliner:=
+		>=dev-ml/conduit-5.0.0:=[lwt,lwt-unix]
+		>=dev-ml/fmt-0.8.2:=
+		dev-ml/logs:=
+		>=dev-ml/lwt-3.0.0:=
+		dev-ml/magic-mime:=
+		>=dev-ml/ppx_sexp_conv-0.13.0:=
 	)
 	mirage? (
-		dev-ml/astring
-		dev-ml/conduit[mirage]
-		dev-ml/fmt
-		dev-ml/lwt
-		dev-ml/magic-mime
-		dev-ml/mirage-channel
-		dev-ml/mirage-flow
-		dev-ml/mirage-kv
-		dev-ml/ppx_sexp_conv
+		dev-ml/astring:=
+		>=dev-ml/conduit-2.0.2:=[mirage]
+		>=dev-ml/fmt-0.8.7:=
+		>=dev-ml/lwt-2.4.3:=
+		dev-ml/magic-mime:=
+		>=dev-ml/mirage-channel-4.0.0:=
+		>=dev-ml/mirage-flow-2.0.0:=
+		>=dev-ml/mirage-kv-3.0.0:=
+		>=dev-ml/ppx_sexp_conv-0.13.0:=
 	)
 	server-lwt-unix? (
-		dev-ml/lwt
+		dev-ml/lwt:=
 	)
 
-	dev-ml/ocaml-base64
-	dev-ml/re
-	dev-ml/sexplib0
-	dev-ml/stringext
-	dev-ml/uri[sexp]
+	>=dev-lang/ocaml-4.08:=[ocamlopt?]
+	>=dev-ml/ocaml-base64-3.1.0:=
+	>=dev-ml/re-1.9.0:=
+	dev-ml/sexplib0:=
+	dev-ml/stringext:=
+	>=dev-ml/uri-2.0.0:=[sexp]
 "
 DEPEND="
 	${RDEPEND}
+	dev-ml/jsonm:=
 	test? (
 		dev-ml/alcotest
 		dev-ml/base_quickcheck
@@ -99,7 +104,7 @@ DEPEND="
 		dev-ml/crowbar
 		dev-ml/fmt
 		dev-ml/conduit[lwt,lwt-unix]
-		dev-ml/ounit
+		dev-ml/ounit2
 		dev-ml/lwt
 		net-libs/nodejs[npm]
 		dev-ml/mirage-crypto

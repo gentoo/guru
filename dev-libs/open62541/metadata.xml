@@ -20,9 +20,6 @@
     <flag name="encryption">
       Enable encryption support
     </flag>
-    <flag name="etf">
-      Enable pub/sub using Earliest TxTime First Qdisc
-    </flag>
     <flag name="mbedtls">
       Use mbedtls for encryption
     </flag>
@@ -34,9 +31,6 @@
     </flag>
     <flag name="tools">
       Build additional shell tools
-    </flag>
-    <flag name="xdp">
-      Enable pub/sub with eXpress Data Path (XDP)
     </flag>
   </use>
   <upstream>

@@ -6,7 +6,10 @@ EAPI=8
 inherit dune multiprocessing
 
 DESCRIPTION="OCaml library for manipulation of IP (and MAC) address representations"
-HOMEPAGE="https://github.com/mirage/ocaml-ipaddr"
+HOMEPAGE="
+	https://github.com/mirage/ocaml-ipaddr
+	https://opam.ocaml.org/packages/ipaddr/
+"
 SRC_URI="https://github.com/mirage/ocaml-ipaddr/archive/v${PV}.tar.gz -> ocaml-${P}.tar.gz"
 S="${WORKDIR}/ocaml-${P}"
 
@@ -16,30 +19,31 @@ KEYWORDS="~amd64"
 IUSE="cstruct macaddr-cstruct macaddr-sexp ocamlopt sexp test"
 
 RDEPEND="
-	dev-ml/domain-name
-	dev-ml/stdlib-shims
+	dev-ml/domain-name:=
+	dev-ml/stdlib-shims:=
 
-	cstruct? ( dev-ml/cstruct )
-	macaddr-cstruct? ( dev-ml/cstruct )
+	cstruct? ( dev-ml/cstruct:= )
+	macaddr-cstruct? ( dev-ml/cstruct:= )
 	macaddr-sexp? (
-		dev-ml/ppx_sexp_conv
-		dev-ml/sexplib0
+		dev-ml/ppx_sexp_conv:=
+		dev-ml/sexplib0:=
 	)
 	sexp? (
-		dev-ml/ppx_sexp_conv
-		dev-ml/sexplib0
+		dev-ml/ppx_sexp_conv:=
+		dev-ml/sexplib0:=
 	)
 "
 DEPEND="
 	${RDEPEND}
 	test? (
-		dev-ml/ounit
+		dev-ml/ounit2
 		dev-ml/ppx_sexp_conv
 	)
 "
 
 RESTRICT="!test? ( test )"
 REQUIRED_USE="test? ( cstruct macaddr-cstruct macaddr-sexp sexp )"
+PATCHES="${FILESDIR}/${P}-ounit2.patch"
 
 src_compile() {
 	local pkgs="ipaddr,macaddr"

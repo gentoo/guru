@@ -6,13 +6,24 @@ EAPI=8
 inherit dune
 
 DESCRIPTION="Heterogenous Map over a GADT"
-HOMEPAGE="https://github.com/hannesm/gmap"
+HOMEPAGE="
+	https://github.com/hannesm/gmap
+	https://opam.ocaml.org/packages/gmap/
+"
 SRC_URI="https://github.com/hannesm/gmap/releases/download/${PV}/${P}.tbz"
 
 LICENSE="ISC"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="ocamlopt"
+IUSE="ocamlopt test"
 
 RDEPEND=""
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? (
+		dev-ml/alcotest
+		dev-ml/fmt
+	)
+"
+
+RESTRICT="!test? ( test )"

@@ -6,25 +6,36 @@ EAPI=8
 inherit dune multiprocessing
 
 DESCRIPTION="Parser combinators built for speed and memory efficiency"
-HOMEPAGE="https://github.com/inhabitedtype/angstrom"
+HOMEPAGE="
+	https://github.com/inhabitedtype/angstrom
+	https://opam.ocaml.org/packages/angstrom/
+"
 SRC_URI="https://github.com/inhabitedtype/angstrom/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="async lwt-unix ocamlopt unix"
+IUSE="async lwt-unix ocamlopt test unix"
 
 RDEPEND="
-	async? ( dev-ml/async )
+	async? ( dev-ml/async:= )
 	lwt-unix? (
-		dev-ml/base
-		dev-ml/lwt
+		dev-ml/base:=
+		dev-ml/lwt:=
 	)
-	unix? ( dev-ml/base )
+	unix? ( dev-ml/base:= )
 
-	dev-ml/bigstringaf
+	dev-ml/bigstringaf:=
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? (
+		dev-ml/ppx_let
+		dev-ml/alcotest
+	)
+"
+
+RESTRICT="!test? ( test )"
 
 src_compile() {
 	local pkgs="angstrom"

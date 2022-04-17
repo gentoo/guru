@@ -17,24 +17,24 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
 RDEPEND="
-	dev-ml/cstruct[lwt,ppx]
-	dev-ml/mirage-net
-	dev-ml/mirage-clock
-	dev-ml/mirage-random
-	dev-ml/mirage-time
-	dev-ml/ipaddr[macaddr-cstruct]
-	dev-ml/mirage-profile
-	dev-ml/fmt
-	dev-ml/lwt
-	dev-ml/lwt-dllist
-	dev-ml/logs
-	dev-ml/duration
-	dev-ml/randomconv
-	dev-ml/ethernet
-	dev-ml/arp
-	dev-ml/mirage-flow
-	dev-ml/lru
-	dev-ml/metrics
+	dev-ml/cstruct:=[lwt,ppx]
+	dev-ml/mirage-net:=
+	dev-ml/mirage-clock:=
+	dev-ml/mirage-random:=
+	dev-ml/mirage-time:=
+	dev-ml/ipaddr:=[macaddr-cstruct]
+	dev-ml/mirage-profile:=
+	dev-ml/fmt:=
+	dev-ml/lwt:=
+	dev-ml/lwt-dllist:=
+	dev-ml/logs:=
+	dev-ml/duration:=
+	dev-ml/randomconv:=
+	dev-ml/ethernet:=
+	dev-ml/arp:=
+	dev-ml/mirage-flow:=
+	dev-ml/lru:=
+	dev-ml/metrics:=
 "
 DEPEND="
 	${RDEPEND}
@@ -43,6 +43,7 @@ DEPEND="
 		dev-ml/alcotest
 		dev-ml/pcap-format
 		dev-ml/mirage-clock
+		dev-ml/mirage-clock-unix
 		dev-ml/mirage-random-test
 		dev-ml/ipaddr[cstruct]
 	)
