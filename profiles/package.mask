@@ -9,6 +9,12 @@
 # TODO: Either fix per profile masking in overlays, or move
 # relevant entries to the relevant package.mask files in ::gentoo
 
+# Arthur Zamarin <arthurzam@gentoo.org> (2022-04-17)
+# Depends on various old python dependencies, which don't exist already
+# in gentoo tree.
+# Bug #828723
+media-sound/spotify_dl
+
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
 # Depends on masked dev-libs/openssl-3.0.*
 app-crypt/tpm2-openssl
