@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/dune-configurator dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/mirage-clock:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Unix-based implementation for the MirageOS Clock interface
+EAPI=8
+HOMEPAGE=https://github.com/mirage/mirage-clock
+INHERIT=dune
+IUSE=ocamlopt
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/mirage-clock:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/3.1.0
+SRC_URI=https://github.com/mirage/mirage-clock/releases/download/v3.1.0/mirage-clock-v3.1.0.tbz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=7d172c13fbbfcb74a456325a0ae40c75

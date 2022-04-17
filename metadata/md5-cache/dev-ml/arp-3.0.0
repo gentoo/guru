@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/cstruct dev-ml/ipaddr dev-ml/logs dev-ml/mirage-time dev-ml/lwt dev-ml/duration dev-ml/mirage-profile dev-ml/ethernet test? ( dev-ml/mirage-random dev-ml/mirage-random-test dev-ml/alcotest dev-ml/fmt dev-ml/mirage-vnetif dev-ml/mirage-clock dev-ml/mirage-time[unix] dev-ml/mirage-flow ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/cstruct:= dev-ml/ipaddr:= dev-ml/logs:= dev-ml/mirage-time:= dev-ml/lwt:= dev-ml/duration:= dev-ml/mirage-profile:= dev-ml/ethernet:= test? ( dev-ml/mirage-random dev-ml/mirage-random-test dev-ml/alcotest dev-ml/fmt dev-ml/mirage-vnetif dev-ml/mirage-clock dev-ml/mirage-clock-unix dev-ml/mirage-time[unix] dev-ml/mirage-flow ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Address resolution protocol (ARP) implementation in OCaml
 EAPI=8
 HOMEPAGE=https://github.com/mirage/arp
@@ -8,9 +8,9 @@ INHERIT=dune
 IUSE=ocamlopt test
 KEYWORDS=~amd64
 LICENSE=ISC
-RDEPEND=dev-ml/cstruct dev-ml/ipaddr dev-ml/logs dev-ml/mirage-time dev-ml/lwt dev-ml/duration dev-ml/mirage-profile dev-ml/ethernet >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/cstruct:= dev-ml/ipaddr:= dev-ml/logs:= dev-ml/mirage-time:= dev-ml/lwt:= dev-ml/duration:= dev-ml/mirage-profile:= dev-ml/ethernet:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=!test? ( test )
 SLOT=0/3.0.0
 SRC_URI=https://github.com/mirage/arp/releases/download/v3.0.0/arp-v3.0.0.tbz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=bccc13549c18fadcfd04f0bb4ecbdc95
+_md5_=36719d6aa422b2172653f327c52196ba

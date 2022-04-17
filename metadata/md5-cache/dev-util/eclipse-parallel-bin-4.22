@@ -9,6 +9,6 @@ LICENSE=EPL-2.0
 RDEPEND=|| ( dev-java/openjdk:11 dev-java/openjdk:17 dev-java/openjdk-bin:11 dev-java/openjdk-bin:17 dev-java/openjdk-jre-bin:11 ) x11-libs/gtk+:3
 RESTRICT=mirror
 SLOT=0
-SRC_URI=amd64? ( https://download.eclipse.org/technology/epp/downloads/release/2021-12/R/eclipse-parallel-2021-12-R-linux-gtk-x86_64.tar.gz ) arm64? ( https://download.eclipse.org/technology/epp/downloads/release/2021-12/R/eclipse-parallel-2021-12-R-linux-gtk-aarch64.tar.gz )
+SRC_URI=amd64? ( https://www.eclipse.org/downloads/download.php?r=1&file=/technology/epp/downloads/release/2021-12/R/eclipse-parallel-2021-12-R-linux-gtk-x86_64.tar.gz ) arm64? ( https://www.eclipse.org/downloads/download.php?r=1&file=/technology/epp/downloads/release/2021-12/R/eclipse-parallel-2021-12-R-linux-gtk-aarch64.tar.gz )
 _eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	wrapper	4a1902f969e5718126434fc35f3a0d9c	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=81c3126ceff4cbabd29fe78ec6a3dfff
+_md5_=fdbc78f47250b3b19f415692fe20b0ae

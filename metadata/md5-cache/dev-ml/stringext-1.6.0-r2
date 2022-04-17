@@ -1,9 +1,9 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=test? ( dev-ml/ounit dev-ml/qtest ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=test? ( dev-ml/ounit2 dev-ml/qtest ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Extra string functions for OCaml
 EAPI=8
-HOMEPAGE=https://github.com/rgrinberg/stringext
+HOMEPAGE=https://github.com/rgrinberg/stringext https://opam.ocaml.org/packages/stringext/
 INHERIT=dune
 IUSE=ocamlopt test
 KEYWORDS=~amd64
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1.6.0
 SRC_URI=https://github.com/rgrinberg/stringext/archive/1.6.0.tar.gz -> stringext-1.6.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=74d4b1727473c119f02cf5b57f78ba4e
+_md5_=1ee5bd09a3cd5065710654b6f0966531

@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt?] >=dev-ml/asn1-combinators-0.2.0:= >=dev-ml/cstruct-6.0.0:= >=dev-ml/domain-name-0.3.0:= >=dev-ml/fmt-0.8.7:= >=dev-ml/gmap-0.3.0:= >=dev-ml/ipaddr-5.2.0:= dev-ml/logs:= >=dev-ml/mirage-crypto-0.10.0:=[ec,pk,rng] >=dev-ml/ocaml-base64-3.3.0:= dev-ml/pbkdf:= dev-ml/ptime:= test? ( dev-ml/alcotest >=dev-ml/cstruct-3.0.0[unix] ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Public Key Infrastructure purely in OCaml
+EAPI=8
+HOMEPAGE=https://github.com/mirleft/ocaml-x509 https://opam.ocaml.org/packages/x509/
+INHERIT=dune
+IUSE=ocamlopt test
+KEYWORDS=~amd64
+LICENSE=BSD-2
+RDEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt?] >=dev-ml/asn1-combinators-0.2.0:= >=dev-ml/cstruct-6.0.0:= >=dev-ml/domain-name-0.3.0:= >=dev-ml/fmt-0.8.7:= >=dev-ml/gmap-0.3.0:= >=dev-ml/ipaddr-5.2.0:= dev-ml/logs:= >=dev-ml/mirage-crypto-0.10.0:=[ec,pk,rng] >=dev-ml/ocaml-base64-3.3.0:= dev-ml/pbkdf:= dev-ml/ptime:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/0.16.0
+SRC_URI=https://github.com/mirleft/ocaml-x509/releases/download/v0.16.0/x509-0.16.0.tbz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=e73e27b2b10766745b0d7afe69d88540

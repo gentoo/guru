@@ -1,4 +1,4 @@
-DEFINED_PHASES=compile install postinst prepare
+DEFINED_PHASES=compile install postinst
 DEPEND=sys-fs/btrfs-progs sys-boot/grub virtual/awk >=app-shells/bash-4
 DESCRIPTION=Improves Grub by adding btrfs snapshots to the Grub menu.
 EAPI=8
@@ -8,4 +8,4 @@ LICENSE=GPL-3
 RDEPEND=sys-fs/btrfs-progs sys-boot/grub virtual/awk >=app-shells/bash-4
 SLOT=0
 SRC_URI=https://github.com/Antynea/grub-btrfs/archive/v4.11.tar.gz -> grub-btrfs-4.11.tar.gz
-_md5_=b1020be6d80a3b5641953563d1b0ce3c
+_md5_=f4355a3d5c0763dbbcc1ace56f197e87

@@ -1,6 +1,6 @@
-BDEPEND=virtual/pkgconfig dev-ml/dune dev-lang/ocaml
+BDEPEND=dev-ml/dune-configurator virtual/pkgconfig dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/cstruct dev-ml/dune-configurator dev-ml/eqaf pk? ( dev-libs/gmp dev-ml/mirage dev-ml/sexplib0 dev-ml/zarith ) rng? ( dev-ml/duration dev-ml/logs ) rng-async? ( dev-ml/async ) rng-mirage? ( dev-ml/lwt dev-ml/mirage dev-ml/mirage-clock dev-ml/mirage-time[unix] dev-ml/mirage-unix ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/cstruct:= dev-ml/eqaf:= pk? ( dev-libs/gmp dev-ml/mirage:= dev-ml/sexplib0:= dev-ml/zarith:= ) rng? ( dev-ml/duration:= dev-ml/logs:= ) rng-async? ( dev-ml/async:= ) rng-mirage? ( dev-ml/lwt:= dev-ml/mirage:= dev-ml/mirage-clock:= dev-ml/mirage-time:=[unix] dev-ml/mirage-unix:= ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Simple symmetric cryptography for the modern age
 EAPI=8
 HOMEPAGE=https://github.com/mirage/mirage-crypto
@@ -8,10 +8,10 @@ INHERIT=dune multiprocessing
 IUSE=ec ocamlopt pk rng rng-async rng-mirage test
 KEYWORDS=~amd64
 LICENSE=ISC
-RDEPEND=dev-ml/cstruct dev-ml/dune-configurator dev-ml/eqaf pk? ( dev-libs/gmp dev-ml/mirage dev-ml/sexplib0 dev-ml/zarith ) rng? ( dev-ml/duration dev-ml/logs ) rng-async? ( dev-ml/async ) rng-mirage? ( dev-ml/lwt dev-ml/mirage dev-ml/mirage-clock dev-ml/mirage-time[unix] dev-ml/mirage-unix ) test? ( >=dev-ml/ounit-2 dev-ml/randomconv dev-ml/hex dev-ml/asn1-combinators dev-ml/ppx_deriving dev-ml/ppx_deriving_yojson dev-ml/yojson dev-ml/alcotest ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/cstruct:= dev-ml/eqaf:= pk? ( dev-libs/gmp dev-ml/mirage:= dev-ml/sexplib0:= dev-ml/zarith:= ) rng? ( dev-ml/duration:= dev-ml/logs:= ) rng-async? ( dev-ml/async:= ) rng-mirage? ( dev-ml/lwt:= dev-ml/mirage:= dev-ml/mirage-clock:= dev-ml/mirage-time:=[unix] dev-ml/mirage-unix:= ) test? ( dev-ml/ounit2 dev-ml/randomconv dev-ml/hex dev-ml/asn1-combinators dev-ml/ppx_deriving dev-ml/ppx_deriving_yojson dev-ml/yojson dev-ml/alcotest dev-ml/mirage-clock-unix ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 REQUIRED_USE=test? ( ec pk rng ) ec? ( rng ) pk? ( rng ) rng-async? ( rng ) rng-mirage? ( rng )
 RESTRICT=!test? ( test )
 SLOT=0/0.10.1
 SRC_URI=https://github.com/mirage/mirage-crypto/releases/download/v0.10.1/mirage-crypto-v0.10.1.tbz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=70275df04ad6c6fc208e36ad33c612fe
+_md5_=6bad522754f860222cd0215f77de858f

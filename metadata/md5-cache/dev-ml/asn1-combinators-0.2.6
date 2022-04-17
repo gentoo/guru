@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt?] >=dev-ml/cstruct-6.0.0:= dev-ml/ptime:= dev-ml/zarith:= test? ( dev-ml/alcotest ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Embed typed ASN.1 grammars in OCaml
+EAPI=8
+HOMEPAGE=https://github.com/mirleft/ocaml-asn1-combinators https://opam.ocaml.org/packages/asn1-combinators/
+INHERIT=dune
+IUSE=ocamlopt test
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt?] >=dev-ml/cstruct-6.0.0:= dev-ml/ptime:= dev-ml/zarith:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/0.2.6
+SRC_URI=https://github.com/mirleft/ocaml-asn1-combinators/releases/download/v0.2.6/asn1-combinators-v0.2.6.tbz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=dc0f16de04e566bf93b57d8d9f705731

@@ -1,16 +1,16 @@
 BDEPEND=dev-ml/opam-installer dev-lang/ocaml
 DEFINED_PHASES=compile configure install test
-DEPEND=sys-apps/pciutils dev-ml/ocaml-ctypes dev-ml/ounit >=dev-ml/findlib-1.0.4-r1 >=dev-lang/ocaml-4:=
+DEPEND=sys-apps/pciutils dev-ml/ocaml-ctypes:= test? ( dev-ml/ounit2 ) >=dev-ml/findlib-1.0.4-r1 >=dev-lang/ocaml-4:=
 DESCRIPTION=OCaml bindings to libpci using Ctypes
 EAPI=7
-HOMEPAGE=https://github.com/simonjbeaumont/ocaml-pci
+HOMEPAGE=https://github.com/simonjbeaumont/ocaml-pci https://opam.ocaml.org/packages/pci/
 INHERIT=findlib opam
 IUSE=test +ocamlopt
 KEYWORDS=~amd64
 LICENSE=LGPL-2.1-with-linking-exception
-RDEPEND=sys-apps/pciutils dev-ml/ocaml-ctypes dev-lang/ocaml:=[ocamlopt?] >=dev-lang/ocaml-4:=
+RDEPEND=sys-apps/pciutils dev-ml/ocaml-ctypes:= dev-lang/ocaml:=[ocamlopt?] >=dev-lang/ocaml-4:=
 RESTRICT=!test? ( test )
 SLOT=0/1.0.1
 SRC_URI=https://github.com/simonjbeaumont/ocaml-pci/archive/refs/tags/v1.0.1.tar.gz -> pci-1.0.1.tar.gz
 _eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d	opam	dc11e376d9abc263ca618c5741206216
-_md5_=ec3b7f4e0747626c3beb5d0e85e4bb89
+_md5_=c66311824f91c010128b89f4834f3914

@@ -1,0 +1,10 @@
+DEFINED_PHASES=postinst
+DESCRIPTION=ZFS bootloader for root-on-ZFS systems
+EAPI=8
+HOMEPAGE=https://zfsbootmenu.org
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=app-shells/fzf sys-apps/kexec-tools sys-block/mbuffer dev-perl/Sort-Versions dev-perl/Config-IniFiles dev-perl/YAML-PP dev-perl/boolean sys-fs/zfs sys-kernel/dracut
+SLOT=0
+SRC_URI=https://github.com/zbm-dev/zfsbootmenu/archive/refs/tags/v1.12.0.tar.gz -> zfsbootmenu-1.12.0.tar.gz
+_md5_=6037653ccbcb3cdc2c800db1c33e145f

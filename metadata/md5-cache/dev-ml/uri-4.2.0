@@ -1,16 +1,16 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/angstrom dev-ml/stringext re? ( dev-ml/re ) sexp? ( dev-ml/ppx_sexp_conv dev-ml/sexplib0 ) test? ( dev-ml/ounit dev-ml/ppx_sexp_conv ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=>=dev-ml/angstrom-0.14.0:= >=dev-ml/stringext-1.4.0:= re? ( >=dev-ml/re-1.9.0:= ) sexp? ( >=dev-ml/ppx_sexp_conv-0.13.0:= dev-ml/sexplib0:= ) test? ( dev-ml/ounit2 >=dev-ml/ppx_sexp_conv-0.9.0 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=RFC3986 URI parsing library for OCaml
 EAPI=8
-HOMEPAGE=https://github.com/mirage/ocaml-uri
+HOMEPAGE=https://github.com/mirage/ocaml-uri https://opam.ocaml.org/packages/uri/
 INHERIT=dune multiprocessing
 IUSE=ocamlopt re sexp test
 KEYWORDS=~amd64
 LICENSE=ISC
-RDEPEND=dev-ml/angstrom dev-ml/stringext re? ( dev-ml/re ) sexp? ( dev-ml/ppx_sexp_conv dev-ml/sexplib0 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=>=dev-ml/angstrom-0.14.0:= >=dev-ml/stringext-1.4.0:= re? ( >=dev-ml/re-1.9.0:= ) sexp? ( >=dev-ml/ppx_sexp_conv-0.13.0:= dev-ml/sexplib0:= ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=!test? ( test )
 SLOT=0/4.2.0
 SRC_URI=https://github.com/mirage/ocaml-uri/archive/v4.2.0.tar.gz -> ocaml-uri-4.2.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=7d859815b43a972bf57104aca1e57d4b
+_md5_=e7650d3a69aa402e66d09f412775f9ef

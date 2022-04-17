@@ -1,17 +1,17 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/lwt dev-ml/ppx_sexp_conv dev-ml/io-page dev-ml/mirage-flow dev-ml/xenstore dev-ml/xenstore-clients dev-ml/sexplib dev-ml/cstruct[ppx] unix? ( dev-ml/xen-evtchn[unix] dev-ml/xen-gnt[unix] dev-ml/fmt ) xen? ( dev-ml/mirage-xen ) test? ( dev-ml/cmdliner dev-ml/ounit ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/lwt:= dev-ml/ppx_sexp_conv:= dev-ml/io-page:= dev-ml/mirage-flow:= dev-ml/xenstore:= dev-ml/xenstore-clients:= dev-ml/sexplib:= dev-ml/cstruct:=[ppx] unix? ( dev-ml/xen-evtchn:=[unix] dev-ml/xen-gnt:=[unix] dev-ml/fmt:= ) xen? ( dev-ml/mirage-xen:= ) test? ( dev-ml/cmdliner dev-ml/ounit2 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Pure OCaml implementation of the vchan shared-memory communication protocol
 EAPI=8
-HOMEPAGE=https://github.com/mirage/ocaml-vchan
+HOMEPAGE=https://github.com/mirage/ocaml-vchan https://opam.ocaml.org/packages/vchan/
 INHERIT=dune multiprocessing
 IUSE=ocamlopt test unix xen
 KEYWORDS=~amd64
 LICENSE=ISC
-RDEPEND=dev-ml/lwt dev-ml/ppx_sexp_conv dev-ml/io-page dev-ml/mirage-flow dev-ml/xenstore dev-ml/xenstore-clients dev-ml/sexplib dev-ml/cstruct[ppx] unix? ( dev-ml/xen-evtchn[unix] dev-ml/xen-gnt[unix] dev-ml/fmt ) xen? ( dev-ml/mirage-xen ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/lwt:= dev-ml/ppx_sexp_conv:= dev-ml/io-page:= dev-ml/mirage-flow:= dev-ml/xenstore:= dev-ml/xenstore-clients:= dev-ml/sexplib:= dev-ml/cstruct:=[ppx] unix? ( dev-ml/xen-evtchn:=[unix] dev-ml/xen-gnt:=[unix] dev-ml/fmt:= ) xen? ( dev-ml/mirage-xen:= ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 REQUIRED_USE=test? ( unix xen )
 RESTRICT=!test? ( test )
 SLOT=0/6.0.1
 SRC_URI=https://github.com/mirage/ocaml-vchan/releases/download/v6.0.1/vchan-6.0.1.tbz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=ce7d1b1eb8c1cee582aa70329f0471a5
+_md5_=8da8b6e26d19fdd084f5075ae8147acf

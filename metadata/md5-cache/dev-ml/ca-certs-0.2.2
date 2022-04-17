@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt?] dev-ml/astring:= dev-ml/bos:= dev-ml/fpath:= dev-ml/ptime:= dev-ml/logs:= dev-ml/mirage-crypto:= >=dev-ml/x509-0.13.0:= test? ( dev-ml/alcotest >=dev-ml/fmt-0.8.7 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Detect root CA certificates from the operating system
+EAPI=8
+HOMEPAGE=https://github.com/mirage/ca-certs https://opam.ocaml.org/packages/ca-certs/
+INHERIT=dune
+IUSE=ocamlopt test
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt?] dev-ml/astring:= dev-ml/bos:= dev-ml/fpath:= dev-ml/ptime:= dev-ml/logs:= dev-ml/mirage-crypto:= >=dev-ml/x509-0.13.0:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/0.2.2
+SRC_URI=https://github.com/mirage/ca-certs/releases/download/v0.2.2/ca-certs-v0.2.2.tbz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=b4e44002d2ace23c528cbaf633346124

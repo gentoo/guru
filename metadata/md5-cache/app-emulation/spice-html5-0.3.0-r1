@@ -6,4 +6,4 @@ KEYWORDS=~amd64
 LICENSE=LGPL-3 MIT
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/spice/spice-html5/-/archive/spice-html5-0.3.0/spice-html5-spice-html5-0.3.0.tar.gz
-_md5_=d5f5ab9581c34a506fa84d6087301185
+_md5_=f64fa33bf9d5bafd043e9afdb53646d9

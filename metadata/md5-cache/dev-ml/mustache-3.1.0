@@ -1,16 +1,16 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/jsonm dev-ml/menhir dev-ml/cmdliner >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/menhir:= dev-ml/ezjsonm:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=mustache.js logic-less templates in OCaml
 EAPI=8
-HOMEPAGE=https://github.com/rgrinberg/ocaml-mustache
+HOMEPAGE=https://github.com/rgrinberg/ocaml-mustache https://opam.ocaml.org/packages/mustache/
 INHERIT=dune
 IUSE=ocamlopt test
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=dev-ml/jsonm dev-ml/menhir dev-ml/cmdliner test? ( dev-ml/ounit dev-ml/ezjsonm ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/menhir:= dev-ml/ezjsonm:= test? ( dev-ml/ounit2 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=!test? ( test )
 SLOT=0/3.1.0
 SRC_URI=https://github.com/rgrinberg/ocaml-mustache/archive/refs/tags/v3.1.0.tar.gz -> mustache-3.1.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=d0c84790a253352a4238278707e33649
+_md5_=2023daf1783596c57bc835075aa097f9

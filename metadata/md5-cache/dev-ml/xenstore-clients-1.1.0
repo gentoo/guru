@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/lwt dev-ml/xenstore >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:= >=dev-ml/findlib-1.0.4-r1
+DEPEND=dev-ml/lwt:= dev-ml/xenstore:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:= >=dev-ml/findlib-1.0.4-r1
 DESCRIPTION=Unix client tools for accessing xenstore
 EAPI=7
 HOMEPAGE=https://github.com/xapi-project/ocaml-xenstore-clients
@@ -8,9 +8,9 @@ INHERIT=dune findlib
 IUSE=ocamlopt test +ocamlopt
 KEYWORDS=~amd64
 LICENSE=LGPL-2.1-with-linking-exception
-RDEPEND=dev-ml/lwt dev-ml/xenstore test? ( dev-ml/ounit ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:= dev-lang/ocaml:=[ocamlopt?]
+RDEPEND=dev-ml/lwt:= dev-ml/xenstore:= test? ( dev-ml/ounit2 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:= dev-lang/ocaml:=[ocamlopt?]
 RESTRICT=!test? ( test )
 SLOT=0/1.1.0
 SRC_URI=https://github.com/xapi-project/ocaml-xenstore-clients/archive/refs/tags/v1.1.0.tar.gz -> xenstore-clients-1.1.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c	findlib	e6df6108c2d753998b1206f4d5ea4a2d
-_md5_=eaee41368ae7cef35d08b3f53be61900
+_md5_=5799cedbbc249d9090b1e564088952ba

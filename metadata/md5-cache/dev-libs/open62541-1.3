@@ -5,13 +5,13 @@ DESCRIPTION=Open source C implementation of OPC UA
 EAPI=8
 HOMEPAGE=https://open62541.org/
 INHERIT=cmake python-single-r1
-IUSE=doc encryption examples etf mbedtls pubsub openssl test tools xdp python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+IUSE=doc encryption examples mbedtls pubsub openssl test tools python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=MPL-2.0
 RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) mbedtls? ( net-libs/mbedtls:= ) openssl? ( dev-libs/openssl:0= )
-REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) encryption? ( || ( mbedtls openssl ) ) etf? ( pubsub ) xdp? ( pubsub )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) encryption? ( || ( mbedtls openssl ) )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/open62541/open62541/archive/v1.2.4.tar.gz -> open62541-1.2.4.tar.gz
+SRC_URI=https://github.com/open62541/open62541/archive/v1.3.tar.gz -> open62541-1.3.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149	python-utils-r1	59dddabd6a41ab69723654916142f63b	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
-_md5_=b82a3102299a37f28bc8e2c80363a7ab
+_md5_=7245f87ea3e30d606ed0fd10aac97f9c

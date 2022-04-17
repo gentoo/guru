@@ -1,17 +1,17 @@
 BDEPEND=dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/cstruct dev-ml/io-page dev-ml/rresult dev-ml/uuidm dev-ml/stdlib-shims lwt? ( dev-ml/mirage-block dev-ml/lwt ) test? ( dev-ml/ounit dev-ml/io-page[unix(-)] ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/cstruct:= dev-ml/io-page:= dev-ml/rresult:= dev-ml/uuidm:= dev-ml/stdlib-shims:= lwt? ( dev-ml/mirage-block:= dev-ml/lwt:= ) test? ( dev-ml/ounit2 dev-ml/io-page[unix(-)] ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Read and write .vhd-format format data
 EAPI=8
-HOMEPAGE=https://github.com/mirage/ocaml-vhd-format
+HOMEPAGE=https://github.com/mirage/ocaml-vhd https://opam.ocaml.org/packages/vhd-format/
 INHERIT=dune multiprocessing
 IUSE=lwt ocamlopt test
 KEYWORDS=~amd64
 LICENSE=LGPL-2.1-with-linking-exception
-RDEPEND=dev-ml/cstruct dev-ml/io-page dev-ml/rresult dev-ml/uuidm dev-ml/stdlib-shims lwt? ( dev-ml/mirage-block dev-ml/lwt ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/cstruct:= dev-ml/io-page:= dev-ml/rresult:= dev-ml/uuidm:= dev-ml/stdlib-shims:= lwt? ( dev-ml/mirage-block:= dev-ml/lwt:= ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 REQUIRED_USE=test? ( lwt )
 RESTRICT=!test? ( test )
 SLOT=0/0.12.2
 SRC_URI=https://github.com/mirage/ocaml-vhd/archive/refs/tags/v0.12.2.tar.gz -> vhd-0.12.2.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=12e525dc3f7cfb03deffbf8fb8e6b53e
+_md5_=56f26cbb30cc5d8ec32d017b6c114bcc
