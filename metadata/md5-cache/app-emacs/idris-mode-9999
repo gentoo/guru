@@ -9,5 +9,5 @@ PROPERTIES=live
 RDEPEND=app-emacs/prop-menu >=app-editors/emacs-23.1:*
 RESTRICT=test
 SLOT=0
-_eclasses_=elisp-common	f9c72486dbcb18b633c9d0949211d86e	elisp	ba40293f44b2e5c3c19d4671c19ce01a	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_eclasses_=elisp-common	e7aaa047873789f549ea3df2f04b2145	elisp	c1c17e9c24d72d3bd58c611de8116fb6	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
 _md5_=23e40b1f6862b176dafc895fcc3b2a5c
