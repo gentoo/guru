@@ -1,0 +1,10 @@
+#!/sbin/openrc-run
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="pwrstatd daemon"
+description=""
+command=/usr/sbin/pwrstatd
+command_args="${pwrstatd_args}"
+command_background=true
+pidfile="/run/${RC_SVCNAME}.pid"
