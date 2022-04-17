@@ -7,11 +7,13 @@ inherit desktop wrapper xdg
 
 MY_PN="eclipse"
 MY_PV="2022-03"
+SRC_BASE="https://www.eclipse.org/downloads/download.php?r=1&file=/technology/epp/downloads/release/${MY_PV}/R/eclipse-parallel-${MY_PV}-R-linux-gtk"
+
 DESCRIPTION="Eclipse IDE for Scientific Computing (C, C++, Fortran)"
 HOMEPAGE="https://www.eclipse.org/"
 SRC_URI="
-	amd64? ( https://download.eclipse.org/technology/epp/downloads/release/${MY_PV}/R/eclipse-parallel-${MY_PV}-R-linux-gtk-x86_64.tar.gz )
-	arm64? ( https://download.eclipse.org/technology/epp/downloads/release/${MY_PV}/R/eclipse-parallel-${MY_PV}-R-linux-gtk-aarch64.tar.gz )
+	amd64? ( ${SRC_BASE}-x86_64.tar.gz )
+	arm64? ( ${SRC_BASE}-aarch64.tar.gz )
 "
 
 S="${WORKDIR}/${MY_PN}"
