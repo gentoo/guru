@@ -1,0 +1,16 @@
+#!/sbin/openrc-run
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+port=8888
+bind=0.0.0.0
+tangd=/usr/libexec/tangd
+tangdir=/var/db/tang
+
+name="tang daemon"
+description="Tang binding daemon"
+command=/usr/bin/socat
+pidfile="/var/run/${RC_SVCNAME}.pid"
+command_user="tang"
+command_args="TCP-LISTEN:${port},bind=${bind},fork SYSTEM:'${tangd} ${tangdir}'"
+command_background=true
