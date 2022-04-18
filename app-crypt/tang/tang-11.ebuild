@@ -12,7 +12,7 @@ SRC_URI="https://github.com/latchset/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="systemd"
+IUSE=""
 
 DEPEND="acct-user/tang
 	app-text/asciidoc
@@ -31,22 +31,15 @@ src_install(){
 	fowners tang:tang /var/db/tang
 	fperms 770 /var/db/tang
 
-	if use systemd; then
-		insinto /usr/lib/systemd/system
-		doins ${FILESDIR}/tangd.service
-	fi
+	insinto /usr/lib/systemd/system
+	doins ${FILESDIR}/tangd.service
 }
 
 pkg_postinst(){
 	einfo "By default, tang runs on port 8888 and listens on address 0.0.0.0"
 	einfo "It also stores JWKs in /var/db/tang."
-	if use systemd; then
-		einfo "If you want to change this, modify /usr/lib/systemd/system/tangd.service directly."
-	else
-		einfo "If you want to change this, modify /etc/init.d/tangd directly."
-	fi
+	einfo "If you want to change this, modify /etc/init.d/tangd or"
+	einfo "/usr/lib/systemd/system/tangd.service directly."
 
-	if use systemd; then
-		systemctl daemon-reload
-	fi
+	systemctl daemon-reload || die
 }
