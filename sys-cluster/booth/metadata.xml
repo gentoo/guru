@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <email></email>
-    <name></name>
+    <email>andrea.postiglione@gmail.com</email>
+    <name>Andrea Postiglione</name>
   </maintainer>
   <upstream>
     <remote-id type="github">ClusterLabs/booth</remote-id>
