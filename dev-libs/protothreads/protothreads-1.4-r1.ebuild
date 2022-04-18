@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
 inherit toolchain-funcs
 
@@ -11,6 +11,7 @@ SRC_URI="
 	https://web.archive.org/web/20190518175329/http://dunkels.com/adam/download/pt-${PV}.tar.gz -> ${P}.tar
 	https://web.archive.org/web/20190518175329/http://dunkels.com/adam/download/graham-pt.h
 "
+S="${WORKDIR}/pt-${PV}"
 
 LICENSE="BSD"
 SLOT="0"
@@ -18,18 +19,23 @@ KEYWORDS="~amd64"
 IUSE="doc examples"
 
 BDEPEND="doc? ( app-doc/doxygen )"
-PATCHES=( "${FILESDIR}/respect-cflags.patch" )
-S="${WORKDIR}/pt-${PV}"
+PATCHES=(
+	"${FILESDIR}/${P}-respect-cflags.patch"
+	"${FILESDIR}/${P}-fix-clang-build.patch"
+)
 
 src_unpack() {
 	default
-	cp "${DISTDIR}/graham-pt.h" "${S}"
+	cp "${DISTDIR}/graham-pt.h" "${S}" || die
 }
 
 src_compile() {
-	export CC=$(tc-getCC)
-	default
-	use doc && cd doc && emake
+	tc-export CC
+	use examples && emake
+	if use doc ; then
+		pushd doc || die
+		emake
+	fi
 }
 
 src_install() {
@@ -46,7 +52,7 @@ src_install() {
 	if use examples ; then
 		insinto "/usr/share/${P}/examples"
 		doins *.c
-		exeinto "/usr/libexec/${P}"
+		exeinto "/usr/libexec/${PN}"
 		doexe example-buffer
 		doexe example-codelock
 		doexe example-small
