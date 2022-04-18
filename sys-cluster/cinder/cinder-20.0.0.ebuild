@@ -6,7 +6,7 @@ EAPI=8
 MYP="${P/_rc/rc}"
 PYTHON_COMPAT=( python3_{8..9} )
 
-inherit distutils-r1 linux-info systemd tmpfiles
+inherit distutils-r1 linux-info optfeature systemd tmpfiles
 
 DESCRIPTION="Cinder is the OpenStack Block storage service, a spin out of nova-volumes"
 HOMEPAGE="
@@ -172,6 +172,11 @@ python_install_all() {
 
 pkg_postinst() {
 	tmpfiles_process cinder.conf
+
 	elog "Cinder needs tgtd to be installed and running to work with iscsi"
 	elog "it also needs 'include /var/lib/cinder/volumes/*' in /etc/tgt/targets.conf"
+
+	optfeature "datacore" >=dev-python/websocket-client-0.32.0
+	optfeature "powermax" >=dev-python/pyopenssl-17.5.0
+	optfeature "ds8k" >=dev-python/pyopenssl-17.5.0
 }
