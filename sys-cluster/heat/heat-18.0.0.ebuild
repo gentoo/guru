@@ -20,7 +20,6 @@ S="${WORKDIR}/openstack-${MYP}"
 
 LICENSE="Apache-2.0 GPL-2"
 SLOT="0"
-IUSE="+mysql +memcached postgres sqlite"
 
 RDEPEND="
 	>=dev-python/pbr-3.1.1[${PYTHON_USEDEP}]
@@ -87,17 +86,7 @@ RDEPEND="
 	>=dev-python/webob-1.7.1[${PYTHON_USEDEP}]
 	>=dev-python/yaql-1.1.3[${PYTHON_USEDEP}]
 
-	mysql? (
-		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.0.10[${PYTHON_USEDEP}]
-	)
-	postgres? (
-		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.0.10[${PYTHON_USEDEP}]
-	)
-	sqlite? (
-		>=dev-python/sqlalchemy-1.0.10[sqlite,${PYTHON_USEDEP}]
-	)
+	>=dev-python/sqlalchemy-1.0.10[${PYTHON_USEDEP}]
 
 	acct-user/heat
 	acct-group/heat
@@ -116,12 +105,9 @@ BDEPEND="
 		>=dev-python/testresources-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/pygments-2.2.0[${PYTHON_USEDEP}]
 		>=dev-python/tempest-17.1.0[${PYTHON_USEDEP}]
-	)
-"
 
-REQUIRED_USE="
-	test? ( mysql )
-	|| ( mysql postgres sqlite )
+		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_tests pytest
