@@ -51,9 +51,7 @@ BDEPEND="
 "
 
 DOCS=( {README,NEWS}.md docs )
-
 PATCHES=(
-	"${FILESDIR}/${PN}-3.6.2-_get_scripts-to-data_files.patch"
 	"${FILESDIR}/${P}-no-cmake-ninja-deps.patch"
 	"${FILESDIR}/${P}-antlr.patch"
 )
