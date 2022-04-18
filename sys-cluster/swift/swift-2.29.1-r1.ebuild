@@ -5,19 +5,20 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..9} )
 
-inherit distutils-r1 linux-info
+inherit distutils-r1 linux-info optfeature systemd tmpfiles
 
 DESCRIPTION="A highly available, distributed, and eventually consistent object/blob store"
 HOMEPAGE="
 	https://github.com/openstack/swift
 	https://launchpad.net/swift
+	https://opendev.org/openstack/swift
 "
 SRC_URI="https://tarballs.openstack.org/${PN}/${P}.tar.gz"
 KEYWORDS="~amd64"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="account container doc +memcached +object proxy"
+IUSE="doc +memcached"
 
 RDEPEND="
 	>=dev-python/eventlet-0.25.0[${PYTHON_USEDEP}]
@@ -55,7 +56,6 @@ BDEPEND="
 	)
 "
 
-REQUIRED_USE="|| ( proxy account container object )"
 RESTRICT="test" # tests run forever
 
 distutils_enable_tests nose
@@ -89,26 +89,30 @@ python_install_all() {
 	newins "etc/drive-audit.conf-sample" "drive-audit.conf-sample"
 	newins "etc/dispersion.conf-sample" "dispersion.conf-sample"
 
-	if use proxy; then
-		newinitd "${FILESDIR}/swift-proxy.initd" "swift-proxy"
-		newins "etc/proxy-server.conf-sample" "proxy-server.conf"
-		if use memcached; then
-			sed -i '/depend/a\    need memcached' "${D}/etc/init.d/swift-proxy"
-		fi
+	newinitd "${FILESDIR}/swift-proxy.initd" "swift-proxy"
+	newins "etc/proxy-server.conf-sample" "proxy-server.conf"
+	if use memcached; then
+		sed -i '/depend/a\    need memcached' "${D}/etc/init.d/swift-proxy"
 	fi
-	if use account; then
-		newinitd "${FILESDIR}/swift-account.initd" "swift-account"
-		newins "etc/account-server.conf-sample" "account-server.conf"
-	fi
-	if use container; then
-		newinitd "${FILESDIR}/swift-container.initd" "swift-container"
-		newins "etc/container-server.conf-sample" "container-server.conf"
-	fi
-	if use object; then
-		newinitd "${FILESDIR}/swift-object.initd" "swift-object"
-		newins "etc/object-server.conf-sample" "object-server.conf"
-		newins "etc/object-expirer.conf-sample" "object-expirer.conf"
-	fi
+	newinitd "${FILESDIR}/swift-account.initd" "swift-account"
+	newins "etc/account-server.conf-sample" "account-server.conf"
+	newinitd "${FILESDIR}/swift-container.initd" "swift-container"
+	newins "etc/container-server.conf-sample" "container-server.conf"
+	newinitd "${FILESDIR}/swift-object.initd" "swift-object"
+	newins "etc/object-server.conf-sample" "object-server.conf"
+	newins "etc/object-expirer.conf-sample" "object-expirer.conf"
+
+	for i in "${FILESDIR}"/openstack-swift*.service ; do
+		systemd_dounit "${i/.AT/@}"
+	done
+
+	insinto /etc/logrotate.d
+	newins "${FILESDIR}/openstack-swift.logrotate" swift
+
+	newtmpfiles "${FILESDIR}/openstack-swift.tmpfs" swift.conf
+
+	insinto /etc/rsyslog.d/
+	newins "${FILESDIR}/openstack-swift.rsyslog" openstack-swift.conf
 
 	if use doc; then
 		doman doc/manpages/*
@@ -120,9 +124,15 @@ python_install_all() {
 }
 
 pkg_postinst() {
+	tmpfiles_process swift.conf
+
 	elog "Openstack swift will default to using insecure http unless a"
 	elog "certificate is created in /etc/swift/cert.crt and the associated key"
 	elog "in /etc/swift/cert.key.  These can be created with the following:"
 	elog "  * cd /etc/swift"
 	elog "  * openssl req -new -x509 -nodes -out cert.crt -keyout cert.key"
+
+	optfeature "kms_keymaster" >=dev-python/oslo.config-4.0.0 >=dev-python/castellan-0.13.0
+	#optfeature "kmip_keymaster" >=dev-python/pykmip-0.7.0
+	optfeature "keystone" >=dev-python/keystonemiddleware-4.17.0
 }

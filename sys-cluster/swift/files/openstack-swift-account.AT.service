@@ -1,0 +1,12 @@
+[Unit]
+Description=OpenStack Object Storage (swift) - Account Server instance %I
+Wants=network-online.target
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+User=swift
+ExecStart=/usr/bin/swift-account-server /etc/swift/account-server/%i.conf
+
+[Install]
+WantedBy=multi-user.target
