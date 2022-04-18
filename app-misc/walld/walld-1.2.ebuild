@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit optfeature
+inherit optfeature toolchain-funcs
 
 DESCRIPTION="A Wallpaper daemon"
 HOMEPAGE="https://github.com/Dotz0cat/walld"
@@ -16,6 +16,10 @@ KEYWORDS="~amd64 ~x86"
 DEPEND="dev-libs/libevent media-gfx/feh dev-libs/libconfig media-gfx/imagemagick"
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
+
+src_compile() {
+	emake CC="${tc-getCC}"
+}
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX=/usr install
