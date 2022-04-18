@@ -37,5 +37,5 @@ src_install(){
 pkg_postinst() {
 	elog "run 'grub-mkconfig -o /boot/grub/grub.cfg' to update your Grub menu."
 	elog "update your /etc/grub.d/41_snapshots-btrfs script (e.g. with dispatch-conf or etc-update)"
-    optfeature "LVM/ LUKS support" sys-boot/grub[device-mapper]
+	optfeature "LVM/ LUKS support" sys-boot/grub[device-mapper]
 }
