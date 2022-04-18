@@ -6,7 +6,7 @@ EAPI=8
 MYP="${P//_/}"
 PYTHON_COMPAT=( python3_{8..9} )
 
-inherit bash-completion-r1 distutils-r1 linux-info systemd tmpfiles udev
+inherit bash-completion-r1 distutils-r1 linux-info optfeature systemd tmpfiles udev
 
 DESCRIPTION="Cloud computing fabric controller"
 HOMEPAGE="
@@ -85,11 +85,6 @@ RDEPEND="
 	>=dev-python/futurist-1.8.0[${PYTHON_USEDEP}]
 	>=dev-python/openstacksdk-0.35.0[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-5.1[${PYTHON_USEDEP}]
-
-	>=dev-python/pypowervm-1.1.15[${PYTHON_USEDEP}]
-	>=dev-python/zVMCloudConnector-1.3.0[${PYTHON_USEDEP}]
-	>=dev-python/os-win-5.5.0[${PYTHON_USEDEP}]
-	>=dev-python/oslo-vmware-3.6.0[${PYTHON_USEDEP}]
 
 	acct-user/nova
 	acct-group/nova
@@ -219,4 +214,10 @@ pkg_postinst() {
 	tmpfiles_process nova.conf
 
 	use iscsi && elog "iscsid needs to be running if you want cinder to connect"
+
+	optfeature "osprofiler" dev-python/osprofiler-1.4.0
+	optfeature "powervm" dev-python/pypowervm-1.1.15
+	optfeature "zvm" dev-python/zVMCloudConnector-1.3.0
+	optfeature "hyperv" dev-python/os-win-5.5.0
+	optfeature "vmware" dev-python/oslo-vmware-3.6.0
 }
