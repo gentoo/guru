@@ -13,7 +13,7 @@
 # Requirements: lsscsi (for retrieve LUN ID, I don't know how can i do that from udev/iscsiadm)
 
 # Rules for UDEV must in this format:
-# KERNEL=="sd*", BUS=="scsi", PROGRAM="/etc/nova/scsi-openscsi-link.sh %b",SYMLINK+="disk/by-path/%c"
+# KERNEL=="sd*", BUS=="scsi", PROGRAM="/usr/libexec/nova/scsi-openscsi-link.sh %b",SYMLINK+="disk/by-path/%c"
 
 # NOTE: it seems that input params %b or others are not passed to script.
 #       I try to retrieve it from environment variables.

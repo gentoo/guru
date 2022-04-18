@@ -18,9 +18,9 @@ SRC_URI="https://tarballs.openstack.org/${PN}/${MYP}.tar.gz"
 S="${WORKDIR}/${MYP}"
 
 KEYWORDS="~amd64"
-LICENSE="Apache-2.0 iscsi? ( GPL-2 )"
+LICENSE="Apache-2.0 GPL-2"
 SLOT="0"
-IUSE="+compute compute-only iscsi +memcached +mysql +novncproxy openvswitch postgres +rabbitmq sqlite"
+IUSE="iscsi"
 
 RDEPEND="
 	>=dev-python/pbr-5.8.0[${PYTHON_USEDEP}]
@@ -102,35 +102,11 @@ RDEPEND="
 	sys-fs/sysfsutils
 	sys-fs/multipath-tools
 
-	compute? (
-		app-cdr/cdrtools
-		sys-fs/dosfstools
-		app-emulation/qemu
-	)
-	compute-only? (
-		>=dev-python/sqlalchemy-1.4.13[${PYTHON_USEDEP}]
-	)
+	>=dev-python/sqlalchemy-1.4.13[${PYTHON_USEDEP}]
+
 	iscsi? (
 		sys-fs/lsscsi
 		>=sys-block/open-iscsi-2.0.873-r1
-	)
-	memcached? (
-		net-misc/memcached
-		>=dev-python/python-memcached-1.58[${PYTHON_USEDEP}]
-	)
-	mysql? (
-		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.4.13[${PYTHON_USEDEP}]
-	)
-	novncproxy? ( www-apps/novnc )
-	openvswitch? ( net-misc/openvswitch )
-	postgres? (
-		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.4.13[${PYTHON_USEDEP}]
-	)
-	rabbitmq? ( net-misc/rabbitmq-server )
-	sqlite? (
-		>=dev-python/sqlalchemy-1.4.13[sqlite,${PYTHON_USEDEP}]
 	)
 "
 DEPEND="
@@ -159,12 +135,6 @@ BDEPEND="
 
 		sys-cluster/placement[${PYTHON_USEDEP}]
 	)
-"
-
-REQUIRED_USE="
-	!compute-only? ( || ( mysql postgres sqlite ) )
-	compute-only? ( compute !rabbitmq !memcached !mysql !postgres !sqlite )
-	test? ( mysql )
 "
 
 distutils_enable_tests pytest
@@ -234,20 +204,19 @@ python_install_all() {
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/nova.logrotate" nova.conf
 
-	if use iscsi ; then
+	if use iscsi; then
 		# Install udev rules for handle iscsi disk with right links under /dev
 		udev_newrules "${FILESDIR}/openstack-scsi-disk.rules" 60-openstack-scsi-disk.rules
 
-		insinto /etc/nova/
+		exeinto "/usr/libexec/${PN}"
 		doins "${FILESDIR}/scsi-openscsi-link.sh"
 	fi
+
 	rm -r "${ED}/usr/etc" || die
 }
 
 pkg_postinst() {
 	tmpfiles_process nova.conf
 
-	if use iscsi ; then
-		elog "iscsid needs to be running if you want cinder to connect"
-	fi
+	use iscsi && elog "iscsid needs to be running if you want cinder to connect"
 }
