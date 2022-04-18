@@ -1,0 +1,6 @@
+[Unit]
+Description=Tang Server
+
+[Service]
+ExecStart=/usr/bin/socat TCP-LISTEN:8888,bind=0.0.0.0,fork SYSTEM:'/usr/libexec/tangd /var/db/tang'
+User=tang

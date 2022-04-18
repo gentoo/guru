@@ -21,14 +21,14 @@ CRATES="
 	cargo_metadata-0.14.2
 	cc-1.0.73
 	cfg-if-1.0.0
-	chalk-derive-0.79.0
-	chalk-ir-0.79.0
-	chalk-recursive-0.79.0
-	chalk-solve-0.79.0
+	chalk-derive-0.81.0
+	chalk-ir-0.81.0
+	chalk-recursive-0.81.0
+	chalk-solve-0.81.0
 	countme-3.0.1
 	cov-mark-2.0.0-pre.1
 	crc32fast-1.3.2
-	crossbeam-channel-0.5.3
+	crossbeam-channel-0.5.4
 	crossbeam-deque-0.8.1
 	crossbeam-epoch-0.9.8
 	crossbeam-utils-0.8.8
@@ -64,13 +64,13 @@ CRATES="
 	kqueue-1.0.4
 	kqueue-sys-1.0.3
 	lazy_static-1.4.0
-	libc-0.2.120
+	libc-0.2.121
 	libloading-0.7.3
 	libmimalloc-sys-0.1.24
 	lock_api-0.4.6
 	log-0.4.14
-	lsp-server-0.5.2
-	lsp-types-0.92.0
+	lsp-server-0.6.0
+	lsp-types-0.92.1
 	matchers-0.1.0
 	matches-0.1.9
 	memchr-2.4.1
@@ -101,7 +101,7 @@ CRATES="
 	proc-macro2-1.0.36
 	pulldown-cmark-0.9.1
 	pulldown-cmark-to-cmark-10.0.1
-	quote-1.0.15
+	quote-1.0.16
 	rayon-1.5.1
 	rayon-core-1.9.1
 	redox_syscall-0.2.11

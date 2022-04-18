@@ -5,7 +5,7 @@ EAPI=7
 
 LUA_COMPAT=( lua5-1 luajit )
 
-inherit lua-single
+inherit lua-single toolchain-funcs
 
 DESCRIPTION="Spreadsheet Calculator Improvised -- An ncurses spreadsheet program for terminal"
 HOMEPAGE="https://github.com/andmarti1424/sc-im"
@@ -73,4 +73,9 @@ pkg_setup() {
 
 	# Run lua setup
 	lua-single_pkg_setup
+}
+
+src_configure() {
+	tc-export CC
+	default
 }
