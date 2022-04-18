@@ -626,6 +626,7 @@ sys-cluster/TCL:tcl-instrumentation - Build the instrumentation version
 sys-cluster/TCL:tcl-instrumentation-debug - Build the instrumentation-debug version
 sys-cluster/TCL:tcl-performance - Build the performance version
 sys-cluster/TCL:veloc - Enable sys-cluster/veloc backend
+sys-cluster/booth:glue - Use libraries from sys-cluster/cluster-glue
 sys-cluster/cinder:api - Installs the initscripts for the cinder api service
 sys-cluster/cinder:iscsi - Allow using an iSCSI remote storage server as pool for disk image storage
 sys-cluster/cinder:lvm - Allow using the Logical Volume Manager (sys-fs/lvm2) as pool for disk image storage

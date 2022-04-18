@@ -7,6 +7,7 @@ acct-group/jackett 0: Group for www-apps/jackett-bin
 acct-group/monero 0: System group: monero
 acct-group/owncast 0: Group for media-video/owncast
 acct-group/purritobin 0: Group for net-misc/purritobin
+acct-group/tang 0: Group for tang daemon
 acct-group/wsdd 0: Group for net-misc/wsdd
 acct-group/yggdrasil 1: System group: yggdrasil
 acct-user/_bgpd 0-r1: User for OpenBGPD
@@ -19,6 +20,7 @@ acct-user/jackett 0: User for www-apps/jackett-bin
 acct-user/monero 0: System user: monero
 acct-user/owncast 0: User for media-video/owncast
 acct-user/purritobin 0: User for net-misc/purritobin
+acct-user/tang 0: User for tang daemon
 acct-user/trezord 0: User for TREZOR Bridge
 acct-user/wsdd 0: User for net-misc/wsdd
 acct-user/yggdrasil 1: Yggdrasil user
@@ -59,6 +61,7 @@ app-crypt/gnome-encfs-manager 1.9: An easy to use manager and mounter for encfs 
 app-crypt/intel-ipsec-mb 1.1 1.2 9999: Multi-Buffer Crypto for IPSec from Intel
 app-crypt/pgp 2.6.3a: Public-key encryption and digital signature utility
 app-crypt/reop 2.1.1: reasonable expectation of privacy
+app-crypt/tang 11: Tang binding daemon
 app-crypt/tomb 2.9-r6: Tomb :: File Encryption on GNU/Linux
 app-crypt/tpm2-openssl 1.1.0: OpenSSL Provider for TPM2 integration
 app-crypt/uacme 1.7.1: ACMEv2 client written in plain C with minimal dependencies
@@ -125,6 +128,7 @@ app-misc/neo 0.6.1 9999: cmatrix clone with 32-bit color and Unicode support
 app-misc/nonsense 0.7-r1: Generates random text from datafiles and templates
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
+app-misc/powerpanel 1.4.1: PowerPanel software for CyberPower UPS systems
 app-misc/pup 0.4.0_p1: Parsing HTML at the command line
 app-misc/rememberthemilk 1.3.11-r1: Freemium simple to-do tasks manager
 app-misc/spark 1.0.1: sparklines for your shell
@@ -135,6 +139,7 @@ app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vocabsieve 0.7.2: A simple, effective tool for language learning
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
+app-misc/walld 1.2: A Wallpaper daemon
 app-misc/watchexec 1.15.3 1.16.2 1.17.1 1.18.11 1.18.12 1.19.0: Executes commands in response to file modifications
 app-misc/wego 2.1: Wego is a weather client for the terminal
 app-misc/xplr 0.15.2 0.17.0 0.17.1 0.17.2: A hackable, minimal, fast TUI file explorer
@@ -864,7 +869,7 @@ dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
 dev-util/reuse 0.14.0: A tool for compliance with the REUSE recommendations
 dev-util/rpmlint 2.1.0 2.2.0: Tool for checking common errors in RPM packages
-dev-util/rust-analyzer 20220314 20220321 99999999: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer 20220411 20220418 99999999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/wakatime-cli 1.27.0 1.28.6: Command line interface to WakaTime used by all WakaTime plugins
@@ -1271,6 +1276,7 @@ sys-cluster/OpenHPC-meta 2.1: OpenHPC metapackage
 sys-cluster/SIONfwd 1.0.1: A minimalistic I/O forwarding server and client library for SIONlib
 sys-cluster/SOS 1.5.0: implementation of the OpenSHMEM specification
 sys-cluster/TCL 1.0: Transparent Checkpointing Library
+sys-cluster/booth 1.0_p20210730: The Booth Cluster Ticket Manager
 sys-cluster/cinder 20.0.0: Cinder is the OpenStack Block storage service, a spin out of nova-volumes
 sys-cluster/clusteringsuite 2.6.9-r3: Expose the main performance trends in applications computation structure
 sys-cluster/dlb 2.1-r3: Dynamically react to application imbalance by modifying the number of resources

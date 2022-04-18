@@ -1,0 +1,9 @@
+DEFINED_PHASES=install postinst preinst prerm pretend
+DESCRIPTION=User for tang daemon
+EAPI=8
+INHERIT=acct-user
+KEYWORDS=~amd64
+RDEPEND=acct-group/tang
+SLOT=0
+_eclasses_=user-info	df8c432bdcb3cdcef6c8250f0ab9e4ea	user	cccf4b1f43c35defc6e448e73cc44ca0	acct-user	b1b77f98e85cd9473ed7798985a4a980
+_md5_=19d2a5486d30b540925349ead4a33ca4
