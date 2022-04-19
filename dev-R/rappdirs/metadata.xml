@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription>
+		Application Directories: Determine Where to Save Data, Caches,
+		and Logs // An easy way to determine which directories on the
+		users computer you should use to save data, caches and logs. A
+		port of Python's 'Appdirs'
+		(https://github.com/ActiveState/appdirs) to R.
+	</longdescription>
+</pkgmetadata>
