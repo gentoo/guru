@@ -38,7 +38,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 src_install() {
 	R-packages_src_install
 
-	python_optimize "/usr/$(get_libdir)/R/site-library/reticulate/python/rpytools"
+	python_optimize "${ED}/usr/$(get_libdir)/R/site-library/reticulate/python/rpytools"
 
 	# enforce python implementation
 	echo "RETICULATE_PYTHON=\"${PYTHON}\"" > "${T}/99reticulate" || die
