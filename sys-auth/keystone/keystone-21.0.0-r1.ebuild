@@ -6,7 +6,7 @@ EAPI=8
 MYP="${P/_/}"
 PYTHON_COMPAT=( python3_{8..9} )
 
-inherit distutils-r1 tmpfiles
+inherit distutils-r1 optfeature systemd tmpfiles
 
 DESCRIPTION="The Openstack authentication, authorization, and service catalog"
 HOMEPAGE="
@@ -20,7 +20,6 @@ S="${WORKDIR}/${MYP}"
 KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="+sqlite ldap memcached mongo mysql postgres"
 
 RDEPEND="
 	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
@@ -57,33 +56,8 @@ RDEPEND="
 	>=dev-python/osprofiler-1.4.0[${PYTHON_USEDEP}]
 	>=dev-python/pytz-2013.6[${PYTHON_USEDEP}]
 
-	ldap? (
-		>=dev-python/python-ldap-3.1.0[${PYTHON_USEDEP}]
-		>=dev-python/ldappool-2.3.1[${PYTHON_USEDEP}]
-	)
-	mysql? (
-		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.3.0[${PYTHON_USEDEP}]
-	)
-	memcached? (
-		>=dev-python/python-memcached-1.56[${PYTHON_USEDEP}]
-	)
-	mongo? (
-		>=dev-python/pymongo-3.0.2[${PYTHON_USEDEP}]
-	)
-	postgres? (
-		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.3.0[${PYTHON_USEDEP}]
-	)
-	sqlite? (
-		>=dev-python/sqlalchemy-1.3.0[sqlite,${PYTHON_USEDEP}]
-	)
+	>=dev-python/sqlalchemy-1.3.0[${PYTHON_USEDEP}]
 
-	|| (
-		www-servers/uwsgi[python,${PYTHON_USEDEP}]
-		www-apache/mod_wsgi[${PYTHON_USEDEP}]
-		www-servers/gunicorn[${PYTHON_USEDEP}]
-	)
 	acct-user/keystone
 	acct-group/keystone
 "
@@ -101,14 +75,13 @@ BDEPEND="
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 		>=dev-python/tempest-17.1.0[${PYTHON_USEDEP}]
 		>=dev-python/requests-2.14.2[${PYTHON_USEDEP}]
+
+		>=dev-python/python-ldap-3.1.0[${PYTHON_USEDEP}]
+		>=dev-python/ldappool-2.3.1[${PYTHON_USEDEP}]
 	)
 "
 
 PATCHES=( "${FILESDIR}/${P}-no-usr-local-bin.patch" )
-REQUIRED_USE="
-	|| ( mysql postgres sqlite )
-	test? ( ldap )
-"
 
 distutils_enable_tests pytest
 
@@ -145,6 +118,13 @@ python_install_all() {
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/keystone.logrotate" keystone.conf
 
+	systemd_dounit "${FILESDIR}/openstack-keystone.service"
+
+	insinto /usr/lib/sysctl.d/
+	newins "${FILESDIR}/openstack-keystone.sysctl" openstack-keystone.conf
+
+	newbin tools/sample_data.sh openstack-keystone-sample-data
+
 	rm -r "${ED}/usr/etc" || die
 }
 
@@ -156,10 +136,13 @@ pkg_postinst() {
 	elog "please do it by modifying /etc/ssl/openssl.cnf"
 	elog "BEFORE issuing the configuration command."
 	elog "Otherwise default values will be used."
-}
 
-pkg_postinst() {
 	tmpfiles_process keystone.conf
+
+	optfeature "ldap" >=dev-python/ldappool-2.3.1 >=dev-python/python-ldap-3.1.0
+	optfeature "memcache" >=dev-python/python-memcached-1.56
+	optfeature "mongodb" >=dev-python/pymongo-3.0.2
+	optfeature "bandit" >=dev-python/bandit-1.1.0
 }
 
 pkg_config() {
