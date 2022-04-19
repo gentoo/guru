@@ -18,7 +18,6 @@ SRC_URI="https://tarballs.openstack.org/${PN}/${P}.tar.gz"
 KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="mysql postgres +sqlite +swift"
 
 RDEPEND="
 	>=dev-python/pbr-3.1.1[${PYTHON_USEDEP}]
@@ -64,17 +63,7 @@ RDEPEND="
 	>=dev-python/os-win-4.0.1[${PYTHON_USEDEP}]
 	>=dev-python/castellan-0.17.0[${PYTHON_USEDEP}]
 
-	sqlite? (
-		>=dev-python/sqlalchemy-1.0.10[sqlite,${PYTHON_USEDEP}]
-	)
-	mysql? (
-		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.0.10[${PYTHON_USEDEP}]
-	)
-	postgres? (
-		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.0.10[${PYTHON_USEDEP}]
-	)
+	>=dev-python/sqlalchemy-1.0.10[${PYTHON_USEDEP}]
 
 	acct-user/glance
 	acct-group/glance
@@ -100,12 +89,9 @@ BDEPEND="
 		>=dev-python/python-cinderclient-4.1.0[${PYTHON_USEDEP}]
 		>=dev-python/os-brick-3.1.0[${PYTHON_USEDEP}]
 		>=dev-python/oslo-privsep-1.32.0[${PYTHON_USEDEP}]
-	)
-"
 
-REQUIRED_USE="
-	|| ( mysql postgres sqlite )
-	test? ( mysql )
+		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_tests pytest
@@ -139,6 +125,8 @@ python_install_all() {
 	keepdir /var/lib/glance/scrubber
 
 	systemd_dounit "${FILESDIR}/openstack-glance-api.service"
+	systemd_dounit "${FILESDIR}/openstack-glance-registry.service"
+	systemd_dounit "${FILESDIR}/openstack-glance-scrubber.service"
 	newtmpfiles "${FILESDIR}/glance.tmpfiles" glance.conf
 
 	insinto /etc/logrotate.d
