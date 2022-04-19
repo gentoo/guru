@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DOCS_AUTODOC=0
 DOCS_BUILDER="sphinx"
 DOCS_DIR="${S}/doc/rst"
 FORTRAN_NEEDED="fortran"
