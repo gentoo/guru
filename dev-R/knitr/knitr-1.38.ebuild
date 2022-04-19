@@ -28,7 +28,7 @@ SUGGESTED_PACKAGES="
 	dev-R/testit
 	dev-R/digest
 	>=dev-R/rgl-0.95.1201
-	dev-R/codetools
+	virtual/codetools
 	dev-R/rmarkdown
 	>=dev-R/htmlwidgets-0.7
 	dev-R/webshot

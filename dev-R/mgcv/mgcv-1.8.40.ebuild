@@ -22,6 +22,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 SUGGESTED_PACKAGES="
-	dev-R/survival
-	dev-R/MASS
+	virtual/survival
+	virtual/MASS
 "

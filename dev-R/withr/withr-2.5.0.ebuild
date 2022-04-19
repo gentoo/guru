@@ -17,7 +17,7 @@ SUGGESTED_PACKAGES="
 	dev-R/covr
 	dev-R/DBI
 	dev-R/knitr
-	dev-R/lattice
+	virtual/lattice
 	dev-R/rlang
 	>=dev-R/rmarkdown-2,12
 	dev-R/RSQLite

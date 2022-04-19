@@ -15,6 +15,6 @@ RDEPEND="${DEPEND}"
 SUGGESTED_PACKAGES="
 	dev-R/covr
 	dev-R/ggplot2
-	dev-R/lattice
+	virtual/lattice
 	dev-R/testthat
 "

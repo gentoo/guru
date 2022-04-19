@@ -21,7 +21,7 @@ RDEPEND="${DEPEND}"
 
 SUGGESTED_PACKAGES="
 	dev-R/tinytest
-	>=dev-R/Matrix-1.3.0
+	virtual/Matrix
 	dev-R/pkgKitten
 	dev-R/reticulate
 	dev-R/slam

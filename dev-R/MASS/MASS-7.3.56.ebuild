@@ -20,8 +20,8 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 SUGGESTED_PACKAGES="
-	dev-R/lattice
-	dev-R/nlme
-	dev-R/nnet
-	dev-R/survival
+	virtual/lattice
+	virtual/nlme
+	virtual/nnet
+	virtual/survival
 "

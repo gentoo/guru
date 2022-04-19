@@ -20,5 +20,5 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 SUGGESTED_PACKAGES="
-	dev_R/MASS
+	virtual/MASS
 "

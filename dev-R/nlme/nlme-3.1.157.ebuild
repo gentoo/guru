@@ -22,6 +22,6 @@ RDEPEND="${DEPEND}"
 
 SUGGESTED_PACKAGES="
 	dev-R/Hmisc
-	dev-R/MASS
+	virtual/MASS
 	dev-R/SASmixed
 "
