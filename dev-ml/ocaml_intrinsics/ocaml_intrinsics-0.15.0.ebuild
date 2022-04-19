@@ -16,3 +16,5 @@ IUSE="ocamlopt"
 
 RDEPEND="dev-ml/dune-configurator"
 DEPEND="${RDEPEND}"
+
+RESTRICT="test" # even upstream doesn't know how to test
