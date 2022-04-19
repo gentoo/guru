@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription>
+		Interface to 'Python' // Interface to 'Python' modules, classes,
+		and functions. When calling into 'Python', R data types are
+		automatically converted to their equivalent 'Python' types.
+		When values are returned from 'Python' to R they are converted
+		back to R types. Compatible with all versions of 'Python' =
+		2.7.
+	</longdescription>
+</pkgmetadata>
