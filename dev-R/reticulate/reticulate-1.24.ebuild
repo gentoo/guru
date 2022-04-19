@@ -41,7 +41,7 @@ src_install() {
 	python_optimize "/usr/$(get_libdir)/R/site-library/reticulate/python/rpytools"
 
 	# enforce python implementation
-	cat "RETICULATE_PYTHON=\"${PYTHON}\"" > "${T}/99reticulate" || die
+	echo "RETICULATE_PYTHON=\"${PYTHON}\"" > "${T}/99reticulate" || die
 	doenvd "${T}/99reticulate"
 }
 
