@@ -6,7 +6,10 @@ EAPI=7
 inherit opam
 
 DESCRIPTION="Persistent-mode afl-fuzz for ocaml"
-HOMEPAGE="https://github.com/stedolan/ocaml-afl-persistent"
+HOMEPAGE="
+	https://github.com/stedolan/ocaml-afl-persistent
+	https://opam.ocaml.org/packages/afl-persistent/
+"
 SRC_URI="https://github.com/stedolan/ocaml-afl-persistent/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/ocaml-${P}"
 
@@ -14,7 +17,7 @@ LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
 
-RDEPEND="dev-ml/base-unix"
+RDEPEND="dev-lang/ocaml:="
 DEPEND="${RDEPEND}"
 
 src_compile() {
