@@ -20,7 +20,7 @@ SLOT="0"
 
 RDEPEND="
 	>=dev-python/sphinx-2.0[${PYTHON_USEDEP}]
-	>=dev-python/click-5[${PYTHON_USEDEP}]
+	>=dev-python/click-7.0[${PYTHON_USEDEP}]
 	dev-python/docutils[${PYTHON_USEDEP}]
 "
 BDEPEND=">=dev-python/pbr-2.0[${PYTHON_USEDEP}]"
