@@ -7,7 +7,7 @@ inherit dune
 
 DESCRIPTION="A simple on-disk fixed length queue"
 HOMEPAGE="https://github.com/mirage/shared-block-ring"
-SRC_URI="https://github.com/mirage/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/mirage/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0/${PV}"
@@ -15,12 +15,12 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
 RDEPEND="
-	>=dev-ml/cstruct-3.0.0:=[ppx]
+	>=dev-ml/cstruct-6.0.0:=[ppx]
 	dev-ml/lwt:=
 	dev-ml/lwt_log:=
 	dev-ml/cmdliner:=
 	dev-ml/duration:=
-	>=dev-ml/io-page-2.2.0:=[unix(-)]
+	>=dev-ml/io-page-2.4.0:=
 	dev-ml/logs:=
 	>=dev-ml/mirage-block-2.0.1:=
 	dev-ml/mirage-block-unix:=
@@ -41,7 +41,3 @@ DEPEND="
 "
 
 RESTRICT="!test? ( test )"
-PATCHES=(
-	"${FILESDIR}/${P}-cstruct.patch"
-	"${FILESDIR}/${P}-mirage-block.patch"
-)
