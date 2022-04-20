@@ -77,7 +77,6 @@ Name | Buildsystem | Category | User | RFH
 [llvm-ompss2](https://github.com/bsc-pm/llvm) | cmake | cluster | Alessandro-Barbieri | yes
 [pagmo](https://esa.github.io/pagmo2/) | cmake | science | Alessandro-Barbieri | no
 [enarx](https://enarx.dev/) | cargo | util | Alessandro-Barbieri | no
-[airshipper](https://gitlab.com/veloren/airshipper) | cargo | game | NicolaSmaniotto | 
 [ruplacer](https://github.com/dmerejkowsky/ruplacer) | cargo | sys | Alessandro-Barbieri | no
 [gping](https://github.com/orf/gping) | cargo | net | Alessandro-Barbieri | no
 [open-match](https://github.com/googleforgames/open-match) | go | devel | Alessandro-Barbieri | yes
