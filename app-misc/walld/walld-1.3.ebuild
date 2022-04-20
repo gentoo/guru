@@ -3,11 +3,11 @@
 
 EAPI=8
 
-inherit optfeature toolchain-funcs
+inherit optfeature meson
 
 DESCRIPTION="A Wallpaper daemon"
 HOMEPAGE="https://github.com/Dotz0cat/walld"
-SRC_URI="https://github.com/Dotz0cat/walld/archive/refs/tags/1.2.tar.gz -> walld-1.2.tar.gz"
+SRC_URI="https://github.com/Dotz0cat/walld/archive/refs/tags/1.3.tar.gz -> walld-1.3.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -15,15 +15,7 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="dev-libs/libevent media-gfx/feh dev-libs/libconfig media-gfx/imagemagick"
 RDEPEND="${DEPEND}"
-BDEPEND="virtual/pkgconfig"
-
-src_compile() {
-	emake CC="${tc-getCC}"
-}
-
-src_install() {
-	emake DESTDIR="${D}" PREFIX=/usr install
-}
+BDEPEND=""
 
 pkg_postinst() {
 	optfeature "auto reload Xresources" x11-apps/xrdb
