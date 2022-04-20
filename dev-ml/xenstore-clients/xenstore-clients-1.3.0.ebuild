@@ -28,7 +28,7 @@ RDEPEND="
 "
 
 RESTRICT="!test? ( test )"
-PATCHES="${FILESDIR}/${P}-ounit2.patch"
+PATCHES="${FILESDIR}/${PN}-1.1.0-ounit2.patch"
 
 src_install() {
 	dune_src_install xenstore_transport
