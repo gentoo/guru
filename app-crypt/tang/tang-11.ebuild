@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson
+inherit meson systemd
 
 DESCRIPTION="Tang binding daemon"
 HOMEPAGE="https://github.com/latchset/tang"
@@ -15,24 +15,21 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="acct-user/tang
-	app-text/asciidoc
 	net-misc/socat
 	>=net-libs/http-parser-2.8.0
 	>=dev-libs/jose-8"
 RDEPEND="${DEPEND}"
-BDEPEND=""
+BDEPEND="app-text/asciidoc"
 
 src_install(){
 	meson_install
 	newinitd "${FILESDIR}"/tangd.initd tangd
+	systemd_dounit ${FILESDIR}/tangd.service
 
 	dodir /var/db/tang
 	keepdir /var/db/tang
 	fowners tang:tang /var/db/tang
 	fperms 770 /var/db/tang
-
-	insinto /usr/lib/systemd/system
-	doins ${FILESDIR}/tangd.service
 }
 
 pkg_postinst(){
