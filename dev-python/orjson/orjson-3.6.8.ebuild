@@ -8,39 +8,29 @@ CRATES="
 	arrayvec-0.7.2
 	associative-cache-1.0.1
 	autocfg-1.1.0
-	bitflags-1.3.2
 	bytecount-0.6.2
 	cfg-if-1.0.0
 	chrono-0.4.19
-	encoding_rs-0.8.30
-	getrandom-0.2.4
+	encoding_rs-0.8.31
+	getrandom-0.2.6
 	inlinable_string-0.1.15
-	instant-0.1.12
 	itoa-1.0.1
-	libc-0.2.117
+	libc-0.2.123
 	libm-0.1.4
-	lock_api-0.4.6
 	num-integer-0.1.44
 	num-traits-0.2.14
-	once_cell-1.9.0
+	once_cell-1.10.0
 	packed_simd_2-0.3.7
-	parking_lot-0.11.2
-	parking_lot_core-0.8.5
-	pyo3-0.15.1
-	pyo3-build-config-0.15.1
-	redox_syscall-0.2.10
+	pyo3-build-config-0.16.4
+	pyo3-ffi-0.16.4
 	ryu-1.0.9
-	scopeguard-1.1.0
 	serde-1.0.136
 	serde_json-1.0.79
-	simdutf8-0.1.3
+	simdutf8-0.1.4
 	smallvec-1.8.0
+	target-lexicon-0.12.3
 	version_check-0.9.4
 	wasi-0.10.2+wasi-snapshot-preview1
-	winapi-0.3.9
-	winapi-i686-pc-windows-gnu-0.4.0
-	winapi-x86_64-pc-windows-gnu-0.4.0
-
 "
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_SETUPTOOLS=no
