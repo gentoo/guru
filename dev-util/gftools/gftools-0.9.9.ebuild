@@ -3,7 +3,7 @@
 
 EAPI=8
 
-COMMIT="e33ccf3515cc5b8005a3a50b4163663623649d20"
+GLYPHSINFO_COMMIT="e33ccf3515cc5b8005a3a50b4163663623649d20"
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_SETUPTOOLS=rdepend
 PYTHON_COMPAT=( python3_{8..9} )
@@ -14,11 +14,11 @@ DESCRIPTION="Miscellaneous tools for working with the Google Fonts collection"
 HOMEPAGE="https://github.com/googlefonts/gftools"
 SRC_URI="
 	https://github.com/googlefonts/gftools/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/schriftgestalt/GlyphsInfo/archive/${COMMIT}.tar.gz -> GlyphsInfo-${COMMIT}.tar.gz
+	https://github.com/schriftgestalt/GlyphsInfo/archive/${GLYPHSINFO_COMMIT}.tar.gz -> GlyphsInfo-${GLYPHSINFO_COMMIT}.tar.gz
 "
 
 KEYWORDS="~amd64"
-LICENSE="Apache-2.0 MIT"
+LICENSE="Apache-2.0 MIT test? ( OFL )"
 SLOT="0"
 
 # ufolib2 is an indirect dependency
@@ -36,7 +36,7 @@ RDEPEND="
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 		dev-python/babelfont[${PYTHON_USEDEP}]
 		dev-python/ttfautohint-py[${PYTHON_USEDEP}]
-		>=dev-util/fontmake-2.4.0[${PYTHON_USEDEP}]
+		>=dev-util/fontmake-3.3.0[${PYTHON_USEDEP}]
 		app-arch/brotli[python,${PYTHON_USEDEP}]
 		>=dev-python/browserstack-local-python-1.2.2[${PYTHON_USEDEP}]
 		>=dev-python/pybrowserstack-screenshots-0.1[${PYTHON_USEDEP}]
@@ -53,6 +53,7 @@ RDEPEND="
 		dev-python/jinja[${PYTHON_USEDEP}]
 		dev-python/hyperglot[${PYTHON_USEDEP}]
 		>=dev-python/fontFeatures-1.6.2[${PYTHON_USEDEP}]
+		dev-python/vharfbuzz[${PYTHON_USEDEP}]
 	')
 "
 DEPEND="
