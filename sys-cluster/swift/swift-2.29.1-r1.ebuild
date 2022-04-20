@@ -29,7 +29,7 @@ RDEPEND="
 	>=dev-python/requests-2.14.2[${PYTHON_USEDEP}]
 	>=dev-python/six-1.10.0[${PYTHON_USEDEP}]
 	>=dev-python/xattr-0.4[${PYTHON_USEDEP}]
-	>=dev-python/PyECLib-1.3.1[${PYTHON_USEDEP}]
+	>=dev-python/pyeclib-1.3.1[${PYTHON_USEDEP}]
 	>=dev-python/cryptography-2.0.2[${PYTHON_USEDEP}]
 	net-misc/rsync[xattr]
 	acct-user/swift
