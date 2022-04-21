@@ -3,13 +3,13 @@
 
 EAPI="8"
 
-MY_PY="$(ver_rs 4 _)"
+MY_PV="$(ver_rs 4 _)"
 
 DESCRIPTION="HP Unified Linux Driver (for samsung hardware)"
 HOMEPAGE="https://support.hp.com"
 
 SRC_URI="
-	https://ftp.ext.hp.com/pub/softlib/software13/printers/LaserJet/M437_M443/ULDLINUX_HewlettPackard_V${MY_PY}.zip
+	https://ftp.ext.hp.com/pub/softlib/software13/printers/LaserJet/M437_M443/ULDLINUX_HewlettPackard_V${MY_PV}.zip
 "
 
 S="${WORKDIR}/uld"
