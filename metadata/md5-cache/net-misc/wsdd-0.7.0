@@ -11,5 +11,5 @@ RDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8[xml(+)] )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/christgau/wsdd/archive/v0.7.0.tar.gz -> wsdd-0.7.0.tar.gz
-_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	59dddabd6a41ab69723654916142f63b	python-r1	8638751691200e941f26fe0ac3aef1d1	systemd	2736b403a83f194b59b767f3b344c2c1
+_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	777767a09e8cd6db1d4cebe8400bc974	python-r1	8638751691200e941f26fe0ac3aef1d1	systemd	2736b403a83f194b59b767f3b344c2c1
 _md5_=342e9ec8abe944050247c502870be002
