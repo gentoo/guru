@@ -6,7 +6,10 @@ EAPI=8
 inherit dune
 
 DESCRIPTION="OCaml bindings for Linux epoll(2)"
-HOMEPAGE="https://github.com/lindig/polly"
+HOMEPAGE="
+	https://github.com/lindig/polly
+	https://opam.ocaml.org/packages/polly/
+"
 SRC_URI="https://github.com/lindig/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
@@ -14,8 +17,8 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="ocamlopt"
 
-DEPEND="
-	dev-ml/base-unix
-	dev-ml/cmdliner
+RDEPEND="
+	dev-lang/ocaml:=[ocamlopt?]
+	dev-ml/cmdliner:=
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}"
