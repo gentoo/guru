@@ -9,7 +9,10 @@ COMMIT="b340204c72ae3ff27def6e116c1998485fc3227e"
 MYPN="ocaml-${PN}"
 
 DESCRIPTION="OCaml bindings for inotify"
-HOMEPAGE="https://github.com/whitequark/ocaml-inotify"
+HOMEPAGE="
+	https://github.com/whitequark/ocaml-inotify
+	https://opam.ocaml.org/packages/inotify/
+"
 SRC_URI="https://github.com/whitequark/${MYPN}/archive/${COMMIT}.tar.gz -> ${PF}.tar.gz"
 S="${WORKDIR}/${MYPN}-${COMMIT}"
 
@@ -18,12 +21,9 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
+RDEPEND="dev-lang/ocaml:=[ocamlopt?]"
 DEPEND="
-	dev-ml/base-unix:=
-	dev-ml/base-bytes:=
-"
-RDEPEND="
-	${DEPEND}
+	${RDEPEND}
 	test? (
 		dev-ml/ounit2
 		dev-ml/ocaml-fileutils
