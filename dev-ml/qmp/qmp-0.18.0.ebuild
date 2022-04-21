@@ -21,7 +21,7 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
 DEPEND="
-	dev-ml/base-unix:=
+	dev-lang/ocaml:=[ocamlopt?]
 	dev-ml/yojson:=
 	dev-ml/cmdliner:=
 "
