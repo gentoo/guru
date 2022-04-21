@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-python/auditok[${PYTHON_USEDEP}]
+	~dev-python/auditok-0.1.5[${PYTHON_USEDEP}]
 	dev-python/cchardet[${PYTHON_USEDEP}]
 	dev-python/ffmpeg-python[${PYTHON_USEDEP}]
 	dev-python/future[${PYTHON_USEDEP}]
