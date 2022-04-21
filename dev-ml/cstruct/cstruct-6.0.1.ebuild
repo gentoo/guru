@@ -27,16 +27,12 @@ RDEPEND="
 		dev-ml/async_unix:=
 		dev-ml/core:=
 	)
-	lwt? (
-		dev-ml/base-unix:=
-		dev-ml/lwt:=
-	)
+	lwt? ( dev-ml/lwt:= )
 	ppx? (
 		dev-ml/ppxlib:=
 		dev-ml/stdlib-shims:=
 	)
 	sexp? ( dev-ml/sexplib:= )
-	unix? ( dev-ml/base-unix:= )
 "
 DEPEND="
 	${RDEPEND}
