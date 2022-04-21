@@ -45,12 +45,14 @@ PATCHES=( "${FILESDIR}/c${P}-fix-cmake.patch" )
 REQUIRED_USE="
 	|| (
 		allegro
-		|| (
-			glfw
-			glut
-			sdl
-		)
-		|| ( opengl vulkan )
+		glfw
+		glut
+		sdl
+	)
+	|| (
+		allegro
+		opengl
+		vulkan
 	)
 	examples? (
 		allegro
