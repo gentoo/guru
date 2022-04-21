@@ -5,5 +5,5 @@ HOMEPAGE=https://github.com/Whonix/kloak
 KEYWORDS=~amd64
 LICENSE=BSD
 SLOT=0
-SRC_URI=https://github.com/Whonix/kloak/archive/refs/tags/0.2.30-2.tar.gz
-_md5_=1cecf81081f21b120f038c579cdd487f
+SRC_URI=https://gitlab.com/whonix/kloak/-/archive/0.2.30-2/kloak-0.2.30-2.tar.gz
+_md5_=99909ffc9b35c80142f1c699a2e72865

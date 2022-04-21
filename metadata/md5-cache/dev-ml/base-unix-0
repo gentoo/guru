@@ -1,9 +1,0 @@
-DEFINED_PHASES=-
-DESCRIPTION=Unix library distributed with the OCaml compiler
-EAPI=8
-HOMEPAGE=https://opam.ocaml.org/packages/base-unix/
-KEYWORDS=~amd64
-LICENSE=QPL-1.0 LGPL-2
-RDEPEND=dev-lang/ocaml
-SLOT=0
-_md5_=b006ae2ea4de6b220973b6d329170534

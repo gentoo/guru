@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-ml/cstruct-6.0.0:=[ppx] dev-ml/lwt:= dev-ml/lwt_log:= dev-ml/cmdliner:= dev-ml/duration:= >=dev-ml/io-page-2.4.0:= dev-ml/logs:= >=dev-ml/mirage-block-2.0.1:= dev-ml/mirage-block-unix:= dev-ml/mirage-clock:= >=dev-ml/mirage-time-2.0.1:= >=dev-ml/ppx_sexp_conv-0.10.0:= dev-ml/result:= dev-ml/rresult:= dev-ml/sexplib:= dev-ml/sexplib0:= test? ( dev-ml/ounit2 dev-ml/mirage-clock-unix ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=A simple on-disk fixed length queue
+EAPI=8
+HOMEPAGE=https://github.com/mirage/shared-block-ring
+INHERIT=dune
+IUSE=ocamlopt test
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=>=dev-ml/cstruct-6.0.0:=[ppx] dev-ml/lwt:= dev-ml/lwt_log:= dev-ml/cmdliner:= dev-ml/duration:= >=dev-ml/io-page-2.4.0:= dev-ml/logs:= >=dev-ml/mirage-block-2.0.1:= dev-ml/mirage-block-unix:= dev-ml/mirage-clock:= >=dev-ml/mirage-time-2.0.1:= >=dev-ml/ppx_sexp_conv-0.10.0:= dev-ml/result:= dev-ml/rresult:= dev-ml/sexplib:= dev-ml/sexplib0:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/3.0.1
+SRC_URI=https://github.com/mirage/shared-block-ring/archive/refs/tags/v3.0.1.tar.gz -> shared-block-ring-3.0.1.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=2dc435cf79f76886f0c668a49ec91e94

@@ -1,0 +1,13 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=install postinst postrm unpack
+DEPEND=net-print/cups scanner? ( media-gfx/sane-backends )
+DESCRIPTION=HP Unified Linux Driver (for samsung hardware)
+EAPI=8
+HOMEPAGE=https://support.hp.com
+IUSE=+scanner
+KEYWORDS=~amd64 ~arm64 ~mips ~x86
+LICENSE=all-rights-reserved
+RDEPEND=net-print/cups scanner? ( media-gfx/sane-backends )
+SLOT=0
+SRC_URI=https://ftp.ext.hp.com/pub/softlib/software13/printers/LaserJet/M437_M443/ULDLINUX_HewlettPackard_V1.00.39.15_00.23.zip
+_md5_=7ac6be2a25d09bc17db084f9dd67eea2

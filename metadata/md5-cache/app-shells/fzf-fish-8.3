@@ -1,0 +1,13 @@
+DEFINED_PHASES=install test
+DEPEND=>=app-shells/fish-3.2.0 >=app-shells/fzf-0.27.2 >=sys-apps/bat-0.16.0 >=sys-apps/fd-8.3.0 test? ( app-shells/clownfish app-shells/fishtape app-shells/fzf-fish dev-vcs/git )
+DESCRIPTION=Augment your fish command line with fzf key bindings
+EAPI=8
+HOMEPAGE=https://github.com/PatrickF1/fzf.fish
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=>=app-shells/fish-3.2.0 >=app-shells/fzf-0.27.2 >=sys-apps/bat-0.16.0 >=sys-apps/fd-8.3.0
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/PatrickF1/fzf.fish/archive/refs/tags/v8.3.tar.gz -> fzf-fish-8.3.tar.gz
+_md5_=4b48e366ecfbc35a333cad1b8e319c37

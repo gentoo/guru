@@ -1,14 +1,14 @@
-BDEPEND=>=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=app-text/asciidoc >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst test
-DEPEND=acct-user/tang app-text/asciidoc net-misc/socat >=net-libs/http-parser-2.8.0 >=dev-libs/jose-8
+DEPEND=acct-user/tang net-misc/socat >=net-libs/http-parser-2.8.0 >=dev-libs/jose-8
 DESCRIPTION=Tang binding daemon
 EAPI=8
 HOMEPAGE=https://github.com/latchset/tang
-INHERIT=meson
+INHERIT=meson systemd
 KEYWORDS=~amd64
 LICENSE=GPL-3
-RDEPEND=acct-user/tang app-text/asciidoc net-misc/socat >=net-libs/http-parser-2.8.0 >=dev-libs/jose-8
+RDEPEND=acct-user/tang net-misc/socat >=net-libs/http-parser-2.8.0 >=dev-libs/jose-8
 SLOT=0
 SRC_URI=https://github.com/latchset/tang/archive/v11.tar.gz -> tang-11.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	777767a09e8cd6db1d4cebe8400bc974	meson	2d8a51910bc57e004c37aa55c7d99ce4
-_md5_=06e7f195c08f7fb3ed872c93f1d4d448
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	777767a09e8cd6db1d4cebe8400bc974	meson	2d8a51910bc57e004c37aa55c7d99ce4	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=b937e5751a6e0ee1806e0224a0a47a85

@@ -10,5 +10,5 @@ LICENSE=GPL-2+
 RDEPEND=>=dev-lang/R-3.3.0 >=dev-R/Rcpp-0.11.0 =sci-libs/armadillo-10.8*:=[lapack] dev-lang/R
 SLOT=0
 SRC_URI=mirror://cran/src/contrib/RcppArmadillo_0.10.8.1.0.tar.gz
-_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	optfeature	d524f291c80f9d21ad80fe978e3ca760	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	R-packages	816294b1561c1a58a6f18feded6d9009	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5
-_md5_=a292ee61df79e820e4ba71b6e52b966b
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	optfeature	d524f291c80f9d21ad80fe978e3ca760	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	R-packages	35dbf51e6d9579aa79a8e181e81e094e	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5
+_md5_=1f720bc0be1361960e3673a509d28c5f

@@ -1,0 +1,17 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/camlp-streams:= dev-ml/cstruct:= dev-ml/re:= dev-ml/lwt:= mirage? ( dev-ml/io-page:= dev-ml/mirage-block:= dev-ml/mirage-kv:= dev-ml/ptime:= ) test? ( dev-ml/mirage-block-unix dev-ml/ounit2 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Pure OCaml library to read and write tar files
+EAPI=8
+HOMEPAGE=https://github.com/mirage/ocaml-tar https://opam.ocaml.org/packages/tar/
+INHERIT=dune multiprocessing
+IUSE=mirage ocamlopt test unix
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/camlp-streams:= dev-ml/cstruct:= dev-ml/re:= dev-ml/lwt:= mirage? ( dev-ml/io-page:= dev-ml/mirage-block:= dev-ml/mirage-kv:= dev-ml/ptime:= ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+REQUIRED_USE=test? ( mirage unix )
+RESTRICT=!test? ( test )
+SLOT=0/1.1.0
+SRC_URI=https://github.com/mirage/ocaml-tar/archive/refs/tags/v1.1.0.tar.gz -> tar-1.1.0.tar.gz
+_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=aa9715ab9fc7c68d726dac0f5aa28eb5

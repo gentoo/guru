@@ -1,9 +1,0 @@
-DEFINED_PHASES=-
-DESCRIPTION=Threads library distributed with the OCaml compiler
-EAPI=8
-HOMEPAGE=https://opam.ocaml.org/packages/base-threads/
-KEYWORDS=~amd64
-LICENSE=QPL-1.0 LGPL-2
-RDEPEND=dev-lang/ocaml
-SLOT=0
-_md5_=97a7e72e05c75a5a6c503479aae963a7

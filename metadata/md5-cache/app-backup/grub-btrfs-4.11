@@ -3,9 +3,11 @@ DEPEND=sys-fs/btrfs-progs sys-boot/grub virtual/awk >=app-shells/bash-4
 DESCRIPTION=Improves Grub by adding btrfs snapshots to the Grub menu.
 EAPI=8
 HOMEPAGE=https://github.com/Antynea/grub-btrfs
+INHERIT=optfeature
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=sys-fs/btrfs-progs sys-boot/grub virtual/awk >=app-shells/bash-4
 SLOT=0
 SRC_URI=https://github.com/Antynea/grub-btrfs/archive/v4.11.tar.gz -> grub-btrfs-4.11.tar.gz
-_md5_=f4355a3d5c0763dbbcc1ace56f197e87
+_eclasses_=optfeature	d524f291c80f9d21ad80fe978e3ca760
+_md5_=d72147b26b9ffabd7505021bf610d8bb

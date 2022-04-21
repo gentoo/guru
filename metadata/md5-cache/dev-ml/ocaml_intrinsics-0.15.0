@@ -1,6 +1,6 @@
-BDEPEND=dev-ml/dune dev-lang/ocaml
+BDEPEND=dev-ml/dune-configurator dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/dune-configurator >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Functions to invoke amd64 instructions when available
 EAPI=8
 HOMEPAGE=https://github.com/janestreet/ocaml_intrinsics
@@ -8,8 +8,9 @@ INHERIT=dune
 IUSE=ocamlopt
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=dev-ml/dune-configurator >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
 SLOT=0/0.15.0
 SRC_URI=https://github.com/janestreet/ocaml_intrinsics/archive/refs/tags/v0.15.0.tar.gz -> ocaml_intrinsics-0.15.0.tar.gz
 _eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=6cf0f1289e29df0b2b51a7d4bce5cb1d
+_md5_=8803ba3fb215000623c911fc33267aea
