@@ -6,7 +6,10 @@ EAPI=8
 inherit dune
 
 DESCRIPTION="Unix-specific extensions to some of the modules defined in [core] and [core_kernel]"
-HOMEPAGE="https://github.com/janestreet/core_unix"
+HOMEPAGE="
+	https://github.com/janestreet/core_unix
+	https://opam.ocaml.org/packages/core_unix/
+"
 SRC_URI="https://github.com/janestreet/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
@@ -15,17 +18,8 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt"
 
 RDEPEND="
-	dev-ml/core_kernel
-	dev-ml/expect_test_helpers_core
-	dev-ml/core
-	dev-ml/ppx_jane
-	dev-ml/jane-street-headers
-	dev-ml/jst-config
-	dev-ml/ocaml_intrinsics
-	dev-ml/sexplib
-	dev-ml/timezone
-	dev-ml/base-threads
-	dev-ml/spawn
+	=dev-ml/core-0.14*:=
+	>=dev-lang/ocaml-4.08.0:=[ocamlopt?]
 "
 DEPEND="
 	${RDEPEND}
