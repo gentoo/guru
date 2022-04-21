@@ -24,7 +24,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 SUGGESTED_PACKAGES="
-	dev-R/KernSmooth
-	dev-R/MASS
+	virtual/KernSmooth
+	virtual/MASS
 	dev-R/latticeExtra
 "

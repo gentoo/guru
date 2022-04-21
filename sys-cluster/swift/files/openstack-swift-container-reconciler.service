@@ -1,0 +1,11 @@
+[Unit]
+Description=OpenStack Object Storage (swift) - Container Reconciler
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=swift
+ExecStart=/usr/bin/swift-container-reconciler /etc/swift/container-reconciler.conf
+
+[Install]
+WantedBy=multi-user.target

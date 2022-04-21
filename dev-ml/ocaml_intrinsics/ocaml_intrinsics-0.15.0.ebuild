@@ -14,5 +14,6 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="ocamlopt"
 
-RDEPEND="dev-ml/dune-configurator"
-DEPEND="${RDEPEND}"
+BDEPEND="dev-ml/dune-configurator"
+
+RESTRICT="test" # even upstream doesn't know how to test

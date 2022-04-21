@@ -12,7 +12,7 @@ LICENSE='MIT'
 SUGGESTED_PACKAGES="
 	dev-R/testit
 	dev-R/parallel
-	dev-R/codetools
+	virtual/codetools
 	dev-R/rstudioapi
 	>=dev-R/tinytex-0.30
 	dev-R/mime

@@ -12,12 +12,7 @@ SRC_URI="https://github.com/xapi-project/${PN}/archive/refs/tags/v${PV}.tar.gz -
 LICENSE="LGPL-2.1-with-linking-exception"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="ocamlopt test"
+IUSE="ocamlopt"
 
-RDEPEND=""
-DEPEND="
-	${RDEPEND}
-	test? ( dev-ml/alcotest )
-"
-
-RESTRICT="!test? ( test )"
+RDEPEND="dev-ml/alcotest:="
+DEPEND="${RDEPEND}"

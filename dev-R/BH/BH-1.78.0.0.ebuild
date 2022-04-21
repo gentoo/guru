@@ -16,11 +16,12 @@ SRC_URI="mirror://cran/src/contrib/${MY_P}.tar.gz"
 
 LICENSE='Boost-1.0'
 KEYWORDS="~amd64"
+
 DEPEND=">=dev-libs/boost-$(ver_cut 1-3)"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
 	# Do not bundle boost
 	rm -rf inst/include/boost || die
-	default
+	R-packages_src_prepare
 }

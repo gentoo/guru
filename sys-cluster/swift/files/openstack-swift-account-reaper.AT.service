@@ -1,0 +1,11 @@
+[Unit]
+Description=OpenStack Object Storage (swift) - Account Reaper instance %I
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=swift
+ExecStart=/usr/bin/swift-account-reaper /etc/swift/account-server/%i.conf
+
+[Install]
+WantedBy=multi-user.target

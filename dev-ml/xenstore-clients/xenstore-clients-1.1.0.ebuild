@@ -6,7 +6,10 @@ EAPI=7
 inherit dune findlib
 
 DESCRIPTION="Unix client tools for accessing xenstore"
-HOMEPAGE="https://github.com/xapi-project/ocaml-xenstore-clients"
+HOMEPAGE="
+	https://github.com/xapi-project/ocaml-xenstore-clients
+	https://opam.ocaml.org/packages/xenstore_transport/
+"
 SRC_URI="https://github.com/xapi-project/ocaml-${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/ocaml-${P}"
 

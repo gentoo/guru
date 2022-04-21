@@ -15,12 +15,12 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
 RDEPEND="
-	>=dev-ml/cstruct-6.0.0:=[ppx]
+	>=dev-ml/cstruct-3.0.0:=[ppx]
 	dev-ml/lwt:=
 	dev-ml/lwt_log:=
 	dev-ml/cmdliner:=
 	dev-ml/duration:=
-	>=dev-ml/io-page-2.4.0:=
+	>=dev-ml/io-page-2.2.0:=[unix(-)]
 	dev-ml/logs:=
 	>=dev-ml/mirage-block-2.0.1:=
 	dev-ml/mirage-block-unix:=
@@ -41,4 +41,7 @@ DEPEND="
 "
 
 RESTRICT="!test? ( test )"
-PATCHES="${FILESDIR}/${P}-PR-62.patch"
+PATCHES=(
+	"${FILESDIR}/${P}-cstruct.patch"
+	"${FILESDIR}/${P}-mirage-block.patch"
+)

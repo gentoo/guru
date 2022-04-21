@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<use>
+		<flag name="scanner">Enable scanner on multifunction devices which support it</flag>
+	</use>
+	<longdescription lang="en">
+	HP Unified Linux Driver.
+	There are HP devices that are not supported by the HPLIP software but
+	require the Samsung Unified Linux Driver (ULD) software for printing or
+	scanning. Some such devices have PPDs and drivers in
+	uld-hp_V1.00.39.*.tar.gz and uld-hp.tar.gz. 
+	The names of these packages and their contents have been known to change,
+	so it may very well be best to search for them using a printer model.
+	The devices catered for by the packages above are
+	* HP Color Laser 15x Series
+	* HP Color Laser MFP 17x Series
+	* HP LaserJet MFP M433
+	* HP LaserJet MFP M436
+	* HP LaserJet MFP M72625 72630
+	* HP Laser10x Series
+	* HP Laser MFP 13x Series
+	A concise guide to installing the ULDLINUX package and setting up a
+	USB-connected print queue with an appropriate PPD has been provided by
+	Robert Nurnberg.
+	Adapting the guide for a wireless connection should not be difficult.
+	</longdescription>
+</pkgmetadata>

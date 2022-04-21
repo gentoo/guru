@@ -21,7 +21,7 @@ RDEPEND="${DEPEND}"
 
 SUGGESTED_PACKAGES="
 	dev-R/tinytest
-	>=dev-R/Matrix-1.3.0
+	virtual/Matrix
 	dev-R/pkgKitten
 	dev-R/reticulate
 	dev-R/slam
@@ -30,7 +30,7 @@ SUGGESTED_PACKAGES="
 #TODO: correctly link to lapack
 
 src_prepare() {
-	default
+	R-packages_src_prepare
 
 	#remove bundled
 	rm -r inst/include/armadillo_bits || die

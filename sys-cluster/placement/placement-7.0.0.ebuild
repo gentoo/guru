@@ -19,7 +19,6 @@ S="${WORKDIR}/openstack-${MYP}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="mysql postgres +sqlite"
 
 RDEPEND="
 	>=dev-python/pbr-3.1.1[${PYTHON_USEDEP}]
@@ -45,17 +44,7 @@ RDEPEND="
 	acct-user/placement
 	acct-group/placement
 
-	sqlite? (
-		>=dev-python/sqlalchemy-1.2.19[${PYTHON_USEDEP}]
-	)
-	mysql? (
-		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.2.19[${PYTHON_USEDEP}]
-	)
-	postgres? (
-		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.2.19[${PYTHON_USEDEP}]
-	)
+	>=dev-python/sqlalchemy-1.2.19[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -66,12 +55,10 @@ BDEPEND="
 		>=dev-python/gabbi-1.35.0[${PYTHON_USEDEP}]
 		>=dev-python/cryptography-2.7[${PYTHON_USEDEP}]
 		>=dev-python/wsgi_intercept-1.7.0[${PYTHON_USEDEP}]
-	)
-"
 
-REQUIRED_USE="
-	|| ( mysql postgres sqlite )
-	test? ( mysql postgres )
+		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
+		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_tests pytest

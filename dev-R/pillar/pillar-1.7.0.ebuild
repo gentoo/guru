@@ -42,7 +42,7 @@ SUGGESTED_PACKAGES="
 	dev-R/rmarkdown
 	dev-R/scales
 	dev-R/stringi
-	dev-R/survival
+	virtual/survival
 	>=dev-R/testthat-3.1.1
 	dev-R/tibble
 	>=dev-R/units-0.7.2

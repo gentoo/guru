@@ -33,19 +33,19 @@ SUGGESTED_PACKAGES="
 	dev-R/Hmisc
 	dev-R/interp
 	dev-R/knitr
-	dev-R/lattice
+	virtual/lattice
 	dev-R/mapproj
 	dev-R/maps
 	dev-R/maptools
 	dev-R/multcomp
 	dev-R/munsell
-	dev-R/nlme
+	virtual/nlme
 	dev-R/profvis
 	dev-R/quantreg
 	dev-R/RColorBrewer
 	dev-R/rgeos
 	dev-R/rmarkdown
-	dev-R/rpart
+	virtual/rpart
 	>=dev-R/sf-0.7.3
 	>=dev-R/svglite-1.2.0.9001
 	>=dev-R/testthat-2.1.0

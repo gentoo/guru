@@ -21,7 +21,7 @@ RDEPEND="${DEPEND}"
 #TODO: correctly link to lapack
 
 src_prepare() {
-	default
+	R-packages_src_prepare
 
 	#remove bundled
 	rm -r inst/include/armadillo_bits || die

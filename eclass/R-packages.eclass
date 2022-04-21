@@ -127,6 +127,8 @@ R-packages_src_install() {
 	fi
 	docompress -x "${DOCS_DIR}"
 
+	rm -rf tests test || die
+
 	insinto "/usr/$(get_libdir)/R/site-library"
 	doins -r "${T}/R/${PN//_/.}"
 }

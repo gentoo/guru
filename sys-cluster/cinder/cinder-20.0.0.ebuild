@@ -6,7 +6,7 @@ EAPI=8
 MYP="${P/_rc/rc}"
 PYTHON_COMPAT=( python3_{8..9} )
 
-inherit distutils-r1 linux-info systemd tmpfiles
+inherit distutils-r1 linux-info optfeature systemd tmpfiles
 
 DESCRIPTION="Cinder is the OpenStack Block storage service, a spin out of nova-volumes"
 HOMEPAGE="
@@ -20,7 +20,7 @@ KEYWORDS="~amd64"
 
 LICENSE="Apache-2.0 GPL-2"
 SLOT="0"
-IUSE="+api +scheduler +volume infiniband iscsi lvm mysql +memcached postgres rdma sqlite +tcp test +tgt"
+IUSE="test"
 
 # qemu is needed for image conversion
 RDEPEND="
@@ -86,23 +86,7 @@ RDEPEND="
 	>=dev-python/zstd-1.4.5.1[${PYTHON_USEDEP}]
 	>=dev-python/boto3-1.16.51[${PYTHON_USEDEP}]
 
-	iscsi? (
-		tgt? ( sys-block/tgt )
-		sys-block/open-iscsi
-	)
-	lvm? ( sys-fs/lvm2 )
-	memcached? ( net-misc/memcached )
-	mysql? (
-		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.4.23[${PYTHON_USEDEP}]
-	)
-	sqlite? (
-		>=dev-python/sqlalchemy-1.4.23[sqlite,${PYTHON_USEDEP}]
-	)
-	postgres? (
-		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.4.23[${PYTHON_USEDEP}]
-	)
+	>=dev-python/sqlalchemy-1.4.23[${PYTHON_USEDEP}]
 
 	acct-user/cinder
 	acct-group/cinder
@@ -119,29 +103,16 @@ BDEPEND="
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-4.5.0[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.4.0[${PYTHON_USEDEP}]
+		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
+		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
 	)
 "
 
 RESTRICT="!test? ( test )"
-REQUIRED_USE="
-	|| ( mysql postgres sqlite )
-	iscsi? ( tgt )
-	infiniband? ( rdma )
-	test? ( mysql postgres )
-"
 
 pkg_pretend() {
 	linux-info_pkg_setup
-	CONFIG_CHECK_MODULES=""
-	if use tcp; then
-		CONFIG_CHECK_MODULES+="SCSI_ISCSI_ATTRS ISCSI_TCP "
-	fi
-	if use rdma; then
-		CONFIG_CHECK_MODULES+="INFINIBAND_ISER "
-	fi
-	if use infiniband; then
-		CONFIG_CHECK_MODULES+="INFINIBAND_IPOIB INFINIBAND_USER_MAD INFINIBAND_USER_ACCESS"
-	fi
+	CONFIG_CHECK_MODULES+="SCSI_ISCSI_ATTRS ISCSI_TCP "
 	if linux_config_exists; then
 		for module in ${CONFIG_CHECK_MODULES}; do
 			linux_chkconfig_present ${module} || ewarn "${module} needs to be enabled"
@@ -201,8 +172,11 @@ python_install_all() {
 
 pkg_postinst() {
 	tmpfiles_process cinder.conf
-	if use iscsi ; then
-		elog "Cinder needs tgtd to be installed and running to work with iscsi"
-		elog "it also needs 'include /var/lib/cinder/volumes/*' in /etc/tgt/targets.conf"
-	fi
+
+	elog "Cinder needs tgtd to be installed and running to work with iscsi"
+	elog "it also needs 'include /var/lib/cinder/volumes/*' in /etc/tgt/targets.conf"
+
+	optfeature "datacore" >=dev-python/websocket-client-0.32.0
+	optfeature "powermax" >=dev-python/pyopenssl-17.5.0
+	optfeature "ds8k" >=dev-python/pyopenssl-17.5.0
 }

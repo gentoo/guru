@@ -7,11 +7,7 @@
     <name>Alessandro Barbieri</name>
   </maintainer>
   <use>
-    <flag name="account">adds swift account support</flag>
-    <flag name="container">adds swift container support</flag>
     <flag name="memcached">adds memcached support</flag>
-    <flag name="object">adds swift object support</flag>
-    <flag name="proxy">adds swift proxy support</flag>
   </use>
   <upstream>
     <remote-id type="launchpad">swift</remote-id>

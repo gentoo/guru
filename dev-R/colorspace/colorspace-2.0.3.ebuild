@@ -17,8 +17,8 @@ DEPEND=">=dev-lang/R-3.0.0"
 RDEPEND="${DEPEND}"
 
 SUGGESTED_PACKAGES="
-	dev-R/KernSmooth
-	dev-R/MASS
+	virtual/KernSmooth
+	virtual/MASS
 	dev-R/kernlab
 	dev-R/mvtnorm
 	dev-R/vcd

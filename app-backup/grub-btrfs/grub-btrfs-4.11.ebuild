@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit optfeature
+
 DESCRIPTION="Improves Grub by adding btrfs snapshots to the Grub menu."
 HOMEPAGE="https://github.com/Antynea/grub-btrfs"
 SRC_URI="https://github.com/Antynea/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -35,4 +37,5 @@ src_install(){
 pkg_postinst() {
 	elog "run 'grub-mkconfig -o /boot/grub/grub.cfg' to update your Grub menu."
 	elog "update your /etc/grub.d/41_snapshots-btrfs script (e.g. with dispatch-conf or etc-update)"
+	optfeature "LVM/ LUKS support" sys-boot/grub[device-mapper]
 }

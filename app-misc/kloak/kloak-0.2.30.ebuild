@@ -5,7 +5,7 @@ EAPI=8
 
 DESCRIPTION="A privacy tool that makes keystroke biometrics less effective"
 HOMEPAGE="https://github.com/Whonix/kloak"
-SRC_URI="https://github.com/Whonix/kloak/archive/refs/tags/0.2.30-2.tar.gz"
+SRC_URI="https://gitlab.com/whonix/kloak/-/archive/0.2.30-2/${P}-2.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"

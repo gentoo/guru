@@ -1,0 +1,12 @@
+# After network.target just so replicator can talk to other nodes.
+[Unit]
+Description=OpenStack Object Storage (swift) - Object Replicator
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=swift
+ExecStart=/usr/bin/swift-object-replicator /etc/swift/object-server.conf
+
+[Install]
+WantedBy=multi-user.target

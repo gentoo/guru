@@ -20,7 +20,6 @@ S="${WORKDIR}/${MYP}"
 KEYWORDS=""
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="compute-only dhcp haproxy ipv6 l3 metadata openvswitch linuxbridge server sqlite +mysql postgres"
 
 RDEPEND="
 	>=dev-python/pbr-4.0.0[${PYTHON_USEDEP}]
@@ -78,27 +77,7 @@ RDEPEND="
 	>=dev-python/futurist-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/tooz-1.58.0[${PYTHON_USEDEP}]
 
-	compute-only? (
-		>=dev-python/sqlalchemy-1.3.23[${PYTHON_USEDEP}]
-	)
-	dhcp? ( net-dns/dnsmasq[dhcp-tools] )
-	haproxy? ( net-proxy/haproxy )
-	ipv6? (
-		net-misc/radvd
-		>=net-misc/dibbler-1.0.1
-	)
-	mysql? (
-		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.3.23[${PYTHON_USEDEP}]
-	)
-	openvswitch? ( net-misc/openvswitch )
-	postgres? (
-		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
-		>=dev-python/sqlalchemy-1.3.23[${PYTHON_USEDEP}]
-	)
-	sqlite? (
-		>=dev-python/sqlalchemy-1.3.23[sqlite,${PYTHON_USEDEP}]
-	)
+	>=dev-python/sqlalchemy-1.3.23[${PYTHON_USEDEP}]
 
 	acct-group/neutron
 	acct-user/neutron
@@ -126,21 +105,12 @@ BDEPEND="
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/stestr-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/ddt-1.0.1[${PYTHON_USEDEP}]
+
+		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
 	)
 "
 
 distutils_enable_tests pytest
-
-REQUIRED_USE="
-	!compute-only? (
-		|| ( mysql postgres sqlite )
-	)
-	compute-only? (
-		!mysql !postgres !sqlite !dhcp !l3 !metadata !server
-		|| ( openvswitch linuxbridge )
-	)
-	test? ( mysql )
-"
 
 pkg_pretend() {
 	linux-info_pkg_setup

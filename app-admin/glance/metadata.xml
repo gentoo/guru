@@ -11,9 +11,6 @@
     machine images. Glance has a RESTful API that allows querying of VM image 
     metadata as well as retrieval of the actual image.
   </longdescription>
-  <use>
-    <flag name="swift">Adds swift storage support</flag>
-  </use>
   <upstream>
     <remote-id type="launchpad">glance</remote-id>
   </upstream>
