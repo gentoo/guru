@@ -58,7 +58,6 @@ RDEPEND="
 		>=dev-ml/lwt-3.0.0:=
 	)
 	lwt-unix? (
-		dev-ml/base-unix:=
 		dev-ml/cmdliner:=
 		>=dev-ml/conduit-5.0.0:=[lwt,lwt-unix]
 		>=dev-ml/fmt-0.8.2:=
