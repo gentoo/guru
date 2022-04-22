@@ -47,7 +47,7 @@ src_configure() {
 	meson_src_configure
 }
 
-# Tests are skipped because as of version 0.2.3, the tests only validate
+# Tests are skipped because as of version 0.3.0, the tests only validate
 # resource files and do not verify any functionality of the program.  Those
 # validations are either already handled by QA checks or not relevant on
 # Gentoo.  For more information about the rationale, please refer to:
@@ -58,9 +58,7 @@ src_configure() {
 # way to skip the validations, the following variable values need to be set:
 #
 # IUSE="test"
-# # 'Validate appstream file' test case requires Internet connection
-# PROPERTIES="test_network"
-# RESTRICT="test"
+# RESTRICT="!test? ( test )"
 # BDEPEND="test? ( dev-libs/appstream-glib dev-util/desktop-file-utils )"
 src_test() {
 	:
