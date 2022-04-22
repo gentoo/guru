@@ -16,6 +16,7 @@ SRC_URI="https://github.com/pdfminer/${MY_PN}/releases/download/${PV}/${MY_PN}-$
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="test"
 
 RDEPEND="
 	>=dev-python/chardet-3.0[${PYTHON_USEDEP}]
@@ -25,5 +26,5 @@ RDEPEND="
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
-distutils_enable_tests nose
+distutils_enable_tests pytest
 distutils_enable_sphinx docs/source dev-python/sphinx-argparse
