@@ -24,7 +24,7 @@ BDEPEND="
 "
 
 COMMON_DEPEND="
-	dev-libs/glib:2
+	>=dev-libs/glib-2.72.0:2
 	dev-libs/libxml2:2
 	gui-libs/gtk:4
 "
