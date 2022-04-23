@@ -87,6 +87,7 @@ RDEPEND="
 	>=dev-python/boto3-1.16.51[${PYTHON_USEDEP}]
 
 	>=dev-python/sqlalchemy-1.4.23[${PYTHON_USEDEP}]
+	dev-python/urllib3[${PYTHON_USEDEP}]
 
 	acct-user/cinder
 	acct-group/cinder
@@ -109,6 +110,7 @@ BDEPEND="
 "
 
 RESTRICT="!test? ( test )"
+PATCHES=( "${FILESDIR}/${P}-no-vendored-urllib.patch" )
 
 pkg_pretend() {
 	linux-info_pkg_setup
