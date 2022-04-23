@@ -3,11 +3,9 @@
 
 EAPI=8
 
-inherit toolchain-funcs
-
 DESCRIPTION="static git page generator"
 HOMEPAGE="https://codemadness.org/stagit.html"
-SRC_URI="https://codemadness.org/releases/stagit/stagit-1.1.tar.gz"
+SRC_URI="https://codemadness.org/releases/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
