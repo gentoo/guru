@@ -502,7 +502,25 @@ LICENSE="Apache-2.0 BSD BSL-1.1 GPL-3 ISC MIT MPL-2.0 OFL-1.1 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 
-QA_FLAGS_IGNORED="usr/bin/${PN}"
+DEPEND="
+	media-libs/vulkan-loader
+	dev-libs/wayland
+	dev-libs/wayland-protocols
+	x11-libs/libxkbcommon
+	x11-libs/libX11
+	x11-libs/libXrandr
+	x11-libs/libXi
+	x11-libs/libXcursor
+"
+RDEPEND="${DEPEND}"
+BDEPEND="
+	x11-libs/libxkbcommon
+"
+
+QA_FLAGS_IGNORED="
+	usr/bin/${PN}
+	usr/bin/${PN}-server
+"
 
 src_prepare() {
 	default
@@ -527,5 +545,8 @@ src_install() {
 	doicon -s 256 client/assets/net.veloren.airshipper.png
 	domenu client/assets/net.veloren.airshipper.desktop
 
-	dobin target/release/${PN}
+	cd target/$(usex debug{,} release) || die
+
+	dobin ${PN}
+	dobin ${PN}-server
 }

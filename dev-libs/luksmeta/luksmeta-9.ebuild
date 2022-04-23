@@ -12,10 +12,12 @@ SRC_URI="https://github.com/latchset/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="+man"
 
 DEPEND="sys-fs/cryptsetup"
 RDEPEND="${DEPEND}"
-BDEPEND=""
+BDEPEND="man? ( app-text/asciidoc )
+	sys-devel/libtool"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-tests.patch"
@@ -24,4 +26,9 @@ PATCHES=(
 src_prepare() {
 	default
 	eautoreconf
+}
+
+src_install() {
+	default
+	find "${ED}" -name '*.la' -delete || die
 }

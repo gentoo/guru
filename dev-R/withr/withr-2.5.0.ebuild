@@ -19,7 +19,7 @@ SUGGESTED_PACKAGES="
 	dev-R/knitr
 	virtual/lattice
 	dev-R/rlang
-	>=dev-R/rmarkdown-2,12
+	>=dev-R/rmarkdown-2.12
 	dev-R/RSQLite
 	>=dev-R/testthat-3.0.0
 "

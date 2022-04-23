@@ -16,15 +16,17 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="X gnome pci vulkan wayland xcb xfce xrandr"
+IUSE="X gnome imagemagick pci vulkan wayland xcb xfce xrandr"
 
 # note - qa-vdb will always report errors because fastfetch loads the libs dynamically
 RDEPEND="
+	sys-libs/zlib
 	X? ( x11-libs/libX11 )
 	gnome? (
 		dev-libs/glib
 		gnome-base/dconf
 	)
+	imagemagick? ( media-gfx/imagemagick:= )
 	pci? ( sys-apps/pciutils )
 	vulkan? ( media-libs/vulkan-loader )
 	wayland? ( dev-libs/wayland )
@@ -49,6 +51,9 @@ src_configure() {
 		-DENABLE_GIO=$(usex gnome)
 		-DENABLE_DCONF=$(usex gnome)
 		-DENABLE_XFCONF=$(usex xfce)
+		-DENABLE_IMAGEMAGICK7=$(use imagemagick && has_version '>=media-gfx/imagemagick-7.0.0' && echo yes || echo no)
+		-DENABLE_IMAGEMAGICK6=$(use imagemagick && has_version '<media-gfx/imagemagick-7.0.0' && echo yes || echo no)
+		-DENABLE_ZLIB=yes
 	)
 
 	cmake_src_configure

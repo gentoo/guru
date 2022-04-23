@@ -20,6 +20,7 @@ RDEPEND="${DEPEND}
 	dev-libs/openssl
 	virtual/libusb"
 BDEPEND=""
+QA_FLAGS_IGNORED="CFLAGS LDFLAGS"
 
 src_install() {
 	dosbin bin/pwrstat

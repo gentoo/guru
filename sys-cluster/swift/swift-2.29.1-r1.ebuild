@@ -103,7 +103,8 @@ python_install_all() {
 	newins "etc/object-expirer.conf-sample" "object-expirer.conf"
 
 	for i in "${FILESDIR}"/openstack-swift*.service ; do
-		systemd_dounit "${i/.AT/@}"
+		name="$(basename ${i})"
+		systemd_newunit "${i}" "${name/.AT/@}"
 	done
 
 	insinto /etc/logrotate.d

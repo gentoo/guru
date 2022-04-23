@@ -3,6 +3,7 @@
 
 EAPI=8
 
+EPYTEST_IGNORE=( placement/tests/functional )
 MYP="${P//_/}"
 PYTHON_COMPAT=( python3_{8..9} )
 

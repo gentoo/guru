@@ -8,6 +8,10 @@ MYPV="$(ver_rs 2 -)"
 inherit R-packages
 
 DESCRIPTION="Support Functions and Datasets for variables and Ripley's MASS"
+HOMEPAGE="
+	https://cran.r-project.org/package=MASS
+	http://www.stats.ox.ac.uk/pub/MASS4/
+"
 SRC_URI="mirror://cran/src/contrib/${PN}_${MYPV}.tar.gz"
 
 KEYWORDS="~amd64"

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>kurth4cker@tutanota.com</email>
+		<name>kurth4cker</name>
+	</maintainer>
+	<longdescription>
+	  stagit is a static page generator. It takes sources from a git
+	  repository and generates html pages to a directory.
+	</longdescription>
+</pkgmetadata>

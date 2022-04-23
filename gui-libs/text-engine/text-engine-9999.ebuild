@@ -16,7 +16,7 @@ fi
 DESCRIPTION="A lightweight rich-text framework for GTK 4"
 HOMEPAGE="https://github.com/mjakeman/text-engine"
 
-LICENSE="LGPL-3+"
+LICENSE="|| ( MPL-2.0 LGPL-2.1+ )"
 SLOT="0"
 
 BDEPEND="
@@ -24,7 +24,7 @@ BDEPEND="
 "
 
 COMMON_DEPEND="
-	dev-libs/glib:2
+	>=dev-libs/glib-2.72.0:2
 	dev-libs/libxml2:2
 	gui-libs/gtk:4
 "

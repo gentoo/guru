@@ -5,6 +5,8 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
+CMAKE_BUILD_TYPE="Release"
+
 inherit cmake python-single-r1
 
 DESCRIPTION="Dynamic Animation and Robotics Toolkit"
@@ -45,7 +47,7 @@ RDEPEND="
 	glut? ( media-libs/freeglut )
 	gui? (
 		dev-games/openscenegraph
-		media-libs/imgui:=[opengl(-)]
+		media-libs/imgui:=[glut(-)?,opengl(-)]
 		media-libs/lodepng:=
 		virtual/opengl
 		x11-libs/libXi
@@ -67,10 +69,7 @@ DEPEND="
 		dev-cpp/gtest
 		dev-libs/urdfdom_headers
 	)
-	test? (
-		dev-cpp/gtest
-		python? ( $(python_gen_cond_dep 'dev-python/pytest[${PYTHON_USEDEP}]') )
-	)
+	test? ( dev-cpp/gtest )
 	urdfdom? ( dev-libs/urdfdom_headers )
 "
 BDEPEND="
@@ -81,6 +80,7 @@ BDEPEND="
 
 RESTRICT="!test? ( test )"
 PATCHES=(
+	"${FILESDIR}/${P}-no-deprecated-examples.patch"
 	"${FILESDIR}/${PN}-respect-ldflags.patch"
 	"${FILESDIR}/${P}-respect-cflags.patch"
 	"${FILESDIR}/${P}-use-system-gtest.patch"
@@ -88,6 +88,7 @@ PATCHES=(
 )
 REQUIRED_USE="
 	examples? ( gui )
+	gui? ( glut )
 	python? (
 		${PYTHON_REQUIRED_USE}
 		gui
@@ -101,9 +102,11 @@ pkg_setup() {
 }
 
 src_prepare() {
-	# delete bundled gtest
+	# delete bundled libs
 	rm -r unittests/gtest || die
 	rm -r dart/external/{imgui,lodepng} || die
+	# delete deprecated examples
+	rm -r examples/deprecated_examples || die
 	dos2unix unittests/CMakeLists.txt || die
 	cmake_src_prepare
 }
@@ -135,9 +138,10 @@ src_configure() {
 	use cpu_flags_arm_iwmmxt2 && simd=ON
 	use cpu_flags_arm_neon && simd=ON
 
+	export ODE_DIR="${EPREFIX}/usr"
+
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
-		-DCMAKE_BUILD_TYPE=Release
 		-DDART_CODECOV=OFF
 		-DDART_VERBOSE=ON
 		-DDART_TREAT_WARNINGS_AS_ERRORS=OFF
@@ -152,14 +156,26 @@ src_configure() {
 src_compile() {
 	cmake_src_compile
 	use examples && cmake_build examples
-	use python && cmake_build dartpy # no work to do ...
+	use python && cmake_build dartpy
 	use test && cmake_build tests
 	use tutorials && cmake_build tutorials
 }
 
 src_install() {
 	cmake_src_install
-	#TODO: python examples tests tutorials
-	mv "${ED}/usr/share/doc/dart" "${ED}/usr/share/doc/${PF}" || die
+	#TODO: python (?)
+	if ! use examples ; then
+		rm -rf "${ED}/usr/share/doc/dart/examples" || die
+	fi
+	if ! use tutorials ; then
+		rm -rf "${ED}/usr/share/doc/dart/tutorials" || die
+	fi
+	if use examples || use tutorials ; then
+		exeinto "/usr/libexec/${PN}"
+		doexe "${BUILD_DIR}"/bin/*
+	fi
+#	use python && cmake_build install-dartpy
+	mv "${ED}/usr/share/doc/dart/data" "${ED}/usr/share/${PN}" || die
+	mv "${ED}"/usr/share/doc/dart/* "${ED}/usr/share/doc/${PF}" || die
 	docompress -x "/usr/share/doc/${PF}"
 }
