@@ -85,7 +85,7 @@ LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND="dev-python/setuptools_rust
+BDEPEND="dev-python/setuptools-rust
 	test? (
 		dev-python/fixtures[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.5.0[${PYTHON_USEDEP}]

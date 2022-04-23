@@ -66,7 +66,6 @@ ruby_add_rdepend "
 		dev-ruby/webrick
 		dev-ruby/json"
 
-
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 PATCHES="${FILESDIR}/pcs-0.11-gentoo-support.patch
 		${FILESDIR}/remove_bashism.patch"
