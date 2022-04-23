@@ -1,0 +1,13 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=prepare unpack
+DEPEND=dev-lang/hare
+DESCRIPTION=Compression algorithms for Hare
+EAPI=8
+HOMEPAGE=https://git.sr.ht/~sircmpwn/hare-compress
+INHERIT=git-r3
+LICENSE=MPL-2.0
+PROPERTIES=live
+RDEPEND=dev-lang/hare
+SLOT=0
+_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=ceeb01ec763affd9a950225a1f024df1

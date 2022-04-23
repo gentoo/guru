@@ -343,6 +343,9 @@ dev-erlang/ranch 1.7.1 1.8.0 2.0.0: Socket acceptor pool for TCP protocols.
 dev-games/godot 3.3.2-r1: Multi-platform 2D and 3D game engine
 dev-games/surgescript 0.5.4.4 0.5.5 9999: scripting language made for opensurge
 dev-go/lichen 0.1.4: Go binary license checker
+dev-hare/hare-compress 9999: Compression algorithms for Hare
+dev-hare/hare-linux 9999: Extra Linux support for Hare programs
+dev-hare/hare-png 9999: PNG implementation for Hare
 dev-java/gradle-base-annotations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-build-operations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-hashing 6.8.2: Build automation tool for JVM Languages, C(++), etc.
@@ -350,6 +353,8 @@ dev-lang/aldor 1.2.0_p20190730-r1: The Aldor Programming Language
 dev-lang/fbc 1.07.3 1.08.1: A free/open source, multi-platform BASIC compiler.
 dev-lang/fbc-bootstrap 1.07.3 1.08.1: Bootstrap package for dev-lang/fbc
 dev-lang/gleam 0.16.0: A statically typed functional language for the BEAM
+dev-lang/hare 9999: The Hare systems programming language
+dev-lang/harec 9999: The Hare compiler
 dev-lang/quickjs 2020.11.08 2021.03.27: Small embeddable Javascript engine
 dev-lang/wren 0.3.0: The Wren Programming Language
 dev-libs/StringiFor 1.1.1 1.1.3: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
@@ -855,6 +860,7 @@ dev-util/bats-support 0.3.0: Supporting library for Bats test helpers
 dev-util/binaryen 105: Compiler and toolchain infrastructure library for WebAssembly
 dev-util/blueprint-compiler 0.1.0_pre20220319 0.1.0_pre20220419 9999: Compiler for Blueprint, a markup language for GTK user interfaces
 dev-util/cargo-make 0.35.9 0.35.10: Rust task runner and build tool
+dev-util/deblob 9999: remove binary executables from a directory
 dev-util/devscripts 2.21.3 2.22.1: Scripts to make the life of a Debian Package maintainer easier
 dev-util/eclipse-parallel-bin 4.22 4.23: Eclipse IDE for Scientific Computing (C, C++, Fortran)
 dev-util/fontmake 3.2.0 3.3.0: A wrapper for several Python libraries to compile fonts from sources
@@ -1329,6 +1335,8 @@ sys-cluster/synapse 2.0.1: synapse
 sys-cluster/temanejo 1.3: a debugger for task-parallel programming
 sys-cluster/veloc 1.6: Very-Low Overhead Checkpointing System
 sys-cluster/wxparaver 4.9.0-r1 4.10.0: Performance analyzer based on event traces
+sys-devel/cproc 9999: C11 compiler using QBE as backend
+sys-devel/qbe 9999: Pure-C embeddable compiler backend
 sys-firmware/pinephone-firmware 20210809: Firmwares files for PinePhone
 sys-fs/btrfs-heatmap 9-r1: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator

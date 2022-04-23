@@ -849,6 +849,7 @@ sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager
 sys-cluster/wxparaver:extrae - Enable extrae support
 sys-cluster/wxparaver:ompss - Enable OmpSs parallel version
 sys-cluster/wxparaver:openmp - Enable OpenMP parallel version
+sys-devel/cproc:system-qbe - Use sys-devel/qbe instead of the vendored one
 sys-kernel/dkms:kernel-hooks - Enable automatic rebuilding of modules via kernel source makefile hooks
 sys-kernel/uek-sources:experimental - apply experimental gentoo genpatches
 sys-kernel/uek-sources:gentoo - apply base gentoo genpatches

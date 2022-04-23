@@ -1,0 +1,13 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=configure unpack
+DEPEND=sys-devel/qbe
+DESCRIPTION=The Hare compiler
+EAPI=7
+HOMEPAGE=https://harelang.org/
+INHERIT=git-r3
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=sys-devel/qbe
+SLOT=0
+_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=650e915c0be129a870b9b1d765748736

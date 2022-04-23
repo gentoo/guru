@@ -1,0 +1,14 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure unpack
+DEPEND=system-qbe? ( sys-devel/qbe:= )
+DESCRIPTION=C11 compiler using QBE as backend
+EAPI=7
+HOMEPAGE=https://sr.ht/~mcf/cproc/
+INHERIT=git-r3
+IUSE=system-qbe
+LICENSE=ISC
+PROPERTIES=live
+RDEPEND=system-qbe? ( sys-devel/qbe:= )
+SLOT=0
+_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=96501baaba29138d219bc2b3590f0fed
