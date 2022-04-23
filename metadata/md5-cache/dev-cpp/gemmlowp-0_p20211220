@@ -1,0 +1,14 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Low-precision matrix multiplication
+EAPI=8
+HOMEPAGE=https://github.com/google/gemmlowp
+INHERIT=cmake
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/google/gemmlowp/archive/e844ffd17118c1e17d94e1ba4354c075a4577b88.tar.gz -> gemmlowp-0_p20211220.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149
+_md5_=b3b0cbd1ef521e03351fc61c2187c627

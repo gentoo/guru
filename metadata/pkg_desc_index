@@ -111,7 +111,7 @@ app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best
 app-misc/doublecmd-bin 1.0.4 1.0.5: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
-app-misc/fastfetch 1.2.3 9999: Like neofetch but faster
+app-misc/fastfetch 1.3.3 9999: Like neofetch but faster
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -138,7 +138,7 @@ app-misc/tealdeer 1.5.0: A very fast implementation of tldr in Rust.
 app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the command-line
 app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
-app-misc/vocabsieve 0.7.2: A simple, effective tool for language learning
+app-misc/vocabsieve 0.7.3: A simple, effective tool for language learning
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
 app-misc/walld 1.3: A Wallpaper daemon
 app-misc/watchexec 1.15.3 1.16.2 1.17.1 1.18.11 1.18.12 1.19.0: Executes commands in response to file modifications
@@ -214,7 +214,7 @@ app-vim/themis 1.6.0 1.7.0: A testing framework for Vim script
 app-vim/vim-nix 9999: vim plugin: Vim configuration files for Nix
 app-vim/vim-sensible 1.2: vim plugin: a universal set of defaults that (hopefully) everyone can agree on
 dev-R/BH 1.75.0.0 1.78.0.0: Boost C++ Header Files
-dev-R/MASS 7.3.56: Support Functions and Datasets for variables and Ripley's MASS
+dev-R/MASS 7.3.57: Support Functions and Datasets for variables and Ripley's MASS
 dev-R/Matrix 1.4.1: Sparse and Dense Matrix Classes and Methods
 dev-R/R6 2.5.1: Encapsulated Classes with Reference Semantics
 dev-R/RColorBrewer 1.1.3: ColorBrewer Palettes
@@ -314,6 +314,7 @@ dev-cpp/drogon 1.7.4 1.7.5: C++14/17 based HTTP web application framework
 dev-cpp/dtl 1.19_p20210531: diff template library written by C++
 dev-cpp/fbthrift 2022.04.11.00: Facebook's branch of Apache Thrift, including a new C++ server
 dev-cpp/fizz 2022.04.11.00: C++14 implementation of the TLS-1.3 standard
+dev-cpp/gemmlowp 0_p20211220: Low-precision matrix multiplication
 dev-cpp/gsl-lite 0.38.0: C++ Guideline Support Library implementation
 dev-cpp/indicators 2.2: Activity indicators for modern C++
 dev-cpp/jwt-cpp 0.4.0 0.6.0: header only library for creating and validating JSON Web Tokens in C++11
@@ -326,7 +327,7 @@ dev-cpp/plog 1.1.5_p20200501 1.1.6: Portable, simple and extensible C++ logging 
 dev-cpp/qt-jdenticon 0.2.1 0.3.0: Qt5 / C++14 Port of Jdenticon
 dev-cpp/scitokens-cpp 0.7.0: A C++ implementation of the SciTokens library with a C library interface
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
-dev-cpp/tiny-dnn 1.0.0_alpha3: header only, dependency-free deep learning framework in C++14
+dev-cpp/tiny-dnn 1.0.0_alpha3-r1: header only, dependency-free deep learning framework in C++14
 dev-cpp/trantor 1.5.4 1.5.5: Non-blocking I/O tcp network lib based on c++14/17
 dev-cpp/vectorwrapper 1.1.2 9999: A template vector wrapper class for C++
 dev-cpp/vexcl 1.4.2-r2: VexCL - Vector expression template library for OpenCL
@@ -676,7 +677,7 @@ dev-python/osprofiler 3.4.2: OpenStack Profiler Library
 dev-python/ots-python 8.1.4-r1 8.2.1: A Python wrapper for OpenType Sanitizer
 dev-python/ovsdbapp 1.16.0: A library for creating OVSDB applications
 dev-python/parsel 1.6.0: Utility to extract data from XML/HTML documents using XPath or CSS selectors
-dev-python/pdfminer-six 20201018 20220319: Community maintained fork of pdfminer
+dev-python/pdfminer-six 20201018 20220319-r1: Community maintained fork of pdfminer
 dev-python/pg8000 1.24.2 1.26.0: A Pure-Python PostgreSQL Driver
 dev-python/phx-class-registry 3.0.5: An intersection of the Registry and Factory pattern
 dev-python/pifpaf 3.1.5: Python fixtures and daemon managing tools for functional testing
@@ -923,7 +924,7 @@ games-misc/gay 1.2.8: Colour your text / terminal to be more gay
 games-puzzle/atris 1.0.7: Alizarin tetris
 games-puzzle/krank 8: Little casual game
 games-puzzle/superflu-riteurnz 1.0.0: Artisanal video-game about Superflu, the useless super-hero (french)
-games-rpg/airshipper 0.7.0: Provides automatic updates for the voxel RPG Veloren
+games-rpg/airshipper 0.7.0-r1: Provides automatic updates for the voxel RPG Veloren
 games-server/among-sus 20210519: Among Us, but it's a text adventure
 games-util/NotEnoughProduction 0.0.4: Tool for building production chains for modded minecraft
 games-util/chiaki 2.1.1-r1 9999: Client for PlayStation 4 and PlayStation 5 Remote Play
@@ -1049,7 +1050,7 @@ media-libs/alsa-ucm-pinephone 1.2.6.3: ALSA ucm configuration files for the Pine
 media-libs/alvr 15.2.1_p20210604 16.0.0: ALVR is an open source remote VR display for the Oculus Go/Quest
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.4.2: AMD Open Source Driver for Vulkan
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
-media-libs/imgui 1.83 1.87-r2: Bloat-free graphical user interface library for C++
+media-libs/imgui 1.83 1.87-r4: Bloat-free graphical user interface library for C++
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
 media-libs/lodepng 20210627: PNG encoder and decoder
 media-libs/monado 9999: The open source OpenXR runtime.
@@ -1139,7 +1140,7 @@ net-libs/libqmatrixclient 0.5.3.2: A Qt5 library to write cross-platfrom clients
 net-libs/td 1.8.0: Cross-platform library for building Telegram clients
 net-libs/telepathy-haze 0.8.1: Telepathy connection manager providing libpurple supported protocols
 net-libs/usockets 0.8.1_p20211023 9999: tiny eventing, networking & crypto for async applications
-net-mail/dovecot-fts-xapian 1.5.2 1.5.4: Dovecot FTS plugin backed by Xapian
+net-mail/dovecot-fts-xapian 1.5.2 1.5.4 1.5.5 9999: Dovecot FTS plugin backed by Xapian
 net-mail/remail 0.13: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.4.1 1.4.2 1.5.0: FORT validator is an open source RPKI validator
 net-misc/bee-node 0.2.1: IOTA node written in rust
@@ -1152,7 +1153,7 @@ net-misc/gemserv 0.6.5 0.6.6: A gemini Server written in rust
 net-misc/giara 9999: An app for Reddit
 net-misc/gmid 1.8.1 1.8.3 9999: Simple and secure Gemini server
 net-misc/lyrics-in-terminal 1.4.2: Command Line Lyrics fetcher for MPRIS media players
-net-misc/maestral 1.5.2 1.5.3 1.6.1: Maestral is an open-source Dropbox client written in Python
+net-misc/maestral 1.5.2 1.5.3 1.6.2: Maestral is an open-source Dropbox client written in Python
 net-misc/maestral-qt 1.5.2 1.5.3: Maestral is an open-source Dropbox client written in Python
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
@@ -1200,7 +1201,7 @@ sci-electronics/verilator 4.218 4.220 9999: The fast free Verilog/SystemVerilog 
 sci-geosciences/GeographicLib-data 0-r1: Datasets for GeographicLib
 sci-geosciences/mapillary_tools 0.8.0 0.8.2: Command line tools for processing and uploading Mapillary imagery
 sci-libs/ann 1.1.2_p7-r2: A Library for Approximate Nearest Neighbor Searching
-sci-libs/dart 6.10.1-r2 6.12.1: Dynamic Animation and Robotics Toolkit
+sci-libs/dart 6.10.1-r2 6.12.1-r1: Dynamic Animation and Robotics Toolkit
 sci-libs/ensmallen 2.16.2 2.17.0: header only C++ library for numerical optimization
 sci-libs/jdqz 0_pre19971107-r3: Jacobi-Davidson type method for the generalized standard eigenvalue problem
 sci-libs/meschach 1.2b_p20170511-r1: Meschach is a C-language library of routines for performing matrix computations
@@ -1371,6 +1372,7 @@ virtual/survival 0: Virtual of a R recommended package
 www-apps/code-server-bin 4.1.0 4.3.0: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/jackett-bin 0.20.514 9999: API Support for your favorite torrent trackers
+www-apps/stagit 1.1: static git page generator
 www-apps/twint 2.1.20-r2 2.1.20_p20220316: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 20.11.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.2.1 9999: Minimalist and privacy-oriented WebKitGTK+ browser

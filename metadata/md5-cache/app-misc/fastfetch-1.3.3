@@ -1,15 +1,16 @@
-BDEPEND=virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare test unpack
+BDEPEND=virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
 DEPEND=sys-libs/zlib X? ( x11-libs/libX11 ) gnome? ( dev-libs/glib gnome-base/dconf ) imagemagick? ( media-gfx/imagemagick:= ) pci? ( sys-apps/pciutils ) vulkan? ( media-libs/vulkan-loader ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xfce? ( xfce-base/xfconf ) xrandr? ( x11-libs/libXrandr )
 DESCRIPTION=Like neofetch but faster
 EAPI=8
 HOMEPAGE=https://github.com/LinusDierheimer/fastfetch
-INHERIT=cmake git-r3
+INHERIT=cmake
 IUSE=X gnome imagemagick pci vulkan wayland xcb xfce xrandr
+KEYWORDS=~amd64
 LICENSE=MIT
-PROPERTIES=live
 RDEPEND=sys-libs/zlib X? ( x11-libs/libX11 ) gnome? ( dev-libs/glib gnome-base/dconf ) imagemagick? ( media-gfx/imagemagick:= ) pci? ( sys-apps/pciutils ) vulkan? ( media-libs/vulkan-loader ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xfce? ( xfce-base/xfconf ) xrandr? ( x11-libs/libXrandr )
 REQUIRED_USE=xrandr? ( X )
 SLOT=0
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=2074a1ab26b678c25b9036d838cdd4c6
+SRC_URI=https://github.com/LinusDierheimer/fastfetch/archive/refs/tags/1.3.3.tar.gz -> fastfetch-1.3.3.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149
+_md5_=bfb1461093bddc5fa8f430ccae13bc59

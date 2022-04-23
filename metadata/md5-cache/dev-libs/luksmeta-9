@@ -1,14 +1,15 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-DEFINED_PHASES=prepare
+BDEPEND=man? ( app-text/asciidoc ) sys-devel/libtool sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=install prepare
 DEPEND=sys-fs/cryptsetup
 DESCRIPTION=LUKSMeta is a simple library for storing metadata in the LUKSv1 header
 EAPI=8
 HOMEPAGE=https://github.com/latchset/luksmeta
 INHERIT=autotools
+IUSE=+man
 KEYWORDS=~amd64
 LICENSE=LGPL-2.1
 RDEPEND=sys-fs/cryptsetup
 SLOT=0
 SRC_URI=https://github.com/latchset/luksmeta/archive/v9.tar.gz -> luksmeta-9.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9724194ab651ce63fd9bc06e4e1410b4
-_md5_=06da9de58e954120424231ff67b5cc49
+_md5_=dc50d0b123e75f520c56b1c20bb5d2ff
