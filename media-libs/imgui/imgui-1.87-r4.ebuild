@@ -52,14 +52,6 @@ REQUIRED_USE="
 		opengl
 		vulkan
 	)
-	examples? (
-		allegro
-		glfw
-		glut
-		opengl
-		sdl
-		vulkan
-	)
 "
 
 src_prepare() {
