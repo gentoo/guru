@@ -99,6 +99,7 @@ Name | Buildsystem | Category | User | RFH
 [greenclip](https://github.com/erebe/greenclip) | cabal | desktop | N-R-K |
 [google-drive-ocamlfuse](https://github.com/astrada/google-drive-ocamlfuse) | dune | filesystem | Alessandro-Barbieri | yes
 [kaitai](https://github.com/kaitai-io/kaitai_struct) | sbt | util | Alessandro-Barbieri | yes
+[googlesheets4](https://cran.r-project.org/web/packages/googlesheets4/index.html) | R | R | Alessandro-Barbieri | no
 [casadi](https://web.casadi.org/) | cmake swig | science | Alessandro-Barbieri | no
 [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet) | setuptools yarn | jupyter | Alessandro-Barbieri | yes
 [gitlab](https://gitlab.com/gitlab-org/gitlab-foss) | yarn gem | vcs | Alessandro-Barbieri | yes 
