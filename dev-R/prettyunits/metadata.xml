@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">
+		Pretty, Human Readable Formatting of Quantities // Pretty, human
+		readable formatting of quantities. Time intervals: '1337000' -
+		'15d 11h 23m 20s'. Vague time intervals: '2674000' - 'about a
+		month ago'. Bytes: '1337' - '1.34 kB'.
+	</longdescription>
+</pkgmetadata>
