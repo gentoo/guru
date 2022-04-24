@@ -37,6 +37,4 @@ pkg_postinst(){
 	einfo "It also stores JWKs in /var/db/tang."
 	einfo "If you want to change this, modify /etc/init.d/tangd or"
 	einfo "/usr/lib/systemd/system/tangd.service directly."
-
-	systemctl daemon-reload || die
 }
