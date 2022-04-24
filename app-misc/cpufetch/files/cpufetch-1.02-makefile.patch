@@ -1,14 +1,9 @@
---- a/Makefile	2021-08-23 09:31:46.000000000 +0200
-+++ b/Makefile	2021-10-16 23:40:53.698941777 +0200
-@@ -1,4 +1,3 @@
--CC ?= gcc
- 
- CFLAGS+=-Wall -Wextra -pedantic
- SANITY_FLAGS=-Wfloat-equal -Wshadow -Wpointer-arith
-@@ -16,17 +15,17 @@
- 		SRC_DIR=src/x86/
- 		SOURCE += $(COMMON_SRC) $(SRC_DIR)cpuid.c $(SRC_DIR)apic.c $(SRC_DIR)cpuid_asm.c $(SRC_DIR)uarch.c
- 		HEADERS += $(COMMON_HDR) $(SRC_DIR)cpuid.h $(SRC_DIR)apic.h $(SRC_DIR)cpuid_asm.h $(SRC_DIR)uarch.h
+--- a/Makefile
++++ b/Makefile
+@@ -23,17 +23,17 @@
+ 			HEADERS += $(SRC_DIR)freq/freq.h
+ 			CFLAGS += -pthread
+                 endif
 -		CFLAGS += -DARCH_X86 -std=c99 -fstack-protector-all
 +		CFLAGS += -DARCH_X86 -std=c99
  	else ifeq ($(arch), $(filter $(arch), ppc64le ppc64 ppcle ppc))
@@ -26,26 +21,31 @@
  
  		os := $(shell uname -s)
  		ifeq ($(os), Darwin)
-@@ -51,20 +50,17 @@
+@@ -58,18 +58,8 @@
  	OUTPUT=cpufetch.exe
  endif
  
--all: CFLAGS += -O3
+-all: CFLAGS += -O2
  all: $(OUTPUT)
  
 -debug: CFLAGS += -g -O0
- debug: $(OUTPUT)
+-debug: $(OUTPUT)
+-
+-static: CFLAGS += -static -O2
+-static: $(OUTPUT)
+-
+-strict: CFLAGS += -O2 -Werror -fsanitize=undefined -D_FORTIFY_SOURCE=2
+-strict: $(OUTPUT)
+-
+ freq_nov.o: Makefile $(SRC_DIR)freq/freq_nov.c $(SRC_DIR)freq/freq_nov.h $(SRC_DIR)freq/freq.h
+ 	$(CC) $(CFLAGS) $(SANITY_FLAGS) -c -pthread $(SRC_DIR)freq/freq_nov.c -o $@
  
--static: CFLAGS += -static -O3
-+static: CFLAGS += -static
- static: $(OUTPUT)
- 
--strict: CFLAGS += -O3 -Werror -fsanitize=undefined -D_FORTIFY_SOURCE=2
- strict: $(OUTPUT)
+@@ -80,7 +70,7 @@
+ 	$(CC) $(CFLAGS) $(SANITY_FLAGS) -c -mavx512f -pthread $(SRC_DIR)freq/freq_avx512.c -o $@
  
  $(OUTPUT): Makefile $(SOURCE) $(HEADERS)
 -	$(CC) $(CFLAGS) $(SANITY_FLAGS) $(SOURCE) -o $(OUTPUT)
-+	$(CC) $(CFLAGS) $(LDFLAGS) $(SANITY_FLAGS) $(SOURCE) -o $(OUTPUT)
++	$(CC) $(CFLAGS) -fPIE $(LDFLAGS) $(SANITY_FLAGS) $(SOURCE) -o $(OUTPUT)
  
  run: $(OUTPUT)
  	./$(OUTPUT)
