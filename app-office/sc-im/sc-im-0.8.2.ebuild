@@ -5,7 +5,7 @@ EAPI=7
 
 LUA_COMPAT=( lua5-1 luajit )
 
-inherit lua-single toolchain-funcs
+inherit lua-single toolchain-funcs flag-o-matic
 
 DESCRIPTION="Spreadsheet Calculator Improvised -- An ncurses spreadsheet program for terminal"
 HOMEPAGE="https://github.com/andmarti1424/sc-im"
@@ -51,17 +51,6 @@ BDEPEND="virtual/pkgconfig"
 S="${WORKDIR}/${P}/src"
 
 pkg_setup() {
-	export X=$(usex X)
-	export TMUX=$(usex tmux)
-	export WAYLAND=$(usex wayland)
-	export PLOTS=$(usex plots)
-	export XLS=$(usex xls)
-	export XLSX=$(usex xlsx)
-	export LUA=$(usex lua)
-	( use xlsx || use ods ) && export XML_ZIP="yes"
-
-	# Notifying the user about which clipboard support is enabled if conflicting flags are set
-	# Prefer wayland support over X, and tmux support over both wayland and X.
 	CONFLICTING=$(usex tmux "tmux " "")$(usex wayland "wayland " "")$(usex X "X" "")
 	if ( use tmux && ( use wayland || use X ) ) ; then
 		elog "Conflicting flags for clipboard support are set: ${CONFLICTING}"
@@ -77,5 +66,38 @@ pkg_setup() {
 
 src_configure() {
 	tc-export CC
-	default
+
+	PKGCONF=$(tc-getPKG_CONFIG)
+
+	if use tmux ; then
+		append-cflags '-DDEFAULT_COPY_TO_CLIPBOARD_CMD=\""tmux load-buffer"\"'
+		append-cflags '-DDEFAULT_PASTE_FROM_CLIPBOARD_CMD=\""tmux show-buffer"\"'
+	elif use wayland ; then
+		append-cflags '-DDEFAULT_COPY_TO_CLIPBOARD_CMD=\""wl-copy <"\"'
+		append-cflags '-DDEFAULT_PASTE_FROM_CLIPBOARD_CMD=\""wl-paste"\"'
+	elif use X ; then
+		append-cflags '-DDEFAULT_COPY_TO_CLIPBOARD_CMD=\""xclip -i -selection clipboard <"\"'
+		append-cflags '-DDEFAULT_PASTE_FROM_CLIPBOARD_CMD=\""xclip -o -selection clipboard"\"'
+	fi
+
+	use plots && append-cflags -DGNUPLOT
+	if use xls; then
+		append-cflags -DXLS $(${PKGCONF} --cflags libxls)
+		LDLIBS+=" $(${PKGCONF} --libs libxls)"
+	fi
+	if use xlsx || use ods ; then
+		append-cflags -DODS -DXLSX $(${PKGCONF} --cflags libxml-2.0 libzip)
+		LDLIBS+=" -DODS -DXLSX $(${PKGCONF} --libs libxml-2.0 libzip)"
+	fi
+	if use xlsx ; then
+		append-cflags -DXLSX_EXPORT $(${PKGCONF} --cflags xlsxwriter)
+		LDLIBS+=" -DXLSX_EXPORT $(${PKGCONF} --libs xlsxwriter)"
+	fi
+	if use lua ; then
+		append-cflags -DXLUA $(${PKGCONF} --cflags lua)
+		LDLIBS+=" -DXLUA $(${PKGCONF} --libs lua) -rdynamic"
+	fi
+	append-cflags $(${PKGCONF} --cflags ncursesw) || append-cflags $(${PKGCONF} --cflags ncurses)
+	LDLIBS+=" $(${PKGCONF} --libs ncursesw)" || LDLIBS+=" $(${PKGCONF} --libs ncurses)"
+	export LDLIBS
 }
