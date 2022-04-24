@@ -30,7 +30,7 @@ DEPEND="
 		${LUA_DEPS}
 	)
 	ods? (
-		dev-haskell/libxml
+		dev-libs/libxml2
 		dev-libs/libzip
 	)
 	plots? ( sci-visualization/gnuplot )
@@ -42,7 +42,7 @@ DEPEND="
 	)
 	xlsx? (
 		dev-libs/libxlsxwriter
-		dev-haskell/libxml
+		dev-libs/libxml2
 		dev-libs/libzip
 	)
 "
