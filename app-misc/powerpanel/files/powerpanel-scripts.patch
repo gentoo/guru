@@ -2,15 +2,6 @@ diff --git a/conf/pwrstatd.conf b/conf/pwrstatd.conf-new
 index 548fc5e..c260823 100644
 --- a/conf/pwrstatd.conf
 +++ b/conf/pwrstatd.conf
-@@ -3,7 +3,7 @@
- #
- 
- # You must restart pwrstatd after changing this file in order for changes to take effect.
--# Ex:/etc/init.d/pwrstatd restart
-+# Ex:/opt/powerpanel/init.d/pwrstatd restart
- 
- #
- # Action setting for event of Power Failure
 @@ -18,8 +18,8 @@ powerfail-delay = 60
  powerfail-active = yes
  
