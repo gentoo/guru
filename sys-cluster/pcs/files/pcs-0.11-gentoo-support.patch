@@ -1,6 +1,5 @@
-diff -uPNr pcs-0.11.2/configure.ac pcs-0.11.2-openrc/configure.ac
---- pcs-0.11.2/configure.ac	2022-02-03 13:37:44.000000000 +0100
-+++ pcs-0.11.2-openrc/configure.ac	2022-04-02 16:47:45.968552397 +0200
+--- a/configure.ac
++++ b/configure.ac
 @@ -89,17 +89,17 @@
  ])
  
@@ -58,16 +57,14 @@ diff -uPNr pcs-0.11.2/configure.ac pcs-0.11.2-openrc/configure.ac
  	fi
  fi
  
-diff -uPNr pcs-0.11.2/pcs/common/services/drivers/__init__.py pcs-0.11.2-openrc/pcs/common/services/drivers/__init__.py
---- pcs-0.11.2/pcs/common/services/drivers/__init__.py	2022-02-03 13:37:44.000000000 +0100
-+++ pcs-0.11.2-openrc/pcs/common/services/drivers/__init__.py	2022-04-01 20:20:31.536218481 +0200
+--- a/pcs/common/services/drivers/__init__.py
++++ b/pcs/common/services/drivers/__init__.py
 @@ -1,2 +1,3 @@
  from .systemd import SystemdDriver
  from .sysvinit_rhel import SysVInitRhelDriver
 +from .openrc_gentoo import OpenRCGentooDriver
-diff -uPNr pcs-0.11.2/pcs/common/services/drivers/openrc_gentoo.py pcs-0.11.2-openrc/pcs/common/services/drivers/openrc_gentoo.py
---- pcs-0.11.2/pcs/common/services/drivers/openrc_gentoo.py	1970-01-01 01:00:00.000000000 +0100
-+++ pcs-0.11.2-openrc/pcs/common/services/drivers/openrc_gentoo.py	2022-04-01 19:52:57.765788816 +0200
+--- a/pcs/common/services/drivers/openrc_gentoo.py
++++ b/pcs/common/services/drivers/openrc_gentoo.py
 @@ -0,0 +1,87 @@
 +import os.path
 +from typing import (
@@ -156,9 +153,8 @@ diff -uPNr pcs-0.11.2/pcs/common/services/drivers/openrc_gentoo.py pcs-0.11.2-op
 +            os.path.isfile(binary)
 +            for binary in (self._rc_service_bin, self._rc_config_bin)
 +        )
-diff -uPNr pcs-0.11.2/pcs/lib/services.py pcs-0.11.2-openrc/pcs/lib/services.py
---- pcs-0.11.2/pcs/lib/services.py	2022-02-03 13:37:44.000000000 +0100
-+++ pcs-0.11.2-openrc/pcs/lib/services.py	2022-04-01 20:02:05.023001421 +0200
+--- a/pcs/lib/services.py
++++ b/pcs/lib/services.py
 @@ -84,6 +84,9 @@
          services.drivers.SysVInitRhelDriver(
              executor, settings.service_binary, settings.chkconfig_binary
@@ -169,9 +165,8 @@ diff -uPNr pcs-0.11.2/pcs/lib/services.py pcs-0.11.2-openrc/pcs/lib/services.py
      ]
  
      for driver in drivers:
-diff -uPNr pcs-0.11.2/pcs/Makefile.am pcs-0.11.2-openrc/pcs/Makefile.am
---- pcs-0.11.2/pcs/Makefile.am	2022-02-03 13:37:44.000000000 +0100
-+++ pcs-0.11.2-openrc/pcs/Makefile.am	2022-04-01 20:22:42.198605061 +0200
+--- a/pcs/Makefile.am
++++ b/pcs/Makefile.am
 @@ -131,6 +131,7 @@
  			  common/services/drivers/__init__.py \
  			  common/services/drivers/systemd.py \
@@ -180,9 +175,8 @@ diff -uPNr pcs-0.11.2/pcs/Makefile.am pcs-0.11.2-openrc/pcs/Makefile.am
  			  common/services_dto.py \
  			  common/services/errors.py \
  			  common/services/__init__.py \
-diff -uPNr pcs-0.11.2/pcs/settings.py.in pcs-0.11.2-openrc/pcs/settings.py.in
---- pcs-0.11.2/pcs/settings.py.in	2022-02-03 13:37:44.000000000 +0100
-+++ pcs-0.11.2-openrc/pcs/settings.py.in	2022-04-03 14:09:08.438232140 +0200
+--- a/pcs/settings.py.in
++++ b/pcs/settings.py.in
 @@ -4,6 +4,8 @@
  systemd_unit_path = "@SYSTEMD_UNIT_PATH@".split(":")
  chkconfig_binary = "/sbin/chkconfig"
@@ -212,18 +206,16 @@ diff -uPNr pcs-0.11.2/pcs/settings.py.in pcs-0.11.2-openrc/pcs/settings.py.in
  pcsd_default_port = 2224
  pcsd_config = "@CONF_DIR@/pcsd"
  cib_dir = "@PCMK_CIB_DIR@"
-diff -uPNr pcs-0.11.2/pcsd/logrotate/pcsd.in pcs-0.11.2-openrc/pcsd/logrotate/pcsd.in
---- pcs-0.11.2/pcsd/logrotate/pcsd.in	2022-02-03 13:37:44.000000000 +0100
-+++ pcs-0.11.2-openrc/pcsd/logrotate/pcsd.in	2022-04-02 18:35:15.265764389 +0200
+--- a/pcsd/logrotate/pcsd.in
++++ b/pcsd/logrotate/pcsd.in
 @@ -1,4 +1,4 @@
 -@localstatedir@/log/pcsd/*.log {
 +/var/log/pcsd/*.log {
      rotate 5
      weekly
      missingok
-diff -uPNr pcs-0.11.2/pcsd/Makefile.am pcs-0.11.2-openrc/pcsd/Makefile.am
---- pcs-0.11.2/pcsd/Makefile.am	2022-02-03 13:37:44.000000000 +0100
-+++ pcs-0.11.2-openrc/pcsd/Makefile.am	2022-04-02 18:34:42.609049415 +0200
+--- a/pcsd/Makefile.am
++++ b/pcsd/Makefile.am
 @@ -80,8 +80,8 @@
  	cp -rp ../${PCSD_BUNDLED_DIR_ROOT_LOCAL}/* $(DESTDIR)${GEM_HOME}
  	rm -rf $(DESTDIR)${GEM_HOME}/cache
@@ -243,18 +235,16 @@ diff -uPNr pcs-0.11.2/pcsd/Makefile.am pcs-0.11.2-openrc/pcsd/Makefile.am
 -	rmdir $(DESTDIR)/$(localstatedir)/lib/pcsd 2>/dev/null || :
 +	rmdir $(DESTDIR)/var/log/pcsd 2>/dev/null || :
 +	rmdir $(DESTDIR)/var/lib/pcsd 2>/dev/null || :
-diff -uPNr pcs-0.11.2/pcsd/pam/pcsd.gentoo pcs-0.11.2-openrc/pcsd/pam/pcsd.gentoo
---- pcs-0.11.2/pcsd/pam/pcsd.gentoo	1970-01-01 01:00:00.000000000 +0100
-+++ pcs-0.11.2-openrc/pcsd/pam/pcsd.gentoo	2022-04-02 12:58:06.249036062 +0200
+--- a/pcsd/pam/pcsd.gentoo
++++ b/pcsd/pam/pcsd.gentoo
 @@ -0,0 +1,5 @@
 +#%PAM-1.0
 +auth       include      system-auth
 +account    include      system-auth
 +password   include      system-auth
 +session    include      system-auth
-diff -uPNr pcs-0.11.2/pcsd/settings.rb.in pcs-0.11.2-openrc/pcsd/settings.rb.in
---- pcs-0.11.2/pcsd/settings.rb.in	2022-02-03 13:37:44.000000000 +0100
-+++ pcs-0.11.2-openrc/pcsd/settings.rb.in	2022-04-03 14:08:03.767014211 +0200
+--- a/pcsd/settings.rb.in
++++ b/pcsd/settings.rb.in
 @@ -2,9 +2,9 @@
  PCS_EXEC = '@SBINDIR@/pcs'
  PCS_INTERNAL_EXEC = '@LIB_DIR@/pcs/pcs_internal'
@@ -267,9 +257,8 @@ diff -uPNr pcs-0.11.2/pcsd/settings.rb.in pcs-0.11.2-openrc/pcsd/settings.rb.in
  
  CRT_FILE = File.join(PCSD_VAR_LOCATION, 'pcsd.crt')
  KEY_FILE = File.join(PCSD_VAR_LOCATION, 'pcsd.key')
-diff -uPNr pcs-0.11.2/pcs_test/Makefile.am pcs-0.11.2-openrc/pcs_test/Makefile.am
---- pcs-0.11.2/pcs_test/Makefile.am	2022-02-03 13:37:44.000000000 +0100
-+++ pcs-0.11.2-openrc/pcs_test/Makefile.am	2022-04-01 20:23:35.837945885 +0200
+--- a/pcs_test/Makefile.am
++++ b/pcs_test/Makefile.am
 @@ -101,6 +101,7 @@
  			  tier0/common/services/drivers/__init__.py \
  			  tier0/common/services/drivers/test_systemd.py \
@@ -278,9 +267,8 @@ diff -uPNr pcs-0.11.2/pcs_test/Makefile.am pcs-0.11.2-openrc/pcs_test/Makefile.a
  			  tier0/common/services/__init__.py \
  			  tier0/common/test_file.py \
  			  tier0/common/test_host.py \
-diff -uPNr pcs-0.11.2/pcs_test/tier0/common/services/drivers/test_openrc_gentoo.py pcs-0.11.2-openrc/pcs_test/tier0/common/services/drivers/test_openrc_gentoo.py
---- pcs-0.11.2/pcs_test/tier0/common/services/drivers/test_openrc_gentoo.py	1970-01-01 01:00:00.000000000 +0100
-+++ pcs-0.11.2-openrc/pcs_test/tier0/common/services/drivers/test_openrc_gentoo.py	2022-04-01 20:29:57.272257820 +0200
+--- a/pcs_test/tier0/common/services/drivers/test_openrc_gentoo.py
++++ b/pcs_test/tier0/common/services/drivers/test_openrc_gentoo.py
 @@ -0,0 +1,232 @@
 +from unittest import mock, TestCase
 +

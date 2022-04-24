@@ -4,12 +4,6 @@ Date: Thu, 7 Apr 2022 17:02:55 +0200
 Subject: [PATCH] remove bashisms
 
 `==` is not POSIX
----
- m4/ac_compare_versions.m4 | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/m4/ac_compare_versions.m4 b/m4/ac_compare_versions.m4
-index 77d03330a..74846704e 100644
 --- a/m4/ac_compare_versions.m4
 +++ b/m4/ac_compare_versions.m4
 @@ -6,7 +6,7 @@ dnl op can be:
