@@ -4,11 +4,11 @@
  all: px @TARGETS@ $(SHLIB)
  
  px: px.c
--	$(CC) $(CFLAGS) -Wall px.c -o px
+-	$(CC) $(CFLAGS) $(LDFLAGS) -Wall px.c -o px
 +	$(CC) $(CFLAGS) $(LDFLAGS) -fPIE -Wall px.c -o px
  
  interrupt: interrupt.c
--	$(CC) $(CFLAGS) -Wall interrupt.c -o interrupt
+-	$(CC) $(CFLAGS) $(LDFLAGS) -Wall interrupt.c -o interrupt
 +	$(CC) $(CFLAGS) $(LDFLAGS) -fPIE -Wall interrupt.c -o interrupt
  
  clean:
