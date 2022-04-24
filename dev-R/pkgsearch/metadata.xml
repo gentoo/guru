@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">
+		Search and Query CRAN R Packages // Search CRAN metadata about
+		packages by keyword, popularity, recent activity, package name
+		and more. Uses the 'R-hub' search server, see https://r-pkg.org
+		and the CRAN metadata database, that contains information about
+		CRAN packages. Note that this is _not_ a CRAN project.
+	</longdescription>
+</pkgmetadata>
