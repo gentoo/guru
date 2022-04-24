@@ -20,7 +20,6 @@ KEYWORDS="~amd64"
 
 LICENSE="Apache-2.0 GPL-2"
 SLOT="0"
-IUSE="test"
 
 # qemu is needed for image conversion
 RDEPEND="
@@ -109,8 +108,9 @@ BDEPEND="
 	)
 "
 
-RESTRICT="!test? ( test )"
 PATCHES=( "${FILESDIR}/${P}-no-vendored-urllib.patch" )
+
+distutils_enable_tests pytest
 
 pkg_pretend() {
 	linux-info_pkg_setup
