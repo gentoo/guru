@@ -20,7 +20,7 @@ RDEPEND="${DEPEND}
 	dev-libs/openssl
 	virtual/libusb"
 BDEPEND=""
-QA_FLAGS_IGNORED="CFLAGS LDFLAGS"
+QA_FLAGS_IGNORED="/usr/sbin/pwrstat /usr/sbin/pwrstatd /usr/lib64/libpaho-mqtt3cs.so.1"
 
 src_install() {
 	dosbin bin/pwrstat
