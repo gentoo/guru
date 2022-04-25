@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=>=dev-db/lmdb-0.9.29 net-libs/usockets[ssl] acct-user/purritobin acct-group/purritobin
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	777767a09e8cd6db1d4cebe8400bc974	meson	2d8a51910bc57e004c37aa55c7d99ce4	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	777767a09e8cd6db1d4cebe8400bc974	meson	4e69b4b5d15387549776392e83e8c42c	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
 _md5_=78802e96d37dd9b968ac332f4dffa044
