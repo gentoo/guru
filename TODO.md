@@ -76,7 +76,6 @@ Name | Buildsystem | Category | User | RFH
 [aerodyn](https://github.com/OpenFAST/openfast/tree/main/modules/aerodyn) | cmake | science | Alessandro-Barbieri | no
 [llvm-ompss2](https://github.com/bsc-pm/llvm) | cmake | cluster | Alessandro-Barbieri | yes
 [pagmo](https://esa.github.io/pagmo2/) | cmake | science | Alessandro-Barbieri | no
-[ananicy-cpp](https://gitlab.com/ananicy-cpp/ananicy-cpp/) | cmake | admin | Alessandro-Barbieri | no
 [enarx](https://enarx.dev/) | cargo | util | Alessandro-Barbieri | no
 [ruplacer](https://github.com/dmerejkowsky/ruplacer) | cargo | sys | Alessandro-Barbieri | no
 [gping](https://github.com/orf/gping) | cargo | net | Alessandro-Barbieri | no
