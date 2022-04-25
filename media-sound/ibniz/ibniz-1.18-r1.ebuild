@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -13,7 +13,12 @@ LICENSE="ZLIB"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="media-libs/libsdl[X]"
+IUSE="+X"
+
+DEPEND="
+	media-libs/libsdl
+	X? ( x11-libs/libX11 )
+"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
@@ -25,6 +30,13 @@ src_prepare() {
 		-i Makefile || die
 }
 
+src_configure() {
+	if use !X; then
+		sed -i -e 's;-DX11;;' -e 's;-lX11;;' Makefile || die
+	fi
+}
+
 src_install() {
 	dobin ibniz
+	dodoc -r examples
 }
