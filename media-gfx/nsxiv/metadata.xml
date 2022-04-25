@@ -9,5 +9,7 @@
 	</upstream>
 	<use>
 		<flag name="statusbar">Add statusbar support</flag>
+		<flag name="gif">Add animated gif support</flag>
+		<flag name="webp">Add animated webp support</flag>
 	</use>
 </pkgmetadata>

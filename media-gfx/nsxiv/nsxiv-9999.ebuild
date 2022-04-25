@@ -18,15 +18,15 @@ HOMEPAGE="https://github.com/nsxiv/nsxiv"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+statusbar exif +inotify +gif +jpeg +png webp tiff"
+IUSE="+statusbar exif +inotify +gif webp"
 
 RDEPEND="
+	x11-libs/libX11
+	media-libs/imlib2[X]
 	statusbar? ( x11-libs/libXft )
 	exif? ( media-libs/libexif )
 	gif? ( media-libs/giflib:0= )
 	webp? ( media-libs/libwebp )
-	media-libs/imlib2[X,gif?,jpeg?,png?,webp?,tiff?]
-	x11-libs/libX11
 "
 DEPEND="${RDEPEND}"
 
@@ -74,6 +74,10 @@ src_install() {
 pkg_postinst() {
 	xdg_desktop_database_update
 	xdg_icon_cache_update
+
+	einfo "${PN} uses media-libs/imlib2 for loading images."
+	einfo "To enable/disable support for specific image formats,"
+	einfo "toggle the necessary USE flag for imlib2."
 }
 
 pkg_postrm() {
