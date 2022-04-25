@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -38,6 +38,6 @@ src_configure() {
 
 src_install() {
 	MAKEOPTS="-j1" DESTDIR="${D}" emake install
-	find "${ED}" -name '*.a' -delete || die
+	find "${ED}" -name '*.la' -delete || die
 	find "${ED}" -name '*.a' -delete || die
 }
