@@ -44,7 +44,6 @@ BDEPEND="
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
-		-DNVML_INCLUDE_DIRS="${S}/include"
 		-DCURSES_NEED_WIDE=$(usex unicode)
 		-DNVIDIA_SUPPORT=$(usex video_cards_nvidia)
 		-DAMDGPU_SUPPORT=$(usex video_cards_amdgpu)
