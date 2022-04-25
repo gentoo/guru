@@ -102,6 +102,8 @@ src_install() {
 		rm "${ED}/usr/share/man/man3/towupper.3" || die
 		rm "${ED}/usr/share/man/man3/wcsstr.3" || die
 	fi
+
+	find "${ED}" -name '*.la' -delete || die
 }
 
 src_test() {
