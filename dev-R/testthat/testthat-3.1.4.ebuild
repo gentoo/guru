@@ -6,6 +6,12 @@ EAPI=7
 inherit R-packages
 
 DESCRIPTION='Unit Testing for R'
+HOMEPAGE="
+	https://testthat.r-lib.org/
+	https://github.com/r-lib/testthat
+	https://cran.r-project.org/package=testthat
+"
+
 KEYWORDS="~amd64"
 LICENSE='MIT'
 
