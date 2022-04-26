@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -18,7 +18,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 # tests require rte_kni module to be loaded
 # and also needs network and /dev access
 # and need to be run as root
-#RESTRICT="test"
+RESTRICT="test"
 
 DEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep '
