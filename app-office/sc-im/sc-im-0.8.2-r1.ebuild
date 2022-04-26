@@ -17,12 +17,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="X plots wayland xls xlsx lua ods tmux"
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
 
-PATCHES=(
-	"${FILESDIR}/${P}-prefix.patch"
-	"${FILESDIR}/${P}-automagic.patch"
-	"${FILESDIR}/${P}-clipboard.patch"
-)
-
 DEPEND="
 	sys-libs/ncurses
 
@@ -64,11 +58,48 @@ pkg_setup() {
 	lua-single_pkg_setup
 }
 
+src_prepare() {
+	default
+
+	# Clean Makefile from all sorts of flag / lib setting
+	sed -i -e '/CFLAGS +=\|LDLIBS +=/d' Makefile \
+		|| die "sed fix failed. Uh-oh..."
+	# Also clean the now useless comments and logic
+	sed -i -e '/#\|if\|else/d' Makefile \
+		|| die "sed fix failed. Uh-oh..."
+}
+
 src_configure() {
 	tc-export CC
 
 	PKGCONF=$(tc-getPKG_CONFIG)
 
+	LDLIBS="-lm"
+
+	# default flags that dont need optional dependencies
+	append-cflags -Wall -g \
+		-DNCURSES \
+		-D_XOPEN_SOURCE_EXTENDED -D_GNU_SOURCE \
+		'-DSNAME=\"sc-im\"' \
+		'-DHELP_PATH=\"/usr/share/sc-im\"' \
+		'-DLIBDIR=\"/usr/share/doc/sc-im\"' \
+		'-DDFLT_PAGER=\"less\"' \
+		'-DDFLT_EDITOR=\"vim\"' \
+		-DUSECOLORS \
+		'-DHISTORY_FILE=\"sc-iminfo\"' \
+		'-DHISTORY_DIR=\".cache\"' \
+		'-DCONFIG_FILE=\"scimrc\"' \
+		'-DCONFIG_DIR=\".config/sc-im\"' \
+		'-DINS_HISTORY_FILE=\"sc-iminfo\"' \
+		-DUNDO \
+		-DMAXROWS=65536 \
+		-DUSELOCALE \
+		-DMOUSE \
+		'-DDEFAULT_OPEN_FILE_UNDER_CURSOR_CMD=\""scopen"\"' \
+		-DAUTOBACKUP \
+		-DHAVE_PTHREAD
+
+	# setting default clipboard commands
 	if use tmux ; then
 		append-cflags '-DDEFAULT_COPY_TO_CLIPBOARD_CMD=\""tmux load-buffer"\"'
 		append-cflags '-DDEFAULT_PASTE_FROM_CLIPBOARD_CMD=\""tmux show-buffer"\"'
@@ -80,6 +111,7 @@ src_configure() {
 		append-cflags '-DDEFAULT_PASTE_FROM_CLIPBOARD_CMD=\""xclip -o -selection clipboard"\"'
 	fi
 
+	# optional feature dependency
 	use plots && append-cflags -DGNUPLOT
 	if use xls; then
 		append-cflags -DXLS $(${PKGCONF} --cflags libxls)
@@ -99,5 +131,13 @@ src_configure() {
 	fi
 	append-cflags $(${PKGCONF} --cflags ncursesw) || append-cflags $(${PKGCONF} --cflags ncurses)
 	LDLIBS+=" $(${PKGCONF} --libs ncursesw)" || LDLIBS+=" $(${PKGCONF} --libs ncurses)"
-	export LDLIBS
+}
+
+src_compile() {
+	emake LDLIBS="${LDLIBS}" CFLAGS="${CFLAGS}"
+}
+
+src_install() {
+	emake DESTDIR="${D}" prefix="/usr" install
+	einstalldocs
 }
