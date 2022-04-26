@@ -1,4 +1,4 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -34,14 +34,16 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	test? ( appqos? ( dev-python/mock[${PYTHON_USEDEP}] ) )
+	test? (
+		appqos? ( dev-python/mock[${PYTHON_USEDEP}] )
+	)
 "
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 PATCHES=(
-	"${FILESDIR}/${PN}-perl-makefile.patch"
-	"${FILESDIR}/${PN}-do-not-strip.patch"
-	"${FILESDIR}/${PN}-respect-flags.patch"
+	"${FILESDIR}/${P}-perl-makefile.patch"
+	"${FILESDIR}/${P}-no-strip.patch"
+	"${FILESDIR}/${PN}-4.3.0-respect-flags.patch"
 )
 
 distutils_enable_tests unittest
@@ -79,7 +81,7 @@ src_install() {
 	dobin tools/membw/membw
 	dobin snmp/rdt-agentx.pl
 
-	dodoc ChangeLog README
+	dodoc ChangeLog README.md
 	docinto membw
 	dodoc tools/membw/README
 	docinto pqos
@@ -87,7 +89,7 @@ src_install() {
 	docinto lib
 	dodoc lib/README
 	docinto lib/python
-	dodoc lib/python/README.txt
+	dodoc lib/python/README.md
 	docinto snmp
 	dodoc snmp/README
 	docinto rdtset
@@ -101,7 +103,7 @@ src_install() {
 	unset DOCS
 	python_foreach_impl python_install
 
-	if use perl ; then
+	if use perl; then
 		pushd "lib/perl" || die
 		unset DOCS
 		myinst=( DESTDIR="${D}" )
@@ -113,7 +115,7 @@ src_install() {
 }
 
 src_test() {
-	python_foreach_impl python_test
+	LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${S}/lib" python_foreach_impl python_test
 }
 
 python_install() {
