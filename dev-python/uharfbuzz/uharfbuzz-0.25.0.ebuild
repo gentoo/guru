@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
 SLOT="0"
 
-RDEPEND=">=media-libs/harfbuzz-4.0.0[experimental(-)]"
+RDEPEND=">=media-libs/harfbuzz-4.2.1[experimental(-)]"
 DEPEND="
 	${RDEPEND}
 	>=dev-python/cython-0.28.1[${PYTHON_USEDEP}]
@@ -24,7 +24,7 @@ DEPEND="
 	>=dev-python/wheel-0.31[${PYTHON_USEDEP}]
 "
 
-PATCHES=( "${FILESDIR}/${P}-system-harfbuzz.patch" )
+PATCHES=( "${FILESDIR}/${PN}-0.23.0-system-harfbuzz.patch" )
 
 distutils_enable_tests pytest
 
