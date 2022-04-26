@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ LUA_COMPAT=( lua5-{1..4} luajit )
 inherit fcaps lua-single systemd cmake linux-info
 
 DESCRIPTION="hinsightd a http/1.1 webserver with (hopefully) minimal goals"
-HOMEPAGE="https://gitlab.com/tiotags/hin9"
+HOMEPAGE="https://tiotags.gitlab.io/hinsightd"
 LICENSE="BSD"
 SLOT="0"
 
@@ -21,7 +21,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-IUSE="+openssl cgi +fcgi +rproxy +ffcall"
+IUSE="+ssl cgi +fcgi +rproxy +ffcall"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
 BDEPEND="
@@ -36,15 +36,11 @@ RDEPEND="
 	sys-libs/liburing
 	sys-libs/zlib
 	virtual/libcrypt
-	openssl? ( dev-libs/openssl )
+	ssl? ( dev-libs/openssl )
 	ffcall? ( dev-libs/ffcall )
 "
 
 DEPEND="${RDEPEND}"
-
-PATCHES=(
-	"${FILESDIR}/${PN}-defines-v4.patch"
-)
 
 FILECAPS=(
 	cap_net_bind_service usr/sbin/${PN}
@@ -52,7 +48,7 @@ FILECAPS=(
 
 src_configure() {
 	local mycmakeargs=(
-		-DUSE_OPENSSL=$(usex openssl)
+		-DUSE_OPENSSL=$(usex ssl)
 		-DUSE_CGI=$(usex cgi)
 		-DUSE_FCGI=$(usex fcgi)
 		-DUSE_RPROXY=$(usex rproxy)
