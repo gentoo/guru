@@ -6,6 +6,12 @@
 		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<upstream>
+		<doc>https://mirage.github.io/ca-certs-nss/doc</doc>
+		<bugs-to>https://github.com/mirage/ca-certs-nss/issues</bugs-to>
 		<remote-id type="github">mirage/ca-certs-nss</remote-id>
+		<maintainer>
+			<name>Hannes Mehnert</name>
+			<email>hannes@mehnert.org</email>
+		</maintainer>
 	</upstream>
 </pkgmetadata>

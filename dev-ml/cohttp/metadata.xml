@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -6,9 +6,6 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<upstream>
-		<remote-id type="github">mirage/ocaml-cohttp</remote-id>
-	</upstream>
 	<use>
 		<flag name="async">CoHTTP implementation for the Async concurrency library</flag>
 		<flag name="bench">Benchmarks binaries for Cohttp</flag>
@@ -22,4 +19,28 @@
 		<flag name="server-lwt-unix">Lightweight Cohttp plus Lwt based HTTP server</flag>
 		<flag name="top">CoHTTP toplevel pretty printers for HTTP types</flag>
 	</use>
+	<longdescription lang="en">Cohttp is an OCaml library for creating HTTP daemons. It has a portable
+HTTP parser, and implementations using various asynchronous programming
+libraries.
+
+See the cohttp-async, cohttp-lwt, cohttp-lwt-unix, cohttp-lwt-jsoo and
+cohttp-mirage libraries for concrete implementations for particular
+targets.
+
+You can implement other targets using the parser very easily. Look at the `IO`
+signature in `lib/s.mli` and implement that in the desired backend.
+
+You can activate some runtime debugging by setting `COHTTP_DEBUG` to any
+value, and all requests and responses will be written to stderr.	Further
+debugging of the connection layer can be obtained by setting `CONDUIT_DEBUG`
+to any value.</longdescription>
+	<upstream>
+		<doc>https://mirage.github.io/ocaml-cohttp/</doc>
+		<bugs-to>https://github.com/mirage/ocaml-cohttp/issues</bugs-to>
+		<remote-id type="github">mirage/ocaml-cohttp</remote-id>
+		<maintainer>
+			<name>Anil Madhavapeddy</name>
+			<email>anil@recoil.org</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

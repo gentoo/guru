@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <description>co-maintainers welcome</description>
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
-  <upstream>
-    <remote-id type="github">hannesm/domain-name</remote-id>
-  </upstream>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">A domain name is a sequence of labels separated by dots, such as `foo.example`.
+Each label may contain any bytes. The length of each label may not exceed 63
+charactes.	The total length of a domain name is limited to 253 (byte
+representation is 255), but other protocols (such as SMTP) may apply even
+smaller limits.	A domain name label is case preserving, comparison is done in a
+case insensitive manner.</longdescription>
+	<upstream>
+		<doc>https://hannesm.github.io/domain-name/doc</doc>
+		<bugs-to>https://github.com/hannesm/domain-name/issues</bugs-to>
+		<remote-id type="github">hannesm/domain-name</remote-id>
+		<maintainer>
+			<name>Hannes Mehnert</name>
+			<email>hannes@mehnert.org</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

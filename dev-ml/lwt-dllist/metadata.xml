@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
-  <upstream>
-    <remote-id type="github">mirage/lwt-dllist</remote-id>
-  </upstream>
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">A sequence is an object holding a list of elements which support
+the following operations:
+
+- adding an element to the left or the right in time and space O(1)
+- taking an element from the left or the right in time and space O(1)
+- removing a previously added element from a sequence in time and space O(1)
+- removing an element while the sequence is being transversed.</longdescription>
+	<upstream>
+		<doc>https://mirage.github.io/lwt-dllist/</doc>
+		<bugs-to>https://github.com/mirage/lwt-dllist/issues</bugs-to>
+		<remote-id type="github">mirage/lwt-dllist</remote-id>
+		<maintainer>
+			<name>Anil Madhavapeddy</name>
+			<email>anil@recoil.org</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>
