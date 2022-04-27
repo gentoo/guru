@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,6 +16,8 @@ IUSE="slurm"
 
 RDEPEND="slurm? ( sys-cluster/slurm )"
 DEPEND="${RDEPEND}"
+
+#TODO: flux
 
 src_prepare() {
 	default
