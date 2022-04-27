@@ -45,7 +45,6 @@ RDEPEND="
 	x11-libs/libXfixes
 	x11-libs/libxkbcommon
 	x11-libs/libXrandr
-	x11-libs/libxshmfence
 	x11-libs/pango
 	x11-misc/xdg-utils
 "
