@@ -37,7 +37,7 @@
     </flag>
     <flag name="limine-deploy">
       Enables building the limine-deploy program.
-      This flag was previously known as limine-deploy.
+      This flag was previously known as limine-install.
     </flag>
   </use>
 </pkgmetadata>
