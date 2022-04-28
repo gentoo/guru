@@ -1,5 +1,5 @@
 #!/sbin/openrc-run
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the BSD license
 
 extra_started_commands="reload"
