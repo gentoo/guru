@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit flag-o-matic optfeature toolchain-funcs
+inherit flag-o-matic toolchain-funcs
 
 DESCRIPTION="Multi Criteria CUDF Solver"
 HOMEPAGE="https://www.i3s.unice.fr/~cpjm/misc/mccs.html"
@@ -21,7 +21,10 @@ RDEPEND="
 	glpk? ( sci-mathematics/glpk )
 	lpsolve? ( sci-mathematics/lpsolve )
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	sci-libs/coinor-cbc
+"
 
 BDEPEND="
 	dev-util/quilt
@@ -62,12 +65,12 @@ src_install() {
 	dodoc README CHANGES
 	dodoc -r examples
 
+	insinto /usr/share/cudf/solvers
+	doins "${FILESDIR}/mccs-cbc"
+	use lpsolve && doins "${FILESDIR}/mccs-lpsolve"
+
 	dobin sciplp cbclp wbopb mccs
 	exeinto "/usr/libexec/${PN}"
 	doexe solve{paranoid,trendy}
 	dolib.so libccudf.so
-}
-
-pkg_postinst() {
-	optfeature "in order to use cbclp" sci-libs/coinor-cbc
 }
