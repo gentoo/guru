@@ -3,13 +3,17 @@
 
 EAPI=8
 
+ANANICY_COMMIT="9180bb4511e2de5229428303df1a4954b0c516d9" # for rules
 MYPV="${PV/_rc/-rc}"
 
 inherit cmake
 
 DESCRIPTION="Ananicy rewritten in C++ for much lower CPU and memory usage"
 HOMEPAGE="https://gitlab.com/ananicy-cpp/ananicy-cpp"
-SRC_URI="https://gitlab.com/ananicy-cpp/ananicy-cpp/-/archive/v${MYPV}/${PN}-v${MYPV}.tar.bz2"
+SRC_URI="
+	https://gitlab.com/ananicy-cpp/ananicy-cpp/-/archive/v${MYPV}/${PN}-v${MYPV}.tar.bz2
+	https://github.com/kuche1/minq-ananicy/archive/${ANANICY_COMMIT}.tar.gz -> minq-ananicy-${ANANICY_COMMIT}.tar.gz
+"
 S="${WORKDIR}/${PN}-v${MYPV}"
 
 LICENSE="GPL-3"
@@ -46,4 +50,6 @@ src_configure() {
 src_install() {
 	cmake_src_install
 	doinitd "${FILESDIR}/${PN}.initd"
+	insinto /etc
+	doins -r "${WORKDIR}/minq-ananicy-${ANANICY_COMMIT}/ananicy.d"
 }
