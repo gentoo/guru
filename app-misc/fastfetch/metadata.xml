@@ -9,6 +9,7 @@
 	<remote-id type="github">LinusDierheimer/fastfetch</remote-id>
 </upstream>
 <use>
+	<flag name="chafa">Enables text/graphics renderer with <pkg>media-gfx/chafa</pkg></flag>
 	<flag name="pci">Enables reading GPU via <pkg>sys-apps/pciutils</pkg></flag>
 	<flag name="vulkan">Enables reading GPU via <pkg>media-libs/vulkan-loader</pkg></flag>
 	<flag name="xfce">Enables support for XFCE config</flag>
