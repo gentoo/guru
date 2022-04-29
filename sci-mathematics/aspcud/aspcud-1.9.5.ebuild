@@ -17,9 +17,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
 
-RDEPEND="dev-libs/boost:="
-DEPEND="
-	${RDEPEND}
+DEPEND="dev-libs/boost:="
+RDEPEND="
+	${DEPEND}
 	sci-mathematics/clasp
 	sci-mathematics/clingo
 "
