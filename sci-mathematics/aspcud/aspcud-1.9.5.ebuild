@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake optfeature
+inherit cmake
 
 DESCRIPTION="A solver for package problems in CUDF format"
 HOMEPAGE="
@@ -18,7 +18,11 @@ KEYWORDS="~amd64"
 IUSE="test"
 
 RDEPEND="dev-libs/boost:="
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	sci-mathematics/clasp
+	sci-mathematics/clingo
+"
 BDEPEND="dev-util/re2c"
 
 RESTRICT="!test? ( test )"
@@ -32,6 +36,8 @@ src_configure() {
 	cmake_src_configure
 }
 
-pkg_postinst() {
-	optfeature "dependencies needed at runtime" sci-mathematics/clasp sci-mathematics/clingo
+src_install() {
+	cmake_src_install
+	insinto /usr/share/cudf/solvers/
+	doins "${FILESDIR}/aspcud"
 }
