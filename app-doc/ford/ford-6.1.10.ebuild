@@ -4,7 +4,7 @@
 EAPI=8
 PYTHON_COMPAT=( python3_{8..10} )
 
-inherit distutils-r1
+inherit distutils-r1 toolchain-funcs
 
 MY_PN="FORD"
 DESCRIPTION="FORD, automatic documentation generator for modern Fortran programs"
@@ -35,6 +35,11 @@ DEPEND="${RDEPEND}"
 DOCS=( CHANGELOG.md README.md README.rst )
 
 distutils_enable_tests pytest
+
+src_prepare() {
+	default
+	sed -i -e 's/"cpp /"'"$(tc-getCPP)"' /' ford/__init__.py || die # bug: 839300
+}
 
 python_test(){
 	# The 'test/test_projects' tests use subprocess, i.e. require FORD to be installed.

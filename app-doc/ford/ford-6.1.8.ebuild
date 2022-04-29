@@ -4,7 +4,7 @@
 EAPI=8
 PYTHON_COMPAT=( python3_{8..10} )
 
-inherit distutils-r1
+inherit distutils-r1 toolchain-funcs
 
 MY_PN="FORD"
 DESCRIPTION="FORD, automatic documentation generator for modern Fortran programs"
@@ -40,6 +40,11 @@ EPYTEST_IGNORE=(
 	# app-doc/ford-6.1.8 'test/test_projects/test_external_project.py' use external url
 	test/test_projects/test_external_project.py
 )
+
+src_prepare() {
+	default
+	sed -i -e 's/"cpp /"'"$(tc-getCPP)"' /' ford/__init__.py || die # bug: 839300
+}
 
 python_test(){
 	# The 'test/test_projects' tests use subprocess, i.e. require FORD to be installed.
