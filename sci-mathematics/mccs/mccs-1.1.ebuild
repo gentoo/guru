@@ -17,12 +17,12 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="glpk lpsolve"
 
-RDEPEND="
+DEPEND="
 	glpk? ( sci-mathematics/glpk )
 	lpsolve? ( sci-mathematics/lpsolve )
 "
-DEPEND="
-	${RDEPEND}
+RDEPEND="
+	${DEPEND}
 	sci-libs/coinor-cbc
 "
 
