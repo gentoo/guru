@@ -6,6 +6,11 @@ EAPI=7
 inherit R-packages
 
 DESCRIPTION='A General-Purpose Package for Dynamic report generation in R'
+HOMEPAGE="
+	https://yihui.org/knitr/
+	https://github.com/yihui/knitr
+	https://cran.r-project.org/package=knitr
+"
 KEYWORDS="~amd64"
 LICENSE='GPL-2+'
 
