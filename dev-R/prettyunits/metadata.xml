@@ -6,10 +6,14 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		Pretty, Human Readable Formatting of Quantities // Pretty, human
-		readable formatting of quantities. Time intervals: '1337000' -
-		'15d 11h 23m 20s'. Vague time intervals: '2674000' - 'about a
-		month ago'. Bytes: '1337' - '1.34 kB'.
-	</longdescription>
+	<longdescription lang="en">Pretty, human readable formatting of quantities.
+Time intervals: '1337000' -&gt; '15d 11h 23m 20s'.
+Vague time intervals: '2674000' -&gt; 'about a month ago'.
+Bytes: '1337' -&gt; '1.34 kB'.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Gabor Csardi</name>
+			<email>csardi.gabor@gmail.com</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

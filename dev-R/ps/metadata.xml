@@ -6,18 +6,13 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		List, Query, Manipulate System Processes // List, query and
-		manipulate all system processes, on 'Windows', 'Linux' and
-		'macOS'.
-	</longdescription>
 	<upstream>
 		<bugs-to>https://github.com/r-lib/ps/issues</bugs-to>
 		<changelog>https://cran.r-project.org/web/packages/ps/news/news.html</changelog>
 		<doc lang="en">https://cran.r-project.org/web/packages/ps/ps.pdf</doc>
 		<maintainer>
-			<email>csardi.gabor@gmail.com</email>
 			<name>Gábor Csárdi</name>
+			<email>csardi.gabor@gmail.com</email>
 		</maintainer>
 		<remote-id type="github">r-lib/ps</remote-id>
 	</upstream>

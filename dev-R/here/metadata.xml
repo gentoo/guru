@@ -6,11 +6,14 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
-		A Simpler Way to Find Your Files // Constructs paths to your
-		project's files. Declare the relative path of a file within
-		your project with 'i_am()'. Use the 'here()' function as a
-		drop-in replacement for 'file.path()', it will always locate
-		the files relative to your project root.
-	</longdescription>
+	<longdescription lang="en">Constructs paths to your project's files.
+Declare the relative path of a file within your project with 'i_am()'.
+Use the 'here()' function as a drop-in replacement for 'file.path()',
+it will always locate the files relative to your project root.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Kirill Müller</name>
+			<email>krlmlr+r@mailbox.org</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

@@ -6,9 +6,10 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		Supporting Functions for Packages Maintained by 'Yihui Xie' //
-		Miscellaneous functions commonly used in other packages
-		maintained by 'Yihui Xie'.
-	</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Yihui Xie</name>
+			<email>xie@yihui.name</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

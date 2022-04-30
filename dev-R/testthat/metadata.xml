@@ -6,10 +6,14 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		Unit Testing for R // Software testing is important, but, in part
-		because it is frustrating and boring, many of us avoid it.
-		'testthat' is a testing framework for R that is easy to learn
-		and use, and integrates with your existing 'workflow'.
-	</longdescription>
+	<longdescription lang="en">Software testing is important, but, in part because it is
+frustrating and boring, many of us avoid it. 'testthat' is a testing
+framework for R that is easy to learn and use, and integrates with
+your existing 'workflow'.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Hadley Wickham</name>
+			<email>hadley@rstudio.com</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

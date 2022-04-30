@@ -6,9 +6,13 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		Call R from R // It is sometimes useful to perform a computation
-		in a separate R process, without affecting the current R
-		process at all. This packages does exactly that.
-	</longdescription>
+	<longdescription lang="en">It is sometimes useful to perform a computation in a
+separate R process, without affecting the current R process at all.
+This packages does exactly that.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Gábor Csárdi</name>
+			<email>csardi.gabor@gmail.com</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

@@ -6,9 +6,10 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		Parsing and Evaluation Tools that Provide More Details than the
-		Default // Parsing and evaluation tools that make it easy to
-		recreate the command line behaviour of R.
-	</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Yihui Xie</name>
+			<email>xie@yihui.name</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

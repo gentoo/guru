@@ -6,10 +6,14 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		Templating Framework for Report Generation // brew implements a
-		templating framework for mixing text and R code for report
-		generation. brew template syntax is similar to PHP, Ruby's erb
-		module, Java Server Pages, and Python's psp module.
-	</longdescription>
+	<longdescription lang="en">Implements a templating framework for mixing text and
+R code for report generation. brew template syntax is similar
+to PHP, Ruby's erb module, Java Server Pages, and Python's psp
+module.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Greg Hunt</name>
+			<email>greg@firmansyah.com</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

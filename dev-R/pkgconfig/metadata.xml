@@ -1,19 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <description>co-maintainers welcome</description>
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
-  <longdescription lang="en">Set configuration options on a per-package basis. Options set by a given package only apply to that package, other packages are unaffected.</longdescription>
-  <upstream>
-    <bugs-to>https://github.com/r-lib/pkgconfig/issues</bugs-to>
-    <doc lang="en">https://cran.r-project.org/web//packages/pkgconfig/pkgconfig.pdf</doc>
-    <maintainer>
-      <name>Gábor Csárdi</name>
-      <email>csardi.gabor@gmail.com</email>
-    </maintainer>
-    <remote-id type="github">r-lib/pkgconfig</remote-id>
-  </upstream>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">Set configuration options on a per-package basis.
+Options set by a given package only apply to that package,
+other packages are unaffected.</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/r-lib/pkgconfig/issues</bugs-to>
+		<doc lang="en">https://cran.r-project.org/web//packages/pkgconfig/pkgconfig.pdf</doc>
+		<maintainer>
+			<name>Gábor Csárdi</name>
+			<email>csardi.gabor@gmail.com</email>
+		</maintainer>
+		<remote-id type="github">r-lib/pkgconfig</remote-id>
+	</upstream>
 </pkgmetadata>

@@ -6,15 +6,17 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		Colorblind-Friendly Color Maps (Lite Version) // Color maps
-		designed to improve graph readability for readers with common
-		forms of color blindness and/or color vision deficiency. The
-		color maps are also perceptually-uniform, both in regular form
-		and also when converted to black-and-white for printing. This
-		is the 'lite' version of the 'viridis' package that also
-		contains 'ggplot2' bindings for discrete and continuous color
-		and fill scales and can be found at
-		https://cran.r-project.org/package=viridis.
-	</longdescription>
+	<longdescription lang="en">Color maps designed to improve graph readability for readers with
+common forms of color blindness and/or color vision deficiency. The color
+maps are also perceptually-uniform, both in regular form and also when
+converted to black-and-white for printing. This is the 'lite' version of the
+'viridis' package that also contains 'ggplot2' bindings for discrete and
+continuous color and fill scales and can be found at
+&lt;https://cran.r-project.org/package=viridis&gt;.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Simon Garnier</name>
+			<email>garnier@njit.edu</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

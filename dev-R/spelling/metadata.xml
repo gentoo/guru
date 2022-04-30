@@ -6,14 +6,15 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		Tools for Spell Checking in R // Spell checking common document
-		formats including latex, markdown, manual pages, and
-		description files. Includes utilities to automate checking of
-		documentation and vignettes as a unit test during 'R CMD
-		check'. Both British and American English are supported out of
-		the box and other languages can be added. In addition, packages
-		may define a 'wordlist' to allow custom terminology without
-		having to abuse punctuation.
-	</longdescription>
+	<longdescription lang="en">Spell checking common document formats including latex, markdown, manual pages,
+and description files. Includes utilities to automate checking of documentation and
+vignettes as a unit test during 'R CMD check'. Both British and American English are
+supported out of the box and other languages can be added. In addition, packages may
+define a 'wordlist' to allow custom terminology without having to abuse punctuation.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Jeroen Ooms</name>
+			<email>jeroen@berkeley.edu</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

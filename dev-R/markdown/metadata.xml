@@ -6,12 +6,14 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		Render Markdown with the C Library 'Sundown' // Provides R
-		bindings to the 'Sundown' Markdown rendering library
-		(https://github.com/vmg/sundown). Markdown is a plain-text
-		formatting syntax that can be converted to 'XHTML' or other
-		formats. See http://en.wikipedia.org/wiki/Markdown for more
-		information about Markdown.
-	</longdescription>
+	<longdescription lang="en">Provides R bindings to the 'Sundown' Markdown rendering library
+(&lt;https://github.com/vmg/sundown&gt;). Markdown is a plain-text formatting
+syntax that can be converted to 'XHTML' or other formats. See
+&lt;http://en.wikipedia.org/wiki/Markdown&gt; for more information about Markdown.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Yihui Xie</name>
+			<email>xie@yihui.name</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

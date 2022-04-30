@@ -6,10 +6,14 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		Find Differences Between R Objects // Compare complex R objects
-		and reveal the key differences.  Designed particularly for use
-		in testing packages where being able to quickly isolate key
-		differences makes understanding test failures much easier.
-	</longdescription>
+	<longdescription lang="en">Compare complex R objects and reveal the key differences.
+Designed particularly for use in testing packages where being able to
+quickly isolate key differences makes understanding test failures much
+easier.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Hadley Wickham</name>
+			<email>hadley@rstudio.com</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

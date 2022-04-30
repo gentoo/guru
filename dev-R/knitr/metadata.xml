@@ -6,9 +6,12 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		A General-Purpose Package for Dynamic Report Generation in R //
-		Provides a general-purpose tool for dynamic report generation
-		in R using Literate Programming techniques.
-	</longdescription>
+	<longdescription lang="en">Provides a general-purpose tool for dynamic report generation in R
+using Literate Programming techniques.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Yihui Xie</name>
+			<email>xie@yihui.name</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>
