@@ -13,5 +13,5 @@ REQUIRED_USE=?? ( ppe transport-shmem ) knem? ( transport-shmem ) reliable-udp? 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Portals4/portals4/archive/71fc5d04c9f8fc9818a05cdc608e2d13af825d83.tar.gz -> portals4-1.0_alpha1_p20190109.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	f6f9415937fb35f6464179e64b6765e7	docs	8ed2a8a28ff109e7a3582c9abb7fe327	optfeature	d524f291c80f9d21ad80fe978e3ca760
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	b46e8992a8126c894fbdc8084fc040c4	docs	8ed2a8a28ff109e7a3582c9abb7fe327	optfeature	d524f291c80f9d21ad80fe978e3ca760
 _md5_=4f5fbff075b2c1bfb0ad8470a9a2bbee
