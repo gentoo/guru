@@ -28,7 +28,7 @@ PROPERTIES="test_network"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	|| ( >=sys-cluster/openmpi-1.10.7[fortran] >=sys-cluster/mpich-3.3[fortran] )
+	|| ( >=sys-cluster/openmpi-4.1.2[fortran] >=sys-cluster/mpich-3.4.3[fortran,mpi-threads,threads] )
 "
 DEPEND="
 	${RDEPEND}
