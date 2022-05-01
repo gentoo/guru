@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
@@ -25,17 +25,18 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 RDEPEND="
 	>=dev-python/sentry-sdk-1.5[${PYTHON_USEDEP}]
 	<dev-python/sentry-sdk-2[${PYTHON_USEDEP}]
-	net-misc/yt-dlp[${PYTHON_USEDEP}]
-	>=dev-python/spotipy-2.16[${PYTHON_USEDEP}]
+	>=net-misc/yt-dlp-2022.1.21[${PYTHON_USEDEP}]
+	>=dev-python/spotipy-2.19[${PYTHON_USEDEP}]
 	<dev-python/spotipy-3[${PYTHON_USEDEP}]
 	>=media-libs/mutagen-1.45[${PYTHON_USEDEP}]
 	<media-libs/mutagen-2[${PYTHON_USEDEP}]
-	>=dev-python/rich-11.0[${PYTHON_USEDEP}]
-	<dev-python/rich-12[${PYTHON_USEDEP}]
+	>=dev-python/rich-12.0[${PYTHON_USEDEP}]
+	<dev-python/rich-13[${PYTHON_USEDEP}]
 "
 
-PATCHES=(
-	"${FILESDIR}"/"${P}"-fuzzy-requirements.patch
-)
-
 distutils_enable_tests pytest
+
+src_prepare() {
+	default
+	sed -i "s/\.0$//" requirements.txt || die "Could not patch requrements"
+}
