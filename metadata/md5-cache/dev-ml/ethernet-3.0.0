@@ -11,5 +11,5 @@ LICENSE=ISC
 RDEPEND=dev-ml/mirage-net dev-ml/ipaddr dev-ml/mirage-profile dev-ml/lwt dev-ml/logs >=dev-ml/cstruct-6.0.0[ppx] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/3.0.0
 SRC_URI=https://github.com/mirage/ethernet/releases/download/v3.0.0/ethernet-v3.0.0.tbz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=f0cf7f713781dda4aa9e7350efe22fd1

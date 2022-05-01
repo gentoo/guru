@@ -11,5 +11,5 @@ LICENSE=Apache-2.0
 RDEPEND=dev-libs/openssl:0= dev-ml/async dev-ml/base dev-ml/core dev-ml/ppx_jane dev-ml/stdio dev-ml/ocaml-ctypes dev-ml/dune-configurator >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/0.14.0
 SRC_URI=https://github.com/janestreet/async_ssl/archive/v0.14.0.tar.gz -> async_ssl-0.14.0.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=5da6cd8f5c9a9df79da0054bfe61f5e5

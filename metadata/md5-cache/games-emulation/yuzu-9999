@@ -12,5 +12,5 @@ PROPERTIES=live
 RDEPEND=>=app-arch/lz4-1.8:= >=app-arch/zstd-1.5 >=dev-libs/boost-1.73:=[context] >=dev-libs/libfmt-8:= >=dev-libs/openssl-1.1:= >=media-libs/opus-1.3.1 >=media-video/ffmpeg-4.3:= >=sys-libs/zlib-1.2 net-libs/mbedtls[cmac] virtual/libusb:1 cubeb? ( media-libs/cubeb ) qt5? ( >=dev-qt/qtcore-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtwidgets-5.15:5 ) sdl? ( >=media-libs/libsdl2-2.0.18 >=dev-libs/inih-52 )
 REQUIRED_USE=|| ( qt5 sdl )
 SLOT=0
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	fef481272d4a8e136a7d8a0fb1329384	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	3c38df051095289667b6f09ebd0cc149	git-r3	b9ac6f96d2a88edb5b351df634dc5e53	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	git-r3	b9ac6f96d2a88edb5b351df634dc5e53	xdg	6024fbc93167fad782e2032933654857
 _md5_=842255f473358f85cd1a5d8b12c42c56

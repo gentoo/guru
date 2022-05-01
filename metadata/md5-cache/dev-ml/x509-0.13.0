@@ -12,5 +12,5 @@ RDEPEND=dev-ml/asn1-combinators dev-ml/cstruct dev-ml/domain-name dev-ml/fmt dev
 RESTRICT=!test? ( test )
 SLOT=0/0.13.0
 SRC_URI=https://github.com/mirleft/ocaml-x509/releases/download/v0.13.0/x509-v0.13.0.tbz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=bdf7fcc1a6ac43366e919a19d3613ab5

@@ -13,5 +13,5 @@ REQUIRED_USE=test? ( mirage unix )
 RESTRICT=!test? ( test )
 SLOT=0/1.1.0
 SRC_URI=https://github.com/mirage/ocaml-tar/archive/refs/tags/v1.1.0.tar.gz -> tar-1.1.0.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=aa9715ab9fc7c68d726dac0f5aa28eb5

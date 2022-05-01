@@ -12,5 +12,5 @@ RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=!test? ( test )
 SLOT=0/2.0.0
 SRC_URI=https://github.com/backtracking/bheap/releases/download/2.0.0/bheap-2.0.0.tbz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=8c3e386fcc0652b1649d57237908c93e

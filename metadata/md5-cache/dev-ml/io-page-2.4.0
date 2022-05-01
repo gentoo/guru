@@ -12,5 +12,5 @@ RDEPEND=dev-ml/bigarray-compat:= dev-ml/cstruct:= >=dev-lang/ocaml-4:=[ocamlopt?
 RESTRICT=!test? ( test )
 SLOT=0/2.4.0
 SRC_URI=https://github.com/mirage/io-page/releases/download/v2.4.0/io-page-v2.4.0.tbz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=520d6a0ed0ffcfe074190e017e8b22cd

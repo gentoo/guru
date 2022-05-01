@@ -12,5 +12,5 @@ RDEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt?] >=dev-ml/asn1-combinators-0.2.0:= >
 RESTRICT=!test? ( test )
 SLOT=0/0.16.0
 SRC_URI=https://github.com/mirleft/ocaml-x509/releases/download/v0.16.0/x509-0.16.0.tbz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=e73e27b2b10766745b0d7afe69d88540

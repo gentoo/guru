@@ -12,5 +12,5 @@ RDEPEND=dev-ml/cstruct dev-ml/mirage-crypto >=dev-lang/ocaml-4:=[ocamlopt?] dev-
 RESTRICT=!test? ( test )
 SLOT=0/1.1.0
 SRC_URI=https://github.com/abeaumont/ocaml-pbkdf/releases/download/1.1.0/pbkdf-1.1.0.tbz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=13f1c24147d23553077bca1c91a7126d

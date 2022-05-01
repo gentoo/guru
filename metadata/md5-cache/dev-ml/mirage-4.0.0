@@ -11,5 +11,5 @@ LICENSE=ISC
 RDEPEND=dev-ml/ipaddr:= dev-ml/bos:= dev-ml/astring:= dev-ml/logs:= dev-ml/lwt:= dev-ml/emile:= >=dev-ml/cmdliner-1.1.1:= dev-ml/base:= dev-ml/result:= dev-ml/rresult:= dev-ml/uri:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/4.0.0
 SRC_URI=https://github.com/mirage/mirage/archive/v4.0.0.tar.gz -> mirage-4.0.0.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=246b6018d5cb708aa2b55e50f6c85636

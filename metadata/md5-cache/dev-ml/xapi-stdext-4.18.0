@@ -11,5 +11,5 @@ LICENSE=LGPL-2.1-with-linking-exception
 RDEPEND=<dev-lang/ocaml-4.14.0 dev-ml/astring dev-ml/fd-send-recv dev-ml/logs dev-ml/ptime dev-ml/xapi-backtrace >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/4.18.0
 SRC_URI=https://github.com/xapi-project/stdext/archive/refs/tags/v4.18.0.tar.gz -> xapi-stdext-4.18.0.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=46705aa2751cad0f770506e4e7541f6f

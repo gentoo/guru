@@ -12,5 +12,5 @@ RDEPEND=dev-ml/cstruct:=[lwt,ppx] dev-ml/mirage-net:= dev-ml/mirage-clock:= dev-
 RESTRICT=!test? ( test )
 SLOT=0/7.1.0
 SRC_URI=https://github.com/mirage/mirage-tcpip/releases/download/v7.1.0/tcpip-7.1.0.tbz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=574f0fc1050504beeb4fd08c7f834a15

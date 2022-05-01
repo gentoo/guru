@@ -11,5 +11,5 @@ LICENSE=LGPL-2.1-with-linking-exception
 RDEPEND=dev-ml/alcotest:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/1.4.0
 SRC_URI=https://github.com/xapi-project/xapi-test-utils/archive/refs/tags/v1.4.0.tar.gz -> xapi-test-utils-1.4.0.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=73a7a9702d7ab09dcfcea1dec9ee858a

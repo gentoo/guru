@@ -10,5 +10,5 @@ LICENSE=MIT
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://pkg.cppget.org/1/beta/libstudxml/libstudxml-1.1.0-b.10.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
 _md5_=32cff7ed28679a78a0cd076cac7cf1df

@@ -12,5 +12,5 @@ RDEPEND=dev-ml/psq >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=!test? ( test )
 SLOT=0/0.3.0
 SRC_URI=https://github.com/pqwy/lru/releases/download/v0.3.0/lru-v0.3.0.tbz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=ed30bce018437725462a09040eb19a4b

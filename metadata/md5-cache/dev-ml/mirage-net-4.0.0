@@ -11,5 +11,5 @@ LICENSE=ISC
 RDEPEND=dev-ml/fmt dev-ml/ipaddr dev-ml/lwt >=dev-ml/cstruct-4.0.0 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/4.0.0
 SRC_URI=https://github.com/mirage/mirage-net/releases/download/v4.0.0/mirage-net-v4.0.0.tbz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=a562b8d6584958abb27e5b6ce9658e5b

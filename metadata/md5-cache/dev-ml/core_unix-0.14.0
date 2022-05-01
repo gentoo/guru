@@ -11,5 +11,5 @@ LICENSE=MIT
 RDEPEND==dev-ml/core-0.14*:= >=dev-lang/ocaml-4.08.0:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/0.14.0
 SRC_URI=https://github.com/janestreet/core_unix/archive/v0.14.0.tar.gz -> core_unix-0.14.0.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=0ab08021474017cc9bb698abb3623013

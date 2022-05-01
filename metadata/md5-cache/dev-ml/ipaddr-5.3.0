@@ -13,5 +13,5 @@ REQUIRED_USE=test? ( cstruct macaddr-cstruct macaddr-sexp sexp )
 RESTRICT=!test? ( test )
 SLOT=0/5.3.0
 SRC_URI=https://github.com/mirage/ocaml-ipaddr/archive/v5.3.0.tar.gz -> ocaml-ipaddr-5.3.0.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=513dc452ca31fa847d5837d3dff466ff

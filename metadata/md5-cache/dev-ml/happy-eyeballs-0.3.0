@@ -11,5 +11,5 @@ LICENSE=ISC
 RDEPEND=dev-ml/domain-name dev-ml/ipaddr dev-ml/logs dev-ml/fmt lwt? ( dev-ml/cmdliner dev-ml/mtime dev-ml/lwt dev-ml/dns[client] dev-ml/duration ) mirage? ( dev-ml/mirage-clock dev-ml/dns[client] dev-ml/lwt dev-ml/tcpip dev-ml/mirage-random dev-ml/mirage-time dev-ml/duration ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/0.3.0
 SRC_URI=https://github.com/roburio/happy-eyeballs/archive/v0.3.0.tar.gz -> happy-eyeballs-0.3.0.tar.gz
-_eclasses_=multiprocessing	61c959fc55c15c00bbb1079d6a71370b	dune	c8f275f00adf2380fe0a57d8a249885c
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
 _md5_=64fca9920986255598343b8d35023bc0
