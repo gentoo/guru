@@ -4,6 +4,8 @@
 
 EAPI=8
 
+inherit xdg-utils
+
 DESCRIPTION="Open Source An Anime Game launcher for Linux with automatic anti-cheat patching and telemetry disabling"
 HOMEPAGE="https://gitlab.com/an-anime-team/an-anime-game-launcher"
 SRC_URI="https://gitlab.com/an-anime-team/aagl-ebuilds/-/archive/${PV}/aagl-ebuilds-${PV}.tar.gz"
@@ -46,7 +48,7 @@ src_prepare(){
 }
 
 src_install(){
-	dodir "/usr/lib/${PN}"
+	insinto "/usr/lib/${PN}"
 	einfo "Inserting Launcher Files"
 	doins -r "squashfs-root/resources.neu"
 	einfo "Inserting Launcher Binary"
@@ -68,4 +70,11 @@ src_install(){
 	doins "${PN}.desktop"
 	einfo "Setting Read Permissions for Launcher Files"
 	chmod -R 775 "${D}/usr/lib/${PN}/public"
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+}
+pkg_postrm() {
+	xdg_desktop_database_update
 }
