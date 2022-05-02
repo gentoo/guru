@@ -32,6 +32,7 @@ app-misc/far2l:sftp - SFTP support in NetRocks
 app-misc/far2l:ssl - FTPS support in NetRocks
 app-misc/far2l:webdav - WebDav support in NetRocks
 app-misc/far2l:wxwidgets - GUI backend support
+app-misc/fastfetch:chafa - Enables text/graphics renderer with media-gfx/chafa
 app-misc/fastfetch:pci - Enables reading GPU via sys-apps/pciutils
 app-misc/fastfetch:vulkan - Enables reading GPU via media-libs/vulkan-loader
 app-misc/fastfetch:xfce - Enables support for XFCE config
@@ -180,6 +181,7 @@ dev-ml/rpc:html - html documentation generator
 dev-ml/rpc:js - Bindings for js_of_ocaml
 dev-ml/tar:mirage - Read and write tar format files via MirageOS interfaces
 dev-ml/tar:unix - Decode and encode tar format files from Unix
+dev-ml/tiny_httpd:camlzip - Interface to camlzip for tiny_httpd
 dev-ml/tls:async - Async laye
 dev-ml/tls:mirage - MirageOS layer
 dev-ml/uri:re - This is an OCaml implementation of the RFC3986 specification for parsing URI or URLs
@@ -313,7 +315,9 @@ media-gfx/bonzomatic:system-kissfft - Use the systems installed version of Kissf
 media-gfx/bonzomatic:system-stb - Use the systems installed version of STB (upstream-unsupported)
 media-gfx/bonzomatic:wayland - Build non-system-glfw for wayland instead of X11
 media-gfx/grafx2:ttf - Install TTF Fonts
+media-gfx/nsxiv:gif - Add animated gif support
 media-gfx/nsxiv:statusbar - Add statusbar support
+media-gfx/nsxiv:webp - Add animated webp support
 media-gfx/superslicer:profiles - Install additional 3d printer profiles.
 media-libs/alvr:client - Build ALVR client and launcher
 media-libs/alvr:server - Build ALVR server
@@ -457,8 +461,14 @@ sci-libs/meschach:segmem - should be set if you are working with a machine or co
 sci-libs/meschach:single-precision - single precision
 sci-libs/meschach:sparse - incorporate sparse matrix functions
 sci-libs/meschach:vunroll - unroll low level loops on vectors
+sci-mathematics/clasp:tools - whether or not to build the clasp application
+sci-mathematics/clingo:tools - whether or not to build the clingo tool
 sci-mathematics/frama-c-aorai:eva - Build support for the Eva plugin
 sci-mathematics/frama-c-wp:coq - Precompile coq libraries
+sci-mathematics/libpotassco:tools - whether or not to build lpconvert tool
+sci-mathematics/mccs:glpk - enable GLPK as solver
+sci-mathematics/mccs:lpsolve - enable lpsolve as solver
+sci-mathematics/minisat+:bignum - Build the bignum variant of minisat+
 sci-mathematics/the-omega-project:gui - Build petit with gui
 sci-mathematics/the-omega-project:htmldoc - Build html documentation
 sci-mathematics/the-omega-project:petit - Build Petit, a educational/research tool for analyzing array data dependences
@@ -575,7 +585,7 @@ sys-boot/limine:bios-cd - Enables BIOS boot support for CDs.
 sys-boot/limine:bios-pxe - Enables BIOS PXE boot support.
 sys-boot/limine:cd-efi - Enable building cd-efi.bin using sys-fs/mtools. This flag was previously known as eltorito-efi.
 sys-boot/limine:eltorito-efi - Enable building eltorito-efi.bin using sys-fs/mtools.
-sys-boot/limine:limine-deploy - Enables building the limine-deploy program. This flag was previously known as limine-deploy.
+sys-boot/limine:limine-deploy - Enables building the limine-deploy program. This flag was previously known as limine-install.
 sys-boot/limine:limine-install - Enables building the limine-install program.
 sys-boot/limine:uefi - Enable UEFI support.
 sys-boot/limine:uefi32 - Enable 32-bit UEFI support.

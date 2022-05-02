@@ -1,0 +1,14 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/gmp sci-mathematics/minisat sys-libs/zlib
+DESCRIPTION=solver for pseudo-Boolean constraints
+EAPI=8
+HOMEPAGE=https://github.com/niklasso/minisatp/tree/master
+INHERIT=cmake
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-libs/gmp sci-mathematics/minisat sys-libs/zlib
+SLOT=0
+SRC_URI=https://github.com/niklasso/minisatp/archive/d91742bcd18bf9dc9b5e94f48a4aa59d3c954fd2.tar.gz -> minisatp-0.1_p20121002.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
+_md5_=c0a40ce2a8848e6b2f61b99736581cb0

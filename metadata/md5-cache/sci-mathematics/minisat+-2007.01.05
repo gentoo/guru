@@ -1,0 +1,15 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install
+DEPEND=bignum? ( dev-libs/gmp ) sys-libs/zlib
+DESCRIPTION=solver for pseudo-Boolean constraints
+EAPI=8
+HOMEPAGE=https://minisat.se/MiniSat+.html
+INHERIT=toolchain-funcs
+IUSE=bignum
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=bignum? ( dev-libs/gmp ) sys-libs/zlib
+SLOT=0
+SRC_URI=https://minisat.se/downloads/minisat+_2007-Jan-05.zip
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
+_md5_=5ee99d765ed73fa21d20b6907782ed7c

@@ -1,0 +1,14 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-qt/qtcore:5 dev-qt/qtwidgets:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtmultimedia:5 dev-qt/qtdbus:5 dev-libs/openssl:=
+DESCRIPTION=Chat client for https://twitch.tv
+EAPI=8
+HOMEPAGE=https://chatterino.com/
+INHERIT=cmake optfeature
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtwidgets:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtmultimedia:5 dev-qt/qtdbus:5 dev-libs/openssl:=
+SLOT=0
+SRC_URI=https://github.com/Chatterino/chatterino2/archive/v2.3.5.tar.gz -> chatterino-2.3.5.tar.gz https://github.com/Chatterino/libcommuni/archive/a7b32cd.tar.gz -> libcommuni-a7b32cd.tar.gz https://github.com/Chatterino/qtkeychain/archive/de95462.tar.gz -> qtkeychain-de95462.tar.gz https://github.com/Tencent/rapidjson/archive/d87b698.tar.gz -> rapidjson-d87b698.tar.gz https://github.com/zaphoyd/websocketpp/archive/1b11fd3.tar.gz -> websocketpp-1b11fd3.tar.gz https://github.com/pajlada/serialize/archive/7d37cbf.tar.gz -> serialize-7d37cbf.tar.gz https://github.com/pajlada/signals/archive/25e4ec3.tar.gz -> signals-25e4ec3.tar.gz https://github.com/pajlada/settings/archive/04792d8.tar.gz -> settings-04792d8.tar.gz https://github.com/arsenm/sanitizers-cmake/archive/99e159e.tar.gz -> sanitizers-cmake-99e159e.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	optfeature	d524f291c80f9d21ad80fe978e3ca760
+_md5_=7a4022602a6f8f38a38fda848f9f1ee8

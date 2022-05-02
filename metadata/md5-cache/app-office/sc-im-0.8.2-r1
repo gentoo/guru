@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare setup
+DEPEND=sys-libs/ncurses lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) ods? ( dev-libs/libxml2 dev-libs/libzip ) plots? ( sci-visualization/gnuplot ) tmux? ( app-misc/tmux ) wayland? ( gui-apps/wl-clipboard ) X? ( x11-misc/xclip ) xls? ( dev-libs/libxls ) xlsx? ( dev-libs/libxlsxwriter dev-libs/libxml2 dev-libs/libzip )
+DESCRIPTION=Spreadsheet Calculator Improvised -- An ncurses spreadsheet program for terminal
+EAPI=7
+HOMEPAGE=https://github.com/andmarti1424/sc-im
+INHERIT=lua-single toolchain-funcs flag-o-matic
+IUSE=X plots wayland xls xlsx lua ods tmux lua_single_target_luajit lua_single_target_lua5-1
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-4
+RDEPEND=sys-libs/ncurses lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) ods? ( dev-libs/libxml2 dev-libs/libzip ) plots? ( sci-visualization/gnuplot ) tmux? ( app-misc/tmux ) wayland? ( gui-apps/wl-clipboard ) X? ( x11-misc/xclip ) xls? ( dev-libs/libxls ) xlsx? ( dev-libs/libxlsxwriter dev-libs/libxml2 dev-libs/libzip )
+REQUIRED_USE=lua? ( ^^ ( lua_single_target_luajit lua_single_target_lua5-1 ) )
+SLOT=0
+SRC_URI=https://github.com/andmarti1424/sc-im/archive/v0.8.2.tar.gz -> sc-im-0.8.2.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
+_md5_=117475d2d4481e4b58b882ac4ebb93a2

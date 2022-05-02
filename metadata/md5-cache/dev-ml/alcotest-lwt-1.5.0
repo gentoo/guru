@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/fmt:= ~dev-ml/alcotest-1.5.0:= dev-ml/lwt:= dev-ml/logs:= test? ( <dev-ml/cmdliner-1.1.0:= dev-ml/re:= ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Lwt-based helpers for Alcotest
+EAPI=8
+HOMEPAGE=https://github.com/mirage/alcotest
+INHERIT=dune multiprocessing
+IUSE=ocamlopt test
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/fmt:= ~dev-ml/alcotest-1.5.0:= dev-ml/lwt:= dev-ml/logs:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/1.5.0
+SRC_URI=https://github.com/mirage/alcotest/archive/1.5.0.tar.gz -> alcotest-1.5.0.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=558bead9dad4ba928147d64975077a9e
