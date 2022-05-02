@@ -20,7 +20,7 @@ if [[ "${PV}" == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/Protostars/${GIT_PN}.git"
 else
 	SRC_URI="https://github.com/Protostars/${GIT_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~m68k ~mips ~ppc ~ppc64 ~s390 ~x86"
+	KEYWORDS="~amd64 ~arm ~m68k ~mips ~ppc ~ppc64 ~x86"
 	S="${WORKDIR}/${GIT_PN}-${PV}"
 fi
 
