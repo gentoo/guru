@@ -3,7 +3,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 name="pwrstatd daemon"
-description=""
+description="Daemon for PowerPanel"
 command=/usr/sbin/pwrstatd
 command_args="${pwrstatd_args}"
 command_background=true

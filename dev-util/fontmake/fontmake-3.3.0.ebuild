@@ -37,6 +37,8 @@ BDEPEND="
 	test? (
 		media-gfx/fontdiff
 		dev-python/mock[${PYTHON_USEDEP}]
+		>=dev-python/ttfautohint-py-0.5.0[${PYTHON_USEDEP}]
+		>=dev-python/MutatorMath-3.0.1[${PYTHON_USEDEP}]
 	)
 "
 PATCHES=(
@@ -52,5 +54,5 @@ pkg_setup() {
 pkg_postinst() {
 	optfeature "mutatormath support" >=dev-python/MutatorMath-3.0.1[${PYTHON_USEDEP}]
 	optfeature "pathops support" >=dev-python/skia-pathops-0.3.0[${PYTHON_USEDEP}]
-	optfeature "autohint support" >=dev-python/ttfautohint-0.5.0[${PYTHON_USEDEP}]
+	optfeature "autohint support" >=dev-python/ttfautohint-py-0.5.0[${PYTHON_USEDEP}]
 }

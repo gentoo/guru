@@ -6,10 +6,13 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		Read and Write '.ini' Files // Parse simple '.ini' configuration
-		files to an structured list. Users can manipulate this
-		resulting list with lapply() functions. This same structured
-		list can be used to write back to file after modifications.
-	</longdescription>
+	<longdescription lang="en">Parse simple '.ini' configuration files to an structured list. Users
+can manipulate this resulting list with lapply() functions. This same
+structured list can be used to write back to file after modifications.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>David Valentim Dias</name>
+			<email>dvdscripter@gmail.com</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

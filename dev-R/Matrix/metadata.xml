@@ -6,14 +6,10 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		Sparse and Dense Matrix Classes and Methods // A rich hierarchy
-		of matrix classes, including triangular, symmetric, and
-		diagonal matrices, both dense and sparse and with pattern,
-		logical and numeric entries.   Numerous methods for and
-		operations on these matrices, using 'LAPACK' and 'SuiteSparse'
-		libraries.
-	</longdescription>
+	<longdescription lang="en">A rich hierarchy of matrix classes, including triangular,
+symmetric, and diagonal matrices, both dense and sparse and with
+pattern, logical and numeric entries.	 Numerous methods for and
+operations on these matrices, using 'LAPACK' and 'SuiteSparse' libraries.</longdescription>
 	<upstream>
 		<bugs-to>https://r-forge.r-project.org/tracker/?group_id=61</bugs-to>
 		<doc lang="en">https://cran.r-project.org/web/packages/Matrix/Matrix.pdf</doc>

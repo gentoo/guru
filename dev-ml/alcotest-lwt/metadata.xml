@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -7,6 +7,12 @@
 		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<upstream>
+		<doc>https://mirage.github.io/alcotest</doc>
+		<bugs-to>https://github.com/mirage/alcotest/issues</bugs-to>
 		<remote-id type="github">mirage/alcotest</remote-id>
+		<maintainer>
+			<name>Thomas Gazagnaire</name>
+			<email>thomas@gazagnaire.org</email>
+		</maintainer>
 	</upstream>
 </pkgmetadata>

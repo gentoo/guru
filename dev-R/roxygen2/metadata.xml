@@ -6,12 +6,15 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		In-Line Documentation for R // Generate your Rd documentation,
-		'NAMESPACE' file, and collation field using specially formatted
-		comments. Writing documentation in-line with code makes it
-		easier to keep your documentation up-to-date as your
-		requirements change. 'Roxygen2' is inspired by the 'Doxygen'
-		system for C++.
-	</longdescription>
+	<longdescription lang="en">Generate your Rd documentation, 'NAMESPACE' file,
+and collation field using specially formatted comments. Writing
+documentation in-line with code makes it easier to keep your
+documentation up-to-date as your requirements change. 'Roxygen2' is
+inspired by the 'Doxygen' system for C++.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Hadley Wickham</name>
+			<email>hadley@rstudio.com</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

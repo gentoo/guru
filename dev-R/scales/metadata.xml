@@ -6,9 +6,12 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		Scale Functions for Visualization // Graphical scales map data to
-		aesthetics, and provide methods for automatically determining
-		breaks and labels for axes and legends.
-	</longdescription>
+	<longdescription lang="en">Graphical scales map data to aesthetics, and provide methods
+for automatically determining breaks and labels for axes and legends.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Hadley Wickham</name>
+			<email>hadley@rstudio.com</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

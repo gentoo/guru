@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
-  <upstream>
-    <remote-id type="github">mirage/pecu</remote-id>
-  </upstream>
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">A non-blocking encoder/decoder of Quoted-Printable according to
+RFC2045 and RFC2047 (about encoded-word). Useful to translate contents of emails.</longdescription>
+	<upstream>
+		<doc>https://mirage.github.io/pecu/</doc>
+		<bugs-to>https://github.com/mirage/pecu/issues</bugs-to>
+		<remote-id type="github">mirage/pecu</remote-id>
+		<maintainer>
+			<name>Romain Calascibetta</name>
+			<email>romain.calascibetta@gmail.com</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

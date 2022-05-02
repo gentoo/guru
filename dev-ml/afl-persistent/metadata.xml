@@ -6,7 +6,15 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
+	<longdescription lang="en">afl-fuzz normally works by repeatedly fork()ing the program being
+tested. using this package, you can run afl-fuzz in 'persistent mode',
+which avoids repeated forking and is much faster.</longdescription>
 	<upstream>
+		<bugs-to>https://github.com/stedolan/ocaml-afl-persistent/issues</bugs-to>
 		<remote-id type="github">stedolan/ocaml-afl-persistent</remote-id>
+		<maintainer>
+			<name>Stephen Dolan</name>
+			<email>stephen.dolan@cl.cam.ac.uk</email>
+		</maintainer>
 	</upstream>
 </pkgmetadata>

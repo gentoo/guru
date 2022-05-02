@@ -1,0 +1,25 @@
+diff --git a/buildtools/meson.build b/buildtools/meson.build
+index e1c600e..47496b8 100644
+--- a/buildtools/meson.build
++++ b/buildtools/meson.build
+@@ -24,18 +24,11 @@ binutils_avx512_check = (py3 + files('binutils-avx512-check.py') +
+ # select library and object file format
+ pmdinfo = py3 + files('gen-pmdinfo-cfile.py') + [meson.current_build_dir()]
+ pmdinfogen = py3 + files('pmdinfogen.py')
++ar = find_program('ar')
++pmdinfo += ar
+ if host_machine.system() == 'windows'
+-    if cc.get_id() == 'gcc'
+-        pmdinfo += 'ar'
+-    else
+-        pmdinfo += 'llvm-ar'
+-    endif
+     pmdinfogen += 'coff'
+-elif host_machine.system() == 'freebsd'
+-    pmdinfo += 'llvm-ar'
+-    pmdinfogen += 'elf'
+ else
+-    pmdinfo += 'ar'
+     pmdinfogen += 'elf'
+ endif
+ 

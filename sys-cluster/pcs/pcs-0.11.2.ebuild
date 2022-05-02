@@ -16,12 +16,11 @@ S="${WORKDIR}/all/${P}"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64"
-IUSE="systemd"
 SLOT=0
 
 DEPEND="
-		dev-libs/libffi
-		sys-apps/coreutils
+	dev-libs/libffi
+	sys-apps/coreutils
 "
 RDEPEND="
 	${DEPEND}
@@ -56,19 +55,23 @@ ruby_add_rdepend "
 		dev-ruby/daemons
 		dev-ruby/ethon
 		dev-ruby/eventmachine
+		dev-ruby/json
 		dev-ruby/mustermann
 		dev-ruby/open4
 		dev-ruby/rack
 		dev-ruby/rack-protection
 		dev-ruby/rack-test
 		dev-ruby/sinatra
-		www-servers/thin
+		dev-ruby/test-unit
 		dev-ruby/webrick
-		dev-ruby/json"
+		www-servers/thin
+"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-PATCHES="${FILESDIR}/pcs-0.11-gentoo-support.patch
-		${FILESDIR}/remove_bashism.patch"
+PATCHES="
+	${FILESDIR}/pcs-0.11-gentoo-support.patch
+	${FILESDIR}/remove_bashism.patch
+"
 
 src_prepare() {
 	default
@@ -97,18 +100,14 @@ src_install() {
 	keepdir /var/lib/pcsd
 
 	#fix statedir
-	sed -i "${D}/usr/share/pcsd/pcsd" -e 's/\/var\/lib\/lib\//\/var\/lib\//g'
+	sed -i "${D}/usr/share/pcsd/pcsd" -e 's/\/var\/lib\/lib\//\/var\/lib\//g' || die
 
 	# custom service file for openRC
-	if ! use systemd ; then
-		newinitd "${FILESDIR}/pcs-0.11.initd" pcs
-		newinitd "${FILESDIR}/pcsd-0.11.initd" pcsd
-	fi
+	newinitd "${FILESDIR}/pcs-0.11.initd" pcs
+	newinitd "${FILESDIR}/pcsd-0.11.initd" pcsd
 
-	if use systemd ; then
-		systemd_newunit "${S}/pcsd/pcsd.service.in" "pcs.service"
-		systemd_newunit "${S}/pcsd/pcsd-ruby.service.in" "pcsd.service"
-	fi
+	systemd_newunit "${S}/pcsd/pcsd.service.in" "pcs.service"
+	systemd_newunit "${S}/pcsd/pcsd-ruby.service.in" "pcsd.service"
 
 	python_optimize
 }

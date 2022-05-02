@@ -1,0 +1,26 @@
+diff --git a/conf/pwrstatd.conf b/conf/pwrstatd.conf-new
+index 548fc5e..c260823 100644
+--- a/conf/pwrstatd.conf
++++ b/conf/pwrstatd.conf
+@@ -18,8 +18,8 @@ powerfail-delay = 60
+ powerfail-active = yes
+ 
+ # Assign a path of script file for event of Power Failure.
+-# The default is /etc/pwrstatd-powerfail.sh
+-powerfail-cmd-path = /etc/pwrstatd-powerfail.sh
++# The default is /opt/powerpanel/pwrstatd-powerfail.sh
++powerfail-cmd-path = /opt/powerpanel/pwrstatd-powerfail.sh
+ 
+ # How much time in seconds to take script running for event of Power Failure.
+ # The allowed range is 0 ~ 3600. Default is 0 sec. 
+@@ -50,8 +50,8 @@ runtime-threshold = 300
+ lowbatt-active = yes
+ 
+ # Assign a path of script file for event of Battery Low.
+-# The default is /etc/pwrstatd-lowbatt.sh
+-lowbatt-cmd-path = /etc/pwrstatd-lowbatt.sh
++# The default is /opt/powerpanel/pwrstatd-lowbatt.sh
++lowbatt-cmd-path = /opt/powerpanel/pwrstatd-lowbatt.sh
+ 
+ # How much time in seconds to take script running for event of Battery Low.
+ # The allowed range is 0 ~ 60. Default is 0 sec.

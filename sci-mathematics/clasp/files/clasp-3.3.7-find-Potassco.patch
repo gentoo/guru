@@ -1,0 +1,11 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -98,7 +98,7 @@
+ 
+ # Check for or build external dependency
+ if (NOT CLASP_USE_LOCAL_LIB_POTASSCO)
+-	find_package(potassco 1.0 REQUIRED CONFIG)
++	find_package(Potassco 1.0 REQUIRED CONFIG)
+ else()
+ 	if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/libpotassco/CMakeLists.txt)
+ 		message(STATUS "Potassco is not installed - fetching submodule")

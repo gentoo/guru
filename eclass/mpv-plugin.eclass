@@ -59,22 +59,22 @@ _mpv-plugin_set_globals() {
 
 	MPV_PKG_DEP="media-video/mpv"
 	case ${USE_MPV:-depend} in
-		 rdepend)
-			  ;;
-		 depend)
-			  MPV_PKG_DEP+=":="
-			  ;;
-		 *)
-			  die "Invalid USE_MPV=${USE_MPV}"
-			  ;;
+		rdepend)
+			;;
+		depend)
+			MPV_PKG_DEP+=":="
+			;;
+		*)
+			die "Invalid USE_MPV=${USE_MPV}"
+			;;
 	esac
 	if [ ${MPV_REQ_USE} ]; then
-		 MPV_PKG_DEP+="[${MPV_REQ_USE}]"
+		MPV_PKG_DEP+="[${MPV_REQ_USE}]"
 	fi
 
 	RDEPEND="${MPV_PKG_DEP}"
 	if [[ ${USE_MPV} == depend ]]; then
-		 DEPEND="${MPV_PKG_DEP}"
+		DEPEND="${MPV_PKG_DEP}"
 	fi
 }
 _mpv-plugin_set_globals
@@ -85,6 +85,16 @@ _mpv-plugin_set_globals
 # @DESCRIPTION:
 # Array containing the list of files to be installed.
 
+# @FUNCTION: _mpv-plugin_has_main
+# @INTERNAL
+# @USAGE:
+# @DESCRIPTION:
+# Checks for the existance of a file named main. This means the plugin needs
+# all files to be installed together, and mpv will only run the one called main.
+_mpv-plugin_has_main() {
+	[[ " ${MPV_PLUGIN_FILES[*]} " =~ " main."[[:alnum:]]+" " ]]
+}
+
 # @FUNCTION: mpv-plugin_src_install
 # @USAGE:
 # @DESCRIPTION:
@@ -93,14 +103,26 @@ _mpv-plugin_set_globals
 # The ebuild must specify the file list in the MPV_PLUGIN_FILES array.
 mpv-plugin_src_install() {
 	if [[ ! ${MPV_PLUGIN_FILES} ]]; then
-		 die "${ECLASS}: no files specified in MPV_PLUGIN_FILES, cannot install"
+		die "${ECLASS}: no files specified in MPV_PLUGIN_FILES, cannot install"
 	fi
 
-	insinto /usr/$(get_libdir)/mpv
+	local MPV_INSTALL_DIR="/usr/$(get_libdir)/mpv"
+	if _mpv-plugin_has_main; then
+		MPV_INSTALL_DIR+="/${PN}"
+	fi
+	insinto "${MPV_INSTALL_DIR}"
+
 	for f in "${MPV_PLUGIN_FILES[@]}"; do
-		 doins "${f}"
-		 use autoload && dosym -r "/usr/$(get_libdir)/mpv/${f}" "/etc/mpv/scripts/${f}"
+		doins "${f}"
 	done
+
+	use autoload && if _mpv-plugin_has_main; then
+		dosym -r "${MPV_INSTALL_DIR}" "/etc/mpv/scripts/${PN}"
+	else
+		for f in "${MPV_PLUGIN_FILES[@]}"; do
+			dosym -r "${MPV_INSTALL_DIR}/${f}" "/etc/mpv/scripts/${f}"
+		done
+	fi
 
 	einstalldocs
 }
@@ -111,16 +133,20 @@ mpv-plugin_src_install() {
 # Warns the user of the existence of the autoload use flag.
 mpv-plugin_pkg_postinst() {
 	if ! use autoload; then
-		 elog
-		 elog "The plugin has not been installed to /etc/mpv/scripts for autoloading."
-		 elog "You have to activate it manually by passing"
-		 for f in "${MPV_PLUGIN_FILES[@]}"; do
-			  elog "  \"${EPREFIX}/usr/$(get_libdir)/mpv/${f}\""
-		 done
-		 elog "as script option to mpv or symlinking the library to \"scripts/\" in your mpv"
-		 elog "config directory."
-		 elog "Alternatively, activate the autoload use flag."
-		 elog
+		elog
+		elog "The plugin has not been installed to /etc/mpv/scripts for autoloading."
+		elog "You have to activate it manually by passing"
+		if _mpv-plugin_has_main; then
+			elog "  \"${EPREFIX}/usr/$(get_libdir)/mpv/${PN}\""
+		else
+			for f in "${MPV_PLUGIN_FILES[@]}"; do
+				elog "  \"${EPREFIX}/usr/$(get_libdir)/mpv/${f}\""
+			done
+		fi
+		elog "as script option to mpv or symlinking the library to \"scripts/\" in your mpv"
+		elog "config directory."
+		elog "Alternatively, activate the autoload use flag."
+		elog
 	fi
 }
 

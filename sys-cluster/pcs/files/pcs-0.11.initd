@@ -10,7 +10,7 @@ command_args="${pcsd_args}"
 PIDFILE=/var/run/$name.pid
 
 # load defaults
-if [ -f /etc/default/pcsd ]; then source /etc/default/pcsd; fi
+if [ -f /etc/default/pcsd ]; then . /etc/default/pcsd; fi
 
 depend() {
         need net pcsd

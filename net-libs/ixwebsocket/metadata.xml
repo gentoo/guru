@@ -8,4 +8,7 @@
 	<use>
 		<flag name="ws">Build the ws utility</flag>
 	</use>
+	<slots>
+		<subslots>Correspond to SONAME</subslots>
+	</slots>
 </pkgmetadata>

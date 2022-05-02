@@ -1,0 +1,25 @@
+diff --git a/google-drive-ocamlfuse.opam b/google-drive-ocamlfuse.opam
+index 2280d96..90b0288 100644
+--- a/google-drive-ocamlfuse.opam
++++ b/google-drive-ocamlfuse.opam
+@@ -18,7 +18,7 @@ depends: [
+   "ocamlfuse" {>= "2.7.1-cvs6"}
+   "cryptokit"
+   "extlib"
+-  "ounit" {with-test}
++  "ounit2" {with-test}
+   "sqlite3"
+   "tiny_httpd"
+ ]
+diff --git a/test/dune b/test/dune
+index 04b68da..b24c517 100644
+--- a/test/dune
++++ b/test/dune
+@@ -1,6 +1,6 @@
+ (executable
+  (flags :standard -w -3)
+- (libraries threads google_drive_ocamlfuse oUnit)
++ (libraries threads google_drive_ocamlfuse ounit2)
+  (name testSuite))
+ 
+ (alias

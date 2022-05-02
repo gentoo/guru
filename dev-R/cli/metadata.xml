@@ -1,20 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <description>co-maintainers welcome</description>
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
-  <longdescription lang="en">A suite of tools to build attractive command line interfaces ('CLIs'), from semantic elements: headings, lists, alerts, paragraphs, etc. Supports custom themes via a 'CSS'-like language. It also contains a number of lower level 'CLI' elements: rules, boxes, trees, and 'Unicode' symbols with 'ASCII' alternatives. It integrates with the 'crayon' package to support 'ANSI' terminal colors.</longdescription>
-  <upstream>
-    <bugs-to>https://github.com/r-lib/cli/issues</bugs-to>
-    <doc lang="en">https://cran.r-project.org/web//packages/cli/cli.pdf</doc>
-    <changelog>https://cran.r-project.org/web//packages/cli/news/news.html</changelog>
-    <maintainer>
-      <name>Gábor Csárdi</name>
-      <email>csardi.gabor@gmail.com</email>
-    </maintainer>
-    <remote-id type="github">r-lib/cli</remote-id>
-  </upstream>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">A suite of tools to build attractive command line interfaces
+('CLIs'), from semantic elements: headings, lists, alerts, paragraphs,
+etc. Supports custom themes via a 'CSS'-like language. It also
+contains a number of lower level 'CLI' elements: rules, boxes, trees,
+and 'Unicode' symbols with 'ASCII' alternatives. It support ANSI
+colors and text styles as well.</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/r-lib/cli/issues</bugs-to>
+		<doc lang="en">https://cran.r-project.org/web//packages/cli/cli.pdf</doc>
+		<changelog>https://cran.r-project.org/web//packages/cli/news/news.html</changelog>
+		<maintainer>
+			<name>Gábor Csárdi</name>
+			<email>csardi.gabor@gmail.com</email>
+		</maintainer>
+		<remote-id type="github">r-lib/cli</remote-id>
+	</upstream>
 </pkgmetadata>

@@ -6,9 +6,12 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		Support Functions and Datasets for Venables and Ripley's MASS //
-		Functions and datasets to support Venables and Ripley, "Modern
-		Applied Statistics with S" (4th edition, 2002).
-	</longdescription>
+	<longdescription lang="en">Functions and datasets to support Venables and Ripley,
+"Modern Applied Statistics with S" (4th edition, 2002).</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Brian Ripley</name>
+			<email>ripley@stats.ox.ac.uk</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

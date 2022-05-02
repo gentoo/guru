@@ -6,9 +6,10 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription lang="en">
-		Safely Access the RStudio API // Access the RStudio API (if
-		available) and provide informative error messages when it's
-		not.
-	</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Kevin Ushey</name>
+			<email>kevin@rstudio.com</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

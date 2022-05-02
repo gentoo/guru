@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-   <maintainer type="person">
-        <description>co-maintainers welcome</description>
-        <email>lssndrbarbieri@gmail.com</email>
-        <name>Alessandro Barbieri</name>
-    </maintainer>
-    <upstream>
-        <remote-id type="github">hannesm/gmap</remote-id>
-    </upstream>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">Gmap exposes the functor `Make` which takes a key type (a
+[GADT](https://en.wikipedia.org/wiki/Generalized_algebraic_data_type) 'a key)
+and outputs a type-safe Map where each 'a key is associated with a 'a value.
+This removes the need for additional packing.	It uses OCaml's stdlib
+[Map](http://caml.inria.fr/pub/docs/manual-ocaml/libref/Map.html) data
+structure.</longdescription>
+	<upstream>
+		<doc>https://hannesm.github.io/gmap/doc</doc>
+		<bugs-to>https://github.com/hannesm/gmap/issues</bugs-to>
+		<remote-id type="github">hannesm/gmap</remote-id>
+		<maintainer>
+			<name>Hannes Mehnert</name>
+			<email>hannes@mehnert.org</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

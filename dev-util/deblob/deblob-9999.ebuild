@@ -6,6 +6,7 @@ EAPI=8
 inherit git-r3
 
 DESCRIPTION="remove binary executables from a directory"
+HOMEPAGE="https://git.sr.ht/~lanodan/deblob"
 EGIT_REPO_URI="https://git.sr.ht/~lanodan/deblob"
 LICENSE="BSD"
 SLOT="0"

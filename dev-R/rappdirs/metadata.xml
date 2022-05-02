@@ -6,11 +6,14 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<longdescription>
-		Application Directories: Determine Where to Save Data, Caches,
-		and Logs // An easy way to determine which directories on the
-		users computer you should use to save data, caches and logs. A
-		port of Python's 'Appdirs'
-		(https://github.com/ActiveState/appdirs) to R.
-	</longdescription>
+	<longdescription lang="en">An easy way to determine which directories on the
+users computer you should use to save data, caches and logs. A port of
+Python's 'Appdirs' (&lt;https://github.com/ActiveState/appdirs&gt;) to
+R.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Hadley Wickham</name>
+			<email>hadley@rstudio.com</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>

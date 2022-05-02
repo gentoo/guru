@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
-  <upstream>
-    <remote-id type="github">mirage/ocaml-cow</remote-id>
-  </upstream>
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">Writing web-applications requires a lot of skills: HTML, XML, JSON and
+Markdown, to name but a few!	This library provides OCaml combinators
+for these web formats.</longdescription>
+	<upstream>
+		<doc>http://mirage.github.io/ocaml-cow/</doc>
+		<bugs-to>https://github.com/mirage/ocaml-cow/issues</bugs-to>
+		<remote-id type="github">mirage/ocaml-cow</remote-id>
+		<maintainer>
+			<name>Anil Madhavapeddy</name>
+			<email>anil@recoil.org</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>
