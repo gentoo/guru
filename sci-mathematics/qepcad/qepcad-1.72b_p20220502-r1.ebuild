@@ -3,7 +3,7 @@
 
 EAPI=8
 
-COMMIT="810db4ee13667d5fd2e444b5709d303fed1791ff"
+COMMIT="f79047ad332ee378d876dcbdc8725c3b1f5f7bb7"
 
 inherit cmake optfeature
 
@@ -43,8 +43,6 @@ src_install() {
 	cmake_src_install
 	docinto cad2d
 	dodoc cad2d/README
-	echo "qe=/" > 99-qepcad || die
-	doenvd 99-qepcad
 }
 
 pkg_postinst() {
