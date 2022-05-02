@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="examples test +threads +tools"
 
-RDEPEND="sci-mathematics/libpotassco:="
+RDEPEND="sci-libs/libpotassco:="
 DEPEND="${RDEPEND}"
 
 RESTRICT="!test? ( test )"
