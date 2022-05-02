@@ -23,7 +23,7 @@ IUSE="examples lua python test +tools"
 
 RDEPEND="
 	sci-mathematics/clasp:=[tools]
-	sci-mathematics/libpotassco:=
+	sci-libs/libpotassco:=
 	lua? ( ${LUA_DEPS} )
 	python? ( ${PYTHON_DEPS} )
 "

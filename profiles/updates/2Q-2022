@@ -1,1 +1,2 @@
 move app-misc/ssmtool app-misc/vocabsieve
+move sci-mathematics/libpotassco sci-libs/libpotassco

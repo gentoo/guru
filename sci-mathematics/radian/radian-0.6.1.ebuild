@@ -44,7 +44,7 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${P}-no-pytest-runner.patch" )
+PATCHES=( "${FILESDIR}/${PN}-0.6.0-no-pytest-runner.patch" )
 
 distutils_enable_tests pytest
 

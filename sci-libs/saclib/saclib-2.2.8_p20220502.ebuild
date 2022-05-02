@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake
 
-COMMIT="94ca9329bcb3ddbf99f34fe6417c3f76ea44248e"
+COMMIT="ea3b65a61b762fc7f929ad9beeec80e1269828fc"
 
 DESCRIPTION="Reference implementations of algorithms and forms the basis of QEPCAD"
 HOMEPAGE="

@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 LICENSE='GPL-2'
 
 SUGGESTED_PACKAGES="
-	sci-CRAN/covr
-	sci-CRAN/testthat
-	sci-CRAN/withr
+	dev-R/covr
+	dev-R/testthat
+	dev-R/withr
 "

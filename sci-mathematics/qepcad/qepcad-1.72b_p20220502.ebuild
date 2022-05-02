@@ -3,7 +3,7 @@
 
 EAPI=8
 
-COMMIT="3c01c088e6b54e89f382bce56d49733a9969ef09"
+COMMIT="810db4ee13667d5fd2e444b5709d303fed1791ff"
 
 inherit cmake optfeature
 
