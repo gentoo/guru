@@ -454,6 +454,7 @@ sci-libs/dart:openscenegraph - OpenSceneGraph GUI and examples
 sci-libs/dart:tests - Build the tests
 sci-libs/dart:tutorials - Build the tutorials
 sci-libs/dart:urdfdom - URDF parser
+sci-libs/libpotassco:tools - whether or not to build lpconvert tool
 sci-libs/meschach:complex - incorporate complex functions
 sci-libs/meschach:double-precision - double precision
 sci-libs/meschach:munroll - unroll low level loops on matrices
@@ -465,7 +466,6 @@ sci-mathematics/clasp:tools - whether or not to build the clasp application
 sci-mathematics/clingo:tools - whether or not to build the clingo tool
 sci-mathematics/frama-c-aorai:eva - Build support for the Eva plugin
 sci-mathematics/frama-c-wp:coq - Precompile coq libraries
-sci-mathematics/libpotassco:tools - whether or not to build lpconvert tool
 sci-mathematics/mccs:glpk - enable GLPK as solver
 sci-mathematics/mccs:lpsolve - enable lpsolve as solver
 sci-mathematics/minisat+:bignum - Build the bignum variant of minisat+

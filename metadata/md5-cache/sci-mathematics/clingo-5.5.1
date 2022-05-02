@@ -1,6 +1,6 @@
 BDEPEND=>=dev-util/re2c-0.13.5 >=sys-devel/bison-2.5 virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=sci-mathematics/clasp:=[tools] sci-mathematics/libpotassco:= lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) )
+DEPEND=sci-mathematics/clasp:=[tools] sci-libs/libpotassco:= lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) )
 DESCRIPTION=Integrated grounder and solver for answer set logic programs
 EAPI=8
 HOMEPAGE=https://github.com/potassco/clingo https://potassco.org/clingo
@@ -8,10 +8,10 @@ INHERIT=cmake lua-single python-single-r1 toolchain-funcs
 IUSE=examples lua python test +tools lua_single_target_lua5-3 lua_single_target_lua5-4 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=sci-mathematics/clasp:=[tools] sci-mathematics/libpotassco:= lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) )
+RDEPEND=sci-mathematics/clasp:=[tools] sci-libs/libpotassco:= lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) )
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) ) python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/potassco/clingo/archive/refs/tags/v5.5.1.tar.gz -> clingo-5.5.1.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	python-utils-r1	6d4bdf68f7dcd9a5491613be687ae665	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
-_md5_=9d3969864ac798a27435bbd2ff1ae6de
+_md5_=7c08a19f6de785093c5f25a3e1617968

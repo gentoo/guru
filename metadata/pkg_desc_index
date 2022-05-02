@@ -35,7 +35,8 @@ app-admin/awscli-bin 2.3.2-r1 2.4.27: Universal Command Line Interface for Amazo
 app-admin/chamber 2.10.7 2.10.9: Managing secrets in AWS SSM Parameter Store
 app-admin/chezmoi 2.11.2: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
-app-admin/customrescuecd-x86_64 0.12.6 0.12.7: A system rescue cd or usbstick for desktop and server based on gentoo
+app-admin/customrescuecd-x86_64 0.12.7: A system rescue cd or usbstick for desktop and server based on gentoo
+app-admin/enpass-desktop-bin 6.7.4.933: A cross-platform, complete password management solution
 app-admin/glance 24.0.0-r1: Services for discovering, registering, and retrieving VM images
 app-admin/gnome-passwordsafe 4.0-r1 4.1: A password manager for GNOME
 app-admin/grub-customizer 5.1.0: A graphical grub2 settings manager
@@ -1117,7 +1118,7 @@ media-video/owncast 0.0.10 0.0.11: A self-hosted live video and web chat server
 media-video/qliveplayer 4.0.1-r2 4.1.0: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/trakt-scrobbler 1.3.2 1.4.0 1.4.2: Scrobbler for trakt.tv that supports VLC, Plex, MPC-HC, and MPV
-media-video/uxplay 1.49 1.50a: AirPlay Unix mirroring server
+media-video/uxplay 1.50a 1.51: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
 net-analyzer/munin-contrib 0.2021.04.27: user contributed stuff related to munin
 net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various plugins for Munin
@@ -1221,8 +1222,9 @@ sci-libs/ann 1.1.2_p7-r2: A Library for Approximate Nearest Neighbor Searching
 sci-libs/dart 6.10.1-r2 6.12.1-r1: Dynamic Animation and Robotics Toolkit
 sci-libs/ensmallen 2.16.2 2.17.0: header only C++ library for numerical optimization
 sci-libs/jdqz 0_pre19971107-r3: Jacobi-Davidson type method for the generalized standard eigenvalue problem
+sci-libs/libpotassco 0_pre20200612: A utility library used by various potassco projects
 sci-libs/meschach 1.2b_p20170511-r1: Meschach is a C-language library of routines for performing matrix computations
-sci-libs/saclib 2.2.8 2.2.8_p20220501: Reference implementations of algorithms and forms the basis of QEPCAD
+sci-libs/saclib 2.2.8 2.2.8_p20220502: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
 sci-mathematics/aspcud 1.9.5: A solver for package problems in CUDF format
 sci-mathematics/chaco 2.2-r2: Software for Partitioning Graphs
@@ -1260,12 +1262,11 @@ sci-mathematics/frama-c-users 23.1 24.0: Users plugin for frama-c
 sci-mathematics/frama-c-variadic 23.1 24.0: Variadic function transformation plugin for frama-c
 sci-mathematics/frama-c-wp 23.1 24.0: Deductive proof of ACSL contracts (WP) plugin for frama-c
 sci-mathematics/lean-mathlib 0.1_p20220324: Lean mathematical components library
-sci-mathematics/libpotassco 0_pre20200612: A utility library used by various potassco projects
 sci-mathematics/mccs 1.1: Multi Criteria CUDF Solver
 sci-mathematics/minisat+ 2007.01.05: solver for pseudo-Boolean constraints
 sci-mathematics/minisatp 0.1_p20121002: solver for pseudo-Boolean constraints
 sci-mathematics/packup 0.6: PACKage Upgradability Problem solver
-sci-mathematics/qepcad 1.72b_p20220501: Quantifier Elimination by Partial Cylindrical Algebraic Decomposition
+sci-mathematics/qepcad 1.72b_p20220502: Quantifier Elimination by Partial Cylindrical Algebraic Decomposition
 sci-mathematics/radian 0.6.0 0.6.1: A 21 century R console
 sci-mathematics/the-omega-project 2.1_p20131119: Tools from Pugh et al.'s for constraint-based compiler tools
 sci-misc/boinc-wrapper 7.16.17 7.16.17-r1: Wrapper to use non-BOINC apps with BOINC
