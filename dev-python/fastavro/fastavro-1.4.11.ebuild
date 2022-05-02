@@ -1,8 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+# https://github.com/fastavro/fastavro/issues/558
 EPYTEST_DESELECT=(
 	tests/test_fastavro.py::test_cython_python
 	tests/test_main_cli.py::test_cli_record_output
@@ -41,6 +42,9 @@ BDEPEND="
 	)
 "
 
-FASTAVRO_USE_CYTHON=1
+src_configure() {
+	export FASTAVRO_USE_CYTHON=1
+	default
+}
 
 distutils_enable_tests pytest
