@@ -1,13 +1,17 @@
 certificate version 0.1
-pusher Steven Stallion <sstallion@gmail.com> 1651506629 -0500
-pushee git.gentoo.org:repo/proj/guru.git
-nonce 1651506629-bc6c554112f3976eed430158083a20359abdd3af
+pusher 38514F35D453DDE719F74C6AFC1FFCB5DC7D67A3 1651512862 +0300
+pushee git+ssh://git.gentoo.org/repo/proj/guru.git
+nonce 1651512862-d615d9afbc0862611d584c00d548c5840eeb1aff
 
-6af2a20d497eeaa7526fac909ab343c3af95338a 5bbde60b7e4bb4a702b8502f14ea5f586228d566 refs/heads/dev
+5bbde60b7e4bb4a702b8502f14ea5f586228d566 6147bebb5b4cfba52a806a5755173b5b9ff326d3 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iIoEABYKADIWIQQ/3z9m/GYDVRSdBcRUcP72+UIdAQUCYm/9xRQcc3N0YWxsaW9u
-QGdtYWlsLmNvbQAKCRBUcP72+UIdASFEAQCC6kHl9qdMQZ1HsCCZo+6OlyseGaO+
-hiaFFZZ9gHjXjwEAqe7aj7N0vn15qq02DTflwOASIXwhyTSMn5+y9jDG7Qs=
-=YwtE
+iQEzBAABCgAdFiEE/axFlFuH2ptjtO5EAqCvUD0SBQQFAmJwFh4ACgkQAqCvUD0S
+BQRfeQf+LMt0uD8M7cODpYN9arZHmC61MScO+1KfMXe6RGjM/Fy+sOQaHl2DK6UA
+YDElDygSX4+iS5LkbW544Ry1H4IhDgjZt4kgFCgE8zlxgJZrcfk3V4AzljpjfCqf
+RdSyGQf8H9nllXR3Nq4U7Gfmpiut7PoRcPRxd5xcsKwcT8uI6MzYhxWfTzViqjjB
+AlbCJuH+2vgnXDVB2EETexS/Rb+GwBR6JzB2befHEpKb1Jf16wGmbPpyoBbn9uN8
+NWzCMUUVARCupDYy5TRmjzeDLy5jLF8E/p/UuSooBl9nyiuq7FI/e8uZ+04Yn80A
+iqLbVhe4xizh7iyXIUk5PvnsF+sCpA==
+=RDRd
 -----END PGP SIGNATURE-----
