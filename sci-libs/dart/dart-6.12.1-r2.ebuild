@@ -19,7 +19,7 @@ SRC_URI="https://github.com/dartsim/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="bullet doc examples extras glut gui +ipopt +nlopt ode python test tests tutorials urdfdom
+IUSE="doc examples extras osg python test tutorials
 cpu_flags_x86_mmx cpu_flags_x86_mmxext	cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3
 cpu_flags_x86_ssse3 cpu_flags_x86_sse4a cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2 cpu_flags_x86_avx
 cpu_flags_x86_avx2 cpu_flags_x86_avx512dq cpu_flags_x86_avx512f cpu_flags_x86_avx512vl
@@ -30,47 +30,35 @@ cpu_flags_ppc_altivec cpu_flags_arm_neon cpu_flags_arm_iwmmxt cpu_flags_arm_iwmm
 RDEPEND="
 	app-arch/lz4
 	>=dev-cpp/eigen-3.0.5
+	dev-games/ode
 	dev-libs/boost
 	dev-libs/tinyxml2
-	>=sci-libs/libccd-2.0
+	dev-libs/urdfdom
 	>=media-libs/assimp-3.0.0
+	media-libs/freeglut
+	media-libs/imgui:=[glut(-),opengl(-)]
+	media-libs/lodepng:=
+	>=sci-libs/libccd-2.0
 	>=sci-libs/fcl-0.2.9
 	sci-libs/flann
+	sci-libs/ipopt
+	>=sci-libs/nlopt-2.4.1
 	sci-libs/octomap
+	sci-physics/bullet
+	virtual/opengl
 
-	bullet? ( sci-physics/bullet )
-	examples? (
-		dev-cpp/tiny-dnn
-		dev-libs/urdfdom
-	)
-	extras? ( dev-libs/urdfdom )
-	glut? ( media-libs/freeglut )
-	gui? (
-		dev-games/openscenegraph
-		media-libs/imgui:=[glut(-)?,opengl(-)]
-		media-libs/lodepng:=
-		virtual/opengl
-		x11-libs/libXi
-		x11-libs/libXmu
-	)
-	ipopt? ( sci-libs/ipopt )
-	nlopt? ( >=sci-libs/nlopt-2.4.1 )
-	ode? ( dev-games/ode )
+	examples? ( dev-cpp/tiny-dnn )
+	osg? ( dev-games/openscenegraph )
 	python? (
 		${PYTHON_DEPS}
 		$(python_gen_cond_dep 'dev-python/pybind11[${PYTHON_USEDEP}]')
 	)
-	urdfdom? ( dev-libs/urdfdom )
 "
 DEPEND="
 	${RDEPEND}
-	examples? ( dev-libs/urdfdom_headers )
-	extras? (
-		dev-cpp/gtest
-		dev-libs/urdfdom_headers
-	)
+	dev-libs/urdfdom_headers
+	extras? ( dev-cpp/gtest )
 	test? ( dev-cpp/gtest )
-	urdfdom? ( dev-libs/urdfdom_headers )
 "
 BDEPEND="
 	app-text/dos2unix
@@ -87,14 +75,10 @@ PATCHES=(
 	"${FILESDIR}/${P}-use-system-lodepng-imgui.patch"
 )
 REQUIRED_USE="
-	examples? ( gui )
-	gui? ( glut )
 	python? (
 		${PYTHON_REQUIRED_USE}
-		gui
+		osg
 	)
-
-	|| ( ipopt nlopt )
 "
 
 pkg_setup() {
@@ -147,7 +131,7 @@ src_configure() {
 		-DDART_TREAT_WARNINGS_AS_ERRORS=OFF
 
 		-DDART_BUILD_EXTRAS=$(usex extras)
-		-DDART_BUILD_GUI_OSG=$(usex gui)
+		-DDART_BUILD_GUI_OSG=$(usex osg)
 		-DDART_ENABLE_SIMD="${simd}"
 	)
 	cmake_src_configure
