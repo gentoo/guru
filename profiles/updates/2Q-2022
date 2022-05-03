@@ -1,2 +1,3 @@
 move app-misc/ssmtool app-misc/vocabsieve
 move sci-mathematics/libpotassco sci-libs/libpotassco
+move media-video/mpv_thumbnail_script mpv-plugin/mpv_thumbnail_script
