@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
-inherit distutils-r1 meson-multilib
+inherit python-r1 distutils-r1 meson-multilib
 
 MY_PV=$(ver_cut 1-3)
 [ -n "$(ver_cut 4)" ] && MY_PV_REV="-$(ver_cut 4)"
@@ -13,7 +13,7 @@ MY_PV=$(ver_cut 1-3)
 IMGUI_VER="1.81"
 IMGUI_MESON_WRAP_VER="1"
 
-DESCRIPTION="A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more."
+DESCRIPTION="A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more"
 HOMEPAGE="https://github.com/flightlessmango/MangoHud"
 
 SRC_URI="
@@ -22,7 +22,7 @@ SRC_URI="
 	https://wrapdb.mesonbuild.com/v2/imgui_${IMGUI_VER}-${IMGUI_MESON_WRAP_VER}/get_patch -> imgui-${IMGUI_VER}-${IMGUI_MESON_WRAP_VER}-meson-wrap.zip
 "
 
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="MIT"
 SLOT="0"
@@ -34,9 +34,12 @@ REQUIRED_USE="
 
 BDEPEND="
 	app-arch/unzip
+"
+
+DEPEND="
 	dev-python/mako[${PYTHON_USEDEP}]
-	dev-libs/spdlog
-	dev-util/glslang
+	dev-libs/spdlog[${MULTILIB_USEDEP}]
+	dev-util/glslang[${MULTILIB_USEDEP}]
 	>=dev-util/vulkan-headers-1.2
 	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
 	media-libs/libglvnd[$MULTILIB_USEDEP]
@@ -49,22 +52,19 @@ BDEPEND="
 	wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
 "
 
-RDEPEND="${BDEPEND}"
+RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/MangoHud-${PV}"
 
+# PATCHES=( "${FILESDIR}/mangonhud-0.6.6-meson-build.patch" )
+
 src_unpack() {
 	default
-	[ -n "${MY_PV_REV}" ] && ( mv ${WORKDIR}/MangoHud-${MY_PV}${MY_PV_REV} ${WORKDIR}/MangoHud-${PV} || die )
+	[[ -n "${MY_PV_REV}" ]] && ( mv ${WORKDIR}/MangoHud-${MY_PV}${MY_PV_REV} ${WORKDIR}/MangoHud-${PV} || die )
 
 	unpack imgui-${IMGUI_VER}.tar.gz
 	unpack imgui-${IMGUI_VER}-${IMGUI_MESON_WRAP_VER}-meson-wrap.zip
 	mv ${WORKDIR}/imgui-${IMGUI_VER} ${S}/subprojects/imgui || die
-}
-
-src_prepare() {
-	default
-	eapply "${FILESDIR}/mangonhud-0.6.6-meson-build.patch"
 }
 
 multilib_src_configure() {
