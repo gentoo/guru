@@ -1,18 +1,19 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=7
 
 inherit R-packages
 
 DESCRIPTION='Simple Data Frames'
-SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
-LICENSE='MIT'
 HOMEPAGE="
 	https://tibble.tidyverse.org
 	https://github.com/tidyverse/tibble
 	https://cran.r-project.org/package=tibble
 "
+SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
+
+LICENSE='MIT'
 
 KEYWORDS="~amd64"
 DEPEND="
