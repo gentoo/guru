@@ -153,14 +153,6 @@ IUSE=""
 
 QA_FLAGS_IGNORED="usr/bin/kak-lsp"
 
-src_configure() {
-	cargo_src_configure
-}
-
-src_compile() {
-	cargo_src_compile
-}
-
 src_install() {
 	cargo_src_install
 }
