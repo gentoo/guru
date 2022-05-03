@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=7
 
 DOCS_BUILDER="doxygen"
 DOCS_DIR="docs/doxygen"
@@ -16,11 +16,13 @@ S="${WORKDIR}/icldistcomp-${PN}-d2ae4175f072"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
+
+# next release
+#	parsec-debug-mem-addr
+#	parsec-debug-mem-leak
+#	parsec-debug-mem-race
 IUSE_PARSEC_DEBUG="
 	parsec-debug-history
-	parsec-debug-mem-addr
-	parsec-debug-mem-leak
-	parsec-debug-mem-race
 	parsec-debug-noisier
 	parsec-debug-paranoid
 "
@@ -65,9 +67,12 @@ BDEPEND="
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	?? ( mpi sim )
-	?? ( parsec-debug-mem-addr parsec-debug-mem-leak parsec-debug-mem-race )
+	?? ( parsec-debug-noisier parsec-debug-history )
+	?? ( parsec-prof-dry-body parsec-prof-dry-dep parsec-prof-dry-run )
 	?? ( parsec-prof-btf parsec-prof-otf2 )
 "
+# next release
+#	?? ( parsec-debug-mem-addr parsec-debug-mem-leak parsec-debug-mem-race )
 
 pkg_setup() {
 	fortran-2_pkg_setup
@@ -78,6 +83,10 @@ src_configure() {
 	use parsec-prof-btf && trace="PaRSEC Binary Tracing Format"
 	use parsec-prof-otf2 && trace="OTF2"
 
+# next release
+#		-DPARSEC_DEBUG_MEM_ADDR=$(usex parsec-debug-mem-addr)
+#		-DPARSEC_DEBUG_MEM_LEAK=$(usex parsec-debug-mem-leak)
+#		-DPARSEC_DEBUG_MEM_RACE=$(usex parsec-debug-mem-race)
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
 		-DPARSEC_GPU_CUDA_ALLOC_PER_TILE=OFF
@@ -88,9 +97,6 @@ src_configure() {
 		-DBUILD_TOOLS=$(usex tools)
 		-DPARSEC_DEBUG=$(usex debug)
 		-DPARSEC_DEBUG_HISTORY=$(usex parsec-debug-history)
-		-DPARSEC_DEBUG_MEM_ADDR=$(usex parsec-debug-mem-addr)
-		-DPARSEC_DEBUG_MEM_LEAK=$(usex parsec-debug-mem-leak)
-		-DPARSEC_DEBUG_MEM_RACE=$(usex parsec-debug-mem-race)
 		-DPARSEC_DEBUG_NOISIER=$(usex parsec-debug-noisier)
 		-DPARSEC_DEBUG_PARANOID=$(usex parsec-debug-paranoid)
 		-DPARSEC_DIST_COLLECTIVES=$(usex parsec-dist-collectives)

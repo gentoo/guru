@@ -6,8 +6,9 @@
     <name>Alessandro Barbieri</name>
   </maintainer>
   <upstream>
-    <bugs-to>https://bitbucket.org/icldistcomp/parsec/issues</bugs-to>
+    <bugs-to>https://github.com/ICLDisco/parsec/issues</bugs-to>
     <remote-id type="bitbucket">icldistcomp/parsec</remote-id>
+    <remote-id type="github">ICLDisco/parsec</remote-id>
   </upstream>
   <longdescription lang="en">
 PaRSEC is a generic framework for architecture aware scheduling and management of micro-tasks on distributed many-core heterogeneous architectures. Applications we consider can be expressed as a Direct Acyclic Graph of tasks with labeled edges designating data dependencies. PaRSEC assigns computation threads to the cores, overlaps communications and computations and uses a dynamic, fully-distributed scheduler based on architectural features such as NUMA nodes and algorithmic features such as data reuse.
@@ -21,9 +22,9 @@ The framework includes libraries, a runtime system, and development tools to hel
     <!--<flag name="opencl">Enable GPU support using OpenCL kernels</flag>-->
     <flag name="sched-deps-mask">Use a complete bitmask to track the dependencies, instead of a counter -- increase the debugging features, but limits to a maximum of 30 input dependencies</flag>
     <flag name="parsec-debug-history">Keep a summarized history of critical events in memory that can be dumped in gdb when deadlock occur</flag>
-    <flag name="parsec-debug-mem-addr">Enable the memory access checker</flag>
-    <flag name="parsec-debug-mem-leak">Enable only the memory leak checker</flag>
-    <flag name="parsec-debug-mem-race">Enable the memory thread-race checker</flag>
+    <!--<flag name="parsec-debug-mem-addr">Enable the memory access checker</flag>-->
+    <!--<flag name="parsec-debug-mem-leak">Enable only the memory leak checker</flag>-->
+    <!--<flag name="parsec-debug-mem-race">Enable the memory thread-race checker</flag>-->
     <flag name="parsec-debug-noisier">Enable chatterbox-like verbose debugging (may impact performance)</flag>
     <flag name="parsec-debug-paranoid">Enable extra paranoid checks (may impact performance)</flag>
     <flag name="parsec-dist-collectives">Use optimized asynchronous operations where collective communication pattern is detected</flag>
