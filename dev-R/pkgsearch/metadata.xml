@@ -16,5 +16,7 @@ a CRAN project.</longdescription>
 			<name>Gábor Csárdi</name>
 			<email>csardi.gabor@gmail.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/r-hub/pkgsearch/issues</bugs-to>
+		<remote-id type="github">r-hub/pkgsearch</remote-id>
 	</upstream>
 </pkgmetadata>

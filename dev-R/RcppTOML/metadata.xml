@@ -17,5 +17,7 @@ uses 'Rcpp' to connect the 'cpptoml' parser written by Chase Geigle
 			<name>Dirk Eddelbuettel</name>
 			<email>edd@debian.org</email>
 		</maintainer>
+		<bugs-to>https://github.com/eddelbuettel/rcpptoml/issues</bugs-to>
+		<remote-id type="github">eddelbuettel/rcpptoml</remote-id>
 	</upstream>
 </pkgmetadata>

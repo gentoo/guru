@@ -11,5 +11,7 @@
 			<name>Kirill Müller</name>
 			<email>krlmlr+r@mailbox.org</email>
 		</maintainer>
+		<bugs-to>https://github.com/krlmlr/plogr/issues</bugs-to>
+		<remote-id type="github">krlmlr/plogr</remote-id>
 	</upstream>
 </pkgmetadata>

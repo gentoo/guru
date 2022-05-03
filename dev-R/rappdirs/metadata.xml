@@ -15,5 +15,7 @@ R.</longdescription>
 			<name>Hadley Wickham</name>
 			<email>hadley@rstudio.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/r-lib/rappdirs/issues</bugs-to>
+		<remote-id type="github">r-lib/rappdirs</remote-id>
 	</upstream>
 </pkgmetadata>

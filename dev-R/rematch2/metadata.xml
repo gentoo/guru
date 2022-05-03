@@ -11,5 +11,7 @@
 			<name>Gábor Csárdi</name>
 			<email>csardi.gabor@gmail.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/r-lib/rematch2/issues</bugs-to>
+		<remote-id type="github">r-lib/rematch2</remote-id>
 	</upstream>
 </pkgmetadata>

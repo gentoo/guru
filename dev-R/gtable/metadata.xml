@@ -16,5 +16,7 @@ complex compositions can be build up sequentially.</longdescription>
 			<name>Hadley Wickham</name>
 			<email>hadley@rstudio.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/r-lib/gtable/issues</bugs-to>
+		<remote-id type="github">r-lib/gtable</remote-id>
 	</upstream>
 </pkgmetadata>

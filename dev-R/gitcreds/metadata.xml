@@ -15,5 +15,7 @@ and/or other 'git' repositories.</longdescription>
 			<name>Gábor Csárdi</name>
 			<email>csardi.gabor@gmail.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/r-lib/gitcreds/issues</bugs-to>
+		<remote-id type="github">r-lib/gitcreds</remote-id>
 	</upstream>
 </pkgmetadata>

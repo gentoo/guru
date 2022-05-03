@@ -14,5 +14,7 @@ good, or they just need it to feel better.</longdescription>
 			<name>Gabor Csardi</name>
 			<email>csardi.gabor@gmail.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/gaborcsardi/praise/issues</bugs-to>
+		<remote-id type="github">gaborcsardi/praise</remote-id>
 	</upstream>
 </pkgmetadata>

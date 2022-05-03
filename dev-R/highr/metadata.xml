@@ -14,5 +14,7 @@ via Andre Simon's highlight package (&lt;http://www.andre-simon.de&gt;).</longde
 			<name>Yihui Xie</name>
 			<email>xie@yihui.name</email>
 		</maintainer>
+		<bugs-to>https://github.com/yihui/highr/issues</bugs-to>
+		<remote-id type="github">yihui/highr</remote-id>
 	</upstream>
 </pkgmetadata>

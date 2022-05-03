@@ -11,5 +11,7 @@
 			<name>Yihui Xie</name>
 			<email>xie@yihui.name</email>
 		</maintainer>
+		<bugs-to>https://github.com/r-lib/evaluate/issues</bugs-to>
+		<remote-id type="github">r-lib/evaluate</remote-id>
 	</upstream>
 </pkgmetadata>

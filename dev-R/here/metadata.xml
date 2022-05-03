@@ -15,5 +15,7 @@ it will always locate the files relative to your project root.</longdescription>
 			<name>Kirill Müller</name>
 			<email>krlmlr+r@mailbox.org</email>
 		</maintainer>
+		<bugs-to>https://github.com/r-lib/here/issues</bugs-to>
+		<remote-id type="github">r-lib/here</remote-id>
 	</upstream>
 </pkgmetadata>

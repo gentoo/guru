@@ -14,5 +14,7 @@ It can also recognize and parse all ISO 8601 formats.</longdescription>
 			<name>Gábor Csárdi</name>
 			<email>csardi.gabor@gmail.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/gaborcsardi/parsedate/issues</bugs-to>
+		<remote-id type="github">gaborcsardi/parsedate</remote-id>
 	</upstream>
 </pkgmetadata>

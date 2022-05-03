@@ -25,5 +25,7 @@ Armadillo requires a C++11 compiler.</longdescription>
 			<name>Dirk Eddelbuettel</name>
 			<email>edd@debian.org</email>
 		</maintainer>
+		<bugs-to>https://github.com/RcppCore/RcppArmadillo/issues</bugs-to>
+		<remote-id type="github">RcppCore/RcppArmadillo</remote-id>
 	</upstream>
 </pkgmetadata>

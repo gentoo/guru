@@ -18,5 +18,7 @@ package.</longdescription>
 			<name>Thomas Lin Pedersen</name>
 			<email>thomasp85@gmail.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/thomasp85/farver/issues</bugs-to>
+		<remote-id type="github">thomasp85/farver</remote-id>
 	</upstream>
 </pkgmetadata>

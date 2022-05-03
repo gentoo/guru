@@ -11,5 +11,7 @@
 			<name>Shawn Garbett</name>
 			<email>shawn.garbett@vumc.org</email>
 		</maintainer>
+		<bugs-to>https://github.com/vubiostat/r-yaml/issues</bugs-to>
+		<remote-id type="github">vubiostat/r-yaml</remote-id>
 	</upstream>
 </pkgmetadata>

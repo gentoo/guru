@@ -13,5 +13,7 @@ derived from /etc/mime.types in UNIX-type systems.</longdescription>
 			<name>Yihui Xie</name>
 			<email>xie@yihui.name</email>
 		</maintainer>
+		<bugs-to>https://github.com/yihui/mime/issues</bugs-to>
+		<remote-id type="github">yihui/mime</remote-id>
 	</upstream>
 </pkgmetadata>

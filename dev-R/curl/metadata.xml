@@ -20,5 +20,7 @@ specific tools and logic.</longdescription>
 			<name>Jeroen Ooms</name>
 			<email>jeroen@berkeley.edu</email>
 		</maintainer>
+		<bugs-to>https://github.com/jeroen/curl/issues</bugs-to>
+		<remote-id type="github">jeroen/curl</remote-id>
 	</upstream>
 </pkgmetadata>

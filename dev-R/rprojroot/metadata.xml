@@ -14,5 +14,7 @@ matches a certain criterion, e.g., it contains a certain regular file.</longdesc
 			<name>Kirill Müller</name>
 			<email>krlmlr+r@mailbox.org</email>
 		</maintainer>
+		<bugs-to>https://github.com/r-lib/rprojroot/issues</bugs-to>
+		<remote-id type="github">r-lib/rprojroot</remote-id>
 	</upstream>
 </pkgmetadata>

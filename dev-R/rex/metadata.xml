@@ -11,5 +11,7 @@
 			<name>Kevin Ushey</name>
 			<email>kevinushey@gmail.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/kevinushey/rex/issues</bugs-to>
+		<remote-id type="github">kevinushey/rex</remote-id>
 	</upstream>
 </pkgmetadata>

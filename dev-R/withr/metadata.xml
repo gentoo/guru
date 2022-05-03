@@ -16,5 +16,7 @@ functions.</longdescription>
 			<name>Lionel Henry</name>
 			<email>lionel@rstudio.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/r-lib/withr/issues</bugs-to>
+		<remote-id type="github">r-lib/withr</remote-id>
 	</upstream>
 </pkgmetadata>

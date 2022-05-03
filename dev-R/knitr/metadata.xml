@@ -13,5 +13,7 @@ using Literate Programming techniques.</longdescription>
 			<name>Yihui Xie</name>
 			<email>xie@yihui.name</email>
 		</maintainer>
+		<bugs-to>https://github.com/yihui/knitr/issues</bugs-to>
+		<remote-id type="github">yihui/knitr</remote-id>
 	</upstream>
 </pkgmetadata>
