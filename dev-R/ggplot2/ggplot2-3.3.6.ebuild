@@ -6,6 +6,12 @@ EAPI=7
 inherit R-packages
 
 DESCRIPTION='Create Elegant Data Visualisations using the grammar of graphics'
+HOMEPAGE="
+	https://cran.r-project.org/package=ggplot2
+	https://ggplot2.tidyverse.org/
+	https://github.com/tidyverse/ggplot2
+"
+
 KEYWORDS="~amd64"
 LICENSE='MIT'
 
