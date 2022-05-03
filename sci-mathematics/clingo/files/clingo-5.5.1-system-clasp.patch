@@ -1,20 +1,20 @@
-diff '--color=auto' -ru /var/tmp/portage/sci-mathematics/clingo-5.5.1/work/clingo-5.5.1/CMakeLists.txt clingo-5.5.1/CMakeLists.txt
---- /var/tmp/portage/sci-mathematics/clingo-5.5.1/work/clingo-5.5.1/CMakeLists.txt	2022-04-28 06:09:26.673973864 +0200
-+++ clingo-5.5.1/CMakeLists.txt	2022-04-28 06:27:47.090303346 +0200
-@@ -232,20 +232,15 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -232,8 +232,10 @@
  
  enable_testing()
  
--# NOTE: assumes that submodule has been initialized
++find_package(Potassco REQUIRED)
++find_package(Clasp REQUIRED)
++
+ # NOTE: assumes that submodule has been initialized
 -set(CLASP_BUILD_APP ${CLINGO_BUILD_APPS} CACHE BOOL "")
  if (CLINGO_USE_LIB)
      set(clingo_library_targets)
      add_library(libclingo INTERFACE IMPORTED)
-     set_property(TARGET libclingo PROPERTY INTERFACE_INCLUDE_DIRECTORIES "${CLINGO_SOURCE_DIR}/libclingo")
+@@ -241,11 +243,6 @@
      set_property(TARGET libclingo PROPERTY INTERFACE_LINK_LIBRARIES "clingo")
  else()
-+    find_package(Potassco REQUIRED)
-+    find_package(Clasp REQUIRED)
      set(clingo_library_targets libgringo libpotassco libclasp libreify)
 -    set(CLASP_USE_LOCAL_LIB_POTASSCO ON CACHE BOOL "" FORCE)
 -    if (NOT CLINGO_BUILD_SHARED AND CLINGO_INSTALL_LIB)
@@ -24,33 +24,23 @@ diff '--color=auto' -ru /var/tmp/portage/sci-mathematics/clingo-5.5.1/work/cling
      add_subdirectory(libreify)
      add_subdirectory(libgringo)
      add_subdirectory(libclingo)
-diff '--color=auto' -ru /var/tmp/portage/sci-mathematics/clingo-5.5.1/work/clingo-5.5.1/libclingo/CMakeLists.txt clingo-5.5.1/libclingo/CMakeLists.txt
---- /var/tmp/portage/sci-mathematics/clingo-5.5.1/work/clingo-5.5.1/libclingo/CMakeLists.txt	2022-04-28 06:09:26.590972375 +0200
-+++ clingo-5.5.1/libclingo/CMakeLists.txt	2022-04-28 07:12:59.047212489 +0200
-@@ -37,9 +37,6 @@
+--- a/libclingo/CMakeLists.txt
++++ b/libclingo/CMakeLists.txt
+@@ -37,8 +37,6 @@
      ${source-group})
  # ]]]
  
 -list(APPEND header "${CLASP_SOURCE_DIR}/app/clasp_app.h")
 -list(APPEND source "${CLASP_SOURCE_DIR}/app/clasp_app.cpp")
--
+ 
  set(clingo_public_scope_ PUBLIC)
  set(clingo_private_scope_ PRIVATE)
- if (CLINGO_BUILD_SHARED)
-@@ -56,13 +53,14 @@
- 
- add_library(libclingo ${clingo_lib_type})
- target_sources(libclingo ${clingo_private_scope_} ${header} ${source})
--target_link_libraries(libclingo ${clingo_private_scope_} libgringo libclasp)
-+target_link_libraries(libclingo ${clingo_private_scope_} libgringo libclasp -lclasp_app)
- target_include_directories(libclingo
-     ${clingo_public_scope_}
+@@ -62,7 +60,7 @@
      "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>"
      "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
      ${clingo_private_scope_}
 -    "$<BUILD_INTERFACE:${CLASP_SOURCE_DIR}/app>")
-+    "/usr/include/clasp/app"
-+)
++    "/usr/include/clasp/cli")
  target_compile_definitions(libclingo ${clingo_private_scope_} CLINGO_BUILD_LIBRARY)
  
  if (NOT CLINGO_BUILD_SHARED)

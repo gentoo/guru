@@ -22,7 +22,7 @@ KEYWORDS="~amd64"
 IUSE="examples lua python test +tools"
 
 RDEPEND="
-	sci-mathematics/clasp:=[tools]
+	>=sci-mathematics/clasp-3.3.8:=[tools]
 	sci-libs/libpotassco:=
 	lua? ( ${LUA_DEPS} )
 	python? ( ${PYTHON_DEPS} )
@@ -67,7 +67,7 @@ src_configure() {
 		-DCLINGO_USE_LIB=OFF
 	)
 	if use lua; then
-		mycmakeargs+=( "-DCLINGO_LUA_VERSION:LIST=$(lua_get_version);EXACT" )
+		mycmakeargs+=( "DCLINGO_LUA_VERSION:LIST=$(lua_get_version);EXACT" )
 		mycmakeargs+=( "-DLUACLINGO_INSTALL_DIR=$(lua_get_cmod_dir)" )
 	fi
 	if use python; then
