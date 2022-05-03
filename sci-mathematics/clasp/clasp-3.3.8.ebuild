@@ -24,10 +24,6 @@ DEPEND="
 "
 
 RESTRICT="!test? ( test )"
-PATCHES=(
-	"${FILESDIR}/${P}-find-Potassco.patch"
-	"${FILESDIR}/${P}-libclasp_app.patch"
-)
 
 src_prepare() {
 	rm tests/catch.hpp || die
