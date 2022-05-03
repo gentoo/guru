@@ -39,6 +39,7 @@ src_prepare() {
 	eapply "${FILESDIR}/${P}-respect-flags.patch"
 	eapply "${FILESDIR}/${P}-glpk.patch"
 	eapply "${FILESDIR}/${P}-fix-Wl.patch"
+	eapply "${FILESDIR}/${P}-respect-AR.patch"
 	eapply_user
 
 	if use glpk; then
@@ -55,7 +56,7 @@ src_prepare() {
 }
 
 src_compile() {
-	tc-export CXX
+	tc-export AR CXX
 	append-cxxflags "-std=c++14"
 	MAKEOPTS="-j1" emake libccudf.so
 	MAKEOPTS="-j1" emake mccs
