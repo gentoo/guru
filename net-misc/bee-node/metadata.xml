@@ -32,4 +32,9 @@ If you want to get involved in the community, need help getting started, have an
 	<upstream>
 		<remote-id type="github">iotaledger/bee</remote-id>
 	</upstream>
+	<use>
+		<flag name="dashboard">build the dashboard plugin</flag>
+		<flag name="rocksdb">add support for roscksb as storage</flag>
+		<flag name="sled">add support for sled as storage</flag>
+	</use>
 </pkgmetadata>
