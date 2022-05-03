@@ -26,4 +26,7 @@ RDEPEND="
 	sys-fs/fuse:0
 "
 DEPEND="${RDEPEND}"
-BDEPEND="dev-ml/dune-configurator"
+BDEPEND="
+	dev-ml/dune-configurator
+	dev-ml/opam
+"
