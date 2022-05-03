@@ -18,13 +18,21 @@ KEYWORDS="~amd64"
 IUSE="examples test +threads +tools"
 
 RDEPEND="sci-libs/libpotassco:="
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? ( dev-cpp/catch:0 )
+"
 
 RESTRICT="!test? ( test )"
 PATCHES=(
 	"${FILESDIR}/${P}-find-Potassco.patch"
 	"${FILESDIR}/${P}-libclasp_app.patch"
 )
+
+src_prepare() {
+	rm tests/catch.hpp || die
+	cmake_src_prepare
+}
 
 src_configure() {
 	local mycmakeargs=(
