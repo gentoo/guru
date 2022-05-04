@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake flag-o-matic
+inherit cmake
 
 DESCRIPTION="Bloat-free graphical user interface library for C++"
 HOMEPAGE="
@@ -54,10 +54,9 @@ REQUIRED_USE="
 	)
 "
 
-src_prepare() {
-	# https://github.com/ocornut/imgui/issues/5281
-	append-cxxflags -fpermissive
+PATCHES=( "${FILESDIR}/${P}-fpermissive.patch" )
 
+src_prepare() {
 	pushd ../ || die
 	rm -rf "${S}/imgui" || die
 	mv "${P}" "${S}/imgui" || die
