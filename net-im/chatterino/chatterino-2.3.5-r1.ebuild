@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake optfeature
+inherit cmake optfeature xdg-utils
 
 DESCRIPTION="Chat client for https://twitch.tv"
 HOMEPAGE="https://chatterino.com/"
@@ -23,6 +23,8 @@ S=${WORKDIR}/chatterino2-${PV}
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+BDEPEND="dev-qt/qtsvg:5
+	dev-libs/boost"
 RDEPEND="dev-qt/qtcore:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtgui:5
@@ -51,5 +53,10 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_icon_cache_update
 	optfeature "for opening streams in a local video player" net-misc/streamlink
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
 }
