@@ -58,7 +58,7 @@ SLOT="0"
 # function to unpack and set the correct S
 octaveforge_src_unpack() {
 	default
-	if [ ! -d "${WORKDIR}/${P}" ]; then
+	if [[ ! -d "${WORKDIR}/${P}" ]]; then
 		S="${WORKDIR}/${PN}"
 		pushd "${S}" || die
 	fi
@@ -76,12 +76,12 @@ octaveforge_src_prepare() {
 	sed -i 's|octave_config_info|__octave_config_info__|g' Makefile || die
 
 	chmod 0755 "${S}/configure" || die
-	if [ -e "${S}/src/autogen.sh" ]; then
+	if [[ -e "${S}/src/autogen.sh" ]]; then
 		pushd "${S}/src" || die
 		 ./autogen.sh || die 'failed to run autogen.sh'
 		popd || die
 	fi
-	if [ -e "${S}/src/Makefile" ]; then
+	if [[ -e "${S}/src/Makefile" ]]; then
 		sed -i 's/ -s / /g' "${S}/src/Makefile" || die 'sed failed.'
 	fi
 	eapply_user
@@ -93,7 +93,7 @@ octaveforge_src_prepare() {
 # documentation to docsdir
 octaveforge_src_install() {
 	emake DESTDIR="${D}" DISTPKG='Gentoo' install
-	if [ -d doc/ ]; then
+	if [[ -d doc/ ]]; then
 		dodoc -r doc/*
 	fi
 }
@@ -103,7 +103,7 @@ octaveforge_src_install() {
 # function that will rebuild the octave package database
 octaveforge_pkg_postinst() {
 	einfo "Registering ${CATEGORY}/${PF} on the Octave package database."
-	if [ ! -d "${OCT_PKGDIR}" ] ; then
+	if [[ ! -d "${OCT_PKGDIR}" ]] ; then
 		mkdir -p "${OCT_PKGDIR}" || die
 	fi
 	"${OCT_BIN}" -H -q --no-site-file --eval "pkg('rebuild');" &> /dev/null || die 'failed to register the package.'
@@ -122,7 +122,7 @@ octaveforge_pkg_prerm() {
 		"
 	)
 	rm -f "${pkgdir}/packinfo/on_uninstall.m" || die
-	if [ -e "${pkgdir}/packinfo/on_uninstall.m.orig" ]; then
+	if [[ -e "${pkgdir}/packinfo/on_uninstall.m.orig" ]]; then
 		mv "$pkgdir"/packinfo/on_uninstall.m{.orig,} || die
 		cd "$pkgdir/packinfo" || die
 		"${OCT_BIN}" -H -q --no-site-file --eval "
@@ -137,7 +137,7 @@ octaveforge_pkg_prerm() {
 # function that will rebuild the octave package database
 octaveforge_pkg_postrm() {
 	einfo 'Rebuilding the Octave package database.'
-	if [ ! -d "${OCT_PKGDIR}" ] ; then
+	if [[ ! -d "${OCT_PKGDIR}" ]] ; then
 		mkdir -p "${OCT_PKGDIR}" || die
 	fi
 	"${OCT_BIN}" -H --silent --eval 'pkg rebuild' &> /dev/null || die 'failed to rebuild the package database'
