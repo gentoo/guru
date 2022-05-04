@@ -506,7 +506,7 @@ KEYWORDS="~amd64"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND=""
+BDEPEND="<dev-lang/go-1.18"
 
 src_compile() {
 	go build -ldflags "-s -w" -o toxiproxy ./cmd/server \
