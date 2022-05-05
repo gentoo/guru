@@ -517,6 +517,7 @@ dev-ml/xen-gnt 4.0.0 4.0.1: OCaml bindings to the Xen grant tables libraries
 dev-ml/xenstore 2.1.1: A Xenstore protocol implementation in pure OCaml
 dev-ml/xenstore-clients 1.1.0 1.3.0: Unix client tools for accessing xenstore
 dev-ml/xmlm 1.4.0: Ocaml XML manipulation module
+dev-octave/control 3.4.0: Computer-Aided Control System Design
 dev-perl/File-DirList 0.05: provide a sorted list of directory content
 dev-perl/File-Touch 0.12: Update file access and modification times, creating files if needed
 dev-perl/GitLab-API-v4 0.26: A complete GitLab API v4 client
@@ -1095,7 +1096,7 @@ media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
 media-sound/add64 3.8.0 3.9.3: Add64 is a realtime additive/subtractive-synthesis softsynth
 media-sound/callaudiod 0.1.4: Call audio routing daemon
-media-sound/dzr 220309: DZR: the command line deezer.com player
+media-sound/dzr 220505: DZR: the command line deezer.com player
 media-sound/helvum 0.3.4: A GTK patchbay for pipewire
 media-sound/hushboard 0.0_pre20210317-r1 9999: Mutes your microphone while you are typing
 media-sound/ibniz 1.18-r1: virtual machine designed for extremely compact low-level audiovisual programs
@@ -1131,7 +1132,7 @@ mpv-plugin/autosubsync-mpv 20220402: Automatic subtitle synchronization script f
 mpv-plugin/kde-do-not-disturb 20220109: Disable the notifications while mpv is running
 mpv-plugin/kde-night-color 20220109: Disable Night Color while mpv is running
 mpv-plugin/mpv-autosub 20210629: Fully automatic subtitle downloading for the MPV media player
-mpv-plugin/mpv-plugin-xrandr 20190523: Automatically invoke the xrandr to set the parameters for the display output
+mpv-plugin/mpv-plugin-xrandr 20190523-r1: Automatically invoke the xrandr to set the parameters for the display output
 mpv-plugin/mpv_thumbnail_script 0.4.8: A Lua script to show preview thumbnails in mpv's OSC seekbar
 net-analyzer/munin-contrib 0.2021.04.27: user contributed stuff related to munin
 net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various plugins for Munin
@@ -1239,7 +1240,7 @@ sci-libs/libpotassco 0_pre20200612: A utility library used by various potassco p
 sci-libs/meschach 1.2b_p20170511-r1: Meschach is a C-language library of routines for performing matrix computations
 sci-libs/mlpack 3.4.2_p20220501: scalable C++ machine learning library
 sci-libs/saclib 2.2.8 2.2.8_p20220502-r1: Reference implementations of algorithms and forms the basis of QEPCAD
-sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
+sci-libs/slicot 5.0_p20101122-r1: Subroutine Library in Systems and Control Theory
 sci-mathematics/aspcud 1.9.6: A solver for package problems in CUDF format
 sci-mathematics/chaco 2.2-r2: Software for Partitioning Graphs
 sci-mathematics/clasp 3.3.8: A conflict-driven nogood learning answer set solver

@@ -1,0 +1,15 @@
+BDEPEND=virtual/fortran
+DEFINED_PHASES=install prepare setup unpack
+DEPEND=virtual/blas || ( sci-libs/lapack[deprecated] sci-libs/openblas ) virtual/fortran
+DESCRIPTION=Subroutine Library in Systems and Control Theory
+EAPI=8
+HOMEPAGE=https://web.archive.org/web/20191022092917/http://www.slicot.org https://tracker.debian.org/pkg/slicot
+INHERIT=flag-o-matic fortran-2 toolchain-funcs
+IUSE=doc examples
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=virtual/blas || ( sci-libs/lapack[deprecated] sci-libs/openblas ) virtual/fortran
+SLOT=0
+SRC_URI=http://cdn-fastly.deb.debian.org/debian/pool/main/s/slicot/slicot_5.0+20101122.orig.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
+_md5_=a05adc9a153321592ea786a939df7b95
