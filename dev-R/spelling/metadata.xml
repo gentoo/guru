@@ -16,5 +16,7 @@ define a 'wordlist' to allow custom terminology without having to abuse punctuat
 			<name>Jeroen Ooms</name>
 			<email>jeroen@berkeley.edu</email>
 		</maintainer>
+		<bugs-to>https://github.com/ropensci/spelling/issues</bugs-to>
+		<remote-id type="github">ropensci/spelling</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -18,5 +18,7 @@ processes at once.</longdescription>
 			<name>Gábor Csárdi</name>
 			<email>csardi.gabor@gmail.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/r-lib/processx/issues</bugs-to>
+		<remote-id type="github">r-lib/processx</remote-id>
 	</upstream>
 </pkgmetadata>

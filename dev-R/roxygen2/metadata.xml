@@ -16,5 +16,7 @@ inspired by the 'Doxygen' system for C++.</longdescription>
 			<name>Hadley Wickham</name>
 			<email>hadley@rstudio.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/r-lib/roxygen2/issues</bugs-to>
+		<remote-id type="github">r-lib/roxygen2</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -16,5 +16,7 @@ See ?Lattice for an introduction.</longdescription>
 			<name>Deepayan Sarkar</name>
 			<email>deepayan.sarkar@r-project.org</email>
 		</maintainer>
+		<bugs-to>https://github.com/deepayan/lattice/issues</bugs-to>
+		<remote-id type="github">deepayan/lattice</remote-id>
 	</upstream>
 </pkgmetadata>

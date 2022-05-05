@@ -15,5 +15,7 @@ and it takes care of the details.</longdescription>
 			<name>Thomas Lin Pedersen</name>
 			<email>thomas.pedersen@rstudio.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/tidyverse/ggplot2/issues</bugs-to>
+		<remote-id type="github">tidyverse/ggplot2</remote-id>
 	</upstream>
 </pkgmetadata>

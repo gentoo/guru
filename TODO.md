@@ -88,6 +88,7 @@ Name | Buildsystem | Category | User | RFH
 [ijavascript](https://github.com/n-riesco/ijavascript) | npm | jupyter | Alessandro-Barbieri | yes 
 [pelias](https://github.com/pelias/pelias) | npm | geoscience | Alessandro-Barbieri | yes 
 [carto](https://github.com/mapbox/carto) | npm | geoscience | Alessandro-Barbieri | yes 
+[bee-node-dashboard](https://github.com/iotaledger/node-dashboard) | npm | cryptocurrencies | Alessandro-Barbieri | yes 
 [Gitfs](https://github.com/presslabs/gitfs) | setuptools | filesystem | Alessandro-Barbieri | yes
 [usbkill](https://github.com/hephaest0s/usbkill) | setuptools | util | Alessandro-Barbieri | no
 [blockify](https://github.com/serialoverflow/blockify) | setuptools | audio | Alessandro-Barbieri | no
@@ -97,7 +98,6 @@ Name | Buildsystem | Category | User | RFH
 [ueberzug](https://github.com/seebye/ueberzug) | setuptools | cli | N-R-K |
 [greenclip](https://github.com/erebe/greenclip) | cabal | desktop | N-R-K |
 [kaitai](https://github.com/kaitai-io/kaitai_struct) | sbt | util | Alessandro-Barbieri | yes
-[googlesheets4](https://cran.r-project.org/web/packages/googlesheets4/index.html) | R | R | Alessandro-Barbieri | no
 [casadi](https://web.casadi.org/) | cmake swig | science | Alessandro-Barbieri | no
 [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet) | setuptools yarn | jupyter | Alessandro-Barbieri | yes
 [gitlab](https://gitlab.com/gitlab-org/gitlab-foss) | yarn gem | vcs | Alessandro-Barbieri | yes 

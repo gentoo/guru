@@ -14,5 +14,7 @@ using various sources of system and configuration information.</longdescription>
 			<name>Gábor Csárdi</name>
 			<email>csardi.gabor@gmail.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/r-lib/whoami/issues</bugs-to>
+		<remote-id type="github">r-lib/whoami</remote-id>
 	</upstream>
 </pkgmetadata>

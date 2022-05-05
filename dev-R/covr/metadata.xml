@@ -18,5 +18,7 @@ C/C++/FORTRAN code.</longdescription>
 			<name>Jim Hester</name>
 			<email>james.f.hester@gmail.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/r-lib/covr/issues</bugs-to>
+		<remote-id type="github">r-lib/covr</remote-id>
 	</upstream>
 </pkgmetadata>

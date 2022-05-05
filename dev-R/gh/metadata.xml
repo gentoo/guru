@@ -11,5 +11,7 @@
 			<name>Gábor Csárdi</name>
 			<email>csardi.gabor@gmail.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/r-lib/gh/issues</bugs-to>
+		<remote-id type="github">r-lib/gh</remote-id>
 	</upstream>
 </pkgmetadata>

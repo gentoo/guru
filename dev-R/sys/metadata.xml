@@ -16,5 +16,7 @@ on different locales.</longdescription>
 			<name>Jeroen Ooms</name>
 			<email>jeroen@berkeley.edu</email>
 		</maintainer>
+		<bugs-to>https://github.com/jeroen/sys/issues</bugs-to>
+		<remote-id type="github">jeroen/sys</remote-id>
 	</upstream>
 </pkgmetadata>

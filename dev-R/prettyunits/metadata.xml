@@ -15,5 +15,7 @@ Bytes: '1337' -&gt; '1.34 kB'.</longdescription>
 			<name>Gabor Csardi</name>
 			<email>csardi.gabor@gmail.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/gaborcsardi/prettyunits/issues</bugs-to>
+		<remote-id type="github">gaborcsardi/prettyunits</remote-id>
 	</upstream>
 </pkgmetadata>

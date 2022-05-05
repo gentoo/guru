@@ -18,7 +18,7 @@ KEYWORDS="~amd64"
 IUSE="test"
 
 RDEPEND=""
-DEPEND="test? ( dev-libs/libfmt )"
+DEPEND="dev-libs/libfmt"
 
 RESTRICT="!test? ( test )"
 

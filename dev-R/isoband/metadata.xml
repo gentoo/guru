@@ -13,5 +13,7 @@ contour polygons (isobands) from regularly spaced grids containing elevation dat
 			<name>Claus O. Wilke</name>
 			<email>wilke@austin.utexas.edu</email>
 		</maintainer>
+		<bugs-to>https://github.com/wilkelab/isoband/issues</bugs-to>
+		<remote-id type="github">wilkelab/isoband</remote-id>
 	</upstream>
 </pkgmetadata>

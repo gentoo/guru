@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit dune
+inherit dune toolchain-funcs
 
 MYPV="${PV/_p/_cvs}"
 
@@ -26,4 +26,12 @@ RDEPEND="
 	sys-fs/fuse:0
 "
 DEPEND="${RDEPEND}"
-BDEPEND="dev-ml/dune-configurator"
+BDEPEND="
+	dev-ml/dune-configurator
+	dev-ml/opam
+"
+
+src_compile() {
+	tc-export CPP
+	dune_src_compile
+}

@@ -13,5 +13,7 @@ for automatically determining breaks and labels for axes and legends.</longdescr
 			<name>Hadley Wickham</name>
 			<email>hadley@rstudio.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/r-lib/scales/issues</bugs-to>
+		<remote-id type="github">r-lib/scales</remote-id>
 	</upstream>
 </pkgmetadata>

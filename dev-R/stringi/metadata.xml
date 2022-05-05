@@ -19,5 +19,7 @@ portable across all locales and platforms.</longdescription>
 			<name>Marek Gagolewski</name>
 			<email>marek@gagolewski.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/gagolews/stringi/issues</bugs-to>
+		<remote-id type="github">gagolews/stringi</remote-id>
 	</upstream>
 </pkgmetadata>

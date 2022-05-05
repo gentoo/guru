@@ -15,5 +15,7 @@ syntax that can be converted to 'XHTML' or other formats. See
 			<name>Yihui Xie</name>
 			<email>xie@yihui.name</email>
 		</maintainer>
+		<bugs-to>https://github.com/rstudio/markdown/issues</bugs-to>
+		<remote-id type="github">rstudio/markdown</remote-id>
 	</upstream>
 </pkgmetadata>

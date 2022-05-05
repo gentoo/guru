@@ -11,5 +11,7 @@
 			<name>Kevin Ushey</name>
 			<email>kevin@rstudio.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/rstudio/rstudioapi/issues</bugs-to>
+		<remote-id type="github">rstudio/rstudioapi</remote-id>
 	</upstream>
 </pkgmetadata>

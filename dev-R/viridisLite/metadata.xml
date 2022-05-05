@@ -18,5 +18,7 @@ continuous color and fill scales and can be found at
 			<name>Simon Garnier</name>
 			<email>garnier@njit.edu</email>
 		</maintainer>
+		<bugs-to>https://github.com/sjmgarnier/viridisLite/issues/</bugs-to>
+		<remote-id type="github">sjmgarnier/viridisLite</remote-id>
 	</upstream>
 </pkgmetadata>

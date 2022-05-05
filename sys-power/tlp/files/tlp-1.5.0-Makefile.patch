@@ -1,0 +1,18 @@
+diff --git a/Makefile b/Makefile
+index b81451c..d154b6b 100644
+--- a/Makefile
++++ b/Makefile
+@@ -14,10 +14,10 @@ TLP_CONFDIR ?= /etc/tlp.d
+ TLP_CONFDEF ?= /usr/share/tlp/defaults.conf
+ TLP_CONFREN ?= /usr/share/tlp/rename.conf
+ TLP_CONF    ?= /etc/default/tlp
+-TLP_SYSD    ?= /lib/systemd/system
+-TLP_SDSL    ?= /lib/systemd/system-sleep
++TLP_SYSD    ?= /@LIBDIR@/systemd/system
++TLP_SDSL    ?= /@LIBDIR@/systemd/system-sleep
+ TLP_SYSV    ?= /etc/init.d
+-TLP_ELOD    ?= /lib/elogind/system-sleep
++TLP_ELOD    ?= /@LIBDIR@/elogind/system-sleep
+ TLP_SHCPL   ?= /usr/share/bash-completion/completions
+ TLP_MAN     ?= /usr/share/man
+ TLP_META    ?= /usr/share/metainfo

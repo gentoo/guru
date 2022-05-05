@@ -14,5 +14,7 @@ files and provide more explicit control over line endings.</longdescription>
 			<name>Gábor Csárdi</name>
 			<email>csardi.gabor@gmail.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/r-lib/brio/issues</bugs-to>
+		<remote-id type="github">r-lib/brio</remote-id>
 	</upstream>
 </pkgmetadata>

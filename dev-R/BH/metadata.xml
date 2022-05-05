@@ -11,5 +11,7 @@
 			<name>Dirk Eddelbuettel</name>
 			<email>edd@debian.org</email>
 		</maintainer>
+		<bugs-to>https://github.com/eddelbuettel/bh/issues</bugs-to>
+		<remote-id type="github">eddelbuettel/bh</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -14,5 +14,7 @@ structured list can be used to write back to file after modifications.</longdesc
 			<name>David Valentim Dias</name>
 			<email>dvdscripter@gmail.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/dvdscripter/ini/issues</bugs-to>
+		<remote-id type="github">dvdscripter/ini</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -1,0 +1,61 @@
+--- a/bee-node/bee-plugin/bee-plugin-dashboard/build.rs
++++ b/bee-node/bee-plugin/bee-plugin-dashboard/build.rs
+@@ -2,14 +2,14 @@
+ // SPDX-License-Identifier: Apache-2.0
+ 
+ use std::{fmt, io, path::Path};
+-
++use std::fs::File;
+ use sha2::{Digest, Sha256};
+ use zip::ZipArchive;
+-
++/*
+ const RELEASE_URL: &str =
+     "https://github.com/iotaledger/node-dashboard/releases/download/v2.0.0-alpha7/node-dashboard-bee-2.0.0-alpha7.zip";
+ const RELEASE_CHECKSUM: &str = "72e5ccf934ada48b04dca4e1f28bfd811e9cca526f3e30edb5ed77d2cdac984e";
+-
++*/
+ #[derive(Debug)]
+ enum BuildError {
+     InvalidArchive,
+@@ -42,7 +42,7 @@
+     println!("cargo:rerun-if-env-changed=FETCH_DASHBOARD");
+     // Rebuild if DASHBOARD_DIR has changed to a different path.
+     println!("cargo:rerun-if-env-changed=DASHBOARD_DIR");
+-
++/*
+     let should_fetch = std::env::var("FETCH_DASHBOARD").map(|val| val == "1").unwrap_or(false);
+ 
+     if should_fetch || !dashboard_dir.exists() {
+@@ -50,15 +50,15 @@
+             // If the path already exists, we are re-downloading: remove the old files.
+             std::fs::remove_dir_all(dashboard_dir).expect("could not remove existing dashboard");
+         }
+-
++*/
+         fetch(dashboard_dir)?;
+-    }
++//    }
+ 
+     Ok(())
+ }
+ 
+ fn fetch<P: AsRef<Path>>(dashboard_dir: P) -> Result<(), BuildError> {
+-    println!("downloading latest dashboard release from {}", RELEASE_URL);
++/*    println!("downloading latest dashboard release from {}", RELEASE_URL);
+ 
+     let client = reqwest::blocking::Client::builder()
+         .user_agent("bee-fetch-dashboard")
+@@ -86,8 +86,10 @@
+     }
+ 
+     println!("checksum ok");
+-
+-    let mut archive = ZipArchive::new(tmp_file).map_err(|_| BuildError::InvalidArchive)?;
++*/
++    let fname = std::path::Path::new("./node-dashboard-bee-2.0.0-alpha7.zip");
++    let file = File::open(&fname).unwrap();
++    let mut archive = ZipArchive::new(file).map_err(|_| BuildError::InvalidArchive)?;
+ 
+     println!("extracting release archive to {}", dashboard_dir.as_ref().display());
+     archive.extract(dashboard_dir).map_err(|_| BuildError::InvalidArchive)?;

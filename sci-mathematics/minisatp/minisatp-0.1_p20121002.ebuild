@@ -22,6 +22,7 @@ RDEPEND="
 	sys-libs/zlib
 "
 DEPEND="${RDEPEND}"
+BDEPEND="app-admin/chrpath"
 
 PATCHES=(
 	"${FILESDIR}/${PF}-find-gmp.patch"
@@ -43,4 +44,6 @@ src_install() {
 	dolib.so "${BUILD_DIR}/libminisatp.so.1"
 	dolib.so "${BUILD_DIR}/libminisatp.so.1.1.0"
 	dobin "${BUILD_DIR}/minisatp"
+
+	chrpath -d "${ED}/usr/bin/minisat" || die
 }

@@ -105,6 +105,10 @@ BDEPEND="
 		>=dev-python/testtools-2.4.0[${PYTHON_USEDEP}]
 		>=dev-python/pymysql-0.7.6[${PYTHON_USEDEP}]
 		>=dev-python/psycopg-2.5.0[${PYTHON_USEDEP}]
+
+		dev-python/SQLAlchemy-Utils[${PYTHON_USEDEP}]
+		dev-python/moto[${PYTHON_USEDEP}]
+		dev-python/testresources[${PYTHON_USEDEP}]
 	)
 "
 
@@ -123,6 +127,7 @@ pkg_pretend() {
 }
 
 python_prepare_all() {
+	rm cinder/tests/unit/test_hacking.py || die
 	sed -i '/^hacking/d' test-requirements.txt || die
 	# only used for docs
 	sed -i '/^sphinx-feature-classification/d' requirements.txt || die

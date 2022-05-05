@@ -11,5 +11,7 @@
 			<name>Brodie Gaslam</name>
 			<email>brodie.gaslam@yahoo.com</email>
 		</maintainer>
+		<bugs-to>https://github.com/brodieG/diffobj/issues</bugs-to>
+		<remote-id type="github">brodieG/diffobj</remote-id>
 	</upstream>
 </pkgmetadata>
