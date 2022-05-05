@@ -6,7 +6,7 @@ EAPI=8
 LUA_COMPAT=( lua5-{3..4} )
 PYTHON_COMPAT=( python3_{8..10} ) # IDK how to pass pypy3
 
-inherit cmake lua-single python-single-r1 toolchain-funcs
+inherit cmake flag-o-matic lua-single python-single-r1 toolchain-funcs
 
 DESCRIPTION="Integrated grounder and solver for answer set logic programs"
 HOMEPAGE="
@@ -27,7 +27,10 @@ RDEPEND="
 	lua? ( ${LUA_DEPS} )
 	python? ( ${PYTHON_DEPS} )
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	test? ( dev-cpp/catch:0  )
+"
 BDEPEND="
 	>=dev-util/re2c-0.13.5
 	>=sys-devel/bison-2.5
@@ -48,10 +51,14 @@ pkg_setup() {
 
 src_prepare() {
 	rm -r clasp || die
+	rm libreify/tests/catch.hpp || die
+	rm libclingo/tests/catch.hpp || die
+	rm libgringo/tests/catch.hpp || die
 	cmake_src_prepare
 }
 
 src_configure() {
+	append-cxxflags "-I/usr/include/catch2"
 	local mycmakeargs=(
 		-DCLINGO_BUILD_APPS=$(usex tools)
 		-DCLINGO_BUILD_EXAMPLES=$(usex examples)
