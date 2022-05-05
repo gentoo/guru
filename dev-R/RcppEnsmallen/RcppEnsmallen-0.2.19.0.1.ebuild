@@ -33,7 +33,7 @@ SUGGESTED_PACKAGES="
 "
 
 src_prepare() {
-	default
+	R-packages_src_prepare
 
 	# remove bundled
 	rm -r inst/include/ensmallen_bits || die
