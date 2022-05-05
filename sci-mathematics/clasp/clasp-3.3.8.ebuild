@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake flag-o-matic
 
 DESCRIPTION="A conflict-driven nogood learning answer set solver"
 HOMEPAGE="
@@ -26,6 +26,7 @@ DEPEND="
 RESTRICT="!test? ( test )"
 
 src_prepare() {
+	append-cxxflags "-I/usr/include/catch2"
 	rm tests/catch.hpp || die
 	cmake_src_prepare
 }
