@@ -1,7 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
 inherit flag-o-matic fortran-2 toolchain-funcs
 
@@ -9,7 +9,10 @@ MY_PV="${PV/_p/+}"
 MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="Subroutine Library in Systems and Control Theory"
-HOMEPAGE="https://web.archive.org/web/20191022092917/http://www.slicot.org"
+HOMEPAGE="
+	https://web.archive.org/web/20191022092917/http://www.slicot.org
+	https://tracker.debian.org/pkg/slicot
+"
 SRC_URI="http://cdn-fastly.deb.debian.org/debian/pool/main/s/${PN}/${PN}_${MY_PV}.orig.tar.gz"
 
 LICENSE="GPL-2+"
@@ -20,7 +23,7 @@ IUSE="doc examples"
 
 DEPEND="
 	virtual/blas
-	virtual/lapack
+	|| ( sci-libs/lapack[deprecated] sci-libs/openblas )
 "
 RDEPEND="${DEPEND}"
 

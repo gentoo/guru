@@ -36,7 +36,7 @@ BDEPEND="sys-apps/pkgcore"
 # @DESCRIPTION:
 # <dest> will contain symlinks to everything in <source>
 _movelink() {
-	if [ -e "${1}" ]; then
+	if [[ -e "${1}" ]]; then
 		local rp1="$(realpath ${1})" || die
 		mv "${rp1}" "${2}" || die
 		cp -rsf "${2}" "${rp1}" || die
@@ -110,11 +110,11 @@ R-packages_src_install() {
 		docompress -x "${DOCS_DIR}/${i}"
 	done
 
-	if [ -e html ]; then
+	if [[ -e html ]]; then
 		_movelink html "${ED}${DOCS_DIR}/html" || die
 		docompress -x "${DOCS_DIR}/html"
 	fi
-	if [ -e doc ]; then
+	if [[ -e doc ]]; then
 		pushd doc || die
 		for i in * ; do
 			_movelink "${i}" "${ED}${DOCS_DIR}/${i}" || die
@@ -122,7 +122,7 @@ R-packages_src_install() {
 		done
 		popd || die
 	fi
-	if [ -e doc/html ]; then
+	if [[ -e doc/html ]]; then
 		docompress -x "${DOCS_DIR}/html"
 	fi
 	docompress -x "${DOCS_DIR}"
@@ -137,10 +137,10 @@ R-packages_src_install() {
 # @DESCRIPTION:
 # function that will prompt to install the suggested packages if they exist
 R-packages_pkg_postinst() {
-	if [ -v SUGGESTED_PACKAGES ]; then
+	if [[ -v SUGGESTED_PACKAGES ]]; then
 		for p in ${SUGGESTED_PACKAGES} ; do
 			pexist=$(pquery -n1 "${p}" 2>/dev/null) || die
-			if [ -n "${pexist}" ]; then
+			if [[ -n "${pexist}" ]]; then
 				optfeature "having the upstream suggested package" "${p}"
 			fi
 		done

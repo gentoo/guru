@@ -18,6 +18,10 @@ SRC_URI="https://gitlab.com/lvml/${PN}/-/archive/${COMMIT}/${MY_P}.tar.gz -> ${P
 LICENSE="GPL-2"
 KEYWORDS="~amd64"
 
+RDEPEND="
+	x11-apps/xrandr
+"
+
 S="${WORKDIR}/${MY_P}"
 
 MPV_PLUGIN_FILES=( xrandr.lua )
