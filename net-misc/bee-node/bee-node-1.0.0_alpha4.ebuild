@@ -485,6 +485,7 @@ RDEPEND="
 	${DEPEND}
 	dashboard? ( net-libs/nodejs )
 "
+BDEPEND="dev-vcs/git"
 
 PATCHES=( "${FILESDIR}/${P}-no-download.patch" )
 
