@@ -498,7 +498,9 @@ pkg_setup() {
 
 src_unpack() {
 	cargo_src_unpack
-	use dashboard && cp "${DISTDIR}/node-dashboard-bee-${DASHBOARD_VERSION}" "${S}/${PN}/bee-plugin/bee-plugin-dashboard/node-dashboard-bee-${DASHBOARD_VERSION}.zip" || die
+	if use dashboard; then
+		cp "${DISTDIR}/node-dashboard-bee-${DASHBOARD_VERSION}" "${S}/${PN}/bee-plugin/bee-plugin-dashboard/node-dashboard-bee-${DASHBOARD_VERSION}.zip" || die
+	fi
 }
 
 src_configure() {
