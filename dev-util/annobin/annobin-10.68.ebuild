@@ -25,7 +25,6 @@ RDEPEND="
 	!clang? ( llvm? ( <sys-devel/llvm-${LLVM_MAX_SLOT}:= ) )
 	llvm? (
 		|| (
-			sys-devel/llvm:11
 			sys-devel/llvm:12
 			sys-devel/llvm:13
 			sys-devel/llvm:${LLVM_MAX_SLOT}
@@ -35,7 +34,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${P}-fix-bashism.patch"
+	"${FILESDIR}/${PN}-10.65-fix-bashism.patch"
 	"${FILESDIR}/${PN}-10.58-demangle.h-path.patch"
 )
 REQUIRED_USE="
