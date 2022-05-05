@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst
+DESCRIPTION=Automatic subtitle synchronization script for mpv media player
+EAPI=8
+HOMEPAGE=https://github.com/joaquintorres/autosubsync-mpv/
+INHERIT=mpv-plugin
+IUSE=+autoload
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=media-video/ffsubsync media-video/mpv[lua]
+SLOT=0
+SRC_URI=https://github.com/joaquintorres/autosubsync-mpv/archive/989e73fd25800d4722b9bb1105aac65f55fec035.tar.gz -> autosubsync-mpv-20220402.tar.gz
+_eclasses_=mpv-plugin	a2bb2493b1a6671120053543dc64f758
+_md5_=ae6fe677352e337651ad483979e34ed1

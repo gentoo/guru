@@ -400,6 +400,9 @@ net-libs/td:dotnet - Add support for .NET
 net-libs/td:jumbo-build - Combine source files to speed up build process
 net-libs/usockets:asio - Enable bindings to use the boost asio dispatcher
 net-libs/usockets:libuv - Enable bindings to use the libuv dispatcher
+net-misc/bee-node:dashboard - build the dashboard plugin
+net-misc/bee-node:rocksdb - add support for roscksb as storage
+net-misc/bee-node:sled - add support for sled as storage
 net-misc/megasync:cryptopp - Compile with Crypto++ Library.
 net-misc/megasync:dolphin - Upload your files to your Mega account from Dolphin file manager.
 net-misc/megasync:freeimage - Use freeimage to manage graphic images format.
@@ -443,17 +446,10 @@ sci-geosciences/GeographicLib-data:magnetic-models-wmm2010 - the World Magnetic 
 sci-geosciences/GeographicLib-data:magnetic-models-wmm2015v2 - the World Magnetic Model 2015, which approximates the main magnetic field for the period 2015–2020.
 sci-geosciences/GeographicLib-data:magnetic-models-wmm2020 - the World Magnetic Model 2020, which approximates the main magnetic field for the period 2020–2025.
 sci-libs/ann:profile - Enable performance evaluation. (This may slow execution slightly.)
-sci-libs/dart:bullet - Bullet Collision Detector Support
 sci-libs/dart:examples - Build the examples
 sci-libs/dart:extras - Build the experimental projects that are derived from the core DART project
-sci-libs/dart:gui - OpenSceneGraph GUI
-sci-libs/dart:ipopt - IPopt Optimization Support
-sci-libs/dart:nlopt - NLopt Optimization Support
-sci-libs/dart:ode - ODE Collision Detector Support
-sci-libs/dart:openscenegraph - OpenSceneGraph GUI and examples
-sci-libs/dart:tests - Build the tests
+sci-libs/dart:osg - OpenSceneGraph GUI
 sci-libs/dart:tutorials - Build the tutorials
-sci-libs/dart:urdfdom - URDF parser
 sci-libs/libpotassco:tools - whether or not to build lpconvert tool
 sci-libs/meschach:complex - incorporate complex functions
 sci-libs/meschach:double-precision - double precision
@@ -462,6 +458,9 @@ sci-libs/meschach:segmem - should be set if you are working with a machine or co
 sci-libs/meschach:single-precision - single precision
 sci-libs/meschach:sparse - incorporate sparse matrix functions
 sci-libs/meschach:vunroll - unroll low level loops on vectors
+sci-libs/mlpack:R - build R bindings
+sci-libs/mlpack:go - build go bindings
+sci-libs/mlpack:julia - build julia bindings
 sci-mathematics/clasp:tools - whether or not to build the clasp application
 sci-mathematics/clingo:tools - whether or not to build the clingo tool
 sci-mathematics/frama-c-aorai:eva - Build support for the Eva plugin
@@ -779,9 +778,6 @@ sys-cluster/paraver-kernel:otf2 - Enable otf2 support
 sys-cluster/parsec:devel-headers - Install additional headers in include/parsec allowing external compilation
 sys-cluster/parsec:home-config-files - Should the runtime check for the parameter configuration file in the user home (\$HOME/.parsec/mca-params.conf)
 sys-cluster/parsec:parsec-debug-history - Keep a summarized history of critical events in memory that can be dumped in gdb when deadlock occur
-sys-cluster/parsec:parsec-debug-mem-addr - Enable the memory access checker
-sys-cluster/parsec:parsec-debug-mem-leak - Enable only the memory leak checker
-sys-cluster/parsec:parsec-debug-mem-race - Enable the memory thread-race checker
 sys-cluster/parsec:parsec-debug-noisier - Enable chatterbox-like verbose debugging (may impact performance)
 sys-cluster/parsec:parsec-debug-paranoid - Enable extra paranoid checks (may impact performance)
 sys-cluster/parsec:parsec-dist-collectives - Use optimized asynchronous operations where collective communication pattern is detected

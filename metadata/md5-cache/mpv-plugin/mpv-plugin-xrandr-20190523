@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst
+DESCRIPTION=Automatically invoke the xrandr to set the parameters for the display output
+EAPI=8
+HOMEPAGE=https://gitlab.com/lvml/mpv-plugin-xrandr
+INHERIT=mpv-plugin
+IUSE=+autoload
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=media-video/mpv[lua]
+SLOT=0
+SRC_URI=https://gitlab.com/lvml/mpv-plugin-xrandr/-/archive/d4e06881367fdcd21572ae9f2d3280ffb5815f26/mpv-plugin-xrandr-d4e06881367fdcd21572ae9f2d3280ffb5815f26.tar.gz -> mpv-plugin-xrandr-20190523.tar.gz
+_eclasses_=mpv-plugin	a2bb2493b1a6671120053543dc64f758
+_md5_=c249edd692115b169daa9a348d57a507

@@ -86,7 +86,7 @@ app-editors/amp 0.6.2: A complete text editor for your terminal.
 app-editors/atom-bin 1.58.0-r1: A hackable text editor for the 21st Century
 app-editors/helix 0.4.1 0.6.0: A post-modern text editor.
 app-editors/imhex 1.8.1-r1 1.10.0 1.10.1: A hex editor for reverse engineers, programmers, and eyesight
-app-editors/kak-lsp 12.0.1 12.1.0: Kakoune Language Server Protocol Client
+app-editors/kak-lsp 12.2.0: Kakoune Language Server Protocol Client
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/mined 2015.25: A powerful text editor with extensive Unicode and CJK support
 app-editors/typora-bin 0.10.7: a markdown editor,markdown reader.
@@ -147,7 +147,7 @@ app-misc/watchexec 1.15.3 1.16.2 1.17.1 1.18.11 1.18.12 1.19.0: Executes command
 app-misc/wego 2.1: Wego is a weather client for the terminal
 app-misc/xplr 0.15.2 0.17.0 0.17.1 0.17.2: A hackable, minimal, fast TUI file explorer
 app-misc/yaf 0.0.3: Yet another system fetch that is minimal and customizable.
-app-misc/zellij 0.27.0 0.28.1: A terminal workspace with batteries included
+app-misc/zellij 0.28.1 0.29.1: A terminal workspace with batteries included
 app-mobilephone/flashlight 0.1.1-r2: It's a flashlight, what do you expect?
 app-mobilephone/mobile-config-firefox 2.1.0: Mobile and privacy friendly configuration for Firefox
 app-mobilephone/pinephone-modem-scripts 0.20.8: Modem scripts for the PinePhone
@@ -223,7 +223,7 @@ dev-R/RColorBrewer 1.1.3: ColorBrewer Palettes
 dev-R/RInside 0.2.17: C++ Classes to Embed R in C++ (and C) Applications
 dev-R/Rcpp 1.0.8.3: Seamless R and C++ Integration
 dev-R/RcppArmadillo 0.10.2.2.0 0.10.8.1.0: Rcpp Integration for the Armadillo templated linear algebra library
-dev-R/RcppEnsmallen 0.2.17.0.1: Header-Only C++ Mathematical Optimization library for armadillo
+dev-R/RcppEnsmallen 0.2.19.0.1: Header-Only C++ Mathematical Optimization library for armadillo
 dev-R/RcppTOML 0.1.7: Rcpp Bindings to C++ parser for TOML files
 dev-R/askpass 1.1: Safe Password Entry for R, Git and SSH
 dev-R/assertthat 0.2.1: Easy Pre and Post Assertions
@@ -246,16 +246,21 @@ dev-R/ellipsis 0.3.2: Tools for Working with ...
 dev-R/evaluate 0.15: Parsing and Evaluation Tools that provide more details than the default
 dev-R/fansi 1.0.3: ANSI Control Sequence Aware String Functions
 dev-R/farver 2.1.0: High Performance Colour Space Manipulation
+dev-R/fs 1.5.2: Cross-Platform File System Operations Based on libuv
+dev-R/gargle 1.2.0: Utilities for Working with Google APIs
 dev-R/generics 0.1.2: Common S3 Generics not Provided by Base R Methods Related to Model Fitting
-dev-R/ggplot2 3.3.5: Create Elegant Data Visualisations using the grammar of graphics
+dev-R/ggplot2 3.3.6: Create Elegant Data Visualisations using the grammar of graphics
 dev-R/gh 1.3.0: GitHub API
 dev-R/gitcreds 0.1.1: Query git Credentials from R
 dev-R/glue 1.6.2: Interpreted String Literals
+dev-R/googledrive 2.0.0: An Interface to Google Drive
+dev-R/googlesheets4 1.0.0: Access Google Sheets using the Sheets API V4
 dev-R/gtable 0.3.0: Arrange Grobs in Tables
 dev-R/here 1.0.1: A Simpler Way to Find Your Files
 dev-R/highr 0.9: Syntax Highlighting for R Source Code
 dev-R/httr 1.4.2: Tools for Working with URLs and HTTP
 dev-R/hunspell 3.0.1: High-Performance Stemmer, Tokenizer and Spell Checker
+dev-R/ids 1.0.1: Generate Random Identifiers
 dev-R/ini 0.3.1: Read and Write .ini Files
 dev-R/isoband 0.2.5: Generate Isolines and Isobands from regularky spaced elevation grids
 dev-R/jsonlite 1.8.0: A Simple and Robust JSON Parser and generator for R
@@ -274,6 +279,7 @@ dev-R/nnet 7.3.17: Feed-Forward Neural Networks and multinomial log-linear model
 dev-R/openssl 2.0.0: Toolkit for Encryption, Signatures and certificates based on openssl
 dev-R/parsedate 1.3.0: Recognize and Parse Dates in Various Formats
 dev-R/pillar 1.7.0: Coloured Formatting for Columns
+dev-R/pkgbuild 1.3.1: Find Tools Needed to Build R Packages
 dev-R/pkgconfig 2.0.3: Private Configuration for R Packages
 dev-R/pkgload 1.2.4: Simulate Package Installation and Attach
 dev-R/pkgsearch 3.1.0: Search and Query CRAN R Packages
@@ -300,10 +306,11 @@ dev-R/stringr 1.4.0: Simple, Consistent Wrappers for common string operations
 dev-R/survival 3.3.1: Survival Analysis
 dev-R/sys 3.4: Powerful and Reliable Tools for Running System Commands in R
 dev-R/testthat 3.1.4: Unit Testing for R
-dev-R/tibble 3.1.6: Simple Data Frames
+dev-R/tibble 3.1.7: Simple Data Frames
 dev-R/tidyselect 1.1.2: Select from a Set of Strings
 dev-R/txtplot 1.0.4: Text Based Plots
 dev-R/utf8 1.2.2: Unicode Text Processing
+dev-R/uuid 1.1.0: Tools for Generating and Handling of UUIDs
 dev-R/vctrs 0.4.1: Vector Helpers
 dev-R/viridisLite 0.4.0: Colorblind-Friendly Color Maps (Lite Version)
 dev-R/waldo 0.4.0: Find Differences Between R Objects
@@ -592,7 +599,7 @@ dev-python/etcd3gw 1.0.0 1.0.1: A python client for etcd3 grpc-gateway v3 API
 dev-python/exifread 2.3.2: Easy to use Python module to extract Exif metadata from tiff and jpeg files
 dev-python/factory_boy 3.2.0 3.2.1: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11-r1: Up to date simple useragent faker with real world database
-dev-python/fastavro 1.4.7 1.4.10: Fast Avro for Python
+dev-python/fastavro 1.4.10 1.4.11: Fast Avro for Python
 dev-python/fchroot 0.1.2: Franken-chroot tool. Chroot arm/64 arches into amd64/x86
 dev-python/filecheck 0.0.22: Python port of LLVM's FileCheck, flexible pattern matching file verifier
 dev-python/font-v 1.0.5 2.1.0: Font version string reporting and modification library
@@ -740,7 +747,7 @@ dev-python/pysubs2 1.3.1 1.4.1 1.4.2: A library for editing subtitle files
 dev-python/pytest-benchmark 3.4.1: py.test fixture for benchmarking code
 dev-python/pytest-cases 3.6.9 3.6.11: Separate test code from test cases in pytest
 dev-python/pytest-celery 0.1.0: a shim pytest plugin to enable celery.contrib.pytest
-dev-python/pytest-cython 0.1.1: Plugin for testing Cython extension modules
+dev-python/pytest-cython 0.1.1 0.2.0: Plugin for testing Cython extension modules
 dev-python/pytest-harvest 1.10.3: Store and retrieve data created during your pytest tests execution
 dev-python/pytest-instafail 0.4.2: Plugin for pytest that shows failures and errors instantly
 dev-python/pytest-isort 1.3.0 1.3.0-r1: Plugin to check import ordering using isort
@@ -825,11 +832,11 @@ dev-python/trueskill 0.4.5_p20191014: Python Implementation of the TrueSkill Alg
 dev-python/ttfautohint-py 0.4.3 0.5.1: A Python wrapper for ttfautohint
 dev-python/tweedledum 1.1.1: Library for analysis, compilation, synthesis, optimization of quantum circuits
 dev-python/tweepy 3.10.0: An easy-to-use Python library for accessing the Twitter API.
-dev-python/types-paramiko 2.8.17 2.8.19: Typing stubs for paramiko
-dev-python/types-python-dateutil 2.8.10 2.8.12: Typing stubs for python-dateutil
-dev-python/types-pytz 2021.3.5 2021.3.6: Typing stubs for pytz
-dev-python/types-requests 2.27.16 2.27.20: Typing stubs for requests
-dev-python/types-urllib3 1.26.11 1.26.13: Typing stubs for urllib3
+dev-python/types-paramiko 2.8.19 2.8.21: Typing stubs for paramiko
+dev-python/types-python-dateutil 2.8.12 2.8.14: Typing stubs for python-dateutil
+dev-python/types-pytz 2021.3.6 2021.3.7: Typing stubs for pytz
+dev-python/types-requests 2.27.20 2.27.25: Typing stubs for requests
+dev-python/types-urllib3 1.26.13 1.26.14: Typing stubs for urllib3
 dev-python/ufo2ft 2.26.0 2.27.0: A bridge from UFOs to FontTool objects
 dev-python/ufoLib2 0.11.4 0.13.1: A UFO font library
 dev-python/ufoNormalizer 0.5.4 0.6.1: A tool that will normalize the XML and other data inside of a UFO
@@ -862,7 +869,7 @@ dev-ruby/rspec-wait 0.0.9: enables time-resilient expectations in your RSpec tes
 dev-ruby/ruby-install 0.8.3-r2: Installs Ruby, JRuby, Rubinius, TruffleRuby (native / GraalVM), or mruby.
 dev-util/FoBiS 3.0.5: FoBiS.py, a Fortran Building System for poor men
 dev-util/afdko 3.6.2 3.8.1: Adobe Font Development Kit for OpenType
-dev-util/annobin 10.65: Binary annotation compiler plugin and tools
+dev-util/annobin 10.65 10.67: Binary annotation compiler plugin and tools
 dev-util/babeltrace2 2.0.4: A command-line tool and library to read and convert trace files
 dev-util/bats-assert 2.0.0: Common assertions for Bats
 dev-util/bats-support 0.3.0: Supporting library for Bats test helpers
@@ -870,7 +877,7 @@ dev-util/binaryen 105: Compiler and toolchain infrastructure library for WebAsse
 dev-util/blueprint-compiler 0.1.0_pre20220319 0.1.0_pre20220419 9999: Compiler for Blueprint, a markup language for GTK user interfaces
 dev-util/cargo-make 0.35.9 0.35.10: Rust task runner and build tool
 dev-util/deblob 9999: remove binary executables from a directory
-dev-util/devscripts 2.21.3 2.22.1: Scripts to make the life of a Debian Package maintainer easier
+dev-util/devscripts 2.21.3 2.22.1 2.22.1-r1: Scripts to make the life of a Debian Package maintainer easier
 dev-util/eclipse-parallel-bin 4.22 4.23: Eclipse IDE for Scientific Computing (C, C++, Fortran)
 dev-util/fontmake 3.2.0 3.3.0: A wrapper for several Python libraries to compile fonts from sources
 dev-util/fortran-test-drive 0.4.0: The simple testing framework (for Fortran)
@@ -933,7 +940,7 @@ games-fps/crispy-doom 5.10.0 5.10.1 5.10.2 5.10.3 5.11.1: A limit-removing enhan
 games-fps/etlegacy 2.79.0: Wolfenstein: Enemy Territory 2.60b compatible client/server
 games-fps/quakespasm 0.94.1 9999: Modern, cross-platform Quake 1 engine based on FitzQuake
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
-games-misc/an-anime-game-launcher-bin 2.3.1: Open Source An Anime Game launcher for Linux with automatic anti-cheat patching and telemetry disabling
+games-misc/an-anime-game-launcher-bin 2.3.1-r1: Open Source An Anime Game launcher for Linux with automatic anti-cheat patching and telemetry disabling, binary package
 games-misc/bonsai 0_pre20210201: bonsai tree generator written in bash
 games-misc/cbonsai 1.3.1-r1: grow bonsai trees in your terminal
 games-misc/gay 1.2.8: Colour your text / terminal to be more gay
@@ -949,7 +956,7 @@ games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
 games-util/hid-nintendo 9999: A Nintendo HID kernel module
 games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launcher
 games-util/legendary 0.20.24 0.20.25: A free and open-source replacement for the Epic Games Launcher
-games-util/mangohud 0.6.6.1: A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more.
+games-util/mangohud 0.6.6.1-r1: A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more
 games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
 games-util/samrewritten 9999 202008: Steam Achievement Manager For Linux
 games-util/steamtinkerlaunch 8.0: Wrapper script for Steam custom launch options
@@ -1026,7 +1033,7 @@ kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU
 kde-misc/plasma5-wallpapers-dynamic 3.3.9 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
 kde-misc/skanpage 22.03.80 9999: Multi-page scanning application supporting image and pdf files
 mail-client/heirloom-mailx 12.5: The mailx utility from CentOS
-mail-client/mailspring-bin 1.9.2 1.10.2: A beautiful, fast and fully open source mail client for Mac, Windows and Linux
+mail-client/mailspring-bin 1.9.2 1.10.3: A beautiful, fast and fully open source mail client for Mac, Windows and Linux
 media-fonts/3270font 2.3.0 2.3.1: A IBM 3270 Terminal font in a modern format
 media-fonts/gohufont 2.1_p20170627: A monospace bitmap font
 media-fonts/inconsolata_dz 20201205: A beautiful sans-serif monotype font designed for code listings
@@ -1049,7 +1056,7 @@ media-gfx/dustr 9999: light and interactive tool your crops need
 media-gfx/fontbakery 0.7.38: Font quality assurance tool
 media-gfx/fontdiff 0.2.3: A tool for finding visual differences between two font versions
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
-media-gfx/gephi-bin 0.9.3 0.9.4: The Open Graph Viz Platform
+media-gfx/gephi-bin 0.9.4 0.9.5: The Open Graph Viz Platform
 media-gfx/grafx2 2.7.2978 2.7.2978-r100: A pixelart-oriented painting program
 media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/nsxiv 29 9999: Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer
@@ -1066,7 +1073,7 @@ media-libs/alsa-ucm-pinephone 1.2.6.3: ALSA ucm configuration files for the Pine
 media-libs/alvr 15.2.1_p20210604 16.0.0: ALVR is an open source remote VR display for the Oculus Go/Quest
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.4.2: AMD Open Source Driver for Vulkan
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
-media-libs/imgui 1.83 1.87-r4: Bloat-free graphical user interface library for C++
+media-libs/imgui 1.83 1.87-r5: Bloat-free graphical user interface library for C++
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
 media-libs/lodepng 20210627: PNG encoder and decoder
 media-libs/monado 9999: The open source OpenXR runtime.
@@ -1103,7 +1110,7 @@ media-sound/noson-app 5.2.2: The essential to control music from your SONOS devi
 media-sound/nuclear-bin 0.6.15 0.6.17: Nuclear is a streaming program that pulls content from free sources on internet
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
 media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file or stream as a PulseAudio source
-media-sound/spotify-adblock 1.0.1: Adblocker for Spotify
+media-sound/spotify-adblock 1.0.1 1.0.2: Adblocker for Spotify
 media-sound/spotify_dl 8.3.0: Downloads songs from a Spotify Playlist/Track/Album that you provide
 media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
 media-sound/zita-ajbridge 0.8.4 0.8.4-r1: zita-a2j and zita-j2a - bridges between ALSA and JACK
@@ -1112,7 +1119,6 @@ media-video/ffsubsync 0.4.18-r1 0.4.19-r1 0.4.20-r1: Automagically syncronize su
 media-video/kikoplay 0.8.2 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.4.3: A GTK3 camera application that knows how to deal with the media request api
 media-video/mpv-mpris 0.7 0.7.1 0.7.1-r1 9999: MPRIS plugin for mpv
-media-video/mpv_thumbnail_script 0.4.8: A Lua script to show preview thumbnails in mpv's OSC seekbar
 media-video/obs-vkcapture 1.1.3 9999: OBS Linux Vulkan/OpenGL game capture
 media-video/owncast 0.0.10 0.0.11: A self-hosted live video and web chat server
 media-video/qliveplayer 4.0.1-r2 4.1.0: A player and recorder for live streams and videos with danmaku support
@@ -1120,6 +1126,13 @@ media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/trakt-scrobbler 1.3.2 1.4.0 1.4.2: Scrobbler for trakt.tv that supports VLC, Plex, MPC-HC, and MPV
 media-video/uxplay 1.50a 1.51: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
+mpv-plugin/autoload 0.33.1: Loads playlist entries before and after the the currently played file
+mpv-plugin/autosubsync-mpv 20220402: Automatic subtitle synchronization script for mpv media player
+mpv-plugin/kde-do-not-disturb 20220109: Disable the notifications while mpv is running
+mpv-plugin/kde-night-color 20220109: Disable Night Color while mpv is running
+mpv-plugin/mpv-autosub 20210629: Fully automatic subtitle downloading for the MPV media player
+mpv-plugin/mpv-plugin-xrandr 20190523: Automatically invoke the xrandr to set the parameters for the display output
+mpv-plugin/mpv_thumbnail_script 0.4.8: A Lua script to show preview thumbnails in mpv's OSC seekbar
 net-analyzer/munin-contrib 0.2021.04.27: user contributed stuff related to munin
 net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various plugins for Munin
 net-client/amfora 1.8.0 1.9.2: A fancy terminal browser for the Gemini protocol.
@@ -1135,7 +1148,7 @@ net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a perm
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/Quaternion 0.0.9.4e: A Qt5-based IM client for the Matrix protocol
 net-im/abaddon 0.1.5 9999: Alternative Discord client using GTK instead of Electron
-net-im/chatterino 2.3.5: Chat client for https://twitch.tv
+net-im/chatterino 2.3.5-r1: Chat client for https://twitch.tv
 net-im/discord-canary-bin 0.0.134: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.29: All-in-one voice and text chat
 net-im/go-sendxmpp 0.2.0 0.3.0: A little tool to send messages to an XMPP contact or MUC
@@ -1160,7 +1173,7 @@ net-libs/usockets 0.8.1_p20211023 9999: tiny eventing, networking & crypto for a
 net-mail/dovecot-fts-xapian 1.5.2 1.5.4 1.5.5 9999: Dovecot FTS plugin backed by Xapian
 net-mail/remail 0.13: A set of tools for crypted mailing lists
 net-misc/FORT-validator 1.4.1 1.4.2 1.5.0: FORT validator is an open source RPKI validator
-net-misc/bee-node 0.3.1: IOTA node written in rust
+net-misc/bee-node 0.3.1 1.0.0_alpha4: IOTA node written in rust
 net-misc/can-utils 2020.02.04 2020.12.0-r1 2021.08.0 9999-r3: CAN userspace utilities and tools
 net-misc/eg25-manager 0.4.2: Daemon for managing the Quectel EG25 modem
 net-misc/facebook-ptp 0_pre20210831: Facebook's PTP libraries
@@ -1201,7 +1214,7 @@ net-p2p/popura 0.4.3 9999: Popura: alternative Yggdrasil network client
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.15 0.4.3 9999: An experiment in scalable routing as an encrypted IPv6 overlay network
 net-print/hpuld 1.00.39.15.00.23: HP Unified Linux Driver (for samsung hardware)
-net-proxy/toxiproxy 2.4.0: A TCP proxy for chaos and resiliency testing
+net-proxy/toxiproxy 2.4.0-r1: A TCP proxy for chaos and resiliency testing
 net-voip/discover-overlay 0.3.3 0.4.5 0.5.1: Yet another Discord overlay for Linux written in Python using GTK3
 net-voip/gnome-calls 42.0: Phone dialer and call handler
 net-voip/vvmd 0.8: vvmd is a lower level daemon that retrieves Visual Voicemail
@@ -1219,17 +1232,18 @@ sci-electronics/verilator 4.218 4.220 9999: The fast free Verilog/SystemVerilog 
 sci-geosciences/GeographicLib-data 0-r1: Datasets for GeographicLib
 sci-geosciences/mapillary_tools 0.8.0 0.8.2: Command line tools for processing and uploading Mapillary imagery
 sci-libs/ann 1.1.2_p7-r2: A Library for Approximate Nearest Neighbor Searching
-sci-libs/dart 6.10.1-r2 6.12.1-r1: Dynamic Animation and Robotics Toolkit
-sci-libs/ensmallen 2.16.2 2.17.0: header only C++ library for numerical optimization
+sci-libs/dart 6.12.1-r2: Dynamic Animation and Robotics Toolkit
+sci-libs/ensmallen 2.19.0: header only C++ library for numerical optimization
 sci-libs/jdqz 0_pre19971107-r3: Jacobi-Davidson type method for the generalized standard eigenvalue problem
 sci-libs/libpotassco 0_pre20200612: A utility library used by various potassco projects
 sci-libs/meschach 1.2b_p20170511-r1: Meschach is a C-language library of routines for performing matrix computations
-sci-libs/saclib 2.2.8 2.2.8_p20220502: Reference implementations of algorithms and forms the basis of QEPCAD
+sci-libs/mlpack 3.4.2_p20220501: scalable C++ machine learning library
+sci-libs/saclib 2.2.8 2.2.8_p20220502-r1: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122: Subroutine Library in Systems and Control Theory
-sci-mathematics/aspcud 1.9.5: A solver for package problems in CUDF format
+sci-mathematics/aspcud 1.9.6: A solver for package problems in CUDF format
 sci-mathematics/chaco 2.2-r2: Software for Partitioning Graphs
-sci-mathematics/clasp 3.3.7: A conflict-driven nogood learning answer set solver
-sci-mathematics/clingo 5.5.1: Integrated grounder and solver for answer set logic programs
+sci-mathematics/clasp 3.3.8: A conflict-driven nogood learning answer set solver
+sci-mathematics/clingo 5.5.1-r1: Integrated grounder and solver for answer set logic programs
 sci-mathematics/frama-c 23.1 24.0: Framework for analysis of source codes written in C
 sci-mathematics/frama-c-aorai 23.1 24.0: Aorai (automaton annotations) plugin for frama-c
 sci-mathematics/frama-c-callgraph 23.1 24.0: Callgraph plugin for frama-c
@@ -1266,7 +1280,7 @@ sci-mathematics/mccs 1.1: Multi Criteria CUDF Solver
 sci-mathematics/minisat+ 2007.01.05: solver for pseudo-Boolean constraints
 sci-mathematics/minisatp 0.1_p20121002: solver for pseudo-Boolean constraints
 sci-mathematics/packup 0.6: PACKage Upgradability Problem solver
-sci-mathematics/qepcad 1.72b_p20220502: Quantifier Elimination by Partial Cylindrical Algebraic Decomposition
+sci-mathematics/qepcad 1.72b_p20220502-r1: Quantifier Elimination by Partial Cylindrical Algebraic Decomposition
 sci-mathematics/radian 0.6.0 0.6.1: A 21 century R console
 sci-mathematics/the-omega-project 2.1_p20131119: Tools from Pugh et al.'s for constraint-based compiler tools
 sci-misc/boinc-wrapper 7.16.17 7.16.17-r1: Wrapper to use non-BOINC apps with BOINC
@@ -1386,6 +1400,7 @@ sys-power/amdgpu-fan 0.1.0-r1: Fan controller for AMD graphics cards running the
 sys-power/disable-c6 0_p20190603: disable the C6 state upon system boot, preventing Ryzen freezes
 sys-power/gtherm 0.0.3: A simple daemon to monitor thermal zones and cooling devices
 sys-power/gwe 0.15.3: NVIDIA settings alternative with overclocking, fan control, and information
+sys-power/tlp 1.5.0: Optimize laptop battery life
 sys-process/btop 1.2.6: A monitor of resources
 sys-process/gotop 4.1.3: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/nq 0.4: Unix command line queue utility

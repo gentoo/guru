@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare
+DEPEND=virtual/udev bash-completion? ( app-shells/bash app-shells/bash-completion ) elogind? ( sys-auth/elogind ) systemd? ( sys-apps/systemd )
+DESCRIPTION=Optimize laptop battery life
+EAPI=8
+HOMEPAGE=https://linrunner.de/tlp/
+INHERIT=udev
+IUSE=bash-completion elogind systemd
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=virtual/udev bash-completion? ( app-shells/bash app-shells/bash-completion ) elogind? ( sys-auth/elogind ) systemd? ( sys-apps/systemd )
+REQUIRED_USE=?? ( elogind systemd )
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://github.com/linrunner/TLP/archive/refs/tags/1.5.0.tar.gz -> tlp-1.5.0.tar.gz
+_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	udev	2d229ad4bfa09058e0184b1ca900db32
+_md5_=b06bcfd223da8267303ecc1de2998b9d

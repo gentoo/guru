@@ -1,0 +1,14 @@
+BDEPEND=>=virtual/rust-1.53
+DEFINED_PHASES=compile configure install prepare test unpack
+DESCRIPTION=Adblocker for Spotify
+EAPI=8
+HOMEPAGE=https://github.com/abba23/spotify-adblock/
+INHERIT=cargo
+IUSE=debug
+KEYWORDS=~amd64
+LICENSE=GPL-3 || ( Apache-2.0 MIT ) || ( MIT Unlicense )
+RDEPEND=media-sound/spotify
+SLOT=0
+SRC_URI=https://github.com/abba23/spotify-adblock/archive/refs/tags/v1.0.2.tar.gz -> spotify-adblock-1.0.2.tar.gz https://crates.io/api/v1/crates/aho-corasick/0.7.18/download -> aho-corasick-0.7.18.crate https://crates.io/api/v1/crates/lazy_static/1.4.0/download -> lazy_static-1.4.0.crate https://crates.io/api/v1/crates/libc/0.2.119/download -> libc-0.2.119.crate https://crates.io/api/v1/crates/memchr/2.4.1/download -> memchr-2.4.1.crate https://crates.io/api/v1/crates/proc-macro2/1.0.36/download -> proc-macro2-1.0.36.crate https://crates.io/api/v1/crates/quote/1.0.15/download -> quote-1.0.15.crate https://crates.io/api/v1/crates/regex/1.5.4/download -> regex-1.5.4.crate https://crates.io/api/v1/crates/regex-syntax/0.6.25/download -> regex-syntax-0.6.25.crate https://crates.io/api/v1/crates/serde/1.0.136/download -> serde-1.0.136.crate https://crates.io/api/v1/crates/serde_derive/1.0.136/download -> serde_derive-1.0.136.crate https://crates.io/api/v1/crates/syn/1.0.86/download -> syn-1.0.86.crate https://crates.io/api/v1/crates/toml/0.5.8/download -> toml-0.5.8.crate https://crates.io/api/v1/crates/unicode-xid/0.2.2/download -> unicode-xid-0.2.2.crate
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	cargo	52a92ed3815080c5f2caac1905687b1c
+_md5_=03e597781ded4fbe56660b9ca281bc84

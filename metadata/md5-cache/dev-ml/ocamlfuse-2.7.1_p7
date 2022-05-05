@@ -1,15 +1,15 @@
-BDEPEND=dev-ml/dune-configurator dev-ml/dune dev-lang/ocaml
+BDEPEND=dev-ml/dune-configurator dev-ml/opam dev-ml/dune dev-lang/ocaml
 DEFINED_PHASES=compile install test
 DEPEND=dev-ml/camlidl:= sys-fs/fuse:0 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=OCaml binding for fuse
 EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/ocamlfuse/ https://github.com/astrada/ocamlfuse https://opam.ocaml.org/packages/ocamlfuse
-INHERIT=dune
+INHERIT=dune toolchain-funcs
 IUSE=ocamlopt
 KEYWORDS=~amd64
 LICENSE=GPL-2
 RDEPEND=dev-ml/camlidl:= sys-fs/fuse:0 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0
 SRC_URI=https://github.com/astrada/ocamlfuse/archive/v2.7.1_cvs7.tar.gz -> ocamlfuse-2.7.1_p7.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
-_md5_=aecc1ea720ee816cb8ddd9c9777854df
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
+_md5_=02bab3ceb11f463835dd89aeecdbc05b
