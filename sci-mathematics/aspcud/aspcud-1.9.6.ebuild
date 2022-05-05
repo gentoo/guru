@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake flag-o-matic
 
 DESCRIPTION="A solver for package problems in CUDF format"
 HOMEPAGE="
@@ -37,6 +37,7 @@ src_prepare() {
 }
 
 src_configure() {
+	append-cxxflags "-I/usr/include/catch2"
 	local mycmakeargs=(
 		-DASPCUD_BUILD_TESTS=$(usex test)
 
