@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
@@ -39,6 +39,8 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	test? (
 		>=dev-python/kazoo-2.6.0[${PYTHON_USEDEP}]
+		>=dev-python/zake-0.1.6[${PYTHON_USEDEP}]
+		>=dev-python/redis-py-2.10.0[${PYTHON_USEDEP}]
 		>=dev-python/kombu-4.3.0[${PYTHON_USEDEP}]
 		>=dev-python/eventlet-0.18.2[${PYTHON_USEDEP}]
 		>=dev-python/sqlalchemy-1.0.10[${PYTHON_USEDEP}]
