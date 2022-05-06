@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -58,6 +58,7 @@ src_configure() {
 	use backend-opencl && backend="OpenCL"
 
 	local mycmakeargs=(
+		-DBoost_USE_STATIC_LIBS=OFF
 		-DVEXCL_BUILD_EXAMPLES=OFF
 
 		-DVEXCL_AMD_SI_WORKAROUND=$(usex amdsi)
