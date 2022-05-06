@@ -125,7 +125,7 @@ octaveforge_src_install() {
 		"
 		oct_pkgdir=$(octavecommand "${cmd}${stripcmd}" || die)
 	else
-		cmd="disp(fullfile(__octave_config_info__('sharedir'),'octave'));"
+		cmd="disp(fullfile(__octave_config_info__('datadir'),'octave'));"
 		shareprefix=${DESTDIR}/$(octavecommand "${cmd}" || die)
 		cmd="disp(fullfile(__octave_config_info__('libdir'),'octave'));"
 		libprefix=${DESTDIR}/$(octavecommand "${cmd}" || die)
