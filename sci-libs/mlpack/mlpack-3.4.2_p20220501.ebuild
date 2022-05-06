@@ -84,6 +84,7 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	R? ( dev-R/pkgbuild )
+	test? ( dev-cpp/catch:0 )
 "
 BDEPEND="
 	app-arch/unzip
@@ -111,6 +112,7 @@ src_unpack() {
 }
 
 src_prepare() {
+	rm src/mlpack/tests/catch.hpp
 	rm -r src/mlpack/core/std_backport || die
 	rm -r src/mlpack/core/cereal/{pair_associative_container,unordered_map}.hpp || die
 
@@ -121,12 +123,9 @@ src_prepare() {
 	cmake_src_prepare
 }
 
-src_compile() {
-	cmake_src_compile
-}
-
 src_configure() {
 	use R && append-cxxflags "-larmadillo"
+	append-cxxflags "-I/usr/include/catch2"
 
 	local mycmakeargs=(
 		-DBUILD_CLI_EXECUTABLES=ON
@@ -156,6 +155,11 @@ src_configure() {
 		-DUSE_OPENMP=$(usex openmp)
 	)
 	cmake_src_configure
+}
+
+src_compile() {
+	cmake_src_compile
+	use test && cmake_src_compile mlpack_test
 }
 
 src_install() {
