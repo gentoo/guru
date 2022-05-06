@@ -10,7 +10,7 @@ inherit distutils-r1
 DESCRIPTION="Interrogate and manipulate UFO, TTF and OTF fonts with a common interface"
 HOMEPAGE="https://github.com/simoncozens/babelfont"
 SRC_URI="https://github.com/simoncozens/babelfont/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"
 
