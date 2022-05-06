@@ -37,7 +37,7 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=( "${FILESDIR}/${P}-system-clasp.patch" )
+#PATCHES=( "${FILESDIR}/${P}-system-clasp.patch" )
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
@@ -72,6 +72,7 @@ src_configure() {
 		-DCLINGO_CMAKE_RANLIB="$(tc-getRANLIB)"
 		-DCLINGO_INSTALL_LIB=ON
 		-DCLINGO_USE_LIB=OFF
+		-DCLINGO_USE_LOCAL_CLASP=OFF
 	)
 	if use lua; then
 		mycmakeargs+=( "DCLINGO_LUA_VERSION:LIST=$(lua_get_version);EXACT" )
