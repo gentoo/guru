@@ -125,12 +125,12 @@ octaveforge_src_install() {
 		"
 		oct_pkgdir=$(octavecommand "${cmd}${stripcmd}" || die)
 	else
-		cmd="disp(fullfile(OCTAVE_HOME(),'share','octave'));"
+		cmd="disp(fullfile(__octave_config_info__('sharedir'),'octave'));"
 		shareprefix=${DESTDIR}/$(octavecommand "${cmd}" || die)
-		cmd="disp(fullfile(__octave_config_info__('libexecdir'),'octave'));"
-		libexecprefix=${DESTDIR}/$(octavecommand "${cmd}" || die)
+		cmd="disp(fullfile(__octave_config_info__('libdir'),'octave'));"
+		libprefix=${DESTDIR}/$(octavecommand "${cmd}" || die)
 		octprefix="${shareprefix}/packages" || die
-		archprefix="${libexecprefix}/packages" || die
+		archprefix="${libprefix}/packages" || die
 		if [[ ! -e "${octprefix}" ]]; then
 			mkdir -p "${octprefix}" || die
 		fi
