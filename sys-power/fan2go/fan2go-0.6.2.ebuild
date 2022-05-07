@@ -596,7 +596,7 @@ SRC_URI="
 "
 HOMEPAGE="https://github.com/markusressel/fan2go"
 
-LICENSE="AGPL-3" # golicense doesn't work
+LICENSE="AGPL-3 Apache-2.0 MIT BSD BSD-2 MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
