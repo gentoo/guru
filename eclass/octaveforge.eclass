@@ -87,7 +87,7 @@ octaveforge_src_compile() {
 	export LDFLAGS="${LDFLAGS} -L${OCTLIBDIR}"
 
 	if [[ -e src/Makefile ]]; then
-		emake -C src all
+		emake -C src
 	fi
 
 	if [[ -e src/Makefile ]]; then
