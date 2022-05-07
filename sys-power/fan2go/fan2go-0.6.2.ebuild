@@ -5,7 +5,6 @@ EAPI=8
 
 inherit go-module systemd
 
-EGO_PN="github.com/markusressel/fan2go"
 EGO_SUM=(
 	"cloud.google.com/go v0.26.0/go.mod"
 	"cloud.google.com/go v0.34.0/go.mod"
@@ -595,26 +594,29 @@ SRC_URI="
 	https://github.com/markusressel/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}
 "
-HOMEPAGE="https://github.com/markusressel/wego"
+HOMEPAGE="https://github.com/markusressel/fan2go"
 
 LICENSE="AGPL-3" # golicense doesn't work
 SLOT="0"
 KEYWORDS="~amd64"
 
+DEPEND="sys-apps/lm-sensors"
+RDEPEND="${DEPEND}"
+
 src_compile() {
 	SOURCE_DATE_EPOCH=$(date +%s || die)
 	DATE=$(date -u -d @${SOURCE_DATE_EPOCH} +"%Y-%m-%dT%H:%M:%SZ" || die)
 
-	go \
+	ego \
 		build \
+		-o fan2go \
 		-x \
 		-v \
 		${GOFLAGS} \
-		-ldflags "-w -s -X fan2go/cmd.version=${PV} -X fan2go/cmd.date=${DATE}" \
+		-ldflags "-X fan2go/cmd.version=${PV} -X fan2go/cmd.date=${DATE}" \
 		-a \
 		-tags netgo \
-		-o fan2go \
-		|| die
+		.
 }
 
 src_install() {
