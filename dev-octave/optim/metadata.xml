@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <description>co-maintainers welcome</description>
+    <email>lssndrbarbieri@gmail.com</email>
+    <name>Alessandro Barbieri</name>
+  </maintainer>
+  <upstream>
+    <changelog>https://octave.sourceforge.io/optim/NEWS.html</changelog>
+    <doc lang="en">https://octave.sourceforge.io/optim/overview.html</doc>
+    <remote-id type="sourceforge">octave/optim</remote-id>
+  </upstream>
+</pkgmetadata>
