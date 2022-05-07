@@ -18,7 +18,6 @@ See my demonstration video of this on reddit, the post can be found here:
 https://www.reddit.com/r/linux/comments/dw9gfw/i_recreated_a_fallout_3_terminal_as_a_linux_bash/
   </longdescription>
   <upstream>
-    <remote-id type="github">python-hyper/hyper-h2</remote-id> 
-    <remote-id type="pypi">h2</remote-id>
+    <remote-id type="github">fohtla/Fallout3Terminal</remote-id> 
   </upstream>
 </pkgmetadata> 
