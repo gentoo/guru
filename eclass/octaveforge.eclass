@@ -41,10 +41,7 @@ OCT_PKGDIR="${OCT_ROOT}/packages"
 # full path to octave binary
 OCT_BIN="$(type -p octave)"
 
-SRC_URI="
-	mirror://sourceforge/octave/${P}.tar.gz
-	${REPO_URI}/packages/package_configure.in -> octaveforge_configure
-"
+SRC_URI="mirror://sourceforge/octave/${P}.tar.gz"
 SLOT="0"
 
 # @FUNCTION: octaveforge_src_unpack
@@ -60,16 +57,17 @@ octaveforge_src_unpack() {
 
 # @FUNCTION: octaveforge_src_prepare
 # @DESCRIPTION:
-# function to add octaveforge specific makefile and configure and run autogen.sh if available
+# function to add octaveforge specific makefile and configure and reconfigure if possible
 octaveforge_src_prepare() {
-	cp "${DISTDIR}/octaveforge_configure" "${S}/configure" || die
+	_generate_configure
 
-	chmod 0755 "${S}/configure" || die
-	if [[ -e "${S}/src/autogen.sh" ]]; then
-		pushd "${S}/src" || die
+	pushd "${S}/src" || die
+	if [[ -e "${S}/src/configure.ac" ]]; then
+		eautoreconf
+	elif [[ -e "${S}/src/autogen.sh" ]]; then
 		 ./autogen.sh || die 'failed to run autogen.sh'
-		popd || die
 	fi
+	popd || die
 	if [[ -e "${S}/src/Makefile" ]]; then
 		sed -i 's/ -s / /g' "${S}/src/Makefile" || die 'sed failed.'
 	fi
@@ -214,4 +212,16 @@ octaveforge_pkg_postrm() {
 
 octavecommand() {
 	"${OCT_BIN}" -H -q --no-site-file --no-gui --eval "$1"
+}
+
+_generate_configure() {
+	cat << EOF > configure || die
+#! /bin/sh -f
+
+if [ -e src/configure ]; then
+  cd src
+  ./configure $*
+fi
+EOF
+	chmod 0755 "configure" || die
 }
