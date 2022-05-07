@@ -33,7 +33,7 @@ src_configure() {
 		-DCMAKE_BUILD_TYPE=Release
 		-DUSE_OPENSSL_MD5="$(usex openssl ON OFF)"
 		-DUSE_SYSTEM_MINIZIP="ON"
-		-DBUILD_SHARED_LIBS="OFF"
+		-DBUILD_SHARED_LIBS="ON"
 		-DUSE_DTOA_LIBRARY=${DOUBLEFUNCTION}
 	)
 	cmake_src_configure
