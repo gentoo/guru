@@ -24,6 +24,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 BDEPEND="dev-qt/qtsvg:5
+	dev-qt/qtconcurrent:5
 	dev-libs/boost"
 RDEPEND="dev-qt/qtcore:5
 	dev-qt/qtwidgets:5
