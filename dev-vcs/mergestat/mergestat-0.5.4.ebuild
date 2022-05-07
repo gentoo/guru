@@ -1014,7 +1014,8 @@ SRC_URI="
 	${EGO_SUM_SRC_URI}
 "
 
-LICENSE="MIT" # TODO: find out all the bundled licenses
+LICENSE="Apache-2.0 BSD-2 BSD ISC MIT"
+
 SLOT="0"
 KEYWORDS="~amd64"
 
