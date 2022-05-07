@@ -60,6 +60,5 @@ src_install() {
 	default
 	dotnet_multilib_comply
 	sed -i "s/\\r//g" "${D}"/usr/bin/* || die "sed failed"
-	insinto /usr/lib64/
-	dosym gapi-3.0 /usr/lib/gapi-3.0
+	dosym ../lib64/gapi-3.0 /usr/lib/gapi-3.0
 }
