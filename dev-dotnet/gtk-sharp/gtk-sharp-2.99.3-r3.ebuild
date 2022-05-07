@@ -1,16 +1,16 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit dotnet autotools
 
 SLOT="3"
 DESCRIPTION="gtk bindings for mono"
 LICENSE="GPL-2"
-HOMEPAGE="https://www.mono-project.com/GtkSharp"
+HOMEPAGE="https://www.mono-project.com/docs/gui/gtksharp/"
 KEYWORDS="~amd64 ~ppc ~x86"
-SRC_URI="https://github.com/mono/${PN}/archive/${PV}.zip -> ${P}.zip"
+SRC_URI="https://github.com/mono/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 IUSE="debug"
 PATCHES=( "${FILESDIR}/${P}-fix-build.patch" )
 
@@ -39,7 +39,7 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	base_src_prepare
 	eautoreconf
-	libtoolize
+	_elibtoolize
 	eapply "${FILESDIR}/${P}-fix-build.patch"
 	eapply_user
 }
