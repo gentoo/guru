@@ -19,7 +19,8 @@ RESTRICT="strip"
 RDEPEND="~sci-mathematics/frama-c-${PV}:=[gtk?,ocamlopt?]
 	~sci-mathematics/frama-c-qed-${PV}:=[gtk?,ocamlopt?]
 	~sci-mathematics/frama-c-rtegen-${PV}:=[ocamlopt?]
-	>=sci-mathematics/why3-1.4.0"
+	>=sci-mathematics/why3-1.4.0
+	<sci-mathematics/why3-1.5.0"
 DEPEND="${RDEPEND}"
 BDEPEND="coq? ( >=sci-mathematics/coq-8.12.0
 				<sci-mathematics/coq-8.13.0 )"
