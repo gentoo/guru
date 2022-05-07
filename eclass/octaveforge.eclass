@@ -79,7 +79,6 @@ octaveforge_src_prepare() {
 octaveforge_src_compile() {
 	PKGDIR="$(pwd | sed -e 's|^.*/||' || die)"
 	export OCT_PACKAGE="${TMPDIR}/${PKGDIR}.tar.gz"
-	export OCT_PKG=$(echo "${PKGDIR}" | sed -e 's|^\(.*\)-.*|\1|' || die)
 	export MKOCTFILE="mkoctfile -v"
 
 	cmd="disp(__octave_config_info__('octlibdir'));"
@@ -120,10 +119,12 @@ octaveforge_src_install() {
 	if [[ "X${DESTDIR}X" = "XX" ]]; then
 		cmd="
 			warning('off','all');
-			pkg('install','${OCT_PACKAGE}');l=pkg('list');
-			disp(l{cellfun(@(x)strcmp(x.name,'${OCT_PKG}'),l)}.dir);
+			pkg('install','${OCT_PACKAGE}');
+			l=pkg('list');
+			disp(l{cellfun(@(x)strcmp(x.name,'${PN}'),l)}.dir);
+			${stripcmd}
 		"
-		oct_pkgdir=$(octavecommand "${cmd}${stripcmd}" || die)
+		oct_pkgdir=$(octavecommand "${cmd}" || die)
 	else
 		cmd="disp(fullfile(__octave_config_info__('datadir'),'octave'));"
 		shareprefix=${DESTDIR}/$(octavecommand "${cmd}" || die)
@@ -151,9 +152,10 @@ octaveforge_src_install() {
 			pkg('global_list',fullfile('${shareprefix}','octave_packages'));
 			pkg('local_list',fullfile('${shareprefix}','octave_packages'));
 			l=pkg('list');
-			disp(l{cellfun(@(x)strcmp(x.name,'${OCT_PKG}'),l)}.dir);
+			disp(l{cellfun(@(x)strcmp(x.name,'${PN}'),l)}.dir);
+			${stripcmd}
 		"
-		oct_pkgdir=$(octavecommand "${cmd}${stripcmd}" || die)
+		oct_pkgdir=$(octavecommand "${cmd}" || die)
 	fi
 	export oct_pkgdir
 
