@@ -83,7 +83,8 @@ octaveforge_src_compile() {
 
 	cmd="disp(__octave_config_info__('octlibdir'));"
 	OCTLIBDIR=$(octavecommand "${cmd}" || die)
-	export LFLAGS="-L${OCTLIBDIR}"
+	export LFLAGS="${LFLAGS} -L${OCTLIBDIR}"
+	export LDFLAGS="${LDFLAGS} -L${OCTLIBDIR}"
 
 	if [[ -e src/Makefile ]]; then
 		emake -C src all
