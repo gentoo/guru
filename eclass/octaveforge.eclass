@@ -209,9 +209,9 @@ octaveforge_pkg_postrm() {
 		mkdir -p "${OCT_PKGDIR}" || die
 	fi
 	cmd="pkg('rebuild');"
-	"${OCT_BIN}" -H --silent "${cmd}" || die 'failed to rebuild the package database'
+	"${OCT_BIN}" -H --silent --no-gui --eval "${cmd}" || die 'failed to rebuild the package database'
 }
 
 octavecommand() {
-	"${OCT_BIN}" -H -q --no-site-file --eval "$1"
+	"${OCT_BIN}" -H -q --no-site-file --no-gui --eval "$1"
 }
