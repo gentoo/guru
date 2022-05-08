@@ -51,7 +51,6 @@ octaveforge_src_unpack() {
 	default
 	if [[ ! -d "${WORKDIR}/${P}" ]]; then
 		S="${WORKDIR}/${PN}"
-		pushd "${S}" || die
 	fi
 }
 
@@ -61,13 +60,15 @@ octaveforge_src_unpack() {
 octaveforge_src_prepare() {
 	_generate_configure
 
-	pushd "${S}/src" || die
 	if [[ -e "${S}/src/configure.ac" ]]; then
+		pushd "${S}/src" || die
 		eautoreconf
+		popd || die
 	elif [[ -e "${S}/src/autogen.sh" ]]; then
+		pushd "${S}/src" || die
 		 ./autogen.sh || die 'failed to run autogen.sh'
+		popd || die
 	fi
-	popd || die
 	if [[ -e "${S}/src/Makefile" ]]; then
 		sed -i 's/ -s / /g' "${S}/src/Makefile" || die 'sed failed.'
 	fi
