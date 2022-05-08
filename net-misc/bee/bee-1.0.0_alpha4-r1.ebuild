@@ -436,7 +436,7 @@ LLVM_MAX_SLOT=14
 MYPV="${PV/_alpha/-alpha.}"
 QA_FLAGS_IGNORED="usr/bin/bee"
 
-inherit cargo llvm
+inherit cargo llvm systemd
 
 DESCRIPTION="IOTA node written in rust"
 HOMEPAGE="https://github.com/iotaledger/bee"
@@ -448,7 +448,6 @@ SRC_URI="
 "
 S="${WORKDIR}/bee-${MYPV}"
 
-# TODO: find out licenses from the bundled dashboard
 LICENSE="
 	|| ( Apache-2.0 Apache-2.0-with-LLVM-exceptions MIT )
 	|| ( Apache-2.0 BSD MIT )
@@ -468,6 +467,19 @@ LICENSE="
 	MIT
 	MPL-2.0
 	openssl
+
+	dashboard? (
+		|| ( Apache-2.0 MPL-1.1 )
+		|| ( BSD GPL-2 )
+		|| ( GPL-3+ MIT )
+		|| ( MIT CC0-1.0 )
+		|| ( WTFPL MIT )
+		CC-BY-3.0
+		CC-BY-4.0
+		ZLIB
+		ODC-By-1.0
+		Unlicense
+	)
 "
 SLOT="0"
 KEYWORDS="~amd64"
@@ -500,12 +512,12 @@ pkg_setup() {
 src_unpack() {
 	cargo_src_unpack
 	if use dashboard; then
-		cp "${DISTDIR}/node-dashboard-bee-${DASHBOARD_VERSION}" "${S}/${PN}/bee-plugin/bee-plugin-dashboard/node-dashboard-bee-${DASHBOARD_VERSION}.zip" || die
+		cp "${DISTDIR}/node-dashboard-bee-${DASHBOARD_VERSION}" "${S}/bee-node/bee-plugin/bee-plugin-dashboard/node-dashboard-bee-${DASHBOARD_VERSION}.zip" || die
 	fi
 }
 
 src_configure() {
-	pushd "${S}/${PN}/${PN}" || die
+	pushd "${S}/bee-node/bee-node" || die
 	local myfeatures=(
 		$(usev dashboard)
 		$(usev rocksdb)
@@ -515,13 +527,14 @@ src_configure() {
 }
 
 src_compile() {
-	pushd "${S}/${PN}/${PN}" || die
+	pushd "${S}/bee-node/bee-node" || die
 	LIBCLANG_PATH="$(get_llvm_prefix)/$(get_libdir)" cargo_src_compile
 }
 
 src_install() {
-	pushd "${S}/${PN}/${PN}" || die
+	pushd "${S}/bee-node/bee-node" || die
 	cargo_src_install
 	insinto "/etc/${PN}"
 	doins config*.toml
+	systemd_newunit "${FILESDIR}/bee-alphanet.service" bee.service
 }

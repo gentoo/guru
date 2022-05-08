@@ -416,7 +416,7 @@ CRATES="
 LLVM_MAX_SLOT=14
 QA_FLAGS_IGNORED="usr/bin/bee"
 
-inherit cargo llvm
+inherit cargo llvm systemd
 
 DESCRIPTION="IOTA node written in rust"
 HOMEPAGE="https://github.com/iotaledger/bee"
@@ -425,7 +425,7 @@ SRC_URI="
 	https://github.com/iotaledger/bee/archive/${BEE_COMMIT}.tar.gz -> bee-${BEE_COMMIT}.tar.gz
 	$(cargo_crate_uris)
 "
-S="${WORKDIR}/bee-${PV}/${PN}"
+S="${WORKDIR}/${P}/bee-node"
 
 LICENSE="
 	|| ( Apache-2.0 Apache-2.0-with-LLVM-exceptions MIT )
@@ -484,4 +484,5 @@ src_install() {
 	cargo_src_install
 	insinto "/etc/${PN}"
 	doins config*.toml
+	systemd_newunit "${FILESDIR}/bee-mainnet.service" "bee.service"
 }
