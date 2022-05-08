@@ -14,7 +14,6 @@ Name | Buildsystem | Category | User | RFH
 [forgit](https://github.com/wfxr/forgit) | none | shell | Alessandro-Barbieri | no
 [openocl](https://openocl.org/) | none | octave | Alessandro-Barbieri | no
 [octave-scicosim](https://wiki.octave.org/Sci_cosim) | none | octave | Alessandro-Barbieri | no
-[matlab2tikz](https://github.com/matlab2tikz/matlab2tikz) | none | octave | Alessandro-Barbieri | no
 [nerd-fonts](https://nerdfonts.com) | none | fonts | Alessandro-Barbieri | yes
 [silk-guardian](https://github.com/NateBrune/silk-guardian) | make | util | Alessandro-Barbieri | no
 [retroarch](https://www.retroarch.com/) | make | game | NicolaSmaniotto |
