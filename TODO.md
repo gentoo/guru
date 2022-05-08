@@ -28,6 +28,7 @@ Name | Buildsystem | Category | User | RFH
 [plasma](https://github.com/NLAFET/plasma) | make | science | Alessandro-Barbieri | yes
 [imb](https://software.intel.com/content/www/us/en/develop/articles/intel-mpi-benchmarks.html) | make | cluster | Alessandro-Barbieri | no
 [gnat-llvm](https://github.com/AdaCore/gnat-llvm) | make | compiler | Alessandro-Barbieri | yes
+[csparse](https://people.sc.fsu.edu/~jburkardt/c_src/csparse/csparse.html) | make | science | Alessandro-Barbieri | no
 [dimemas](https://github.com/bsc-performance-tools/dimemas) | autotools | cluster | Alessandro-Barbieri | no
 [argobots](https://www.argobots.org/) | autotools | devel | Alessandro-Barbieri | no
 [mochi-ssg](https://github.com/mochi-hpc/mochi-ssg) | autotools | cluster | Alessandro-Barbieri | no
@@ -74,6 +75,8 @@ Name | Buildsystem | Category | User | RFH
 [aerodyn](https://github.com/OpenFAST/openfast/tree/main/modules/aerodyn) | cmake | science | Alessandro-Barbieri | no
 [llvm-ompss2](https://github.com/bsc-pm/llvm) | cmake | cluster | Alessandro-Barbieri | yes
 [pagmo](https://esa.github.io/pagmo2/) | cmake | science | Alessandro-Barbieri | no
+[osqp](https://github.com/osqp/osqp) | cmake | science | Alessandro-Barbieri | no
+[superscs](https://github.com/kul-optec/superscs) | cmake | science | Alessandro-Barbieri | no
 [enarx](https://enarx.dev/) | cargo | util | Alessandro-Barbieri | no
 [ruplacer](https://github.com/dmerejkowsky/ruplacer) | cargo | sys | Alessandro-Barbieri | no
 [gping](https://github.com/orf/gping) | cargo | net | Alessandro-Barbieri | no
