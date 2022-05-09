@@ -17,8 +17,10 @@ RDEPEND="
 	app-arch/cabextract
 	app-arch/tar
 	app-arch/unzip
-	app-emulation/dxvk-bin
-	app-emulation/winetricks
+	|| (
+		app-emulation/dxvk-bin
+		app-emulation/winetricks
+	)
 	dev-libs/libdbusmenu
 	dev-util/xdelta[lzma]
 	dev-vcs/git
