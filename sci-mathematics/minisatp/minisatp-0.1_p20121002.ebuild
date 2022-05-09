@@ -45,5 +45,5 @@ src_install() {
 	dolib.so "${BUILD_DIR}/libminisatp.so.1.1.0"
 	dobin "${BUILD_DIR}/minisatp"
 
-	chrpath -d "${ED}/usr/bin/minisat" || die
+	chrpath -d "${ED}/usr/bin/minisatp" || die
 }

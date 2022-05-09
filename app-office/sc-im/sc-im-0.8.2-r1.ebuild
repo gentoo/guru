@@ -121,10 +121,10 @@ src_configure() {
 		append-cflags -DODS -DXLSX $(${PKGCONF} --cflags libxml-2.0 libzip)
 		LDLIBS+=" -DODS -DXLSX $(${PKGCONF} --libs libxml-2.0 libzip)"
 	fi
-	# if use xlsx ; then
-	# 	append-cflags -DXLSX_EXPORT $(${PKGCONF} --cflags xlsxwriter)
-	# 	LDLIBS+=" -DXLSX_EXPORT $(${PKGCONF} --libs xlsxwriter)"
-	# fi
+	if use xlsx ; then
+		append-cflags -DXLSX_EXPORT $(${PKGCONF} --cflags xlsxwriter)
+		LDLIBS+=" -DXLSX_EXPORT $(${PKGCONF} --libs xlsxwriter)"
+	fi
 	if use lua ; then
 		append-cflags -DXLUA $(${PKGCONF} --cflags lua)
 		LDLIBS+=" -DXLUA $(${PKGCONF} --libs lua) -rdynamic"

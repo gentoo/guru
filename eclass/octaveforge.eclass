@@ -41,10 +41,7 @@ OCT_PKGDIR="${OCT_ROOT}/packages"
 # full path to octave binary
 OCT_BIN="$(type -p octave)"
 
-SRC_URI="
-	mirror://sourceforge/octave/${P}.tar.gz
-	${REPO_URI}/packages/package_configure.in -> octaveforge_configure
-"
+SRC_URI="mirror://sourceforge/octave/${P}.tar.gz"
 SLOT="0"
 
 # @FUNCTION: octaveforge_src_unpack
@@ -54,18 +51,20 @@ octaveforge_src_unpack() {
 	default
 	if [[ ! -d "${WORKDIR}/${P}" ]]; then
 		S="${WORKDIR}/${PN}"
-		pushd "${S}" || die
 	fi
 }
 
 # @FUNCTION: octaveforge_src_prepare
 # @DESCRIPTION:
-# function to add octaveforge specific makefile and configure and run autogen.sh if available
+# function to add octaveforge specific makefile and configure and reconfigure if possible
 octaveforge_src_prepare() {
-	cp "${DISTDIR}/octaveforge_configure" "${S}/configure" || die
+	_generate_configure
 
-	chmod 0755 "${S}/configure" || die
-	if [[ -e "${S}/src/autogen.sh" ]]; then
+	if [[ -e "${S}/src/configure.ac" ]]; then
+		pushd "${S}/src" || die
+		eautoreconf
+		popd || die
+	elif [[ -e "${S}/src/autogen.sh" ]]; then
 		pushd "${S}/src" || die
 		 ./autogen.sh || die 'failed to run autogen.sh'
 		popd || die
@@ -79,15 +78,15 @@ octaveforge_src_prepare() {
 octaveforge_src_compile() {
 	PKGDIR="$(pwd | sed -e 's|^.*/||' || die)"
 	export OCT_PACKAGE="${TMPDIR}/${PKGDIR}.tar.gz"
-	export OCT_PKG=$(echo "${PKGDIR}" | sed -e 's|^\(.*\)-.*|\1|' || die)
 	export MKOCTFILE="mkoctfile -v"
 
 	cmd="disp(__octave_config_info__('octlibdir'));"
 	OCTLIBDIR=$(octavecommand "${cmd}" || die)
-	export LFLAGS="-L${OCTLIBDIR}"
+	export LFLAGS="${LFLAGS} -L${OCTLIBDIR}"
+	export LDFLAGS="${LDFLAGS} -L${OCTLIBDIR}"
 
 	if [[ -e src/Makefile ]]; then
-		emake -C src all
+		emake -C src
 	fi
 
 	if [[ -e src/Makefile ]]; then
@@ -120,17 +119,19 @@ octaveforge_src_install() {
 	if [[ "X${DESTDIR}X" = "XX" ]]; then
 		cmd="
 			warning('off','all');
-			pkg('install','${OCT_PACKAGE}');l=pkg('list');
-			disp(l{cellfun(@(x)strcmp(x.name,'${OCT_PKG}'),l)}.dir);
+			pkg('install','${OCT_PACKAGE}');
+			l=pkg('list');
+			disp(l{cellfun(@(x)strcmp(x.name,'${PN}'),l)}.dir);
+			${stripcmd}
 		"
-		oct_pkgdir=$(octavecommand "${cmd}${stripcmd}" || die)
+		oct_pkgdir=$(octavecommand "${cmd}" || die)
 	else
-		cmd="disp(fullfile(OCTAVE_HOME(),'share','octave'));"
+		cmd="disp(fullfile(__octave_config_info__('datadir'),'octave'));"
 		shareprefix=${DESTDIR}/$(octavecommand "${cmd}" || die)
-		cmd="disp(fullfile(__octave_config_info__('libexecdir'),'octave'));"
-		libexecprefix=${DESTDIR}/$(octavecommand "${cmd}" || die)
+		cmd="disp(fullfile(__octave_config_info__('libdir'),'octave'));"
+		libprefix=${DESTDIR}/$(octavecommand "${cmd}" || die)
 		octprefix="${shareprefix}/packages" || die
-		archprefix="${libexecprefix}/packages" || die
+		archprefix="${libprefix}/packages" || die
 		if [[ ! -e "${octprefix}" ]]; then
 			mkdir -p "${octprefix}" || die
 		fi
@@ -151,9 +152,10 @@ octaveforge_src_install() {
 			pkg('global_list',fullfile('${shareprefix}','octave_packages'));
 			pkg('local_list',fullfile('${shareprefix}','octave_packages'));
 			l=pkg('list');
-			disp(l{cellfun(@(x)strcmp(x.name,'${OCT_PKG}'),l)}.dir);
+			disp(l{cellfun(@(x)strcmp(x.name,'${PN}'),l)}.dir);
+			${stripcmd}
 		"
-		oct_pkgdir=$(octavecommand "${cmd}${stripcmd}" || die)
+		oct_pkgdir=$(octavecommand "${cmd}" || die)
 	fi
 	export oct_pkgdir
 
@@ -206,9 +208,21 @@ octaveforge_pkg_postrm() {
 		mkdir -p "${OCT_PKGDIR}" || die
 	fi
 	cmd="pkg('rebuild');"
-	"${OCT_BIN}" -H --silent "${cmd}" || die 'failed to rebuild the package database'
+	"${OCT_BIN}" -H --silent --no-gui --eval "${cmd}" || die 'failed to rebuild the package database'
 }
 
 octavecommand() {
-	"${OCT_BIN}" -H -q --no-site-file --eval "$1"
+	"${OCT_BIN}" -H -q --no-site-file --no-gui --eval "$1"
+}
+
+_generate_configure() {
+	cat << EOF > configure || die
+#! /bin/sh -f
+
+if [ -e src/configure ]; then
+  cd src
+  ./configure $*
+fi
+EOF
+	chmod 0755 "configure" || die
 }

@@ -6,7 +6,7 @@
 		<name>kurth4cker</name>
 	</maintainer>
 	<longdescription>
-	  stagit is a static page generator. It takes sources from a git
-	  repository and generates html pages to a directory.
+		stagit is a static page generator. It takes sources from a git
+		repository and generates html pages to a directory.
 	</longdescription>
 </pkgmetadata>

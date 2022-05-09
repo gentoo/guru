@@ -1,0 +1,17 @@
+--- a/squashfs-root/an-anime-game-launcher.desktop
++++ b/squashfs-root/an-anime-game-launcher.desktop
+
+3,6c3,4
+< Icon=64x64
+< Exec=AppRun
+< Type=Application
+< Categories=Game;
+---
+> Comment=An Launcher for a specific anime game with auto-patching, discord rpc and time tracking
+> Exec=an-anime-game-launcher-bin
+8c6,8
+< X-AppImage-Version=2.3.2
+---
+> Type=Application
+> Icon=an-anime-game-launcher-bin
+> Categories=Game

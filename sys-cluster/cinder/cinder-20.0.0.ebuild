@@ -109,6 +109,7 @@ BDEPEND="
 		dev-python/SQLAlchemy-Utils[${PYTHON_USEDEP}]
 		dev-python/moto[${PYTHON_USEDEP}]
 		dev-python/testresources[${PYTHON_USEDEP}]
+		dev-python/testscenarios[${PYTHON_USEDEP}]
 	)
 "
 

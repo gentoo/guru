@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit octaveforge
+inherit fortran-2 octaveforge
 
 DESCRIPTION="Computer-Aided Control System Design"
 HOMEPAGE="https://octave.sourceforge.io/control/index.html"

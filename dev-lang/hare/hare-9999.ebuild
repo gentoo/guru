@@ -8,7 +8,7 @@ inherit git-r3
 DESCRIPTION="The Hare systems programming language"
 HOMEPAGE="https://harelang.org/"
 EGIT_REPO_URI="https://git.sr.ht/~sircmpwn/hare"
-LICENSE="GPL-3"
+LICENSE="MPL-2.0 GPL-3"
 SLOT="0"
 
 DEPEND="

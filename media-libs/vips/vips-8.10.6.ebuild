@@ -31,7 +31,7 @@ RDEPEND="
 	exif? ( >=media-libs/libexif-0.6 )
 	fits? ( sci-libs/cfitsio )
 	heif? ( >=media-libs/libheif-1.3.0:= )
-	jpeg? ( virtual/jpeg:0= )
+	jpeg? ( media-libs/libjpeg-turbo:0= )
 	gsf? ( gnome-extra/libgsf:= )
 	lcms? ( media-libs/lcms )
 	matio? ( >=sci-libs/matio-1.3.4 )

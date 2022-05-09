@@ -21,7 +21,7 @@ DEPEND="
 	tools? (
 		media-libs/libpng
 		sys-libs/zlib
-		virtual/jpeg
+		media-libs/libjpeg-turbo
 		virtual/opengl
 	)
 "
