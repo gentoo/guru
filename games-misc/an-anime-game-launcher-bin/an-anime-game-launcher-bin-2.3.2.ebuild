@@ -3,43 +3,46 @@
 
 EAPI=8
 
-inherit xdg-utils optfeature
+inherit optfeature xdg-utils
 
 DESCRIPTION="Open Source An Anime Game launcher for Linux with automatic anti-cheat patching and telemetry disabling, binary package"
 HOMEPAGE="https://gitlab.com/an-anime-team/an-anime-game-launcher"
 SRC_URI="https://gitlab.com/an-anime-team/an-anime-game-launcher/uploads/003620e21b2d8d70385bac8f2a862846/An_Anime_Game_Launcher.AppImage"
-LICENSE="GPL-3 0BSD Apache-2.0 BSD-2-Clause BSD-3-Clause ISC MIT Unlicense"
+
+LICENSE="GPL-3 0BSD Apache-2.0 BSD-2 BSD ISC MIT Unlicense all-rights-reserved"
 SLOT="0"
-KEYWORDS="~amd64"
-PATCHES=( "${FILESDIR}/${PN}-launcher.patch" "${FILESDIR}/${PN}-desktop.patch" )
+KEYWORDS="-* ~amd64"
 
-DEPEND="
-	net-libs/webkit-gtk \
-	dev-util/xdelta[lzma] \
-	app-arch/tar \
-	dev-vcs/git \
-	app-arch/unzip \
-	net-misc/curl \
-	app-arch/cabextract \
-	x11-libs/libnotify \
-	sys-auth/polkit \
-	dev-libs/libdbusmenu \
-	app-emulation/dxvk-bin \
-	app-emulation/winetricks \
-	virtual/wine \
-	"
-
-RDEPEND="${DEPEND}"
-
+RDEPEND="
+	app-arch/cabextract
+	app-arch/tar
+	app-arch/unzip
+	app-emulation/dxvk-bin
+	app-emulation/winetricks
+	dev-libs/libdbusmenu
+	dev-util/xdelta[lzma]
+	dev-vcs/git
+	net-libs/webkit-gtk
+	net-misc/curl
+	sys-auth/polkit
+	virtual/wine
+	x11-libs/libnotify
+"
 BDEPEND="app-admin/chrpath"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-launcher.patch"
+	"${FILESDIR}/${PN}-desktop.patch"
+)
+RESTRICT="bindist mirror"
+
 src_unpack() {
-	mkdir ${WORKDIR}/${P} || die
-	cp ${DISTDIR}/An_Anime_Game_Launcher.AppImage ${WORKDIR}/${P} || die
+	mkdir "${WORKDIR}/${P}" || die
+	cp "${DISTDIR}/An_Anime_Game_Launcher.AppImage" "${WORKDIR}/${P}" || die
 }
 
 src_prepare(){
-	chmod +x An_Anime_Game_Launcher.AppImage
+	chmod +x An_Anime_Game_Launcher.AppImage || die
 	./An_Anime_Game_Launcher.AppImage --appimage-extract || die "Extraction Failed"
 	chrpath -d "squashfs-root/public/discord-rpc/discord-rpc" || die "Patching Library Failed"
 	default
@@ -64,7 +67,7 @@ src_install(){
 
 pkg_postinst() {
 	xdg_desktop_database_update
-	optfeature "appindicator support" dev-libs/libayatana-appindicator dev-libs/libayatana-appindicator-bin
+	optfeature "appindicator support" dev-libs/libayatana-appindicator
 }
 pkg_postrm() {
 	xdg_desktop_database_update
