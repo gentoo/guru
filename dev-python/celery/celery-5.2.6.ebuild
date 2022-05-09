@@ -1,9 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
-DISTUTILS_USE_SETUPTOOLS=rdepend
+DISTUTILS_USE_PEP517=setuptools
 MYPV="${PV/_beta/b}"
 PYTHON_COMPAT=( python3_{8..9} )
 
@@ -17,6 +17,7 @@ HOMEPAGE="
 "
 SRC_URI="https://github.com/celery/celery/archive/v${MYPV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${MYPV}"
+
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -28,16 +29,9 @@ RESTRICT="test" # 'celery' not found in `markers` configuration option
 RDEPEND="
 	>=dev-python/billiard-3.6.4.0[${PYTHON_USEDEP}]
 	<dev-python/billiard-4.0.0[${PYTHON_USEDEP}]
-	>=dev-python/click-7[${PYTHON_USEDEP}]
-	<dev-python/click-8[${PYTHON_USEDEP}]
-	>=dev-python/click-didyoumean-0.0.3[${PYTHON_USEDEP}]
-	>=dev-python/click-plugins-1.1.1[${PYTHON_USEDEP}]
-	>=dev-python/click-repl-0.1.6[${PYTHON_USEDEP}]
-	<dev-python/kombu-6.0[${PYTHON_USEDEP}]
-	>=dev-python/kombu-5[${PYTHON_USEDEP}]
+	<dev-python/kombu-6.0.0[${PYTHON_USEDEP}]
+	>=dev-python/kombu-5.2.1[${PYTHON_USEDEP}]
 	dev-python/pytz[${PYTHON_USEDEP}]
-	>=dev-python/vine-5[${PYTHON_USEDEP}]
-	<dev-python/vine-6[${PYTHON_USEDEP}]
 "
 DEPEND="
 	${RDEPEND}
