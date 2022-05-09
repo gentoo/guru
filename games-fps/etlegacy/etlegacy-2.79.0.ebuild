@@ -25,7 +25,7 @@ SLOT="0"
 IUSE="autoupdate +curl dedicated +freetype +gettext ipv6 irc lua omnibot +openal +opengl +png renderer2 renderer-gles +ssl +theora +vorbis"
 #REQUIRED_USE="omnibot? ( x86 )"
 
-RESTRICT="mirror"
+RESTRICT="bindist mirror"
 
 # TODO add debug use for CMAKE_BUILD_TYPE=debug
 
@@ -44,7 +44,7 @@ UIDEPEND="
 	media-libs/glew:=
 	media-libs/libsdl2[sound,video,X]
 	media-libs/libogg
-	virtual/jpeg:0
+	media-libs/libjpeg-turbo:0
 	virtual/opengl
 	sys-libs/zlib:=[minizip]
 	curl? ( net-misc/curl )
