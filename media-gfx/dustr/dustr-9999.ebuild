@@ -13,7 +13,7 @@ SLOT="0"
 
 DEPEND="
 	media-libs/libpng:=
-	virtual/jpeg:=
+	media-libs/libjpeg-turbo:=
 	media-libs/libsdl2:=
 "
 RDEPEND="${DEPEND}"
