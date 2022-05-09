@@ -12,5 +12,5 @@ RDEPEND=python_single_target_python3_8? ( dev-python/decorator[python_targets_py
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/cp38/a/anki/anki-2.1.49-cp38-abi3-manylinux2014_x86_64.whl -> anki-bin-2.1.49.zip https://files.pythonhosted.org/packages/py3/a/aqt/aqt-2.1.49-py3-none-any.whl -> aqt-2.1.49.zip https://raw.githubusercontent.com/ankitects/anki/2.1.49/qt/linux/anki.png
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	6d4bdf68f7dcd9a5491613be687ae665	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	c44a1c362b7660d46c7a67c553e589c3	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
 _md5_=8f2228500f6cefe81701de06d15b1485
