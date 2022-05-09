@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
-inherit python-r1 distutils-r1 meson-multilib
+inherit python-r1 distutils-r1 meson
 
 MY_PV=$(ver_cut 1-3)
 [ -n "$(ver_cut 4)" ] && MY_PV_REV="-$(ver_cut 4)"
@@ -39,24 +39,27 @@ BDEPEND="
 DEPEND="
 	dev-python/mako[${PYTHON_USEDEP}]
 	dev-libs/spdlog
-	dev-util/glslang[${MULTILIB_USEDEP}]
+	dev-util/glslang
 	>=dev-util/vulkan-headers-1.2
-	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
-	media-libs/libglvnd[$MULTILIB_USEDEP]
-	dbus? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
-	X? ( x11-libs/libX11[${MULTILIB_USEDEP}] )
+	media-libs/vulkan-loader
+	media-libs/libglvnd
+	dbus? ( sys-apps/dbus )
+	X? ( x11-libs/libX11 )
 	video_cards_nvidia? (
-		x11-drivers/nvidia-drivers[${MULTILIB_USEDEP}]
+		x11-drivers/nvidia-drivers
 		xnvctrl? ( x11-drivers/nvidia-drivers[static-libs] )
 	)
-	wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
+	wayland? ( dev-libs/wayland )
 "
 
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/MangoHud-${PV}"
 
-# PATCHES=( "${FILESDIR}/mangonhud-0.6.6-meson-build.patch" )
+PATCHES=(
+	# "${FILESDIR}/mangonhud-0.6.6-meson-build.patch"
+	"${FILESDIR}/mangohud-0.6.6-meson-fix-spdlog-dep.patch"
+)
 
 src_unpack() {
 	default
@@ -67,10 +70,9 @@ src_unpack() {
 	mv ${WORKDIR}/imgui-${IMGUI_VER} ${S}/subprojects/imgui || die
 }
 
-multilib_src_configure() {
+src_configure() {
 	local emesonargs=(
 		-Dappend_libdir_mangohud=false
-		-Duse_system_spdlog=enabled
 		-Duse_system_vulkan=enabled
 		-Dinclude_doc=false
 		$(meson_feature video_cards_nvidia with_nvml)
