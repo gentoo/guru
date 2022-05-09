@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile install postinst postrm prepare prerm setup unpack
+DEPEND=>=sci-mathematics/octave-4.2.0 python_single_target_python3_8? ( dev-python/mpmath[python_targets_python3_8(-)] dev-python/sympy[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/mpmath[python_targets_python3_9(-)] dev-python/sympy[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/mpmath[python_targets_python3_10(-)] dev-python/sympy[python_targets_python3_10(-)] )
+DESCRIPTION=Octave Symbolic Package using SymPy
+EAPI=8
+HOMEPAGE=https://octave.sourceforge.io/symbolic/index.html
+INHERIT=octaveforge python-single-r1
+IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=>=sci-mathematics/octave-4.2.0 python_single_target_python3_8? ( dev-python/mpmath[python_targets_python3_8(-)] dev-python/sympy[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/mpmath[python_targets_python3_9(-)] dev-python/sympy[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/mpmath[python_targets_python3_10(-)] dev-python/sympy[python_targets_python3_10(-)] ) python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+SLOT=0
+SRC_URI=mirror://sourceforge/octave/symbolic-2.9.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	b46e8992a8126c894fbdc8084fc040c4	octaveforge	9a9ca1b24f39803f5f4d117f4488da0f	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	6d4bdf68f7dcd9a5491613be687ae665	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_md5_=4aa56a45e0b9e674edcd4dc3c4344e16

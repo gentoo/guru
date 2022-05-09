@@ -1,13 +1,13 @@
-BDEPEND=>=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+BDEPEND=>=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install test
 DESCRIPTION=Call audio routing daemon
 EAPI=7
 HOMEPAGE=https://gitlab.com/mobian1/callaudiod
-INHERIT=meson systemd
+INHERIT=meson
 KEYWORDS=~amd64 ~arm64
 LICENSE=GPL-3
 RDEPEND=dev-libs/glib dev-util/gdbus-codegen media-libs/alsa-lib || ( media-sound/pulseaudio >=media-sound/apulse-0.1.12-r4[sdk] )
 SLOT=0
 SRC_URI=https://gitlab.com/mobian1/callaudiod/-/archive/a7ca6ce9d4c947f19c3f99ff2cab986c64434e57.tar.gz -> callaudiod-0.1.4.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	6d4bdf68f7dcd9a5491613be687ae665	meson	4e69b4b5d15387549776392e83e8c42c	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=b6193c56ebf58e92b2f9d71195ed9a82
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	6d4bdf68f7dcd9a5491613be687ae665	meson	4e69b4b5d15387549776392e83e8c42c
+_md5_=09d1cf0ae76b85569ecb7df7db322344

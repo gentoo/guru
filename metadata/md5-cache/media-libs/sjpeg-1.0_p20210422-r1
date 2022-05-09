@@ -1,6 +1,6 @@
 BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=tools? ( media-libs/libpng sys-libs/zlib virtual/jpeg virtual/opengl )
+DEPEND=tools? ( media-libs/libpng sys-libs/zlib media-libs/libjpeg-turbo virtual/opengl )
 DESCRIPTION=simple jpeg encoder
 EAPI=8
 HOMEPAGE=https://github.com/webmproject/sjpeg
@@ -8,8 +8,8 @@ INHERIT=cmake
 IUSE=cpu_flags_arm_neon cpu_flags_x86_sse2 +tools
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
-RDEPEND=tools? ( media-libs/libpng sys-libs/zlib virtual/jpeg virtual/opengl )
+RDEPEND=tools? ( media-libs/libpng sys-libs/zlib media-libs/libjpeg-turbo virtual/opengl )
 SLOT=0
 SRC_URI=https://github.com/webmproject/sjpeg/archive/676de227d75877eb5863ec805ba0a4b97fc2fc6c.tar.gz -> sjpeg-1.0_p20210422-r1.tar.gz
 _eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
-_md5_=ca23544a5ba0f0b857e0d3205fb20b92
+_md5_=d6a4c37442c8631cdd666d7e2c742fdb

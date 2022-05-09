@@ -375,12 +375,12 @@ media-sound/6pm:nls - Add support for localization
 media-sound/6pm:presets - Install presets. Recommended
 media-sound/add64:presets - Install presets. Recommended
 media-sound/ncpamixer:wide - Add ncurses wide characters support
-media-video/mpv-mpris:autoload - Load plugin automatically
 media-video/syncplay:client - Install the Syncplay client
 media-video/syncplay:server - Install the Syncplay server
 media-video/uxplay:zoomfix - supported mirrored window for screen-sharing applications such as Zoom
 media-video/wlrobs:dmabuf - Enable the dmabuf backend
 media-video/wlrobs:scpy - Enable the screen copy backend
+mpv-plugin/mpv-mpris:autoload - Load plugin automatically
 net-analyzer/munin-contrib:plugins - contrib munin plugins
 net-analyzer/munin-contrib:templates - contrib munin tools
 net-analyzer/munin-contrib:tools - munin contrib tools
@@ -400,9 +400,9 @@ net-libs/td:dotnet - Add support for .NET
 net-libs/td:jumbo-build - Combine source files to speed up build process
 net-libs/usockets:asio - Enable bindings to use the boost asio dispatcher
 net-libs/usockets:libuv - Enable bindings to use the libuv dispatcher
-net-misc/bee-node:dashboard - build the dashboard plugin
-net-misc/bee-node:rocksdb - add support for roscksb as storage
-net-misc/bee-node:sled - add support for sled as storage
+net-misc/bee:dashboard - build the dashboard plugin
+net-misc/bee:rocksdb - add support for roscksb as storage
+net-misc/bee:sled - add support for sled as storage
 net-misc/megasync:cryptopp - Compile with Crypto++ Library.
 net-misc/megasync:dolphin - Upload your files to your Mega account from Dolphin file manager.
 net-misc/megasync:freeimage - Use freeimage to manage graphic images format.
