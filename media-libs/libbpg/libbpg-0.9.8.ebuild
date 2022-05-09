@@ -26,7 +26,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	media-video/ffmpeg
 	media-libs/libpng
-	virtual/jpeg
+	media-libs/libjpeg-turbo
 	bpgview? ( media-libs/sdl-image )
 	bpgview? ( media-libs/libsdl )
 	dev-lang/yasm
