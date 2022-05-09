@@ -4,7 +4,7 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{8..10} )
-inherit toolchain-funcs python-single-r1 meson
+inherit python-single-r1 meson
 
 DESCRIPTION="Data Plane Development Kit libraries for fast userspace networking"
 HOMEPAGE="https://dpdk.org/"
