@@ -16,7 +16,7 @@ LICENSE="GPL-3 excavator-EULA"
 SLOT="0"
 IUSE="gui"
 KEYWORDS="~amd64"
-RESTRICT="test"
+RESTRICT="bindist mirror test"
 
 RDEPEND="
 	dev-libs/libbsd
