@@ -38,7 +38,7 @@ BDEPEND="
 
 DEPEND="
 	dev-python/mako[${PYTHON_USEDEP}]
-	dev-libs/spdlog[${MULTILIB_USEDEP}]
+	dev-libs/spdlog
 	dev-util/glslang[${MULTILIB_USEDEP}]
 	>=dev-util/vulkan-headers-1.2
 	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
