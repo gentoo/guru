@@ -1,0 +1,16 @@
+BDEPEND=test? ( >=dev-python/black-19.3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/isort-5.10.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/grpcio-tools-1.40.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pytest-mock-3.1.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pytest-asyncio-0.12.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) test? ( >=dev-python/grpclib-0.4.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/python-dateutil-2.8.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pytest-7.0.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) doc? ( || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-python/sphinx-4.4.0[python_targets_python3_10(-)] >=dev-python/sphinx_rtd_theme-0.5.0[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 >=dev-python/sphinx-4.4.0[python_targets_python3_9(-)] >=dev-python/sphinx_rtd_theme-0.5.0[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 >=dev-python/sphinx-4.4.0[python_targets_python3_8(-)] >=dev-python/sphinx_rtd_theme-0.5.0[python_targets_python3_8(-)] ) ) ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=dev-python/gpep517-3[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/poetry-core-1.0.8[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+DEFINED_PHASES=compile configure install postinst prepare test
+DESCRIPTION=Better Protobuf / gRPC Support for Python
+EAPI=8
+HOMEPAGE=https://github.com/danielgtaylor/python-betterproto
+INHERIT=distutils-r1 optfeature
+IUSE=test doc python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=>=dev-python/grpclib-0.4.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/python-dateutil-2.8.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/danielgtaylor/python-betterproto/archive/refs/tags/v2.0.0b4.tar.gz -> python-betterproto-2.0.0_beta4.tar.gz
+_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	c44a1c362b7660d46c7a67c553e589c3	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	491b9bc4e96bbae35530dfcff3069584	optfeature	d524f291c80f9d21ad80fe978e3ca760
+_md5_=cdee7da4ee142b0739b8a73315f69950

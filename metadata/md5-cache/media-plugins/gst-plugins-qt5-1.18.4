@@ -1,10 +1,10 @@
 BDEPEND=>=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) >=sys-apps/sed-4 virtual/pkgconfig virtual/perl-JSON-PP
-DEFINED_PHASES=compile configure install test
+DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=media-libs/gst-plugins-base-1.18.4:1.0[egl?,opengl,wayland?,X?] media-libs/mesa[egl(+)?,X?] dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 egl? ( dev-qt/qtgui:5[eglfs] ) wayland? ( dev-qt/qtwayland:5 ) X? ( dev-qt/qtx11extras:5 ) >=dev-libs/glib-2.40.0:2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=media-libs/gstreamer-1.18:1.0[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=media-libs/gst-plugins-good-1.18.4:1.0[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?]
 DESCRIPTION=Qt5 QML video sink plugin for GStreamer
 EAPI=7
 HOMEPAGE=https://gstreamer.freedesktop.org/
-INHERIT=gstreamer-meson
+INHERIT=gstreamer-meson qmake-utils
 IUSE=+egl wayland +X test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
 KEYWORDS=~amd64
 LICENSE=GPL-2
@@ -13,5 +13,5 @@ REQUIRED_USE=wayland? ( egl )
 RESTRICT=test
 SLOT=1.0
 SRC_URI=https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.18.4.tar.xz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	c44a1c362b7660d46c7a67c553e589c3	meson	4e69b4b5d15387549776392e83e8c42c	virtualx	975d49ff3b3f451efe7a95f230532135	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b	gstreamer-meson	7c681f94598391341aaec00e400b2566
-_md5_=12910f50a2c47f6e95054e9244c02055
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	c44a1c362b7660d46c7a67c553e589c3	meson	4e69b4b5d15387549776392e83e8c42c	virtualx	975d49ff3b3f451efe7a95f230532135	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b	gstreamer-meson	7c681f94598391341aaec00e400b2566	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1
+_md5_=54bb4f9d881455306de96000c8b70646

@@ -86,7 +86,7 @@ app-editors/amp 0.6.2: A complete text editor for your terminal.
 app-editors/atom-bin 1.58.0-r1: A hackable text editor for the 21st Century
 app-editors/helix 0.4.1 0.6.0: A post-modern text editor.
 app-editors/imhex 1.8.1-r1 1.10.0 1.10.1: A hex editor for reverse engineers, programmers, and eyesight
-app-editors/kak-lsp 12.2.0: Kakoune Language Server Protocol Client
+app-editors/kak-lsp 12.2.1: Kakoune Language Server Protocol Client
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/mined 2015.25: A powerful text editor with extensive Unicode and CJK support
 app-editors/typora-bin 0.10.7: a markdown editor,markdown reader.
@@ -646,6 +646,7 @@ dev-python/gpxpy 1.4.2 1.5.0: GPX file parser and GPS track manipulation library
 dev-python/graphene 3.0.0_beta7 3.0.0: GraphQL Framework for Python
 dev-python/graphql-core 3.1.5 3.1.6: GraphQL for Python
 dev-python/graphql-relay 3.1.0: Relay library for graphql-core-next
+dev-python/grpclib 0.4.2 0.4.3_rc2: Pure-Python gRPC implementation for asyncio
 dev-python/guidata 2.1.1: Library for user interfaces for easy dataset editing and display
 dev-python/hidapi 0.10.1 0.11.0.2: A Cython interface to the hidapi
 dev-python/hijri-converter 2.2.2 2.2.3: Accurate Hijri-Gregorian date converter based on the Umm al-Qura calendar
@@ -777,6 +778,7 @@ dev-python/pytest-randomly 3.10.1 3.11.0: Pytest plugin to randomly order tests 
 dev-python/pytest-steps 1.8.0: Create step-wise / incremental tests in pytest
 dev-python/pytest-vcr 1.0.2: Plugin for managing VCR.py cassettes
 dev-python/python-barbicanclient 5.3.0: Client library for Barbican API
+dev-python/python-betterproto 2.0.0_beta4 9999: Better Protobuf / gRPC Support for Python
 dev-python/python-binary-memcached 0.31.1: access memcached via it's binary protocol with SASL auth support
 dev-python/python-blazarclient 3.4.0: This is a client for the OpenStack Blazar API
 dev-python/python-constraint 1.4.0: Constraint Solving Problem resolver for Python
@@ -961,7 +963,6 @@ games-fps/crispy-doom 5.10.0 5.10.1 5.10.2 5.10.3 5.11.1: A limit-removing enhan
 games-fps/etlegacy 2.79.0: Wolfenstein: Enemy Territory 2.60b compatible client/server
 games-fps/quakespasm 0.94.1 9999: Modern, cross-platform Quake 1 engine based on FitzQuake
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
-games-misc/an-anime-game-launcher-bin 2.3.2: Open Source An Anime Game launcher for Linux with automatic anti-cheat patching and telemetry disabling, binary package
 games-misc/bonsai 0_pre20210201: bonsai tree generator written in bash
 games-misc/cbonsai 1.3.1-r1: grow bonsai trees in your terminal
 games-misc/gay 1.2.8: Colour your text / terminal to be more gay
@@ -977,7 +978,7 @@ games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
 games-util/hid-nintendo 9999: A Nintendo HID kernel module
 games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launcher
 games-util/legendary 0.20.24 0.20.25: A free and open-source replacement for the Epic Games Launcher
-games-util/mangohud 0.6.6.1-r2: A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more
+games-util/mangohud 0.6.6.1-r3: A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more
 games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
 games-util/samrewritten 9999 202008: Steam Achievement Manager For Linux
 games-util/steamtinkerlaunch 8.0: Wrapper script for Steam custom launch options
@@ -1109,7 +1110,7 @@ media-libs/vips 8.10.6: VIPS Image Processing Library
 media-plugins/alsa-sndio 0.2: ALSA PCM to play audio on sndio servers
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
 media-plugins/gimp-avif-plugin 9999: Plug-in for development GIMP 2.99.11 for loading/saving AVIF images.
-media-plugins/gst-plugins-qt5 1.18.4: Qt5 QML video sink plugin for GStreamer
+media-plugins/gst-plugins-qt5 1.18.4 1.18.6: Qt5 QML video sink plugin for GStreamer
 media-plugins/qt-heif-image-plugin 0.3.3-r1 0.3.3-r2: Qt plugin for HEIF images
 media-plugins/qt-jpegxl-image-plugin 9999: Qt plug-in to allow Qt and KDE based applications to read/write JXL images.
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
@@ -1169,7 +1170,7 @@ net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a perm
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/Quaternion 0.0.9.4e: A Qt5-based IM client for the Matrix protocol
 net-im/abaddon 0.1.5 9999: Alternative Discord client using GTK instead of Electron
-net-im/chatterino 2.3.5-r2: Chat client for https://twitch.tv
+net-im/chatterino 2.3.5-r3: Chat client for https://twitch.tv
 net-im/discord-canary-bin 0.0.134: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.29: All-in-one voice and text chat
 net-im/go-sendxmpp 0.2.0 0.3.0: A little tool to send messages to an XMPP contact or MUC
