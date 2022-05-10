@@ -39,7 +39,6 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	base_src_prepare
 	eautoreconf
-	_elibtoolize
 	eapply "${FILESDIR}/${P}-fix-build.patch"
 	eapply_user
 }
