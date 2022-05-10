@@ -14,3 +14,5 @@ KEYWORDS="~amd64"
 
 DEPEND=">=sci-mathematics/octave-3.8.0"
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${P}-build-against-octave-6.patch" )
