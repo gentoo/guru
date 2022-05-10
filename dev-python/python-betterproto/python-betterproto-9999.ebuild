@@ -17,7 +17,7 @@ else
 	MY_PV="${PV/_beta/b}"
 	S="${WORKDIR}/${PN}-${MY_PV}"
 	SRC_URI="https://github.com/danielgtaylor/${PN}/archive/refs/tags/v${MY_PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~loong ~mips ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="MIT"
