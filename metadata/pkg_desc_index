@@ -1093,6 +1093,7 @@ media-libs/alsa-ucm-pinephone 1.2.6.3: ALSA ucm configuration files for the Pine
 media-libs/alvr 15.2.1_p20210604 16.0.0: ALVR is an open source remote VR display for the Oculus Go/Quest
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.4.2: AMD Open Source Driver for Vulkan
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
+media-libs/grok 9.7.6: World's Leading Open Source JPEG 2000 Codec
 media-libs/imgui 1.83 1.87-r5: Bloat-free graphical user interface library for C++
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
 media-libs/lodepng 20210627: PNG encoder and decoder
