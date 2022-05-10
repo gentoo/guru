@@ -5,7 +5,7 @@ EAPI=7
 
 GST_ORG_MODULE=gst-plugins-good
 
-inherit gstreamer-meson
+inherit gstreamer-meson qmake-utils
 
 DESCRIPTION="Qt5 QML video sink plugin for GStreamer"
 KEYWORDS="~amd64"
@@ -32,3 +32,8 @@ PATCHES=(
 )
 
 GST_PLUGINS_BUILD_DIR="qt"
+
+src_prepare() {
+	export PATH="${PATH}:$(qt5_get_bindir)"
+	default
+}
