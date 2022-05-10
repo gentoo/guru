@@ -65,7 +65,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 src_compile() {
-	go build -v -work -x -o ${PN} || die
+	ego build -v -work -x -o ${PN} || die
 }
 
 src_install() {

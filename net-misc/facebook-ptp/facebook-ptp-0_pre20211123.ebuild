@@ -1,11 +1,11 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit go-module
 
-COMMIT="8d2a7fdd83c72952338d7bafc1e447bb678cd858"
+COMMIT="a34aaeed7b37620152bd8d81686d588df7a49a64"
 EGO_SUM=(
 	"cloud.google.com/go v0.26.0/go.mod"
 	"cloud.google.com/go v0.34.0/go.mod"
@@ -355,10 +355,12 @@ KEYWORDS="~amd64"
 RDEPEND="net-libs/libpcap"
 DEPEND="${RDEPEND}"
 
+# TODO: oscillatord
+
 src_compile() {
 	for i in pshark ptp4u ptpcheck ziffy ; do
 		pushd ${i} || die
-		go build -x || die
+		go build -x -v || die
 		popd || die
 	done
 }
