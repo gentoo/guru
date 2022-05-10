@@ -156,6 +156,7 @@ app-office/beancount 2.3.3: A double-entry accounting system that uses text file
 app-office/openoffice-bin 4.1.11 4.1.12: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.6: Pyspread is a non-traditional spreadsheet written in Python
 app-office/sc-im 0.8.2-r1: Spreadsheet Calculator Improvised -- An ncurses spreadsheet program for terminal
+app-portage/appswipe 1.1.14: Application for browsing your local Portage repository files
 app-portage/emlop 0.4.2: A fast, accurate, ergonomic emerge.log parser
 app-portage/gentoo-sweep 0.1.2a: Check your gentoo installation for unwanted cruft, forgotten files
 app-portage/pacvis 0.4.2: Displays dependency graphs of packages
@@ -616,7 +617,7 @@ dev-python/doxypypy 0.8.8.6_p20210405: A more Pythonic version of doxypy, a Doxy
 dev-python/dropbox-sdk-python 11.28.0: The offical Dropbox SDK for Python
 dev-python/etcd3 0.12.0: Python client for the etcd API v3
 dev-python/etcd3gw 1.0.1 1.0.2: A python client for etcd3 grpc-gateway v3 API
-dev-python/exifread 2.3.2: Easy to use Python module to extract Exif metadata from tiff and jpeg files
+dev-python/exifread 2.3.2 3.0.0: Easy to use Python module to extract Exif metadata from tiff and jpeg files
 dev-python/factory_boy 3.2.0 3.2.1: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11-r1: Up to date simple useragent faker with real world database
 dev-python/fastavro 1.4.10 1.4.11: Fast Avro for Python
@@ -853,8 +854,8 @@ dev-python/ttfautohint-py 0.4.3 0.5.1: A Python wrapper for ttfautohint
 dev-python/tweedledum 1.1.1: Library for analysis, compilation, synthesis, optimization of quantum circuits
 dev-python/tweepy 3.10.0: An easy-to-use Python library for accessing the Twitter API.
 dev-python/types-paramiko 2.8.21 2.10.0: Typing stubs for paramiko
-dev-python/types-python-dateutil 2.8.12 2.8.14: Typing stubs for python-dateutil
-dev-python/types-pytz 2021.3.6 2021.3.7: Typing stubs for pytz
+dev-python/types-python-dateutil 2.8.14 2.8.15: Typing stubs for python-dateutil
+dev-python/types-pytz 2021.3.7 2021.3.8: Typing stubs for pytz
 dev-python/types-requests 2.27.20 2.27.25: Typing stubs for requests
 dev-python/types-urllib3 1.26.13 1.26.14: Typing stubs for urllib3
 dev-python/ufo2ft 2.26.0 2.27.0: A bridge from UFOs to FontTool objects
@@ -976,7 +977,7 @@ games-util/gamehub 0.16.0.1: GameHub is a unified library for all your games
 games-util/hid-nintendo 9999: A Nintendo HID kernel module
 games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launcher
 games-util/legendary 0.20.24 0.20.25: A free and open-source replacement for the Epic Games Launcher
-games-util/mangohud 0.6.6.1-r1: A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more
+games-util/mangohud 0.6.6.1-r2: A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more
 games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
 games-util/samrewritten 9999 202008: Steam Achievement Manager For Linux
 games-util/steamtinkerlaunch 8.0: Wrapper script for Steam custom launch options
@@ -1195,7 +1196,7 @@ net-misc/FORT-validator 1.4.1 1.4.2 1.5.0: FORT validator is an open source RPKI
 net-misc/bee 0.3.1-r1 1.0.0_alpha4-r1: IOTA node written in rust
 net-misc/can-utils 2020.02.04 2020.12.0-r1 2021.08.0 9999-r3: CAN userspace utilities and tools
 net-misc/eg25-manager 0.4.2: Daemon for managing the Quectel EG25 modem
-net-misc/facebook-ptp 0_pre20210831: Facebook's PTP libraries
+net-misc/facebook-ptp 0_pre20211123: Facebook's PTP libraries
 net-misc/freetube-bin 0.16.0: A private YouTube desktop client
 net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.6.5 0.6.6: A gemini Server written in rust
@@ -1257,6 +1258,7 @@ sci-libs/jdqz 0_pre19971107-r3: Jacobi-Davidson type method for the generalized 
 sci-libs/libpotassco 0_pre20200612: A utility library used by various potassco projects
 sci-libs/meschach 1.2b_p20170511-r1: Meschach is a C-language library of routines for performing matrix computations
 sci-libs/mlpack 3.4.2_p20220501: scalable C++ machine learning library
+sci-libs/qdldl 0.1.5_p20211001: A free LDL factorisation routine
 sci-libs/saclib 2.2.8 2.2.8_p20220502-r1: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122-r1: Subroutine Library in Systems and Control Theory
 sci-mathematics/aspcud 1.9.6: A solver for package problems in CUDF format

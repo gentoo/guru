@@ -461,6 +461,8 @@ sci-libs/meschach:vunroll - unroll low level loops on vectors
 sci-libs/mlpack:R - build R bindings
 sci-libs/mlpack:go - build go bindings
 sci-libs/mlpack:julia - build julia bindings
+sci-libs/qdldl:coverage - Perform code coverage
+sci-libs/qdldl:single-precision - Use float numbers instead of doubles
 sci-mathematics/clasp:tools - whether or not to build the clasp application
 sci-mathematics/clingo:tools - whether or not to build the clingo tool
 sci-mathematics/frama-c-aorai:eva - Build support for the Eva plugin
