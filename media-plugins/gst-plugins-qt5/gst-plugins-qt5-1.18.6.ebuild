@@ -27,10 +27,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/gst-dont-use-volatile-to-mean-atomic-1.18.4.patch"
-)
-
 GST_PLUGINS_BUILD_DIR="qt"
 
 src_prepare() {

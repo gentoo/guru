@@ -34,10 +34,10 @@ REQUIRED_USE="
 
 BDEPEND="
 	app-arch/unzip
+	dev-python/mako[${PYTHON_USEDEP}]
 "
 
 DEPEND="
-	dev-python/mako[${PYTHON_USEDEP}]
 	dev-libs/spdlog
 	dev-util/glslang
 	>=dev-util/vulkan-headers-1.2
@@ -56,10 +56,9 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/MangoHud-${PV}"
 
-PATCHES=(
-	# "${FILESDIR}/mangonhud-0.6.6-meson-build.patch"
-	"${FILESDIR}/mangohud-0.6.6-meson-fix-spdlog-dep.patch"
-)
+# PATCHES=(
+# 	"${FILESDIR}/mangohud-0.6.6-meson-fix-imgui-dep.patch"
+# )
 
 src_unpack() {
 	default
@@ -73,6 +72,7 @@ src_unpack() {
 src_configure() {
 	local emesonargs=(
 		-Dappend_libdir_mangohud=false
+		-Duse_system_spdlog=enabled
 		-Duse_system_vulkan=enabled
 		-Dinclude_doc=false
 		$(meson_feature video_cards_nvidia with_nvml)
