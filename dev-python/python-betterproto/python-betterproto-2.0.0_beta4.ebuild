@@ -31,6 +31,7 @@ BDEPEND="
 	test? (
 		>=dev-python/black-19.3[${PYTHON_USEDEP}]
 		>=dev-python/isort-5.10.1[${PYTHON_USEDEP}]
+		>=dev-python/jinja-2.11.2[${PYTHON_USEDEP}]
 		>=dev-python/grpcio-tools-1.40.0[${PYTHON_USEDEP}]
 		>=dev-python/pytest-mock-3.1.1[${PYTHON_USEDEP}]
 		>=dev-python/pytest-asyncio-0.12.0[${PYTHON_USEDEP}]
@@ -50,4 +51,5 @@ pkg_postinst() {
 	optfeature "protoc compilation support" dev-python/black
 	optfeature "protoc compilation support" dev-python/isort
 	optfeature "protoc compilation support" dev-python/grpcio-tools
+	optfeature "protoc compilation support" dev-python/jinja
 }
