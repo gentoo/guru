@@ -17,7 +17,7 @@ case ${EAPI} in
 	*) die "${ECLASS}: EAPI ${EAPI} unsupported."
 esac
 
-EXPORT_FUNCTIONS src_unpack src_prepare src_compile src_install pkg_postinst pkg_prerm pkg_postrm
+EXPORT_FUNCTIONS src_unpack src_prepare src_compile src_install src_test pkg_postinst pkg_prerm pkg_postrm
 
 # @ECLASS-VARIABLE: REPO_URI
 # @DESCRIPTION:
@@ -103,65 +103,21 @@ octaveforge_src_compile() {
 # @FUNCTION: octaveforge_src_install
 # @DESCRIPTION:
 # function to install the octave package
-# documentation to docsdir
 octaveforge_src_install() {
-	TMPDIR="${T}"
-	DESTDIR="${D}"
-	DISTPKG='Gentoo'
+	DESTDIR="${D}" _octaveforge_pkg_install || die
+}
 
-	pushd ../ || die
-	if [[ "X${DISTPKG}X" != "XX" ]]; then
-		stripcmd="
-			unlink(pkg('local_list'));
-			unlink(pkg('global_list'));
-		"
-	fi
-	if [[ "X${DESTDIR}X" = "XX" ]]; then
-		cmd="
-			warning('off','all');
-			pkg('install','${OCT_PACKAGE}');
-			l=pkg('list');
-			disp(l{cellfun(@(x)strcmp(x.name,'${PN}'),l)}.dir);
-			${stripcmd}
-		"
-		oct_pkgdir=$(octavecommand "${cmd}" || die)
-	else
-		cmd="disp(fullfile(__octave_config_info__('datadir'),'octave'));"
-		shareprefix=${DESTDIR}/$(octavecommand "${cmd}" || die)
-		cmd="disp(fullfile(__octave_config_info__('libdir'),'octave'));"
-		libprefix=${DESTDIR}/$(octavecommand "${cmd}" || die)
-		octprefix="${shareprefix}/packages" || die
-		archprefix="${libprefix}/packages" || die
-		if [[ ! -e "${octprefix}" ]]; then
-			mkdir -p "${octprefix}" || die
-		fi
-		if [[ ! -e "${archprefix}" ]]; then
-			mkdir -p "${archprefix}" || die
-		fi
-		cmd="
-			warning('off','all');
-			pkg('prefix','${octprefix}','${archprefix}');
-			pkg('global_list',fullfile('${shareprefix}','octave_packages'));
-			pkg('local_list',fullfile('${shareprefix}','octave_packages'));
-			pkg('install','-nodeps','-verbose','${OCT_PACKAGE}');
-		"
-		octavecommand "${cmd}" || die
-		cmd="
-			warning('off','all');
-			pkg('prefix','${octprefix}','${archprefix}');
-			pkg('global_list',fullfile('${shareprefix}','octave_packages'));
-			pkg('local_list',fullfile('${shareprefix}','octave_packages'));
-			l=pkg('list');
-			disp(l{cellfun(@(x)strcmp(x.name,'${PN}'),l)}.dir);
-			${stripcmd}
-		"
-		oct_pkgdir=$(octavecommand "${cmd}" || die)
-	fi
-	export oct_pkgdir
+octaveforge_src_test() {
+	DESTDIR="${T}" _octaveforge_pkg_install || die
 
-	if [[ -d doc/ ]]; then
-		dodoc -r doc/*
-	fi
+	# cargo culted from Fedora
+	cmd="
+		pkg('load','${PN}');
+		oruntests('${oct_pkgdir}');
+		unlink(pkg('local_list'));
+		unlink(pkg('global_list'));
+	"
+	octavecommand "${cmd}" || die 'failed testing'
 }
 
 # @FUNCTION: octaveforge_pkg_postinst
@@ -225,4 +181,59 @@ if [ -e src/configure ]; then
 fi
 EOF
 	chmod 0755 "configure" || die
+}
+
+_octaveforge_pkg_install() {
+	TMPDIR="${T}"
+	DISTPKG='Gentoo'
+
+	pushd ../ || die
+	if [[ "X${DISTPKG}X" != "XX" ]]; then
+		stripcmd="
+			unlink(pkg('local_list'));
+			unlink(pkg('global_list'));
+		"
+	fi
+	if [[ "X${DESTDIR}X" = "XX" ]]; then
+		cmd="
+			warning('off','all');
+			pkg('install','${OCT_PACKAGE}');
+			l=pkg('list');
+			disp(l{cellfun(@(x)strcmp(x.name,'${PN}'),l)}.dir);
+			${stripcmd}
+		"
+		oct_pkgdir=$(octavecommand "${cmd}" || die)
+	else
+		cmd="disp(fullfile(__octave_config_info__('datadir'),'octave'));"
+		shareprefix=${DESTDIR}/$(octavecommand "${cmd}" || die)
+		cmd="disp(fullfile(__octave_config_info__('libdir'),'octave'));"
+		libprefix=${DESTDIR}/$(octavecommand "${cmd}" || die)
+		octprefix="${shareprefix}/packages" || die
+		archprefix="${libprefix}/packages" || die
+		if [[ ! -e "${octprefix}" ]]; then
+			mkdir -p "${octprefix}" || die
+		fi
+		if [[ ! -e "${archprefix}" ]]; then
+			mkdir -p "${archprefix}" || die
+		fi
+		cmd="
+			warning('off','all');
+			pkg('prefix','${octprefix}','${archprefix}');
+			pkg('global_list',fullfile('${shareprefix}','octave_packages'));
+			pkg('local_list',fullfile('${shareprefix}','octave_packages'));
+			pkg('install','-nodeps','-verbose','${OCT_PACKAGE}');
+		"
+		octavecommand "${cmd}" || die
+		cmd="
+			warning('off','all');
+			pkg('prefix','${octprefix}','${archprefix}');
+			pkg('global_list',fullfile('${shareprefix}','octave_packages'));
+			pkg('local_list',fullfile('${shareprefix}','octave_packages'));
+			l=pkg('list');
+			disp(l{cellfun(@(x)strcmp(x.name,'${PN}'),l)}.dir);
+			${stripcmd}
+		"
+		oct_pkgdir=$(octavecommand "${cmd}" || die)
+	fi
+	export oct_pkgdir
 }
