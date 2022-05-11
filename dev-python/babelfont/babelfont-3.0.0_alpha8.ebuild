@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=poetry
 MYP="${P/_alpha/a}"
 PYTHON_COMPAT=( python3_{8..9} )
 
@@ -21,10 +22,14 @@ LICENSE="MIT"
 SLOT="0"
 
 RDEPEND="
-	dev-python/defcon[${PYTHON_USEDEP}]
-	dev-python/fontParts[${PYTHON_USEDEP}]
-	dev-python/fonttools[${PYTHON_USEDEP}]
-	dev-python/glyphsLib[${PYTHON_USEDEP}]
+	>=dev-python/orjson-3.5.1[${PYTHON_USEDEP}]
+	>=dev-python/fonttools-4.21.1[${PYTHON_USEDEP}]
+	>=dev-python/ufoLib2-0.11.1[${PYTHON_USEDEP}]
+	>=dev-python/openstep-plist-0.2.2[${PYTHON_USEDEP}]
+	>=dev-python/glyphsLib-5.3.2[${PYTHON_USEDEP}]
+	>=dev-python/glyphsLib-5.3.2[${PYTHON_USEDEP}]
+	>=dev-python/cu2qu-1.6.7[${PYTHON_USEDEP}]
+	dev-python/fontFeatures[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
 
