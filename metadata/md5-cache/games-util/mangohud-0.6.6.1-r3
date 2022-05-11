@@ -12,5 +12,5 @@ RDEPEND=dev-libs/spdlog dev-util/glslang >=dev-util/vulkan-headers-1.2 media-lib
 REQUIRED_USE=|| ( X wayland ) xnvctrl? ( video_cards_nvidia ) || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/flightlessmango/MangoHud/archive/v0.6.6-1.tar.gz -> mangohud-0.6.6.1.tar.gz https://github.com/ocornut/imgui/archive/v1.81.tar.gz -> imgui-1.81.tar.gz https://wrapdb.mesonbuild.com/v2/imgui_1.81-1/get_patch -> imgui-1.81-1-meson-wrap.zip
-_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	c44a1c362b7660d46c7a67c553e589c3	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	491b9bc4e96bbae35530dfcff3069584	ninja-utils	891c4d3862cbc1ce8808ea427facbcd1	meson	4e69b4b5d15387549776392e83e8c42c
+_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	c44a1c362b7660d46c7a67c553e589c3	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	491b9bc4e96bbae35530dfcff3069584	ninja-utils	58ec4e54962bf45d065fb95030701514	meson	8f48ffde53174aba67239f0da61ac9d3
 _md5_=f4346ac3c44a0f6d03b11f8bdb39a996
