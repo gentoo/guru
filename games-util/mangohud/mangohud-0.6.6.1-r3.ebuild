@@ -5,10 +5,10 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
-inherit python-any-r1 distutils-r1 meson
+inherit python-any-r1 meson
 
 MY_PV=$(ver_cut 1-3)
-[ -n "$(ver_cut 4)" ] && MY_PV_REV="-$(ver_cut 4)"
+[[ -n "$(ver_cut 4)" ]] && MY_PV_REV="-$(ver_cut 4)"
 
 IMGUI_VER="1.81"
 IMGUI_MESON_WRAP_VER="1"
@@ -34,8 +34,12 @@ REQUIRED_USE="
 
 BDEPEND="
 	app-arch/unzip
-	dev-python/mako[${PYTHON_USEDEP}]
+	$(python_gen_any_dep 'dev-python/mako[${PYTHON_USEDEP}]')
 "
+
+python_check_deps() {
+	python_has_version "dev-python/mako[${PYTHON_USEDEP}]"
+}
 
 DEPEND="
 	dev-libs/spdlog
