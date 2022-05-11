@@ -6,6 +6,11 @@ EAPI=7
 inherit R-packages
 
 DESCRIPTION='Supporting Functions for Package maintained by Yihui Xie'
+HOMEPAGE="
+	https://cran.r-project.org/package=xfun
+	https://github.com/yihui/xfun
+"
+
 KEYWORDS="~amd64"
 LICENSE='MIT'
 
