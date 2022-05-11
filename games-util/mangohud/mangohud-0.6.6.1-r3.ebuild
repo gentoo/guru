@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
-inherit python-r1 distutils-r1 meson
+inherit python-any-r1 distutils-r1 meson
 
 MY_PV=$(ver_cut 1-3)
 [ -n "$(ver_cut 4)" ] && MY_PV_REV="-$(ver_cut 4)"
@@ -43,6 +43,7 @@ DEPEND="
 	>=dev-util/vulkan-headers-1.2
 	media-libs/vulkan-loader
 	media-libs/libglvnd
+	x11-libs/libdrm
 	dbus? ( sys-apps/dbus )
 	X? ( x11-libs/libX11 )
 	video_cards_nvidia? (
