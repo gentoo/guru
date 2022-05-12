@@ -35,13 +35,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/add-sphinx-ext-autodoc-to-conf-py.patch"
-	"${FILESDIR}/${P}-include-map.patch"
-)
-REQUIRED_USE="
-	^^ ( ${IUSE_BACKEND//+/} )
-"
+REQUIRED_USE="^^ ( ${IUSE_BACKEND//+/} )"
 RESTRICT="!test? ( test )"
 
 src_prepare() {
