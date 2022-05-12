@@ -48,8 +48,5 @@ python_test() {
 }
 
 pkg_postinst() {
-	optfeature "protoc compilation support" dev-python/black
-	optfeature "protoc compilation support" dev-python/isort
-	optfeature "protoc compilation support" dev-python/grpcio-tools
-	optfeature "protoc compilation support" dev-python/jinja
+	optfeature "protoc compilation support" "dev-python/black dev-python/isort dev-python/grpcio-tools dev-python/jinja"
 }
