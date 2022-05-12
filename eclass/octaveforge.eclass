@@ -72,7 +72,7 @@ octaveforge_src_prepare() {
 	if [[ -e "${S}/src/Makefile" ]]; then
 		sed -i 's/ -s / /g' "${S}/src/Makefile" || die 'sed failed.'
 	fi
-	eapply_user
+	default
 }
 
 octaveforge_src_compile() {
