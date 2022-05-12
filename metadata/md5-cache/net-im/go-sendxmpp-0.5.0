@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.16 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=A little tool to send messages to an XMPP contact or MUC
+EAPI=8
+HOMEPAGE=https://salsa.debian.org/mdosch/go-sendxmpp
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=BSD-2 BSD MIT
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://salsa.debian.org/mdosch/go-sendxmpp/-/archive/v0.5.0/go-sendxmpp-v0.5.0.tar.bz2 -> go-sendxmpp-0.5.0.tar.bz2 https://tastytea.de/files/gentoo/go-sendxmpp-0.5.0-vendor.tar.xz
+_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a
+_md5_=d27b4030774c60f1e12d980adf20bf8d

@@ -1,0 +1,12 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install
+DEPEND=dev-libs/libglibutil
+DESCRIPTION=GLib-style interface to binder
+EAPI=8
+HOMEPAGE=https://github.com/mer-hybris/libgbinder
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=dev-libs/libglibutil
+SLOT=0
+SRC_URI=https://github.com/mer-hybris/libgbinder/archive/1.1.19.tar.gz -> gbinder-1.1.19.tar.gz
+_md5_=e4438b9a95ac1f29857767ef9385b95b

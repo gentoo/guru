@@ -1,5 +1,5 @@
 BDEPEND=app-arch/unzip sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-DEFINED_PHASES=compile install postinst postrm prepare prerm unpack
+DEFINED_PHASES=compile install postinst postrm prepare prerm test unpack
 DEPEND=>=sci-mathematics/octave-3.8.0 dev-libs/libpcre
 DESCRIPTION=Additional functions for manipulation and analysis of strings
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=GPL-3+ BSD-2
 RDEPEND=>=sci-mathematics/octave-3.8.0 dev-libs/libpcre
 SLOT=0
 SRC_URI=mirror://sourceforge/code-snapshots/hg/o/oc/octave/strings/octave-strings-98fa88db1ba85e108655f25b3ca96a821862eb85.zip
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	b46e8992a8126c894fbdc8084fc040c4	octaveforge	9a9ca1b24f39803f5f4d117f4488da0f
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	b46e8992a8126c894fbdc8084fc040c4	octaveforge	a921939040e22fedfe5ed416379a30dd
 _md5_=3d5f8b449ed718de83b902812bd733c0

@@ -1,16 +1,16 @@
-BDEPEND=app-arch/unzip dev-python/mako[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
-DEFINED_PHASES=compile configure install postinst prepare test unpack
-DEPEND=dev-libs/spdlog dev-util/glslang >=dev-util/vulkan-headers-1.2 media-libs/vulkan-loader media-libs/libglvnd dbus? ( sys-apps/dbus ) X? ( x11-libs/libX11 ) video_cards_nvidia? ( x11-drivers/nvidia-drivers xnvctrl? ( x11-drivers/nvidia-drivers[static-libs] ) ) wayland? ( dev-libs/wayland )
+BDEPEND=app-arch/unzip || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-python/mako[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-python/mako[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-python/mako[python_targets_python3_8(-)] ) ) >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst setup test unpack
+DEPEND=dev-libs/spdlog dev-util/glslang >=dev-util/vulkan-headers-1.2 media-libs/vulkan-loader media-libs/libglvnd x11-libs/libdrm dbus? ( sys-apps/dbus ) X? ( x11-libs/libX11 ) video_cards_nvidia? ( x11-drivers/nvidia-drivers xnvctrl? ( x11-drivers/nvidia-drivers[static-libs] ) ) wayland? ( dev-libs/wayland )
 DESCRIPTION=A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more
 EAPI=8
 HOMEPAGE=https://github.com/flightlessmango/MangoHud
-INHERIT=python-r1 distutils-r1 meson
-IUSE=+dbus debug +X xnvctrl wayland video_cards_nvidia python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+INHERIT=python-any-r1 meson
+IUSE=+dbus debug +X xnvctrl wayland video_cards_nvidia
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-RDEPEND=dev-libs/spdlog dev-util/glslang >=dev-util/vulkan-headers-1.2 media-libs/vulkan-loader media-libs/libglvnd dbus? ( sys-apps/dbus ) X? ( x11-libs/libX11 ) video_cards_nvidia? ( x11-drivers/nvidia-drivers xnvctrl? ( x11-drivers/nvidia-drivers[static-libs] ) ) wayland? ( dev-libs/wayland ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
-REQUIRED_USE=|| ( X wayland ) xnvctrl? ( video_cards_nvidia ) || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=dev-libs/spdlog dev-util/glslang >=dev-util/vulkan-headers-1.2 media-libs/vulkan-loader media-libs/libglvnd x11-libs/libdrm dbus? ( sys-apps/dbus ) X? ( x11-libs/libX11 ) video_cards_nvidia? ( x11-drivers/nvidia-drivers xnvctrl? ( x11-drivers/nvidia-drivers[static-libs] ) ) wayland? ( dev-libs/wayland )
+REQUIRED_USE=|| ( X wayland ) xnvctrl? ( video_cards_nvidia )
 SLOT=0
 SRC_URI=https://github.com/flightlessmango/MangoHud/archive/v0.6.6-1.tar.gz -> mangohud-0.6.6.1.tar.gz https://github.com/ocornut/imgui/archive/v1.81.tar.gz -> imgui-1.81.tar.gz https://wrapdb.mesonbuild.com/v2/imgui_1.81-1/get_patch -> imgui-1.81-1-meson-wrap.zip
-_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	3b871cf4724e3abc9b4ff059289f0d45	ninja-utils	58ec4e54962bf45d065fb95030701514	meson	8f48ffde53174aba67239f0da61ac9d3
-_md5_=f4346ac3c44a0f6d03b11f8bdb39a996
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	ninja-utils	58ec4e54962bf45d065fb95030701514	meson	8f48ffde53174aba67239f0da61ac9d3
+_md5_=5afec8462c2324bad28d1049aa15b920

@@ -96,6 +96,7 @@ app-emulation/arnold 20170513: Amstrad CPC emulator
 app-emulation/dxvk-bin 1.10 1.10.1: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/quickemu 3.11: Create and run optimised Windows, macOS and Linux desktop virtual machines
 app-emulation/spice-html5 0.2.2 0.3.0-r1: Spice Javascript client
+app-emulation/waydroid 1.2.1: A container-based approach to boot a full Android system on a regular Linux system
 app-eselect/eselect-autostart 1.0.0: Manage symlinks in $XDG_CONFIG_HOME/autostart
 app-eselect/eselect-ld 1.0.0: Manage the ld symlink
 app-forensics/libpreloadvaccine 0_pre20190831: Whitelisting LD_PRELOAD libraries using LD_AUDIT
@@ -318,7 +319,7 @@ dev-R/viridisLite 0.4.0: Colorblind-Friendly Color Maps (Lite Version)
 dev-R/waldo 0.4.0: Find Differences Between R Objects
 dev-R/whoami 1.3.0: Username, Full Name, Email Address, GitHub username of the current user
 dev-R/withr 2.5.0: Run Code With Temporarily Modified Global State
-dev-R/xfun 0.30: Supporting Functions for Package maintained by Yihui Xie
+dev-R/xfun 0.31: Supporting Functions for Package maintained by Yihui Xie
 dev-R/xml2 1.3.3: Work with XML files using a simple, consistent interface
 dev-R/yaml 2.3.5: Methods to Convert R Data to YAML and Back
 dev-cpp/cli11 2.1.2 2.2.0: Command line parser for C++11
@@ -349,7 +350,7 @@ dev-cpp/vexcl 1.4.3: VexCL - Vector expression template library for OpenCL
 dev-cpp/wangle 2022.04.11.00: Framework providing common client/server abstractions
 dev-cpp/xdgpp 0_pre20201007: C++17 header-only implementation of the XDG Base Directory Specification
 dev-db/pg_repack 1.4.7: Reorganize tables in PostgreSQL databases with minimal locks
-dev-db/rum 1.3.7: RUM access method - inverted index with additional information in posting lists
+dev-db/rum 1.3.9: RUM access method - inverted index with additional information in posting lists
 dev-dotnet/gtk-sharp 2.99.3-r3: gtk bindings for mono
 dev-embedded/mv88e6xxx-dump 0.2.0_pre20210327: Dump information about Marvell mv88e6xxx Ethernet switches
 dev-embedded/rauc 1.6: Lightweight update client that runs on your Embedded Linux device
@@ -385,6 +386,7 @@ dev-libs/feedbackd 0.0.0-r1: A daemon to provide haptic feedback on events
 dev-libs/fortran-stdlib 0.1.0 0.2.0 0.2.1 9999: A community driven standard library for (modern) Fortran
 dev-libs/fsst 0_pre20200830: Fast Static Symbol Table: fast text compression that allows random access
 dev-libs/ftl 1.0_p20220209-r1: The Fortran Template Library (FTL) is a general purpose library for Fortran 2003
+dev-libs/gbinder 1.1.19 9999: GLib-style interface to binder
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
 dev-libs/imsg-compat 6.8.2 9999: linux port of OpenBSD imsg
 dev-libs/jose 11: C-language implementation of Javascript Object Signing and Encryption
@@ -393,6 +395,7 @@ dev-libs/libayatana-indicator 0.9.1-r1: Ayatana Application Indicators (Shared L
 dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
 dev-libs/libdatrie 0.2.13: Double-Array Trie Library
 dev-libs/libdwarf 20210528: The DWARF Debugging Information Format
+dev-libs/libglibutil 1.0.63: Library of glib utilities
 dev-libs/libnodave 0.8.5.1-r2: Connect to and exchange data with Siemens PLCs
 dev-libs/libthai 0.1.28 0.1.29: A a set of Thai language support routines
 dev-libs/libxlsxwriter 1.1.4: Libxlsxwriter is a C library for creating Excel XLSX files.
@@ -605,7 +608,7 @@ dev-python/cx-oracle 8.2.1: Python interface to Oracle
 dev-python/dacite 1.6.0: This module simplifies creation of data classes (PEP 557) from dictionaries
 dev-python/daff 1.3.46: Diff and patch tables
 dev-python/daiquiri 3.0.1: Python library to easily setup basic logging functionality
-dev-python/databases 0.4.3 0.5.3: Async database support for Python.
+dev-python/databases 0.5.3: Async database support for Python.
 dev-python/dateparser 1.1.0 1.1.1: Date parsing library designed to parse dates from HTML pages
 dev-python/decopatch 1.4.9 1.4.10: Create decorators easily in python
 dev-python/desktop-notifier 3.3.2 3.4.0: desktop-notifier is a Python library for cross-platform desktop notifications
@@ -630,6 +633,7 @@ dev-python/fontParts 0.10.3 0.10.4: An API for interacting with the parts of fon
 dev-python/fontPens 0.2.4: A collection of classes implementing the pen protocol for manipulating glyphs
 dev-python/futurist 2.3.0-r1: Useful additions to futures, from the future
 dev-python/gabbi 2.4.0 2.7.1: Declarative HTTP testing library
+dev-python/gbinder 1.0.0 9999: Python bindings for libgbinder
 dev-python/gemcall 0.8: A library and CLI tool for making gemini requests
 dev-python/gflanguages 0.4.0: A python API for evaluating language support in the Google Fonts collection
 dev-python/github-sublee-glicko2 0_pre20191010-r1: An implementation of the Glicko-2 rating system for Python
@@ -682,7 +686,7 @@ dev-python/mnemonic 0.19: Reference implementation of BIP-0039 for generating de
 dev-python/mobi 0.3.3: unpack unencrypted mobi files
 dev-python/monotonic 1.6: An implementation of time.monotonic() for Python 2 & < 3.3
 dev-python/ncclient 0.6.12 0.6.13: Python library for NETCONF clients
-dev-python/neutron-lib 2.20.0: Neutron shared routines and utilities
+dev-python/neutron-lib 2.20.0 2.21.0: Neutron shared routines and utilities
 dev-python/noiseprotocol 0.3.1: Python implementation of Noise Protocol Framework
 dev-python/nosehtmloutput 0.0.7: Nose plugin for generating HTML output
 dev-python/nosexcover 1.0.11: Extends nose.plugins.cover to add Cobertura-style XML reports
@@ -690,7 +694,7 @@ dev-python/openstep-plist 0.3.0: ASCII plist parser written in Cython
 dev-python/opentracing 2.4.0: OpenTracing API for Python
 dev-python/opentracing_instrumentation 3.3.1: A collection of Python instrumentation tools for the OpenTracing API
 dev-python/opentypespec 1.8.4: Python bezier manipulation library
-dev-python/orjson 3.6.7 3.6.8: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
+dev-python/orjson 3.6.7 3.6.8 3.6.8-r1: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
 dev-python/orjson-bin 3.6.7: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
 dev-python/os-api-ref 2.3.0: Sphinx Extensions to support API reference sites in OpenStack
 dev-python/os-brick 5.2.0: OpenStack Cinder brick library for managing local volume attaches
@@ -1110,7 +1114,7 @@ media-libs/vips 8.10.6: VIPS Image Processing Library
 media-plugins/alsa-sndio 0.2: ALSA PCM to play audio on sndio servers
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
 media-plugins/gimp-avif-plugin 9999: Plug-in for development GIMP 2.99.11 for loading/saving AVIF images.
-media-plugins/gst-plugins-qt5 1.18.4 1.18.6: Qt5 QML video sink plugin for GStreamer
+media-plugins/gst-plugins-qt5 1.18.4 1.18.6 1.20.1: Qt5 QML video sink plugin for GStreamer
 media-plugins/qt-heif-image-plugin 0.3.3-r1 0.3.3-r2: Qt plugin for HEIF images
 media-plugins/qt-jpegxl-image-plugin 9999: Qt plug-in to allow Qt and KDE based applications to read/write JXL images.
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
@@ -1173,7 +1177,7 @@ net-im/abaddon 0.1.5 9999: Alternative Discord client using GTK instead of Elect
 net-im/chatterino 2.3.5-r3: Chat client for https://twitch.tv
 net-im/discord-canary-bin 0.0.134: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.29: All-in-one voice and text chat
-net-im/go-sendxmpp 0.2.0 0.3.0: A little tool to send messages to an XMPP contact or MUC
+net-im/go-sendxmpp 0.3.0 0.5.0: A little tool to send messages to an XMPP contact or MUC
 net-im/gtkcord 0.1.0-r1: A Gtk3 Discord client in Golang
 net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
 net-im/kaidan 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!
