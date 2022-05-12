@@ -18,7 +18,6 @@ SRC_URI="https://github.com/potassco/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-
 IUSE="examples lua python test +tools"
 
 RDEPEND="
@@ -37,7 +36,7 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-#PATCHES=( "${FILESDIR}/${P}-system-clasp.patch" )
+PATCHES=( "${FILESDIR}/${P}-system-catch.patch" )
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
@@ -75,7 +74,7 @@ src_configure() {
 		-DCLINGO_USE_LOCAL_CLASP=OFF
 	)
 	if use lua; then
-		mycmakeargs+=( "DCLINGO_LUA_VERSION:LIST=$(lua_get_version);EXACT" )
+		mycmakeargs+=( "-DCLINGO_LUA_VERSION:LIST=$(lua_get_version);EXACT" )
 		mycmakeargs+=( "-DLUACLINGO_INSTALL_DIR=$(lua_get_cmod_dir)" )
 	fi
 	if use python; then
