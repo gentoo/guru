@@ -34,7 +34,7 @@ CRATES="
 "
 DISTUTILS_USE_PEP517=maturin
 PYTHON_COMPAT=( python3_{8..9} )
-QA_FLAGS_IGNORED="*"
+QA_FLAGS_IGNORED=".*"
 
 inherit cargo distutils-r1
 
