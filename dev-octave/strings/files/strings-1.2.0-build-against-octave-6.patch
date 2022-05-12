@@ -1,0 +1,30 @@
+Description: Build against Octave 6.1
+ Replace the calls to the deprecated function toascii by double.
+Author: Rafael Laboissière <rafael@debian.org>
+Origin: upstream, https://sourceforge.net/p/octave/strings/ci/2db1dbb75557eef94605cb4ac682783ab78ac8d8/
+Bug-Debian: https://bugs.debian.org/976200
+Forwarded: not-needed
+Last-Update: 2020-12-01
+
+--- octave-strings-1.2.0.orig/inst/base64encode.m
++++ octave-strings-1.2.0/inst/base64encode.m
+@@ -46,7 +46,7 @@ function Y = base64encode (X, row_vector
+   endif
+   
+   if (ischar (X))
+-    X = toascii (X);
++    X = double (X);
+   endif
+   
+   if (any (X != fix (X)) || any (X < 0 | X > 255))
+--- octave-strings-1.2.0.orig/inst/base64decode.m
++++ octave-strings-1.2.0/inst/base64decode.m
+@@ -60,7 +60,7 @@ function z = base64decode (X, as_string)
+     Y=[];
+   end
+ 
+-  X = toascii(X);
++  X = double(X);
+   Xa= X;
+ 
+   ## Work backwards. Starting at step in table,
