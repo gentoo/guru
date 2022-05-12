@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_9 )
+PYTHON_COMPAT=( python3_{9..10} )
 inherit python-single-r1
 
 DESCRIPTION="A container-based approach to boot a full Android system on a regular Linux system"
@@ -17,14 +17,15 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND=""
 RDEPEND="
-	app-containers/lxc \
-	dev-lang/python \
-	dev-python/pygobject \
-	dev-python/gbinder \
-	net-firewall/nftables \
+	app-containers/lxc
+	$(python_gen_cond_dep '
+		dev-python/pygobject[${PYTHON_USEDEP}]
+		dev-python/gbinder[${PYTHON_USEDEP}]
+	')
+	net-firewall/nftables
 	net-dns/dnsmasq \
 	${PYTHON_DEPS}
-	"
+"
 
 src_install() {
 	python_fix_shebang waydroid.py
