@@ -26,10 +26,11 @@ IUSE_BACKEND="
 	+backend-opencl
 "
 #	backend-cuda
-IUSE="${IUSE_BACKEND} amdsi clhpp examples test" #clogs
+IUSE="${IUSE_BACKEND} amdsi examples test" #clogs
 
 RDEPEND="
 	dev-libs/boost:=
+	dev-libs/clhpp
 	backend-jit? ( virtual/opencl )
 	backend-opencl? ( virtual/opencl )
 "
@@ -53,12 +54,12 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DBoost_USE_STATIC_LIBS=OFF
-		-DVEXCL_BUILD_EXAMPLES=OFF
+		-DVEXCL_INSTALL_CL_HPP=OFF
 
 		-DVEXCL_AMD_SI_WORKAROUND=$(usex amdsi)
 		-DVEXCL_BACKEND="${backend}"
+		-DVEXCL_BUILD_EXAMPLES=$(usex examples)
 		-DVEXCL_BUILD_TESTS=$(usex test)
-		-DVEXCL_INSTALL_CL_HPP=$(usex clhpp)
 	)
 #		-DVEXCL_CLOGS=$(usex clogs)
 
