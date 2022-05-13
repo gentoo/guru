@@ -10,5 +10,5 @@ RDEPEND=app-accessibility/at-spi2-atk app-accessibility/at-spi2-core app-crypt/l
 RESTRICT=mirror bindist
 SLOT=0
 SRC_URI=https://www.guilded.gg/downloads/Guilded-Linux.deb -> guilded-bin-1.0.9105465.deb
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	linux-info	ca6a402562d4b125faab56226408af3c	pax-utils	91d47e5d20627c717aa878b9167c62a8	unpacker	697382d119fd3d195f110b7979184285	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	linux-info	a6f11292b0a7bb371aa10fec195f78a0	pax-utils	91d47e5d20627c717aa878b9167c62a8	unpacker	697382d119fd3d195f110b7979184285	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
 _md5_=78432e8c80fbdfafd356fb659c91d30f
