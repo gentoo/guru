@@ -49,6 +49,7 @@ Name | Buildsystem | Category | User | RFH
 [scorep](https://www.vi-hps.org/projects/score-p/) | autotools | cluster | Alessandro-Barbieri | no
 [jmodelica](https://github.com/jnorthrup/jmodelica) | autotools | science | Alessandro-Barbieri | yes
 [flux-core](https://github.com/flux-framework/flux-core) | autotools | cluster | Alessandro-Barbieri | yes
+[GPI-2](https://github.com/cc-hpc-itwm/GPI-2) | autotools | cluster | Alessandro-Barbieri | no
 [blasfeo](https://github.com/giaf/blasfeo) | cmake | science | Alessandro-Barbieri | yes
 [libfixmath](https://github.com/PetteriAimonen/libfixmath) | cmake | devel | Alessandro-Barbieri | no
 [hpmpc](https://github.com/giaf/hpmpc) | cmake | science | Alessandro-Barbieri | no
