@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="Pypandoc provides a thin wrapper for pandoc, a universal document converter"
 HOMEPAGE="
-	https://github.com/bebraw/pypandoc
+	https://github.com/NicklasTegner/pypandoc
 	https://pypi.org/project/pypandoc/
 "
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
@@ -32,7 +32,6 @@ DEPEND="
 	dev-python/urllib3[${PYTHON_USEDEP}]
 "
 
-PATCHES=( "${FILESDIR}/${P}-dont-install-examples.patch" )
 PROPERTIES="test_network"
 RESTRICT="test"
 
