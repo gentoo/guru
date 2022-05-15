@@ -42,6 +42,11 @@ distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	'>=dev-python/sphinx_rtd_theme-0.5.0'
 
+python_prepare() {
+	default
+	python_fix_shebang tests/generate.py src/betterproto/plugin/main.py
+}
+
 python_test() {
 	"${EPYTHON}" -m tests.generate -v
 	epytest
