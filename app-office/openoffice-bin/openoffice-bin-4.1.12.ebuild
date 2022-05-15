@@ -73,7 +73,7 @@ PDEPEND="java? ( || ( >=virtual/jre-1.8.0 dev-java/openjdk-jre-bin:11 dev-java/o
 
 RESTRICT="mirror strip"
 
-S=${WORKDIR}
+S="${WORKDIR}"
 
 pkg_setup() {
 	QA_PREBUILT="usr/$(get_libdir)/${NM}/program/*"
@@ -83,7 +83,7 @@ pkg_setup() {
 src_unpack() {
 	unpack ${A}
 
-	cp "${FILESDIR}"/{50-${PN},wrapper.in} "${T}"
+	cp "${FILESDIR}"/{50-${PN},wrapper.in} "${T}" || die
 	eprefixify "${T}"/{50-${PN},wrapper.in}
 
 	# 'pyuno' is excluded from unpack list to switch off Python2 scripts support
@@ -134,12 +134,12 @@ src_install() {
 	mv "${WORKDIR}"/opt/${NM2}/* "${ED}${INSTDIR}" || die
 
 	#Menu entries, icons and mime-types
-	cd "${ED}${INSTDIR}/share/xdg/"
+	cd "${ED}${INSTDIR}/share/xdg/" || die
 	for desk in base calc draw impress javafilter math printeradmin qstart startcenter writer; do
 		if [ "${desk}" = "javafilter" ] ; then
 			use java || { rm javafilter.desktop; continue; }
 		fi
-		mv ${desk}.desktop ${NM}-${desk}.desktop
+		mv ${desk}.desktop ${NM}-${desk}.desktop || die
 		sed -i -e "s/${NM2} /ooffice /g" ${NM}-${desk}.desktop || die
 		domenu ${NM}-${desk}.desktop
 	done
@@ -156,7 +156,7 @@ src_install() {
 
 	# Component symlinks
 	for app in base calc draw impress math writer; do
-		cp "${ED}/usr/bin/ooffice" "${ED}/usr/bin/oo${app}"
+		cp "${ED}/usr/bin/ooffice" "${ED}/usr/bin/oo${app}" || die
 		sed -i -e s/soffice/s${app}/ "${ED}/usr/bin/oo${app}" || die
 	done
 
