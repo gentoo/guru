@@ -9,5 +9,5 @@ LICENSE=MIT
 RDEPEND=sys-power/ZenStates-Linux
 SLOT=0
 SRC_URI=https://github.com/jfredrickson/disable-c6/archive/82765d490290a99ba18282e187e9de3d7c11dd49.tar.gz -> disable-c6-82765d490290a99ba18282e187e9de3d7c11dd49.tar.gz
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1
 _md5_=55d96e8ab043ed9425bb611ca9506238

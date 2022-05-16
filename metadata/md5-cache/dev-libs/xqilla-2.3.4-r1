@@ -10,5 +10,5 @@ LICENSE=Apache-2.0
 RDEPEND=>=dev-libs/xerces-c-3.2.1 tidy? ( app-text/htmltidy )
 SLOT=0
 SRC_URI=mirror://sourceforge/xqilla/XQilla-2.3.4.tar.gz
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
 _md5_=440d39bfae445cb748f68a2a61900279

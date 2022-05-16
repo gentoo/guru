@@ -11,5 +11,5 @@ LICENSE=LGPL-3
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/trezor/trezord-go/archive/v2.0.29.tar.gz -> trezord-go-2.0.29.tar.gz
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1	udev	2d229ad4bfa09058e0184b1ca900db32	golang-base	9f0e420ab37bc55a318d74bab3aae891	golang-build	0bd4f7f8de6ac61b4224cb690c5ea321	golang-vcs-snapshot	6864f899c6843043ba23620fcd4a908c
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1	udev	2d229ad4bfa09058e0184b1ca900db32	golang-base	9f0e420ab37bc55a318d74bab3aae891	golang-build	0bd4f7f8de6ac61b4224cb690c5ea321	golang-vcs-snapshot	6864f899c6843043ba23620fcd4a908c
 _md5_=1f34600c28f3ab4ce75d5b5611813a1e

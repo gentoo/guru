@@ -9,5 +9,5 @@ LICENSE=GPL-3
 RDEPEND=>=dev-libs/openssl-1.1.1:0= >=dev-qt/qtcore-5.13.1:5 >=dev-qt/qtgui-5.13.1:5 >=dev-qt/qtnetwork-5.13.1:5 >=dev-qt/qtprintsupport-5.13.1:5 >=dev-qt/qtsql-5.13.1:5[sqlite] >=dev-qt/qtsvg-5.13.1:5 >=dev-qt/qtwidgets-5.13.1:5 >=dev-qt/qtquickcontrols-5.13.1:5 >=dev-qt/qtquickcontrols2-5.13.1:5 >=dev-qt/qttranslations-5.13.1:5
 SLOT=0
 SRC_URI=https://gitlab.labs.nic.cz/datovka/mobile-datovka/-/archive/v1.10.0/mobile-datovka-v1.10.0.tar.gz
-_eclasses_=toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
 _md5_=1c4903c71e5ad25999587963b3fa5d2e

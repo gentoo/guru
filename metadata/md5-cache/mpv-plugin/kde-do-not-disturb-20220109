@@ -10,5 +10,5 @@ LICENSE=Unlicense
 RDEPEND=media-video/mpv:=[cplugins,libmpv]
 SLOT=0
 SRC_URI=https://gitlab.com/smaniottonicola/kde-do-not-disturb/-/archive/769b83b82c3bb749dd7878ca23e919cb5329ea64/kde-do-not-disturb-769b83b82c3bb749dd7878ca23e919cb5329ea64.tar.gz -> kde-do-not-disturb-20220109.tar.gz
-_eclasses_=mpv-plugin	a2bb2493b1a6671120053543dc64f758	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
+_eclasses_=mpv-plugin	a2bb2493b1a6671120053543dc64f758	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
 _md5_=2141d32984aef560558b24317ab2cd1d

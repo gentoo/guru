@@ -12,5 +12,5 @@ RDEPEND=dev-libs/glib:2 media-video/mpv:=[cplugins,libmpv]
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/hoyon/mpv-mpris/archive/0.7.1.tar.gz -> mpv-mpris-0.7.1.tar.gz
-_eclasses_=mpv-plugin	a2bb2493b1a6671120053543dc64f758	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
+_eclasses_=mpv-plugin	a2bb2493b1a6671120053543dc64f758	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
 _md5_=6cfac3fe86d59c9459b807e8b09dd61f
