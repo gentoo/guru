@@ -1,0 +1,14 @@
+BDEPEND=dev-lang/go >=dev-lang/go-1.16 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=Command line client for https://exercism.io
+EAPI=8
+HOMEPAGE=https://exercism.org
+INHERIT=go-module bash-completion-r1
+KEYWORDS=~amd64
+LICENSE=MIT Apache-2.0 BSD-2 BSD MPL-2.0
+RDEPEND=sys-libs/glibc
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/exercism/cli/archive/v3.0.13.tar.gz -> exercism-3.0.13.tar.gz https://github.com/Schievel1/gentoo-exercism/raw/main/exercism-3.0.13-deps.tar.xz
+_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
+_md5_=4b78d42286b1a5108a8706aacc4eb50f

@@ -1,0 +1,15 @@
+BDEPEND=!build? ( sys-apps/sed )
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DESCRIPTION=Unbreakable Enterprise Kernel (UEK) sources built from Oracle
+EAPI=7
+HOMEPAGE=https://github.com/oracle/linux-uek
+INHERIT=kernel-2
+IUSE=+gentoo experimental symlink build
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=!build? ( app-arch/cpio dev-lang/perl sys-devel/bc sys-devel/bison sys-devel/flex sys-devel/make >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
+RESTRICT=binchecks strip
+SLOT=5.4.17.2136.308.4
+SRC_URI=https://github.com/oracle/linux-uek/archive/refs/tags/v5.4.17-2136.308.4.tar.gz -> linux-uek-5.4.17-2136.308.4.tar.gz https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-5.4-192.base.tar.xz https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-5.4-192.experimental.tar.xz https://dev.gentoo.org/~mpagano/genpatches/tarballs/genpatches-5.4-192.extras.tar.xz
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	toolchain-funcs	badd6e329e1f3e6bee99b35bf8763ce8	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	kernel-2	7243c5ee4d1a26f42930f137a20ed659
+_md5_=6d2bb755936755666b03082a505e154a

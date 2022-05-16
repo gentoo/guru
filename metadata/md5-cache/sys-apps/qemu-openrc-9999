@@ -1,0 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=OpenRC init script for QEMU/KVM
+EAPI=8
+HOMEPAGE=https://github.com/jirutka/qemu-openrc
+INHERIT=git-r3
+LICENSE=MIT
+PROPERTIES=live
+RDEPEND=net-misc/socat
+SLOT=0
+_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=84c194ea887ef0af521dcee4aa61dc02

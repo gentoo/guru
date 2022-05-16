@@ -1,0 +1,10 @@
+DEFINED_PHASES=compile install
+DESCRIPTION=OpenRC init script for QEMU/KVM
+EAPI=8
+HOMEPAGE=https://github.com/jirutka/qemu-openrc
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=net-misc/socat
+SLOT=0
+SRC_URI=https://github.com/jirutka/qemu-openrc/archive/v0.10.0.tar.gz -> qemu-openrc-0.10.0.tar.gz
+_md5_=84c194ea887ef0af521dcee4aa61dc02
