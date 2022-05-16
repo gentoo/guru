@@ -42,14 +42,16 @@ distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	'>=dev-python/sphinx_rtd_theme-0.5.0'
 
+python_prepare() {
+	default
+	python_fix_shebang tests/generate.py src/betterproto/plugin/main.py
+}
+
 python_test() {
 	"${EPYTHON}" -m tests.generate -v
 	epytest
 }
 
 pkg_postinst() {
-	optfeature "protoc compilation support" dev-python/black
-	optfeature "protoc compilation support" dev-python/isort
-	optfeature "protoc compilation support" dev-python/grpcio-tools
-	optfeature "protoc compilation support" dev-python/jinja
+	optfeature "protoc compilation support" "dev-python/black dev-python/isort dev-python/grpcio-tools dev-python/jinja"
 }

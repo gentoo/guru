@@ -15,9 +15,6 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="+man scripting"
-PATCHES=(
-	"${FILESDIR}/${P}-dont-force-build-manpages.patch"
-)
 
 DEPEND="
 	dev-libs/glib:2
