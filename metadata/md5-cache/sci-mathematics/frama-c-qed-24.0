@@ -11,5 +11,5 @@ RDEPEND=~sci-mathematics/frama-c-24.0:=[gtk?,ocamlopt?] dev-lang/ocaml:=[ocamlop
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://frama-c.com/download/frama-c-24.0-Chromium.tar.gz
-_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
+_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
 _md5_=c01a57f3e70a4e1e2c96eab32c0e26aa

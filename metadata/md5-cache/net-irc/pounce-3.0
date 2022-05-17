@@ -11,5 +11,5 @@ LICENSE=GPL-3
 RDEPEND=dev-libs/libretls:= virtual/libcrypt:= palaver? ( dev-db/sqlite:3 net-misc/curl )
 SLOT=0
 SRC_URI=https://git.causal.agency/pounce/snapshot/pounce-3.0.tar.gz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
 _md5_=93491362efba4216dddafc4a21c59864

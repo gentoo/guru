@@ -14,5 +14,5 @@ REQUIRED_USE=test? ( gui )
 RESTRICT=!test? ( test )
 SLOT=23
 SRC_URI=https://github.com/supermerill/SuperSlicer/archive/2.3.57.12.tar.gz -> superslicer-2.3.57.12.tar.gz profiles? ( https://github.com/slic3r/slic3r-profiles/archive/0b8261ae8bbd7c31d736f371323476d6aff3ef3b.zip -> superslicer-2.3.57.12-profiles.zip )
-_eclasses_=xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	cmake	90e2b29417d53718328f3a95227137a0	desktop	c0d27bf73aa08ca05b663dbd31fbef28	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6
+_eclasses_=xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	cmake	90e2b29417d53718328f3a95227137a0	desktop	c0d27bf73aa08ca05b663dbd31fbef28	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6
 _md5_=169ffe4e9ad86dafa535d4f7fe3674f4

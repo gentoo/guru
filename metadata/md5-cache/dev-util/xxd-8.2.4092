@@ -8,5 +8,5 @@ LICENSE=GPL-2 MIT
 RDEPEND=!app-editors/vim-core
 SLOT=0
 SRC_URI=https://raw.githubusercontent.com/vim/vim/v8.2.4092/src/xxd/xxd.c -> xxd-8.2.4092.c https://raw.githubusercontent.com/vim/vim/v8.2.4092/runtime/doc/xxd.1 -> xxd-8.2.4092.1
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
 _md5_=c8c0aca099969d9344946a0c4e4e3d55

@@ -13,5 +13,5 @@ REQUIRED_USE=?? ( elogind systemd )
 RESTRICT=mirror
 SLOT=0
 SRC_URI=https://github.com/linrunner/TLP/archive/refs/tags/1.5.0.tar.gz -> tlp-1.5.0.tar.gz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	udev	2d229ad4bfa09058e0184b1ca900db32
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	udev	2d229ad4bfa09058e0184b1ca900db32
 _md5_=b06bcfd223da8267303ecc1de2998b9d

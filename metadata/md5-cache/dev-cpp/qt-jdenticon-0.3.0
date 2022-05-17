@@ -9,5 +9,5 @@ LICENSE=MIT
 RDEPEND=dev-qt/qtgui
 SLOT=0
 SRC_URI=https://github.com/Nheko-Reborn/qt-jdenticon/archive/refs/tags/v0.3.0.tar.gz -> qt-jdenticon-0.3.0.tar.gz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	qmake-utils	59420c906278d16deaaa629f9d115707
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	qmake-utils	59420c906278d16deaaa629f9d115707
 _md5_=78efb827b20ee191d300bed9d3fd48ab

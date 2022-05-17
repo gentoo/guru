@@ -12,5 +12,5 @@ RDEPEND=dev-libs/openssl:= sys-libs/zlib:= dotnet? ( virtual/dotnet-sdk:* ) java
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tdlib/td/archive/refs/tags/v1.8.0.tar.gz -> td-1.8.0.tar.gz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	docs	8ed2a8a28ff109e7a3582c9abb7fe327	java-utils-2	e38ea02d8ed864a74078ecf46aa06f30	java-pkg-opt-2	a71433e535af8faae0c0f6c861a32054
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	docs	8ed2a8a28ff109e7a3582c9abb7fe327	java-utils-2	e38ea02d8ed864a74078ecf46aa06f30	java-pkg-opt-2	a71433e535af8faae0c0f6c861a32054
 _md5_=9e4da88ae830443fcb52200fe3e7191d

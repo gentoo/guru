@@ -9,5 +9,5 @@ LICENSE=|| ( Apache-2.0 MIT )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/imneme/pcg-cpp/archive/ffd522e7188bef30a00c74dc7eb9de5faff90092.tar.gz -> pcg-cpp-0.98.1_p20210406.tar.gz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
 _md5_=f577230160301c8f5095d5b1a8356d65

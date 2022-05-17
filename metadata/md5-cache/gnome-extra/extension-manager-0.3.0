@@ -11,5 +11,5 @@ LICENSE=GPL-3+
 RDEPEND=dev-libs/glib:2 dev-libs/json-glib gui-libs/gtk:4[introspection] gui-libs/libadwaita:1[introspection] gui-libs/text-engine net-libs/libsoup:3.0
 SLOT=0
 SRC_URI=https://github.com/mjakeman/extension-manager/archive/v0.3.0.tar.gz -> extension-manager-0.3.0.tar.gz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	5dc84801daa87406aafaf535cb947a64	meson	8f48ffde53174aba67239f0da61ac9d3	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	5dc84801daa87406aafaf535cb947a64	meson	8f48ffde53174aba67239f0da61ac9d3	xdg	6024fbc93167fad782e2032933654857
 _md5_=9e99f221b8a0a64098f8edbb19fca45f

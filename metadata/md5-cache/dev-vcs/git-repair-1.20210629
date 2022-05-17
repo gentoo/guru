@@ -10,5 +10,5 @@ LICENSE=AGPL-3
 RDEPEND=dev-haskell/async:=[profile?] dev-haskell/attoparsec:=[profile?] dev-haskell/data-default:=[profile?] >=dev-haskell/exceptions-0.6:=[profile?] >=dev-haskell/filepath-bytestring-1.4.2.1.0:=[profile?] dev-haskell/hslogger:=[profile?] dev-haskell/ifelse:=[profile?] dev-haskell/mtl:=[profile?] >=dev-haskell/network-2.6:=[profile?] >=dev-haskell/network-uri-2.6:=[profile?] >=dev-haskell/optparse-applicative-0.14.1:=[profile?] dev-haskell/quickcheck:2=[profile?] dev-haskell/split:=[profile?] dev-haskell/text:=[profile?] >=dev-haskell/unix-compat-0.5:=[profile?] dev-haskell/utf8-string:=[profile?] >=dev-lang/ghc-8.4.3:=[profile?]
 SLOT=0
 SRC_URI=https://hackage.haskell.org/package/git-repair-1.20210629/git-repair-1.20210629.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ghc-package	6344fef4405bc9a6cca6a0a39eee4a32	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	toolchain-funcs	fd9cde67030b26e479eeadaced488253	haskell-cabal	de2e30946d48d6b6758a807ff06f7ad9
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ghc-package	6344fef4405bc9a6cca6a0a39eee4a32	multilib	4fbbbc98f236f1b43acd99476bc3cd85	toolchain-funcs	fd9cde67030b26e479eeadaced488253	haskell-cabal	de2e30946d48d6b6758a807ff06f7ad9
 _md5_=1badd88fc6d87c05ef38fbfb4c2aa714

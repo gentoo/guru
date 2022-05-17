@@ -12,5 +12,5 @@ RDEPEND=dev-libs/boost:= libi? ( sys-cluster/launchmon sys-cluster/libi )
 REQUIRED_USE=slurm? ( libi )
 SLOT=0
 SRC_URI=https://github.com/dyninst/mrnet/archive/7375ba5bb0df87c68e58ad15e9e5e351ae020c08.tar.gz -> mrnet-5.0.1_p20180510.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
 _md5_=6b83d69c67f608bdb0c68dd4ed29c51f

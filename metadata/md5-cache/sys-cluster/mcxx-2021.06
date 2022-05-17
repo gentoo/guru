@@ -13,5 +13,5 @@ REQUIRED_USE=mpi? ( nanox ) ompss? ( nanox ) opencl? ( nanox ) openmp? ( nanox )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bsc-pm/mcxx/archive/refs/tags/github-release-2021.06.tar.gz -> mcxx-2021.06.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	docs	8ed2a8a28ff109e7a3582c9abb7fe327
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	docs	8ed2a8a28ff109e7a3582c9abb7fe327
 _md5_=15478016c7110aca2b9ed734af0cea25

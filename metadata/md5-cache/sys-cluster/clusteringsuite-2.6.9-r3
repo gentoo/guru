@@ -11,5 +11,5 @@ LICENSE=LGPL-2.1+
 RDEPEND=app-arch/bzip2 dev-libs/boost:= sci-libs/ann !sys-cluster/libbsctools mpi? ( virtual/mpi ) muster? ( sys-cluster/muster ) treedbscan? ( dev-libs/boost:=[threads(+)] dev-libs/gmp dev-libs/mpfr sci-mathematics/cgal[shared(-)] sys-cluster/synapse )
 SLOT=0
 SRC_URI=https://codeload.github.com/bsc-performance-tools/clustering-suite/tar.gz/refs/tags/2.6.9 -> clusteringsuite-2.6.9.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
 _md5_=0d87f4e2fc6cc429336604e9045a5795

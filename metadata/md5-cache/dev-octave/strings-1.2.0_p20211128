@@ -10,5 +10,5 @@ LICENSE=GPL-3+ BSD-2
 RDEPEND=>=sci-mathematics/octave-3.8.0 dev-libs/libpcre
 SLOT=0
 SRC_URI=mirror://sourceforge/code-snapshots/hg/o/oc/octave/strings/octave-strings-98fa88db1ba85e108655f25b3ca96a821862eb85.zip
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	octaveforge	a921939040e22fedfe5ed416379a30dd
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	octaveforge	a921939040e22fedfe5ed416379a30dd
 _md5_=3d5f8b449ed718de83b902812bd733c0

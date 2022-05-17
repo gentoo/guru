@@ -9,5 +9,5 @@ LICENSE=BSD
 PROPERTIES=live
 RDEPEND=dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtxml:5 dev-qt/qtsql:5 dev-qt/qtwidgets:5 dev-libs/quazip
 SLOT=0
-_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	git-r3	b9ac6f96d2a88edb5b351df634dc5e53	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	qmake-utils	59420c906278d16deaaa629f9d115707
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	git-r3	b9ac6f96d2a88edb5b351df634dc5e53	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	qmake-utils	59420c906278d16deaaa629f9d115707
 _md5_=f8d3bd981976d29b8d3a15dc12f2a20b

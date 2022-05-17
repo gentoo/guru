@@ -12,5 +12,5 @@ RDEPEND=~sci-mathematics/frama-c-24.0:=[gtk,ocamlopt?] ~sci-mathematics/frama-c-
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://frama-c.com/download/frama-c-24.0-Chromium.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	findlib	e6df6108c2d753998b1206f4d5ea4a2d
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	findlib	e6df6108c2d753998b1206f4d5ea4a2d
 _md5_=b28ac4c9f2b5b2b77969219d1c5118da

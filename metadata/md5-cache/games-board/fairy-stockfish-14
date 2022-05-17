@@ -10,5 +10,5 @@ LICENSE=GPL-3
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ianfab/Fairy-Stockfish/archive/fairy_sf_14.tar.gz -> fairy-stockfish-14.tar.gz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
 _md5_=62f99fd11a0aba54a7565cfd7011210d

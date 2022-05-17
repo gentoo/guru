@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=acct-user/gemini dev-libs/imsg-compat dev-libs/libevent:= dev-libs/libretls:= dev-libs/openssl:= !elibc_Darwin? ( dev-libs/libbsd )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=ssl-cert	6dbe6a8a3dccb3d2f28f8404cd02c7d7	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4a33c9008e5ee30cb8840a3fdc24df2b	systemd	2736b403a83f194b59b767f3b344c2c1	verify-sig	0748d665fa664a87add00152ed046e16	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_eclasses_=ssl-cert	6dbe6a8a3dccb3d2f28f8404cd02c7d7	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	systemd	2736b403a83f194b59b767f3b344c2c1	verify-sig	0748d665fa664a87add00152ed046e16	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
 _md5_=19f7d2b83414bfb6e9204f25c2927917
