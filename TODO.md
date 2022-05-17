@@ -20,8 +20,6 @@ Name | Buildsystem | Category | User | RFH
 [lucida](https://github.com/claritylab/lucida) | make | | Alessandro-Barbieri | yes
 [embedded fuzzy logic library](https://github.com/zerokol/eFLL) | make | devel | Alessandro-Barbieri | no
 [Intel-sgx](https://01.org/intel-softwareguard-extensions) | make | devel | Alessandro-Barbieri | yes
-[codipack](https://www.scicomp.uni-kl.de/software/codi/) | make | science | Alessandro-Barbieri | no
-[medipack](http://www.scicomp.uni-kl.de/software/medi/) | make | science | Alessandro-Barbieri | no
 [compcert](https://compcert.org) | make | compiler | Alessandro-Barbieri | yes
 [predictive](https://www.dr-qubit.org/predictive.html) | make | emacs | Alessandro-Barbieri | yes
 [tau](http://www.cs.uoregon.edu/research/tau/home.php) | make | tools | Alessandro-Barbieri | no
