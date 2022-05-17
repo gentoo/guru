@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake flag-o-matic
 
 COMMIT="2f2b80feac1e35cbe1cae986c44dbb20d4151c74"
 
@@ -17,9 +17,17 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test tools"
 
+DEPEND="test? ( dev-cpp/catch:1 )"
+
 RESTRICT="!test? ( test )"
 
+src_prepare() {
+	rm tests/catch.hpp || die
+	cmake_src_prepare
+}
+
 src_configure() {
+	append-cxxflags "-I/usr/include/catch"
 	local mycmakeargs=(
 		-DLIB_POTASSCO_BUILD_TESTS=$(usex test)
 		-DLIB_POTASSCO_BUILD_APP=$(usex tools)
