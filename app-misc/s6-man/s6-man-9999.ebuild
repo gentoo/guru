@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="mdoc versions of the HTML documentation for the s6 supervision suite"
-HOMEPAGE="http://skarnet.org/software/s6/"
+HOMEPAGE="https://skarnet.org/software/s6/"
 
 inherit git-r3
 EGIT_REPO_URI="https://github.com/flexibeast/s6-man-pages.git"
