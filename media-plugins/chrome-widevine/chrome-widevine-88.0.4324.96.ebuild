@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit multilib unpacker
+inherit unpacker
 
 CHROME_PN="google-chrome-stable"
 CHROME_PV="${PV}"
@@ -11,12 +11,12 @@ CHROME_P="${CHROME_PN}_${CHROME_PV}-1"
 CHROME_DIR="opt/google/chrome"
 
 DESCRIPTION="An adapter for playing DRM content"
-HOMEPAGE="https://www.google.com/chrome"
+HOMEPAGE="https://www.google.com/chrome/"
 SRC_URI="https://dl.google.com/linux/chrome/deb/pool/main/g/${CHROME_PN}/${CHROME_P}_amd64.deb"
 
 LICENSE="google-chrome"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64 ~x86"
 RESTRICT="bindist mirror strip"
 
 DEPEND=""
