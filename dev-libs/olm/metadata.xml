@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>mva@gentoo.org</email>
-    <description>Also, you can find me on IRC (FreeNode) as mva, or in Telegram as @mva_name</description>
-    <name>Vadim A. Misbakh-Soloviov</name>
-  </maintainer>
-  <longdescription>Long description of the package</longdescription>
-  <use/>
+	<maintainer type="person">
+		<email>gentoo@tastytea.de</email>
+		<name>Ronny (tastytea) Gutbrod</name>
+	</maintainer>
+	<longdescription lang="en">
+		An implementation of the Double Ratchet cryptographic ratchet written in
+		C and C++11 and exposed as a C API.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/matrix-org/olm/issues</bugs-to>
+	</upstream>
 </pkgmetadata>
