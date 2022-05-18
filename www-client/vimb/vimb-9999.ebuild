@@ -3,19 +3,14 @@
 
 EAPI=7
 
-inherit savedconfig toolchain-funcs
+inherit savedconfig
 
 DESCRIPTION="a fast, lightweight, vim-like browser based on webkit"
 HOMEPAGE="https://fanglingsu.github.io/vimb/"
 
-if ver_test -eq "9999"; then
-	inherit git-r3
-	KEYWORDS=""
-	EGIT_REPO_URI="https://github.com/fanglingsu/vimb.git"
-else
-	KEYWORDS="~amd64 ~arm ~arm64 ~x86 "
-	SRC_URI="https://github.com/fanglingsu/vimb/archive/${PV}.tar.gz -> ${P}.tar.gz"
-fi
+inherit git-r3
+KEYWORDS=""
+EGIT_REPO_URI="https://github.com/fanglingsu/vimb.git"
 
 LICENSE="GPL-3"
 SLOT="0"
