@@ -18,7 +18,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="systemd +openrc"
 
-DEPEND=">=virtual/jdk-1.8"
+DEPEND=">=virtual/jdk-1.8
+        acct-group/yacy"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${PN}"
