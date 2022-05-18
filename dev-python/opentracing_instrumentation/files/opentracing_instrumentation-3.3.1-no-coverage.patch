@@ -1,8 +1,0 @@
---- a/setup.cfg
-+++ b/setup.cfg
-@@ -15,4 +15,4 @@
-     tests/*
- 
- [tool:pytest]
--addopts = --cov=opentracing_instrumentation --cov-append -rs
-+addopts = -rs
