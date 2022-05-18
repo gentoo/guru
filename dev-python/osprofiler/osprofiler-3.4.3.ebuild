@@ -47,7 +47,6 @@ DEPEND="
 		>=dev-python/elasticsearch-py-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/redis-py-2.10.0[${PYTHON_USEDEP}]
 		>=dev-python/reno-3.1.0[${PYTHON_USEDEP}]
-		>=dev-python/jaeger-client-3.8.0[${PYTHON_USEDEP}]
 	)
 "
 
