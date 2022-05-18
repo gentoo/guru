@@ -14,7 +14,7 @@ CRATES="
 	arrayvec-0.7.2
 	atty-0.2.14
 	autocfg-1.1.0
-	backtrace-0.3.64
+	backtrace-0.3.65
 	bitflags-1.3.2
 	camino-1.0.7
 	cargo-platform-0.1.2
@@ -61,7 +61,7 @@ CRATES="
 	itertools-0.10.3
 	itoa-1.0.1
 	jod-thread-0.1.2
-	kqueue-1.0.5
+	kqueue-1.0.4
 	kqueue-sys-1.0.3
 	lazy_static-1.4.0
 	libc-0.2.123
@@ -69,7 +69,6 @@ CRATES="
 	libmimalloc-sys-0.1.24
 	lock_api-0.4.7
 	log-0.4.16
-	lsp-server-0.6.0
 	lsp-types-0.93.0
 	matchers-0.1.0
 	matches-0.1.9
@@ -77,7 +76,6 @@ CRATES="
 	memmap2-0.5.3
 	memoffset-0.6.5
 	mimalloc-0.1.28
-	miniz_oxide-0.4.4
 	miniz_oxide-0.5.1
 	mio-0.8.2
 	miow-0.3.7
@@ -85,7 +83,6 @@ CRATES="
 	notify-5.0.0-pre.14
 	ntapi-0.3.7
 	num_cpus-1.13.1
-	object-0.27.1
 	object-0.28.3
 	once_cell-1.10.0
 	oorandom-11.1.3
@@ -126,7 +123,7 @@ CRATES="
 	serde_repr-0.1.7
 	sharded-slab-0.1.4
 	smallvec-1.8.0
-	smol_str-0.1.22
+	smol_str-0.1.23
 	snap-1.0.5
 	syn-1.0.91
 	synstructure-0.12.6
