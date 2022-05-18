@@ -15,7 +15,7 @@ RESTRICT="network-sandbox"
 LICENSE="GPL-3"
 SLOT="0"
 IUSE=""
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS=""
 
 src_unpack() {
 	default
