@@ -1,3 +1,12 @@
+# Adel KARA SLIMANE <adel.ks@zegrapher.com>
+# Mask all version of media-sound/noisetorch
+# the author reported on the likeliness of having lost control
+# of his private keys, which means there is a possibility
+# that malicious code have been added to his projects.
+# More information in https://github.com/lawl/NoiseTorch
+# (look at issues, latest release and commit messages)
+media-sound/noisetorch
+
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2021-03-29)
 # James Beddek <telans@posteo.de> (2021-10-09)
 # Per profile masking in overlays is currently not working
