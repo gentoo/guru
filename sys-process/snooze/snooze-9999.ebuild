@@ -5,13 +5,9 @@ EAPI=7
 
 DESCRIPTION="Run a command at a particular time"
 HOMEPAGE="https://github.com/leahneukirchen/${PN}"
-if [[ "${PV}" = 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="${HOMEPAGE}.git"
-else
-	SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 x86"
-fi
+
+inherit git-r3
+EGIT_REPO_URI="${HOMEPAGE}.git"
 
 LICENSE="CC0-1.0"
 SLOT="0"
