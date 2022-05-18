@@ -1,13 +1,13 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit java-pkg-2 java-ant-2 systemd versionator user
+inherit java-pkg-2 java-ant-2 systemd
 
-MAJOR_PV="$(get_version_component_range 1-2)"
-REL_PV="$(get_version_component_range 3)"
-SVN_PV="$(get_version_component_range 4)"
+MAJOR_PV="$(ver_cut 1-2)"
+REL_PV="$(ver_cut 3)"
+SVN_PV="$(ver_cut 4)"
 
 DESCRIPTION="YaCy - p2p based distributed web-search engine"
 HOMEPAGE="https://www.yacy.net/"
@@ -26,11 +26,6 @@ S="${WORKDIR}/${PN}"
 EANT_BUILD_TARGET="all"
 UNINSTALL_IGNORE="/usr/share/yacy/DATA"
 
-pkg_setup() {
-	enewgroup yacy
-	enewuser yacy -1 -1 /var/lib/yacy yacy
-}
-
 src_install() {
 	# remove win-only stuff
 	find "${S}" -name "*.bat" -exec rm '{}' \; || die
@@ -42,7 +37,7 @@ src_install() {
 
 	dodoc AUTHORS NOTICE && rm AUTHORS NOTICE COPYRIGHT gpl.txt
 
-	yacy_home="${EROOT}usr/share/${PN}"
+	yacy_home="${EROOT}/usr/share/${PN}"
 	dodir ${yacy_home}
 	cp -r ${S}/* ${D}${yacy_home} || die
 
@@ -58,8 +53,7 @@ src_install() {
 	use openrc && {
 		exeinto /etc/init.d
 		newexe "${FILESDIR}/yacy.rc" yacy
-		insinto /etc/conf.d
-		newins "${FILESDIR}/yacy.confd" yacy
+		doconfd "${FILESDIR}/yacy.confd"
 	}
 
 	use systemd && systemd_newunit "${FILESDIR}"/${PN}-ipv6.service ${PN}.service
