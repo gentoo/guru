@@ -11,7 +11,7 @@ LANG="en fr"
 
 LICENSE="GPL-3"
 SLOT="0/${PV}"
-KEYWORDS="~amd64"
+KEYWORDS=""
 
 IUSE="doc man test"
 
