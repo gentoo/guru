@@ -1,0 +1,13 @@
+[Unit]
+Description=YaCy
+After=network.target
+
+[Service]
+Environment=CLASSPATH=.:htroot:lib/*
+Environment="JAVA_ARGS=-Xmx600m -Xms180m -server -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Dsolr.directoryFactsolr.MMapDirectoryFactory"
+ExecStart=/usr/bin/java $JAVA_ARGS net.yacy.yacy
+User=yacy
+WorkingDirectory=/usr/share/yacy
+
+[Install]
+WantedBy=multi-user.target

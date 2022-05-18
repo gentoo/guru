@@ -1,0 +1,18 @@
+# Copyright 1999-2011 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+# home-directory
+YACY_HOME="/usr/share/yacy"
+
+# user to run yacy as
+YACY_USER="yacy"
+
+# java options (optional)
+JAVA_OPTIONS="-Xmx600m -Xms180m"
+
+# niceness (optional)
+NICENESS="1"
+
+# wait on stop, should be maxWaitingWordFlush, see DATA/SETTINGS/httpProxy.conf
+WAIT_ON_STOP="180"

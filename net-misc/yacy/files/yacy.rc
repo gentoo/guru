@@ -1,0 +1,75 @@
+#!/sbin/openrc-run
+# Copyright 1999-2011 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+depend() {
+    need net
+}
+
+cd $YACY_HOME
+
+JAVA="$(java-config --java)"
+
+JAVA_ARGS=""
+if [ -e DATA/SETTINGS/httpProxy.conf ] ; then
+	for i in $(grep javastart DATA/SETTINGS/httpProxy.conf); do
+		i="${i#javastart_*=}";
+		JAVA_ARGS=-$i" "$JAVA_ARGS;
+	done
+fi
+
+CLASSPATH=""
+test -e lib/ && for N in `ls -1 lib/*.jar`; do CLASSPATH="$CLASSPATH$N:"; done
+CLASSPATH="-classpath classes:htroot:$CLASSPATH"
+
+if [ -n "${NICENESS}" ] ; then
+        NICE="nice -n ${NICENESS}"
+fi
+
+#PORT="8090"
+
+start() {
+	set -x
+	ebegin "Starting YaCy"
+	${NICE} sudo -u ${YACY_USER} ${JAVA} ${JAVA_OPTIONS} ${JAVA_ARGS} ${CLASSPATH} net.yacy.yacy &
+	echo $! > /var/run/yacy.pid
+	sleep 1
+	ps ax|grep "^ *$(cat /var/run/yacy.pid)" > /dev/null
+	eend $?
+}
+
+stop() {
+	ebegin "Shutting down YaCy"
+	sudo -u ${YACY_USER} ${JAVA} ${JAVA_OPTIONS} ${JAVA_ARGS} ${CLASSPATH} net.yacy.yacy -shutdown &> /dev/null &
+	einfon "Waiting ."
+	cnt=0
+	while ( ps ax|grep "^ *$(cat /var/run/yacy.pid)" > /dev/null )
+	do
+		cnt=`expr $cnt + 2`
+		if [ $cnt -gt ${WAIT_ON_STOP} ] ; then
+			eend 1 "Failed."
+			exit
+		fi
+		sleep 2
+		echo -n "."
+	done
+	rm /var/run/yacy.pid
+	echo "done."
+	eend $?
+}
+
+status() {
+	if service_started "${myservice}" ; then
+		if ! ps p `cat /var/run/yacy.pid` &> /dev/null ; then
+			eerror "Service seems to be down"
+			return 1
+		fi
+	else
+		if [ -e /var/run/yacy.pid ]; then
+			eerror "Service seems to be running already"
+			return 1
+		fi
+		return 0
+	fi
+}
