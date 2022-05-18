@@ -3,7 +3,7 @@
 
 EAPI=7
 
-CHROMIUM_LANGS="am ar bg bn ca cs da de el en-GB en-US es-419 es et fa fil fi fr gu he hi hr hu id it 
+CHROMIUM_LANGS="am ar bg bn ca cs da de el en-GB en-US es-419 es et fa fil fi fr gu he hi hr hu id it
 ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr sv sw ta te th tr uk vi zh-CN zh-TW"
 
 inherit desktop xdg unpacker chromium-2
@@ -34,7 +34,6 @@ RDEPEND="
 
 KEYWORDS="~amd64"
 S=$WORKDIR
-
 
 src_install() {
 	rm "opt/Jitsi Meet/chrome-sandbox" || die
