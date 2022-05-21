@@ -9,7 +9,7 @@ DESCRIPTION="An experiment in scalable routing as an encrypted IPv6 overlay netw
 HOMEPAGE="https://yggdrasil-network.github.io/"
 SRC_URI="
 	https://github.com/yggdrasil-network/yggdrasil-go/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/BratishkaErik/distfiles/raw/master/${P}-deps.tar.bz2
+	https://codeberg.org/BratishkaErik/distfiles/media/branch/master/${P}-deps.tar.bz2
 "
 
 LICENSE="LGPL-3 MIT Apache-2.0 BSD ZLIB"
