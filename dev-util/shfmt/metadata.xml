@@ -5,10 +5,10 @@
     <email>ran.dall@icloud.com</email>
     <name>Randall Vasquez</name>
   </maintainer>
-	<longdescription lang="en">
-		A shell parser, formatter, and interpreter with bash support; includes shfmt. Supports POSIX Shell, Bash, and mksh.
-	</longdescription>
-	<upstream>
-		<remote-id type="github">mvdan/sh</remote-id>
-	</upstream>
+  <longdescription lang="en">
+    A shell parser, formatter, and interpreter with bash support; includes shfmt. Supports POSIX Shell, Bash, and mksh.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">mvdan/sh</remote-id>
+  </upstream>
 </pkgmetadata>
