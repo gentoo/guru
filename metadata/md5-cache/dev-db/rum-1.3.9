@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile install prepare setup test
-DEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] ) postgres_targets_postgres9_6? ( dev-db/postgresql:9.6=[server] )
+DEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
 DESCRIPTION=RUM access method - inverted index with additional information in posting lists
 EAPI=7
 HOMEPAGE=https://github.com/postgrespro/rum
 INHERIT=postgres-multi
-IUSE=postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 postgres_targets_postgres11 postgres_targets_postgres10 postgres_targets_postgres9_6
+IUSE=postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 postgres_targets_postgres11 postgres_targets_postgres10
 KEYWORDS=~amd64 ~x86
 LICENSE=POSTGRESQL
-RDEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] ) postgres_targets_postgres9_6? ( dev-db/postgresql:9.6=[server] )
+RDEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/postgrespro/rum/archive/1.3.9.tar.gz -> rum-1.3.9.tar.gz
-_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	postgres	ef8ac3104af5b45aff7aa01c342f0f59	postgres-multi	67d8361b394ded18c2e915e9e493e5f7
+_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	postgres	8f9102af4a3f35d1c700d85892ffecbb	postgres-multi	67d8361b394ded18c2e915e9e493e5f7
 _md5_=0bf73825c89f3124630347ad647f5726
