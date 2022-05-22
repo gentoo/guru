@@ -16,7 +16,7 @@ if [[ ${PV} == *9999 ]]; then
 else
 	SRC_URI="https://github.com/containers/dnsname/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 	SRC_URI+=" ${P}-deps.tar.xz"
-	KEYWORDS="~amd64 ~arm64 ~x86"
+	KEYWORDS="~amd64 ~arm64"
 	RESTRICT="mirror test"
 	S="${WORKDIR}"/${P}
 fi
@@ -24,7 +24,11 @@ fi
 LICENSE="Apache-2.0"
 SLOT="0"
 
-DEPEND=""
+DEPEND="
+	app-containers/podman
+	net-misc/cni-plugins
+	net-dns/dnsmasq
+"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
