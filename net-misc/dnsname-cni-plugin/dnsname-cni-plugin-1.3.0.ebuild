@@ -2,9 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-EGIT_COMMIT="18822f9a4fb35d1349eb256f4cd2bfd372474d84"
+EGIT_COMMIT="dc59f285546a0b0d8b8f20033e1637ea82587840"
+MY_PN=${PN//-cni-plugin}
+MY_P=${MY_PN}-${PV}
 
-inherit go-module unpacker
+inherit flag-o-matic go-module
 
 DESCRIPTION="name resolution for containers"
 HOMEPAGE="https://github.com/containers/dnsname"
@@ -15,10 +17,10 @@ if [[ ${PV} == *9999 ]]; then
 	RESTRICT="fetch mirror test"
 else
 	SRC_URI="https://github.com/containers/dnsname/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-	SRC_URI+=" ${P}-deps.tar.xz"
+	SRC_URI+=" https://github.com/ran-dall/portage-deps/raw/master/${P}-deps.tar.xz"
 	KEYWORDS="~amd64 ~arm64"
 	RESTRICT="mirror test"
-	S="${WORKDIR}"/${P}
+	S="${WORKDIR}"/${MY_P}
 fi
 
 LICENSE="Apache-2.0"
@@ -44,6 +46,8 @@ src_unpack() {
 
 src_compile() {
 	local git_commit=${EGIT_COMMIT}
+	# Disable LDFLAGS to avoid complation error; fixed in v1.3.1.
+	filter-ldflags ${LDFLAGS}
 	export -n GOCACHE GOPATH XDG_CACHE_HOME
 	GOBIN="${S}/bin" \
 	emake all \

@@ -2,9 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-EGIT_COMMIT="18822f9a4fb35d1349eb256f4cd2bfd372474d84"
+MY_PN=${PN//-cni-plugin}
+MY_P=${MY_PN}-${PV}
 
-inherit go-module unpacker
+inherit go-module
 
 DESCRIPTION="name resolution for containers"
 HOMEPAGE="https://github.com/containers/dnsname"
@@ -15,10 +16,10 @@ if [[ ${PV} == *9999 ]]; then
 	RESTRICT="fetch mirror test"
 else
 	SRC_URI="https://github.com/containers/dnsname/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-	SRC_URI+=" https://github.com/ran-dall/portage-deps/blob/master/${P}-deps.tar.xz"
+	SRC_URI+=" ${P}-deps.tar.xz"
 	KEYWORDS="~amd64 ~arm64"
 	RESTRICT="mirror test"
-	S="${WORKDIR}"/${P}
+	S="${WORKDIR}"/${MY_P}
 fi
 
 LICENSE="Apache-2.0"
