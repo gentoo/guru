@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit go-module
+
 DESCRIPTION="Shell script formatter"
 HOMEPAGE="https://github.com/mvdan/sh"
 if [[ ${PV} == *9999 ]]; then
@@ -10,12 +12,11 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/mvdan/sh.git"
 	RESTRICT="fetch mirror test"
 else
-	inherit go-module
 	SRC_URI="https://github.com/mvdan/sh/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 	SRC_URI+=" https://github.com/ran-dall/portage-deps/raw/master/${P}-deps.tar.xz"
 	KEYWORDS="~amd64 ~arm64 ~x86"
 	RESTRICT="mirror test"
-	S="${WORKDIR}/${PN/fmt}-${PV}"
+	S="${WORKDIR}/${PN//fmt}-${PV}"
 fi
 
 LICENSE="MIT"
@@ -35,7 +36,6 @@ src_unpack() {
 		ego get
 		popd || die "location reset from module building failed"
 	else
-		mv mvdan-sh-* || die "correct placement of directory failed"
 		go-module_src_unpack
 	fi
 	default

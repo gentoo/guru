@@ -16,7 +16,7 @@ else
 	SRC_URI+=" https://github.com/ran-dall/portage-deps/raw/master/${P}-deps.tar.xz"
 	KEYWORDS="~amd64 ~arm64 ~x86"
 	RESTRICT="mirror test"
-	S="${WORKDIR}/${PN/fmt}-${PV}"
+	S="${WORKDIR}/${PN//fmt}-${PV}"
 fi
 
 LICENSE="MIT"
@@ -29,7 +29,6 @@ BDEPENDS="
 "
 
 src_unpack() {
-	default
 	if [[ ${PV} == *9999 ]]; then
 		git-r3_fetch
 		git-r3_checkout
@@ -37,9 +36,9 @@ src_unpack() {
 		ego get
 		popd || die "location reset from module building failed"
 	else
-		mv mvdan-sh-* || die "correct placement of directory failed"
 		go-module_src_unpack
 	fi
+	default
 }
 
 src_compile() {
