@@ -10,7 +10,7 @@ HOMEPAGE="https://citra-emu.org"
 EGIT_REPO_URI="https://github.com/citra-emu/citra"
 EGIT_SUBMODULES=( '*'
 	'-boost' '-catch' '-cryptopp' '-cubeb' '-enet'
-	'-fmt' '-inih' '-libressl' '-libusb' '-zstd'
+	'-inih' '-libressl' '-libusb' '-zstd'
 	'-externals/dynarmic/externals/fmt'
 	'-externals/dynarmic/externals/xbyak'
 )
@@ -18,25 +18,25 @@ EGIT_SUBMODULES=( '*'
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="cubeb +hle-sound nls +qt5 sdl +telemetry video"
+IUSE="cubeb +hle-sound nls +qt5 sdl system-libfmt +telemetry video"
 
 DEPEND="
 	cubeb? ( media-libs/cubeb )
 	!hle-sound? ( media-libs/fdk-aac )
 	hle-sound? ( media-video/ffmpeg[fdk] )
 	qt5? ( nls? ( dev-qt/linguist )
-			dev-qt/qtgui
-			dev-qt/qtmultimedia
-			dev-qt/qtnetwork
-			dev-qt/qtopengl
-			dev-qt/qtwidgets )
+			dev-qt/qtgui:5
+			dev-qt/qtmultimedia:5
+			dev-qt/qtnetwork:5
+			dev-qt/qtopengl:5
+			dev-qt/qtwidgets:5 )
 	sdl? (
 		media-libs/libsdl2
 		>=dev-libs/inih-52
 	)
+	system-libfmt? ( <=dev-libs/libfmt-8 )
 	video? ( media-video/ffmpeg )
 	>=app-arch/zstd-1.4.8
-	>=dev-libs/libfmt-8
 	>=dev-libs/openssl-1.1
 	dev-cpp/catch:0
 	dev-cpp/robin-map
@@ -49,6 +49,9 @@ RDEPEND="${DEPEND}"
 REQUIRED_USE="|| ( qt5 sdl )"
 
 src_unpack() {
+	if use system-libfmt; then
+		EGIT_SUBMODULES+=( "-fmt" "-externals/dynarmic/externals/fmt" )
+	fi
 	git-r3_src_unpack
 
 	cp -a "${S}"/externals/xbyak "${S}"/externals/dynarmic/externals/ || die
@@ -89,12 +92,13 @@ src_prepare() {
 		src/{citra,citra_qt,dedicated_room,tests}/CMakeLists.txt || die
 	sed -i -e '1ifind_package(OpenSSL 1.1)' src/{citra,citra_qt,dedicated_room,tests}/CMakeLists.txt || die
 
-	# Unbundle libfmt
-	sed -i -e '/fmt/d' externals/CMakeLists.txt || die
-	sed -i -e 's/fmt/&::&/' -e '1ifind_package(fmt)' \
-		src/{core,citra,citra_qt,dedicated_room,input_common,tests,video_core}/CMakeLists.txt || die
-	sed -i -e '1ifind_package(fmt)' externals/dynarmic/src/CMakeLists.txt || die
-	sed -i -e '/^#pragma once$/a#include <algorithm>' src/common/logging/log.h || die
+	if use system-libfmt; then # Unbundle libfmt
+		sed -i -e '/fmt/d' externals/CMakeLists.txt || die
+		sed -i -e 's/fmt/&::&/' -e '1ifind_package(fmt)' \
+			src/{core,citra,citra_qt,dedicated_room,input_common,tests,video_core}/CMakeLists.txt || die
+		sed -i -e '1ifind_package(fmt)' externals/dynarmic/src/CMakeLists.txt || die
+		sed -i -e '/^#pragma once$/a#include <algorithm>' src/common/logging/log.h || die
+	fi
 
 	# Unbundle zstd
 	sed -i -e 's:libzstd_static:${ZSTD_LIBRARIES}:' \
@@ -126,7 +130,7 @@ src_prepare() {
 	# Unbundle cubeb
 	sed -i -e '/CUBEB/,/endif()/d' externals/CMakeLists.txt || die
 	if use cubeb; then
-		sed -i -e '$afind_package(cubeb REQUIRED)\n'
+		sed -i -e '$afind_package(cubeb REQUIRED)\n' CMakeLists.txt || die
 	fi
 
 	# TODO unbundle xbyak (wait for 5.96 in ytree)
