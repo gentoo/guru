@@ -5,4 +5,7 @@
 		<name>Adrian Schollmeyer</name>
 		<email>nex+b-g-o@nexadn.de</email>
 	</maintainer>
+	<use>
+		<flag name="libhandy">Support for features using gui-libs/libhandy</flag>
+	</use>
 </pkgmetadata>
