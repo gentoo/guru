@@ -1,7 +1,7 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2018-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit desktop qmake-utils
 
@@ -25,8 +25,7 @@ DEPEND=">=games-emulation/mupen64plus-core-2.5
 		${RDEPEND}"
 
 src_prepare() {
-	sed -i -e '/MatchWildcard/{s/Wildcard/RegExp/; s/"\*"/".*"/}' src/dialogs/settingsdialog.cpp || die
-	sed -i -e '/include.*quazip5/s/quazip5/QuaZip-Qt5-1.1\/quazip/' \
+	sed -i -e '/include.*quazip5/s:quazip5/::' \
 		src/emulation/emulatorhandler.cpp src/common.cpp || die
 	sed -i -e 's/lquazip5/lquazip1-qt5/' mupen64plus-qt.pro || die
 	default
@@ -34,6 +33,7 @@ src_prepare() {
 
 src_configure() {
 	eqmake5
+	sed -i -e "/INCPATH/s:\$: $(pkg-config --cflags-only-I quazip1-qt5):" Makefile || die
 }
 
 src_install() {

@@ -71,10 +71,6 @@ BDEPEND="$(unpacker_src_uri_depends)"
 
 S="${WORKDIR}/${P/_rc/rc}"
 
-PATCHES=(
-	"${FILESDIR}/cmake-add-DOCDIR-variable.patch"
-)
-
 src_unpack() {
 	if [[ "${PV}" = 9999 ]] ; then
 		git-r3_src_unpack

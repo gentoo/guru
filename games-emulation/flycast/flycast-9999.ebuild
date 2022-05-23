@@ -19,7 +19,9 @@ KEYWORDS=""
 IUSE="alsa ao lua opengl +openmp pulseaudio vulkan"
 
 DEPEND="
+	dev-libs/libchdr
 	dev-libs/libzip
+	dev-libs/xxhash
 	media-libs/libsdl2
 	net-libs/miniupnpc
 	sys-libs/zlib

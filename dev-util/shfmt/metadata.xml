@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>ran.dall@icloud.com</email>
+    <name>Randall Vasquez</name>
+  </maintainer>
+  <longdescription lang="en">
+    A shell parser, formatter, and interpreter with bash support; includes shfmt. Supports POSIX Shell, Bash, and mksh.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">mvdan/sh</remote-id>
+  </upstream>
+</pkgmetadata>

@@ -16,6 +16,7 @@ EGIT_SUBMODULES=()
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
+IUSE="+libhandy"
 
 RDEPEND="
 	dev-cpp/gtkmm:3.0=
@@ -23,12 +24,20 @@ RDEPEND="
 	net-misc/curl
 	>=net-libs/ixwebsocket-11.0.8
 	sys-libs/zlib:=
+	libhandy? ( gui-libs/libhandy:= )
 "
 DEPEND="
 	${RDEPEND}
 	dev-cpp/nlohmann_json
 "
 BDEPEND=""
+
+src_configure() {
+	local mycmakeargs=(
+		-DUSE_LIBHANDY="$(usex libhandy)"
+	)
+	cmake_src_configure
+}
 
 src_install() {
 	dodoc README.md
