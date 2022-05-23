@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.16 app-arch/unzip
+DEFINED_PHASES=compile install test unpack
+DEPEND=dev-vcs/git
+DESCRIPTION=Manage your dotfiles across multiple machines, securely
+EAPI=8
+HOMEPAGE=https://chezmoi.io/
+INHERIT=go-module bash-completion-r1
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0 BSD BSD-2 MIT MPL-2.0
+RDEPEND=dev-vcs/git
+RESTRICT=mirror strip
+SLOT=0
+SRC_URI=https://github.com/twpayne/chezmoi/archive/v2.16.0.tar.gz -> chezmoi-2.16.0.tar.gz https://github.com/ran-dall/portage-deps/raw/master/chezmoi-2.16.0-deps.tar.xz
+_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
+_md5_=d9e94df6978aa28b5830394a5bc7ef1e

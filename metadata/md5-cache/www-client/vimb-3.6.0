@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install postinst prepare
+DEPEND=virtual/pkgconfig
+DESCRIPTION=a fast, lightweight, vim-like browser based on webkit
+EAPI=7
+HOMEPAGE=https://fanglingsu.github.io/vimb/
+INHERIT=savedconfig
+IUSE=savedconfig savedconfig
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=GPL-3
+RDEPEND=x11-libs/gtk+:3 >=net-libs/webkit-gtk-2.20.0:4
+SLOT=0
+SRC_URI=https://github.com/fanglingsu/vimb/archive/3.6.0.tar.gz -> vimb-3.6.0.tar.gz
+_eclasses_=portability	d33a77692bb47e8227f27e17fb9c3c05	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d
+_md5_=8630340b4d9f89d37892edc9f5c073f0

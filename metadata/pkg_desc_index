@@ -9,6 +9,7 @@ acct-group/owncast 0: Group for media-video/owncast
 acct-group/purritobin 0: Group for net-misc/purritobin
 acct-group/tang 0: Group for tang daemon
 acct-group/wsdd 0: Group for net-misc/wsdd
+acct-group/yacy 0: Group for net-misc/yacy
 acct-group/yggdrasil 1: System group: yggdrasil
 acct-user/_bgpd 0-r1: User for OpenBGPD
 acct-user/_rpki-client 0: User for rpki-client
@@ -23,6 +24,7 @@ acct-user/purritobin 0: User for net-misc/purritobin
 acct-user/tang 0: User for tang daemon
 acct-user/trezord 0: User for TREZOR Bridge
 acct-user/wsdd 0: User for net-misc/wsdd
+acct-user/yacy 0: User for net-misc/yacy
 acct-user/yggdrasil 1: Yggdrasil user
 app-accessibility/mimic1 1.3.0.1 9999: Mycroft's TTS engine, based on CMU's Flite (Festival Lite)
 app-accessibility/rhvoice 1.4.2-r1 1.6.0: TTS engine with extended languages support (including Russian)
@@ -33,7 +35,7 @@ app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
 app-admin/aws-vault 6.4.0 6.6.0: Securely store and access AWS credentials in development environments
 app-admin/awscli-bin 2.3.2-r1 2.4.27: Universal Command Line Interface for Amazon Web Services version 2
 app-admin/chamber 2.10.7 2.10.9: Managing secrets in AWS SSM Parameter Store
-app-admin/chezmoi 2.11.2: Manage your dotfiles across multiple machines, securely
+app-admin/chezmoi 2.16.0: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.12.7: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/enpass-desktop-bin 6.7.4.933: A cross-platform, complete password management solution
@@ -53,6 +55,7 @@ app-backup/grub-btrfs 4.10.2 4.11: Improves Grub by adding btrfs snapshots to th
 app-backup/timeshift 21.09.1-r1: A system restore utility for Linux
 app-backup/timeshift-autosnap 0.9: Automatically creates a timeshift-snapshot when executed
 app-containers/aardvark-dns 1.0.2 1.0.2-r1: A container-focused DNS server
+app-containers/dnsname-cni-plugin 1.3.0 1.3.1 9999: name resolution for containers
 app-containers/netavark 1.0.2 1.0.2-r1: A container network stack
 app-containers/nvidia-container-toolkit 1.9.0: NVIDIA container runtime toolkit
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
@@ -135,6 +138,7 @@ app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/powerpanel 1.4.1: PowerPanel software for CyberPower UPS systems
 app-misc/pup 0.4.0_p1: Parsing HTML at the command line
 app-misc/rememberthemilk 1.3.11-r1: Freemium simple to-do tasks manager
+app-misc/s6-man 9999: mdoc versions of the HTML documentation for the s6 supervision suite
 app-misc/spark 1.0.1: sparklines for your shell
 app-misc/tai 0.0.4 0.0.5: tai (Terminal Ascii Image) tool to convert images to ascii
 app-misc/tealdeer 1.5.0: A very fast implementation of tldr in Rust.
@@ -421,6 +425,7 @@ dev-libs/rsaref 2.0: Encryption/authentication library, RSA/MDX/DES
 dev-libs/supercop 0_p20200827: Fast cryptographic operations for Monero wallets
 dev-libs/tfdn 1.2.0 1.3.0: Opinionated C11 library for low-level functionality
 dev-libs/tweeny 3.1.1 3.2.0: C++ tweening (inbetweening) library
+dev-libs/weechat-relay 9999: Portable and multi-interface IRC client relay api
 dev-libs/xqilla 2.3.4 2.3.4-r1: An XQuery and XPath 2 library and command line utility written in C++
 dev-libs/zfp 0.5.5: Compressed numerical arrays that support high-speed random access
 dev-libs/zlib-google 97.0.4692.13: google zlib extras
@@ -746,6 +751,7 @@ dev-python/pyagentx 0.4: Python AgentX Implementation
 dev-python/pybeam 0.7: Python module to parse Erlang BEAM files
 dev-python/pybrowserstack-screenshots 0.1-r1: A python api wrapper and client for Browserstack Screenshots API
 dev-python/pycadf 3.1.1-r1: python implementation of DMTF Cloud Audit (CADF) data model
+dev-python/pyclip 0.5.4 0.6.0 9999: Python clipboard module
 dev-python/pydub 0.25.1: Manipulate audio with an simple and easy high level interface
 dev-python/pyfiglet 0.8_p1 9999: Pure-python FIGlet implementation
 dev-python/pygaljs 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
@@ -812,6 +818,7 @@ dev-python/qiskit-aer 0.10.3: High performance simulator for quantum circuits th
 dev-python/qiskit-terra 0.19.2: Terra is the foundation on which Qiskit is built
 dev-python/queuelib 1.6.2: Collection of persistent and non-persistent queues for Python
 dev-python/rchitect 0.3.36: Interoperate R with Python
+dev-python/readability-lxml 0.6.1: fast python port of arc90's readability tool, updated to match latest readability.js!
 dev-python/recordclass 0.14.3: Mutable variants of tupe and collections.namedtuple
 dev-python/redbaron 0.9 0.9.2: A FST for python to make writing refactoring code a realistic task
 dev-python/retworkx 0.11.0: A high performance Python graph library implemented in Rust
@@ -912,19 +919,22 @@ dev-util/fortran-test-drive 0.4.0: The simple testing framework (for Fortran)
 dev-util/fypp 3.1: Fypp - Python powered Fortran preprocessor
 dev-util/gammaray 2.11.3: High-level runtime introspection tool for Qt applications
 dev-util/gftools 0.9.6 0.9.9: Miscellaneous tools for working with the Google Fonts collection
+dev-util/git-bug 0.7.1 9999: distributed, offline-first bug tracker
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/mh 1.0.3: Generate help for Makefile
 dev-util/osc 0.173.0 9999: Command line tool for Open Build Service
 dev-util/ots 8.1.4 8.2.1: An util for validating and sanitising OpenType files
+dev-util/pmbootstrap 1.43.1: Helper tool for developing and building postmarketOS
 dev-util/psautohint 2.3.0 2.4.0: A standalone version of AFDKO autohinter
 dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's OpenGL Shader Builder
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
 dev-util/reuse 0.14.0: A tool for compliance with the REUSE recommendations
 dev-util/rpmlint 2.1.0 2.2.0: Tool for checking common errors in RPM packages
-dev-util/rust-analyzer 20220411 20220418 99999999: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer 20220509 20220517 99999999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
+dev-util/shfmt 3.5.0 9999: Shell script formatter
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/wakatime-cli 1.27.0 1.28.6: Command line interface to WakaTime used by all WakaTime plugins
 dev-util/xxd 8.2.4092: Hexdump utility from vim
@@ -954,7 +964,7 @@ games-board/rmahjong 0.4_p20201106: Riichi Mahjong, the Japanese variant of the 
 games-emulation/citra 9999: A Nintendo 3DS Emulator
 games-emulation/duckstation 9999: Fast Sony PlayStation (PSX) emulator
 games-emulation/flycast 9999: Sega Dreamcast, Naomi and Atomiswave emulator
-games-emulation/mupen64plus-qt 1.14 9999: A basic launcher for Mupen64Plus
+games-emulation/mupen64plus-qt 1.15 9999: A basic launcher for Mupen64Plus
 games-emulation/np2kai 22 22_p20210211: NP2kai is an emulator for the japanese PC-98 series of computers
 games-emulation/rpcs3 9999: PS3 emulator/debugger
 games-emulation/yuzu 9999: An emulator for Nintendo Switch
@@ -965,7 +975,7 @@ games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games usin
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
 games-fps/assaultcube 1.3.0.2: Free multiplayer FPS based on the Cube engine
 games-fps/crispy-doom 5.10.0 5.10.1 5.10.2 5.10.3 5.11.1: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
-games-fps/etlegacy 2.79.0: Wolfenstein: Enemy Territory 2.60b compatible client/server
+games-fps/etlegacy 2.80.2: Wolfenstein: Enemy Territory 2.60b compatible client/server
 games-fps/quakespasm 0.94.1 9999: Modern, cross-platform Quake 1 engine based on FitzQuake
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
 games-misc/bonsai 0_pre20210201: bonsai tree generator written in bash
@@ -1114,8 +1124,9 @@ media-libs/svt-vp9 0.3.0 9999: Scalable Video Technology for VP9 (SVT-VP9 Encode
 media-libs/vips 8.10.6: VIPS Image Processing Library
 media-plugins/alsa-sndio 0.2: ALSA PCM to play audio on sndio servers
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
+media-plugins/chrome-widevine 88.0.4324.96: An adapter for playing DRM content
 media-plugins/gimp-avif-plugin 9999: Plug-in for development GIMP 2.99.11 for loading/saving AVIF images.
-media-plugins/gst-plugins-qt5 1.18.4 1.18.6 1.20.1: Qt5 QML video sink plugin for GStreamer
+media-plugins/gst-plugins-qt5 1.18.4 1.18.6 1.20.1 1.20.2: Qt5 QML video sink plugin for GStreamer
 media-plugins/qt-heif-image-plugin 0.3.3-r1 0.3.3-r2: Qt plugin for HEIF images
 media-plugins/qt-jpegxl-image-plugin 9999: Qt plug-in to allow Qt and KDE based applications to read/write JXL images.
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
@@ -1174,13 +1185,14 @@ net-dialup/tio 1.37: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/Quaternion 0.0.9.4e: A Qt5-based IM client for the Matrix protocol
-net-im/abaddon 0.1.5 9999: Alternative Discord client using GTK instead of Electron
+net-im/abaddon 0.1.6 9999: Alternative Discord client using GTK instead of Electron
 net-im/chatterino 2.3.5-r3: Chat client for https://twitch.tv
 net-im/discord-canary-bin 0.0.134: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.29: All-in-one voice and text chat
 net-im/go-sendxmpp 0.3.0 0.5.0: A little tool to send messages to an XMPP contact or MUC
 net-im/gtkcord 0.1.0-r1: A Gtk3 Discord client in Golang
 net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
+net-im/jitsi-meet 2022.3.1: Desktop application for Jitsi Meet built with Electron
 net-im/kaidan 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!
 net-im/matterhorn-bin 50200.13.0: Terminal based Mattermost client
 net-im/nheko 0.9.2 0.9.3: Native desktop client for Matrix using Qt
@@ -1230,6 +1242,7 @@ net-misc/wayback_machine_downloader 2.3.0 2.3.1: Download an entire website from
 net-misc/whatscli 1.0.6 1.0.11: A command line interface for WhatsApp
 net-misc/wsdd 0.6.4 0.7.0: A Web Service Discovery host daemon.
 net-misc/xmrig-mo 6.16.2 6.16.3 6.16.4 6.16.5: MoneroOcean fork of xmrig that supports algo switching
+net-misc/yacy 1.924.20210209.10069: YaCy - p2p based distributed web-search engine
 net-news/comitium 1.8.1: feed aggregator for gemini supporting many formats and protocols
 net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny Tiny RSS or feedly
 net-nntp/inn 2.6.4-r1 2.6.5: InterNetNews -- the Internet meets Netnews
@@ -1346,7 +1359,7 @@ sys-auth/mrsh 2.12 2.12-r1: Mrsh is a set of remote shell programs that use mung
 sys-auth/pam-gnupg 0.3: Unlock GnuPG keys on login
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
-sys-boot/limine 2.88 3.0 3.4.3 3.4.4: Limine is a modern, advanced x86/x86_64 BIOS/UEFI multiprotocol bootloader.
+sys-boot/limine 2.88 3.0 3.4.3 3.4.4 3.4.5: Limine is a modern, advanced x86/x86_64 BIOS/UEFI multiprotocol bootloader.
 sys-boot/zfsbootmenu 1.12.0: ZFS bootloader for root-on-ZFS systems
 sys-cluster/AXL 0.5.0 0.7.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy
 sys-cluster/KVTree 1.2.0 1.3.0: KVTree provides a fully extensible C data structure modeled after Perl hashes
@@ -1420,6 +1433,7 @@ sys-kernel/ummunotify 2: Userspace support for MMU notifications
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-kernel/xpmem 2.6.5_p20210809: Linux Cross-Memory Attach
 sys-kernel/zenpower3 0.2.0: Linux kernel driver for reading sensors of AMD Zen family CPUs
+sys-libs/libfixposix 0.4.3: Thin wrapper over POSIX syscalls
 sys-libs/libnvidia-container 1.9.0: NVIDIA container runtime library
 sys-libs/nss-tls 1.0 1.1 9999: A DNS over HTTPS resolver for glibc
 sys-libs/safeclib 3.7.1-r2: safec libc extension with all C11 Annex K functions
@@ -1435,6 +1449,7 @@ sys-process/btop 1.2.6: A monitor of resources
 sys-process/gotop 4.1.3: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/nq 0.4: Unix command line queue utility
 sys-process/nvtop 1.2.2 2.0.1-r1 9999: NVIDIA GPUs htop like monitoring tool
+sys-process/snooze 0.5 9999: Run a command at a particular time
 sys-process/task-spooler 1.3.0: A scheduler for CPU tasks
 virtual/MASS 0: Virtual of a R recommended package
 virtual/Matrix 0: Virtual of a R recommended package
@@ -1452,7 +1467,9 @@ www-apps/twint 2.1.20-r2 2.1.20_p20220316: Twitter scraping & OSINT tool written
 www-apps/uwebsockets 20.11.0 20.14.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.2.1 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/browsh 1.6.4_p1: A fully-modern text-based browser, rendering to TTY and browsers
+www-client/nyxt 9999: Nyxt - the internet on your terms.
 www-client/torbrowser-launcher 0.3.5-r1 0.3.5-r2 9999: A program to download, updated, and run the Tor Browser Bundle
+www-client/vimb 3.6.0 9999: a fast, lightweight, vim-like browser based on webkit
 www-client/woob 3.0-r1 9999: Web Outside Of Browsers (core, site modules and applications)
 www-misc/gitea2rss 0.7.0: Generates RSS feeds from Gitea releases, tags and commits
 www-misc/gorss 0.3: Go Terminal Feed Reader

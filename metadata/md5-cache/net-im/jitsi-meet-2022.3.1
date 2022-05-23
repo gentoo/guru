@@ -1,0 +1,15 @@
+DEFINED_PHASES=install postinst postrm preinst prepare setup unpack
+DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+DESCRIPTION=Desktop application for Jitsi Meet built with Electron
+EAPI=7
+HOMEPAGE=https://github.com/jitsi/jitsi-meet-electron
+INHERIT=desktop xdg unpacker chromium-2
+IUSE=swiftshader system-ffmpeg +l10n_am +l10n_ar +l10n_bg +l10n_bn +l10n_ca +l10n_cs +l10n_da +l10n_de +l10n_el +l10n_en-GB +l10n_en-US +l10n_es-419 +l10n_es +l10n_et +l10n_fa +l10n_fil +l10n_fi +l10n_fr +l10n_gu +l10n_he +l10n_hi +l10n_hr +l10n_hu +l10n_id +l10n_it +l10n_ja +l10n_kn +l10n_ko +l10n_lt +l10n_lv +l10n_ml +l10n_mr +l10n_ms +l10n_nb +l10n_nl +l10n_pl +l10n_pt-BR +l10n_pt-PT +l10n_ro +l10n_ru +l10n_sk +l10n_sl +l10n_sr +l10n_sv +l10n_sw +l10n_ta +l10n_te +l10n_th +l10n_tr +l10n_uk +l10n_vi +l10n_zh-CN +l10n_zh-TW
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=x11-libs/gtk+:3 dev-libs/nss x11-libs/libXtst app-accessibility/at-spi2-core:2 app-accessibility/at-spi2-atk:2 system-ffmpeg? ( <media-video/ffmpeg-4.3[chromium] )
+RESTRICT=bindist mirror splitdebug test
+SLOT=0
+SRC_URI=https://github.com/jitsi/jitsi-meet-electron/releases/download/v2022.3.1/jitsi-meet-amd64.deb -> jitsi-meet-2022.3.1.deb
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	unpacker	697382d119fd3d195f110b7979184285	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	chromium-2	fe5bb568da464344d16c90acb1c6e91e
+_md5_=23f7f54d95cf2e52424efbb1adc8b916

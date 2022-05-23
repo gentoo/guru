@@ -226,6 +226,7 @@ games-board/fairy-stockfish:largeboards - Support for board sizes more than 8x8 
 games-board/fairy-stockfish:nnue - Embed and enable NNUE support (built-in for Xiangqi and Janggi, executable file is larger)
 games-emulation/citra:cubeb - Enables the cubeb audio backend
 games-emulation/citra:hle-sound - Enable HLE sound via FFmpeg audio (AAC) decoder
+games-emulation/citra:system-libfmt - Use system libfmt
 games-emulation/citra:telemetry - Enable web services (telemetry, etc.)
 games-emulation/citra:video - Enable FFmpeg video dumper
 games-emulation/duckstation:discord - Enable Discord Rich Presence to show the current game on Discord
@@ -388,6 +389,9 @@ net-client/lagrange:fribidi - Use dev-libs/fribidi for bidirectional text
 net-client/lagrange:harfbuzz - Use media-libs/harfbuzz to shape text
 net-client/telescope:libbsd - Use dev-libs/libbsd instead of internal funcs
 net-im/Quaternion:keychain - Enable support for password storage via dev-libs/qtkeychain
+net-im/abaddon:libhandy - Support for features using gui-libs/libhandy
+net-im/jitsi-meet:swiftshader - Use SwiftShader OpenGL graphics
+net-im/jitsi-meet:system-ffmpeg - Use the system ffmpeg library
 net-im/nheko:video - Enables video calls
 net-im/nheko:voip - Enables audio calls
 net-im/ruqola:speech - Enable text-to-speech support
@@ -413,6 +417,7 @@ net-misc/tinyssh:sodium - Use dev-libs/libsodium for cryptography
 net-misc/xmrig-mo:donate - Set the default donation level to 1% instead of 0
 net-misc/xmrig-mo:hwloc - Use sys-apps/hwloc for CPU affinity support
 net-misc/xmrig-mo:opencl - Enable OpenCL support
+net-misc/yacy:openrc - Install an openrc runscript
 net-nntp/inn:gzip - Compress logs using gzip
 net-nntp/inn:keywords - Enable automatic innd keyword generation
 net-nntp/inn:largefile - Support files larger than 2GB

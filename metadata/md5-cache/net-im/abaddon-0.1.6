@@ -1,14 +1,15 @@
 BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-cpp/gtkmm:3.0= dev-db/sqlite:3 net-misc/curl >=net-libs/ixwebsocket-11.0.8 sys-libs/zlib:= dev-cpp/nlohmann_json
+DEPEND=dev-cpp/gtkmm:3.0= dev-db/sqlite:3 net-misc/curl >=net-libs/ixwebsocket-11.0.8 sys-libs/zlib:= libhandy? ( gui-libs/libhandy:= ) dev-cpp/nlohmann_json
 DESCRIPTION=Alternative Discord client using GTK instead of Electron
 EAPI=8
 HOMEPAGE=https://github.com/uowuo/abaddon
 INHERIT=cmake desktop
+IUSE=+libhandy
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=dev-cpp/gtkmm:3.0= dev-db/sqlite:3 net-misc/curl >=net-libs/ixwebsocket-11.0.8 sys-libs/zlib:=
+RDEPEND=dev-cpp/gtkmm:3.0= dev-db/sqlite:3 net-misc/curl >=net-libs/ixwebsocket-11.0.8 sys-libs/zlib:= libhandy? ( gui-libs/libhandy:= )
 SLOT=0
-SRC_URI=https://github.com/uowuo/abaddon/archive/refs/tags/v0.1.5.tar.gz -> abaddon-0.1.5.tar.gz
+SRC_URI=https://github.com/uowuo/abaddon/archive/refs/tags/v0.1.6.tar.gz -> abaddon-0.1.6.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	desktop	c0d27bf73aa08ca05b663dbd31fbef28
-_md5_=3634d2dbfee5f004f985a89dee17e680
+_md5_=05dd59a9d8434f5ea256eff022da8ab3

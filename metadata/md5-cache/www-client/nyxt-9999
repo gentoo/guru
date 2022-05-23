@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lisp/sbcl-2.0.0 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile prepare unpack
+DEPEND=net-libs/webkit-gtk net-libs/glib-networking gnome-base/gsettings-desktop-schemas sys-libs/libfixposix X? ( x11-misc/xclip ) spell? ( app-text/enchant )
+DESCRIPTION=Nyxt - the internet on your terms.
+EAPI=7
+HOMEPAGE=https://nyxt.atlas.engineer/
+INHERIT=git-r3
+IUSE=X spell
+LICENSE=BSD CC-BY-SA-3.0
+PROPERTIES=live
+SLOT=0
+_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=42688cfa394d6f3e37b63211a3cbe197

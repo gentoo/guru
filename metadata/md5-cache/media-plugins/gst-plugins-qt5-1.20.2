@@ -1,0 +1,17 @@
+BDEPEND=>=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) >=sys-apps/sed-4 virtual/pkgconfig virtual/perl-JSON-PP
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=media-libs/gst-plugins-base-1.20.2:1.0[egl?,opengl,wayland?,X?] media-libs/mesa[egl(+)?,X?] dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 egl? ( dev-qt/qtgui:5[eglfs] ) wayland? ( dev-qt/qtwayland:5 ) X? ( dev-qt/qtx11extras:5 ) >=dev-libs/glib-2.40.0:2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=media-libs/gstreamer-1.20:1.0[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=media-libs/gst-plugins-good-1.20.2:1.0[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?]
+DESCRIPTION=Qt5 QML video sink plugin for GStreamer
+EAPI=7
+HOMEPAGE=https://gstreamer.freedesktop.org/
+INHERIT=gstreamer-meson qmake-utils
+IUSE=+egl wayland +X test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=>=media-libs/gst-plugins-base-1.20.2:1.0[egl?,opengl,wayland?,X?] media-libs/mesa[egl(+)?,X?] dev-qt/qtcore:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 egl? ( dev-qt/qtgui:5[eglfs] ) wayland? ( dev-qt/qtwayland:5 ) X? ( dev-qt/qtx11extras:5 ) >=dev-libs/glib-2.40.0:2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=media-libs/gstreamer-1.20:1.0[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=media-libs/gst-plugins-good-1.20.2:1.0[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?]
+REQUIRED_USE=wayland? ( egl )
+RESTRICT=test
+SLOT=1.0
+SRC_URI=https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.20.2.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	meson	8f48ffde53174aba67239f0da61ac9d3	virtualx	975d49ff3b3f451efe7a95f230532135	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b	gstreamer-meson	6c38e47af358e7df5ba1ed366493e4eb	qmake-utils	59420c906278d16deaaa629f9d115707
+_md5_=07c6b5b984e7e9bc31d350b2a789631c

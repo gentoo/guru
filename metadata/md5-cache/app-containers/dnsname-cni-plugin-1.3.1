@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.16 app-arch/unzip
+DEFINED_PHASES=compile install prepare unpack
+DEPEND=app-containers/podman net-misc/cni-plugins net-dns/dnsmasq
+DESCRIPTION=name resolution for containers
+EAPI=8
+HOMEPAGE=https://github.com/containers/dnsname
+INHERIT=go-module
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0
+RDEPEND=app-containers/podman net-misc/cni-plugins net-dns/dnsmasq
+RESTRICT=mirror test strip
+SLOT=0
+SRC_URI=https://github.com/containers/dnsname/archive/refs/tags/v1.3.1.tar.gz -> dnsname-cni-plugin-1.3.1.tar.gz https://github.com/ran-dall/portage-deps/raw/master/dnsname-cni-plugin-1.3.1-deps.tar.xz
+_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a
+_md5_=4051a21c9ac1f6aadb95af7fb4c1e4d0

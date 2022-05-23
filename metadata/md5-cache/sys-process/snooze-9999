@@ -1,0 +1,11 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install unpack
+DESCRIPTION=Run a command at a particular time
+EAPI=7
+HOMEPAGE=https://github.com/leahneukirchen/snooze
+INHERIT=git-r3
+LICENSE=CC0-1.0
+PROPERTIES=live
+SLOT=0
+_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=474a8a7a10d90e1a1722c734d1d996c3

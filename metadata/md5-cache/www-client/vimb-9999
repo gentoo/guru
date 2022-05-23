@@ -1,0 +1,14 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install postinst prepare unpack
+DEPEND=virtual/pkgconfig
+DESCRIPTION=a fast, lightweight, vim-like browser based on webkit
+EAPI=7
+HOMEPAGE=https://fanglingsu.github.io/vimb/
+INHERIT=savedconfig git-r3
+IUSE=savedconfig savedconfig
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=x11-libs/gtk+:3 >=net-libs/webkit-gtk-2.20.0:4
+SLOT=0
+_eclasses_=portability	d33a77692bb47e8227f27e17fb9c3c05	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=5e7183481c24771c3da2d59231eea9e3

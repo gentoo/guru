@@ -1,0 +1,11 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=mdoc versions of the HTML documentation for the s6 supervision suite
+EAPI=8
+HOMEPAGE=https://skarnet.org/software/s6/
+INHERIT=git-r3
+LICENSE=ISC
+PROPERTIES=live
+SLOT=0
+_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=e3b1a696991eb158d121c16aa981c675
