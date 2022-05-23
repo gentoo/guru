@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -16,4 +16,10 @@ IUSE=""
 src_prepare() {
 	default
 	eautoreconf
+}
+
+src_install() {
+	default
+	find "${ED}" -name '*.la' -delete || die
+	find "${ED}" -name '*.a' -delete || die
 }
