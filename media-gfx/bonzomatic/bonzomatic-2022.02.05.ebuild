@@ -20,11 +20,13 @@ fi
 
 LICENSE="Unlicense"
 SLOT="0"
-IUSE="system-glfw system-glew system-stb system-kissfft wayland"
+IUSE="system-glfw system-glew system-stb wayland"
 
 # TODO: system-miniaudio, system-jsonxx/json++, system-scintilla
 # !system-glfw copied from media-libs/glfw-3.3.3::gentoo
 # !system-glew copied from media-libs/glew-2.2.0::gentoo
+# kissfft: Bonzomatic targets non-existent `kissfft` pkg-config name
+#	system-kissfft? ( sci-libs/kissfft )
 DEPEND="
 	system-glfw? ( media-libs/glfw )
 	!system-glfw? (
@@ -50,7 +52,6 @@ DEPEND="
 		>=x11-libs/libXmu-1.1.1-r1
 	)
 	system-stb? ( dev-libs/stb )
-	system-kissfft? ( sci-libs/kissfft )
 	virtual/opengl
 	virtual/glu
 	media-libs/alsa-lib
@@ -65,7 +66,7 @@ src_configure() {
 		-DGLFW_USE_WAYLAND="$(usex wayland)"
 		-DBONZOMATIC_USE_SYSTEM_GLEW=$(usex system-glew)
 		-DBONZOMATIC_USE_SYSTEM_STB=$(usex system-stb)
-		-DBONZOMATIC_USE_SYSTEM_KISSFFT=$(usex system-kissfft)
+		-DBONZOMATIC_USE_SYSTEM_KISSFFT=OFF
 	)
 
 	cmake_src_configure
