@@ -27,7 +27,7 @@ src_compile() {
 
 src_install() {
 	dodoc -r doc/.
-	insinto "/usr/share/octave/packages/${PN}"
+	insinto "/usr/share/octave/site/m/${PN}"
 	doins -r code/matlab/*
 	cd "exec" || die
 	dobin "chaco"
