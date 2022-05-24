@@ -19,6 +19,7 @@ SLOT="0"
 
 DEPEND="
 	~sys-cluster/Graph500-1.2
+	sys-cluster/psort
 	sys-cluster/usort
 	virtual/mpi
 "
