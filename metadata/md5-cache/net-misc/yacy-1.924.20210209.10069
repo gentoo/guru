@@ -12,4 +12,4 @@ RDEPEND=>=virtual/jdk-1.8 acct-group/yacy acct-user/yacy >=dev-java/java-config-
 SLOT=0
 SRC_URI=https://www.yacy.net/release/yacy_v1.924_20210209_10069.tar.gz
 _eclasses_=java-utils-2	e38ea02d8ed864a74078ecf46aa06f30	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	multilib	4fbbbc98f236f1b43acd99476bc3cd85	toolchain-funcs	fd9cde67030b26e479eeadaced488253	java-ant-2	5cf479aa9e0ac9cc55899f2762c2aaa0	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=6658c2a3fd62baebaf34262e41ab5a7e
+_md5_=27e1fd6102fc0caa21f9c8045a1cf2c4
