@@ -48,3 +48,7 @@ gnome-extra/extension-manager
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-04-14)
 # Depends on unavailable dev-python/regex-2022.3.15
 dev-python/dateparser
+
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-05-24)
+# Hard depends on removed version of app-crypt/certbot, needs bump
+app-crypt/certbot-dns-digitalocean
