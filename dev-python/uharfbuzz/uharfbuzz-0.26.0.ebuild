@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
 SLOT="0"
 
-RDEPEND=">=media-libs/harfbuzz-4.0.0[experimental(-)]"
+RDEPEND=">=media-libs/harfbuzz-4.3.0[experimental(-)]"
 DEPEND="
 	${RDEPEND}
 	>=dev-python/cython-0.28.1[${PYTHON_USEDEP}]
