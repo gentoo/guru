@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 # https://github.com/fastavro/fastavro/issues/558
 EPYTEST_DESELECT=(
 	tests/test_fastavro.py::test_cython_python
