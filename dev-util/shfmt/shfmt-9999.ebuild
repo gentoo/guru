@@ -23,10 +23,7 @@ LICENSE="MIT"
 SLOT="0"
 IUSE="+man"
 
-BDEPENDS="
-	dev-lang/go
-	man? ( app-text/scdoc )
-"
+BDEPEND="man? ( app-text/scdoc )"
 
 src_unpack() {
 	if [[ ${PV} == *9999 ]]; then
