@@ -16,11 +16,11 @@ KEYWORDS="~amd64"
 IUSE="gtk +ocamlopt"
 RESTRICT="strip"
 
-RDEPEND="~sci-mathematics/frama-c-${PV}:=[gtk?,ocamlopt?]
+RDEPEND="~sci-mathematics/frama-c-${PV}:=[gtk=,ocamlopt?]
 		~sci-mathematics/frama-c-inout-${PV}:=[ocamlopt?]
-		~sci-mathematics/frama-c-eva-${PV}:=[gtk?,ocamlopt?]
+		~sci-mathematics/frama-c-eva-${PV}:=[gtk=,ocamlopt?]
 		~sci-mathematics/frama-c-pdg-${PV}:=[ocamlopt?]
-		~sci-mathematics/frama-c-slicing-${PV}:=[gtk?,ocamlopt?]"
+		~sci-mathematics/frama-c-slicing-${PV}:=[gtk=,ocamlopt?]"
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/frama-c-${PV}-${NAME}"

@@ -16,8 +16,8 @@ KEYWORDS="~amd64"
 IUSE="gtk +ocamlopt"
 RESTRICT="strip"
 
-RDEPEND="~sci-mathematics/frama-c-${PV}:=[gtk?,ocamlopt?]
-	~sci-mathematics/frama-c-callgraph-${PV}:=[gtk?,ocamlopt?]
+RDEPEND="~sci-mathematics/frama-c-${PV}:=[gtk=,ocamlopt?]
+	~sci-mathematics/frama-c-callgraph-${PV}:=[gtk=,ocamlopt?]
 	~sci-mathematics/frama-c-loopanalysis-${PV}:=[ocamlopt?]
 	~sci-mathematics/frama-c-rtegen-${PV}:=[ocamlopt?]
 	~sci-mathematics/frama-c-server-${PV}:=[ocamlopt?]"

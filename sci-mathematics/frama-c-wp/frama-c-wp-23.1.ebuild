@@ -16,8 +16,8 @@ KEYWORDS="~amd64"
 IUSE="coq gtk +ocamlopt"
 RESTRICT="strip"
 
-RDEPEND="~sci-mathematics/frama-c-${PV}:=[gtk?,ocamlopt?]
-	~sci-mathematics/frama-c-qed-${PV}:=[gtk?,ocamlopt?]
+RDEPEND="~sci-mathematics/frama-c-${PV}:=[gtk=,ocamlopt?]
+	~sci-mathematics/frama-c-qed-${PV}:=[gtk=,ocamlopt?]
 	~sci-mathematics/frama-c-rtegen-${PV}:=[ocamlopt?]
 	>=sci-mathematics/why3-1.4.0
 	<sci-mathematics/why3-1.5.0"

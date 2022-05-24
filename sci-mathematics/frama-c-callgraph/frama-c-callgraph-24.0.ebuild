@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 IUSE="gtk +ocamlopt"
 RESTRICT="strip"
 
-RDEPEND="~sci-mathematics/frama-c-${PV}:=[gtk?,ocamlopt?]"
+RDEPEND="~sci-mathematics/frama-c-${PV}:=[gtk=,ocamlopt?]"
 DEPEND="${RDEPEND}"
 # Eva is needed at runtime to run the callgraph plugin,
 # but is not needed for compilation (and would introduce a mutual dependency)
