@@ -1,0 +1,17 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-ml/fmt-0.8.7 influx? ( dev-ml/duration >=dev-ml/lwt-2.4.7 ) lwt? ( >=dev-ml/lwt-2.4.7:= dev-ml/logs ) rusage? ( dev-ml/logs ) unix? ( >=dev-ml/uuidm-0.9.6:= >=dev-ml/mtime-1.0.0:= >=dev-ml/lwt-2.4.7:= sci-visualization/gnuplot ) test? ( dev-ml/alcotest ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Infrastructure to collect metrics from OCaml applications
+EAPI=8
+HOMEPAGE=https://github.com/mirage/metrics https://opam.ocaml.org/packages/metrics/
+INHERIT=dune multiprocessing
+IUSE=influx lwt ocamlopt rusage test unix
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=>=dev-ml/fmt-0.8.7 influx? ( dev-ml/duration >=dev-ml/lwt-2.4.7 ) lwt? ( >=dev-ml/lwt-2.4.7:= dev-ml/logs ) rusage? ( dev-ml/logs ) unix? ( >=dev-ml/uuidm-0.9.6:= >=dev-ml/mtime-1.0.0:= >=dev-ml/lwt-2.4.7:= sci-visualization/gnuplot ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+REQUIRED_USE=test? ( lwt unix )
+RESTRICT=!test? ( test )
+SLOT=0/0.4.0
+SRC_URI=https://github.com/mirage/metrics/releases/download/v0.4.0/metrics-0.4.0.tbz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=0a1d732dced1ba1c65f6ebd87ee97a98

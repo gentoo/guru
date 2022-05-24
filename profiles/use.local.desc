@@ -68,7 +68,6 @@ dev-cpp/vexcl:amdsi - Implement workaround for AMD SI GPUs
 dev-cpp/vexcl:backend-compute - Use Boost.Compute algorithms
 dev-cpp/vexcl:backend-jit - Use the JIT backend
 dev-cpp/vexcl:backend-opencl - Use OpenCL as backend
-dev-cpp/vexcl:clhpp - Install the OpenCL C++ header provided by VexCL
 dev-embedded/rauc:gpt - Add GPT support
 dev-embedded/rauc:json - Add JSON support
 dev-embedded/rauc:network - Add network update support
@@ -450,12 +449,28 @@ sci-geosciences/GeographicLib-data:magnetic-models-igrf12 - the International Ge
 sci-geosciences/GeographicLib-data:magnetic-models-wmm2010 - the World Magnetic Model 2010, which approximates the main magnetic field for the period 2010–2015.
 sci-geosciences/GeographicLib-data:magnetic-models-wmm2015v2 - the World Magnetic Model 2015, which approximates the main magnetic field for the period 2015–2020.
 sci-geosciences/GeographicLib-data:magnetic-models-wmm2020 - the World Magnetic Model 2020, which approximates the main magnetic field for the period 2020–2025.
+sci-libs/ButterflyPACK:arpack - Use arpack as dependency
+sci-libs/ButterflyPACK:magma - Use magma as dependency
+sci-libs/CoDiPack:tutorials - Build the tutorials
+sci-libs/MeDiPack:tutorials - Build the tutorials
+sci-libs/STRUMPACK:butterflypack - ButterflyPACK code by Yang Liu
+sci-libs/STRUMPACK:combblas - Use CombBLAS for weighted matching
+sci-libs/STRUMPACK:count-flops - Build with flop counters
+sci-libs/STRUMPACK:hip - Use HIP for AMD or NVIDIA GPU acceleration
+sci-libs/STRUMPACK:message-counters - Build with counter for MPI messages
+sci-libs/STRUMPACK:metis - Build with support for ParMetis
+sci-libs/STRUMPACK:papi - Build with support for PAPI monitoring
+sci-libs/STRUMPACK:scotch - Build with support for Scotch
+sci-libs/STRUMPACK:task-timers - Build with timers for internal routines
+sci-libs/STRUMPACK:zfp - Build with support for ZFP compression
 sci-libs/ann:profile - Enable performance evaluation. (This may slow execution slightly.)
 sci-libs/dart:examples - Build the examples
 sci-libs/dart:extras - Build the experimental projects that are derived from the core DART project
 sci-libs/dart:osg - OpenSceneGraph GUI
 sci-libs/dart:tutorials - Build the tutorials
+sci-libs/libROM:mfem - Build libROM with MFEM
 sci-libs/libpotassco:tools - whether or not to build lpconvert tool
+sci-libs/magma:openblas - Use OpenBLAS as the BLAS vendor
 sci-libs/meschach:complex - incorporate complex functions
 sci-libs/meschach:double-precision - double precision
 sci-libs/meschach:munroll - unroll low level loops on matrices
@@ -463,11 +478,32 @@ sci-libs/meschach:segmem - should be set if you are working with a machine or co
 sci-libs/meschach:single-precision - single precision
 sci-libs/meschach:sparse - incorporate sparse matrix functions
 sci-libs/meschach:vunroll - unroll low level loops on vectors
+sci-libs/mfem:benchmark - Enables support for Google Benchmark, a library to support the benchmarking of functions
+sci-libs/mfem:codipack - Enable automatic differentiation using the CoDiPack library
+sci-libs/mfem:exceptions - Enable the use of exceptions. In particular, modifies the default behavior when errors are encountered: throw an exception, instead of aborting.
+sci-libs/mfem:ginkgo - Enable MFEM functionality based on the Ginkgo library
+sci-libs/mfem:hip - Enables support for AMD devices in MFEM
+sci-libs/mfem:metis - Enable the use of the METIS library
+sci-libs/mfem:mpfr - Enables the use of MPFR in MFEM, e.g. for precise computation of 1D quadrature rules
+sci-libs/mfem:mumps - Enable MFEM functionality based on the MUMPS library. Currently, this option adds the class MUMPSSolver (a parallel sparse direct solver).
+sci-libs/mfem:petsc - Enable MFEM linear and non-linear solvers, preconditioners, time integrators and other features based on the PETSc package.
+sci-libs/mfem:slepc - Enable MFEM eigensolvers based on the SLEPc package.
+sci-libs/mfem:sparse - Enable MFEM functionality based on the SuiteSparse library. Currently, this option adds the classes UMFPackSolver and KLUSolver (both sparse serial direct solvers).
+sci-libs/mfem:strumpack - Enable MFEM functionality based on the STRUMPACK sparse direct solver and preconditioner through the STRUMPACKSolver and STRUMPACKRowLocMatrix classes.
+sci-libs/mfem:sundials - Enable MFEM time integrators and non-linear solvers based on the SUNDIALS library.
+sci-libs/mfem:superlu - Enable MFEM functionality based on the SuperLU_DIST library. Currently, this option adds the classes SuperLUSolver (a parallel sparse direct solver) and SuperLURowLocMatrix a distributed CSR matrix class needed by SuperLU.
+sci-libs/mfem:threadsafe - Use thread-safe implementation for some classes/methods. This comes at the cost of extra memory allocation and de-allocation.
 sci-libs/mlpack:R - build R bindings
 sci-libs/mlpack:go - build go bindings
 sci-libs/mlpack:julia - build julia bindings
 sci-libs/qdldl:coverage - Perform code coverage
 sci-libs/qdldl:single-precision - Use float numbers instead of doubles
+sci-libs/superlu_dist:combblas - Use CombBLAS as dependency
+sci-libs/superlu_dist:complex-precision - Enable complex16 precision library
+sci-libs/superlu_dist:double-precision - Enable double precision library
+sci-libs/superlu_dist:hip - Enable the HIP libraries
+sci-libs/superlu_dist:metis - Use parmetis as dependency
+sci-libs/superlu_dist:single-precision - Enable single precision library
 sci-mathematics/clasp:tools - whether or not to build the clasp application
 sci-mathematics/clingo:tools - whether or not to build the clingo tool
 sci-mathematics/frama-c-aorai:eva - Build support for the Eva plugin
@@ -478,11 +514,16 @@ sci-mathematics/minisat+:bignum - Build the bignum variant of minisat+
 sci-mathematics/the-omega-project:gui - Build petit with gui
 sci-mathematics/the-omega-project:htmldoc - Build html documentation
 sci-mathematics/the-omega-project:petit - Build Petit, a educational/research tool for analyzing array data dependences
-sci-physics/SU2:cgns - Build with CGNS support (bundled)
+sci-physics/SU2:autodiff - Enable support for reverse automatic differentiation
+sci-physics/SU2:cgns - Build with CGNS support
+sci-physics/SU2:directdiff - Enable support for forward automatic differentiation
+sci-physics/SU2:librom - Enable LLNL libROM support
+sci-physics/SU2:mixed-precision - Use single precision floating point arithmetic for sparse algebra
 sci-physics/SU2:mkl - Enable Intel MKL support
 sci-physics/SU2:mpp - Enable Mutation++ library support
-sci-physics/SU2:openblas - Enable OpenBLAS support
-sci-physics/SU2:parmetis - Enable Parmetis support (Metis support is always on)
+sci-physics/SU2:openblas - Enable BLAS and LAPACK support via OpenBLAS
+sci-physics/SU2:parmetis - Enable Parmetis support
+sci-physics/SU2:pastix - Enable PaStiX support
 sci-physics/SU2:tecio - Enable TECIO support
 sci-physics/SU2:tutorials - Install Tutorials files
 sci-physics/mbdyn:ann - With ANNsci-libs/ann support

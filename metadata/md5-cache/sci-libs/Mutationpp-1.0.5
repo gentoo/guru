@@ -1,0 +1,17 @@
+BDEPEND=dev-util/ninja dev-util/cmake doc? ( app-doc/doxygen ) test? ( dev-cpp/eigen python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) dev-python/numpy[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) >=dev-python/pytest-7.0.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) dev-util/ninja >=dev-util/cmake-3.20.5 fortran? ( virtual/fortran )
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-cpp/eigen python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) dev-python/numpy[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) test? ( dev-cpp/catch:0 ) python? ( dev-python/pybind11[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/scikit-build-0.11.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] dev-python/wheel[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) fortran? ( virtual/fortran )
+DESCRIPTION=MUlticomponent Thermodynamic And Transport library for IONized gases
+EAPI=8
+HOMEPAGE=https://github.com/mutationpp/Mutationpp
+INHERIT=distutils-r1 cmake fortran-2
+IUSE=doc fortran python test test python_targets_python3_8 python_targets_python3_9
+KEYWORDS=~amd64
+LICENSE=LGPL-3
+RDEPEND=dev-cpp/eigen python? ( python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) dev-python/numpy[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) fortran? ( virtual/fortran )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/mutationpp/Mutationpp/archive/refs/tags/v1.0.5.tar.gz -> Mutationpp-1.0.5.tar.gz
+_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	3b871cf4724e3abc9b4ff059289f0d45	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
+_md5_=bf2d924ce85845b6b886c0a95b8adb83

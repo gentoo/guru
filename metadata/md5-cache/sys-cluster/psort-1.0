@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile install
+DEPEND=virtual/mpi
+DESCRIPTION=Parallel sorting code for distributed and shared memory architectures
+EAPI=8
+HOMEPAGE=https://web.archive.org/web/20181126115900/http://gauss.cs.ucsb.edu/code/index.shtml
+KEYWORDS=~amd64
+LICENSE=MIT GPL-2+
+RDEPEND=virtual/mpi
+SLOT=0
+SRC_URI=https://web.archive.org/web/20181126115900/http://gauss.cs.ucsb.edu/code/psort/psort-1.0.tar.gz
+_md5_=258672f2b550971b9ed992b0c2b40ce6

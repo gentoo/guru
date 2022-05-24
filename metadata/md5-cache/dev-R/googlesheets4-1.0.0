@@ -11,4 +11,4 @@ RDEPEND=dev-R/cellranger dev-R/ids dev-R/magrittr >=dev-R/googledrive-2.0.0 >=de
 SLOT=0
 SRC_URI=mirror://cran/src/contrib/googlesheets4_1.0.0.tar.gz
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	optfeature	d524f291c80f9d21ad80fe978e3ca760	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	R-packages	fb639cbad24feebe9d09798764205a36
-_md5_=a5b1428183ebb1385b698e99578cf92e
+_md5_=9e3f7d3fac159246f57596745e533757

@@ -1,0 +1,15 @@
+BDEPEND=app-doc/doxygen dev-util/ninja >=dev-util/cmake-3.20.5 virtual/fortran
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=sci-libs/hdf5:= sci-libs/scalapack sys-libs/zlib virtual/blas virtual/lapack virtual/mpi[cxx] mfem? ( sci-libs/hypre[mpi] sci-libs/metis sci-libs/mfem[mpi] sci-libs/parmetis ) dev-cpp/gtest virtual/fortran
+DESCRIPTION=Library for reduced order models
+EAPI=8
+HOMEPAGE=https://www.librom.net/ https://github.com/LLNL/libROM
+INHERIT=cmake fortran-2
+IUSE=mfem
+KEYWORDS=~amd64
+LICENSE=|| ( Apache-2.0 MIT )
+RDEPEND=sci-libs/hdf5:= sci-libs/scalapack sys-libs/zlib virtual/blas virtual/lapack virtual/mpi[cxx] mfem? ( sci-libs/hypre[mpi] sci-libs/metis sci-libs/mfem[mpi] sci-libs/parmetis ) virtual/fortran
+SLOT=0
+SRC_URI=https://github.com/LLNL/libROM/archive/refs/tags/v1.0.0.tar.gz -> libROM-1.0.0.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
+_md5_=9e8eda3e0c725c76becbf513fa736b9f

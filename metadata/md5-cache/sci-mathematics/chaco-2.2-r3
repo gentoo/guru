@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile install
+DESCRIPTION=Software for Partitioning Graphs
+EAPI=7
+HOMEPAGE=https://www3.cs.stonybrook.edu/~algorith/implement/chaco/implement.shtml
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1
+SLOT=0
+SRC_URI=https://www3.cs.stonybrook.edu/~algorith/implement/chaco/distrib/Chaco-2.2.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
+_md5_=0a2e80107642fb669a881e367e8b2cdf
