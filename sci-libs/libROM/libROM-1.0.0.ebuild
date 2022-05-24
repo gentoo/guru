@@ -43,7 +43,7 @@ DOCS=( README.md CHANGELOG docs/libROM_Design_and_Theory.pdf )
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_STATIC=OFF
-		-DUSE_MFEM=OFF
+		-DUSE_MFEM=$(usex mfem)
 	)
 	cmake_src_configure
 }

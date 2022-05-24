@@ -113,7 +113,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	rm src/mlpack/tescatch.hpp
+	rm src/mlpack/tests/catch.hpp || die
 	rm -r src/mlpack/core/std_backport || die
 	rm -r src/mlpack/core/cereal/{pair_associative_container,unordered_map}.hpp || die
 
