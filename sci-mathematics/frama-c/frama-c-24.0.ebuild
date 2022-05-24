@@ -27,13 +27,15 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/${P}-${NAME}"
 
+PATCHES=( ${FILESDIR}/frama-c-24.0-fix-bflags.patch )
+
 src_prepare() {
 	mv configure.in configure.ac || die
 	sed -i 's/configure\.in/configure.ac/g' Makefile.generating Makefile || die
 	touch config_file || die
 	sed -i '/^\t\$(CC)/s/ -O3 /$(CFLAGS)/' Makefile || die
 	eautoreconf
-	eapply_user
+	default
 }
 
 src_configure() {
@@ -45,8 +47,6 @@ src_configure() {
 
 src_compile() {
 	tc-export AR
-	# workaround for https://git.frama-c.com/pub/frama-c/-/issues/2593
-	emake VERBOSEMAKE=yes src/kernel_services/abstract_interp/abstract_memory.cmi
 	emake VERBOSEMAKE=yes
 }
 
