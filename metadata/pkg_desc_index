@@ -1086,7 +1086,7 @@ media-fonts/warframe-fonts 0_pre20191111: Fonts from the Warframe game
 media-gfx/WebPlotDigitizer-bin 4.5: Web based tool to extract data from plots, images, and maps
 media-gfx/akira 0.0.13 9999: Native Linux App for UI and UX Design built in Vala and GTK.
 media-gfx/azpainter 3.0.3 3.0.4: Full color painting software for Linux for illustration drawing
-media-gfx/bonzomatic 2021.03.07-r1 2022.02.05 9999: Live shader coding tool and Shader Showdown workhorse
+media-gfx/bonzomatic 2022.02.05 9999: Live shader coding tool and Shader Showdown workhorse
 media-gfx/dehinter 3.1.0 4.0.0: A tool for the removal of TrueType hints in fonts
 media-gfx/dustr 9999: light and interactive tool your crops need
 media-gfx/fontbakery 0.7.38: Font quality assurance tool
@@ -1334,6 +1334,7 @@ sec-keys/signify-keys-gmid 1.7 1.8: Signify keys used to sign gmid releases
 sec-keys/signify-keys-telescope 0.6.1 0.7: Signify keys used to sign telescope releases
 sys-apps/0xFFFF 0.8 0.9: The 0pen Free Fiasco Firmware Flasher
 sys-apps/CommsPowerManagement 0.2.1: Python library providing various tools to work with Intel processors
+sys-apps/asus-numpad 0.1 9999: User-space driver for Asus numpad
 sys-apps/bustd 0.1.1: Process killer daemon for out-of-memory scenarios
 sys-apps/dool 0.8_pre20191010-r1 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
 sys-apps/drm_info 2.2.0 2.3.0 9999: Small utility to dump info about DRM devices
