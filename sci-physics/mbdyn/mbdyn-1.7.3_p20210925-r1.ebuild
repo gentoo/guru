@@ -286,11 +286,11 @@ src_install() {
 
 	use pam && dopamd etc/pam.d/mbdyn
 
-	mkdir -p "${D}/usr/share/octave/mbdyn" || die
-	mv "${D}"/usr/share/octave/*.m "${D}/usr/share/octave/mbdyn" || die
+	mkdir -p "${D}/usr/share/octave/site/m/mbdyn" || die
+	mv "${D}"/usr/share/octave/*.m "${D}/usr/share/octave/site/m/mbdyn" || die
 
 	if use octave; then
-		insinto "/usr/share/octave/mbdyn"
+		insinto "/usr/share/octave/site/m/mbdyn"
 		doins -r contrib/MLS/.
 	fi
 
