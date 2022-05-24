@@ -18,9 +18,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="systemd +openrc"
 
-DEPEND=">=virtual/jdk-1.8
-        acct-group/yacy
-        acct-user/yacy"
+DEPEND="
+	>=virtual/jdk-1.8
+	acct-group/yacy
+	acct-user/yacy
+"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${PN}"
@@ -35,7 +37,7 @@ src_install() {
 	rm ${S}/*.sh || die
 	# remove sources
 	rm -r "${S}/source" || die
-	rm ${S}/build.properties ${S}/build.xml
+	rm ${S}/build.properties ${S}/build.xml || die
 
 	dodoc AUTHORS NOTICE && rm AUTHORS NOTICE COPYRIGHT gpl.txt
 
@@ -49,7 +51,7 @@ src_install() {
 	chown yacy:yacy "${D}/var/log/yacy" || die
 	keepdir /var/log/yacy
 
-	rmdir "$D/$yacy_home/DATA"
+	rmdir "$D/$yacy_home/DATA" || die
 	dosym /var/lib/yacy /${yacy_home}/DATA
 
 	use openrc && {
