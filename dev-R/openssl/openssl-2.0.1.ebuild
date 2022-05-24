@@ -6,6 +6,11 @@ EAPI=7
 inherit R-packages toolchain-funcs
 
 DESCRIPTION='Toolkit for Encryption, Signatures and certificates based on openssl'
+HOMEPAGE="
+	https://cran.r-project.org/package=openssl
+	https://github.com/jeroen/openssl
+"
+
 KEYWORDS="~amd64"
 LICENSE='MIT'
 
