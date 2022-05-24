@@ -1,17 +1,17 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_SINGLE_IMPL=1
-DISTUTILS_USE_SETUPTOOLS=pyproject.toml
+DISTUTILS_USE_PEP517=poetry
 PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1
 
 DESCRIPTION="Generate STAT tables for variable fonts from .stylespace files"
 HOMEPAGE="https://github.com/daltonmaag/statmake"
-SRC_URI="https://github.com/daltonmaag/statmake/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/daltonmaag/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 KEYWORDS="~amd64"
 LICENSE="MIT"
@@ -23,11 +23,8 @@ RDEPEND="
 		dev-python/fonttools[${PYTHON_USEDEP}]
 	')
 "
-DEPEND="${RDEPEND}"
 BDEPEND="
-	test? (
-		$(python_gen_cond_dep 'dev-python/ufo2ft[${PYTHON_USEDEP}]')
-	)
+	test? ( $(python_gen_cond_dep 'dev-python/ufo2ft[${PYTHON_USEDEP}]') )
 "
 
 distutils_enable_tests pytest
@@ -39,5 +36,5 @@ python_install() {
 
 python_test() {
 	local -x PYTHONPATH="${S}/src:${PYTHONPATH}"
-	epytest -vv || die "Tests fail with ${EPYTHON}"
+	epytest
 }
