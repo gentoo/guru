@@ -1,6 +1,5 @@
-diff -Naur old_static/externals/tecio/meson.build new_shared/externals/tecio/meson.build
---- old_static/externals/tecio/meson.build	2020-05-09 16:35:10.000000000 +0300
-+++ new_shared/externals/tecio/meson.build	2020-05-10 11:52:36.000000000 +0300
+--- a/externals/tecio/meson.build
++++ b/externals/tecio/meson.build
 @@ -1,15 +1,15 @@
 -check_dir = run_command(python, 
 -                        script_path / 'check_dir.py',

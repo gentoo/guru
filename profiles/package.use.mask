@@ -60,3 +60,8 @@ app-crypt/pgp bindist
 # Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-03-10)
 # build failure
 media-libs/skia ffmpeg
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-05-22)
+# cmake failure
+# https://github.com/mfem/mfem/issues/2243
+sci-libs/mfem netcdf

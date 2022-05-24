@@ -16,7 +16,6 @@
 	</upstream>
 	<use>
 		<flag name="amdsi">Implement workaround for AMD SI GPUs</flag>
-		<flag name="clhpp">Install the OpenCL C++ header provided by VexCL</flag>
 		<!--<flag name="clogs">Use clogs algorithms</flag>-->
 		<flag name="backend-compute">Use Boost.Compute algorithms</flag>
 		<!--<flag name="backend-cuda">Use CUDA as backend</flag>-->

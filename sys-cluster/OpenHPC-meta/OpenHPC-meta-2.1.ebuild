@@ -40,21 +40,23 @@ RDEPEND="
 		dev-libs/boost[mpi]
 		sci-libs/fftw[mpi]
 		sci-libs/hypre[mpi]
+		sci-libs/mfem[mpi,mumps,petsc,slepc]
 		sci-libs/mumps[mpi,scotch]
 		sci-libs/scalapack
 		sci-libs/scotch[mpi,threads]
+		sci-libs/superlu_dist[fortran]
 		sci-libs/trilinos[hypre,mumps,scotch,scalapack,petsc]
 		sci-mathematics/petsc[fftw,hypre,mpi,mumps,scotch]
 		sci-mathematics/slepc[mpi]
 		sys-cluster/opencoarrays
 
 		io-libs? (
+			sci-libs/mfem[netcdf]
 			sci-libs/trilinos[hdf5,netcdf]
 			sci-mathematics/petsc[hdf5]
 		)
-		python? (
-			$(python_gen_cond_dep 'dev-libs/boost[numpy,python,${PYTHON_USEDEP}]')
-		)
+		python? ( $(python_gen_cond_dep 'dev-libs/boost[numpy,python,${PYTHON_USEDEP}]') )
+		serial? ( sci-libs/mfem[superlu] )
 	)
 
 	perf-tools? (
@@ -99,10 +101,6 @@ RDEPEND="
 #	io-libs
 	#adios[mpi]
 	#phdf5[mpi]
-
-#	parallel
-	#sci-libs/superlu_dist
-	#mfem
 
 #	perf-tools
 #		sys-cluster/dimemas[libunwind]

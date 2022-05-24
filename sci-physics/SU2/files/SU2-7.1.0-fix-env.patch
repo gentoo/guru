@@ -1,6 +1,5 @@
-diff -Naur old_env/UnitTests/meson.build new_env/UnitTests/meson.build
---- old_env/UnitTests/meson.build	2020-06-15 17:03:43.000000000 +0300
-+++ new_env/UnitTests/meson.build	2020-06-15 17:04:35.000000000 +0300
+--- a/UnitTests/meson.build
++++ b/UnitTests/meson.build
 @@ -26,7 +26,7 @@
      test_driver = executable(
          'test_driver',

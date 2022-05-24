@@ -102,6 +102,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-no-pytest-runner.patch"
 	"${FILESDIR}/${PN}-link-armadillo.patch"
 	"${FILESDIR}/${PN}-3.4.2_p20220501-no-backports.patch"
+	"${FILESDIR}/${PN}-3.4.2_p20220501-system-catch.patch"
 )
 RESTRICT="!test? ( test )"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -112,7 +113,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	rm src/mlpack/tests/catch.hpp
+	rm src/mlpack/tescatch.hpp
 	rm -r src/mlpack/core/std_backport || die
 	rm -r src/mlpack/core/cereal/{pair_associative_container,unordered_map}.hpp || die
 
