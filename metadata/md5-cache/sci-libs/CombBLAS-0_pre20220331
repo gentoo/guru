@@ -1,14 +1,14 @@
 BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=~sys-cluster/Graph500-1.2 sys-cluster/usort virtual/mpi
+DEPEND=~sys-cluster/Graph500-1.2 sys-cluster/psort sys-cluster/usort virtual/mpi
 DESCRIPTION=The Combinatorial BLAS
 EAPI=8
 HOMEPAGE=https://github.com/PASSIONLab/CombBLAS
 INHERIT=cmake
 KEYWORDS=~amd64
 LICENSE=BSD
-RDEPEND=~sys-cluster/Graph500-1.2 sys-cluster/usort virtual/mpi
+RDEPEND=~sys-cluster/Graph500-1.2 sys-cluster/psort sys-cluster/usort virtual/mpi
 SLOT=0
 SRC_URI=https://github.com/PASSIONLab/CombBLAS/archive/426f6be0b29831025cdcacc1f8f69e3520bfb0ff.tar.gz -> CombBLAS-0_pre20220331.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
-_md5_=030bf03e008473efa5d0f1b628f44d44
+_md5_=2e4622db5c59d431685130980b30f387
