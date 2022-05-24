@@ -65,11 +65,7 @@ Name | Buildsystem | Category | User | RFH | Dependency
 [mochi-thallium](https://github.com/mochi-hpc/mochi-thallium) | cmake | cluster | Alessandro-Barbieri | ✖ | ✔
 [flexiblas](https://www.mpi-magdeburg.mpg.de/projects/flexiblas) | cmake | science | Alessandro-Barbieri | ✔
 [blitz](https://github.com/blitzpp/blitz) | cmake | c++ | Alessandro-Barbieri | ✖ | ✔
-[strumpack](https://portal.nersc.gov/project/sparse/strumpack/) | cmake | science | Alessandro-Barbieri | ✖ | ✔
-[butterflypack](https://github.com/liuyangzhuan/ButterflyPACK) | cmake | math | Alessandro-Barbieri | ✖ | ✔
 [adios](https://csmd.ornl.gov/adios) | cmake | cluster | Alessandro-Barbieri | ✖ | ✔
-[superlu_dist](https://github.com/xiaoyeli/superlu_dist) | cmake | science | Alessandro-Barbieri | ✖ | ✔
-[mfem](https://mfem.org/) | cmake | science | Alessandro-Barbieri | ✖ | ✔
 [fmi-library](https://github.com/modelon-community/fmi-library) | cmake | science | Alessandro-Barbieri | ✖ | ✔
 [aerodyn](https://github.com/OpenFAST/openfast/tree/main/modules/aerodyn) | cmake | science | Alessandro-Barbieri | ✖ | ✔
 [llvm-ompss2](https://github.com/bsc-pm/llvm) | cmake | cluster | Alessandro-Barbieri | ✔ | ✔
