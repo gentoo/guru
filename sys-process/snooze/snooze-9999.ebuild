@@ -4,10 +4,10 @@
 EAPI=7
 
 DESCRIPTION="Run a command at a particular time"
-HOMEPAGE="https://github.com/leahneukirchen/${PN}"
+HOMEPAGE="https://github.com/leahneukirchen/snooze"
 
 inherit git-r3
-EGIT_REPO_URI="${HOMEPAGE}.git"
+EGIT_REPO_URI="https://github.com/leahneukirchen/snooze.git"
 
 LICENSE="CC0-1.0"
 SLOT="0"
