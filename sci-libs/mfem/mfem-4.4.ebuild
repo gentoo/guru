@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="Lightweight, general, scalable C++ library for finite element methods"
 HOMEPAGE="
-	http://mfem.org/
+	https://mfem.org/
 	https://github.com/mfem/mfem/
 "
 SRC_URI="https://github.com/mfem/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
