@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,8 +7,10 @@ inherit desktop java-pkg-2 xdg
 
 DESCRIPTION="Minecraft launcher for community-made modpacks on the Technic Platform"
 HOMEPAGE="https://www.technicpack.net/"
-SRC_URI="http://launcher.technicpack.net/launcher${PV:0:1}/${PV:2}/TechnicLauncher.jar -> ${P}.jar
-	https://www.technicpack.net/favicon.ico -> ${PN}.ico"
+SRC_URI="
+	https://launcher.technicpack.net/launcher${PV:0:1}/${PV:2}/TechnicLauncher.jar -> ${P}.jar
+	https://www.technicpack.net/favicon.ico -> ${PN}.ico
+"
 
 KEYWORDS="~amd64 ~x86"
 LICENSE="technic"
