@@ -1,9 +1,6 @@
 # Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-amdgpu_gfx600 - Enable support for AMD GPU codename tahiti
-amdgpu_gfx601 - Enable support for AMD GPU codename pitcairn and verde
-amdgpu_gfx602 - Enable support for AMD GPU codename hainan and oland
 amdgpu_gfx700 - Enable support for AMD APU codename kaveri ( A6-7000, A6 Pro-7050B, A8-7100, A8 Pro-7150B, A10-7300, A10 Pro-7350B, FX-7500, A8-7200P, A10-7400P, FX-7600P )
 amdgpu_gfx701 - Enable support for AMD GPU codename hawaii ( FirePro W8100, FirePro W9100, FirePro S9150, FirePro S9170 )
 amdgpu_gfx702 - Enable support for AMD GPU ( Radeon R9 290, Radeon R9 290x, Radeon R390, Radeon R390x )
