@@ -22,7 +22,7 @@ KEYWORDS="~amd64"
 DEPEND="
 	$(python_gen_cond_dep	'
 		>=dev-python/rchitect-0.3.36[${PYTHON_USEDEP}]
-		>=dev-python/prompt_toolkit-3.0[${PYTHON_USEDEP}]
+		>=dev-python/prompt_toolkit-3.0.15[${PYTHON_USEDEP}]
 		>=dev-python/pygments-2.5.0[${PYTHON_USEDEP}]
 	')
 "
@@ -39,12 +39,13 @@ BDEPEND="
 			dev-python/ptyprocess[${PYTHON_USEDEP}]
 			dev-python/jedi[${PYTHON_USEDEP}]
 		')
+		dev-R/askpass
 		dev-R/reticulate[${PYTHON_SINGLE_USEDEP}]
 		dev-vcs/git
 	)
 "
 
-PATCHES=( "${FILESDIR}/${P}-no-pytest-runner.patch" )
+PATCHES=( "${FILESDIR}/${PN}-0.6.0-no-pytest-runner.patch" )
 
 distutils_enable_tests pytest
 
