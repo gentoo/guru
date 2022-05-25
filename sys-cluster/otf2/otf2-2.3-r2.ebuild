@@ -9,7 +9,7 @@ inherit python-single-r1 toolchain-funcs
 
 DESCRIPTION="highly scalable, memory efficient event trace data format"
 HOMEPAGE="https://www.vi-hps.org/projects/score-p"
-SRC_URI="http://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/${P}/${P}.tar.gz"
+SRC_URI="https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/${P}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
