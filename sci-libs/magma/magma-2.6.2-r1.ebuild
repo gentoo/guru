@@ -21,12 +21,11 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE_AMDGPU="
-	amdgpu_gfx600 amdgpu_gfx601 amdgpu_gfx602
-	amdgpu_gfx700 amdgpu_gfx701 amdgpu_gfx702 amdgpu_gfx703 amdgpu_gfx704 amdgpu_gfx705
-	amdgpu_gfx801 amdgpu_gfx802 amdgpu_gfx803 amdgpu_gfx805 amdgpu_gfx810
-	amdgpu_gfx900 amdgpu_gfx902 amdgpu_gfx904 amdgpu_gfx906 amdgpu_gfx908 amdgpu_gfx909 amdgpu_gfx90a amdgpu_gfx90c amdgpu_gfx940
-	amdgpu_gfx1010 amdgpu_gfx1011 amdgpu_gfx1012 amdgpu_gfx1013 amdgpu_gfx1030 amdgpu_gfx1031 amdgpu_gfx1032 amdgpu_gfx1033 amdgpu_gfx1034 amdgpu_gfx1035 amdgpu_gfx1036
-	amdgpu_gfx1100 amdgpu_gfx1101 amdgpu_gfx1102 amdgpu_gfx1103
+	amdgpu_gfx701 amdgpu_gfx702 amdgpu_gfx704
+	amdgpu_gfx802 amdgpu_gfx803 amdgpu_gfx805 amdgpu_gfx810
+	amdgpu_gfx900 amdgpu_gfx904 amdgpu_gfx906 amdgpu_gfx908 amdgpu_gfx909 amdgpu_gfx90a amdgpu_gfx940
+	amdgpu_gfx1010 amdgpu_gfx1011 amdgpu_gfx1012 amdgpu_gfx1030 amdgpu_gfx1031 amdgpu_gfx1032 amdgpu_gfx1034
+	amdgpu_gfx1100 amdgpu_gfx1101 amdgpu_gfx1102
 "
 IUSE="doc openblas test ${IUSE_AMDGPU}"
 #IUSE="doc cuda hip openblas test ${IUSE_AMDGPU}"
