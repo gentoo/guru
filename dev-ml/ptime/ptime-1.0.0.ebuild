@@ -7,10 +7,11 @@ inherit opam findlib
 
 DESCRIPTION="POSIX time for OCaml"
 HOMEPAGE="
-	http://erratique.ch/software/ptime
+	https://erratique.ch/software/ptime
 	https://github.com/dbuenzli/ptime
+	https://opam.ocaml.org/packages/ptime/
 "
-SRC_URI="http://erratique.ch/software/ptime/releases/${P}.tbz"
+SRC_URI="https://erratique.ch/software/ptime/releases/${P}.tbz"
 
 LICENSE="ISC"
 SLOT="0/${PV}"
