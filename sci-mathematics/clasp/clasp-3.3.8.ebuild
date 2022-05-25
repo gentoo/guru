@@ -8,7 +8,7 @@ inherit cmake flag-o-matic
 DESCRIPTION="A conflict-driven nogood learning answer set solver"
 HOMEPAGE="
 	https://github.com/potassco/clasp
-	http://www.cs.uni-potsdam.de/clasp/
+	https://www.cs.uni-potsdam.de/clasp/
 "
 SRC_URI="https://github.com/potassco/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
