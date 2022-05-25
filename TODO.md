@@ -99,3 +99,4 @@ Name | Buildsystem | Category | User | RFH | Dependency
 [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet) | setuptools yarn | jupyter | Alessandro-Barbieri | ✔ | ✖
 [gitlab](https://gitlab.com/gitlab-org/gitlab-foss) | yarn gem | vcs | Alessandro-Barbieri | ✔ | ✖
 [HOL4](http://hol-theorem-prover.org/) | ? | math | Alessandro-Barbieri | ✔ | ✖
+[ActivityWatch](https://github.com/ActivityWatch/activitywatch) | ? | utils | David Roman | ✔ | ✖ 
