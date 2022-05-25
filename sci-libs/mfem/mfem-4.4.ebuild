@@ -86,7 +86,7 @@ PATCHES=( "${FILESDIR}/${P}-bump-cmake-version.patch" )
 RESTRICT="!test? ( test )"
 DOCS=( README CHANGELOG CITATION.cff )
 REQUIRED_USE="
-	hip? ( ^^ ( ${IUSE_AMDGPU/+/} ) )
+	hip? ( || ( ${IUSE_AMDGPU/+/} ) )
 	mpi? ( metis )
 	mumps? ( mpi )
 	petsc? ( mpi )
@@ -97,18 +97,18 @@ REQUIRED_USE="
 #pumi? ( mpi )
 #?? ( cuda hip )
 
-src_prepare() {
-	sed -e "s|\"\${CMAKE_INSTALL_PREFIX}/lib\"|\"\${CMAKE_INSTALL_PREFIX}/$(get_libdir)\"|g" -i config/cmake/modules/MfemCmakeUtilities.cmake || die
-	cmake_src_prepare
-}
-
 src_configure() {
-	for u in ${IUSE_AMDGPU} ; do
-		if use ${u} ; then
-			export HIP_ARCH="${u/amdgpu_/}"
-			break
-		fi
-	done
+	if use hip ; then
+		HIP_ARCH=""
+		for u in ${IUSE_AMDGPU} ; do
+			if use ${u} ; then
+				HIP_ARCH="${HIP_ARCH},${u/amdgpu_/}"
+			fi
+		done
+		# remove first character (,)
+		HIP_ARCH="${HIP_ARCH:1}"
+		export HIP_ARCH
+	fi
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
 		-DMFEM_ENABLE_MINIAPPS=ON
@@ -156,10 +156,10 @@ src_configure() {
 		-DMFEM_USE_ZLIB=$(usex zlib)
 	)
 	if use codipack; then
-		mycmakeargs+=( "-DCODIPACK_INCLUDE_DIRS=${EPREFIX}/usr/include/codi" )
+		mycmakeargs+=( "-DCODIPACK_INCLUDE_DIR=${EPREFIX}/usr/include/codi" )
 	fi
 	if use mpi; then
-		mycmakeargs+=( "-DHYPRE_INCLUDE_DIRS=${EPREFIX}/usr/include/hypre" )
+		mycmakeargs+=( "-DHYPRE_INCLUDE_DIR=${EPREFIX}/usr/include/hypre" )
 	fi
 	if use petsc; then
 		mycmakeargs+=( "-DPETSC_DIR=${EPREFIX}/usr/$(get_libdir)/petsc" )
@@ -179,4 +179,7 @@ src_configure() {
 src_install() {
 	cmake_src_install
 	einstalldocs
+	# https://github.com/mfem/mfem/issues/3019
+	mv "${ED}/usr/lib" _lib || die
+	mv _lib "${ED}/usr/$(get_libdir)" || die
 }
