@@ -16,8 +16,8 @@ KEYWORDS="~amd64"
 IUSE="gtk +ocamlopt"
 RESTRICT="strip"
 
-RDEPEND="~sci-mathematics/frama-c-${PV}:=[gtk?,ocamlopt?]
-		~sci-mathematics/frama-c-eva-${PV}:=[gtk?,ocamlopt?]"
+RDEPEND="~sci-mathematics/frama-c-${PV}:=[gtk=,ocamlopt?]
+		~sci-mathematics/frama-c-eva-${PV}:=[gtk=,ocamlopt?]"
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/frama-c-${PV}-${NAME}/src/plugins/studia"
