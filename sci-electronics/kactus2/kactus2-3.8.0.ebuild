@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
@@ -7,7 +7,7 @@ inherit xdg
 
 DESCRIPTION="A open source IP-XACT-based tool"
 HOMEPAGE="
-	http://www.tkt.cs.tut.fi/research/funbase/Kactus2.htm
+	https://research.tuni.fi/system-on-chip/tools/
 	https://github.com/kactus2/kactus2dev
 "
 
