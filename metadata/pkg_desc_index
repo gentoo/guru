@@ -181,7 +181,7 @@ app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/mrsh 9999: minimal strictly POSIX compliant shell
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
 app-shells/ohmyzsh 9999: A framework for managing your zsh configuration.
-app-shells/powerline-go 1.21.0: A powerline like prompt for Bash, Zsh, Fish written in Go lang.
+app-shells/powerline-go 1.21.0 1.22.1: A powerline like prompt for Bash, Zsh, Fish written in Go lang.
 app-shells/silver 2.0.0: A cross-shell customizable powerline-like prompt with icons
 app-shells/spark-fish 1.2.0: Sparklines for Fish
 app-shells/vivid 0.7.0-r2 0.8.0: A themeable LS_COLORS generator with a rich filetype datebase

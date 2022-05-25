@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install prepare
-DEPEND=~sci-mathematics/frama-c-24.0:=[gtk?,ocamlopt?] ~sci-mathematics/frama-c-callgraph-24.0:=[gtk?,ocamlopt?] ~sci-mathematics/frama-c-eva-24.0:=[gtk?,ocamlopt?] ~sci-mathematics/frama-c-pdg-24.0:=[ocamlopt?] ~sci-mathematics/frama-c-sparecode-24.0:=[ocamlopt?] >=dev-ml/findlib-1.0.4-r1
+DEPEND=~sci-mathematics/frama-c-24.0:=[gtk=,ocamlopt?] ~sci-mathematics/frama-c-callgraph-24.0:=[gtk=,ocamlopt?] ~sci-mathematics/frama-c-eva-24.0:=[gtk=,ocamlopt?] ~sci-mathematics/frama-c-pdg-24.0:=[ocamlopt?] ~sci-mathematics/frama-c-sparecode-24.0:=[ocamlopt?] >=dev-ml/findlib-1.0.4-r1
 DESCRIPTION=Slicing plugin for frama-c
 EAPI=7
 HOMEPAGE=https://frama-c.com
@@ -8,9 +8,9 @@ INHERIT=autotools findlib toolchain-funcs
 IUSE=gtk +ocamlopt +ocamlopt
 KEYWORDS=~amd64
 LICENSE=LGPL-2.1
-RDEPEND=~sci-mathematics/frama-c-24.0:=[gtk?,ocamlopt?] ~sci-mathematics/frama-c-callgraph-24.0:=[gtk?,ocamlopt?] ~sci-mathematics/frama-c-eva-24.0:=[gtk?,ocamlopt?] ~sci-mathematics/frama-c-pdg-24.0:=[ocamlopt?] ~sci-mathematics/frama-c-sparecode-24.0:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?]
+RDEPEND=~sci-mathematics/frama-c-24.0:=[gtk=,ocamlopt?] ~sci-mathematics/frama-c-callgraph-24.0:=[gtk=,ocamlopt?] ~sci-mathematics/frama-c-eva-24.0:=[gtk=,ocamlopt?] ~sci-mathematics/frama-c-pdg-24.0:=[ocamlopt?] ~sci-mathematics/frama-c-sparecode-24.0:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?]
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://frama-c.com/download/frama-c-24.0-Chromium.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	findlib	e6df6108c2d753998b1206f4d5ea4a2d
-_md5_=a7ed4fe47cfe6dabc3bbdc0f38a94ead
+_md5_=a9239643a27f3ff0f813caedacd1792b
