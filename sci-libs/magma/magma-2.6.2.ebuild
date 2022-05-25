@@ -30,6 +30,7 @@ IUSE_AMDGPU="
 "
 IUSE="doc openblas test ${IUSE_AMDGPU}"
 
+# TODO: do not enforce openblas
 RDEPEND="
 	openblas? ( sci-libs/openblas )
 	!openblas? (
@@ -47,7 +48,7 @@ BDEPEND="
 	doc? ( >=app-doc/doxygen-1.8.14-r1[dot] )
 "
 
-REQUIRED_USE="^^ ( ${IUSE_AMDGPU/+/} )"
+REQUIRED_USE="|| ( ${IUSE_AMDGPU/+/} )"
 RESTRICT="!test? ( test )"
 
 pkg_setup() {
@@ -83,12 +84,16 @@ src_configure() {
 	# other options: Intel10_64lp, Intel10_64lp_seq, Intel10_64ilp, Intel10_64ilp_seq, Intel10_32, FLAME, ACML, Apple, NAS
 	local blasvendor="Generic"
 	use openblas && blasvendor="OpenBLAS"
+
+	local gpu=""
 	for u in ${IUSE_AMDGPU} ; do
 		if use ${u} ; then
-			gpu="${u/amdgpu_/}"
-			break
+			gpu="${gpu},${u/amdgpu_/}"
 		fi
 	done
+	#remove first character (,)
+	gpu="${gpu:1}"
+
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
 		-DCMAKE_CXX_COMPILER=hipcc
