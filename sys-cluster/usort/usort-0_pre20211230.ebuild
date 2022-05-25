@@ -28,6 +28,8 @@ PATCHES=(
 
 src_prepare() {
 	dos2unix CMakeLists.txt || die
+	dos2unix include/seqUtils.h || die
+	dos2unix include/seqUtils.tcc || die
 	cmake_src_prepare
 }
 
