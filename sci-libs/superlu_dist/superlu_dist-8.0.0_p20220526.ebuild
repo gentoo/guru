@@ -3,7 +3,7 @@
 
 EAPI=8
 
-COMMIT="df1dbf3afd7876644ff5d0613dfa7b9d32af79de"
+COMMIT="a841c9be1666056b2a6b720d27161aa244b562b1"
 DOCS_BUILDER="doxygen"
 DOCS_CONFIG_NAME="DoxyConfig"
 FORTRAN_NEEDED="fortran"
@@ -41,7 +41,10 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}/${P}-system-colamd.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-system-colamd.patch"
+	"${FILESDIR}/${P}-fortran.patch"
+)
 RESTRICT="!test? ( test )"
 
 src_prepare() {
@@ -82,12 +85,4 @@ src_configure() {
 		)
 	fi
 	cmake_src_configure
-}
-
-src_compile() {
-	if use fortran ; then
-		MAKEOPTS="-j1" cmake_src_compile
-	else
-		cmake_src_compile
-	fi
 }
