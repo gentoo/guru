@@ -21,18 +21,18 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE_BACKEND="
-	backend-compute
-	backend-jit
-	+backend-opencl
+	backend_compute
+	backend_jit
+	+backend_opencl
 "
-#	backend-cuda
+#	backend_cuda
 IUSE="${IUSE_BACKEND} amdsi examples test" #clogs
 
 RDEPEND="
 	dev-libs/boost:=
 	dev-libs/clhpp
-	backend-jit? ( virtual/opencl )
-	backend-opencl? ( virtual/opencl )
+	backend_jit? ( virtual/opencl )
+	backend_opencl? ( virtual/opencl )
 "
 DEPEND="${RDEPEND}"
 
@@ -47,10 +47,10 @@ src_prepare() {
 src_configure() {
 	local backend
 #	use  && backend="All"
-	use backend-compute && backend="Compute"
-#	use backend-cuda && backend="CUDA"
-	use backend-jit && backend="JIT"
-	use backend-opencl && backend="OpenCL"
+	use backend_compute && backend="Compute"
+#	use backend_cuda && backend="CUDA"
+	use backend_jit && backend="JIT"
+	use backend_opencl && backend="OpenCL"
 
 	local mycmakeargs=(
 		-DBoost_USE_STATIC_LIBS=OFF

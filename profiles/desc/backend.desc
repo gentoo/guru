@@ -1,0 +1,9 @@
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# This file contains descriptions of BACKEND USE_EXPAND flags.
+
+compute - Use Boost.Compute algorithms
+cuda - Use CUDA as backend
+jit - Use the JIT backend
+opencl - Use OpenCL as backend
