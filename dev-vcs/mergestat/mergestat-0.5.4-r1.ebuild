@@ -1051,9 +1051,9 @@ src_compile() {
 		|| die "build failed"
 	ego build -tags="static,${tags}" -v -x mergestat.go || die "build failed"
 
-	./mergestat completion fish > mergestat.fish
-	./mergestat completion zsh > mergestat.zsh
-	./mergestat completion bash > mergestat.bash
+	./mergestat completion fish > mergestat.fish || die
+	./mergestat completion zsh > mergestat.zsh || die
+	./mergestat completion bash > mergestat.bash || die
 }
 
 src_install() {
