@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -17,75 +17,23 @@ S="${WORKDIR}/${MYP}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-#	mbdyn-module-FMU # needs fmi-library
-#	mbdyn-module-aerodyn # needs aerodyn
-#	mbdyn-module-cudatest # needs cuda
-IUSE_MBDYN_MODULE="
-	mbdyn-module-asynchronous_machine
-	mbdyn-module-autodiff_test
-	mbdyn-module-ballbearing_contact
-	mbdyn-module-bullet
-	mbdyn-module-charm
-	mbdyn-module-constlaw-f90
-	mbdyn-module-constlaw-f95
-	mbdyn-module-constlaw
-	mbdyn-module-cont-contact
-	mbdyn-module-controller
-	mbdyn-module-convtest
-	mbdyn-module-cyclocopter
-	mbdyn-module-damper-gandhi
-	mbdyn-module-damper-graall
-	mbdyn-module-damper-hydraulic
-	mbdyn-module-damper
-	mbdyn-module-diff
-	mbdyn-module-dot
-	mbdyn-module-drive-test
-	mbdyn-module-drive
-	mbdyn-module-dummy
-	mbdyn-module-eu2phi
-	mbdyn-module-fab-electric
-	mbdyn-module-fab-motion
-	mbdyn-module-fab-sbearings
-	mbdyn-module-fabricate
-	mbdyn-module-flightgear
-	mbdyn-module-friction
-	mbdyn-module-friction3
-	mbdyn-module-hfelem
-	mbdyn-module-hid
-	mbdyn-module-hunt-crossley
-	mbdyn-module-hydrodynamic_plain_bearing
-	mbdyn-module-hydrodynamic_plain_bearing2
-	mbdyn-module-imu
-	mbdyn-module-indvel
-	mbdyn-module-inline_friction
-	mbdyn-module-inplane_friction
-	mbdyn-module-journal_bearing
-	mbdyn-module-leapmotion
-	mbdyn-module-loadinc
-	mbdyn-module-marble
-	mbdyn-module-md
-	mbdyn-module-mds
-	mbdyn-module-minmaxdrive
-	mbdyn-module-multi_step_drive
-	mbdyn-module-muscles
-	mbdyn-module-namespace
-	mbdyn-module-nodedistdrive
-	mbdyn-module-nonsmooth-node
-	mbdyn-module-ns
-	mbdyn-module-octave
-	mbdyn-module-randdrive
-	mbdyn-module-rollercoaster
-	mbdyn-module-rotor-loose-coupling
-	mbdyn-module-scalarfunc
-	mbdyn-module-switch_drive
-	mbdyn-module-tclpgin
-	mbdyn-module-triangular_contact
-	mbdyn-module-udunits
-	mbdyn-module-uni_in_plane
-	mbdyn-module-wheel2
-	mbdyn-module-wheel4
-"
-IUSE="${IUSE_MBDYN_MODULE//_/-} ann arpack autodiff blender boost bullet chaco crypt
+#	FMU # needs fmi-library
+#	aerodyn # needs aerodyn
+#	cudatest # needs cuda
+MBDYN_MODULE=( asynchronous_machine autodiff_test ballbearing_contact bullet
+charm constlaw-f90 constlaw-f95 constlaw cont-contact controller convtest
+cyclocopter damper-gandhi damper-graall damper-hydraulic damper diff dot
+drive-test drive dummy eu2phi fab-electric fab-motion fab-sbearings fabricate
+flightgear friction friction3 hfelem hid hunt-crossley
+hydrodynamic_plain_bearing hydrodynamic_plain_bearing2 imu indvel
+inline_friction inplane_friction journal_bearing leapmotion loadinc marble md
+mds minmaxdrive multi_step_drive muscles namespace nodedistdrive nonsmooth-node
+ns octave randdrive rollercoaster rotor-loose-coupling scalarfunc switch_drive
+tclpgin triangular_contact udunits uni_in_plane wheel2 wheel4 )
+
+MBDYN_MODULE_REPLACED=( "${MBDYN_MODULE[@]//_/-}" )
+IUSE_MBDYN_MODULE="${MBDYN_MODULE_REPLACED[@]/#/mbdyn_module_}"
+IUSE="${IUSE_MBDYN_MODULE} ann arpack autodiff blender boost bullet chaco crypt
 debug eig ginac jdqz +mbc metis mpi multithread-naive netcdf octave openblas pam
 pastix pmpi python qrupdate rt sasl schur sparse superlu tests threads udunits +y12"
 # taucs rtai
@@ -105,7 +53,7 @@ RDEPEND="
 	crypt? ( virtual/libcrypt )
 	ginac? ( sci-mathematics/ginac )
 	jdqz? ( sci-libs/jdqz )
-	mbdyn-module-damper? ( sci-libs/gsl )
+	mbdyn_module_damper? ( sci-libs/gsl )
 	mpi? ( virtual/mpi[cxx] )
 	metis? ( sci-libs/metis )
 	netcdf? ( sci-libs/netcdf-cxx:* )
@@ -140,10 +88,10 @@ PATCHES=(
 )
 #	"${FILESDIR}/${PN}-respect-libtool.patch"
 REQUIRED_USE="
-	mbdyn-module-bullet? ( bullet )
-	mbdyn-module-octave? ( octave )
-	mbdyn-module-udunits? ( udunits )
-	mbdyn-module-wheel4? ( ginac )
+	mbdyn_module_bullet? ( bullet )
+	mbdyn_module_octave? ( octave )
+	mbdyn_module_udunits? ( udunits )
+	mbdyn_module_wheel4? ( ginac )
 	multithread-naive? ( threads )
 	pmpi? ( mpi )
 	python? ( ${PYTHON_REQUIRED_USE} )
@@ -245,14 +193,10 @@ src_configure() {
 		myconf+=( "--without-mpi" )
 	fi
 
-	declare -A mbdynmodules
-	for m in ${IUSE_MBDYN_MODULE} ; do
-		mbdynmodules[${m//_/-}]="${m/mbdyn-module-/}"
-	done
-
 	local usemodules=""
-	for u in ${IUSE_MBDYN_MODULE//_/-} ; do
-		use ${u} && usemodules+=" ${mbdynmodules[${u}]}"
+	for m in ${MBDYN_MODULE[@]} ; do
+		u="${m//_/-}"
+		use "mbdyn_module_${u}" && usemodules+=" ${m}"
 	done
 
 	# remove leading whitespace characters

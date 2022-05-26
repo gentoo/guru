@@ -1,0 +1,70 @@
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# This file contains descriptions of MBDYN_MODULE USE_EXPAND flags.
+
+FMU - This is a module to import and cosimulation of FMUs, developed using FMI standards, for MBDyn
+aerodyn - This is MBDyn's module for the wind-turbine aerodynamics library AeroDyn
+asynchronous-machine - The purpose of this code is the simulation of an asynchronous electrical machine as a part of a multibody model
+autodiff-test - This element implements a inline joint with friction
+ballbearing-contact - ball bearing contact
+bullet - sci-physics/bullet module
+charm - This module implements a user-defined induced velocity element based on CDI's CHARM free wake
+constlaw-f90 - This directory contains an example of run-time loadable constitutive law written in Fortran 90
+constlaw-f95 - This directory contains an example of run-time loadable constitutive law written in Fortran 95
+constlaw - This directory contains an example of run-time loadable constitutive law
+cont-contact - continuous contact
+controller - controller module
+convtest - convergence test module
+cyclocopter - This module implements induced velocity models for cycloidal rotors
+damper-gandhi - Gandhi, F. and Chopra, I., "An analytical model for a nonlinear elastomeric lag damper and its effect on aeromechanical stability in hover" Journal of the American Helicopter Society, Vol. 39, 1994, pp. 59-69.
+damper-graall - GRAALL Damper Constitutive Law
+damper-hydraulic - Hydraulic Damper Constitutive Law
+damper - It implements a 1D constitutive law based on a generic nonlinear rheological formula, whose coefficients are computed by means of parameter identification from experimental measurements
+diff - diff drive module
+dot - dot language module
+drive-test - drive test module
+drive - example of run-time loadable drive
+dummy - Dummy module --- does nothing, used to test the infrastructure
+eu2phi - converts three Euler angles into the corresponding Euler vector
+fab-electric - Library of electric components for "digital fabrication" machines
+fab-motion - Library of motion transmission components for "digital fabrication" machines
+fab-sbearings - Library of bearings for "digital fabrication" machines
+fabricate - Library of components of "digital fabrication" machines
+flightgear - flightgear module
+friction - eXperimental friction model
+friction3 - eXperimental friction model (2nd try)
+hfelem - Harmonic Excitation Element
+hid - This module registers a file driver that captures the input from HID USB devices (only tested with some joysticks)
+hunt-crossley - HuntCrossley constitutive law
+hydrodynamic-plain-bearing - This module implements a hydrodynamic plain bearing according to Hans Juergen Butenschoen 1976 Das hydrodynamische zylindrische Gleitlager endlicher Breite unter instationaerer Belastung
+hydrodynamic-plain-bearing2 - module hydrodynamic plain bearing2
+imu - implements two uses of a IMU
+indvel - This module implements a dummy induced velocity model
+inline-friction - This element implements a inline joint with friction
+inplane-friction - In plane friction
+journal-bearing - This element implements a journal bearing with lugre friction
+leapmotion - leapmotion hand
+loadinc - load increment normalization
+marble - marble model for icecube robot
+md - MD module
+mds - mds module
+minmaxdrive - minmaxdrive module
+multi-step-drive - multi step drive module
+muscles - muscle module
+namespace - namespace module
+nodedistdrive - node dist drive module
+nonsmooth-node - Defines a unilateral constraint in form of a contact between a node and one or more planes, optionally with friction
+ns - ns1 module
+octave - octave module
+randdrive - rand drive module
+rollercoaster - rollercoaster module
+rotor-loose-coupling - rotor loose coupling
+scalarfunc - example of run-time loadable scalar function
+switch-drive - switch drive module
+tclpgin - tcl plugin
+triangular-contact - This element implements unilateral contact with friction between an arbitrary rigid body, represented by a triangular mesh, and a set of nodes with arbitrary offsets
+udunits - This module adds a namespace "units" with the only function "convert", which is thus invoked as "units::convert"
+uni-in-plane - This element implements the unilateral contact between a point and a plane
+wheel2 - Connects 2 structural nodes: Wheel Ground
+wheel4 - L. Gagnon, M. J. Richard, P. Masarati, M. Morandini, and G. Dore. Multibody simulation of tires operating on an uneven road. In Multibody Dynamics 2011, 4-7 July 2011
