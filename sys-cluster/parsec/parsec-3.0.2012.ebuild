@@ -18,33 +18,33 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 # next release
-#	parsec-debug-mem-addr
-#	parsec-debug-mem-leak
-#	parsec-debug-mem-race
+#	parsec_debug_mem-addr
+#	parsec_debug_mem-leak
+#	parsec_debug_mem-race
 IUSE_PARSEC_DEBUG="
-	parsec-debug-history
-	parsec-debug-noisier
-	parsec-debug-paranoid
+	parsec_debug_history
+	parsec_debug_noisier
+	parsec_debug_paranoid
 "
 IUSE_PARSEC_DIST="
-	+parsec-dist-collectives
-	+parsec-dist-priorities
-	+parsec-dist-thread
+	+parsec_dist_collectives
+	+parsec_dist_priorities
+	+parsec_dist_thread
 "
 IUSE_PARSEC_PROF="
-	parsec-prof-active-arena-set
-	parsec-prof-btf
-	parsec-prof-dry-body
-	parsec-prof-dry-dep
-	parsec-prof-dry-run
-	parsec-prof-grapher
-	+parsec-prof-mmap
-	parsec-prof-otf2
-	parsec-prof-pins
-	parsec-prof-ptg
-	parsec-prof-rusage
-	parsec-prof-scheduling-events
-	+parsec-prof-thread
+	parsec_prof_active-arena-set
+	parsec_prof_btf
+	parsec_prof_dry-body
+	parsec_prof_dry-dep
+	parsec_prof_dry-run
+	parsec_prof_grapher
+	+parsec_prof_mmap
+	parsec_prof_otf2
+	parsec_prof_pins
+	parsec_prof_ptg
+	parsec_prof_rusage
+	parsec_prof_scheduling-events
+	+parsec_prof_thread
 "
 IUSE="${IUSE_PARSEC_DEBUG} ${IUSE_PARSEC_DIST} ${IUSE_PARSEC_PROF} +cxx debug +devel-headers fortran +home-config-files +mpi profile +sched-deps-mask sim test +tools"
 
@@ -55,8 +55,8 @@ RDEPEND="
 	sys-cluster/temanejo
 
 	mpi? ( virtual/mpi )
-	parsec-prof-otf2? ( sys-cluster/otf2 )
-	parsec-prof-pins? ( dev-libs/papi )
+	parsec_prof_otf2? ( sys-cluster/otf2 )
+	parsec_prof_pins? ( dev-libs/papi )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -67,12 +67,12 @@ BDEPEND="
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	?? ( mpi sim )
-	?? ( parsec-debug-noisier parsec-debug-history )
-	?? ( parsec-prof-dry-body parsec-prof-dry-dep parsec-prof-dry-run )
-	?? ( parsec-prof-btf parsec-prof-otf2 )
+	?? ( parsec_debug_noisier parsec_debug_history )
+	?? ( parsec_prof_dry-body parsec_prof_dry-dep parsec_prof_dry-run )
+	?? ( parsec_prof_btf parsec_prof_otf2 )
 "
 # next release
-#	?? ( parsec-debug-mem-addr parsec-debug-mem-leak parsec-debug-mem-race )
+#	?? ( parsec_debug_mem-addr parsec_debug_mem-leak parsec_debug_mem-race )
 
 pkg_setup() {
 	fortran-2_pkg_setup
@@ -80,13 +80,13 @@ pkg_setup() {
 
 src_configure() {
 	local trace="Auto"
-	use parsec-prof-btf && trace="PaRSEC Binary Tracing Format"
-	use parsec-prof-otf2 && trace="OTF2"
+	use parsec_prof_btf && trace="PaRSEC Binary Tracing Format"
+	use parsec_prof_otf2 && trace="OTF2"
 
 # next release
-#		-DPARSEC_DEBUG_MEM_ADDR=$(usex parsec-debug-mem-addr)
-#		-DPARSEC_DEBUG_MEM_LEAK=$(usex parsec-debug-mem-leak)
-#		-DPARSEC_DEBUG_MEM_RACE=$(usex parsec-debug-mem-race)
+#		-DPARSEC_DEBUG_MEM_ADDR=$(usex parsec_debug_mem-addr)
+#		-DPARSEC_DEBUG_MEM_LEAK=$(usex parsec_debug_mem-leak)
+#		-DPARSEC_DEBUG_MEM_RACE=$(usex parsec_debug_mem-race)
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
 		-DPARSEC_GPU_CUDA_ALLOC_PER_TILE=OFF
@@ -96,28 +96,28 @@ src_configure() {
 
 		-DBUILD_TOOLS=$(usex tools)
 		-DPARSEC_DEBUG=$(usex debug)
-		-DPARSEC_DEBUG_HISTORY=$(usex parsec-debug-history)
-		-DPARSEC_DEBUG_NOISIER=$(usex parsec-debug-noisier)
-		-DPARSEC_DEBUG_PARANOID=$(usex parsec-debug-paranoid)
-		-DPARSEC_DIST_COLLECTIVES=$(usex parsec-dist-collectives)
-		-DPARSEC_DIST_PRIORITIES=$(usex parsec-dist-priorities)
-		-DPARSEC_DIST_THREAD=$(usex parsec-dist-thread)
+		-DPARSEC_DEBUG_HISTORY=$(usex parsec_debug_history)
+		-DPARSEC_DEBUG_NOISIER=$(usex parsec_debug_noisier)
+		-DPARSEC_DEBUG_PARANOID=$(usex parsec_debug_paranoid)
+		-DPARSEC_DIST_COLLECTIVES=$(usex parsec_dist_collectives)
+		-DPARSEC_DIST_PRIORITIES=$(usex parsec_dist_priorities)
+		-DPARSEC_DIST_THREAD=$(usex parsec_dist_thread)
 		-DPARSEC_DIST_WITH_MPI=$(usex mpi)
 		-DPARSEC_SCHED_DEPS_MASK=$(usex sched-deps-mask)
 		-DPARSEC_SIM=$(usex sim)
-		-DPARSEC_PROF_DRY_BODY=$(usex parsec-prof-dry-body)
-		-DPARSEC_PROF_DRY_DEP=$(usex parsec-prof-dry-dep)
-		-DPARSEC_PROF_DRY_RUN=$(usex parsec-prof-dry-run)
-		-DPARSEC_PROF_GRAPHER=$(usex parsec-prof-grapher)
-		-DPARSEC_PROF_PINS=$(usex parsec-prof-pins)
-		-DPARSEC_PROF_RUSAGE_EU=$(usex parsec-prof-rusage)
+		-DPARSEC_PROF_DRY_BODY=$(usex parsec_prof_dry-body)
+		-DPARSEC_PROF_DRY_DEP=$(usex parsec_prof_dry-dep)
+		-DPARSEC_PROF_DRY_RUN=$(usex parsec_prof_dry-run)
+		-DPARSEC_PROF_GRAPHER=$(usex parsec_prof_grapher)
+		-DPARSEC_PROF_PINS=$(usex parsec_prof_pins)
+		-DPARSEC_PROF_RUSAGE_EU=$(usex parsec_prof_rusage)
 		-DPARSEC_PROF_TRACE=$(usex profile)
-		-DPARSEC_PROF_TRACE_ACTIVE_ARENA_SET=$(usex parsec-prof-active-arena-set)
-		-DPARSEC_PROF_TRACE_PTG_INTERNAL_INIT=$(usex parsec-prof-ptg)
-		-DPARSEC_PROF_TRACE_SCHEDULING_EVENTS=$(usex parsec-prof-scheduling-events)
+		-DPARSEC_PROF_TRACE_ACTIVE_ARENA_SET=$(usex parsec_prof_active-arena-set)
+		-DPARSEC_PROF_TRACE_PTG_INTERNAL_INIT=$(usex parsec_prof_ptg)
+		-DPARSEC_PROF_TRACE_SCHEDULING_EVENTS=$(usex parsec_prof_scheduling-events)
 		-DPARSEC_PROF_TRACE_SYSTEM="${trace}"
-		-DPARSEC_PROFILING_USE_HELPER_THREAD=$(usex parsec-prof-thread)
-		-DPARSEC_PROFILING_USE_MMAP=$(usex parsec-prof-mmap)
+		-DPARSEC_PROFILING_USE_HELPER_THREAD=$(usex parsec_prof_thread)
+		-DPARSEC_PROFILING_USE_MMAP=$(usex parsec_prof_mmap)
 		-DPARSEC_WANT_HOME_CONFIG_FILES=$(usex home-config-files)
 		-DPARSEC_WITH_DEVEL_HEADERS=$(usex devel-headers)
 		-DSUPPORT_CXX=$(usex cxx)

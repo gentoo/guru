@@ -1,0 +1,11 @@
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# This file contains descriptions of PARSEC_DEBUG USE_EXPAND flags.
+
+debug-history - Keep a summarized history of critical events in memory that can be dumped in gdb when deadlock occur
+debug-mem-addr - Enable the memory access checker
+debug-mem-leak - Enable only the memory leak checker
+debug-mem-race - Enable the memory thread-race checker
+debug-noisier - Enable chatterbox-like verbose debugging (may impact performance)
+debug-paranoid - Enable extra paranoid checks (may impact performance)
