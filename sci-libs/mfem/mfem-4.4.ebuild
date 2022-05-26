@@ -101,10 +101,10 @@ src_configure() {
 		HIP_ARCH=""
 		for u in ${IUSE_AMDGPU} ; do
 			if use ${u} ; then
-				HIP_ARCH="${HIP_ARCH},${u/amdgpu_/}"
+				HIP_ARCH="${HIP_ARCH};${u/amdgpu_/}"
 			fi
 		done
-		# remove first character (,)
+		# remove first character (;)
 		HIP_ARCH="${HIP_ARCH:1}"
 		export HIP_ARCH
 	fi
