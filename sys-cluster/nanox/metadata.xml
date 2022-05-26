@@ -25,10 +25,6 @@ The main purpose of Nanos++ RTL is to be used in research of parallel programmin
 		<flag name="hwloc">Enable <pkg>sys-apps/hwloc</pkg> support</flag>
 		<flag name="memkind">Enables <pkg>dev-libs/memkind</pkg> support</flag>
 		<flag name="memtracker">Enables Memtracker module</flag>
-		<flag name="nanox-debug">Enable generation of debug version</flag>
-		<flag name="nanox-instrumentation">Enable generation of instrumentation version</flag>
-		<flag name="nanox-instrumentation-debug">Enable generation of instrumentation-debug version</flag>
-		<flag name="nanox-performance">Enable generation of performance version</flag>
 		<flag name="opencl">Enables openCL support</flag>
 		<flag name="papi">enable <pkg>dev-libs/papi</pkg> support</flag>
 		<flag name="resiliency">Enables task-level resiliency</flag>
