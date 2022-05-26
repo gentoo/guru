@@ -1,0 +1,7 @@
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# This file contains descriptions of TRANSPORT USE_EXPAND flags.
+
+shmem - Use Shared memory for on-node communication. This is currently experimental and should be avoided
+udp - Use UDP for remote communication
