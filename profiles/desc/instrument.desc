@@ -1,0 +1,8 @@
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# This file contains descriptions of INSTRUMENT USE_EXPAND flags.
+
+dynamic-memory - Enables instrumentation for dynamic memory (malloc, free, realloc) calls
+io - Enables instrumentation for basic I/O (read, write) calls
+syscall - Enables instrumentation for system calls (other than I/O and mallocs)
