@@ -1,0 +1,27 @@
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+amdgpu_gfx701 - Enable support for AMD GPU codename hawaii ( FirePro W8100, FirePro W9100, FirePro S9150, FirePro S9170 )
+amdgpu_gfx702 - Enable support for AMD GPU ( Radeon R9 290, Radeon R9 290x, Radeon R390, Radeon R390x )
+amdgpu_gfx704 - Enable support for AMD GPU codename bonaire ( Radeon HD 7790, Radeon HD 8770, R7 260, R7 260X )
+amdgpu_gfx802 - Enable support for AMD GPU codename iceland and tonga ( Radeon R9 285, Radeon R9 380, Radeon R9 385 )
+amdgpu_gfx803 - Enable support for AMD GPU codename fiji polaris10 and polaris11 ( Radeon R9 Nano, Radeon R9 Fury, Radeon R9 FuryX, Radeon Pro Duo, FirePro S9300x2, Radeon Instinct MI8, Radeon RX 470, Radeon RX 480, Radeon Instinct MI6, Radeon RX 460 )
+amdgpu_gfx805 - Enable support for AMD GPU codename tongapro ( FirePro S7150, FirePro S7100, FirePro W7100, Mobile FirePro M7170 )
+amdgpu_gfx810 - Enable support for AMD GPU codename stoney
+amdgpu_gfx900 - Enable support for AMD GPU ( Radeon Vega Frontier Edition, Radeon RX Vega 56, Radeon RX Vega 64, Radeon RX Vega 64 Liquid, Radeon Instinct MI25 )
+amdgpu_gfx904 - Enable support for AMD GPU gfx904
+amdgpu_gfx906 - Enable support for AMD GPU ( Radeon Instinct MI50, Radeon Instinct MI60, Radeon VII, Radeon Pro VII )
+amdgpu_gfx908 - Enable support for AMD GPU ( AMD Instinct MI100 Accelerator )
+amdgpu_gfx909 - Enable support for AMD GPU gfx909
+amdgpu_gfx90a - Enable support for AMD GPU gfx904
+amdgpu_gfx940 - Enable support for AMD GPU gfx940
+amdgpu_gfx1010 - Enable support for AMD GPU ( Radeon RX 5700, Radeon RX 5700 XT, Radeon Pro 5600 XT, Radeon Pro 5600M )
+amdgpu_gfx1011 - Enable support for AMD GPU ( Radeon Pro V520 )
+amdgpu_gfx1012 - Enable support for AMD GPU ( Radeon RX 5500, Radeon RX 5500 XT )
+amdgpu_gfx1030 - Enable support for AMD GPU ( Radeon RX 6800, Radeon RX 6800 XT, Radeon RX 6900 XT )
+amdgpu_gfx1031 - Enable support for AMD GPU ( Radeon RX 6700 XT )
+amdgpu_gfx1032 - Enable support for AMD GPU gfx1032
+amdgpu_gfx1034 - Enable support for AMD GPU gfx1034
+amdgpu_gfx1100 - Enable support for AMD GPU gfx1100
+amdgpu_gfx1101 - Enable support for AMD GPU gfx1101
+amdgpu_gfx1102 - Enable support for AMD GPU gfx1102
