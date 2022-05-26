@@ -18,15 +18,15 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 IUSE_COMM_QUEUE="
-	+comm-queue-ipc
-	comm-queue-socket
+	+comm_queue_ipc
+	comm_queue_socket
 "
-#	comm-queue-thallium
+#	comm_queue_thallium
 IUSE="${IUSE_COMM_QUEUE} python +slurm"
 
 # AXL is optional
 RDEPEND="
-	comm-queue-ipc? ( dev-libs/boost )
+	comm_queue_ipc? ( dev-libs/boost )
 	slurm? ( sys-cluster/slurm )
 
 	dev-libs/openssl
@@ -34,7 +34,7 @@ RDEPEND="
 	sys-cluster/er
 	virtual/mpi
 "
-#	comm-queue-thallium? ( thallium )
+#	comm_queue_thallium? ( thallium )
 DEPEND="${RDEPEND}"
 
 PATCHES=( "${FILESDIR}/${P}-strip-cflags.patch" )
@@ -54,9 +54,9 @@ src_configure() {
 	use slurm && resman="SLURM"
 
 	local queue
-	use comm-queue-ipc && queue="ipc_queue"
-	use comm-queue-socket && queue="socket_queue"
-#	use comm-queue-thallium && queue="thallium_queue"
+	use comm_queue_ipc && queue="ipc_queue"
+	use comm_queue_socket && queue="socket_queue"
+#	use comm_queue_thallium && queue="thallium_queue"
 
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_LIBDIR="$(get_libdir)"

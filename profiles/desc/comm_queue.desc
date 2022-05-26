@@ -1,0 +1,8 @@
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# This file contains descriptions of COMM_QUEUE USE_EXPAND flags.
+
+ipc - Use ipc as the communication protocol between client library and active backend
+socket - Use socket as the communication protocol between client library and active backend
+thallium - Use thallium as the communication protocol between client library and active backend
