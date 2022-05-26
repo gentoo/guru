@@ -20,21 +20,12 @@ DESCRIPTION="Python clipboard module"
 HOMEPAGE="https://pypi.org/project/pyclip/"
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="test"
-RESTRICT="!test? ( test )"
+RESTRICT="test"
 DOCS="${S}/docs/README.md"
 
-DEPEND="
-	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
-"
+DEPEND=""
 RDEPEND="
 	gui-apps/wl-clipboard
 	x11-misc/xclip
 "
 BDEPEND=""
-
-python_test() {
-	for unittest in "${S}/tests/"*".py"; do
-		"${EPYTHON}" "${unittest}" || die "Tests failed"
-	done
-}
