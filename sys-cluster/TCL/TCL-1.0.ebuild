@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,10 +13,10 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE_TCL="
-	tcl-debug
-	tcl-instrumentation
-	tcl-instrumentation-debug
-	+tcl-performance
+	tcl_debug
+	tcl_instrumentation
+	tcl_instrumentation-debug
+	+tcl_performance
 "
 IUSE="${IUSE_TCL} fti scr veloc"
 
@@ -46,10 +46,10 @@ src_configure() {
 		--includedir="${EPREFIX}/usr/include/TCL"
 		--with-mpi="${EPREFIX}/usr"
 
-		$(use_enable tcl-debug debug)
-		$(use_enable tcl-instrumentation instrumentation)
-		$(use_enable tcl-instrumentation-debug instrumentation-debug)
-		$(use_enable tcl-performance performance)
+		$(use_enable tcl_debug debug)
+		$(use_enable tcl_instrumentation instrumentation)
+		$(use_enable tcl_instrumentation-debug instrumentation-debug)
+		$(use_enable tcl_performance performance)
 	)
 
 	if use fti; then
