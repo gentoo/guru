@@ -1,9 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{7..11} )
+PYTHON_COMPAT=( python3_{8..11} )
 DISTUTILS_USE_SETUPTOOLS=bdepend
 
 inherit distutils-r1
@@ -20,9 +20,19 @@ DESCRIPTION="Python clipboard module"
 HOMEPAGE="https://pypi.org/project/pyclip/"
 LICENSE="Apache-2.0"
 SLOT="0"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
-DEPEND=""
-RDEPEND="x11-misc/xclip"
+DEPEND="
+	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
+"
+RDEPEND="
+	x11-misc/xclip
+"
 BDEPEND=""
 
-distutils_enable_tests pytest
+python_test() {
+	for unittest in "${S}/tests/"*".py"; do
+		"${EPYTHON}" "${unittest}" || die "Tests failed"
+	done
+}
