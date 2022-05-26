@@ -24,6 +24,7 @@ BDEPEND="app-text/dos2unix"
 PATCHES=(
 	"${FILESDIR}/${P}-cmake.patch"
 	"${FILESDIR}/${P}-rename-THRESHOLD.patch"
+	"${FILESDIR}/${P}-fix-fpermissive.patch"
 )
 
 src_prepare() {
