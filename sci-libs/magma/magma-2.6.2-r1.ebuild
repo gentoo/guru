@@ -96,11 +96,11 @@ src_configure() {
 	#if use hip ; then
 		for u in ${IUSE_AMDGPU} ; do
 			if use ${u} ; then
-				gpu="${gpu},${u/amdgpu_/}"
+				gpu="${gpu};${u/amdgpu_/}"
 			fi
 		done
 	#fi
-	# remove first character (,)
+	# remove first character (;)
 	gpu="${gpu:1}"
 
 	local mycmakeargs=(
