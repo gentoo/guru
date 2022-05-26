@@ -22,6 +22,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 IUSE="test"
 RESTRICT="!test? ( test )"
+DOCS="${S}/docs/README.md"
 
 DEPEND="
 	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
