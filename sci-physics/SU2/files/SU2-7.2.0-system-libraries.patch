@@ -104,10 +104,10 @@
    if p.returncode() != 0
      error(p.stdout())
    endif
-@@ -280,20 +271,4 @@
+@@ -280,21 +271,3 @@
             get_option('enable-autodiff'), get_option('enable-directdiff'), get_option('enable-pywrapper'), get_option('enable-mkl'),
             get_option('enable-openblas'), get_option('enable-pastix'), get_option('enable-mixedprec'), get_option('enable-librom'), meson.build_root().split('/')[-1]))
- 
+-
 -if get_option('enable-mpp')
 -  message(''' To run SU2 with Mutation++ library, add these lines to your .bashrc file:
 -
@@ -124,7 +124,8 @@
 -          
 -          '''.format(get_option('librom_root')))
 -
- endif
+-endif
+
 --- a/SU2_CFD/include/solvers/CSolver.hpp
 +++ b/SU2_CFD/include/solvers/CSolver.hpp
 @@ -57,9 +57,9 @@
