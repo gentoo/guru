@@ -104,10 +104,10 @@ Name | Buildsystem | Category | User | RFH | Dependency
 [mmtracking](https://github.com/open-mmlab/mmtracking) | setuptools | science | Alessandro-Barbieri | ✖
 [ueberzug](https://github.com/seebye/ueberzug) | setuptools | cli | N-R-K | | ✖
 [libensemble](https://github.com/Libensemble/libensemble) | setuptools | cluster | Alessandro-Barbieri | ✖ | ✔
+[ActivityWatch](https://github.com/ActivityWatch/activitywatch) | setuptools | utils | David Roman | ✔ | ✖ 
 [greenclip](https://github.com/erebe/greenclip) | cabal | desktop | N-R-K | | ✖
 [kaitai](https://github.com/kaitai-io/kaitai_struct) | sbt | util | Alessandro-Barbieri | ✔ | ✖
 [casadi](https://web.casadi.org/) | cmake swig | science | Alessandro-Barbieri | ✖ | ✔
 [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet) | setuptools yarn | jupyter | Alessandro-Barbieri | ✔ | ✖
 [gitlab](https://gitlab.com/gitlab-org/gitlab-foss) | yarn gem | vcs | Alessandro-Barbieri | ✔ | ✖
 [HOL4](http://hol-theorem-prover.org/) | ? | math | Alessandro-Barbieri | ✔ | ✖
-[ActivityWatch](https://github.com/ActivityWatch/activitywatch) | ? | utils | David Roman | ✔ | ✖ 
