@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen )
+BDEPEND=doc? ( app-doc/doxygen[dot] dev-texlive/texlive-latex )
 DEFINED_PHASES=compile install
 DESCRIPTION=Fast gradient evaluation in C++ based on Expression Templates
 EAPI=8
@@ -8,4 +8,4 @@ KEYWORDS=~amd64
 LICENSE=GPL-3
 SLOT=0
 SRC_URI=https://github.com/SciCompKL/CoDiPack/archive/ee2d80cc362f26879deead881c79523c113e9e6c.tar.gz -> CoDiPack-0_pre20210720.tar.gz
-_md5_=c7082f9394bbd138432e345cef1f5408
+_md5_=542607ae340ab4ead063216b4d4484dd

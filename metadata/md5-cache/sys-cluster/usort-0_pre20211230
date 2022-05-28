@@ -11,4 +11,4 @@ RDEPEND=virtual/mpi
 SLOT=0
 SRC_URI=https://github.com/hsundar/usort/archive/902f5e3cbba66833bbf2d219c183d4705b3582c7.tar.gz -> usort-0_pre20211230.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
-_md5_=828eb0853f09731701331d65660cf874
+_md5_=90f046ff5e9a0457cb22df008c76a700

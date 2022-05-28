@@ -11,6 +11,6 @@ RDEPEND=python_single_target_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0= ) python_si
 REQUIRED_USE=^^ ( python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
 RESTRICT=test
 SLOT=0
-SRC_URI=http://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/otf2-2.3/otf2-2.3.tar.gz
+SRC_URI=https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/otf2-2.3/otf2-2.3.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
-_md5_=c7c8ad3a672be57c0311dbb862a80a12
+_md5_=c6bf963bbcd7197067a4f2c0c74fe6c9

@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=dev-python/pbr-1.6[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/cryptography-1.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/oslo-serialization-1.10.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/oslo-utils-3.16.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/oslo-i18n-2.1.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/oslo-log-1.14.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/castellan-0.4.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
 DESCRIPTION=Cursive implements OpenStack-specific validation of digital signatures
 EAPI=8
-HOMEPAGE=https://github.com/openstack/cursive https://opendev.org/x/cursive https://launchpad.net/cursive https://pypi.org/project/cursive/
+HOMEPAGE=https://opendev.org/x/cursive https://launchpad.net/cursive https://pypi.org/project/cursive/
 INHERIT=distutils-r1
 IUSE=test python_targets_python3_8 python_targets_python3_9
 KEYWORDS=~amd64
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/c/cursive/cursive-0.2.2.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	3b871cf4724e3abc9b4ff059289f0d45
-_md5_=8279dbd87393a3d17569f335253f2a19
+_md5_=7c2fb1841d8155cd438d495062d19282

@@ -117,7 +117,7 @@ app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best
 app-misc/doublecmd-bin 1.0.4 1.0.5: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
-app-misc/fastfetch 1.3.3 1.3.4 9999: Like neofetch but faster
+app-misc/fastfetch 1.4.3 9999: Like neofetch but faster
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -283,7 +283,7 @@ dev-R/mime 0.12: Map Filenames to MIME Types
 dev-R/munsell 0.5.0: Utilities for Using Munsell Colours
 dev-R/nlme 3.1.157: Linear and Nonlinear Mixed Effects Models
 dev-R/nnet 7.3.17: Feed-Forward Neural Networks and multinomial log-linear models
-dev-R/openssl 2.0.1: Toolkit for Encryption, Signatures and certificates based on openssl
+dev-R/openssl 2.0.2: Toolkit for Encryption, Signatures and certificates based on openssl
 dev-R/parsedate 1.3.0: Recognize and Parse Dates in Various Formats
 dev-R/pillar 1.7.0: Coloured Formatting for Columns
 dev-R/pkgbuild 1.3.1: Find Tools Needed to Build R Packages
@@ -331,7 +331,7 @@ dev-cpp/cli11 2.1.2 2.2.0: Command line parser for C++11
 dev-cpp/coeurl 0.1.1 0.2.0: A simple async wrapper around CURL for C++
 dev-cpp/cpptoml 0.1.1: Header-only library for parsing TOML
 dev-cpp/drogon 1.7.4 1.7.5: C++14/17 based HTTP web application framework
-dev-cpp/dtl 1.19_p20210531: diff template library written by C++
+dev-cpp/dtl 1.19_p20210531 1.20: diff template library written by C++
 dev-cpp/fbthrift 2022.04.11.00: Facebook's branch of Apache Thrift, including a new C++ server
 dev-cpp/fizz 2022.04.11.00: C++14 implementation of the TLS-1.3 standard
 dev-cpp/gemmlowp 0_pre20211220: Low-precision matrix multiplication
@@ -357,6 +357,7 @@ dev-cpp/xdgpp 0_pre20201007: C++17 header-only implementation of the XDG Base Di
 dev-db/pg_repack 1.4.7: Reorganize tables in PostgreSQL databases with minimal locks
 dev-db/rum 1.3.9: RUM access method - inverted index with additional information in posting lists
 dev-dotnet/gtk-sharp 2.99.3-r3: gtk bindings for mono
+dev-embedded/esp-idf 4.4.1: Espressif IoT Development Framework
 dev-embedded/mv88e6xxx-dump 0.2.0_pre20210327: Dump information about Marvell mv88e6xxx Ethernet switches
 dev-embedded/rauc 1.6: Lightweight update client that runs on your Embedded Linux device
 dev-erlang/cowboy 2.9.0: Small, fast, modern HTTP server for Erlang/OTP.
@@ -805,6 +806,7 @@ dev-python/python-pkcs11 0.7.0: PKCS#11 (Cryptoki) support for Python
 dev-python/python-qpid-proton 0.37.0: An AMQP based messaging library
 dev-python/python-saharaclient 3.5.0: This is a client for the OpenStack Sahara API, aka HADOOP
 dev-python/python-senlinclient 2.4.0: A client for the OpenStack Senlin API
+dev-python/python-socketio 5.1.0: Python implementation of the Socket.IO realtime server.
 dev-python/python-telegram-bot 13.1 9999: Python wrapper of telegram bots API
 dev-python/python-troveclient 7.2.0 7.3.0: A client for the OpenStack Trove API, a scalable relational database service
 dev-python/python-vitrageclient 4.5.0: A client for the OpenStack Vitrage API
@@ -900,7 +902,7 @@ dev-ruby/rspec-wait 0.0.9: enables time-resilient expectations in your RSpec tes
 dev-ruby/ruby-install 0.8.3-r2: Installs Ruby, JRuby, Rubinius, TruffleRuby (native / GraalVM), or mruby.
 dev-util/FoBiS 3.0.5: FoBiS.py, a Fortran Building System for poor men
 dev-util/afdko 3.6.2 3.8.1: Adobe Font Development Kit for OpenType
-dev-util/annobin 10.67 10.68: Binary annotation compiler plugin and tools
+dev-util/annobin 10.68 10.73: Binary annotation compiler plugin and tools
 dev-util/babeltrace2 2.0.4: A command-line tool and library to read and convert trace files
 dev-util/bats-assert 2.0.0: Common assertions for Bats
 dev-util/bats-support 0.3.0: Supporting library for Bats test helpers
@@ -915,7 +917,7 @@ dev-util/fontmake 3.2.0 3.3.0: A wrapper for several Python libraries to compile
 dev-util/fortran-test-drive 0.4.0: The simple testing framework (for Fortran)
 dev-util/fypp 3.1: Fypp - Python powered Fortran preprocessor
 dev-util/gammaray 2.11.3: High-level runtime introspection tool for Qt applications
-dev-util/gftools 0.9.9 0.9.10: Miscellaneous tools for working with the Google Fonts collection
+dev-util/gftools 0.9.10 0.9.11: Miscellaneous tools for working with the Google Fonts collection
 dev-util/git-bug 0.7.1 9999: distributed, offline-first bug tracker
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
@@ -928,7 +930,7 @@ dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's Open
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
 dev-util/reuse 0.14.0: A tool for compliance with the REUSE recommendations
-dev-util/rpmlint 2.1.0 2.2.0: Tool for checking common errors in RPM packages
+dev-util/rpmlint 2.2.0 2.3.0: Tool for checking common errors in RPM packages
 dev-util/rust-analyzer 20220509 20220517 99999999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/shfmt 3.5.0 9999: Shell script formatter
@@ -946,7 +948,7 @@ dev-vcs/gitui 0.18.0 0.20.1: Blazing fast terminal-ui for git
 dev-vcs/got 0.67 0.68.1: Portable version of the Game of Trees version control system
 dev-vcs/lazygit 0.33 0.34: Simple terminal UI for git commands
 dev-vcs/lefthook 0.7.7: Fast and powerful Git hooks manager for any type of projects.
-dev-vcs/mergestat 0.5.4: Query git repositories with SQL
+dev-vcs/mergestat 0.5.4 0.5.4-r1: Query git repositories with SQL
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
 games-action/blackvoxel 2.50 9999: Blackvoxel Video Game
 games-action/netrek-brmh 2.6.0: brmh client for netrek
@@ -1184,7 +1186,7 @@ net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/Quaternion 0.0.9.4e: A Qt5-based IM client for the Matrix protocol
 net-im/abaddon 0.1.6 9999: Alternative Discord client using GTK instead of Electron
 net-im/chatterino 2.3.5-r3: Chat client for https://twitch.tv
-net-im/discord-canary-bin 0.0.134: All-in-one voice and text chat
+net-im/discord-canary-bin 0.0.135: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.29: All-in-one voice and text chat
 net-im/go-sendxmpp 0.3.0 0.5.0: A little tool to send messages to an XMPP contact or MUC
 net-im/gtkcord 0.1.0-r1: A Gtk3 Discord client in Golang
@@ -1244,6 +1246,7 @@ net-news/comitium 1.8.1: feed aggregator for gemini supporting many formats and 
 net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny Tiny RSS or feedly
 net-nntp/inn 2.6.4-r1 2.6.5: InterNetNews -- the Internet meets Netnews
 net-p2p/bisq 1.9.1: The decentralized bitcoin exchange (non-atomic, with arbitration)
+net-p2p/ipfs-cluster 1.0.1: Pinset orchestration for IPFS
 net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 9999: The secure, private, untraceable cryptocurrency
 net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for Linux
@@ -1268,9 +1271,9 @@ sci-electronics/verible 0.0.2135: SystemVerilog parser, style-linter, and format
 sci-electronics/verilator 4.218 4.220 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/GeographicLib-data 0-r1: Datasets for GeographicLib
 sci-geosciences/mapillary_tools 0.8.0 0.8.2: Command line tools for processing and uploading Mapillary imagery
-sci-libs/ButterflyPACK 2.1.0: Mathematical software for solving large-scale dense linear systems
+sci-libs/ButterflyPACK 2.1.1: Mathematical software for solving large-scale dense linear systems
 sci-libs/CoDiPack 0_pre20210720: Fast gradient evaluation in C++ based on Expression Templates
-sci-libs/CombBLAS 0_pre20220331: The Combinatorial BLAS
+sci-libs/CombBLAS 1.16.0_p20220331: The Combinatorial BLAS
 sci-libs/MeDiPack 1.2_p20220103: Message Differentiation Package
 sci-libs/Mutationpp 1.0.5: MUlticomponent Thermodynamic And Transport library for IONized gases
 sci-libs/OpDiLib 1.2.1: Open Multiprocessing Differentiation Library
@@ -1281,14 +1284,14 @@ sci-libs/ensmallen 2.19.0: header only C++ library for numerical optimization
 sci-libs/jdqz 0_pre19971107-r3: Jacobi-Davidson type method for the generalized standard eigenvalue problem
 sci-libs/libROM 1.0.0: Library for reduced order models
 sci-libs/libpotassco 0_pre20200612-r1: A utility library used by various potassco projects
-sci-libs/magma 2.6.2: Matrix Algebra on GPU and Multicore Architectures
+sci-libs/magma 2.6.2 2.6.2-r1: Matrix Algebra on GPU and Multicore Architectures
 sci-libs/meschach 1.2b_p20170511-r1: Meschach is a C-language library of routines for performing matrix computations
 sci-libs/mfem 4.4: Lightweight, general, scalable C++ library for finite element methods
 sci-libs/mlpack 3.4.2_p20220501: scalable C++ machine learning library
 sci-libs/qdldl 0.1.5_p20211001: A free LDL factorisation routine
 sci-libs/saclib 2.2.8 2.2.8_p20220502-r1: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122-r1: Subroutine Library in Systems and Control Theory
-sci-libs/superlu_dist 7.2.0 8.0.0: MPI distributed sparse LU factorization library
+sci-libs/superlu_dist 8.0.0_p20220526: MPI distributed sparse LU factorization library
 sci-mathematics/aspcud 1.9.6: A solver for package problems in CUDF format
 sci-mathematics/chaco 2.2-r3: Software for Partitioning Graphs
 sci-mathematics/clasp 3.3.8: A conflict-driven nogood learning answer set solver
@@ -1330,7 +1333,7 @@ sci-mathematics/minisat+ 2007.01.05: solver for pseudo-Boolean constraints
 sci-mathematics/minisatp 0.1_p20121002: solver for pseudo-Boolean constraints
 sci-mathematics/packup 0.6: PACKage Upgradability Problem solver
 sci-mathematics/qepcad 1.72b_p20220502-r1: Quantifier Elimination by Partial Cylindrical Algebraic Decomposition
-sci-mathematics/radian 0.6.0 0.6.1: A 21 century R console
+sci-mathematics/radian 0.6.1 0.6.3: A 21 century R console
 sci-mathematics/the-omega-project 2.1_p20131119: Tools from Pugh et al.'s for constraint-based compiler tools
 sci-misc/boinc-wrapper 7.16.17 7.16.17-r1: Wrapper to use non-BOINC apps with BOINC
 sci-physics/SU2 7.2.0 7.2.0-r1: SU2: An Open-Source Suite for Multiphysics Simulation and Design
@@ -1425,7 +1428,7 @@ sys-cluster/usort 0_pre20211230: Fast distributed sorting routines using MPI and
 sys-cluster/veloc 1.6: Very-Low Overhead Checkpointing System
 sys-cluster/wxparaver 4.9.0-r1 4.10.0: Performance analyzer based on event traces
 sys-devel/cproc 9999: C11 compiler using QBE as backend
-sys-devel/gsl 4.1.5: iMatix GSL code generator
+sys-devel/gsl 4.1.5-r1: iMatix GSL code generator
 sys-devel/qbe 9999: Pure-C embeddable compiler backend
 sys-firmware/pinephone-firmware 20210809: Firmwares files for PinePhone
 sys-fs/btrfs-heatmap 9-r1: Python 3 script to draw a heatmap of a btrfs filesystem
@@ -1454,7 +1457,7 @@ sys-libs/solo-udev-rules 4.1.5: udev rules for the Solo FIDO2 & U2F USB+NFC secu
 sys-power/ZenStates-Linux 0_p20170507: Dynamically edit AMD Ryzen processor P-States
 sys-power/amdgpu-fan 0.1.0-r1: Fan controller for AMD graphics cards running the amdgpu driver on Linux
 sys-power/disable-c6 0_p20190603: disable the C6 state upon system boot, preventing Ryzen freezes
-sys-power/fan2go 0.6.2: A simple daemon providing dynamic fan speed control
+sys-power/fan2go 0.6.2 0.6.2-r1: A simple daemon providing dynamic fan speed control
 sys-power/gtherm 0.0.3: A simple daemon to monitor thermal zones and cooling devices
 sys-power/gwe 0.15.3 0.15.5: NVIDIA settings alternative with overclocking, fan control, and information
 sys-power/tlp 1.5.0: Optimize laptop battery life

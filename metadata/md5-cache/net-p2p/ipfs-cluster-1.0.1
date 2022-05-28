@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.16 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst test unpack
+DESCRIPTION=Pinset orchestration for IPFS
+EAPI=8
+HOMEPAGE=https://ipfscluster.io/
+INHERIT=bash-completion-r1 go-module systemd
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0 MIT
+RDEPEND=net-p2p/go-ipfs
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/ipfs/ipfs-cluster/archive/v1.0.1.tar.gz -> ipfs-cluster-1.0.1.tar.gz https://ipfs.infura.io/ipfs/QmUGftdXbN815P1GvurGRBa5fYFiGfTDAdBXToadzYAqw3/ipfs-cluster-1.0.1-vendor.tar.xz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	go-module	a13d34fe4e2996720e1ca6c53b9ea95a	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=31c52fb2d542f08fd924cb1efc5c3c5d
