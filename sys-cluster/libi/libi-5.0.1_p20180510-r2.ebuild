@@ -13,7 +13,7 @@ SRC_URI="https://github.com/dyninst/mrnet/archive/${COMMIT}.tar.gz -> ${P/libi/m
 S="${WORKDIR}/mrnet-${COMMIT}/external/libi"
 
 LICENSE="LGPL-2.1"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="slurm"
 
