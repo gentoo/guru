@@ -13,7 +13,7 @@ SRC_URI="https://gitlab.com/ananicy-cpp/stl-polyfills/${PN}/-/archive/${COMMIT}/
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="CC0-1.0"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="test"
 
