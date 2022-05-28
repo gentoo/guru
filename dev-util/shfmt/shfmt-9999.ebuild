@@ -26,16 +26,13 @@ IUSE="+man"
 BDEPEND="man? ( app-text/scdoc )"
 
 src_unpack() {
+	default
 	if [[ ${PV} == *9999 ]]; then
-		git-r3_fetch
-		git-r3_checkout
-		pushd ${P}/cmd/shfmt || die "location change for module building failed"
-		ego get
-		popd || die "location reset from module building failed"
+		git-r3_src_unpack
+		go-module_live_vendor
 	else
 		go-module_src_unpack
 	fi
-	default
 }
 
 src_compile() {
