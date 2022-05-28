@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/pcarruscag/MEL"
 SRC_URI="https://github.com/pcarruscag/MEL/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-3"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="test"
 
