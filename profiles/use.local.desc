@@ -65,6 +65,10 @@ dev-cpp/tiny-dnn:opencl - Build tiny-dnn with OpenCL library support
 dev-cpp/tiny-dnn:serialization - Build tiny-dnn with Serialization support
 dev-cpp/tiny-dnn:tbb - Build tiny-dnn with TBB library support
 dev-cpp/vexcl:amdsi - Implement workaround for AMD SI GPUs
+dev-embedded/esp-idf:esp32 - 
+dev-embedded/esp-idf:esp32s2 - 
+dev-embedded/esp-idf:esp32s3 - 
+dev-embedded/esp-idf:riscv32 - 
 dev-embedded/rauc:gpt - Add GPT support
 dev-embedded/rauc:json - Add JSON support
 dev-embedded/rauc:network - Add network update support
