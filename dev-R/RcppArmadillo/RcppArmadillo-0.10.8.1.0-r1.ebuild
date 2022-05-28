@@ -9,6 +9,8 @@ MY_PV="$(ver_cut 2-3 ${PV})"
 
 DESCRIPTION='Rcpp Integration for the Armadillo templated linear algebra library'
 SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
+
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 LICENSE='GPL-2+'
 
