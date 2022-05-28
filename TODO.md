@@ -27,6 +27,7 @@ Name | Buildsystem | Category | User | RFH | Dependency
 [imb](https://software.intel.com/content/www/us/en/develop/articles/intel-mpi-benchmarks.html) | make | cluster | Alessandro-Barbieri | ✖ | ✔
 [gnat-llvm](https://github.com/AdaCore/gnat-llvm) | make | compiler | Alessandro-Barbieri | ✔ | ✖
 [csparse](https://people.sc.fsu.edu/~jburkardt/c_src/csparse/csparse.html) | make | science | Alessandro-Barbieri | ✖ | ✔
+[gslib](https://github.com/Nek5000/gslib) | make | cluster | Alessandro-Barbieri | ✖ | ✔
 [dimemas](https://github.com/bsc-performance-tools/dimemas) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
 [argobots](https://www.argobots.org/) | autotools | devel | Alessandro-Barbieri | ✖ | ✔
 [mochi-ssg](https://github.com/mochi-hpc/mochi-ssg) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
@@ -82,6 +83,8 @@ Name | Buildsystem | Category | User | RFH | Dependency
 [scorec](https://github.com/SCOREC/core) | cmake | science | Alessandro-Barbieri | ✖ | ✔
 [slate](https://bitbucket.org/icl/slate/) | cmake | science | Alessandro-Barbieri | ✖ | ✔
 [tasmanian](https://github.com/ORNL/TASMANIAN) | cmake | science | Alessandro-Barbieri | ✖ | ✔
+[vite](https://solverstack.gitlabpages.inria.fr/vite/) | cmake | visualization | Alessandro-Barbieri | ✖ | ✔
+[zpp](https://github.com/jbigot/zpp) | cmake | devel | Alessandro-Barbieri | ✖ | ✔
 [enarx](https://enarx.dev/) | cargo | util | Alessandro-Barbieri | ✖ | ✖
 [ruplacer](https://github.com/dmerejkowsky/ruplacer) | cargo | sys | Alessandro-Barbieri | ✖ | ✖
 [gping](https://github.com/orf/gping) | cargo | net | Alessandro-Barbieri | ✖ | ✖
