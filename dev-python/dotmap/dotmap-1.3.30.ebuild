@@ -3,8 +3,7 @@
 
 EAPI=8
 
-#don't bump to python 3.10 until https://github.com/drgrib/dotmap/issues/76 is resolved
-PYTHON_COMPAT=( python3_{8..9} pypy3 )
+PYTHON_COMPAT=( python3_{8..10} pypy3 )
 
 inherit distutils-r1
 
