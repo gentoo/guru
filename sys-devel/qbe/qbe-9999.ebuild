@@ -10,3 +10,7 @@ HOMEPAGE="https://c9x.me/compile/"
 EGIT_REPO_URI="git://c9x.me/qbe.git"
 LICENSE="MIT"
 SLOT="0"
+
+src_install() {
+	PREFIX=/usr default
+}

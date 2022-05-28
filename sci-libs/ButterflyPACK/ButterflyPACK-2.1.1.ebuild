@@ -26,6 +26,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 DOCS=( README.md CHANGELOG )
+PATCHES=( "${FILESDIR}/${P}-no-examples.patch" )
 
 src_configure() {
 	local mycmakeargs=(

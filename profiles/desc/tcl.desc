@@ -1,0 +1,9 @@
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# This file contains descriptions of TCL USE_EXPAND flags.
+
+debug - Build the debug version
+instrumentation - Build the instrumentation version
+instrumentation-debug - Build the instrumentation-debug version
+performance - Build the performance version

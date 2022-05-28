@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -6,7 +6,7 @@ EAPI=7
 inherit qmake-utils xdg
 
 DESCRIPTION="Adaptive screen brightness/temperature"
-HOMEPAGE="https://getgammy.com/"
+HOMEPAGE="https://github.com/Fushko/gammy"
 
 if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3

@@ -19,9 +19,6 @@
 		<!--<flag name="nonblocking-fence">By default, shmem_fence() is equivalent to shmem_quiet(), which can be a lengthy operation.  Enabling this feature results in the ordering point being moved from the shmem_fence() to the next put-like call, which can help improve overlap in some cases.</flag>-->
 		<flag name="ofi">Use libfabric as transport layer</flag>
 		<flag name="ofi-fence">Use FI_FENCE feature to optimize put-with-signal operations</flag>
-		<flag name="ofi-mr-basic">OFI memory registration mode: basic</flag>
-		<flag name="ofi-mr-rma-event">The OFI transport will use FI_MR_RMA_EVENT</flag>
-		<flag name="ofi-mr-scalable">The OFI transport will use FI_MR_SCALABLE</flag>
 		<flag name="pmi-mpi">Use MPI for process management</flag>	
 		<flag name="pmi-simple">Include support for interfacing with a PMI 1.0 launcher.  The launcher must be provided by a separate package, such as MPICH, Hydra, or SLURM.</flag>	
 		<flag name="portals4">Use portals4 as transport layer</flag>
@@ -30,9 +27,6 @@
 		<flag name="remote-virtual-addressing"> Enable optimizations assuming the symmetric heap is always symmetric with regards to virtual address. This may cause applications to abort during shmem_init() if such a symmetric heap can not be created, but will reduce the instruction count for some operations. This optimization also requires that the Portals 4 implementation support BIND_INACCESSIBLE on LEs.  This optimization will reduce the overhead of communication calls.</flag>
 		<flag name="thread-completion">Support SHMEM_THREAD_MULTIPLE in OFI transport using FI_THREAD_COMPLETION thread safety model instead of FI_THREAD_SAFE</flag>
 		<flag name="threads">Enable threading support</flag>
-		<flag name="total-data-ordering-always">Always assume total data ordering is available and abort a job if that's not the case</flag>
-		<flag name="total-data-ordering-check">Check will result in slightly higher overhead but will provide a fallback if the network doesn't provide total data ordering</flag>
-		<flag name="total-data-ordering-never">Never use total data ordering optimizations</flag>
 		<flag name="ucx">Use ucx transport</flag>
 		<flag name="xpmem">Use xpmem transport</flag>
 	</use>

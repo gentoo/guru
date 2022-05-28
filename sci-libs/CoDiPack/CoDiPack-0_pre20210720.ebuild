@@ -20,7 +20,11 @@ SLOT="0"
 
 #DEPEND="mpi? ( sci-libs/MeDiPack )"
 RDEPEND="${DEPEND}"
-BDEPEND="doc? ( app-doc/doxygen )"
+BDEPEND="doc? (
+		app-doc/doxygen[dot]
+		dev-texlive/texlive-latex
+	)
+"
 
 src_compile() {
 	export CPP14=yes

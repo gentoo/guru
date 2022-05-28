@@ -16,7 +16,7 @@ DEPEND="dev-libs/libpcre:3"
 RDEPEND="${DEPEND}"
 
 src_install() {
-	default
+	DESTDIR="${D}/usr" emake install
 	if use examples; then
 		dodoc -r examples
 		dodoc -r doc/examples

@@ -3,7 +3,7 @@
 If you find an interesting piece of software here, consider to package it, also you are free to add any package you want to see in GURU
 
 Name | Buildsystem | Category | User | RFH | Dependency
------------- | ------------- | ------------- | ------------- | -------------
+------------ | ------------- | ------------- | ------------- | ------------- | -------------
 [spacelib](https://github.com/Alessandro-Barbieri/SpaceLib) | none | science | Alessandro-Barbieri | ✖ | ✖
 [cpp-fuzzy-logic](https://sourceforge.net/projects/cpp-fuzzy-logic) | none | devel | Alessandro-Barbieri | ✖ | ✖
 [free fuzzy logic library](http://ffll.sourceforge.net) | none | devel | Alessandro-Barbieri | ✖ | ✖
@@ -72,6 +72,16 @@ Name | Buildsystem | Category | User | RFH | Dependency
 [pagmo](https://esa.github.io/pagmo2/) | cmake | science | Alessandro-Barbieri | ✖ | ✔
 [osqp](https://github.com/osqp/osqp) | cmake | science | Alessandro-Barbieri | ✖ | ✔
 [superscs](https://github.com/kul-optec/superscs) | cmake | science | Alessandro-Barbieri | ✖ | ✔
+[amrex](https://github.com/AMReX-Codes/amrex/blob/development/CMakeLists.txt) | cmake | science | Alessandro-Barbieri | ✖ | ✔
+[arborx](https://github.com/arborx/ArborX) | cmake | science | Alessandro-Barbieri | ✖ | ✔
+[DataTransferKit](https://github.com/ORNL-CEES/DataTransferKit) | cmake | cluster | Alessandro-Barbieri | ✖ | ✔
+[heffte](https://bitbucket.org/icl/heffte/src/master/) | cmake | cluster | Alessandro-Barbieri | ✖ | ✔
+[omega_h](https://github.com/sandialabs/omega_h) | cmake | cluster | Alessandro-Barbieri | ✖ | ✔
+[phist](https://bitbucket.org/essex/phist/) | cmake | science | Alessandro-Barbieri | ✖ | ✔
+[precice](https://github.com/precice/precice) | cmake | science | Alessandro-Barbieri | ✖ | ✔
+[scorec](https://github.com/SCOREC/core) | cmake | science | Alessandro-Barbieri | ✖ | ✔
+[slate](https://bitbucket.org/icl/slate/) | cmake | science | Alessandro-Barbieri | ✖ | ✔
+[tasmanian](https://github.com/ORNL/TASMANIAN) | cmake | science | Alessandro-Barbieri | ✖ | ✔
 [enarx](https://enarx.dev/) | cargo | util | Alessandro-Barbieri | ✖ | ✖
 [ruplacer](https://github.com/dmerejkowsky/ruplacer) | cargo | sys | Alessandro-Barbieri | ✖ | ✖
 [gping](https://github.com/orf/gping) | cargo | net | Alessandro-Barbieri | ✖ | ✖
@@ -93,9 +103,11 @@ Name | Buildsystem | Category | User | RFH | Dependency
 [TauonMusicBox](https://github.com/Taiko2k/TauonMusicBox) | setuptools | audio | | | ✖
 [mmtracking](https://github.com/open-mmlab/mmtracking) | setuptools | science | Alessandro-Barbieri | ✖
 [ueberzug](https://github.com/seebye/ueberzug) | setuptools | cli | N-R-K | | ✖
+[libensemble](https://github.com/Libensemble/libensemble) | setuptools | cluster | Alessandro-Barbieri | ✖ | ✔
 [greenclip](https://github.com/erebe/greenclip) | cabal | desktop | N-R-K | | ✖
 [kaitai](https://github.com/kaitai-io/kaitai_struct) | sbt | util | Alessandro-Barbieri | ✔ | ✖
 [casadi](https://web.casadi.org/) | cmake swig | science | Alessandro-Barbieri | ✖ | ✔
 [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet) | setuptools yarn | jupyter | Alessandro-Barbieri | ✔ | ✖
 [gitlab](https://gitlab.com/gitlab-org/gitlab-foss) | yarn gem | vcs | Alessandro-Barbieri | ✔ | ✖
 [HOL4](http://hol-theorem-prover.org/) | ? | math | Alessandro-Barbieri | ✔ | ✖
+[ActivityWatch](https://github.com/ActivityWatch/activitywatch) | ? | utils | David Roman | ✔ | ✖ 

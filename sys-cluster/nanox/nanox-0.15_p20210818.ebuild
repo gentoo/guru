@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,10 +22,10 @@ LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE_NANOX="
-	nanox-debug
-	+nanox-instrumentation
-	nanox-instrumentation-debug
-	+nanox-performance
+	nanox_debug
+	+nanox_instrumentation
+	nanox_instrumentation-debug
+	+nanox_performance
 "
 IUSE="${IUSE_NANOX} allocator ayudame dlb +extrae gasnet hwloc memkind memtracker mpi opencl papi sqlite resiliency task-callback +threads"
 
@@ -52,8 +52,8 @@ DEPEND="
 PATCHES=( "${FILESDIR}/${PN}-no-Werror.patch" )
 REQUIRED_USE="
 	|| ( ${IUSE_NANOX//+/} )
-	nanox-instrumentation? ( extrae )
-	nanox-instrumentation-debug? ( extrae )
+	nanox_instrumentation? ( extrae )
+	nanox_instrumentation-debug? ( extrae )
 "
 
 src_prepare() {
@@ -79,10 +79,10 @@ src_configure() {
 
 		$(use_enable allocator)
 		$(use_enable memtracker)
-		$(use_enable nanox-debug debug)
-		$(use_enable nanox-instrumentation instrumentation)
-		$(use_enable nanox-instrumentation-debug instrumentation-debug)
-		$(use_enable nanox-performance performance)
+		$(use_enable nanox_debug debug)
+		$(use_enable nanox_instrumentation instrumentation)
+		$(use_enable nanox_instrumentation-debug instrumentation-debug)
+		$(use_enable nanox_performance performance)
 		$(use_enable resiliency)
 		$(use_enable task-callback)
 		$(use_enable threads ult)

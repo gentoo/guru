@@ -14,7 +14,7 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	dev-lang/hare
+	dev-lang/hare:=
 	test? ( app-text/mandoc )
 "
 RDEPEND=""

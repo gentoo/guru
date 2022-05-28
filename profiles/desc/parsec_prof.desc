@@ -1,0 +1,18 @@
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# This file contains descriptions of PARSEC_PROF USE_EXPAND flags.
+
+active-arena-set - Enable the profiling of active arena set to track memory usage of parsec handles
+btf - Force PaRSEC Binary Tracing Format to be the profiling system
+dry-body - Disable calls to the actual bodies, no computation is performed
+dry-dep - Disable calls to the actual data transport, remote dependencies are notified, but no data movement takes place
+dry-run - Disable calls to the actual bodies and do not move the data between nodes, unfold the dependencies only
+grapher - Enable the generation of the dot graph representation during execution
+mmap - Use MMAP to create the profile files
+otf2 - Force otf2 to be the profiling system
+pins - Enable the use of the PaRSEC callback instrumentation system
+ptg - Generate Profiling traces for the internal_init tasks in the PTG interface
+rusage - Print the rusage per execution unit for each progress
+scheduling-events - Enable the tracing of fine-grained scheduling details during execution
+prof-tau - Experimental usage of TAU profiling framework

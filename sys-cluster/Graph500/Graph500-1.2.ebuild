@@ -51,7 +51,10 @@ src_install() {
 	doins *.html
 	insinto "/usr/share/octave/site/m/${PN}"
 	doins -r octave/*
-	chrpath -d "${ED}/usr/bin/graph500_mpi_one_sided" || die
-	chrpath -d "${ED}/usr/bin/graph500_mpi_simple" || die
-	chrpath -d "${ED}/usr/bin/generator_test_mpi" || die
+
+	if use mpi ; then
+		chrpath -d "${ED}/usr/bin/graph500_mpi_one_sided" || die
+		chrpath -d "${ED}/usr/bin/graph500_mpi_simple" || die
+		chrpath -d "${ED}/usr/bin/generator_test_mpi" || die
+	fi
 }

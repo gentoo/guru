@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,14 +15,14 @@ LICENSE="BSD public-domain mpich2"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE_OFI_MR="
-	ofi-mr-basic
-	+ofi-mr-scalable
-	ofi-mr-rma-event
+	ofi_mr_basic
+	+ofi_mr_scalable
+	ofi_mr_rma-event
 "
 IUSE_TOTAL_DATA_ORDERING="
-	total-data-ordering-always
-	+total-data-ordering-check
-	total-data-ordering-never
+	total_data_ordering_always
+	+total_data_ordering_check
+	total_data_ordering_never
 "
 IUSE="${IUSE_OFI_MR} ${IUSE_TOTAL_DATA_ORDERING} av-map bounce-buffers cma completion-polling cxx
 debug error-checking fortran long-fortran-header manual-progress memcpy ofi ofi-fence openmp
@@ -80,14 +80,14 @@ src_prepare() {
 
 src_configure() {
 	local ofimr
-	use ofi-mr-basic && ofimr="basic"
-	use ofi-mr-scalable && ofimr="scalable"
-	use ofi-mr-rma-event && ofimr="rma-event"
+	use ofi_mr_basic && ofimr="basic"
+	use ofi_mr_scalable && ofimr="scalable"
+	use ofi_mr_rma-event && ofimr="rma-event"
 
 	local tda
-	use total-data-ordering-always && tda="always"
-	use total-data-ordering-check && tda="check"
-	use total-data-ordering-never && tda="never"
+	use total_data_ordering_always && tda="always"
+	use total_data_ordering_check && tda="check"
+	use total_data_ordering_never && tda="never"
 
 	local myconf=(
 		--disable-picky

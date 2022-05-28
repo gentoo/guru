@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="Lightweight, general, scalable C++ library for finite element methods"
 HOMEPAGE="
-	http://mfem.org/
+	https://mfem.org/
 	https://github.com/mfem/mfem/
 "
 SRC_URI="https://github.com/mfem/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -16,12 +16,11 @@ KEYWORDS="~amd64"
 LICENSE="BSD"
 SLOT="0"
 IUSE_AMDGPU="
-	amdgpu_gfx600 amdgpu_gfx601 amdgpu_gfx602
-	amdgpu_gfx700 amdgpu_gfx701 amdgpu_gfx702 amdgpu_gfx703 amdgpu_gfx704 amdgpu_gfx705
-	amdgpu_gfx801 amdgpu_gfx802 amdgpu_gfx803 amdgpu_gfx805 amdgpu_gfx810
-	amdgpu_gfx900 amdgpu_gfx902 amdgpu_gfx904 amdgpu_gfx906 amdgpu_gfx908 amdgpu_gfx909 amdgpu_gfx90a amdgpu_gfx90c amdgpu_gfx940
-	amdgpu_gfx1010 amdgpu_gfx1011 amdgpu_gfx1012 amdgpu_gfx1013 amdgpu_gfx1030 amdgpu_gfx1031 amdgpu_gfx1032 amdgpu_gfx1033 amdgpu_gfx1034 amdgpu_gfx1035 amdgpu_gfx1036
-	amdgpu_gfx1100 amdgpu_gfx1101 amdgpu_gfx1102 amdgpu_gfx1103
+	amdgpu_gfx701 amdgpu_gfx702 amdgpu_gfx704
+	amdgpu_gfx802 amdgpu_gfx803 amdgpu_gfx805 amdgpu_gfx810
+	amdgpu_gfx900 amdgpu_gfx904 amdgpu_gfx906 amdgpu_gfx908 amdgpu_gfx909 amdgpu_gfx90a amdgpu_gfx940
+	amdgpu_gfx1010 amdgpu_gfx1011 amdgpu_gfx1012 amdgpu_gfx1030 amdgpu_gfx1031 amdgpu_gfx1032 amdgpu_gfx1034
+	amdgpu_gfx1100 amdgpu_gfx1101 amdgpu_gfx1102
 "
 cpuflags="
 	cpu_flags_x86_mmx cpu_flags_x86_mmxext cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3
@@ -86,7 +85,7 @@ PATCHES=( "${FILESDIR}/${P}-bump-cmake-version.patch" )
 RESTRICT="!test? ( test )"
 DOCS=( README CHANGELOG CITATION.cff )
 REQUIRED_USE="
-	hip? ( ^^ ( ${IUSE_AMDGPU/+/} ) )
+	hip? ( || ( ${IUSE_AMDGPU/+/} ) )
 	mpi? ( metis )
 	mumps? ( mpi )
 	petsc? ( mpi )
@@ -97,18 +96,18 @@ REQUIRED_USE="
 #pumi? ( mpi )
 #?? ( cuda hip )
 
-src_prepare() {
-	sed -e "s|\"\${CMAKE_INSTALL_PREFIX}/lib\"|\"\${CMAKE_INSTALL_PREFIX}/$(get_libdir)\"|g" -i config/cmake/modules/MfemCmakeUtilities.cmake || die
-	cmake_src_prepare
-}
-
 src_configure() {
-	for u in ${IUSE_AMDGPU} ; do
-		if use ${u} ; then
-			export HIP_ARCH="${u/amdgpu_/}"
-			break
-		fi
-	done
+	if use hip ; then
+		HIP_ARCH=""
+		for u in ${IUSE_AMDGPU} ; do
+			if use ${u} ; then
+				HIP_ARCH="${HIP_ARCH};${u/amdgpu_/}"
+			fi
+		done
+		# remove first character (;)
+		HIP_ARCH="${HIP_ARCH:1}"
+		export HIP_ARCH
+	fi
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
 		-DMFEM_ENABLE_MINIAPPS=ON
@@ -156,10 +155,10 @@ src_configure() {
 		-DMFEM_USE_ZLIB=$(usex zlib)
 	)
 	if use codipack; then
-		mycmakeargs+=( "-DCODIPACK_INCLUDE_DIRS=${EPREFIX}/usr/include/codi" )
+		mycmakeargs+=( "-DCODIPACK_INCLUDE_DIR=${EPREFIX}/usr/include/codi" )
 	fi
 	if use mpi; then
-		mycmakeargs+=( "-DHYPRE_INCLUDE_DIRS=${EPREFIX}/usr/include/hypre" )
+		mycmakeargs+=( "-DHYPRE_INCLUDE_DIR=${EPREFIX}/usr/include/hypre" )
 	fi
 	if use petsc; then
 		mycmakeargs+=( "-DPETSC_DIR=${EPREFIX}/usr/$(get_libdir)/petsc" )
@@ -179,4 +178,7 @@ src_configure() {
 src_install() {
 	cmake_src_install
 	einstalldocs
+	# https://github.com/mfem/mfem/issues/3019
+	mv "${ED}/usr/lib" _lib || die
+	mv _lib "${ED}/usr/$(get_libdir)" || die
 }

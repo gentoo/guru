@@ -1,0 +1,9 @@
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# This file contains descriptions of NANOX USE_EXPAND flags.
+
+debug - Enable generation of debug version
+instrumentation - Enable generation of instrumentation version
+instrumentation-debug - Enable generation of instrumentation-debug version
+performance - Enable generation of performance version

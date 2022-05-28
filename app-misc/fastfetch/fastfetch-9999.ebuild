@@ -16,7 +16,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="X chafa gnome imagemagick pci vulkan wayland xcb xfce xrandr"
+IUSE="X chafa gnome imagemagick pci sqlite vulkan wayland xcb xfce xrandr"
 
 # note - qa-vdb will always report errors because fastfetch loads the libs dynamically
 RDEPEND="
@@ -29,6 +29,7 @@ RDEPEND="
 	)
 	imagemagick? ( media-gfx/imagemagick:= )
 	pci? ( sys-apps/pciutils )
+	sqlite? ( dev-db/sqlite:3 )
 	vulkan? ( media-libs/vulkan-loader )
 	wayland? ( dev-libs/wayland )
 	xcb? ( x11-libs/libxcb )
@@ -57,6 +58,7 @@ src_configure() {
 		-DENABLE_IMAGEMAGICK6=$(use imagemagick && has_version '<media-gfx/imagemagick-7.0.0' && echo yes || echo no)
 		-DENABLE_ZLIB=yes
 		-DENABLE_CHAFA=$(usex chafa)
+		-DENABLE_SQLITE3=$(usex sqlite)
 	)
 
 	cmake_src_configure

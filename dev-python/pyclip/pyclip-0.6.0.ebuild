@@ -20,6 +20,8 @@ DESCRIPTION="Python clipboard module"
 HOMEPAGE="https://pypi.org/project/pyclip/"
 LICENSE="Apache-2.0"
 SLOT="0"
+RESTRICT="test"
+DOCS="${S}/docs/README.md"
 
 DEPEND=""
 RDEPEND="
@@ -27,5 +29,3 @@ RDEPEND="
 	x11-misc/xclip
 "
 BDEPEND=""
-
-distutils_enable_tests pytest

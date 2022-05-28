@@ -22,8 +22,8 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE_TRANSPORT="
-	transport-shmem
-	+transport-udp
+	transport_shmem
+	+transport_udp
 "
 IUSE="${IUSE_TRANSPORT} knem me-triggered pmi ppe reliable-udp test unordered-matching zero-mrs"
 
@@ -43,10 +43,10 @@ DEPEND="
 PATCHES=( "${FILESDIR}/${PN}-fix-PPE-related-compile-and-link-errors.patch" )
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
-	?? ( ppe transport-shmem )
+	?? ( ppe transport_shmem )
 
-	knem? ( transport-shmem )
-	reliable-udp? ( transport-udp )
+	knem? ( transport_shmem )
+	reliable-udp? ( transport_udp )
 "
 
 src_prepare() {
@@ -61,7 +61,7 @@ src_configure() {
 		--disable-picky
 		--disable-pmi-from-portals
 		--disable-static
-		--disable-transport-ib
+		--disable-transport_ib
 		--with-ev="${EPREFIX}/usr"
 		--without-ofed
 
@@ -69,8 +69,8 @@ src_configure() {
 		$(use_enable ppe)
 		$(use_enable reliable-udp)
 		$(use_enable test testing)
-		$(use_enable transport-shmem)
-		$(use_enable transport-udp)
+		$(use_enable transport_shmem)
+		$(use_enable transport_udp)
 		$(use_enable unordered-matching)
 		$(use_enable zero-mrs)
 	)

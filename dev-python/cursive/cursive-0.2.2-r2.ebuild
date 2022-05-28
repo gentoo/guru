@@ -9,7 +9,6 @@ inherit distutils-r1
 
 DESCRIPTION="Cursive implements OpenStack-specific validation of digital signatures"
 HOMEPAGE="
-	https://github.com/openstack/cursive
 	https://opendev.org/x/cursive
 	https://launchpad.net/cursive
 	https://pypi.org/project/cursive/

@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,10 @@ CMAKE_REMOVE_MODULES_LIST=( BackwardConfig )
 inherit cmake optfeature virtualx xdg
 
 DESCRIPTION="High-level runtime introspection tool for Qt applications"
-HOMEPAGE="https://www.kdab.com/gammaray/ https://github.com/KDAB/GammaRay"
+HOMEPAGE="
+	https://www.kdab.com/development-resources/qt-tools/gammaray/
+	https://github.com/KDAB/GammaRay
+"
 
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3

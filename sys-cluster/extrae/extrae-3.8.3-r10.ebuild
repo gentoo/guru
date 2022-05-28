@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -16,9 +16,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 IUSE_INSTRUMENT="
-	+instrument-dynamic-memory
-	+instrument-io
-	+instrument-syscall
+	+instrument_dynamic-memory
+	+instrument_io
+	+instrument_syscall
 "
 IUSE="${IUSE_INSTRUMENT} clustering dlsym doc dyninst heterogeneous inotify memkind
 merge-in-trace nanos online opencl openmp openshmem +parallel-merge pebs-sampling
@@ -122,9 +122,9 @@ src_configure() {
 		$(use_enable doc)
 		$(use_enable heterogeneous)
 		$(use_enable inotify)
-		$(use_enable instrument-dynamic-memory)
-		$(use_enable instrument-io)
-		$(use_enable instrument-syscall)
+		$(use_enable instrument_dynamic-memory)
+		$(use_enable instrument_io)
+		$(use_enable instrument_syscall)
 		$(use_enable merge-in-trace)
 		$(use_enable nanos)
 		$(use_enable online)

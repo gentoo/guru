@@ -3,6 +3,7 @@
 
 EAPI=8
 
+COMMIT="a841c9be1666056b2a6b720d27161aa244b562b1"
 DOCS_BUILDER="doxygen"
 DOCS_CONFIG_NAME="DoxyConfig"
 FORTRAN_NEEDED="fortran"
@@ -14,7 +15,8 @@ HOMEPAGE="
 	https://portal.nersc.gov/project/sparse/superlu/
 	https://github.com/xiaoyeli/superlu_dist
 "
-SRC_URI="https://github.com/xiaoyeli/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/xiaoyeli/${PN}/archive/${COMMIT}.tar.gz -> ${PF}.tar.gz"
+S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="BSD"
 SLOT="0"
@@ -23,6 +25,7 @@ IUSE="combblas +complex-precision +double-precision examples hip lapack fortran 
 # TODO: cuda
 
 RDEPEND="
+	sci-libs/colamd
 	virtual/blas
 	virtual/mpi
 
@@ -38,10 +41,15 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=(
+	"${FILESDIR}/${P}-system-colamd.patch"
+	"${FILESDIR}/${P}-fortran.patch"
+)
 RESTRICT="!test? ( test )"
 
 src_prepare() {
 	rm -r CBLAS || die
+	rm SRC/colamd.{c,h} || die
 	cmake_src_prepare
 }
 
@@ -77,9 +85,4 @@ src_configure() {
 		)
 	fi
 	cmake_src_configure
-}
-
-src_compile() {
-	cmake_src_compile
-	default
 }

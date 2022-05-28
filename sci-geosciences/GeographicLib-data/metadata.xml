@@ -14,25 +14,4 @@
 		<bugs-to>https://sourceforge.net/p/geographiclib/bugs/</bugs-to>
 		<remote-id type="sourceforge">geographiclib</remote-id>
 	</upstream>
-	<use>
-		<flag name="geoids-datasets-egm84-30">http://earth-info.nga.mil/GandG/wgs84/gravitymod/wgs84_180/wgs84_180.html 30' grid</flag>
-		<flag name="geoids-datasets-egm84-15">http://earth-info.nga.mil/GandG/wgs84/gravitymod/wgs84_180/wgs84_180.html 15' grid</flag>
-		<flag name="geoids-datasets-egm96-15">http://earth-info.nga.mil/GandG/wgs84/gravitymod/egm96/egm96.html 15' grid</flag>
-		<flag name="geoids-datasets-egm96-5">http://earth-info.nga.mil/GandG/wgs84/gravitymod/egm96/egm96.html 5' grid</flag>
-		<flag name="geoids-datasets-egm2008-5">http://earth-info.nga.mil/GandG/wgs84/gravitymod/egm2008 5' grid</flag>
-		<flag name="geoids-datasets-egm2008-2-5">http://earth-info.nga.mil/GandG/wgs84/gravitymod/egm2008 2.5' grid</flag>
-		<flag name="geoids-datasets-egm2008-1">http://earth-info.nga.mil/GandG/wgs84/gravitymod/egm2008 1' grid</flag>
-		<flag name="gravity-models-egm84">the Earth Gravity Model 1984, which includes terms up to degree 180</flag>
-		<flag name="gravity-models-egm96">the Earth Gravity Model 1996, which includes terms up to degree 360</flag>
-		<flag name="gravity-models-egm2008"> the Earth Gravity Model 2008, which includes terms up to degree 2190</flag>
-		<flag name="gravity-models-wgs84">the WGS84 Reference Ellipsoid. This is just reproduces the normal gravitational field for the reference ellipsoid. This includes the zonal coefficients up to order 20.</flag>
-		<flag name="magnetic-models-wmm2010">the World Magnetic Model 2010, which approximates the main magnetic field for the period 2010–2015.</flag>
-		<flag name="magnetic-models-wmm2020"> the World Magnetic Model 2020, which approximates the main magnetic field for the period 2020–2025.</flag>
-		<flag name="magnetic-models-wmm2015v2">the World Magnetic Model 2015, which approximates the main magnetic field for the period 2015–2020.</flag>
-		<flag name="magnetic-models-igrf11">the International Geomagnetic Reference Field (11th generation), which approximates the main magnetic field for the period 1900–2015.</flag>
-		<flag name="magnetic-models-igrf12">the International Geomagnetic Reference Field (12th generation), which approximates the main magnetic field for the period 1900–2020.</flag>
-		<flag name="magnetic-models-emm2010">the Enhanced Magnetic Model 2010, which approximates the main and crustal magnetic fields for the period 2010–2015.</flag>
-		<flag name="magnetic-models-emm2015">the Enhanced Magnetic Model 2015, which approximates the main and crustal magnetic fields for the period 2000–2020.</flag>
-		<flag name="magnetic-models-emm2017">the Enhanced Magnetic Model 2017, which approximates the main and crustal magnetic fields for the period 2000–2022.</flag>
-	</use>
 </pkgmetadata>

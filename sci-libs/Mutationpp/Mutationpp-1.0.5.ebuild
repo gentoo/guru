@@ -8,7 +8,7 @@ DISTUTILS_USE_PEP517=setuptools
 FORTRAN_NEEDED="fortran"
 PYTHON_COMPAT=( python3_{8..9} )
 
-inherit distutils-r1 cmake fortran-2
+inherit distutils-r1 cmake flag-o-matic fortran-2
 
 DESCRIPTION="MUlticomponent Thermodynamic And Transport library for IONized gases"
 HOMEPAGE="https://github.com/mutationpp/Mutationpp"
@@ -54,6 +54,7 @@ src_prepare() {
 }
 
 src_configure() {
+	append-cxxflags "-I${EPREFIX}/usr/include/catch2"
 	local mycmakeargs=(
 		-DENABLE_COVERAGE=OFF
 

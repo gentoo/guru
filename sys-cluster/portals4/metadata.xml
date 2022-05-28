@@ -15,8 +15,6 @@
 		<flag name="pmi">Enable PMI support</flag>
 		<flag name="ppe">Enable process-offload engine for Portals. Experimental</flag>
 		<flag name="reliable-udp">Use reliable UDP for remote communication</flag>
-		<flag name="transport-shmem">Use Shared memory for on-node communication. This is currently experimental and should be avoided</flag>
-		<flag name="transport-udp">Use UDP for remote communication</flag>
 		<flag name="zero-mrs">Enable this when using MOFED V2.2+ or Qlogic InfiniPath Hardware of IB communication</flag>
 		<flag name="unordered-matching">Enable unordered (hashed) match list searching. Experimental</flag>
 	</use>

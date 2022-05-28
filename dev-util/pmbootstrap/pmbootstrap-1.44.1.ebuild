@@ -4,7 +4,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8,9,10} )
 
-inherit python-r1 distutils-r1 linux-info
+inherit distutils-r1 linux-info
 
 DESCRIPTION="Helper tool for developing and building postmarketOS"
 HOMEPAGE="https://postmarketos.org/"
@@ -23,9 +23,7 @@ KEYWORDS="-alpha ~amd64 -arm -hppa -ia64 -ppc -ppc64 -riscv -sparc"
 RESTRICT="mirror test"
 
 DEPEND="${PYTHON_DEPS}"
-RDEPEND="${DEPEND}
-		dev-vcs/git"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+RDEPEND="dev-vcs/git"
 
 pkg_pretend() {
 	if kernel_is -lt 3 17 0; then

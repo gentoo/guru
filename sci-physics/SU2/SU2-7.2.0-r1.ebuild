@@ -44,6 +44,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
+	dev-cpp/catch:0
 	dev-cpp/cli11
 
 	autodiff? (
