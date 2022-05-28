@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/facebookincubator/fizz"
 SRC_URI="https://github.com/facebookincubator/fizz/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="examples test"
 
