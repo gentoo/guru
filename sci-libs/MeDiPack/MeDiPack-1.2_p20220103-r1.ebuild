@@ -16,7 +16,7 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 KEYWORDS="~amd64"
 LICENSE='GPL-3'
 IUSE="tutorials"
-SLOT="0"
+SLOT="0/${PV}"
 
 DEPEND="tutorials? ( sci-libs/CoDiPack )"
 RDEPEND="${DEPEND}"
