@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/cubicdaiya/dtl"
 SRC_URI="https://github.com/cubicdaiya/dtl/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="examples test"
 
