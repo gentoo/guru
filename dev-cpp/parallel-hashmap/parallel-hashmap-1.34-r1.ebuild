@@ -13,7 +13,7 @@ HOMEPAGE="
 SRC_URI="https://github.com/greg7mdp/parallel-hashmap/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="examples test"
 
