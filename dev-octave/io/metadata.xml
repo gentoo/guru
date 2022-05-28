@@ -9,6 +9,6 @@
   <upstream>
     <changelog>https://octave.sourceforge.io/io/NEWS.html</changelog>
     <doc lang="en">https://octave.sourceforge.io/io/overview.html</doc>
-    <remote-id type="sourceforge">octave/io</remote-id>
+    <remote-id type="sourceforge">octave</remote-id>
   </upstream>
 </pkgmetadata>

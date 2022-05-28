@@ -9,6 +9,6 @@
   <upstream>
     <changelog>https://octave.sourceforge.io/linear-algebra/NEWS.html</changelog>
     <doc lang="en">https://octave.sourceforge.io/linear-algebra/overview.html</doc>
-    <remote-id type="sourceforge">octave/linear-algebra</remote-id>
+    <remote-id type="sourceforge">octave</remote-id>
   </upstream>
 </pkgmetadata>
