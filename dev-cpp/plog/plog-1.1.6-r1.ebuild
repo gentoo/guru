@@ -9,7 +9,7 @@ SRC_URI="https://github.com/SergiusTheBest/${PN}/archive/${PV}.tar.gz -> ${P}.ta
 
 KEYWORDS="~amd64"
 LICENSE="MPL-2.0"
-SLOT="0"
+SLOT="0/${PV}"
 IUSE="examples"
 
 src_install() {
