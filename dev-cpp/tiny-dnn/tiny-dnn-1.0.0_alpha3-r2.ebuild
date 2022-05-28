@@ -17,7 +17,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/v${MYPV}.tar.gz -> ${P
 S="${WORKDIR}/${PN}-${MYPV}"
 
 LICENSE="BSD"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_sse double-precision opencl openmp +serialization tbb test" # TODO: cuda
 
