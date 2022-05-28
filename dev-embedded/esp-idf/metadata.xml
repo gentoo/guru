@@ -5,4 +5,10 @@
 		<email>davidroman96@gmail.com</email>
 		<name>David Roman</name>
 	</maintainer>
+	<use>
+		<flag name="esp32"></flag>
+		<flag name="esp32s2"></flag>
+		<flag name="esp32s3"></flag>
+		<flag name="riscv32"></flag>
+	</use>
 </pkgmetadata>

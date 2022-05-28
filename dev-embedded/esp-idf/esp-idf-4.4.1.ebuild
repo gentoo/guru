@@ -3,13 +3,12 @@
 
 EAPI=8
 
-
-PYTHON_COMPAT=( python3_{8,9,10} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 VER="esp-2021r2-patch3"
 CROSSTOOL_URL="https://github.com/espressif/crosstool-NG/releases/download/${VER}"
 
-inherit python-r1
+inherit python-single-r1
 
 DESCRIPTION="Espressif IoT Development Framework"
 HOMEPAGE="https://www.espressif.com/"
@@ -27,23 +26,27 @@ S="${WORKDIR}/${PN}-v${PV}"
 
 KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
-IUSE="+esp32 esp32s2 esp32s3 riscv32"
 SLOT="0"
+IUSE="+esp32 esp32s2 esp32s3 riscv32"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RDEPEND="
-	dev-python/click[${PYTHON_USEDEP}]
-	dev-python/bitstring[${PYTHON_USEDEP}]
-	dev-python/construct[${PYTHON_USEDEP}]
-	dev-python/ecdsa[${PYTHON_USEDEP}]
-	dev-python/future[${PYTHON_USEDEP}]
-	dev-python/kconfiglib[${PYTHON_USEDEP}]
-	dev-python/pyelftools[${PYTHON_USEDEP}]
-	<dev-python/pyparsing-2.4.0[${PYTHON_USEDEP}]
-	dev-python/pyserial[${PYTHON_USEDEP}]
-	dev-python/python-socketio[${PYTHON_USEDEP}]
-	dev-python/reedsolomon[${PYTHON_USEDEP}]
-	dev-embedded/esptool[${PYTHON_USEDEP}]
+RDEPEND="${PYTHON_DEPS}
+	$(python_gen_cond_dep '
+		dev-python/click[${PYTHON_USEDEP}]
+		dev-python/bitstring[${PYTHON_USEDEP}]
+		dev-python/construct[${PYTHON_USEDEP}]
+		dev-python/ecdsa[${PYTHON_USEDEP}]
+		dev-python/future[${PYTHON_USEDEP}]
+		dev-python/kconfiglib[${PYTHON_USEDEP}]
+		dev-python/pyelftools[${PYTHON_USEDEP}]
+		<dev-python/pyparsing-2.4.0[${PYTHON_USEDEP}]
+		dev-python/pyserial[${PYTHON_USEDEP}]
+		dev-python/python-socketio[${PYTHON_USEDEP}]
+		dev-python/reedsolomon[${PYTHON_USEDEP}]
+	')
+	dev-embedded/esptool[${PYTHON_SINGLE_USEDEP}]
 "
+BDEPEND="app-arch/unzip"
 
 RESTRICT="strip"
 
@@ -51,7 +54,7 @@ QA_PREBUILT="opt/* usr/lib* usr/share/esp-idf/*"
 QA_PRESTRIPPED="opt/*"
 
 install_tool() {
-	shopt -s globstar
+	shopt -s globstar || die
 
 	into /opt/${1}
 
@@ -61,13 +64,13 @@ install_tool() {
 			dolib.so ${i}
 		done
 		fi
-		
+
 		if stat *.a &>/dev/null; then
 		for i in ../${1}/lib/**/*.a*; do
 			dolib.a ${i}
 		done
 		fi
-		
+
 		insinto /opt/${1}/lib
 		doins -r ../${1}/lib/*
 	fi
@@ -87,10 +90,10 @@ install_tool() {
 		insinto /opt/${1}
 		doins -r include
 	fi
-	
+
 	if [[ -d "share" ]]; then
 		insinto /opt/${1}
-		doins -r share 
+		doins -r share
 	fi
 	)
 
@@ -117,7 +120,7 @@ src_install() {
 		install_tool xtensa-esp32s2-elf
 	fi
 
-	if use esp32s3; then	
+	if use esp32s3; then
 		install_tool xtensa-esp32s3-elf
 	fi
 
@@ -132,10 +135,8 @@ src_install() {
 
 	insinto /usr/share/${PN}
 	rm requirements.txt || die
-	touch requirements.txt
+	touch requirements.txt || die
 
 	rm -r .git || die
 	doins -r .
 }
-
-
