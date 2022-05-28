@@ -14,6 +14,7 @@ HOMEPAGE="
 "
 #SRC_URI="mirror://cran/src/contrib/RcppEnsmallen/RcppEnsmallen_${PV}.tar.gz"
 
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 LICENSE='GPL-2+'
 
