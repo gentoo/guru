@@ -14,7 +14,7 @@ SRC_URI="
 S="${WORKDIR}/pt-${PV}"
 
 LICENSE="BSD"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="doc examples"
 
