@@ -3,10 +3,15 @@
 
 EAPI=8
 
+MYPV="$(ver_cut 1-3)"
+MYP="${PN}-${MYPV}"
+
 inherit octaveforge
 
 DESCRIPTION="Additional functions for manipulation and analysis of strings"
 HOMEPAGE="https://octave.sourceforge.io/strings/index.html"
+SRC_URI="mirror://sourceforge/octave/${MYP}.tar.gz"
+S="${WORKDIR}/${MYP}"
 
 LICENSE="GPL-3+ BSD-2"
 SLOT="0"
@@ -19,6 +24,12 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${P}-build-against-octave-6.patch"
-	"${FILESDIR}/${P}-err-instead-of-gripes.patch"
+	"${FILESDIR}/${MYP}-156.patch"
+	"${FILESDIR}/${MYP}-157.patch"
+	"${FILESDIR}/${MYP}-158.patch"
+	"${FILESDIR}/${MYP}-160.patch"
 )
+
+src_unpack() {
+	default
+}
