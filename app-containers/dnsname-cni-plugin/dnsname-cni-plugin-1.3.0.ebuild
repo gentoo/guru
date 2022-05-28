@@ -36,8 +36,7 @@ RDEPEND="${DEPEND}"
 src_unpack() {
 	default
 	if [[ ${PV} == *9999 ]]; then
-		git-r3_fetch
-		git-r3_checkout
+		git-r3_src_unpack
 		pushd ${P}/plugins/meta/dnsname || die "location change for module building failed"
 		ego get
 		popd || die "location reset from module building failed"
