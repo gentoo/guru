@@ -15,7 +15,7 @@ SRC_URI="https://github.com/mlpack/ensmallen/archive/${PV}.tar.gz -> ${P}.tar.gz
 KEYWORDS="~amd64"
 
 LICENSE="BSD"
-SLOT="0"
+SLOT="0/${PV}"
 IUSE="openmp test"
 RESTRICT="!test? ( test )"
 
