@@ -15,7 +15,7 @@ SRC_URI="https://github.com/SciCompKL/${PN}/archive/refs/tags/v${PV}.tar.gz -> $
 KEYWORDS="~amd64"
 LICENSE='GPL-3'
 IUSE="examples"
-SLOT="0"
+SLOT="0/${PV}"
 
 DEPEND="examples? ( sci-libs/CoDiPack )"
 RDEPEND="${DEPEND}"
