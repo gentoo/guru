@@ -16,7 +16,7 @@ SRC_URI="https://github.com/Alessandro-Barbieri/${PN}/archive/${COMMIT}.tar.gz -
 S="${WORKDIR}/${PN}-${COMMIT}/qesource"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 
 RDEPEND="
