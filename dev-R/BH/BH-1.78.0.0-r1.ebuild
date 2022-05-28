@@ -14,6 +14,7 @@ HOMEPAGE="
 "
 SRC_URI="mirror://cran/src/contrib/${MY_P}.tar.gz"
 
+SLOT="0/${PV}"
 LICENSE='Boost-1.0'
 KEYWORDS="~amd64"
 
