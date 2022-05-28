@@ -15,10 +15,8 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 
 KEYWORDS="~amd64"
 LICENSE='GPL-3'
-IUSE="tutorials"
 SLOT="0/${PV}"
 
-DEPEND="tutorials? ( sci-libs/CoDiPack )"
 RDEPEND="${DEPEND}"
 BDEPEND="sys-devel/gsl"
 
@@ -29,7 +27,6 @@ src_prepare() {
 
 src_compile() {
 	emake all
-	use tutorials && emake tutorials
 }
 
 src_install() {
