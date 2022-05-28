@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MAX_KV_MAJ="4"
 MAX_KV_MIN="13"
@@ -14,7 +14,7 @@ HOMEPAGE="
 	https://lkml.org/lkml/2010/4/22/172
 	https://github.com/Portals4/ummunotify
 "
-SRC_URI="https://github.com/Portals4/ummunotify/raw/master/${MYP}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/Portals4/ummunotify/raw/master/${MYP}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${MYP}"
 
 LICENSE="GPL-2"
