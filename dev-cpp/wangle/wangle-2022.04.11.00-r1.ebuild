@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/facebook/wangle"
 SRC_URI="https://github.com/facebook/wangle/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="examples test"
 
