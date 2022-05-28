@@ -15,7 +15,7 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 KEYWORDS="~amd64"
 LICENSE='MIT'
 IUSE=""
-SLOT="0"
+SLOT="0/${PV}"
 
 DEPEND="virtual/mpi"
 RDEPEND="${DEPEND}"
