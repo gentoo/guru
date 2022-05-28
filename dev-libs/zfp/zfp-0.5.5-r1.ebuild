@@ -1,16 +1,16 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 #DOCS_BUILDER="sphinx"
 #DOCS_DIR="docs/source"
-PYTHON_COMPAT=( python3_{8,9,10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit cmake fortran-2 python-single-r1 #docs
 
 DESCRIPTION="Compressed numerical arrays that support high-speed random access"
-SRC_URI="https://github.com/LLNL/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/LLNL/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 HOMEPAGE="
 	https://computing.llnl.gov/projects/zfp
 	https://zfp.io
