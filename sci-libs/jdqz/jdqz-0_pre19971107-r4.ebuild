@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ SRC_URI="https://www.win.tue.nl/~hochsten/jd/${PN}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-3"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="doc test"
 
@@ -28,7 +28,8 @@ PATCHES=( "${FILESDIR}/makefile.patch" )
 RESTRICT="!test? ( test )"
 
 src_prepare() {
-	append-fflags "$($(tc-getPKG_CONFIG) --libs blas) $($(tc-getPKG_CONFIG) --libs lapack)"
+	local pkgc="$(tc-getPKG_CONFIG)"
+	append-fflags "$(${pkgc} --libs blas) $({pkgc} --libs lapack)"
 	default
 }
 
@@ -37,7 +38,7 @@ src_compile() {
 		pdflatex manual.tex || die
 	fi
 
-	cd "jdlib" || die
+	pushd "jdlib" || die
 	emake
 	ln -s libjdqz.so.0 libjdqz.so || die
 }
