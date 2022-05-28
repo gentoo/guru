@@ -27,13 +27,9 @@ BDEPEND="doc? ( dev-texlive/texlive-latex )"
 PATCHES=( "${FILESDIR}/makefile.patch" )
 RESTRICT="!test? ( test )"
 
-src_prepare() {
-	local pkgc="$(tc-getPKG_CONFIG)"
-	append-fflags "$(${pkgc} --libs blas) $({pkgc} --libs lapack)"
-	default
-}
-
 src_compile() {
+	local pkgc="$(tc-getPKG_CONFIG)"
+	append-fflags "$(${pkgc} --libs blas) $(${pkgc} --libs lapack)"
 	if use doc; then
 		pdflatex manual.tex || die
 	fi
