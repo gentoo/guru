@@ -21,8 +21,6 @@ RDEPEND="
 DOCS=( CHANGELOG.md CONTRIBUTING.md README.md )
 
 src_compile() {
-	default
-
 	pushd cmd/ipfs-cluster-ctl
 	ego build
 	mv ipfs-cluster-ctl $OLDPWD
