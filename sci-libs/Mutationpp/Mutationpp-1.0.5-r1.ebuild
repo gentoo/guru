@@ -16,7 +16,7 @@ SRC_URI="https://github.com/mutationpp/${PN}/archive/refs/tags/v${PV}.tar.gz -> 
 
 KEYWORDS="~amd64"
 LICENSE="LGPL-3"
-SLOT="0"
+SLOT="0/${PV}"
 IUSE="doc fortran python test"
 
 RDEPEND="
