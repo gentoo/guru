@@ -31,6 +31,7 @@ PATCHES=(
 	"${FILESDIR}/${P}-cxx17.patch"
 	"${FILESDIR}/${P}-system-libs.patch"
 	"${FILESDIR}/${P}-GNUInstallDirs.patch"
+	"${FILESDIR}/${P}-fix-matlab-addpath.patch"
 )
 
 src_prepare() {
