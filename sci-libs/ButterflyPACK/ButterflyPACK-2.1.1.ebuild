@@ -32,10 +32,9 @@ src_configure() {
 	local pkgc="$(tc-getPKG_CONFIG)"
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
-
-		"-DTPL_ARPACK_LIBRARIES=$(${pkgc} --libs arpack)"
-		"-DTPL_MAGMA_LIBRARIES=$(${pkgc} --libs magma)"
 	)
+	use arpack && mycmakeargs+=( "-DTPL_ARPACK_LIBRARIES=$(${pkgc} --libs arpack)" )
+	use magma && mycmakeargs+=( "-DTPL_MAGMA_LIBRARIES=$(${pkgc} --libs magma)" )
 	cmake_src_configure
 }
 
