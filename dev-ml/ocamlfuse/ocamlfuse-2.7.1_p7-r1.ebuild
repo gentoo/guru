@@ -17,7 +17,7 @@ SRC_URI="https://github.com/astrada/${PN}/archive/v${MYPV}.tar.gz -> ${PF}.tar.g
 S="${WORKDIR}/${PN}-${MYPV}"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="ocamlopt"
 
