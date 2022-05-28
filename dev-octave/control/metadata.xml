@@ -20,7 +20,7 @@
       <email>lukas.reichlin@gmail.com</email>
       <name>Lukas Reichlin</name>
     </maintainer>
-    <remote-id type="sourceforge">octave/control</remote-id>
+    <remote-id type="sourceforge">octave</remote-id>
   </upstream>
   <longdescription lang="en">
 Computer-Aided Control System Design (CACSD) Tools for GNU Octave, based on the proven SLICOT Library
