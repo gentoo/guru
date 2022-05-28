@@ -16,7 +16,7 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 KEYWORDS="~amd64"
 LICENSE='GPL-3'
 IUSE="doc tutorials" # examples mpi
-SLOT="0"
+SLOT="0/${PV}"
 
 #DEPEND="mpi? ( sci-libs/MeDiPack )"
 RDEPEND="${DEPEND}"
