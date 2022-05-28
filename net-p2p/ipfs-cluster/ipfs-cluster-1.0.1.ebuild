@@ -47,12 +47,17 @@ src_install() {
 	dobin ipfs-cluster-service
 	einstalldocs
 
-	#systemd_dounit "${FILESDIR}/ipfs-cluster-service.service"
-	#systemd_newunit "${FILESDIR}/ipfs-cluster-service.service" "ipfs-cluster-service@.service"
+	systemd_dounit "${FILESDIR}/ipfs-cluster.service"
+	systemd_newunit "${FILESDIR}/ipfs-cluster.service" "ipfs-cluster@.service"
 
-	#newinitd "${FILESDIR}/ipfs-cluster-service.init" ipfs
-	#newconfd "${FILESDIR}/ipfs-cluster-service.confd" ipfs
+	newinitd "${FILESDIR}/ipfs-cluster.init" ipfs-cluster
+	newconfd /dev/null ipfs-cluster
 
 	keepdir /var/log/ipfs-cluster
 	fowners -R ipfs:ipfs /var/log/ipfs-cluster
+}
+
+pkg_postinst() {
+	elog 'To be able to use the ipfs-cluster service you will need to setup the configuration'
+	elog '(eg: su -s /bin/sh -c "ipfs-cluster init" ipfs)'
 }
