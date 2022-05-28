@@ -13,7 +13,7 @@ SRC_URI="https://github.com/google/${PN}/archive/${COMMIT}.tar.gz -> ${PF}.tar.g
 S="${WORKDIR}/${PN}-${COMMIT}/contrib"
 
 LICENSE="Apache-2.0"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="test"
 
