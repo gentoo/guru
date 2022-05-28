@@ -13,7 +13,7 @@ SRC_URI="https://github.com/potassco/${PN}/archive/${COMMIT}.tar.gz -> ${PF}.tar
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="test tools"
 
