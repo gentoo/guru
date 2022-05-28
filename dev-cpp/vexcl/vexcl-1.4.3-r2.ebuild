@@ -18,7 +18,7 @@ HOMEPAGE="https://github.com/ddemidov/vexcl"
 SRC_URI="https://github.com/ddemidov/vexcl/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE_BACKEND="
 	backend_compute
