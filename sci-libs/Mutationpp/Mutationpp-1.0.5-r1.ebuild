@@ -43,7 +43,10 @@ BDEPEND="
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 DOCS=( {README,CHANGELOG}.md docs )
-PATCHES=( "${FILESDIR}/${P}-system-libs.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-system-libs.patch"
+	"${FILESDIR}/${P}-respect-flags.patch"
+)
 
 distutils_enable_tests pytest
 
