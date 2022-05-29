@@ -216,9 +216,9 @@ pkg_postinst() {
 
 	use iscsi && elog "iscsid needs to be running if you want cinder to connect"
 
-	optfeature "osprofiler" dev-python/osprofiler-1.4.0
-	optfeature "powervm" dev-python/pypowervm-1.1.15
-	optfeature "zvm" dev-python/zVMCloudConnector-1.3.0
-	optfeature "hyperv" dev-python/os-win-5.5.0
-	optfeature "vmware" dev-python/oslo-vmware-3.6.0
+	optfeature "osprofiler" >=dev-python/osprofiler-1.4.0
+	optfeature "powervm" >=dev-python/pypowervm-1.1.15
+	optfeature "zvm" >=dev-python/zVMCloudConnector-1.3.0
+	optfeature "hyperv" >=dev-python/os-win-5.5.0
+	optfeature "vmware" >=dev-python/oslo-vmware-3.6.0
 }
