@@ -15,12 +15,12 @@ HOMEPAGE="
 	https://skia.org
 	https://github.com/google/skia
 "
-SRC_URI="https://github.com/google/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/google/${PN}/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 KEYWORDS="~amd64"
 LICENSE="BSD"
-SLOT="0"
+SLOT="0/${PV}"
 IUSE="+ccpr debug ffmpeg +fontconfig +freetype gpu +harfbuzz +icu jit +jpeg +lottie lua opencl +opengl +pdf +png +rive svg vulkan +webp +zlib +X +xml"
 #TODO: find out how to enable and link: angle dawn piex sfntly wuffs
 
