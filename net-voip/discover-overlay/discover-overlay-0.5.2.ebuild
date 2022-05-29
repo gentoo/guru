@@ -23,11 +23,4 @@ RDEPEND="
 	>=dev-python/python-pidfile-3.0.0[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/python-xlib[${PYTHON_USEDEP}]
-	dev-python/dbus-python[${PYTHON_USEDEP}]
 "
-
-src_prepare() {
-	default
-	# dbus-python does not behave correctly when installed by a package manager
-	sed -i "/dbus-python/d" setup.py || die
-}
