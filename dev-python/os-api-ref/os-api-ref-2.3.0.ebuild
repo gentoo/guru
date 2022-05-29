@@ -4,7 +4,7 @@
 EAPI=8
 
 EPYTEST_DESELECT=( os_api_ref/tests/test_microversions.py::TestMicroversions::test_parameters_table )
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
