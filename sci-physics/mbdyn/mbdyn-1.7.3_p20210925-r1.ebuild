@@ -5,7 +5,7 @@ EAPI=7
 
 COMMIT="ae57618c4e7b030b59707b8c156a6e2a94a6efd0"
 MYP="${PN}-${COMMIT}"
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit autotools flag-o-matic fortran-2 pam python-single-r1
 

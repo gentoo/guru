@@ -58,6 +58,8 @@ octaveforge_src_unpack() {
 # @DESCRIPTION:
 # function to add octaveforge specific makefile and configure and reconfigure if possible
 octaveforge_src_prepare() {
+	default
+
 	_generate_configure
 
 	if [[ -e "${S}/src/configure.ac" ]]; then
@@ -72,7 +74,6 @@ octaveforge_src_prepare() {
 	if [[ -e "${S}/src/Makefile" ]]; then
 		sed -i 's/ -s / /g' "${S}/src/Makefile" || die 'sed failed.'
 	fi
-	default
 }
 
 octaveforge_src_compile() {

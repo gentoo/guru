@@ -45,7 +45,7 @@ PATCHES=(
 	"${FILESDIR}/${P}-system-colamd.patch"
 	"${FILESDIR}/${P}-fortran.patch"
 )
-RESTRICT="!test? ( test )"
+RESTRICT="test" # tests require an MPI setup
 
 src_prepare() {
 	rm -r CBLAS || die

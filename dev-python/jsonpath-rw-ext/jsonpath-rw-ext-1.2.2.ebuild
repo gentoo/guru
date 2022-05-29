@@ -7,7 +7,7 @@ EPYTEST_DESELECT=(
 	jsonpath_rw_ext/tests/test_jsonpath_rw_ext.py::TestJsonpath_rw_ext::test_fields_value
 	jsonpath_rw_ext/tests/test_jsonpath_rw_ext.py::TestJsonpath_rw_ext::test_shortcut_functions
 )
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 

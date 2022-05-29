@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake fortran-2
+inherit cmake fortran-2 toolchain-funcs
 
 DESCRIPTION="Mathematical software for solving large-scale dense linear systems"
 HOMEPAGE="https://github.com/liuyangzhuan/ButterflyPACK"
@@ -29,12 +29,12 @@ DOCS=( README.md CHANGELOG )
 PATCHES=( "${FILESDIR}/${P}-no-examples.patch" )
 
 src_configure() {
+	local pkgc="$(tc-getPKG_CONFIG)"
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
-
-		-DTPL_ARPACK_LIBRARIES=$(usex arpack)
-		-DTPL_MAGMA_LIBRARIES=$(usex magma)
 	)
+	use arpack && mycmakeargs+=( "-DTPL_ARPACK_LIBRARIES=$(${pkgc} --libs arpack)" )
+	use magma && mycmakeargs+=( "-DTPL_MAGMA_LIBRARIES=$(${pkgc} --libs magma)" )
 	cmake_src_configure
 }
 

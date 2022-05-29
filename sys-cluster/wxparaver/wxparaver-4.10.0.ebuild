@@ -7,7 +7,7 @@ COMMIT="f357545a2fdfc7674394f2e6192022a4c2139f63"
 DOCS_AUTODOC=0
 DOCS_BUILDER="sphinx"
 DOCS_DIR="docs/wxparaver_help_contents/sphinx/2.paraver_toolset/source"
-PYTHON_COMPAT=( python3_{8..10} pypy3 )
+PYTHON_COMPAT=( python3_{8..11} pypy3 )
 WX_GTK_VER="3.0-gtk3"
 
 inherit autotools python-any-r1 docs wxwidgets

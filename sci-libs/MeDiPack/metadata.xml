@@ -9,7 +9,4 @@
 		<bugs-to>https://github.com/SciCompKL/MeDiPack/issues</bugs-to>
 		<remote-id type="github">SciCompKL/MeDiPack</remote-id>
 	</upstream>
-	<use>
-		<flag name="tutorials">Build the tutorials</flag>
-	</use>
 </pkgmetadata>

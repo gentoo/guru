@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit meson python-single-r1
 
@@ -26,35 +26,43 @@ IUSE="autodiff cgns directdiff librom mixed-precision mkl +mpi mpp openblas open
 
 RDEPEND="
 	${PYTHON_DEPS}
-	cgns? ( sci-libs/cgnslib:= )
+	cgns? ( >=sci-libs/cgnslib-4 )
 	librom? ( sci-libs/libROM )
 	mkl? ( sci-libs/mkl )
 	mpi? (
 		sci-libs/metis
 		virtual/mpi[cxx]
 	)
-	mpp? ( sci-libs/Mutationpp )
+	mpp? ( sci-libs/Mutationpp:= )
 	openblas? ( sci-libs/openblas )
 	parmetis? ( sci-libs/parmetis )
 	pastix? (
 		<sci-libs/pastix-6[mpi?]
 		sci-libs/scotch
 	)
-	python? ( $(python_gen_cond_dep 'dev-python/mpi4py[${PYTHON_USEDEP}]') )
+	python? ( $(python_gen_cond_dep '
+			dev-python/mpi4py[${PYTHON_USEDEP}]
+			dev-python/wxpython[${PYTHON_USEDEP}]
+			dev-python/xlwt[${PYTHON_USEDEP}]
+			dev-python/matplotlib[${PYTHON_USEDEP}]
+			dev-python/scipy[${PYTHON_USEDEP}]
+			dev-python/numpy[${PYTHON_USEDEP}]
+		')
+	)
 "
 DEPEND="
 	${RDEPEND}
 	dev-cpp/catch:0
-	dev-cpp/cli11
+	dev-cpp/cli11:=
 
 	autodiff? (
-		sci-libs/CoDiPack
-		mpi? ( >sci-libs/MeDiPack-1.2 )
-		openmp? ( sci-libs/OpDiLib )
+		sci-libs/CoDiPack:=
+		mpi? ( >sci-libs/MeDiPack-1.2:= )
+		openmp? ( sci-libs/OpDiLib:= )
 	)
 	directdiff? (
-		sci-libs/CoDiPack
-		mpi? ( >sci-libs/MeDiPack-1.2 )
+		sci-libs/CoDiPack:=
+		mpi? ( >sci-libs/MeDiPack-1.2:= )
 	)
 	tecio? ( >=dev-libs/boost-1.76.0:= )
 	test? ( dev-cpp/catch:0 )
@@ -77,6 +85,7 @@ REQUIRED_USE="
 		mpi
 		|| ( openblas mkl )
 	)
+	test? ( mpi python )
 	?? ( openblas mkl )
 	?? ( directdiff pastix )
 "
@@ -85,6 +94,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-7.1.0-fix-env.patch"
 	"${FILESDIR}/${PN}-7.2.0-system-libraries.patch"
 	"${FILESDIR}/${PN}-7.2.0-DESTDIR.patch"
+	"${FILESDIR}/${PN}-7.2.0-fix-headers.patch"
 )
 
 src_unpack() {
@@ -162,9 +172,9 @@ src_test() {
 
 	pushd TestCases/ || die
 	if use mpi ; then
-		if use tutorials ; then
-			${EPYTHON} tutorials.py || die
-		fi
+#		if use tutorials ; then
+#			${EPYTHON} tutorials.py || die
+#		fi
 		${EPYTHON} parallel_regression.py || die
 	else
 		${EPYTHON} serial_regression.py || die

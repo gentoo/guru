@@ -9,7 +9,7 @@ EPYTEST_DESELECT=(
 	tests/test_etcd3.py::TestEtcd3
 	tests/test_etcd3.py::TestAlarms
 )
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
