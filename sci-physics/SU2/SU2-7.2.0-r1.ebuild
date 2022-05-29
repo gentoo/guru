@@ -33,7 +33,7 @@ RDEPEND="
 		sci-libs/metis
 		virtual/mpi[cxx]
 	)
-	mpp? ( sci-libs/Mutationpp )
+	mpp? ( sci-libs/Mutationpp:= )
 	openblas? ( sci-libs/openblas )
 	parmetis? ( sci-libs/parmetis )
 	pastix? (
@@ -85,6 +85,7 @@ REQUIRED_USE="
 		mpi
 		|| ( openblas mkl )
 	)
+	test? ( mpi python )
 	?? ( openblas mkl )
 	?? ( directdiff pastix )
 "
@@ -93,6 +94,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-7.1.0-fix-env.patch"
 	"${FILESDIR}/${PN}-7.2.0-system-libraries.patch"
 	"${FILESDIR}/${PN}-7.2.0-DESTDIR.patch"
+	"${FILESDIR}/${PN}-7.2.0-fix-headers.patch"
 )
 
 src_unpack() {
@@ -170,9 +172,9 @@ src_test() {
 
 	pushd TestCases/ || die
 	if use mpi ; then
-		if use tutorials ; then
-			${EPYTHON} tutorials.py || die
-		fi
+#		if use tutorials ; then
+#			${EPYTHON} tutorials.py || die
+#		fi
 		${EPYTHON} parallel_regression.py || die
 	else
 		${EPYTHON} serial_regression.py || die
