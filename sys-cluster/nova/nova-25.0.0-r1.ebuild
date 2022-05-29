@@ -173,6 +173,8 @@ python_install_all() {
 	diropts -m 0750 -o nova -g qemu
 	dodir /var/log/nova /var/lib/nova/instances
 	diropts -m 0750 -o nova -g nova
+	keepdir /var/log/nova
+	keepdir /var/lib/nova
 
 	insinto /etc/nova
 	insopts -m 0640 -o nova -g nova
