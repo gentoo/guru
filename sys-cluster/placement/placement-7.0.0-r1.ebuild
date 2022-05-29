@@ -86,6 +86,10 @@ python_install_all() {
 	dobin tools/postgresql-migrate-db.sh
 
 	newtmpfiles "${FILESDIR}/placement.tmpfile" placement.conf
+
+	dodir /var/log/placement
+	fperms placement:placement /var/log/placement
+	keepdir /var/log/placement
 }
 
 pkg_postinst() {
