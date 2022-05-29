@@ -1,16 +1,16 @@
 DEFINED_PHASES=configure install setup
-DEPEND=python_single_target_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0= ) python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_single_target_pypy3? ( dev-python/six[python_targets_pypy3(-)] ) python_single_target_python3_8? ( dev-python/six[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/six[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/six[python_targets_python3_10(-)] ) sionlib? ( sys-cluster/sionlibl:= )
+DEPEND=python_single_target_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0= ) python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 ) python_single_target_pypy3? ( dev-python/six[python_targets_pypy3(-)] ) python_single_target_python3_8? ( dev-python/six[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/six[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/six[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/six[python_targets_python3_11(-)] ) sionlib? ( sys-cluster/sionlibl:= )
 DESCRIPTION=highly scalable, memory efficient event trace data format
 EAPI=8
 HOMEPAGE=https://www.vi-hps.org/projects/score-p
 INHERIT=python-single-r1 toolchain-funcs
-IUSE=debug sionlib test python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+IUSE=debug sionlib test python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64
 LICENSE=BSD
-RDEPEND=python_single_target_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0= ) python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_single_target_pypy3? ( dev-python/six[python_targets_pypy3(-)] ) python_single_target_python3_8? ( dev-python/six[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/six[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/six[python_targets_python3_10(-)] ) sionlib? ( sys-cluster/sionlibl:= )
-REQUIRED_USE=^^ ( python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+RDEPEND=python_single_target_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0= ) python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 ) python_single_target_pypy3? ( dev-python/six[python_targets_pypy3(-)] ) python_single_target_python3_8? ( dev-python/six[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/six[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/six[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/six[python_targets_python3_11(-)] ) sionlib? ( sys-cluster/sionlibl:= )
+REQUIRED_USE=^^ ( python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/otf2-2.3/otf2-2.3.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
-_md5_=c6bf963bbcd7197067a4f2c0c74fe6c9
+_md5_=fb377d8bbbe2d607023e340212c7a516

@@ -1,4 +1,4 @@
-BDEPEND=app-admin/chrpath sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 doc? ( || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-python/sphinx[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-python/sphinx[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-python/sphinx[python_targets_python3_8(-)] ) ( >=dev-python/pypy3-7.3.7-r1:0 dev-python/sphinx[python_targets_pypy3(-)] ) ) )
+BDEPEND=app-admin/chrpath sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 doc? ( || ( ( >=dev-lang/python-3.11.0_beta1-r1:3.11 dev-python/sphinx[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-python/sphinx[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-python/sphinx[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-python/sphinx[python_targets_python3_8(-)] ) ( >=dev-python/pypy3-7.3.7-r1:0 dev-python/sphinx[python_targets_pypy3(-)] ) ) )
 DEFINED_PHASES=compile configure install prepare setup unpack
 DEPEND=dev-libs/boost:= dev-libs/openssl sys-cluster/paraver-kernel x11-libs/wxGTK:3.0-gtk3 extrae? ( sys-cluster/extrae )
 DESCRIPTION=Performance analyzer based on event traces
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/boost:= dev-libs/openssl sys-cluster/paraver-kernel x11-libs/wx
 SLOT=0
 SRC_URI=https://github.com/bsc-performance-tools/wxparaver/archive/f357545a2fdfc7674394f2e6192022a4c2139f63.tar.gz -> wxparaver-4.10.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	docs	8ed2a8a28ff109e7a3582c9abb7fe327	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6
-_md5_=8767e57ecab16a0071ac8217ba73425d
+_md5_=655b52b8a3b9feff8f1a8adcc4981157

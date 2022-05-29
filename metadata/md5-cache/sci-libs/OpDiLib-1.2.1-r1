@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install
+DEPEND=examples? ( sci-libs/CoDiPack )
+DESCRIPTION=Open Multiprocessing Differentiation Library
+EAPI=8
+HOMEPAGE=https://github.com/SciCompKL/OpDiLib https://www.scicomp.uni-kl.de/software/opdi/
+INHERIT=toolchain-funcs
+IUSE=examples
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=examples? ( sci-libs/CoDiPack )
+SLOT=0/1.2.1
+SRC_URI=https://github.com/SciCompKL/OpDiLib/archive/refs/tags/v1.2.1.tar.gz -> OpDiLib-1.2.1.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
+_md5_=1044253114828156f172c6272f9df910

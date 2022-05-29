@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install postinst postrm preinst pretend setup
+DEPEND=kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) ) sys-apps/sed kernel_linux? ( virtual/linux-sources virtual/libelf )
+DESCRIPTION=Userspace support for MMU notifications
+EAPI=8
+HOMEPAGE=https://lkml.org/lkml/2010/4/22/172 https://github.com/Portals4/ummunotify
+INHERIT=linux-info linux-mod
+IUSE=dist-kernel
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
+SLOT=0
+SRC_URI=https://github.com/Portals4/ummunotify/raw/master/ummunotify-v2.tar.gz -> ummunotify-2.gh.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	linux-mod	6664f4f4bab4499208eeb02eb4dddf1d
+_md5_=fb5d3da0ea9367cf94024472829b8a97

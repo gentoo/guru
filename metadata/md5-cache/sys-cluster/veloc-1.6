@@ -1,17 +1,17 @@
-BDEPEND=doc? ( >=dev-python/sphinx-4.4.0 ) test? ( comm_queue_ipc? ( dev-libs/boost ) slurm? ( sys-cluster/slurm ) dev-libs/openssl ~sys-cluster/AXL-0.5.0 sys-cluster/er virtual/mpi >=dev-python/pytest-7.0.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) dev-util/ninja >=dev-util/cmake-3.20.5 python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+BDEPEND=doc? ( >=dev-python/sphinx-4.4.0 ) test? ( comm_queue_ipc? ( dev-libs/boost ) slurm? ( sys-cluster/slurm ) dev-libs/openssl ~sys-cluster/AXL-0.5.0 sys-cluster/er virtual/mpi >=dev-python/pytest-7.0.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) dev-util/ninja >=dev-util/cmake-3.20.5 python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=comm_queue_ipc? ( dev-libs/boost ) slurm? ( sys-cluster/slurm ) dev-libs/openssl ~sys-cluster/AXL-0.5.0 sys-cluster/er virtual/mpi
 DESCRIPTION=Very-Low Overhead Checkpointing System
 EAPI=8
 HOMEPAGE=https://github.com/ECP-VeloC/VELOC
 INHERIT=cmake distutils-r1
-IUSE=+comm_queue_ipc comm_queue_socket python +slurm doc test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+IUSE=+comm_queue_ipc comm_queue_socket python +slurm doc test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=comm_queue_ipc? ( dev-libs/boost ) slurm? ( sys-cluster/slurm ) dev-libs/openssl ~sys-cluster/AXL-0.5.0 sys-cluster/er virtual/mpi python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
-REQUIRED_USE=^^ ( comm_queue_ipc comm_queue_socket ) || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=comm_queue_ipc? ( dev-libs/boost ) slurm? ( sys-cluster/slurm ) dev-libs/openssl ~sys-cluster/AXL-0.5.0 sys-cluster/er virtual/mpi python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 )
+REQUIRED_USE=^^ ( comm_queue_ipc comm_queue_socket ) || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ECP-VeloC/VELOC/archive/refs/tags/1.6.tar.gz -> veloc-1.6.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	multibuild	d26d81f242cb193d899a72bca423d0bd	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	3b871cf4724e3abc9b4ff059289f0d45
-_md5_=2722f9a36097e211391fe44c2fbbeca0
+_md5_=94cbc634811b76f30a6eb2f842db020c

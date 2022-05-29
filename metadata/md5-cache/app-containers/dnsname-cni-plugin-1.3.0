@@ -12,4 +12,4 @@ RESTRICT=mirror test strip
 SLOT=0
 SRC_URI=https://github.com/containers/dnsname/archive/refs/tags/v1.3.0.tar.gz -> dnsname-cni-plugin-1.3.0.tar.gz https://github.com/ran-dall/portage-deps/raw/master/dnsname-cni-plugin-1.3.0-deps.tar.xz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	go-module	a13d34fe4e2996720e1ca6c53b9ea95a
-_md5_=159df8d612387d23820ed9dbf6de2d85
+_md5_=bb7010dcda0512c2b44297f73d7fa742

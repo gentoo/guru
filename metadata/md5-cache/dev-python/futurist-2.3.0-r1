@@ -1,17 +1,17 @@
-BDEPEND=test? ( >=dev-python/pbr-2.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/six-1.10.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/pytest-7.0.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+BDEPEND=test? ( >=dev-python/pbr-2.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/six-1.10.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pytest-7.0.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-python/pbr-2.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/six-1.10.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] test? ( >=dev-python/subunit-1.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/oslotest-3.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/testscenarios-0.4[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/testtools-2.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/prettytable-0.7.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?] )
+DEPEND=>=dev-python/pbr-2.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/six-1.10.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] test? ( >=dev-python/subunit-1.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/oslotest-3.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/testscenarios-0.4[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/testtools-2.2.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/prettytable-0.7.1[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
 DESCRIPTION=Useful additions to futures, from the future
 EAPI=8
 HOMEPAGE=https://opendev.org/openstack/futurist https://pypi.org/project/futurist/ http://docs.openstack.org/developer/futurist
 INHERIT=distutils-r1
-IUSE=test python_targets_python3_8 python_targets_python3_9
+IUSE=test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
-RDEPEND=>=dev-python/pbr-2.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] >=dev-python/six-1.10.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 )
-REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+RDEPEND=>=dev-python/pbr-2.0.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/six-1.10.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/f/futurist/futurist-2.3.0.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	3b871cf4724e3abc9b4ff059289f0d45
-_md5_=1cd4cfbded3bf031bb967094d14daf44
+_md5_=1b0c7bc0f527e4acbcf25352aeddda39

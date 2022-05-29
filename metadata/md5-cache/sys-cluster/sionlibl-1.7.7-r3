@@ -1,6 +1,6 @@
 BDEPEND=doc? ( app-doc/doxygen ) fortran? ( virtual/fortran )
 DEFINED_PHASES=compile configure install setup
-DEPEND=mpi? ( virtual/mpi ) ompi? ( || ( sys-devel/gcc:*[openmp] sys-libs/libomp ) virtual/mpi ) openmp? ( || ( sys-devel/gcc:*[openmp] sys-libs/libomp ) ) sionfwd? ( sys-cluster/SIONfwd ) || ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 >=dev-python/pypy3-7.3.7-r1:0 ) fortran? ( virtual/fortran )
+DEPEND=mpi? ( virtual/mpi ) ompi? ( || ( sys-devel/gcc:*[openmp] sys-libs/libomp ) virtual/mpi ) openmp? ( || ( sys-devel/gcc:*[openmp] sys-libs/libomp ) ) sionfwd? ( sys-cluster/SIONfwd ) || ( >=dev-lang/python-3.11.0_beta1-r1:3.11 >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 >=dev-python/pypy3-7.3.7-r1:0 ) fortran? ( virtual/fortran )
 DESCRIPTION=Scalable I/O library for parallel access to task-local files
 EAPI=8
 HOMEPAGE=https://www.fz-juelich.de/ias/jsc/EN/Expertise/Support/Software/SIONlib/_node.html
@@ -13,4 +13,4 @@ REQUIRED_USE=?? ( hostname-regex deep-est-sdv )
 SLOT=0
 SRC_URI=http://apps.fz-juelich.de/jsc/sionlib/download.php?version=1.7.7l -> sionlibll-1.7.7.tar.gz
 _eclasses_=docs	8ed2a8a28ff109e7a3582c9abb7fe327	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
-_md5_=083edd3202ebac5c07428f83bf4e319f
+_md5_=88fec54cfb3ec6ce4351d66951a0d2d4

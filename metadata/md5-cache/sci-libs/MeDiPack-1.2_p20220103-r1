@@ -1,0 +1,10 @@
+BDEPEND=sys-devel/gsl
+DEFINED_PHASES=compile install prepare
+DESCRIPTION=Message Differentiation Package
+EAPI=8
+HOMEPAGE=https://github.com/SciCompKL/MeDiPack https://www.scicomp.uni-kl.de/software/medi/
+KEYWORDS=~amd64
+LICENSE=GPL-3
+SLOT=0/1.2_p20220103
+SRC_URI=https://github.com/SciCompKL/MeDiPack/archive/25f757b4b20372b099190845392a5e08eadf0eb1.tar.gz -> MeDiPack-1.2_p20220103-r1.tar.gz
+_md5_=afcf70d63fb82053e16182fcb13e94a2

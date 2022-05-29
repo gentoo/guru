@@ -436,7 +436,6 @@ sci-biology/cmdock:boinc - Use CmDock with SiDock@home BOINC project
 sci-libs/ButterflyPACK:arpack - Use arpack as dependency
 sci-libs/ButterflyPACK:magma - Use magma as dependency
 sci-libs/CoDiPack:tutorials - Build the tutorials
-sci-libs/MeDiPack:tutorials - Build the tutorials
 sci-libs/STRUMPACK:butterflypack - ButterflyPACK code by Yang Liu
 sci-libs/STRUMPACK:combblas - Use CombBLAS for weighted matching
 sci-libs/STRUMPACK:count-flops - Build with flop counters

@@ -1,0 +1,13 @@
+BDEPEND=doc? ( app-doc/doxygen )
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=Lightweight, Stackless Threads in C
+EAPI=8
+HOMEPAGE=https://web.archive.org/web/20190923093100/http://dunkels.com/adam/pt/
+INHERIT=toolchain-funcs
+IUSE=doc examples
+KEYWORDS=~amd64
+LICENSE=BSD
+SLOT=0/1.4
+SRC_URI=https://web.archive.org/web/20190518175329/http://dunkels.com/adam/download/pt-1.4.tar.gz -> protothreads-1.4.tar https://web.archive.org/web/20190518175329/http://dunkels.com/adam/download/graham-pt.h
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
+_md5_=2aff4bb240ba97f300c9ebba439a0755
