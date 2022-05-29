@@ -6,7 +6,7 @@ EAPI=8
 COMMIT="1e4c5061d328105c4dcfcb6fdbc27ec49b3e9d23"
 DISTUTILS_IN_SOURCE_BUILD=1
 EMESON_SOURCE="${S}/libpsautohint"
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit meson distutils-r1
 
