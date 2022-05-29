@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,11 +10,11 @@ HOMEPAGE="
 	http://lodev.org/lodepng
 	https://github.com/lvandeve/lodepng
 "
-SRC_URI="https://github.com/lvandeve/lodepng/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT}.tar.gz"
+SRC_URI="https://github.com/lvandeve/lodepng/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT}.gh.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="ZLIB"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="benchmark pngdetail showpng test"
 
