@@ -12,5 +12,5 @@ RDEPEND=app-vim/nerdtree dev-vcs/git || ( >=app-editors/vim-7.3 >=app-editors/gv
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Xuyuanp/nerdtree-git-plugin/archive/e1fe727127a813095854a5b063c15e955a77eafb.tar.gz -> nerdtree-git-20210818.tar.gz
-_eclasses_=vim-doc	e063cddf18e5d2f2cfb21388252579ec	vim-plugin	a7b5f19bc94a311ca1cf7127c8b84c41
+_eclasses_=vim-doc	f088862726f2bc672c57b1063b81ec52	vim-plugin	89bf54501de4a75f241062d5a56e787f
 _md5_=d1296a2799e07815aac66bddfb3fd40e
