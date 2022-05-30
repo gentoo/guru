@@ -44,6 +44,10 @@ RDEPEND="
 	yogrt? ( sys-cluster/libyogrt[slurm?] )
 "
 DEPEND="${RDEPEND}"
+BDEPEND="
+	app-admin/chrpath
+	app-misc/pax-utils
+"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.0_pre2-shared-libscr_base.patch"
@@ -103,6 +107,9 @@ src_compile() {
 
 src_install() {
 	cmake_src_install
+	for i in $(scanelf -RBF %F "${ED}/usr/bin/") ; do
+		chrpath -d "${i}" || die
+	done
 #	find "${ED}" -name '*.a' -delete || die
 }
 
