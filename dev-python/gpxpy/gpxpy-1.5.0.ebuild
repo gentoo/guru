@@ -12,7 +12,7 @@ HOMEPAGE="
 	https://github.com/tkrajina/gpxpy
 	https://pypi.org/project/gpxpy/
 "
-SRC_URI="https://github.com/tkrajina/gpxpy/archive/v${PV}.tar.gz  -> ${P}.tar.gz"
+SRC_URI="https://github.com/tkrajina/gpxpy/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
