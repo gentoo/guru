@@ -1,15 +1,15 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install test unpack
+DEFINED_PHASES=compile install test
 DEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 )
 DESCRIPTION=Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
 EAPI=8
 HOMEPAGE=https://github.com/scottchiefbaker/dool
-INHERIT=python-r1 git-r3
+INHERIT=python-r1
 IUSE=doc examples python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~alpha ~amd64 ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-linux
 LICENSE=GPL-2
-PROPERTIES=live
 RDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 )
 REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 SLOT=0
-_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+SRC_URI=https://github.com/scottchiefbaker/dool/archive/6b89f2d0b6e38e1c8d706e88a12e020367f5100d.tar.gz -> dool-1.0.0.tar.gz
+_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1
 _md5_=bf4b27e4a785125e26176ceaed48079e

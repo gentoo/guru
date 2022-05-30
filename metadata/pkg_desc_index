@@ -190,7 +190,7 @@ app-shells/zsh-async 1.8.5 1.8.5_p20211005: Run multiple asynchronous jobs with 
 app-shells/zsh-autosuggestions 0.6.4 0.7.0-r1: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
 app-shells/zsh-history-substring-search 1.0.2: ZSH port of Fish history search (up arrow)
-app-shells/zsh-history-to-fish 0.3.0: Bring your ZSH history to Fish shell
+app-shells/zsh-history-to-fish 0.3.0-r1: Bring your ZSH history to Fish shell
 app-shells/zsh-silver 9999: Zsh plugin for silver
 app-text/OCRmyPDF 13.2.0 13.4.0 13.4.1 13.4.3 13.4.6: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/cmark-gfm 0.29.0.0 0.29.0.3: GitHub's fork of cmark
@@ -595,8 +595,8 @@ dev-python/castellan 3.11.0: Generic Key Manager interface for OpenStack
 dev-python/celery 5.2.6: Asynchronous task queue/job queue based on distributed message passing
 dev-python/cffsubr 0.2.8 0.2.9_p1: Standalone CFF subroutinizer based on AFDKO tx tool
 dev-python/check-manifest 0.46: Tool to check the completeness of MANIFEST.in for Python packages
-dev-python/click-didyoumean 0.0.3 0.3.0: Enable git-like did-you-mean feature in click
-dev-python/click-repl 0.2.0: Subcommand REPL for click apps
+dev-python/click-didyoumean 0.3.0: Enable git-like did-you-mean feature in click
+dev-python/click-repl 0.2.0-r1: Subcommand REPL for click apps
 dev-python/clickgen 1.1.9: X11 & Windows cursor building API
 dev-python/clufter 0.77.2: Tool/library for transforming/analyzing cluster configuration formats
 dev-python/cmarkgfm 0.6.0 2022.3.4: Python bindings for GitHub's cmark
@@ -607,7 +607,7 @@ dev-python/compreffor 0.5.1_p1: A CFF table subroutinizer for FontTools
 dev-python/confluent-kafka 1.8.2-r1: Confluent's Kafka Python Client
 dev-python/convertdate 2.3.2 2.4.0: Utils for converting between date formats and calculating holidays
 dev-python/cotyledon 1.7.3: Cotyledon provides a framework for defining long-running services
-dev-python/cu2qu 1.6.7: Cubic-to-quadratic bezier curve conversion
+dev-python/cu2qu 1.6.7-r1: Cubic-to-quadratic bezier curve conversion
 dev-python/curio 0.9 1.4-r1 1.5: Curio is a coroutine-based library for concurrent systems programming
 dev-python/cursive 0.2.2-r2: Cursive implements OpenStack-specific validation of digital signatures
 dev-python/cx-oracle 8.2.1: Python interface to Oracle
@@ -638,7 +638,7 @@ dev-python/fontMath 0.9.1 0.9.2: A collection of objects that implement fast fon
 dev-python/fontParts 0.10.4 0.10.5: An API for interacting with the parts of fonts
 dev-python/fontPens 0.2.4: A collection of classes implementing the pen protocol for manipulating glyphs
 dev-python/futurist 2.3.0-r1: Useful additions to futures, from the future
-dev-python/gabbi 2.4.0 2.7.1: Declarative HTTP testing library
+dev-python/gabbi 2.7.1: Declarative HTTP testing library
 dev-python/gbinder 1.0.0 9999: Python bindings for libgbinder
 dev-python/gemcall 0.8: A library and CLI tool for making gemini requests
 dev-python/gflanguages 0.4.0: A python API for evaluating language support in the Google Fonts collection
@@ -646,12 +646,12 @@ dev-python/github-sublee-glicko2 0_pre20191010-r1: An implementation of the Glic
 dev-python/glance_store 3.0.0-r1 4.0.0: A library for glance
 dev-python/glicko2 2.0.0: glicko2 implementation in python
 dev-python/glyphsLib 6.0.4 6.0.5: A library to provide a bridge from Glyphs source files to UFOs
-dev-python/glyphsets 0.4.0 0.5.0: A python API for evaluating coverage of glyph sets in font projects
+dev-python/glyphsets 0.5.0: A python API for evaluating coverage of glyph sets in font projects
 dev-python/glyphtools 0.7.4 0.8.0: Routines for extracting information from fontTools glyphs
 dev-python/gnocchi 4.4.1 4.4.2: Timeseries database
 dev-python/google-cloud-storage 1.36.0: Google Cloud Storage API client library
 dev-python/googletrans 4.0.0_rc1: Free Google Translate API for Python. Translates totally free of charge.
-dev-python/googletransx 2.4.2-r1: Free Google Translate API for Python. Translates totally free of charge.
+dev-python/googletransx 2.4.2-r2: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/gpxpy 1.4.2 1.5.0: GPX file parser and GPS track manipulation library
 dev-python/graphene 3.0.0_beta7 3.0.0: GraphQL Framework for Python
 dev-python/graphql-core 3.1.5 3.1.6: GraphQL for Python
@@ -660,7 +660,7 @@ dev-python/grpclib 0.4.2 0.4.3_rc2: Pure-Python gRPC implementation for asyncio
 dev-python/guidata 2.1.1: Library for user interfaces for easy dataset editing and display
 dev-python/hidapi 0.10.1 0.11.0.2: A Cython interface to the hidapi
 dev-python/hijri-converter 2.2.3 2.2.4: Accurate Hijri-Gregorian date converter based on the Umm al-Qura calendar
-dev-python/hstspreload 2021.10.1 2021.12.1: Chromium HSTS Preload list as a Python package
+dev-python/hstspreload 2021.12.1: Chromium HSTS Preload list as a Python package
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/hunter 3.3.8 3.4.3: Hunter is a flexible code tracing toolkit
 dev-python/hwi 1.2.1 2.0.2: Library and command line tool for interacting with hardware wallets
@@ -704,7 +704,7 @@ dev-python/os-api-ref 2.3.0: Sphinx Extensions to support API reference sites in
 dev-python/os-brick 5.2.0: OpenStack Cinder brick library for managing local volume attaches
 dev-python/os-ken 2.3.1 2.4.0: OpenStack Cinder brick library for managing local volume attaches
 dev-python/os-resource-classes 1.1.0: A list of standardized resource classes for OpenStack
-dev-python/os-testr 2.0.1 3.0.0: A testr wrapper to provide functionality for OpenStack projects
+dev-python/os-testr 3.0.0: A testr wrapper to provide functionality for OpenStack projects
 dev-python/os-traits 2.7.0: os-traits is a library containing standardized trait strings
 dev-python/os-vif 2.7.1 2.8.0: OpenStack Cinder brick library for managing local volume attaches
 dev-python/os-win 5.6.0 5.7.0: Windows / Hyper-V library for OpenStack projects
@@ -734,7 +734,7 @@ dev-python/phx-class-registry 3.0.5: An intersection of the Registry and Factory
 dev-python/pifpaf 3.1.5: Python fixtures and daemon managing tools for functional testing
 dev-python/pip-api 0.0.26 0.0.29: An unofficial, importable pip API
 dev-python/playsound 1.3.0: Single function module with no dependencies for playing sounds.
-dev-python/portio 0.5: Python low level port I/O for Linux x86
+dev-python/portio 0.5-r1: Python low level port I/O for Linux x86
 dev-python/pproxy 2.7.8: TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio
 dev-python/praw 7.5.0: Python Reddit API Wrapper
 dev-python/prawcore 2.3.0: Low-level communication layer for PRAW
@@ -802,7 +802,7 @@ dev-python/python-monascaclient 2.5.0: A client for the OpenStack Monasca API
 dev-python/python-multipart 0.0.5: A streaming multipart parser for Python
 dev-python/python-octaviaclient 2.5.0: A client for the Octavia Load Balancing
 dev-python/python-pidfile 3.0.0: PIDFile context processor. Supported py2 and py3
-dev-python/python-pkcs11 0.7.0: PKCS#11 (Cryptoki) support for Python
+dev-python/python-pkcs11 0.7.0-r1: PKCS#11 (Cryptoki) support for Python
 dev-python/python-qpid-proton 0.37.0: An AMQP based messaging library
 dev-python/python-saharaclient 3.5.0: This is a client for the OpenStack Sahara API, aka HADOOP
 dev-python/python-senlinclient 2.4.0: A client for the OpenStack Senlin API
@@ -826,14 +826,14 @@ dev-python/rst2ansi 0.1.5: Render reStructuredText documents to the terminal
 dev-python/rstcheck 3.3.1: Checks syntax of reStructuredText and code blocks nested within it
 dev-python/rstr 3.1.0: Easily generate random strings of various types
 dev-python/ryu 4.34: Component-based Software-defined Networking Framework
-dev-python/schedule 1.1.0: Python job scheduling for humans
+dev-python/schedule 1.1.0-r1: Python job scheduling for humans
 dev-python/scramp 1.4.1: A pure-Python implementation of the SCRAM authentication protocol.
 dev-python/scrapy 2.5.1: A high-level Web Crawling and Web Scraping framework
 dev-python/sdnotify 0.3.2: Python implementation of the systemd sd_notify protocol
 dev-python/sentence-splitter 1.4-r1: Sentence splitter using heuristic algorithm by Philipp Koehn and Josh Schroeder
 dev-python/simplemma 0.6.0: A simple multilingual lemmatizer for Python.
 dev-python/skia-pathops 0.6.0_p2 0.7.2: Python bindings for the Skia Path Ops
-dev-python/skills 0.3.0: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
+dev-python/skills 0.3.0-r1: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/sortedcollections 2.1.0: Apache2 licensed Python sorted collections library
 dev-python/sphinx-argparse 0.3.1: Sphinx extension that automatically documents argparse commands and options
 dev-python/sphinx-argparse-cli 1.8.2: Render CLI arguments (sub-commands friendly) defined by argparse module
@@ -925,7 +925,7 @@ dev-util/mh 1.0.3: Generate help for Makefile
 dev-util/osc 0.173.0 9999: Command line tool for Open Build Service
 dev-util/ots 8.1.4 8.2.1: An util for validating and sanitising OpenType files
 dev-util/pmbootstrap 1.43.1 1.44.1: Helper tool for developing and building postmarketOS
-dev-util/psautohint 2.3.0 2.4.0: A standalone version of AFDKO autohinter
+dev-util/psautohint 2.4.0: A standalone version of AFDKO autohinter
 dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's OpenGL Shader Builder
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
@@ -941,7 +941,7 @@ dev-vcs/bit 1.1.1 1.1.2: Bit is a modern Git CLI
 dev-vcs/git-blame-someone-else 0_pre20180613: Blame someone else for your bad code.
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
 dev-vcs/git-repair 1.20210629: repairs a damaged git repository
-dev-vcs/git-repo-updater 0.5.1-r1: Easily update multiple git repositories at once
+dev-vcs/git-repo-updater 0.5.1-r2: Easily update multiple git repositories at once
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
 dev-vcs/gitqlient 1.4.3 9999: Multi-platform Git client written with Qt
 dev-vcs/gitui 0.18.0 0.20.1: Blazing fast terminal-ui for git
@@ -1100,7 +1100,7 @@ media-gfx/oxipng 3.0.1 4.0.3 5.0.0 5.0.1: A lossless PNG compression optimizer
 media-gfx/qview 4.0 5.0: Practical and minimal image viewer
 media-gfx/sic 0.19.0: Accessible image processing and conversion from the terminal tool.
 media-gfx/silicon 0.4.0 0.4.1 0.4.3: Create beautiful image of your code
-media-gfx/superslicer 2.2.53.4-r1 2.3.57.7-r1 2.3.57.9-r1 2.3.57.10 2.3.57.11 2.3.57.12: A mesh slicer to generated G-Code for fused-filament fabrication
+media-gfx/superslicer 2.2.53.4-r1 2.3.57.12: A mesh slicer to generated G-Code for fused-filament fabrication
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-gfx/ufolint 1.2.0: UFO source format linter
 media-gfx/zw3d 2022.26.00: CAD/CAM software for 3D design and processing
@@ -1109,15 +1109,15 @@ media-libs/alvr 15.2.1_p20210604 16.0.0: ALVR is an open source remote VR displa
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.4.2: AMD Open Source Driver for Vulkan
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
 media-libs/grok 9.7.6: World's Leading Open Source JPEG 2000 Codec
-media-libs/imgui 1.83 1.87-r5: Bloat-free graphical user interface library for C++
+media-libs/imgui 1.83 1.87-r6: Bloat-free graphical user interface library for C++
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
-media-libs/lodepng 20210627: PNG encoder and decoder
+media-libs/lodepng 20210627-r1: PNG encoder and decoder
 media-libs/monado 9999: The open source OpenXR runtime.
 media-libs/openxr-loader 1.0.20 9999: OpenXR loader
 media-libs/portsmf 239 9999: C++ library for Standard Midi Files (SMF)
 media-libs/sjpeg 1.0_p20210422-r1: simple jpeg encoder
-media-libs/skcms 0_pre20211006: A complete 2D graphic library for drawing Text, Geometries, and Images
-media-libs/skia 97 97-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
+media-libs/skcms 0_pre20211006-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
+media-libs/skia 97-r2: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-libs/svt-hevc 1.5.0 1.5.1 9999: Scalable Video Technology for HEVC (SVT-HEVC Encoder)
 media-libs/svt-vp9 0.3.0 9999: Scalable Video Technology for VP9 (SVT-VP9 Encoder)
 media-libs/vips 8.10.6: VIPS Image Processing Library
@@ -1254,7 +1254,7 @@ net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.15 0.4.3 9999: An experiment in scalable routing as an encrypted IPv6 overlay network
 net-print/hpuld 1.00.39.15.00.23: HP Unified Linux Driver (for samsung hardware)
 net-proxy/toxiproxy 2.4.0-r1: A TCP proxy for chaos and resiliency testing
-net-voip/discover-overlay 0.3.3 0.4.5 0.5.1: Yet another Discord overlay for Linux written in Python using GTK3
+net-voip/discover-overlay 0.3.3 0.4.5 0.5.2: Yet another Discord overlay for Linux written in Python using GTK3
 net-voip/gnome-calls 42.0: Phone dialer and call handler
 net-voip/vvmd 0.8: vvmd is a lower level daemon that retrieves Visual Voicemail
 net-wireless/iwdgui 0.1.0 0.2.0: A graphical frontend for IWD, Intel's iNet Wireless Daemon
@@ -1332,7 +1332,7 @@ sci-mathematics/minisat+ 2007.01.05: solver for pseudo-Boolean constraints
 sci-mathematics/minisatp 0.1_p20121002: solver for pseudo-Boolean constraints
 sci-mathematics/packup 0.6: PACKage Upgradability Problem solver
 sci-mathematics/qepcad 1.72b_p20220502-r2: Quantifier Elimination by Partial Cylindrical Algebraic Decomposition
-sci-mathematics/radian 0.6.1 0.6.3: A 21 century R console
+sci-mathematics/radian 0.6.3: A 21 century R console
 sci-mathematics/the-omega-project 2.1_p20131119: Tools from Pugh et al.'s for constraint-based compiler tools
 sci-misc/boinc-wrapper 7.16.17 7.16.17-r1: Wrapper to use non-BOINC apps with BOINC
 sci-physics/SU2 7.2.0 7.2.0-r1: SU2: An Open-Source Suite for Multiphysics Simulation and Design
@@ -1346,7 +1346,7 @@ sys-apps/0xFFFF 0.8 0.9: The 0pen Free Fiasco Firmware Flasher
 sys-apps/CommsPowerManagement 0.2.1: Python library providing various tools to work with Intel processors
 sys-apps/asus-numpad 0.1 9999: User-space driver for Asus numpad
 sys-apps/bustd 0.1.1: Process killer daemon for out-of-memory scenarios
-sys-apps/dool 0.8_pre20191010-r1 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
+sys-apps/dool 1.0.0 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
 sys-apps/drm_info 2.2.0 2.3.0 9999: Small utility to dump info about DRM devices
 sys-apps/dust 0.5.4 0.6.2 0.7.5 0.8.0: A more intuitive version of du
 sys-apps/fchroot 0.1.2: Funtoo's franken-chroot tool - chroot from AMD64 to ARM system
@@ -1365,7 +1365,7 @@ sys-apps/sd 0.7.6-r1: Intuitive find & replace CLI (sed alternative)
 sys-apps/sdate 0.7: Wrapper program to output dates like the Eternal September 1993
 sys-apps/systemd-bootchart 234: systemd boot performance graphing tool
 sys-apps/sysz 1.4.1 1.4.3: An fzf terminal UI for systemctl
-sys-auth/keystone 21.0.0-r1: The Openstack authentication, authorization, and service catalog
+sys-auth/keystone 21.0.0-r2: The Openstack authentication, authorization, and service catalog
 sys-auth/mrsh 2.12 2.12-r1: Mrsh is a set of remote shell programs that use munge authentication.
 sys-auth/pam-gnupg 0.3: Unlock GnuPG keys on login
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
@@ -1389,7 +1389,7 @@ sys-cluster/er 0.1.0 0.3.0: High-level distributed erasure coding lib combining 
 sys-cluster/extrae 3.8.3-r10: Instrumentation framework to generate execution traces of parallel runtimes
 sys-cluster/fti 1.6-r1: Fault Tolerance Interface
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
-sys-cluster/heat 18.0.0: A CloudFormation-compatible openstack-native cloud orchestration engine
+sys-cluster/heat 18.0.0-r1: A CloudFormation-compatible openstack-native cloud orchestration engine
 sys-cluster/launchmon 1.0.2_p20210430-r2: Enables HPC run-time tools to co-locate tool daemons with a parallel job
 sys-cluster/libbsctools 1.0.6-r2: libbsctools
 sys-cluster/libi 5.0.1_p20180510-r2: A framework for bootstrapping extreme scale software systems
@@ -1409,7 +1409,7 @@ sys-cluster/parallel-netcdf 1.12.2: Parallel extension to netCDF
 sys-cluster/paraver-kernel 4.9.0: paraver kernel library
 sys-cluster/parsec 3.0.2012: Parallel Runtime Scheduler and Execution Controller
 sys-cluster/pcs 0.10.8-r3 0.11.2: Pacemaker/Corosync Configuration System
-sys-cluster/placement 7.0.0: A HTTP service for managing, selecting, and claiming cloud resources
+sys-cluster/placement 7.0.0-r1: A HTTP service for managing, selecting, and claiming cloud resources
 sys-cluster/portals4 1.0_alpha1_p20190109-r3: low-level network API for high-performance networking
 sys-cluster/psort 1.0: Parallel sorting code for distributed and shared memory architectures
 sys-cluster/rankstr 0.1.0 0.2.0: Split an MPI communicator into subcomms based on string values
@@ -1420,7 +1420,7 @@ sys-cluster/sionlib 1.7.7-r4: Scalable I/O library for parallel access to task-l
 sys-cluster/sionlibl 1.7.7-r3: Scalable I/O library for parallel access to task-local files
 sys-cluster/spath 0.1.0 0.2.0: Path manipulation functions
 sys-cluster/spectral 3.4.1-r1: Signal processing to select representative regions from Paraver traces
-sys-cluster/swift 2.29.1-r1: A highly available, distributed, and eventually consistent object/blob store
+sys-cluster/swift 2.29.1-r2: A highly available, distributed, and eventually consistent object/blob store
 sys-cluster/synapse 2.0.1-r1: synapse
 sys-cluster/temanejo 1.3: a debugger for task-parallel programming
 sys-cluster/usort 0_pre20211230-r1: Fast distributed sorting routines using MPI and OpenMP

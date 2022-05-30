@@ -10,7 +10,7 @@ KEYWORDS=~amd64
 LICENSE=MIT
 RDEPEND=dev-libs/stb:= allegro? ( media-libs/allegro:5 ) freetype? ( media-libs/freetype ) glfw? ( media-libs/glfw:0 ) glut? ( media-libs/freeglut ) opengl? ( virtual/opengl ) sdl? ( media-libs/libsdl2 ) vulkan? ( media-libs/vulkan-loader )
 REQUIRED_USE=|| ( allegro glfw glut sdl ) || ( allegro opengl vulkan )
-SLOT=0
-SRC_URI=https://github.com/ocornut/imgui/archive/v1.87.tar.gz -> imgui-1.87.tar.gz https://github.com/cimgui/cimgui/archive/refs/tags/1.87.tar.gz -> cimgui-1.87.tar.gz
+SLOT=0/1.87
+SRC_URI=https://github.com/ocornut/imgui/archive/v1.87.tar.gz -> imgui-1.87.gh.tar.gz https://github.com/cimgui/cimgui/archive/refs/tags/1.87.tar.gz -> cimgui-1.87.gh.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
-_md5_=0abeda517b146eaba2d4584b59e1927b
+_md5_=1953542eb24b51d183efb65ae1ea9ed2
