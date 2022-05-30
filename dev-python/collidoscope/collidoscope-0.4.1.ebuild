@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="Brute force detection of glyph collisions"
 HOMEPAGE="https://github.com/simoncozens/collidoscope"
-SRC_URI="https://github.com/simoncozens/collidoscope/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/simoncozens/collidoscope/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 KEYWORDS="~amd64"
