@@ -1161,13 +1161,15 @@ media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/trakt-scrobbler 1.3.2 1.4.0 1.4.2: Scrobbler for trakt.tv that supports VLC, Plex, MPC-HC, and MPV
 media-video/uxplay 1.50a 1.52: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
-mpv-plugin/autoload 0.33.1: Loads playlist entries before and after the the currently played file
+mpv-plugin/SmartCopyPaste 3.1: Gives mpv the capability to copy and paste while being smart and customizable
+mpv-plugin/autoload 0.33.1 0.34.1: Loads playlist entries before and after the the currently played file
 mpv-plugin/autosubsync-mpv 20220402: Automatic subtitle synchronization script for mpv media player
 mpv-plugin/kde-do-not-disturb 20220109: Disable the notifications while mpv is running
 mpv-plugin/kde-night-color 20220109: Disable Night Color while mpv is running
 mpv-plugin/mpv-autosub 20210629: Fully automatic subtitle downloading for the MPV media player
 mpv-plugin/mpv-mpris 0.7 0.7.1 0.7.1-r1 9999: MPRIS plugin for mpv
 mpv-plugin/mpv-plugin-xrandr 20190523-r1: Automatically invoke the xrandr to set the parameters for the display output
+mpv-plugin/mpv-youtube-upnext 20210620: A userscript that allows you to play "up next"/recommended youtube videos
 mpv-plugin/mpv_thumbnail_script 0.4.8: A Lua script to show preview thumbnails in mpv's OSC seekbar
 net-analyzer/munin-contrib 0.2021.04.27: user contributed stuff related to munin
 net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various plugins for Munin
@@ -1254,7 +1256,7 @@ net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.3.15 0.4.3 9999: An experiment in scalable routing as an encrypted IPv6 overlay network
 net-print/hpuld 1.00.39.15.00.23: HP Unified Linux Driver (for samsung hardware)
 net-proxy/toxiproxy 2.4.0-r1: A TCP proxy for chaos and resiliency testing
-net-voip/discover-overlay 0.3.3 0.4.5 0.5.2: Yet another Discord overlay for Linux written in Python using GTK3
+net-voip/discover-overlay 0.3.3 0.4.5 0.5.3: Yet another Discord overlay for Linux written in Python using GTK3
 net-voip/gnome-calls 42.0: Phone dialer and call handler
 net-voip/vvmd 0.8: vvmd is a lower level daemon that retrieves Visual Voicemail
 net-wireless/iwdgui 0.1.0 0.2.0: A graphical frontend for IWD, Intel's iNet Wireless Daemon
@@ -1460,7 +1462,7 @@ sys-power/fan2go 0.6.2 0.6.2-r1: A simple daemon providing dynamic fan speed con
 sys-power/gtherm 0.0.3: A simple daemon to monitor thermal zones and cooling devices
 sys-power/gwe 0.15.3 0.15.5: NVIDIA settings alternative with overclocking, fan control, and information
 sys-power/tlp 1.5.0: Optimize laptop battery life
-sys-process/btop 1.2.6: A monitor of resources
+sys-process/btop 1.2.7: A monitor of resources
 sys-process/gotop 4.1.3: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/nq 0.4: Unix command line queue utility
 sys-process/nvtop 1.2.2 2.0.1-r1 9999: NVIDIA GPUs htop like monitoring tool
