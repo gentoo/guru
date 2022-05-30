@@ -109,7 +109,7 @@ python_install_all() {
 
 	dodir /var/log/swift
 	keepdir /var/log/swift
-	fperms swift:swift /var/log/swift
+	fowners swift:swift /var/log/swift
 
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/openstack-swift.logrotate" swift
