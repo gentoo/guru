@@ -11,8 +11,9 @@ inherit distutils-r1
 
 DESCRIPTION="Standalone CFF subroutinizer based on AFDKO tx tool"
 HOMEPAGE="https://github.com/adobe-type-tools/cffsubr"
-SRC_URI="https://github.com/adobe-type-tools/cffsubr/archive/refs/tags/v${MYPV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/adobe-type-tools/cffsubr/archive/refs/tags/v${MYPV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${PN}-${MYPV}"
+
 KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
 SLOT="0"
