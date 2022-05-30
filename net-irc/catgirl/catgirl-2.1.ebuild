@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit readme.gentoo-r1 toolchain-funcs
+inherit edo readme.gentoo-r1 toolchain-funcs
 
 DESCRIPTION="TLS-only terminal IRC client"
 HOMEPAGE="https://git.causal.agency/catgirl/about/"
@@ -23,11 +23,10 @@ BDEPEND="virtual/pkgconfig"
 DOCS=( README.7 scripts/chat.tmux.conf )
 
 src_configure() {
-	# note: not an autoconf configure script
-	./configure \
-		--prefix="${EPREFIX}"/usr \
-		--mandir="${EPREFIX}"/usr/share/man || die
 	tc-export CC
+
+	# note: not an autoconf configure script
+	edo ./configure --prefix="${EPREFIX}"/usr --mandir="${EPREFIX}"/usr/share/man
 }
 
 src_compile() {
