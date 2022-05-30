@@ -9,7 +9,8 @@ inherit distutils-r1
 
 DESCRIPTION="Python library for manipulating OpenType font features"
 HOMEPAGE="https://github.com/simoncozens/fontFeatures"
-SRC_URI="https://github.com/simoncozens/fontFeatures/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/simoncozens/fontFeatures/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+
 KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"
