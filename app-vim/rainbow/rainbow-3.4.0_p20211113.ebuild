@@ -1,7 +1,7 @@
 # Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit readme.gentoo-r1 vim-plugin
 
@@ -18,7 +18,6 @@ KEYWORDS="~amd64 ~x86"
 VIM_PLUGIN_HELPFILES="rainbow"
 
 src_install() {
-	rm -r tests || die
 	vim-plugin_src_install
 	readme.gentoo_create_doc
 }
