@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit edo toolchain-funcs
 
 DESCRIPTION="Multi-client, TLS-only IRC bouncer"
 HOMEPAGE="https://git.causal.agency/pounce/about/"
@@ -30,25 +30,25 @@ BDEPEND="
 DOCS=( {QUIRKS,README}.7 )
 
 src_configure() {
+	tc-export CC
+
 	local confargs=(
 		--prefix="${EPREFIX}/usr"
 		--mandir="${EPREFIX}/usr/share/man"
 	)
 
 	# note: not an autoconf configure script
-	./configure "${confargs[@]}" || die
+	edo ./configure "${confargs[@]}"
 
 	pushd extra/notify >/dev/null || die
-	./configure "${confargs[@]}" || die
+	edo ./configure "${confargs[@]}"
 	popd >/dev/null || die
 
 	if use palaver; then
 		pushd extra/palaver >/dev/null || die
-		./configure "${confargs[@]}" || die
+		edo ./configure "${confargs[@]}"
 		popd >/dev/null || die
 	fi
-
-	tc-export CC
 }
 
 src_compile() {
