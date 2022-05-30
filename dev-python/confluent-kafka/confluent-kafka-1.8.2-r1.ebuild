@@ -13,7 +13,7 @@ HOMEPAGE="
 	https://pypi.org/project/confluent-kafka/
 	https://github.com/confluentinc/confluent-kafka-python
 "
-SRC_URI="https://github.com/confluentinc/${MYPN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/confluentinc/${MYPN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${MYPN}-${PV}"
 
 LICENSE="Apache-2.0"
