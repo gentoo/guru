@@ -88,7 +88,7 @@ python_install_all() {
 	newtmpfiles "${FILESDIR}/placement.tmpfile" placement.conf
 
 	dodir /var/log/placement
-	fperms placement:placement /var/log/placement
+	fowners placement:placement /var/log/placement
 	keepdir /var/log/placement
 }
 
