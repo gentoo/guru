@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~x86"
 DEPEND="
 	sys-libs/ncurses:=[unicode(+)]
 	sys-libs/zlib:=
-	elibc_Darwin? ( sys-libs/native-uuid )
+	elibc_Darwin? ( dev-libs/ossp-uuid )
 	elibc_SunOS? ( sys-libs/libuuid )
 	!elibc_Darwin? ( dev-libs/libbsd )
 	!elibc_Darwin? ( !elibc_SunOS? (
