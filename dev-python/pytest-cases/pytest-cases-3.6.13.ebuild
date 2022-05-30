@@ -32,6 +32,12 @@ BDEPEND="
 	)
 "
 
+EPYTEST_DESELECT=(
+	tests/pytest_extension/doc/test_doc_fixture_graph_union.py::test_closure
+	tests/pytest_extension/fixtures/fixture_unions/test_fixture_closure_edits.py::test_super_closure_edits2
+	tests/pytest_extension/fixtures/fixture_unions/test_fixtures_union_2hard.py::test_super_closure
+)
+
 distutils_enable_tests pytest
 
 python_prepare_all() {
