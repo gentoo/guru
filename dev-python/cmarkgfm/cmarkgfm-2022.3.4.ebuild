@@ -9,7 +9,7 @@ inherit distutils-r1 edos2unix
 
 DESCRIPTION="Python bindings for GitHub's cmark"
 HOMEPAGE="https://github.com/theacodes/cmarkgfm"
-SRC_URI="https://github.com/theacodes/cmarkgfm/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/theacodes/cmarkgfm/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 KEYWORDS="~amd64"
