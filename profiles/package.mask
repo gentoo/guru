@@ -9,12 +9,6 @@
 # TODO: Either fix per profile masking in overlays, or move
 # relevant entries to the relevant package.mask files in ::gentoo
 
-# Arthur Zamarin <arthurzam@gentoo.org> (2022-05-02)
-# Depends on removed ~sci-misc/boinc-7.16.17
-# Bug #842204
-sci-misc/boinc-wrapper
-sci-biology/cmdock
-
 # Sergey Torokhov <torokhov-s-a@yandex.ru> (2022-04-29)
 # The upstream didn't update the md-environ since 2016.
 # The only rev. dependency is =app-doc/ford-1.6.8

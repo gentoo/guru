@@ -18,7 +18,7 @@ SLOT="0"
 # versions must not mismatch.
 RDEPEND="
 	~sci-misc/boinc-${PV}
-	>=dev-libs/boinc-zip-${PV}
+	dev-libs/boinc-zip
 "
 DEPEND="${RDEPEND}"
 
