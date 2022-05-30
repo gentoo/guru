@@ -7,10 +7,11 @@ PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
-SRC_URI="https://github.com/robotools/fontPens/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64 ~x86"
 DESCRIPTION="A collection of classes implementing the pen protocol for manipulating glyphs"
 HOMEPAGE="https://github.com/robotools/fontPens"
+SRC_URI="https://github.com/robotools/fontPens/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+
+KEYWORDS="~amd64 ~x86"
 LICENSE="BSD"
 SLOT="0"
 
