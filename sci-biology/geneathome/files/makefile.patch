@@ -19,7 +19,7 @@
 -CXXFLAGS += $(CFLAGS) -std=gnu++11
 -LDFLAGS += $(ARCH) -L/usr/X11R6/lib -L. -static
 -LIBS ?= -static-libgcc -static-libstdc++ -pthread -Wl,-Bstatic -lbz2
-+CPPFLAGS += -I$(BOINC_DIR) -I$(BOINC_LIB_DIR) -I$(BOINC_API_DIR) -Isimd
++CPPFLAGS += -I$(BOINC_DIR) -Isimd
 +CXXFLAGS += -std=gnu++11
 +LIBS ?= -pthread -lbz2
  CXXSOURCES = BoincFile.cpp Graph.cpp boinc_functions.cpp utility.cpp pc.cpp main.cpp
