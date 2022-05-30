@@ -5,7 +5,7 @@ EAPI=8
 
 COMMIT="426f6be0b29831025cdcacc1f8f69e3520bfb0ff"
 
-inherit cmake
+inherit cmake edos2unix
 
 DESCRIPTION='The Combinatorial BLAS'
 HOMEPAGE="https://github.com/PASSIONLab/CombBLAS"
@@ -24,7 +24,6 @@ DEPEND="
 	virtual/mpi
 "
 RDEPEND="${DEPEND}"
-BDEPEND="app-text/dos2unix"
 
 PATCHES=(
 	"${FILESDIR}/${P}-rename-THRESHOLD.patch"
@@ -37,7 +36,7 @@ PATCHES=(
 
 src_prepare() {
 	rm -r graph500-1.2 usort psort-1.0 || die
-	dos2unix Matlab/startup.m || die
+	edos2unix Matlab/startup.m
 	cmake_src_prepare
 }
 
