@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="A library to provide a bridge from Glyphs source files to UFOs"
 HOMEPAGE="https://github.com/googlefonts/glyphsLib"
-SRC_URI="https://github.com/googlefonts/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/googlefonts/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="Apache-2.0 MIT"
 KEYWORDS="~amd64"
