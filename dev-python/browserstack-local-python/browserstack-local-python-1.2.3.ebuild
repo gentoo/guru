@@ -5,7 +5,7 @@ EAPI=8
 
 MYP="${P/-python/}"
 MYPN="${PN/-python/}"
-PYTHON_COMPAT=( python3_{8..10} pypy3 )
+PYTHON_COMPAT=( python3_{8..11} pypy3 )
 
 inherit distutils-r1
 
