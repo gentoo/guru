@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="Independent BSON codec for Python that doesn't depend on MongoDB"
 HOMEPAGE="https://github.com/py-bson/bson"
-SRC_URI="https://github.com/py-bson/bson/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/py-bson/bson/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
