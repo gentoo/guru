@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="A fixtures replacement tool"
 HOMEPAGE="https://github.com/FactoryBoy/factory_boy"
-SRC_URI="https://github.com/FactoryBoy/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/FactoryBoy/${PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
