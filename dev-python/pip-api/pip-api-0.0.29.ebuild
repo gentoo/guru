@@ -9,7 +9,7 @@ EPYTEST_DESELECT=(
 	tests/test_installed_distributions.py::test_installed_distributions_multiple_paths
 )
 DISTUTILS_SETUPTOOLS="pyproject.toml"
-PYTHON_COMPAT=( python3_{8..10} pypy3 )
+PYTHON_COMPAT=( python3_{8..11} pypy3 )
 
 inherit distutils-r1
 
