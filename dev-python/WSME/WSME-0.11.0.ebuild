@@ -36,6 +36,8 @@ BDEPEND="
 		dev-python/flask[${PYTHON_USEDEP}]
 		dev-python/flask-restful[${PYTHON_USEDEP}]
 		dev-python/webtest[${PYTHON_USEDEP}]
+
+		dev-python/sphinx[${PYTHON_USEDEP}]
 	)
 "
 
