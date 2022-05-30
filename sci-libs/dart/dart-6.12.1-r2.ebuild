@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{8..10} )
 
 CMAKE_BUILD_TYPE="Release"
 
-inherit cmake python-single-r1
+inherit cmake edos2unix python-single-r1
 
 DESCRIPTION="Dynamic Animation and Robotics Toolkit"
 HOMEPAGE="
@@ -61,7 +61,6 @@ DEPEND="
 	test? ( dev-cpp/gtest )
 "
 BDEPEND="
-	app-text/dos2unix
 	doc? ( app-doc/doxygen )
 	test? ( python? ( $(python_gen_cond_dep 'dev-python/pytest[${PYTHON_USEDEP}]') ) )
 "
@@ -91,7 +90,7 @@ src_prepare() {
 	rm -r dart/external/{imgui,lodepng} || die
 	# delete deprecated examples
 	rm -r examples/deprecated_examples || die
-	dos2unix unittests/CMakeLists.txt || die
+	edos2unix unittests/CMakeLists.txt
 	cmake_src_prepare
 }
 
