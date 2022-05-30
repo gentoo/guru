@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..11} pypy3 )
 
-inherit distutils-r1
+inherit distutils-r1 edos2unix
 
 DESCRIPTION="Python bindings for GitHub's cmark"
 HOMEPAGE="https://github.com/theacodes/cmarkgfm"
@@ -20,12 +20,11 @@ RDEPEND="
 	virtual/python-cffi[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
-BDEPEND="app-text/dos2unix"
 
 PATCHES=( "${FILESDIR}/${PN}-0.6.0-use-system-cmark-gfm.patch" )
 
 src_prepare() {
-	dos2unix src/cmarkgfm/build_cmark.py || die
+	edos2unix src/cmarkgfm/build_cmark.py
 	default
 }
 
