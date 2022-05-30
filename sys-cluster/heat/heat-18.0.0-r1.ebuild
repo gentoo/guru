@@ -134,6 +134,9 @@ python_install_all() {
 		newinitd "${FILESDIR}/heat.initd" "heat-${svc}"
 	done
 
+	insinto /etc/logrotate.d
+	doins "${FILESDIR}/heat.logrotate"
+
 	insinto /etc/heat
 	insopts -m 0640 -o heat -g heat
 	doins etc/heat/heat.conf.sample
@@ -150,9 +153,6 @@ python_install_all() {
 
 	systemd_dounit "${FILESDIR}/heat-engine.service"
 	systemd_dounit "${FILESDIR}/heat-api.service"
-
-	insinto /etc/logrotate.d
-	doins "${FILESDIR}/heat.logrotate"
 
 	rm -r "${ED}/usr/etc"
 }

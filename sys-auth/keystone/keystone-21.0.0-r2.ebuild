@@ -100,6 +100,9 @@ python_compile_all() {
 python_install_all() {
 	distutils-r1_python_install_all
 
+	insinto /etc/logrotate.d
+	newins "${FILESDIR}/keystone.logrotate" keystone.conf
+
 	diropts -m 0750
 	keepdir /etc/keystone /var/log/keystone
 	insinto /etc/keystone
@@ -114,9 +117,6 @@ python_install_all() {
 	fowners keystone:keystone /etc/keystone /etc/keystone/httpd /var/log/keystone
 
 	newtmpfiles "${FILESDIR}/keystone.tmpfile" keystone.conf
-
-	insinto /etc/logrotate.d
-	newins "${FILESDIR}/keystone.logrotate" keystone.conf
 
 	systemd_dounit "${FILESDIR}/openstack-keystone.service"
 

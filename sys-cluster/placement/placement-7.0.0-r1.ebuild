@@ -72,6 +72,9 @@ python_compile_all() {
 python_install_all() {
 	distutils-r1_python_install_all
 
+	insinto /etc/logrotate.d
+	newins "${FILESDIR}/placement.logrotate" placement
+
 	diropts -m 0750 -o placement -g placement
 	insinto /etc/placement
 	insopts -m 0640 -o placement -g placement
@@ -84,8 +87,9 @@ python_install_all() {
 
 	newtmpfiles "${FILESDIR}/placement.tmpfile" placement.conf
 
-	insinto /etc/logrotate.d
-	newins "${FILESDIR}/placement.logrotate" placement
+	dodir /var/log/placement
+	fperms placement:placement /var/log/placement
+	keepdir /var/log/placement
 }
 
 pkg_postinst() {

@@ -11,12 +11,12 @@ HOMEPAGE="
 	https://github.com/cimgui/cimgui
 "
 SRC_URI="
-	https://github.com/ocornut/imgui/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/cimgui/cimgui/archive/refs/tags/${PV}.tar.gz -> c${P}.tar.gz
+	https://github.com/ocornut/imgui/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz
+	https://github.com/cimgui/cimgui/archive/refs/tags/${PV}.tar.gz -> c${P}.gh.tar.gz
 "
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="allegro bindings examples freetype glfw glut opengl sdl vulkan"
 S="${WORKDIR}/c${P}"

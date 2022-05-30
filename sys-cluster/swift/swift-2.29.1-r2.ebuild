@@ -107,6 +107,10 @@ python_install_all() {
 		systemd_newunit "${i}" "${name/.AT/@}"
 	done
 
+	dodir /var/log/swift
+	keepdir /var/log/swift
+	fperms swift:swift /var/log/swift
+
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/openstack-swift.logrotate" swift
 
