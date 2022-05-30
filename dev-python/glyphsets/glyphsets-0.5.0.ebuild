@@ -12,7 +12,7 @@ HOMEPAGE="
 	https://github.com/googlefonts/glyphsets
 	https://pypi.org/project/glyphsets/
 "
-SRC_URI="https://github.com/googlefonts/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/googlefonts/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="Apache-2.0"
 KEYWORDS="~amd64"
