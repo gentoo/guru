@@ -1,7 +1,7 @@
 # Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit vim-plugin
 
@@ -16,16 +16,8 @@ KEYWORDS="~amd64"
 VIM_PLUGIN_HELPFILES="dracula"
 
 src_prepare() {
-	default
-	rm -r .github || die
+	vim-plugin_src_prepare
 
 	# collision with app-vim/airline-themes
 	rm -r autoload/airline || die
-
-	# avoid collision with other packages
-	cd after/syntax || die
-	for file in *.vim; do
-		mkdir "${file%.vim}" || die
-		mv "${file}" "${file%.vim}/${PN}.vim" || die
-	done
 }
