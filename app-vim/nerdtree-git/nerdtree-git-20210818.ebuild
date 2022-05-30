@@ -1,9 +1,9 @@
 # Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit vim-plugin
+inherit edo vim-plugin
 
 COMMIT="e1fe727127a813095854a5b063c15e955a77eafb"
 DESCRIPTION="vim plugin: display git status flags in NERDTree"
@@ -26,10 +26,9 @@ BDEPEND="test? (
 )"
 
 src_test() {
-	themis ./tests --runtimepath "${EPREFIX}"/usr/share/vim/vimfiles || die
+	edo themis ./tests --runtimepath "${EPREFIX}"/usr/share/vim/vimfiles
 }
 
 src_install() {
-	rm -r tests || die
-	vim-plugin_src_install
+	vim-plugin_src_install nerdtree_plugin
 }
