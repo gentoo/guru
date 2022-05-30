@@ -1,9 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="8"
+EAPI=8
 
-COMMIT="91c29b1ab6cd86d6d68fc983fd7ceba3a88ad544"
+COMMIT="c450c76af542761f6d806fbe9b10b93a9b013212"
 PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
@@ -14,7 +14,7 @@ HOMEPAGE="
 	https://github.com/sublee/trueskill
 	https://pypi.org/project/trueskill/
 "
-SRC_URI="https://github.com/sublee/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/sublee/${PN}/archive/${COMMIT}.tar.gz -> ${PF}.gh.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 SLOT="0"
