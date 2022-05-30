@@ -9,7 +9,8 @@ inherit distutils-r1
 
 DESCRIPTION="Font version string reporting and modification library"
 HOMEPAGE="https://github.com/source-foundry/font-v"
-SRC_URI="https://github.com/source-foundry/font-v/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/source-foundry/font-v/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+
 KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"
@@ -21,10 +22,10 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="test? ( dev-vcs/git )"
 
-distutils_enable_tests pytest
+distutils_enable_tests --install pytest
 distutils_enable_sphinx docs dev-python/sphinx_rtd_theme
 
-python_test() {
+src_test() {
 	#it want a git repo
 	git init || die
 	git config --global user.email "you@example.com" || die
@@ -35,5 +36,6 @@ python_test() {
 	#pure madness
 	#https://github.com/source-foundry/font-v/blob/e6746e4a045c99e56af661918c96259b1f444ed4/tests/test_utilities.py#L34
 	sed -e "s|\"font-v\"|\"${PWD##*/}\"|g" -i "tests/test_utilities.py" || die
-	epytest -vv
+
+	python_foreach_impl python_test
 }
