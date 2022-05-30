@@ -24,6 +24,7 @@ DEPEND="
 	virtual/mpi
 "
 RDEPEND="${DEPEND}"
+BDEPEND="app-text/dos2unix"
 
 PATCHES=(
 	"${FILESDIR}/${P}-rename-THRESHOLD.patch"
@@ -36,6 +37,7 @@ PATCHES=(
 
 src_prepare() {
 	rm -r graph500-1.2 usort psort-1.0 || die
+	dos2unix Matlab/startup.m || die
 	cmake_src_prepare
 }
 
