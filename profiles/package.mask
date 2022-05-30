@@ -9,14 +9,6 @@
 # TODO: Either fix per profile masking in overlays, or move
 # relevant entries to the relevant package.mask files in ::gentoo
 
-# Sergey Torokhov <torokhov-s-a@yandex.ru> (2022-04-29)
-# The upstream didn't update the md-environ since 2016.
-# The only rev. dependency is =app-doc/ford-1.6.8
-# (the >=app-doc/ford-6.1.10 depends on own modified builtin md-environ).
-# Removal both after 2022-05-29
-dev-python/md-environ
-=app-doc/ford-6.1.8
-
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
 # Depends on masked dev-libs/openssl-3.0.*
 app-crypt/tpm2-openssl
