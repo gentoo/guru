@@ -42,7 +42,7 @@ inherit cargo distutils-r1
 DESCRIPTION="Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy"
 HOMEPAGE="https://github.com/ijl/orjson"
 SRC_URI="
-	https://github.com/ijl/orjson/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/ijl/orjson/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz
 	$(cargo_crate_uris ${CRATES})
 "
 
