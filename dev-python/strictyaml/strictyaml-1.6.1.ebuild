@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="A type-safe YAML parser built atop ruamel.yaml"
 HOMEPAGE="https://github.com/crdoconnor/strictyaml"
-SRC_URI="https://github.com/crdoconnor/strictyaml/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/crdoconnor/strictyaml/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 KEYWORDS="~amd64 ~x86"
 LICENSE="MIT"
