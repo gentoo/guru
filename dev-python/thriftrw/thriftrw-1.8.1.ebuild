@@ -12,7 +12,7 @@ HOMEPAGE="
 	https://github.com/thriftrw/thriftrw-python
 	https://pypi.org/project/thriftrw/
 "
-SRC_URI="https://github.com/thriftrw/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/thriftrw/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 SLOT="0"
