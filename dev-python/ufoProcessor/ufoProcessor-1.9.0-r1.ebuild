@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
@@ -9,12 +9,12 @@ inherit distutils-r1
 
 DESCRIPTION="A Python package for processing and generating UFO files"
 HOMEPAGE="https://github.com/LettError/ufoProcessor"
-SRC_URI="https://github.com/LettError/ufoProcessor/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/LettError/ufoProcessor/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
+
 LICENSE="MIT"
 SLOT="0"
 IUSE="test"
 KEYWORDS="~amd64"
-RESTRICT="!test? ( test )"
 
 RDEPEND="
 	${PYTHON_DEPS}
@@ -26,11 +26,11 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	test? (
-		dev-python/unicodedata2[${PYTHON_USEDEP}]
-	)
+	test? ( dev-python/unicodedata2[${PYTHON_USEDEP}] )
 "
 BDEPEND="dev-python/setuptools_scm[${PYTHON_USEDEP}]"
+
+RESTRICT="!test? ( test )"
 
 pkg_setup() {
 	export SETUPTOOLS_SCM_PRETEND_VERSION="${PV%_*}"
