@@ -3,6 +3,7 @@
 
 EAPI=8
 
+CARGO_OPTIONAL=1
 CRATES="
 	ahash-0.7.6
 	arrayvec-0.7.2
@@ -72,3 +73,7 @@ BDEPEND="
 PATCHES=( "${FILESDIR}/${PN}-3.6.7-no-strip.patch" )
 
 distutils_enable_tests pytest
+
+src_unpack() {
+	cargo_src_unpack
+}
