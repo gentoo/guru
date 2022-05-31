@@ -4,14 +4,14 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
-DISTUTILS_USE_SETUPTOOLS="pyproject.toml"
+DISTUTILS_USE_PEP517=flit
 inherit distutils-r1
 
 DESCRIPTION="asyncio bridge to the standard sqlite3 module"
 HOMEPAGE="
 	https://aiosqlite.omnilib.dev
 	https://pypi.org/project/aiosqlite/
-	https://github.com/jreese/aiosqlite
+	https://github.com/omnilib/aiosqlite
 "
 SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
