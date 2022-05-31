@@ -4,7 +4,6 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..9} )
-
 inherit distutils-r1
 
 DESCRIPTION="Routines for extracting information from fontTools glyphs"
@@ -21,9 +20,6 @@ RDEPEND="
 	dev-python/glyphsLib[${PYTHON_USEDEP}]
 	dev-python/numpy[${PYTHON_USEDEP}]
 "
-DEPEND="${RDEPEND}"
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs \
-	dev-python/sphinxcontrib-napoleon \
-	dev-python/sphinxcontrib-restbuilder
+distutils_enable_sphinx docs dev-python/sphinxcontrib-restbuilder
