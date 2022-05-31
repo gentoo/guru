@@ -30,6 +30,11 @@ BDEPEND="
 		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 		dev-python/requests-mock[${PYTHON_USEDEP}]
 		>=dev-python/trivup-0.8.3[${PYTHON_USEDEP}]
+
+		dev-python/protobuf-python[${PYTHON_USEDEP}]
+		dev-python/jsonschema[${PYTHON_USEDEP}]
+		dev-python/pyflakes[${PYTHON_USEDEP}]
+		dev-python/pyrsistent[${PYTHON_USEDEP}]
 	)
 "
 
