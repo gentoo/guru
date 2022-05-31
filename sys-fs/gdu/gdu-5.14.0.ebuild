@@ -1,4 +1,4 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -215,6 +215,8 @@ EGO_SUM=(
 	"github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742/go.mod"
 	"github.com/modern-go/reflect2 v1.0.1/go.mod"
 	"github.com/pascaldekloe/goe v0.0.0-20180627143212-57f6aae5913c/go.mod"
+	"github.com/pbnjay/memory v0.0.0-20210728143218-7b4eea64cf58"
+	"github.com/pbnjay/memory v0.0.0-20210728143218-7b4eea64cf58/go.mod"
 	"github.com/pelletier/go-toml v1.9.3/go.mod"
 	"github.com/pkg/errors v0.8.1/go.mod"
 	"github.com/pkg/sftp v1.10.1/go.mod"
@@ -596,8 +598,9 @@ EGO_SUM=(
 	"google.golang.org/protobuf v1.26.0-rc.1/go.mod"
 	"google.golang.org/protobuf v1.26.0/go.mod"
 	"gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod"
-	"gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127"
 	"gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127/go.mod"
+	"gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15"
+	"gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15/go.mod"
 	"gopkg.in/errgo.v2 v2.1.0/go.mod"
 	"gopkg.in/ini.v1 v1.62.0/go.mod"
 	"gopkg.in/yaml.v2 v2.2.2/go.mod"
@@ -632,7 +635,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 src_compile() {
-	go build -ldflags "-s -w -X 'github.com/dundee/gdu/build.Version=${PV}'" -v -x -work -o "${PN}" "./cmd/${PN}" || die "build failed"
+	ego build -ldflags "-s -w -X 'github.com/dundee/gdu/build.Version=${PV}'" -v -x -work -o "${PN}" "./cmd/${PN}"
 }
 
 src_install() {
