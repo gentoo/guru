@@ -24,6 +24,8 @@ DEPEND="
 	>=dev-python/setuptools_scm-4[${PYTHON_USEDEP}]
 "
 
+PATCHES=( "${FILESDIR}/${P}-remove-setuptools_scm-constraint.patch" )
+
 distutils_enable_tests pytest
 
 python_prepare_all() {
