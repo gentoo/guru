@@ -11,7 +11,7 @@ inherit distutils-r1
 
 DESCRIPTION="Generate STAT tables for variable fonts from .stylespace files"
 HOMEPAGE="https://github.com/daltonmaag/statmake"
-SRC_URI="https://github.com/daltonmaag/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/daltonmaag/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 KEYWORDS="~amd64"
 LICENSE="MIT"
