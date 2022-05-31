@@ -1,10 +1,10 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-DISTUTILS_USE_SETUPTOOLS="pyproject.toml"
-PYTHON_COMPAT=( python3_{8,9} )
+DISTUTILS_USE_PEP517=poetry
+PYTHON_COMPAT=( python3_{8..11} pypy3 )
 inherit distutils-r1
 
 DESCRIPTION="Helps to keep your local git repositories organized"
