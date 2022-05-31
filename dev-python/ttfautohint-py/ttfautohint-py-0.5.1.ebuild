@@ -9,7 +9,8 @@ inherit distutils-r1
 
 DESCRIPTION="A Python wrapper for ttfautohint"
 HOMEPAGE="https://github.com/fonttools/ttfautohint-py"
-SRC_URI="https://github.com/fonttools/ttfautohint-py/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/fonttools/ttfautohint-py/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+
 KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"
