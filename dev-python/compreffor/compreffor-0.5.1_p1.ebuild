@@ -25,10 +25,10 @@ RDEPEND="
 	>=dev-python/fonttools-4[${PYTHON_USEDEP}]
 "
 BDEPEND="
+	app-arch/unzip
 	>=dev-python/cython-0.29.24[${PYTHON_USEDEP}]
 	dev-python/setuptools_scm[${PYTHON_USEDEP}]
 "
-BDEPEND="app-arch/unzip"
 
 PATCHES=( "${FILESDIR}/${P}-remove-unwanted-dependencies.patch" )
 
