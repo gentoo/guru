@@ -46,5 +46,5 @@ src_install() {
 }
 
 src_test() {
-	./unittest || die
+	LD_LIBRARY_PATH="${S}:${LD_LIBRARY_PATH}" ./unittest || die
 }
