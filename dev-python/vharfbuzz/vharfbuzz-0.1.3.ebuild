@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="A user-friendlier way to use Harfbuzz in Python"
 HOMEPAGE="https://github.com/simoncozens/vharfbuzz"
-SRC_URI="https://github.com/simoncozens/vharfbuzz/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/simoncozens/vharfbuzz/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 KEYWORDS="~amd64"
@@ -21,4 +21,4 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-distutils_enable_sphinx docs dev-python/sphinxcontrib-napoleon
+distutils_enable_sphinx docs
