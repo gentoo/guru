@@ -12,7 +12,7 @@ HOMEPAGE="
 	https://github.com/edenhill/trivup
 	https://pypi.org/project/trivup/
 "
-SRC_URI="https://github.com/edenhill/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}-gh.tar.gz"
+SRC_URI="https://github.com/edenhill/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
