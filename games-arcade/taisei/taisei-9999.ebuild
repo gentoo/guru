@@ -39,8 +39,15 @@ DEPEND="
 "
 BDEPEND="
 	>=dev-util/meson-0.53
+	$(python_gen_any_dep '
+		dev-python/zstandard[${PYTHON_USEDEP}]
+	')
 	${PYTHON_DEPS}
 	doc? ( dev-python/docutils )"
+
+python_check_deps() {
+	has_version "dev-python/zstandard[${PYTHON_USEDEP}]"
+}
 
 src_prepare() {
 	if use doc; then
