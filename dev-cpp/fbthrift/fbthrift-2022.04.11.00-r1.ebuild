@@ -22,6 +22,7 @@ RDEPEND="
 	dev-cpp/gflags
 	dev-cpp/glog
 	~dev-cpp/wangle-${PV}:=
+	!>=dev-libs/boost-1.79.0
 	dev-libs/libfmt
 	dev-libs/openssl:0=
 	sys-libs/zlib
