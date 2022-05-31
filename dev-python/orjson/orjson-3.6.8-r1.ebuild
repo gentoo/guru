@@ -3,7 +3,6 @@
 
 EAPI=8
 
-CARGO_OPTIONAL=1
 CRATES="
 	ahash-0.7.6
 	arrayvec-0.7.2
