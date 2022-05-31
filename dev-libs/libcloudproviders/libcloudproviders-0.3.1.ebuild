@@ -1,11 +1,9 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-VALA_MIN_API_VERSION="0.44"
 VALA_USE_DEPEND="vapigen"
-
 inherit meson vala
 
 DESCRIPTION="DBus API that allows cloud storage sync clients to expose their services."
@@ -36,7 +34,7 @@ BDEPEND="
 
 src_prepare() {
 	default
-	vala_src_prepare
+	vala_setup
 }
 
 src_configure() {
