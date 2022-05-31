@@ -53,7 +53,7 @@ S=${WORKDIR}
 QA_PREBUILT="*"
 
 src_install() {
-	# Move ${MY_PGK_NAME} out from /opt/apps/apps
+	# Install scalable icons
 	mkdir -p "${S}"/usr/share/icons/hicolor/scalable/apps || die
 	mv "${S}"/opt/apps/${MY_PGK_NAME}/entries/icons/hicolor/scalable/apps/*.svg "${S}"/usr/share/icons/hicolor/scalable/apps || die
 
