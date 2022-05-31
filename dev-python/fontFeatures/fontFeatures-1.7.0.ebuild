@@ -19,7 +19,6 @@ RDEPEND="
 	dev-python/fs[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
 	>=dev-python/fonttools-4.28.0[${PYTHON_USEDEP}]
-	>=dev-python/glyphtools-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/beziers-0.1.0[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
@@ -29,5 +28,6 @@ BDEPEND="
 		>=dev-python/babelfont-3.0.0_alpha1[${PYTHON_USEDEP}]
 	)
 "
+PDEPEND=">=dev-python/glyphtools-0.7.0[${PYTHON_USEDEP}]"
 
 distutils_enable_tests pytest
