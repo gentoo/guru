@@ -1,7 +1,7 @@
 # Copyright 2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit vim-plugin
 
@@ -16,11 +16,3 @@ KEYWORDS="~amd64 ~x86"
 
 VIM_PLUGIN_HELPFILES="python-syntax.txt"
 DOCS=( AUTHORS README.md )
-
-src_install() {
-	einstalldocs
-
-	insinto /usr/share/vim/vimfiles/
-	doins -r doc
-	doins -r syntax
-}

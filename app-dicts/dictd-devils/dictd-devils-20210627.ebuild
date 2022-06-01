@@ -1,7 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+inherit edos2unix
 
 DESCRIPTION="The Devil's Dictionary for dict"
 HOMEPAGE="https://www.gutenberg.org/ebooks/972"
@@ -15,13 +17,12 @@ RDEPEND=">=app-text/dictd-1.13.0-r3"
 BDEPEND="
 	${RDEPEND}
 	app-arch/unzip
-	app-text/dos2unix
 "
 
 PATCHES=( "${FILESDIR}/format.patch" )
 
 src_prepare() {
-	dos2unix 972-0.txt || die
+	edos2unix 972-0.txt
 	default
 
 	sed \

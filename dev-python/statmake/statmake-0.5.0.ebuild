@@ -5,13 +5,12 @@ EAPI=8
 
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{8..9} )
-
+PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="Generate STAT tables for variable fonts from .stylespace files"
 HOMEPAGE="https://github.com/daltonmaag/statmake"
-SRC_URI="https://github.com/daltonmaag/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/daltonmaag/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 KEYWORDS="~amd64"
 LICENSE="MIT"

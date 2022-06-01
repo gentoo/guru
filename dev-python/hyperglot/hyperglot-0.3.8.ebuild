@@ -13,7 +13,7 @@ HOMEPAGE="
 	https://github.com/rosettatype/hyperglot
 	https://pypi.org/project/hyperglot/
 "
-SRC_URI="https://github.com/rosettatype/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/rosettatype/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="GPL-3+ OFL"
 KEYWORDS="~amd64"

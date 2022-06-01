@@ -16,9 +16,9 @@ HOMEPAGE="
 	https://pypi.org/project/psautohint/
 "
 SRC_URI="
-	https://github.com/adobe-type-tools/psautohint/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/adobe-type-tools/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
 	test? (
-		https://github.com/adobe-type-tools/psautohint-testdata/archive/${COMMIT}.tar.gz -> psautohint-testdata-${COMMIT}.tar.gz
+		https://github.com/adobe-type-tools/${PN}-testdata/archive/${COMMIT}.tar.gz -> psautohint-testdata-${COMMIT}.tar.gz
 	)
 "
 KEYWORDS="~amd64"
@@ -32,12 +32,20 @@ RDEPEND="
 	dev-python/fs[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
 "
-DEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-bininpath.diff"
 	"${FILESDIR}/${PN}-2.3.0-no-build-library.patch"
 	"${FILESDIR}/${PN}-2.3.0-no-werror.patch"
+)
+
+EPYTEST_DESELECT=(
+	tests/integration/test_hint.py::test_hashmap_old_version
+	tests/integration/test_hint.py::test_mute_tx_msgs
+	tests/integration/test_hint.py::test_type1_supported
+	tests/integration/test_mmhint.py::test_vfotf
+	tests/integration/test_cli.py::test_multi_outpath
+	tests/integration/test_cli.py::test_multi_different_formats
 )
 
 distutils_enable_tests pytest
@@ -50,9 +58,14 @@ pkg_setup() {
 
 src_unpack() {
 	default
-	if [ -d "${WORKDIR}/psautohint-testdata-${COMMIT}" ]; then
-		mv "${WORKDIR}/psautohint-testdata-${COMMIT}"/* "${S}/tests/integration/data/" || die
-	fi
+	mv "${WORKDIR}"/psautohint-testdata-${COMMIT}/* "${S}"/tests/integration/data || die
+}
+
+python_prepare_all() {
+	# error: unrecognized arguments: -n
+	sed "/^  /d" -i pytest.ini || die
+
+	distutils-r1_python_prepare_all
 }
 
 src_configure() {
@@ -80,11 +93,5 @@ python_test() {
 	local -x PATH="${BUILD_DIR}/test/scripts:${MESON_BUILD_DIR}l:${PATH}"
 	local -x LD_LIBRARY_PATH="${MESON_BUILD_DIR}"
 	distutils_install_for_testing
-	epytest -vv \
-		--deselect tests/integration/test_hint.py::test_hashmap_old_version \
-		--deselect tests/integration/test_mmhint.py::test_vfotf[tests/integration/data/vf_tests/CJKSparseVar.subset.hinted.otf] \
-		--deselect tests/integration/test_mmhint.py::test_vfotf[tests/integration/data/vf_tests/bug816.hinted.otf] \
-		--deselect tests/integration/test_cli.py::test_multi_outpath \
-		--deselect tests/integration/test_cli.py::test_multi_different_formats \
-		|| die
+	epytest
 }

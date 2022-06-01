@@ -1,0 +1,13 @@
+--- a/src/c
++++ b/src/c
+@@ -156,8 +156,8 @@
+ #
+ case "$($CCNAME --version)" in
+ *gcc*|*GCC*)
+-    [ -z "$BOOM_MODEL_NOOPT" ] && CCDEBUG="-O2"
+-    [ -z "$BOOM_MODEL_NOOPT" ] && CCNODEBUG="$CCNODEBUG -O2"
++    [ -z "$BOOM_MODEL_NOOPT" ] && CCDEBUG="${CFLAGS}"
++    [ -z "$BOOM_MODEL_NOOPT" ] && CCNODEBUG="$CCNODEBUG ${CFLAGS}"
+     CCOPTS="-D_REENTRANT -D_GNU_SOURCE -Wall -Wno-unused -fno-strict-aliasing"
+     #  We assume the following standard libraries are all present.
+     #  If your build is failing because of missing libraries then

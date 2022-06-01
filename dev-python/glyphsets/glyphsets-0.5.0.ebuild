@@ -12,7 +12,7 @@ HOMEPAGE="
 	https://github.com/googlefonts/glyphsets
 	https://pypi.org/project/glyphsets/
 "
-SRC_URI="https://github.com/googlefonts/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/googlefonts/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="Apache-2.0"
 KEYWORDS="~amd64"
@@ -27,6 +27,8 @@ DEPEND="
 	${RDEPEND}
 	>=dev-python/setuptools_scm-4[${PYTHON_USEDEP}]
 "
+
+PATCHES=( "${FILESDIR}/${P}-remove-setuptools_scm.constraint.patch" )
 
 python_prepare_all() {
 	export SETUPTOOLS_SCM_PRETEND_VERSION="${PV}"

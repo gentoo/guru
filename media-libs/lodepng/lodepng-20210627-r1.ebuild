@@ -14,7 +14,7 @@ SRC_URI="https://github.com/lvandeve/lodepng/archive/${COMMIT}.tar.gz -> ${P}-${
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="ZLIB"
-SLOT="0/${PV}"
+SLOT="0"
 KEYWORDS="~amd64"
 IUSE="benchmark pngdetail showpng test"
 
@@ -46,5 +46,5 @@ src_install() {
 }
 
 src_test() {
-	./unittest || die
+	LD_LIBRARY_PATH="${S}:${LD_LIBRARY_PATH}" ./unittest || die
 }

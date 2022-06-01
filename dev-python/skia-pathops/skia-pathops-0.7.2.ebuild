@@ -1,29 +1,30 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
-MYP="${P/_p/.post}"
 PYTHON_COMPAT=( python3_{8..10} )
-
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
+MY_P="${P/_p/.post}"
 DESCRIPTION="Python bindings for the Skia Path Ops"
 HOMEPAGE="
 	https://github.com/fonttools/skia-pathops
 	https://skia.org/dev/present/pathops
 "
-SRC_URI="mirror://pypi/${MYP:0:1}/${PN}/${MYP}.zip"
-S="${WORKDIR}/${MYP}"
+SRC_URI="mirror://pypi/${MY_P:0:1}/${PN}/${MY_P}.zip"
+S="${WORKDIR}/${MY_P}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="media-libs/skia"
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	dev-python/cython[${PYTHON_USEDEP}]
+"
 BDEPEND="
 	app-arch/unzip
-	dev-python/cython[${PYTHON_USEDEP}]
 	dev-python/setuptools_scm[${PYTHON_USEDEP}]
 	test? ( dev-python/pytest-cython[${PYTHON_USEDEP}] )
 "

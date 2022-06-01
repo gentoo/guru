@@ -17,6 +17,7 @@ PATCHES=(
 	"${FILESDIR}/${P}-lib.patch"
 	"${FILESDIR}/${P}-respect-flags.patch"
 	"${FILESDIR}/${P}-shared.patch"
+	"${FILESDIR}/${P}-fix-octave-file.patch"
 )
 
 src_compile() {

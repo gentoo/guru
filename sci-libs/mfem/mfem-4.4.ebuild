@@ -34,7 +34,7 @@ IUSE="
 	${cpuflags}
 	benchmark codipack debug examples exceptions ginkgo hip lapack +metis mpfr mpi mumps netcdf openmp petsc slepc sparse ssl strumpack sundials superlu test threadsafe unwind zlib
 "
-# TODO: cuda mesquite gslib
+# TODO: cuda mesquite gslib moonolith
 
 RDEPEND="
 	benchmark? ( dev-cpp/benchmark )
@@ -121,7 +121,6 @@ src_configure() {
 		-DMFEM_USE_GSLIB=NO
 		-DMFEM_USE_HIOP=NO
 		-DMFEM_USE_MKL_CPARDISO=NO
-		-DMFEM_USE_MOONOLITH=NO
 		-DMFEM_USE_OCCA=NO
 		-DMFEM_USE_PARELAG=NO
 		-DMFEM_USE_PUMI=NO
@@ -157,6 +156,9 @@ src_configure() {
 	if use codipack; then
 		mycmakeargs+=( "-DCODIPACK_INCLUDE_DIR=${EPREFIX}/usr/include/codi" )
 	fi
+#	if use moonolith; then
+#		mycmakeargs+=( "-DMFEM_USE_MOONOLITH=ON" )
+#	fi
 	if use mpi; then
 		mycmakeargs+=( "-DHYPRE_INCLUDE_DIR=${EPREFIX}/usr/include/hypre" )
 	fi

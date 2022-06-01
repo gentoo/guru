@@ -1,9 +1,9 @@
 # Copyright 2019-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_{8,9,10,11} )
 
 inherit meson python-any-r1 xdg
 
@@ -39,8 +39,15 @@ DEPEND="
 "
 BDEPEND="
 	>=dev-util/meson-0.53
+	$(python_gen_any_dep '
+		dev-python/zstandard[${PYTHON_USEDEP}]
+	')
 	${PYTHON_DEPS}
 	doc? ( dev-python/docutils )"
+
+python_check_deps() {
+	has_version "dev-python/zstandard[${PYTHON_USEDEP}]"
+}
 
 src_prepare() {
 	if use doc; then

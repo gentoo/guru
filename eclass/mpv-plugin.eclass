@@ -113,7 +113,7 @@ mpv-plugin_src_install() {
 	insinto "${MPV_INSTALL_DIR}"
 
 	for f in "${MPV_PLUGIN_FILES[@]}"; do
-		doins "${f}"
+		doins -r "${f}"
 	done
 
 	use autoload && if _mpv-plugin_has_main; then

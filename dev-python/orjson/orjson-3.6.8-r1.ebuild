@@ -3,6 +3,7 @@
 
 EAPI=8
 
+CARGO_OPTIONAL=1
 CRATES="
 	ahash-0.7.6
 	arrayvec-0.7.2
@@ -41,7 +42,7 @@ inherit cargo distutils-r1
 DESCRIPTION="Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy"
 HOMEPAGE="https://github.com/ijl/orjson"
 SRC_URI="
-	https://github.com/ijl/orjson/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/ijl/orjson/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz
 	$(cargo_crate_uris ${CRATES})
 "
 
@@ -72,3 +73,7 @@ BDEPEND="
 PATCHES=( "${FILESDIR}/${PN}-3.6.7-no-strip.patch" )
 
 distutils_enable_tests pytest
+
+src_unpack() {
+	cargo_src_unpack
+}

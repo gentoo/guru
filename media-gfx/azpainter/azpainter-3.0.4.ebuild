@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs xdg
+inherit edo toolchain-funcs xdg
 
 DESCRIPTION="Full color painting software for Linux for illustration drawing"
 HOMEPAGE="http://azsky2.html.xdomain.jp/soft/azpainter.html
@@ -38,11 +38,9 @@ DOCS=(
 )
 
 src_configure() {
-	sh ./configure \
-		--prefix=/usr \
-		--docdir=/usr/share/doc/${PF} \
-		CC="$(tc-getCC)" CFLAGS="${CFLAGS:-02}" LDFLAGS="${LDFLAGS}" || die
 	tc-export AR
+	edo sh ./configure --prefix=/usr --docdir=/usr/share/doc/${PF} \
+		CC="$(tc-getCC)" CFLAGS="${CFLAGS:-02}" LDFLAGS="${LDFLAGS}"
 }
 
 src_install() {

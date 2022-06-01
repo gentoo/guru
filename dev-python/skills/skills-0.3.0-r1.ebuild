@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=bdepend
-PYTHON_COMPAT=( python3_{8..11} pypy3 )
+PYTHON_COMPAT=( python3_{8..9} pypy3 ) # no py10 https://github.com/McLeopold/PythonSkills/issues/11
 
 inherit distutils-r1
 

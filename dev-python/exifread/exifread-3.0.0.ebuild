@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=bdepend
 MY_PN="exif-py"
-PYTHON_COMPAT=( python3_{8..10} pypy3 )
+PYTHON_COMPAT=( python3_{8..11} pypy3 )
 
 inherit distutils-r1
 
@@ -14,7 +14,7 @@ HOMEPAGE="
 	https://pypi.org/project/ExifRead/
 	https://github.com/ianare/exif-py
 "
-SRC_URI="https://github.com/ianare/${MY_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/ianare/${MY_PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="BSD"

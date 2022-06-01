@@ -9,7 +9,8 @@ inherit distutils-r1
 
 DESCRIPTION="Python library for manipulating OpenType font features"
 HOMEPAGE="https://github.com/simoncozens/fontFeatures"
-SRC_URI="https://github.com/simoncozens/fontFeatures/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/simoncozens/fontFeatures/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+
 KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"
@@ -18,7 +19,6 @@ RDEPEND="
 	dev-python/fs[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
 	>=dev-python/fonttools-4.28.0[${PYTHON_USEDEP}]
-	>=dev-python/glyphtools-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/beziers-0.1.0[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
@@ -28,5 +28,6 @@ BDEPEND="
 		>=dev-python/babelfont-3.0.0_alpha1[${PYTHON_USEDEP}]
 	)
 "
+PDEPEND=">=dev-python/glyphtools-0.7.0[${PYTHON_USEDEP}]"
 
 distutils_enable_tests pytest

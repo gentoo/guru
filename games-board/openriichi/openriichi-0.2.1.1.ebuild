@@ -1,9 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-
-VALA_MIN_API_VERSION="0.44"
+EAPI=8
 
 inherit desktop meson vala xdg
 
@@ -16,14 +14,11 @@ SRC_URI="
 	https://github.com/FluffyStuff/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/FluffyStuff/Engine/archive/${Engine_sha}.tar.gz -> ${P}-Engine.tar.gz
 "
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-
-RESTRICT="mirror"
-
-S="${WORKDIR}/${MY_PN}-${PV}"
 
 RDEPEND="
 	$(vala_depend)
@@ -45,12 +40,12 @@ src_prepare() {
 	#switch vsync ON by default
 	sed -i -e "s/v_sync = OnOffEnum.OFF/v_sync = OnOffEnum.ON/" "${S}/source/Game/Options.vala" || die
 
-	vala_src_prepare
+	vala_setup
 }
 
 src_install() {
 	meson_src_install
 
 	newicon -s 64 "bin/Data/Icon.png" "${MY_PN}.png"
-	make_desktop_entry "${MY_PN}" "${MY_PN}" "${MY_PN}" "Game;BoardGame" || die "Failed making desktop entry!"
+	make_desktop_entry "${MY_PN}" "${MY_PN}" "${MY_PN}" "Game;BoardGame"
 }

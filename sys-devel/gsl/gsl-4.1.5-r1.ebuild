@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 DESCRIPTION='iMatix GSL code generator'
 HOMEPAGE="https://github.com/zeromq/gsl"
 SRC_URI="https://github.com/zeromq/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -14,6 +16,15 @@ IUSE="examples"
 
 DEPEND="dev-libs/libpcre:3"
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${P}-respect-flags.patch" )
+
+src_prepare() {
+	tc-export RANLIB
+	export CCNAME="$(tc-getCC)"
+	export CCPLUS="$(tc-getCXX)"
+	default
+}
 
 src_install() {
 	DESTDIR="${D}/usr" emake install

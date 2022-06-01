@@ -13,7 +13,7 @@ HOMEPAGE="
 	https://pypi.org/project/confluent-kafka/
 	https://github.com/confluentinc/confluent-kafka-python
 "
-SRC_URI="https://github.com/confluentinc/${MYPN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/confluentinc/${MYPN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${MYPN}-${PV}"
 
 LICENSE="Apache-2.0"
@@ -30,6 +30,11 @@ BDEPEND="
 		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 		dev-python/requests-mock[${PYTHON_USEDEP}]
 		>=dev-python/trivup-0.8.3[${PYTHON_USEDEP}]
+
+		dev-python/protobuf-python[${PYTHON_USEDEP}]
+		dev-python/jsonschema[${PYTHON_USEDEP}]
+		dev-python/pyflakes[${PYTHON_USEDEP}]
+		dev-python/pyrsistent[${PYTHON_USEDEP}]
 	)
 "
 

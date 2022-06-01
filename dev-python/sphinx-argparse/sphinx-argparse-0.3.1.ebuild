@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} pypy3 )
-DISTUTILS_USE_SETUPTOOLS="pyproject.toml"
+DISTUTILS_USE_PEP517=poetry
 inherit distutils-r1 optfeature
 
 DESCRIPTION="Sphinx extension that automatically documents argparse commands and options"

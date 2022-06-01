@@ -45,9 +45,8 @@ src_prepare() {
 }
 
 src_configure() {
-	sed -i -e '/^install: / s|: all|:|' \
-		-e 's|^CFLAGS =|CFLAGS +=|' \
-		Makefile || die "sed failed"
+	sed -i -e '/^install: / s|: all|:|' Makefile || die "sed failed"
+	sed -i -e 's|^CFLAGS =|CFLAGS +=|' config.mk || die "sed failed"
 }
 
 src_compile() {

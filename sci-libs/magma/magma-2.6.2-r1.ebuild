@@ -31,7 +31,9 @@ IUSE="doc openblas test ${IUSE_AMDGPU}"
 #IUSE="doc cuda hip openblas test ${IUSE_AMDGPU}"
 
 # TODO: do not enforce openblas
+#	hip? ( sci-libs/hipBLAS )
 RDEPEND="
+	sci-libs/hipBLAS
 	openblas? ( sci-libs/openblas )
 	!openblas? (
 		virtual/blas
@@ -62,7 +64,18 @@ pkg_setup() {
 }
 
 src_prepare() {
-	rm -r blas_fix || die
+	gpu=""
+	#if use hip ; then
+		for u in ${IUSE_AMDGPU} ; do
+			if use ${u} ; then
+				gpu="${gpu};${u/amdgpu_/}"
+			fi
+		done
+	#fi
+	# remove first character (;)
+	gpu="${gpu:1}"
+	export gpu
+
 	# distributed pc file not so useful so replace it
 	cat <<-EOF > ${PN}.pc
 		prefix=${EPREFIX}/usr
@@ -82,7 +95,10 @@ src_prepare() {
 	#use hip && echo -e 'BACKEND = hip' > make.inc
 	echo -e 'BACKEND = hip' > make.inc
 	echo -e 'FORT = true' >> make.inc
+	echo -e "GPU_TARGET = ${gpu}" >> make.inc
 	emake generate
+
+	rm -r blas_fix || die
 
 	cmake_src_prepare
 }
@@ -91,17 +107,6 @@ src_configure() {
 	# other options: Intel10_64lp, Intel10_64lp_seq, Intel10_64ilp, Intel10_64ilp_seq, Intel10_32, FLAME, ACML, Apple, NAS
 	local blasvendor="Generic"
 	use openblas && blasvendor="OpenBLAS"
-
-	local gpu=""
-	#if use hip ; then
-		for u in ${IUSE_AMDGPU} ; do
-			if use ${u} ; then
-				gpu="${gpu};${u/amdgpu_/}"
-			fi
-		done
-	#fi
-	# remove first character (;)
-	gpu="${gpu:1}"
 
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON

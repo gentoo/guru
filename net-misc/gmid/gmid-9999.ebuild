@@ -6,7 +6,7 @@ EAPI=8
 SSL_DAYS=36500
 SSL_CERT_MANDATORY=1
 VERIFY_SIG_METHOD="signify"
-inherit ssl-cert systemd toolchain-funcs verify-sig
+inherit edo ssl-cert systemd toolchain-funcs verify-sig
 
 DESCRIPTION="Simple and secure Gemini server"
 HOMEPAGE="https://gmid.omarpolo.com"
@@ -68,20 +68,16 @@ src_configure() {
 
 	# note: not an autoconf configure script
 	conf_args=(
-		PREFIX="${EPREFIX}"/usr/share
-		BINDIR="${EPREFIX}"/usr/bin
+		PREFIX="${EPREFIX}"/usr
+		MANDIR="${EPREFIX}"/usr/share/man
 		$(use_enable seccomp sandbox)
 	)
 
-	./configure "${conf_args[@]}" || die
+	edo ./configure "${conf_args[@]}" || die
 
 	if use seccomp && has usersandbox ${FEATURES} ; then
 		export SKIP_RUNTIME_TESTS=1
 	fi
-}
-
-src_test() {
-	emake regress
 }
 
 src_install() {

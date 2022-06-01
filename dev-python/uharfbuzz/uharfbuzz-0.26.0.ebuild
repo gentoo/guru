@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="Streamlined Cython bindings for the HarfBuzz shaping engine"
 HOMEPAGE="https://github.com/harfbuzz/uharfbuzz"
-SRC_URI="https://github.com/harfbuzz/uharfbuzz/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/harfbuzz/uharfbuzz/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 KEYWORDS="~amd64"
 LICENSE="Apache-2.0"

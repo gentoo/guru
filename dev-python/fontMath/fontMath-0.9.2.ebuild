@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="A collection of objects that implement fast font math"
 HOMEPAGE="https://github.com/robotools/fontMath"
-SRC_URI="https://github.com/robotools/fontMath/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/robotools/fontMath/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 KEYWORDS="~amd64 ~x86"
 LICENSE="MIT"

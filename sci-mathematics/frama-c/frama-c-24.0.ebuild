@@ -33,7 +33,7 @@ src_prepare() {
 	mv configure.in configure.ac || die
 	sed -i 's/configure\.in/configure.ac/g' Makefile.generating Makefile || die
 	touch config_file || die
-	sed -i '/^\t\$(CC)/s/ -O3 /$(CFLAGS)/' Makefile || die
+	sed -i '/^\t\$(CC)/s/ -O3 / $(CFLAGS) /' Makefile || die
 	eautoreconf
 	default
 }

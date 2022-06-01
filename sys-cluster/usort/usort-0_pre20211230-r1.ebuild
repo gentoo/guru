@@ -5,7 +5,7 @@ EAPI=8
 
 COMMIT="902f5e3cbba66833bbf2d219c183d4705b3582c7"
 
-inherit cmake
+inherit cmake edos2unix
 
 DESCRIPTION='Fast distributed sorting routines using MPI and OpenMP'
 HOMEPAGE="https://github.com/hsundar/usort"
@@ -19,7 +19,6 @@ SLOT="0/${PV}"
 
 DEPEND="virtual/mpi"
 RDEPEND="${DEPEND}"
-BDEPEND="app-text/dos2unix"
 
 PATCHES=(
 	"${FILESDIR}/${P}-cmake.patch"
@@ -28,10 +27,7 @@ PATCHES=(
 )
 
 src_prepare() {
-	dos2unix CMakeLists.txt || die
-	dos2unix include/seqUtils.h || die
-	dos2unix include/seqUtils.tcc || die
-	dos2unix include/ompUtils.tcc || die
+	edos2unix CMakeLists.txt include/{seqUtils.h,seqUtils.tcc,ompUtils.tcc}
 	cmake_src_prepare
 }
 

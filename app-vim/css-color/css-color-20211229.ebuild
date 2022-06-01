@@ -1,7 +1,7 @@
 # Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit vim-plugin
 
@@ -14,14 +14,3 @@ S="${WORKDIR}/vim-${PN}-${COMMIT}"
 
 LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
-
-src_prepare() {
-	default
-
-	# avoid collision with other packages
-	cd after/syntax || die
-	for file in *.vim; do
-		mkdir "${file%.vim}" || die
-		mv "${file}" "${file%.vim}/${PN}.vim" || die
-	done
-}
