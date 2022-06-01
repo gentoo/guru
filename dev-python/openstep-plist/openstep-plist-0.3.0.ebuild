@@ -10,23 +10,17 @@ inherit distutils-r1
 
 DESCRIPTION="ASCII plist parser written in Cython"
 HOMEPAGE="https://github.com/fonttools/openstep-plist"
-SRC_URI="https://github.com/fonttools/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/fonttools/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"
 
-RDEPEND=""
-DEPEND="
-	${RDEPEND}
-	>=dev-python/cython-0.28.5[${PYTHON_USEDEP}]
-	dev-python/wheel[${PYTHON_USEDEP}]
-	dev-python/setuptools_scm[${PYTHON_USEDEP}]
-"
+DEPEND=">=dev-python/cython-0.28.5[${PYTHON_USEDEP}]"
 BDEPEND="
+	dev-python/setuptools_scm[${PYTHON_USEDEP}]
 	test? (
 		dev-python/pytest-cython[${PYTHON_USEDEP}]
-		dev-python/pytest-randomly[${PYTHON_USEDEP}]
 	)
 "
 
