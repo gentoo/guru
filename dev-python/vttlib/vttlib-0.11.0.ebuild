@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 MY_PN="vttLib"
@@ -13,7 +13,7 @@ MY_P="${MY_PN}-${MY_PV}"
 DESCRIPTION="Dump, merge and compile Visual TrueType data in UFO3 with FontTools"
 HOMEPAGE="
 	https://github.com/daltonmaag/vttLib
-	https://pypi.org/project/vttlib/
+	https://pypi.org/project/vttLib/
 "
 SRC_URI="mirror://pypi/${MY_P:0:1}/${MY_PN}/${MY_P}.zip"
 S="${WORKDIR}/${MY_P}"
