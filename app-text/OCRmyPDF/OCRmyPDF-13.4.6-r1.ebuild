@@ -6,11 +6,11 @@ EAPI=8
 PYTHON_COMPAT=( python3_{8..10} )
 DISTUTILS_USE_SETUPTOOLS=rdepend
 
-inherit bash-completion-r1 distutils-r1
+inherit bash-completion-r1 distutils-r1 optfeature
 
 DESCRIPTION="OCRmyPDF adds an OCR text layer to scanned PDF files"
 HOMEPAGE="https://github.com/ocrmypdf/OCRmyPDF"
-SRC_URI="https://github.com/ocrmypdf/OCRmyPDF/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MPL-2.0"
 SLOT="0"
@@ -18,7 +18,6 @@ KEYWORDS="~amd64"
 
 # This uses *a lot* of RAM, I have 32gb and these tests tried to use it all
 RESTRICT="test"
-IUSE="jbig2enc"
 
 RDEPEND="
 	app-text/ghostscript-gpl
@@ -36,17 +35,16 @@ RDEPEND="
 	media-gfx/pngquant
 	media-libs/leptonica
 	virtual/python-cffi[${PYTHON_USEDEP}]
-	jbig2enc? ( media-libs/jbig2enc )
 "
 DEPEND="
 	test? (
 		dev-python/pytest-helpers-namespace[${PYTHON_USEDEP}]
-		dev-python/pytest-xdist[${PYTHON_USEDEP}]
 		~dev-python/python-xmp-toolkit-2.0.1[${PYTHON_USEDEP}]
 	)
 "
 
 distutils_enable_tests pytest
+
 distutils_enable_sphinx docs --no-autodoc
 
 src_install() {
@@ -54,4 +52,8 @@ src_install() {
 	newbashcomp misc/completion/ocrmypdf.bash "${PN,,}"
 	insinto /usr/share/fish/vendor_completions.d
 	doins misc/completion/ocrmypdf.fish
+}
+
+pkg_postinst() {
+	optfeature "JBIG2 support" media-libs/jbig2enc
 }
