@@ -4,13 +4,12 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{8,9} )
-
+PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1 optfeature
 
 DESCRIPTION="A wrapper for several Python libraries to compile fonts from sources"
 HOMEPAGE="https://github.com/googlefonts/fontmake"
-SRC_URI="https://github.com/googlefonts/fontmake/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/googlefonts/fontmake/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
@@ -29,11 +28,8 @@ RDEPEND="
 	dev-python/compreffor[${PYTHON_USEDEP}]
 	>=dev-python/unicodedata2-14[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
-	dev-python/setuptools_scm[${PYTHON_USEDEP}]
-"
 BDEPEND="
+	dev-python/setuptools_scm[${PYTHON_USEDEP}]
 	test? (
 		media-gfx/fontdiff
 		dev-python/mock[${PYTHON_USEDEP}]
