@@ -9,5 +9,5 @@ LICENSE=GPL-2
 RDEPEND=x11-apps/xrandr media-video/mpv[lua]
 SLOT=0
 SRC_URI=https://gitlab.com/lvml/mpv-plugin-xrandr/-/archive/d4e06881367fdcd21572ae9f2d3280ffb5815f26/mpv-plugin-xrandr-d4e06881367fdcd21572ae9f2d3280ffb5815f26.tar.gz -> mpv-plugin-xrandr-20190523.tar.gz
-_eclasses_=mpv-plugin	a2bb2493b1a6671120053543dc64f758
+_eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a
 _md5_=861219267ca1ccf6c881643b05710c07

@@ -1,10 +1,10 @@
-BDEPEND=app-text/dos2unix doc? ( app-doc/doxygen ) test? ( python? ( python_single_target_python3_8? ( dev-python/pytest[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pytest[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pytest[python_targets_python3_10(-)] ) ) ) dev-util/ninja >=dev-util/cmake-3.20.5
+BDEPEND=doc? ( app-doc/doxygen ) test? ( python? ( python_single_target_python3_8? ( dev-python/pytest[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pytest[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pytest[python_targets_python3_10(-)] ) ) ) dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=app-arch/lz4 >=dev-cpp/eigen-3.0.5 dev-games/ode dev-libs/boost dev-libs/tinyxml2 dev-libs/urdfdom >=media-libs/assimp-3.0.0 media-libs/freeglut media-libs/imgui:=[glut(-),opengl(-)] media-libs/lodepng:= >=sci-libs/libccd-2.0 >=sci-libs/fcl-0.2.9 sci-libs/flann sci-libs/ipopt >=sci-libs/nlopt-2.4.1 sci-libs/octomap sci-physics/bullet virtual/opengl examples? ( dev-cpp/tiny-dnn ) osg? ( dev-games/openscenegraph ) python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_single_target_python3_8? ( dev-python/pybind11[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pybind11[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pybind11[python_targets_python3_10(-)] ) ) dev-libs/urdfdom_headers extras? ( dev-cpp/gtest ) test? ( dev-cpp/gtest )
 DESCRIPTION=Dynamic Animation and Robotics Toolkit
 EAPI=8
 HOMEPAGE=https://dartsim.github.io https://github.com/dartsim/dart
-INHERIT=cmake python-single-r1
+INHERIT=cmake edos2unix python-single-r1
 IUSE=doc examples extras osg python test tutorials cpu_flags_x86_mmx cpu_flags_x86_mmxext cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3 cpu_flags_x86_ssse3 cpu_flags_x86_sse4a cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2 cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_avx512dq cpu_flags_x86_avx512f cpu_flags_x86_avx512vl cpu_flags_x86_3dnow cpu_flags_x86_3dnowext cpu_flags_ppc_vsx cpu_flags_ppc_vsx2 cpu_flags_ppc_vsx3 cpu_flags_ppc_altivec cpu_flags_arm_neon cpu_flags_arm_iwmmxt cpu_flags_arm_iwmmxt2 cpu_flags_arm_neon python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=~amd64
 LICENSE=BSD-2
@@ -13,5 +13,5 @@ REQUIRED_USE=python? ( ^^ ( python_single_target_python3_8 python_single_target_
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/dartsim/dart/archive/v6.12.1.tar.gz -> dart-6.12.1.tar.gz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
-_md5_=758eff3825b0e68815a57a1cb7faefbe
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	edos2unix	33e347e171066657f91f8b0c72ec8773	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_md5_=e0ef5915e20c822df7f82f1e0bbb43ee

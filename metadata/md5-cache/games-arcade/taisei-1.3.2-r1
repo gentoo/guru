@@ -1,9 +1,10 @@
-BDEPEND=>=dev-util/meson-0.53 || ( >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) doc? ( dev-python/docutils ) >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=>=dev-util/meson-0.53 || ( >=dev-lang/python-3.11.0_beta1-r1:3.11 >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) doc? ( dev-python/docutils ) >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=media-libs/freetype:2 >=media-libs/libpng-1.5 media-libs/libsdl2 media-libs/sdl2-mixer[opus] media-libs/libwebp sys-libs/zlib zip? ( dev-libs/libzip ) >=dev-libs/cglm-0.7.8 dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=media-libs/freetype:2 >=media-libs/libpng-1.5 media-libs/libsdl2 media-libs/sdl2-mixer[opus] media-libs/libwebp sys-libs/zlib zip? ( dev-libs/libzip ) >=dev-libs/cglm-0.7.8
 DESCRIPTION=Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
-EAPI=7
+EAPI=8
 HOMEPAGE=https://taisei-project.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=meson python-any-r1 xdg
 IUSE=doc lto zip
 KEYWORDS=~amd64
@@ -11,5 +12,5 @@ LICENSE=MIT CC-BY-4.0 CC0-1.0 public-domain
 RDEPEND=media-libs/freetype:2 >=media-libs/libpng-1.5 media-libs/libsdl2 media-libs/sdl2-mixer[opus] media-libs/libwebp sys-libs/zlib zip? ( dev-libs/libzip )
 SLOT=0
 SRC_URI=https://github.com/taisei-project/taisei/releases/download/v1.3.2/taisei-v1.3.2.tar.xz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	meson	8f48ffde53174aba67239f0da61ac9d3	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=0d406bf402bb33792c18609f59f7179f
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	meson	8f48ffde53174aba67239f0da61ac9d3	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=bcb0554cae1901e5865f50b69446830a

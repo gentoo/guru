@@ -37,8 +37,6 @@ app-misc/fastfetch:pci - Enables reading GPU via sys-apps/pciutils
 app-misc/fastfetch:vulkan - Enables reading GPU via media-libs/vulkan-loader
 app-misc/fastfetch:xfce - Enables support for XFCE config
 app-misc/fastfetch:xrandr - Enables support for Xrandr
-app-misc/mat2:sandbox - Enable sandboxing functionality through sys-apps/bubblewrap
-app-misc/mat2:video - Use media-video/ffmpeg for video support
 app-misc/ntfy:dbus - Support for desktop notifications
 app-misc/ntfy:telegram - Add support for telegram backend
 app-misc/termdown:speak - Support for spoken countdown

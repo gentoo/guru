@@ -1,11 +1,13 @@
-BDEPEND=>=app-text/dictd-1.13.0-r3 app-arch/unzip app-text/dos2unix
+BDEPEND=>=app-text/dictd-1.13.0-r3 app-arch/unzip
 DEFINED_PHASES=compile install prepare
 DESCRIPTION=The Devil's Dictionary for dict
 EAPI=8
 HOMEPAGE=https://www.gutenberg.org/ebooks/972
+INHERIT=edos2unix
 KEYWORDS=~amd64
 LICENSE=public-domain
 RDEPEND=>=app-text/dictd-1.13.0-r3
 SLOT=0
 SRC_URI=https://www.gutenberg.org/files/972/972-0.zip -> dictd-devils-20210627.zip
-_md5_=53827f6901c6690b6447af8c2bfb1896
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773
+_md5_=ef122ff23e649d697d36b80e125dd3a4

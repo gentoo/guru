@@ -13,4 +13,4 @@ RESTRICT=strip
 SLOT=0
 SRC_URI=https://frama-c.com/download/frama-c-24.0-Chromium.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710
-_md5_=a855082cdc00a3cbd7f5781768e7f903
+_md5_=a1788eb0533fe129368158a46ebeefae

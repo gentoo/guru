@@ -1,0 +1,15 @@
+DEFINED_PHASES=install setup
+DEPEND=python_single_target_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0= ) python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 )
+DESCRIPTION=Dynamically edit AMD Ryzen processor P-States
+EAPI=8
+HOMEPAGE=https://github.com/r4m0n/ZenStates-Linux
+INHERIT=linux-info python-single-r1
+IUSE=togglecode python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=-* ~amd64
+LICENSE=MIT
+RDEPEND=python_single_target_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0= ) python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 ) togglecode? ( python_single_target_pypy3? ( dev-python/portio[python_targets_pypy3(-)] ) python_single_target_python3_8? ( dev-python/portio[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/portio[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/portio[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/portio[python_targets_python3_11(-)] ) )
+REQUIRED_USE=^^ ( python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
+SLOT=0
+SRC_URI=https://github.com/r4m0n/ZenStates-Linux/archive/0bc27f4740e382f2a2896dc1dabfec1d0ac96818.tar.gz -> ZenStates-Linux-0bc27f4740e382f2a2896dc1dabfec1d0ac96818.gh.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_md5_=8f473ea5ef961e254986f96e131a9961

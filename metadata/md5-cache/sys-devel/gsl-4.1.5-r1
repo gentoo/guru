@@ -1,12 +1,14 @@
-DEFINED_PHASES=install
+DEFINED_PHASES=install prepare
 DEPEND=dev-libs/libpcre:3
 DESCRIPTION=iMatix GSL code generator
 EAPI=8
 HOMEPAGE=https://github.com/zeromq/gsl
+INHERIT=toolchain-funcs
 IUSE=examples
 KEYWORDS=~amd64
 LICENSE=GPL-3+
 RDEPEND=dev-libs/libpcre:3
 SLOT=0
 SRC_URI=https://github.com/zeromq/gsl/archive/refs/tags/v4.1.5.tar.gz -> gsl-4.1.5.tar.gz
-_md5_=6207f57326922bc8b92fdddd3a8a0b3b
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
+_md5_=c84ba3ec994cd6046bb4366560ef19ce

@@ -1,16 +1,16 @@
-BDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) >=dev-python/pyproject2setuppy-22[python_targets_python3_8(-)?,python_targets_python3_9(-)?]
+BDEPEND=python_targets_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0= ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 ) >=dev-python/gpep517-3[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/poetry-core-1.0.8[python_targets_pypy3(-)?,python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Helps to keep your local git repositories organized
-EAPI=7
+EAPI=8
 HOMEPAGE=https://gitlab.com/3point2/git-cu
 INHERIT=distutils-r1
-IUSE=python_targets_python3_8 python_targets_python3_9
+IUSE=python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 )
-REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+RDEPEND=python_targets_pypy3? ( >=dev-python/pypy3-7.3.7-r1:0= ) python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 )
+REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 RESTRICT=test
 SLOT=0
 SRC_URI=mirror://pypi/g/git-cu/git-cu-0.5.0.tar.gz
-_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	3b871cf4724e3abc9b4ff059289f0d45
-_md5_=f430d7554a9048b2ebbdf3f100be14f6
+_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	3b871cf4724e3abc9b4ff059289f0d45
+_md5_=783354d6acc0a96b8cde3306b96fc6d3

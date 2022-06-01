@@ -9,5 +9,5 @@ LICENSE=MIT
 RDEPEND=media-video/subliminal media-video/mpv[lua]
 SLOT=0
 SRC_URI=https://github.com/davidde/mpv-autosub/archive/35115355bd339681f97d067538356c29e5b14afa.tar.gz -> mpv-autosub-20210629.tar.gz
-_eclasses_=mpv-plugin	a2bb2493b1a6671120053543dc64f758
+_eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a
 _md5_=378f69f3e8a9a3807993423d5cd7a215

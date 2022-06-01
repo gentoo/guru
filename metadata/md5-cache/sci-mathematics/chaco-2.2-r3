@@ -8,4 +8,4 @@ LICENSE=LGPL-2.1
 SLOT=0
 SRC_URI=https://www3.cs.stonybrook.edu/~algorith/implement/chaco/distrib/Chaco-2.2.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
-_md5_=0a2e80107642fb669a881e367e8b2cdf
+_md5_=acdde86860d9d436a5cb1c49a02921bd
