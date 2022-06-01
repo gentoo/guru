@@ -4,15 +4,14 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-MYPV="${PV/_p/.post}"
-PYTHON_COMPAT=( python3_{8..9} )
-
+PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
+MY_PV="${PV/_p/.post}"
 DESCRIPTION="Standalone CFF subroutinizer based on AFDKO tx tool"
 HOMEPAGE="https://github.com/adobe-type-tools/cffsubr"
-SRC_URI="https://github.com/adobe-type-tools/cffsubr/archive/refs/tags/v${MYPV}.tar.gz -> ${P}.gh.tar.gz"
-S="${WORKDIR}/${PN}-${MYPV}"
+SRC_URI="https://github.com/adobe-type-tools/${PN}/archive/refs/tags/v${MY_PV}.tar.gz -> ${P}.gh.tar.gz"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 KEYWORDS="~amd64"
 LICENSE="Apache-2.0"
@@ -22,8 +21,7 @@ RDEPEND="
 	>=dev-python/fonttools-4.10.2[${PYTHON_USEDEP}]
 	>=dev-util/afdko-3.6.1[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
+BDEPEND="
 	dev-python/setuptools_scm[${PYTHON_USEDEP}]
 "
 
@@ -39,7 +37,8 @@ pkg_setup() {
 }
 
 src_prepare() {
-	#no bundled afdko
-	rm -rf external || die
 	default
+
+	# remove bundled afdko
+	rm -rf external || die
 }
