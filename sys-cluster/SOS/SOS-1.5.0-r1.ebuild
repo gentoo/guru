@@ -79,6 +79,11 @@ src_prepare() {
 }
 
 src_configure() {
+	if use pmi-mpi; then
+		export CC=mpicc
+		export CXX=mpicxx
+	fi
+
 	local ofimr
 	use ofi_mr_basic && ofimr="basic"
 	use ofi_mr_scalable && ofimr="scalable"
