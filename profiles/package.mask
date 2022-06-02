@@ -34,3 +34,8 @@ dev-embedded/esp-idf
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-02)
 # Test dep (asynctest) doesn't support any recent Python. No revdeps.
 dev-python/aionotify
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-02)
+# Doesn't support Python 3.10.
+dev-python/kitchen
+net-misc/tuir
