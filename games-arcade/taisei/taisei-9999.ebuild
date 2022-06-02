@@ -51,7 +51,7 @@ python_check_deps() {
 
 src_prepare() {
 	if use doc; then
-		sed -i "s/doc_path = join.*/doc_path = join_paths(datadir, \'doc\', \'${P}\')/" \
+		sed -i "s/doc_path = join.*/doc_path = join_paths(datadir, \'doc\', \'${PF}\')/" \
 			meson.build || die "Failed changing doc_path"
 	fi
 	default
