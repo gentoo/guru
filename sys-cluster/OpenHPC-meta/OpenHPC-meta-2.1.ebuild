@@ -63,6 +63,7 @@ RDEPEND="
 		dev-libs/papi
 		sys-apps/likwid
 		sys-cluster/extrae[${PYTHON_SINGLE_USEDEP}]
+		sys-cluster/mpi-benchmarks
 	)
 
 	python? (
@@ -105,7 +106,6 @@ RDEPEND="
 
 #	perf-tools
 #		sys-cluster/dimemas[libunwind]
-	#imb
 	#omb
 	#scalasca
 	#tau
