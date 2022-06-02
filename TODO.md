@@ -41,7 +41,6 @@ Name | Buildsystem | Category | User | RFH | Dependency
 [temanejo](https://www.hlrs.de/solutions-services/service-portfolio/programming/hpc-development-tools/temanejo) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
 [geopm](https://geopm.github.io/) | autotools | power | Alessandro-Barbieri | ✖ | ✔
 [warewulf](https://warewulf.lbl.gov/) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
-[omb](http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.8.tgz) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
 [scalasca](https://scalasca.org/) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
 [scorep](https://www.vi-hps.org/projects/score-p/) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
 [jmodelica](https://github.com/jnorthrup/jmodelica) | autotools | science | Alessandro-Barbieri | ✔ | ✔
