@@ -30,3 +30,7 @@ dev-python/dateparser
 # Depends on non-existent versions of pyparsing, invalid dependency
 # on dev-embedded/esptool. Needs porting to python-single-r1.
 dev-embedded/esp-idf
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-02)
+# Test dep (asynctest) doesn't support any recent Python. No revdeps.
+dev-python/aionotify
