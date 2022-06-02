@@ -1,9 +1,9 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} pypy3 )
+PYTHON_COMPAT=( python3_{8..11} pypy3 )
 
 BOINC_APP_OPTIONAL="true"
 
@@ -14,7 +14,7 @@ DOCS_DIR="docs"
 inherit python-any-r1 boinc-app docs flag-o-matic meson
 
 DESCRIPTION="Program for docking ligands to proteins and nucleic acids"
-HOMEPAGE="https://gitlab.com/Jukic/cmdock https://www.rxdock.org"
+HOMEPAGE="https://gitlab.com/Jukic/cmdock"
 SRC_URI="https://gitlab.com/Jukic/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
 S="${WORKDIR}/${PN}-v${PV}"
 
@@ -34,6 +34,8 @@ BDEPEND="
 	dev-libs/cxxopts
 	doc? ( app-doc/doxygen )
 "
+
+PATCHES=( "${FILESDIR}"/cmdock-0.1.4-fix-detection.patch )
 
 DOCS=( INSTALL.md README.md )
 
