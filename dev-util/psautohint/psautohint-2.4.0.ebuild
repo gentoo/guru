@@ -8,7 +8,7 @@ DISTUTILS_IN_SOURCE_BUILD=1
 EMESON_SOURCE="${S}/libpsautohint"
 PYTHON_COMPAT=( python3_{8..10} )
 
-inherit meson distutils-r1
+inherit edo meson distutils-r1
 
 DESCRIPTION="A standalone version of AFDKO autohinter"
 HOMEPAGE="
@@ -18,7 +18,7 @@ HOMEPAGE="
 SRC_URI="
 	https://github.com/adobe-type-tools/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
 	test? (
-		https://github.com/adobe-type-tools/${PN}-testdata/archive/${COMMIT}.tar.gz -> psautohint-testdata-${COMMIT}.tar.gz
+		https://github.com/adobe-type-tools/${PN}-testdata/archive/${COMMIT}.tar.gz -> psautohint-testdata-${COMMIT}.gh.tar.gz
 	)
 "
 KEYWORDS="~amd64"
@@ -58,7 +58,7 @@ pkg_setup() {
 
 src_unpack() {
 	default
-	mv "${WORKDIR}"/psautohint-testdata-${COMMIT}/* "${S}"/tests/integration/data || die
+	use test && edo mv "${WORKDIR}"/psautohint-testdata-${COMMIT}/* "${S}"/tests/integration/data
 }
 
 python_prepare_all() {
