@@ -26,10 +26,6 @@ gnome-extra/extension-manager
 # Depends on unavailable dev-python/regex-2022.3.15
 dev-python/dateparser
 
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-05-24)
-# Hard depends on removed version of app-crypt/certbot, needs bump
-app-crypt/certbot-dns-digitalocean
-
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-05-28)
 # Depends on non-existent versions of pyparsing, invalid dependency
 # on dev-embedded/esptool. Needs porting to python-single-r1.
