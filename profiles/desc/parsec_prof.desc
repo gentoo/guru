@@ -9,10 +9,11 @@ dry-body - Disable calls to the actual bodies, no computation is performed
 dry-dep - Disable calls to the actual data transport, remote dependencies are notified, but no data movement takes place
 dry-run - Disable calls to the actual bodies and do not move the data between nodes, unfold the dependencies only
 grapher - Enable the generation of the dot graph representation during execution
+helper-thread - Use an extra thread to progress the data movements
 mmap - Use MMAP to create the profile files
 otf2 - Force otf2 to be the profiling system
 pins - Enable the use of the PaRSEC callback instrumentation system
-ptg - Generate Profiling traces for the internal_init tasks in the PTG interface
-rusage - Print the rusage per execution unit for each progress
+ptg-internal-init - Generate Profiling traces for the internal_init tasks in the PTG interface
+rusage-eu - Print the rusage per execution unit for each progress
 scheduling-events - Enable the tracing of fine-grained scheduling details during execution
-prof-tau - Experimental usage of TAU profiling framework
+tau - Experimental usage of TAU profiling framework
