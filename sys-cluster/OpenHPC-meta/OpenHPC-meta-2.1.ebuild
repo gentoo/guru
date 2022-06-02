@@ -64,6 +64,7 @@ RDEPEND="
 		sys-apps/likwid
 		sys-cluster/extrae[${PYTHON_SINGLE_USEDEP}]
 		sys-cluster/mpi-benchmarks
+		sys-cluster/osu-micro-benchmarks
 	)
 
 	python? (
@@ -106,7 +107,6 @@ RDEPEND="
 
 #	perf-tools
 #		sys-cluster/dimemas[libunwind]
-	#omb
 	#scalasca
 	#tau
 	#scorep
