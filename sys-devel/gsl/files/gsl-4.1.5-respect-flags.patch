@@ -11,3 +11,15 @@
      CCOPTS="-D_REENTRANT -D_GNU_SOURCE -Wall -Wno-unused -fno-strict-aliasing"
      #  We assume the following standard libraries are all present.
      #  If your build is failing because of missing libraries then
+@@ -334,9 +334,9 @@
+                 AR_CREATE_OPT="c"
+             fi
+             if [ "$RANLIB" = "1" ]; then
+-                COMMAND="ar ${AR_CREATE_OPT}r $LIBNAME.a $OBJECT"
++                COMMAND="${AR} ${AR_CREATE_OPT}r $LIBNAME.a $OBJECT"
+             else
+-                COMMAND="ar ${AR_CREATE_OPT}rs $LIBNAME.a $OBJECT"
++                COMMAND="${AR} ${AR_CREATE_OPT}rs $LIBNAME.a $OBJECT"
+             fi
+             if [ "$QUIET" = "no" ]; then
+                 if [ "$VERBOSE" = "no" ]; then
