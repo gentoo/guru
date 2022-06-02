@@ -23,7 +23,6 @@ Name | Buildsystem | Category | User | RFH | Dependency
 [compcert](https://compcert.org) | make | compiler | Alessandro-Barbieri | ✔ | ✖
 [predictive](https://www.dr-qubit.org/predictive.html) | make | emacs | Alessandro-Barbieri | ✔ | ✖
 [tau](http://www.cs.uoregon.edu/research/tau/home.php) | make | tools | Alessandro-Barbieri | ✖
-[imb](https://software.intel.com/content/www/us/en/develop/articles/intel-mpi-benchmarks.html) | make | cluster | Alessandro-Barbieri | ✖ | ✔
 [gnat-llvm](https://github.com/AdaCore/gnat-llvm) | make | compiler | Alessandro-Barbieri | ✔ | ✖
 [csparse](https://people.sc.fsu.edu/~jburkardt/c_src/csparse/csparse.html) | make | science | Alessandro-Barbieri | ✖ | ✔
 [gslib](https://github.com/Nek5000/gslib) | make | cluster | Alessandro-Barbieri | ✖ | ✔
