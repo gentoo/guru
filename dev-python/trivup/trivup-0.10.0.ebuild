@@ -25,4 +25,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+RESTRICT="test" # tests try to download and install kafka
+
 distutils_enable_tests pytest
