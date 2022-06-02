@@ -83,6 +83,7 @@ RDEPEND="
 		sci-libs/gsl[cblas-external]
 		sci-libs/metis
 		sci-libs/openblas[eselect-ldso]
+		sci-libs/plasma
 		sci-libs/superlu
 	)
 
@@ -109,9 +110,6 @@ RDEPEND="
 	#scalasca
 	#tau
 	#scorep
-
-#	serial
-	#plasma
 
 #	slurm-server
 	#pdsh-slurm
