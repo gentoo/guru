@@ -25,6 +25,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+RESTRICT="test" # tests require an MPI setup
 PATCHES=(
 	"${FILESDIR}/${P}-rename-THRESHOLD.patch"
 	"${FILESDIR}/${P}-psort.patch"
