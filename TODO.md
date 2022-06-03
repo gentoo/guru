@@ -4,6 +4,7 @@ If you find an interesting piece of software here, consider to package it, also 
 
 Name | Buildsystem | Category | User | RFH | Dependency
 ------------ | ------------- | ------------- | ------------- | ------------- | -------------
+[odilia](https://odilia.app) | cargo | accessibility | - | ? | ✖
 [spacelib](https://github.com/Alessandro-Barbieri/SpaceLib) | none | science | Alessandro-Barbieri | ✖ | ✖
 [cpp-fuzzy-logic](https://sourceforge.net/projects/cpp-fuzzy-logic) | none | devel | Alessandro-Barbieri | ✖ | ✖
 [free fuzzy logic library](http://ffll.sourceforge.net) | none | devel | Alessandro-Barbieri | ✖ | ✖
