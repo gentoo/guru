@@ -11,22 +11,15 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND=""
-RDEPEND="${DEPEND}"
-BDEPEND="
-	>=sys-devel/gcc-10
-"
-
 src_prepare() {
 	default
 	# btop installs README.md to /usr/share/btop by default
-	sed -i 's/^.*cp -p README.md.*$//' Makefile
+	sed -i '/^.*cp -p README.md.*$/d' Makefile || die
 }
 
 src_compile() {
 	# Disable btop optimization flags, since we have our flags in CXXFLAGS
-	emake \
-		OPTFLAGS=""
+	emake OPTFLAGS=""
 }
 
 src_install() {
