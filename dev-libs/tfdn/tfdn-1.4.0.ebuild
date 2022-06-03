@@ -15,7 +15,7 @@ SRC_URI="https://git.skyjake.fi/skyjake/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.t
 S="${WORKDIR}/${MY_PN}"
 
 LICENSE="BSD-2"
-SLOT="0/1.2"
+SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64 ~x86"
 IUSE="cpu_flags_x86_sse4_1 curl debug ssl"
 
