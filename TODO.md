@@ -110,5 +110,4 @@ Name | Buildsystem | Category | User | RFH | Dependency
 [kaitai](https://github.com/kaitai-io/kaitai_struct) | sbt | util | Alessandro-Barbieri | ✔ | ✖
 [casadi](https://web.casadi.org/) | cmake swig | science | Alessandro-Barbieri | ✖ | ✔
 [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet) | setuptools yarn | jupyter | Alessandro-Barbieri | ✔ | ✖
-[gitlab](https://gitlab.com/gitlab-org/gitlab-foss) | yarn gem | vcs | Alessandro-Barbieri | ✔ | ✖
 [HOL4](http://hol-theorem-prover.org/) | ? | math | Alessandro-Barbieri | ✔ | ✖
