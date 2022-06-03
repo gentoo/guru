@@ -1471,7 +1471,6 @@ sys-power/fan2go 0.6.2 0.6.2-r1: A simple daemon providing dynamic fan speed con
 sys-power/gtherm 0.0.3: A simple daemon to monitor thermal zones and cooling devices
 sys-power/gwe 0.15.3 0.15.5: NVIDIA settings alternative with overclocking, fan control, and information
 sys-power/tlp 1.5.0: Optimize laptop battery life
-sys-process/btop 1.2.7: A monitor of resources
 sys-process/gotop 4.1.3: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/nq 0.4: Unix command line queue utility
 sys-process/nvtop 1.2.2 2.0.1-r1 9999: NVIDIA GPUs htop like monitoring tool
