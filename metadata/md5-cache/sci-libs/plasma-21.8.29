@@ -1,0 +1,14 @@
+BDEPEND=|| ( >=dev-lang/python-2.7.5-r2:2.7 ) virtual/pkgconfig dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-lang/lua virtual/blas virtual/cblas virtual/lapack virtual/lapacke
+DESCRIPTION=PLASMA parallel library for dense linear algebra
+EAPI=8
+HOMEPAGE=https://bitbucket.org/icl/plasma https://github.com/NLAFET/plasma
+INHERIT=cmake edo python-any-r1
+KEYWORDS=~amd64
+LICENSE=BSD-2
+RDEPEND=dev-lang/lua virtual/blas virtual/cblas virtual/lapack virtual/lapacke
+SLOT=0
+SRC_URI=https://bitbucket.org/icl/plasma/downloads/plasma-21.8.29.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
+_md5_=46b2ca65b1fbc9de698755ffdca878ae

@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/confluentinc/confluent-kafka-python/archive/refs/tags/v1.8.2.tar.gz -> confluent-kafka-1.8.2.gh.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-r1	8638751691200e941f26fe0ac3aef1d1	distutils-r1	3b871cf4724e3abc9b4ff059289f0d45	optfeature	d524f291c80f9d21ad80fe978e3ca760
-_md5_=c83fa9bc9b9e1deda606b91524f102f4
+_md5_=6a7bf2f44379df1dad6d38d0fbab5dd9

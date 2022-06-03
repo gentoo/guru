@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune dev-lang/ocaml
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4.03:=[ocamlopt?] test? ( >=dev-ml/ounit2-2.0 >=dev-ml/ocaml-fileutils-0.4.4 dev-ml/lwt ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=OCaml bindings for inotify
+EAPI=8
+HOMEPAGE=https://github.com/whitequark/ocaml-inotify https://opam.ocaml.org/packages/inotify/
+INHERIT=dune
+IUSE=ocamlopt test
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1-with-linking-exception
+RDEPEND=>=dev-lang/ocaml-4.03:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/2.4
+SRC_URI=https://github.com/whitequark/ocaml-inotify/archive/refs/tags/v2.4.tar.gz -> inotify-2.4.gh.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c
+_md5_=121a0f16d78340a8e71593a805c90570

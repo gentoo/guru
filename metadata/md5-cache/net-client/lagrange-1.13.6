@@ -1,16 +1,16 @@
 BDEPEND=app-arch/zip verify-sig? ( sec-keys/openpgp-keys-skyjake ) dev-util/ninja >=dev-util/cmake-3.20.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
-DEPEND=>=dev-libs/tfdn-1.1.0:=[ssl] media-libs/libsdl2[sound(+),video(+)] fribidi? ( dev-libs/fribidi ) harfbuzz? ( media-libs/harfbuzz:=[truetype(+)] ) mp3? ( media-sound/mpg123 ) webp? ( media-libs/libwebp:= )
+DEPEND=>=dev-libs/tfdn-1.1.0:=[ssl] fribidi? ( dev-libs/fribidi ) ncurses? ( dev-libs/sealcurses ) !ncurses? ( harfbuzz? ( media-libs/harfbuzz:=[truetype(+)] ) media-libs/libsdl2[sound(+),video(+)] ) mp3? ( media-sound/mpg123 ) webp? ( media-libs/libwebp:= )
 DESCRIPTION=Desktop GUI client for browsing Geminispace
 EAPI=8
 HOMEPAGE=https://gmi.skyjake.fi/lagrange/ https://git.skyjake.fi/gemini/lagrange
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake verify-sig xdg
-IUSE=+fribidi +harfbuzz mp3 webp verify-sig
+IUSE=+fribidi +harfbuzz mp3 ncurses webp verify-sig
 KEYWORDS=~amd64 ~x86
 LICENSE=|| ( MIT Unlicense ) Apache-2.0 BSD-2 CC-BY-SA-4.0 OFL-1.1
-RDEPEND=>=dev-libs/tfdn-1.1.0:=[ssl] media-libs/libsdl2[sound(+),video(+)] fribidi? ( dev-libs/fribidi ) harfbuzz? ( media-libs/harfbuzz:=[truetype(+)] ) mp3? ( media-sound/mpg123 ) webp? ( media-libs/libwebp:= )
+RDEPEND=>=dev-libs/tfdn-1.1.0:=[ssl] fribidi? ( dev-libs/fribidi ) ncurses? ( dev-libs/sealcurses ) !ncurses? ( harfbuzz? ( media-libs/harfbuzz:=[truetype(+)] ) media-libs/libsdl2[sound(+),video(+)] ) mp3? ( media-sound/mpg123 ) webp? ( media-libs/libwebp:= )
 SLOT=0
-SRC_URI=https://git.skyjake.fi/gemini/lagrange/releases/download/v1.11.2/lagrange-1.11.2.tar.gz verify-sig? ( https://git.skyjake.fi/gemini/lagrange/releases/download/v1.11.2/lagrange-1.11.2.tar.gz.sig )
+SRC_URI=https://git.skyjake.fi/gemini/lagrange/releases/download/v1.13.6/lagrange-1.13.6.tar.gz verify-sig? ( https://git.skyjake.fi/gemini/lagrange/releases/download/v1.13.6/lagrange-1.13.6.tar.gz.sig )
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	verify-sig	0748d665fa664a87add00152ed046e16	xdg	6024fbc93167fad782e2032933654857
-_md5_=cedfa8b100e99b9d213ec80a29d0dc3f
+_md5_=db9c07558d31293d493513db2097591e

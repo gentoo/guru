@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=compile configure install prepare
+DEPEND=virtual/mpi openshmem? ( sys-cluster/SOS ) rocm? ( dev-util/hip )
+DESCRIPTION=MPI, OPC and many other benchmarks
+EAPI=8
+HOMEPAGE=https://mvapich.cse.ohio-state.edu/benchmarks/
+INHERIT=autotools edo toolchain-funcs
+IUSE=openshmem rocm
+KEYWORDS=~amd64
+LICENSE=BSD
+SLOT=0
+SRC_URI=https://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.9.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3
+_md5_=092388f147650eade3480a5cbb5a155a

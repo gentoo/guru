@@ -1,0 +1,14 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/tfdn:= sys-libs/ncurses:=
+DESCRIPTION=SDL Emulation and Adaptation Layer for Curses
+EAPI=8
+HOMEPAGE=https://git.skyjake.fi/skyjake/sealcurses
+INHERIT=cmake
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2
+RDEPEND=dev-libs/tfdn:= sys-libs/ncurses:=
+SLOT=0
+SRC_URI=https://git.skyjake.fi/skyjake/sealcurses/archive/d64caa13bc06b68906bb0a5cc87f1896226b0918.tar.gz -> sealcurses-0_pre20220523.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
+_md5_=2c61bad542dd85ec9786e06c70748f4b

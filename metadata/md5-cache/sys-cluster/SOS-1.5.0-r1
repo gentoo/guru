@@ -13,4 +13,4 @@ REQUIRED_USE=^^ ( ofi_mr_basic ofi_mr_scalable ofi_mr_rma-event ) ^^ ( total_dat
 SLOT=0
 SRC_URI=https://github.com/Sandia-OpenSHMEM/SOS/archive/refs/tags/v1.5.0.tar.gz -> SOS-1.5.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
-_md5_=705f5fd21ce442d9f0e43776951f01ee
+_md5_=a5a63c35af06348e77e97b9fbb8def3b

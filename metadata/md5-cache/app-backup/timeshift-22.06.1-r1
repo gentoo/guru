@@ -1,0 +1,15 @@
+BDEPEND=|| ( dev-lang/vala:0.56 dev-lang/vala:0.54 dev-lang/vala:0.52 dev-lang/vala:0.50 ) virtual/pkgconfig
+DEFINED_PHASES=compile install postinst postrm preinst prepare
+DEPEND=dev-libs/atk dev-libs/glib:2 dev-libs/json-glib dev-libs/libgee:= net-libs/libsoup:2.4 media-libs/harfbuzz:= x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/libX11 x11-libs/pango x11-libs/xapp x11-libs/vte:2.91[vala]
+DESCRIPTION=A system restore utility for Linux
+EAPI=8
+HOMEPAGE=https://github.com/linuxmint/timeshift
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=optfeature toolchain-funcs vala xdg
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-3
+RDEPEND=dev-libs/atk dev-libs/glib:2 dev-libs/json-glib dev-libs/libgee:= net-libs/libsoup:2.4 media-libs/harfbuzz:= x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/libX11 x11-libs/pango x11-libs/xapp x11-libs/vte:2.91[vala] net-misc/rsync virtual/cron
+SLOT=0
+SRC_URI=https://github.com/linuxmint/timeshift/archive/v22.06.1.tar.gz -> timeshift-22.06.1-r1.tar.gz
+_eclasses_=optfeature	d524f291c80f9d21ad80fe978e3ca760	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	vala	9badd41d5aab740ae5ac301c4416c5f8	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=a6a87d9436ce57b85b054b33a3ba992e

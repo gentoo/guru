@@ -283,6 +283,9 @@ gui-apps/azote:simple-colorpicker - enable colorpicker without imagemagick
 gui-apps/azote:yaml - enable support for reading yaml files
 gui-apps/coreapps-meta:location - Enable location discovery
 gui-apps/coretoppings:location - Enable location discovery
+gui-apps/fuzzel:cairo - Required for rounded corners and SVG icons
+gui-apps/fuzzel:png - Enable support for PNG icons
+gui-apps/fuzzel:svg - enables support for SVG icons
 gui-apps/nwg-launchers:bar - Installs nwgbar, a horizontal or vertical button bar.
 gui-apps/nwg-launchers:dmenu - Installs nwgdmenu, GTK dynamic menu windows.
 gui-apps/nwg-launchers:grid - Installs nwggrid, a GNOME-like application grid.
@@ -708,6 +711,8 @@ sys-cluster/openstack-meta:openvswitch - Installs openvswitch for the neutron op
 sys-cluster/openstack-meta:placement - Installs Openstack HTTP service manager for cloud resources Placement
 sys-cluster/openstack-meta:rabbitmq - Installs the rabbitmq server
 sys-cluster/openstack-meta:swift - Installs Openstack object/blob store Swift
+sys-cluster/osu-micro-benchmarks:openshmem - Build OpenSHMEM benchmarks
+sys-cluster/osu-micro-benchmarks:rocm - Enable ROCm extensions
 sys-cluster/otf2:sionlib - Enable sys-cluster/sionlibl support
 sys-cluster/parallel-netcdf:burst-buffering - Enable burst buffer driver support
 sys-cluster/parallel-netcdf:cxx - Turn on support for the C++ interface

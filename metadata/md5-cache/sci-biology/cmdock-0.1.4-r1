@@ -1,8 +1,8 @@
-BDEPEND=dev-cpp/eigen:3 dev-cpp/indicators >=dev-cpp/pcg-cpp-0.98.1_p20210406-r1 dev-libs/cxxopts doc? ( app-doc/doxygen ) doc? ( || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-python/sphinx[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-python/sphinx[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-python/sphinx[python_targets_python3_8(-)] ) ( >=dev-python/pypy3-7.3.7-r1:0 dev-python/sphinx[python_targets_pypy3(-)] ) ) ) >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=dev-cpp/eigen:3 dev-cpp/indicators >=dev-cpp/pcg-cpp-0.98.1_p20210406-r1 dev-libs/cxxopts doc? ( app-doc/doxygen ) doc? ( || ( ( >=dev-lang/python-3.11.0_beta1-r1:3.11 dev-python/sphinx[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-python/sphinx[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-python/sphinx[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-python/sphinx[python_targets_python3_8(-)] ) ( >=dev-python/pypy3-7.3.7-r1:0 dev-python/sphinx[python_targets_pypy3(-)] ) ) ) >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm setup test
 DESCRIPTION=Program for docking ligands to proteins and nucleic acids
 EAPI=8
-HOMEPAGE=https://gitlab.com/Jukic/cmdock https://www.rxdock.org
+HOMEPAGE=https://gitlab.com/Jukic/cmdock
 INHERIT=python-any-r1 boinc-app docs flag-o-matic meson
 IUSE=apidoc boinc cpu_flags_x86_sse2 doc
 KEYWORDS=~amd64
@@ -11,4 +11,4 @@ RDEPEND=dev-lang/perl boinc? ( sci-misc/boinc-wrapper )
 SLOT=0/0.1.4
 SRC_URI=https://gitlab.com/Jukic/cmdock/-/archive/v0.1.4/cmdock-v0.1.4.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd	boinc-app	3149d1679d3b47e85f777e8da3dd0fc7	docs	8ed2a8a28ff109e7a3582c9abb7fe327	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	ninja-utils	58ec4e54962bf45d065fb95030701514	meson	8f48ffde53174aba67239f0da61ac9d3
-_md5_=9cf1fe4cd4722be0eb9eeb0ab72a1eb7
+_md5_=bbd46c38de08126251d9a09c8cd2ee67

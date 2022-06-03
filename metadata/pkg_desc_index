@@ -52,7 +52,7 @@ app-arch/microtar 0.1.0: A lightweight tar library written in ANSI C
 app-arch/unalz 0.65-r1: Extract ALZ archives
 app-backup/b2 2.5.0-r1 3.0.3: Command-line tool for BackBlaze's B2 product
 app-backup/grub-btrfs 4.10.2 4.11: Improves Grub by adding btrfs snapshots to the Grub menu.
-app-backup/timeshift 21.09.1-r1 22.06.1: A system restore utility for Linux
+app-backup/timeshift 21.09.1-r1 22.06.1-r1: A system restore utility for Linux
 app-backup/timeshift-autosnap 0.9: Automatically creates a timeshift-snapshot when executed
 app-containers/aardvark-dns 1.0.2 1.0.2-r1: A container-focused DNS server
 app-containers/dnsname-cni-plugin 1.3.0 1.3.1 9999: name resolution for containers
@@ -60,7 +60,7 @@ app-containers/netavark 1.0.2 1.0.2-r1: A container network stack
 app-containers/nvidia-container-toolkit 1.9.0: NVIDIA container runtime toolkit
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
 app-crypt/certbot-dns-desec 1.2.0: deSEC DNS Authenticator plugin for Certbot
-app-crypt/certbot-dns-digitalocean 1.25.0: Digitalocean DNS Authenticator plugin for Certbot (Let's Encrypt Client)
+app-crypt/certbot-dns-digitalocean 1.27.0: Digitalocean DNS Authenticator plugin for Certbot (Let's Encrypt Client)
 app-crypt/clevis 18: Automated Encryption Framework
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/gnome-encfs-manager 1.9: An easy to use manager and mounter for encfs stashes
@@ -92,6 +92,7 @@ app-editors/imhex 1.8.1-r1 1.10.0 1.10.1: A hex editor for reverse engineers, pr
 app-editors/kak-lsp 12.2.1: Kakoune Language Server Protocol Client
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/mined 2015.25: A powerful text editor with extensive Unicode and CJK support
+app-editors/neovim-qt 0.2.16.1: Neovim client library and GUI, in Qt5
 app-editors/typora-bin 0.10.7: a markdown editor,markdown reader.
 app-emacs/idris-mode 1.0 9999: Idris syntax highlighting, compiler-supported editing, and interactive REPL
 app-emacs/prop-menu 0.1.2: Compute pop-up menus from text and overlay properties
@@ -200,7 +201,7 @@ app-text/epubgrep 0.5.1-r1 0.6.0-r1: Search tool for EPUB e-books
 app-text/klogg 20.12: A GUI application to browse and search through long and complex log files
 app-text/komikku 0.36.1 0.37.0: An online/offline manga reader for GNOME
 app-text/koodo-reader-bin 1.4.1: A modern ebook manager and reader with sync and backup capacities
-app-text/lizard 1.17.7: A simple code complexity analyser, supports most of the popular languages.
+app-text/lizard 1.17.10: A simple code complexity analyser, supports most of the popular languages.
 app-text/mandown 0.1.2: Markdown to groff (man page) converter
 app-text/md2mld 0.5.1: Little cli tool to convert md files into mld files
 app-text/noweb 2.12: a literate programming tool, lighter than web
@@ -426,8 +427,9 @@ dev-libs/protothreads 1.4-r2: Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
 dev-libs/randomx 1.1.8 1.1.9: Proof of work algorithm based on random code execution
 dev-libs/rsaref 2.0: Encryption/authentication library, RSA/MDX/DES
+dev-libs/sealcurses 0_pre20220523: SDL Emulation and Adaptation Layer for Curses
 dev-libs/supercop 0_p20200827: Fast cryptographic operations for Monero wallets
-dev-libs/tfdn 1.2.0 1.3.0: Opinionated C11 library for low-level functionality
+dev-libs/tfdn 1.3.0 1.4.0: Opinionated C11 library for low-level functionality
 dev-libs/tweeny 3.1.1 3.2.0: C++ tweening (inbetweening) library
 dev-libs/weechat-relay 9999: Portable and multi-interface IRC client relay api
 dev-libs/xqilla 2.3.4 2.3.4-r1: An XQuery and XPath 2 library and command line utility written in C++
@@ -469,7 +471,7 @@ dev-ml/gmap 0.3.0-r2: Heterogenous Map over a GADT
 dev-ml/happy-eyeballs 0.3.0: An implementation of happy eyeballs (RFC 8305) in OCaml with lwt
 dev-ml/hex 1.4.0-r1 1.5.0: Hexadecimal converter
 dev-ml/hkdf 1.0.4: HMAC-based Extract-and-Expand Key Derivation Function (RFC 5869)
-dev-ml/inotify 2.3_p20211118: OCaml bindings for inotify
+dev-ml/inotify 2.3_p20211118 2.4: OCaml bindings for inotify
 dev-ml/io-page 2.2.0 2.3.0 2.4.0 3.0.0: IO memory page library for Mirage backends
 dev-ml/ipaddr 5.3.0: OCaml library for manipulation of IP (and MAC) address representations
 dev-ml/js_of_ocaml 4.0.0: A compiler from OCaml bytecode to javascript
@@ -864,7 +866,7 @@ dev-python/trivup 0.10.0: Trivially Up a cluster of applications
 dev-python/trueskill 0.4.5_p20220422: Python Implementation of the TrueSkill Algorithm
 dev-python/ttfautohint-py 0.5.1: A Python wrapper for ttfautohint
 dev-python/tweedledum 1.1.1: Library for analysis, compilation, synthesis, optimization of quantum circuits
-dev-python/tweepy 3.10.0: An easy-to-use Python library for accessing the Twitter API.
+dev-python/tweepy 3.10.0 4.10.0: An easy-to-use Python library for accessing the Twitter API.
 dev-python/types-paramiko 2.10.0: Typing stubs for paramiko
 dev-python/types-python-dateutil 2.8.16 2.8.17: Typing stubs for python-dateutil
 dev-python/types-pytz 2021.3.8: Typing stubs for pytz
@@ -1025,6 +1027,7 @@ gui-apps/coretime 4.2.0 9999: A time related task manager for C Suite
 gui-apps/coretoppings 4.1.0-r1 4.2.0 9999: Additional features, plugins, widgets etc for C Suite
 gui-apps/coreuniverse 4.2.0 9999: Shows information about apps for C Suite
 gui-apps/fnott 1.2.1: Keyboard driven and lightweight Wayland notification daemon.
+gui-apps/fuzzel 1.7.0 9999: Application launcher for wlroots based Wayland compositors.
 gui-apps/gcolor3 2.4.0: A simple color chooser written in GTK3
 gui-apps/mpvpaper 1.1 1.2 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.5.0 0.6.3 9999: GTK+ launchers for sway, i3 and some other WMs
@@ -1105,6 +1108,7 @@ media-gfx/superslicer 2.2.53.4-r1 2.3.57.12: A mesh slicer to generated G-Code f
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-gfx/ufolint 1.2.0: UFO source format linter
 media-gfx/zw3d 2022.26.00-r1: CAD/CAM software for 3D design and processing
+media-gfx/zwcad 2022.22.2.2.3: CAD software for 2D drawing, reviewing and printing work
 media-libs/alsa-ucm-pinephone 1.2.6.3: ALSA ucm configuration files for the PinePhone (Pro)
 media-libs/alvr 15.2.1_p20210604 16.0.0: ALVR is an open source remote VR display for the Oculus Go/Quest
 media-libs/amdvlk 2020.4.5 2020.4.6 2021.4.2: AMD Open Source Driver for Vulkan
@@ -1133,12 +1137,12 @@ media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
 media-sound/add64 3.8.0 3.9.3: Add64 is a realtime additive/subtractive-synthesis softsynth
 media-sound/callaudiod 0.1.4: Call audio routing daemon
-media-sound/dzr 220505: DZR: the command line deezer.com player
+media-sound/dzr 220531: DZR: the command line deezer.com player
 media-sound/helvum 0.3.4: A GTK patchbay for pipewire
 media-sound/hushboard 0.0_pre20210317-r1 9999: Mutes your microphone while you are typing
 media-sound/ibniz 1.18-r1: virtual machine designed for extremely compact low-level audiovisual programs
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
-media-sound/mopidy 3.2.0: An extensible music server written in Python.
+media-sound/mopidy 3.3.0: An extensible music server written in Python.
 media-sound/mpd-mpris 0.3.1: An implementation of the MPRIS protocol for MPD.
 media-sound/mpvc 1.0.8-r1: mpc-like tool which connects to existing mpv instances through sockets.
 media-sound/ncpamixer 1.3.3.1: A ncurses mixer for PulseAudio inspired by pavucontrol
@@ -1178,7 +1182,7 @@ net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various pl
 net-client/amfora 1.8.0 1.9.2: A fancy terminal browser for the Gemini protocol.
 net-client/castor 0.8.16 0.8.18: A graphical browser for plain-text protocols
 net-client/kristall 0.3-r2 9999: Visual cross-platform gemini browser
-net-client/lagrange 1.11.2 1.12.1: Desktop GUI client for browsing Geminispace
+net-client/lagrange 1.12.1 1.13.6: Desktop GUI client for browsing Geminispace
 net-client/offpunk 0.1 0.3: A command-line, text-based and offline-first Gemini browser
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
 net-client/telescope 0.7.1 0.8.1: w3m-like browser for Gemini
@@ -1230,7 +1234,7 @@ net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/moonlight 3.1.4: GameStream client for PCs
 net-misc/myip 1.2.0: Get your external IP address using STUN server
-net-misc/ooni-probe-cli 3.14.2: OONI Probe network measurement tool for detecting internet censorship
+net-misc/ooni-probe-cli 3.14.2 3.15.0: OONI Probe network measurement tool for detecting internet censorship
 net-misc/openbgpd 6.8_p0 6.9_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/peertube-viewer-rs 1.8.4-r1: Command-line PeerTube viewer inspired by youtube-viewer
 net-misc/purritobin 0.6.7 9999: minimalistic commandline pastebin
@@ -1265,7 +1269,7 @@ net-wireless/iwdgui 0.1.0 0.2.0: A graphical frontend for IWD, Intel's iNet Wire
 net-wireless/rtl8192eu 0_pre20220406: Realtek 8192EU driver module for Linux kernel
 net-wireless/rtl8821ce 0_pre20220330: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20220409: Realtek 8821CU/RTL8811CU module for Linux kernel
-sci-biology/cmdock 0.1.3-r1 0.1.4: Program for docking ligands to proteins and nucleic acids
+sci-biology/cmdock 0.1.3-r1 0.1.4-r1: Program for docking ligands to proteins and nucleic acids
 sci-biology/geneathome 1.10-r3: BOINC application for expanding Gene Regulatory Networks (GRN)
 sci-electronics/bsc 0_pre20210124 9999: Bluespec high level hardware design language compiler
 sci-electronics/dsview 1.12-r1 9999: An open source multi-function instrument
@@ -1291,13 +1295,14 @@ sci-libs/magma 2.6.2 2.6.2-r1: Matrix Algebra on GPU and Multicore Architectures
 sci-libs/meschach 1.2b_p20170511-r1: Meschach is a C-language library of routines for performing matrix computations
 sci-libs/mfem 4.4: Lightweight, general, scalable C++ library for finite element methods
 sci-libs/mlpack 3.4.2_p20220501: scalable C++ machine learning library
+sci-libs/plasma 21.8.29: PLASMA parallel library for dense linear algebra
 sci-libs/qdldl 0.1.5_p20211001: A free LDL factorisation routine
 sci-libs/saclib 2.2.8 2.2.8_p20220502-r2: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122-r1: Subroutine Library in Systems and Control Theory
 sci-libs/superlu_dist 8.0.0_p20220526: MPI distributed sparse LU factorization library
 sci-mathematics/aspcud 1.9.6: A solver for package problems in CUDF format
 sci-mathematics/chaco 2.2-r3: Software for Partitioning Graphs
-sci-mathematics/clasp 3.3.8: A conflict-driven nogood learning answer set solver
+sci-mathematics/clasp 3.3.8-r1: A conflict-driven nogood learning answer set solver
 sci-mathematics/clingo 5.5.2: Integrated grounder and solver for answer set logic programs
 sci-mathematics/frama-c 23.1 24.0: Framework for analysis of source codes written in C
 sci-mathematics/frama-c-aorai 23.1 24.0: Aorai (automaton annotations) plugin for frama-c
@@ -1381,7 +1386,7 @@ sys-cluster/Graph500 1.2: Graph500 reference implementations
 sys-cluster/KVTree 1.2.0 1.3.0: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/OpenHPC-meta 2.1: OpenHPC metapackage
 sys-cluster/SIONfwd 1.0.1: A minimalistic I/O forwarding server and client library for SIONlib
-sys-cluster/SOS 1.5.0: implementation of the OpenSHMEM specification
+sys-cluster/SOS 1.5.0-r1: implementation of the OpenSHMEM specification
 sys-cluster/TCL 1.0: Transparent Checkpointing Library
 sys-cluster/booth 1.0_p20210730: The Booth Cluster Ticket Manager
 sys-cluster/cinder 20.0.0: Cinder is the OpenStack Block storage service, a spin out of nova-volumes
@@ -1390,7 +1395,7 @@ sys-cluster/dlb 2.1-r3: Dynamically react to application imbalance by modifying 
 sys-cluster/dtcmp 1.1.2 1.1.4: Datatype Compare Library for sorting and ranking distributed data using MPI
 sys-cluster/dyninst 11.0.1-r1 12.1.0: Tools for binary instrumentation, analysis, and modification
 sys-cluster/er 0.1.0 0.3.0: High-level distributed erasure coding lib combining shuffile and redset
-sys-cluster/extrae 3.8.3-r10: Instrumentation framework to generate execution traces of parallel runtimes
+sys-cluster/extrae 4.0.1: Instrumentation framework to generate execution traces of parallel runtimes
 sys-cluster/fti 1.6-r1: Fault Tolerance Interface
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
 sys-cluster/heat 18.0.0-r1: A CloudFormation-compatible openstack-native cloud orchestration engine
@@ -1400,6 +1405,7 @@ sys-cluster/libi 5.0.1_p20180510-r2: A framework for bootstrapping extreme scale
 sys-cluster/libyogrt 1.27 1.28: Your One Get Remaining Time library
 sys-cluster/lwgrp 1.0.3 1.0.5: Light-weight Group Library
 sys-cluster/mcxx 2021.06: C/C++/Fortran source-to-source compilation aimed at fast prototyping
+sys-cluster/mpi-benchmarks 2021.3: Intel MPI Benchmarks
 sys-cluster/mrnet 5.0.1_p20180510-r5: A Multicast/Reduction Network
 sys-cluster/muster 1.0.1: Massively Scalable Clustering
 sys-cluster/nanos6 2.6-r4 2.7: runtime that implements the OmpSs-2 parallel programming model
@@ -1408,10 +1414,11 @@ sys-cluster/neutron 17.1.2 20.0.0: A virtual network service for Openstack
 sys-cluster/nova 25.0.0-r1: Cloud computing fabric controller
 sys-cluster/opencoarrays 2.9.2 2.9.3: A parallel application binary interface for Fortran 2018 compilers
 sys-cluster/openstack-meta 2020.2.0: A openstack meta-package for installing the various openstack pieces
+sys-cluster/osu-micro-benchmarks 5.9: MPI, OPC and many other benchmarks
 sys-cluster/otf2 2.3-r2: highly scalable, memory efficient event trace data format
 sys-cluster/parallel-netcdf 1.12.2: Parallel extension to netCDF
 sys-cluster/paraver-kernel 4.9.0: paraver kernel library
-sys-cluster/parsec 3.0.2012: Parallel Runtime Scheduler and Execution Controller
+sys-cluster/parsec 3.0.2012-r1: Parallel Runtime Scheduler and Execution Controller
 sys-cluster/pcs 0.10.8-r3 0.11.2: Pacemaker/Corosync Configuration System
 sys-cluster/placement 7.0.0-r1: A HTTP service for managing, selecting, and claiming cloud resources
 sys-cluster/portals4 1.0_alpha1_p20190109-r3: low-level network API for high-performance networking
