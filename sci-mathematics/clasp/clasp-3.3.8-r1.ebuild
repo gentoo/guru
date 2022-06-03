@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake flag-o-matic
+inherit cmake edo flag-o-matic
 
 DESCRIPTION="A conflict-driven nogood learning answer set solver"
 HOMEPAGE="
@@ -24,10 +24,11 @@ DEPEND="
 "
 
 RESTRICT="!test? ( test )"
+PATCHES=( "${FILESDIR}/${PN}-manpage.patch" )
 
 src_prepare() {
 	append-cxxflags "-I/usr/include/catch2"
-	rm tests/catch.hpp || die
+	edo rm tests/catch.hpp
 	cmake_src_prepare
 }
 
@@ -44,4 +45,10 @@ src_configure() {
 		-DCLASP_USE_LOCAL_LIB_POTASSCO=OFF
 	)
 	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+	doman clasp.1
+	dodoc README.md CHANGES
 }

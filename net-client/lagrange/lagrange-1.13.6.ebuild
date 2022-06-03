@@ -13,13 +13,16 @@ SRC_URI="https://git.skyjake.fi/gemini/${PN}/releases/download/v${PV}/${P}.tar.g
 LICENSE="|| ( MIT Unlicense ) Apache-2.0 BSD-2 CC-BY-SA-4.0 OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+fribidi +harfbuzz mp3 webp"
+IUSE="+fribidi +harfbuzz mp3 ncurses webp"
 
 DEPEND="
 	>=dev-libs/tfdn-1.1.0:=[ssl]
-	media-libs/libsdl2[sound(+),video(+)]
 	fribidi? ( dev-libs/fribidi )
-	harfbuzz? ( media-libs/harfbuzz:=[truetype(+)] )
+	ncurses? ( dev-libs/sealcurses )
+	!ncurses? (
+		harfbuzz? ( media-libs/harfbuzz:=[truetype(+)] )
+		media-libs/libsdl2[sound(+),video(+)]
+	)
 	mp3? ( media-sound/mpg123 )
 	webp? ( media-libs/libwebp:= )
 "
@@ -33,6 +36,9 @@ src_prepare() {
 	# checked by Depends.cmake
 	rm -r lib/the_Foundation/CMakeLists.txt || die
 
+	sed "/elseif (ENABLE_TUI AND (UNIX OR MSYS))/a include (GNUInstallDirs)" \
+		-i CMakeLists.txt || die
+
 	cmake_src_prepare
 }
 
@@ -42,6 +48,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DENABLE_FRIBIDI=$(usex fribidi)
 		-DENABLE_HARFBUZZ=$(usex harfbuzz)
+		-DENABLE_TUI=$(usex ncurses)
 		-DENABLE_MPG123=$(usex mp3)
 		-DENABLE_WEBP=$(usex webp)
 

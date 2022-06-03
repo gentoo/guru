@@ -1,9 +1,9 @@
 # Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( pypy3 python3_{8..10} )
+PYTHON_COMPAT=( pypy3 python3_{8..11} )
 
 inherit autotools java-pkg-opt-2 python-single-r1
 
@@ -24,23 +24,20 @@ IUSE="${IUSE_INSTRUMENT} clustering dlsym doc dyninst heterogeneous inotify memk
 merge-in-trace nanos online opencl openmp openshmem +parallel-merge pebs-sampling
 peruse +posix-clock pthread sampling +single-mpi-lib sionlib smpss spectral +xml"
 
-#aspectj and aspectj-weaver need to both be enabled at the same time
-#current dev-java/aspectj package only provides aspectj.jar
 #aspectj needs foo/lib/aspectj.jar and foo/bin/ajc
-#aspectj-weaver needs bar/aspectjweaver.jar
-#TODO: cuda cupti gm mx
+#TODO: cuda cupti gm mx gaspi aspectj
 #TODO: support llvm libunwind, llvm rt, elftoolchain
 
+#	aspectj? ( >=dev-java/aspectj-1.9.6 )
 CDEPEND="
 	${PYTHON_DEPS}
 	dev-libs/libxml2
 	dev-libs/papi
 	!sys-cluster/openmpi[libompitrace(+)]
+	sys-libs/binutils-libs
 	sys-libs/libunwind
 	sys-libs/zlib
 	virtual/mpi
-
-	|| ( sys-devel/binutils:* sys-libs/binutils-libs )
 
 	clustering? ( sys-cluster/clusteringsuite[treedbscan] )
 	dyninst? (
@@ -61,7 +58,6 @@ CDEPEND="
 		sys-cluster/spectral
 	)
 "
-#	aspectj? ( >=dev-java/aspectj-1.9.6 )
 DEPEND="
 	${CDEPEND}
 	java? ( virtual/jdk:1.8 )
@@ -72,6 +68,7 @@ RDEPEND="
 	virtual/opencl
 "
 BDEPEND="
+	sys-devel/binutils-config
 	doc? (
 		app-text/ghostscript-gpl
 		dev-python/sphinx
@@ -81,7 +78,9 @@ BDEPEND="
 	java? ( app-admin/chrpath )
 "
 
-PATCHES=( "${FILESDIR}/${P}-link-sionlib.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-3.8.3-link-sionlib.patch"
+)
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 
@@ -89,8 +88,8 @@ REQUIRED_USE="
 
 	java? ( pthread )
 "
-#	cupti? ( cuda )
 #	aspectj? ( java )
+#	cupti? ( cuda )
 
 src_prepare() {
 	default
@@ -101,23 +100,20 @@ src_configure() {
 	export VARTEXFONTS="${T}/fonts"
 
 	local myconf=(
-		--datadir="${T}"
-		--datarootdir="${T}"
-
 		--disable-mic
 		--disable-pmapi
 		--disable-static
-
 		--enable-shared
+		--without-cupti
+		--without-gm
+		--without-mx
 
+		--datadir="${T}"
+		--datarootdir="${T}"
 		--with-librt="${EPREFIX}/usr"
 		--with-mpi="${EPREFIX}/usr"
 		--with-papi="${EPREFIX}/usr"
 		--with-unwind="${EPREFIX}/usr"
-
-		--without-cupti
-		--without-gm
-		--without-mx
 
 		$(use_enable doc)
 		$(use_enable heterogeneous)
@@ -144,7 +140,7 @@ src_configure() {
 
 #	if use aspectj; then
 #		myconf+=( "--with-java-aspectj=${EPREFIX}/usr/share/aspectj/lib" )
-#		myconf+=( "--with-java-aspectj-weaver=${EPREFIX}/usr" )
+#		myconf+=( "--with-java-aspectj-weaver=${EPREFIX}/usr/share/aspectj/lib" )
 #	else
 		myconf+=( "--without-java-aspectj-weaver" )
 		myconf+=( "--without-java-aspectj" )

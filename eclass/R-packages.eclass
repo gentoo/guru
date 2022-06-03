@@ -12,7 +12,7 @@
 # Alessandro Barbieri <lssndrbarbieri@gmail.com>
 # @SUPPORTED_EAPIS: 7
 
-inherit eutils optfeature toolchain-funcs
+inherit edo eutils optfeature toolchain-funcs
 
 case ${EAPI} in
 	7) ;;
@@ -37,9 +37,9 @@ BDEPEND="sys-apps/pkgcore"
 # <dest> will contain symlinks to everything in <source>
 _movelink() {
 	if [[ -e "${1}" ]]; then
-		local rp1="$(realpath ${1})" || die
-		mv "${rp1}" "${2}" || die
-		cp -rsf "${2}" "${rp1}" || die
+		local rp1="$(edo realpath ${1})"
+		edo mv "${rp1}" "${2}"
+		edo cp -rsf "${2}" "${rp1}"
 	fi
 }
 
@@ -49,7 +49,7 @@ _movelink() {
 R-packages_src_unpack() {
 	unpack ${A}
 	if [[ -d "${PN//_/.}" ]] && [[ ! -d "${P}" ]]; then
-		mv "${PN//_/.}" "${P}" || die
+		edo mv "${PN//_/.}" "${P}"
 	fi
 }
 
@@ -57,9 +57,9 @@ R-packages_src_unpack() {
 # @DESCRIPTION:
 # function to remove unwanted files from the sources
 R-packages_src_prepare() {
-	rm -f LICENSE || die
+	edo rm -f LICENSE
 	default
-	mkdir -p "${T}/R" || die
+	edo mkdir -p "${T}/R"
 }
 
 # @FUNCTION: R-packages_src_configure
@@ -89,7 +89,7 @@ R-packages_src_compile() {
 		LDFLAGS=${LDFLAGS// /\\ } \
 		MAKEOPTS=${MAKEOPTS// /\\ } \
 	" \
-	R CMD INSTALL . -d -l "${T}/R" "--byte-compile" || die
+	edo R CMD INSTALL . -d -l "${T}/R" "--byte-compile"
 }
 
 
@@ -99,35 +99,35 @@ R-packages_src_compile() {
 # documentation and examples to docsdir, symlinked back to R site-library (to allow access from within R)
 # everything else to R site-library
 R-packages_src_install() {
-	pushd "${T}/R/${PN//_/.}" || die
+	edo pushd "${T}/R/${PN//_/.}"
 
 	local DOCS_DIR="/usr/share/doc/${PF}"
 
-	mkdir -p "${ED}/${DOCS_DIR}" || die
+	edo mkdir -p "${ED}/${DOCS_DIR}"
 
 	for i in NEWS.md README.md DESCRIPTION examples CITATION INDEX NEWS WORDLIST News.Rd ; do
-		_movelink "${i}" "${ED}${DOCS_DIR}/${i}" || die
+		edo _movelink "${i}" "${ED}${DOCS_DIR}/${i}"
 		docompress -x "${DOCS_DIR}/${i}"
 	done
 
 	if [[ -e html ]]; then
-		_movelink html "${ED}${DOCS_DIR}/html" || die
+		edo _movelink html "${ED}${DOCS_DIR}/html"
 		docompress -x "${DOCS_DIR}/html"
 	fi
 	if [[ -e doc ]]; then
-		pushd doc || die
+		edo pushd doc
 		for i in * ; do
-			_movelink "${i}" "${ED}${DOCS_DIR}/${i}" || die
+			edo _movelink "${i}" "${ED}${DOCS_DIR}/${i}"
 			docompress -x "${DOCS_DIR}/${i}"
 		done
-		popd || die
+		edo popd
 	fi
 	if [[ -e doc/html ]]; then
 		docompress -x "${DOCS_DIR}/html"
 	fi
 	docompress -x "${DOCS_DIR}"
 
-	rm -rf tests test || die
+	edo rm -rf tests test
 
 	insinto "/usr/$(get_libdir)/R/site-library"
 	doins -r "${T}/R/${PN//_/.}"
@@ -139,7 +139,7 @@ R-packages_src_install() {
 R-packages_pkg_postinst() {
 	if [[ -v SUGGESTED_PACKAGES ]]; then
 		for p in ${SUGGESTED_PACKAGES} ; do
-			pexist=$(pquery -n1 "${p}" 2>/dev/null) || die
+			pexist=$(edo pquery -n1 "${p}" 2>/dev/null)
 			if [[ -n "${pexist}" ]]; then
 				optfeature "having the upstream suggested package" "${p}"
 			fi

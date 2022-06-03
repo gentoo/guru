@@ -4,6 +4,7 @@ If you find an interesting piece of software here, consider to package it, also 
 
 Name | Buildsystem | Category | User | RFH | Dependency
 ------------ | ------------- | ------------- | ------------- | ------------- | -------------
+[odilia](https://odilia.app) | cargo | accessibility | - | ? | ✖
 [spacelib](https://github.com/Alessandro-Barbieri/SpaceLib) | none | science | Alessandro-Barbieri | ✖ | ✖
 [cpp-fuzzy-logic](https://sourceforge.net/projects/cpp-fuzzy-logic) | none | devel | Alessandro-Barbieri | ✖ | ✖
 [free fuzzy logic library](http://ffll.sourceforge.net) | none | devel | Alessandro-Barbieri | ✖ | ✖
@@ -23,8 +24,6 @@ Name | Buildsystem | Category | User | RFH | Dependency
 [compcert](https://compcert.org) | make | compiler | Alessandro-Barbieri | ✔ | ✖
 [predictive](https://www.dr-qubit.org/predictive.html) | make | emacs | Alessandro-Barbieri | ✔ | ✖
 [tau](http://www.cs.uoregon.edu/research/tau/home.php) | make | tools | Alessandro-Barbieri | ✖
-[plasma](https://github.com/NLAFET/plasma) | make | science | Alessandro-Barbieri | ✔ | ✔
-[imb](https://software.intel.com/content/www/us/en/develop/articles/intel-mpi-benchmarks.html) | make | cluster | Alessandro-Barbieri | ✖ | ✔
 [gnat-llvm](https://github.com/AdaCore/gnat-llvm) | make | compiler | Alessandro-Barbieri | ✔ | ✖
 [csparse](https://people.sc.fsu.edu/~jburkardt/c_src/csparse/csparse.html) | make | science | Alessandro-Barbieri | ✖ | ✔
 [gslib](https://github.com/Nek5000/gslib) | make | cluster | Alessandro-Barbieri | ✖ | ✔
@@ -43,7 +42,6 @@ Name | Buildsystem | Category | User | RFH | Dependency
 [temanejo](https://www.hlrs.de/solutions-services/service-portfolio/programming/hpc-development-tools/temanejo) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
 [geopm](https://geopm.github.io/) | autotools | power | Alessandro-Barbieri | ✖ | ✔
 [warewulf](https://warewulf.lbl.gov/) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
-[omb](http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.8.tgz) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
 [scalasca](https://scalasca.org/) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
 [scorep](https://www.vi-hps.org/projects/score-p/) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
 [jmodelica](https://github.com/jnorthrup/jmodelica) | autotools | science | Alessandro-Barbieri | ✔ | ✔
@@ -112,5 +110,4 @@ Name | Buildsystem | Category | User | RFH | Dependency
 [kaitai](https://github.com/kaitai-io/kaitai_struct) | sbt | util | Alessandro-Barbieri | ✔ | ✖
 [casadi](https://web.casadi.org/) | cmake swig | science | Alessandro-Barbieri | ✖ | ✔
 [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet) | setuptools yarn | jupyter | Alessandro-Barbieri | ✔ | ✖
-[gitlab](https://gitlab.com/gitlab-org/gitlab-foss) | yarn gem | vcs | Alessandro-Barbieri | ✔ | ✖
 [HOL4](http://hol-theorem-prover.org/) | ? | math | Alessandro-Barbieri | ✔ | ✖

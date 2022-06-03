@@ -4,12 +4,12 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
-DISTUTILS_USE_SETUPTOOLS="rdepend"
 inherit distutils-r1
 
+MY_PN="certbot"
 DESCRIPTION="Digitalocean DNS Authenticator plugin for Certbot (Let's Encrypt Client)"
 HOMEPAGE="https://github.com/certbot/certbot https://letsencrypt.org/"
-SRC_URI="https://github.com/certbot/certbot/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/v${PV}.tar.gz -> ${MY_PN}-${PV}.gh.tar.gz"
 S="${WORKDIR}/certbot-${PV}/${PN}"
 
 LICENSE="Apache-2.0"

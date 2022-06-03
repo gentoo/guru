@@ -63,6 +63,8 @@ RDEPEND="
 		dev-libs/papi
 		sys-apps/likwid
 		sys-cluster/extrae[${PYTHON_SINGLE_USEDEP}]
+		sys-cluster/mpi-benchmarks
+		sys-cluster/osu-micro-benchmarks
 	)
 
 	python? (
@@ -83,6 +85,7 @@ RDEPEND="
 		sci-libs/gsl[cblas-external]
 		sci-libs/metis
 		sci-libs/openblas[eselect-ldso]
+		sci-libs/plasma
 		sci-libs/superlu
 	)
 
@@ -104,14 +107,9 @@ RDEPEND="
 
 #	perf-tools
 #		sys-cluster/dimemas[libunwind]
-	#imb
-	#omb
 	#scalasca
 	#tau
 	#scorep
-
-#	serial
-	#plasma
 
 #	slurm-server
 	#pdsh-slurm

@@ -3,6 +3,7 @@
 
 EAPI=8
 
+EPYTEST_IGNORE=( tests/integration )
 MYPN="${PN}-python"
 PYTHON_COMPAT=( python3_{8..10} )
 

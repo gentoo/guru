@@ -1,17 +1,21 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DOCS_BUILDER="doxygen"
 DOCS_DIR="docs/doxygen"
+PYTHON_COMPAT=( python3_{8..11} pypy3 )
 
-inherit cmake fortran-2 docs
+inherit cmake edo fortran-2 docs python-single-r1
 
 DESCRIPTION="Parallel Runtime Scheduler and Execution Controller"
-HOMEPAGE="https://bitbucket.org/icldistcomp/parsec"
-SRC_URI="https://bitbucket.org/icldistcomp/parsec/get/${P}.tar.bz2"
-S="${WORKDIR}/icldistcomp-${PN}-d2ae4175f072"
+HOMEPAGE="
+	https://github.com/icldisco/parsec
+	https://bitbucket.org/icldistcomp/parsec
+"
+SRC_URI="https://github.com/ICLDisco/${PN}/archive/refs/tags/${P}.tar.gz"
+S="${WORKDIR}/${PN}-${P}"
 
 LICENSE="BSD"
 SLOT="0"
@@ -40,15 +44,18 @@ IUSE_PARSEC_PROF="
 	parsec_prof_grapher
 	+parsec_prof_mmap
 	parsec_prof_otf2
-	parsec_prof_pins
-	parsec_prof_ptg
-	parsec_prof_rusage
+	+parsec_prof_pins
+	parsec_prof_ptg-internal-init
+	parsec_prof_rusage-eu
 	parsec_prof_scheduling-events
-	+parsec_prof_thread
+	+parsec_prof_helper-thread
 "
-IUSE="${IUSE_PARSEC_DEBUG} ${IUSE_PARSEC_DIST} ${IUSE_PARSEC_PROF} +cxx debug +devel-headers fortran +home-config-files +mpi profile +sched-deps-mask sim test +tools"
+IUSE="
+${IUSE_PARSEC_DEBUG} ${IUSE_PARSEC_DIST} ${IUSE_PARSEC_PROF}
++cxx debug +devel-headers fortran +home-config-files +mpi profile +sched-deps-mask sim test +tools
+"
 
-#TODO: gd vite tau
+#TODO: opencl vite tau
 RDEPEND="
 	dev-util/valgrind
 	sys-apps/hwloc
@@ -57,6 +64,15 @@ RDEPEND="
 	mpi? ( virtual/mpi )
 	parsec_prof_otf2? ( sys-cluster/otf2 )
 	parsec_prof_pins? ( dev-libs/papi )
+	tools? (
+		profile? (
+			${PYTHON_DEPS}
+			sys-libs/zlib
+			media-gfx/graphviz
+			media-libs/gd:2[jpeg,png]
+			$(python_gen_cond_dep 'dev-python/cython[${PYTHON_USEDEP}]')
+		)
+	)
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -66,6 +82,8 @@ BDEPEND="
 
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
+	${PYTHON_REQUIRED_USE}
+	test? ( parsec_prof_pins )
 	?? ( mpi sim )
 	?? ( parsec_debug_noisier parsec_debug_history )
 	?? ( parsec_prof_dry-body parsec_prof_dry-dep parsec_prof_dry-run )
@@ -76,6 +94,15 @@ REQUIRED_USE="
 
 pkg_setup() {
 	fortran-2_pkg_setup
+	python-single-r1_pkg_setup
+}
+
+src_prepare() {
+	edo sed \
+		-e "s|\${CMAKE_INSTALL_PREFIX}/|${D}/\${CMAKE_INSTALL_PREFIX}/|g" \
+		-e "s|--prefix|--root ${D} --prefix|g" \
+		-i tools/profiling/python/CMakeLists.txt
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -94,6 +121,7 @@ src_configure() {
 		-DPARSEC_GPU_WITH_OPENCL=OFF
 		-DPARSEC_PROF_TAU=OFF
 
+		-DBUILD_TESTING=$(usex test)
 		-DBUILD_TOOLS=$(usex tools)
 		-DPARSEC_DEBUG=$(usex debug)
 		-DPARSEC_DEBUG_HISTORY=$(usex parsec_debug_history)
@@ -110,13 +138,13 @@ src_configure() {
 		-DPARSEC_PROF_DRY_RUN=$(usex parsec_prof_dry-run)
 		-DPARSEC_PROF_GRAPHER=$(usex parsec_prof_grapher)
 		-DPARSEC_PROF_PINS=$(usex parsec_prof_pins)
-		-DPARSEC_PROF_RUSAGE_EU=$(usex parsec_prof_rusage)
+		-DPARSEC_PROF_RUSAGE_EU=$(usex parsec_prof_rusage-eu)
 		-DPARSEC_PROF_TRACE=$(usex profile)
 		-DPARSEC_PROF_TRACE_ACTIVE_ARENA_SET=$(usex parsec_prof_active-arena-set)
-		-DPARSEC_PROF_TRACE_PTG_INTERNAL_INIT=$(usex parsec_prof_ptg)
+		-DPARSEC_PROF_TRACE_PTG_INTERNAL_INIT=$(usex parsec_prof_ptg-internal-init)
 		-DPARSEC_PROF_TRACE_SCHEDULING_EVENTS=$(usex parsec_prof_scheduling-events)
 		-DPARSEC_PROF_TRACE_SYSTEM="${trace}"
-		-DPARSEC_PROFILING_USE_HELPER_THREAD=$(usex parsec_prof_thread)
+		-DPARSEC_PROFILING_USE_HELPER_THREAD=$(usex parsec_prof_helper-thread)
 		-DPARSEC_PROFILING_USE_MMAP=$(usex parsec_prof_mmap)
 		-DPARSEC_WANT_HOME_CONFIG_FILES=$(usex home-config-files)
 		-DPARSEC_WITH_DEVEL_HEADERS=$(usex devel-headers)

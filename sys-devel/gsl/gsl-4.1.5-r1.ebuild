@@ -20,7 +20,7 @@ RDEPEND="${DEPEND}"
 PATCHES=( "${FILESDIR}/${P}-respect-flags.patch" )
 
 src_prepare() {
-	tc-export RANLIB
+	tc-export AR RANLIB
 	export CCNAME="$(tc-getCC)"
 	export CCPLUS="$(tc-getCXX)"
 	default

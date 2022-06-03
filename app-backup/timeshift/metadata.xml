@@ -6,7 +6,7 @@
 		<name>Ross Charles Campbell</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">teejee2008/timeshift</remote-id>
+		<remote-id type="github">linuxmint/timeshift</remote-id>
 	</upstream>
 	<longdescription lang="en">
 		Timeshift for Linux is an application that provides functionality similar to
