@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Jonas Frei</name>
+		<email>freijon@pm.me</email>
+	</maintainer>
+	<!--<upstream>
+		<remote-id type="codeberg">dnkl/fuzzel</remote-id>
+		<bugs-to>https://codeberg.org/dnkl/fuzzel/issues</bugs-to>
+	</upstream>-->
+	<use>
+		<flag name="cairo">Required for rounded corners and SVG icons</flag>
+		<flag name="png">Enable support for PNG icons</flag>
+		<flag name="svg">enables support for SVG icons</flag>
+	</use>
+</pkgmetadata>
