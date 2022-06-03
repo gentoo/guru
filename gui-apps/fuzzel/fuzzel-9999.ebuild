@@ -40,7 +40,6 @@ BDEPEND="
 
 src_configure() {
 	local emesonargs=(
-		-Dwerror=false
 		-Dpng-backend=$(usex png libpng none)
 		-Dsvg-backend=$(usex svg librsvg none)
 		$(meson_feature cairo enable-cairo)
