@@ -12,7 +12,7 @@ HOMEPAGE="
 	https://github.com/ionelmc/python-hunter
 	https://pypi.org/project/hunter/
 "
-SRC_URI="https://github.com/ionelmc/python-${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/ionelmc/python-${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/python-${P}"
 LICENSE="BSD-2"
 SLOT="0"
