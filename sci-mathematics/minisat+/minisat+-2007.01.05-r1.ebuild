@@ -3,24 +3,26 @@
 
 EAPI=8
 
-MYPV="${PV/.01./-Jan-}"
-MYP="${PN}_${MYPV}"
-
 inherit toolchain-funcs
 
+COMMIT="e9dcbabbf5399d16ed4b09250307d1165a341160"
 DESCRIPTION="solver for pseudo-Boolean constraints"
-HOMEPAGE="https://minisat.se/MiniSat+.html"
-SRC_URI="https://minisat.se/downloads/${MYP}.zip"
+HOMEPAGE="http://minisat.se/MiniSat+.html"
+DOWNLOADS_URI="https://github.com/niklasso/minisat-webpage/raw/${COMMIT}/downloads"
+SRC_URI="
+	${DOWNLOADS_URI}/${PN}_${PV/.01./-Jan-}.zip
+	doc? ( ${DOWNLOADS_URI}/MiniSat+.pdf )
+"
 S="${WORKDIR}/${PN}"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="bignum"
+IUSE="bignum doc"
 
 RDEPEND="
-	bignum? ( dev-libs/gmp )
-	sys-libs/zlib
+	bignum? ( dev-libs/gmp:= )
+	sys-libs/zlib:=
 "
 DEPEND="${RDEPEND}"
 BDEPEND="app-arch/unzip"
@@ -39,12 +41,14 @@ src_compile() {
 }
 
 src_install() {
+	use doc && dodoc "${DISTDIR}"/MiniSat+.pdf
 	dodoc -r Examples
+
 	dobin minisat+_64-bit
 	use bignum && dobin minisat+_bignum
 	if use bignum; then
-		dosym ./minisat+_bignum "${EPREFIX}/usr/bin/minisat+"
+		dosym ./minisat+_bignum usr/bin/minisat+
 	else
-		dosym ./minisat+_64-bit "${EPREFIX}/usr/bin/minisat+"
+		dosym ./minisat+_64-bit /usr/bin/minisat+
 	fi
 }
