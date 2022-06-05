@@ -22,8 +22,7 @@ DEPEND="dev-python/cython[${PYTHON_USEDEP}]"
 
 distutils_enable_tests pytest
 
-python_compile() {
-	distutils-r1_python_compile
-	use test && esetup.py build_ext --inplace
-	rm -rf build || die
+python_test() {
+	cd "${T}" || die
+	epytest --pyargs ${PN}
 }
