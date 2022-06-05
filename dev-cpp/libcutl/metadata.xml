@@ -7,4 +7,9 @@
 		tests, smart pointers, containers, compiler building blocks,
 		etc.
 	</longdescription>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>pravorskyi@meta.ua</email>
+		<name>Andrii Pravorskyi</name>
+	</maintainer>
 </pkgmetadata>
