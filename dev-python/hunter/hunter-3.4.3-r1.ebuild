@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1 multiprocessing
+inherit distutils-r1
 
 DESCRIPTION="Hunter is a flexible code tracing toolkit"
 HOMEPAGE="
@@ -55,15 +55,6 @@ src_unpack() {
 	default
 	cp -a ${S} tests_package || die
 	mv -f tests_package/tests/setup.py tests_package || die
-}
-
-python_compile() {
-	distutils-r1_python_compile
-
-	if use test; then
-		cd "${WORKDIR}"/tests_package || die
-		esetup.py build_ext -j $(makeopts_jobs)
-	fi
 }
 
 python_test() {
