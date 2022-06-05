@@ -2,7 +2,7 @@
 
 If you find an interesting piece of software here, consider to package it, also you are free to add any package you want to see in GURU
 
-Name | Buildsystem | Category | User | RFH | Dependency
+Name | Buildsystem | Category | User | Need help | Dependency
 ------------ | ------------- | ------------- | ------------- | ------------- | -------------
 [odilia](https://odilia.app) | cargo | accessibility | - | ? | ✖
 [spacelib](https://github.com/Alessandro-Barbieri/SpaceLib) | none | science | Alessandro-Barbieri | ✖ | ✖
