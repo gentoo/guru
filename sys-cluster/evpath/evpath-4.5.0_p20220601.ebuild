@@ -5,9 +5,12 @@ EAPI=8
 
 inherit cmake
 
+COMMIT="77f54fac21cb4452057b2b9c8d285e9084309dbc"
+
 DESCRIPTION="EVpath is an event transport middleware layer"
 HOMEPAGE="https://github.com/GTkorvo/evpath"
-SRC_URI="https://github.com/GTKorvo/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+SRC_URI="https://github.com/GTKorvo/${PN}/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
+S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="BSD"
 SLOT="0"
@@ -22,12 +25,11 @@ RDEPEND="
 	enet? ( net-libs/enet )
 	infiniband? ( sys-block/libfabric )
 	libfabric? ( sys-block/libfabric )
-	udt4? ( net-libs/udt:4 )
+	udt4? ( >net-libs/udt-4.11 )
 "
 DEPEND="${RDEPEND}"
 
 RESTRICT="!test? ( test )"
-PATCHES=( "${FILESDIR}/${P}-find-udt.patch" )
 
 src_configure() {
 	local mycmakeargs=(
