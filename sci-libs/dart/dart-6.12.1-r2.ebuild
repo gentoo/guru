@@ -31,10 +31,10 @@ RDEPEND="
 	app-arch/lz4
 	>=dev-cpp/eigen-3.0.5
 	dev-games/ode
-	dev-libs/boost
+	dev-libs/boost:=
 	dev-libs/tinyxml2
 	dev-libs/urdfdom
-	>=media-libs/assimp-3.0.0
+	>=media-libs/assimp-3.0.0:=
 	media-libs/freeglut
 	media-libs/imgui:=[glut(-),opengl(-)]
 	media-libs/lodepng:=
@@ -47,7 +47,7 @@ RDEPEND="
 	sci-physics/bullet
 	virtual/opengl
 
-	examples? ( dev-cpp/tiny-dnn )
+	examples? ( dev-cpp/tiny-dnn:= )
 	osg? ( dev-games/openscenegraph )
 	python? (
 		${PYTHON_DEPS}
