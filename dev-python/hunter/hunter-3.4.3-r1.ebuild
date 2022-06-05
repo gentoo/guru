@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1 edo multiprocessing
+inherit distutils-r1 multiprocessing
 
 DESCRIPTION="Hunter is a flexible code tracing toolkit"
 HOMEPAGE="
@@ -51,17 +51,28 @@ distutils_enable_tests pytest
 
 distutils_enable_sphinx docs ">=dev-python/sphinx-py3doc-enhanced-theme-2.3.2"
 
+src_unpack() {
+	default
+	cp -a ${S} tests_package || die
+	mv -f tests_package/tests/setup.py tests_package || die
+}
+
 python_compile() {
 	distutils-r1_python_compile
 
 	if use test; then
-		esetup.py build_ext -j $(makeopts_jobs) --inplace
-		edo ${EPYTHON} tests/setup.py build_ext -j $(makeopts_jobs) --inplace
-		rm -rf build || die
+		cd "${WORKDIR}"/tests_package || die
+		esetup.py build_ext -j $(makeopts_jobs)
 	fi
 }
 
 python_test() {
-	cd tests || die
+	cp -a "${BUILD_DIR}"/{install,test} || die
+	local -x PATH=${BUILD_DIR}/test/usr/bin:${PATH}
+
+	cd "${WORKDIR}"/tests_package >/dev/null || die
+	distutils_pep517_install "${BUILD_DIR}"/test
+
+	cd ./tests || die
 	epytest
 }
