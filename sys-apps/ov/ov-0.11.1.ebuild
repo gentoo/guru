@@ -904,9 +904,9 @@ RESTRICT="!test? ( test )"
 
 src_compile() {
 	ego build -v -x -o ${PN} -ldflags="-X main.Version=${PV}" || die
-	edo ./ov --completion fish > ov.fish
-	edo ./ov --completion bash > ov.bash
-	edo ./ov --completion zsh > ov.zsh
+	edo ./ov --config ov.yaml --completion fish > ov.fish
+	edo ./ov --config ov.yaml --completion bash > ov.bash
+	edo ./ov --config ov.yaml --completion zsh > ov.zsh
 }
 
 src_install() {

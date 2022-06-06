@@ -39,3 +39,11 @@ dev-python/aionotify
 # Doesn't support Python 3.10.
 dev-python/kitchen
 net-misc/tuir
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-04)
+# Pytest hangs. No revdeps. Removal on 2022-07-04.
+dev-python/threadloop
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-04)
+# Incompatible with recent pytest. No revdeps. Removal on 2022-07-05.
+dev-python/thriftrw

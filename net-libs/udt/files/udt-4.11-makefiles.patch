@@ -1,0 +1,93 @@
+--- a/app/Makefile
++++ b/app/Makefile
+@@ -1,4 +1,4 @@
+-C++ = g++
++C++ = $(CXX)
+ 
+ ifndef os
+    os = LINUX
+@@ -8,7 +8,7 @@
+    arch = IA32
+ endif
+ 
+-CCFLAGS = -Wall -D$(os) -I../src -finline-functions -O3
++CCFLAGS = -Wall -D$(os) -I../src $(CXXFLAGS)
+ 
+ ifeq ($(arch), IA32)
+    CCFLAGS += -DIA32 #-mcpu=pentiumpro -march=pentiumpro -mmmx -msse
+@@ -26,7 +26,7 @@
+    CCFLAGS += -DSPARC
+ endif
+ 
+-LDFLAGS = -L../src -ludt -lstdc++ -lpthread -lm
++LDFLAGS += -L../src -ludt -lstdc++ -lpthread -lm
+ 
+ ifeq ($(os), UNIX)
+    LDFLAGS += -lsocket
+@@ -43,18 +43,18 @@
+ all: $(APP)
+ 
+ %.o: %.cpp
+-	$(C++) $(CCFLAGS) $< -c
++	$(C++) $(CCFLAGS) -fPIC $< -c
+ 
+ appserver: appserver.o
+-	$(C++) $^ -o $@ $(LDFLAGS)
++	$(C++) $^ -o $@ $(CCFLAGS) -fPIE $(LDFLAGS)
+ appclient: appclient.o
+-	$(C++) $^ -o $@ $(LDFLAGS)
++	$(C++) $^ -o $@ $(CCFLAGS) -fPIE $(LDFLAGS)
+ sendfile: sendfile.o
+-	$(C++) $^ -o $@ $(LDFLAGS)
++	$(C++) $^ -o $@ $(CCFLAGS) -fPIE $(LDFLAGS)
+ recvfile: recvfile.o
+-	$(C++) $^ -o $@ $(LDFLAGS)
++	$(C++) $^ -o $@ $(CCFLAGS) -fPIE $(LDFLAGS)
+ test: test.o
+-	$(C++) $^ -o $@ $(LDFLAGS)
++	$(C++) $^ -o $@ $(CCFLAGS) -fPIE $(LDFLAGS)
+ 
+ clean:
+ 	rm -f *.o $(APP)
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -1,4 +1,4 @@
+-C++ = g++
++C++ = $(CXX)
+ 
+ ifndef os
+    os = LINUX
+@@ -8,7 +8,7 @@
+    arch = IA32
+ endif
+ 
+-CCFLAGS = -fPIC -Wall -Wextra -D$(os) -finline-functions -O3 -fno-strict-aliasing -fvisibility=hidden
++CCFLAGS = -fPIC -Wall -Wextra -D$(os) -fno-strict-aliasing -fvisibility=hidden $(CXXFLAGS)
+ 
+ ifeq ($(arch), IA32)
+    CCFLAGS += -DIA32
+@@ -33,21 +33,18 @@
+ OBJS = api.o buffer.o cache.o ccc.o channel.o common.o core.o epoll.o list.o md5.o packet.o queue.o window.o
+ DIR = $(shell pwd)
+ 
+-all: libudt.so libudt.a udt
++all: libudt.so udt
+ 
+ %.o: %.cpp %.h udt.h
+-	$(C++) $(CCFLAGS) $< -c
++	$(C++) $(CCFLAGS) -fPIC $< -c
+ 
+ libudt.so: $(OBJS)
+ ifneq ($(os), OSX)
+-	$(C++) -shared -o $@ $^
++	$(C++) $(CCFLAGS) $(LDFLAGS) -shared -fPIC -lpthread -Wl,-soname,libudt.so.0 -o $@ $^
+ else
+ 	$(C++) -dynamiclib -o libudt.dylib -lstdc++ -lpthread -lm $^
+ endif
+ 
+-libudt.a: $(OBJS)
+-	ar -rcs $@ $^
+-
+ udt:
+ 	cp udt.h udt
+ 

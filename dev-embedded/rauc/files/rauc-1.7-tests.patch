@@ -13,7 +13,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
 
 --- a/Makefile.am
 +++ b/Makefile.am
-@@ -155,10 +155,6 @@ check_PROGRAMS = \
+@@ -162,10 +162,6 @@ check_PROGRAMS = \
  	test/progress.test \
  	test/slot.test
  
@@ -21,10 +21,10 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
 -check_PROGRAMS += test/network.test
 -endif
 -
- if WANT_JSON
- check_PROGRAMS += test/boot_switch.test
+ if ENABLE_STREAMING
+ check_PROGRAMS += test/nbd.test
  endif
-@@ -242,9 +238,6 @@ test_utils_test_LDADD = librauctest.la
+@@ -260,9 +256,6 @@ test_utils_test_LDADD = librauctest.la
  test_install_test_SOURCES = test/install.c
  test_install_test_LDADD = librauctest.la
  
@@ -36,7 +36,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  
 --- a/test/rauc.t
 +++ b/test/rauc.t
-@@ -283,16 +283,16 @@ test_expect_success "rauc bundle" "
+@@ -325,16 +325,16 @@ test_expect_success "rauc bundle" "
    test -f ${TEST_TMPDIR}/out.raucb
  "
  

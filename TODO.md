@@ -2,7 +2,7 @@
 
 If you find an interesting piece of software here, consider to package it, also you are free to add any package you want to see in GURU
 
-Name | Buildsystem | Category | User | RFH | Dependency
+Name | Buildsystem | Category | User | Need help | Dependency
 ------------ | ------------- | ------------- | ------------- | ------------- | -------------
 [odilia](https://odilia.app) | cargo | accessibility | - | ? | ✖
 [spacelib](https://github.com/Alessandro-Barbieri/SpaceLib) | none | science | Alessandro-Barbieri | ✖ | ✖
@@ -23,7 +23,7 @@ Name | Buildsystem | Category | User | RFH | Dependency
 [Intel-sgx](https://01.org/intel-softwareguard-extensions) | make | devel | Alessandro-Barbieri | ✔ | ✖
 [compcert](https://compcert.org) | make | compiler | Alessandro-Barbieri | ✔ | ✖
 [predictive](https://www.dr-qubit.org/predictive.html) | make | emacs | Alessandro-Barbieri | ✔ | ✖
-[tau](http://www.cs.uoregon.edu/research/tau/home.php) | make | tools | Alessandro-Barbieri | ✖
+[tau](http://www.cs.uoregon.edu/research/tau/home.php) | make | tools | Alessandro-Barbieri | ✔ | ✔
 [gnat-llvm](https://github.com/AdaCore/gnat-llvm) | make | compiler | Alessandro-Barbieri | ✔ | ✖
 [csparse](https://people.sc.fsu.edu/~jburkardt/c_src/csparse/csparse.html) | make | science | Alessandro-Barbieri | ✖ | ✔
 [gslib](https://github.com/Nek5000/gslib) | make | cluster | Alessandro-Barbieri | ✖ | ✔
@@ -110,4 +110,5 @@ Name | Buildsystem | Category | User | RFH | Dependency
 [kaitai](https://github.com/kaitai-io/kaitai_struct) | sbt | util | Alessandro-Barbieri | ✔ | ✖
 [casadi](https://web.casadi.org/) | cmake swig | science | Alessandro-Barbieri | ✖ | ✔
 [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet) | setuptools yarn | jupyter | Alessandro-Barbieri | ✔ | ✖
+[gitlab](https://gitlab.com/gitlab-org/gitlab-foss) | yarn gem | vcs | Alessandro-Barbieri | ✔ | ✖
 [HOL4](http://hol-theorem-prover.org/) | ? | math | Alessandro-Barbieri | ✔ | ✖

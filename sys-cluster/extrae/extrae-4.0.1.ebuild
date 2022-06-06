@@ -31,11 +31,12 @@ peruse +posix-clock pthread sampling +single-mpi-lib sionlib smpss spectral +xml
 #	aspectj? ( >=dev-java/aspectj-1.9.6 )
 CDEPEND="
 	${PYTHON_DEPS}
+	dev-libs/libpfm:=
 	dev-libs/libxml2
 	dev-libs/papi
 	!sys-cluster/openmpi[libompitrace(+)]
-	sys-libs/binutils-libs
-	sys-libs/libunwind
+	sys-libs/binutils-libs:=
+	sys-libs/libunwind:=
 	sys-libs/zlib
 	virtual/mpi
 
@@ -80,6 +81,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.8.3-link-sionlib.patch"
+	"${FILESDIR}/${P}-fix-pfm-linking.patch"
 )
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}

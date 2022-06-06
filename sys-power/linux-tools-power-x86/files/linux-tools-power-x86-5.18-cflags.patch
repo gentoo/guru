@@ -1,0 +1,33 @@
+--- a/tools/power/x86/intel-speed-select/Makefile
++++ b/tools/power/x86/intel-speed-select/Makefile
+@@ -13,7 +13,7 @@
+ # Do not use make's built-in rules
+ # (this improves performance and avoids hard-to-debug behaviour);
+ MAKEFLAGS += -r
+-override CFLAGS += -O2 -Wall -g -D_GNU_SOURCE -I$(OUTPUT)include -I/usr/include/libnl3
++override CFLAGS += -Wall -g -D_GNU_SOURCE -I$(OUTPUT)include -I/usr/include/libnl3
+ override LDFLAGS += -lnl-genl-3 -lnl-3
+ 
+ ALL_TARGETS := intel-speed-select
+--- a/tools/power/x86/turbostat/Makefile
++++ b/tools/power/x86/turbostat/Makefile
+@@ -9,7 +9,7 @@
+ endif
+ 
+ turbostat : turbostat.c
+-override CFLAGS +=	-O2 -Wall -I../../../include
++override CFLAGS +=	-Wall -I../../../include
+ override CFLAGS +=	-DMSRHEADER='"../../../../arch/x86/include/asm/msr-index.h"'
+ override CFLAGS +=	-DINTEL_FAMILY_HEADER='"../../../../arch/x86/include/asm/intel-family.h"'
+ override CFLAGS +=	-D_FILE_OFFSET_BITS=64
+--- a/tools/power/x86/x86_energy_perf_policy/Makefile
++++ b/tools/power/x86/x86_energy_perf_policy/Makefile
+@@ -9,7 +9,7 @@
+ endif
+ 
+ x86_energy_perf_policy : x86_energy_perf_policy.c
+-override CFLAGS +=	-O2 -Wall -I../../../include
++override CFLAGS +=	-Wall -I../../../include
+ override CFLAGS +=	-DMSRHEADER='"../../../../arch/x86/include/asm/msr-index.h"'
+ override CFLAGS +=	-D_FORTIFY_SOURCE=2
+ 

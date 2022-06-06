@@ -17,7 +17,7 @@ LICENSE="BSD CPL-1.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="virtual/mpi"
+RDEPEND="virtual/mpi[cxx]"
 DEPEND="${RDEPEND}"
 
 PATCHES=( "${FILESDIR}/${P}-makefile.patch" )

@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} pypy3 )
-
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 DESCRIPTION="Debugging manhole for python application"
@@ -12,7 +12,7 @@ HOMEPAGE="
 	https://github.com/ionelmc/python-manhole
 	https://pypi.org/project/manhole/
 "
-SRC_URI="https://github.com/ionelmc/python-${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/ionelmc/python-${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/python-${P}"
 
 LICENSE="BSD-2"
@@ -35,8 +35,6 @@ distutils_enable_sphinx docs dev-python/sphinx-py3doc-enhanced-theme
 distutils_enable_tests pytest
 
 python_test() {
-	distutils_install_for_testing
-
 	local -x PYTHONPATH="${S}/src:${PYTHONPATH}"
 	local EPYTEST_DESELECT=(
 		tests/test_manhole.py::test_connection_handler_exec
@@ -51,11 +49,7 @@ python_test() {
 		tests/test_manhole.py::test_stderr_doesnt_deadlock
 	)
 
-	if [[ ${EPYTHON} == pypy3 ]]; then
-		EPYTEST_DESELECT+=(
-			tests/test_manhole.py::test_log_fh
-		)
-	fi
+	[[ ${EPYTHON} == pypy3 ]] && EPYTEST_DESELECT+=( tests/test_manhole.py::test_log_fh )
 
-	epytest
+	distutils-r1_python_test
 }

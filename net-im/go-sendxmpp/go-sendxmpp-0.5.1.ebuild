@@ -9,7 +9,7 @@ DESCRIPTION="A little tool to send messages to an XMPP contact or MUC"
 HOMEPAGE="https://salsa.debian.org/mdosch/go-sendxmpp"
 SRC_URI="
 	https://salsa.debian.org/mdosch/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2 -> ${P}.tar.bz2
-	https://tastytea.de/files/${P}-vendor.tar.xz
+	https://tastytea.de/files/gentoo/${P}-vendor.tar.xz
 "
 S="${WORKDIR}/${PN}-v${PV}"
 
