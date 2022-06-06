@@ -33,7 +33,9 @@ RDEPEND="
 		sci-libs/netcdf[hdf5,mpi]
 		sci-libs/netcdf-cxx
 		sci-libs/netcdf-fortran
+		sys-cluster/adios2[fortran,hdf5,mpi]
 		sys-cluster/parallel-netcdf
+		python? ( $(python_gen_cond_dep 'sys-cluster/adios2[python,${PYTHON_SINGLE_USEDEP}]') )
 	)
 
 	parallel? (
@@ -102,7 +104,6 @@ RDEPEND="
 
 "
 #	io-libs
-	#adios[mpi]
 	#phdf5[mpi]
 
 #	perf-tools
