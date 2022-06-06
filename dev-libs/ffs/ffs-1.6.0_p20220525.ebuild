@@ -5,9 +5,12 @@ EAPI=8
 
 inherit cmake
 
+COMMIT="25f9621a8a983f0e4e85a694290ab9624dd2c2bc"
+
 DESCRIPTION="FFS is a middleware library for data communication"
 HOMEPAGE="https://github.com/GTkorvo/ffs"
-SRC_URI="https://github.com/GTKorvo/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+SRC_URI="https://github.com/GTKorvo/${PN}/archive/${COMMIT}.tar.gz -> ${PF}.gh.tar.gz"
+S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="BSD"
 SLOT="0"
@@ -37,8 +40,4 @@ src_configure() {
 		-DBUILD_TESTING=$(usex test)
 	)
 	cmake_src_configure
-}
-
-src_install() {
-	cmake_src_install
 }
