@@ -78,6 +78,11 @@ dev-games/godot:freetype - Enable support for media-libs/freetype
 dev-games/godot:lto - Enable support for link time optimization
 dev-games/godot:mbedtls - Enable support for net-libs/mbedtls
 dev-games/godot:raycast - Enable raycast module using media-libs/embree
+dev-libs/atl:utilities - Build utilities
+dev-libs/dill:disassembly - Enable binutils-based disassembly
+dev-libs/dill:ignore-native - Build to do emulation, regardless of architecture
+dev-libs/dill:multitarget - Build all available target architectures
+dev-libs/ffs:atl - Enable the use of ATL
 dev-libs/hts_engine:speech-tools - use memory allocation/free functions of app-accessibility/speech-tools
 dev-libs/libdwarf:dwarfexample - enable dwarfexample compilation
 dev-libs/libdwarf:dwarfgen - enable dwarfgen compilation
@@ -102,6 +107,9 @@ dev-libs/open62541:mbedtls - Use mbedtls for encryption
 dev-libs/open62541:openssl - Use openssl for encryption
 dev-libs/open62541:pubsub - Enable OPC/UA Pub/Sub extensions
 dev-libs/open62541:tools - Build additional shell tools
+dev-libs/perfstubs:default - Use provided perfstubs tool_example
+dev-libs/perfstubs:timers - Use our own tool_example of timers
+dev-libs/perfstubs:tools - Build libperfstsubs_n
 dev-libs/xqilla:tidy - Add Tidy-HTML5 support
 dev-libs/zfp:aligned - Enable aligned memory allocation
 dev-libs/zfp:cfp - Build CFP arrays library
@@ -546,6 +554,11 @@ sys-apps/bustd:glob - Enable excluding processes with glob patterns
 sys-apps/drm_info:pci - Print PCI device names via libpci
 sys-apps/fselect:users - Add support for getting system users and groups
 sys-apps/intel-cmt-cat:appqos - Install App QoS, a software created to demonstrate the use of Intel(R) RDT technologies (CAT, MBA) to improve QoS for applications via partitioning system resources.
+sys-apps/watchdogd:compat - Enable compat supervisor.status and signals
+sys-apps/watchdogd:filenr - Enable file descriptor leak monitor
+sys-apps/watchdogd:generic - Enable generic script monitor
+sys-apps/watchdogd:loadavg - Enable CPU load average monitor
+sys-apps/watchdogd:meminfo - Enable memory leak monitor
 sys-auth/mrsh:pam - build with pam support
 sys-auth/mrsh:shadow - build with shadow file support
 sys-boot/limine:bios - Enable BIOS/MBR boot support.
@@ -601,6 +614,10 @@ sys-cluster/dlb:hwloc - add sys-apps/hwlocsupport
 sys-cluster/dlb:instrumentation - enable sys-cluster/extrae instrumentation
 sys-cluster/dyninst:openmp - Enable parallel code parsing
 sys-cluster/dyninst:valgrind - Enable annotations for Valgrind analysis
+sys-cluster/evpath:enet - Build the enet transport
+sys-cluster/evpath:infiniband - Build the ibverbs transport
+sys-cluster/evpath:libfabric - Build the libfabric transport
+sys-cluster/evpath:udt4 - Build the udt4 transport
 sys-cluster/extrae:clustering - Enable sys-cluster/clusteringsuite support
 sys-cluster/extrae:dlsym - Use dlsym instead of PMPI
 sys-cluster/extrae:doc - Generates the documentation of this instrumentation package
@@ -799,6 +816,7 @@ sys-libs/safeclib:unsafe - Include unsafe std C11 functions: tmpnam_s
 sys-libs/safeclib:valgrind - enable Valgrind on the unit tests
 sys-libs/safeclib:wchar - enable multibyte and wchar support
 sys-power/ZenStates-Linux:togglecode - Install the togglecode utility to turn on/off the Q-Code display on ASUS Crosshair VI Hero motherboards (and other boards with a compatible Super I/O chip)
+sys-power/linux-tools-power-x86:pstate-tracer - Install utility to debug and tune the performance of the {amd,intel}_pstate drivers
 sys-process/nq:shell - Use shell implementation
 sys-process/nq:tq - Install tq, a tmux & screen wrapper
 www-apps/gogs:cert - Adds support for self-signed certificates
@@ -808,6 +826,7 @@ www-servers/hinsightd:fcgi - Enable fast cgi support
 www-servers/hinsightd:ffcall - Use ffcall library for better logging format support
 www-servers/hinsightd:openssl - Enable tls encryption with openssl
 www-servers/hinsightd:rproxy - Enable reverse proxying support
+x11-apps/lightdm-gtk-greeter-settings:xfce - Adds x11-apps/lightdm-gtk-greeter-settings to Xfce settings manager
 x11-libs/gtk-fortran:examples - Install examples source code files
 x11-libs/gtk-fortran:high-level - Build high-level interface to the gtk-fortran package
 x11-libs/gtk-fortran:plplot - Build with sci-libs/plplot support

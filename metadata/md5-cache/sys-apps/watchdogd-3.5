@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-libs/confuse:= dev-libs/libite dev-libs/libuev systemd? ( sys-apps/systemd )
+DESCRIPTION=Advanced system & process supervisor for Linux
+EAPI=8
+HOMEPAGE=https://troglobit.com/watchdogd.html https://github.com/troglobit/watchdogd
+INHERIT=autotools edo toolchain-funcs
+IUSE=compat examples filenr generic loadavg meminfo systemd
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-libs/confuse:= dev-libs/libite dev-libs/libuev systemd? ( sys-apps/systemd )
+SLOT=0
+SRC_URI=https://github.com/troglobit/watchdogd/archive/refs/tags/3.5.tar.gz -> watchdogd-3.5.gh.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3
+_md5_=53bc34d537eead28fb49f605b630d018

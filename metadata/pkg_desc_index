@@ -159,7 +159,7 @@ app-mobilephone/flashlight 0.1.1-r2: It's a flashlight, what do you expect?
 app-mobilephone/mobile-config-firefox 2.1.0: Mobile and privacy friendly configuration for Firefox
 app-mobilephone/pinephone-modem-scripts 0.20.8: Modem scripts for the PinePhone
 app-mobilephone/usb-tethering 0.3: USB tethering on Pine64/ConfigFS systems
-app-office/beancount 2.3.3: A double-entry accounting system that uses text files as input
+app-office/beancount 2.3.5: A double-entry accounting system that uses text files as input
 app-office/openoffice-bin 4.1.11 4.1.12: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.6: Pyspread is a non-traditional spreadsheet written in Python
 app-office/sc-im 0.8.2-r1: Spreadsheet Calculator Improvised -- An ncurses spreadsheet program for terminal
@@ -341,6 +341,7 @@ dev-cpp/gemmlowp 0_pre20211220-r1: Low-precision matrix multiplication
 dev-cpp/gsl-lite 0.38.0: C++ Guideline Support Library implementation
 dev-cpp/indicators 2.2: Activity indicators for modern C++
 dev-cpp/jwt-cpp 0.4.0 0.6.0: header only library for creating and validating JSON Web Tokens in C++11
+dev-cpp/libcutl 1.11.0_beta9: C++ utility library
 dev-cpp/libstudxml 1.1.0_beta10: Streaming XML pull parser/serializer for modern C++
 dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
 dev-cpp/muParserX 4.0.11: Parsing Expressions with Strings, Complex Numbers, Vectors, Matrices and more
@@ -362,7 +363,7 @@ dev-db/rum 1.3.9: RUM access method - inverted index with additional information
 dev-dotnet/gtk-sharp 2.99.3-r3: gtk bindings for mono
 dev-embedded/esp-idf 4.4.1: Espressif IoT Development Framework
 dev-embedded/mv88e6xxx-dump 0.2.0_pre20210327: Dump information about Marvell mv88e6xxx Ethernet switches
-dev-embedded/rauc 1.6: Lightweight update client that runs on your Embedded Linux device
+dev-embedded/rauc 1.7: Lightweight update client that runs on your Embedded Linux device
 dev-erlang/cowboy 2.9.0: Small, fast, modern HTTP server for Erlang/OTP.
 dev-erlang/cowlib 2.11.0: Support library for manipulating Web protocols.
 dev-erlang/ranch 1.7.1 1.8.0 2.0.0: Socket acceptor pool for TCP protocols.
@@ -373,6 +374,7 @@ dev-hare/hare-compress 9999: Compression algorithms for Hare
 dev-hare/hare-iobus 9999: An asyncronous I/O abstraction for Hare
 dev-hare/hare-linux 9999: Extra Linux support for Hare programs
 dev-hare/hare-png 9999: PNG implementation for Hare
+dev-hare/hare-xml 9999: XML support for Hare
 dev-java/gradle-base-annotations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-build-operations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/gradle-hashing 6.8.2: Build automation tool for JVM Languages, C(++), etc.
@@ -385,13 +387,16 @@ dev-lang/harec 9999: The Hare compiler
 dev-lang/quickjs 2020.11.08 2021.03.27: Small embeddable Javascript engine
 dev-lang/wren 0.3.0: The Wren Programming Language
 dev-libs/StringiFor 1.1.1 1.1.3: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
+dev-libs/atl 2.2.1: Library for the creation and manipulation of lists
 dev-libs/ayatana-ido 0.9.1: Ayatana Application Indicators (Shared Library)
 dev-libs/boinc-zip 7.18-r1: Wrapper for the zip/unzip functions to expose to BOINC clients
 dev-libs/cgicc 3.2.19: A C++ class library for writing CGI applications
 dev-libs/cglm 0.8.5 9999: OpenGL Mathematics (glm) for C
+dev-libs/dill 2.4.1: Provides instruction-level code generation directly into memory regions
 dev-libs/dmd_core 0.6.2: Core logic for an AT&T / Teletype DMD 5620 terminal emulator
 dev-libs/fastText 0.9.2: Library for fast text representation and classification
 dev-libs/feedbackd 0.0.0-r1: A daemon to provide haptic feedback on events
+dev-libs/ffs 1.6.0: FFS is a middleware library for data communication
 dev-libs/fortran-stdlib 0.1.0 0.2.0 0.2.1 9999: A community driven standard library for (modern) Fortran
 dev-libs/fsst 0_pre20200830-r1: Fast Static Symbol Table: fast text compression that allows random access
 dev-libs/ftl 1.0_p20220209-r1: The Fortran Template Library (FTL) is a general purpose library for Fortran 2003
@@ -399,6 +404,7 @@ dev-libs/gbinder 1.1.19 9999: GLib-style interface to binder
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
 dev-libs/imsg-compat 6.8.2 9999: linux port of OpenBSD imsg
 dev-libs/jose 11: C-language implementation of Javascript Object Signing and Encryption
+dev-libs/kwsys 0_pre20220603: Kitware System Library
 dev-libs/libayatana-appindicator 0.5.91: Ayatana Application Indicators (Shared Library)
 dev-libs/libayatana-indicator 0.9.1-r1: Ayatana Application Indicators (Shared Library)
 dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
@@ -420,8 +426,9 @@ dev-libs/octetos-db 1.3.2_alpha 1.3.3_alpha: C++ library for Database Acces.
 dev-libs/octetos-db-abstract 0.1.2_alpha 0.6.0_alpha: API to access database, abstract component.
 dev-libs/octetos-db-maria 1.4.2_alpha 1.9.2_alpha 9999: C++ library for Database Acces.
 dev-libs/octetos-db-postgresql 1.3.9_alpha 1.3.10_alpha: C++ library for Database Acces.
-dev-libs/olm 3.2.8 3.2.9 3.2.11: Implementation of the olm and megolm cryptographic ratchets
+dev-libs/olm 3.2.11 3.2.12: Implementation of the olm and megolm cryptographic ratchets
 dev-libs/open62541 1.3: Open source C implementation of OPC UA
+dev-libs/perfstubs 0_pre20210915: Profiling API for adding external tool instrumentation support to any project
 dev-libs/properties-cpp 0.0.2: Simple convenience library for handling properties and signals in C++11
 dev-libs/protothreads 1.4-r2: Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
@@ -615,6 +622,7 @@ dev-python/cu2qu 1.6.7-r1 1.6.7_p1: Cubic-to-quadratic bezier curve conversion
 dev-python/curio 0.9 1.4-r1 1.5: Curio is a coroutine-based library for concurrent systems programming
 dev-python/cursive 0.2.2-r2: Cursive implements OpenStack-specific validation of digital signatures
 dev-python/cx-oracle 8.2.1: Python interface to Oracle
+dev-python/cymem 2.0.6: Manage calls to calloc/free through Cython
 dev-python/dacite 1.6.0: This module simplifies creation of data classes (PEP 557) from dictionaries
 dev-python/daff 1.3.46: Diff and patch tables
 dev-python/daiquiri 3.0.1: Python library to easily setup basic logging functionality
@@ -653,6 +661,7 @@ dev-python/glyphsLib 6.0.5: A library to provide a bridge from Glyphs source fil
 dev-python/glyphsets 0.5.0: A python API for evaluating coverage of glyph sets in font projects
 dev-python/glyphtools 0.8.0: Routines for extracting information from fontTools glyphs
 dev-python/gnocchi 4.4.1 4.4.2: Timeseries database
+dev-python/gnuplot-py 1.8_p8: A python wrapper for Gnuplot
 dev-python/google-cloud-storage 1.36.0: Google Cloud Storage API client library
 dev-python/googletrans 4.0.0_rc1: Free Google Translate API for Python. Translates totally free of charge.
 dev-python/googletransx 2.4.2-r2: Free Google Translate API for Python. Translates totally free of charge.
@@ -666,7 +675,7 @@ dev-python/hidapi 0.10.1 0.11.0.2: A Cython interface to the hidapi
 dev-python/hijri-converter 2.2.4: Accurate Hijri-Gregorian date converter based on the Umm al-Qura calendar
 dev-python/hstspreload 2021.12.1: Chromium HSTS Preload list as a Python package
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
-dev-python/hunter 3.3.8 3.4.3: Hunter is a flexible code tracing toolkit
+dev-python/hunter 3.4.3-r1: Hunter is a flexible code tracing toolkit
 dev-python/hwi 1.2.1 2.0.2: Library and command line tool for interacting with hardware wallets
 dev-python/hypercorn 0.13.2: ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperglot 0.3.8: Detect language support for font binaries
@@ -994,12 +1003,12 @@ games-util/dwarf-therapist 41.2.2: For managing dwarves in Dwarf Fortress
 games-util/gamehub 0.16.0.1 0.16.3.2: GameHub is a unified library for all your games
 games-util/hid-nintendo 9999: A Nintendo HID kernel module
 games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launcher
-games-util/legendary 0.20.24 0.20.25: A free and open-source replacement for the Epic Games Launcher
+games-util/legendary 0.20.25 0.20.26: A free and open-source replacement for the Epic Games Launcher
 games-util/mangohud 0.6.6.1-r3: A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more
 games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
 games-util/samrewritten 9999 202008: Steam Achievement Manager For Linux
 games-util/steamtinkerlaunch 8.0: Wrapper script for Steam custom launch options
-gnome-extra/extension-manager 0.2.3 0.3.0 9999: A native tool for browsing and installing GNOME Shell Extensions
+gnome-extra/extension-manager 0.2.3 0.3.0 0.3.1 9999: A native tool for browsing and installing GNOME Shell Extensions
 gnome-extra/iio-sensor-proxy 3.3: IIO sensors to D-Bus proxy
 gnome-extra/portfolio 0.9.14: A minimalist file manager for those who want to use Linux mobile devices
 gnome-extra/vvmplayer 1.4: Visual Voicemail Player
@@ -1187,7 +1196,7 @@ net-client/offpunk 0.1 0.3: A command-line, text-based and offline-first Gemini 
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
 net-client/telescope 0.7.1 0.8.1: w3m-like browser for Gemini
 net-dialup/atinout 0.9.1-r1: AT commands as input are sent to modem and responses given as output
-net-dialup/tio 1.37: Simple TTY terminal application
+net-dialup/tio 1.38: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/Quaternion 0.0.9.4e: A Qt5-based IM client for the Matrix protocol
@@ -1195,7 +1204,7 @@ net-im/abaddon 0.1.6 9999: Alternative Discord client using GTK instead of Elect
 net-im/chatterino 2.3.5-r3: Chat client for https://twitch.tv
 net-im/discord-canary-bin 0.0.135: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.29: All-in-one voice and text chat
-net-im/go-sendxmpp 0.3.0 0.5.0: A little tool to send messages to an XMPP contact or MUC
+net-im/go-sendxmpp 0.5.0 0.5.1: A little tool to send messages to an XMPP contact or MUC
 net-im/gtkcord 0.1.0-r1: A Gtk3 Discord client in Golang
 net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
 net-im/jitsi-meet 2022.3.1: Desktop application for Jitsi Meet built with Electron
@@ -1214,6 +1223,7 @@ net-libs/kcgi 0.12.5 0.13.0: Minimal CGI library for web applications
 net-libs/libqmatrixclient 0.5.3.2: A Qt5 library to write cross-platfrom clients for Matrix
 net-libs/td 1.8.0: Cross-platform library for building Telegram clients
 net-libs/telepathy-haze 0.8.1: Telepathy connection manager providing libpurple supported protocols
+net-libs/udt 4.11: UDT is a UDP based data transport protocol
 net-libs/usockets 0.8.1_p20211023 9999: tiny eventing, networking & crypto for async applications
 net-mail/dovecot-fts-xapian 1.5.2 1.5.4 1.5.5 9999: Dovecot FTS plugin backed by Xapian
 net-mail/remail 0.13: A set of tools for crypted mailing lists
@@ -1337,7 +1347,7 @@ sci-mathematics/frama-c-variadic 23.1 24.0: Variadic function transformation plu
 sci-mathematics/frama-c-wp 23.1 24.0: Deductive proof of ACSL contracts (WP) plugin for frama-c
 sci-mathematics/lean-mathlib 0.1_p20220324: Lean mathematical components library
 sci-mathematics/mccs 1.1: Multi Criteria CUDF Solver
-sci-mathematics/minisat+ 2007.01.05: solver for pseudo-Boolean constraints
+sci-mathematics/minisat+ 2007.01.05-r1: solver for pseudo-Boolean constraints
 sci-mathematics/minisatp 0.1_p20121002: solver for pseudo-Boolean constraints
 sci-mathematics/packup 0.6: PACKage Upgradability Problem solver
 sci-mathematics/qepcad 1.72b_p20220502-r2: Quantifier Elimination by Partial Cylindrical Algebraic Decomposition
@@ -1374,6 +1384,7 @@ sys-apps/sd 0.7.6-r1: Intuitive find & replace CLI (sed alternative)
 sys-apps/sdate 0.7: Wrapper program to output dates like the Eternal September 1993
 sys-apps/systemd-bootchart 234: systemd boot performance graphing tool
 sys-apps/sysz 1.4.1 1.4.3: An fzf terminal UI for systemctl
+sys-apps/watchdogd 3.5: Advanced system & process supervisor for Linux
 sys-auth/keystone 21.0.0-r2: The Openstack authentication, authorization, and service catalog
 sys-auth/mrsh 2.12 2.12-r1: Mrsh is a set of remote shell programs that use munge authentication.
 sys-auth/pam-gnupg 0.3: Unlock GnuPG keys on login
@@ -1395,6 +1406,7 @@ sys-cluster/dlb 2.1-r3: Dynamically react to application imbalance by modifying 
 sys-cluster/dtcmp 1.1.2 1.1.4: Datatype Compare Library for sorting and ranking distributed data using MPI
 sys-cluster/dyninst 11.0.1-r1 12.1.0: Tools for binary instrumentation, analysis, and modification
 sys-cluster/er 0.1.0 0.3.0: High-level distributed erasure coding lib combining shuffile and redset
+sys-cluster/evpath 4.5.0: EVpath is an event transport middleware layer
 sys-cluster/extrae 4.0.1: Instrumentation framework to generate execution traces of parallel runtimes
 sys-cluster/fti 1.6-r1: Fault Tolerance Interface
 sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
@@ -1470,6 +1482,7 @@ sys-power/disable-c6 0_p20190603: disable the C6 state upon system boot, prevent
 sys-power/fan2go 0.6.2 0.6.2-r1: A simple daemon providing dynamic fan speed control
 sys-power/gtherm 0.0.3: A simple daemon to monitor thermal zones and cooling devices
 sys-power/gwe 0.15.3 0.15.5: NVIDIA settings alternative with overclocking, fan control, and information
+sys-power/linux-tools-power-x86 5.18: Linux x86 CPU power tools
 sys-power/tlp 1.5.0: Optimize laptop battery life
 sys-process/gotop 4.1.3: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/nq 0.4: Unix command line queue utility
@@ -1501,6 +1514,7 @@ www-misc/gorss 0.3: Go Terminal Feed Reader
 www-misc/waldl 0.0.1_pre20211112: Browse and download wallpapers from wallhaven.cc using sxiv
 www-servers/hinsightd 0.9.14 9999: hinsightd a http/1.1 webserver with (hopefully) minimal goals
 www-servers/quark 9999: A small, GET-only static HTTP server
+x11-apps/lightdm-gtk-greeter-settings 1.2.2: Configuration tool for the LightDM GTK Greeter
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
 x11-drivers/OpenTabletDriver-bin 0.5.3.3 0.6.0.2: Cross platform tablet driver (binary package)
 x11-libs/gtk-fortran 3.24.18 3.24.30 4.1.0: A GTK+ binding to build Graphical User Interfaces in Fortran

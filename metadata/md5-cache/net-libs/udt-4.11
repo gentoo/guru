@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile install
+DESCRIPTION=UDT is a UDP based data transport protocol
+EAPI=8
+HOMEPAGE=http://udt.sourceforge.net
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64
+LICENSE=BSD
+SLOT=4
+SRC_URI=mirror://sourceforge/udt/udt.sdk.4.11.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
+_md5_=f367e6b2773ce2122b68c5cebd56db2e
