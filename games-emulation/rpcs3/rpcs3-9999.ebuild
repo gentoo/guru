@@ -43,7 +43,7 @@ src_prepare() {
 	append-cppflags -DNDEBUG -Wno-error=stringop-truncation
 
 	# Disable cache
-	sed -i -e '/find_program(CCACHE_FOUND/d' -e '/_FLAGS/d' \
+	sed -i -e '/find_program(CCACHE_FOUND/d' -e '/set(.*_FLAGS/d' \
 		CMakeLists.txt || die
 
 	# Unbundle hidapi
@@ -101,5 +101,6 @@ src_configure() {
 	use faudio && mycmakeargs+=( -DUSE_SYSTEM_FAUDIO=$(usex faudio) )
 	CMAKE_BUILD_TYPE=RELEASE cmake_src_configure
 	sed -i -e 's/FFMPEG_LIB_AVFORMAT-NOTFOUND/avformat/' -e 's/FFMPEG_LIB_AVCODEC-NOTFOUND/avcodec/' \
-		-e 's/FFMPEG_LIB_AVUTIL-NOTFOUND/avutil/' -e 's/FFMPEG_LIB_SWSCALE-NOTFOUND/swscale/' "${BUILD_DIR}"/build.ninja || die
+		-e 's/FFMPEG_LIB_AVUTIL-NOTFOUND/avutil/' -e 's/FFMPEG_LIB_SWSCALE-NOTFOUND/swscale/' \
+		-e 's/FFMPEG_LIB_SWRESAMPLE-NOTFOUND/swresample/' "${BUILD_DIR}"/build.ninja || die
 }
