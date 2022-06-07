@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( amdgpu_gfx701 amdgpu_gfx702 amdgpu_gfx704 amdgpu_gfx802 amdgpu
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://icl.cs.utk.edu/projectsfiles/magma/downloads/magma-2.6.2.tar.gz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	python-utils-r1	5dc84801daa87406aafaf535cb947a64	python-any-r1	9006edf4b9c90f9ba1dc9ea9fee1b0bd
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
 _md5_=3058d5d7cb14d5e5ee7c07887f1d2154
