@@ -20,15 +20,15 @@ KEYWORDS=""
 IUSE="+compatibility-list +cubeb discord +qt5 sdl system-vulkan webengine +webservice"
 
 RDEPEND="
-	>=app-arch/lz4-1.8:=
 	>=app-arch/zstd-1.5
-	>=dev-libs/boost-1.73:=[context]
 	>=dev-libs/libfmt-8:=
 	>=dev-libs/openssl-1.1:=
-	>=media-libs/opus-1.3.1
 	>=media-video/ffmpeg-4.3:=
-	>=sys-libs/zlib-1.2
+	app-arch/lz4:=
+	dev-libs/boost:=[context]
+	media-libs/opus
 	net-libs/mbedtls[cmac]
+	sys-libs/zlib
 	virtual/libusb:1
 	cubeb? ( media-libs/cubeb )
 	qt5? (
@@ -43,9 +43,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	dev-util/spirv-headers
-	system-vulkan? (
-		>=dev-util/vulkan-headers-1.2.198
-	)
+	system-vulkan? ( dev-util/vulkan-headers )
 "
 BDEPEND="
 	>=dev-cpp/catch-2.13:0
@@ -68,12 +66,11 @@ src_unpack() {
 		EGIT_SUBMODULES+=('discord-rpc')
 	fi
 
-	if !use system-vulkan; then
+	if use !system-vulkan; then
 		EGIT_SUBMODULES+=('Vulkan-Headers')
 	fi
 
 	git-r3_src_unpack
-
 	# Do not fetch via sources because this file always changes
 	use compatibility-list && curl https://api.yuzu-emu.org/gamedb/ > "${S}"/compatibility_list.json
 }
@@ -96,6 +93,8 @@ src_prepare() {
 
 	if use system-vulkan; then # Unbundle vulkan headers
 		sed -i -e 's:../../externals/Vulkan-Headers/include:/usr/include/vulkan/:' src/video_core/CMakeLists.txt src/yuzu/CMakeLists.txt src/yuzu_cmd/CMakeLists.txt || die
+		# available only in >=vulkan-headers-1.3.213
+		sed -i -e '/VK_ERROR_COMPRESSION_EXHAUSTED_EXT/d' src/video_core/vulkan_common/vulkan_wrapper.cpp || die
 	fi
 
 	# Unbundle mbedtls: undefined reference to `mbedtls_cipher_cmac'
@@ -112,9 +111,6 @@ src_prepare() {
 		-e "s/@GIT_REV@/$(git rev-parse --short HEAD)/" \
 		-e "s/@GIT_DESC@/$(git describe --always --long)/" \
 		src/common/scm_rev.cpp.in || die
-
-	# Use system SPIRV headers
-	sed -i -e '/SPIRV/d' externals/sirit/CMakeLists.txt || die
 
 	if ! use discord; then
 		sed -i -e '/discord-rpc/d' externals/CMakeLists.txt || die
@@ -142,6 +138,7 @@ src_configure() {
 		-DENABLE_QT_TRANSLATION=$(usex qt5)
 		-DENABLE_SDL2=$(usex sdl)
 		-DENABLE_WEB_SERVICE=$(usex webservice)
+		-DSIRIT_USE_SYSTEM_SPIRV_HEADERS=ON # Use system SPIRV headers
 		-DUSE_DISCORD_PRESENCE=$(usex discord)
 		-DYUZU_USE_BUNDLED_OPUS=OFF
 		-DYUZU_USE_EXTERNAL_SDL2=OFF
