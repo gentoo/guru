@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,17 +6,18 @@ EAPI=8
 DOCS_AUTODOC=0
 DOCS_BUILDER="sphinx"
 DOCS_DIR="docs/wxparaver_help_contents/sphinx/2.paraver_toolset/source"
-PYTHON_COMPAT=( python3_{8..10} pypy3 )
+PYTHON_COMPAT=( python3_{8..11} pypy3 )
 WX_GTK_VER="3.0-gtk3"
 
 inherit autotools python-any-r1 docs wxwidgets
 
-DESCRIPTION="paraver gui"
+DESCRIPTION="Performance analyzer based on event traces"
 HOMEPAGE="
 	http://tools.bsc.es/paraver
 	https://github.com/bsc-performance-tools/wxparaver
 "
-SRC_URI="https://github.com/bsc-performance-tools/wxparaver/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/bsc-performance-tools/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+#S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
@@ -25,7 +26,7 @@ IUSE="extrae ompss openmp"
 
 RDEPEND="
 	dev-libs/boost:=
-	dev-libs/openssl
+	dev-libs/openssl:=
 	sys-cluster/paraver-kernel
 	x11-libs/wxGTK:${WX_GTK_VER}
 
