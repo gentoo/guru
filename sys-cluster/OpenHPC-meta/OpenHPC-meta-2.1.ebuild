@@ -64,6 +64,7 @@ RDEPEND="
 	perf-tools? (
 		dev-libs/papi
 		sys-apps/likwid
+		sys-cluster/dimemas
 		sys-cluster/extrae[${PYTHON_SINGLE_USEDEP}]
 		sys-cluster/mpi-benchmarks
 		sys-cluster/osu-micro-benchmarks
@@ -103,11 +104,7 @@ RDEPEND="
 	)
 
 "
-#	io-libs
-	#phdf5[mpi]
-
 #	perf-tools
-#		sys-cluster/dimemas[libunwind]
 	#scalasca
 	#tau
 	#scorep
