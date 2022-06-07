@@ -1,16 +1,16 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=no
 MY_PV="$(ver_rs 1-2 -)"
 MY_P="${PN}-${MY_PV}"
 PYTHON_COMPAT=( python3_{8..11} pypy3 )
 
-inherit distutils-r1 perl-module java-pkg-opt-2 flag-o-matic
+inherit distutils-r1 edo flag-o-matic java-pkg-opt-2 perl-module
 
-DESCRIPTION="Static cluster configuration database used for cluster configuration management."
+DESCRIPTION="Static cluster configuration database used for cluster configuration management"
 HOMEPAGE="https://github.com/chaos/genders"
 SRC_URI="https://github.com/chaos/${PN}/archive/${MY_P}.tar.gz"
 S="${WORKDIR}/${PN}-${MY_P}"
@@ -21,26 +21,27 @@ SLOT="0"
 IUSE="cxx java perl python"
 
 CDEPEND="
-	perl?	( dev-lang/perl:= )
+	perl? ( dev-lang/perl:= )
 	python?	( ${PYTHON_DEPS} )
 "
 DEPEND="
 	${CDEPEND}
-	java?	( virtual/jdk:1.8 )
+	java? ( virtual/jdk:1.8 )
 "
 RDEPEND="
 	${DEPEND}
-	java?	( virtual/jre:1.8 )
+	java? ( virtual/jre:1.8 )
 "
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 DOCS=( README TUTORIAL NEWS )
 
 src_prepare() {
-	sed -i "s|perl python||" src/extensions/Makefile.am
-	sed -i "s|\$(DESTDIR)\$(docdir)-\$(VERSION)-javadoc|\$(DESTDIR)\$(docdir)/html/javadoc|" src/extensions/java/Makefile.am
+	sed -i "s|perl python||" src/extensions/Makefile.am || die
+	sed -i "s|\$(DESTDIR)\$(docdir)-\$(VERSION)-javadoc|\$(DESTDIR)\$(docdir)/html/javadoc|" src/extensions/java/Makefile.am || die
 	eapply_user
-	./autogen.sh
+	java-pkg_clean
+	edo ./autogen.sh
 }
 
 src_configure() {
@@ -61,7 +62,7 @@ src_configure() {
 src_compile() {
 	default
 
-	if use perl ; then
+	if use perl; then
 		pushd "${S}/src/extensions/perl" || die
 		perl-module_src_configure
 		perl-module_src_compile
@@ -70,7 +71,7 @@ src_compile() {
 
 	if use python; then
 		pushd "${S}/src/extensions/python" || die
-		cp genderssetup.py setup.py
+		cp genderssetup.py setup.py || die
 		distutils-r1_src_compile
 		popd || die
 	fi
@@ -104,4 +105,5 @@ src_install() {
 	fi
 
 	find "${ED}" -name '*.la' -delete || die
+	find "${ED}" -name '*.a' -delete || die
 }
