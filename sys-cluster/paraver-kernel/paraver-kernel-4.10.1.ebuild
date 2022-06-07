@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ HOMEPAGE="
 	http://tools.bsc.es/paraver
 	https://github.com/bsc-performance-tools/paraver-kernel
 "
-SRC_URI="https://github.com/bsc-performance-tools/paraver-kernel/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/bsc-performance-tools/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
@@ -31,8 +31,7 @@ DEPEND="${RDEPEND}"
 DOCS=( README NEWS AUTHORS ChangeLog )
 REQUIRED_USE="extrae? ( openmp )"
 PATCHES=(
-	"${FILESDIR}/${PN}-unbundle-libbsctools.patch"
-	"${FILESDIR}/${P}-fix-gcc-11-compilation-error.patch"
+	"${FILESDIR}/${P}-unbundle-libbsctools.patch"
 )
 
 src_prepare() {

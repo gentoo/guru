@@ -1,0 +1,225 @@
+diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/eventlabels.h paraver-kernel-4.10.1/api/eventlabels.h
+--- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/eventlabels.h	2022-05-30 11:36:33.000000000 +0200
++++ paraver-kernel-4.10.1/api/eventlabels.h	2022-06-07 16:52:15.526426696 +0200
+@@ -32,7 +32,7 @@
+ #ifdef OLD_PCFPARSER
+ #include "utils/pcfparser/old/ParaverTraceConfig.h"
+ #else
+-#include "utils/pcfparser/UIParaverTraceConfig.h"
++#include "UIParaverTraceConfig.h"
+ #endif
+ 
+ using namespace libparaver;
+diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/Makefile.am paraver-kernel-4.10.1/api/Makefile.am
+--- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/Makefile.am	2022-05-30 11:36:33.000000000 +0200
++++ paraver-kernel-4.10.1/api/Makefile.am	2022-06-07 17:07:09.261765112 +0200
+@@ -1,20 +1,6 @@
+ 
+ pkglib_LTLIBRARIES = libparaver-api.la
+ 
+-if MAKE_OLD_PCFPARSER
+-  PCFPARSER_FILES=  ../utils/pcfparser/old/LibException.cpp \
+-                    ../utils/pcfparser/old/ParaverEventType.cpp \
+-                    ../utils/pcfparser/old/ParaverEventValue.cpp \
+-                    ../utils/pcfparser/old/ParaverGradientColor.cpp \
+-                    ../utils/pcfparser/old/ParaverGradientNames.cpp \
+-                    ../utils/pcfparser/old/ParaverState.cpp \
+-                    ../utils/pcfparser/old/ParaverStatesColor.cpp \
+-                    ../utils/pcfparser/old/ParaverTraceConfig.cpp \
+-                    ../utils/pcfparser/old/ParaverTraceConfigGrammar.cpp 
+-else
+-  PCFPARSER_FILES=../utils/pcfparser/ParaverTraceConfig.cpp \
+-                  ../utils/pcfparser/UIParaverTraceConfig.cpp
+-endif
+ 
+ if MINGW_ENABLED
+   noinst_LTLIBRARIES = libparavertraceconfig.la
+@@ -23,6 +9,9 @@
+   libparaver_api_la_LIBADD = libparavertraceconfig.la
+ endif
+ 
++libparaver_api_la_LIBADD = -lparavertraceconfig
++libparaver_api_la_LDFLAGS = -lparavertraceconfig
++
+ libparaver_api_la_SOURCES = \
+                     cfg.cpp \
+                     cfgs4d.cpp \
+@@ -61,9 +50,6 @@
+                     workspace.cpp \
+                     workspacemanager.cpp
+ 
+-if !MINGW_ENABLED
+-  libparaver_api_la_SOURCES += $(PCFPARSER_FILES)
+-endif
+ 
+ include_HEADERS = \
+                   cfg.h \
+@@ -121,16 +107,6 @@
+                   traceeditstates.cpp \
+                   zoomhistory.cpp
+ 
+-install-data-hook:
+-	$(mkdir_p) $(DESTDIR)$(includedir)/utils/pcfparser
+-	cp -f ../utils/pcfparser/UIParaverTraceConfig.h $(DESTDIR)$(includedir)/utils/pcfparser
+-	cp -f ../utils/pcfparser/UIParaverTraceConfig.ipp $(DESTDIR)$(includedir)/utils/pcfparser
+-
+-	$(mkdir_p) $(DESTDIR)$(includedir)/utils/pcfparser/old
+-	cp -f ../utils/pcfparser/old/ParaverTraceConfig.h $(DESTDIR)$(includedir)/utils/pcfparser/old
+-
+-uninstall-hook:
+-	test -d $(DESTDIR)$(includedir)/utils/pcfparser && rm -rf $(DESTDIR)$(includedir)/utils/pcfparser
+ 
+ 
+ # Erases everything which should not be uploaded to CVS
+diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/paramedir.cpp paraver-kernel-4.10.1/api/paramedir.cpp
+--- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/paramedir.cpp	2022-05-30 11:36:33.000000000 +0200
++++ paraver-kernel-4.10.1/api/paramedir.cpp	2022-06-07 16:55:57.063567741 +0200
+@@ -57,7 +57,7 @@
+ #ifdef OLD_PCFPARSER
+ #include "utils/pcfparser/old/ParaverTraceConfig.h"
+ #else
+-#include "utils/pcfparser/UIParaverTraceConfig.h"
++#include "UIParaverTraceConfig.h"
+ #endif
+ 
+ // PARAMEDIR OPTIONS
+diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/statelabels.h paraver-kernel-4.10.1/api/statelabels.h
+--- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/statelabels.h	2022-05-30 11:36:33.000000000 +0200
++++ paraver-kernel-4.10.1/api/statelabels.h	2022-06-07 16:56:27.090733938 +0200
+@@ -31,7 +31,7 @@
+ #ifdef OLD_PCFPARSER
+ #include "utils/pcfparser/old/ParaverTraceConfig.h"
+ #else
+-#include "utils/pcfparser/UIParaverTraceConfig.h"
++#include "UIParaverTraceConfig.h"
+ #endif
+ 
+ using namespace libparaver;
+diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/trace.cpp paraver-kernel-4.10.1/api/trace.cpp
+--- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/trace.cpp	2022-05-30 11:36:33.000000000 +0200
++++ paraver-kernel-4.10.1/api/trace.cpp	2022-06-07 16:56:49.155856065 +0200
+@@ -29,7 +29,7 @@
+ #include "utils/pcfparser/old/ParaverStatesColor.h"
+ #include "utils/pcfparser/old/ParaverGradientColor.h"
+ #else
+-#include "utils/pcfparser/UIParaverTraceConfig.h"
++#include "UIParaverTraceConfig.h"
+ #endif
+ 
+ #include "progresscontroller.h"
+diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/tracecutter.cpp paraver-kernel-4.10.1/api/tracecutter.cpp
+--- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/tracecutter.cpp	2022-05-30 11:36:33.000000000 +0200
++++ paraver-kernel-4.10.1/api/tracecutter.cpp	2022-06-07 16:57:09.200968638 +0200
+@@ -31,7 +31,7 @@
+ #ifdef OLD_PCFPARSER
+ #include "utils/pcfparser/old/ParaverTraceConfig.h"
+ #else
+-#include "utils/pcfparser/UIParaverTraceConfig.h"
++#include "UIParaverTraceConfig.h"
+ #endif
+ 
+ using namespace libparaver;
+diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/configure.ac paraver-kernel-4.10.1/configure.ac
+--- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/configure.ac	2022-05-30 11:36:33.000000000 +0200
++++ paraver-kernel-4.10.1/configure.ac	2022-06-07 16:58:23.699588409 +0200
+@@ -55,7 +55,6 @@
+ AC_CONFIG_HEADERS(config_traits.h)
+ AX_PROG_ENABLE_DEPENDENCIES_AWARE_INSTALL
+ AX_PROG_ENABLE_EXTENDED_OBJECTS
+-AX_PROG_ENABLE_OLD_PCFPARSER
+ AX_PROG_ENABLE_OMPSS
+ AX_PROG_ENABLE_OPENMP
+ AX_PROG_ENABLE_MINGW
+@@ -89,4 +88,4 @@
+ AC_SUBST([AM_CXXFLAGS])
+ AC_SUBST([AM_LDFLAGS])
+ 
+-AC_OUTPUT([Makefile src/Makefile api/Makefile include/Makefile utils/Makefile utils/include/Makefile utils/src/Makefile utils/pcfparser/Makefile utils/pcfparser/old/Makefile])
++AC_OUTPUT([Makefile src/Makefile api/Makefile include/Makefile utils/Makefile utils/include/Makefile utils/src/Makefile])
+diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/m4/macros.m4 paraver-kernel-4.10.1/m4/macros.m4
+--- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/m4/macros.m4	2022-05-30 11:36:33.000000000 +0200
++++ paraver-kernel-4.10.1/m4/macros.m4	2022-06-07 16:58:46.022774121 +0200
+@@ -36,27 +36,6 @@
+ 
+ 
+ 
+-# AX_PROG_ENABLE_OLD_PCFPARSER
+-# ----------------------------
+-AC_DEFUN([AX_PROG_ENABLE_OLD_PCFPARSER],
+-[
+-   AC_ARG_ENABLE(old_pcfparser,
+-      AC_HELP_STRING(
+-         [--enable-old-pcfparser],
+-         [enable compilation with old pcfparser (default: disabled)]
+-      ),
+-      [enable_old_pcfparser="${enableval}"],
+-      [enable_old_pcfparser="no"]
+-   )
+-
+-   if test "${enable_old_pcfparser}" = "yes" ; then
+-      AC_MSG_NOTICE([Using old pcfparser.])
+-      AC_DEFINE([OLD_PCFPARSER], 1, [Old pcfparser enabled by user.])
+-   fi
+-
+-   AM_CONDITIONAL(MAKE_OLD_PCFPARSER, test "${enable_old_pcfparser}" = "yes" )
+-])
+-
+ 
+ 
+ # AX_PROG_ENABLE_OMPSS
+diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/Makefile.am paraver-kernel-4.10.1/Makefile.am
+--- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/Makefile.am	2022-05-30 11:36:33.000000000 +0200
++++ paraver-kernel-4.10.1/Makefile.am	2022-06-07 16:59:30.543135745 +0200
+@@ -11,7 +11,7 @@
+ 	api/paramedir.cpp
+ 
+ paramedir_bin_LDADD = \
+-	-lz \
++	-lz -lparavertraceconfig \
+ 	api/libparaver-api.la \
+ 	src/libparaver-kernel.la
+ 
+diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/src/ktraceeditactions.cpp paraver-kernel-4.10.1/src/ktraceeditactions.cpp
+--- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/src/ktraceeditactions.cpp	2022-05-30 11:36:33.000000000 +0200
++++ paraver-kernel-4.10.1/src/ktraceeditactions.cpp	2022-06-07 17:00:17.452495350 +0200
+@@ -45,7 +45,7 @@
+ #ifdef OLD_PCFPARSER
+ #include "utils/pcfparser/old/ParaverTraceConfig.h"
+ #else
+-#include "utils/pcfparser/UIParaverTraceConfig.h"
++#include "UIParaverTraceConfig.h"
+ #endif
+ 
+ using std::set;
+@@ -841,4 +841,4 @@
+   tmpSequence->executeNextAction( whichTrace );
+ 
+   return true;
+-}
+\ Manca newline alla fine del file
++}
+diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/src/Makefile.am paraver-kernel-4.10.1/src/Makefile.am
+--- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/src/Makefile.am	2022-05-30 11:36:33.000000000 +0200
++++ paraver-kernel-4.10.1/src/Makefile.am	2022-06-07 17:01:37.570126911 +0200
+@@ -58,7 +58,10 @@
+     traceeditblocks.cpp \
+     traceheaderexception.cpp\
+     tracestream.cpp
+-          
++
++libparaver_kernel_la_LIBADD = -lparavertraceconfig
++libparaver_kernel_la_LDFLAGS = -lparavertraceconfig
++
+ noinst_HEADERS = \
+     cell.cpp \
+     column.cpp \
+diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/utils/Makefile.am paraver-kernel-4.10.1/utils/Makefile.am
+--- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/utils/Makefile.am	2022-05-30 11:36:33.000000000 +0200
++++ paraver-kernel-4.10.1/utils/Makefile.am	2022-06-07 17:02:02.100351099 +0200
+@@ -1,6 +1,5 @@
+ SUBDIRS = \
+ 	include \
+-	pcfparser \
+ 	src
+ 
+ 
