@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools
+inherit autotools flag-o-matic
 
 DESCRIPTION="paraver kernel library"
 HOMEPAGE="
@@ -41,6 +41,7 @@ src_prepare() {
 }
 
 src_configure() {
+	append-ldflags '-lxml2'
 	local myconf=(
 		--disable-static
 		--enable-shared
@@ -68,6 +69,8 @@ src_configure() {
 src_install() {
 	default
 	einstalldocs
+	mkdir -p "${ED}/usr/share/${PN}" || die
+	mv "${ED}/usr/share/filters-config" "${ED}/usr/share/${PN}/" || die
 	mv "${ED}/usr/$(get_libdir)/paraver-kernel"/* "${ED}/usr/$(get_libdir)" || die
 	find "${ED}" -name '*.la' -delete || die
 }

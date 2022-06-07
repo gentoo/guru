@@ -1,6 +1,5 @@
-diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/eventlabels.h paraver-kernel-4.10.1/api/eventlabels.h
---- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/eventlabels.h	2022-05-30 11:36:33.000000000 +0200
-+++ paraver-kernel-4.10.1/api/eventlabels.h	2022-06-07 16:52:15.526426696 +0200
+--- a/api/eventlabels.h
++++ b/api/eventlabels.h
 @@ -32,7 +32,7 @@
  #ifdef OLD_PCFPARSER
  #include "utils/pcfparser/old/ParaverTraceConfig.h"
@@ -10,9 +9,8 @@ diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-
  #endif
  
  using namespace libparaver;
-diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/Makefile.am paraver-kernel-4.10.1/api/Makefile.am
---- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/Makefile.am	2022-05-30 11:36:33.000000000 +0200
-+++ paraver-kernel-4.10.1/api/Makefile.am	2022-06-07 17:07:09.261765112 +0200
+--- a/api/Makefile.am
++++ b/api/Makefile.am
 @@ -1,20 +1,6 @@
  
  pkglib_LTLIBRARIES = libparaver-api.la
@@ -71,9 +69,8 @@ diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-
  
  
  # Erases everything which should not be uploaded to CVS
-diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/paramedir.cpp paraver-kernel-4.10.1/api/paramedir.cpp
---- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/paramedir.cpp	2022-05-30 11:36:33.000000000 +0200
-+++ paraver-kernel-4.10.1/api/paramedir.cpp	2022-06-07 16:55:57.063567741 +0200
+--- a/api/paramedir.cpp
++++ b/api/paramedir.cpp
 @@ -57,7 +57,7 @@
  #ifdef OLD_PCFPARSER
  #include "utils/pcfparser/old/ParaverTraceConfig.h"
@@ -83,9 +80,8 @@ diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-
  #endif
  
  // PARAMEDIR OPTIONS
-diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/statelabels.h paraver-kernel-4.10.1/api/statelabels.h
---- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/statelabels.h	2022-05-30 11:36:33.000000000 +0200
-+++ paraver-kernel-4.10.1/api/statelabels.h	2022-06-07 16:56:27.090733938 +0200
+--- a/api/statelabels.h
++++ b/api/statelabels.h
 @@ -31,7 +31,7 @@
  #ifdef OLD_PCFPARSER
  #include "utils/pcfparser/old/ParaverTraceConfig.h"
@@ -95,9 +91,8 @@ diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-
  #endif
  
  using namespace libparaver;
-diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/trace.cpp paraver-kernel-4.10.1/api/trace.cpp
---- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/trace.cpp	2022-05-30 11:36:33.000000000 +0200
-+++ paraver-kernel-4.10.1/api/trace.cpp	2022-06-07 16:56:49.155856065 +0200
+--- a/api/trace.cpp
++++ b/api/trace.cpp
 @@ -29,7 +29,7 @@
  #include "utils/pcfparser/old/ParaverStatesColor.h"
  #include "utils/pcfparser/old/ParaverGradientColor.h"
@@ -107,9 +102,8 @@ diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-
  #endif
  
  #include "progresscontroller.h"
-diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/tracecutter.cpp paraver-kernel-4.10.1/api/tracecutter.cpp
---- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/api/tracecutter.cpp	2022-05-30 11:36:33.000000000 +0200
-+++ paraver-kernel-4.10.1/api/tracecutter.cpp	2022-06-07 16:57:09.200968638 +0200
+--- a/api/tracecutter.cpp
++++ b/api/tracecutter.cpp
 @@ -31,7 +31,7 @@
  #ifdef OLD_PCFPARSER
  #include "utils/pcfparser/old/ParaverTraceConfig.h"
@@ -119,9 +113,8 @@ diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-
  #endif
  
  using namespace libparaver;
-diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/configure.ac paraver-kernel-4.10.1/configure.ac
---- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/configure.ac	2022-05-30 11:36:33.000000000 +0200
-+++ paraver-kernel-4.10.1/configure.ac	2022-06-07 16:58:23.699588409 +0200
+--- a/configure.ac
++++ b/configure.ac
 @@ -55,7 +55,6 @@
  AC_CONFIG_HEADERS(config_traits.h)
  AX_PROG_ENABLE_DEPENDENCIES_AWARE_INSTALL
@@ -136,9 +129,8 @@ diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-
  
 -AC_OUTPUT([Makefile src/Makefile api/Makefile include/Makefile utils/Makefile utils/include/Makefile utils/src/Makefile utils/pcfparser/Makefile utils/pcfparser/old/Makefile])
 +AC_OUTPUT([Makefile src/Makefile api/Makefile include/Makefile utils/Makefile utils/include/Makefile utils/src/Makefile])
-diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/m4/macros.m4 paraver-kernel-4.10.1/m4/macros.m4
---- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/m4/macros.m4	2022-05-30 11:36:33.000000000 +0200
-+++ paraver-kernel-4.10.1/m4/macros.m4	2022-06-07 16:58:46.022774121 +0200
+--- a/m4/macros.m4
++++ b/m4/macros.m4
 @@ -36,27 +36,6 @@
  
  
@@ -167,9 +159,8 @@ diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-
  
  
  # AX_PROG_ENABLE_OMPSS
-diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/Makefile.am paraver-kernel-4.10.1/Makefile.am
---- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/Makefile.am	2022-05-30 11:36:33.000000000 +0200
-+++ paraver-kernel-4.10.1/Makefile.am	2022-06-07 16:59:30.543135745 +0200
+--- a/Makefile.am
++++ b/Makefile.am
 @@ -11,7 +11,7 @@
  	api/paramedir.cpp
  
@@ -179,9 +170,8 @@ diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-
  	api/libparaver-api.la \
  	src/libparaver-kernel.la
  
-diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/src/ktraceeditactions.cpp paraver-kernel-4.10.1/src/ktraceeditactions.cpp
---- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/src/ktraceeditactions.cpp	2022-05-30 11:36:33.000000000 +0200
-+++ paraver-kernel-4.10.1/src/ktraceeditactions.cpp	2022-06-07 17:00:17.452495350 +0200
+--- a/src/ktraceeditactions.cpp
++++ b/src/ktraceeditactions.cpp
 @@ -45,7 +45,7 @@
  #ifdef OLD_PCFPARSER
  #include "utils/pcfparser/old/ParaverTraceConfig.h"
@@ -198,9 +188,8 @@ diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-
 -}
 \ Manca newline alla fine del file
 +}
-diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/src/Makefile.am paraver-kernel-4.10.1/src/Makefile.am
---- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/src/Makefile.am	2022-05-30 11:36:33.000000000 +0200
-+++ paraver-kernel-4.10.1/src/Makefile.am	2022-06-07 17:01:37.570126911 +0200
+--- a/src/Makefile.am
++++ b/src/Makefile.am
 @@ -58,7 +58,10 @@
      traceeditblocks.cpp \
      traceheaderexception.cpp\
@@ -213,9 +202,8 @@ diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-
  noinst_HEADERS = \
      cell.cpp \
      column.cpp \
-diff -ru /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/utils/Makefile.am paraver-kernel-4.10.1/utils/Makefile.am
---- /var/tmp/portage/sys-cluster/paraver-kernel-4.10.1/work/paraver-kernel-4.10.1/utils/Makefile.am	2022-05-30 11:36:33.000000000 +0200
-+++ paraver-kernel-4.10.1/utils/Makefile.am	2022-06-07 17:02:02.100351099 +0200
+--- a/utils/Makefile.am
++++ b/utils/Makefile.am
 @@ -1,6 +1,5 @@
  SUBDIRS = \
  	include \
