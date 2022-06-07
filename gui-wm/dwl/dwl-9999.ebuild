@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit savedconfig git-r3 flag-o-matic
+inherit savedconfig git-r3
 
 DESCRIPTION="dwm for Wayland"
 HOMEPAGE="https://github.com/djpohly/dwl"
@@ -14,13 +14,14 @@ SLOT="0"
 KEYWORDS=""
 IUSE="X"
 
+DOCS=( LICENSE LICENSE.{dwm,sway,tinywl} README.md )
+
 RDEPEND="
 	dev-libs/libinput
 	dev-libs/wayland
 	x11-libs/libxcb
 	x11-libs/libxkbcommon
-	>=gui-libs/wlroots-0.15:=[X(-)?]
-	<gui-libs/wlroots-0.16:=[X(-)?]
+	gui-libs/wlroots:0/15[X(-)?]
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -36,17 +37,21 @@ src_prepare() {
 }
 
 src_configure() {
-	use X && append-cflags $(test-flags-CC -DXWAYLAND)
-	append-cflags $(test-flags-CC -Wno-unused-result)
+	sed -i "s/\/local//" config.mk || die
+
+	if use X; then
+		sed -i \
+			-e "s/^#XWAYLAND/XWAYLAND/" \
+			-e "s/^#XLIBS/XLIBS/" \
+			config.mk || die
+	fi
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
+	default
 
 	insinto /usr/share/wayland-sessions
 	doins "${FILESDIR}"/dwl.desktop
-
-	einstalldocs
 
 	save_config config.h
 }
