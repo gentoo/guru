@@ -142,7 +142,7 @@ src_configure() {
 		-DBUILD_SHARED_LIBS=OFF
 		-DENABLE_CUBEB=$(usex cubeb)
 		-DENABLE_FFMPEG_AUDIO_DECODER=$(usex hle-sound)
-		-DENABLE_FFMPEG_VIDEO_DUMPER=$(usex hle-sound)
+		-DENABLE_FFMPEG_VIDEO_DUMPER=$(usex video)
 		-DENABLE_QT=$(usex qt5)
 		-DENABLE_QT_TRANSLATION=$(use qt5 && usex nls || echo OFF)
 		-DENABLE_SDL2=$(usex sdl)
