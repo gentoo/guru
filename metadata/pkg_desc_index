@@ -123,6 +123,7 @@ app-misc/fastfetch 1.4.3 9999: Like neofetch but faster
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
+app-misc/glow 1.4.1: Render markdown on the CLI, with pizzazz!
 app-misc/grit 0.3.0: An personal task manager that represents tasks as multitree nodes
 app-misc/hollywood 1.22: Fill your console with Hollywood melodrama technobabble
 app-misc/kloak 0.2.30: A privacy tool that makes keystroke biometrics less effective
@@ -164,7 +165,7 @@ app-office/openoffice-bin 4.1.11 4.1.12: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.6: Pyspread is a non-traditional spreadsheet written in Python
 app-office/sc-im 0.8.2-r1: Spreadsheet Calculator Improvised -- An ncurses spreadsheet program for terminal
 app-portage/appswipe 1.1.14: Application for browsing your local Portage repository files
-app-portage/emlop 0.4.2: A fast, accurate, ergonomic emerge.log parser
+app-portage/emlop 0.4.2 0.5.0: A fast, accurate, ergonomic emerge.log parser
 app-portage/gentoo-sweep 0.1.2a: Check your gentoo installation for unwanted cruft, forgotten files
 app-portage/pacvis 0.4.2: Displays dependency graphs of packages
 app-portage/portage-lostfiles 0.2.2: A simple script to identify files not tracked by Portage package manager
@@ -396,7 +397,7 @@ dev-libs/dill 2.4.1: Provides instruction-level code generation directly into me
 dev-libs/dmd_core 0.6.2: Core logic for an AT&T / Teletype DMD 5620 terminal emulator
 dev-libs/fastText 0.9.2: Library for fast text representation and classification
 dev-libs/feedbackd 0.0.0-r1: A daemon to provide haptic feedback on events
-dev-libs/ffs 1.6.0: FFS is a middleware library for data communication
+dev-libs/ffs 1.6.0_p20220525: FFS is a middleware library for data communication
 dev-libs/fortran-stdlib 0.1.0 0.2.0 0.2.1 9999: A community driven standard library for (modern) Fortran
 dev-libs/fsst 0_pre20200830-r1: Fast Static Symbol Table: fast text compression that allows random access
 dev-libs/ftl 1.0_p20220209-r1: The Fortran Template Library (FTL) is a general purpose library for Fortran 2003
@@ -627,6 +628,7 @@ dev-python/dacite 1.6.0: This module simplifies creation of data classes (PEP 55
 dev-python/daff 1.3.46: Diff and patch tables
 dev-python/daiquiri 3.0.1: Python library to easily setup basic logging functionality
 dev-python/databases 0.5.3: Async database support for Python.
+dev-python/dataclasses_json 0.5.7: Easily serialize Data Classes to and from JSON
 dev-python/dateparser 1.1.0 1.1.1: Date parsing library designed to parse dates from HTML pages
 dev-python/decopatch 1.4.9 1.4.10: Create decorators easily in python
 dev-python/desktop-notifier 3.3.2 3.4.0: desktop-notifier is a Python library for cross-platform desktop notifications
@@ -679,12 +681,12 @@ dev-python/hunter 3.4.3-r1: Hunter is a flexible code tracing toolkit
 dev-python/hwi 1.2.1 2.0.2: Library and command line tool for interacting with hardware wallets
 dev-python/hypercorn 0.13.2: ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperglot 0.3.8: Detect language support for font binaries
+dev-python/hypothesmith 0.2.0: Hypothesis strategies for generating Python programs
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
 dev-python/injector 0.18.4: Python dependency injection framework
 dev-python/itemadapter 0.4.0: Common interface for scrapy data container classes
 dev-python/itemloaders 1.0.4: Library to populate items using XPath and CSS with a convenient API
 dev-python/iuliia 0.11.5: Transliterate Cyrillic to Latin in every possible way
-dev-python/jellyfin-apiclient-python 1.6.2 1.7.2: Python API client for Jellyfin
 dev-python/jplephem 2.16: Python version of NASA DE4xx ephemerides for Astronomical Alamanac
 dev-python/jsonpath-rw 1.4.0: A robust and significantly extended implementation of JSONPath for Python
 dev-python/jsonpath-rw-ext 1.2.2: Extensions for JSONPath RW
@@ -694,14 +696,17 @@ dev-python/keystonemiddleware 9.4.0 9.5.0: A middleware for the OpenStack Keysto
 dev-python/kitchen 1.2.6: Kitchen contains a cornucopia of useful code
 dev-python/langdetect 1.0.9: Port of Google's language-detection library to Python
 dev-python/ldappool 3.0.0: A connection pool for python-ldap
+dev-python/libcst 0.4.3_p20220607: A concrete syntax tree parser and serializer library for Python that preserves many aspects of Python's abstract syntax tree
 dev-python/libusb1 2.0.1: Pure-python wrapper for libusb-1.0
 dev-python/manhole 1.8.0-r1: Debugging manhole for python application
 dev-python/markdown-include 0.6.0: Syntax which allows for inclusion of contents of other Markdown docs
+dev-python/marshmallow_enum 1.5.1: Enum handling for Marshmallow
 dev-python/microversion-parse 1.0.1-r1: A simple parser for OpenStack microversion headers
 dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your output
 dev-python/mnemonic 0.19: Reference implementation of BIP-0039 for generating deterministic keys
 dev-python/mobi 0.3.3: unpack unencrypted mobi files
 dev-python/monotonic 1.6: An implementation of time.monotonic() for Python 2 & < 3.3
+dev-python/moreorless 0.4.0: Wrapper to make difflib.unified_diff more fun to use
 dev-python/ncclient 0.6.12 0.6.13: Python library for NETCONF clients
 dev-python/neutron-lib 2.20.0 2.21.0: Neutron shared routines and utilities
 dev-python/noiseprotocol 0.3.1: Python implementation of Noise Protocol Framework
@@ -770,7 +775,7 @@ dev-python/pygments-promql 0.0.9: A PromQL lexer for Pygments
 dev-python/pygsl 2.3.0: Python interface for the GNU scientific library (gsl)
 dev-python/pyinquirer 1.0.3_p20200708 9999: A Python module for common interactive command line UIs
 dev-python/pyinstaller 4.2: Bundles a Python application and all its dependencies into a single package.
-dev-python/pykeepass 4.0.0 4.0.1: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
+dev-python/pykeepass 4.0.2: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
 dev-python/pylatexenc 2.10: Simple LaTeX parser providing latex-to-unicode and unicode-to-latex conversion
 dev-python/pymeeus 0.5.11: Python implementation of Jean Meeus astronomical routines
 dev-python/pymemcache 3.5.1 3.5.2: A comprehensive, fast, pure-Python memcached client
@@ -818,6 +823,7 @@ dev-python/python-pkcs11 0.7.0-r1: PKCS#11 (Cryptoki) support for Python
 dev-python/python-qpid-proton 0.37.0: An AMQP based messaging library
 dev-python/python-saharaclient 3.5.0: This is a client for the OpenStack Sahara API, aka HADOOP
 dev-python/python-senlinclient 2.4.0: A client for the OpenStack Senlin API
+dev-python/python-skywater-pdk 0.0.0_p20220424: Python library for working with files found in the SkyWater PDK
 dev-python/python-socketio 5.1.0: Python implementation of the Socket.IO realtime server.
 dev-python/python-telegram-bot 13.1 9999: Python wrapper of telegram bots API
 dev-python/python-troveclient 7.3.0: A client for the OpenStack Trove API, a scalable relational database service
@@ -857,6 +863,7 @@ dev-python/sre_yield 1.2: Python module to generate regular all expression match
 dev-python/srt 3.5.0 3.5.1 3.5.2: A tiny library for parsing, modifying, and composing SRT files
 dev-python/sse-starlette 0.9.0: Server Sent Events for Starlette
 dev-python/statmake 0.5.0: Generate STAT tables for variable fonts from .stylespace files
+dev-python/stdlibs 2022.3.16: What's in the Python stdlib
 dev-python/stone 3.3.1: The Official Api Spec Language for Dropbox
 dev-python/strictyaml 1.6.1: A type-safe YAML parser built atop ruamel.yaml
 dev-python/stringbrewer 0.0.1: Generate random strings matching a pattern
@@ -870,6 +877,7 @@ dev-python/threadloop 1.0.2: Run Tornado Coroutines from Synchronous Python
 dev-python/thriftrw 1.8.1: A Thrift encoding library for Python
 dev-python/tinyrpc 1.1.4 1.1.5: A protocol neutral RPC library that supports JSON-RPC and zmq
 dev-python/tooz 2.11.1: Library centralizing the most common distributed primitives
+dev-python/trailrunner 1.2.1: Walk paths and run things
 dev-python/transaction 3.0.1: Transaction management for Python
 dev-python/trivup 0.10.0: Trivially Up a cluster of applications
 dev-python/trueskill 0.4.5_p20220422: Python Implementation of the TrueSkill Algorithm
@@ -881,6 +889,8 @@ dev-python/types-python-dateutil 2.8.16 2.8.17: Typing stubs for python-dateutil
 dev-python/types-pytz 2021.3.8: Typing stubs for pytz
 dev-python/types-requests 2.27.27 2.27.29: Typing stubs for requests
 dev-python/types-urllib3 1.26.14 1.26.15: Typing stubs for urllib3
+dev-python/typing_inspect 0.7.1: Runtime inspection utilities for Python typing module
+dev-python/ufmt 1.3.3: Safe, atomic formatting with black and usort
 dev-python/ufo2ft 2.27.0: A bridge from UFOs to FontTool objects
 dev-python/ufoLib2 0.13.1: A UFO font library
 dev-python/ufoNormalizer 0.6.1: A tool that will normalize the XML and other data inside of a UFO
@@ -890,7 +900,9 @@ dev-python/uhashring 2.1: Full featured consistent hashing python library compat
 dev-python/ukpostcodeparser 1.1.2-r1: UK postcode parser library
 dev-python/unicodedata2 14.0.0: Unicodedata backport for python 2/3 updated to the latest unicode version
 dev-python/urlmatch 1.0.1-r1: A Python library for easily pattern matching wildcard URLs
+dev-python/usort 1.0.2: Safe, minimal import sorting for Python projects
 dev-python/vharfbuzz 0.1.3: A user-friendlier way to use Harfbuzz in Python
+dev-python/volatile 2.1.0: A small extension for the tempfile module
 dev-python/vttlib 0.11.0: Dump, merge and compile Visual TrueType data in UFO3 with FontTools
 dev-python/w3lib 1.22.0: Library of web-related functions
 dev-python/webpy 0.62: A web framework for python that is as simple as it is powerful
@@ -942,7 +954,7 @@ dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
 dev-util/reuse 0.14.0 1.0.0: A tool for compliance with the REUSE recommendations
 dev-util/rpmlint 2.3.0: Tool for checking common errors in RPM packages
-dev-util/rust-analyzer 20220509 20220517 99999999: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer 20220509 20220517 20220606 99999999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/shfmt 3.5.0 9999: Shell script formatter
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
@@ -1223,7 +1235,7 @@ net-libs/kcgi 0.12.5 0.13.0: Minimal CGI library for web applications
 net-libs/libqmatrixclient 0.5.3.2: A Qt5 library to write cross-platfrom clients for Matrix
 net-libs/td 1.8.0: Cross-platform library for building Telegram clients
 net-libs/telepathy-haze 0.8.1: Telepathy connection manager providing libpurple supported protocols
-net-libs/udt 4.11: UDT is a UDP based data transport protocol
+net-libs/udt 4.11_p20181126: UDT is a UDP based data transport protocol
 net-libs/usockets 0.8.1_p20211023 9999: tiny eventing, networking & crypto for async applications
 net-mail/dovecot-fts-xapian 1.5.2 1.5.4 1.5.5 9999: Dovecot FTS plugin backed by Xapian
 net-mail/remail 0.13: A set of tools for crypted mailing lists
@@ -1284,6 +1296,8 @@ sci-biology/geneathome 1.10-r3: BOINC application for expanding Gene Regulatory 
 sci-electronics/bsc 0_pre20210124 9999: Bluespec high level hardware design language compiler
 sci-electronics/dsview 1.12-r1 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
+sci-electronics/open_pdks 1.0.311: PDK installer for open-source EDA tools and toolchains
+sci-electronics/skywater-pdk 0.0.0_p20220424: Open source process design kit for usage with SkyWater Technology Foundry's 130nm node
 sci-electronics/verible 0.0.2135: SystemVerilog parser, style-linter, and formatter
 sci-electronics/verilator 4.218 4.220 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/GeographicLib-data 0-r1: Datasets for GeographicLib
@@ -1354,6 +1368,7 @@ sci-mathematics/qepcad 1.72b_p20220502-r2: Quantifier Elimination by Partial Cyl
 sci-mathematics/radian 0.6.3: A 21 century R console
 sci-mathematics/the-omega-project 2.1_p20131119: Tools from Pugh et al.'s for constraint-based compiler tools
 sci-misc/boinc-wrapper 7.18.1: Wrapper to use non-BOINC apps with BOINC
+sci-misc/linuxcnc 9999: LinuxCNC
 sci-physics/SU2 7.2.0 7.2.0-r1: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sci-physics/mbdyn 1.7.3_p20210925-r1: A general purpose Multibody Dynamics analysis software
 sec-keys/openpgp-keys-aepaneshnikov 20211208: OpenPGP keys used by Alexander Epaneshnikov
@@ -1399,17 +1414,19 @@ sys-cluster/OpenHPC-meta 2.1: OpenHPC metapackage
 sys-cluster/SIONfwd 1.0.1: A minimalistic I/O forwarding server and client library for SIONlib
 sys-cluster/SOS 1.5.0-r1: implementation of the OpenSHMEM specification
 sys-cluster/TCL 1.0: Transparent Checkpointing Library
+sys-cluster/adios2 2.8.1: Next generation of ADIOS developed in the Exascale Computing Program
 sys-cluster/booth 1.0_p20210730: The Booth Cluster Ticket Manager
 sys-cluster/cinder 20.0.0: Cinder is the OpenStack Block storage service, a spin out of nova-volumes
 sys-cluster/clusteringsuite 2.6.9-r3: Expose the main performance trends in applications computation structure
+sys-cluster/dimemas 5.4.2_p20220601: High-abstracted network simulator for message-passing programs
 sys-cluster/dlb 2.1-r3: Dynamically react to application imbalance by modifying the number of resources
 sys-cluster/dtcmp 1.1.2 1.1.4: Datatype Compare Library for sorting and ranking distributed data using MPI
 sys-cluster/dyninst 11.0.1-r1 12.1.0: Tools for binary instrumentation, analysis, and modification
 sys-cluster/er 0.1.0 0.3.0: High-level distributed erasure coding lib combining shuffile and redset
-sys-cluster/evpath 4.5.0: EVpath is an event transport middleware layer
+sys-cluster/evpath 4.5.0_p20220601: EVpath is an event transport middleware layer
 sys-cluster/extrae 4.0.1: Instrumentation framework to generate execution traces of parallel runtimes
 sys-cluster/fti 1.6-r1: Fault Tolerance Interface
-sys-cluster/genders 1.28.1: Static cluster configuration database used for cluster configuration management.
+sys-cluster/genders 1.28.1-r1: Static cluster configuration database used for cluster configuration management
 sys-cluster/heat 18.0.0-r1: A CloudFormation-compatible openstack-native cloud orchestration engine
 sys-cluster/launchmon 1.0.2_p20210430-r2: Enables HPC run-time tools to co-locate tool daemons with a parallel job
 sys-cluster/libbsctools 1.0.6-r2: libbsctools
@@ -1429,7 +1446,7 @@ sys-cluster/openstack-meta 2020.2.0: A openstack meta-package for installing the
 sys-cluster/osu-micro-benchmarks 5.9: MPI, OPC and many other benchmarks
 sys-cluster/otf2 2.3-r2: highly scalable, memory efficient event trace data format
 sys-cluster/parallel-netcdf 1.12.2: Parallel extension to netCDF
-sys-cluster/paraver-kernel 4.9.0: paraver kernel library
+sys-cluster/paraver-kernel 4.10.1-r1: paraver kernel library
 sys-cluster/parsec 3.0.2012-r1: Parallel Runtime Scheduler and Execution Controller
 sys-cluster/pcs 0.10.8-r3 0.11.2: Pacemaker/Corosync Configuration System
 sys-cluster/placement 7.0.0-r1: A HTTP service for managing, selecting, and claiming cloud resources
@@ -1448,7 +1465,7 @@ sys-cluster/synapse 2.0.1-r1: synapse
 sys-cluster/temanejo 1.3: a debugger for task-parallel programming
 sys-cluster/usort 0_pre20211230-r1: Fast distributed sorting routines using MPI and OpenMP
 sys-cluster/veloc 1.6: Very-Low Overhead Checkpointing System
-sys-cluster/wxparaver 4.9.0-r1 4.10.0: Performance analyzer based on event traces
+sys-cluster/wxparaver 4.10.1: Performance analyzer based on event traces
 sys-devel/cproc 9999: C11 compiler using QBE as backend
 sys-devel/gsl 4.1.5-r1: iMatix GSL code generator
 sys-devel/qbe 9999: Pure-C embeddable compiler backend

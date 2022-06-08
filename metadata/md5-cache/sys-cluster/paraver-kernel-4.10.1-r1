@@ -4,13 +4,13 @@ DEPEND=dev-libs/boost:= dev-libs/libxml2 sys-libs/zlib sys-cluster/libbsctools:=
 DESCRIPTION=paraver kernel library
 EAPI=8
 HOMEPAGE=http://tools.bsc.es/paraver https://github.com/bsc-performance-tools/paraver-kernel
-INHERIT=autotools
+INHERIT=autotools flag-o-matic
 IUSE=extended-objects extrae ompss openmp otf2
 KEYWORDS=~amd64
 LICENSE=LGPL-2.1
 RDEPEND=dev-libs/boost:= dev-libs/libxml2 sys-libs/zlib sys-cluster/libbsctools:= extrae? ( sys-cluster/extrae ) otf2? ( sys-cluster/otf2 )
 REQUIRED_USE=extrae? ( openmp )
 SLOT=0
-SRC_URI=https://github.com/bsc-performance-tools/paraver-kernel/archive/refs/tags/v4.9.0.tar.gz -> paraver-kernel-4.9.0.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710
-_md5_=7ae28ff1d6e3002e289d4b2010ab74dd
+SRC_URI=https://github.com/bsc-performance-tools/paraver-kernel/archive/refs/tags/v4.10.1.tar.gz -> paraver-kernel-4.10.1.gh.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	flag-o-matic	a500d7cc40da3de38c361e889153bdf7
+_md5_=35d2111d9d0a8c27e17ad3b22dd2ecf0

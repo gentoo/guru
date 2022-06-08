@@ -442,6 +442,7 @@ net-p2p/trezord-go:udev - Install udev rules
 net-print/hpuld:scanner - Enable scanner on multifunction devices which support it
 sci-biology/cmdock:apidoc - Build API documentation using app-doc/doxygen
 sci-biology/cmdock:boinc - Use CmDock with SiDock@home BOINC project
+sci-electronics/open_pdks:sky130 - Build the Skywater 130nm PDK.
 sci-libs/ButterflyPACK:arpack - Use arpack as dependency
 sci-libs/ButterflyPACK:magma - Use magma as dependency
 sci-libs/CoDiPack:tutorials - Build the tutorials
@@ -506,6 +507,11 @@ sci-mathematics/minisat+:bignum - Build the bignum variant of minisat+
 sci-mathematics/the-omega-project:gui - Build petit with gui
 sci-mathematics/the-omega-project:htmldoc - Build html documentation
 sci-mathematics/the-omega-project:petit - Build Petit, a educational/research tool for analyzing array data dependences
+sci-misc/linuxcnc:modbus - Build modbus libraries
+sci-misc/linuxcnc:rt - Build with RT_PREEMPT threads modules
+sci-misc/linuxcnc:rtai - Build with realtime threads support
+sci-misc/linuxcnc:simulator - Build with posix threads (no realtime)
+sci-misc/linuxcnc:xenomai - Build with xenomai userland threads
 sci-physics/SU2:autodiff - Enable support for reverse automatic differentiation
 sci-physics/SU2:cgns - Build with CGNS support
 sci-physics/SU2:directdiff - Enable support for forward automatic differentiation
@@ -606,10 +612,20 @@ sys-cluster/SOS:xpmem - Use xpmem transport
 sys-cluster/TCL:fti - Enable sys-cluster/fti backend
 sys-cluster/TCL:scr - Enable sys-cluster/scr backend
 sys-cluster/TCL:veloc - Enable sys-cluster/veloc backend
+sys-cluster/adios2:blosc - Enable support for Blosc transforms
+sys-cluster/adios2:endian-reverse - Enable support for Little/Big Endian Interoperability
+sys-cluster/adios2:sodium - Enable support for Sodium for encryption
+sys-cluster/adios2:sst - Enable support for SST
+sys-cluster/adios2:zeromq - Enable support for ZeroMQ
+sys-cluster/adios2:zfp - Enable support for ZFP transforms
 sys-cluster/booth:glue - Use libraries from sys-cluster/cluster-glue
 sys-cluster/clusteringsuite:mpi - enable mpi for distributed version
 sys-cluster/clusteringsuite:muster - enable support for sys-cluster/muster algorithms
 sys-cluster/clusteringsuite:treedbscan - enable compilation of TreeDBSCAN support for sys-cluster/extrae
+sys-cluster/dimemas:idle-accounting - if enabled, idle CPU regions are computed as CPU consumption in the accouting stats
+sys-cluster/dimemas:irecv-startup - if enabled defined Dimemas considers initial startups on MPI_Irecv functions
+sys-cluster/dimemas:original-links - if enabled Dimemas uses the original protocol to manage links
+sys-cluster/dimemas:wait-logical-recv - if enabled Dimemas puts logical receive time when MPI_Wait is called (not on MPI_Irecv)
 sys-cluster/dlb:hwloc - add sys-apps/hwlocsupport
 sys-cluster/dlb:instrumentation - enable sys-cluster/extrae instrumentation
 sys-cluster/dyninst:openmp - Enable parallel code parsing
