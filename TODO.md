@@ -27,7 +27,6 @@ Name | Buildsystem | Category | User | Need help | Dependency
 [gnat-llvm](https://github.com/AdaCore/gnat-llvm) | make | compiler | Alessandro-Barbieri | ✔ | ✖
 [csparse](https://people.sc.fsu.edu/~jburkardt/c_src/csparse/csparse.html) | make | science | Alessandro-Barbieri | ✖ | ✔
 [gslib](https://github.com/Nek5000/gslib) | make | cluster | Alessandro-Barbieri | ✖ | ✔
-[dimemas](https://github.com/bsc-performance-tools/dimemas) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
 [argobots](https://www.argobots.org/) | autotools | devel | Alessandro-Barbieri | ✖ | ✔
 [mochi-ssg](https://github.com/mochi-hpc/mochi-ssg) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
 [mochi-margo](https://github.com/mochi-hpc/mochi-margo) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
@@ -64,7 +63,6 @@ Name | Buildsystem | Category | User | Need help | Dependency
 [mochi-thallium](https://github.com/mochi-hpc/mochi-thallium) | cmake | cluster | Alessandro-Barbieri | ✖ | ✔
 [flexiblas](https://www.mpi-magdeburg.mpg.de/projects/flexiblas) | cmake | science | Alessandro-Barbieri | ✔
 [blitz](https://github.com/blitzpp/blitz) | cmake | c++ | Alessandro-Barbieri | ✖ | ✔
-[adios](https://csmd.ornl.gov/adios) | cmake | cluster | Alessandro-Barbieri | ✖ | ✔
 [fmi-library](https://github.com/modelon-community/fmi-library) | cmake | science | Alessandro-Barbieri | ✖ | ✔
 [aerodyn](https://github.com/OpenFAST/openfast/tree/main/modules/aerodyn) | cmake | science | Alessandro-Barbieri | ✖ | ✔
 [llvm-ompss2](https://github.com/bsc-pm/llvm) | cmake | cluster | Alessandro-Barbieri | ✔ | ✔

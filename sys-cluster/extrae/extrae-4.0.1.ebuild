@@ -95,6 +95,7 @@ REQUIRED_USE="
 
 src_prepare() {
 	default
+	java-pkg_clean
 	eautoreconf
 }
 

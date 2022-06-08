@@ -30,25 +30,25 @@ cpu_flags_ppc_altivec cpu_flags_arm_neon cpu_flags_arm_iwmmxt cpu_flags_arm_iwmm
 RDEPEND="
 	app-arch/lz4
 	>=dev-cpp/eigen-3.0.5
-	dev-games/ode
+	dev-games/ode:=
 	dev-libs/boost:=
-	dev-libs/tinyxml2
-	dev-libs/urdfdom
+	dev-libs/tinyxml2:=
+	dev-libs/urdfdom:=
 	>=media-libs/assimp-3.0.0:=
 	media-libs/freeglut
 	media-libs/imgui:=[glut(-),opengl(-)]
-	media-libs/lodepng:=
+	media-libs/lodepng
 	>=sci-libs/libccd-2.0
-	>=sci-libs/fcl-0.2.9
+	>=sci-libs/fcl-0.2.9:=
 	sci-libs/flann
-	sci-libs/ipopt
+	sci-libs/ipopt:=
 	>=sci-libs/nlopt-2.4.1
-	sci-libs/octomap
-	sci-physics/bullet
+	sci-libs/octomap:=
+	sci-physics/bullet:=
 	virtual/opengl
 
 	examples? ( dev-cpp/tiny-dnn:= )
-	osg? ( dev-games/openscenegraph )
+	osg? ( dev-games/openscenegraph:= )
 	python? (
 		${PYTHON_DEPS}
 		$(python_gen_cond_dep 'dev-python/pybind11[${PYTHON_USEDEP}]')

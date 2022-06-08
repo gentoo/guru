@@ -7,7 +7,7 @@
 		<name>Alessandro Barbieri</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>https://sourceforge.net/p/udt/bugs/</bugs-to>
-		<remote-id type="sourceforge">udt</remote-id>
+		<bugs-to>https://github.com/eisenhauer/udt4/issues</bugs-to>
+		<remote-id type="github">eisenhauer/udt4</remote-id>
 	</upstream>
 </pkgmetadata>

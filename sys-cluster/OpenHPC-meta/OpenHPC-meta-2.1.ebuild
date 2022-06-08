@@ -33,7 +33,9 @@ RDEPEND="
 		sci-libs/netcdf[hdf5,mpi]
 		sci-libs/netcdf-cxx
 		sci-libs/netcdf-fortran
+		sys-cluster/adios2[fortran,hdf5,mpi]
 		sys-cluster/parallel-netcdf
+		python? ( $(python_gen_cond_dep 'sys-cluster/adios2[python,${PYTHON_SINGLE_USEDEP}]') )
 	)
 
 	parallel? (
@@ -62,6 +64,7 @@ RDEPEND="
 	perf-tools? (
 		dev-libs/papi
 		sys-apps/likwid
+		sys-cluster/dimemas
 		sys-cluster/extrae[${PYTHON_SINGLE_USEDEP}]
 		sys-cluster/mpi-benchmarks
 		sys-cluster/osu-micro-benchmarks
@@ -101,12 +104,7 @@ RDEPEND="
 	)
 
 "
-#	io-libs
-	#adios[mpi]
-	#phdf5[mpi]
-
 #	perf-tools
-#		sys-cluster/dimemas[libunwind]
 	#scalasca
 	#tau
 	#scorep
