@@ -116,7 +116,7 @@
 -$(BINARY): $(IMB_OBJ) $(BECHMARK_SUITE_OBJ) $(ADDITIONAL_OBJ) $(YAML_CPP_LIB)
 -	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 +$(BINARY): $(IMB_OBJ) $(BECHMARK_SUITE_OBJ) $(ADDITIONAL_OBJ)
-+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -fPIE -o $@ $^ $(LDFLAGS) $(YAML_CPP_LIB) -lmpi_cxx -lmpi
++	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -fPIE -o $@ $^ $(LDFLAGS) $(YAML_CPP_LIB)
  
  %.o: %.cpp
 -	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
