@@ -5,7 +5,6 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} ) # python3_11 depends on dev-python/black
 
-CARGO_OPTIONAL=1
 # Make sure to remove 'libcst', 'libcst_native' from crates list
 CRATES="
 	aho-corasick-0.7.18
@@ -23,9 +22,9 @@ CRATES="
 	criterion-cycles-per-byte-0.1.2
 	criterion-plot-0.4.3
 	crossbeam-channel-0.5.1
-	crossbeam-deque-0.8.0
+	crossbeam-deque-0.8.1
 	crossbeam-epoch-0.9.5
-	crossbeam-utils-0.8.5
+	crossbeam-utils-0.8.8
 	csv-1.1.6
 	csv-core-0.1.10
 	difference-2.0.0
@@ -71,7 +70,7 @@ CRATES="
 	rayon-1.5.1
 	rayon-core-1.9.1
 	redox_syscall-0.2.9
-	regex-1.5.4
+	regex-1.5.5
 	regex-automata-0.1.10
 	regex-syntax-0.6.25
 	rustc_version-0.4.0
@@ -111,6 +110,7 @@ CRATES="
 # Current version (0.4.3) has git based rust crates
 # https://github.com/Instagram/LibCST/pull/691 updates the rust module to use versioned crates
 MY_REV=380f045fe05bfdc6a0555f8e36a0c1c406ca1b77
+MY_PN="LibCST"
 
 inherit cargo distutils-r1
 
@@ -120,7 +120,7 @@ SRC_URI="
 	https://github.com/Instagram/LibCST/archive/${MY_REV}.tar.gz -> ${P}.tar.gz
 	$(cargo_crate_uris)
 "
-S="${WORKDIR}/${PN}-${MY_REV}"
+S="${WORKDIR}/${MY_PN}-${MY_REV}"
 
 LICENSE="MIT Apache-2.0 PSF-2 BSD Boost-1.0 Unlicense"
 SLOT="0"
@@ -143,19 +143,11 @@ DEPEND="
 		>=dev-python/setuptools-rust-0.12.1[${PYTHON_USEDEP}]
 	)
 "
-BDEPEND="
-	virtual/rust
-	test? ( dev-python/ufmt[${PYTHON_USEDEP}] )
-"
+BDEPEND="test? ( dev-python/ufmt[${PYTHON_USEDEP}] )"
 
 distutils_enable_tests --install pytest
 
-export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
-
-src_unpack() {
-	cargo_src_unpack
-	distutils-r1_src_unpack
-}
+export SETUPTOOLS_SCM_PRETEND_VERSION=0.4.3
 
 python_test() {
 	# Requires `/usr/bin/pyre` from https://github.com/facebook/pyre-check
