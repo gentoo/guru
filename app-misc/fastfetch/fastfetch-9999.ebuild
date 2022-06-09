@@ -16,18 +16,22 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="X chafa gnome imagemagick pci sqlite vulkan wayland xcb xfce xrandr"
+IUSE="X chafa dbus gnome imagemagick opencl opengl osmesa pci sqlite vulkan wayland xcb xfce xrandr"
 
 # note - qa-vdb will always report errors because fastfetch loads the libs dynamically
 RDEPEND="
 	sys-libs/zlib
 	X? ( x11-libs/libX11 )
 	chafa? ( media-gfx/chafa )
+	dbus? ( sys-apps/dbus )
 	gnome? (
 		dev-libs/glib
 		gnome-base/dconf
 	)
 	imagemagick? ( media-gfx/imagemagick:= )
+	opencl? ( virtual/opencl )
+	opengl? ( media-libs/libglvnd[X] )
+	osmesa? ( media-libs/mesa[osmesa] )
 	pci? ( sys-apps/pciutils )
 	sqlite? ( dev-db/sqlite:3 )
 	vulkan? ( media-libs/vulkan-loader )
@@ -59,6 +63,11 @@ src_configure() {
 		-DENABLE_ZLIB=yes
 		-DENABLE_CHAFA=$(usex chafa)
 		-DENABLE_SQLITE3=$(usex sqlite)
+		-DENABLE_EGL=$(usex opengl)
+		-DENABLE_GLX=$(usex opengl)
+		-DENABLE_OSMESA=$(usex osmesa)
+		-DENABLE_OPENCL=$(usex opencl)
+		-DENABLE_DBUS=$(usex dbus)
 	)
 
 	cmake_src_configure
