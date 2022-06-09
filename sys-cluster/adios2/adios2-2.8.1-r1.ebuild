@@ -109,7 +109,7 @@ src_configure() {
 		-DADIOS2_USE_SZ="$(usex szip)"
 		-DADIOS2_USE_ZeroMQ="$(usex zeromq)"
 		-DADIOS2_USE_ZFP="$(usex zfp)"
-		-DBUILD_TESTING=$(usex test)
+		-DBUILD_TESTING="$(usex python)"
 	)
 	cmake_src_configure
 }
@@ -119,10 +119,6 @@ src_prepare() {
 	rm -r thirdparty/nlohmann_json/nlohmann_json_wrapper/single_include || die
 	rm -r thirdparty/perfstubs/perfstubs || die
 	cmake_src_prepare
-}
-
-src_compile() {
-	cmake_src_compile
 }
 
 src_install() {
