@@ -119,7 +119,7 @@ app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best
 app-misc/doublecmd-bin 1.0.4 1.0.5: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
-app-misc/fastfetch 1.4.3 9999: Like neofetch but faster
+app-misc/fastfetch 1.5.3 9999: Like neofetch but faster
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -572,6 +572,7 @@ dev-python/MutatorMath 3.0.1-r1: A library for piecewise linear interpolation in
 dev-python/Pyro5 5.13.1: Distributed object middleware for Python (RPC)
 dev-python/SLPP 1.2.3: Simple lua-python parser
 dev-python/SQLAlchemy-Utils 0.37.9 0.38.2: Various utility functions and datatypes for SQLAlchemy
+dev-python/TakeTheTime 0.3.1: Take The Time, a super-neat Python library for timing chunks of code
 dev-python/WSME 0.11.0: Simplify the writing of REST APIs, and extend them with additional protocols
 dev-python/XenAPI 2.14-r1: Xen API SDK, for communication with Citrix XenServer and Xen Cloud Platform
 dev-python/aionotify 0.2.0: Simple, asyncio-based inotify library for Python
@@ -875,6 +876,7 @@ dev-python/tempus-themes 2.3.0.20220206: Accessible themes for Pygments
 dev-python/testrepository 0.0.20-r200: A repository of test results
 dev-python/threadloop 1.0.2: Run Tornado Coroutines from Synchronous Python
 dev-python/thriftrw 1.8.1: A Thrift encoding library for Python
+dev-python/timeslot 0.1.2: Time slots/intervals with an arbitrary start and stop
 dev-python/tinyrpc 1.1.4 1.1.5: A protocol neutral RPC library that supports JSON-RPC and zmq
 dev-python/tooz 2.11.1: Library centralizing the most common distributed primitives
 dev-python/trailrunner 1.2.1: Walk paths and run things
