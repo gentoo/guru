@@ -32,12 +32,11 @@ RDEPEND="
 	dev-libs/libxml2
 
 	knem? ( sys-cluster/knem )
-	pmi? ( sys-cluster/pmix[pmi] )
+	pmi? ( || ( sys-cluster/slurm sys-cluster/pmix[pmi] ) )
 	ppe? ( sys-kernel/xpmem )
 "
 DEPEND="
 	${RDEPEND}
-	test? ( sys-cluster/pmix[pmi] )
 "
 
 PATCHES=( "${FILESDIR}/${PN}-fix-PPE-related-compile-and-link-errors.patch" )
@@ -47,6 +46,7 @@ REQUIRED_USE="
 
 	knem? ( transport_shmem )
 	reliable-udp? ( transport_udp )
+	test? ( pmi )
 "
 
 src_prepare() {
