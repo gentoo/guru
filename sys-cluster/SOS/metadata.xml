@@ -19,8 +19,7 @@
 		<!--<flag name="nonblocking-fence">By default, shmem_fence() is equivalent to shmem_quiet(), which can be a lengthy operation.  Enabling this feature results in the ordering point being moved from the shmem_fence() to the next put-like call, which can help improve overlap in some cases.</flag>-->
 		<flag name="ofi">Use libfabric as transport layer</flag>
 		<flag name="ofi-fence">Use FI_FENCE feature to optimize put-with-signal operations</flag>
-		<flag name="pmi-mpi">Use MPI for process management</flag>	
-		<flag name="pmi-simple">Include support for interfacing with a PMI 1.0 launcher.  The launcher must be provided by a separate package, such as MPICH, Hydra, or SLURM.</flag>	
+		<flag name="pmi">Use MPI for process management</flag>	
 		<flag name="portals4">Use portals4 as transport layer</flag>
 		<flag name="profiling">Enable profiling (pshmem) interface</flag>
 		<flag name="pthread-mutexes">Use pthread mutexes instead of internal queueing locks</flag>

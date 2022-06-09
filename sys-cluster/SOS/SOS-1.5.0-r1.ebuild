@@ -11,7 +11,7 @@ DESCRIPTION="implementation of the OpenSHMEM specification"
 HOMEPAGE="https://github.com/Sandia-OpenSHMEM/SOS"
 SRC_URI="https://github.com/Sandia-OpenSHMEM/SOS/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="BSD public-domain mpich2"
+LICENSE="BSD public-domain"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE_OFI_MR="
@@ -26,13 +26,12 @@ IUSE_TOTAL_DATA_ORDERING="
 "
 IUSE="${IUSE_OFI_MR} ${IUSE_TOTAL_DATA_ORDERING} av-map bounce-buffers cma completion-polling cxx
 debug error-checking fortran long-fortran-header manual-progress memcpy ofi ofi-fence openmp
-+pmi-mpi pmi-simple portals4 profiling pthread-mutexes remote-virtual-addressing threads
++pmi portals4 profiling pthread-mutexes remote-virtual-addressing threads
 thread-completion ucx xpmem"
 
 RDEPEND="
 	ofi? ( sys-block/libfabric )
-	pmi-simple? ( sys-cluster/pmix[pmi] )
-	pmi-mpi? ( virtual/mpi )
+	pmi? ( || ( sys-cluster/slurm sys-cluster/pmix[pmi] ) )
 	portals4? ( sys-cluster/portals4 )
 	ucx? ( sys-cluster/ucx )
 	xpmem? ( sys-kernel/xpmem )
@@ -42,7 +41,6 @@ DEPEND="${RDEPEND}"
 REQUIRED_USE="
 	^^ ( ${IUSE_OFI_MR/+/} )
 	^^ ( ${IUSE_TOTAL_DATA_ORDERING/+/} )
-	^^ ( pmi-mpi pmi-simple )
 	?? ( cma xpmem )
 	?? ( ofi portals4 )
 "
@@ -79,7 +77,7 @@ src_prepare() {
 }
 
 src_configure() {
-	if use pmi-mpi; then
+	if use pmi; then
 		export CC=mpicc
 		export CXX=mpicxx
 	fi
@@ -96,6 +94,7 @@ src_configure() {
 
 	local myconf=(
 		--disable-picky
+		--disable-pmi-simple
 		--disable-rpm-prefix
 		--enable-ofi-mr="${ofimr}"
 		--enable-total-data-ordering="${tda}"
@@ -111,8 +110,7 @@ src_configure() {
 		$(use_enable memcpy)
 		$(use_enable ofi-fence)
 		$(use_enable openmp)
-		$(use_enable pmi-mpi)
-		$(use_enable pmi-simple)
+		$(use_enable pmi pmi-mpi)
 		$(use_enable profiling)
 		$(use_enable pthread-mutexes)
 		$(use_enable remote-virtual-addressing)
@@ -121,7 +119,7 @@ src_configure() {
 
 		$(use_with cma)
 		$(use_with ofi)
-		$(use_with pmi-mpi pmi)
+		$(use_with pmi)
 		$(use_with portals4)
 		$(use_with ucx)
 		$(use_with xpmem)
