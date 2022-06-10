@@ -11,5 +11,5 @@ RDEPEND=dev-lang/erlang:=
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/ninenines/ranch/archive/2.0.0.tar.gz -> ranch-2.0.0.tar.gz
-_eclasses_=rebar	e04a9d90bccd71576da0b8031f1faa58
+_eclasses_=rebar	cde3fe8ac7c866dc245b07b4b1b38a5e
 _md5_=5238bbd434e21790db9ab3e243817206
