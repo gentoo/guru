@@ -68,6 +68,7 @@ RDEPEND="
 		sys-cluster/extrae[${PYTHON_SINGLE_USEDEP}]
 		sys-cluster/mpi-benchmarks
 		sys-cluster/osu-micro-benchmarks
+		sys-cluster/scorep[mpi,unwind]
 	)
 
 	python? (
@@ -107,7 +108,6 @@ RDEPEND="
 #	perf-tools
 	#scalasca
 	#tau
-	#scorep
 
 #	slurm-server
 	#pdsh-slurm
