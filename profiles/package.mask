@@ -53,3 +53,11 @@ dev-python/thriftrw
 # https://bugs.gentoo.org/848399
 # Feel free to unmask if you want to take maintainership.
 net-p2p/nuxhash
+
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-06-10)
+# depends on non-existent dev-python/aiosmtpd
+dev-python/aiosmtplib
+
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-06-10)
+# depends on non-existent dev-python/flufl-bounce
+net-mail/remail
