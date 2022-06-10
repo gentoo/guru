@@ -25,6 +25,7 @@ RDEPEND="
 	enet? ( net-libs/enet )
 	infiniband? ( sys-block/libfabric )
 	libfabric? ( sys-block/libfabric )
+	test? ( virtual/mpi[cxx] )
 	udt4? ( >net-libs/udt-4.11 )
 "
 DEPEND="${RDEPEND}"
@@ -48,8 +49,4 @@ src_configure() {
 	)
 #		-DEVPATH_USE_ZPL_ENET=$(usex enet)
 	cmake_src_configure
-}
-
-src_install() {
-	cmake_src_install
 }
