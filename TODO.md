@@ -42,7 +42,6 @@ Name | Buildsystem | Category | User | Need help | Dependency
 [geopm](https://geopm.github.io/) | autotools | power | Alessandro-Barbieri | ✖ | ✔
 [warewulf](https://warewulf.lbl.gov/) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
 [scalasca](https://scalasca.org/) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
-[scorep](https://www.vi-hps.org/projects/score-p/) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
 [jmodelica](https://github.com/jnorthrup/jmodelica) | autotools | science | Alessandro-Barbieri | ✔ | ✔
 [flux-core](https://github.com/flux-framework/flux-core) | autotools | cluster | Alessandro-Barbieri | ✔ | ✔
 [GPI-2](https://github.com/cc-hpc-itwm/GPI-2) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔

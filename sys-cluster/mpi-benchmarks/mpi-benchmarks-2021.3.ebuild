@@ -22,6 +22,12 @@ DEPEND="${RDEPEND}"
 
 PATCHES=( "${FILESDIR}/${P}-makefile.patch" )
 
+src_configure() {
+	export CC=mpicc
+	export CXX=mpicxx
+	default
+}
+
 src_install() {
 	dodoc ReadMe_IMB.txt README.md
 	dobin IMB-*

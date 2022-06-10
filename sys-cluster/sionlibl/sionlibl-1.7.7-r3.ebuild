@@ -8,7 +8,7 @@ DOCS_CONFIG_NAME="doxy"
 FORTRAN_NEEDED="fortran"
 PYTHON_COMPAT=( pypy3 python3_{8..11} )
 
-inherit docs flag-o-matic fortran-2 python-any-r1 toolchain-funcs
+inherit docs edo flag-o-matic fortran-2 python-any-r1 toolchain-funcs
 
 DESCRIPTION="Scalable I/O library for parallel access to task-local files"
 HOMEPAGE="https://www.fz-juelich.de/ias/jsc/EN/Expertise/Support/Software/SIONlib/_node.html"
@@ -22,10 +22,6 @@ IUSE="+cxx debug deep-est-sdv doc examples +fortran hostname-regex +mpi +ompi +o
 
 RDEPEND="
 	mpi? ( virtual/mpi )
-	ompi? (
-		|| ( sys-devel/gcc:*[openmp] sys-libs/libomp )
-		virtual/mpi
-	)
 	openmp? ( || ( sys-devel/gcc:*[openmp] sys-libs/libomp ) )
 	sionfwd? ( sys-cluster/SIONfwd )
 "
@@ -34,7 +30,10 @@ DEPEND="
 	${PYTHON_DEPS}
 "
 
-REQUIRED_USE="?? ( hostname-regex deep-est-sdv )"
+REQUIRED_USE="
+	ompi? ( mpi openmp )
+	?? ( hostname-regex deep-est-sdv )
+"
 PATCHES=(
 	"${FILESDIR}/${PN}-respect-flags-v3.patch"
 	"${FILESDIR}/${PN}-build-shared-libraries.patch"
@@ -43,7 +42,6 @@ PATCHES=(
 pkg_setup() {
 	FORTRAN_NEED_OPENMP=0
 	use openmp && FORTRAN_NEED_OPENMP=1
-	use ompi && FORTRAN_NEED_OPENMP=1
 
 	fortran-2_pkg_setup
 }
@@ -77,7 +75,11 @@ src_configure() {
 	#custom configure?
 	use cxx || myconf+=( "--disable-cxx" )
 	use fortran || myconf+=( "--disable-fortran" )
-	use mpi || myconf+=( "--disable-mpi" )
+	if use mpi; then
+		myconf+=( "--mpi=$(detect_mpi_implementation || die)" )
+	else
+		myconf+=( "--disable-mpi" )
+	fi
 	use ompi || myconf+=( "--disable-ompi" )
 	use openmp || myconf+=( "--disable-omp" )
 	use parutils || myconf+=( "--disable-parutils" )
@@ -85,7 +87,7 @@ src_configure() {
 	use python && myconf+=( "--enable-python=3" )
 	use sionfwd && myconf+=( "--enable-sionfwd=${EPREFIX}/usr" )
 
-	./configure "${myconf[@]}" || die
+	edo ./configure "${myconf[@]}"
 }
 
 src_compile() {
@@ -133,4 +135,24 @@ src_install() {
 	#TODO: build shared libs
 	#find "${ED}" -name '*.a' -delete || die
 	find "${ED}" -name '*.la' -delete || die
+}
+
+detect_mpi_implementation() {
+	cat > testmpi.c <<- EOF
+#include "mpi.h"
+#include "stdio.h"
+
+int main(){
+	#ifdef OPEN_MPI
+	        printf("%s","openmpi");
+	#endif
+
+	#ifdef MPICH
+	        printf("%s%i","mpich",MPICH_NAME);
+	#endif
+	return 0;
+}
+EOF
+	edo ${CC} testmpi.c -o testmpi
+	./testmpi || die
 }
