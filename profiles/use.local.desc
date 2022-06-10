@@ -81,6 +81,9 @@ dev-games/godot:lto - Enable support for link time optimization
 dev-games/godot:mbedtls - Enable support for net-libs/mbedtls
 dev-games/godot:raycast - Enable raycast module using media-libs/embree
 dev-libs/atl:utilities - Build utilities
+dev-libs/cubew:advanced-memory - Enables advanced memory features such as usage of an external memory allocator
+dev-libs/cubew:memory-tracing - Enables internal memory tracing more intensive memory usage report.
+dev-libs/cubew:memory-tracking - Enables internal memory tracking
 dev-libs/dill:disassembly - Enable binutils-based disassembly
 dev-libs/dill:ignore-native - Build to do emulation, regardless of architecture
 dev-libs/dill:multitarget - Build all available target architectures
@@ -511,9 +514,7 @@ sci-mathematics/the-omega-project:htmldoc - Build html documentation
 sci-mathematics/the-omega-project:petit - Build Petit, a educational/research tool for analyzing array data dependences
 sci-misc/linuxcnc:modbus - Build modbus libraries
 sci-misc/linuxcnc:rt - Build with RT_PREEMPT threads modules
-sci-misc/linuxcnc:rtai - Build with realtime threads support
 sci-misc/linuxcnc:simulator - Build with posix threads (no realtime)
-sci-misc/linuxcnc:xenomai - Build with xenomai userland threads
 sci-physics/SU2:autodiff - Enable support for reverse automatic differentiation
 sci-physics/SU2:cgns - Build with CGNS support
 sci-physics/SU2:directdiff - Enable support for forward automatic differentiation
@@ -601,8 +602,7 @@ sys-cluster/SOS:manual-progress - Enable intermittent progress calls inside tran
 sys-cluster/SOS:memcpy - Use memcpy to perform local put/get operations
 sys-cluster/SOS:ofi - Use libfabric as transport layer
 sys-cluster/SOS:ofi-fence - Use FI_FENCE feature to optimize put-with-signal operations
-sys-cluster/SOS:pmi-mpi - Use MPI for process management
-sys-cluster/SOS:pmi-simple - Include support for interfacing with a PMI 1.0 launcher. The launcher must be provided by a separate package, such as MPICH, Hydra, or SLURM.
+sys-cluster/SOS:pmi - Use MPI for process management
 sys-cluster/SOS:portals4 - Use portals4 as transport layer
 sys-cluster/SOS:profiling - Enable profiling (pshmem) interface
 sys-cluster/SOS:pthread-mutexes - Use pthread mutexes instead of internal queueing locks
@@ -777,6 +777,12 @@ sys-cluster/portals4:reliable-udp - Use reliable UDP for remote communication
 sys-cluster/portals4:unordered-matching - Enable unordered (hashed) match list searching. Experimental
 sys-cluster/portals4:zero-mrs - Enable this when using MOFED V2.2+ or Qlogic InfiniPath Hardware of IB communication
 sys-cluster/redset:slurm - Use sys-cluster/slurm as resource manager
+sys-cluster/scorep:gcc-plugin - Enable support for the GCC plug-in instrumentation
+sys-cluster/scorep:llvm - Enable the user library wrapping feature
+sys-cluster/scorep:online-access - Enable Online Access
+sys-cluster/scorep:opencl - Build with libOpenCL support
+sys-cluster/scorep:openshmem - Use the SHMEM compiler
+sys-cluster/scorep:pmi - Build with libpmi support
 sys-cluster/scr:fcntl - use fcntl as a file locking type
 sys-cluster/scr:flock - use flock as a file locking type
 sys-cluster/scr:fortran - Enables Fortran support

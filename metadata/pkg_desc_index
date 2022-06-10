@@ -393,6 +393,8 @@ dev-libs/ayatana-ido 0.9.1: Ayatana Application Indicators (Shared Library)
 dev-libs/boinc-zip 7.18-r1: Wrapper for the zip/unzip functions to expose to BOINC clients
 dev-libs/cgicc 3.2.19: A C++ class library for writing CGI applications
 dev-libs/cglm 0.8.5 9999: OpenGL Mathematics (glm) for C
+dev-libs/cubelib 4.7: General purpose C++ library and tools
+dev-libs/cubew 4.7: High performance C Writer library
 dev-libs/dill 2.4.1: Provides instruction-level code generation directly into memory regions
 dev-libs/dmd_core 0.6.2: Core logic for an AT&T / Teletype DMD 5620 terminal emulator
 dev-libs/fastText 0.9.2: Library for fast text representation and classification
@@ -607,7 +609,6 @@ dev-python/bson 0.5.10: Independent BSON codec for Python that doesn't depend on
 dev-python/castellan 3.11.0: Generic Key Manager interface for OpenStack
 dev-python/celery 5.2.6: Asynchronous task queue/job queue based on distributed message passing
 dev-python/cffsubr 0.2.9_p1: Standalone CFF subroutinizer based on AFDKO tx tool
-dev-python/check-manifest 0.46: Tool to check the completeness of MANIFEST.in for Python packages
 dev-python/click-didyoumean 0.3.0: Enable git-like did-you-mean feature in click
 dev-python/click-repl 0.2.0-r1: Subcommand REPL for click apps
 dev-python/clickgen 1.1.9: X11 & Windows cursor building API
@@ -1252,7 +1253,7 @@ net-misc/gemserv 0.6.5 0.6.6: A gemini Server written in rust
 net-misc/giara 1.0.1 9999: An app for Reddit
 net-misc/gmid 1.8.1 1.8.3 9999: Simple and secure Gemini server
 net-misc/lyrics-in-terminal 1.4.2: Command Line Lyrics fetcher for MPRIS media players
-net-misc/maestral 1.5.2 1.5.3 1.6.2: Maestral is an open-source Dropbox client written in Python
+net-misc/maestral 1.5.2 1.5.3 1.6.3: Maestral is an open-source Dropbox client written in Python
 net-misc/maestral-qt 1.5.2 1.5.3: Maestral is an open-source Dropbox client written in Python
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
@@ -1416,7 +1417,7 @@ sys-cluster/OpenHPC-meta 2.1: OpenHPC metapackage
 sys-cluster/SIONfwd 1.0.1: A minimalistic I/O forwarding server and client library for SIONlib
 sys-cluster/SOS 1.5.0-r1: implementation of the OpenSHMEM specification
 sys-cluster/TCL 1.0: Transparent Checkpointing Library
-sys-cluster/adios2 2.8.1: Next generation of ADIOS developed in the Exascale Computing Program
+sys-cluster/adios2 2.8.1-r1: Next generation of ADIOS developed in the Exascale Computing Program
 sys-cluster/booth 1.0_p20210730: The Booth Cluster Ticket Manager
 sys-cluster/cinder 20.0.0: Cinder is the OpenStack Block storage service, a spin out of nova-volumes
 sys-cluster/clusteringsuite 2.6.9-r3: Expose the main performance trends in applications computation structure
@@ -1443,6 +1444,7 @@ sys-cluster/nanos6 2.6-r4 2.7: runtime that implements the OmpSs-2 parallel prog
 sys-cluster/nanox 0.15_p20210818: Runtime designed to serve as runtime support in parallel environments
 sys-cluster/neutron 17.1.2 20.0.0: A virtual network service for Openstack
 sys-cluster/nova 25.0.0-r1: Cloud computing fabric controller
+sys-cluster/opari2 2.0.6: OpenMP Pragma And Region Instrumentor
 sys-cluster/opencoarrays 2.9.2 2.9.3: A parallel application binary interface for Fortran 2018 compilers
 sys-cluster/openstack-meta 2020.2.0: A openstack meta-package for installing the various openstack pieces
 sys-cluster/osu-micro-benchmarks 5.9: MPI, OPC and many other benchmarks
@@ -1456,6 +1458,7 @@ sys-cluster/portals4 1.0_alpha1_p20190109-r3: low-level network API for high-per
 sys-cluster/psort 1.0: Parallel sorting code for distributed and shared memory architectures
 sys-cluster/rankstr 0.1.0 0.2.0: Split an MPI communicator into subcomms based on string values
 sys-cluster/redset 0.1.0 0.2.0: Low-level distributed erasure coding lib to protect datasets of MPI applications
+sys-cluster/scorep 7.1: Scalable Performance Measurement Infrastructure for Parallel Codes
 sys-cluster/scr 3.0-r1: Scalable Checkpoint / Restart Library
 sys-cluster/shuffile 0.1.0-r1 0.2.0: SHUFFILE Shuffle files between processes
 sys-cluster/sionlib 1.7.7-r4: Scalable I/O library for parallel access to task-local files
@@ -1485,7 +1488,7 @@ sys-fs/python-btrfs 12 13: Python 3 module to inspect btrfs filesystems
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
 sys-kernel/rte_kni-kmod 21.11.1 22.03: DPDK Kernel Nic Interface module
 sys-kernel/tirdad 0_pre20200926: kernel module for random ISN generation
-sys-kernel/uek-sources 5.4.17.2136.305.5 5.4.17.2136.306.1 5.4.17.2136.307.2 5.4.17.2136.308.4: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
+sys-kernel/uek-sources 5.4.17.2136.305.5 5.4.17.2136.306.1 5.4.17.2136.307.2 5.4.17.2136.308.4 5.4.17.2136.308.6: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
 sys-kernel/ummunotify 2-r1: Userspace support for MMU notifications
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-kernel/xpmem 2.6.5_p20210809: Linux Cross-Memory Attach
