@@ -27,7 +27,8 @@ BDEPEND="
 	sys-devel/flex
 "
 
-RESTRICT="!test? ( test )"
+RESTRICT="test"
+PROPERTIES="test_network"
 
 src_configure() {
 	local mycmakeargs=(
