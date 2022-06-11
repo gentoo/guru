@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 virtual/fortran
 DEFINED_PHASES=configure install prepare setup
-DEPEND=dev-libs/cubelib dev-libs/cubew dev-libs/papi sys-cluster/opari2 sys-cluster/otf2 sys-libs/binutils-libs:= sys-libs/zlib llvm? ( sys-devel/clang:14 <sys-devel/llvm-14:= || ( sys-devel/llvm:12 sys-devel/llvm:13 sys-devel/llvm:14 ) ) mpi? ( virtual/mpi ) openshmem? ( sys-cluster/SOS ) pmi? ( || ( sys-cluster/slurm sys-cluster/pmix[pmi] ) ) unwind? ( || ( sys-libs/libunwind sys-libs/llvm-libunwind ) ) opencl? ( dev-util/opencl-headers ) !!sys-devel/llvm:0 virtual/fortran
+DEPEND=dev-libs/cubelib dev-libs/cubew dev-libs/papi sys-cluster/opari2 <sys-cluster/otf2-3.0 sys-libs/binutils-libs:= sys-libs/zlib llvm? ( sys-devel/clang:14 <sys-devel/llvm-14:= || ( sys-devel/llvm:12 sys-devel/llvm:13 sys-devel/llvm:14 ) ) mpi? ( virtual/mpi ) openshmem? ( sys-cluster/SOS ) pmi? ( || ( sys-cluster/slurm sys-cluster/pmix[pmi] ) ) unwind? ( || ( sys-libs/libunwind sys-libs/llvm-libunwind ) ) opencl? ( dev-util/opencl-headers ) !!sys-devel/llvm:0 virtual/fortran
 DESCRIPTION=Scalable Performance Measurement Infrastructure for Parallel Codes
 EAPI=8
 HOMEPAGE=https://www.vi-hps.org/projects/score-p
@@ -8,8 +8,8 @@ INHERIT=autotools llvm fortran-2 toolchain-funcs
 IUSE=debug gcc-plugin llvm mpi online-access opencl openshmem pmi unwind
 KEYWORDS=~amd64
 LICENSE=BSD
-RDEPEND=dev-libs/cubelib dev-libs/cubew dev-libs/papi sys-cluster/opari2 sys-cluster/otf2 sys-libs/binutils-libs:= sys-libs/zlib llvm? ( sys-devel/clang:14 <sys-devel/llvm-14:= || ( sys-devel/llvm:12 sys-devel/llvm:13 sys-devel/llvm:14 ) ) mpi? ( virtual/mpi ) openshmem? ( sys-cluster/SOS ) pmi? ( || ( sys-cluster/slurm sys-cluster/pmix[pmi] ) ) unwind? ( || ( sys-libs/libunwind sys-libs/llvm-libunwind ) ) opencl? ( virtual/opencl ) virtual/fortran
+RDEPEND=dev-libs/cubelib dev-libs/cubew dev-libs/papi sys-cluster/opari2 <sys-cluster/otf2-3.0 sys-libs/binutils-libs:= sys-libs/zlib llvm? ( sys-devel/clang:14 <sys-devel/llvm-14:= || ( sys-devel/llvm:12 sys-devel/llvm:13 sys-devel/llvm:14 ) ) mpi? ( virtual/mpi ) openshmem? ( sys-cluster/SOS ) pmi? ( || ( sys-cluster/slurm sys-cluster/pmix[pmi] ) ) unwind? ( || ( sys-libs/libunwind sys-libs/llvm-libunwind ) ) opencl? ( virtual/opencl ) virtual/fortran
 SLOT=0
 SRC_URI=https://perftools.pages.jsc.fz-juelich.de/cicd/scorep/tags/scorep-7.1/scorep-7.1.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	llvm	6f88d422e49b917bf254b2594f3d903c	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
-_md5_=68e4711573eb12f1a1a44fa57a1fcd91
+_md5_=a058b2a0b663a0831554e98c4e9b60ed
