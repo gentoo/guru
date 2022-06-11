@@ -21,7 +21,7 @@ CDEPEND="
 	dev-libs/cubew
 	dev-libs/papi
 	sys-cluster/opari2
-	sys-cluster/otf2
+	<sys-cluster/otf2-3.0
 	sys-libs/binutils-libs:=
 	sys-libs/zlib
 
