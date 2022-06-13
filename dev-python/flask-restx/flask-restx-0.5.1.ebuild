@@ -13,7 +13,7 @@ SRC_URI="https://github.com/python-restx/${PN}/archive/${PV}.tar.gz -> ${P}.tar.
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="test"
 
 RDEPEND="
