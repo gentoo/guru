@@ -81,6 +81,7 @@ dev-games/godot:lto - Enable support for link time optimization
 dev-games/godot:mbedtls - Enable support for net-libs/mbedtls
 dev-games/godot:raycast - Enable raycast module using media-libs/embree
 dev-libs/atl:utilities - Build utilities
+dev-libs/cubelib:R - Use R for cube_dump
 dev-libs/cubew:advanced-memory - Enables advanced memory features such as usage of an external memory allocator
 dev-libs/cubew:memory-tracing - Enables internal memory tracing more intensive memory usage report.
 dev-libs/cubew:memory-tracking - Enables internal memory tracking
