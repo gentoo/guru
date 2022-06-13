@@ -12,14 +12,15 @@ DESCRIPTION="Client library for ActivityWatch"
 HOMEPAGE="https://activitywatch.net"
 LICENSE="MPL-2.0"
 
-inherit git-r3
-EGIT_REPO_URI="https://github.com/ActivityWatch/${PN}.git"
-EGI_COMMIT="f7a8dbb3f81be81224368970054fd33d2814c9d7"
+COMMIT="f7a8dbb3f81be81224368970054fd33d2814c9d7"
+SRC_URI="https://github.com/ActivityWatch/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS=""
+KEYWORDS="~amd64"
 SLOT="0"
 # Test tries to connect to aw-server
 RESTRICT="test"
+
+S="${WORKDIR}/${PN}-${COMMIT}"
 
 RDEPEND="
 	app-misc/aw-core[${PYTHON_USEDEP}]
