@@ -5,7 +5,7 @@ EAPI=8
 
 DESCRIPTION="Augment your fish command line with fzf key bindings"
 HOMEPAGE="https://github.com/PatrickF1/fzf.fish"
-SRC_URI="https://github.com/PatrickF1/fzf.fish/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/PatrickF1/fzf.fish/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${PN/-/.}-${PV}"
 
 LICENSE="MIT"
@@ -14,13 +14,13 @@ KEYWORDS="~amd64"
 IUSE="test"
 
 RDEPEND="
-	app-shells/fish
-	app-shells/fzf
-	sys-apps/bat
-	sys-apps/fd
+	>=app-shells/fish-3.2.0
+	>=app-shells/fzf-0.27.2
+	>=sys-apps/bat-0.16.0
+	>=sys-apps/fd-8.3.0
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
 	test? (
 		app-shells/clownfish
 		app-shells/fishtape
