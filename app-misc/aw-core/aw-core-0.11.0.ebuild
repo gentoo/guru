@@ -16,7 +16,7 @@ inherit git-r3
 EGIT_REPO_URI="https://github.com/ActivityWatch/${PN}.git"
 EGI_COMMIT="8aaa35376a4f0b270a1927dff4b4d34caee7707b"
 
-KEYWORDS="~amd64"
+KEYWORDS=""
 SLOT="0"
 IUSE="test"
 
