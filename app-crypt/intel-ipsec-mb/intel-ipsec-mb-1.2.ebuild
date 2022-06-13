@@ -25,7 +25,7 @@ BDEPEND="
 	>=dev-lang/nasm-2.13.03
 "
 
-PATCHES=( "${FILESDIR}/intel-ipsec-mb-1.1_remove-werror-and-O3.patch" )
+PATCHES=( "${FILESDIR}/intel-ipsec-mb-1.2_remove-werror-and-O3.patch" )
 
 src_configure(){
 	tc-export CC LD AR

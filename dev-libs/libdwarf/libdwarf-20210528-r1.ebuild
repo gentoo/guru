@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="The DWARF Debugging Information Format"
 HOMEPAGE="
@@ -17,7 +17,7 @@ IUSE="dwarfexample dwarfgen +elf global-alloc-sums namestable nonstandardprintf 
 
 DEPEND="
 	sys-libs/zlib
-	elf? ( virtual/libelf )
+	elf? ( virtual/libelf:= )
 "
 RDEPEND="${DEPEND}"
 

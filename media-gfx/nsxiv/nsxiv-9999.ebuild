@@ -6,7 +6,7 @@ EAPI=7
 inherit desktop xdg-utils savedconfig toolchain-funcs linux-info
 
 if [[ ${PV} == "9999" ]] ; then
-	EGIT_REPO_URI="https://github.com/nsxiv/nsxiv.git"
+	EGIT_REPO_URI="https://codeberg.org/nsxiv/nsxiv.git"
 	inherit git-r3
 else
 	SRC_URI="https://github.com/nsxiv/nsxiv/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -14,7 +14,7 @@ else
 fi
 
 DESCRIPTION="Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer"
-HOMEPAGE="https://github.com/nsxiv/nsxiv"
+HOMEPAGE="https://codeberg.org/nsxiv/nsxiv"
 
 LICENSE="GPL-2"
 SLOT="0"
