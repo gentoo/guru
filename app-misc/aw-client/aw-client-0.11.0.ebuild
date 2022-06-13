@@ -16,7 +16,7 @@ inherit git-r3
 EGIT_REPO_URI="https://github.com/ActivityWatch/${PN}.git"
 EGI_COMMIT="f7a8dbb3f81be81224368970054fd33d2814c9d7"
 
-KEYWORDS="~amd64"
+KEYWORDS=""
 SLOT="0"
 # Test tries to connect to aw-server
 RESTRICT="test"
@@ -33,4 +33,3 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-
