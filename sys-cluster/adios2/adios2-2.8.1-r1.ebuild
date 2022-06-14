@@ -32,7 +32,7 @@ RDEPEND="
 	dev-libs/perfstubs:=[timers]
 	dev-libs/pugixml
 	net-libs/enet
-	>sys-cluster/evpath-4.5.0
+	>net-libs/evpath-4.5.0
 
 	blosc? ( dev-libs/c-blosc:= )
 	bzip2? ( app-arch/bzip2 )
