@@ -99,7 +99,7 @@ pkg_setup() {
 
 src_prepare() {
 	# cannot use ${D} in src_prepare, just skip this directory, it doesn't get installed
-	sed '/profiling/d' tools/CMakeLists.txt || die
+	sed -i -e '/profiling/d' tools/CMakeLists.txt || die
 
 	# 810970 remove unwanted flags from parsec.pc
 	sed -i -e "s/ @EXTRA_CFLAGS@//" -e "s/ @EXTRA_LDFLAGS@//" parsec/include/parsec.pc.in || die
