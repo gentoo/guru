@@ -15,8 +15,8 @@ KEYWORDS="~amd64"
 IUSE="test threads"
 
 RDEPEND="
+	dev-libs/KVTree
 	sys-libs/zlib
-	sys-cluster/KVTree
 "
 DEPEND="${RDEPEND}"
 

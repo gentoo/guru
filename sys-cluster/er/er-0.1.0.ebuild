@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 IUSE="test"
 
 RDEPEND="
-	sys-cluster/KVTree[mpi]
+	dev-libs/KVTree[mpi]
 	sys-cluster/redset
 	sys-cluster/shuffile
 	sys-libs/zlib

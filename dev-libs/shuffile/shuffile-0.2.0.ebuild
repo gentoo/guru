@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 IUSE="test"
 
 RDEPEND="
-	>=sys-cluster/KVTree-1.0.2[mpi]
+	>=dev-libs/KVTree-1.0.2[mpi]
 	sys-libs/zlib
 	virtual/mpi
 "

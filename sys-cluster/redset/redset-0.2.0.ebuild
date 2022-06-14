@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 IUSE="slurm test"
 
 RDEPEND="
-	sys-cluster/KVTree[mpi]
+	dev-libs/KVTree[mpi]
 	sys-cluster/rankstr
 	sys-libs/zlib
 	virtual/mpi
