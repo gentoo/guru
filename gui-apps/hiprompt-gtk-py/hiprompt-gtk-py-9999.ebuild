@@ -16,6 +16,12 @@ RDEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep 'dev-python/pygobject[${PYTHON_USEDEP}]')
 	x11-libs/gtk+:3[introspection]
-	gui-libs/gtk-layer-shell
+	>=gui-libs/gtk-layer-shell-0.5.0
 "
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+	default
+
+	sed -i "s;@PYTHON@;/usr/bin/${EPYTHON};g" hiprompt_gtk/hiprompt-gtk.in || die
+}
