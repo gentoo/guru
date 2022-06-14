@@ -51,7 +51,7 @@ DEPEND="
 #PATCHES=( "${FILESDIR}/${P}-respect-flags.patch" )
 
 pkg_setup() {
-	llvm_pkg_setup
+	use llvm && llvm_pkg_setup
 	fortran-2_pkg_setup
 }
 
