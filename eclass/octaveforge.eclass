@@ -38,8 +38,8 @@ OCT_PKGDIR="${OCT_ROOT}/packages"
 
 # @ECLASS-VARIABLE: OCT_BIN
 # @DESCRIPTION:
-# full path to octave binary
-OCT_BIN="$(type -p octave || die)"
+# octave binary name
+OCT_BIN="octave"
 
 SRC_URI="mirror://sourceforge/octave/${P}.tar.gz"
 SLOT="0"
