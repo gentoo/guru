@@ -29,10 +29,10 @@ RDEPEND="
 	${PYTHON_DEPS}
 
 	app-shells/pdsh
+	dev-libs/KVTree
 	>=sys-cluster/AXL-0.5.0
 	sys-cluster/dtcmp
 	sys-cluster/er
-	sys-cluster/KVTree
 	sys-cluster/rankstr
 	sys-cluster/redset
 	sys-cluster/spath

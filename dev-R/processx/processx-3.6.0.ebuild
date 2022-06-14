@@ -6,6 +6,12 @@ EAPI=7
 inherit R-packages
 
 DESCRIPTION='Execute and Control System Processes'
+HOMEPAGE="
+	https://cran.r-project.org/package=processx
+	https://processx.r-lib.org/
+	https://github.com/r-lib/processx
+"
+
 KEYWORDS="~amd64"
 LICENSE='MIT'
 

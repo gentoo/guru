@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 # https://github.com/fastavro/fastavro/issues/558
 EPYTEST_DESELECT=(
 	tests/test_fastavro.py::test_cython_python
@@ -31,6 +32,7 @@ RDEPEND=""
 DEPEND="
 	${RDEPEND}
 	dev-python/cython[${PYTHON_USEDEP}]
+	dev-python/wheel[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
@@ -41,10 +43,5 @@ BDEPEND="
 		dev-python/lz4[${PYTHON_USEDEP}]
 	)
 "
-
-src_configure() {
-	export FASTAVRO_USE_CYTHON=1
-	default
-}
 
 distutils_enable_tests pytest

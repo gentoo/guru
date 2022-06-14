@@ -12,13 +12,14 @@ DESCRIPTION="Core library for ActivityWatch"
 HOMEPAGE="https://activitywatch.net"
 LICENSE="MPL-2.0"
 
-inherit git-r3
-EGIT_REPO_URI="https://github.com/ActivityWatch/${PN}.git"
-EGI_COMMIT="8aaa35376a4f0b270a1927dff4b4d34caee7707b"
+COMMIT="8aaa35376a4f0b270a1927dff4b4d34caee7707b"
+SRC_URI="https://github.com/ActivityWatch/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
-KEYWORDS=""
+KEYWORDS="~amd64"
 SLOT="0"
 IUSE="test"
+
+S="${WORKDIR}/${PN}-${COMMIT}"
 
 RDEPEND="
 	dev-python/appdirs[${PYTHON_USEDEP}]

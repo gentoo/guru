@@ -37,9 +37,9 @@ BDEPEND="sys-apps/pkgcore"
 # <dest> will contain symlinks to everything in <source>
 _movelink() {
 	if [[ -e "${1}" ]]; then
-		local rp1="$(edo realpath ${1})"
-		edo mv "${rp1}" "${2}"
-		edo cp -rsf "${2}" "${rp1}"
+		local rp1="$(realpath ${1} || die)"
+		mv "${rp1}" "${2}" || die
+		cp -rsf "${2}" "${rp1}" || die
 	fi
 }
 
@@ -49,7 +49,7 @@ _movelink() {
 R-packages_src_unpack() {
 	unpack ${A}
 	if [[ -d "${PN//_/.}" ]] && [[ ! -d "${P}" ]]; then
-		edo mv "${PN//_/.}" "${P}"
+		mv "${PN//_/.}" "${P}" || die
 	fi
 }
 
@@ -57,9 +57,9 @@ R-packages_src_unpack() {
 # @DESCRIPTION:
 # function to remove unwanted files from the sources
 R-packages_src_prepare() {
-	edo rm -f LICENSE
+	rm -f LICENSE || die
 	default
-	edo mkdir -p "${T}/R"
+	mkdir -p "${T}/R" || die
 }
 
 # @FUNCTION: R-packages_src_configure
@@ -99,35 +99,35 @@ R-packages_src_compile() {
 # documentation and examples to docsdir, symlinked back to R site-library (to allow access from within R)
 # everything else to R site-library
 R-packages_src_install() {
-	edo pushd "${T}/R/${PN//_/.}"
+	pushd "${T}/R/${PN//_/.}" || die
 
 	local DOCS_DIR="/usr/share/doc/${PF}"
 
-	edo mkdir -p "${ED}/${DOCS_DIR}"
+	mkdir -p "${ED}/${DOCS_DIR}" || die
 
 	for i in NEWS.md README.md DESCRIPTION examples CITATION INDEX NEWS WORDLIST News.Rd ; do
-		edo _movelink "${i}" "${ED}${DOCS_DIR}/${i}"
+		_movelink "${i}" "${ED}${DOCS_DIR}/${i}" || die
 		docompress -x "${DOCS_DIR}/${i}"
 	done
 
 	if [[ -e html ]]; then
-		edo _movelink html "${ED}${DOCS_DIR}/html"
+		_movelink html "${ED}${DOCS_DIR}/html" || die
 		docompress -x "${DOCS_DIR}/html"
 	fi
 	if [[ -e doc ]]; then
-		edo pushd doc
+		pushd doc || die
 		for i in * ; do
-			edo _movelink "${i}" "${ED}${DOCS_DIR}/${i}"
+			_movelink "${i}" "${ED}${DOCS_DIR}/${i}" || die
 			docompress -x "${DOCS_DIR}/${i}"
 		done
-		edo popd
+		popd || die
 	fi
 	if [[ -e doc/html ]]; then
 		docompress -x "${DOCS_DIR}/html"
 	fi
 	docompress -x "${DOCS_DIR}"
 
-	edo rm -rf tests test
+	rm -rf tests test || die
 
 	insinto "/usr/$(get_libdir)/R/site-library"
 	doins -r "${T}/R/${PN//_/.}"
@@ -139,7 +139,7 @@ R-packages_src_install() {
 R-packages_pkg_postinst() {
 	if [[ -v SUGGESTED_PACKAGES ]]; then
 		for p in ${SUGGESTED_PACKAGES} ; do
-			pexist=$(edo pquery -n1 "${p}" 2>/dev/null)
+			pexist="$(pquery -n1 ${p} 2>/dev/null || die)"
 			if [[ -n "${pexist}" ]]; then
 				optfeature "having the upstream suggested package" "${p}"
 			fi

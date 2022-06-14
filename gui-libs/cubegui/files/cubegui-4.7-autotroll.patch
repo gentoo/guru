@@ -1,0 +1,32 @@
+--- a/build-config/m4/autotroll.m4
++++ b/build-config/m4/autotroll.m4
+@@ -742,29 +742,6 @@
+ #                             | sed -e "s,-lQt,-L${QT_PATH}/../lib -lQt,g"`
+   ])
+ 
+-  echo "Adjust Qt libraries list to the cannonical one"
+-  # replace list of .so files by the -l libraries
+-  AS_IF([ test "x$QT_PATH" != "x" ],
+-  [
+-    LIBPATH=`echo $QT_PATH | sed "s,/bin,,g"`"/lib"
+-  ],
+-  [ # in case of standard installation -> path to the libraries is encoded in the path to .so libraries
+-    for i in $at_cv_env_QT_LIBS; do
+-        _LIBPATH=`echo $i |  grep '.so'`
+-        AS_IF([ test "x$_LIBPATH" != "x" ],  # test if the path has been line .so , other wise try the next one... (for the case of list -l... libraries)
+-        [
+-            LIBPATH=$(dirname $_LIBPATH)
+-            break
+-        ])
+-
+-    done
+-  ])
+-AS_IF([ test "x$LIBPATH" != "x" ],  # perform correction only if one has found .so libraries instead of -lXXXX
+-[
+-  at_cv_env_QT_LIBS="-L$LIBPATH "`echo $at_cv_env_QT_LIBS | sed "s,.so , ,g;s,.a , ,g;s,$LIBPATH/lib,-l,g;s,$(readlink -m $LIBPATH)/lib,-l,g"`
+-  echo "Fixed libraries are: $at_cv_env_QT_LIBS"
+-])
+-  AC_SUBST([QT_LIBS], [$at_cv_env_QT_LIBS])
+ 
+ 
+  # Find the Compiler of Qt (Should have been named )

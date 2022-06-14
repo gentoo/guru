@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,9 +15,9 @@ KEYWORDS="~amd64"
 IUSE="test"
 
 RDEPEND="
-	sys-cluster/KVTree[mpi]
+	dev-libs/KVTree[mpi]
+	dev-libs/shuffile
 	sys-cluster/redset
-	sys-cluster/shuffile
 	sys-libs/zlib
 	virtual/mpi
 "

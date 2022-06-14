@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="SHUFFILE Shuffle files between processes"
 HOMEPAGE="https://github.com/ECP-VeloC/shuffile"
-SRC_URI="https://github.com/ECP-VeloC/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/ECP-VeloC/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -15,13 +15,16 @@ KEYWORDS="~amd64"
 IUSE="test"
 
 RDEPEND="
-	>=sys-cluster/KVTree-1.0.2[mpi]
+	>=dev-libs/KVTree-1.0.2[mpi]
 	sys-libs/zlib
 	virtual/mpi
 "
 DEPEND="${RDEPEND}"
+BDEPEND="
+	>=dev-util/cmake-2.8
+"
 
-PATCHES=( "${FILESDIR}/${PN}-0.1.0-no-static.patch" )
+PATCHES=( "${FILESDIR}/${P}-no-static.patch" )
 RESTRICT="!test? ( test )"
 
 src_configure() {
