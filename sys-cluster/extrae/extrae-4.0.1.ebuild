@@ -43,8 +43,8 @@ CDEPEND="
 	clustering? ( sys-cluster/clusteringsuite[treedbscan] )
 	dyninst? (
 		dev-libs/boost:=
+		dev-libs/dyninst
 		dev-libs/libdwarf
-		sys-cluster/dyninst
 		virtual/libelf
 	)
 	inotify? ( dev-libs/libevent )

@@ -22,7 +22,7 @@ process). Extrae generates trace files that can be later visualized with sys-clu
 		<!--<flag name="cupti">CUPTI is used to instrument CUDA calls</flag>-->
 		<flag name="doc">Generates the documentation of this instrumentation package</flag>
 		<flag name="dlsym">Use dlsym instead of PMPI</flag>
-		<flag name="dyninst">Build with <pkg>sys-cluster/dyninst</pkg></flag>
+		<flag name="dyninst">Build with <pkg>dev-libs/dyninst</pkg></flag>
 		<flag name="heterogeneous">Enable support for heterogeneous tracing</flag>
 		<flag name="inotify">Enable inotify support</flag>
 		<flag name="java">Enable support for tracing Java. This is necessary to create the connectors between |TRACE| and Java applications.</flag>

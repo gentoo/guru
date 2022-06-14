@@ -6,3 +6,5 @@ move net-misc/bee-node net-misc/bee
 move kde-misc/skanpage media-gfx/skanpage
 move sys-cluster/KVTree dev-libs/KVTree
 move sys-cluster/shuffile dev-libs/shuffile
+move sys-cluster/dyninst dev-libs/dyninst
+
