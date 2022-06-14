@@ -16,8 +16,8 @@ IUSE="test"
 
 RDEPEND="
 	dev-libs/KVTree[mpi]
+	dev-libs/shuffile
 	sys-cluster/redset
-	sys-cluster/shuffile
 	virtual/mpi
 "
 DEPEND="
