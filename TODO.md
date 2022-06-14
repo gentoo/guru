@@ -38,7 +38,6 @@ Name | Buildsystem | Category | User | Need help | Dependency
 [graph-tool](https://graph-tool.skewed.de/) | autotools | visualization | Alessandro-Barbieri | ✖ | ✖
 [tides](https://sourceforge.net/projects/tidesodes/) | autotools | math | Alessandro-Barbieri | ✖ | ✔
 [Cakeml](https://cakeml.org/) | autotools | ML | Alessandro-Barbieri | ✔ | ✔
-[temanejo](https://www.hlrs.de/solutions-services/service-portfolio/programming/hpc-development-tools/temanejo) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
 [geopm](https://geopm.github.io/) | autotools | power | Alessandro-Barbieri | ✖ | ✔
 [warewulf](https://warewulf.lbl.gov/) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
 [scalasca](https://scalasca.org/) | autotools | cluster | Alessandro-Barbieri | ✖ | ✔
