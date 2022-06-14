@@ -1,6 +1,6 @@
 BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=sys-libs/zlib sys-cluster/KVTree
+DEPEND=dev-libs/KVTree sys-libs/zlib
 DESCRIPTION=AXL provides a common C interface to transfer files in an HPC storage hierarchy
 EAPI=8
 HOMEPAGE=https://github.com/ECP-VeloC/AXL
@@ -8,9 +8,9 @@ INHERIT=cmake
 IUSE=test threads
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=sys-libs/zlib sys-cluster/KVTree
+RDEPEND=dev-libs/KVTree sys-libs/zlib
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ECP-VeloC/AXL/archive/refs/tags/v0.7.0.tar.gz -> AXL-0.7.0.tar.gz
 _eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0
-_md5_=fa1ca5860ca57ab4b743de46878b4014
+_md5_=8299a3d45a9760cf2d243406b0863abd

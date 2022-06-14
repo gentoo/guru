@@ -180,7 +180,7 @@ app-shells/fish-agnoster-theme 0.1.0_p20200415: Fancy, colorful theme with suppo
 app-shells/fish-command-timer 0.1.3 0.1.3_p20201002: Fish shell extension for printing execution time for each command
 app-shells/fish-history-merge 0_pre20201121: Plugin that modifies built-in up-or-search command to merge the command history
 app-shells/fishtape 3.0.1: 100% pure-Fish test runner
-app-shells/fzf-fish 8.2 8.3: Augment your fish command line with fzf key bindings
+app-shells/fzf-fish 8.3 9.0: Augment your fish command line with fzf key bindings
 app-shells/fzf-tab 0_pre20220331-r1: Replace zsh's default completion selection menu with fzf
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/mrsh 9999: minimal strictly POSIX compliant shell
@@ -300,7 +300,7 @@ dev-R/plogr 0.2.0: The plog C++ Logging Library
 dev-R/png 0.1.7: Read and write PNG images
 dev-R/praise 1.0.0: Praise Users
 dev-R/prettyunits 1.1.1: Pretty, Human Readable Formatting of Quantities
-dev-R/processx 3.5.3: Execute and Control System Processes
+dev-R/processx 3.6.0: Execute and Control System Processes
 dev-R/ps 1.7.0: List, Query, Manipulate System Processes
 dev-R/purrr 0.3.4: Functional Programming Tools
 dev-R/rappdirs 0.3.3: Application Directories: Determine Where to Save Data, Caches, and Logs
@@ -389,6 +389,7 @@ dev-lang/hare 9999: The Hare systems programming language
 dev-lang/harec 9999: The Hare compiler
 dev-lang/quickjs 2020.11.08 2021.03.27: Small embeddable Javascript engine
 dev-lang/wren 0.3.0: The Wren Programming Language
+dev-libs/KVTree 1.2.0 1.3.0: KVTree provides a fully extensible C data structure modeled after Perl hashes
 dev-libs/StringiFor 1.1.1 1.1.3: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
 dev-libs/atl 2.2.1: Library for the creation and manipulation of lists
 dev-libs/ayatana-ido 0.9.1: Ayatana Application Indicators (Shared Library)
@@ -399,6 +400,7 @@ dev-libs/cubelib 4.7-r1: General purpose C++ library and tools
 dev-libs/cubew 4.7: High performance C Writer library
 dev-libs/dill 2.4.1: Provides instruction-level code generation directly into memory regions
 dev-libs/dmd_core 0.6.2: Core logic for an AT&T / Teletype DMD 5620 terminal emulator
+dev-libs/dyninst 11.0.1-r1 12.1.0: Tools for binary instrumentation, analysis, and modification
 dev-libs/fastText 0.9.2: Library for fast text representation and classification
 dev-libs/feedbackd 0.0.0-r1: A daemon to provide haptic feedback on events
 dev-libs/ffs 1.6.0_p20220525: FFS is a middleware library for data communication
@@ -440,6 +442,7 @@ dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
 dev-libs/randomx 1.1.8 1.1.9: Proof of work algorithm based on random code execution
 dev-libs/rsaref 2.0: Encryption/authentication library, RSA/MDX/DES
 dev-libs/sealcurses 0_pre20220523: SDL Emulation and Adaptation Layer for Curses
+dev-libs/shuffile 0.1.0-r1 0.2.0: SHUFFILE Shuffle files between processes
 dev-libs/supercop 0_p20200827: Fast cryptographic operations for Monero wallets
 dev-libs/tfdn 1.3.0 1.4.0: Opinionated C11 library for low-level functionality
 dev-libs/tweeny 3.1.1 3.2.0: C++ tweening (inbetweening) library
@@ -647,7 +650,7 @@ dev-python/etcd3gw 1.0.2: A python client for etcd3 grpc-gateway v3 API
 dev-python/exifread 3.0.0: Easy to use Python module to extract Exif metadata from tiff and jpeg files
 dev-python/factory_boy 3.2.1: A fixtures replacement tool
 dev-python/fake-useragent 0.1.11-r1: Up to date simple useragent faker with real world database
-dev-python/fastavro 1.4.11 1.4.12: Fast Avro for Python
+dev-python/fastavro 1.4.12 1.5.1: Fast Avro for Python
 dev-python/fchroot 0.1.2: Franken-chroot tool. Chroot arm/64 arches into amd64/x86
 dev-python/filecheck 0.0.22: Python port of LLVM's FileCheck, flexible pattern matching file verifier
 dev-python/flask-restx 0.5.1: Framework API development with Flask
@@ -862,7 +865,7 @@ dev-python/skills 0.3.0-r1: Python Implementation of the TrueSkill, Glicko and E
 dev-python/sortedcollections 2.1.0: Apache2 licensed Python sorted collections library
 dev-python/sphinx-argparse 0.3.1: Sphinx extension that automatically documents argparse commands and options
 dev-python/sphinx-argparse-cli 1.8.2: Render CLI arguments (sub-commands friendly) defined by argparse module
-dev-python/sphinx-click 4.0.2 4.0.3: Sphinx plugin to automatically document click-based applications
+dev-python/sphinx-click 4.1.0: Sphinx plugin to automatically document click-based applications
 dev-python/sphinxcontrib-fulltoc 1.2: python-dbus-next is a Python library for DBus
 dev-python/sphinxcontrib-katex 0.8.6: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-restbuilder 0.3: A Sphinx builder/writer to output reStructuredText (rst) files
@@ -895,7 +898,7 @@ dev-python/tweepy 3.10.0 4.10.0: An easy-to-use Python library for accessing the
 dev-python/types-paramiko 2.10.0: Typing stubs for paramiko
 dev-python/types-python-dateutil 2.8.16 2.8.17: Typing stubs for python-dateutil
 dev-python/types-pytz 2021.3.8: Typing stubs for pytz
-dev-python/types-requests 2.27.27 2.27.29: Typing stubs for requests
+dev-python/types-requests 2.27.29 2.27.30: Typing stubs for requests
 dev-python/types-urllib3 1.26.14 1.26.15: Typing stubs for urllib3
 dev-python/typing_inspect 0.7.1: Runtime inspection utilities for Python typing module
 dev-python/ufmt 1.3.3: Safe, atomic formatting with black and usort
@@ -962,7 +965,7 @@ dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
 dev-util/reuse 0.14.0 1.0.0: A tool for compliance with the REUSE recommendations
 dev-util/rpmlint 2.3.0: Tool for checking common errors in RPM packages
-dev-util/rust-analyzer 20220509 20220517 20220606 99999999: An implementation of Language Server Protocol for the Rust programming language
+dev-util/rust-analyzer 20220509 20220517 20220606 20220613 99999999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/shfmt 3.5.0 9999: Shell script formatter
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
@@ -1081,6 +1084,7 @@ gui-apps/wob 0.13: Lightweight overlay volume/backlight/progress/anything bar fo
 gui-apps/wofi 1.2.3 1.2.4 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 gui-apps/wtype 0.4: xdotool type for wayland
 gui-apps/yambar 1.6.2 1.7.0 1.8.0 9999: Simplistic and highly configurable status panel for X and Wayland
+gui-libs/cubegui 4.7: CUBE Uniform Behavioral Encoding GUI
 gui-libs/libcprime 4.2.0 4.2.2 9999: Library for managing settings of CoreApps
 gui-libs/libcsys 4.2.0 9999: Library for managing the device
 gui-libs/text-engine 0.1.0 0.1.1 9999: A lightweight rich-text framework for GTK 4
@@ -1238,6 +1242,7 @@ net-irc/pounce 3.0: Multi-client, TLS-only IRC bouncer
 net-irc/srain 1.2.1 1.2.4: Modern, beautiful IRC client written in GTK+ 3
 net-irc/tiny 0.10.0: An IRC client
 net-libs/dpdk 21.11.1 22.03: Data Plane Development Kit libraries for fast userspace networking
+net-libs/evpath 4.5.0_p20220601: EVpath is an event transport middleware layer
 net-libs/ixwebsocket 11.3.3 11.4.3: C++ websocket client and server library
 net-libs/kcgi 0.12.5 0.13.0: Minimal CGI library for web applications
 net-libs/libqmatrixclient 0.5.3.2: A Qt5 library to write cross-platfrom clients for Matrix
@@ -1417,7 +1422,6 @@ sys-boot/limine 2.88 3.0 3.4.3 3.4.4 3.4.5: Limine is a modern, advanced x86/x86
 sys-boot/zfsbootmenu 1.12.0: ZFS bootloader for root-on-ZFS systems
 sys-cluster/AXL 0.5.0 0.7.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy
 sys-cluster/Graph500 1.2: Graph500 reference implementations
-sys-cluster/KVTree 1.2.0 1.3.0: KVTree provides a fully extensible C data structure modeled after Perl hashes
 sys-cluster/OpenHPC-meta 2.1: OpenHPC metapackage
 sys-cluster/SIONfwd 1.0.1: A minimalistic I/O forwarding server and client library for SIONlib
 sys-cluster/SOS 1.5.0-r1: implementation of the OpenSHMEM specification
@@ -1429,9 +1433,7 @@ sys-cluster/clusteringsuite 2.6.9-r3: Expose the main performance trends in appl
 sys-cluster/dimemas 5.4.2_p20220601: High-abstracted network simulator for message-passing programs
 sys-cluster/dlb 2.1-r3: Dynamically react to application imbalance by modifying the number of resources
 sys-cluster/dtcmp 1.1.2 1.1.4: Datatype Compare Library for sorting and ranking distributed data using MPI
-sys-cluster/dyninst 11.0.1-r1 12.1.0: Tools for binary instrumentation, analysis, and modification
 sys-cluster/er 0.1.0 0.3.0: High-level distributed erasure coding lib combining shuffile and redset
-sys-cluster/evpath 4.5.0_p20220601: EVpath is an event transport middleware layer
 sys-cluster/extrae 4.0.1: Instrumentation framework to generate execution traces of parallel runtimes
 sys-cluster/fti 1.6-r1: Fault Tolerance Interface
 sys-cluster/genders 1.28.1-r1: Static cluster configuration database used for cluster configuration management
@@ -1456,16 +1458,16 @@ sys-cluster/osu-micro-benchmarks 5.9: MPI, OPC and many other benchmarks
 sys-cluster/otf2 2.3-r2: highly scalable, memory efficient event trace data format
 sys-cluster/parallel-netcdf 1.12.2: Parallel extension to netCDF
 sys-cluster/paraver-kernel 4.10.1-r1: paraver kernel library
-sys-cluster/parsec 3.0.2012-r1: Parallel Runtime Scheduler and Execution Controller
+sys-cluster/parsec 3.0.2012-r2: Parallel Runtime Scheduler and Execution Controller
 sys-cluster/pcs 0.10.8-r3 0.11.2: Pacemaker/Corosync Configuration System
 sys-cluster/placement 7.0.0-r1: A HTTP service for managing, selecting, and claiming cloud resources
 sys-cluster/portals4 1.0_alpha1_p20190109-r3: low-level network API for high-performance networking
 sys-cluster/psort 1.0: Parallel sorting code for distributed and shared memory architectures
 sys-cluster/rankstr 0.1.0 0.2.0: Split an MPI communicator into subcomms based on string values
 sys-cluster/redset 0.1.0 0.2.0: Low-level distributed erasure coding lib to protect datasets of MPI applications
+sys-cluster/scalasca 2.6: Scalable Performance Analysis of Large-Scale Applications
 sys-cluster/scorep 7.1: Scalable Performance Measurement Infrastructure for Parallel Codes
 sys-cluster/scr 3.0-r1: Scalable Checkpoint / Restart Library
-sys-cluster/shuffile 0.1.0-r1 0.2.0: SHUFFILE Shuffle files between processes
 sys-cluster/sionlib 1.7.7-r4: Scalable I/O library for parallel access to task-local files
 sys-cluster/sionlibl 1.7.7-r3: Scalable I/O library for parallel access to task-local files
 sys-cluster/spath 0.1.0 0.2.0: Path manipulation functions
@@ -1483,7 +1485,7 @@ sys-firmware/pinephone-firmware 20210809: Firmwares files for PinePhone
 sys-fs/btrfs-heatmap 9-r1: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
 sys-fs/dwarfs 0.5.6-r1 0.5.6-r2 0.5.6-r3: A fast very high compression read-only FUSE file system
-sys-fs/dwarfs-bin 0.5.6: Static version of a fast very high compression read-only FUSE file system
+sys-fs/dwarfs-bin 0.5.6 0.6.1: Static version of a fast very high compression read-only FUSE file system
 sys-fs/gcsfuse 0.41.0: A user-space file system for interacting with Google Cloud Storage
 sys-fs/gdu 5.13.2 5.14.0: Disk usage analyzer with console interface written in Go
 sys-fs/gfs2-utils 3.4.1: Shared-disk cluster file system

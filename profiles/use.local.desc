@@ -80,6 +80,8 @@ dev-games/godot:freetype - Enable support for media-libs/freetype
 dev-games/godot:lto - Enable support for link time optimization
 dev-games/godot:mbedtls - Enable support for net-libs/mbedtls
 dev-games/godot:raycast - Enable raycast module using media-libs/embree
+dev-libs/KVTree:fcntl - Set the type of file locking to fcntl.
+dev-libs/KVTree:flock - Set the type of file locking to flock.
 dev-libs/atl:utilities - Build utilities
 dev-libs/cubelib:R - Use R for cube_dump
 dev-libs/cubew:advanced-memory - Enables advanced memory features such as usage of an external memory allocator
@@ -88,6 +90,8 @@ dev-libs/cubew:memory-tracking - Enables internal memory tracking
 dev-libs/dill:disassembly - Enable binutils-based disassembly
 dev-libs/dill:ignore-native - Build to do emulation, regardless of architecture
 dev-libs/dill:multitarget - Build all available target architectures
+dev-libs/dyninst:openmp - Enable parallel code parsing
+dev-libs/dyninst:valgrind - Enable annotations for Valgrind analysis
 dev-libs/ffs:atl - Enable the use of ATL
 dev-libs/hts_engine:speech-tools - use memory allocation/free functions of app-accessibility/speech-tools
 dev-libs/libdwarf:dwarfexample - enable dwarfexample compilation
@@ -324,6 +328,9 @@ gui-apps/wob:seccomp - Linux kernel syscall filtering
 gui-apps/wofi:dmenu - Enable dmenu mode
 gui-apps/wofi:drun - Enable drun mode
 gui-apps/wofi:run - Enable run mode
+gui-libs/cubegui:concurrent - Enables usage of the QtConcurrent for the the parallel calculations
+gui-libs/cubegui:scorep - Enable scorep support
+gui-libs/cubegui:webengine - Enables usage of the QtWebEngine for the HTML Documentation
 gui-wm/cage:X - Enable support for X11 applications (XWayland)
 media-fonts/victor-mono:otf - Install the OpenType version of the font
 media-fonts/victor-mono:ttf - Install the TrueType version of the font
@@ -415,6 +422,10 @@ net-im/ruqola:speech - Enable text-to-speech support
 net-irc/pounce:palaver - Provide push notifications for the Palaver IRC app
 net-irc/tiny:dbus - Enable desktop notifications
 net-irc/tiny:openssl - Use dev-libs/openssl as TLS backend instead of compiled-in rustls
+net-libs/evpath:enet - Build the enet transport
+net-libs/evpath:infiniband - Build the ibverbs transport
+net-libs/evpath:libfabric - Build the libfabric transport
+net-libs/evpath:udt4 - Build the udt4 transport
 net-libs/ixwebsocket:ws - Build the ws utility
 net-libs/td:benchmark - Enable benchmarking
 net-libs/td:dotnet - Add support for .NET
@@ -581,8 +592,6 @@ sys-boot/limine:limine-install - Enables building the limine-install program.
 sys-boot/limine:uefi - Enable UEFI support.
 sys-boot/limine:uefi32 - Enable 32-bit UEFI support.
 sys-boot/limine:uefi64 - Enable 64-bit UEFI support.
-sys-cluster/KVTree:fcntl - Set the type of file locking to fcntl.
-sys-cluster/KVTree:flock - Set the type of file locking to flock.
 sys-cluster/OpenHPC-meta:io-libs - Collection of IO libraries
 sys-cluster/OpenHPC-meta:parallel - Collection of parallel libraries
 sys-cluster/OpenHPC-meta:perf-tools - Collection of performance tools
@@ -631,16 +640,10 @@ sys-cluster/dimemas:original-links - if enabled Dimemas uses the original protoc
 sys-cluster/dimemas:wait-logical-recv - if enabled Dimemas puts logical receive time when MPI_Wait is called (not on MPI_Irecv)
 sys-cluster/dlb:hwloc - add sys-apps/hwlocsupport
 sys-cluster/dlb:instrumentation - enable sys-cluster/extrae instrumentation
-sys-cluster/dyninst:openmp - Enable parallel code parsing
-sys-cluster/dyninst:valgrind - Enable annotations for Valgrind analysis
-sys-cluster/evpath:enet - Build the enet transport
-sys-cluster/evpath:infiniband - Build the ibverbs transport
-sys-cluster/evpath:libfabric - Build the libfabric transport
-sys-cluster/evpath:udt4 - Build the udt4 transport
 sys-cluster/extrae:clustering - Enable sys-cluster/clusteringsuite support
 sys-cluster/extrae:dlsym - Use dlsym instead of PMPI
 sys-cluster/extrae:doc - Generates the documentation of this instrumentation package
-sys-cluster/extrae:dyninst - Build with sys-cluster/dyninst
+sys-cluster/extrae:dyninst - Build with dev-libs/dyninst
 sys-cluster/extrae:heterogeneous - Enable support for heterogeneous tracing
 sys-cluster/extrae:inotify - Enable inotify support
 sys-cluster/extrae:java - Enable support for tracing Java. This is necessary to create the connectors between |TRACE| and Java applications.

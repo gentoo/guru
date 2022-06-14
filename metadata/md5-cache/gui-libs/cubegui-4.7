@@ -1,0 +1,15 @@
+BDEPEND=app-doc/doxygen[dot] sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=concurrent? ( dev-qt/qtconcurrent:5 ) scorep? ( sys-cluster/scorep ) webengine? ( dev-qt/qtwebengine:5 ) dev-libs/cubelib dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 sys-apps/dbus sys-libs/zlib
+DESCRIPTION=CUBE Uniform Behavioral Encoding GUI
+EAPI=8
+HOMEPAGE=https://www.scalasca.org/scalasca/software/cube-4.x
+INHERIT=autotools bash-completion-r1 qmake-utils
+IUSE=concurrent debug scorep webengine
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=concurrent? ( dev-qt/qtconcurrent:5 ) scorep? ( sys-cluster/scorep ) webengine? ( dev-qt/qtwebengine:5 ) dev-libs/cubelib dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 sys-apps/dbus sys-libs/zlib
+SLOT=0
+SRC_URI=https://apps.fz-juelich.de/scalasca/releases/cube/4.7/dist/cubegui-4.7.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	136117fb43a9bf5598530e9cc642f710	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	qmake-utils	59420c906278d16deaaa629f9d115707
+_md5_=35458c6e9958164d506620c4fad1908e
