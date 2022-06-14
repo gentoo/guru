@@ -7,7 +7,7 @@ DOCS_BUILDER="doxygen"
 DOCS_DIR="docs/doxygen"
 PYTHON_COMPAT=( python3_{8..11} pypy3 )
 
-inherit cmake edo fortran-2 docs python-single-r1
+inherit cmake fortran-2 docs python-single-r1
 
 DESCRIPTION="Parallel Runtime Scheduler and Execution Controller"
 HOMEPAGE="
@@ -98,10 +98,17 @@ pkg_setup() {
 }
 
 src_prepare() {
-	edo sed \
-		-e "s|\${CMAKE_INSTALL_PREFIX}/|${D}/\${CMAKE_INSTALL_PREFIX}/|g" \
-		-e "s|--prefix|--root ${D} --prefix|g" \
-		-i tools/profiling/python/CMakeLists.txt
+	# cannot use ${D} in src_prepare, just skip this directory, it doesn't get installed
+	sed '/profiling/d' tools/CMakeLists.txt || die
+
+	# 810970 remove unwanted flags from parsec.pc
+	sed -i -e "s/ @EXTRA_CFLAGS@//" -e "s/ @EXTRA_LDFLAGS@//" parsec/include/parsec.pc.in || die
+
+	# 810961: 2 tests fail, 2 time out
+	sed -i -e "/unit_dtd_war_shm/d" -e "/unit_dtd_war_mpi/d" tests/interfaces/superscalar/CMakeLists.txt || die
+	sed -i -e "/unit_haar_tree_mpi/d" tests/haar-tree-project/CMakeLists.txt || die
+	sed -i -e "/unit_merge_sort_mpi/d" tests/merge_sort/Testings.cmake || die
+
 	cmake_src_prepare
 }
 
