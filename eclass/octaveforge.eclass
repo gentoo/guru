@@ -39,7 +39,7 @@ OCT_PKGDIR="${OCT_ROOT}/packages"
 # @ECLASS-VARIABLE: OCT_BIN
 # @DESCRIPTION:
 # full path to octave binary
-OCT_BIN="$(type -p octave)"
+OCT_BIN="$(type -p octave || die)"
 
 SRC_URI="mirror://sourceforge/octave/${P}.tar.gz"
 SLOT="0"
@@ -60,19 +60,19 @@ octaveforge_src_unpack() {
 octaveforge_src_prepare() {
 	default
 
-	_generate_configure
+	_generate_configure || die
 
 	if [[ -e "${S}/src/configure.ac" ]]; then
-		edo pushd "${S}/src"
+		pushd "${S}/src" || die
 		eautoreconf
-		edo popd
+		popd || die
 	elif [[ -e "${S}/src/autogen.sh" ]]; then
-		edo pushd "${S}/src"
+		pushd "${S}/src" || die
 		edo ./autogen.sh
-		edo popd
+		popd || die
 	fi
 	if [[ -e "${S}/src/Makefile" ]]; then
-		edo sed -i 's/ -s / /g' "${S}/src/Makefile"
+		sed -i 's/ -s / /g' "${S}/src/Makefile" || die
 	fi
 }
 
@@ -82,7 +82,7 @@ octaveforge_src_compile() {
 	export MKOCTFILE="mkoctfile -v"
 
 	cmd="disp(__octave_config_info__('octlibdir'));"
-	OCTLIBDIR=$(edo octavecommand "${cmd}")
+	OCTLIBDIR=$(octavecommand "${cmd}" || die)
 	export LFLAGS="${LFLAGS} -L${OCTLIBDIR}"
 	export LDFLAGS="${LDFLAGS} -L${OCTLIBDIR}"
 
@@ -91,25 +91,25 @@ octaveforge_src_compile() {
 	fi
 
 	if [[ -e src/Makefile ]]; then
-		edo mv src/Makefile src/Makefile.disable
+		mv src/Makefile src/Makefile.disable || die
 	fi
 	if [[ -e src/configure ]]; then
-		edo mv src/configure src/configure.disable
+		mv src/configure src/configure.disable || die
 	fi
 
-	edo pushd ..
-	edo tar -czf "${OCT_PACKAGE}" "${PKGDIR}"
+	pushd .. || die
+	tar -czf "${OCT_PACKAGE}" "${PKGDIR}" || die
 }
 
 # @FUNCTION: octaveforge_src_install
 # @DESCRIPTION:
 # function to install the octave package
 octaveforge_src_install() {
-	DESTDIR="${D}" edo _octaveforge_pkg_install
+	DESTDIR="${D}" _octaveforge_pkg_install || die
 }
 
 octaveforge_src_test() {
-	DESTDIR="${T}" edo _octaveforge_pkg_install
+	DESTDIR="${T}" _octaveforge_pkg_install || die
 
 	# cargo culted from Fedora
 	cmd="
@@ -118,7 +118,7 @@ octaveforge_src_test() {
 		unlink(pkg('local_list'));
 		unlink(pkg('global_list'));
 	"
-	edo octavecommand "${cmd}"
+	octavecommand "${cmd}" || die
 }
 
 # @FUNCTION: octaveforge_pkg_postinst
@@ -127,10 +127,10 @@ octaveforge_src_test() {
 octaveforge_pkg_postinst() {
 	einfo "Registering ${CATEGORY}/${PF} on the Octave package database."
 	if [[ ! -d "${OCT_PKGDIR}" ]] ; then
-		edo mkdir -p "${OCT_PKGDIR}"
+		mkdir -p "${OCT_PKGDIR}" || die
 	fi
 	cmd="pkg('rebuild');"
-	edo octavecommand "${cmd}"
+	octavecommand "${cmd}" || die
 }
 
 # @FUNCTION: octaveforge_pkg_prerm
@@ -143,16 +143,16 @@ octaveforge_pkg_prerm() {
 		l = pkg('list');
 		disp(l{cellfun(@(x)strcmp(x.name,'${PN}'),l)}.dir);
 	"
-	oct_pkgdir=$(edo octavecommand "${cmd}")
-	edo rm -f "${oct_pkgdir}/packinfo/on_uninstall.m"
+	oct_pkgdir=$(octavecommand "${cmd}" || die)
+	rm -f "${oct_pkgdir}/packinfo/on_uninstall.m" || die
 	if [[ -e "${oct_pkgdir}/packinfo/on_uninstall.m.orig" ]]; then
-		edo mv "$oct_pkgdir"/packinfo/on_uninstall.m{.orig,}
-		edo pushd "$oct_pkgdir/packinfo"
+		mv "$oct_pkgdir"/packinfo/on_uninstall.m{.orig,} || die
+		pushd "$oct_pkgdir/packinfo" || die
 		cmd="
 			l = pkg('list');
 			on_uninstall(l{cellfun(@(x)strcmp(x.name,'${PN}'), l)});
 		"
-		edo octavecommand "${cmd}"
+		octavecommand "${cmd}" || die
 	fi
 }
 
@@ -162,7 +162,7 @@ octaveforge_pkg_prerm() {
 octaveforge_pkg_postrm() {
 	einfo 'Rebuilding the Octave package database.'
 	if [[ ! -d "${OCT_PKGDIR}" ]] ; then
-		edo mkdir -p "${OCT_PKGDIR}"
+		mkdir -p "${OCT_PKGDIR}" || die
 	fi
 	cmd="pkg('rebuild');"
 	edo "${OCT_BIN}" -H --silent --no-gui --eval "${cmd}"
@@ -173,7 +173,7 @@ octavecommand() {
 }
 
 _generate_configure() {
-	edo cat << EOF > configure
+	cat << EOF > configure || die
 #! /bin/sh -f
 
 if [ -e src/configure ]; then
@@ -181,14 +181,14 @@ if [ -e src/configure ]; then
   ./configure $*
 fi
 EOF
-	edo chmod 0755 "configure"
+	chmod 0755 "configure" || die
 }
 
 _octaveforge_pkg_install() {
 	TMPDIR="${T}"
 	DISTPKG='Gentoo'
 
-	edo pushd ../
+	pushd ../ || die
 	if [[ "X${DISTPKG}X" != "XX" ]]; then
 		stripcmd="
 			unlink(pkg('local_list'));
@@ -203,19 +203,19 @@ _octaveforge_pkg_install() {
 			disp(l{cellfun(@(x)strcmp(x.name,'${PN}'),l)}.dir);
 			${stripcmd}
 		"
-		edo oct_pkgdir=$(edo octavecommand "${cmd}")
+		oct_pkgdir=$(octavecommand "${cmd}" || die)
 	else
 		cmd="disp(fullfile(__octave_config_info__('datadir'),'octave'));"
-		shareprefix=${DESTDIR}/$(edo octavecommand "${cmd}")
+		shareprefix=${DESTDIR}/$(octavecommand "${cmd}" || die)
 		cmd="disp(fullfile(__octave_config_info__('libdir'),'octave'));"
-		libprefix=${DESTDIR}/$(edo octavecommand "${cmd}")
+		libprefix=${DESTDIR}/$(octavecommand "${cmd}" || die)
 		octprefix="${shareprefix}/packages"
 		archprefix="${libprefix}/packages"
 		if [[ ! -e "${octprefix}" ]]; then
-			edo mkdir -p "${octprefix}"
+			mkdir -p "${octprefix}" || die
 		fi
 		if [[ ! -e "${archprefix}" ]]; then
-			edo mkdir -p "${archprefix}"
+			mkdir -p "${archprefix}" || die
 		fi
 		cmd="
 			warning('off','all');
@@ -224,7 +224,7 @@ _octaveforge_pkg_install() {
 			pkg('local_list',fullfile('${shareprefix}','octave_packages'));
 			pkg('install','-nodeps','-verbose','${OCT_PACKAGE}');
 		"
-		edo octavecommand "${cmd}"
+		octavecommand "${cmd}" || die
 		cmd="
 			warning('off','all');
 			pkg('prefix','${octprefix}','${archprefix}');
@@ -234,7 +234,7 @@ _octaveforge_pkg_install() {
 			disp(l{cellfun(@(x)strcmp(x.name,'${PN}'),l)}.dir);
 			${stripcmd}
 		"
-		oct_pkgdir=$(edo octavecommand "${cmd}")
+		oct_pkgdir=$(octavecommand "${cmd}" || die)
 	fi
 	export oct_pkgdir
 }
