@@ -61,7 +61,7 @@ RDEPEND="
 	sys-apps/hwloc
 	sys-cluster/temanejo
 
-	mpi? ( virtual/mpi )
+	mpi? ( virtual/mpi[threads] )
 	parsec_prof_otf2? ( sys-cluster/otf2 )
 	parsec_prof_pins? ( dev-libs/papi )
 	tools? (
