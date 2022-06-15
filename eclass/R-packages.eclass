@@ -137,12 +137,14 @@ R-packages_src_install() {
 # @DESCRIPTION:
 # function that will prompt to install the suggested packages if they exist
 R-packages_pkg_postinst() {
-	if [[ -v SUGGESTED_PACKAGES ]]; then
-		for p in ${SUGGESTED_PACKAGES} ; do
-			pexist="$(pquery -n1 ${p} 2>/dev/null || die)"
-			if [[ -n "${pexist}" ]]; then
-				optfeature "having the upstream suggested package" "${p}"
-			fi
-		done
+	if [[ ${MERGE_TYPE} != binary ]]; then
+		if [[ -v SUGGESTED_PACKAGES ]]; then
+			for p in ${SUGGESTED_PACKAGES} ; do
+				pexist="$(pquery -n1 ${p} 2>/dev/null || die)"
+				if [[ -n "${pexist}" ]]; then
+					optfeature "having the upstream suggested package" "${p}"
+				fi
+			done
+		fi
 	fi
 }
