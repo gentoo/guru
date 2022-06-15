@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools
+inherit autotools toolchain-funcs
 
 DESCRIPTION="High performance C Writer library"
 HOMEPAGE="https://www.scalasca.org/scalasca/software/cube-4.x"
@@ -26,6 +26,27 @@ REQUIRED_USE="
 "
 
 src_prepare() {
+	tc-export CC CXX AR F77 FC CPP
+
+	cat > build-config/common/platforms/platform-backend-user-provided <<-EOF || die
+	CC=${CC}
+	CXX=${CXX}
+	FC=${FC}
+	F77=${F77}
+	CPP=${CPP}
+	CXXCPP=${CPP}
+	CC_FOR_BUILD=${CC}
+	CXX_FOR_BUILD=${CXX}
+	FC_FOR_BUILD=${FC}
+	F77_FOR_BUILD=${F77}
+	CFLAGS_FOR_BUILD=${CFLAGS}
+	CXXFLAGS_FOR_BUILD=${CXXFLAGS}
+	FFLAGS_FOR_BUILD=${FFLAGS}
+	FCFLAGS_FOR_BUILD=${FCFLAGS}
+	LDFLAGS_FOR_BUILD=${LDFLAGS}
+	CPPFLAGS_FOR_BUILD=${CPPFLAGS}
+	EOF
+
 	default
 	eautoreconf
 }
@@ -33,6 +54,7 @@ src_prepare() {
 src_configure() {
 	local myconf=(
 		--disable-platform-mic
+		--with-custom-compilers
 		$(use_with advanced-memory)
 		$(use_with memory-tracking)
 		$(use_with memory-tracing)
