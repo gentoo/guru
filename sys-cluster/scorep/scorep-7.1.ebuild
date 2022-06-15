@@ -3,6 +3,8 @@
 
 EAPI=8
 
+FORTRAN_NEED_OPENMP=1
+FORTRAN_STANDARD=90
 LLVM_MAX_SLOT=14
 
 inherit autotools llvm fortran-2 toolchain-funcs
