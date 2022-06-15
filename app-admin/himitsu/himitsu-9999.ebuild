@@ -19,6 +19,9 @@ DEPEND="
 RDEPEND="
 	gui-apps/hiprompt-gtk-py
 "
+BDEPEND="app-text/scdoc"
+
+DOCS=( README.md docs/prompter.txt )
 
 src_configure() {
 	sed -i 's;^PREFIX=.*;PREFIX=/usr;' Makefile || die
