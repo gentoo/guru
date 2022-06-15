@@ -25,7 +25,9 @@ BDEPEND="
 "
 
 PATCHES=( "${FILESDIR}/${P}-no-static.patch" )
-RESTRICT="!test? ( test )"
+# tests require access to /dev/shm, thus root permission is needed
+# but mpirun refuse to run as root
+RESTRICT="test"
 
 src_configure() {
 	mycmakeargs=(
