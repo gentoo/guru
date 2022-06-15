@@ -23,11 +23,3 @@ RDEPEND="
 src_configure() {
 	sed -i 's;^PREFIX=.*;PREFIX=/usr;' Makefile || die
 }
-
-src_install() {
-	default
-
-	for i in himitsud himitsu-init hiq; do
-		dobin $i
-	done
-}
