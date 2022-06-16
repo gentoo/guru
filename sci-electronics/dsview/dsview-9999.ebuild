@@ -1,12 +1,13 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9} )
 GITHUB_PN="DSView"
+MY_PV="$(ver_rs 2 '')" # 'a.b.c' -> 'a.bc'
+PYTHON_COMPAT=( python3_{8..11} )
 
-inherit cmake python-r1 toolchain-funcs udev xdg
+inherit cmake python-r1 udev xdg
 
 DESCRIPTION="An open source multi-function instrument"
 HOMEPAGE="
@@ -18,9 +19,9 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/DreamSourceLab/${GITHUB_PN}.git"
 else
-	SRC_URI="https://github.com/DreamSourceLab/${GITHUB_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/DreamSourceLab/${GITHUB_PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
-	S="${WORKDIR}/${GITHUB_PN}-${PV}"
+	S="${WORKDIR}/${GITHUB_PN}-${MY_PV}"
 fi
 
 LICENSE="GPL-3"
@@ -46,57 +47,24 @@ DEPEND="
 	${RDEPEND}
 "
 
-src_prepare() {
-	export CC="$(tc-getCC)"
-	export AR="$(tc-getAR)"
-
-	default
-
-	local LIBDIR="/usr/$(get_libdir)"
-
-	grep -rl "/usr/local/lib" "${S}" | xargs sed -i "s@/usr/local/lib@${LIBDIR}@g" || die
-	grep -rl "/usr/local" "${S}" | xargs sed -i "s@/usr/local@/usr@g" || die
-	cd "${S}/libsigrok4DSL" || die
-	sh ./autogen.sh || die
-	cd "${S}/libsigrokdecode4DSL" || die
-	sh ./autogen.sh || die
-}
+BDEPEND="
+	virtual/pkgconfig
+"
 
 src_configure() {
-	local LIBDIR="/usr/$(get_libdir)"
+	local mycmakeargs=(
+		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
+	)
 
-	cd "${S}/libsigrok4DSL" || die
-	sh ./configure --libdir=${LIBDIR} --prefix=/usr || die
-	cd "${S}/libsigrokdecode4DSL" || die
-	sh ./configure --libdir=${LIBDIR} --prefix=/usr || die
-}
-
-src_compile() {
-	cd "${S}/libsigrok4DSL" || die
-	emake
-	cd "${S}/libsigrokdecode4DSL" || die
-	emake
-}
-
-src_install() {
-	local LIBDIR="/usr/$(get_libdir)"
-
-	cd "${S}/libsigrok4DSL" || die
-	emake DESTDIR="${D}" install
-	cd "${S}/libsigrokdecode4DSL" || die
-	emake DESTDIR="${D}" install
-	cd "${S}/DSView" || die
-
-	DESTDIR="${D}" \
-	PKG_CONFIG_PATH="${D}${LIBDIR}/pkgconfig" \
-	CFLAGS="-I${D}/usr/include" \
-	CXXFLAGS="-I${D}/usr/include" \
-	LDFLAGS="-L${D}${LIBDIR}" \
-	cmake -DCMAKE_INSTALL_PREFIX=/usr . || die
-	emake DESTDIR="${D}" install
+	cmake_src_configure
 }
 
 pkg_postinst() {
-	xdg_pkg_postinst
 	udev_reload
+	xdg_pkg_postinst
+}
+
+pkg_postrm() {
+	udev_reload
+	xdg_pkg_postrm
 }
