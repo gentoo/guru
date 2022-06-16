@@ -26,7 +26,7 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-
+IUSE="static-libs"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
@@ -104,6 +104,10 @@ src_install() {
 	LDFLAGS="-L${D}${LIBDIR}" \
 	cmake -DCMAKE_INSTALL_PREFIX=/usr . || die
 	emake DESTDIR="${D}" install
+	if ! use static-libs; then
+		find "${ED}" -name "*.la" -delete || die
+		find "${ED}" -name "*.a" -delete || die
+	fi
 }
 
 pkg_postinst() {
