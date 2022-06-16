@@ -4,21 +4,18 @@
 EAPI=8
 
 DESCRIPTION="Language server implementation for GLSL"
-HOMEPAGE="https://github.com/billyb2/${PN}-gentoo"
+HOMEPAGE="https://github.com/billyb2/glsl-language-server-gentoo"
 SRC_URI="https://github.com/billyb2/${PN}-gentoo/archive/refs/tags/${PV}-g.tar.gz"
+S="${WORKDIR}"/${PN}-gentoo-${PV}-g
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 DEPEND="dev-util/glslang dev-cpp/cli11 dev-cpp/nlohmann_json dev-libs/libfmt"
 RDEPEND="${DEPEND}"
 BDEPEND="dev-util/ninja"
 
-S=${WORKDIR}/${PN}-gentoo-${PV}-g
-
 src_install() {
 	DESTDIR="${D}" ninja -C${S}/build install
-
 }
