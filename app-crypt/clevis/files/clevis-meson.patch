@@ -1,0 +1,11 @@
+diff --git a/src/luks/systemd/meson.build b/src/luks/systemd/meson.build
+index b10494e3ca4d620437aee0d5e440eecf323b03d9..09f7fb51e7320aa71e275c34baa0561233821d69 100644
+--- a/src/luks/systemd/meson.build
++++ b/src/luks/systemd/meson.build
+@@ -5,6 +5,7 @@ sd_reply_pass = find_program(
+   join_paths(get_option('prefix'), 'lib', 'systemd', 'systemd-reply-password'),
+   join_paths('/', 'usr', get_option('libdir'), 'systemd', 'systemd-reply-password'),
+   join_paths('/', 'usr', 'lib', 'systemd', 'systemd-reply-password'),
++  join_paths('/', 'lib', 'systemd', 'systemd-reply-password'),
+   required: false
+ )
