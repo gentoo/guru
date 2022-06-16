@@ -1,5 +1,0 @@
-qliveplayer is a GUI program to watch live streams and videos.
-qlphelper is the core CLI program called by qliveplayer.
-qlphelper or qlprecorder can be used to record live streams and videos.
-mpv console or a qliveplayer config file can be used to change settings.
-See https://github.com/IsoaSFlus/QLivePlayer/wiki for more information.
