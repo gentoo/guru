@@ -8,7 +8,11 @@ inherit cmake
 COMMIT="77f54fac21cb4452057b2b9c8d285e9084309dbc"
 
 DESCRIPTION="EVpath is an event transport middleware layer"
-HOMEPAGE="https://github.com/GTkorvo/evpath"
+HOMEPAGE="
+	https://evpath.net/
+	https://www.cc.gatech.edu/systems/projects/EVPath/
+	https://github.com/GTkorvo/evpath
+"
 SRC_URI="https://github.com/GTKorvo/${PN}/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
@@ -30,7 +34,8 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-RESTRICT="!test? ( test )"
+RESTRICT="test"
+PROPERTIES="test_network"
 
 src_configure() {
 	local mycmakeargs=(

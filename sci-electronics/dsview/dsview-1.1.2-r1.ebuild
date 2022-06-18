@@ -1,10 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9} )
 GITHUB_PN="DSView"
+MY_PV="$(ver_rs 2 '')" # 'a.b.c' -> 'a.bc'
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit cmake python-r1 toolchain-funcs udev xdg
 
@@ -18,14 +19,14 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/DreamSourceLab/${GITHUB_PN}.git"
 else
-	SRC_URI="https://github.com/DreamSourceLab/${GITHUB_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/DreamSourceLab/${GITHUB_PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
-	S="${WORKDIR}/${GITHUB_PN}-${PV}"
+	S="${WORKDIR}/${GITHUB_PN}-${MY_PV}"
 fi
 
 LICENSE="GPL-3"
 SLOT="0"
-
+IUSE="static-libs"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
@@ -103,9 +104,18 @@ src_install() {
 	LDFLAGS="-L${D}${LIBDIR}" \
 	cmake -DCMAKE_INSTALL_PREFIX=/usr . || die
 	emake DESTDIR="${D}" install
+	if ! use static-libs; then
+		find "${ED}" -name "*.la" -delete || die
+		find "${ED}" -name "*.a" -delete || die
+	fi
 }
 
 pkg_postinst() {
-	xdg_pkg_postinst
 	udev_reload
+	xdg_pkg_postinst
+}
+
+pkg_postrm() {
+	udev_reload
+	xdg_pkg_postrm
 }

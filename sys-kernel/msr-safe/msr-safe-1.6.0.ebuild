@@ -24,7 +24,6 @@ BUILD_TARGETS="all"
 MODULE_NAMES="msr-safe(misc:${S})"
 
 src_compile() {
-#	export KV_FULL
 	linux-mod_src_compile
 	use slurm && emake spank
 }
@@ -41,6 +40,10 @@ src_install() {
 	newins rpm/msr-safe.sysconfig msr-safe
 	insinto /usr/share/msr-safe
 	doins -r allowlists
+}
+
+pkg_postinst() {
+	udev_reload
 }
 
 pkg_postrm() {

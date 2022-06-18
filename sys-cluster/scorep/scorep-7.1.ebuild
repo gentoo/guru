@@ -3,6 +3,8 @@
 
 EAPI=8
 
+FORTRAN_NEED_OPENMP=1
+FORTRAN_STANDARD=90
 LLVM_MAX_SLOT=14
 
 inherit autotools llvm fortran-2 toolchain-funcs
@@ -48,37 +50,73 @@ DEPEND="
 	opencl? ( dev-util/opencl-headers )
 "
 
-#PATCHES=( "${FILESDIR}/${P}-respect-flags.patch" )
-
 pkg_setup() {
 	use llvm && llvm_pkg_setup
 	fortran-2_pkg_setup
 }
 
 src_prepare() {
+	tc-export CC CXX FC F77 CPP AR
+	rm build-config/common/platforms/platform-* || die
+
+	cat > build-config/common/platforms/platform-backend-user-provided <<-EOF || die
+	CC=${CC}
+	CXX=${CXX}
+	FC=${FC}
+	F77=${F77}
+	CPP=${CPP}
+	CXXCPP=${CPP}
+	EOF
+
+	cat > build-config/common/platforms/platform-frontend-user-provided <<-EOF || die
+	CC_FOR_BUILD=${CC}
+	F77_FOR_BUILD=${F77}
+	FC_FOR_BUILD=${FC}
+	CXX_FOR_BUILD=${CXX}
+	LDFLAGS_FOR_BUILD=${LDFLAGS}
+	CFLAGS_FOR_BUILD=${CFLAGS}
+	CXXFLAGS_FOR_BUILD=${CXXFLAGS}
+	CPPFLAGS_FOR_BUILD=${CPPFLAGS}
+	FCFLAGS_FOR_BUILD=${FCFLAGS}
+	FFLAGS_FOR_BUILD=${FFLAGS}
+	CXXFLAGS_FOR_BUILD_SCORE=${CXXFLAGS}
+	EOF
+
+	cat > build-config/common/platforms/platform-mpi-user-provided <<-EOF || die
+	MPICC=mpicc
+	MPICXX=mpicxx
+	MPIF77=mpif77
+	MPIFC=mpif90
+	MPI_CPPFLAGS=${CPPFLAGS}
+	MPI_CFLAGS=${CFLAGS}
+	MPI_CXXFLAGS=${CXXFLAGS}
+	MPI_FFLAGS=${FFLAGS}
+	MPI_FCFLAGS=${FCFLAGS}
+	MPI_LDFLAGS=${LDFLAGS}
+	EOF
+
+	cat > build-config/common/platforms/platform-shmem-user-provided <<-EOF || die
+	SHMEMCC=oshcc
+	SHMEMCXX=oshc++
+	SHMEMF77=oshfort
+	SHMEMFC=oshfort
+	SHMEM_CPPFLAGS=${CPPFLAGS}
+	SHMEM_CFLAGS=${CFLAGS}
+	SHMEM_CXXFLAGS=${CXXFLAGS}
+	SHMEM_FFLAGS=${FFLAGS}
+	SHMEM_FCFLAGS=${FCFLAGS}
+	SHMEM_LDFLAGS=${LDFLAGS}
+	SHMEM_LIBS=-lsma
+	SHMEM_LIB_NAME=libsma
+	SHMEM_NAME=sandia-openshmem
+	EOF
+
 	rm -r vendor || die
 	default
 	eautoreconf
 }
 
 src_configure() {
-	tc-export CC CXX FC F77 CPP
-
-	if use openshmem; then
-		export SHMEMCC="oshcc"
-		export SHMEMCXX="oshc++"
-		export SHMEMF77="oshfort"
-		export SHMEMFC="oshfort"
-		export SHMEM_CPPFLAGS="${CPPFLAGS}"
-		export SHMEM_CFLAGS="${CFLAGS}"
-		export SHMEM_CXXFLAGS="${CXXFLAGS}"
-		export SHMEM_FFLAGS="${FFLAGS}"
-		export SHMEM_FCFLAGS="${FCFLAGS}"
-		export SHMEM_LDFLAGS="${LDFLAGS}"
-		export SHMEM_LIBS="-lsma"
-		export SHMEM_LIB_NAME="libsma"
-		export SHMEM_NAME="sandia-openshmem"
-	fi
 
 	local myconf=(
 		--disable-cuda
@@ -89,6 +127,7 @@ src_configure() {
 		--enable-shared
 		--with-cubelib
 		--with-cubew
+		--with-custom-compilers
 		--with-libbfd
 		--with-opari2
 		--with-otf2

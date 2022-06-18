@@ -6,14 +6,12 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">davea42/libdwarf-code</remote-id>
+	</upstream>
 	<use>
 		<flag name="dwarfexample">enable dwarfexample compilation</flag>
 		<flag name="dwarfgen">enable dwarfgen compilation</flag>
-		<flag name="global-alloc-sums">Enables some allocation counting in dwarf_alloc.c</flag>
 		<flag name="elf">enable use of <pkg>virtual/libelf</pkg></flag>
-		<flag name="namestable">enable name string functions implemented as binary search">default is with C switch)</flag>
-		<flag name="nonstandardprintf">Use a special printf format for 64bit</flag>
-		<flag name="oldframecol">enable old frame columns</flag>
-		<flag name="sanitize">build with sanitizers</flag>
 	</use>
 </pkgmetadata>

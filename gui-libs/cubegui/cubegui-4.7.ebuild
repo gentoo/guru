@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools bash-completion-r1 qmake-utils
+inherit autotools bash-completion-r1 qmake-utils toolchain-funcs
 
 DESCRIPTION="CUBE Uniform Behavioral Encoding GUI"
 HOMEPAGE="https://www.scalasca.org/scalasca/software/cube-4.x"
@@ -42,8 +42,44 @@ src_prepare() {
 }
 
 src_configure() {
-	export CC=gcc
-	export CXX=g++
+	tc-export CC CXX FC F77 CPP AR
+	rm build-config/common/platforms/platform-* || die
+
+	cat > build-config/common/platforms/platform-backend-user-provided <<-EOF || die
+	CC=${CC}
+	CXX=${CXX}
+	FC=${FC}
+	F77=${F77}
+	CPP=${CPP}
+	CXXCPP=${CPP}
+	EOF
+
+	cat > build-config/common/platforms/platform-frontend-user-provided <<-EOF || die
+	CC_FOR_BUILD=${CC}
+	F77_FOR_BUILD=${F77}
+	FC_FOR_BUILD=${FC}
+	CXX_FOR_BUILD=${CXX}
+	LDFLAGS_FOR_BUILD=${LDFLAGS}
+	CFLAGS_FOR_BUILD=${CFLAGS}
+	CXXFLAGS_FOR_BUILD=${CXXFLAGS}
+	CPPFLAGS_FOR_BUILD=${CPPFLAGS}
+	FCFLAGS_FOR_BUILD=${FCFLAGS}
+	FFLAGS_FOR_BUILD=${FFLAGS}
+	EOF
+
+	cat > build-config/common/platforms/platform-mpi-user-provided <<-EOF || die
+	MPICC=mpicc
+	MPICXX=mpicxx
+	MPIF77=mpif77
+	MPIFC=mpif90
+	MPI_CPPFLAGS=${CPPFLAGS}
+	MPI_CFLAGS=${CFLAGS}
+	MPI_CXXFLAGS=${CXXFLAGS}
+	MPI_FFLAGS=${FFLAGS}
+	MPI_FCFLAGS=${FCFLAGS}
+	MPI_LDFLAGS=${LDFLAGS}
+	EOF
+
 	export QT_LIBS="-lQt5PrintSupport -lQt5Widgets -lQt5Gui -lQt5Network -lQt5Core"
 	use concurrent && export QT_LIBS="${QT_LIBS} -lQt5Concurrent"
 	use webengine && export QT_LIBS="${QT_LIBS} -lQt5WebEngineWidgets"
@@ -51,6 +87,7 @@ src_configure() {
 	local myconf=(
 		--disable-platform-mic
 		--with-cubelib="${EPREFIX}/usr"
+		--with-custom-compilers
 		--with-plugin-advancedcolormaps
 		--with-plugin-barplot
 		--with-plugin-cube-diff
@@ -81,7 +118,7 @@ src_configure() {
 		myconf+=( "--without-scorep" )
 	fi
 
-	econf "${myconf[@]}" CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" CPPFLAGS="${CPPFLAGS}" LDFLAGS="${LDFLAGS}" "${myconf[@]}"
+	econf "${myconf[@]}"
 }
 
 src_install() {

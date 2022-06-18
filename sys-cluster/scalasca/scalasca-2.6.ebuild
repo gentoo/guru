@@ -36,25 +36,50 @@ src_prepare() {
 }
 
 src_configure() {
-	tc-export CC CXX FC F77 CPP
+	tc-export CC CXX FC F77 CPP AR
 
-	export MPICC=/usr/bin/mpicc
-	export MPICXX=/usr/bin/mpicxx
-	export MPIF77=/usr/bin/mpif77
-	export MPIFC=/usr/bin/mpifc
+	cat > build-config/common/platforms/platform-backend-user-provided <<-EOF || die
+	CC=${CC}
+	CXX=${CXX}
+	FC=${FC}
+	F77=${F77}
+	CPP=${CPP}
+	CXXCPP=${CPP}
+	EOF
 
-	export MPI_CFLAGS="${CFLAGS}"
-	export MPI_CXXFLAGS="${CXXFLAGS}"
-	export MPI_CPPFLAGS="${CPPFLAGS}"
-	export MPI_F77LAGS="${F77FLAGS}"
-	export MPI_FCLAGS="${FCFLAGS}"
-	export MPI_LDFLAGS="${LDFLAGS}"
+	cat > build-config/common/platforms/platform-frontend-user-provided <<-EOF || die
+	CC_FOR_BUILD=${CC}
+	F77_FOR_BUILD=${F77}
+	FC_FOR_BUILD=${FC}
+	CXX_FOR_BUILD=${CXX}
+	LDFLAGS_FOR_BUILD=${LDFLAGS}
+	CFLAGS_FOR_BUILD=${CFLAGS}
+	CXXFLAGS_FOR_BUILD=${CXXFLAGS}
+	CPPFLAGS_FOR_BUILD=${CPPFLAGS}
+	FCFLAGS_FOR_BUILD=${FCFLAGS}
+	FFLAGS_FOR_BUILD=${FFLAGS}
+	CXXFLAGS_FOR_BUILD_SCORE=${CXXFLAGS}
+	EOF
+
+	cat > build-config/common/platforms/platform-mpi-user-provided <<-EOF || die
+	MPICC=mpicc
+	MPICXX=mpicxx
+	MPIF77=mpif77
+	MPIFC=mpif90
+	MPI_CPPFLAGS=${CPPFLAGS}
+	MPI_CFLAGS=${CFLAGS}
+	MPI_CXXFLAGS=${CXXFLAGS}
+	MPI_FFLAGS=${FFLAGS}
+	MPI_FCFLAGS=${FCFLAGS}
+	MPI_LDFLAGS=${LDFLAGS}
+	EOF
 
 	local myconf=(
 		--disable-platform-mic
 		--disable-static
 		--enable-shared
 		--with-cubew="${EPREFIX}/usr"
+		--with-custom-compilers
 		--with-libz="${EPREFIX}/usr"
 		--with-otf2="${EPREFIX}/usr"
 		$(use_enable openmp)
