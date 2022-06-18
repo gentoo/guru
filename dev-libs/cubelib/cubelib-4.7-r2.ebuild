@@ -21,7 +21,6 @@ IUSE_CUBELIB_STRATEGY="
 IUSE="R ${IUSE_CUBELIB_STRATEGY}"
 
 RDEPEND="
-	sys-cluster/scorep
 	sys-libs/binutils-libs
 	sys-libs/zlib
 	R? (
@@ -78,7 +77,6 @@ src_configure() {
 		--disable-platform-mic
 		--with-compression=full
 		--with-custom-compilers
-		--with-scorep="${EPREFIX}/usr"
 		--with-strategy="${strategy}"
 		--with-system-parser
 		$(use_with R cube_dump_r)
