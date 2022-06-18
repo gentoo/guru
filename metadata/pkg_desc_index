@@ -119,7 +119,7 @@ app-misc/brightnessctl 0.5.1: A program to read and control device brightness
 app-misc/cheat 4.2.3: cheat allows you to create and view interactive cheatsheets on the command-line
 app-misc/cpufetch 1.01 1.02: Simplistic yet fancy CPU architecture fetching tool
 app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs
-app-misc/doublecmd-bin 1.0.4 1.0.5: Free cross platform open source file manager with two panels side by side.
+app-misc/doublecmd-bin 1.0.5 1.0.6: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
 app-misc/fastfetch 1.5.3 9999: Like neofetch but faster
@@ -131,9 +131,9 @@ app-misc/grit 0.3.0: An personal task manager that represents tasks as multitree
 app-misc/hollywood 1.22: Fill your console with Hollywood melodrama technobabble
 app-misc/kloak 0.2.30: A privacy tool that makes keystroke biometrics less effective
 app-misc/lf 27: Terminal file manager
-app-misc/liquidctl 1.7.2: Cross-platform tool and drivers for liquid coolers and other devices
+app-misc/liquidctl 1.7.2-r1: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/macchina 5.0.2 6.0.5 6.0.6: A system information fetcher, with an (unhealthy) emphasis on performance.
-app-misc/mangadesk 0.7.6: Terminal Client for MangaDex
+app-misc/mangadesk 0.7.6 0.7.7: Terminal Client for MangaDex
 app-misc/mat2 0.12.4: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
 app-misc/navi 2.17.0 2.19.0 9999: An interactive cheatsheet tool for the command-line
@@ -341,7 +341,6 @@ dev-cpp/drogon 1.7.4 1.7.5: C++14/17 based HTTP web application framework
 dev-cpp/dtl 1.20-r1: diff template library written by C++
 dev-cpp/fbthrift 2022.04.11.00-r1: Facebook's branch of Apache Thrift, including a new C++ server
 dev-cpp/fizz 2022.04.11.00-r1: C++14 implementation of the TLS-1.3 standard
-dev-cpp/gemmlowp 0_pre20211220-r1: Low-precision matrix multiplication
 dev-cpp/gsl-lite 0.38.0: C++ Guideline Support Library implementation
 dev-cpp/indicators 2.2: Activity indicators for modern C++
 dev-cpp/jwt-cpp 0.4.0 0.6.0: header only library for creating and validating JSON Web Tokens in C++11
@@ -397,7 +396,7 @@ dev-libs/ayatana-ido 0.9.1: Ayatana Application Indicators (Shared Library)
 dev-libs/boinc-zip 7.18-r1: Wrapper for the zip/unzip functions to expose to BOINC clients
 dev-libs/cgicc 3.2.19: A C++ class library for writing CGI applications
 dev-libs/cglm 0.8.5 9999: OpenGL Mathematics (glm) for C
-dev-libs/cubelib 4.7-r1: General purpose C++ library and tools
+dev-libs/cubelib 4.7-r2: General purpose C++ library and tools
 dev-libs/cubew 4.7: High performance C Writer library
 dev-libs/dill 2.4.1: Provides instruction-level code generation directly into memory regions
 dev-libs/dmd_core 0.6.2: Core logic for an AT&T / Teletype DMD 5620 terminal emulator
@@ -417,7 +416,7 @@ dev-libs/libayatana-appindicator 0.5.91: Ayatana Application Indicators (Shared 
 dev-libs/libayatana-indicator 0.9.1-r1: Ayatana Application Indicators (Shared Library)
 dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
 dev-libs/libdatrie 0.2.13: Double-Array Trie Library
-dev-libs/libdwarf 20210528-r1: The DWARF Debugging Information Format
+dev-libs/libdwarf 0.4.0: The DWARF Debugging Information Format
 dev-libs/libglibutil 1.0.63: Library of glib utilities
 dev-libs/libnodave 0.8.5.1-r2: Connect to and exchange data with Siemens PLCs
 dev-libs/libthai 0.1.28 0.1.29: A a set of Thai language support routines
@@ -573,6 +572,7 @@ dev-perl/File-Touch 0.12: Update file access and modification times, creating fi
 dev-perl/GitLab-API-v4 0.26: A complete GitLab API v4 client
 dev-perl/HTTP-Tiny-Multipart 0.08: Add post_multipart to HTTP::Tiny
 dev-perl/List-Compare 0.55: Compare elements of two or more lists
+dev-perl/Term-Animation 2.6: Animated ASCII Art support for Perl
 dev-php/pecl-inotify 3.0.0-r1: Inotify binding for PHP
 dev-python/DAWG-Python 0.7.2: Pure-python reader for DAWGs (DAFSAs) created by dawgdic C++ library.
 dev-python/EbookLib 0.17.1: Ebook library which can handle EPUB2/EPUB3 and Kindle format
@@ -664,7 +664,7 @@ dev-python/fontPens 0.2.4-r1: A collection of classes implementing the pen proto
 dev-python/futurist 2.3.0-r1: Useful additions to futures, from the future
 dev-python/gabbi 2.7.1: Declarative HTTP testing library
 dev-python/gbinder 1.0.0 9999: Python bindings for libgbinder
-dev-python/gemcall 0.8: A library and CLI tool for making gemini requests
+dev-python/gemcall 0.8 0.9: A library and CLI tool for making gemini requests
 dev-python/gflanguages 0.4.0: A python API for evaluating language support in the Google Fonts collection
 dev-python/github-sublee-glicko2 0_pre20191010-r1: An implementation of the Glicko-2 rating system for Python
 dev-python/glance_store 3.0.0-r1 4.0.0: A library for glance
@@ -955,6 +955,7 @@ dev-util/fypp 3.1: Fypp - Python powered Fortran preprocessor
 dev-util/gammaray 2.11.3: High-level runtime introspection tool for Qt applications
 dev-util/gftools 0.9.10 0.9.11: Miscellaneous tools for working with the Google Fonts collection
 dev-util/git-bug 0.7.1 9999: distributed, offline-first bug tracker
+dev-util/glsl-language-server 0.3.7: Language server implementation for GLSL
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/mh 1.0.3: Generate help for Makefile
@@ -1014,6 +1015,7 @@ games-fps/crispy-doom 5.10.0 5.10.1 5.10.2 5.10.3 5.11.1: A limit-removing enhan
 games-fps/etlegacy 2.80.2: Wolfenstein: Enemy Territory 2.60b compatible client/server
 games-fps/quakespasm 0.94.1 9999: Modern, cross-platform Quake 1 engine based on FitzQuake
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
+games-misc/asciiquarium 1.1_p20120823: Asciiquarium is an aquarium/sea animation in ASCII art
 games-misc/bonsai 0_pre20210201: bonsai tree generator written in bash
 games-misc/cbonsai 1.3.1-r1: grow bonsai trees in your terminal
 games-misc/gay 1.2.8: Colour your text / terminal to be more gay
@@ -1038,7 +1040,7 @@ gnome-extra/iio-sensor-proxy 3.3: IIO sensors to D-Bus proxy
 gnome-extra/portfolio 0.9.14: A minimalist file manager for those who want to use Linux mobile devices
 gnome-extra/vvmplayer 1.4: Visual Voicemail Player
 gnome-extra/yad 10.1: Display GTK+ dialog boxes from command line or shell scripts
-gui-apps/azote 1.9.0 1.9.1 1.9.2 1.9.3 9999: wallpaper manager for wlroots compositors
+gui-apps/azote 1.9.0 1.9.1 1.9.2 1.9.3 1.9.5 9999: wallpaper manager for wlroots compositors
 gui-apps/coreaction 4.2.0 9999: A side bar for showing widgets for C Suite
 gui-apps/coreapps-meta 4.2.0 9999: Meta package for coreapps
 gui-apps/corearchiver 4.2.0 9999: Archiver for C Suite, to create and extract archives
@@ -1134,7 +1136,7 @@ media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer writ
 media-gfx/gephi-bin 0.9.4 0.9.5: The Open Graph Viz Platform
 media-gfx/grafx2 2.7.2978 2.7.2978-r100: A pixelart-oriented painting program
 media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
-media-gfx/nsxiv 29 9999: Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer
+media-gfx/nsxiv 29 30 9999: Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer
 media-gfx/oda-file-converter 22.10.0.0: For converting between different versions of .dwg and .dxf
 media-gfx/oxipng 3.0.1 4.0.3 5.0.0 5.0.1: A lossless PNG compression optimizer
 media-gfx/qview 4.0 5.0: Practical and minimal image viewer
@@ -1197,7 +1199,6 @@ media-video/kikoplay 0.8.2 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.4.3: A GTK3 camera application that knows how to deal with the media request api
 media-video/obs-vkcapture 1.1.3 9999: OBS Linux Vulkan/OpenGL game capture
 media-video/owncast 0.0.10 0.0.11: A self-hosted live video and web chat server
-media-video/qliveplayer 4.0.1-r2 4.1.0: A player and recorder for live streams and videos with danmaku support
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
 media-video/trakt-scrobbler 1.4.0 1.4.2: Scrobbler for trakt.tv that supports VLC, Plex, MPC-HC, and MPV
 media-video/uxplay 1.50a 1.52: AirPlay Unix mirroring server
@@ -1208,10 +1209,11 @@ mpv-plugin/autosubsync-mpv 20220402: Automatic subtitle synchronization script f
 mpv-plugin/kde-do-not-disturb 20220109: Disable the notifications while mpv is running
 mpv-plugin/kde-night-color 20220109: Disable Night Color while mpv is running
 mpv-plugin/mpv-autosub 20210629: Fully automatic subtitle downloading for the MPV media player
-mpv-plugin/mpv-mpris 0.7 0.7.1 0.7.1-r1 9999: MPRIS plugin for mpv
+mpv-plugin/mpv-mpris 0.7.1-r1 0.8 0.8.1 9999: MPRIS plugin for mpv
 mpv-plugin/mpv-plugin-xrandr 20190523-r1: Automatically invoke the xrandr to set the parameters for the display output
 mpv-plugin/mpv-youtube-upnext 20210620: A userscript that allows you to play "up next"/recommended youtube videos
 mpv-plugin/mpv_sponsorblock 20211223: mpv script to skip sponsored segments of YouTube videos
+mpv-plugin/mpv_sponsorblock_minimal 2022.02.07: A minimal script to skip sponsored segments of YouTube videos
 mpv-plugin/mpv_thumbnail_script 0.4.8: A Lua script to show preview thumbnails in mpv's OSC seekbar
 net-analyzer/munin-contrib 0.2021.04.27: user contributed stuff related to munin
 net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various plugins for Munin
@@ -1272,7 +1274,7 @@ net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/moonlight 3.1.4: GameStream client for PCs
 net-misc/myip 1.2.0: Get your external IP address using STUN server
-net-misc/ooni-probe-cli 3.14.2 3.15.0: OONI Probe network measurement tool for detecting internet censorship
+net-misc/ooni-probe-cli 3.15.0 3.15.1: OONI Probe network measurement tool for detecting internet censorship
 net-misc/openbgpd 6.8_p0 6.9_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/peertube-viewer-rs 1.8.4-r1: Command-line PeerTube viewer inspired by youtube-viewer
 net-misc/purritobin 0.6.7 9999: minimalistic commandline pastebin
@@ -1310,7 +1312,7 @@ net-wireless/rtl8821cu 0_pre20220409: Realtek 8821CU/RTL8811CU module for Linux 
 sci-biology/cmdock 0.1.3-r1 0.1.4-r1: Program for docking ligands to proteins and nucleic acids
 sci-biology/geneathome 1.10-r3: BOINC application for expanding Gene Regulatory Networks (GRN)
 sci-electronics/bsc 0_pre20210124 9999: Bluespec high level hardware design language compiler
-sci-electronics/dsview 1.12-r1 9999: An open source multi-function instrument
+sci-electronics/dsview 1.1.2-r1 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
 sci-electronics/open_pdks 1.0.311: PDK installer for open-source EDA tools and toolchains
 sci-electronics/skywater-pdk 0.0.0_p20220424: Open source process design kit for usage with SkyWater Technology Foundry's 130nm node
@@ -1404,7 +1406,7 @@ sys-apps/fselect 0.7.9 0.8.0: Find files with SQL-like queries
 sys-apps/hex 0.3.2 0.4.0 0.4.1 0.4.2: Futuristic take on hexdump
 sys-apps/hexyl 0.9.0: A command-line hex viewer
 sys-apps/intel-cmt-cat 4.3.0 4.4.0: User space software for Intel(R) Resource Director Technology
-sys-apps/ov 0.11.0 0.11.1: Feature-rich terminal pager
+sys-apps/ov 0.11.1 0.11.2: Feature-rich terminal pager
 sys-apps/procs 0.11.6 0.11.9: A modern replacement for ps
 sys-apps/qemu-openrc 0.10.0 9999: OpenRC init script for QEMU/KVM
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
@@ -1455,7 +1457,7 @@ sys-cluster/nanox 0.15_p20210818: Runtime designed to serve as runtime support i
 sys-cluster/neutron 17.1.2 20.0.0: A virtual network service for Openstack
 sys-cluster/nova 25.0.0-r1: Cloud computing fabric controller
 sys-cluster/opari2 2.0.6: OpenMP Pragma And Region Instrumentor
-sys-cluster/opencoarrays 2.9.2 2.9.3: A parallel application binary interface for Fortran 2018 compilers
+sys-cluster/opencoarrays 2.9.2 2.9.3 2.10.0: A parallel application binary interface for Fortran 2018 compilers
 sys-cluster/openstack-meta 2020.2.0: A openstack meta-package for installing the various openstack pieces
 sys-cluster/osu-micro-benchmarks 5.9: MPI, OPC and many other benchmarks
 sys-cluster/otf2 2.3-r2: highly scalable, memory efficient event trace data format
@@ -1499,7 +1501,7 @@ sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
 sys-kernel/msr-safe 1.6.0: Allows safer access to model specific registers (MSRs)
 sys-kernel/rte_kni-kmod 21.11.1 22.03: DPDK Kernel Nic Interface module
 sys-kernel/tirdad 0_pre20200926: kernel module for random ISN generation
-sys-kernel/uek-sources 5.4.17.2136.305.5 5.4.17.2136.306.1 5.4.17.2136.307.2 5.4.17.2136.308.4 5.4.17.2136.308.6: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
+sys-kernel/uek-sources 5.4.17.2136.305.5 5.4.17.2136.306.1 5.4.17.2136.307.2 5.4.17.2136.308.4 5.4.17.2136.308.6 5.4.17.2136.309.3: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
 sys-kernel/ummunotify 2-r1: Userspace support for MMU notifications
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-kernel/xpmem 2.6.5_p20210809: Linux Cross-Memory Attach
@@ -1533,7 +1535,7 @@ virtual/sendmail 0: Virtual for sendmail program
 virtual/survival 0: Virtual of a R recommended package
 www-apps/code-server-bin 4.1.0 4.3.0: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
-www-apps/jackett-bin 0.20.514 9999: API Support for your favorite torrent trackers
+www-apps/jackett-bin 0.20.514 0.20.1202 9999: API Support for your favorite torrent trackers
 www-apps/stagit 1.1: static git page generator
 www-apps/twint 2.1.20-r2 2.1.20_p20220316: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 20.11.0 20.14.0 9999: ultra fast, simple, secure & standards compliant web I/O
@@ -1568,7 +1570,7 @@ x11-misc/ksnip 1.9.1 1.9.2: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/leftwm-theme 9999: A theme mangager for LeftWM
 x11-misc/picom-jonaburg 9999: A lightweight compositor for X11 (previously a compton fork)
 x11-misc/squeekboard 1.17.1: Virtual keyboard supporting Wayland, built primarily for the Librem 5 phone
-x11-misc/tbsm 0.5: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
+x11-misc/tbsm 0.5 0.6: A pure bash session or application launcher. Inspired by cdm, tdm and krunner
 x11-misc/xbanish 1.7 1.8: Banish the mouse cursor when typing, show it again when the mouse moves
 x11-misc/xob 0.2 0.3: A lightweight overlay volume (or anything) bar for the X Window System
 x11-plugins/purple-mm-sms 0.1.7: Purple SMS plugin using ModemManager

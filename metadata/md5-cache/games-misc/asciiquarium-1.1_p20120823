@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DEPEND=dev-perl/Term-Animation
+DESCRIPTION=Asciiquarium is an aquarium/sea animation in ASCII art
+EAPI=8
+HOMEPAGE=https://robobunny.com/projects/asciiquarium/html/ https://github.com/cmatsuoka/asciiquarium
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-perl/Term-Animation
+SLOT=0
+SRC_URI=https://github.com/cmatsuoka/asciiquarium/archive/8bdb7d441a36a5a9f64b853317a66f9d4a82f08f.tar.gz -> asciiquarium-1.1_p20120823.tar.gz
+_md5_=1a706cc77cc1eb204167ac663f859799

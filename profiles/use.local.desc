@@ -97,11 +97,6 @@ dev-libs/hts_engine:speech-tools - use memory allocation/free functions of app-a
 dev-libs/libdwarf:dwarfexample - enable dwarfexample compilation
 dev-libs/libdwarf:dwarfgen - enable dwarfgen compilation
 dev-libs/libdwarf:elf - enable use of virtual/libelf
-dev-libs/libdwarf:global-alloc-sums - Enables some allocation counting in dwarf_alloc.c
-dev-libs/libdwarf:namestable - enable name string functions implemented as binary search">default is with C switch)
-dev-libs/libdwarf:nonstandardprintf - Use a special printf format for 64bit
-dev-libs/libdwarf:oldframecol - enable old frame columns
-dev-libs/libdwarf:sanitize - build with sanitizers
 dev-libs/libxlsxwriter:openssl - Use dev-libs/openssl for MD5 digest
 dev-libs/memkind:daxctl - Build library with daxctl support
 dev-libs/memkind:debug - Build debugging jemalloc code

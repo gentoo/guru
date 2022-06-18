@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst
+DESCRIPTION=A minimal script to skip sponsored segments of YouTube videos
+EAPI=8
+HOMEPAGE=https://codeberg.org/jouni/mpv_sponsorblock_minimal
+INHERIT=mpv-plugin
+IUSE=+autoload
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=net-misc/curl media-video/mpv[lua]
+SLOT=0
+SRC_URI=https://codeberg.org/jouni/mpv_sponsorblock_minimal/archive/b71beb60eb71eb7df1266abfccd14c8cc451c643.tar.gz -> mpv_sponsorblock_minimal-2022.02.07.tar.gz
+_eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a
+_md5_=2bd846c5cb0509ee1c05503ac164babd
