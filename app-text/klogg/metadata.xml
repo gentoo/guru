@@ -9,9 +9,6 @@
         <remote-id type="github">variar/klogg</remote-id>
     </upstream>
     <use>
-        <flag name="sentry">
-            Enable crash reporting using sentry.io.
-        </flag>
         <flag name="lto">
             Build with link time optimization (LTO).
         </flag>
