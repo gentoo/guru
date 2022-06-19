@@ -14,16 +14,16 @@ BDEPEND="
 	dev-python/flake8[${PYTHON_USEDEP}]
 "
 RDEPEND="
-     dev-python/six[${PYTHON_USEDEP}]
-     dev-python/beautifulsoup4[${PYTHON_USEDEP}]
+	dev-python/six[${PYTHON_USEDEP}]
+	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 "
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 python_install() {
-    rm -r "${BUILD_DIR}"/lib/tests || die
-    distutils-r1_python_install
+	rm -r "${BUILD_DIR}"/lib/tests || die
+	distutils-r1_python_install
 }
 
 distutils_enable_tests pytest
