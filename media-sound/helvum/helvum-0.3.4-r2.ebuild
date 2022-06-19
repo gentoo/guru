@@ -153,6 +153,7 @@ DEPEND="
 	x11-libs/gdk-pixbuf:2
 	x11-libs/pango
 "
+RDEPEND="${DEPEND}"
 
 src_install() {
 	cargo_src_install
