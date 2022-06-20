@@ -56,10 +56,14 @@ pkg_setup() {
 
 	if use imagemagick || use chafa; then
 		export fastfetch_enable_imagemagick7=$(has_version '>=media-gfx/imagemagick-7.0.0' && echo yes || echo no)
+	else
+		export fastfetch_enable_imagemagick7=no
 	fi
 
 	if use imagemagick || use chafa; then
 		export fastfetch_enable_imagemagick6=$(has_version '<media-gfx/imagemagick-7.0.0' && echo yes || echo no)
+	else
+		export fastfetch_enable_imagemagick6=no
 	fi
 }
 
