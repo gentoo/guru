@@ -12,7 +12,7 @@ SRC_URI="
 
 LICENSE="Apache-2.0 MIT LGPL-2.1+ BSD GPL-2+-with-Pyinstaller-Bootloader-exception openssl PSF-2 BSD-2 GPL-3+ public-domain"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="-* ~amd64 ~arm64"
 
 RDEPEND="!app-admin/awscli"
 BDEPEND="app-arch/unzip"
