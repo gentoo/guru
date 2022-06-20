@@ -7,7 +7,7 @@ FORTRAN_NEED_OPENMP=1
 FORTRAN_STANDARD=90
 LLVM_MAX_SLOT=14
 
-inherit autotools llvm fortran-2 toolchain-funcs
+inherit llvm fortran-2 toolchain-funcs
 
 DESCRIPTION="Scalable Performance Measurement Infrastructure for Parallel Codes"
 HOMEPAGE="https://www.vi-hps.org/projects/score-p"
@@ -57,6 +57,8 @@ pkg_setup() {
 
 src_prepare() {
 	tc-export CC CXX FC F77 CPP AR
+	# eautoreconf will need custom autotools
+	sed -e "s|CC=gcc|CC=${CC}|g" -i build-score/configure || die
 	rm build-config/common/platforms/platform-* || die
 
 	cat > build-config/common/platforms/platform-backend-user-provided <<-EOF || die
@@ -113,7 +115,6 @@ src_prepare() {
 
 	rm -r vendor || die
 	default
-	eautoreconf
 }
 
 src_configure() {
