@@ -12,7 +12,7 @@ DESCRIPTION="Bundles a Python application and all its dependencies into a single
 HOMEPAGE="https://pypi.org/project/pyinstaller/"
 SRC_URI="https://files.pythonhosted.org/packages/b4/83/9f6ff034650abe9778c9a4f86bcead63f89a62acf02b1b47fc2bfc6bf8dd/${P}.tar.gz"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+-with-Pyinstaller-Bootloader-exception"
 SLOT="0"
 KEYWORDS="~amd64"
 
