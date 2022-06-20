@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -335,14 +335,20 @@ EGO_SUM=(
 	)
 go-module_set_globals
 
-DESCRIPTION="Fast and powerful Git hooks manager for any type of projects."
+DESCRIPTION="Fast and powerful Git hooks manager for any type of projects"
 HOMEPAGE="https://github.com/evilmartians/lefthook"
 SRC_URI="https://github.com/evilmartians/lefthook/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}"
 
-LICENSE="MIT"
+LICENSE="Apache-2.0 MIT BSD BSD-2 MPL-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
+
+DEPEND=""
+RDEPEND="${DEPEND}
+	dev-vcs/git
+"
+BDEPEND=""
 
 src_compile() {
 	go build -ldflags "-s -w" || die "go build failed"
@@ -350,5 +356,5 @@ src_compile() {
 
 src_install() {
 	dobin "${PN}"
-	dodoc README.md
+	dodoc README.md CHANGELOG.md docs/full_guide.md
 }

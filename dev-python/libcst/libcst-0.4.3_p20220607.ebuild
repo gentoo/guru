@@ -130,6 +130,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-python/pyyaml-5.2[${PYTHON_USEDEP}]
+	>=dev-python/setuptools-rust-0.12.1[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-3.7.4.2[${PYTHON_USEDEP}]
 	>=dev-python/typing_inspect-0.4.0[${PYTHON_USEDEP}]
 "
@@ -140,7 +141,6 @@ DEPEND="
 		>=dev-python/hypothesis-4.36.0[${PYTHON_USEDEP}]
 		>=dev-python/hypothesmith-0.0.4[${PYTHON_USEDEP}]
 		>=dev-python/prompt_toolkit-2.0.9[${PYTHON_USEDEP}]
-		>=dev-python/setuptools-rust-0.12.1[${PYTHON_USEDEP}]
 	)
 "
 BDEPEND="test? ( dev-python/ufmt[${PYTHON_USEDEP}] )"
