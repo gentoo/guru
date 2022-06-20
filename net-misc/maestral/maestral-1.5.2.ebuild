@@ -41,8 +41,7 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-python_prepare_all()
-{
+python_prepare_all() {
 	# this test requires systemd
 	sed -i -e 's/test_autostart/_&/' tests/offline/test_cli.py || die
 
@@ -57,12 +56,10 @@ python_prepare_all()
 	distutils-r1_python_prepare_all
 }
 
-pkg_postinst()
-{
+pkg_postinst() {
 	xdg_icon_cache_update
 }
 
-pkg_postrm()
-{
+pkg_postrm() {
 	xdg_icon_cache_update
 }
