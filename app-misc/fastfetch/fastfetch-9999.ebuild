@@ -22,7 +22,10 @@ IUSE="X chafa dbus gnome imagemagick opencl opengl osmesa pci sqlite vulkan wayl
 RDEPEND="
 	sys-libs/zlib
 	X? ( x11-libs/libX11 )
-	chafa? ( media-gfx/chafa )
+	chafa? (
+		media-gfx/chafa
+		media-gfx/imagemagick:=
+	)
 	dbus? ( sys-apps/dbus )
 	gnome? (
 		dev-libs/glib
@@ -45,6 +48,20 @@ BDEPEND="virtual/pkgconfig"
 
 REQUIRED_USE="xrandr? ( X )"
 
+pkg_setup() {
+	if use chafa && ! use imagemagick; then
+		elog "USE chafa depends on imagemagick, but that is currently disabled.  Enabling imagemagick"
+	fi
+
+	if use imagemagick || use chafa; then
+		export fastfetch_enable_imagemagick7=$(has_version '>=media-gfx/imagemagick-7.0.0' && echo yes || echo no)
+	fi
+
+	if use imagemagick || use chafa; then
+		export fastfetch_enable_imagemagick6=$(has_version '<media-gfx/imagemagick-7.0.0' && echo yes || echo no)
+	fi
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_RPM=no
@@ -58,8 +75,8 @@ src_configure() {
 		-DENABLE_GIO=$(usex gnome)
 		-DENABLE_DCONF=$(usex gnome)
 		-DENABLE_XFCONF=$(usex xfce)
-		-DENABLE_IMAGEMAGICK7=$(use imagemagick && has_version '>=media-gfx/imagemagick-7.0.0' && echo yes || echo no)
-		-DENABLE_IMAGEMAGICK6=$(use imagemagick && has_version '<media-gfx/imagemagick-7.0.0' && echo yes || echo no)
+		-DENABLE_IMAGEMAGICK7=${fastfetch_enable_imagemagick7}
+		-DENABLE_IMAGEMAGICK6=${fastfetch_enable_imagemagick6}
 		-DENABLE_ZLIB=yes
 		-DENABLE_CHAFA=$(usex chafa)
 		-DENABLE_SQLITE3=$(usex sqlite)
