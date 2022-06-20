@@ -52,7 +52,6 @@ app-office/sc-im:xlsx - Add xlsx support
 app-portage/emlop:fish-completion - Enable fish completion support.
 app-text/OCRmyPDF:jbig2enc - Uses media-libs/jbig2enc for a better compression algorithm
 app-text/klogg:lto - Build with link time optimization (LTO).
-app-text/klogg:sentry - Enable crash reporting using sentry.io.
 dev-cpp/cpptoml:libcxx - Use libc++ for the C++ standard library
 dev-cpp/drogon:brotli - Enable support for brotli compression
 dev-cpp/drogon:mariadb - Add support for the mariadb database

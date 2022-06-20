@@ -1,0 +1,10 @@
+DEFINED_PHASES=install
+DESCRIPTION=Opensource, compact, and material-designed cursor set
+EAPI=8
+HOMEPAGE=https://github.com/ful1e5/Bibata_Cursor
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=x11-libs/libXcursor
+SLOT=0
+SRC_URI=https://github.com/ful1e5/Bibata_Cursor/releases/download/v1.1.2/Bibata.tar.gz -> bibata-xcursors-1.1.2-r2.tar.gz
+_md5_=508eb02d89bbddc817d2a72813fed26e
