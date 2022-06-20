@@ -30,8 +30,7 @@ BDEPEND="
 
 distutils_enable_tests setup.py
 
-python_install_all()
-{
+python_install_all() {
 	distutils-r1_python_install_all
 
 	domenu src/maestral_qt/resources/maestral.desktop
