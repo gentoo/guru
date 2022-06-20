@@ -345,7 +345,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND=""
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	dev-vcs/git
+"
 BDEPEND=""
 
 src_compile() {
