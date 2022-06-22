@@ -1,4 +1,4 @@
-BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 virtual/fortran
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/fortran
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=|| ( >=dev-lang/python-3.10.0_p1-r1:3.10 >=dev-lang/python-3.9.9-r1:3.9 >=dev-lang/python-3.8.12_p1-r1:3.8 ) || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 dev-util/fypp[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 dev-util/fypp[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 dev-util/fypp[python_targets_python3_8(-)] ) ) doc? ( || ( ( >=dev-lang/python-3.10.0_p1-r1:3.10 app-doc/ford[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.9-r1:3.9 app-doc/ford[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.12_p1-r1:3.8 app-doc/ford[python_targets_python3_8(-)] ) ) ) test? ( dev-util/fortran-test-drive ) virtual/fortran
 DESCRIPTION=A community driven standard library for (modern) Fortran
@@ -12,5 +12,5 @@ RDEPEND=virtual/fortran
 RESTRICT=mirror !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/fortran-lang/stdlib/archive/refs/tags/v0.2.0.tar.gz -> fortran-stdlib-0.2.0.tar.gz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
 _md5_=4417cad9bedd7f33fecc21e306c72e11

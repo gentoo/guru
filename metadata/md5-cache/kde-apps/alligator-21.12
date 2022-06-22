@@ -1,4 +1,4 @@
-BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 >=kde-frameworks/extra-cmake-modules-5.75.0:5
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=kde-frameworks/extra-cmake-modules-5.75.0:5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=>=dev-qt/qtdeclarative-5.15.0:5 >=dev-qt/qtgui-5.15.0:5 >=dev-qt/qtnetwork-5.15.0:5 >=dev-qt/qtquickcontrols-5.15.0:5 >=dev-qt/qtquickcontrols2-5.15.0:5 >=dev-qt/qtsql-5.15.0:5 >=dev-qt/qtwidgets-5.15.0:5 >=kde-frameworks/kconfig-5.75.0:5 >=kde-frameworks/kcoreaddons-5.75.0:5 >=kde-frameworks/ki18n-5.75.0:5 >=kde-frameworks/kirigami-5.75.0:5 >=kde-frameworks/syndication-5.75.0:5 test? ( dev-qt/qttest:5 ) dev-qt/qtcore:5
 DESCRIPTION=A convergent RSS/Atom feed reader for Plasma
@@ -13,5 +13,5 @@ RDEPEND=>=dev-qt/qtdeclarative-5.15.0:5 >=dev-qt/qtgui-5.15.0:5 >=dev-qt/qtnetwo
 RESTRICT=!test? ( test )
 SLOT=5
 SRC_URI=mirror://kde/stable/plasma-mobile/21.12/alligator-21.12.tar.xz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	90e2b29417d53718328f3a95227137a0	virtualx	975d49ff3b3f451efe7a95f230532135	xdg	6024fbc93167fad782e2032933654857	ecm	542fb4c59adc3702f566140a9bdf49f8
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	virtualx	975d49ff3b3f451efe7a95f230532135	xdg	6024fbc93167fad782e2032933654857	ecm	542fb4c59adc3702f566140a9bdf49f8
 _md5_=67aa386b68ae2467edb2e1fa34d83382
