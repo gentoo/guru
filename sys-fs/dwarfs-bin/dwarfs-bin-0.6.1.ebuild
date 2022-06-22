@@ -28,15 +28,15 @@ QA_PREBUILT="
 src_prepare() {
 	default
 	einfo "Removing legacy fuse2-related stuff..."
-	rm sbin/dwarfs2 sbin/mount.dwarfs2
+	rm sbin/dwarfs2 sbin/mount.dwarfs2 || die
 	einfo "Done. Correcting man paths..."
-	mkdir -p usr/
-	mv share/ usr/
+	mkdir -p usr/ || die
+	mv share/ usr/ || die
 	einfo "Done."
 }
 
 src_install(){
-	mv "${S}"/* "${D}"/
+	mv "${S}"/* "${D}"/ || die
 }
 
 pkg_postinst(){
