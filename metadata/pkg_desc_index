@@ -122,7 +122,7 @@ app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best
 app-misc/doublecmd-bin 1.0.5 1.0.6: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
-app-misc/fastfetch 1.5.4 9999: Like neofetch but faster
+app-misc/fastfetch 1.5.4-r1 9999: Like neofetch but faster
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -1315,7 +1315,7 @@ sci-biology/cmdock 0.1.3-r1 0.1.4-r1: Program for docking ligands to proteins an
 sci-biology/geneathome 1.10-r3: BOINC application for expanding Gene Regulatory Networks (GRN)
 sci-electronics/bsc 0_pre20210124 9999: Bluespec high level hardware design language compiler
 sci-electronics/dsview 1.1.2-r1 9999: An open source multi-function instrument
-sci-electronics/kactus2 3.8.0 9999: A open source IP-XACT-based tool
+sci-electronics/kactus2 3.10.0 9999: A open source IP-XACT-based tool
 sci-electronics/open_pdks 1.0.311: PDK installer for open-source EDA tools and toolchains
 sci-electronics/skywater-pdk 0.0.0_p20220424: Open source process design kit for usage with SkyWater Technology Foundry's 130nm node
 sci-electronics/verible 0.0.2135: SystemVerilog parser, style-linter, and formatter
@@ -1492,8 +1492,8 @@ sys-firmware/pinephone-firmware 20210809: Firmwares files for PinePhone
 sys-fs/btrfs-heatmap 9-r1: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
 sys-fs/dwarfs 0.5.6-r1 0.5.6-r2 0.5.6-r3: A fast very high compression read-only FUSE file system
-sys-fs/dwarfs-bin 0.5.6 0.6.1: Static version of a fast very high compression read-only FUSE file system
-sys-fs/gcsfuse 0.41.0: A user-space file system for interacting with Google Cloud Storage
+sys-fs/dwarfs-bin 0.6.1: Static version of a fast very high compression read-only FUSE file system
+sys-fs/gcsfuse 0.41.4: A user-space file system for interacting with Google Cloud Storage
 sys-fs/gdu 5.13.2 5.14.0: Disk usage analyzer with console interface written in Go
 sys-fs/gfs2-utils 3.4.1: Shared-disk cluster file system
 sys-fs/git-mount 1.0.0_p20160321: git-mount let's you mount your repo as a filesystem based on a revision.
