@@ -41,8 +41,7 @@ BDEPEND="
 
 distutils_enable_tests pytest
 
-python_prepare_all()
-{
+python_prepare_all() {
 	# this test requires systemd
 	sed -i -e 's/test_autostart/_&/' tests/offline/test_cli.py || die
 
