@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..11} pypy3 )
+PYTHON_COMPAT=( python3_{8..11} )
 
 BOINC_APP_OPTIONAL="true"
 
@@ -11,27 +11,32 @@ DOCS_BUILDER="sphinx"
 DOCS_AUTODOC=0
 DOCS_DIR="docs"
 
-inherit python-any-r1 boinc-app docs flag-o-matic meson
+inherit python-single-r1 boinc-app docs flag-o-matic meson optfeature
 
 DESCRIPTION="Program for docking ligands to proteins and nucleic acids"
 HOMEPAGE="https://gitlab.com/Jukic/cmdock"
 SRC_URI="https://gitlab.com/Jukic/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
 S="${WORKDIR}/${PN}-v${PV}"
+INSTALL_PREFIX="${EPREFIX}/opt/${P}"
 
 LICENSE="LGPL-3 ZLIB"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="apidoc boinc cpu_flags_x86_sse2"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
-	dev-lang/perl
+	${PYTHON_DEPS}
+	dev-lang/perl:*
 	boinc? ( sci-misc/boinc-wrapper )
 "
-BDEPEND="
+DEPEND="
 	dev-cpp/eigen:3
 	dev-cpp/indicators
 	>=dev-cpp/pcg-cpp-0.98.1_p20210406-r1
 	dev-libs/cxxopts
+"
+BDEPEND="
 	doc? ( app-doc/doxygen )
 "
 
@@ -46,8 +51,12 @@ BOINC_APP_HELPTEXT=\
 is to attach it to SiDock@home BOINC project."
 
 foreach_wrapper_job() {
-	sed -i "$1" \
-		-e "s:@PREFIX@:${EPREFIX}/opt/${P}:g" || die
+	sed -e "s:@PREFIX@:${INSTALL_PREFIX}:g" -i "${1}" || die
+}
+
+src_prepare() {
+	default
+	python_fix_shebang "${S}"/bin
 }
 
 src_configure() {
@@ -75,19 +84,22 @@ src_compile() {
 
 src_install() {
 	meson_src_install
+	python_optimize "${ED}"/opt/${P}/
 
 	if use boinc; then
 		doappinfo "${FILESDIR}"/app_info_${PV}.xml
 		dowrapper ${PN}-boinc-zcp
 
 		# install a blank file
+		touch "${T}"/docking_out || die
 		insinto $(get_project_root)
-		insopts --owner boinc --group boinc
-		: newins - docking_out.sd
+		insopts -m 0644 --owner boinc --group boinc
+		doins "${T}"/docking_out
 	fi
 }
 
 pkg_postinst() {
+	optfeature "sdtether.py and sdrmsd.py scripts" "dev-python/numpy sci-chemistry/openbabel[python]"
 	use boinc && boinc-app_pkg_postinst
 }
 
