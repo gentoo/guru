@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=<dev-cpp/jwt-cpp-0.5.0 dev-db/sqlite dev-libs/openssl net-misc/curl sys-apps/util-linux test? ( dev-cpp/gtest )
+DESCRIPTION=A C++ implementation of the SciTokens library with a C library interface
+EAPI=8
+HOMEPAGE=https://scitokens.org/
+INHERIT=cmake
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/scitokens/scitokens-cpp/archive/refs/tags/v0.7.1.tar.gz -> scitokens-cpp-0.7.1.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
+_md5_=ddcf14660be83a6f16a394cfb17e68bf

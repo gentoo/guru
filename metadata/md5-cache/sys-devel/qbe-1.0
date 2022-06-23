@@ -1,0 +1,8 @@
+DEFINED_PHASES=install
+DESCRIPTION=Pure-C embeddable compiler backend
+EAPI=7
+HOMEPAGE=https://c9x.me/compile/
+LICENSE=MIT
+SLOT=0
+SRC_URI=https://c9x.me/compile/release/qbe-1.0.tar.xz
+_md5_=437d0e1fdc6e2c6a0cd6bd6b990348ae
