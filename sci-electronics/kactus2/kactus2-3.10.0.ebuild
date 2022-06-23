@@ -41,11 +41,12 @@ DEPEND="
 	${RDEPEND}
 "
 
-QA_PRESTRIPPED="usr/share/kactus2/plugins/*"
-
 src_prepare() {
 	default
-
+	# Fix QA pre-stripped warnings, bug 781674
+	while IFS= read -r -d '' i; do
+		echo "CONFIG+=nostrip" >> "${i}" || die
+	done < <(find . -type f '(' -name "*.pro" ')' -print0)
 	# Fix QTBIN_PATH
 	sed -i -e "s|QTBIN_PATH=.*|QTBIN_PATH=\"$(qt5_get_bindir)/\"|" configure || die
 }
