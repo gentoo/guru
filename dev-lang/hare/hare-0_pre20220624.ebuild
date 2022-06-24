@@ -3,14 +3,14 @@
 
 EAPI=8
 
-inherit git-r3
-
 DESCRIPTION="The Hare systems programming language"
 HOMEPAGE="https://harelang.org/"
 EGIT_COMMIT="65449ddbbbf39659bfaf84a2cb78510409a4ab7a"
-EGIT_REPO_URI="https://git.sr.ht/~sircmpwn/hare"
+SRC_URI="https://git.sr.ht/~sircmpwn/hare/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
 LICENSE="MPL-2.0 GPL-3"
 SLOT="0"
+KEYWORDS="~amd64"
 
 DEPEND="
 	sys-devel/qbe
