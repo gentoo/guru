@@ -366,7 +366,7 @@ SRC_URI="
 	$(cargo_crate_uris)
 "
 
-LICENSE="Apache-2.0 BSD GPL-3.0 ISC MIT MPL-2"
+LICENSE="Apache-2.0 BSD GPL-3 ISC MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
