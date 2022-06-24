@@ -10,7 +10,7 @@ SRC_URI="https://git.sr.ht/~sircmpwn/harec/archive/${EGIT_COMMIT}.tar.gz -> ${P}
 S="${WORKDIR}/${PN}-${EGIT_COMMIT}/build"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 
 DEPEND="sys-devel/qbe"
 RDEPEND="${DEPEND}"
