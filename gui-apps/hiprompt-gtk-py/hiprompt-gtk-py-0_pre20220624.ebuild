@@ -4,14 +4,16 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..11} )
-inherit git-r3 meson python-single-r1 xdg
+inherit meson python-single-r1 xdg
 
 DESCRIPTION="GTK+ Himitsu prompter for Wayland"
 HOMEPAGE="https://git.sr.ht/~sircmpwn/hiprompt-gtk-py"
 EGIT_COMMIT="f74499302bdd6558d4644c25e15c9b5c482270ea"
-EGIT_REPO_URI="https://git.sr.ht/~sircmpwn/hiprompt-gtk-py"
+SRC_URI="https://git.sr.ht/~sircmpwn/hiprompt-gtk-py/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
