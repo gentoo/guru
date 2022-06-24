@@ -20,7 +20,7 @@ RDEPEND="
 	virtual/lapack
 	virtual/mpi
 
-	arpack? ( sci-libs/arpack )
+	arpack? ( sci-libs/arpack[mpi] )
 	magma? ( sci-libs/magma )
 "
 DEPEND="${RDEPEND}"
@@ -33,7 +33,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
 	)
-	use arpack && mycmakeargs+=( "-DTPL_ARPACK_LIBRARIES=$(${pkgc} --libs arpack)" )
+	use arpack && mycmakeargs+=( "-DTPL_ARPACK_LIBRARIES=$(${pkgc} --libs parpack)" )
 	use magma && mycmakeargs+=( "-DTPL_MAGMA_LIBRARIES=$(${pkgc} --libs magma)" )
 	cmake_src_configure
 }
