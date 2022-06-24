@@ -11,7 +11,6 @@ else
 	KEYWORDS="~amd64 ~arm64 ~riscv"
 fi
 
-
 DESCRIPTION="Secret storage system for Unix, suitable for storing passwords, keys, ..."
 HOMEPAGE="https://git.sr.ht/~sircmpwn/himitsu"
 LICENSE="GPL-3"
