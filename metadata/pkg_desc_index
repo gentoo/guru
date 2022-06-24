@@ -385,8 +385,8 @@ dev-lang/aldor 1.2.0_p20190730-r1: The Aldor Programming Language
 dev-lang/fbc 1.07.3 1.08.1: A free/open source, multi-platform BASIC compiler.
 dev-lang/fbc-bootstrap 1.07.3 1.08.1: Bootstrap package for dev-lang/fbc
 dev-lang/gleam 0.16.0: A statically typed functional language for the BEAM
-dev-lang/hare 9999: The Hare systems programming language
-dev-lang/harec 9999: The Hare compiler
+dev-lang/hare 0_pre20220624 9999: The Hare systems programming language
+dev-lang/harec 0_pre20220624 9999: The Hare compiler
 dev-lang/opencilk 1.1: The OpenCilk concurrency platform for parallel programming
 dev-lang/opencilk-bin 1.1: The OpenCilk concurrency platform for parallel programming
 dev-lang/quickjs 2020.11.08 2021.03.27: Small embeddable Javascript engine
@@ -667,6 +667,7 @@ dev-python/futurist 2.3.0-r1: Useful additions to futures, from the future
 dev-python/gabbi 2.7.1: Declarative HTTP testing library
 dev-python/gbinder 1.0.0 9999: Python bindings for libgbinder
 dev-python/gemcall 0.8 0.9: A library and CLI tool for making gemini requests
+dev-python/gevent-websocket 0.10.1: Websocket handler for the gevent pywsgi server
 dev-python/gflanguages 0.4.0: A python API for evaluating language support in the Google Fonts collection
 dev-python/github-sublee-glicko2 0_pre20191010-r1: An implementation of the Glicko-2 rating system for Python
 dev-python/glance_store 3.0.0-r1 4.0.0: A library for glance
@@ -875,6 +876,7 @@ dev-python/sphinx-click 4.1.0: Sphinx plugin to automatically document click-bas
 dev-python/sphinxcontrib-fulltoc 1.2: python-dbus-next is a Python library for DBus
 dev-python/sphinxcontrib-katex 0.8.6: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-restbuilder 0.3: A Sphinx builder/writer to output reStructuredText (rst) files
+dev-python/sqlalchemy-migrate 0.13.0: SQLAlchemy Schema Migration Tools
 dev-python/sre_yield 1.2: Python module to generate regular all expression matches
 dev-python/srt 3.5.0 3.5.1 3.5.2: A tiny library for parsing, modifying, and composing SRT files
 dev-python/sse-starlette 0.9.0: Server Sent Events for Starlette
@@ -1069,7 +1071,7 @@ gui-apps/coreuniverse 4.2.0 9999: Shows information about apps for C Suite
 gui-apps/fnott 1.2.1: Keyboard driven and lightweight Wayland notification daemon.
 gui-apps/fuzzel 1.7.0 9999: Application launcher for wlroots based Wayland compositors.
 gui-apps/gcolor3 2.4.0: A simple color chooser written in GTK3
-gui-apps/hiprompt-gtk-py 9999: GTK+ Himitsu prompter for Wayland
+gui-apps/hiprompt-gtk-py 0_pre20220624 9999: GTK+ Himitsu prompter for Wayland
 gui-apps/mpvpaper 1.1 1.2 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.5.0 0.6.3 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/paperde 0.1.1_p20210426 9999: Simple, sleek QT based DE for wayland using wayfire

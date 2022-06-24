@@ -1,0 +1,16 @@
+BDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-python/pbr-1.8.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] doc? ( dev-python/sphinx[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
+DESCRIPTION=SQLAlchemy Schema Migration Tools
+EAPI=8
+HOMEPAGE=https://pypi.org/project/sqlalchemy-migrate/
+INHERIT=distutils-r1
+IUSE=doc python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=>=dev-python/sqlalchemy-0.9.6[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/decorator[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/six-1.7.0[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/sqlparse[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/tempita-0.4[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+SLOT=0
+SRC_URI=mirror://pypi/s/sqlalchemy-migrate/sqlalchemy-migrate-0.13.0.tar.gz
+_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-r1	e2883e4f04f0503cdf7f2954e2bf5e15	distutils-r1	10a93585889c3ca7651cbcd2ee831e47
+_md5_=7d865b7a3acbdc6b6733471912d24fe3

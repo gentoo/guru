@@ -1,0 +1,11 @@
+DEFINED_PHASES=configure unpack
+DEPEND=sys-devel/qbe
+DESCRIPTION=The Hare compiler
+EAPI=8
+HOMEPAGE=https://harelang.org/
+KEYWORDS=~amd64 ~arm64 ~riscv
+LICENSE=GPL-3
+RDEPEND=sys-devel/qbe
+SLOT=0
+SRC_URI=https://git.sr.ht/~sircmpwn/harec/archive/62d4204f21332d97ad7697f628eade9137e9c3bc.tar.gz -> harec-0_pre20220624.tar.gz
+_md5_=458d4875d0fe3c16d8b9ec5155a2a559

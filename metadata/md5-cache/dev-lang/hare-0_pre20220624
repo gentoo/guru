@@ -1,0 +1,12 @@
+BDEPEND=app-text/scdoc
+DEFINED_PHASES=configure unpack
+DEPEND=sys-devel/qbe dev-lang/harec
+DESCRIPTION=The Hare systems programming language
+EAPI=8
+HOMEPAGE=https://harelang.org/
+KEYWORDS=~amd64 ~arm64 ~riscv
+LICENSE=MPL-2.0 GPL-3
+RDEPEND=sys-devel/qbe dev-lang/harec
+SLOT=0
+SRC_URI=https://git.sr.ht/~sircmpwn/hare/archive/65449ddbbbf39659bfaf84a2cb78510409a4ab7a.tar.gz -> hare-0_pre20220624.tar.gz
+_md5_=9f4fe9116f5099bb88936159ee2b6f59
