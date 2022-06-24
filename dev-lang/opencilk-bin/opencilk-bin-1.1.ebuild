@@ -27,6 +27,8 @@ RDEPEND="
 
 S="${WORKDIR}"
 
+QA_FLAGS_IGNORED="opt/${P}/.*"
+
 src_install() {
 	local target="opt/${P}"
 	dodir "${target}"
