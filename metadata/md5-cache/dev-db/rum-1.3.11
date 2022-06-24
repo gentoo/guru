@@ -10,6 +10,6 @@ LICENSE=POSTGRESQL
 RDEPEND=postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/postgrespro/rum/archive/1.3.9.tar.gz -> rum-1.3.9.tar.gz
+SRC_URI=https://github.com/postgrespro/rum/archive/1.3.11.tar.gz -> rum-1.3.11.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	postgres	8f9102af4a3f35d1c700d85892ffecbb	postgres-multi	67d8361b394ded18c2e915e9e493e5f7
-_md5_=0bf73825c89f3124630347ad647f5726
+_md5_=3590afb559d41ff96d9ed4ec16c5dd7c

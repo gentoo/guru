@@ -1,0 +1,14 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=The OpenCilk concurrency platform for parallel programming
+EAPI=8
+HOMEPAGE=https://opencilk.org/
+INHERIT=cmake
+IUSE=debug
+KEYWORDS=~amd64
+LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc
+RDEPEND=dev-libs/libxml2 sys-libs/ncurses:= sys-libs/zlib
+SLOT=0
+SRC_URI=https://github.com/OpenCilk/opencilk-project/archive/refs/tags/opencilk/v1.1.tar.gz -> opencilk-project-1.1.tar.gz https://github.com/OpenCilk/cheetah/archive/refs/tags/opencilk/v1.1.tar.gz -> opencilk-cheetah-1.1.tar.gz https://github.com/OpenCilk/productivity-tools/archive/refs/tags/opencilk/v1.1.tar.gz -> opencilk-productivity-tools-1.1.tar.gz
+_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
+_md5_=32952e9c29781020f5aad4e4d9d1adc0
