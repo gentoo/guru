@@ -19,7 +19,7 @@ The HODLR and Butterfly functionality in STRUMPACK is implemented through interf
         <flag name="combblas">Use CombBLAS for weighted matching</flag>
         <flag name="count-flops">Build with flop counters</flag>
         <flag name="hip">Use HIP for AMD or NVIDIA GPU acceleration</flag>
-        <flag name="message-counters">Build with counter for MPI messages</flag>
+        <flag name="message-counter">Build with counter for MPI messages</flag>
         <flag name="metis">Build with support for ParMetis</flag>
         <flag name="papi">Build with support for PAPI monitoring</flag>
         <flag name="scotch">Build with support for Scotch</flag>

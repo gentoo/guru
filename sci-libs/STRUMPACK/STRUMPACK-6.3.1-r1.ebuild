@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake fortran-2
+inherit cmake flag-o-matic fortran-2
 
 DESCRIPTION="Structured Matrix Package (LBNL)"
 HOMEPAGE="https://github.com/pghysels/STRUMPACK"
@@ -12,19 +12,24 @@ SRC_URI="https://github.com/pghysels/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${
 KEYWORDS="~amd64"
 LICENSE="BSD"
 SLOT="0"
-IUSE="+butterflypack combblas count-flops +hip message-counters metis +mpi +openmp +scotch papi task-timers +zfp" # +cuda +slate +ptscotch +magma matlab
+IUSE="+butterflypack combblas count-flops +hip message-counter metis +mpi +openmp +scotch papi task-timers +zfp" # +cuda +slate +ptscotch +magma matlab
 
 RDEPEND="
-	butterflypack? ( sci-libs/ButterflyPACK )
+	butterflypack? ( sci-libs/ButterflyPACK	)
+	combblas? ( sci-libs/CombBLAS )
 	hip? (
-		sci-libs/hipBLAS
-		sci-libs/rocBLAS
-		sci-libs/rocSOLVER
+		dev-util/hip:=
+		sci-libs/hipBLAS:=
+		sci-libs/rocBLAS:=
+		sci-libs/rocSOLVER:=
 	)
 	metis? ( sci-libs/parmetis )
-	mpi? ( virtual/mpi )
+	mpi? (
+		sci-libs/scalapack
+		virtual/mpi
+	)
 	papi? ( dev-libs/papi )
-	scotch? ( sci-libs/scotch )
+	scotch? ( sci-libs/scotch:= )
 	zfp? ( dev-libs/zfp )
 
 	sci-libs/metis
@@ -45,14 +50,24 @@ REQUIRED_USE="
 # magma? ( cuda )
 DOCS=( README.md CHANGELOG SUPPORT )
 
+src_prepare() {
+	sed \
+		-e "s|LIBRARY DESTINATION lib|LIBRARY DESTINATION $(get_libdir)|g" \
+		-e "s|lib/cmake|$(get_libdir)/cmake|g" \
+		-i CMakeLists.txt \
+		|| die
+	cmake_src_prepare
+}
+
 src_configure() {
+	use combblas && append-cppflags '-I/usr/include/CombBLAS'
 	local mycmakeargs=(
 		-DTPL_ENABLE_MAGMA=NO
 		-DTPL_ENABLE_PTSCOTCH=NO
 		-DTPL_ENABLE_SLATE=NO
 
 		-DSTRUMPACK_COUNT_FLOPS=$(usex count-flops)
-		-DSTRUMPACK_MESSAGE_COUNTERS=$(usex message-counters)
+		-DSTRUMPACK_MESSAGE_COUNTER=$(usex message-counter)
 		-DSTRUMPACK_TASK_TIMERS=$(usex task-timers)
 		-DSTRUMPACK_USE_HIP=$(usex hip)
 		-DSTRUMPACK_USE_MPI=$(usex mpi)
@@ -64,5 +79,10 @@ src_configure() {
 		-DTPL_ENABLE_SCOTCH=$(usex scotch)
 		-DTPL_ENABLE_ZFP=$(usex zfp)
 	)
+	if use hip; then
+		addpredict /dev/kfd
+		mycmakeargs+=( "-DHIP_ROOT_DIR=${EPREFIX}/usr" )
+	fi
+	use scotch && mycmakeargs+=( "-DSCOTCH_INCLUDE_DIR=${EPREFIX}/usr/include/scotch" )
 	cmake_src_configure
 }
