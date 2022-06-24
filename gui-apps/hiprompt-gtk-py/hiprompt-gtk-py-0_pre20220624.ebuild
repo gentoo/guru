@@ -8,6 +8,7 @@ inherit git-r3 meson python-single-r1 xdg
 
 DESCRIPTION="GTK+ Himitsu prompter for Wayland"
 HOMEPAGE="https://git.sr.ht/~sircmpwn/hiprompt-gtk-py"
+EGIT_COMMIT="f74499302bdd6558d4644c25e15c9b5c482270ea"
 EGIT_REPO_URI="https://git.sr.ht/~sircmpwn/hiprompt-gtk-py"
 LICENSE="GPL-3"
 SLOT="0"
