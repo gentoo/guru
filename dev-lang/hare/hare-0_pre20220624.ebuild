@@ -10,7 +10,7 @@ SRC_URI="https://git.sr.ht/~sircmpwn/hare/archive/${EGIT_COMMIT}.tar.gz -> ${P}.
 S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
 LICENSE="MPL-2.0 GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 
 DEPEND="
 	sys-devel/qbe
