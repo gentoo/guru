@@ -72,5 +72,5 @@ src_configure() {
 src_install() {
 	cmake_src_install
 	# Do not install man pages which may conflict with llvm/clang/etc.
-	rm "${ED}/usr/share/man/man1/scan-build.1.bz2" || die
+	rm "${ED}/usr/share/man/man1/scan-build.1" || die
 }
