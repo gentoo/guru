@@ -23,10 +23,10 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+python"
-REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
+	${PYTHON_DEPS}
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qthelp:5
@@ -34,11 +34,14 @@ RDEPEND="
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
-	python? ( ${PYTHON_DEPS} )
 "
 
 DEPEND="
 	${RDEPEND}
+"
+
+BDEPEND="
+	dev-lang/swig
 "
 
 src_prepare() {
@@ -54,20 +57,18 @@ src_prepare() {
 src_install() {
 	# Can't use default, set INSTALL_ROOT and workaround parallel install bug
 	emake -j1 INSTALL_ROOT="${D}" install
-	if use python; then
-		python_install() {
-			export PYTHON_C_FLAGS="$(python_get_CFLAGS)"
-			export PYTHON_LIBS="$(python_get_LIBS)"
-			pushd "PythonAPI" || die
-			emake clean
-			eqmake5 PREFIX="$(python_get_library_path)"
-			emake
-			rm -rf _pythonAPI.so || die
-			cp -rf libPythonAPI.so.1.0.0 _pythonAPI.so || die
-			python_domodule _pythonAPI.so
-			python_domodule pythonAPI.py
-			popd
-		}
-		python_foreach_impl python_install
-	fi
+	python_install() {
+		export PYTHON_C_FLAGS="$(python_get_CFLAGS)"
+		export PYTHON_LIBS="$(python_get_LIBS)"
+		pushd "PythonAPI" || die
+		emake clean
+		eqmake5 PREFIX="$(python_get_library_path)"
+		emake
+		rm -rf _pythonAPI.so || die
+		cp -rf libPythonAPI.so.1.0.0 _pythonAPI.so || die
+		python_domodule _pythonAPI.so
+		python_domodule pythonAPI.py
+		popd
+	}
+	python_foreach_impl python_install
 }
