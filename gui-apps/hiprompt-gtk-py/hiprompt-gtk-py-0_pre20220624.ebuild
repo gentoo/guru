@@ -13,7 +13,7 @@ SRC_URI="https://git.sr.ht/~sircmpwn/hiprompt-gtk-py/archive/${EGIT_COMMIT}.tar.
 S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
