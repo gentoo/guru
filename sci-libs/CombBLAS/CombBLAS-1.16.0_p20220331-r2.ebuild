@@ -44,7 +44,7 @@ src_prepare() {
 src_install() {
 	cmake_src_install
 	dodoc README.md FAQ.md CombBLASbinaryIO.docx
-	insinto "/usr/include/CombBLAS"
+	insinto "/usr/include/CombBLAS/BipartiteMatchings"
 	doins Applications/BipartiteMatchings/*.h
 	insinto "/usr/share/octave/site/m/${PN}"
 	doins -r Matlab/*
