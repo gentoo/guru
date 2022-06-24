@@ -54,13 +54,6 @@ PATCHES=(
 	"${FILESDIR}/${P}-tests.patch"
 )
 
-src_prepare() {
-	# bug 780912
-	sed -i -e 's/check_add_cc_flag("-Werror")//g' CMakeLists.txt || die
-
-	cmake_src_prepare
-}
-
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
@@ -70,6 +63,7 @@ src_configure() {
 		-DUA_BUILD_UNIT_TESTS=$(usex test)
 		-DUA_ENABLE_PUBSUB=$(usex pubsub)
 		-DUA_ENABLE_PUBSUB_ETH_UADP=$(usex pubsub)
+		-DUA_FORCE_WERROR=OFF
 	)
 
 	if use encryption; then
