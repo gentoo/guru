@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{8..10} )
 inherit cmake python-single-r1
 
 DESCRIPTION="Open source C implementation of OPC UA"
-HOMEPAGE="https://open62541.org/"
+HOMEPAGE="https://www.open62541.org/"
 SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MPL-2.0"
