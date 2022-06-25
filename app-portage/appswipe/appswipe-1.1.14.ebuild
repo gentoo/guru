@@ -18,6 +18,7 @@ DEPEND="
 	dev-qt/qtcore
 	dev-qt/qtgui
 	dev-qt/qtsql[sqlite]
+	dev-qt/qtwidgets
 "
 
 RDEPEND="
