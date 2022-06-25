@@ -55,6 +55,6 @@ src_install() {
 	doappinfo "${FILESDIR}"/app_info.xml
 
 	exeinto $(get_project_root)
-	exeopts -m 0755 --owner boinc --group boinc
+	exeopts -m 0755 --owner root --group boinc
 	newexe bin/pc "gene_pcim_v${PV}"
 }
