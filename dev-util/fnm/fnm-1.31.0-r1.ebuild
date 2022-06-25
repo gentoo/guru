@@ -404,8 +404,8 @@ src_install() {
 	newins fnm.zsh-completion _fnm
 
 	${D}/usr/bin/fnm completions --shell fish > fnm.fish-completion || die "Cannot generate fish completions"
-	insinto /usr/share/fish/completion
-	newins fnm.fish-completion fnm
+	insinto /usr/share/fish/vendor_completions.d/
+	newins fnm.fish-completion fnm.fish
 
 	dodoc CHANGELOG.md README.md
 }
