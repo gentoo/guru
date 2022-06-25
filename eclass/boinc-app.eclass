@@ -191,7 +191,7 @@ boinc-app_appinfo_prepare() {
 # 	doappinfo "${FILESDIR}"/app_info_${PV}.xml
 #
 #	exeinto $(get_project_root)
-# 	exeopts -m 0755 --owner boinc --group boinc
+# 	exeopts -m 0755 --owner root --group boinc
 # 	newexe bin/${PN} example_app_v${PV}
 # }
 # @CODE
@@ -211,7 +211,7 @@ doappinfo() {
 
 	( # subshell to avoid pollution of calling environment
 		insinto $(get_project_root)
-		insopts -m 0644 --owner boinc --group boinc
+		insopts -m 0644 --owner root --group boinc
 		doins "${T}"/app_info.xml
 	) || die "failed to install app_info.xml"
 
@@ -279,7 +279,7 @@ dowrapper() {
 
 		( # subshell to avoid pollution of calling environment
 			insinto $(get_project_root)
-			insopts -m 0644 --owner boinc --group boinc
+			insopts -m 0644 --owner root --group boinc
 			doins "${T}/${wrapperjob}"
 			dosym -r /usr/bin/boinc-wrapper "$(get_project_root)/${wrapperexe}"
 		) || die "failed to install '${app}' wrapper app"
@@ -330,7 +330,7 @@ boinc-app_pkg_postinst() {
 boinc-app_pkg_postrm() {
 	debug-print-function ${FUNCNAME} "${@}"]
 
-	if [[ -z ${REPLACING_VERSIONS} ]]; then
+	if [[ -z ${REPLACED_BY_VERSION} ]]; then
 		local gui_rpc_auth="$(get_boincdir)/gui_rpc_auth.cfg"
 		local passwd=$(cat "${EROOT}/${gui_rpc_auth}" 2>/dev/null)
 		if [[ -z ${passwd} ]]; then
@@ -341,6 +341,7 @@ boinc-app_pkg_postrm() {
 		elog "to stop current tasks and delete remaining project files:"
 		elog
 		elog "$ boinccmd --passwd ${passwd} --project ${BOINC_MASTER_URL} detach"
+		elog
 	fi
 }
 
