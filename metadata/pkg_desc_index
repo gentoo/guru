@@ -955,6 +955,7 @@ dev-util/deblob 9999: remove binary executables from a directory
 dev-util/devscripts 2.21.3 2.22.1 2.22.1-r1: Scripts to make the life of a Debian Package maintainer easier
 dev-util/eclipse-parallel-bin 4.22 4.23: Eclipse IDE for Scientific Computing (C, C++, Fortran)
 dev-util/exercism 3.0.13: Command line client for https://exercism.io
+dev-util/fnm 1.31.0: Fast and simple Node.js version manager
 dev-util/fontmake 3.3.0: A wrapper for several Python libraries to compile fonts from sources
 dev-util/fortran-test-drive 0.4.0: The simple testing framework (for Fortran)
 dev-util/fypp 3.1: Fypp - Python powered Fortran preprocessor
