@@ -17,6 +17,13 @@ HOMEPAGE="https://c9x.me/compile/"
 LICENSE="MIT"
 SLOT="0"
 
+DOCS=( README doc )
+
+src_compile() {
+	emake CFLAGS="-std=c99 ${CPPFLAGS} ${CFLAGS}"
+}
+
 src_install() {
-	PREFIX=/usr default
+	einstalldocs
+	emake install DESTDIR="${ED}" PREFIX=/usr
 }
