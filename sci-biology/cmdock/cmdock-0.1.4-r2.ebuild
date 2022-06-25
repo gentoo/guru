@@ -93,7 +93,7 @@ src_install() {
 		# install a blank file
 		touch "${T}"/docking_out || die
 		insinto $(get_project_root)
-		insopts -m 0644 --owner boinc --group boinc
+		insopts -m 0644 --owner root --group boinc
 		doins "${T}"/docking_out
 	fi
 }
