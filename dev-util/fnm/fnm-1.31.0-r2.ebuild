@@ -388,8 +388,14 @@ QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 src_prepare() {
 	eapply "${FILESDIR}/${P}-cargo.patch"
-	eapply "${FILESDIR}/${P}-tests.patch"
 	sed -i "s|@@REQWEST_PATH@@|\"${WORKDIR}/reqwest-${REQWEST_COMMIT}\"|g" "${S}/Cargo.toml" || die "Cannot patch reqwuest cargo dependency"
+
+	# Skip testing against PowerShell and WinCmd
+	eapply "${FILESDIR}/${P}-skip-windows-related-tests.patch"
+
+	# https://bugs.gentoo.org/854366
+	eapply "${FILESDIR}/${P}-skip-npm-installing-tests.patch"
+
 	default
 }
 
