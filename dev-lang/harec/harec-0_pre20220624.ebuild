@@ -32,6 +32,12 @@ src_unpack() {
 	mkdir "${S}" || die
 }
 
+src_prepare() {
+	default
+
+	sed -i 's; -Werror ; ;' ../config.sh || die
+}
+
 src_configure() {
 	../configure --prefix="/usr" --libdir="/usr/$(get_libdir)" || die
 }
