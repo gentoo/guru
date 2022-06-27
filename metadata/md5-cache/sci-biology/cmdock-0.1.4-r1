@@ -10,5 +10,5 @@ LICENSE=LGPL-3 ZLIB
 RDEPEND=dev-lang/perl boinc? ( sci-misc/boinc-wrapper )
 SLOT=0/0.1.4
 SRC_URI=https://gitlab.com/Jukic/cmdock/-/archive/v0.1.4/cmdock-v0.1.4.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	boinc-app	3149d1679d3b47e85f777e8da3dd0fc7	docs	8ed2a8a28ff109e7a3582c9abb7fe327	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	ninja-utils	58ec4e54962bf45d065fb95030701514	meson	8f48ffde53174aba67239f0da61ac9d3
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	boinc-app	3149d1679d3b47e85f777e8da3dd0fc7	docs	8ed2a8a28ff109e7a3582c9abb7fe327	flag-o-matic	a500d7cc40da3de38c361e889153bdf7	ninja-utils	58ec4e54962bf45d065fb95030701514	meson	8f48ffde53174aba67239f0da61ac9d3
 _md5_=bbd46c38de08126251d9a09c8cd2ee67

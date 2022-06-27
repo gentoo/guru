@@ -9,5 +9,5 @@ LICENSE=GPL-2
 RDEPEND=app-portage/gentoolkit app-portage/portage-utils lxde-base/lxterminal dev-qt/qtcore dev-qt/qtgui dev-qt/qtsql[sqlite]
 SLOT=0
 SRC_URI=https://github.com/k9spud/appswipe/archive/refs/tags/v1.1.14.tar.gz -> appswipe-1.1.14.tar.gz
-_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85	qmake-utils	59420c906278d16deaaa629f9d115707
+_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	qmake-utils	59420c906278d16deaaa629f9d115707
 _md5_=701de3dc7a3e0640d579cea00d0de70b

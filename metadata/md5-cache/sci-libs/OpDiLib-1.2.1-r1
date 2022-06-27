@@ -10,5 +10,5 @@ LICENSE=GPL-3
 RDEPEND=examples? ( sci-libs/CoDiPack )
 SLOT=0/1.2.1
 SRC_URI=https://github.com/SciCompKL/OpDiLib/archive/refs/tags/v1.2.1.tar.gz -> OpDiLib-1.2.1.tar.gz
-_eclasses_=toolchain-funcs	fd9cde67030b26e479eeadaced488253	multilib	4fbbbc98f236f1b43acd99476bc3cd85
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85
 _md5_=1044253114828156f172c6272f9df910
