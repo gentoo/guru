@@ -13,7 +13,7 @@ SRC_URI="https://github.com/andmarti1424/sc-im/archive/v${PV}.tar.gz -> ${P}.tar
 
 LICENSE="BSD-4"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE="X plots wayland xls xlsx lua ods tmux"
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
 
