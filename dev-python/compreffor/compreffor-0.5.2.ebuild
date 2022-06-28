@@ -27,7 +27,7 @@ BDEPEND="
 	dev-python/setuptools_scm[${PYTHON_USEDEP}]
 "
 
-PATCHES=( "${FILESDIR}/${P}-remove-unwanted-dependencies.patch" )
+PATCHES=( "${FILESDIR}/${PN}-0.5.1_p1-remove-unwanted-dependencies.patch" )
 
 distutils_enable_tests pytest
 
