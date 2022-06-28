@@ -17,7 +17,6 @@ HOMEPAGE="
 	https://github.com/openstack/oslo.cache
 "
 SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_PN}-${PV}.tar.gz -> ${P}.tar.gz"
-
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="Apache-2.0"
@@ -33,19 +32,20 @@ RDEPEND="
 	>=dev-python/oslo-utils-4.2.0[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
-BDEPEND="
-	test? (
-		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
-		>=dev-python/pifpaf-0.10.0[${PYTHON_USEDEP}]
-		>=dev-python/pymemcache-3.4.0[${PYTHON_USEDEP}]
-		>=dev-python/python-binary-memcached-0.29.0[${PYTHON_USEDEP}]
-		>=dev-python/python-memcached-1.56[${PYTHON_USEDEP}]
-		>=dev-python/pymongo-3.0.2[${PYTHON_USEDEP}]
-		>=dev-python/etcd3gw-0.2.0[${PYTHON_USEDEP}]
-	)
-"
+#BDEPEND="
+#	test? (
+#		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
+#		>=dev-python/pifpaf-0.10.0[${PYTHON_USEDEP}]
+#		>=dev-python/pymemcache-3.4.0[${PYTHON_USEDEP}]
+#		>=dev-python/python-binary-memcached-0.29.0[${PYTHON_USEDEP}]
+#		>=dev-python/python-memcached-1.56[${PYTHON_USEDEP}]
+#		>=dev-python/pymongo-3.0.2[${PYTHON_USEDEP}]
+#		>=dev-python/etcd3gw-0.2.0[${PYTHON_USEDEP}]
+#	)
+#"
 
+# dev-python/python-binary-memcached is masked
 RESTRICT="test"
-PROPERTIES="test_network"
+#PROPERTIES="test_network"
 
 distutils_enable_tests pytest
