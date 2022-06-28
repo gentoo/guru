@@ -32,6 +32,7 @@ RDEPEND=""
 DEPEND="
 	${RDEPEND}
 	dev-python/cython[${PYTHON_USEDEP}]
+	dev-python/wheel[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
@@ -42,10 +43,5 @@ BDEPEND="
 		dev-python/lz4[${PYTHON_USEDEP}]
 	)
 "
-
-src_configure() {
-	export FASTAVRO_USE_CYTHON=1
-	default
-}
 
 distutils_enable_tests pytest
