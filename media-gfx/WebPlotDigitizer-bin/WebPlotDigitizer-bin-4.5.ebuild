@@ -39,7 +39,7 @@ S="${WORKDIR}/${MY_PN}-${PV}-linux-x64"
 
 QA_FLAGS_IGNORED="
 	/opt/${P}/chrome-sandbox
-	/opt/${P}/libvulkan.so*
+	/opt/${P}/libvulkan.*
 "
 
 ## It seems media-libs/alsa-lib is required by chrome-sandbox.
