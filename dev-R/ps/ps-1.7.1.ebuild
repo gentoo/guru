@@ -17,7 +17,7 @@ LICENSE='MIT'
 DEPEND=">=dev-lang/R-3.1"
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${P}-fPIE.patch" )
+PATCHES=( "${FILESDIR}/${PN}-1.7.0-fPIE.patch" )
 
 SUGGESTED_PACKAGES="
 	dev-R/callr
