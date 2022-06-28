@@ -21,7 +21,6 @@ KEYWORDS="~amd64"
 
 DEPEND="
 	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
-	>=dev-python/six-1.10.0[${PYTHON_USEDEP}]
 	>=dev-python/futurist-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/fasteners-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/networkx-2.1.0[${PYTHON_USEDEP}]
