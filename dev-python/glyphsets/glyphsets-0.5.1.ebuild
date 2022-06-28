@@ -28,7 +28,7 @@ DEPEND="
 	>=dev-python/setuptools_scm-4[${PYTHON_USEDEP}]
 "
 
-PATCHES=( "${FILESDIR}/${P}-remove-setuptools_scm.constraint.patch" )
+PATCHES=( "${FILESDIR}/${PN}-0.5.0-remove-setuptools_scm.constraint.patch" )
 
 python_prepare_all() {
 	export SETUPTOOLS_SCM_PRETEND_VERSION="${PV}"
