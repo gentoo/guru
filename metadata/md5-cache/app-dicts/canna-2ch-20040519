@@ -1,0 +1,13 @@
+BDEPEND=canna? ( app-i18n/canna )
+DEFINED_PHASES=compile install postinst postrm
+DESCRIPTION=Japanese Canna dictionary for 2channelers
+EAPI=8
+HOMEPAGE=http://omaemona.sourceforge.net/packages/Canna
+INHERIT=cannadic
+IUSE=canna
+KEYWORDS=~amd64
+LICENSE=public-domain
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~naota/files/canna-2ch-20040519.tar.gz
+_eclasses_=cannadic	ad961c92f4263dd6cbf82bf9b97c141c
+_md5_=3539351c3e99d84bc8c0567b071ed6ee

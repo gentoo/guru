@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm prepare
+DEPEND=>=app-i18n/canna-3.6_p3
+DESCRIPTION=medical term dictionary for canna
+EAPI=8
+HOMEPAGE=https://web.archive.org/web/20050723235132/http://spica.onh.go.jp/med_dic/
+INHERIT=cannadic
+KEYWORDS=~amd64
+LICENSE=all-rights-reserved
+RDEPEND=>=app-i18n/canna-3.6_p3
+SLOT=0
+SRC_URI=mirror://gentoo/canna-canada-med-20030309.tar.gz
+_eclasses_=cannadic	ad961c92f4263dd6cbf82bf9b97c141c
+_md5_=f52658bf2c148a212eaf120e3d93cab6

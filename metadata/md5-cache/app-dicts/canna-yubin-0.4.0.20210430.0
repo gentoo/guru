@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst postrm
+DEPEND=>=app-i18n/canna-3.6_p3
+DESCRIPTION=Japanese postal code number extension dictionary for Canna
+EAPI=8
+HOMEPAGE=https://osdn.net/projects/canna-yubin/
+INHERIT=cannadic
+KEYWORDS=~amd64
+LICENSE=GPL-2+ public-domain
+RDEPEND=>=app-i18n/canna-3.6_p3
+SLOT=0
+SRC_URI=https://jaist.dl.osdn.jp/canna-yubin/75047/canna-yubin-0.4.0.20210430.0.tar.xz
+_eclasses_=cannadic	ad961c92f4263dd6cbf82bf9b97c141c
+_md5_=f9709ce540a0699a453f4dc627661abf

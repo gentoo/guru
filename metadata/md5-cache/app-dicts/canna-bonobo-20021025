@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst postrm
+DEPEND=>=app-i18n/canna-3.6_p3
+DESCRIPTION=supporting dictionaries for Canna
+EAPI=8
+HOMEPAGE=http://bonobo.gnome.gr.jp/~nakai/canna/
+INHERIT=cannadic
+KEYWORDS=~amd64
+LICENSE=public-domain
+RDEPEND=>=app-i18n/canna-3.6_p3
+SLOT=0
+SRC_URI=http://bonobo.gnome.gr.jp/~nakai/canna/pubdic-bonobo-20021025.tar.bz2
+_eclasses_=cannadic	ad961c92f4263dd6cbf82bf9b97c141c
+_md5_=1f6ee45e3f4851d13a7822e633314dd3

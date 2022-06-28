@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install preinst prepare setup
+DEPEND=~dev-java/gluegen-2.3.2:2.3 dev-java/antlr:0 dev-java/ant-core:0 x11-libs/libX11 x11-libs/libXxf86vm dev-java/swt:3.7 virtual/opengl cg? ( media-gfx/nvidia-cg-toolkit ) >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) >=dev-java/ant-core-1.8.2:0 dev-java/ant-antlr dev-java/ant-contrib dev-java/cpptasks:0 dev-java/javatoolkit
+DESCRIPTION=Java(TM) Binding fot the OpenGL(TM) API
+EAPI=8
+HOMEPAGE=https://jogamp.org/jogl/www/ https://github.com/sgothel/jogl
+INHERIT=java-pkg-2 java-ant-2
+IUSE=cg doc source
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=~dev-java/gluegen-2.3.2:2.3 dev-java/antlr:0 dev-java/ant-core:0 x11-libs/libX11 x11-libs/libXxf86vm dev-java/swt:3.7 virtual/opengl cg? ( media-gfx/nvidia-cg-toolkit ) >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test
+SLOT=2.3
+SRC_URI=https://github.com/sgothel/jogl/archive/v2.3.2.tar.gz -> jogl-2.3.2.gh.tar.gz
+_eclasses_=java-utils-2	cfb5f6911bb70204c94ceafd0372c716	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	multilib	4fbbbc98f236f1b43acd99476bc3cd85	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	java-ant-2	5cf479aa9e0ac9cc55899f2762c2aaa0
+_md5_=5ada99790061c53a7f7bc8b7e2d71ad6

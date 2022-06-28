@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst postrm unpack
+DEPEND=>=app-i18n/canna-3.6_p3
+DESCRIPTION=skk jisyo zipcode and geo datasets for canna
+EAPI=8
+HOMEPAGE=https://src.fedoraproject.org/rpms/Canna
+INHERIT=cannadic
+KEYWORDS=~amd64
+LICENSE=public-domain GPL-2+
+RDEPEND=>=app-i18n/canna-3.6_p3
+SLOT=0
+SRC_URI=https://src.fedoraproject.org/rpms/Canna/raw/f29/f/skk-dictionaries.patch
+_eclasses_=cannadic	ad961c92f4263dd6cbf82bf9b97c141c
+_md5_=0ce57294662d6d735b420d687246e2e0

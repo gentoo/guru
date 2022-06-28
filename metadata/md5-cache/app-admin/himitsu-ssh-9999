@@ -1,0 +1,13 @@
+BDEPEND=app-text/scdoc >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=configure unpack
+DEPEND=app-admin/himitsu dev-lang/hare:=
+DESCRIPTION=SSH integration for Himitsu
+EAPI=8
+HOMEPAGE=https://git.sr.ht/~sircmpwn/himitsu-ssh
+INHERIT=git-r3
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=app-admin/himitsu
+SLOT=0
+_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=20cf843052e8eb61a8f252612b10c9d4

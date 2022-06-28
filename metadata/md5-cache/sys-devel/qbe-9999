@@ -1,5 +1,5 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install unpack
+DEFINED_PHASES=compile install unpack
 DESCRIPTION=Pure-C embeddable compiler backend
 EAPI=7
 HOMEPAGE=https://c9x.me/compile/
@@ -8,4 +8,4 @@ LICENSE=MIT
 PROPERTIES=live
 SLOT=0
 _eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=b756e39b1b96cb79e2bf841d671c5df6
+_md5_=1f1d4e457a95fe5877e8d23a6c2bbdc6

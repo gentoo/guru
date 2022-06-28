@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm prepare
+DEPEND=>=app-i18n/canna-3.6_p3
+DESCRIPTION=supporting dictionaries for Canna
+EAPI=8
+HOMEPAGE=https://web.archive.org/web/20051217013038/http://www.coolbrain.net:80/shion.html
+INHERIT=cannadic
+KEYWORDS=~amd64
+LICENSE=shion
+RDEPEND=>=app-i18n/canna-3.6_p3
+SLOT=0
+SRC_URI=mirror://debian/pool/main/c/canna-shion/canna-shion_0.0.20010204.orig.tar.gz mirror://debian/pool/main/c/canna-shion/canna-shion_0.0.20010204-13.debian.tar.xz
+_eclasses_=cannadic	ad961c92f4263dd6cbf82bf9b97c141c
+_md5_=95f0410b413c4b8ae88207a4cbdda74f

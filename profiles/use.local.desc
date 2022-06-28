@@ -18,8 +18,10 @@ app-crypt/uacme:gnutls - Use net-libs/gnutls instead of dev-libs/openssl
 app-crypt/uacme:man - Build and install man pages
 app-crypt/uacme:mbedtls - Use net-libs/mbedtls instead of dev-libs/openssl
 app-crypt/uacme:ualpn - Build the ualpn proxy that transparently handles tls-alpn-01
+app-dicts/canna-2ch:canna - Add support for the Canna kana to kanji conversion engine
 app-dicts/dictd-mueller:ipa - convert transcription into the IPA Unicode
 app-emulation/arnold:inkz80 - Use inkz80 processor emulation
+app-i18n/canna:canuum - Build canuum
 app-misc/apidb:commands - Build commands
 app-misc/apidb:corelibs - Build Abtract layer
 app-misc/apidb:mariadb - Build MariaDB Layer
@@ -79,6 +81,7 @@ dev-games/godot:freetype - Enable support for media-libs/freetype
 dev-games/godot:lto - Enable support for link time optimization
 dev-games/godot:mbedtls - Enable support for net-libs/mbedtls
 dev-games/godot:raycast - Enable raycast module using media-libs/embree
+dev-java/jogl:cg - Enable NVidia Cg binding.
 dev-libs/KVTree:fcntl - Set the type of file locking to fcntl.
 dev-libs/KVTree:flock - Set the type of file locking to flock.
 dev-libs/atl:utilities - Build utilities
@@ -394,6 +397,7 @@ media-sound/6pm:nls - Add support for localization
 media-sound/6pm:presets - Install presets. Recommended
 media-sound/add64:presets - Install presets. Recommended
 media-sound/ncpamixer:wide - Add ncurses wide characters support
+media-sound/nulloy:skins - Add a few themes, enable if you want dark
 media-video/syncplay:client - Install the Syncplay client
 media-video/syncplay:server - Install the Syncplay server
 media-video/uxplay:zoomfix - supported mirrored window for screen-sharing applications such as Zoom
@@ -424,6 +428,8 @@ net-libs/ixwebsocket:ws - Build the ws utility
 net-libs/td:benchmark - Enable benchmarking
 net-libs/td:dotnet - Add support for .NET
 net-libs/td:jumbo-build - Combine source files to speed up build process
+net-libs/ulfius:jansson - Jansson support for JSON
+net-libs/ulfius:websocket - websocket support
 net-libs/usockets:asio - Enable bindings to use the boost asio dispatcher
 net-libs/usockets:libuv - Enable bindings to use the libuv dispatcher
 net-misc/bee:dashboard - build the dashboard plugin
@@ -461,7 +467,7 @@ sci-libs/STRUMPACK:butterflypack - ButterflyPACK code by Yang Liu
 sci-libs/STRUMPACK:combblas - Use CombBLAS for weighted matching
 sci-libs/STRUMPACK:count-flops - Build with flop counters
 sci-libs/STRUMPACK:hip - Use HIP for AMD or NVIDIA GPU acceleration
-sci-libs/STRUMPACK:message-counters - Build with counter for MPI messages
+sci-libs/STRUMPACK:message-counter - Build with counter for MPI messages
 sci-libs/STRUMPACK:metis - Build with support for ParMetis
 sci-libs/STRUMPACK:papi - Build with support for PAPI monitoring
 sci-libs/STRUMPACK:scotch - Build with support for Scotch
