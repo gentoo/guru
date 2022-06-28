@@ -1,0 +1,10 @@
+--- a/lib/canna/kctrl.c
++++ b/lib/canna/kctrl.c
+@@ -27,6 +27,7 @@
+ #include "canna.h"
+ 
+ #include <errno.h>
++#include <string.h>
+ #include <sys/types.h>
+ #include <canna/mfdef.h>
+ 

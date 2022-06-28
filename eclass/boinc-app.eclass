@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: boinc-app.eclass
@@ -142,6 +142,21 @@ get_project_root() {
 	echo "$(get_boincdir)/projects/$(get_project_dirname)"
 }
 
+# @FUNCTION: _boinc-app_fix_permissions
+# @USAGE:
+# @INTERNAL
+# @DESCRIPTION:
+# Fix owner and permissions for the project root.
+_boinc-app_fix_permissions() {
+	local paths=(
+		$(get_boincdir)
+		$(get_boincdir)/projects
+		$(get_project_root)
+	)
+	fowners boinc:boinc "${paths[@]}"
+	fperms 0771 "${paths[@]}"
+}
+
 # @FUNCTION: boinc-app_appinfo_prepare
 # @USAGE: <writable app_info.xml>
 # @DESCRIPTION:
@@ -151,7 +166,7 @@ boinc-app_appinfo_prepare() {
 	debug-print-function ${FUNCNAME} "${@}"]
 
 	sed -i "$1" \
-		-e "s:%PV%:${PV}:g" \
+		-e "s:@PV@:${PV}:g" \
 		|| die "app_info.xml sed failed"
 }
 
@@ -176,7 +191,7 @@ boinc-app_appinfo_prepare() {
 # 	doappinfo "${FILESDIR}"/app_info_${PV}.xml
 #
 #	exeinto $(get_project_root)
-# 	exeopts -m 0755 --owner boinc --group boinc
+# 	exeopts -m 0755 --owner root --group boinc
 # 	newexe bin/${PN} example_app_v${PV}
 # }
 # @CODE
@@ -196,9 +211,11 @@ doappinfo() {
 
 	( # subshell to avoid pollution of calling environment
 		insinto $(get_project_root)
-		insopts -m 0644 --owner boinc --group boinc
+		insopts -m 0644 --owner root --group boinc
 		doins "${T}"/app_info.xml
 	) || die "failed to install app_info.xml"
+
+	_boinc-app_fix_permissions
 }
 
 # @FUNCTION: boinc-wrapper_foreach_wrapper_job
@@ -262,11 +279,13 @@ dowrapper() {
 
 		( # subshell to avoid pollution of calling environment
 			insinto $(get_project_root)
-			insopts -m 0644 --owner boinc --group boinc
-			doins "${T}"/${wrapperjob}
+			insopts -m 0644 --owner root --group boinc
+			doins "${T}/${wrapperjob}"
 			dosym -r /usr/bin/boinc-wrapper "$(get_project_root)/${wrapperexe}"
 		) || die "failed to install '${app}' wrapper app"
 	done
+
+	_boinc-app_fix_permissions
 }
 
 # @FUNCTION: boinc-app_pkg_postinst
@@ -276,8 +295,8 @@ dowrapper() {
 boinc-app_pkg_postinst() {
 	debug-print-function ${FUNCNAME} "${@}"]
 
-	if [[ -f "${EROOT}$(get_boincdir)/master_$(get_project_dirname).xml" ]]; then
-		if [[ ! ${REPLACING_VERSIONS} ]]; then
+	if [[ -f "${EROOT}/$(get_boincdir)/master_$(get_project_dirname).xml" ]]; then
+		if [[ -z ${REPLACING_VERSIONS} ]]; then
 			# most likely replacing applications downloaded
 			# by the BOINC client from project's website
 			elog "Restart the BOINC daemon for changes to take place:"
@@ -311,18 +330,18 @@ boinc-app_pkg_postinst() {
 boinc-app_pkg_postrm() {
 	debug-print-function ${FUNCNAME} "${@}"]
 
-	if [[ ! ${REPLACED_BY_VERSION} ]]; then
+	if [[ -z ${REPLACED_BY_VERSION} ]]; then
 		local gui_rpc_auth="$(get_boincdir)/gui_rpc_auth.cfg"
-		local passwd=$(cat "${EROOT}${gui_rpc_auth}")
-		if [[ ! ${passwd} ]]; then
+		local passwd=$(cat "${EROOT}/${gui_rpc_auth}" 2>/dev/null)
+		if [[ -z ${passwd} ]]; then
 			passwd="\$(cat ${gui_rpc_auth})"
 		fi
 
-		elog
 		elog "You should detach this project from the BOINC client"
 		elog "to stop current tasks and delete remaining project files:"
 		elog
 		elog "$ boinccmd --passwd ${passwd} --project ${BOINC_MASTER_URL} detach"
+		elog
 	fi
 }
 

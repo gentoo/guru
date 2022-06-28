@@ -1,0 +1,14 @@
+--- a/make/build-test.xml
++++ b/make/build-test.xml
+@@ -614,9 +614,11 @@ chmod 644 ${results}/* \${line.separator}
+ 
+     <!-- updates / create the test results zip file -->
+     <target name="test-zip-archive" depends="init">
++    	<!--
+         <archive.7z destfile="${build}/${test.archive.name}.7z"
+                     basedir="${project.root}" 
+                     includes="${rootrel.build}/test/results ${rootrel.build}/test/results-x64 ${rootrel.build}/test/results-x32" />
++        -->
+     </target>
+ 
+ 

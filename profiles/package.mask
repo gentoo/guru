@@ -65,3 +65,14 @@ net-mail/remail
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-06-18)
 # depends on non-existent dev-java/guava:20
 dev-java/gradle-hashing
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-06-26)
+# depends on non-existent dev-python/m2r
+# https://github.com/jaysonsantos/python-binary-memcached/issues/249
+dev-python/python-binary-memcached
+
+# Huang Rui <vowstar@gmail.com> (2022-06-27)
+# the version strategy has changed and follows deepin's strategy
+=zw3d/zw3d-2022.26.00
+=zw3d/zw3d-2022.26.00-r1
+

@@ -1,0 +1,29 @@
+--- /var/tmp/portage/app-i18n/canna-3.7_p3-r4/work/Canna37p3/canuum/Imakefile
++++ Canna37p3/canuum/Imakefile
+@@ -51,6 +51,8 @@
+ 	$(CONFIGURE_CMD)
+ XCOMM Invoked from confwrapper
+ cwenv.sh:
+-	$(CANNAROOT)/confwrapper mkenv CPPFLAGS $(ALLDEFINES) > $@
+-	$(CANNAROOT)/confwrapper mkenv CC env $(CC) >> $@
++	$(CANNAROOT)/confwrapper mkenv CPPFLAGS $(ALLDEFINES) $(CPPFLAGS) > $@
++	$(CANNAROOT)/confwrapper mkenv CC $(CC) >> $@
++	$(CANNAROOT)/confwrapper mkenv AR $(AR) >> $@
+ 	$(CANNAROOT)/confwrapper mkenv CFLAGS $(PURE_CFLAGS) >> $@
++	$(CANNAROOT)/confwrapper mkenv LDFLAGS $(LDFLAGS) >> $@
+--- /var/tmp/portage/app-i18n/canna-3.7_p3-r4/work/Canna37p3/Imakefile
++++ Canna37p3/Imakefile
+@@ -117,9 +117,11 @@
+ 	$(CONFIGURE_CMD)
+ XCOMM Invoked from confwrapper
+ cwenv.sh:
+-	$(CANNAROOT)/confwrapper mkenv CPPFLAGS $(ALLDEFINES) > $@
+-	$(CANNAROOT)/confwrapper mkenv CC env $(CC) >> $@
++	$(CANNAROOT)/confwrapper mkenv CPPFLAGS $(ALLDEFINES) $(CPPFLAGS) > $@
++	$(CANNAROOT)/confwrapper mkenv CC $(CC) >> $@
++	$(CANNAROOT)/confwrapper mkenv AR $(AR) >> $@
+ 	$(CANNAROOT)/confwrapper mkenv CFLAGS $(PURE_CFLAGS) >> $@
++	$(CANNAROOT)/confwrapper mkenv LDFLAGS $(LDFLAGS) >> $@
+ 
+ CANNAROOT = .
+ SERVERDIR = server dic/phono dic/ideo

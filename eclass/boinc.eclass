@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: boinc.eclass
@@ -34,7 +34,7 @@ esac
 
 if [[ ! ${_BOINC_ECLASS} ]]; then
 
-inherit autotools toolchain-funcs
+inherit autotools edo toolchain-funcs
 
 fi
 
@@ -199,8 +199,7 @@ boinc_src_configure() {
 	boinc_builddir_check
 	pushd "${BOINC_BUILD_DIR}" >/dev/null || die
 
-	bash ./generate_svn_version.sh || \
-		die "generating svn_version.h failed"
+	edo bash ./generate_svn_version.sh
 
 	if [[ ${_BOINC_RUN_AUTOTOOLS} ]]; then
 		econf "${_BOINC_ECONF_ARGS[@]}"

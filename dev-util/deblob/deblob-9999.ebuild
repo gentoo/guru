@@ -19,12 +19,6 @@ DEPEND="
 "
 RDEPEND=""
 
-src_compile() {
-	default
-	mv "${P}" "${PN}" || die
-}
-
 src_install() {
-	emake install DESTDIR="${D}" PREFIX="/usr"
-	einstalldocs
+	PREFIX="/usr" default
 }

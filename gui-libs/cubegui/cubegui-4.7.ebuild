@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools bash-completion-r1 qmake-utils toolchain-funcs
+inherit bash-completion-r1 qmake-utils toolchain-funcs
 
 DESCRIPTION="CUBE Uniform Behavioral Encoding GUI"
 HOMEPAGE="https://www.scalasca.org/scalasca/software/cube-4.x"
@@ -31,15 +31,9 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="app-doc/doxygen[dot]"
 
-PATCHES=( "${FILESDIR}/${P}-autotroll.patch" )
-
-src_prepare() {
-	default
-	pushd build-frontend || die
-	eautoreconf
-	popd || die
-	eautoreconf
-}
+PATCHES=(
+	"${FILESDIR}/${P}-custom-compiler.patch"
+)
 
 src_configure() {
 	tc-export CC CXX FC F77 CPP AR
@@ -106,6 +100,7 @@ src_configure() {
 		--with-plugin-treeitem-marker
 		--with-plugin-vampir
 		--with-qt="$(qt5_get_bindir)"
+		--with-qt-specs="$(qmake5 -query QMAKE_SPEC || die)"
 
 		$(use_enable debug)
 		$(use_with concurrent)

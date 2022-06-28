@@ -5,7 +5,8 @@
 </app>
 
 <file_info>
-	<name>gene_pcim_v1.10</name>
+	<name>gene_pcim_v@PV@</name>
+	<sticky/>
 	<executable/>
 </file_info>
 
@@ -13,7 +14,7 @@
 	<app_name>gene_pcim</app_name>
 	<version_num>110</version_num>
 	<file_ref>
-		<file_name>gene_pcim_v1.10</file_name>
+		<file_name>gene_pcim_v@PV@</file_name>
 		<main_program/>
 	</file_ref>
 </app_version>
