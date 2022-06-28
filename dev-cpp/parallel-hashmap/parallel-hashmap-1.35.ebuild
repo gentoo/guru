@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
@@ -10,20 +10,25 @@ HOMEPAGE="
 	https://greg7mdp.github.io/parallel-hashmap/
 	https://github.com/greg7mdp/parallel-hashmap
 "
-SRC_URI="https://github.com/greg7mdp/parallel-hashmap/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/greg7mdp/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="Apache-2.0"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="examples"
+IUSE="examples test"
 
-DEPEND=""
-RDEPEND="${DEPEND}"
+CDEPEND="dev-libs/cereal"
+DEPEND="test? ( ${CDEPEND} )"
+RDEPEND="${CDEPEND}"
 
-#TODO: explore the various cmake options (if any)
-#TODO: tests
+RESTRICT="!test? ( test )"
 
 src_compile() {
+	mycmakeargs=(
+		PHMAP_BUILD_EXAMPLES=$(usex examples)
+		PHMAP_BUILD_TESTS=$(usex test)
+	)
+
 	cmake_src_compile
 }
 
