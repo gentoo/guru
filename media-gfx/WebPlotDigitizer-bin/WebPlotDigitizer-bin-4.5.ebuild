@@ -45,7 +45,8 @@ QA_FLAGS_IGNORED="
 ## It seems media-libs/alsa-lib is required by chrome-sandbox.
 ## Actually this library isn't required to work.
 QA_SONAME="
-	/usr/lib*/libasound.so.2
+	/usr/lib.*/libasound.so.2
+	/usr/lib.*/libxkbcommon.so.0
 "
 
 src_install() {
