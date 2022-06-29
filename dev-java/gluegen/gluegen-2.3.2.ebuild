@@ -66,7 +66,7 @@ src_prepare() {
 	mv "${WORKDIR}"/jcpp-${PV}/* jcpp/ || die
 	rm -rf make/lib || die
 	default
-	java-ant_bsfix_files "${S}/make/build-test.xml"
+	java-ant_bsfix_files "${S}/make/build-test.xml" "${S}/make/jogamp-env.xml"
 
 	#it want a git repo
 	git init || die
