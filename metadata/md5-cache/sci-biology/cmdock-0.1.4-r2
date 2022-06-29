@@ -8,9 +8,9 @@ INHERIT=python-single-r1 boinc-app docs flag-o-matic meson optfeature
 IUSE=apidoc boinc cpu_flags_x86_sse2 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 doc
 KEYWORDS=~amd64
 LICENSE=LGPL-3 ZLIB
-RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.12_p1-r1:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.9-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.0_p1-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta1-r1:3.11 ) dev-lang/perl:* boinc? ( sci-misc/boinc-wrapper )
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta3:3.11 ) dev-lang/perl:* boinc? ( sci-misc/boinc-wrapper )
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0/0.1.4
 SRC_URI=https://gitlab.com/Jukic/cmdock/-/archive/v0.1.4/cmdock-v0.1.4.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	648fe6a039e87233d7f48da72cadb76f	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	boinc-app	bb956c66e3f125428cac2af48941c58a	docs	8ed2a8a28ff109e7a3582c9abb7fe327	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	ninja-utils	58ec4e54962bf45d065fb95030701514	meson	8f48ffde53174aba67239f0da61ac9d3	optfeature	d524f291c80f9d21ad80fe978e3ca760
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	boinc-app	bb956c66e3f125428cac2af48941c58a	docs	8ed2a8a28ff109e7a3582c9abb7fe327	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	ninja-utils	58ec4e54962bf45d065fb95030701514	meson	8f48ffde53174aba67239f0da61ac9d3	optfeature	d524f291c80f9d21ad80fe978e3ca760
 _md5_=6de0a9be29af11e79456c7cb3c9e31a5
