@@ -87,6 +87,20 @@ get_package_url() {
 	echo "${_PACKAGE_URL}"
 }
 
+# @FUNCTION: nimble_comment_requires
+# @USAGE: <dep...>
+# @DESCRIPTION:
+# Comment out one or more 'requires' calls in the Nimble file.
+nimble_comment_requires() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	local dep
+	for dep in "${@}"; do
+		dep=${dep//\//\\/}
+		sed "/requires[[:space:]]*\"${dep}\>.*\"/ s/^/#/" -i *.nimble || die
+	done
+}
+
 # @FUNCTION: nimble_src_configure
 # @USAGE:
 # @DESCRIPTION:
