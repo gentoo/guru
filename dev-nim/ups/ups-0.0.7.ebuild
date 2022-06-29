@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit edo nimble
+inherit nimble
 
 DESCRIPTION="a package handler"
 HOMEPAGE="https://github.com/disruptek/ups"
@@ -17,15 +17,7 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="=dev-nim/npeg-0*"
-BDEPEND="
-	test? (
-		${RDEPEND}
-		dev-nim/balls
-	)
-"
+DEPEND="test? ( ${RDEPEND} )"
+BDEPEND="test? ( dev-nim/balls )"
 
 set_package_url "https://github.com/disruptek/ups"
-
-src_test() {
-	edo balls
-}
