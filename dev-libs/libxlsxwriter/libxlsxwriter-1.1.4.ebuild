@@ -11,7 +11,7 @@ SRC_URI="https://github.com/jmcnamara/libxlsxwriter/archive/RELEASE_${PV}.tar.gz
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE="openssl"
 S="${WORKDIR}/${PN}-RELEASE_${PV}"
 

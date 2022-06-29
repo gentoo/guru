@@ -3,18 +3,7 @@
 
 EAPI=8
 
-EANT_BUILD_TARGET="all.no_junit"
-EANT_BUILD_XML="make/build.xml"
-EANT_DOC_TARGET=""
-EANT_EXTRA_ARGS="-Dc.strip.libraries=false"
-EANT_GENTOO_CLASSPATH="antlr,ant-core,jsr305"
-EANT_GENTOO_CLASSPATH_EXTRA="${S}/build/${PN}{,-rt}.jar"
-EANT_NEEDS_TOOLS="yes"
-EANT_TEST_GENTOO_CLASSPATH="${EANT_GENTOO_CLASSPATH},junit-4"
-EANT_TEST_TARGET="junit.run"
-JAVA_ANT_REWRITE_CLASSPATH="yes"
 JAVA_PKG_IUSE="doc source test"
-WANT_ANT_TASKS="ant-antlr ant-contrib dev-java/cpptasks:0"
 
 inherit java-pkg-2 java-ant-2 toolchain-funcs
 
@@ -60,6 +49,17 @@ PATCHES=(
 	"${FILESDIR}/${P}-remove-static-lib.patch"
 	"${FILESDIR}/${P}-respect-flags.patch"
 )
+EANT_BUILD_TARGET="all.no_junit"
+EANT_BUILD_XML="make/build.xml"
+EANT_DOC_TARGET=""
+EANT_EXTRA_ARGS="-Dc.strip.libraries=false"
+EANT_GENTOO_CLASSPATH="antlr,ant-core,jsr305"
+EANT_GENTOO_CLASSPATH_EXTRA="${S}/build/${PN}{,-rt}.jar"
+EANT_NEEDS_TOOLS="yes"
+EANT_TEST_GENTOO_CLASSPATH="${EANT_GENTOO_CLASSPATH},junit-4"
+EANT_TEST_TARGET="junit.run"
+JAVA_ANT_REWRITE_CLASSPATH="yes"
+WANT_ANT_TASKS="ant-antlr ant-contrib dev-java/cpptasks:0"
 
 src_prepare() {
 	tc-export CC
