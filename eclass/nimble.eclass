@@ -57,7 +57,7 @@ if [[ ! ${_NIMBLE_ECLASS} ]]; then
 # Force ninja because samu doesn't work correctly.
 NINJA="ninja"
 
-inherit edo nim-utils ninja-utils
+inherit nim-utils ninja-utils
 
 BDEPEND="${NINJA_DEPEND}
 	dev-lang/nim
@@ -138,7 +138,9 @@ nimble_src_configure() {
 		"${mynimargs[@]}"
 	)
 
-	edo nimbus "${nimbusargs[@]}" "${S}" "${BUILD_DIR}"
+	set -- nimbus "${nimbusargs[@]}" "${S}" "${BUILD_DIR}"
+	echo "${@}" >&2
+	"${@}" || die "${*} failed"
 }
 
 # @FUNCTION: nimble_build
