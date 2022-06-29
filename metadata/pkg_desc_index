@@ -35,7 +35,6 @@ app-admin/akita 0.1.4: An HTTP log monitoring tool for your terminal
 app-admin/ananicy-cpp 1.0.0_rc6-r1: Ananicy rewritten in C++ for much lower CPU and memory usage
 app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
 app-admin/aws-vault 6.4.0 6.6.0: Securely store and access AWS credentials in development environments
-app-admin/awscli-bin 2.7.9-r1: Universal Command Line Interface for Amazon Web Services version 2
 app-admin/chamber 2.10.7 2.10.9: Managing secrets in AWS SSM Parameter Store
 app-admin/chezmoi 2.16.0: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
