@@ -42,8 +42,14 @@ src_compile() {
 }
 
 src_install() {
-	DESTDIR="${D}" emake install
-	mv "${ED}/usr/share/doc/${PN}/example" "${ED}/usr/share/doc/${PF}/examples" || die
+	MAKEOPTS="-j1" DESTDIR="${D}" emake install
+	docinto examples
+	dodoc -r "${ED}"/usr/share/doc/${PN}/example/*
+	docinto html/tools-dev
+	dodoc -r "${ED}"/usr/share/doc/${PF}/tools-dev/html/*
 	java-pkg_dojar "${ED}/usr/share/java/CubeReader.jar"
+
+	rm -r "${ED}/usr/share/doc/${PF}/tools-dev" || die
+	rm -r "${ED}/usr/share/doc/${PN}" || die
 	rm -r "${ED}/usr/share/java/CubeReader.jar" || die
 }
