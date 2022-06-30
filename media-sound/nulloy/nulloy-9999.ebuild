@@ -29,6 +29,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+
 src_unpack() {
 	git-r3_src_unpack
 
@@ -61,7 +62,7 @@ src_configure() {
 		--libdir "$(get_libdir)"
 	)
 
-	./configure "${myconfargs[@]}" || die
+	QMAKE=/usr/bin/qmake5 LRELEASE=/usr/lib64/qt5/bin/lrelease ./configure "${myconfargs[@]}" || die
 }
 
 src_install() {
