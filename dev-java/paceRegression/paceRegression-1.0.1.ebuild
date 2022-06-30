@@ -35,6 +35,7 @@ PATCHES=( "${FILESDIR}/${P}-no-build-docs.patch" )
 src_prepare() {
 	java-pkg_clean
 	default
+	java-ant_bsfix_files build_package.xml
 	java-ant_rewrite-classpath build_package.xml
 }
 

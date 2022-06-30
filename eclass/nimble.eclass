@@ -51,7 +51,13 @@ if [[ ! ${_NIMBLE_ECLASS} ]]; then
 # Build directory, location where all generated files should be placed.
 # If this isn't set, it defaults to ${WORKDIR}/${P}-build.
 
-inherit edo nim-utils ninja-utils
+# @ECLASS_VARIABLE: NINJA
+# @INTERNAL
+# @DESCRIPTION:
+# Force ninja because samu doesn't work correctly.
+NINJA="ninja"
+
+inherit nim-utils ninja-utils
 
 BDEPEND="${NINJA_DEPEND}
 	dev-lang/nim
@@ -79,6 +85,20 @@ set_package_url() {
 # @RETURN: package URL
 get_package_url() {
 	echo "${_PACKAGE_URL}"
+}
+
+# @FUNCTION: nimble_comment_requires
+# @USAGE: <dep...>
+# @DESCRIPTION:
+# Comment out one or more 'requires' calls in the Nimble file.
+nimble_comment_requires() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	local dep
+	for dep in "${@}"; do
+		dep=${dep//\//\\/}
+		sed "/requires[[:space:]]*\"${dep}\>.*\"/ s/^/#/" -i *.nimble || die
+	done
 }
 
 # @FUNCTION: nimble_src_configure
@@ -118,7 +138,9 @@ nimble_src_configure() {
 		"${mynimargs[@]}"
 	)
 
-	edo nimbus "${nimbusargs[@]}" "${S}" "${BUILD_DIR}"
+	set -- nimbus "${nimbusargs[@]}" "${S}" "${BUILD_DIR}"
+	echo "${@}" >&2
+	"${@}" || die "${*} failed"
 }
 
 # @FUNCTION: nimble_build

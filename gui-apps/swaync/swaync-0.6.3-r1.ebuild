@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson vala
+inherit meson vala gnome2-utils
 
 MY_PN="SwayNotificationCenter"
 DESCRIPTION="A simple notification daemon with a GTK gui for notifications and control center"
@@ -45,4 +45,12 @@ src_configure() {
 		$(meson_use scripting)
 	)
 	meson_src_configure
+}
+
+pkg_postinst() {
+	gnome2_schemas_update
+}
+
+pkg_postrm() {
+	gnome2_schemas_update
 }

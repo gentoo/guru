@@ -21,7 +21,9 @@ CDEPEND="dev-libs/cereal"
 DEPEND="test? ( ${CDEPEND} )"
 RDEPEND="${CDEPEND}"
 
-RESTRICT="!test? ( test )"
+# tests will download gtest, not trivial to use the system one
+# https://github.com/greg7mdp/parallel-hashmap/issues/154
+RESTRICT="test"
 
 src_compile() {
 	mycmakeargs=(

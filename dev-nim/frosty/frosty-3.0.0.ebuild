@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit edo nimble
+inherit nimble
 
 DESCRIPTION="Serialize native Nim types to strings, streams, sockets, or anything else"
 HOMEPAGE="https://github.com/disruptek/frosty"
@@ -22,7 +22,3 @@ BDEPEND="test? (
 )"
 
 set_package_url "https://github.com/disruptek/frosty"
-
-src_test() {
-	edo balls
-}
