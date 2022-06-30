@@ -318,6 +318,14 @@ HTML_DOCS=( doc/watchexec.1.html )
 
 QA_FLAGS_IGNORED="usr/bin/watchexec"
 
+src_prepare() {
+	default_src_prepare
+
+	# Not using `.patch` file since this the file contains the version number.
+	sed -e '/^⚠ DEBUG BUILD ⚠$/,+1d' -i "${S}"/crates/cli/tests/snapshots/help__help_unix.snap
+
+}
+
 src_compile() {
 	cargo_src_compile --manifest-path=crates/cli/Cargo.toml
 }
