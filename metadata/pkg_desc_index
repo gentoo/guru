@@ -578,13 +578,20 @@ dev-ml/xen-gnt 4.0.0 4.0.1: OCaml bindings to the Xen grant tables libraries
 dev-ml/xenstore 2.1.1: A Xenstore protocol implementation in pure OCaml
 dev-ml/xenstore-clients 1.1.0 1.3.0: Unix client tools for accessing xenstore
 dev-ml/xmlm 1.4.0: Ocaml XML manipulation module
+dev-nim/asynctools 0.1.1_p20210606: Various asynchronous tools for Nim language
 dev-nim/balls 3.7.0: A unittest macro to save the world, or at least your Sunday
+dev-nim/dotenv 2.0.1: dotenv implementation for Nim
+dev-nim/flatty 0.3.4: Tools and serializer for plain flat binary files
 dev-nim/frosty 3.0.0: Serialize native Nim types to strings, streams, sockets, or anything else
 dev-nim/grok 0.5.3: Macro library for Nim
+dev-nim/httpbeast 0.4.1: A super-fast epoll-backed and parallel HTTP server
+dev-nim/jester 0.5.0: A sinatra-like web framework for Nim
+dev-nim/jsony 1.1.3: A loose direct to object json parser with hooks
 dev-nim/nimbus 0.1.4: A Nim build system
 dev-nim/npeg 0.26.0: a PEG library for Nim
 dev-nim/sync 1.5.0: Useful synchronization primitives
 dev-nim/ups 0.0.7: a package handler
+dev-nim/ws 0.5.0: Simple WebSocket library for nim
 dev-octave/control 3.4.0: Computer-Aided Control System Design
 dev-octave/dataframe 1.2.0: Data manipulation toolbox similar to R data.frame
 dev-octave/fuzzy-logic-toolkit 0.4.6: A mostly MATLAB-compatible fuzzy logic toolkit for Octave
@@ -1108,6 +1115,7 @@ gui-apps/gcolor3 2.4.0: A simple color chooser written in GTK3
 gui-apps/hiprompt-gtk-py 0_pre20220624 9999: GTK+ Himitsu prompter for Wayland
 gui-apps/mpvpaper 1.1 1.2 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.5.0 0.6.3 9999: GTK+ launchers for sway, i3 and some other WMs
+gui-apps/organicmaps 9999: Offline maps and navigation using OpenStreetMap data
 gui-apps/paperde 0.1.1_p20210426 9999: Simple, sleek QT based DE for wayland using wayfire
 gui-apps/sfwbar 1.0_beta4 1.0_beta6: Sway Floating Window Bar
 gui-apps/somebar 9999: dwm-like bar for dwl
@@ -1115,7 +1123,7 @@ gui-apps/someblocks 9999: Modular status bar for somebar written in c.
 gui-apps/sway-launcher-desktop 1.5.4: TUI Application launcher with Desktop Entry support
 gui-apps/swaykbdd 1.0: Per-window keyboard layout switcher for Sway
 gui-apps/swaylock-effects 1.6.2 1.6.3 9999: Swaylock, with fancy effects
-gui-apps/swaync 0.6.3: A simple notification daemon with a GTK gui for notifications and control center
+gui-apps/swaync 0.6.3-r1: A simple notification daemon with a GTK gui for notifications and control center
 gui-apps/szyszka 1.0.0: Simple, powerful and easy to use file renamer
 gui-apps/tessen 2.1.2 9999: an interactive menu to autotype and copy pass and gopass data
 gui-apps/tiramisu 1.0_p20201110 2.0.20211107 9999: minimalistic desktop notifications provider
@@ -1217,7 +1225,7 @@ media-sound/add64 3.8.0 3.9.3: Add64 is a realtime additive/subtractive-synthesi
 media-sound/callaudiod 0.1.4-r1: Call audio routing daemon
 media-sound/dzr 220531: DZR: the command line deezer.com player
 media-sound/helvum 0.3.4 0.3.4-r2: A GTK patchbay for pipewire
-media-sound/hushboard 0.0_pre20210317-r1 9999: Mutes your microphone while you are typing
+media-sound/hushboard 0.0_pre20220518 9999: Mutes your microphone while you are typing
 media-sound/ibniz 1.18-r1: virtual machine designed for extremely compact low-level audiovisual programs
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/mopidy 3.3.0: An extensible music server written in Python.
@@ -1330,7 +1338,7 @@ net-misc/tuxi 9999: Tuxi is a cli assistant. Get answers of your questions insta
 net-misc/wayback_machine_downloader 2.3.0 2.3.1: Download an entire website from the Wayback Machine
 net-misc/whatscli 1.0.6 1.0.11: A command line interface for WhatsApp
 net-misc/wsdd 0.6.4 0.7.0: A Web Service Discovery host daemon.
-net-misc/xmrig-mo 6.16.2 6.16.3 6.16.4 6.16.5: MoneroOcean fork of xmrig that supports algo switching
+net-misc/xmrig-mo 6.16.2 6.16.3 6.16.4 6.16.5 6.18.0: MoneroOcean fork of xmrig that supports algo switching
 net-misc/yacy 1.924.20210209.10069: YaCy - p2p based distributed web-search engine
 net-news/comitium 1.8.1: feed aggregator for gemini supporting many formats and protocols
 net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny Tiny RSS or feedly
@@ -1503,7 +1511,7 @@ sys-cluster/opari2 2.0.6: OpenMP Pragma And Region Instrumentor
 sys-cluster/opencoarrays 2.9.2 2.9.3 2.10.0: A parallel application binary interface for Fortran 2018 compilers
 sys-cluster/openstack-meta 2020.2.0: A openstack meta-package for installing the various openstack pieces
 sys-cluster/osu-micro-benchmarks 5.9: MPI, OPC and many other benchmarks
-sys-cluster/otf2 2.3-r2: highly scalable, memory efficient event trace data format
+sys-cluster/otf2 2.3-r3 3.0: highly scalable, memory efficient event trace data format
 sys-cluster/parallel-netcdf 1.12.2: Parallel extension to netCDF
 sys-cluster/paraver-kernel 4.10.1-r1: paraver kernel library
 sys-cluster/parsec 3.0.2012-r2: Parallel Runtime Scheduler and Execution Controller
@@ -1514,7 +1522,7 @@ sys-cluster/psort 1.0: Parallel sorting code for distributed and shared memory a
 sys-cluster/rankstr 0.1.0 0.2.0: Split an MPI communicator into subcomms based on string values
 sys-cluster/redset 0.1.0 0.2.0: Low-level distributed erasure coding lib to protect datasets of MPI applications
 sys-cluster/scalasca 2.6: Scalable Performance Analysis of Large-Scale Applications
-sys-cluster/scorep 7.1: Scalable Performance Measurement Infrastructure for Parallel Codes
+sys-cluster/scorep 7.1 7.1-r1: Scalable Performance Measurement Infrastructure for Parallel Codes
 sys-cluster/scr 3.0-r1: Scalable Checkpoint / Restart Library
 sys-cluster/sionlib 1.7.7-r4: Scalable I/O library for parallel access to task-local files
 sys-cluster/sionlibl 1.7.7-r3: Scalable I/O library for parallel access to task-local files
@@ -1595,7 +1603,7 @@ www-servers/hinsightd 0.9.14 9999: hinsightd a http/1.1 webserver with (hopefull
 www-servers/quark 9999: A small, GET-only static HTTP server
 x11-apps/lightdm-gtk-greeter-settings 1.2.2: Configuration tool for the LightDM GTK Greeter
 x11-apps/xcur2png 0.7.1: Convert X cursors to PNG images
-x11-drivers/OpenTabletDriver-bin 0.5.3.3 0.6.0.2: Cross platform tablet driver (binary package)
+x11-drivers/OpenTabletDriver-bin 0.5.3.3 0.6.0.2 0.6.0.4: Cross platform tablet driver (binary package)
 x11-libs/gtk-fortran 3.24.18 3.24.30 4.1.0: A GTK+ binding to build Graphical User Interfaces in Fortran
 x11-libs/sdl-fakeqwerty 0_pre20191217: Fixes non-QWERTY keyboards on Prison Architect (and maybe other SDL games)
 x11-misc/aerial-sddm-theme 0_pre20191018-r1 9999: SDDM theme with Apple TV Aerial videos
@@ -1618,7 +1626,7 @@ x11-misc/xbanish 1.7 1.8: Banish the mouse cursor when typing, show it again whe
 x11-misc/xob 0.2 0.3: A lightweight overlay volume (or anything) bar for the X Window System
 x11-plugins/purple-mm-sms 0.1.7: Purple SMS plugin using ModemManager
 x11-terms/dmd5620 1.2.0: GTK+ 3.0 implementation of an AT&T / Teletype DMD 5620 emulator.
-x11-terms/mlterm-canna 3.9.2: canna plugin for mlterm
+x11-terms/mlterm-canna 3.9.2-r1: canna plugin for mlterm
 x11-terms/tabby-bin 1.0.146: A terminal for a more modern age
 x11-themes/arc-darkest-colors 0_pre20200818 0_pre20201112: Flat, dark-mode theme with transparent elements
 x11-themes/arc-kde 20180614: Port of the popular GTK theme Arc for Plasma 5

@@ -1,12 +1,16 @@
 BDEPEND=>=dev-util/ninja-1.8.2 dev-lang/nim dev-nim/nimbus
-DEFINED_PHASES=compile configure install test
-DESCRIPTION=a PEG library for Nim
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=test? ( dev-nim/httpbeast dev-nim/asynctools )
+DESCRIPTION=A sinatra-like web framework for Nim
 EAPI=8
-HOMEPAGE=https://github.com/zevv/npeg https://nimble.directory/pkg/npeg
+HOMEPAGE=https://github.com/dom96/jester https://nimble.directory/pkg/jester
 INHERIT=nimble
+IUSE=test
 KEYWORDS=~amd64
 LICENSE=MIT
-SLOT=0.26.0
-SRC_URI=https://github.com/zevv/npeg/archive/refs/tags/0.26.0.tar.gz -> npeg-0.26.0.tar.gz
+RDEPEND=dev-nim/httpbeast
+RESTRICT=test
+SLOT=0.5.0
+SRC_URI=https://github.com/dom96/jester/archive/refs/tags/v0.5.0.tar.gz -> jester-0.5.0.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	nim-utils	d4a0beaefaf95385b8b6a467920596de	ninja-utils	58ec4e54962bf45d065fb95030701514	nimble	dfcb5ac2d5cb5d4dffef0a07f8489a70
-_md5_=c7563f398bb1b5e409cafc5ad773a03a
+_md5_=a3384573b925fab3f4e9c056abb6f395
