@@ -9,6 +9,7 @@
 		<flag name="gcc-plugin">Enable support for the GCC plug-in instrumentation</flag>
 		<flag name="llvm">Enable the user library wrapping feature</flag>
 		<flag name="online-access">Enable Online Access</flag>
+		<flag name="openacc">Enable support for OpenACC</flag>
 		<flag name="opencl">Build with libOpenCL support</flag>
 		<flag name="openshmem">Use the SHMEM compiler</flag>
 		<flag name="pmi">Build with libpmi support</flag>
