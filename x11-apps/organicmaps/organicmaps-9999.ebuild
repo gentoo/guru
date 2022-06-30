@@ -1,6 +1,6 @@
-EAPI=8
+EAPI=7
 
-inherit git-r3 cmake
+inherit git-r3 cmake-utils
 EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 
 DESCRIPTION="Offline maps and navigation using OpenStreetMap data"
