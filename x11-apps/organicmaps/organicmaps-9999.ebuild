@@ -2,7 +2,6 @@ EAPI=7
 
 inherit git-r3 cmake-utils
 EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
-KEYWORDS="~amd64"
 
 DESCRIPTION="Offline maps and navigation using OpenStreetMap data"
 HOMEPAGE="https://organicmaps.app"
