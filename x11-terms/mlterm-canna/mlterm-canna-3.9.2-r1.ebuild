@@ -14,12 +14,28 @@ S="${WORKDIR}/${MYP}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="cairo fbcon wayland X xft"
 
-DEPEND="app-i18n/canna"
+DEPEND="
+	app-i18n/canna
+	cairo? ( x11-libs/cairo[X(+)] )
+	wayland? (
+		dev-libs/wayland
+		x11-libs/libxkbcommon
+	)
+	X? (
+		x11-libs/libICE
+		x11-libs/libSM
+		x11-libs/libX11
+	)
+	xft? ( x11-libs/libXft )
+"
 RDEPEND="
 	${DEPEND}
-	~x11-terms/mlterm-${PV}
+	~x11-terms/mlterm-${PV}[cairo=,fbcon=,wayland=,X=,xft=]
 "
+
+REQUIRED_USE="|| ( X fbcon wayland )"
 
 src_configure() {
 	local myconf=(
@@ -40,11 +56,12 @@ src_configure() {
 		--disable-vt52
 		--disable-wnn
 		--enable-canna
-		--with-gui=console
+		--with-gui=$(usex X "xlib" "")$(usex fbcon ",fb" "")$(usex wayland ",wayland" "")
+		--with-type-engines=xcore$(usex xft ",xft" "")$(usex cairo ",cairo" "")
 		--without-gtk
-		--without-type-engines
 		--without-utmp
-		--without-x
+
+		$(use_with X x)
 	)
 
 	addpredict /dev/ptmx
@@ -60,6 +77,16 @@ src_compile() {
 	popd || die
 	pushd inputmethod/canna || die
 	emake
+	popd || die
+	pushd gui/fb/inputmethod/canna/ || die
+	emake
+	popd || die
+
+	if use wayland; then
+		pushd gui/wayland/inputmethod/canna/ || die
+		emake
+		popd || die
+	fi
 }
 
 src_test() {
@@ -69,5 +96,16 @@ src_test() {
 src_install() {
 	pushd inputmethod/canna || die
 	DESTDIR="${D}" emake install
+	popd || die
+	pushd gui/fb/inputmethod/canna/ || die
+	DESTDIR="${D}" emake install
+	popd || die
+
+	if use wayland; then
+		pushd gui/wayland/inputmethod/canna/ || die
+		DESTDIR="${D}" emake install
+		popd || die
+	fi
+
 	find "${ED}" -name '*.la' -delete || die
 }
