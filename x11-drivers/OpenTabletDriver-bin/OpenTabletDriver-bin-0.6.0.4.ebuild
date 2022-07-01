@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop
+inherit desktop udev
 
 MY_PN=OpenTabletDriver
 
