@@ -57,7 +57,12 @@ src_install() {
 	make_desktop_entry /usr/bin/otd-gui OpenTabletDriver otd Settings
 }
 
+pkg_postrm() {
+	udev_reload
+}
+
 pkg_postinst() {
+	udev_reload
 	udevadm control --reload || die
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		elog "Please replug your tablet before attempting to use the driver"
