@@ -52,6 +52,8 @@ src_configure() {
 		-DUSE_DEVICE_TREZOR=OFF
 	)
 
+	use elibc_musl && mycmakeargs+=( -DSTACK_TRACE=OFF )
+
 	cmake_src_configure
 }
 
