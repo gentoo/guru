@@ -32,7 +32,6 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-
 src_unpack() {
 	git-r3_src_unpack
 
