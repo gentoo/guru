@@ -15,7 +15,10 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE="+skins"
 
-BDEPEND="dev-qt/linguist-tools"
+BDEPEND="
+	dev-qt/linguist-tools
+	app-arch/zip
+"
 
 DEPEND="
 	dev-qt/qtcore
