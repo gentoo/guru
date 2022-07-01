@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=compile configure install prepare
-DEPEND=~sci-mathematics/frama-c-23.1:=[ocamlopt?] ~sci-mathematics/frama-c-callgraph-23.1:=[ocamlopt?] ~sci-mathematics/frama-c-eva-23.1:=[ocamlopt?] >=dev-ml/findlib-1.0.4-r1
+DEPEND=~sci-mathematics/frama-c-23.1:=[ocamlopt?] ~sci-mathematics/frama-c-callgraph-23.1:=[ocamlopt?] ~sci-mathematics/frama-c-eva-23.1:=[ocamlopt?] >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Users plugin for frama-c
 EAPI=7
 HOMEPAGE=https://frama-c.com
@@ -12,5 +12,5 @@ RDEPEND=~sci-mathematics/frama-c-23.1:=[ocamlopt?] ~sci-mathematics/frama-c-call
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://frama-c.com/download/frama-c-23.1-Vanadium.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	findlib	e6df6108c2d753998b1206f4d5ea4a2d
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	libtool	241a8f577b9781a42a7421e53448a44e	autotools	2fd69a56a527d12409ba43c733b7ac8f	findlib	6afd368dc89c3b53f6686e5752caf50d
 _md5_=5dccede47525733d3ebe4e5ec246ae58

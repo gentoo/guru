@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/ocamlbuild dev-ml/opam-installer dev-lang/ocaml
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/topkg >=dev-ml/findlib-1.0.4-r1 >=dev-lang/ocaml-4:=
+DEPEND=dev-ml/topkg >=dev-ml/findlib-1.0.4-r1[ocamlopt?] >=dev-lang/ocaml-4:=
 DESCRIPTION=Ocaml XML manipulation module
 EAPI=7
 HOMEPAGE=https://erratique.ch/software/xmlm https://github.com/dbuenzli/xmlm
@@ -12,5 +12,5 @@ RDEPEND=dev-lang/ocaml:=[ocamlopt?] >=dev-lang/ocaml-4:=
 RESTRICT=!test? ( test )
 SLOT=0/1.4.0
 SRC_URI=https://erratique.ch/software/xmlm/releases/xmlm-1.4.0.tbz
-_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d	opam	dc11e376d9abc263ca618c5741206216
+_eclasses_=findlib	6afd368dc89c3b53f6686e5752caf50d	opam	dc11e376d9abc263ca618c5741206216
 _md5_=26eb7e04751d4ec4d77a6c84bc3c65ee

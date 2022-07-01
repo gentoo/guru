@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install
-DEPEND=~sci-mathematics/frama-c-24.0:=[gtk=,ocamlopt?] >=dev-ml/findlib-1.0.4-r1
+DEPEND=~sci-mathematics/frama-c-24.0:=[gtk=,ocamlopt?] >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Qed plugin for frama-c
 EAPI=7
 HOMEPAGE=https://frama-c.com
@@ -11,5 +11,5 @@ RDEPEND=~sci-mathematics/frama-c-24.0:=[gtk=,ocamlopt?] dev-lang/ocaml:=[ocamlop
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://frama-c.com/download/frama-c-24.0-Chromium.tar.gz
-_eclasses_=findlib	e6df6108c2d753998b1206f4d5ea4a2d	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85
+_eclasses_=findlib	6afd368dc89c3b53f6686e5752caf50d	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85
 _md5_=92ac71b2bc29cfae8cfba80044d23e33
