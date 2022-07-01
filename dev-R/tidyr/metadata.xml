@@ -11,7 +11,7 @@
 			<name>Hadley Wickham</name>
 			<email>hadley@rstudio.com</email>
 		</maintainer>
-		<bugs-to>https://github.com/tidyvserse/tidyr/issues</bugs-to>
+		<bugs-to>https://github.com/tidyverse/tidyr/issues</bugs-to>
 		<remote-id type="github">tidyverse/tidyr</remote-id>
 	</upstream>
 </pkgmetadata>
