@@ -37,3 +37,10 @@ src_configure() {
 
 	cmake-utils_src_configure
 }
+
+pkg_postinst() {
+	xdg_icon_cache_update
+
+	einfo "For dark  mode type in search ?dark"
+	einfo "For light mode type in search ?light"
+}
