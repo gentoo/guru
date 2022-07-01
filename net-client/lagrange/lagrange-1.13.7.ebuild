@@ -13,19 +13,24 @@ SRC_URI="https://git.skyjake.fi/gemini/${PN}/releases/download/v${PV}/${P}.tar.g
 LICENSE="|| ( MIT Unlicense ) Apache-2.0 BSD-2 CC-BY-SA-4.0 OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+fribidi +harfbuzz mp3 webp"
+IUSE="+fribidi +harfbuzz mp3 ncurses webp"
 
 DEPEND="
 	>=dev-libs/tfdn-1.1.0:=[ssl]
-	media-libs/libsdl2[sound(+),video(+)]
 	fribidi? ( dev-libs/fribidi )
-	harfbuzz? ( media-libs/harfbuzz:=[truetype(+)] )
+	ncurses? ( dev-libs/sealcurses:= )
+	!ncurses? (
+		harfbuzz? ( media-libs/harfbuzz:=[truetype(+)] )
+		media-libs/libsdl2[sound(+),video(+)]
+	)
 	mp3? ( media-sound/mpg123 )
 	webp? ( media-libs/libwebp:= )
 "
 RDEPEND="${DEPEND}"
-BDEPEND="app-arch/zip
-	verify-sig? ( sec-keys/openpgp-keys-skyjake )"
+BDEPEND="
+	app-arch/zip
+	verify-sig? ( sec-keys/openpgp-keys-skyjake )
+"
 
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/skyjake.asc"
 
@@ -37,11 +42,12 @@ src_prepare() {
 }
 
 src_configure() {
-	# do not add use flags that don't pull dependencies
+	# note: do not add use flags that don't pull dependencies
 	# and only choose which files to compile (e.g. "ipc")
-	local mycmakeargs=(
+	local -a mycmakeargs=(
 		-DENABLE_FRIBIDI=$(usex fribidi)
 		-DENABLE_HARFBUZZ=$(usex harfbuzz)
+		-DENABLE_TUI=$(usex ncurses)
 		-DENABLE_MPG123=$(usex mp3)
 		-DENABLE_WEBP=$(usex webp)
 
