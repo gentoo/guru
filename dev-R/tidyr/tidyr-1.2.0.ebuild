@@ -10,7 +10,7 @@ KEYWORDS="~amd64"
 LICENSE='MIT'
 DEPEND="
 	>=dev-R/dplyr-1.0.0
-	>=dev-R/elipsis-0.1.0
+	>=dev-R/ellipsis-0.1.0
 	dev-R/glue
 	dev-R/lifecycle
 	dev-R/magrittr
