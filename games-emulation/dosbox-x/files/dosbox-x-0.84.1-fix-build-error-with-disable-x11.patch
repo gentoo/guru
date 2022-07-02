@@ -1,0 +1,43 @@
+Staged upstream change after the v0.84.1 release; only needed on 0.84.1
+to support the '--disable-x11' configuration option and thus USE='-X'.
+
+Closes: https://github.com/joncampbell123/dosbox-x/issues/3602
+
+From 07e51e044acbe05c3e4ebb6c54b67575a811ae09 Mon Sep 17 00:00:00 2001
+From: Wengier <wengierwu@yahoo.com>
+Date: Fri, 1 Jul 2022 18:12:17 -0400
+Subject: [PATCH] update
+
+---
+ src/gui/sdlmain_linux.cpp | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/gui/sdlmain_linux.cpp b/src/gui/sdlmain_linux.cpp
+index 94dd1875f..b22e987a8 100644
+--- a/src/gui/sdlmain_linux.cpp
++++ b/src/gui/sdlmain_linux.cpp
+@@ -16,10 +16,6 @@
+ # if C_X11_EXT_XKBRULES
+ #  include <X11/extensions/XKBrules.h>
+ # endif
+-#endif
+-
+-void UpdateWindowDimensions(Bitu width, Bitu height);
+-void UpdateWindowMaximized(bool flag);
+ 
+ /* X11 Error handler.
+  * Apparently it is possible with SDL2 to resize the window in such a way that
+@@ -49,6 +45,10 @@ int X11_ErrorHandler(Display *disp,XErrorEvent *xev) {
+ void X11_ErrorHandlerInstall(void) {
+ 	XSetErrorHandler(X11_ErrorHandler);
+ }
++#endif
++
++void UpdateWindowDimensions(Bitu width, Bitu height);
++void UpdateWindowMaximized(bool flag);
+ 
+ #if C_X11_XRANDR
+ #include <X11/extensions/Xrandr.h>
+-- 
+2.35.1
+
