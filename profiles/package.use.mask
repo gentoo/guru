@@ -1,36 +1,39 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-07-26)
-# treedbscan needs old cgal
-# https://github.com/bsc-performance-tools/clustering-suite/issues/8
-sys-cluster/clusteringsuite treedbscan
-sys-cluster/extrae clustering
+# New entries go on top.
 
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-07-26)
-# current muster doesn't provide density.h
-# https://github.com/bsc-performance-tools/clustering-suite/issues/9
-sys-cluster/clusteringsuite muster
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-06-26)
+# depend on masked dev-python/python-binary-memcached
+dev-python/oslo-cache test
 
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-07-31)
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-05-22)
+# cmake failure
+# https://github.com/mfem/mfem/issues/2243
+sci-libs/mfem netcdf
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-03-10)
 # build failure
-# https://github.com/leobago/fti/issues/399
-sys-cluster/fti fortran
+media-libs/skia ffmpeg
 
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-08-06)
-# sys-cluster/SOS doesn't get recognized as valid openshmem
-# https://github.com/bsc-performance-tools/extrae/issues/35
-sys-cluster/extrae openshmem
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2021-12-29)
+# build failure, needs patching
+app-crypt/pgp bindist
 
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-08-14)
-# petit gui doesn't build
-# https://github.com/davewathaverford/the-omega-project/issues/5
-sci-mathematics/the-omega-project gui
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-10-09)
+# build failure with metis
+# https://public.gitlab.polimi.it/DAER/mbdyn/-/issues/101
+sci-physics/mbdyn metis
 
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-08-18)
-# build failure
-# https://github.com/bsc-pm/nanox/issues/18
-sys-cluster/nanox gasnet
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-10-01)
+# superlu renamed some files
+# https://public.gitlab.polimi.it/DAER/mbdyn/-/issues/97
+sci-physics/mbdyn superlu
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-10-01)
+# can't locate MPI cxx headers
+# https://public.gitlab.polimi.it/DAER/mbdyn/-/issues/91
+sci-physics/mbdyn mpi pmpi schur
 
 # Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-08-21)
 # build failure with dyninst-1.10
@@ -38,34 +41,33 @@ sys-cluster/nanox gasnet
 # https://github.com/bsc-performance-tools/extrae/issues/38
 sys-cluster/extrae dyninst
 
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-10-01)
-# can't locate MPI cxx headers
-# https://public.gitlab.polimi.it/DAER/mbdyn/-/issues/91
-sci-physics/mbdyn mpi pmpi schur
-
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-10-01)
-# superlu renamed some files
-# https://public.gitlab.polimi.it/DAER/mbdyn/-/issues/97
-sci-physics/mbdyn superlu
-
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-10-09)
-# build failure with metis
-# https://public.gitlab.polimi.it/DAER/mbdyn/-/issues/101
-sci-physics/mbdyn metis
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2021-12-29)
-# build failure, needs patching
-app-crypt/pgp bindist
-
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-03-10)
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-08-18)
 # build failure
-media-libs/skia ffmpeg
+# https://github.com/bsc-pm/nanox/issues/18
+sys-cluster/nanox gasnet
 
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-05-22)
-# cmake failure
-# https://github.com/mfem/mfem/issues/2243
-sci-libs/mfem netcdf
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-08-14)
+# petit gui doesn't build
+# https://github.com/davewathaverford/the-omega-project/issues/5
+sci-mathematics/the-omega-project gui
 
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-06-26)
-# depend on masked dev-python/python-binary-memcached
-dev-python/oslo-cache test
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-08-06)
+# sys-cluster/SOS doesn't get recognized as valid openshmem
+# https://github.com/bsc-performance-tools/extrae/issues/35
+sys-cluster/extrae openshmem
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-07-31)
+# build failure
+# https://github.com/leobago/fti/issues/399
+sys-cluster/fti fortran
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-07-26)
+# current muster doesn't provide density.h
+# https://github.com/bsc-performance-tools/clustering-suite/issues/9
+sys-cluster/clusteringsuite muster
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-07-26)
+# treedbscan needs old cgal
+# https://github.com/bsc-performance-tools/clustering-suite/issues/8
+sys-cluster/clusteringsuite treedbscan
+sys-cluster/extrae clustering
