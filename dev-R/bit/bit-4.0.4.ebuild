@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit R-packages
+inherit R-packages edo
 
 DESCRIPTION='Classes and Methods for Fast Memory-Efficient Boolean Selections'
 KEYWORDS="~amd64"
-LICENSE='GPL2 GPL3'
+LICENSE='GPL-2 GPL-3'
 RESTRICT="!test? ( test )"
 IUSE="test"
 DEPEND="
