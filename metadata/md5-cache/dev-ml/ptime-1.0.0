@@ -11,5 +11,5 @@ LICENSE=ISC
 RDEPEND=>=dev-lang/ocaml-4:= dev-lang/ocaml:=[ocamlopt?]
 SLOT=0/1.0.0
 SRC_URI=https://erratique.ch/software/ptime/releases/ptime-1.0.0.tbz
-_eclasses_=opam	dc11e376d9abc263ca618c5741206216	findlib	6afd368dc89c3b53f6686e5752caf50d
+_eclasses_=opam	dc11e376d9abc263ca618c5741206216	findlib	d8fa93cf137156660d0b72144b1e31d9
 _md5_=91b47c823611d2bec3ab3652bac54608

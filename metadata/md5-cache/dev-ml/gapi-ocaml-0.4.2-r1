@@ -12,5 +12,5 @@ RDEPEND=dev-ml/ocurl:= >=dev-ml/ocamlnet-4.1.4:= dev-ml/cryptokit:= dev-ml/yojso
 RESTRICT=!test? ( test )
 SLOT=0/0.4.2
 SRC_URI=https://github.com/astrada/gapi-ocaml/archive/v0.4.2.tar.gz -> gapi-ocaml-0.4.2.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c	findlib	6afd368dc89c3b53f6686e5752caf50d
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c	findlib	d8fa93cf137156660d0b72144b1e31d9
 _md5_=0b24f5cdde115ca65cd787db13323501
