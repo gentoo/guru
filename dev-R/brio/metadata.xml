@@ -17,7 +17,4 @@ files and provide more explicit control over line endings.</longdescription>
 		<bugs-to>https://github.com/r-lib/brio/issues</bugs-to>
 		<remote-id type="github">r-lib/brio</remote-id>
 	</upstream>
-	<use>
-		<flag name="test">Run the tests</flag>
-	</use>
 </pkgmetadata>

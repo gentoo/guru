@@ -20,8 +20,6 @@ SUGGESTED_PACKAGES="
 "
 
 src_test() {
-	if use test; then
-		cd "${WORKDIR}/${P}/tests"
-		NOT_CRAN=true R_LIBS="${T}/R" edo Rscript --vanilla testthat.R
-	fi
+	cd "${WORKDIR}/${P}/tests"
+	NOT_CRAN=true R_LIBS="${T}/R" edo Rscript --vanilla testthat.R
 }
