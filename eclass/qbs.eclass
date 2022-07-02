@@ -19,13 +19,7 @@ esac
 
 if [[ ! ${_QBS_ECLASS} ]]; then
 
-inherit multiprocessing toolchain-funcs qmake-utils
-
-fi
-
-EXPORT_FUNCTIONS src_configure src_compile src_install
-
-if [[ ! ${_QBS_ECLASS} ]]; then
+inherit flag-o-matic multiprocessing toolchain-funcs qmake-utils
 
 # @ECLASS_VARIABLE: QBS_COMMAND_ECHO_MODE
 # @USER_VARIABLE
@@ -42,7 +36,10 @@ if [[ ! ${_QBS_ECLASS} ]]; then
 # - command-line-with-environment
 : ${QBS_COMMAND_ECHO_MODE:=command-line}
 
-BDEPEND="dev-util/qbs"
+BDEPEND="
+	dev-util/meson-format-array
+	dev-util/qbs
+"
 
 # @FUNCTION: eqbs
 # @USAGE: [<qbs args>...]
@@ -64,31 +61,7 @@ eqbs() {
 # @USAGE: [<flags>...]
 # @RETURN: arguments quoted and separated by comma
 _flags_to_js_array() {
-	if [[ ! ${@} ]]; then
-		echo "[]"
-	else
-		local -a array
-		printf -v array "'%s', " "${@}"
-		echo "[${array%, }]"
-	fi
-}
-
-# @FUNCTION: _filter_ldflags
-# @INTERNAL
-# @USAGE: [<ldflags>...]
-# @RETURN: flags for the linker (with -Wl and -Xlinker removed)
-_filter_ldflags() {
-	local -a flags
-	while [[ ${@} ]]; do
-		if [[ ${1} == -Wl,* ]]; then
-			IFS=, read -ra flags <<< "${1#-Wl,}"
-			printf "%s " "${flags[@]}"
-		elif [[ ${1} == -Xlinker ]]; then
-			shift
-			printf "%s " "${1}"
-		fi
-		shift
-	done
+	meson-format-array "${@}" || die
 }
 
 # @FUNCTION: qbs_src_configure
@@ -121,7 +94,7 @@ qbs_src_configure() {
 	qbs_config cpp.cFlags "$(_flags_to_js_array ${CFLAGS})"
 	qbs_config cpp.cppFlags "$(_flags_to_js_array ${CPPFLAGS})"
 	qbs_config cpp.cxxFlags "$(_flags_to_js_array ${CXXFLAGS})"
-	qbs_config cpp.linkerFlags "$(_flags_to_js_array $(_filter_ldflags ${LDFLAGS}))"
+	qbs_config cpp.linkerFlags "$(_flags_to_js_array $(raw-ldflags))"
 }
 
 # @FUNCTION: qbs_config
@@ -188,3 +161,5 @@ qbs_src_install() {
 
 _QBS_ECLASS=1
 fi
+
+EXPORT_FUNCTIONS src_configure src_compile src_install
