@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit R-packages
+inherit R-packages edo
 
 DESCRIPTION='HTTP and WebSocket Server Library'
 KEYWORDS="~amd64"
@@ -33,7 +33,6 @@ SUGGESTED_PACKAGES="
 "
 
 src_test() {
-        cd "${WORKDIR}/${P}/tests"
-        NOT_CRAN=true R_LIBS="${T}/R" edo Rscript --vanilla testthat.R
+	cd "${WORKDIR}/${P}/tests"
+	NOT_CRAN=true R_LIBS="${T}/R" edo Rscript --vanilla testthat.R
 }
-
