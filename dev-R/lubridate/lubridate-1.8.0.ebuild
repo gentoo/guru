@@ -7,7 +7,7 @@ inherit R-packages edo
 
 DESCRIPTION='Make Dealing with Dates a Little Easier'
 KEYWORDS="~amd64"
-LICENSE='GPL2+'
+LICENSE='GPL-2+'
 RESTRICT="!test? ( test )"
 IUSE="test"
 DEPEND="
