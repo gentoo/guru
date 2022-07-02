@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit R-packages
+inherit R-packages edo
 
 DESCRIPTION="A Simple S3 Class for Representing Vectors of Binary Data ('BLOBS')"
 KEYWORDS="~amd64"
