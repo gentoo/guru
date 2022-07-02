@@ -12,13 +12,3 @@ HOMEPAGE="
 "
 LICENSE='MIT'
 KEYWORDS="~amd64"
-RDEPEND="
-	dev-cpp/plog
-"
-DEPEND="${RDEPEND}"
-
-src_prepare() {
-	#do not bundle plog
-	rm -rf inst/include || die
-	R-packages_src_prepare
-}
