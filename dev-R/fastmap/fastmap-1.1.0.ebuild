@@ -11,7 +11,7 @@ LICENSE='MIT'
 RESTRICT="!test? ( test )"
 IUSE="test"
 DEPEND="
-	test? ( >=dev-R/testthat-0.11.0 )
+	test? ( >=dev-R/testthat-2.1.1 )
 "
 
 SUGGESTED_PACKAGES="
