@@ -7,7 +7,7 @@ inherit R-packages edo
 
 DESCRIPTION='R Database Interface'
 KEYWORDS="~amd64"
-LICENSE='LGPL-2.1+'
+LICENSE='MIT'
 RESTRICT="!test? ( test )"
 IUSE="test"
 
