@@ -22,8 +22,9 @@ src_prepare() {
 	rm tests/tspsc1.nim || die
 }
 
-src_test() {
-	for file in tests/t*.nim; do
-		enim --hints:off --threads:on r "${file}"
-	done
+src_configure() {
+	mynimargs=(
+		--threads:on
+	)
+	nimble_src_configure
 }
