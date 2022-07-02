@@ -39,7 +39,7 @@ SUGGESTED_PACKAGES="
 "
 
 src_test() {
-	cd "${WORKDIR}/${P}/tests"
+	cd "${WORKDIR}/${P}/tests" || die
 	# These require network access
 	rm testthat/test-session.R
 	rm testthat/test-rename.R

@@ -26,6 +26,6 @@ SUGGESTED_PACKAGES="
 "
 
 src_test() {
-	cd "${WORKDIR}/${P}/tests"
+	cd "${WORKDIR}/${P}/tests" || die
 	R_LIBS="${T}/R" edo Rscript --vanilla testthat.R
 }

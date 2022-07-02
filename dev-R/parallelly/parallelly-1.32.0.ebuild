@@ -10,7 +10,7 @@ KEYWORDS="~amd64"
 LICENSE='LGPL-2.1+'
 
 src_test() {
-	cd "${WORKDIR}/${P}/tests"
+	cd "${WORKDIR}/${P}/tests" || die
 	for i in *.R; do
 		R_LIBS="${T}/R" edo Rscript --vanilla $i
 	done

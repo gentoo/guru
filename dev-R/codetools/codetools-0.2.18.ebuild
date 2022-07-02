@@ -15,6 +15,6 @@ CRAN_PV="0.2-18"
 SRC_URI="mirror://cran/src/contrib/${PN}_${CRAN_PV}.tar.gz"
 
 src_test() {
-	cd "${WORKDIR}/${P}/tests"
+	cd "${WORKDIR}/${P}/tests" || die
 	R_LIBS="${T}/R" edo Rscript --vanilla tests.R
 }
