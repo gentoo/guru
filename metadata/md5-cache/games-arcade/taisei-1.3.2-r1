@@ -12,5 +12,5 @@ LICENSE=MIT CC-BY-4.0 CC0-1.0 public-domain
 RDEPEND=media-libs/freetype:2 >=media-libs/libpng-1.5 media-libs/libsdl2 media-libs/sdl2-mixer[opus] media-libs/libwebp sys-libs/zlib zip? ( dev-libs/libzip )
 SLOT=0
 SRC_URI=https://github.com/taisei-project/taisei/releases/download/v1.3.2/taisei-v1.3.2.tar.xz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	meson	8f48ffde53174aba67239f0da61ac9d3	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	meson	2cc95670908abda0d67e9e16a6b4341e	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
 _md5_=076daccb16f4971b789d7cb43e995c0b
