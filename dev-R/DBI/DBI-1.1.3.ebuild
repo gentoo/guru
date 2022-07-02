@@ -3,11 +3,20 @@
 
 EAPI=7
 
-inherit R-packages
+inherit R-packages edo
 
 DESCRIPTION='R Database Interface'
 KEYWORDS="~amd64"
 LICENSE='LGPL-2.1+'
+RESTRICT="!test? ( test )"
+IUSE="test"
+
+DEPEND="
+	test? (
+		>=dev-R/RSQLite-1.1.2
+		dev-R/testthat
+	)
+"
 
 SUGGESTED_PACKAGES="
 	dev-R/blob
@@ -27,3 +36,8 @@ SUGGESTED_PACKAGES="
 	dev-R/testthat
 	dev-R/xml2
 "
+
+src_test() {
+	cd "${WORKDIR}/${P}/tests"
+	NOT_CRAN=true R_LIBS="${T}/R" edo Rscript --vanilla testthat.R
+}
