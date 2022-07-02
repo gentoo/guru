@@ -7,4 +7,4 @@ inherit R-packages
 
 DESCRIPTION='Reimplementations of Functions Introduced Since R-3.0.0'
 KEYWORDS="~amd64"
-LICENSE='GPL2 GPL3'
+LICENSE='GPL-2 GPL-3'
