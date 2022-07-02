@@ -5,7 +5,7 @@
 		<email>me@r0bert.dev</email>
 		<name>Robert Greener</name>
 	</maintainer>
-	<longdescription lang="en">Provides a 'WebSocket' client interface for R. 'WebSocket' is a protocol for low-overhead real-time communication: <https://en.wikipedia.org/wiki/WebSocket>.</longdescription>
+	<longdescription lang="en">Provides a 'WebSocket' client interface for R. 'WebSocket' is a protocol for low-overhead real-time communication: https://en.wikipedia.org/wiki/WebSocket.</longdescription>
 	<upstream>
 		<maintainer>
 			<name>Winston Chang</name>
