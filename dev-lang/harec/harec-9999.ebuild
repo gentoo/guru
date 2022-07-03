@@ -15,7 +15,6 @@ else
 	KEYWORDS="~amd64 ~arm64 ~riscv"
 fi
 
-
 DESCRIPTION="The Hare compiler"
 HOMEPAGE="https://harelang.org/"
 LICENSE="GPL-3"
