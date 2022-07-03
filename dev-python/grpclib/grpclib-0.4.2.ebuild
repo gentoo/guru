@@ -33,7 +33,7 @@ RDEPEND="
 BDEPEND="
 	test? (
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
-		dev-python/async_timeout[${PYTHON_USEDEP}]
+		dev-python/async-timeout[${PYTHON_USEDEP}]
 		dev-python/googleapis-common-protos[${PYTHON_USEDEP}]
 		dev-python/Faker[${PYTHON_USEDEP}]
 	)
