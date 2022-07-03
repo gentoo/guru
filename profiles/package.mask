@@ -1,3 +1,6 @@
+# Copyright 1999-2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2021-03-29)
 # James Beddek <telans@posteo.de> (2021-10-09)
 # Per profile masking in overlays is currently not working
@@ -9,9 +12,65 @@
 # TODO: Either fix per profile masking in overlays, or move
 # relevant entries to the relevant package.mask files in ::gentoo
 
+# New entries go on top.
+
+# Huang Rui <vowstar@gmail.com> (2022-06-27)
+# the version strategy has changed and follows deepin's strategy
+=zw3d/zw3d-2022.26.00
+=zw3d/zw3d-2022.26.00-r1
+
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-06-26)
+# depends on non-existent dev-python/m2r
+# https://github.com/jaysonsantos/python-binary-memcached/issues/249
+dev-python/python-binary-memcached
+
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-06-18)
+# depends on non-existent dev-java/guava:20
+dev-java/gradle-hashing
+
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-06-10)
+# depends on non-existent dev-python/flufl-bounce
+net-mail/remail
+
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-06-10)
+# depends on non-existent dev-python/aiosmtpd
+dev-python/aiosmtplib
+
+# Alexey Sokolov <alexey+gentoo@asokolov.org> (2022-06-10)
+# Dead upstream. Doesn't work with py3.10. Removal on 2022-07-15.
+# https://bugs.gentoo.org/848399
+# Feel free to unmask if you want to take maintainership.
+net-p2p/nuxhash
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-04)
+# Incompatible with recent pytest. No revdeps. Removal on 2022-07-05.
+dev-python/thriftrw
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-04)
+# Pytest hangs. No revdeps. Removal on 2022-07-04.
+dev-python/threadloop
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-02)
+# Doesn't support Python 3.10.
+dev-python/kitchen
+net-misc/tuir
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-02)
+# Test dep (asynctest) doesn't support any recent Python. No revdeps.
+dev-python/aionotify
+
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-05-28)
+# Depends on non-existent versions of pyparsing, invalid dependency
+# on dev-embedded/esptool. Needs porting to python-single-r1.
+dev-embedded/esp-idf
+
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
 # Depends on masked dev-libs/openssl-3.0.*
 app-crypt/tpm2-openssl
+
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-04-14)
+# Depends on unavailable dev-python/regex-2022.3.15
+dev-python/dateparser
 
 # Yuan Liao <liaoyuan@gmail.com> (2022-02-20)
 # Depends on net-libs/libsoup:3.0, which is masked in ::gentoo.
@@ -21,58 +80,3 @@ gnome-extra/extension-manager
 # Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2022-01-09)
 # Depends on masked libhandy 1.5.0
 >=app-text/komikku-0.36.0
-
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-04-14)
-# Depends on unavailable dev-python/regex-2022.3.15
-dev-python/dateparser
-
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-05-28)
-# Depends on non-existent versions of pyparsing, invalid dependency
-# on dev-embedded/esptool. Needs porting to python-single-r1.
-dev-embedded/esp-idf
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-02)
-# Test dep (asynctest) doesn't support any recent Python. No revdeps.
-dev-python/aionotify
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-02)
-# Doesn't support Python 3.10.
-dev-python/kitchen
-net-misc/tuir
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-04)
-# Pytest hangs. No revdeps. Removal on 2022-07-04.
-dev-python/threadloop
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-04)
-# Incompatible with recent pytest. No revdeps. Removal on 2022-07-05.
-dev-python/thriftrw
-
-# Alexey Sokolov <alexey+gentoo@asokolov.org> (2022-06-10)
-# Dead upstream. Doesn't work with py3.10. Removal on 2022-07-15.
-# https://bugs.gentoo.org/848399
-# Feel free to unmask if you want to take maintainership.
-net-p2p/nuxhash
-
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-06-10)
-# depends on non-existent dev-python/aiosmtpd
-dev-python/aiosmtplib
-
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-06-10)
-# depends on non-existent dev-python/flufl-bounce
-net-mail/remail
-
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-06-18)
-# depends on non-existent dev-java/guava:20
-dev-java/gradle-hashing
-
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-06-26)
-# depends on non-existent dev-python/m2r
-# https://github.com/jaysonsantos/python-binary-memcached/issues/249
-dev-python/python-binary-memcached
-
-# Huang Rui <vowstar@gmail.com> (2022-06-27)
-# the version strategy has changed and follows deepin's strategy
-=zw3d/zw3d-2022.26.00
-=zw3d/zw3d-2022.26.00-r1
-

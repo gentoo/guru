@@ -15,7 +15,10 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE="+skins"
 
-BDEPEND="dev-qt/linguist-tools"
+BDEPEND="
+	dev-qt/linguist-tools
+	app-arch/zip
+"
 
 DEPEND="
 	dev-qt/qtcore
@@ -28,7 +31,6 @@ DEPEND="
 	media-plugins/gst-plugins-meta
 "
 RDEPEND="${DEPEND}"
-
 
 src_unpack() {
 	git-r3_src_unpack

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop qmake-utils
+inherit desktop qmake-utils xdg
 
 DESCRIPTION="Application for browsing your local Portage repository files"
 HOMEPAGE="https://github.com/k9spud/appswipe"
@@ -12,7 +12,6 @@ SRC_URI="https://github.com/k9spud/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 DEPEND="
 	dev-qt/qtcore
@@ -21,11 +20,10 @@ DEPEND="
 	dev-qt/qtwidgets
 "
 
-RDEPEND="
+RDEPEND="${DEPEND}
 	app-portage/gentoolkit
 	app-portage/portage-utils
 	lxde-base/lxterminal
-	${DEPEND}
 "
 
 src_configure() {
@@ -33,9 +31,7 @@ src_configure() {
 }
 
 src_install() {
-	mv AppSwipe appswipe
-	dobin appswipe
-	mv "${S}/img/appicon.svg" "${S}/img/appswipe.svg"
-	doicon -s scalable "${S}/img/appswipe.svg"
+	newbin AppSwipe appswipe
+	newicon -s scalable img/appicon.svg ${PN}.svg
 	domenu ${PN}.desktop
 }

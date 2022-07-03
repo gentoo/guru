@@ -18,8 +18,7 @@ S="${WORKDIR}/sources.edf930df"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="debug gcc-plugin llvm mpi online-access opencl openshmem pmi unwind"
-#TODO: openacc
+IUSE="debug gcc-plugin llvm mpi online-access +openacc opencl openshmem pmi unwind"
 
 CDEPEND="
 	dev-libs/cubelib
@@ -123,7 +122,6 @@ src_configure() {
 	local myconf=(
 		--disable-cuda
 		--disable-experimental-platform
-		--disable-openacc
 		--disable-platform-mic
 		--disable-static
 		--enable-shared
@@ -144,6 +142,7 @@ src_configure() {
 		--without-pdt
 
 		$(use_enable debug)
+		$(use_enable openacc)
 		$(use_with gcc-plugin)
 		$(use_with online-access)
 		$(use_with opencl libOpenCL)

@@ -17,7 +17,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+skins"
 
-BDEPEND="dev-qt/linguist-tools"
+BDEPEND="
+	dev-qt/linguist-tools
+	app-arch/zip
+"
 
 DEPEND="
 	dev-qt/qtcore

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>me@r0bert.dev</email>
+		<name>Robert Greener</name>
+	</maintainer>
+	<longdescription lang="en">Coerce data to LaTeX and HTML tables.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>David Scott</name>
+			<email>d.scott@auckland.ac.nz</email>
+		</maintainer>
+	</upstream>
+</pkgmetadata>
