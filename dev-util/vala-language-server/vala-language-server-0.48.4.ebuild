@@ -13,6 +13,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug_mem plugins test"
+RESTRICT="!test? ( test )"
 
 DEPEND="dev-lang/vala
 	dev-util/gnome-builder
