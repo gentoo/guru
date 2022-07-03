@@ -149,7 +149,7 @@ app-misc/macchina 5.0.2 6.0.5 6.0.6: A system information fetcher, with an (unhe
 app-misc/mangadesk 0.7.7 0.7.8: Terminal Client for MangaDex
 app-misc/mat2 0.12.4: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
-app-misc/navi 2.17.0 2.19.0 9999: An interactive cheatsheet tool for the command-line
+app-misc/navi 2.19.0 2.20.1 9999: An interactive cheatsheet tool for the command-line
 app-misc/neo 0.6.1 9999: cmatrix clone with 32-bit color and Unicode support
 app-misc/nonsense 0.7-r1: Generates random text from datafiles and templates
 app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
@@ -166,8 +166,8 @@ app-misc/termdown 1.17.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vocabsieve 0.8.1: A simple, effective tool for language learning
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
-app-misc/walld 1.3: A Wallpaper daemon
-app-misc/watchexec 1.15.3 1.16.2 1.17.1 1.18.12 1.19.0 1.20.0 1.20.1 1.20.2: Executes commands in response to file modifications
+app-misc/walld 1.4.1: A Wallpaper daemon
+app-misc/watchexec 1.18.12 1.19.0 1.20.2: Executes commands in response to file modifications
 app-misc/wego 2.1: Wego is a weather client for the terminal
 app-misc/xplr 0.15.2 0.17.0 0.17.1 0.17.2 0.17.6: A hackable, minimal, fast TUI file explorer
 app-misc/yaf 0.0.3: Yet another system fetch that is minimal and customizable.
@@ -186,6 +186,7 @@ app-portage/gentoo-sweep 0.1.2a: Check your gentoo installation for unwanted cru
 app-portage/pacvis 0.4.2: Displays dependency graphs of packages
 app-portage/portage-lostfiles 0.2.2: A simple script to identify files not tracked by Portage package manager
 app-portage/portconf 1.6.8-r1: /etc/portage cleaner
+app-portage/quantum-resolver 9999: A WIP portage dependency resolver
 app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
 app-portage/version 0.19.0_alpha 0.20.1_alpha 0.21.0_alpha: A command line function for package version management.
 app-shells/antibody 6.1.0 6.1.1: Fast Zsh plugin manager
@@ -242,29 +243,47 @@ app-vim/themis 1.6.0 1.7.0: A testing framework for Vim script
 app-vim/vim-nix 9999: vim plugin: Vim configuration files for Nix
 app-vim/vim-sensible 1.2: vim plugin: a universal set of defaults that (hopefully) everyone can agree on
 app-vim/vimwiki-cli 1.0.0: Command-line interface for Vimwiki
+dev-R/AsioHeaders 1.22.1.1: 'Asio' C++ Header Files
 dev-R/BH 1.75.0.0 1.78.0.0-r1: Boost C++ Header Files
+dev-R/DBI 1.1.3: R Database Interface
+dev-R/DBItest 1.7.2: Testing DBI Backends
 dev-R/MASS 7.3.57: Support Functions and Datasets for variables and Ripley's MASS
 dev-R/Matrix 1.4.1: Sparse and Dense Matrix Classes and Methods
 dev-R/R6 2.5.1: Encapsulated Classes with Reference Semantics
 dev-R/RColorBrewer 1.1.3: ColorBrewer Palettes
 dev-R/RInside 0.2.17: C++ Classes to Embed R in C++ (and C) Applications
+dev-R/RSQLite 2.2.14: SQLite Interface for R
 dev-R/Rcpp 1.0.8.3: Seamless R and C++ Integration
 dev-R/RcppArmadillo 0.10.2.2.0 0.10.8.1.0-r1: Rcpp Integration for the Armadillo templated linear algebra library
 dev-R/RcppEnsmallen 0.2.19.0.1-r1: Header-Only C++ Mathematical Optimization library for armadillo
 dev-R/RcppTOML 0.1.7: Rcpp Bindings to C++ parser for TOML files
+dev-R/RhpcBLASctl 0.21.247.1: Control the Number of Threads on 'BLAS'
+dev-R/XML 3.99.0.10: Tools for Parsing and Generating XML Within R and S-Plus
+dev-R/archive 1.1.5: Multi-Format Archive and Compression Support
 dev-R/askpass 1.1: Safe Password Entry for R, Git and SSH
 dev-R/assertthat 0.2.1: Easy Pre and Post Assertions
+dev-R/backports 1.4.1: Reimplementations of Functions Introduced Since R-3.0.0
+dev-R/base64enc 0.1.3: Tools for base64 encoding
+dev-R/bit 4.0.4: Classes and Methods for Fast Memory-Efficient Boolean Selections
+dev-R/bit64 4.0.5: A S3 Class for Vectors of 64bit Integers
+dev-R/blob 1.2.3: A Simple S3 Class for Representing Vectors of Binary Data ('BLOBS')
 dev-R/brew 1.0.7: Templating Framework for Report Generation
 dev-R/brio 1.1.3: Basic R Input Output
+dev-R/broom 1.0.0: Convert Statistical Objects into Tidy Tibbles
+dev-R/bslib 0.3.1: Custom 'Bootstrap' 'Sass' Themes for 'shiny' and 'rmarkdown'
+dev-R/cachem 1.0.6: Cache R Objects with Automatic Pruning
 dev-R/callr 3.7.0: Call R from R
 dev-R/cellranger 1.1.0: Translate Spreadsheet Cell Ranges to Rows and Columns
 dev-R/cli 3.3.0: Helpers for Developing Command Line Interfaces
+dev-R/clipr 0.8.0: Read and Write from the System Clipboard
+dev-R/codetools 0.2.18: Code analysis tools for R.
 dev-R/colorspace 2.0.3: A Toolbox for Manipulating and Assessing colors and palettes
 dev-R/commonmark 1.8.0: High Performance CommonMark and github markdown rendering in R
 dev-R/covr 3.5.1: Test Coverage for Packages
 dev-R/cpp11 0.4.2: A C++11 Interface for Rs C Interface
 dev-R/crayon 1.5.1: Colored Terminal Output
 dev-R/curl 4.3.2: A Modern and Flexible Web Client for R
+dev-R/dbplyr 2.2.1: R Database Interface
 dev-R/desc 1.4.1: Manipulate DESCRIPTION Files
 dev-R/diffobj 0.3.5: Diffs for R Objects
 dev-R/digest 0.6.29: Create Compact Hash Digests of R Objects
@@ -273,51 +292,70 @@ dev-R/ellipsis 0.3.2: Tools for Working with ...
 dev-R/evaluate 0.15: Parsing and Evaluation Tools that provide more details than the default
 dev-R/fansi 1.0.3: ANSI Control Sequence Aware String Functions
 dev-R/farver 2.1.0: High Performance Colour Space Manipulation
+dev-R/fastmap 1.1.0: Fast Data Structures
+dev-R/fontawesome 0.2.2: Easily Work with 'Font Awesome' Icons
+dev-R/forcats 0.5.1: Tools for Working with Categorical Variables (Factors)
 dev-R/fs 1.5.2: Cross-Platform File System Operations Based on libuv
+dev-R/future 1.26.1: Unified Parallel and Distributed Processing in R for Everyone
 dev-R/gargle 1.2.0: Utilities for Working with Google APIs
 dev-R/generics 0.1.2: Common S3 Generics not Provided by Base R Methods Related to Model Fitting
 dev-R/ggplot2 3.3.6: Create Elegant Data Visualisations using the grammar of graphics
 dev-R/gh 1.3.0: GitHub API
 dev-R/gitcreds 0.1.1: Query git Credentials from R
+dev-R/globals 0.15.1: Identify Global Objects in R Expressions
 dev-R/glue 1.6.2: Interpreted String Literals
 dev-R/googledrive 2.0.0: An Interface to Google Drive
 dev-R/googlesheets4 1.0.0: Access Google Sheets using the Sheets API V4
 dev-R/gtable 0.3.0: Arrange Grobs in Tables
 dev-R/here 1.0.1: A Simpler Way to Find Your Files
 dev-R/highr 0.9: Syntax Highlighting for R Source Code
+dev-R/hms 1.1.1: Pretty Time of Day
+dev-R/htmltools 0.5.2: Tools for HTML
+dev-R/htmlwidgets 1.5.4: HTML Widgets for R
+dev-R/httpuv 1.6.5: HTTP and WebSocket Server Library
 dev-R/httr 1.4.3: Tools for Working with URLs and HTTP
 dev-R/hunspell 3.0.1: High-Performance Stemmer, Tokenizer and Spell Checker
 dev-R/ids 1.0.1: Generate Random Identifiers
 dev-R/ini 0.3.1: Read and Write .ini Files
 dev-R/isoband 0.2.5: Generate Isolines and Isobands from regularky spaced elevation grids
+dev-R/jquerylib 0.1.4: Obtain 'jQuery' as an HTML Dependency Object
 dev-R/jsonlite 1.8.0: A Simple and Robust JSON Parser and generator for R
 dev-R/knitr 1.39: A General-Purpose Package for Dynamic report generation in R
 dev-R/labeling 0.4.2: Axis Labeling
+dev-R/later 1.3.0: Utilities for Scheduling Functions to Execute Later with Event Loops
 dev-R/lattice 0.20.45: Trellis Graphics for R
 dev-R/lazyeval 0.2.2: Lazy (Non-Standard) Evaluation
 dev-R/lifecycle 1.0.1: Manage the Life Cycle of your Package Functions
+dev-R/listenv 0.8.0: Environments Behaving (Almost) as Lists
+dev-R/lubridate 1.8.0: Make Dealing with Dates a Little Easier
 dev-R/magrittr 2.0.3: A Forward-Pipe Operator for R
 dev-R/markdown 1.1: Render Markdown with the C Library Sundown
+dev-R/memoise 2.0.1: 'Memoisation' of Functions
 dev-R/mgcv 1.8.40: Mixed GAM Computation Vehicle with automatic smoothness estimation
 dev-R/mime 0.12: Map Filenames to MIME Types
 dev-R/munsell 0.5.0: Utilities for Using Munsell Colours
 dev-R/nlme 3.1.157: Linear and Nonlinear Mixed Effects Models
 dev-R/nnet 7.3.17: Feed-Forward Neural Networks and multinomial log-linear models
 dev-R/openssl 2.0.2: Toolkit for Encryption, Signatures and certificates based on openssl
+dev-R/palmerpenguins 0.1.0: Palmer Archipelago (Antarctica) Penguin Data
+dev-R/parallelly 1.32.0: Enhancing the 'parallel' Package
 dev-R/parsedate 1.3.0: Recognize and Parse Dates in Various Formats
 dev-R/pillar 1.7.0: Coloured Formatting for Columns
 dev-R/pkgbuild 1.3.1: Find Tools Needed to Build R Packages
 dev-R/pkgconfig 2.0.3: Private Configuration for R Packages
 dev-R/pkgload 1.3.0: Simulate Package Installation and Attach
 dev-R/pkgsearch 3.1.0: Search and Query CRAN R Packages
-dev-R/plogr 0.2.0: The plog C++ Logging Library
+dev-R/plogr 0.2.0-r1: The plog C++ Logging Library
 dev-R/png 0.1.7: Read and write PNG images
 dev-R/praise 1.0.0: Praise Users
 dev-R/prettyunits 1.1.1: Pretty, Human Readable Formatting of Quantities
 dev-R/processx 3.6.1: Execute and Control System Processes
+dev-R/progress 1.2.2: Terminal Progress Bars
+dev-R/promises 1.2.0.1: Abstractions for Promise-Based Asynchronous Programming
 dev-R/ps 1.7.1: List, Query, Manipulate System Processes
 dev-R/purrr 0.3.4: Functional Programming Tools
 dev-R/rappdirs 0.3.3: Application Directories: Determine Where to Save Data, Caches, and Logs
+dev-R/readxl 1.4.0: Read Excel Files
 dev-R/rematch 1.0.1: Match Regular Expressions with a Nicer API
 dev-R/rematch2 2.1.2: Tidy Output from Regular Expression Matching
 dev-R/reticulate 1.25: Interface to Python
@@ -326,7 +364,12 @@ dev-R/rlang 1.0.3: Functions for Base Types and Core R and Tidyverse Features
 dev-R/roxygen2 7.2.0: In-Line Documentation for R
 dev-R/rprojroot 2.0.3: Finding Files in Project Subdirectories
 dev-R/rstudioapi 0.13: Safely Access the RStudio API
+dev-R/rvest 1.0.2: Easily Harvest (Scrape) Web Pages
+dev-R/sass 0.4.1: Syntactically Awesome Style Sheets ('Sass')
 dev-R/scales 1.2.0: Scale Functions for Visualization
+dev-R/selectr 0.4.2: Translate CSS Selectors to XPath Expressions
+dev-R/shiny 1.7.1: Web Application Framework for R
+dev-R/sourcetools 0.1.7: Tools for Reading, Tokenizing and Parsing R Code
 dev-R/spelling 2.2: Tools for Spell Checking in R
 dev-R/stringi 1.7.6: Character String Processing Facilities
 dev-R/stringr 1.4.0: Simple, Consistent Wrappers for common string operations
@@ -334,17 +377,22 @@ dev-R/survival 3.3.1: Survival Analysis
 dev-R/sys 3.4: Powerful and Reliable Tools for Running System Commands in R
 dev-R/testthat 3.1.4: Unit Testing for R
 dev-R/tibble 3.1.7: Simple Data Frames
+dev-R/tidyr 1.2.0: Tidy Messy Data
 dev-R/tidyselect 1.1.2: Select from a Set of Strings
 dev-R/txtplot 1.0.4: Text Based Plots
+dev-R/tzdb 0.3.0: Time Zone Database Information
 dev-R/utf8 1.2.2: Unicode Text Processing
 dev-R/uuid 1.1.0: Tools for Generating and Handling of UUIDs
 dev-R/vctrs 0.4.1: Vector Helpers
 dev-R/viridisLite 0.4.0: Colorblind-Friendly Color Maps (Lite Version)
 dev-R/waldo 0.4.0: Find Differences Between R Objects
+dev-R/webfakes 1.1.3: Fake Web Apps for HTTP Testing
+dev-R/websocket 1.4.1: 'WebSocket' Client Library
 dev-R/whoami 1.3.0: Username, Full Name, Email Address, GitHub username of the current user
 dev-R/withr 2.5.0: Run Code With Temporarily Modified Global State
 dev-R/xfun 0.31: Supporting Functions for Package maintained by Yihui Xie
 dev-R/xml2 1.3.3: Work with XML files using a simple, consistent interface
+dev-R/xtable 1.8.4: Export Tables to LaTeX or HTML
 dev-R/yaml 2.3.5: Methods to Convert R Data to YAML and Back
 dev-cpp/MEL 1.0.0-r1: Math Expression Library
 dev-cpp/cli11 2.1.2 2.2.0: Command line parser for C++11
@@ -402,7 +450,7 @@ dev-java/jcommon 1.0.24: A collection of useful classes used by JFreeChart, JFre
 dev-java/jcuber 4.7-r1: Java reader library
 dev-java/jfreechart 1.0.19-r1: JFreeChart is a free Java class library for generating charts
 dev-java/jfreesvg 3.4.3: JFreeSVG is a fast, light-weight, vector graphics library for the Java platform
-dev-java/jgraph 5.12.4.2: Open-source graph component for Java
+dev-java/jgraph 5.14.0.0_p20180427: Open-source graph component for Java
 dev-java/jogl 2.3.2: Java(TM) Binding fot the OpenGL(TM) API
 dev-java/orson-charts 1.7: A fast, lightweight charts generator for the Java platform
 dev-java/orsonpdf 1.9: A fast, lightweight PDF generator for the Java platform
@@ -470,7 +518,7 @@ dev-libs/protothreads 1.4-r2: Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
 dev-libs/randomx 1.1.8 1.1.9: Proof of work algorithm based on random code execution
 dev-libs/rsaref 2.0: Encryption/authentication library, RSA/MDX/DES
-dev-libs/sealcurses 0_pre20220523: SDL Emulation and Adaptation Layer for Curses
+dev-libs/sealcurses 0_pre20220523 2.0.18_pre20220609: SDL Emulation and Adaptation Layer for Curses
 dev-libs/shuffile 0.1.0-r1 0.2.0: SHUFFILE Shuffle files between processes
 dev-libs/supercop 0_p20200827: Fast cryptographic operations for Monero wallets
 dev-libs/tfdn 1.3.0 1.4.0: Opinionated C11 library for low-level functionality
@@ -587,7 +635,10 @@ dev-nim/grok 0.5.3: Macro library for Nim
 dev-nim/httpbeast 0.4.1: A super-fast epoll-backed and parallel HTTP server
 dev-nim/jester 0.5.0: A sinatra-like web framework for Nim
 dev-nim/jsony 1.1.3: A loose direct to object json parser with hooks
-dev-nim/nimbus 0.1.4: A Nim build system
+dev-nim/karax 1.2.1_p20220621: a framework for developing single page applications in Nim
+dev-nim/markdown 0.8.5: A Markdown Parser in Nim World
+dev-nim/nimbus 0.1.4 0.2.3: A Nim build system
+dev-nim/nimcrypto 0.5.4_p20210619: Nim cryptographic library
 dev-nim/npeg 0.26.0: a PEG library for Nim
 dev-nim/sync 1.5.0: Useful synchronization primitives
 dev-nim/ups 0.0.7: a package handler
@@ -737,6 +788,7 @@ dev-python/hyperglot 0.3.8 0.3.9: Detect language support for font binaries
 dev-python/hypothesmith 0.2.0: Hypothesis strategies for generating Python programs
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
 dev-python/injector 0.18.4: Python dependency injection framework
+dev-python/insipid-sphinx-theme 0.3.2: An insipid Sphinx theme
 dev-python/itemadapter 0.4.0: Common interface for scrapy data container classes
 dev-python/itemloaders 1.0.4: Library to populate items using XPath and CSS with a convenient API
 dev-python/iuliia 0.11.5: Transliterate Cyrillic to Latin in every possible way
@@ -911,7 +963,7 @@ dev-python/skia-pathops 0.7.2: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0-r1: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/sortedcollections 2.1.0: Apache2 licensed Python sorted collections library
 dev-python/sphinx-argparse 0.3.1: Sphinx extension that automatically documents argparse commands and options
-dev-python/sphinx-argparse-cli 1.8.2: Render CLI arguments (sub-commands friendly) defined by argparse module
+dev-python/sphinx-argparse-cli 1.8.2 1.9.0: Render CLI arguments (sub-commands friendly) defined by argparse module
 dev-python/sphinx-click 4.1.0 4.2.0: Sphinx plugin to automatically document click-based applications
 dev-python/sphinxcontrib-fulltoc 1.2: python-dbus-next is a Python library for DBus
 dev-python/sphinxcontrib-katex 0.8.6: KaTeX Sphinx extension for rendering of math in HTML pages
@@ -1032,7 +1084,7 @@ dev-vcs/gitqlient 1.4.3 9999: Multi-platform Git client written with Qt
 dev-vcs/gitui 0.18.0 0.20.1: Blazing fast terminal-ui for git
 dev-vcs/got 0.70 0.71: Portable version of the Game of Trees version control system
 dev-vcs/lazygit 0.33 0.34: Simple terminal UI for git commands
-dev-vcs/lefthook 0.8.0-r1 1.0.0: Fast and powerful Git hooks manager for any type of projects
+dev-vcs/lefthook 1.0.0 1.0.4: Fast and powerful Git hooks manager for any type of projects
 dev-vcs/mergestat 0.5.4 0.5.4-r1: Query git repositories with SQL
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
 games-action/blackvoxel 2.50 9999: Blackvoxel Video Game
@@ -1046,6 +1098,7 @@ games-board/fairy-stockfish 14 14.0.1: Chess variant engine derived from Stockfi
 games-board/openriichi 0.2.1.1: OpenRiichi is an open source Japanese Mahjong client
 games-board/rmahjong 0.4_p20201106: Riichi Mahjong, the Japanese variant of the Chinese game Mahjong for 4 players
 games-emulation/citra 9999: A Nintendo 3DS Emulator
+games-emulation/dosbox-x 0.84.1 9999: Complete, accurate DOS emulator forked from DOSBox
 games-emulation/duckstation 9999: Fast Sony PlayStation (PSX) emulator
 games-emulation/flycast 9999: Sega Dreamcast, Naomi and Atomiswave emulator
 games-emulation/mupen64plus-qt 1.15 9999: A basic launcher for Mupen64Plus
@@ -1140,7 +1193,7 @@ gui-apps/yambar 1.6.2 1.7.0 1.8.0 9999: Simplistic and highly configurable statu
 gui-libs/cubegui 4.7: CUBE Uniform Behavioral Encoding GUI
 gui-libs/libcprime 4.2.0 4.2.2 9999: Library for managing settings of CoreApps
 gui-libs/libcsys 4.2.0 9999: Library for managing the device
-gui-libs/text-engine 0.1.0 0.1.1 9999: A lightweight rich-text framework for GTK 4
+gui-libs/text-engine 0.1.1 9999: A lightweight rich-text framework for GTK 4
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.3 0.1.4 9999: A Wayland kiosk
 gui-wm/dwl 0.3.1 9999: dwm for Wayland
@@ -1269,7 +1322,7 @@ net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various pl
 net-client/amfora 1.8.0 1.9.2: A fancy terminal browser for the Gemini protocol.
 net-client/castor 0.8.16 0.8.18: A graphical browser for plain-text protocols
 net-client/kristall 0.3-r2 9999: Visual cross-platform gemini browser
-net-client/lagrange 1.12.1 1.13.6: Desktop GUI client for browsing Geminispace
+net-client/lagrange 1.13.6 1.13.7: Desktop GUI client for browsing Geminispace
 net-client/offpunk 0.1 0.3: A command-line, text-based and offline-first Gemini browser
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
 net-client/telescope 0.7.1 0.8.1: w3m-like browser for Gemini

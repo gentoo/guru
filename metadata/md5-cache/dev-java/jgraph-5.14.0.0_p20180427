@@ -2,13 +2,13 @@ DEFINED_PHASES=compile install preinst prepare setup test
 DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=Open-source graph component for Java
 EAPI=8
-HOMEPAGE=https://www.jgraph.com
+HOMEPAGE=https://www.jgraph.com https://github.com/jgraph/legacy-jgraph5 https://sourceforge.net/projects/jgraph/
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc examples source doc source
 KEYWORDS=~amd64
 LICENSE=LGPL-2.1
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=0
-SRC_URI=mirror://debian/pool/main/libj/libjgraph-java/libjgraph-java_5.12.4.2+dfsg.orig.tar.gz
+SRC_URI=https://github.com/jgraph/legacy-jgraph5/archive/b8e7eb81188ebfd5be501527224befb5e92a2369.tar.gz -> jgraph-5.14.0.0_p20180427.tar.gz
 _eclasses_=java-utils-2	cfb5f6911bb70204c94ceafd0372c716	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	95922adb58696025c86c401d825178a7
-_md5_=440016883d593915008d2b1573dc661f
+_md5_=90489e348ed43a0279e31f1211a232c2

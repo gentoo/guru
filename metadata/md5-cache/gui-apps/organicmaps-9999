@@ -1,12 +1,12 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl] dev-util/ninja >=dev-util/cmake-3.9.6
-DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=sys-devel/clang >=dev-util/cmake-3.18.1 dev-util/ninja media-libs/freetype dev-libs/icu sys-libs/libstdc++-v3 dev-qt/qtcore dev-qt/qtsvg dev-db/sqlite sys-libs/zlib[minizip]
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl] >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=sys-devel/clang >=dev-util/cmake-3.18.1 dev-util/ninja media-libs/freetype dev-libs/icu sys-libs/libstdc++-v3 dev-qt/qtcore dev-qt/qtsvg dev-db/sqlite sys-libs/zlib[minizip] dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Offline maps and navigation using OpenStreetMap data
 EAPI=7
 HOMEPAGE=https://organicmaps.app
-INHERIT=git-r3 cmake-utils
+INHERIT=git-r3 cmake xdg
 LICENSE=Apache-2.0
 PROPERTIES=live
 SLOT=0
-_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake-utils	9e91c7445357e208267f5ab7e693d456
-_md5_=e30b12cbf491f4afe7bf5339b905f6ba
+_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	xdg	6024fbc93167fad782e2032933654857
+_md5_=c3a6ae3390cbc08240b144b30f2923a8

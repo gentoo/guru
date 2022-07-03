@@ -244,6 +244,14 @@ games-emulation/citra:hle-sound - Enable HLE sound via FFmpeg audio (AAC) decode
 games-emulation/citra:system-libfmt - Use system libfmt
 games-emulation/citra:telemetry - Enable web services (telemetry, etc.)
 games-emulation/citra:video - Enable FFmpeg video dumper
+games-emulation/dosbox-x:X - Enable X11 integration for better fullscreening functionality
+games-emulation/dosbox-x:debug - Enable the internal debugger of this program
+games-emulation/dosbox-x:ffmpeg - Enable MPEG.TS + H.264 video capture format support via media-video/ffmpeg
+games-emulation/dosbox-x:fluidsynth - Enable FluidSynth to be used as the MIDI synthesizer
+games-emulation/dosbox-x:freetype - Enable TrueType font (TTF) output and printing support via media-libs/freetype
+games-emulation/dosbox-x:opengl - Enable OpenGL as a video system to use for output
+games-emulation/dosbox-x:png - Enable screenshot and video capture support via media-libs/libpng
+games-emulation/dosbox-x:slirp - Enable the SLIRP back-end for network adapter emulation
 games-emulation/duckstation:discord - Enable Discord Rich Presence to show the current game on Discord
 games-emulation/duckstation:egl - Enable EGL support
 games-emulation/duckstation:evdev - Support EVDev controller interface
@@ -784,6 +792,7 @@ sys-cluster/redset:slurm - Use sys-cluster/slurm as resource manager
 sys-cluster/scorep:gcc-plugin - Enable support for the GCC plug-in instrumentation
 sys-cluster/scorep:llvm - Enable the user library wrapping feature
 sys-cluster/scorep:online-access - Enable Online Access
+sys-cluster/scorep:openacc - Enable support for OpenACC
 sys-cluster/scorep:opencl - Build with libOpenCL support
 sys-cluster/scorep:openshmem - Use the SHMEM compiler
 sys-cluster/scorep:pmi - Build with libpmi support

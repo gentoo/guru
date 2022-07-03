@@ -1,12 +1,13 @@
-DEFINED_PHASES=install postinst
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install postinst postrm
 DEPEND=x11-libs/libX11 x11-libs/libXrandr dev-libs/libevdev x11-libs/gtk+:3 virtual/udev dev-dotnet/dotnet-sdk-bin:6.0
 DESCRIPTION=Cross platform tablet driver (binary package)
 EAPI=7
 HOMEPAGE=https://github.com/OpenTabletDriver
-INHERIT=desktop
+INHERIT=desktop udev
 KEYWORDS=~amd64
 LICENSE=GPL-3+
 SLOT=0
 SRC_URI=https://github.com/OpenTabletDriver/OpenTabletDriver/archive/refs/tags/v0.6.0.4.tar.gz -> OpenTabletDriver-source-0.6.0.4.tar.gz https://github.com/OpenTabletDriver/OpenTabletDriver/releases/download/v0.6.0.4/OpenTabletDriver.linux-x64.tar.gz -> OpenTabletDriver-v0.6.0.4.tar.gz
-_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa
-_md5_=4b0f22e7a318d47f50e177def0b8058b
+_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	udev	f3a0a3964e2028a140c181f00eea9712
+_md5_=7027503024f1616d595f0666e80930ee
