@@ -3,26 +3,26 @@
 
 EAPI=7
 
-inherit R-packages #edo
+inherit R-packages edo
 
 DESCRIPTION="Syntactically Awesome Style Sheets ('Sass')"
 KEYWORDS="~amd64"
 LICENSE='MIT'
-# Tests need shiny (circ. dep, will enable once added)
-#RESTRICT="!test? ( test )"
-#IUSE="test"
+RESTRICT="!test? ( test )"
+IUSE="test"
 
 DEPEND="
 	dev-R/fs
 	>=dev-R/rlang-0.4.10
 	>=dev-R/htmltools-0.5.1
 	dev-R/R6
-	dev-R/rappdirs"
-#	test? (
-#		dev-R/withr
-#		dev-R/testthat
-#		dev-R/shiny
-#	)
+	dev-R/rappdirs
+	test? (
+		dev-R/withr
+		dev-R/testthat
+		dev-R/shiny
+	)
+"
 
 SUGGESTED_PACKAGES="
 	dev-R/testthat
@@ -33,7 +33,7 @@ SUGGESTED_PACKAGES="
 	dev-R/curl
 "
 
-#src_test() {
-#	cd "${WORKDIR}/${P}/tests" || die
-#	NOT_CRAN=true R_LIBS="${T}/R" edo Rscript --vanilla test-all.R
-#}
+src_test() {
+	cd "${WORKDIR}/${P}/tests" || die
+	R_LIBS="${T}/R" edo Rscript --vanilla testthat.R
+}
