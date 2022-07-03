@@ -228,6 +228,8 @@ dev-util/gammaray:scxml - Build support for Qt5 State Chart XML (SCXML)
 dev-util/gammaray:webengine - Enable support for dev-qt/qtwebengine
 dev-util/insomnia-bin:ayatana - 
 dev-util/ots:sanitize - Sanitize Graphite tables
+dev-util/vala-language-server:debug_mem - 
+dev-util/vala-language-server:plugins - 
 dev-vcs/gitui:nerdfonts - Use nerd-fonts icons
 dev-vcs/gitui:trace - Enable libgit tracing
 games-arcade/taisei:lto - Enable link time optimization
@@ -338,7 +340,6 @@ media-fonts/victor-mono:otf - Install the OpenType version of the font
 media-fonts/victor-mono:ttf - Install the TrueType version of the font
 media-gfx/bonzomatic:system-glew - Use the systems installed version of GLEW (upstream-unsupported)
 media-gfx/bonzomatic:system-glfw - Use the systems installed version of GLFW (upstream-unsupported)
-media-gfx/bonzomatic:system-kissfft - Use the systems installed version of Kissfft (upstream-unsupported)
 media-gfx/bonzomatic:system-stb - Use the systems installed version of STB (upstream-unsupported)
 media-gfx/bonzomatic:wayland - Build non-system-glfw for wayland instead of X11
 media-gfx/grafx2:ttf - Install TTF Fonts
