@@ -333,6 +333,7 @@ dev-R/markdown 1.1: Render Markdown with the C Library Sundown
 dev-R/memoise 2.0.1: 'Memoisation' of Functions
 dev-R/mgcv 1.8.40: Mixed GAM Computation Vehicle with automatic smoothness estimation
 dev-R/mime 0.12: Map Filenames to MIME Types
+dev-R/modelr 0.1.8: Modelling Functions that Work with the Pipe
 dev-R/munsell 0.5.0: Utilities for Using Munsell Colours
 dev-R/nlme 3.1.157: Linear and Nonlinear Mixed Effects Models
 dev-R/nnet 7.3.17: Feed-Forward Neural Networks and multinomial log-linear models
