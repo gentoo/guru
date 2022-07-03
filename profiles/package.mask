@@ -63,11 +63,6 @@ net-misc/tuir
 # Test dep (asynctest) doesn't support any recent Python. No revdeps.
 dev-python/aionotify
 
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-05-28)
-# Depends on non-existent versions of pyparsing, invalid dependency
-# on dev-embedded/esptool. Needs porting to python-single-r1.
-dev-embedded/esp-idf
-
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
 # Depends on masked dev-libs/openssl-3.0.*
 app-crypt/tpm2-openssl
