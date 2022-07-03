@@ -72,10 +72,6 @@ dev-embedded/esp-idf
 # Depends on masked dev-libs/openssl-3.0.*
 app-crypt/tpm2-openssl
 
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-04-14)
-# Depends on unavailable dev-python/regex-2022.3.15
-dev-python/dateparser
-
 # Yuan Liao <liaoyuan@gmail.com> (2022-02-20)
 # Depends on net-libs/libsoup:3.0, which is masked in ::gentoo.
 # Masked until all dependencies are unmasked.
