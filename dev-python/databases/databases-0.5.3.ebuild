@@ -29,7 +29,7 @@ RDEPEND="
 BDEPEND="test? (
 	dev-python/aiopg[${PYTHON_USEDEP}]
 	dev-python/aiosqlite[${PYTHON_USEDEP}]
-	dev-python/async_timeout[${PYTHON_USEDEP}]
+	dev-python/async-timeout[${PYTHON_USEDEP}]
 	dev-python/asyncpg[${PYTHON_USEDEP}]
 	dev-python/psycopg[${PYTHON_USEDEP}]
 	dev-python/pymysql[${PYTHON_USEDEP}]
