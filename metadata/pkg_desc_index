@@ -217,7 +217,6 @@ app-text/cmark-gfm 0.29.0.3: GitHub's fork of cmark
 app-text/code-minimap 0.6.4: A high performance code minimap generator
 app-text/epubgrep 0.5.1-r1 0.6.0-r1: Search tool for EPUB e-books
 app-text/klogg 22.06.0.1289: A GUI application to browse and search through long and complex log files
-app-text/komikku 0.36.1 0.37.0: An online/offline manga reader for GNOME
 app-text/koodo-reader-bin 1.4.1: A modern ebook manager and reader with sync and backup capacities
 app-text/lizard 1.17.10: A simple code complexity analyser, supports most of the popular languages.
 app-text/mandown 0.1.2: Markdown to groff (man page) converter

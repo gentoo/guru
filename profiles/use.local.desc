@@ -226,6 +226,7 @@ dev-util/gammaray:qml - Build with Qt5 Quick support
 dev-util/gammaray:script - Enable scripting support from the Qt5 framework
 dev-util/gammaray:scxml - Build support for Qt5 State Chart XML (SCXML)
 dev-util/gammaray:webengine - Enable support for dev-qt/qtwebengine
+dev-util/insomnia-bin:ayatana - 
 dev-util/ots:sanitize - Sanitize Graphite tables
 dev-vcs/gitui:nerdfonts - Use nerd-fonts icons
 dev-vcs/gitui:trace - Enable libgit tracing
