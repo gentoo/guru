@@ -21,7 +21,7 @@ SLOT="0"
 RESTRICT="test"
 
 DEPEND="
-	dev-python/dbutils[${PYTHON_USEDEP}]
+	dev-python/DBUtils[${PYTHON_USEDEP}]
 	dev-python/msgpack[${PYTHON_USEDEP}]
 	dev-python/pymysql[${PYTHON_USEDEP}]
 "
