@@ -5,13 +5,13 @@
 		<email>me@r0bert.dev</email>
 		<name>Robert Greener</name>
 	</maintainer>
-	<longdescription lang="en">Tools for HTML generation and output.</longdescription>
+	<longdescription lang="en">An 'SCSS' compiler, powered by the 'LibSass' library. With this, R developers can use variables, inheritance, and functions to generate dynamic style sheets. The package uses the 'Sass CSS' extension language, which is stable, powerful, and CSS compatible.</longdescription>
 	<upstream>
 		<maintainer>
 			<name>Carson Sievert</name>
 			<email>carson@rstudio.com</email>
 		</maintainer>
-		<bugs-to>https://github.com/rstudio/htmltools/issues</bugs-to>
-		<remote-id type="github">rstudio/htmltools</remote-id>
+		<bugs-to>https://github.com/rstudio/sass/issues</bugs-to>
+		<remote-id type="github">rstudio/sass</remote-id>
 	</upstream>
 </pkgmetadata>
