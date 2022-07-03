@@ -1,6 +1,6 @@
 EAPI=7
 
-inherit git-r3 cmake-utils
+inherit git-r3 cmake xdg
 EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 
 DESCRIPTION="Offline maps and navigation using OpenStreetMap data"
@@ -21,10 +21,9 @@ DEPEND="sys-devel/clang
 	sys-libs/zlib[minizip]"
 RDEPEND=""
 
-src_prepare() {
-	eapply "${FILESDIR}/${P}-zlib-compile.patch"
-	cmake-utils_src_prepare
-}
+PATCHES=(
+	"${FILESDIR}/${P}-zlib-compile.patch"
+)
 
 src_configure() {
 	CMAKE_BUILD_TYPE="RelWithDebInfo"
@@ -35,7 +34,7 @@ src_configure() {
 
 	echo | ./configure.sh
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 pkg_postinst() {
