@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit bash-completion-r1 go-module systemd
+inherit go-module systemd
 
 DESCRIPTION="Pinset orchestration for IPFS"
 HOMEPAGE="https://ipfscluster.io/"
