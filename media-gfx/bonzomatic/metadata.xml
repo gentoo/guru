@@ -10,6 +10,6 @@
 		<flag name="wayland">Build non-system-glfw for wayland instead of X11</flag>
 		<flag name="system-glew">Use the systems installed version of GLEW (upstream-unsupported)</flag>
 		<flag name="system-stb">Use the systems installed version of STB (upstream-unsupported)</flag>
-		<flag name="system-kissfft">Use the systems installed version of Kissfft (upstream-unsupported)</flag>
+		<!-- <flag name="system-kissfft">Use the systems installed version of Kissfft (upstream-unsupported)</flag> -->
 	</use>
 </pkgmetadata>
