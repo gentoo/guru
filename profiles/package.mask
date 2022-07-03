@@ -54,10 +54,6 @@ dev-python/thriftrw
 # Pytest hangs. No revdeps. Removal on 2022-07-04.
 dev-python/threadloop
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-02)
-# Doesn't support Python 3.10.
-net-misc/tuir
-
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
 # Depends on masked dev-libs/openssl-3.0.*
 app-crypt/tpm2-openssl
