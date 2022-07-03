@@ -17,6 +17,7 @@
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-07-03)
 # unavailable dependency dev-util/distro-info
 dev-util/devscripts
+dev-util/rpmlint
 
 # Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-06-26)
 # depends on non-existent dev-python/m2r
