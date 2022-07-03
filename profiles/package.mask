@@ -56,7 +56,6 @@ dev-python/threadloop
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-02)
 # Doesn't support Python 3.10.
-dev-python/kitchen
 net-misc/tuir
 
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
