@@ -13,7 +13,7 @@ CRAN_PV="1.8-10"
 SRC_URI="mirror://cran/src/contrib/${PN}_${CRAN_PV}.tar.gz"
 
 DEPEND="
-	|| ( dev-lang/R[-minimal] >=dev-R/lattice-0.20.27 )
+	virtual/lattice
 "
 
 SUGGESTED_PACKAGES="
