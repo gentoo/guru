@@ -34,5 +34,6 @@ SUGGESTED_PACKAGES="
 
 src_test() {
 	cd "${WORKDIR}/${P}/tests" || die
+	rm "testthat/test-images.R" || die
 	NOT_CRAN=true R_LIBS="${T}/R" edo Rscript --vanilla test-all.R
 }
