@@ -10,7 +10,7 @@ KEYWORDS="~amd64"
 LICENSE='GPL-2+'
 RESTRICT="!test? ( test )"
 IUSE="test"
-CRAN_PV="1.8-4"
+CRAN_PV="$(ver_rs 2 -)"
 
 SRC_URI="mirror://cran/src/contrib/${PN}_${CRAN_PV}.tar.gz"
 
