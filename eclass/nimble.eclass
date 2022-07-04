@@ -134,9 +134,11 @@ nimble_src_configure() {
 	local nimbusargs=(
 		--nimbleDir:"${EPREFIX}"/opt/nimble
 		--binDir:"${EPREFIX}"/usr/bin
-		--url:"$(get_package_url)"
 		"${mynimargs[@]}"
 	)
+
+	[[ -n "$(get_package_url)" ]] && \
+		nimbusargs+=( --url:"$(get_package_url)" )
 
 	set -- nimbus "${nimbusargs[@]}" "${S}" "${BUILD_DIR}"
 	echo "${@}" >&2
