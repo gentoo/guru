@@ -8,7 +8,7 @@ inherit R-packages
 DESCRIPTION='C++ Header Files for Stan'
 KEYWORDS="~amd64"
 LICENSE='BSD'
-CRAN_PV="2.21.0-7"
+CRAN_PV="$(ver_rs 3 -)"
 
 SRC_URI="mirror://cran/src/contrib/${PN}_${CRAN_PV}.tar.gz"
 
