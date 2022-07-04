@@ -8,6 +8,6 @@ inherit R-packages
 DESCRIPTION="'Asio' C++ Header Files"
 KEYWORDS="~amd64"
 LICENSE='Boost-1.0'
-CRAN_PV="1.22.1-1"
+CRAN_PV="$(ver_rs 3 -)"
 
 SRC_URI="mirror://cran/src/contrib/${PN}_${CRAN_PV}.tar.gz"
