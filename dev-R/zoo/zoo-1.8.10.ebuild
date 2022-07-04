@@ -8,7 +8,7 @@ inherit R-packages
 DESCRIPTION="S3 Infrastructure for Regular and Irregular Time Series (Z's Ordered Observations)"
 KEYWORDS="~amd64"
 LICENSE='GPL-2 GPL-3'
-CRAN_PV="1.8-10"
+CRAN_PV="$(ver_rs 2 -)"
 
 SRC_URI="mirror://cran/src/contrib/${PN}_${CRAN_PV}.tar.gz"
 
