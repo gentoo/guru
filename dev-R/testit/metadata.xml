@@ -5,7 +5,7 @@
 		<email>me@r0bert.dev</email>
 		<name>Robert Greener</name>
 	</maintainer>
-	<longdescription lang="en">Helper functions to install and maintain the 'LaTeX' distribution named 'TinyTeX' (https://yihui.org/tinytex/), a lightweight, cross-platform, portable, and easy-to-maintain version of 'TeX Live'. This package also contains helper functions to compile 'LaTeX' documents, and install missing 'LaTeX' packages automatically.</longdescription>
+	<longdescription lang="en">Provides two convenience functions assert() and test_pkg() to facilitate testing R packages.</longdescription>
 	<upstream>
 		<maintainer>
 			<name>Yihui Xie</name>
