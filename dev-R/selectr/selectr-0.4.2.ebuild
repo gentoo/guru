@@ -10,7 +10,7 @@ KEYWORDS="~amd64"
 LICENSE='BSD'
 RESTRICT="!test? ( test )"
 IUSE="test"
-CRAN_PV="0.4-2"
+CRAN_PV="$(ver_rs 2 -)"
 
 DEPEND="
 	dev-R/stringr
