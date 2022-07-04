@@ -8,6 +8,6 @@ inherit R-packages
 DESCRIPTION="Control the Number of Threads on 'BLAS'"
 KEYWORDS="~amd64"
 LICENSE='AGPL-3'
-CRAN_PV="0.21-247.1"
+CRAN_PV="$(ver_rs 2 -)"
 
 SRC_URI="mirror://cran/src/contrib/${PN}_${CRAN_PV}.tar.gz"
