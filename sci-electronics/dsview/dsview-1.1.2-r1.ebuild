@@ -5,7 +5,7 @@ EAPI=8
 
 GITHUB_PN="DSView"
 MY_PV="$(ver_rs 2 '')" # 'a.b.c' -> 'a.bc'
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit cmake python-r1 toolchain-funcs udev xdg
 
