@@ -11,7 +11,7 @@ LICENSE='BSD'
 DEPEND="
 	>=dev-libs/libxml2-2.6.3
 "
-CRAN_PV="3.99-0.10"
+CRAN_PV="$(ver_rs 2 -)"
 
 SUGGESTED_PACKAGES="
 	dev-R/bitops
