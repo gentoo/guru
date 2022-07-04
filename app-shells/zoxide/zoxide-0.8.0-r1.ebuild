@@ -117,7 +117,7 @@ LICENSE="CC0-1.0 MIT
 SLOT="0"
 KEYWORDS="~amd64"
 
-QA_FLAGS_IGNORED="/usr/bin/zoxide"
+QA_FLAGS_IGNORED="usr/bin/zoxide"
 
 src_install() {
 	cargo_src_install
