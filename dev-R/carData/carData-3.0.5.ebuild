@@ -8,7 +8,7 @@ inherit R-packages
 DESCRIPTION="Companion to Applied Regression Data Sets"
 KEYWORDS="~amd64"
 LICENSE='GPL-2 GPL-3'
-CRAN_PV="3.0-5"
+CRAN_PV="$(ver_rs 2 -)"
 
 SRC_URI="mirror://cran/src/contrib/${PN}_${CRAN_PV}.tar.gz"
 
