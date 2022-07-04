@@ -38,5 +38,5 @@ SUGGESTED_PACKAGES="
 
 src_test() {
 	cd "${WORKDIR}/${P}/tests" || die
-	NOT_CRAN=true R_LIBS="${T}/R" edo Rscript --vanilla testthat.R
+	R_LIBS="${T}/R" edo Rscript --vanilla testthat.R
 }
