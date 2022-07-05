@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>me@r0bert.dev</email>
+		<name>Robert Greener</name>
+	</maintainer>
+	<longdescription lang="en">Provides two convenience functions assert() and test_pkg() to facilitate testing R packages.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Yihui Xie</name>
+			<email>xie@yihui.name</email>
+		</maintainer>
+		<bugs-to>https://github.com/yihui/testit/issues</bugs-to>
+		<remote-id type="github">yihui/testit</remote-id>
+	</upstream>
+</pkgmetadata>

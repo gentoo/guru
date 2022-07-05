@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools xdg
+inherit autotools toolchain-funcs xdg
 
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
@@ -139,6 +139,11 @@ src_configure() {
 	)
 
 	econf "${myconf[@]}"
+}
+
+src_compile() {
+	# https://bugs.gentoo.org/856352
+	emake AR="$(tc-getAR)"
 }
 
 pkg_preinst() {

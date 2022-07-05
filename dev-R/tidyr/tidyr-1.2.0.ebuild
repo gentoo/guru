@@ -24,7 +24,7 @@ DEPEND="
 
 SUGGESTED_PACKAGES="
 	dev-R/covr
-	dev-R/data-table
+	dev-R/data_table
 	dev-R/jsonlite
 	dev-R/knitr
 	dev-R/readr

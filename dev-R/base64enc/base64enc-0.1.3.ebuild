@@ -8,6 +8,6 @@ inherit R-packages
 DESCRIPTION='Tools for base64 encoding'
 KEYWORDS="~amd64"
 LICENSE='GPL-2 GPL-3'
-CRAN_PV="0.1-3"
+CRAN_PV="$(ver_rs 2 -)"
 
 SRC_URI="mirror://cran/src/contrib/${PN}_${CRAN_PV}.tar.gz"
