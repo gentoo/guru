@@ -16,6 +16,7 @@ DEPEND="
 	test? (
 		dev-R/xml2
 	)
+	>=sci-libs/nlopt-2.7.0
 "
 
 SUGGESTED_PACKAGES="
