@@ -6,28 +6,32 @@
 EAPI=8
 
 CRATES="
-ansi_term-0.11.0
-atty-0.2.14
-bitflags-1.2.1
-clap-2.33.1
-colored-1.9.3
-hermit-abi-0.1.14
-itoa-0.4.6
-lazy_static-1.4.0
-libc-0.2.71
-mpvipc-1.1.9
-log-0.4.16
-cfg-if-1.0.0
-ryu-1.0.5
-serde-1.0.114
-serde_json-1.0.55
-strsim-0.8.0
-textwrap-0.11.0
-unicode-width-0.1.7
-vec_map-0.8.2
-winapi-0.3.8
-winapi-i686-pc-windows-gnu-0.4.0
-winapi-x86_64-pc-windows-gnu-0.4.0
+	atty-0.2.14
+	autocfg-1.1.0
+	bitflags-1.3.2
+	cfg-if-1.0.0
+	clap-3.2.8
+	clap_lex-0.2.4
+	colored-2.0.0
+	hashbrown-0.12.1
+	hermit-abi-0.1.19
+	indexmap-1.9.1
+	itoa-1.0.2
+	lazy_static-1.4.0
+	libc-0.2.126
+	log-0.4.17
+	mpvipc-1.1.9
+	os_str_bytes-6.1.0
+	ryu-1.0.10
+	serde-1.0.138
+	serde_json-1.0.82
+	strsim-0.10.0
+	termcolor-1.1.3
+	textwrap-0.15.0
+	winapi-0.3.9
+	winapi-i686-pc-windows-gnu-0.4.0
+	winapi-util-0.1.5
+	winapi-x86_64-pc-windows-gnu-0.4.0
 "
 
 inherit cargo
