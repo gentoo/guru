@@ -35,7 +35,7 @@ app-admin/akita 0.1.4: An HTTP log monitoring tool for your terminal
 app-admin/ananicy-cpp 1.0.0_rc6-r1: Ananicy rewritten in C++ for much lower CPU and memory usage
 app-admin/antidot 0.6.1 0.6.2: Cleans up your $HOME from those pesky dotfiles
 app-admin/aws-vault 6.4.0 6.6.0: Securely store and access AWS credentials in development environments
-app-admin/chamber 2.10.7 2.10.9: Managing secrets in AWS SSM Parameter Store
+app-admin/chamber 2.10.9 2.10.12: Managing secrets in AWS SSM Parameter Store
 app-admin/chezmoi 2.16.0: Manage your dotfiles across multiple machines, securely
 app-admin/customrescuecd-x86 0.4.1: A system rescue cd or usbstick for desktop and server based on gentoo
 app-admin/customrescuecd-x86_64 0.12.7: A system rescue cd or usbstick for desktop and server based on gentoo
@@ -95,6 +95,7 @@ app-dicts/dictd-web1913 0.5.0_p1: Webster's Revised Unabridged Dictionary (1913)
 app-doc/anarchism 15.3: An anarchist FAQ
 app-doc/ford 6.1.10 6.1.11 6.1.12: FORD, automatic documentation generator for modern Fortran programs
 app-doc/openbsd-manpages 6.9 7.0: OpenBSD manual pages
+app-doc/stdman 2019.08.27 2020.11.17 2021.12.21 9999: Formatted C++ stdlib man pages (cppreference)
 app-editors/amp 0.6.2: A complete text editor for your terminal.
 app-editors/atom-bin 1.58.0-r1: A hackable text editor for the 21st Century
 app-editors/helix 0.4.1 0.6.0: A post-modern text editor.
@@ -135,7 +136,7 @@ app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best
 app-misc/doublecmd-bin 1.0.5 1.0.6: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
-app-misc/fastfetch 1.5.5 9999: Like neofetch but faster
+app-misc/fastfetch 1.5.6 9999: Like neofetch but faster
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -205,14 +206,14 @@ app-shells/powerline-go 1.21.0 1.22.1: A powerline like prompt for Bash, Zsh, Fi
 app-shells/silver 2.0.0: A cross-shell customizable powerline-like prompt with icons
 app-shells/spark-fish 1.2.0: Sparklines for Fish
 app-shells/vivid 0.7.0-r2 0.8.0: A themeable LS_COLORS generator with a rich filetype datebase
-app-shells/zoxide 0.7.2 0.8.0: A smarter cd command for your terminal
+app-shells/zoxide 0.8.0-r1 0.8.2-r1: A smarter cd command for your terminal
 app-shells/zsh-async 1.8.5 1.8.5_p20211005: Run multiple asynchronous jobs with callbacks
 app-shells/zsh-autosuggestions 0.6.4 0.7.0-r1: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
 app-shells/zsh-history-substring-search 1.0.2: ZSH port of Fish history search (up arrow)
 app-shells/zsh-history-to-fish 0.3.0-r1: Bring your ZSH history to Fish shell
 app-shells/zsh-silver 9999: Zsh plugin for silver
-app-text/OCRmyPDF 13.4.3 13.4.6-r1: OCRmyPDF adds an OCR text layer to scanned PDF files
+app-text/OCRmyPDF 13.4.6-r1 13.6.0: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/cmark-gfm 0.29.0.3: GitHub's fork of cmark
 app-text/code-minimap 0.6.4: A high performance code minimap generator
 app-text/epubgrep 0.5.1-r1 0.6.0-r1: Search tool for EPUB e-books
@@ -223,7 +224,6 @@ app-text/mandown 0.1.2: Markdown to groff (man page) converter
 app-text/md2mld 0.5.1: Little cli tool to convert md files into mld files
 app-text/noweb 2.12: a literate programming tool, lighter than web
 app-text/smu 1.5 9999: Simple markup - markdown like syntax
-app-text/stdman 2019.08.27 2020.11.17 9999: Formatted C++ stdlib man pages (cppreference)
 app-text/tldr 2.0.0-r1: Python command line client for tldr pages
 app-vim/apkbuild-vim 20210911: vim plugin: edit and work with APKBUILD files
 app-vim/bracketed-paste 20180522: vim plugin: handles bracketed-paste-mode in vim (aka. automatic `:set paste`)
@@ -252,12 +252,20 @@ dev-R/R6 2.5.1: Encapsulated Classes with Reference Semantics
 dev-R/RColorBrewer 1.1.3: ColorBrewer Palettes
 dev-R/RInside 0.2.17: C++ Classes to Embed R in C++ (and C) Applications
 dev-R/RSQLite 2.2.14: SQLite Interface for R
+dev-R/RUnit 0.4.32: R Unit Test Framework
+dev-R/R_methodsS3 1.8.2: S3 Methods Simplified
+dev-R/R_oo 1.25.0: R Object-Oriented Programming with or without References
+dev-R/R_utils 2.12.0: Various Programming Utilities
 dev-R/Rcpp 1.0.8.3: Seamless R and C++ Integration
 dev-R/RcppArmadillo 0.10.2.2.0 0.10.8.1.0-r1: Rcpp Integration for the Armadillo templated linear algebra library
+dev-R/RcppEigen 0.3.3.9.2: 'Rcpp' Integration for the 'Eigen' Templated Linear Algebra Library
 dev-R/RcppEnsmallen 0.2.19.0.1-r1: Header-Only C++ Mathematical Optimization library for armadillo
+dev-R/RcppParallel 5.1.5: Parallel Programming Tools for 'Rcpp'
 dev-R/RcppTOML 0.1.7: Rcpp Bindings to C++ parser for TOML files
 dev-R/RhpcBLASctl 0.21.247.1: Control the Number of Threads on 'BLAS'
+dev-R/StanHeaders 2.21.0.7: C++ Header Files for Stan
 dev-R/XML 3.99.0.10: Tools for Parsing and Generating XML Within R and S-Plus
+dev-R/abind 1.4.5: Unified Parallel and Distributed Processing in R for Everyone
 dev-R/archive 1.1.5: Multi-Format Archive and Compression Support
 dev-R/askpass 1.1: Safe Password Entry for R, Git and SSH
 dev-R/assertthat 0.2.1: Easy Pre and Post Assertions
@@ -266,12 +274,14 @@ dev-R/base64enc 0.1.3: Tools for base64 encoding
 dev-R/bit 4.0.4: Classes and Methods for Fast Memory-Efficient Boolean Selections
 dev-R/bit64 4.0.5: A S3 Class for Vectors of 64bit Integers
 dev-R/blob 1.2.3: A Simple S3 Class for Representing Vectors of Binary Data ('BLOBS')
+dev-R/boot 1.3.28: Bootstrap Functions (Originally by Angelo Canty for S)
 dev-R/brew 1.0.7: Templating Framework for Report Generation
 dev-R/brio 1.1.3: Basic R Input Output
 dev-R/broom 1.0.0: Convert Statistical Objects into Tidy Tibbles
 dev-R/bslib 0.3.1: Custom 'Bootstrap' 'Sass' Themes for 'shiny' and 'rmarkdown'
 dev-R/cachem 1.0.6: Cache R Objects with Automatic Pruning
 dev-R/callr 3.7.0: Call R from R
+dev-R/carData 3.0.5: Companion to Applied Regression Data Sets
 dev-R/cellranger 1.1.0: Translate Spreadsheet Cell Ranges to Rows and Columns
 dev-R/cli 3.3.0: Helpers for Developing Command Line Interfaces
 dev-R/clipr 0.8.0: Read and Write from the System Clipboard
@@ -282,11 +292,13 @@ dev-R/covr 3.5.1: Test Coverage for Packages
 dev-R/cpp11 0.4.2: A C++11 Interface for Rs C Interface
 dev-R/crayon 1.5.1: Colored Terminal Output
 dev-R/curl 4.3.2: A Modern and Flexible Web Client for R
+dev-R/data_table 1.14.2: Various Programming Utilities
 dev-R/dbplyr 2.2.1: R Database Interface
 dev-R/desc 1.4.1: Manipulate DESCRIPTION Files
 dev-R/diffobj 0.3.5: Diffs for R Objects
 dev-R/digest 0.6.29: Create Compact Hash Digests of R Objects
 dev-R/dplyr 1.0.9: A Grammar of Data Manipulation
+dev-R/dtplyr 1.2.1: Data Table Back-End for 'dplyr'
 dev-R/ellipsis 0.3.2: Tools for Working with ...
 dev-R/evaluate 0.15: Parsing and Evaluation Tools that provide more details than the default
 dev-R/fansi 1.0.3: ANSI Control Sequence Aware String Functions
@@ -309,13 +321,14 @@ dev-R/gtable 0.3.0: Arrange Grobs in Tables
 dev-R/here 1.0.1: A Simpler Way to Find Your Files
 dev-R/highr 0.9: Syntax Highlighting for R Source Code
 dev-R/hms 1.1.1: Pretty Time of Day
-dev-R/htmltools 0.5.2: Tools for HTML
+dev-R/htmltools 0.5.2-r1: Tools for HTML
 dev-R/htmlwidgets 1.5.4: HTML Widgets for R
 dev-R/httpuv 1.6.5: HTTP and WebSocket Server Library
 dev-R/httr 1.4.3: Tools for Working with URLs and HTTP
 dev-R/hunspell 3.0.1: High-Performance Stemmer, Tokenizer and Spell Checker
 dev-R/ids 1.0.1: Generate Random Identifiers
 dev-R/ini 0.3.1: Read and Write .ini Files
+dev-R/inline 0.3.19: Functions to Inline C, C++, Fortran Function Calls from R
 dev-R/isoband 0.2.5: Generate Isolines and Isobands from regularky spaced elevation grids
 dev-R/jquerylib 0.1.4: Obtain 'jQuery' as an HTML Dependency Object
 dev-R/jsonlite 1.8.0: A Simple and Robust JSON Parser and generator for R
@@ -332,9 +345,11 @@ dev-R/markdown 1.1: Render Markdown with the C Library Sundown
 dev-R/memoise 2.0.1: 'Memoisation' of Functions
 dev-R/mgcv 1.8.40: Mixed GAM Computation Vehicle with automatic smoothness estimation
 dev-R/mime 0.12: Map Filenames to MIME Types
+dev-R/minqa 1.2.4: Derivative-free optimization algorithms by quadratic approximation
 dev-R/modelr 0.1.8: Modelling Functions that Work with the Pipe
 dev-R/munsell 0.5.0: Utilities for Using Munsell Colours
 dev-R/nlme 3.1.157: Linear and Nonlinear Mixed Effects Models
+dev-R/nloptr 2.0.3: R Interface to NLopt
 dev-R/nnet 7.3.17: Feed-Forward Neural Networks and multinomial log-linear models
 dev-R/openssl 2.0.2: Toolkit for Encryption, Signatures and certificates based on openssl
 dev-R/palmerpenguins 0.1.0: Palmer Archipelago (Antarctica) Penguin Data
@@ -375,10 +390,13 @@ dev-R/stringi 1.7.6: Character String Processing Facilities
 dev-R/stringr 1.4.0: Simple, Consistent Wrappers for common string operations
 dev-R/survival 3.3.1: Survival Analysis
 dev-R/sys 3.4: Powerful and Reliable Tools for Running System Commands in R
+dev-R/testit 0.13: A Simple Package for Testing R Packages
 dev-R/testthat 3.1.4: Unit Testing for R
 dev-R/tibble 3.1.7: Simple Data Frames
 dev-R/tidyr 1.2.0: Tidy Messy Data
 dev-R/tidyselect 1.1.2: Select from a Set of Strings
+dev-R/tinytest 1.3.1: Lightweight and Feature Complete Unit Testing Framework
+dev-R/tinytex 0.40: Helper Functions to Install and Maintain TeX Live, and Compile LaTeX Documents
 dev-R/txtplot 1.0.4: Text Based Plots
 dev-R/tzdb 0.3.0: Time Zone Database Information
 dev-R/utf8 1.2.2: Unicode Text Processing
@@ -386,7 +404,7 @@ dev-R/uuid 1.1.0: Tools for Generating and Handling of UUIDs
 dev-R/vctrs 0.4.1: Vector Helpers
 dev-R/viridisLite 0.4.0: Colorblind-Friendly Color Maps (Lite Version)
 dev-R/waldo 0.4.0: Find Differences Between R Objects
-dev-R/webfakes 1.1.3: Fake Web Apps for HTTP Testing
+dev-R/webfakes 1.1.3-r1: Fake Web Apps for HTTP Testing
 dev-R/websocket 1.4.1: 'WebSocket' Client Library
 dev-R/whoami 1.3.0: Username, Full Name, Email Address, GitHub username of the current user
 dev-R/withr 2.5.0: Run Code With Temporarily Modified Global State
@@ -394,6 +412,7 @@ dev-R/xfun 0.31: Supporting Functions for Package maintained by Yihui Xie
 dev-R/xml2 1.3.3: Work with XML files using a simple, consistent interface
 dev-R/xtable 1.8.4: Export Tables to LaTeX or HTML
 dev-R/yaml 2.3.5: Methods to Convert R Data to YAML and Back
+dev-R/zoo 1.8.10: S3 Infrastructure for Regular and Irregular Time Series (Z's Ordered Observations)
 dev-cpp/MEL 1.0.0-r1: Math Expression Library
 dev-cpp/cli11 2.1.2 2.2.0: Command line parser for C++11
 dev-cpp/coeurl 0.1.1 0.2.0: A simple async wrapper around CURL for C++
@@ -724,7 +743,7 @@ dev-python/cursive 0.2.2-r2: Cursive implements OpenStack-specific validation of
 dev-python/cx-oracle 8.3.0: Python interface to Oracle
 dev-python/cymem 2.0.6: Manage calls to calloc/free through Cython
 dev-python/dacite 1.6.0: This module simplifies creation of data classes (PEP 557) from dictionaries
-dev-python/daff 1.3.46: Diff and patch tables
+dev-python/daff 1.3.46: The daff can produce and apply tabular diffs
 dev-python/daiquiri 3.0.1: Python library to easily setup basic logging functionality
 dev-python/dasbus 1.6: DBus library in Python 3
 dev-python/databases 0.5.3: Async database support for Python.
@@ -774,7 +793,7 @@ dev-python/graphql-core 3.1.6: GraphQL for Python
 dev-python/graphql-relay 3.1.0: Relay library for graphql-core-next
 dev-python/grpclib 0.4.2 0.4.3_rc2: Pure-Python gRPC implementation for asyncio
 dev-python/guidata 2.1.1: Library for user interfaces for easy dataset editing and display
-dev-python/hidapi 0.10.1 0.11.0.2: A Cython interface to the hidapi
+dev-python/hidapi 0.11.0.2 0.12.0.2: A Cython interface to the hidapi
 dev-python/hijri-converter 2.2.4: Accurate Hijri-Gregorian date converter based on the Umm al-Qura calendar
 dev-python/hstspreload 2021.12.1: Chromium HSTS Preload list as a Python package
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
@@ -969,7 +988,7 @@ dev-python/sre_yield 1.2: Python module to generate regular all expression match
 dev-python/srt 3.5.0 3.5.1 3.5.2: A tiny library for parsing, modifying, and composing SRT files
 dev-python/sse-starlette 0.9.0: Server Sent Events for Starlette
 dev-python/statmake 0.5.0 0.5.1: Generate STAT tables for variable fonts from .stylespace files
-dev-python/stdlibs 2022.3.16: What's in the Python stdlib
+dev-python/stdlibs 2022.3.16 2022.6.8: What's in the Python stdlib
 dev-python/stone 3.3.1: The Official Api Spec Language for Dropbox
 dev-python/strictyaml 1.6.1: A type-safe YAML parser built atop ruamel.yaml
 dev-python/stringbrewer 0.0.1: Generate random strings matching a pattern
@@ -1108,6 +1127,7 @@ games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukuts
 games-fps/assaultcube 1.3.0.2: Free multiplayer FPS based on the Cube engine
 games-fps/crispy-doom 5.10.0 5.10.1 5.10.2 5.10.3 5.11.1: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 games-fps/etlegacy 2.80.2: Wolfenstein: Enemy Territory 2.60b compatible client/server
+games-fps/openspades 0.1.3: Open-source voxel FPS
 games-fps/quakespasm 0.94.1 9999: Modern, cross-platform Quake 1 engine based on FitzQuake
 games-misc/Fallout3Terminal 0_pre20191105: A recreation of the Fallout 3 terminal via a linux bash script!
 games-misc/asciiquarium 1.1_p20120823: Asciiquarium is an aquarium/sea animation in ASCII art
@@ -1278,7 +1298,7 @@ media-sound/ibniz 1.18-r1: virtual machine designed for extremely compact low-le
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/mopidy 3.3.0: An extensible music server written in Python.
 media-sound/mpd-mpris 0.3.1: An implementation of the MPRIS protocol for MPD.
-media-sound/mpvc 1.0.8-r1: mpc-like tool which connects to existing mpv instances through sockets.
+media-sound/mpvc 1.0.9: mpc-like tool which connects to existing mpv instances through sockets.
 media-sound/ncpamixer 1.3.3.1: A ncurses mixer for PulseAudio inspired by pavucontrol
 media-sound/netcat-cpi 2014.04.29: Kernel module edition of the Cycles Per Instruction (2014) album
 media-sound/noson-app 5.2.2: The essential to control music from your SONOS devices on Linux platforms
@@ -1297,6 +1317,7 @@ media-video/megapixels 1.4.3: A GTK3 camera application that knows how to deal w
 media-video/obs-vkcapture 1.1.3 9999: OBS Linux Vulkan/OpenGL game capture
 media-video/owncast 0.0.10 0.0.11: A self-hosted live video and web chat server
 media-video/syncplay 1.6.7-r1: Client/server to synchronize media playback
+media-video/tartube 2.4.077 9999: A GUI front-end for youtube-dl
 media-video/trakt-scrobbler 1.4.0 1.4.2: Scrobbler for trakt.tv that supports VLC, Plex, MPC-HC, and MPV
 media-video/uxplay 1.54: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
@@ -1414,6 +1435,7 @@ sci-electronics/dsview 1.1.2-r1 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.10.0 9999: A open source IP-XACT-based tool
 sci-electronics/open_pdks 1.0.311: PDK installer for open-source EDA tools and toolchains
 sci-electronics/skywater-pdk 0.0.0_p20220424: Open source process design kit for usage with SkyWater Technology Foundry's 130nm node
+sci-electronics/svls 0.2.3: SystemVerilog language server
 sci-electronics/verible 0.0.2135: SystemVerilog parser, style-linter, and formatter
 sci-electronics/verilator 4.218 4.220 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/GeographicLib-data 0-r1: Datasets for GeographicLib
@@ -1505,7 +1527,7 @@ sys-apps/hex 0.3.2 0.4.0 0.4.1 0.4.2: Futuristic take on hexdump
 sys-apps/hexyl 0.9.0: A command-line hex viewer
 sys-apps/intel-cmt-cat 4.3.0 4.4.0: User space software for Intel(R) Resource Director Technology
 sys-apps/ov 0.11.1 0.11.2: Feature-rich terminal pager
-sys-apps/procs 0.11.6 0.11.9: A modern replacement for ps
+sys-apps/procs 0.12.3: A modern replacement for ps
 sys-apps/qemu-openrc 0.10.0 9999: OpenRC init script for QEMU/KVM
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
 sys-apps/rogdrv 0.0.5_p20210208: ASUS ROG userspace mouse driver for Linux.
@@ -1599,7 +1621,7 @@ sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
 sys-kernel/msr-safe 1.6.0: Allows safer access to model specific registers (MSRs)
 sys-kernel/rte_kni-kmod 21.11.1 22.03: DPDK Kernel Nic Interface module
 sys-kernel/tirdad 0_pre20200926: kernel module for random ISN generation
-sys-kernel/uek-sources 5.4.17.2136.305.5 5.4.17.2136.306.1 5.4.17.2136.307.2 5.4.17.2136.308.4 5.4.17.2136.308.6 5.4.17.2136.309.3: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
+sys-kernel/uek-sources 5.15.0.0.30.19: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
 sys-kernel/ummunotify 2-r1: Userspace support for MMU notifications
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-kernel/xpmem 2.6.5_p20210809: Linux Cross-Memory Attach
@@ -1625,6 +1647,7 @@ sys-process/snooze 0.5 9999: Run a command at a particular time
 sys-process/task-spooler 1.3.0: A scheduler for CPU tasks
 virtual/MASS 0: Virtual of a R recommended package
 virtual/Matrix 0: Virtual of a R recommended package
+virtual/boot 0: Virtual of a R recommended package
 virtual/lattice 0: Virtual of a R recommended package
 virtual/mgcv 0: Virtual of a R recommended package
 virtual/nlme 0: Virtual of a R recommended package

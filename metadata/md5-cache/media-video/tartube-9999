@@ -1,0 +1,15 @@
+BDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) >=dev-python/setuptools-42.0.2[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DESCRIPTION=A GUI front-end for youtube-dl
+EAPI=8
+HOMEPAGE=https://github.com/axcore/tartube
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=distutils-r1 xdg git-r3
+IUSE=+atomicparsley python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=dev-python/feedparser[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/matplotlib[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/playsound[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/pygobject[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/requests[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] x11-themes/adwaita-icon-theme || ( net-misc/youtube-dl[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] net-misc/yt-dlp[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) atomicparsley? ( media-video/atomicparsley ) python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+SLOT=0
+_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-r1	e2883e4f04f0503cdf7f2954e2bf5e15	distutils-r1	64c5b9cc381383c9c1ef74fb199293ea	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=09cc93677decb05ad6ad66e4c6c59ea2

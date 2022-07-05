@@ -52,7 +52,6 @@ app-office/sc-im:wayland - Use gui-apps/wl-clipboard for clipboard copy/paste
 app-office/sc-im:xls - Add xls support
 app-office/sc-im:xlsx - Add xlsx support
 app-portage/emlop:fish-completion - Enable fish completion support.
-app-text/OCRmyPDF:jbig2enc - Uses media-libs/jbig2enc for a better compression algorithm
 app-text/klogg:lto - Build with link time optimization (LTO).
 dev-cpp/cpptoml:libcxx - Use libc++ for the C++ standard library
 dev-cpp/drogon:brotli - Enable support for brotli compression
@@ -406,6 +405,7 @@ media-sound/ncpamixer:wide - Add ncurses wide characters support
 media-sound/nulloy:skins - Add a few themes, enable if you want dark
 media-video/syncplay:client - Install the Syncplay client
 media-video/syncplay:server - Install the Syncplay server
+media-video/tartube:atomicparsley - Use AtomicParsley for embedding thumbnails in audio files
 media-video/uxplay:zoomfix - supported mirrored window for screen-sharing applications such as Zoom
 media-video/wlrobs:dmabuf - Enable the dmabuf backend
 media-video/wlrobs:scpy - Enable the screen copy backend

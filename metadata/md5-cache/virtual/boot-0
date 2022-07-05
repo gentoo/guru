@@ -1,0 +1,7 @@
+DEFINED_PHASES=-
+DESCRIPTION=Virtual of a R recommended package
+EAPI=7
+KEYWORDS=~amd64
+RDEPEND=|| ( dev-lang/R[-minimal] dev-R/boot )
+SLOT=0
+_md5_=d5bd0b38e94932e14f4fbd5f7743a00f
