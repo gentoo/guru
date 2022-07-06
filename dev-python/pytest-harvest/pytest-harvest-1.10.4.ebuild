@@ -32,6 +32,11 @@ BDEPEND="
 	)
 "
 
+EPYTEST_DESELECT=(
+	"pytest_harvest/tests/test_all_raw_with_meta_check.py::test_run_all_tests[test_get_session_results.py]"
+	"pytest_harvest/tests/test_all_raw_with_meta_check.py::test_run_all_tests[test_get_session_results_indirect_and_noparam.py]"
+)
+
 distutils_enable_tests pytest
 
 python_prepare_all() {
