@@ -24,7 +24,15 @@ EXPORT_FUNCTIONS src_unpack src_prepare src_configure src_compile src_install pk
 CRAN_PV=${CRAN_PV:-$PV}
 CRAN_PN=${CRAN_PN:-${PN//_/.}}
 
-SRC_URI="mirror://cran/src/contrib/${CRAN_PN}_${CRAN_PV}.tar.gz"
+# Set CRAN_SNAPSHOT_DATE to the date the ebuild was updated in the ebuild
+
+if [[ ${CRAN_SNAPSHOT_DATE} ]]; then
+	SRC_URI="https://cran.microsoft.com/snapshot/${CRAN_SNAPSHOT_DATE}"
+else
+	SRC_URI="mirror://cran"
+fi
+SRC_URI+="/src/contrib/${CRAN_PN}_${CRAN_PV}.tar.gz"
+
 HOMEPAGE="https://cran.r-project.org/package=${CRAN_PN}"
 
 SLOT="0"
