@@ -22,9 +22,10 @@ esac
 EXPORT_FUNCTIONS src_unpack src_prepare src_configure src_compile src_install pkg_postinst
 
 CRAN_PV=${CRAN_PV:-$PV}
+CRAN_PN=${CRAN_PN:-${PN//_/.}}
 
-SRC_URI="mirror://cran/src/contrib/${PN}_${CRAN_PV}.tar.gz"
-HOMEPAGE="https://cran.r-project.org/package=${PN}"
+SRC_URI="mirror://cran/src/contrib/${CRAN_PN}_${CRAN_PV}.tar.gz"
+HOMEPAGE="https://cran.r-project.org/package=${CRAN_PN}"
 
 SLOT="0"
 
@@ -50,8 +51,8 @@ _movelink() {
 # function to unpack R packages into the right folder
 R-packages_src_unpack() {
 	unpack ${A}
-	if [[ -d "${PN//_/.}" ]] && [[ ! -d "${P}" ]]; then
-		mv "${PN//_/.}" "${P}" || die
+	if [[ -d "${CRAN_PN}" ]] && [[ ! -d "${P}" ]]; then
+		mv "${CRAN_PN}" "${P}" || die
 	fi
 }
 
@@ -101,7 +102,7 @@ R-packages_src_compile() {
 # documentation and examples to docsdir, symlinked back to R site-library (to allow access from within R)
 # everything else to R site-library
 R-packages_src_install() {
-	pushd "${T}/R/${PN//_/.}" || die
+	pushd "${T}/R/${CRAN_PN}" || die
 
 	local DOCS_DIR="/usr/share/doc/${PF}"
 
@@ -132,7 +133,7 @@ R-packages_src_install() {
 	rm -rf tests test || die
 
 	insinto "/usr/$(get_libdir)/R/site-library"
-	doins -r "${T}/R/${PN//_/.}"
+	doins -r "${T}/R/${CRAN_PN}"
 }
 
 # @FUNCTION: R-packages_pkg_postinst
