@@ -7,6 +7,7 @@
 # Denis Dupeyron <calchan@gentoo.org>
 # Benda Xu <heroxbd@gentoo.org>
 # Alessandro Barbieri <lssndrbarbieri@gmail.com>
+# Robert Greener <me@r0bert.dev>
 # @BLURB: eclass to build R packages
 # @MAINTAINER:
 # Alessandro Barbieri <lssndrbarbieri@gmail.com>
