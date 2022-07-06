@@ -21,7 +21,9 @@ esac
 
 EXPORT_FUNCTIONS src_unpack src_prepare src_configure src_compile src_install pkg_postinst
 
-SRC_URI="mirror://cran/src/contrib/${PN}_${PV}.tar.gz"
+CRAN_PV=${CRAN_PV:-$PV}
+
+SRC_URI="mirror://cran/src/contrib/${PN}_${CRAN_PV}.tar.gz"
 HOMEPAGE="https://cran.r-project.org/package=${PN}"
 
 SLOT="0"
