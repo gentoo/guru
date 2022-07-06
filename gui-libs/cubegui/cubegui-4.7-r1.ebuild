@@ -5,9 +5,13 @@ EAPI=8
 
 inherit bash-completion-r1 qmake-utils toolchain-funcs
 
+MYPV="9a161bfd"
+MYP="sources.${MYPV}"
+
 DESCRIPTION="CUBE Uniform Behavioral Encoding GUI"
 HOMEPAGE="https://www.scalasca.org/scalasca/software/cube-4.x"
-SRC_URI="https://apps.fz-juelich.de/scalasca/releases/cube/${PV}/dist/${P}.tar.gz"
+SRC_URI="https://perftools.pages.jsc.fz-juelich.de/cicd/${PN}/branches/master/${MYP}.tar.gz -> ${P}-${MYPV}.tar.gz"
+S="${WORKDIR}/${MYP}"
 
 LICENSE="BSD"
 SLOT="0"
@@ -31,9 +35,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="app-doc/doxygen[dot]"
 
-PATCHES=(
-	"${FILESDIR}/${P}-custom-compiler.patch"
-)
+# reconfigure needs custom autotools
 
 src_configure() {
 	tc-export CC CXX FC F77 CPP AR
@@ -73,10 +75,6 @@ src_configure() {
 	MPI_FCFLAGS=${FCFLAGS}
 	MPI_LDFLAGS=${LDFLAGS}
 	EOF
-
-	export QT_LIBS="-lQt5PrintSupport -lQt5Widgets -lQt5Gui -lQt5Network -lQt5Core"
-	use concurrent && export QT_LIBS="${QT_LIBS} -lQt5Concurrent"
-	use webengine && export QT_LIBS="${QT_LIBS} -lQt5WebEngineWidgets"
 
 	local myconf=(
 		--disable-platform-mic
