@@ -3,7 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} pypy3 )
+PYTHON_COMPAT=( python3_{8..11} pypy3 )
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 DESCRIPTION="Apache2 licensed Python sorted collections library"
@@ -11,8 +12,8 @@ HOMEPAGE="
 	https://pypi.org/project/sortedcollections/
 	https://github.com/grantjenks/python-sortedcollections
 "
-SRC_URI="https://github.com/grantjenks/python-${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/python-${PN}-${PV}"
+SRC_URI="https://github.com/grantjenks/python-${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+S="${WORKDIR}/python-${P}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
