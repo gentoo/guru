@@ -4,6 +4,7 @@
 EAPI=8
 
 JAVA_PKG_IUSE="doc source test"
+WANT_ANT_TASKS="ant-antlr ant-contrib dev-java/cpptasks:0"
 
 inherit java-pkg-2 java-ant-2 toolchain-funcs
 
@@ -40,26 +41,42 @@ DEPEND="
 		dev-java/ant-junit4
 	)
 "
-BDEPEND="dev-vcs/git"
 
 PATCHES=(
+	"${FILESDIR}/${PN}-2.3.2-ppc64el-support.diff"
+	"${FILESDIR}/${PN}-2.3.2-disableArchive7z.diff"
+	"${FILESDIR}/${PN}-2.3.2-disable-test-zip-archive.diff"
+	"${FILESDIR}/${PN}-2.3.2-disable_git_call.diff"
+	"${FILESDIR}/${PN}-2.3.2-linker.diff"
+	"${FILESDIR}/${PN}-2.3.2-hideException.diff"
+	"${FILESDIR}/${PN}-2.3.2-armhf.diff"
+	"${FILESDIR}/${PN}-2.3.2-fix-alpha-build-config.patch"
+	"${FILESDIR}/${PN}-2.3.2-missing-arch-symbol.diff"
+	"${FILESDIR}/${PN}-2.3.2-fix-arm64-build-config.diff"
+	"${FILESDIR}/${PN}-2.3.2-tests.diff"
+	"${FILESDIR}/${PN}-2.3.2-disable-static-linking.diff"
+	"${FILESDIR}/${PN}-2.3.2-s390x-support.diff"
+	"${FILESDIR}/${PN}-2.3.2-non-linux-support.diff"
+	"${FILESDIR}/${PN}-2.3.2-disable-java-version-check.diff"
+	"${FILESDIR}/${PN}-2.3.2-rtjar.diff"
+	"${FILESDIR}/${PN}-2.3.2-add-mips64el-mipsn32-support.diff"
+	"${FILESDIR}/${PN}-2.3.2-java10-compatibility.patch"
+	"${FILESDIR}/${PN}-2.3.2-fix_gcc-10.patch"
+
 	"${FILESDIR}/${PN}-2.2.4-dont-copy-jars.patch"
 	"${FILESDIR}/${PN}-2.2.4-dont-strip.patch"
-	"${FILESDIR}/${PN}-2.2.4-dont-test-archive.patch"
-	"${FILESDIR}/${P}-remove-static-lib.patch"
-	"${FILESDIR}/${P}-respect-flags.patch"
+	"${FILESDIR}/${PN}-2.3.2-respect-flags.patch"
 )
 EANT_BUILD_TARGET="all.no_junit"
 EANT_BUILD_XML="make/build.xml"
 EANT_DOC_TARGET=""
-EANT_EXTRA_ARGS="-Dc.strip.libraries=false"
+EANT_EXTRA_ARGS="-Dc.strip.libraries=false -Dtarget.sourcelevel=1.8 -Dtarget.targetlevel=1.8 -Dtarget.rt.jar= "
 EANT_GENTOO_CLASSPATH="antlr,ant-core,jsr305"
 EANT_GENTOO_CLASSPATH_EXTRA="${S}/build/${PN}{,-rt}.jar"
 EANT_NEEDS_TOOLS="yes"
 EANT_TEST_GENTOO_CLASSPATH="${EANT_GENTOO_CLASSPATH},junit-4"
 EANT_TEST_TARGET="junit.run"
 JAVA_ANT_REWRITE_CLASSPATH="yes"
-WANT_ANT_TASKS="ant-antlr ant-contrib dev-java/cpptasks:0"
 
 src_prepare() {
 	tc-export CC
@@ -67,13 +84,6 @@ src_prepare() {
 	rm -rf make/lib || die
 	default
 	java-ant_bsfix_files "${S}/make/build-test.xml" "${S}/make/jogamp-env.xml"
-
-	#it want a git repo
-	git init || die
-	git config --global user.email "you@example.com" || die
-	git config --global user.name "Your Name" || die
-	git add . || die
-	git commit -m 'init' || die
 }
 
 src_test() {

@@ -32,6 +32,7 @@ x11-themes/hicolor-icon-theme
 DEPEND="${RDEPEND}"
 BDEPEND="
 virtual/pkgconfig
+app-arch/zip
 app-arch/unzip
 media-gfx/imagemagick[jpeg,png]
 "

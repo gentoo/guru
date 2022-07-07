@@ -73,7 +73,7 @@ src_configure() {
 		$(use_enable seccomp sandbox)
 	)
 
-	edo ./configure "${conf_args[@]}" || die
+	edo ./configure "${conf_args[@]}"
 
 	if use seccomp && has usersandbox ${FEATURES} ; then
 		export SKIP_RUNTIME_TESTS=1

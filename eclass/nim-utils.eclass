@@ -73,9 +73,11 @@ etestament() {
 
 	if [[ ${ETESTAMENT_DESELECT} ]]; then
 		local skipfile="${T}"/testament.skipfile
-		for t in "${ETESTAMENT_DESELECT[@]}"; do
-			echo "${t}" >> "${skipfile}"
-		done
+		if [[ ! -f ${skipfile} ]]; then
+			for t in "${ETESTAMENT_DESELECT[@]}"; do
+				echo "${t}" >> "${skipfile}"
+			done
+		fi
 		testament_args+=( --skipFrom:"${skipfile}" )
 	fi
 
