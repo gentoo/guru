@@ -6,11 +6,14 @@ EAPI=8
 PYTHON_COMPAT=(python3_{8..11})
 PYTHON_REQ_USE="xml(+)"
 
-inherit distutils-r1 optfeature
+inherit distutils-r1 optfeature verify-sig
 
 DESCRIPTION="Metadata Anonymisation Toolkit: handy tool to trash your metadata"
 HOMEPAGE="https://0xacab.org/jvoisin/mat2"
-SRC_URI="https://0xacab.org/jvoisin/${PN}/-/archive/${PV}/${P}.tar.gz"
+SRC_URI="
+	https://0xacab.org/jvoisin/${PN}/-/archive/${PV}/${P}.tar.gz
+	verify-sig? ( https://0xacab.org/jvoisin/mat2/uploads/b8b7bce2a45aa6c1b2b48432025b2fef/mat2-0.13.0.tar.gz.asc )
+"
 
 LICENSE="LGPL-3"
 SLOT="0"
@@ -22,12 +25,14 @@ RDEPEND="
 	media-libs/mutagen:0[${PYTHON_USEDEP}]
 "
 BDEPEND="
+	verify-sig? ( sec-keys/openpgp-keys-jvoisin )
 	test? (
 		media-libs/exiftool:*
 		media-video/ffmpeg[mp3,vorbis]
 		x11-libs/gdk-pixbuf:2[jpeg,tiff]
 	)
 "
+VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/jvoisin.asc
 
 DOCS=( doc {CHANGELOG,CONTRIBUTING,INSTALL,README}.md )
 
