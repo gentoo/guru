@@ -49,15 +49,7 @@ REQUIRED_USE="
 # slate? ( mpi )
 # magma? ( cuda )
 DOCS=( README.md CHANGELOG SUPPORT )
-
-src_prepare() {
-	sed \
-		-e "s|LIBRARY DESTINATION lib|LIBRARY DESTINATION $(get_libdir)|g" \
-		-e "s|lib/cmake|$(get_libdir)/cmake|g" \
-		-i CMakeLists.txt \
-		|| die
-	cmake_src_prepare
-}
+PATCHES=( "${FILESDIR}/${P}-multilib-was-not-respected.patch" )
 
 src_configure() {
 	use combblas && append-cppflags '-I/usr/include/CombBLAS'
