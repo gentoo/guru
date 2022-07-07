@@ -1,0 +1,14 @@
+BDEPEND=test? ( dev-db/redis ) >=dev-util/ninja-1.8.2 dev-lang/nim dev-nim/nimbus
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Fork of the official redis client for Nim
+EAPI=8
+HOMEPAGE=https://github.com/zedeus/redis
+INHERIT=nimble
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RESTRICT=!test? ( test )
+SLOT=0.3.0
+SRC_URI=https://github.com/zedeus/redis/archive/d0a0e6fb3010015f0cc483ca2e540ace02446570.tar.gz -> zedeus_redis-0.3.0_p20211226.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	nim-utils	12c96ef4a768441489c33241949bdbc8	ninja-utils	58ec4e54962bf45d065fb95030701514	nimble	192fbfe9919d78b775d163402f1c71a2
+_md5_=60ac2d241be5b6e50b10e3e9085ac468

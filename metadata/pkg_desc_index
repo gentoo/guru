@@ -6,6 +6,7 @@ acct-group/gemini 0: System group: gemini
 acct-group/hinsightd 0: A user group for www-servers/hinsightd
 acct-group/jackett 0: Group for www-apps/jackett-bin
 acct-group/monero 0: System group: monero
+acct-group/nitter 0: System group: nitter
 acct-group/owncast 0: Group for media-video/owncast
 acct-group/purritobin 0: Group for net-misc/purritobin
 acct-group/tang 0: Group for tang daemon
@@ -21,6 +22,7 @@ acct-user/gogs 1-r1: www-apps/gogs user
 acct-user/hinsightd 0: A user account for www-servers/hinsightd
 acct-user/jackett 0: User for www-apps/jackett-bin
 acct-user/monero 0: System user: monero
+acct-user/nitter 0: System user: nitter
 acct-user/owncast 0: User for media-video/owncast
 acct-user/purritobin 0: User for net-misc/purritobin
 acct-user/tang 0: User for tang daemon
@@ -121,6 +123,7 @@ app-i18n/canfep 1.0-r1: Canna Japanese kana-kanji frontend processor on console
 app-i18n/canna 3.7_p3-r4: A client-server based Kana-Kanji conversion system
 app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-i18n/im-canna 0.3.2.2-r1: Japanese Canna input method module for GTK+2
+app-i18n/scim-canna 1.0.1: SCIM IMEngine module using Canna
 app-metrics/scaphandre 0.4.1: Electrical power consumption measurement agent.
 app-misc/afetch 2.2.0: Simple system info written in C
 app-misc/ani-cli 1.9: A cli to browse and watch anime.
@@ -349,7 +352,7 @@ dev-R/minqa 1.2.4: Derivative-free optimization algorithms by quadratic approxim
 dev-R/modelr 0.1.8: Modelling Functions that Work with the Pipe
 dev-R/munsell 0.5.0: Utilities for Using Munsell Colours
 dev-R/nlme 3.1.157: Linear and Nonlinear Mixed Effects Models
-dev-R/nloptr 2.0.3: R Interface to NLopt
+dev-R/nloptr 2.0.3-r1: R Interface to NLopt
 dev-R/nnet 7.3.17: Feed-Forward Neural Networks and multinomial log-linear models
 dev-R/openssl 2.0.2: Toolkit for Encryption, Signatures and certificates based on openssl
 dev-R/palmerpenguins 0.1.0: Palmer Archipelago (Antarctica) Penguin Data
@@ -655,12 +658,18 @@ dev-nim/jester 0.5.0: A sinatra-like web framework for Nim
 dev-nim/jsony 1.1.3: A loose direct to object json parser with hooks
 dev-nim/karax 1.2.1_p20220621: a framework for developing single page applications in Nim
 dev-nim/markdown 0.8.5: A Markdown Parser in Nim World
-dev-nim/nimbus 0.1.4 0.2.3: A Nim build system
+dev-nim/nimbus 0.2.3 0.2.4: A Nim build system
 dev-nim/nimcrypto 0.5.4_p20210619: Nim cryptographic library
 dev-nim/npeg 0.26.0: a PEG library for Nim
+dev-nim/packedjson 0.2.2: an alternative Nim implementation for JSON
+dev-nim/redpool 0.1.0_p20220120: Simple Redis connection pool
+dev-nim/sass 0.2.0: A wrapper for the libsass library
+dev-nim/supersnappy 2.1.3: Nim implementation of Google's Snappy compression
 dev-nim/sync 1.5.0: Useful synchronization primitives
 dev-nim/ups 0.0.7: a package handler
 dev-nim/ws 0.5.0: Simple WebSocket library for nim
+dev-nim/zedeus_redis 0.3.0_p20211226: Fork of the official redis client for Nim
+dev-nim/zippy 0.10.3: Pure Nim implementation of deflate, zlib, gzip and zip
 dev-octave/control 3.4.0: Computer-Aided Control System Design
 dev-octave/dataframe 1.2.0: Data manipulation toolbox similar to R data.frame
 dev-octave/fuzzy-logic-toolkit 0.4.6: A mostly MATLAB-compatible fuzzy logic toolkit for Octave
@@ -877,14 +886,12 @@ dev-python/portio 0.5-r1: Python low level port I/O for Linux x86
 dev-python/pproxy 2.7.8: TCP/UDP asynchronous tunnel proxy implemented in Python3 asyncio
 dev-python/praw 7.5.0 7.6.0: Python Reddit API Wrapper
 dev-python/prawcore 2.3.0: Low-level communication layer for PRAW
-dev-python/preggy 1.4.4: preggy is an assertion library for Python. What were you expecting?
 dev-python/promise 2.3.0: Promises/A+ implementation for Python
 dev-python/protego 0.1.16: robots.txt parser with support for modern conventions
 dev-python/proxy_tools 0.1.0: Simple proxy (as in the GoF design pattern)
 dev-python/psycopg2cffi 2.9.0: Implementation of the psycopg2 module using cffi. Compatible with Psycopg 2.5.
 dev-python/pure-protobuf 2.1.0: Python implementation of Protocol Buffers data types with dataclasses support
 dev-python/py3nvml 0.2.6: Python 3 Bindings for the NVIDIA Management Library
-dev-python/pyVows 3.0.0: Parallel running of tests, code coverage reports, test profiling, and more
 dev-python/pyagentx 0.4: Python AgentX Implementation
 dev-python/pybeam 0.7-r1: Python module to parse Erlang BEAM files
 dev-python/pybrowserstack-screenshots 0.1-r1: A python api wrapper and client for Browserstack Screenshots API
@@ -904,7 +911,6 @@ dev-python/pymemcache 3.5.1 3.5.2: A comprehensive, fast, pure-Python memcached 
 dev-python/pymorphy2 0.9.1: Morphological analyzer (POS tagger + inflection engine) for Russian language.
 dev-python/pymorphy2-dicts 2.4.393442.3710985: Russian dictionary for PyMorphy2
 dev-python/pymorphy2-dicts-ru 2.4.417127.4579844: Russian dictionary for PyMorphy2
-dev-python/pymp4 1.2.0: A Python MP4 Parser and toolkit
 dev-python/pyngus 2.3.1: A connection oriented messaging framework using QPID Proton
 dev-python/pynmea2 1.18.0: Python library for the NMEA 0183 protcol
 dev-python/pyodbc 4.0.32: Python ODBC library
@@ -953,7 +959,6 @@ dev-python/python-troveclient 7.3.0: A client for the OpenStack Trove API, a sca
 dev-python/python-vitrageclient 4.5.0: A client for the OpenStack Vitrage API
 dev-python/python-zaqarclient 2.3.0: A client for the OpenStack Zaqar API
 dev-python/python-zunclient 4.5.0: A client for the OpenStack Zun API
-dev-python/python_jwt 3.3.2: Python module for generating and verifying JSON Web Tokens
 dev-python/pywebview 3.5 3.6.1: A lightweight cross-platform wrapper around a webview component
 dev-python/qiskit-aer 0.10.3: High performance simulator for quantum circuits that includes noise models
 dev-python/qiskit-terra 0.19.2: Terra is the foundation on which Qiskit is built
@@ -986,7 +991,7 @@ dev-python/sphinxcontrib-restbuilder 0.3: A Sphinx builder/writer to output reSt
 dev-python/sqlalchemy-migrate 0.13.0: SQLAlchemy Schema Migration Tools
 dev-python/sre_yield 1.2: Python module to generate regular all expression matches
 dev-python/srt 3.5.0 3.5.1 3.5.2: A tiny library for parsing, modifying, and composing SRT files
-dev-python/sse-starlette 0.9.0: Server Sent Events for Starlette
+dev-python/sse-starlette 0.9.0 0.10.3: Server Sent Events for Starlette
 dev-python/statmake 0.5.0 0.5.1: Generate STAT tables for variable fonts from .stylespace files
 dev-python/stdlibs 2022.3.16 2022.6.8: What's in the Python stdlib
 dev-python/stone 3.3.1: The Official Api Spec Language for Dropbox
@@ -1004,7 +1009,6 @@ dev-python/tinyrpc 1.1.4 1.1.5: A protocol neutral RPC library that supports JSO
 dev-python/tooz 2.11.1: Library centralizing the most common distributed primitives
 dev-python/trailrunner 1.2.1: Walk paths and run things
 dev-python/transaction 3.0.1: Transaction management for Python
-dev-python/trivup 0.10.0: Trivially Up a cluster of applications
 dev-python/trueskill 0.4.5_p20220422: Python Implementation of the TrueSkill Algorithm
 dev-python/ttfautohint-py 0.5.1: A Python wrapper for ttfautohint
 dev-python/tweedledum 1.1.1: Library for analysis, compilation, synthesis, optimization of quantum circuits
@@ -1037,7 +1041,6 @@ dev-python/wsgi_intercept 1.10.0: wsgi_intercept installs a WSGI application in 
 dev-python/xattr 0.9.9: Python wrapper for extended filesystem attributes
 dev-python/xunitparser 1.3.4: Read JUnit/XUnit XML files and map them to Python objects
 dev-python/yams 0.7.3 9999: Yet Another MPD Scrobbler (for Last.FM)
-dev-python/yanc 0.3.3: Yet another nose colorer
 dev-python/yaql 2.0.0: YAQL: Yet Another Query Language
 dev-python/youseedee 0.3.0: Interface to the Unicode Character Database
 dev-python/zVMCloudConnector 1.4.1-r1: a development sdk for managing z/VM
@@ -1074,7 +1077,7 @@ dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/mh 1.0.3: Generate help for Makefile
 dev-util/osc 0.173.0 9999: Command line tool for Open Build Service
 dev-util/ots 8.1.4 8.2.1: An util for validating and sanitising OpenType files
-dev-util/pmbootstrap 1.43.1 1.44.1: Helper tool for developing and building postmarketOS
+dev-util/pmbootstrap 1.45.0: Helper tool for developing and building postmarketOS
 dev-util/psautohint 2.4.0: A standalone version of AFDKO autohinter
 dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's OpenGL Shader Builder
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
@@ -1096,7 +1099,7 @@ dev-vcs/git-repo-updater 0.5.1-r2: Easily update multiple git repositories at on
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
 dev-vcs/gitqlient 1.4.3 9999: Multi-platform Git client written with Qt
 dev-vcs/gitui 0.18.0 0.20.1: Blazing fast terminal-ui for git
-dev-vcs/got 0.70 0.71: Portable version of the Game of Trees version control system
+dev-vcs/got 0.71 0.73: Portable version of the Game of Trees version control system
 dev-vcs/lazygit 0.33 0.34: Simple terminal UI for git commands
 dev-vcs/lefthook 1.0.0 1.0.4: Fast and powerful Git hooks manager for any type of projects
 dev-vcs/mergestat 0.5.4 0.5.4-r1: Query git repositories with SQL
@@ -1205,7 +1208,7 @@ gui-apps/wob 0.13: Lightweight overlay volume/backlight/progress/anything bar fo
 gui-apps/wofi 1.2.3 1.2.4 9999: Wofi is a launcher/menu program for wlroots based wayland compositors like sway
 gui-apps/wtype 0.4: xdotool type for wayland
 gui-apps/yambar 1.6.2 1.7.0 1.8.0 9999: Simplistic and highly configurable status panel for X and Wayland
-gui-libs/cubegui 4.7: CUBE Uniform Behavioral Encoding GUI
+gui-libs/cubegui 4.7-r1: CUBE Uniform Behavioral Encoding GUI
 gui-libs/libcprime 4.2.0 4.2.2 9999: Library for managing settings of CoreApps
 gui-libs/libcsys 4.2.0 9999: Library for managing the device
 gui-libs/text-engine 0.1.1 9999: A lightweight rich-text framework for GTK 4
@@ -1213,13 +1216,13 @@ gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.3 0.1.4 9999: A Wayland kiosk
 gui-wm/dwl 0.3.1 9999: dwm for Wayland
 gui-wm/phosh 0.17.0: A pure Wayland shell prototype for GNOME on mobile devices
-kde-apps/alligator 21.12 22.02: A convergent RSS/Atom feed reader for Plasma
-kde-apps/kclock 21.12 22.02: A convergent clock application for Plasma
-kde-apps/krecorder 21.12 22.02: A convergent audio recording application for Plasma
-kde-apps/plasma-settings 21.12: Settings application for Plasma Mobile
+kde-apps/alligator 22.02 22.06: A convergent RSS/Atom feed reader for Plasma
+kde-apps/kclock 22.02 22.06: A convergent clock application for Plasma
+kde-apps/krecorder 22.02 22.06: A convergent audio recording application for Plasma
+kde-apps/plasma-settings 21.12 22.06: Settings application for Plasma Mobile
 kde-apps/tok 9999: Telegram client built using Kirigami
-kde-apps/tokodon 21.12 22.02: Mastodon client for Plasma and Plasma Mobile
-kde-frameworks/kirigami-addons 0.2: Convergent visual components for Kirigami-based applications
+kde-apps/tokodon 22.02 22.06: Mastodon client for Plasma and Plasma Mobile
+kde-frameworks/kirigami-addons 0.2 0.3: Convergent visual components for Kirigami-based applications
 kde-frameworks/kquickchatcomponents 9999: Set of chat components for QtQuick chat apps
 kde-misc/geminipart 2021125: KPart for viewing text/gemini files
 kde-misc/kio-gemini 20211107: Gemini KIO slave
@@ -1298,7 +1301,7 @@ media-sound/ibniz 1.18-r1: virtual machine designed for extremely compact low-le
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/mopidy 3.3.0: An extensible music server written in Python.
 media-sound/mpd-mpris 0.3.1: An implementation of the MPRIS protocol for MPD.
-media-sound/mpvc 1.0.9: mpc-like tool which connects to existing mpv instances through sockets.
+media-sound/mpvc 1.1.0: mpc-like tool which connects to existing mpv instances through sockets.
 media-sound/ncpamixer 1.3.3.1: A ncurses mixer for PulseAudio inspired by pavucontrol
 media-sound/netcat-cpi 2014.04.29: Kernel module edition of the Cycles Per Instruction (2014) album
 media-sound/noson-app 5.2.2: The essential to control music from your SONOS devices on Linux platforms
@@ -1332,7 +1335,7 @@ mpv-plugin/mpv-plugin-xrandr 20190523-r1: Automatically invoke the xrandr to set
 mpv-plugin/mpv-youtube-upnext 20210620: A userscript that allows you to play "up next"/recommended youtube videos
 mpv-plugin/mpv_sponsorblock 20211223: mpv script to skip sponsored segments of YouTube videos
 mpv-plugin/mpv_sponsorblock_minimal 2022.02.07: A minimal script to skip sponsored segments of YouTube videos
-mpv-plugin/mpv_thumbnail_script 0.4.8: A Lua script to show preview thumbnails in mpv's OSC seekbar
+mpv-plugin/mpv_thumbnail_script 0.4.8 0.4.9: A Lua script to show preview thumbnails in mpv's OSC seekbar
 net-analyzer/munin-contrib 0.2021.04.27: user contributed stuff related to munin
 net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various plugins for Munin
 net-client/amfora 1.8.0 1.9.2: A fancy terminal browser for the Gemini protocol.
@@ -1362,7 +1365,7 @@ net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
 net-im/whatsapp-for-linux 1.3.2 1.3.2-r1: An unofficial WhatsApp desktop application for Linux
 net-irc/catgirl 2.0a 2.1: TLS-only terminal IRC client
 net-irc/pounce 3.0: Multi-client, TLS-only IRC bouncer
-net-irc/srain 1.2.1 1.2.4: Modern, beautiful IRC client written in GTK+ 3
+net-irc/srain 1.2.4 1.4.0: Modern, beautiful IRC client written in GTK+ 3
 net-irc/tiny 0.10.0: An IRC client
 net-libs/dpdk 21.11.1 22.03: Data Plane Development Kit libraries for fast userspace networking
 net-libs/evpath 4.5.0_p20220601: EVpath is an event transport middleware layer
@@ -1386,15 +1389,15 @@ net-misc/freetube-bin 0.16.0: A private YouTube desktop client
 net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.6.5 0.6.6: A gemini Server written in rust
 net-misc/giara 1.0.1 9999: An app for Reddit
-net-misc/gmid 1.8.1 1.8.3 9999: Simple and secure Gemini server
-net-misc/lyrics-in-terminal 1.4.2: Command Line Lyrics fetcher for MPRIS media players
+net-misc/gmid 1.8.3 1.8.4 9999: Simple and secure Gemini server
+net-misc/lyrics-in-terminal 1.4.2 1.5.0: Command Line Lyrics fetcher for MPRIS media players
 net-misc/maestral 1.5.2 1.5.3 1.6.3: Maestral is an open-source Dropbox client written in Python
 net-misc/maestral-qt 1.5.2 1.5.3: Maestral is an open-source Dropbox client written in Python
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/moonlight 3.1.4: GameStream client for PCs
 net-misc/myip 1.2.0: Get your external IP address using STUN server
-net-misc/ooni-probe-cli 3.15.0 3.15.1: OONI Probe network measurement tool for detecting internet censorship
+net-misc/ooni-probe-cli 3.15.1 3.15.3: OONI Probe network measurement tool for detecting internet censorship
 net-misc/openbgpd 6.8_p0 6.9_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/peertube-viewer-rs 1.8.4-r1: Command-line PeerTube viewer inspired by youtube-viewer
 net-misc/purritobin 0.6.7 9999: minimalistic commandline pastebin
@@ -1439,7 +1442,7 @@ sci-electronics/svls 0.2.3: SystemVerilog language server
 sci-electronics/verible 0.0.2135: SystemVerilog parser, style-linter, and formatter
 sci-electronics/verilator 4.218 4.220 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/GeographicLib-data 0-r1: Datasets for GeographicLib
-sci-geosciences/mapillary_tools 0.8.0 0.8.2: Command line tools for processing and uploading Mapillary imagery
+sci-geosciences/mapillary_tools 0.8.2_p20220702: Command line tools for processing and uploading Mapillary imagery
 sci-libs/ButterflyPACK 2.1.1-r1: Mathematical software for solving large-scale dense linear systems
 sci-libs/CoDiPack 0_pre20210720-r1: Fast gradient evaluation in C++ based on Expression Templates
 sci-libs/CombBLAS 1.16.0_p20220331-r2: The Combinatorial BLAS
@@ -1609,15 +1612,16 @@ sys-devel/qbe 1.0-r1 9999: Pure-C embeddable compiler backend
 sys-firmware/pinephone-firmware 20210809: Firmwares files for PinePhone
 sys-fs/btrfs-heatmap 9-r1: Python 3 script to draw a heatmap of a btrfs filesystem
 sys-fs/diskonaut 0.10.0 0.11.0 9999: Terminal disk space visual navigator
-sys-fs/dwarfs 0.5.6-r1 0.5.6-r2 0.5.6-r3: A fast very high compression read-only FUSE file system
+sys-fs/dwarfs 0.5.6-r3: A fast very high compression read-only FUSE file system
 sys-fs/dwarfs-bin 0.6.1: Static version of a fast very high compression read-only FUSE file system
 sys-fs/gcsfuse 0.41.4: A user-space file system for interacting with Google Cloud Storage
 sys-fs/gdu 5.13.2 5.14.0: Disk usage analyzer with console interface written in Go
 sys-fs/gfs2-utils 3.4.1: Shared-disk cluster file system
 sys-fs/git-mount 1.0.0_p20160321: git-mount let's you mount your repo as a filesystem based on a revision.
 sys-fs/google-drive-ocamlfuse 0.7.27 0.7.29: FUSE filesystem over Google Drive
-sys-fs/python-btrfs 12 13: Python 3 module to inspect btrfs filesystems
+sys-fs/python-btrfs 13-r1: Python 3 module to inspect btrfs filesystems
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
+sys-kernel/modprobed-db 2.46: This utility tracks modules loaded by the kernel, for localmodconfig
 sys-kernel/msr-safe 1.6.0: Allows safer access to model specific registers (MSRs)
 sys-kernel/rte_kni-kmod 21.11.1 22.03: DPDK Kernel Nic Interface module
 sys-kernel/tirdad 0_pre20200926: kernel module for random ISN generation
@@ -1657,6 +1661,7 @@ virtual/survival 0: Virtual of a R recommended package
 www-apps/code-server-bin 4.1.0 4.3.0: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/jackett-bin 0.20.514 0.20.1202 9999: API Support for your favorite torrent trackers
+www-apps/nitter 0.1.0_p20220624 0.1.0_p20220705: An alternative front-end for Twitter
 www-apps/stagit 1.1: static git page generator
 www-apps/twint 2.1.20-r2 2.1.20_p20220316: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 20.11.0 20.14.0 9999: ultra fast, simple, secure & standards compliant web I/O

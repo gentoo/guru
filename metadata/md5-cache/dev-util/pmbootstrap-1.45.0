@@ -4,14 +4,14 @@ DEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets
 DESCRIPTION=Helper tool for developing and building postmarketOS
 EAPI=8
 HOMEPAGE=https://postmarketos.org/
-INHERIT=python-r1 distutils-r1 linux-info
+INHERIT=distutils-r1 linux-info
 IUSE=python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=-alpha ~amd64 -arm -hppa -ia64 -ppc -ppc64 -riscv -sparc
 LICENSE=GPL-3
-RDEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) dev-vcs/git python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 )
-REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 ) || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=dev-vcs/git python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 RESTRICT=mirror test
 SLOT=0
-SRC_URI=https://files.pythonhosted.org/packages/6d/40/b345af67f4784083510735bfa821233daa61029dfb024aac5479d9be8ee6/pmbootstrap-1.43.1.tar.gz
+SRC_URI=https://files.pythonhosted.org/packages/source/p/pmbootstrap/pmbootstrap-1.45.0.tar.gz
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-r1	e2883e4f04f0503cdf7f2954e2bf5e15	distutils-r1	64c5b9cc381383c9c1ef74fb199293ea	linux-info	dcbf4f67bc38bee48e9d69a4344e8059
-_md5_=bee6f9668fcb9b54963b064605bb71cf
+_md5_=3a4a04777a8b9b886ffc9fb25e22222f

@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/ninja-1.8.2 dev-lang/nim dev-nim/nimbus virtual/pkgconfig
+DEFINED_PHASES=compile configure install test
+DEPEND=dev-nim/markdown dev-nim/sass
+DESCRIPTION=An alternative front-end for Twitter
+EAPI=8
+HOMEPAGE=https://github.com/zedeus/nitter
+INHERIT=nimble systemd
+KEYWORDS=~amd64
+LICENSE=AGPL-3
+PROPERTIES=test_network
+RDEPEND=acct-user/nitter dev-db/redis dev-nim/flatty dev-nim/jester dev-nim/jsony dev-nim/karax dev-nim/nimcrypto dev-nim/packedjson dev-nim/redpool dev-nim/supersnappy dev-nim/zedeus_redis dev-nim/zippy
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/zedeus/nitter/archive/81ec41328d5684dd395f584254d723abee213ac0.tar.gz -> nitter-0.1.0_p20220624.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	nim-utils	12c96ef4a768441489c33241949bdbc8	ninja-utils	58ec4e54962bf45d065fb95030701514	nimble	192fbfe9919d78b775d163402f1c71a2	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=b86a4fd7d3f0f7b219a1ed1b28c46303

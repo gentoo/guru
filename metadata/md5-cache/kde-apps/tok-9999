@@ -1,4 +1,4 @@
-BDEPEND=app-misc/jq dev-util/cmake >=dev-vcs/git-1.8.2.1[curl] dev-util/qbs
+BDEPEND=app-misc/jq dev-util/cmake >=dev-vcs/git-1.8.2.1[curl] dev-util/meson-format-array dev-util/qbs
 DEFINED_PHASES=compile configure install prepare unpack
 DEPEND=dev-libs/icu:= dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 kde-frameworks/kconfigwidgets:5 kde-frameworks/kdbusaddons:5 kde-frameworks/ki18n:5 kde-frameworks/kirigami:5 kde-frameworks/kquickchatcomponents:5 kde-frameworks/knotifications:5 kde-frameworks/kwindowsystem:5 kde-frameworks/syntax-highlighting:5 media-libs/rlottie:= net-libs/td sys-libs/zlib
 DESCRIPTION=Telegram client built using Kirigami
@@ -9,5 +9,5 @@ LICENSE=|| ( LGPL-3 GPL-2 GPL-3 ) AGPL-3+ GPL-3+ LGPL-2.1+ LGPL-3+
 PROPERTIES=live
 RDEPEND=dev-libs/icu:= dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtdeclarative:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 kde-frameworks/kconfigwidgets:5 kde-frameworks/kdbusaddons:5 kde-frameworks/ki18n:5 kde-frameworks/kirigami:5 kde-frameworks/kquickchatcomponents:5 kde-frameworks/knotifications:5 kde-frameworks/kwindowsystem:5 kde-frameworks/syntax-highlighting:5 media-libs/rlottie:= net-libs/td sys-libs/zlib
 SLOT=0
-_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	qmake-utils	59420c906278d16deaaa629f9d115707	qbs	b1d8a45d2659045374e424eae710d496
+_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	qmake-utils	59420c906278d16deaaa629f9d115707	qbs	852fd8a1e6297720ede0f570ba971196
 _md5_=c11266896e0b5d9d43477c8cd8b7edd0

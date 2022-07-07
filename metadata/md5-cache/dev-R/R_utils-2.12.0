@@ -1,16 +1,14 @@
 BDEPEND=sys-apps/pkgcore
-DEFINED_PHASES=compile configure install postinst prepare test unpack
-DEPEND=>=dev-R/R_oo-1.24.0 >=dev-R/R_methodsS3-1.8.1 test? ( >=dev-R/digest-0.6.10 ) dev-lang/R
+DEFINED_PHASES=compile configure install postinst prepare unpack
+DEPEND=>=dev-R/R_oo-1.24.0 >=dev-R/R_methodsS3-1.8.1 dev-lang/R
 DESCRIPTION=Various Programming Utilities
 EAPI=7
 HOMEPAGE=https://cran.r-project.org/package=R_utils
-INHERIT=R-packages edo
-IUSE=test
+INHERIT=R-packages
 KEYWORDS=~amd64
 LICENSE=LGPL-2.1+
 RDEPEND=dev-lang/R
-RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cran/src/contrib/R.utils_2.12.0.tar.gz
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	dab5d8ec471d025b79c9e6906bcf3bff	optfeature	d524f291c80f9d21ad80fe978e3ca760	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	R-packages	b4f38c93492e8dc28cb0778d20c3678b
-_md5_=f0b964f3ce09ba86182b5bfd690842e1
+_md5_=db17eb1d3813c4a5d33d6c7796b231bb
