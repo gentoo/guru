@@ -26,6 +26,8 @@ src_install(){
 	newinitd "${FILESDIR}"/tangd.initd tangd
 	systemd_dounit ${FILESDIR}/tangd.service
 
+	doconfd "${FILESDIR}"/tangd
+
 	dodir /var/db/tang
 	keepdir /var/db/tang
 	fowners tang:tang /var/db/tang
