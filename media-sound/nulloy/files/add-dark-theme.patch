@@ -1,4 +1,3 @@
-index 4ddee63..5f02c60 100644
 --- a/src/skins/skins.pri
 +++ b/src/skins/skins.pri
 @@ -12,7 +12,7 @@ win32 {
