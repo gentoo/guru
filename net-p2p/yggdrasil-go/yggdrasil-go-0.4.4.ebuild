@@ -22,7 +22,7 @@ DEPEND="
 	acct-group/yggdrasil
 "
 
-BDEPEND=">=dev-lang/go-1.16.0"
+BDEPEND=">=dev-lang/go-1.17.0"
 
 pkg_setup() {
 	linux-info_pkg_setup
