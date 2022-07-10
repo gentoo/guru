@@ -1,9 +1,0 @@
---- a/nulloy.pro
-+++ b/nulloy.pro
-@@ -1,5 +1,5 @@
- TEMPLATE = subdirs
--CONFIG += ordered
-+CONFIG += ordered nostrip
- 
- isEmpty(N_CONFIG_SUCCESS) {
-     unix:error("Please run './configure'")
