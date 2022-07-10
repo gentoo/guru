@@ -1,6 +1,6 @@
 EAPI=7
 
-inherit git-r3 cmake xdg
+inherit git-r3 xdg cmake
 EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 
 DESCRIPTION="Offline maps and navigation using OpenStreetMap data"
@@ -30,6 +30,7 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=False
+		-DINSTALL_GTEST=off
 	)
 
 	echo | ./configure.sh
