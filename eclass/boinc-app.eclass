@@ -5,7 +5,7 @@
 # @MAINTAINER:
 # Anna Vyalkova <cyber+gentoo@sysrq.in>
 # @SUPPORTED_EAPIS: 8
-# @BLURB: Eclass that provides base functions for installing BOINC applications.
+# @BLURB: base functions for installing BOINC applications
 # @DESCRIPTION:
 # This eclass provides base functions for installation of software developed
 # for the BOINC platform.
@@ -77,7 +77,7 @@ in order to use this application with BOINC.}
 # Generate appropriate (R)DEPEND for wrapper-enabled or
 # native application.
 boinc-app_add_deps() {
-	debug-print-function ${FUNCNAME} "${@}"]
+	debug-print-function ${FUNCNAME} "${@}"
 
 	if [[ $1 == "--wrapper" ]]; then
 		RDEPEND="sci-misc/boinc-wrapper"
@@ -85,6 +85,9 @@ boinc-app_add_deps() {
 		DEPEND="sci-misc/boinc"
 		RDEPEND="sci-misc/boinc"
 	fi
+
+	DEPEND="${DEPEND} acct-user/boinc"
+	RDEPEND="${RDEPEND} acct-user/boinc"
 }
 
 # @FUNCTION: boinc_master_url_check
@@ -92,9 +95,9 @@ boinc-app_add_deps() {
 # @DESCRIPTION:
 # Make sure BOINC_MASTER_URL has a value.
 boinc_master_url_check() {
-	debug-print-function ${FUNCNAME} "${@}"]
+	debug-print-function ${FUNCNAME} "${@}"
 
-	[[ ! ${BOINC_MASTER_URL} ]] && \
+	[[ -n ${BOINC_MASTER_URL} ]] || \
 		die "BOINC_MASTER_URL is not set"
 	return 0
 }
@@ -103,7 +106,7 @@ boinc_master_url_check() {
 # @USAGE:
 # @RETURN: non-prefixed default BOINC runtime directory
 get_boincdir() {
-	debug-print-function ${FUNCNAME} "${@}"]
+	debug-print-function ${FUNCNAME} "${@}"
 
 	echo /var/lib/boinc
 }
@@ -121,7 +124,7 @@ get_boincdir() {
 # -> boinc.berkeley.edu_example
 # @CODE
 get_project_dirname() {
-	debug-print-function ${FUNCNAME} "${@}"]
+	debug-print-function ${FUNCNAME} "${@}"
 
 	boinc_master_url_check
 
@@ -137,7 +140,7 @@ get_project_dirname() {
 # @USAGE:
 # @RETURN: non-prefixed directory where applications and files should be installed
 get_project_root() {
-	debug-print-function ${FUNCNAME} "${@}"]
+	debug-print-function ${FUNCNAME} "${@}"
 
 	echo "$(get_boincdir)/projects/$(get_project_dirname)"
 }
@@ -163,7 +166,7 @@ _boinc-app_fix_permissions() {
 # The default appinfo_prepare(). It replaces all occurences
 # of @PV@ with its corresponding value.
 boinc-app_appinfo_prepare() {
-	debug-print-function ${FUNCNAME} "${@}"]
+	debug-print-function ${FUNCNAME} "${@}"
 
 	sed -i "$1" \
 		-e "s:@PV@:${PV}:g" \
@@ -196,7 +199,7 @@ boinc-app_appinfo_prepare() {
 # }
 # @CODE
 doappinfo() {
-	debug-print-function ${FUNCNAME} "${@}"]
+	debug-print-function ${FUNCNAME} "${@}"
 
 	(( $# == 1 )) || \
 		die "${FUNCNAME} takes exactly one argument"
@@ -224,7 +227,7 @@ doappinfo() {
 # The default foreach_wrapper_job(). It replaces all occurences
 # of @PV@, @EPREFIX@ and @LIBDIR@ strings with their corresponding values.
 boinc-wrapper_foreach_wrapper_job() {
-	debug-print-function ${FUNCNAME} "${@}"]
+	debug-print-function ${FUNCNAME} "${@}"
 
 	sed -i "$1" \
 		-e "s:@PV@:${PV}:g" \
@@ -260,7 +263,7 @@ boinc-wrapper_foreach_wrapper_job() {
 #
 # Keep your job.xml files in sync with app_info.xml!
 dowrapper() {
-	debug-print-function ${FUNCNAME} "${@}"]
+	debug-print-function ${FUNCNAME} "${@}"
 
 	for app in "$@"; do
 		local wrapperjob="${app}_job_${PV}.xml"
@@ -293,7 +296,7 @@ dowrapper() {
 # Display helpful instructions on how to make the BOINC client use installed
 # applications.
 boinc-app_pkg_postinst() {
-	debug-print-function ${FUNCNAME} "${@}"]
+	debug-print-function ${FUNCNAME} "${@}"
 
 	if [[ -f "${EROOT}/$(get_boincdir)/master_$(get_project_dirname).xml" ]]; then
 		if [[ -z ${REPLACING_VERSIONS} ]]; then
@@ -328,7 +331,7 @@ boinc-app_pkg_postinst() {
 # Display helpful instructions on how to cleanly uninstall unmerged
 # applications.
 boinc-app_pkg_postrm() {
-	debug-print-function ${FUNCNAME} "${@}"]
+	debug-print-function ${FUNCNAME} "${@}"
 
 	if [[ -z ${REPLACED_BY_VERSION} ]]; then
 		local gui_rpc_auth="$(get_boincdir)/gui_rpc_auth.cfg"
