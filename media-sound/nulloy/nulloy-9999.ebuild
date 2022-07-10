@@ -43,15 +43,15 @@ src_unpack() {
 }
 
 src_prepare() {
+	default
+
+	# Because stripping should not be done by the build tools,
+	# because Portage does it when the install phase is run to be able
+	# to support the `splitdebug` and `installsources` FEATURES.
+	# See related issue https://bugs.gentoo.org/856292
+	eapply $FILESDIR/add-nostrip.patch
+
 	if use skins ; then
-		default
-
-		# Because stripping should not be done by the build tools,
-		# because Portage does it when the install phase is run to be able
-		# to support the `splitdebug` and `installsources` FEATURES.
-		# See related issue https://bugs.gentoo.org/856292
-		eapply $FILESDIR/add-nostrip.patch
-
 		eapply $FILESDIR/add-dark-theme.patch
 		cp -r $WORKDIR/night src/skins
 	fi
