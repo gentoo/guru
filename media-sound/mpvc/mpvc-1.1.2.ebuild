@@ -20,7 +20,7 @@ CRATES="
 	lazy_static-1.4.0
 	libc-0.2.126
 	log-0.4.17
-	mpvipc-1.1.9
+	mpvipc-1.2.0
 	os_str_bytes-6.1.0
 	ryu-1.0.10
 	serde-1.0.138
