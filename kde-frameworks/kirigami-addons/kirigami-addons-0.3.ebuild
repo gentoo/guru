@@ -16,7 +16,7 @@ LICENSE="|| ( GPL-2 GPL-3 LGPL-3 ) LGPL-2+ LGPL-2.1+"
 SLOT="5"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="
+RDEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -24,4 +24,8 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	test? (
+		>=dev-qt/qtmultimedia-${QTMIN}:5[qml(+)]
+	)
+"
