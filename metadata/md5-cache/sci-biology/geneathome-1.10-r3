@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile install postinst postrm prepare test
-DEPEND=sci-misc/boinc
+DEPEND=sci-misc/boinc acct-user/boinc
 DESCRIPTION=BOINC application for expanding Gene Regulatory Networks (GRN)
 EAPI=8
 HOMEPAGE=https://gene.disi.unitn.it/test/ https://bitbucket.org/francesco-asnicar/pc-boinc
 INHERIT=boinc-app edo toolchain-funcs
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=sunpro public-domain
-RDEPEND=sci-misc/boinc
+RDEPEND=sci-misc/boinc acct-user/boinc
 SLOT=0
 SRC_URI=https://bitbucket.org/francesco-asnicar/pc-boinc/get/3186afba409a.tar.gz -> geneathome-1.10.tar.gz
-_eclasses_=boinc-app	bb956c66e3f125428cac2af48941c58a	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85
+_eclasses_=boinc-app	f9160f6b789f681ddcc7ecf54928ae47	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85
 _md5_=a6109c885abb4b6bcffdf79319f9cd16

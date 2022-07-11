@@ -62,7 +62,7 @@ app-backup/timeshift-autosnap 0.9: Automatically creates a timeshift-snapshot wh
 app-containers/aardvark-dns 1.0.2 1.0.2-r1: A container-focused DNS server
 app-containers/dnsname-cni-plugin 1.3.0 1.3.1 9999: name resolution for containers
 app-containers/netavark 1.0.2 1.0.2-r1: A container network stack
-app-containers/nvidia-container-toolkit 1.9.0: NVIDIA container runtime toolkit
+app-containers/nvidia-container-toolkit 1.9.0 1.10.0 9999: NVIDIA container runtime toolkit
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
 app-crypt/certbot-dns-desec 1.2.0: deSEC DNS Authenticator plugin for Certbot
 app-crypt/certbot-dns-digitalocean 1.27.0: Digitalocean DNS Authenticator plugin for Certbot (Let's Encrypt Client)
@@ -151,7 +151,7 @@ app-misc/lf 27: Terminal file manager
 app-misc/liquidctl 1.7.2-r1: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/macchina 5.0.2 6.0.5 6.0.6: A system information fetcher, with an (unhealthy) emphasis on performance.
 app-misc/mangadesk 0.7.7 0.7.8: Terminal Client for MangaDex
-app-misc/mat2 0.12.4: Metadata Anonymisation Toolkit: handy tool to trash your metadata
+app-misc/mat2 0.13.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
 app-misc/navi 2.19.0 2.20.1 9999: An interactive cheatsheet tool for the command-line
 app-misc/neo 0.6.1 9999: cmatrix clone with 32-bit color and Unicode support
@@ -225,6 +225,7 @@ app-text/koodo-reader-bin 1.4.1: A modern ebook manager and reader with sync and
 app-text/lizard 1.17.10: A simple code complexity analyser, supports most of the popular languages.
 app-text/mandown 0.1.2: Markdown to groff (man page) converter
 app-text/md2mld 0.5.1: Little cli tool to convert md files into mld files
+app-text/md4c 9999: C Markdown parser. Fast, SAX-like interface, CommonMark Compliant.
 app-text/noweb 2.12: a literate programming tool, lighter than web
 app-text/smu 1.5 9999: Simple markup - markdown like syntax
 app-text/tldr 2.0.0-r1: Python command line client for tldr pages
@@ -305,14 +306,14 @@ dev-R/dtplyr 1.2.1: Data Table Back-End for 'dplyr'
 dev-R/ellipsis 0.3.2: Tools for Working with ...
 dev-R/evaluate 0.15: Parsing and Evaluation Tools that provide more details than the default
 dev-R/fansi 1.0.3: ANSI Control Sequence Aware String Functions
-dev-R/farver 2.1.0: High Performance Colour Space Manipulation
+dev-R/farver 2.1.1: High Performance Colour Space Manipulation
 dev-R/fastmap 1.1.0: Fast Data Structures
 dev-R/fontawesome 0.2.2: Easily Work with 'Font Awesome' Icons
 dev-R/forcats 0.5.1: Tools for Working with Categorical Variables (Factors)
 dev-R/fs 1.5.2: Cross-Platform File System Operations Based on libuv
 dev-R/future 1.26.1: Unified Parallel and Distributed Processing in R for Everyone
 dev-R/gargle 1.2.0: Utilities for Working with Google APIs
-dev-R/generics 0.1.2: Common S3 Generics not Provided by Base R Methods Related to Model Fitting
+dev-R/generics 0.1.3: Common S3 Generics not Provided by Base R Methods Related to Model Fitting
 dev-R/ggplot2 3.3.6: Create Elegant Data Visualisations using the grammar of graphics
 dev-R/gh 1.3.0: GitHub API
 dev-R/gitcreds 0.1.1: Query git Credentials from R
@@ -418,7 +419,7 @@ dev-R/yaml 2.3.5: Methods to Convert R Data to YAML and Back
 dev-R/zoo 1.8.10: S3 Infrastructure for Regular and Irregular Time Series (Z's Ordered Observations)
 dev-cpp/MEL 1.0.0-r1: Math Expression Library
 dev-cpp/cli11 2.1.2 2.2.0: Command line parser for C++11
-dev-cpp/coeurl 0.1.1 0.2.0: A simple async wrapper around CURL for C++
+dev-cpp/coeurl 0.1.1 0.2.0-r1: A simple async wrapper around CURL for C++
 dev-cpp/cpptoml 0.1.1: Header-only library for parsing TOML
 dev-cpp/drogon 1.7.4 1.7.5: C++14/17 based HTTP web application framework
 dev-cpp/dtl 1.20-r1: diff template library written by C++
@@ -431,7 +432,7 @@ dev-cpp/libcutl 1.11.0_beta9: C++ utility library
 dev-cpp/libstudxml 1.1.0_beta10: Streaming XML pull parser/serializer for modern C++
 dev-cpp/mastodonpp 0.5.7 9999: C++ wrapper for the Mastodon and Pleroma APIs.
 dev-cpp/muParserX 4.0.11: Parsing Expressions with Strings, Complex Numbers, Vectors, Matrices and more
-dev-cpp/parallel-hashmap 1.34-r1 1.35: Family of header-only, fast and memory-friendly hashmap and btree containers
+dev-cpp/parallel-hashmap 1.35: Family of header-only, fast and memory-friendly hashmap and btree containers
 dev-cpp/pcg-cpp 0.98.1_p20210406-r1: Family of better random number generators
 dev-cpp/plog 1.1.5_p20200501 1.1.6-r1: Portable, simple and extensible C++ logging library
 dev-cpp/qt-jdenticon 0.2.1 0.3.0: Qt5 / C++14 Port of Jdenticon
@@ -514,7 +515,7 @@ dev-libs/libayatana-appindicator 0.5.91: Ayatana Application Indicators (Shared 
 dev-libs/libayatana-indicator 0.9.1-r1: Ayatana Application Indicators (Shared Library)
 dev-libs/libcloudproviders 0.3.1: DBus API that allows cloud storage sync clients to expose their services.
 dev-libs/libdatrie 0.2.13: Double-Array Trie Library
-dev-libs/libdwarf 0.4.0: The DWARF Debugging Information Format
+dev-libs/libdwarf 0.4.0 0.4.1: The DWARF Debugging Information Format
 dev-libs/libglibutil 1.0.63: Library of glib utilities
 dev-libs/libnodave 0.8.5.1-r2: Connect to and exchange data with Siemens PLCs
 dev-libs/libthai 0.1.28 0.1.29: A a set of Thai language support routines
@@ -649,17 +650,21 @@ dev-ml/xenstore-clients 1.1.0 1.3.0: Unix client tools for accessing xenstore
 dev-ml/xmlm 1.4.0: Ocaml XML manipulation module
 dev-nim/asynctools 0.1.1_p20210606: Various asynchronous tools for Nim language
 dev-nim/balls 3.7.0: A unittest macro to save the world, or at least your Sunday
+dev-nim/cligen 1.5.24: Infer & generate command-line interface/option/argument parser
 dev-nim/dotenv 2.0.1: dotenv implementation for Nim
 dev-nim/flatty 0.3.4: Tools and serializer for plain flat binary files
 dev-nim/frosty 3.0.0: Serialize native Nim types to strings, streams, sockets, or anything else
 dev-nim/grok 0.5.3: Macro library for Nim
 dev-nim/httpbeast 0.4.1: A super-fast epoll-backed and parallel HTTP server
+dev-nim/inim 0.6.1: Interactive Nim Shell / REPL / Playground
 dev-nim/jester 0.5.0: A sinatra-like web framework for Nim
 dev-nim/jsony 1.1.3: A loose direct to object json parser with hooks
 dev-nim/karax 1.2.1_p20220621: a framework for developing single page applications in Nim
 dev-nim/markdown 0.8.5: A Markdown Parser in Nim World
+dev-nim/nake 1.9.4: make-like for Nim. Describe your builds as tasks!
 dev-nim/nimbus 0.2.3 0.2.4: A Nim build system
 dev-nim/nimcrypto 0.5.4_p20210619: Nim cryptographic library
+dev-nim/noise 0.1.14: a Nim implementation of linenoise
 dev-nim/npeg 0.26.0: a PEG library for Nim
 dev-nim/packedjson 0.2.2: an alternative Nim implementation for JSON
 dev-nim/redpool 0.1.0_p20220120: Simple Redis connection pool
@@ -964,7 +969,7 @@ dev-python/qiskit-aer 0.10.3: High performance simulator for quantum circuits th
 dev-python/qiskit-terra 0.19.2: Terra is the foundation on which Qiskit is built
 dev-python/queuelib 1.6.2: Collection of persistent and non-persistent queues for Python
 dev-python/rchitect 0.3.36: Interoperate R with Python
-dev-python/readability-lxml 0.6.1: fast python port of arc90's readability tool, updated to match latest readability.js!
+dev-python/readability-lxml 0.6.1 0.8.1: fast html to text parser (article readability tool)
 dev-python/readmdict 0.1.1: Read mdx/mdd files
 dev-python/recordclass 0.14.3: Mutable variants of tupe and collections.namedtuple
 dev-python/redbaron 0.9 0.9.2: A FST for python to make writing refactoring code a realistic task
@@ -1148,7 +1153,7 @@ games-util/dwarf-therapist 41.2.2: For managing dwarves in Dwarf Fortress
 games-util/gamehub 0.16.0.1 0.16.3.2: GameHub is a unified library for all your games
 games-util/hid-nintendo 9999: A Nintendo HID kernel module
 games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launcher
-games-util/legendary 0.20.25 0.20.26: A free and open-source replacement for the Epic Games Launcher
+games-util/legendary 0.20.25 0.20.26 0.20.27: A free and open-source replacement for the Epic Games Launcher
 games-util/mangohud 0.6.6.1-r3: A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more
 games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
 games-util/samrewritten 9999 202008: Steam Achievement Manager For Linux
@@ -1256,7 +1261,7 @@ media-gfx/gephi-bin 0.9.5 0.9.6: The Open Graph Viz Platform
 media-gfx/grafx2 2.7.2978 2.7.2978-r100: A pixelart-oriented painting program
 media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/nsxiv 29 30 9999: Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer
-media-gfx/oda-file-converter 22.10.0.0: For converting between different versions of .dwg and .dxf
+media-gfx/oda-file-converter 23.5.0.0: For converting between different versions of .dwg and .dxf
 media-gfx/oxipng 3.0.1 4.0.3 5.0.0 5.0.1: A lossless PNG compression optimizer
 media-gfx/qview 4.0 5.0: Practical and minimal image viewer
 media-gfx/sic 0.19.0: Accessible image processing and conversion from the terminal tool.
@@ -1301,7 +1306,7 @@ media-sound/ibniz 1.18-r1: virtual machine designed for extremely compact low-le
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/mopidy 3.3.0: An extensible music server written in Python.
 media-sound/mpd-mpris 0.3.1: An implementation of the MPRIS protocol for MPD.
-media-sound/mpvc 1.1.0: mpc-like tool which connects to existing mpv instances through sockets.
+media-sound/mpvc 1.1.2: mpc-like tool which connects to existing mpv instances through sockets.
 media-sound/ncpamixer 1.3.3.1: A ncurses mixer for PulseAudio inspired by pavucontrol
 media-sound/netcat-cpi 2014.04.29: Kernel module edition of the Cycles Per Instruction (2014) album
 media-sound/noson-app 5.2.2: The essential to control music from your SONOS devices on Linux platforms
@@ -1342,11 +1347,11 @@ net-client/amfora 1.8.0 1.9.2: A fancy terminal browser for the Gemini protocol.
 net-client/castor 0.8.16 0.8.18: A graphical browser for plain-text protocols
 net-client/kristall 0.3-r2 9999: Visual cross-platform gemini browser
 net-client/lagrange 1.13.6 1.13.7: Desktop GUI client for browsing Geminispace
-net-client/offpunk 0.1 0.3: A command-line, text-based and offline-first Gemini browser
+net-client/offpunk 0.3 1.4: Offline-First Gemini/Web/Gopher/RSS reader and browser
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
 net-client/telescope 0.7.1 0.8.1: w3m-like browser for Gemini
 net-dialup/atinout 0.9.1-r1: AT commands as input are sent to modem and responses given as output
-net-dialup/tio 1.40: Simple TTY terminal application
+net-dialup/tio 1.42: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/Quaternion 0.0.9.4e: A Qt5-based IM client for the Matrix protocol
@@ -1421,10 +1426,10 @@ net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 9999: The secure, private, un
 net-p2p/nuxhash 1.0.0_beta2_p20191013: NiceHash cryptocurrency mining client for Linux
 net-p2p/popura 0.4.3 9999: Popura: alternative Yggdrasil network client
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
-net-p2p/yggdrasil-go 0.3.15 0.4.3 9999: An experiment in scalable routing as an encrypted IPv6 overlay network
+net-p2p/yggdrasil-go 0.3.15 0.4.4 9999: An experiment in scalable routing as an encrypted IPv6 overlay network
 net-print/hpuld 1.00.39.15.00.23: HP Unified Linux Driver (for samsung hardware)
 net-proxy/toxiproxy 2.4.0-r1: A TCP proxy for chaos and resiliency testing
-net-voip/discover-overlay 0.3.3 0.4.5 0.5.3: Yet another Discord overlay for Linux written in Python using GTK3
+net-voip/discover-overlay 0.3.3 0.4.5 0.5.4: Yet another Discord overlay for Linux written in Python using GTK3
 net-voip/gnome-calls 42.0-r1: Phone dialer and call handler
 net-voip/vvmd 0.8: vvmd is a lower level daemon that retrieves Visual Voicemail
 net-wireless/iwdgui 0.1.0 0.2.0: A graphical frontend for IWD, Intel's iNet Wireless Daemon
@@ -1434,13 +1439,13 @@ net-wireless/rtl8821cu 0_pre20220409: Realtek 8821CU/RTL8811CU module for Linux 
 sci-biology/cmdock 0.1.3-r1 0.1.4-r2: Program for docking ligands to proteins and nucleic acids
 sci-biology/geneathome 1.10-r3: BOINC application for expanding Gene Regulatory Networks (GRN)
 sci-electronics/bsc 0_pre20210124 9999: Bluespec high level hardware design language compiler
-sci-electronics/dsview 1.1.2-r1 9999: An open source multi-function instrument
+sci-electronics/dsview 1.2.0 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.10.0 9999: A open source IP-XACT-based tool
 sci-electronics/open_pdks 1.0.311: PDK installer for open-source EDA tools and toolchains
 sci-electronics/skywater-pdk 0.0.0_p20220424: Open source process design kit for usage with SkyWater Technology Foundry's 130nm node
 sci-electronics/svls 0.2.3: SystemVerilog language server
-sci-electronics/verible 0.0.2135: SystemVerilog parser, style-linter, and formatter
-sci-electronics/verilator 4.218 4.220 9999: The fast free Verilog/SystemVerilog simulator
+sci-electronics/verible 0.0.2152: SystemVerilog parser, style-linter, and formatter
+sci-electronics/verilator 4.224 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/GeographicLib-data 0-r1: Datasets for GeographicLib
 sci-geosciences/mapillary_tools 0.8.2_p20220702: Command line tools for processing and uploading Mapillary imagery
 sci-libs/ButterflyPACK 2.1.1-r1: Mathematical software for solving large-scale dense linear systems
@@ -1449,7 +1454,7 @@ sci-libs/CombBLAS 1.16.0_p20220331-r2: The Combinatorial BLAS
 sci-libs/MeDiPack 1.2_p20220103-r1: Message Differentiation Package
 sci-libs/Mutationpp 1.0.5-r1: MUlticomponent Thermodynamic And Transport library for IONized gases
 sci-libs/OpDiLib 1.2.1-r1: Open Multiprocessing Differentiation Library
-sci-libs/STRUMPACK 6.3.1-r1: Structured Matrix Package (LBNL)
+sci-libs/STRUMPACK 6.3.1-r2: Structured Matrix Package (LBNL)
 sci-libs/ann 1.1.2_p7-r2: A Library for Approximate Nearest Neighbor Searching
 sci-libs/dart 6.12.1-r2: Dynamic Animation and Robotics Toolkit
 sci-libs/ensmallen 2.19.0-r1: header only C++ library for numerical optimization
@@ -1464,7 +1469,7 @@ sci-libs/plasma 21.8.29: PLASMA parallel library for dense linear algebra
 sci-libs/qdldl 0.1.5_p20211001: A free LDL factorisation routine
 sci-libs/saclib 2.2.8 2.2.8_p20220502-r2: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122-r1: Subroutine Library in Systems and Control Theory
-sci-libs/superlu_dist 8.0.0_p20220526: MPI distributed sparse LU factorization library
+sci-libs/superlu_dist 8.0.0_p20220526 8.1.0: MPI distributed sparse LU factorization library
 sci-mathematics/aspcud 1.9.6: A solver for package problems in CUDF format
 sci-mathematics/chaco 2.2-r3: Software for Partitioning Graphs
 sci-mathematics/clasp 3.3.8-r1: A conflict-driven nogood learning answer set solver
@@ -1513,6 +1518,7 @@ sci-misc/linuxcnc 9999: LinuxCNC
 sci-physics/SU2 7.2.0 7.2.0-r1: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sci-physics/mbdyn 1.7.3_p20210925-r1: A general purpose Multibody Dynamics analysis software
 sec-keys/openpgp-keys-aepaneshnikov 20211208: OpenPGP keys used by Alexander Epaneshnikov
+sec-keys/openpgp-keys-jvoisin 20200714: OpenPGP keys used by Julien Voisin
 sec-keys/openpgp-keys-russallbery 20220000: OpenPGP keys used by Russ Allbery (Eagle)
 sec-keys/openpgp-keys-skyjake 20211224: OpenPGP keys used by Jaakko Keranen
 sec-keys/signify-keys-gmid 1.7 1.8: Signify keys used to sign gmid releases
@@ -1552,7 +1558,7 @@ sys-cluster/AXL 0.5.0 0.7.0: AXL provides a common C interface to transfer files
 sys-cluster/Graph500 1.2: Graph500 reference implementations
 sys-cluster/OpenHPC-meta 2.1: OpenHPC metapackage
 sys-cluster/SIONfwd 1.0.1: A minimalistic I/O forwarding server and client library for SIONlib
-sys-cluster/SOS 1.5.0-r1: implementation of the OpenSHMEM specification
+sys-cluster/SOS 1.5.0-r1 1.5.1: implementation of the OpenSHMEM specification
 sys-cluster/TCL 1.0: Transparent Checkpointing Library
 sys-cluster/adios2 2.8.1-r1: Next generation of ADIOS developed in the Exascale Computing Program
 sys-cluster/booth 1.0_p20210730: The Booth Cluster Ticket Manager
@@ -1631,7 +1637,7 @@ sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-kernel/xpmem 2.6.5_p20210809: Linux Cross-Memory Attach
 sys-kernel/zenpower3 0.2.0: Linux kernel driver for reading sensors of AMD Zen family CPUs
 sys-libs/libfixposix 0.4.3: Thin wrapper over POSIX syscalls
-sys-libs/libnvidia-container 1.9.0: NVIDIA container runtime library
+sys-libs/libnvidia-container 1.9.0 1.10.0 9999: NVIDIA container runtime library
 sys-libs/nss-tls 1.0 1.1 9999: A DNS over HTTPS resolver for glibc
 sys-libs/safeclib 3.7.1-r2: safec libc extension with all C11 Annex K functions
 sys-libs/solo-udev-rules 4.1.5: udev rules for the Solo FIDO2 & U2F USB+NFC security key
@@ -1646,7 +1652,7 @@ sys-power/linux-tools-power-x86 5.18: Linux x86 CPU power tools
 sys-power/tlp 1.5.0: Optimize laptop battery life
 sys-process/gotop 4.1.3: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/nq 0.4: Unix command line queue utility
-sys-process/nvtop 1.2.2 2.0.1-r1 9999: NVIDIA GPUs htop like monitoring tool
+sys-process/nvtop 1.2.2 2.0.1-r1 2.0.2 9999: NVIDIA GPUs htop like monitoring tool
 sys-process/snooze 0.5 9999: Run a command at a particular time
 sys-process/task-spooler 1.3.0: A scheduler for CPU tasks
 virtual/MASS 0: Virtual of a R recommended package

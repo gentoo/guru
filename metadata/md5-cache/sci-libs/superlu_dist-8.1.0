@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 doc? ( app-doc/doxygen ) fortran? ( virtual/fortran )
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=sci-libs/colamd virtual/blas virtual/mpi combblas? ( sci-libs/CombBLAS ) hip? ( sci-libs/hipBLAS sci-libs/rocBLAS sci-libs/rocSOLVER ) lapack? ( virtual/lapack ) metis? ( sci-libs/parmetis ) fortran? ( virtual/fortran )
+DESCRIPTION=MPI distributed sparse LU factorization library
+EAPI=8
+HOMEPAGE=https://portal.nersc.gov/project/sparse/superlu/ https://github.com/xiaoyeli/superlu_dist
+INHERIT=cmake docs fortran-2
+IUSE=combblas +complex-precision +double-precision examples hip lapack fortran metis single-precision test doc
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=sci-libs/colamd virtual/blas virtual/mpi combblas? ( sci-libs/CombBLAS ) hip? ( sci-libs/hipBLAS sci-libs/rocBLAS sci-libs/rocSOLVER ) lapack? ( virtual/lapack ) metis? ( sci-libs/parmetis ) fortran? ( virtual/fortran )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/xiaoyeli/superlu_dist/archive/refs/tags/v8.1.0.tar.gz -> superlu_dist-8.1.0.tar.gz
+_eclasses_=toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	flag-o-matic	a3abd6002fafb3022597be6b8d01f88b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	docs	8ed2a8a28ff109e7a3582c9abb7fe327	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
+_md5_=66fe2b6c34d3812e82ef0598306594d7
