@@ -6,10 +6,14 @@ EAPI=8
 PYTHON_COMPAT=( python3_{8..11} pypy3 )
 PYTHON_REQ_USE="ncurses"
 DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_SINGLE_IMPL=1
 inherit distutils-r1
 
 DESCRIPTION="An HTTP log monitoring tool for your terminal"
-HOMEPAGE="https://github.com/michael-lazar/Akita https://pypi.org/project/akita/"
+HOMEPAGE="
+	https://github.com/michael-lazar/Akita
+	https://pypi.org/project/akita/
+"
 SRC_URI="https://github.com/michael-lazar/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${PN^}-${PV}"
 
