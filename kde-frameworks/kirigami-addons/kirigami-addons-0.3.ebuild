@@ -1,11 +1,12 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 KFMIN=5.91.0
 QTMIN=5.15.0
-inherit ecm virtualx
+VIRTUALX_REQUIRED=test
+inherit ecm
 
 DESCRIPTION="Convergent visual components for Kirigami-based applications"
 HOMEPAGE="https://invent.kde.org/libraries/kirigami-addons"
@@ -24,7 +25,3 @@ DEPEND="
 	>=kde-frameworks/kirigami-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
-
-src_test() {
-	virtx ecm_src_test
-}

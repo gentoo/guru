@@ -64,7 +64,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2.3.2-fix_gcc-10.patch"
 
 	"${FILESDIR}/${PN}-2.2.4-dont-copy-jars.patch"
-	"${FILESDIR}/${PN}-2.2.4-dont-strip.patch"
+	"${FILESDIR}/${PN}-2.3.2-dont-strip.patch"
 	"${FILESDIR}/${PN}-2.3.2-respect-flags.patch"
 )
 EANT_BUILD_TARGET="all.no_junit"

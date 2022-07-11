@@ -58,6 +58,12 @@ src_configure() {
 	)
 
 	QMAKE=/usr/bin/qmake5 LRELEASE=/usr/lib64/qt5/bin/lrelease ./configure "${myconfargs[@]}" || die
+
+	# Because stripping should not be done by the build tools,
+	# because Portage does it when the install phase is run to be able
+	# to support the `splitdebug` and `installsources` FEATURES.
+	# See related issue https://bugs.gentoo.org/856292
+	echo "CONFIG += nostrip" >> $WORKDIR/$P/.qmake.cache
 }
 
 src_install() {

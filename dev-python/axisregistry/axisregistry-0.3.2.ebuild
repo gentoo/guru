@@ -18,7 +18,10 @@ LICENSE="Apache-2.0"
 KEYWORDS="~amd64"
 SLOT="0"
 
-RDEPEND="dev-python/protobuf-python[${PYTHON_USEDEP}]"
+RDEPEND="
+	dev-python/fonttools[${PYTHON_USEDEP}]
+	dev-python/protobuf-python[${PYTHON_USEDEP}]
+"
 DEPEND="
 	${RDEPEND}
 	>=dev-python/setuptools_scm-4[${PYTHON_USEDEP}]

@@ -1,0 +1,8 @@
+# Address for tang to listen to (default: 0.0.0.0)
+ADDRESS=0.0.0.0
+
+# Port for tang to listen to (default: 8888)
+PORT=8888
+
+# Directory where keys will be stored (default: /var/db/tang)
+TANGDIR=/var/db/tang

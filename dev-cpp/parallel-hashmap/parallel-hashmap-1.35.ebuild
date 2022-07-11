@@ -3,6 +3,8 @@
 
 EAPI=8
 
+CMAKE_MAKEFILE_GENERATOR=emake
+
 inherit cmake
 
 DESCRIPTION="Family of header-only, fast and memory-friendly hashmap and btree containers"
@@ -25,13 +27,13 @@ RDEPEND="${CDEPEND}"
 # https://github.com/greg7mdp/parallel-hashmap/issues/154
 RESTRICT="test"
 
-src_compile() {
-	mycmakeargs=(
-		PHMAP_BUILD_EXAMPLES=$(usex examples)
-		PHMAP_BUILD_TESTS=$(usex test)
+src_configure() {
+	local mycmakeargs=(
+		-DPHMAP_BUILD_EXAMPLES=$(usex examples)
+		-DPHMAP_BUILD_TESTS=$(usex test)
 	)
 
-	cmake_src_compile
+	cmake_src_configure
 }
 
 src_install() {

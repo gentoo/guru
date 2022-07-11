@@ -1,6 +1,6 @@
 --- a/make/gluegen-cpptasks-base.xml
 +++ b/make/gluegen-cpptasks-base.xml
-@@ -1872,16 +1872,6 @@
+@@ -1779,17 +1779,6 @@
         - Helper strip.libraries for stripping off debug information
        -->
      <target name="gluegen.cpptasks.striplibs" depends="gluegen.cpptasks.initialize" if="c.strip.libraries">
@@ -12,6 +12,7 @@
 -          <include name="**/*.so"/>     <!-- unix    -->
 -          <include name="**/*.dll"/>    <!-- windows -->
 -          <include name="**/*.dylib"/>  <!-- macosx  -->
+-          <include name="**/*.jnilib"/> <!-- macosx  -->
 -        </fileset>
 -      </apply>
      </target>
