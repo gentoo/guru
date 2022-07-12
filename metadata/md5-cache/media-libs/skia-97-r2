@@ -1,6 +1,6 @@
 BDEPEND=dev-util/gn
 DEFINED_PHASES=compile configure install prepare setup
-DEPEND=|| ( >=dev-lang/python-3.11.0_beta3:3.11 >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 ) media-libs/skcms:= ffmpeg? ( media-video/ffmpeg ) fontconfig? ( media-libs/fontconfig ) freetype? ( media-libs/freetype ) harfbuzz? ( media-libs/harfbuzz:=[icu?] ) icu? ( dev-libs/icu:= ) jpeg? ( media-libs/libjpeg-turbo ) lua? ( dev-lang/lua:* ) opengl? ( virtual/opengl ) png? ( media-libs/libpng ) webp? ( media-libs/libwebp ) xml? ( dev-libs/expat ) zlib? ( sys-libs/zlib ) opencl? ( dev-util/opencl-headers ) vulkan? ( dev-util/vulkan-headers )
+DEPEND=|| ( >=dev-lang/python-3.11.0_beta4:3.11 >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 ) media-libs/skcms:= ffmpeg? ( media-video/ffmpeg ) fontconfig? ( media-libs/fontconfig ) freetype? ( media-libs/freetype ) harfbuzz? ( media-libs/harfbuzz:=[icu?] ) icu? ( dev-libs/icu:= ) jpeg? ( media-libs/libjpeg-turbo ) lua? ( dev-lang/lua:* ) opengl? ( virtual/opengl ) png? ( media-libs/libpng ) webp? ( media-libs/libwebp ) xml? ( dev-libs/expat ) zlib? ( sys-libs/zlib ) opencl? ( dev-util/opencl-headers ) vulkan? ( dev-util/vulkan-headers )
 DESCRIPTION=A complete 2D graphic library for drawing Text, Geometries, and Images
 EAPI=8
 HOMEPAGE=https://skia.org https://github.com/google/skia
@@ -12,5 +12,5 @@ RDEPEND=media-libs/skcms:= ffmpeg? ( media-video/ffmpeg ) fontconfig? ( media-li
 REQUIRED_USE=X? ( opengl )
 SLOT=0/97
 SRC_URI=https://github.com/google/skia/archive/f2093bf1b076210bd017f237eaab84ea4d3d6771.tar.gz -> skia-97.gh.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	32313e7e2fbfba8f62a99ef923fc923c	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
 _md5_=db80b04db6e1d1dc5a63ec11c66a3458
