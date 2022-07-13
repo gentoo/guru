@@ -3,24 +3,24 @@
 
 # @ECLASS: R-packages.eclass
 # @AUTHOR:
-# André Erdmann <dywi@mailerd.de>
-# Denis Dupeyron <calchan@gentoo.org>
-# Benda Xu <heroxbd@gentoo.org>
 # Alessandro Barbieri <lssndrbarbieri@gmail.com>
+# André Erdmann <dywi@mailerd.de>
+# Benda Xu <heroxbd@gentoo.org>
+# Denis Dupeyron <calchan@gentoo.org>
 # Robert Greener <me@r0bert.dev>
 # @BLURB: eclass to build R packages
 # @MAINTAINER:
 # Alessandro Barbieri <lssndrbarbieri@gmail.com>
-# @SUPPORTED_EAPIS: 7
-
-inherit edo eutils optfeature toolchain-funcs
+# @SUPPORTED_EAPIS: 7 8
 
 case ${EAPI} in
-	7) ;;
+	7|8) ;;
 	*) die "${ECLASS}: EAPI ${EAPI} unsupported."
 esac
 
-EXPORT_FUNCTIONS src_unpack src_prepare src_configure src_compile src_install pkg_postinst
+if [ ! ${_R_PACKAGES_ECLASS} ]; then
+
+inherit edo eutils optfeature toolchain-funcs
 
 # @ECLASS_VARIABLE: SUGGESTED_PACKAGES
 # @DEPRECATED: none
@@ -161,3 +161,8 @@ R-packages_pkg_postinst() {
 		optfeature "having the upstream suggested package" "${p}"
 	done
 }
+
+_R_PACKAGES_ECLASS=1
+fi
+
+EXPORT_FUNCTIONS src_unpack src_prepare src_configure src_compile src_install pkg_postinst
