@@ -89,17 +89,19 @@ R-packages_src_unpack() {
 
 # @FUNCTION: R-packages_src_prepare
 # @DESCRIPTION:
-# function to remove unwanted files from the sources
+# Remove unwanted files from the sources.
 R-packages_src_prepare() {
+	default_src_prepare
+
 	rm -f LICENSE || die
-	default
-	mkdir -p "${T}/R" || die
 }
 
 # @FUNCTION: R-packages_src_configure
 # @DESCRIPTION:
-# dummy function to disable configure
-R-packages_src_configure() { :; }
+# Set up temporary directories.
+R-packages_src_configure() {
+	mkdir "${T}"/R || die
+}
 
 # @FUNCTION: R-packages_src_compile
 # @DESCRIPTION:
