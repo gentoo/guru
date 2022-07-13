@@ -29,6 +29,12 @@ inherit edo eutils optfeature toolchain-funcs
 # String variable containing the list of upstream suggested packages.  Consider
 # using optfeature directly instead for more concise descriptions.
 
+# @ECLASS_VARIABLE: CRAN_SNAPSHOT_DATE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# The date the ebuild was updated in YYYY-MM-DD format used to fetch distfiles
+# from Microsoft CRAN mirror.  This will be required in the future.
+
 # @ECLASS_VARIABLE: CRAN_PN
 # @DESCRIPTION:
 # Package name to use for fetching distfiles from CRAN.
@@ -38,8 +44,6 @@ inherit edo eutils optfeature toolchain-funcs
 # @DESCRIPTION:
 # Package version to use for fetching distfiles from CRAN.
 : ${CRAN_PV:=${PV}}
-
-# Set CRAN_SNAPSHOT_DATE to the date the ebuild was updated in the ebuild
 
 if [[ ${CRAN_SNAPSHOT_DATE} ]]; then
 	SRC_URI="https://cran.microsoft.com/snapshot/${CRAN_SNAPSHOT_DATE}"
