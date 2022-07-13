@@ -105,27 +105,30 @@ R-packages_src_configure() {
 
 # @FUNCTION: R-packages_src_compile
 # @DESCRIPTION:
-# function that will pass some environment variables to R and then build/install the package
+# Pass build-related environment variables to R and then build/install the
+# package.
 R-packages_src_compile() {
-	MAKEFLAGS=" \
-		${MAKEFLAGS// /\\ } \
-		AR=$(tc-getAR) \
-		CC=$(tc-getCC) \
-		CPP=$(tc-getCPP) \
-		CXX=$(tc-getCXX) \
-		FC=$(tc-getFC) \
-		LD=$(tc-getLD) \
-		NM=$(tc-getNM) \
-		RANLIB=$(tc-getRANLIB) \
-		CFLAGS=${CFLAGS// /\\ } \
-		CPPFLAGS=${CPPFLAGS// /\\ } \
-		CXXFLAGS=${CXXFLAGS// /\\ } \
-		FFLAGS=${FFLAGS// /\\ } \
-		FCFLAGS=${FCFLAGS// /\\ } \
-		LDFLAGS=${LDFLAGS// /\\ } \
-		MAKEOPTS=${MAKEOPTS// /\\ } \
-	" \
-	edo R CMD INSTALL . -d -l "${T}/R" "--byte-compile"
+	local -a mymakeflags=(
+		"${MAKEFLAGS}"
+		AR="$(tc-getAR)"
+		CC="$(tc-getCC)"
+		CPP="$(tc-getCPP)"
+		CXX="$(tc-getCXX)"
+		FC="$(tc-getFC)"
+		LD="$(tc-getLD)"
+		NM="$(tc-getNM)"
+		RANLIB="$(tc-getRANLIB)"
+		CFLAGS="${CFLAGS}"
+		CPPFLAGS="${CPPFLAGS}"
+		CXXFLAGS="${CXXFLAGS}"
+		FFLAGS="${FFLAGS}"
+		FCFLAGS="${FCFLAGS}"
+		LDFLAGS="${LDFLAGS}"
+		MAKEOPTS="${MAKEOPTS}"
+	)
+
+	MAKEFLAGS="${mymakeflags[@]// /\\ }" \
+		edo R CMD INSTALL . -d -l "${T}"/R --byte-compile
 }
 
 
