@@ -134,42 +134,44 @@ R-packages_src_compile() {
 
 # @FUNCTION: R-packages_src_install
 # @DESCRIPTION:
-# function to move the files in the right folders
-# documentation and examples to docsdir, symlinked back to R site-library (to allow access from within R)
-# everything else to R site-library
+# Move files into right folders.
+#
+# Documentation and examples is moved to docdir, symlinked back to R
+# site-library (to allow access from within R).
+#
+# Everything else is moved to the R site-library.
 R-packages_src_install() {
-	pushd "${T}/R/${CRAN_PN}" || die
+	cd "${T}"/R/${CRAN_PN} || die
 
-	local DOCS_DIR="/usr/share/doc/${PF}"
+	local DOCDIR="/usr/share/doc/${PF}"
+	local EDOCDIR="${ED}${DOCDIR}"
+	mkdir -p "${EDOCDIR}" || die
 
-	mkdir -p "${ED}/${DOCS_DIR}" || die
-
-	for i in NEWS.md README.md DESCRIPTION examples CITATION INDEX NEWS WORDLIST News.Rd ; do
-		_movelink "${i}" "${ED}${DOCS_DIR}/${i}" || die
-		docompress -x "${DOCS_DIR}/${i}"
+	for i in {NEWS,README}.md DESCRIPTION CITATION INDEX NEWS WORDLIST News.Rd; do
+		_movelink "${i}" "${EDOCDIR}/${i}"
 	done
 
 	if [[ -e html ]]; then
-		_movelink html "${ED}${DOCS_DIR}/html" || die
-		docompress -x "${DOCS_DIR}/html"
+		_movelink html "${EDOCDIR}"/html
 	fi
+
+	if [[ -e examples ]]; then
+		_movelink examples "${EDOCDIR}"/examples
+		docompress -x "${DOCDIR}"/examples
+	fi
+
 	if [[ -e doc ]]; then
 		pushd doc || die
-		for i in * ; do
-			_movelink "${i}" "${ED}${DOCS_DIR}/${i}" || die
-			docompress -x "${DOCS_DIR}/${i}"
+		for i in *; do
+			_movelink "${i}" "${EDOCDIR}/${i}"
 		done
 		popd || die
 	fi
-	if [[ -e doc/html ]]; then
-		docompress -x "${DOCS_DIR}/html"
-	fi
-	docompress -x "${DOCS_DIR}"
 
 	rm -rf tests test || die
 
-	insinto "/usr/$(get_libdir)/R/site-library"
-	doins -r "${T}/R/${CRAN_PN}"
+	insinto /usr/$(get_libdir)/R/site-library
+	doins -r "${T}"/R/${CRAN_PN}
 }
 
 # @FUNCTION: R-packages_pkg_postinst
