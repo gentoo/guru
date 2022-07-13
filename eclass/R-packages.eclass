@@ -75,10 +75,13 @@ _movelink() {
 }
 
 # @FUNCTION: R-packages_src_unpack
+# @DEPRECATED: none
 # @DESCRIPTION:
-# function to unpack R packages into the right folder
+# Unpack R packages into the right folder.  Consider setting ${S} to appropriate
+# value instead.
 R-packages_src_unpack() {
-	unpack ${A}
+	default_src_unpack
+
 	if [[ -d "${CRAN_PN}" ]] && [[ ! -d "${P}" ]]; then
 		mv "${CRAN_PN}" "${P}" || die
 	fi
