@@ -88,12 +88,13 @@ R-packages_src_unpack() {
 }
 
 # @FUNCTION: R-packages_src_prepare
+# @DEPRECATED: none
 # @DESCRIPTION:
 # Remove unwanted files from the sources.
 R-packages_src_prepare() {
 	default_src_prepare
-
-	rm -f LICENSE || die
+	eqawarn "This ebuild uses R-packages_src_prepare which is no-op."
+	eqawarn "You can safely remove it."
 }
 
 # @FUNCTION: R-packages_src_configure
@@ -168,6 +169,7 @@ R-packages_src_install() {
 		popd || die
 	fi
 
+	rm -f LICENSE || die
 	rm -rf tests test || die
 
 	insinto /usr/$(get_libdir)/R/site-library
@@ -188,4 +190,4 @@ R-packages_pkg_postinst() {
 _R_PACKAGES_ECLASS=1
 fi
 
-EXPORT_FUNCTIONS src_unpack src_prepare src_configure src_compile src_install pkg_postinst
+EXPORT_FUNCTIONS src_unpack src_configure src_compile src_install pkg_postinst
