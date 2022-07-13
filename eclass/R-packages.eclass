@@ -61,14 +61,16 @@ RDEPEND="${DEPEND}"
 
 # @FUNCTION: _movelink
 # @INTERNAL
-# @USAGE: [<source> <dest>]
+# @USAGE: <source> <dest>
 # @DESCRIPTION:
 # <dest> will contain symlinks to everything in <source>
 _movelink() {
-	if [[ -e "${1}" ]]; then
-		local rp1="$(realpath ${1} || die)"
-		mv "${rp1}" "${2}" || die
-		cp -rsf "${2}" "${rp1}" || die
+	local source=${1}
+	local dest=${2}
+	if [[ -e "${source}" ]]; then
+		local rp_source="$(realpath ${source} || die)"
+		mv "${rp_source}" "${dest}" || die
+		cp -rsf "${dest}" "${rp_source}" || die
 	fi
 }
 
