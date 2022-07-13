@@ -7,11 +7,11 @@ inherit optfeature meson
 
 DESCRIPTION="A Wallpaper daemon"
 HOMEPAGE="https://github.com/Dotz0cat/walld"
-SRC_URI="https://github.com/Dotz0cat/walld/archive/refs/tags/1.4.1.tar.gz -> walld-1.4.1.tar.gz"
+SRC_URI="https://github.com/Dotz0cat/walld/archive/refs/tags/1.4.2.tar.gz -> walld-1.4.2.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 DEPEND="dev-libs/libevent media-gfx/feh dev-libs/libconfig media-gfx/imagemagick"
 RDEPEND="${DEPEND}"
