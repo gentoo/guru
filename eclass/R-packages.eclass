@@ -29,7 +29,11 @@ inherit edo eutils optfeature toolchain-funcs
 # String variable containing the list of upstream suggested packages.  Consider
 # using optfeature directly instead for more concise descriptions.
 
-CRAN_PV=${CRAN_PV:-$PV}
+# @ECLASS_VARIABLE: CRAN_PV
+# @DESCRIPTION:
+# Package version to use for fetching distfiles from CRAN.
+: ${CRAN_PV:=${PV}}
+
 CRAN_PN=${CRAN_PN:-${PN//_/.}}
 
 # Set CRAN_SNAPSHOT_DATE to the date the ebuild was updated in the ebuild
