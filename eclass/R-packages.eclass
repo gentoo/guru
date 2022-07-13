@@ -22,6 +22,13 @@ esac
 
 EXPORT_FUNCTIONS src_unpack src_prepare src_configure src_compile src_install pkg_postinst
 
+# @ECLASS_VARIABLE: SUGGESTED_PACKAGES
+# @DEPRECATED: none
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# String variable containing the list of upstream suggested packages.  Consider
+# using optfeature directly instead for more concise descriptions.
+
 CRAN_PV=${CRAN_PV:-$PV}
 CRAN_PN=${CRAN_PN:-${PN//_/.}}
 
@@ -40,7 +47,6 @@ SLOT="0"
 
 DEPEND="dev-lang/R"
 RDEPEND="${DEPEND}"
-BDEPEND="sys-apps/pkgcore"
 
 # @FUNCTION: _movelink
 # @INTERNAL
@@ -146,17 +152,12 @@ R-packages_src_install() {
 }
 
 # @FUNCTION: R-packages_pkg_postinst
+# @DEPRECATED: optfeature
 # @DESCRIPTION:
-# function that will prompt to install the suggested packages if they exist
+# Prompt to install the upstream suggested packages (if they exist).  Consider
+# calling "optfeature" directly instead for concise descriptions.
 R-packages_pkg_postinst() {
-	if [[ ${MERGE_TYPE} != binary ]]; then
-		if [[ -v SUGGESTED_PACKAGES ]]; then
-			for p in ${SUGGESTED_PACKAGES} ; do
-				pexist="$(pquery -n1 ${p} 2>/dev/null || die)"
-				if [[ -n "${pexist}" ]]; then
-					optfeature "having the upstream suggested package" "${p}"
-				fi
-			done
-		fi
-	fi
+	for p in ${SUGGESTED_PACKAGES}; do
+		optfeature "having the upstream suggested package" "${p}"
+	done
 }
