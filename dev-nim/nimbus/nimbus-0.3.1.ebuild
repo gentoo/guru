@@ -16,10 +16,6 @@ KEYWORDS="~amd64"
 RDEPEND="dev-lang/nim"
 BDEPEND="${RDEPEND}"
 
-ETESTAMENT_DESELECT=(
-	tests/installerscript/test_{binary,source,source_whitelist}.nim
-)
-
 src_configure() {
 	nim_gen_config
 }
