@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/nasm >=dev-util/meson-0.59.4 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=dev-lang/nasm >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install setup test
 DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_8? ( dev-python/pyelftools[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pyelftools[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pyelftools[python_targets_python3_10(-)] ) ~sys-kernel/rte_kni-kmod-22.03[python_single_target_python3_8(-)?,python_single_target_python3_9(-)?,python_single_target_python3_10(-)?] app-arch/libarchive app-crypt/intel-ipsec-mb dev-libs/elfutils dev-libs/isa-l dev-libs/jansson dev-libs/libbpf dev-libs/libbsd dev-libs/openssl net-libs/libmnl net-libs/libpcap sys-apps/dtc sys-cluster/rdma-core sys-process/numactl
 DESCRIPTION=Data Plane Development Kit libraries for fast userspace networking
@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 
 RESTRICT=test
 SLOT=0
 SRC_URI=https://fast.dpdk.org/rel/dpdk-22.03.tar.xz
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	ninja-utils	58ec4e54962bf45d065fb95030701514	meson	2cc95670908abda0d67e9e16a6b4341e
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	ninja-utils	58ec4e54962bf45d065fb95030701514	meson	46c25780996ffc397131ecd35a2194a2
 _md5_=cbf6195e08361d698a0cd7e4d9d029cb
