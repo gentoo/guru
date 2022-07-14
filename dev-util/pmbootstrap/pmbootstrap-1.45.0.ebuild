@@ -4,6 +4,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8,9,10} )
 
+DISTUTILS_SINGLE_IMPL=1
 inherit distutils-r1 linux-info
 
 DESCRIPTION="Helper tool for developing and building postmarketOS"
@@ -30,4 +31,9 @@ pkg_pretend() {
 		eerror "pmbootstrap requires Linux 3.17 or greater."
 		die
 	fi
+}
+
+# Without this, emerge errors with an "EPYTHON not set" error.
+pkg_setup() {
+	python-single-r1_pkg_setup
 }
