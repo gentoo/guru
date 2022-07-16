@@ -91,6 +91,19 @@ etestament() {
 	"$@" || die -n "${*} failed"
 }
 
+# @FUNCTION: nim_get_buildtype
+# @USAGE:
+# @RETURN: build type (debug or release) based on USE flags
+nim_get_buildtype() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	if has debug ${IUSE}; then
+		echo $(usex debug "debug" "release")
+	else
+		echo "release"
+	fi
+}
+
 # @FUNCTION: nim_gen_config
 # @USAGE: [<dir>]
 # @DESCRIPTION:
@@ -121,7 +134,7 @@ nim_gen_config() {
 	gcc.cpp.options.linker:"${LDFLAGS}"
 
 	$([[ "${NOCOLOR}" == true || "${NOCOLOR}" == yes ]] && echo '--colors:"off"')
-	-d:"release"
+	-d:"$(nim_get_buildtype)"
 	--parallelBuild:"$(makeopts_jobs)"
 	$(printf "%s\n" ${NIMFLAGS})
 	EOF
