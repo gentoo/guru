@@ -61,6 +61,30 @@ enim() {
 	"$@" || die -n "${*} failed"
 }
 
+# @FUNCTION: ekoch
+# @USAGE: [<args>...]
+# @DESCRIPTION:
+# Call koch, passing the supplied arguments.  Used only for building compilers
+# that originate from Nim.
+# This function dies if koch fails.
+ekoch() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	local koch
+	case "${CATEGORY}/${PN}" in
+		dev-lang/nim)
+			koch="./koch"
+			[[ -e ${koch} ]] || enim c koch
+			;;
+		*)
+			eerror "${FUNCNAME} is not implemented for ${CATEGORY}/${PN}" ;;
+	esac
+
+	set -- ${koch} "${@}"
+	echo "$@" >&2
+	"$@" || die -n "${*} failed"
+}
+
 # @FUNCTION: etestament
 # @USAGE: [<args>...]
 # @DESCRIPTION:
