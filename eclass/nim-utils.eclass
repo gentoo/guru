@@ -104,6 +104,18 @@ nim_get_buildtype() {
 	fi
 }
 
+# @FUNCTION: nim_get_colors
+# @USAGE:
+# @RETURN: "off" if colors should be disabled, "on" otherwise
+nim_get_colors() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	case ${NOCOLOR} in
+		true|yes) echo "off" ;;
+		*)        echo "on" ;;
+	esac
+}
+
 # @FUNCTION: nim_gen_config
 # @USAGE: [<dir>]
 # @DESCRIPTION:
@@ -133,8 +145,8 @@ nim_gen_config() {
 	gcc.cpp.options.always:"${CPPFLAGS}"
 	gcc.cpp.options.linker:"${LDFLAGS}"
 
-	$([[ "${NOCOLOR}" == true || "${NOCOLOR}" == yes ]] && echo '--colors:"off"')
 	-d:"$(nim_get_buildtype)"
+	--colors:"$(nim_get_colors)"
 	--parallelBuild:"$(makeopts_jobs)"
 	$(printf "%s\n" ${NIMFLAGS})
 	EOF
