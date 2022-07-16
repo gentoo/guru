@@ -101,9 +101,15 @@ nim_gen_config() {
 	gcc.linkerexe:"$(tc-getCC)"
 	gcc.cpp.exe:"$(tc-getCXX)"
 	gcc.cpp.linkerexe:"$(tc-getCXX)"
-	gcc.options.always:"${CFLAGS} ${CPPFLAGS}"
+	gcc.options.speed:"${CFLAGS}"
+	gcc.options.size:"${CFLAGS}"
+	gcc.options.debug:"${CFLAGS}"
+	gcc.options.always:"${CPPFLAGS}"
 	gcc.options.linker:"${LDFLAGS}"
-	gcc.cpp.options.always:"${CFLAGS} ${CPPFLAGS}"
+	gcc.cpp.options.speed:"${CXXFLAGS}"
+	gcc.cpp.options.size:"${CXXFLAGS}"
+	gcc.cpp.options.debug:"${CXXFLAGS}"
+	gcc.cpp.options.always:"${CPPFLAGS}"
 	gcc.cpp.options.linker:"${LDFLAGS}"
 
 	$([[ "${NOCOLOR}" == true || "${NOCOLOR}" == yes ]] && echo '--colors:"off"')
