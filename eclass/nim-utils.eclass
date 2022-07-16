@@ -25,7 +25,12 @@ if [[ ! ${_NIM_UTILS_ECLASS} ]]; then
 # @USER_VARIABLE
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# Flags for the Nim compiler.
+# Flags for the Nim compiler.  All values (if any) must be double-quoted.
+# Example:
+#
+# @CODE@
+# # NIMFLAGS='-d:myFlag -d:myOpt:"value"' emerge category/package
+# @CODE@
 
 # @ECLASS_VARIABLE: TESTAMENT_DISABLE_MEGATEST
 # @USER_VARIABLE
