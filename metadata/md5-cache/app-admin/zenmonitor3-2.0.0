@@ -11,5 +11,5 @@ LICENSE=MIT
 RDEPEND=cli? ( sys-libs/ncurses ) filecaps? ( sys-libs/libcap ) x11-libs/gtk+:3 policykit? ( sys-auth/polkit ) sys-kernel/zenpower3
 SLOT=0
 SRC_URI=https://github.com/Ta180m/zenmonitor3/archive/v2.0.0.tar.gz -> zenmonitor3-2.0.0.tar.gz
-_eclasses_=fcaps	babe6282ea5c195981bd302af1adaf3a	toolchain-funcs	e9da88162e7a3c60376e80c2c2adcdfb	multilib	4fbbbc98f236f1b43acd99476bc3cd85
+_eclasses_=fcaps	babe6282ea5c195981bd302af1adaf3a	toolchain-funcs	3484f775017f532a8d1ae02c65defe13	multilib	4fbbbc98f236f1b43acd99476bc3cd85
 _md5_=7a0277fbc38d1262574ddb94405c140d
