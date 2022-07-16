@@ -87,15 +87,18 @@ etestament() {
 }
 
 # @FUNCTION: nim_gen_config
-# @USAGE:
+# @USAGE: [<dir>]
 # @DESCRIPTION:
-# Generate the ${WORKDIR}/nim.cfg to respect user's toolchain and preferences.
+# Generate a nim.cfg file in <dir> (default: $WORKDIR) to respect user's
+# toolchain and preferences.
 nim_gen_config() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	xdg_environment_reset
 
-	cat > "${WORKDIR}/nim.cfg" <<- EOF || die "Failed to create Nim config"
+	local dir=${1:-${WORKDIR}}
+
+	cat > "${dir}"/nim.cfg <<- EOF || die "Failed to create Nim config"
 	cc:"gcc"
 	gcc.exe:"$(tc-getCC)"
 	gcc.linkerexe:"$(tc-getCC)"
