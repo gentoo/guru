@@ -60,8 +60,8 @@ NINJA="ninja"
 inherit nim-utils ninja-utils
 
 BDEPEND="${NINJA_DEPEND}
-	dev-lang/nim
-	dev-nim/nimbus
+	dev-lang/nim[experimental(-)]
+	>=dev-nim/nimbus-1.0.0
 "
 
 # @FUNCTION: set_package_url
@@ -134,6 +134,7 @@ nimble_src_configure() {
 	local nimbusargs=(
 		--nimbleDir:"${EPREFIX}"/opt/nimble
 		--binDir:"${EPREFIX}"/usr/bin
+		--useDepfile
 		"${mynimargs[@]}"
 	)
 
