@@ -36,12 +36,6 @@ net-mail/remail
 # depends on non-existent dev-python/aiosmtpd
 dev-python/aiosmtplib
 
-# Alexey Sokolov <alexey+gentoo@asokolov.org> (2022-06-10)
-# Dead upstream. Doesn't work with py3.10. Removal on 2022-07-15.
-# https://bugs.gentoo.org/848399
-# Feel free to unmask if you want to take maintainership.
-net-p2p/nuxhash
-
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-04)
 # Incompatible with recent pytest. No revdeps. Removal on 2022-07-05.
 dev-python/thriftrw
