@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RDEPEND=x11-libs/libX11 media-libs/imlib2[X] statusbar? ( x11-libs/libXft ) exif? ( media-libs/libexif ) gif? ( media-libs/giflib:0= ) webp? ( media-libs/libwebp )
 SLOT=0
 SRC_URI=https://github.com/nsxiv/nsxiv/archive/v29.tar.gz -> nsxiv-29.tar.gz
-_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	portability	d33a77692bb47e8227f27e17fb9c3c05	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d	toolchain-funcs	3484f775017f532a8d1ae02c65defe13	multilib	4fbbbc98f236f1b43acd99476bc3cd85	linux-info	dcbf4f67bc38bee48e9d69a4344e8059
+_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	portability	d33a77692bb47e8227f27e17fb9c3c05	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	dcbf4f67bc38bee48e9d69a4344e8059
 _md5_=e1089e575b4584325b6e4333e397367b
