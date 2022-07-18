@@ -9,5 +9,5 @@ LICENSE=BSD-2
 RDEPEND=>=sci-mathematics/octave-4.0.0
 SLOT=0
 SRC_URI=https://github.com/matlab2tikz/matlab2tikz/archive/refs/tags/v1.1.0.tar.gz -> matlab2tikz-1.1.0.tar.gz
-_eclasses_=optfeature	d524f291c80f9d21ad80fe978e3ca760
+_eclasses_=optfeature	1a2157392a869265b2afcb63a26c12ac
 _md5_=a0b00a1accedac51405127f295d33618
