@@ -27,7 +27,7 @@ SLOT="0"
 
 DEPEND="
 	app-containers/podman
-	net-misc/cni-plugins
+	app-containers/cni-plugins
 	net-dns/dnsmasq
 "
 RDEPEND="${DEPEND}"
