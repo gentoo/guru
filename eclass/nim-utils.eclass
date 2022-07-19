@@ -148,6 +148,7 @@ nim_get_colors() {
 nim_gen_config() {
 	debug-print-function ${FUNCNAME} "${@}"
 
+	# bug 667182
 	xdg_environment_reset
 
 	local dir=${1:-${WORKDIR}}
