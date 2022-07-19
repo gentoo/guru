@@ -25,11 +25,11 @@ if [[ ! ${_NIM_UTILS_ECLASS} ]]; then
 # @USER_VARIABLE
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# Flags for the Nim compiler.  All values (if any) must be double-quoted.
+# Flags for the Nim compiler.  Spaces need to be quoted or shell-escaped.
 # Example:
 #
 # @CODE@
-# # NIMFLAGS='-d:myFlag -d:myOpt:"value"' emerge category/package
+# # NIMFLAGS="-d:myFlag -d:myOpt:'my value'" emerge category/package
 # @CODE@
 
 # @ECLASS_VARIABLE: TESTAMENT_DISABLE_MEGATEST
@@ -49,14 +49,14 @@ inherit multiprocessing toolchain-funcs xdg-utils
 # @FUNCTION: enim
 # @USAGE: [<args>...]
 # @DESCRIPTION:
-# Call nim, passing the supplied arguments.
+# Call nim, passing the supplied arguments and NIMFLAGS.
 # This function dies if nim fails. It also supports being called via 'nonfatal'.
 # If you need to call nim directly in your ebuilds, this is the way it should
 # be done.
 enim() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	set -- nim "${@}"
+	set -- nim "${@}" ${NIMFLAGS}
 	echo "$@" >&2
 	"$@" || die -n "${*} failed"
 }
@@ -173,7 +173,6 @@ nim_gen_config() {
 	-d:"$(nim_get_buildtype)"
 	--colors:"$(nim_get_colors)"
 	--parallelBuild:"$(makeopts_jobs)"
-	$(printf "%s\n" ${NIMFLAGS})
 	EOF
 }
 
