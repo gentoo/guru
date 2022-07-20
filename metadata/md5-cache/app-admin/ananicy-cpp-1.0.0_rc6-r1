@@ -11,5 +11,5 @@ LICENSE=GPL-3
 RDEPEND=dev-cpp/nlohmann_json dev-libs/libfmt dev-libs/spdlog systemd? ( sys-apps/systemd )
 SLOT=0
 SRC_URI=https://gitlab.com/ananicy-cpp/ananicy-cpp/-/archive/v1.0.0-rc6/ananicy-cpp-v1.0.0-rc6.tar.bz2 https://github.com/kuche1/minq-ananicy/archive/9180bb4511e2de5229428303df1a4954b0c516d9.tar.gz -> minq-ananicy-9180bb4511e2de5229428303df1a4954b0c516d9.tar.gz
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	629c5cdf86e3c68e26f2365c54c5d9f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	929e29d009c20f55b45c96866ebf47fe	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
 _md5_=0272b73732127e4fc01d3726a86c1e73

@@ -10,5 +10,5 @@ LICENSE=CC-BY-SA-2.0 GPL-3+ CC-BY-3.0
 RDEPEND=dev-libs/libyaml media-libs/libsdl2 media-libs/sdl2-mixer media-libs/sdl2-image media-libs/sdl2-ttf
 SLOT=0
 SRC_URI=https://framagit.org/Gee/sosage/-/archive/v1.0.0/sosage-v1.0.0.tar.gz https://ptilouk.net/superflu-riteurnz/superflu-riteurnz-v1.0.0-xmas2020demo-data.zip
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	23cb2d46c80c12aa8b25973b4cdcb257	flag-o-matic	629c5cdf86e3c68e26f2365c54c5d9f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	23cb2d46c80c12aa8b25973b4cdcb257	flag-o-matic	929e29d009c20f55b45c96866ebf47fe	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
 _md5_=494391fb111224c965dbfc2309000352
