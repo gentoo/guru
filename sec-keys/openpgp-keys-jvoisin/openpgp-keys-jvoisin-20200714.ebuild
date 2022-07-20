@@ -5,7 +5,7 @@ EAPI=8
 
 DESCRIPTION="OpenPGP keys used by Julien Voisin"
 HOMEPAGE="https://dustri.org/"
-SRC_URI="https://dustri.org/pub/pubkey.asc"
+SRC_URI="https://dustri.org/pub/pubkey.asc -> ${P}.asc"
 S="${WORKDIR}"
 
 LICENSE="public-domain"

@@ -23,13 +23,15 @@ KEYWORDS="~amd64"
 RDEPEND="
 	dev-python/cssselect[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
-	|| ( ( $(python_gen_cond_dep \
-			'dev-python/cchardet[${PYTHON_USEDEP}]' python3_{8..10}) )
+	|| (
 		dev-python/chardet[${PYTHON_USEDEP}]
+		( $(python_gen_cond_dep \
+			'dev-python/cchardet[${PYTHON_USEDEP}]' python3_{8..10}) )
 	)
 "
 BDEPEND="
 	test? (
+		dev-python/chardet[${PYTHON_USEDEP}]
 		$(python_gen_cond_dep \
 			'dev-python/timeout-decorator[${PYTHON_USEDEP}]' python3_{8..11})
 	)

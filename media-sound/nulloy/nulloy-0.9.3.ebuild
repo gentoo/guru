@@ -36,7 +36,7 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	if use skins ; then
-		eapply "${FILESDIR}"/nulloy.patch
+		eapply "${FILESDIR}"/add-dark-theme.patch
 
 		cp -r $WORKDIR/$NAME src/skins/night
 	fi

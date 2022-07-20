@@ -25,7 +25,12 @@ if [[ ! ${_NIM_UTILS_ECLASS} ]]; then
 # @USER_VARIABLE
 # @DEFAULT_UNSET
 # @DESCRIPTION:
-# Flags for the Nim compiler.
+# Flags for the Nim compiler.  Spaces need to be quoted or shell-escaped.
+# Example:
+#
+# @CODE@
+# # NIMFLAGS="-d:myFlag -d:myOpt:'my value'" emerge category/package
+# @CODE@
 
 # @ECLASS_VARIABLE: TESTAMENT_DISABLE_MEGATEST
 # @USER_VARIABLE
@@ -44,14 +49,38 @@ inherit multiprocessing toolchain-funcs xdg-utils
 # @FUNCTION: enim
 # @USAGE: [<args>...]
 # @DESCRIPTION:
-# Call nim, passing the supplied arguments.
+# Call nim, passing the supplied arguments and NIMFLAGS.
 # This function dies if nim fails. It also supports being called via 'nonfatal'.
 # If you need to call nim directly in your ebuilds, this is the way it should
 # be done.
 enim() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	set -- nim "${@}"
+	set -- nim "${@}" ${NIMFLAGS}
+	echo "$@" >&2
+	"$@" || die -n "${*} failed"
+}
+
+# @FUNCTION: ekoch
+# @USAGE: [<args>...]
+# @DESCRIPTION:
+# Call koch, passing the supplied arguments.  Used only for building compilers
+# that originate from Nim.
+# This function dies if koch fails.
+ekoch() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	local koch
+	case "${CATEGORY}/${PN}" in
+		dev-lang/nim)
+			koch="./koch"
+			[[ -e ${koch} ]] || enim c koch
+			;;
+		*)
+			eerror "${FUNCNAME} is not implemented for ${CATEGORY}/${PN}" ;;
+	esac
+
+	set -- ${koch} "${@}"
 	echo "$@" >&2
 	"$@" || die -n "${*} failed"
 }
@@ -74,9 +103,9 @@ etestament() {
 	if [[ ${ETESTAMENT_DESELECT} ]]; then
 		local skipfile="${T}"/testament.skipfile
 		if [[ ! -f ${skipfile} ]]; then
-			for t in "${ETESTAMENT_DESELECT[@]}"; do
-				echo "${t}" >> "${skipfile}"
-			done
+			printf "%s\n" "${ETESTAMENT_DESELECT[@]}" > "${skipfile}" || die
+		else
+			debug-print "${skipfile} already exists, not overwriting"
 		fi
 		testament_args+=( --skipFrom:"${skipfile}" )
 	fi
@@ -86,30 +115,64 @@ etestament() {
 	"$@" || die -n "${*} failed"
 }
 
-# @FUNCTION: nim_gen_config
+# @FUNCTION: nim_get_buildtype
 # @USAGE:
+# @RETURN: build type (debug or release) based on USE flags
+nim_get_buildtype() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	if has debug ${IUSE}; then
+		echo $(usex debug "debug" "release")
+	else
+		echo "release"
+	fi
+}
+
+# @FUNCTION: nim_get_colors
+# @USAGE:
+# @RETURN: "off" if colors should be disabled, "on" otherwise
+nim_get_colors() {
+	debug-print-function ${FUNCNAME} "${@}"
+
+	case ${NOCOLOR} in
+		true|yes) echo "off" ;;
+		*)        echo "on" ;;
+	esac
+}
+
+# @FUNCTION: nim_gen_config
+# @USAGE: [<dir>]
 # @DESCRIPTION:
-# Generate the ${WORKDIR}/nim.cfg to respect user's toolchain and preferences.
+# Generate a nim.cfg file in <dir> (default: $WORKDIR) to respect user's
+# toolchain and preferences.
 nim_gen_config() {
 	debug-print-function ${FUNCNAME} "${@}"
 
+	# bug 667182
 	xdg_environment_reset
 
-	cat > "${WORKDIR}/nim.cfg" <<- EOF || die "Failed to create Nim config"
+	local dir=${1:-${WORKDIR}}
+
+	cat > "${dir}"/nim.cfg <<- EOF || die "Failed to create Nim config"
 	cc:"gcc"
 	gcc.exe:"$(tc-getCC)"
 	gcc.linkerexe:"$(tc-getCC)"
 	gcc.cpp.exe:"$(tc-getCXX)"
 	gcc.cpp.linkerexe:"$(tc-getCXX)"
-	gcc.options.always:"${CFLAGS} ${CPPFLAGS}"
+	gcc.options.speed:"${CFLAGS}"
+	gcc.options.size:"${CFLAGS}"
+	gcc.options.debug:"${CFLAGS}"
+	gcc.options.always:"${CPPFLAGS}"
 	gcc.options.linker:"${LDFLAGS}"
-	gcc.cpp.options.always:"${CFLAGS} ${CPPFLAGS}"
+	gcc.cpp.options.speed:"${CXXFLAGS}"
+	gcc.cpp.options.size:"${CXXFLAGS}"
+	gcc.cpp.options.debug:"${CXXFLAGS}"
+	gcc.cpp.options.always:"${CPPFLAGS}"
 	gcc.cpp.options.linker:"${LDFLAGS}"
 
-	$([[ "${NOCOLOR}" == true || "${NOCOLOR}" == yes ]] && echo '--colors:"off"')
-	-d:"release"
+	-d:"$(nim_get_buildtype)"
+	--colors:"$(nim_get_colors)"
 	--parallelBuild:"$(makeopts_jobs)"
-	$(printf "%s\n" ${NIMFLAGS})
 	EOF
 }
 

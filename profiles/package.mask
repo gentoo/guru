@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-07-20)
+# Depends on removed llvm:12
+app-editors/imhex
+dev-vcs/mergestat
+
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-07-03)
 # unavailable dependency dev-util/distro-info
 dev-util/devscripts
@@ -23,28 +28,6 @@ dev-util/rpmlint
 # depends on non-existent dev-python/m2r
 # https://github.com/jaysonsantos/python-binary-memcached/issues/249
 dev-python/python-binary-memcached
-
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-06-18)
-# depends on non-existent dev-java/guava:20
-dev-java/gradle-hashing
-
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-06-10)
-# depends on non-existent dev-python/flufl-bounce
-net-mail/remail
-
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-06-10)
-# depends on non-existent dev-python/aiosmtpd
-dev-python/aiosmtplib
-
-# Alexey Sokolov <alexey+gentoo@asokolov.org> (2022-06-10)
-# Dead upstream. Doesn't work with py3.10. Removal on 2022-07-15.
-# https://bugs.gentoo.org/848399
-# Feel free to unmask if you want to take maintainership.
-net-p2p/nuxhash
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-04)
-# Incompatible with recent pytest. No revdeps. Removal on 2022-07-05.
-dev-python/thriftrw
 
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
 # Depends on masked dev-libs/openssl-3.0.*

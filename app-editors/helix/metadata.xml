@@ -10,4 +10,7 @@
 		<changelog>https://github.com/helix-editor/helix/commits/master</changelog>
 		<remote-id type="github">helix-editor/helix</remote-id>
 	</upstream>
+	<use>
+		<flag name="grammar">Build and install grammar language files</flag>
+	</use>
 </pkgmetadata>

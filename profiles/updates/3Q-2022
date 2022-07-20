@@ -1,1 +1,2 @@
 move app-text/stdman app-doc/stdman
+move www-apps/stagit dev-vcs/stagit

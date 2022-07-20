@@ -34,7 +34,7 @@ BDEPEND="
 virtual/pkgconfig
 app-arch/zip
 app-arch/unzip
-media-gfx/imagemagick[jpeg,png]
+virtual/imagemagick-tools[jpeg,png]
 "
 PATCHES=(
 	"${FILESDIR}/${PN}-0.1.3-dont-compress-docs.patch"

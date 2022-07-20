@@ -2,7 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>smaniotto.nicola@gmail.com</email>
+		<name>Nicola Smaniotto</name>
+	</maintainer>
 	<use>
 		<flag name="client">Install the Syncplay client</flag>
 		<flag name="server">Install the Syncplay server</flag>

@@ -3,13 +3,13 @@
 
 EAPI=7
 
+CRAN_PV="$(ver_rs 2 -)"
+CRAN_SNAPSHOT_DATE="2022-07-11"
 inherit R-packages edo
 
 DESCRIPTION="Unified Parallel and Distributed Processing in R for Everyone"
 KEYWORDS="~amd64"
 LICENSE='LGPL-2+'
-CRAN_PV="$(ver_rs 2 -)"
-SRC_URI="mirror://cran/src/contrib/${PN}_${CRAN_PV}.tar.gz"
 
 src_test() {
 	cd "${WORKDIR}/${P}/tests" || die

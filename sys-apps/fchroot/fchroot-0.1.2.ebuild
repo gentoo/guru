@@ -18,7 +18,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	app-emulation/qemu[qemu_softmmu_targets_x86_64,qemu_softmmu_targets_aarch64,qemu_softmmu_targets_arm,static-user]
+	app-emulation/qemu[qemu_user_targets_aarch64,qemu_user_targets_arm,static-user]
 	dev-libs/glib[static-libs]
 	dev-libs/libpcre[static-libs]
 	sys-apps/attr[static-libs]
