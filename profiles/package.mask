@@ -32,10 +32,6 @@ dev-java/gradle-hashing
 # depends on non-existent dev-python/flufl-bounce
 net-mail/remail
 
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-06-10)
-# depends on non-existent dev-python/aiosmtpd
-dev-python/aiosmtplib
-
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
 # Depends on masked dev-libs/openssl-3.0.*
 app-crypt/tpm2-openssl
