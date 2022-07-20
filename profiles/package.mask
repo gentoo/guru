@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-07-20)
+# Depends on removed llvm:12
+app-editors/imhex
+dev-vcs/mergestat
+
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-07-03)
 # unavailable dependency dev-util/distro-info
 dev-util/devscripts
