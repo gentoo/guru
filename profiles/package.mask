@@ -36,10 +36,6 @@ net-mail/remail
 # depends on non-existent dev-python/aiosmtpd
 dev-python/aiosmtplib
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-06-04)
-# Incompatible with recent pytest. No revdeps. Removal on 2022-07-05.
-dev-python/thriftrw
-
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
 # Depends on masked dev-libs/openssl-3.0.*
 app-crypt/tpm2-openssl
