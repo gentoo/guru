@@ -24,10 +24,6 @@ dev-util/rpmlint
 # https://github.com/jaysonsantos/python-binary-memcached/issues/249
 dev-python/python-binary-memcached
 
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-06-18)
-# depends on non-existent dev-java/guava:20
-dev-java/gradle-hashing
-
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
 # Depends on masked dev-libs/openssl-3.0.*
 app-crypt/tpm2-openssl
