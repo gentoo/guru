@@ -1,6 +1,6 @@
-BDEPEND=doc? ( app-doc/doxygen ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=doc? ( app-doc/doxygen[dot] ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=adns? ( net-dns/c-ares ) ssl? ( dev-libs/openssl ) test? ( dev-cpp/gtest )
+DEPEND=adns? ( net-dns/c-ares:= ) ssl? ( dev-libs/openssl:= ) test? ( dev-cpp/gtest )
 DESCRIPTION=Non-blocking I/O tcp network lib based on c++14/17
 EAPI=8
 HOMEPAGE=https://github.com/an-tao/trantor
@@ -8,9 +8,9 @@ INHERIT=cmake
 IUSE=adns doc +ssl test
 KEYWORDS=~amd64
 LICENSE=BSD
-RDEPEND=adns? ( net-dns/c-ares ) ssl? ( dev-libs/openssl )
+RDEPEND=adns? ( net-dns/c-ares:= ) ssl? ( dev-libs/openssl:= )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/an-tao/trantor/archive/refs/tags/v1.5.4.tar.gz -> trantor-1.5.4.tar.gz
+SRC_URI=https://github.com/an-tao/trantor/archive/refs/tags/v1.5.6.tar.gz -> trantor-1.5.6.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	629c5cdf86e3c68e26f2365c54c5d9f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
-_md5_=ce454f43b4764dad9cb69e8d08b0b0fe
+_md5_=2a50058b5e0cb972dd9a598125d667a7

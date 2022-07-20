@@ -1,5 +1,4 @@
-BDEPEND=sys-apps/pkgcore
-DEFINED_PHASES=compile configure install postinst prepare test unpack
+DEFINED_PHASES=compile configure install postinst test unpack
 DEPEND=>=dev-R/Rcpp-0.12.9 dev-R/rlang test? ( >=dev-R/testthat-2.1.0 ) dev-lang/R
 DESCRIPTION=Utilities for Scheduling Functions to Execute Later with Event Loops
 EAPI=7
@@ -12,5 +11,5 @@ RDEPEND=dev-lang/R
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cran/src/contrib/later_1.3.0.tar.gz
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	23cb2d46c80c12aa8b25973b4cdcb257	optfeature	1a2157392a869265b2afcb63a26c12ac	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	R-packages	b4f38c93492e8dc28cb0778d20c3678b
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	23cb2d46c80c12aa8b25973b4cdcb257	optfeature	1a2157392a869265b2afcb63a26c12ac	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	R-packages	8df4dc47025311cfae7f8cd1a0557193
 _md5_=c6eecb191d4364b15d57c35fc91e96e1

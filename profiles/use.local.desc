@@ -20,6 +20,7 @@ app-crypt/uacme:mbedtls - Use net-libs/mbedtls instead of dev-libs/openssl
 app-crypt/uacme:ualpn - Build the ualpn proxy that transparently handles tls-alpn-01
 app-dicts/canna-2ch:canna - Add support for the Canna kana to kanji conversion engine
 app-dicts/dictd-mueller:ipa - convert transcription into the IPA Unicode
+app-editors/helix:grammar - Build and install grammar language files
 app-emulation/arnold:inkz80 - Use inkz80 processor emulation
 app-i18n/canna:canuum - Build canuum
 app-misc/apidb:commands - Build commands
@@ -189,7 +190,6 @@ dev-ml/rpc:html - html documentation generator
 dev-ml/rpc:js - Bindings for js_of_ocaml
 dev-ml/tar:mirage - Read and write tar format files via MirageOS interfaces
 dev-ml/tar:unix - Decode and encode tar format files from Unix
-dev-ml/tiny_httpd:camlzip - Interface to camlzip for tiny_httpd
 dev-ml/tls:async - Async laye
 dev-ml/tls:mirage - MirageOS layer
 dev-ml/uri:re - This is an OCaml implementation of the RFC3986 specification for parsing URI or URLs
@@ -213,7 +213,6 @@ dev-python/gnocchi:s3 - Installs dependencies needed for Amazon S3 storage suppo
 dev-python/gnocchi:swift - Installs dependencies needed for OpenStack Swift storage support
 dev-python/python-socketio:asyncio-client - Add async websocket client
 dev-python/python-socketio:client - Add websocket client
-dev-python/qiskit-terra:visualization - Enable visualization modules
 dev-util/FoBiS:graphviz - Add support of generation of a dependencies graph
 dev-util/annobin:clang - Build the clang plugin
 dev-util/annobin:llvm - Build the LLVM plugin
@@ -345,7 +344,6 @@ media-gfx/grafx2:ttf - Install TTF Fonts
 media-gfx/nsxiv:gif - Add animated gif support
 media-gfx/nsxiv:statusbar - Add statusbar support
 media-gfx/nsxiv:webp - Add animated webp support
-media-gfx/superslicer:profiles - Install additional 3d printer profiles.
 media-libs/alvr:client - Build ALVR client and launcher
 media-libs/alvr:server - Build ALVR server
 media-libs/alvr:vulkan - Build ALVR vulkan layer
