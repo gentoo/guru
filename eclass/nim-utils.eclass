@@ -103,7 +103,7 @@ etestament() {
 	if [[ ${ETESTAMENT_DESELECT} ]]; then
 		local skipfile="${T}"/testament.skipfile
 		if [[ ! -f ${skipfile} ]]; then
-			printf "%s\n" "${ETESTAMENT_DESELECT[@]}" > "${skipfile}"
+			printf "%s\n" "${ETESTAMENT_DESELECT[@]}" > "${skipfile}" || die
 		else
 			debug-print "${skipfile} already exists, not overwriting"
 		fi
