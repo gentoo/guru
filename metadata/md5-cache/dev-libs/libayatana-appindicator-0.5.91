@@ -9,5 +9,5 @@ LICENSE=LGPL-3
 RDEPEND=dev-libs/libdbusmenu[gtk3] >=dev-libs/libayatana-indicator-0.9.0
 SLOT=0
 SRC_URI=https://github.com/AyatanaIndicators/libayatana-appindicator/archive/0.5.91.tar.gz -> libayatana-appindicator-0.5.91.tar.gz
-_eclasses_=vala	9badd41d5aab740ae5ac301c4416c5f8
+_eclasses_=vala	1c07e7167d9ef851ad187f5f3f02d34d
 _md5_=c63819350e7d77848ef1c1ee5c75c265
