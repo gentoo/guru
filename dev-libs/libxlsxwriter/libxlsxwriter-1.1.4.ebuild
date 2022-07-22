@@ -20,6 +20,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-fix-pkgconfig-version.patch
+)
+
 src_configure() {
 	DOUBLEFUNCTION=OFF
 	for x in $(plocale_get_locales); do
