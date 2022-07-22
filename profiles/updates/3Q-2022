@@ -1,2 +1,3 @@
 move app-text/stdman app-doc/stdman
 move www-apps/stagit dev-vcs/stagit
+move net-p2p/bisq net-p2p/bisq-bin
