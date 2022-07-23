@@ -17,10 +17,11 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	dev-libs/libfmt:=
 	dev-libs/olm
-	>=dev-libs/openssl-1.1.0
-	dev-libs/spdlog
-	>=dev-cpp/coeurl-0.1.1:=
+	>=dev-libs/openssl-1.1.0:=
+	dev-libs/spdlog:=
+	>=dev-cpp/coeurl-0.2.1:=[ssl]
 "
 DEPEND="
 	${RDEPEND}

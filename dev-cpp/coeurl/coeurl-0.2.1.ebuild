@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,14 +11,15 @@ SRC_URI="https://nheko.im/nheko-reborn/coeurl/-/archive/v${PV}/${PN}-v${PV}.tar.
 S="${WORKDIR}/${PN}-v${PV}"
 
 LICENSE="MIT"
-SLOT="0"
+SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64"
-IUSE="test"
+IUSE="ssl test"
 RESTRICT="test" # Tests turned off because they need a local webserver.
 
 RDEPEND="
-	net-misc/curl
+	net-misc/curl[ssl?]
 	dev-libs/libevent
+	dev-libs/libfmt:=
 	dev-libs/spdlog
 "
 DEPEND="
