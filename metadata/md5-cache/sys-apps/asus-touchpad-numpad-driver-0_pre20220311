@@ -1,0 +1,15 @@
+DEFINED_PHASES=install setup
+DEPEND=dev-libs/libevdev sys-apps/i2c-tools python_single_target_python3_9? ( dev-python/python-evdev[python_targets_python3_9(-)] dev-python/numpy[python_targets_python3_9(-)] dev-python/python-libevdev[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/python-evdev[python_targets_python3_10(-)] dev-python/numpy[python_targets_python3_10(-)] dev-python/python-libevdev[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/python-evdev[python_targets_python3_11(-)] dev-python/numpy[python_targets_python3_11(-)] dev-python/python-libevdev[python_targets_python3_11(-)] )
+DESCRIPTION=Feature-rich configurable Asus NumPad drivers
+EAPI=8
+HOMEPAGE=https://github.com/mohamed-badaoui/asus-touchpad-numpad-driver
+INHERIT=linux-info python-single-r1
+IUSE=python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=dev-libs/libevdev sys-apps/i2c-tools python_single_target_python3_9? ( dev-python/python-evdev[python_targets_python3_9(-)] dev-python/numpy[python_targets_python3_9(-)] dev-python/python-libevdev[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/python-evdev[python_targets_python3_10(-)] dev-python/numpy[python_targets_python3_10(-)] dev-python/python-libevdev[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/python-evdev[python_targets_python3_11(-)] dev-python/numpy[python_targets_python3_11(-)] dev-python/python-libevdev[python_targets_python3_11(-)] ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 )
+REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
+SLOT=0
+SRC_URI=https://github.com/mohamed-badaoui/asus-touchpad-numpad-driver/archive/a2bada610ebb3fc002fceb53ddf93bc799241867.tar.gz -> asus-touchpad-numpad-driver-0_pre20220311.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_md5_=503d1d56a8236c5082af304b0b5426b3

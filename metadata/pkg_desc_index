@@ -96,7 +96,7 @@ app-dicts/dictd-moby-thesaurus 1.0: Grady Ward's Moby Thesaurus; 35000 root word
 app-dicts/dictd-mueller 3.1-r1: V. K. Mueller English-Russian Dictionary
 app-dicts/dictd-web1913 0.5.0_p1: Webster's Revised Unabridged Dictionary (1913) for dict
 app-doc/anarchism 15.3: An anarchist FAQ
-app-doc/ford 6.1.10 6.1.11 6.1.12: FORD, automatic documentation generator for modern Fortran programs
+app-doc/ford 6.1.10 6.1.11 6.1.12 6.1.13: FORD, automatic documentation generator for modern Fortran programs
 app-doc/openbsd-manpages 6.9 7.0: OpenBSD manual pages
 app-doc/stdman 2019.08.27 2020.11.17 2021.12.21 9999: Formatted C++ stdlib man pages (cppreference)
 app-editors/amp 0.6.2: A complete text editor for your terminal.
@@ -420,7 +420,7 @@ dev-R/yaml 2.3.5: Methods to Convert R Data to YAML and Back
 dev-R/zoo 1.8.10: S3 Infrastructure for Regular and Irregular Time Series (Z's Ordered Observations)
 dev-cpp/MEL 1.0.0-r1: Math Expression Library
 dev-cpp/cli11 2.1.2 2.2.0: Command line parser for C++11
-dev-cpp/coeurl 0.1.1 0.2.0-r1: A simple async wrapper around CURL for C++
+dev-cpp/coeurl 0.2.0-r1 0.2.1: A simple async wrapper around CURL for C++
 dev-cpp/cpptoml 0.1.1: Header-only library for parsing TOML
 dev-cpp/drogon 1.7.4 1.7.5: C++14/17 based HTTP web application framework
 dev-cpp/dtl 1.20-r1: diff template library written by C++
@@ -444,6 +444,7 @@ dev-cpp/trantor 1.5.5 1.5.6: Non-blocking I/O tcp network lib based on c++14/17
 dev-cpp/vectorwrapper 1.1.2 9999: A template vector wrapper class for C++
 dev-cpp/vexcl 1.4.3-r2: VexCL - Vector expression template library for OpenCL
 dev-cpp/wangle 2022.04.11.00-r1: Framework providing common client/server abstractions
+dev-cpp/workflow 0.10.2 9999: C++ Parallel Computing and Asynchronous Networking Engine
 dev-cpp/xdgpp 0_pre20201007-r1: C++17 header-only implementation of the XDG Base Directory Specification
 dev-db/pg_repack 1.4.7: Reorganize tables in PostgreSQL databases with minimal locks
 dev-db/rum 1.3.11: RUM access method - inverted index with additional information in posting lists
@@ -522,7 +523,7 @@ dev-libs/libxlsxwriter 1.1.4: Libxlsxwriter is a C library for creating Excel XL
 dev-libs/luksmeta 9: LUKSMeta is a simple library for storing metadata in the LUKSv1 header
 dev-libs/memkind 1.13.0: user extensible heap manager built on top of jemalloc
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
-dev-libs/mtxclient 0.6.2-r1 0.7.0: Client API library for Matrix, built on top of Boost.Asio
+dev-libs/mtxclient 0.7.0 0.8.0: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/nativefiledialog-extended 0_pre20210430-r1: File dialog library with C and C++ bindings, based on nativefiledialog
 dev-libs/octetos-biblion 0.1.1_alpha: Library for reading biblia.
 dev-libs/octetos-core 2.15.0_beta 2.20.0_beta 2.25.0_beta 2.25.1_beta 2.31.2_beta 2.31.3_beta 2.31.5_beta 2.32.0_beta: C/C++ library to mainly provide Semantic Versioned implementation
@@ -1090,10 +1091,10 @@ dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
 dev-vcs/git-repair 1.20210629: repairs a damaged git repository
 dev-vcs/git-repo-updater 0.5.1-r2: Easily update multiple git repositories at once
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
-dev-vcs/gitqlient 1.4.3 9999: Multi-platform Git client written with Qt
+dev-vcs/gitqlient 1.4.3 1.5.0 9999: Multi-platform Git client written with Qt
 dev-vcs/gitui 0.18.0 0.20.1: Blazing fast terminal-ui for git
 dev-vcs/got 0.71 0.73: Portable version of the Game of Trees version control system
-dev-vcs/lazygit 0.33 0.34: Simple terminal UI for git commands
+dev-vcs/lazygit 0.33 0.34 0.35: Simple terminal UI for git commands
 dev-vcs/lefthook 1.0.0 1.0.4: Fast and powerful Git hooks manager for any type of projects
 dev-vcs/mergestat 0.5.4 0.5.4-r1: Query git repositories with SQL
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
@@ -1142,7 +1143,7 @@ games-util/gamehub 0.16.0.1 0.16.3.2: GameHub is a unified library for all your 
 games-util/hid-nintendo 9999: A Nintendo HID kernel module
 games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launcher
 games-util/legendary 0.20.25 0.20.26 0.20.27: A free and open-source replacement for the Epic Games Launcher
-games-util/mangohud 0.6.6.1-r3: A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more
+games-util/mangohud 0.6.6.1-r3 0.6.7.1: A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more
 games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
 games-util/samrewritten 9999 202008: Steam Achievement Manager For Linux
 games-util/steamtinkerlaunch 8.0: Wrapper script for Steam custom launch options
@@ -1309,7 +1310,7 @@ media-video/ciano 0.2.4-r1: A multimedia file converter focused on simplicity
 media-video/ffsubsync 0.4.18-r1 0.4.19-r1 0.4.20-r1: Automagically syncronize subtitles with video
 media-video/kikoplay 0.8.2 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.4.3: A GTK3 camera application that knows how to deal with the media request api
-media-video/obs-vkcapture 1.1.3 9999: OBS Linux Vulkan/OpenGL game capture
+media-video/obs-vkcapture 1.1.3 1.1.4 9999: OBS Linux Vulkan/OpenGL game capture
 media-video/owncast 0.0.12: A self-hosted live video and web chat server
 media-video/syncplay 1.6.7-r1 1.6.9: Client/server to synchronize media playback
 media-video/tartube 2.4.077 9999: A GUI front-end for youtube-dl
@@ -1352,7 +1353,7 @@ net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
 net-im/jitsi-meet 2022.3.1: Desktop application for Jitsi Meet built with Electron
 net-im/kaidan 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!
 net-im/matterhorn-bin 50200.13.0: Terminal based Mattermost client
-net-im/nheko 0.9.2 0.9.3: Native desktop client for Matrix using Qt
+net-im/nheko 0.9.3 0.10.0: Native desktop client for Matrix using Qt
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
 net-im/whatsapp-for-linux 1.3.2 1.3.2-r1: An unofficial WhatsApp desktop application for Linux
 net-irc/catgirl 2.0a 2.1: TLS-only terminal IRC client
@@ -1405,7 +1406,7 @@ net-misc/yacy 1.924.20210209.10069: YaCy - p2p based distributed web-search engi
 net-news/comitium 1.8.1: feed aggregator for gemini supporting many formats and protocols
 net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny Tiny RSS or feedly
 net-nntp/inn 2.6.4-r1 2.6.5: InterNetNews -- the Internet meets Netnews
-net-p2p/bisq 1.9.2: The decentralized bitcoin exchange (non-atomic, with arbitration)
+net-p2p/bisq-bin 1.9.4: The decentralized bitcoin exchange (non-atomic, with arbitration)
 net-p2p/ipfs-cluster 1.0.1: Pinset orchestration for IPFS
 net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 9999: The secure, private, untraceable cryptocurrency
@@ -1511,6 +1512,7 @@ sec-keys/signify-keys-telescope 0.7 0.8: Signify keys used to sign telescope rel
 sys-apps/0xFFFF 0.8 0.9: The 0pen Free Fiasco Firmware Flasher
 sys-apps/CommsPowerManagement 0.2.1: Python library providing various tools to work with Intel processors
 sys-apps/asus-numpad 0.1 9999: User-space driver for Asus numpad
+sys-apps/asus-touchpad-numpad-driver 0_pre20220311 9999: Feature-rich configurable Asus NumPad drivers
 sys-apps/bustd 0.1.1: Process killer daemon for out-of-memory scenarios
 sys-apps/dool 1.0.0 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
 sys-apps/drm_info 2.2.0 2.3.0 9999: Small utility to dump info about DRM devices
@@ -1615,7 +1617,7 @@ sys-kernel/modprobed-db 2.46: This utility tracks modules loaded by the kernel, 
 sys-kernel/msr-safe 1.6.0: Allows safer access to model specific registers (MSRs)
 sys-kernel/rte_kni-kmod 21.11.1 22.03: DPDK Kernel Nic Interface module
 sys-kernel/tirdad 0_pre20200926: kernel module for random ISN generation
-sys-kernel/uek-sources 5.15.0.0.30.19: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
+sys-kernel/uek-sources 5.15.0.1.43.1: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
 sys-kernel/ummunotify 2-r1: Userspace support for MMU notifications
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-kernel/xpmem 2.6.5_p20210809: Linux Cross-Memory Attach

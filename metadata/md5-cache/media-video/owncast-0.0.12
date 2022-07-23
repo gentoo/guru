@@ -11,4 +11,4 @@ RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/owncast/owncast/archive/refs/tags/v0.0.12.tar.gz -> owncast-0.0.12.tar.gz https://github.com/owncast/owncast/releases/download/v0.0.12/owncast-0.0.12-linux-64bit.zip https://www.lysator.liu.se/~creideiki/owncast-0.0.12-deps.tar.xz
 _eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a
-_md5_=f635fc900b91cf4ad506c480ea05e575
+_md5_=af4ed1459c6f6057f32d3a5d757ffa24
