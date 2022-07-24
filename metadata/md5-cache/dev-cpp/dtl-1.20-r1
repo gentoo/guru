@@ -11,5 +11,5 @@ LICENSE=BSD
 RESTRICT=!test? ( test )
 SLOT=0/1.20
 SRC_URI=https://github.com/cubicdaiya/dtl/archive/v1.20.tar.gz -> dtl-1.20.tar.gz
-_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	scons-utils	c30e32d0d48c308fe47706846020fdfa
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6f8f68a64a4304f487bb725227f2fdac	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0	scons-utils	c30e32d0d48c308fe47706846020fdfa
 _md5_=cec01e767896b1d65e8df2b240d9ad9b
