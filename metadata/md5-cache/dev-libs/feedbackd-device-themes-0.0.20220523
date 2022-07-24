@@ -8,5 +8,5 @@ KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=LGPL-3
 SLOT=0
 SRC_URI=https://source.puri.sm/Librem5/feedbackd-device-themes/-/archive/v0.0.20220523/feedbackd-device-themes-v0.0.20220523.tar.gz -> feedbackd-device-themes-0.0.20220523.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	meson	46c25780996ffc397131ecd35a2194a2
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	667174e2df1036a5520d3b3b3fb33e98	meson	1994a5aef5d4f5798b92f64d6f9a6003
 _md5_=61d223eba2c7141a515a5075bfc0aafa
