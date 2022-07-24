@@ -8,7 +8,7 @@ inherit cmake git-r3 toolchain-funcs xdg
 DESCRIPTION="An emulator for Nintendo Switch"
 HOMEPAGE="https://yuzu-emu.org"
 EGIT_REPO_URI="https://github.com/yuzu-emu/yuzu-mainline"
-EGIT_SUBMODULES=( '-*' 'dynarmic' 'soundtouch' 'sirit' 'xbyak' 'externals/cpp-httplib' )
+EGIT_SUBMODULES=( '-*' 'cpp-httplib' 'dynarmic' 'soundtouch' 'sirit' 'xbyak' )
 # Soundtouch cannot be unbundled -> custom version
 # Dynarmic is intended to be tailored on purpose, not to be generic
 # TODO wait 'xbyak' for bump in tree, require 5.96
@@ -43,7 +43,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	dev-util/spirv-headers
-	system-vulkan? ( dev-util/vulkan-headers )
+	system-vulkan? ( >=dev-util/vulkan-headers-1.3.216 )
 "
 BDEPEND="
 	>=dev-cpp/catch-2.13:0
@@ -76,6 +76,9 @@ src_unpack() {
 }
 
 src_prepare() {
+	# unused-result maybe temporary fix
+	sed -i -e '/Werror=unused-result/d' src/CMakeLists.txt || die
+
 	# headers is not a valid boost component
 	sed -i -e '/find_package(Boost/{s/headers //;s/CONFIG //}' CMakeLists.txt || die
 
@@ -89,12 +92,10 @@ src_prepare() {
 	sed -i -e 's:inih/cpp/::' src/yuzu_cmd/config.cpp || die
 
 	# Unbundle xbyak ( uncomment when xbyak version is ok or never as it is only headers )
-	# sed -i -e '/target_include_directories(xbyak/s:./xbyak/xbyak:/usr/include/xbyak/:' externals/CMakeLists.txt
+	# sed -i -e '/^# xbyak/,/^endif()/d' externals/CMakeLists.txt || die
 
 	if use system-vulkan; then # Unbundle vulkan headers
 		sed -i -e 's:../../externals/Vulkan-Headers/include:/usr/include/vulkan/:' src/video_core/CMakeLists.txt src/yuzu/CMakeLists.txt src/yuzu_cmd/CMakeLists.txt || die
-		# available only in >=vulkan-headers-1.3.213
-		sed -i -e '/VK_ERROR_COMPRESSION_EXHAUSTED_EXT/d' src/video_core/vulkan_common/vulkan_wrapper.cpp || die
 	fi
 
 	# Unbundle mbedtls: undefined reference to `mbedtls_cipher_cmac'
