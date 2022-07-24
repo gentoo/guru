@@ -10,7 +10,7 @@ HOMEPAGE="https://citra-emu.org"
 EGIT_REPO_URI="https://github.com/citra-emu/citra"
 EGIT_SUBMODULES=( '*'
 	'-boost' '-catch' '-cryptopp' '-cubeb' '-enet'
-	'-inih' '-libressl' '-libusb' '-zstd'
+	'-inih' '-libressl' '-libusb' '-teakra' '-zstd'
 	'-externals/dynarmic/externals/fmt'
 	'-externals/dynarmic/externals/xbyak'
 )
@@ -36,12 +36,13 @@ DEPEND="
 	)
 	system-libfmt? ( <=dev-libs/libfmt-8 )
 	video? ( media-video/ffmpeg )
-	>=app-arch/zstd-1.4.8
 	>=dev-libs/openssl-1.1
+	app-arch/zstd
 	dev-cpp/catch:0
 	dev-cpp/robin-map
 	dev-libs/boost:=
 	dev-libs/crypto++
+	dev-libs/teakra
 	net-libs/enet:1.3
 	virtual/libusb:1
 "
@@ -100,6 +101,9 @@ src_prepare() {
 		sed -i -e '/^#pragma once$/a#include <algorithm>' src/common/logging/log.h || die
 	fi
 
+	# Unbundle teakra
+	sed -i -e '/teakra/d' externals/CMakeLists.txt || die
+
 	# Unbundle zstd
 	sed -i -e 's:libzstd_static:${ZSTD_LIBRARIES}:' \
 		-e '1ifind_package(PkgConfig REQUIRED)\npkg_check_modules(ZSTD REQUIRED libzstd)' \
@@ -121,11 +125,11 @@ src_prepare() {
 	sed -i -e '/cryptopp/d' externals/CMakeLists.txt || die
 
 	# Unbundle catch
-	sed -i -e '1ifind_package(Catch2)' src/tests/CMakeLists.txt externals/{dynarmic,teakra}/tests/CMakeLists.txt || die
-	sed -i -e '/target_link_libraries/s/catch/Catch2::Catch2/' externals/{dynarmic,teakra}/tests/CMakeLists.txt || die
+	sed -i -e '1ifind_package(Catch2)' src/tests/CMakeLists.txt externals/dynarmic/tests/CMakeLists.txt || die
+	sed -i -e '/target_link_libraries/s/catch/Catch2::Catch2/' externals/dynarmic/tests/CMakeLists.txt || die
 	sed -i -e '/target_link_libraries/s/catch-single-include/Catch2::Catch2/' src/tests/CMakeLists.txt || die
-	sed -i -e '/catch/d' externals/CMakeLists.txt externals/{dynarmic,teakra}/externals/CMakeLists.txt || die
-	grep -rl 'include <catch.hpp>' externals/{dynarmic,teakra} | xargs sed -i -e '/include/s:catch.hpp:catch/&:' || die
+	sed -i -e '/catch/d' externals/CMakeLists.txt externals/dynarmic/externals/CMakeLists.txt || die
+	grep -rl 'include <catch.hpp>' externals/dynarmic | xargs sed -i -e '/include/s:catch.hpp:catch/&:' || die
 
 	# Unbundle cubeb
 	sed -i -e '/CUBEB/,/endif()/d' externals/CMakeLists.txt || die
