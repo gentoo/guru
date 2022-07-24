@@ -1,9 +1,9 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit desktop toolchain-funcs xdg
+inherit desktop flag-o-matic toolchain-funcs xdg
 
 DESCRIPTION="Blackvoxel Video Game"
 HOMEPAGE="https://www.blackvoxel.com/"
@@ -30,6 +30,12 @@ PATCHES=(
 	"${FILESDIR}"/${P}-makefile.patch
 	"${FILESDIR}"/${P}-savedir.patch
 )
+
+src_prepare() {
+	default
+	append-cflags -fno-strict-aliasing
+	append-cxxflags -fno-strict-aliasing
+}
 
 src_compile() {
 	export CXX="$(tc-getCXX)"
