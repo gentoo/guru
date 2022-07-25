@@ -4,6 +4,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
+DISTUTILS_SINGLE_IMPL=1
 inherit distutils-r1 xdg-utils
 
 DESCRIPTION="Configuration tool for the LightDM GTK Greeter"
