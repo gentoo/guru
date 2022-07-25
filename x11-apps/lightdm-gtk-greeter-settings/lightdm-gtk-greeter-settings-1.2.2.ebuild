@@ -25,6 +25,11 @@ python_configure_all() {
 	fi
 }
 
+src_install() {
+	distutils-r1_src_install
+	python_optimize
+}
+
 pkg_preinst() {
 	rm -r "${D}/usr/share/doc/${PN}"
 }
