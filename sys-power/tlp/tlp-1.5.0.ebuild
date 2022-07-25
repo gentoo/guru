@@ -57,3 +57,7 @@ pkg_postinst() {
 	elog "- sys-apps/ethtool to allow disabling WoL"
 	elog "- sys-apps/smartmontools for disk drive health info in tlp-stat"
 }
+
+pkg_postrm() {
+	udev_reload
+}
