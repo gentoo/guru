@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake xdg
+inherit cmake xdg flag-o-matic
 
 PAK_REV=33
 
@@ -53,6 +53,9 @@ src_prepare() {
 	# Without this, CMake will error out because it will try to download the zip
 	# during building.
 	touch "${BUILD_DIR}/Resources/OpenSpadesDevPackage-r${PAK_REV}.zip"
+
+	append-cflags -fno-strict-aliasing
+	append-cxxflags -fno-strict-aliasing
 }
 
 src_configure() {
