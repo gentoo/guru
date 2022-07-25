@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Ronny (tastytea) Gutbrod <gentoo@tastytea.de> (2022-07-26)
+# app-emulation/dxvk is in ::gentoo now and doesn't need crossdev setup,
+# making the reason for the binary package void. Removal on 2022-08-26.
+app-emulation/dxvk-bin
+
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-07-20)
 # Depends on removed llvm:12
 app-editors/imhex
