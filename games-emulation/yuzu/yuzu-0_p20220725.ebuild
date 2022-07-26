@@ -10,7 +10,7 @@ HOMEPAGE="https://yuzu-emu.org"
 SRC_URI="https://github.com/yuzu-emu/yuzu-mainline/archive/dfaab8f6571856ec3c75cfad303a50503d213665.tar.gz -> ${P}.tar.gz
 	https://github.com/merryhime/dynarmic/archive/91d1f944e3870e0f3c505b48f5ec00ca9a82b95d.tar.gz -> ${PN}-dynarmic-${PV}.tar.gz
 	https://github.com/herumi/xbyak/archive/c306b8e5786eeeb87b8925a8af5c3bf057ff5a90.tar.gz -> ${PN}-xbyak-${PV}.tar.gz
-	compatibility-list? ( yuzu-0_p20220725-compatibility_list.json )
+	compatibility-list? ( https://gist.githubusercontent.com/mazes-80/db6fc80114f67dde9d680de6c4d60428/raw/59274e6e641027cb6bf5e2077a899edabaf88904/yuzu-0_p20220725-compatibility_list.json )
 	discord? ( https://github.com/discord/discord-rpc/archive/963aa9f3e5ce81a4682c6ca3d136cddda614db33.tar.gz -> ${PN}-discord-${PV}.tar.gz )"
 # Dynarmic is not intended to be generic, it is tweaked to fit emulated processor
 # xbyak >= 5.96 still not in portage. sent version bump on gentoo BT, can't be in guru as package already exists
