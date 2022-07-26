@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop flag-o-matic toolchain-funcs xdg
+inherit desktop toolchain-funcs xdg
 
 DESCRIPTION="Blackvoxel Video Game"
 HOMEPAGE="https://www.blackvoxel.com/"
@@ -29,13 +29,8 @@ S="${WORKDIR}/${PN}_source_${PV//./_}"
 PATCHES=(
 	"${FILESDIR}"/${P}-makefile.patch
 	"${FILESDIR}"/${P}-savedir.patch
+	"${FILESDIR}"/${P}-strict-aliasing.patch
 )
-
-src_prepare() {
-	default
-	append-cflags -fno-strict-aliasing
-	append-cxxflags -fno-strict-aliasing
-}
 
 src_compile() {
 	export CXX="$(tc-getCXX)"
