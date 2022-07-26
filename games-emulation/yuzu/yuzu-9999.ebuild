@@ -8,10 +8,9 @@ inherit cmake git-r3 toolchain-funcs xdg
 DESCRIPTION="An emulator for Nintendo Switch"
 HOMEPAGE="https://yuzu-emu.org"
 EGIT_REPO_URI="https://github.com/yuzu-emu/yuzu-mainline"
-EGIT_SUBMODULES=( '-*' 'cpp-httplib' 'dynarmic' 'soundtouch' 'sirit' 'xbyak' )
-# Soundtouch cannot be unbundled -> custom version
-# Dynarmic is intended to be tailored on purpose, not to be generic
-# TODO wait 'xbyak' for bump in tree, require 5.96
+EGIT_SUBMODULES=( '-*' 'dynarmic' 'xbyak' )
+# Dynarmic is not intended to be generic, it is tweaked to fit emulated processor
+# TODO wait 'xbyak' waiting version bump. see #860816
 
 LICENSE="|| ( Apache-2.0 GPL-2+ ) 0BSD BSD GPL-2+ ISC MIT
 	!system-vulkan? ( Apache-2.0 )"
@@ -20,14 +19,15 @@ KEYWORDS=""
 IUSE="+compatibility-list +cubeb discord +qt5 sdl system-vulkan webengine +webservice"
 
 RDEPEND="
+	<net-libs/mbedtls-3.1[cmac]
 	>=app-arch/zstd-1.5
 	>=dev-libs/libfmt-8:=
 	>=dev-libs/openssl-1.1:=
 	>=media-video/ffmpeg-4.3:=
 	app-arch/lz4:=
 	dev-libs/boost:=[context]
+	dev-libs/sirit
 	media-libs/opus
-	net-libs/mbedtls[cmac]
 	sys-libs/zlib
 	virtual/libusb:1
 	cubeb? ( media-libs/cubeb )
@@ -42,7 +42,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	dev-util/spirv-headers
+	dev-libs/cpp-httplib
 	system-vulkan? ( >=dev-util/vulkan-headers-1.3.216 )
 "
 BDEPEND="
@@ -125,13 +125,19 @@ src_prepare() {
 	use cubeb && sed -i '$afind_package(Threads REQUIRED)' CMakeLists.txt || die
 	sed -i '/cubeb/d' externals/CMakeLists.txt || die
 
+	# Unbundle sirit
+	sed -i '/sirit/d' externals/CMakeLists.txt || die
+
+	# Unbundle cpp-httplib
+	sed -i -e '/^	# cpp-httplib/,/^	endif()/d' externals/CMakeLists.txt || die
+
 	cmake_src_prepare
 }
 
 src_configure() {
 	local -a mycmakeargs=(
 		# Libraries are private and rely on circular dependency resolution.
-		-DBUILD_SHARED_LIBS=OFF
+		-DBUILD_SHARED_LIBS=OFF # dynarmic
 		-DDYNARMIC_NO_BUNDLED_ROBIN_MAP=ON
 		-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=$(usex compatibility-list)
 		-DENABLE_CUBEB=$(usex cubeb)
@@ -139,7 +145,6 @@ src_configure() {
 		-DENABLE_QT_TRANSLATION=$(usex qt5)
 		-DENABLE_SDL2=$(usex sdl)
 		-DENABLE_WEB_SERVICE=$(usex webservice)
-		-DSIRIT_USE_SYSTEM_SPIRV_HEADERS=ON # Use system SPIRV headers
 		-DUSE_DISCORD_PRESENCE=$(usex discord)
 		-DYUZU_USE_BUNDLED_OPUS=OFF
 		-DYUZU_USE_EXTERNAL_SDL2=OFF
