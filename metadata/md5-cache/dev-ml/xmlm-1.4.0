@@ -12,5 +12,5 @@ RDEPEND=dev-lang/ocaml:=[ocamlopt?] >=dev-lang/ocaml-4:=
 RESTRICT=!test? ( test )
 SLOT=0/1.4.0
 SRC_URI=https://erratique.ch/software/xmlm/releases/xmlm-1.4.0.tbz
-_eclasses_=findlib	d8fa93cf137156660d0b72144b1e31d9	opam	dc11e376d9abc263ca618c5741206216
+_eclasses_=findlib	d8fa93cf137156660d0b72144b1e31d9	opam	42c5d48985d3f77484fe405cfc69356d
 _md5_=26eb7e04751d4ec4d77a6c84bc3c65ee
