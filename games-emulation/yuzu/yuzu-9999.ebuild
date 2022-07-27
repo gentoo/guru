@@ -24,6 +24,7 @@ RDEPEND="
 	>=dev-libs/libfmt-8:=
 	>=dev-libs/openssl-1.1:=
 	>=media-video/ffmpeg-4.3:=
+	>=net-libs/enet-1.3
 	app-arch/lz4:=
 	dev-libs/boost:=[context]
 	dev-libs/sirit
@@ -43,6 +44,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	dev-cpp/cpp-httplib
+	dev-cpp/cpp-jwt
 	system-vulkan? ( >=dev-util/vulkan-headers-1.3.216 )
 "
 BDEPEND="
@@ -130,6 +132,10 @@ src_prepare() {
 
 	# Unbundle cpp-httplib
 	sed -i -e '/^	# cpp-httplib/,/^	endif()/d' externals/CMakeLists.txt || die
+
+	# Unbundle enet
+	sed -i -e '/enet/d' externals/CMakeLists.txt || die
+	sed -i -e '/enet\/enet\.h/{s/"/</;s/"/>/}' src/network/network.cpp || die
 
 	cmake_src_prepare
 }
