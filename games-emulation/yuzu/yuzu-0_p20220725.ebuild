@@ -46,7 +46,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	dev-libs/cpp-httplib
+	dev-cpp/cpp-httplib
 	>=dev-util/vulkan-headers-1.3.216
 "
 BDEPEND="
