@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{8..9} )
 
 inherit distutils-r1 optfeature xdg
 
-DESCRIPTION="A program to download, updated, and run the Tor Browser Bundle"
+DESCRIPTION="A program to download, update, and run the Tor Browser Bundle"
 HOMEPAGE="https://github.com/micahflee/torbrowser-launcher"
 
 if [[ "${PV}" == *9999* ]]; then
