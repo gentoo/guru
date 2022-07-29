@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		The command line file manager.
+		More information about the use flags can be found here:
+		https://github.com/leo-arch/clifm/blob/master/src/README.md#compiling-features-inout
+	</longdescription>
+	<maintainer type="person">
+		<email>michaelzcyang@gmail.com</email>
+		<name>FluffyJay1</name>
+	</maintainer>
+	<use>
+		<flag name="archives">
+			Archive manipulation support
+		</flag>
+		<flag name="bleach">
+			Support for Bleach, the built-in file names cleaner
+		</flag>
+		<flag name="emoji-icons">
+			Enable icons and set them to use the noto-emoji font (see <pkg>media-fonts/noto-emoji</pkg>)
+		</flag>
+		<flag name="highlight">
+			Syntax highlighting support
+		</flag>
+		<flag name="icons-in-terminal">
+			Enable icons and set them to use icons-in-terminal (see https://github.com/sebastiencs/icons-in-terminal)
+		</flag>
+		<flag name="lira">
+			Add Lira as the default built-in resource opener
+		</flag>
+		<flag name="nerdfonts">
+			Enable icons and set them to use NerdFonts
+		</flag>
+		<flag name="suggestions">
+			Autosuggestion support
+		</flag>
+		<flag name="tags">
+			Built-in file tagging system support
+		</flag>
+		<flag name="trash">
+			FreeDesktop compliant trash system support
+		</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">leo-arch/clifm</remote-id>
+	</upstream>
+</pkgmetadata>
