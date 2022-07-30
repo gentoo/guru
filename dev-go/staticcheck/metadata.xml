@@ -6,7 +6,7 @@
     <name>Randall Vasquez</name>
   </maintainer>
   <longdescription lang="en">
-  	The advanced Go linter 
+    Staticcheck is a state of the art linter for the Go programming language. Using static analysis, it finds bugs and performance issues, offers simplifications, and enforces style rules.
   </longdescription>
   <upstream>
     <remote-id type="github">dominikh/go-tools</remote-id>
