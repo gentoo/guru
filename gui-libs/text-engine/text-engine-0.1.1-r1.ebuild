@@ -39,6 +39,10 @@ RDEPEND="
 	x11-libs/pango
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-fix-package-version.patch"
+)
+
 src_prepare() {
 	default
 	sed -i -e "/subdir('demo')/d" meson.build ||
