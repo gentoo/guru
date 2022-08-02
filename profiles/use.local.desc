@@ -241,6 +241,11 @@ games-emulation/citra:hle-sound - Enable HLE sound via FFmpeg audio (AAC) decode
 games-emulation/citra:system-libfmt - Use system libfmt
 games-emulation/citra:telemetry - Enable web services (telemetry, etc.)
 games-emulation/citra:video - Enable FFmpeg video dumper
+games-emulation/citra-canary:cubeb - Enables the cubeb audio backend
+games-emulation/citra-canary:hle-sound - Enable HLE sound via FFmpeg audio (AAC) decoder
+games-emulation/citra-canary:system-libfmt - Use system libfmt
+games-emulation/citra-canary:telemetry - Enable web services (telemetry, etc.)
+games-emulation/citra-canary:video - Enable FFmpeg video dumper
 games-emulation/dosbox-x:X - Enable X11 integration for better fullscreening functionality
 games-emulation/dosbox-x:debug - Enable the internal debugger of this program
 games-emulation/dosbox-x:ffmpeg - Enable MPEG.TS + H.264 video capture format support via media-video/ffmpeg

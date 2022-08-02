@@ -2,7 +2,7 @@ BDEPEND=doc? ( app-doc/doxygen[dot] ) test? ( dev-cpp/catch ) >=dev-util/ninja-1
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=>=net-misc/curl-7.56.0[ssl]
 DESCRIPTION=C++ wrapper for the Mastodon and Pleroma APIs.
-EAPI=7
+EAPI=8
 HOMEPAGE=https://schlomp.space/tastytea/mastodonpp
 INHERIT=cmake git-r3
 IUSE=doc examples test
@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=>=net-misc/curl-7.56.0[ssl]
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=1b858416f45f52ae22f8fcf4ce6d1b27
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=597f581e489a3bdd0a14a8ce5613fb6d

@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=A fancy custom distribution of Valves Proton with various patches
+EAPI=8
+HOMEPAGE=https://github.com/GloriousEggroll/proton-ge-custom
+INHERIT=multilib-minimal
+IUSE=abi_x86_32 abi_x86_64
+KEYWORDS=~amd64
+LICENSE=0BSD LGPL-2+ ZLIB MIT MPL-2.0 OFL-1.1 BSD
+RDEPEND=media-libs/mesa[vulkan,abi_x86_32(-)?,abi_x86_64(-)?] media-libs/vulkan-loader[abi_x86_32(-)?,abi_x86_64(-)?]
+REQUIRED_USE=|| ( abi_x86_32 abi_x86_64 )
+RESTRICT=mirror strip
+SLOT=7.27
+SRC_URI=https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton7-27/GE-Proton7-27.tar.gz
+_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib-build	05f207909a804c9174bc39a00547d598	multilib-minimal	4b0f1857965db8869a729948d5277e0b
+_md5_=8910dda42c8bb9fa779cad2c1dc35522

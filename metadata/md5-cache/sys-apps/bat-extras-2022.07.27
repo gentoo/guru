@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst prepare test unpack
+DEPEND=app-shells/bash sys-apps/bat dev-util/sh
+DESCRIPTION=Bash scripts that integrate bat with various command line tools.
+EAPI=8
+HOMEPAGE=https://github.com/eth-p/bat-extras
+IUSE=+man
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=app-shells/bash sys-apps/bat dev-util/sh dev-vcs/git sys-apps/ripgrep app-admin/entr dev-util/git-delta sys-devel/clang sys-apps/exa app-shells/fzf sys-libs/ncurses dev-python/black virtual/rust[rustfmt(+)]
+RESTRICT=mirror test
+SLOT=0
+SRC_URI=https://github.com/eth-p/bat-extras/archive/v2022.07.27.tar.gz -> bat-extras-2022.07.27.tar.gz
+_md5_=2c46ca7372bc849783e08d96d5a32961
