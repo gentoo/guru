@@ -1,0 +1,25 @@
+diff --git a/src/ZVoxelType_Concrete.cpp b/src/ZVoxelType_Concrete.cpp
+index 19a95ad..768e094 100644
+--- a/src/ZVoxelType_Concrete.cpp
++++ b/src/ZVoxelType_Concrete.cpp
+@@ -37,10 +37,17 @@
+ 
+ ZVoxelExtension * ZVoxelType_Concrete::CreateVoxelExtension(bool IsLoadingPhase)
+ {
+-  float Pressure = 0.0;
+-  ZMemSize Ms = *((ULong *)&Pressure);
++  union
++  {
++    float             Pressure;
++    ZVoxelExtension * Extension;
++  };
++
++  Extension = 0;
++  Pressure  = 0.0;
++
++  return( Extension );
+ 
+-  return( (ZVoxelExtension *)Ms);
+ }
+ 
+ void  ZVoxelType_Concrete::GetBlockInformations(ZVoxelLocation * DestLocation, ZString & Infos)

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit udev
+inherit udev optfeature
 
 DESCRIPTION="Optimize laptop battery life"
 HOMEPAGE="https://linrunner.de/tlp/"
@@ -53,7 +53,10 @@ src_install() {
 pkg_postinst() {
 	udev_reload
 
-	elog "Consider installing these optional dependencies:"
-	elog "- sys-apps/ethtool to allow disabling WoL"
-	elog "- sys-apps/smartmontools for disk drive health info in tlp-stat"
+	optfeature "disable Wake-on-LAN" sys-apps/ethtool
+	optfeature "see disk drive health info in tlp-stat" sys-apps/smartmontools
+}
+
+pkg_postrm() {
+	udev_reload
 }

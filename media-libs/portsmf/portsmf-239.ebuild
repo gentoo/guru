@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,3 +21,8 @@ SLOT="0"
 DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND=""
+
+src_prepare() {
+	sed -i "s/0.1/${PV}/" "${S}/packaging/portSMF.pc.in"
+	cmake_src_prepare
+}

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop xdg-utils
+inherit desktop xdg-utils flag-o-matic
 
 DESCRIPTION="Free multiplayer FPS based on the Cube engine"
 HOMEPAGE="https://assault.cubers.net/"
@@ -22,14 +22,15 @@ RDEPEND="sys-libs/zlib
 DEPEND="${RDEPEND}"
 BDEPEND="sys-devel/clang"
 PATCHES=(
-	"${FILESDIR}/assaultcube-1.3.0.2-respect-ldflags.patch"
-	"${FILESDIR}/assaultcube-1.3.0.2-fix-checkinstall.patch" # a script which checks for required libs and certain parts of the game
+	"${FILESDIR}/${PN}-1.3.0.2-respect-ldflags.patch"
+	"${FILESDIR}/${PN}-1.3.0.2-fix-checkinstall.patch" # a script which checks for required libs and certain parts of the game
 )
 IUSE="debug"
 
 src_prepare() {
 	default
 	sed -i 's|//#define PRODUCTION|#define PRODUCTION|' "${S}/source/src/cube.h"
+	filter-lto
 }
 
 src_compile() {

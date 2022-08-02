@@ -22,6 +22,7 @@ DEPEND="
 	dev-libs/libevdev
 	x11-libs/gtk+:3
 	virtual/udev
+	virtual/libudev
 	dev-dotnet/dotnet-sdk-bin:6.0
 "
 

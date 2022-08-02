@@ -114,8 +114,7 @@ CRATES="
 	windows_x86_64_gnu-0.30.0
 	windows_x86_64_msvc-0.30.0
 "
-
-inherit cargo
+inherit cargo flag-o-matic
 
 DESCRIPTION="Command-line PeerTube viewer inspired by youtube-viewer"
 HOMEPAGE="https://gitlab.com/peertube-viewer/peertube-viewer-rs"
@@ -128,6 +127,11 @@ KEYWORDS="~amd64"
 QA_FLAGS_IGNORED=(
 	"usr/bin/peertube-viewer-rs"
 )
+
+src_prepare() {
+	default
+	filter-lto
+}
 
 src_install() {
 	cargo_src_install

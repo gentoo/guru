@@ -8,10 +8,9 @@ inherit cmake git-r3 toolchain-funcs xdg
 DESCRIPTION="An emulator for Nintendo Switch"
 HOMEPAGE="https://yuzu-emu.org"
 EGIT_REPO_URI="https://github.com/yuzu-emu/yuzu-mainline"
-EGIT_SUBMODULES=( '-*' 'dynarmic' 'soundtouch' 'sirit' 'xbyak' 'externals/cpp-httplib' )
-# Soundtouch cannot be unbundled -> custom version
-# Dynarmic is intended to be tailored on purpose, not to be generic
-# TODO wait 'xbyak' for bump in tree, require 5.96
+EGIT_SUBMODULES=( '-*' 'dynarmic' 'xbyak' )
+# Dynarmic is not intended to be generic, it is tweaked to fit emulated processor
+# TODO wait 'xbyak' waiting version bump. see #860816
 
 LICENSE="|| ( Apache-2.0 GPL-2+ ) 0BSD BSD GPL-2+ ISC MIT
 	!system-vulkan? ( Apache-2.0 )"
@@ -20,14 +19,15 @@ KEYWORDS=""
 IUSE="+compatibility-list +cubeb discord +qt5 sdl system-vulkan webengine +webservice"
 
 RDEPEND="
+	<net-libs/mbedtls-3.1[cmac]
 	>=app-arch/zstd-1.5
 	>=dev-libs/libfmt-8:=
 	>=dev-libs/openssl-1.1:=
 	>=media-video/ffmpeg-4.3:=
 	app-arch/lz4:=
 	dev-libs/boost:=[context]
+	dev-libs/sirit
 	media-libs/opus
-	net-libs/mbedtls[cmac]
 	sys-libs/zlib
 	virtual/libusb:1
 	cubeb? ( media-libs/cubeb )
@@ -42,8 +42,8 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	dev-util/spirv-headers
-	system-vulkan? ( dev-util/vulkan-headers )
+	dev-libs/cpp-httplib
+	system-vulkan? ( >=dev-util/vulkan-headers-1.3.216 )
 "
 BDEPEND="
 	>=dev-cpp/catch-2.13:0
@@ -76,6 +76,9 @@ src_unpack() {
 }
 
 src_prepare() {
+	# unused-result maybe temporary fix
+	sed -i -e '/Werror=unused-result/d' src/CMakeLists.txt || die
+
 	# headers is not a valid boost component
 	sed -i -e '/find_package(Boost/{s/headers //;s/CONFIG //}' CMakeLists.txt || die
 
@@ -89,12 +92,10 @@ src_prepare() {
 	sed -i -e 's:inih/cpp/::' src/yuzu_cmd/config.cpp || die
 
 	# Unbundle xbyak ( uncomment when xbyak version is ok or never as it is only headers )
-	# sed -i -e '/target_include_directories(xbyak/s:./xbyak/xbyak:/usr/include/xbyak/:' externals/CMakeLists.txt
+	# sed -i -e '/^# xbyak/,/^endif()/d' externals/CMakeLists.txt || die
 
 	if use system-vulkan; then # Unbundle vulkan headers
 		sed -i -e 's:../../externals/Vulkan-Headers/include:/usr/include/vulkan/:' src/video_core/CMakeLists.txt src/yuzu/CMakeLists.txt src/yuzu_cmd/CMakeLists.txt || die
-		# available only in >=vulkan-headers-1.3.213
-		sed -i -e '/VK_ERROR_COMPRESSION_EXHAUSTED_EXT/d' src/video_core/vulkan_common/vulkan_wrapper.cpp || die
 	fi
 
 	# Unbundle mbedtls: undefined reference to `mbedtls_cipher_cmac'
@@ -124,13 +125,19 @@ src_prepare() {
 	use cubeb && sed -i '$afind_package(Threads REQUIRED)' CMakeLists.txt || die
 	sed -i '/cubeb/d' externals/CMakeLists.txt || die
 
+	# Unbundle sirit
+	sed -i '/sirit/d' externals/CMakeLists.txt || die
+
+	# Unbundle cpp-httplib
+	sed -i -e '/^	# cpp-httplib/,/^	endif()/d' externals/CMakeLists.txt || die
+
 	cmake_src_prepare
 }
 
 src_configure() {
 	local -a mycmakeargs=(
 		# Libraries are private and rely on circular dependency resolution.
-		-DBUILD_SHARED_LIBS=OFF
+		-DBUILD_SHARED_LIBS=OFF # dynarmic
 		-DDYNARMIC_NO_BUNDLED_ROBIN_MAP=ON
 		-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=$(usex compatibility-list)
 		-DENABLE_CUBEB=$(usex cubeb)
@@ -138,7 +145,6 @@ src_configure() {
 		-DENABLE_QT_TRANSLATION=$(usex qt5)
 		-DENABLE_SDL2=$(usex sdl)
 		-DENABLE_WEB_SERVICE=$(usex webservice)
-		-DSIRIT_USE_SYSTEM_SPIRV_HEADERS=ON # Use system SPIRV headers
 		-DUSE_DISCORD_PRESENCE=$(usex discord)
 		-DYUZU_USE_BUNDLED_OPUS=OFF
 		-DYUZU_USE_EXTERNAL_SDL2=OFF

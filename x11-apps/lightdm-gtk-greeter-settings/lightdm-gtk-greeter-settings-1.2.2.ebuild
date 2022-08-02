@@ -4,6 +4,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 
+DISTUTILS_SINGLE_IMPL=1
 inherit distutils-r1 xdg-utils
 
 DESCRIPTION="Configuration tool for the LightDM GTK Greeter"
@@ -22,6 +23,11 @@ python_configure_all() {
 	if use xfce; then
 		DISTUTILS_ARGS=( --xfce-integration )
 	fi
+}
+
+src_install() {
+	distutils-r1_src_install
+	python_optimize
 }
 
 pkg_preinst() {

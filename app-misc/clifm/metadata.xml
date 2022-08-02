@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription>
+		The command line file manager.
+		By default most features are enabled, customizing this requires adding CFLAGS:
+		https://github.com/leo-arch/clifm/blob/master/src/README.md#compiling-features-inout
+	</longdescription>
+	<maintainer type="person">
+		<email>michaelzcyang@gmail.com</email>
+		<name>Michael Yang</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">leo-arch/clifm</remote-id>
+	</upstream>
+</pkgmetadata>
