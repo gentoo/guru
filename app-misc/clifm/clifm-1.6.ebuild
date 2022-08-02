@@ -12,9 +12,9 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/leo-arch/clifm.git"
 	inherit git-r3
 else
-	SRC_URI="mirror://sourceforge/${PN}/v${PV}.tar.gz -> ${P}.tar.gz"
-	# also on github but seems like a worse alternative?
-	# SRC_URI="https://github.com/leo-arch/clifm/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/leo-arch/clifm/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	# also on sourceforge but the unpacked name is irregular
+	# SRC_URI="mirror://sourceforge/${PN}/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 
@@ -24,7 +24,7 @@ IUSE=""
 
 DEPEND="
 	sys-libs/libcap
-	sys-libs/readline
+	sys-libs/readline:=
 	sys-apps/acl
 	sys-apps/file
 "
