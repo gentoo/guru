@@ -9,7 +9,7 @@ DESCRIPTION="A runtime SPIR-V assembler"
 HOMEPAGE="https://github.com/ReinUsesLisp/sirit"
 SRC_URI="https://github.com/ReinUsesLisp/sirit/archive/aa292d56650bc28f2b2d75973fab2e61d0136f9c.tar.gz -> ${P}.tar.gz"
 
-LICENSE="BSD-2" # what is BSD-3-Clause
+LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
