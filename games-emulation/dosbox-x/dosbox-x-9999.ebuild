@@ -9,8 +9,8 @@ if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/joncampbell123/dosbox-x.git"
 else
-	SRC_URI="https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v${PV}.tar.gz"
-	S="${WORKDIR}/${PN}-${PN}-v${PV}"
+	SRC_URI="https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-windows-v${PV}.tar.gz"
+	S="${WORKDIR}/${PN}-${PN}-windows-v${PV}"
 	KEYWORDS="~amd64"
 fi
 
@@ -106,7 +106,7 @@ src_prepare() {
 src_configure() {
 	local myconf=(
 		# --disable-core-inline could cause compiler errors
-		# as of v0.84.1, so enable it unconditionally
+		# as of v2022.08.0, so enable it unconditionally
 		--enable-core-inline
 
 		# Always use SDL 2, even though the package provides the option to
@@ -118,7 +118,7 @@ src_configure() {
 		--enable-sdl2
 
 		# Explicitly enable ALSA MIDI support, same as default.  As of
-		# v0.84.1, even when it is disabled, media-libs/alsa-lib will
+		# v2022.08.0, even when it is disabled, media-libs/alsa-lib will
 		# still be automagically linked if it is present in the build
 		# environment (presumably for other components of this package),
 		# so the dependency cannot be made optional by disabling this
