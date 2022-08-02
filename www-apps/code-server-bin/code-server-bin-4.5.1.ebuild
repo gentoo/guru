@@ -18,7 +18,6 @@ SRC_URI="
 RESTRICT="test"
 LICENSE="MIT 0BSD ISC PYTHON BSD-2 BSD Apache-2.0 Unlicense LGPL-2.1+
 	|| ( BSD-2 MIT Apache-2.0 )
-	|| ( MIT CC0-1.0 )
 	|| ( MIT WTFPL )
 "
 SLOT="0"
@@ -27,7 +26,7 @@ IUSE="gnome-keyring"
 
 RDEPEND="
 	${DEPEND}
-	>=net-libs/nodejs-14.0[ssl]
+	>=net-libs/nodejs-16.0.0[ssl]
 	sys-apps/ripgrep
 	gnome-keyring? (
 		app-crypt/libsecret
@@ -38,9 +37,9 @@ S="${WORKDIR}/${MY_P}-linux-${ARCH}"
 
 PATCHES=( "${FILESDIR}/${PN}-node.patch" )
 
-DOCS=( "README.md" "ThirdPartyNotices.txt" "LICENSE" )
+DOCS=( "LICENSE" "README.md" "ThirdPartyNotices.txt" )
 
-# Relative to parent
+# Relative
 VSCODE_MODULES="lib/vscode/node_modules"
 
 QA_PREBUILT="
@@ -93,15 +92,17 @@ src_prepare() {
 	rm ./postinstall.sh || die
 
 	# For windows
-	rm -rf ./"${VSCODE_MODULES}"/windows-foreground-love || die
-	rm -rf ."${VSCODE_MODULES}"/@parcel/watcher/prebuilds/win32-x64 || die
+	rm -r ./"${VSCODE_MODULES}"/@parcel/watcher/prebuilds/win32-x64 || die
 
 	if [[ $ELIBC != "musl" ]]; then
-		rm -rf ./node_modules/@node-rs/argon2-linux-x64-musl || die
 		rm ./"${VSCODE_MODULES}"/@parcel/watcher/prebuilds/linux-x64/node.napi.musl.node || die
 	elif [[ $ELIBC != "glibc" ]]; then
 		rm ./"${VSCODE_MODULES}"/@parcel/watcher/prebuilds/linux-x64/node.napi.glibc.node || die
+		rm ./"${VSCODE_MODULES}"/@parcel/watcher/prebuilds/darwin-x64/node.napi.glibc.node || die
+		rm ./"${VSCODE_MODULES}"/@parcel/watcher/prebuilds/darwin-arm64/node.napi.glibc.node || die
 	fi
+
+	rm -r ./lib/vscode/extensions/node_modules/.bin || die
 }
 
 src_install() {
@@ -110,12 +111,13 @@ src_install() {
 	insinto "/opt/${PN}"
 	doins -r .
 	fperms +x "/opt/${PN}/bin/${MY_PN}"
-	dosym -r "/opt/${PN}/bin/${MY_PN}" "${EPREFIX}/usr/bin/${PN}"
+	dosym -r "/opt/${PN}/bin/${MY_PN}" "/opt/${PN}/bin/${PN}"
+	dosym -r "/opt/${PN}/bin/${PN}" "${EPREFIX}/usr/bin/${PN}"
 
 	dosym -r "/usr/bin/rg" \
 		"${EPREFIX}/opt/${PN}/${VSCODE_MODULES}/@vscode/ripgrep/bin/rg"
 
-	systemd_douserunit "${FILESDIR}/${MY_PN}.service"
+	systemd_douserunit "${FILESDIR}/${PN}.service"
 }
 
 pkg_postinst() {
