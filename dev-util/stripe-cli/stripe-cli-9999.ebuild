@@ -12,7 +12,6 @@ HOMEPAGE="https://stripe.com/docs/stripe-cli"
 EGIT_REPO_URI="https://${EGO_PN}.git"
 SLOT="0"
 LICENSE="Apache-2.0"
-KEYWORDS="~amd64 ~arm64 ~x86 ~i386"
 BDEPEND=">=dev-lang/go-1.18"
 DEPEND="${BDEPEND}"
 
