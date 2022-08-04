@@ -11,6 +11,7 @@ DESCRIPTION="A command-line tool for Stripe"
 HOMEPAGE="https://stripe.com/docs/stripe-cli"
 EGIT_REPO_URI="https://${EGO_PN}.git"
 SLOT="0"
+IUSE="bash-completion"
 LICENSE="Apache-2.0"
 BDEPEND=">=dev-lang/go-1.18"
 DEPEND="${BDEPEND}"
@@ -26,5 +27,8 @@ src_compile() {
 
 src_install() {
 	dobin ${MY_PN}
-	dobashcomp *.bash
+
+	if use bash-completion ; then
+		dobashcomp *.bash
+	fi
 }
