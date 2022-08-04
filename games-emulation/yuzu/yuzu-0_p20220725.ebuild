@@ -50,7 +50,6 @@ DEPEND="${RDEPEND}
 	>=dev-util/vulkan-headers-1.3.216
 "
 BDEPEND="
-	>=dev-cpp/catch-2.13:0
 	>=dev-cpp/nlohmann_json-3.8.0
 	dev-cpp/robin-map
 	dev-util/glslang
@@ -104,6 +103,7 @@ src_configure() {
 		-DENABLE_SDL2=$(usex sdl)
 		-DENABLE_WEB_SERVICE=$(usex webservice)
 		-DUSE_DISCORD_PRESENCE=$(usex discord)
+		-DYUZU_TESTS=OFF
 		-DYUZU_USE_BUNDLED_OPUS=OFF
 		-DYUZU_USE_EXTERNAL_SDL2=OFF
 		-DYUZU_USE_QT_WEB_ENGINE=$(usex webengine)

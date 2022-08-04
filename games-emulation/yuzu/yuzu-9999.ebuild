@@ -16,7 +16,7 @@ LICENSE="|| ( Apache-2.0 GPL-2+ ) 0BSD BSD GPL-2+ ISC MIT
 	!system-vulkan? ( Apache-2.0 )"
 SLOT="0"
 KEYWORDS=""
-IUSE="+compatibility-list +cubeb discord +qt5 sdl system-vulkan webengine +webservice"
+IUSE="+compatibility-list +cubeb discord +qt5 sdl +system-vulkan test webengine +webservice"
 
 RDEPEND="
 	<net-libs/mbedtls-3.1[cmac]
@@ -48,13 +48,14 @@ DEPEND="${RDEPEND}
 	system-vulkan? ( >=dev-util/vulkan-headers-1.3.216 )
 "
 BDEPEND="
-	>=dev-cpp/catch-2.13:0
+	test? ( <dev-cpp/catch-3:0 )
 	>=dev-cpp/nlohmann_json-3.8.0
 	dev-cpp/robin-map
 	dev-util/glslang
 	discord? ( >=dev-libs/rapidjson-1.1.0 )
 "
 REQUIRED_USE="|| ( qt5 sdl )"
+RESTRICT="!test? ( test )"
 
 pkg_setup() {
 	if tc-is-gcc; then
@@ -131,7 +132,7 @@ src_prepare() {
 	sed -i '/sirit/d' externals/CMakeLists.txt || die
 
 	# Unbundle cpp-httplib
-	sed -i -e '/^	# cpp-httplib/,/^	endif()/d' externals/CMakeLists.txt || die
+	sed -i -e '/^	# httplib/,/^	endif()/d' externals/CMakeLists.txt || die
 
 	# Unbundle enet
 	sed -i -e '/enet/d' externals/CMakeLists.txt || die
@@ -152,6 +153,7 @@ src_configure() {
 		-DENABLE_SDL2=$(usex sdl)
 		-DENABLE_WEB_SERVICE=$(usex webservice)
 		-DUSE_DISCORD_PRESENCE=$(usex discord)
+		-DYUZU_TESTS=$(usex test)
 		-DYUZU_USE_BUNDLED_OPUS=OFF
 		-DYUZU_USE_EXTERNAL_SDL2=OFF
 		-DYUZU_USE_QT_WEB_ENGINE=$(usex webengine)
