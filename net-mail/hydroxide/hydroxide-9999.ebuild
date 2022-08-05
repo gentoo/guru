@@ -15,7 +15,7 @@ else
 		https://gitlab.com/sevz17/go-deps/-/raw/main/${P}-deps.tar.xz
 	"
 	VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/emersion.asc"
-	BDEPEND+="verify-sig? ( sec-keys/opengpg-keys-emersion )"
+	BDEPEND+="verify-sig? ( sec-keys/openpgp-keys-emersion )"
 	KEYWORDS="~amd64"
 fi
 
