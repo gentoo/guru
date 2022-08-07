@@ -8,7 +8,7 @@ inherit meson
 DESCRIPTION="Keyboard driven and lightweight Wayland notification daemon."
 HOMEPAGE="https://codeberg.org/dnkl/fnott"
 
-if [ "${PV}" -eq "9999" ]; then
+if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://codeberg.org/dnkl/fnott.git"
 else
@@ -39,7 +39,7 @@ BDEPEND="
 "
 
 src_install() {
-	local DOCS=( CHANGELOG.md README.md )
+	local DOCS=( CHANGELOG.md README.md LICENSE )
 	meson_src_install
 
 	rm -r "${ED}"/usr/share/doc/"${PN}" || die
