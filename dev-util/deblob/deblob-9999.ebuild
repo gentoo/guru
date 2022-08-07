@@ -10,12 +10,9 @@ HOMEPAGE="https://git.sr.ht/~lanodan/deblob"
 EGIT_REPO_URI="https://git.sr.ht/~lanodan/deblob"
 LICENSE="BSD"
 SLOT="0"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
 DEPEND="
 	dev-lang/hare:=
-	test? ( app-text/mandoc )
 "
 RDEPEND=""
 
