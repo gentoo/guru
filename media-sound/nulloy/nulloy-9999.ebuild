@@ -28,6 +28,7 @@ DEPEND="
 	dev-qt/qtx11extras
 	media-libs/gstreamer
 	media-libs/gst-plugins-base
+	media-libs/taglib
 	media-plugins/gst-plugins-meta
 "
 RDEPEND="${DEPEND}"
@@ -58,7 +59,6 @@ src_configure() {
 	local myconfargs=(
 		$(use skins || echo --no-skins)
 		--no-update-check
-		--no-taglib
 		--gstreamer-tagreader
 		--prefix "${EPREFIX}/usr"
 		--libdir "$(get_libdir)"

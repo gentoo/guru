@@ -1,10 +1,10 @@
 [Unit]
-Description=code-server
+Description=code-server-bin
 After=network.target
 
 [Service]
 Type=exec
-ExecStart=/usr/bin/code-server
+ExecStart=/usr/bin/code-server-bin
 Restart=always
 
 [Install]
