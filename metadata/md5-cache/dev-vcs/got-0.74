@@ -9,6 +9,6 @@ KEYWORDS=~amd64 ~x86
 LICENSE=ISC
 RDEPEND=sys-libs/ncurses:=[unicode(+)] sys-libs/zlib:= elibc_Darwin? ( dev-libs/ossp-uuid ) elibc_SunOS? ( sys-libs/libuuid ) !elibc_Darwin? ( dev-libs/libbsd ) !elibc_Darwin? ( !elibc_SunOS? ( app-crypt/libmd sys-apps/util-linux ) )
 SLOT=0
-SRC_URI=https://gameoftrees.org/releases/portable/got-portable-0.71.tar.gz
+SRC_URI=https://gameoftrees.org/releases/portable/got-portable-0.74.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
 _md5_=887892e4e5f8e448876039ac21ab7a21
