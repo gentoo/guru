@@ -12,5 +12,5 @@ RDEPEND=pstate-tracer? ( python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.
 REQUIRED_USE=pstate-tracer? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 ) )
 SLOT=0/0
 SRC_URI=https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.18.tar.xz
-_eclasses_=fcaps	babe6282ea5c195981bd302af1adaf3a	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	dcbf4f67bc38bee48e9d69a4344e8059	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-r1	7b65c41111cd80a4d4a0921e8d4a310c
+_eclasses_=fcaps	babe6282ea5c195981bd302af1adaf3a	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	ed0c33b32400b6ee591cdb6dc5b9ef10	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-r1	7b65c41111cd80a4d4a0921e8d4a310c
 _md5_=5863e519b2c5316b68e407eace4047a0
