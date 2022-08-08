@@ -53,4 +53,5 @@ pkg_postinst() {
 	optfeature "mounting archives" sys-fs/archivemount
 	optfeature "extracting .iso files" app-arch/p7zip
 	optfeature "creating .iso files" app-cdr/cdrtools
+	xdg_pkg_postinst
 }
