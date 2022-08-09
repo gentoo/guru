@@ -15,15 +15,21 @@ KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 COMMON_DEPEND="
-	dev-libs/msgpack
+	dev-libs/msgpack:=
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5"
+	dev-qt/qtwidgets:5
+"
+# NOTE: remove dejavu once <https://github.com/equalsraf/neovim-qt/issues/1005>
+#       is resolved
 DEPEND="
 	${COMMON_DEPEND}
-	test? ( dev-qt/qttest:5 )
+	test? (
+		dev-qt/qttest:5
+		media-fonts/dejavu[X]
+	)
 "
 RDEPEND="
 	${COMMON_DEPEND}
