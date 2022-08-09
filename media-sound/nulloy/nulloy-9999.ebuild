@@ -23,6 +23,7 @@ BDEPEND="
 DEPEND="
 	dev-qt/qtcore
 	dev-qt/designer
+	dev-qt/qtsvg
 	dev-qt/linguist
 	dev-qt/qtscript
 	dev-qt/qtx11extras
