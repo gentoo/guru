@@ -8,7 +8,7 @@ if [[ "${PV}" = "9999" ]]; then
 	EGIT_REPO_URI="https://git.sr.ht/~sircmpwn/harec"
 	S="${WORKDIR}/${P}/build"
 else
-	EGIT_COMMIT="62d4204f21332d97ad7697f628eade9137e9c3bc"
+	EGIT_COMMIT="56359312644f76941de1878d33a1a0b840be8056"
 	SRC_URI="https://git.sr.ht/~sircmpwn/harec/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-${EGIT_COMMIT}/build"
 

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module linux-info systemd
+inherit go-module linux-info systemd fcaps
 
 DESCRIPTION="An experiment in scalable routing as an encrypted IPv6 overlay network"
 HOMEPAGE="https://yggdrasil-network.github.io/"
@@ -24,6 +24,10 @@ DEPEND="
 
 BDEPEND=">=dev-lang/go-1.17.0"
 
+FILECAPS=(
+	cap_net_admin,cap_net_bind_service "usr/bin/yggdrasil"
+)
+
 pkg_setup() {
 	linux-info_pkg_setup
 	if ! linux_config_exists; then
@@ -35,15 +39,19 @@ pkg_setup() {
 }
 
 src_compile() {
-	PKGNAME="${PN}" PKGVER="${PV}" \
-	GOFLAGS="-trimpath -buildmode=pie -mod=readonly" \
-	./build -l "-linkmode external -extldflags \"${LDFLAGS}\""
+	local package="github.com/yggdrasil-network/yggdrasil-go/src/version"
+
+	for CMD in yggdrasil yggdrasilctl ; do
+		ego build -buildmode=pie -ldflags "-s -linkmode external -extldflags '${LDFLAGS}' -X ${package}.buildName=${PN} -X ${package}.buildVersion=v${PV}" -trimpath ./cmd/$CMD
+	done
+
 }
 
 src_install() {
 	dobin {yggdrasil,yggdrasilctl}
+	dodoc README.md
+	dodoc CHANGELOG.md
 	systemd_dounit "contrib/systemd/yggdrasil.service"
 	systemd_dounit "contrib/systemd/yggdrasil-default-config.service"
 	doinitd "contrib/openrc/yggdrasil"
-	einstalldocs
 }

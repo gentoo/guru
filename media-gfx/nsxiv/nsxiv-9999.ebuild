@@ -65,7 +65,7 @@ src_install() {
 		EGPREFIX="/usr/share/doc/${P}/examples" \
 		install install-icon
 	dodoc README.md
-	domenu nsxiv.desktop
+	domenu etc/nsxiv.desktop
 
 	save_config config.h
 }
