@@ -25,6 +25,8 @@ dev-python/prawcore
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
 # depends on removed dev-python/pydispatcher
 dev-python/scrapy
+# depends on dev-python/scrapy
+dev-python/itemadapter
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
 # depends on removed net-p2p/go-ipfs
