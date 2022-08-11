@@ -14,6 +14,26 @@
 
 # New entries go on top.
 
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
+# depends on removed ~app-crypt/certbot-1.27.0
+app-crypt/certbot-dns-digitalocean
+
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
+# depends on removed <dev-python/testfixtures-7
+dev-python/prawcore
+
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
+# depends on removed dev-python/pydispatcher
+dev-python/scrapy
+
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
+# depends on removed net-p2p/go-ipfs
+net-p2p/ipfs-cluster
+
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
+# depends on removed <dev-lang/go-1.18
+net-proxy/toxiproxy
+
 # Viorel Munteanu <ceamac.paragon@gmail.com>
 # depends on dev-python/PyQt6, which is currently masked with all of qt6
 >=net-misc/maestral-qt-1.6.0
@@ -27,16 +47,6 @@ app-emulation/dxvk-bin
 # Depends on removed llvm:12
 app-editors/imhex
 dev-vcs/mergestat
-
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-07-03)
-# unavailable dependency dev-util/distro-info
-dev-util/devscripts
-dev-util/rpmlint
-
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-06-26)
-# depends on non-existent dev-python/m2r
-# https://github.com/jaysonsantos/python-binary-memcached/issues/249
-dev-python/python-binary-memcached
 
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
 # Depends on masked dev-libs/openssl-3.0.*

@@ -1,8 +1,0 @@
---- a/setup.cfg
-+++ b/setup.cfg
-@@ -10,4 +10,4 @@
- application-import-names = Testing
- 
- [tool:pytest]
--addopts = -vv --cov=rpmlint -n auto --flake8
-+addopts = -vv
