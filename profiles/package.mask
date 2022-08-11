@@ -21,10 +21,18 @@ app-crypt/certbot-dns-digitalocean
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
 # depends on removed <dev-python/testfixtures-7
 dev-python/prawcore
+# depends on dev-python/prawcore
+dev-python/praw
+# depends on dev-python/praw
+net-misc/giara
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
 # depends on removed dev-python/pydispatcher
 dev-python/scrapy
+# depends on dev-python/scrapy
+dev-python/itemadapter
+# depends on dev-python/itemadapter
+dev-python/itemloaders
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
 # depends on removed net-p2p/go-ipfs
