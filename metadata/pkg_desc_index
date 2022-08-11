@@ -943,7 +943,6 @@ dev-python/pytest-steps 1.8.0: Create step-wise / incremental tests in pytest
 dev-python/pytest-vcr 1.0.2: Plugin for managing VCR.py cassettes
 dev-python/python-barbicanclient 5.3.0: Client library for Barbican API
 dev-python/python-betterproto 2.0.0_beta4 9999: Better Protobuf / gRPC Support for Python
-dev-python/python-binary-memcached 0.31.1: access memcached via it's binary protocol with SASL auth support
 dev-python/python-blazarclient 3.4.0: This is a client for the OpenStack Blazar API
 dev-python/python-dbus-next 0.2.3: python-dbus-next is a Python library for DBus
 dev-python/python-designateclient 4.5.0 4.5.1: Python bindings to the Designate API
@@ -1066,7 +1065,6 @@ dev-util/binaryen 105: Compiler and toolchain infrastructure library for WebAsse
 dev-util/blueprint-compiler 0.2.0 9999: Compiler for Blueprint, a markup language for GTK user interfaces
 dev-util/cargo-make 0.35.9 0.35.10: Rust task runner and build tool
 dev-util/deblob 9999: remove binary executables from a directory
-dev-util/devscripts 2.21.3 2.22.1 2.22.1-r1: Scripts to make the life of a Debian Package maintainer easier
 dev-util/eclipse-parallel-bin 4.22 4.23: Eclipse IDE for Scientific Computing (C, C++, Fortran)
 dev-util/exercism 3.0.13: Command line client for https://exercism.io
 dev-util/fnm 1.31.0-r2: Fast and simple Node.js version manager
@@ -1088,7 +1086,6 @@ dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's Open
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
 dev-util/reuse 0.14.0 1.0.0: A tool for compliance with the REUSE recommendations
-dev-util/rpmlint 2.3.0: Tool for checking common errors in RPM packages
 dev-util/rust-analyzer 20220509 20220517 20220606 20220613 99999999: An implementation of Language Server Protocol for the Rust programming language
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/stripe-cli 9999: A command-line tool for Stripe
