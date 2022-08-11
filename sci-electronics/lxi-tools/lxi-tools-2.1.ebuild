@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson
+inherit meson gnome2-utils xdg-utils
 
 DESCRIPTION="Tools to access devices with LXI"
 HOMEPAGE="https://github.com/lxi-tools/lxi-tools"
@@ -33,4 +33,14 @@ src_configure() {
 		$(meson_use gui)
 	)
 	meson_src_configure
+}
+
+pkg_postinst() {
+	gnome2_schemas_update
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	gnome2_schemas_update
+	xdg_icon_cache_update
 }
