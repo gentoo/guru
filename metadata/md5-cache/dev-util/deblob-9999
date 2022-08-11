@@ -1,14 +1,12 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=install unpack
-DEPEND=dev-lang/hare:= test? ( app-text/mandoc )
+DEPEND=dev-lang/hare:=
 DESCRIPTION=remove binary executables from a directory
 EAPI=8
 HOMEPAGE=https://git.sr.ht/~lanodan/deblob
 INHERIT=git-r3
-IUSE=test
 LICENSE=BSD
 PROPERTIES=live
-RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=65306fa3d3c8b736887cd7acf3e0fb4e
+_md5_=ca70ac8579f5c67eb72e55e38d4d662e

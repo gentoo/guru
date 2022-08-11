@@ -1,6 +1,6 @@
 BDEPEND=dev-qt/linguist-tools app-arch/zip >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install postinst postrm preinst prepare unpack
-DEPEND=dev-qt/qtcore dev-qt/designer dev-qt/linguist dev-qt/qtscript dev-qt/qtx11extras media-libs/gstreamer media-libs/gst-plugins-base media-libs/taglib media-plugins/gst-plugins-meta
+DEPEND=dev-qt/qtcore dev-qt/designer dev-qt/qtsvg dev-qt/linguist dev-qt/qtscript dev-qt/qtx11extras media-libs/gstreamer media-libs/gst-plugins-base media-libs/taglib media-plugins/gst-plugins-meta
 DESCRIPTION=Music player with a waveform progress bar (sound visualization like in audio editors)
 EAPI=8
 HOMEPAGE=https://nulloy.com
@@ -9,7 +9,7 @@ INHERIT=git-r3 xdg
 IUSE=+skins
 LICENSE=GPL-3
 PROPERTIES=live
-RDEPEND=dev-qt/qtcore dev-qt/designer dev-qt/linguist dev-qt/qtscript dev-qt/qtx11extras media-libs/gstreamer media-libs/gst-plugins-base media-libs/taglib media-plugins/gst-plugins-meta
+RDEPEND=dev-qt/qtcore dev-qt/designer dev-qt/qtsvg dev-qt/linguist dev-qt/qtscript dev-qt/qtx11extras media-libs/gstreamer media-libs/gst-plugins-base media-libs/taglib media-plugins/gst-plugins-meta
 SLOT=0
 _eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=c4e585681103b6a21c7a100c2ca797fb
+_md5_=144d185c33f6d551f3f029c047aa814b

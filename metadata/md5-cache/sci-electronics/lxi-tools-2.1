@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=bash-completion? ( >=app-shells/bash-completion-2.11 ) >=sys-libs/readline-8.1_p2 >=dev-lang/lua-5.3.6-r2:5.3 >=sci-electronics/liblxi-1.13 gui? ( >=dev-libs/glib-2.70 >=gui-libs/gtk-4.5.0 >=gui-libs/gtksourceview-5.3.3 >=gui-libs/libadwaita-1.0.1 )
+DESCRIPTION=Tools to access devices with LXI
+EAPI=8
+HOMEPAGE=https://github.com/lxi-tools/lxi-tools
+INHERIT=meson
+IUSE=bash-completion +gui
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=bash-completion? ( >=app-shells/bash-completion-2.11 ) >=sys-libs/readline-8.1_p2 >=dev-lang/lua-5.3.6-r2:5.3 >=sci-electronics/liblxi-1.13 gui? ( >=dev-libs/glib-2.70 >=gui-libs/gtk-4.5.0 >=gui-libs/gtksourceview-5.3.3 >=gui-libs/libadwaita-1.0.1 )
+SLOT=0
+SRC_URI=https://github.com/lxi-tools/lxi-tools/archive/refs/tags/v2.1.tar.gz -> lxi-tools-2.1.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_md5_=126e0f7778bdaedba2a2c8619fffaed2

@@ -109,14 +109,14 @@ app-editors/imhex 1.8.1-r1 1.10.0 1.10.1: A hex editor for reverse engineers, pr
 app-editors/kak-lsp 12.2.1: Kakoune Language Server Protocol Client
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/mined 2015.25: A powerful text editor with extensive Unicode and CJK support
-app-editors/neovim-qt 0.2.16.1: Neovim client library and GUI, in Qt5
+app-editors/neovim-qt 0.2.16.1 0.2.17: Neovim client library and GUI, in Qt5
 app-editors/typora-bin 0.10.7: a markdown editor,markdown reader.
 app-emacs/idris-mode 1.0 9999: Idris syntax highlighting, compiler-supported editing, and interactive REPL
 app-emacs/prop-menu 0.1.2: Compute pop-up menus from text and overlay properties
 app-emacs/yc 5.2.1: Yet another Canna client on Emacsen
 app-emulation/arnold 20170513: Amstrad CPC emulator
 app-emulation/dxvk-bin 1.10.1 1.10.2: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
-app-emulation/proton-ge-custom-bin 7.27 7.28: A fancy custom distribution of Valves Proton with various patches
+app-emulation/proton-ge-custom-bin 7.27 7.28 7.29: A fancy custom distribution of Valves Proton with various patches
 app-emulation/quickemu 3.11: Create and run optimised Windows, macOS and Linux desktop virtual machines
 app-emulation/spice-html5 0.2.2 0.3.0-r1: Spice Javascript client
 app-emulation/waydroid 1.2.1: A container-based approach to boot a full Android system on a regular Linux system
@@ -489,8 +489,8 @@ dev-lang/aldor 1.2.0_p20190730-r1: The Aldor Programming Language
 dev-lang/fbc 1.07.3 1.08.1: A free/open source, multi-platform BASIC compiler.
 dev-lang/fbc-bootstrap 1.07.3 1.08.1: Bootstrap package for dev-lang/fbc
 dev-lang/gleam 0.16.0: A statically typed functional language for the BEAM
-dev-lang/hare 0_pre20220624-r1 9999: The Hare systems programming language
-dev-lang/harec 0_pre20220624 9999: The Hare compiler
+dev-lang/hare 0_pre20220730 9999: The Hare systems programming language
+dev-lang/harec 0_pre20220702 9999: The Hare compiler
 dev-lang/opencilk 1.1: The OpenCilk concurrency platform for parallel programming
 dev-lang/opencilk-bin 1.1: The OpenCilk concurrency platform for parallel programming
 dev-lang/quickjs 2020.11.08 2021.03.27: Small embeddable Javascript engine
@@ -1187,7 +1187,7 @@ gui-apps/coretime 4.2.0 9999: A time related task manager for C Suite
 gui-apps/coretoppings 4.1.0-r1 4.2.0 9999: Additional features, plugins, widgets etc for C Suite
 gui-apps/coreuniverse 4.2.0 9999: Shows information about apps for C Suite
 gui-apps/eww 0.3.0: Elkowars Wacky Widgets is a standalone widget system made in Rust
-gui-apps/fnott 1.2.1 9999: Keyboard driven and lightweight Wayland notification daemon.
+gui-apps/fnott 1.2.1 1.3.0 9999: Keyboard driven and lightweight Wayland notification daemon.
 gui-apps/fuzzel 1.7.0 9999: Application launcher for wlroots based Wayland compositors.
 gui-apps/gcolor3 2.4.0: A simple color chooser written in GTK3
 gui-apps/hiprompt-gtk-py 0_pre20220624 9999: GTK+ Himitsu prompter for Wayland
@@ -1261,6 +1261,7 @@ media-gfx/fontdiff 0.2.3: A tool for finding visual differences between two font
 media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer written in bash
 media-gfx/gephi-bin 0.9.5 0.9.6: The Open Graph Viz Platform
 media-gfx/grafx2 2.7.2978 2.7.2978-r100: A pixelart-oriented painting program
+media-gfx/heatshrink 0.4.1: data compression library for embedded/real-time systems
 media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/nsxiv 29 30 9999: Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer
 media-gfx/oda-file-converter 23.5.0.0: For converting between different versions of .dwg and .dxf
@@ -1426,7 +1427,7 @@ net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital mar
 net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 9999: The secure, private, untraceable cryptocurrency
 net-p2p/popura 0.4.3 9999: Popura: alternative Yggdrasil network client
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
-net-p2p/yggdrasil-go 0.3.15 0.4.4 9999: An experiment in scalable routing as an encrypted IPv6 overlay network
+net-p2p/yggdrasil-go 0.4.4 9999: An experiment in scalable routing as an encrypted IPv6 overlay network
 net-print/hpuld 1.00.39.15.00.23: HP Unified Linux Driver (for samsung hardware)
 net-proxy/toxiproxy 2.4.0-r1: A TCP proxy for chaos and resiliency testing
 net-voip/discover-overlay 0.4.5 0.5.4 0.6.0: Yet another Discord overlay for Linux written in Python using GTK3
@@ -1442,6 +1443,7 @@ sci-electronics/bsc 0_pre20210124 9999: Bluespec high level hardware design lang
 sci-electronics/dsview 1.2.0 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.10.0 9999: A open source IP-XACT-based tool
 sci-electronics/liblxi 1.16: Implementation of the LAN eXtensions for Instrumentation (LXI)
+sci-electronics/lxi-tools 2.1: Tools to access devices with LXI
 sci-electronics/open_pdks 1.0.311: PDK installer for open-source EDA tools and toolchains
 sci-electronics/skywater-pdk 0.0.0_p20220424: Open source process design kit for usage with SkyWater Technology Foundry's 130nm node
 sci-electronics/svls 0.2.3: SystemVerilog language server
