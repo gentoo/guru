@@ -48,11 +48,6 @@ app-emulation/dxvk-bin
 app-editors/imhex
 dev-vcs/mergestat
 
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-06-26)
-# depends on non-existent dev-python/m2r
-# https://github.com/jaysonsantos/python-binary-memcached/issues/249
-dev-python/python-binary-memcached
-
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
 # Depends on masked dev-libs/openssl-3.0.*
 app-crypt/tpm2-openssl
