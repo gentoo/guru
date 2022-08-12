@@ -145,7 +145,7 @@ app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best
 app-misc/doublecmd-bin 1.0.5 1.0.6: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
-app-misc/fastfetch 1.6.0 1.6.1 9999: Like neofetch but faster
+app-misc/fastfetch 1.6.1 1.6.3 9999: Like neofetch but faster
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -201,6 +201,7 @@ app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
 app-portage/version 0.19.0_alpha 0.20.1_alpha 0.21.0_alpha: A command line function for package version management.
 app-shells/antibody 6.1.0 6.1.1: Fast Zsh plugin manager
 app-shells/clownfish 0_pre20210117: fish shell mocks
+app-shells/direnv 2.32.1: Automatically load and unload environment variables depending on the current dir
 app-shells/fish-agnoster-theme 0.1.0_p20200415: Fancy, colorful theme with support for Powerline fonts
 app-shells/fish-command-timer 0.1.3 0.1.3_p20201002: Fish shell extension for printing execution time for each command
 app-shells/fish-history-merge 0_pre20201121: Plugin that modifies built-in up-or-search command to merge the command history
@@ -1298,7 +1299,7 @@ media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the
 media-sound/6pm 0.9: 6PM is a polyphonic, touch-sensitive, realtime phase modulation synthesizer
 media-sound/add64 3.8.0 3.9.3: Add64 is a realtime additive/subtractive-synthesis softsynth
 media-sound/callaudiod 0.1.4-r1: Call audio routing daemon
-media-sound/dzr 220715: DZR: the command line deezer.com player
+media-sound/dzr 220810: DZR: the command line deezer.com player
 media-sound/helvum 0.3.4 0.3.4-r2: A GTK patchbay for pipewire
 media-sound/hushboard 0.0_pre20220518 9999: Mutes your microphone while you are typing
 media-sound/ibniz 1.18-r1: virtual machine designed for extremely compact low-level audiovisual programs
@@ -1389,7 +1390,7 @@ net-misc/bee 0.3.1-r1 1.0.0_alpha4-r1: IOTA node written in rust
 net-misc/can-utils 2020.02.04 2020.12.0-r1 2021.08.0 9999-r3: CAN userspace utilities and tools
 net-misc/eg25-manager 0.4.2: Daemon for managing the Quectel EG25 modem
 net-misc/facebook-ptp 0_pre20211123: Facebook's PTP libraries
-net-misc/freetube-bin 0.17.0: A private YouTube desktop client
+net-misc/freetube-bin 0.17.1: A private YouTube desktop client
 net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.6.5 0.6.6: A gemini Server written in rust
 net-misc/giara 1.0.1 9999: An app for Reddit
