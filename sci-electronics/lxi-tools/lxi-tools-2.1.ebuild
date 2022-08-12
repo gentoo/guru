@@ -3,7 +3,8 @@
 
 EAPI=8
 
-inherit meson
+PYTHON_COMPAT=( python{3_9,3_10,3_11} )
+inherit meson python-any-r1 gnome2-utils xdg-utils
 
 DESCRIPTION="Tools to access devices with LXI"
 HOMEPAGE="https://github.com/lxi-tools/lxi-tools"
@@ -27,10 +28,21 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}"
+BDEPEND="${PYTHON_DEPS}"
 
 src_configure() {
 	local emesonargs=(
 		$(meson_use gui)
 	)
 	meson_src_configure
+}
+
+pkg_postinst() {
+	gnome2_schemas_update
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	gnome2_schemas_update
+	xdg_icon_cache_update
 }
