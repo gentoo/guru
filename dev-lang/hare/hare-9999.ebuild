@@ -37,4 +37,6 @@ src_configure() {
 		-e 's;^LD =;LD ?=;' \
 		-e 's;^AR =;AR ?=;' \
 		config.mk || die
+
+	sed -i 's; $(DESTDIR)$(LOCALSRCDIR);;' Makefile || die
 }
