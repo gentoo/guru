@@ -18,12 +18,18 @@ SLOT="0"
 
 IUSE=""
 
-RDEPEND="app-admin/himitsu:="
+RDEPEND="
+	app-admin/himitsu:=
+	dev-hare/hare-ssh:=
+"
 DEPEND="
 	${RDEPEND}
 	dev-lang/hare:=
 "
 BDEPEND="app-text/scdoc"
+
+# All binaries are hare-built
+QA_FLAGS_IGNORED=".*"
 
 src_configure() {
 	sed -i 's;^PREFIX=.*;PREFIX=/usr;' Makefile || die
