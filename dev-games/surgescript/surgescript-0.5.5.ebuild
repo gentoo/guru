@@ -27,6 +27,12 @@ IUSE="examples static-libs"
 
 DOCS=( CHANGES.md README.md )
 
+src_prepare() {
+	cmake_src_prepare
+
+	sed -i -e '/^strict: true$/d' -e '/^google_analytics/d' mkdocs.yml || die
+}
+
 src_configure() {
 	local mycmakeoptions=(
 		-DWANT_STATIC=$(usex static-libs)
