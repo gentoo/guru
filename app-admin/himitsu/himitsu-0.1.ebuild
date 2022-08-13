@@ -27,6 +27,9 @@ RDEPEND="
 "
 BDEPEND="app-text/scdoc"
 
+# binaries are hare-built
+QA_FLAGS_IGNORED="usr/bin/.*"
+
 src_configure() {
 	sed -i 's;^PREFIX=.*;PREFIX=/usr;' Makefile || die
 }
