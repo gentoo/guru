@@ -18,7 +18,7 @@ SLOT="0"
 
 IUSE=""
 
-RDEPEND="app-admin/himitsu"
+RDEPEND="app-admin/himitsu:="
 DEPEND="
 	${RDEPEND}
 	dev-lang/hare:=
