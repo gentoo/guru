@@ -19,10 +19,10 @@ fi
 LICENSE="Apache-2.0"
 SLOT="0"
 
-RDEPENDS="
+RDEPEND="
 	dev-libs/openssl:0=
 "
-DEPENDS="${DEPENDS}
+DEPEND="${RDEPEND}
 	dev-cpp/gtest
 "
 
