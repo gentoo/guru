@@ -4,7 +4,7 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{8..10} )
-inherit python-single-r1 meson
+inherit python-single-r1 toolchain-funcs meson
 
 DESCRIPTION="Data Plane Development Kit libraries for fast userspace networking"
 HOMEPAGE="https://dpdk.org/"
@@ -44,7 +44,15 @@ BDEPEND="
 	dev-lang/nasm
 "
 
-PATCHES=( "${FILESDIR}/dpdk-21.11.1-static_linker.patch" )
+PATCHES=( "${FILESDIR}/dpdk-22.03-binutils.patch" )
+
+src_prepare() {
+	default
+	sed -e "s/@OBJDUMP@/$(tc-getOBJDUMP)/g" -i \
+		buildtools/meson.build \
+		buildtools/check-symbols.sh \
+		devtools/check-abi-version.sh || die
+}
 
 src_configure() {
 	python-single-r1_pkg_setup
@@ -59,8 +67,5 @@ src_configure() {
 
 src_install() {
 	meson_src_install
-	local pyfiles=( "${ED}"/usr/bin/*.py )
-	for pyfile in "${pyfiles[@]}"; do
-		python_fix_shebang "${pyfile}"
-	done
+	python_fix_shebang "${ED}"
 }
