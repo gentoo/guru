@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{9..10} )
 inherit distutils-r1
 
 DESCRIPTION="Common interface for scrapy data container classes"
