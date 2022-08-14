@@ -41,11 +41,19 @@ BDEPEND="
 	${PYTHON_DEPS}
 "
 
-CONFIG_CHECK="~IOMMU_SUPPORT ~AMD_IOMMU ~VFIO ~VFIO_PCI ~UIO ~UIO_PDRV_GENIRQ ~UIO_DMEM_GENIRQ ~HPET_MMAP"
+PATCHES=( "${FILESDIR}/dpdk-22.03-binutils.patch" )
 
 pkg_setup() {
 	linux-mod_pkg_setup
 	python-single-r1_pkg_setup
+}
+
+src_prepare() {
+	default
+	sed -e "s/@OBJDUMP@/$(tc-getOBJDUMP)/g" -i \
+		buildtools/meson.build \
+		buildtools/check-symbols.sh \
+		devtools/check-abi-version.sh || die
 }
 
 src_configure() {
