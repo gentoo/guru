@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/Antynea/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="systemd"
 PATCHES=( "${FILESDIR}/${P}-remove-docs-from-make.patch" )
 
 DEPEND="
@@ -27,8 +27,14 @@ BDEPEND=""
 src_compile(){
 	true
 }
+
 src_install(){
-	default
+	local conf
+	if use systemd; then
+		conf+="SYSTEMD=true OPENRC=false"
+	else conf+="OPENRC=true SYSTEMD=false"
+	fi
+	emake DESTDIR="${D}" ${conf} install || die
 	dodoc README.md
 	mv ./initramfs/readme.md initramfs-overlayfs.md || die
 	dodoc initramfs-overlayfs.md
