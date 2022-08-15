@@ -4,7 +4,7 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{8..10} )
-inherit linux-mod python-single-r1 meson
+inherit linux-mod toolchain-funcs python-single-r1 meson
 
 DESCRIPTION="DPDK Kernel Nic Interface module"
 HOMEPAGE="https://dpdk.org/"
