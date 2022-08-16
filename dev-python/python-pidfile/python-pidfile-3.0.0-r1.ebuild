@@ -17,6 +17,10 @@ KEYWORDS="~amd64"
 
 RESTRICT="test" # https://github.com/mosquito/python-pidfile/issues/7
 
+RDEPEND="
+	dev-python/psutil[${PYTHON_USEDEP}]
+"
+
 distutils_enable_tests unittest
 
 python_test() {
