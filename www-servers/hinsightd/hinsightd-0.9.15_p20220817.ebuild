@@ -12,7 +12,7 @@ HOMEPAGE="https://tiotags.gitlab.io/hinsightd"
 LICENSE="BSD"
 SLOT="0"
 
-mycommit="f9d179bbc31244f00c715eeff8ede72b1c5f77d2"
+mycommit="af60390e3ade1e617ef76c5ab778934acd76a16e"
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
