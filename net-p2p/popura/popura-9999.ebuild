@@ -20,6 +20,10 @@ DEPEND="
 BDEPEND=">=dev-lang/go-1.16.0"
 RDEPEND="!net-p2p/yggdrasil-go"
 
+FILECAPS=(
+	cap_net_admin,cap_net_bind_service "usr/bin/yggdrasil"
+)
+
 pkg_setup() {
 	linux-info_pkg_setup
 	if ! linux_config_exists; then
