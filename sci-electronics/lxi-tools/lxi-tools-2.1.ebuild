@@ -4,7 +4,8 @@
 EAPI=8
 
 PYTHON_COMPAT=( python{3_9,3_10,3_11} )
-inherit meson python-any-r1 gnome2-utils xdg-utils
+LUA_COMPAT=( lua5-3 )
+inherit meson python-any-r1 lua-single gnome2-utils xdg-utils
 
 DESCRIPTION="Tools to access devices with LXI"
 HOMEPAGE="https://github.com/lxi-tools/lxi-tools"
@@ -15,10 +16,11 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="bash-completion +gui"
 
+REQUIRED_USE="${LUA_REQUIRED_USE}"
 RDEPEND="
 	bash-completion? ( >=app-shells/bash-completion-2.11 )
 	>=sys-libs/readline-8.1_p2
-	>=dev-lang/lua-5.3.6-r2:5.3
+	${LUA_DEPS}
 	>=sci-electronics/liblxi-1.13
 	gui? (
 		>=dev-libs/glib-2.70
