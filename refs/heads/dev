@@ -1,14 +1,22 @@
 certificate version 0.1
-pusher bratishkaerik@getgoogleoff.me 1660746114 +0600
-pushee git.gentoo.org:repo/proj/guru.git
-nonce 1660746114-c03a10a9309ea81806a29c081562b50031bab733
+pusher 34DC5D682AB72A871E68CB8B33A2274C83B3AA5A 1660764209 +0200
+pushee git+ssh://git.gentoo.org/repo/proj/guru.git
+nonce 1660764209-9674416fdc3cf56e97f5c996de07aab736518124
 
-21e61a7e5a617c5ef1434d967aa6a2b79da02889 e62e908e5e9176ddf482d60a5927e7edae375f3a refs/heads/dev
+e62e908e5e9176ddf482d60a5927e7edae375f3a cca5ff60f5f68822b11170d61c957a35874b305f refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iJQEABYKADwWIQR7COHWZlA4BB1+LlZcnGkGBoa1iAUCYvz5gh4cYnJhdGlzaGth
-ZXJpa0BnZXRnb29nbGVvZmYubWUACgkQXJxpBgaGtYg/IAEA2Oxb7TrZaMKG7a0b
-QymUoGWpdUgbSunU0tHhrJXgu4sBANB+cHsPY5vFcNSni2Ssg/Xad1/R8lQuxqQm
-guQTegAD
-=c3zw
+iQIzBAABCAAdFiEENNxdaCq3KoceaMuLM6InTIOzqloFAmL9QDEACgkQM6InTIOz
+qlpr6A/+KKVZDuuCdlQXxp8I/3cLUMwu9YgJUfaTc9Q/Jb92twkdNoUn4aeLpGkl
+qN4NFYodeN8Myl1xbEZng3jt1q8GYasw8TZi1JyFvhTH/i0Y9FAus1+LTt/7gfit
+iiT57UNCL8FhYW8/a/dnYF8TT/o93HXfP8dXawMoihiz6lkwsgq3xJWf108Kv+te
+x2HpAGWNPRykjo3reu21I2MIZdOCLpeJnPmdpVKdLglveFYHSyFuBfBp39frccJM
+Ge7gjw+XtITlgQ2Bp0wOZWCLvv2lWxMG12U3xJXcqhEcGqa9NMu+C49UBvlJ3gJ5
+N+V1Btnlip7GdXqiOUF+kfNDxOk68RWUjKoqtwjaARBp3BgPJ4nZhloltpPABqcb
+uvrwt3CoswxqiYb205BqSsn9MSEDrj/iZmMZT5adAqj9PsOGzm9JCZEnuRH4bLqp
+w5pLo52EtorbyYOOQDOkqEwmpbVTeGipTF/s18peCx4gsDlk0qA8B7h6z/IO4ZRG
+TDo0LP1xQKpqJ05GaKzAqjUU7mjDHDK7WstzOeg38cuMBzr7FRUacHVPjk94pvSt
+fUqy0HOhoA8sF8wlqee3W6wdN8hH9uTlXOSxIQ/TOH42DiO9Uf2Q00hJm0EC70C/
+q2VSsTwDTOZzTi+ysHn93UT9Zd1JZT8bkwHVZrwkpsaaZI1rK/s=
+=PSzZ
 -----END PGP SIGNATURE-----
