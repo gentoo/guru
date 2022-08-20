@@ -1,74 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
 	<upstream>
 		<changelog>https://github.com/WerWolv/ImHex/releases</changelog>
 		<bugs-to>https://github.com/WerWolv/ImHex/issues</bugs-to>
 		<remote-id type="github">WerWolv/ImHex</remote-id>
 	</upstream>
 	<longdescription lang="en">
-Features
+		Features
 
-Featureful hex view
-Byte patching
-Patch management
-Copy bytes as feature
-Bytes
-Hex string
-C, C++, C sharp, Rust, Python, Java and JavaScript array
-ASCII-Art hex view
-HTML self contained div
-String and hex search
-Colorful highlighting
-Goto from start, end and current cursor position
-Custom C++-like pattern language for parsing highlighting a file's content
-Automatic loading based on MIME type
-arrays, pointers, structs, unions, enums, bitfields, using declarations, little and big endian support, conditionals and much more!
-Useful error messages, syntax highlighting and error marking
-Data importing
-Base64 files
-IPS and IPS32 patches
-Data exporting
-IPS and IPS32 patches
-Data inspector allowing interpretation of data as many different types (little and big endian)
-Huge file support with fast and efficient loading
-String search
-Copying of strings
-Copying of demangled strings
-File hashing support
-CRC16 and CRC32 with custom initial values and polynomials
-MD4, MD5
-SHA-1, SHA-224, SHA-256, SHA-384, SHA-512
-Disassembler supporting many different architectures
-ARM32 (ARM, Thumb, Cortex-M, AArch32)
-ARM64
-MIPS (MIPS32, MIPS64, MIPS32R6, Micro)
-x86 (16-bit, 32-bit, 64-bit)
-PowerPC (32-bit, 64-bit)
-SPARC
-IBM SystemZ
-xCORE
-M68K
-TMS320C64X
-M680X
-Ethereum
-Bookmarks
-Region highlighting
-Comments
-Data Analyzer
-File magic-based file parser and MIME type database
-Byte distribution graph
-Entropy graph
-Highest and average entropy
-Encrypted / Compressed file detection
-Helpful tools
-Itanium and MSVC demangler
-ASCII table
-Regex replacer
-Mathematical expression evaluator (Calculator)
-Hexadecimal Color picker
-Built-in cheat sheet for pattern language and Math evaluator
-Doesn't burn out your retinas when used in late-night sessions
+		Featureful hex view
+		Byte patching
+		Patch management
+		Copy bytes as feature
+		Bytes
+		Hex string
+		C, C++, C sharp, Rust, Python, Java and JavaScript array
+		ASCII-Art hex view
+		HTML self contained div
+		String and hex search
+		Colorful highlighting
+		Goto from start, end and current cursor position
+		Custom C++-like pattern language for parsing highlighting a file's content
+		Automatic loading based on MIME type
+		arrays, pointers, structs, unions, enums, bitfields, using declarations, little and big endian support, conditionals and much more!
+		Useful error messages, syntax highlighting and error marking
+		Data importing
+		Base64 files
+		IPS and IPS32 patches
+		Data exporting
+		IPS and IPS32 patches
+		Data inspector allowing interpretation of data as many different types (little and big endian)
+		Huge file support with fast and efficient loading
+		String search
+		Copying of strings
+		Copying of demangled strings
+		File hashing support
+		CRC16 and CRC32 with custom initial values and polynomials
+		MD4, MD5
+		SHA-1, SHA-224, SHA-256, SHA-384, SHA-512
+		Disassembler supporting many different architectures
+		ARM32 (ARM, Thumb, Cortex-M, AArch32)
+		ARM64
+		MIPS (MIPS32, MIPS64, MIPS32R6, Micro)
+		x86 (16-bit, 32-bit, 64-bit)
+		PowerPC (32-bit, 64-bit)
+		SPARC
+		IBM SystemZ
+		xCORE
+		M68K
+		TMS320C64X
+		M680X
+		Ethereum
+		Bookmarks
+		Region highlighting
+		Comments
+		Data Analyzer
+		File magic-based file parser and MIME type database
+		Byte distribution graph
+		Entropy graph
+		Highest and average entropy
+		Encrypted / Compressed file detection
+		Helpful tools
+		Itanium and MSVC demangler
+		ASCII table
+		Regex replacer
+		Mathematical expression evaluator (Calculator)
+		Hexadecimal Color picker
+		Built-in cheat sheet for pattern language and Math evaluator
+		Doesn't burn out your retinas when used in late-night sessions
 	</longdescription>
 </pkgmetadata>
