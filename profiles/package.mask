@@ -45,7 +45,6 @@ app-emulation/dxvk-bin
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-07-20)
 # Depends on removed llvm:12
-app-editors/imhex
 dev-vcs/mergestat
 
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
