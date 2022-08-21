@@ -20,19 +20,9 @@ fi
 LICENSE="GPL-3+"
 SLOT="0"
 
-DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_configure() {
 	meson_src_configure \
 		--datadir=/usr/share
-}
-
-src_install() {
-	meson_src_compile
-}
-
-src_install() {
-	meson_src_install
 }

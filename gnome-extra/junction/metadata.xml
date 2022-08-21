@@ -6,7 +6,7 @@
     <name>Randall Vasquez</name>
   </maintainer>
   <longdescription lang="en">
-    Application/browser chooser 
+    Junction lets you choose the application to open files and links. 
   </longdescription>
   <upstream>
     <remote-id type="github">sonnyp/Junction</remote-id>
