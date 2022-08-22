@@ -20,8 +20,6 @@ fi
 LICENSE="GPL-3+"
 SLOT="0"
 
-RDEPEND="${DEPEND}"
-
 src_configure() {
 	meson_src_configure \
 		--datadir=/usr/share
