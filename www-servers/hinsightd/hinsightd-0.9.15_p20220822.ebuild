@@ -12,6 +12,8 @@ HOMEPAGE="https://tiotags.gitlab.io/hinsightd"
 LICENSE="BSD"
 SLOT="0"
 
+mycommit="0c584cbe00c2227d4cb29675e8e2da2c6bd57371"
+
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/tiotags/hin9.git"
