@@ -46,27 +46,19 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-REQUIRED_USE="xrandr? ( X )"
-
-pkg_setup() {
-	if use chafa && ! use imagemagick; then
-		elog "USE chafa depends on imagemagick, but that is currently disabled.  Enabling imagemagick"
-	fi
-
-	if use imagemagick || use chafa; then
-		export fastfetch_enable_imagemagick7=$(has_version '>=media-gfx/imagemagick-7.0.0' && echo yes || echo no)
-	else
-		export fastfetch_enable_imagemagick7=no
-	fi
-
-	if use imagemagick || use chafa; then
-		export fastfetch_enable_imagemagick6=$(has_version '<media-gfx/imagemagick-7.0.0' && echo yes || echo no)
-	else
-		export fastfetch_enable_imagemagick6=no
-	fi
-}
+REQUIRED_USE="
+	xrandr? ( X )
+	chafa? ( imagemagick )
+"
 
 src_configure() {
+	local fastfetch_enable_imagemagick7=no
+	local fastfetch_enable_imagemagick6=no
+	if use imagemagick; then
+		fastfetch_enable_imagemagick7=$(has_version '>=media-gfx/imagemagick-7.0.0' && echo yes || echo no)
+		fastfetch_enable_imagemagick6=$(has_version '<media-gfx/imagemagick-7.0.0' && echo yes || echo no)
+	fi
+
 	local mycmakeargs=(
 		-DENABLE_RPM=no
 		-DENABLE_LIBPCI=$(usex pci)

@@ -1,0 +1,60 @@
+diff --git a/buildtools/check-symbols.sh b/buildtools/check-symbols.sh
+index e458c0a..9031a18 100755
+--- a/buildtools/check-symbols.sh
++++ b/buildtools/check-symbols.sh
+@@ -22,7 +22,7 @@ fi
+
+ DUMPFILE=$(mktemp -t dpdk.${0##*/}.objdump.XXXXXX)
+ trap 'rm -f "$DUMPFILE"' EXIT
+-objdump -t $OBJFILE >$DUMPFILE
++@OBJDUMP@ -t $OBJFILE >$DUMPFILE
+
+ ret=0
+
+diff --git a/buildtools/meson.build b/buildtools/meson.build
+index e1c600e..6b09e63 100644
+--- a/buildtools/meson.build
++++ b/buildtools/meson.build
+@@ -4,7 +4,7 @@
+ pkgconf = find_program('pkg-config', 'pkgconf', required: false)
+ check_symbols = find_program('check-symbols.sh')
+ ldflags_ibverbs_static = find_program('options-ibverbs-static.sh')
+-objdump = find_program('objdump', 'llvm-objdump')
++objdump = find_program('@OBJDUMP@')
+
+ python3 = import('python').find_installation(required: false)
+ if python3.found()
+@@ -24,18 +24,11 @@ binutils_avx512_check = (py3 + files('binutils-avx512-check.py') +
+ # select library and object file format
+ pmdinfo = py3 + files('gen-pmdinfo-cfile.py') + [meson.current_build_dir()]
+ pmdinfogen = py3 + files('pmdinfogen.py')
++ar = find_program('ar')
++pmdinfo += ar
+ if host_machine.system() == 'windows'
+-    if cc.get_id() == 'gcc'
+-        pmdinfo += 'ar'
+-    else
+-        pmdinfo += 'llvm-ar'
+-    endif
+     pmdinfogen += 'coff'
+-elif host_machine.system() == 'freebsd'
+-    pmdinfo += 'llvm-ar'
+-    pmdinfogen += 'elf'
+ else
+-    pmdinfo += 'ar'
+     pmdinfogen += 'elf'
+ endif
+
+diff --git a/devtools/check-abi-version.sh b/devtools/check-abi-version.sh
+index f0cca42..6efe1eb 100755
+--- a/devtools/check-abi-version.sh
++++ b/devtools/check-abi-version.sh
+@@ -28,7 +28,7 @@ NEXT_ABIVER="DPDK_$((${2-$DEFAULT_ABI}+1))"
+ ret=0
+
+ # get output of objdump
+-OBJ_DUMP_OUTPUT=`objdump -TC --section=.text ${LIB} 2>&1 | grep ".text"`
++OBJ_DUMP_OUTPUT=`@OBJDUMP@ -TC --section=.text ${LIB} 2>&1 | grep ".text"`
+
+ # there may not be any .text sections in the .so file, in which case exit early
+ echo "${OBJ_DUMP_OUTPUT}" | grep "not found in any input file" -q

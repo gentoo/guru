@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>bratishkaerik@getgoogleoff.me</email>
+		<name>Eric Joldasov</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">bouncepaw/mycorrhiza</remote-id>
+		<bugs-to>https://github.com/bouncepaw/mycorrhiza/issues</bugs-to>
+		<doc lang="en">https://mycorrhiza.wiki</doc>
+	</upstream>
+</pkgmetadata>

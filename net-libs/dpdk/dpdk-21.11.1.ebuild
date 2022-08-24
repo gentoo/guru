@@ -25,7 +25,7 @@ DEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep '
 		dev-python/pyelftools[${PYTHON_USEDEP}]
 	')
-	~sys-kernel/rte_kni-kmod-${PV}[${PYTHON_SINGLE_USEDEP}]
+	~sys-kernel/dpdk-kmod-${PV}[${PYTHON_SINGLE_USEDEP}]
 	app-arch/libarchive
 	app-crypt/intel-ipsec-mb
 	dev-libs/elfutils

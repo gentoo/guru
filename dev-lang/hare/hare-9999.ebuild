@@ -29,6 +29,9 @@ BDEPEND="
 "
 RDEPEND="${DEPEND}"
 
+# hare and harec are built by hare
+QA_FLAGS_IGNORED="usr/bin/harec?"
+
 src_configure() {
 	cp config.example.mk config.mk || die
 	sed -i \
@@ -37,4 +40,6 @@ src_configure() {
 		-e 's;^LD =;LD ?=;' \
 		-e 's;^AR =;AR ?=;' \
 		config.mk || die
+
+	sed -i 's; $(DESTDIR)$(LOCALSRCDIR);;' Makefile || die
 }

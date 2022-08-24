@@ -15,7 +15,7 @@ if [[ ${PV} == "9999" ]] ; then
 else
 	COMMIT="a2bada610ebb3fc002fceb53ddf93bc799241867"
 	SRC_URI="https://github.com/mohamed-badaoui/asus-touchpad-numpad-driver/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
-	S="${PN}-${COMMIT}"
+	S="${WORKDIR}/${PN}-${COMMIT}"
 	KEYWORDS="~amd64"
 fi
 

@@ -3,26 +3,26 @@
 
 EAPI=8
 
-inherit go-module linux-info systemd git-r3
-
-EGIT_REPO_URI="https://github.com/popura-network/Popura"
+inherit go-module linux-info systemd git-r3 fcaps
 
 DESCRIPTION="Popura: alternative Yggdrasil network client"
 HOMEPAGE="https://github.com/popura-network/Popura"
-DOCS=( README.md )
+EGIT_REPO_URI="https://github.com/popura-network/Popura"
 
 LICENSE="LGPL-3 MPL-2.0 MIT Apache-2.0 BSD ZLIB"
 SLOT="0"
-KEYWORDS=""
 
 DEPEND="
 	acct-user/yggdrasil
 	acct-group/yggdrasil
 "
 
-RDEPEND="!!net-p2p/yggdrasil-go"
-
 BDEPEND=">=dev-lang/go-1.16.0"
+RDEPEND="!net-p2p/yggdrasil-go"
+
+FILECAPS=(
+	cap_net_admin,cap_net_bind_service "usr/bin/yggdrasil"
+)
 
 pkg_setup() {
 	linux-info_pkg_setup
@@ -40,12 +40,16 @@ src_unpack() {
 }
 
 src_compile() {
-	GOFLAGS="-trimpath -buildmode=pie -mod=readonly" \
-	./build -l "-linkmode external -extldflags \"${LDFLAGS}\""
+	local package="github.com/yggdrasil-network/yggdrasil-go/src/version"
+
+	for CMD in yggdrasil yggdrasilctl ; do
+		ego build -buildmode=pie -ldflags "-s -linkmode external -extldflags '${LDFLAGS}' -X ${package}.buildName=${PN} -X ${package}.buildVersion=v${PV}+popura1" -trimpath ./cmd/$CMD
+	done
 }
 
 src_install() {
 	dobin {yggdrasil,yggdrasilctl}
+	dodoc README.md
 	systemd_dounit "contrib/systemd/yggdrasil.service"
 	systemd_dounit "contrib/systemd/yggdrasil-default-config.service"
 	doinitd "contrib/openrc/yggdrasil"

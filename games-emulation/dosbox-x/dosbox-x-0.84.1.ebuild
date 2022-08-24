@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools toolchain-funcs xdg
+inherit autotools flag-o-matic toolchain-funcs xdg
 
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
@@ -106,6 +106,11 @@ src_prepare() {
 		die "Failed to remove check for setcap in Makefile.am"
 
 	eautoreconf
+
+	# https://bugs.gentoo.org/859973
+	# https://github.com/joncampbell123/dosbox-x/issues/3663
+	# No upstream response regarding LTO yet; disable it for now
+	filter-lto
 }
 
 src_configure() {

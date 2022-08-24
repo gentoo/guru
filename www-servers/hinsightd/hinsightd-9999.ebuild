@@ -5,7 +5,7 @@ EAPI=8
 
 LUA_COMPAT=( lua5-{1..4} luajit )
 
-inherit fcaps lua-single systemd cmake linux-info
+inherit fcaps lua-single systemd meson linux-info
 
 DESCRIPTION="hinsightd a http/1.1 webserver with (hopefully) minimal goals"
 HOMEPAGE="https://tiotags.gitlab.io/hinsightd"
@@ -31,7 +31,7 @@ IUSE="+ssl cgi +fcgi +rproxy +ffcall"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
 BDEPEND="
-	dev-util/cmake
+	dev-util/meson
 	virtual/pkgconfig
 "
 
@@ -52,19 +52,30 @@ FILECAPS=(
 	cap_net_bind_service usr/sbin/${PN}
 )
 
+pkg_setup() {
+	linux-info_pkg_setup;
+	lua-single_pkg_setup
+}
+
 src_configure() {
-	local mycmakeargs=(
-		-DUSE_OPENSSL=$(usex ssl)
-		-DUSE_CGI=$(usex cgi)
-		-DUSE_FCGI=$(usex fcgi)
-		-DUSE_RPROXY=$(usex rproxy)
-		-DUSE_FFCALL=$(usex ffcall)
+	version=$(ver_cut 1-2 $(lua_get_version))
+	if [ "$version" == "2.1" ]; then
+	  version="jit"
+	fi
+	local emesonargs=(
+		$(meson_use ssl openssl)
+		$(meson_use cgi)
+		$(meson_use fcgi)
+		$(meson_use rproxy)
+		$(meson_use ffcall)
+		-Dforce-lua-version=$version
 	)
-	cmake_src_configure
+	meson_src_configure
 }
 
 src_install() {
-	cmake_src_install
+	meson_src_install
+
 	newinitd "${S}/external/packaging/$PN.initd.sh" $PN
 	newconfd "${S}/external/packaging/$PN.confd.sh" $PN
 	systemd_dounit "${FILESDIR}/$PN.service" # not tested

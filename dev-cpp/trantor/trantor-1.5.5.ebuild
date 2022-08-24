@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/an-tao/trantor"
 SRC_URI="https://github.com/an-tao/trantor/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="adns doc +ssl test"
 RESTRICT="!test? ( test )"

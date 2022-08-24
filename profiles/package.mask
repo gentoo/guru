@@ -27,14 +27,6 @@ dev-python/praw
 net-misc/giara
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
-# depends on removed dev-python/pydispatcher
-dev-python/scrapy
-# depends on dev-python/scrapy
-dev-python/itemadapter
-# depends on dev-python/itemadapter
-dev-python/itemloaders
-
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
 # depends on removed net-p2p/go-ipfs
 net-p2p/ipfs-cluster
 
@@ -53,7 +45,6 @@ app-emulation/dxvk-bin
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-07-20)
 # Depends on removed llvm:12
-app-editors/imhex
 dev-vcs/mergestat
 
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
