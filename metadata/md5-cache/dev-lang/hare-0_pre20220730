@@ -9,4 +9,4 @@ LICENSE=MPL-2.0 GPL-3
 RDEPEND=sys-devel/qbe >=dev-lang/harec-0_pre20220702
 SLOT=0/0_pre20220730
 SRC_URI=https://git.sr.ht/~sircmpwn/hare/archive/296925c91d79362d6b8ac94e0336a38e9af0f1c9.tar.gz -> hare-0_pre20220730.tar.gz
-_md5_=234ef737282c439751378d401518bc9f
+_md5_=524c4ab0006f21e19ef9fdc03723be71

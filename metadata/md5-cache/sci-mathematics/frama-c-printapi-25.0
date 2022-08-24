@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install
+DEPEND=~sci-mathematics/frama-c-25.0:=[ocamlopt?] >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
+DESCRIPTION=Plugin generating .mli interface files for plugin APIs for frama-c
+EAPI=7
+HOMEPAGE=https://frama-c.com
+INHERIT=findlib toolchain-funcs
+IUSE=+ocamlopt +ocamlopt
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1
+RDEPEND=~sci-mathematics/frama-c-25.0:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?]
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://frama-c.com/download/frama-c-25.0-Manganese.tar.gz
+_eclasses_=findlib	d8fa93cf137156660d0b72144b1e31d9	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=1bd6b45ed51e1229c70a3c7f1be736e4

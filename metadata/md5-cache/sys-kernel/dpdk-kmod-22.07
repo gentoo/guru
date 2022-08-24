@@ -1,0 +1,17 @@
+BDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_8? ( dev-python/pyelftools[python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/pyelftools[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pyelftools[python_targets_python3_10(-)] ) app-crypt/intel-ipsec-mb dev-libs/elfutils dev-libs/isa-l dev-libs/jansson dev-libs/libbpf dev-libs/libbsd dev-libs/openssl net-libs/libmnl net-libs/libpcap sys-apps/dtc sys-cluster/rdma-core sys-process/numactl kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) ) sys-apps/sed kernel_linux? ( virtual/linux-sources virtual/libelf )
+DESCRIPTION=DPDK Kernel Nic Interface module
+EAPI=7
+HOMEPAGE=https://dpdk.org/
+INHERIT=linux-mod toolchain-funcs python-single-r1 meson
+IUSE=dist-kernel python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64
+LICENSE=BSD GPL-2
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://fast.dpdk.org/rel/dpdk-22.07.tar.xz
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	56708ddc53d8b607ed88fd97a56e59dc	linux-mod	6ff232574f0bcad33767903505553e8d	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	ninja-utils	58ec4e54962bf45d065fb95030701514	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_md5_=216e7011490d020ce691592534d85a83

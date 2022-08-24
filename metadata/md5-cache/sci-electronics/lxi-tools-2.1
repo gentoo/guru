@@ -1,15 +1,16 @@
 BDEPEND=|| ( >=dev-lang/python-3.11.0_beta4:3.11 >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm setup test
-DEPEND=bash-completion? ( >=app-shells/bash-completion-2.11 ) >=sys-libs/readline-8.1_p2 >=dev-lang/lua-5.3.6-r2:5.3 >=sci-electronics/liblxi-1.13 gui? ( >=dev-libs/glib-2.70 >=gui-libs/gtk-4.5.0 >=gui-libs/gtksourceview-5.3.3 >=gui-libs/libadwaita-1.0.1 )
+DEPEND=bash-completion? ( >=app-shells/bash-completion-2.11 ) >=sys-libs/readline-8.1_p2 lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) >=sci-electronics/liblxi-1.13 gui? ( >=dev-libs/glib-2.70 >=gui-libs/gtk-4.5.0 >=gui-libs/gtksourceview-5.3.3 >=gui-libs/libadwaita-1.0.1 )
 DESCRIPTION=Tools to access devices with LXI
 EAPI=8
 HOMEPAGE=https://github.com/lxi-tools/lxi-tools
-INHERIT=meson python-any-r1 gnome2-utils xdg-utils
-IUSE=bash-completion +gui
+INHERIT=meson python-any-r1 lua-single gnome2-utils xdg-utils
+IUSE=bash-completion +gui +lua_single_target_lua5-3
 KEYWORDS=~amd64
 LICENSE=BSD
-RDEPEND=bash-completion? ( >=app-shells/bash-completion-2.11 ) >=sys-libs/readline-8.1_p2 >=dev-lang/lua-5.3.6-r2:5.3 >=sci-electronics/liblxi-1.13 gui? ( >=dev-libs/glib-2.70 >=gui-libs/gtk-4.5.0 >=gui-libs/gtksourceview-5.3.3 >=gui-libs/libadwaita-1.0.1 )
+RDEPEND=bash-completion? ( >=app-shells/bash-completion-2.11 ) >=sys-libs/readline-8.1_p2 lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) >=sci-electronics/liblxi-1.13 gui? ( >=dev-libs/glib-2.70 >=gui-libs/gtk-4.5.0 >=gui-libs/gtksourceview-5.3.3 >=gui-libs/libadwaita-1.0.1 )
+REQUIRED_USE=^^ ( lua_single_target_lua5-3 )
 SLOT=0
 SRC_URI=https://github.com/lxi-tools/lxi-tools/archive/refs/tags/v2.1.tar.gz -> lxi-tools-2.1.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3
-_md5_=1a12196a81d14a3d84a32dc0a417931d
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	f2c2fb82c912dd65d53bdae3613a331f	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3
+_md5_=d54a9049118a87846ac1585bd494cd33

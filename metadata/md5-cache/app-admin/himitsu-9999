@@ -10,4 +10,4 @@ PROPERTIES=live
 RDEPEND=gui-apps/hiprompt-gtk-py
 SLOT=0
 _eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=c3d37386f90cfeb8355cf28017773db6
+_md5_=9c51dc140b2e29a13a86b2817683c0e9

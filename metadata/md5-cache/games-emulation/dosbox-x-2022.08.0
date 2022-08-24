@@ -5,12 +5,12 @@ DESCRIPTION=Complete, accurate DOS emulator forked from DOSBox
 EAPI=8
 HOMEPAGE=https://dosbox-x.com/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=autotools toolchain-funcs xdg
+INHERIT=autotools flag-o-matic toolchain-funcs xdg
 IUSE=X debug ffmpeg fluidsynth freetype opengl png slirp
 KEYWORDS=~amd64
 LICENSE=GPL-2
 RDEPEND=media-libs/alsa-lib media-libs/libsdl2[X,opengl?,sound,threads,video] media-libs/sdl2-net net-libs/libpcap sys-libs/zlib X? ( x11-libs/libX11 x11-libs/libXrandr x11-libs/libxkbfile ) debug? ( sys-libs/ncurses:= ) ffmpeg? ( media-video/ffmpeg:= ) fluidsynth? ( media-sound/fluidsynth:= ) freetype? ( media-libs/freetype ) opengl? ( media-libs/libglvnd[X] ) png? ( media-libs/libpng:= ) slirp? ( net-libs/libslirp )
 SLOT=0
 SRC_URI=https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-windows-v2022.08.0.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=d0185ed06e01afd9a614a711fd8c4744
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	flag-o-matic	29a755b1291d64133634d80b0328f153	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=803ada87ef8064c7b567ecf9a4d671fe

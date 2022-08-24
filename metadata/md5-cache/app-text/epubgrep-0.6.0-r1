@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gettext app-text/asciidoc >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/boost[nls] app-arch/libarchive[bzip2,iconv,lzma,zlib(+)] dev-libs/libfmt dev-libs/pugixml dev-cpp/termcolor dev-cpp/nlohmann_json test? ( dev-cpp/catch )
+DEPEND=dev-libs/boost[nls] app-arch/libarchive[bzip2,iconv,lzma,zlib(+)] <dev-libs/libfmt-9.0.0 dev-libs/pugixml dev-cpp/termcolor dev-cpp/nlohmann_json test? ( <dev-cpp/catch-3.0.0 )
 DESCRIPTION=Search tool for EPUB e-books
 EAPI=7
 HOMEPAGE=https://schlomp.space/tastytea/epubgrep
@@ -8,9 +8,9 @@ INHERIT=cmake
 IUSE=test
 KEYWORDS=~amd64
 LICENSE=AGPL-3
-RDEPEND=dev-libs/boost[nls] app-arch/libarchive[bzip2,iconv,lzma,zlib(+)] dev-libs/libfmt dev-libs/pugixml
+RDEPEND=dev-libs/boost[nls] app-arch/libarchive[bzip2,iconv,lzma,zlib(+)] <dev-libs/libfmt-9.0.0 dev-libs/pugixml
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://schlomp.space/tastytea/epubgrep/archive/0.6.0.tar.gz -> epubgrep-0.6.0.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
-_md5_=610d74a0e7d4f2a2ea94a84903c9b840
+_md5_=97703a43025860e40ab9c6a569cf2321
