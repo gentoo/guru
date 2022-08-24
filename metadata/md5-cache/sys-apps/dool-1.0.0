@@ -11,5 +11,5 @@ RDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_target
 REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/scottchiefbaker/dool/archive/6b89f2d0b6e38e1c8d706e88a12e020367f5100d.tar.gz -> dool-1.0.0.tar.gz
-_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-r1	7b65c41111cd80a4d4a0921e8d4a310c
+_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-r1	2d51fd03931e743811ce30d198e4dcfd
 _md5_=bf4b27e4a785125e26176ceaed48079e

@@ -12,5 +12,5 @@ RDEPEND=daxctl? ( sys-block/ndctl ) hwloc? ( sys-apps/hwloc ) sys-process/numact
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/memkind/memkind/archive/v1.13.0.tar.gz -> memkind-1.13.0.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	linux-info	56708ddc53d8b607ed88fd97a56e59dc	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-any-r1	a3e9c0524a795d7f2767a2cf12a2e8c0
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	linux-info	56708ddc53d8b607ed88fd97a56e59dc	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
 _md5_=aa1e9c06a827832a6a053c1dc0f0fccc

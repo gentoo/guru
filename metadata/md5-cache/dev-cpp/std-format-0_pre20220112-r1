@@ -11,5 +11,5 @@ LICENSE=CC0-1.0
 RESTRICT=!test? ( test )
 SLOT=0/0_pre20220112
 SRC_URI=https://gitlab.com/ananicy-cpp/stl-polyfills/std-format/-/archive/45296602ad78a804411e7c3b617e13759f38e4e7/std-format-45296602ad78a804411e7c3b617e13759f38e4e7.tar.bz2
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	38d6ec96711cea42a5cb1cc723a6e906	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
 _md5_=c689420632788f09e8e4e306024c9fca

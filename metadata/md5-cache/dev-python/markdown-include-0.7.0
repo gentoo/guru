@@ -11,5 +11,5 @@ RDEPEND=>=dev-python/markdown-3.4[python_targets_python3_8(-)?,python_targets_py
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/cmacmackin/markdown-include/archive/refs/tags/v0.7.0.tar.gz -> markdown-include-0.7.0.gh.tar.gz
-_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-r1	7b65c41111cd80a4d4a0921e8d4a310c	distutils-r1	e3b0f72d558eb613ff83262d22cbf887
+_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-r1	2d51fd03931e743811ce30d198e4dcfd	distutils-r1	e3b0f72d558eb613ff83262d22cbf887
 _md5_=39880f1a3724fb53919ab2d1b8a10ecf
