@@ -863,7 +863,6 @@ www-client/torbrowser-launcher:apparmor - Enable AppArmor support
 www-servers/hinsightd:cgi - Enable old/slow cgi support (legacy should not be used)
 www-servers/hinsightd:fcgi - Enable fast cgi support
 www-servers/hinsightd:ffcall - Use ffcall library for better logging format support
-www-servers/hinsightd:openssl - Enable tls encryption with openssl
 www-servers/hinsightd:rproxy - Enable reverse proxying support
 x11-apps/lightdm-gtk-greeter-settings:xfce - Adds x11-apps/lightdm-gtk-greeter-settings to Xfce settings manager
 x11-libs/gtk-fortran:examples - Install examples source code files

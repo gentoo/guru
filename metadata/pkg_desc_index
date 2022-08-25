@@ -131,6 +131,7 @@ app-i18n/fcitx-skk 0.1.4: An input method engine for Fcitx
 app-i18n/im-canna 0.3.2.2-r1: Japanese Canna input method module for GTK+2
 app-i18n/scim-canna 1.0.1: SCIM IMEngine module using Canna
 app-metrics/scaphandre 0.4.1: Electrical power consumption measurement agent.
+app-misc/afc 1.0 9999: Anime File Checker, checks CRC32 contained in filenames
 app-misc/afetch 2.2.0: Simple system info written in C
 app-misc/ani-cli 1.9: A cli to browse and watch anime.
 app-misc/anki-bin 2.1.49: A spaced-repetition memory training program (flash cards)
