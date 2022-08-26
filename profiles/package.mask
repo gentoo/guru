@@ -27,10 +27,6 @@ dev-python/praw
 net-misc/giara
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
-# depends on removed net-p2p/go-ipfs
-net-p2p/ipfs-cluster
-
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
 # depends on removed <dev-lang/go-1.18
 net-proxy/toxiproxy
 
