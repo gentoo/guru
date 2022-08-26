@@ -20,3 +20,4 @@ LICENSE="GPL-3+"
 SLOT="0"
 
 DEPEND="sys-libs/zlib"
+RDEPEND="${DEPEND}"
