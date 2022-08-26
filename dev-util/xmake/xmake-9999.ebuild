@@ -5,7 +5,7 @@ EAPI=8
 
 inherit optfeature
 
-DESCRIPTION="A cross-platform build utility based on Lua."
+DESCRIPTION="A cross-platform build utility based on Lua"
 HOMEPAGE="https://xmake.io"
 
 if [[ ${PV} == *9999* ]]; then
@@ -23,13 +23,15 @@ RESTRICT="test"
 LICENSE="Apache-2.0"
 SLOT="0"
 
-DEPEND="
+RDEPEND="
 	virtual/pkgconfig
-	sys-libs/ncurses
-	sys-libs/readline
 "
-RDEPEND="${DEPEND}"
-BDEPEND="${DEPEND}"
+DEPEND="
+	sys-libs/ncurses:=
+	sys-libs/readline:=
+"
+
+BDEPEND="${RDEPEND}"
 
 DOCS=(
 	CHANGELOG.md CODE_OF_CONDUCT.md CONTRIBUTING.md
