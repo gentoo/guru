@@ -12,13 +12,11 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/olifre/${PN}.git"
 else
-	SRC_URI="https://github.com/olifre/${PN}/archive/${PV}.tar.gz -> ${PN}-${PV}.tar.gz"
+	SRC_URI="https://github.com/olifre/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
-	S="${WORKDIR}/${PN}-${PV}"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-IUSE=""
 
 DEPEND="sys-libs/zlib"
