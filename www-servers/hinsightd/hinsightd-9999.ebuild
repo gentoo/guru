@@ -60,7 +60,7 @@ pkg_setup() {
 src_configure() {
 	version=$(ver_cut 1-2 $(lua_get_version))
 	if [ "$version" == "2.1" ]; then
-	  version="jit"
+		version="jit"
 	fi
 	local emesonargs=(
 		$(meson_use ssl openssl)
