@@ -34,11 +34,6 @@ net-proxy/toxiproxy
 # depends on dev-python/PyQt6, which is currently masked with all of qt6
 >=net-misc/maestral-qt-1.6.0
 
-# Ronny (tastytea) Gutbrod <gentoo@tastytea.de> (2022-07-26)
-# app-emulation/dxvk is in ::gentoo now and doesn't need crossdev setup,
-# making the reason for the binary package void. Removal on 2022-08-26.
-app-emulation/dxvk-bin
-
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-07-20)
 # Depends on removed llvm:12
 dev-vcs/mergestat
