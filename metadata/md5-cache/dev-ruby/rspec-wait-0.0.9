@@ -1,17 +1,17 @@
-BDEPEND=test? ( ruby_targets_ruby30? ( >=dev-ruby/rspec-3[ruby_targets_ruby30(-)] ) ruby_targets_ruby27? ( >=dev-ruby/rspec-3[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( >=dev-ruby/rspec-3[ruby_targets_ruby26(-)] ) ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) test? ( ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] ) )
+BDEPEND=test? ( ruby_targets_ruby30? ( >=dev-ruby/rspec-3[ruby_targets_ruby30(-)] ) ruby_targets_ruby27? ( >=dev-ruby/rspec-3[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) test? ( ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) )
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] )
+DEPEND=ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
 DESCRIPTION=enables time-resilient expectations in your RSpec test suite
 EAPI=7
 HOMEPAGE=https://github.com/laserlemon/rspec-wait
 INHERIT=ruby-fakegem
-IUSE=test ruby_targets_ruby30 ruby_targets_ruby27 ruby_targets_ruby26 test
+IUSE=test ruby_targets_ruby30 ruby_targets_ruby27 test
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=ruby_targets_ruby30? ( >=dev-ruby/rspec-3[ruby_targets_ruby30(-)] ) ruby_targets_ruby27? ( >=dev-ruby/rspec-3[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( >=dev-ruby/rspec-3[ruby_targets_ruby26(-)] ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby26? ( dev-lang/ruby:2.6 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby26? ( virtual/rubygems[ruby_targets_ruby26(-)] )
-REQUIRED_USE=|| ( ruby_targets_ruby30 ruby_targets_ruby27 ruby_targets_ruby26 )
+RDEPEND=ruby_targets_ruby30? ( >=dev-ruby/rspec-3[ruby_targets_ruby30(-)] ) ruby_targets_ruby27? ( >=dev-ruby/rspec-3[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby30 ruby_targets_ruby27 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://rubygems.org/gems/rspec-wait-0.0.9.gem
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	ruby-utils	97c8e15d89dc6537e36cddedf413ed22	ruby-ng	55326c3bb01904e05d55c73c84c85d07	ruby-fakegem	5219a86777b162618ed386ae08bf8ce4
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	ruby-utils	97c8e15d89dc6537e36cddedf413ed22	ruby-ng	32c657868f5d944ede724c36996ec27a	ruby-fakegem	5219a86777b162618ed386ae08bf8ce4
 _md5_=6f85d75fc8c54266b7868513ca666244
