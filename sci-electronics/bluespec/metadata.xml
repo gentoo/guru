@@ -9,9 +9,9 @@
 		<remote-id type="github">B-Lang-org/bsc</remote-id>
 	</upstream>
 	<longdescription lang="en">
-	This is a compiler, simulator, and associated tools for Bluespec High Level
-	Hardware Design Language (HL-HDL), supporting the two optional syntaxes,
-	BSV and BH. Language specifications and tutorials are available in the
-	BSVlang repository.
+		This is a compiler, simulator, and associated tools for Bluespec High Level
+		Hardware Design Language (HL-HDL), supporting the two optional syntaxes,
+		BSV and BH. Language specifications and tutorials are available in the
+		BSVlang repository.
 	</longdescription>
 </pkgmetadata>
