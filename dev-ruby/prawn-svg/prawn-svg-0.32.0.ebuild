@@ -16,10 +16,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 IUSE=""
 
-ruby_add_bdepend "test? ( dev-ruby/mocha
+ruby_add_rdepend "
 	>=dev-ruby/css_parser-1.6.0
+	>=dev-ruby/prawn-0.11.1
+	>=dev-ruby/rexml-3.2.0
+	"
+
+ruby_add_bdepend "test? ( dev-ruby/mocha
 	>=dev-ruby/pdf-inspector-1.1.0
 	>=dev-ruby/pdf-reader-1.2
-	>=dev-ruby/prawn-1.3.0
-	>=dev-ruby/rexml-3.2.0
 	)"
