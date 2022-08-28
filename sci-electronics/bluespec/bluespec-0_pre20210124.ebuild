@@ -6,20 +6,20 @@ EAPI=7
 DESCRIPTION="Bluespec high level hardware design language compiler"
 HOMEPAGE="https://github.com/B-Lang-org/bsc"
 
-# This inherit git-r3 will removed after upstream finished.
-inherit git-r3
-
 if [[ ${PV} == "9999" ]] ; then
-	EGIT_REPO_URI="https://github.com/B-Lang-org/${PN}.git"
+	EGIT_REPO_URI="https://github.com/B-Lang-org/bsc.git"
+	inherit git-r3
 else
 	EGIT_COMMIT="69dee0667e51108832b685511e9aa631cca1e83a"
 	# Using SRC_URI here will failed because this repo uses git submodules.
-	# SRC_URI="https://github.com/B-Lang-org/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
-	# S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
+	# SRC_URI="https://github.com/B-Lang-org/bsc/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+	# S="${WORKDIR}/bsc-${EGIT_COMMIT}"
 	# Waiting for https://github.com/B-Lang-org/bsc/issues/85
-	EGIT_REPO_URI="https://github.com/B-Lang-org/${PN}.git"
+	EGIT_REPO_URI="https://github.com/B-Lang-org/bsc.git"
+	# This inherit git-r3 will removed after upstream finished.
+	inherit git-r3
 
-	KEYWORDS=""
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="BSD GPL-3+ MIT"
@@ -64,7 +64,7 @@ DOCS=( "README.md" "COPYING" )
 src_compile() { :; }
 
 src_install() {
-	emake PREFIX="${ED}"/usr LIBDIR="${ED}"/usr/$(get_libdir) install
-	emake -C src/comp PREFIX="${ED}"/usr LIBDIR="${ED}"/usr/$(get_libdir) install-extra
+	emake PREFIX="${ED%/}"/usr LIBDIR="${ED%/}"/usr/$(get_libdir) install
+	emake -C src/comp PREFIX="${ED%/}"/usr LIBDIR="${ED%/}"/usr/$(get_libdir) install-extra
 	einstalldocs
 }
