@@ -32,6 +32,11 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="${PYTHON_DEPS}"
 
+pkg_setup() {
+	python-any-r1_pkg_setup
+	lua-single_pkg_setup
+}
+
 src_configure() {
 	local emesonargs=(
 		$(meson_use gui)
