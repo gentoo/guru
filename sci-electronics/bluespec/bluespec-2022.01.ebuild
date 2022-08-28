@@ -25,6 +25,7 @@ IUSE="doc test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	app-eselect/eselect-bluespec
 	dev-haskell/old-time:0=
 	dev-haskell/regex-compat:0=
 	dev-haskell/split:0=
@@ -103,6 +104,14 @@ src_test() {
 	emake -C testsuite check
 }
 
+# Call eselect vi update with --if-unset
+# to respect user's choice
+eselect_bluespec_update() {
+	ebegin "Calling eselect bluespec update"
+	eselect bluespec update --if-unset
+	eend $?
+}
+
 src_install() {
 	# From https://github.com/B-Lang-org/bsc/blob/main/INSTALL.md,
 	# upstream recommend placing the inst directory at
@@ -113,4 +122,12 @@ src_install() {
 	cp -dr --preserve=mode,timestamp "${S}"/inst/* "${ED_INSTALL_PATH}"/ || die
 	insinto "${INSTALL_PATH}"/vimfiles
 	doins -r "${S}"/util/vim/{ftdetect,indent,syntax}
+}
+
+pkg_postinst() {
+	eselect_bluespec_update
+}
+
+pkg_postrm() {
+	eselect_bluespec_update
 }
