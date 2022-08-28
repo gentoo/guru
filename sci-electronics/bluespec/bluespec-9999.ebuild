@@ -25,6 +25,7 @@ IUSE="doc test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	app-eselect/eselect-bluespec
 	dev-haskell/old-time:0=
 	dev-haskell/regex-compat:0=
 	dev-haskell/split:0=
@@ -58,6 +59,7 @@ BDEPEND="
 		dev-texlive/texlive-latexrecommended
 		dev-texlive/texlive-plaingeneric
 	)
+	sys-apps/coreutils
 	sys-devel/autoconf
 	sys-devel/bison
 	sys-devel/flex
@@ -103,6 +105,14 @@ src_test() {
 	emake -C testsuite check
 }
 
+# Call eselect vi update with --if-unset
+# to respect user's choice
+eselect_bluespec_update() {
+	ebegin "Calling eselect bluespec update"
+	eselect bluespec update --if-unset
+	eend $?
+}
+
 src_install() {
 	# From https://github.com/B-Lang-org/bsc/blob/main/INSTALL.md,
 	# upstream recommend placing the inst directory at
@@ -110,7 +120,22 @@ src_install() {
 	local INSTALL_PATH=/usr/share/bsc/bsc-"${PV}"
 	local ED_INSTALL_PATH="${ED}${INSTALL_PATH}"
 	mkdir -p "${ED_INSTALL_PATH}" || die
+	local f
+	for f in "${S}"/inst/bin/*; do
+		if [[ ! -d "${f}" ]] ; then
+			local b=$(basename ${f})
+			sed -i "s|ABSNAME=.*\$|ABSNAME=\$(readlink -f -- \"\$0\")|g" "${f}" || die
+		fi
+	done
 	cp -dr --preserve=mode,timestamp "${S}"/inst/* "${ED_INSTALL_PATH}"/ || die
 	insinto "${INSTALL_PATH}"/vimfiles
 	doins -r "${S}"/util/vim/{ftdetect,indent,syntax}
+}
+
+pkg_postinst() {
+	eselect_bluespec_update
+}
+
+pkg_postrm() {
+	eselect_bluespec_update
 }

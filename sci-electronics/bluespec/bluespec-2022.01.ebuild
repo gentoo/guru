@@ -59,6 +59,7 @@ BDEPEND="
 		dev-texlive/texlive-latexrecommended
 		dev-texlive/texlive-plaingeneric
 	)
+	sys-apps/coreutils
 	sys-devel/autoconf
 	sys-devel/bison
 	sys-devel/flex
@@ -82,12 +83,10 @@ src_prepare() {
 
 src_compile() {
 	# NO_DEPS_CHECKS=1: skip the subrepo check (this deriviation uses yices.src instead of the subrepo)
-	# NOGIT=1: https://github.com/B-Lang-org/bsc/issues/12
 	# LDCONFIG=ldconfig: https://github.com/B-Lang-org/bsc/pull/43
 	# STP_STUB=1: https://github.com/B-Lang-org/bsc/pull/278
 	emake \
 		"NO_DEPS_CHECKS=1" \
-		"NOGIT=1" \
 		"LDCONFIG=ldconfig" \
 		"STP_STUB=1" \
 		$(usex doc "" "NOASCIIDOCTOR=1") \
@@ -119,6 +118,13 @@ src_install() {
 	local INSTALL_PATH=/usr/share/bsc/bsc-"${PV}"
 	local ED_INSTALL_PATH="${ED}${INSTALL_PATH}"
 	mkdir -p "${ED_INSTALL_PATH}" || die
+	local f
+	for f in "${S}"/inst/bin/*; do
+		if [[ ! -d "${f}" ]] ; then
+			local b=$(basename ${f})
+			sed -i "s|ABSNAME=.*\$|ABSNAME=\$(readlink -f -- \"\$0\")|g" "${f}" || die
+		fi
+	done
 	cp -dr --preserve=mode,timestamp "${S}"/inst/* "${ED_INSTALL_PATH}"/ || die
 	insinto "${INSTALL_PATH}"/vimfiles
 	doins -r "${S}"/util/vim/{ftdetect,indent,syntax}
