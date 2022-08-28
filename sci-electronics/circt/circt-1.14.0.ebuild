@@ -19,7 +19,9 @@ HOMEPAGE="
 if [[ "${PV}" == "9999" ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/llvm/${PN}.git"
-	EGIT_SUBMODULES=( '*' )
+	S_CIRCT="${EGIT_CHECKOUT_DIR}"
+	S_LLVM="${S_CIRCT}/llvm"
+	S="${S_LLVM}/llvm"
 else
 	SRC_URI="
 		https://github.com/llvm/circt/archive/refs/tags/sifive/${MY_PV}.tar.gz -> ${P}.tar.gz
