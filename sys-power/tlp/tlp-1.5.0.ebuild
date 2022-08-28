@@ -20,29 +20,14 @@ RDEPEND="virtual/udev
 		systemd? ( sys-apps/systemd )"
 DEPEND="${RDEPEND}"
 REQUIRED_USE="?? ( elogind systemd )"
-PATCHES="${FILESDIR}/${PN}-1.5.0-Makefile.patch"
-CONFIG_PROTECT="/etc/tlp.conf /etc/tlp.d"
-
-src_prepare() {
-	default
-	sed -i "s/@LIBDIR@/$(get_libdir)/g" "${S}/Makefile"
-}
-
-src_compile() {
-	emake
-}
 
 src_install() {
-	if use bash-completion; then export bashcomp=0; else export bashcomp=1; fi
-	if use elogind; then export elogind=1; else export elogind=0; fi
-	if use systemd; then export systemd=1; else export systemd=0; fi
-
 	emake \
 		DESTDIR="${D}" \
 		TLP_NO_INIT=1 \
-		TLP_NO_BASHCOMP=$bashcomp \
-		TLP_WITH_ELOGIND=$elogind \
-		TLP_WITH_SYSTEMD=$systemd \
+		TLP_NO_BASHCOMP=$(usex bash-completion 0 1) \
+		TLP_WITH_ELOGIND=$(usex elogind 1 0) \
+		TLP_WITH_SYSTEMD=$(usex systemd 1 0) \
 		install install-man
 
 	chmod 444 "${D}/usr/share/tlp/defaults.conf" # manpage says this file should not be edited
