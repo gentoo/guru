@@ -5,7 +5,7 @@ EAPI=8
 
 inherit autotools
 
-DESCRIPTION="Manages the /usr/bin/vi symlink"
+DESCRIPTION="Manages the /usr/bin/bsc (bluespec) symlink"
 HOMEPAGE="https://github.com/vowstar/eselect-bluespec"
 SRC_URI="https://github.com/vowstar/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
