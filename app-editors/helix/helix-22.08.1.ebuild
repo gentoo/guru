@@ -8,12 +8,12 @@ EAPI=8
 CRATES="
 	aho-corasick-0.7.18
 	android_system_properties-0.1.5
-	anyhow-1.0.62
+	anyhow-1.0.63
 	arc-swap-1.5.1
 	autocfg-1.1.0
 	bitflags-1.3.2
 	bstr-0.2.17
-	bumpalo-3.10.0
+	bumpalo-3.11.0
 	bytecount-0.6.3
 	bytes-1.2.1
 	cassowary-0.3.0
@@ -29,7 +29,7 @@ CRATES="
 	crossterm_winapi-0.9.0
 	dirs-next-2.0.0
 	dirs-sys-next-0.1.2
-	either-1.7.0
+	either-1.8.0
 	encoding_rs-0.8.31
 	encoding_rs_io-0.1.7
 	error-code-2.3.1
@@ -57,14 +57,14 @@ CRATES="
 	itoa-1.0.3
 	js-sys-0.3.59
 	lazy_static-1.4.0
-	libc-0.2.127
+	libc-0.2.132
 	libloading-0.7.3
-	lock_api-0.4.7
+	lock_api-0.4.8
 	log-0.4.17
 	lsp-types-0.93.1
 	matches-0.1.9
 	memchr-2.5.0
-	memmap2-0.5.5
+	memmap2-0.5.7
 	mio-0.8.4
 	num-integer-0.1.45
 	num-traits-0.2.15
@@ -106,15 +106,15 @@ CRATES="
 	smallvec-1.9.0
 	smartstring-1.0.1
 	smawk-0.3.1
-	socket2-0.4.4
+	socket2-0.4.7
 	static_assertions-1.1.0
 	str-buf-1.0.6
 	str_indices-0.4.0
 	syn-1.0.99
 	tempfile-3.3.0
 	textwrap-0.15.0
-	thiserror-1.0.32
-	thiserror-impl-1.0.32
+	thiserror-1.0.33
+	thiserror-impl-1.0.33
 	thread_local-1.1.4
 	threadpool-1.8.1
 	tinyvec-1.6.0
@@ -141,7 +141,7 @@ CRATES="
 	wasm-bindgen-macro-0.2.82
 	wasm-bindgen-macro-support-0.2.82
 	wasm-bindgen-shared-0.2.82
-	which-4.2.5
+	which-4.3.0
 	winapi-0.3.9
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-util-0.1.5
