@@ -20,6 +20,6 @@ RESTRICT="binchecks strip"
 S="${WORKDIR}"
 
 src_install() {
-  cp ${DISTDIR}/ledger-live-desktop-${PV}-linux-x86_64.AppImage ledger-live
+  cp ${DISTDIR}/ledger-live-desktop-${PV}-linux-x86_64.AppImage ledger-live || die
   dobin ledger-live
 }
