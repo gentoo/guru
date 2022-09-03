@@ -22,6 +22,10 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
 
+PATCHES=(
+	"${FILESDIR}/${P}-gentoo-skip-manpage-compression.patch"
+)
+
 DEPEND="
 	sys-libs/libcap
 	sys-libs/readline:=
@@ -33,13 +37,12 @@ BDEPEND=""
 
 src_compile() {
 	# makefile defaults to /usr/local
-	emake PREFIX="/usr" || die "make failed"
+	emake PREFIX="/usr"
 }
 
 src_install() {
-	docompress -x /usr/share/man # makefile compresses man page
 	# makefile defaults to /usr/local, and manpages to /usr/man
-	emake DESTDIR="${D}" PREFIX="/usr" MANDIR="/usr/share/man" install || die "install failed"
+	emake DESTDIR="${D}" PREFIX="/usr" MANDIR="/usr/share/man" install
 	einstalldocs
 }
 
