@@ -1,4 +1,4 @@
-BDEPEND=app-arch/unzip sys-devel/make >=dev-lang/go-1.16 app-arch/unzip
+BDEPEND=app-arch/unzip sys-devel/make >=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=compile install postinst unpack
 DEPEND=sys-libs/libnvidia-container
 DESCRIPTION=NVIDIA container runtime toolkit
@@ -11,5 +11,5 @@ RDEPEND=sys-libs/libnvidia-container
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/NVIDIA/nvidia-container-toolkit/archive/v1.10.0.tar.gz -> nvidia-container-toolkit-1.10.0.tar.gz https://media.githubusercontent.com/media/vowstar/distfiles/main/nvidia-container-toolkit-1.10.0-deps.tar.xz
-_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a
+_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec
 _md5_=64f44473176c4c7da332493c2f54a927

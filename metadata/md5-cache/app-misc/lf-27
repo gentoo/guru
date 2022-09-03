@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/go-1.16 app-arch/unzip
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=compile install postinst postrm preinst prepare unpack
 DEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=Terminal file manager
@@ -11,5 +11,5 @@ LICENSE=MIT
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/gokcehan/lf/archive/r27.tar.gz -> lf-27.tar.gz https://github.com/cantcuckthis/gentoo-lf/raw/main/lf-27-deps.tar.xz
-_eclasses_=go-module	a13d34fe4e2996720e1ca6c53b9ea95a	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	desktop	22952d8f27cac191d75529d4c38e6bfa	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	desktop	22952d8f27cac191d75529d4c38e6bfa	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
 _md5_=261cbf8708f0da6aaa92344c203e5814
