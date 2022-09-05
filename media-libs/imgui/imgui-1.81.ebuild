@@ -5,8 +5,7 @@ EAPI=8
 
 inherit meson
 
-IMGUI_VER="1.81"
-IMGUI_MESON_WRAP_VER="1"
+MESON_WRAP_VER="1"
 
 DESCRIPTION="Bloat-free graphical user interface library for C++"
 HOMEPAGE="
@@ -14,13 +13,14 @@ HOMEPAGE="
 "
 
 SRC_URI="
-	https://github.com/ocornut/imgui/archive/v${IMGUI_VER}.tar.gz -> imgui-${IMGUI_VER}.tar.gz
+	https://github.com/ocornut/imgui/archive/v${PV}.tar.gz -> imgui-${PV}.tar.gz
+	https://wrapdb.mesonbuild.com/v2/imgui_${PV}-${MESON_WRAP_VER}/get_patch -> imgui-${PV}-${MESON_WRAP_VER}-meson-wrap.zip
 "
 
 LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
-IUSE="dx9 dx10 dx11 dx12 metal opengl vulkan glfw sdl2 osx win marmalade allegro5"
+IUSE="opengl vulkan glfw sdl2 marmalade allegro5"
 
 RDEPEND="
 	dev-libs/stb:=
@@ -37,28 +37,28 @@ DEPEND="
 "
 BDEPEND="
 	virtual/pkgconfig
+	app-arch/unzip
 "
 
 src_unpack() {
 	default
 
-	cp ${FILESDIR}/imgui-${IMGUI_VER}-meson.build ${S}/meson.build || die
-	cp ${FILESDIR}/imgui-${IMGUI_VER}-meson_options.txt ${S}/meson_options.txt || die
+	unpack imgui-${PV}-${MESON_WRAP_VER}-meson-wrap.zip
 }
 
 src_configure() {
 	local emesonargs=(
-		$(meson_feature dx9)
-		$(meson_feature dx10)
-		$(meson_feature dx11)
-		$(meson_feature dx12)
-		$(meson_feature metal)
+		-Ddx9=disabled
+		-Ddx10=disabled
+		-Ddx11=disabled
+		-Ddx12=disabled
+		-Dmetal=disabled
 		$(meson_feature opengl)
 		$(meson_feature vulkan)
 		$(meson_feature glfw)
 		$(meson_feature sdl2)
-		$(meson_feature osx)
-		$(meson_feature win)
+		-Dosx=disabled
+		-Dwin=disabled
 		$(meson_feature marmalade)
 		$(meson_feature allegro5)
 	)
