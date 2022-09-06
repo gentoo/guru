@@ -22,9 +22,6 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	dev-python/keyring[${PYTHON_USEDEP}]
 "
-BDEPEND="
-	>=dev-python/setuptools_scm-3.4.1[${PYTHON_USEDEP}]
-"
 
 distutils_enable_tests pytest
 # dev-python/jaraco-packaging removed, cannot build docs
