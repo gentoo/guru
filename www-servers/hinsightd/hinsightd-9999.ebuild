@@ -15,7 +15,7 @@ SLOT="0"
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/tiotags/hin9.git"
-elif [[ ! -z "$mycommit" ]]; then
+elif [[ ! -z "${mycommit}" ]]; then
 	SRC_URI="https://gitlab.com/tiotags/hin9/-/archive/${mycommit}/hin9-${mycommit}.tar.gz"
 	S="${WORKDIR}/hin9-${mycommit}"
 else
@@ -53,14 +53,14 @@ FILECAPS=(
 )
 
 pkg_setup() {
-	linux-info_pkg_setup;
+	linux-info_pkg_setup
 	lua-single_pkg_setup
 }
 
 src_configure() {
 	version=$(ver_cut 1-2 $(lua_get_version))
-	if [ "$version" == "2.1" ]; then
-	  version="jit"
+	if [[ "${version}" == "2.1" ]]; then
+		version="jit"
 	fi
 	local emesonargs=(
 		$(meson_use ssl openssl)
@@ -68,7 +68,7 @@ src_configure() {
 		$(meson_use fcgi)
 		$(meson_use rproxy)
 		$(meson_use ffcall)
-		-Dforce-lua-version=$version
+		-Dforce-lua-version=${version}
 	)
 	meson_src_configure
 }
@@ -76,19 +76,19 @@ src_configure() {
 src_install() {
 	meson_src_install
 
-	newinitd "${S}/external/packaging/$PN.initd.sh" $PN
-	newconfd "${S}/external/packaging/$PN.confd.sh" $PN
-	systemd_dounit "${FILESDIR}/$PN.service" # not tested
+	newinitd "${S}/external/packaging/${PN}.initd.sh" ${PN}
+	newconfd "${S}/external/packaging/${PN}.confd.sh" ${PN}
+	systemd_dounit "${FILESDIR}/${PN}.service" # not tested
 
 	# config
-	insinto /etc/$PN
+	insinto /etc/${PN}
 	doins "${S}/workdir/main.lua"
 	doins "${S}/workdir/lib.lua"
 	doins -r "${S}/workdir/config/"
 
 	# logrotate
 	insinto /etc/logrotate.d
-	newins "${S}/external/packaging/$PN.logrotate.sh" $PN
+	newins "${S}/external/packaging/${PN}.logrotate.sh" ${PN}
 }
 
 pkg_postinst() {

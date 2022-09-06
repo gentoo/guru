@@ -33,8 +33,19 @@ RDEPEND="${DEPEND}"
 QA_FLAGS_IGNORED="usr/bin/harec?"
 
 src_configure() {
+	local target_arch
+	case ${ARCH} in
+		amd64 ) target_arch=x86_64 ;;
+		arm64 ) target_arch=aarch64 ;;
+		riscv ) target_arch=riscv64 ;;
+		* ) die "unsupported architecture: ${ARCH}" ;;
+	esac
+
 	cp config.example.mk config.mk || die
 	sed -i \
+		-e 's;=aarch64-;=;' \
+		-e 's;=riscv64-;=;' \
+		-e "s;^ARCH =.*;ARCH=${target_arch};" \
 		-e 's;^PREFIX=.*;PREFIX=/usr;' \
 		-e 's;^AS =;AS ?=;' \
 		-e 's;^LD =;LD ?=;' \

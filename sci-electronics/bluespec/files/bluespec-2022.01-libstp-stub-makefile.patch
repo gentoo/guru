@@ -1,0 +1,38 @@
+From 1981ce3eb76c1a3fe977728959bde823156b8055 Mon Sep 17 00:00:00 2001
+From: Jack Cummings <jack@mudshark.org>
+Date: Thu, 12 Nov 2020 22:16:11 -0800
+Subject: [PATCH] tweak to b37ad3c; install libstp_stub.so when STP_STUB=1
+
+---
+ src/vendor/stp/Makefile | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/src/vendor/stp/Makefile b/src/vendor/stp/Makefile
+index 092995d7f..c1bbc2019 100644
+--- a/src/vendor/stp/Makefile
++++ b/src/vendor/stp/Makefile
+@@ -9,12 +9,13 @@ ifeq ($(STP_STUB),)
+ SRC = src
+ else
+ SRC = src_stub
++SNAME += lib/libstp_stub.so
+ endif
+ 
+ ifeq ($(OSTYPE), Darwin)
+-SNAME=libstp.dylib
++SNAME = lib/libstp.dylib
+ else
+-SNAME=libstp.so.1
++SNAME += lib/libstp.so.1
+ endif
+ 
+ all: install
+@@ -23,7 +24,7 @@ install:
+ 	$(MAKE) -C $(SRC) install
+ 	ln -fsn HaskellIfc include_hs
+ 	install -m 755 -d $(PREFIX)/lib/SAT
+-	install -m 644 lib/$(SNAME) $(PREFIX)/lib/SAT
++	install -m 644 $(SNAME) $(PREFIX)/lib/SAT
+ 
+ clean:
+ 	$(MAKE) -C $(SRC) clean

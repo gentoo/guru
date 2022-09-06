@@ -12,40 +12,22 @@ S="${WORKDIR}/TLP-${PV}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="bash-completion elogind systemd"
 RESTRICT="mirror"
+# It's uncertain if elogind/systemd is actually required, however, without the sleep
+# hooks working, which require one of them, it doesn't seem like this app is very useful.
 RDEPEND="virtual/udev
-		bash-completion? ( app-shells/bash app-shells/bash-completion )
-		elogind? ( sys-auth/elogind )
-		systemd? ( sys-apps/systemd )"
+		|| ( sys-auth/elogind sys-apps/systemd )"
 DEPEND="${RDEPEND}"
-REQUIRED_USE="?? ( elogind systemd )"
-PATCHES="${FILESDIR}/${PN}-1.5.0-Makefile.patch"
-CONFIG_PROTECT="/etc/tlp.conf /etc/tlp.d"
-
-src_prepare() {
-	default
-	sed -i "s/@LIBDIR@/$(get_libdir)/g" "${S}/Makefile"
-}
-
-src_compile() {
-	emake
-}
 
 src_install() {
-	if use bash-completion; then export bashcomp=0; else export bashcomp=1; fi
-	if use elogind; then export elogind=1; else export elogind=0; fi
-	if use systemd; then export systemd=1; else export systemd=0; fi
-
 	emake \
 		DESTDIR="${D}" \
 		TLP_NO_INIT=1 \
-		TLP_NO_BASHCOMP=$bashcomp \
-		TLP_WITH_ELOGIND=$elogind \
-		TLP_WITH_SYSTEMD=$systemd \
+		TLP_WITH_ELOGIND=1 \
+		TLP_WITH_SYSTEMD=1 \
 		install install-man
 
-	chmod 444 "${D}/usr/share/tlp/defaults.conf" # manpage says this file should not be edited
+	fperms 444 "/usr/share/tlp/defaults.conf" # manpage says this file should not be edited
 	newinitd "${FILESDIR}/tlp.init" tlp
 	keepdir "/var/lib/tlp" # created by Makefile, probably important
 }

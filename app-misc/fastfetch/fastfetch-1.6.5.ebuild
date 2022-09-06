@@ -23,10 +23,7 @@ IUSE="X chafa dbus gnome imagemagick opencl opengl osmesa pci sqlite vulkan wayl
 RDEPEND="
 	sys-libs/zlib
 	X? ( x11-libs/libX11 )
-	chafa? (
-		media-gfx/chafa
-		media-gfx/imagemagick:=
-	)
+	chafa? ( media-gfx/chafa )
 	dbus? ( sys-apps/dbus )
 	gnome? (
 		dev-libs/glib

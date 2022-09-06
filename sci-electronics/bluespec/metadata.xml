@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">B-Lang-org/bsc</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		This is a compiler, simulator, and associated tools for Bluespec High Level
+		Hardware Design Language (HL-HDL), supporting the two optional syntaxes,
+		BSV and BH. Language specifications and tutorials are available in the
+		BSVlang repository.
+	</longdescription>
+</pkgmetadata>

@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	net-p2p/go-ipfs
+	net-p2p/kubo
 "
 
 DOCS=( CHANGELOG.md CONTRIBUTING.md README.md )
