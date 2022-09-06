@@ -7,5 +7,5 @@ KEYWORDS=~amd64 ~arm64 ~riscv
 LICENSE=GPL-3
 RDEPEND=sys-devel/qbe
 SLOT=0
-SRC_URI=https://git.sr.ht/~sircmpwn/harec/archive/56359312644f76941de1878d33a1a0b840be8056.tar.gz -> harec-0_pre20220702.tar.gz
-_md5_=6826e7319654be04361d46eea80798a4
+SRC_URI=https://git.sr.ht/~sircmpwn/harec/archive/03744ea230c5064adf9820d6390b46ecb5e1e503.tar.gz -> harec-0_pre20220827.tar.gz
+_md5_=7cbfbe0f44ab434044c926cf404db33d

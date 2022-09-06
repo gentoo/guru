@@ -4,7 +4,7 @@ DEPEND=|| ( >=sys-cluster/openmpi-4.1.2[fortran] >=sys-cluster/mpich-3.4.3[fortr
 DESCRIPTION=A parallel application binary interface for Fortran 2018 compilers
 EAPI=8
 HOMEPAGE=http://www.opencoarrays.org/
-INHERIT=cmake fortran-2
+INHERIT=cmake flag-o-matic fortran-2
 IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.9.3/OpenCoarrays-2.9.3.tar.gz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
-_md5_=3b8e2fa9ae7343a0202c95941e607e1a
+_md5_=eb1277105c22c1b26b354c059ac7ed54

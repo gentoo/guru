@@ -1,0 +1,17 @@
+BDEPEND=test? ( ruby_targets_ruby27? ( >=dev-ruby/css_parser-1.6.0[ruby_targets_ruby27(-)] >=dev-ruby/prawn-0.11.1[ruby_targets_ruby27(-)] >=dev-ruby/rexml-3.2.0[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( >=dev-ruby/css_parser-1.6.0[ruby_targets_ruby30(-)] >=dev-ruby/prawn-0.11.1[ruby_targets_ruby30(-)] >=dev-ruby/rexml-3.2.0[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/mocha[ruby_targets_ruby27(-)] >=dev-ruby/pdf-inspector-1.1.0[ruby_targets_ruby27(-)] >=dev-ruby/pdf-reader-1.2[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( test? ( dev-ruby/mocha[ruby_targets_ruby30(-)] >=dev-ruby/pdf-inspector-1.1.0[ruby_targets_ruby30(-)] >=dev-ruby/pdf-reader-1.2[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( doc? ( dev-ruby/yard[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( doc? ( dev-ruby/yard[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby27? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby27(-)] ) ) ruby_targets_ruby30? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby30(-)] ) ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) test? ( ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] ) )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
+DESCRIPTION=Provides support for SVG in Prawn
+EAPI=8
+HOMEPAGE=https://github.com/mogest/prawn-svg
+INHERIT=ruby-fakegem
+IUSE=test ruby_targets_ruby27 ruby_targets_ruby30 doc test test
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=|| ( MIT Ruby )
+RDEPEND=ruby_targets_ruby27? ( >=dev-ruby/css_parser-1.6.0[ruby_targets_ruby27(-)] >=dev-ruby/prawn-0.11.1[ruby_targets_ruby27(-)] >=dev-ruby/rexml-3.2.0[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( >=dev-ruby/css_parser-1.6.0[ruby_targets_ruby30(-)] >=dev-ruby/prawn-0.11.1[ruby_targets_ruby30(-)] >=dev-ruby/rexml-3.2.0[ruby_targets_ruby30(-)] ) ruby_targets_ruby27? ( dev-lang/ruby:2.7 ) ruby_targets_ruby30? ( dev-lang/ruby:3.0 ) ruby_targets_ruby27? ( virtual/rubygems[ruby_targets_ruby27(-)] ) ruby_targets_ruby30? ( virtual/rubygems[ruby_targets_ruby30(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby27 ruby_targets_ruby30 )
+RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://rubygems.org/gems/prawn-svg-0.32.0.gem
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	ruby-utils	97c8e15d89dc6537e36cddedf413ed22	ruby-ng	32c657868f5d944ede724c36996ec27a	ruby-fakegem	5219a86777b162618ed386ae08bf8ce4
+_md5_=b80f23121cb92356d6debee953bf795e

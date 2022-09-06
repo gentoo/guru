@@ -45,13 +45,6 @@ app-misc/fastfetch:xrandr - Enables support for Xrandr
 app-misc/ntfy:dbus - Support for desktop notifications
 app-misc/ntfy:telegram - Add support for telegram backend
 app-misc/termdown:speak - Support for spoken countdown
-app-office/sc-im:X - Use x11-misc/xclip for clipboard copy/paste
-app-office/sc-im:ods - Add ods import support
-app-office/sc-im:plots - Add sci-visualization/gnuplot for plotting support
-app-office/sc-im:tmux - Use app-misc/tmux for clipboard copy/paste
-app-office/sc-im:wayland - Use gui-apps/wl-clipboard for clipboard copy/paste
-app-office/sc-im:xls - Add xls support
-app-office/sc-im:xlsx - Add xlsx support
 app-portage/emlop:fish-completion - Enable fish completion support.
 app-text/klogg:lto - Build with link time optimization (LTO).
 dev-cpp/cpptoml:libcxx - Use libc++ for the C++ standard library
@@ -70,13 +63,6 @@ dev-embedded/rauc:gpt - Add GPT support
 dev-embedded/rauc:json - Add JSON support
 dev-embedded/rauc:network - Add network update support
 dev-embedded/rauc:service - Add dbus service
-dev-games/godot:bullet - Enable support for sci-physics/bullet
-dev-games/godot:deprecated - Enable deprecated features
-dev-games/godot:enet - Enable support for net-libs/enet
-dev-games/godot:freetype - Enable support for media-libs/freetype
-dev-games/godot:lto - Enable support for link time optimization
-dev-games/godot:mbedtls - Enable support for net-libs/mbedtls
-dev-games/godot:raycast - Enable raycast module using media-libs/embree
 dev-java/jogl:cg - Enable NVidia Cg binding.
 dev-libs/KVTree:fcntl - Set the type of file locking to fcntl.
 dev-libs/KVTree:flock - Set the type of file locking to flock.
@@ -95,7 +81,6 @@ dev-libs/hts_engine:speech-tools - use memory allocation/free functions of app-a
 dev-libs/libdwarf:dwarfexample - enable dwarfexample compilation
 dev-libs/libdwarf:dwarfgen - enable dwarfgen compilation
 dev-libs/libdwarf:elf - enable use of virtual/libelf
-dev-libs/libxlsxwriter:openssl - Use dev-libs/openssl for MD5 digest
 dev-libs/memkind:daxctl - Build library with daxctl support
 dev-libs/memkind:debug - Build debugging jemalloc code
 dev-libs/memkind:decorators - Enable decorators
@@ -434,6 +419,7 @@ net-libs/evpath:infiniband - Build the ibverbs transport
 net-libs/evpath:libfabric - Build the libfabric transport
 net-libs/evpath:udt4 - Build the udt4 transport
 net-libs/ixwebsocket:ws - Build the ws utility
+net-libs/picotls:fusion - "fusion" AES-GCM engine, optimized for QUIC and other protocols that use short AEAD blocks
 net-libs/td:benchmark - Enable benchmarking
 net-libs/td:dotnet - Add support for .NET
 net-libs/td:jumbo-build - Combine source files to speed up build process
@@ -841,7 +827,6 @@ sys-cluster/veloc:slurm - Use sys-cluster/slurm as resource manager
 sys-cluster/wxparaver:extrae - Enable extrae support
 sys-cluster/wxparaver:ompss - Enable OmpSs parallel version
 sys-cluster/wxparaver:openmp - Enable OpenMP parallel version
-sys-devel/cproc:system-qbe - Use sys-devel/qbe instead of the vendored one
 sys-kernel/dkms:kernel-hooks - Enable automatic rebuilding of modules via kernel source makefile hooks
 sys-kernel/msr-safe:slurm - Install the spank plugin
 sys-kernel/uek-sources:experimental - apply experimental gentoo genpatches

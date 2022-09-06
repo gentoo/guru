@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install postinst unpack
+DEPEND=sys-libs/ncurses:= sys-libs/readline:=
+DESCRIPTION=A cross-platform build utility based on Lua
+EAPI=8
+HOMEPAGE=https://xmake.io
+INHERIT=optfeature git-r3
+LICENSE=Apache-2.0
+PROPERTIES=live
+RDEPEND=sys-libs/ncurses:= sys-libs/readline:= virtual/pkgconfig
+RESTRICT=test
+SLOT=0
+_eclasses_=optfeature	1a2157392a869265b2afcb63a26c12ac	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=2ab7f08e94267c3537ab475f0c051244
