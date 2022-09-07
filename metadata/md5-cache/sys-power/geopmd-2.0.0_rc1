@@ -12,5 +12,5 @@ RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/geopm/geopm/archive/refs/tags/v2.0.0+rc1.tar.gz -> geopm-2.0.0+rc1.gh.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
 _md5_=8a6045f83add3c8316f54c41a1009f94

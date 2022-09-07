@@ -10,5 +10,5 @@ LICENSE=GPL-3
 RDEPEND=>=x11-libs/gtk+-3.22.0:3[introspection,wayland] gui-libs/gtk-layer-shell dev-libs/json-c dev-util/wayland-scanner >=dev-libs/wayland-protocols-1.17
 SLOT=0
 SRC_URI=https://github.com/LBCrion/sfwbar/archive/v1.0_beta8.tar.gz -> sfwbar-1.0_beta8.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003
 _md5_=661696b23a2b39e89dace3de2b222ed9
