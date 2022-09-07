@@ -26,6 +26,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	app-eselect/eselect-bluespec
+	app-shells/tcsh
 	dev-haskell/old-time:0=
 	dev-haskell/regex-compat:0=
 	dev-haskell/split:0=
@@ -70,7 +71,12 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2022.01-libstp-stub-makefile.patch
 )
 
-DOCS=( "README.md" "COPYING" )
+# Do not complain about CFLAGS etc since we don't use them
+QA_FLAGS_IGNORED="
+	usr/share/bsc/bsc-${PV}/bin/core/.*
+	usr/share/bsc/bsc-${PV}/lib/SAT/.*
+	usr/share/bsc/bsc-${PV}/lib/VPI/.*
+"
 
 src_prepare() {
 	if [[ ${PV} != "9999" ]] ; then
@@ -83,12 +89,10 @@ src_prepare() {
 
 src_compile() {
 	# NO_DEPS_CHECKS=1: skip the subrepo check (this deriviation uses yices.src instead of the subrepo)
-	# NOGIT=1: https://github.com/B-Lang-org/bsc/issues/12
 	# LDCONFIG=ldconfig: https://github.com/B-Lang-org/bsc/pull/43
 	# STP_STUB=1: https://github.com/B-Lang-org/bsc/pull/278
 	emake \
 		"NO_DEPS_CHECKS=1" \
-		"NOGIT=1" \
 		"LDCONFIG=ldconfig" \
 		"STP_STUB=1" \
 		$(usex doc "" "NOASCIIDOCTOR=1") \
