@@ -40,6 +40,10 @@ BDEPEND="
 	app-arch/unzip
 "
 
+PATCHES=(
+	"${FILESDIR}/imgui-1.81-wrapdb-meson-fix.patch"
+)
+
 src_unpack() {
 	default
 
