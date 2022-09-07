@@ -44,8 +44,8 @@ QA_PRESTRIPPED="${QA_FLAGS_IGNORED}"
 src_unpack() {
 	default
 
-	for f in ${WORKDIR}/*/*.tar.gz; do
-		tar -zxf "$f" -C ${WORKDIR} || die
+	for f in "${WORKDIR}"/*/*.tar.gz; do
+		tar -zxf "$f" -C "${WORKDIR}" || die
 	done
 }
 
