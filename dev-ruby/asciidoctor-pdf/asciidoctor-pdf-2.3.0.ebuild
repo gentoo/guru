@@ -22,6 +22,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
+# rake have no task test, skipping for now
+RESTRICT=test
+
 ruby_add_rdepend "
 	>=dev-ruby/asciidoctor-2.0
 	>=dev-ruby/concurrent-ruby-1.1
@@ -33,11 +36,6 @@ ruby_add_rdepend "
 	>=dev-ruby/prawn-templates-0.1.0
 	>=dev-ruby/treetop-1.6.0
 	"
-ruby_add_bdepend "test? (
-	>=dev-ruby/chunky_png-1.4.0
-	>=dev-ruby/pdf-inspector-1.3.0
-	dev-ruby/rspec-expectations:*
-	)"
 
 all_ruby_prepare() {
 	rm Gemfile || die
