@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit python-any-r1 meson
 
@@ -67,11 +67,11 @@ S="${WORKDIR}/MangoHud-${PV}"
 
 src_unpack() {
 	default
-	[[ -n "${MY_PV_REV}" ]] && ( mv ${WORKDIR}/MangoHud-${MY_PV}${MY_PV_REV} ${WORKDIR}/MangoHud-${PV} || die )
+	[[ -n "${MY_PV_REV}" ]] && ( mv "${WORKDIR}/MangoHud-${MY_PV}${MY_PV_REV}" "${WORKDIR}/MangoHud-${PV}" || die )
 
 	unpack imgui-${IMGUI_VER}.tar.gz
 	unpack imgui-${IMGUI_VER}-${IMGUI_MESON_WRAP_VER}-meson-wrap.zip
-	mv ${WORKDIR}/imgui-${IMGUI_VER} ${S}/subprojects/imgui || die
+	mv "${WORKDIR}/imgui-${IMGUI_VER}" "${S}/subprojects/imgui" || die
 }
 
 src_configure() {
