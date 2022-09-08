@@ -11,7 +11,6 @@ LICENSE='MPL-2.0'
 CRAN_PN="data.table"
 SRC_URI="mirror://cran/src/contrib/${CRAN_PN}_${PV}.tar.gz"
 
-
 SUGGESTED_PACKAGES="
 	>=dev-R/bit64-4.0.0
 	>=dev-R/bit-4.0.4
