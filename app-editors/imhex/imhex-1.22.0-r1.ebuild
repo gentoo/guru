@@ -27,8 +27,9 @@ REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 DEPEND="
 	python? ( ${PYTHON_DEPS} )
 	app-forensics/yara
+	>=dev-cpp/nlohmann_json-3.10.2
 	dev-libs/capstone
-	>=dev-libs/libfmt-8.0.0
+	>=dev-libs/libfmt-8.0.0:=
 	dev-libs/openssl
 	dev-libs/tre
 	media-libs/freetype
@@ -46,10 +47,20 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	app-admin/chrpath
-	>=dev-cpp/nlohmann_json-3.10.2
 	gnome-base/librsvg
 	sys-devel/llvm
 "
+
+src_prepare() {
+	default
+	# Due to network sandboxing, we can't do network test here.
+	sed -i \
+		-e 's/StoreAPI$/#StoreAPI/' \
+		-e 's/TipsAPI$/#TipsAPI/' \
+		-e 's/ContentAPI$/#ContentAPI/' \
+		"${S}/tests/helpers/CMakeLists.txt" || die
+	cmake_src_prepare
+}
 
 src_configure() {
 	use python && python_setup
@@ -74,18 +85,25 @@ src_configure() {
 	cmake_src_configure
 }
 
+src_test() {
+	pushd "${BUILD_DIR}" || die
+	emake unit_tests
+	popd || die
+	cmake_src_test
+}
+
 src_install() {
 	# Can't use cmake_src_install, doing it manual
 	# Executable
 	dobin "${BUILD_DIR}/${PN}"
-	chrpath -d "${ED}/usr/bin/${PN}"
+	chrpath -d "${ED}/usr/bin/${PN}" || die
 	# Shared lib and plugins
 	dolib.so "${BUILD_DIR}"/lib/lib"${PN}"/lib"${PN}".so*
-	chrpath -d "${ED}"/usr/bin/lib"${PN}"/lib"${PN}".so*
+	chrpath -d "${ED}"/usr/"$(get_libdir)"/lib"${PN}".so* || die
 	exeinto "/usr/$(get_libdir)/${PN}/plugins"
 	for plugin in builtin; do
 		doexe "${BUILD_DIR}/plugins/${plugin}.hexplug"
-		chrpath -d "${ED}/usr/$(get_libdir)/${PN}/plugins/${plugin}.hexplug"
+		chrpath -d "${ED}/usr/$(get_libdir)/${PN}/plugins/${plugin}.hexplug" || die
 	done
 	# Desktop and icon files
 	domenu "${S}/dist/${PN}.desktop"
