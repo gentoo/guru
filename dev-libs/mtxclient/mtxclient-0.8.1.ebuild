@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake flag-o-matic
 
 DESCRIPTION="Client API library for Matrix, built on top of Boost.Asio"
 HOMEPAGE="https://github.com/Nheko-Reborn/mtxclient"
@@ -17,10 +17,11 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	dev-libs/libfmt:=
 	dev-libs/olm
-	>=dev-libs/openssl-1.1.0
-	dev-libs/spdlog
-	>=dev-cpp/coeurl-0.1.1:=
+	>=dev-libs/openssl-1.1.0:=
+	dev-libs/spdlog:=
+	>=dev-cpp/coeurl-0.2.1:=[ssl]
 "
 DEPEND="
 	${RDEPEND}
@@ -31,6 +32,14 @@ DEPEND="
 PATCHES=(
 	"${FILESDIR}/0.6.0_remove_network_tests.patch"
 )
+
+src_prepare() {
+	if use test; then
+		filter-lto # bug 861731
+	fi
+
+	cmake_src_prepare
+}
 
 src_configure() {
 	local -a mycmakeargs=(

@@ -17,20 +17,23 @@ REQUIRED_USE="video? ( voip )"
 
 MY_GST_V="1.18"
 RDEPEND="
-	app-text/cmark
+	app-text/cmark:=
 	dev-cpp/qt-jdenticon
+	dev-db/lmdb:=
 	>=dev-db/lmdb++-1.0.0
-	>=dev-libs/mtxclient-0.7.0:=
-	>=dev-libs/qtkeychain-0.12.0
-	dev-libs/spdlog
+	dev-libs/libfmt:=
+	>=dev-libs/mtxclient-0.8.1:=
+	>=dev-libs/qtkeychain-0.12.0:=
+	dev-libs/spdlog:=
 	dev-qt/qtconcurrent:5
 	dev-qt/qtdeclarative:5[widgets]
 	dev-qt/qtgraphicaleffects:5
-	dev-qt/qtgui:5[gif,jpeg,png]
+	dev-qt/qtgui:5[dbus,gif,jpeg,png]
 	dev-qt/qtimageformats
 	dev-qt/qtmultimedia:5[gstreamer,qml,widgets]
 	dev-qt/qtquickcontrols2:5[widgets]
 	dev-qt/qtsvg:5
+	virtual/notification-daemon
 	voip? (
 		>=media-plugins/gst-plugins-dtls-${MY_GST_V}
 		media-plugins/gst-plugins-libnice
@@ -75,9 +78,11 @@ src_configure() {
 
 pkg_postinst() {
 	optfeature "audio & video file playback support" \
-			   "media-plugins/gst-plugins-meta[ffmpeg]"
-	optfeature "secrets storage support other than kwallet (gnome-keyring or keepassxc)" \
-			   "dev-libs/qtkeychain[gnome-keyring]"
+		"media-plugins/gst-plugins-meta[ffmpeg]"
+	optfeature "secrets storage support other than kwallet (for example gnome-keyring or keepassxc)" \
+		"dev-libs/qtkeychain[gnome-keyring]"
+	optfeature "additional, less common, image format support" \
+		"kde-frameworks/kimageformats"
 
 	xdg_pkg_postinst
 }

@@ -21,7 +21,7 @@ IUSE="+brotli doc examples mariadb postgres redis sqlite +ssl test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-cpp/trantor-1.5.6:=
+	>=dev-cpp/trantor-1.5.6_pre20220801:=
 	dev-libs/jsoncpp:=
 	sys-libs/zlib
 	brotli? ( app-arch/brotli:= )

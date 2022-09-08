@@ -22,6 +22,7 @@ KEYWORDS="~amd64 ~arm64 ~mips ~x86"
 IUSE="+scanner"
 
 RDEPEND="
+	dev-libs/libusb
 	net-print/cups
 	scanner? (
 		media-gfx/sane-backends
@@ -36,19 +37,15 @@ BDEPEND="
 	app-arch/unzip
 "
 
-QA_FLAGS_IGNORED="
-	/opt/smfp-common/scanner/lib/libsane-smfp.*
-	/opt/smfp-common/printer/bin/pstosecps
-	/opt/smfp-common/printer/bin/rastertospl
-	/opt/smfp-common/printer/bin/smfpnetdiscovery
-"
+# Do not complain about CFLAGS etc since it is binary package
+QA_FLAGS_IGNORED=".*"
 QA_PRESTRIPPED="${QA_FLAGS_IGNORED}"
 
 src_unpack() {
 	default
 
-	for f in ${WORKDIR}/*/*.tar.gz; do
-		tar -zxf "$f" -C ${WORKDIR} || die
+	for f in "${WORKDIR}"/*/*.tar.gz; do
+		tar -zxf "$f" -C "${WORKDIR}" || die
 	done
 }
 

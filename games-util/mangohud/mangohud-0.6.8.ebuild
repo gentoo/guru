@@ -10,19 +10,16 @@ inherit python-any-r1 meson
 MY_PV=$(ver_cut 1-3)
 [[ -n "$(ver_cut 4)" ]] && MY_PV_REV="-$(ver_cut 4)"
 
-IMGUI_VER="1.81"
-IMGUI_MESON_WRAP_VER="1"
-
 DESCRIPTION="A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more"
 HOMEPAGE="https://github.com/flightlessmango/MangoHud"
 
-SRC_URI="
-	https://github.com/flightlessmango/MangoHud/archive/v${MY_PV}${MY_PV_REV}.tar.gz -> ${P}.tar.gz
-	https://github.com/ocornut/imgui/archive/v${IMGUI_VER}.tar.gz -> imgui-${IMGUI_VER}.tar.gz
-	https://wrapdb.mesonbuild.com/v2/imgui_${IMGUI_VER}-${IMGUI_MESON_WRAP_VER}/get_patch -> imgui-${IMGUI_VER}-${IMGUI_MESON_WRAP_VER}-meson-wrap.zip
-"
-
-KEYWORDS="~amd64 ~x86"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/flightlessmango/MangoHud.git"
+else
+	SRC_URI="https://github.com/flightlessmango/MangoHud/archive/v${MY_PV}${MY_PV_REV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="MIT"
 SLOT="0"
@@ -42,6 +39,7 @@ python_check_deps() {
 }
 
 DEPEND="
+	~media-libs/imgui-1.81[opengl,vulkan]
 	dev-libs/spdlog
 	dev-util/glslang
 	>=dev-util/vulkan-headers-1.2
@@ -59,21 +57,23 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/MangoHud-${PV}"
+[[ "$PV" != "9999" ]] && S="${WORKDIR}/MangoHud-${PV}"
 
-# We do not enable this patch for now until imgui ebuild supports multilib
-
-# PATCHES=(
-# 	"${FILESDIR}/mangohud-0.6.6-meson-fix-imgui-dep.patch"
-# )
+PATCHES=(
+	"${FILESDIR}/mangohud-0.6.6-meson-fix-imgui-dep.patch"
+)
 
 src_unpack() {
 	default
-	[[ -n "${MY_PV_REV}" ]] && ( mv "${WORKDIR}/MangoHud-${MY_PV}${MY_PV_REV}" "${WORKDIR}/MangoHud-${PV}" || die )
+	[[ $PV == 9999 ]] && git-r3_src_unpack
+	[[ $PV != 9999 && -n "${MY_PV_REV}" ]] && ( mv "${WORKDIR}/MangoHud-${MY_PV}${MY_PV_REV}" "${WORKDIR}/MangoHud-${PV}" || die )
+}
 
-	unpack imgui-${IMGUI_VER}.tar.gz
-	unpack imgui-${IMGUI_VER}-${IMGUI_MESON_WRAP_VER}-meson-wrap.zip
-	mv "${WORKDIR}/imgui-${IMGUI_VER}" "${S}/subprojects/imgui" || die
+src_prepare() {
+	default
+	# replace all occurences of "#include <imgui.h>" to "#include <imgui/imgui.h>"
+	find . -type f -exec sed -i 's/#include <imgui.h>/#include <imgui\/imgui.h>/g' {} \;
+	find . -type f -exec sed -i 's/#include "imgui.h"/#include <imgui\/imgui.h>/g' {} \;
 }
 
 src_configure() {
