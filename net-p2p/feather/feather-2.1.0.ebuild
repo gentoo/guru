@@ -20,8 +20,8 @@ MONERO_DIST_COMIT="b45c66e9c62d7e8f24abbcb447f408e618bfd450"
 DESCRIPTION="A free, open-source Monero wallet"
 HOMEPAGE="https://featherwallet.org"
 SRC_URI="https://github.com/feather-wallet/feather/archive/refs/tags/${PVR}.tar.gz -> ${PF}.tar.gz
-	https://github.com/tevador/polyseed/archive/${POLYSEED_DIST_COMIT}.tar.gz  -> ${PF}-polyseed.tar.gz
-	https://github.com/itay-grudev/SingleApplication/archive/${SINGLEAPPLICATION_DIST_COMIT}.tar.gz  -> ${PF}-singleapplication.tar.gz
+	https://github.com/tevador/polyseed/archive/${POLYSEED_DIST_COMIT}.tar.gz -> ${PF}-polyseed.tar.gz
+	https://github.com/itay-grudev/SingleApplication/archive/${SINGLEAPPLICATION_DIST_COMIT}.tar.gz -> ${PF}-singleapplication.tar.gz
 	https://github.com/feather-wallet/monero/archive/${MONERO_DIST_COMIT}.tar.gz -> ${PF}-monero.tar.gz
 	https://github.com/miniupnp/miniupnp/archive/${MINIUPNP_DIST_COMIT}.tar.gz -> ${PF}-monero-miniupnp.tar.gz
 	https://github.com/tevador/RandomX/archive/${RANDOMX_DIST_COMIT}.tar.gz -> ${PF}-monero-randomx.tar.gz
@@ -42,7 +42,6 @@ DEPEND="
 	dev-libs/libgcrypt:=
 	dev-libs/libsodium:=
 	dev-libs/libzip:=
-	dev-libs/monero-seed
 	dev-libs/openssl:=
 	>=dev-qt/qtcore-5.15:5
 	>=dev-qt/qtgui-5.15:5

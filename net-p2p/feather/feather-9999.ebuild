@@ -8,7 +8,7 @@ inherit cmake git-r3
 DESCRIPTION="A free, open-source Monero wallet"
 HOMEPAGE="https://featherwallet.org"
 SRC_URI=""
-EGIT_REPO_URI="https://git.featherwallet.org/feather/feather.git"
+EGIT_REPO_URI="https://github.com/feather-wallet/feather.git"
 
 # Feather is released under the terms of the BSD license, but it vendors
 # code from Monero and Tor too.
@@ -22,19 +22,18 @@ DEPEND="
 	dev-libs/libgcrypt:=
 	dev-libs/libsodium:=
 	dev-libs/libzip:=
-	dev-libs/monero-seed
 	dev-libs/openssl:=
-	>=dev-qt/qtcore-5.15
-	>=dev-qt/qtgui-5.15
-	>=dev-qt/qtnetwork-5.15
-	>=dev-qt/qtsvg-5.15
-	>=dev-qt/qtwebsockets-5.15
-	>=dev-qt/qtwidgets-5.15
-	>=dev-qt/qtxml-5.15
+	>=dev-qt/qtcore-5.15:5
+	>=dev-qt/qtgui-5.15:5
+	>=dev-qt/qtnetwork-5.15:5
+	>=dev-qt/qtsvg-5.15:5
+	>=dev-qt/qtwebsockets-5.15:5
+	>=dev-qt/qtwidgets-5.15:5
+	>=dev-qt/qtxml-5.15:5
 	media-gfx/qrencode:=
 	net-dns/unbound:=[threads]
 	net-libs/czmq:=
-	qrcode? ( media-gfx/zbar:=[v4l] )
+	media-gfx/zbar:=[v4l]
 "
 RDEPEND="
 	${DEPEND}
@@ -54,9 +53,11 @@ src_configure() {
 		-DINSTALL_VENDORED_LIBUNBOUND=OFF
 		-DMANUAL_SUBMODULES=1
 		-DSTATIC=OFF
+		-DSELF_CONTAINED=OFF
 		-DUSE_DEVICE_TREZOR=OFF
 		-DXMRIG=$(usex xmrig)
 		-DWITH_SCANNER=$(usex qrcode)
+		-DVERSION_IS_RELEASE=true
 	)
 
 	cmake_src_configure
