@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake
+inherit cmake desktop
 
 #Note: this is like a tree, with dependencies-of-dependencies
 #You need to update all of these recursively every version bump.
@@ -104,6 +104,9 @@ src_compile() {
 
 src_install() {
 	dobin "${BUILD_DIR}/bin/feather"
+
+	doicon "${WORKDIR}"/${PF}/src/assets/images/feather.png
+	domenu "${WORKDIR}"/${PF}/src/assets/feather.desktop
 }
 
 pkg_postinst() {

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake git-r3
+inherit cmake git-r3 desktop
 
 DESCRIPTION="A free, open-source Monero wallet"
 HOMEPAGE="https://featherwallet.org"
@@ -69,6 +69,9 @@ src_compile() {
 
 src_install() {
 	dobin "${BUILD_DIR}/bin/feather"
+
+	doicon "${WORKDIR}"/${PF}/src/assets/images/feather.png
+	domenu "${WORKDIR}"/${PF}/src/assets/feather.desktop
 }
 
 pkg_postinst() {
