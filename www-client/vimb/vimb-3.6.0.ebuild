@@ -37,3 +37,8 @@ src_install() {
 	emake V=1 PREFIX="/usr" DESTDIR="${D}" install
 	save_config src/config.def.h
 }
+pkg_postinst() {
+	elog "For media decoding to work properly, you need to install:"
+	elog "media-plugins/gst-plugins-libav"
+	elog "media-libs/gst-plugins-good"
+}
