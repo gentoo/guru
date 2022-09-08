@@ -43,9 +43,9 @@ src_install() {
 	insinto /usr/libexec/${PN}
 	doins -r numpad_layouts
 
-	python_fix_shebang ${ED}/usr/libexec/${PN}/asus_touchpad.py
+	python_fix_shebang "${ED}/usr/libexec/${PN}/asus_touchpad.py"
 
-	python_optimize ${ED}/usr/libexec/${PN}
+	python_optimize "${ED}/usr/libexec/${PN}"
 
 	dosym ../libexec/${PN}/asus_touchpad.py /usr/bin/asus_touchpad
 }
