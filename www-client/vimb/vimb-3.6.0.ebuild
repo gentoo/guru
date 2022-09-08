@@ -8,7 +8,7 @@ inherit savedconfig
 DESCRIPTION="a fast, lightweight, vim-like browser based on webkit"
 HOMEPAGE="https://fanglingsu.github.io/vimb/"
 
-KEYWORDS="~amd64 ~arm ~arm64 ~x86 "
+KEYWORDS="~amd64"
 SRC_URI="https://github.com/fanglingsu/vimb/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
