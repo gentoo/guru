@@ -18,3 +18,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND=""
+
+pkg_postinst() {
+	ewarn "To use wyebadblock, you must first download and copy the easylist.txt file into ~/.config/wyebadblock/"
+}
