@@ -41,6 +41,8 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="doc? ( app-doc/doxygen )"
 
+PATCHES=( "${FILESDIR}"/${P}-fix-tests-race-condition.patch )
+
 DOCS=( CONTRIBUTING.md ChangeLog.md README.md README.zh-CN.md README.zh-TW.md )
 
 src_unpack() {
