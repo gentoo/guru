@@ -14,6 +14,10 @@
 
 # New entries go on top.
 
+# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-09-08)
+# depends on removed dev-haskell/pandoc-citeproc
+dev-python/pypandoc
+
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
 # depends on removed ~app-crypt/certbot-1.27.0
 app-crypt/certbot-dns-digitalocean
