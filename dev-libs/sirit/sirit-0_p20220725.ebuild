@@ -26,6 +26,6 @@ src_configure() {
 
 src_install() {
 	dodoc LICENSE.txt README.md
-	dolib.so ${BUILD_DIR}/src/libsirit.so
+	dolib.so "${BUILD_DIR}/src/libsirit.so"
 	doheader -r include/sirit
 }
