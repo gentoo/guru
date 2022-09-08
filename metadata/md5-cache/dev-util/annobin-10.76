@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
 DEFINED_PHASES=configure prepare pretend setup
-DEPEND=app-arch/rpm dev-libs/elfutils sys-libs/binutils-libs clang? ( <sys-devel/clang-14:= ) !clang? ( llvm? ( <sys-devel/llvm-14:= ) ) llvm? ( || ( sys-devel/llvm:12 sys-devel/llvm:13 sys-devel/llvm:14 ) ) !!sys-devel/llvm:0
+DEPEND=app-arch/rpm dev-libs/elfutils sys-libs/binutils-libs clang? ( <sys-devel/clang-14:= ) !clang? ( llvm? ( <sys-devel/llvm-14:= ) ) llvm? ( || ( sys-devel/llvm:13 sys-devel/llvm:14 ) ) !!sys-devel/llvm:0
 DESCRIPTION=Binary annotation compiler plugin and tools
 EAPI=8
 HOMEPAGE=https://nickc.fedorapeople.org
@@ -8,10 +8,10 @@ INHERIT=autotools llvm toolchain-funcs
 IUSE=clang doc llvm test
 KEYWORDS=~amd64
 LICENSE=GPL-3
-RDEPEND=app-arch/rpm dev-libs/elfutils sys-libs/binutils-libs clang? ( <sys-devel/clang-14:= ) !clang? ( llvm? ( <sys-devel/llvm-14:= ) ) llvm? ( || ( sys-devel/llvm:12 sys-devel/llvm:13 sys-devel/llvm:14 ) )
+RDEPEND=app-arch/rpm dev-libs/elfutils sys-libs/binutils-libs clang? ( <sys-devel/clang-14:= ) !clang? ( llvm? ( <sys-devel/llvm-14:= ) ) llvm? ( || ( sys-devel/llvm:13 sys-devel/llvm:14 ) )
 REQUIRED_USE=clang? ( llvm )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://nickc.fedorapeople.org/annobin-10.76.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	llvm	1c0b36f6ee2ff37bb9ab25cf23563030
-_md5_=8dd9c7ab84b7d82aa839ce3bb1a4a201
+_md5_=b6bf18931d13294acce7f694b7cd611a

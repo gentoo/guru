@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/zedeus/nitter/archive/0200cc21a32e0ed87025744066894cdc26f73ff3.tar.gz -> nitter-0.1.0_p20220705.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	nim-utils	97e368e366eccfbf48372c9a552669e2	ninja-utils	58ec4e54962bf45d065fb95030701514	nimble	457a21dea820c49795660caec0bf8d91	systemd	2736b403a83f194b59b767f3b344c2c1
-_md5_=78767451ccc6570ca94cce4399de3638
+_md5_=e53db7df9a2dc77afba32a09bd4c223f
