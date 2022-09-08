@@ -1,0 +1,14 @@
+Ensures that Togl is linked properly.
+diff --git a/system/Make.sys-shared b/system/Make.sys-shared
+index 51891e7..ba478fa 100644
+--- a/system/Make.sys-shared
++++ b/system/Make.sys-shared
+@@ -48,7 +48,7 @@ X_INCDIR  =
+ 
+ TCL_LIB      = -ltcl$(TCL_VER2)
+ TK_LIB       = -ltk$(TCL_VER2)
+-TOGL_LIB     = -lTogl
++TOGL_LIB     = -Wl,-rpath,"/usr/lib64/Togl2.0" -L/usr/lib64/Togl2.0 -lTogl2.0
+ GLU_LIB      = -lGLU
+ GL_LIB       = -lGL
+ FFTW3_LIB    = -lfftw3
