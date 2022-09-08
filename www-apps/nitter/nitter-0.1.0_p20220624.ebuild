@@ -41,7 +41,7 @@ src_configure() {
 	nimble_src_configure
 
 	# Error: unhandled exception: cannot open: public/lp.svg
-	ln -s "${S}"/public ${BUILD_DIR}/public || die
+	ln -s "${S}"/public "${BUILD_DIR}/public" || die
 }
 
 src_compile() {
