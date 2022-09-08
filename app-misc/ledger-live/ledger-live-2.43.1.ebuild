@@ -4,10 +4,10 @@
 EAPI=7
 
 DESCRIPTION="Ledger Live desktop manger"
-HOMEPAGE="https://ledger.com"
+HOMEPAGE="https://www.ledger.com/"
 SRC_URI="https://download.live.ledger.com/ledger-live-desktop-${PV}-linux-x86_64.AppImage"
 
-LICENSE="nonfree"
+LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
@@ -20,6 +20,6 @@ RESTRICT="binchecks strip"
 S="${WORKDIR}"
 
 src_install() {
-  cp ${DISTDIR}/ledger-live-desktop-${PV}-linux-x86_64.AppImage ledger-live || die
-  dobin ledger-live
+	cp "${DISTDIR}/ledger-live-desktop-${PV}-linux-x86_64.AppImage" ledger-live || die
+	dobin ledger-live
 }

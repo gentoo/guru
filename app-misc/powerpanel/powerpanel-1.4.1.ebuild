@@ -52,7 +52,7 @@ src_install() {
 
 	newlib.so lib/libpaho-mqtt3cs.so.1.3.1 libpaho-mqtt3cs.so.1
 
-	newinitd ${FILESDIR}/pwrstatd pwrstatd
+	newinitd "${FILESDIR}/pwrstatd pwrstatd"
 	systemd_dounit script/pwrstatd.service
 	systemd_newunit script/default_pwrstatd pwrstatd
 

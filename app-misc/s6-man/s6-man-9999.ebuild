@@ -17,7 +17,7 @@ src_compile() {
 }
 
 src_install() {
-	ls -la ${S}
-	doman ${S}/man7/*
-	doman ${S}/man8/*
+	ls -la "${S}"
+	doman "${S}"/man7/*
+	doman "${S}"/man8/*
 }

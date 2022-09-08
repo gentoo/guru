@@ -24,7 +24,7 @@ BDEPEND="app-text/asciidoc"
 src_install(){
 	meson_install
 	newinitd "${FILESDIR}"/tangd.initd tangd
-	systemd_dounit ${FILESDIR}/tangd.service
+	systemd_dounit "${FILESDIR}"/tangd.service
 
 	doconfd "${FILESDIR}"/tangd
 

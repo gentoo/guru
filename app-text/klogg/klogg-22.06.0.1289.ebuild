@@ -44,7 +44,7 @@ BDEPEND="
 
 src_unpack() {
 	unpack ${P}.tar.gz
-	mv ${WORKDIR}/${PN}-${MAJOR_VERSION} ${WORKDIR}/${P}
+	mv "${WORKDIR}/${PN}-${MAJOR_VERSION}" "${WORKDIR}/${P}"
 
 	unpack ${P}.deps.tar.gz
 }
@@ -56,7 +56,7 @@ src_prepare() {
 src_configure() {
 	export KLOGG_VERSION=${PV}
 	local mycmakeargs=(
-		-DCPM_SOURCE_CACHE=${WORKDIR}/cpm_cache
+		-DCPM_SOURCE_CACHE="${WORKDIR}/cpm_cache"
 		-DCPM_USE_LOCAL_PACKAGES=ON
 		-DWARNINGS_AS_ERRORS=OFF
 		-DKLOGG_USE_LTO=$(usex lto)

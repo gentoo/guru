@@ -38,7 +38,7 @@ src_prepare() {
 
 src_install() {
 	default
-	find ${ED} -iname \*.la -delete || die
+	find "${ED}" -iname \*.la -delete || die
 
 	# No libtool files are install, so nothing to check for bug #833887
 }

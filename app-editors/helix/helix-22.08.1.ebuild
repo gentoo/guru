@@ -301,8 +301,8 @@ src_prepare() {
 		for line in "${LANGUAGES[@]}"; do
 			read -r name url commit <<< "${line}"
 
-			mkdir -p ${S}/runtime/grammars/sources/${name} || die
-			cp -r ${WORKDIR}/${url##*/}-${commit}/* ${S}/runtime/grammars/sources/${name} || die
+			mkdir -p "${S}/runtime/grammars/sources/${name}" || die
+			cp -r "${WORKDIR}"/${url##*/}-${commit}/* "${S}/runtime/grammars/sources/${name}" || die
 		done
 	fi
 
@@ -317,7 +317,7 @@ src_compile() {
 }
 
 src_install() {
-	use grammar && ( rm -rf ${S}/runtime/grammars/sources || die )
+	use grammar && ( rm -rf "${S}/runtime/grammars/sources" || die )
 	insinto /usr/share/helix
 	doins -r runtime
 	use doc && dodoc README.md CHANGELOG.md

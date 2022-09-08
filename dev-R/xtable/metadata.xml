@@ -5,7 +5,6 @@
 		<email>me@r0bert.dev</email>
 		<name>Robert Greener</name>
 	</maintainer>
-	<longdescription lang="en">Coerce data to LaTeX and HTML tables.</longdescription>
 	<upstream>
 		<maintainer>
 			<name>David Scott</name>

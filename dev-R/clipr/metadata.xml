@@ -5,7 +5,6 @@
 		<email>me@r0bert.dev</email>
 		<name>Robert Greener</name>
 	</maintainer>
-	<longdescription lang="en">Simple utility functions to read from and write to the Windows, OS X, and X11 clipboards.</longdescription>
 	<upstream>
 		<maintainer>
 			<name>Matthew Lincoln</name>

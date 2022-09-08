@@ -5,7 +5,6 @@
 		<email>me@r0bert.dev</email>
 		<name>Robert Greener</name>
 	</maintainer>
-	<longdescription lang="en">Utility functions useful when programming and developing R packages.</longdescription>
 	<upstream>
 		<maintainer>
 			<name>Henrik Bengtsson</name>
