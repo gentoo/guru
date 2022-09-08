@@ -27,7 +27,7 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/${P}-${NAME}"
 
-PATCHES=( ${FILESDIR}/frama-c-24.0-fix-bflags.patch )
+PATCHES=( "${FILESDIR}/frama-c-24.0-fix-bflags.patch" )
 
 src_prepare() {
 	mv configure.in configure.ac || die
