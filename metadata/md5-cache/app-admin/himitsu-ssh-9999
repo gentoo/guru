@@ -10,4 +10,4 @@ PROPERTIES=live
 RDEPEND=app-admin/himitsu:= dev-hare/hare-ssh:=
 SLOT=0
 _eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=6852d3d1f8f709be68d69fb19f4a4256
+_md5_=bf215f92c3d9e02020d574eb2f262f87

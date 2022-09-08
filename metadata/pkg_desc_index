@@ -107,7 +107,7 @@ app-doc/stdman 2019.08.27 2020.11.17 2021.12.21 9999: Formatted C++ stdlib man p
 app-editors/amp 0.6.2: A complete text editor for your terminal.
 app-editors/atom-bin 1.58.0-r1: A hackable text editor for the 21st Century
 app-editors/helix 0.6.0 22.05 22.08.1: A post-modern text editor.
-app-editors/imhex 1.21.2 1.22.0: A hex editor for reverse engineers, programmers, and eyesight
+app-editors/imhex 1.22.0-r1: A hex editor for reverse engineers, programmers, and eyesight
 app-editors/kak-lsp 12.2.1: Kakoune Language Server Protocol Client
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/mined 2015.25: A powerful text editor with extensive Unicode and CJK support
@@ -1118,7 +1118,6 @@ dev-vcs/gitui 0.18.0 0.20.1: Blazing fast terminal-ui for git
 dev-vcs/got 0.73 0.74: Portable version of the Game of Trees version control system
 dev-vcs/lazygit 0.33 0.34 0.35: Simple terminal UI for git commands
 dev-vcs/lefthook 1.0.0 1.0.4: Fast and powerful Git hooks manager for any type of projects
-dev-vcs/mergestat 0.5.4 0.5.4-r1: Query git repositories with SQL
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
 games-action/blackvoxel 2.50 9999: Blackvoxel Video Game
 games-action/netrek-brmh 2.6.0: brmh client for netrek
@@ -1277,7 +1276,6 @@ media-gfx/heatshrink 0.4.1: data compression library for embedded/real-time syst
 media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/nsxiv 29 30 9999: Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer
 media-gfx/oda-file-converter 23.5.0.0: For converting between different versions of .dwg and .dxf
-media-gfx/oxipng 3.0.1 4.0.3 5.0.0 5.0.1: A lossless PNG compression optimizer
 media-gfx/qview 4.0 5.0: Practical and minimal image viewer
 media-gfx/sic 0.19.0: Accessible image processing and conversion from the terminal tool.
 media-gfx/silicon 0.4.0 0.4.1 0.4.3: Create beautiful image of your code
