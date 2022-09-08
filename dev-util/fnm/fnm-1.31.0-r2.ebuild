@@ -402,14 +402,14 @@ src_prepare() {
 src_install() {
 	cargo_src_install
 
-	${D}/usr/bin/fnm completions --shell bash > fnm.bash-completion || die "Cannot generate bash completions"
+	"${D}"/usr/bin/fnm completions --shell bash > fnm.bash-completion || die "Cannot generate bash completions"
 	newbashcomp fnm.bash-completion fnm
 
-	${D}/usr/bin/fnm completions --shell zsh > fnm.zsh-completion || die "Cannot generate zsh completions"
+	"${D}"/usr/bin/fnm completions --shell zsh > fnm.zsh-completion || die "Cannot generate zsh completions"
 	insinto /usr/share/zsh/site-functions
 	newins fnm.zsh-completion _fnm
 
-	${D}/usr/bin/fnm completions --shell fish > fnm.fish-completion || die "Cannot generate fish completions"
+	"${D}"/usr/bin/fnm completions --shell fish > fnm.fish-completion || die "Cannot generate fish completions"
 	insinto /usr/share/fish/vendor_completions.d/
 	newins fnm.fish-completion fnm.fish
 
