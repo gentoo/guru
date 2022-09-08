@@ -8,7 +8,7 @@ if [[ "${PV}" = "9999" ]]; then
 	EGIT_REPO_URI="https://git.sr.ht/~sircmpwn/himitsu-ssh"
 else
 	SRC_URI="https://git.sr.ht/~sircmpwn/himitsu-ssh/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~riscv"
+	KEYWORDS=""
 fi
 
 DESCRIPTION="SSH integration for Himitsu"
