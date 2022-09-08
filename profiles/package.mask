@@ -34,10 +34,6 @@ net-proxy/toxiproxy
 # depends on dev-python/PyQt6, which is currently masked with all of qt6
 >=net-misc/maestral-qt-1.6.0
 
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-07-20)
-# Depends on removed llvm:12
-dev-vcs/mergestat
-
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
 # Depends on masked dev-libs/openssl-3.0.*
 app-crypt/tpm2-openssl
