@@ -160,7 +160,7 @@ src_install() {
 #	use python && cmake_build install-dartpy
 	mv "${ED}/usr/share/doc/dart/data" "${ED}/usr/share/${PN}" || die
 	if [[ -d "${ED}/usr/share/doc/dart" ]] ; then
-		if [[ "$(ls -A ${ED}/usr/share/doc/dart)" ]] ; then
+		if [[ "$(ls -A "${ED}"/usr/share/doc/dart)" ]] ; then
 			mv "${ED}"/usr/share/doc/dart/* "${ED}/usr/share/doc/${PF}" || die
 		fi
 	fi
