@@ -57,7 +57,7 @@ BDEPEND="
 	discord? ( >=dev-libs/rapidjson-1.1.0 )
 "
 S="${WORKDIR}"/yuzu-mainline-dfaab8f6571856ec3c75cfad303a50503d213665
-PATCHES=( ${FILESDIR}/${P}.patch )
+PATCHES=( "${FILESDIR}/${P}.patch" )
 
 REQUIRED_USE="|| ( qt5 sdl )"
 
@@ -70,10 +70,10 @@ pkg_setup() {
 
 src_unpack() {
 	default
-	mv "${WORKDIR}"/xbyak* ${S}/externals/xbyak/xbyak || die
-	mv "${WORKDIR}"/dynarmic*/* ${S}/externals/dynarmic || die
+	mv "${WORKDIR}"/xbyak* "${S}/externals/xbyak/xbyak" || die
+	mv "${WORKDIR}"/dynarmic*/* "${S}/externals/dynarmic" || die
 	if use discord; then
-		mv "${WORKDIR}"/discord*/* ${S}/externals/discord-rpc || die
+		mv "${WORKDIR}"/discord*/* "${S}/externals/discord-rpc" || die
 	fi
 }
 

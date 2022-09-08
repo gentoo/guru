@@ -17,5 +17,5 @@ RDEPEND="${DEPEND}"
 BDEPEND="dev-util/ninja"
 
 src_install() {
-	DESTDIR="${D}" ninja -C${S}/build install
+	DESTDIR="${D}" ninja -C"${S}/build" install
 }

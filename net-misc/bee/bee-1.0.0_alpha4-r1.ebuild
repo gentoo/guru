@@ -490,7 +490,6 @@ DEPEND="
 	|| (
 		( sys-devel/llvm:14 sys-devel/clang:14 )
 		( sys-devel/llvm:13 sys-devel/clang:13 )
-		( sys-devel/llvm:12 sys-devel/clang:12 )
 	)
 "
 RDEPEND="

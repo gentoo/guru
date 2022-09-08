@@ -39,6 +39,7 @@ BDEPEND="
 	dev-util/ninja
 	dev-util/cmake
 	doc? ( app-doc/doxygen )
+	python? ( ${DISTUTILS_DEPS} )
 "
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"

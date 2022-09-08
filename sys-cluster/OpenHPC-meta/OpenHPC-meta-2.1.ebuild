@@ -82,7 +82,7 @@ RDEPEND="
 
 	runtimes? (
 		sys-cluster/charliecloud[${PYTHON_SINGLE_USEDEP}]
-		|| ( app-containers/apptainer sys-cluster/singularity )
+		app-containers/apptainer
 	)
 
 	serial? (

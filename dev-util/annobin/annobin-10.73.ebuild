@@ -25,7 +25,6 @@ RDEPEND="
 	!clang? ( llvm? ( <sys-devel/llvm-${LLVM_MAX_SLOT}:= ) )
 	llvm? (
 		|| (
-			sys-devel/llvm:12
 			sys-devel/llvm:13
 			sys-devel/llvm:${LLVM_MAX_SLOT}
 		)

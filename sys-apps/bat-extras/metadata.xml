@@ -5,9 +5,6 @@
     <email>ran.dall@icloud.com</email>
     <name>Randall Vasquez</name>
   </maintainer>
-  <longdescription lang="en">
-    Bash scripts that integrate bat with various command line tools. 
-  </longdescription>
   <upstream>
     <remote-id type="github">eth-p/bat-extras</remote-id>
   </upstream>
