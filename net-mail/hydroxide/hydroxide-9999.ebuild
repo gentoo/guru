@@ -42,7 +42,7 @@ src_compile() {
 }
 
 src_install() {
-	local DOCS=( "LICENSE" "README.md" )
+	local DOCS=( "README.md" )
 	einstalldocs
 
 	dobin "${PN}"
