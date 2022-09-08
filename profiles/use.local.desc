@@ -339,13 +339,15 @@ media-libs/alvr:server - Build ALVR server
 media-libs/alvr:vulkan - Build ALVR vulkan layer
 media-libs/alvr:x264 - Use x264 for h264 software encoding
 media-libs/alvr:x265 - Use x265 for h265 software encoding
-media-libs/imgui:allegro - Enable allegro backend and renderer
+media-libs/imgui:allegro5 - Enable allegro backend and renderer
 media-libs/imgui:bindings - Build the cimgui C bindigs
 media-libs/imgui:freetype - Use FreeType to build and rasterize the font atlas
 media-libs/imgui:glfw - Enable glfw backend
 media-libs/imgui:glut - Enable glut backen
+media-libs/imgui:marmalade - Enable Marmalade backend
 media-libs/imgui:opengl - Enable opengl renderer
 media-libs/imgui:sdl - Enable sdl backend
+media-libs/imgui:sdl2 - Enable SDL2 backend
 media-libs/imgui:vulkan - Enable vulkan renderer
 media-libs/libbpg:bpgview - Compile bpgview (media-libs/libsdl and media-libs/sdl-image needed)
 media-libs/libbpg:emcc - Enable compilation of Javascript decoder with Emscripten

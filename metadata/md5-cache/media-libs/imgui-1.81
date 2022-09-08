@@ -1,15 +1,15 @@
-BDEPEND=virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=virtual/pkgconfig app-arch/unzip >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install test unpack
 DEPEND=dev-libs/stb:= media-libs/glew allegro5? ( media-libs/allegro:5 ) glfw? ( media-libs/glfw:0 ) opengl? ( virtual/opengl ) sdl2? ( media-libs/libsdl2 ) vulkan? ( media-libs/vulkan-loader ) vulkan? ( dev-util/vulkan-headers )
 DESCRIPTION=Bloat-free graphical user interface library for C++
 EAPI=8
 HOMEPAGE=https://github.com/ocornut/imgui
 INHERIT=meson
-IUSE=dx9 dx10 dx11 dx12 metal opengl vulkan glfw sdl2 osx win marmalade allegro5
+IUSE=opengl vulkan glfw sdl2 marmalade allegro5
 KEYWORDS=~amd64
 LICENSE=MIT
 RDEPEND=dev-libs/stb:= media-libs/glew allegro5? ( media-libs/allegro:5 ) glfw? ( media-libs/glfw:0 ) opengl? ( virtual/opengl ) sdl2? ( media-libs/libsdl2 ) vulkan? ( media-libs/vulkan-loader )
 SLOT=0/1.81
-SRC_URI=https://github.com/ocornut/imgui/archive/v1.81.tar.gz -> imgui-1.81.tar.gz
+SRC_URI=https://github.com/ocornut/imgui/archive/v1.81.tar.gz -> imgui-1.81.tar.gz https://wrapdb.mesonbuild.com/v2/imgui_1.81-1/get_patch -> imgui-1.81-1-meson-wrap.zip
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003
-_md5_=6fc9f81791107e2da38e4fb984fc1b0d
+_md5_=0d4af9133cb92a09cb9a518957f1766d

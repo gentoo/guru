@@ -76,6 +76,7 @@ app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generat
 app-crypt/gnome-encfs-manager 1.9: An easy to use manager and mounter for encfs stashes
 app-crypt/intel-ipsec-mb 1.1 1.2 9999: Multi-Buffer Crypto for IPSec from Intel
 app-crypt/pgp 2.6.3a: Public-key encryption and digital signature utility
+app-crypt/pinentry-bemenu 0.11.0: Pinentry based on bemenu
 app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-crypt/tang 11: Tang binding daemon
 app-crypt/tomb 2.9-r6: Tomb :: File Encryption on GNU/Linux
@@ -106,7 +107,7 @@ app-doc/stdman 2019.08.27 2020.11.17 2021.12.21 9999: Formatted C++ stdlib man p
 app-editors/amp 0.6.2: A complete text editor for your terminal.
 app-editors/atom-bin 1.58.0-r1: A hackable text editor for the 21st Century
 app-editors/helix 0.6.0 22.05 22.08.1: A post-modern text editor.
-app-editors/imhex 1.21.2: A hex editor for reverse engineers, programmers, and eyesight
+app-editors/imhex 1.21.2 1.22.0: A hex editor for reverse engineers, programmers, and eyesight
 app-editors/kak-lsp 12.2.1: Kakoune Language Server Protocol Client
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/mined 2015.25: A powerful text editor with extensive Unicode and CJK support
@@ -147,7 +148,7 @@ app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best
 app-misc/doublecmd-bin 1.0.6: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
-app-misc/fastfetch 1.6.5 9999: Like neofetch but faster
+app-misc/fastfetch 1.6.5 1.7.0 9999: Like neofetch but faster
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -179,7 +180,7 @@ app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/vocabsieve 0.8.1: A simple, effective tool for language learning
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
 app-misc/walld 1.4.4: A Wallpaper daemon
-app-misc/watchexec 1.18.12 1.19.0 1.20.2 1.20.5: Executes commands in response to file modifications
+app-misc/watchexec 1.18.12 1.19.0 1.20.2 1.20.5 1.20.6: Executes commands in response to file modifications
 app-misc/wego 2.1: Wego is a weather client for the terminal
 app-misc/xplr 0.15.2 0.17.0 0.17.1 0.17.2 0.17.6: A hackable, minimal, fast TUI file explorer
 app-misc/yaf 0.0.3: Yet another system fetch that is minimal and customizable.
@@ -432,7 +433,7 @@ dev-cpp/coeurl 0.2.0-r1 0.2.1: A simple async wrapper around CURL for C++
 dev-cpp/cpp-httplib 0.10.9: C++ header-only HTTP/HTTPS server and client library
 dev-cpp/cpp-jwt 1.5_pre20220727: JSON Web Token library for C++
 dev-cpp/cpptoml 0.1.1: Header-only library for parsing TOML
-dev-cpp/drogon 1.7.5-r1 1.8.0: C++14/17 based HTTP web application framework
+dev-cpp/drogon 1.7.5-r1 1.8.0-r1: C++14/17 based HTTP web application framework
 dev-cpp/dtl 1.20-r1: diff template library written by C++
 dev-cpp/fbthrift 2022.04.11.00-r1: Facebook's branch of Apache Thrift, including a new C++ server
 dev-cpp/fizz 2022.04.11.00-r1: C++14 implementation of the TLS-1.3 standard
@@ -450,11 +451,11 @@ dev-cpp/scitokens-cpp 0.7.0 0.7.1: A C++ implementation of the SciTokens library
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
 dev-cpp/std-format 0_pre20220112-r1: A simple polyfill allowing you to use std::format
 dev-cpp/tiny-dnn 1.0.0_alpha3-r2: header only, dependency-free deep learning framework in C++14
-dev-cpp/trantor 1.5.6-r1: Non-blocking I/O tcp network lib based on c++14/17
+dev-cpp/trantor 1.5.6-r1 1.5.6_p20220801: Non-blocking I/O tcp network lib based on c++14/17
 dev-cpp/vectorwrapper 1.1.2 9999: A template vector wrapper class for C++
 dev-cpp/vexcl 1.4.3-r2: VexCL - Vector expression template library for OpenCL
 dev-cpp/wangle 2022.04.11.00-r1: Framework providing common client/server abstractions
-dev-cpp/workflow 0.10.2-r1 9999: C++ Parallel Computing and Asynchronous Networking Engine
+dev-cpp/workflow 0.10.2-r1 0.10.3 9999: C++ Parallel Computing and Asynchronous Networking Engine
 dev-cpp/xdgpp 0_pre20201007-r1: C++17 header-only implementation of the XDG Base Directory Specification
 dev-db/pg_repack 1.4.7: Reorganize tables in PostgreSQL databases with minimal locks
 dev-db/rum 1.3.11: RUM access method - inverted index with additional information in posting lists
@@ -532,7 +533,7 @@ dev-libs/libthai 0.1.28 0.1.29: A a set of Thai language support routines
 dev-libs/luksmeta 9: LUKSMeta is a simple library for storing metadata in the LUKSv1 header
 dev-libs/memkind 1.13.0: user extensible heap manager built on top of jemalloc
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
-dev-libs/mtxclient 0.7.0 0.8.0: Client API library for Matrix, built on top of Boost.Asio
+dev-libs/mtxclient 0.8.0 0.8.1: Client API library for Matrix, built on top of Boost.Asio
 dev-libs/nativefiledialog-extended 0_pre20210430-r1: File dialog library with C and C++ bindings, based on nativefiledialog
 dev-libs/octetos-biblion 0.1.1_alpha: Library for reading biblia.
 dev-libs/octetos-core 2.15.0_beta 2.20.0_beta 2.25.0_beta 2.25.1_beta 2.31.2_beta 2.31.3_beta 2.31.5_beta 2.32.0_beta: C/C++ library to mainly provide Semantic Versioned implementation
@@ -1054,7 +1055,7 @@ dev-python/zake 0.2.2: Provide a nice set of testing utilities for the kazoo lib
 dev-ruby/asciidoctor-pdf 2.3.0: A native PDF converter for AsciiDoc based on Asciidoctor and Prawn
 dev-ruby/byebug 11.1.3: a Ruby 2 debugger
 dev-ruby/chruby 0.3.9-r3 9999: Changes the current Ruby
-dev-ruby/prawn-icon 3.0.0: Provides support for icons in Prawn
+dev-ruby/prawn-icon 3.1.0: Provides support for icons in Prawn
 dev-ruby/prawn-svg 0.32.0: Provides support for SVG in Prawn
 dev-ruby/prawn-templates 0.1.2-r1: Provides support for templates in Prawn
 dev-ruby/pry-byebug 3.9.0: Step-by-step debugging and stack navigation in Pry
@@ -1065,6 +1066,7 @@ dev-util/FoBiS 3.0.5: FoBiS.py, a Fortran Building System for poor men
 dev-util/afdko 3.8.1: Adobe Font Development Kit for OpenType
 dev-util/annobin 10.73 10.76: Binary annotation compiler plugin and tools
 dev-util/babeltrace2 2.0.4: A command-line tool and library to read and convert trace files
+dev-util/bash-language-server 3.1.0: A language server for Bash
 dev-util/bats-assert 2.0.0: Common assertions for Bats
 dev-util/bats-support 0.3.0: Supporting library for Bats test helpers
 dev-util/bazelisk 1.12.0: A user-friendly launcher for Bazel
@@ -1084,6 +1086,7 @@ dev-util/git-bug 0.7.1 9999: distributed, offline-first bug tracker
 dev-util/glsl-language-server 0.3.7: Language server implementation for GLSL
 dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
+dev-util/lemminx-bin 0.21.0: XML Language Server
 dev-util/mh 1.0.3: Generate help for Makefile
 dev-util/osc 0.173.0 9999: Command line tool for Open Build Service
 dev-util/ots 8.1.4 8.2.1: An util for validating and sanitising OpenType files
@@ -1097,10 +1100,13 @@ dev-util/rust-analyzer 20220509 20220517 20220606 20220613 20220815 20220822 999
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/stripe-cli 9999: A command-line tool for Stripe
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
+dev-util/typescript-language-server 1.1.2: TypeScript & JavaScript Language Server
 dev-util/vala-language-server 0.48.4: Code Intelligence for Vala & Genie
+dev-util/vscode-langservers-extracted 4.4.0: HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode.
 dev-util/wakatime-cli 1.27.0 1.28.6: Command line interface to WakaTime used by all WakaTime plugins
 dev-util/xmake 2.7.1 9999: A cross-platform build utility based on Lua
 dev-util/xxd 8.2.4092: Hexdump utility from vim
+dev-util/yaml-language-server 1.10.0: Language Server for YAML Files
 dev-vcs/bit 1.1.1 1.1.2: Bit is a modern Git CLI
 dev-vcs/git-blame-someone-else 0_pre20180613: Blame someone else for your bad code.
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
@@ -1160,7 +1166,7 @@ games-util/gamehub 0.16.0.1 0.16.3.2: GameHub is a unified library for all your 
 games-util/hid-nintendo 9999: A Nintendo HID kernel module
 games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launcher
 games-util/legendary 0.20.27 0.20.28: A free and open-source replacement for the Epic Games Launcher
-games-util/mangohud 0.6.6.1-r3 0.6.7.1: A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more
+games-util/mangohud 0.6.6.1-r3 0.6.7.1 0.6.8 9999: A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more
 games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
 games-util/samrewritten 9999 202008: Steam Achievement Manager For Linux
 games-util/steamtinkerlaunch 8.0: Wrapper script for Steam custom launch options
@@ -1242,7 +1248,7 @@ kde-misc/kio-gemini 20211107: Gemini KIO slave
 kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
 kde-misc/plasma5-wallpapers-dynamic 3.3.9 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
 mail-client/heirloom-mailx 12.5: The mailx utility from CentOS
-mail-client/mailspring-bin 1.9.2 1.10.3: A beautiful, fast and fully open source mail client for Mac, Windows and Linux
+mail-client/mailspring-bin 1.9.2 1.10.3 1.10.5: A beautiful, fast and fully open source mail client for Mac, Windows and Linux
 media-fonts/3270font 2.3.0 2.3.1: A IBM 3270 Terminal font in a modern format
 media-fonts/gohufont 2.1_p20170627: A monospace bitmap font
 media-fonts/inconsolata_dz 20201205: A beautiful sans-serif monotype font designed for code listings
@@ -1372,14 +1378,14 @@ net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
 net-im/jitsi-meet 2022.3.1: Desktop application for Jitsi Meet built with Electron
 net-im/kaidan 0.8.0: A simple, user-friendly Jabber/XMPP client for every device!
 net-im/matterhorn-bin 50200.13.0: Terminal based Mattermost client
-net-im/nheko 0.9.3 0.10.0: Native desktop client for Matrix using Qt
+net-im/nheko 0.10.0 0.10.1: Native desktop client for Matrix using Qt
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
 net-im/whatsapp-for-linux 1.3.2 1.3.2-r1: An unofficial WhatsApp desktop application for Linux
 net-irc/catgirl 2.0a 2.1: TLS-only terminal IRC client
 net-irc/pounce 3.0: Multi-client, TLS-only IRC bouncer
 net-irc/srain 1.2.4 1.4.0: Modern, beautiful IRC client written in GTK+ 3
 net-irc/tiny 0.10.0: An IRC client
-net-libs/dpdk 21.11.1 22.07: Data Plane Development Kit libraries for fast userspace networking
+net-libs/dpdk 21.11.1-r1 22.07-r1: Data Plane Development Kit libraries for fast userspace networking
 net-libs/evpath 4.5.0_p20220601: EVpath is an event transport middleware layer
 net-libs/ixwebsocket 11.3.3 11.4.3: C++ websocket client and server library
 net-libs/kcgi 0.12.5 0.13.0: Minimal CGI library for web applications
@@ -1434,7 +1440,7 @@ net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 0.18.1.0 9999: The secure, pr
 net-p2p/popura 0.4.3 9999: Popura: alternative Yggdrasil network client
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.4.4 9999: An experiment in scalable routing as an encrypted IPv6 overlay network
-net-print/hpuld 1.00.39.15.00.23: HP Unified Linux Driver (for samsung hardware)
+net-print/hpuld 1.00.39.15.00.23-r1: HP Unified Linux Driver (for samsung hardware)
 net-proxy/toxiproxy 2.4.0-r1: A TCP proxy for chaos and resiliency testing
 net-voip/discover-overlay 0.4.5 0.5.4 0.6.2: Yet another Discord overlay for Linux written in Python using GTK3
 net-voip/gnome-calls 42.0-r1: Phone dialer and call handler
@@ -1445,17 +1451,17 @@ net-wireless/rtl8821ce 0_pre20220330: Realtek RTL8821CE Driver module for Linux 
 net-wireless/rtl8821cu 0_pre20220409: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-biology/cmdock 0.1.3-r1 0.1.4-r2: Program for docking ligands to proteins and nucleic acids
 sci-biology/geneathome 1.10-r3: BOINC application for expanding Gene Regulatory Networks (GRN)
-sci-electronics/bluespec 2022.01 9999: Toolchain for the Bluespec Hardware Definition Language
+sci-electronics/bluespec 2022.01-r1 9999: Toolchain for the Bluespec Hardware Definition Language
 sci-electronics/circt 1.14.0: The fast free Verilog/SystemVerilog simulator
-sci-electronics/dsview 1.2.0 9999: An open source multi-function instrument
+sci-electronics/dsview 1.2.1 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.10.0 9999: A open source IP-XACT-based tool
 sci-electronics/liblxi 1.16: Implementation of the LAN eXtensions for Instrumentation (LXI)
 sci-electronics/lxi-tools 2.1: Tools to access devices with LXI
 sci-electronics/open_pdks 1.0.311: PDK installer for open-source EDA tools and toolchains
 sci-electronics/skywater-pdk 0.0.0_p20220424: Open source process design kit for usage with SkyWater Technology Foundry's 130nm node
 sci-electronics/svls 0.2.3: SystemVerilog language server
-sci-electronics/verible 0.0.2152: SystemVerilog parser, style-linter, and formatter
-sci-electronics/verilator 4.224 9999: The fast free Verilog/SystemVerilog simulator
+sci-electronics/verible 0.0.2275: SystemVerilog parser, style-linter, and formatter
+sci-electronics/verilator 4.226 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/GeographicLib-data 0-r1: Datasets for GeographicLib
 sci-geosciences/mapillary_tools 0.8.2_p20220702: Command line tools for processing and uploading Mapillary imagery
 sci-libs/ButterflyPACK 2.1.1-r1: Mathematical software for solving large-scale dense linear systems
@@ -1663,7 +1669,7 @@ sys-power/linux-tools-power-x86 5.18: Linux x86 CPU power tools
 sys-power/tlp 1.5.0: Optimize laptop battery life
 sys-process/gotop 4.1.4: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/nq 0.4: Unix command line queue utility
-sys-process/nvtop 1.2.2 2.0.1-r1 2.0.2 9999: NVIDIA GPUs htop like monitoring tool
+sys-process/nvtop 2.0.3 9999: NVIDIA GPUs htop like monitoring tool
 sys-process/snooze 0.5 9999: Run a command at a particular time
 sys-process/task-spooler 1.3.0: A scheduler for CPU tasks
 virtual/MASS 0: Virtual of a R recommended package

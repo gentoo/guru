@@ -1,14 +1,15 @@
 BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=sys-libs/ncurses:0= x11-drivers/nvidia-drivers
+DEPEND=video_cards_amdgpu? ( x11-libs/libdrm[video_cards_amdgpu] ) video_cards_nvidia? ( x11-drivers/nvidia-drivers ) sys-libs/ncurses:0=
 DESCRIPTION=NVIDIA GPUs htop like monitoring tool
 EAPI=8
 HOMEPAGE=https://github.com/Syllo/nvtop
 INHERIT=cmake git-r3
-IUSE=unicode
+IUSE=unicode video_cards_amdgpu video_cards_nvidia
 LICENSE=GPL-3
 PROPERTIES=live
-RDEPEND=sys-libs/ncurses:0= x11-drivers/nvidia-drivers
+RDEPEND=video_cards_amdgpu? ( x11-libs/libdrm[video_cards_amdgpu] ) video_cards_nvidia? ( x11-drivers/nvidia-drivers ) sys-libs/ncurses:0=
 SLOT=0
+SRC_URI=https://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-455.38.tar.bz2
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
-_md5_=5aaa122e02da9653fcd656c50ad3ee82
+_md5_=a12c816d9f8081866dfb8ad7f389ef9f
