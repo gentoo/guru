@@ -14,14 +14,12 @@ SLOT="0"
 KEYWORDS=""
 IUSE="X"
 
-DOCS=( LICENSE LICENSE.{dwm,sway,tinywl} README.md )
-
 RDEPEND="
 	dev-libs/libinput
 	dev-libs/wayland
-	x11-libs/libxcb
 	x11-libs/libxkbcommon
 	gui-libs/wlroots:0/15[X(-)?]
+	X? ( x11-libs/libxcb )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="

@@ -49,7 +49,6 @@ DEPEND="${RDEPEND}
 	system-vulkan? ( >=dev-util/vulkan-headers-1.3.216 )
 "
 BDEPEND="
-	test? ( <dev-cpp/catch-3:0 )
 	>=dev-cpp/nlohmann_json-3.8.0
 	dev-cpp/robin-map
 	dev-util/glslang
@@ -72,6 +71,10 @@ src_unpack() {
 
 	if use !system-vulkan; then
 		EGIT_SUBMODULES+=('Vulkan-Headers')
+	fi
+
+	if use test; then
+		EGIT_SUBMODULES+=('Catch2')
 	fi
 
 	git-r3_src_unpack
@@ -104,12 +107,10 @@ src_prepare() {
 
 	# Unbundle mbedtls: undefined reference to `mbedtls_cipher_cmac'
 	sed -i -e '/mbedtls/d' externals/CMakeLists.txt || die
+	sed -i -e 's/mbedtls/& mbedcrypto mbedx509/'
 	sed -i -e 's/mbedtls/& mbedcrypto mbedx509/' \
-		-e '1ifind_path(MBEDTLS_INCLUDE_DIR NAMES mbedtls/ssl.h)' \
-		-e '1ifind_library(MBEDTLS_LIB NAMES mbedtls)' \
-		-e '1ifind_library(MBEDX509_LIB NAMES mbedx509)' \
-		-e '1ifind_library(MBEDCRYPTO_LIB NAMES mbedcrypto)' \
-		src/core/CMakeLists.txt
+		src/dedicated_room/CMakeLists.txt \
+		src/core/CMakeLists.txt || die
 
 	# Workaround: GenerateSCMRev fails
 	sed -i -e "s/@GIT_BRANCH@/${EGIT_BRANCH:-master}/" \

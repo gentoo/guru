@@ -8,15 +8,16 @@ inherit savedconfig
 DESCRIPTION="a fast, lightweight, vim-like browser based on webkit"
 HOMEPAGE="https://fanglingsu.github.io/vimb/"
 
-KEYWORDS="~amd64 ~arm ~arm64 ~x86 "
+KEYWORDS="~amd64"
 SRC_URI="https://github.com/fanglingsu/vimb/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="savedconfig"
+IUSE="savedconfig adblock"
 
 DEPEND="
 	virtual/pkgconfig
+	adblock? ( www-misc/wyebadblock )
 "
 
 RDEPEND="
@@ -36,4 +37,11 @@ src_compile() {
 src_install() {
 	emake V=1 PREFIX="/usr" DESTDIR="${D}" install
 	save_config src/config.def.h
+	use adblock && dosym /usr/lib/wyebrowser/adblock.so /usr/lib/vimb/adblock.so
+}
+
+pkg_postinst() {
+	elog "For media decoding to work properly, you need to install:"
+	elog "media-plugins/gst-plugins-libav"
+	elog "media-libs/gst-plugins-good"
 }

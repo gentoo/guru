@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -17,9 +17,9 @@ IUSE="X"
 RDEPEND="
 	dev-libs/libinput
 	dev-libs/wayland
-	>=gui-libs/wlroots-0.15.1[X(-)?]
-	x11-libs/libxcb
+	gui-libs/wlroots:0/15[X(-)?]
 	x11-libs/libxkbcommon
+	X? ( x11-libs/libxcb )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="

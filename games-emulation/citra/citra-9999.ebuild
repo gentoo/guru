@@ -8,11 +8,9 @@ inherit cmake git-r3 xdg
 DESCRIPTION="A Nintendo 3DS Emulator"
 HOMEPAGE="https://citra-emu.org"
 EGIT_REPO_URI="https://github.com/citra-emu/citra"
-EGIT_SUBMODULES=( '*'
-	'-boost' '-catch' '-cryptopp' '-cubeb' '-enet'
-	'-inih' '-libressl' '-libusb' '-teakra' '-zstd'
-	'-externals/dynarmic/externals/fmt'
-	'-externals/dynarmic/externals/xbyak'
+EGIT_SUBMODULES=(
+	'discord-rpc' 'dynarmic' 'libyuv'
+	'lodepng' 'nihstro' 'soundtouch' 'xbyak'
 )
 
 LICENSE="GPL-2"
@@ -34,24 +32,24 @@ DEPEND="
 		media-libs/libsdl2
 		>=dev-libs/inih-52
 	)
-	system-libfmt? ( <=dev-libs/libfmt-8 )
-	video? ( media-video/ffmpeg )
-	>=dev-libs/openssl-1.1
+	system-libfmt? ( <=dev-libs/libfmt-8:= )
+	video? ( media-video/ffmpeg:= )
+	>=dev-libs/openssl-1.1:=
 	app-arch/zstd
 	dev-cpp/catch:0
-	dev-cpp/robin-map
 	dev-libs/boost:=
-	dev-libs/crypto++
+	dev-libs/crypto++:=
 	dev-libs/teakra
-	net-libs/enet:1.3
+	net-libs/enet:1.3=
 	virtual/libusb:1
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	dev-cpp/robin-map"
 REQUIRED_USE="|| ( qt5 sdl )"
 
 src_unpack() {
-	if use system-libfmt; then
-		EGIT_SUBMODULES+=( "-fmt" "-externals/dynarmic/externals/fmt" )
+	if ! use system-libfmt; then
+		EGIT_SUBMODULES+=( 'fmt' )
 	fi
 	git-r3_src_unpack
 

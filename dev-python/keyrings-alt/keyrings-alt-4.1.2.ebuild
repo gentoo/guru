@@ -20,6 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	dev-python/jaraco-classes[${PYTHON_USEDEP}]
 	dev-python/keyring[${PYTHON_USEDEP}]
 "
 
