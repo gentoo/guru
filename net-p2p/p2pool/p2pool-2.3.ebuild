@@ -17,22 +17,16 @@ P2POOL_DIST_COMMIT="d40bb61da88ac25b8d92ca37c006d0d7e8ec8550"
 DESCRIPTION="Decentralized pool for Monero mining"
 HOMEPAGE="https://p2pool.io https://github.com/SChernykh/p2pool"
 
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/SChernykh/p2pool.git"
-	EGIT_SUBMODULES=()
-else
-	SRC_URI="https://github.com/SChernykh/p2pool/archive/${P2POOL_DIST_COMMIT}.tar.gz -> ${P}.tar.gz
-		https://github.com/tevador/RandomX/archive/${RANDOMX_DIST_COMMIT}.tar.gz -> ${PF}-randomx.tar.gz
-		https://github.com/SChernykh/cppzmq/archive/${CPPZMQ_DIST_COMMIT}.tar.gz -> ${PF}-cppzmq.tar.gz
-		https://github.com/SChernykh/curl/archive/${CURL_DIST_COMMIT}.tar.gz -> ${PF}-curl.tar.gz
-		https://github.com/SChernykh/libuv/archive/${LIBUV_DIST_COMMIT}.tar.gz -> ${PF}-libuv.tar.gz
-		https://github.com/SChernykh/libzmq/archive/${LIBZMQ_DIST_COMMIT}.tar.gz -> ${PF}-libzmq.tar.gz
-		https://github.com/SChernykh/rapidjson/archive/${RAPIDJSON_DIST_COMMIT}.tar.gz -> ${PF}-rapidjson.tar.gz
-		https://github.com/SChernykh/robin-hood-hashing/archive/${ROBIN_HOOD_HASHING_DIST_COMMIT}.tar.gz -> ${PF}-robin-hood-hashing.tar.gz
-	"
-	KEYWORDS="~amd64 ~arm64 ~x86"
-fi
+SRC_URI="https://github.com/SChernykh/p2pool/archive/${P2POOL_DIST_COMMIT}.tar.gz -> ${P}.tar.gz
+	https://github.com/tevador/RandomX/archive/${RANDOMX_DIST_COMMIT}.tar.gz -> ${PF}-randomx.tar.gz
+	https://github.com/SChernykh/cppzmq/archive/${CPPZMQ_DIST_COMMIT}.tar.gz -> ${PF}-cppzmq.tar.gz
+	https://github.com/SChernykh/curl/archive/${CURL_DIST_COMMIT}.tar.gz -> ${PF}-curl.tar.gz
+	https://github.com/SChernykh/libuv/archive/${LIBUV_DIST_COMMIT}.tar.gz -> ${PF}-libuv.tar.gz
+	https://github.com/SChernykh/libzmq/archive/${LIBZMQ_DIST_COMMIT}.tar.gz -> ${PF}-libzmq.tar.gz
+	https://github.com/SChernykh/rapidjson/archive/${RAPIDJSON_DIST_COMMIT}.tar.gz -> ${PF}-rapidjson.tar.gz
+	https://github.com/SChernykh/robin-hood-hashing/archive/${ROBIN_HOOD_HASHING_DIST_COMMIT}.tar.gz -> ${PF}-robin-hood-hashing.tar.gz
+"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 LICENSE="BSD GPL-3+ ISC LGPL-3+ MIT"
 SLOT="0"
@@ -62,7 +56,6 @@ src_configure() {
 }
 
 src_install(){
-	#cmake_src_install
 	dobin "${BUILD_DIR}/p2pool"
 }
 
