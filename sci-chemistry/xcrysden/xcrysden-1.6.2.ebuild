@@ -3,8 +3,7 @@
 
 EAPI=8
 
-inherit desktop
-inherit xdg-utils
+inherit desktop xdg
 
 DESCRIPTION="For the visualisation of molecular and crystal structures."
 
@@ -56,12 +55,4 @@ src_install() {
 		/usr/share/doc/${P}/examples/Scripting/ \
 		/usr/share/doc/${P}/examples/FermiSurface \
 		/usr/share/man/
-}
-
-pkg_postinst() {
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
 }
