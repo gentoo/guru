@@ -1,0 +1,11 @@
+DEFINED_PHASES=postinst
+DEPEND=x11-libs/gtk+:3 net-libs/webkit-gtk:4 dev-libs/glib:2
+DESCRIPTION=An adblock extension for wyeb, also webkit2gtk browsers.
+EAPI=8
+HOMEPAGE=https://github.com/jun7/wyebadblock
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=x11-libs/gtk+:3 net-libs/webkit-gtk:4 dev-libs/glib:2
+SLOT=0
+SRC_URI=https://github.com/jun7/wyebadblock/archive/v1.0.0.tar.gz -> wyebadblock-1.0.0.tar.gz
+_md5_=44190ef2c0ca9f4a6202c1dbf46e062f

@@ -218,7 +218,7 @@ app-shells/powerline-go 1.21.0 1.22.1: A powerline like prompt for Bash, Zsh, Fi
 app-shells/silver 2.0.0: A cross-shell customizable powerline-like prompt with icons
 app-shells/spark-fish 1.2.0: Sparklines for Fish
 app-shells/vivid 0.7.0-r2 0.8.0: A themeable LS_COLORS generator with a rich filetype datebase
-app-shells/zoxide 0.8.0-r1 0.8.2-r1: A smarter cd command for your terminal
+app-shells/zoxide 0.8.0-r1 0.8.2-r1 0.8.3: A smarter cd command for your terminal
 app-shells/zsh-async 1.8.5 1.8.5_p20211005: Run multiple asynchronous jobs with callbacks
 app-shells/zsh-autosuggestions 0.6.4 0.7.0-r1: Fish-like autosuggestions for zsh
 app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
@@ -832,7 +832,7 @@ dev-python/jplephem 2.16: Python version of NASA DE4xx ephemerides for Astronomi
 dev-python/jsonpath-rw 1.4.0: A robust and significantly extended implementation of JSONPath for Python
 dev-python/jsonpath-rw-ext 1.2.2: Extensions for JSONPath RW
 dev-python/jupyter-sphinx 0.3.2: Jupyter Sphinx Extensions
-dev-python/keyrings-alt 4.1.0 4.1.1: Alternate keyring backend implementations for use with the keyring package
+dev-python/keyrings-alt 4.1.2: Alternate keyring backend implementations for use with the keyring package
 dev-python/keystonemiddleware 9.4.0 9.5.0: A middleware for the OpenStack Keystone API
 dev-python/langdetect 1.0.9: Port of Google's language-detection library to Python
 dev-python/ldappool 3.0.0: A connection pool for python-ldap
@@ -1144,7 +1144,7 @@ games-engines/instead 3.3.5 3.4.1 9999: INSTEAD text-based quest game engine
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
 games-fps/assaultcube 1.3.0.2: Free multiplayer FPS based on the Cube engine
-games-fps/crispy-doom 5.10.0 5.10.1 5.10.2 5.10.3 5.11.1: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
+games-fps/crispy-doom 5.10.0 5.10.1 5.10.2 5.10.3 5.11.1 5.12.0: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 games-fps/etlegacy 2.80.2: Wolfenstein: Enemy Territory 2.60b compatible client/server
 games-fps/openspades 0.1.3: Open-source voxel FPS
 games-fps/quakespasm 0.94.1 9999: Modern, cross-platform Quake 1 engine based on FitzQuake
@@ -1333,7 +1333,7 @@ media-video/ciano 0.2.4-r1: A multimedia file converter focused on simplicity
 media-video/ffsubsync 0.4.18-r1 0.4.19-r1 0.4.20-r1: Automagically syncronize subtitles with video
 media-video/kikoplay 0.8.2 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.4.3: A GTK3 camera application that knows how to deal with the media request api
-media-video/obs-vkcapture 1.1.3 1.1.4 9999: OBS Linux Vulkan/OpenGL game capture
+media-video/obs-vkcapture 1.1.3 1.1.4 1.2.0 9999: OBS Linux Vulkan/OpenGL game capture
 media-video/owncast 0.0.12: A self-hosted live video and web chat server
 media-video/syncplay 1.6.7-r1 1.6.9: Client/server to synchronize media playback
 media-video/tartube 2.4.077 9999: A GUI front-end for youtube-dl
@@ -1396,7 +1396,7 @@ net-libs/udt 4.11_p20181126: UDT is a UDP based data transport protocol
 net-libs/ulfius 2.7.10: HTTP Framework for REST Applications in C
 net-libs/usockets 0.8.1_p20211023 9999: tiny eventing, networking & crypto for async applications
 net-mail/dovecot-fts-xapian 1.5.4 1.5.5 9999: Dovecot FTS plugin backed by Xapian
-net-mail/hydroxide 0.2.23 9999: A third-party, open-source ProtonMail CardDAV, IMAP and SMTP bridge
+net-mail/hydroxide 0.2.23 0.2.24 9999: A third-party, open-source ProtonMail CardDAV, IMAP and SMTP bridge
 net-misc/FORT-validator 1.4.1 1.4.2 1.5.0: FORT validator is an open source RPKI validator
 net-misc/bee 0.3.1-r1 1.0.0_alpha4-r1: IOTA node written in rust
 net-misc/can-utils 2020.02.04 2020.12.0-r1 2021.08.0 9999-r3: CAN userspace utilities and tools
@@ -1432,9 +1432,11 @@ net-news/comitium 1.8.1: feed aggregator for gemini supporting many formats and 
 net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny Tiny RSS or feedly
 net-nntp/inn 2.6.4-r1 2.6.5: InterNetNews -- the Internet meets Netnews
 net-p2p/bisq-bin 1.9.5: The decentralized bitcoin exchange (non-atomic, with arbitration)
+net-p2p/feather 2.1.0 9999: A free, open-source Monero wallet
 net-p2p/ipfs-cluster 1.0.1 1.0.2: Pinset orchestration for IPFS
 net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 0.18.1.0 9999: The secure, private, untraceable cryptocurrency
+net-p2p/p2pool 2.3 9999: Decentralized pool for Monero mining
 net-p2p/popura 0.4.3 9999: Popura: alternative Yggdrasil network client
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.4.4 9999: An experiment in scalable routing as an encrypted IPv6 overlay network
@@ -1449,6 +1451,7 @@ net-wireless/rtl8821ce 0_pre20220330: Realtek RTL8821CE Driver module for Linux 
 net-wireless/rtl8821cu 0_pre20220409: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-biology/cmdock 0.1.3-r1 0.1.4-r2: Program for docking ligands to proteins and nucleic acids
 sci-biology/geneathome 1.10-r3: BOINC application for expanding Gene Regulatory Networks (GRN)
+sci-chemistry/xcrysden 1.6.2: For the visualisation of molecular and crystal structures.
 sci-electronics/bluespec 2022.01-r1 9999: Toolchain for the Bluespec Hardware Definition Language
 sci-electronics/circt 1.14.0: The fast free Verilog/SystemVerilog simulator
 sci-electronics/dsview 1.2.1 9999: An open source multi-function instrument
@@ -1679,7 +1682,7 @@ virtual/nlme 0: Virtual of a R recommended package
 virtual/nnet 0: Virtual of a R recommended package
 virtual/sendmail 0: Virtual for sendmail program
 virtual/survival 0: Virtual of a R recommended package
-www-apps/code-server-bin 4.5.1: VS Code in the browser (binary version with unbundled node and ripgrep)
+www-apps/code-server-bin 4.5.1 4.6.1: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/jackett-bin 0.20.514 0.20.1202 9999: API Support for your favorite torrent trackers
 www-apps/mycorrhiza 1.11.0 9999: Git-based wiki engine written in Go using mycomarkup
@@ -1695,6 +1698,7 @@ www-client/woob 3.0-r1 9999: Web Outside Of Browsers (core, site modules and app
 www-misc/gitea2rss 0.7.0: Generates RSS feeds from Gitea releases, tags and commits
 www-misc/gorss 0.3: Go Terminal Feed Reader
 www-misc/waldl 0.0.1_pre20211112: Browse and download wallpapers from wallhaven.cc using sxiv
+www-misc/wyebadblock 1.0.0: An adblock extension for wyeb, also webkit2gtk browsers.
 www-servers/hinsightd 0.9.15_p20220828 9999: hinsightd a http/1.1 webserver with (hopefully) minimal goals
 www-servers/quark 9999: A small, GET-only static HTTP server
 x11-apps/lightdm-gtk-greeter-settings 1.2.2: Configuration tool for the LightDM GTK Greeter
@@ -1713,7 +1717,7 @@ x11-misc/gromit-mpx 1.4.1 1.4.2 9999: Gromit-MPX is a multi-pointer GTK3 port of
 x11-misc/i3lock-color 2.13.2 2.13.4 9999: The world's most popular non-default computer lockscreen
 x11-misc/i3lock-fancy-rapid 0.0.0_pre20201109-r1 0.0.0_pre20210421: A faster implementation of i3lock-fancy
 x11-misc/i3status-rust 0.14.1 0.21.10: A feature-rich and resource-friendly replacement for i3status, written in Rust.
-x11-misc/ksnip 1.9.2 1.10.0: Ksnip is a Qt based cross-platform screenshot tool
+x11-misc/ksnip 1.9.2 1.10.0-r1: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/leftwm-theme 9999: A theme mangager for LeftWM
 x11-misc/picom-jonaburg 9999: A lightweight compositor for X11 (previously a compton fork)
 x11-misc/squeekboard 1.17.1: Virtual keyboard supporting Wayland, built primarily for the Librem 5 phone
