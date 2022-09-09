@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake desktop
 
@@ -19,7 +19,7 @@ MONERO_DIST_COMIT="b45c66e9c62d7e8f24abbcb447f408e618bfd450"
 
 DESCRIPTION="A free, open-source Monero wallet"
 HOMEPAGE="https://featherwallet.org"
-SRC_URI="https://github.com/feather-wallet/feather/archive/refs/tags/${PVR}.tar.gz -> ${PF}.tar.gz
+SRC_URI="https://github.com/feather-wallet/feather/archive/refs/tags/${PVR}.tar.gz -> ${P}.tar.gz
 	https://github.com/tevador/polyseed/archive/${POLYSEED_DIST_COMIT}.tar.gz -> ${PF}-polyseed.tar.gz
 	https://github.com/itay-grudev/SingleApplication/archive/${SINGLEAPPLICATION_DIST_COMIT}.tar.gz -> ${PF}-singleapplication.tar.gz
 	https://github.com/feather-wallet/monero/archive/${MONERO_DIST_COMIT}.tar.gz -> ${PF}-monero.tar.gz
@@ -71,8 +71,8 @@ src_prepare() {
 	mv -T "${WORKDIR}"/rapidjson-${RAPIDJSON_DIST_COMIT} "${WORKDIR}"/${PF}/monero/external/rapidjson
 	mv -T "${WORKDIR}"/supercop-${SUPERCOP_DIST_COMIT} "${WORKDIR}"/${PF}/monero/external/supercop
 	mv -T "${WORKDIR}"/trezor-common-${TREZORCOMMON_DIST_COMIT} "${WORKDIR}"/${PF}/monero/external/trezor-common
-	echo "#define FEATHER_VERSION \"${PV}\"" > "${WORKDIR}"/${PF}/src/config-feather.h
-	echo "#define TOR_VERSION \"NOT_EMBEDDED\"" >> "${WORKDIR}"/${PF}/src/config-feather.h
+	echo "#define FEATHER_VERSION \"${PV}\"" > "${WORKDIR}"/${PF}/src/config-feather.h || die
+	echo "#define TOR_VERSION \"NOT_EMBEDDED\"" >> "${WORKDIR}"/${PF}/src/config-feather.h || die
 	cmake_src_prepare
 }
 
