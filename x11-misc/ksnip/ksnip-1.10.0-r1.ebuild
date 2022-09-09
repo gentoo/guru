@@ -3,8 +3,7 @@
 
 EAPI=8
 
-inherit desktop xdg cmake
-# cmake has to be listed after xdg for src_prepare to work
+inherit cmake desktop xdg-utils
 
 DESCRIPTION="Ksnip is a Qt based cross-platform screenshot tool"
 HOMEPAGE="https://github.com/ksnip/ksnip"
@@ -41,4 +40,12 @@ src_install() {
 
 	doicon -s scalable desktop/${PN}.svg
 	domenu desktop/org.${PN}.${PN}.desktop
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
 }
