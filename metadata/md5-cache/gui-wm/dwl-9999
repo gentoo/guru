@@ -10,5 +10,5 @@ LICENSE=CC0-1.0 GPL-3 MIT
 PROPERTIES=live
 RDEPEND=dev-libs/libinput dev-libs/wayland x11-libs/libxkbcommon gui-libs/wlroots:0/15[X(-)?] X? ( x11-libs/libxcb )
 SLOT=0
-_eclasses_=portability	d33a77692bb47e8227f27e17fb9c3c05	savedconfig	7cb1bf66b4acedc4f06802a012d3b08d	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_eclasses_=portability	58227860123d3e8da23290064ce3373e	savedconfig	4011d8d7370446e970e2c92b20a31341	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
 _md5_=b8a97c223cb4cf50322fefb2f8d7673d
