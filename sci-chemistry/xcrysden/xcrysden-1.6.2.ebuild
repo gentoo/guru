@@ -24,7 +24,7 @@ RDEPEND=">=dev-lang/tcl-8.6.12
 	>=media-libs/mesa-22.1.3
 	>=sci-libs/fftw-3.3.10"
 
-BDEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${P}-ext-bwidget.patch"
