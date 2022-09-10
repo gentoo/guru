@@ -28,8 +28,8 @@ BDEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${P}-ext-bwidget.patch"
-	"${FILESDIR}/${P}-Togl_lib.patch"
-	"${FILESDIR}/${P}-wrapper_paths.patch"
+	"${FILESDIR}/${P}-Togl-lib.patch"
+	"${FILESDIR}/${P}-wrapper-paths.patch"
 )
 
 src_prepare() {
