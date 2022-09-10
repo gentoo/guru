@@ -18,13 +18,13 @@ DESCRIPTION="Decentralized pool for Monero mining"
 HOMEPAGE="https://p2pool.io https://github.com/SChernykh/p2pool"
 
 SRC_URI="https://github.com/SChernykh/p2pool/archive/${P2POOL_DIST_COMMIT}.tar.gz -> ${P}.tar.gz
-	https://github.com/tevador/RandomX/archive/${RANDOMX_DIST_COMMIT}.tar.gz -> ${PF}-randomx.tar.gz
-	https://github.com/SChernykh/cppzmq/archive/${CPPZMQ_DIST_COMMIT}.tar.gz -> ${PF}-cppzmq.tar.gz
-	https://github.com/SChernykh/curl/archive/${CURL_DIST_COMMIT}.tar.gz -> ${PF}-curl.tar.gz
-	https://github.com/SChernykh/libuv/archive/${LIBUV_DIST_COMMIT}.tar.gz -> ${PF}-libuv.tar.gz
-	https://github.com/SChernykh/libzmq/archive/${LIBZMQ_DIST_COMMIT}.tar.gz -> ${PF}-libzmq.tar.gz
-	https://github.com/SChernykh/rapidjson/archive/${RAPIDJSON_DIST_COMMIT}.tar.gz -> ${PF}-rapidjson.tar.gz
-	https://github.com/SChernykh/robin-hood-hashing/archive/${ROBIN_HOOD_HASHING_DIST_COMMIT}.tar.gz -> ${PF}-robin-hood-hashing.tar.gz
+	https://github.com/tevador/RandomX/archive/${RANDOMX_DIST_COMMIT}.tar.gz -> ${P}-randomx.tar.gz
+	https://github.com/SChernykh/cppzmq/archive/${CPPZMQ_DIST_COMMIT}.tar.gz -> ${P}-cppzmq.tar.gz
+	https://github.com/SChernykh/curl/archive/${CURL_DIST_COMMIT}.tar.gz -> ${P}-curl.tar.gz
+	https://github.com/SChernykh/libuv/archive/${LIBUV_DIST_COMMIT}.tar.gz -> ${P}-libuv.tar.gz
+	https://github.com/SChernykh/libzmq/archive/${LIBZMQ_DIST_COMMIT}.tar.gz -> ${P}-libzmq.tar.gz
+	https://github.com/SChernykh/rapidjson/archive/${RAPIDJSON_DIST_COMMIT}.tar.gz -> ${P}-rapidjson.tar.gz
+	https://github.com/SChernykh/robin-hood-hashing/archive/${ROBIN_HOOD_HASHING_DIST_COMMIT}.tar.gz -> ${P}-robin-hood-hashing.tar.gz
 "
 KEYWORDS="~amd64 ~arm64 ~x86"
 
@@ -38,13 +38,13 @@ DEPEND="
 src_unpack() {
 	unpack ${P}.tar.gz ${PF}-randomx.tar.gz ${PF}-cppzmq.tar.gz ${PF}-curl.tar.gz ${PF}-libuv.tar.gz ${PF}-libzmq.tar.gz ${PF}-rapidjson.tar.gz ${PF}-robin-hood-hashing.tar.gz
 	#mv -T "${WORKDIR}"/p2pool-${P2POOL_DIST_COMMIT} "${WORKDIR}"/${PF}
-	mv -T "${WORKDIR}"/RandomX-${RANDOMX_DIST_COMMIT} "${WORKDIR}"/${PF}/external/src/RandomX
-	mv -T "${WORKDIR}"/cppzmq-${CPPZMQ_DIST_COMMIT} "${WORKDIR}"/${PF}/external/src/cppzmq
-	mv -T "${WORKDIR}"/curl-${CURL_DIST_COMMIT} "${WORKDIR}"/${PF}/external/src/curl
-	mv -T "${WORKDIR}"/libuv-${LIBUV_DIST_COMMIT} "${WORKDIR}"/${PF}/external/src/libuv
-	mv -T "${WORKDIR}"/libzmq-${LIBZMQ_DIST_COMMIT} "${WORKDIR}"/${PF}/external/src/libzmq
-	mv -T "${WORKDIR}"/rapidjson-${RAPIDJSON_DIST_COMMIT} "${WORKDIR}"/${PF}/external/src/rapidjson
-	mv -T "${WORKDIR}"/robin-hood-hashing-${ROBIN_HOOD_HASHING_DIST_COMMIT} "${WORKDIR}"/${PF}/external/src/robin-hood-hashing
+	mv -T "${WORKDIR}"/RandomX-${RANDOMX_DIST_COMMIT} "${WORKDIR}"/${PF}/external/src/RandomX || die
+	mv -T "${WORKDIR}"/cppzmq-${CPPZMQ_DIST_COMMIT} "${WORKDIR}"/${PF}/external/src/cppzmq || die
+	mv -T "${WORKDIR}"/curl-${CURL_DIST_COMMIT} "${WORKDIR}"/${PF}/external/src/curl || die
+	mv -T "${WORKDIR}"/libuv-${LIBUV_DIST_COMMIT} "${WORKDIR}"/${PF}/external/src/libuv || die
+	mv -T "${WORKDIR}"/libzmq-${LIBZMQ_DIST_COMMIT} "${WORKDIR}"/${PF}/external/src/libzmq || die
+	mv -T "${WORKDIR}"/rapidjson-${RAPIDJSON_DIST_COMMIT} "${WORKDIR}"/${PF}/external/src/rapidjson || die
+	mv -T "${WORKDIR}"/robin-hood-hashing-${ROBIN_HOOD_HASHING_DIST_COMMIT} "${WORKDIR}"/${PF}/external/src/robin-hood-hashing || die
 }
 
 src_configure() {

@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake flag-o-matic
 
-DESCRIPTION="Client API library for Matrix, built on top of Boost.Asio"
+DESCRIPTION="Client API library for Matrix, built on top of libcurl"
 HOMEPAGE="https://github.com/Nheko-Reborn/mtxclient"
 SRC_URI="https://github.com/Nheko-Reborn/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
