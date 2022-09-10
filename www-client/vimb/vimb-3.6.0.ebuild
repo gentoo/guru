@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit savedconfig
+inherit savedconfig optfeature
 
 DESCRIPTION="a fast, lightweight, vim-like browser based on webkit"
 HOMEPAGE="https://fanglingsu.github.io/vimb/"
@@ -41,7 +41,5 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "For media decoding to work properly, you need to install:"
-	elog "media-plugins/gst-plugins-libav"
-	elog "media-libs/gst-plugins-good"
+	optfeature "media decoding support"  media-plugins/gst-plugins-libav media-libs/gst-plugins-good
 }
