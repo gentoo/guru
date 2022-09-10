@@ -533,7 +533,7 @@ dev-libs/libthai 0.1.28 0.1.29: A a set of Thai language support routines
 dev-libs/luksmeta 9: LUKSMeta is a simple library for storing metadata in the LUKSv1 header
 dev-libs/memkind 1.13.0: user extensible heap manager built on top of jemalloc
 dev-libs/monero-seed 0.1.0: 14-word mnemonic seed for Monero
-dev-libs/mtxclient 0.8.0 0.8.1: Client API library for Matrix, built on top of Boost.Asio
+dev-libs/mtxclient 0.8.0 0.8.1 0.8.2: Client API library for Matrix, built on top of libcurl
 dev-libs/nativefiledialog-extended 0_pre20210430-r1: File dialog library with C and C++ bindings, based on nativefiledialog
 dev-libs/octetos-biblion 0.1.1_alpha: Library for reading biblia.
 dev-libs/octetos-core 2.15.0_beta 2.20.0_beta 2.25.0_beta 2.25.1_beta 2.31.2_beta 2.31.3_beta 2.31.5_beta 2.32.0_beta: C/C++ library to mainly provide Semantic Versioned implementation
