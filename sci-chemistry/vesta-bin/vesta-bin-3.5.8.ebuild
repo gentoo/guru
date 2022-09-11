@@ -36,5 +36,4 @@ src_install() {
 	newicon -s 128x128 "${D}"/opt/VESTA/img/logo.png VESTA.png
 
 	dosym -r /opt/VESTA/libVESTA.so /usr/lib64/libVESTA.so
-	dosym "${EPREFIX}"/opt/VESTA/VESTA /usr/bin/VESTA
 }
