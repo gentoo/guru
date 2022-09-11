@@ -28,13 +28,13 @@ RESTRICT="strip"
 
 src_install() {
 	insinto /opt/VESTA
-	doins -r ${S}/*
+	doins -r "${S}"/*
 	fperms +x /opt/VESTA/VESTA
 	fperms +x /opt/VESTA/VESTA-gui
 
-	domenu "${FILESDIR}/VESTA.desktop"
-	newicon -s 128x128 ${D}/opt/VESTA/img/logo.png VESTA.png
+	domenu "${FILESDIR}"/VESTA.desktop
+	newicon -s 128x128 "${D}"/opt/VESTA/img/logo.png VESTA.png
 
-	dosym /opt/VESTA/libVESTA.so /usr/lib64/libVESTA.so
-	dosym /opt/VESTA/VESTA-gui /usr/bin/VESTA
+	dosym -r /opt/VESTA/libVESTA.so /usr/lib64/libVESTA.so
+	dosym "${EPREFIX}"/opt/VESTA/VESTA /usr/bin/VESTA
 }
