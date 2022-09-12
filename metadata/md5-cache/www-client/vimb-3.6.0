@@ -3,12 +3,12 @@ DEPEND=virtual/pkgconfig adblock? ( www-misc/wyebadblock )
 DESCRIPTION=a fast, lightweight, vim-like browser based on webkit
 EAPI=7
 HOMEPAGE=https://fanglingsu.github.io/vimb/
-INHERIT=savedconfig
+INHERIT=savedconfig optfeature
 IUSE=savedconfig adblock savedconfig
 KEYWORDS=~amd64
 LICENSE=GPL-3
 RDEPEND=x11-libs/gtk+:3 >=net-libs/webkit-gtk-2.20.0:4
 SLOT=0
 SRC_URI=https://github.com/fanglingsu/vimb/archive/3.6.0.tar.gz -> vimb-3.6.0.tar.gz
-_eclasses_=portability	58227860123d3e8da23290064ce3373e	savedconfig	4011d8d7370446e970e2c92b20a31341
-_md5_=4a2f3702faa3e0dca37cadb573c43501
+_eclasses_=portability	58227860123d3e8da23290064ce3373e	savedconfig	4011d8d7370446e970e2c92b20a31341	optfeature	1a2157392a869265b2afcb63a26c12ac
+_md5_=50943f6e2f5675bf6cfe58020e0b53a6

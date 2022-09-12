@@ -1,0 +1,14 @@
+BDEPEND=app-arch/unzip X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=install postinst postrm prepare setup
+DESCRIPTION=Pan-CJK OpenType/CFF mono font family
+EAPI=8
+HOMEPAGE=https://github.com/adobe-fonts/source-han-serif/
+INHERIT=font
+IUSE=X
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~sparc ~x86 ~x64-macos
+LICENSE=OFL-1.1
+RESTRICT=binchecks strip
+SLOT=0
+SRC_URI=https://github.com/adobe-fonts/source-han-mono/releases/download/1.002/SourceHanMono.ttc -> source-han-mono-1.002.ttc
+_eclasses_=font	d31f12a0f6e13d56dc3062e76ae58a61
+_md5_=7f57722d3c61cf0e71a71f07b86b442e

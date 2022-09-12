@@ -1,14 +1,14 @@
-BDEPEND=>=dev-lang/tcl-8.6.12 >=dev-lang/tk-8.6.12 >=dev-tcltk/togl-2.0-r3 >=dev-tcltk/bwidget-1.9.14 >=media-libs/mesa-22.1.3 >=sci-libs/fftw-3.3.10
 DEFINED_PHASES=compile install postinst postrm preinst prepare
+DEPEND=>=x11-base/xorg-server-21.1.4 >=virtual/glu-9.0-r2 >=dev-lang/tcl-8.6.12 >=dev-lang/tk-8.6.12 >=dev-tcltk/togl-2.0-r3 >=dev-tcltk/bwidget-1.9.14 >=media-libs/mesa-22.1.3 >=sci-libs/fftw-3.3.10
 DESCRIPTION=For the visualisation of molecular and crystal structures.
 EAPI=8
 HOMEPAGE=http://www.xcrysden.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=desktop xdg
+INHERIT=desktop flag-o-matic xdg
 KEYWORDS=~amd64
 LICENSE=GPL-2+
-RDEPEND=>=dev-lang/tcl-8.6.12 >=dev-lang/tk-8.6.12 >=dev-tcltk/togl-2.0-r3 >=dev-tcltk/bwidget-1.9.14 >=media-libs/mesa-22.1.3 >=sci-libs/fftw-3.3.10
+RDEPEND=>=x11-base/xorg-server-21.1.4 >=virtual/glu-9.0-r2 >=dev-lang/tcl-8.6.12 >=dev-lang/tk-8.6.12 >=dev-tcltk/togl-2.0-r3 >=dev-tcltk/bwidget-1.9.14 >=media-libs/mesa-22.1.3 >=sci-libs/fftw-3.3.10
 SLOT=0
 SRC_URI=http://www.xcrysden.org/download/xcrysden-1.6.2.tar.gz
-_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
-_md5_=ff4801bc879395c1a3980f02656a362a
+_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	xdg	6024fbc93167fad782e2032933654857
+_md5_=327e56e24fd484b5c844628230379b1c
