@@ -3,7 +3,7 @@
 
 EAPI=7
 
-DESCRIPTION="Ledger Live desktop manger"
+DESCRIPTION="Manager for the Ledger hardware wallet"
 HOMEPAGE="https://www.ledger.com/"
 SRC_URI="https://download.live.ledger.com/ledger-live-desktop-${PV}-linux-x86_64.AppImage"
 
