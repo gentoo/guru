@@ -305,7 +305,7 @@ HOMEPAGE="https://github.com/watchexec/watchexec"
 SRC_URI="https://github.com/watchexec/${PN}/archive/refs/tags/cli-v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" $(cargo_crate_uris)"
 
-LICENSE="Apache-2.0 BSD CC0-1.0 ISC MIT Unicode-DFS-2016 WTFPL"
+LICENSE="Apache-2.0 BSD CC0-1.0 ISC MIT Unicode-DFS-2016 WTFPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 # Prevent portage from trying to fetch bunch of *.crate from mirror despite they are not mirrored.

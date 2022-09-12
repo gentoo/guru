@@ -3,8 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
-
+PYTHON_COMPAT=( python3_{8..11} )
 inherit distutils-r1
 
 DESCRIPTION="python-dbus-next is a Python library for DBus"
@@ -13,7 +12,7 @@ HOMEPAGE="
 	https://pypi.org/project/sphinxcontrib-fulltoc/
 	https://sphinxcontrib-fulltoc.readthedocs.io
 "
-SRC_URI="https://github.com/sphinx-contrib/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/sphinx-contrib/fulltoc/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 DISTUTILS_USE_SETUPTOOLS=no
 
 inherit distutils-r1
@@ -13,7 +13,7 @@ HOMEPAGE="
 	https://github.com/bb4242/sdnotify
 	https://pypi.org/project/sdnotify/
 "
-SRC_URI="https://github.com/bb4242/${PN}/archive/refs/tags/v${PV}.tar.gz -> bb4242-${P}.tar.gz"
+SRC_URI="https://github.com/bb4242/${PN}/archive/refs/tags/v${PV}.tar.gz -> bb4242-${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"

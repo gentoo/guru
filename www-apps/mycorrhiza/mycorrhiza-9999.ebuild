@@ -10,7 +10,7 @@ HOMEPAGE="https://mycorrhiza.wiki"
 
 EGIT_REPO_URI="https://github.com/bouncepaw/mycorrhiza"
 
-LICENSE="AGPL-3 MIT Apache-2.0 BSD BSD-2"
+LICENSE="AGPL-3 MIT Apache-2.0 BSD BSD-2 CC-BY-4.0"
 SLOT="0"
 
 BDEPEND=">=dev-lang/go-1.18.0"
@@ -32,7 +32,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "Quick start: /usr/bin/mycorrhiza /your/wiki/directory"
+	elog "Quick start: mycorrhiza /your/wiki/directory"
 	elog
 	elog "It will initialize a Git repository, set useful default settings"
 	elog "And run a server on http://localhost:1737"

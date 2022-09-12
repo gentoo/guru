@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop xdg
+inherit desktop flag-o-matic xdg
 
 DESCRIPTION="For the visualisation of molecular and crystal structures."
 
@@ -17,20 +17,21 @@ SLOT="0"
 
 KEYWORDS="~amd64"
 
-RDEPEND=">=dev-lang/tcl-8.6.12
+RDEPEND=">=x11-base/xorg-server-21.1.4
+	>=virtual/glu-9.0-r2
+	>=dev-lang/tcl-8.6.12
 	>=dev-lang/tk-8.6.12
 	>=dev-tcltk/togl-2.0-r3
 	>=dev-tcltk/bwidget-1.9.14
 	>=media-libs/mesa-22.1.3
 	>=sci-libs/fftw-3.3.10"
 
-BDEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${P}-ext-bwidget.patch"
-	"${FILESDIR}/${P}-gcc_flags.patch"
-	"${FILESDIR}/${P}-Togl_lib.patch"
-	"${FILESDIR}/${P}-wrapper_paths.patch"
+	"${FILESDIR}/${P}-Togl-lib.patch"
+	"${FILESDIR}/${P}-wrapper-paths.patch"
 )
 
 src_prepare() {
@@ -39,6 +40,7 @@ src_prepare() {
 }
 
 src_compile() {
+	append-cflags "-fcommon"
 	emake xcrysden
 }
 
