@@ -11,5 +11,5 @@ RDEPEND=dev-erlang/cowlib =dev-erlang/ranch-1.7.1* dev-lang/erlang:=
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/ninenines/cowboy/archive/2.9.0.tar.gz -> cowboy-2.9.0.tar.gz
-_eclasses_=rebar	cde3fe8ac7c866dc245b07b4b1b38a5e
+_eclasses_=rebar	c90ca870377295e338a9682a5b951ef6
 _md5_=078ad8cee95d74f0381a58b1fa7dff80

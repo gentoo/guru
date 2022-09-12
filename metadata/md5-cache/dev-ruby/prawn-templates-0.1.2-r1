@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( ruby_targets_ruby27 ruby_targets_ruby30 )
 RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://rubygems.org/gems/prawn-templates-0.1.2.gem
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	ruby-utils	97c8e15d89dc6537e36cddedf413ed22	ruby-ng	32c657868f5d944ede724c36996ec27a	ruby-fakegem	5219a86777b162618ed386ae08bf8ce4
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	1542e649be915f43f6908a9e93909961	ruby-utils	97c8e15d89dc6537e36cddedf413ed22	ruby-ng	1147c87e94def682fd485ce7a14a86c2	ruby-fakegem	5219a86777b162618ed386ae08bf8ce4
 _md5_=59178b019877f70592ad503d75c00bf2
