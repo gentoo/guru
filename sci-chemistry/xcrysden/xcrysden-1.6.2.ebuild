@@ -30,6 +30,7 @@ DEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${P}-ext-bwidget.patch"
+	"${FILESDIR}/${P}-LDFLAGS.patch"
 	"${FILESDIR}/${P}-Togl-lib.patch"
 	"${FILESDIR}/${P}-wrapper-paths.patch"
 )
