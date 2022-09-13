@@ -26,6 +26,8 @@ RDEPEND=">=x11-libs/gtk+-3.24.34[wayland]
 
 RESTRICT="strip"
 
+QA_PREBUILT="opt/VESTA/*"
+
 src_install() {
 	insinto /opt/VESTA
 	doins -r "${S}"/*
