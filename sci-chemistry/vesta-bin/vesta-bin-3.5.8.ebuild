@@ -20,7 +20,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 # As of 3.5.6, wayland support required for gtk even when running on xorg.
-RDEPEND=">=x11-libs/gtk+-3.24.34[wayland]
+RDEPEND="x11-libs/gtk+:3[wayland]
+	x11-libs/gtk+:2
 	>=virtual/glu-9.0-r2
 	>=virtual/jdk-17"
 
