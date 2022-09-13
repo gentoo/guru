@@ -215,6 +215,18 @@ dev-util/vala-language-server:debug_mem -
 dev-util/vala-language-server:plugins - 
 dev-vcs/gitui:nerdfonts - Use nerd-fonts icons
 dev-vcs/gitui:trace - Enable libgit tracing
+games-action/ddnet:antibot - Enable support for a dynamic anticheat library.
+games-action/ddnet:autoupdate - Enable the autoupdater.
+games-action/ddnet:client - Enable client compilation.
+games-action/ddnet:download-gtest - Download and compile GTest. Useful if GTest is not installed and there is no suitable package providing it.
+games-action/ddnet:headless-client - Build the client without graphics.
+games-action/ddnet:inform-update - Inform about available updates.
+games-action/ddnet:server - Enable server compilation.
+games-action/ddnet:tools - Enable tools compilation.
+games-action/ddnet:upnp - Enable UPnP support for the server.
+games-action/ddnet:videorecorder - Add video recording support using FFmpeg to the client.
+games-action/ddnet:vulkan - Enable the vulkan backend.
+games-action/ddnet:websockets - Enable WebSocket support for server.
 games-arcade/taisei:lto - Enable link time optimization
 games-arcade/taisei:zip - Enable loading of game data from ZIP packages via dev-libs/libzip
 games-board/fairy-stockfish:general-32 - Generic unoptimized 32-bits build
