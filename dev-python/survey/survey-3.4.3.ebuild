@@ -21,5 +21,3 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	>=dev-python/wrapio-1.0.0[${PYTHON_USEDEP}]
 "
-
-distutils_enable_sphinx docs
