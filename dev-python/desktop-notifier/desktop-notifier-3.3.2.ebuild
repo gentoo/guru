@@ -13,7 +13,7 @@ HOMEPAGE="
 	https://pypi.org/project/desktop-notifier/
 	https://github.com/samschott/desktop-notifier
 "
-SRC_URI="https://github.com/samschott/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/samschott/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -25,5 +25,3 @@ RDEPEND="
 	dev-python/python-dbus-next[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep 'dev-python/importlib_resources[${PYTHON_USEDEP}]' python3_8)
 "
-
-distutils_enable_sphinx docs
