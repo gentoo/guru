@@ -1,0 +1,11 @@
+BDEPEND=net-libs/nodejs[npm]
+DEFINED_PHASES=install unpack
+DESCRIPTION=A language server for Dockerfiles
+EAPI=8
+HOMEPAGE=https://github.com/rcjsuen/dockerfile-language-server-nodejs
+KEYWORDS=~amd64
+LICENSE=MIT-with-advertising
+RDEPEND=net-libs/nodejs
+SLOT=0
+SRC_URI=mirror://npm/dockerfile-language-server-nodejs/-/dockerfile-language-server-nodejs-0.9.0.tgz https://tastytea.de/files/gentoo/dockerfile-language-server-0.9.0-deps.tar.xz
+_md5_=5edd5a7c49fd1f78c77dd172d52fbf75

@@ -145,7 +145,7 @@ app-misc/cheat 4.2.3: cheat allows you to create and view interactive cheatsheet
 app-misc/clifm 1.6 1.7 9999: The command line file manager
 app-misc/cpufetch 1.01 1.02: Simplistic yet fancy CPU architecture fetching tool
 app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs
-app-misc/doublecmd-bin 1.0.6: Free cross platform open source file manager with two panels side by side.
+app-misc/doublecmd-bin 1.0.6 1.0.7: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
 app-misc/fastfetch 1.6.5 1.7.0 9999: Like neofetch but faster
@@ -1074,6 +1074,7 @@ dev-util/binaryen 105: Compiler and toolchain infrastructure library for WebAsse
 dev-util/blueprint-compiler 0.2.0 9999: Compiler for Blueprint, a markup language for GTK user interfaces
 dev-util/cargo-make 0.35.9 0.35.10: Rust task runner and build tool
 dev-util/deblob 9999: remove binary executables from a directory
+dev-util/dockerfile-language-server 0.9.0: A language server for Dockerfiles
 dev-util/eclipse-parallel-bin 4.22 4.23: Eclipse IDE for Scientific Computing (C, C++, Fortran)
 dev-util/exercism 3.0.13: Command line client for https://exercism.io
 dev-util/fnm 1.31.0-r2: Fast and simple Node.js version manager
@@ -1090,7 +1091,7 @@ dev-util/lemminx-bin 0.21.0: XML Language Server
 dev-util/mh 1.0.3: Generate help for Makefile
 dev-util/osc 0.173.0 9999: Command line tool for Open Build Service
 dev-util/ots 8.1.4 8.2.1: An util for validating and sanitising OpenType files
-dev-util/pmbootstrap 1.45.0: Helper tool for developing and building postmarketOS
+dev-util/pmbootstrap 1.46.0: Helper tool for developing and building postmarketOS
 dev-util/psautohint 2.4.0: A standalone version of AFDKO autohinter
 dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's OpenGL Shader Builder
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
@@ -1577,6 +1578,7 @@ sys-auth/pam-gnupg 0.3: Unlock GnuPG keys on login
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/limine 2.88 3.0 3.4.3 3.4.4 3.4.5: Limine is a modern, advanced x86/x86_64 BIOS/UEFI multiprotocol bootloader.
+sys-boot/woeusb-ng 0.2.10: Create Windows installer USB from ISO (rewrite of WoeUSB)
 sys-boot/zfsbootmenu 1.12.0: ZFS bootloader for root-on-ZFS systems
 sys-cluster/AXL 0.5.0 0.7.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy
 sys-cluster/Graph500 1.2: Graph500 reference implementations
