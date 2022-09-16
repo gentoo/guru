@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
 
-inherit meson python-single-r1
+inherit meson python-r1
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
@@ -29,10 +29,8 @@ RESTRICT="!test? ( test )"
 BDEPEND="
 	${PYTHON_DEPS}
 	doc? (
-		$(python_gen_cond_dep '
-			dev-python/sphinx[${PYTHON_USEDEP}]
-			dev-python/furo[${PYTHON_USEDEP}]
-		')
+		dev-python/sphinx[${PYTHON_USEDEP}]
+		dev-python/furo[${PYTHON_USEDEP}]
 	)
 "
 
@@ -50,12 +48,45 @@ src_configure() {
 	local emesonargs=(
 		$(meson_use doc docs)
 	)
-	meson_src_configure
+	python_foreach_impl meson_src_configure
+}
+
+src_compile() {
+	python_foreach_impl meson_src_compile
+}
+
+src_test() {
+	python_foreach_impl meson_src_test
 }
 
 src_install() {
-	use doc && HTML_DOCS=( "${BUILD_DIR}/docs"/* )
-	meson_src_install
-	python_optimize "${D}/usr/share/${PN}"
-	python_fix_shebang "${D}/usr/bin/${PN}"
+	my_src_install() {
+		local exe="${ED}/usr/bin/${PN}"
+
+		# Meson installs a Python script at ${ED}/usr/bin/${PN}; on
+		# Gentoo, the script should go into ${ED}/usr/lib/python-exec,
+		# and ${ED}/usr/bin/${PN} should be a symbolic link to
+		# ${ED}/usr/lib/python-exec/python-exec2.
+		#
+		# When multiple PYTHON_TARGETS are enabled, then after the
+		# package has been installed for one Python implementation,
+		# Meson will follow the ${ED}/usr/bin/${PN} symbolic link and
+		# install the script at ${ED}/usr/lib/python-exec/python-exec2
+		# for the remaining implementations, leading to file collision.
+		if [[ -L "${exe}" ]]; then
+			rm -v "${exe}" || die "Failed to remove symbolic link ${exe}"
+		fi
+
+		meson_src_install
+		python_doscript "${exe}"
+		python_optimize
+
+		# Install Sphinx-generated documentation only once
+		# since the documentation is supposed to be identical
+		# between different Python implementations
+		use doc && HTML_DOCS=( "${BUILD_DIR}/docs"/* )
+	}
+
+	python_foreach_impl my_src_install
+	einstalldocs
 }
