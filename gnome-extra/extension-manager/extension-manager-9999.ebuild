@@ -22,6 +22,7 @@ SLOT="0"
 BDEPEND="
 	dev-libs/glib:2
 	dev-util/blueprint-compiler
+	sys-devel/gettext
 	virtual/pkgconfig
 "
 

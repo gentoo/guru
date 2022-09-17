@@ -8,6 +8,8 @@ GST_ORG_MODULE=gst-plugins-good
 inherit gstreamer-meson qmake-utils
 
 DESCRIPTION="Qt5 QML video sink plugin for GStreamer"
+
+LICENSE="GPL-2+"
 KEYWORDS="~amd64"
 IUSE="+egl wayland +X"
 
@@ -17,7 +19,7 @@ REQUIRED_USE="
 
 RDEPEND="
 	>=media-libs/gst-plugins-base-${PV}:${SLOT}[egl?,opengl,wayland?,X?]
-	media-libs/mesa[egl(+)?,X?]
+	media-libs/mesa[egl(+)?,wayland?,X?]
 	dev-qt/qtcore:5
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5
@@ -26,10 +28,6 @@ RDEPEND="
 	X? ( dev-qt/qtx11extras:5 )
 "
 DEPEND="${RDEPEND}"
-
-PATCHES=(
-	"${FILESDIR}/gst-dont-use-volatile-to-mean-atomic-1.18.4.patch"
-)
 
 GST_PLUGINS_BUILD_DIR="qt"
 

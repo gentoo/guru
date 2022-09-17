@@ -17,4 +17,9 @@
 	<flag name="xfce">Enables support for XFCE config</flag>
 	<flag name="xrandr">Enables support for Xrandr</flag>
 </use>
+<longdescription>
+fastfetch is a neofetch-like tool for fetching system information and displaying them in a pretty way.
+
+It is written in c to achieve much better performance.
+</longdescription>
 </pkgmetadata>

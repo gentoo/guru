@@ -29,5 +29,3 @@ RDEPEND="
 BDEPEND="
 	dev-python/build[${PYTHON_USEDEP}]
 "
-
-distutils_enable_sphinx docs

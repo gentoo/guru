@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake
 
-DESCRIPTION="Like neofetch but faster"
+DESCRIPTION="Fast system information tool"
 HOMEPAGE="https://github.com/LinusDierheimer/fastfetch"
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
