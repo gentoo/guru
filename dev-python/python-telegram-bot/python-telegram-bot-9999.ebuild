@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_8 )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
@@ -21,6 +21,10 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
+
+# This error is really strange
+# UserWarning: python-telegram-bot is using upstream urllib3. This is allowed but not supported by python-telegram-bot maintainers.
+RESTRICT="test"
 
 RDEPEND="
 	dev-python/certifi[${PYTHON_USEDEP}]
