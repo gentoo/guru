@@ -135,7 +135,7 @@ app-metrics/scaphandre 0.4.1: Electrical power consumption measurement agent.
 app-misc/afc 1.1 9999: Anime File Checker, checks CRC32 contained in filenames
 app-misc/afetch 2.2.0: Simple system info written in C
 app-misc/ani-cli 1.9: A cli to browse and watch anime.
-app-misc/anki-bin 2.1.49: A spaced-repetition memory training program (flash cards)
+app-misc/anki-bin 2.1.49 2.1.54: A spaced-repetition memory training program (flash cards)
 app-misc/apidb 5.8.0_beta 5.11.0_beta 5.13.1_beta 5.13.4_beta 5.13.6_beta: API Generator for Database access
 app-misc/aw-client 0.11.0: Client library for ActivityWatch
 app-misc/aw-core 0.11.0: Core library for ActivityWatch
@@ -148,7 +148,7 @@ app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best
 app-misc/doublecmd-bin 1.0.6 1.0.7: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
-app-misc/fastfetch 1.6.5 1.7.0 9999: Like neofetch but faster
+app-misc/fastfetch 1.7.2 9999: Fast system information tool
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -813,7 +813,7 @@ dev-python/graphene 3.0.0: GraphQL Framework for Python
 dev-python/graphql-core 3.1.6: GraphQL for Python
 dev-python/graphql-relay 3.1.0: Relay library for graphql-core-next
 dev-python/grpclib 0.4.2 0.4.3_rc2: Pure-Python gRPC implementation for asyncio
-dev-python/guidata 2.1.1: Library for user interfaces for easy dataset editing and display
+dev-python/guidata 2.3.0: Library for user interfaces for easy dataset editing and display
 dev-python/hijri-converter 2.2.4: Accurate Hijri-Gregorian date converter based on the Umm al-Qura calendar
 dev-python/hstspreload 2021.12.1: Chromium HSTS Preload list as a Python package
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
@@ -963,7 +963,7 @@ dev-python/python-saharaclient 3.5.0: This is a client for the OpenStack Sahara 
 dev-python/python-senlinclient 2.4.0: A client for the OpenStack Senlin API
 dev-python/python-skywater-pdk 0.0.0_p20220424: Python library for working with files found in the SkyWater PDK
 dev-python/python-socketio 5.1.0: Python implementation of the Socket.IO realtime server.
-dev-python/python-telegram-bot 13.1 9999: Python wrapper of telegram bots API
+dev-python/python-telegram-bot 13.14 9999: Python wrapper of telegram bots API
 dev-python/python-troveclient 7.3.0: A client for the OpenStack Trove API, a scalable relational database service
 dev-python/python-vitrageclient 4.5.0: A client for the OpenStack Vitrage API
 dev-python/python-zaqarclient 2.3.0: A client for the OpenStack Zaqar API
@@ -1071,7 +1071,7 @@ dev-util/bats-assert 2.0.0: Common assertions for Bats
 dev-util/bats-support 0.3.0: Supporting library for Bats test helpers
 dev-util/bazelisk 1.12.0: A user-friendly launcher for Bazel
 dev-util/binaryen 105: Compiler and toolchain infrastructure library for WebAssembly
-dev-util/blueprint-compiler 0.2.0 9999: Compiler for Blueprint, a markup language for GTK user interfaces
+dev-util/blueprint-compiler 0.2.0 0.4.0 9999: Compiler for Blueprint, a markup language for GTK user interfaces
 dev-util/cargo-make 0.35.9 0.35.10: Rust task runner and build tool
 dev-util/deblob 9999: remove binary executables from a directory
 dev-util/dockerfile-language-server 0.9.0: A language server for Dockerfiles
@@ -1306,7 +1306,7 @@ media-libs/vips 8.10.6: VIPS Image Processing Library
 media-plugins/alsa-sndio 0.2: ALSA PCM to play audio on sndio servers
 media-plugins/argotlunar-bin 2.06-r1: Argotlunar is a sound granulator. Binary Linux VST
 media-plugins/gimp-avif-plugin 9999: Plug-in for development GIMP 2.99.11 for loading/saving AVIF images.
-media-plugins/gst-plugins-qt5 1.18.4 1.18.6 1.20.1 1.20.2: Qt5 QML video sink plugin for GStreamer
+media-plugins/gst-plugins-qt5 1.20.2 1.20.3: Qt5 QML video sink plugin for GStreamer
 media-plugins/qt-heif-image-plugin 0.3.3-r1 0.3.3-r2: Qt plugin for HEIF images
 media-plugins/qt-jpegxl-image-plugin 9999: Qt plug-in to allow Qt and KDE based applications to read/write JXL images.
 media-plugins/whysynth 20170701_p20180323: A software synthesizer plugin for the DSSI Soft Synth Interface
@@ -1554,7 +1554,7 @@ sys-apps/bat-extras 2022.07.27 9999: Bash scripts that integrate bat with variou
 sys-apps/bustd 0.1.1: Process killer daemon for out-of-memory scenarios
 sys-apps/dool 1.0.0 9999: Versatile replacement for vmstat, iostat and ifstat (clone of dstat)
 sys-apps/drm_info 2.2.0 2.3.0 9999: Small utility to dump info about DRM devices
-sys-apps/dust 0.5.4 0.6.2 0.7.5 0.8.0: A more intuitive version of du
+sys-apps/dust 0.5.4 0.6.2 0.7.5 0.8.0 0.8.3: A more intuitive version of du
 sys-apps/fchroot 0.1.2: Funtoo's franken-chroot tool - chroot from AMD64 to ARM system
 sys-apps/fselect 0.7.9 0.8.0: Find files with SQL-like queries
 sys-apps/hex 0.3.2 0.4.0 0.4.1 0.4.2: Futuristic take on hexdump
