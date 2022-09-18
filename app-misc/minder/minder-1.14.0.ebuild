@@ -16,6 +16,7 @@ SLOT="0"
 RDEPEND="
 	dev-lang/vala
 	dev-libs/granite
+	dev-libs/json-glib
 	gui-libs/libhandy[vala]
 	x11-libs/gtksourceview:4[vala]
 "
