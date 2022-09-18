@@ -12,7 +12,7 @@ HOMEPAGE="https://apps.ankiweb.net/"
 SRC_URI="
 	https://files.pythonhosted.org/packages/cp39/${MY_PN:0:1}/${MY_PN}/${MY_PN}-${PV}-cp39-abi3-manylinux_2_28_x86_64.whl -> ${P}.zip
 	https://files.pythonhosted.org/packages/py3/a/aqt/aqt-${PV}-py3-none-any.whl -> aqt-${PV}.zip
-	https://raw.githubusercontent.com/ankitects/anki/${PV}/qt/linux/anki.png
+	https://raw.githubusercontent.com/ankitects/${MY_PN}/${PV}/qt/bundle/lin/${MY_PN}.png -> ${P}.png
 "
 
 LICENSE="AGPL-3"
@@ -59,6 +59,6 @@ src_install() {
 	python_domodule aqt-${PV}.dist-info
 	printf "#!/usr/bin/python3\nimport sys;from aqt import run;sys.exit(run())" > runanki
 	python_newscript runanki anki
-	doicon "${DISTDIR}"/anki.png
+	newicon "${DISTDIR}"/${P}.png ${MY_PN}.png
 	make_desktop_entry /usr/bin/anki Anki anki Education
 }
