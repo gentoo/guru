@@ -135,7 +135,7 @@ app-metrics/scaphandre 0.4.1: Electrical power consumption measurement agent.
 app-misc/afc 1.1 9999: Anime File Checker, checks CRC32 contained in filenames
 app-misc/afetch 2.2.0: Simple system info written in C
 app-misc/ani-cli 1.9: A cli to browse and watch anime.
-app-misc/anki-bin 2.1.49 2.1.54: A spaced-repetition memory training program (flash cards)
+app-misc/anki-bin 2.1.49 2.1.54 2.1.54-r1: A spaced-repetition memory training program (flash cards)
 app-misc/apidb 5.8.0_beta 5.11.0_beta 5.13.1_beta 5.13.4_beta 5.13.6_beta: API Generator for Database access
 app-misc/aw-client 0.11.0: Client library for ActivityWatch
 app-misc/aw-core 0.11.0: Core library for ActivityWatch
@@ -161,6 +161,7 @@ app-misc/lf 27: Terminal file manager
 app-misc/macchina 5.0.2 6.0.5 6.0.6: A system information fetcher, with an (unhealthy) emphasis on performance.
 app-misc/mangadesk 0.7.7 0.7.8: Terminal Client for MangaDex
 app-misc/mat2 0.13.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
+app-misc/minder 1.14.0: Mind-mapping application for Elementary OS.
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
 app-misc/navi 2.19.0 2.20.1 9999: An interactive cheatsheet tool for the command-line
 app-misc/neo 0.6.1 9999: cmatrix clone with 32-bit color and Unicode support
@@ -1018,7 +1019,7 @@ dev-python/trailrunner 1.2.1: Walk paths and run things
 dev-python/transaction 3.0.1: Transaction management for Python
 dev-python/trueskill 0.4.5_p20220422: Python Implementation of the TrueSkill Algorithm
 dev-python/ttfautohint-py 0.5.1: A Python wrapper for ttfautohint
-dev-python/tweepy 3.10.0 4.10.0: An easy-to-use Python library for accessing the Twitter API.
+dev-python/tweepy 4.10.1: An easy-to-use Python library for accessing the Twitter API.
 dev-python/types-paramiko 2.10.0 2.11.1: Typing stubs for paramiko
 dev-python/types-python-dateutil 2.8.17 2.8.18: Typing stubs for python-dateutil
 dev-python/types-pytz 2021.3.8 2022.1.1: Typing stubs for pytz
@@ -1438,7 +1439,7 @@ net-p2p/bisq-bin 1.9.5: The decentralized bitcoin exchange (non-atomic, with arb
 net-p2p/feather 2.1.0 9999: A free, open-source Monero wallet
 net-p2p/ipfs-cluster 1.0.1 1.0.2: Pinset orchestration for IPFS
 net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital marketplace controlled by its users.
-net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 0.18.1.0 9999: The secure, private, untraceable cryptocurrency
+net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 0.18.1.0 0.18.1.1 9999: The secure, private, untraceable cryptocurrency
 net-p2p/p2pool 2.3 9999: Decentralized pool for Monero mining
 net-p2p/popura 0.4.3 9999: Popura: alternative Yggdrasil network client
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
@@ -1654,7 +1655,7 @@ sys-kernel/dpdk-kmod 21.11.1 22.07: DPDK Kernel Nic Interface module
 sys-kernel/modprobed-db 2.46: This utility tracks modules loaded by the kernel, for localmodconfig
 sys-kernel/msr-safe 1.6.0: Allows safer access to model specific registers (MSRs)
 sys-kernel/tirdad 0_pre20200926: kernel module for random ISN generation
-sys-kernel/uek-sources 5.15.0.3.60.2: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
+sys-kernel/uek-sources 5.15.0.3.60.4: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
 sys-kernel/ummunotify 2-r1: Userspace support for MMU notifications
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-kernel/xpmem 2.6.5_p20210809: Linux Cross-Memory Attach
