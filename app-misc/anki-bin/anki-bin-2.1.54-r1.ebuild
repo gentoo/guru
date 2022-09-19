@@ -1,9 +1,9 @@
 # Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_9 )
 inherit python-single-r1 desktop xdg
 
 MY_PN=${PN%-bin}
@@ -12,7 +12,9 @@ HOMEPAGE="https://apps.ankiweb.net/"
 SRC_URI="
 	https://files.pythonhosted.org/packages/cp39/${MY_PN:0:1}/${MY_PN}/${MY_PN}-${PV}-cp39-abi3-manylinux_2_28_x86_64.whl -> ${P}.zip
 	https://files.pythonhosted.org/packages/py3/a/aqt/aqt-${PV}-py3-none-any.whl -> aqt-${PV}.zip
+	https://raw.githubusercontent.com/ankitects/${MY_PN}/${PV}/qt/bundle/lin/${MY_PN}.desktop -> ${P}.desktop
 	https://raw.githubusercontent.com/ankitects/${MY_PN}/${PV}/qt/bundle/lin/${MY_PN}.png -> ${P}.png
+	https://raw.githubusercontent.com/ankitects/${MY_PN}/${PV}/qt/bundle/lin/${MY_PN}.1 -> ${P}.1
 "
 
 LICENSE="AGPL-3"
@@ -49,16 +51,18 @@ BDEPEND="app-arch/unzip"
 S="${WORKDIR}"
 
 src_unpack() {
-	default
+	unpack ${P}.zip aqt-${PV}.zip
 }
 
 src_install() {
-	python_domodule anki
-	python_domodule anki-${PV}.dist-info
-	python_domodule aqt
-	python_domodule aqt-${PV}.dist-info
+	python_domodule anki anki-${PV}.dist-info aqt aqt-${PV}.dist-info
 	printf "#!/usr/bin/python3\nimport sys;from aqt import run;sys.exit(run())" > runanki
 	python_newscript runanki anki
 	newicon "${DISTDIR}"/${P}.png ${MY_PN}.png
-	make_desktop_entry /usr/bin/anki Anki anki Education
+	newmenu "${DISTDIR}"/${P}.desktop ${MY_PN}.desktop
+	newman "${DISTDIR}"/${P}.1 ${MY_PN}.1
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
 }
