@@ -22,7 +22,7 @@ DEPEND="
 	dev-libs/json-glib
 	dev-libs/libgee:=
 	dev-libs/wayland
-	>=gui-libs/gtk-layer-shell-0.6.0
+	>=gui-libs/gtk-layer-shell-0.7.0[introspection]
 	gui-libs/libhandy:1
 	sys-apps/dbus
 	x11-libs/gdk-pixbuf:2
