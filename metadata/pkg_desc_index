@@ -1167,7 +1167,7 @@ games-util/dwarf-therapist 41.2.2: For managing dwarves in Dwarf Fortress
 games-util/gamehub 0.16.0.1 0.16.3.2: GameHub is a unified library for all your games
 games-util/hid-nintendo 9999: A Nintendo HID kernel module
 games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launcher
-games-util/legendary 0.20.27 0.20.28: A free and open-source replacement for the Epic Games Launcher
+games-util/legendary 0.20.28 0.20.29: A free and open-source replacement for the Epic Games Launcher
 games-util/mangohud 0.6.6.1-r3 0.6.7.1 0.6.8 9999: A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more
 games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
 games-util/samrewritten 9999 202008: Steam Achievement Manager For Linux
@@ -1215,7 +1215,7 @@ gui-apps/someblocks 1.0.0 9999: Modular status bar for somebar written in c.
 gui-apps/sway-launcher-desktop 1.5.4: TUI Application launcher with Desktop Entry support
 gui-apps/swaykbdd 1.0: Per-window keyboard layout switcher for Sway
 gui-apps/swaylock-effects 1.6.2 1.6.3 9999: Swaylock, with fancy effects
-gui-apps/swaync 0.6.3-r1: A simple notification daemon with a GTK gui for notifications and control center
+gui-apps/swaync 0.7.1: A simple notification daemon with a GTK gui for notifications and control center
 gui-apps/szyszka 1.0.0: Simple, powerful and easy to use file renamer
 gui-apps/tessen 2.1.2 9999: an interactive menu to autotype and copy pass and gopass data
 gui-apps/tiramisu 1.0_p20201110 2.0.20211107 9999: minimalistic desktop notifications provider
@@ -1289,7 +1289,7 @@ media-gfx/zw3d 2022.0.3.1: CAD/CAM software for 3D design and processing
 media-gfx/zwcad 2022.22.2.2.3 2023.23.0.3.4: CAD software for 2D drawing, reviewing and printing work
 media-libs/alsa-ucm-pinephone 1.2.6.3: ALSA ucm configuration files for the PinePhone (Pro)
 media-libs/alvr 15.2.1_p20210604 16.0.0: ALVR is an open source remote VR display for the Oculus Go/Quest
-media-libs/amdvlk 2020.4.5 2020.4.6 2021.4.2: AMD Open Source Driver for Vulkan
+media-libs/amdvlk 2020.4.5 2020.4.6 2021.4.2 2022.3.1: AMD Open Source Driver for Vulkan
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
 media-libs/grok 9.7.6: World's Leading Open Source JPEG 2000 Codec
 media-libs/imgui 1.81 1.83 1.87-r6: Bloat-free graphical user interface library for C++
