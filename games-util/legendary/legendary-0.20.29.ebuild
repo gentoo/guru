@@ -3,9 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9,10} )
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{9..11} )
 DISTUTILS_SINGLE_IMPL=1
-
 inherit distutils-r1
 
 DESCRIPTION="A free and open-source replacement for the Epic Games Launcher"
@@ -22,7 +22,6 @@ IUSE="webview"
 RDEPEND="
 	$(python_gen_cond_dep '
 		<dev-python/requests-3.0[${PYTHON_USEDEP}]
-		dev-python/wheel[${PYTHON_USEDEP}]
 		webview? ( dev-python/pywebview[gtk,${PYTHON_USEDEP}] )
 	')
 "

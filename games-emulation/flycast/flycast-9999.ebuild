@@ -10,7 +10,7 @@ inherit cmake git-r3 lua-single xdg
 DESCRIPTION="Sega Dreamcast, Naomi and Atomiswave emulator"
 HOMEPAGE="https://github.com/flyinghead/flycast"
 EGIT_REPO_URI="https://github.com/flyinghead/flycast"
-EGIT_SUBMODULES=( 'core/deps/breakpad' )
+EGIT_SUBMODULES=( 'core/deps/breakpad' 'core/deps/volk' 'core/deps/VulkanMemoryAllocator' )
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -80,6 +80,16 @@ src_prepare() {
 
 	# Ensure static libs are not built
 	sed -i -e '/BUILD_SHARED_LIBS/d' CMakeLists.txt
+
+	# Vulkan-header
+	sed -i -e '/add_subdirectory(core.*Vulkan-Headers)$/,/Vulkan::Headers/d' \
+		-e '/core\/deps\/Vulkan-Headers\/include)/d' CMakeLists.txt
+	# local fix for < 1.3.224
+	sed -i -e '/^1,$/d' core/rend/vulkan/compiler.cpp
+	sed -i -e '/swapchainExtent = /{s/= /&static_cast<VkExtent2D>(/;s/;/);/}' core/rend/vulkan/vulkan_context.cpp
+
+	# Do not use ccache
+	sed -i -e '/find_program(CCACHE_PROGRAM ccache)/d' CMakeLists.txt
 
 	cmake_src_prepare
 }
