@@ -19,6 +19,8 @@ BDEPEND=""
 
 src_prepare() {
 	default
+	sed -i -e 's:$(LDFLAGS):$(CPPFLAGS) $(CFLAGS) $(LDFLAGS):' Makefile \
+		|| die "sed fix failed. Uh-oh..."
 
 	restore_config blocks.h
 }
