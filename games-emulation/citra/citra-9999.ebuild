@@ -9,7 +9,7 @@ DESCRIPTION="A Nintendo 3DS Emulator"
 HOMEPAGE="https://citra-emu.org"
 EGIT_REPO_URI="https://github.com/citra-emu/citra"
 EGIT_SUBMODULES=(
-	'discord-rpc' 'dynarmic' 'libyuv'
+	'catch2' 'discord-rpc' 'dynarmic' 'fmt' 'libyuv'
 	'lodepng' 'nihstro' 'soundtouch' 'xbyak'
 )
 
@@ -18,7 +18,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="cubeb +hle-sound nls +qt5 sdl system-libfmt +telemetry video"
 
-DEPEND="
+RDEPEND="
 	cubeb? ( media-libs/cubeb )
 	!hle-sound? ( media-libs/fdk-aac )
 	hle-sound? ( media-video/ffmpeg[fdk] )
@@ -43,13 +43,15 @@ DEPEND="
 	net-libs/enet:1.3=
 	virtual/libusb:1
 "
-RDEPEND="${DEPEND}
+DEPEND="${RDEPEND}
+	dev-cpp/cpp-httplib
+	dev-cpp/cpp-jwt
 	dev-cpp/robin-map"
 REQUIRED_USE="|| ( qt5 sdl )"
 
 src_unpack() {
-	if ! use system-libfmt; then
-		EGIT_SUBMODULES+=( 'fmt' )
+	if use system-libfmt; then
+		EGIT_SUBMODULES+=( '-fmt' )
 	fi
 	git-r3_src_unpack
 
@@ -122,18 +124,25 @@ src_prepare() {
 		src/core/CMakeLists.txt || die
 	sed -i -e '/cryptopp/d' externals/CMakeLists.txt || die
 
-	# Unbundle catch
-	sed -i -e '1ifind_package(Catch2)' src/tests/CMakeLists.txt externals/dynarmic/tests/CMakeLists.txt || die
-	sed -i -e '/target_link_libraries/s/catch/Catch2::Catch2/' externals/dynarmic/tests/CMakeLists.txt || die
-	sed -i -e '/target_link_libraries/s/catch-single-include/Catch2::Catch2/' src/tests/CMakeLists.txt || die
-	sed -i -e '/catch/d' externals/CMakeLists.txt externals/dynarmic/externals/CMakeLists.txt || die
-	grep -rl 'include <catch.hpp>' externals/dynarmic | xargs sed -i -e '/include/s:catch.hpp:catch/&:' || die
+	# Unbundle catch -- Wait for catch>=3
 
 	# Unbundle cubeb
 	sed -i -e '/CUBEB/,/endif()/d' externals/CMakeLists.txt || die
 	if use cubeb; then
 		sed -i -e '$afind_package(cubeb REQUIRED)\n' CMakeLists.txt || die
 	fi
+
+	# Unbundle cpp-httplib
+	sed -i -e '/# httplib/,/target_link_libraries(httplib/d' externals/CMakeLists.txt || die
+	sed -i -e 's/ httplib//' src/{web_service,network,core}/CMakeLists.txt || die
+
+	# Unbundle cpp-jwt
+	sed -i -e '/# cpp-jwt/,/CPP_JWT_USE_VENDORED_NLOHMANN_JSON/d' externals/CMakeLists.txt || die
+	sed -i -e 's/ cpp-jwt//' src/web_service/CMakeLists.txt || die
+
+	# Alias for sdl
+	#sed -i -e '/find_package(SDL2/aadd_library(SDL2::SDL2 ALIAS SDL2)' CMakeLists.txt || die
+	sed -i -e '/find_package(SDL2/aadd_library(SDL2 INTERFACE)\ntarget_link_libraries(SDL2 INTERFACE "${SDL2_LIBRARY}")\ntarget_include_directories(SDL2 INTERFACE "${SDL2_INCLUDE_DIR}")\nadd_library(SDL2::SDL2 ALIAS SDL2)\n' CMakeLists.txt || die
 
 	# TODO unbundle xbyak (wait for 5.96 in ytree)
 	cmake_src_prepare
@@ -151,6 +160,7 @@ src_configure() {
 		-DENABLE_WEB_SERVICE=$(usex telemetry)
 		-DGENERATE_QT_TRANSLATION=$(use qt5 && usex nls || echo OFF)
 		-DUSE_SYSTEM_BOOST=ON
+		-DUSE_SYSTEM_SDL2=ON
 	)
 	cmake_src_configure
 
