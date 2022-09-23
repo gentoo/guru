@@ -13,7 +13,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND=""
-RDEPEND="${DEPEND}"
+RDEPEND="sys-fs/fuse:0"
 
 RESTRICT="binchecks strip"
 
