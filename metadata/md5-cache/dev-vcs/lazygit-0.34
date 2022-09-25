@@ -10,5 +10,5 @@ RDEPEND=dev-vcs/git
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/jesseduffield/lazygit/archive/v0.34.tar.gz -> lazygit-0.34.tar.gz
-_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec
+_eclasses_=go-module	b088539f282ed242c23f38fa65472184
 _md5_=2a2bb7bf42b4407a093589cbfb2d2503

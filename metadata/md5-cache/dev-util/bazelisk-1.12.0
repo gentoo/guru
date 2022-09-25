@@ -9,5 +9,5 @@ LICENSE=MIT MPL-2.0
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/bazelbuild/bazelisk/archive/refs/tags/v1.12.0.tar.gz -> bazelisk-1.12.0.tar.gz https://github.com/ezzieyguywuf/go-ebuild-dependencies/blob/main/deps/bazelisk-1.12.0-deps-r1.tar.gz?raw=true -> bazelisk-1.12.0-deps-r1.tar.gz
-_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec
+_eclasses_=go-module	b088539f282ed242c23f38fa65472184
 _md5_=2d985301a33d89f131bae6ba88739742

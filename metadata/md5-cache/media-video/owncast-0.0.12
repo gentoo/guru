@@ -10,5 +10,5 @@ RDEPEND=acct-user/owncast acct-group/owncast media-video/ffmpeg
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/owncast/owncast/archive/refs/tags/v0.0.12.tar.gz -> owncast-0.0.12.tar.gz https://github.com/owncast/owncast/releases/download/v0.0.12/owncast-0.0.12-linux-64bit.zip https://www.lysator.liu.se/~creideiki/owncast-0.0.12-deps.tar.xz
-_eclasses_=go-module	05668e36c51c78c9681fdf4aefa0abec
+_eclasses_=go-module	b088539f282ed242c23f38fa65472184
 _md5_=af4ed1459c6f6057f32d3a5d757ffa24
