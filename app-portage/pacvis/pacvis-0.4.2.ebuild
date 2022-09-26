@@ -15,4 +15,4 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND="www-servers/tornado[${PYTHON_USEDEP}]"
+RDEPEND="dev-python/tornado[${PYTHON_USEDEP}]"

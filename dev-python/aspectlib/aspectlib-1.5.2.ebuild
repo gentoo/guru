@@ -20,7 +20,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 RDEPEND="dev-python/fields[${PYTHON_USEDEP}]"
 BDEPEND="test? (
 	dev-python/process-tests[${PYTHON_USEDEP}]
-	www-servers/tornado[${PYTHON_USEDEP}]
+	dev-python/tornado[${PYTHON_USEDEP}]
 )"
 
 S="${WORKDIR}/python-${P}"

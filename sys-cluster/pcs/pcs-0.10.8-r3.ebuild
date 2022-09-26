@@ -34,8 +34,8 @@ RDEPEND="
 		dev-python/pyopenssl[${PYTHON_USEDEP}]
 		dev-python/pyparsing[${PYTHON_USEDEP}]
 		dev-python/python-dateutil[${PYTHON_USEDEP}]
-		>=www-servers/tornado-6.0[${PYTHON_USEDEP}]
-		<www-servers/tornado-7.0[${PYTHON_USEDEP}]
+		>=dev-python/tornado-6.0[${PYTHON_USEDEP}]
+		<dev-python/tornado-7.0[${PYTHON_USEDEP}]
 	')
 	dev-libs/openssl
 	>=sys-cluster/corosync-3.0
