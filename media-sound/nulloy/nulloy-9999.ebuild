@@ -39,7 +39,7 @@ src_unpack() {
 
 	if use skins ; then
 		EGIT_REPO_URI=https://gitlab.com/vitaly-zdanevich/nulloy-theme-night.git
-		EGIT_CHECKOUT_DIR=${WORKDIR}/night
+		EGIT_CHECKOUT_DIR="${WORKDIR}/night"
 		git-r3_src_unpack
 	fi
 }
@@ -48,8 +48,8 @@ src_prepare() {
 	default
 
 	if use skins ; then
-		eapply $FILESDIR/add-dark-theme.patch
-		cp -r $WORKDIR/night src/skins
+		eapply "${FILESDIR}/add-dark-theme.patch"
+		cp -r "${WORKDIR}/night" src/skins
 	fi
 }
 
@@ -71,10 +71,10 @@ src_configure() {
 	# because Portage does it when the install phase is run to be able
 	# to support the `splitdebug` and `installsources` FEATURES.
 	# See related issue https://bugs.gentoo.org/856292
-	echo "CONFIG += nostrip" >> $WORKDIR/$P/.qmake.cache
+	echo "CONFIG += nostrip" >> "${WORKDIR}/${P}/.qmake.cache"
 }
 
 src_install() {
-	emake INSTALL_ROOT="${D}" install
+	emake INSTALL_ROOT="${ED}" install
 	einstalldocs
 }
