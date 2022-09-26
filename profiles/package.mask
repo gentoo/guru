@@ -19,6 +19,8 @@
 dev-cpp/fbthrift
 dev-cpp/fizz
 dev-cpp/wangle
+# Depends on above
+sys-fs/dwarfs
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-09-08)
 # depends on removed dev-haskell/pandoc-citeproc
