@@ -13,7 +13,7 @@ MY_PV=$(ver_cut 1-3)
 IMGUI_VER="1.81"
 IMGUI_MESON_WRAP_VER="1"
 
-DESCRIPTION="A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more"
+DESCRIPTION="Vulkan and OpenGL overlay for monitoring FPS, sensors, system load and more"
 HOMEPAGE="https://github.com/flightlessmango/MangoHud"
 
 SRC_URI="

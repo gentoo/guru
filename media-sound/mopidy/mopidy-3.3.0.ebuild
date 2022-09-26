@@ -21,7 +21,7 @@ RDEPEND="
 	media-plugins/gst-plugins-meta[mp3,ogg,flac]
 	dev-python/pykka[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
-	www-servers/tornado[${PYTHON_USEDEP}]
+	dev-python/tornado[${PYTHON_USEDEP}]
 "
 
 DEPEND="

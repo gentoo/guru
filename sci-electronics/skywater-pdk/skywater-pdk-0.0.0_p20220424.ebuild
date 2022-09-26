@@ -22,7 +22,7 @@ MY_sky130_fd_sc_ms_REV=ae1b7f68821505cf2d93d9d44cce5ece22710fad
 
 inherit check-reqs python-any-r1
 
-DESCRIPTION="Open source process design kit for usage with SkyWater Technology Foundry's 130nm node"
+DESCRIPTION="Process design kit for usage with SkyWater Technology Foundry's 130nm node"
 HOMEPAGE="https://github.com/google/skywater-pdk"
 SRC_URI="
 	https://github.com/google/skywater-pdk/archive/${MY_REV}.tar.gz -> ${P}.tar.gz

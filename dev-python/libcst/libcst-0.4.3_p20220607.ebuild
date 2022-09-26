@@ -114,7 +114,7 @@ MY_PN="LibCST"
 
 inherit cargo distutils-r1
 
-DESCRIPTION="A concrete syntax tree parser and serializer library for Python that preserves many aspects of Python's abstract syntax tree"
+DESCRIPTION="Concrete syntax tree parser and serializer for Python"
 HOMEPAGE="https://github.com/Instagram/LibCST"
 SRC_URI="
 	https://github.com/Instagram/LibCST/archive/${MY_REV}.tar.gz -> ${P}.tar.gz

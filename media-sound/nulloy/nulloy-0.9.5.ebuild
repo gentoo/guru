@@ -5,7 +5,7 @@ EAPI=8
 
 inherit xdg
 
-DESCRIPTION="Music player with a waveform progress bar (sound visualization like in audio editors)"
+DESCRIPTION="Music player with a waveform progress bar (sound visualization)"
 HOMEPAGE="https://nulloy.com"
 
 NAME="nulloy-theme-night-v1.0"
@@ -40,7 +40,7 @@ src_prepare() {
 	if use skins ; then
 		eapply "${FILESDIR}"/add-dark-theme.patch
 
-		cp -r $WORKDIR/$NAME src/skins/night
+		cp -r "${WORKDIR}/${NAME}" src/skins/night
 	fi
 
 	default
@@ -64,10 +64,10 @@ src_configure() {
 	# because Portage does it when the install phase is run to be able
 	# to support the `splitdebug` and `installsources` FEATURES.
 	# See related issue https://bugs.gentoo.org/856292
-	echo "CONFIG += nostrip" >> $WORKDIR/$P/.qmake.cache
+	echo "CONFIG += nostrip" >> "${WORKDIR}/${P}/.qmake.cache"
 }
 
 src_install() {
-	emake INSTALL_ROOT="${D}" install
+	emake INSTALL_ROOT="${ED}" install
 	einstalldocs
 }

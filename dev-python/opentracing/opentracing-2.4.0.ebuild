@@ -27,7 +27,7 @@ DEPEND="
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
 		dev-python/six[${PYTHON_USEDEP}]
 		dev-python/gevent[${PYTHON_USEDEP}]
-		www-servers/tornado[${PYTHON_USEDEP}]
+		dev-python/tornado[${PYTHON_USEDEP}]
 	)
 "
 

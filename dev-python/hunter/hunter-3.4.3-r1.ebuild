@@ -53,7 +53,7 @@ distutils_enable_sphinx docs ">=dev-python/sphinx-py3doc-enhanced-theme-2.3.2"
 
 src_unpack() {
 	default
-	cp -a ${S} tests_package || die
+	cp -a "${S}" tests_package || die
 	mv -f tests_package/tests/setup.py tests_package || die
 }
 

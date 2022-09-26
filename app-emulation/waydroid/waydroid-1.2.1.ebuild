@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{9..10} )
 inherit python-single-r1
 
-DESCRIPTION="A container-based approach to boot a full Android system on a regular Linux system"
+DESCRIPTION="Container-based approach to boot a full Android system on Linux systems"
 HOMEPAGE="https://waydro.id"
 SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
