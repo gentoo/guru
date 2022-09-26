@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=(python2_7 python3_{5,6,7,8,9,10,11})
+PYTHON_COMPAT=( python3_{8..11} )
 inherit distutils-r1
 
 DESCRIPTION="fast html to text parser (article readability tool)"
