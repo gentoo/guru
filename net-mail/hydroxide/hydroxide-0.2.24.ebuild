@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module
+inherit go-module multiprocessing
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
@@ -38,13 +38,11 @@ src_unpack() {
 }
 
 src_compile() {
-	ego build -v ./cmd/hydroxide
+	ego build -v -x -p "$(makeopts_jobs)" ./cmd/hydroxide
 }
 
 src_install() {
-	local DOCS=( "README.md" )
-	einstalldocs
-
+	default
 	dobin "${PN}"
 }
 

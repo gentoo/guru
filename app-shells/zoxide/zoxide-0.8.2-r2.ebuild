@@ -157,11 +157,21 @@ SRC_URI="
 	$(cargo_crate_uris)
 "
 
-LICENSE="MIT"
+LICENSE="BSD CC0-1.0 MIT
+	|| ( Apache-2.0 Apache-2.0-with-LLVM-exceptions MIT )
+	|| ( Apache-2.0 BSD-2 MIT )
+	|| ( Apache-2.0 MIT )
+	|| ( MIT Unlicense )
+"
 SLOT="0"
 KEYWORDS="~amd64"
 
 QA_FLAGS_IGNORED="usr/bin/zoxide"
+
+src_prepare() {
+	sed -i 's:strip = true:strip = false:g' Cargo.toml || die
+	default
+}
 
 src_install() {
 	cargo_src_install

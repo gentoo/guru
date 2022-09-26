@@ -7,7 +7,7 @@ CMAKE_BUILD_TYPE="Release"
 CMAKE_MAKEFILE_GENERATOR="emake"
 PYTHON_COMPAT=( python3_{8..11} )
 
-inherit cmake desktop llvm python-r1 xdg
+inherit cmake desktop llvm python-r1 toolchain-funcs xdg
 
 DESCRIPTION="A hex editor for reverse engineers, programmers, and eyesight"
 HOMEPAGE="https://github.com/WerWolv/ImHex"
@@ -50,6 +50,12 @@ BDEPEND="
 	gnome-base/librsvg
 	sys-devel/llvm
 "
+
+pkg_pretend() {
+	if tc-is-gcc && [[ $(gcc-major-version) -lt 12 ]]; then
+		die "${PN} requires GCC 12 or newer"
+	fi
+}
 
 src_prepare() {
 	default

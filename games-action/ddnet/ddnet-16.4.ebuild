@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{9..11} )
 inherit cmake python-any-r1 xdg
 
 DESCRIPTION="DDraceNetwork, a cooperative racing mod of Teeworlds "
-HOMEPAGE="https://ddnet.tw/
+HOMEPAGE="https://ddnet.org/
 	https://github.com/ddnet/ddnet"
 SRC_URI="https://github.com/ddnet/ddnet/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -50,7 +50,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	>=dev-lang/python-3.8:3.8
+	>=dev-lang/python-3.9
 	dev-util/cmake
 	dev-util/glslang
 	dev-util/spirv-tools

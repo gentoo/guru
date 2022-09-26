@@ -109,13 +109,20 @@ SRC_URI="
 	$(cargo_crate_uris)
 "
 
-# License set may be more restrictive as OR is not respected
-# use cargo-license for a more accurate license picture
-LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD CC0-1.0 MIT Unicode-DFS-2016 Unlicense"
+LICENSE="BSD CC0-1.0 MIT Unicode-DFS-2016
+	|| ( Apache-2.0 Apache-2.0-with-LLVM-exceptions MIT )
+	|| ( Apache-2.0 MIT )
+	|| ( MIT Unlicense )
+"
 SLOT="0"
 KEYWORDS="~amd64"
 
 QA_FLAGS_IGNORED="usr/bin/zoxide"
+
+src_prepare() {
+	sed -i 's:strip = true:strip = false:g' Cargo.toml || die
+	default
+}
 
 src_install() {
 	cargo_src_install
