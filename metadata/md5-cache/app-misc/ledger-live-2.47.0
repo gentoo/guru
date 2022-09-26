@@ -7,5 +7,5 @@ LICENSE=all-rights-reserved
 RDEPEND=sys-fs/fuse:0
 RESTRICT=binchecks strip
 SLOT=0
-SRC_URI=https://download.live.ledger.com/ledger-live-desktop-2.46.2-linux-x86_64.AppImage
+SRC_URI=https://download.live.ledger.com/ledger-live-desktop-2.47.0-linux-x86_64.AppImage
 _md5_=27c02a92923cd3b3ed6919082b459650
