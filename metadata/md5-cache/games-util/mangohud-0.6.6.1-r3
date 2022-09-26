@@ -1,7 +1,7 @@
 BDEPEND=app-arch/unzip || ( ( >=dev-lang/python-3.11.0_beta4:3.11 dev-python/mako[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.4:3.10 dev-python/mako[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9 dev-python/mako[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.13:3.8 dev-python/mako[python_targets_python3_8(-)] ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst setup test unpack
 DEPEND=dev-libs/spdlog dev-util/glslang >=dev-util/vulkan-headers-1.2 media-libs/vulkan-loader media-libs/libglvnd x11-libs/libdrm dbus? ( sys-apps/dbus ) X? ( x11-libs/libX11 ) video_cards_nvidia? ( x11-drivers/nvidia-drivers xnvctrl? ( x11-drivers/nvidia-drivers[static-libs] ) ) wayland? ( dev-libs/wayland )
-DESCRIPTION=A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more
+DESCRIPTION=Vulkan and OpenGL overlay for monitoring FPS, sensors, system load and more
 EAPI=8
 HOMEPAGE=https://github.com/flightlessmango/MangoHud
 INHERIT=python-any-r1 meson
@@ -13,4 +13,4 @@ REQUIRED_USE=|| ( X wayland ) xnvctrl? ( video_cards_nvidia )
 SLOT=0
 SRC_URI=https://github.com/flightlessmango/MangoHud/archive/v0.6.6-1.tar.gz -> mangohud-0.6.6.1.tar.gz https://github.com/ocornut/imgui/archive/v1.81.tar.gz -> imgui-1.81.tar.gz https://wrapdb.mesonbuild.com/v2/imgui_1.81-1/get_patch -> imgui-1.81-1-meson-wrap.zip
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	ninja-utils	58ec4e54962bf45d065fb95030701514	meson	1994a5aef5d4f5798b92f64d6f9a6003
-_md5_=e4f64ab04ca75e49bdc0b2fe91fb0533
+_md5_=befee17950a6bb7725a78de4cc0e2463

@@ -120,7 +120,7 @@ app-emulation/arnold 20170513: Amstrad CPC emulator
 app-emulation/proton-ge-custom-bin 7.27 7.28 7.29: A fancy custom distribution of Valves Proton with various patches
 app-emulation/quickemu 3.11: Create and run optimised Windows, macOS and Linux desktop virtual machines
 app-emulation/spice-html5 0.2.2 0.3.0-r1: Spice Javascript client
-app-emulation/waydroid 1.2.1: A container-based approach to boot a full Android system on a regular Linux system
+app-emulation/waydroid 1.2.1: Container-based approach to boot a full Android system on Linux systems
 app-eselect/eselect-autostart 1.0.0: Manage symlinks in $XDG_CONFIG_HOME/autostart
 app-eselect/eselect-bluespec 1.0.1: Manages the /usr/bin/bsc (bluespec) symlink
 app-eselect/eselect-ld 1.0.0: Manage the ld symlink
@@ -837,7 +837,7 @@ dev-python/jupyter-sphinx 0.3.2: Jupyter Sphinx Extensions
 dev-python/keystonemiddleware 9.4.0 9.5.0: A middleware for the OpenStack Keystone API
 dev-python/langdetect 1.0.9: Port of Google's language-detection library to Python
 dev-python/ldappool 3.0.0: A connection pool for python-ldap
-dev-python/libcst 0.4.3_p20220607: A concrete syntax tree parser and serializer library for Python that preserves many aspects of Python's abstract syntax tree
+dev-python/libcst 0.4.3_p20220607: Concrete syntax tree parser and serializer for Python
 dev-python/libusb1 2.0.1: Pure-python wrapper for libusb-1.0
 dev-python/manhole 1.8.0-r1: Debugging manhole for python application
 dev-python/markdown-include 0.6.0 0.7.0: Syntax which allows for inclusion of contents of other Markdown docs
@@ -1169,7 +1169,7 @@ games-util/gamehub 0.16.0.1 0.16.3.2: GameHub is a unified library for all your 
 games-util/hid-nintendo 9999: A Nintendo HID kernel module
 games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launcher
 games-util/legendary 0.20.28 0.20.29: A free and open-source replacement for the Epic Games Launcher
-games-util/mangohud 0.6.6.1-r3 0.6.7.1 0.6.8 9999: A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more
+games-util/mangohud 0.6.6.1-r3 0.6.7.1 0.6.8 9999: Vulkan and OpenGL overlay for monitoring FPS, sensors, system load and more
 games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
 games-util/samrewritten 9999 202008: Steam Achievement Manager For Linux
 games-util/steamtinkerlaunch 8.0: Wrapper script for Steam custom launch options
@@ -1328,7 +1328,7 @@ media-sound/ncpamixer 1.3.3.1: A ncurses mixer for PulseAudio inspired by pavuco
 media-sound/netcat-cpi 2014.04.29: Kernel module edition of the Cycles Per Instruction (2014) album
 media-sound/noson-app 5.2.2: The essential to control music from your SONOS devices on Linux platforms
 media-sound/nuclear-bin 0.6.15 0.6.17: Nuclear is a streaming program that pulls content from free sources on internet
-media-sound/nulloy 0.9.5 9999: Music player with a waveform progress bar (sound visualization like in audio editors)
+media-sound/nulloy 0.9.5 9999: Music player with a waveform progress bar (sound visualization)
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
 media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file or stream as a PulseAudio source
 media-sound/spotify-adblock 1.0.1 1.0.2: Adblocker for Spotify
@@ -1354,7 +1354,7 @@ mpv-plugin/kde-night-color 20220109: Disable Night Color while mpv is running
 mpv-plugin/mpv-autosub 20210629: Fully automatic subtitle downloading for the MPV media player
 mpv-plugin/mpv-mpris 0.8.1 0.9 9999: MPRIS plugin for mpv
 mpv-plugin/mpv-plugin-xrandr 20190523-r1: Automatically invoke the xrandr to set the parameters for the display output
-mpv-plugin/mpv-youtube-upnext 20210620: A userscript that allows you to play "up next"/recommended youtube videos
+mpv-plugin/mpv-youtube-upnext 20210620 20220922: A userscript that allows you to play "up next"/recommended youtube videos
 mpv-plugin/mpv_sponsorblock 20211223: mpv script to skip sponsored segments of YouTube videos
 mpv-plugin/mpv_sponsorblock_minimal 2022.02.07: A minimal script to skip sponsored segments of YouTube videos
 mpv-plugin/mpv_thumbnail_script 0.4.8 0.4.9: A Lua script to show preview thumbnails in mpv's OSC seekbar
@@ -1466,7 +1466,7 @@ sci-electronics/kactus2 3.10.0 9999: A open source IP-XACT-based tool
 sci-electronics/liblxi 1.16: Implementation of the LAN eXtensions for Instrumentation (LXI)
 sci-electronics/lxi-tools 2.1: Tools to access devices with LXI
 sci-electronics/open_pdks 1.0.311: PDK installer for open-source EDA tools and toolchains
-sci-electronics/skywater-pdk 0.0.0_p20220424: Open source process design kit for usage with SkyWater Technology Foundry's 130nm node
+sci-electronics/skywater-pdk 0.0.0_p20220424: Process design kit for usage with SkyWater Technology Foundry's 130nm node
 sci-electronics/svls 0.2.3: SystemVerilog language server
 sci-electronics/verible 0.0.2275: SystemVerilog parser, style-linter, and formatter
 sci-electronics/verilator 4.226 9999: The fast free Verilog/SystemVerilog simulator

@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst
+DESCRIPTION=A userscript that allows you to play "up next"/recommended youtube videos
+EAPI=8
+HOMEPAGE=https://github.com/cvzi/mpv-youtube-upnext
+INHERIT=mpv-plugin
+IUSE=+autoload
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=media-video/mpv[lua]
+SLOT=0
+SRC_URI=https://github.com/cvzi/mpv-youtube-upnext/archive/753157433c10720fc6d95bd22319223447513abe.tar.gz -> mpv-youtube-upnext-20220922.tar.gz
+_eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a
+_md5_=0f237fb4b5adf02c9f564a23dfd1123e
