@@ -14,13 +14,14 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
+RESTRICT="test"
+
 RDEPEND="dev-python/requests[${PYTHON_USEDEP}]"
 BDEPEND="test? (
 	<dev-python/betamax-0.9[${PYTHON_USEDEP}]
 	<dev-python/betamax-matchers-0.5[${PYTHON_USEDEP}]
 	<dev-python/betamax-serializers-0.3[${PYTHON_USEDEP}]
 	dev-python/mock[${PYTHON_USEDEP}]
-	<dev-python/testfixtures-7[${PYTHON_USEDEP}]
 )"
 
 DOCS=( {AUTHORS,CHANGES,README}.rst )

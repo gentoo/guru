@@ -30,14 +30,6 @@ dev-python/pypandoc
 # depends on removed ~app-crypt/certbot-1.27.0
 app-crypt/certbot-dns-digitalocean
 
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
-# depends on removed <dev-python/testfixtures-7
-dev-python/prawcore
-# depends on dev-python/prawcore
-dev-python/praw
-# depends on dev-python/praw
-net-misc/giara
-
 # Viorel Munteanu <ceamac.paragon@gmail.com>
 # depends on dev-python/PyQt6, which is currently masked with all of qt6
 >=net-misc/maestral-qt-1.6.0
