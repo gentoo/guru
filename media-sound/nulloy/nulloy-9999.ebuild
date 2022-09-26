@@ -5,7 +5,7 @@ EAPI=8
 
 inherit git-r3 xdg
 
-DESCRIPTION="Music player with a waveform progress bar (sound visualization like in audio editors)"
+DESCRIPTION="Music player with a waveform progress bar (sound visualization)"
 HOMEPAGE="https://nulloy.com"
 
 EGIT_REPO_URI="https://github.com/nulloy/nulloy"

@@ -5,7 +5,7 @@ EAPI=8
 
 inherit xdg
 
-DESCRIPTION="Music player with a waveform progress bar (sound visualization like in audio editors)"
+DESCRIPTION="Music player with a waveform progress bar (sound visualization)"
 HOMEPAGE="https://nulloy.com"
 
 NAME="nulloy-theme-night-v1.0"
