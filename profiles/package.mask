@@ -38,10 +38,6 @@ dev-python/praw
 # depends on dev-python/praw
 net-misc/giara
 
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-08-11)
-# depends on removed <dev-lang/go-1.18
-net-proxy/toxiproxy
-
 # Viorel Munteanu <ceamac.paragon@gmail.com>
 # depends on dev-python/PyQt6, which is currently masked with all of qt6
 >=net-misc/maestral-qt-1.6.0
