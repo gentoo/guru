@@ -10,7 +10,7 @@ inherit python-any-r1 meson
 MY_PV=$(ver_cut 1-3)
 [[ -n "$(ver_cut 4)" ]] && MY_PV_REV="-$(ver_cut 4)"
 
-DESCRIPTION="A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more"
+DESCRIPTION="Vulkan and OpenGL overlay for monitoring FPS, sensors, system load and more"
 HOMEPAGE="https://github.com/flightlessmango/MangoHud"
 
 if [[ ${PV} == 9999 ]]; then
