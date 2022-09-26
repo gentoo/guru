@@ -69,7 +69,6 @@ app-containers/nvidia-container-toolkit 1.9.0 1.10.0 9999: NVIDIA container runt
 app-crypt/PBinCLI 0.3.2: PrivateBin CLI
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
 app-crypt/certbot-dns-desec 1.2.0: deSEC DNS Authenticator plugin for Certbot
-app-crypt/certbot-dns-digitalocean 1.27.0: Digitalocean DNS Authenticator plugin for Certbot (Let's Encrypt Client)
 app-crypt/certbot-dns-rfc2136 1.29.0-r1 1.30.0 9999: RFC 2136 DNS Authenticator plugin for Certbot (Let’s Encrypt client)
 app-crypt/clevis 18: Automated Encryption Framework
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
@@ -1447,7 +1446,6 @@ net-p2p/popura 0.4.3 9999: Popura: alternative Yggdrasil network client
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.4.4 9999: An experiment in scalable routing as an encrypted IPv6 overlay network
 net-print/hpuld 1.00.39.15.00.23-r1: HP Unified Linux Driver (for samsung hardware)
-net-proxy/toxiproxy 2.4.0-r1: A TCP proxy for chaos and resiliency testing
 net-voip/discover-overlay 0.4.5 0.5.4 0.6.3: Yet another Discord overlay for Linux written in Python using GTK3
 net-voip/gnome-calls 42.0-r1: Phone dialer and call handler
 net-voip/vvmd 0.8: vvmd is a lower level daemon that retrieves Visual Voicemail
