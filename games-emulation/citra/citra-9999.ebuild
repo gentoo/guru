@@ -9,7 +9,7 @@ DESCRIPTION="A Nintendo 3DS Emulator"
 HOMEPAGE="https://citra-emu.org"
 EGIT_REPO_URI="https://github.com/citra-emu/citra"
 EGIT_SUBMODULES=(
-	'catch2' 'discord-rpc' 'dynarmic' 'fmt' 'libyuv'
+	'catch2' 'discord-rpc' 'dynarmic' 'libyuv'
 	'lodepng' 'nihstro' 'soundtouch' 'xbyak'
 )
 
@@ -36,22 +36,21 @@ RDEPEND="
 	video? ( media-video/ffmpeg:= )
 	>=dev-libs/openssl-1.1:=
 	app-arch/zstd
-	dev-cpp/catch:0
 	dev-libs/boost:=
 	dev-libs/crypto++:=
 	dev-libs/teakra
 	net-libs/enet:1.3=
 	virtual/libusb:1
 "
-DEPEND="${RDEPEND}
-	dev-cpp/cpp-httplib
+DEPEND="${RDEPEND}"
+BDEPEND="dev-cpp/cpp-httplib
 	dev-cpp/cpp-jwt
 	dev-cpp/robin-map"
 REQUIRED_USE="|| ( qt5 sdl )"
 
 src_unpack() {
-	if use system-libfmt; then
-		EGIT_SUBMODULES+=( '-fmt' )
+	if ! use system-libfmt; then
+		EGIT_SUBMODULES+=( 'fmt' )
 	fi
 	git-r3_src_unpack
 
@@ -63,7 +62,7 @@ src_unpack() {
 
 src_prepare() {
 	# Dynarmic: ensure those are unbundled
-	for ext in fmt catch robin-map; do
+	for ext in fmt robin-map; do
 		rm -rf externals/dynarmic/externals/${ext} || die
 	done
 
@@ -124,8 +123,6 @@ src_prepare() {
 		src/core/CMakeLists.txt || die
 	sed -i -e '/cryptopp/d' externals/CMakeLists.txt || die
 
-	# Unbundle catch -- Wait for catch>=3
-
 	# Unbundle cubeb
 	sed -i -e '/CUBEB/,/endif()/d' externals/CMakeLists.txt || die
 	if use cubeb; then
@@ -140,7 +137,6 @@ src_prepare() {
 	sed -i -e '/# cpp-jwt/,/CPP_JWT_USE_VENDORED_NLOHMANN_JSON/d' externals/CMakeLists.txt || die
 	sed -i -e 's/ cpp-jwt//' src/web_service/CMakeLists.txt || die
 
-	# TODO unbundle xbyak (wait for 5.96 in ytree)
 	cmake_src_prepare
 }
 
