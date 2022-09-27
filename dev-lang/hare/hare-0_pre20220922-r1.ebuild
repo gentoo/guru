@@ -30,8 +30,8 @@ BDEPEND="
 "
 RDEPEND="${DEPEND}"
 
-# hare and harec are built by hare
-QA_FLAGS_IGNORED="usr/bin/harec?"
+# hare and haredoc are built by hare
+QA_FLAGS_IGNORED="usr/bin/hare usr/bin/haredoc"
 
 src_configure() {
 	local target_arch
@@ -46,8 +46,8 @@ src_configure() {
 	sed -i \
 		-e 's;=aarch64-;=;' \
 		-e 's;=riscv64-;=;' \
-		-e "s;^ARCH =.*;ARCH=${target_arch};" \
-		-e 's;^PREFIX=.*;PREFIX=/usr;' \
+		-e "s;^ARCH =.*;ARCH = ${target_arch};" \
+		-e 's;^PREFIX =.*;PREFIX = /usr;' \
 		-e 's;^AS =;AS ?=;' \
 		-e 's;^LD =;LD ?=;' \
 		-e 's;^AR =;AR ?=;' \
