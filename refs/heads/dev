@@ -1,13 +1,13 @@
 certificate version 0.1
-pusher DDC9237C14CF6F4DD847F6B390D93ACCFEFF61AE 1664311684 +0200
-pushee git+ssh://git.gentoo.org/repo/proj/guru.git
-nonce 1664311684-ae2bc152e778095960812ace331dc98dc1040ed1
+pusher Andrii Pravorskyi <pravorskyi@meta.ua> 1664314106 +0300
+pushee git.gentoo.org:repo/proj/guru.git
+nonce 1664314106-c0a3a6064ed04c41bdf1eba631afeda350152b0b
 
-40d71282d9ef27c34908a69550d7f8629ee0eb3a 0a324bf425394144a285cfb7e981c4b7873a8069 refs/heads/dev
+0a324bf425394144a285cfb7e981c4b7873a8069 a60141e8e553f43b7735cd733906f0222632843a refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQT4W9xj/ZtK9Ev2uBLVt6jkPJl97gUCYzNhhAAKCRDVt6jkPJl9
-7rwhAP9g1yJGDPtzwL+iJbseELjOb5bdxuE0XgD31FpOxIublAD8Dp/rDF46FfAi
-w00xwzvlFWUyGdQzC7ijfTKKLMjhbA8=
-=wt1q
+iIkEABYKADEWIQS+FvBbETyxK21yWxtbo8aSMTV1UQUCYzNq+hMccHJhdm9yc2t5
+aUBtZXRhLnVhAAoJEFujxpIxNXVRnIgBAOJn092rT6YnvIBZUll32gLimXHHv/Im
+my1QQl9ZX0gXAPoDOCiiJoheJaf9MUmVPZTx8mf7z6fs+LcqN+jJakfwCQ==
+=En+8
 -----END PGP SIGNATURE-----
