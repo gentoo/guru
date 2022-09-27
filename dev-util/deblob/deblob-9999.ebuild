@@ -16,6 +16,9 @@ DEPEND="
 "
 RDEPEND=""
 
+# built by hare
+QA_FLAGS_IGNORED="usr/bin/deblob"
+
 src_install() {
 	PREFIX="/usr" default
 }
