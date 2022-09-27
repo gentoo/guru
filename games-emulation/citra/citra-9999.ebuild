@@ -140,9 +140,6 @@ src_prepare() {
 	sed -i -e '/# cpp-jwt/,/CPP_JWT_USE_VENDORED_NLOHMANN_JSON/d' externals/CMakeLists.txt || die
 	sed -i -e 's/ cpp-jwt//' src/web_service/CMakeLists.txt || die
 
-	# Alias for sdl
-	sed -i -e '/find_package(SDL2/aadd_library(SDL2 INTERFACE)\ntarget_link_libraries(SDL2 INTERFACE "${SDL2_LIBRARY}")\ntarget_include_directories(SDL2 INTERFACE "${SDL2_INCLUDE_DIR}")\nadd_library(SDL2::SDL2 ALIAS SDL2)\n' CMakeLists.txt || die
-
 	# TODO unbundle xbyak (wait for 5.96 in ytree)
 	cmake_src_prepare
 }
