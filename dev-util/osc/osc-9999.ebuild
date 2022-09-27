@@ -43,7 +43,7 @@ BDEPEND="
 	test? (
 		${RDEPEND}
 		$(python_gen_cond_dep '
-			dev-python/path-py[${PYTHON_USEDEP}]
+			dev-python/path[${PYTHON_USEDEP}]
 	')
 )"
 

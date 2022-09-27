@@ -22,7 +22,7 @@ BDEPEND="
 	>=dev-python/setuptools_scm-1.15.0[${PYTHON_USEDEP}]
 	test? (
 		${RDEPEND}
-		dev-python/path-py[${PYTHON_USEDEP}]
+		dev-python/path[${PYTHON_USEDEP}]
 	)
 "
 

@@ -9,7 +9,7 @@ DESCRIPTION="A Nintendo 3DS Emulator"
 HOMEPAGE="https://citra-emu.org"
 EGIT_REPO_URI="https://github.com/citra-emu/citra"
 EGIT_SUBMODULES=(
-	'catch2' 'discord-rpc' 'dynarmic' 'fmt' 'libyuv'
+	'catch2' 'discord-rpc' 'dynarmic' 'libyuv'
 	'lodepng' 'nihstro' 'soundtouch' 'xbyak'
 )
 
@@ -36,7 +36,6 @@ RDEPEND="
 	video? ( media-video/ffmpeg:= )
 	>=dev-libs/openssl-1.1:=
 	app-arch/zstd
-	dev-cpp/catch:0
 	dev-libs/boost:=
 	dev-libs/crypto++:=
 	dev-libs/teakra
@@ -50,8 +49,8 @@ DEPEND="${RDEPEND}
 REQUIRED_USE="|| ( qt5 sdl )"
 
 src_unpack() {
-	if use system-libfmt; then
-		EGIT_SUBMODULES+=( '-fmt' )
+	if ! use system-libfmt; then
+		EGIT_SUBMODULES+=( 'fmt' )
 	fi
 	git-r3_src_unpack
 
@@ -63,7 +62,7 @@ src_unpack() {
 
 src_prepare() {
 	# Dynarmic: ensure those are unbundled
-	for ext in fmt catch robin-map; do
+	for ext in fmt robin-map; do
 		rm -rf externals/dynarmic/externals/${ext} || die
 	done
 
@@ -124,8 +123,6 @@ src_prepare() {
 		src/core/CMakeLists.txt || die
 	sed -i -e '/cryptopp/d' externals/CMakeLists.txt || die
 
-	# Unbundle catch -- Wait for catch>=3
-
 	# Unbundle cubeb
 	sed -i -e '/CUBEB/,/endif()/d' externals/CMakeLists.txt || die
 	if use cubeb; then
@@ -140,10 +137,6 @@ src_prepare() {
 	sed -i -e '/# cpp-jwt/,/CPP_JWT_USE_VENDORED_NLOHMANN_JSON/d' externals/CMakeLists.txt || die
 	sed -i -e 's/ cpp-jwt//' src/web_service/CMakeLists.txt || die
 
-	# Alias for sdl
-	sed -i -e '/find_package(SDL2/aadd_library(SDL2 INTERFACE)\ntarget_link_libraries(SDL2 INTERFACE "${SDL2_LIBRARY}")\ntarget_include_directories(SDL2 INTERFACE "${SDL2_INCLUDE_DIR}")\nadd_library(SDL2::SDL2 ALIAS SDL2)\n' CMakeLists.txt || die
-
-	# TODO unbundle xbyak (wait for 5.96 in ytree)
 	cmake_src_prepare
 }
 
