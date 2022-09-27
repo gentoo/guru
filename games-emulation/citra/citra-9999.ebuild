@@ -42,8 +42,8 @@ RDEPEND="
 	net-libs/enet:1.3=
 	virtual/libusb:1
 "
-DEPEND="${RDEPEND}"
-BDEPEND="dev-cpp/cpp-httplib
+DEPEND="${RDEPEND}
+	dev-cpp/cpp-httplib
 	dev-cpp/cpp-jwt
 	dev-cpp/robin-map"
 REQUIRED_USE="|| ( qt5 sdl )"
