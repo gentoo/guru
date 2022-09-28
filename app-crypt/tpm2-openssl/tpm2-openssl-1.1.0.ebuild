@@ -43,13 +43,13 @@ dbus_run() {
 }
 
 tpm2_run_with_emulator() {
-	export XDG_CONFIG_HOME=${T}/.config/swtpm
+	export XDG_CONFIG_HOME="${T}/.config/swtpm"
 	"${BROOT}"/usr/share/swtpm/swtpm-create-user-config-files || die
 
-	mkdir -p ${XDG_CONFIG_HOME}/mytpm1 || die
+	mkdir -p "${XDG_CONFIG_HOME}/mytpm1" || die
 	swtpm_setup_args=(
 		--tpm2
-		--tpmstate ${XDG_CONFIG_HOME}/mytpm1
+		--tpmstate "${XDG_CONFIG_HOME}/mytpm1"
 		--createek
 		--allow-signing
 		--decryption
@@ -63,18 +63,18 @@ tpm2_run_with_emulator() {
 
 	swtpm_socket_args=(
 		--tpm2
-		--tpmstate dir=${XDG_CONFIG_HOME}/mytpm1
+		--tpmstate dir="${XDG_CONFIG_HOME}/mytpm1"
 		--flags startup-clear
-		--ctrl type=unixio,path=${XDG_CONFIG_HOME}/mytpm1/swtpm.socket.ctrl
-		--server type=unixio,path=${XDG_CONFIG_HOME}/mytpm1/swtpm.socket
-		--pid file=${XDG_CONFIG_HOME}/mytpm1/swtpm.pid
+		--ctrl type=unixio,path="${XDG_CONFIG_HOME}/mytpm1/swtpm.socket.ctrl"
+		--server type=unixio,path="${XDG_CONFIG_HOME}/mytpm1/swtpm.socket"
+		--pid file="${XDG_CONFIG_HOME}/mytpm1/swtpm.pid"
 		--daemon
 	)
 	swtpm socket "${swtpm_socket_args[@]}" || die
 
 	tpm2_abrmd_args=(
 		--logger=stdout
-		--tcti=swtpm:path=${XDG_CONFIG_HOME}/mytpm1/swtpm.socket
+		--tcti=swtpm:path="${XDG_CONFIG_HOME}/mytpm1/swtpm.socket"
 		--session
 		--flush-all
 	)
@@ -86,7 +86,7 @@ tpm2_run_with_emulator() {
 	$@ || die
 
 	# When swtpm dies, tmp2-abrmd will exit
-	kill $(< ${XDG_CONFIG_HOME}/mytpm1/swtpm.pid) || die
+	kill $(< "${XDG_CONFIG_HOME}/mytpm1/swtpm.pid") || die
 }
 
 src_prepare() {
