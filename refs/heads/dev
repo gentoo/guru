@@ -1,13 +1,13 @@
 certificate version 0.1
-pusher Andrii Pravorskyi <pravorskyi@meta.ua> 1664398162 +0300
+pusher Andrii Pravorskyi <pravorskyi@meta.ua> 1664399364 +0300
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1664398162-4d48dc05ce0098d0cfe2d8c1037888602444b0d4
+nonce 1664399364-0ee9b25374639479fd3ce313b712c8270450beb4
 
-f5e96389050f587b972d8da07c3b5079a7188ac4 b523aaffb4e887f57afb7ceef79b82ea8e6381eb refs/heads/dev
+b523aaffb4e887f57afb7ceef79b82ea8e6381eb afe2fd9312c2cc78392eeb7e7623bb0a11160a8d refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iIkEABYKADEWIQS+FvBbETyxK21yWxtbo8aSMTV1UQUCYzSzUhMccHJhdm9yc2t5
-aUBtZXRhLnVhAAoJEFujxpIxNXVRXr4BAP+nbitCWw2gmeLG6uMQWu0N1+aY8jZL
-LimEFT2t/tf8APwLgHt/hnfADs3TZPEwovEBZGj0ClYLM6fwYWfSNg2lBg==
-=SgEd
+iIkEABYKADEWIQS+FvBbETyxK21yWxtbo8aSMTV1UQUCYzS4BBMccHJhdm9yc2t5
+aUBtZXRhLnVhAAoJEFujxpIxNXVRzecA/0Vha6szeusxm1TTGO6Mpas+5JgZ0WC4
+Zy0JnAtq0g+WAP99yvwApZU2unarAo0xEAOD40SEzCtopcNeygJBbvGgBQ==
+=A9kr
 -----END PGP SIGNATURE-----
