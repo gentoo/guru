@@ -8,9 +8,10 @@ if [[ "${PV}" = 9999 ]]; then
 	EGIT_REPO_URI="https://git.sr.ht/~sircmpwn/hare"
 	SLOT="0"
 else
-	EGIT_COMMIT="296925c91d79362d6b8ac94e0336a38e9af0f1c9"
-	SRC_URI="https://git.sr.ht/~sircmpwn/hare/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
+	EGIT_COMMIT="82213191adc25137c704df4786a71bce40b6079f"
+	MY_P="${PN}-${EGIT_COMMIT}"
+	SRC_URI="https://git.sr.ht/~sircmpwn/hare/archive/${EGIT_COMMIT}.tar.gz -> ${MY_P}.tar.gz"
+	S="${WORKDIR}/${MY_P}"
 	SLOT="0/${PV}"
 
 	KEYWORDS="~amd64 ~arm64 ~riscv"
@@ -29,8 +30,8 @@ BDEPEND="
 "
 RDEPEND="${DEPEND}"
 
-# hare and harec are built by hare
-QA_FLAGS_IGNORED="usr/bin/harec?"
+# hare and haredoc are built by hare
+QA_FLAGS_IGNORED="usr/bin/hare usr/bin/haredoc"
 
 src_configure() {
 	local target_arch
@@ -45,8 +46,8 @@ src_configure() {
 	sed -i \
 		-e 's;=aarch64-;=;' \
 		-e 's;=riscv64-;=;' \
-		-e "s;^ARCH =.*;ARCH=${target_arch};" \
-		-e 's;^PREFIX=.*;PREFIX=/usr;' \
+		-e "s;^ARCH =.*;ARCH = ${target_arch};" \
+		-e 's;^PREFIX =.*;PREFIX = /usr;' \
 		-e 's;^AS =;AS ?=;' \
 		-e 's;^LD =;LD ?=;' \
 		-e 's;^AR =;AR ?=;' \

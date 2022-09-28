@@ -8,6 +8,7 @@ if [[ "$PV" == 9999 ]]; then
 	EGIT_REPO_URI="https://git.sr.ht/~lanodan/deblob"
 else
 	SRC_URI="https://hacktivis.me/releases/${P}.tar.gz"
+	KEYWORDS="~amd64 ~arm64 ~riscv"
 fi
 
 DESCRIPTION="remove binary executables from a directory"
