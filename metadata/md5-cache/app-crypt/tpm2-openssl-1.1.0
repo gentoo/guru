@@ -1,15 +1,16 @@
 BDEPEND=sys-devel/autoconf-archive virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
-DEFINED_PHASES=install prepare
-DEPEND=>=app-crypt/tpm2-tss-3.2.0:= =dev-libs/openssl-3.0*:0=
+DEFINED_PHASES=install prepare test
+DEPEND=>=app-crypt/tpm2-tss-3.2.0:= =dev-libs/openssl-3.0*:0= test? ( app-crypt/swtpm app-crypt/tpm2-abrmd app-crypt/tpm2-tools )
 DESCRIPTION=OpenSSL Provider for TPM2 integration
 EAPI=8
 HOMEPAGE=https://github.com/tpm2-software/tpm2-openssl
 INHERIT=autotools
+IUSE=test
 KEYWORDS=~amd64
 LICENSE=BSD
 RDEPEND=>=app-crypt/tpm2-tss-3.2.0:= =dev-libs/openssl-3.0*:0=
-RESTRICT=test
+RESTRICT=!test? ( test )
 SLOT=0/1.1.0
 SRC_URI=https://github.com/tpm2-software/tpm2-openssl/releases/download/1.1.0/tpm2-openssl-1.1.0.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
-_md5_=dc4ccedff2e94eade8efaf81d350ccca
+_md5_=c2a9de74e6bf770f878c0ef3307db4fe
