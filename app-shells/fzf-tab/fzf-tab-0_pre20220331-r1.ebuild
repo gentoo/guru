@@ -27,7 +27,7 @@ BDEPEND="
 	)
 "
 
-RESTRICT="!test? ( test )"
+RESTRICT="test" # bug 861638
 
 DISABLE_AUTOFORMATTING="true"
 DOC_CONTENTS="In order to use ${CATEGORY}/${PN} add
