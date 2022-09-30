@@ -209,7 +209,7 @@ app-shells/fish-command-timer 0.1.3 0.1.3_p20201002: Fish shell extension for pr
 app-shells/fish-history-merge 0_pre20201121: Plugin that modifies built-in up-or-search command to merge the command history
 app-shells/fishtape 3.0.1: 100% pure-Fish test runner
 app-shells/fzf-fish 8.3 9.0: Augment your fish command line with fzf key bindings
-app-shells/fzf-tab 0_pre20220331-r1: Replace zsh's default completion selection menu with fzf
+app-shells/fzf-tab 0_pre20220331-r1 0_pre20220815: Replace zsh's default completion selection menu with fzf
 app-shells/k 0.0.5: Directory listings for zsh with git features
 app-shells/mrsh 9999: minimal strictly POSIX compliant shell
 app-shells/nice-exit-code 0_pre20200117: ZSH plugin that maps exit status code to human readable string
@@ -1090,6 +1090,7 @@ dev-util/go-deblob 1.0.0: remove binary blobs from a directory
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/lemminx-bin 0.21.0: XML Language Server
 dev-util/mh 1.0.3: Generate help for Makefile
+dev-util/odb 2.5.0_beta21_p1: ODB compiler and the ODB system documentation
 dev-util/osc 0.173.0 9999: Command line tool for Open Build Service
 dev-util/ots 8.1.4 8.2.1: An util for validating and sanitising OpenType files
 dev-util/pmbootstrap 1.46.0: Helper tool for developing and building postmarketOS
@@ -1102,7 +1103,7 @@ dev-util/rust-analyzer 20220509 20220517 20220606 20220613 20220815 20220822 999
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/stripe-cli 9999: A command-line tool for Stripe
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
-dev-util/typescript-language-server 1.1.2 1.2.0: TypeScript & JavaScript Language Server
+dev-util/typescript-language-server 1.2.0 2.0.0: TypeScript & JavaScript Language Server
 dev-util/vala-language-server 0.48.4: Code Intelligence for Vala & Genie
 dev-util/vscode-langservers-extracted 4.4.0: HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode.
 dev-util/wakatime-cli 1.27.0 1.28.6: Command line interface to WakaTime used by all WakaTime plugins
@@ -1375,7 +1376,7 @@ net-im/abaddon 0.1.7 9999: Alternative Discord client using GTK instead of Elect
 net-im/chatterino 2.3.5-r3: Chat client for https://twitch.tv
 net-im/discord-canary-bin 0.0.137: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.29: All-in-one voice and text chat
-net-im/go-sendxmpp 0.5.0 0.5.1: A little tool to send messages to an XMPP contact or MUC
+net-im/go-sendxmpp 0.5.1 0.5.2: A little tool to send messages to an XMPP contact or MUC
 net-im/gtkcord 0.1.0-r1: A Gtk3 Discord client in Golang
 net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
 net-im/jitsi-meet 2022.3.1: Desktop application for Jitsi Meet built with Electron

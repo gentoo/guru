@@ -1,0 +1,15 @@
+BDEPEND==dev-cpp/libstudxml-1.1.0* =dev-cpp/libcutl-1.11.0* dev-util/build2
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=ODB compiler and the ODB system documentation
+EAPI=8
+HOMEPAGE=https://www.codesynthesis.com/products/odb/
+INHERIT=build2
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND==dev-cpp/libcutl-1.11.0*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://pkg.cppget.org/1/beta/odb/odb-2.5.0-b.21+1.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	build2	16f6c3f422c0f5bb3cec7de6c39532bd
+_md5_=c0159478df478d4c6daf4ccdc699b3b2
