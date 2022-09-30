@@ -13,15 +13,12 @@ SRC_URI="
 "
 S="${WORKDIR}/${PN}-v${PV}"
 
-LICENSE="BSD-2 BSD MIT"
+LICENSE="BSD-2 BSD MIT MIT-with-advertising"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND=""
-DEPEND="${RDEPEND}"
-
 src_compile() {
-	ego build
+	ego build -buildmode=pie
 }
 
 src_install() {

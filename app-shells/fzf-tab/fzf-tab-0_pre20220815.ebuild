@@ -5,7 +5,7 @@ EAPI=8
 
 inherit readme.gentoo-r1
 
-MY_COMMIT="103330fdbeba07416d5f90b391eee680cd20d2d6"
+MY_COMMIT="938eef72e93ddb0609205a663bf0783f4e1b5fae"
 DESCRIPTION="Replace zsh's default completion selection menu with fzf"
 HOMEPAGE="https://github.com/Aloxaf/fzf-tab"
 SRC_URI="https://github.com/Aloxaf/fzf-tab/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
@@ -35,8 +35,6 @@ DOC_CONTENTS="In order to use ${CATEGORY}/${PN} add
 to your ~/.zshrc after compinit, but before plugins which will wrap
 widgets, such as zsh-autosuggestions or fast-syntax-highlighting"
 
-MY_ZSH_LIBDIR="/usr/share/zsh/site-functions"
-
 src_configure() {
 	# Test fails if we modify FZF_TAB_HOME in place
 	sed -E "s|^(FZF_TAB_HOME=\"[^\"]+)\"$|\1/${PN}\"|" \
@@ -57,13 +55,15 @@ src_test() {
 }
 
 src_install() {
-	insinto ${MY_ZSH_LIBDIR}
+	local zsh_libdir="/usr/share/zsh/site-functions"
+
+	insinto ${zsh_libdir}
 	newins ${PN}{-patched,}.zsh
 
-	insinto ${MY_ZSH_LIBDIR}/${PN}
+	insinto ${zsh_libdir}/${PN}
 	doins -r lib
 
-	insinto ${MY_ZSH_LIBDIR}/${PN}/modules/Src/aloxaf
+	insinto ${zsh_libdir}/${PN}/modules/Src/aloxaf
 	doins modules/Src/aloxaf/fzftab.so
 
 	readme.gentoo_create_doc

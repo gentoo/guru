@@ -41,5 +41,6 @@ src_install() {
 		--cache "${T}"/npm-cache \
 		install "${DISTDIR}"/${P}.tgz || die "npm install failed"
 
+	cd "${ED}"/usr/$(get_libdir)/node_modules/${PN} || die "cd failed"
 	einstalldocs
 }

@@ -37,7 +37,6 @@ src_compile() {
 
 src_install() {
 	dobin source/ddrescueview
-	chmod +x "${D}/usr/bin/ddrescueview"
 
 	insinto /usr/share
 	doins -r resources/linux/applications

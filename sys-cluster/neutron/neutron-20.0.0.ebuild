@@ -160,7 +160,7 @@ python_install_all() {
 	newinitd "${FILESDIR}/neutron.initd" "neutron-linuxbridge-agent"
 	newconfd "${FILESDIR}/neutron-linuxbridge-agent.confd" "neutron-linuxbridge-agent"
 
-	for svc in {dhcp,l3,linuxbridge,metadata,metering}_agent {linuxbridge,netns,ovs}_cleanup server ; do
+	for svc in {dhcp,l3,linuxbridge,metadata,metering}-agent {linuxbridge,netns,ovs}-cleanup server ; do
 		systemd_dounit "${FILESDIR}/openstack-neutron-${svc}.service"
 	done
 
