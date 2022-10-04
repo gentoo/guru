@@ -25,7 +25,7 @@ BDEPEND="
 
 PATCHES=(
 	# Disable tests depending on third_party/wasm-c-api/example/*.wasm
-	"${FILESDIR}/wabt-1.0.29-wasm-blob-tests.patch"
+	"${FILESDIR}/wabt-1.0.30-wasm-blob-tests.patch"
 )
 
 python_check_deps() {
