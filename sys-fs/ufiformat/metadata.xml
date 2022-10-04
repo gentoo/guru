@@ -2,6 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <longdescription lang="en">
-Formatter for USB floppy drives
+Low-level formatter for USB floppy drives. Provides similar functionality
+that fdformat did for internal floppy drives.
 </longdescription>
 </pkgmetadata>
