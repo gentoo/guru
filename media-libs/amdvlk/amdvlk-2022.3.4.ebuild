@@ -4,30 +4,33 @@
 EAPI=8
 
 MULTILIB_COMPAT=( abi_x86_{32,64} )
+PYTHON_COMPAT=( python3_{8..11} )
 
-inherit cmake-multilib check-reqs
+inherit check-reqs python-any-r1 cmake-multilib
 
 DESCRIPTION="AMD Open Source Driver for Vulkan"
 HOMEPAGE="https://github.com/GPUOpen-Drivers/AMDVLK"
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="wayland"
 REQUIRED_USE="|| ( abi_x86_32 abi_x86_64 )"
-###DEPENDS
+
 BUNDLED_LLVM_DEPEND="sys-libs/zlib:0=[${MULTILIB_USEDEP}]"
 DEPEND="wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
 	${BUNDLED_LLVM_DEPEND}
 	>=dev-util/vulkan-headers-1.3.224"
 BDEPEND="${BUNDLED_LLVM_DEPEND}
-	dev-util/cmake"
+	${PYTHON_DEPS}
+	dev-util/cmake
+	virtual/linux-sources"
 RDEPEND=" ${DEPEND}
 	x11-libs/libdrm[${MULTILIB_USEDEP}]
 	x11-libs/libXrandr[${MULTILIB_USEDEP}]
 	x11-libs/libxcb[${MULTILIB_USEDEP}]
 	x11-libs/libxshmfence[${MULTILIB_USEDEP}]
 	>=media-libs/vulkan-loader-1.3.224[${MULTILIB_USEDEP}]
-	dev-util/glslang
+	dev-util/glslang[${MULTILIB_USEDEP}]
 	dev-util/DirectXShaderCompiler"
 
 CHECKREQS_MEMORY="16G"
@@ -37,8 +40,7 @@ CMAKE_USE_DIR="${S}/xgl"
 
 ###SOURCE CODE PER_VERSION VARIABLES
 FETCH_URI="https://github.com/GPUOpen-Drivers"
-CORRECT_AMDVLK_PV="v-$(ver_rs 1 '.Q')" #Works only for amdvlk source code: transforming version 2019.2.2 to v-2019.Q2.2. Any other commits should be updated manually
-##For those who wants update ebuild: check https://github.com/GPUOpen-Drivers/AMDVLK/blob/master/default.xml
+##For those who wants update ebuild: check https://github.com/GPUOpen-Drivers/AMDVLK/blob/${VERSION}/default.xml , e.g. https://github.com/GPUOpen-Drivers/AMDVLK/blob/v-2022.Q3.5/default.xml
 ##and place commits in the desired variables
 ## EXAMPLE: XGL_COMMIT="80e5a4b11ad2058097e77746772ddc9ab2118e07"
 ## SRC_URI="... ${FETCH_URI}/$PART/archive/$COMMIT.zip -> $PART-$COMMIT.zip ..."
@@ -49,9 +51,8 @@ GPURT_COMMIT="c1df7354336aba18d54c0e32a95b58eac0d44c07"
 LLVM_PROJECT_COMMIT="f5023e507645c8178128891b96bf463f9a1a81a0"
 METROHASH_COMMIT="18893fb28601bb9af1154cd1a671a121fff6d8d3"
 CWPACK_COMMIT="4f8cf0584442a91d829d269158567d7ed926f026"
-# end
-SRC_URI=" ${FETCH_URI}/AMDVLK/archive/${CORRECT_AMDVLK_PV}.tar.gz -> AMDVLK-${CORRECT_AMDVLK_PV}.tar.gz
-${FETCH_URI}/xgl/archive/${XGL_COMMIT}.tar.gz -> amdvlk-xgl-${XGL_COMMIT}.tar.gz
+# end of variables
+SRC_URI="${FETCH_URI}/xgl/archive/${XGL_COMMIT}.tar.gz -> amdvlk-xgl-${XGL_COMMIT}.tar.gz
 ${FETCH_URI}/pal/archive/${PAL_COMMIT}.tar.gz -> amdvlk-pal-${PAL_COMMIT}.tar.gz
 ${FETCH_URI}/llpc/archive/${LLPC_COMMIT}.tar.gz -> amdvlk-llpc-${LLPC_COMMIT}.tar.gz
 ${FETCH_URI}/gpurt/archive/${GPURT_COMMIT}.tar.gz -> amdvlk-gpurt-${GPURT_COMMIT}.tar.gz
@@ -63,7 +64,6 @@ src_prepare() {
 	einfo "moving src to proper directories"
 	mkdir -p "${S}"
 	mkdir -p "${S}/third_party"
-	mv AMDVLK-${CORRECT_AMDVLK_PV}/ "${S}/AMDVLK"
 	mv xgl-${XGL_COMMIT}/ "${S}/xgl"
 	mv pal-${PAL_COMMIT}/ "${S}/pal"
 	mv llpc-${LLPC_COMMIT}/ "${S}/llpc"
@@ -76,42 +76,35 @@ src_prepare() {
 
 multilib_src_configure() {
 	local mycmakeargs=(
-			-DBUILD_WAYLAND_SUPPORT=$(usex wayland)
-			)
+		-DBUILD_WAYLAND_SUPPORT=$(usex wayland)
+		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/llvm/amdvlk"
+		-DLLVM_VERSION_SUFFIX="-$(get_libdir)-amdvlk"
+		-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
+		-Wno-dev
+		)
 	cmake_src_configure
 }
-# multilib_src_install() {
-# 	if use abi_x86_64 && multilib_is_native_abi; then
-# 		mkdir -p "${D}/usr/lib64/"
-# 		cp "${BUILD_DIR}/icd/amdvlk64.so" "${D}/usr/lib64/"
-# 		insinto /usr/share/vulkan/icd.d
-# 		doins "${S}/build-abi_x86_64.amd64/icd/amd_icd64.json"
-# 		insinto /usr/share/vulkan/implicit_layer.d
-# 		doins "${S}/build-abi_x86_64.amd64/icd/amd_icd64.json"
-# 	else
-# 		mkdir -p "${D}/usr/lib/"
-# 		cp "${BUILD_DIR}/icd/amdvlk32.so" "${D}/usr/lib/"
-# 		insinto /usr/share/vulkan/icd.d
-# 		doins "${S}/build-abi_x86_32.x86/icd/amd_icd32.json"
-# 		insinto /usr/share/vulkan/implicit_layer.d
-# 		doins "${S}/build-abi_x86_32.x86/icd/amd_icd32.json"
-# 	fi
-# }
+multilib_src_install(){
+	cmake_src_install
+	rm -r "${D}"/var/ || die "can't remove incorrect temporary files of amdvlk"
+	einfo "Correcting permissions of amdvlk $(get_libdir) libraries"
+	fperms -R 775 /usr/lib/llvm/amdvlk/$(get_libdir)
+}
+
+multilib_src_install_all() {
+	cat > "99${PN}" <<-EOF
+		LDPATH="${EPREFIX}/usr/lib/llvm/amdvlk/lib:${EPREFIX}/usr/lib/llvm/amdvlk/lib64"
+	EOF
+	doenvd "99${PN}"
+}
 
 pkg_postinst() {
-	elog "More information about the configuration can be found here:"
-	elog " https://github.com/GPUOpen-Drivers/AMDVLK"
 	ewarn "Make sure the following line is NOT included in the any Xorg configuration section:"
 	ewarn "| Driver	  \"modesetting\""
 	ewarn "and make sure you use DRI3 mode for Xorg (not revelant for wayland)"
-	ewarn "Else AMDVLK breaks things"
-	ewarn "With some games AMDVLK is still not stable. Use it at you own risk"
-	elog "You may want to disable default vulkan mesa provider in package.use \"media-libs/mesa -vulkan\""
-	elog "or perform export in /etc/env.d/ variable VK_ICD_FILENAMES=vulkanprovidername:vulkanprovidername2 "
-	elog "exampe| VK_ICD_FILENAMES=\"/usr/share/vulkan/icd.d/amd_icd64.json:/usr/share/vulkan/icd.d/amd_icd64.json\""
-	elog "For DXVK: use DXVK_FILTER_DEVICE_NAME= variable"
-	elog ""
-	elog "You can also use AMD_VULKAN_ICD to switch to the required driver."
+	elog "More information about the configuration can be found here:"
+	elog "https://github.com/GPUOpen-Drivers/AMDVLK"
+	elog "You can use AMD_VULKAN_ICD variable to switch to the required driver."
 	elog "AMD_VULKAN_ICD=RADV application   - for using radv."
 	elog "AMD_VULKAN_ICD=AMDVLK application - for using amdvlk."
 }
