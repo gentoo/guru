@@ -126,7 +126,7 @@ LICENSE="MIT Apache-2.0 PSF-2 BSD Boost-1.0 Unlicense"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
-RESTRICT="!test? ( test )"
+RESTRICT="test"
 
 RDEPEND="
 	>=dev-python/pyyaml-5.2[${PYTHON_USEDEP}]
@@ -134,16 +134,15 @@ RDEPEND="
 	>=dev-python/typing-extensions-3.7.4.2[${PYTHON_USEDEP}]
 	>=dev-python/typing_inspect-0.4.0[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
-	test? (
-		~dev-python/black-22.3.0[${PYTHON_USEDEP}]
-		>=dev-python/hypothesis-4.36.0[${PYTHON_USEDEP}]
-		>=dev-python/hypothesmith-0.0.4[${PYTHON_USEDEP}]
-		>=dev-python/prompt_toolkit-2.0.9[${PYTHON_USEDEP}]
-	)
-"
-BDEPEND="test? ( dev-python/ufmt[${PYTHON_USEDEP}] )"
+DEPEND="${RDEPEND}"
+# 	test? (
+# 		~dev-python/black-22.3.0[${PYTHON_USEDEP}]
+# 		>=dev-python/hypothesis-4.36.0[${PYTHON_USEDEP}]
+# 		>=dev-python/hypothesmith-0.0.4[${PYTHON_USEDEP}]
+# 		>=dev-python/prompt_toolkit-2.0.9[${PYTHON_USEDEP}]
+# 	)
+# "
+# BDEPEND="test? ( dev-python/ufmt[${PYTHON_USEDEP}] )"
 
 distutils_enable_tests --install pytest
 
