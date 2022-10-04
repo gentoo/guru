@@ -18,6 +18,7 @@ if [[ "${PV}" == *9999 ]]; then
 	EGIT_SUBMODULES=()
 	EGIT_CHECKOUT_DIR="${WORKDIR}/${PARENT_PN}"
 else
+	# To rename with .gh.tar.gz extension once parent package also uses this naming.
 	SRC_URI="
 		https://github.com/certbot/certbot/archive/v${PV}.tar.gz
 			-> ${PARENT_P}.tar.gz
@@ -40,18 +41,26 @@ RDEPEND="
 	>=app-crypt/acme-${PV}[${PYTHON_USEDEP}]
 	>=app-crypt/certbot-${PV}[${PYTHON_USEDEP}]
 	>=dev-python/pyopenssl-22.0.0[${PYTHON_USEDEP}]
-	>=dev-python/pyparsing-3.0.9[${PYTHON_USEDEP}]
+	>=dev-python/pyparsing-3.0.7[${PYTHON_USEDEP}]
 	>=dev-python/zope-interface-5.4.0[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
 
+# Same than PATCHES but from repository's root directory,
+# please see function `python_prepare_all` below.
+# Simplier for users IMHO.
+PARENT_PATCHES=(
+)
+
+# Here for patches within "${PN}" subdirectory.
 PATCHES=(
 )
 
 python_prepare_all() {
 	pushd "${WORKDIR}/${PARENT_P}" > /dev/null || die
-	default
+	[[ -n "${PARENT_PATCHES[@]}" ]] && eapply "${PARENT_PATCHES[@]}"
+	eapply_user
 	popd > /dev/null || die
 
 	distutils-r1_python_prepare_all

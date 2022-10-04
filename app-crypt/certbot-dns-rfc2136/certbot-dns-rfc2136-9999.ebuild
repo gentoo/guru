@@ -20,7 +20,7 @@ if [[ "${PV}" == *9999 ]]; then
 else
 	SRC_URI="
 		https://github.com/certbot/certbot/archive/v${PV}.tar.gz
-			-> ${PARENT_P}.tar.gz
+			-> ${PARENT_P}.gh.tar.gz
 	"
 	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
@@ -46,12 +46,20 @@ RDEPEND="
 
 distutils_enable_tests pytest
 
+# Same than PATCHES but from repository's root directory,
+# please see function `python_prepare_all` below.
+# Simplier for users IMHO.
+PARENT_PATCHES=(
+)
+
+# Here for patches within "${PN}" subdirectory.
 PATCHES=(
 )
 
 python_prepare_all() {
 	pushd "${WORKDIR}/${PARENT_P}" > /dev/null || die
-	default
+	[[ -n "${PARENT_PATCHES[@]}" ]] && eapply "${PARENT_PATCHES[@]}"
+	eapply_user
 	popd > /dev/null || die
 
 	distutils-r1_python_prepare_all
