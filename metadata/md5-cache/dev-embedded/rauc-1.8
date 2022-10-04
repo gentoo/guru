@@ -1,4 +1,4 @@
-BDEPEND=dev-util/gdbus-codegen virtual/pkgconfig test? ( dev-libs/opensc net-misc/casync sys-fs/mtd-utils sys-fs/squashfs-tools sys-libs/libfaketime ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 doc? ( || ( ( >=dev-lang/python-3.10.4:3.10 dev-python/sphinx[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9 dev-python/sphinx[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.13:3.8 dev-python/sphinx[python_targets_python3_8(-)] ) ) )
+BDEPEND=dev-util/gdbus-codegen virtual/pkgconfig test? ( dev-libs/opensc net-misc/casync sys-fs/mtd-utils sys-fs/squashfs-tools sys-libs/libfaketime ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 doc? ( || ( ( >=dev-lang/python-3.11.0_beta4:3.11 dev-python/sphinx[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.4:3.10 dev-python/sphinx[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9 dev-python/sphinx[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.13:3.8 dev-python/sphinx[python_targets_python3_8(-)] ) ) )
 DEFINED_PHASES=compile configure prepare setup
 DEPEND=dev-libs/glib:2 dev-libs/openssl:0= json? ( dev-libs/json-glib ) network? ( net-misc/curl ) service? ( sys-apps/dbus )
 DESCRIPTION=Lightweight update client that runs on your Embedded Linux device
@@ -11,6 +11,6 @@ LICENSE=LGPL-2.1
 RDEPEND=dev-libs/glib:2 dev-libs/openssl:0= json? ( dev-libs/json-glib ) network? ( net-misc/curl ) service? ( sys-apps/dbus )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/rauc/rauc/releases/download/v1.7/rauc-1.7.tar.xz
+SRC_URI=https://github.com/rauc/rauc/releases/download/v1.8/rauc-1.8.tar.xz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	docs	8ed2a8a28ff109e7a3582c9abb7fe327
-_md5_=32135678dbf288cbf6221e1b625ed3f8
+_md5_=bc78178008ea74dabc56f2e4d3da3a20

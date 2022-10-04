@@ -1,0 +1,9 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=Saleae logic analyzer
+EAPI=8
+HOMEPAGE=https://www.saleae.com
+LICENSE=Saleae
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://downloads.saleae.com/logic2/Logic-2.4.0-master.AppImage
+_md5_=c16974b2664743f254749d009f18b5ab

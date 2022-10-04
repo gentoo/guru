@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=acct-group/monero acct-user/monero dev-libs/boost:=[nls] dev-libs/libsodium:= dev-libs/openssl:= dev-libs/randomx dev-libs/rapidjson dev-libs/supercop net-dns/unbound:=[threads] net-libs/czmq:= net-libs/miniupnpc readline? ( sys-libs/readline:0= )
+DESCRIPTION=The secure, private, untraceable cryptocurrency
+EAPI=7
+HOMEPAGE=https://github.com/monero-project/monero
+INHERIT=cmake systemd
+IUSE=+daemon readline +tools +wallet-cli +wallet-rpc
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=BSD MIT
+RDEPEND=acct-group/monero acct-user/monero dev-libs/boost:=[nls] dev-libs/libsodium:= dev-libs/openssl:= dev-libs/randomx dev-libs/rapidjson dev-libs/supercop net-dns/unbound:=[threads] net-libs/czmq:= net-libs/miniupnpc readline? ( sys-libs/readline:0= )
+REQUIRED_USE=|| ( daemon tools wallet-cli wallet-rpc )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/monero-project/monero/archive/v0.18.1.2.tar.gz -> monero-0.18.1.2.tar.gz
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d	systemd	2736b403a83f194b59b767f3b344c2c1
+_md5_=f3072d2c4e8a233dba0d9249ad2a88ca

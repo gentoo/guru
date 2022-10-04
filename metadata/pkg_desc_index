@@ -73,7 +73,7 @@ app-crypt/certbot-dns-rfc2136 1.29.0-r1 1.30.0 9999: RFC 2136 DNS Authenticator 
 app-crypt/clevis 18: Automated Encryption Framework
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/gnome-encfs-manager 1.9: An easy to use manager and mounter for encfs stashes
-app-crypt/intel-ipsec-mb 1.1 1.2 9999: Multi-Buffer Crypto for IPSec from Intel
+app-crypt/intel-ipsec-mb 1.1 1.2 1.3 9999: Multi-Buffer Crypto for IPSec from Intel
 app-crypt/pgp 2.6.3a: Public-key encryption and digital signature utility
 app-crypt/pinentry-bemenu 0.11.0: Pinentry based on bemenu
 app-crypt/reop 2.1.1: reasonable expectation of privacy
@@ -462,7 +462,7 @@ dev-db/pg_repack 1.4.7: Reorganize tables in PostgreSQL databases with minimal l
 dev-db/rum 1.3.11: RUM access method - inverted index with additional information in posting lists
 dev-dotnet/gtk-sharp 2.99.3-r3: gtk bindings for mono
 dev-embedded/mv88e6xxx-dump 0.2.0_pre20210327: Dump information about Marvell mv88e6xxx Ethernet switches
-dev-embedded/rauc 1.7: Lightweight update client that runs on your Embedded Linux device
+dev-embedded/rauc 1.8: Lightweight update client that runs on your Embedded Linux device
 dev-erlang/cowboy 2.9.0: Small, fast, modern HTTP server for Erlang/OTP.
 dev-erlang/cowlib 2.11.0: Support library for manipulating Web protocols.
 dev-erlang/ranch 1.7.1 1.8.0 2.0.0: Socket acceptor pool for TCP protocols.
@@ -827,8 +827,8 @@ dev-python/hypothesmith 0.2.0: Hypothesis strategies for generating Python progr
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
 dev-python/injector 0.18.4: Python dependency injection framework
 dev-python/insipid-sphinx-theme 0.3.2: An insipid Sphinx theme
-dev-python/itemadapter 0.4.0 0.6.0: Common interface for scrapy data container classes
-dev-python/itemloaders 1.0.4: Library to populate items using XPath and CSS with a convenient API
+dev-python/itemadapter 0.4.0 0.6.0 0.7.0: Common interface for scrapy data container classes
+dev-python/itemloaders 1.0.4 1.0.6: Library to populate items using XPath and CSS with a convenient API
 dev-python/iuliia 0.11.5: Transliterate Cyrillic to Latin in every possible way
 dev-python/jplephem 2.16: Python version of NASA DE4xx ephemerides for Astronomical Alamanac
 dev-python/jsonpath-rw 1.4.0: A robust and significantly extended implementation of JSONPath for Python
@@ -909,7 +909,7 @@ dev-python/pybeam 0.7-r1: Python module to parse Erlang BEAM files
 dev-python/pybrowserstack-screenshots 0.1-r1: A python api wrapper and client for Browserstack Screenshots API
 dev-python/pycadf 3.1.1-r1: python implementation of DMTF Cloud Audit (CADF) data model
 dev-python/pyclip 0.5.4 0.6.0 9999: Python clipboard module
-dev-python/pydispatcher 2.0.5: Multi-producer-multi-consumer signal dispatching mechanism
+dev-python/pydispatcher 2.0.5 2.0.6: Multi-producer-multi-consumer signal dispatching mechanism
 dev-python/pydub 0.25.1: Manipulate audio with an simple and easy high level interface
 dev-python/pyfiglet 0.8_p1 9999: Pure-python FIGlet implementation
 dev-python/pygaljs 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
@@ -983,7 +983,7 @@ dev-python/ryu 4.34: Component-based Software-defined Networking Framework
 dev-python/schedule 1.1.0-r1: Python job scheduling for humans
 dev-python/schema 0.7.5: Python module to validate and convert data structures
 dev-python/scramp 1.4.1: A pure-Python implementation of the SCRAM authentication protocol.
-dev-python/scrapy 2.5.1 2.6.2: A high-level Web Crawling and Web Scraping framework
+dev-python/scrapy 2.5.1 2.6.2 2.6.3: A high-level Web Crawling and Web Scraping framework
 dev-python/sdnotify 0.3.2: Python implementation of the systemd sd_notify protocol
 dev-python/sentence-splitter 1.4-r1: Sentence splitter using heuristic algorithm by Philipp Koehn and Josh Schroeder
 dev-python/simplemma 0.7.0: A simple multilingual lemmatizer for Python.
@@ -1143,7 +1143,7 @@ games-emulation/mupen64plus-qt 1.15 9999: A basic launcher for Mupen64Plus
 games-emulation/np2kai 22 22_p20210211: NP2kai is an emulator for the japanese PC-98 series of computers
 games-emulation/rpcs3 9999: PS3 emulator/debugger
 games-emulation/yuzu 0_p20220725 9999: An emulator for Nintendo Switch
-games-engines/boxtron 0.5.4-r1: Steam Play compatibility tool to run DOS games using native Linux DOSBox
+games-engines/boxtron 0.5.4-r2: Steam Play compatibility tool to run DOS games using native Linux DOSBox
 games-engines/fs2_open 21.4.1-r2 22.0.0 22.2.0: FreeSpace2 Source Code Project game engine
 games-engines/instead 3.3.5 3.4.1 9999: INSTEAD text-based quest game engine
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
@@ -1369,7 +1369,7 @@ net-client/offpunk 1.4 1.5: Offline-First Gemini/Web/Gopher/RSS reader and brows
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
 net-client/telescope 0.7.1 0.8.1: w3m-like browser for Gemini
 net-dialup/atinout 0.9.1-r1: AT commands as input are sent to modem and responses given as output
-net-dialup/tio 1.47: Simple TTY terminal application
+net-dialup/tio 2.0: Simple TTY terminal application
 net-fs/httpdirfs 1.2.0: Filesystem to mount HTTP directory listings, with a permanent cache
 net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/Quaternion 0.0.9.4e: A Qt5-based IM client for the Matrix protocol
@@ -1385,6 +1385,7 @@ net-im/kaidan 0.8.0: A simple, user-friendly Jabber/XMPP client for every device
 net-im/matterhorn-bin 50200.13.0: Terminal based Mattermost client
 net-im/nheko 0.10.2: Native desktop client for Matrix using Qt
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
+net-im/session-desktop-bin 1.10.1: Session Desktop - Onion routing based messenger
 net-im/whatsapp-for-linux 1.3.2 1.3.2-r1: An unofficial WhatsApp desktop application for Linux
 net-irc/catgirl 2.0a 2.1: TLS-only terminal IRC client
 net-irc/pounce 3.0: Multi-client, TLS-only IRC bouncer
@@ -1442,7 +1443,7 @@ net-p2p/bisq-bin 1.9.5: The decentralized bitcoin exchange (non-atomic, with arb
 net-p2p/feather 2.1.0 9999: A free, open-source Monero wallet
 net-p2p/ipfs-cluster 1.0.1 1.0.2: Pinset orchestration for IPFS
 net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital marketplace controlled by its users.
-net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 0.18.1.0 0.18.1.1 9999: The secure, private, untraceable cryptocurrency
+net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 0.18.1.0 0.18.1.1 0.18.1.2 9999: The secure, private, untraceable cryptocurrency
 net-p2p/p2pool 2.3 9999: Decentralized pool for Monero mining
 net-p2p/popura 0.4.3 9999: Popura: alternative Yggdrasil network client
 net-p2p/trezord-go 2.0.29-r1 2.0.30: TREZOR Communication Daemon
@@ -1464,6 +1465,7 @@ sci-electronics/circt 1.14.0: The fast free Verilog/SystemVerilog simulator
 sci-electronics/dsview 1.2.1 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.10.0 9999: A open source IP-XACT-based tool
 sci-electronics/liblxi 1.16: Implementation of the LAN eXtensions for Instrumentation (LXI)
+sci-electronics/logic-bin 2.4.0: Saleae logic analyzer
 sci-electronics/lxi-tools 2.1: Tools to access devices with LXI
 sci-electronics/open_pdks 1.0.311: PDK installer for open-source EDA tools and toolchains
 sci-electronics/skywater-pdk 0.0.0_p20220424: Process design kit for usage with SkyWater Technology Foundry's 130nm node
@@ -1691,7 +1693,7 @@ virtual/nlme 0: Virtual of a R recommended package
 virtual/nnet 0: Virtual of a R recommended package
 virtual/sendmail 0: Virtual for sendmail program
 virtual/survival 0: Virtual of a R recommended package
-www-apps/code-server-bin 4.5.1 4.6.1 4.7.0: VS Code in the browser (binary version with unbundled node and ripgrep)
+www-apps/code-server-bin 4.6.1 4.7.0 4.7.1: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/jackett-bin 0.20.514 0.20.1202 9999: API Support for your favorite torrent trackers
 www-apps/mycorrhiza 1.12.1 9999: Git-based wiki engine written in Go using mycomarkup
