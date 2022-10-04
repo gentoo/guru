@@ -18,12 +18,19 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 DEPEND="test? ( dev-cpp/gtest )"
-BDEPEND="${PYTHON_DEPS}"
+BDEPEND="
+	${PYTHON_DEPS}
+	$(python_gen_any_dep 'dev-python/ply[${PYTHON_USEDEP}]')
+"
 
 PATCHES=(
 	# Disable tests depending on third_party/wasm-c-api/example/*.wasm
 	"${FILESDIR}/wabt-1.0.29-wasm-blob-tests.patch"
 )
+
+python_check_deps() {
+	python_has_version "dev-python/ply[${PYTHON_USEDEP}]"
+}
 
 src_prepare() {
 	cmake_src_prepare
