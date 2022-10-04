@@ -19,6 +19,7 @@ RESTRICT="test"
 LICENSE="MIT 0BSD ISC PYTHON BSD-2 BSD Apache-2.0 Unlicense LGPL-2.1+
 	|| ( BSD-2 MIT Apache-2.0 )
 	|| ( MIT WTFPL )
+	|| ( BSD GPL-2 )
 "
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
@@ -80,15 +81,13 @@ src_prepare() {
 	# thus "-bin".
 
 	# use system node
-	rm ./node ./lib/node \
-		|| die "Failed to remove bundled nodejs"
+	rm ./lib/node || die "Failed to remove bundled nodejs"
 
 	# remove bundled ripgrep binary
 	rm ./"${VSCODE_MODULES}"/@vscode/ripgrep/bin/rg \
 		|| die "Failed to remove bundled ripgrep"
 
 	# not needed
-	rm ./code-server || die
 	rm ./postinstall.sh || die
 
 	# For windows

@@ -22,7 +22,7 @@ RDEPEND="
 	dev-db/lmdb:=
 	>=dev-db/lmdb++-1.0.0
 	dev-libs/libfmt:=
-	>=dev-libs/mtxclient-0.8.1:=
+	>=dev-libs/mtxclient-0.8.2:=
 	>=dev-libs/qtkeychain-0.12.0:=
 	dev-libs/spdlog:=
 	dev-qt/qtconcurrent:5

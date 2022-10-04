@@ -8,14 +8,14 @@ The network and squashfs tests won't work within portage. Disable them.
 Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
 ---
  Makefile.am |    7 -------
- test/rauc.t |   20 ++++++++++----------
- 2 files changed, 10 insertions(+), 17 deletions(-)
+ test/rauc.t |   24 ++++++++++++------------
+ 2 files changed, 12 insertions(+), 19 deletions(-)
 
 --- a/Makefile.am
 +++ b/Makefile.am
-@@ -162,10 +162,6 @@ check_PROGRAMS = \
- 	test/progress.test \
- 	test/slot.test
+@@ -170,10 +170,6 @@ check_PROGRAMS = \
+ 	test/slot.test \
+ 	test/stats.test
  
 -if WANT_NETWORK
 -check_PROGRAMS += test/network.test
@@ -24,7 +24,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  if ENABLE_STREAMING
  check_PROGRAMS += test/nbd.test
  endif
-@@ -260,9 +256,6 @@ test_utils_test_LDADD = librauctest.la
+@@ -280,9 +276,6 @@ test_utils_test_LDADD = librauctest.la
  test_install_test_SOURCES = test/install.c
  test_install_test_LDADD = librauctest.la
  
@@ -36,30 +36,34 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  
 --- a/test/rauc.t
 +++ b/test/rauc.t
-@@ -325,16 +325,16 @@ test_expect_success "rauc bundle" "
+@@ -359,18 +359,18 @@ test_expect_success "rauc bundle (test c
    test -f ${TEST_TMPDIR}/out.raucb
  "
  
 -test_expect_success "rauc bundle mksquashfs extra args" "
--  rm -f ${TEST_TMPDIR}/out.raucb &&
+-  test_when_finished rm -rf ${TEST_TMPDIR}/install-content &&
+-  test_when_finished rm -f ${TEST_TMPDIR}/out.raucb &&
+-  cp -rL ${SHARNESS_TEST_DIRECTORY}/install-content ${TEST_TMPDIR}/ &&
 -  rauc \
 -    --cert $SHARNESS_TEST_DIRECTORY/openssl-ca/dev/autobuilder-1.cert.pem \
 -    --key $SHARNESS_TEST_DIRECTORY/openssl-ca/dev/private/autobuilder-1.pem \
 -    bundle \
 -    --mksquashfs-args=\"-comp xz -info -progress\" \
--    $SHARNESS_TEST_DIRECTORY/install-content ${TEST_TMPDIR}/out.raucb &&
+-    ${TEST_TMPDIR}/install-content ${TEST_TMPDIR}/out.raucb &&
 -  rauc -c $SHARNESS_TEST_DIRECTORY/test.conf info ${TEST_TMPDIR}/out.raucb
 -"
 +# test_expect_success "rauc bundle mksquashfs extra args" "
-+#   rm -f ${TEST_TMPDIR}/out.raucb &&
++#   test_when_finished rm -rf ${TEST_TMPDIR}/install-content &&
++#   test_when_finished rm -f ${TEST_TMPDIR}/out.raucb &&
++#   cp -rL ${SHARNESS_TEST_DIRECTORY}/install-content ${TEST_TMPDIR}/ &&
 +#   rauc \
 +#     --cert $SHARNESS_TEST_DIRECTORY/openssl-ca/dev/autobuilder-1.cert.pem \
 +#     --key $SHARNESS_TEST_DIRECTORY/openssl-ca/dev/private/autobuilder-1.pem \
 +#     bundle \
 +#     --mksquashfs-args=\"-comp xz -info -progress\" \
-+#     $SHARNESS_TEST_DIRECTORY/install-content ${TEST_TMPDIR}/out.raucb &&
++#     ${TEST_TMPDIR}/install-content ${TEST_TMPDIR}/out.raucb &&
 +#   rauc -c $SHARNESS_TEST_DIRECTORY/test.conf info ${TEST_TMPDIR}/out.raucb
 +# "
  
  test_expect_success PKCS11 "rauc bundle with PKCS11 (key 1)" "
-   rm -f ${TEST_TMPDIR}/out.raucb &&
+   test_when_finished rm -rf ${TEST_TMPDIR}/install-content &&
