@@ -12,5 +12,5 @@ RDEPEND=ao? ( media-libs/libao ) portaudio? ( media-libs/portaudio ) pulseaudio?
 REQUIRED_USE=|| ( ao portaudio pulseaudio )
 SLOT=0
 SRC_URI=https://github.com/rhvoice/rhvoice/releases/download/1.4.2/rhvoice-1.4.2.tar.gz -> rhvoice-1.4.2-release.tar.gz
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e	cmake	44afbf15c35884f7c840470f1cf05d0d
+_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d
 _md5_=72812f4e7a685096b720feafc5396e80
