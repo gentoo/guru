@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/python-3.11.0_beta4:3.11 >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+BDEPEND=|| ( >=dev-lang/python-3.11.0_beta4:3.11 >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 ) || ( ( >=dev-lang/python-3.11.0_beta4:3.11 dev-python/ply[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.4:3.10 dev-python/ply[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.12:3.9 dev-python/ply[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.13:3.8 dev-python/ply[python_targets_python3_8(-)] ) ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=test? ( dev-cpp/gtest )
 DESCRIPTION=The WebAssembly Binary Toolkit
@@ -10,6 +10,6 @@ KEYWORDS=~amd64
 LICENSE=Apache-2.0
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/WebAssembly/wabt/releases/download/1.0.29/wabt-1.0.29.tar.xz
+SRC_URI=https://github.com/WebAssembly/wabt/releases/download/1.0.30/wabt-1.0.30.tar.xz
 _eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
-_md5_=8b717c7daceba88d833ef0c06886b664
+_md5_=f4df59f107c9d19e39dc1100e9f1957e
