@@ -11,12 +11,11 @@ LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
+RESTRICT="strip"
 
-DEPEND=""
 RDEPEND="sys-fs/fuse:0"
 
-RESTRICT="binchecks strip"
-
+QA_PREBUILT="*"
 S="${WORKDIR}"
 
 src_install() {
