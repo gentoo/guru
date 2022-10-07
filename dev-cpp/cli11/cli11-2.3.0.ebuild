@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,6 @@ DOCS_BUILDER="doxygen"
 DOCS_DIR="docs"
 inherit cmake docs
 
-CATCH_PV=2.13.6
 DESCRIPTION="Command line parser for C++11"
 HOMEPAGE="https://github.com/CLIUtils/CLI11 https://cliutils.github.io/CLI11/book/"
 SRC_URI="https://github.com/CLIUtils/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
