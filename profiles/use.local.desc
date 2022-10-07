@@ -335,6 +335,7 @@ gui-apps/wofi:run - Enable run mode
 gui-libs/cubegui:concurrent - Enables usage of the QtConcurrent for the the parallel calculations
 gui-libs/cubegui:scorep - Enable scorep support
 gui-libs/cubegui:webengine - Enables usage of the QtWebEngine for the HTML Documentation
+gui-libs/power-profiles-daemon:pylint - Run pylint checks
 gui-wm/cage:X - Enable support for X11 applications (XWayland)
 media-fonts/victor-mono:otf - Install the OpenType version of the font
 media-fonts/victor-mono:ttf - Install the TrueType version of the font

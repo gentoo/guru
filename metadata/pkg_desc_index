@@ -69,7 +69,7 @@ app-containers/nvidia-container-toolkit 1.9.0 1.10.0 9999: NVIDIA container runt
 app-crypt/PBinCLI 0.3.2: PrivateBin CLI
 app-crypt/autofirma 1.6.5-r1: Spanish government's electronic signature application for online procedures
 app-crypt/certbot-dns-desec 1.2.0: deSEC DNS Authenticator plugin for Certbot
-app-crypt/certbot-dns-rfc2136 1.29.0-r1 1.30.0 9999: RFC 2136 DNS Authenticator plugin for Certbot (Let’s Encrypt client)
+app-crypt/certbot-dns-rfc2136 1.29.0-r2 1.30.0-r1 1.31.0 9999: RFC 2136 DNS Authenticator plugin for Certbot (Let’s Encrypt client)
 app-crypt/clevis 18: Automated Encryption Framework
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/gnome-encfs-manager 1.9: An easy to use manager and mounter for encfs stashes
@@ -821,6 +821,7 @@ dev-python/hstspreload 2021.12.1: Chromium HSTS Preload list as a Python package
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/hunter 3.4.3-r1: Hunter is a flexible code tracing toolkit
 dev-python/hwi 1.2.1 2.0.2: Library and command line tool for interacting with hardware wallets
+dev-python/hypercorn 0.13.2: ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperglot 0.3.8 0.3.9: Detect language support for font binaries
 dev-python/hypothesmith 0.2.0: Hypothesis strategies for generating Python programs
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
@@ -1134,7 +1135,7 @@ games-board/openriichi 0.2.1.1: OpenRiichi is an open source Japanese Mahjong cl
 games-board/rmahjong 0.4_p20201106: Riichi Mahjong, the Japanese variant of the Chinese game Mahjong for 4 players
 games-emulation/citra 9999: A Nintendo 3DS Emulator
 games-emulation/citra-canary 9999: A Nintendo 3DS Emulator
-games-emulation/dosbox-x 0.84.1 2022.08.0 9999: Complete, accurate DOS emulator forked from DOSBox
+games-emulation/dosbox-x 2022.08.0 9999: Complete, accurate DOS emulator forked from DOSBox
 games-emulation/duckstation 9999: Fast Sony PlayStation (PSX) emulator
 games-emulation/flycast 9999: Sega Dreamcast, Naomi and Atomiswave emulator
 games-emulation/mupen64plus-qt 1.15 9999: A basic launcher for Mupen64Plus
@@ -1172,7 +1173,7 @@ games-util/mangohud 0.6.6.1-r3 0.6.7.1 0.6.8 9999: Vulkan and OpenGL overlay for
 games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
 games-util/samrewritten 9999 202008: Steam Achievement Manager For Linux
 games-util/steamtinkerlaunch 8.0: Wrapper script for Steam custom launch options
-gnome-extra/extension-manager 0.3.1 0.3.2 9999: A native tool for browsing and installing GNOME Shell Extensions
+gnome-extra/extension-manager 0.3.2 0.4.0 9999: A native tool for browsing and installing GNOME Shell Extensions
 gnome-extra/iio-sensor-proxy 3.3: IIO sensors to D-Bus proxy
 gnome-extra/junction 1.5.0 9999: Application/browser chooser
 gnome-extra/portfolio 0.9.14: A minimalist file manager for those who want to use Linux mobile devices
@@ -1232,6 +1233,7 @@ gui-apps/yambar 1.6.2 1.7.0 1.8.0 9999: Simplistic and highly configurable statu
 gui-libs/cubegui 4.7-r1: CUBE Uniform Behavioral Encoding GUI
 gui-libs/libcprime 4.2.0 4.2.2 9999: Library for managing settings of CoreApps
 gui-libs/libcsys 4.2.0 9999: Library for managing the device
+gui-libs/power-profiles-daemon 0.12: Makes power profiles handling available over D-Bus.
 gui-libs/text-engine 0.1.1-r1 9999: A lightweight rich-text framework for GTK 4
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.3 0.1.4 9999: A Wayland kiosk
