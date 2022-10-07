@@ -30,9 +30,10 @@ RDEPEND="
 	dev-libs/glib:2
 	dev-libs/json-glib
 	gui-libs/gtk:4[introspection]
-	gui-libs/libadwaita:1[introspection]
+	>=gui-libs/libadwaita-1.2.0:1[introspection]
 	gui-libs/text-engine
 	net-libs/libsoup:3.0
+	sys-libs/libbacktrace
 "
 
 DEPEND="

@@ -18,9 +18,10 @@ if [[ "${PV}" == *9999 ]]; then
 	EGIT_SUBMODULES=()
 	EGIT_CHECKOUT_DIR="${WORKDIR}/${PARENT_PN}"
 else
+	# To rename with .gh.tar.gz extension once parent package also uses this naming.
 	SRC_URI="
 		https://github.com/certbot/certbot/archive/v${PV}.tar.gz
-			-> ${PARENT_P}.gh.tar.gz
+			-> ${PARENT_P}.tar.gz
 	"
 	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
