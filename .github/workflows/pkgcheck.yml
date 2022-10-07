@@ -14,4 +14,4 @@ jobs:
     - name: Run pkgcheck
       uses: pkgcore/pkgcheck-action@v1
       with:
-        args: --keywords=-RedundantVersion,-MissingAccountIdentifier,-OldPackageUpdate
+        args: --keywords=-RedundantVersion,-MissingAccountIdentifier,-OldPackageUpdate,-NonsolvableDepsInDev
