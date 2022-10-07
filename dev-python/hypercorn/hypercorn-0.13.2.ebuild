@@ -3,8 +3,7 @@
 
 EAPI=8
 
-# bug #834994
-DISTUTILS_USE_SETUPTOOLS=pyproject.toml
+DISTUTILS_USE_PEP517=poetry
 PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
@@ -15,7 +14,10 @@ HOMEPAGE="
 	https://github.com/pgjones/hypercorn
 	https://pypi.org/project/hypercorn/
 "
-SRC_URI="https://github.com/pgjones/${PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
+SRC_URI="
+	https://github.com/pgjones/hypercorn/archive/${PV}.tar.gz
+		-> ${P}.gh.tar.gz
+"
 
 LICENSE="MIT"
 SLOT="0"
@@ -42,4 +44,5 @@ PATCHES=( "${FILESDIR}/${P}-no-coverage.patch" )
 
 distutils_enable_tests pytest
 
-distutils_enable_sphinx docs dev-python/pydata-sphinx-theme
+distutils_enable_sphinx docs \
+	dev-python/pydata-sphinx-theme
