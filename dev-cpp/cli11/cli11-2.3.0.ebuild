@@ -20,7 +20,7 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 DEPEND="test? (
-	dev-cpp/catch:0
+	<dev-cpp/catch-3:0
 	dev-libs/boost
 )"
 
