@@ -16,6 +16,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
 IUSE="X chafa dbus gnome imagemagick opencl opengl osmesa pci sqlite vulkan wayland xcb xfce xrandr"
 
 # note - qa-vdb will always report errors because fastfetch loads the libs dynamically
