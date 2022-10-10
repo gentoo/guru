@@ -20,7 +20,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 BDEPEND="
 	${PYTHON_DEPS}
 	dev-libs/glib:2
-	>=net-libs/libsoup-3.2.0:3
+	>=net-libs/libsoup-3.2.0:3.0
 	dev-libs/gobject-introspection
 	dev-util/blueprint-compiler
 	dev-lang/sassc
