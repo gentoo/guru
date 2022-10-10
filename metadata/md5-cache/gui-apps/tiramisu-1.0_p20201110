@@ -9,5 +9,5 @@ LICENSE=MIT
 RDEPEND=dev-libs/glib:2[dbus]
 SLOT=0
 SRC_URI=https://github.com/Sweets/tiramisu/archive/8eb946dae0e2f98d3850d89e1bb535640e8c3266.tar.gz -> tiramisu-1.0_p20201110.tar.gz
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
 _md5_=c971f2f48f6e82a45cabb51ce597bd39

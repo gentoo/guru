@@ -11,5 +11,5 @@ LICENSE=BSD
 RDEPEND=concurrent? ( dev-qt/qtconcurrent:5 ) scorep? ( sys-cluster/scorep ) webengine? ( dev-qt/qtwebengine:5 ) dev-libs/cubelib dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 sys-apps/dbus sys-libs/zlib
 SLOT=0
 SRC_URI=https://perftools.pages.jsc.fz-juelich.de/cicd/cubegui/branches/master/sources.9a161bfd.tar.gz -> cubegui-4.7-9a161bfd.tar.gz
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	qmake-utils	59420c906278d16deaaa629f9d115707
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	qmake-utils	59420c906278d16deaaa629f9d115707
 _md5_=74f334ea691b1ea3cb1bcdb6b42ffa0f

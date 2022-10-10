@@ -10,5 +10,5 @@ LICENSE=GPL-3
 RDEPEND=dev-libs/octetos-core
 SLOT=0
 SRC_URI=https://github.com/azaeldevel/octetos-coreutils/archive/0.13.0-alpha.tar.gz -> octetos-coreutils-0.13.0_alpha.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
 _md5_=92275129363227e88089db9871a7aa5f

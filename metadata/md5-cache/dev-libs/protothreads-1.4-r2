@@ -9,5 +9,5 @@ KEYWORDS=~amd64
 LICENSE=BSD
 SLOT=0/1.4
 SRC_URI=https://web.archive.org/web/20190518175329/http://dunkels.com/adam/download/pt-1.4.tar.gz -> protothreads-1.4.tar https://web.archive.org/web/20190518175329/http://dunkels.com/adam/download/graham-pt.h
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
 _md5_=2aff4bb240ba97f300c9ebba439a0755

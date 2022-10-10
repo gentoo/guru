@@ -10,5 +10,5 @@ LICENSE=GPL-3+
 RDEPEND=dev-libs/libpcre:3
 SLOT=0
 SRC_URI=https://github.com/zeromq/gsl/archive/refs/tags/v4.1.5.tar.gz -> gsl-4.1.5.tar.gz
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
 _md5_=35d2f27f0d4828d026f19f01eda8f8b0

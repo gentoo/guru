@@ -11,5 +11,5 @@ LICENSE=GPL-2+
 RDEPEND=virtual/blas || ( sci-libs/lapack[deprecated] sci-libs/openblas ) virtual/fortran
 SLOT=0
 SRC_URI=http://cdn-fastly.deb.debian.org/debian/pool/main/s/slicot/slicot_5.0+20101122.orig.tar.gz
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
 _md5_=a05adc9a153321592ea786a939df7b95

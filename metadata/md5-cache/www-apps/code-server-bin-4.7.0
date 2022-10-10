@@ -11,5 +11,5 @@ RDEPEND=>=net-libs/nodejs-16.0.0[ssl] sys-apps/ripgrep gnome-keyring? ( app-cryp
 RESTRICT=test
 SLOT=0
 SRC_URI=amd64? ( https://github.com/coder/code-server/releases/download/v4.7.0/code-server-4.7.0-linux-amd64.tar.gz ) arm64? ( https://github.com/coder/code-server/releases/download/v4.7.0/code-server-4.7.0-linux-arm64.tar.gz )
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	2736b403a83f194b59b767f3b344c2c1
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	2736b403a83f194b59b767f3b344c2c1
 _md5_=0a4b44845ea4ca4695f8f355ec730c80

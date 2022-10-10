@@ -9,5 +9,5 @@ LICENSE=BSD
 RDEPEND=sys-libs/zlib
 SLOT=0
 SRC_URI=https://chromium.googlesource.com/chromium/src/+archive/refs/tags/97.0.4692.13/third_party/zlib.tar.gz -> zlib-google-97.0.4692.13.tar.gz
-_eclasses_=toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
 _md5_=3081532141506ad4e6789e4f0116a60b
