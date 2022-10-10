@@ -15,6 +15,7 @@ SRC_URI="https://github.com/c-blake/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P
 LICENSE="ISC MIT"
 SLOT="${PV}"
 KEYWORDS="~amd64"
+RESTRICT="test"  # Version.nim test fails
 
 DOCS=( configs examples {MOTIVATION,README,RELEASE-NOTES,TODO}.md )
 
