@@ -10,5 +10,5 @@ LICENSE=LGPL-2.1
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=0
 SRC_URI=https://github.com/jgraph/legacy-jgraph5/archive/b8e7eb81188ebfd5be501527224befb5e92a2369.tar.gz -> jgraph-5.14.0.0_p20180427.tar.gz
-_eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	f12881bcef20aecfcb172218e0b260f7
+_eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	java-pkg-simple	257a59d157060d7bd51a13e68c614dd5
 _md5_=90489e348ed43a0279e31f1211a232c2
