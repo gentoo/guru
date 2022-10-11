@@ -79,7 +79,7 @@ app-crypt/pinentry-bemenu 0.11.0: Pinentry based on bemenu
 app-crypt/reop 2.1.1: reasonable expectation of privacy
 app-crypt/tang 11: Tang binding daemon
 app-crypt/tomb 2.9-r6: Tomb :: File Encryption on GNU/Linux
-app-crypt/tpm2-openssl 1.1.0: OpenSSL Provider for TPM2 integration
+app-crypt/tpm2-openssl 1.1.1: OpenSSL Provider for TPM2 integration
 app-crypt/uacme 1.7.1: ACMEv2 client written in plain C with minimal dependencies
 app-dicts/canna-2ch 20040519: Japanese Canna dictionary for 2channelers
 app-dicts/canna-bonobo 20021025: supporting dictionaries for Canna
@@ -144,10 +144,10 @@ app-misc/cheat 4.2.3: cheat allows you to create and view interactive cheatsheet
 app-misc/clifm 1.6 1.7 9999: The command line file manager
 app-misc/cpufetch 1.01 1.02: Simplistic yet fancy CPU architecture fetching tool
 app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs
-app-misc/doublecmd-bin 1.0.6 1.0.7: Free cross platform open source file manager with two panels side by side.
+app-misc/doublecmd-bin 1.0.6 1.0.7 1.0.8: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
-app-misc/fastfetch 1.7.2 9999: Fast system information tool
+app-misc/fastfetch 1.7.2 1.7.5 9999: Fast system information tool
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -190,7 +190,7 @@ app-mobilephone/mobile-config-firefox 2.1.0: Mobile and privacy friendly configu
 app-mobilephone/pinephone-modem-scripts 0.20.8: Modem scripts for the PinePhone
 app-mobilephone/usb-tethering 0.3: USB tethering on Pine64/ConfigFS systems
 app-office/beancount 2.3.5: A double-entry accounting system that uses text files as input
-app-office/openoffice-bin 4.1.11 4.1.12 4.1.13: Apache OpenOffice productivity suite
+app-office/openoffice-bin 4.1.12 4.1.13: Apache OpenOffice productivity suite
 app-office/pyspread 1.99.6: Pyspread is a non-traditional spreadsheet written in Python
 app-portage/appswipe 1.1.14: Application for browsing your local Portage repository files
 app-portage/emlop 0.4.2 0.5.0: A fast, accurate, ergonomic emerge.log parser
@@ -429,7 +429,7 @@ dev-R/xtable 1.8.4: Export Tables to LaTeX or HTML
 dev-R/yaml 2.3.5: Methods to Convert R Data to YAML and Back
 dev-R/zoo 1.8.10: S3 Infrastructure for Regular and Irregular Time Series (Z's Ordered Observations)
 dev-cpp/MEL 1.0.0-r1: Math Expression Library
-dev-cpp/cli11 2.1.2 2.2.0: Command line parser for C++11
+dev-cpp/cli11 2.2.0 2.3.0: Command line parser for C++11
 dev-cpp/coeurl 0.2.0-r1 0.2.1: A simple async wrapper around CURL for C++
 dev-cpp/cpp-httplib 0.10.9: C++ header-only HTTP/HTTPS server and client library
 dev-cpp/cpp-jwt 1.5_pre20220727: JSON Web Token library for C++
@@ -504,7 +504,7 @@ dev-libs/KVTree 1.2.0 1.3.0: KVTree provides a fully extensible C data structure
 dev-libs/StringiFor 1.1.1 1.1.3: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
 dev-libs/atl 2.2.1: Library for the creation and manipulation of lists
 dev-libs/ayatana-ido 0.9.1: Ayatana Application Indicators (Shared Library)
-dev-libs/boinc-zip 7.18-r1: Wrapper for the zip/unzip functions to expose to BOINC clients
+dev-libs/boinc-zip 7.18-r1 7.20.2: Wrapper for the zip/unzip functions to expose to BOINC clients
 dev-libs/cgicc 3.2.19: A C++ class library for writing CGI applications
 dev-libs/cglm 0.8.5 9999: OpenGL Mathematics (glm) for C
 dev-libs/cubelib 4.7-r2: General purpose C++ library and tools
@@ -544,7 +544,7 @@ dev-libs/octetos-db 1.3.2_alpha 1.3.3_alpha: C++ library for Database Acces.
 dev-libs/octetos-db-abstract 0.1.2_alpha 0.6.0_alpha: API to access database, abstract component.
 dev-libs/octetos-db-maria 1.4.2_alpha 1.9.2_alpha 9999: C++ library for Database Acces.
 dev-libs/octetos-db-postgresql 1.3.9_alpha 1.3.10_alpha: C++ library for Database Acces.
-dev-libs/olm 3.2.11 3.2.12: Implementation of the olm and megolm cryptographic ratchets
+dev-libs/olm 3.2.12 3.2.13: Implementation of the olm and megolm cryptographic ratchets
 dev-libs/open62541 1.3.3: Open source C implementation of OPC UA
 dev-libs/perfstubs 0_pre20210915: Profiling API for adding external tool instrumentation support to any project
 dev-libs/properties-cpp 0.0.2: Simple convenience library for handling properties and signals in C++11
@@ -658,8 +658,8 @@ dev-ml/xenstore 2.1.1: A Xenstore protocol implementation in pure OCaml
 dev-ml/xenstore-clients 1.1.0 1.3.0: Unix client tools for accessing xenstore
 dev-ml/xmlm 1.4.0: Ocaml XML manipulation module
 dev-nim/asynctools 0.1.1_p20210606: Various asynchronous tools for Nim language
-dev-nim/balls 3.7.0: A unittest macro to save the world, or at least your Sunday
-dev-nim/cligen 1.5.24 1.5.27: Infer & generate command-line interface/option/argument parser
+dev-nim/balls 3.7.0 3.7.1: A unittest macro to save the world, or at least your Sunday
+dev-nim/cligen 1.5.27 1.5.28: Infer & generate command-line interface/option/argument parser
 dev-nim/dotenv 2.0.1: dotenv implementation for Nim
 dev-nim/flatty 0.3.4: Tools and serializer for plain flat binary files
 dev-nim/frosty 3.0.0: Serialize native Nim types to strings, streams, sockets, or anything else
@@ -673,7 +673,7 @@ dev-nim/markdown 0.8.5: A Markdown Parser in Nim World
 dev-nim/nake 1.9.4: make-like for Nim. Describe your builds as tasks!
 dev-nim/nimbus 1.0.0: A Nim build system
 dev-nim/nimcrypto 0.5.4_p20210619: Nim cryptographic library
-dev-nim/noise 0.1.14: a Nim implementation of linenoise
+dev-nim/noise 0.1.6: a Nim implementation of linenoise
 dev-nim/npeg 0.26.0: a PEG library for Nim
 dev-nim/packedjson 0.2.2: an alternative Nim implementation for JSON
 dev-nim/redpool 0.1.0_p20220120: Simple Redis connection pool
@@ -685,7 +685,7 @@ dev-nim/ups 0.0.7: a package handler
 dev-nim/weave 0.4.0: a state-of-the-art multithreading runtime
 dev-nim/ws 0.5.0: Simple WebSocket library for nim
 dev-nim/zedeus_redis 0.3.0_p20211226: Fork of the official redis client for Nim
-dev-nim/zippy 0.10.3: Pure Nim implementation of deflate, zlib, gzip and zip
+dev-nim/zippy 0.10.3 0.10.4: Pure Nim implementation of deflate, zlib, gzip and zip
 dev-octave/control 3.4.0: Computer-Aided Control System Design
 dev-octave/dataframe 1.2.0: Data manipulation toolbox similar to R data.frame
 dev-octave/fuzzy-logic-toolkit 0.4.6: A mostly MATLAB-compatible fuzzy logic toolkit for Octave
@@ -724,6 +724,7 @@ dev-python/aiopg 1.3.2_beta1 1.3.3: Postgres integration with asyncio
 dev-python/aiosqlite 0.17.0-r1: asyncio bridge to the standard sqlite3 module
 dev-python/aiounittest 1.4.0: Test python asyncio-based code with ease
 dev-python/almost 0.1.5: A helper for approximate comparison
+dev-python/anyascii 0.3.1: Unicode to ASCII transliteration
 dev-python/aodhclient 2.4.1: A client for the OpenStack Aodh API
 dev-python/asciimatics 1.13.0 9999: Package for curses-like operations, text UIs and ASCII art animations
 dev-python/ascim 0.1.1: Manipulate ASCII art as you would do with raster images
@@ -750,7 +751,6 @@ dev-python/bson 0.5.10: Independent BSON codec for Python that doesn't depend on
 dev-python/castellan 3.11.0: Generic Key Manager interface for OpenStack
 dev-python/celery 5.2.6: Asynchronous task queue/job queue based on distributed message passing
 dev-python/cffsubr 0.2.9_p1: Standalone CFF subroutinizer based on AFDKO tx tool
-dev-python/click-didyoumean 0.3.0: Enable git-like did-you-mean feature in click
 dev-python/click-repl 0.2.0-r1: Subcommand REPL for click apps
 dev-python/clufter 0.77.2: Tool/library for transforming/analyzing cluster configuration formats
 dev-python/cmarkgfm 2022.3.4: Python bindings for GitHub's cmark
@@ -826,7 +826,7 @@ dev-python/hyperglot 0.3.8 0.3.9: Detect language support for font binaries
 dev-python/hypothesmith 0.2.0: Hypothesis strategies for generating Python programs
 dev-python/i3ipc 2.2.1: An improved Python library to control i3wm and sway.
 dev-python/injector 0.18.4: Python dependency injection framework
-dev-python/insipid-sphinx-theme 0.3.2: An insipid Sphinx theme
+dev-python/insipid-sphinx-theme 0.3.2 0.3.5: An insipid Sphinx theme
 dev-python/itemadapter 0.4.0 0.6.0 0.7.0: Common interface for scrapy data container classes
 dev-python/itemloaders 1.0.4 1.0.6: Library to populate items using XPath and CSS with a convenient API
 dev-python/iuliia 0.11.5: Transliterate Cyrillic to Latin in every possible way
@@ -843,6 +843,7 @@ dev-python/manhole 1.8.0-r1: Debugging manhole for python application
 dev-python/markdown-include 0.6.0 0.7.0: Syntax which allows for inclusion of contents of other Markdown docs
 dev-python/markdownify 0.11.2: Convert some HTML to Markdown
 dev-python/marshmallow_enum 1.5.1: Enum handling for Marshmallow
+dev-python/material-color-utilities 0.1.5 9999: Python port of material-color-utilities used for Material You colors
 dev-python/microversion-parse 1.0.1-r1: A simple parser for OpenStack microversion headers
 dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your output
 dev-python/mnemonic 0.19: Reference implementation of BIP-0039 for generating deterministic keys
@@ -902,7 +903,7 @@ dev-python/promise 2.3.0: Promises/A+ implementation for Python
 dev-python/protego 0.1.16 0.2.1: robots.txt parser with support for modern conventions
 dev-python/proxy_tools 0.1.0: Simple proxy (as in the GoF design pattern)
 dev-python/psycopg2cffi 2.9.0: Implementation of the psycopg2 module using cffi. Compatible with Psycopg 2.5.
-dev-python/pure-protobuf 2.1.0: Python implementation of Protocol Buffers data types with dataclasses support
+dev-python/pure-protobuf 2.1.0 2.1.1: Python implementation of Protocol Buffers data types with dataclasses support
 dev-python/py3nvml 0.2.6: Python 3 Bindings for the NVIDIA Management Library
 dev-python/pyagentx 0.4: Python AgentX Implementation
 dev-python/pybeam 0.7-r1: Python module to parse Erlang BEAM files
@@ -1077,8 +1078,8 @@ dev-util/blueprint-compiler 0.2.0 0.4.0 9999: Compiler for Blueprint, a markup l
 dev-util/cargo-make 0.35.9 0.35.10: Rust task runner and build tool
 dev-util/deblob 0.1 9999: remove binary executables from a directory
 dev-util/dockerfile-language-server 0.9.0: A language server for Dockerfiles
-dev-util/eclipse-parallel-bin 4.22 4.23: Eclipse IDE for Scientific Computing (C, C++, Fortran)
-dev-util/exercism 3.0.13: Command line client for https://exercism.io
+dev-util/eclipse-parallel-bin 4.22 4.23 4.25: Eclipse IDE for Scientific Computing (C, C++, Fortran)
+dev-util/exercism 3.1.0: Command line client for https://exercism.io
 dev-util/fnm 1.31.0-r2: Fast and simple Node.js version manager
 dev-util/fontmake 3.3.0: A wrapper for several Python libraries to compile fonts from sources
 dev-util/fortran-test-drive 0.4.0: The simple testing framework (for Fortran)
@@ -1103,7 +1104,7 @@ dev-util/rust-analyzer 20220509 20220517 20220606 20220613 20220815 20220822 999
 dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language Server Protocol for the Rust programming language
 dev-util/stripe-cli 9999: A command-line tool for Stripe
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
-dev-util/typescript-language-server 1.2.0 2.0.0: TypeScript & JavaScript Language Server
+dev-util/typescript-language-server 2.0.0 2.0.1: TypeScript & JavaScript Language Server
 dev-util/vala-language-server 0.48.4: Code Intelligence for Vala & Genie
 dev-util/vscode-langservers-extracted 4.4.0: HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode.
 dev-util/wakatime-cli 1.27.0 1.28.6: Command line interface to WakaTime used by all WakaTime plugins
@@ -1118,7 +1119,7 @@ dev-vcs/git-repo-updater 0.5.1-r2: Easily update multiple git repositories at on
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
 dev-vcs/gitqlient 1.4.3 1.5.0 9999: Multi-platform Git client written with Qt
 dev-vcs/gitui 0.18.0 0.20.1: Blazing fast terminal-ui for git
-dev-vcs/got 0.73 0.74: Portable version of the Game of Trees version control system
+dev-vcs/got 0.74 0.76: Portable version of the Game of Trees version control system
 dev-vcs/lazygit 0.33 0.34 0.35: Simple terminal UI for git commands
 dev-vcs/lefthook 1.0.0 1.0.4: Fast and powerful Git hooks manager for any type of projects
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
@@ -1171,6 +1172,7 @@ games-util/itch-bin 25.4.1 25.5.1-r1: itch.io game browser, installer and launch
 games-util/legendary 0.20.28 0.20.29: A free and open-source replacement for the Epic Games Launcher
 games-util/mangohud 0.6.6.1-r3 0.6.7.1 0.6.8 9999: Vulkan and OpenGL overlay for monitoring FPS, sensors, system load and more
 games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
+games-util/roll 2.6.1: Program to roll dices specified in a simple and intuitive way
 games-util/samrewritten 9999 202008: Steam Achievement Manager For Linux
 games-util/steamtinkerlaunch 8.0: Wrapper script for Steam custom launch options
 gnome-extra/extension-manager 0.3.2 0.4.0 9999: A native tool for browsing and installing GNOME Shell Extensions
@@ -1205,6 +1207,7 @@ gui-apps/eww 0.3.0: Elkowars Wacky Widgets is a standalone widget system made in
 gui-apps/fnott 1.2.1 1.3.0 9999: Keyboard driven and lightweight Wayland notification daemon.
 gui-apps/fuzzel 1.7.0 9999: Application launcher for wlroots based Wayland compositors.
 gui-apps/gcolor3 2.4.0: A simple color chooser written in GTK3
+gui-apps/gradience 0.3.0-r1: GNOME's main interface to configure various aspects of the desktop
 gui-apps/hiprompt-gtk-py 0_pre20220624 9999: GTK+ Himitsu prompter for Wayland
 gui-apps/mpvpaper 1.1 1.2 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.5.0 0.6.3 9999: GTK+ launchers for sway, i3 and some other WMs
@@ -1245,7 +1248,7 @@ kde-apps/krecorder 22.02 22.06: A convergent audio recording application for Pla
 kde-apps/plasma-settings 21.12 22.06: Settings application for Plasma Mobile
 kde-apps/tok 9999: Telegram client built using Kirigami
 kde-apps/tokodon 22.02 22.06: Mastodon client for Plasma and Plasma Mobile
-kde-frameworks/kirigami-addons 0.2 0.3: Convergent visual components for Kirigami-based applications
+kde-frameworks/kirigami-addons 0.3 0.4: Convergent visual components for Kirigami-based applications
 kde-frameworks/kquickchatcomponents 9999: Set of chat components for QtQuick chat apps
 kde-misc/geminipart 2021125: KPart for viewing text/gemini files
 kde-misc/kio-gemini 20211107: Gemini KIO slave
@@ -1256,7 +1259,7 @@ mail-client/mailspring-bin 1.9.2 1.10.3 1.10.5: A beautiful, fast and fully open
 media-fonts/3270font 2.3.0 2.3.1: A IBM 3270 Terminal font in a modern format
 media-fonts/gohufont 2.1_p20170627: A monospace bitmap font
 media-fonts/inconsolata_dz 20201205: A beautiful sans-serif monotype font designed for code listings
-media-fonts/last-resort 13.001 14.000: A collection of glyphs used as the backup of "last resort" to any other font
+media-fonts/last-resort 14.000 15.000: A collection of glyphs used as the backup of "last resort" to any other font
 media-fonts/libertinus 7.040: Libertinus font
 media-fonts/linja-pona 4.2 4.9: Font for sitelen pona, a script for toki pona
 media-fonts/linja-wawa 1.21: Font for sitelen pona, a script for toki pona
@@ -1268,7 +1271,7 @@ media-fonts/twemoji 13.1.0: A color emoji font with a flat visual style, designe
 media-fonts/unscii 2.1: Set of bitmapped Unicode fonts based on classic system fonts
 media-fonts/victor-mono 1.5.3 1.5.4: A free programming font with cursive italics and ligatures
 media-fonts/warframe-fonts 0_pre20191111: Fonts from the Warframe game
-media-gfx/WebPlotDigitizer-bin 4.5: Web based tool to extract data from plots, images, and maps
+media-gfx/WebPlotDigitizer-bin 4.5 4.6: Web based tool to extract data from plots, images, and maps
 media-gfx/akira 0.0.13 9999: Native Linux App for UI and UX Design built in Vala and GTK.
 media-gfx/azpainter 3.0.3 3.0.4: Full color painting software for Linux for illustration drawing
 media-gfx/bonzomatic 2022.02.05 9999: Live shader coding tool and Shader Showdown workhorse
@@ -1363,7 +1366,7 @@ net-analyzer/munin-contrib 0.2021.04.27: user contributed stuff related to munin
 net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various plugins for Munin
 net-client/amfora 1.8.0 1.9.2: A fancy terminal browser for the Gemini protocol.
 net-client/castor 0.8.16 0.8.18: A graphical browser for plain-text protocols
-net-client/kristall 0.3-r2 9999: Visual cross-platform gemini browser
+net-client/kristall 0.3-r2 0.4: Visual cross-platform gemini browser
 net-client/lagrange 1.13.6 1.13.7: Desktop GUI client for browsing Geminispace
 net-client/offpunk 1.4 1.5: Offline-First Gemini/Web/Gopher/RSS reader and browser
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
@@ -1422,7 +1425,7 @@ net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/moonlight 3.1.4: GameStream client for PCs
 net-misc/myip 1.2.0: Get your external IP address using STUN server
-net-misc/ooni-probe-cli 3.15.1 3.15.3: OONI Probe network measurement tool for detecting internet censorship
+net-misc/ooni-probe-cli 3.15.3 3.16.3: OONI Probe network measurement tool for detecting internet censorship
 net-misc/openbgpd 6.8_p0 6.9_p0 9999: OpenBGPD is a free implementation of BGPv4
 net-misc/peertube-viewer-rs 1.8.4-r1: Command-line PeerTube viewer inspired by youtube-viewer
 net-misc/purritobin 0.6.7 9999: minimalistic commandline pastebin
@@ -1540,7 +1543,7 @@ sci-mathematics/packup 0.6: PACKage Upgradability Problem solver
 sci-mathematics/qepcad 1.72b_p20220502-r2: Quantifier Elimination by Partial Cylindrical Algebraic Decomposition
 sci-mathematics/radian 0.6.3: A 21 century R console
 sci-mathematics/the-omega-project 2.1_p20131119: Tools from Pugh et al.'s for constraint-based compiler tools
-sci-misc/boinc-wrapper 7.20.2: Wrapper to use non-BOINC apps with BOINC
+sci-misc/boinc-wrapper 7.20.2 7.20.2-r1: Wrapper to use non-BOINC apps with BOINC
 sci-misc/linuxcnc 9999: LinuxCNC
 sci-physics/SU2 7.2.0 7.2.0-r1: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sci-physics/mbdyn 1.7.3_p20210925-r1: A general purpose Multibody Dynamics analysis software

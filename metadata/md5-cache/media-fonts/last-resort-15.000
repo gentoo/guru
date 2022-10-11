@@ -1,13 +1,13 @@
 BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
 DEFINED_PHASES=install postinst postrm setup unpack
 DESCRIPTION=A collection of glyphs used as the backup of "last resort" to any other font
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/unicode-org/last-resort-font
 INHERIT=font
 IUSE=X
 KEYWORDS=~amd64 ~x86
 LICENSE=OFL-1.1
 SLOT=0
-SRC_URI=https://github.com/unicode-org/last-resort-font/releases/download/13.001/LastResortHE-Regular.ttf -> last-resort-13.001.ttf
+SRC_URI=https://github.com/unicode-org/last-resort-font/releases/download/15.000/LastResortHE-Regular.ttf -> last-resort-15.000.ttf
 _eclasses_=font	d31f12a0f6e13d56dc3062e76ae58a61
-_md5_=2b808dfecd8198de31bce896d3f5305e
+_md5_=aec2909b9f514551719dc1333aa22ea4

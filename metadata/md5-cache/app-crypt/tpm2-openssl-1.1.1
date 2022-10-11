@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/autoconf-archive virtual/pkgconfig
+DEFINED_PHASES=install test
+DEPEND=>=app-crypt/tpm2-tss-3.2.0:= =dev-libs/openssl-3.0*:0= test? ( app-crypt/swtpm app-crypt/tpm2-abrmd app-crypt/tpm2-tools )
+DESCRIPTION=OpenSSL Provider for TPM2 integration
+EAPI=8
+HOMEPAGE=https://github.com/tpm2-software/tpm2-openssl
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=>=app-crypt/tpm2-tss-3.2.0:= =dev-libs/openssl-3.0*:0=
+RESTRICT=!test? ( test )
+SLOT=0/1.1.1
+SRC_URI=https://github.com/tpm2-software/tpm2-openssl/releases/download/1.1.1/tpm2-openssl-1.1.1.tar.gz
+_md5_=2f77890e8945f0ca4ff7bba98fcbb80e
