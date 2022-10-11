@@ -21,7 +21,6 @@ IUSE="X chafa dbus gnome imagemagick opencl opengl osmesa pci sqlite vulkan wayl
 
 # note - qa-vdb will always report errors because fastfetch loads the libs dynamically
 RDEPEND="
-	dev-libs/cJSON
 	sys-libs/zlib
 	X? ( x11-libs/libX11 )
 	chafa? ( media-gfx/chafa )
@@ -80,7 +79,7 @@ src_configure() {
 		-DENABLE_OSMESA=$(usex osmesa)
 		-DENABLE_OPENCL=$(usex opencl)
 		-DENABLE_DBUS=$(usex dbus)
-		-DENABLE_LIBCJSON=yes
+		-DENABLE_LIBCJSON=no
 	)
 
 	cmake_src_configure
