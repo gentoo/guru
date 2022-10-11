@@ -3,8 +3,6 @@
 
 EAPI=8
 
-inherit autotools
-
 DESCRIPTION="OpenSSL Provider for TPM2 integration"
 
 HOMEPAGE="https://github.com/tpm2-software/tpm2-openssl"
@@ -89,22 +87,9 @@ tpm2_run_with_emulator() {
 	kill $(< "${XDG_CONFIG_HOME}/mytpm1/swtpm.pid") || die
 }
 
-src_prepare() {
-	# See bug #833887 (and similar); eautoreconf means version information
-	# could be incorrectly embedded
-
-	sed -i \
-	"s/m4_esyscmd_s(\[git describe --tags --always --dirty\])/${PV}/" \
-	"${S}/configure.ac" || die
-	eautoreconf
-	default
-}
-
 src_install() {
 	default
 	find "${ED}" -iname \*.la -delete || die
-
-	# No libtool files are install, so nothing to check for bug #833887
 }
 
 src_test() {

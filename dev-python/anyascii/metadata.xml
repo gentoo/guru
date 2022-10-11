@@ -5,7 +5,4 @@
 		<email>pascal.jaeger@leimstift.de</email>
 		<name>Pascal Jaeger</name>
 	</maintainer>
-<use>
-	<flag name="pylint">Run pylint checks</flag>
-</use>
 </pkgmetadata>
