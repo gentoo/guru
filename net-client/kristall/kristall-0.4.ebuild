@@ -30,7 +30,9 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	media-libs/libglvnd
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	dev-qt/qtsvg:5
+"
 
 src_prepare() {
 	default
