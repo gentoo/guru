@@ -107,7 +107,6 @@ src_prepare() {
 
 	# Unbundle mbedtls: undefined reference to `mbedtls_cipher_cmac'
 	sed -i -e '/mbedtls/d' externals/CMakeLists.txt || die
-	sed -i -e 's/mbedtls/& mbedcrypto mbedx509/'
 	sed -i -e 's/mbedtls/& mbedcrypto mbedx509/' \
 		src/dedicated_room/CMakeLists.txt \
 		src/core/CMakeLists.txt || die
@@ -139,6 +138,9 @@ src_prepare() {
 	# Unbundle enet
 	sed -i -e '/enet/d' externals/CMakeLists.txt || die
 	sed -i -e '/enet\/enet\.h/{s/"/</;s/"/>/}' src/network/network.cpp || die
+
+	# LZ4 temporary fix: https://github.com/yuzu-emu/yuzu/pull/9054/commits/a8021f5a18bc5251aef54468fa6033366c6b92d9
+	sed -i 's/lz4::lz4/lz4/' src/common/CMakeLists.txt || die
 
 	cmake_src_prepare
 }
