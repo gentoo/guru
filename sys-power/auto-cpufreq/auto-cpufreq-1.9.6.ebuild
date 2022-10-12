@@ -18,9 +18,11 @@ KEYWORDS="~amd64"
 SLOT="0"
 IUSE="systemd"
 
-RDEPEND="dev-python/psutil
+RDEPEND="
+	dev-python/psutil
 	dev-python/click
-	dev-python/distro"
+	dev-python/distro
+"
 
 DEPEND="${RDEPEND}"
 
@@ -49,6 +51,7 @@ python_install() {
 pkg_postinst() {
 	touch /var/log/auto-cpufreq.log
 
+	elog ""
 	elog "Enable auto-cpufreq daemon service at boot:"
 	if use systemd; then
 		elog "systemctl enable --now auto-cpufreq"
@@ -57,19 +60,23 @@ pkg_postinst() {
 	fi
 	elog ""
 	elog "To view live log, run:"
-	elog "auto-cpufreq --log"
+	elog "auto-cpufreq --stats"
 }
 
 pkg_postrm() {
 	# Remove auto-cpufreq log file
-	rm /var/log/auto-cpufreq.log
+	if [ -f "/var/log/auto-cpufreq.log" ]; then
+		rm /var/log/auto-cpufreq.log || die
+	fi
 
 	# Remove auto-cpufreq's cpufreqctl binary
-	# it copies cpufreqctl.sh over (I do NOT like this behavior)
-	rm /usr/bin/cpufreqctl
+	# it overwrites cpufreqctl.sh
+	if [ -f "/usr/bin/cpufreqctl" ]; then
+		rm /usr/bin/cpufreqctl || die
+	fi
 
 	# Restore original cpufreqctl binary if backup was made
 	if [ -f "/usr/bin/cpufreqctl.auto-cpufreq.bak" ]; then
-		mv /usr/bin/cpufreqctl.auto-cpufreq.bak /usr/bin/cpufreqctl
+		mv /usr/bin/cpufreqctl.auto-cpufreq.bak /usr/bin/cpufreqctl || die
 	fi
 }
