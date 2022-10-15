@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>pascal.jaeger@leimstift.de</email>
+		<name>Pascal Jäger</name>
+	</maintainer>
+  <use>
+    <flag name="static-libs">Build with static libraries</flag>
+  </use>
+</pkgmetadata>
