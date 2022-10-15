@@ -1,0 +1,70 @@
+# Copyright 1999-2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+WX_GTK_VER="3.0-gtk3"
+inherit autotools wxwidgets desktop flag-o-matic
+
+DESCRIPTION="Realize the collective dream of sleeping computers from all over the internet"
+HOMEPAGE="https://electricsheep.org/"
+if [[ ${PV} == "9999" ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/scottdraves/electricsheep"
+	S="${WORKDIR}/${P}/client_generic"
+else
+	MY_COMMIT="37ba0fd692d6581f8fe009ed11c9650cd8174123"
+	SRC_URI="https://github.com/scottdraves/electricsheep/archive/${MY_COMMIT}.zip -> ${P}.zip"
+	S="${WORKDIR}/${PN}-${MY_COMMIT}/client_generic"
+	KEYWORDS="~amd64 ~x86"
+fi
+
+IUSE="video_cards_nvidia"
+LICENSE="GPL-2"
+SLOT="0"
+
+DEPEND="dev-lang/lua:5.1
+	dev-libs/boost
+	dev-libs/expat
+	dev-libs/tinyxml
+	gnome-base/libgtop
+	media-gfx/flam3
+	media-libs/freeglut
+	media-libs/glee
+	media-libs/libpng:*
+	media-video/ffmpeg:0
+	net-misc/curl
+	sys-libs/zlib
+	x11-libs/libX11
+	x11-libs/libXrender
+	x11-libs/wxGTK:${WX_GTK_VER}
+	virtual/opengl"
+RDEPEND="${DEPEND}"
+
+PATCHES=(
+	"${FILESDIR}/electricsheep-glext-prototypes.patch"
+	"${FILESDIR}/electricsheep-disable-vsync.patch"
+)
+
+src_prepare() {
+	default
+	setup-wxwidgets
+	eautoreconf
+	rm -f DisplayOutput/OpenGL/{GLee.c,GLee.h}
+}
+
+src_configure() {
+	# "eselect opengl" doesn't seem to affect link-time paths, so we need to resolve that here
+	use video_cards_nvidia && append-ldflags -L/usr/$(get_libdir)/opengl/nvidia/lib
+	append-ldflags -lpthread
+	econf
+	# get rid of the RUNPATH that interferes with hardware accelerated OpenGL drivers
+	sed -i -e '/^hardcode_libdir_flag_spec/d' libtool
+}
+
+src_install() {
+	default
+	mv "${ED}/usr/share/doc/electricsheep-2.7b33-svn" "${ED}/usr/share/${PF}" || die
+	sed -i "$ a OnlyShowIn=" "${ED}/usr/share/applications/screensavers/electricsheep.desktop"
+	domenu "${FILESDIR}/ElectricSheep.desktop"
+}
