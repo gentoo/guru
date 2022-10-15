@@ -28,10 +28,14 @@ RDEPEND="
 	app-pda/libplist
 	dev-libs/openssl
 	media-libs/gstreamer
+	media-libs/gst-plugins-good
 	media-libs/gst-plugins-bad
 	media-libs/gst-plugins-base
 	media-plugins/gst-plugins-libav
-	vaapi? ( media-plugins/gst-plugins-vaapi )
+	vaapi? ( 
+		media-plugins/gst-plugins-vaapi
+		media-video/ffmpeg[vaapi]
+	)
 	net-dns/avahi[mdnsresponder-compat]
 	zoomfix? ( x11-libs/libX11 )
 "
