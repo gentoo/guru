@@ -1,0 +1,10 @@
+--- client_generic/Client/Makefile.am
++++ client_generic/Client/Makefile.am
+@@ -12,6 +12,7 @@
+ AM_CPPFLAGS = \
+ 	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
+ 	-DPACKAGE_LOCALE_DIR=\""$(datadir)/locale"\" \
++	-DGL_GLEXT_PROTOTYPES \
+ 	-I $(top_srcdir) \
+ 	-iquote ../DisplayOutput/OpenGL \
+ 	-I ../Common \
