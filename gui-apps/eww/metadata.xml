@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>degni.public@gmail.com</email>
+		<name>Luciano Degni</name>
+	</maintainer>
+	<maintainer type="person">
+		<email>pascal.jaeger@leimstift.de</email>
+		<name>Pascal Jäger</name>
+	</maintainer>
+	<upstream>
+		<doc>https://elkowar.github.io/eww</doc>
+		<bugs-to>https://github.com/elkowar/eww/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
