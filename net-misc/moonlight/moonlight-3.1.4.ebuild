@@ -24,7 +24,7 @@ RDEPEND="
 	>=media-libs/opus-1.3.1-r2:0
 	>=media-sound/pulseaudio-15.0-r1:0
 	vaapi? (
-		>=x11-libs/libva-2.12.0:0
+		>=media-libs/libva-2.12.0:0
 	)
 "
 DEPEND="${RDEPEND}"
