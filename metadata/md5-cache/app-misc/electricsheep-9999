@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=configure install prepare unpack
+DEPEND=dev-lang/lua:5.1 dev-libs/boost dev-libs/expat dev-libs/tinyxml gnome-base/libgtop media-gfx/flam3 media-libs/freeglut media-libs/glee media-libs/libpng:* media-video/ffmpeg:0 net-misc/curl sys-libs/zlib x11-libs/libX11 x11-libs/libXrender x11-libs/wxGTK:3.0-gtk3 virtual/opengl
+DESCRIPTION=Realize the collective dream of sleeping computers from all over the internet
+EAPI=8
+HOMEPAGE=https://electricsheep.org/
+INHERIT=autotools wxwidgets desktop flag-o-matic git-r3
+IUSE=video_cards_nvidia
+LICENSE=GPL-2
+PROPERTIES=live
+RDEPEND=dev-lang/lua:5.1 dev-libs/boost dev-libs/expat dev-libs/tinyxml gnome-base/libgtop media-gfx/flam3 media-libs/freeglut media-libs/glee media-libs/libpng:* media-video/ffmpeg:0 net-misc/curl sys-libs/zlib x11-libs/libX11 x11-libs/libXrender x11-libs/wxGTK:3.0-gtk3 virtual/opengl
+SLOT=0
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	flag-o-matic	29a755b1291d64133634d80b0328f153	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6	desktop	22952d8f27cac191d75529d4c38e6bfa	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_md5_=b6f0e18bd9fa79fe4c34ecffc34bcda8

@@ -60,8 +60,9 @@ app-arch/microtar 0.1.0: A lightweight tar library written in ANSI C
 app-arch/unalz 0.65-r1: Extract ALZ archives
 app-backup/b2 3.0.3 3.4.0: Command-line tool for BackBlaze's B2 product
 app-backup/grub-btrfs 4.11-r1: Improves Grub by adding btrfs snapshots to the Grub menu.
-app-backup/timeshift 21.09.1-r1 22.06.1-r1: A system restore utility for Linux
+app-backup/timeshift 21.09.1-r1 22.06.1-r1 22.06.5: A system restore utility for Linux
 app-backup/timeshift-autosnap 0.9: Automatically creates a timeshift-snapshot when executed
+app-benchmarks/phoronix-test-suite 9999: Phoronix's comprehensive, cross-platform testing and benchmark suite
 app-containers/aardvark-dns 1.0.2 1.0.2-r1: A container-focused DNS server
 app-containers/dnsname-cni-plugin 1.3.0 1.3.1 9999: name resolution for containers
 app-containers/netavark 1.0.2 1.0.2-r1: A container network stack
@@ -146,6 +147,7 @@ app-misc/cpufetch 1.01 1.02: Simplistic yet fancy CPU architecture fetching tool
 app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs
 app-misc/doublecmd-bin 1.0.6 1.0.7 1.0.8: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
+app-misc/electricsheep 3.0.2_p20191005 9999: Realize the collective dream of sleeping computers from all over the internet
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
 app-misc/fastfetch 1.7.2 1.7.5 9999: Fast system information tool
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
@@ -203,7 +205,7 @@ app-portage/showbuild 0.9.1-r1: Script to follow log of running portage builds
 app-portage/version 0.19.0_alpha 0.20.1_alpha 0.21.0_alpha: A command line function for package version management.
 app-shells/antibody 6.1.0 6.1.1: Fast Zsh plugin manager
 app-shells/clownfish 0_pre20210117: fish shell mocks
-app-shells/direnv 2.32.1: Automatically load and unload environment variables depending on the current dir
+app-shells/direnv 2.32.1 9999: Environment variable manager for shell
 app-shells/fish-agnoster-theme 0.1.0_p20200415: Fancy, colorful theme with support for Powerline fonts
 app-shells/fish-command-timer 0.1.3 0.1.3_p20201002: Fish shell extension for printing execution time for each command
 app-shells/fish-history-merge 0_pre20201121: Plugin that modifies built-in up-or-search command to merge the command history
@@ -501,7 +503,7 @@ dev-lang/quickjs 2020.11.08 2021.03.27: Small embeddable Javascript engine
 dev-lang/wabt 1.0.30: The WebAssembly Binary Toolkit
 dev-lang/wren 0.3.0: The Wren Programming Language
 dev-libs/KVTree 1.2.0 1.3.0: KVTree provides a fully extensible C data structure modeled after Perl hashes
-dev-libs/StringiFor 1.1.1 1.1.3: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
+dev-libs/StringiFor 1.1.1 1.1.3 1.1.4: StringiFor, Strings Fortran Manipulator, yet another strings Fortran module
 dev-libs/atl 2.2.1: Library for the creation and manipulation of lists
 dev-libs/ayatana-ido 0.9.1: Ayatana Application Indicators (Shared Library)
 dev-libs/boinc-zip 7.18-r1 7.20.2: Wrapper for the zip/unzip functions to expose to BOINC clients
@@ -1082,6 +1084,7 @@ dev-util/eclipse-parallel-bin 4.22 4.23 4.25: Eclipse IDE for Scientific Computi
 dev-util/exercism 3.1.0: Command line client for https://exercism.io
 dev-util/fnm 1.31.0-r2: Fast and simple Node.js version manager
 dev-util/fontmake 3.3.0: A wrapper for several Python libraries to compile fonts from sources
+dev-util/fortls 2.13.0: fortls - Fortran Language Server
 dev-util/fortran-test-drive 0.4.0: The simple testing framework (for Fortran)
 dev-util/fypp 3.1: Fypp - Python powered Fortran preprocessor
 dev-util/gammaray 2.11.3: High-level runtime introspection tool for Qt applications
@@ -1106,7 +1109,7 @@ dev-util/stripe-cli 9999: A command-line tool for Stripe
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
 dev-util/typescript-language-server 2.0.0 2.0.1: TypeScript & JavaScript Language Server
 dev-util/vala-language-server 0.48.4: Code Intelligence for Vala & Genie
-dev-util/vscode-langservers-extracted 4.4.0: HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode.
+dev-util/vscode-langservers-extracted 4.4.0 4.5.0: HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode.
 dev-util/wakatime-cli 1.27.0 1.28.6: Command line interface to WakaTime used by all WakaTime plugins
 dev-util/xmake 2.7.1 9999: A cross-platform build utility based on Lua
 dev-util/xxd 8.2.4092: Hexdump utility from vim
@@ -1203,7 +1206,7 @@ gui-apps/coreterminal 4.2.0 9999: A terminal emulator for C Suite
 gui-apps/coretime 4.2.0 9999: A time related task manager for C Suite
 gui-apps/coretoppings 4.1.0-r1 4.2.0 9999: Additional features, plugins, widgets etc for C Suite
 gui-apps/coreuniverse 4.2.0 9999: Shows information about apps for C Suite
-gui-apps/eww 0.3.0: Elkowars Wacky Widgets is a standalone widget system made in Rust
+gui-apps/eww 0.3.0 0.4.0: Elkowars Wacky Widgets is a standalone widget system made in Rust
 gui-apps/fnott 1.2.1 1.3.0 9999: Keyboard driven and lightweight Wayland notification daemon.
 gui-apps/fuzzel 1.7.0 9999: Application launcher for wlroots based Wayland compositors.
 gui-apps/gcolor3 2.4.0: A simple color chooser written in GTK3
@@ -1288,15 +1291,16 @@ media-gfx/nsxiv 29 30 9999: Neo (or New or Not) Simple (or Small or Suckless) X 
 media-gfx/oda-file-converter 23.5.0.0: For converting between different versions of .dwg and .dxf
 media-gfx/qview 4.0 5.0: Practical and minimal image viewer
 media-gfx/sic 0.19.0: Accessible image processing and conversion from the terminal tool.
-media-gfx/silicon 0.4.0 0.4.1 0.4.3: Create beautiful image of your code
+media-gfx/silicon 0.4.3 0.5.1: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-gfx/ufolint 1.2.0: UFO source format linter
 media-gfx/zw3d 2022.0.3.1: CAD/CAM software for 3D design and processing
 media-gfx/zwcad 2022.22.2.2.3 2023.23.0.3.4: CAD software for 2D drawing, reviewing and printing work
 media-libs/alsa-ucm-pinephone 1.2.6.3: ALSA ucm configuration files for the PinePhone (Pro)
 media-libs/alvr 15.2.1_p20210604 16.0.0: ALVR is an open source remote VR display for the Oculus Go/Quest
-media-libs/amdvlk 2022.3.1 2022.3.4 2022.3.5: AMD Open Source Driver for Vulkan
+media-libs/amdvlk 2022.3.5 2022.3.5-r1: AMD Open Source Driver for Vulkan
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
+media-libs/glee 5.4.0: OpenGL Easy Extension library
 media-libs/grok 9.7.6: World's Leading Open Source JPEG 2000 Codec
 media-libs/imgui 1.81 1.83 1.87-r6: Bloat-free graphical user interface library for C++
 media-libs/libbpg 0.9.8: Better Portable Graphics reference implementation
@@ -1456,8 +1460,8 @@ net-voip/discover-overlay 0.4.5 0.5.4 0.6.3: Yet another Discord overlay for Lin
 net-voip/gnome-calls 42.0-r1: Phone dialer and call handler
 net-voip/vvmd 0.8: vvmd is a lower level daemon that retrieves Visual Voicemail
 net-wireless/iwdgui 0.1.0 0.2.0: A graphical frontend for IWD, Intel's iNet Wireless Daemon
-net-wireless/rtl8192eu 0_pre20220406: Realtek 8192EU driver module for Linux kernel
-net-wireless/rtl8821ce 0_pre20220330: Realtek RTL8821CE Driver module for Linux kernel
+net-wireless/rtl8192eu 0_pre20220825: Realtek 8192EU driver module for Linux kernel
+net-wireless/rtl8821ce 0_pre20220911: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20220409: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-biology/cmdock 0.1.3-r1 0.1.4-r2: Program for docking ligands to proteins and nucleic acids
 sci-biology/geneathome 1.10-r3: BOINC application for expanding Gene Regulatory Networks (GRN)
@@ -1543,7 +1547,7 @@ sci-mathematics/packup 0.6: PACKage Upgradability Problem solver
 sci-mathematics/qepcad 1.72b_p20220502-r2: Quantifier Elimination by Partial Cylindrical Algebraic Decomposition
 sci-mathematics/radian 0.6.3: A 21 century R console
 sci-mathematics/the-omega-project 2.1_p20131119: Tools from Pugh et al.'s for constraint-based compiler tools
-sci-misc/boinc-wrapper 7.20.2 7.20.2-r1: Wrapper to use non-BOINC apps with BOINC
+sci-misc/boinc-wrapper 7.20.2: Wrapper to use non-BOINC apps with BOINC
 sci-misc/linuxcnc 9999: LinuxCNC
 sci-physics/SU2 7.2.0 7.2.0-r1: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sci-physics/mbdyn 1.7.3_p20210925-r1: A general purpose Multibody Dynamics analysis software
@@ -1620,7 +1624,7 @@ sys-cluster/nanox 0.15_p20210818: Runtime designed to serve as runtime support i
 sys-cluster/neutron 17.1.2 20.0.0: A virtual network service for Openstack
 sys-cluster/nova 25.0.0-r1: Cloud computing fabric controller
 sys-cluster/opari2 2.0.6: OpenMP Pragma And Region Instrumentor
-sys-cluster/opencoarrays 2.9.2 2.9.3 2.10.0: A parallel application binary interface for Fortran 2018 compilers
+sys-cluster/opencoarrays 2.9.2 2.9.3 2.10.0 2.10.1: A parallel application binary interface for Fortran 2018 compilers
 sys-cluster/openstack-meta 2020.2.0: A openstack meta-package for installing the various openstack pieces
 sys-cluster/osu-micro-benchmarks 5.9: MPI, OPC and many other benchmarks
 sys-cluster/otf2 2.3-r3 3.0: highly scalable, memory efficient event trace data format
@@ -1664,7 +1668,7 @@ sys-kernel/dpdk-kmod 21.11.1 22.07: DPDK Kernel Nic Interface module
 sys-kernel/modprobed-db 2.46: This utility tracks modules loaded by the kernel, for localmodconfig
 sys-kernel/msr-safe 1.6.0: Allows safer access to model specific registers (MSRs)
 sys-kernel/tirdad 0_pre20200926: kernel module for random ISN generation
-sys-kernel/uek-sources 5.15.0.3.60.4: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
+sys-kernel/uek-sources 5.15.0.3.60.4 5.15.0.4.70.4: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
 sys-kernel/ummunotify 2-r1: Userspace support for MMU notifications
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-kernel/xpmem 2.6.5_p20210809: Linux Cross-Memory Attach
@@ -1676,13 +1680,13 @@ sys-libs/safeclib 3.7.1-r2: safec libc extension with all C11 Annex K functions
 sys-libs/solo-udev-rules 4.1.5: udev rules for the Solo FIDO2 & U2F USB+NFC security key
 sys-power/ZenStates-Linux 0_pre20170507: Dynamically edit AMD Ryzen processor P-States
 sys-power/amdgpu-fan 0.1.0-r1: Fan controller for AMD graphics cards running the amdgpu driver on Linux
+sys-power/auto-cpufreq 1.9.6: Automatic CPU speed & power optimizer for Linux
 sys-power/disable-c6 0_p20190603: disable the C6 state upon system boot, preventing Ryzen freezes
 sys-power/fan2go 0.6.2 0.6.2-r1: A simple daemon providing dynamic fan speed control
 sys-power/geopmd 2.0.0_rc1: Global Extensible Open Power Manager (Daemon)
 sys-power/gtherm 0.0.3: A simple daemon to monitor thermal zones and cooling devices
 sys-power/gwe 0.15.3 0.15.5: NVIDIA settings alternative with overclocking, fan control, and information
 sys-power/linux-tools-power-x86 5.18: Linux x86 CPU power tools
-sys-power/tlp 1.5.0: Optimize laptop battery life
 sys-process/gotop 4.1.4: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/nq 0.4: Unix command line queue utility
 sys-process/nvtop 2.0.3 9999: NVIDIA GPUs htop like monitoring tool
@@ -1757,5 +1761,5 @@ x11-themes/sound-theme-librem5 0.1.0: Sound theme for the Librem 5/PinePhone
 x11-themes/vimix-xcursors 20200224-r2: Theme inspired by Materia design and based on capitaine-cursors
 x11-wm/berry 0.1.11: A byte-sized window manager written in C
 x11-wm/i3-rounded 4.19.1: i3-gaps fork with rounded corners support.
-x11-wm/leftwm 0.2.9 0.2.10 0.2.11 0.3.0: A window manager for Adventurers
+x11-wm/leftwm 0.2.9 0.2.10 0.2.11 0.3.0 0.4.0: A window manager for Adventurers
 x11-wm/phoc 0.13.1: Wlroots based Phone compositor

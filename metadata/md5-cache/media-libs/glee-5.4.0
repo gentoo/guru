@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=virtual/opengl
+DESCRIPTION=OpenGL Easy Extension library
+EAPI=8
+HOMEPAGE=https://elf-stone.com/glee.php
+INHERIT=autotools
+IUSE=static-libs
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2
+RDEPEND=virtual/opengl
+SLOT=0
+SRC_URI=https://elf-stone.com/downloads/GLee/GLee-5.4.0-src.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
+_md5_=2ed37ef506268db574ac4f3458f4857b
