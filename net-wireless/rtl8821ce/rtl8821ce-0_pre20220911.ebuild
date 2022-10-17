@@ -6,7 +6,7 @@ EAPI=7
 inherit linux-mod toolchain-funcs
 BUILD_PARAMS="CC=$(tc-getCC) V=1 KSRC=${KERNEL_DIR}"
 
-COMMIT="dce62b9bbb7c76339b514153fcebb3a19bafdcc7"
+COMMIT="50c1b120b06a3b0805e23ca9a4dbd274d74bb305"
 
 DESCRIPTION="Realtek RTL8821CE Driver module for Linux kernel"
 HOMEPAGE="https://github.com/tomaspinho/rtl8821ce"
