@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst
+DESCRIPTION=Use KDialog to add files to playlist, subtitles to playing video or open URLs
+EAPI=8
+HOMEPAGE=https://gist.github.com/ntasos/d1d846abd7d25e4e83a78d22ee067a22
+INHERIT=mpv-plugin
+IUSE=+autoload
+KEYWORDS=~amd64
+LICENSE=Unlicense
+RDEPEND=kde-apps/kdialog x11-misc/xdotool media-video/mpv[lua]
+SLOT=0
+SRC_URI=https://gist.github.com/ntasos/d1d846abd7d25e4e83a78d22ee067a22/archive/b23b20e830bba024836f8b09412000658edee95c.tar.gz -> kdialog-open-files-20221015.tar.gz
+_eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a
+_md5_=b8013f4d79d52c69bb32f5abcadb4a6e

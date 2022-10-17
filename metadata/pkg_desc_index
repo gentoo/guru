@@ -1078,7 +1078,7 @@ dev-util/bazelisk 1.12.0: A user-friendly launcher for Bazel
 dev-util/binaryen 105: Compiler and toolchain infrastructure library for WebAssembly
 dev-util/blueprint-compiler 0.2.0 0.4.0 9999: Compiler for Blueprint, a markup language for GTK user interfaces
 dev-util/cargo-make 0.35.9 0.35.10: Rust task runner and build tool
-dev-util/deblob 0.1 9999: remove binary executables from a directory
+dev-util/deblob 0.2 9999: remove binary executables from a directory
 dev-util/dockerfile-language-server 0.9.0: A language server for Dockerfiles
 dev-util/eclipse-parallel-bin 4.22 4.23 4.25: Eclipse IDE for Scientific Computing (C, C++, Fortran)
 dev-util/exercism 3.1.0: Command line client for https://exercism.io
@@ -1340,7 +1340,7 @@ media-sound/nulloy 0.9.5 9999: Music player with a waveform progress bar (sound 
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
 media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file or stream as a PulseAudio source
 media-sound/spotify-adblock 1.0.1 1.0.2: Adblocker for Spotify
-media-sound/spotify_dl 8.3.0: Downloads songs from a Spotify Playlist/Track/Album that you provide
+media-sound/spotify_dl 8.3.0 8.4.0: Downloads songs from a Spotify Playlist/Track/Album that you provide
 media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
 media-sound/zita-ajbridge 0.8.4 0.8.4-r1: zita-a2j and zita-j2a - bridges between ALSA and JACK
 media-video/ciano 0.2.4-r1: A multimedia file converter focused on simplicity
@@ -1359,6 +1359,7 @@ mpv-plugin/autoload 0.33.1 0.34.1: Loads playlist entries before and after the t
 mpv-plugin/autosubsync-mpv 20220402: Automatic subtitle synchronization script for mpv media player
 mpv-plugin/kde-do-not-disturb 20220109: Disable the notifications while mpv is running
 mpv-plugin/kde-night-color 20220109: Disable Night Color while mpv is running
+mpv-plugin/kdialog-open-files 20221015: Use KDialog to add files to playlist, subtitles to playing video or open URLs
 mpv-plugin/mpv-autosub 20210629: Fully automatic subtitle downloading for the MPV media player
 mpv-plugin/mpv-mpris 0.8.1 0.9 9999: MPRIS plugin for mpv
 mpv-plugin/mpv-plugin-xrandr 20190523-r1: Automatically invoke the xrandr to set the parameters for the display output
