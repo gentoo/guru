@@ -16,7 +16,7 @@ HOMEPAGE="https://gist.github.com/ntasos/d1d846abd7d25e4e83a78d22ee067a22"
 
 SRC_URI="https://gist.github.com/ntasos/${HASH}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="all-rights-reserved"
+LICENSE="Unlicense"
 KEYWORDS="~amd64"
 
 RDEPEND="
