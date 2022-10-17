@@ -10,5 +10,5 @@ LICENSE=GPL-3
 RDEPEND=kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
 SLOT=0/0_pre20200926
 SRC_URI=https://github.com/0xsirus/tirdad/archive/9a0e137ae05dd1aa05c20750975598e4dac77dbf.tar.gz -> tirdad-0_pre20200926.gh.tar.gz
-_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	bbfa385d6907d7948d49a5e107bd654d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod	40fd3a198c113348b58146d9ea04d86d
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	bbfa385d6907d7948d49a5e107bd654d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod	3167123d17b3550117c7e554fd22ca02
 _md5_=f11862fc5e6973a9a9baa94091ca0695

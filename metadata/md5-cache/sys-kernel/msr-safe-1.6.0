@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=slurm? ( sys-cluster/slurm ) virtual/udev kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
 SLOT=0
 SRC_URI=https://github.com/LLNL/msr-safe/archive/refs/tags/v1.6.0.tar.gz -> msr-safe-1.6.0.gh.tar.gz
-_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	bbfa385d6907d7948d49a5e107bd654d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod	40fd3a198c113348b58146d9ea04d86d	systemd	5f4bb0758df2e483babf68cd517078ca	udev	eec0bbab06977f1cfc5597269c1fa152
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	bbfa385d6907d7948d49a5e107bd654d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod	3167123d17b3550117c7e554fd22ca02	systemd	5f4bb0758df2e483babf68cd517078ca	udev	eec0bbab06977f1cfc5597269c1fa152
 _md5_=ac398e8820e758173003535fc9214ffc
