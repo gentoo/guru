@@ -562,6 +562,7 @@ SUBMODULES=(
 LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions Artistic-2 BSD BSD-2 Boost-1.0 CC0-1.0 GPL-3 ISC LGPL-2.1 MIT MPL-2.0 Unicode-DFS-2016 Unlicense WTFPL-2 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="wayland"
 
 PATCHES=(
 	"${FILESDIR}/${P}-vendored-sources.patch"
@@ -569,7 +570,7 @@ PATCHES=(
 
 DEPEND="
 	dev-libs/openssl
-	dev-libs/wayland
+	wayland? ( dev-libs/wayland )
 	media-libs/fontconfig
 	media-libs/mesa
 	sys-apps/dbus
@@ -635,6 +636,17 @@ src_prepare() {
 
 	default
 	eapply_user
+}
+
+src_configure() {
+	if use wayland; then
+		cargo_src_configure
+	else
+		local myfeatures=(
+			$(usex wayland vendored-fonts '')
+		)
+		cargo_src_configure --no-default-features
+	fi
 }
 
 src_install() {
