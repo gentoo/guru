@@ -593,7 +593,7 @@ QA_FLAGS_IGNORED="
 	usr/bin/.*
 "
 
-S="${WORKDIR}/${PN}-${MY_PV}"
+S="${WORKDIR}/${MY_P}"
 
 submodule_uris() {
 	for line in "${SUBMODULES[@]}"; do
@@ -651,8 +651,7 @@ src_install() {
 	newmenu assets/wezterm.desktop org.wezfurlong.wezterm.desktop
 
 	insinto /usr/share/metainfo
-	mv assets/wezterm.appdata.xml assets/org.wezfurlong.wezterm.appdata.xml
-	doins assets/org.wezfurlong.wezterm.appdata.xml
+	newins assets/wezterm.appdata.xml org.wezfurlong.wezterm.appdata.xml
 	
 	newbashcomp assets/shell-completion/bash ${PN}
 	
