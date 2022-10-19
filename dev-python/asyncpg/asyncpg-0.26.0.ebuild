@@ -15,17 +15,20 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="dev-python/cython[${PYTHON_USEDEP}]"
+BDEPEND="
+	dev-python/cython[${PYTHON_USEDEP}]
+	test? (
+		dev-db/postgresql
+		dev-python/flake8[${PYTHON_USEDEP}]
+		dev-python/uvloop[${PYTHON_USEDEP}]
+	)
+"
 
-distutils_enable_tests pytest
+distutils_enable_tests unittest
 
 distutils_enable_sphinx docs dev-python/sphinxcontrib-asyncio dev-python/sphinx_rtd_theme
 
-python_compile() {
-	if use test; then
-		esetup.py build_ext --force --inplace
-		rm -r build || die
-	fi
-
-	distutils-r1_python_compile
+python_test() {
+	cd "${T}" || die
+	USE_UVLOOP=1 eunittest "${S}"/tests
 }
