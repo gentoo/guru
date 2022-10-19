@@ -8,6 +8,7 @@ HOMEPAGE="https://organicmaps.app"
 
 LICENSE="Apache-2.0"
 SLOT="0"
+KEYWORDS="~amd64"
 
 DEPEND="sys-devel/clang
 	>=dev-util/cmake-3.18.1
@@ -24,6 +25,12 @@ RDEPEND=""
 PATCHES=(
 	"${FILESDIR}/${P}-zlib-compile.patch"
 )
+
+src_prepare() {
+	eapply_user
+
+	cmake_src_prepare
+}
 
 src_configure() {
 	CMAKE_BUILD_TYPE="RelWithDebInfo"
