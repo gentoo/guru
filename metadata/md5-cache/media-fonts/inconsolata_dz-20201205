@@ -9,5 +9,5 @@ KEYWORDS=~amd64
 LICENSE=OFL-1.1
 SLOT=0
 SRC_URI=https://nodnod.net/posts/inconsolata-dz/files/Inconsolata_dz.otf
-_eclasses_=font	d31f12a0f6e13d56dc3062e76ae58a61
+_eclasses_=font	bc7d91ca9054e47ad87b5763214665a4
 _md5_=d322bae6a29c8fb62fe1b551d96db2cd

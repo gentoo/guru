@@ -11,5 +11,5 @@ REQUIRED_USE=|| ( l10n_ja l10n_ko l10n_zh-CN l10n_zh-TW )
 RESTRICT=binchecks strip
 SLOT=0
 SRC_URI=l10n_ja? ( https://github.com/adobe-fonts/source-han-serif/releases/download/2.001R/12_SourceHanSerifJP.zip -> source-han-serif-ja-2.001.zip ) l10n_ko? ( https://github.com/adobe-fonts/source-han-serif/releases/download/2.001R/13_SourceHanSerifKR.zip -> source-han-serif-ko-2.001.zip ) l10n_zh-CN? ( https://github.com/adobe-fonts/source-han-serif/releases/download/2.001R/14_SourceHanSerifCN.zip -> source-han-serif-zh_CN-2.001.zip ) l10n_zh-TW? ( https://github.com/adobe-fonts/source-han-serif/releases/download/2.001R/15_SourceHanSerifTW.zip -> source-han-serif-zh_TW-2.001.zip )
-_eclasses_=font	d31f12a0f6e13d56dc3062e76ae58a61
+_eclasses_=font	bc7d91ca9054e47ad87b5763214665a4
 _md5_=777982313b79d040d010471626b895f4
