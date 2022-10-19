@@ -5,5 +5,5 @@ INHERIT=acct-user
 KEYWORDS=~amd64
 RDEPEND=acct-group/tang
 SLOT=0
-_eclasses_=user-info	69a1ed744ec33cf2c910ff2bd6084d11	acct-user	dd00160495cf461d7f0113b32fef7029
+_eclasses_=user-info	69a1ed744ec33cf2c910ff2bd6084d11	acct-user	ce2d3878b49fe819717a68300f633480
 _md5_=19d2a5486d30b540925349ead4a33ca4

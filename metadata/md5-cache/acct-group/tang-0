@@ -4,5 +4,5 @@ EAPI=8
 INHERIT=acct-group
 KEYWORDS=~amd64
 SLOT=0
-_eclasses_=user-info	69a1ed744ec33cf2c910ff2bd6084d11	acct-group	f3321e2ddff6fc28d8d7f788ccd20fb5
+_eclasses_=user-info	69a1ed744ec33cf2c910ff2bd6084d11	acct-group	4ab6ca538789e73c2c796d01318ae2d7
 _md5_=e2c78f93b710b2e8b3a23bf242d7c8e6
