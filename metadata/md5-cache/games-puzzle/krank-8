@@ -8,5 +8,5 @@ LICENSE=public-domain
 RDEPEND=dev-python/pygame
 SLOT=0
 SRC_URI=https://gitlab.com/mazes_80/krank/-/archive/8/krank-8.tar.bz2
-_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa
+_eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c
 _md5_=7db206c46825ba71e433bd4271f4e9a7

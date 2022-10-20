@@ -11,5 +11,5 @@ LICENSE=GPL-3
 RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtpositioning:5 dev-qt/qtprintsupport:5 dev-qt/qtquickcontrols:5 dev-qt/qtsql:5 dev-qt/qtsvg:5 dev-qt/qtwebengine:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib[minizip]
 SLOT=0
 SRC_URI=https://github.com/dimkanovikov/KITScenarist/releases/download/0.7.2.rc9i/src.tar.gz -> kitscenarist-0.7.2.rc9i.tar.gz
-_eclasses_=desktop	22952d8f27cac191d75529d4c38e6bfa	font	bc7d91ca9054e47ad87b5763214665a4	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	font	bc7d91ca9054e47ad87b5763214665a4	readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
 _md5_=a75306e064914dcca9369d492eb7d018

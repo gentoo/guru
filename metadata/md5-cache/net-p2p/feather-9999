@@ -10,5 +10,5 @@ LICENSE=BSD MIT
 PROPERTIES=live
 RDEPEND=dev-libs/boost:=[nls] dev-libs/libgcrypt:= dev-libs/libsodium:= dev-libs/libzip:= dev-libs/openssl:= >=dev-qt/qtcore-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtnetwork-5.15:5 >=dev-qt/qtsvg-5.15:5 >=dev-qt/qtwebsockets-5.15:5 >=dev-qt/qtwidgets-5.15:5 >=dev-qt/qtxml-5.15:5 media-gfx/qrencode:= net-dns/unbound:=[threads] net-libs/czmq:= media-gfx/zbar:=[v4l] net-vpn/tor xmrig? ( net-misc/xmrig )
 SLOT=0
-_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	git-r3	b9ac6f96d2a88edb5b351df634dc5e53	desktop	22952d8f27cac191d75529d4c38e6bfa
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	git-r3	b9ac6f96d2a88edb5b351df634dc5e53	desktop	7eb20ad915a0a318176d51bc2508ff5c
 _md5_=9ae7957604d742991480c29d5cfa7a53
