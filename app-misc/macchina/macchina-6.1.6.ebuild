@@ -182,7 +182,7 @@ CRATES="
 inherit cargo xdg-utils
 
 SRC_URI="
-	#https://github.com/Macchina-CLI/macchina/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/Macchina-CLI/macchina/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	$(cargo_crate_uris)
 "
 
