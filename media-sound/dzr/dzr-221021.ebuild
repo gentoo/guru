@@ -25,6 +25,8 @@ src_install() {
 	exeinto /usr/bin
 	doexe dzr
 	doexe dzr-dec
+	doexe dzr-id3
+	doexe dzr-srt
 	doexe dzr-url
 	default
 }
