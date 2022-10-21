@@ -4,47 +4,53 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-MYPV="${PV/_beta/b}"
-PYTHON_COMPAT=( python3_{8..9} )
-
+PYTHON_COMPAT=( python3_{8..10} )
 inherit bash-completion-r1 distutils-r1 optfeature
 
+MY_PV="${PV/_beta/b}"
 DESCRIPTION="Asynchronous task queue/job queue based on distributed message passing"
 HOMEPAGE="
 	https://docs.celeryproject.org/en/stable/index.html
 	https://pypi.org/project/celery/
 	https://github.com/celery/celery
 "
-SRC_URI="https://github.com/celery/celery/archive/v${MYPV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${MYPV}"
+SRC_URI="https://github.com/celery/celery/archive/v${MY_PV}.tar.gz -> ${P}.gh.tar.gz"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-# There are a number of other optional 'extras'
 IUSE="examples"
-#RESTRICT="!test? ( test )"
-RESTRICT="test" # 'celery' not found in `markers` configuration option
 
 RDEPEND="
 	>=dev-python/billiard-3.6.4.0[${PYTHON_USEDEP}]
-	<dev-python/billiard-4.0.0[${PYTHON_USEDEP}]
+	<dev-python/billiard-5.0.0[${PYTHON_USEDEP}]
+	dev-python/click[${PYTHON_USEDEP}]
+	dev-python/click-didyoumean[${PYTHON_USEDEP}]
+	dev-python/click-plugins[${PYTHON_USEDEP}]
+	dev-python/click-repl[${PYTHON_USEDEP}]
+	>=dev-python/kombu-5.3.0_beta1[${PYTHON_USEDEP}]
 	<dev-python/kombu-6.0.0[${PYTHON_USEDEP}]
-	>=dev-python/kombu-5.2.1[${PYTHON_USEDEP}]
 	dev-python/pytz[${PYTHON_USEDEP}]
+	dev-python/vine[${PYTHON_USEDEP}]
 "
-DEPEND="
-	${RDEPEND}
+BDEPEND="
 	test? (
+		$(python_gen_impl_dep 'ncurses(+)')
 		>=dev-python/boto3-1.9.178[${PYTHON_USEDEP}]
-		>=dev-python/case-1.3.1[${PYTHON_USEDEP}]
+		dev-python/elasticsearch-py[${PYTHON_USEDEP}]
 		>=dev-python/moto-1.3.7[${PYTHON_USEDEP}]
-		>=dev-python/pytest-6.2[${PYTHON_USEDEP}]
+		dev-python/msgpack[${PYTHON_USEDEP}]
+		dev-python/pylibmc[${PYTHON_USEDEP}]
+		dev-python/pymongo[${PYTHON_USEDEP}]
 		dev-python/pytest-celery[${PYTHON_USEDEP}]
+		dev-python/pytest-click[${PYTHON_USEDEP}]
 		dev-python/pytest-subtests[${PYTHON_USEDEP}]
 		>=dev-python/pytest-timeout-1.4.2[${PYTHON_USEDEP}]
 		>=dev-python/pyyaml-3.10[${PYTHON_USEDEP}]
-		>=dev-python/pyzmq-13.1.0[${PYTHON_USEDEP}]
+		dev-python/redis-py[${PYTHON_USEDEP}]
+		dev-python/sphinx-testing[${PYTHON_USEDEP}]
+		dev-python/tblib[${PYTHON_USEDEP}]
 	)
 	doc? (
 		dev-python/docutils[${PYTHON_USEDEP}]
@@ -55,9 +61,18 @@ DEPEND="
 	)
 "
 
-# testsuite needs it own source
-DISTUTILS_IN_SOURCE_BUILD=1
+EPYTEST_DESELECT=(
+	t/unit/tasks/test_result.py::test_EagerResult::test_wait_raises
+	t/unit/tasks/test_tasks.py::test_task_retries
+	t/unit/tasks/test_tasks.py::test_apply_task::test_apply
+	t/unit/utils/test_collections.py::test_ExceptionInfo::test_exception_info
+	t/unit/worker/test_request.py::test_trace_task::test_execute_jail_failure
+	t/unit/worker/test_request.py::test_Request
+	t/unit/worker/test_request.py::test_create_request_class::test_on_success__SystemExit
+)
+
 distutils_enable_tests pytest
+
 distutils_enable_sphinx docs --no-autodoc
 
 python_install_all() {
@@ -68,7 +83,7 @@ python_install_all() {
 	if use examples; then
 		docinto examples
 		dodoc -r examples/.
-		docompress -x "/usr/share/doc/${PF}/examples"
+		docompress -x /usr/share/doc/${PF}/examples
 	fi
 
 	newbashcomp extra/bash-completion/celery.bash "${PN}"
@@ -77,16 +92,14 @@ python_install_all() {
 }
 
 pkg_postinst() {
-	optfeature "zookeeper support" dev-python/kazoo
 	optfeature "msgpack support" dev-python/msgpack
 	#optfeature "rabbitmq support" dev-python/librabbitmq
 	#optfeature "slmq support" dev-python/softlayer_messaging
-	optfeature "eventlet support" dev-python/eventlet
 	#optfeature "couchbase support" dev-python/couchbase
-	optfeature "redis support" dev-db/redis dev-python/redis-py
+	optfeature "redis support" dev-python/redis-py
 	optfeature "gevent support" dev-python/gevent
 	optfeature "auth support" dev-python/pyopenssl
-	optfeature "pyro support" dev-python/pyro:4
+	optfeature "pyro support" dev-python/Pyro4
 	optfeature "yaml support" dev-python/pyyaml
 	optfeature "memcache support" dev-python/pylibmc
 	optfeature "mongodb support" dev-python/pymongo
