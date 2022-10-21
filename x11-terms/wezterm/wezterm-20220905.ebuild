@@ -657,8 +657,7 @@ src_install() {
 	doexe target/release/strip-ansi-escapes
 	
 	insinto /usr/share/icons/hicolor/128x128/apps
-	mv assets/icon/terminal.png assets/icon/org.wezfurlong.wezterm.png
-	doins assets/icon/org.wezfurlong.wezterm.png
+	newins assets/icon/terminal.png org.wezfurlong.wezterm.png
 	
 	newmenu assets/wezterm.desktop org.wezfurlong.wezterm.desktop
 
