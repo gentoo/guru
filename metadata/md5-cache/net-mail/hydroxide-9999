@@ -8,5 +8,5 @@ LICENSE=MIT BSD
 PROPERTIES=live
 RESTRICT=strip
 SLOT=0
-_eclasses_=go-module	b088539f282ed242c23f38fa65472184	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_eclasses_=go-module	15312495dc4fd84f8c37bbe228ea2abd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	git-r3	b9ac6f96d2a88edb5b351df634dc5e53
 _md5_=eea60eb49e4dcdbd9f822e54167345d8

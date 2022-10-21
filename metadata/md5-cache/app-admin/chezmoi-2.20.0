@@ -11,5 +11,5 @@ RDEPEND=dev-vcs/git
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/twpayne/chezmoi/archive/v2.20.0.tar.gz -> chezmoi-2.20.0.tar.gz https://github.com/ran-dall/portage-deps/raw/master/chezmoi-2.20.0-deps.tar.xz
-_eclasses_=go-module	b088539f282ed242c23f38fa65472184	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
+_eclasses_=go-module	15312495dc4fd84f8c37bbe228ea2abd	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
 _md5_=d9e94df6978aa28b5830394a5bc7ef1e
