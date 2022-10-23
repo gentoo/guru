@@ -1,4 +1,4 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ QTMIN=5.15.0
 inherit ecm
 
 DESCRIPTION="Settings application for Plasma Mobile"
-HOMEPAGE="https://www.plasma-mobile.org/"
+HOMEPAGE="https://plasma-mobile.org/"
 SRC_URI="mirror://kde/stable/plasma-mobile/${PV}/${P}.tar.xz"
 
 LICENSE="|| ( GPL-2 GPL-3 ) LGPL-2+ LGPL-2.1"
