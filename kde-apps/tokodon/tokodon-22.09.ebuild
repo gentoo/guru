@@ -15,14 +15,11 @@ LICENSE="GPL-3"
 SLOT="5"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="
-	dev-libs/qtkeychain:=
+RDEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
-	>=dev-qt/qtmultimedia-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
-	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwebsockets-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
 	>=kde-frameworks/kconfig-${KFMIN}:5
@@ -32,6 +29,11 @@ DEPEND="
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	dev-libs/qtkeychain[qt5(+)]
+	>=dev-qt/qtmultimedia-${QTMIN}:5
+	>=dev-qt/qtsvg-${QTMIN}:5
+"
