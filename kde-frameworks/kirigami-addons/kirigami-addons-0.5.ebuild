@@ -4,19 +4,20 @@
 EAPI=8
 
 KFMIN=5.91.0
-QTMIN=5.15.0
+QTMIN=5.15.2
 VIRTUALX_REQUIRED=test
 inherit ecm
 
 DESCRIPTION="Convergent visual components for Kirigami-based applications"
 HOMEPAGE="https://invent.kde.org/libraries/kirigami-addons"
-SRC_URI="mirror://kde/unstable/${PN}/${PV}/${P}.tar.xz"
+SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 
 LICENSE="|| ( GPL-2 GPL-3 LGPL-3 ) LGPL-2+ LGPL-2.1+"
 SLOT="5"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	>=dev-qt/qtcore-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
