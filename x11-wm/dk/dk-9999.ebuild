@@ -7,7 +7,7 @@ DESCRIPTION="A list based tiling window manager in the vein of dwm, bspwm, and x
 HOMEPAGE="https://bitbucket.org/natemaia/dk/src/master/"
 EGIT_REPO_URI="https://bitbucket.org/natemaia/dk.git"
 
-inherit toolchain-funcs flag-o-matic xdg-utils git-r3 desktop
+inherit toolchain-funcs flag-o-matic xdg-utils git-r3 #desktop
 
 LICENSE="MIT"
 SLOT="0"
@@ -29,7 +29,7 @@ RDEPEND="
 
 QA_FLAGS_IGNORED="usr/bin/*"
 
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~m68k ~ppc64 ~riscv ~x86"
+#KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~m68k ~ppc64 ~riscv ~x86"
 
 src_unpack() {
 	git-r3_src_unpack
