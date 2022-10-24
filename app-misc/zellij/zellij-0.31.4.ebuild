@@ -342,7 +342,7 @@ CRATES="
 	zeroize-1.5.5
 "
 
-inherit bash-completion-r1 cargo xdg
+inherit bash-completion-r1 cargo xdg desktop
 
 DESCRIPTION="A terminal workspace with batteries included"
 HOMEPAGE="
@@ -416,8 +416,8 @@ src_install() {
 
 	doman assets/man/zellij.1
 
-	insinto /usr/share/applications/
-	doins assets/zellij.desktop
+#	insinto /usr/share/applications/
+	domenu assets/zellij.desktop
 
 	dodoc README.md CHANGELOG.md docs/*.md
 
