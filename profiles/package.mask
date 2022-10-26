@@ -14,6 +14,57 @@
 
 # New entries go on top.
 
+# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-10-26)
+# Depends on masked dev-python/eventlet
+app-admin/glance
+dev-python/glance_store
+dev-python/manhole
+dev-python/os-brick
+dev-python/os-ken
+dev-python/os-win
+dev-python/os-xenapi
+dev-python/oslo-db
+dev-python/oslo-messaging
+dev-python/oslo-privsep
+dev-python/oslo-reports
+dev-python/oslo-rootwrap
+dev-python/oslo-service
+dev-python/oslo-vmware
+dev-python/taskflow
+sys-cluster/cinder
+sys-cluster/heat
+sys-cluster/neutron
+sys-cluster/nova
+sys-cluster/swift
+# and deep dependencies
+app-crypt/PBinCLI
+app-misc/vocabsieve
+dev-python/aodhclient
+dev-python/base58
+dev-python/bidict
+dev-python/bitbox02
+dev-python/gnocchi
+dev-python/graphene
+dev-python/graphql-core
+dev-python/graphql-relay
+dev-python/hunter
+dev-python/hwi
+dev-python/keystonemiddleware
+dev-python/neutron-lib
+dev-python/os-vif
+dev-python/oslo-versionedobjects
+dev-python/pg8000
+dev-python/promise
+dev-python/pypowervm
+dev-python/pytest-benchmark
+dev-python/python-socketio
+dev-python/SQLAlchemy-Utils
+net-misc/maestral
+net-misc/maestral-qt
+sys-auth/keystone
+sys-cluster/openstack-meta
+sys-cluster/placement
+
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-09-26)
 # Depends on removed ~dev-cpp/folly-2022.04.11.00:=
 dev-cpp/fbthrift
