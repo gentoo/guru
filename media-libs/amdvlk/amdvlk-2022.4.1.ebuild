@@ -91,7 +91,7 @@ multilib_src_configure() {
 	cmake_src_configure
 }
 multilib_check_headers() {
-	einfo "There is no headers"
+	einfo "Checking headers skipped: there is no headers"
 }
 
 multilib_src_install_all() {
