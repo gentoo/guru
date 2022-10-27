@@ -94,8 +94,8 @@ multilib_check_headers() {
 	einfo "There is no headers"
 }
 
-multilib_src_install() {
-	cmake_src_install
+multilib_src_install_all() {
+	default
 	einfo "Removing unused LLVM parts…"
 	rm "${D}"/usr/lib/libLLVM*.a || die "Can't remove unused LLVM static libs"
 	rm "${D}"/usr/lib/libLTO* || die "Can't remove unused LLVM lto library"
@@ -104,7 +104,7 @@ multilib_src_install() {
 	rm -r "${D}"/usr/include || die "Can't remove unused include folder"
 	rm -r "${D}"/usr/lib/cmake || die "Can't remove unused LLVM cmake folder"
 	einfo "Removal done! Moving docs…"
-	mv "${D}"/usr/share/doc/amdvlk/* "${D}"/usr/share/doc/"amdvlk-${PV}"/ || die "Can't move docs"
+	mv "${D}"/usr/share/doc/amdvlk/* "${D}"/usr/share/doc/"amdvlk-${PV}"/ || ewarn "Can't move docs. It is not fatal"
 	einfo "Done!"
 }
 
