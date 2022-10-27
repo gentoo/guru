@@ -44,11 +44,11 @@ FETCH_URI="https://github.com/GPUOpen-Drivers"
 ##and place commits in the desired variables
 ## EXAMPLE: XGL_COMMIT="80e5a4b11ad2058097e77746772ddc9ab2118e07"
 ## SRC_URI="... ${FETCH_URI}/$PART/archive/$COMMIT.zip -> $PART-$COMMIT.zip ..."
-XGL_COMMIT="4118707939c2f4783d28ce2a383184a3794ca477"
-PAL_COMMIT="ae55b19b7553bf204b4945de9c11c5b05bc0e167"
-LLPC_COMMIT="7857f2e209fc65374f2891be52e3a4a22fbae483"
-GPURT_COMMIT="b89f22aadd0a335be632055434a7f8ba152fcb37"
-LLVM_PROJECT_COMMIT="5c82ef808fd269c95f5bd166d1846149e3afadc2"
+XGL_COMMIT="8a67c76eedb8400fb5d3b1e7b6a3894efdc7a3b9"
+PAL_COMMIT="c2af6fc4c14ea61273bcf5576f8a83a12b945dd7"
+LLPC_COMMIT="9db0ba4c968bbfe2f3e7e546d17cbfd07dcfdc9e"
+GPURT_COMMIT="2874e509b677d78ddb3faae90989dd45e60669b3"
+LLVM_PROJECT_COMMIT="d2b67605e4dd5dc50d0afbeb4f20f29cce97b207"
 METROHASH_COMMIT="18893fb28601bb9af1154cd1a671a121fff6d8d3"
 CWPACK_COMMIT="4f8cf0584442a91d829d269158567d7ed926f026"
 # end of variables
@@ -61,7 +61,8 @@ ${FETCH_URI}/MetroHash/archive/${METROHASH_COMMIT}.tar.gz -> amdvlk-MetroHash-${
 ${FETCH_URI}/CWPack/archive/${CWPACK_COMMIT}.tar.gz -> amdvlk-CWPack-${CWPACK_COMMIT}.tar.gz"
 
 PATCHES=(
-	"${FILESDIR}"/amdvlk-2022.3.5-no-compiler-presets.patch #875821
+	"${FILESDIR}/amdvlk-2022.3.5-no-compiler-presets.patch" #875821
+	"${FILESDIR}/amdvlk-2022.4.1-proper-libdir.patch"
 )
 
 src_prepare() {
@@ -81,25 +82,30 @@ src_prepare() {
 multilib_src_configure() {
 	local mycmakeargs=(
 		-DBUILD_WAYLAND_SUPPORT=$(usex wayland)
-		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/llvm/amdvlk"
-		-DLLVM_VERSION_SUFFIX="-$(get_libdir)-amdvlk"
-		-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
+		-DLLVM_VERSION_SUFFIX="-amdvlk"
+		-DLLVM_HOST_TRIPLE="${CHOST}"
+		-DBUILD_SHARED_LIBS=OFF #LLVM parts don't support shared libs
+		-DPython3_EXECUTABLE="${PYTHON}"
 		-Wno-dev
 		)
 	cmake_src_configure
 }
-multilib_src_install(){
-	cmake_src_install
-	rm -r "${D}"/var/ || die "can't remove incorrect temporary files of amdvlk"
-	einfo "Correcting permissions of amdvlk $(get_libdir) libraries"
-	fperms -R 775 /usr/lib/llvm/amdvlk/$(get_libdir)
+multilib_check_headers() {
+	einfo "There is no headers"
 }
 
-multilib_src_install_all() {
-	cat > "99${PN}" <<-EOF
-		LDPATH="${EPREFIX}/usr/lib/llvm/amdvlk/lib:${EPREFIX}/usr/lib/llvm/amdvlk/lib64"
-	EOF
-	doenvd "99${PN}"
+multilib_src_install() {
+	cmake_src_install
+	einfo "Removing unused LLVM parts…"
+	rm "${D}"/usr/lib/libLLVM*.a || die "Can't remove unused LLVM static libs"
+	rm "${D}"/usr/lib/libLTO* || die "Can't remove unused LLVM lto library"
+	rm "${D}"/usr/lib/libRemarks* || die "Can't remove unused LLVM lto library"
+	rm -r "${D}"/usr/share/opt-viewer || "Can't remove unused LLVM opt-viewer"
+	rm -r "${D}"/usr/include || die "Can't remove unused include folder"
+	rm -r "${D}"/usr/lib/cmake || die "Can't remove unused LLVM cmake folder"
+	einfo "Removal done! Moving docs…"
+	mv "${D}"/usr/share/doc/amdvlk/* "${D}"/usr/share/doc/"amdvlk-${PV}"/ || die "Can't move docs"
+	einfo "Done!"
 }
 
 pkg_postinst() {
