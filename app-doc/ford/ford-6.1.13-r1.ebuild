@@ -22,14 +22,14 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 
 RDEPEND="
 	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
-	dev-python/graphviz[${PYTHON_USEDEP}]
+	>=dev-python/graphviz-0.20[${PYTHON_USEDEP}]
 	dev-python/jinja[${PYTHON_USEDEP}]
-	dev-python/markdown[${PYTHON_USEDEP}]
-	dev-python/markdown-include[${PYTHON_USEDEP}]
-	dev-python/pygments[${PYTHON_USEDEP}]
+	>=dev-python/markdown-3.4[${PYTHON_USEDEP}]
+	>=dev-python/markdown-include-0.7.0[${PYTHON_USEDEP}]
+	>=dev-python/pygments-2.12.0[${PYTHON_USEDEP}]
 	dev-python/python-markdown-math[${PYTHON_USEDEP}]
-	dev-python/tqdm[${PYTHON_USEDEP}]
-	dev-python/toposort[${PYTHON_USEDEP}]
+	>=dev-python/tqdm-4.64.0[${PYTHON_USEDEP}]
+	>=dev-python/toposort-1.7[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
 
