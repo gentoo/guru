@@ -1,0 +1,13 @@
+diff --git a/xgl/icd/CMakeLists.txt b/xgl/icd/CMakeLists.txt
+index 2d52a00ab..2d723e51b 100644
+--- a/xgl/icd/CMakeLists.txt
++++ b/xgl/icd/CMakeLists.txt
+@@ -30,7 +30,7 @@ set(ICD_TARGET amdvlk${TARGET_ARCHITECTURE_BITS})
+ set_target_properties(xgl PROPERTIES OUTPUT_NAME ${ICD_TARGET})
+ set_target_properties(xgl PROPERTIES PREFIX "")
+ 
+-install(TARGETS xgl DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE})
++install(TARGETS xgl DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR})
+ 
+ ### Compiler Options ###################################################################################################
+ xgl_compiler_options(xgl)

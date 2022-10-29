@@ -6,7 +6,7 @@
 			<name>Tobias Rautenkranz</name>
 			<email>mail@tobias.rautenkranz.ch</email>
 		</maintainer>
-		<bugs-to>https://invent.kde.org/tobias/geminipart/-/issues</bugs-to>
+		<remote-id type="gitlab">tobiasrautenkranz/geminipart</remote-id>
 	</upstream>
 	<maintainer type="person">
 		<email>cyber+gentoo@sysrq.in</email>

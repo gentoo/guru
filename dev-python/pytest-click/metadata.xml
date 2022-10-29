@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">pytest-click</remote-id>
+		<remote-id type="github">Stranger6667/pytest-click</remote-id>
+		<maintainer>
+			<email>dadygalo@gmail.com</email>
+			<name>Dmitry Dygalo</name>
+		</maintainer>
+	</upstream>
+</pkgmetadata>

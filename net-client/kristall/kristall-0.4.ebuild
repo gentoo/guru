@@ -33,6 +33,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-qt/qtsvg:5
 "
+BDEPEND="dev-qt/linguist-tools:5"
 
 src_prepare() {
 	default

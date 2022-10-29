@@ -4,8 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=flit
-PYTHON_COMPAT=( python3_{8..9} )
-
+PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="a shim pytest plugin to enable celery.contrib.pytest"
@@ -13,7 +12,7 @@ HOMEPAGE="
 	https://github.com/celery/pytest-celery
 	https://pypi.org/project/pytest-celery/
 "
-SRC_URI="https://github.com/celery/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/celery/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
