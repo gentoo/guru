@@ -5,6 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=(python3_{8..11})
 PYTHON_REQ_USE="xml(+)"
+DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 optfeature verify-sig
 
@@ -27,12 +28,15 @@ RDEPEND="
 BDEPEND="
 	verify-sig? ( sec-keys/openpgp-keys-jvoisin )
 	test? (
+		app-text/poppler[introspection(+)]
+		gnome-base/librsvg[introspection(+)]
 		media-libs/exiftool:*
-		media-video/ffmpeg[mp3,vorbis]
-		x11-libs/gdk-pixbuf:2[jpeg,tiff]
+		media-video/ffmpeg[mp3(+),vorbis(+)]
+		x11-libs/gdk-pixbuf:2[jpeg(+),tiff(+)]
 	)
 "
-VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/jvoisin.asc
+
+VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}"/usr/share/openpgp-keys/jvoisin.asc
 
 DOCS=( doc {CHANGELOG,CONTRIBUTING,INSTALL,README}.md )
 
