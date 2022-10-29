@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/vala:0.56[vapigen(+)] ) dev-libs/gobject-introspection dev-libs/protobuf dev-util/wayland-scanner >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=app-accessibility/at-spi2-core:2 app-crypt/libsecret[introspection(+),vala(+)] dev-libs/feedbackd[introspection(+),vala(+)] dev-libs/folks:= dev-libs/glib:2 dev-libs/gobject-introspection dev-libs/gom[introspection(+)] dev-libs/libgee:0.8=[introspection(+)] dev-libs/libpeas dev-libs/libxml2 gnome-extra/evolution-data-server:=[vala(+)] >=gui-libs/libhandy-1.0.0:1[introspection(+),vala(+)] media-libs/gstreamer:1.0[introspection(+)] media-libs/harfbuzz:= >=media-sound/callaudiod-0.0.5 net-libs/libsoup:2.4 net-libs/sofia-sip >=net-misc/modemmanager-1.12.0:=[introspection(+)] x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango
+DESCRIPTION=Phone dialer and call handler
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/calls
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=vala meson gnome2-utils virtualx xdg
+IUSE=test
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-3
+RDEPEND=app-accessibility/at-spi2-core:2 app-crypt/libsecret[introspection(+),vala(+)] dev-libs/feedbackd[introspection(+),vala(+)] dev-libs/folks:= dev-libs/glib:2 dev-libs/gobject-introspection dev-libs/gom[introspection(+)] dev-libs/libgee:0.8=[introspection(+)] dev-libs/libpeas dev-libs/libxml2 gnome-extra/evolution-data-server:=[vala(+)] >=gui-libs/libhandy-1.0.0:1[introspection(+),vala(+)] media-libs/gstreamer:1.0[introspection(+)] media-libs/harfbuzz:= >=media-sound/callaudiod-0.0.5 net-libs/libsoup:2.4 net-libs/sofia-sip >=net-misc/modemmanager-1.12.0:=[introspection(+)] x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango virtual/secret-service
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.gnome.org/GNOME/calls/-/archive/v43.0/calls-v43.0.tar.gz https://gitlab.gnome.org/World/Phosh/libcall-ui/-/archive/619dd91561ad470db3d0e0e263ebc35d787afd2e/libcall-ui-619dd91561ad470db3d0e0e263ebc35d787afd2e.tar.gz
+_eclasses_=vala	160a8a30a6cb9aa601e5441c643a7c61	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	virtualx	644887c82aefdf12001489391fca4f02	xdg	6024fbc93167fad782e2032933654857
+_md5_=644372afb29653e396c7efdd30a35fc4

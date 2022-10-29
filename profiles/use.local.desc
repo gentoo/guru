@@ -44,7 +44,6 @@ app-misc/fastfetch:xfce - Enables support for XFCE config
 app-misc/fastfetch:xrandr - Enables support for Xrandr
 app-misc/ntfy:dbus - Support for desktop notifications
 app-misc/ntfy:telegram - Add support for telegram backend
-app-misc/termdown:speak - Support for spoken countdown
 app-portage/emlop:fish-completion - Enable fish completion support.
 app-text/klogg:lto - Build with link time optimization (LTO).
 dev-cpp/cpptoml:libcxx - Use libc++ for the C++ standard library
@@ -879,3 +878,4 @@ x11-misc/picom-jonaburg:doc - Build documentation and man pages (requires app-te
 x11-misc/picom-jonaburg:drm - Enable support for using drm for vsync
 x11-misc/picom-jonaburg:opengl - Enable features that require opengl (opengl backend, and opengl vsync methods)
 x11-themes/arc-darkest-colors:icons - Install icon themes
+x11-wm/leftwm:lefthk - Use LeftHK hotkey daemon

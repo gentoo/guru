@@ -1,0 +1,10 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=install
+DESCRIPTION=XML Language Server
+EAPI=8
+HOMEPAGE=https://github.com/eclipse/lemminx
+KEYWORDS=~amd64
+LICENSE=EPL-2.0
+SLOT=0
+SRC_URI=https://github.com/redhat-developer/vscode-xml/releases/download/0.22.0/lemminx-linux.zip -> lemminx-bin-0.22.0.zip
+_md5_=0b9a8359ed4817bb13a20b8134719e9f
