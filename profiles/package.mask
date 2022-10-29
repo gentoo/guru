@@ -18,7 +18,6 @@
 # Depends on masked dev-python/eventlet
 app-admin/glance
 dev-python/glance_store
-dev-python/manhole
 dev-python/os-brick
 dev-python/os-ken
 dev-python/os-win
@@ -47,7 +46,6 @@ dev-python/gnocchi
 dev-python/graphene
 dev-python/graphql-core
 dev-python/graphql-relay
-dev-python/hunter
 dev-python/hwi
 dev-python/keystonemiddleware
 dev-python/neutron-lib
@@ -56,7 +54,6 @@ dev-python/oslo-versionedobjects
 dev-python/pg8000
 dev-python/promise
 dev-python/pypowervm
-dev-python/pytest-benchmark
 dev-python/python-socketio
 dev-python/SQLAlchemy-Utils
 net-misc/maestral
