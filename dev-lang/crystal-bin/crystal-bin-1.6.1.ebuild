@@ -33,7 +33,9 @@ QA_PREBUILT="usr/bin/.*"
 
 src_prepare() {
 	default
+
 	rm -r share/licenses || die
+	gunzip share/man/*/*.gz || die
 }
 
 src_install() {
