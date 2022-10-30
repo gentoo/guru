@@ -25,8 +25,10 @@ RDEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 "
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	test? (
 		>=dev-qt/qtmultimedia-${QTMIN}:5[qml(+)]
+		x11-themes/sound-theme-freedesktop
 	)
 "
