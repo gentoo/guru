@@ -3,13 +3,14 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
+DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_OPTIONAL=1
-inherit cmake distutils-r1
+inherit cmake distutils-r1 edo
 
 DESCRIPTION="Library for fast text representation and classification"
 HOMEPAGE="https://fasttext.cc https://github.com/facebookresearch/fastText"
-SRC_URI="https://github.com/facebookresearch/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/facebookresearch/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -23,6 +24,9 @@ RDEPEND="
 		dev-python/pybind11[${PYTHON_USEDEP}]
 		dev-python/numpy[${PYTHON_USEDEP}]
 	)
+"
+BDEPEND="
+	python? ( ${DISTUTILS_DEPS} )
 "
 
 DOCS=( {CODE_OF_CONDUCT,CONTRIBUTING,README}.md python/{README.rst,doc} docs )
@@ -39,6 +43,10 @@ src_prepare() {
 }
 
 src_configure() {
+	local mycmakeargs=(
+		-DPROJECT_VERSION=${PV}
+	)
+
 	cmake_src_configure
 	use python && distutils-r1_src_configure
 }
@@ -53,7 +61,7 @@ src_test() {
 }
 
 python_test() {
-	${EPYTHON} runtests.py -u || die
+	edo ${EPYTHON} runtests.py -u
 }
 
 src_install() {
