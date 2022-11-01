@@ -14,6 +14,17 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-10-30)
+# Archived upstream, fails to build (#817254, #860324).
+# Masked for removal in 30 days.
+net-misc/tootle
+
+# Torokhov Sergey <torokhov-s-a@yandex.ru> (2022-10-30)
+# Masked due to failed tests with sys-cluster/openmpi;
+# failed tests with sys-devel/gcc-12.2.1_p20221008
+# (Bug: https://bugs.gentoo.org/877463)
+=sys-cluster/opencoarrays-2.10.1
+
 # Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-10-26)
 # Depends on masked dev-python/eventlet
 app-admin/glance

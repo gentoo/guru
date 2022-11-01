@@ -1,28 +1,28 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CMAKE_MAKEFILE_GENERATOR="emake"
 FORTRAN_STANDARD=2003
+VIRTUALX_REQUIRED="test"
 
-inherit cmake fortran-2
+inherit cmake fortran-2 virtualx
 
 DESCRIPTION="A GTK+ binding to build Graphical User Interfaces in Fortran"
 HOMEPAGE="https://github.com/vmagnin/gtk-fortran"
-SRC_URI="https://github.com/vmagnin/${PN}/archive/v20.04.gtk${PV}.tar.gz -> ${P}.tar.gz"
-
-S="${WORKDIR}/${PN}-20.04.gtk${PV}"
+SRC_URI="https://github.com/vmagnin/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
-SLOT="3"
+SLOT="4"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="examples high-level plplot static-libs"
+IUSE="examples high-level plplot static-libs test"
 REQUIRED_USE="plplot? ( high-level )"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
-	x11-libs/gtk+:3
+	gui-libs/gtk:4
 	plplot? ( >=sci-libs/plplot-5.13.0[cairo,fortran] )
 "
 DEPEND="${RDEPEND}"
@@ -44,8 +44,6 @@ src_prepare() {
 		-e "s:    add_subdirectory(sketcher)::" \
 		-e 's:"-rdynamic":"-rdynamic '"${LDFLAGS}"'":' CMakeLists.txt || die
 
-	use !static-libs && eapply "${FILESDIR}/${P}_skip-static-build.patch"
-
 	cmake_src_prepare
 }
 
@@ -57,4 +55,17 @@ src_configure() {
 		-DNO_BUILD_EXAMPLES=true
 	)
 	cmake_src_configure
+}
+
+src_test() {
+	virtx cmake_src_test
+}
+
+src_install() {
+	cmake_src_install
+
+	# Remove static library here as it's used to build additional tools
+	if use !static-libs ; then
+		rm "${ED}/usr/$(get_libdir)/libgtk-${SLOT}-fortran.a" || die
+	fi
 }

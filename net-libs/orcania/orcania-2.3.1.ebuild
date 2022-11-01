@@ -16,6 +16,9 @@ IUSE="doc"
 RESTRICT="test"
 
 BDEPEND="
+	doc? (
+		app-doc/doxygen
+	)
 	virtual/pkgconfig
 "
 DEPEND="

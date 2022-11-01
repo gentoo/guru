@@ -1,9 +1,9 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2022 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-DESCRIPTION="Ledger Live desktop manger"
+DESCRIPTION="Manager for the Ledger hardware wallet"
 HOMEPAGE="https://www.ledger.com/"
 SRC_URI="https://download.live.ledger.com/ledger-live-desktop-${PV}-linux-x86_64.AppImage"
 
