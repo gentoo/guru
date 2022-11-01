@@ -25,6 +25,12 @@ PATCHES=(
 	"${FILESDIR}/${P}-zlib-compile.patch"
 )
 
+src_prepare() {
+	eapply_user
+
+	cmake_src_prepare
+}
+
 src_configure() {
 	CMAKE_BUILD_TYPE="RelWithDebInfo"
 

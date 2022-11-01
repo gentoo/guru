@@ -14,6 +14,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="examples"
 
+QA_PKGCONFIG_VERSION="${PV}.0"
+
 src_install() {
 	cmake_src_install
 	rm -r "${ED}"/usr/share/licenses || die

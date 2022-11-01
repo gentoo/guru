@@ -1,0 +1,23 @@
+--- wezterm/.cargo/config	2022-10-17 19:17:44.508227320 +0200
++++ wezterm/.cargo/config	2022-10-17 17:26:38.142911966 +0200
+@@ -7,3 +7,20 @@
+ # enabled for the target, so let's turn that on here.
+ [target.x86_64-pc-windows-msvc]
+ rustflags = "-C target-feature=+crt-static"
++
++[source."https://github.com/wez/libssh-rs.git"]
++git = "https://github.com/wez/libssh-rs.git"
++replace-with = "vendored-sources"
++
++[source."https://github.com/wez/rust-xcb"]
++git = "https://github.com/wez/rust-xcb"
++branch = "ffi"
++replace-with = "vendored-sources"
++
++[source."https://github.com/wez/xcb-imdkit-rs.git"]
++git = "https://github.com/wez/xcb-imdkit-rs.git"
++rev = "ede7c71b85fe2537efef6cf999a45690316211cf"
++replace-with = "vendored-sources"
++
++[source.vendored-sources]
++directory = "deps/crates"

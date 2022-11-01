@@ -21,9 +21,12 @@ DEPEND="alsa? ( media-libs/alsa-lib )
 	faudio? ( app-emulation/faudio )
 	pulseaudio? ( media-sound/pulseaudio )
 	app-arch/p7zip
+	dev-libs/hidapi
 	dev-libs/libevdev
 	dev-libs/pugixml
+	dev-libs/xxhash
 	media-libs/cubeb
+	media-libs/glew
 	media-libs/libpng
 	media-libs/openal
 	sys-libs/zlib"

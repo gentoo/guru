@@ -4,6 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 DESCRIPTION="deSEC DNS Authenticator plugin for Certbot"
@@ -18,7 +19,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	app-crypt/certbot[${PYTHON_USEDEP}]
 	app-crypt/certbot[${PYTHON_USEDEP}]
 "
 BDEPEND="test? (

@@ -7,7 +7,7 @@
 	</maintainer>
 	<use>
 		<flag name="vaapi">
-			Enable support for hardware video decoding using <pkg>x11-libs/libva</pkg>.
+			Enable support for hardware video decoding using <pkg>media-libs/libva</pkg>.
 		</flag>
 	</use>
 </pkgmetadata>
