@@ -17,8 +17,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-python/pyyaml
-	dev-python/xmltodict
+	dev-python/pyyaml[${PYTHON_USEDEP}]
+	dev-python/xmltodict[${PYTHON_USEDEP}]
 "
 
 src_prepare() {
