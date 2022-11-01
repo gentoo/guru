@@ -1,0 +1,17 @@
+BDEPEND=virtual/fortran virtual/pkgconfig sys-devel/make >=dev-util/cmake-3.20.5 virtual/fortran test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=gui-libs/gtk:4 plplot? ( >=sci-libs/plplot-5.15.0[cairo,fortran] ) virtual/fortran
+DESCRIPTION=A GTK+ binding to build Graphical User Interfaces in Fortran
+EAPI=8
+HOMEPAGE=https://github.com/vmagnin/gtk-fortran
+INHERIT=cmake fortran-2 virtualx
+IUSE=examples high-level plplot static-libs test test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=gui-libs/gtk:4 plplot? ( >=sci-libs/plplot-5.15.0[cairo,fortran] ) virtual/fortran
+REQUIRED_USE=plplot? ( high-level )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=4
+SRC_URI=https://github.com/vmagnin/gtk-fortran/archive/v4.2.1.tar.gz -> gtk-fortran-4.2.1.tar.gz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	virtualx	644887c82aefdf12001489391fca4f02
+_md5_=fa3e906b7868ac05ab397fcd842a266b
