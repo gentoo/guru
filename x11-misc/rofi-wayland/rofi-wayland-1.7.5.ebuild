@@ -30,7 +30,7 @@ RDEPEND="
 	x11-libs/xcb-util-wm
 	x11-misc/xkeyboard-config
 	dev-libs/wayland
-	dev-libs/wayland-protocols
+	dev-libs/wayland-protocols-1.17
 "
 DEPEND="
 	${RDEPEND}
