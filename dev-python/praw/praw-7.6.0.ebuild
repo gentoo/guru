@@ -4,6 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 DESCRIPTION="Python Reddit API Wrapper"
@@ -25,6 +26,14 @@ BDEPEND="test? (
 	dev-python/betamax-matchers[${PYTHON_USEDEP}]
 )"
 
+# TODO: remove in next release
+EPYTEST_DESELECT=(
+	tests/unit/test_deprecations.py
+	tests/unit/util/test_deprecate_args.py
+	tests/unit/models/reddit/test_submission.py::TestSubmission::test_comment_sort_warning
+	tests/unit/models/reddit/test_submission.py::TestSubmission::test_comment_sort_warning__disabled
+)
+
 distutils_enable_sphinx docs dev-python/sphinx_rtd_theme
 
 distutils_enable_tests pytest
@@ -37,6 +46,9 @@ python_prepare_all() {
 }
 
 python_test() {
-	# spams deprecation warnings
-	epytest -p no:asyncio
+	local epytestargs=(
+		# spams deprecation warnings
+		-p no:asyncio
+	)
+	epytest "${epytestargs[@]}"
 }
