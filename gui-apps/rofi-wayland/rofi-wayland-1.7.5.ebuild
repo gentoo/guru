@@ -26,7 +26,7 @@ RDEPEND="
 	x11-libs/pango[X]
 	x11-libs/startup-notification
 	dev-libs/wayland
-	dev-libs/wayland-protocols-1.17
+	>=dev-libs/wayland-protocols-1.17
 "
 DEPEND="
 	${RDEPEND}
