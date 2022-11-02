@@ -31,7 +31,7 @@ BDEPEND="virtual/pkgconfig"
 RESTRICT="!test? ( test )"
 
 PATCHES=(
-	"${FILESDIR}"/"${PN}"-0.7.0-install-when-testing.patch
+	"${FILESDIR}"/"${PN}"-0.7.1-fix-external-gtest.patch
 )
 
 src_prepare() {
@@ -44,8 +44,8 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-			-DBUILD_UNITTESTS="$(usex test)"
-			-DEXTERNAL_GTEST=YES
+			-DSCITOKENS_BUILD_UNITTESTS="$(usex test)"
+			-DSCITOKENS_EXTERNAL_GTEST=YES
 			)
 	cmake_src_configure
 }
