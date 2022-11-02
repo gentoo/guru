@@ -11,7 +11,7 @@ S="${WORKDIR}"/rofi-"${PV}"+wayland1
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+drun test +windowmode"
+IUSE="+drun +windowmode"
 
 BDEPEND="
 	sys-devel/bison
