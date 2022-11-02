@@ -24,7 +24,7 @@ DEPEND="
 BDEPEND=">=dev-lang/go-1.17.0"
 RDEPEND="!net-p2p/yggdrasil-go"
 
-S="${WORKDIR}/Popura-${PV}-popura1"
+S="${WORKDIR}/Popura-${PV}"
 
 FILECAPS=(
 	cap_net_admin,cap_net_bind_service "usr/bin/yggdrasil"
