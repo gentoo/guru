@@ -35,3 +35,11 @@ src_configure() {
 	)
 	cmake_src_configure
 }
+
+src_install() {
+	cmake_src_install
+	# fix cmake module file install path
+	mkdir -p "${D}"/usr/"$(get_libdir)"/cmake/"${PN}" || die
+	mv "${D}"/usr/share/${PN}/cmake/* "${D}"/usr/"$(get_libdir)"/cmake/"${PN}"/ || die
+	rm -r "${D}"/usr/share/${PN} || die
+}
