@@ -3,8 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
-
+PYTHON_COMPAT=( python3_{8..11} )
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 optfeature
 
 MY_PV=${PV/_beta/b}
@@ -13,7 +13,7 @@ HOMEPAGE="
 	https://aiopg.readthedocs.io
 	https://github.com/aio-libs/aiopg
 "
-SRC_URI="https://github.com/aio-libs/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/aio-libs/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="BSD"
@@ -23,7 +23,10 @@ KEYWORDS="~amd64 ~x86"
 # tests use docker containers -- that's wild!
 RESTRICT="test"
 
-RDEPEND="dev-python/psycopg[${PYTHON_USEDEP}]"
+RDEPEND="
+	dev-python/async-timeout[${PYTHON_USEDEP}]
+	dev-python/psycopg:2[${PYTHON_USEDEP}]
+"
 
 DEPEND="test? (
 	dev-python/docker-py[${PYTHON_USEDEP}]
