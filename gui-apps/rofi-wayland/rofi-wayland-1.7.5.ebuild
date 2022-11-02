@@ -30,7 +30,6 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	x11-base/xorg-proto
-	test? ( >=dev-libs/check-0.11 )
 "
 
 src_configure() {
