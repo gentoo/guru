@@ -12,7 +12,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="+drun test +windowmode"
-RESTRICT="!test? ( test )"
 
 BDEPEND="
 	sys-devel/bison
