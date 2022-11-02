@@ -7,7 +7,7 @@
 		<name>Rahul Sandhu</name>
 	</maintainer>
   <use>
-    <flag name="drun">Build rofi-wayland with support for drun</flag>
-    <flag name="windowmode">Build rofi-wayland with support for window mode</flag>
+    <flag name="+drun">Build rofi-wayland with support for drun</flag>
+    <flag name="+windowmode">Build rofi-wayland with support for window mode</flag>
   </use>
 </pkgmetadata>
