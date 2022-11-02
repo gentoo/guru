@@ -19,7 +19,7 @@ BDEPEND="
 	virtual/pkgconfig
 "
 RDEPEND="
-	dev-libs/glib:2
+	>=dev-libs/glib-2.40:2
 	x11-libs/cairo[X]
 	x11-libs/gdk-pixbuf:2
 	x11-libs/pango[X]
