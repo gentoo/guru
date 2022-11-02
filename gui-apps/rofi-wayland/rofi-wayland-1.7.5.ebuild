@@ -24,7 +24,6 @@ RDEPEND="
 	x11-libs/cairo[X]
 	x11-libs/gdk-pixbuf:2
 	x11-libs/pango[X]
-	x11-libs/startup-notification
 	dev-libs/wayland
 	>=dev-libs/wayland-protocols-1.17
 "
