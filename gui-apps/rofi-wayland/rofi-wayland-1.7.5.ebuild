@@ -28,7 +28,6 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	x11-base/xorg-proto
 "
 
 src_configure() {
