@@ -27,9 +27,24 @@ RDEPEND="
 	dev-python/python-debian[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 "
-BDEPEND="dev-python/setuptools_scm[${PYTHON_USEDEP}]"
+BDEPEND="
+	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+	test? (
+		dev-vcs/git
+		dev-vcs/mercurial
+	)
+"
 
 DOCS=( AUTHORS.rst CHANGELOG.md CODE_OF_CONDUCT.md CONTRIBUTING.md README.md )
+
+# not supported by recent git versions
+EPYTEST_DESELECT=(
+	tests/test_lint.py::test_lint_submodule
+	tests/test_lint.py::test_lint_submodule_included
+	tests/test_main.py::test_lint_submodule
+	tests/test_main.py::test_lint_submodule_included_fail
+	tests/test_project.py::test_all_files_submodule_is_ignored
+)
 
 distutils_enable_tests pytest
 
