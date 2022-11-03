@@ -28,18 +28,14 @@ DEPEND="
 	${RDEPEND}
 "
 
+PATCHES=(
+	"${FILESDIR}/${PN}-2.0.0-fix-cmake-install-path.patch"
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-D CMAKE_INSTALL_LIBDIR="${EPREFIX}/usr/$(get_libdir)"
 		-D BUILD_SHARED_LIBS=ON
 	)
 	cmake_src_configure
-}
-
-src_install() {
-	cmake_src_install
-	# fix cmake module file install path
-	mkdir -p "${D}"/usr/"$(get_libdir)"/cmake/"${PN}" || die
-	mv "${D}"/usr/share/${PN}/cmake/* "${D}"/usr/"$(get_libdir)"/cmake/"${PN}"/ || die
-	rm -r "${D}"/usr/share/${PN} || die
 }
