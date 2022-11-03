@@ -3,7 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
+PYTHON_REQ_USE="sqlite"
 DISTUTILS_USE_PEP517=flit
 inherit distutils-r1
 
@@ -25,5 +26,6 @@ BDEPEND="test? (
 )"
 
 distutils_enable_tests unittest
+
 # AttributeError: 'str' object has no attribute 'supported'
 #distutils_enable_sphinx docs dev-python/m2r
