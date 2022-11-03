@@ -1,10 +1,10 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
-
+PYTHON_COMPAT=( python3_{8..11} )
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 DESCRIPTION="Server Sent Events for Starlette"
@@ -18,11 +18,17 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="dev-python/starlette"
+RDEPEND="
+	dev-python/anyio[${PYTHON_USEDEP}]
+	dev-python/starlette[${PYTHON_USEDEP}]
+"
 BDEPEND="
 	test? (
-		dev-python/pytest-asyncio
-		dev-python/requests
+		dev-python/asgi-lifespan[${PYTHON_USEDEP}]
+		dev-python/httpx[${PYTHON_USEDEP}]
+		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
+		dev-python/requests[${PYTHON_USEDEP}]
+		dev-python/uvicorn[${PYTHON_USEDEP}]
 	)
 "
 
