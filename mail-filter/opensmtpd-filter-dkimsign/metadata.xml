@@ -10,6 +10,7 @@
 			<email>martijn@openbsd.org</email>
 			<name>Martijn van Duren</name>
 		</maintainer>
+	</upstream>
 	<use>
 		<flag name="ed25519">Enable ED25519 support</flag>
 	</use>
