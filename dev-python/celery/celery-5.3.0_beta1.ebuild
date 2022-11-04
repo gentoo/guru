@@ -34,10 +34,21 @@ RDEPEND="
 	dev-python/pytz[${PYTHON_USEDEP}]
 	dev-python/vine[${PYTHON_USEDEP}]
 "
+# TODO:
+# - dev-python/pyArango
+# - dev-python/couchbase
+# - dev-python/pycouchdb
+# Deprecated test deps (don't add):
+# - eventlet
+# - memcached
+# - python-consul
+# - pydocumentdb
 BDEPEND="
 	test? (
 		$(python_gen_impl_dep 'ncurses(+)')
+		dev-python/azure-storage-blob[${PYTHON_USEDEP}]
 		>=dev-python/boto3-1.9.178[${PYTHON_USEDEP}]
+		dev-python/cryptography[${PYTHON_USEDEP}]
 		dev-python/elasticsearch-py[${PYTHON_USEDEP}]
 		>=dev-python/moto-1.3.7[${PYTHON_USEDEP}]
 		dev-python/msgpack[${PYTHON_USEDEP}]
@@ -51,6 +62,7 @@ BDEPEND="
 		dev-python/redis-py[${PYTHON_USEDEP}]
 		dev-python/sphinx-testing[${PYTHON_USEDEP}]
 		dev-python/tblib[${PYTHON_USEDEP}]
+		sci-astronomy/pyephem[${PYTHON_USEDEP}]
 	)
 	doc? (
 		dev-python/docutils[${PYTHON_USEDEP}]
