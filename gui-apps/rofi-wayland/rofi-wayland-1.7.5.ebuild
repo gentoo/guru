@@ -11,7 +11,8 @@ S="${WORKDIR}"/rofi-"${PV}"+wayland1
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+drun +windowmode"
+IUSE="+drun +windowmode test"
+RESTRICT="!test? ( test )"
 
 BDEPEND="
 	sys-devel/bison
@@ -29,6 +30,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
+	test? ( dev-libs/check )
 "
 
 src_configure() {
@@ -38,6 +40,7 @@ src_configure() {
 		-Dcheck=disabled
 		$(meson_use drun)
 		$(meson_use windowmode window)
+		$(meson_feature test check)
 	)
 	meson_src_configure
 }
