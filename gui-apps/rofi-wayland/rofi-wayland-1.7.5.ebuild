@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 inherit meson xdg
 
 DESCRIPTION="A window switcher, run dialog and dmenu replacement"
@@ -12,14 +13,9 @@ S="${WORKDIR}"/rofi-${PV}+wayland1
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+drun +windowmode test"
+IUSE="drun windowmode test"
 RESTRICT="!test? ( test )"
 
-BDEPEND="
-	sys-devel/bison
-	sys-devel/flex
-	virtual/pkgconfig
-"
 RDEPEND="
 	!x11-misc/rofi
 	>=dev-libs/glib-2.40:2
@@ -32,6 +28,9 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	test? ( dev-libs/check )
+"
+BDEPEND="
+	sys-devel/bison
 "
 
 src_configure() {
