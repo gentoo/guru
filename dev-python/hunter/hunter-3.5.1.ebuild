@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1
+inherit distutils-r1 multiprocessing
 
 DESCRIPTION="Hunter is a flexible code tracing toolkit"
 HOMEPAGE="
@@ -15,6 +15,7 @@ HOMEPAGE="
 SRC_URI="https://github.com/ionelmc/python-${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/python-${P}"
 TEST_S="${S}_test"
+
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -36,6 +37,7 @@ BDEPEND="
 DOCS=( AUTHORS.rst CHANGELOG.rst README.rst )
 
 EPYTEST_DESELECT=(
+	# broken
 	tests/test_tracer.py::test_source_cython
 	tests/test_tracer.py::test_fullsource_cython
 
@@ -55,16 +57,17 @@ src_unpack() {
 	mv -f "${TEST_S}"/tests/setup.py "${TEST_S}"/setup.py || die
 }
 
+python_compile() {
+	distutils-r1_python_compile
+
+	if use test; then
+		einfo "  Building tests"
+		cd "${TEST_S}" || die
+		esetup.py build_ext -j $(makeopts_jobs) --inplace
+	fi
+}
+
 python_test() {
-	local TEST_ROOT="${BUILD_DIR}"/test
-	cp -a "${BUILD_DIR}/install" "${TEST_ROOT}" || die
-
-	cd "${TEST_S}" || die
-	distutils_pep517_install "${TEST_ROOT}"
-
-	local -x PATH="${TEST_ROOT}/usr/bin:${PATH}"
-	local -x PYTHONPATH="${S}/tests:${PYTHONPATH}"
-
-	cd "${T}" || die
-	epytest "${S}"/tests
+	cd "${TEST_S}"/tests || die
+	epytest
 }
