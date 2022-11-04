@@ -3,5 +3,6 @@ dev-hare
 dev-nim
 dev-octave
 dev-R
+dev-zig
 mpv-plugin
 net-client
