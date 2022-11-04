@@ -22,17 +22,17 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-python/pycairo:0[${PYTHON_USEDEP}]
-	dev-python/pygobject:3[${PYTHON_USEDEP}]
+	dev-python/pygobject:3[cairo,${PYTHON_USEDEP}]
 	media-libs/mutagen:0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	verify-sig? ( sec-keys/openpgp-keys-jvoisin )
 	test? (
-		app-text/poppler[introspection(+)]
-		gnome-base/librsvg[introspection(+)]
+		app-text/poppler[introspection]
+		gnome-base/librsvg[introspection]
 		media-libs/exiftool:*
-		media-video/ffmpeg[mp3(+),vorbis(+)]
-		x11-libs/gdk-pixbuf:2[jpeg(+),tiff(+)]
+		media-video/ffmpeg[mp3,vorbis]
+		x11-libs/gdk-pixbuf:2[jpeg,tiff]
 	)
 "
 
