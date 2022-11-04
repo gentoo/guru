@@ -7,6 +7,6 @@ HOMEPAGE=https://harelang.org/
 KEYWORDS=~amd64 ~arm64 ~riscv
 LICENSE=MPL-2.0 GPL-3
 RDEPEND=sys-devel/qbe >=dev-lang/harec-0_pre20220702
-SLOT=0/0_pre20220922
-SRC_URI=https://git.sr.ht/~sircmpwn/hare/archive/82213191adc25137c704df4786a71bce40b6079f.tar.gz -> hare-82213191adc25137c704df4786a71bce40b6079f.tar.gz
-_md5_=df9f52944b6d9f5a7cc579333069759b
+SLOT=0/0_pre20221031
+SRC_URI=https://git.sr.ht/~sircmpwn/hare/archive/1e039a8411948564b53fe53483afe4af6cf78b22.tar.gz -> hare-1e039a8411948564b53fe53483afe4af6cf78b22.tar.gz
+_md5_=270a159a1e64d1c90bff80547884550d
