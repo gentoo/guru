@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
-inherit bash-completion-r1 distutils-r1 optfeature
+inherit bash-completion-r1 check-reqs distutils-r1 optfeature
 
 MY_PV="${PV/_beta/b}"
 DESCRIPTION="Asynchronous task queue/job queue based on distributed message passing"
@@ -73,6 +73,8 @@ BDEPEND="
 	)
 "
 
+CHECKREQS_MEMORY="2G"
+
 EPYTEST_DESELECT=(
 	t/unit/tasks/test_result.py::test_EagerResult::test_wait_raises
 	t/unit/tasks/test_tasks.py::test_task_retries
@@ -86,6 +88,14 @@ EPYTEST_DESELECT=(
 distutils_enable_tests pytest
 
 distutils_enable_sphinx docs --no-autodoc
+
+pkg_setup() {
+	use test && check-reqs_pkg_setup
+}
+
+pkg_pretend() {
+	use test && check-reqs_pkg_pretend
+}
 
 python_install_all() {
 	# Main celeryd init.d and conf.d
