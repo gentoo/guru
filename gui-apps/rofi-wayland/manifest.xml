@@ -4,7 +4,7 @@
 <pkgmetadata>
 	<maintainer type="person">
 		<email>rahul@sandhuservices.dev</email>
-		<name>Rahul Sandhu</name>
+		<name>Rahul Singh Sandhu</name>
 	</maintainer>
   <use>
     <flag name="drun">Desktop file mode</flag>
