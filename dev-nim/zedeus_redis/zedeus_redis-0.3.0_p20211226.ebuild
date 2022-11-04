@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit nimble
+inherit databases nimble
 
 MY_PN="redis"
 COMMIT="d0a0e6fb3010015f0cc483ca2e540ace02446570"
@@ -18,7 +18,9 @@ KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-BDEPEND="test? ( dev-db/redis )"
+BDEPEND="test? (
+	$(eredis --get-depend)
+)"
 
 set_package_url "https://github.com/zedeus/redis"
 
@@ -32,21 +34,7 @@ src_test() {
 	#enim r tests/tawaitorder.nim
 
 	# Tests that require redis
-	local redis_pid="${T}"/redis.pid
-	local redis_port=6379
-
-	ebegin "Spawning Redis (NOTE: port ${redis_port} must be free)"
-	"${EPREFIX}"/usr/sbin/redis-server - <<- EOF > /dev/null
-		daemonize yes
-		pidfile ${redis_pid}
-		port ${redis_port}
-		bind 127.0.0.1
-	EOF
-	eend ${?}
-
+	eredis --start
 	nimble_src_test
-
-	ebegin "Stopping Redis"
-	kill "$(<"${redis_pid}")"
-	eend ${?}
+	eredis --stop
 }
