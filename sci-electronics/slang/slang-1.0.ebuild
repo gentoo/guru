@@ -4,7 +4,7 @@
 EAPI="8"
 
 PYTHON_COMPAT=( python3_{8..11} )
-inherit cmake python-r1
+inherit cmake python-single-r1
 
 DESCRIPTION="SystemVerilog compiler and language services"
 HOMEPAGE="
@@ -42,7 +42,6 @@ src_configure() {
 	local mycmakeargs=(
 		-D CMAKE_INSTALL_LIBDIR="${EPREFIX}/usr/$(get_libdir)"
 		-D BUILD_SHARED_LIBS=ON
-		-D SLANG_INCLUDE_PYLIB=$(usex python)
 		-D SLANG_INCLUDE_TESTS=$(usex test)
 	)
 	cmake_src_configure

@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
-inherit bash-completion-r1 distutils-r1 optfeature
+inherit bash-completion-r1 check-reqs distutils-r1 optfeature
 
 MY_PV="${PV/_beta/b}"
 DESCRIPTION="Asynchronous task queue/job queue based on distributed message passing"
@@ -34,10 +34,21 @@ RDEPEND="
 	dev-python/pytz[${PYTHON_USEDEP}]
 	dev-python/vine[${PYTHON_USEDEP}]
 "
+# TODO:
+# - dev-python/pyArango
+# - dev-python/couchbase
+# - dev-python/pycouchdb
+# Deprecated test deps (don't add):
+# - eventlet
+# - memcached
+# - python-consul
+# - pydocumentdb
 BDEPEND="
 	test? (
 		$(python_gen_impl_dep 'ncurses(+)')
+		dev-python/azure-storage-blob[${PYTHON_USEDEP}]
 		>=dev-python/boto3-1.9.178[${PYTHON_USEDEP}]
+		dev-python/cryptography[${PYTHON_USEDEP}]
 		dev-python/elasticsearch-py[${PYTHON_USEDEP}]
 		>=dev-python/moto-1.3.7[${PYTHON_USEDEP}]
 		dev-python/msgpack[${PYTHON_USEDEP}]
@@ -51,6 +62,7 @@ BDEPEND="
 		dev-python/redis-py[${PYTHON_USEDEP}]
 		dev-python/sphinx-testing[${PYTHON_USEDEP}]
 		dev-python/tblib[${PYTHON_USEDEP}]
+		sci-astronomy/pyephem[${PYTHON_USEDEP}]
 	)
 	doc? (
 		dev-python/docutils[${PYTHON_USEDEP}]
@@ -60,6 +72,8 @@ BDEPEND="
 		dev-python/sqlalchemy[${PYTHON_USEDEP}]
 	)
 "
+
+CHECKREQS_MEMORY="2G"
 
 EPYTEST_DESELECT=(
 	t/unit/tasks/test_result.py::test_EagerResult::test_wait_raises
@@ -74,6 +88,14 @@ EPYTEST_DESELECT=(
 distutils_enable_tests pytest
 
 distutils_enable_sphinx docs --no-autodoc
+
+pkg_setup() {
+	use test && check-reqs_pkg_setup
+}
+
+pkg_pretend() {
+	use test && check-reqs_pkg_pretend
+}
 
 python_install_all() {
 	# Main celeryd init.d and conf.d

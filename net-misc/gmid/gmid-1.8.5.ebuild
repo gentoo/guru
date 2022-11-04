@@ -45,7 +45,7 @@ fi
 
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/signify-keys/${PN}-$(ver_cut 1-2).pub"
 
-#DOCS=( README.md ChangeLog contrib/README )
+DOCS=( README.md ChangeLog contrib/README )
 
 src_unpack() {
 	if [[ ${PV} == 9999 ]]; then
@@ -86,8 +86,8 @@ src_install() {
 	insinto /etc/gmid
 	doins "${FILESDIR}"/gmid.conf
 
-	#insinto /usr/share/vim/vimfiles
-	#doins -r contrib/vim/*
+	insinto /usr/share/vim/vimfiles
+	doins -r contrib/vim/*
 
 	systemd_dounit "${FILESDIR}"/gmid.service
 	newinitd "${FILESDIR}"/gmid.initd gmid

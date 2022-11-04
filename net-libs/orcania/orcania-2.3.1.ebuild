@@ -18,6 +18,7 @@ RESTRICT="test"
 BDEPEND="
 	doc? (
 		app-doc/doxygen
+		media-gfx/graphviz
 	)
 	virtual/pkgconfig
 "

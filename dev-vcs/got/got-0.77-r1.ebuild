@@ -3,8 +3,6 @@
 
 EAPI=8
 
-inherit toolchain-funcs
-
 MY_PN="${PN}-portable"
 DESCRIPTION="Portable version of the Game of Trees version control system"
 HOMEPAGE="https://gameoftrees.org"
@@ -16,15 +14,22 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="
+	dev-libs/libevent:=
 	sys-libs/ncurses:=[unicode(+)]
 	sys-libs/zlib:=
-	elibc_Darwin? ( dev-libs/ossp-uuid )
-	elibc_SunOS? ( sys-libs/libuuid )
-	!elibc_Darwin? ( dev-libs/libbsd )
-	!elibc_Darwin? ( !elibc_SunOS? (
-		app-crypt/libmd
-		sys-apps/util-linux
-	) )
+	elibc_Darwin? (
+		dev-libs/ossp-uuid
+	)
+	elibc_SunOS? (
+		sys-libs/libuuid
+	)
+	!elibc_Darwin? (
+		dev-libs/libbsd
+		!elibc_SunOS? (
+			app-crypt/libmd
+			sys-apps/util-linux
+		)
+	)
 "
 BDEPEND="
 	virtual/pkgconfig
@@ -36,5 +41,5 @@ RDEPEND="${DEPEND}"
 DOCS=( CHANGELOG CHANGES README TODO )
 
 src_compile() {
-	emake AR=$(tc-getAR) GOT_RELEASE=Yes
+	emake GOT_RELEASE=Yes
 }
