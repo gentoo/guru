@@ -16,8 +16,9 @@ KEYWORDS="~amd64 ~x86"
 
 LICENSE="AGPL-3 MIT Apache-2.0 BSD BSD-2 CC-BY-4.0"
 SLOT="0"
+RESTRICT="mirror"
 
-BDEPEND=">=dev-lang/go-1.18.0"
+BDEPEND=">=dev-lang/go-1.19.0"
 RDEPEND="dev-vcs/git"
 
 src_compile() {
@@ -27,6 +28,7 @@ src_compile() {
 src_install() {
 	dobin mycorrhiza
 	doman help/mycorrhiza.1
+	dodoc Boilerplate.md
 	dodoc README.md
 }
 
