@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<catmetadata>
+	<longdescription lang="en">
+		The dev-zig category contains libraries, utilities
+		or bindings for Zig programming language.
+	</longdescription>
+	<longdescription lang="ru">
+		Категория dev-zig содержит библиотеки, утилиты для разработки
+		или обвязки для языка программирования Zig.
+	</longdescription>
+</catmetadata>

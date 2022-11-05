@@ -8,8 +8,8 @@ inherit go-module linux-info systemd fcaps
 DESCRIPTION="Popura: alternative Yggdrasil network client"
 HOMEPAGE="https://github.com/popura-network/Popura/"
 SRC_URI="
-	https://github.com/popura-network/Popura/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://codeberg.org/BratishkaErik/distfiles/media/branch/master/${P}-deps.tar.bz2
+	https://github.com/popura-network/Popura/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/popura-network/Popura/releases/download/v${PV}/popura-${PV}-vendor.tar.xz
 "
 
 LICENSE="LGPL-3 MPL-2.0 MIT Apache-2.0 BSD ZLIB"

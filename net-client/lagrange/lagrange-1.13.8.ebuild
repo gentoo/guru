@@ -18,7 +18,7 @@ IUSE="+fribidi +harfbuzz mp3 ncurses webp"
 DEPEND="
 	>=dev-libs/tfdn-1.1.0:=[ssl]
 	fribidi? ( dev-libs/fribidi )
-	ncurses? ( dev-libs/sealcurses )
+	ncurses? ( dev-libs/sealcurses:= )
 	!ncurses? (
 		harfbuzz? ( media-libs/harfbuzz:=[truetype(+)] )
 		media-libs/libsdl2[sound(+),video(+)]
@@ -27,8 +27,10 @@ DEPEND="
 	webp? ( media-libs/libwebp:= )
 "
 RDEPEND="${DEPEND}"
-BDEPEND="app-arch/zip
-	verify-sig? ( sec-keys/openpgp-keys-skyjake )"
+BDEPEND="
+	app-arch/zip
+	verify-sig? ( sec-keys/openpgp-keys-skyjake )
+"
 
 VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/skyjake.asc"
 
@@ -36,16 +38,13 @@ src_prepare() {
 	# checked by Depends.cmake
 	rm -r lib/the_Foundation/CMakeLists.txt || die
 
-	sed "/elseif (ENABLE_TUI AND (UNIX OR MSYS))/a include (GNUInstallDirs)" \
-		-i CMakeLists.txt || die
-
 	cmake_src_prepare
 }
 
 src_configure() {
-	# do not add use flags that don't pull dependencies
+	# note: do not add use flags that don't pull dependencies
 	# and only choose which files to compile (e.g. "ipc")
-	local mycmakeargs=(
+	local -a mycmakeargs=(
 		-DENABLE_FRIBIDI=$(usex fribidi)
 		-DENABLE_HARFBUZZ=$(usex harfbuzz)
 		-DENABLE_TUI=$(usex ncurses)

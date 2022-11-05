@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<email>martijn@openbsd.org</email>
+			<name>Martijn van Duren</name>
+		</maintainer>
+	</upstream>
+	<use>
+		<flag name="ed25519">Enable ED25519 support</flag>
+	</use>
+</pkgmetadata>
