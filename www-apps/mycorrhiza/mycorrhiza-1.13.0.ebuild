@@ -10,7 +10,7 @@ HOMEPAGE="https://mycorrhiza.wiki"
 
 SRC_URI="
 	https://github.com/bouncepaw/mycorrhiza/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://codeberg.org/BratishkaErik/distfiles/media/branch/master/${P}-deps.tar.bz2
+	https://codeberg.org/BratishkaErik/distfiles/media/branch/master/${P}-vendor.tar.xz
 "
 KEYWORDS="~amd64 ~x86"
 
