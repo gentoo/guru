@@ -1,13 +1,13 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit meson optfeature
 
 DESCRIPTION="i3-gaps fork with rounded corners support."
-HOMEPAGE="https://github.com/linobigatti/i3-rounded"
-SRC_URI="https://github.com/linobigatti/i3-rounded/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/LinoBigatti/i3-rounded"
+SRC_URI="https://github.com/LinoBigatti/i3-rounded/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
@@ -51,13 +51,10 @@ RDEPEND="${COMMON_DEPEND}
 	dev-perl/JSON-XS
 	!x11-wm/i3"
 
-#S="${WORKDIR}/i3-rounded-${PV}"
-
 DOCS=( RELEASE-NOTES-$(ver_cut 1-3) )
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.18-musl.patch"
-	"${FILESDIR}/${PN}-4.19-fix-docdir.patch"
 )
 
 src_configure() {
