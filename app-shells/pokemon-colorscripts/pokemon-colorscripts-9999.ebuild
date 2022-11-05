@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=(python3_{8,9,10})
+PYTHON_COMPAT=(python3_{8,9,10,11})
 
 inherit git-r3 python-single-r1
 
@@ -17,9 +17,9 @@ LICENSE="MIT"
 
 SLOT="0"
 
-KEYWORDS="~amd64"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RDEPEND=">=dev-lang/python-3.10.8_p1"
+RDEPEND="${PYTHON_DEPS}"
 
 src_prepare() {
 	default
