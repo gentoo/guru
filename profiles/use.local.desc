@@ -336,6 +336,7 @@ gui-libs/cubegui:scorep - Enable scorep support
 gui-libs/cubegui:webengine - Enables usage of the QtWebEngine for the HTML Documentation
 gui-libs/power-profiles-daemon:pylint - Run pylint checks
 gui-wm/cage:X - Enable support for X11 applications (XWayland)
+mail-filter/opensmtpd-filter-dkimsign:ed25519 - Enable ED25519 support
 media-fonts/victor-mono:otf - Install the OpenType version of the font
 media-fonts/victor-mono:ttf - Install the TrueType version of the font
 media-gfx/bonzomatic:system-glew - Use the systems installed version of GLEW (upstream-unsupported)

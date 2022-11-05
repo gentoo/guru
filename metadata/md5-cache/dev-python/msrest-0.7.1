@@ -7,10 +7,11 @@ INHERIT=distutils-r1 optfeature
 IUSE=test python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=~amd64
 LICENSE=MIT
+PROPERTIES=test_network
 RDEPEND=dev-python/azure-core[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/certifi[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/isodate[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/requests[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/requests-oauthlib[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8[xml(+)] ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9[xml(+)] ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10[xml(+)] ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11[xml(+)] )
 REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
-RESTRICT=!test? ( test )
+RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/m/msrest/msrest-0.7.1.zip
 _eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-r1	2d51fd03931e743811ce30d198e4dcfd	distutils-r1	8c1ceb6b71a65547b0ea7bc901d906cb	optfeature	1a2157392a869265b2afcb63a26c12ac
-_md5_=b5840ecf18a2ce27fab3a608544b11e8
+_md5_=8b83e8edbda85456aadf1be872c6fb3f

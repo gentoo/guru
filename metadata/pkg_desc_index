@@ -228,7 +228,7 @@ app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
 app-shells/zsh-history-substring-search 1.0.2: ZSH port of Fish history search (up arrow)
 app-shells/zsh-history-to-fish 0.3.0-r1: Bring your ZSH history to Fish shell
 app-shells/zsh-silver 9999: Zsh plugin for silver
-app-text/OCRmyPDF 14.0.1-r1: OCRmyPDF adds an OCR text layer to scanned PDF files
+app-text/OCRmyPDF 14.0.1-r2: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/cmark-gfm 0.29.0.3: GitHub's fork of cmark
 app-text/code-minimap 0.6.4: A high performance code minimap generator
 app-text/epubgrep 0.6.0-r1 0.6.2: Search tool for EPUB e-books
@@ -496,6 +496,7 @@ dev-java/orson-charts 1.7: A fast, lightweight charts generator for the Java pla
 dev-java/orsonpdf 1.9: A fast, lightweight PDF generator for the Java platform
 dev-java/paceRegression 1.0.1: Class for building pace regression linear models and using them for prediction
 dev-lang/aldor 1.2.0_p20190730-r1: The Aldor Programming Language
+dev-lang/cc65 2.19: Cross-development package for 65(C)02 systems
 dev-lang/crystal-bin 1.6.1 1.6.2: The Crystal Programming Language
 dev-lang/fbc 1.07.3 1.08.1: A free/open source, multi-platform BASIC compiler.
 dev-lang/fbc-bootstrap 1.07.3 1.08.1: Bootstrap package for dev-lang/fbc
@@ -538,6 +539,7 @@ dev-libs/libdatrie 0.2.13: Double-Array Trie Library
 dev-libs/libdwarf 0.4.0 0.4.1: The DWARF Debugging Information Format
 dev-libs/libglibutil 1.0.63: Library of glib utilities
 dev-libs/libnodave 0.8.5.1-r2: Connect to and exchange data with Siemens PLCs
+dev-libs/libopensmtpd 0.7: Library for creating OpenSMTPD filters
 dev-libs/libthai 0.1.28 0.1.29: A a set of Thai language support routines
 dev-libs/luksmeta 9: LUKSMeta is a simple library for storing metadata in the LUKSv1 header
 dev-libs/memkind 1.13.0: user extensible heap manager built on top of jemalloc
@@ -738,6 +740,7 @@ dev-python/asciimatics 1.13.0 9999: Package for curses-like operations, text UIs
 dev-python/ascim 0.1.1: Manipulate ASCII art as you would do with raster images
 dev-python/asgi-lifespan 1.0.1: Programmatic startup/shutdown of ASGI apps
 dev-python/aspectlib 1.5.2 2.0.0: An aspect-oriented programming, monkey-patch and decorators library
+dev-python/asyncmy 0.2.5: A fast asyncio MySQL driver
 dev-python/asyncpg 0.26.0 0.27.0: A fast PostgreSQL Database Client Library for Python/asyncio
 dev-python/asyncssh 2.10.1 2.11.0: Asynchronous SSHv2 client and server library
 dev-python/auditok 0.1.5 0.2.0: A module for Audio/Acoustic Activity Detection
@@ -901,7 +904,7 @@ dev-python/ots-python 8.2.1: A Python wrapper for OpenType Sanitizer
 dev-python/ovsdbapp 1.16.0 1.16.1: A library for creating OVSDB applications
 dev-python/parsel 1.6.0: Utility to extract data from XML/HTML documents using XPath or CSS selectors
 dev-python/persist-queue 0.8.0: A thread-safe disk based persistent queue in Python
-dev-python/pg8000 1.26.1 1.29.1: A Pure-Python PostgreSQL Driver
+dev-python/pg8000 1.29.1 1.29.2: A Pure-Python PostgreSQL Driver
 dev-python/phx-class-registry 3.0.5-r1: An intersection of the Registry and Factory pattern
 dev-python/pifpaf 3.1.5: Python fixtures and daemon managing tools for functional testing
 dev-python/pip-api 0.0.29: An unofficial, importable pip API
@@ -931,7 +934,7 @@ dev-python/pyinquirer 1.0.3_p20200708 9999: A Python module for common interacti
 dev-python/pyinstaller 4.2-r1: Bundles a Python application and all its dependencies into a single package.
 dev-python/pykeepass 4.0.2: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
 dev-python/pymeeus 0.5.11: Python implementation of Jean Meeus astronomical routines
-dev-python/pymemcache 3.5.1 3.5.2: A comprehensive, fast, pure-Python memcached client
+dev-python/pymemcache 3.5.1 3.5.2 4.0.0: A comprehensive, fast, pure-Python memcached client
 dev-python/pymorphy2 0.9.1: Morphological analyzer (POS tagger + inflection engine) for Russian language.
 dev-python/pymorphy2-dicts 2.4.393442.3710985: Russian dictionary for PyMorphy2
 dev-python/pymorphy2-dicts-ru 2.4.417127.4579844: Russian dictionary for PyMorphy2
@@ -995,7 +998,7 @@ dev-python/rstr 3.2.0: Easily generate random strings of various types
 dev-python/ryu 4.34: Component-based Software-defined Networking Framework
 dev-python/schedule 1.1.0-r1: Python job scheduling for humans
 dev-python/schema 0.7.5: Python module to validate and convert data structures
-dev-python/scramp 1.4.1: A pure-Python implementation of the SCRAM authentication protocol.
+dev-python/scramp 1.4.1 1.4.4: A pure-Python implementation of the SCRAM authentication protocol.
 dev-python/scrapy 2.5.1 2.6.2 2.6.3: A high-level Web Crawling and Web Scraping framework
 dev-python/sdnotify 0.3.2: Python implementation of the systemd sd_notify protocol
 dev-python/sentence-splitter 1.4-r1: Sentence splitter using heuristic algorithm by Philipp Koehn and Josh Schroeder
@@ -1132,9 +1135,10 @@ dev-vcs/git-repo-updater 0.5.1-r2: Easily update multiple git repositories at on
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
 dev-vcs/gitqlient 1.5.0-r1 9999: Multi-platform Git client written with Qt
 dev-vcs/gitui 0.18.0 0.20.1: Blazing fast terminal-ui for git
-dev-vcs/got 0.76 0.77-r1: Portable version of the Game of Trees version control system
+dev-vcs/got 0.77-r1 0.78: Portable version of the Game of Trees version control system
 dev-vcs/lazygit 0.33 0.34 0.35: Simple terminal UI for git commands
 dev-vcs/lefthook 1.0.0 1.0.4: Fast and powerful Git hooks manager for any type of projects
+dev-zig/zls 9999: Zig LSP implementation + Zig Language Server
 games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
 games-action/blackvoxel 2.50 9999: Blackvoxel Video Game
 games-action/ddnet 16.5: DDraceNetwork, a cooperative racing mod of Teeworlds
@@ -1219,7 +1223,7 @@ gui-apps/coretoppings 4.1.0-r1 4.2.0 9999: Additional features, plugins, widgets
 gui-apps/coreuniverse 4.2.0 9999: Shows information about apps for C Suite
 gui-apps/eww 0.3.0 0.4.0: Elkowars Wacky Widgets is a standalone widget system made in Rust
 gui-apps/fnott 1.2.1 1.3.0 9999: Keyboard driven and lightweight Wayland notification daemon.
-gui-apps/fuzzel 1.8.1 9999: Application launcher for wlroots based Wayland compositors.
+gui-apps/fuzzel 1.8.2 9999: Application launcher for wlroots based Wayland compositors.
 gui-apps/gcolor3 2.4.0: A simple color chooser written in GTK3
 gui-apps/gradience 0.3.0-r1: GNOME's main interface to configure various aspects of the desktop
 gui-apps/hiprompt-gtk-py 0_pre20220624 9999: GTK+ Himitsu prompter for Wayland
@@ -1270,6 +1274,7 @@ kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU
 kde-misc/plasma5-wallpapers-dynamic 3.3.9 9999: A KDE Plasma wallpaper plugin to set your wallpaper based on the time of day.
 mail-client/heirloom-mailx 12.5: The mailx utility from CentOS
 mail-client/mailspring-bin 1.9.2 1.10.3 1.10.5: A beautiful, fast and fully open source mail client for Mac, Windows and Linux
+mail-filter/opensmtpd-filter-dkimsign 0.6: OpenSMTPD filter for DKIM signing
 media-fonts/3270font 2.3.0 2.3.1: A IBM 3270 Terminal font in a modern format
 media-fonts/gohufont 2.1_p20170627: A monospace bitmap font
 media-fonts/inconsolata_dz 20201205: A beautiful sans-serif monotype font designed for code listings
@@ -1383,7 +1388,7 @@ net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various pl
 net-client/amfora 1.8.0 1.9.2: A fancy terminal browser for the Gemini protocol.
 net-client/castor 0.8.16 0.8.18: A graphical browser for plain-text protocols
 net-client/kristall 0.3-r2 0.4: Visual cross-platform gemini browser
-net-client/lagrange 1.13.6 1.13.7: Desktop GUI client for browsing Geminispace
+net-client/lagrange 1.13.7 1.13.8: Desktop GUI client for browsing Geminispace
 net-client/offpunk 1.5 1.6: Offline-First Gemini/Web/Gopher/RSS reader and browser
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
 net-client/telescope 0.7.1 0.8.1: w3m-like browser for Gemini
@@ -1715,7 +1720,7 @@ virtual/survival 0: Virtual of a R recommended package
 www-apps/code-server-bin 4.6.1 4.7.0 4.7.1: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/gogs 0.12.3: Gogs is a self-hosted Git service written in Go
 www-apps/jackett-bin 0.20.514 0.20.1202 9999: API Support for your favorite torrent trackers
-www-apps/mycorrhiza 1.12.1 9999: Git-based wiki engine written in Go using mycomarkup
+www-apps/mycorrhiza 1.13.0 9999: Git-based wiki engine written in Go using mycomarkup
 www-apps/nitter 0.1.0_p20220624 0.1.0_p20220705: An alternative front-end for Twitter
 www-apps/twint 2.1.20-r2 2.1.20_p20220316: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 20.11.0 20.14.0 9999: ultra fast, simple, secure & standards compliant web I/O

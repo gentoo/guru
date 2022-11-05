@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install
+DEPEND=dev-libs/libopensmtpd:= dev-libs/openssl:=
+DESCRIPTION=OpenSMTPD filter for DKIM signing
+EAPI=8
+HOMEPAGE=http://imperialat.at/dev/filter-dkimsign/
+INHERIT=toolchain-funcs
+IUSE=+ed25519
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-libs/libopensmtpd:= dev-libs/openssl:=
+SLOT=0
+SRC_URI=http://imperialat.at/releases/filter-dkimsign-0.6.tar.gz
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=38956a66b9d1ab85436ad726a1fad25f

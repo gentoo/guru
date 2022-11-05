@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/go-1.18.0 >=dev-lang/go-1.18 app-arch/unzip
+BDEPEND=>=dev-lang/go-1.19.0 >=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=compile install postinst unpack
 DESCRIPTION=Git-based wiki engine written in Go using mycomarkup
 EAPI=8
@@ -7,8 +7,8 @@ INHERIT=go-module
 KEYWORDS=~amd64 ~x86
 LICENSE=AGPL-3 MIT Apache-2.0 BSD BSD-2 CC-BY-4.0
 RDEPEND=dev-vcs/git
-RESTRICT=strip
+RESTRICT=mirror strip
 SLOT=0
-SRC_URI=https://github.com/bouncepaw/mycorrhiza/archive/v1.12.1.tar.gz -> mycorrhiza-1.12.1.tar.gz https://codeberg.org/BratishkaErik/distfiles/media/branch/master/mycorrhiza-1.12.1-deps.tar.bz2
+SRC_URI=https://github.com/bouncepaw/mycorrhiza/archive/v1.13.0.tar.gz -> mycorrhiza-1.13.0.tar.gz https://codeberg.org/BratishkaErik/distfiles/media/branch/master/mycorrhiza-1.13.0-vendor.tar.xz
 _eclasses_=go-module	15312495dc4fd84f8c37bbe228ea2abd
-_md5_=7bcdec33f77a30be14c31b8bef27ea21
+_md5_=53bfe426f99e06dca66e086d1cd3dae4
