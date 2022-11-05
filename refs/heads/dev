@@ -1,17 +1,14 @@
 certificate version 0.1
-pusher Seth Price <sprice623@aol.com> 1667606044 -0400
+pusher bratishkaerik@getgoogleoff.me 1667636028 +0600
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1667606047-1f2011ad30a647fc8f5565cee93ccd55f088b7c6
+nonce 1667636028-fa282b5f6942aa05b45b2325929d3b97037b9c3f
 
-b9dbe332551f1f0aab566b248ebae036b19a72d9 3d21b19835d9a943aab52b81f983d29d838d787c refs/heads/dev
+3d21b19835d9a943aab52b81f983d29d838d787c ac5657a28f0606232873075419b11effd33301c1 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iQFGBAABCAAwFiEEmLGQ69r6IggYI4b8KopYihGzBmIFAmNlphwSHHNwcmljZTYy
-M0Bhb2wuY29tAAoJECqKWIoRswZiulwIAIT2N+XqkTGju5Y9yyfZLmMLQlKZ0XrR
-Kp85/a/y3eYIMgnO3tLq5AhxmkZ6vb54RyhJrQrDGbH6escsKSgIwdKQbPDSMgg6
-CROKXqipCnTIQmeqkpRkVltLhnvt6z7bkmxDxabkbvozJVPLcitlA4Q8uOY/3+a+
-0ANQ4QcAXedbeNVBs8dt8o/WXJG6Vt/X6NbcX6khajO3O5/pBTXlVCuKuvCdVCqe
-xu2ReImLOl2NjSrhGmeIKnp6hHP8jmak4k2/6ib+uj+qDr/bLEZDyligJtlqHbRK
-+nz+bwVCgpKgscR2NnrT0Pz2Gxa1HR+k5yIkkkffuJnAWomdxQR8icI=
-=w3tr
+iJQEABYKADwWIQR7COHWZlA4BB1+LlZcnGkGBoa1iAUCY2YbPB4cYnJhdGlzaGth
+ZXJpa0BnZXRnb29nbGVvZmYubWUACgkQXJxpBgaGtYh/9wD/f5NmLK3TKqex3hEE
+n5/gk6lF7XI9X6+EqPlqNvM9Vo0A/2jIthG025Yb1yUP9ciyqyxmqI+eDCN/p2lA
+iIEN3vUE
+=YGgf
 -----END PGP SIGNATURE-----
