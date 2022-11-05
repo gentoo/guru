@@ -1,14 +1,14 @@
 certificate version 0.1
-pusher bratishkaerik@getgoogleoff.me 1667636535 +0600
+pusher bratishkaerik@getgoogleoff.me 1667636920 +0600
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1667636535-e532f03ada067261b27c0b7a7fa44a1229b720d0
+nonce 1667636920-1f57df2668a00eb9721b9b46a439b03f32034cd0
 
-ac5657a28f0606232873075419b11effd33301c1 dc14dbf87440b54b6d0342a07cd0c976e6c93068 refs/heads/dev
+dc14dbf87440b54b6d0342a07cd0c976e6c93068 743e791bcc439f2ba787af575aadc535acbf3f02 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iJQEABYKADwWIQR7COHWZlA4BB1+LlZcnGkGBoa1iAUCY2YdNx4cYnJhdGlzaGth
-ZXJpa0BnZXRnb29nbGVvZmYubWUACgkQXJxpBgaGtYhLegD5AX00+ea7BHiSvt6n
-fKgbV3w4K7/OEj8zyl6bpNgM98oA/3VvL5PAR2ckAbxIN7W2RI+3zsj8cvxlQo6U
-4a+WpwkH
-=MBTV
+iJQEABYKADwWIQR7COHWZlA4BB1+LlZcnGkGBoa1iAUCY2YeuB4cYnJhdGlzaGth
+ZXJpa0BnZXRnb29nbGVvZmYubWUACgkQXJxpBgaGtYjPEgD+LfVBWO6BMakZlmgy
+SZeCGK3tiH0s0Li2DZCIKuJ14PgA/RVJuqhZ4ndptkjaaXnKKfhvlVWId2rLYBMM
+Ki2jjlIL
+=UcuC
 -----END PGP SIGNATURE-----
