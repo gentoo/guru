@@ -61,7 +61,9 @@ src_configure() {
 src_install() {
 	cmake_src_install
 
-	# fix python unexpected paths QA
-	mkdir -p "${D}/$(python_get_sitedir)" || die
-	mv "${D}"/usr/pyslang* "${D}/$(python_get_sitedir)" || die
+	if use python; then
+		# fix python unexpected paths QA
+		mkdir -p "${D}/$(python_get_sitedir)" || die
+		mv "${D}"/usr/pyslang* "${D}/$(python_get_sitedir)" || die
+	fi
 }
