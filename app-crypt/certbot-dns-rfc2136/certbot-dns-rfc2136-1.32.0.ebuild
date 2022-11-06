@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
-DISTUTILS_USE_SETUPTOOLS=rdepend
+DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1
 
@@ -16,14 +16,13 @@ if [[ "${PV}" == *9999 ]]; then
 
 	EGIT_REPO_URI="https://github.com/certbot/certbot.git"
 	EGIT_SUBMODULES=()
-	EGIT_CHECKOUT_DIR="${WORKDIR}/${PARENT_PN}"
+	EGIT_CHECKOUT_DIR="${WORKDIR}/${PARENT_P}"
 else
-	# To rename with .gh.tar.gz extension once parent package also uses this naming.
 	SRC_URI="
 		https://github.com/certbot/certbot/archive/v${PV}.tar.gz
-			-> ${PARENT_P}.tar.gz
+			-> ${PARENT_P}.gh.tar.gz
 	"
-	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="RFC 2136 DNS Authenticator plugin for Certbot (Let’s Encrypt client)"
@@ -36,16 +35,21 @@ SLOT="0"
 
 S="${WORKDIR}/${PARENT_P}/${PN}"
 
+BDEPEND="
+	test? ( dev-python/pytest )
+"
+
 RDEPEND="
 	${PYTHON_DEPS}
 	>=app-crypt/acme-${PV}[${PYTHON_USEDEP}]
 	>=app-crypt/certbot-${PV}[${PYTHON_USEDEP}]
 	>=dev-python/pyopenssl-22.0.0[${PYTHON_USEDEP}]
-	>=dev-python/pyparsing-3.0.7[${PYTHON_USEDEP}]
+	>=dev-python/pyparsing-3.0.9[${PYTHON_USEDEP}]
 	>=dev-python/zope-interface-5.4.0[${PYTHON_USEDEP}]
 	>=dev-python/dnspython-2.2.0[${PYTHON_USEDEP}]
 "
 
+distutils_enable_sphinx docs dev-python/sphinx_rtd_theme
 distutils_enable_tests pytest
 
 # Same than PATCHES but from repository's root directory,
