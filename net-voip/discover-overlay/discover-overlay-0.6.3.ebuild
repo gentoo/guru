@@ -22,6 +22,8 @@ RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/python-xlib[${PYTHON_USEDEP}]
+
+	gui-libs/gtk-layer-shell[introspection(+)]
 "
 
 S="${WORKDIR}/Discover-${PV}"
