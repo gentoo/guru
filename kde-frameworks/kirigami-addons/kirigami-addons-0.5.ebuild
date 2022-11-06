@@ -29,8 +29,9 @@ DEPEND="
 	${RDEPEND}
 	test? (
 		>=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml(+)]
-		media-libs/gst-plugins-base[ogg,vorbis]
-		media-libs/gst-plugins-bad
+		media-libs/gst-plugins-base:1.0[ogg,vorbis]
+		media-libs/gst-plugins-bad:1.0
+		media-libs/gst-plugins-good:1.0
 		x11-themes/sound-theme-freedesktop
 	)
 "
