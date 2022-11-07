@@ -8,5 +8,5 @@ LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=media-libs/gst-plugins-good dev-qt/qtmultimedia:=[alsa,gstreamer,qml,widgets] dev-qt/qtgraphicaleffects dev-qt/qtquickcontrols
 SLOT=0
-_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
 _md5_=7dbebf1f7358dcaadff82cadd03dbdff

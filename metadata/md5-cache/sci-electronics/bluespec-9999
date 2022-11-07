@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=app-eselect/eselect-bluespec app-shells/tcsh dev-haskell/old-time:0= dev-haskell/regex-compat:0= dev-haskell/split:0= dev-haskell/syb:0= dev-lang/tcl
 RESTRICT=!test? ( test )
 SLOT=9999
-_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
 _md5_=57937f51ff6af46241d4903b4bd20fa2

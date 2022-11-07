@@ -11,5 +11,5 @@ LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=dev-qt/qtcore dev-qt/designer dev-qt/qtsvg dev-qt/linguist dev-qt/qtscript dev-qt/qtx11extras media-libs/gstreamer media-libs/gst-plugins-base media-libs/taglib media-plugins/gst-plugins-meta
 SLOT=0
-_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
 _md5_=721ed180eac51da60a79d91506cacf36

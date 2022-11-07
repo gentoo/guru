@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=app-shells/bash sys-apps/bat dev-util/sh dev-vcs/git sys-apps/ripgrep app-admin/entr dev-util/git-delta sys-devel/clang sys-apps/exa app-shells/fzf sys-libs/ncurses dev-python/black virtual/rust[rustfmt(+)]
 RESTRICT=mirror fetch
 SLOT=0
-_eclasses_=git-r3	b9ac6f96d2a88edb5b351df634dc5e53
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
 _md5_=2c46ca7372bc849783e08d96d5a32961
