@@ -15,7 +15,7 @@ index 58b73678..f9ac7cd4 100644
  
  add_subdirectory(ast)
  
-+set(SLANG_SHARED_LIB_NAME slang)
++set(SLANG_SHARED_LIB_NAME svlang)
  add_library(slang::slang ALIAS slang_slang)
  set_target_properties(
    slang_slang
