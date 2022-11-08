@@ -37,7 +37,7 @@ QA_FLAGS_IGNORED='.*'
 # @FUNCTION: shards_get_libdir
 # @RETURN: the library path for Crystal packages
 shards_get_libdir() {
-	echo "${BROOT}"/usr/lib/shards
+	echo /usr/lib/shards
 }
 
 # @FUNCTION: shards_get_pkgname
@@ -57,7 +57,7 @@ shards_src_configure() {
 	crystal_configure
 	einfo "CRYSTAL_OPTS='${CRYSTAL_OPTS}'"
 
-	export CRYSTAL_PATH="$(shards_get_libdir):$(crystal env CRYSTAL_PATH || die "'crystal env' failed")"
+	export CRYSTAL_PATH="${BROOT}$(shards_get_libdir):$(crystal env CRYSTAL_PATH || die "'crystal env' failed")"
 	einfo "CRYSTAL_PATH='${CRYSTAL_PATH}'"
 
 	tc-export CC
@@ -113,7 +113,7 @@ shards_src_install() {
 	fi
 
 	if [[ -d "src" ]]; then
-		insinto "$(shards_get_libdir)/$(shards_get_pkgname)"
+		insinto $(shards_get_libdir)/$(shards_get_pkgname)
 		doins -r src
 		doins shard.yml
 	fi
