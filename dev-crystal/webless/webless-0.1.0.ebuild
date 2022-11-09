@@ -12,3 +12,11 @@ SRC_URI="https://github.com/matthewmcgarvey/${PN}/archive/refs/tags/v${PV}.tar.g
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="test"
+RESTRICT="!test? ( test )"
+
+BDEPEND="
+	test? (
+		dev-crystal/spectator
+	)
+"
