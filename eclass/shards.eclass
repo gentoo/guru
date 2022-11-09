@@ -64,7 +64,6 @@ shards_src_configure() {
 }
 
 # @FUNCTION: shards_src_compile
-# @USAGE: [<args>...]
 # @DESCRIPTION:
 # General function for building packages using Shards.
 shards_src_compile() {
@@ -73,7 +72,6 @@ shards_src_compile() {
 	local build_args=(
 		--threads=$(makeopts_jobs)
 		--verbose
-		"${@}"
 	)
 
 	if gshards-has-targets; then

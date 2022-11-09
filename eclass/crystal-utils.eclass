@@ -61,13 +61,31 @@ _crystal_get_debug_opt() {
 # @DESCRIPTION:
 # Set Crystal environment variables to match user settings.
 #
+# Passes arguments to Crystal by reading from an optionally pre-defined local
+# mycrystalargs bash array.
+#
 # Must be run or ecrystal/eshards will fail.
+#
+# @CODE
+# src_configure() {
+#       local mycrystalargs=(
+#               -Dfoo
+#       )
+#       crystal_configure
+# }
+# @CODE
 crystal_configure() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	# avoid possible sandbox violation
 	export CRYSTAL_CACHE_DIR="${T}/crystal"
 	export SHARDS_CACHE_PATH="${T}/shards"
+
+	[[ -z ${mycrystalargs} ]] && local -a mycrystalargs=()
+	local mycrystalargstype=$(declare -p mycrystalargs 2>&-)
+	if [[ "${mycrystalargstype}" != "declare -a mycrystalargs="* ]]; then
+		die "mycrystalargs must be declared as array"
+	fi
 
 	local args=(
 		--link-flags="\"${LDFLAGS}\""
@@ -78,6 +96,7 @@ crystal_configure() {
 		$(is-flagq -mcpu && echo "--mcpu=$(get-flag mcpu)")
 		$(is-flagq -mcmodel && echo "--mcmodel=$(get-flag mcmodel)")
 		# TODO: --mattr
+		"${mycrystalargs[@]}"
 	)
 
 	export CRYSTAL_OPTS="${args[@]}"
