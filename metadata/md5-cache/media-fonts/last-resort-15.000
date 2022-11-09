@@ -9,5 +9,5 @@ KEYWORDS=~amd64 ~x86
 LICENSE=OFL-1.1
 SLOT=0
 SRC_URI=https://github.com/unicode-org/last-resort-font/releases/download/15.000/LastResortHE-Regular.ttf -> last-resort-15.000.ttf
-_eclasses_=font	bc7d91ca9054e47ad87b5763214665a4
+_eclasses_=font	9cdfddf092c05c7c4efd70cc30dea046
 _md5_=aec2909b9f514551719dc1333aa22ea4
