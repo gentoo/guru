@@ -3,17 +3,17 @@
 
 EAPI=8
 
-MY_PN="${PN}-portable"
+MY_P="${PN}-portable-${PV}"
 DESCRIPTION="Portable version of the Game of Trees version control system"
 HOMEPAGE="https://gameoftrees.org"
-SRC_URI="https://gameoftrees.org/releases/portable/${MY_PN}-${PV}.tar.gz"
-S="${WORKDIR}/${MY_PN}-${PV}"
+SRC_URI="https://gameoftrees.org/releases/portable/${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="
+RDEPEND="
 	dev-libs/libevent:=
 	sys-libs/ncurses:=[unicode(+)]
 	sys-libs/zlib:=
@@ -31,15 +31,12 @@ DEPEND="
 		)
 	)
 "
+DEPEND="${RDEPEND}
+	kernel_linux? ( sys-kernel/linux-headers )
+"
 BDEPEND="
 	virtual/pkgconfig
 	virtual/yacc
-	kernel_linux? ( sys-kernel/linux-headers )
 "
-RDEPEND="${DEPEND}"
 
 DOCS=( CHANGELOG CHANGES README TODO )
-
-src_compile() {
-	emake GOT_RELEASE=Yes
-}
