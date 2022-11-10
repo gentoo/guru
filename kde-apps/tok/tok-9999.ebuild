@@ -34,8 +34,8 @@ DEPEND="
 	kde-frameworks/kwindowsystem:5
 	kde-frameworks/syntax-highlighting:5
 	media-libs/rlottie:=
-	net-libs/td
-	sys-libs/zlib
+	net-libs/td[static-libs]
+	sys-libs/zlib:=
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
