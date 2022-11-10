@@ -13,8 +13,6 @@ SLOT="0"
 
 src_unpack() {
 	git-r3_src_unpack
-	git-r3_fetch $EGIT_REPO_URI v0.2.2
-	git-r3_checkout
 	cargo_live_src_unpack
 }
 
