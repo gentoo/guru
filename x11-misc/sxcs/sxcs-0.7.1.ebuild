@@ -23,10 +23,10 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 src_compile() {
-	# bug: https://bugs.gentoo.org/879833
 	emake \
 		CC=$(tc-getCC) \
-		CFLAGS="${CFLAGS} ${LDFLAGS}"
+		CFLAGS="${CFLAGS}" \
+		LDFLAGS="${LDFLAGS}"
 }
 
 src_install() {
