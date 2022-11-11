@@ -1,0 +1,23 @@
+#!/sbin/openrc-run
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+: ${INVIDIOUS_CONFIG_FILE:=/etc/invidious/config.yml}
+
+name="Invidious"
+description="An alternative YouTube front-end"
+command="/usr/bin/invidious"
+command_user="invidious:invidious"
+command_background=1
+pidfile="/run/invidious.pid"
+output_log="/var/log/invidious.log"
+error_log="${output_log}"
+
+depend() {
+	use logger net
+}
+
+start_pre() {
+	checkpath -fo invidious:invidious /var/log/invidious.log
+	export INVIDIOUS_CONFIG_FILE
+}
