@@ -3,7 +3,7 @@
 
 EAPI=8
 
-MPV_REQ_USE="cplugins,libmpv"
+MPV_REQ_USE="cplugins(+),libmpv"
 inherit mpv-plugin toolchain-funcs
 
 DESCRIPTION="MPRIS plugin for mpv"
@@ -24,15 +24,14 @@ RDEPEND="
 	dev-libs/glib:2
 "
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig
+BDEPEND="
+	virtual/pkgconfig
 	test? (
 		app-misc/jq
-		app-shells/bash
 		app-text/jo
 		media-sound/playerctl
 		net-misc/socat
 		sys-apps/dbus
-		virtual/awk
 		x11-apps/xauth
 		x11-misc/xvfb-run
 		x11-themes/sound-theme-freedesktop

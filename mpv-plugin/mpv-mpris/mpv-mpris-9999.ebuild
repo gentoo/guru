@@ -3,7 +3,7 @@
 
 EAPI=8
 
-MPV_REQ_USE="cplugins,libmpv"
+MPV_REQ_USE="cplugins(+),libmpv"
 inherit mpv-plugin toolchain-funcs
 
 DESCRIPTION="MPRIS plugin for mpv"
@@ -19,20 +19,18 @@ fi
 
 LICENSE="MIT"
 IUSE="test"
+RESTRICT="!test? ( test )"
 
-RDEPEND="
-	dev-libs/glib:2
-"
+RDEPEND="dev-libs/glib:2"
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig
+BDEPEND="
+	virtual/pkgconfig
 	test? (
 		app-misc/jq
-		app-shells/bash
 		app-text/jo
 		media-sound/playerctl
 		net-misc/socat
 		sys-apps/dbus
-		virtual/awk
 		x11-apps/xauth
 		x11-misc/xvfb-run
 		x11-themes/sound-theme-freedesktop
@@ -40,8 +38,6 @@ BDEPEND="virtual/pkgconfig
 "
 
 MPV_PLUGIN_FILES=( mpris.so )
-
-RESTRICT="!test? ( test )"
 
 src_compile() {
 	tc-export CC

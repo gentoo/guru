@@ -3,7 +3,7 @@
 
 EAPI=8
 
-MPV_REQ_USE="cplugins,libmpv"
+MPV_REQ_USE="cplugins(+),libmpv"
 inherit mpv-plugin toolchain-funcs
 
 DESCRIPTION="MPRIS plugin for mpv"
