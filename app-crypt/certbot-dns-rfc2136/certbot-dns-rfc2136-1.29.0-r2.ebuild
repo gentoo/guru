@@ -43,6 +43,7 @@ RDEPEND="
 	>=dev-python/pyopenssl-22.0.0[${PYTHON_USEDEP}]
 	>=dev-python/pyparsing-3.0.7[${PYTHON_USEDEP}]
 	>=dev-python/zope-interface-5.4.0[${PYTHON_USEDEP}]
+	>=dev-python/dnspython-2.2.0[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
