@@ -25,8 +25,8 @@ BDEPEND="
 	test? (
 		dev-crystal/webdrivers
 		|| (
-			www-client/firefox
-			www-client/firefox-bin
+			www-client/firefox:*
+			www-client/firefox-bin:*
 		)
 	)
 "
