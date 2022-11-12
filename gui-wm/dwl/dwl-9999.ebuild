@@ -1,9 +1,9 @@
 # Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit savedconfig git-r3
+inherit flag-o-matic git-r3 savedconfig toolchain-funcs
 
 DESCRIPTION="dwm for Wayland"
 HOMEPAGE="https://github.com/djpohly/dwl"
@@ -15,11 +15,11 @@ KEYWORDS=""
 IUSE="X"
 
 RDEPEND="
-	dev-libs/libinput
+	dev-libs/libinput:=
 	dev-libs/wayland
 	x11-libs/libxkbcommon
 	gui-libs/wlroots:0/15[X(-)?]
-	X? ( x11-libs/libxcb )
+	X? ( x11-libs/libxcb:= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -35,13 +35,13 @@ src_prepare() {
 }
 
 src_configure() {
-	sed -i "s/\/local//" config.mk || die
+	sed -i "s:/local::g" config.mk || die
+
+	sed -i "s:pkg-config:$(tc-getPKG_CONFIG):g" config.mk || die
 
 	if use X; then
-		sed -i \
-			-e "s/^#XWAYLAND/XWAYLAND/" \
-			-e "s/^#XLIBS/XLIBS/" \
-			config.mk || die
+		append-cppflags '-DXWAYLAND'
+		append-libs '-lxcb'
 	fi
 }
 
