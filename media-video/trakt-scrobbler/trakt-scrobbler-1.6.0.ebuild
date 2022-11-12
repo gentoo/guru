@@ -22,10 +22,13 @@ RDEPEND="
 	>=dev-python/guessit-3.3.1[${PYTHON_USEDEP}]
 	>=dev-python/appdirs-1.4.4[${PYTHON_USEDEP}]
 	>=dev-python/cleo-0.8.1[${PYTHON_USEDEP}]
-	>=dev-python/confuse-1.4.0[${PYTHON_USEDEP}]
+	>=dev-python/confuse-2.0[${PYTHON_USEDEP}]
 	>=dev-python/urlmatch-1.0.1[${PYTHON_USEDEP}]
+	>=dev-python/pydantic-1.10.2[${PYTHON_USEDEP}]
 	dev-python/clikit[${PYTHON_USEDEP}]
 	dev-python/crashtest[${PYTHON_USEDEP}]
+	>=dev-python/toml-0.10.2[${PYTHON_USEDEP}]
+	>=dev-python/desktop-notifier-3.4.0[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests unittest
