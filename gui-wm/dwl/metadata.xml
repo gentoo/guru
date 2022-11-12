@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-    <maintainer restrict="=gui-wm/dwl-9999" type="person">
+    <maintainer type="person">
         <email>leohdz172@outlook.com</email>
         <name>Leonardo Hernandez Hernandez</name>
     </maintainer>
@@ -13,4 +13,7 @@
         <email>efe.izbudak@metu.edu.tr</email>
         <name>Efe İzbudak</name>
     </maintainer>
+    <upstream>
+        <remote-id type="github">djpohly/dwl</remote-id>
+    </upstream>
 </pkgmetadata>
