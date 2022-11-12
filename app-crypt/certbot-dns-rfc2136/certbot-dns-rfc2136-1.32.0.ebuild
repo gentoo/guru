@@ -36,7 +36,7 @@ SLOT="0"
 S="${WORKDIR}/${PARENT_P}/${PN}"
 
 BDEPEND="
-	test? ( dev-python/pytest )
+	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
 "
 
 RDEPEND="
