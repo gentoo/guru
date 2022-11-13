@@ -20,10 +20,11 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-python/jinja[${PYTHON_USEDEP}]
-	dev-python/sphinx[${PYTHON_USEDEP}]
+	>=dev-python/sphinx-5[${PYTHON_USEDEP}]
+	>=dev-python/docutils-0.18[${PYTHON_USEDEP}]
 "
 
 DOCS=( {CONTRIBUTING,NEWS,README}.rst )
 
 # needs sphinx_last_updated_by_git
-distutils_enable_sphinx 'doc'
+#distutils_enable_sphinx 'doc'
