@@ -14,7 +14,7 @@ HOMEPAGE="https://github.com/mpv-player/mpv/tree/master/TOOLS/lua"
 SRC_URI="https://github.com/mpv-player/mpv/archive/v${PV}.tar.gz -> mpv-${PV}.tar.gz"
 
 # since this comes from mpv, use its licenses
-LICENSE="LGPL-2.1+ GPL-2+ BSD ISC"
+LICENSE="LGPL-2.1+ GPL-2+ BSD ISC MIT"
 KEYWORDS="~amd64"
 
 # lock mpv version
