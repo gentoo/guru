@@ -20,11 +20,6 @@ KEYWORDS="~amd64"
 DOCS=( doc/. CHANGELOG README.md )
 
 pkg_postinst() {
-	if [[ -n ${REPLACING_VERSIONS} ]] && ver_test ${REPLACING_VERSIONS} -lt 0.4; then
-		ewarn 'You should run once the command "list subscribe subscribed".'
-		ewarn 'Without that, the subscribed list will be seen as a normal list by sync.'
-	fi
-
 	optfeature "HTML support" "dev-python/beautifulsoup4 dev-python/readability-lxml"
 	optfeature "HTTP support" dev-python/requests
 	optfeature "RSS/Atom feed support" dev-python/feedparser
