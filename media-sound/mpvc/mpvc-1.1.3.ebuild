@@ -10,7 +10,7 @@ CRATES="
 	autocfg-1.1.0
 	bitflags-1.3.2
 	cfg-if-1.0.0
-	clap-3.2.8
+	clap-3.2.14
 	clap_lex-0.2.4
 	colored-2.0.0
 	hashbrown-0.12.1
@@ -20,10 +20,10 @@ CRATES="
 	lazy_static-1.4.0
 	libc-0.2.126
 	log-0.4.17
-	mpvipc-1.2.0
+	mpvipc-1.2.2
 	os_str_bytes-6.1.0
 	ryu-1.0.10
-	serde-1.0.138
+	serde-1.0.140
 	serde_json-1.0.82
 	strsim-0.10.0
 	termcolor-1.1.3
