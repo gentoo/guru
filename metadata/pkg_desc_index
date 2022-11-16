@@ -164,7 +164,7 @@ app-misc/ledger-live 2.46.2 2.47.0 2.48.0 2.49.0 2.49.2: Manager for the Ledger 
 app-misc/lf 27: Terminal file manager
 app-misc/macchina 5.0.2 6.0.5 6.0.6 6.1.6: A system information fetcher, with an (unhealthy) emphasis on performance.
 app-misc/mangadesk 0.7.7 0.7.8: Terminal Client for MangaDex
-app-misc/mat2 0.13.0: Metadata Anonymisation Toolkit: handy tool to trash your metadata
+app-misc/mat2 0.13.0-r1: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/minder 1.14.0: Mind-mapping application for Elementary OS.
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
 app-misc/navi 2.19.0 2.20.1 9999: An interactive cheatsheet tool for the command-line
@@ -232,7 +232,7 @@ app-shells/zsh-histdb 0_pre20200405: A slightly better history for zsh
 app-shells/zsh-history-substring-search 1.0.2: ZSH port of Fish history search (up arrow)
 app-shells/zsh-history-to-fish 0.3.0-r1: Bring your ZSH history to Fish shell
 app-shells/zsh-silver 9999: Zsh plugin for silver
-app-text/OCRmyPDF 14.0.1-r2: OCRmyPDF adds an OCR text layer to scanned PDF files
+app-text/OCRmyPDF 14.0.1-r3: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/cmark-gfm 0.29.0.3: GitHub's fork of cmark
 app-text/code-minimap 0.6.4: A high performance code minimap generator
 app-text/epubgrep 0.6.0-r1 0.6.2: Search tool for EPUB e-books
@@ -1021,7 +1021,7 @@ dev-python/python-troveclient 7.3.0: A client for the OpenStack Trove API, a sca
 dev-python/python-vitrageclient 4.5.0: A client for the OpenStack Vitrage API
 dev-python/python-zaqarclient 2.3.0: A client for the OpenStack Zaqar API
 dev-python/python-zunclient 4.5.0: A client for the OpenStack Zun API
-dev-python/pywebview 3.6.1 3.7: A lightweight cross-platform wrapper around a webview component
+dev-python/pywebview 3.6.1 3.7 3.7.2: A lightweight cross-platform wrapper around a webview component
 dev-python/queuelib 1.6.2: Collection of persistent and non-persistent queues for Python
 dev-python/rchitect 0.3.36: Interoperate R with Python
 dev-python/readability-lxml 0.6.1 0.8.1: fast html to text parser (article readability tool)
@@ -1356,7 +1356,7 @@ media-gfx/zw3d 2022.0.3.1: CAD/CAM software for 3D design and processing
 media-gfx/zwcad 2022.22.2.2.3 2023.23.0.3.4: CAD software for 2D drawing, reviewing and printing work
 media-libs/alsa-ucm-pinephone 1.2.6.3: ALSA ucm configuration files for the PinePhone (Pro)
 media-libs/alvr 15.2.1_p20210604 16.0.0: ALVR is an open source remote VR display for the Oculus Go/Quest
-media-libs/amdvlk 2022.4.1: AMD Open Source Driver for Vulkan
+media-libs/amdvlk 2022.4.2: AMD Open Source Driver for Vulkan
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
 media-libs/glee 5.4.0: OpenGL Easy Extension library
 media-libs/grok 9.7.6: World's Leading Open Source JPEG 2000 Codec
@@ -1431,7 +1431,7 @@ net-client/amfora 1.8.0 1.9.2: A fancy terminal browser for the Gemini protocol.
 net-client/castor 0.8.16 0.8.18: A graphical browser for plain-text protocols
 net-client/kristall 0.3-r2 0.4: Visual cross-platform gemini browser
 net-client/lagrange 1.13.7 1.13.8: Desktop GUI client for browsing Geminispace
-net-client/offpunk 1.6 1.7: Offline-First Gemini/Web/Gopher/RSS reader and browser
+net-client/offpunk 1.6 1.7.1: Offline-First Gemini/Web/Gopher/RSS reader and browser
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
 net-client/telescope 0.7.1 0.8.1: w3m-like browser for Gemini
 net-dialup/atinout 0.9.1-r1: AT commands as input are sent to modem and responses given as output
