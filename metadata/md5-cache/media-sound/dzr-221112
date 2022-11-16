@@ -1,0 +1,11 @@
+DEFINED_PHASES=install postinst
+DEPEND=app-misc/jq[oniguruma] dev-libs/openssl dev-util/dialog media-video/mpv net-misc/curl
+DESCRIPTION=DZR: the command line deezer.com player
+EAPI=8
+HOMEPAGE=https://github.com/yne/dzr
+KEYWORDS=~amd64
+LICENSE=Unlicense
+RDEPEND=app-misc/jq[oniguruma] dev-libs/openssl dev-util/dialog media-video/mpv net-misc/curl
+SLOT=0
+SRC_URI=https://github.com/yne/dzr/archive/refs/tags/221112.tar.gz -> dzr-221112.tar.gz
+_md5_=19433c7a88bb029d3e1ad3ea65921aa3

@@ -298,6 +298,10 @@ games-util/itch-bin:system-ffmpeg - Use the system-wide media-video/ffmpeg inste
 games-util/legendary:webview - Use dev-python/pywebview for the sign-in process
 games-util/mangohud:xnvctrl - Use XNVctrl as fall back for older Nvidia devices.
 games-util/samrewritten:zenity - Support for dialog display messages
+games-util/xivlauncher:act - Advanced Combat Tracker in Final Fantasy XIV.
+games-util/xivlauncher:aria2 - Enable Aria2 support.
+games-util/xivlauncher:dx9 - Support for running the dx9 api in wined3d/dxvk.
+games-util/xivlauncher:libsecret - Enable secrets/password storage support.
 gnome-extra/yad:spell - Enable spell check support with app-text/gspell
 gui-apps/azote:imagemagick - enable colorpicker using imagemagick
 gui-apps/azote:simple-colorpicker - enable colorpicker without imagemagick
@@ -435,6 +439,7 @@ net-libs/evpath:libfabric - Build the libfabric transport
 net-libs/evpath:udt4 - Build the udt4 transport
 net-libs/ixwebsocket:ws - Build the ws utility
 net-libs/picotls:fusion - "fusion" AES-GCM engine, optimized for QUIC and other protocols that use short AEAD blocks
+net-libs/td:abseil - Build with dev-cpp/abseil-cpp
 net-libs/td:benchmark - Enable benchmarking
 net-libs/td:dotnet - Add support for .NET
 net-libs/td:jumbo-build - Combine source files to speed up build process

@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/php[cli] dev-util/gperf >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 doc? ( app-doc/doxygen )
 DEFINED_PHASES=compile configure install preinst prepare setup test
-DEPEND=dev-libs/openssl:= sys-libs/zlib:= dotnet? ( virtual/dotnet-sdk:* ) java? ( virtual/jdk:*[-headless-awt] ) java? ( >=dev-java/java-config-2.2.0-r3 )
+DEPEND=dev-libs/openssl:= sys-libs/zlib:= dotnet? ( virtual/dotnet-sdk:* ) java? ( >=virtual/jdk-11:*[-headless-awt] ) java? ( >=dev-java/java-config-2.2.0-r3 )
 DESCRIPTION=Cross-platform library for building Telegram clients
 EAPI=8
 HOMEPAGE=https://core.telegram.org/tdlib https://github.com/tdlib/td
@@ -8,9 +8,9 @@ INHERIT=cmake docs java-pkg-opt-2
 IUSE=benchmark dotnet +jumbo-build static-libs test doc java
 KEYWORDS=~amd64
 LICENSE=Boost-1.0
-RDEPEND=dev-libs/openssl:= sys-libs/zlib:= dotnet? ( virtual/dotnet-sdk:* ) java? ( virtual/jdk:*[-headless-awt] ) java? ( >=dev-java/java-config-2.2.0-r3 )
+RDEPEND=dev-libs/openssl:= sys-libs/zlib:= dotnet? ( virtual/dotnet-sdk:* ) java? ( >=virtual/jdk-11:*[-headless-awt] ) java? ( >=dev-java/java-config-2.2.0-r3 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tdlib/td/archive/refs/tags/v1.8.0.tar.gz -> td-1.8.0.tar.gz
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	docs	8ed2a8a28ff109e7a3582c9abb7fe327	java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-opt-2	a71433e535af8faae0c0f6c861a32054
-_md5_=9e4da88ae830443fcb52200fe3e7191d
+_md5_=11293bc3da81a75860d2907389a56e78

@@ -8,9 +8,9 @@ INHERIT=mpv-plugin toolchain-funcs
 IUSE=test +autoload
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
-RDEPEND=dev-libs/glib:2 media-video/mpv:=[cplugins,libmpv]
+RDEPEND=dev-libs/glib:2 media-video/mpv:=[cplugins(+),libmpv]
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/hoyon/mpv-mpris/archive/0.8.1.tar.gz -> mpv-mpris-0.8.1.tar.gz
 _eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
-_md5_=6cfac3fe86d59c9459b807e8b09dd61f
+_md5_=f500796752ba1716c5b7c9ebe175b6f3

@@ -1,0 +1,12 @@
+BDEPEND=>=virtual/rust-1.53 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install postrm test unpack
+DESCRIPTION=Lightning-fast and Powerful Code Editor written in Rust
+EAPI=8
+HOMEPAGE=https://github.com/lapce/lapce
+INHERIT=cargo desktop git-r3 xdg-utils
+IUSE=debug
+LICENSE=( Apache-2.0 ( MIT 0BSD ) Apache-2.0-with-LLVM-exceptions Artistic-2 BSD BSD-2 Boost-1.0 CC0-1.0 CeCILL-2 GPL-2 ISC MIT MIT ) MPL-2.0 Unicode-DFS-2016 Unlicense ZLIB
+PROPERTIES=live
+SLOT=0
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	cargo	73ed573e1525a108d236a0dffb3a68fb	desktop	7eb20ad915a0a318176d51bc2508ff5c	git-r3	2347f8fe2d392b2a091191f94be37e6f	xdg-utils	ac0e315a3688929e34ac75b139e7349a
+_md5_=a6af04e100d0f42eb74ce3214a69bf38

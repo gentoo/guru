@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig test? ( app-misc/jq app-shells/bash app-text/jo media-sound/playerctl net-misc/socat sys-apps/dbus virtual/awk x11-apps/xauth x11-misc/xvfb-run x11-themes/sound-theme-freedesktop ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig test? ( app-misc/jq app-text/jo media-sound/playerctl net-misc/socat sys-apps/dbus x11-apps/xauth x11-misc/xvfb-run x11-themes/sound-theme-freedesktop ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst test unpack
 DEPEND=dev-libs/glib:2
 DESCRIPTION=MPRIS plugin for mpv
@@ -8,8 +8,8 @@ INHERIT=mpv-plugin toolchain-funcs git-r3
 IUSE=test +autoload
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=dev-libs/glib:2 media-video/mpv:=[cplugins,libmpv]
+RDEPEND=dev-libs/glib:2 media-video/mpv:=[cplugins(+),libmpv]
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=6cfac3fe86d59c9459b807e8b09dd61f
+_md5_=d9cf90b5a0fc2792f1b81672868e3e3d

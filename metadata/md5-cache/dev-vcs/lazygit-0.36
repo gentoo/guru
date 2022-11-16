@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=Simple terminal UI for git commands
+EAPI=8
+HOMEPAGE=https://github.com/jesseduffield/lazygit
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 BSD ISC MIT Unlicense
+RDEPEND=dev-vcs/git
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/jesseduffield/lazygit/archive/v0.36.0.tar.gz -> lazygit-0.36.tar.gz
+_eclasses_=go-module	15312495dc4fd84f8c37bbe228ea2abd
+_md5_=2c333c618ac996bafa84b7cb7f359d03

@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst
+DESCRIPTION=Loads playlist entries before and after the the currently played file
+EAPI=8
+HOMEPAGE=https://github.com/mpv-player/mpv/tree/master/TOOLS/lua
+INHERIT=mpv-plugin
+IUSE=+autoload
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1+ GPL-2+ BSD ISC MIT
+RDEPEND=~media-video/mpv-0.35.0 media-video/mpv[lua]
+SLOT=0
+SRC_URI=https://github.com/mpv-player/mpv/archive/v0.35.0.tar.gz -> mpv-0.35.0.tar.gz
+_eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a
+_md5_=9ab8252cd8ddc5be78c31c4b5e1f83b9
