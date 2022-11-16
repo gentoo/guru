@@ -11,5 +11,5 @@ LICENSE=BSD-2
 RDEPEND=dev-libs/libpcre:3 dev-libs/libunistring:= sys-libs/zlib:= curl? ( net-misc/curl ) ssl? ( dev-libs/openssl:= )
 SLOT=0/1.3
 SRC_URI=https://git.skyjake.fi/skyjake/the_foundation/archive/v1.3.0.tar.gz -> tfdn-1.3.0.tar.gz
-_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	docs	8ed2a8a28ff109e7a3582c9abb7fe327
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	docs	2af4a2f0074bd646101ce0f66ca6dd03
 _md5_=54ec5d541c53a22b1754822d4767dfdf
