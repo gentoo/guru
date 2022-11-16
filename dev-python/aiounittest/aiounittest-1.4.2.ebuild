@@ -19,7 +19,7 @@ RDEPEND="dev-python/wrapt[${PYTHON_USEDEP}]"
 
 distutils_enable_tests unittest
 
-distutils_enable_sphinx docs
+#distutils_enable_sphinx docs
 
 python_test() {
 	eunittest tests
