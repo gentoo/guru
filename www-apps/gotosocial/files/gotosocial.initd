@@ -1,0 +1,17 @@
+#!/sbin/openrc-run
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+: ${GOTOSOCIAL_CONFIG:=/etc/gotosocial/config.yaml}
+
+description="GoToSocial Server"
+command=/usr/bin/gotosocial
+command_args="--config-path ${GOTOSOCIAL_CONFIG} server start"
+command_user="gotosocial:gotosocial"
+command_background=1
+pidfile="/run/gotosocial.pid"
+
+depend() {
+	need net
+	after postgresql
+}
