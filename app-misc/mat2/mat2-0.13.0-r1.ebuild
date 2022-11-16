@@ -21,18 +21,19 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	app-text/poppler[introspection,cairo]
+	dev-libs/glib:2
 	dev-python/pycairo:0[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[cairo,${PYTHON_USEDEP}]
+	gnome-base/librsvg[introspection]
 	media-libs/mutagen:0[${PYTHON_USEDEP}]
+	x11-libs/gdk-pixbuf:2[introspection,jpeg,tiff]
 "
 BDEPEND="
 	verify-sig? ( sec-keys/openpgp-keys-jvoisin )
 	test? (
-		app-text/poppler[introspection]
-		gnome-base/librsvg[introspection]
 		media-libs/exiftool:*
 		media-video/ffmpeg[mp3,vorbis]
-		x11-libs/gdk-pixbuf:2[jpeg,tiff]
 	)
 "
 
@@ -43,9 +44,6 @@ DOCS=( doc {CHANGELOG,CONTRIBUTING,INSTALL,README}.md )
 distutils_enable_tests unittest
 
 pkg_postinst() {
-	optfeature "PDF support" "app-text/poppler[introspection]"
-	optfeature "SVG support" "gnome-base/librsvg:2[introspection]"
-	optfeature "image support" "x11-libs/gdk-pixbuf:2[introspection]"
 	optfeature "misc file format support" media-libs/exiftool
 	optfeature "sandboxing" sys-apps/bubblewrap
 	optfeature "video support" media-video/ffmpeg
