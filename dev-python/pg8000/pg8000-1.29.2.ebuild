@@ -25,7 +25,7 @@ RDEPEND="
 BDEPEND="
 	test? (
 		$(python_gen_impl_dep "ssl")
-		$(epostgres --get-depend)
+		$(epostgres --get-depend "xml")
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
 		dev-python/pytest-benchmark[${PYTHON_USEDEP}]
 		dev-python/pytz[${PYTHON_USEDEP}]
