@@ -42,18 +42,20 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.0-fix-lib-path.patch"
+	"${FILESDIR}/${PN}-2.0-fix-unordered-dense.patch"
+	"${FILESDIR}/${PN}-2.0-renamed-svlang.patch"
 )
 
 src_configure() {
 	python_setup
-	# BUILD_SHARED_LIBS=OFF because of name collision
+	# SLANG_SHARED_LIB_NAME=svlang because of name collision
 	# https://github.com/MikePopoloski/slang/issues/646
 	local mycmakeargs=(
 		-D CMAKE_INSTALL_LIBDIR="${EPREFIX}/usr/$(get_libdir)"
-		-D BUILD_SHARED_LIBS=OFF
+		-D BUILD_SHARED_LIBS=ON
 		-D SLANG_INCLUDE_PYLIB=$(usex python)
 		-D SLANG_INCLUDE_TESTS=$(usex test)
+		-D SLANG_SHARED_LIB_NAME="svlang"
 	)
 	cmake_src_configure
 }
@@ -61,7 +63,9 @@ src_configure() {
 src_install() {
 	cmake_src_install
 
-	# fix python unexpected paths QA
-	mkdir -p "${D}/$(python_get_sitedir)" || die
-	mv "${D}"/usr/pyslang* "${D}/$(python_get_sitedir)" || die
+	if use python; then
+		# fix python unexpected paths QA
+		mkdir -p "${D}/$(python_get_sitedir)" || die
+		mv "${D}"/usr/pyslang* "${D}/$(python_get_sitedir)" || die
+	fi
 }

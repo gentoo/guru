@@ -4,6 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
+DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1
 
@@ -22,6 +23,8 @@ RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/python-xlib[${PYTHON_USEDEP}]
+
+	gui-libs/gtk-layer-shell[introspection(+)]
 "
 
 S="${WORKDIR}/Discover-${PV}"

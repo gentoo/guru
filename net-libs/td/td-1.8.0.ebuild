@@ -21,7 +21,7 @@ DEPEND="
 	dev-libs/openssl:=
 	sys-libs/zlib:=
 	dotnet? ( virtual/dotnet-sdk:* )
-	java? ( virtual/jdk:*[-headless-awt] )
+	java? ( >=virtual/jdk-11:*[-headless-awt] )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -65,9 +65,8 @@ src_configure() {
 	)
 
 	if use java; then
-		local JAVA_HOME=$(java-config -O)
-		local JAVA_AWT_LIBRARY=$(echo "${JAVA_HOME}"/jre/lib/*/libjawt.so)
-		local JAVA_JVM_LIBRARY=$(echo "${JAVA_HOME}"/jre/lib/*/libjava.so)
+		local JAVA_AWT_LIBRARY="${JAVA_HOME}/lib/libjawt.so"
+		local JAVA_JVM_LIBRARY="${JAVA_HOME}/lib/libjava.so"
 
 		mycmakeargs+=(
 			-DTD_ENABLE_JNI=ON

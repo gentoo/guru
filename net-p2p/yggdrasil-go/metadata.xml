@@ -14,4 +14,9 @@
 		Yggdrasil nodes. Yggdrasil does not require you to have IPv6
 		Internet connectivity - it also works over IPv4.
 	</longdescription>
+	<upstream>
+		<remote-id type="github">yggdrasil-network/yggdrasil-go</remote-id>
+		<bugs-to>https://github.com/yggdrasil-network/yggdrasil-go/issues</bugs-to>
+		<doc lang="en">https://yggdrasil-network.github.io</doc>
+	</upstream>
 </pkgmetadata>

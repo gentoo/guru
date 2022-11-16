@@ -4,7 +4,8 @@
 EAPI=8
 
 DOCS_BUILDER="mkdocs"
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
+DISTUTILS_USE_PEP517="setuptools"
 inherit distutils-r1 docs
 
 DESCRIPTION="Plugin for managing VCR.py cassettes"
@@ -12,7 +13,7 @@ HOMEPAGE="
 	https://pypi.org/project/pytest-vcr/
 	https://github.com/ktosiek/pytest-vcr
 "
-SRC_URI="https://github.com/ktosiek/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/ktosiek/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -26,8 +27,6 @@ RDEPEND="
 DOCS=( docs README.rst )
 
 EPYTEST_DESELECT=( tests/test_vcr.py::test_no_warnings )
-
-distutils_enable_tests --install pytest
 
 python_prepare_all() {
 	# pytest.config was removed in >=dev-python/pytest-5.0

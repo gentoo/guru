@@ -83,8 +83,8 @@ src_unpack() {
 }
 
 src_prepare() {
-	# unused-result maybe temporary fix
-	sed -i -e '/Werror=unused-result/d' src/CMakeLists.txt || die
+	# temporary fix
+	sed -i -e '/Werror/d' src/CMakeLists.txt || die
 
 	# headers is not a valid boost component
 	sed -i -e '/find_package(Boost/{s/headers //;s/CONFIG //}' CMakeLists.txt || die
@@ -97,9 +97,6 @@ src_prepare() {
 	sed -i -e '1afind_package(PkgConfig REQUIRED)\npkg_check_modules(INIH REQUIRED INIReader)' \
 		-e '/target_link_libraries/s/inih/${INIH_LIBRARIES}/' src/yuzu_cmd/CMakeLists.txt || die
 	sed -i -e 's:inih/cpp/::' src/yuzu_cmd/config.cpp || die
-
-	# Unbundle xbyak ( uncomment when xbyak version is ok or never as it is only headers )
-	# sed -i -e '/^# xbyak/,/^endif()/d' externals/CMakeLists.txt || die
 
 	if use system-vulkan; then # Unbundle vulkan headers
 		sed -i -e 's:../../externals/Vulkan-Headers/include:/usr/include/vulkan/:' src/video_core/CMakeLists.txt src/yuzu/CMakeLists.txt src/yuzu_cmd/CMakeLists.txt || die
