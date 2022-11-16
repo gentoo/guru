@@ -25,6 +25,7 @@ IUSE="doc"
 # file collisions
 RDEPEND="
 	!dev-lang/crystal
+	!dev-util/shards
 	!games-mud/crystal
 	!sci-chemistry/tinker
 "
