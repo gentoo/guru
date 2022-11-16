@@ -23,7 +23,7 @@ src_compile() {
 }
 
 src_test() {
-	ego test $(ego list ./... | grep -v /vendor/)
+	ego test $(go list ./... | grep -v /vendor/)
 }
 
 src_install() {
