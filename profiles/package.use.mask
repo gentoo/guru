@@ -3,6 +3,10 @@
 
 # New entries go on top.
 
+# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2022-11-16)
+# depends on masked dev-python/pytest-html
+dev-python/pyinquirer test
+
 # Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-06-26)
 # depend on masked dev-python/python-binary-memcached
 dev-python/oslo-cache test

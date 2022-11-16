@@ -15,12 +15,11 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="CC-BY-SA-2.5 CC-BY-SA-4.0 MIT MPL-2.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="jpeg png webp"
 
 RDEPEND="
 	>=app-text/ghostscript-gpl-9.50
 	>=app-text/pdfminer-20201018[${PYTHON_USEDEP}]
-	>=app-text/tesseract-4.1.1[jpeg?,tiff,png?,webp?]
+	>=app-text/tesseract-4.1.1[jpeg,tiff,png,webp]
 	>=dev-python/coloredlogs-14.0[${PYTHON_USEDEP}]
 	>=dev-python/deprecation-2.1.0[${PYTHON_USEDEP}]
 	>=dev-python/packaging-20[${PYTHON_USEDEP}]

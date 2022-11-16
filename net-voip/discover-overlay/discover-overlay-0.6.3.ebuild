@@ -3,10 +3,10 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1
+inherit distutils-r1 xdg
 
 DESCRIPTION="Yet another Discord overlay for Linux written in Python using GTK3"
 HOMEPAGE="https://github.com/trigg/Discover"
@@ -23,7 +23,6 @@ RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/python-xlib[${PYTHON_USEDEP}]
-
 	gui-libs/gtk-layer-shell[introspection(+)]
 "
 

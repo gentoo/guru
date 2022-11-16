@@ -28,7 +28,7 @@
 #
 # @SUBSECTION Helper usage
 #
-# --die [msg...]
+# --die [msg]
 #
 #	Prints the path to the server's log file to the console and aborts the
 #	current merge process with the given message.
@@ -37,7 +37,7 @@
 #
 # 	Returns the directory where the server stores database files.
 #
-# --get-depend
+# --get-depend [use1,use2,...]
 #
 # 	Returns a dependency string (to be included in BDEPEND).
 #
@@ -104,31 +104,41 @@ _DATABASES_ECLASS=1
 # ==============================================================================
 
 # @FUNCTION: _databases_gen_depend
-# @USAGE: <funcname>
+# @USAGE: <funcname> <required use>
 # @INTERNAL
 # @DESCRIPTION:
 # Get a dependency string for the given helper function.
 _databases_gen_depend() {
 	local srvname=${1:1}
+	local req_use=${2}
+
+	local pkg_dep
 	case ${srvname} in
 		memcached)
-			echo "net-misc/memcached"
+			pkg_dep="net-misc/memcached"
 			;;
 		mongod)
-			echo "dev-db/mongodb"
+			pkg_dep="dev-db/mongodb"
 			;;
 		mysql)
-			echo "virtual/mysql[server]"
+			pkg_dep="virtual/mysql"
+			req_use="server,${req_use}"
 			;;
 		postgres)
-			echo "dev-db/postgresql[server]"
+			pkg_dep="dev-db/postgresql"
+			req_use="server,${req_use}"
 			;;
 		redis)
-			echo "dev-db/redis"
+			pkg_dep="dev-db/redis"
 			;;
 		*)
 			die "${ECLASS}: unknown database: ${srvname}"
 	esac
+
+	req_use=${req_use%,}  # strip trailing comma
+	printf "%s" "${pkg_dep}"
+	[[ ${req_use} ]] && \
+		printf "[%s]" "${req_use}"
 }
 
 # @FUNCTION: _databases_die
@@ -189,7 +199,7 @@ _databases_dispatch() {
 			_databases_die ${funcname} "${@}"
 			;;
 		--get-depend)
-			_databases_gen_depend ${funcname}
+			_databases_gen_depend ${funcname} "${@}"
 			;;
 		--get-dbpath)
 			echo "${T}"/${funcname}/db/

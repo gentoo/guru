@@ -27,6 +27,7 @@ inherit crystal-utils multiprocessing toolchain-funcs
 
 BDEPEND="
 	${CRYSTAL_DEPS}
+	${SHARDS_DEPS}
 	dev-util/gshards
 "
 IUSE="debug doc"

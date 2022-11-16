@@ -36,9 +36,9 @@ EPYTEST_IGNORE=(
 
 distutils_enable_tests pytest
 
-distutils_enable_sphinx docs \
-	dev-python/sphinxcontrib-apidoc \
-	dev-python/sphinx_rtd_theme
+#distutils_enable_sphinx docs \
+#	dev-python/sphinxcontrib-apidoc \
+#	dev-python/sphinx_rtd_theme
 
 src_test() {
 	ememcached --start 11221

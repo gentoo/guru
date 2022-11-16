@@ -37,6 +37,17 @@ CRYSTAL_DEPS="
 	)
 "
 
+# @ECLASS_VARIABLE: SHARDS_DEPS
+# @OUTPUT_VARIABLE
+# @DESCRIPTION:
+# This is an eclass-generated Shards dependency string.
+SHARDS_DEPS="
+	|| (
+		dev-util/shards
+		dev-lang/crystal-bin
+	)
+"
+
 # @FUNCTION: _crystal_get_colors_opt
 # @INTERNAL
 # @RETURN: "--no-color" if colors should be disabled, empty string otherwise
