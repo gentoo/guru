@@ -4,20 +4,18 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_10 )
+PYTHON_COMPAT=( python3_{8..11} )
 inherit distutils-r1
 
 DESCRIPTION="Construct isolines/isosurfaces of a 2D/3D scalar field defined by a function"
-HOMEPAGE="https://pypi.org/project/isosurfaces/"
-SRC_URI="https://github.com/jared-hughes/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="
+	https://pypi.org/project/isosurfaces/
+	https://github.com/jared-hughes/isosurfaces
+"
+SRC_URI="https://github.com/jared-hughes/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="
-	dev-python/numpy
-"
-BDEPEND=""
-
-distutils_enable_tests pytest
+RDEPEND="dev-python/numpy[${PYTHON_USEDEP}]"
