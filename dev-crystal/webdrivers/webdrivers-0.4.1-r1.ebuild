@@ -15,6 +15,11 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+RDEPEND="
+	dev-crystal/crystar
+	dev-crystal/habitat
+"
+
 src_prepare() {
 	default
 
