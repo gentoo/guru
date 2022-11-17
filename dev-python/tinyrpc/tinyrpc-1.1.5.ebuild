@@ -18,6 +18,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# no tests in v1.1.5 tarball
+RESTRICT="test"
+
 RDEPEND=">=dev-python/six-1.16.0[${PYTHON_USEDEP}]"
 BDEPEND="
 	test? (
