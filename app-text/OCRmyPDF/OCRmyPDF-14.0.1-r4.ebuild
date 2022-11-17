@@ -24,7 +24,7 @@ RDEPEND="
 	>=dev-python/deprecation-2.1.0[${PYTHON_USEDEP}]
 	>=dev-python/packaging-20[${PYTHON_USEDEP}]
 	>dev-python/pikepdf-5.0.1[${PYTHON_USEDEP}]
-	>=dev-python/pillow-8.2.0[${PYTHON_USEDEP}]
+	>=dev-python/pillow-8.2.0[lcms,${PYTHON_USEDEP}]
 	>=dev-python/pluggy-0.13.0[${PYTHON_USEDEP}]
 	>=dev-python/reportlab-3.5.66[${PYTHON_USEDEP}]
 	>=dev-python/tqdm-4[${PYTHON_USEDEP}]
