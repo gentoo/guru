@@ -42,3 +42,11 @@ src_install() {
 	meson_src_install
 	udev_newrules "${S}/debian/feedbackd.udev" 90-feedbackd.rules
 }
+
+pkg_postinst() {
+	udev_reload
+}
+
+pkg_postrm() {
+	udev_reload
+}
