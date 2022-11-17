@@ -4,5 +4,6 @@
 	<!-- maintainer-needed -->
 	<upstream>
 		<remote-id type="pypi">celery</remote-id>
+		<remote-id type="github">celery/celery</remote-id>
 	</upstream>
 </pkgmetadata>
