@@ -21,7 +21,6 @@ KEYWORDS="~amd64"
 BDEPEND="
 	test? (
 		dev-python/Faker[${PYTHON_USEDEP}]
-		>=dev-python/gevent-21.12.0[${PYTHON_USEDEP}]
 		dev-python/zstd[${PYTHON_USEDEP}]
 		$(ememcached --get-depend)
 	)
