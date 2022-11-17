@@ -3,12 +3,15 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
-
+PYTHON_COMPAT=( python3_{8..10} )
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 optfeature
 
 DESCRIPTION="A protocol neutral RPC library that supports JSON-RPC and zmq"
-HOMEPAGE="https://github.com/mbr/tinyrpc"
+HOMEPAGE="
+	https://pypi.org/project/tinyrpc/
+	https://github.com/mbr/tinyrpc
+"
 SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
@@ -16,11 +19,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND=">=dev-python/six-1.16.0[${PYTHON_USEDEP}]"
-DEPEND="
-	${RDEPEND}
+BDEPEND="
 	test? (
-		>=dev-python/gevent-websocket-0.10.1[${PYTHON_USEDEP}]
-		>=dev-python/gevent-21.1.2[${PYTHON_USEDEP}]
 		dev-python/jsonext[${PYTHON_USEDEP}]
 		>=dev-python/msgpack-1.0.2[${PYTHON_USEDEP}]
 		>=dev-python/pika-1.2.0[${PYTHON_USEDEP}]
@@ -31,13 +31,17 @@ DEPEND="
 	)
 "
 
+EPYTEST_IGNORE=(
+	# needs masked dev-python/gevent
+	tests/test_wsgi_transport.py
+)
+
 distutils_enable_tests pytest
+
 distutils_enable_sphinx docs dev-python/sphinx_rtd_theme
 
 pkg_postinst() {
-	optfeature "gevent support" dev-python/gevent
 	optfeature "httpclient support" "dev-python/requests dev-python/websocket-client dev-python/gevent-websocket"
-	optfeature "websocket support" dev-python/gevent-websocket
 	optfeature "wsgi support" dev-python/werkzeug
 	optfeature "zmq support" dev-python/pyzmq
 	optfeature "jsonext support" dev-python/jsonext
