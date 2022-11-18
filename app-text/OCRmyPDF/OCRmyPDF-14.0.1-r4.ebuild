@@ -15,7 +15,6 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="CC-BY-SA-2.5 CC-BY-SA-4.0 MIT MPL-2.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="png"
 
 RDEPEND="
 	>=app-text/ghostscript-gpl-9.50
@@ -66,5 +65,5 @@ src_install() {
 pkg_postinst() {
 	optfeature "JBIG2 optimization support" media-libs/jbig2enc
 	optfeature "image cleaning support" app-text/unpaper
-	use png && optfeature "PNG optimization support" media-gfx/pngquant
+	optfeature "PNG optimization support" media-gfx/pngquant
 }
