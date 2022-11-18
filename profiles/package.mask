@@ -15,6 +15,10 @@
 # New entries go on top.
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-18)
+# Depends on masked dev-python/Rx (can be restored here after treeclean)
+sys-power/gwe
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-18)
 # Depends on masked dev-python/gevent. No revdeps. Removal on 2022-12-17.
 dev-python/gevent-websocket
 
