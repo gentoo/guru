@@ -85,8 +85,3 @@ dev-python/pypandoc
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
 # Depends on masked dev-libs/openssl-3.0.*
 app-crypt/tpm2-openssl
-
-# Yuan Liao <liaoyuan@gmail.com> (2022-02-20)
-# Depends on net-libs/libsoup:3.0, which is masked in ::gentoo.
-# Masked until all dependencies are unmasked.
-gnome-extra/extension-manager
