@@ -10,5 +10,5 @@ PROPERTIES=live
 RDEPEND=sys-libs/libnvidia-container
 RESTRICT=strip
 SLOT=0
-_eclasses_=go-module	15312495dc4fd84f8c37bbe228ea2abd	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_eclasses_=go-module	4c4b34f361efda91762ffeda8f632c02	git-r3	2347f8fe2d392b2a091191f94be37e6f
 _md5_=64f44473176c4c7da332493c2f54a927

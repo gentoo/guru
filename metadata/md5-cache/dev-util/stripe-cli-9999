@@ -10,5 +10,5 @@ LICENSE=Apache-2.0
 PROPERTIES=live
 RESTRICT=strip
 SLOT=0
-_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	go-module	15312495dc4fd84f8c37bbe228ea2abd	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	go-module	4c4b34f361efda91762ffeda8f632c02	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff
 _md5_=6c8bb97304937906e3b1a0481750d3fe
