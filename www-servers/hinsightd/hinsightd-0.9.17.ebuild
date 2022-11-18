@@ -16,10 +16,10 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/tiotags/hin9.git"
 elif [[ ! -z "${mycommit}" ]]; then
-	SRC_URI="https://gitlab.com/tiotags/hin9/-/archive/${mycommit}/hin9-${mycommit}.tar.gz"
+	SRC_URI="https://gitlab.com/tiotags/hin9/-/archive/${mycommit}/hin9-${mycommit}.tar.bz2"
 	S="${WORKDIR}/hin9-${mycommit}"
 else
-	SRC_URI="https://gitlab.com/tiotags/hin9/-/archive/v${PV}/hin9-v${PV}.tar.gz"
+	SRC_URI="https://gitlab.com/tiotags/hin9/-/archive/v${PV}/hin9-v${PV}.tar.bz2"
 	S="${WORKDIR}/hin9-v${PV}"
 fi
 
