@@ -25,6 +25,8 @@ depend() {
 
 fix_config_perms() {
 	checkpath -q -o fedigroup:fedigroup -m 0640 -f "${FEDIGROUP_CONFIG}"
+	checkpath -q -o fedigroup:fedigroup -f "${output_log}"
+	return $?
 }
 
 start_pre() {
@@ -39,26 +41,36 @@ start_pre() {
 }
 
 create() {
-	local name=""
+	einfo "When asked, make sure savepoint file is created in the /var/lib/fedigroup directory"
 	printf "Enter the name of the bot to be created: "
 	read name
 
 	fix_config_perms || return 1
 	"${command}" create "${name}" -c "${FEDIGROUP_CONFIG}" || return 1
+
+	initd="/etc/init.d/fedigroup.${name}"
+	[ -f "${initd}" ] ||
+		cp "/etc/init.d/fedigroup" "${initd}"
+
+	einfo "Done! To start the bot, use the following command:"
+	einfo "	# rc-service fedigroup.${name} start"
 }
 
 remove() {
-	local name=""
 	printf "Enter the name of the bot to be removed: "
 	read name
 
 	fix_config_perms || return 1
-	start-stop-daemon --quiet --exec "${command}" \
+	start-stop-daemon --exec "${command}" \
 		-- remove "${name}" -c "${FEDIGROUP_CONFIG}" || return 1
+
+	initd="/etc/init.d/fedigroup.${name}"
+	[ -f "${initd}" ] && \
+		einfo "Service file ${initd} needs to be removed manually"
 }
 
 list() {
-	fix_config_perms || return 1
-	start-stop-daemon --quiet --exec "${command}" \
-		-- list -c "${FEDIGROUP_CONFIG}" || return 1
+	start-stop-daemon --exec "${command}" \
+		-- list -c "${FEDIGROUP_CONFIG}"
+	return $?
 }

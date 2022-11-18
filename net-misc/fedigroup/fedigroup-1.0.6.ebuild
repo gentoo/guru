@@ -35,4 +35,7 @@ src_install() {
 
 	newinitd "${FILESDIR}"/fedigroup.initd ${PN}
 	newconfd "${FILESDIR}"/fedigroup.confd ${PN}
+
+	diropts --owner fedigroup --group fedigroup
+	keepdir /var/lib/fedigroup
 }
