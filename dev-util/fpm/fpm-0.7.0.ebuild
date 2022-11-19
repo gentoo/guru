@@ -23,7 +23,7 @@ IUSE="doc"
 RESTRICT="test"
 
 CDEPEND="
-	dev-util/toml-f
+	dev-libs/toml-f
 	dev-libs/m_cli2
 "
 
