@@ -1,7 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit qmake-utils
 
@@ -16,14 +16,11 @@ HOMEPAGE="https://github.com/molke-productions/qloud"
 
 if [[ "${PV}" != "9999" ]]; then
 	SRC_URI="https://github.com/molke-productions/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-else
-	SRC_URI=""
 fi
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 RESTRICT="test"
 
@@ -44,16 +41,15 @@ RDEPEND="
 
 	x11-libs/qwt:6
 "
-DEPEND="${RDEPEND}
-"
+DEPEND="${RDEPEND}"
 
 src_prepare() {
 	default
 
-	sed -e "s!/usr/local!/usr!" \
+	sed -e "s!/usr/local!${EPREFIX}/usr!" \
 		-i config.pri || die
 
-	sed -e "s!/usr/include/qwt!/usr/include/qwt6!" \
+	sed -e "s!/usr/include/qwt!${EPREFIX}/usr/include/qwt6!" \
 		-i src/src.pro || die
 
 	sed -e "s!-lqwt!-lqwt6-qt5!" \
