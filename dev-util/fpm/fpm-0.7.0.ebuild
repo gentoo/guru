@@ -24,7 +24,7 @@ RESTRICT="test"
 
 CDEPEND="
 	dev-util/toml-f
-	dev-util/m_cli2
+	dev-libs/m_cli2
 "
 
 RDEPEND="
