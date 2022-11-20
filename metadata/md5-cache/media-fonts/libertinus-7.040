@@ -9,5 +9,5 @@ KEYWORDS=~amd64 ~x86
 LICENSE=OFL-1.1
 SLOT=0
 SRC_URI=https://github.com/alerque/libertinus/releases/download/v7.040/Libertinus-7.040.tar.xz -> libertinus-7.040.tar.xz
-_eclasses_=font	9cdfddf092c05c7c4efd70cc30dea046
+_eclasses_=font	5e03cb70902daa9ff8967c61130f0f60
 _md5_=b26fa0355dd018c52c4ba4d351ffc7a6
