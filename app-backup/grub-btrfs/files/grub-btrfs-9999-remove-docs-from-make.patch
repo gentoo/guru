@@ -1,0 +1,37 @@
+Upstreams Makefile installs docs into path that is against Gentoos conventions
+
+#  Pascal Jäger <pascal.jaeger@leimstift.de> (2022-11-20)
+
+--- a/Makefile
++++ b/Makefile
+@@ -34,11 +34,11 @@
+ 	@mkdir "${TEMP_DIR}"
+ 	@chmod 777 ${TEMP_DIR}
+ 	@cp manpages/grub-btrfs.8.man ${TEMP_DIR}/grub-btrfs.8
+-	@bzip2 ${TEMP_DIR}/grub-btrfs.8
+-	@install -Dm644 -t "${MAN_DIR}/man8" "${TEMP_DIR}/grub-btrfs.8.bz2"
++#	@bzip2 ${TEMP_DIR}/grub-btrfs.8
++#	@install -Dm644 -t "${MAN_DIR}/man8" "${TEMP_DIR}/grub-btrfs.8.bz2"
+ 	@cp manpages/grub-btrfsd.8.man ${TEMP_DIR}/grub-btrfsd.8
+-	@bzip2 ${TEMP_DIR}/grub-btrfsd.8
+-	@install -Dm644 -t "${MAN_DIR}/man8" "${TEMP_DIR}/grub-btrfsd.8.bz2";
++#	@bzip2 ${TEMP_DIR}/grub-btrfsd.8
++#	@install -Dm644 -t "${MAN_DIR}/man8" "${TEMP_DIR}/grub-btrfsd.8.bz2";
+ 	@install -Dm755 -t "$(DESTDIR)/etc/grub.d/" 41_snapshots-btrfs
+ 	@install -Dm644 -t "$(DESTDIR)/etc/default/grub-btrfs/" config
+ 	@install -Dm744 -t "$(BIN_DIR)/" grub-btrfsd;
+@@ -59,10 +59,10 @@
+ 		install -Dm644 "initramfs/Arch Linux/overlay_snap_ro-install" "$(LIB_DIR)/initcpio/install/grub-btrfs-overlayfs"; \
+ 		install -Dm644 "initramfs/Arch Linux/overlay_snap_ro-hook" "$(LIB_DIR)/initcpio/hooks/grub-btrfs-overlayfs"; \
+ 	 fi
+-	@install -Dm644 -t "$(SHARE_DIR)/licenses/$(PKGNAME)/" LICENSE
+-	@install -Dm644 -t "$(SHARE_DIR)/doc/$(PKGNAME)/" README.md
+-	@install -Dm644 "initramfs/readme.md" "$(SHARE_DIR)/doc/$(PKGNAME)/initramfs-overlayfs.md"
+-	@rm -rf "${TEMP_DIR}"
++#	@install -Dm644 -t "$(SHARE_DIR)/licenses/$(PKGNAME)/" LICENSE
++#	@install -Dm644 -t "$(SHARE_DIR)/doc/$(PKGNAME)/" README.md
++#	@install -Dm644 "initramfs/readme.md" "$(SHARE_DIR)/doc/$(PKGNAME)/initramfs-overlayfs.md"
++#	@rm -rf "${TEMP_DIR}"
+
+ uninstall:
+ 	@echo "Uninstalling grub-btrfs"
