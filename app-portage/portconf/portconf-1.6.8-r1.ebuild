@@ -1,7 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=8
 
 DESCRIPTION="/etc/portage cleaner"
 HOMEPAGE="https://github.com/megabaks/portconf"
@@ -11,17 +11,10 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
 
-IUSE=""
-
-DEPEND="
-	app-shells/bash:=
-	sys-apps/portage
-"
-RDEPEND="${DEPEND}
+RDEPEND="
 	app-portage/eix
 	app-portage/portage-utils
-	sys-apps/gawk
-	|| ( app-text/agrep dev-libs/tre )
+	dev-libs/tre
 "
 
 src_install() {
@@ -29,5 +22,5 @@ src_install() {
 
 	dobin portconf
 	insinto /etc
-	newins portconf.conf portconf.conf
+	doins portconf.conf
 }
