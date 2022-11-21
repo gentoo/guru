@@ -16,6 +16,7 @@ IUSE="+man +seccomp"
 
 RDEPEND="dev-libs/wayland"
 DEPEND="${RDEPEND}
+	dev-libs/inih
 	dev-libs/wayland-protocols
 	seccomp? ( sys-libs/libseccomp )
 "
