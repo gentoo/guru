@@ -38,16 +38,6 @@ BDEPEND="test? (
 
 distutils_enable_tests pytest
 
-EEPYTEST_DESELECT=(
-	tests/test_connection_options.py::test_mysql_pool_size
-	tests/test_connection_options.py::test_mysql_explicit_pool_size
-	tests/test_connection_options.py::test_mysql_ssl
-	tests/test_connection_options.py::test_mysql_explicit_ssl
-	tests/test_connection_options.py::test_mysql_pool_recycle
-	tests/test_databases.py
-	tests/test_integration.py::test_integration
-)
-
 python_prepare_all() {
 	# fix tests
 	#sed -i -e '/databases.backends.mysql/d' tests/test_connection_options.py || die

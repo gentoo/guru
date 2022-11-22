@@ -14,6 +14,10 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-22)
+# Depends on removed <=dev-python/sqlalchemy-1.4.41
+dev-python/databases
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-18)
 # Depends on masked dev-python/Rx (can be restored here after treeclean)
 sys-power/gwe
