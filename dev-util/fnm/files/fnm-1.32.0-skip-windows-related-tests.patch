@@ -1,0 +1,223 @@
+From 17f12d8602667067eb1c26656aaa0cc74a1a0548 Mon Sep 17 00:00:00 2001
+From: Alexey Zapparov <alexey@zapparov.com>
+Date: Tue, 22 Nov 2022 19:11:39 +0100
+Subject: [PATCH] Skip Windows-related tests
+
+Signed-off-by: Alexey Zapparov <alexey@zapparov.com>
+---
+ e2e/aliases.test.ts               | 4 ++--
+ e2e/basic.test.ts                 | 4 ++--
+ e2e/current.test.ts               | 4 ++--
+ e2e/env.test.ts                   | 4 ++--
+ e2e/exec.test.ts                  | 4 ++--
+ e2e/existing-installation.test.ts | 4 ++--
+ e2e/latest-lts.test.ts            | 4 ++--
+ e2e/log-level.test.ts             | 4 ++--
+ e2e/multishell.test.ts            | 4 ++--
+ e2e/nvmrc-lts.test.ts             | 4 ++--
+ e2e/system-node.test.ts           | 2 +-
+ e2e/uninstall.test.ts             | 4 ++--
+ 12 files changed, 23 insertions(+), 23 deletions(-)
+
+diff --git a/e2e/aliases.test.ts b/e2e/aliases.test.ts
+index e7dce18..6c437c2 100644
+--- a/e2e/aliases.test.ts
++++ b/e2e/aliases.test.ts
+@@ -1,5 +1,5 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import describe from "./describe.js"
+ import { writeFile } from "node:fs/promises"
+ import path from "node:path"
+@@ -7,7 +7,7 @@ import testCwd from "./shellcode/test-cwd.js"
+ import getStderr from "./shellcode/get-stderr.js"
+ import testNodeVersion from "./shellcode/test-node-version.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`allows to install an lts if version missing`, async () => {
+       await writeFile(path.join(testCwd(), ".node-version"), "lts/*")
+diff --git a/e2e/basic.test.ts b/e2e/basic.test.ts
+index d269c5f..2302065 100644
+--- a/e2e/basic.test.ts
++++ b/e2e/basic.test.ts
+@@ -1,12 +1,12 @@
+ import { writeFile, mkdir } from "node:fs/promises"
+ import { join } from "node:path"
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, WinCmd, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import testCwd from "./shellcode/test-cwd.js"
+ import testNodeVersion from "./shellcode/test-node-version.js"
+ import describe from "./describe.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell, WinCmd]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`basic usage`, async () => {
+       await script(shell)
+diff --git a/e2e/current.test.ts b/e2e/current.test.ts
+index 29710c0..430de0f 100644
+--- a/e2e/current.test.ts
++++ b/e2e/current.test.ts
+@@ -1,8 +1,8 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, WinCmd, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import describe from "./describe.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell, WinCmd]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`current returns the current Node.js version set in fnm`, async () => {
+       await script(shell)
+diff --git a/e2e/env.test.ts b/e2e/env.test.ts
+index d07ad6a..7a01fb4 100644
+--- a/e2e/env.test.ts
++++ b/e2e/env.test.ts
+@@ -1,11 +1,11 @@
+ import { readFile } from "node:fs/promises"
+ import { join } from "node:path"
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, WinCmd, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import testCwd from "./shellcode/test-cwd.js"
+ import describe from "./describe.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell, WinCmd]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`outputs json`, async () => {
+       const filename = `file.json`
+diff --git a/e2e/exec.test.ts b/e2e/exec.test.ts
+index 4babaad..6d93b59 100644
+--- a/e2e/exec.test.ts
++++ b/e2e/exec.test.ts
+@@ -1,11 +1,11 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, WinCmd, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import testCwd from "./shellcode/test-cwd.js"
+ import fs from "node:fs/promises"
+ import path from "node:path"
+ import describe from "./describe.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell, WinCmd]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test("`exec` usage", async () => {
+       await fs.writeFile(path.join(testCwd(), ".nvmrc"), "v8.10.0")
+diff --git a/e2e/existing-installation.test.ts b/e2e/existing-installation.test.ts
+index 2fb0f90..17140da 100644
+--- a/e2e/existing-installation.test.ts
++++ b/e2e/existing-installation.test.ts
+@@ -1,9 +1,9 @@
+ import getStderr from "./shellcode/get-stderr.js"
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import describe from "./describe.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`warns about an existing installation`, async () => {
+       await script(shell)
+diff --git a/e2e/latest-lts.test.ts b/e2e/latest-lts.test.ts
+index 83bebb0..1632b0a 100644
+--- a/e2e/latest-lts.test.ts
++++ b/e2e/latest-lts.test.ts
+@@ -1,8 +1,8 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import describe from "./describe.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`installs latest lts`, async () => {
+       await script(shell)
+diff --git a/e2e/log-level.test.ts b/e2e/log-level.test.ts
+index f7329c8..2b9f9f7 100644
+--- a/e2e/log-level.test.ts
++++ b/e2e/log-level.test.ts
+@@ -1,9 +1,9 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import describe from "./describe.js"
+ import getStderr from "./shellcode/get-stderr.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`"quiet" log level`, async () => {
+       await script(shell)
+diff --git a/e2e/multishell.test.ts b/e2e/multishell.test.ts
+index 60f9007..b1b54de 100644
+--- a/e2e/multishell.test.ts
++++ b/e2e/multishell.test.ts
+@@ -1,9 +1,9 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import testNodeVersion from "./shellcode/test-node-version.js"
+ import describe from "./describe.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`multishell changes don't affect parent`, async () => {
+       await script(shell)
+diff --git a/e2e/nvmrc-lts.test.ts b/e2e/nvmrc-lts.test.ts
+index be5a18d..43c82e1 100644
+--- a/e2e/nvmrc-lts.test.ts
++++ b/e2e/nvmrc-lts.test.ts
+@@ -1,11 +1,11 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import fs from "node:fs/promises"
+ import path from "node:path"
+ import describe from "./describe.js"
+ import testCwd from "./shellcode/test-cwd.js"
+ 
+-for (const shell of [Bash, Fish, PowerShell, Zsh]) {
++for (const shell of [Bash, Fish, Zsh]) {
+   describe(shell, () => {
+     test(`uses .nvmrc with lts definition`, async () => {
+       await fs.writeFile(path.join(testCwd(), ".nvmrc"), `lts/dubnium`)
+diff --git a/e2e/system-node.test.ts b/e2e/system-node.test.ts
+index 67fd535..e569fc0 100644
+--- a/e2e/system-node.test.ts
++++ b/e2e/system-node.test.ts
+@@ -6,7 +6,7 @@ import describe from "./describe.js"
+ import testNodeVersion from "./shellcode/test-node-version.js"
+ import testBinDir from "./shellcode/test-bin-dir.js"
+ 
+-for (const shell of [Bash, Fish, PowerShell, WinCmd, Zsh]) {
++for (const shell of [Bash, Fish, Zsh]) {
+   describe(shell, () => {
+     // latest bash breaks this as it seems. gotta find a solution.
+     const t = process.platform === "darwin" && shell === Bash ? test.skip : test
+diff --git a/e2e/uninstall.test.ts b/e2e/uninstall.test.ts
+index 6726c3e..5d55ae2 100644
+--- a/e2e/uninstall.test.ts
++++ b/e2e/uninstall.test.ts
+@@ -1,8 +1,8 @@
+ import { script } from "./shellcode/script.js"
+-import { Bash, Fish, PowerShell, Zsh } from "./shellcode/shells.js"
++import { Bash, Fish, Zsh } from "./shellcode/shells.js"
+ import describe from "./describe.js"
+ 
+-for (const shell of [Bash, Zsh, Fish, PowerShell]) {
++for (const shell of [Bash, Zsh, Fish]) {
+   describe(shell, () => {
+     test(`uninstalls a version`, async () => {
+       await script(shell)
+-- 
+2.37.4
+
