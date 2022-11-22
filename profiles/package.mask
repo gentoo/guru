@@ -14,6 +14,10 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-22)
+# Depends on masked (for testing) net-libs/webkit-gtk:5
+app-text/komikku
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-18)
 # Depends on masked dev-python/Rx (can be restored here after treeclean)
 sys-power/gwe
