@@ -30,7 +30,7 @@ BDEPEND="test? (
 )"
 
 EPYTEST_IGNORE=(
-	# GitPython fails to allocate memory
+	# tests that require network
 	tests/test_dateparser_data_integrity.py
 )
 
