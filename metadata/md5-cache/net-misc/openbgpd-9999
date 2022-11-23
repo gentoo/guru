@@ -1,4 +1,4 @@
-BDEPEND=dev-util/byacc sys-devel/libtool sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl] virtual/pkgconfig
+BDEPEND=dev-util/byacc sys-devel/libtool sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 >=dev-vcs/git-1.8.2.1[curl] virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare unpack
 DESCRIPTION=OpenBGPD is a free implementation of BGPv4
 EAPI=7
@@ -8,5 +8,5 @@ LICENSE=ISC
 PROPERTIES=live
 RDEPEND=!!net-misc/quagga acct-group/_bgpd acct-user/_bgpd
 SLOT=0
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	git-r3	2347f8fe2d392b2a091191f94be37e6f	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc	git-r3	2347f8fe2d392b2a091191f94be37e6f	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=51778ddc0a64fa95775c1d7bbcc4b489

@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install prepare unpack
 DESCRIPTION=Wrapper for the zip/unzip functions to expose to BOINC clients
 EAPI=8
@@ -9,5 +9,5 @@ LICENSE=Info-ZIP LGPL-3+
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/BOINC/boinc/archive/client_release/7.18/7.18.0.tar.gz -> boinc-7.18.0.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	boinc	3a3ce32a989f5f2b7be763ef07b40786
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	boinc	3a3ce32a989f5f2b7be763ef07b40786
 _md5_=ae571952e34ef5decfe998de0a35cdf2

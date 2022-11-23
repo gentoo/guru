@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/mono sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+BDEPEND=dev-lang/mono sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install prepare setup
 DEPEND=>=dev-lang/mono-3.0 x11-libs/pango >=dev-libs/glib-2.31 dev-libs/atk x11-libs/gtk+:3 gnome-base/libglade dev-perl/XML-LibXML !dev-dotnet/gtk-sharp-gapi !dev-dotnet/gtk-sharp-docs !dev-dotnet/gtk-dotnet-sharp !dev-dotnet/gdk-sharp !dev-dotnet/glib-sharp !dev-dotnet/glade-sharp !dev-dotnet/pango-sharp !dev-dotnet/atk-sharp virtual/pkgconfig sys-devel/automake:1.11
 DESCRIPTION=gtk bindings for mono
@@ -12,5 +12,5 @@ RDEPEND=>=dev-lang/mono-3.0 x11-libs/pango >=dev-libs/glib-2.31 dev-libs/atk x11
 RESTRICT=test
 SLOT=3
 SRC_URI=https://github.com/mono/gtk-sharp/archive/2.99.3.tar.gz -> gtk-sharp-2.99.3.tar.gz
-_eclasses_=mono-env	87888393b1c1b882d0543087e28ec0b0	dotnet	b5d9e65edb57355919e7f5d438b04ea8	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3
+_eclasses_=mono-env	87888393b1c1b882d0543087e28ec0b0	dotnet	b5d9e65edb57355919e7f5d438b04ea8	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc
 _md5_=829b15e8ea89fd62e5df4dc60bb081a6

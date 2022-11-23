@@ -1,4 +1,4 @@
-BDEPEND=dev-util/intltool sys-devel/bc sys-devel/gettext virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71 >=sys-devel/libtool-2.4
+BDEPEND=dev-util/intltool sys-devel/bc sys-devel/gettext virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=compile configure install postinst prepare unpack
 DEPEND=dev-libs/libxml2 x11-apps/appres x11-apps/xwininfo x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXrandr x11-libs/libXt x11-libs/libXxf86vm virtual/libcrypt:= virtual/glu virtual/opengl sys-libs/pam x11-libs/libXft x11-base/xorg-proto
 DESCRIPTION=Analog clock hack for the xscreensaver program
@@ -10,5 +10,5 @@ LICENSE=BSD
 RDEPEND=>=x11-misc/xscreensaver-6.01
 SLOT=0
 SRC_URI=https://www.jwz.org/xscreensaver/xscreensaver-6.05.1.tar.gz http://pt2k.xii.jp/software/anclock/xscreensaver/anclock-2.1.0-for-xscreensaver-6.04.patch.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	9e6965bfaa00f52cc61e0d4bc44c87b3	flag-o-matic	29a755b1291d64133634d80b0328f153
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc	flag-o-matic	29a755b1291d64133634d80b0328f153
 _md5_=6838eb32991124080b8332fbc45e3a3f
