@@ -21,6 +21,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 RDEPEND="
 	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
+	!dev-python/django-markdownify
 "
 
 distutils_enable_tests pytest
