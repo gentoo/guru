@@ -10,5 +10,5 @@ LICENSE=BSD-2
 REQUIRED_USE=uefi32? ( uefi ) uefi64? ( uefi ) eltorito-efi? ( uefi ) uefi? ( || ( uefi32 uefi64 eltorito-efi ) ) bios-pxe? ( bios ) bios-cd? ( bios ) limine-install? ( bios ) bios? ( || ( bios-pxe bios-cd limine-install ) )
 SLOT=0
 SRC_URI=https://github.com/limine-bootloader/limine/releases/download/v2.88/limine-2.88.tar.xz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
 _md5_=a66709447e7c13eda502dce1a94ba2cd

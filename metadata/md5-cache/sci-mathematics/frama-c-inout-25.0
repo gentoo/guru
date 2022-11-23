@@ -12,5 +12,5 @@ RDEPEND=~sci-mathematics/frama-c-25.0:=[ocamlopt?] ~sci-mathematics/frama-c-call
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://frama-c.com/download/frama-c-25.0-Manganese.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	914b385ae0716861815cb660457b6cdc	findlib	d8fa93cf137156660d0b72144b1e31d9
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	findlib	d8fa93cf137156660d0b72144b1e31d9
 _md5_=92a1686c83921e802f1a50dc3f4285ae
