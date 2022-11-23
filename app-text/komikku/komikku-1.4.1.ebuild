@@ -10,7 +10,7 @@ DISTUTILS_SINGLE_IMPL=1
 inherit distutils-r1 meson gnome2-utils virtualx xdg
 
 MY_PN="${PN^}"
-MY_P="${MY_PN}-v${PV}"
+MY_P="${MY_PN}-${PV}"
 DESCRIPTION="An online/offline manga reader for GNOME"
 HOMEPAGE="https://gitlab.com/valos/Komikku"
 SRC_URI="https://gitlab.com/valos/${MY_PN}/-/archive/v${PV}/${MY_P}.tar.bz2"
