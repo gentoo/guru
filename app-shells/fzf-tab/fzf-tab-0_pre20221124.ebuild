@@ -27,6 +27,8 @@ BDEPEND="
 	)
 "
 
+RESTRICT="!test? ( test )"
+
 DISABLE_AUTOFORMATTING="true"
 DOC_CONTENTS="In order to use ${CATEGORY}/${PN} add
 . /usr/share/zsh/site-functions/${PN}.zsh
