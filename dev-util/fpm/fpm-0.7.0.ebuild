@@ -82,8 +82,12 @@ src_compile() {
 }
 
 src_install() {
-	exeinto /usr/bin
-	doexe build/"$(tc-getFC)"_*/app/fpm
+	# Set prefix and pass all used env flags to avoid recompiling with default values
+	"${BSDIR}"/fpm install --prefix "${ED}/usr" \
+		--compiler "$(tc-getFC)" --flag "${FCFLAGS} -I/usr/include/toml-f -I/usr/include/m_cli2" \
+		--c-compiler "$(tc-getCC)" --c-flag "${CFLAGS}" \
+		--cxx-compiler "$(tc-getCXX)" --cxx-flag "${CXXFLAGS}" \
+		--archiver="$(tc-getAR)" --link-flag "${LDFLAGS}"
 
 	use doc && HTML_DOCS=( "${S}"/fpm-doc/. )
 	einstalldocs
