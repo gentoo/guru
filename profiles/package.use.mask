@@ -3,12 +3,16 @@
 
 # New entries go on top.
 
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2022-11-18)
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-25)
+# Depends on masked dev-python/zake
+dev-python/tooz test
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-18)
 # Depends on masked dev-python/gevent
 sys-apps/intel-cmt-cat appqos
 
-# Anna (cybertailor) Vyalkova <cyber+gentoo@sysrq.in> (2022-11-16)
-# depends on masked dev-python/pytest-html
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-16)
+# Depends on masked dev-python/pytest-html
 dev-python/pyinquirer test
 
 # Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-06-26)
