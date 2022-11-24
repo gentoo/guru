@@ -6,18 +6,21 @@ EAPI=8
 FORTRAN_STANDARD="2003"
 PYTHON_COMPAT=( python3_{8..10} )
 
-inherit cmake fortran-2 git-r3 python-any-r1
+inherit cmake fortran-2 python-any-r1
 
-EGIT_REPO_URI="https://github.com/fortran-lang/stdlib.git"
-SRC_URI=""
+MY_PN="stdlib"
+SRC_URI="https://github.com/fortran-lang/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 DESCRIPTION="A community driven standard library for (modern) Fortran"
 HOMEPAGE="https://stdlib.fortran-lang.org/"
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 RESTRICT="mirror !test? ( test )"
+
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 DEPEND="
 	${PYTHON_DEPS}
@@ -42,9 +45,11 @@ src_prepare() {
 	# Remove Fortran compiler version from paths
 	sed -i -e "s:/\${CMAKE_Fortran_COMPILER_ID}-\${CMAKE_Fortran_COMPILER_VERSION}::" config/CMakeLists.txt || die
 
+	# Use favicon.png instead remote icon
+	sed -i -e 's#https://fortran-lang.org/assets/img/fortran_logo_512x512.png#favicon.png#' API-doc-FORD-file.md || die
+
 	cmake_src_prepare
 }
-
 
 src_configure() {
 	local mycmakeargs+=(
@@ -59,7 +64,7 @@ src_compile() {
 
 	if use doc ; then
 		einfo "Build API documentation:"
-		${EPYTHON} ford API-doc-FORD-file.md || die
+		ford API-doc-FORD-file.md || die
 	fi
 }
 
@@ -70,6 +75,6 @@ src_test() {
 src_install() {
 	cmake_src_install
 
-	use doc && HTML_DOCS=( "${WORKDIR}/${P}"/API-doc/. )
+	use doc && HTML_DOCS=( "${WORKDIR}/${MY_PN}-${PV}"/API-doc/. )
 	einstalldocs
 }
