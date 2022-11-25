@@ -3,9 +3,9 @@
 
 # @ECLASS: dotnet-utils.eclass
 # @MAINTAINER:
-# anna-cli@tutanota.com
+# anna@navirc.com
 # @AUTHOR:
-# Anna Figueiredo Gomes <anna-cli@tutanota.com>
+# Anna Figueiredo Gomes <anna@navirc.com>
 # @SUPPORTED_EAPIS: 7 8
 # @BLURB: common functions and variables for dotnet builds
 
@@ -19,8 +19,23 @@ esac
 
 inherit multiprocessing
 
-BDEPEND=">=virtual/dotnet-sdk-6.0"
-EXPORT_FUNCTIONS src_unpack src_prepare src_compile
+# @ECLASS_VARIABLE: DOTNET_SLOT
+# @DESCRIPTION:
+# Allows for choosing a slot for dotnet
+# @DEFAULT_UNSET
+
+if [[ -z "${DOTNET_SLOT}" ]]; then
+	die "DOTNET_SLOT not set."
+fi
+
+# Temporary, use the virtual once you can have multiple virtuals installed at once
+BDEPEND+=" || ( dev-dotnet/dotnet-sdk:${DOTNET_SLOT} dev-dotnet/dotnet-sdk-bin:${DOTNET_SLOT} )"
+EXPORT_FUNCTIONS src_unpack src_prepare src_compile pkg_setup
+
+# @ECLASS_VARIABLE: DOTNET_EXECUTABLE
+# @DESCRIPTION:
+# Holds the right executable name
+# @DEFAULT_UNSET
 
 # @ECLASS_VARIABLE: DOTNET_CLI_TELEMETRY_OPTOUT
 # @DESCRIPTION:
@@ -36,7 +51,7 @@ export MSBUILDDISABLENODEREUSE=1
 export DOTNET_NOLOGO=1
 
 # Needed otherwise the binaries break
-RESTRICT="strip"
+RESTRICT+=" strip"
 
 # @ECLASS_VARIABLE: NUGETS
 # @DEFAULT_UNSET
@@ -83,6 +98,30 @@ nuget_uris() {
 	done
 }
 
+dotnet-utils_pkg_setup() {
+	case "${ARCH}" in
+		*amd64)
+			DOTNET_RUNTIME="linux-x64"
+			;;
+		*arm)
+			DOTNET_RUNTIME="linux-arm"
+			;;
+		*arm64)
+			DOTNET_RUNTIME="linux-arm64"
+			;;
+		*)
+			die "Unsupported arch: ${ARCH}"
+			;;
+	esac
+
+	for _dotnet in dotnet-{${DOTNET_SLOT},bin-${DOTNET_SLOT}}; do
+		if type $_dotnet 1> /dev/null 2>&1; then
+			DOTNET_EXECUTABLE=$_dotnet
+			break
+		fi
+	done
+}
+
 # @FUNCTION: edotnet
 # @USAGE: [[command] <args> ...]
 # @DESCRIPTION:
@@ -93,7 +132,7 @@ edotnet() {
 
 	local ret
 
-	set -- dotnet "${@}" -maxcpucount:$(makeopts_jobs)
+	set -- "$DOTNET_EXECUTABLE" "${@}" --runtime "${DOTNET_RUNTIME}" -maxcpucount:$(makeopts_jobs)
 	echo "${@}" >&2
 	"${@}"
 	ret=${?}
@@ -130,7 +169,6 @@ dotnet-utils_src_unpack() {
 dotnet-utils_src_prepare() {
 	debug-print-function ${FUNCNAME} "$@"
 	edotnet restore \
-		--runtime linux-x64 \
 		--source "${DISTDIR}" || die
 	default
 }
@@ -141,13 +179,9 @@ dotnet-utils_src_prepare() {
 dotnet-utils_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	addpredict /opt/dotnet-sdk-bin-6.0/metadata
-
 	edotnet publish \
-		--nologo \
 		--no-restore \
 		--configuration Release \
-		--runtime linux-x64 \
 		"-p:Version=${PV}" \
 		-p:DebugType=embedded \
 		--self-contained || die
