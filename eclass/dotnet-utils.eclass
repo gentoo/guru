@@ -20,31 +20,37 @@ _DOTNET_UTILS_ECLASS=1
 inherit multiprocessing
 
 # @ECLASS_VARIABLE: DOTNET_SLOT
+# @REQUIRED
+# @PRE_INHERIT
 # @DESCRIPTION:
-# Allows for choosing a slot for dotnet
-# @DEFAULT_UNSET
+# Allows to choose a slot for dotnet
 
-if [[ -z "${DOTNET_SLOT}" ]]; then
-	die "DOTNET_SLOT not set."
+if [[ ! ${DOTNET_SLOT} ]]; then
+	die "${ECLASS}: DOTNET_SLOT not set"
 fi
 
 # Temporary, use the virtual once you can have multiple virtuals installed at once
 BDEPEND+=" || ( dev-dotnet/dotnet-sdk:${DOTNET_SLOT} dev-dotnet/dotnet-sdk-bin:${DOTNET_SLOT} )"
 
 # @ECLASS_VARIABLE: DOTNET_EXECUTABLE
-# @DESCRIPTION:
-# Holds the right executable name
 # @DEFAULT_UNSET
+# @DESCRIPTION:
+# Sets the right executable name.
 
 # @ECLASS_VARIABLE: DOTNET_CLI_TELEMETRY_OPTOUT
+# @OUTPUT_VARIABLE
 # @DESCRIPTION:
 # Disables telemetry on dotnet.
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 # @ECLASS_VARIABLE: MSBUILDDISABLENODEREUSE
+# @OUTPUT_VARIABLE
 # @DESCRIPTION:
-# Stops the dotnet node from not stopping after the build is done.
+# Stops the dotnet node after the build is done.
 export MSBUILDDISABLENODEREUSE=1
+
 # @ECLASS_VARIABLE: DOTNET_NOLOGO
+# @OUTPUT_VARIABLE
 # @DESCRIPTION:
 # Disables the header logo when running dotnet commands.
 export DOTNET_NOLOGO=1
@@ -54,37 +60,40 @@ RESTRICT+=" strip"
 
 # @ECLASS_VARIABLE: NUGETS
 # @DEFAULT_UNSET
-# @PRE_INHERIT
 # @DESCRIPTION:
-# bash string containing all nuget package wants to download
-# used by nuget_uris()
+# String containing all nuget packages that need to be downloaded.  Used by
+# the 'nuget_uris' function.
+#
 # Example:
 # @CODE
 # NUGETS="
-# ImGui.NET-1.87.2
-# Config.Net-4.19.0
+# 	ImGui.NET-1.87.2
+# 	Config.Net-4.19.0
 # "
-# inherit nuget
+#
+# inherit dotnet-utils
+#
 # ...
+#
 # SRC_URI="$(nuget_uris)"
 # @CODE
 
 # @FUNCTION: nuget_uris
+# @USAGE: <nuget...>
 # @DESCRIPTION:
 # Generates the URIs to put in SRC_URI to help fetch dependencies.
-# Uses first argument as nuget list.
-# If no argument provided, uses NUGETS variable.
+# If no arguments provided, uses NUGETS variable.
 nuget_uris() {
 	local -r regex='^([a-zA-Z0-9_.-]+)-([0-9]+\.[0-9]+\.[0-9]+.*)$'
 	local nuget nugets
 
-	if [[ -n ${@} ]]; then
-		nugets="$@"
-	elif [[ -n ${NUGETS} ]]; then
+	if (( $# != 0 )); then
+		nugets="${@}"
+	elif [[ ${NUGETS} ]]; then
 		nugets="${NUGETS}"
 	else
 		eerror "NUGETS variable is not defined and nothing passed as argument"
-		die "Can't generate SRC_URI from empty input"
+		die "${FUNCNAME}: Can't generate SRC_URI from empty input"
 	fi
 
 	for nuget in ${nugets}; do
@@ -150,7 +159,7 @@ edotnet() {
 # @DESCRIPTION:
 # Unpacks the package
 dotnet-utils_src_unpack() {
-	debug-print-function ${FUNCNAME} "$@"
+	debug-print-function ${FUNCNAME} "${@}"
 
 	local archive
 	for archive in ${A}; do
@@ -167,9 +176,9 @@ dotnet-utils_src_unpack() {
 # @FUNCTION: dotnet-utils_src_prepare
 # @DESCRIPTION:
 # Restores the packages
-
 dotnet-utils_src_prepare() {
-	debug-print-function ${FUNCNAME} "$@"
+	debug-print-function ${FUNCNAME} "${@}"
+
 	edotnet restore \
 		--source "${DISTDIR}" || die
 	default
@@ -179,7 +188,7 @@ dotnet-utils_src_prepare() {
 # @DESCRIPTION:
 # Build the package using dotnet publish
 dotnet-utils_src_compile() {
-	debug-print-function ${FUNCNAME} "$@"
+	debug-print-function ${FUNCNAME} "${@}"
 
 	edotnet publish \
 		--no-restore \
