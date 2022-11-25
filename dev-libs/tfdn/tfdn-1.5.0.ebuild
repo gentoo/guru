@@ -20,7 +20,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="cpu_flags_x86_sse4_1 curl debug ssl"
 
 DEPEND="
-	dev-libs/libpcre:3
+	dev-libs/libpcre2:=
 	dev-libs/libunistring:=
 	sys-libs/zlib:=
 	curl? ( net-misc/curl )
