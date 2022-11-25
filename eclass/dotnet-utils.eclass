@@ -97,7 +97,7 @@ nuget_uris() {
 
 	for nuget in ${nugets}; do
 		local name version url
-		[[ $nuget =~ $regex ]] || die "Could not parse name and version from nuget: $nuget"
+		[[ ${nuget} =~ ${regex} ]] || die "Could not parse name and version from nuget: $nuget"
 		name="${BASH_REMATCH[1]}"
 		version="${BASH_REMATCH[2]}"
 		url="https://api.nuget.org/v3-flatcontainer/${name}/${version}/${name}.${version}.nupkg"
@@ -109,24 +109,20 @@ nuget_uris() {
 # @DESCRIPTION:
 # Sets up DOTNET_RUNTIME and DOTNET_EXECUTABLE variables for later use in edotnet.
 dotnet-utils_pkg_setup() {
-	case "${ARCH}" in
-		*amd64)
-			DOTNET_RUNTIME="linux-x64"
-			;;
-		*arm)
-			DOTNET_RUNTIME="linux-arm"
-			;;
-		*arm64)
-			DOTNET_RUNTIME="linux-arm64"
-			;;
-		*)
-			die "Unsupported arch: ${ARCH}"
-			;;
-	esac
+	if use amd64; then
+		DOTNET_RUNTIME="linux-x64"
+	elif use arm; then
+		DOTNET_RUNTIME="linux-arm"
+	elif use arm64; then
+		DOTNET_RUNTIME="linux-arm64"
+	else
+		die "Unsupported arch: ${ARCH}"
+	fi
 
-	for _dotnet in dotnet-{${DOTNET_SLOT},bin-${DOTNET_SLOT}}; do
-		if type $_dotnet 1> /dev/null 2>&1; then
-			DOTNET_EXECUTABLE=$_dotnet
+	local _dotnet
+	for _dotnet in dotnet{,-bin}-${DOTNET_SLOT}; do
+		if type ${_dotnet} 1> /dev/null 2>&1; then
+			DOTNET_EXECUTABLE=${_dotnet}
 			break
 		fi
 	done
