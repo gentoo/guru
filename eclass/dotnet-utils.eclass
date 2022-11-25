@@ -98,6 +98,9 @@ nuget_uris() {
 	done
 }
 
+# @FUNCTION: dotnet-utils_pkg_setup
+# @DESCRIPTION:
+# Sets up DOTNET_RUNTIME and DOTNET_EXECUTABLE variables for later use in edotnet.
 dotnet-utils_pkg_setup() {
 	case "${ARCH}" in
 		*amd64)
