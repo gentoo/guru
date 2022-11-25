@@ -167,7 +167,7 @@ dotnet-utils_src_unpack() {
 dotnet-utils_src_prepare() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	edotnet restore --source "${DISTDIR}" || die "Restore failed"
+	edotnet restore --source "${DISTDIR}" || die "'dotnet restore' failed"
 	default_src_prepare
 }
 
@@ -177,12 +177,15 @@ dotnet-utils_src_prepare() {
 dotnet-utils_src_compile() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	edotnet publish \
-		--no-restore \
-		--configuration Release \
-		"-p:Version=${PV}" \
-		-p:DebugType=embedded \
-		--self-contained || die
+	local publist_args=(
+		--no-restore
+		--configuration Release
+		-p:Version=${PV}
+		-p:DebugType=embedded
+		--self-contained
+	)
+
+	edotnet publish "${publish_args}" || die "'dotnet publish' failed"
 }
 
 fi
