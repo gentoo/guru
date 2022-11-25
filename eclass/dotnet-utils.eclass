@@ -14,6 +14,9 @@ case ${EAPI} in
 	*) die "${ECLASS}: EAPI ${EAPI} unsupported." ;;
 esac
 
+if [[ ! ${_DOTNET_UTILS_ECLASS} ]]; then
+_DOTNET_UTILS_ECLASS=1
+
 inherit multiprocessing
 
 # @ECLASS_VARIABLE: DOTNET_SLOT
@@ -27,7 +30,6 @@ fi
 
 # Temporary, use the virtual once you can have multiple virtuals installed at once
 BDEPEND+=" || ( dev-dotnet/dotnet-sdk:${DOTNET_SLOT} dev-dotnet/dotnet-sdk-bin:${DOTNET_SLOT} )"
-EXPORT_FUNCTIONS src_unpack src_prepare src_compile pkg_setup
 
 # @ECLASS_VARIABLE: DOTNET_EXECUTABLE
 # @DESCRIPTION:
@@ -186,3 +188,7 @@ dotnet-utils_src_compile() {
 		-p:DebugType=embedded \
 		--self-contained || die
 }
+
+fi
+
+EXPORT_FUNCTIONS pkg_setup src_unpack src_prepare src_compile
