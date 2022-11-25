@@ -9,12 +9,9 @@
 # @SUPPORTED_EAPIS: 7 8
 # @BLURB: common functions and variables for dotnet builds
 
-case "${EAPI:-0}" in
-	7|8)
-		;;
-	*)
-		die "Unsupported EAPI=${EAPI} for ${ECLASS}"
-		;;
+case ${EAPI} in
+	7|8) ;;
+	*) die "${ECLASS}: EAPI ${EAPI} unsupported." ;;
 esac
 
 inherit multiprocessing
