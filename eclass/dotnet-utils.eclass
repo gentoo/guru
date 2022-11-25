@@ -163,13 +163,12 @@ dotnet-utils_src_unpack() {
 
 # @FUNCTION: dotnet-utils_src_prepare
 # @DESCRIPTION:
-# Restores the packages
+# Restore the packages using 'dotnet restore'
 dotnet-utils_src_prepare() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	edotnet restore \
-		--source "${DISTDIR}" || die
-	default
+	edotnet restore --source "${DISTDIR}" || die "Restore failed"
+	default_src_prepare
 }
 
 # @FUNCTION: dotnet-utils_src_compile
