@@ -17,7 +17,7 @@ esac
 if [[ ! ${_DOTNET_UTILS_ECLASS} ]]; then
 _DOTNET_UTILS_ECLASS=1
 
-inherit multiprocessing
+inherit edo multiprocessing
 
 # @ECLASS_VARIABLE: DOTNET_SLOT
 # @REQUIRED
@@ -129,25 +129,18 @@ dotnet-utils_pkg_setup() {
 }
 
 # @FUNCTION: edotnet
-# @USAGE: [[command] <args> ...]
+# @USAGE: <command> [args...]
 # @DESCRIPTION:
 # Call dotnet, passing the supplied arguments.
-# @RETURN: dotnet exit code
 edotnet() {
-	debug-print-function ${FUNCNAME} "$@"
+	debug-print-function ${FUNCNAME} "${@}"
 
-	local ret
+	local dotnet_args=(
+		--runtime "${DOTNET_RUNTIME}"
+		-maxcpucount:$(makeopts_jobs)
+	)
 
-	set -- "$DOTNET_EXECUTABLE" "${@}" --runtime "${DOTNET_RUNTIME}" -maxcpucount:$(makeopts_jobs)
-	echo "${@}" >&2
-	"${@}"
-	ret=${?}
-
-	if [[ ${ret} -ne 0 ]]; then
-		die -n "edotnet failed"
-	fi
-
-	return ${ret}
+	edo "${DOTNET_EXECUTABLE}" "${@}" "${dotnet_args[@]}"
 }
 
 # @FUNCTION: dotnet-utils_src_unpack
