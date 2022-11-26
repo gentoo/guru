@@ -190,7 +190,9 @@ vortice.dxgi-2.1.0
 vortice.mathematics-1.3.24
 "
 
-inherit dotnet-utils
+DOTNET_SLOT="6.0"
+
+inherit dotnet-utils desktop
 
 DESCRIPTION="Custom Launcher for Final Fantasy XIV Online (Crossplatform rewrite)"
 
@@ -250,15 +252,22 @@ src_compile() {
 }
 
 src_install() {
-	cd ../
-	insinto usr/share/applications/
-	doins misc/linux_distrib/XIVLauncher.desktop
-	insinto usr/share/pixmaps/
-	newins misc/linux_distrib/512.png xivlauncher
+	domenu ../misc/linux_distrib/XIVLauncher.desktop
+	newicon -s 512 ../misc/linux_distrib/512.png xivlauncher.png
 
-	cd src/XIVLauncher.Core/bin/Release/net6.0/linux-x64/publish
+	cd XIVLauncher.Core/bin/Release/net6.0/linux-x64/publish
 	insinto opt/xivlauncher
 	doins -r *
 	fperms +x /opt/xivlauncher/XIVLauncher.Core
 	dosym /opt/xivlauncher/XIVLauncher.Core usr/bin/xivlauncher
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
+	xdg_icon_cache_update
 }

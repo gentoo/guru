@@ -1,0 +1,5 @@
+# Fedigroup bot name
+#FEDIGROUP_BOT="${RC_SVCNAME#fedigroup.}"
+
+# Fedigroup configuration file
+#FEDIGROUP_CONFIG="/etc/fedigroup.conf"

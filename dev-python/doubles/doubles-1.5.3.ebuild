@@ -3,8 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
-
+PYTHON_COMPAT=( python3_{8..11} pypy3 )
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 DESCRIPTION="Test doubles for Python"
@@ -16,7 +16,11 @@ LICENSE="MIT"
 KEYWORDS="~amd64"
 
 RDEPEND="dev-python/six[${PYTHON_USEDEP}]"
-BDEPEND="test? ( dev-python/nose )"
+BDEPEND="
+	test? (
+		dev-python/nose[${PYTHON_USEDEP}]
+	)
+"
 
 DOCS=( CHANGES.rst CONTRIBUTING.rst README.rst )
 

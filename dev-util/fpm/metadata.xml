@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>torokhov-s-a@yandex.ru</email>
+		<name>Sergey Torokhov</name>
+	</maintainer>
+	<use>
+		<flag name="openmp">OpenMP support to build targets in parallel where possible</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">fortran-lang/fpm</remote-id>
+	</upstream>
+</pkgmetadata>

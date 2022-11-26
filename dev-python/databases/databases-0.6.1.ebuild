@@ -3,12 +3,12 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..11} )
-DISTUTILS_USE_PEP517=setuptools
-
 DOCS_BUILDER="mkdocs"
+DOCS_AUTODOC=1
 DOCS_DEPEND="dev-python/mkdocs-material"
 
+PYTHON_COMPAT=( python3_{8..11} )
+DISTUTILS_USE_PEP517=setuptools
 inherit databases distutils-r1 docs optfeature
 
 DESCRIPTION="Async database support for Python"
@@ -37,16 +37,6 @@ BDEPEND="test? (
 )"
 
 distutils_enable_tests pytest
-
-EEPYTEST_DESELECT=(
-	tests/test_connection_options.py::test_mysql_pool_size
-	tests/test_connection_options.py::test_mysql_explicit_pool_size
-	tests/test_connection_options.py::test_mysql_ssl
-	tests/test_connection_options.py::test_mysql_explicit_ssl
-	tests/test_connection_options.py::test_mysql_pool_recycle
-	tests/test_databases.py
-	tests/test_integration.py::test_integration
-)
 
 python_prepare_all() {
 	# fix tests

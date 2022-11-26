@@ -36,6 +36,16 @@ pkg_setup() {
 	fortran-2_pkg_setup
 }
 
+src_prepare() {
+	default
+
+	# Remove Fortran compiler version from paths
+	sed -i -e "s:/\${CMAKE_Fortran_COMPILER_ID}-\${CMAKE_Fortran_COMPILER_VERSION}::" config/CMakeLists.txt || die
+
+	cmake_src_prepare
+}
+
+
 src_configure() {
 	local mycmakeargs+=(
 		-DBUILD_SHARED_LIBS=on

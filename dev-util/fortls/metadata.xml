@@ -15,6 +15,6 @@
   </longdescription>
   <upstream>
     <remote-id type="pypi">fortls</remote-id>
-    <remote-id type="github">gnikit/fortls</remote-id>
+    <remote-id type="github">fortran-lang/fortls</remote-id>
   </upstream>
 </pkgmetadata>

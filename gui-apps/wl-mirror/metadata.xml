@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>ddenoncin@gmail.com</email>
+		<name>David Denoncin</name>
+	</maintainer>
+	<longdescription lang="en">
+	A simple Wayland output mirror client.
+	wl-mirror attempts to provide a solution to sway's lack of output mirroring by mirroring an output onto a client surface.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">Ferdi265/wl-mirror</remote-id>
+	</upstream>
+</pkgmetadata>

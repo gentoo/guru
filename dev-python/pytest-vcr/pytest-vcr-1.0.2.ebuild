@@ -28,6 +28,8 @@ DOCS=( docs README.rst )
 
 EPYTEST_DESELECT=( tests/test_vcr.py::test_no_warnings )
 
+distutils_enable_tests pytest
+
 python_prepare_all() {
 	# pytest.config was removed in >=dev-python/pytest-5.0
 	sed "/pytest.config/d" -i tests/test_vcr.py || die

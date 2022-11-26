@@ -119,7 +119,6 @@ pkg_postinst() {
 	#optfeature "slmq support" dev-python/softlayer_messaging
 	#optfeature "couchbase support" dev-python/couchbase
 	optfeature "redis support" dev-python/redis-py
-	optfeature "gevent support" dev-python/gevent
 	optfeature "auth support" dev-python/pyopenssl
 	optfeature "pyro support" dev-python/Pyro4
 	optfeature "yaml support" dev-python/pyyaml

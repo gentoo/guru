@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..11} )
+PYTHON_COMPAT=( python3_{8..11} pypy3 )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
@@ -19,18 +19,19 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
-BDEPEND="test? (
-	dev-python/gevent[${PYTHON_USEDEP}]
-	dev-python/process-tests[${PYTHON_USEDEP}]
-	dev-python/requests[${PYTHON_USEDEP}]
-)
+BDEPEND="
+	test? (
+		dev-python/process-tests[${PYTHON_USEDEP}]
+		dev-python/requests[${PYTHON_USEDEP}]
+	)
 "
 
 DOCS=( AUTHORS.rst CHANGELOG.rst README.rst )
 
 distutils_enable_tests pytest
 
-distutils_enable_sphinx docs dev-python/sphinx-py3doc-enhanced-theme
+distutils_enable_sphinx docs \
+	dev-python/sphinx-py3doc-enhanced-theme
 
 python_test() {
 	local -x PYTHONPATH="${S}/src:${PYTHONPATH}"
@@ -47,7 +48,8 @@ python_test() {
 		tests/test_manhole.py::test_stderr_doesnt_deadlock
 	)
 
-	#[[ ${EPYTHON} == pypy3 ]] && EPYTEST_DESELECT+=( tests/test_manhole.py::test_log_fh )
+	[[ ${EPYTHON} == pypy3 ]] && \
+		EPYTEST_DESELECT+=( tests/test_manhole.py::test_log_fh )
 
 	distutils-r1_python_test
 }

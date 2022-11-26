@@ -13,6 +13,22 @@
 # relevant entries to the relevant package.mask files in ::gentoo
 
 # New entries go on top.
+#
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-25)
+# Depends on treecleaned dev-python/kazoo
+dev-python/zake
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-22)
+# Depends on removed <=dev-python/sqlalchemy-1.4.41
+dev-python/databases
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-18)
+# Depends on masked dev-python/Rx (can be restored here after treeclean)
+sys-power/gwe
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-18)
+# Depends on masked dev-python/gevent. No revdeps. Removal on 2022-12-17.
+dev-python/gevent-websocket
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-04)
 # Depends on masked dev-python/tempita, has unresolved bugs (#854177)
@@ -81,8 +97,3 @@ dev-python/pypandoc
 # Christopher Byrne <salah.coronya@gmail.com> (2022-04-15)
 # Depends on masked dev-libs/openssl-3.0.*
 app-crypt/tpm2-openssl
-
-# Yuan Liao <liaoyuan@gmail.com> (2022-02-20)
-# Depends on net-libs/libsoup:3.0, which is masked in ::gentoo.
-# Masked until all dependencies are unmasked.
-gnome-extra/extension-manager
