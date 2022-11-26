@@ -3,18 +3,16 @@
 
 EAPI=8
 
-inherit meson
+inherit git-r3 meson
 
 DESCRIPTION="Application/browser chooser"
 HOMEPAGE="https://apps.gnome.org/app/re.sonny.Junction/"
 
-if [[ ${PV} == *9999 ]]; then
-	EGIT_REPO_URI="https://github.com/sonnyp/Junction.git"
-	inherit git-r3
-else
-	SRC_URI="https://github.com/sonnyp/Junction/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+EGIT_REPO_URI="https://github.com/sonnyp/Junction.git"
+
+if [[ ${PV} != *9999 ]]; then
+	EGIT_TAG="v${PV}"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}/${P/j/J}"
 fi
 
 LICENSE="GPL-3+"
