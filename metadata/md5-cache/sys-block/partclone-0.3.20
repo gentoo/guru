@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure prepare
+DEPEND=dev-libs/openssl:* e2fs? ( sys-fs/e2fsprogs ) btrfs? ( sys-apps/util-linux ) fuse? ( sys-fs/fuse:0 ) jfs? ( sys-fs/jfsutils ) ncurses? ( sys-libs/ncurses:0 ) nilfs2? ( sys-fs/nilfs-utils ) ntfs? ( sys-fs/ntfs3g ) reiserfs? ( sys-fs/progsreiserfs ) reiser4? ( sys-fs/reiser4progs ) xfs? ( sys-apps/util-linux ) static? ( dev-libs/openssl:*[static-libs] e2fs? ( sys-fs/e2fsprogs[static-libs] ) btrfs? ( sys-apps/util-linux[static-libs] ) fuse? ( sys-fs/fuse:0[static-libs] ) jfs? ( sys-fs/jfsutils[static] ) ncurses? ( sys-libs/ncurses:0[static-libs] ) nilfs2? ( sys-fs/nilfs-utils[static-libs] ) ntfs? ( sys-fs/ntfs3g[static-libs] ) reiserfs? ( sys-fs/progsreiserfs[static-libs] ) reiser4? ( sys-fs/reiser4progs[static-libs] ) )
+DESCRIPTION=Partition cloning tool
+EAPI=8
+HOMEPAGE=https://partclone.org
+INHERIT=autotools flag-o-matic
+IUSE=apfs btrfs +e2fs exfat f2fs fat fuse hfs jfs minix ncurses nilfs2 ntfs reiser4 reiserfs static ufs vmfs xfs
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/openssl:* e2fs? ( sys-fs/e2fsprogs ) btrfs? ( sys-apps/util-linux ) fuse? ( sys-fs/fuse:0 ) jfs? ( sys-fs/jfsutils ) ncurses? ( sys-libs/ncurses:0 ) nilfs2? ( sys-fs/nilfs-utils ) ntfs? ( sys-fs/ntfs3g ) reiserfs? ( sys-fs/progsreiserfs ) reiser4? ( sys-fs/reiser4progs ) xfs? ( sys-apps/util-linux ) static? ( dev-libs/openssl:*[static-libs] e2fs? ( sys-fs/e2fsprogs[static-libs] ) btrfs? ( sys-apps/util-linux[static-libs] ) fuse? ( sys-fs/fuse:0[static-libs] ) jfs? ( sys-fs/jfsutils[static] ) ncurses? ( sys-libs/ncurses:0[static-libs] ) nilfs2? ( sys-fs/nilfs-utils[static-libs] ) ntfs? ( sys-fs/ntfs3g[static-libs] ) reiserfs? ( sys-fs/progsreiserfs[static-libs] ) reiser4? ( sys-fs/reiser4progs[static-libs] ) )
+SLOT=0
+SRC_URI=https://github.com/Thomas-Tsai/partclone/archive/refs/tags/0.3.20.tar.gz -> partclone-0.3.20.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	flag-o-matic	29a755b1291d64133634d80b0328f153
+_md5_=57244a9c1902e0ae9f98b9542bf6ac1c

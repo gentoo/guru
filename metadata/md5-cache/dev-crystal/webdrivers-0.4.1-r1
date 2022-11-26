@@ -1,0 +1,14 @@
+BDEPEND=|| ( dev-lang/crystal dev-lang/crystal-bin ) || ( dev-util/shards dev-lang/crystal-bin ) dev-util/gshards
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Helps manage drivers for Selenium, such as the Chromedriver
+EAPI=8
+HOMEPAGE=https://github.com/matthewmcgarvey/webdrivers.cr
+INHERIT=shards
+IUSE=debug doc
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-crystal/crystar dev-crystal/habitat
+SLOT=0
+SRC_URI=https://github.com/matthewmcgarvey/webdrivers.cr/archive/refs/tags/v0.4.1.tar.gz -> webdrivers-0.4.1.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	crystal-utils	7931d71b9bb891fd9fdae4f74278be68	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	shards	a7ed45094de77c99c4be66323908ebcf
+_md5_=6e82dcc008cf6554d6fb98cd47f8ecd5

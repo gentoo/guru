@@ -200,6 +200,7 @@ dev-python/python-socketio:client - Add websocket client
 dev-util/FoBiS:graphviz - Add support of generation of a dependencies graph
 dev-util/annobin:clang - Build the clang plugin
 dev-util/annobin:llvm - Build the LLVM plugin
+dev-util/fpm:openmp - OpenMP support to build targets in parallel where possible
 dev-util/gammaray:3d - Build support for Qt5 3D modules
 dev-util/gammaray:designer - Widget .ui file export
 dev-util/gammaray:geolocation - Physical position determination support from Qt5 framework
@@ -351,6 +352,12 @@ media-gfx/grafx2:ttf - Install TTF Fonts
 media-gfx/nsxiv:gif - Add animated gif support
 media-gfx/nsxiv:statusbar - Add statusbar support
 media-gfx/nsxiv:webp - Add animated webp support
+media-gfx/vpuppr:ifm-tracker - Enable the iFacialMocap tracker.
+media-gfx/vpuppr:meowface-tracker - Enable the MeowFace tracker.
+media-gfx/vpuppr:mouse-tracker - Enable the mouse tracker.
+media-gfx/vpuppr:osf-tracker - Enable the OpenSeeFace tracker.
+media-gfx/vpuppr:remote-control - Enable remote controlling the program.
+media-gfx/vpuppr:vts-tracker - Enable the VTubeStudio tracker.
 media-libs/alvr:client - Build ALVR client and launcher
 media-libs/alvr:server - Build ALVR server
 media-libs/alvr:vulkan - Build ALVR vulkan layer
@@ -599,6 +606,23 @@ sys-apps/watchdogd:loadavg - Enable CPU load average monitor
 sys-apps/watchdogd:meminfo - Enable memory leak monitor
 sys-auth/mrsh:pam - build with pam support
 sys-auth/mrsh:shadow - build with shadow file support
+sys-block/partclone:apfs - Compile partclone apfs tool
+sys-block/partclone:btrfs - Compile partclone btrfs tool
+sys-block/partclone:e2fs - Compile partclone e2fs tool
+sys-block/partclone:exfat - Compile partclone exfat tool
+sys-block/partclone:f2fs - Compile partclone f2fs tool
+sys-block/partclone:fat - Compile partclone fat tool
+sys-block/partclone:fuse - Compile partclone fuse tool
+sys-block/partclone:hfs - Compile partclone hfs tool
+sys-block/partclone:jfs - Compile partclone jfs tool
+sys-block/partclone:minix - Compile partclone minix tool
+sys-block/partclone:nilfs2 - Compile partclone nilfs2 tool
+sys-block/partclone:ntfs - Compile partclone ntfs tool
+sys-block/partclone:reiser4 - Compile partclone reiser4 tool
+sys-block/partclone:reiserfs - Compile partclone reiserfs tool
+sys-block/partclone:ufs - Compile partclone ufs tool
+sys-block/partclone:vmfs - Compile partclone vmfs tool
+sys-block/partclone:xfs - Compile partclone xfs tool
 sys-boot/limine:bios - Enable BIOS/MBR boot support.
 sys-boot/limine:bios-cd - Enables BIOS boot support for CDs.
 sys-boot/limine:bios-pxe - Enables BIOS PXE boot support.

@@ -1,6 +1,6 @@
 BDEPEND=dev-util/wayland-scanner man? ( app-text/scdoc ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install test
-DEPEND=dev-libs/wayland dev-libs/wayland-protocols seccomp? ( sys-libs/libseccomp )
+DEPEND=dev-libs/wayland dev-libs/inih dev-libs/wayland-protocols seccomp? ( sys-libs/libseccomp )
 DESCRIPTION=Lightweight overlay volume/backlight/progress/anything bar for Wayland
 EAPI=7
 HOMEPAGE=https://github.com/francma/wob
@@ -10,6 +10,6 @@ KEYWORDS=~amd64 ~x86
 LICENSE=ISC
 RDEPEND=dev-libs/wayland
 SLOT=0
-SRC_URI=https://github.com/francma/wob/archive/0.13.tar.gz -> wob-0.13.tar.gz
+SRC_URI=https://github.com/francma/wob/archive/0.14.2.tar.gz -> wob-0.14.2.tar.gz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003
-_md5_=01f9cacc4dfb2a40d2fefb5cf5cae27d
+_md5_=809f50591bc72691a21b91d983a402e6

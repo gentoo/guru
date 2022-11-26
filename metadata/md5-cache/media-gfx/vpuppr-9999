@@ -1,0 +1,16 @@
+BDEPEND=mouse-tracker? ( virtual/rust ) >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install postinst postrm prepare setup unpack
+DESCRIPTION=VTuber application made with Godot 3.4
+EAPI=7
+HOMEPAGE=https://github.com/virtual-puppet-project/vpuppr
+INHERIT=desktop python-single-r1 git-r3
+IUSE=+osf-tracker ifm-tracker mouse-tracker vts-tracker meowface-tracker remote-control python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+LICENSE=MIT
+PROPERTIES=live
+RDEPEND=osf-tracker? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) )
+REQUIRED_USE=osf-tracker? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) )
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/virtual-puppet-project/godot-builds/releases/download/latest/Godot_v3.x-stable_linux_headless.64.tar.gz -> godot-vpuppr-headless.tar.gz https://github.com/virtual-puppet-project/godot-builds/releases/download/latest/Godot_v3.x-stable_linux_release.64.tar.gz -> godot-vpuppr-release-profile.tar.gz osf-tracker? ( https://github.com/you-win/OpenSeeFace/releases/download/latest/OpenSeeFace_latest_linux.tar.gz -> OpenSeeFace_latest.tar.gz )
+_eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=edd31d67be3961315894296363d27ca0

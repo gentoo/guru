@@ -12,6 +12,6 @@ LICENSE=BSD
 RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) acct-user/hinsightd acct-group/hinsightd sys-libs/liburing sys-libs/zlib virtual/libcrypt ssl? ( dev-libs/openssl ) ffcall? ( dev-libs/ffcall )
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 )
 SLOT=0
-SRC_URI=https://gitlab.com/tiotags/hin9/-/archive/v0.9.16/hin9-v0.9.16.tar.gz
+SRC_URI=https://gitlab.com/tiotags/hin9/-/archive/v0.9.17/hin9-v0.9.17.tar.bz2
 _eclasses_=fcaps	babe6282ea5c195981bd302af1adaf3a	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	systemd	5f4bb0758df2e483babf68cd517078ca	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	linux-info	bbfa385d6907d7948d49a5e107bd654d
-_md5_=35cd424a68209669e9f43f08b5c2c367
+_md5_=3068e43e486193dab9eb1ef9a9b85274
