@@ -19,7 +19,7 @@ SRC_URI="
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc"
+IUSE="openmp doc"
 RESTRICT="test"
 
 CDEPEND="
@@ -48,9 +48,27 @@ PATCHES="${FILESDIR}/${P}_fpm_toml.patch"
 
 BSDIR="build/bootstrap" # Bootstrap directory path
 
+pkg_pretend() {
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
+}
+
+set_omp_flag() {
+	OMPFLAG=""
+	if use openmp ; then
+		case $(tc-getFC) in
+			*gfortran* )
+				OMPFLAG="-fopenmp" ;;
+			* )
+				die "Sorry, only GNU gfortran is currently supported in the ebuild" ;;
+		esac
+	fi
+}
+
 pkg_setup() {
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 	fortran-2_pkg_setup
 	python-any-r1_pkg_setup
+	set_omp_flag
 }
 
 src_prepare() {
@@ -70,7 +88,7 @@ src_compile() {
 	"$(tc-getFC)" -J "${BSDIR}" -o "${BSDIR}"/fpm "${BSDIR}/${P}.F90" || die
 
 	# Use the bootstrap binary to build the feature complete fpm version
-	"${BSDIR}"/fpm build --compiler "$(tc-getFC)" --flag "${FCFLAGS} -I/usr/include/toml-f -I/usr/include/m_cli2" \
+	"${BSDIR}"/fpm build --compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/m_cli2" \
 		--c-compiler "$(tc-getCC)" --c-flag "${CFLAGS}" \
 		--cxx-compiler "$(tc-getCXX)" --cxx-flag "${CXXFLAGS}" \
 		--archiver="$(tc-getAR)" --link-flag "${LDFLAGS}"
@@ -84,7 +102,7 @@ src_compile() {
 src_install() {
 	# Set prefix and pass all used env flags to avoid recompiling with default values
 	"${BSDIR}"/fpm install --prefix "${ED}/usr" \
-		--compiler "$(tc-getFC)" --flag "${FCFLAGS} -I/usr/include/toml-f -I/usr/include/m_cli2" \
+		--compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/m_cli2" \
 		--c-compiler "$(tc-getCC)" --c-flag "${CFLAGS}" \
 		--cxx-compiler "$(tc-getCXX)" --cxx-flag "${CXXFLAGS}" \
 		--archiver="$(tc-getAR)" --link-flag "${LDFLAGS}"
