@@ -57,6 +57,12 @@ src_unpack() {
 	mv -f "${TEST_S}"/tests/setup.py "${TEST_S}"/setup.py || die
 }
 
+src_prepare() {
+	default
+
+	find . -name '*.c' -delete || die "removing csources failed"
+}
+
 python_compile() {
 	distutils-r1_python_compile
 
