@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/bison sys-devel/flex doc? ( app-doc/doxygen python? ( dev-python/sphinx ) ) man? ( app-text/asciidoc app-text/xmlto ) python? ( dev-lang/swig ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install prepare setup
-DEPEND=dev-libs/glib:2 dev-libs/elfutils python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) virtual/libcrypt )
+DEPEND=dev-libs/glib:2 dev-libs/elfutils python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_p2:3.11 ) virtual/libcrypt )
 DESCRIPTION=A command-line tool and library to read and convert trace files
 EAPI=8
 HOMEPAGE=https://babeltrace.org
@@ -8,10 +8,10 @@ INHERIT=autotools python-single-r1
 IUSE=debug doc man python test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64
 LICENSE=GPL-2
-RDEPEND=dev-libs/glib:2 dev-libs/elfutils python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) virtual/libcrypt )
+RDEPEND=dev-libs/glib:2 dev-libs/elfutils python? ( python_single_target_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_p2:3.11 ) virtual/libcrypt )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.efficios.com/files/babeltrace/babeltrace2-2.0.4.tar.bz2
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
 _md5_=6977a8ab8834a67ec394197a49541bbd

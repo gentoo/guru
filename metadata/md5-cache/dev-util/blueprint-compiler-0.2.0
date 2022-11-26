@@ -1,4 +1,4 @@
-BDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) doc? ( python_single_target_python3_9? ( dev-python/sphinx[python_targets_python3_9(-)] dev-python/furo[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/sphinx[python_targets_python3_10(-)] dev-python/furo[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/sphinx[python_targets_python3_11(-)] dev-python/furo[python_targets_python3_11(-)] ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_p2:3.11 ) doc? ( python_single_target_python3_9? ( dev-python/sphinx[python_targets_python3_9(-)] dev-python/furo[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/sphinx[python_targets_python3_10(-)] dev-python/furo[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/sphinx[python_targets_python3_11(-)] dev-python/furo[python_targets_python3_11(-)] ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install setup test
 DEPEND=test? ( gui-libs/gtk:4[introspection] )
 DESCRIPTION=Compiler for Blueprint, a markup language for GTK user interfaces
@@ -8,10 +8,10 @@ INHERIT=meson python-single-r1
 IUSE=doc test python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64
 LICENSE=LGPL-3+
-RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 )
+RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_p2:3.11 )
 REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.gnome.org/jwestman/blueprint-compiler/-/archive/v0.2.0/blueprint-compiler-v0.2.0.tar.bz2
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	b9fc5e97e886514e5132f50465185401	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
 _md5_=03806cf3e89f6d8041c26ea874673625

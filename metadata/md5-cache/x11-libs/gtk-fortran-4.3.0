@@ -13,5 +13,5 @@ REQUIRED_USE=plplot? ( high-level )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=4
 SRC_URI=https://github.com/vmagnin/gtk-fortran/archive/v4.3.0.tar.gz -> gtk-fortran-4.3.0.tar.gz
-_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	virtualx	644887c82aefdf12001489391fca4f02
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	virtualx	644887c82aefdf12001489391fca4f02
 _md5_=fa3e906b7868ac05ab397fcd842a266b

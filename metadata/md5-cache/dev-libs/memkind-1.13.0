@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install prepare pretend setup test
-DEPEND=daxctl? ( sys-block/ndctl ) hwloc? ( sys-apps/hwloc ) sys-process/numactl || ( >=dev-lang/python-3.11.0_beta4:3.11 >=dev-lang/python-3.10.4:3.10 >=dev-lang/python-3.9.12:3.9 >=dev-lang/python-3.8.13:3.8 >=dev-python/pypy3-7.3.9_p1:0 )
+DEPEND=daxctl? ( sys-block/ndctl ) hwloc? ( sys-apps/hwloc ) sys-process/numactl || ( >=dev-lang/python-3.11.0_p2:3.11 >=dev-lang/python-3.10.8_p3:3.10 >=dev-lang/python-3.9.15_p3:3.9 >=dev-lang/python-3.8.15_p3:3.8 >=dev-python/pypy3-7.3.9_p9:0 )
 DESCRIPTION=user extensible heap manager built on top of jemalloc
 EAPI=8
 HOMEPAGE=https://memkind.github.io/memkind/
@@ -12,5 +12,5 @@ RDEPEND=daxctl? ( sys-block/ndctl ) hwloc? ( sys-apps/hwloc ) sys-process/numact
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/memkind/memkind/archive/v1.13.0.tar.gz -> memkind-1.13.0.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	linux-info	bbfa385d6907d7948d49a5e107bd654d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	linux-info	bbfa385d6907d7948d49a5e107bd654d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
 _md5_=aa1e9c06a827832a6a053c1dc0f0fccc

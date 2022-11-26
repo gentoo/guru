@@ -8,9 +8,9 @@ INHERIT=fcaps linux-info python-r1 toolchain-funcs
 IUSE=pstate-tracer +filecaps python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=~amd64
 LICENSE=GPL-2
-RDEPEND=pstate-tracer? ( python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_beta4:3.11 ) dev-python/gnuplot-py[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/numpy[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] sci-visualization/gnuplot )
+RDEPEND=pstate-tracer? ( python_targets_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.0_p2:3.11 ) dev-python/gnuplot-py[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/numpy[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] sci-visualization/gnuplot )
 REQUIRED_USE=pstate-tracer? ( || ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 ) )
 SLOT=0/0
 SRC_URI=https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.18.tar.xz
-_eclasses_=fcaps	babe6282ea5c195981bd302af1adaf3a	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	bbfa385d6907d7948d49a5e107bd654d	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	b9fc5e97e886514e5132f50465185401	python-r1	2d51fd03931e743811ce30d198e4dcfd
+_eclasses_=fcaps	babe6282ea5c195981bd302af1adaf3a	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	bbfa385d6907d7948d49a5e107bd654d	multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-r1	2d51fd03931e743811ce30d198e4dcfd
 _md5_=5863e519b2c5316b68e407eace4047a0

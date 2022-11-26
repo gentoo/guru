@@ -12,5 +12,5 @@ LICENSE=LGPL-2+
 RDEPEND=>=dev-qt/qtnetwork-5.4.0:5 >=kde-frameworks/ki18n-5.83.0:5 >=kde-frameworks/kio-5.83.0:5 || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-4 dev-qt/qtcore:5
 SLOT=5
 SRC_URI=https://gitlab.com/tobiasrautenkranz/kio-gemini/-/archive/6f0e6e94258ad5cb7dee0dc47c214dc20f819d93/kio-gemini-6f0e6e94258ad5cb7dee0dc47c214dc20f819d93.tar.gz
-_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	58ec4e54962bf45d065fb95030701514	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	virtualx	644887c82aefdf12001489391fca4f02	xdg	6024fbc93167fad782e2032933654857	ecm	3dae552f761290722bcc848a12bfb538
+_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	virtualx	644887c82aefdf12001489391fca4f02	xdg	6024fbc93167fad782e2032933654857	ecm	3dae552f761290722bcc848a12bfb538
 _md5_=de4fcdff563e1da30f8cc091724c2ef1
