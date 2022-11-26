@@ -89,12 +89,12 @@ ekoch() {
 etestament() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	local -a testament_args=()
+	local testament_args=(
+		--colors:$(nim_get_colors)
+	)
+
 	[[ ${TESTAMENT_DISABLE_MEGATEST} ]] && \
 		testament_args+=( --megatest:off )
-
-	[[ "${NOCOLOR}" == true || "${NOCOLOR}" == yes ]] && \
-		testament_args+=( --colors:off )
 
 	if [[ ${ETESTAMENT_DESELECT} ]]; then
 		local skipfile="${T}"/testament.skipfile
