@@ -14,7 +14,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND=">=media-libs/glfw-3.0.0"
+DEPEND="
+	>=media-libs/glew-2.2.0
+	>=media-libs/glfw-3.0.0
+	>=media-libs/glu-9.0.2"
 BDEPEND="
 	${DEPEND}
 	>=dev-util/premake-5.0.0_alpha16"
