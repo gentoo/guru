@@ -48,9 +48,13 @@ src_prepare() {
 src_compile() {
 	tc-export CC
 	if use gtk; then
-		emake all
+		# can't use emake here, fails to compile because some files getting removed
+		# during compilation, which are missing afterwards.
+		# https://bugs.gentoo.org/883157
+		# Pascal Jäger <pascal.jaeger@leimstift.de> (2022-11-26)
+		make all || die
 	else
-		emake app-console
+		make app-console || die
 	fi
 	emake manpage
 }
@@ -65,6 +69,7 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
 	if ! use gtk; then
 		elog ""
 		elog "Installed timeshift without gtk GUI."
@@ -72,4 +77,8 @@ pkg_postinst() {
 		elog "with USE=\"gtk\""
 	fi
 	optfeature "btrfs support" sys-fs/btrfs-progs
+}
+
+pkg_postrm() {
+	xdg_pkg_postrm
 }
