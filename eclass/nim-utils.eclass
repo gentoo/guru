@@ -161,6 +161,7 @@ nim_gen_config() {
 		-d:"$(nim_get_buildtype)"
 		--colors:"$(nim_get_colors)"
 		--parallelBuild:"$(makeopts_jobs)"
+		--processing:filenames
 	EOF
 }
 
