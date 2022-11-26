@@ -1,23 +1,35 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..11} )
+PYTHON_COMPAT=(python3_{8..11})
 DISTUTILS_USE_PEP517=poetry
 inherit distutils-r1
 
+MY_PN="${PN}-python"
+MY_P="${MY_PN}-${PV}"
+
 DESCRIPTION="Python port of material-color-utilities used for Material You colors"
-HOMEPAGE="https://python-telegram-bot.org https://github.com/python-telegram-bot/python-telegram-bot"
-SRC_URI="https://files.pythonhosted.org/packages/source/${PN::1}/${PN}-python/${PN}-python-${PV}.tar.gz"
+HOMEPAGE="
+	https://pypi.org/project/material-color-utilities/
+"
+
+if [[ ${PV} == *9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/avanishsubbiah/material-color-utilities-python.git"
+else
+	SRC_URI="https://files.pythonhosted.org/packages/source/m/material-color-utilities-python/material-color-utilities-python-${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~arm64"
+	S="${WORKDIR}/${MY_P}"
+fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE=""
 
-S=${WORKDIR}/${PN}-python-${PV}
+RDEPEND="
+	dev-python/pillow[${PYTHON_USEDEP}]
+	dev-python/regex[${PYTHON_USEDEP}]"
 BDEPEND="
-	${PYTHON_DEPS}
-	dev-python/poetry-core
-"
+	dev-python/poetry-core[${PYTHON_USEDEP}]
+	dev-python/build[${PYTHON_USEDEP}]"

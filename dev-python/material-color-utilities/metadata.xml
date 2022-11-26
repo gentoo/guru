@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+    <maintainer type="person">
+        <email>ran.dall@icloud.com</email>
+        <name>Randall T. Vasquez</name>
+    </maintainer>
 	<maintainer type="person">
 		<email>pascal.jaeger@leimstift.de</email>
 		<name>Pascal Jaeger</name>
 	</maintainer>
+    <upstream>
+        <remote-id type="github">avanishsubbiah/material-color-utilities-python"</remote-id>
+        <remote-id type="pypi">material-color-utilities</remote-id>
+        <bugs-to>https://github.com/avanishsubbiah/material-color-utilities-python/issues"</bugs-to>
+    </upstream>
 </pkgmetadata>
