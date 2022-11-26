@@ -19,11 +19,11 @@ SRC_URI="
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="openmp doc"
-RESTRICT="test"
+IUSE="openmp doc test"
+RESTRICT="!test? ( test )"
 
 CDEPEND="
-	dev-libs/toml-f
+	dev-libs/toml-f:0/2
 	dev-libs/m_cli2
 "
 
@@ -97,6 +97,13 @@ src_compile() {
 		einfo "Build API documentation:"
 		ford docs.md || die
 	fi
+}
+
+src_test() {
+	"${BSDIR}"/fpm test --compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/m_cli2" \
+		--c-compiler "$(tc-getCC)" --c-flag "${CFLAGS}" \
+		--cxx-compiler "$(tc-getCXX)" --cxx-flag "${CXXFLAGS}" \
+		--archiver="$(tc-getAR)" --link-flag "${LDFLAGS}"
 }
 
 src_install() {
