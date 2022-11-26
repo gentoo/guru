@@ -15,12 +15,10 @@ SRC_URI="https://github.com/Mithil467/mitype/archive/refs/tags/v${PV}.tar.gz -> 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc test"
+IUSE="test"
 
 RDEPEND="
-	doc? ( dev-python/sphinx )
 	dev-python/setuptools[${PYTHON_USEDEP}]"
 BDEPEND="dev-python/versioneer[${PYTHON_USEDEP}]"
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs
