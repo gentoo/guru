@@ -16,6 +16,7 @@ if [[ ${PV} != *9999 ]]; then
 fi
 
 LICENSE="GPL-3+"
+KEYWORDS=""
 SLOT="0"
 
 src_configure() {
