@@ -48,6 +48,15 @@ distutils_enable_tests pytest
 #	dev-python/sphinxext-opengraph \
 #	dev-python/sphinxext-rediraffe
 
+python_test() {
+	[[ ${EPYTHON} == "pypy3" ]] &&
+		local EPYTEST_DESELECT=(
+			"tests/test_renderers/test_include_directive.py::test_errors[9-Non-existent path:]"
+		)
+
+	epytest
+}
+
 pkg_postinst() {
 	optfeature "linkify plugin support" dev-python/linkify-it-py
 }
