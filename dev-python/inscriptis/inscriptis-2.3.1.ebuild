@@ -28,5 +28,5 @@ DOCS=( AUTHORS {CONTRIBUTING,RENDERING}.md README.rst TODO.txt )
 distutils_enable_tests pytest
 
 distutils_enable_sphinx docs \
-	dev-python/myst-parser \
+	dev-python/myst_parser \
 	dev-python/alabaster
