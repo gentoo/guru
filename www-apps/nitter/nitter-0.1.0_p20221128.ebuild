@@ -5,7 +5,7 @@ EAPI=8
 
 inherit nimble systemd
 
-COMMIT="0200cc21a32e0ed87025744066894cdc26f73ff3"
+COMMIT="d923c20aa6a87224343562f15b00e72e7780aa3d"
 DESCRIPTION="An alternative front-end for Twitter"
 HOMEPAGE="https://github.com/zedeus/nitter"
 SRC_URI="https://github.com/zedeus/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
@@ -18,11 +18,16 @@ KEYWORDS="~amd64"
 RESTRICT="test"
 PROPERTIES="test_network"
 
+COMMON_DEPEND="
+	dev-libs/libpcre:3
+"
 RDEPEND="
+	${COMMON_DEPEND}
 	acct-user/nitter
 	dev-db/redis
 "
 DEPEND="
+	${COMMON_DEPEND}
 	dev-nim/flatty
 	dev-nim/jester
 	dev-nim/jsony
