@@ -20,9 +20,10 @@ KEYWORDS="~amd64"
 
 RDEPEND="dev-python/sphinx[${PYTHON_USEDEP}]"
 
-distutils_enable_sphinx docs \
-	dev-python/sphinx-autoapi \
-	dev-python/sphinx-prompt \
-	dev-python/sphinx-tabs \
-	dev-python/sphinx_rtd_theme \
-	dev-python/sphinxemoji
+# TODO: enable in next release
+#distutils_enable_sphinx docs \
+#	dev-python/sphinx-autoapi \
+#	dev-python/sphinx-prompt \
+#	dev-python/sphinx-tabs \
+#	dev-python/sphinx_rtd_theme \
+#	dev-python/sphinxemoji
