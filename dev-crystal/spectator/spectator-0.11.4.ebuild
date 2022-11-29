@@ -12,15 +12,17 @@ SRC_URI="https://github.com/icy-arctic-fox/${PN}/archive/refs/tags/v${PV}.tar.gz
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
 DOCS=( {ARCHITECTURE,CHANGELOG,CONTRIBUTING,README}.md )
 
 CHECKREQS_MEMORY="3G"
 
 pkg_pretend() {
-	has test "${FEATURES}" && check-reqs_pkg_pretend
+	use test && check-reqs_pkg_pretend
 }
 
 pkg_setup() {
-	has test "${FEATURES}" && check-reqs_pkg_setup
+	use test && check-reqs_pkg_setup
 }
