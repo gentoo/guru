@@ -80,13 +80,9 @@ src_install() {
 		meson_src_install
 		python_doscript "${exe}"
 		python_optimize
-
-		# Install Sphinx-generated documentation only once
-		# since the documentation is supposed to be identical
-		# between different Python implementations
-		use doc && HTML_DOCS=( "${BUILD_DIR}/docs"/* )
 	}
 
 	python_foreach_impl my_src_install
+	use doc && build_sphinx docs
 	einstalldocs
 }
