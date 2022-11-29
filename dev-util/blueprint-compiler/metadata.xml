@@ -6,6 +6,7 @@
 		<name>Yuan Liao</name>
 	</maintainer>
 	<upstream>
+		<remote-id type="gnome-gitlab">jwestman/blueprint-compiler</remote-id>
 		<doc>https://jwestman.pages.gitlab.gnome.org/blueprint-compiler/</doc>
 	</upstream>
 </pkgmetadata>
