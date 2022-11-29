@@ -38,7 +38,7 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-22.06.5-build-system.patch )
+PATCHES=( "${FILESDIR}"/${PN}-22.11.1-build-system.patch )
 
 src_prepare() {
 	default
@@ -48,13 +48,13 @@ src_prepare() {
 src_compile() {
 	tc-export CC
 	if use gtk; then
-		# can't use emake here, fails to compile because some files getting removed
+		# can't use all jobs here, fails to compile because some files getting removed
 		# during compilation, which are missing afterwards.
 		# https://bugs.gentoo.org/883157
 		# Pascal Jäger <pascal.jaeger@leimstift.de> (2022-11-26)
-		make all || die
+		emake -j1
 	else
-		make app-console || die
+		emake app-console -j1
 	fi
 	emake manpage
 }

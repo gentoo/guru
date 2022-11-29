@@ -36,17 +36,17 @@ BDEPEND="
 src_prepare() {
 #	sed -i -e "s:--thread:& Core/AppExcludeEntry.vala:" "src/makefile"
 	sed -i -e "s:valac:valac-$(vala_best_api_version):" "src/makefile"
-	vala_src_prepare
+	vala_setup
 	default
 }
 
 src_compile() {
 	tc-export CC
-	# can't use emake here, fails to compile because some files getting removed
+	# can't use all jobs here, fails to compile because some files getting removed
 	# during compilation, which are missing afterwards.
 	# https://bugs.gentoo.org/883157
 	# Pascal Jäger <pascal.jaeger@leimstift.de> (2022-11-26)
-	make all || die
+	emake -j1
 }
 
 pkg_postinst() {
