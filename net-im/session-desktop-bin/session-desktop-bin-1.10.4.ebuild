@@ -23,9 +23,9 @@ KEYWORDS="~amd64"
 RESTRICT="splitdebug"
 
 RDEPEND="
-	app-accessibility/at-spi2-atk:2
-	app-accessibility/at-spi2-core:2
-	dev-libs/atk
+		|| (
+			>=app-accessibility/at-spi2-core-2.46.0:2
+		)
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/nspr
@@ -73,43 +73,53 @@ pkg_pretend(){
 }
 
 src_unpack(){
-	unpack session-desktop-linux-amd64-${PV}.deb
+	default
 	unpack ../work/data.tar.xz
-	unpack ../work/usr/share/doc/session-desktop/changelog.gz	
+	unpack ../work/usr/share/doc/session-desktop/changelog.gz
 }
 
 src_prepare(){
 	default
-	rm control.tar.gz || die "Deletion of redundant control.tar.gz archive failed"
-	
-	pushd "opt/Session/locales/" || die "location change for language cleanup failed"
+
+	pushd "opt/Session/locales/" >/dev/null || die "location change for language cleanup failed"
 	chromium_remove_language_paks
 	popd > /dev/null || die "location reset for language cleanup failed"
 }
 
 src_configure(){
-	chromium_suid_sandbox_check_kernel_config
 	default
+	chromium_suid_sandbox_check_kernel_config
 }
 
 src_install(){
 	insinto /
 	dodoc changelog
-	insopts -m0755
-	doins -r opt
-	
+
 	insinto /usr/share
 	doins -r usr/share/applications
 	doins -r usr/share/icons
-		
-	fperms 4755 /opt/Session/chrome-sandbox
-	
-	dosym -r /opt/Session/${MY_PN} /usr/bin/${MY_PN}
+
+	pushd "opt/Session/" > /dev/null || die "change dir failed"
+
+	exeinto "${DESTDIR}"
+	doexe "${MY_PN}" chrome-sandbox libEGL.so libGLESv2.so libvk_swiftshader.so libffmpeg.so
+
+	insinto "${DESTDIR}"
+	doins chrome_100_percent.pak chrome_200_percent.pak icudtl.dat resources.pak snapshot_blob.bin v8_context_snapshot.bin
+	insopts -m0755
+	doins -r  locales resources swiftshader
+
+	popd > /dev/null || die "change dir reset failed"
+
+	fowners root "${DESTDIR}/chrome-sandbox"
+	fperms 4711 "${DESTDIR}/chrome-sandbox"
+
+	dosym -r "${DESTDIR}/${MY_PN}" "/usr/bin/${MY_PN}"
 }
 
 pkg_postinst(){
 	xdg_pkg_postinst
-	
+
 	optfeature "sound support" \
 		media-sound/pulseaudio media-sound/apulse[sdk] media-video/pipewire
 	optfeature "system tray support" dev-libs/libappindicator
