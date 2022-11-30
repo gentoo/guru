@@ -10,7 +10,7 @@ inherit ecm
 
 DESCRIPTION="Convergent visual components for Kirigami-based applications"
 HOMEPAGE="https://invent.kde.org/libraries/kirigami-addons"
-SRC_URI="mirror://kde/unstable/${PN}/${PV}/${P}.tar.xz"
+SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 
 LICENSE="|| ( GPL-2 GPL-3 LGPL-3 ) LGPL-2+ LGPL-2.1+"
 SLOT="5"
@@ -25,8 +25,13 @@ RDEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 "
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	test? (
-		>=dev-qt/qtmultimedia-${QTMIN}:5[qml(+)]
+		>=dev-qt/qtmultimedia-${QTMIN}:5[gstreamer,qml(+)]
+		media-libs/gst-plugins-base:1.0[ogg,vorbis]
+		media-libs/gst-plugins-bad:1.0
+		media-libs/gst-plugins-good:1.0
+		x11-themes/sound-theme-freedesktop
 	)
 "
