@@ -14,7 +14,7 @@ P2POOL_DIST_COMMIT="67bbfea87d87328a9ccd8159b21b2a4ff65087ca"
 	ROBIN_HOOD_HASHING_DIST_COMMIT="4213dd109f03b49c68b52074d929e6f221803bed"
 
 DESCRIPTION="Decentralized pool for Monero mining"
-HOMEPAGE="https://p2pool.io https://github.com/SChernykh/p2pool"
+HOMEPAGE="https://p2pool.io"
 
 SRC_URI="https://github.com/SChernykh/p2pool/archive/${P2POOL_DIST_COMMIT}.tar.gz -> ${P}.tar.gz
 	https://github.com/tevador/RandomX/archive/${RANDOMX_DIST_COMMIT}.tar.gz -> ${P}-randomx.tar.gz
