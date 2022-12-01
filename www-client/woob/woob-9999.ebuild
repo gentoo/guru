@@ -36,6 +36,7 @@ RDEPEND="
 	dev-python/python-jose[${PYTHON_USEDEP}]
 	dev-python/selenium[${PYTHON_USEDEP}]
 	dev-python/termcolor[${PYTHON_USEDEP}]
+	dev-python/colorama[${PYTHON_USEDEP}]
 	sci-geosciences/geopy[${PYTHON_USEDEP}]
 "
 
