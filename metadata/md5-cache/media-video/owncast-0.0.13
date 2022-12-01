@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install postinst unpack
+DESCRIPTION=A self-hosted live video and web chat server
+EAPI=8
+HOMEPAGE=https://owncast.online/ https://github.com/owncast/owncast
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=MIT Apache-2.0 ISC BSD
+RDEPEND=acct-user/owncast acct-group/owncast media-video/ffmpeg
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/owncast/owncast/archive/refs/tags/v0.0.13.tar.gz -> owncast-0.0.13.tar.gz https://github.com/owncast/owncast/releases/download/v0.0.13/owncast-0.0.13-linux-64bit.zip https://www.lysator.liu.se/~creideiki/owncast-0.0.13-deps.tar.xz
+_eclasses_=go-module	4c4b34f361efda91762ffeda8f632c02
+_md5_=bbf15e343e7014e37c558542b8ba59e0

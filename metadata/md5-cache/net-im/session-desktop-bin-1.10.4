@@ -7,9 +7,9 @@ INHERIT=chromium-2 linux-info unpacker optfeature xdg
 IUSE=+l10n_am +l10n_ar +l10n_bg +l10n_bn +l10n_ca +l10n_cs +l10n_da +l10n_de +l10n_el +l10n_en-GB +l10n_en-US +l10n_es +l10n_es-419 +l10n_et +l10n_fa +l10n_fi +l10n_fil +l10n_fr +l10n_gu +l10n_he +l10n_hi +l10n_hr +l10n_hu +l10n_id +l10n_it +l10n_ja +l10n_kn +l10n_ko +l10n_lt +l10n_lv +l10n_ml +l10n_mr +l10n_ms +l10n_nb +l10n_nl +l10n_pl +l10n_pt-BR +l10n_pt-PT +l10n_ro +l10n_ru +l10n_sk +l10n_sl +l10n_sr +l10n_sv +l10n_sw +l10n_ta +l10n_te +l10n_th +l10n_tr +l10n_uk +l10n_vi +l10n_zh-CN +l10n_zh-TW
 KEYWORDS=~amd64
 LICENSE=GPL-3
-RDEPEND=app-accessibility/at-spi2-atk:2 app-accessibility/at-spi2-core:2 dev-libs/atk dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss dev-libs/wayland media-libs/alsa-lib media-libs/mesa[X(+)] net-print/cups sys-apps/dbus[X] x11-libs/cairo x11-libs/gtk+:3[X] x11-libs/libdrm x11-libs/libX11 x11-libs/libxcb x11-libs/libxkbcommon x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXrandr x11-libs/pango
+RDEPEND=|| ( >=app-accessibility/at-spi2-core-2.46.0:2 ) dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss dev-libs/wayland media-libs/alsa-lib media-libs/mesa[X(+)] net-print/cups sys-apps/dbus[X] x11-libs/cairo x11-libs/gtk+:3[X] x11-libs/libdrm x11-libs/libX11 x11-libs/libxcb x11-libs/libxkbcommon x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXrandr x11-libs/pango
 RESTRICT=splitdebug
 SLOT=0
-SRC_URI=https://github.com/oxen-io/session-desktop/releases/download/v1.10.1/session-desktop-linux-amd64-1.10.1.deb
+SRC_URI=https://github.com/oxen-io/session-desktop/releases/download/v1.10.4/session-desktop-linux-amd64-1.10.4.deb
 _eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	bbfa385d6907d7948d49a5e107bd654d	chromium-2	1004ce9fd1ae9622a0b7eabcd8fc0d69	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	unpacker	bc57272a0491765c71d973c8cfd35063	optfeature	1a2157392a869265b2afcb63a26c12ac	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
-_md5_=97f3d4a69b71df739dbc672592c9d42d
+_md5_=611465161fcbda2f7632a7c851309dce

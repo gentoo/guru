@@ -1,13 +1,13 @@
 BDEPEND=|| ( dev-lang/crystal dev-lang/crystal-bin )
 DEFINED_PHASES=compile configure install
-DEPEND=dev-libs/boehm-gc dev-libs/libevent:= dev-libs/libyaml
+DEPEND=dev-libs/boehm-gc dev-libs/libevent:= dev-libs/libpcre:3 dev-libs/libyaml
 DESCRIPTION=Small helper tools to aid installing Crystal packages in Gentoo
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
 INHERIT=crystal-utils multiprocessing toolchain-funcs
 KEYWORDS=~amd64
 LICENSE=GPL-2
-RDEPEND=dev-libs/boehm-gc dev-libs/libevent:= dev-libs/libyaml
+RDEPEND=dev-libs/boehm-gc dev-libs/libevent:= dev-libs/libpcre:3 dev-libs/libyaml
 SLOT=0
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	29a755b1291d64133634d80b0328f153	crystal-utils	7931d71b9bb891fd9fdae4f74278be68	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730
-_md5_=35238c482b7fff99ccc7043532f83689
+_md5_=456b83646d9616e4cf60c6af9200879d
