@@ -16,10 +16,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RDEPEND="${PYTHON_DEPS}"
+RDEPEND="${PYTHON_DEPS} virtual/opengl"
 BDEPEND="${RDEPEND}"
 
 S="${WORKDIR}/SnootGame-${MY_PV}-linux/"
+
+QA_PREBUILT="*"
+RESTRICT+=" strip"
 
 src_install() {
 	local dir=/opt/${PN}
