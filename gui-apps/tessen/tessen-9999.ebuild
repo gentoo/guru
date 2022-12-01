@@ -20,14 +20,10 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="+pass gopass bemenu wofi rofi"
 
-REQUIRED_USE="|| ( pass gopass )
-	|| ( bemenu wofi rofi )"
+REQUIRED_USE="|| ( pass gopass )"
 
 DEPEND="app-text/scdoc"
 RDEPEND="${DEPEND}
-	bemenu? ( dev-libs/bemenu )
-	wofi? ( gui-apps/wofi )
-	rofi? ( x11-misc/rofi )
 	pass? ( app-admin/pass )
 	gopass? ( app-admin/gopass )"
 BDEPEND=""

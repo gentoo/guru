@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
 
@@ -17,7 +17,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="+client server"
+IUSE="+client server +gui"
 REQUIRED_USE="|| ( client server )"
 
 RDEPEND="
@@ -26,8 +26,10 @@ RDEPEND="
 		>=dev-python/twisted-16.4.0[${PYTHON_USEDEP},ssl]'
 	)
 	client? (
-		$( python_gen_cond_dep \
-			'dev-python/QtPy[${PYTHON_USEDEP},gui,pyside2]'
+		gui? (
+			$( python_gen_cond_dep \
+				'dev-python/QtPy[${PYTHON_USEDEP},gui,pyside2]'
+			)
 		)
 		|| (
 			media-video/vlc[lua]
@@ -39,16 +41,23 @@ RDEPEND="
 
 python_install() {
 	python_domodule syncplay
-	for size in 256 128 96 64 48 32 24 16; do
-		doicon -s ${size} "${PN}/resources/hicolor/${size}x${size}/apps/syncplay.png"
-	done
+
+	if use gui; then
+		for size in 256 128 96 64 48 32 24 16; do
+			doicon -s ${size} "${PN}/resources/hicolor/${size}x${size}/apps/syncplay.png"
+		done
+	fi
 	if use client; then
 		python_newscript syncplayClient.py syncplay
-		domenu syncplay/resources/syncplay.desktop
+		if use gui; then
+			domenu syncplay/resources/syncplay.desktop
+		fi
 	fi
 	if use server; then
+		if use gui; then
+			domenu syncplay/resources/syncplay-server.desktop
+		fi
 		python_newscript syncplayServer.py syncplay-server
-		domenu syncplay/resources/syncplay-server.desktop
 		newinitd "${FILESDIR}/${PN}-server-init" "${PN}"
 		newconfd "${FILESDIR}/${PN}-server-init-conf" "${PN}"
 	fi

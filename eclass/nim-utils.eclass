@@ -44,7 +44,7 @@ if [[ ! ${_NIM_UTILS_ECLASS} ]]; then
 # Specifies an array of test files to be deselected via testament's --skipFrom
 # parameter, when calling etestament.
 
-inherit multiprocessing toolchain-funcs xdg-utils
+inherit edo multiprocessing toolchain-funcs xdg-utils
 
 # @FUNCTION: enim
 # @USAGE: [<args>...]
@@ -56,9 +56,7 @@ inherit multiprocessing toolchain-funcs xdg-utils
 enim() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	set -- nim "${@}" ${NIMFLAGS}
-	echo "$@" >&2
-	"$@" || die -n "${*} failed"
+	edo nim "${@}" ${NIMFLAGS}
 }
 
 # @FUNCTION: ekoch
@@ -80,9 +78,7 @@ ekoch() {
 			eerror "${FUNCNAME} is not implemented for ${CATEGORY}/${PN}" ;;
 	esac
 
-	set -- ${koch} "${@}"
-	echo "$@" >&2
-	"$@" || die -n "${*} failed"
+	edo ${koch} "${@}"
 }
 
 # @FUNCTION: etestament
@@ -93,12 +89,12 @@ ekoch() {
 etestament() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	local -a testament_args=()
+	local testament_args=(
+		--colors:$(nim_get_colors)
+	)
+
 	[[ ${TESTAMENT_DISABLE_MEGATEST} ]] && \
 		testament_args+=( --megatest:off )
-
-	[[ "${NOCOLOR}" == true || "${NOCOLOR}" == yes ]] && \
-		testament_args+=( --colors:off )
 
 	if [[ ${ETESTAMENT_DESELECT} ]]; then
 		local skipfile="${T}"/testament.skipfile
@@ -110,17 +106,12 @@ etestament() {
 		testament_args+=( --skipFrom:"${skipfile}" )
 	fi
 
-	set -- testament "${testament_args[@]}" "${@}"
-	echo "$@" >&2
-	"$@" || die -n "${*} failed"
+	edo testament "${testament_args[@]}" "${@}"
 }
 
 # @FUNCTION: nim_get_buildtype
-# @USAGE:
 # @RETURN: build type (debug or release) based on USE flags
 nim_get_buildtype() {
-	debug-print-function ${FUNCNAME} "${@}"
-
 	if has debug ${IUSE}; then
 		echo $(usex debug "debug" "release")
 	else
@@ -129,11 +120,8 @@ nim_get_buildtype() {
 }
 
 # @FUNCTION: nim_get_colors
-# @USAGE:
 # @RETURN: "off" if colors should be disabled, "on" otherwise
 nim_get_colors() {
-	debug-print-function ${FUNCNAME} "${@}"
-
 	case ${NOCOLOR} in
 		true|yes) echo "off" ;;
 		*)        echo "on" ;;
@@ -154,25 +142,26 @@ nim_gen_config() {
 	local dir=${1:-${WORKDIR}}
 
 	cat > "${dir}"/nim.cfg <<- EOF || die "Failed to create Nim config"
-	cc:"gcc"
-	gcc.exe:"$(tc-getCC)"
-	gcc.linkerexe:"$(tc-getCC)"
-	gcc.cpp.exe:"$(tc-getCXX)"
-	gcc.cpp.linkerexe:"$(tc-getCXX)"
-	gcc.options.speed:"${CFLAGS}"
-	gcc.options.size:"${CFLAGS}"
-	gcc.options.debug:"${CFLAGS}"
-	gcc.options.always:"${CPPFLAGS}"
-	gcc.options.linker:"${LDFLAGS}"
-	gcc.cpp.options.speed:"${CXXFLAGS}"
-	gcc.cpp.options.size:"${CXXFLAGS}"
-	gcc.cpp.options.debug:"${CXXFLAGS}"
-	gcc.cpp.options.always:"${CPPFLAGS}"
-	gcc.cpp.options.linker:"${LDFLAGS}"
+		cc:"gcc"
+		gcc.exe:"$(tc-getCC)"
+		gcc.linkerexe:"$(tc-getCC)"
+		gcc.cpp.exe:"$(tc-getCXX)"
+		gcc.cpp.linkerexe:"$(tc-getCXX)"
+		gcc.options.speed:"${CFLAGS}"
+		gcc.options.size:"${CFLAGS}"
+		gcc.options.debug:"${CFLAGS}"
+		gcc.options.always:"${CPPFLAGS}"
+		gcc.options.linker:"${LDFLAGS}"
+		gcc.cpp.options.speed:"${CXXFLAGS}"
+		gcc.cpp.options.size:"${CXXFLAGS}"
+		gcc.cpp.options.debug:"${CXXFLAGS}"
+		gcc.cpp.options.always:"${CPPFLAGS}"
+		gcc.cpp.options.linker:"${LDFLAGS}"
 
-	-d:"$(nim_get_buildtype)"
-	--colors:"$(nim_get_colors)"
-	--parallelBuild:"$(makeopts_jobs)"
+		-d:"$(nim_get_buildtype)"
+		--colors:"$(nim_get_colors)"
+		--parallelBuild:"$(makeopts_jobs)"
+		--processing:filenames
 	EOF
 }
 

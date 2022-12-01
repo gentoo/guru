@@ -18,6 +18,8 @@
 #
 # ...
 #
+# DEPEND="dev-nim/foo"
+#
 # src_compile() {
 # 	nimble_src_compile
 # 	nimble_build scss
@@ -34,6 +36,11 @@
 #
 # ...
 # SLOT=${PV}
+#
+# RDEPEND="
+# 	dev-nim/bar
+# 	dev-nim/baz
+# "
 #
 # set_package_url "https://github.com/example/example"
 

@@ -12,7 +12,7 @@ HOMEPAGE="
 	https://pypi.org/project/django-bleach/
 	https://github.com/marksweb/django-bleach
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/marksweb/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
