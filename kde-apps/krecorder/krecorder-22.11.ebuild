@@ -19,7 +19,6 @@ DEPEND="
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtmultimedia-${QTMIN}:5
-	>=dev-qt/qtnetwork-${QTMIN}:5
 	>=dev-qt/qtquickcontrols2-${QTMIN}:5
 	>=dev-qt/qtsvg-${QTMIN}:5
 	>=dev-qt/qtwidgets-${QTMIN}:5
@@ -27,5 +26,7 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=kde-frameworks/kirigami-addons-0.6:5
+	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"
