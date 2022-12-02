@@ -28,11 +28,8 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=kde-frameworks/kirigami-addons-0.6:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
-	>=kde-frameworks/kpackage-${KFMIN}:5
-	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/plasma-${KFMIN}:5
 "
-RDEPEND="${DEPEND}
-	>=kde-frameworks/kirigami-addons-0.1:5
-"
+RDEPEND="${DEPEND}"
