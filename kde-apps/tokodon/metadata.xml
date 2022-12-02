@@ -3,7 +3,7 @@
 <pkgmetadata>
 	<upstream>
 		<remote-id type="github">KDE/tokodon</remote-id>
-		<bugs-to>https://invent.kde.org/network/tokodon/-/issues</bugs-to>
+		<bugs-to>https://bugs.kde.org/enter_bug.cgi?product=Tokodon</bugs-to>
 	</upstream>
 	<maintainer type="person">
 		<email>cyber+gentoo@sysrq.in</email>

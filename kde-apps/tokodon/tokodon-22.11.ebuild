@@ -11,13 +11,12 @@ DESCRIPTION="Mastodon client for Plasma and Plasma Mobile"
 HOMEPAGE="https://invent.kde.org/network/tokodon"
 SRC_URI="mirror://kde/stable/plasma-mobile/${PV}/${P}.tar.xz"
 
-LICENSE="GPL-3"
+LICENSE="|| ( GPL-2 GPL-3 ) AGPL-3+ CC-BY-SA-4.0 CC0-1.0 GPL-2+ GPL-3 GPL-3+ LGPL-2+ LGPL-2.1+"
 SLOT="5"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="
-	dev-libs/qtkeychain:=
-	>=dev-qt/qtdbus-${QTMIN}:5
+	dev-libs/qtkeychain[qt5(+)]
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtmultimedia-${QTMIN}:5
@@ -31,10 +30,10 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
+	>=kde-frameworks/kirigami-addons-0.6:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
-	x11-libs/libX11
 "
 RDEPEND="${DEPEND}"
