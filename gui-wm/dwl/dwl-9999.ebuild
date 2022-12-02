@@ -17,9 +17,12 @@ IUSE="X"
 RDEPEND="
 	dev-libs/libinput:=
 	dev-libs/wayland
+	gui-libs/wlroots:0:16[X(-)?]
 	x11-libs/libxkbcommon
-	gui-libs/wlroots:0/15[X(-)?]
-	X? ( x11-libs/libxcb:= )
+	X? (
+		x11-libs/libxcb:=
+		x11-libs/xcb-util-wm
+	)
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -41,7 +44,7 @@ src_configure() {
 
 	if use X; then
 		append-cppflags '-DXWAYLAND'
-		append-libs '-lxcb'
+		append-libs '-lxcb' '-lxcb-icccm'
 	fi
 }
 
