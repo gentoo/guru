@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>0xdutra@gmail.com</email>
+		<name>Gabriel M. Dutra</name>
+	</maintainer>
+	<longdescription lang="en">
+		Terraform linter
+		Features:
+			- Find possible errors (like invalid instance types) for AWS/Azure/GCP
+			- Warn abount deprecated syntax, unused declarations
+			- Enforce best pratices, naming conventions
+	</longdescription>
+</pkgmetadata>
