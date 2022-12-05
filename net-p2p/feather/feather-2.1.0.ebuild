@@ -82,11 +82,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DARCH=x86-64
 		-DBUILD_64=ON
-		-DBUILD_SHARED_LIBS=Off # Vendored Monero libs collision
 		-DBUILD_TAG="linux-x64"
-		-DBUILD_TESTS=OFF
 		-DDONATE_BEG=OFF
-		-DINSTALL_VENDORED_LIBUNBOUND=OFF
 		-DMANUAL_SUBMODULES=1
 		-DSTATIC=OFF
 		-DSELF_CONTAINED=OFF
