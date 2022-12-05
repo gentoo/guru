@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake git-r3 desktop
+inherit cmake git-r3 desktop xdg
 
 DESCRIPTION="A free, open-source Monero wallet"
 HOMEPAGE="https://featherwallet.org"

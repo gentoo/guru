@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake desktop
+inherit cmake desktop xdg
 
 #Note: this is like a tree, with dependencies-of-dependencies
 #You need to update all of these recursively every version bump.
