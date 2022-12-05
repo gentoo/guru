@@ -23,17 +23,21 @@ BDEPEND=""
 
 src_prepare() {
 	eapply -p0 "${FILESDIR}/${P}-destdir.patch"
-	#eapply -p0 "${FILESDIR}/${P}-soname.patch"
 	eapply -p0 "${FILESDIR}/${P}-lib64.patch"
 	eapply -p0 "${FILESDIR}/${P}-includedir.patch"
 	eapply -p0 "${FILESDIR}/${P}-reslib.patch"
 	eapply -p0 "${FILESDIR}/${P}-nocompressman.patch"
+	eapply -p0 "${FILESDIR}/${P}-cc.patch"
+	eapply -p0 "${FILESDIR}/${P}-cflags-ldflags.patch"
+	eapply -p0 "${FILESDIR}/${P}-soname.patch"
+	eapply -p0 "${FILESDIR}/${P}-no-install-soname.patch"
 
 	eapply_user
 }
 
 src_compile() {
 	emake build
+	cp libfetch.so "libfetch.so.1"
 }
 
 src_install() {
@@ -41,5 +45,7 @@ src_install() {
 
 	mv "${D}/usr/etc" "${D}/etc"
 
-	dodoc uwufetch.1
+	doman uwufetch.1
+	dolib.so libfetch.so.1
+	dosym "libfetch.so.1" "/usr/$(get_libdir)/libfetch.so.1"
 }
