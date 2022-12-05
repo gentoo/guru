@@ -5,7 +5,6 @@
 		<email>adam.pimentel@protonmail.com</email>
 		<name>Adam Pimentel</name>
 	</maintainer>
-	<stabilize-allarches/>
 	<upstream>
 		<remote-id type="github">SChernykh/p2pool</remote-id>
 	</upstream>
