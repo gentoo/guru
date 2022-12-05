@@ -62,6 +62,11 @@ python_test() {
 	epytest "${TEST_S}"
 }
 
+src_install() {
+	distutils-r1_src_install
+	find "${ED}"/usr/lib -name '*.md' -delete || die
+}
+
 pkg_postinst() {
 	optfeature "sha256_password and caching_sha2_password auth methods" dev-python/cryprography
 }

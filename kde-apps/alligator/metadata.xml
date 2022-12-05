@@ -3,7 +3,7 @@
 <pkgmetadata>
 	<upstream>
 		<remote-id type="github">KDE/alligator</remote-id>
-		<bugs-to>https://invent.kde.org/plasma-mobile/alligator/-/issues</bugs-to>
+		<bugs-to>https://bugs.kde.org/enter_bug.cgi?product=Alligator</bugs-to>
 	</upstream>
 	<maintainer type="person">
 		<email>cyber+gentoo@sysrq.in</email>

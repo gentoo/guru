@@ -1,0 +1,56 @@
+#!/sbin/openrc-run
+# shellcheck shell=sh
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+extra_stopped_commands="init"
+extra_started_commands="upgrade"
+description_init="Create the database"
+description_upgrade="Upgrade the server"
+
+name="Honk ActivityPub server"
+command="/usr/bin/honk"
+command_args="-datadir /var/lib/honk -viewdir /usr/share/honk -log /var/log/honk.log"
+command_user="honk:honk"
+command_background=yes
+pidfile="/run/honk.pid"
+
+depend() {
+	need net
+}
+
+fix_log_perms() {
+	checkpath -fo honk:honk /var/log/honk.log
+}
+
+check_db() {
+	if [ ! -f /var/lib/honk/honk.db ]; then
+		eerror "Please run 'rc-service honk init' before the first start"
+		return 1
+	fi
+
+	return 0
+}
+
+start_pre() {
+	fix_log_perms || return 1
+	check_db || return 1
+
+	start-stop-daemon --exec "${command}" --user "${command_user}" \
+		-- ${command_args} cleanup
+}
+
+init() {
+	fix_log_perms || return 1
+
+	start-stop-daemon --exec "${command}" --user "${command_user}" \
+		-- ${command_args} init
+}
+
+upgrade() {
+	fix_log_perms || return 1
+	check_db || return 1
+
+	start-stop-daemon --exec "${command}" --user "${command_user}" \
+		-- ${command_args} upgrade
+}

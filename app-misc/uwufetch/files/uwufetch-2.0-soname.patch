@@ -1,0 +1,11 @@
+--- Makefile	2022-10-04 12:10:11.990564393 -0400
++++ Makefile-tmp	2022-10-04 12:48:43.320067178 -0400
+@@ -64,7 +64,7 @@
+ endif
+ 
+ build: $(BIN_FILES) lib
+-	$(CC) $(CFLAGS) -o $(NAME) $(BIN_FILES) lib$(LIB_FILES:.c=.a)
++	$(CC) $(CFLAGS) -Wl -soname -o $(NAME) $(BIN_FILES) lib$(LIB_FILES:.c=.a)
+ 
+ lib: $(LIB_FILES)
+ 	$(CC) $(CFLAGS) -fPIC -c -o $(LIB_FILES:.c=.o) $(LIB_FILES)

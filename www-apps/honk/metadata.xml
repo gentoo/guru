@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<doc>https://humungus.tedunangst.com/r/honk/m</doc>
+		<maintainer>
+			<name>Ted Unangst</name>
+			<email>tedu@tedunangst.com</email>
+		</maintainer>
+	</upstream>
+</pkgmetadata>
