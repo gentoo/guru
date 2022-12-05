@@ -74,6 +74,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
+
 	einfo "Ensure that Tor is running with 'rc-service tor start' before"
 	einfo "using Feather."
 }
