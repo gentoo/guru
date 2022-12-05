@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>davidroman96@gmail.com</email>
+		<name>David Roman</name>
+	</maintainer>
+	<use>
+		<flag name="esp32">Enable support for esp32</flag>
+		<flag name="esp32s2">Enable support for esp32</flag>
+		<flag name="esp32s3">Enable support for esp32</flag>
+		<flag name="riscv32">Enable support for esp32</flag>
+	</use>
+</pkgmetadata>
