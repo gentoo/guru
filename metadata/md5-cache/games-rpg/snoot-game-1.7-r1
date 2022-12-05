@@ -1,4 +1,4 @@
-BDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_p2:3.11 )
+BDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_p2:3.11 ) virtual/opengl
 DEFINED_PHASES=install setup
 DESCRIPTION=Visual novel parody of Goodbye Volcano High
 EAPI=8
@@ -7,9 +7,10 @@ INHERIT=python-single-r1 desktop wrapper
 IUSE=python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
 KEYWORDS=~amd64 ~x86
 LICENSE=AGPL-3 CC-BY-SA-4.0
-RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_p2:3.11 )
+RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.15_p3:3.8 ) python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.0_p2:3.11 ) virtual/opengl
 REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
+RESTRICT=strip
 SLOT=0
 SRC_URI=https://secureupdates.snootgame.xyz/SnootGame-Update7_Fangsgiving-linux.tar.bz2
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	desktop	7eb20ad915a0a318176d51bc2508ff5c	wrapper	4a1902f969e5718126434fc35f3a0d9c
-_md5_=55c8d93e1e895b1254f7074022be9413
+_md5_=271047361c2274cd4dc3b893b4c595cc

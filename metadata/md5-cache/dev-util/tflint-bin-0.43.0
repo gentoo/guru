@@ -1,0 +1,10 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install
+DESCRIPTION=A Pluggable Terraform Linter
+EAPI=8
+HOMEPAGE=https://github.com/terraform-linters/tflint
+KEYWORDS=~amd64
+LICENSE=MPL-2.0
+SLOT=0
+SRC_URI=https://github.com/terraform-linters/tflint/releases/download/v0.43.0/tflint_linux_amd64.zip -> tflint-bin-0.43.0.zip
+_md5_=02f790c445b56e7807ee9a8a7b17a987

@@ -1,0 +1,13 @@
+BDEPEND=app-arch/rpm2targz
+DEFINED_PHASES=install postinst prepare unpack
+DESCRIPTION=Crypto Interface Web Browser Plugin
+EAPI=8
+HOMEPAGE=https://ds-plugin.gosuslugi.ru
+INHERIT=edo rpm
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1 MIT freedist openssl
+RDEPEND=sys-apps/pcsc-lite
+SLOT=0
+SRC_URI=amd64? ( http://repo.red-soft.ru/redos/7.3/x86_64/updates/ifcplugin-3.1.1.0-2.el7.x86_64.rpm http://repo.red-soft.ru/redos/7.3/x86_64/updates/ifcplugin-chromium-3.1.1.0-2.el7.x86_64.rpm http://repo.red-soft.ru/redos/7.3/x86_64/updates/ifcplugin-firefox-3.1.1.0-2.el7.x86_64.rpm http://repo.red-soft.ru/redos/7.3/x86_64/updates/ifcplugin-libs-3.1.1.0-2.el7.x86_64.rpm ) x86? ( http://repo.red-soft.ru/redos/7.3/x86_64/updates/ifcplugin-3.1.1.0-2.el7.i686.rpm http://repo.red-soft.ru/redos/7.3/x86_64/updates/ifcplugin-chromium-3.1.1.0-2.el7.i686.rpm http://repo.red-soft.ru/redos/7.3/x86_64/updates/ifcplugin-firefox-3.1.1.0-2.el7.i686.rpm http://repo.red-soft.ru/redos/7.3/x86_64/updates/ifcplugin-libs-3.1.1.0-2.el7.i686.rpm )
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	estack	055c42df72f76a4f45ec92b35e83cd56	rpm	f73e907469f65e52192f110dec72dce0
+_md5_=211e206d21b780363ef930101d869593

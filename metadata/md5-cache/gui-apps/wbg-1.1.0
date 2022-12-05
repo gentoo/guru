@@ -1,0 +1,16 @@
+BDEPEND=dev-libs/tllist dev-libs/wayland-protocols dev-util/wayland-scanner virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=x11-libs/pixman dev-libs/wayland
+DESCRIPTION=Super simple wallpaper application
+EAPI=8
+HOMEPAGE=https://codeberg.org/dnkl/wbg
+INHERIT=meson
+IUSE=png jpeg webp
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=x11-libs/pixman dev-libs/wayland png? ( media-libs/libpng:= ) jpeg? ( media-libs/libjpeg-turbo:= ) webp? ( media-libs/libwebp:= )
+REQUIRED_USE=|| ( png jpeg webp )
+SLOT=0
+SRC_URI=https://codeberg.org/dnkl/wbg/archive/1.1.0.tar.gz -> wbg-1.1.0.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_md5_=3e03ed3aa9ec5023a9b03ad01bc4f6dc
