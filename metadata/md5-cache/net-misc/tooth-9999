@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=>=dev-util/meson-0.50 >=dev-lang/vala-0.48 >=dev-libs/glib-2.0 >=dev-libs/json-glib-1.4.4 >=dev-libs/libxml2-2.9.10 >=dev-libs/libgee-0.8 gui-libs/gtk:4 >=gui-libs/libadwaita-1.2.0 >=app-crypt/libsecret-0.20
 SLOT=0
 SRC_URI=https://github.com/GeopJr/Tooth
-_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	vala	160a8a30a6cb9aa601e5441c643a7c61	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	vala	160a8a30a6cb9aa601e5441c643a7c61	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3
 _md5_=434763d078d955c8aa3c5c51c7308d5e

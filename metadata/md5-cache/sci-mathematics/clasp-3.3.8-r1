@@ -12,5 +12,5 @@ RDEPEND=sci-libs/libpotassco:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/potassco/clasp/archive/refs/tags/v3.3.8.tar.gz -> clasp-3.3.8.tar.gz
-_eclasses_=toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3
 _md5_=37270a43cb4985fe907da3152847ef0f

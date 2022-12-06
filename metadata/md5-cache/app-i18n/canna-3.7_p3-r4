@@ -11,5 +11,5 @@ LICENSE=MIT GPL-2
 RDEPEND=acct-group/canna acct-user/canna canuum? ( dev-libs/libspt sys-libs/ncurses:= ) virtual/tmpfiles
 SLOT=0
 SRC_URI=mirror://sourceforge.jp/canna/9565/Canna37p3.tar.bz2 https://sources.debian.org/data/main/c/canna/3.7p3-19/debian/patches/09_fix_manpages_error.patch
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	cannadic	ad961c92f4263dd6cbf82bf9b97c141c	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	cannadic	ad961c92f4263dd6cbf82bf9b97c141c	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	systemd	5f4bb0758df2e483babf68cd517078ca	tmpfiles	216aa76c3a6fcb5d893c23a0de86048f
 _md5_=d6b1234eddeaec1764db8b313142b5d6

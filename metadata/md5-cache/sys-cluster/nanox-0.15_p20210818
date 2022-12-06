@@ -12,5 +12,5 @@ RDEPEND=ayudame? ( sys-cluster/temanejo[-ompss] ) dlb? ( sys-cluster/dlb ) extra
 REQUIRED_USE=|| ( nanox_debug nanox_instrumentation nanox_instrumentation-debug nanox_performance ) nanox_instrumentation? ( extrae ) nanox_instrumentation-debug? ( extrae )
 SLOT=0
 SRC_URI=https://github.com/bsc-pm/nanox/archive/a9df6936128ebe10374350c719a0fba74bc89803.tar.gz -> nanox-0.15_p20210818.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	docs	2af4a2f0074bd646101ce0f66ca6dd03
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	docs	2af4a2f0074bd646101ce0f66ca6dd03
 _md5_=54f1266d191c3c52e1a73e3f65adc005

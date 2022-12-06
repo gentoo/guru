@@ -12,5 +12,5 @@ REQUIRED_USE=osf-tracker? ( ^^ ( python_single_target_python3_8 python_single_ta
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/virtual-puppet-project/godot-builds/releases/download/latest/Godot_v3.x-stable_linux_headless.64.tar.gz -> godot-vpuppr-headless.tar.gz https://github.com/virtual-puppet-project/godot-builds/releases/download/latest/Godot_v3.x-stable_linux_release.64.tar.gz -> godot-vpuppr-release-profile.tar.gz osf-tracker? ( https://github.com/you-win/OpenSeeFace/releases/download/latest/OpenSeeFace_latest_linux.tar.gz -> OpenSeeFace_latest.tar.gz )
-_eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8	git-r3	2347f8fe2d392b2a091191f94be37e6f
 _md5_=edd31d67be3961315894296363d27ca0

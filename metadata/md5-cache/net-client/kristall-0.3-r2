@@ -10,5 +10,5 @@ LICENSE=GPL-3
 RDEPEND=dev-libs/openssl:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5[widgets] dev-qt/qtnetwork:5[ssl] dev-qt/qtsvg:5 dev-qt/qtwidgets:5
 SLOT=0
 SRC_URI=https://github.com/MasterQ32/kristall/archive/V0.3.tar.gz -> kristall-0.3.tar.gz
-_eclasses_=out-of-source	6dc5829f04ddee3f91b9bb274a701fdb	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=out-of-source	6dc5829f04ddee3f91b9bb274a701fdb	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
 _md5_=bc5a43bdfcd81d9b13518170e74408de
