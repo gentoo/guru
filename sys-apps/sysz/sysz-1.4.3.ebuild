@@ -14,7 +14,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	>=app-shells/bash-4.3
 	>=app-shells/fzf-0.27.1
-	virtual/awk
+	app-alternatives/awk
 "
 #	removed to make GURU CI happy
 #	sys-apps/systemd

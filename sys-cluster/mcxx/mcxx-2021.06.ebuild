@@ -46,7 +46,7 @@ BDEPEND="
 
 	test? (
 		sys-devel/bc
-		virtual/awk
+		app-alternatives/awk
 	)
 "
 
