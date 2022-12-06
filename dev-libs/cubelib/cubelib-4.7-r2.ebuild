@@ -35,7 +35,7 @@ DEPEND="
 "
 BDEPEND="
 	sys-devel/flex
-	virtual/yacc
+	app-alternatives/yacc
 "
 
 REQUIRED_USE="^^ ( ${IUSE_CUBELIB_STRATEGY/+/} )"

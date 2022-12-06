@@ -465,7 +465,7 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 	app-shells/bash
-	dev-vcs/git[curl,threads]
+	dev-vcs/git[curl,threads(+)]
 	virtual/ssh
 	mysql? ( virtual/mysql )
 	pam? ( sys-libs/pam )

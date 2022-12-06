@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake desktop
+inherit cmake desktop xdg
 
 #Note: this is like a tree, with dependencies-of-dependencies
 #You need to update all of these recursively every version bump.
@@ -82,11 +82,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DARCH=x86-64
 		-DBUILD_64=ON
-		-DBUILD_SHARED_LIBS=Off # Vendored Monero libs collision
 		-DBUILD_TAG="linux-x64"
-		-DBUILD_TESTS=OFF
 		-DDONATE_BEG=OFF
-		-DINSTALL_VENDORED_LIBUNBOUND=OFF
 		-DMANUAL_SUBMODULES=1
 		-DSTATIC=OFF
 		-DSELF_CONTAINED=OFF
@@ -112,6 +109,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
+
 	einfo "Ensure that Tor is running with 'rc-service tor start' before"
 	einfo "using Feather."
 }

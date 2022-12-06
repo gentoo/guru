@@ -47,7 +47,7 @@ DEPEND="
 	java? ( virtual/jdk:1.8 )
 "
 BDEPEND="
-	virtual/yacc
+	app-alternatives/yacc
 
 	doc? ( virtual/latex-base )
 	emacs? ( app-text/noweb )

@@ -32,7 +32,7 @@ BDEPEND="virtual/pkgconfig
 		media-sound/playerctl
 		net-misc/socat
 		sys-apps/dbus
-		virtual/awk
+		app-alternatives/awk
 		x11-apps/xauth
 		x11-misc/xvfb-run
 		x11-themes/sound-theme-freedesktop

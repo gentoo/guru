@@ -269,6 +269,8 @@ RDEPEND="
 	$DEPEND
 "
 
+QA_FLAGS_IGNORED="usr/bin/.*"
+
 src_compile() {
 	use wayland && features="--no-default-features --features=wayland"
 	cargo_src_compile ${features}

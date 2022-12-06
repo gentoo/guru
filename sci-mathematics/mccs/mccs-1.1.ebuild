@@ -29,7 +29,7 @@ RDEPEND="
 BDEPEND="
 	dev-util/quilt
 	sys-devel/bison
-	virtual/yacc
+	app-alternatives/yacc
 "
 
 src_prepare() {

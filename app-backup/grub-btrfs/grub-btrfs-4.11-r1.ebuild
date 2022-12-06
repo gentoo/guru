@@ -18,7 +18,7 @@ PATCHES=( "${FILESDIR}/${P}-remove-docs-from-make.patch" )
 DEPEND="
 	sys-fs/btrfs-progs
 	sys-boot/grub
-	virtual/awk
+	app-alternatives/awk
 	>=app-shells/bash-4
 "
 RDEPEND="${DEPEND}"

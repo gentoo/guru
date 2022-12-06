@@ -25,6 +25,8 @@ LICENSE="GPL-2"
 SLOT="0"
 
 IUSE="X debug ffmpeg fluidsynth freetype opengl png slirp"
+# Unit tests are only available in debug builds
+RESTRICT="!debug? ( test )"
 
 BDEPEND="
 	dev-lang/nasm
@@ -116,6 +118,12 @@ src_configure() {
 src_compile() {
 	# https://bugs.gentoo.org/856352
 	emake AR="$(tc-getAR)"
+}
+
+src_test() {
+	set -- src/dosbox-x -tests
+	echo "${@}" >&2
+	"${@}" || die "Unit tests failed"
 }
 
 pkg_preinst() {

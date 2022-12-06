@@ -53,6 +53,7 @@ src_configure() {
 
 src_compile() {
 	python_foreach_impl meson_src_compile
+	use doc && build_sphinx docs
 }
 
 src_test() {
@@ -83,6 +84,4 @@ src_install() {
 	}
 
 	python_foreach_impl my_src_install
-	use doc && build_sphinx docs
-	einstalldocs
 }
