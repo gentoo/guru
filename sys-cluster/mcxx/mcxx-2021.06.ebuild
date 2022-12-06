@@ -42,7 +42,7 @@ BDEPEND="
 	dev-util/gperf
 	sys-devel/flex
 	virtual/pkgconfig
-	virtual/yacc
+	app-alternatives/yacc
 
 	test? (
 		sys-devel/bc

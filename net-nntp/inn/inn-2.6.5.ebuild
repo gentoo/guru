@@ -40,7 +40,7 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="
 	sys-devel/flex
-	virtual/yacc
+	app-alternatives/yacc
 	verify-sig? ( sec-keys/openpgp-keys-russallbery )
 "
 

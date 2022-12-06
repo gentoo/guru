@@ -36,7 +36,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
-	virtual/yacc
+	app-alternatives/yacc
 	seccomp? ( sys-kernel/linux-headers )
 "
 if [[ ${PV} != 9999 ]]; then
