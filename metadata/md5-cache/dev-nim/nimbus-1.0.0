@@ -9,5 +9,5 @@ LICENSE=Apache-2.0 BSD
 RDEPEND=dev-lang/nim
 SLOT=0
 SRC_URI=https://git.sysrq.in/nimbus/snapshot/nimbus-1.0.0.tar.gz
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	ac0e315a3688929e34ac75b139e7349a	nim-utils	341acf401389fe3bba15299758b74248
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	ac0e315a3688929e34ac75b139e7349a	nim-utils	341acf401389fe3bba15299758b74248
 _md5_=70e44693c8c1a27c476608e950d85d57

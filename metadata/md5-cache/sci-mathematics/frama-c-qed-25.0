@@ -11,5 +11,5 @@ RDEPEND=~sci-mathematics/frama-c-25.0:=[gtk=,ocamlopt?] dev-lang/ocaml:=[ocamlop
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://frama-c.com/download/frama-c-25.0-Manganese.tar.gz
-_eclasses_=findlib	d8fa93cf137156660d0b72144b1e31d9	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_eclasses_=findlib	d8fa93cf137156660d0b72144b1e31d9	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157
 _md5_=d5fcd22b4fb392fd9f5c112e7a85f62c

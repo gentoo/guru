@@ -12,5 +12,5 @@ REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targe
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://0xacab.org/jvoisin/mat2/-/archive/0.13.0/mat2-0.13.0.tar.gz verify-sig? ( https://0xacab.org/jvoisin/mat2/uploads/b8b7bce2a45aa6c1b2b48432025b2fef/mat2-0.13.0.tar.gz.asc )
-_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-r1	2d51fd03931e743811ce30d198e4dcfd	distutils-r1	da32ffc285e9f13313f2387570e35b87	optfeature	1a2157392a869265b2afcb63a26c12ac	verify-sig	afb98fe4696292e4234ce36713fd4e9e
+_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-r1	2d51fd03931e743811ce30d198e4dcfd	distutils-r1	da32ffc285e9f13313f2387570e35b87	optfeature	1a2157392a869265b2afcb63a26c12ac	verify-sig	afb98fe4696292e4234ce36713fd4e9e
 _md5_=2b99b2d1d1bda3fdeeb6a5e92f0c51ce

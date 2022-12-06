@@ -11,5 +11,5 @@ LICENSE=BSD
 RDEPEND=>=net-libs/libtirpc-1.3.2 >=dev-libs/libxml2-2.9.14-r1 >=net-dns/avahi-0.8-r5
 SLOT=0
 SRC_URI=https://github.com/lxi-tools/liblxi/archive/refs/tags/v1.16.tar.gz -> liblxi-1.16.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	87f1b83e21a473787b821ef3d0437bf3	multilib-minimal	4b0f1857965db8869a729948d5277e0b	meson-multilib	84c0d4019bf29be0d9d0a2d98fb8b0d9
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003	multibuild	d26d81f242cb193d899a72bca423d0bd	multilib-build	87f1b83e21a473787b821ef3d0437bf3	multilib-minimal	4b0f1857965db8869a729948d5277e0b	meson-multilib	84c0d4019bf29be0d9d0a2d98fb8b0d9
 _md5_=086c52d2f57d15f6d5fb1db32a5ff8de

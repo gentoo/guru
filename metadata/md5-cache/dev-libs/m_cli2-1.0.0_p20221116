@@ -12,5 +12,5 @@ RDEPEND=virtual/fortran
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/urbanjost/M_CLI2/archive/90a1a146e19c8ad37b0469b8cbd04bc28eb67a50.tar.gz -> m_cli2-1.0.0_p20221116.tar.gz
-_eclasses_=toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
+_eclasses_=toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
 _md5_=0f1841dd67c58410e1822c3887033b71

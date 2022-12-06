@@ -11,5 +11,5 @@ LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=media-libs/alsa-lib media-libs/libsdl2[X,opengl?,sound,threads,video] media-libs/sdl2-net net-libs/libpcap sys-libs/zlib X? ( x11-libs/libX11 x11-libs/libXrandr x11-libs/libxkbfile ) debug? ( sys-libs/ncurses:= ) ffmpeg? ( media-video/ffmpeg:= ) fluidsynth? ( media-sound/fluidsynth:= ) freetype? ( media-libs/freetype ) opengl? ( media-libs/libglvnd[X] ) png? ( media-libs/libpng:= ) slirp? ( net-libs/libslirp )
 SLOT=0
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857	git-r3	2347f8fe2d392b2a091191f94be37e6f
 _md5_=24517ce2230f1718984a8ece19e5cbf9

@@ -13,5 +13,5 @@ RDEPEND=app-crypt/libsecret[introspection(+),vala(+)] dev-libs/feedbackd[introsp
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.gnome.org/GNOME/calls/-/archive/42.0/calls-42.0.tar.gz https://gitlab.gnome.org/World/Phosh/libcall-ui/-/archive/acfbb136bbf74514e0b9801ce6c1e8acf36350b6/libcall-ui-acfbb136bbf74514e0b9801ce6c1e8acf36350b6.tar.gz
-_eclasses_=vala	160a8a30a6cb9aa601e5441c643a7c61	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	virtualx	644887c82aefdf12001489391fca4f02	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=vala	160a8a30a6cb9aa601e5441c643a7c61	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	virtualx	644887c82aefdf12001489391fca4f02	xdg	6024fbc93167fad782e2032933654857
 _md5_=46a52d6473d3589897501929ac2581a7

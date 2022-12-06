@@ -12,5 +12,5 @@ RDEPEND=media-libs/skcms:= ffmpeg? ( media-video/ffmpeg ) fontconfig? ( media-li
 REQUIRED_USE=X? ( opengl )
 SLOT=0/97
 SRC_URI=https://github.com/google/skia/archive/f2093bf1b076210bd017f237eaab84ea4d3d6771.tar.gz -> skia-97.gh.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
 _md5_=db80b04db6e1d1dc5a63ec11c66a3458

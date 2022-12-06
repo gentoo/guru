@@ -8,5 +8,5 @@ KEYWORDS=~amd64
 LICENSE=MIT
 SLOT=0.5.0
 SRC_URI=https://github.com/treeform/ws/archive/refs/tags/0.5.0.tar.gz -> ws-0.5.0.tar.gz
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	ac0e315a3688929e34ac75b139e7349a	nim-utils	341acf401389fe3bba15299758b74248	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	nimble	dd6f01540df75eab2cc6b9de796953fd
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	ac0e315a3688929e34ac75b139e7349a	nim-utils	341acf401389fe3bba15299758b74248	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	nimble	dd6f01540df75eab2cc6b9de796953fd
 _md5_=24e2c5bb5a18a976d47047e7132f5e36

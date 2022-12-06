@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=>=virtual/jdk-1.8 acct-group/yacy acct-user/yacy >=dev-java/java-config-2.2.0-r3
 SLOT=0
 SRC_URI=https://www.yacy.net/release/yacy_v1.924_20210209_10069.tar.gz
-_eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	441f754fd75cd4fd1fa06fbc17da6144	java-ant-2	5cf479aa9e0ac9cc55899f2762c2aaa0	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-2	3b09e051fc2045a0f0b9471b87d4f8bd	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	959e1d99122907eb98a3a660297a967e	java-ant-2	5cf479aa9e0ac9cc55899f2762c2aaa0	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=94e778d39f8ce5918b5e906379dbc3b6
