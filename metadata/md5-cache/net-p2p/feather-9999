@@ -1,14 +1,15 @@
 BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install postinst prepare test unpack
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
 DEPEND=dev-libs/boost:=[nls] dev-libs/libgcrypt:= dev-libs/libsodium:= dev-libs/libzip:= dev-libs/openssl:= >=dev-qt/qtcore-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtmultimedia-5.15:5[widgets] >=dev-qt/qtnetwork-5.15:5 >=dev-qt/qtsvg-5.15:5 >=dev-qt/qtwebsockets-5.15:5 >=dev-qt/qtwidgets-5.15:5 >=dev-qt/qtconcurrent-5.15:5 >=dev-qt/qtxml-5.15:5 media-gfx/qrencode:= net-dns/unbound:=[threads] net-libs/czmq:= media-gfx/zbar:=[v4l]
 DESCRIPTION=A free, open-source Monero wallet
 EAPI=8
 HOMEPAGE=https://featherwallet.org
-INHERIT=cmake git-r3 desktop
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake git-r3 desktop xdg
 IUSE=qrcode xmrig
 LICENSE=BSD MIT
 PROPERTIES=live
 RDEPEND=dev-libs/boost:=[nls] dev-libs/libgcrypt:= dev-libs/libsodium:= dev-libs/libzip:= dev-libs/openssl:= >=dev-qt/qtcore-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtmultimedia-5.15:5[widgets] >=dev-qt/qtnetwork-5.15:5 >=dev-qt/qtsvg-5.15:5 >=dev-qt/qtwebsockets-5.15:5 >=dev-qt/qtwidgets-5.15:5 >=dev-qt/qtconcurrent-5.15:5 >=dev-qt/qtxml-5.15:5 media-gfx/qrencode:= net-dns/unbound:=[threads] net-libs/czmq:= media-gfx/zbar:=[v4l] net-vpn/tor xmrig? ( net-misc/xmrig )
 SLOT=0
-_eclasses_=toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	git-r3	2347f8fe2d392b2a091191f94be37e6f	desktop	7eb20ad915a0a318176d51bc2508ff5c
-_md5_=983e05796c2640cc6605ff80fb846f45
+_eclasses_=toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	git-r3	2347f8fe2d392b2a091191f94be37e6f	desktop	7eb20ad915a0a318176d51bc2508ff5c	xdg	6024fbc93167fad782e2032933654857
+_md5_=e244ae8e99e850421fc53bb210a1e347

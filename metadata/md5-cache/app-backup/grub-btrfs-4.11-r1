@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install postinst
-DEPEND=sys-fs/btrfs-progs sys-boot/grub virtual/awk >=app-shells/bash-4
+DEPEND=sys-fs/btrfs-progs sys-boot/grub app-alternatives/awk >=app-shells/bash-4
 DESCRIPTION=Improves Grub by adding btrfs snapshots to the Grub menu.
 EAPI=8
 HOMEPAGE=https://github.com/Antynea/grub-btrfs
@@ -7,8 +7,8 @@ INHERIT=optfeature
 IUSE=systemd
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=sys-fs/btrfs-progs sys-boot/grub virtual/awk >=app-shells/bash-4
+RDEPEND=sys-fs/btrfs-progs sys-boot/grub app-alternatives/awk >=app-shells/bash-4
 SLOT=0
 SRC_URI=https://github.com/Antynea/grub-btrfs/archive/v4.11.tar.gz -> grub-btrfs-4.11.tar.gz
 _eclasses_=optfeature	1a2157392a869265b2afcb63a26c12ac
-_md5_=9dcef1326b029d2720e8c41e4876ecba
+_md5_=d2fa8334160467c7de0e4aef8a7e6881

@@ -1,0 +1,15 @@
+DEFINED_PHASES=install setup
+DESCRIPTION=Espressif IoT Development Framework
+EAPI=8
+HOMEPAGE=https://www.espressif.com/
+INHERIT=python-single-r1
+IUSE=+esp32 esp32s2 esp32s3 riscv32 python_single_target_python3_9 python_single_target_python3_10
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.15_p3:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.8_p3:3.10 ) dev-embedded/esptool[python_single_target_python3_9(-)?,python_single_target_python3_10(-)?] python_single_target_python3_9? ( dev-python/click[python_targets_python3_9(-)] dev-python/bitstring[python_targets_python3_9(-)] dev-python/construct[python_targets_python3_9(-)] dev-python/ecdsa[python_targets_python3_9(-)] dev-python/future[python_targets_python3_9(-)] dev-python/kconfiglib[python_targets_python3_9(-)] dev-python/pyelftools[python_targets_python3_9(-)] dev-python/pyparsing[python_targets_python3_9(-)] dev-python/pyserial[python_targets_python3_9(-)] dev-python/python-socketio[python_targets_python3_9(-)] dev-python/pyyaml[python_targets_python3_9(-)] dev-python/reedsolomon[python_targets_python3_9(-)] dev-embedded/idf-component-manager[python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/click[python_targets_python3_10(-)] dev-python/bitstring[python_targets_python3_10(-)] dev-python/construct[python_targets_python3_10(-)] dev-python/ecdsa[python_targets_python3_10(-)] dev-python/future[python_targets_python3_10(-)] dev-python/kconfiglib[python_targets_python3_10(-)] dev-python/pyelftools[python_targets_python3_10(-)] dev-python/pyparsing[python_targets_python3_10(-)] dev-python/pyserial[python_targets_python3_10(-)] dev-python/python-socketio[python_targets_python3_10(-)] dev-python/pyyaml[python_targets_python3_10(-)] dev-python/reedsolomon[python_targets_python3_10(-)] dev-embedded/idf-component-manager[python_targets_python3_10(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 )
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://dl.espressif.com/github_assets/espressif/esp-idf/releases/download/v5.0/esp-idf-v5.0.zip -> esp-idf-5.0.zip https://github.com/espressif/openocd-esp32/releases/download/v0.11.0-esp32-20221026/openocd-esp32-linux-amd64-0.11.0-esp32-20221026.tar.gz https://github.com/espressif/crosstool-NG/releases/download/esp-2022r1/xtensa-esp32-elf-gcc11_2_0-esp-2022r1-linux-amd64.tar.xz https://github.com/espressif/crosstool-NG/releases/download/esp-2022r1/xtensa-esp32s2-elf-gcc11_2_0-esp-2022r1-linux-amd64.tar.xz https://github.com/espressif/crosstool-NG/releases/download/esp-2022r1/xtensa-esp32s3-elf-gcc11_2_0-esp-2022r1-linux-amd64.tar.xz https://github.com/espressif/crosstool-NG/releases/download/esp-2022r1/riscv32-esp-elf-gcc11_2_0-esp-2022r1-linux-amd64.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-single-r1	a5747fe6dc0651d95cb78eddd5e160a8
+_md5_=c87529e1cfd740147420b8f954f13ff4

@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig virtual/yacc seccomp? ( sys-kernel/linux-headers ) dev-libs/openssl:0 virtual/pkgconfig verify-sig? ( app-crypt/signify ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig app-alternatives/yacc seccomp? ( sys-kernel/linux-headers ) dev-libs/openssl:0 virtual/pkgconfig verify-sig? ( app-crypt/signify ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install postinst unpack
 DEPEND=acct-user/gemini dev-libs/imsg-compat dev-libs/libevent:= dev-libs/libretls:= dev-libs/openssl:= !elibc_Darwin? ( dev-libs/libbsd )
 DESCRIPTION=Simple and secure Gemini server
@@ -12,4 +12,4 @@ RDEPEND=acct-user/gemini dev-libs/imsg-compat dev-libs/libevent:= dev-libs/libre
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	ssl-cert	6dbe6a8a3dccb3d2f28f8404cd02c7d7	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca	verify-sig	afb98fe4696292e4234ce36713fd4e9e	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=10a96469a4652b920c71b25b8987deec
+_md5_=8aa6a27bdefcb2518f8e0a5b872a86f3

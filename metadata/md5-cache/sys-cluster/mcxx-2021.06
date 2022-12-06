@@ -1,4 +1,4 @@
-BDEPEND=dev-util/gperf sys-devel/flex virtual/pkgconfig virtual/yacc test? ( sys-devel/bc virtual/awk ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/fortran doc? ( app-doc/doxygen )
+BDEPEND=dev-util/gperf sys-devel/flex virtual/pkgconfig app-alternatives/yacc test? ( sys-devel/bc app-alternatives/awk ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 virtual/fortran doc? ( app-doc/doxygen )
 DEFINED_PHASES=compile configure install prepare setup
 DEPEND=dev-db/sqlite extrae? ( sys-cluster/extrae ) mpi? ( virtual/mpi ) nanox? ( sys-cluster/nanox ) ompss2? ( sys-cluster/nanos6 ) tcl? ( sys-cluster/TCL ) || ( >=dev-lang/python-3.11.0_p2:3.11 >=dev-lang/python-3.10.8_p3:3.10 >=dev-lang/python-3.9.15_p3:3.9 >=dev-lang/python-3.8.15_p3:3.8 >=dev-python/pypy3-7.3.9_p9:0 ) opencl? ( dev-util/opencl-headers ) virtual/fortran
 DESCRIPTION=C/C++/Fortran source-to-source compilation aimed at fast prototyping
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bsc-pm/mcxx/archive/refs/tags/github-release-2021.06.tar.gz -> mcxx-2021.06.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	959e1d99122907eb98a3a660297a967e	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	flag-o-matic	69394e25812406faa1f90edaf4969395	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	docs	2af4a2f0074bd646101ce0f66ca6dd03
-_md5_=a680d881acab8ad14a3e8d7f1af6c2f3
+_md5_=19905c7e39ab7bddd6fdfcf13e041f4e

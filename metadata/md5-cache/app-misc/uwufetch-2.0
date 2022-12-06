@@ -8,4 +8,4 @@ LICENSE=GPL-3
 RDEPEND=x11-apps/xwininfo
 SLOT=0
 SRC_URI=https://github.com/TheDarkBug/uwufetch/archive/refs/tags/2.0.tar.gz -> uwufetch-2.0.tar.gz
-_md5_=25fcb08bd8e59f73cf7c42f1bddf2012
+_md5_=4298ddc4c5539bb95ddcc27c7ce7b2f8
