@@ -5,6 +5,11 @@
 		<email>degni.public@gmail.com</email>
 		<name>Degni Luciano</name>
 	</maintainer>
+	<maintainer type="person">
+		<description>Co-Maintainer since version 22.05</description>
+		<email>freijon@pm.me</email>
+		<name>Jonas Frei</name>
+	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/helix-editor/helix/issues</bugs-to>
 		<changelog>https://github.com/helix-editor/helix/commits/master</changelog>
