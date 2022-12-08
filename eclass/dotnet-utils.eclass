@@ -178,7 +178,7 @@ dotnet-utils_src_prepare() {
 dotnet-utils_src_compile() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	local publist_args=(
+	local publish_args=(
 		--no-restore
 		--configuration Release
 		-p:Version=${PV}
@@ -186,7 +186,7 @@ dotnet-utils_src_compile() {
 		--self-contained
 	)
 
-	edotnet publish "${publish_args}" || die "'dotnet publish' failed"
+	edotnet publish "${publish_args[@]}" || die "'dotnet publish' failed"
 }
 
 fi
