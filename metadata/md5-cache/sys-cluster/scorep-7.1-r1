@@ -11,5 +11,5 @@ LICENSE=BSD
 RDEPEND=dev-libs/cubelib dev-libs/cubew dev-libs/papi sys-cluster/opari2 >=sys-cluster/otf2-3.0 sys-libs/binutils-libs:= sys-libs/zlib llvm? ( sys-devel/clang:14 <sys-devel/llvm-14:= || ( sys-devel/llvm:12 sys-devel/llvm:13 sys-devel/llvm:14 ) ) mpi? ( virtual/mpi ) openshmem? ( sys-cluster/SOS ) pmi? ( || ( sys-cluster/slurm sys-cluster/pmix[pmi] ) ) unwind? ( || ( sys-libs/libunwind sys-libs/llvm-libunwind ) ) opencl? ( virtual/opencl ) virtual/fortran
 SLOT=0
 SRC_URI=https://perftools.pages.jsc.fz-juelich.de/cicd/scorep/branches/gentoo-scorep-score/sources.edf930df.tar.gz -> scorep-edf930df.tar.gz
-_eclasses_=llvm	29d5332b8530fb760c2ca71ad6706858	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
+_eclasses_=llvm	3badffa48d565e089e59ed52e3a11b93	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
 _md5_=16cf91461d9dcd5af01387249a6bc827
