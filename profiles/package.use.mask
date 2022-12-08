@@ -3,6 +3,10 @@
 
 # New entries go on top.
 
+# Torokhov Sergey <torokhov-s-a@yandex.ru> (2022-12-09)
+# Masked due to infinite run of tests with USE="openmp"
+~sci-physics/SU2-7.2.0 openmp
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-25)
 # Depends on masked dev-python/zake
 dev-python/tooz test
