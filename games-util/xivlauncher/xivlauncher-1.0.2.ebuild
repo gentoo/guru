@@ -192,7 +192,7 @@ vortice.mathematics-1.3.24
 
 DOTNET_SLOT="6.0"
 
-inherit dotnet-utils desktop
+inherit dotnet-utils desktop xdg
 
 DESCRIPTION="Custom Launcher for Final Fantasy XIV Online (Crossplatform rewrite)"
 
@@ -260,14 +260,4 @@ src_install() {
 	doins -r *
 	fperms +x /opt/xivlauncher/XIVLauncher.Core
 	dosym ../../opt/xivlauncher/XIVLauncher.Core usr/bin/${PN}
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
 }

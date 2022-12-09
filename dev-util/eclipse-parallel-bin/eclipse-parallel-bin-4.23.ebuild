@@ -32,10 +32,7 @@ RDEPEND="
 	x11-libs/gtk+:3
 "
 
-QA_FLAGS_IGNORED="
-	/opt/eclipse-parallel-bin/eclipse
-	/opt/eclipse-parallel-bin/plugins/org.eclipse.equinox.launcher.gtk.linux[.].*/eclipse_.*[.]so
-"
+QA_FLAGS_IGNORED=".*"
 
 src_install() {
 	insinto "/opt/${PN}"

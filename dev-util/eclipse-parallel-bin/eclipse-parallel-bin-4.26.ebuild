@@ -6,7 +6,7 @@ EAPI=8
 inherit desktop wrapper xdg
 
 MY_PN="eclipse"
-MY_PV="2022-09"
+MY_PV="2022-12"
 SRC_BASE="https://www.eclipse.org/downloads/download.php?r=1&file=/technology/epp/downloads/release/${MY_PV}/R/eclipse-parallel-${MY_PV}-R-linux-gtk"
 
 DESCRIPTION="Eclipse IDE for Scientific Computing (C, C++, Fortran)"
@@ -42,6 +42,6 @@ src_install() {
 	doexe "${S}/${MY_PN}"
 	make_wrapper ${PN%-*} "/opt/${PN}/${MY_PN} -vm /opt/openjdk*/bin/java" "" "/opt/${PN}" "/opt/bin"
 
-	doicon -s 48 plugins/org.eclipse.platform_4.25.0.v20220831-1800/eclipse48.png
+	doicon -s 48 plugins/org.eclipse.platform_4.26.0.v20221123-1800/eclipse48.png
 	make_desktop_entry eclipse-parallel "Eclipse IDE Parallel ${MY_PV}" eclipse48 "Development;" || die "Failed making desktop entry!"
 }
