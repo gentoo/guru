@@ -4,13 +4,8 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..11} )
-
 BOINC_APP_OPTIONAL="true"
-
 DOCS_BUILDER="sphinx"
-DOCS_AUTODOC=0
-DOCS_DIR="docs"
-
 inherit python-single-r1 boinc-app docs flag-o-matic meson optfeature
 
 DESCRIPTION="Program for docking ligands to proteins and nucleic acids"
@@ -37,7 +32,10 @@ DEPEND="
 	dev-libs/cxxopts
 "
 BDEPEND="
-	doc? ( app-doc/doxygen )
+	apidoc? (
+		app-doc/doxygen
+		dev-texlive/texlive-fontutils
+	)
 "
 
 PATCHES=( "${FILESDIR}"/cmdock-0.1.4-fix-detection.patch )
@@ -72,14 +70,17 @@ src_configure() {
 src_compile() {
 	meson_src_compile
 
-	# subshell prevents overriding global
-	# DOCS_BUILDER and DOCS_OUTDIR
-	(
+	if use doc; then
+		DOCS_AUTODOC=0
+		DOCS_DIR="docs"
+		sphinx_compile
+	fi
+
+	if use apidoc; then
 		DOCS_BUILDER="doxygen"
-		DOCS_OUTDIR="${S}/_build/html/api"
-		docs_compile
-	)
-	docs_compile
+		DOCS_DIR="docs"
+		doxygen_compile
+	fi
 }
 
 src_install() {
