@@ -1,0 +1,42 @@
+From 624ee9278f15abb6de5d014294bb5ba4a717401b Mon Sep 17 00:00:00 2001
+From: "Daniel M. Weeks" <dan@danweeks.net>
+Date: Mon, 20 Mar 2017 16:50:06 -0400
+Subject: [PATCH 2/3] flags
+
+Signed-off-by: Daniel M. Weeks <dan@danweeks.net>
+---
+ config.mk        | 4 ++--
+ iceprog/Makefile | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/config.mk b/config.mk
+index c7f80a3..779c4e2 100644
+--- a/config.mk
++++ b/config.mk
+@@ -19,8 +19,8 @@ endif
+ WARN_LEVEL ?= all
+ 
+ LDLIBS = -lm -lstdc++
+-CFLAGS += -MD -MP -O$(OPT_LEVEL) $(DBG_LEVEL) -W$(WARN_LEVEL) -std=$(C_STD) -I$(PREFIX)/include
+-CXXFLAGS += -MD -MP -O$(OPT_LEVEL) $(DBG_LEVEL) -W$(WARN_LEVEL) -std=$(CXX_STD) -I$(PREFIX)/include
++CFLAGS += -MD -MP $(DBG_LEVEL) -W$(WARN_LEVEL) -std=$(C_STD) -I$(PREFIX)/include
++CXXFLAGS += -MD -MP $(DBG_LEVEL) -W$(WARN_LEVEL) -std=$(CXX_STD) -I$(PREFIX)/include
+ 
+ DESTDIR ?=
+ CHIPDB_SUBDIR ?= $(PROGRAM_PREFIX)icebox
+diff --git a/iceprog/Makefile b/iceprog/Makefile
+index 3cb07b8..7f5050f 100644
+--- a/iceprog/Makefile
++++ b/iceprog/Makefile
+@@ -4,7 +4,7 @@ ifneq ($(shell uname -s),Darwin)
+   LDLIBS = -L/usr/local/lib -lm
+ else
+   LIBFTDI_NAME = $(shell $(PKG_CONFIG) --exists libftdi1 && echo ftdi1 || echo ftdi)
+-  LDLIBS = -L/usr/local/lib -l$(LIBFTDI_NAME) -lm
++  LDLIBS = -l$(LIBFTDI_NAME) -lm
+ endif
+ 
+ ifeq ($(STATIC),1)
+-- 
+Daniel M. Weeks
+
