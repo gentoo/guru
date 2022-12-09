@@ -55,7 +55,7 @@ app-admin/enpass-desktop-bin 6.7.4.933: A cross-platform, complete password mana
 app-admin/glance 24.0.0-r1: Services for discovering, registering, and retrieving VM images
 app-admin/gnome-passwordsafe 4.0-r1 4.1: A password manager for GNOME
 app-admin/grub-customizer 5.1.0: A graphical grub2 settings manager
-app-admin/himitsu 0.1 9999: Secret storage system for Unix, suitable for storing passwords, keys, ...
+app-admin/himitsu 0.2 9999: Secret storage system for Unix, suitable for storing passwords, keys, ...
 app-admin/himitsu-ssh 0.1-r1 9999: SSH integration for Himitsu
 app-admin/himitsu-totp 9999: TOTP support for Himitsu
 app-admin/i2pd-tools 0.2021.10.17 0.2022.11.26: Some useful tools for I2P
@@ -599,7 +599,7 @@ dev-libs/octetos-db 1.3.2_alpha 1.3.3_alpha: C++ library for Database Acces.
 dev-libs/octetos-db-abstract 0.1.2_alpha 0.6.0_alpha: API to access database, abstract component.
 dev-libs/octetos-db-maria 1.4.2_alpha 1.9.2_alpha 9999: C++ library for Database Acces.
 dev-libs/octetos-db-postgresql 1.3.9_alpha 1.3.10_alpha: C++ library for Database Acces.
-dev-libs/olm 3.2.12 3.2.13: Implementation of the olm and megolm cryptographic ratchets
+dev-libs/olm 3.2.13 3.2.14: Implementation of the olm and megolm cryptographic ratchets
 dev-libs/open62541 1.3.4: Open source C implementation of OPC UA
 dev-libs/perfstubs 0_pre20210915: Profiling API for adding external tool instrumentation support to any project
 dev-libs/properties-cpp 0.0.2: Simple convenience library for handling properties and signals in C++11
@@ -1146,7 +1146,7 @@ dev-util/FoBiS 3.0.5: FoBiS.py, a Fortran Building System for poor men
 dev-util/afdko 3.8.1: Adobe Font Development Kit for OpenType
 dev-util/annobin 10.73 10.76: Binary annotation compiler plugin and tools
 dev-util/babeltrace2 2.0.4: A command-line tool and library to read and convert trace files
-dev-util/bash-language-server 3.2.1 3.3.1: A language server for Bash
+dev-util/bash-language-server 3.3.1 4.0.1: A language server for Bash
 dev-util/bats-assert 2.0.0: Common assertions for Bats
 dev-util/bats-support 0.3.0: Supporting library for Bats test helpers
 dev-util/bazelisk 1.12.0: A user-friendly launcher for Bazel
@@ -1339,7 +1339,7 @@ kde-apps/kclock 22.09 22.11: A convergent clock application for Plasma
 kde-apps/krecorder 22.09 22.11: A convergent audio recording application for Plasma
 kde-apps/plasma-settings 22.09 22.11: Settings application for Plasma Mobile
 kde-apps/tok 9999: Telegram client built using Kirigami
-kde-apps/tokodon 22.09 22.11: Mastodon client for Plasma and Plasma Mobile
+kde-apps/tokodon 22.09 22.11 22.11.1: Mastodon client for Plasma and Plasma Mobile
 kde-frameworks/kirigami-addons 0.5 0.6: Convergent visual components for Kirigami-based applications
 kde-frameworks/kquickchatcomponents 9999: Set of chat components for QtQuick chat apps
 kde-misc/geminipart 2021125 20221020: KPart for viewing text/gemini files
@@ -1402,7 +1402,6 @@ media-libs/portsmf 239 9999: C++ library for Standard Midi Files (SMF)
 media-libs/sjpeg 1.0_p20210422-r1: simple jpeg encoder
 media-libs/skcms 0_pre20211006-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-libs/skia 97-r2: A complete 2D graphic library for drawing Text, Geometries, and Images
-media-libs/svt-hevc 1.5.0 1.5.1 9999: Scalable Video Technology for HEVC (SVT-HEVC Encoder)
 media-libs/svt-vp9 0.3.0 9999: Scalable Video Technology for VP9 (SVT-VP9 Encoder)
 media-libs/vips 8.10.6: VIPS Image Processing Library
 media-plugins/alsa-sndio 0.2: ALSA PCM to play audio on sndio servers
@@ -1644,7 +1643,7 @@ sci-mathematics/radian 0.6.3: A 21 century R console
 sci-mathematics/the-omega-project 2.1_p20131119: Tools from Pugh et al.'s for constraint-based compiler tools
 sci-misc/boinc-wrapper 7.20.2: Wrapper to use non-BOINC apps with BOINC
 sci-misc/linuxcnc 9999: LinuxCNC
-sci-physics/SU2 7.2.0 7.2.0-r1: SU2: An Open-Source Suite for Multiphysics Simulation and Design
+sci-physics/SU2 7.2.0-r2 7.2.0-r100: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sci-physics/mbdyn 1.7.3_p20210925-r1: A general purpose Multibody Dynamics analysis software
 sec-keys/openpgp-keys-aepaneshnikov 20211208: OpenPGP keys used by Alexander Epaneshnikov
 sec-keys/openpgp-keys-emersion 20220802: OpenPGP keys used by Simon Ser
@@ -1746,6 +1745,7 @@ sys-cluster/temanejo 1.3: a debugger for task-parallel programming
 sys-cluster/usort 0_pre20211230-r1: Fast distributed sorting routines using MPI and OpenMP
 sys-cluster/veloc 1.6: Very-Low Overhead Checkpointing System
 sys-cluster/wxparaver 4.10.1: Performance analyzer based on event traces
+sys-devel/fcode-utils 1.0.3: Set of utilities to process FCODE, OpenFirmware's byte code
 sys-devel/gsl 4.1.5-r1: iMatix GSL code generator
 sys-firmware/pinephone-firmware 20210809: Firmwares files for PinePhone
 sys-fs/btrfs-heatmap 9-r1: Python 3 script to draw a heatmap of a btrfs filesystem
