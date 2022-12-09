@@ -15,8 +15,11 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
+RESTRICT="!test? ( test )"
 
 RDEPEND=">=dev-python/markdown-3.4[${PYTHON_USEDEP}]"
+
+distutils_enable_tests pytest
 
 src_prepare() {
 	sed -i "s/description-file/description_file/" setup.cfg || die
