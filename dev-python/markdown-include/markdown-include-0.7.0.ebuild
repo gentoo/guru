@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
@@ -16,3 +17,8 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 RDEPEND=">=dev-python/markdown-3.4[${PYTHON_USEDEP}]"
+
+src_prepare() {
+	sed -i "s/description-file/description_file/" setup.cfg || die
+	distutils-r1_src_prepare
+}
