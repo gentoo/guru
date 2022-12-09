@@ -165,6 +165,7 @@ src_test() {
 	if use autodiff ; then
 		ln -s ../../${P}-build/SU2_CFD/src/SU2_CFD_AD SU2_PY/SU2_CFD_AD || die
 		ln -s ../../${P}-build/SU2_DOT/src/SU2_DOT_AD SU2_PY/SU2_DOT_AD || die
+		ln -s ../../${P}-build/SU2_PY/pySU2/pysu2ad.py SU2_PY/pysu2ad.py || die
 		ln -s ../../${P}-build/SU2_PY/pySU2/_pysu2ad.so SU2_PY/_pysu2ad.so || die
 		if use directdiff ; then
 			ln -s ../../${P}-build/SU2_CFD/src/SU2_CFD_DIRECTDIFF SU2_PY/SU2_CFD_DIRECTDIFF || die
@@ -187,15 +188,13 @@ src_test() {
 		fi
 		if use autodiff ; then
 			${EPYTHON} parallel_regression_AD.py || die
-		else
-			${EPYTHON} parallel_regression.py || die
 		fi
+		${EPYTHON} parallel_regression.py || die
 	else
 		if use autodiff ; then
 			${EPYTHON} serial_regression_AD.py || die
-		else
-			${EPYTHON} serial_regression.py || die
 		fi
+		${EPYTHON} serial_regression.py || die
 	fi
 	popd || die
 }
@@ -205,7 +204,7 @@ src_install() {
 
 	mkdir -p "${D}$(python_get_sitedir)/SU2_PY" || die
 	if use python; then
-		mv "${ED}"/usr/bin/{pysu2.py,_pysu2.so} -t "${D}$(python_get_sitedir)/SU2_PY" || die
+		mv "${ED}"/usr/bin/*.so -t "${D}$(python_get_sitedir)/SU2_PY" || die
 	fi
 	mv "${ED}"/usr/bin/{FSI_tools,SU2,SU2_Nastran} -t "${D}$(python_get_sitedir)" || die
 	mv "${ED}"/usr/bin/*.py -t "${D}$(python_get_sitedir)/SU2_PY" || die
@@ -217,9 +216,9 @@ src_install() {
 	fi
 
 	local SU2_RUN="$(python_get_sitedir)/SU2_PY"
-	echo SU2_RUN="${SU2_RUN}" > 99_SU2
-	echo PATH="${SU2_RUN}" >> 99_SU2
-	echo PYTHONPATH="${SU2_RUN}" >> 99_SU2
+	echo SU2_RUN="${SU2_RUN}" > 99SU2
+	echo PATH="${SU2_RUN}" >> 99SU2
+	echo PYTHONPATH="${SU2_RUN}" >> 99SU2
 
-	doenvd 99_SU2
+	doenvd 99SU2
 }
