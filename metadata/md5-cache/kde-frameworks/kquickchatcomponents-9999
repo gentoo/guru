@@ -1,4 +1,4 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl] >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 doc? ( >=app-doc/doxygen-1.8.13-r1 || ( ( =dev-qt/qtcore-5.15.7*:5 =dev-qt/qtgui-5.15.7*:5 =dev-qt/qthelp-5.15.7*:5 =dev-qt/qtsql-5.15.7*:5 =dev-qt/qtwidgets-5.15.7*:5 ) ( =dev-qt/qtcore-5.15.5*:5 =dev-qt/qtgui-5.15.5*:5 =dev-qt/qthelp-5.15.5*:5 =dev-qt/qtsql-5.15.5*:5 =dev-qt/qtwidgets-5.15.5*:5 ) ) ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-5.70.0:5
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl] >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 doc? ( >=app-doc/doxygen-1.8.13-r1 ( =dev-qt/qtcore-5.15.7*:5 =dev-qt/qtgui-5.15.7*:5 =dev-qt/qthelp-5.15.7*:5 =dev-qt/qtsql-5.15.7*:5 =dev-qt/qtwidgets-5.15.7*:5 ) ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-5.70.0:5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
 DEPEND=>=dev-qt/qtdeclarative-5.15.0:5 >=dev-qt/qtgui-5.15.0:5 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
 DESCRIPTION=Set of chat components for QtQuick chat apps
@@ -10,5 +10,5 @@ LICENSE=CC0-1.0 LGPL-2+
 PROPERTIES=live
 RDEPEND=>=dev-qt/qtdeclarative-5.15.0:5 >=dev-qt/qtgui-5.15.0:5 >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
 SLOT=5
-_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	virtualx	644887c82aefdf12001489391fca4f02	ecm	61c165e3e2ee9247a96df5f5e3b31472
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	44afbf15c35884f7c840470f1cf05d0d	virtualx	644887c82aefdf12001489391fca4f02	ecm	34ee807e2538bb1eb631b099fc007b63
 _md5_=01bd408c53fd4f9c126f320c0fcbae4e
