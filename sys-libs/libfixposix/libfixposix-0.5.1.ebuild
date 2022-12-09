@@ -3,7 +3,7 @@
 
 EAPI=8
 
-# inherit autotools
+inherit autotools
 
 DESCRIPTION="Thin wrapper over POSIX syscalls"
 HOMEPAGE="https://github.com/sionescu/libfixposix"
@@ -18,6 +18,6 @@ DEPEND="${RDEPEND}"
 
 src_prepare(){
 	einfo "Generating autotools files..."
-	autoreconf -i -f
 	default
+	eautoreconf -i -f
 }
