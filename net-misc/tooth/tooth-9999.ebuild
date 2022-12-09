@@ -7,11 +7,10 @@ inherit git-r3 vala meson gnome2-utils
 
 DESCRIPTION="Tooth is a fork of the now archived Tootle, a gtk Mastodon client."
 HOMEPAGE="https://github.com/GeopJr/Tooth"
-SRC_URI="${HOMEPAGE}"
+EGIT_REPO_URI="https://github.com/GeopJr/Tooth.git"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
 
 RDEPEND=">=dev-util/meson-0.50
 >=dev-lang/vala-0.48
@@ -28,7 +27,6 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-EGIT_REPO_URI="${SRC_URI}"
 VALA_MIN_API_VERSION=0.48
 
 src_prepare() {

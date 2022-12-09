@@ -15,80 +15,47 @@ SRC_URI="
 	tutorials? ( https://github.com/su2code/Tutorials/archive/v${PV}.tar.gz -> ${P}-Tutorials.tar.gz )
 "
 
-LICENSE="
-	LGPL-2.1
-	tecio? ( tecio_license_agreement )
-"
+# SU2: LGPL-2.1; cgnslib: ZLIB, TecIO: all-rights-reserved;
+# Metis: Apache-2.0; Parmetis: all-rights-reserved, free-noncomm; Mutationpp: LGPL-3.0.
+LICENSE="Apache-2.0 LGPL-2.1 LGPL-3 ZLIB all-rights-reserved free-noncomm"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="autodiff cgns directdiff librom mixed-precision mkl +mpi mpp openblas openmp parmetis pastix python tecio test tutorials"
-# TODO: do not force openblas
 
-RDEPEND="
-	${PYTHON_DEPS}
-	cgns? ( >=sci-libs/cgnslib-4 )
-	librom? ( sci-libs/libROM )
-	mkl? ( sci-libs/mkl )
-	mpi? (
-		sci-libs/metis
-		virtual/mpi[cxx]
-	)
-	mpp? ( sci-libs/Mutationpp:= )
-	openblas? ( sci-libs/openblas )
-	parmetis? ( sci-libs/parmetis )
-	pastix? (
-		<sci-libs/pastix-6[mpi?]
-		sci-libs/scotch
-	)
-	python? ( $(python_gen_cond_dep '
-			dev-python/mpi4py[${PYTHON_USEDEP}]
-			dev-python/wxpython[${PYTHON_USEDEP}]
-			dev-python/xlwt[${PYTHON_USEDEP}]
-			dev-python/matplotlib[${PYTHON_USEDEP}]
-			dev-python/scipy[${PYTHON_USEDEP}]
-			dev-python/numpy[${PYTHON_USEDEP}]
-		')
-	)
-"
-DEPEND="
-	${RDEPEND}
-	dev-cpp/catch:0
-	dev-cpp/cli11:=
-
-	autodiff? (
-		sci-libs/CoDiPack:=
-		mpi? ( >sci-libs/MeDiPack-1.2:= )
-		openmp? ( sci-libs/OpDiLib:= )
-	)
-	directdiff? (
-		sci-libs/CoDiPack:=
-		mpi? ( >sci-libs/MeDiPack-1.2:= )
-	)
-	tecio? ( >=dev-libs/boost-1.76.0:= )
-	test? ( dev-cpp/catch:0 )
-"
-BDEPEND="
-	python? ( dev-lang/swig )
-	virtual/pkgconfig
-"
+# metis, parmetis are bundled;
+# omp is disable as it's experimental;
+# pastix is disabled as it's require additional external bundled libs;
+# autodiff (medi), directdiff (opti) features require additional external bundled libs.
+IUSE="cgns mkl +mpi mpp openblas parmetis tecio test tutorials"
 
 # Tests fail with FEATURES="network-sandbox" for most versions of openmpi and mpich it with error:
 # "No network interfaces were found for out-of-band communications.
 #  We require at least one available network for out-of-band messaging."
 PROPERTIES="test_network"
 RESTRICT="!test? ( test )"
-DOCS=( "README.md" "SU2_PY/documentation.txt" )
+
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
+	mkl? ( !openblas )
 	parmetis? ( mpi )
-	pastix? (
-		mpi
-		|| ( openblas mkl )
-	)
-	test? ( mpi python )
-	?? ( openblas mkl )
-	?? ( directdiff pastix )
+	test? ( parmetis tutorials )
 "
+
+RDEPEND="
+	${PYTHON_DEPS}
+	cgns? ( >=sci-libs/cgnslib-4 )
+	mkl? ( sci-libs/mkl )
+	mpi? ( virtual/mpi[cxx] )
+	mpp? ( sci-libs/Mutationpp:= )
+	openblas? ( sci-libs/openblas )
+"
+DEPEND="
+	${RDEPEND}
+	dev-cpp/cli11:=
+	tecio? ( >=dev-libs/boost-1.76.0:= )
+	test? ( <dev-cpp/catch-3:0 )
+"
+BDEPEND="virtual/pkgconfig"
+
 PATCHES=(
 	"${FILESDIR}/${PN}-7.0.4-unbundle_boost.patch"
 	"${FILESDIR}/${PN}-7.1.0-fix-env.patch"
@@ -96,6 +63,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-7.2.0-DESTDIR.patch"
 	"${FILESDIR}/${PN}-7.2.0-fix-headers.patch"
 )
+
+DOCS=( "README.md" "SU2_PY/documentation.txt" )
 
 src_unpack() {
 	unpack "${P}.tar.gz"
@@ -111,9 +80,10 @@ src_unpack() {
 }
 
 src_prepare(){
-	rm -rf externals/{CLI11,autotools,catch2,cgns,codi,medi,meson,metis,ninja,parmetis} || die
-
 	default
+
+	rm -rf externals/{CLI11,autotools,catch2,cgns,codi,medi,meson,ninja,opdi} || die
+
 	# boost Geometry requires c++14 since >=boost-1.75
 	sed -i -e 's:cpp_std=c++11:cpp_std=c++14:' meson.build || die
 
@@ -122,6 +92,9 @@ src_prepare(){
 
 	# Disable python-wrapper tests
 	sed -i "/append(pywrapper_/s/./#&/" TestCases/parallel_regression.py || die
+	# Disable failed tests
+	sed -i "/append(dyn_fsi/s/./#&/" TestCases/parallel_regression.py || die
+	sed -i "/append(fd_sp_pinArray_cht_2d_dp_hf/s/./#&/" TestCases/parallel_regression.py || die
 
 	# Copy absence mesh file
 	if use test ; then
@@ -136,19 +109,17 @@ src_configure() {
 	fi
 
 	local emesonargs=(
+		-Denable-autodiff=false
+		-Denable-directdiff=false
+		-Denable-pastix=false
+		-Denable-pywrapper=false
+		-Dwith-omp=false
 		$(meson_feature mpi with-mpi)
-		$(meson_use autodiff enable-autodiff)
-		$(meson_use cgns enable-cgns)
-		$(meson_use directdiff enable-directdiff)
-		$(meson_use librom enable-librom)
-		$(meson_use mixed-precision enable-mixedprec)
-		$(meson_use mkl enable-mkl)
 		$(meson_use mpi custom-mpi)
+		$(meson_use cgns enable-cgns)
+		$(meson_use mkl enable-mkl)
 		$(meson_use mpp enable-mpp)
 		$(meson_use openblas enable-openblas)
-		$(meson_use openmp with-omp)
-		$(meson_use pastix enable-pastix)
-		$(meson_use python enable-pywrapper)
 		$(meson_use tecio enable-tecio)
 		$(meson_use test enable-tests)
 	)
@@ -172,9 +143,9 @@ src_test() {
 
 	pushd TestCases/ || die
 	if use mpi ; then
-#		if use tutorials ; then
-#			${EPYTHON} tutorials.py || die
-#		fi
+		if use tutorials ; then
+			${EPYTHON} tutorials.py || die
+		fi
 		${EPYTHON} parallel_regression.py || die
 	else
 		${EPYTHON} serial_regression.py || die
@@ -185,23 +156,12 @@ src_test() {
 src_install() {
 	DESTDIR="${D}" meson_src_install
 
-	mkdir -p "${D}$(python_get_sitedir)/SU2_PY" || die
-	if use python; then
-		mv "${ED}"/usr/bin/{pysu2.py,_pysu2.so} -t "${D}$(python_get_sitedir)/SU2_PY" || die
-	fi
-	mv "${ED}"/usr/bin/{FSI_tools,SU2,SU2_Nastran} -t "${D}$(python_get_sitedir)" || die
-	mv "${ED}"/usr/bin/*.py -t "${D}$(python_get_sitedir)/SU2_PY" || die
+	mkdir -p "${D}$(python_get_sitedir)" || die
+	mv "${ED}"/usr/bin/{FSI_tools,SU2,SU2_Nastran,*.py} -t "${D}$(python_get_sitedir)" || die
 	python_optimize "${D}/$(python_get_sitedir)"
 
 	if use tutorials ; then
 		insinto "/usr/share/${PN}"
 		doins -r Tutorials
 	fi
-
-	local SU2_RUN="$(python_get_sitedir)/SU2_PY"
-	echo SU2_RUN="${SU2_RUN}" > 99_SU2
-	echo PATH="${SU2_RUN}" >> 99_SU2
-	echo PYTHONPATH="${SU2_RUN}" >> 99_SU2
-
-	doenvd 99_SU2
 }

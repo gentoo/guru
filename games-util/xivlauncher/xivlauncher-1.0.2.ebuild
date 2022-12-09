@@ -259,7 +259,7 @@ src_install() {
 	insinto opt/xivlauncher
 	doins -r *
 	fperms +x /opt/xivlauncher/XIVLauncher.Core
-	dosym /opt/xivlauncher/XIVLauncher.Core usr/bin/xivlauncher
+	dosym ../../opt/xivlauncher/XIVLauncher.Core usr/bin/${PN}
 }
 
 pkg_postinst() {
