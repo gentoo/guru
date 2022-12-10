@@ -45,20 +45,37 @@ RDEPEND="
 BDEPEND="virtual/pkgconfig"
 
 src_configure() {
-	local mycmakeargs=(
-		-DARCH=x86-64
-		-DBUILD_64=ON
-		-DBUILD_TAG="linux-x64"
-		-DDONATE_BEG=OFF
-		-DMANUAL_SUBMODULES=1
-		-DSTATIC=OFF
-		-DSELF_CONTAINED=OFF
-		-DUSE_DEVICE_TREZOR=OFF
-		-DXMRIG=$(usex xmrig)
-		-DWITH_SCANNER=$(usex qrcode)
-		-DVERSION_IS_RELEASE=true
-	)
-
+	if has nostrip $FEATURES ; then
+		local mycmakeargs=(
+			-DCMAKE_BUILD_TYPE=Debug
+			-DARCH=x86-64
+			-DBUILD_64=ON
+			-DBUILD_TAG="linux-x64"
+			-DDONATE_BEG=OFF
+			-DMANUAL_SUBMODULES=1
+			-DSTATIC=OFF
+			-DSELF_CONTAINED=OFF
+			-DUSE_DEVICE_TREZOR=OFF
+			-DXMRIG=$(usex xmrig)
+			-DWITH_SCANNER=$(usex qrcode)
+			-DVERSION_IS_RELEASE=true
+		)
+	else
+		local mycmakeargs=(
+			-DCMAKE_BUILD_TYPE=Release
+			-DARCH=x86-64
+			-DBUILD_64=ON
+			-DBUILD_TAG="linux-x64"
+			-DDONATE_BEG=OFF
+			-DMANUAL_SUBMODULES=1
+			-DSTATIC=OFF
+			-DSELF_CONTAINED=OFF
+			-DUSE_DEVICE_TREZOR=OFF
+			-DXMRIG=$(usex xmrig)
+			-DWITH_SCANNER=$(usex qrcode)
+			-DVERSION_IS_RELEASE=true
+		)
+	fi
 	cmake_src_configure
 }
 
