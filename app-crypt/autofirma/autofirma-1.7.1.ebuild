@@ -10,11 +10,9 @@ HOMEPAGE="
 	https://administracionelectronica.gob.es/ctt/clienteafirma
 	https://github.com/ctt-gob-es/clienteafirma
 "
-#TODO: use ver_split instead of hardcoded 1/6/5
-SRC_URI="https://estaticos.redsara.es/comunes/autofirma/1/6/5/AutoFirma_Linux.zip -> ${P}.zip"
+SRC_URI="https://estaticos.redsara.es/comunes/autofirma/$(ver_rs 1- /)/AutoFirma_Linux.zip -> ${P}.zip"
 
-#TODO: investigate and fix licenses https://github.com/ctt-gob-es/clienteafirma/blob/master/license/LICENSE.txt
-LICENSE="|| ( GPL-2+ EUPL-1.1 )"
+LICENSE="|| ( GPL-2 EUPL-1.1 )"
 SLOT="0"
 KEYWORDS="~amd64"
 
@@ -25,15 +23,13 @@ S=${WORKDIR}
 
 src_unpack() {
 	default
-	rpm_unpack "./${P}-1.noarch.rpm"
+	rpm_unpack "./${P}-1.noarch_FEDORA.rpm"
 }
 
 src_install() {
-	#TODO: use $(get_libdir) or mask non ~amd64 arches
 	java-pkg_dojar "usr/lib64/${PN}/${PN}.jar"
 	java-pkg_dolauncher
 	java-pkg_dojar "usr/lib64/${PN}/${PN}Configurador.jar"
-	#TODO: icons in /lib are suspect
 	doicon "usr/lib64/${PN}/${PN}.png"
 	make_desktop_entry "${PN} %u" AutoFirma "${PN}" "Utility" "Comment[es]=Aplicación de firma electrónica de la FNMT\nMimeType=x-scheme-handler/afirma"
 }
