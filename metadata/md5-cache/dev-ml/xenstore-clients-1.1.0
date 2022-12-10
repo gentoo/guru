@@ -12,5 +12,5 @@ RDEPEND=dev-ml/lwt:= dev-ml/xenstore:= test? ( dev-ml/ounit2 ) >=dev-lang/ocaml-
 RESTRICT=!test? ( test )
 SLOT=0/1.1.0
 SRC_URI=https://github.com/xapi-project/ocaml-xenstore-clients/archive/refs/tags/v1.1.0.tar.gz -> xenstore-clients-1.1.0.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	c8f275f00adf2380fe0a57d8a249885c	findlib	d8fa93cf137156660d0b72144b1e31d9
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	db0ce2a301411f44e4ee90e5c591ada0	findlib	d8fa93cf137156660d0b72144b1e31d9
 _md5_=587be4cbf6b5644901822833e34c2c61
