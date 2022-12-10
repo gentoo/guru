@@ -19,6 +19,15 @@ DEPEND="
 	net-libs/czmq
 "
 
+src_prepare() {
+	default
+
+	# 884447: remove -s from OPTIMIZATION_FLAGS
+	sed -i 's/-s\>//' cmake/flags.cmake || die
+
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DWITH_RANDOMX=OFF
