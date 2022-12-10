@@ -17,6 +17,7 @@
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-25)
 # Depends on treecleaned dev-python/kazoo
 dev-python/zake
+dev-python/tooz
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-22)
 # Depends on removed <=dev-python/sqlalchemy-1.4.41
