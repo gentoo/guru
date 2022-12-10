@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>0xdutra@gmail.com</email>
+		<name>Gabriel M. Dutra</name>
+	</maintainer>
+  	<upstream>
+    	<remote-id type="github">orf/gping</remote-id>
+	</upstream>
+</pkgmetadata>
