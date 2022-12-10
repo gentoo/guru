@@ -29,6 +29,7 @@ BDEPEND="
 	x11-libs/libXi
 	x11-libs/libXinerama
 	x11-libs/libXrandr
+	x11-libs/libXxf86vm
 "
 
 src_configure() {
