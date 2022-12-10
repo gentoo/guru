@@ -79,21 +79,39 @@ src_prepare() {
 }
 
 src_configure() {
-	local mycmakeargs=(
-		-DARCH=x86-64
-		-DBUILD_64=ON
-		-DBUILD_TAG="linux-x64"
-		-DDONATE_BEG=OFF
-		-DMANUAL_SUBMODULES=1
-		-DSTATIC=OFF
-		-DSELF_CONTAINED=OFF
-		-DUSE_DEVICE_TREZOR=OFF
-		-DXMRIG=$(usex xmrig)
-		-DWITH_SCANNER=$(usex qrcode)
-		-DCMAKE_DISABLE_FIND_PACKAGE_Git=ON #disables fetching/checking git submodules
-		-DVERSION_IS_RELEASE=true
-	)
-
+	if has nostrip $FEATURES ; then
+		local mycmakeargs=(
+			-DCMAKE_BUILD_TYPE=Debug
+			-DARCH=x86-64
+			-DBUILD_64=ON
+			-DBUILD_TAG="linux-x64"
+			-DDONATE_BEG=OFF
+			-DMANUAL_SUBMODULES=1
+			-DSTATIC=OFF
+			-DSELF_CONTAINED=OFF
+			-DUSE_DEVICE_TREZOR=OFF
+			-DXMRIG=$(usex xmrig)
+			-DWITH_SCANNER=$(usex qrcode)
+			-DCMAKE_DISABLE_FIND_PACKAGE_Git=ON #disables fetching/checking git submodules
+			-DVERSION_IS_RELEASE=true
+		)
+	else
+		local mycmakeargs=(
+			-DCMAKE_BUILD_TYPE=Release
+			-DARCH=x86-64
+			-DBUILD_64=ON
+			-DBUILD_TAG="linux-x64"
+			-DDONATE_BEG=OFF
+			-DMANUAL_SUBMODULES=1
+			-DSTATIC=OFF
+			-DSELF_CONTAINED=OFF
+			-DUSE_DEVICE_TREZOR=OFF
+			-DXMRIG=$(usex xmrig)
+			-DWITH_SCANNER=$(usex qrcode)
+			-DCMAKE_DISABLE_FIND_PACKAGE_Git=ON #disables fetching/checking git submodules
+			-DVERSION_IS_RELEASE=true
+		)
+	fi
 	cmake_src_configure
 }
 
