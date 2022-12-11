@@ -31,6 +31,7 @@ src_prepare() {
 	eapply -p0 "${FILESDIR}/${P}-cflags-ldflags.patch"
 	eapply -p0 "${FILESDIR}/${P}-soname.patch"
 	eapply -p0 "${FILESDIR}/${P}-no-install-soname.patch"
+	eapply "${FILESDIR}/${P}-ar.patch"
 
 	eapply_user
 }
