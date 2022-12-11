@@ -16,8 +16,13 @@ KEYWORDS="~amd64"
 RDEPEND=""
 DEPEND="${RDEPEND}"
 
-src_prepare(){
+src_prepare() {
 	einfo "Generating autotools files..."
 	default
 	eautoreconf -i -f
+}
+
+src_install() {
+	default
+	find "${ED}" -name "*.la" -delete || die
 }
