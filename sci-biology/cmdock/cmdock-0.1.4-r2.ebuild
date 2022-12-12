@@ -6,11 +6,12 @@ EAPI=8
 PYTHON_COMPAT=( python3_{8..11} )
 BOINC_APP_OPTIONAL="true"
 DOCS_BUILDER="sphinx"
+DOCS_AUTODOC=0
 inherit python-single-r1 boinc-app docs flag-o-matic meson optfeature
 
 DESCRIPTION="Program for docking ligands to proteins and nucleic acids"
 HOMEPAGE="https://gitlab.com/Jukic/cmdock"
-SRC_URI="https://gitlab.com/Jukic/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
+SRC_URI="https://gitlab.com/Jukic/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2"
 S="${WORKDIR}/${PN}-v${PV}"
 INSTALL_PREFIX="${EPREFIX}/opt/${P}"
 
@@ -71,7 +72,6 @@ src_compile() {
 	meson_src_compile
 
 	if use doc; then
-		DOCS_AUTODOC=0
 		DOCS_DIR="docs"
 		sphinx_compile
 	fi
