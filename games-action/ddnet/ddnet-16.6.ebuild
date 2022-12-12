@@ -5,12 +5,25 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
 
-inherit cmake python-any-r1 xdg
+CRATES="
+cc-1.0.73
+cxx-1.0.71
+cxxbridge-flags-1.0.71
+cxxbridge-macro-1.0.71
+link-cplusplus-1.0.6
+proc-macro2-1.0.40
+quote-1.0.20
+syn-1.0.98
+unicode-ident-1.0.1
+"
+
+inherit cargo cmake python-any-r1 xdg
 
 DESCRIPTION="DDraceNetwork, a cooperative racing mod of Teeworlds "
 HOMEPAGE="https://ddnet.org/
 	https://github.com/ddnet/ddnet"
-SRC_URI="https://github.com/ddnet/ddnet/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/ddnet/ddnet/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+$(cargo_crate_uris ${CRATES})"
 
 LICENSE="CC-BY-SA-3.0 OFL-1.1 BSD"
 SLOT="0"
@@ -56,6 +69,12 @@ BDEPEND="
 	dev-util/spirv-tools
 	media-libs/x264
 "
+
+src_unpack() {
+	default_src_unpack
+	cargo_src_unpack
+}
+
 src_configure(){
 	local mycmakeargs=(
 		-DANTIBOT=$(usex antibot ON OFF)
