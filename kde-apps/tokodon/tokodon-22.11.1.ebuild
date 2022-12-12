@@ -16,9 +16,10 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="|| ( GPL-2 GPL-3 ) AGPL-3+ CC-BY-SA-4.0 CC0-1.0 GPL-2+ GPL-3 GPL-3+ LGPL-2+ LGPL-2.1+ MIT"
 SLOT="5"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 DEPEND="
+	>=dev-libs/kirigami-addons-0.6:5
 	dev-libs/qtkeychain[qt5(+)]
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -34,7 +35,6 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
-	>=kde-frameworks/kirigami-addons-0.6:5
 	>=kde-frameworks/kitemmodels-${KFMIN}:5
 	>=kde-frameworks/knotifications-${KFMIN}:5
 	>=kde-frameworks/kwindowsystem-${KFMIN}:5
