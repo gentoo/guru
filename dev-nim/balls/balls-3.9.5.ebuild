@@ -15,7 +15,6 @@ KEYWORDS="~amd64"
 
 DEPEND="
 	=dev-nim/grok-0*
-	=dev-nim/sync-1*
 	=dev-nim/ups-0*
 "
 
