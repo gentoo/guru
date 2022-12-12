@@ -10,11 +10,11 @@ DESCRIPTION="OONI Probe network measurement tool for detecting internet censorsh
 HOMEPAGE="https://ooni.org https://github.com/ooni/probe-cli"
 SRC_URI="https://github.com/ooni/${MY_PN}/releases/download/v${PV}/${P}.tar.gz"
 
-LICENSE="GPL-3+"
+LICENSE="0BSD Apache-2.0 BSD BSD-2 CC0-1.0 GPL-3 GPL-3+ ISC LGPL-3 MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-
-RESTRICT="test" # hangs
+PROPERTIES="test_network"
+RESTRICT="test"
 
 DOCS=( docs CODEOWNERS {CONTRIBUTING,Readme}.md )
 
@@ -23,7 +23,7 @@ src_compile() {
 }
 
 src_test() {
-	ego test $(go list ./... | grep -v /vendor/)
+	ego test -short -race -tags shaping ./...
 }
 
 src_install() {
