@@ -5,4 +5,7 @@
 		<email>gjdijkman@gjdwebserver.nl</email>
 		<name>Gerben Jan Dijkman</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="gitlab">mobian1/callaudiod</remote-id>
+	</upstream>
 </pkgmetadata>
