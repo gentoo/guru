@@ -10,6 +10,6 @@
 			<name>Gabriele Musco</name>
 			<email>gabmus@disroot.org</email>
 		</maintainer>
-		<bugs-to>https://gitlab.gnome.org/World/giara/-/issues</bugs-to>
+		<remote-id type="gnome-gitlab">World/giara</remote-id>
 	</upstream>
 </pkgmetadata>
