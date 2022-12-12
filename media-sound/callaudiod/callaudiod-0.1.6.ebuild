@@ -5,25 +5,18 @@ EAPI=8
 
 inherit meson
 
-COMMIT="a7ca6ce9d4c947f19c3f99ff2cab986c64434e57"
-
 DESCRIPTION="Call audio routing daemon"
 HOMEPAGE="https://gitlab.com/mobian1/callaudiod"
-SRC_URI="https://gitlab.com/mobian1/${PN}/-/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${COMMIT}"
+SRC_URI="https://gitlab.com/mobian1/${PN}/-/archive/${PV}/${P}.tar.bz2"
 
 KEYWORDS="~amd64 ~arm64"
-LICENSE="GPL-3"
+LICENSE="LGPL-3+"
 SLOT="0"
 
 RDEPEND="
 	dev-libs/glib:2
-	dev-util/gdbus-codegen
 	media-libs/alsa-lib
-	|| (
-		media-libs/libpulse
-		>=media-sound/apulse-0.1.12-r4[sdk]
-	)
+	media-libs/libpulse[glib]
 "
-
-BUILD_DIR="${S}"/build
+DEPEND="${RDEPEND}"
+BDEPEND="dev-util/gdbus-codegen"
