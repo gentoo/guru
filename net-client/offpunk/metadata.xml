@@ -10,5 +10,6 @@
 			<email>offpunk@ploum.eu</email>
 			<name>Ploum</name>
 		</maintainer>
+		<remote-id type="sourcehut">~lioploum/offpunk</remote-id>
 	</upstream>
 </pkgmetadata>
