@@ -51,4 +51,5 @@ src_install() {
 
 pkg_postinst() {
 	optfeature "Jenkins and/or GitServer plugins support" dev-qt/qtwebchannel:5 dev-qt/qtwebengine:5[widgets]
+	xdg_pkg_postinst
 }
