@@ -11,7 +11,7 @@ inherit distutils-r1 optfeature
 DESCRIPTION="Offline-First Gemini/Web/Gopher/RSS reader and browser"
 HOMEPAGE="https://sr.ht/~lioploum/offpunk/"
 SRC_URI="https://git.sr.ht/~lioploum/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}"
+S="${WORKDIR}/${PN}-v${PV}"
 
 LICENSE="BSD-2"
 SLOT="0"
