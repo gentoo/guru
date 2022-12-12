@@ -4,25 +4,25 @@
 EAPI=8
 VALA_USE_DEPEND="vapigen"
 
-inherit vala meson gnome2-utils virtualx xdg
+inherit vala meson gnome2-utils optfeature virtualx xdg
 
 MY_PN="${PN#gnome-}"
-MY_P="${MY_PN}-${PV}"
-LCU_COMMIT="acfbb136bbf74514e0b9801ce6c1e8acf36350b6"
+LCU_COMMIT="619dd91561ad470db3d0e0e263ebc35d787afd2e"
 DESCRIPTION="Phone dialer and call handler"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/calls"
 GITLAB="https://gitlab.gnome.org"
 SRC_URI="
-	${GITLAB}/GNOME/${MY_PN}/-/archive/${PV}/${MY_P}.tar.gz
-	${GITLAB}/World/Phosh/libcall-ui/-/archive/${LCU_COMMIT}/libcall-ui-${LCU_COMMIT}.tar.gz
+	${GITLAB}/GNOME/${MY_PN}/-/archive/v${PV}/${MY_PN}-v${PV}.tar.bz2
+	${GITLAB}/World/Phosh/libcall-ui/-/archive/${LCU_COMMIT}/libcall-ui-${LCU_COMMIT}.tar.bz2
 "
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${MY_PN}-v${PV}"
 
-LICENSE="GPL-3"
+LICENSE="CC-BY-SA-4.0 GPL-3+ LGPL-2+ LGPL-2.1+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
+IUSE="gtk-doc man"
 
-DEPEND="
+COMMON_DEPEND="
 	app-crypt/libsecret[introspection(+),vala(+)]
 	dev-libs/feedbackd[introspection(+),vala(+)]
 	dev-libs/folks:=
@@ -38,7 +38,10 @@ DEPEND="
 	>=net-misc/modemmanager-1.12.0:=[introspection(+)]
 	x11-libs/gtk+:3
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	test? ( media-plugins/gst-plugins-srtp:1.0 )
+"
+RDEPEND="${COMMON_DEPEND}
 	virtual/secret-service
 "
 BDEPEND="
@@ -46,6 +49,8 @@ BDEPEND="
 	dev-libs/gobject-introspection
 	dev-libs/protobuf
 	dev-util/wayland-scanner
+	gtk-doc? ( dev-util/gtk-doc )
+	man? ( dev-python/docutils )
 "
 
 src_unpack() {
@@ -60,13 +65,39 @@ src_prepare() {
 	vala_setup
 }
 
+src_configure() {
+	local emesonargs=(
+		$(meson_use gtk-doc gtk_doc)
+		$(meson_use man manpages)
+		$(meson_use test tests)
+	)
+	meson_src_configure
+}
+
 src_test() {
-	virtx meson_src_test
+	local tests=(
+		calls:util
+		calls:settings
+		calls:origin
+		calls:provider
+		calls:call
+		calls:plugins
+		calls:contacts
+		calls:ui-call
+		calls:manager
+		calls:ringer
+		calls:media
+		calls:srtp
+		calls:sdp-crypto
+	)
+	virtx meson_src_test "${tests[@]}"
 }
 
 pkg_postinst() {
 	xdg_pkg_postinst
 	gnome2_schemas_update
+
+	optfeature "SRTP support" media-plugins/gst-plugins-srtp
 }
 
 pkg_postrm() {
