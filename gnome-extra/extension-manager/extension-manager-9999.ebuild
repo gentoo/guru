@@ -13,8 +13,8 @@ else
 	KEYWORDS="~amd64"
 fi
 
-DESCRIPTION="A native tool for browsing and installing GNOME Shell Extensions"
-HOMEPAGE="https://github.com/mjakeman/extension-manager"
+DESCRIPTION="A native tool for browsing, installing, and managing GNOME Shell Extensions"
+HOMEPAGE="https://mjakeman.github.io/extension-manager/"
 
 LICENSE="GPL-3+"
 SLOT="0"
