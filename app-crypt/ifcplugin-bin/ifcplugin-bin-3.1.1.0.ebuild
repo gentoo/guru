@@ -30,8 +30,7 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="sys-apps/pcsc-lite"
 
-QA_PREBUILT=".*"
-QA_SONAME=".*"
+QA_PREBUILT="*"
 QA_SONAME_NO_SYMLINK=".*"
 
 src_prepare() {
