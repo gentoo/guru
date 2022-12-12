@@ -9,8 +9,8 @@ DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 optfeature
 
 DESCRIPTION="Offline-First Gemini/Web/Gopher/RSS reader and browser"
-HOMEPAGE="https://notabug.org/ploum/offpunk"
-SRC_URI="https://notabug.org/ploum/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://sr.ht/~lioploum/offpunk/"
+SRC_URI="https://git.sr.ht/~lioploum/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}"
 
 LICENSE="BSD-2"
