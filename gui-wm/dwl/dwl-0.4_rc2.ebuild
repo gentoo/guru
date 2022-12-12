@@ -7,8 +7,8 @@ inherit flag-o-matic savedconfig toolchain-funcs desktop
 
 DESCRIPTION="dwm for Wayland"
 HOMEPAGE="https://github.com/djpohly/dwl"
-SRC_URI="https://github.com/djpohly/${PN}/archive/v${PV}-rc2.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${P}-rc1"
+SRC_URI="https://github.com/djpohly/${PN}/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${P/_/-}"
 
 LICENSE="CC0-1.0 GPL-3 MIT"
 SLOT="0"
