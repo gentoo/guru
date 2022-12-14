@@ -3,9 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python2_7 )
-
-inherit cmake edo python-any-r1
+inherit cmake edo
 
 DESCRIPTION="PLASMA parallel library for dense linear algebra"
 HOMEPAGE="
@@ -27,10 +25,7 @@ RDEPEND="
 	virtual/lapacke
 "
 DEPEND="${RDEPEND}"
-BDEPEND="
-	${PYTHON_DEPS}
-	virtual/pkgconfig
-"
+BDEPEND="virtual/pkgconfig"
 
 DOCS=( README.md ChangeLog )
 
