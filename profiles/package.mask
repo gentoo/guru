@@ -13,27 +13,10 @@
 # relevant entries to the relevant package.mask files in ::gentoo
 
 # New entries go on top.
-#
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-25)
-# Depends on treecleaned dev-python/kazoo
-dev-python/zake
-dev-python/tooz
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-22)
-# Depends on removed <=dev-python/sqlalchemy-1.4.41
-dev-python/databases
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-18)
 # Depends on masked dev-python/Rx (can be restored here after treeclean)
 sys-power/gwe
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-18)
-# Depends on masked dev-python/gevent. No revdeps. Removal on 2022-12-17.
-dev-python/gevent-websocket
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-04)
-# Depends on masked dev-python/tempita, has unresolved bugs (#854177)
-dev-python/sqlalchemy-migrate
 
 # Torokhov Sergey <torokhov-s-a@yandex.ru> (2022-10-30)
 # Masked due to failed tests with sys-cluster/openmpi;
