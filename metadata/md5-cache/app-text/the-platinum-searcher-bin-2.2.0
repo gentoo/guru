@@ -1,0 +1,9 @@
+DEFINED_PHASES=install
+DESCRIPTION=Fast CLI search tool, faster than grep, ack, silver_searcher (ag)
+EAPI=8
+HOMEPAGE=https://github.com/monochromegane/the_platinum_searcher
+KEYWORDS=~amd64
+LICENSE=MIT
+SLOT=0
+SRC_URI=https://github.com/monochromegane/the_platinum_searcher/releases/download/v2.2.0/pt_linux_amd64.tar.gz
+_md5_=cd1432510e49d462d8dc85b4a3679248

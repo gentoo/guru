@@ -1,9 +1,0 @@
-DEFINED_PHASES=compile prepare
-DESCRIPTION=Formatted C++ stdlib man pages (cppreference)
-EAPI=7
-HOMEPAGE=https://github.com/jeaye/stdman
-KEYWORDS=~amd64
-LICENSE=MIT
-SLOT=0
-SRC_URI=https://github.com/jeaye/stdman/archive/2020.11.17.tar.gz -> stdman-2020.11.17.tar.gz
-_md5_=a6b80e6875b42746229bf9ef3d7457fb

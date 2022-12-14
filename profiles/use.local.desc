@@ -62,10 +62,12 @@ dev-embedded/esp-idf:esp32 - Enable support for esp32
 dev-embedded/esp-idf:esp32s2 - Enable support for esp32
 dev-embedded/esp-idf:esp32s3 - Enable support for esp32
 dev-embedded/esp-idf:riscv32 - Enable support for esp32
+dev-embedded/icestorm:ftdi - Enable support for USB FTDI chips via dev-embedded/libftdi
 dev-embedded/rauc:gpt - Add GPT support
 dev-embedded/rauc:json - Add JSON support
 dev-embedded/rauc:network - Add network update support
 dev-embedded/rauc:service - Add dbus service
+dev-embedded/yosys:abc - Build with Berkeley ABC support
 dev-java/jogl:cg - Enable NVidia Cg binding.
 dev-libs/KVTree:fcntl - Set the type of file locking to fcntl.
 dev-libs/KVTree:flock - Set the type of file locking to flock.
@@ -187,18 +189,6 @@ dev-ml/vchan:xen - Xen support
 dev-ml/vhd:lwt - provide an Lwt compatible interface to the library
 dev-ml/xen-evtchn:unix - Xen event channel interface for Linux
 dev-ml/xen-gnt:unix - build the userspace library
-dev-python/glance_store:cinder - enable cinder backend supprt
-dev-python/glance_store:swift - enable swift backend supprt
-dev-python/glance_store:vmware - enable vmware backend supprt
-dev-python/gnocchi:amqp - Installs dependencies needed for AMQP 1.0 support
-dev-python/gnocchi:ceph - Installs dependencies needed for Ceph storage support
-dev-python/gnocchi:keystone - Installs dependencies needed for Keystone authentication support
-dev-python/gnocchi:mysql - Installs dependencies needed for MYSQL indexer support
-dev-python/gnocchi:postgresql - Installs dependencies needed for PostgreSQL indexer support
-dev-python/gnocchi:prometheus - Installs dependencies needed for Prometheus Remote Write support
-dev-python/gnocchi:redis - Installs dependencies needed for Redis storage support
-dev-python/gnocchi:s3 - Installs dependencies needed for Amazon S3 storage support
-dev-python/gnocchi:swift - Installs dependencies needed for OpenStack Swift storage support
 dev-python/python-socketio:asyncio-client - Add async websocket client
 dev-python/python-socketio:client - Add websocket client
 dev-util/FoBiS:graphviz - Add support of generation of a dependencies graph
@@ -337,9 +327,6 @@ gui-apps/wlogout:layershell - Enable transparency
 gui-apps/wlogout:zsh-completions - Enable completions for zsh shell
 gui-apps/wob:man - Install man page
 gui-apps/wob:seccomp - Linux kernel syscall filtering
-gui-apps/wofi:dmenu - Enable dmenu mode
-gui-apps/wofi:drun - Enable drun mode
-gui-apps/wofi:run - Enable run mode
 gui-libs/cubegui:concurrent - Enables usage of the QtConcurrent for the the parallel calculations
 gui-libs/cubegui:scorep - Enable scorep support
 gui-libs/cubegui:webengine - Enables usage of the QtWebEngine for the HTML Documentation
@@ -367,6 +354,7 @@ media-libs/alvr:server - Build ALVR server
 media-libs/alvr:vulkan - Build ALVR vulkan layer
 media-libs/alvr:x264 - Use x264 for h264 software encoding
 media-libs/alvr:x265 - Use x265 for h265 software encoding
+media-libs/amdvlk:raytracing - Enable Vulkan raytracing support in AMDVLK, requires dev-util/DirectXShaderCompiler to build. Disable if you have weak hardware.
 media-libs/imgui:allegro5 - Enable allegro backend and renderer
 media-libs/imgui:bindings - Build the cimgui C bindigs
 media-libs/imgui:freetype - Use FreeType to build and rasterize the font atlas
@@ -542,6 +530,9 @@ sci-libs/superlu_dist:double-precision - Enable double precision library
 sci-libs/superlu_dist:hip - Enable the HIP libraries
 sci-libs/superlu_dist:metis - Use parmetis as dependency
 sci-libs/superlu_dist:single-precision - Enable single precision library
+sci-mathematics/abc:pthread - Builds with pthreads
+sci-mathematics/abc:readline - Enables readline support
+sci-mathematics/abc:static-libs - Builds libabc.a
 sci-mathematics/clasp:tools - whether or not to build the clasp application
 sci-mathematics/clingo:tools - whether or not to build the clingo tool
 sci-mathematics/frama-c-aorai:eva - Build support for the Eva plugin
@@ -768,33 +759,6 @@ sys-cluster/nanox:resiliency - Enables task-level resiliency
 sys-cluster/nanox:sqlite - enable dev-db/sqlite support
 sys-cluster/nanox:task-callback - Enables task callback feature
 sys-cluster/nanox:threads - Enable user level threads
-sys-cluster/neutron:compute-only - Only install things needed on compute hosts
-sys-cluster/neutron:dhcp - Installs the initscripts for the neutron dhcp service
-sys-cluster/neutron:haproxy - haproxy backend support
-sys-cluster/neutron:l3 - Installs the initscripts for the neutron l3 agent service
-sys-cluster/neutron:linuxbridge - Installs the initscripts for the neutron linuxbridge agent service
-sys-cluster/neutron:metadata - Installs the initscripts for the neutron metadata agent service
-sys-cluster/neutron:openvswitch - Installs the initscripts for the neutron openvswitch agent service
-sys-cluster/neutron:server - Installs the initscripts for the neutron server service
-sys-cluster/nova:iscsi - Installs iscsi helper udev scripts
-sys-cluster/openstack-meta:cinder - Installs Openstack block storage service Cinder
-sys-cluster/openstack-meta:compute - Installs the dependencies for the nova volume service
-sys-cluster/openstack-meta:dhcp - Installs the dependencies for the neutron dhcp service
-sys-cluster/openstack-meta:glance - Installs Openstack VM services Glance
-sys-cluster/openstack-meta:haproxy - haproxy backend support
-sys-cluster/openstack-meta:heat - Installs Openstack orchestration engine Heat
-sys-cluster/openstack-meta:iscsi - Allow using an iSCSI remote storage server as pool for disk image storage
-sys-cluster/openstack-meta:keystone - Installs Openstack authentication, authorization and service catalog Keystone
-sys-cluster/openstack-meta:lvm - Allow using the Logical Volume Manager (sys-fs/lvm2) as pool for disk image storage
-sys-cluster/openstack-meta:memcached - Installs dependencies needed for using memcached as a backend
-sys-cluster/openstack-meta:mongo - Installs dependencies needed for using mongo as a backend
-sys-cluster/openstack-meta:neutron - Installs Openstack virtual network Neutron
-sys-cluster/openstack-meta:nova - Installs Openstack fabric controller Nova
-sys-cluster/openstack-meta:novncproxy - Installs dependencies for nova novncproxy service
-sys-cluster/openstack-meta:openvswitch - Installs openvswitch for the neutron openvswitch support
-sys-cluster/openstack-meta:placement - Installs Openstack HTTP service manager for cloud resources Placement
-sys-cluster/openstack-meta:rabbitmq - Installs the rabbitmq server
-sys-cluster/openstack-meta:swift - Installs Openstack object/blob store Swift
 sys-cluster/osu-micro-benchmarks:openshmem - Build OpenSHMEM benchmarks
 sys-cluster/osu-micro-benchmarks:rocm - Enable ROCm extensions
 sys-cluster/otf2:sionlib - Enable sys-cluster/sionlibl support
@@ -868,7 +832,6 @@ sys-cluster/sionlibl:sionfwd - enable I/O forwarding with sys-cluster/SIONfwd
 sys-cluster/spath:slurm - Use sys-cluster/slurm as resource manager
 sys-cluster/spectral:extrae - Add sys-cluster/extrae support
 sys-cluster/spectral:libbsctools - Add sys-cluster/libbsctools support
-sys-cluster/swift:memcached - adds memcached support
 sys-cluster/temanejo:ompss - enable ompss plugin
 sys-cluster/temanejo:ompt - Acquire debugging events through OMPT (OpenMP, OmpSs)
 sys-cluster/temanejo:socket - Enable connection to socket

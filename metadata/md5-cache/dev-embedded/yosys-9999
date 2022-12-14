@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gcc[cxx] sys-devel/bison sys-devel/flex sys-apps/gawk virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install unpack
+DEPEND=python_targets_python3_8? ( >=dev-lang/python-3.8.16:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) dev-libs/libffi media-gfx/xdot media-gfx/graphviz dev-libs/boost[python] tcl? ( dev-lang/tcl:= ) readline? ( sys-libs/readline:= ) zlib? ( sys-libs/zlib ) abc? ( sci-mathematics/abc[static-libs] )
+DESCRIPTION=RTL synthesis toolkit
+EAPI=7
+HOMEPAGE=https://yosyshq.net/yosys/
+INHERIT=git-r3 python-r1 multilib
+IUSE=+tcl +readline +zlib +abc python_targets_python3_8 python_targets_python3_9
+LICENSE=ISC
+PROPERTIES=live
+RDEPEND=dev-libs/libffi media-gfx/xdot media-gfx/graphviz dev-libs/boost[python] tcl? ( dev-lang/tcl:= ) readline? ( sys-libs/readline:= ) zlib? ( sys-libs/zlib ) abc? ( sci-mathematics/abc[static-libs] )
+REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 )
+SLOT=0
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	multibuild	d26d81f242cb193d899a72bca423d0bd	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-r1	2d51fd03931e743811ce30d198e4dcfd
+_md5_=09ecbeeb2bdc36b26ff5127cc00bfbbb

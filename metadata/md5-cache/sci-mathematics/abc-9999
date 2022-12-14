@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gcc[cxx] >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install unpack
+DEPEND=readline? ( sys-libs/readline:= )
+DESCRIPTION=System for sequential logic synthesis and formal verification
+EAPI=7
+HOMEPAGE=https://people.eecs.berkeley.edu/~alanmi/abc/
+INHERIT=git-r3 toolchain-funcs
+IUSE=+static-libs +readline +pthread
+LICENSE=Berkeley-ABC
+PROPERTIES=live
+RDEPEND=readline? ( sys-libs/readline:= )
+SLOT=0
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=2f40ca1d40d84c6f7e1e2ac4d93eb1af

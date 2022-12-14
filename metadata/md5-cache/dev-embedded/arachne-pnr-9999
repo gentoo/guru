@@ -1,0 +1,13 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install unpack
+DEPEND=dev-embedded/icestorm
+DESCRIPTION=Arachne PNR - free and open-source place and route tool for FPGAs
+EAPI=8
+HOMEPAGE=https://github.com/cseed/arachne-pnr
+INHERIT=git-r3
+LICENSE=ISC
+PROPERTIES=live
+RDEPEND=dev-embedded/icestorm
+SLOT=0
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=13f15d78c8e080442c6f63d31e40323b

@@ -11,4 +11,4 @@ RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 dev
 SLOT=0
 SRC_URI=https://github.com/francescmm/GitQlient/releases/download/v1.5.0/gitqlient_1.5.0.tar.gz -> gitqlient-1.5.0.tar.gz
 _eclasses_=optfeature	1a2157392a869265b2afcb63a26c12ac	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
-_md5_=7528a52d5d61f17d33b0b1f211e0b565
+_md5_=3cfa12672f69da3ce8a34c24745b0495
