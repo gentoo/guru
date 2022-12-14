@@ -6,6 +6,7 @@
 			<name>Omar Polo</name>
 			<email>op@omarpolo.com</email>
 		</maintainer>
+		<remote-id type="github">omar-polo/gmid</remote-id>
 	</upstream>
 	<maintainer type="person">
 		<email>cyber+gentoo@sysrq.in</email>

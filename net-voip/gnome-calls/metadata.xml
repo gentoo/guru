@@ -6,7 +6,6 @@
 		<name>Gerben Jan Dijkman</name>
 	</maintainer>
 	<upstream>
-		<doc>https://gitlab.gnome.org/GNOME/calls</doc>
-		<bugs-to>https://gitlab.gnome.org/GNOME/calls/-/issues</bugs-to>
+		<remote-id type="gnome-gitlab">GNOME/calls</remote-id>
 	</upstream>
 </pkgmetadata>

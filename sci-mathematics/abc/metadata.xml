@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<upstream>
+  <remote-id type="github">berkeley-abc/abc</remote-id>
+</upstream>
+<use>
+  <flag name="static-libs">Builds libabc.a</flag>
+  <flag name="readline">Enables readline support</flag>
+  <flag name="pthread">Builds with pthreads</flag>
+</use>
+</pkgmetadata>

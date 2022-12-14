@@ -1,1 +1,0 @@
-d /run/keystone 0755 keystone keystone -

@@ -1,6 +1,0 @@
-# swift needs a couple of directories in /var/run
-d /var/run/swift 0755 swift root
-d /var/run/swift/account-server 0755 swift root
-d /var/run/swift/container-server 0755 swift root
-d /var/run/swift/object-server 0755 swift root
-d /var/run/swift/proxy-server 0755 swift root

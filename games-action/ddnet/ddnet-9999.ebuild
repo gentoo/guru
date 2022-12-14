@@ -5,25 +5,13 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
 
-CRATES="
-cc-1.0.73
-cxx-1.0.71
-cxxbridge-flags-1.0.71
-cxxbridge-macro-1.0.71
-link-cplusplus-1.0.6
-proc-macro2-1.0.40
-quote-1.0.20
-syn-1.0.98
-unicode-ident-1.0.1
-"
-
 inherit cargo git-r3 cmake python-any-r1 xdg
 
 DESCRIPTION="DDraceNetwork, a cooperative racing mod of Teeworlds "
 HOMEPAGE="https://ddnet.org/
 	https://github.com/ddnet/ddnet"
 
-SRC_URI="$(cargo_crate_uris ${CRATES})"
+#SRC_URI="$(cargo_crate_uris ${CRATES})"
 EGIT_REPO_URI="https://github.com/ddnet/ddnet"
 EGIT_BRANCH="master"
 EGIT_MIN_CLONE_TYPE="shallow"
@@ -75,8 +63,16 @@ BDEPEND="
 	media-libs/x264
 "
 
+src_unpack() {
+	default_src_unpack
+
+	git-r3_fetch
+	git-r3_checkout
+
+	cargo_live_src_unpack
+}
+
 src_configure(){
-	cargo_src_unpack
 	local mycmakeargs=(
 		-DANTIBOT=$(usex antibot ON OFF)
 		-DAUTOUPDATE=$(usex autoupdate ON OFF)

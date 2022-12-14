@@ -1,0 +1,28 @@
+From 9fada8e486778af30e2ab38bca9c86089fa78a33 Mon Sep 17 00:00:00 2001
+From: "Daniel M. Weeks" <dan@danweeks.net>
+Date: Tue, 27 Jun 2017 10:32:51 -0400
+Subject: [PATCH 3/3] FTDI fix
+
+Signed-off-by: Daniel M. Weeks <dan@danweeks.net>
+---
+ iceprog/Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/iceprog/Makefile b/iceprog/Makefile
+index 7f5050f..949aee4 100644
+--- a/iceprog/Makefile
++++ b/iceprog/Makefile
+@@ -12,8 +12,8 @@ LDFLAGS += -static
+ LDLIBS += $(shell for pkg in libftdi1 libftdi; do $(PKG_CONFIG) --silence-errors --static --libs $$pkg && exit; done; echo -lftdi; )
+ CFLAGS += $(shell for pkg in libftdi1 libftdi; do $(PKG_CONFIG) --silence-errors --static --cflags $$pkg && exit; done; )
+ else
+-LDLIBS += $(shell for pkg in libftdi1 libftdi; do $(PKG_CONFIG) --silence-errors --libs $$pkg && exit; done; echo -lftdi; )
+-CFLAGS += $(shell for pkg in libftdi1 libftdi; do $(PKG_CONFIG) --silence-errors --cflags $$pkg && exit; done; )
++override LDLIBS += $(shell for pkg in libftdi1 libftdi; do $(PKG_CONFIG) --silence-errors --libs $$pkg && exit; done; echo -lftdi; )
++override CFLAGS += $(shell for pkg in libftdi1 libftdi; do $(PKG_CONFIG) --silence-errors --cflags $$pkg && exit; done; )
+ endif
+ 
+ all: $(PROGRAM_PREFIX)iceprog$(EXE)
+-- 
+Daniel M. Weeks
+

@@ -13,7 +13,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.gnome.org/World/${PN}.git"
 else
-	SRC_URI="https://gitlab.gnome.org/World/${PN}/-/archive/${PV}/${P}.tar.gz"
+	SRC_URI="https://gitlab.gnome.org/World/${PN}/-/archive/${PV}/${P}.tar.bz2"
 	KEYWORDS="~amd64"
 fi
 

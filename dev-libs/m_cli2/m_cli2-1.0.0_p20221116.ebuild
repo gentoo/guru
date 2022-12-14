@@ -34,7 +34,7 @@ src_compile() {
 		*gfortran* )
 			emake clean
 			emake FC90=$(tc-getFC) gfortran
-			$(tc-getFC) -Wl,-soname,lib"${PN}".so.1 -shared -o lib"${PN}".so.1 M_CLI2.o;;
+			$(tc-getFC) -Wl,-soname,lib"${PN}".so.1 ${LDFLAGS} -shared -o lib"${PN}".so.1 M_CLI2.o;;
 		* )
 			die "Sorry, only GNU gfortran is currently supported in the ebuild" ;;
 	esac

@@ -6,8 +6,14 @@
 		<name>Denis Reva</name>
 		<description>rarogcmex</description>
 	</maintainer>
+	<use>
+		<flag name="raytracing">Enable Vulkan raytracing support in AMDVLK, requires dev-util/DirectXShaderCompiler to build. Disable if you have weak hardware.</flag>
+	</use>
 	<longdescription lang="en">
 		The AMD Open Source Driver for Vulkan® is an open-source Vulkan driver for AMD Radeon™ graphics adapters on Linux®. It is built on top of AMD’s Platform Abstraction Library (PAL), a shared component that is designed to encapsulate certain hardware and OS-specific programming details for many of AMD’s 3D and compute drivers. Leveraging PAL can help provide a consistent experience across platforms, including support for recently released GPUs and compatibility with AMD developer tools.
 		Shaders that compose a particular VkPipeline object are compiled as a single entity using the LLVM-Based Pipeline Compiler (LLPC) library. LLPC builds on LLVM’s existing shader compilation infrastructure for AMD GPUs to generate code objects compatible with PAL’s pipeline ABI.
 	</longdescription>
+	<upstream>
+		<remote-id type="github">GPUOpen-Drivers/AMDVLK</remote-id>
+	</upstream>
 </pkgmetadata>

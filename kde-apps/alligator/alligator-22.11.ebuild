@@ -14,9 +14,10 @@ SRC_URI="mirror://kde/stable/plasma-mobile/${PV}/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="5"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 DEPEND="
+	>=dev-libs/kirigami-addons-0.6:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
 	>=dev-qt/qtnetwork-${QTMIN}:5
@@ -28,7 +29,6 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
-	>=kde-frameworks/kirigami-addons-0.6:5
 	>=kde-frameworks/syndication-${KFMIN}:5
 "
 RDEPEND="${DEPEND}"

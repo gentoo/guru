@@ -1,5 +1,0 @@
-# LOCAL0 is the upstream default. LOCAL1, LOCAL2 are configured in
-# RHOS and RDO if installed with Packstack (also, mentioned in docs).
-# The breakout action prevents logging into /var/log/messages, bz#997983.
-local0.*;local1.*;local2.*   /var/log/swift/swift.log
-&                            ~

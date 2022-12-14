@@ -13,10 +13,11 @@ SRC_URI="mirror://kde/stable/plasma-mobile/${PV}/${P}.tar.xz"
 
 LICENSE="|| ( GPL-2 GPL-3 ) LGPL-2+ LGPL-2.1"
 SLOT="5"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 DEPEND="
 	dev-libs/glib:2
+	>=dev-libs/kirigami-addons-0.6:5
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtdeclarative-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -28,7 +29,6 @@ DEPEND="
 	>=kde-frameworks/kdbusaddons-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kio-${KFMIN}:5
-	>=kde-frameworks/kirigami-addons-0.6:5
 	>=kde-frameworks/kpackage-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/modemmanager-qt-${KFMIN}:5
