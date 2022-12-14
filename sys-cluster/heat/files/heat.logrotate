@@ -1,8 +1,0 @@
-/var/log/heat/*.log {
-    daily
-    missingok
-    compress 
-    delaycompress
-    notifempty   
-    copytruncate
-}

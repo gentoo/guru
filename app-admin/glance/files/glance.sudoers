@@ -1,3 +1,0 @@
-Defaults:glance !requiretty
-
-glance ALL = (root) NOPASSWD: /usr/bin/glance-rootwrap /etc/glance/rootwrap.conf *
