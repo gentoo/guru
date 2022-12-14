@@ -1592,7 +1592,6 @@ sci-libs/magma 2.6.2 2.6.2-r1: Matrix Algebra on GPU and Multicore Architectures
 sci-libs/meschach 1.2b_p20170511-r1: Meschach is a C-language library of routines for performing matrix computations
 sci-libs/mfem 4.4: Lightweight, general, scalable C++ library for finite element methods
 sci-libs/mlpack 3.4.2_p20220501: scalable C++ machine learning library
-sci-libs/plasma 21.8.29: PLASMA parallel library for dense linear algebra
 sci-libs/qdldl 0.1.5_p20211001: A free LDL factorisation routine
 sci-libs/saclib 2.2.8 2.2.8_p20220502-r2: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122-r1: Subroutine Library in Systems and Control Theory

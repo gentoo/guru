@@ -1,6 +1,6 @@
 BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 virtual/fortran
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=|| ( >=dev-lang/python-3.10.8_p3:3.10 >=dev-lang/python-3.9.15_p3:3.9 >=dev-lang/python-3.8.15_p3:3.8 ) || ( ( >=dev-lang/python-3.10.8_p3:3.10 dev-util/fypp[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.15_p3:3.9 dev-util/fypp[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.15_p3:3.8 dev-util/fypp[python_targets_python3_8(-)] ) ) doc? ( || ( ( >=dev-lang/python-3.10.8_p3:3.10 app-doc/ford[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.15_p3:3.9 app-doc/ford[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.15_p3:3.8 app-doc/ford[python_targets_python3_8(-)] ) ) ) test? ( dev-util/fortran-test-drive ) virtual/fortran
+DEPEND=|| ( >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 ) || ( ( >=dev-lang/python-3.10.9:3.10 dev-util/fypp[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16:3.9 dev-util/fypp[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.16:3.8 dev-util/fypp[python_targets_python3_8(-)] ) ) doc? ( || ( ( >=dev-lang/python-3.10.9:3.10 app-doc/ford[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16:3.9 app-doc/ford[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.16:3.8 app-doc/ford[python_targets_python3_8(-)] ) ) ) test? ( dev-util/fortran-test-drive ) virtual/fortran
 DESCRIPTION=A community driven standard library for (modern) Fortran
 EAPI=8
 HOMEPAGE=https://stdlib.fortran-lang.org/
@@ -12,5 +12,5 @@ RDEPEND=virtual/fortran
 RESTRICT=mirror !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/fortran-lang/stdlib/archive/refs/tags/v0.2.1.tar.gz -> fortran-stdlib-0.2.1.tar.gz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-any-r1	1a218637f27d4c027b92e511707264fd
 _md5_=4417cad9bedd7f33fecc21e306c72e11

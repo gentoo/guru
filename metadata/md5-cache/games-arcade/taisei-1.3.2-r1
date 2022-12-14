@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/meson-0.53 || ( >=dev-lang/python-3.11.0_p2:3.11 >=dev-lang/python-3.10.8_p3:3.10 >=dev-lang/python-3.9.15_p3:3.9 >=dev-lang/python-3.8.15_p3:3.8 ) doc? ( dev-python/docutils ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+BDEPEND=>=dev-util/meson-0.53 || ( >=dev-lang/python-3.11.1:3.11 >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 ) doc? ( dev-python/docutils ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=media-libs/freetype:2 >=media-libs/libpng-1.5 media-libs/libsdl2 media-libs/sdl2-mixer[opus] media-libs/libwebp sys-libs/zlib zip? ( dev-libs/libzip ) >=dev-libs/cglm-0.7.8
 DESCRIPTION=Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
@@ -12,5 +12,5 @@ LICENSE=MIT CC-BY-4.0 CC0-1.0 public-domain
 RDEPEND=media-libs/freetype:2 >=media-libs/libpng-1.5 media-libs/libsdl2 media-libs/sdl2-mixer[opus] media-libs/libwebp sys-libs/zlib zip? ( dev-libs/libzip )
 SLOT=0
 SRC_URI=https://github.com/taisei-project/taisei/releases/download/v1.3.2/taisei-v1.3.2.tar.xz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	meson	1994a5aef5d4f5798b92f64d6f9a6003	python-any-r1	1a218637f27d4c027b92e511707264fd	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
 _md5_=076daccb16f4971b789d7cb43e995c0b

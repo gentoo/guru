@@ -10,5 +10,5 @@ LICENSE=GPL-3+
 RDEPEND=dev-libs/gjs dev-libs/glib:2 dev-libs/gobject-introspection dev-libs/libportal[introspection] gui-libs/gtk:4[introspection] gui-libs/libadwaita:1[introspection] net-libs/libsoup:3.0[introspection]
 SLOT=0
 SRC_URI=https://github.com/sonnyp/junction/archive/refs/tags/v1.6.tar.gz -> junction-1.6.tar.gz https://github.com/sonnyp/troll/archive/8d7c2be66a4bf1cbb2081121997a33662fc19cd0.tar.gz -> troll-junction-1.6.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	meson	1994a5aef5d4f5798b92f64d6f9a6003
 _md5_=d4455d4328cec776118574a86c9e056d

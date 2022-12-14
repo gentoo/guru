@@ -11,5 +11,5 @@ LICENSE=GPL-3+
 RDEPEND=>=dev-libs/glib-2.0:2 >=dev-libs/libgudev-234 sys-power/upower >=sys-auth/polkit-0.114 pylint? ( dev-python/pylint ) sys-apps/systemd
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/hadess/power-profiles-daemon/-/archive/0.12/power-profiles-daemon-0.12.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	25c880c1db58e21b80b684bacc964958	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	meson	1994a5aef5d4f5798b92f64d6f9a6003
 _md5_=95bad3a3f085047982791219cd93ff0a

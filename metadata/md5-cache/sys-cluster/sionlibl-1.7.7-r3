@@ -1,6 +1,6 @@
 BDEPEND=doc? ( app-doc/doxygen ) fortran? ( virtual/fortran )
 DEFINED_PHASES=compile configure install setup
-DEPEND=mpi? ( virtual/mpi ) openmp? ( || ( sys-devel/gcc:*[openmp] sys-libs/libomp ) ) sionfwd? ( sys-cluster/SIONfwd ) || ( >=dev-lang/python-3.11.0_p2:3.11 >=dev-lang/python-3.10.8_p3:3.10 >=dev-lang/python-3.9.15_p3:3.9 >=dev-lang/python-3.8.15_p3:3.8 >=dev-python/pypy3-7.3.9_p9:0 ) fortran? ( virtual/fortran )
+DEPEND=mpi? ( virtual/mpi ) openmp? ( || ( sys-devel/gcc:*[openmp] sys-libs/libomp ) ) sionfwd? ( sys-cluster/SIONfwd ) || ( >=dev-lang/python-3.11.1:3.11 >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 >=dev-python/pypy3-7.3.10-r1:0 ) fortran? ( virtual/fortran )
 DESCRIPTION=Scalable I/O library for parallel access to task-local files
 EAPI=8
 HOMEPAGE=https://www.fz-juelich.de/ias/jsc/EN/Expertise/Support/Software/SIONlib/_node.html
@@ -12,5 +12,5 @@ RDEPEND=mpi? ( virtual/mpi ) openmp? ( || ( sys-devel/gcc:*[openmp] sys-libs/lib
 REQUIRED_USE=ompi? ( mpi openmp ) ?? ( hostname-regex deep-est-sdv )
 SLOT=0
 SRC_URI=http://apps.fz-juelich.de/jsc/sionlib/download.php?version=1.7.7l -> sionlibll-1.7.7.tar.gz
-_eclasses_=docs	2af4a2f0074bd646101ce0f66ca6dd03	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	25c880c1db58e21b80b684bacc964958	python-any-r1	f2f00fb79b5e888b5011d4c51240ae97
+_eclasses_=docs	2af4a2f0074bd646101ce0f66ca6dd03	edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-any-r1	1a218637f27d4c027b92e511707264fd
 _md5_=053cb3c29b0704ddbeb167be2ef68ad4
