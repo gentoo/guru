@@ -1,0 +1,11 @@
+BDEPEND=net-libs/nodejs[npm]
+DEFINED_PHASES=install unpack
+DESCRIPTION=TypeScript & JavaScript Language Server
+EAPI=8
+HOMEPAGE=https://www.npmjs.com/package/typescript-language-server
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 ISC MIT-with-advertising
+RDEPEND=net-libs/nodejs >=dev-lang/typescript-4.9.4
+SLOT=0
+SRC_URI=mirror://npm/typescript-language-server/-/typescript-language-server-2.2.0.tgz https://tastytea.de/files/gentoo/typescript-language-server-2.2.0-deps.tar.xz
+_md5_=a51a11fabfc99ccce540e4e2abb719c0

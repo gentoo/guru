@@ -1,11 +1,11 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile prepare unpack
 DESCRIPTION=Formatted C++ stdlib man pages (cppreference)
-EAPI=7
-HOMEPAGE=https://github.com/jeaye/stdman
+EAPI=8
+HOMEPAGE=https://github.com/jeaye/stdman https://cppreference.com
 INHERIT=git-r3
-LICENSE=MIT
+LICENSE=CC-BY-SA-3.0 FDL-1.3 MIT
 PROPERTIES=live
 SLOT=0
 _eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=a6b80e6875b42746229bf9ef3d7457fb
+_md5_=f9b9fbaba043b398b966eb40f0c5720c

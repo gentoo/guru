@@ -112,7 +112,7 @@ app-dicts/dictd-web1913 0.5.0_p1: Webster's Revised Unabridged Dictionary (1913)
 app-doc/anarchism 15.3: An anarchist FAQ
 app-doc/ford 6.1.13-r1 6.1.17: FORD, automatic documentation generator for modern Fortran programs
 app-doc/openbsd-manpages 6.9 7.0: OpenBSD manual pages
-app-doc/stdman 2021.12.21 2022.07.30 9999: Formatted C++ stdlib man pages (cppreference)
+app-doc/stdman 2022.07.30 9999: Formatted C++ stdlib man pages (cppreference)
 app-editors/amp 0.6.2: A complete text editor for your terminal.
 app-editors/atom-bin 1.58.0-r1: A hackable text editor for the 21st Century
 app-editors/helix 22.05 22.08.1 22.12: A post-modern text editor.
@@ -167,7 +167,7 @@ app-misc/glow 1.4.1: Render markdown on the CLI, with pizzazz!
 app-misc/grit 0.3.0: An personal task manager that represents tasks as multitree nodes
 app-misc/hollywood 1.22: Fill your console with Hollywood melodrama technobabble
 app-misc/kloak 0.2.30: A privacy tool that makes keystroke biometrics less effective
-app-misc/ledger-live 2.47.0 2.48.0 2.49.0 2.49.2 2.50.0: Manager for the Ledger hardware wallet
+app-misc/ledger-live 2.48.0 2.49.0 2.49.2 2.50.0 2.50.1: Manager for the Ledger hardware wallet
 app-misc/lf 27: Terminal file manager
 app-misc/macchina 5.0.2 6.0.5 6.0.6 6.1.6: A system information fetcher, with an (unhealthy) emphasis on performance.
 app-misc/mangadesk 0.7.7 0.7.8: Terminal Client for MangaDex
@@ -563,7 +563,7 @@ dev-libs/atl 2.2.1: Library for the creation and manipulation of lists
 dev-libs/ayatana-ido 0.9.1: Ayatana Application Indicators (Shared Library)
 dev-libs/boinc-zip 7.18-r1 7.20.2: Wrapper for the zip/unzip functions to expose to BOINC clients
 dev-libs/cgicc 3.2.19: A C++ class library for writing CGI applications
-dev-libs/cglm 0.8.5 0.8.7 9999: OpenGL Mathematics (glm) for C
+dev-libs/cglm 0.8.7 0.8.8 9999: OpenGL Mathematics (glm) for C
 dev-libs/cubelib 4.7-r2: General purpose C++ library and tools
 dev-libs/cubew 4.7: High performance C Writer library
 dev-libs/dill 2.4.1: Provides instruction-level code generation directly into memory regions
@@ -705,6 +705,7 @@ dev-ml/tyxml 4.5.0: A libary to build xml trees typechecked by OCaml
 dev-ml/uri 4.2.0: RFC3986 URI parsing library for OCaml
 dev-ml/vchan 6.0.1: Pure OCaml implementation of the vchan shared-memory communication protocol
 dev-ml/vhd 0.12.2: Read and write .vhd-format format data
+dev-ml/wayland 1.1: Pure OCaml Wayland protocol library
 dev-ml/x509 0.13.0 0.16.0: Public Key Infrastructure purely in OCaml
 dev-ml/xapi-backtrace 0.7: Helper functions to preserve and transport exception backtraces
 dev-ml/xapi-stdext 4.18.0 4.19.0: Citrix's (deprecated) extensions to the ocaml standard library
@@ -1005,7 +1006,7 @@ dev-python/python-betterproto 2.0.0_beta4 9999: Better Protobuf / gRPC Support f
 dev-python/python-blazarclient 3.4.0: This is a client for the OpenStack Blazar API
 dev-python/python-dbus-next 0.2.3: python-dbus-next is a Python library for DBus
 dev-python/python-designateclient 4.5.0 4.5.1: Python bindings to the Designate API
-dev-python/python-fire 0.4.0: Library for automatically generating command line interfaces from Python objects
+dev-python/python-fire 0.4.0 0.5.0: Library for automatically generating command line interfaces from Python objects
 dev-python/python-heatclient 2.5.1: OpenStack Orchestration API Client Library
 dev-python/python-json-logger 2.0.2: Standard python logging to output log data as json objects
 dev-python/python-magnumclient 3.6.0: A client for the OpenStack Magnum API
@@ -1136,7 +1137,7 @@ dev-util/deblob 0.2 9999: remove binary executables from a directory
 dev-util/dockerfile-language-server 0.9.0: A language server for Dockerfiles
 dev-util/eclipse-parallel-bin 4.23 4.25 4.26: Eclipse IDE for Scientific Computing (C, C++, Fortran)
 dev-util/exercism 3.1.0: Command line client for https://exercism.io
-dev-util/fnm 1.31.0-r2 1.32.0: Fast and simple Node.js version manager
+dev-util/fnm 1.32.0 1.33.1: Fast and simple Node.js version manager
 dev-util/fontmake 3.3.0: A wrapper for several Python libraries to compile fonts from sources
 dev-util/fortls 2.13.0: Fortran Language Server (fortls)
 dev-util/fortran-test-drive 0.4.0: The simple testing framework (for Fortran)
@@ -1164,7 +1165,7 @@ dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language 
 dev-util/stripe-cli 9999: A command-line tool for Stripe
 dev-util/tflint-bin 0.43.0: A Pluggable Terraform Linter
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
-dev-util/typescript-language-server 2.0.1 2.1.0: TypeScript & JavaScript Language Server
+dev-util/typescript-language-server 2.1.0 2.2.0: TypeScript & JavaScript Language Server
 dev-util/vala-language-server 0.48.4: Code Intelligence for Vala & Genie
 dev-util/vscode-langservers-extracted 4.4.0 4.5.0: HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode.
 dev-util/wakatime-cli 1.27.0 1.28.6: Command line interface to WakaTime used by all WakaTime plugins
@@ -1197,7 +1198,7 @@ games-board/openriichi 0.2.1.1: OpenRiichi is an open source Japanese Mahjong cl
 games-board/rmahjong 0.4_p20201106: Riichi Mahjong, the Japanese variant of the Chinese game Mahjong for 4 players
 games-emulation/citra 9999: A Nintendo 3DS Emulator
 games-emulation/citra-canary 9999: A Nintendo 3DS Emulator
-games-emulation/dosbox-x 2022.08.0 9999: Complete, accurate DOS emulator forked from DOSBox
+games-emulation/dosbox-x 2022.08.0 2022.09.1_pre20221210 9999: Complete, accurate DOS emulator forked from DOSBox
 games-emulation/duckstation 9999: Fast Sony PlayStation (PSX) emulator
 games-emulation/flycast 9999: Sega Dreamcast, Naomi and Atomiswave emulator
 games-emulation/mupen64plus-qt 1.15 9999: A basic launcher for Mupen64Plus
@@ -1362,11 +1363,11 @@ media-gfx/silicon 0.4.3 0.5.1: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-gfx/ufolint 1.2.0: UFO source format linter
 media-gfx/vpuppr 9999: VTuber application made with Godot 3.4
-media-gfx/zw3d 2022.0.3.1: CAD/CAM software for 3D design and processing
+media-gfx/zw3d 2022.0.3.1-r1: CAD/CAM software for 3D design and processing
 media-gfx/zwcad 2022.22.2.2.3 2023.23.0.3.4: CAD software for 2D drawing, reviewing and printing work
 media-libs/alsa-ucm-pinephone 1.2.6.3: ALSA ucm configuration files for the PinePhone (Pro)
 media-libs/alvr 15.2.1_p20210604 16.0.0: ALVR is an open source remote VR display for the Oculus Go/Quest
-media-libs/amdvlk 2022.4.2 2022.4.3: AMD Open Source Driver for Vulkan
+media-libs/amdvlk 2022.4.3 2022.4.4: AMD Open Source Driver for Vulkan
 media-libs/gl4es 9999: OpenGL 2.1/1.5 to GL ES 2.0/1.1 translation library
 media-libs/glee 5.4.0: OpenGL Easy Extension library
 media-libs/grok 9.7.6: World's Leading Open Source JPEG 2000 Codec
@@ -1736,6 +1737,7 @@ sys-kernel/msr-safe 1.6.0: Allows safer access to model specific registers (MSRs
 sys-kernel/tirdad 0_pre20200926: kernel module for random ISN generation
 sys-kernel/uek-sources 5.15.0.5.70.1: Unbreakable Enterprise Kernel (UEK) sources built from Oracle
 sys-kernel/ummunotify 2-r1: Userspace support for MMU notifications
+sys-kernel/usermode-kernel 6.0.12: Linux kernel built with Gentoo patches
 sys-kernel/xow 0.5: Linux driver for the Xbox One wireless dongle
 sys-kernel/xpmem 2.6.5_p20210809: Linux Cross-Memory Attach
 sys-kernel/zenpower3 0.2.0: Linux kernel driver for reading sensors of AMD Zen family CPUs
