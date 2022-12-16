@@ -13,14 +13,14 @@ HOMEPAGE="https://github.com/GPUOpen-Drivers/AMDVLK"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="wayland"
+IUSE="wayland +raytracing"
 REQUIRED_USE="|| ( abi_x86_32 abi_x86_64 )"
 
 BUNDLED_LLVM_DEPEND="sys-libs/zlib:0=[${MULTILIB_USEDEP}]"
 DEPEND="wayland? ( dev-libs/wayland[${MULTILIB_USEDEP}] )
 	${BUNDLED_LLVM_DEPEND}
 	>=dev-util/vulkan-headers-1.3.224
-	dev-util/DirectXShaderCompiler
+	raytracing? ( dev-util/DirectXShaderCompiler )
 	dev-util/glslang[${MULTILIB_USEDEP}]"
 BDEPEND="${BUNDLED_LLVM_DEPEND}
 	${PYTHON_DEPS}
@@ -39,17 +39,18 @@ CHECKREQS_DISK_BUILD="4G"
 S="${WORKDIR}"
 CMAKE_USE_DIR="${S}/xgl"
 
-###SOURCE CODE PER_VERSION VARIABLES
+### SOURCE CODE PER_VERSION VARIABLES
 FETCH_URI="https://github.com/GPUOpen-Drivers"
-##For those who wants update ebuild: check https://github.com/GPUOpen-Drivers/AMDVLK/blob/${VERSION}/default.xml , e.g. https://github.com/GPUOpen-Drivers/AMDVLK/blob/v-2022.Q3.5/default.xml
-##and place commits in the desired variables
+## For those who wants update ebuild: check https://github.com/GPUOpen-Drivers/AMDVLK/blob/${VERSION}/default.xml
+## e.g. https://github.com/GPUOpen-Drivers/AMDVLK/blob/v-2022.Q3.5/default.xml
+## and place commits in the desired variables
 ## EXAMPLE: XGL_COMMIT="80e5a4b11ad2058097e77746772ddc9ab2118e07"
 ## SRC_URI="... ${FETCH_URI}/$PART/archive/$COMMIT.zip -> $PART-$COMMIT.zip ..."
-XGL_COMMIT="0387177d6143533c88ff0d5ac045bf3994ee618b"
-PAL_COMMIT="0f44ced5384c66d77df3dca1116c7daf7ccfdae5"
-LLPC_COMMIT="83e59f978821ce09390b25838b6684fc11b04774"
-GPURT_COMMIT="889dd8db7228814a530f0a897ae1ce35543f4662"
-LLVM_PROJECT_COMMIT="3c87d1ffe0dbaa60927d428afe3a4a2b3352c31b"
+XGL_COMMIT="8aa0e76a110fa264608ee1b4e412aa8fb40286d3"
+PAL_COMMIT="287ef684bc36a86af55d4ed1c4c4f4c35577e21e"
+LLPC_COMMIT="37dcb2e5cedb00bb025c84238d816f19c93b3060"
+GPURT_COMMIT="1f0c4f7e9cea22452e5e20a6cdfc4a84a2bf5bac"
+LLVM_PROJECT_COMMIT="42a4d92d3c68995d04f1ed580613d162054f5795"
 METROHASH_COMMIT="18893fb28601bb9af1154cd1a671a121fff6d8d3"
 CWPACK_COMMIT="4f8cf0584442a91d829d269158567d7ed926f026"
 # end of variables
@@ -86,6 +87,7 @@ src_prepare() {
 multilib_src_configure() {
 	local mycmakeargs=(
 		-DBUILD_WAYLAND_SUPPORT=$(usex wayland)
+		-DVKI_RAY_TRACING=$(usex raytracing)
 		-DLLVM_VERSION_SUFFIX="-amdvlk"
 		-DLLVM_HOST_TRIPLE="${CHOST}"
 		-DBUILD_SHARED_LIBS=OFF #LLVM parts don't support shared libs

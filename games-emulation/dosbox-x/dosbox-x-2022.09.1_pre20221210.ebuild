@@ -1,18 +1,26 @@
 # Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Note: This is the last release (non-pre-release) tagged by upstream
-
 EAPI=8
 
-inherit autotools flag-o-matic toolchain-funcs xdg
+inherit autotools readme.gentoo-r1 toolchain-funcs xdg
 
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/joncampbell123/dosbox-x.git"
 else
-	SRC_URI="https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-windows-v${PV}.tar.gz"
-	S="${WORKDIR}/${PN}-${PN}-windows-v${PV}"
+	# https://github.com/joncampbell123/dosbox-x/discussions/3862
+	GIT_COMMIT="982c44176e7619ae2a40b5c5d8df31f2911384da"
+	DOC_CONTENTS="
+		DOSBox-X upstream has stopped making releases.  Therefore, this
+		package has installed a copy of DOSBox-X built from an upstream
+		repository snapshot at the following Git commit:\n
+		\n
+		${GIT_COMMIT}
+	"
+
+	SRC_URI="https://github.com/joncampbell123/dosbox-x/archive/${GIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}-${GIT_COMMIT}"
 	KEYWORDS="~amd64"
 fi
 
@@ -80,44 +88,11 @@ pkg_pretend() {
 
 src_prepare() {
 	default
-
-	# Patch command lines like the following in Makefile.am:
-	#   -test -x /usr/sbin/setcap && setcap cap_net_raw=ep $(DESTDIR)$(bindir)/dosbox-x
-	#
-	# The purpose of these commands is, if the 'setcap' program exists and is
-	# executable, then invoke it to set capabilities required by the PCAP
-	# networking back-end for better out-of-box user experience; otherwise,
-	# ignore unsatisfied preconditions or 'setcap' errors since they are not
-	# critical, which is achieved by having a '-' in front of each line.
-	#
-	# Unfortunately, 'test -x /usr/sbin/setcap' does not always work as
-	# expected on Gentoo because it ignores the fact that some distributions,
-	# including Gentoo, may still have split /sbin and /usr/sbin and install
-	# 'setcap' to /sbin.
-	#
-	# As long as sys-libs/libcap is declared in BDEPEND of this ebuild, the
-	# availability of 'setcap' can be assumed, rendering the test redundant.
-	# However, successfully setting capabilities via 'setcap' usually requires
-	# the root account (which is not guaranteed on Prefix) and xattr support
-	# for the file system being used, so the '-' in front of each line is
-	# preserved to tolerate the expected 'setcap' failures.
-	sed -i -e 's|test -x /usr/sbin/setcap && ||' Makefile.am ||
-		die "Failed to remove check for setcap in Makefile.am"
-
 	eautoreconf
-
-	# https://bugs.gentoo.org/859973
-	# https://github.com/joncampbell123/dosbox-x/issues/3663
-	# No upstream response regarding LTO yet; disable it for now
-	filter-lto
 }
 
 src_configure() {
 	local myconf=(
-		# --disable-core-inline could cause compiler errors
-		# as of v2022.08.0, so enable it unconditionally
-		--enable-core-inline
-
 		# Always use SDL 2, even though the package provides the option to
 		# build with SDL 1.x, because this package is expected to be built
 		# with the bundled, heavily-modified version of SDL 1.x if that
@@ -161,6 +136,11 @@ src_test() {
 	"${@}" || die "Unit tests failed"
 }
 
+src_install() {
+	default
+	[[ -n "${DOC_CONTENTS}" ]] && readme.gentoo_create_doc
+}
+
 pkg_preinst() {
 	xdg_pkg_preinst
 
@@ -182,6 +162,11 @@ pkg_preinst() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
+
+	if ! has "${PVR}" ${REPLACING_VERSIONS} && [[ -n "${DOC_CONTENTS}" ]]; then
+		FORCE_PRINT_ELOG=1
+		readme.gentoo_print_elog
+	fi
 
 	if [[ "${PRINT_NOTES_FOR_DEBUGGER}" ]]; then
 		elog

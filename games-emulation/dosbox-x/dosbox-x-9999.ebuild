@@ -3,14 +3,24 @@
 
 EAPI=8
 
-inherit autotools toolchain-funcs xdg
+inherit autotools readme.gentoo-r1 toolchain-funcs xdg
 
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/joncampbell123/dosbox-x.git"
 else
-	SRC_URI="https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-windows-v${PV}.tar.gz"
-	S="${WORKDIR}/${PN}-${PN}-windows-v${PV}"
+	# https://github.com/joncampbell123/dosbox-x/discussions/3862
+	GIT_COMMIT=""
+	DOC_CONTENTS="
+		DOSBox-X upstream has stopped making releases.  Therefore, this
+		package has installed a copy of DOSBox-X built from an upstream
+		repository snapshot at the following Git commit:\n
+		\n
+		${GIT_COMMIT}
+	"
+
+	SRC_URI="https://github.com/joncampbell123/dosbox-x/archive/${GIT_COMMIT}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}-${GIT_COMMIT}"
 	KEYWORDS="~amd64"
 fi
 
@@ -126,6 +136,11 @@ src_test() {
 	"${@}" || die "Unit tests failed"
 }
 
+src_install() {
+	default
+	[[ -n "${DOC_CONTENTS}" ]] && readme.gentoo_create_doc
+}
+
 pkg_preinst() {
 	xdg_pkg_preinst
 
@@ -147,6 +162,11 @@ pkg_preinst() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
+
+	if ! has "${PVR}" ${REPLACING_VERSIONS} && [[ -n "${DOC_CONTENTS}" ]]; then
+		FORCE_PRINT_ELOG=1
+		readme.gentoo_print_elog
+	fi
 
 	if [[ "${PRINT_NOTES_FOR_DEBUGGER}" ]]; then
 		elog

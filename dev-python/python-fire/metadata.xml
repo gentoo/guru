@@ -4,5 +4,6 @@
   <!-- maintainer-needed -->
   <upstream>
     <remote-id type="github">google/python-fire</remote-id>
+    <remote-id type="pypi">python-fire</remote-id>
   </upstream>
 </pkgmetadata>

@@ -4,10 +4,11 @@
 EAPI=8
 
 DOCS_BUILDER="sphinx"
-DOCS_AUTODOC=0
+DOCS_AUTODOC=1
+DOCS_DEPEND="dev-python/sphinx_rtd_theme"
 DOCS_DIR="${S}/docs/source"
 
-PYTHON_COMPAT=( python3_{8,9,10} )
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit python-any-r1
 inherit docs meson
@@ -24,6 +25,12 @@ DESCRIPTION="OpenGL Mathematics (glm) for C"
 HOMEPAGE="https://github.com/recp/cglm"
 LICENSE="MIT"
 SLOT="0"
+
+src_prepare() {
+	default
+	# Enable autodoc since themeing plugin is used.
+	sed -i "s#'sphinx.ext.githubpages'#'sphinx.ext.githubpages','sphinx.ext.autodoc'#" docs/source/conf.py || die
+}
 
 src_configure() {
 	local emesonargs=(

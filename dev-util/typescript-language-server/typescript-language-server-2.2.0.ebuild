@@ -12,7 +12,7 @@ SRC_URI="
 S="${WORKDIR}"
 
 # NOTE: to generate the dependency tarball:
-#       npm --cache "$(realpath ./npm-cache)" install $(portageq envvar DISTDIR)/${P}.tgz
+#       npm --cache ./npm-cache install $(portageq envvar DISTDIR)/${P}.tgz
 #       tar -caf ${P}-deps.tar.xz npm-cache
 
 LICENSE="Apache-2.0 ISC MIT-with-advertising"
@@ -21,7 +21,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	net-libs/nodejs
-	dev-lang/typescript
+	>=dev-lang/typescript-4.9.4
 "
 BDEPEND="net-libs/nodejs[npm]"
 
