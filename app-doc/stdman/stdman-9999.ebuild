@@ -1,10 +1,10 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="Formatted C++ stdlib man pages (cppreference)"
-HOMEPAGE="https://github.com/jeaye/stdman"
+HOMEPAGE="https://github.com/jeaye/stdman https://cppreference.com"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -14,7 +14,7 @@ else
 	SRC_URI="https://github.com/jeaye/stdman/archive/${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
-LICENSE="MIT"
+LICENSE="CC-BY-SA-3.0 FDL-1.3 MIT"
 SLOT="0"
 
 src_prepare() {
@@ -24,6 +24,5 @@ src_prepare() {
 }
 
 src_compile() {
-	# don't need to compile anything
-	true
+	:
 }
