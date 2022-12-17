@@ -23,11 +23,7 @@ REQUIRED_USE="
 	sway-xkb? ( wayland )
 	xkb? ( X )
 	xwindow? ( X )
-	|| ( alsa backlight )
 "
-# For some reason, if building CPU, memory or pipewire modules
-# the build will fail if the alsa or backlight modules aren't present
-# See https://codeberg.org/dnkl/yambar/issues/239
 
 RDEPEND="
 	>=media-libs/fcft-2.4.0
@@ -62,6 +58,10 @@ BDEPEND="
 		dev-libs/wayland-protocols
 		dev-util/wayland-scanner
 	)
+"
+
+PATCHES="
+	${FILESDIR}/round.patch
 "
 
 src_configure() {
