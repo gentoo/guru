@@ -1495,8 +1495,8 @@ net-misc/gemserv 0.6.5 0.6.6: A gemini Server written in rust
 net-misc/giara 1.0.1: An app for Reddit
 net-misc/gmid 1.8.5 1.8.6 9999: Simple and secure Gemini server
 net-misc/lyrics-in-terminal 1.4.2 1.5.0: Command Line Lyrics fetcher for MPRIS media players
-net-misc/maestral 1.5.3 1.6.4: Maestral is an open-source Dropbox client written in Python
-net-misc/maestral-qt 1.5.3 1.6.4: Maestral is an open-source Dropbox client written in Python
+net-misc/maestral 1.5.3 1.6.5: Maestral is an open-source Dropbox client written in Python
+net-misc/maestral-qt 1.5.3 1.6.5: Maestral is an open-source Dropbox client written in Python
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/moonlight 3.1.4: GameStream client for PCs
