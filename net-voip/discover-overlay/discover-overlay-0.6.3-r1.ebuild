@@ -16,6 +16,8 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
+IUSE="wayland"
+
 RDEPEND="
 	>=dev-python/pygobject-3.22[${PYTHON_USEDEP}]
 	dev-python/websocket-client[${PYTHON_USEDEP}]
@@ -23,7 +25,7 @@ RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/python-xlib[${PYTHON_USEDEP}]
-	gui-libs/gtk-layer-shell[introspection(+)]
+	wayland? ( gui-libs/gtk-layer-shell[introspection(+)] )
 "
 
 S="${WORKDIR}/Discover-${PV}"
