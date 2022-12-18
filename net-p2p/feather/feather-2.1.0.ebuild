@@ -19,15 +19,24 @@ MONERO_DIST_COMIT="b45c66e9c62d7e8f24abbcb447f408e618bfd450"
 
 DESCRIPTION="A free, open-source Monero wallet"
 HOMEPAGE="https://featherwallet.org"
-SRC_URI="https://github.com/feather-wallet/feather/archive/refs/tags/${PVR}.tar.gz -> ${P}.tar.gz
-	https://github.com/tevador/polyseed/archive/${POLYSEED_DIST_COMIT}.tar.gz -> ${PF}-polyseed.tar.gz
-	https://github.com/itay-grudev/SingleApplication/archive/${SINGLEAPPLICATION_DIST_COMIT}.tar.gz -> ${PF}-singleapplication.tar.gz
-	https://github.com/feather-wallet/monero/archive/${MONERO_DIST_COMIT}.tar.gz -> ${PF}-monero.tar.gz
-	https://github.com/miniupnp/miniupnp/archive/${MINIUPNP_DIST_COMIT}.tar.gz -> ${PF}-monero-miniupnp.tar.gz
-	https://github.com/tevador/RandomX/archive/${RANDOMX_DIST_COMIT}.tar.gz -> ${PF}-monero-randomx.tar.gz
-	https://github.com/Tencent/rapidjson/archive/${RAPIDJSON_DIST_COMIT}.tar.gz -> ${PF}-monero-rapidjson.tar.gz
-	https://github.com/monero-project/supercop/archive/${SUPERCOP_DIST_COMIT}.tar.gz -> ${PF}-monero-supercop.tar.gz
-	https://github.com/trezor/trezor-common/archive/${TREZORCOMMON_DIST_COMIT}.tar.gz -> ${PF}-monero-trezorcommon.tar.gz
+SRC_URI="https://github.com/feather-wallet/feather/archive/refs/tags/${PVR}.tar.gz -> \
+${P}.tar.gz
+	https://github.com/tevador/polyseed/archive/${POLYSEED_DIST_COMIT}.tar.gz -> \
+${P}-polyseed.tar.gz
+	https://github.com/itay-grudev/SingleApplication/archive/${SINGLEAPPLICATION_DIST_COMIT}.tar.gz -> \
+${P}-singleapplication.tar.gz
+	https://github.com/feather-wallet/monero/archive/${MONERO_DIST_COMIT}.tar.gz -> \
+${P}-monero.tar.gz
+	https://github.com/miniupnp/miniupnp/archive/${MINIUPNP_DIST_COMIT}.tar.gz -> \
+${P}-monero-miniupnp.tar.gz
+	https://github.com/tevador/RandomX/archive/${RANDOMX_DIST_COMIT}.tar.gz -> \
+${P}-monero-randomx.tar.gz
+	https://github.com/Tencent/rapidjson/archive/${RAPIDJSON_DIST_COMIT}.tar.gz -> \
+${P}-monero-rapidjson.tar.gz
+	https://github.com/monero-project/supercop/archive/${SUPERCOP_DIST_COMIT}.tar.gz -> \
+${P}-monero-supercop.tar.gz
+	https://github.com/trezor/trezor-common/archive/${TREZORCOMMON_DIST_COMIT}.tar.gz -> \
+${P}-monero-trezorcommon.tar.gz
 "
 
 # Feather is released under the terms of the BSD license, but it vendors
@@ -64,15 +73,36 @@ RDEPEND="
 "
 BDEPEND="virtual/pkgconfig"
 
+src_unpack() {
+	unpack ${P}.tar.gz \
+		${P}-polyseed.tar.gz \
+		${P}-singleapplication.tar.gz \
+		${P}-monero.tar.gz \
+		${P}-monero-miniupnp.tar.gz \
+		${P}-monero-randomx.tar.gz \
+		${P}-monero-rapidjson.tar.gz \
+		${P}-monero-supercop.tar.gz \
+		${P}-monero-trezorcommon.tar.gz
+	mv -T "${WORKDIR}"/polyseed-${POLYSEED_DIST_COMIT} \
+		"${WORKDIR}"/${P}/src/third-party/polyseed || die
+	mv -T "${WORKDIR}"/SingleApplication-${SINGLEAPPLICATION_DIST_COMIT} \
+		"${WORKDIR}"/${P}/src/third-party/singleapplication || die
+	mv -T "${WORKDIR}"/monero-${MONERO_DIST_COMIT} \
+		"${WORKDIR}"/${P}/monero || die
+	mv -T "${WORKDIR}"/miniupnp-${MINIUPNP_DIST_COMIT} \
+		"${WORKDIR}"/${P}/monero/external/miniupnp || die
+	mv -T "${WORKDIR}"/RandomX-${RANDOMX_DIST_COMIT} \
+		"${WORKDIR}"/${P}/monero/external/randomx || die
+	mv -T "${WORKDIR}"/rapidjson-${RAPIDJSON_DIST_COMIT} \
+		"${WORKDIR}"/${P}/monero/external/rapidjson || die
+	mv -T "${WORKDIR}"/supercop-${SUPERCOP_DIST_COMIT} \
+		"${WORKDIR}"/${P}/monero/external/supercop || die
+	mv -T "${WORKDIR}"/trezor-common-${TREZORCOMMON_DIST_COMIT} \
+		"${WORKDIR}"/${P}/monero/external/trezor-common || die
+}
+
 src_prepare() {
-	mv -T "${WORKDIR}"/polyseed-${POLYSEED_DIST_COMIT} "${WORKDIR}"/${PF}/src/third-party/polyseed
-	mv -T "${WORKDIR}"/SingleApplication-${SINGLEAPPLICATION_DIST_COMIT} "${WORKDIR}"/${PF}/src/third-party/singleapplication
-	mv -T "${WORKDIR}"/monero-${MONERO_DIST_COMIT} "${WORKDIR}"/${PF}/monero
-	mv -T "${WORKDIR}"/miniupnp-${MINIUPNP_DIST_COMIT} "${WORKDIR}"/${PF}/monero/external/miniupnp
-	mv -T "${WORKDIR}"/RandomX-${RANDOMX_DIST_COMIT} "${WORKDIR}"/${PF}/monero/external/randomx
-	mv -T "${WORKDIR}"/rapidjson-${RAPIDJSON_DIST_COMIT} "${WORKDIR}"/${PF}/monero/external/rapidjson
-	mv -T "${WORKDIR}"/supercop-${SUPERCOP_DIST_COMIT} "${WORKDIR}"/${PF}/monero/external/supercop
-	mv -T "${WORKDIR}"/trezor-common-${TREZORCOMMON_DIST_COMIT} "${WORKDIR}"/${PF}/monero/external/trezor-common
+	default
 	echo "#define FEATHER_VERSION \"${PV}\"" > "${WORKDIR}"/${PF}/src/config-feather.h || die
 	echo "#define TOR_VERSION \"NOT_EMBEDDED\"" >> "${WORKDIR}"/${PF}/src/config-feather.h || die
 	cmake_src_prepare
