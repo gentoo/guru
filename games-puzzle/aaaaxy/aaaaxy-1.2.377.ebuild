@@ -18,6 +18,8 @@ LICENSE="Apache-2.0 BSD MIT || ( FTL GPL-2+ )"
 SLOT="0"
 KEYWORDS="~amd64"
 
+RESTRICT="bindist" # possibly incompatible with GPL-2+
+
 DEPEND="
 	media-libs/alsa-lib
 	media-libs/libglvnd
