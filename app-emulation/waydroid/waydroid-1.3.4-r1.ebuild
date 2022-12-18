@@ -39,16 +39,5 @@ ERROR_ANDROID_BINDER_IPC="CONFIG_ANDROID_BINDER_IPC: need for creating Android-s
 ERROR_MEMFD_CREATE="CONFIG_MEMFD_CREATE: it completely replaced deprecated ISHMEM drivers, therefore it's vital for android-specific memory management"
 src_install() {
 	python_fix_shebang waydroid.py
-	mv waydroid.py waydroid || die
-	python_doscript waydroid
-	python_domodule tools
-	python_domodule data
-	insinto "/usr/share/applications"
-	doins "data/Waydroid.desktop"
-	insinto "/etc/gbinder.d"
-	doins "gbinder/anbox.conf"
-	if use systemd; then
-		insinto "/usr/lib/systemd/system"
-		doins "debian/waydroid-container.service"
-	fi
+	emake install DESTDIR="${D}" USE_NFTABLES=1 USE_SYSTEMD=$(usex systemd 1 0)
 }
