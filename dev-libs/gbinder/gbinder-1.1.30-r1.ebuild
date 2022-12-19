@@ -11,7 +11,7 @@ else
 	MY_P="${MY_PN}-${PV}"
 	S="${WORKDIR}/${MY_P}"
 	SRC_URI="https://github.com/mer-hybris/libgbinder/archive/${PV}.tar.gz  -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
 DESCRIPTION="GLib-style interface to binder"
@@ -24,9 +24,9 @@ RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 src_compile() {
-	emake KEEP_SYMBOLS=1
+	emake KEEP_SYMBOLS=1 ABS_LIBDIR="/usr/$(get_libdir)" LIBDIR="/usr/$(get_libdir)"
 }
 
 src_install() {
-	emake DESTDIR="${D}" LIBDIR="/usr/$(get_libdir)" install-dev
+	emake DESTDIR="${D}" ABS_LIBDIR="/usr/$(get_libdir)" LIBDIR="/usr/$(get_libdir)" install-dev
 }

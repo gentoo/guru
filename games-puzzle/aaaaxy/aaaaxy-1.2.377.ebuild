@@ -14,9 +14,11 @@ SRC_URI="
 	https://gitlab.com/api/v4/projects/41581401/packages/generic/${PN}/${PV}+${DEPS_DATE}/${P}-deps.tar.xz
 "
 
-LICENSE="Apache-2.0 BSD MIT GPL-2+"
+LICENSE="Apache-2.0 BSD MIT || ( FTL GPL-2+ )"
 SLOT="0"
 KEYWORDS="~amd64"
+
+RESTRICT="bindist" # possibly incompatible with GPL-2+
 
 DEPEND="
 	media-libs/alsa-lib

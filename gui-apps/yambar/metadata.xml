@@ -5,8 +5,36 @@
 		<email>leonardo@neumann.dev.br</email>
 		<name>Leonardo Neumann</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>julien@jroy.ca</email>
+		<name>Julien Roy</name>
+	</maintainer>
 	<upstream>
 		<bugs-to>https://codeberg.org/dnkl/yambar/issues</bugs-to>
 		<changelog>https://codeberg.org/dnkl/yambar/releases</changelog>
 	</upstream>
+	<use>
+		<flag name="core">Compiles modules, particles and decorations as shared libraries, which are loaded on-demand</flag>
+		<flag name="alsa">ALSA support</flag>
+		<flag name="backlight">Backlight support</flag>
+		<flag name="battery">Battery support</flag>
+		<flag name="clock">Clock support</flag>
+		<flag name="cpu">CPU monitoring support</flag>
+		<flag name="disk-io">Disk I/O support</flag>
+		<flag name="dwl">DWL (dwm for wayland) support</flag>
+		<flag name="foreign-toplevel">Foreign toplevel (window tracking for Wayland) support</flag>
+		<flag name="memory">Memory monitoring support</flag>
+		<flag name="mpd">Music Player Daemon (MPD) support</flag>
+		<flag name="i3">i3+Sway support</flag>
+		<flag name="label">Label support</flag>
+		<flag name="network">Network monitoring support</flag>
+		<flag name="pipewire">Pipewire support</flag>
+		<flag name="pulseaudio">PulseAudio support</flag>
+		<flag name="removables">Removables (USB sticks, CD-ROM etc) monitoring support</flag>
+		<flag name="river">River support</flag>
+		<flag name="script">Script support</flag>
+		<flag name="sway-xkb">keyboard support for Sway</flag>
+		<flag name="xkb">keyboard support for X11</flag>
+		<flag name="xwindow">XWindow (window tracking for X11) support</flag>
+	</use>
 </pkgmetadata>

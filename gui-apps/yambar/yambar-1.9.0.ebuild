@@ -60,6 +60,10 @@ BDEPEND="
 	)
 "
 
+PATCHES="
+	${FILESDIR}/round.patch
+"
+
 src_configure() {
 	local emesonargs=(
 		$(meson_feature wayland backend-wayland)
@@ -94,4 +98,10 @@ src_configure() {
 src_install() {
 	meson_src_install
 	rm -rf "${D}/usr/share/doc/${PN}"
+}
+
+pkg_postinst() {
+	ewarn "Warning: if you are upgrading from 1.8.0, please note that there are breaking changes that might affect your config.yml file."
+	ewarn "See the changelog for more information"
+	ewarn "https://codeberg.org/dnkl/yambar/releases/tag/1.9.0"
 }

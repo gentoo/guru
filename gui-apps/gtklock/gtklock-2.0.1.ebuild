@@ -12,7 +12,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="sys-libs/pam
-	gui-libs/gtk-layer-shell"
+	>=gui-libs/gtk-layer-shell-0.6.0"
 
 BDEPEND="app-text/scdoc"
 

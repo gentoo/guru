@@ -8,7 +8,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/sailfishos/libglibutil.git"
 else
 	SRC_URI="https://github.com/sailfishos/libglibutil/archive/${PV}.tar.gz  -> ${P}.tar.gz"
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
 DESCRIPTION="Library of glib utilities"
@@ -21,7 +21,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 src_compile() {
-	emake KEEP_SYMBOLS=1
+	emake KEEP_SYMBOLS=1 LIBDIR="/usr/$(get_libdir)"
 }
 
 src_install() {
