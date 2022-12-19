@@ -40,7 +40,7 @@ RDEPEND="
 		dev-libs/boost:=[threads(+)]
 		dev-libs/gmp
 		dev-libs/mpfr
-		sci-mathematics/cgal[shared(-)]
+		sci-mathematics/cgal
 		sys-cluster/synapse
 	)
 "
