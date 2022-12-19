@@ -1,9 +1,0 @@
---- a/setup.cfg
-+++ b/setup.cfg
-@@ -43,5 +43,5 @@
- ignore_missing_imports = True
- 
- [tool:pytest]
--addopts = --no-cov-on-fail --showlocals
-+addopts = --showlocals
- testpaths = tests
