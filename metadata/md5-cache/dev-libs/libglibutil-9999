@@ -1,13 +1,13 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install unpack
-DEPEND=dev-libs/libglibutil
-DESCRIPTION=GLib-style interface to binder
+DEPEND=dev-libs/glib
+DESCRIPTION=Library of glib utilities
 EAPI=8
-HOMEPAGE=https://github.com/mer-hybris/libgbinder
+HOMEPAGE=https://github.com/sailfishos/libglibutil
 INHERIT=git-r3
 LICENSE=BSD
 PROPERTIES=live
-RDEPEND=dev-libs/libglibutil
+RDEPEND=dev-libs/glib
 SLOT=0
 _eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=6577323682ef1d5fddc5a2967d56f43e
+_md5_=5b9859c7ac81599647a279993dcf5931

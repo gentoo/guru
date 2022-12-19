@@ -327,6 +327,28 @@ gui-apps/wlogout:layershell - Enable transparency
 gui-apps/wlogout:zsh-completions - Enable completions for zsh shell
 gui-apps/wob:man - Install man page
 gui-apps/wob:seccomp - Linux kernel syscall filtering
+gui-apps/yambar:alsa - ALSA support
+gui-apps/yambar:backlight - Backlight support
+gui-apps/yambar:battery - Battery support
+gui-apps/yambar:clock - Clock support
+gui-apps/yambar:core - Compiles modules, particles and decorations as shared libraries, which are loaded on-demand
+gui-apps/yambar:cpu - CPU monitoring support
+gui-apps/yambar:disk-io - Disk I/O support
+gui-apps/yambar:dwl - DWL (dwm for wayland) support
+gui-apps/yambar:foreign-toplevel - Foreign toplevel (window tracking for Wayland) support
+gui-apps/yambar:i3 - i3+Sway support
+gui-apps/yambar:label - Label support
+gui-apps/yambar:memory - Memory monitoring support
+gui-apps/yambar:mpd - Music Player Daemon (MPD) support
+gui-apps/yambar:network - Network monitoring support
+gui-apps/yambar:pipewire - Pipewire support
+gui-apps/yambar:pulseaudio - PulseAudio support
+gui-apps/yambar:removables - Removables (USB sticks, CD-ROM etc) monitoring support
+gui-apps/yambar:river - River support
+gui-apps/yambar:script - Script support
+gui-apps/yambar:sway-xkb - keyboard support for Sway
+gui-apps/yambar:xkb - keyboard support for X11
+gui-apps/yambar:xwindow - XWindow (window tracking for X11) support
 gui-libs/cubegui:concurrent - Enables usage of the QtConcurrent for the the parallel calculations
 gui-libs/cubegui:scorep - Enable scorep support
 gui-libs/cubegui:webengine - Enables usage of the QtWebEngine for the HTML Documentation

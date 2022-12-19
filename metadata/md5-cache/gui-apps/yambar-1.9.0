@@ -1,15 +1,15 @@
-BDEPEND=app-text/scdoc >=dev-libs/tllist-1.0.1 >=dev-util/meson-0.53.0 virtual/pkgconfig wayland? ( dev-libs/wayland-protocols dev-util/wayland-scanner ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install test unpack
+BDEPEND=app-text/scdoc >=dev-libs/tllist-1.0.1 >=dev-util/meson-0.53.0 virtual/pkgconfig wayland? ( dev-libs/wayland-protocols dev-util/wayland-scanner ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst test
 DEPEND=>=media-libs/fcft-2.4.0 dev-libs/libyaml alsa? ( media-libs/alsa-lib ) backlight? ( virtual/libudev:= ) battery? ( virtual/libudev:= ) mpd? ( media-libs/libmpdclient ) pipewire? ( dev-libs/json-c media-video/pipewire ) pulseaudio? ( media-libs/libpulse ) removables? ( virtual/libudev:= ) sway-xkb? ( dev-libs/json-c ) x11-libs/pixman X? ( x11-libs/libxcb:0=[xkb] x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-wm ) wayland? ( dev-libs/wayland )
 DESCRIPTION=Simplistic and highly configurable status panel for X and Wayland
 EAPI=8
 HOMEPAGE=https://codeberg.org/dnkl/yambar
-INHERIT=meson git-r3
+INHERIT=meson
 IUSE=core +alsa +backlight +battery +clock +cpu +disk-io +dwl +foreign-toplevel +memory +mpd +i3 +label +network +pipewire +pulseaudio +removables +river +script sway-xkb wayland X xkb xwindow
 LICENSE=MIT
-PROPERTIES=live
 RDEPEND=>=media-libs/fcft-2.4.0 dev-libs/libyaml alsa? ( media-libs/alsa-lib ) backlight? ( virtual/libudev:= ) battery? ( virtual/libudev:= ) mpd? ( media-libs/libmpdclient ) pipewire? ( dev-libs/json-c media-video/pipewire ) pulseaudio? ( media-libs/libpulse ) removables? ( virtual/libudev:= ) sway-xkb? ( dev-libs/json-c ) x11-libs/pixman X? ( x11-libs/libxcb:0=[xkb] x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-wm ) wayland? ( dev-libs/wayland )
 REQUIRED_USE=|| ( wayland X ) sway-xkb? ( wayland ) xkb? ( X ) xwindow? ( X )
 SLOT=0
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	meson	1994a5aef5d4f5798b92f64d6f9a6003	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=1d972f7c133963d9862f47d627e012ad
+SRC_URI=https://codeberg.org/dnkl/yambar/archive/1.9.0.tar.gz -> yambar-1.9.0.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_md5_=880561773afabe2a65abc285d7363aa2

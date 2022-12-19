@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
-DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
 DEPEND=dev-libs/boost:=[nls] dev-libs/libgcrypt:= dev-libs/libsodium:= dev-libs/libzip:= dev-libs/openssl:= >=dev-qt/qtcore-5.15:5 >=dev-qt/qtgui-5.15:5 >=dev-qt/qtmultimedia-5.15:5[widgets] >=dev-qt/qtnetwork-5.15:5 >=dev-qt/qtsvg-5.15:5 >=dev-qt/qtwebsockets-5.15:5 >=dev-qt/qtwidgets-5.15:5 >=dev-qt/qtconcurrent-5.15:5 >=dev-qt/qtxml-5.15:5 media-gfx/qrencode:= net-dns/unbound:=[threads] net-libs/czmq:= media-gfx/zbar:=[v4l]
 DESCRIPTION=A free, open-source Monero wallet
 EAPI=8
@@ -13,4 +13,4 @@ RDEPEND=dev-libs/boost:=[nls] dev-libs/libgcrypt:= dev-libs/libsodium:= dev-libs
 SLOT=0
 SRC_URI=https://github.com/feather-wallet/feather/archive/refs/tags/2.1.0.tar.gz -> feather-2.1.0.tar.gz https://github.com/tevador/polyseed/archive/e38516561c647522e2e2608f13eabdeab61d9a5d.tar.gz -> feather-2.1.0-polyseed.tar.gz https://github.com/itay-grudev/SingleApplication/archive/3e8e85d1a487e433751711a8a090659684d42e3b.tar.gz -> feather-2.1.0-singleapplication.tar.gz https://github.com/feather-wallet/monero/archive/b45c66e9c62d7e8f24abbcb447f408e618bfd450.tar.gz -> feather-2.1.0-monero.tar.gz https://github.com/miniupnp/miniupnp/archive/544e6fcc73c5ad9af48a8985c94f0f1d742ef2e0.tar.gz -> feather-2.1.0-monero-miniupnp.tar.gz https://github.com/tevador/RandomX/archive/261d58c77fc5547c0aa7fdfeb58421ba7e0e6e1c.tar.gz -> feather-2.1.0-monero-randomx.tar.gz https://github.com/Tencent/rapidjson/archive/129d19ba7f496df5e33658527a7158c79b99c21c.tar.gz -> feather-2.1.0-monero-rapidjson.tar.gz https://github.com/monero-project/supercop/archive/633500ad8c8759995049ccd022107d1fa8a1bbc9.tar.gz -> feather-2.1.0-monero-supercop.tar.gz https://github.com/trezor/trezor-common/archive/bff7fdfe436c727982cc553bdfb29a9021b423b0.tar.gz -> feather-2.1.0-monero-trezorcommon.tar.gz
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	desktop	7eb20ad915a0a318176d51bc2508ff5c	xdg	6024fbc93167fad782e2032933654857
-_md5_=e70c11291a40ab03fdcd85dcc07f220c
+_md5_=464e5642b712798cf1f3f972351696c3
