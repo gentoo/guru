@@ -66,23 +66,6 @@ src_configure() {
 	cmake_src_configure
 }
 
-src_prepare() {
-	default
-	echo "#define FEATHER_VERSION \"${PV}\"" > "${WORKDIR}"/${PF}/src/config-feather.h || die
-	echo "#define TOR_VERSION \"NOT_EMBEDDED\"" >> "${WORKDIR}"/${PF}/src/config-feather.h || die
-
-	sed -i 's/set(Boost_USE_STATIC_LIBS ON)/set(Boost_USE_STATIC_LIBS OFF)/g' \
-		"${WORKDIR}"/${PF}/monero/CMakeLists.txt || die
-	sed -i 's/set(Boost_USE_STATIC_RUNTIME ON)/set(Boost_USE_STATIC_RUNTIME OFF)/g' \
-		"${WORKDIR}"/${PF}/monero/CMakeLists.txt || die
-
-	echo "set(STATIC ON)" > "${WORKDIR}"/${PF}/monero/CMakeLists.txt.2 || die
-	cat "${WORKDIR}"/${PF}/monero/CMakeLists.txt >> "${WORKDIR}"/${PF}/monero/CMakeLists2.txt || die
-	mv "${WORKDIR}"/${PF}/monero/CMakeLists2.txt "${WORKDIR}"/${PF}/monero/CMakeLists.txt || die
-
-	cmake_src_prepare
-}
-
 src_compile() {
 	cmake_build feather
 }
