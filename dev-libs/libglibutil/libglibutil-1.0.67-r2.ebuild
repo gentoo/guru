@@ -11,7 +11,7 @@ else
 	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
-DESCRIPTION="Library of glib utilities"
+DESCRIPTION="Library of glib utilities from sailfishos project"
 HOMEPAGE="https://github.com/sailfishos/libglibutil"
 LICENSE="BSD"
 SLOT="0"
@@ -19,11 +19,18 @@ SLOT="0"
 DEPEND="dev-libs/glib"
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
+PATCHES=(
+	"${FILESDIR}/libglibutil-1.0.67-respect-env.patch"
+)
 
 src_compile() {
-	emake KEEP_SYMBOLS=1 LIBDIR="/usr/$(get_libdir)"
+	emake LIBDIR="/usr/$(get_libdir)"
 }
 
 src_install() {
 	emake DESTDIR="${D}" LIBDIR="/usr/$(get_libdir)" install-dev
+}
+
+src_test() {
+	emake test
 }
