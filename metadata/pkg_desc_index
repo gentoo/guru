@@ -130,7 +130,7 @@ app-emulation/arnold 20170513: Amstrad CPC emulator
 app-emulation/proton-ge-custom-bin 7.27 7.28 7.29: A fancy custom distribution of Valves Proton with various patches
 app-emulation/quickemu 3.11: Create and run optimised Windows, macOS and Linux desktop virtual machines
 app-emulation/spice-html5 0.2.2 0.3.0-r1: Spice Javascript client
-app-emulation/waydroid 1.3.4-r2: Container-based approach to boot a full Android system on Linux systems
+app-emulation/waydroid 1.3.4-r5: Container-based approach to boot a full Android system on Linux systems
 app-eselect/eselect-autostart 1.0.0: Manage symlinks in $XDG_CONFIG_HOME/autostart
 app-eselect/eselect-bluespec 1.0.1: Manages the /usr/bin/bsc (bluespec) symlink
 app-eselect/eselect-ld 1.0.0: Manage the ld symlink
@@ -575,14 +575,14 @@ dev-libs/ffs 1.6.0_p20220525: FFS is a middleware library for data communication
 dev-libs/fortran-stdlib 0.2.1 0.2.1-r1 9999: A community driven standard library for (modern) Fortran
 dev-libs/fsst 0_pre20200830-r1: Fast Static Symbol Table: fast text compression that allows random access
 dev-libs/ftl 1.0_p20220209-r1: The Fortran Template Library (FTL) is a general purpose library for Fortran 2003
-dev-libs/gbinder 1.1.30-r1 9999: GLib-style interface to binder
+dev-libs/gbinder 1.1.30-r2 9999: GLib-style interface to binder
 dev-libs/hts_engine 1.10: HMM-based speech synthesis system (HTS) engine and API
 dev-libs/imsg-compat 6.8.2 9999: linux port of OpenBSD imsg
 dev-libs/jose 11: C-language implementation of Javascript Object Signing and Encryption
 dev-libs/kwsys 0_pre20220603: Kitware System Library
 dev-libs/libdatrie 0.2.13: Double-Array Trie Library
 dev-libs/libdwarf 0.4.0 0.4.1: The DWARF Debugging Information Format
-dev-libs/libglibutil 1.0.67-r1 9999: Library of glib utilities
+dev-libs/libglibutil 1.0.67-r2 9999: Library of glib utilities
 dev-libs/libnodave 0.8.5.1-r2: Connect to and exchange data with Siemens PLCs
 dev-libs/libopensmtpd 0.7: Library for creating OpenSMTPD filters
 dev-libs/libthai 0.1.28 0.1.29: A a set of Thai language support routines
@@ -602,6 +602,7 @@ dev-libs/octetos-db-postgresql 1.3.9_alpha 1.3.10_alpha: C++ library for Databas
 dev-libs/olm 3.2.13 3.2.14: Implementation of the olm and megolm cryptographic ratchets
 dev-libs/open62541 1.3.4: Open source C implementation of OPC UA
 dev-libs/perfstubs 0_pre20210915: Profiling API for adding external tool instrumentation support to any project
+dev-libs/polyseed 1.0.0 9999: Mnemonic seed library for Monero and other CryptoNote-based currencies.
 dev-libs/properties-cpp 0.0.2: Simple convenience library for handling properties and signals in C++11
 dev-libs/protothreads 1.4-r2: Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
@@ -731,7 +732,7 @@ dev-nim/nake 1.9.4: make-like for Nim. Describe your builds as tasks!
 dev-nim/nimbus 1.0.0: A Nim build system
 dev-nim/nimcrypto 0.5.4_p20210619: Nim cryptographic library
 dev-nim/noise 0.1.6 0.1.8: a Nim implementation of linenoise
-dev-nim/npeg 1.0.0 1.0.1: a PEG library for Nim
+dev-nim/npeg 0.27.0 1.0.0 1.0.1: a PEG library for Nim
 dev-nim/packedjson 0.2.2: an alternative Nim implementation for JSON
 dev-nim/redpool 0.1.0_p20220120: Simple Redis connection pool
 dev-nim/sass 0.2.0: A wrapper for the libsass library
@@ -883,7 +884,6 @@ dev-python/http_ece 1.1.0: Encrypted Content Encoding for HTTP
 dev-python/httptools 0.1.1: httptools is a Python binding for the nodejs HTTP parser
 dev-python/hunter 3.4.3-r1 3.5.1: Hunter is a flexible code tracing toolkit
 dev-python/hwi 1.2.1 2.0.2: Library and command line tool for interacting with hardware wallets
-dev-python/hypercorn 0.13.2: ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperglot 0.3.8 0.3.9: Detect language support for font binaries
 dev-python/hypothesmith 0.2.0: Hypothesis strategies for generating Python programs
 dev-python/i3ipc 2.2.1 2.2.1-r1: An improved Python library to control i3wm and sway.
@@ -963,7 +963,7 @@ dev-python/pyagentx 0.4: Python AgentX Implementation
 dev-python/pybeam 0.7-r1: Python module to parse Erlang BEAM files
 dev-python/pybrowserstack-screenshots 0.1-r1: A python api wrapper and client for Browserstack Screenshots API
 dev-python/pycadf 3.1.1-r1: python implementation of DMTF Cloud Audit (CADF) data model
-dev-python/pyclip 0.5.4 0.6.0 9999: Python clipboard module
+dev-python/pyclip 0.5.4 0.6.0 0.7.0 9999: Python clipboard module
 dev-python/pydispatcher 2.0.5 2.0.6: Multi-producer-multi-consumer signal dispatching mechanism
 dev-python/pydub 0.25.1: Manipulate audio with an simple and easy high level interface
 dev-python/pyfiglet 0.8_p1: Pure-python FIGlet implementation
