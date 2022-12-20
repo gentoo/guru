@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<remote-id type="github">projg2/gentoo-kernel-config</remote-id>
+	</upstream>
+	<use>
+		<flag name="hardened">Use selection of hardening options recommended by Kernel Self Protection Project</flag>
+		<flag name="initramfs">Build initramfs along with the kernel.</flag>
+		<flag name="hostfs">Enable CONFIG_HOSTFS</flag>
+		<flag name="iomem">Enable CONFIG_MMAPPER</flag>
+		<flag name="pic">Enable the use of position independent code</flag>
+	</use>
+</pkgmetadata>

@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>adam.pimentel46@gmail.com</email>
+		<name>Adam Pimentel</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">feather-wallet/feather</remote-id>
+	</upstream>
 	<longdescription lang="en">
 	Feather is a free, open-source Monero wallet for Linux, Tails,
 	Windows and macOS. It is:
@@ -20,6 +26,9 @@
 		</flag>
 		<flag name="xmrig">
 			Enable mining support using a user specified xmrig binary
+		</flag>
+		<flag name="localmonero">
+			Enable LocalMonero.com support
 		</flag>
 	</use>
 </pkgmetadata>

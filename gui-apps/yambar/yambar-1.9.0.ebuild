@@ -5,12 +5,13 @@ EAPI=8
 
 inherit meson
 
-if [[ ${PV} != *9999* ]]; then
-	SRC_URI="https://codeberg.org/dnkl/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/${PN}"
-else
+if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://codeberg.org/dnkl/${PN}.git"
+else
+	SRC_URI="https://codeberg.org/dnkl/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Simplistic and highly configurable status panel for X and Wayland"

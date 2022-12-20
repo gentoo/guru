@@ -5,6 +5,9 @@
 		<email>julien@jroy.ca</email>
 		<name>Julien Roy</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">latchset/clevis</remote-id>
+	</upstream>
 	<use>
 		<flag name="luks">Enable LUKS support</flag>
 		<flag name="tpm">Enable TPM support</flag>

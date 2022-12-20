@@ -8,7 +8,7 @@ inherit cmake git-r3 toolchain-funcs xdg
 DESCRIPTION="An emulator for Nintendo Switch"
 HOMEPAGE="https://yuzu-emu.org"
 EGIT_REPO_URI="https://github.com/yuzu-emu/yuzu-mainline"
-EGIT_SUBMODULES=( '-*' 'dynarmic' 'xbyak' )
+EGIT_SUBMODULES=( '-*' 'dynarmic' 'sirit' 'xbyak' )
 # Dynarmic is not intended to be generic, it is tweaked to fit emulated processor
 # TODO wait 'xbyak' waiting version bump. see #860816
 
@@ -27,7 +27,6 @@ RDEPEND="
 	>=net-libs/enet-1.3
 	app-arch/lz4:=
 	dev-libs/boost:=[context]
-	dev-libs/sirit
 	media-libs/opus
 	sys-libs/zlib
 	virtual/libusb:1
@@ -93,9 +92,8 @@ src_prepare() {
 	rm .gitmodules || die
 
 	# Unbundle inih
-	sed -i -e '/inih/d' externals/CMakeLists.txt || die
-	sed -i -e '1afind_package(PkgConfig REQUIRED)\npkg_check_modules(INIH REQUIRED INIReader)' \
-		-e '/target_link_libraries/s/inih/${INIH_LIBRARIES}/' src/yuzu_cmd/CMakeLists.txt || die
+	sed -i -e '/^if.*inih/,/^endif()/d' externals/CMakeLists.txt || die
+	sed -i -e '1afind_package(PkgConfig REQUIRED)\npkg_check_modules(INIH REQUIRED INIReader)' src/yuzu_cmd/CMakeLists.txt || die
 	sed -i -e 's:inih/cpp/::' src/yuzu_cmd/config.cpp || die
 
 	if use system-vulkan; then # Unbundle vulkan headers
@@ -115,7 +113,7 @@ src_prepare() {
 		src/common/scm_rev.cpp.in || die
 
 	if ! use discord; then
-		sed -i -e '/discord-rpc/d' externals/CMakeLists.txt || die
+		sed -i -e '/^if.*discord-rpc/,/^endif()/d' externals/CMakeLists.txt || die
 	else
 		# Unbundle discord rapidjson
 		sed -i '/NOT RAPIDJSONTEST/,/endif(NOT RAPIDJSONTEST)/d;/find_file(RAPIDJSON/d;s:\${RAPIDJSON}:"/usr/include/rapidjson":' \
@@ -124,21 +122,20 @@ src_prepare() {
 
 	# Unbundle cubeb
 	use cubeb && sed -i '$afind_package(Threads REQUIRED)' CMakeLists.txt || die
-	sed -i '/cubeb/d' externals/CMakeLists.txt || die
-
-	# Unbundle sirit
-	sed -i '/sirit/d' externals/CMakeLists.txt || die
+	sed -i '/^if.*cubeb/,/^endif()/d' externals/CMakeLists.txt || die
 
 	# Unbundle cpp-httplib
 	sed -i -e '/^	# httplib/,/^	endif()/d' externals/CMakeLists.txt || die
 
 	# Unbundle enet
-	sed -i -e '/enet/d' externals/CMakeLists.txt || die
+	sed -i -e '/^if.*enet/,/^endif()/d' externals/CMakeLists.txt || die
 	sed -i -e '/enet\/enet\.h/{s/"/</;s/"/>/}' src/network/network.cpp || die
 
 	# LZ4 temporary fix: https://github.com/yuzu-emu/yuzu/pull/9054/commits/a8021f5a18bc5251aef54468fa6033366c6b92d9
 	sed -i 's/lz4::lz4/lz4/' src/common/CMakeLists.txt || die
 
+	# libfmt >= 9
+	sed -i '/fmt.*REQUIRED/d' CMakeLists.txt || die
 	cmake_src_prepare
 }
 
@@ -146,16 +143,15 @@ src_configure() {
 	local -a mycmakeargs=(
 		# Libraries are private and rely on circular dependency resolution.
 		-DBUILD_SHARED_LIBS=OFF # dynarmic
-		-DDYNARMIC_NO_BUNDLED_ROBIN_MAP=ON
 		-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=$(usex compatibility-list)
 		-DENABLE_CUBEB=$(usex cubeb)
 		-DENABLE_QT=$(usex qt5)
 		-DENABLE_QT_TRANSLATION=$(usex qt5)
 		-DENABLE_SDL2=$(usex sdl)
 		-DENABLE_WEB_SERVICE=$(usex webservice)
+		-DSIRIT_USE_SYSTEM_SPIRV_HEADERS=ON
 		-DUSE_DISCORD_PRESENCE=$(usex discord)
 		-DYUZU_TESTS=$(usex test)
-		-DYUZU_USE_BUNDLED_OPUS=OFF
 		-DYUZU_USE_EXTERNAL_SDL2=OFF
 		-DYUZU_USE_QT_WEB_ENGINE=$(usex webengine)
 	)

@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit toolchain-funcs
+
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/mer-hybris/libgbinder.git"
@@ -18,15 +20,31 @@ DESCRIPTION="GLib-style interface to binder"
 HOMEPAGE="https://github.com/mer-hybris/libgbinder"
 LICENSE="BSD"
 SLOT="0"
+IUSE=""
 
 DEPEND="dev-libs/libglibutil"
 RDEPEND="${DEPEND}"
-BDEPEND="virtual/pkgconfig"
+BDEPEND="virtual/pkgconfig
+	sys-apps/sed"
+
+PATCHES=(
+	"${FILESDIR}/gbinder-1.1.30-respect-env.patch"
+)
+src_prepare() {
+	default
+	sed -i -e "s|ranlib|$(tc-getRANLIB)|" \
+	Makefile \
+	|| die
+}
 
 src_compile() {
-	emake KEEP_SYMBOLS=1 ABS_LIBDIR="/usr/$(get_libdir)" LIBDIR="/usr/$(get_libdir)"
+	emake LIBDIR="/usr/$(get_libdir)"
 }
 
 src_install() {
-	emake DESTDIR="${D}" ABS_LIBDIR="/usr/$(get_libdir)" LIBDIR="/usr/$(get_libdir)" install-dev
+	emake DESTDIR="${D}" LIBDIR="/usr/$(get_libdir)" install-dev
+}
+
+src_test() {
+	emake test
 }

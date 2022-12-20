@@ -5,4 +5,7 @@
 		<email>julien@jroy.ca</email>
 		<name>Julien Roy</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">latchset/luksmeta</remote-id>
+	</upstream>
 </pkgmetadata>

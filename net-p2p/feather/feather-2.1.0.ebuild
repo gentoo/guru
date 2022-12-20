@@ -5,10 +5,6 @@ EAPI=8
 
 inherit cmake desktop xdg
 
-#Note: this is like a tree, with dependencies-of-dependencies
-#You need to update all of these recursively every version bump.
-#But at least they are distfiles if github goes down. ¯\_(ツ)_/¯
-POLYSEED_DIST_COMIT="e38516561c647522e2e2608f13eabdeab61d9a5d"
 SINGLEAPPLICATION_DIST_COMIT="3e8e85d1a487e433751711a8a090659684d42e3b"
 MONERO_DIST_COMIT="b45c66e9c62d7e8f24abbcb447f408e618bfd450"
 	MINIUPNP_DIST_COMIT="544e6fcc73c5ad9af48a8985c94f0f1d742ef2e0"
@@ -19,10 +15,8 @@ MONERO_DIST_COMIT="b45c66e9c62d7e8f24abbcb447f408e618bfd450"
 
 DESCRIPTION="A free, open-source Monero wallet"
 HOMEPAGE="https://featherwallet.org"
-SRC_URI="https://github.com/feather-wallet/feather/archive/refs/tags/${PVR}.tar.gz -> \
+SRC_URI="https://github.com/feather-wallet/feather/archive/refs/tags/${PV}.tar.gz -> \
 ${P}.tar.gz
-	https://github.com/tevador/polyseed/archive/${POLYSEED_DIST_COMIT}.tar.gz -> \
-${P}-polyseed.tar.gz
 	https://github.com/itay-grudev/SingleApplication/archive/${SINGLEAPPLICATION_DIST_COMIT}.tar.gz -> \
 ${P}-singleapplication.tar.gz
 	https://github.com/feather-wallet/monero/archive/${MONERO_DIST_COMIT}.tar.gz -> \
@@ -44,27 +38,29 @@ ${P}-monero-trezorcommon.tar.gz
 LICENSE="BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="qrcode xmrig"
+IUSE="qrcode xmrig localmonero"
 
 DEPEND="
-	dev-libs/boost:=[nls]
-	dev-libs/libgcrypt:=
 	dev-libs/libsodium:=
+	media-gfx/qrencode:=
+	media-gfx/zbar:=[v4l]
+	>=dev-libs/polyseed-1.0.0
 	dev-libs/libzip:=
-	dev-libs/openssl:=
+	dev-libs/boost:=[nls]
 	>=dev-qt/qtcore-5.15:5
+	>=dev-qt/qtwidgets-5.15:5
 	>=dev-qt/qtgui-5.15:5
-	>=dev-qt/qtmultimedia-5.15:5[widgets]
 	>=dev-qt/qtnetwork-5.15:5
 	>=dev-qt/qtsvg-5.15:5
-	>=dev-qt/qtwebsockets-5.15:5
-	>=dev-qt/qtwidgets-5.15:5
-	>=dev-qt/qtconcurrent-5.15:5
 	>=dev-qt/qtxml-5.15:5
-	media-gfx/qrencode:=
+	>=dev-qt/qtwebsockets-5.15:5
+	>=dev-qt/qtmultimedia-5.15:5[widgets]
+	>=dev-qt/qtconcurrent-5.15:5
+	dev-libs/libgcrypt:=
+	sys-libs/zlib
+	dev-libs/openssl:=
 	net-dns/unbound:=[threads]
 	net-libs/czmq:=
-	media-gfx/zbar:=[v4l]
 "
 RDEPEND="
 	${DEPEND}
@@ -75,7 +71,6 @@ BDEPEND="virtual/pkgconfig"
 
 src_unpack() {
 	unpack ${P}.tar.gz \
-		${P}-polyseed.tar.gz \
 		${P}-singleapplication.tar.gz \
 		${P}-monero.tar.gz \
 		${P}-monero-miniupnp.tar.gz \
@@ -83,8 +78,6 @@ src_unpack() {
 		${P}-monero-rapidjson.tar.gz \
 		${P}-monero-supercop.tar.gz \
 		${P}-monero-trezorcommon.tar.gz
-	mv -T "${WORKDIR}"/polyseed-${POLYSEED_DIST_COMIT} \
-		"${WORKDIR}"/${P}/src/third-party/polyseed || die
 	mv -T "${WORKDIR}"/SingleApplication-${SINGLEAPPLICATION_DIST_COMIT} \
 		"${WORKDIR}"/${P}/src/third-party/singleapplication || die
 	mv -T "${WORKDIR}"/monero-${MONERO_DIST_COMIT} \
@@ -110,18 +103,19 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_BUILD_TYPE=Release
+		-DBUILD_SHARED_LIBS=OFF
 		-DARCH=x86-64
-		-DBUILD_64=ON
 		-DBUILD_TAG="linux-x64"
-		-DDONATE_BEG=OFF
-		-DMANUAL_SUBMODULES=1
-		-DSTATIC=OFF
+		-DBUILD_64=ON
 		-DSELF_CONTAINED=OFF
-		-DUSE_DEVICE_TREZOR=OFF
+		-DLOCALMONERO=$(usex localmonero)
 		-DXMRIG=$(usex xmrig)
+		-DCHECK_UPDATES=OFF
+		-DPLATFORM_INSTALLER=OFF
+		-DUSE_DEVICE_TREZOR=OFF
+		-DDONATE_BEG=OFF
 		-DWITH_SCANNER=$(usex qrcode)
-		-DCMAKE_DISABLE_FIND_PACKAGE_Git=ON #disables fetching/checking git submodules
-		-DVERSION_IS_RELEASE=true
 	)
 
 	cmake_src_configure
