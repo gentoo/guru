@@ -13,4 +13,5 @@ EGIT_REPO_URI="https://github.com/tevador/polyseed.git"
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="" #todo: make test executible a USE flag
+IUSE="" #todo: make test executible an optional USE flag
+BDEPEND="virtual/pkgconfig"

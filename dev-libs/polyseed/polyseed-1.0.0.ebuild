@@ -12,4 +12,5 @@ SRC_URI="https://github.com/tevador/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="" #todo: make test executible a USE flag
+IUSE="" #todo: make test executible an optiona; USE flag
+BDEPEND="virtual/pkgconfig"

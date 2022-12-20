@@ -15,27 +15,29 @@ EGIT_REPO_URI="https://github.com/feather-wallet/feather.git"
 LICENSE="BSD MIT"
 SLOT="0"
 KEYWORDS=""
-IUSE="qrcode xmrig"
+IUSE="qrcode xmrig localmonero"
 
 DEPEND="
-	dev-libs/boost:=[nls]
-	dev-libs/libgcrypt:=
 	dev-libs/libsodium:=
+	media-gfx/qrencode:=
+	media-gfx/zbar:=[v4l]
+	>=dev-libs/polyseed-1.0.0
 	dev-libs/libzip:=
-	dev-libs/openssl:=
+	dev-libs/boost:=[nls]
 	>=dev-qt/qtcore-5.15:5
+	>=dev-qt/qtwidgets-5.15:5
 	>=dev-qt/qtgui-5.15:5
-	>=dev-qt/qtmultimedia-5.15:5[widgets]
 	>=dev-qt/qtnetwork-5.15:5
 	>=dev-qt/qtsvg-5.15:5
-	>=dev-qt/qtwebsockets-5.15:5
-	>=dev-qt/qtwidgets-5.15:5
-	>=dev-qt/qtconcurrent-5.15:5
 	>=dev-qt/qtxml-5.15:5
-	media-gfx/qrencode:=
+	>=dev-qt/qtwebsockets-5.15:5
+	>=dev-qt/qtmultimedia-5.15:5[widgets]
+	>=dev-qt/qtconcurrent-5.15:5
+	dev-libs/libgcrypt:=
+	sys-libs/zlib
+	dev-libs/openssl:=
 	net-dns/unbound:=[threads]
 	net-libs/czmq:=
-	media-gfx/zbar:=[v4l]
 "
 RDEPEND="
 	${DEPEND}
@@ -47,16 +49,16 @@ BDEPEND="virtual/pkgconfig"
 src_configure() {
 	local mycmakeargs=(
 		-DARCH=x86-64
-		-DBUILD_64=ON
 		-DBUILD_TAG="linux-x64"
-		-DDONATE_BEG=OFF
-		-DMANUAL_SUBMODULES=1
-		-DSTATIC=ON
 		-DSELF_CONTAINED=OFF
-		-DUSE_DEVICE_TREZOR=OFF
+		-DLOCALMONERO=$(usex localmonero)
 		-DXMRIG=$(usex xmrig)
+		-DCHECK_UPDATES=OFF
+		-DPLATFORM_INSTALLER=OFF
+		-DUSE_DEVICE_TREZOR=OFF
+		-DDONATE_BEG=OFF
 		-DWITH_SCANNER=$(usex qrcode)
-		-DVERSION_IS_RELEASE=true
+		-DVERSION_IS_RELEASE=OFF
 	)
 
 	cmake_src_configure

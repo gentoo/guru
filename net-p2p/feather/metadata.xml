@@ -21,5 +21,8 @@
 		<flag name="xmrig">
 			Enable mining support using a user specified xmrig binary
 		</flag>
+		<flag name="localmonero">
+			Enable LocalMonero.com support
+		</flag>
 	</use>
 </pkgmetadata>
