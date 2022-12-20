@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
-inherit linux-info python-single-r1
+inherit linux-info xdg-utils python-single-r1
 
 DESCRIPTION="Container-based approach to boot a full Android system on Linux systems"
 HOMEPAGE="https://waydro.id"
@@ -48,6 +48,9 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
+
 	if not use apparmor; then
 		ewarn "If you use app-containers/lxc without apparmor, make sure you deleted or commented out in waydroid LXC config"
 		ewarn "(generated after waydroid init) in /var/lib/waydroid/lxc/waydroid/config the following string:"
@@ -61,4 +64,9 @@ pkg_postinst() {
 	ewarn "https://wiki.gentoo.org/wiki/Nftables for how-to details"
 	einfo "Contact https://docs.waydro.id/usage/install-on-desktops for how-to guides"
 	einfo "(does not cover Gentoo-specific things sadly)"
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
 }
