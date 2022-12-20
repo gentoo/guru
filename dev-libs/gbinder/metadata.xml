@@ -7,8 +7,6 @@
 		<description>rarogcmex</description>
 	</maintainer>
 	<longdescription lang="en">
-		GLib-style interface to binder (Android IPC mechanism)
-
 		Key features:
 
 		1. Integration with GLib event loop
