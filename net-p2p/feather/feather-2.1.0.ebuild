@@ -19,7 +19,7 @@ MONERO_DIST_COMIT="b45c66e9c62d7e8f24abbcb447f408e618bfd450"
 
 DESCRIPTION="A free, open-source Monero wallet"
 HOMEPAGE="https://featherwallet.org"
-SRC_URI="https://github.com/feather-wallet/feather/archive/refs/tags/${PVR}.tar.gz -> \
+SRC_URI="https://github.com/feather-wallet/feather/archive/refs/tags/${PV}.tar.gz -> \
 ${P}.tar.gz
 	https://github.com/tevador/polyseed/archive/${POLYSEED_DIST_COMIT}.tar.gz -> \
 ${P}-polyseed.tar.gz
@@ -136,6 +136,7 @@ src_install() {
 
 	doicon "${WORKDIR}"/${PF}/src/assets/images/feather.png
 	domenu "${WORKDIR}"/${PF}/src/assets/feather.desktop
+	die
 }
 
 pkg_postinst() {
