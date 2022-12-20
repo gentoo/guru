@@ -5,9 +5,6 @@ EAPI=8
 
 inherit cmake desktop xdg
 
-#Note: this is like a tree, with dependencies-of-dependencies
-#You need to update all of these recursively every version bump.
-#But at least they are distfiles if github goes down. ¯\_(ツ)_/¯
 SINGLEAPPLICATION_DIST_COMIT="3e8e85d1a487e433751711a8a090659684d42e3b"
 MONERO_DIST_COMIT="b45c66e9c62d7e8f24abbcb447f408e618bfd450"
 	MINIUPNP_DIST_COMIT="544e6fcc73c5ad9af48a8985c94f0f1d742ef2e0"
@@ -101,13 +98,26 @@ src_prepare() {
 	default
 	echo "#define FEATHER_VERSION \"${PV}\"" > "${WORKDIR}"/${PF}/src/config-feather.h || die
 	echo "#define TOR_VERSION \"NOT_EMBEDDED\"" >> "${WORKDIR}"/${PF}/src/config-feather.h || die
+
+	sed -i 's/set(Boost_USE_STATIC_LIBS ON)/set(Boost_USE_STATIC_LIBS OFF)/g' \
+		"${WORKDIR}"/${PF}/monero/CMakeLists.txt || die
+	sed -i 's/set(Boost_USE_STATIC_RUNTIME ON)/set(Boost_USE_STATIC_RUNTIME OFF)/g' \
+		"${WORKDIR}"/${PF}/monero/CMakeLists.txt || die
+
+	echo "set(STATIC ON)" > "${WORKDIR}"/${PF}/monero/CMakeLists.txt.2 || die
+	cat "${WORKDIR}"/${PF}/monero/CMakeLists.txt >> "${WORKDIR}"/${PF}/monero/CMakeLists2.txt || die
+	mv "${WORKDIR}"/${PF}/monero/CMakeLists2.txt "${WORKDIR}"/${PF}/monero/CMakeLists.txt || die
+
 	cmake_src_prepare
 }
 
 src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_BUILD_TYPE=Release
+		-DBUILD_SHARED_LIBS=OFF
 		-DARCH=x86-64
 		-DBUILD_TAG="linux-x64"
+		-DBUILD_64=ON
 		-DSELF_CONTAINED=OFF
 		-DLOCALMONERO=$(usex localmonero)
 		-DXMRIG=$(usex xmrig)
@@ -116,7 +126,6 @@ src_configure() {
 		-DUSE_DEVICE_TREZOR=OFF
 		-DDONATE_BEG=OFF
 		-DWITH_SCANNER=$(usex qrcode)
-		-DVERSION_IS_RELEASE=ON
 	)
 
 	cmake_src_configure

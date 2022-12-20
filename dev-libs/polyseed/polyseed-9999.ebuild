@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake git-r3
 
-DESCRIPTION="Mnemonic seed library for Monero and other CryptoNote-based currencies. "
+DESCRIPTION="Mnemonic seed library for Monero and other CryptoNote-based currencies."
 HOMEPAGE="https://github.com/tevador/polyseed"
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/tevador/polyseed.git"
