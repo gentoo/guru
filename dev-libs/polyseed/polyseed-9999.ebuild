@@ -14,4 +14,3 @@ LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE="" #todo: make test executible a USE flag
-
