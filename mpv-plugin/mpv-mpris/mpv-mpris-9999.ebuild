@@ -19,9 +19,10 @@ fi
 
 LICENSE="MIT"
 IUSE="test"
-RESTRICT="!test? ( test )"
 
-RDEPEND="dev-libs/glib:2"
+RDEPEND="
+	dev-libs/glib:2
+"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
@@ -38,6 +39,13 @@ BDEPEND="
 "
 
 MPV_PLUGIN_FILES=( mpris.so )
+
+RESTRICT="!test? ( test )"
+
+src_prepare() {
+	sed -e 's:-O2 ::' -i Makefile || die "sed Makefile(s) failed"
+	default
+}
 
 src_compile() {
 	tc-export CC
