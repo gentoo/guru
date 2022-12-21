@@ -32,11 +32,9 @@
 	<upstream>
 		<remote-id type="github">swaywm/sway</remote-id>
 		<maintainer status="active">
-			<email>sir@cmpwn.com</email>
-			<name>Drew DeVault</name>
+			<email>contact@willmckinnon.com</email>
+			<name>William McKinnon</name>
 		</maintainer>
-		<bugs-to>https://github.com/swaywm/sway/issues</bugs-to>
-		<doc>https://github.com/swaywm/sway/wiki</doc>
-		<changelog>https://github.com/swaywm/sway/releases</changelog>
+		<bugs-to>https://github.com/WillPower3309/swayfx/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
