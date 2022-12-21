@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -14,7 +14,6 @@ case "${PV}" in
 		;;
 	*)
 		SRC_URI="${EGIT_REPO_URI}/archive/${COMMIT}.tar.gz -> ${P0}.tar.gz"
-		KEYWORDS="~amd64"
 		S="${WORKDIR}/${PN0}-${COMMIT}"
 esac
 
