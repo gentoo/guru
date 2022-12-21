@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -18,7 +18,6 @@ case "${PV}" in
 		SRC_URI="${EGIT_REPO_URI}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 		# pyinquirer's latest version is outdated, so memethesis depends
 		# on a live ebuild for pyinquirer at the moment
-		KEYWORDS="~amd64"
 esac
 
 DESCRIPTION="Create memes from the terminal"
