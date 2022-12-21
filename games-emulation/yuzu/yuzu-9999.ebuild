@@ -98,9 +98,10 @@ src_prepare() {
 
 	if use system-vulkan; then # Unbundle vulkan headers
 		sed -i -e 's:../../externals/Vulkan-Headers/include:/usr/include/vulkan/:' src/video_core/CMakeLists.txt src/yuzu/CMakeLists.txt src/yuzu_cmd/CMakeLists.txt || die
+		sed -i -e '/Vulkan/s/238/213/' CMakeLists.txt || die
 	fi
 
-	# Unbundle mbedtls: undefined reference to `mbedtls_cipher_cmac'
+	# Unbundle mbedtls
 	sed -i -e '/mbedtls/d' externals/CMakeLists.txt || die
 	sed -i -e 's/mbedtls/& mbedcrypto mbedx509/' \
 		src/dedicated_room/CMakeLists.txt \
