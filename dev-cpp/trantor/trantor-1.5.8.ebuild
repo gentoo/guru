@@ -25,6 +25,11 @@ DEPEND="
 "
 BDEPEND="doc? ( app-doc/doxygen[dot] )"
 
+src_prepare() {
+	sed -i 's/ -Werror)$/)/' CMakeLists.txt || die "could not remove -Werror"
+	cmake_src_prepare
+}
+
 src_configure() {
 	local -a mycmakeargs=(
 		"-DBUILD_SHARED_LIBS=YES"
