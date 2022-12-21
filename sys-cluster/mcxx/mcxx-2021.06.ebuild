@@ -18,7 +18,6 @@ S="${WORKDIR}/${PN}-${MYPV}"
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE="+analysis array-descriptors bison-reporting examples extrae +mpi +nanox ompss ompss2 +opencl openmp +quad tcl test tl-openmp-gomp tl-openmp-profile vectorization"
 
 CDEPEND="
