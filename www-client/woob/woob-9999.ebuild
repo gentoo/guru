@@ -40,19 +40,19 @@ RDEPEND="
 	sci-geosciences/geopy[${PYTHON_USEDEP}]
 "
 
-distutils_enable_tests nose
+distutils_enable_tests pytest
 
 distutils_enable_sphinx docs/source
 
-python_prepare_all() {
-	# disable failing tests
-	sed -i \
-		-e '/woob.browser.browsers,/d' \
-		-e '/woob.browser.pages,/d' \
-		-e '/woob.tools.application.formatters.table,/d' \
-		setup.cfg || die
+src_prepare() {
+	default
 
-	distutils-r1_python_prepare_all
+	# doctests depending on a network connection
+	sed -i -e '/browsers.py/d' -e '/pages.py/d' setup.cfg || die
+}
+
+python_test() {
+	epytest --doctest-modules
 }
 
 python_install_all() {
