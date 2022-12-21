@@ -20,7 +20,7 @@ DEPEND="dev-libs/glib"
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
 PATCHES=(
-	"${FILESDIR}/libglibutil-1.0.67-respect-env.patch"
+	"${FILESDIR}/libglibutil-1.0.67-r3-respect-env.patch"
 )
 
 src_compile() {
