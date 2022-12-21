@@ -41,6 +41,7 @@ RDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${P}-fix-package-version.patch"
+	"${FILESDIR}/${P}-fix-Wreturn-type.patch"
 )
 
 src_prepare() {
