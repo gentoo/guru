@@ -68,6 +68,7 @@ PATCHES=(
 	"${FILESDIR}/amdvlk-2022.4.2-license-path.patch" #878803
 	"${FILESDIR}/amdvlk-2022.4.2-reduced-llvm-installations.patch"
 	"${FILESDIR}/amdvlk-2022.4.2-reduced-llvm-installations-part2.patch"
+	"${FILESDIR}/amdvlk-2022.4.4-r1-disable-Werror.patch" #887777
 )
 
 src_prepare() {
@@ -90,11 +91,17 @@ multilib_src_configure() {
 		-DVKI_RAY_TRACING=$(usex raytracing)
 		-DLLVM_VERSION_SUFFIX="-amdvlk"
 		-DLLVM_HOST_TRIPLE="${CHOST}"
+		-DLLVM_ENABLE_WERROR=OFF
+		-DSPVGEN_ENABLE_WERROR=OFF
+		-DENABLE_WERROR=OFF
+		-DVAM_ENABLE_WERROR=OFF
+		-DICD_ANALYSIS_WARNINGS_AS_ERRORS=OFF
+		-DMETROHASH_ENABLE_WERROR=OFF
 		-DBUILD_SHARED_LIBS=OFF #LLVM parts don't support shared libs
 		-DPython3_EXECUTABLE="${PYTHON}"
 		-DPACKAGE_VERSION="${PV}"
 		-DPACKAGE_NAME="${PN}"
-		-DLLVM_INSTALL_TOOLCHAIN_ONLY=On #Disable installation of various LLVM parts which we had to clean up.
+		-DLLVM_INSTALL_TOOLCHAIN_ONLY=ON #Disable installation of various LLVM parts which we had to clean up.
 		-Wno-dev
 		)
 	cmake_src_configure
