@@ -5,7 +5,7 @@
 
 EAPI=8
 
-inherit autotools flag-o-matic toolchain-funcs xdg
+inherit autotools toolchain-funcs xdg
 
 if [[ "${PV}" == 9999 ]]; then
 	inherit git-r3
@@ -68,6 +68,13 @@ DEPEND="
 	${RDEPEND}
 "
 
+PATCHES=(
+	# https://bugs.gentoo.org/859973
+	# https://github.com/joncampbell123/dosbox-x/issues/3663
+	# https://github.com/joncampbell123/dosbox-x/pull/3710
+	"${FILESDIR}/${P}-fix-lto-odr.patch"
+)
+
 pkg_pretend() {
 	if use ffmpeg && use !png; then
 		ewarn "Setting the 'ffmpeg' USE flag when the 'png' USE flag is"
@@ -111,11 +118,6 @@ src_prepare() {
 		die "Failed to remove check for setcap in Makefile.am"
 
 	eautoreconf
-
-	# https://bugs.gentoo.org/859973
-	# https://github.com/joncampbell123/dosbox-x/issues/3663
-	# No upstream response regarding LTO yet; disable it for now
-	filter-lto
 }
 
 src_configure() {
