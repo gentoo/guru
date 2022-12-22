@@ -88,10 +88,10 @@ src_compile() {
 	"$(tc-getFC)" -J "${BSDIR}" -o "${BSDIR}"/fpm "${BSDIR}/${P}.F90" || die
 
 	# Use the bootstrap binary to build the feature complete fpm version
-	"${BSDIR}"/fpm build --compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/m_cli2" \
+	"${BSDIR}"/fpm build --verbose --compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/m_cli2" \
 		--c-compiler "$(tc-getCC)" --c-flag "${CFLAGS}" \
 		--cxx-compiler "$(tc-getCXX)" --cxx-flag "${CXXFLAGS}" \
-		--archiver="$(tc-getAR)" --link-flag "${LDFLAGS}"
+		--archiver "$(tc-getAR)" --link-flag "${LDFLAGS}" || die
 
 	if use doc ; then
 		einfo "Build API documentation:"
@@ -100,10 +100,10 @@ src_compile() {
 }
 
 src_test() {
-	"${BSDIR}"/fpm test --compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/m_cli2" \
+	"${BSDIR}"/fpm test --verbose --compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/m_cli2" \
 		--c-compiler "$(tc-getCC)" --c-flag "${CFLAGS}" \
 		--cxx-compiler "$(tc-getCXX)" --cxx-flag "${CXXFLAGS}" \
-		--archiver="$(tc-getAR)" --link-flag "${LDFLAGS}"
+		--archiver="$(tc-getAR)" --link-flag "${LDFLAGS}" || die
 }
 
 src_install() {
@@ -112,7 +112,7 @@ src_install() {
 		--compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/m_cli2" \
 		--c-compiler "$(tc-getCC)" --c-flag "${CFLAGS}" \
 		--cxx-compiler "$(tc-getCXX)" --cxx-flag "${CXXFLAGS}" \
-		--archiver="$(tc-getAR)" --link-flag "${LDFLAGS}"
+		--archiver="$(tc-getAR)" --link-flag "${LDFLAGS}" || die
 
 	use doc && HTML_DOCS=( "${S}"/fpm-doc/. )
 	einstalldocs
