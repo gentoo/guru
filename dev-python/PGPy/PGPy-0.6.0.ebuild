@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..11} )
+PYTHON_COMPAT=( python3_{8..10} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
@@ -17,4 +17,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND=""
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	dev-python/cryptography[${PYTHON_USEDEP}]
+	dev-python/pyasn1[${PYTHON_USEDEP}]
+	dev-python/six[${PYTHON_USEDEP}]
+"
