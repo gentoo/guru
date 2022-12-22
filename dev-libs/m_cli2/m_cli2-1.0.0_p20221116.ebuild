@@ -26,14 +26,14 @@ src_prepare() {
 	default
 
 #	# Set Fortran FLAGS
-	sed -i -e "s/F90FLAGS := .*$/F90FLAGS := ${FCFLAGS} -fPIC/" Makefile || die
+	sed -i -e 's/F90FLAGS := .*$/F90FLAGS := '"${FCFLAGS}"' -fPIC/' Makefile || die
 }
 
 src_compile() {
 	case $(tc-getFC) in
 		*gfortran* )
 			emake clean
-			emake FC90=$(tc-getFC) gfortran
+			emake F90=$(tc-getFC) gfortran
 			$(tc-getFC) -Wl,-soname,lib"${PN}".so.1 ${LDFLAGS} -shared -o lib"${PN}".so.1 M_CLI2.o;;
 		* )
 			die "Sorry, only GNU gfortran is currently supported in the ebuild" ;;
