@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+  <upstream>
+    <doc>https://dev.gajim.org/gajim/gajim-plugins/-/wikis/home</doc>
+  </upstream>
   <use>
 	<flag name="acronyms_expander">Plugin: Replaces acronyms (or other strings)  with given expansions/substitutes</flag>
     <flag name="anti_spam">Plugin: Block some incoming messages</flag>
