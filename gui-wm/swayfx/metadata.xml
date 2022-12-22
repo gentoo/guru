@@ -29,12 +29,4 @@
 		<flag name="wallpapers">Install sway's default wallpaper image</flag>
 		<flag name="X">Enable support for X11 applications (XWayland)</flag>
 	</use>
-	<upstream>
-		<remote-id type="github">swaywm/sway</remote-id>
-		<maintainer status="active">
-			<email>contact@willmckinnon.com</email>
-			<name>William McKinnon</name>
-		</maintainer>
-		<bugs-to>https://github.com/WillPower3309/swayfx/issues</bugs-to>
-	</upstream>
 </pkgmetadata>
