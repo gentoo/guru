@@ -6,6 +6,12 @@
 		<name>Julien Roy</name>
 	</maintainer>
 	<upstream>
+		<maintainer>
+			<name>ayushnix</name>
+		</maintainer>
+		<changelog>https://github.com/ayushnix/tessen/blob/master/CHANGELOG.md</changelog>
+		<doc>https://github.com/ayushnix/tessen/blob/master/README.md</doc>
+		<bugs-to>https://github.com/ayushnix/tessen/issues</bugs-to>
 		<remote-id type="github">ayushnix/tessen</remote-id>
 	</upstream>
 	<use>
