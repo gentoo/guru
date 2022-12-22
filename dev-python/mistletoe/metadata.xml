@@ -14,7 +14,7 @@ Apart from being the fastest CommonMark-compliant Markdown parser implementation
 			<email>mi@afteryu.me</email>
 		</maintainer>
 		<changelog>https://github.com/miyuchina/mistletoe/releases</changelog>
-	<doc>https://github.com/miyuchina/mistletoe/blob/master/dev-guide.md</doc>
+		<doc>https://github.com/miyuchina/mistletoe/blob/master/dev-guide.md</doc>
 		<bugs-to>https://github.com/miyuchina/mistletoe/issues</bugs-to>
 		<remote-id type="github">miyuchina/mistletoe</remote-id>
 	</upstream>
