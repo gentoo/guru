@@ -17,5 +17,6 @@ Apart from being the fastest CommonMark-compliant Markdown parser implementation
 		<doc>https://github.com/miyuchina/mistletoe/blob/master/dev-guide.md</doc>
 		<bugs-to>https://github.com/miyuchina/mistletoe/issues</bugs-to>
 		<remote-id type="github">miyuchina/mistletoe</remote-id>
+		<remote-id type="pypi">mistletoe</remote-id>
 	</upstream>
 </pkgmetadata>
