@@ -21,4 +21,4 @@ RDEPEND="test? ( dev-python/flake8[${PYTHON_USEDEP}] )
 "
 DEPEND="${RDEPEND}"
 
-distutils_enable_tests pytest
+distutils_enable_tests unittest
