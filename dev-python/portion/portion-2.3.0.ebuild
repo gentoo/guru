@@ -22,6 +22,6 @@ RDEPEND="test? (
 	dev-python/black[${PYTHON_USEDEP}]
 )"
 DEPEND="${RDEPEND}"
-BDEPEND="dev-python/sortedcontainers"
+BDEPEND="dev-python/sortedcontainers[${PYTHON_USEDEP}]"
 
 distutils_enable_tests pytest
