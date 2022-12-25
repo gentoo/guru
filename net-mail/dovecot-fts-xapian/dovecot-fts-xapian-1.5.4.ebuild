@@ -8,6 +8,7 @@ inherit autotools
 DESCRIPTION="Dovecot FTS plugin backed by Xapian"
 HOMEPAGE="https://github.com/grosjo/fts-xapian"
 SRC_URI="https://github.com/grosjo/fts-xapian/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/fts-xapian-${PV}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
@@ -22,8 +23,6 @@ RDEPEND="
 	"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
-
-S="${WORKDIR}/fts-xapian-${PV}"
 
 src_prepare() {
 	default
