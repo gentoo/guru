@@ -24,6 +24,10 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=(
+	${FILESDIR}/bug-887887_allow-O2-override.patch
+)
+
 src_prepare() {
 	default
 	eautoreconf
