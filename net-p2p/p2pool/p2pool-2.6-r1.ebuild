@@ -69,8 +69,9 @@ src_unpack() {
 src_prepare() {
 	default
 
-	# 884447: remove -s from OPTIMIZATION_FLAGS
-	sed -i 's/-s\>//' cmake/flags.cmake || die
+	# Stop their script from overriding flags:
+	cp "${FILESDIR}"/flags.cmake cmake/flags.cmake || die
+	die
 
 	cmake_src_prepare
 }
