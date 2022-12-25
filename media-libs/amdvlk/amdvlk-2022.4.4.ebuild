@@ -34,7 +34,7 @@ RDEPEND=" ${DEPEND}
 	>=media-libs/vulkan-loader-1.3.224[${MULTILIB_USEDEP}]
 	dev-util/glslang[${MULTILIB_USEDEP}]"
 
-CHECKREQS_MEMORY="16G"
+CHECKREQS_MEMORY="7G"
 CHECKREQS_DISK_BUILD="4G"
 S="${WORKDIR}"
 CMAKE_USE_DIR="${S}/xgl"
@@ -70,6 +70,15 @@ PATCHES=(
 	"${FILESDIR}/amdvlk-2022.4.2-reduced-llvm-installations-part2.patch"
 	"${FILESDIR}/amdvlk-2022.4.4-r1-disable-Werror.patch" #887777
 )
+
+pkg_pretend(){
+	ewarn "It's generally recomended to have at least 16GB memory to build"
+	ewarn "However, experiments shows that if you'll use MAKEOPTS=\"-j1\" you can build it with 8GB RAM"
+	ewarn "See https://wiki.gentoo.org/wiki/AMDVLK#Additional_system_requirements_to_build"
+	ewarn "Use CHECKREQS_DONOTHING=1 if you need to bypass memory checking"
+
+	check-reqs_pkg_pretend
+}
 
 src_prepare() {
 	einfo "moving src to proper directories"
