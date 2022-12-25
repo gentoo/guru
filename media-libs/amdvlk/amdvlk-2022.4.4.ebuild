@@ -73,7 +73,8 @@ PATCHES=(
 
 pkg_pretend(){
 	ewarn "It's generally recomended to have at least 16GB memory to build"
-	ewarn "However, experiments shows that if you'll use MAKEOPTS=\"-j1\" you can build it with 8GB RAM"
+	ewarn "However, experiments shows that if you'll use MAKEOPTS=\"-j1\" you can build it with 4GB RAM"
+	ewarn "or you can use MAKEOPTS=\"-j3\" with 7.5GB system memory"
 	ewarn "See https://wiki.gentoo.org/wiki/AMDVLK#Additional_system_requirements_to_build"
 	ewarn "Use CHECKREQS_DONOTHING=1 if you need to bypass memory checking"
 
