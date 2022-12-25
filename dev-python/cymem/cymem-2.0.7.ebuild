@@ -20,6 +20,8 @@ KEYWORDS="~amd64 ~x86"
 
 BDEPEND="dev-python/cython[${PYTHON_USEDEP}]"
 
+PATCHES=( "${FILESDIR}"/cymem-2.0.7-flags.patch )
+
 distutils_enable_tests pytest
 
 python_test() {

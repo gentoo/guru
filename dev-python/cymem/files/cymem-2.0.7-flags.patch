@@ -1,0 +1,13 @@
+Don't overwrite user optimizations
+
+--- a/setup.py
++++ b/setup.py
+@@ -18,7 +18,7 @@ MOD_NAMES = ["cymem.cymem"]
+ # http://stackoverflow.com/questions/724664/python-distutils-how-to-get-a-compiler-that-is-going-to-be-used
+ compile_options = {
+     "msvc": ["/Ox", "/EHsc"],
+-    "other": ["-O3", "-Wno-strict-prototypes", "-Wno-unused-function"],
++    "other": ["-Wno-strict-prototypes", "-Wno-unused-function"],
+ }
+ link_options = {"msvc": [], "other": []}
+ 
