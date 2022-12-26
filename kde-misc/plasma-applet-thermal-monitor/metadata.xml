@@ -6,7 +6,8 @@
 		<name>Michael Egger</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>https://github.com/kotelnik/plasma-applet-thermal-monitor/issues</bugs-to>
-		<doc>https://github.com/kotelnik/plasma-applet-thermal-monitor/blob/master/README.md</doc>
+		<remote-id type="gitlab">agurenko/plasma-applet-thermal-monitor</remote-id>
+		<bugs-to>https://gitlab.com/agurenko/plasma-applet-thermal-monitor/-/issues</bugs-to>
+		<doc>https://gitlab.com/agurenko/plasma-applet-thermal-monitor/-/blob/master/README.md</doc>
 	</upstream>
 </pkgmetadata>
