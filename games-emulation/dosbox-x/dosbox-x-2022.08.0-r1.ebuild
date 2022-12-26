@@ -89,9 +89,9 @@ src_prepare() {
 	default
 
 	# https://bugs.gentoo.org/887669
-	# Comment out lines touching '-O*', and avoid creating an empty
-	# command list as a result to not break 'if', 'for', or functions
-	sed -i -E -e 's/(\s?)((C|CXX)FLAGS=.*-O)/\1: #\2/' configure.ac ||
+	# Mask lines touching '-O*', and avoid creating an empty command
+	# list as a result to not break 'if', 'for', or functions
+	sed -i -E -e 's/((C|CXX)FLAGS=.*-O)/: \1/' configure.ac ||
 		die "Failed to stop configure.ac from touching '-O*' compiler flags"
 
 	# Patch command lines like the following in Makefile.am:
