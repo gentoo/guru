@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+fribidi +harfbuzz mp3 ncurses webp"
 
 DEPEND="
-	>=dev-libs/tfdn-1.1.0:=[ssl]
+	>=dev-libs/tfdn-1.4.0:=[ssl]
 	fribidi? ( dev-libs/fribidi )
 	ncurses? ( dev-libs/sealcurses:= )
 	!ncurses? (
