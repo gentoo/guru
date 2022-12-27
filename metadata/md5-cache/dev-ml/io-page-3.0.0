@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig dev-ml/dune dev-lang/ocaml
+BDEPEND=virtual/pkgconfig dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt?] >=dev-ml/cstruct-2.0.0:= test? ( dev-ml/ounit2 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=IO memory page library for Mirage backends
@@ -12,5 +12,5 @@ RDEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt?] >=dev-ml/cstruct-2.0.0:= >=dev-lang
 RESTRICT=!test? ( test )
 SLOT=0/3.0.0
 SRC_URI=https://github.com/mirage/io-page/releases/download/v3.0.0/io-page-3.0.0.tbz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	db0ce2a301411f44e4ee90e5c591ada0
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
 _md5_=91d9e8451aca72e5b0a574bb2e94c865

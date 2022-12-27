@@ -1,4 +1,4 @@
-BDEPEND=dev-ml/dune dev-lang/ocaml
+BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=dev-ml/ppx_sexp_conv:= dev-ml/cstruct:=[ppx,sexp] dev-ml/sexplib:= dev-ml/mirage-crypto:=[ec,pk,rng] dev-ml/x509:= dev-ml/domain-name:= dev-ml/fmt:= dev-ml/lwt:= dev-ml/ptime:= dev-ml/hkdf:= dev-ml/logs:= dev-ml/ipaddr:=[sexp] async? ( dev-ml/async:= dev-ml/async_unix:= dev-ml/core:= dev-ml/cstruct:=[async] dev-ml/ppx_jane:= dev-ml/mirage-crypto:=[rng-async] ) mirage? ( dev-ml/mirage-flow:= dev-ml/mirage-kv:= dev-ml/mirage-clock:= dev-ml/mirage-crypto:=[pk] ) test? ( dev-ml/cstruct[unix] dev-ml/alcotest dev-ml/randomconv dev-ml/ounit2 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Transport Layer Security purely in OCaml
@@ -12,5 +12,5 @@ RDEPEND=dev-ml/ppx_sexp_conv:= dev-ml/cstruct:=[ppx,sexp] dev-ml/sexplib:= dev-m
 RESTRICT=!test? ( test )
 SLOT=0/0.13.1
 SRC_URI=https://github.com/mirleft/ocaml-tls/releases/download/v0.13.1/tls-v0.13.1.tbz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	db0ce2a301411f44e4ee90e5c591ada0
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
 _md5_=35ab439f3b5c346d124b5a43ec20d8b4

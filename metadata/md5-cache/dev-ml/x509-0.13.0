@@ -1,4 +1,4 @@
-BDEPEND=dev-ml/dune dev-lang/ocaml
+BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=dev-ml/asn1-combinators dev-ml/cstruct dev-ml/domain-name dev-ml/fmt dev-ml/gmap dev-ml/ipaddr dev-ml/logs dev-ml/mirage-crypto[ec,pk,rng] dev-ml/ocaml-base64 dev-ml/pbkdf dev-ml/ptime test? ( dev-ml/alcotest dev-ml/cstruct[unix] ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Public Key Infrastructure purely in OCaml
@@ -12,5 +12,5 @@ RDEPEND=dev-ml/asn1-combinators dev-ml/cstruct dev-ml/domain-name dev-ml/fmt dev
 RESTRICT=!test? ( test )
 SLOT=0/0.13.0
 SRC_URI=https://github.com/mirleft/ocaml-x509/releases/download/v0.13.0/x509-v0.13.0.tbz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	db0ce2a301411f44e4ee90e5c591ada0
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
 _md5_=bdf7fcc1a6ac43366e919a19d3613ab5

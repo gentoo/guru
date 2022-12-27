@@ -1,4 +1,4 @@
-BDEPEND=dev-ml/dune dev-lang/ocaml
+BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=dev-ml/astring:= dev-ml/ipaddr:=[sexp] dev-ml/logs:= dev-ml/ppx_sexp_conv:= dev-ml/sexplib:= dev-ml/uri:= dev-lang/ocaml:=[ocamlopt?] async? ( dev-ml/async:= dev-ml/async_ssl:= dev-ml/core:= dev-ml/ppx_here:= ) lwt? ( dev-ml/lwt:= ) lwt-unix? ( dev-ml/ca-certs:= dev-ml/lwt:= ) mirage? ( dev-ml/base:= dev-ml/ca-certs-nss:= dev-ml/cstruct:= dev-ml/dns:=[client] dev-ml/fmt:= dev-ml/mirage-clock:= dev-ml/mirage-flow:=[combinators] dev-ml/mirage-random:= dev-ml/mirage-time:= dev-ml/tcpip:= dev-ml/tls:=[mirage] dev-ml/vchan:= dev-ml/xenstore:= ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Dereference URIs into communication channels for Async or Lwt
@@ -12,5 +12,5 @@ RDEPEND=dev-ml/astring:= dev-ml/ipaddr:=[sexp] dev-ml/logs:= dev-ml/ppx_sexp_con
 REQUIRED_USE=lwt-unix? ( lwt ) mirage? ( lwt )
 SLOT=0/5.1.0
 SRC_URI=https://github.com/mirage/ocaml-conduit/archive/v5.1.0.tar.gz -> conduit-5.1.0.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	db0ce2a301411f44e4ee90e5c591ada0
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
 _md5_=4aeaab09092f9bb85cc3f69c52382d25

@@ -1,4 +1,4 @@
-BDEPEND=dev-ml/dune dev-lang/ocaml
+BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=dev-ml/cstruct:= dev-ml/ipaddr:= dev-ml/logs:= dev-ml/mirage-time:= dev-ml/lwt:= dev-ml/duration:= dev-ml/mirage-profile:= dev-ml/ethernet:= test? ( dev-ml/mirage-random dev-ml/mirage-random-test dev-ml/alcotest dev-ml/fmt dev-ml/mirage-vnetif dev-ml/mirage-clock dev-ml/mirage-clock-unix dev-ml/mirage-time[unix] dev-ml/mirage-flow ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Address resolution protocol (ARP) implementation in OCaml
@@ -12,5 +12,5 @@ RDEPEND=dev-ml/cstruct:= dev-ml/ipaddr:= dev-ml/logs:= dev-ml/mirage-time:= dev-
 RESTRICT=!test? ( test )
 SLOT=0/3.0.0
 SRC_URI=https://github.com/mirage/arp/releases/download/v3.0.0/arp-v3.0.0.tbz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	db0ce2a301411f44e4ee90e5c591ada0
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
 _md5_=36719d6aa422b2172653f327c52196ba

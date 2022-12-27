@@ -1,4 +1,4 @@
-BDEPEND=>=dev-ml/dune-configurator-2.0.0 virtual/pkgconfig dev-ml/dune dev-lang/ocaml
+BDEPEND=>=dev-ml/dune-configurator-2.0.0 virtual/pkgconfig dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=>=dev-lang/ocaml-4.08.0:=[ocamlopt?] >=dev-ml/cstruct-6.0.0:= >=dev-ml/eqaf-0.8:= pk? ( dev-libs/gmp >=dev-ml/mirage-4.0:= dev-ml/sexplib0:= >=dev-ml/zarith-1.4:= ) rng? ( dev-ml/duration:= dev-ml/logs:= >=dev-ml/lwt-4.0.0:= >=dev-ml/mtime-1.0.0:= ) rng-async? ( >=dev-ml/async-0.14:= ) rng-mirage? ( >=dev-ml/lwt-4.0.0:= >=dev-ml/mirage-3.8.0:= >=dev-ml/mirage-clock-3.0.0:= ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Simple symmetric cryptography for the modern age
@@ -13,5 +13,5 @@ REQUIRED_USE=test? ( ec pk rng ) ec? ( rng ) pk? ( rng ) rng-async? ( rng ) rng-
 RESTRICT=!test? ( test )
 SLOT=0/0.10.6
 SRC_URI=https://github.com/mirage/mirage-crypto/releases/download/v0.10.6/mirage-crypto-0.10.6.tbz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	db0ce2a301411f44e4ee90e5c591ada0
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
 _md5_=f3138712318e90a25956177112d452ae

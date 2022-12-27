@@ -1,4 +1,4 @@
-BDEPEND=dev-ml/dune dev-lang/ocaml
+BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=dev-ml/astring:= >=dev-ml/fd-send-recv-2.0.0:= dev-ml/logs:= dev-ml/ptime:= dev-ml/xapi-backtrace:= test? ( dev-ml/alcotest ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Citrix's (deprecated) extensions to the ocaml standard library
@@ -12,5 +12,5 @@ RDEPEND=dev-ml/astring:= >=dev-ml/fd-send-recv-2.0.0:= dev-ml/logs:= dev-ml/ptim
 RESTRICT=!test? ( test )
 SLOT=0/4.19.0
 SRC_URI=https://github.com/xapi-project/stdext/archive/refs/tags/v4.19.0.tar.gz -> xapi-stdext-4.19.0.gh.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	db0ce2a301411f44e4ee90e5c591ada0
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
 _md5_=2e3c50685f12ba85a53056c7f4bacb1d

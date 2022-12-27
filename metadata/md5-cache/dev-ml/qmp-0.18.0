@@ -1,4 +1,4 @@
-BDEPEND=dev-ml/dune dev-lang/ocaml
+BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=dev-lang/ocaml:=[ocamlopt?] dev-ml/yojson:= dev-ml/cmdliner:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=A Qemu Message Protocol (QMP) client in OCaml
@@ -12,5 +12,5 @@ RDEPEND=dev-lang/ocaml:=[ocamlopt?] dev-ml/yojson:= dev-ml/cmdliner:= test? ( de
 RESTRICT=!test? ( test )
 SLOT=0/0.18.0
 SRC_URI=https://github.com/xapi-project/ocaml-qmp/archive/refs/tags/v0.18.0.tar.gz -> qmp-0.18.0.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	db0ce2a301411f44e4ee90e5c591ada0
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
 _md5_=87afca1db43c2d18f0822655d776c8e9

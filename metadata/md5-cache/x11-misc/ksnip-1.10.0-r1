@@ -10,5 +10,5 @@ LICENSE=GPL-2+
 RDEPEND=dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5[png] dev-qt/qtx11extras:5 dev-qt/qtxml:5 >=media-libs/kcolorpicker-0.2.0 >=media-libs/kimageannotator-0.6.0 x11-libs/libX11 x11-libs/libxcb
 SLOT=0
 SRC_URI=https://github.com/ksnip/ksnip/archive/v1.10.0.tar.gz -> ksnip-1.10.0.tar.gz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	desktop	7eb20ad915a0a318176d51bc2508ff5c
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057	desktop	7eb20ad915a0a318176d51bc2508ff5c
 _md5_=e2773763b2dcb7e9fcf21614086427d4

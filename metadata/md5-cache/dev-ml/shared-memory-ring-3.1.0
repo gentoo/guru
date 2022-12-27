@@ -1,4 +1,4 @@
-BDEPEND=dev-ml/dune dev-lang/ocaml
+BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
 DEPEND=dev-ml/cstruct dev-ml/lwt dev-ml/lwt-dllist dev-ml/mirage-profile >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Xen-style shared memory rings
@@ -11,5 +11,5 @@ LICENSE=ISC
 RDEPEND=dev-ml/cstruct dev-ml/lwt dev-ml/lwt-dllist dev-ml/mirage-profile >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/3.1.0
 SRC_URI=https://github.com/mirage/shared-memory-ring/archive/v3.1.0.tar.gz -> shared-memory-ring-3.1.0.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	db0ce2a301411f44e4ee90e5c591ada0
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
 _md5_=e25d4b5fb47143b001704bdb31b8f315
