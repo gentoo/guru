@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/fortran-lang/fpm/archive/v0.7.0.tar.gz -> fpm-0.7.0.tar.gz https://github.com/fortran-lang/fpm/releases/download/v0.7.0/fpm-0.7.0.F90
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	fortran-2	72d28c6872beb1e7cb99684b0ae4715d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-any-r1	1a218637f27d4c027b92e511707264fd
-_md5_=1f44064a29b3108dfce70932a49269c0
+_md5_=3a0f3e800fd803be49c707058d6b34e2

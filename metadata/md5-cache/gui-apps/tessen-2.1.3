@@ -1,0 +1,15 @@
+DEFINED_PHASES=postinst
+DEPEND=app-text/scdoc
+DESCRIPTION=an interactive menu to autotype and copy pass and gopass data
+EAPI=8
+HOMEPAGE=https://github.com/ayushnix/tessen
+INHERIT=optfeature
+IUSE=+pass gopass bemenu wofi rofi
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=app-text/scdoc pass? ( app-admin/pass ) gopass? ( app-admin/gopass )
+REQUIRED_USE=|| ( pass gopass )
+SLOT=0
+SRC_URI=https://github.com/ayushnix/tessen/archive/v2.1.3.tar.gz -> tessen-2.1.3.tar.gz
+_eclasses_=optfeature	1a2157392a869265b2afcb63a26c12ac
+_md5_=4d360ee7d8d906bda5e7bb6433e45bef

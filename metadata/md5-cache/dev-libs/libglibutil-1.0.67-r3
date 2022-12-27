@@ -1,0 +1,12 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install test
+DEPEND=dev-libs/glib
+DESCRIPTION=Library of glib utilities from sailfishos project
+EAPI=8
+HOMEPAGE=https://github.com/sailfishos/libglibutil
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=BSD
+RDEPEND=dev-libs/glib
+SLOT=0
+SRC_URI=https://github.com/sailfishos/libglibutil/archive/1.0.67.tar.gz -> libglibutil-1.0.67.tar.gz
+_md5_=0aee1eaf5a46878f73961e2eb061f759

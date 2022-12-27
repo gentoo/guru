@@ -1,8 +1,7 @@
-BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+BDEPEND=|| ( >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 ) media-gfx/fontforge test? ( || ( ( >=dev-lang/python-3.9.16:3.9 dev-python/ipdb[python_targets_python3_9(-)] dev-python/pillow[python_targets_python3_9(-)] dev-util/gftools[python_single_target_python3_9(-)] media-gfx/fontbakery[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.16:3.8 dev-python/ipdb[python_targets_python3_8(-)] dev-python/pillow[python_targets_python3_8(-)] dev-util/gftools[python_single_target_python3_8(-)] media-gfx/fontbakery[python_targets_python3_8(-)] ) ) ) X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
 DEFINED_PHASES=compile install postinst postrm setup test
-DEPEND=|| ( >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 ) media-gfx/fontforge test? ( || ( ( >=dev-lang/python-3.9.16:3.9 dev-python/ipdb[python_targets_python3_9(-)] dev-python/pillow[python_targets_python3_9(-)] dev-util/gftools[python_single_target_python3_9(-)] media-gfx/fontbakery[python_targets_python3_9(-)] ) ( >=dev-lang/python-3.8.16:3.8 dev-python/ipdb[python_targets_python3_8(-)] dev-python/pillow[python_targets_python3_8(-)] dev-util/gftools[python_single_target_python3_8(-)] media-gfx/fontbakery[python_targets_python3_8(-)] ) ) )
 DESCRIPTION=A IBM 3270 Terminal font in a modern format
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/rbanffy/3270font
 INHERIT=font python-any-r1
 IUSE=test X
@@ -12,5 +11,5 @@ PROPERTIES=test_network
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/rbanffy/3270font/archive/v2.3.1.tar.gz -> 3270font-2.3.1.tar.gz
-_eclasses_=font	5e03cb70902daa9ff8967c61130f0f60	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-any-r1	1a218637f27d4c027b92e511707264fd
-_md5_=72ef282cbdfcbad87deb03e0275a576b
+_eclasses_=font	5e03cb70902daa9ff8967c61130f0f60	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	python-any-r1	1a218637f27d4c027b92e511707264fd
+_md5_=03f85bfbb92fa0aa7d4052a236041047

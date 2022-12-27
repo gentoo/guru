@@ -1,0 +1,17 @@
+BDEPEND=dev-util/gdbus-codegen gtk-doc? ( dev-util/gi-docgen ) man? ( dev-python/docutils ) vala? ( || ( dev-lang/vala:0.56[vapigen(+)] ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/glib:2 introspection? ( dev-libs/gobject-introspection )
+DESCRIPTION=A daemon to provide haptic feedback on events
+EAPI=8
+HOMEPAGE=https://source.puri.sm/Librem5/feedbackd
+INHERIT=vala meson
+IUSE=gtk-doc +introspection man test +vala
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=LGPL-3
+RDEPEND=dev-libs/glib:2 introspection? ( dev-libs/gobject-introspection ) dev-libs/feedbackd-device-themes
+REQUIRED_USE=vala? ( introspection )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://source.puri.sm/Librem5/feedbackd/-/archive/v0.0.2/feedbackd-v0.0.2.tar.gz
+_eclasses_=vala	160a8a30a6cb9aa601e5441c643a7c61	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_md5_=12602c7a94d01fd3d3a401863792df8e

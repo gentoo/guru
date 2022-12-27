@@ -1,13 +1,13 @@
-BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install unpack
+BDEPEND=virtual/pkgconfig sys-apps/sed >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install prepare test unpack
 DEPEND=dev-libs/libglibutil
 DESCRIPTION=GLib-style interface to binder
 EAPI=8
 HOMEPAGE=https://github.com/mer-hybris/libgbinder
-INHERIT=git-r3
+INHERIT=toolchain-funcs git-r3
 LICENSE=BSD
 PROPERTIES=live
 RDEPEND=dev-libs/libglibutil
 SLOT=0
-_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=6577323682ef1d5fddc5a2967d56f43e
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=be69b316c8f0a814fb07f1fdfd2dd847

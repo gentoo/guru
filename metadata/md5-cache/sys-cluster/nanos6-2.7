@@ -6,7 +6,6 @@ EAPI=8
 HOMEPAGE=https://github.com/bsc-pm/nanos6
 INHERIT=autotools
 IUSE=ctf2prv debug +dependency-delayed-operations dlb execution-workflow extrae mercurium papi pqos test unwind
-KEYWORDS=~amd64
 LICENSE=GPL-3
 RDEPEND=>=dev-libs/boost-1.59:= sys-apps/hwloc sys-process/numactl virtual/libelf ctf2prv? ( dev-util/babeltrace2 ) dlb? ( sys-cluster/dlb ) extrae? ( sys-cluster/extrae[nanos] ) mercurium? ( sys-cluster/mcxx[ompss2] ) papi? ( dev-libs/papi ) pqos? ( sys-apps/intel-cmt-cat ) unwind? ( sys-libs/libunwind )
 REQUIRED_USE=test? ( !mercurium )
@@ -14,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bsc-pm/nanos6/archive/refs/tags/version-2.7.tar.gz -> nanos6-2.7.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
-_md5_=35128941c264ccd6668f9b70bd009392
+_md5_=b2a2348cca1cc259f9c9f3239032893b

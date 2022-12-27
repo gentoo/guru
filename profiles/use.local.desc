@@ -310,6 +310,10 @@ gui-apps/nwg-launchers:bar - Installs nwgbar, a horizontal or vertical button ba
 gui-apps/nwg-launchers:dmenu - Installs nwgdmenu, GTK dynamic menu windows.
 gui-apps/nwg-launchers:grid - Installs nwggrid, a GNOME-like application grid.
 gui-apps/nwg-launchers:layershell - Enable Wayland layer shell support
+gui-apps/rofi-wayland:check - Build and run libcheck-based tests
+gui-apps/rofi-wayland:drun - Desktop file mode
+gui-apps/rofi-wayland:wayland - Build with wayland support
+gui-apps/rofi-wayland:window - Window switcher mode
 gui-apps/swaylock-effects:fish-completion - Enable fish completion support
 gui-apps/swaylock-effects:gdk-pixbuf - Enable additional image format support via the x11-libs/gdk-pixbuf library
 gui-apps/swaylock-effects:man - Build and install man pages
@@ -354,6 +358,16 @@ gui-libs/cubegui:scorep - Enable scorep support
 gui-libs/cubegui:webengine - Enables usage of the QtWebEngine for the HTML Documentation
 gui-libs/power-profiles-daemon:pylint - Run pylint checks
 gui-wm/cage:X - Enable support for X11 applications (XWayland)
+gui-wm/swayfx:X - Enable support for X11 applications (XWayland)
+gui-wm/swayfx:grimshot - Install 'grimshot': script for taking screenshots
+gui-wm/swayfx:swaybar - Install 'swaybar': sway's status bar component
+gui-wm/swayfx:swaybg - Install 'swaybg': allows to set a desktop background image
+gui-wm/swayfx:swayidle - Install 'swayidle': idle manager to run commands when user is inactive
+gui-wm/swayfx:swaylock - Install 'swaylock': sway's screen locker
+gui-wm/swayfx:swaymsg - Install 'swaymsg': tool for communicating with a running sway instance
+gui-wm/swayfx:swaynag - Install 'swaynag': shows a message with buttons
+gui-wm/swayfx:tray - Enable support for StatusNotifierItem tray specification
+gui-wm/swayfx:wallpapers - Install sway's default wallpaper image
 mail-filter/opensmtpd-filter-dkimsign:ed25519 - Enable ED25519 support
 media-fonts/victor-mono:otf - Install the OpenType version of the font
 media-fonts/victor-mono:ttf - Install the TrueType version of the font
@@ -446,6 +460,18 @@ net-client/lagrange:harfbuzz - Use media-libs/harfbuzz to shape text
 net-client/telescope:libbsd - Use dev-libs/libbsd instead of internal funcs
 net-im/Quaternion:keychain - Enable support for password storage via dev-libs/qtkeychain
 net-im/abaddon:libhandy - Support for features using gui-libs/libhandy
+net-im/gajim-plugins:acronyms_expander - Plugin: Replaces acronyms (or other strings) with given expansions/substitutes
+net-im/gajim-plugins:anti_spam - Plugin: Block some incoming messages
+net-im/gajim-plugins:clients_icons - Plugin: Shows the client icons in the roster and in groupchats
+net-im/gajim-plugins:length_notifier - Plugin: Notifies you when message length reaches a limit
+net-im/gajim-plugins:message_box_size - Plugin: Allows you to adjust the height of the new message input field
+net-im/gajim-plugins:now_listen - Plugin: Copy tune info to conversation input box
+net-im/gajim-plugins:omemo - Plugin: OMEMO Multi-End Message and Object Encryption for 1:1 chats, groupchats, and file transfers
+net-im/gajim-plugins:openpgp - Plugin: Encrypt your messages with OpenPGP (XEP-0373)
+net-im/gajim-plugins:pgp - Plugin: Encrypt your messages with PGP (XEP-0027)
+net-im/gajim-plugins:plugins_translations - Plugin: Translation files for Gajim Plugins
+net-im/gajim-plugins:quick_replies - Plugin: Quick replies
+net-im/gajim-plugins:triggers - Plugin: Configure Gajim's behaviour when receiving messages/events
 net-im/jitsi-meet:swiftshader - Use SwiftShader OpenGL graphics
 net-im/jitsi-meet:system-ffmpeg - Use the system ffmpeg library
 net-im/nheko:video - Enables video calls

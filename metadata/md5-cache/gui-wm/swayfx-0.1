@@ -1,0 +1,16 @@
+BDEPEND=>=dev-libs/wayland-protocols-1.24 >=dev-util/meson-0.60.0 virtual/pkgconfig man? ( >=app-text/scdoc-1.9.3 ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst test
+DEPEND=>=dev-libs/json-c-0.13:0= >=dev-libs/libinput-1.6.0:0= sys-auth/seatd:= dev-libs/libpcre >=dev-libs/wayland-1.20.0 x11-libs/cairo x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman media-libs/mesa[gles2,libglvnd(+)] swaybar? ( x11-libs/gdk-pixbuf:2 ) tray? ( || ( sys-apps/systemd sys-auth/elogind sys-libs/basu ) ) wallpapers? ( gui-apps/swaybg[gdk-pixbuf(+)] ) X? ( x11-libs/libxcb:0= ) >=gui-libs/wlroots-0.15:=[X?] <gui-libs/wlroots-0.16:=[X?]
+DESCRIPTION=i3-compatible Wayland window manager
+EAPI=8
+HOMEPAGE=https://swaywm.org
+INHERIT=meson optfeature
+IUSE=grimshot +man +swaybar +swaynag tray wallpapers X
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=x11-misc/xkeyboard-config grimshot? ( app-misc/jq gui-apps/grim gui-apps/slurp gui-apps/wl-clipboard x11-libs/libnotify ) !!gui-wm/sway >=dev-libs/json-c-0.13:0= >=dev-libs/libinput-1.6.0:0= sys-auth/seatd:= dev-libs/libpcre >=dev-libs/wayland-1.20.0 x11-libs/cairo x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman media-libs/mesa[gles2,libglvnd(+)] swaybar? ( x11-libs/gdk-pixbuf:2 ) tray? ( || ( sys-apps/systemd sys-auth/elogind sys-libs/basu ) ) wallpapers? ( gui-apps/swaybg[gdk-pixbuf(+)] ) X? ( x11-libs/libxcb:0= ) >=gui-libs/wlroots-0.15:=[X?] <gui-libs/wlroots-0.16:=[X?]
+REQUIRED_USE=tray? ( swaybar )
+SLOT=0
+SRC_URI=https://github.com/WillPower3309/swayfx/archive/refs/tags/0.1.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	6a75203e8a499f0fb42971452ce15388	meson	1994a5aef5d4f5798b92f64d6f9a6003	optfeature	1a2157392a869265b2afcb63a26c12ac
+_md5_=1c6cb55515390eae1e2fafcee9b02316

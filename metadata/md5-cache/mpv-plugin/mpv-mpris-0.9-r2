@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig test? ( app-misc/jq app-text/jo media-sound/playerctl net-misc/socat sys-apps/dbus x11-apps/xauth x11-misc/xvfb-run x11-themes/sound-theme-freedesktop )
+DEFINED_PHASES=compile install postinst prepare test
+DEPEND=dev-libs/glib:2
+DESCRIPTION=MPRIS plugin for mpv
+EAPI=8
+HOMEPAGE=https://github.com/hoyon/mpv-mpris
+INHERIT=mpv-plugin toolchain-funcs
+IUSE=test +autoload
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=dev-libs/glib:2 media-video/mpv:=[cplugins(+),libmpv]
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/hoyon/mpv-mpris/archive/0.9.tar.gz -> mpv-mpris-0.9.tar.gz
+_eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=32b8043d6a2a8edeb309bfd2437a3e17

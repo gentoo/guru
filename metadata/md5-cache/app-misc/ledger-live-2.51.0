@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DESCRIPTION=Manager for the Ledger hardware wallet
+EAPI=7
+HOMEPAGE=https://www.ledger.com/
+KEYWORDS=~amd64
+LICENSE=all-rights-reserved
+RDEPEND=sys-fs/fuse:0
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://download.live.ledger.com/ledger-live-desktop-2.51.0-linux-x86_64.AppImage
+_md5_=4e4f94d14e82a7029862e8ee2a517584

@@ -1,4 +1,4 @@
-DEFINED_PHASES=compile install
+DEFINED_PHASES=configure install
 DEPEND=dev-qt/qtgui
 DESCRIPTION=Qt5 / C++14 Port of Jdenticon
 EAPI=8
@@ -10,4 +10,4 @@ RDEPEND=dev-qt/qtgui
 SLOT=0
 SRC_URI=https://github.com/Nheko-Reborn/qt-jdenticon/archive/refs/tags/v0.3.0.tar.gz -> qt-jdenticon-0.3.0.tar.gz
 _eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707
-_md5_=78efb827b20ee191d300bed9d3fd48ab
+_md5_=7a6b94a306edeae5d67f25285e0d422b

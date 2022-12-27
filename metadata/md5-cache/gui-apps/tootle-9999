@@ -1,0 +1,13 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl] >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=dev-libs/json-glib >=dev-libs/granite-0.5.2 gui-libs/libhandy:1.0/0 net-libs/libsoup dev-util/meson dev-lang/vala virtual/pkgconfig
+DESCRIPTION=Mastodon client written in GTK3
+EAPI=7
+HOMEPAGE=https://github.com/bleakgrey/tootle
+INHERIT=git-r3 gnome2-utils meson vala xdg-utils
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=dev-libs/json-glib >=dev-libs/granite-0.5.2 gui-libs/libhandy:1.0/0 net-libs/libsoup
+SLOT=0
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	8ed38f92fe095be374d6c4c8d4c0dda7	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	6a75203e8a499f0fb42971452ce15388	meson	1994a5aef5d4f5798b92f64d6f9a6003	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	vala	160a8a30a6cb9aa601e5441c643a7c61
+_md5_=c7c6d044c49e95a85a89664278a887b8
