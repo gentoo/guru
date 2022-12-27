@@ -34,6 +34,9 @@ src_configure() {
 		-DBUILD_ORCANIA_DOCUMENTATION=$(usex doc)
 	)
 
+	# bug 887885
+	sed -i -e "s/-Werror//g" CMakeLists.txt || die
+
 	cmake_src_configure
 }
 
