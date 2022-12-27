@@ -20,7 +20,10 @@ RDEPEND="
 	dev-libs/wayland
 	gui-libs/wlroots:0/16[X(-)?]
 	x11-libs/libxkbcommon
-	X? ( x11-libs/libxcb )
+	X? (
+		x11-libs/libxcb
+		x11-libs/xcb-util-wm
+	)
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -36,7 +39,11 @@ src_prepare() {
 }
 
 src_configure() {
-	use X && append-cppflags -DXWAYLAND
+	if use X; then
+		append-cppflags '-DXWAYLAND'
+		append-libs '-lxcb' '-lxcb-icccm'
+	fi
+
 	tc-export CC
 }
 

@@ -12,7 +12,6 @@ S="${WORKDIR}/${PN}-version-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE="ctf2prv debug +dependency-delayed-operations dlb execution-workflow extrae mercurium papi pqos test unwind"
 #jemalloc require custom jemalloc
 #TODO: cuda

@@ -2,11 +2,11 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<maintainer type="person">
 		<email>gjdijkman@gjdwebserver.nl</email>
 		<name>Gerben Jan Dijkman</name>
 	</maintainer>
-	<upstream>
-		<doc>https://source.puri.sm/Librem5/feedbackd/</doc>
-		<bugs-to>https://source.puri.sm/Librem5/feedbackd/-/issues</bugs-to>
-	</upstream>
 </pkgmetadata>

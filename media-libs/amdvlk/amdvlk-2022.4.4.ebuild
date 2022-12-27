@@ -34,7 +34,7 @@ RDEPEND=" ${DEPEND}
 	>=media-libs/vulkan-loader-1.3.224[${MULTILIB_USEDEP}]
 	dev-util/glslang[${MULTILIB_USEDEP}]"
 
-CHECKREQS_MEMORY="16G"
+CHECKREQS_MEMORY="7G"
 CHECKREQS_DISK_BUILD="4G"
 S="${WORKDIR}"
 CMAKE_USE_DIR="${S}/xgl"
@@ -68,7 +68,18 @@ PATCHES=(
 	"${FILESDIR}/amdvlk-2022.4.2-license-path.patch" #878803
 	"${FILESDIR}/amdvlk-2022.4.2-reduced-llvm-installations.patch"
 	"${FILESDIR}/amdvlk-2022.4.2-reduced-llvm-installations-part2.patch"
+	"${FILESDIR}/amdvlk-2022.4.4-r1-disable-Werror.patch" #887777
 )
+
+pkg_pretend(){
+	ewarn "It's generally recomended to have at least 16GB memory to build"
+	ewarn "However, experiments shows that if you'll use MAKEOPTS=\"-j1\" you can build it with 4GB RAM"
+	ewarn "or you can use MAKEOPTS=\"-j3\" with 7.5GB system memory"
+	ewarn "See https://wiki.gentoo.org/wiki/AMDVLK#Additional_system_requirements_to_build"
+	ewarn "Use CHECKREQS_DONOTHING=1 if you need to bypass memory checking"
+
+	check-reqs_pkg_pretend
+}
 
 src_prepare() {
 	einfo "moving src to proper directories"
@@ -90,11 +101,17 @@ multilib_src_configure() {
 		-DVKI_RAY_TRACING=$(usex raytracing)
 		-DLLVM_VERSION_SUFFIX="-amdvlk"
 		-DLLVM_HOST_TRIPLE="${CHOST}"
+		-DLLVM_ENABLE_WERROR=OFF
+		-DSPVGEN_ENABLE_WERROR=OFF
+		-DENABLE_WERROR=OFF
+		-DVAM_ENABLE_WERROR=OFF
+		-DICD_ANALYSIS_WARNINGS_AS_ERRORS=OFF
+		-DMETROHASH_ENABLE_WERROR=OFF
 		-DBUILD_SHARED_LIBS=OFF #LLVM parts don't support shared libs
 		-DPython3_EXECUTABLE="${PYTHON}"
 		-DPACKAGE_VERSION="${PV}"
 		-DPACKAGE_NAME="${PN}"
-		-DLLVM_INSTALL_TOOLCHAIN_ONLY=On #Disable installation of various LLVM parts which we had to clean up.
+		-DLLVM_INSTALL_TOOLCHAIN_ONLY=ON #Disable installation of various LLVM parts which we had to clean up.
 		-Wno-dev
 		)
 	cmake_src_configure

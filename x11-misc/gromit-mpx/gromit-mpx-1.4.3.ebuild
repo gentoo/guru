@@ -27,6 +27,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.4.3-fwd-declare-app_parse_args.patch
+)
+
 src_prepare () {
 	cmake_src_prepare
 }

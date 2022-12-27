@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <upstream>
+    <doc>https://dev.gajim.org/gajim/gajim-plugins/-/wikis/home</doc>
+  </upstream>
+  <use>
+	<flag name="acronyms_expander">Plugin: Replaces acronyms (or other strings)  with given expansions/substitutes</flag>
+    <flag name="anti_spam">Plugin: Block some incoming messages</flag>
+    <flag name="clients_icons">Plugin: Shows the client icons in the roster and in groupchats</flag>
+    <flag name="length_notifier">Plugin: Notifies you when message length reaches a limit</flag>
+    <flag name="message_box_size">Plugin: Allows you to adjust the height of the new message input field</flag>
+    <flag name="now_listen">Plugin: Copy tune info to conversation input box</flag>
+    <flag name="omemo">Plugin: OMEMO Multi-End Message and Object Encryption for 1:1 chats, groupchats, and file transfers</flag>
+    <flag name="openpgp">Plugin: Encrypt your messages with OpenPGP (XEP-0373)</flag>
+    <flag name="pgp">Plugin: Encrypt your messages with PGP (XEP-0027)</flag>
+    <flag name="plugins_translations">Plugin: Translation files for Gajim Plugins</flag>
+    <flag name="quick_replies">Plugin: Quick replies</flag>
+	<flag name="triggers">Plugin: Configure Gajim's behaviour when receiving messages/events</flag>
+  </use>
+</pkgmetadata>

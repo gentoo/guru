@@ -26,4 +26,5 @@ BDEPEND=""
 PATCHES=(
 	"${FILESDIR}/${PN}-dracut.patch"
 	"${FILESDIR}/${PN}-meson.patch"
+	"${FILESDIR}/${PN}-openssl.patch"
 )

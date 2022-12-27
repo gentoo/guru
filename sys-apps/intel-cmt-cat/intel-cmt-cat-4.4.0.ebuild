@@ -16,7 +16,6 @@ SRC_URI="https://github.com/intel/intel-cmt-cat/archive/refs/tags/v${PV}.tar.gz 
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE="appqos perl"
 
 RDEPEND="

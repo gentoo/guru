@@ -45,7 +45,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-cpp/cpp-httplib
 	dev-cpp/cpp-jwt
-	system-vulkan? ( >=dev-util/vulkan-headers-1.3.216 )
+	system-vulkan? ( >=dev-util/vulkan-headers-1.3.238 )
 "
 BDEPEND="
 	>=dev-cpp/nlohmann_json-3.8.0
@@ -100,7 +100,7 @@ src_prepare() {
 		sed -i -e 's:../../externals/Vulkan-Headers/include:/usr/include/vulkan/:' src/video_core/CMakeLists.txt src/yuzu/CMakeLists.txt src/yuzu_cmd/CMakeLists.txt || die
 	fi
 
-	# Unbundle mbedtls: undefined reference to `mbedtls_cipher_cmac'
+	# Unbundle mbedtls
 	sed -i -e '/mbedtls/d' externals/CMakeLists.txt || die
 	sed -i -e 's/mbedtls/& mbedcrypto mbedx509/' \
 		src/dedicated_room/CMakeLists.txt \

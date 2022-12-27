@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>lucasbarbieri.c@gmail.com</email>
+		<name>Lucas Barbieri Catarina</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://gitlab.gnome.org/World/amberol/-/issues</bugs-to>
+		<doc>https://gitlab.gnome.org/World/amberol/-/blob/main/README.md</doc>
+	</upstream>
+</pkgmetadata>

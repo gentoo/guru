@@ -18,7 +18,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-src_compile() {
+src_configure() {
 	eqmake5
 }
 
