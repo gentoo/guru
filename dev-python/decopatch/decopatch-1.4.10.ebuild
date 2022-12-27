@@ -8,7 +8,6 @@ DISTUTILS_USE_PEP517=setuptools
 
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="dev-python/mkdocs-material"
-DOCS_DIR="docs"
 
 inherit distutils-r1 docs
 
