@@ -12,8 +12,7 @@ else
 	# https://github.com/joncampbell123/dosbox-x/discussions/3862
 	GIT_COMMIT="982c44176e7619ae2a40b5c5d8df31f2911384da"
 	DOC_CONTENTS="
-		DOSBox-X upstream has stopped making releases.  Therefore, this
-		package has installed a copy of DOSBox-X built from an upstream
+		This package has installed a copy of DOSBox-X built from an upstream
 		repository snapshot at the following Git commit:\n
 		\n
 		${GIT_COMMIT}

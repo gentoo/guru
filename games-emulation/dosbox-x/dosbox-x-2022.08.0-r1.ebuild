@@ -1,8 +1,6 @@
 # Copyright 2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Note: This is the last release (non-pre-release) tagged by upstream
-
 EAPI=8
 
 inherit autotools toolchain-funcs xdg
