@@ -14,8 +14,12 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="lto"
 
-PATCHES=( "${FILESDIR}/${PN}-2020.11.08_Remove-TTY-check-in-test.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-2020.11.08_Remove-TTY-check-in-test.patch"
+	"${FILESDIR}/${PN}-2021-03-27-respect-env.patch"
+	)
 
 src_prepare() {
 	sed -i \
@@ -33,4 +37,12 @@ src_prepare() {
 	export AR="$(tc-getAR)"
 
 	default
+}
+
+src_compile() {
+	if use lto; then
+		CONFIG_LTO=$(use lto) emake
+	else
+		emake
+	fi
 }

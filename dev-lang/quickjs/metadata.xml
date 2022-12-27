@@ -6,4 +6,7 @@
 		<name>Denis Reva</name>
 		<description>rarogcmex</description>
 	</maintainer>
+	<use>
+		<flag name="lto">Enable Link Time Optimizations (improves performance and decreases size of executables)</flag>
+	</use>
 </pkgmetadata>
