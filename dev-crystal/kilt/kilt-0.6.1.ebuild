@@ -17,6 +17,9 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="dev-crystal/crikey"
 BDEPEND="
+	doc? (
+		dev-crystal/crustache
+	)
 	test? (
 		dev-crystal/crustache
 		dev-crystal/jbuilder
