@@ -22,7 +22,7 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="+vaapi +zoomfix"
+IUSE="+vaapi +X"
 
 RDEPEND="
 	app-pda/libplist
@@ -33,7 +33,7 @@ RDEPEND="
 	media-plugins/gst-plugins-libav
 	vaapi? ( media-plugins/gst-plugins-vaapi )
 	net-dns/avahi[mdnsresponder-compat]
-	zoomfix? ( x11-libs/libX11 )
+	X? ( x11-libs/libX11 )
 "
 
 DEPEND="
@@ -46,7 +46,7 @@ BDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
-		-DZOOMFIX=$(usex zoomfix ON OFF)
+		-DNO_X11_DEPS=$(usex X OFF ON)
 	)
 
 	cmake_src_configure
