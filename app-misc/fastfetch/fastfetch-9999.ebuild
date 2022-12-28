@@ -7,11 +7,15 @@ inherit cmake
 
 DESCRIPTION="Fast system information tool"
 HOMEPAGE="https://github.com/LinusDierheimer/fastfetch"
-if [[ ${PV} == *9999 ]]; then
+if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/LinusDierheimer/fastfetch.git"
+	[[ ${PV} == *9999 ]] && EGIT_BRANCH=master
+	[[ ${PV} == *d ]] && EGIT_BRANCH=dev
+	[[ "${EGIT_BRANCH}" == "" ]] && die "Please set a git branch"
 else
 	SRC_URI="https://github.com/LinusDierheimer/fastfetch/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="MIT"
