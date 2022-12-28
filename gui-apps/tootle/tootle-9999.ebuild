@@ -9,7 +9,6 @@ HOMEPAGE="https://github.com/bleakgrey/tootle"
 EGIT_REPO_URI="https://gitlab.gnome.org/World/tootle"
 LICENSE="GPL-3"
 
-KEYWORDS=""
 SLOT="0"
 
 RDEPEND="
