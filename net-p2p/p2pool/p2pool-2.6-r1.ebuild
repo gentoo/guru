@@ -71,7 +71,6 @@ src_prepare() {
 
 	# Stop their script from overriding flags:
 	cp "${FILESDIR}"/flags.cmake cmake/flags.cmake || die
-	die
 
 	cmake_src_prepare
 }

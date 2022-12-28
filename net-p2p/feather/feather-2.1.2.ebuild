@@ -98,9 +98,9 @@ src_prepare() {
 	default
 	echo "#define FEATHER_VERSION \"${PV}\"" > "${WORKDIR}"/${PF}/src/config-feather.h || die
 	echo "#define TOR_VERSION \"NOT_EMBEDDED\"" >> "${WORKDIR}"/${PF}/src/config-feather.h || die
-	pushd monero
+	pushd monero || die
 		eapply "${FILESDIR}"/monero_add_some_includes.patch
-	popd
+	popd || die
 	cmake_src_prepare
 }
 
