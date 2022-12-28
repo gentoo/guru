@@ -24,7 +24,4 @@
 		Uses accelerated decoders if availible. VAAPI is preferable.
 		Automatic screen orientation.
 	</longdescription>
-	<use>
-		<flag name="zoomfix">supported mirrored window for screen-sharing applications such as Zoom</flag>
-	</use>
 </pkgmetadata>
