@@ -1,9 +1,0 @@
-#!/usr/bin/openrc-run
-description="Waydroid Container Manager"
-start() {
-  waydroid container start &
-}
-stop() {
-  waydroid container stop 
-  waydroid session stop
-}
