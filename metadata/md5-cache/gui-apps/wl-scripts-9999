@@ -1,0 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install unpack
+DESCRIPTION=A set of utils for wlroots window managers
+EAPI=8
+HOMEPAGE=https://github.com/mazunki/wl-scripts
+INHERIT=git-r3
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=app-alternatives/awk app-misc/jq >=gui-apps/wofi-1.3 gui-apps/slurp gui-wm/sway
+SLOT=0
+_eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
+_md5_=d25de1d4c4fadaca7a860624601badaf

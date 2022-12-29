@@ -69,6 +69,7 @@ dev-embedded/rauc:network - Add network update support
 dev-embedded/rauc:service - Add dbus service
 dev-embedded/yosys:abc - Build with Berkeley ABC support
 dev-java/jogl:cg - Enable NVidia Cg binding.
+dev-lang/quickjs:lto - Enable Link Time Optimizations (improves performance and decreases size of executables)
 dev-libs/KVTree:fcntl - Set the type of file locking to fcntl.
 dev-libs/KVTree:flock - Set the type of file locking to flock.
 dev-libs/atl:utilities - Build utilities
@@ -448,7 +449,6 @@ media-sound/nulloy:skins - Add a few themes, enable if you want dark
 media-video/syncplay:client - Install the Syncplay client
 media-video/syncplay:server - Install the Syncplay server
 media-video/tartube:atomicparsley - Use AtomicParsley for embedding thumbnails in audio files
-media-video/uxplay:zoomfix - supported mirrored window for screen-sharing applications such as Zoom
 media-video/wlrobs:dmabuf - Enable the dmabuf backend
 media-video/wlrobs:scpy - Enable the screen copy backend
 mpv-plugin/mpv-mpris:autoload - Load plugin automatically
