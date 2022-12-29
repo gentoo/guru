@@ -1,4 +1,4 @@
-#Relaismatrix/ Messung Copyright 2020-2022 Gentoo Authors
+# Copyright 2022-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -42,16 +42,24 @@ ERROR_ANDROID_BINDER_IPC="CONFIG_ANDROID_BINDER_IPC: need for creating Android-s
 ERROR_MEMFD_CREATE="CONFIG_MEMFD_CREATE: it completely replaced deprecated ISHMEM drivers,
 	therefore it's vital for android-specific memory management"
 
+src_compile(){
+	:;
+}
+
 src_install() {
 	python_fix_shebang waydroid.py
 	emake install DESTDIR="${D}" USE_NFTABLES=1 USE_SYSTEMD=$(usex systemd 1 0)
+	if ! use systemd; then
+		elog "Installing waydroid OpenRC daemon"
+		doinitd "${FILESDIR}"/waydroid
+	fi
 }
 
 pkg_postinst() {
 	xdg_desktop_database_update
 	xdg_mimeinfo_database_update
 
-	if not use apparmor; then
+	if ! use apparmor; then
 		ewarn "If you use app-containers/lxc without apparmor, make sure you deleted or commented out in waydroid LXC config"
 		ewarn "(generated after waydroid init) in /var/lib/waydroid/lxc/waydroid/config the following string:"
 		ewarn "lxc.apparmor.profile = unconfined"
@@ -62,6 +70,10 @@ pkg_postinst() {
 	fi
 	ewarn "Make sure you have NFTABLES up and running in your kernel. See"
 	ewarn "https://wiki.gentoo.org/wiki/Nftables for how-to details"
+	einfo "After package installation run ether 'emerge --config app-containers/waydroid'"
+	einfo "or 'waydroid init' from root shell to install android container runtime"
+	einfo "To run waydroid, 1. Start container: 'rc-service waydroid start'"
+	einfo "2. start wayland channel (from user shell) 'waydroid session start'"
 	einfo "Contact https://docs.waydro.id/usage/install-on-desktops for how-to guides"
 	einfo "(does not cover Gentoo-specific things sadly)"
 }
@@ -69,4 +81,8 @@ pkg_postinst() {
 pkg_postrm() {
 	xdg_desktop_database_update
 	xdg_mimeinfo_database_update
+}
+
+pkg_config() {
+	"${ROOT}"/usr/bin/waydroid init
 }

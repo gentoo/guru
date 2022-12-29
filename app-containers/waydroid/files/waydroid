@@ -1,0 +1,9 @@
+#!/sbin/openrc-run
+# Copyright 1999-2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+description="Waydroid Container Manager"
+command="/usr/bin/waydroid"
+command_args="container start"
+command_background=true
+pidfile="/run/${RC_SVCNAME}.pid"

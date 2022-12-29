@@ -2,12 +2,12 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>vowstar@gmail.com</email>
-		<name>Huang Rui</name>
-	</maintainer>
-	<maintainer type="person">
 		<email>petrus.zy.07@gmail.com</email>
 		<name>Petrus Zhao</name>
+	</maintainer>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
 	</maintainer>
 	<upstream>
 		<remote-id type="github">FDH2/UxPlay</remote-id>
@@ -24,7 +24,4 @@
 		Uses accelerated decoders if availible. VAAPI is preferable.
 		Automatic screen orientation.
 	</longdescription>
-	<use>
-		<flag name="zoomfix">supported mirrored window for screen-sharing applications such as Zoom</flag>
-	</use>
 </pkgmetadata>

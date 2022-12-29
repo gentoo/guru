@@ -60,6 +60,7 @@ DEPEND="
 	websockets? ( net-libs/libwebsockets[client] )
 	x11-libs/gdk-pixbuf
 	x11-libs/libnotify
+	<=x11-libs/libX11-1.8.2
 "
 RDEPEND="${DEPEND}"
 BDEPEND="

@@ -21,7 +21,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	net-libs/nodejs
-	dev-lang/typescript
+	>=dev-lang/typescript-4.9.4
 "
 BDEPEND="net-libs/nodejs[npm]"
 

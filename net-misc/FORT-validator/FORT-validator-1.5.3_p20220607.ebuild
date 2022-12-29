@@ -39,6 +39,8 @@ src_prepare() {
 	default
 	# Don't strip CFLAGS
 	sed -i 's/fort_CFLAGS  =/fort_CFLAGS  = ${CFLAGS} /' src/Makefile.am || die
+	# Don’t compile debug by default
+	sed -i '/fort_CFLAGS/ s/ -g / /' src/Makefile.am || die
 	# Don't test network
 	sed -i '/http/d' test/Makefile.am || die
 	eautoreconf

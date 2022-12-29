@@ -10,7 +10,7 @@ DISTUTILS_SINGLE_IMPL=1
 inherit distutils-r1 meson gnome2-utils virtualx xdg
 
 MY_PN="${PN^}"
-MY_P="${MY_PN}-${PV}"
+MY_P="${MY_PN}-v${PV}"
 DESCRIPTION="An online/offline manga reader for GNOME"
 HOMEPAGE="https://gitlab.com/valos/Komikku"
 SRC_URI="https://gitlab.com/valos/${MY_PN}/-/archive/v${PV}/${MY_P}.tar.bz2"
@@ -26,7 +26,7 @@ PROPERTIES="test_network"
 
 DEPEND="
 	dev-libs/glib:2
-	dev-libs/gobject-introspection[${PYTHON_SINGLE_USEDEP}]
+	dev-libs/gobject-introspection
 	>=gui-libs/gtk-4.8.2:4
 	>=gui-libs/libadwaita-1.2.0[introspection]
 	net-libs/webkit-gtk:5[introspection]
@@ -55,6 +55,7 @@ RDEPEND="
 	')
 "
 BDEPEND="
+	sys-devel/gettext
 	test? (
 		$(python_gen_cond_dep '
 			dev-python/pytest-steps[${PYTHON_USEDEP}]
@@ -68,7 +69,7 @@ src_prepare() {
 	default
 
 	# fix broken shebang
-	sed "s|py_installation.path()|'${PYTHON}'|" -i bin/meson.build || die
+	sed "s|py_installation.full_path()|'${PYTHON}'|" -i bin/meson.build || die
 }
 
 src_test() {

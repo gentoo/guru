@@ -24,7 +24,10 @@ LICENSE="|| ( WTFPL CC0-1.0 ) AGPL-3 BSD BSD-2 CC0-1.0 GPL-3 MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="acct-user/gotosocial"
+DEPEND="dev-db/sqlite:3"
+RDEPEND="${DEPEND}
+	acct-user/gotosocial
+"
 
 DOCS=( archive {CONTRIBUTING,README,ROADMAP}.md )
 
