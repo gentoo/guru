@@ -7,16 +7,19 @@ inherit cmake
 
 DESCRIPTION="Fast system information tool"
 HOMEPAGE="https://github.com/LinusDierheimer/fastfetch"
-if [[ ${PV} == *9999 ]]; then
+if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/LinusDierheimer/fastfetch.git"
+	[[ ${PV} == *9999 ]] && EGIT_BRANCH=master
+	[[ ${PV} == *d ]] && EGIT_BRANCH=dev
+	[[ "${EGIT_BRANCH}" == "" ]] && die "Please set a git branch"
 else
 	SRC_URI="https://github.com/LinusDierheimer/fastfetch/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE="X chafa dbus gnome imagemagick opencl opengl osmesa pci sqlite vulkan wayland xcb xfce xrandr"
 
 # note - qa-vdb will always report errors because fastfetch loads the libs dynamically
@@ -79,6 +82,7 @@ src_configure() {
 		-DENABLE_OSMESA=$(usex osmesa)
 		-DENABLE_OPENCL=$(usex opencl)
 		-DENABLE_DBUS=$(usex dbus)
+		-DENABLE_LIBCJSON=no
 	)
 
 	cmake_src_configure
