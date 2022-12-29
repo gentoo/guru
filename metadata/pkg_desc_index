@@ -1528,7 +1528,7 @@ net-news/comitium 1.8.1: feed aggregator for gemini supporting many formats and 
 net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny Tiny RSS or feedly
 net-nntp/inn 2.6.4-r1 2.6.5: InterNetNews -- the Internet meets Netnews
 net-p2p/bisq-bin 1.9.8: The decentralized bitcoin exchange (non-atomic, with arbitration)
-net-p2p/feather 2.1.0 2.1.2 9999: A free, open-source Monero wallet
+net-p2p/feather 2.1.2 9999: A free, open-source Monero wallet
 net-p2p/ipfs-cluster 1.0.1 1.0.2: Pinset orchestration for IPFS
 net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 0.18.1.0 0.18.1.1 0.18.1.2 9999: The secure, private, untraceable cryptocurrency
