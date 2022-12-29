@@ -44,7 +44,7 @@ ERROR_MEMFD_CREATE="CONFIG_MEMFD_CREATE: it completely replaced deprecated ISHME
 
 
 src_compile(){
-	einfo "Nothing to compile"
+	:;
 }
 
 src_install() {
