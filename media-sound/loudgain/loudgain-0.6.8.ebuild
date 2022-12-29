@@ -26,6 +26,7 @@ DEPEND="${COMMON_DEPEND}"
 src_prepare() {
 	sed -e 's/^SET(CMAKE_C_FLAGS "/SET(CMAKE_C_FLAGS "${CMAKE_C_CFLAGS} /' \
 		-e 's/^SET(CMAKE_CXX_FLAGS "/SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /' \
+		-e 's/^\(\s*COMPILE_FLAGS.*\) -g\([\s"]\)$/\1\2/' \
 		-i CMakeLists.txt || die "cannot patch CMakeLists.txt"
 	cat CMakeLists.txt
 
