@@ -145,7 +145,7 @@ app-metrics/scaphandre 0.4.1: Electrical power consumption measurement agent.
 app-misc/afc 1.1 1.2 9999: Anime File Checker, checks CRC32 contained in filenames
 app-misc/afetch 2.2.0: Simple system info written in C
 app-misc/ani-cli 1.9: A cli to browse and watch anime.
-app-misc/anki-bin 2.1.49 2.1.54 2.1.54-r1: A spaced-repetition memory training program (flash cards)
+app-misc/anki-bin 2.1.54-r1 2.1.55: A spaced-repetition memory training program (flash cards)
 app-misc/apidb 5.8.0_beta 5.11.0_beta 5.13.1_beta 5.13.4_beta 5.13.6_beta: API Generator for Database access
 app-misc/aw-client 0.11.0: Client library for ActivityWatch
 app-misc/aw-core 0.11.0: Core library for ActivityWatch
@@ -159,7 +159,7 @@ app-misc/doublecmd-bin 1.0.8 1.0.9: Free cross platform open source file manager
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/electricsheep 3.0.2_p20191005 9999: Realize the collective dream of sleeping computers from all over the internet
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
-app-misc/fastfetch 1.7.5 1.8.0 9999 9999d: Fast system information tool
+app-misc/fastfetch 1.8.0-r1 9999 9999d: Fast system information tool
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
