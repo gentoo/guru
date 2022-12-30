@@ -241,6 +241,7 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	gui-libs/libadwaita:1
+	gui-libs/gtk:4[wayland]
 	dev-libs/libportal:=[gtk]
 	media-libs/gstreamer:1.0
 	media-libs/gst-plugins-base:1.0
