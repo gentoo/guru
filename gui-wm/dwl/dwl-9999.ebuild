@@ -22,6 +22,7 @@ if [[ ${PV} == *9999 ]]; then
 			;;
 	esac
 else
+	WLROOTS_SLOT="0/16"
 	SRC_URI="https://github.com/djpohly/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
