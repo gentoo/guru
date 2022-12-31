@@ -3,29 +3,31 @@
 
 EAPI=8
 
-inherit ninja-utils git-r3
+inherit ninja-utils
 
 DESCRIPTION="Lua language server"
 HOMEPAGE="https://github.com/sumneko/lua-language-server"
-SRC_URI="https://github.com/sumneko/lua-language-server/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/sumneko/lua-language-server/releases/download/${PV}/${P}-submodules.zip -> ${P}.zip"
+S="${WORKDIR}"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="test"
 BDPEND="
-	"${NINJA_DEPEND}"
+	${NINJA_DEPEND}
+	app-arch/unzip
 	dev-util/ninja
 	sys-devel/gcc
 "
-
-EGIT_REPO_URI="https://github.com/sumneko/lua-language-server"
+RESTRICT="!test? ( test )"
 
 src_compile() {
-	(cd 3rd/luamake && ./compile/install.sh) || die
-	./3rd/luamake/luamake make || die
+	eninja -C 3rd/luamake -f compile/ninja/linux.ninja $(usex test '' 'luamake')
+	./3rd/luamake/luamake $(usex test '' 'all') || die
 }
 
 src_install() {
-	dobin bin/{main.lua,lua-language-server}
+	dobin ./bin/{main.lua,lua-language-server}
 	dodoc changelog.md README.md
 }
