@@ -23,8 +23,8 @@ BDPEND="
 RESTRICT="!test? ( test )"
 
 src_compile() {
-	eninja -C 3rd/luamake -f compile/ninja/linux.ninja $(usex test '' 'luamake')
-	./3rd/luamake/luamake $(usex test '' 'all') || die
+	eninja -C 3rd/luamake -f compile/ninja/linux.ninja "$(usex test '' 'luamake')"
+	./3rd/luamake/luamake "$(usex test '' 'all')" || die
 }
 
 src_install() {
