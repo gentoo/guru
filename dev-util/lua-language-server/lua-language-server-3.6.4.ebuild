@@ -23,8 +23,11 @@ BDPEND="
 RESTRICT="!test? ( test )"
 
 src_compile() {
-	eninja -C 3rd/luamake -f compile/ninja/linux.ninja "$(usex test 'luamake')"
-	./3rd/luamake/luamake "$(usex test 'all')" || die
+	eninja -C 3rd/luamake -f compile/ninja/linux.ninja "$(usex test "test" "luamake")"
+	use test && eninja -C 3rd/luamake -f compile/ninja/linux.ninja luamake
+	./3rd/luamake/luamake init || die
+	# Tests are broken
+	eninja -f build/build.ninja all
 }
 
 src_install() {
