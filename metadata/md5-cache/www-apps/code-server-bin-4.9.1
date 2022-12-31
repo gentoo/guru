@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install postinst prepare
+DESCRIPTION=VS Code in the browser (binary version with unbundled node and ripgrep)
+EAPI=8
+HOMEPAGE=https://coder.com/
+INHERIT=systemd
+IUSE=gnome-keyring
+KEYWORDS=~amd64 ~arm64
+LICENSE=MIT 0BSD ISC PYTHON BSD-2 BSD Apache-2.0 Unlicense LGPL-2.1+ || ( BSD-2 MIT Apache-2.0 ) || ( MIT WTFPL ) || ( BSD GPL-2 )
+RDEPEND=>=net-libs/nodejs-16.0.0[ssl] sys-apps/ripgrep gnome-keyring? ( app-crypt/libsecret )
+RESTRICT=test
+SLOT=0
+SRC_URI=amd64? ( https://github.com/coder/code-server/releases/download/v4.9.1/code-server-4.9.1-linux-amd64.tar.gz ) arm64? ( https://github.com/coder/code-server/releases/download/v4.9.1/code-server-4.9.1-linux-arm64.tar.gz )
+_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=c3201881030bade62ece284c0c6c363c
