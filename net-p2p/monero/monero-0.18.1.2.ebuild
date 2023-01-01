@@ -13,7 +13,8 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/monero-project/monero.git"
 	EGIT_SUBMODULES=()
 else
-	SRC_URI="https://github.com/monero-project/monero/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/monero-project/monero/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	https://patch-diff.githubusercontent.com/raw/monero-project/monero/pull/8682.patch -> ${PN}-8682.patch"
 	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
@@ -42,6 +43,7 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.18.1.2-unbundle-dependencies.patch"
+	"${DISTDIR}/${PN}-8682.patch"
 )
 
 src_configure() {
