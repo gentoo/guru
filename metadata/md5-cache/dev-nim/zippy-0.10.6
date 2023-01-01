@@ -1,13 +1,12 @@
 BDEPEND=>=dev-util/ninja-1.8.2 dev-lang/nim[experimental(-)] >=dev-nim/nimbus-1.0.0
 DEFINED_PHASES=compile configure install test
-DEPEND==dev-nim/grok-0* =dev-nim/ups-0*
-DESCRIPTION=A unittest macro to save the world, or at least your Sunday
+DESCRIPTION=Pure Nim implementation of deflate, zlib, gzip and zip
 EAPI=8
-HOMEPAGE=https://github.com/disruptek/balls
-INHERIT=edo nimble
+HOMEPAGE=https://github.com/guzba/zippy https://nimble.directory/pkg/zippy
+INHERIT=nimble
 KEYWORDS=~amd64
 LICENSE=MIT
-SLOT=0
-SRC_URI=https://github.com/disruptek/balls/archive/refs/tags/3.9.5.tar.gz -> balls-3.9.5.tar.gz
+SLOT=0.10.6
+SRC_URI=https://github.com/guzba/zippy/archive/refs/tags/0.10.6.tar.gz -> zippy-0.10.6.tar.gz
 _eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	ac0e315a3688929e34ac75b139e7349a	nim-utils	341acf401389fe3bba15299758b74248	ninja-utils	38c85b725d0467e51954ea921b6c104b	nimble	dd6f01540df75eab2cc6b9de796953fd
-_md5_=11037a9aa3ce1cbbb7bb0173c4e8d942
+_md5_=b2d17073bf2af027a3e2911782a361e6
