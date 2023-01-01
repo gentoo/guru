@@ -259,6 +259,11 @@ src_unpack() {
 src_configure () {
 	# upstream redefines CARGO_HOME, pointing to eclass defined
 	ln -s "${WORKDIR}"/cargo_home "${S}"/cargo-home || die
+
+	# upstream installs to /usr/share/appdata, fixing that
+	sed -i 's/appdata/metainfo/g' "${S}"/data/meson.build
+	mv "${S}"/data/io.bassi.Amberol.appdata.xml.in.in "${S}"/data/io.bassi.Amberol.metainfo.xml.in.in
+
 	meson_src_configure
 }
 
