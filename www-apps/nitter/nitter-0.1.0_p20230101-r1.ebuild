@@ -18,11 +18,16 @@ KEYWORDS="~amd64"
 RESTRICT="test"
 PROPERTIES="test_network"
 
+COMMON_DEPEND="
+	dev-libs/libpcre:3
+"
 RDEPEND="
+	${COMMON_DEPEND}
 	acct-user/nitter
 	dev-db/redis
 "
 DEPEND="
+	${COMMON_DEPEND}
 	dev-nim/flatty
 	dev-nim/jester
 	dev-nim/jsony
