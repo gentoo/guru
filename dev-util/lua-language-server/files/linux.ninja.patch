@@ -1,5 +1,5 @@
---- a/3rd/luamake/compile/ninja/linux.ninja	2022-11-29 13:53:05.000000000 +0100
-+++ b/3rd/luamake/compile/ninja/linux.ninja	2023-01-01 22:40:43.690777107 +0100
+--- a/3rd/luamake/compile/ninja/linux.ninja
++++ b/3rd/luamake/compile/ninja/linux.ninja
 @@ -2,20 +2,20 @@
  builddir = build/linux
  bin = $builddir/bin

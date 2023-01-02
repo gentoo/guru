@@ -1,5 +1,5 @@
---- a/build/build.ninja	2023-01-01 23:53:30.813718024 +0100
-+++ b/build/build.ninja	2023-01-01 23:04:59.011627739 +0100
+--- a/build/build.ninja
++++ b/build/build.ninja
 @@ -2,7 +2,7 @@
  builddir = build
  bin = bin
@@ -109,7 +109,7 @@
 +  command = $cc -MMD -MT $out -MF $out.d -std=c++17 $
 +    -I3rd/EmmyLuaCodeStyle/include $
      -I3rd/bee.lua/3rd/lua -I3rd/EmmyLuaCodeStyle/3rd/wildcards/include $
--    -DNDEBUG -march=native -O2 -pipe -o $out -c $in
+-    -DNDEBUG -Wall -Werror -o $out -c $in
 +    -DNDEBUG -o $out -c $in CXXFLAGS
    description = Compile C++ $out
    deps = gcc

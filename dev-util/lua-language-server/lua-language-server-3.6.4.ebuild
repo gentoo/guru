@@ -28,8 +28,6 @@ src_prepare() {
 		make.lua || die
 	sed -i "s/CC = gcc/ CC = ${tc-getCC}/" \
 		3rd/lpeglabel/makefile || die
-	sed -i "s/flags = \"-Wall -Werror\"/flags =\"${CXXFLAGS}\"/" \
-		make/code_format.lua || die
 	# Patch
 	default
 	# Shipped file doesn't respect CFLAGS/CXXFLAGS
