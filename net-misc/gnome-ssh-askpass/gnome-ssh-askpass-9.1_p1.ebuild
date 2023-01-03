@@ -22,10 +22,11 @@ REQUIRED_USE="|| ( gtk2 gtk3 )"
 
 RESTRICT="test"
 
-DEPEND="
+RDEPEND="
 	gtk2? ( x11-libs/gtk+:2 )
 	gtk3? ( x11-libs/gtk+:3 )
 "
+DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 	verify-sig? ( sec-keys/openpgp-keys-openssh )
@@ -43,22 +44,24 @@ src_configure() {
 }
 
 src_compile() {
-	pushd contrib
+	pushd contrib || die
 
 	use gtk2 && emake gnome-ssh-askpass2
 	use gtk3 && emake gnome-ssh-askpass3
 
-	popd
+	popd || die
 }
 
 src_install() {
-	use gtk2 && ( dobin contrib/gnome-ssh-askpass2; \
-		echo "export SSH_ASKPASS='${EPREFIX}/usr/bin/gnome-ssh-askpass2'" > "${T}/99gnome_ssh_askpass" \
-		|| die "envd file creation failed" )
+	if use gtk2; then
+		dobin contrib/gnome-ssh-askpass2;
+	fi
 
-	use gtk3 && ( dobin contrib/gnome-ssh-askpass3; \
-		echo "export SSH_ASKPASS='${EPREFIX}/usr/bin/gnome-ssh-askpass3'" > "${T}/99gnome_ssh_askpass" \
-		|| die "envd file creation failed" )
+	if use gtk3; then
+		dobin contrib/gnome-ssh-askpass3;
+	fi
 
-	doenvd "${T}"/99gnome_ssh_askpass
+	newenvd - 99gnome_ssh_askpass <<-EOF
+	export SSH_ASKPASS='${EPREFIX}/usr/bin/gnome-ssh-askpass$(usex gtk3 3 2)'
+	EOF
 }
