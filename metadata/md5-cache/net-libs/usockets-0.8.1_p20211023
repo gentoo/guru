@@ -12,5 +12,5 @@ REQUIRED_USE=?? ( asio libuv ) test? ( ssl )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/uNetworking/uSockets/archive/c2c1bbfa1644f1f6eb7fc9375650f41c5f9b7b06.tar.gz -> usockets-0.8.1_p20211023.tar.gz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157
 _md5_=4ce35caeaa456a2d02e46c4fa4ab6a20

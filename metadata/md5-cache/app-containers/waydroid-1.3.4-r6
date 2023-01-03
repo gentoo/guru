@@ -11,5 +11,5 @@ RDEPEND=systemd? ( sys-apps/systemd ) app-containers/lxc[systemd?,apparmor?,secc
 REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/waydroid/waydroid/archive/1.3.4.tar.gz -> waydroid-1.3.4.tar.gz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	7e4d48a3c6c8ebdaa9f7f9e7d2991e22	xdg-utils	ac0e315a3688929e34ac75b139e7349a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	1d1b325c00c1d24c564a1b49327ec3c5	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	7e4d48a3c6c8ebdaa9f7f9e7d2991e22	xdg-utils	ac0e315a3688929e34ac75b139e7349a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	1d1b325c00c1d24c564a1b49327ec3c5	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=35c37a40b4ccc001d827a00ca55172bc

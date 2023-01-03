@@ -12,5 +12,5 @@ RDEPEND=asio? ( dev-cpp/asio[ssl(+)?] ) libuv? ( dev-libs/libuv ) ssl? ( >=dev-l
 REQUIRED_USE=?? ( asio libuv ) test? ( ssl )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	git-r3	2347f8fe2d392b2a091191f94be37e6f
 _md5_=4ce35caeaa456a2d02e46c4fa4ab6a20

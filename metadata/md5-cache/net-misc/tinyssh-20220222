@@ -11,5 +11,5 @@ LICENSE=public-domain
 RDEPEND=sodium? ( dev-libs/libsodium ) sys-apps/ucspi-tcp
 SLOT=0
 SRC_URI=https://github.com/janmojzis/tinyssh/archive/20220222.tar.gz -> tinyssh-20220222.tar.gz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=2712dc4192ccc850cf26975a1a02163e

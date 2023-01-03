@@ -13,5 +13,5 @@ REQUIRED_USE=test? ( pcre )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/SCM-NV/ftl/archive/69fa39bbf9441d1686e65b7e19b1606f8cab4b9f.tar.gz -> ftl-1.0_p20220209.tar.gz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	fortran-2	72d28c6872beb1e7cb99684b0ae4715d
 _md5_=ce375ba4bca1235007b013ed2827ab11

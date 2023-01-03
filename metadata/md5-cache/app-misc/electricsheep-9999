@@ -10,5 +10,5 @@ LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=dev-lang/lua:5.1 dev-libs/boost dev-libs/expat dev-libs/tinyxml gnome-base/libgtop media-gfx/flam3 media-libs/freeglut media-libs/glee media-libs/libpng:* media-video/ffmpeg:0 net-misc/curl sys-libs/zlib x11-libs/libX11 x11-libs/libXrender x11-libs/wxGTK:3.0-gtk3 virtual/opengl
 SLOT=0
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	flag-o-matic	69394e25812406faa1f90edaf4969395	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6	desktop	7eb20ad915a0a318176d51bc2508ff5c	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	flag-o-matic	69394e25812406faa1f90edaf4969395	wxwidgets	c09e9b94378cadaf6ef86ec1534c0fd6	desktop	7eb20ad915a0a318176d51bc2508ff5c	git-r3	2347f8fe2d392b2a091191f94be37e6f
 _md5_=b6f0e18bd9fa79fe4c34ecffc34bcda8

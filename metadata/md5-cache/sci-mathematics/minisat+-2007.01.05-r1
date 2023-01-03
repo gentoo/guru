@@ -11,5 +11,5 @@ LICENSE=MIT
 RDEPEND=bignum? ( dev-libs/gmp:= ) sys-libs/zlib:=
 SLOT=0
 SRC_URI=https://github.com/niklasso/minisat-webpage/raw/e9dcbabbf5399d16ed4b09250307d1165a341160/downloads/minisat+_2007-Jan-05.zip doc? ( https://github.com/niklasso/minisat-webpage/raw/e9dcbabbf5399d16ed4b09250307d1165a341160/downloads/MiniSat+.pdf )
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157
 _md5_=0153bacc67fea19361d2cfe0fbac3a30

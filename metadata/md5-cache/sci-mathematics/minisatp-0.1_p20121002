@@ -10,5 +10,5 @@ LICENSE=MIT
 RDEPEND=dev-libs/gmp sci-mathematics/minisat sys-libs/zlib
 SLOT=0
 SRC_URI=https://github.com/niklasso/minisatp/archive/d91742bcd18bf9dc9b5e94f48a4aa59d3c954fd2.tar.gz -> minisatp-0.1_p20121002.tar.gz
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	646b7a2a63596361551a6c1fabf28057
 _md5_=105758928aca0c1581f42263af5e1b05

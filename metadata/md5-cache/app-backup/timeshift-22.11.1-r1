@@ -12,5 +12,5 @@ LICENSE=LGPL-3
 RDEPEND=dev-libs/atk dev-libs/glib:2 dev-libs/json-glib >=dev-libs/libgee-0.18.0:= net-libs/libsoup:2.4 media-libs/harfbuzz:= x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/libX11 x11-libs/pango >=x11-libs/xapp-1.0.4 x11-libs/vte:2.91[vala] net-misc/rsync virtual/cron
 SLOT=0
 SRC_URI=https://github.com/linuxmint/timeshift/archive/22.11.1.tar.gz -> timeshift-22.11.1-r1.tar.gz
-_eclasses_=optfeature	1a2157392a869265b2afcb63a26c12ac	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	vala	2633382950a3a9ce912c9258150d5db8	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=optfeature	1a2157392a869265b2afcb63a26c12ac	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	vala	2633382950a3a9ce912c9258150d5db8	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
 _md5_=f79698a3f02266af668f342ce3fd4378

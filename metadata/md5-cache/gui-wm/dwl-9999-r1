@@ -10,5 +10,5 @@ LICENSE=CC0-1.0 GPL-3 MIT
 PROPERTIES=live
 RDEPEND=dev-libs/libinput:= dev-libs/wayland gui-libs/wlroots:0/9999[X(-)?] x11-libs/libxkbcommon X? ( x11-libs/libxcb:= x11-libs/xcb-util-wm )
 SLOT=0
-_eclasses_=toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	portability	58227860123d3e8da23290064ce3373e	savedconfig	4011d8d7370446e970e2c92b20a31341	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	portability	58227860123d3e8da23290064ce3373e	savedconfig	4011d8d7370446e970e2c92b20a31341	git-r3	2347f8fe2d392b2a091191f94be37e6f
 _md5_=80b05b5ecf72ea80e514cca5522b940f
