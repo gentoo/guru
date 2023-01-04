@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-openssh ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-16 )
+DEFINED_PHASES=compile configure install unpack
+DEPEND=gtk2? ( x11-libs/gtk+:2 ) gtk3? ( x11-libs/gtk+:3 )
+DESCRIPTION=GTK-based passphrase dialog for use with OpenSSH
+EAPI=7
+HOMEPAGE=https://www.openssh.com/
+INHERIT=toolchain-funcs verify-sig
+IUSE=gtk2 +gtk3 verify-sig verify-sig
+LICENSE=BSD GPL-2
+RDEPEND=gtk2? ( x11-libs/gtk+:2 ) gtk3? ( x11-libs/gtk+:3 )
+REQUIRED_USE=|| ( gtk2 gtk3 )
+RESTRICT=test
+SLOT=0
+SRC_URI=mirror://openbsd/OpenSSH/portable/openssh-9.1p1.tar.gz verify-sig? ( mirror://openbsd/OpenSSH/portable/openssh-9.1p1.tar.gz.asc )
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	verify-sig	afb98fe4696292e4234ce36713fd4e9e
+_md5_=899f98382df24c2ca9597610413a0631

@@ -1,13 +1,13 @@
-DEFINED_PHASES=compile install
+DEFINED_PHASES=compile install prepare
 DESCRIPTION=Lua language server
 EAPI=8
 HOMEPAGE=https://github.com/sumneko/lua-language-server
-INHERIT=ninja-utils
+INHERIT=ninja-utils toolchain-funcs
 IUSE=test
 KEYWORDS=~amd64
 LICENSE=MIT
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/sumneko/lua-language-server/releases/download/3.6.4/lua-language-server-3.6.4-submodules.zip -> lua-language-server-3.6.4.zip
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b
-_md5_=b2318c4c7313ebc3bc8a619197adfab9
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=6c6ce2f55277c289ea2b0509fadec7dc
