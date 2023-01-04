@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>egger.m@protonmail.com</email>
-		<name>Michael Egger</name>
-	</maintainer>
-	<longdescription lang="en">
-		A simple script to identify files not tracked by Portage package manager.
-			Notes:
-		Symlinks are not reported as lost as long as the link target exists and is tracked.
-		Some common paths are not reported (e.g.: /etc/group, /etc/machine-id, ...). The full whitelist is defined by WHITELIST in lostfiles.py.
-			Usage
-		git clone https://github.com/gcarq/portage-lostfiles.git
-		cd portage-lostfiles
-		$ ./lostfiles.py
-	</longdescription>
-	<upstream>
-		<bugs-to>https://github.com/gcarq/portage-lostfiles/issues</bugs-to>
-		<doc>https://github.com/gcarq/portage-lostfiles/blob/master/README.md</doc>
-	</upstream>
+        <maintainer type="person">
+                <email>egger.m@protonmail.com</email>
+                <name>Michael Egger</name>
+        </maintainer>
+        <longdescription lang="en">
+                A simple script to identify files not tracked by Portage package manager.
+                        Notes
+                Symlinks are not reported as lost as long as the link target exists and is tracked,
+                this is the same behavior as implemented in `equery b path`.
+                Some common paths are not reported (e.g.: `/etc/group`, `/etc/machine-id`, ...),
+                those are defined in `IGNORED_PATHS` and `PKG_PATHS` in `lostfiles.py`.
+                        Usage
+                git clone https://github.com/gcarq/portage-lostfiles.git
+                cd portage-lostfiles
+                $ ./lostfiles.py
+        </longdescription>
+        <upstream>
+               <remote-id type="github">gcarq/portage-lostfiles</remote-id>
+        </upstream>
 </pkgmetadata>

@@ -2,8 +2,11 @@
 
 If you find an interesting piece of software here, consider to package it, also you are free to add any package you want to see in GURU
 
-    Name     |  Buildsystem  |    Category   |     User      |    Need help  | Dependency
+   Name      |  Buildsystem  |    Category   |     User      |    Need help  | Dependency
 ------------ | ------------- | ------------- | ------------- | ------------- | -------------
+[Whoogle](https://github.com/benbusby/whoogle-search/) | setuptools | www | Anna | ✔ | ✖
+[SearXNG](https://docs.searxng.org/) | setuptools | www | Anna | ✔ | ✖
+[Takahe](https://jointakahe.org/) | no (django) | www | Anna | ✔ | ✖
 [couchbase](https://pypi.org/project/couchbase/) | poetry | devel | Anna | ✔ | ✔
 [pyArango](https://pypi.org/project/pyArango/) | setuptools | devel | Anna | ✔ | ✔
 [pycouchdb](https://pypi.org/project/pycouchdb/) | poetry | devel | Anna | ✔ | ✔

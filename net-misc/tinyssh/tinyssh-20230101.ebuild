@@ -7,7 +7,7 @@ inherit systemd toolchain-funcs
 
 DESCRIPTION="A small SSH server with state-of-the-art cryptography"
 HOMEPAGE="https://tinyssh.org"
-if [[ "${PV}" == "9999" ]]; then
+if [[ "${PV}" == "99999999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/janmojzis/tinyssh.git"
 else
@@ -15,7 +15,7 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-LICENSE="public-domain"
+LICENSE="CC0-1.0"
 SLOT="0"
 
 IUSE="+sodium"

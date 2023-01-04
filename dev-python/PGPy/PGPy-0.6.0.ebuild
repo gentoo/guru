@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,3 +22,5 @@ DEPEND="${RDEPEND}
 	dev-python/pyasn1[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
 "
+
+distutils_enable_tests pytest
