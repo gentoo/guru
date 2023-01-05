@@ -72,7 +72,7 @@ src_install() {
 				Game \
 				"Keywords=assaultcube;game;fps;\nMimeType=x-scheme-handler/assaultcube"
 
-	dosym "${EPREFIX}/usr/share/assaultcube/assaultcube.sh" usr/bin/assaultcube
+	dosym -r "${EPREFIX}/usr/share/assaultcube/assaultcube.sh" "${EPREFIX}/usr/bin/assaultcube"
 }
 
 pkg_postinst() {
