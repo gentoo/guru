@@ -1,44 +1,42 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-# NOTE: Generate new list with `cargo-ebuild ebuild` on every bump.
 CRATES="
-	aho-corasick-0.7.13
+	aho-corasick-0.7.18
 	ansi-parser-0.6.5
-	arrayref-0.3.6
-	arrayvec-0.5.1
 	atk-0.8.0
 	atk-sys-0.9.1
-	autocfg-1.0.0
-	base64-0.11.0
-	bitflags-1.2.1
-	blake2b_simd-0.5.10
+	autocfg-0.1.8
+	autocfg-1.1.0
+	bitflags-1.3.2
 	cairo-rs-0.8.1
 	cairo-sys-rs-0.9.2
-	cc-1.0.55
+	cc-1.0.73
 	cfg-if-0.1.10
-	constant_time_eq-0.1.5
+	cfg-if-1.0.0
+	cloudabi-0.0.3
 	core-foundation-0.7.0
 	core-foundation-sys-0.7.0
-	crossbeam-utils-0.7.2
-	dirs-2.0.2
-	dirs-sys-0.3.5
+	dirs-3.0.2
+	dirs-sys-0.3.7
 	foreign-types-0.3.2
 	foreign-types-shared-0.1.1
-	futures-channel-0.3.5
-	futures-core-0.3.5
-	futures-executor-0.3.5
-	futures-io-0.3.5
-	futures-macro-0.3.5
-	futures-task-0.3.5
-	futures-util-0.3.5
+	form_urlencoded-1.0.1
+	fuchsia-cprng-0.1.1
+	futures-channel-0.3.21
+	futures-core-0.3.21
+	futures-executor-0.3.21
+	futures-io-0.3.21
+	futures-macro-0.3.21
+	futures-task-0.3.21
+	futures-util-0.3.21
 	gdk-0.12.1
 	gdk-pixbuf-0.8.0
 	gdk-pixbuf-sys-0.9.1
 	gdk-sys-0.9.1
-	getrandom-0.1.14
+	getrandom-0.2.6
 	gio-0.8.1
 	gio-sys-0.9.1
 	glib-0.9.3
@@ -46,62 +44,71 @@ CRATES="
 	gobject-sys-0.9.1
 	gtk-0.8.1
 	gtk-sys-0.9.2
-	idna-0.2.0
+	idna-0.2.3
 	lazy_static-1.4.0
-	libc-0.2.71
-	linkify-0.4.0
-	log-0.4.8
-	matches-0.1.8
-	memchr-2.3.3
+	libc-0.2.125
+	linkify-0.7.0
+	log-0.4.17
+	matches-0.1.9
+	memchr-2.5.0
 	native-tls-0.2.4
 	nom-4.2.3
-	once_cell-1.4.0
-	open-1.4.0
-	openssl-0.10.30
-	openssl-probe-0.1.2
-	openssl-sys-0.9.58
+	once_cell-1.10.0
+	open-2.0.3
+	openssl-0.10.40
+	openssl-macros-0.1.0
+	openssl-probe-0.1.5
+	openssl-sys-0.9.73
 	pango-0.8.0
 	pango-sys-0.9.1
+	pathdiff-0.2.1
 	percent-encoding-2.1.0
-	pin-project-0.4.22
-	pin-project-internal-0.4.22
+	pin-project-lite-0.2.9
 	pin-utils-0.1.0
-	pkg-config-0.3.17
-	ppv-lite86-0.2.8
-	proc-macro-hack-0.5.16
-	proc-macro-nested-0.1.6
-	proc-macro2-1.0.18
-	quote-1.0.7
-	rand-0.7.3
-	rand_chacha-0.2.2
-	rand_core-0.5.1
-	rand_hc-0.2.0
-	redox_syscall-0.1.56
-	redox_users-0.3.4
-	regex-1.3.9
-	regex-syntax-0.6.18
+	pkg-config-0.3.25
+	proc-macro2-1.0.38
+	quote-1.0.18
+	rand-0.6.5
+	rand_chacha-0.1.1
+	rand_core-0.3.1
+	rand_core-0.4.2
+	rand_hc-0.1.0
+	rand_isaac-0.1.1
+	rand_jitter-0.1.4
+	rand_os-0.1.3
+	rand_pcg-0.1.2
+	rand_xorshift-0.1.1
+	rdrand-0.4.0
+	redox_syscall-0.1.57
+	redox_syscall-0.2.13
+	redox_users-0.4.3
+	regex-1.5.5
+	regex-syntax-0.6.25
 	remove_dir_all-0.5.3
-	rust-argon2-0.7.0
 	schannel-0.1.19
 	security-framework-0.4.4
 	security-framework-sys-0.4.3
-	serde-1.0.114
-	serde_derive-1.0.114
-	slab-0.4.2
-	syn-1.0.33
-	tempfile-3.1.0
-	textwrap-0.11.0
-	thread_local-1.0.1
-	tinyvec-0.3.3
-	toml-0.5.6
-	unicode-bidi-0.3.4
-	unicode-normalization-0.1.13
-	unicode-width-0.1.7
-	unicode-xid-0.2.1
-	url-2.1.1
-	vcpkg-0.2.10
+	serde-1.0.137
+	serde_derive-1.0.137
+	slab-0.4.6
+	smawk-0.3.1
+	syn-1.0.94
+	tempfile-3.0.8
+	textwrap-0.14.2
+	thiserror-1.0.31
+	thiserror-impl-1.0.31
+	tinyvec-1.6.0
+	tinyvec_macros-0.1.0
+	toml-0.5.9
+	unicode-bidi-0.3.8
+	unicode-linebreak-0.1.2
+	unicode-normalization-0.1.19
+	unicode-width-0.1.9
+	unicode-xid-0.2.3
+	url-2.2.2
+	vcpkg-0.2.15
 	version_check-0.1.5
-	wasi-0.9.0+wasi-snapshot-preview1
+	wasi-0.10.2+wasi-snapshot-preview1
 	winapi-0.3.9
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-x86_64-pc-windows-gnu-0.4.0
@@ -113,19 +120,25 @@ DESCRIPTION="A graphical browser for plain-text protocols"
 HOMEPAGE="https://git.sr.ht/~julienxx/castor"
 SRC_URI="
 	https://git.sr.ht/~julienxx/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
-	$(cargo_crate_uris ${CRATES})
+	$(cargo_crate_uris)
 "
 
-# NOTE: Update after every dependency change (cargo-license helps).
-LICENSE="Apache-2.0 BSD-2 CC0-1.0 MIT MPL-2.0 ZLIB"
+# NOTE: Update after every dependency change (cargo-license helps)
+LICENSE="Apache-2.0 BSD-2 ISC MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-libs/openssl
+	dev-libs/atk
+	dev-libs/glib:2
+	dev-libs/openssl:=
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
+	x11-libs/pango
 "
 DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 # Rust packages ignore CFLAGS and LDFLAGS so let's silence the QA warnings
 QA_FLAGS_IGNORED="usr/bin/castor"
