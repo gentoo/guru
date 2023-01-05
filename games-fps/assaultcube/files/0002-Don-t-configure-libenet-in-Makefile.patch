@@ -1,0 +1,45 @@
+From ab7618606b8358245b13dc5a7291fa3b0211fd10 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Duje=20Mihanovi=C4=87?= <duje.mihanovic@skole.hr>
+Date: Thu, 5 Jan 2023 15:14:48 +0100
+Subject: [PATCH 2/2] Don't configure libenet in Makefile
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This shall be done in the ebuild's src_configure instead.
+
+Signed-off-by: Duje Mihanović <duje.mihanovic@skole.hr>
+---
+ source/src/Makefile | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
+
+diff --git a/source/src/Makefile b/source/src/Makefile
+index 9ecf691..6607f91 100644
+--- a/source/src/Makefile
++++ b/source/src/Makefile
+@@ -155,19 +155,16 @@ default: all
+ 
+ all: client server
+ 
+-../enet/Makefile:
+-	cd ../enet; ./configure --enable-shared=no --enable-static=yes
+-
+-../enet/.libs/libenet.la: ../enet/Makefile
++../enet/.libs/libenet.la:
+ 	-$(MAKE) -C ../enet all
+ 
+-clean-enet: ../enet/Makefile
++clean-enet:
+ 	$(MAKE) -C ../enet/ clean
+ 
+ clean:
+ 	-$(RM) $(CLIENT_PCH) $(CLIENT_OBJS) $(SERVER_OBJS) $(MASTER_OBJS) ac_client ac_server ac_master
+ 
+-mrproper: clean ../enet/Makefile
++mrproper: clean
+ 	$(MAKE) -C ../enet/ distclean
+ 	-$(RM) ../enet/Makefile
+ 
+-- 
+2.38.2
+

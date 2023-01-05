@@ -31,6 +31,7 @@ PATCHES=(
 	# a script which checks for required libs and certain parts of the game
 	"${FILESDIR}/${PN}-1.3.0.2-fix-checkinstall.patch"
 	"${FILESDIR}/0001-Fix-unnecessary-rebuild-on-make-install.patch"
+	"${FILESDIR}/0002-Don-t-configure-libenet-in-Makefile.patch"
 )
 
 src_prepare() {
@@ -40,12 +41,16 @@ src_prepare() {
 
 src_configure() {
 	filter-lto
+	cd source/enet && ./configure \
+		--enable-shared=no \
+		--enable-static=yes
 }
 
 src_compile() {
 	if use debug; then
 		local -x DEBUGBUILD=1
 	fi
+	emake -C source/enet
 	emake -C source/src
 }
 
