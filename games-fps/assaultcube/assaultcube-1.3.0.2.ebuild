@@ -33,6 +33,7 @@ PATCHES=(
 	"${FILESDIR}/0001-Fix-unnecessary-rebuild-on-make-install.patch"
 	"${FILESDIR}/0002-Don-t-configure-libenet-in-Makefile.patch"
 )
+RESTRICT="mirror"
 
 src_prepare() {
 	default
