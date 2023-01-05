@@ -30,6 +30,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.3.0.2-respect-ldflags.patch"
 	# a script which checks for required libs and certain parts of the game
 	"${FILESDIR}/${PN}-1.3.0.2-fix-checkinstall.patch"
+	"${FILESDIR}/0001-Fix-unnecessary-rebuild-on-make-install.patch"
 )
 
 src_prepare() {
