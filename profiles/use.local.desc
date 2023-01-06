@@ -47,6 +47,7 @@ app-misc/ntfy:telegram - Add support for telegram backend
 app-portage/emlop:fish-completion - Enable fish completion support.
 app-text/klogg:lto - Build with link time optimization (LTO).
 dev-cpp/cpptoml:libcxx - Use libc++ for the C++ standard library
+dev-cpp/dpp:voice - Enable voice-chat support
 dev-cpp/drogon:brotli - Enable support for brotli compression
 dev-cpp/drogon:mariadb - Add support for the mariadb database
 dev-cpp/drogon:redis - Add support for the Redis database via dev-libs/hiredis

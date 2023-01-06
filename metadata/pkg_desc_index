@@ -247,7 +247,7 @@ app-text/cmark-gfm 0.29.0.3: GitHub's fork of cmark
 app-text/code-minimap 0.6.4: A high performance code minimap generator
 app-text/epubgrep 0.6.0-r1 0.6.2: Search tool for EPUB e-books
 app-text/klogg 22.06.0.1289: A GUI application to browse and search through long and complex log files
-app-text/komikku 1.6.1 1.7.0: An online/offline manga reader for GNOME
+app-text/komikku 1.7.0 1.8.0: An online/offline manga reader for GNOME
 app-text/koodo-reader-bin 1.4.1: A modern ebook manager and reader with sync and backup capacities
 app-text/lizard 1.17.10: A simple code complexity analyser, supports most of the popular languages.
 app-text/mandown 0.1.2: Markdown to groff (man page) converter
@@ -451,11 +451,12 @@ dev-R/xtable 1.8.4: Export Tables to LaTeX or HTML
 dev-R/yaml 2.3.5: Methods to Convert R Data to YAML and Back
 dev-R/zoo 1.8.10: S3 Infrastructure for Regular and Irregular Time Series (Z's Ordered Observations)
 dev-cpp/MEL 1.0.0-r1: Math Expression Library
-dev-cpp/cli11 2.3.0 2.3.1: Command line parser for C++11
+dev-cpp/cli11 2.3.1 2.3.2: Command line parser for C++11
 dev-cpp/coeurl 0.2.0-r1 0.2.1: A simple async wrapper around CURL for C++
 dev-cpp/cpp-httplib 0.10.9: C++ header-only HTTP/HTTPS server and client library
 dev-cpp/cpp-jwt 1.5_pre20220727: JSON Web Token library for C++
 dev-cpp/cpptoml 0.1.1: Header-only library for parsing TOML
+dev-cpp/dpp 10.0.21 10.0.22: Lightweight C++ Discord bot library
 dev-cpp/drogon 1.8.1 1.8.2: C++14/17 based HTTP web application framework
 dev-cpp/dtl 1.20-r1: diff template library written by C++
 dev-cpp/fbthrift 2022.04.11.00-r1: Facebook's branch of Apache Thrift, including a new C++ server
@@ -719,7 +720,7 @@ dev-ml/xenstore-clients 1.1.0 1.3.0: Unix client tools for accessing xenstore
 dev-ml/xmlm 1.4.0: Ocaml XML manipulation module
 dev-nim/asynctools 0.1.1_p20210606: Various asynchronous tools for Nim language
 dev-nim/balls 3.9.6 3.9.8: A unittest macro to save the world, or at least your Sunday
-dev-nim/cligen 1.5.32 1.5.33: Infer & generate command-line interface/option/argument parser
+dev-nim/cligen 1.5.33 1.5.36: Infer & generate command-line interface/option/argument parser
 dev-nim/dotenv 2.0.1: dotenv implementation for Nim
 dev-nim/flatty 0.3.4: Tools and serializer for plain flat binary files
 dev-nim/frosty 3.0.0: Serialize native Nim types to strings, streams, sockets, or anything else
@@ -777,7 +778,7 @@ dev-python/MutatorMath 3.0.1-r1: A library for piecewise linear interpolation in
 dev-python/PGPy 0.6.0: Pretty Good Privacy for Python
 dev-python/Pyro5 5.14: Distributed object middleware for Python (RPC)
 dev-python/SLPP 1.2.3: Simple lua-python parser
-dev-python/SQLAlchemy-Utils 0.37.9 0.38.2: Various utility functions and datatypes for SQLAlchemy
+dev-python/SQLAlchemy-Utils 0.38.2 0.39.0: Various utility functions and datatypes for SQLAlchemy
 dev-python/TakeTheTime 0.3.1: Take The Time, a super-neat Python library for timing chunks of code
 dev-python/WSME 0.11.0: Simplify the writing of REST APIs, and extend them with additional protocols
 dev-python/XenAPI 2.14-r1: Xen API SDK, for communication with Citrix XenServer and Xen Cloud Platform
@@ -799,7 +800,7 @@ dev-python/autoflake 1.4-r1: Removes unused imports and unused variables as repo
 dev-python/automaton 2.5.0: Friendly state machines for python
 dev-python/avro 1.11.0: Apache Avro is a data serialization system
 dev-python/axisregistry 0.2.0 0.3.2: A Python API to access data from the Google Fonts variable fonts Axis Registry
-dev-python/azure-core 1.26.1: Microsoft Azure Core Library for Python
+dev-python/azure-core 1.26.1 1.26.2: Microsoft Azure Core Library for Python
 dev-python/azure-storage-blob 12.14.1: Microsoft Azure Blob Storage Client Library for Python
 dev-python/b2sdk 1.12.0 1.17.2: The client library for BackBlaze's B2 product
 dev-python/babelfont 3.0.0_alpha8: Interrogate and manipulate UFO, TTF and OTF fonts with a common interface
@@ -1054,7 +1055,7 @@ dev-python/skia-pathops 0.7.2: Python bindings for the Skia Path Ops
 dev-python/skills 0.3.0-r1: Python Implementation of the TrueSkill, Glicko and Elo Ranking Algorithms
 dev-python/sortedcollections 2.1.0: Apache2 licensed Python sorted collections library
 dev-python/sphinx-argparse 0.3.1: Sphinx extension that automatically documents argparse commands and options
-dev-python/sphinx-argparse-cli 1.8.2 1.9.0: Render CLI arguments (sub-commands friendly) defined by argparse module
+dev-python/sphinx-argparse-cli 1.9.0 1.11.0: Render CLI arguments (sub-commands friendly) defined by argparse module
 dev-python/sphinx-click 4.1.0 4.2.0: Sphinx plugin to automatically document click-based applications
 dev-python/sphinx-hoverxref 1.3.0: Sphinx extension to show tooltips with content embedded when hover a reference
 dev-python/sphinx-rtd-dark-mode 1.2.4: Dark mode for the Sphinx Read the Docs theme
@@ -1182,7 +1183,6 @@ dev-util/yaml-language-server 1.10.0: Language Server for YAML Files
 dev-vcs/bit 1.1.1 1.1.2: Bit is a modern Git CLI
 dev-vcs/git-blame-someone-else 0_pre20180613: Blame someone else for your bad code.
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
-dev-vcs/git-repair 1.20210629: repairs a damaged git repository
 dev-vcs/git-repo-updater 0.5.1-r2: Easily update multiple git repositories at once
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
 dev-vcs/gitqlient 1.5.0-r1 1.6.0 9999: Multi-platform Git client written with Qt
@@ -1328,7 +1328,7 @@ kde-apps/alligator 22.11: A convergent RSS/Atom feed reader for Plasma
 kde-apps/kclock 22.11: A convergent clock application for Plasma
 kde-apps/krecorder 22.11: A convergent audio recording application for Plasma
 kde-apps/plasma-settings 22.11: Settings application for Plasma Mobile
-kde-apps/tokodon 22.11.1: Mastodon client for Plasma and Plasma Mobile
+kde-apps/tokodon 22.11.1 23.01.0: Mastodon client for Plasma and Plasma Mobile
 kde-misc/geminipart 2021125 20221020: KPart for viewing text/gemini files
 kde-misc/kio-gemini 20211107 20221021: Gemini KIO slave
 kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
@@ -1415,7 +1415,7 @@ media-sound/netcat-cpi 2014.04.29: Kernel module edition of the Cycles Per Instr
 media-sound/noson-app 5.2.2: The essential to control music from your SONOS devices on Linux platforms
 media-sound/nuclear-bin 0.6.15 0.6.17: Nuclear is a streaming program that pulls content from free sources on internet
 media-sound/nulloy 0.9.5 9999: Music player with a waveform progress bar (sound visualization)
-media-sound/opensoundmeter 1.2.1: FFT based application for tuning sound systems
+media-sound/opensoundmeter 1.2.1 1.2.2 1.2.2_p20230104: FFT based application for tuning sound systems
 media-sound/pianobooster 1.0.0: A MIDI player/game that displays notes and teaches you how to play the piano
 media-sound/pulseaudio-virtualmic 0.1 9999: Use any offline or online media file or stream as a PulseAudio source
 media-sound/qloud 1.4.2: Tool to measure loudspeaker frequency and step responses and distortions
@@ -1451,7 +1451,7 @@ net-analyzer/gping-bin 1.5.1: Ping with graph
 net-analyzer/munin-contrib 0.2021.04.27: user contributed stuff related to munin
 net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various plugins for Munin
 net-client/amfora 1.8.0 1.9.2: A fancy terminal browser for the Gemini protocol.
-net-client/castor 0.8.16 0.8.18: A graphical browser for plain-text protocols
+net-client/castor 0.8.18 0.9.0: A graphical browser for plain-text protocols
 net-client/kristall 0.3-r2 0.4: Visual cross-platform gemini browser
 net-client/lagrange 1.14.0 1.14.1-r1: Desktop GUI client for browsing Geminispace
 net-client/offpunk 1.7.1 1.8: Offline-First Gemini/Web/Gopher/RSS reader and browser
@@ -1563,7 +1563,7 @@ sci-electronics/skywater-pdk 0.0.0_p20220424: Process design kit for usage with 
 sci-electronics/slang 1.0 2.0 9999: SystemVerilog compiler and language services
 sci-electronics/svls 0.2.3: SystemVerilog language server
 sci-electronics/verible 0.0.2275: SystemVerilog parser, style-linter, and formatter
-sci-electronics/verilator 4.228 5.002 9999: The fast free Verilog/SystemVerilog simulator
+sci-electronics/verilator 4.228 5.004 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/GeographicLib-data 0-r1: Datasets for GeographicLib
 sci-geosciences/mapillary_tools 0.8.2_p20220702: Command line tools for processing and uploading Mapillary imagery
 sci-libs/ButterflyPACK 2.1.1-r1: Mathematical software for solving large-scale dense linear systems
