@@ -3,19 +3,24 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+DISTUTILS_USE_PEP517=hatchling
+PYTHON_COMPAT=( python3_{8..11} ) # no pypy3 support
 inherit distutils-r1
 
-MY_PN="${PN//-/_}"
 DESCRIPTION="Render CLI arguments (sub-commands friendly) defined by argparse module"
 HOMEPAGE="https://github.com/tox-dev/sphinx-argparse-cli https://pypi.org/project/sphinx-argparse-cli/"
-SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_PN}-${PV}.tar.gz"
-S="${WORKDIR}/${MY_PN}-${PV}"
+SRC_URI="https://github.com/tox-dev/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="dev-python/sphinx[${PYTHON_USEDEP}]"
+RDEPEND="
+	>=dev-python/sphinx-5.3.0[${PYTHON_USEDEP}]
+	<dev-python/sphinx-6.1.0[${PYTHON_USEDEP}]
+"
+BDEPEND="dev-python/hatch-vcs[${PYTHON_USEDEP}]"
 
 distutils_enable_tests pytest
+
+export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
