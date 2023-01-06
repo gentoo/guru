@@ -1,0 +1,76 @@
+From 29c82c04a88d6d96866550b5e6c1c972d248ba5f Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Duje=20Mihanovi=C4=87?= <duje.mihanovic@skole.hr>
+Date: Thu, 5 Jan 2023 14:52:09 +0100
+Subject: [PATCH 1/2] Fix unnecessary rebuild on 'make install'
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Duje Mihanović <duje.mihanovic@skole.hr>
+---
+ source/src/Makefile | 27 ++++++++++++++++-----------
+ 1 file changed, 16 insertions(+), 11 deletions(-)
+
+diff --git a/source/src/Makefile b/source/src/Makefile
+index 61da2b7..9ecf691 100644
+--- a/source/src/Makefile
++++ b/source/src/Makefile
+@@ -158,7 +158,7 @@ all: client server
+ ../enet/Makefile:
+ 	cd ../enet; ./configure --enable-shared=no --enable-static=yes
+ 
+-libenet: ../enet/Makefile
++../enet/.libs/libenet.la: ../enet/Makefile
+ 	-$(MAKE) -C ../enet all
+ 
+ clean-enet: ../enet/Makefile
+@@ -201,24 +201,27 @@ client_install: client
+ server_install: server
+ 
+ else
+-client: libenet $(CLIENT_OBJS)
+-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o ac_client $(CLIENT_OBJS) $(CLIENT_LIBS)
++ac_client: ../enet/.libs/libenet.la $(CLIENT_OBJS)
++	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $(CLIENT_OBJS) $(CLIENT_LIBS)
++client: ac_client
+ 
+-server: libenet $(SERVER_OBJS)
+-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o ac_server $(SERVER_OBJS) $(SERVER_LIBS)
+-master: libenet $(MASTER_OBJS)
+-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o ac_master $(MASTER_OBJS) $(SERVER_LIBS)
++ac_server: ../enet/.libs/libenet.la $(SERVER_OBJS)
++	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $(SERVER_OBJS) $(SERVER_LIBS)
++server: ac_server
+ 
+-client_install: client
++ac_master: ../enet/.libs/libenet.la $(MASTER_OBJS)
++	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $(MASTER_OBJS) $(SERVER_LIBS)
++
++client_install: ac_client
+ 	install -d ../../bin_unix/
+-	install -m755 ac_client ../../bin_unix/$(PLATFORM_PREFIX)_client
++	install -m755 $< ../../bin_unix/$(PLATFORM_PREFIX)_client
+ #ifneq (,$(STRIP))
+ #	$(STRIP) ../../bin_unix/$(PLATFORM_PREFIX)_client
+ #endif
+ 
+-server_install: server
++server_install: ac_server
+ 	install -d ../../bin_unix/
+-	install -m755 ac_server ../../bin_unix/$(PLATFORM_PREFIX)_server
++	install -m755 $< ../../bin_unix/$(PLATFORM_PREFIX)_server
+ #ifneq (,$(STRIP))
+ #	$(STRIP) ../../bin_unix/$(PLATFORM_PREFIX)_server
+ #endif
+@@ -233,6 +236,8 @@ depend:
+ 	makedepend -a -o-standalone.o -Y -I. -Ibot $(subst -standalone.o,.cpp,$(SERVER_OBJS))
+ 	makedepend -a -o-standalone.o -Y -I. $(subst -standalone.o,.cpp,$(filter-out $(SERVER_OBJS), $(MASTER_OBJS)))
+ 
++.PHONY: client server install
++
+ # DO NOT DELETE
+ 
+ crypto.o: cube.h platform.h tools.h geom.h model.h protocol.h sound.h
+-- 
+2.38.2
+
