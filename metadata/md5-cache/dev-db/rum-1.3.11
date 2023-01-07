@@ -11,5 +11,5 @@ RDEPEND=postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/postgrespro/rum/archive/1.3.11.tar.gz -> rum-1.3.11.tar.gz
-_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	postgres	7233fc439696bbab8442204f0f284645	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	postgres	7233fc439696bbab8442204f0f284645	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d
 _md5_=3590afb559d41ff96d9ed4ec16c5dd7c
