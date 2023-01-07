@@ -14,6 +14,12 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-01-07)
+# Archived upstream. Use net-news/communique (actively maintained fork of
+# FeedReader) or any other app.
+# Masked for removal in 30 days.
+net-news/feedreader
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-18)
 # Depends on masked dev-python/Rx (can be restored here after treeclean)
 sys-power/gwe
