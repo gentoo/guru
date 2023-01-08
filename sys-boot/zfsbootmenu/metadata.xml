@@ -5,4 +5,7 @@
     <email>c@cgps.ch</email>
     <name>Chaquen Beliakov Amaya</name>
   </maintainer>
+  <upstream>
+    <remote-id type="github">zbm-dev/zfsbootmenu</remote-id>
+  </upstream>
 </pkgmetadata>

@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: nim-utils.eclass
@@ -97,7 +97,7 @@ etestament() {
 		testament_args+=( --megatest:off )
 
 	if [[ ${ETESTAMENT_DESELECT} ]]; then
-		local skipfile="${T}"/testament.skipfile
+		local skipfile="${T}"/testament-skipfile.txt
 		if [[ ! -f ${skipfile} ]]; then
 			printf "%s\n" "${ETESTAMENT_DESELECT[@]}" > "${skipfile}" || die
 		else

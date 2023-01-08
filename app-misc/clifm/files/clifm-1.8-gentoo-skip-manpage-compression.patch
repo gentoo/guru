@@ -2,7 +2,7 @@ Skip manpage compression in makefile.
 
 --- a/Makefile
 +++ b/Makefile
-@@ -53,7 +53,6 @@ install: $(BIN)
+@@ -52,7 +52,6 @@ install: $(BIN)
  	$(INSTALL) -m 0755 -d $(DESTDIR)$(DATADIR)/zsh/site-functions
  	$(INSTALL) -m 0755 -d $(DESTDIR)$(DESKTOPICONPREFIX)/scalable/apps
  	$(INSTALL) -m 0644 misc/manpage $(DESTDIR)$(MANDIR)/man1/$(BIN).1
