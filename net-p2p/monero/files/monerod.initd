@@ -6,7 +6,7 @@ pidfile=/var/run/monerod.pid
 command=/usr/bin/monerod
 command_args="${monerod_args}"
 start_stop_daemon_args="-u ${monerod_user} -b -m -p ${pidfile}"
-retry="SIGTERM/30"
+retry="SIGTERM/30/SIGKILL/5"
 
 name="Monero P2P Daemon"
 description="Connects to the Monero P2P network"
