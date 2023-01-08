@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=dev-qt/qtcore:5= dev-qt/qtnetwork:5= gui? ( dev-qt/qtgui:5= dev-qt/qtwidgets:5= ) jack? ( virtual/jack ) rtaudio? ( media-libs/rtaudio:= ) virtualstudio? ( dev-qt/qtdeclarative:5= dev-qt/qtnetworkauth:5= dev-qt/qtsvg:5= dev-qt/qtwebsockets:5= )
+DESCRIPTION=Send JACK audio over a network
+EAPI=8
+HOMEPAGE=https://jacktrip.github.io/jacktrip/ https://github.com/jacktrip/jacktrip
+INHERIT=meson
+IUSE=+gui jack +rtaudio virtualstudio
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-qt/qtcore:5= dev-qt/qtnetwork:5= gui? ( dev-qt/qtgui:5= dev-qt/qtwidgets:5= ) jack? ( virtual/jack ) rtaudio? ( media-libs/rtaudio:= ) virtualstudio? ( dev-qt/qtdeclarative:5= dev-qt/qtnetworkauth:5= dev-qt/qtsvg:5= dev-qt/qtwebsockets:5= )
+REQUIRED_USE=virtualstudio? ( gui ) || ( jack rtaudio )
+SLOT=0
+SRC_URI=https://github.com/jacktrip/jacktrip/archive/refs/tags/v1.6.8.tar.gz -> jacktrip-1.6.8.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	1d1b325c00c1d24c564a1b49327ec3c5	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_md5_=28e6ba10be6da1b0778b0f1ca311e759

@@ -445,6 +445,8 @@ media-sound/6pm:midimaps - Install midi maps for that synth. Recommended
 media-sound/6pm:nls - Add support for localization
 media-sound/6pm:presets - Install presets. Recommended
 media-sound/add64:presets - Install presets. Recommended
+media-sound/jacktrip:rtaudio - Enable rtaudio backend
+media-sound/jacktrip:virtualstudio - Enable VirtualStudio extension
 media-sound/ncpamixer:wide - Add ncurses wide characters support
 media-sound/nulloy:skins - Add a few themes, enable if you want dark
 media-video/syncplay:client - Install the Syncplay client

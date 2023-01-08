@@ -12,5 +12,5 @@ RDEPEND=dev-nim/synthesis
 RESTRICT=!test? ( test )
 SLOT=0.4.0
 SRC_URI=https://github.com/mratsim/weave/archive/refs/tags/v0.4.0.tar.gz -> weave-0.4.0.tar.gz
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	ac0e315a3688929e34ac75b139e7349a	nim-utils	341acf401389fe3bba15299758b74248	ninja-utils	38c85b725d0467e51954ea921b6c104b	nimble	dd6f01540df75eab2cc6b9de796953fd
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	ac0e315a3688929e34ac75b139e7349a	nim-utils	6548190660274fddf428c46e69463e89	ninja-utils	38c85b725d0467e51954ea921b6c104b	nimble	dd6f01540df75eab2cc6b9de796953fd
 _md5_=54e73dfebd223f00f07c391d5c1e125a
