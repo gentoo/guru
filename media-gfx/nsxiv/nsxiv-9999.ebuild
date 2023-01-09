@@ -18,15 +18,14 @@ HOMEPAGE="https://codeberg.org/nsxiv/nsxiv"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+statusbar exif +inotify +gif webp"
+IUSE="+statusbar +animated +inotify exif"
 
 RDEPEND="
 	x11-libs/libX11
 	media-libs/imlib2[X]
 	statusbar? ( x11-libs/libXft )
 	exif? ( media-libs/libexif )
-	gif? ( media-libs/giflib:0= )
-	webp? ( media-libs/libwebp )
+	animated? ( >=media-libs/imlib2-1.8.0[X] )
 "
 DEPEND="${RDEPEND}"
 
@@ -53,8 +52,6 @@ src_compile() {
 	emake CC="$(tc-getCC)" OPT_DEP_DEFAULT=0 \
 		HAVE_INOTIFY="$(usex inotify 1 0)" \
 		HAVE_LIBFONTS="$(usex statusbar 1 0)" \
-		HAVE_LIBGIF="$(usex gif 1 0)" \
-		HAVE_LIBWEBP="$(usex webp 1 0)" \
 		HAVE_LIBEXIF="$(usex exif 1 0)"
 }
 
