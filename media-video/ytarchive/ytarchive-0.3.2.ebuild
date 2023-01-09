@@ -7,20 +7,22 @@ inherit go-module
 
 DESCRIPTION="Youtube livestream downloader"
 HOMEPAGE="https://github.com/Kethsar/ytarchive"
-SRC_URI="https://github.com/Kethsar/ytarchive/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://files.asokolov.org/gentoo/${P}-deps.tar.xz"
+SRC_URI="
+	https://github.com/Kethsar/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://files.asokolov.org/gentoo/${P}-deps.tar.xz
+"
 
-LICENSE="MIT"
+LICENSE="BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="media-video/ffmpeg"
 
 src_compile() {
-	go build
+	ego build
 }
 
 src_install() {
-	default
 	dobin ytarchive
+	einstalldocs
 }
