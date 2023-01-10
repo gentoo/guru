@@ -5,7 +5,7 @@ EAPI=8
 
 CMAKE_BUILD_TYPE="Release"
 CMAKE_MAKEFILE_GENERATOR="emake"
-PYTHON_COMPAT=( python3_{8..11} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit cmake desktop llvm python-r1 toolchain-funcs xdg
 
@@ -30,12 +30,9 @@ DEPEND="
 	>=dev-cpp/nlohmann_json-3.10.2
 	dev-libs/capstone
 	>=dev-libs/libfmt-8.0.0:=
-	dev-libs/openssl
-	dev-libs/tre
 	media-libs/freetype
 	media-libs/glfw
 	media-libs/glm
-	net-libs/libssh2
 	net-libs/mbedtls
 	net-misc/curl
 	sys-apps/dbus
@@ -48,7 +45,8 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	app-admin/chrpath
 	gnome-base/librsvg
-	sys-devel/llvm
+	sys-devel/lld
+	dev-util/ccache
 "
 
 pkg_pretend() {
@@ -72,7 +70,15 @@ src_configure() {
 	use python && python_setup
 
 	local mycmakeargs=(
+		-D CMAKE_BUILD_TYPE="Release" \
+		-D CMAKE_C_COMPILER_LAUNCHER=ccache \
+		-D CMAKE_CXX_COMPILER_LAUNCHER=ccache \
+		-D CMAKE_C_FLAGS="-fuse-ld=lld" \
+		-D CMAKE_CXX_FLAGS="-fuse-ld=lld" \
+		-D CMAKE_OBJC_COMPILER_LAUNCHER=ccache \
+		-D CMAKE_OBJCXX_COMPILER_LAUNCHER=ccache \
 		-D CMAKE_SKIP_RPATH=ON \
+		-D IMHEX_USE_BUNDLED_CA=OFF \
 		-D IMHEX_IGNORE_BAD_CLONE=ON \
 		-D IMHEX_OFFLINE_BUILD=ON \
 		-D IMHEX_STRIP_RELEASE=OFF \
