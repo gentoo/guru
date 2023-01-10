@@ -12,5 +12,5 @@ LICENSE=BSD GPL-2+
 RDEPEND=media-libs/libsdl2[video] media-libs/sdl2-mixer[midi?,vorbis?] media-libs/sdl2-net libsamplerate? ( media-libs/libsamplerate ) png? ( media-libs/libpng:= ) zlib? ( sys-libs/zlib )
 SLOT=0
 SRC_URI=https://github.com/fabiangreffrath/crispy-doom/archive/crispy-doom-5.12.0.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	prefix	eab3c99d77fe00506c109c8a736186f7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	1d1b325c00c1d24c564a1b49327ec3c5	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	prefix	eab3c99d77fe00506c109c8a736186f7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
 _md5_=10087b5a6a85dc47cead37fd4eb8f181

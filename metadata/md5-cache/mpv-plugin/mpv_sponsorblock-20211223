@@ -10,5 +10,5 @@ RDEPEND=python_single_target_pypy3? ( >=dev-python/pypy3-7.3.10-r1:0= ) python_s
 REQUIRED_USE=^^ ( python_single_target_pypy3 python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/po5/mpv_sponsorblock/archive/6743bd47d4cfce3ae3d5dd4f587f3193bd4fb9b2.tar.gz -> mpv_sponsorblock-20211223.tar.gz
-_eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	1d1b325c00c1d24c564a1b49327ec3c5	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=3dcc3967201810ee417986adc88f83c8
