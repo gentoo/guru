@@ -1,0 +1,13 @@
+DEFINED_PHASES=install nofetch
+DESCRIPTION=Puzzle game where you can change the rules by which you play
+EAPI=8
+HOMEPAGE=https://www.hempuli.com/baba/
+INHERIT=desktop
+KEYWORDS=-* ~amd64 ~x86
+LICENSE=all-rights-reserved
+RDEPEND=virtual/opengl
+RESTRICT=bindist fetch splitdebug
+SLOT=0
+SRC_URI=BIY_linux.tar.gz
+_eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c
+_md5_=69502ed62126748a875d4c3567081443

@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-nim/balls ) >=dev-util/ninja-1.8.2 dev-lang/nim[experimental(-)] >=dev-nim/nimbus-1.0.0
+DEFINED_PHASES=compile configure install test
+DEPEND=test? ( <dev-nim/npeg-2.0:* )
+DESCRIPTION=a package handler
+EAPI=8
+HOMEPAGE=https://github.com/disruptek/ups
+INHERIT=nimble
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=<dev-nim/npeg-2.0:*
+RESTRICT=!test? ( test )
+SLOT=0.0.8
+SRC_URI=https://github.com/disruptek/ups/archive/refs/tags/0.0.8.tar.gz -> ups-0.0.8.tar.gz
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	xdg-utils	ac0e315a3688929e34ac75b139e7349a	nim-utils	6548190660274fddf428c46e69463e89	ninja-utils	38c85b725d0467e51954ea921b6c104b	nimble	dd6f01540df75eab2cc6b9de796953fd
+_md5_=0a1467d614ae87e8579f3e788595807c

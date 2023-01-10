@@ -1,14 +1,14 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
-DEPEND=x11-libs/libX11 media-libs/imlib2[X] statusbar? ( x11-libs/libXft ) exif? ( media-libs/libexif ) gif? ( media-libs/giflib:0= ) webp? ( media-libs/libwebp )
+DEPEND=x11-libs/libX11 >=media-libs/imlib2-1.8.0[X] statusbar? ( x11-libs/libXft ) exif? ( media-libs/libexif )
 DESCRIPTION=Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer
 EAPI=7
 HOMEPAGE=https://codeberg.org/nsxiv/nsxiv
 INHERIT=desktop xdg-utils savedconfig toolchain-funcs linux-info git-r3
-IUSE=+statusbar exif +inotify +gif webp savedconfig
+IUSE=+statusbar +inotify exif savedconfig
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=x11-libs/libX11 media-libs/imlib2[X] statusbar? ( x11-libs/libXft ) exif? ( media-libs/libexif ) gif? ( media-libs/giflib:0= ) webp? ( media-libs/libwebp )
+RDEPEND=x11-libs/libX11 >=media-libs/imlib2-1.8.0[X] statusbar? ( x11-libs/libXft ) exif? ( media-libs/libexif )
 SLOT=0
 _eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	xdg-utils	ac0e315a3688929e34ac75b139e7349a	portability	58227860123d3e8da23290064ce3373e	savedconfig	4011d8d7370446e970e2c92b20a31341	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	7e4d48a3c6c8ebdaa9f7f9e7d2991e22	git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=11bc7b887ed5c3eaa039f7efb24965d4
+_md5_=bbb7aac0e0f998e18f3d26fb5e9044ec

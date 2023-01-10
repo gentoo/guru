@@ -145,7 +145,7 @@ app-metrics/scaphandre 0.4.1: Electrical power consumption measurement agent.
 app-misc/afc 1.1 1.2 9999: Anime File Checker, checks CRC32 contained in filenames
 app-misc/afetch 2.2.0: Simple system info written in C
 app-misc/ani-cli 1.9: A cli to browse and watch anime.
-app-misc/anki-bin 2.1.54-r1 2.1.55: A spaced-repetition memory training program (flash cards)
+app-misc/anki-bin 2.1.54-r1 2.1.56: A spaced-repetition memory training program (flash cards)
 app-misc/apidb 5.8.0_beta 5.11.0_beta 5.13.1_beta 5.13.4_beta 5.13.6_beta: API Generator for Database access
 app-misc/aw-client 0.11.0: Client library for ActivityWatch
 app-misc/aw-core 0.11.0: Core library for ActivityWatch
@@ -195,7 +195,7 @@ app-misc/uwufetch 2.0: A meme system info tool for Linux
 app-misc/vocabsieve 0.8.3: A simple, effective tool for language learning
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
 app-misc/walld 1.4.4: A Wallpaper daemon
-app-misc/watchexec 1.18.12 1.19.0 1.20.2 1.20.5 1.20.6: Executes commands in response to file modifications
+app-misc/watchexec 1.18.12 1.19.0 1.20.2 1.20.5 1.20.6 1.21.0: Executes commands in response to file modifications
 app-misc/wego 2.1: Wego is a weather client for the terminal
 app-misc/xplr 0.15.2 0.17.0 0.17.1 0.17.2 0.17.6: A hackable, minimal, fast TUI file explorer
 app-misc/yaf 0.0.3: Yet another system fetch that is minimal and customizable.
@@ -549,7 +549,7 @@ dev-java/orsonpdf 1.9: A fast, lightweight PDF generator for the Java platform
 dev-java/paceRegression 1.0.1: Class for building pace regression linear models and using them for prediction
 dev-lang/aldor 1.2.0_p20190730-r1: The Aldor Programming Language
 dev-lang/cc65 2.19: Cross-development package for 65(C)02 systems
-dev-lang/crystal-bin 1.6.1 1.6.2: The Crystal Programming Language
+dev-lang/crystal-bin 1.6.2 1.7.0: The Crystal Programming Language
 dev-lang/fbc 1.07.3 1.08.1: A free/open source, multi-platform BASIC compiler.
 dev-lang/fbc-bootstrap 1.07.3 1.08.1: Bootstrap package for dev-lang/fbc
 dev-lang/gleam 0.16.0: A statically typed functional language for the BEAM
@@ -734,14 +734,14 @@ dev-nim/nake 1.9.4: make-like for Nim. Describe your builds as tasks!
 dev-nim/nimbus 1.0.0: A Nim build system
 dev-nim/nimcrypto 0.5.4_p20210619: Nim cryptographic library
 dev-nim/noise 0.1.6 0.1.8: a Nim implementation of linenoise
-dev-nim/npeg 0.27.0 1.0.0 1.0.1: a PEG library for Nim
+dev-nim/npeg 0.27.0 1.0.1 1.1.2: a PEG library for Nim
 dev-nim/packedjson 0.2.2: an alternative Nim implementation for JSON
 dev-nim/redpool 0.1.0_p20220120: Simple Redis connection pool
 dev-nim/sass 0.2.0: A wrapper for the libsass library
 dev-nim/supersnappy 2.1.3: Nim implementation of Google's Snappy compression
 dev-nim/sync 1.5.0: Useful synchronization primitives
 dev-nim/synthesis 0.2.0: A compile-time, compact, fast, without allocation, state-machine generator
-dev-nim/ups 0.0.7: a package handler
+dev-nim/ups 0.0.7 0.0.8: a package handler
 dev-nim/weave 0.4.0: a state-of-the-art multithreading runtime
 dev-nim/ws 0.5.0: Simple WebSocket library for nim
 dev-nim/zedeus_redis 0.3.0_p20211226: Fork of the official redis client for Nim
@@ -1229,6 +1229,7 @@ games-misc/gay 1.2.8: Colour your text / terminal to be more gay
 games-misc/varlpenis 3.0.2: Generates ASCII-art penis of arbitrary length
 games-puzzle/aaaaxy 1.2.377 1.2.399: A nonlinear 2D puzzle platformer taking place in impossible spaces
 games-puzzle/atris 1.0.7: Alizarin tetris
+games-puzzle/baba-is-you 474: Puzzle game where you can change the rules by which you play
 games-puzzle/krank 8: Little casual game
 games-puzzle/superflu-riteurnz 1.0.0: Artisanal video-game about Superflu, the useless super-hero (french)
 games-rpg/airshipper 0.7.0-r1: Provides automatic updates for the voxel RPG Veloren
@@ -1440,6 +1441,7 @@ media-video/tartube 2.4.077 9999: A GUI front-end for youtube-dl
 media-video/trakt-scrobbler 1.4.2 1.5.0 1.6.0 1.6.1_beta1-r1: Scrobbler for trakt.tv that supports VLC, Plex, MPC-HC, and MPV
 media-video/uxplay 1.61.1: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
+media-video/ytarchive 0.3.2: Youtube livestream downloader
 mpv-plugin/SmartCopyPaste 3.1: Gives mpv the capability to copy and paste while being smart and customizable
 mpv-plugin/autoload 0.34.1 0.35.0: Loads playlist entries before and after the the currently played file
 mpv-plugin/autosubsync-mpv 20220402: Automatic subtitle synchronization script for mpv media player
