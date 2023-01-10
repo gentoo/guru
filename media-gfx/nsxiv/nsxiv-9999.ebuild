@@ -18,15 +18,13 @@ HOMEPAGE="https://codeberg.org/nsxiv/nsxiv"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+statusbar exif +inotify +gif webp"
+IUSE="+statusbar +inotify exif"
 
 RDEPEND="
 	x11-libs/libX11
-	media-libs/imlib2[X]
+	>=media-libs/imlib2-1.8.0[X]
 	statusbar? ( x11-libs/libXft )
 	exif? ( media-libs/libexif )
-	gif? ( media-libs/giflib:0= )
-	webp? ( media-libs/libwebp )
 "
 DEPEND="${RDEPEND}"
 
@@ -53,8 +51,6 @@ src_compile() {
 	emake CC="$(tc-getCC)" OPT_DEP_DEFAULT=0 \
 		HAVE_INOTIFY="$(usex inotify 1 0)" \
 		HAVE_LIBFONTS="$(usex statusbar 1 0)" \
-		HAVE_LIBGIF="$(usex gif 1 0)" \
-		HAVE_LIBWEBP="$(usex webp 1 0)" \
 		HAVE_LIBEXIF="$(usex exif 1 0)"
 }
 
@@ -76,7 +72,7 @@ pkg_postinst() {
 
 	einfo "${PN} uses media-libs/imlib2 for loading images."
 	einfo "To enable/disable support for specific image formats,"
-	einfo "toggle the necessary USE flag for imlib2."
+	einfo "toggle the necessary USE flag for media-libs/imlib2."
 }
 
 pkg_postrm() {
