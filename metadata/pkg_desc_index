@@ -117,7 +117,7 @@ app-doc/stdman 2022.07.30 9999: Formatted C++ stdlib man pages (cppreference)
 app-editors/amp 0.6.2: A complete text editor for your terminal.
 app-editors/atom-bin 1.58.0-r1: A hackable text editor for the 21st Century
 app-editors/helix 22.05 22.08.1 22.12: A post-modern text editor.
-app-editors/imhex 1.22.0-r1: A hex editor for reverse engineers, programmers, and eyesight
+app-editors/imhex 1.26.2: A hex editor for reverse engineers, programmers, and eyesight
 app-editors/kak-lsp 12.2.1: Kakoune Language Server Protocol Client
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/lapce 9999: Lightning-fast and Powerful Code Editor written in Rust
@@ -171,7 +171,7 @@ app-misc/ledger-live 2.49.0 2.49.2 2.50.0 2.50.1 2.51.0: Manager for the Ledger 
 app-misc/lf 27 28: Terminal file manager
 app-misc/macchina 5.0.2 6.0.5 6.0.6 6.1.6: A system information fetcher, with an (unhealthy) emphasis on performance.
 app-misc/mangadesk 0.7.7 0.7.8: Terminal Client for MangaDex
-app-misc/mat2 0.13.0-r1: Metadata Anonymisation Toolkit: handy tool to trash your metadata
+app-misc/mat2 0.13.1: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/minder 1.14.0: Mind-mapping application for Elementary OS.
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
 app-misc/navi 2.19.0 2.20.1 9999: An interactive cheatsheet tool for the command-line
