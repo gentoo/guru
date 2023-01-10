@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,11 +8,9 @@ PYTHON_COMPAT=( python3_{8..11} )
 
 inherit distutils-r1 optfeature
 
-MY_PV="${PV/_/-}"
-
 DESCRIPTION="Scrobbler for trakt.tv that supports VLC, Plex, MPC-HC, and MPV"
 HOMEPAGE="https://github.com/iamkroot/trakt-scrobbler"
-SRC_URI="https://github.com/iamkroot/${PN}/archive/refs/tags/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/iamkroot/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -34,8 +32,6 @@ RDEPEND="
 	' python3_{8..10})
 	>=dev-python/desktop-notifier-3.4.0[${PYTHON_USEDEP}]
 "
-
-S="${WORKDIR}/${PN}-${MY_PV}"
 
 distutils_enable_tests unittest
 
