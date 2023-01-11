@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription lang="en">
+		RStudio is an integrated development environment (IDE) for R. It can
+		run it on a desktop or even over the web using RStudio Server.
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/rstudio/rstudio/issues</bugs-to>
+		<remote-id type="github">rstudio/rstudio</remote-id>
+	</upstream>
+</pkgmetadata>
