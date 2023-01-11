@@ -15,7 +15,7 @@ inherit chromium-2 linux-info optfeature rpm xdg
 
 DESCRIPTION="IDE for R and Python"
 HOMEPAGE="https://posit.co"
-SRC_URI="https://download1.rstudio.org/electron/rhel8/x86_64/${MY_PN}-${PVR/_p/-}-x86_64.rpm"
+SRC_URI="https://download1.rstudio.org/electron/rhel8/x86_64/${MY_PN}-${PV/_p/-}-x86_64.rpm"
 
 LICENSE="AGPL-3"
 SLOT="0"
