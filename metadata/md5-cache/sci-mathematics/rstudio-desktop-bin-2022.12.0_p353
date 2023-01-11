@@ -1,0 +1,16 @@
+BDEPEND=app-arch/rpm2targz
+DEFINED_PHASES=configure install postinst postrm preinst prepare setup unpack
+DESCRIPTION=IDE for R and Python
+EAPI=8
+HOMEPAGE=https://posit.co
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=chromium-2 linux-info optfeature rpm xdg
+IUSE=+l10n_af +l10n_am +l10n_ar +l10n_bg +l10n_bn +l10n_ca +l10n_cs +l10n_da +l10n_de +l10n_el +l10n_en-GB +l10n_en-US +l10n_es-419 +l10n_es +l10n_et +l10n_fa +l10n_fi +l10n_fil +l10n_fr +l10n_gu +l10n_he +l10n_hi +l10n_hr +l10n_hu +l10n_id +l10n_it +l10n_ja +l10n_kn +l10n_ko +l10n_lt +l10n_lv +l10n_ml +l10n_mr +l10n_ms +l10n_nb +l10n_nl +l10n_pl +l10n_pt-BR +l10n_pt-PT +l10n_ro +l10n_ru +l10n_sk +l10n_sl +l10n_sr +l10n_sv +l10n_sw +l10n_ta +l10n_te +l10n_th +l10n_tr +l10n_uk +l10n_ur +l10n_vi +l10n_zh-CN +l10n_zh-TW
+KEYWORDS=-* ~amd64
+LICENSE=AGPL-3
+RDEPEND=>=app-accessibility/at-spi2-core-2.46.0:2 app-crypt/libsecret app-misc/jq dev-db/postgresql dev-cpp/yaml-cpp dev-lang/R dev-libs/boost[context(+)] dev-libs/expat dev-libs/glib:2 dev-libs/mathjax dev-libs/nspr dev-libs/nss || ( dev-libs/openssl-compat:1.1.1 =dev-libs/openssl-1.1.1* ) media-libs/alsa-lib media-libs/fontconfig media-libs/mesa[gbm(+)] net-print/cups sys-apps/dbus sys-apps/util-linux sys-libs/glibc x11-libs/cairo x11-libs/libdrm x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXrandr x11-libs/libxcb x11-libs/libxkbcommon x11-libs/libxshmfence x11-libs/pango =virtual/jdk-11*:*
+RESTRICT=bindist mirror strip test
+SLOT=0
+SRC_URI=https://download1.rstudio.org/electron/rhel8/x86_64/rstudio-2022.12.0-353-x86_64.rpm
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	7e4d48a3c6c8ebdaa9f7f9e7d2991e22	chromium-2	1004ce9fd1ae9622a0b7eabcd8fc0d69	optfeature	1a2157392a869265b2afcb63a26c12ac	estack	055c42df72f76a4f45ec92b35e83cd56	rpm	f73e907469f65e52192f110dec72dce0	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_md5_=176ce0bea6f68e26b20a7cb03c8728d9

@@ -1641,6 +1641,7 @@ sci-mathematics/minisatp 0.1_p20121002: solver for pseudo-Boolean constraints
 sci-mathematics/packup 0.6: PACKage Upgradability Problem solver
 sci-mathematics/qepcad 1.72b_p20220502-r2: Quantifier Elimination by Partial Cylindrical Algebraic Decomposition
 sci-mathematics/radian 0.6.3: A 21 century R console
+sci-mathematics/rstudio-desktop-bin 2022.12.0_p353: IDE for R and Python
 sci-mathematics/the-omega-project 2.1_p20131119: Tools from Pugh et al.'s for constraint-based compiler tools
 sci-misc/boinc-wrapper 7.20.2: Wrapper to use non-BOINC apps with BOINC
 sci-misc/linuxcnc 9999: LinuxCNC
