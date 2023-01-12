@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<name>Leonardo Hernandez Hernandez</name>
-		<email>leohdz172@outlook.com</email>
+		<name>Leonardo Hernández Hernández</name>
+		<email>leohdz172@proton.me</email>
 	</maintainer>
 	<longdescription lang="en">
 		A cross-shell customizable powerline-like prompt heavily inspired by Agnoster.
