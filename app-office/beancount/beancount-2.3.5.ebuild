@@ -1,9 +1,9 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_10 )
 DITUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
 inherit distutils-r1
@@ -52,7 +52,8 @@ python_compile() {
 	distutils-r1_python_compile
 
 	# keep in sync with hashsrc.py, otherwise expect test failures
-	cp beancount/parser/{lexer.l,grammar.y,decimal.h,decimal.c,macros.h,parser.h,parser.c,tokens.h} "${BUILD_DIR}"/lib/${PN}/parser || die
+	cp beancount/parser/{lexer.l,grammar.y,decimal.h,decimal.c,macros.h,parser.h,parser.c,tokens.h} \
+	   "${BUILD_DIR}"/lib/${PN}/parser || die
 }
 
 python_test(){
