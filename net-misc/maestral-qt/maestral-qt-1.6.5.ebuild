@@ -20,7 +20,7 @@ RDEPEND="
 	>=dev-python/click-8.0.2[${PYTHON_USEDEP}]
 	dev-python/markdown2[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
-	dev-python/PyQt6[widgets,gui,${PYTHON_USEDEP}]
+	dev-python/PyQt6[widgets,gui,svg,${PYTHON_USEDEP}]
 	~net-misc/maestral-${PV}[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep 'dev-python/importlib_resources[${PYTHON_USEDEP}]' python3_8)
 "

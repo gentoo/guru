@@ -322,7 +322,6 @@ KEYWORDS="~amd64 ~x86"
 # Prevent portage from trying to fetch bunch of *.crate from mirror despite they are not mirrored.
 RESTRICT="mirror"
 
-S="${WORKDIR}/${PN}-cli-v${PV}"
 DOCS=( crates/cli/README.md )
 HTML_DOCS=( doc/watchexec.1.html )
 
@@ -339,7 +338,7 @@ src_test() {
 }
 
 src_install() {
-	cargo_src_install --path crates/cli
+	cargo_src_install --path "${S}"/crates/cli
 
 	einstalldocs
 	doman doc/watchexec.1

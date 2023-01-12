@@ -28,3 +28,27 @@ src_compile() {
 	${EPYTHON} concat_files.py -r "cat_osc.json" || die
 	${EPYTHON} concat_files.py -r "cat_server.json" || die
 }
+
+src_install() {
+	mpv-plugin_src_install
+
+	# add multiple threads
+	THUMBNAIL_SERVER_THREADS="${THUMBNAIL_SERVER_THREADS:-1}"
+
+	if [[ "${THUMBNAIL_SERVER_THREADS}" -gt 1 ]]; then
+		i=1
+		while [[ ${i} -lt ${THUMBNAIL_SERVER_THREADS} ]]; do
+			dosym -r "/etc/mpv/scripts/mpv_thumbnail_script_server.lua" \
+				"/etc/mpv/scripts/mpv_thumbnail_script_server_${i}.lua" || die
+			(( i++ ))
+		done
+	fi
+}
+
+pkg_postinst(){
+	if [[ "${THUMBNAIL_SERVER_THREADS}" -gt 1 ]]; then
+		elog "Created a total of ${THUMBNAIL_SERVER_THREADS} server threads. Setting this too high is not recommended"
+	else
+		elog "You can create multiple thumbnailing threads by setting THUMBNAIL_SERVER_THREADS"
+	fi
+}
