@@ -9,8 +9,6 @@ DESCRIPTION="Header only C++14 mocking framework"
 HOMEPAGE="https://github.com/rollbear/trompeloeil"
 SRC_URI="https://github.com/rollbear/trompeloeil/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-# you get 10 minutes to quit it, or i'm done
-
 LICENSE="BSL-1.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ia64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
