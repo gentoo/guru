@@ -11,4 +11,5 @@ SRC_URI="https://github.com/rollbear/trompeloeil/archive/v${PV}.tar.gz -> ${P}.t
 
 LICENSE="Boost-1.0"
 SLOT="0"
+KEYWORDS="~amd64"
 RESTRICT="test"
