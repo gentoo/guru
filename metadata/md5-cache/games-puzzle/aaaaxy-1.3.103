@@ -1,4 +1,4 @@
-BDEPEND=x11-libs/libXcursor x11-libs/libXi x11-libs/libXinerama x11-libs/libXrandr >=dev-lang/go-1.18 app-arch/unzip
+BDEPEND=x11-libs/libXcursor x11-libs/libXi x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXxf86vm >=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=compile configure install unpack
 DEPEND=media-libs/alsa-lib media-libs/libglvnd x11-libs/libX11
 DESCRIPTION=A nonlinear 2D puzzle platformer taking place in impossible spaces
@@ -10,6 +10,6 @@ LICENSE=Apache-2.0 BSD MIT || ( FTL GPL-2+ )
 RDEPEND=media-libs/alsa-lib media-libs/libglvnd x11-libs/libX11
 RESTRICT=bindist strip
 SLOT=0
-SRC_URI=https://github.com/divVerent/aaaaxy/archive/refs/tags/v1.2.377.tar.gz -> aaaaxy-1.2.377.tar.gz https://gitlab.com/api/v4/projects/41581401/packages/generic/aaaaxy/1.2.377+2022-12-04/aaaaxy-1.2.377-deps.tar.xz
+SRC_URI=https://github.com/divVerent/aaaaxy/archive/refs/tags/v1.3.103.tar.gz -> aaaaxy-1.3.103.tar.gz https://gitlab.com/api/v4/projects/41581401/packages/generic/aaaaxy/1.3.103+2023-01-11/aaaaxy-1.3.103-deps.tar.xz
 _eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	go-module	4c4b34f361efda91762ffeda8f632c02
-_md5_=f1c01087b5cfb44b21274db340839cd7
+_md5_=074b0005c5c1f0ce2ec7f4cc4a06889d

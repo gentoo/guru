@@ -12,4 +12,4 @@ RESTRICT=bindist strip
 SLOT=0
 SRC_URI=https://github.com/divVerent/aaaaxy/archive/refs/tags/v1.2.399.tar.gz -> aaaaxy-1.2.399.tar.gz https://gitlab.com/api/v4/projects/41581401/packages/generic/aaaaxy/1.2.399+2022-12-06/aaaaxy-1.2.399-deps.tar.xz
 _eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	go-module	4c4b34f361efda91762ffeda8f632c02
-_md5_=616607989354272a8f1f1a87e2cccc1f
+_md5_=531f235e8a618ed067eb07f86ef97ea3

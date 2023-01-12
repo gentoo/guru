@@ -1,0 +1,11 @@
+BDEPEND=net-libs/nodejs[npm]
+DEFINED_PHASES=install unpack
+DESCRIPTION=Language Server for YAML Files
+EAPI=8
+HOMEPAGE=https://github.com/redhat-developer/yaml-language-server
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 BSD-2 ISC MIT-with-advertising
+RDEPEND=net-libs/nodejs
+SLOT=0
+SRC_URI=mirror://npm/yaml-language-server/-/yaml-language-server-1.11.0.tgz https://tastytea.de/files/gentoo/yaml-language-server-1.11.0-deps.tar.xz
+_md5_=926bb53e3d642d954665d05aaa1a7a6c

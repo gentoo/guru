@@ -360,6 +360,8 @@ gui-libs/cubegui:scorep - Enable scorep support
 gui-libs/cubegui:webengine - Enables usage of the QtWebEngine for the HTML Documentation
 gui-libs/power-profiles-daemon:pylint - Run pylint checks
 gui-wm/cage:X - Enable support for X11 applications (XWayland)
+gui-wm/hyprland:grimblast - Install 'grimblast': a Hyprland version of the sway script for taking screenshots
+gui-wm/hyprland:shellevents - Install 'shellevents': Invoke shell functions in response to Hyprland socket2 events.
 gui-wm/swayfx:X - Enable support for X11 applications (XWayland)
 gui-wm/swayfx:grimshot - Install 'grimshot': script for taking screenshots
 gui-wm/swayfx:swaybar - Install 'swaybar': sway's status bar component

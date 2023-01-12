@@ -1,16 +1,16 @@
 BDEPEND=>=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install test
-DEPEND=net-misc/curl dev-libs/libevent dev-libs/libfmt:= dev-libs/spdlog test? ( dev-cpp/doctest )
+DEPEND=net-misc/curl[ssl?] dev-libs/libevent:= dev-libs/libfmt:= dev-libs/spdlog:= test? ( dev-cpp/doctest )
 DESCRIPTION=A simple async wrapper around CURL for C++
 EAPI=8
 HOMEPAGE=https://nheko.im/nheko-reborn/coeurl
 INHERIT=meson
-IUSE=test
+IUSE=ssl test
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=net-misc/curl dev-libs/libevent dev-libs/libfmt:= dev-libs/spdlog
+RDEPEND=net-misc/curl[ssl?] dev-libs/libevent:= dev-libs/libfmt:= dev-libs/spdlog:=
 RESTRICT=test
-SLOT=0/0.2.0
-SRC_URI=https://nheko.im/nheko-reborn/coeurl/-/archive/v0.2.0/coeurl-v0.2.0.tar.bz2 -> coeurl-0.2.0.tar.bz2
+SLOT=0/0.3
+SRC_URI=https://nheko.im/nheko-reborn/coeurl/-/archive/v0.3.0/coeurl-v0.3.0.tar.bz2 -> coeurl-0.3.0.tar.bz2
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	meson	1994a5aef5d4f5798b92f64d6f9a6003
-_md5_=363505811161dc7268a2e55700e14ea1
+_md5_=bb857bffade3ce636b8d26910d8349ff

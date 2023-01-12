@@ -13,4 +13,4 @@ RESTRICT=bindist mirror strip test
 SLOT=0
 SRC_URI=https://download1.rstudio.org/electron/rhel8/x86_64/rstudio-2022.12.0-353-x86_64.rpm
 _eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	7e4d48a3c6c8ebdaa9f7f9e7d2991e22	chromium-2	1004ce9fd1ae9622a0b7eabcd8fc0d69	optfeature	1a2157392a869265b2afcb63a26c12ac	estack	055c42df72f76a4f45ec92b35e83cd56	rpm	f73e907469f65e52192f110dec72dce0	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
-_md5_=176ce0bea6f68e26b20a7cb03c8728d9
+_md5_=9f1330ea34f818ad29a5459725dc4947
