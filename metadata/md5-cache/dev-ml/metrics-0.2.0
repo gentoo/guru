@@ -13,5 +13,5 @@ REQUIRED_USE=test? ( lwt unix )
 RESTRICT=!test? ( test )
 SLOT=0/0.2.0
 SRC_URI=https://github.com/mirage/metrics/releases/download/0.2.0/metrics-0.2.0.tbz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a
 _md5_=75543e72e04b0c5778d4aa901633215f

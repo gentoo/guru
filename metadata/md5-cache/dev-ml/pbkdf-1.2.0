@@ -12,5 +12,5 @@ RDEPEND=>=dev-lang/ocaml-4.07.0:=[ocamlopt?] >=dev-ml/cstruct-6.0.0:= dev-ml/mir
 RESTRICT=!test? ( test )
 SLOT=0/1.2.0
 SRC_URI=https://github.com/abeaumont/ocaml-pbkdf/archive/refs/tags/1.2.0.tar.gz -> pbkdf-1.2.0.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a
 _md5_=324284a6416c10445fb024d5eb9f3405

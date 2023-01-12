@@ -12,5 +12,5 @@ RDEPEND=dev-lang/ocaml:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:
 RESTRICT=!test? ( test )
 SLOT=0/2.3_p20211118
 SRC_URI=https://github.com/whitequark/ocaml-inotify/archive/b340204c72ae3ff27def6e116c1998485fc3227e.tar.gz -> inotify-2.3_p20211118.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a
 _md5_=727c5d1a666a87538ed5bd545b2f531c

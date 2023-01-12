@@ -11,5 +11,5 @@ LICENSE=ISC
 RDEPEND=dev-ml/dune-build-info >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/2.0.0_alpha2
 SRC_URI=https://github.com/ocaml/omd/releases/download/2.0.0.alpha2/omd-2.0.0.alpha2.tbz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a
 _md5_=6c0297c13e3d519776a8899f8c244ae5

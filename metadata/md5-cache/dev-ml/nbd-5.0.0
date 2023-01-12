@@ -13,5 +13,5 @@ REQUIRED_USE=tool? ( unix ) test? ( tool )
 RESTRICT=!test? ( test )
 SLOT=0/5.0.0
 SRC_URI=https://github.com/xapi-project/nbd/archive/refs/tags/v5.0.0.tar.gz -> nbd-5.0.0.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a
 _md5_=2c6d0b2bf73b260a1f58bfb6ab633c36

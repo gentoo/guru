@@ -11,5 +11,5 @@ LICENSE=ISC
 RDEPEND=dev-ml/cstruct dev-ml/lwt dev-ml/lwt-dllist dev-ml/mirage-profile >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/3.1.0
 SRC_URI=https://github.com/mirage/shared-memory-ring/archive/v3.1.0.tar.gz -> shared-memory-ring-3.1.0.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a
 _md5_=e25d4b5fb47143b001704bdb31b8f315

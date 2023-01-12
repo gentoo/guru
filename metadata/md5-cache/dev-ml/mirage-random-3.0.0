@@ -11,5 +11,5 @@ LICENSE=ISC
 RDEPEND=dev-ml/cstruct >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/3.0.0
 SRC_URI=https://github.com/mirage/mirage-random/releases/download/v3.0.0/mirage-random-v3.0.0.tbz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a
 _md5_=cacb7051795ef6e445b62fa64b1a0a49

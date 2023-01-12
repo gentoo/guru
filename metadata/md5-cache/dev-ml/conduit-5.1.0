@@ -12,5 +12,5 @@ RDEPEND=dev-ml/astring:= dev-ml/ipaddr:=[sexp] dev-ml/logs:= dev-ml/ppx_sexp_con
 REQUIRED_USE=lwt-unix? ( lwt ) mirage? ( lwt )
 SLOT=0/5.1.0
 SRC_URI=https://github.com/mirage/ocaml-conduit/archive/v5.1.0.tar.gz -> conduit-5.1.0.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	05e1ecac420bb190bc7f981fdd670d96
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a
 _md5_=4aeaab09092f9bb85cc3f69c52382d25
