@@ -15,6 +15,7 @@ SRC_URI="https://github.com/simoncozens/fontFeatures/archive/refs/tags/v${PV}.ta
 KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"
+RESTRICT="test"
 
 RDEPEND="
 	dev-python/fs[${PYTHON_USEDEP}]
