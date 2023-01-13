@@ -21,7 +21,6 @@ RDEPEND="dev-python/pip[${PYTHON_USEDEP}]"
 BDEPEND="
 	test? (
 		dev-python/pretend[${PYTHON_USEDEP}]
-		dev-python/toml[${PYTHON_USEDEP}]
 		>=dev-python/virtualenv-20[${PYTHON_USEDEP}]
 	)
 "
