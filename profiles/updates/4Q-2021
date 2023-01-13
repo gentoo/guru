@@ -2,7 +2,6 @@ move dev-python/geopy sci-geosciences/geopy
 move dev-util/xdp-tools net-libs/xdp-tools
 move dev-lisp/arc dev-lang/arc
 move dev-lang/lean sci-mathematics/lean
-move sys-boot/bmaptools sys-boot/bmap-tools
 move app-crypt/openpgp-key-aepaneshnikov sec-keys/openpgp-keys-aepaneshnikov
 move net-misc/telescope net-client/telescope
 move net-misc/amfora net-client/amfora

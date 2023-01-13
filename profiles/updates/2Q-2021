@@ -9,5 +9,4 @@ move net-im/catgirl net-irc/catgirl
 move net-im/srain net-irc/srain
 move kde-apps/kaidan net-im/kaidan
 move dev-python/geographiclib sci-geosciences/GeographicLib
-move media-video/jellyfin-desktop media-video/jellyfin-mpv-shim
 move x11-terms/terminus-bin x11-terms/tabby-bin
