@@ -8,7 +8,7 @@ DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_10 )
 
-inherit distutils-r1
+inherit distutils-r1 multibuild
 
 DESCRIPTION="Miscellaneous tools for working with the Google Fonts collection"
 HOMEPAGE="https://github.com/googlefonts/gftools"
@@ -65,7 +65,7 @@ PROPERTIES="test_network"
 distutils_enable_tests pytest
 
 python_prepare_all() {
-	mv "${WORKDIR}/GlyphsInfo"/*.xml "Lib/gftools/util/GlyphsInfo" || die
+	mv "${WORKDIR}/GlyphsInfo-${GLYPHSINFO_COMMIT}"/*.xml "Lib/gftools/util/GlyphsInfo" || die
 	export SETUPTOOLS_SCM_PRETEND_VERSION="${PV/_p/.post}"
 	distutils-r1_python_prepare_all
 }
