@@ -5,9 +5,8 @@ EAPI=8
 
 CMAKE_BUILD_TYPE="Release"
 CMAKE_MAKEFILE_GENERATOR="emake"
-PYTHON_COMPAT=( python3_{9..11} )
 
-inherit cmake desktop llvm python-r1 toolchain-funcs xdg
+inherit cmake desktop llvm toolchain-funcs xdg
 
 DESCRIPTION="A hex editor for reverse engineers, programmers, and eyesight"
 HOMEPAGE="https://github.com/WerWolv/ImHex"
@@ -21,11 +20,8 @@ S_PATTERNS="${WORKDIR}/ImHex-Patterns-ImHex-v${PV}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="python"
-REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 DEPEND="
-	python? ( ${PYTHON_DEPS} )
 	app-forensics/yara
 	>=dev-cpp/nlohmann_json-3.10.2
 	dev-libs/capstone
@@ -33,6 +29,7 @@ DEPEND="
 	media-libs/freetype
 	media-libs/glfw
 	media-libs/glm
+	net-libs/libssh2
 	net-libs/mbedtls
 	net-misc/curl
 	sys-apps/dbus
@@ -67,8 +64,6 @@ src_prepare() {
 }
 
 src_configure() {
-	use python && python_setup
-
 	local mycmakeargs=(
 		-D CMAKE_BUILD_TYPE="Release" \
 		-D CMAKE_C_COMPILER_LAUNCHER=ccache \
@@ -91,9 +86,7 @@ src_configure() {
 		-D USE_SYSTEM_NLOHMANN_JSON=ON \
 		-D USE_SYSTEM_YARA=ON
 	)
-	if use python; then
-		mycmakeargs+=( -D PYTHON_VERSION_MAJOR_MINOR="\"${EPYTHON/python/}\"" )
-	fi
+
 	cmake_src_configure
 }
 
@@ -125,16 +118,6 @@ src_install() {
 		rsvg-convert -a -f png -w "${i}" -o "${T}/${i}x${i}/${PN}.png" "${S}/resources/icon.svg" || die
 		doicon -s "${i}" "${T}/${i}x${i}/${PN}.png"
 	done
-
-	if use python; then
-		installation() {
-			mypythondir="${D}/$(python_get_sitedir)/${PN}"
-			mkdir -p "${mypythondir}" || die
-			cp -r "${S}"/resources/lib/python/lib/* "${mypythondir}" || die
-			python_optimize "${mypythondir}"
-		}
-		python_foreach_impl installation
-	fi
 
 	# Install docs
 	einstalldocs
