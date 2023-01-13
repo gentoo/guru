@@ -3,8 +3,8 @@
 
 EAPI=8
 
-DISTUTILS_USE_SETUPTOOLS=no
-PYTHON_COMPAT=( python3_{8..10} )
+DISTUTILS_USE_PEP517=no
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit distutils-r1 optfeature xdg
 
