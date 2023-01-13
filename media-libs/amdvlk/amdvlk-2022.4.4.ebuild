@@ -32,7 +32,8 @@ RDEPEND=" ${DEPEND}
 	x11-libs/libxcb[${MULTILIB_USEDEP}]
 	x11-libs/libxshmfence[${MULTILIB_USEDEP}]
 	>=media-libs/vulkan-loader-1.3.224[${MULTILIB_USEDEP}]
-	dev-util/glslang[${MULTILIB_USEDEP}]"
+	dev-util/glslang[${MULTILIB_USEDEP}]
+	dev-libs/openssl[${MULTILIB_USEDEP}]" #890449
 
 CHECKREQS_MEMORY="7G"
 CHECKREQS_DISK_BUILD="4G"
