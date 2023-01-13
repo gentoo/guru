@@ -24,20 +24,24 @@ RDEPEND="
 	>=dev-python/beautifulsoup4-4.11.1[${PYTHON_USEDEP}]
 	>=dev-python/beziers-0.4.0[${PYTHON_USEDEP}]
 	>=dev-python/cmarkgfm-2022.10.27[${PYTHON_USEDEP}]
-	>=dev-python/collidoscope-0.5.0[${PYTHON_USEDEP}]
-	>=dev-python/defcon-0.10.2[${PYTHON_USEDEP}]
+	>=dev-python/collidoscope-0.4.1[${PYTHON_USEDEP}]
+	>=dev-python/defcon-0.10.1[${PYTHON_USEDEP}]
 	>=dev-python/font-v-2.1.0[${PYTHON_USEDEP}]
 	>=dev-python/fonttools-4.38.0[${PYTHON_USEDEP}]
 	>=dev-python/gflanguages-0.4.0[${PYTHON_USEDEP}]
-	>=dev-python/glyphsets-0.5.4[${PYTHON_USEDEP}]
+	>=dev-python/glyphsets-0.5.0[${PYTHON_USEDEP}]
 	>=dev-python/lxml-4.9.1[${PYTHON_USEDEP}]
-	>=dev-python/pip-api-0.0.30[${PYTHON_USEDEP}]
-	>=dev-python/protobuf-python-3.17.0[${PYTHON_USEDEP}]
-	>=dev-python/pyyaml-5.4.1[${PYTHON_USEDEP}]
-	>=dev-python/requests-2.25.1[${PYTHON_USEDEP}]
-	>=dev-python/rich-10.2.2[${PYTHON_USEDEP}]
+	>=dev-python/opentypespec-1.8.4[${PYTHON_USEDEP}]
+	>=dev-python/packaging-21.3[${PYTHON_USEDEP}]
+	>=dev-python/pip-api-0.0.29[${PYTHON_USEDEP}]
+	>=dev-python/protobuf-python-3.20.1[${PYTHON_USEDEP}]
+	>=dev-python/pyyaml-6.0[${PYTHON_USEDEP}]
+	>=dev-python/requests-2.28.0[${PYTHON_USEDEP}]
+	>=dev-python/rich-12.4.4[${PYTHON_USEDEP}]
 	>=dev-python/stringbrewer-0.0.1[${PYTHON_USEDEP}]
-	>=dev-python/vharfbuzz-0.1.1[${PYTHON_USEDEP}]
+	>=dev-python/unicodedata2-14.0.0[${PYTHON_USEDEP}]
+	>=dev-python/ufo2ft-2.27.0[${PYTHON_USEDEP}]
+	>=dev-python/vharfbuzz-0.1.3[${PYTHON_USEDEP}]
 	>=dev-util/ots-8.1.4
 	>=media-gfx/dehinter-4.0.0[${PYTHON_USEDEP}]
 	>=media-gfx/ufolint-1.2.0[${PYTHON_USEDEP}]
@@ -45,7 +49,6 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	test? (
-		dev-python/ufo2ft[${PYTHON_USEDEP}]
 		dev-python/kurbopy[${PYTHON_USEDEP}]
 	)
 "
