@@ -13,7 +13,7 @@ DESCRIPTION="Metadata Anonymisation Toolkit: handy tool to trash your metadata"
 HOMEPAGE="https://0xacab.org/jvoisin/mat2"
 SRC_URI="
 	https://0xacab.org/jvoisin/${PN}/-/archive/${PV}/${P}.tar.gz
-	verify-sig? ( https://0xacab.org/jvoisin/mat2/uploads/b8b7bce2a45aa6c1b2b48432025b2fef/mat2-0.13.0.tar.gz.asc )
+	verify-sig? ( https://0xacab.org/jvoisin/mat2/uploads/5058fa3903cf7c9dec8f262018669bec/mat2-0.13.1.tar.gz.asc )
 "
 
 LICENSE="LGPL-3"
