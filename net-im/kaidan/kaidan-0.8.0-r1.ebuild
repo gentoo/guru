@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -34,7 +34,8 @@ DEPEND="
 	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:5
-	>=media-libs/zxing-cpp-1.0.8
+	>=media-libs/zxing-cpp-1.0.8:=
+	<media-libs/zxing-cpp-2.0:=
 	>=net-libs/qxmpp-1.3.0
 	kde? ( >=kde-frameworks/knotifications-${KFMIN}:5 )
 "
@@ -47,6 +48,7 @@ src_configure() {
 		-DI18N=$(usex nls)
 		-DBUILD_TESTS=$(usex test)
 		-DUSE_KNOTIFICATIONS=$(usex kde)
+
 		# compile QML at build time
 		-DQUICK_COMPILER=ON
 	)
