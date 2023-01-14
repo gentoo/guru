@@ -23,6 +23,7 @@ SLOT="0"
 IUSE="X grimblast shellevents systemd"
 
 RDEPEND="
+	app-misc/jq
 	dev-libs/libevdev
 	dev-libs/libinput
 	dev-libs/wayland
@@ -41,7 +42,6 @@ RDEPEND="
 	x11-libs/pixman
 	virtual/libudev
 	grimblast? (
-		 app-misc/jq
 		 gui-apps/grim
 		 gui-apps/slurp
 		 gui-apps/wl-clipboard
