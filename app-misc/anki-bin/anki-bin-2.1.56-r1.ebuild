@@ -3,6 +3,11 @@
 
 EAPI=8
 
+### A NOTE REGARDING PYTHON COMPATABILITY ###
+# Anki-bin downloads a python 3.9 wheel. However the wheel used has only one native library _rsbridge.so
+# that is not linked against libpython.
+# The configuration with Python 3.10 was tested on a limited number of machines and is not gurenteed to work.
+
 PYTHON_COMPAT=( python3_9 python3_10 )
 inherit python-single-r1 desktop xdg
 
