@@ -1,0 +1,15 @@
+BDEPEND=app-admin/chrpath gnome-base/librsvg sys-devel/lld dev-util/ccache sys-devel/make >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend setup test
+DEPEND=app-forensics/yara >=dev-cpp/nlohmann_json-3.10.2 dev-libs/capstone >=dev-libs/libfmt-8.0.0:= media-libs/freetype media-libs/glfw media-libs/glm net-libs/libssh2 net-libs/mbedtls net-misc/curl sys-apps/dbus sys-apps/file sys-apps/xdg-desktop-portal virtual/libiconv virtual/libintl !!sys-devel/llvm:0
+DESCRIPTION=A hex editor for reverse engineers, programmers, and eyesight
+EAPI=8
+HOMEPAGE=https://github.com/WerWolv/ImHex
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake desktop llvm toolchain-funcs xdg
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=app-forensics/yara >=dev-cpp/nlohmann_json-3.10.2 dev-libs/capstone >=dev-libs/libfmt-8.0.0:= media-libs/freetype media-libs/glfw media-libs/glm net-libs/libssh2 net-libs/mbedtls net-misc/curl sys-apps/dbus sys-apps/file sys-apps/xdg-desktop-portal virtual/libiconv virtual/libintl
+SLOT=0
+SRC_URI=https://github.com/WerWolv/ImHex/releases/download/v1.26.2/Full.Sources.tar.gz -> imhex-1.26.2.tar.gz https://github.com/WerWolv/ImHex-Patterns/archive/refs/tags/ImHex-v1.26.2.tar.gz -> imhex-patterns-1.26.2.tar.gz
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	desktop	7eb20ad915a0a318176d51bc2508ff5c	llvm	2573b2f563461fd232f4587523e5144b	xdg	6024fbc93167fad782e2032933654857
+_md5_=946f1ef276a0762886e9581d9b9449aa

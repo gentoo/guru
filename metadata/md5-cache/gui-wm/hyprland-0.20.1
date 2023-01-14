@@ -1,6 +1,6 @@
 BDEPEND=grimblast? ( app-text/scdoc ) shellevents? ( app-text/scdoc ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install test unpack
-DEPEND=dev-libs/libevdev dev-libs/libinput dev-libs/wayland >=dev-libs/wayland-protocols-1.31 dev-util/glslang dev-util/vulkan-headers gui-libs/gtk-layer-shell gui-libs/wlroots[X?] media-libs/libglvnd[X?] media-libs/mesa[gles2,wayland,X?] media-libs/vulkan-loader x11-base/xcb-proto x11-libs/cairo x11-libs/libdrm x11-libs/libxkbcommon x11-libs/pixman virtual/libudev grimblast? ( app-misc/jq gui-apps/grim gui-apps/slurp gui-apps/wl-clipboard x11-libs/libnotify ) X? ( x11-base/xwayland x11-libs/libxcb x11-libs/xcb-util-image x11-libs/xcb-util-wm )
+DEPEND=app-misc/jq dev-libs/libevdev dev-libs/libinput dev-libs/wayland >=dev-libs/wayland-protocols-1.31 dev-util/glslang dev-util/vulkan-headers gui-libs/gtk-layer-shell gui-libs/wlroots[X?] media-libs/libglvnd[X?] media-libs/mesa[gles2,wayland,X?] media-libs/vulkan-loader x11-base/xcb-proto x11-libs/cairo x11-libs/libdrm x11-libs/libxkbcommon x11-libs/pixman virtual/libudev grimblast? ( gui-apps/grim gui-apps/slurp gui-apps/wl-clipboard x11-libs/libnotify ) X? ( x11-base/xwayland x11-libs/libxcb x11-libs/xcb-util-image x11-libs/xcb-util-wm )
 DESCRIPTION=A dynamic tiling Wayland compositor that doesn't sacrifice on its looks
 EAPI=8
 HOMEPAGE=https://github.com/hyprwm/Hyprland/releases
@@ -8,8 +8,8 @@ INHERIT=meson toolchain-funcs
 IUSE=X grimblast shellevents systemd
 KEYWORDS=~amd64
 LICENSE=BSD
-RDEPEND=dev-libs/libevdev dev-libs/libinput dev-libs/wayland >=dev-libs/wayland-protocols-1.31 dev-util/glslang dev-util/vulkan-headers gui-libs/gtk-layer-shell gui-libs/wlroots[X?] media-libs/libglvnd[X?] media-libs/mesa[gles2,wayland,X?] media-libs/vulkan-loader x11-base/xcb-proto x11-libs/cairo x11-libs/libdrm x11-libs/libxkbcommon x11-libs/pixman virtual/libudev grimblast? ( app-misc/jq gui-apps/grim gui-apps/slurp gui-apps/wl-clipboard x11-libs/libnotify ) X? ( x11-base/xwayland x11-libs/libxcb x11-libs/xcb-util-image x11-libs/xcb-util-wm )
+RDEPEND=app-misc/jq dev-libs/libevdev dev-libs/libinput dev-libs/wayland >=dev-libs/wayland-protocols-1.31 dev-util/glslang dev-util/vulkan-headers gui-libs/gtk-layer-shell gui-libs/wlroots[X?] media-libs/libglvnd[X?] media-libs/mesa[gles2,wayland,X?] media-libs/vulkan-loader x11-base/xcb-proto x11-libs/cairo x11-libs/libdrm x11-libs/libxkbcommon x11-libs/pixman virtual/libudev grimblast? ( gui-apps/grim gui-apps/slurp gui-apps/wl-clipboard x11-libs/libnotify ) X? ( x11-base/xwayland x11-libs/libxcb x11-libs/xcb-util-image x11-libs/xcb-util-wm )
 SLOT=0
 SRC_URI=https://github.com/hyprwm/Hyprland/archive/v0.20.1beta.tar.gz -> hyprland-0.20.1.tar.gz https://github.com/hyprwm/hyprland-protocols/archive/301733ae466b229066ba15a53e6d8b91c5dcef5b.tar.gz -> hyprland-protocols.tar.gz https://github.com/hyprwm/contrib/archive/37c8121f98d76f57caa00dd7106877876e0d7483.tar.gz -> contrib.tar.gz https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/dc7cc98cf21a8dc19ab8895505500e3700646af0/wlroots-dc7cc98cf21a8dc19ab8895505500e3700646af0.tar.bz2 -> wlr.tar.bz2
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	meson	1994a5aef5d4f5798b92f64d6f9a6003
-_md5_=484d802e5b8102a8d4d06e72423fe26f
+_md5_=02b71bb90588095c6fc0a82c90ca6a30
