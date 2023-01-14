@@ -178,7 +178,6 @@ app-misc/navi 2.19.0 2.20.1 9999: An interactive cheatsheet tool for the command
 app-misc/neo 0.6.1 9999: cmatrix clone with 32-bit color and Unicode support
 app-misc/nerdfetch 5.0.2: A POSIX *nix fetch script using Nerdfonts
 app-misc/nonsense 0.7-r1: Generates random text from datafiles and templates
-app-misc/ntfy 2.7.0: A utility for sending notifications, on demand and when commands finish.
 app-misc/onefetch 2.14.2: Command-line Git information tool
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/powerpanel 1.4.1: PowerPanel software for CyberPower UPS systems
@@ -188,7 +187,6 @@ app-misc/s6-man 9999: mdoc versions of the HTML documentation for the s6 supervi
 app-misc/spark 1.0.1: sparklines for your shell
 app-misc/tai 0.0.4 0.0.5: tai (Terminal Ascii Image) tool to convert images to ascii
 app-misc/tealdeer 1.6.1: A very fast implementation of tldr in Rust.
-app-misc/telegram-send 0.25-r1: Send messages and files over Telegram from the command-line
 app-misc/termdown 1.18.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/uwufetch 2.0: A meme system info tool for Linux
@@ -981,7 +979,6 @@ dev-python/pyfiglet 0.8_p1: Pure-python FIGlet implementation
 dev-python/pygaljs 1.0.2-r1: Python package providing assets from https://github.com/Kozea/pygal.js
 dev-python/pygments-promql 0.0.9: A PromQL lexer for Pygments
 dev-python/pygsl 2.3.0: Python interface for the GNU scientific library (gsl)
-dev-python/pyinquirer 1.0.3_p20200708 9999: A Python module for common interactive command line UIs
 dev-python/pyinstaller 4.2-r1: Bundles a Python application and all its dependencies into a single package.
 dev-python/pykeepass 4.0.2: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
 dev-python/pymeeus 0.5.11 0.5.12: Python implementation of Jean Meeus astronomical routines
@@ -1038,12 +1035,10 @@ dev-python/queuelib 1.6.2: Collection of persistent and non-persistent queues fo
 dev-python/rchitect 0.3.36: Interoperate R with Python
 dev-python/readability-lxml 0.6.1 0.8.1: fast html to text parser (article readability tool)
 dev-python/readmdict 0.1.1: Read mdx/mdd files
-dev-python/recordclass 0.14.3: Mutable variants of tupe and collections.namedtuple
 dev-python/redbaron 0.9 0.9.2: A FST for python to make writing refactoring code a realistic task
 dev-python/rst2ansi 0.1.5-r1: Render reStructuredText documents to the terminal
 dev-python/rstcheck 3.3.1: Checks syntax of reStructuredText and code blocks nested within it
 dev-python/rstr 3.2.0: Easily generate random strings of various types
-dev-python/ryu 4.34: Component-based Software-defined Networking Framework
 dev-python/schedule 1.1.0-r1: Python job scheduling for humans
 dev-python/schema 0.7.5: Python module to validate and convert data structures
 dev-python/scramp 1.4.1 1.4.4: A pure-Python implementation of the SCRAM authentication protocol.
@@ -1371,7 +1366,6 @@ media-gfx/fontpreview 1.0.6: Highly customizable and minimal font previewer writ
 media-gfx/gephi-bin 0.9.5 0.9.6: The Open Graph Viz Platform
 media-gfx/grafx2 2.7.2978 2.7.2978-r100: A pixelart-oriented painting program
 media-gfx/heatshrink 0.4.1: data compression library for embedded/real-time systems
-media-gfx/memethesis-cli 3.2.1 9999: Create memes from the terminal
 media-gfx/nsxiv 29 30 9999: Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer
 media-gfx/oda-file-converter 23.5.0.0: For converting between different versions of .dwg and .dxf
 media-gfx/qview 4.0 5.0: Practical and minimal image viewer

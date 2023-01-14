@@ -5,13 +5,13 @@ DESCRIPTION=Dynamically react to application imbalance by modifying the number o
 EAPI=8
 HOMEPAGE=https://github.com/bsc-pm/dlb
 INHERIT=autotools python-single-r1
-IUSE=hwloc instrumentation mpi openmp test python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10
+IUSE=hwloc instrumentation mpi openmp test python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=~amd64
 LICENSE=LGPL-3
-RDEPEND=python_single_target_python3_8? ( >=dev-lang/python-3.8.16:3.8[tk] ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9[tk] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10[tk] ) hwloc? ( sys-apps/hwloc ) mpi? ( virtual/mpi ) dev-lang/tk python_single_target_python3_8? ( dev-python/matplotlib[tk,python_targets_python3_8(-)] ) python_single_target_python3_9? ( dev-python/matplotlib[tk,python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/matplotlib[tk,python_targets_python3_10(-)] )
-REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 python_single_target_python3_10 )
+RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9[tk] ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10[tk] ) hwloc? ( sys-apps/hwloc ) mpi? ( virtual/mpi ) dev-lang/tk python_single_target_python3_9? ( dev-python/matplotlib[tk,python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/matplotlib[tk,python_targets_python3_10(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bsc-pm/dlb/archive/v2.1.tar.gz -> dlb-2.1.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=e9928bffae64aff038f34021efac3ee6

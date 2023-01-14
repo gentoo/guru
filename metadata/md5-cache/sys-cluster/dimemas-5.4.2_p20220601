@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install preinst prepare setup
-DEPEND=dev-libs/boost:= sys-libs/zlib java? ( dev-java/commons-io:1 ) || ( >=dev-lang/python-3.11.1:3.11 >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-lang/python-3.8.16:3.8 >=dev-python/pypy3-7.3.10-r1:0 ) java? ( virtual/jdk:1.8 ) java? ( >=dev-java/java-config-2.2.0-r3 )
+DEPEND=dev-libs/boost:= sys-libs/zlib java? ( dev-java/commons-io:1 ) || ( >=dev-lang/python-3.11.1:3.11 >=dev-lang/python-3.10.9:3.10 >=dev-lang/python-3.9.16:3.9 >=dev-python/pypy3-7.3.10-r1:0 ) java? ( virtual/jdk:1.8 ) java? ( >=dev-java/java-config-2.2.0-r3 )
 DESCRIPTION=High-abstracted network simulator for message-passing programs
 EAPI=8
 HOMEPAGE=https://github.com/bsc-performance-tools/dimemas
@@ -11,5 +11,5 @@ LICENSE=LGPL-2.1
 RDEPEND=dev-libs/boost:= sys-libs/zlib java? ( dev-java/commons-io:1 ) java? ( virtual/jre:1.8 ) java? ( >=dev-java/java-config-2.2.0-r3 )
 SLOT=0
 SRC_URI=https://github.com/bsc-performance-tools/dimemas/archive/0dc28fafb8a917cee8d6ffd4a037cdc1f8755101.tar.gz -> dimemas-5.4.2_p20220601.gh.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-opt-2	a71433e535af8faae0c0f6c861a32054	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	7870d60e8b98856ef02d33397fd5ec0f	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	java-utils-2	c79d65661a9f4f72b60376c9e4b3dfa1	java-pkg-opt-2	a71433e535af8faae0c0f6c861a32054	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
 _md5_=19bce24f2ac18f4710ed6d01a560d19b
