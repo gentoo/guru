@@ -514,10 +514,8 @@ dev-crystal/webless 0.1.0: HTTP::Client for testing HTTP::Handlers directly and 
 dev-db/pg_repack 1.4.7: Reorganize tables in PostgreSQL databases with minimal locks
 dev-db/rum 1.3.11: RUM access method - inverted index with additional information in posting lists
 dev-dotnet/gtk-sharp 2.99.3-r3: gtk bindings for mono
-dev-embedded/arachne-pnr 0_p20180827 9999: Arachne PNR - free and open-source place and route tool for FPGAs
 dev-embedded/esp-idf 5.0: Espressif IoT Development Framework
 dev-embedded/etlcpp 20.35.8: A C++ template library for embedded applications
-dev-embedded/icestorm 0_p20210309 9999: IceStorm - tools for analyzing and creating bitstreams for Lattice iCE40 FPGAs
 dev-embedded/idf-component-manager 1.1.4: Tool for installing ESP-IDF components
 dev-embedded/mv88e6xxx-dump 0.2.0_pre20210327: Dump information about Marvell mv88e6xxx Ethernet switches
 dev-embedded/rauc 1.8: Lightweight update client that runs on your Embedded Linux device
@@ -1218,7 +1216,7 @@ games-engines/instead 3.3.5 3.4.1 9999: INSTEAD text-based quest game engine
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
 games-fps/assaultcube 1.3.0.2: Free multiplayer FPS based on the Cube engine
-games-fps/crispy-doom 5.10.0 5.10.1 5.10.2 5.10.3 5.11.1 5.12.0: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
+games-fps/crispy-doom 5.10.2 5.10.3 5.11.1 5.12.0: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 games-fps/etlegacy 2.80.2: Wolfenstein: Enemy Territory 2.60b compatible client/server
 games-fps/openspades 0.1.3: Open-source voxel FPS
 games-fps/quakespasm 0.94.1 9999: Modern, cross-platform Quake 1 engine based on FitzQuake

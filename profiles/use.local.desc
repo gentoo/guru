@@ -42,8 +42,6 @@ app-misc/fastfetch:pci - Enables reading GPU via sys-apps/pciutils
 app-misc/fastfetch:vulkan - Enables reading GPU via media-libs/vulkan-loader
 app-misc/fastfetch:xfce - Enables support for XFCE config
 app-misc/fastfetch:xrandr - Enables support for Xrandr
-app-misc/ntfy:dbus - Support for desktop notifications
-app-misc/ntfy:telegram - Add support for telegram backend
 app-portage/emlop:fish-completion - Enable fish completion support.
 app-text/klogg:lto - Build with link time optimization (LTO).
 dev-cpp/cpptoml:libcxx - Use libc++ for the C++ standard library
@@ -63,7 +61,6 @@ dev-embedded/esp-idf:esp32 - Enable support for esp32
 dev-embedded/esp-idf:esp32s2 - Enable support for esp32
 dev-embedded/esp-idf:esp32s3 - Enable support for esp32
 dev-embedded/esp-idf:riscv32 - Enable support for esp32
-dev-embedded/icestorm:ftdi - Enable support for USB FTDI chips via dev-embedded/libftdi
 dev-embedded/rauc:gpt - Add GPT support
 dev-embedded/rauc:json - Add JSON support
 dev-embedded/rauc:network - Add network update support
