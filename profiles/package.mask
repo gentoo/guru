@@ -16,7 +16,6 @@
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2023-01-14)
 # Needs python_compat bump. Removal on 2023-01-29.
-games-fps/crispy-doom
 media-gfx/memethesis-cli
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-01-07)
