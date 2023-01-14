@@ -1,5 +1,4 @@
 move app-emulation/nvidia-container-toolkit app-containers/nvidia-container-toolkit
 move dev-python/sentence_splitter dev-python/sentence-splitter
 move app-emulation/unicorn dev-util/unicorn
-move dev-vcs/askgit dev-vcs/mergestat
 move sys-boot/bmap-tools sys-block/bmap-tools

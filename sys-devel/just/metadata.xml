@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>joe@wt.gd</email>
+		<name>joecool</name>
+	</maintainer>
+	<upstream>
+		<changelog>https://github.com/casey/just/raw/master/CHANGELOG.md</changelog>
+		<bugs-to>https://github.com/casey/just/issues</bugs-to>
+		<remote-id type="github">casey/just</remote-id>
+	</upstream>
+</pkgmetadata>

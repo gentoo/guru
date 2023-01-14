@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-    <maintainer type="person">
-        <email>svdm-gentoo@protonmail.com</email>
-        <name>Simon van der Maas</name>
-    </maintainer>
+	<maintainer type="person">
+		<email>svdm-gentoo@protonmail.com</email>
+		<name>Simon van der Maas</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Azure/azure-sdk-for-python</remote-id>
+		<remote-id type="pypi">azure-storage-block</remote-id>
+	</upstream>
 </pkgmetadata>

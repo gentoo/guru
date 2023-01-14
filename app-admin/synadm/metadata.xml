@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>julien@jroy.ca</email>
+		<name>Julien Roy</name>
+	</maintainer>
+	<longdescription>A CLI tool to help admins of Matrix-Synapse homeservers conveniently issue commands available via its admin API.</longdescription>
+	<upstream>
+		<maintainer>
+			<name>Johannes Tiefenbacher</name>
+			<email>jt@peek-a-boo.at</email>
+		</maintainer>
+		<changelog>https://github.com/JOJ0/synadm/releases</changelog>
+		<bugs-to>https://github.com/JOJ0/synadm/issues</bugs-to>
+		<remote-id type="github">JOJ0/synadm</remote-id>
+		<remote-id type="pypi">synadm</remote-id>
+	</upstream>
+</pkgmetadata>

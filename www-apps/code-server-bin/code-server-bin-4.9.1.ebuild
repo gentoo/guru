@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,13 +23,12 @@ LICENSE="MIT 0BSD ISC PYTHON BSD-2 BSD Apache-2.0 Unlicense LGPL-2.1+
 "
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="gnome-keyring"
 
 RDEPEND="
 	${DEPEND}
 	>=net-libs/nodejs-16.0.0[ssl]
 	sys-apps/ripgrep
-	gnome-keyring? ( app-crypt/libsecret )
+	app-crypt/libsecret
 "
 
 S="${WORKDIR}/${MY_P}-linux-${ARCH}"

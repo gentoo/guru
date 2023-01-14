@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_10 )
 inherit font python-any-r1
 
 DESCRIPTION="A IBM 3270 Terminal font in a modern format"
@@ -46,7 +46,7 @@ python_check_deps() {
 	use test || return 0
 	python_has_version -b "dev-python/ipdb[${PYTHON_USEDEP}]" &&
 	python_has_version -b "dev-python/pillow[${PYTHON_USEDEP}]" &&
-	python_has_version -b "dev-util/gftools[${PYTHON_SINGLE_USEDEP}]" &&
+	python_has_version -b "dev-util/gftools[${PYTHON_USEDEP}]" &&
 	python_has_version -b "media-gfx/fontbakery[${PYTHON_USEDEP}]"
 }
 

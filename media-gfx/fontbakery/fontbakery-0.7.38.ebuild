@@ -1,9 +1,10 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_10 )
+DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1
 
@@ -12,7 +13,7 @@ HOMEPAGE="
 	https://github.com/googlefonts/fontbakery
 	https://pypi.org/project/fontbakery/
 "
-SRC_URI="https://github.com/googlefonts/fontbakery/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/googlefonts/fontbakery/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -33,7 +34,6 @@ RDEPEND="
 	>=dev-python/requests-2.25.1[${PYTHON_USEDEP}]
 	>=dev-python/rich-10.2.2[${PYTHON_USEDEP}]
 	>=dev-python/stringbrewer-0.0.1[${PYTHON_USEDEP}]
-	>=dev-python/toml-0.10.2[${PYTHON_USEDEP}]
 	>=dev-python/vharfbuzz-0.1.1[${PYTHON_USEDEP}]
 	>=dev-util/ots-8.1.4
 	>=media-gfx/dehinter-3.1.0[${PYTHON_USEDEP}]
