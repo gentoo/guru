@@ -16,7 +16,6 @@
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2023-01-14)
 # Needs python_compat bump. Removal on 2023-01-29.
-dev-python/pyinquirer
 dev-python/recordclass
 dev-python/ryu
 games-fps/crispy-doom
