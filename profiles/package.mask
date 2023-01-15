@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Nicola Smaniotto <smaniotto.nicola@gmail.com> (2023-01-15)
+# Requires <dev-python/cleo-1, which is no longer available in ::gentoo.
+# Will ask upstream to update the dependency.
+media-video/trakt-scrobbler
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-01-07)
 # Archived upstream. Use net-news/communique (actively maintained fork of
 # FeedReader) or any other app.
