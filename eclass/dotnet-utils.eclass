@@ -30,7 +30,7 @@ if [[ ! ${DOTNET_SLOT} ]]; then
 fi
 
 # Temporary, use the virtual once you can have multiple virtuals installed at once
-BDEPEND+=" || ( dev-dotnet/dotnet-sdk:${DOTNET_SLOT} dev-dotnet/dotnet-sdk-bin:${DOTNET_SLOT} )"
+BDEPEND+=" || ( dev-dotnet/dotnet-sdk-bin:${DOTNET_SLOT} dev-dotnet/dotnet-sdk:${DOTNET_SLOT} )"
 
 # @ECLASS_VARIABLE: DOTNET_EXECUTABLE
 # @DEFAULT_UNSET
