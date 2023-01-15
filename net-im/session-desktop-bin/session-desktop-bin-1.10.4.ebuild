@@ -84,6 +84,9 @@ src_prepare(){
 	pushd "opt/Session/locales/" >/dev/null || die "location change for language cleanup failed"
 	chromium_remove_language_paks
 	popd > /dev/null || die "location reset for language cleanup failed"
+
+	sed -i 's|/opt/Session/session-desktop|/opt/session-desktop/session-desktop|g' \
+		"${S}/usr/share/applications/session-desktop.desktop" || die "error changing .desktop file"
 }
 
 src_configure(){
@@ -124,4 +127,3 @@ pkg_postinst(){
 		media-sound/pulseaudio media-sound/apulse[sdk] media-video/pipewire
 	optfeature "system tray support" dev-libs/libappindicator
 }
-
