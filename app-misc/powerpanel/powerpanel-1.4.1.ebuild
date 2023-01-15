@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 # Credits to shurutov, inspired by https://forums.gentoo.org/viewtopic-t-1045122-view-previous.html
 
@@ -19,7 +19,7 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}
 	dev-libs/json-c
-	dev-libs/openssl
+	dev-libs/openssl:0/1.1
 	virtual/libusb"
 BDEPEND=""
 QA_FLAGS_IGNORED="/usr/sbin/pwrstat /usr/sbin/pwrstatd /usr/lib64/libpaho-mqtt3cs.so.1"
