@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer type="person">
+	<email>joe@wt.gd</email>
+	<name>joecool</name>
+</maintainer>
+<upstream>
+	<remote-id type="gnome-gitlab">pan</remote-id>
+	<bugs-to>https://gitlab.gnome.org/GNOME/pan/-/issues</bugs-to>
+	<maintainer>
+		<email>dod@debian.org</email>
+		<name>Dominique Dumont</name>
+	</maintainer>
+</upstream>
+<use>
+	<flag name="dbus">Use DBUS. Support running multiple instances</flag>
+	<flag name="gnome-keyring">Use libsecret/gcr for password storage</flag>
+	<flag name="libnotify">Build libnotify support for notifications</flag>
+	<flag name="nls">Localization support</flag>
+	<flag name="spell">Spellchecking support (enchant/gtkspell)</flag>
+	<flag name="ssl">TLS 1.x support (through gnutls)</flag>
+</use>
+</pkgmetadata>
