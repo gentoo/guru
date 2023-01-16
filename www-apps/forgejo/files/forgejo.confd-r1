@@ -1,0 +1,14 @@
+# Forgejo configuration
+GITEA_CONF="/etc/forgejo/app.ini"
+
+# Forgejo user
+GITEA_USER="git"
+
+# Forgejo group
+GITEA_GROUP="git"
+
+# Forgejo working directory
+GITEA_WORK_DIR="/var/lib/gitea"
+
+# Forgejo custom directory
+GITEA_CUSTOM="${GITEA_WORK_DIR}/custom"
