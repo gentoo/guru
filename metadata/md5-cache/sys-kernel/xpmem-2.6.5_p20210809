@@ -11,5 +11,5 @@ LICENSE=LGPL-2.1
 RDEPEND=modules? ( kernel_linux? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) ) )
 SLOT=0
 SRC_URI=https://github.com/hjelmn/xpmem/archive/8700f281383a83b86d3bff5e46168eb24558b842.tar.gz -> xpmem-2.6.5_p20210809.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	linux-info	7e4d48a3c6c8ebdaa9f7f9e7d2991e22	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod	a138af023f7507b676b0aec9fe4b1e83
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	linux-info	4b552625ebd741dfd2ac08637fd2436e	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	linux-mod	a138af023f7507b676b0aec9fe4b1e83
 _md5_=252cb9904beddfced34650b6c161968d
