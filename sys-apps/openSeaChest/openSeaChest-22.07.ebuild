@@ -27,9 +27,9 @@ src_prepare() {
 
 	# Move over submodules, because the upstream tar doesn't have them.
 	mkdir -p "${S}"/'subprojects'
-	rmdir "${S}"/'subprojects/opensea-common' || die 
+	rmdir "${S}"/'subprojects/opensea-common' || die
 	mv "${WORKDIR}"/'Seagate-opensea-common-a2155bb' "${S}"/'subprojects/opensea-common'
-	rmdir "${S}"/'subprojects/opensea-operations' || die 
+	rmdir "${S}"/'subprojects/opensea-operations' || die
 	mv "${WORKDIR}"/'Seagate-opensea-operations-f9eab78' "${S}"/'subprojects/opensea-operations'
 	rmdir "${S}"/'subprojects/opensea-transport' || die
 	mv "${WORKDIR}"/'Seagate-opensea-transport-f09d599' "${S}"/'subprojects/opensea-transport'
