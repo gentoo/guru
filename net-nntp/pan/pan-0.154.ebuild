@@ -14,7 +14,6 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="dbus gnome-keyring libnotify nls spell ssl"
 
 DEPEND="
-	app-text/yelp-tools
 	>=dev-libs/glib-2.26:2
 	dev-libs/gmime:3.0
 	>=x11-libs/gtk+-3.00:3
@@ -27,10 +26,15 @@ DEPEND="
 		>=app-text/enchant-2.2.3:2
 		>=app-text/gtkspell-3.0.10:3 )
 	ssl? ( >=net-libs/gnutls-3:0= )
-	>=sys-devel/gettext-0.19.7
 	>=sys-libs/zlib-1.2.0
+"
+RDEPEND="${DEPEND}"
+BDEPEND="
+	app-text/yelp-tools
+	>=sys-devel/gettext-0.19.7
 	virtual/pkgconfig
 "
+
 S="${WORKDIR}/pan-v${PV}"
 
 src_prepare() {
