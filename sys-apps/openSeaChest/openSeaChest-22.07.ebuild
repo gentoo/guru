@@ -26,15 +26,14 @@ src_prepare() {
 	default
 
 	# Move over submodules, because the upstream tar doesn't have them.
-	mkdir -p "${S}"/'subprojects'
 	rmdir "${S}"/'subprojects/opensea-common' || die
-	mv "${WORKDIR}"/'Seagate-opensea-common-a2155bb' "${S}"/'subprojects/opensea-common'
+	mv "${WORKDIR}"/'Seagate-opensea-common-a2155bb' "${S}"/'subprojects/opensea-common' || die
 	rmdir "${S}"/'subprojects/opensea-operations' || die
-	mv "${WORKDIR}"/'Seagate-opensea-operations-f9eab78' "${S}"/'subprojects/opensea-operations'
+	mv "${WORKDIR}"/'Seagate-opensea-operations-f9eab78' "${S}"/'subprojects/opensea-operations' || die
 	rmdir "${S}"/'subprojects/opensea-transport' || die
-	mv "${WORKDIR}"/'Seagate-opensea-transport-f09d599' "${S}"/'subprojects/opensea-transport'
+	mv "${WORKDIR}"/'Seagate-opensea-transport-f09d599' "${S}"/'subprojects/opensea-transport' || die
 	rmdir "${S}"/'subprojects/wingetopt' || die
-	mv "${WORKDIR}"/'Seagate-wingetopt-a8c80ad' "${S}"/'subprojects/wingetopt'
+	mv "${WORKDIR}"/'Seagate-wingetopt-a8c80ad' "${S}"/'subprojects/wingetopt' || die
 }
 
 src_configure() {
