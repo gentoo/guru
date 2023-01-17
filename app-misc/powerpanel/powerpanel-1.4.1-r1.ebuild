@@ -19,8 +19,12 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}
 	dev-libs/json-c
-	dev-libs/openssl:0/1.1
-	virtual/libusb"
+	virtual/libusb
+	|| (
+		dev-libs/openssl-compat:1.1.1
+		dev-libs/openssl:0/1.1
+	)
+"
 BDEPEND=""
 QA_FLAGS_IGNORED="/usr/sbin/pwrstat /usr/sbin/pwrstatd /usr/lib64/libpaho-mqtt3cs.so.1"
 PATCHES=(
