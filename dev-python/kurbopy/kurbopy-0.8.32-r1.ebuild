@@ -50,8 +50,18 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="dev-python/black[${PYTHON_USEDEP}]"
+RDEPEND=""
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+	default
+	rm "${S}/kurbopy/__pycache__/__init__.cpython-39.pyc" || die
+	rm "${S}/kurbopy/__pycache__/__init__.cpython-310.pyc" || die
+	rm "${S}/kurbopy/__pycache__/magic.cpython-39.pyc" || die
+	rm "${S}/kurbopy/__pycache__/magic.cpython-310.pyc" || die
+	rm "${S}/tests/__pycache__/test_basic.cpython-39-pytest-6.2.4.pyc" || die
+	rm "${S}/tests/__pycache__/test_cubicbez.cpython-39-pytest-6.2.4.pyc" || die
+}
 
 src_compile() {
 	distutils-r1_src_compile
