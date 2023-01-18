@@ -26,7 +26,7 @@ RDEPEND="${DEPEND}
 	)
 "
 BDEPEND=""
-QA_FLAGS_IGNORED="/usr/sbin/pwrstat /usr/sbin/pwrstatd /usr/lib64/libpaho-mqtt3cs.so.1"
+QA_FLAGS_IGNORED="usr/sbin/pwrstat usr/sbin/pwrstatd usr/lib64/libpaho-mqtt3cs.so.1"
 PATCHES=(
 	"${FILESDIR}/${PN}-scripts.patch"
 )
