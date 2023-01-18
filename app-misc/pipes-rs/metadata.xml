@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>gasc@eurecom.fr</email>
+    <name>Gasc Henri</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">lhvy/pipes-rs</remote-id>
+  </upstream>
+</pkgmetadata>
