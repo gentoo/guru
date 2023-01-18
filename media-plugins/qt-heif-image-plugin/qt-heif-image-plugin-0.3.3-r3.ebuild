@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	dev-qt/qtcore
 	dev-qt/qtgui
-	>=media-libs/libheif-1.10.0:0=
+	>=media-libs/libheif-1.12.0:0=
 "
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
