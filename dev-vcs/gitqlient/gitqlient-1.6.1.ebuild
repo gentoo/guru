@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -36,9 +36,6 @@ src_prepare() {
 		-e "/VERSION =/s| \$\$system(git rev-parse --short HEAD)||" "${MY_PN}".pro || die
 
 	sed -i -e "s/Office/Development/" "${S}/src/resources/${PN}.desktop" || die
-
-	# Revert changes that brake build
-	sed -i -e "s/QT_DISABLE_DEPRECATED_BEFORE=0x051200/QT_DISABLE_DEPRECATED_BEFORE=0x050900/" "${MY_PN}".pro || die
 }
 
 src_configure() {
@@ -50,6 +47,7 @@ src_install() {
 }
 
 pkg_postinst() {
+	optfeature "Terminal tab plugin support" x11-libs/qtermwidget
 	optfeature "Jenkins and/or GitServer plugins support" dev-qt/qtwebchannel:5 dev-qt/qtwebengine:5[widgets]
 	xdg_pkg_postinst
 }
