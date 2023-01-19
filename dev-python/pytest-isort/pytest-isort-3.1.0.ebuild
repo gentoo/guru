@@ -17,8 +17,6 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 distutils_enable_tests pytest
-# I don't know what's going on, so I took the easy route. 😝
-#EPYTEST_DESELECT=( test_isort.py::TestIsortItem::test_init )
 
 RDEPEND="
 	dev-python/pytest[${PYTHON_USEDEP}]
