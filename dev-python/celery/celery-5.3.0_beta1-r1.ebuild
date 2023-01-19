@@ -34,15 +34,7 @@ RDEPEND="
 	dev-python/pytz[${PYTHON_USEDEP}]
 	dev-python/vine[${PYTHON_USEDEP}]
 "
-# TODO:
-# - dev-python/pyArango
-# - dev-python/couchbase
-# - dev-python/pycouchdb
-# Deprecated test deps (don't add):
-# - eventlet
-# - memcached
-# - python-consul
-# - pydocumentdb
+
 BDEPEND="
 	test? (
 		$(python_gen_impl_dep 'ncurses(+)')
@@ -84,6 +76,8 @@ EPYTEST_DESELECT=(
 	t/unit/worker/test_request.py::test_Request
 	t/unit/worker/test_request.py::test_create_request_class::test_on_success__SystemExit
 )
+
+PATCHES="${FILESDIR}/celery-5.3.0_beta1-sphinx-6.0.patch"
 
 distutils_enable_tests pytest
 
