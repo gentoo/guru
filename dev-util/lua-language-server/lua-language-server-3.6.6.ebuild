@@ -20,7 +20,7 @@ BDPEND="
 	dev-util/ninja
 "
 RESTRICT="!test? ( test )"
-PATCHES=( "${FILESDIR}/linux.ninja.patch" )
+PATCHES=( "${FILESDIR}/linux.ninja.patch" "${FILESDIR}/build.ninja.patch" )
 
 src_prepare() {
 	# Remove hardcoded gcc references
@@ -28,9 +28,9 @@ src_prepare() {
 		make.lua || die
 	sed -i "s/CC = gcc/ CC = ${tc-getCC}/" \
 		3rd/lpeglabel/makefile || die
-	# Patch
-	default
 	# Shipped file doesn't respect CFLAGS/CXXFLAGS
+	eapply "${FILESDIR}/linux.ninja.patch"
+	eapply_user
 	sed -i -e "s/^cc = REPLACE_ME/cc = $(tc-getCC)/" \
 		-e "s/CFLAGS/${CFLAGS}/" \
 		-e "s/CXXFLAGS/${CXXFLAGS}/" \
@@ -43,16 +43,18 @@ src_compile() {
 	use test && eninja -C 3rd/luamake -f compile/ninja/linux.ninja luamake
 	./3rd/luamake/luamake init || die
 
-	eapply "${FILESDIR}/build.ninja.patch"
-
-	sed -i "s/^cc = gcc/cc = $(tc-getCC)/" \
+	# Generated file doesn't respect CFLAGS/CXXFLAGS
+	sed -i -e "s/^cc =.*./cc = REPLACE_ME/" \
+		-e "s/^luamake =.*./luamake = LUAMAKE_PATH/" \
 		build/build.ninja || die
 
-	# Generated file doesn't respect CFLAGS/CXXFLAGS
-	sed -i -e "s/^cc = REPLACE_ME/cc = $(tc-getCC)/" \
+	eapply "${FILESDIR}/build.ninja.patch"
+	sed -i -e "s/REPLACE_ME/$(tc-getCC)/" \
+		-e "s|LUAMAKE_PATH|${S}/3rd/luamake/luamake|" \
 		-e "s/CFLAGS/${CFLAGS}/" \
 		-e "s/CXXFLAGS/${CXXFLAGS}/" \
 		-e "s/LDFLAGS/${LDFLAGS}/" \
+		-e "7d" \
 		build/build.ninja || die
 
 	# Tests are broken
