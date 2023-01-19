@@ -1,0 +1,27 @@
+# Copyright 1999-2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+DISTUTILS_USE_PEP517=poetry
+PYTHON_COMPAT=( python3_{9..10} )
+
+inherit distutils-r1
+
+DESCRIPTION="Plugin to check import ordering using isort"
+HOMEPAGE="https://github.com/stephrdev/pytest-isort"
+SRC_URI="https://github.com/stephrdev/pytest-isort/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
+
+LICENSE="BSD"
+KEYWORDS="~amd64 ~x86"
+SLOT="0"
+
+distutils_enable_tests pytest
+# I don't know what's going on, so I took the easy route. 😝
+#EPYTEST_DESELECT=( test_isort.py::TestIsortItem::test_init )
+
+RDEPEND="
+	dev-python/pytest[${PYTHON_USEDEP}]
+	dev-python/isort[${PYTHON_USEDEP}]
+"
+DEPEND="${RDEPEND}"
