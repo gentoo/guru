@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
 
-inherit meson python-r1
+inherit meson python-r1 virtualx
 
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
@@ -57,7 +57,7 @@ src_compile() {
 }
 
 src_test() {
-	python_foreach_impl meson_src_test
+	virtx python_foreach_impl meson_src_test
 }
 
 src_install() {
