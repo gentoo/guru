@@ -11,5 +11,5 @@ RDEPEND=sys-libs/libnvidia-container
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/NVIDIA/nvidia-container-toolkit/archive/v1.10.0.tar.gz -> nvidia-container-toolkit-1.10.0.tar.gz https://media.githubusercontent.com/media/vowstar/distfiles/main/nvidia-container-toolkit-1.10.0-deps.tar.xz
-_eclasses_=go-module	fdf8c78611f9efa20d26b955399a44c7
+_eclasses_=go-module	75029f071ebc843223233ab1b0a2d4a5
 _md5_=64f44473176c4c7da332493c2f54a927
