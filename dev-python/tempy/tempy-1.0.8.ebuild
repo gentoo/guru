@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,8 +10,8 @@ inherit distutils-r1
 
 DESCRIPTION="A simple, visually pleasing weather report in your terminal"
 HOMEPAGE="https://github.com/noprobelm/tempy"
-SRC_URI="https://github.com/noprobelm/tempy/archive/refs/heads/main.zip -> ${P}.zip"
-S="${WORKDIR}/tempy-main"
+SRC_URI="https://github.com/noprobelm/tempy/archive/0af52d8.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/tempy-0af52d8c18399cd19e2f162539e4869dbc46107a"
 
 LICENSE="MIT"
 SLOT="0"
@@ -31,6 +31,6 @@ PATCHES=(
 distutils_enable_tests pytest
 
 pkg_postinst() {
-	elog By default, tempy is using the API key of the developper by making requests trhought their proxy server.
-	elog If you do no want this to be the case, you can register your own API key at https://www.weatherapi.com, and store it in '$HOME/.config/tempyrc'.
+	elog By default, tempy is using the API key of the developper by making requests throught their proxy server.
+	elog You can register your own API key at https://www.weatherapi.com, and store it in '$HOME/.config/tempyrc'.
 }
