@@ -31,7 +31,6 @@ RDEPEND="
 	dev-python/sentence-splitter[${PYTHON_USEDEP}]
 	dev-python/mobi[${PYTHON_USEDEP}]
 	dev-python/SLPP[${PYTHON_USEDEP}]
-	dev-python/pycountry[${PYTHON_USEDEP}]
 	dev-python/markdown[${PYTHON_USEDEP}]
 	dev-python/markdownify[${PYTHON_USEDEP}]
 	dev-python/readmdict[${PYTHON_USEDEP}]
