@@ -69,12 +69,17 @@ src_unpack() {
 	mv "${WORKDIR}/hyprland-protocols-${PROTOCOMMIT}" "${S}/subprojects/hyprland-protocols" || die
 }
 
-src_configure() {
-	if ! (tc-is-gcc && [[ $(gcc-major-version) -ge 12 ]] && [[ $(gcc-minor-version) -ge 1 ]]) \
-	&& ! (tc-is-clang && [[ $(clang-major-version) -ge 15 ]]); then
-		die "Hyprland requires >=sys-devel/gcc-12.1.0 or >=sys-devel/clang-15.0.0 to build"
+src_prepare() {
+	STDLIBVER=$(echo '#include <string>' | $(tc-getCXX) -x c++ -dM -E - | \
+					grep GLIBCXX_RELEASE | sed 's/.*\([1-9][0-9]\)/\1/')
+	if ! [[ ${STDLIBVER} -ge 12 ]]; then
+		die "Hyprland requires >=sys-devel/gcc-12.1.0 to build"
 	fi
 
+	default
+}
+
+src_configure() {
 	local emesonargs=(
 		$(meson_feature X xwayland)
 		$(meson_feature systemd)
