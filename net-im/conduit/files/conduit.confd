@@ -1,2 +1,2 @@
 # Configuration file for conduit
-export CONDUIT_CONFIG=/etc/conduit/conduit.toml
+CONDUIT_CONFIG=/etc/conduit/conduit.toml

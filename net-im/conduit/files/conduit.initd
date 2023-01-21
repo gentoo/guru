@@ -1,5 +1,7 @@
 #!/sbin/openrc-run
 
+export CONDUIT_CONFIG=${CONDUIT_CONFIG:/etc/config/conduit.toml}
+
 command="/usr/bin/conduit"
 command_user="conduit:conduit"
 command_background=true

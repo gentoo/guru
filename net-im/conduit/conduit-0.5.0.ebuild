@@ -746,5 +746,5 @@ src_install() {
 	doins "${FILESDIR}/conduit.toml"
 	newinitd "${FILESDIR}/conduit.initd" "conduit"
 	newconfd "${FILESDIR}/conduit.confd" "conduit"
-	systemd_newunit "${FILESDIR}/conduit.unit" "conduit.service"
+	systemd_dounit "${FILESDIR}/conduit.service"
 }
