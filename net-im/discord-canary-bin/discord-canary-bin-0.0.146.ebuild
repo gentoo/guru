@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MY_PN=${PN/-bin/}
 MY_BIN="D${MY_PN/d/}"
@@ -78,7 +78,7 @@ src_prepare() {
 }
 
 src_install() {
-	newicon usr/share/${MY_PN}/${MY_PN//-canary}.png ${MY_PN}.png
+	newicon usr/share/${MY_PN}/${MY_PN//-canary/}.png ${MY_PN}.png
 	domenu usr/share/${MY_PN}/${MY_PN}.desktop
 
 	insinto /opt/${MY_PN}

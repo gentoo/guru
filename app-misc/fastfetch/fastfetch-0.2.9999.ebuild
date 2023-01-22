@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake flag-o-matic
 
 DESCRIPTION="Fast system information tool"
 HOMEPAGE="https://github.com/LinusDierheimer/fastfetch"
@@ -20,7 +20,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="X chafa dbus gnome imagemagick opencl opengl osmesa pci sqlite vulkan wayland xcb xfce xrandr"
+IUSE="X chafa dbus gnome imagemagick networkmanager opencl opengl osmesa pci sqlite vulkan wayland xcb xfce xrandr"
 
 # note - qa-vdb will always report errors because fastfetch loads the libs dynamically
 RDEPEND="
@@ -33,6 +33,7 @@ RDEPEND="
 		gnome-base/dconf
 	)
 	imagemagick? ( media-gfx/imagemagick:= )
+	networkmanager? ( net-misc/networkmanager )
 	opencl? ( virtual/opencl )
 	opengl? ( media-libs/libglvnd[X] )
 	osmesa? ( media-libs/mesa[osmesa] )
@@ -83,7 +84,10 @@ src_configure() {
 		-DENABLE_OPENCL=$(usex opencl)
 		-DENABLE_DBUS=$(usex dbus)
 		-DENABLE_LIBCJSON=no
+		-DENABLE_LIBNM=$(usex networkmanager)
 	)
+
+	append-cppflags -DNDEBUG
 
 	cmake_src_configure
 }

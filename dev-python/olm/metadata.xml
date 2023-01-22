@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>julien@jroy.ca</email>
+		<description>Julien Roy</description>
+	</maintainer>
+	<upstream>
+		<doc>https://poljar.github.io/python-olm/html/index.html</doc>
+		<bugs-to>https://gitlab.matrix.org/matrix-org/olm/-/issues</bugs-to>
+	</upstream>
+</pkgmetadata>

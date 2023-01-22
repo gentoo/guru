@@ -1,0 +1,12 @@
+[Unit]
+Description=A Matrix-Telegram Messenger puppeting bridge
+After=network.target
+
+[Service]
+User=mautrix-telegram
+Group=mautrix
+Restart=always
+ExecStart=/usr/bin/python -m mautrix_telegram -c /etc/mautrix/mautrix_telegram.yaml -r /var/lib/mautrix/telegram/registration.yaml
+
+[Install]
+WantedBy=multi-user.target

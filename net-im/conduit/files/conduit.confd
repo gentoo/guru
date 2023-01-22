@@ -1,0 +1,2 @@
+# Configuration file for conduit
+CONDUIT_CONFIG=/etc/conduit/conduit.toml

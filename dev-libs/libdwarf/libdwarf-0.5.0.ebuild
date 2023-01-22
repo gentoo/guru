@@ -13,7 +13,7 @@ HOMEPAGE="
 "
 SRC_URI="https://www.prevanders.net/${P}.tar.xz"
 
-LICENSE="LGPL-2.1 GPL-2 BSD"
+LICENSE="BSD GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc dwarfexample dwarfgen +elf"

@@ -15,6 +15,9 @@ SRC_URI="https://github.com/simoncozens/fontFeatures/archive/refs/tags/v${PV}.ta
 KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"
+
+# Tests are also failing upstream
+# https://github.com/simoncozens/fontFeatures/actions/runs/3677601386/jobs/6219782260
 RESTRICT="test"
 
 RDEPEND="

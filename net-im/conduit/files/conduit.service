@@ -1,0 +1,13 @@
+[Unit]
+Description=Conduit Matrix Server
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/conf.d/conduit
+User=conduit
+Group=conduit
+Restart=always
+ExecStart=/usr/bin/conduit
+
+[Install]
+WantedBy=multi-user.target

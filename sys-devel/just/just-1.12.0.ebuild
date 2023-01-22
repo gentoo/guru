@@ -134,7 +134,7 @@ RESTRICT="mirror"
 src_install() {
 	local DOCS=( README.md )
 
-	dobin "target/release/${PN}"
+	cargo_src_install
 
 	doman man/*
 
