@@ -514,6 +514,12 @@ net-nntp/inn:gzip - Compress logs using gzip
 net-nntp/inn:keywords - Enable automatic innd keyword generation
 net-nntp/inn:largefile - Support files larger than 2GB
 net-nntp/inn:low-memory - Use tagged hash table for history to reduce memory footprint
+net-nntp/pan:dbus - Use DBUS. Support running multiple instances
+net-nntp/pan:gnome-keyring - Use libsecret/gcr for password storage
+net-nntp/pan:libnotify - Build libnotify support for notifications
+net-nntp/pan:nls - Localization support
+net-nntp/pan:spell - Spellchecking support (enchant/gtkspell)
+net-nntp/pan:ssl - TLS 1.x support (through gnutls)
 net-p2p/feather:localmonero - Enable LocalMonero.com support
 net-p2p/feather:qrcode - Enable QR code scanning with media-gfx/zbar
 net-p2p/feather:xmrig - Enable mining support using a user specified xmrig binary
@@ -912,6 +918,7 @@ sys-power/ZenStates-Linux:togglecode - Install the togglecode utility to turn on
 sys-power/linux-tools-power-x86:pstate-tracer - Install utility to debug and tune the performance of the {amd,intel}_pstate drivers
 sys-process/nq:shell - Use shell implementation
 sys-process/nq:tq - Install tq, a tmux & screen wrapper
+www-apps/forgejo:acct - User and group management via acct-*/git packages
 www-apps/gogs:cert - Adds support for self-signed certificates
 www-client/torbrowser-launcher:apparmor - Enable AppArmor support
 www-client/vimb:adblock - Use www-misc/wyebadblock for adblocking

@@ -1,0 +1,16 @@
+BDEPEND=app-text/yelp-tools >=sys-devel/gettext-0.19.7 virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7 app-arch/xz-utils
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=>=dev-libs/glib-2.26:2 dev-libs/gmime:3.0 >=x11-libs/gtk+-3.00:3 gnome-keyring? ( >=app-crypt/gcr-3.20 >=app-crypt/libsecret-0.20 ) libnotify? ( >=x11-libs/libnotify-0.4.1:0= ) spell? ( >=app-text/enchant-2.2.3:2 >=app-text/gtkspell-3.0.10:3 ) ssl? ( >=net-libs/gnutls-3:0= ) >=sys-libs/zlib-1.2.0
+DESCRIPTION=A newsreader for GNOME
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/pan/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=autotools gnome2
+IUSE=dbus gnome-keyring libnotify nls spell ssl
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/glib-2.26:2 dev-libs/gmime:3.0 >=x11-libs/gtk+-3.00:3 gnome-keyring? ( >=app-crypt/gcr-3.20 >=app-crypt/libsecret-0.20 ) libnotify? ( >=x11-libs/libnotify-0.4.1:0= ) spell? ( >=app-text/enchant-2.2.3:2 >=app-text/gtkspell-3.0.10:3 ) ssl? ( >=net-libs/gnutls-3:0= ) >=sys-libs/zlib-1.2.0
+SLOT=0
+SRC_URI=https://gitlab.gnome.org/GNOME/pan/-/archive/v0.154/pan-v0.154.tar.bz2
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	8dcac7a0c320f92299160b297d4fec6f
+_md5_=619745d24c79c5473b07986a31a48489
