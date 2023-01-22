@@ -1,0 +1,21 @@
+# Path to the registration file
+# Default: /var/lib/heisenbridge/registration.yaml
+REGISTRATION=/var/lib/heisenbridge/registration.yaml
+
+# Listen address
+# Default: 127.0.0.1
+LISTEN_ADDRESS=127.0.0.1
+
+# Listen port
+# Default: 9898
+LISTEN_PORT=9898
+
+# Owner
+# Generally should be the admin of the home server
+# For example: @user:home.server
+# Default: not set
+# OWNER=@user:example.com
+
+# Homeserver
+# Must be set
+HOMESERVER=https://example.com
