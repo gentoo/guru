@@ -53,7 +53,7 @@ src_install() {
 	rm "${ED}/usr/example-config.yaml" || die
 
 	newinitd "${FILESDIR}/${PN}.initd" "${PN}"
-	systemd_newunit "${FILESDIR}/${PN}.unit" "${PN}.service"
+	systemd_dounit "${FILESDIR}/${PN}.service"
 
 	fowners -R root:mautrix /etc/mautrix
 	fperms -R 770 /etc/mautrix
