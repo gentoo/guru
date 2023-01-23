@@ -12,7 +12,7 @@ SRC_URI="https://github.com/Nheko-Reborn/${PN}/archive/v${PV}.tar.gz -> ${P}.tar
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="X video voip"
+IUSE="X +pie video voip"
 REQUIRED_USE="video? ( voip )"
 
 MY_GST_V="1.18"
@@ -68,6 +68,7 @@ BDEPEND="
 src_configure() {
 	local -a mycmakeargs=(
 		"-DVOIP=$(usex voip)"
+		"-DCMAKE_POSITION_INDEPENDENT_CODE=$(usex pie)"
 	)
 	if use video && use X; then
 		mycmakeargs+=("-DSCREENSHARE_X11=yes")
