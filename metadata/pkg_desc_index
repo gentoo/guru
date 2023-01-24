@@ -945,7 +945,7 @@ dev-python/noiseprotocol 0.3.1: Python implementation of Noise Protocol Framewor
 dev-python/nosehtmloutput 0.0.7: Nose plugin for generating HTML output
 dev-python/nosexcover 1.0.11: Extends nose.plugins.cover to add Cobertura-style XML reports
 dev-python/notion-client 2.0.0: Python client for the official Notion API
-dev-python/olm 3.2.14-r1: Python bindings for dev-libs/olm
+dev-python/olm 3.2.14-r2: Python bindings for dev-libs/olm
 dev-python/openstep-plist 0.3.0: ASCII plist parser written in Cython
 dev-python/opentracing 2.4.0: OpenTracing API for Python
 dev-python/opentypespec 1.8.4: Python bezier manipulation library
@@ -1557,7 +1557,7 @@ net-news/comitium 1.8.1: feed aggregator for gemini supporting many formats and 
 net-news/communique 1.2.0: RSS Reader with cross-platform sync
 net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny Tiny RSS or feedly
 net-nntp/inn 2.6.4-r1 2.6.5: InterNetNews -- the Internet meets Netnews
-net-nntp/pan 0.154: A newsreader for GNOME
+net-nntp/pan 0.154-r1: A newsreader for GNOME
 net-p2p/bisq-bin 1.9.9: The decentralized bitcoin exchange (non-atomic, with arbitration)
 net-p2p/feather 2.1.2 9999: A free, open-source Monero wallet
 net-p2p/ipfs-cluster 1.0.1 1.0.2: Pinset orchestration for IPFS
