@@ -13,4 +13,4 @@ RDEPEND=>=dev-libs/glib-2.26:2 dev-libs/gmime:3.0 >=x11-libs/gtk+-3.00:3 gnome-k
 SLOT=0
 SRC_URI=https://gitlab.gnome.org/GNOME/pan/-/archive/v0.154/pan-v0.154.tar.bz2
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	2116cec8f46f4d1b0a88c5b1f1575dd3	xdg	6024fbc93167fad782e2032933654857	gnome2	8dcac7a0c320f92299160b297d4fec6f
-_md5_=619745d24c79c5473b07986a31a48489
+_md5_=a70bd1ae222448f274d6a4a83d5bfc79

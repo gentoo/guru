@@ -943,7 +943,7 @@ dev-python/noiseprotocol 0.3.1: Python implementation of Noise Protocol Framewor
 dev-python/nosehtmloutput 0.0.7: Nose plugin for generating HTML output
 dev-python/nosexcover 1.0.11: Extends nose.plugins.cover to add Cobertura-style XML reports
 dev-python/notion-client 2.0.0: Python client for the official Notion API
-dev-python/olm 3.2.14: Python bindings for dev-libs/olm
+dev-python/olm 3.2.14-r1: Python bindings for dev-libs/olm
 dev-python/openstep-plist 0.3.0: ASCII plist parser written in Cython
 dev-python/opentracing 2.4.0: OpenTracing API for Python
 dev-python/opentypespec 1.8.4: Python bezier manipulation library
@@ -1261,7 +1261,7 @@ games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
 games-util/roll 2.6.1: Program to roll dices specified in a simple and intuitive way
 games-util/samrewritten 9999 202008: Steam Achievement Manager For Linux
 games-util/steamtinkerlaunch 12.0: Wrapper script for Steam custom launch options
-games-util/xivlauncher 1.0.2 1.0.3: Custom Launcher for Final Fantasy XIV Online (Crossplatform rewrite)
+games-util/xivlauncher 1.0.3: Custom Launcher for Final Fantasy XIV Online (Crossplatform rewrite)
 gnome-extra/extension-manager 0.4.0 9999: A native tool for browsing, installing, and managing GNOME Shell Extensions
 gnome-extra/iio-sensor-proxy 3.3: IIO sensors to D-Bus proxy
 gnome-extra/junction 1.6-r1: Application/browser chooser
@@ -1571,6 +1571,7 @@ net-voip/gnome-calls 43.2 43.3: Phone dialer and call handler
 net-voip/vvmd 0.8: vvmd is a lower level daemon that retrieves Visual Voicemail
 net-wireless/iwdgui 0.1.0 0.2.0: A graphical frontend for IWD, Intel's iNet Wireless Daemon
 net-wireless/rtl8192eu 0_pre20220825: Realtek 8192EU driver module for Linux kernel
+net-wireless/rtl8723bu 999: Driver for the rtl8723 wireless chipset
 net-wireless/rtl8821ce 0_pre20220911: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20220409: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-biology/cmdock 0.1.4-r2 0.2.0: Program for docking ligands to proteins and nucleic acids
