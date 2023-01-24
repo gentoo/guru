@@ -162,12 +162,13 @@ app-misc/brightnessctl 0.5.1: A program to read and control device brightness
 app-misc/cheat 4.2.3 4.3.3: cheat allows you to create and view interactive cheatsheets on the command-line
 app-misc/clifm 1.6 1.7 1.8 1.9 9999: The command line file manager
 app-misc/cpufetch 1.01 1.02: Simplistic yet fancy CPU architecture fetching tool
+app-misc/dbf 0.9.0: Command line tool to read the content of dBASE III, IV, and 5.0 files
 app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs
 app-misc/doublecmd-bin 1.0.8 1.0.9: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/electricsheep 3.0.2_p20191005 9999: Realize the collective dream of sleeping computers from all over the internet
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
-app-misc/fastfetch 0.1.9999 0.2.9999 1.8.2 1.9.0: Fast system information tool
+app-misc/fastfetch 0.1.9999 0.2.9999 1.8.2 1.9.1: Fast system information tool
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -591,6 +592,7 @@ dev-libs/imsg-compat 6.8.2 9999: linux port of OpenBSD imsg
 dev-libs/jose 11-r1: C-language implementation of Javascript Object Signing and Encryption
 dev-libs/kwsys 0_pre20220603: Kitware System Library
 dev-libs/libdatrie 0.2.13: Double-Array Trie Library
+dev-libs/libdbf 0.0.1: Library to read the content of dBASE III, IV, and 5.0 files
 dev-libs/libdwarf 0.4.0 0.4.1 0.5.0: The DWARF Debugging Information Format
 dev-libs/libglibutil 1.0.67-r3 9999: Library of glib utilities from sailfishos project
 dev-libs/libnodave 0.8.5.1-r2: Connect to and exchange data with Siemens PLCs

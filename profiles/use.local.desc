@@ -27,6 +27,7 @@ app-misc/apidb:commands - Build commands
 app-misc/apidb:corelibs - Build Abtract layer
 app-misc/apidb:mariadb - Build MariaDB Layer
 app-misc/apidb:postgresql - Build PostgreSQL Layer
+app-misc/dbf:doc - build manpages
 app-misc/far2l:archive - Multiarc extended archives support
 app-misc/far2l:nfs - NFS support in NetRocks
 app-misc/far2l:python - Python scripting support
@@ -82,6 +83,7 @@ dev-libs/dyninst:openmp - Enable parallel code parsing
 dev-libs/dyninst:valgrind - Enable annotations for Valgrind analysis
 dev-libs/ffs:atl - Enable the use of ATL
 dev-libs/hts_engine:speech-tools - use memory allocation/free functions of app-accessibility/speech-tools
+dev-libs/libdbf:doc - Include documentation
 dev-libs/libdwarf:dwarfexample - enable dwarfexample compilation
 dev-libs/libdwarf:dwarfgen - enable dwarfgen compilation
 dev-libs/libdwarf:elf - enable use of virtual/libelf

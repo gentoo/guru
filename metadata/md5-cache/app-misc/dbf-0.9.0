@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-perl/XML-Parser dev-libs/libdbf doc? ( app-text/docbook-sgml-utils ) virtual/pkgconfig
+DESCRIPTION=Command line tool to read the content of dBASE III, IV, and 5.0 files
+EAPI=8
+HOMEPAGE=https://github.com/rollinhand/dbf-core
+INHERIT=autotools
+IUSE=doc
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+SLOT=0
+SRC_URI=https://github.com/rollinhand/dbf-core/archive/8c1df2e694ca81a2c2ff1d7de150629e69092ea1.tar.gz -> dbf-0.9.0.tgz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
+_md5_=e0dfa23df45deace31ba4bc67684e66e
