@@ -37,5 +37,5 @@ distutils_enable_tests pytest
 src_install() {
 	distutils-r1_src_install
 	# To avoid merge collision with dev-libs/olm
-	rm "${ED}/usr/share/doc/${P}/README.md" || die
+	rm "${ED}/usr/share/doc/${PF}/README.md" || die
 }
