@@ -131,6 +131,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 RESTRICT="mirror"
 
+QA_FLAGS_IGNORED="usr/bin/just"
+
 src_install() {
 	local DOCS=( README.md )
 
