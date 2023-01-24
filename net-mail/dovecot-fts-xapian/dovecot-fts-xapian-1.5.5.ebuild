@@ -34,7 +34,10 @@ src_prepare() {
 }
 
 src_configure() {
+	# Disable hardening so CFLAGS are left up to the Gentoo user
+	# https://bugs.gentoo.org/888751
 	econf \
+		--enable-hardening=no \
 		--with-dovecot="${EPREFIX}/usr/$(get_libdir)/dovecot" \
 		$( use_enable static-libs static )
 }

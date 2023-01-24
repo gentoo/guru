@@ -73,3 +73,7 @@ src_install() {
 }
 
 distutils_enable_tests pytest
+
+# rust does not use *FLAGS from make.conf, silence portage warning
+# update with proper path to binaries this crate installs, omit leading /
+QA_FLAGS_IGNORED="usr/lib/python3\..*/site-packages/kurbopy/kurbopy.cpython-.*.so"

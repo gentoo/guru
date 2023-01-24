@@ -17,6 +17,7 @@ goaaats.veldrid.startuputilities-4.9.0-beta1-g70f642e82e
 imgui.net-1.87.2
 keysharp-1.0.5
 microsoft.aspnetcore.app.runtime.linux-x64-6.0.10
+microsoft.aspnetcore.app.runtime.linux-x64-6.0.12
 microsoft.bcl.asyncinterfaces-6.0.0
 microsoft.codeanalysis.analyzers-3.3.3
 microsoft.codeanalysis.bannedapianalyzers-3.3.3
@@ -24,6 +25,7 @@ microsoft.codeanalysis.common-4.0.1
 microsoft.codeanalysis.csharp-4.0.1
 microsoft.codeanalysis.netanalyzers-6.0.0
 microsoft.netcore.app.runtime.linux-x64-6.0.10
+microsoft.netcore.app.runtime.linux-x64-6.0.12
 microsoft.netcore.platforms-1.1.0
 microsoft.netcore.targets-1.1.0
 microsoft.win32.primitives-4.3.0

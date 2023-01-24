@@ -13,7 +13,7 @@ LICENSE="MIT"
 SLOT="0/${PV}" # ABI may break even on patch version changes
 KEYWORDS="~amd64"
 
-IUSE="test"
+IUSE="+pie test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -46,6 +46,7 @@ src_configure() {
 	local -a mycmakeargs=(
 		-DBUILD_LIB_TESTS="$(usex test)"
 		-DBUILD_LIB_EXAMPLES=OFF
+		-DCMAKE_POSITION_INDEPENDENT_CODE=$(usex pie)
 	)
 
 	cmake_src_configure

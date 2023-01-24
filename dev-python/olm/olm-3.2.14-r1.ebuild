@@ -23,6 +23,7 @@ RDEPEND="
 	dev-python/cffi[${PYTHON_USEDEP}]
 	test? (
 		dev-python/aspectlib[${PYTHON_USEDEP}]
+		dev-python/future[${PYTHON_USEDEP}]
 		dev-python/pytest-benchmark[${PYTHON_USEDEP}]
 		dev-python/pytest-cov[${PYTHON_USEDEP}]
 		dev-python/pytest-flake8[${PYTHON_USEDEP}]

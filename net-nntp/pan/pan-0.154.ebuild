@@ -45,8 +45,8 @@ src_prepare() {
 src_configure() {
 	local myconf=(
 		$(use_with dbus) \
-		$(use_with gnome-keyring gkr) \
-		$(use_with nls) \
+		$(use_enable gnome-keyring gkr) \
+		$(use_enable nls) \
 		$(use_with spell gtkspell) \
 		$(use_enable libnotify) \
 		$(use_with ssl gnutls)
