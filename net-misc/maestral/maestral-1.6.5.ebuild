@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 xdg
@@ -32,21 +32,20 @@ RDEPEND="
 	>=dev-python/survey-3.4.3[${PYTHON_USEDEP}]
 	<dev-python/survey-4.0.0[${PYTHON_USEDEP}]
 	>=dev-python/watchdog-2.0.1[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep 'dev-python/importlib_metadata[${PYTHON_USEDEP}]' python3_8)
 "
 BDEPEND="
 	dev-python/build[${PYTHON_USEDEP}]
-	test? ( dev-python/pytest-benchmark[${PYTHON_USEDEP}] )
 "
 
+EPYTEST_DESELECT=(
+	# requires dev-python/pytest-benchmark not available for py3.11
+	tests/offline/test_clean_local_events.py::test_performance
+
+	# requires systemd
+	tests/offline/test_cli.py::test_autostart
+
+	# requires network
+	tests/offline/test_main.py::test_check_for_updates
+)
+
 distutils_enable_tests pytest
-
-python_prepare_all() {
-	# this test requires systemd
-	sed -i -e 's/test_autostart/_&/' tests/offline/test_cli.py || die
-
-	# this test requires network
-	sed -i -e 's/test_check_for_updates/_&/' tests/offline/test_main.py || die
-
-	distutils-r1_python_prepare_all
-}
