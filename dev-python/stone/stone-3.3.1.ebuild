@@ -3,7 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{8..11} )
 
 inherit distutils-r1
 
@@ -13,7 +14,7 @@ HOMEPAGE="
 	https://github.com/dropbox/stone
 	https://pypi.org/project/stone/
 "
-SRC_URI="https://github.com/dropbox/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/dropbox/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -23,6 +24,8 @@ RDEPEND="
 	>=dev-python/ply-3.4[${PYTHON_USEDEP}]
 	>=dev-python/six-1.3.0[${PYTHON_USEDEP}]
 "
+
+PATCHES=( "${FILESDIR}"/${P}-python3_11.patch )
 
 distutils_enable_tests pytest
 
