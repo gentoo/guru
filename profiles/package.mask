@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-01-25)
+# Broken and has no maintainers. Bug #891773.
+# Masked for removal in 30 days.
+www-client/torbrowser-launcher
+
 # Julien Roy <julien@jroy.ca> (2023-01-25)
 # Requires <dev-python/coverage-7, which is no longer available in ::gentoo.
 # Upstream bug: https://github.com/TheKevJames/coveralls-python/issues/377
