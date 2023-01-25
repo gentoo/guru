@@ -3,8 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..11} )
-
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{9..11} )
 inherit distutils-r1
 
 DESCRIPTION="python-dbus-next is a Python library for DBus"
@@ -21,11 +21,9 @@ KEYWORDS="~amd64 ~x86"
 BDEPEND="test? ( dev-python/pytest-asyncio[${PYTHON_USEDEP}] )"
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs \
-	dev-python/sphinxcontrib-asyncio \
-	dev-python/sphinxcontrib-fulltoc
 
 # some tests fail with:
-# dbus_next.errors.InvalidAddressError: DBUS_SESSION_BUS_ADDRESS not set and could not get DISPLAY environment variable to get bus addres
+# dbus_next.errors.InvalidAddressError:
+# DBUS_SESSION_BUS_ADDRESS not set and could not get DISPLAY environment variable to get bus addres
 # or require certain services to be installed (like org.freedesktop.DBus.Debug.Stats)
 RESTRICT="test"

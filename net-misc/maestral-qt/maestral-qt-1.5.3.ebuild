@@ -3,14 +3,14 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{9..10} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit desktop distutils-r1
 
 DESCRIPTION="Maestral is an open-source Dropbox client written in Python"
 HOMEPAGE="https://maestral.app"
-SRC_URI="https://github.com/samschott/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/samschott/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -22,7 +22,6 @@ RDEPEND="
 	dev-python/packaging[${PYTHON_USEDEP}]
 	>=dev-python/PyQt5-5.9[widgets,gui,${PYTHON_USEDEP}]
 	~net-misc/maestral-${PV}[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep 'dev-python/importlib_resources[${PYTHON_USEDEP}]' python3_8)
 "
 BDEPEND="
 	dev-python/build[${PYTHON_USEDEP}]

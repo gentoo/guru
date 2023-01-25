@@ -3,9 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..11} )
-DISTUTILS_USE_SETUPTOOLS=no
-
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{9..11} )
 inherit distutils-r1
 
 DESCRIPTION="Python implementation of the systemd sd_notify protocol"
@@ -18,3 +17,10 @@ SRC_URI="https://github.com/bb4242/${PN}/archive/refs/tags/v${PV}.tar.gz -> bb42
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+
+python_prepare_all() {
+	# Fix QA warning.  No point in reporting upstream, the project seems abandoned
+	sed 's/description-file/description_file/' -i setup.cfg
+
+	distutils-r1_python_prepare_all
+}

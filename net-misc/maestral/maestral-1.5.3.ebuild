@@ -3,14 +3,14 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{9..10} )
 DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1 xdg-utils
+inherit distutils-r1 xdg
 
 DESCRIPTION="Maestral is an open-source Dropbox client written in Python"
 HOMEPAGE="https://maestral.app"
-SRC_URI="https://github.com/samschott/maestral/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/samschott/maestral/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -32,29 +32,18 @@ RDEPEND="
 	>=dev-python/survey-3.4.3[${PYTHON_USEDEP}]
 	<dev-python/survey-4.0.0[${PYTHON_USEDEP}]
 	>=dev-python/watchdog-2.0.1[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep 'dev-python/importlib_metadata[${PYTHON_USEDEP}]' python3_8)
 "
 BDEPEND="
 	dev-python/build[${PYTHON_USEDEP}]
 	test? ( dev-python/pytest-benchmark[${PYTHON_USEDEP}] )
 "
 
+EPYTEST_DESELECT=(
+	# requires systemd
+	tests/offline/test_cli.py::test_autostart
+
+	# requires network
+	tests/offline/test_main.py::test_check_for_updates
+)
+
 distutils_enable_tests pytest
-
-python_prepare_all() {
-	# this test requires systemd
-	sed -i -e 's/test_autostart/_&/' tests/offline/test_cli.py || die
-
-	# this test requires network
-	sed -i -e 's/test_check_for_updates/_&/' tests/offline/test_main.py || die
-
-	distutils-r1_python_prepare_all
-}
-
-pkg_postinst() {
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
-}
