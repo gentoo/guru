@@ -1,0 +1,25 @@
+#!/sbin/openrc-run
+# Copyright 1999-2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="mautrix-discord daemon"
+description="A Matrix-Discord puppeting bridge"
+module="mautrix_discord"
+
+pidfile="/run/${RC_SVCNAME}.pid"
+command="/usr/bin/mautrix-discord"
+command_args="-c /etc/mautrix/${module}.yaml -r /var/lib/mautrix/discord/registration.yaml"
+command_background=true
+command_user="mautrix-discord:mautrix"
+
+output_log="/var/log/mautrix/discord/daemon.log"
+error_log="/var/log/mautrix/discord/daemon.log"
+
+depend() {
+	need net
+}
+
+start_pre() {
+	checkpath -d -m 0755 -o "$command_user" /var/lib/mautrix/discord
+	checkpath -f -m 0644 -o "$command_user" "$output_log"
+}
