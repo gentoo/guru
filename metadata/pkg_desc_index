@@ -35,7 +35,9 @@ acct-user/hinsightd 0: A user account for www-servers/hinsightd
 acct-user/honk 0: System user: honk
 acct-user/invidious 0: System user: invidious
 acct-user/jackett 0: User for www-apps/jackett-bin
+acct-user/mautrix-discord 0: User for Mautrix Discord Bridge
 acct-user/mautrix-facebook 0: User for Mautrix Facebook Bridge
+acct-user/mautrix-slack 0: User for Mautrix Slack Bridge
 acct-user/mautrix-telegram 0: User for Mautrix Telegram Bridge
 acct-user/monero 0: System user: monero
 acct-user/nitter 0: System user: nitter
@@ -1151,7 +1153,7 @@ dev-util/bats-assert 2.0.0: Common assertions for Bats
 dev-util/bats-support 0.3.0: Supporting library for Bats test helpers
 dev-util/bazelisk 1.12.0: A user-friendly launcher for Bazel
 dev-util/binaryen 105: Compiler and toolchain infrastructure library for WebAssembly
-dev-util/blueprint-compiler 0.4.0 0.6.0 9999: Compiler for Blueprint, a markup language for GTK user interfaces
+dev-util/blueprint-compiler 0.6.0 9999: Compiler for Blueprint, a markup language for GTK user interfaces
 dev-util/cargo-make 0.35.9 0.35.10: Rust task runner and build tool
 dev-util/deblob 0.3 9999: remove binary executables from a directory
 dev-util/dockerfile-language-server 0.9.0: A language server for Dockerfiles
@@ -1218,7 +1220,7 @@ games-board/openriichi 0.2.1.1: OpenRiichi is an open source Japanese Mahjong cl
 games-board/rmahjong 0.4_p20201106: Riichi Mahjong, the Japanese variant of the Chinese game Mahjong for 4 players
 games-emulation/citra 9999: A Nintendo 3DS Emulator
 games-emulation/citra-canary 9999: A Nintendo 3DS Emulator
-games-emulation/dosbox-x 2022.08.0-r1 2022.09.1_pre20221210-r1 2022.12.26 9999: Complete, accurate DOS emulator forked from DOSBox
+games-emulation/dosbox-x 2022.12.26 9999: Complete, accurate DOS emulator forked from DOSBox
 games-emulation/duckstation 9999: Fast Sony PlayStation (PSX) emulator
 games-emulation/flycast 9999: Sega Dreamcast, Naomi and Atomiswave emulator
 games-emulation/mupen64plus-qt 1.15 9999: A basic launcher for Mupen64Plus
@@ -1496,7 +1498,9 @@ net-im/heisenbridge 1.14.1: A bouncer-style Matrix IRC bridge
 net-im/jitsi-meet 2022.3.1: Desktop application for Jitsi Meet built with Electron
 net-im/kaidan 0.8.0-r1: A simple, user-friendly Jabber/XMPP client for every device!
 net-im/matterhorn-bin 50200.13.0: Terminal based Mattermost client
+net-im/mautrix-discord 0_pre20230124: A Matrix-Discord puppeting bridge
 net-im/mautrix-facebook 0.4.1: A Matrix-Facebook Messenger puppeting bridge
+net-im/mautrix-slack 0_pre20230124: A Matrix-Slack puppeting bridge based on slack-go
 net-im/mautrix-telegram 0.12.2_p20230118: A Matrix-Telegram Messenger puppeting bridge
 net-im/nheko 0.10.2-r1 0.11.1: Native desktop client for Matrix using Qt
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
