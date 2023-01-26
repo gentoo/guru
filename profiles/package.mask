@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2021-03-29)
@@ -13,6 +13,11 @@
 # relevant entries to the relevant package.mask files in ::gentoo
 
 # New entries go on top.
+
+# Julien Roy <julien@jroy.ca> (2023-01-25)
+# Requires <dev-python/coverage-7, which is no longer available in ::gentoo.
+# Upstream bug: https://github.com/TheKevJames/coveralls-python/issues/377
+dev-python/coveralls
 
 # Nicola Smaniotto <smaniotto.nicola@gmail.com> (2023-01-15)
 # Requires <dev-python/cleo-1, which is no longer available in ::gentoo.

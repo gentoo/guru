@@ -15,15 +15,18 @@ SRC_URI="https://github.com/click-contrib/${PN}/archive/v${PV}.tar.gz -> ${P}.gh
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
+RESTRICT="test"
 
 RDEPEND="dev-python/click[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
 BDEPEND="
-	test? (
-		dev-python/pytest-cov[${PYTHON_USEDEP}]
-		<dev-python/coverage-7[${PYTHON_USEDEP}]
-		dev-python/coveralls[${PYTHON_USEDEP}]
-	)
 "
+# dev-python/coveralls currently masked in ::guru due to
+# https://github.com/TheKevJames/coveralls-python/issues/377
+	# test? (
+	# 	dev-python/pytest-cov[${PYTHON_USEDEP}]
+	# 	<dev-python/coverage-7[${PYTHON_USEDEP}]
+	# 	dev-python/coveralls[${PYTHON_USEDEP}]
+	# )
 
 distutils_enable_tests pytest
