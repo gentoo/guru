@@ -1,11 +1,11 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2023 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 EGIT_REPO_URI="https://github.com/MageSlayer/paludis-gentoo-patches.git"
-PYTHON_COMPAT=( python3_{7,8,9} )
-RUBY_VER=2.4
+PYTHON_COMPAT=( python3_{8..11} )
+RUBY_VER=2.7
 
 inherit bash-completion-r1 cmake git-r3 python-r1
 
@@ -13,7 +13,7 @@ DESCRIPTION="paludis, the other package mangler"
 HOMEPAGE="http://paludis.exherbo.org/"
 SRC_URI=""
 
-IUSE="doc pbins pink python ruby ruby_targets_ruby${RUBY_VER/./} search-index test +xml -eapi7"
+IUSE="doc pbins pink python ruby ruby_targets_ruby${RUBY_VER/./} search-index test +xml -eapi7 -eapi8"
 LICENSE="GPL-2 vim"
 SLOT="0"
 KEYWORDS=""
@@ -53,35 +53,26 @@ RDEPEND="${COMMON_DEPEND}
 PDEPEND="app-eselect/eselect-package-manager"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )
-	ruby? ( ruby_targets_ruby${RUBY_VER/./} )"
+	ruby? ( ruby_targets_ruby${RUBY_VER/./} )
+	?? ( eapi7 eapi8 )"
 RESTRICT="!test? ( test )"
-
-pkg_pretend() {
-	if [[ ${MERGE_TYPE} != buildonly ]]; then
-		if id paludisbuild >/dev/null 2>/dev/null ; then
-			if ! groups paludisbuild | grep --quiet '\<tty\>' ; then
-				eerror "The 'paludisbuild' user is now expected to be a member of the"
-				eerror "'tty' group. You should add the user to this group before"
-				eerror "upgrading Paludis."
-				die "Please add paludisbuild to tty group"
-			fi
-		fi
-	fi
-}
 
 pkg_setup() {
 	use python && python_setup -3
 }
-
 src_unpack() {
-        if use eapi7; then
+	if use eapi8; then
+		# want experimental² EAPI8 support?
+		EGIT_REPO_URI="https://github.com/Ionic/paludis-gentoo-patches.git"
+		EGIT_BRANCH="feature/eapi8"
+	elif use eapi7; then
 		# want experimental EAPI7 support?
 		EGIT_BRANCH="eapi7"
-        else
+	else
 		EGIT_BRANCH="master"
-        fi
-        git-r3_fetch
-        git-r3_checkout
+	fi
+	git-r3_fetch
+	git-r3_checkout
 }
 
 src_prepare() {
@@ -129,20 +120,6 @@ src_install() {
 
 	cp "${FILESDIR}/portage2paludis.bash" portage2paludis
 	dobin portage2paludis
-}
-
-src_test() {
-	# Work around Portage bugs
-	local -x PALUDIS_DO_NOTHING_SANDBOXY="portage sucks"
-	local -x BASH_ENV=/dev/null
-
-	if [[ ${EUID} == 0 ]] ; then
-		# hate
-		local -x PALUDIS_REDUCED_UID=0
-		local -x PALUDIS_REDUCED_GID=0
-	fi
-
-	cmake_src_test
 }
 
 pkg_postinst() {

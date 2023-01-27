@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<bugs-to>https://github.com/MageSlayer/paludis-gentoo-patches/issues</bugs-to>
+		<changelog>https://github.com/MageSlayer/paludis-gentoo-patches/commits/master</changelog>
+		<remote-id type="github">MageSlayer/paludis-gentoo-patches</remote-id>
+	</upstream>
+	<use>
+		<flag name='pbins'>Experimental binary packages support</flag>
+		<flag name='pink'>Use a pink colour scheme</flag>
+		<flag name='python'>Enable the Python bindings</flag>
+		<flag name='ruby'>Enable the Ruby bindings</flag>
+		<flag name='search-index'>Enable `cave search --index`</flag>
+		<flag name='xml'>Enable parsing of xml files, for GLSA and metadata.xml support</flag>
+		<flag name='eapi7'>Enable experimental eapi7 support</flag>
+		<flag name='eapi8'>Enable extremely experimental eapi8 support</flag>
+	</use>
+</pkgmetadata>
