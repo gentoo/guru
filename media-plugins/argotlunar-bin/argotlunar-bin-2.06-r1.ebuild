@@ -4,13 +4,13 @@
 EAPI="7"
 
 DESCRIPTION="Argotlunar is a sound granulator. Binary Linux VST"
-HOMEPAGE="http://mourednik.github.io/argotlunar/"
+HOMEPAGE="https://mourednik.github.io/argotlunar/"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
 QA_PRESTRIPPED="/usr/lib64/vst/${PN}/argotlunar.so"
-SRC_URI="https://gentoodistfiles.imperium.org.ru/guru/argotlunar-bin-2.06-linux_amd64.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://www.dropbox.com/s/fwtg6jfkzakj7is/argotlunar-2.06-linux_64.tar.gz -> ${P}.tar.gz"
 #It's impossible to obtain package directly from DROPBOX, so I've just uploaded it to my own webserver
 LICENSE="GPL-2"
 
