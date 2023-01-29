@@ -13,7 +13,7 @@ DESCRIPTION="paludis, the other package mangler"
 HOMEPAGE="http://paludis.exherbo.org/"
 SRC_URI=""
 
-IUSE="doc pbins pink python ruby ruby_targets_ruby${RUBY_VER/./} search-index test +xml -eapi7 -eapi8"
+IUSE="doc pbins pink python ruby ruby_targets_ruby${RUBY_VER/./} search-index test +xml eapi7 eapi8"
 LICENSE="GPL-2 vim"
 SLOT="0"
 KEYWORDS=""
