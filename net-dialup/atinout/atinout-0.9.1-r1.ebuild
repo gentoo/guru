@@ -6,7 +6,7 @@ EAPI=7
 inherit toolchain-funcs
 
 DESCRIPTION="AT commands as input are sent to modem and responses given as output"
-HOMEPAGE="http://atinout.sourceforge.net/index.html"
+HOMEPAGE="https://atinout.sourceforge.net/index.html"
 SRC_URI="https://netix.dl.sourceforge.net/project/atinout/v0.9.1/${P}.tar.gz"
 
 LICENSE="GPL-3"
