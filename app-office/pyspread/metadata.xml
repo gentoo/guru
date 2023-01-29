@@ -4,5 +4,7 @@
     <!-- maintainer-needed -->
     <upstream>
         <remote-id type="gitlab">pyspread/pyspread</remote-id>
+        <doc>https://pyspread.gitlab.io/docs.html</doc>
+        <bugs-to>https://gitlab.com/pyspread/pyspread/issues</bugs-to>
     </upstream>
 </pkgmetadata>
