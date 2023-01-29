@@ -29,15 +29,9 @@ RDEPEND="
 
 distutils_enable_tests pytest
 
-src_compile() {
-	distutils-r1_src_compile
-	echo rm -rf "${WORKDIR}/${P}-${EPYTHON/./_}/install/usr/pyspread"
-	rm -rf "${WORKDIR}/${P}-${EPYTHON/./_}/install/usr/pyspread"
-}
-
 src_install() {
 	distutils-r1_src_install
-	rm -rf "${ED}/usr/pyspread"
+	rm -r "${ED}/usr/pyspread" || die
 	doicon "${PN}/share/icons/hicolor/64x64/${PN}.ico"
 	doicon "${PN}/share/icons/hicolor/svg/${PN}.svg"
 	domenu "${PN}.desktop"
