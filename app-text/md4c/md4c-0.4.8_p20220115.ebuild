@@ -1,18 +1,22 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit cmake
 
-# TODO: enable tests, add stable version and useflag for static lib
+# TODO(NRK):
+# - enable tests
+# - useflag for static lib (?)
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/mity/md4c.git"
 else
-	SRC_URI="https://github.com/mity/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	COMMIT="e9ff661ff818ee94a4a231958d9b6768dc6882c9"
+	SRC_URI="https://github.com/mity/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
+	S="${WORKDIR}/${PN}-${COMMIT}"
 fi
 
 DESCRIPTION="C Markdown parser. Fast, SAX-like interface, CommonMark Compliant."
