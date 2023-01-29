@@ -5,13 +5,12 @@ EAPI=8
 
 inherit go-module systemd
 
-COMMIT="587cf8a17ed20285d0be23e7838e8cd6d53ec483"
 DESCRIPTION="A Matrix-Discord puppeting bridge"
 HOMEPAGE="https://github.com/mautrix/discord"
-SRC_URI="https://github.com/mautrix/discord/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz
+SRC_URI="https://github.com/mautrix/discord/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz
 	https://jroy.ca/dist/${P}.tar.xz
 "
-S="${WORKDIR}/discord-${COMMIT}"
+S="${WORKDIR}/discord-${PV}"
 
 LICENSE="AGPL-3"
 SLOT="0"
