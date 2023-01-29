@@ -653,6 +653,14 @@ sys-apps/bustd:glob - Enable excluding processes with glob patterns
 sys-apps/drm_info:pci - Print PCI device names via libpci
 sys-apps/fselect:users - Add support for getting system users and groups
 sys-apps/intel-cmt-cat:appqos - Install App QoS, a software created to demonstrate the use of Intel(R) RDT technologies (CAT, MBA) to improve QoS for applications via partitioning system resources.
+sys-apps/paludis:eapi7 - Enable experimental eapi7 support
+sys-apps/paludis:eapi8 - Enable extremely experimental eapi8 support
+sys-apps/paludis:pbins - Experimental binary packages support
+sys-apps/paludis:pink - Use a pink colour scheme
+sys-apps/paludis:python - Enable the Python bindings
+sys-apps/paludis:ruby - Enable the Ruby bindings
+sys-apps/paludis:search-index - Enable `cave search --index`
+sys-apps/paludis:xml - Enable parsing of xml files, for GLSA and metadata.xml support
 sys-apps/watchdogd:compat - Enable compat supervisor.status and signals
 sys-apps/watchdogd:filenr - Enable file descriptor leak monitor
 sys-apps/watchdogd:generic - Enable generic script monitor
