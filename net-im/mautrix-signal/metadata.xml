@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>julien@jroy.ca</email>
+		<description>Julien Roy</description>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Tulir Asokan</name>
+			<email>tulir@maunium.net</email>
+		</maintainer>
+		<changelog>https://github.com/mautrix/telegram/releases</changelog>
+		<doc>https://docs.mau.fi/bridges/python/telegram/index.html</doc>
+		<bugs-to>https://github.com/mautrix/telegram/issues</bugs-to>
+		<remote-id type="github">mautrix/telegram</remote-id>
+		<remote-id type="pypi">mautrix-telegram</remote-id>
+	</upstream>
+</pkgmetadata>
