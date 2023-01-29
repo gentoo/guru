@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+      <email>julien@jroy.ca</email>
+        <description>Julien Roy</description>
+    </maintainer>
+    <upstream>
+      <maintainer>
+          <name>Romain Ricard</name>
+            <email>contact+stickerclient@romainricard.fr</email>
+        </maintainer>
+        <doc>https://github.com/signalstickers/signalstickers-client/blob/master/STICKERS_INTERNALS.md</doc>
+        <bugs-to>https://github.com/signalstickers/signalstickers-client/issues</bugs-to>
+        <remote-id type="github">signalstickers/signalstickers-client</remote-id>
+        <remote-id type="pypi">signalstickers-client</remote-id>
+    </upstream>
+</pkgmetadata>

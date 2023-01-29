@@ -1,11 +1,11 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit nimble systemd
 
-COMMIT="d923c20aa6a87224343562f15b00e72e7780aa3d"
+COMMIT="22b51b414b62620633de8ba456eaebdd2de54934"
 DESCRIPTION="An alternative front-end for Twitter"
 HOMEPAGE="https://github.com/zedeus/nitter"
 SRC_URI="https://github.com/zedeus/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"

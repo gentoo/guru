@@ -133,6 +133,13 @@ RESTRICT="mirror"
 
 QA_FLAGS_IGNORED="usr/bin/just"
 
+src_test() {
+        # $USER must be set or tests fail Bug #890889
+        export USER=portage
+
+        default
+}
+
 src_install() {
 	local DOCS=( README.md )
 

@@ -3,8 +3,10 @@
 
 EAPI=8
 
-DESCRIPTION="TypeScript & JavaScript Language Server"
-HOMEPAGE="https://www.npmjs.com/package/typescript-language-server"
+inherit optfeature
+
+DESCRIPTION="A language server for Bash"
+HOMEPAGE="https://github.com/bash-lsp/bash-language-server"
 SRC_URI="
 	mirror://npm/${PN}/-/${P}.tgz
 	https://tastytea.de/files/gentoo/${P}-deps.tar.xz
@@ -15,14 +17,14 @@ S="${WORKDIR}"
 #       npm --cache ./npm-cache install $(portageq envvar DISTDIR)/${P}.tgz
 #       tar -caf ${P}-deps.tar.xz npm-cache
 
-LICENSE="Apache-2.0 ISC MIT-with-advertising"
+LICENSE="
+	Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT-with-advertising
+	|| ( public-domain Unlicense )
+"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="
-	net-libs/nodejs
-	>=dev-lang/typescript-4.9.4
-"
+RDEPEND="net-libs/nodejs"
 BDEPEND="net-libs/nodejs[npm]"
 
 src_unpack() {
@@ -41,6 +43,9 @@ src_install() {
 		--cache "${T}"/npm-cache \
 		install "${DISTDIR}"/${P}.tgz || die "npm install failed"
 
-	cd "${ED}"/usr/$(get_libdir)/node_modules/${PN} || die "cd failed"
 	einstalldocs
+}
+
+pkg_postinst() {
+	optfeature "linting support" dev-util/shellcheck dev-util/shellcheck-bin
 }

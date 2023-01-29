@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,20 +13,23 @@ SRC_URI="https://git.skyjake.fi/gemini/${PN}/releases/download/v${PV}/${P}.tar.g
 LICENSE="|| ( MIT Unlicense ) Apache-2.0 BSD-2 CC-BY-SA-4.0 OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+fribidi +harfbuzz mp3 ncurses webp"
+IUSE="X +fribidi +harfbuzz mp3 ncurses webp"
 
-DEPEND="
+RDEPEND="
 	>=dev-libs/tfdn-1.4.0:=[ssl]
+	X? ( x11-libs/libX11 )
 	fribidi? ( dev-libs/fribidi )
 	ncurses? ( dev-libs/sealcurses:= )
 	!ncurses? (
 		harfbuzz? ( media-libs/harfbuzz:=[truetype(+)] )
-		media-libs/libsdl2[sound(+),video(+)]
+		media-libs/libsdl2[X?,sound(+),video(+)]
 	)
 	mp3? ( media-sound/mpg123 )
 	webp? ( media-libs/libwebp:= )
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	X? ( x11-base/xorg-proto )
+"
 BDEPEND="
 	app-arch/zip
 	verify-sig? ( sec-keys/openpgp-keys-skyjake )
@@ -50,6 +53,7 @@ src_configure() {
 		-DENABLE_TUI=$(usex ncurses)
 		-DENABLE_MPG123=$(usex mp3)
 		-DENABLE_WEBP=$(usex webp)
+		-DENABLE_X11_XLIB=$(usex X)
 
 		# never build bundled libs
 		-DENABLE_FRIBIDI_BUILD=OFF
