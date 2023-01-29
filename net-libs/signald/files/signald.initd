@@ -1,0 +1,23 @@
+#!/sbin/openrc-run
+# Copyright 1999-2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="signald daemon"
+description="an API for Signal"
+
+pidfile="/run/${RC_SVCNAME}.pid"
+command="/usr/bin/signald"
+command_args="-d /var/lib/signald -s /tmp/signald.sock --system-socket"
+command_background=true
+command_user="signald:signald"
+
+output_log="/var/log/signald.log"
+error_log="/var/log/signald.log"
+
+depend() {
+	need net
+}
+
+start_pre() {
+	checkpath -f -m 0644 -o "$command_user" "$output_log"
+}
