@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
-
 <pkgmetadata>
-	<!-- maintainer-needed -->
-	<upstream>
-		<remote-id type="github">samuelcolvin/python-devtools</remote-id>
-		<remote-id type="pypi">devtools</remote-id>
-	</upstream>
+    <!-- maintainer-needed -->
+    <upstream>
+        <maintainer>
+            <name>Samuel Colvin</name>
+            <email>s@muelcolvin.com</email>
+        </maintainer>
+        <changelog>https://github.com/samuelcolvin/python-devtools/releases</changelog>
+        <doc>https://python-devtools.helpmanual.io/</doc>
+        <bugs-to>https://github.com/samuelcolvin/python-devtools/issues</bugs-to>
+        <remote-id type="github">samuelcolvin/python-devtools</remote-id>
+        <remote-id type="pypi">devtools</remote-id>
+    </upstream>
 </pkgmetadata>
