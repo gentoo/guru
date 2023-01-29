@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Viorel Munteanu <ceamac@gentoo.org> (2023-01-29)
+# Very outdated live version
+# See also this discussion: https://github.com/gentoo/guru/commit/10a1f43a0ebe867718744de54cb17fde32e4c329
+sys-apps/paludis
+
 # Julien Roy <julien@jroy.ca> (2023-01-28)
 # Depends on <dev-python/rich-13, which is no longer available in ::gentoo
 # Masked for removal in 30 days
@@ -60,13 +65,12 @@ sys-power/gwe
 dev-cpp/fbthrift
 dev-cpp/fizz
 dev-cpp/wangle
-# Depends on above
 sys-fs/dwarfs
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-09-08)
 # depends on removed dev-haskell/pandoc-citeproc
 dev-python/pypandoc
 
-# Viorel Munteanu <ceamac.paragon@gmail.com>
+# Viorel Munteanu <ceamac.paragon@gmail.com> (2022-08-03)
 # depends on dev-python/PyQt6, which is currently masked with all of qt6
 >=net-misc/maestral-qt-1.6.0
