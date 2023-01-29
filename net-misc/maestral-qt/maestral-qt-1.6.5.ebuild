@@ -3,18 +3,21 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
 DISTUTILS_USE_PEP517=setuptools
-
+PYTHON_COMPAT=( python3_{9..11} )
 inherit desktop distutils-r1
 
+MY_PV=${PV/_rc/.dev}
 DESCRIPTION="Maestral is an open-source Dropbox client written in Python"
 HOMEPAGE="https://maestral.app"
-SRC_URI="https://github.com/samschott/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+SRC_URI="https://github.com/samschott/${PN}/archive/refs/tags/v${MY_PV}.tar.gz -> ${P}.gh.tar.gz"
+S="${WORKDIR}"/${PN}-${MY_PV}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+if [[ ${PV} != *_rc* ]]; then
+	KEYWORDS="~amd64"
+fi
 
 RDEPEND="
 	>=dev-python/click-8.0.2[${PYTHON_USEDEP}]
