@@ -27,7 +27,7 @@ BDEPEND="
 "
 
 src_unpack() {
-	cd "${T}" || die "Could not cd to temporary directory"
+	: # npm uses the archive directly
 }
 
 src_install() {
