@@ -32,7 +32,7 @@ DEPEND="
 	openmp? ( sys-devel/gcc:*[openmp] )
 	pulseaudio? ( media-sound/pulseaudio )
 	vulkan? (
-		dev-util/glslang
+		>=dev-util/glslang-1.3.231
 		dev-util/spirv-headers
 	)
 "
@@ -67,7 +67,6 @@ src_prepare() {
 	sed -i -e '/add_subdirectory(core\/deps\/glslang/{N;s/.*/find_library(GLSLANG libglslang.so)\nfind_library(SPIRV libSPIRV.so)\ntarget_link_libraries(${PROJECT_NAME} PRIVATE ${GLSLANG} ${SPIRV})/}' CMakeLists.txt || die
 	sed -i -e '/include.*SPIRV/{s:":<glslang/:;s/"/>/}' core/rend/vulkan/shaders.h \
 		core/rend/vulkan/compiler.cpp || die
-	sed -i -e '/maxMeshViewCountNV/a1,' core/rend/vulkan/compiler.cpp || die
 
 	# Unbundle xxHash
 	sed -i -e '/XXHASH_BUILD_XXHSUM/{N;N;s/.*/target_link_libraries(${PROJECT_NAME} PRIVATE xxhash)/}' CMakeLists.txt || die
@@ -84,9 +83,6 @@ src_prepare() {
 	# Vulkan-header
 	sed -i -e '/add_subdirectory(core.*Vulkan-Headers)$/,/Vulkan::Headers/d' \
 		-e '/core\/deps\/Vulkan-Headers\/include)/d' CMakeLists.txt
-	# local fix for < 1.3.224
-	sed -i -e '/^1,$/d' core/rend/vulkan/compiler.cpp
-	sed -i -e '/swapchainExtent = /{s/= /&static_cast<VkExtent2D>(/;s/;/);/}' core/rend/vulkan/vulkan_context.cpp
 
 	# Do not use ccache
 	sed -i -e '/find_program(CCACHE_PROGRAM ccache)/d' CMakeLists.txt
