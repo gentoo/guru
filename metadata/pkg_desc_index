@@ -1097,7 +1097,7 @@ dev-python/stringcase 1.2.0: Convert string cases between camel case, pascal cas
 dev-python/survey 3.4.3: A simple library for creating beautiful interactive prompts
 dev-python/sysv_ipc 1.1.0: System V IPC primitives for python
 dev-python/tempus-themes 2.3.0.20220206: Accessible themes for Pygments
-dev-python/tempy 1.0.8: A simple, visually pleasing weather report in your terminal
+dev-python/tempy 1.0.9: A simple, visually pleasing weather report in your terminal
 dev-python/testrepository 0.0.20-r200: A repository of test results
 dev-python/timeslot 0.1.2: Time slots/intervals with an arbitrary start and stop
 dev-python/tinyrpc 1.1.5: A protocol neutral RPC library that supports JSON-RPC and zmq
@@ -1365,7 +1365,7 @@ media-fonts/3270font 2.3.1: A IBM 3270 Terminal font in a modern format
 media-fonts/firacode-nerdfont 2.2.2: A free and open-source typeface for developers
 media-fonts/gohufont 2.1_p20170627: A monospace bitmap font
 media-fonts/inconsolata_dz 20201205: A beautiful sans-serif monotype font designed for code listings
-media-fonts/iosevka-nerdfont 2.2.2: A free and open-source typeface for developers
+media-fonts/iosevka-nerdfont 2.2.2 2.3.3: A free and open-source typeface for developers
 media-fonts/jetbrainsmono-nerdfont 2.2.2: A free and open-source typeface for developers
 media-fonts/last-resort 14.000 15.000: A collection of glyphs used as the backup of "last resort" to any other font
 media-fonts/libertinus 7.040: Libertinus font
