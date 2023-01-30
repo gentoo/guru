@@ -12,5 +12,5 @@ REQUIRED_USE=^^ ( python_single_target_pypy3 python_single_target_python3_9 pyth
 RESTRICT=test
 SLOT=0/3.0
 SRC_URI=https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/otf2-3.0/otf2-3.0.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	8d5c1c4ecef47fa1b4576a718c620d1d	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	8d5c1c4ecef47fa1b4576a718c620d1d	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=42c25f2d6367dee2cd378be926096465
