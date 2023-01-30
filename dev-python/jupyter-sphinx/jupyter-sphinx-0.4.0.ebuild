@@ -1,9 +1,10 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{8,9} )
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit distutils-r1
 
@@ -11,7 +12,7 @@ DESCRIPTION="Jupyter Sphinx Extensions"
 HOMEPAGE="https://github.com/jupyter/jupyter-sphinx"
 SRC_URI="https://github.com/jupyter/jupyter-sphinx/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="BSD-with-disclosure"
+LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
@@ -22,6 +23,7 @@ RDEPEND="
 	>=dev-python/nbconvert-5.5[${PYTHON_USEDEP}]
 	dev-python/nbformat[${PYTHON_USEDEP}]
 "
+DEPEND="${RDEPEND}"
 
 distutils_enable_tests pytest
 distutils_enable_sphinx doc/source dev-python/matplotlib dev-python/alabaster
