@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=>=dev-games/liblcf-0.7.0 >=media-libs/libsdl2-2.0.5 media-libs/libpng:= x11-libs/pixman dev-libs/libfmt:= media-libs/freetype:= media-libs/harfbuzz:= media-libs/alsa-lib media-libs/speexdsp media-sound/mpg123 media-libs/libsndfile media-libs/libvorbis media-libs/opus wildmidi? ( media-sound/wildmidi ) fluidsynth? ( media-sound/fluidsynth ) media-libs/libxmp dev-ruby/asciidoctor doc? ( app-doc/doxygen )
+DESCRIPTION=RPG Maker 2000/2003 and EasyRPG games interpreter
+EAPI=8
+HOMEPAGE=https://easyrpg.org/player/
+INHERIT=cmake xdg-utils
+IUSE=doc fluidsynth wildmidi
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=>=dev-games/liblcf-0.7.0 >=media-libs/libsdl2-2.0.5 media-libs/libpng:= x11-libs/pixman dev-libs/libfmt:= media-libs/freetype:= media-libs/harfbuzz:= media-libs/alsa-lib media-libs/speexdsp media-sound/mpg123 media-libs/libsndfile media-libs/libvorbis media-libs/opus wildmidi? ( media-sound/wildmidi ) fluidsynth? ( media-sound/fluidsynth ) media-libs/libxmp dev-ruby/asciidoctor doc? ( app-doc/doxygen )
+SLOT=0
+SRC_URI=https://github.com/EasyRPG/Player/archive/refs/tags/0.7.0.tar.gz -> easyrpg-player-0.7.0.tar.gz
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1
+_md5_=53f0c9eb652a130b7e7cfdab683fed9f

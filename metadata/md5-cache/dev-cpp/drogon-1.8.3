@@ -1,0 +1,16 @@
+BDEPEND=doc? ( app-doc/doxygen ) >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=>=dev-cpp/trantor-1.5.10:= dev-libs/jsoncpp:= sys-libs/zlib brotli? ( app-arch/brotli:= ) mariadb? ( dev-db/mariadb:= ) postgres? ( dev-db/postgresql:= ) redis? ( dev-libs/hiredis:= ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/openssl:= ) elibc_Darwin? ( sys-libs/native-uuid ) elibc_SunOS? ( sys-libs/libuuid ) !elibc_Darwin? ( !elibc_SunOS? ( sys-apps/util-linux ) ) test? ( dev-cpp/gtest )
+DESCRIPTION=C++14/17 based HTTP web application framework
+EAPI=8
+HOMEPAGE=https://github.com/drogonframework/drogon
+INHERIT=cmake
+IUSE=+brotli doc examples mariadb postgres redis sqlite +ssl test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=>=dev-cpp/trantor-1.5.10:= dev-libs/jsoncpp:= sys-libs/zlib brotli? ( app-arch/brotli:= ) mariadb? ( dev-db/mariadb:= ) postgres? ( dev-db/postgresql:= ) redis? ( dev-libs/hiredis:= ) sqlite? ( dev-db/sqlite:3 ) ssl? ( dev-libs/openssl:= ) elibc_Darwin? ( sys-libs/native-uuid ) elibc_SunOS? ( sys-libs/libuuid ) !elibc_Darwin? ( !elibc_SunOS? ( sys-apps/util-linux ) )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/drogonframework/drogon/archive/refs/tags/v1.8.3.tar.gz -> drogon-1.8.3.tar.gz test? ( https://github.com/an-tao/trantor/archive/refs/tags/v1.5.10.tar.gz -> trantor-1.5.10.tar.gz )
+_eclasses_=toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1
+_md5_=d3d3d056c63ff708a41df0ad8ede0dff

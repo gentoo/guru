@@ -95,7 +95,7 @@ app-containers/waydroid 1.3.4-r6: Container-based approach to boot a full Androi
 app-crypt/PBinCLI 0.3.2: PrivateBin CLI
 app-crypt/autofirma 1.7.1: Spanish government's electronic signature application for online procedures
 app-crypt/certbot-dns-desec 1.2.1: deSEC DNS Authenticator plugin for Certbot
-app-crypt/certbot-dns-rfc2136 1.30.0-r2 1.31.0-r1 1.32.0 9999: RFC 2136 DNS Authenticator plugin for Certbot (Let’s Encrypt client)
+app-crypt/certbot-dns-rfc2136 2.0.0 2.1.0 2.2.0 9999: RFC 2136 DNS Authenticator plugin for Certbot (Let’s Encrypt client)
 app-crypt/clevis 18 19: Automated Encryption Framework
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/gnome-encfs-manager 1.9: An easy to use manager and mounter for encfs stashes
@@ -159,8 +159,8 @@ app-i18n/scim-canna 1.0.1: SCIM IMEngine module using Canna
 app-metrics/scaphandre 0.4.1: Electrical power consumption measurement agent.
 app-misc/afc 1.1 1.2 9999: Anime File Checker, checks CRC32 contained in filenames
 app-misc/afetch 2.2.0: Simple system info written in C
-app-misc/ani-cli 1.9: A cli to browse and watch anime.
-app-misc/anki-bin 2.1.54-r1 2.1.56 2.1.56-r1: A spaced-repetition memory training program (flash cards)
+app-misc/ani-cli 4.0 9999: A cli to browse and watch anime.
+app-misc/anki-bin 2.1.57: A spaced-repetition memory training program (flash cards)
 app-misc/apidb 5.8.0_beta 5.11.0_beta 5.13.1_beta 5.13.4_beta 5.13.6_beta: API Generator for Database access
 app-misc/aw-client 0.11.0: Client library for ActivityWatch
 app-misc/aw-core 0.11.0: Core library for ActivityWatch
@@ -171,7 +171,7 @@ app-misc/clifm 1.6 1.7 1.8 1.9 9999: The command line file manager
 app-misc/cpufetch 1.01 1.02: Simplistic yet fancy CPU architecture fetching tool
 app-misc/dbf 0.9.0: Command line tool to read the content of dBASE III, IV, and 5.0 files
 app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs
-app-misc/doublecmd-bin 1.0.8 1.0.9: Free cross platform open source file manager with two panels side by side.
+app-misc/doublecmd-bin 1.0.9 1.0.10: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/electricsheep 3.0.2_p20191005 9999: Realize the collective dream of sleeping computers from all over the internet
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
@@ -267,7 +267,7 @@ app-text/koodo-reader-bin 1.4.1: A modern ebook manager and reader with sync and
 app-text/lizard 1.17.10: A simple code complexity analyser, supports most of the popular languages.
 app-text/mandown 0.1.2: Markdown to groff (man page) converter
 app-text/md2mld 0.5.1: Little cli tool to convert md files into mld files
-app-text/md4c 9999: C Markdown parser. Fast, SAX-like interface, CommonMark Compliant.
+app-text/md4c 0.4.8_p20220115: C Markdown parser. Fast, SAX-like interface, CommonMark Compliant.
 app-text/noweb 2.12: a literate programming tool, lighter than web
 app-text/smu 1.5 9999: Simple markup - markdown like syntax
 app-text/the-platinum-searcher-bin 2.2.0: Fast CLI search tool, faster than grep, ack, silver_searcher (ag)
@@ -472,7 +472,7 @@ dev-cpp/coeurl 0.2.1 0.3.0: A simple async wrapper around CURL for C++
 dev-cpp/cpp-jwt 1.5_pre20220727: JSON Web Token library for C++
 dev-cpp/cpptoml 0.1.1: Header-only library for parsing TOML
 dev-cpp/dpp 10.0.21 10.0.22: Lightweight C++ Discord bot library
-dev-cpp/drogon 1.8.1 1.8.2: C++14/17 based HTTP web application framework
+dev-cpp/drogon 1.8.2 1.8.3: C++14/17 based HTTP web application framework
 dev-cpp/dtl 1.20-r1: diff template library written by C++
 dev-cpp/fbthrift 2022.04.11.00-r1: Facebook's branch of Apache Thrift, including a new C++ server
 dev-cpp/fizz 2022.04.11.00-r1: C++14 implementation of the TLS-1.3 standard
@@ -490,7 +490,7 @@ dev-cpp/scitokens-cpp 0.7.1 0.7.3: A C++ implementation of the SciTokens library
 dev-cpp/sprout 0_pre20190615: C++11/14 constexpr based Containers, Algorithms, Random numbers and others
 dev-cpp/std-format 0_pre20220112-r1: A simple polyfill allowing you to use std::format
 dev-cpp/tiny-dnn 1.0.0_alpha3-r2: header only, dependency-free deep learning framework in C++14
-dev-cpp/trantor 1.5.7 1.5.8: Non-blocking I/O tcp network lib based on c++14/17
+dev-cpp/trantor 1.5.8 1.5.10: Non-blocking I/O tcp network lib based on c++14/17
 dev-cpp/trompeloeil 43: Header only C++14 mocking framework
 dev-cpp/vectorwrapper 1.1.2 9999: A template vector wrapper class for C++
 dev-cpp/vexcl 1.4.3-r2: VexCL - Vector expression template library for OpenCL
@@ -539,6 +539,7 @@ dev-embedded/yosys 0.9_p20200324-r1 9999: RTL synthesis toolkit
 dev-erlang/cowboy 2.9.0: Small, fast, modern HTTP server for Erlang/OTP.
 dev-erlang/cowlib 2.11.0: Support library for manipulating Web protocols.
 dev-erlang/ranch 1.7.1 1.8.0 2.0.0: Socket acceptor pool for TCP protocols.
+dev-games/liblcf 0.7.0: Library to handle RPG Maker 2000/2003 and EasyRPG projects
 dev-games/surgescript 0.5.5 9999: scripting language made for opensurge
 dev-go/lichen 0.1.4 0.1.7: Go binary license checker
 dev-go/staticcheck 0.3.3 9999: The advanced Go linter
@@ -846,7 +847,7 @@ dev-python/cotyledon 1.7.3: Cotyledon provides a framework for defining long-run
 dev-python/coveralls 3.3.1: Show coverage stats online via coveralls.io
 dev-python/cryptg 0.4: Hachoir is a Python library to view and edit a binary stream field by field
 dev-python/cu2qu 1.6.7-r1 1.6.7_p1: Cubic-to-quadratic bezier curve conversion
-dev-python/curio 1.5: Curio is a coroutine-based library for concurrent systems programming
+dev-python/curio 1.6: Curio is a coroutine-based library for concurrent systems programming
 dev-python/cursive 0.2.2-r2: Cursive implements OpenStack-specific validation of digital signatures
 dev-python/cx-oracle 8.3.0: Python interface to Oracle
 dev-python/cymem 2.0.6 2.0.7: Manage calls to calloc/free through Cython
@@ -858,7 +859,7 @@ dev-python/dataclasses_json 0.5.7: Easily serialize Data Classes to and from JSO
 dev-python/dateparser 1.1.5 1.1.6: Date parsing library designed to parse dates from HTML pages
 dev-python/decopatch 1.4.9 1.4.10: Create decorators easily in python
 dev-python/desktop-notifier 3.4.2: desktop-notifier is a Python library for cross-platform desktop notifications
-dev-python/devtools 0.6.1: Dev tools for python
+dev-python/devtools 0.10.0: Dev tools for python
 dev-python/digitalocean 1.16.0 1.17.0: Digitalocean API access library
 dev-python/django-bleach 3.0.1: Easily use bleach with Django models and templates
 dev-python/django-markdownify 0.9.2: Markdown template filter for Django
@@ -888,7 +889,7 @@ dev-python/gbinder 1.0.0 1.1.1 9999: Python bindings for libgbinder
 dev-python/gemcall 0.8 0.9: A library and CLI tool for making gemini requests
 dev-python/gflanguages 0.4.0-r1: A python API for evaluating language support in the Google Fonts collection
 dev-python/github-sublee-glicko2 0_pre20191010-r1: An implementation of the Glicko-2 rating system for Python
-dev-python/glicko2 2.0.0: glicko2 implementation in python
+dev-python/glicko2 2.0.0-r1: glicko2 implementation in python
 dev-python/glyphsLib 6.0.5: A library to provide a bridge from Glyphs source files to UFOs
 dev-python/glyphsets 0.5.4-r1: A python API for evaluating coverage of glyph sets in font projects
 dev-python/glyphtools 0.8.0: Routines for extracting information from fontTools glyphs
@@ -923,7 +924,7 @@ dev-python/jinja2-cli 0.8.2: CLI for Jinja2
 dev-python/jplephem 2.16: Python version of NASA DE4xx ephemerides for Astronomical Alamanac
 dev-python/jsonpath-rw 1.4.0: A robust and significantly extended implementation of JSONPath for Python
 dev-python/jsonpath-rw-ext 1.2.2: Extensions for JSONPath RW
-dev-python/jupyter-sphinx 0.3.2: Jupyter Sphinx Extensions
+dev-python/jupyter-sphinx 0.4.0: Jupyter Sphinx Extensions
 dev-python/kurbopy 0.8.32-r1: Python wrapper around Rust kurbo 2D curves library
 dev-python/langdetect 1.0.9: Port of Google's language-detection library to Python
 dev-python/ldappool 3.0.0: A connection pool for python-ldap
@@ -1060,7 +1061,7 @@ dev-python/readability-lxml 0.6.1 0.8.1: fast html to text parser (article reada
 dev-python/readmdict 0.1.1: Read mdx/mdd files
 dev-python/redbaron 0.9 0.9.2: A FST for python to make writing refactoring code a realistic task
 dev-python/rst2ansi 0.1.5-r1: Render reStructuredText documents to the terminal
-dev-python/rstcheck 3.3.1: Checks syntax of reStructuredText and code blocks nested within it
+dev-python/rstcheck 6.1.1: Checks syntax of reStructuredText and code blocks nested within it
 dev-python/rstr 3.2.0: Easily generate random strings of various types
 dev-python/schedule 1.1.0-r1: Python job scheduling for humans
 dev-python/schema 0.7.5: Python module to validate and convert data structures
@@ -1234,6 +1235,7 @@ games-emulation/np2kai 22 22_p20210211: NP2kai is an emulator for the japanese P
 games-emulation/rpcs3 9999: PS3 emulator/debugger
 games-emulation/yuzu 0_p20220725 9999: An emulator for Nintendo Switch
 games-engines/boxtron 0.5.4-r2: Steam Play compatibility tool to run DOS games using native Linux DOSBox
+games-engines/easyrpg-player 0.7.0: RPG Maker 2000/2003 and EasyRPG games interpreter
 games-engines/fs2_open 21.4.1-r2 22.0.0 22.2.0: FreeSpace2 Source Code Project game engine
 games-engines/instead 3.3.5 3.4.1 9999: INSTEAD text-based quest game engine
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
@@ -1504,7 +1506,7 @@ net-im/heisenbridge 1.14.1: A bouncer-style Matrix IRC bridge
 net-im/jitsi-meet 2022.3.1: Desktop application for Jitsi Meet built with Electron
 net-im/kaidan 0.8.0-r1: A simple, user-friendly Jabber/XMPP client for every device!
 net-im/matterhorn-bin 50200.13.0: Terminal based Mattermost client
-net-im/mautrix-discord 0_pre20230124: A Matrix-Discord puppeting bridge
+net-im/mautrix-discord 0.1.0: A Matrix-Discord puppeting bridge
 net-im/mautrix-facebook 0.4.1: A Matrix-Facebook Messenger puppeting bridge
 net-im/mautrix-signal 0.4.2: A Matrix-Telegram Messenger puppeting bridge
 net-im/mautrix-slack 0_pre20230124: A Matrix-Slack puppeting bridge based on slack-go
@@ -1571,7 +1573,7 @@ net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny
 net-nntp/inn 2.6.4-r1 2.6.5: InterNetNews -- the Internet meets Netnews
 net-nntp/pan 0.154-r1: A newsreader for GNOME
 net-p2p/bisq-bin 1.9.9: The decentralized bitcoin exchange (non-atomic, with arbitration)
-net-p2p/feather 2.1.2 2.2.3 9999: A free, open-source Monero wallet
+net-p2p/feather 2.2.3 9999: A free, open-source Monero wallet
 net-p2p/ipfs-cluster 1.0.1 1.0.2: Pinset orchestration for IPFS
 net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 0.18.1.0 0.18.1.1 0.18.1.2 9999: The secure, private, untraceable cryptocurrency
@@ -1842,6 +1844,7 @@ www-apps/twint 2.1.20-r2 2.1.20_p20220316: Twitter scraping & OSINT tool written
 www-apps/uwebsockets 20.11.0 20.14.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.2.2 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/browsh 1.6.4_p1: A fully-modern text-based browser, rendering to TTY and browsers
+www-client/nyxt 3_pre20230127 9999: Nyxt - the hacker's power-browser
 www-client/torbrowser-launcher 0.3.6 9999: A program to download, update, and run the Tor Browser Bundle
 www-client/vimb 3.6.0 9999: a fast, lightweight, vim-like browser based on webkit
 www-client/woob 3.1 9999: Web Outside Of Browsers (core, site modules and applications)
@@ -1862,7 +1865,7 @@ x11-misc/betterlockscreen 4.0.4 9999: sweet looking lockscreen for linux system
 x11-misc/betterlockscreen_rapid 0.0.0_pre20210701 0.0.0_pre20210708: A rapid and good-looking screen locker
 x11-misc/caffeine-ng 3.5.1: Aplication able to temporarily inhibit the screensaver
 x11-misc/gammy 0.9.60 0.9.64: Adaptive screen brightness/temperature
-x11-misc/gobble 1.2: Hide current window before launching external program, unhide after quitting
+x11-misc/gobble 1.2-r1: Hide current window before launching external program, unhide after quitting
 x11-misc/greenclip-bin 4.2: Simple clipboard manager to be integrated with rofi
 x11-misc/gromit-mpx 1.4.3 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
 x11-misc/i3lock-color 2.13.2 2.13.4 9999: The world's most popular non-default computer lockscreen
