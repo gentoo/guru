@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop pax-utils unpacker xdg
+inherit desktop unpacker xdg
 
 DESCRIPTION="Cisco's packet tracer"
 HOMEPAGE="https://www.netacad.com/portal/resources/packet-tracer"

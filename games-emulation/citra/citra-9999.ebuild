@@ -1,4 +1,4 @@
-# Copyright 2019-2022 Gentoo Authors
+# Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ EGIT_SUBMODULES=(
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="cubeb +hle-sound nls +qt5 sdl system-libfmt +telemetry video"
+IUSE="cubeb +hle-sound nls +qt5 sdl +system-libfmt +telemetry video"
 
 RDEPEND="
 	cubeb? ( media-libs/cubeb )
@@ -32,7 +32,7 @@ RDEPEND="
 		media-libs/libsdl2
 		>=dev-libs/inih-52
 	)
-	system-libfmt? ( <=dev-libs/libfmt-8:= )
+	system-libfmt? ( >=dev-libs/libfmt-9:= )
 	video? ( media-video/ffmpeg:= )
 	>=dev-libs/openssl-1.1:=
 	app-arch/zstd
@@ -42,8 +42,8 @@ RDEPEND="
 	net-libs/enet:1.3=
 	virtual/libusb:1
 "
-DEPEND="${RDEPEND}
-	dev-cpp/cpp-httplib
+DEPEND="${RDEPEND}"
+BDEPEND="dev-cpp/cpp-httplib
 	dev-cpp/cpp-jwt
 	dev-cpp/robin-map"
 REQUIRED_USE="|| ( qt5 sdl )"
@@ -94,10 +94,7 @@ src_prepare() {
 
 	if use system-libfmt; then # Unbundle libfmt
 		sed -i -e '/fmt/d' externals/CMakeLists.txt || die
-		sed -i -e 's/fmt/&::&/' -e '1ifind_package(fmt)' \
-			src/{core,citra,citra_qt,dedicated_room,input_common,tests,video_core}/CMakeLists.txt || die
-		sed -i -e '1ifind_package(fmt)' externals/dynarmic/src/CMakeLists.txt || die
-		sed -i -e '/^#pragma once$/a#include <algorithm>' src/common/logging/log.h || die
+		sed -i -e '/find_package(Threads/afind_package(fmt)' CMakeLists.txt || die
 	fi
 
 	# Unbundle teakra
@@ -121,7 +118,7 @@ src_prepare() {
 		-e '1ifind_package(PkgConfig REQUIRED)\npkg_check_modules(CRYPTOPP REQUIRED libcryptopp)' \
 		src/dedicated_room/CMakeLists.txt \
 		src/core/CMakeLists.txt || die
-	sed -i -e '/cryptopp/d' externals/CMakeLists.txt || die
+	sed -i -e '/cryptopp-cmake/d' externals/CMakeLists.txt || die
 
 	# Unbundle cubeb
 	sed -i -e '/CUBEB/,/endif()/d' externals/CMakeLists.txt || die
@@ -136,6 +133,12 @@ src_prepare() {
 	# Unbundle cpp-jwt
 	sed -i -e '/# cpp-jwt/,/CPP_JWT_USE_VENDORED_NLOHMANN_JSON/d' externals/CMakeLists.txt || die
 	sed -i -e 's/ cpp-jwt//' src/web_service/CMakeLists.txt || die
+
+	# Unbundle xbyak
+	sed -i -e '/^install(/,/^)$/d' externals/xbyak/CMakeLists.txt || die
+
+	# Do not install dynarmic
+	sed -i -e '/^# Install/,$d' externals/dynarmic/CMakeLists.txt || die
 
 	cmake_src_prepare
 }
@@ -158,4 +161,9 @@ src_configure() {
 
 	# This would be better in src_unpack but it would be unlinked
 	mv "${S}"/compatibility_list.json "${BUILD_DIR}"/dist/compatibility_list/ || die
+}
+
+src_install() {
+	cmake_src_install
+	rm -rf "${D}"/usr/$(get_libdir)/cmake
 }

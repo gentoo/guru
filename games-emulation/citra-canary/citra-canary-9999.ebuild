@@ -1,4 +1,4 @@
-# Copyright 2019-2022 Gentoo Authors
+# Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,19 +8,17 @@ inherit cmake git-r3 xdg
 DESCRIPTION="A Nintendo 3DS Emulator"
 HOMEPAGE="https://citra-emu.org"
 EGIT_REPO_URI="https://github.com/citra-emu/citra-canary"
-EGIT_SUBMODULES=( '*'
-	'-boost' '-catch' '-cryptopp' '-cubeb' '-enet'
-	'-inih' '-libressl' '-libusb' '-teakra' '-zstd'
-	'-externals/dynarmic/externals/fmt'
-	'-externals/dynarmic/externals/xbyak'
+EGIT_SUBMODULES=(
+	'catch2' 'discord-rpc' 'dynarmic' 'libyuv'
+	'lodepng' 'nihstro' 'soundtouch' 'xbyak'
 )
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="cubeb +hle-sound nls +qt5 sdl system-libfmt +telemetry video"
+IUSE="cubeb +hle-sound nls +qt5 sdl +system-libfmt +telemetry video"
 
-DEPEND="
+RDEPEND="
 	cubeb? ( media-libs/cubeb )
 	!hle-sound? ( media-libs/fdk-aac )
 	hle-sound? ( media-video/ffmpeg[fdk] )
@@ -34,24 +32,25 @@ DEPEND="
 		media-libs/libsdl2
 		>=dev-libs/inih-52
 	)
-	system-libfmt? ( <=dev-libs/libfmt-8 )
-	video? ( media-video/ffmpeg )
-	>=dev-libs/openssl-1.1
+	system-libfmt? ( >=dev-libs/libfmt-9:= )
+	video? ( media-video/ffmpeg:= )
+	>=dev-libs/openssl-1.1:=
 	app-arch/zstd
-	dev-cpp/catch:0
-	dev-cpp/robin-map
 	dev-libs/boost:=
-	dev-libs/crypto++
+	dev-libs/crypto++:=
 	dev-libs/teakra
-	net-libs/enet:1.3
+	net-libs/enet:1.3=
 	virtual/libusb:1
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}"
+BDEPEND="dev-cpp/cpp-httplib
+	dev-cpp/cpp-jwt
+	dev-cpp/robin-map"
 REQUIRED_USE="|| ( qt5 sdl )"
 
 src_unpack() {
-	if use system-libfmt; then
-		EGIT_SUBMODULES+=( "-fmt" "-externals/dynarmic/externals/fmt" )
+	if ! use system-libfmt; then
+		EGIT_SUBMODULES+=( 'fmt' )
 	fi
 	git-r3_src_unpack
 
@@ -81,7 +80,7 @@ src_prepare() {
 	sed -i '/install/s/citra\./citra-canary./' CMakeLists.txt || die
 
 	# Dynarmic: ensure those are unbundled
-	for ext in fmt catch robin-map; do
+	for ext in fmt robin-map; do
 		rm -rf externals/dynarmic/externals/${ext} || die
 	done
 
@@ -113,10 +112,7 @@ src_prepare() {
 
 	if use system-libfmt; then # Unbundle libfmt
 		sed -i -e '/fmt/d' externals/CMakeLists.txt || die
-		sed -i -e 's/fmt/&::&/' -e '1ifind_package(fmt)' \
-			src/{core,citra,citra_qt,dedicated_room,input_common,tests,video_core}/CMakeLists.txt || die
-		sed -i -e '1ifind_package(fmt)' externals/dynarmic/src/CMakeLists.txt || die
-		sed -i -e '/^#pragma once$/a#include <algorithm>' src/common/logging/log.h || die
+		sed -i -e '/find_package(Threads/afind_package(fmt)' CMakeLists.txt || die
 	fi
 
 	# Unbundle teakra
@@ -140,14 +136,7 @@ src_prepare() {
 		-e '1ifind_package(PkgConfig REQUIRED)\npkg_check_modules(CRYPTOPP REQUIRED libcryptopp)' \
 		src/dedicated_room/CMakeLists.txt \
 		src/core/CMakeLists.txt || die
-	sed -i -e '/cryptopp/d' externals/CMakeLists.txt || die
-
-	# Unbundle catch
-	sed -i -e '1ifind_package(Catch2)' src/tests/CMakeLists.txt externals/dynarmic/tests/CMakeLists.txt || die
-	sed -i -e '/target_link_libraries/s/catch/Catch2::Catch2/' externals/dynarmic/tests/CMakeLists.txt || die
-	sed -i -e '/target_link_libraries/s/catch-single-include/Catch2::Catch2/' src/tests/CMakeLists.txt || die
-	sed -i -e '/catch/d' externals/CMakeLists.txt externals/dynarmic/externals/CMakeLists.txt || die
-	grep -rl 'include <catch.hpp>' externals/dynarmic | xargs sed -i -e '/include/s:catch.hpp:catch/&:' || die
+	sed -i -e '/cryptopp-cmake/d' externals/CMakeLists.txt || die
 
 	# Unbundle cubeb
 	sed -i -e '/CUBEB/,/endif()/d' externals/CMakeLists.txt || die
@@ -155,7 +144,20 @@ src_prepare() {
 		sed -i -e '$afind_package(cubeb REQUIRED)\n' CMakeLists.txt || die
 	fi
 
-	# TODO unbundle xbyak (wait for 5.96 in ytree)
+	# Unbundle cpp-httplib
+	sed -i -e '/# httplib/,/target_link_libraries(httplib/d' externals/CMakeLists.txt || die
+	sed -i -e 's/ httplib//' src/{web_service,network,core}/CMakeLists.txt || die
+
+	# Unbundle cpp-jwt
+	sed -i -e '/# cpp-jwt/,/CPP_JWT_USE_VENDORED_NLOHMANN_JSON/d' externals/CMakeLists.txt || die
+	sed -i -e 's/ cpp-jwt//' src/web_service/CMakeLists.txt || die
+
+	# Unbundle xbyak
+	sed -i -e '/^install(/,/^)$/d' externals/xbyak/CMakeLists.txt || die
+
+	# Do not install dynarmic
+	sed -i -e '/^# Install/,$d' externals/dynarmic/CMakeLists.txt || die
+
 	cmake_src_prepare
 }
 
@@ -171,9 +173,15 @@ src_configure() {
 		-DENABLE_WEB_SERVICE=$(usex telemetry)
 		-DGENERATE_QT_TRANSLATION=$(use qt5 && usex nls || echo OFF)
 		-DUSE_SYSTEM_BOOST=ON
+		-DUSE_SYSTEM_SDL2=ON
 	)
 	cmake_src_configure
 
 	# This would be better in src_unpack but it would be unlinked
 	mv "${S}"/compatibility_list.json "${BUILD_DIR}"/dist/compatibility_list/ || die
+}
+
+src_install() {
+	cmake_src_install
+	rm -rf "${D}"/usr/$(get_libdir)/cmake
 }
