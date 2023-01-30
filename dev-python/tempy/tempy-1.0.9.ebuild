@@ -10,8 +10,8 @@ inherit distutils-r1
 
 DESCRIPTION="A simple, visually pleasing weather report in your terminal"
 HOMEPAGE="https://github.com/noprobelm/tempy"
-SRC_URI="https://github.com/noprobelm/tempy/archive/0af52d8.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/tempy-0af52d8c18399cd19e2f162539e4869dbc46107a"
+SRC_URI="https://github.com/noprobelm/tempy/archive/7a597ee.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/tempy-7a597ee78fc7ba2c4ced041780470f568998f3c1"
 
 LICENSE="MIT"
 SLOT="0"
