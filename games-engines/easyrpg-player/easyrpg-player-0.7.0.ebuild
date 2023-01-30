@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake xdg-utils
+inherit cmake xdg
 
 DESCRIPTION="RPG Maker 2000/2003 and EasyRPG games interpreter"
 HOMEPAGE="https://easyrpg.org/player/"
@@ -71,6 +71,3 @@ src_configure() {
 src_test() {
 	cmake_build check
 }
-
-pkg_postrm() { xdg_mimeinfo_database_update; }
-pkg_postinst() { xdg_mimeinfo_database_update; }
