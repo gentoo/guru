@@ -54,10 +54,6 @@ BDEPEND="app-arch/unzip"
 
 S="${WORKDIR}"
 
-src_unpack() {
-	unpack ${P}.zip aqt-${PV}.zip
-}
-
 src_install() {
 	python_domodule anki anki-${PV}.dist-info _aqt aqt aqt-${PV}.dist-info
 	printf "#!/usr/bin/python3\nimport sys;from aqt import run;sys.exit(run())" > runanki

@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,6 +24,11 @@ DEPEND="
 	test? ( dev-cpp/gtest )
 "
 BDEPEND="doc? ( app-doc/doxygen[dot] )"
+
+src_prepare() {
+	sed -i 's/ -Werror)$/)/' CMakeLists.txt || die "could not remove -Werror"
+	cmake_src_prepare
+}
 
 src_configure() {
 	local -a mycmakeargs=(

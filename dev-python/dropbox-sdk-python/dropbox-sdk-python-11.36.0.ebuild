@@ -21,6 +21,8 @@ RDEPEND="
 	>=dev-python/stone-2.0.0[${PYTHON_USEDEP}]
 "
 
+PATCHES=( "${FILESDIR}"/${P}-setuptools-67.patch )
+
 distutils_enable_tests pytest
 
 python_prepare_all() {

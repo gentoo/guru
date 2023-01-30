@@ -8,6 +8,6 @@
 	<upstream>
 		<doc>https://github.com/EmperorPenguin18/gobble</doc>
 		<bugs-to>https://github.com/EmperorPenguin18/gobble/issues</bugs-to>
+		<remote-id type="github">EmperorPenguin18/gobble</remote-id>
 	</upstream>
 </pkgmetadata>
-

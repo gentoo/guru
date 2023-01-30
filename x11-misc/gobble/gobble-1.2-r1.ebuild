@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,21 +27,14 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc"
 
-DEPEND="
-	>=dev-lang/rust-1.52.0
+RDEPEND="
 	x11-libs/libxcb
 	doc? (
 		app-text/pandoc
 		app-arch/gzip
 	)
 "
-BDEPEND="
-	$DEPEND
-"
-RDEPEND="
-	$DEPEND
-	!x11-misc/$PN-bin
-"
+DEPEND="${DEPEND}"
 
 QA_FLAGS_IGNORED="usr/bin/.*"
 

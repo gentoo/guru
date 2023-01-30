@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1
@@ -27,6 +27,7 @@ fi
 
 DESCRIPTION="RFC 2136 DNS Authenticator plugin for Certbot (Let’s Encrypt client)"
 HOMEPAGE="
+	https://github.com/certbot/certbot
 	https://letsencrypt.org/
 "
 
@@ -36,17 +37,14 @@ SLOT="0"
 S="${WORKDIR}/${PARENT_P}/${PN}"
 
 BDEPEND="
-	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
+	test? ( >=dev-python/pytest-7.2.0[${PYTHON_USEDEP}] )
 "
 
 RDEPEND="
 	${PYTHON_DEPS}
 	>=app-crypt/acme-${PV}[${PYTHON_USEDEP}]
 	>=app-crypt/certbot-${PV}[${PYTHON_USEDEP}]
-	>=dev-python/pyopenssl-22.0.0[${PYTHON_USEDEP}]
-	>=dev-python/pyparsing-3.0.9[${PYTHON_USEDEP}]
-	>=dev-python/zope-interface-5.4.0[${PYTHON_USEDEP}]
-	>=dev-python/dnspython-2.2.0[${PYTHON_USEDEP}]
+	>=dev-python/dnspython-2.2.1[${PYTHON_USEDEP}]
 "
 
 distutils_enable_sphinx docs dev-python/sphinx_rtd_theme
