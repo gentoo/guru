@@ -17,3 +17,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 distutils_enable_tests unittest
+
+src_prepare() {
+	sed -e "s/find_packages()/find_packages(exclude=['tests'])/" \
+		-i setup.py || die
+	distutils-r1_src_prepare
+}

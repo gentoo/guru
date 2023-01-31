@@ -23,5 +23,10 @@ SLOT="0"
 
 DEPEND="test? ( dev-python/sphinx[${PYTHON_USEDEP}] )"
 
+EPYTEST_DESELECT=(
+	# Needs net
+	"tests/test_network.py::test_ssl_outgoing"
+)
+
 distutils_enable_sphinx docs --no-autodoc
 distutils_enable_tests pytest
