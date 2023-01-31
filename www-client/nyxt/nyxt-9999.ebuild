@@ -37,6 +37,11 @@ IUSE="doc"
 RDEPEND="
 	dev-libs/gobject-introspection
 	gnome-base/gsettings-desktop-schemas
+	media-libs/gst-plugins-bad
+	media-libs/gst-plugins-base
+	media-libs/gst-plugins-good
+	media-libs/gst-plugins-ugly
+	media-plugins/gst-plugins-libav
 	net-libs/glib-networking
 	net-libs/webkit-gtk:4.1
 	sys-libs/libfixposix

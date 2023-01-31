@@ -14,7 +14,7 @@ then
 	EGIT_REPO_URI="https://github.com/atlas-engineer/${PN}.git"
 else
 	KEYWORDS="~amd64"
-	NYXTCOMMIT="27612fee394f80dee6480c045ec7da5cd1f82196"
+	NYXTCOMMIT="e41f9c39ac50ceb780ba46359ef4fcaa780434a5"
 	S="${WORKDIR}/${PN}-${NYXTCOMMIT}"
 
 	# Specify commits for each submodules
@@ -26,7 +26,6 @@ else
 	BORDEAUXTHREADSCOMMIT="076fe2380abbc59b06e495dc7a35aea8eb26ba3b"
 	FIVEAMCOMMIT="ec56fa7ce3955a751691cea1ff712afbdebc9bc4"
 	ASDFFLVCOMMIT="fc5b7399767ca35bfb420bbeb9e08494e441dc69"
-	TRIVIALBACKTRACE="6eb65bde7229413040c81d42ea22f0e4c9c8cfc9"
 	LIFTCOMMIT="2594160d6ca3a77d8750110dfa63214256aab852"
 	CALISPELCOMMIT="e9f2f9c1af97f4d7bb4c8ac25fb2a8f3e8fada7a"
 	CLJPLUTILCOMMIT="0311ed374e19a49d43318064d729fe3abd9a3b62"
@@ -341,6 +340,11 @@ IUSE="doc"
 RDEPEND="
 	dev-libs/gobject-introspection
 	gnome-base/gsettings-desktop-schemas
+	media-libs/gst-plugins-bad
+	media-libs/gst-plugins-base
+	media-libs/gst-plugins-good
+	media-libs/gst-plugins-ugly
+	media-plugins/gst-plugins-libav
 	net-libs/glib-networking
 	net-libs/webkit-gtk:4.1
 	sys-libs/libfixposix
