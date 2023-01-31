@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/hyprwm/Hyprland/releases"
 PROTOCOMMIT=301733ae466b229066ba15a53e6d8b91c5dcef5b
 WLRCOMMIT=dc7cc98cf21a8dc19ab8895505500e3700646af0
 CONTRIBCOMMIT=37c8121f98d76f57caa00dd7106877876e0d7483
-SRC_URI="https://github.com/hyprwm/${PN^}/archive/v${PV}beta.tar.gz -> ${P}.tar.gz
+SRC_URI="https://github.com/hyprwm/${PN^}/archive/v${PV}beta.tar.gz -> ${PF}.tar.gz
 	https://github.com/hyprwm/hyprland-protocols/archive/${PROTOCOMMIT}.tar.gz -> hyprland-protocols.tar.gz
 	https://github.com/hyprwm/contrib/archive/${CONTRIBCOMMIT}.tar.gz -> contrib.tar.gz
 	https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/${WLRCOMMIT}/wlroots-${WLRCOMMIT}.tar.bz2 -> wlr.tar.bz2"
@@ -48,9 +48,11 @@ RDEPEND="
 		 x11-libs/libnotify
 	)
 	X? (
+	   gui-libs/wlroots[x11-backend]
 	   x11-base/xwayland
 	   x11-libs/libxcb
 	   x11-libs/xcb-util-image
+	   x11-libs/xcb-util-renderutil
 	   x11-libs/xcb-util-wm
 	)
 "
@@ -60,6 +62,10 @@ BDEPEND="
 	shellevents? ( app-text/scdoc )
 "
 
+PATCHES=(
+	"${FILESDIR}/0.21.0-meson.patch"
+)
+
 src_unpack() {
 	default
 
@@ -67,6 +73,8 @@ src_unpack() {
 	rmdir "${S}/subprojects/hyprland-protocols"
 	mv "${WORKDIR}/wlroots-${WLRCOMMIT}" "${S}/subprojects/wlroots" || die
 	mv "${WORKDIR}/hyprland-protocols-${PROTOCOMMIT}" "${S}/subprojects/hyprland-protocols" || die
+	# Workaround for https://github.com/hyprwm/Hyprland/issues/1207
+	cp "${S}/subprojects/hyprland-protocols/protocols/hyprland-toplevel-export-v1.xml" "${S}/protocols" || die
 }
 
 src_prepare() {
@@ -89,7 +97,7 @@ src_configure() {
 }
 
 src_install() {
-	meson_src_install --skip-subprojects wlroots
+	meson_src_install --skip-subprojects
 
 	use grimblast && emake PREFIX="${ED}/usr" -C "${WORKDIR}/contrib-${CONTRIBCOMMIT}/grimblast" install
 	use shellevents && emake PREFIX="${ED}/usr" -C "${WORKDIR}/contrib-${CONTRIBCOMMIT}/shellevents" install
