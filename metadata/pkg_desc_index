@@ -207,7 +207,7 @@ app-misc/tealdeer 1.6.1: A very fast implementation of tldr in Rust.
 app-misc/termdown 1.18.0: Countdown timer and stopwatch in your terminal
 app-misc/ufetch 0.1 0.2 9999: Tiny system info for Unix-like operating systems
 app-misc/uwufetch 2.0: A meme system info tool for Linux
-app-misc/vocabsieve 0.9.1: A simple, effective tool for language learning
+app-misc/vocabsieve 0.9.2: A simple, effective tool for language learning
 app-misc/vrms-gentoo 0_pre20201102: vrms clone for Gentoo Linux
 app-misc/walld 1.4.4: A Wallpaper daemon
 app-misc/watchexec 1.18.12 1.19.0 1.20.6 1.21.0: Executes commands in response to file modifications
@@ -889,7 +889,7 @@ dev-python/gbinder 1.0.0 1.1.1 9999: Python bindings for libgbinder
 dev-python/gemcall 0.8 0.9: A library and CLI tool for making gemini requests
 dev-python/gflanguages 0.4.0-r1: A python API for evaluating language support in the Google Fonts collection
 dev-python/github-sublee-glicko2 0_pre20191010-r1: An implementation of the Glicko-2 rating system for Python
-dev-python/glicko2 2.0.0-r1: glicko2 implementation in python
+dev-python/glicko2 2.0.0-r2: glicko2 implementation in python
 dev-python/glyphsLib 6.0.5: A library to provide a bridge from Glyphs source files to UFOs
 dev-python/glyphsets 0.5.4-r1: A python API for evaluating coverage of glyph sets in font projects
 dev-python/glyphtools 0.8.0: Routines for extracting information from fontTools glyphs
@@ -1346,7 +1346,7 @@ gui-libs/text-engine 0.1.1-r2 9999: A lightweight rich-text framework for GTK 4
 gui-libs/webp-pixbuf-loader 0.0.1: WebP Image format GdkPixbuf loader
 gui-wm/cage 0.1.3 0.1.4 9999: A Wayland kiosk
 gui-wm/dwl 0.3.1 0.4_rc2 0.4 9999 9999-r1: dwm for Wayland
-gui-wm/hyprland 0.21.0: A dynamic tiling Wayland compositor that doesn't sacrifice on its looks
+gui-wm/hyprland 0.21.0-r1: A dynamic tiling Wayland compositor that doesn't sacrifice on its looks
 gui-wm/phosh 0.17.0: A pure Wayland shell prototype for GNOME on mobile devices
 gui-wm/swayfx 0.1: i3-compatible Wayland window manager
 kde-apps/alligator 22.11: A convergent RSS/Atom feed reader for Plasma
@@ -1606,7 +1606,7 @@ sci-electronics/skywater-pdk 0.0.0_p20220424: Process design kit for usage with 
 sci-electronics/slang 1.0 2.0 9999: SystemVerilog compiler and language services
 sci-electronics/svls 0.2.3: SystemVerilog language server
 sci-electronics/verible 0.0.2275: SystemVerilog parser, style-linter, and formatter
-sci-electronics/verilator 4.228 5.004 9999: The fast free Verilog/SystemVerilog simulator
+sci-electronics/verilator 4.106 5.004 5.006 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/GeographicLib-data 0-r1: Datasets for GeographicLib
 sci-geosciences/mapillary_tools 0.8.2_p20220702: Command line tools for processing and uploading Mapillary imagery
 sci-libs/ButterflyPACK 2.1.1-r1: Mathematical software for solving large-scale dense linear systems
