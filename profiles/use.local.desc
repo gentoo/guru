@@ -532,6 +532,8 @@ net-p2p/monero:wallet-rpc - Build the RPC wallet, monero-wallet-rpc.
 net-p2p/trezord-go:systemd - Install systemd service file
 net-p2p/trezord-go:udev - Install udev rules
 net-print/hpuld:scanner - Enable scanner on multifunction devices which support it
+net-vpn/fastd:doc - Build and install manpages
+net-vpn/fastd:offload-l2tp - Offload L2TP traffic to the kernel when using the null@l2tp transport method
 sci-biology/cmdock:apidoc - Build API documentation using app-doc/doxygen
 sci-biology/cmdock:boinc - Use CmDock with SiDock@home BOINC project
 sci-electronics/open_pdks:sky130 - Build the Skywater 130nm PDK.

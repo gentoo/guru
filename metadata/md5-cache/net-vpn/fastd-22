@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/bison doc? ( dev-python/sphinx ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install setup test
+DEPEND=>=net-libs/libuecc-6 dev-libs/json-c dev-libs/libsodium dev-libs/openssl offload-l2tp? ( net-libs/libmnl ) caps? ( sys-libs/libcap ) test? ( dev-util/cmocka )
+DESCRIPTION=A very small VPN daemon which tunnels IP packets and Ethernet frames over UDP.
+EAPI=8
+HOMEPAGE=https://fastd.readthedocs.io/
+INHERIT=linux-info meson systemd
+IUSE=+caps doc offload-l2tp systemd test
+KEYWORDS=~amd64 ~arm64
+LICENSE=BSD BSD-2
+RDEPEND=>=net-libs/libuecc-6 dev-libs/json-c dev-libs/libsodium dev-libs/openssl offload-l2tp? ( net-libs/libmnl ) caps? ( sys-libs/libcap ) test? ( dev-util/cmocka )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/NeoRaider/fastd/releases/download/v22/fastd-22.tar.xz
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	8d5c1c4ecef47fa1b4576a718c620d1d	meson	1994a5aef5d4f5798b92f64d6f9a6003	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=547f98aea379d8cf03b641099def5e08

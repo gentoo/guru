@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare setup test
+DEPEND=postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
+DESCRIPTION=Reorganize tables in PostgreSQL databases with minimal locks
+EAPI=7
+HOMEPAGE=https://github.com/reorg/pg_repack
+INHERIT=postgres-multi
+IUSE=postgres_targets_postgres15 postgres_targets_postgres14 postgres_targets_postgres13 postgres_targets_postgres12 postgres_targets_postgres11 postgres_targets_postgres10
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) postgres_targets_postgres13? ( dev-db/postgresql:13=[server] ) postgres_targets_postgres12? ( dev-db/postgresql:12=[server] ) postgres_targets_postgres11? ( dev-db/postgresql:11=[server] ) postgres_targets_postgres10? ( dev-db/postgresql:10=[server] )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/reorg/pg_repack/archive/ver_1.4.8.tar.gz -> pg_repack-1.4.8.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	postgres	7233fc439696bbab8442204f0f284645	postgres-multi	eb5db133692fe18bccaa7c2c5f45306d
+_md5_=5cb39343106cb05cc22e56176cb0b4c9
