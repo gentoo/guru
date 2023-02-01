@@ -33,7 +33,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}/${P}_fix_python3.11_tests.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}_fix_python3.11_tests.patch"
+	"${FILESDIR}/${P}_fix_setuptools_QA_warnings.patch"
+)
 
 DOCS=( CHANGELOG.md README.md )
 
