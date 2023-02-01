@@ -90,6 +90,7 @@ src_configure(){
 		-DVIDEORECORDER=$(usex videorecorder ON OFF)
 		-DVULKAN=$(usex vulkan ON OFF)
 		-DWEBSOCKETS=$(usex websockets ON OFF)
+		-DSECURITY_COMPILER_FLAGS=OFF # Set by gentoo toolchain, see https://bugs.gentoo.org/888875
 	)
 	cmake_src_configure
 }
