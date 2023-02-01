@@ -1,6 +1,6 @@
 --- a/3rd/luamake/compile/ninja/linux.ninja
 +++ b/3rd/luamake/compile/ninja/linux.ninja
-@@ -2,20 +2,20 @@
+@@ -2,21 +2,21 @@
  builddir = build/linux
  bin = $builddir/bin
  obj = $builddir/obj
@@ -19,37 +19,40 @@
  build $obj/source_bee/lua-seri.obj: c_source_bee $
      3rd/bee.lua/3rd/lua-seri/lua-seri.c
  rule cxx_source_bee
--  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -O2 -Wall -Werror $
--    -fvisibility=hidden -I3rd/bee.lua/bee/nonstd -DNDEBUG -fPIC -o $out -c $in
-+  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -Wall $
-+    -fvisibility=hidden -I3rd/bee.lua/bee/nonstd -DNDEBUG -o $out -c $in CXXFLAGS
+-  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -O2 -Wall $
+-    -Werror -fvisibility=hidden -I3rd/bee.lua/bee/nonstd -DNDEBUG -fPIC -o $
+-    $out -c $in
++  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -Wall $
++    -fvisibility=hidden -I3rd/bee.lua/bee/nonstd -DNDEBUG -o $
++    $out -c $in CXXFLAGS
    description = Compile C++ $out
    deps = gcc
    depfile = $out.d
-@@ -23,8 +23,8 @@
+@@ -24,8 +24,8 @@
      3rd/bee.lua/bee/nonstd/fmt/format.cc
  build $obj/source_bee/os.obj: cxx_source_bee 3rd/bee.lua/bee/nonstd/fmt/os.cc
  rule cxx_source_bee_1
--  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -O2 -Wall -Werror $
--    -fvisibility=hidden -I3rd/bee.lua -DNDEBUG -fPIC -o $out -c $in
-+  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -Wall $
+-  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -O2 -Wall $
+-    -Werror -fvisibility=hidden -I3rd/bee.lua -DNDEBUG -fPIC -o $out -c $in
++  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -Wall $
 +    -fvisibility=hidden -I3rd/bee.lua -DNDEBUG -o $out -c $in CXXFLAGS
    description = Compile C++ $out
    deps = gcc
    depfile = $out.d
-@@ -48,9 +48,9 @@
+@@ -49,9 +49,9 @@
  build $obj/source_bee/path_helper.obj: cxx_source_bee_1 $
      3rd/bee.lua/bee/utility/path_helper.cpp
  rule cxx_source_bee_2
--  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -O2 -Wall -Werror $
-+  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -Wall $
-     -fvisibility=hidden -I3rd/bee.lua/3rd/lua-seri -I3rd/bee.lua $
+-  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -O2 -Wall $
+-    -Werror -fvisibility=hidden -I3rd/bee.lua/3rd/lua-seri -I3rd/bee.lua $
 -    -Itools/lua54 -DBEE_STATIC -DNDEBUG -fPIC -o $out -c $in
++  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -Wall $
++    -fvisibility=hidden -I3rd/bee.lua/3rd/lua-seri -I3rd/bee.lua $
 +    -Itools/lua54 -DBEE_STATIC -DNDEBUG -o $out -c $in CXXFLAGS
    description = Compile C++ $out
    deps = gcc
    depfile = $out.d
-@@ -71,25 +71,25 @@
+@@ -72,25 +72,25 @@
  build $obj/source_bee/lua_time.obj: cxx_source_bee_2 $
      3rd/bee.lua/binding/lua_time.cpp
  rule c_source_lua
@@ -73,15 +76,16 @@
  build $obj/source_lua/linit.obj: c_source_lua_1 3rd/bee.lua/3rd/lua/linit.c
  build $obj/source_lua/onelua.obj: c_source_lua_1 3rd/bee.lua/3rd/lua/onelua.c
  rule cxx_source_bootstrap
--  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -O2 -Wall -Werror $
-+  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -Wall $
-     -fvisibility=hidden -I3rd/bee.lua/3rd/lua -I3rd/bee.lua -DLUA_USE_LINUX $
--    -DNDEBUG -fPIC -o $out -c $in
-+    -DNDEBUG -o $out -c $in CXXFLAGS
+-  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -O2 -Wall $
+-    -Werror -fvisibility=hidden -I3rd/bee.lua/3rd/lua -I3rd/bee.lua $
+-    -DLUA_USE_LINUX -DNDEBUG -fPIC -o $out -c $in
++  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -Wall $
++    -fvisibility=hidden -I3rd/bee.lua/3rd/lua -I3rd/bee.lua $
++    -DLUA_USE_LINUX -DNDEBUG -o $out -c $in CXXFLAGS
    description = Compile C++ $out
    deps = gcc
    depfile = $out.d
-@@ -99,7 +99,7 @@
+@@ -100,7 +100,7 @@
      3rd/bee.lua/bootstrap/progdir.cpp
  rule link_luamake
    command = $cc $in -o $out -lm -ldl -Wl,-E -lstdc++fs -pthread $
