@@ -70,4 +70,5 @@ src_install() {
 	systemd_dounit "doc/examples/fastd@.service"
 	newinitd "${FILESDIR}/fastd.init" fastd
 	use doc && doman doc/build/man/*
+	keepdir /etc/fastd
 }
