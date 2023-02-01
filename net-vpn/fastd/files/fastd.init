@@ -1,0 +1,55 @@
+#!/sbin/openrc-run
+# Copyright 2023 Gentoo Authors
+#
+# Distributed under the terms of the GNU General Public License v2
+
+name="fastd"
+description="fastd (Fast and Secure Tunnelling Daemon)"
+
+# usage would be i.e. fastd.my_vpn
+IFACE="${RC_SVCNAME#*.}"
+
+command="/usr/bin/fastd"
+command_args="--syslog-level info --syslog-ident fastd.${IFACE} --config /etc/fastd/${IFACE}/fastd.conf"
+pidfile="/run/${RC_SVCNAME}.pid"
+command_args_background="--daemon --pid-file ${pidfile}"
+
+depend() {
+    need net
+    use dns
+}
+
+extra_commands="checkconfig"
+checkconfig() {
+    if [ "${IFACE}" = "${RC_SVCNAME}" ]; then
+        eerror "You cannot call this init script directly. You must create a symbolic link to it with the configuration name:"
+        eerror "    mkdir -p /etc/fastd/my_vpn"
+        eerror "    nano /etc/fastd/my_vpn/fastd.conf"
+        eerror "    ln -s /etc/init.d/fastd /etc/init.d/fastd.my_vpn"
+        eerror "And then call it instead:"
+        eerror "    /etc/init.d/fastd.my_vpn start"
+        return 1
+    fi
+    fastd --config "/etc/fastd/${IFACE}/fastd.conf" --verify-config
+}
+
+start_pre() {
+  # If this isn't a restart, make sure that the user's config isn't
+  # busted before we try to start the daemon (this will produce
+  # better error messages than if we just try to start it blindly).
+  #
+  # If, on the other hand, this *is* a restart, then the stop_pre
+  # action will have ensured that the config is usable and we don't
+  # need to do that again.
+  if [ "${RC_CMD}" != "restart" ] ; then
+    checkconfig || return $?
+  fi
+}
+
+stop_pre() {
+  # If this is a restart, check to make sure the user's config
+  # isn't busted before we stop the running daemon.
+  if [ "${RC_CMD}" = "restart" ] ; then
+      checkconfig || return $?
+  fi
+}
