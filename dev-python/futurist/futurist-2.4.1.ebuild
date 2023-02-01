@@ -1,10 +1,10 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DISTUTILS_USE_SETUPTOOLS=bdepend
-PYTHON_COMPAT=( python3_{8..10} )
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit distutils-r1
 
@@ -27,12 +27,15 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	test? (
-		>=dev-python/subunit-1.0.0[${PYTHON_USEDEP}]
+		dev-python/coverage[${PYTHON_USEDEP}]
+		dev-python/eventlet[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
+		>=dev-python/prettytable-0.7.1[${PYTHON_USEDEP}]
+		dev-python/stestr[${PYTHON_USEDEP}]
+		>=dev-python/subunit-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
-		>=dev-python/prettytable-0.7.1[${PYTHON_USEDEP}]
 	)
 "
 
-distutils_enable_tests pytest
+distutils_enable_tests unittest
