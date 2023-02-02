@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
-from http.client import HTTPSConnection
-import json
 import sys
-from typing import Dict, Iterator, NamedTuple
-from urllib.parse import quote_plus
 import xml.etree.ElementTree as ET
+
+from http.client import HTTPSConnection
+from typing import Iterator, NamedTuple
+from urllib.parse import quote_plus
 
 
 class Maintainer(NamedTuple):
@@ -18,7 +18,7 @@ class Maintainer(NamedTuple):
             resp = client.getresponse()
             resp.read()
             return resp.status == 200
-        except:
+        except Exception:
             return False
 
 
