@@ -98,9 +98,10 @@ src_prepare() {
 	default
 	echo "#define FEATHER_VERSION \"${PV}\"" > "${WORKDIR}"/${PF}/src/config-feather.h || die
 	echo "#define TOR_VERSION \"NOT_EMBEDDED\"" >> "${WORKDIR}"/${PF}/src/config-feather.h || die
-	eapply "${FILESDIR}"/feather_remove_cflags.patch
+	eapply "${FILESDIR}"/feather_remove_cflags-${PV}.patch
 	pushd monero || die
-		eapply "${FILESDIR}"/monero_add_some_includes.patch
+		eapply "${FILESDIR}"/monero_remove_cflags-${PV}.patch
+		eapply "${FILESDIR}"/monero_add_some_includes-${PV}.patch
 	popd || die
 	cmake_src_prepare
 }
