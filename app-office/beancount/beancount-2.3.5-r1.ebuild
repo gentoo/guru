@@ -4,8 +4,9 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_10 )
-DITUTILS_USE_PEP517=setuptools
+DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
+
 inherit distutils-r1
 
 DESCRIPTION="A double-entry accounting system that uses text files as input"
@@ -16,25 +17,22 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-2.3.3-disable-network-tests.patch"
-	"${FILESDIR}/${PN}-2.3.3-disable-tmp-access-tests.patch"
-	"${FILESDIR}/${PN}-2.3.3-disable-install-test.patch"
-)
+RDEPEND="
+	$(python_gen_cond_dep '
+		dev-python/beautifulsoup4[${PYTHON_USEDEP}]
+		dev-python/bottle[${PYTHON_USEDEP}]
+		dev-python/chardet[${PYTHON_USEDEP}]
+		dev-python/google-api-python-client[${PYTHON_USEDEP}]
+		dev-python/lxml[${PYTHON_USEDEP}]
+		dev-python/ply[${PYTHON_USEDEP}]
+		dev-python/pytest[${PYTHON_USEDEP}]
+		dev-python/python-dateutil[${PYTHON_USEDEP}]
+		dev-python/python-magic[${PYTHON_USEDEP}]
+		dev-python/requests[${PYTHON_USEDEP}]
+	')
+"
 
-RDEPEND="$(python_gen_cond_dep '
-	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
-	>=dev-python/bottle-0.12[${PYTHON_USEDEP}]
-	dev-python/google-auth-oauthlib[${PYTHON_USEDEP}]
-	>=dev-python/google-api-python-client-1.8.2[${PYTHON_USEDEP}]
-	>=dev-python/httplib2-0.10[${PYTHON_USEDEP}]
-	>=dev-python/lxml-3.0[${PYTHON_USEDEP}]
-	>=dev-python/oauth2client-4.0[${PYTHON_USEDEP}]
-	>=dev-python/ply-3.4[${PYTHON_USEDEP}]
-	>=dev-python/python-dateutil-2.6.0[${PYTHON_USEDEP}]
-	>=dev-python/python-magic-0.4.12[${PYTHON_USEDEP}]
-	>=dev-python/requests-2.0[${PYTHON_USEDEP}]
-')"
+EPYTEST_DESELECT=( scripts/setup_test.py )
 
 distutils_enable_tests pytest
 
@@ -52,13 +50,15 @@ python_compile() {
 	distutils-r1_python_compile
 
 	# keep in sync with hashsrc.py, otherwise expect test failures
-	cp beancount/parser/{lexer.l,grammar.y,decimal.h,decimal.c,macros.h,parser.h,parser.c,tokens.h} \
-	   "${BUILD_DIR}"/lib/${PN}/parser || die
+	cp beancount/parser/{lexer.l,grammar.y,decimal.h,decimal.c,macros.h,parser.h,parser.c,tokens.h} "${BUILD_DIR}"/install$(python_get_sitedir)/${PN}/parser || die
 }
 
 python_test(){
-	emake ctest
-
 	cd "${T}" || die
 	epytest --pyargs ${PN}
+}
+
+src_test() {
+	emake ctest
+	distutils-r1_src_test
 }
