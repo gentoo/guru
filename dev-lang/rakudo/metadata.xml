@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
-<pkgmetadata>
-  <use>
-    <flag name="clang">Use Clang to compile the MoarVM backend</flag>
-    <flag name="moar">Use the MoarVM as backend</flag>
-  </use>
-</pkgmetadata>
