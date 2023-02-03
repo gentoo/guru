@@ -7,5 +7,5 @@ KEYWORDS=~amd64
 LICENSE=Apache-2.0 BSD-2 MIT-with-advertising
 RDEPEND=net-libs/nodejs
 SLOT=0
-SRC_URI=mirror://npm/vscode-langservers-extracted/-/vscode-langservers-extracted-4.4.0.tgz https://tastytea.de/files/gentoo/vscode-langservers-extracted-4.4.0-deps.tar.xz
-_md5_=113980a56fd158fab8c4b131a67e7410
+SRC_URI=mirror://npm/vscode-langservers-extracted/-/vscode-langservers-extracted-4.6.0.tgz https://tastytea.de/files/gentoo/vscode-langservers-extracted-4.6.0-deps.tar.xz
+_md5_=50fcaedb70880aaa589a1d68aca78e77
