@@ -6,7 +6,7 @@
 		<email>samuel.bauer@yahoo.fr</email>
 	</maintainer>
 	<upstream>
-		<remote-id type="gitlab">rncbc/qpwjack</remote-id>
+		<remote-id type="freedesktop-gitlab">rncbc/qpwgraph</remote-id>
 	</upstream>
 	<use>
 		<flag name="trayicon">Build support for tray icon</flag>
