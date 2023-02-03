@@ -1,43 +1,45 @@
+---
+
 name: emails
 
 on:
   push:
-    branches: [ dev ]
+    branches: [dev]
   pull_request:
-    branches: [ dev ]
+    branches: [dev]
 
 jobs:
   bugzilla:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: nrwl/last-successful-commit-action@v1
-      id: last_successful_commit
-      with:
-        branch: 'dev'
-        workflow_id: 'emails.yml'
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: nrwl/last-successful-commit-action@v1
+        id: last_successful_commit
+        with:
+          branch: 'dev'
+          workflow_id: 'emails.yml'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Checkout compare ref
-      uses: actions/checkout@v2
-      with:
-        ref: ${{ steps.last_successful_commit.outputs.commit_hash }}
+      - name: Checkout compare ref
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ steps.last_successful_commit.outputs.commit_hash }}
 
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - uses: actions/setup-python@v3
-      with:
-        python-version: '3.x'
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
 
-    - name: Get changed files
-      id: changed-files
-      uses: tj-actions/changed-files@v18.6
-      with:
-        base_sha: ${{ steps.last_successful_commit.outputs.commit_hash }}
-        files: |
-          **/metadata.xml
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v18.6
+        with:
+          base_sha: ${{ steps.last_successful_commit.outputs.commit_hash }}
+          files: |
+            **/metadata.xml
 
-    - name: Check Emails against bugzilla
-      run: |
-        python ./scripts/email-checker.py ${{ steps.changed-files.outputs.all_changed_files }}
+      - name: Check Emails against bugzilla
+        run: |
+          python ./scripts/email-checker.py ${{ steps.changed-files.outputs.all_changed_files }}

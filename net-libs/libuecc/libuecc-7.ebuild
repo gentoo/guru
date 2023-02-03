@@ -12,7 +12,11 @@ SRC_URI="https://github.com/NeoRaider/libuecc/releases/download/v${PV}/${P}.tar.
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-RDEPEND=""
-DEPEND="${RDEPEND}"
-BDEPEND=""
-IDEPEND=""
+IUSE="static-libs"
+
+src_install() {
+	cmake_src_install
+	if ! use static-libs; then
+		find "${ED}" -name "*.a" -delete
+	fi
+}

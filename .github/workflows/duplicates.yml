@@ -1,19 +1,21 @@
+---
+
 name: duplicates
 
 on:
   push:
-    branches: [ dev ]
+    branches: [dev]
   pull_request:
-    branches: [ dev ]
+    branches: [dev]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup master gentoo repository
-      run: |
-        ./scripts/setup-master-gentoo.sh
-    - name: Check for duplicates
-      run: |
-        ./scripts/check-duplicates.sh
+      - uses: actions/checkout@v3
+      - name: Setup master gentoo repository
+        run: |
+          ./scripts/setup-master-gentoo.sh
+      - name: Check for duplicates
+        run: |
+          ./scripts/check-duplicates.sh

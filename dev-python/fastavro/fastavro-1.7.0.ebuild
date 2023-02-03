@@ -26,7 +26,7 @@ BDEPEND="
 		dev-python/numpy[${PYTHON_USEDEP}]
 		dev-python/pandas[${PYTHON_USEDEP}]
 		dev-python/python-zstandard[${PYTHON_USEDEP}]
-		dev-python/snappy[${PYTHON_USEDEP}]
+		dev-python/python-snappy[${PYTHON_USEDEP}]
 	)
 "
 

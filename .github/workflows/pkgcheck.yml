@@ -1,17 +1,19 @@
+---
+
 name: pkgcheck
 
 on:
   push:
-    branches: [ dev ]
+    branches: [dev]
   pull_request:
-    branches: [ dev ]
+    branches: [dev]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Run pkgcheck
-      uses: pkgcore/pkgcheck-action@v1
-      with:
-        args: --keywords=-RedundantVersion,-NonsolvableDepsInDev
+      - uses: actions/checkout@v3
+      - name: Run pkgcheck
+        uses: pkgcore/pkgcheck-action@v1
+        with:
+          args: --keywords=-RedundantVersion,-NonsolvableDepsInDev

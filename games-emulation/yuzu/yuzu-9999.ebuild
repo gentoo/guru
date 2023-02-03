@@ -21,7 +21,7 @@ IUSE="+compatibility-list +cubeb discord +qt5 sdl +system-vulkan test webengine 
 RDEPEND="
 	<net-libs/mbedtls-3.1[cmac]
 	>=app-arch/zstd-1.5
-	>=dev-libs/libfmt-8:=
+	>=dev-libs/libfmt-9:=
 	>=dev-libs/openssl-1.1:=
 	>=media-video/ffmpeg-4.3:=
 	>=net-libs/enet-1.3
@@ -45,7 +45,8 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-cpp/cpp-httplib
 	dev-cpp/cpp-jwt
-	system-vulkan? ( >=dev-util/vulkan-headers-1.3.238 )
+	system-vulkan? ( >=dev-util/vulkan-headers-1.3.236 )
+	test? ( <dev-cpp/catch-3:0 )
 "
 BDEPEND="
 	>=dev-cpp/nlohmann_json-3.8.0
@@ -85,9 +86,6 @@ src_prepare() {
 	# temporary fix
 	sed -i -e '/Werror/d' src/CMakeLists.txt || die
 
-	# headers is not a valid boost component
-	sed -i -e '/find_package(Boost/{s/headers //;s/CONFIG //}' CMakeLists.txt || die
-
 	# Allow skip submodule downloading
 	rm .gitmodules || die
 
@@ -96,9 +94,6 @@ src_prepare() {
 	sed -i -e '1afind_package(PkgConfig REQUIRED)\npkg_check_modules(INIH REQUIRED INIReader)' src/yuzu_cmd/CMakeLists.txt || die
 	sed -i -e 's:inih/cpp/::' src/yuzu_cmd/config.cpp || die
 
-	if use system-vulkan; then # Unbundle vulkan headers
-		sed -i -e 's:../../externals/Vulkan-Headers/include:/usr/include/vulkan/:' src/video_core/CMakeLists.txt src/yuzu/CMakeLists.txt src/yuzu_cmd/CMakeLists.txt || die
-	fi
 
 	# Unbundle mbedtls
 	sed -i -e '/mbedtls/d' externals/CMakeLists.txt || die
@@ -134,8 +129,15 @@ src_prepare() {
 	# LZ4 temporary fix: https://github.com/yuzu-emu/yuzu/pull/9054/commits/a8021f5a18bc5251aef54468fa6033366c6b92d9
 	sed -i 's/lz4::lz4/lz4/' src/common/CMakeLists.txt || die
 
-	# libfmt >= 9
-	sed -i '/fmt.*REQUIRED/d' CMakeLists.txt || die
+	sed -i '/fmt.*REQUIRED/d' CMakeLists.txt || die # libfmt >= 9
+
+	# Temporary use lastest gentoo vulkan
+	sed -i -e '/Vulkan/s/238/236/' CMakeLists.txt || die
+	sed -i -e '/VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR/d;' -e '/VK_ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR/d' \
+		-e '/VK_ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR/d' -e '/VK_ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR/d' \
+		-e '/VK_ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR/d' -e '/VK_ERROR_VIDEO_STD_VERSION_NOT_SUPPORTED_KHR/d' \
+		src/video_core/vulkan_common/vulkan_wrapper.cpp
+
 	cmake_src_prepare
 }
 
@@ -145,13 +147,15 @@ src_configure() {
 		-DBUILD_SHARED_LIBS=OFF # dynarmic
 		-DENABLE_COMPATIBILITY_LIST_DOWNLOAD=$(usex compatibility-list)
 		-DENABLE_CUBEB=$(usex cubeb)
+		-DENABLE_LIBUSB=ON
 		-DENABLE_QT=$(usex qt5)
 		-DENABLE_QT_TRANSLATION=$(usex qt5)
 		-DENABLE_SDL2=$(usex sdl)
 		-DENABLE_WEB_SERVICE=$(usex webservice)
-		-DSIRIT_USE_SYSTEM_SPIRV_HEADERS=ON
+		-DSIRIT_USE_SYSTEM_SPIRV_HEADERS=yes
 		-DUSE_DISCORD_PRESENCE=$(usex discord)
 		-DYUZU_TESTS=$(usex test)
+		-DYUZU_USE_EXTERNAL_VULKAN_HEADERS=$(use system-vulkan no yes)
 		-DYUZU_USE_EXTERNAL_SDL2=OFF
 		-DYUZU_USE_QT_WEB_ENGINE=$(usex webengine)
 	)

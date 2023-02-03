@@ -13,12 +13,16 @@ REQUIRED_USE="osf-tracker? ( ${PYTHON_REQUIRED_USE} )"
 
 inherit git-r3
 EGIT_REPO_URI="https://github.com/virtual-puppet-project/vpuppr.git"
-EGIT_COMMIT="a55ff50cf0084c2600e61b377245f59406553220"
 EGIT_SUBMODULES=()
 SRC_URI="
-	https://github.com/virtual-puppet-project/godot-builds/releases/download/latest/Godot_v3.x-stable_linux_headless.64.tar.gz -> godot-vpuppr-headless.tar.gz
-	https://github.com/virtual-puppet-project/godot-builds/releases/download/latest/Godot_v3.x-stable_linux_release.64.tar.gz -> godot-vpuppr-release-profile.tar.gz
-	osf-tracker? ( https://github.com/you-win/OpenSeeFace/releases/download/latest/OpenSeeFace_latest_linux.tar.gz -> OpenSeeFace_latest.tar.gz )
+	https://github.com/virtual-puppet-project/godot-builds/releases/download/latest/Godot_v3.x-stable_linux_headless.64.tar.gz
+		-> godot-vpuppr-headless.tar.gz
+	https://github.com/virtual-puppet-project/godot-builds/releases/download/latest/Godot_v3.x-stable_linux_release.64.tar.gz
+	-> godot-vpuppr-release-profile.tar.gz
+	osf-tracker? (
+		https://github.com/you-win/OpenSeeFace/releases/download/latest/OpenSeeFace_latest_linux.tar.gz
+			-> OpenSeeFace_latest.tar.gz
+	)
 "
 
 LICENSE="MIT"
@@ -69,18 +73,10 @@ src_install() {
 	dobin export/${PN}
 	insinto usr/share/vpuppr
 	doins -r resources/*
-	make_desktop_entry vpuppr "Virtual Puppet Project" "vpuppr" "Application" "Comment=Live VTuber model renderer, written in Godot"
+	make_desktop_entry vpuppr "Virtual Puppet Project" "vpuppr"\
+		"Application" "Comment=Live VTuber model renderer, written in Godot"
+
 	for size in 16 24 48 64 128 256; do
 		newicon -s ${size} assets/icons/com.github.youwin.VPupPr-${size}.png vpuppr.png
 	done
-}
-
-pkg_postinst() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
-	xdg_desktop_database_update
 }

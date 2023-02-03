@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{9..10} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 toolchain-funcs
@@ -33,7 +33,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}/${P}_fix_python3.11_tests.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}_fix_python3.11_tests.patch"
+	"${FILESDIR}/${P}_fix_setuptools_QA_warnings.patch"
+)
 
 DOCS=( CHANGELOG.md README.md )
 
