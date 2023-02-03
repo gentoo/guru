@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="project" proxied="yes">
+	<maintainer type="project">
 		<name>Samuel BAUER</name>
 		<email>samuel.bauer@yahoo.fr</email>
-	</maintainer>
-	<maintainer type="project" proxied="proxy">
-		<email>proxy-maint@gentoo.org</email>
-		<name>Proxy Maintainers</name>
 	</maintainer>
 	<upstream>
 		<remote-id type="gitlab">rncbc/qpwjack</remote-id>
