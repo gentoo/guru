@@ -52,10 +52,18 @@ SRC_URI="
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="dev-vcs/git"
 
 PATCHES=( "${FILESDIR}/${PN}-6.1.1_remove-failing-tests.patch" )
+
+src_configure() {
+	if use test; then
+		GOFLAGS="${GOFLAGS/-buildmode=pie/-buildmode=exe}" # bug 893190
+	fi
+}
 
 src_compile() {
 	local -a mygoargs=(
