@@ -16,7 +16,6 @@ S="${WORKDIR}/tempy-7a597ee78fc7ba2c4ced041780470f568998f3c1"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
 
 RDEPEND="
 	dev-python/rich[${PYTHON_USEDEP}]
@@ -27,8 +26,6 @@ DEPEND="${RDEPEND}"
 PATCHES=(
 	"${FILESDIR}/assets.patch"
 )
-
-distutils_enable_tests pytest
 
 pkg_postinst() {
 	elog By default, tempy is using the API key of the developper by making requests throught their proxy server.
