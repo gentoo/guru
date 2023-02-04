@@ -1,45 +1,3 @@
-From a5aa695821e34fb218c7d705065aaf7077737c8c Mon Sep 17 00:00:00 2001
-From: Jonathan Davies <jpds@protonmail.com>
-Date: Fri, 5 Nov 2021 15:24:12 +0000
-Subject: [PATCH] Moved dracut directory up to top-level to decouple it with
- systemd.
-
-Adds a clevis-luks-generic-unlocker for alternative use without systemd.
-
-Based on patch by Sergio Correia <scorreia@redhat.com>
-
-Closes: #346
-
-Signed-off-by: Jonathan Davies <jpds@protonmail.com>
----
- .../dracut/clevis-pin-sss/meson.build         |  0
- .../dracut/clevis-pin-sss/module-setup.sh.in  |  0
- .../dracut/clevis-pin-tang/meson.build        |  0
- .../dracut/clevis-pin-tang/module-setup.sh.in |  0
- .../dracut/clevis-pin-tpm2/meson.build        |  0
- .../dracut/clevis-pin-tpm2/module-setup.sh.in |  0
- src/dracut/clevis/clevis-hook.sh.in           |  3 +
- .../clevis/clevis-luks-generic-unlocker       | 70 +++++++++++++++++++
- .../systemd => }/dracut/clevis/meson.build    |  1 +
- .../dracut/clevis/module-setup.sh.in          | 19 +++--
- src/{luks/systemd => }/dracut/meson.build     |  0
- .../systemd/dracut/clevis/clevis-hook.sh.in   |  2 -
- src/luks/systemd/meson.build                  |  1 -
- src/meson.build                               |  1 +
- 14 files changed, 90 insertions(+), 7 deletions(-)
- rename src/{luks/systemd => }/dracut/clevis-pin-sss/meson.build (100%)
- rename src/{luks/systemd => }/dracut/clevis-pin-sss/module-setup.sh.in (100%)
- rename src/{luks/systemd => }/dracut/clevis-pin-tang/meson.build (100%)
- rename src/{luks/systemd => }/dracut/clevis-pin-tang/module-setup.sh.in (100%)
- rename src/{luks/systemd => }/dracut/clevis-pin-tpm2/meson.build (100%)
- rename src/{luks/systemd => }/dracut/clevis-pin-tpm2/module-setup.sh.in (100%)
- create mode 100755 src/dracut/clevis/clevis-hook.sh.in
- create mode 100755 src/dracut/clevis/clevis-luks-generic-unlocker
- rename src/{luks/systemd => }/dracut/clevis/meson.build (87%)
- rename src/{luks/systemd => }/dracut/clevis/module-setup.sh.in (76%)
- rename src/{luks/systemd => }/dracut/meson.build (100%)
- delete mode 100755 src/luks/systemd/dracut/clevis/clevis-hook.sh.in
-
 diff --git a/src/luks/systemd/dracut/clevis-pin-sss/meson.build b/src/dracut/clevis-pin-sss/meson.build
 similarity index 100%
 rename from src/luks/systemd/dracut/clevis-pin-sss/meson.build
@@ -213,9 +171,17 @@ index bfe657c..dbce790 100755
          grep sed cut \
          clevis-decrypt \
 diff --git a/src/luks/systemd/dracut/meson.build b/src/dracut/meson.build
-similarity index 100%
+similarity index 78%
 rename from src/luks/systemd/dracut/meson.build
 rename to src/dracut/meson.build
+index 7ad5b14..fdb264b 100644
+--- a/src/luks/systemd/dracut/meson.build
++++ b/src/dracut/meson.build
+@@ -2,4 +2,3 @@ subdir('clevis')
+ subdir('clevis-pin-tang')
+ subdir('clevis-pin-tpm2')
+ subdir('clevis-pin-sss')
+-subdir('clevis-pin-null')
 diff --git a/src/luks/systemd/dracut/clevis/clevis-hook.sh.in b/src/luks/systemd/dracut/clevis/clevis-hook.sh.in
 deleted file mode 100755
 index cb257c9..0000000

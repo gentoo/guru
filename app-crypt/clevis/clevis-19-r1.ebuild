@@ -27,5 +27,9 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
+	# From https://github.com/latchset/clevis/pull/347
+	# Allows using dracut without systemd
+	"${FILESDIR}/clevis-dracut.patch"
+	# Fix for systemd on Gentoo
 	"${FILESDIR}/clevis-meson.patch"
 )
