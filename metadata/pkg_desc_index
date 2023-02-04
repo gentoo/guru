@@ -1553,8 +1553,8 @@ net-misc/giara 1.0.1: An app for Reddit
 net-misc/gmid 1.8.5 1.8.6 9999: Simple and secure Gemini server
 net-misc/gnome-ssh-askpass 9.1_p1: GTK-based passphrase dialog for use with OpenSSH
 net-misc/lyrics-in-terminal 1.4.2 1.5.0: Command Line Lyrics fetcher for MPRIS media players
-net-misc/maestral 1.5.3 1.6.5 1.6.6_rc1: Maestral is an open-source Dropbox client written in Python
-net-misc/maestral-qt 1.5.3 1.6.5 1.6.6_rc1: Maestral is an open-source Dropbox client written in Python
+net-misc/maestral 1.5.3 1.6.5 1.7.0_rc0: Maestral is an open-source Dropbox client written in Python
+net-misc/maestral-qt 1.5.3 1.6.5 1.7.0_rc0: Maestral is an open-source Dropbox client written in Python
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/moonlight 3.1.4: GameStream client for PCs
@@ -1822,7 +1822,7 @@ sys-power/fan2go 0.6.2 0.6.2-r1: A simple daemon providing dynamic fan speed con
 sys-power/geopmd 2.0.0_rc1: Global Extensible Open Power Manager (Daemon)
 sys-power/gtherm 0.0.3: A simple daemon to monitor thermal zones and cooling devices
 sys-power/gwe 0.15.3 0.15.5: NVIDIA settings alternative with overclocking, fan control, and information
-sys-power/linux-tools-power-x86 5.18: Linux x86 CPU power tools
+sys-power/linux-tools-power-x86 5.18 6.1: Linux x86 CPU power tools
 sys-process/gotop 4.1.4: A terminal based graphical activity monitor inspired by gtop and vtop
 sys-process/nq 0.4: Unix command line queue utility
 sys-process/nvtop 2.0.3 3.0.0 9999: NVIDIA GPUs htop like monitoring tool
