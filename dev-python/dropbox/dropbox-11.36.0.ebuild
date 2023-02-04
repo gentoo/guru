@@ -7,9 +7,12 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{9..11} )
 inherit distutils-r1
 
+GH_PN=dropbox-sdk-python
+
 DESCRIPTION="The offical Dropbox SDK for Python"
 HOMEPAGE="https://www.dropbox.com/developers"
-SRC_URI="https://github.com/dropbox/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+SRC_URI="https://github.com/dropbox/${GH_PN}/archive/refs/tags/v${PV}.tar.gz -> ${GH_PN}-${PV}.gh.tar.gz"
+S="${WORKDIR}"/${GH_PN}-${PV}
 
 LICENSE="MIT"
 SLOT="0"
