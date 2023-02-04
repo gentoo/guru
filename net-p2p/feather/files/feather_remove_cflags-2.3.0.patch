@@ -1,6 +1,6 @@
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -284,12 +284,8 @@
+@@ -262,12 +262,8 @@
  add_c_flag_if_supported(-fPIC C_SECURITY_FLAGS)
  add_cxx_flag_if_supported(-fPIC CXX_SECURITY_FLAGS)
 
