@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>poncho@spahan.ch</email>
-		<name>Poncho</name>
+		<email>gasc@eurecom.fr</email>
+		<name>Gasc Henri</name>
 	</maintainer>
 	<upstream>
 		<remote-id type="gitlab">rmnvgr/metadata-cleaner</remote-id>
