@@ -23,8 +23,7 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	dev-python/wheel[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
-	dev-python/python-dbus-next[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep 'dev-python/importlib_resources[${PYTHON_USEDEP}]' python3_8)
+	dev-python/dbus-next[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	dev-python/build[${PYTHON_USEDEP}]
