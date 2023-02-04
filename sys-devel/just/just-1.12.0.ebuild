@@ -116,7 +116,7 @@ CRATES="
 	${P}
 "
 
-inherit bash-completion-r1 cargo
+inherit bash-completion-r1 cargo toolchain-funcs
 
 DESCRIPTION="Just a command runner (with syntax inspired by 'make')"
 HOMEPAGE="
@@ -134,10 +134,14 @@ RESTRICT="mirror"
 QA_FLAGS_IGNORED="usr/bin/just"
 
 src_test() {
-        # $USER must be set or tests fail Bug #890889
-        export USER=portage
+	# $USER must be set or tests fail Bug #890889
+	export USER=portage
+	default
+}
 
-        default
+src_prepare() {
+	default
+	tc-export CC
 }
 
 src_install() {
