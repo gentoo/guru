@@ -19,8 +19,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	>=dev-python/click-8.0.2[${PYTHON_USEDEP}]
 	>=dev-python/desktop-notifier-3.3.0[${PYTHON_USEDEP}]
-	>=dev-python/dropbox-sdk-python-11.26.0[${PYTHON_USEDEP}]
-	<dev-python/dropbox-sdk-python-12.0.0[${PYTHON_USEDEP}]
+	=dev-python/dropbox-11*[${PYTHON_USEDEP}]
 	>=dev-python/fasteners-0.15[${PYTHON_USEDEP}]
 	>=dev-python/keyring-22.0.0[${PYTHON_USEDEP}]
 	>=dev-python/keyrings-alt-3.1.0[${PYTHON_USEDEP}]
