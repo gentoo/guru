@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ inherit cmake git-r3 xdg
 
 DESCRIPTION="PipeWire Graph Qt GUI Interface"
 HOMEPAGE="https://gitlab.freedesktop.org/rncbc/qpwgraph"
-EGIT_REPO="https://gitlab.freedesktop.org/rncbc/qpwgraph"
+EGIT_REPO_URI="https://gitlab.freedesktop.org/rncbc/qpwgraph"
 
 LICENSE="GPL-2"
 SLOT="0"
