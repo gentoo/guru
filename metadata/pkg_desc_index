@@ -96,7 +96,7 @@ app-crypt/PBinCLI 0.3.2: PrivateBin CLI
 app-crypt/autofirma 1.7.1: Spanish government's electronic signature application for online procedures
 app-crypt/certbot-dns-desec 1.2.1: deSEC DNS Authenticator plugin for Certbot
 app-crypt/certbot-dns-rfc2136 2.0.0 2.1.0 2.2.0 9999: RFC 2136 DNS Authenticator plugin for Certbot (Let’s Encrypt client)
-app-crypt/clevis 18 19: Automated Encryption Framework
+app-crypt/clevis 19-r1: Automated Encryption Framework
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/gnome-encfs-manager 1.9: An easy to use manager and mounter for encfs stashes
 app-crypt/ifcplugin-bin 3.1.1.0: Crypto Interface Web Browser Plugin
@@ -1553,8 +1553,8 @@ net-misc/giara 1.0.1: An app for Reddit
 net-misc/gmid 1.8.5 1.8.6 9999: Simple and secure Gemini server
 net-misc/gnome-ssh-askpass 9.1_p1: GTK-based passphrase dialog for use with OpenSSH
 net-misc/lyrics-in-terminal 1.4.2 1.5.0: Command Line Lyrics fetcher for MPRIS media players
-net-misc/maestral 1.5.3 1.6.5 1.6.6_rc0: Maestral is an open-source Dropbox client written in Python
-net-misc/maestral-qt 1.5.3 1.6.5: Maestral is an open-source Dropbox client written in Python
+net-misc/maestral 1.5.3 1.6.5 1.6.6_rc1: Maestral is an open-source Dropbox client written in Python
+net-misc/maestral-qt 1.5.3 1.6.5 1.6.6_rc1: Maestral is an open-source Dropbox client written in Python
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/moonlight 3.1.4: GameStream client for PCs
@@ -1579,7 +1579,7 @@ net-news/feedreader 2.11.0: Simple News Feed Reader for feeds aggregated by Tiny
 net-nntp/inn 2.6.4-r1 2.6.5: InterNetNews -- the Internet meets Netnews
 net-nntp/pan 0.154-r1: A newsreader for GNOME
 net-p2p/bisq-bin 1.9.9: The decentralized bitcoin exchange (non-atomic, with arbitration)
-net-p2p/feather 2.2.3 9999: A free, open-source Monero wallet
+net-p2p/feather 2.2.3 2.3.0 9999: A free, open-source Monero wallet
 net-p2p/ipfs-cluster 1.0.1 1.0.2: Pinset orchestration for IPFS
 net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 0.18.1.0 0.18.1.1 0.18.1.2 9999: The secure, private, untraceable cryptocurrency
