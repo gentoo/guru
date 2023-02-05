@@ -25,6 +25,7 @@ IUSE="+compatibility-list +cubeb discord +qt5 sdl +system-vulkan webengine webse
 RDEPEND="
 	<net-libs/mbedtls-3.1[cmac]
 	>=app-arch/zstd-1.5
+	>=dev-libs/inih-52
 	>=dev-libs/libfmt-9:=
 	>=dev-libs/openssl-1.1:=
 	>=media-video/ffmpeg-4.3:=
@@ -43,7 +44,6 @@ RDEPEND="
 	)
 	sdl? (
 		>=media-libs/libsdl2-2.0.18
-		>=dev-libs/inih-52
 	)
 "
 DEPEND="${RDEPEND}
