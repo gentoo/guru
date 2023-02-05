@@ -28,6 +28,7 @@ RDEPEND="
 	>=net-libs/enet-1.3
 	app-arch/lz4:=
 	dev-libs/boost:=[context]
+	media-libs/vulkan-loader
 	media-libs/opus
 	sys-libs/zlib
 	virtual/libusb:1

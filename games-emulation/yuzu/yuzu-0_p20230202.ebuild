@@ -33,6 +33,7 @@ RDEPEND="
 	app-arch/lz4:=
 	dev-libs/boost:=[context]
 	media-libs/opus
+	media-libs/vulkan-loader
 	sys-libs/zlib
 	virtual/libusb:1
 	cubeb? ( media-libs/cubeb )
