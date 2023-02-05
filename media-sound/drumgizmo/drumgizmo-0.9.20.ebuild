@@ -13,6 +13,7 @@ KEYWORDS="amd64"
 IUSE="+alsa jack lv2 vst cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3"
 
 DEPEND="
+	alsa? ( media-libs/alsa-lib )
 	lv2? ( media-libs/lv2 )
 	media-libs/libsmf
 	media-libs/libsndfile
