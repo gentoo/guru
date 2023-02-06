@@ -25,11 +25,6 @@ QA_FLAGS_IGNORED="usr/bin/.*"
 
 src_configure() {
 	sed -i 's;^PREFIX=.*;PREFIX=/usr;' Makefile || die
-
-	#sed -i \
-	#	-e 's;^PREFIX=.*;PREFIX=/usr;' \
-	#	-e 's;^CC=.*;CC=${CC:-c99};' \
-	#	test/conf.do || die
 }
 
 src_test() {
