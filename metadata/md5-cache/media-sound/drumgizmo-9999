@@ -1,6 +1,6 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure unpack
-DEPEND=lv2? ( media-libs/lv2 ) media-libs/libsmf media-libs/libsndfile media-libs/zita-resampler x11-libs/libX11
+DEPEND=alsa? ( media-libs/alsa-lib ) lv2? ( media-libs/lv2 ) media-libs/libsmf media-libs/libsndfile media-libs/zita-resampler x11-libs/libX11
 DESCRIPTION=Cross-platform drum plugin and stand-alone application
 EAPI=8
 HOMEPAGE=https://www.drumgizmo.org/wiki
@@ -8,8 +8,8 @@ INHERIT=git-r3
 IUSE=alsa jack lv2 vst cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3
 LICENSE=LGPL-3
 PROPERTIES=live
-RDEPEND=lv2? ( media-libs/lv2 ) media-libs/libsmf media-libs/libsndfile media-libs/zita-resampler x11-libs/libX11
+RDEPEND=alsa? ( media-libs/alsa-lib ) lv2? ( media-libs/lv2 ) media-libs/libsmf media-libs/libsndfile media-libs/zita-resampler x11-libs/libX11
 REQUIRED_USE=|| ( alsa jack )
 SLOT=0
 _eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=b9cf0fb61deac00c872c36eb2de8da07
+_md5_=5963375a05b880afc3c48a794f37b4e8

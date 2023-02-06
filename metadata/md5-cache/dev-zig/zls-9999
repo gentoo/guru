@@ -1,7 +1,7 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst test unpack
 DEPEND=~dev-lang/zig-9999
-DESCRIPTION=Zig LSP implementation + Zig Language Server
+DESCRIPTION=The officially unofficial Ziglang language server
 EAPI=8
 HOMEPAGE=https://github.com/zigtools/zls
 INHERIT=git-r3
@@ -10,4 +10,4 @@ PROPERTIES=live
 RDEPEND=~dev-lang/zig-9999
 SLOT=0
 _eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=6a3a82653721c569d11a37df53f2cd82
+_md5_=4a577c9619e2d6d4e9bf476ad3c9919a
