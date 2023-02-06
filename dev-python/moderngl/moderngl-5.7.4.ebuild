@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..11} )
 
-inherit distutils-r1
+inherit distutils-r1 virtualx
 
 DESCRIPTION="Modern OpenGL binding for python"
 HOMEPAGE="https://github.com/moderngl/moderngl https://pypi.org/project/moderngl"
@@ -34,14 +34,13 @@ BDEPEND="
 "
 DEPEND="${BDEPEND}"
 
-# Tests are deactivated because we cannot open display
-# distutils_enable_tests pytest
-# python_test() {
-#     cd "${T}" || die
-#     epytest "${S}"/tests
-# }
+distutils_enable_tests pytest
 
-pkg_postinst() {
-	use test && ewarn The tests for this package are deactivated because the test display can not be opened.
-	use test && ewarn If you know how to solve this issue, please do so.
+src_test() {
+	virtx distutils-r1_src_test
+}
+python_test() {
+	rm "${S}/tests/test_local.py"
+	cd "${T}" || die
+	epytest "${S}"/tests
 }

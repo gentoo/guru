@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{9..11} )
 
-inherit distutils-r1
+inherit distutils-r1 optfeature
 
 DESCRIPTION="SVG Parsing for Elements, Paths, and other SVG Objects."
 HOMEPAGE="https://github.com/meerk40t/svgelements https://pypi.org/project/svgelements"
@@ -40,9 +40,7 @@ python_test() {
 }
 
 pkg_postinst() {
-	elog Some other packages could be installed to extend functionnality:
-	elog
-	elog - dev-python/scipy, to be more precise for arc lenght
-	elog - dev-python/pillow, to be able to load images
-	elog - dev-python/numpy, to do lightning fast linearization for Shapes
+	optfeature "getting exact value for arc lenght computation" dev-python/scipy
+	optfeature "loading images" dev-python/pillow
+	optfeature "speeding up linearization for Shapes" dev-python/numpy
 }
