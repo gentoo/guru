@@ -21,4 +21,5 @@ RDEPEND=""
 BDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 DEPEND="${BDEPEND}"
 
+PROPERTIES="test_network"
 distutils_enable_tests pytest

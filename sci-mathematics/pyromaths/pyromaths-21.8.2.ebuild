@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1
 
@@ -21,11 +21,9 @@ S="${WORKDIR}/${PN}-version-${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc test"
+IUSE="test"
 
 RDEPEND="
-	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )
-	dev-python/setuptools[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
 	dev-texlive/texlive-pstricks
 	dev-texlive/texlive-basic
@@ -34,7 +32,12 @@ RDEPEND="
 	dev-texlive/texlive-latexrecommended
 	dev-texlive/texlive-mathscience
 "
-BDEPEND="dev-python/jinja2-cli"
+BDEPEND="
+	dev-python/jinja2-cli
+	dev-python/sphinx[${PYTHON_USEDEP}]
+	dev-python/sphinx-argparse[${PYTHON_USEDEP}]
+	dev-python/setuptools[${PYTHON_USEDEP}]
+"
 DEPEND="${RDEPEND} ${BDEPEND}"
 
 PATCHES=(
@@ -42,4 +45,13 @@ PATCHES=(
 )
 
 distutils_enable_tests pytest
-distutils_enable_sphinx docs
+
+python_compile() {
+	distutils-r1_python_compile
+	emake man -C Doc
+}
+
+python_install() {
+	distutils-r1_python_install
+	doman "${S}/Doc/build/man/pyromaths.1"
+}

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 toolchain-funcs
@@ -28,8 +28,8 @@ RDEPEND="
 	>=dev-python/markdown-include-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.12.0[${PYTHON_USEDEP}]
 	dev-python/python-markdown-math[${PYTHON_USEDEP}]
-	>=dev-python/tqdm-4.64.0[${PYTHON_USEDEP}]
 	>=dev-python/toposort-1.7[${PYTHON_USEDEP}]
+	>=dev-python/tqdm-4.64.0[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
 

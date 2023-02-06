@@ -8,7 +8,7 @@ inherit git-r3
 EGIT_REPO_URI="https://github.com/zigtools/zls"
 
 HOMEPAGE="https://github.com/zigtools/zls"
-DESCRIPTION="Zig LSP implementation + Zig Language Server"
+DESCRIPTION="The officially unofficial Ziglang language server"
 
 LICENSE="MIT"
 SLOT="0"
@@ -17,23 +17,22 @@ DEPEND="~dev-lang/zig-9999"
 RDEPEND="${DEPEND}"
 
 # see https://github.com/ziglang/zig/issues/3382
-# For now, Zig doesn't support CFLAGS/LDFLAGS/etc.
+# For now, Zig Build System doesn't support CFLAGS/LDFLAGS/etc.
 QA_FLAGS_IGNORED="usr/bin/zls"
 
 src_compile() {
-	zig build -Drelease-safe -Ddata_version=master --verbose || die
+	zig build -Doptimize=ReleaseSafe -Ddata_version=master --verbose || die
 }
 
 src_test() {
-	zig build test -Drelease-safe -Ddata_version=master --verbose || die
+	zig build test -Doptimize=ReleaseSafe -Ddata_version=master --verbose || die
 }
 
 src_install() {
-	DESTDIR="${ED}" zig build install --prefix /usr -Drelease-safe -Ddata_version=master --verbose || die
+	DESTDIR="${ED}" zig build install --prefix /usr -Doptimize=ReleaseSafe -Ddata_version=master --verbose || die
 	dodoc README.md
 }
 
 pkg_postinst() {
-	elog "For creating or updating config run this command: zls --config"
 	elog "You can find more information about options here https://github.com/zigtools/zls#configuration-options"
 }

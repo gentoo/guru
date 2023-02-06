@@ -6,7 +6,7 @@
 		<email>samuel.bauer@yahoo.fr</email>
 	</maintainer>
 	<use>
-		<flag name="lv2"></flag>
-		<flag name="vst"></flag>
+		<flag name="lv2">Build LV2 plugin</flag>
+		<flag name="vst">Build VST plugin</flag>
 	</use>
 </pkgmetadata>

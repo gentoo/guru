@@ -60,25 +60,31 @@ export EDITOR="${WORKDIR}/Godot_v3.x-stable_linux_headless.64"
 
 src_prepare() {
 	if use osf-tracker; then
-		mv "${WORKDIR}"/openseeface-tracker-${OPENSEEFACE_COMMIT} resources/extensions/openseeface-tracker
-		mv "${WORKDIR}"/OpenSeeFace resources/extensions/openseeface-tracker/ || die
+		mv "${WORKDIR}"/openseeface-tracker-${OPENSEEFACE_COMMIT} \
+			resources/extensions/openseeface-tracker || die
+		mv "${WORKDIR}"/OpenSeeFace \
+			resources/extensions/openseeface-tracker/ || die
 		touch resources/extensions/openseeface-tracker/OpenSeeFace/.gdignore || die
 	fi
 
 	if use ifm-tracker; then
-		mv "${WORKDIR}"/ifacialmocap-tracker-${IFACIALMOCAP_COMMIT} resources/extensions/ifacialmocap-tracker
+		mv "${WORKDIR}"/ifacialmocap-tracker-${IFACIALMOCAP_COMMIT} \
+			resources/extensions/ifacialmocap-tracker || die
 	fi
 
 	if use vts-tracker; then
-		mv "${WORKDIR}"/vtube-studio-tracker-${VTUBE_STUDIO_COMMIT} resources/extensions/vtube-studio-tracker
+		mv "${WORKDIR}"/vtube-studio-tracker-${VTUBE_STUDIO_COMMIT} \
+			resources/extensions/vtube-studio-tracker || die
 	fi
 
 	if use meowface-tracker; then
-		mv "${WORKDIR}"/meowface-tracker-${MEOWFACE_COMMIT} resources/extensions/meowface-tracker
+		mv "${WORKDIR}"/meowface-tracker-${MEOWFACE_COMMIT} \
+			resources/extensions/meowface-tracker || die
 	fi
 
 	if use remote-control; then
-		mv "${WORKDIR}"/remote-control-server-${RC_SERVER_COMMIT} resources/extensions/remote-control-server
+		mv "${WORKDIR}"/remote-control-server-${RC_SERVER_COMMIT} \
+			resources/extensions/remote-control-server || die
 	fi
 
 	mkdir -p release_templates/ || die
@@ -92,7 +98,8 @@ src_prepare() {
 }
 
 src_compile() {
-	 "${WORKDIR}"/Godot_v3.x-stable_linux_headless.64 --verbose --export linux "export/${PN}"
+	 "${WORKDIR}"/Godot_v3.x-stable_linux_headless.64 \
+		 --verbose --export linux "export/${PN}" || die
 }
 
 src_install() {
