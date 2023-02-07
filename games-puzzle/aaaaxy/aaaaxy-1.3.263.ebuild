@@ -5,7 +5,7 @@ EAPI=8
 
 inherit desktop go-module
 
-DEPS_DATE="2022-12-04" # when the deps archive has been created
+DEPS_DATE="2023-02-07" # when the deps archive has been created
 
 DESCRIPTION="A nonlinear 2D puzzle platformer taking place in impossible spaces"
 HOMEPAGE="https://divverent.github.io/aaaaxy/"
@@ -31,6 +31,7 @@ BDEPEND="
 	x11-libs/libXi
 	x11-libs/libXinerama
 	x11-libs/libXrandr
+	x11-libs/libXxf86vm
 "
 
 src_configure() {
