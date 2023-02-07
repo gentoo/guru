@@ -1,5 +1,5 @@
 DEFINED_PHASES=install setup
-DEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) >=app-emulation/qemu-6.0.0[gtk,sdl,spice] >=app-shells/bash-4.0:= app-cdr/cdrtools app-crypt/swtpm app-misc/jq net-misc/spice-gtk[gtk3] net-misc/wget net-misc/zsync sys-apps/usbutils sys-apps/util-linux sys-firmware/edk2-ovmf sys-process/procps x11-apps/xrandr x11-misc/xdg-user-dirs
+DEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=app-emulation/qemu-6.0.0[gtk,sdl,spice] >=app-shells/bash-4.0:= app-cdr/cdrtools app-crypt/swtpm app-misc/jq net-misc/spice-gtk[gtk3] net-misc/wget net-misc/zsync sys-apps/usbutils sys-apps/util-linux sys-firmware/edk2-ovmf sys-process/procps x11-apps/xrandr x11-misc/xdg-user-dirs
 DESCRIPTION=Create and run optimised Windows, macOS and Linux desktop virtual machines
 EAPI=8
 HOMEPAGE=https://github.com/quickemu-project/quickemu
@@ -7,9 +7,9 @@ INHERIT=python-single-r1
 IUSE=python_single_target_python3_9 python_single_target_python3_10
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9:3.10 ) >=app-emulation/qemu-6.0.0[gtk,sdl,spice] >=app-shells/bash-4.0:= app-cdr/cdrtools app-crypt/swtpm app-misc/jq net-misc/spice-gtk[gtk3] net-misc/wget net-misc/zsync sys-apps/usbutils sys-apps/util-linux sys-firmware/edk2-ovmf sys-process/procps x11-apps/xrandr x11-misc/xdg-user-dirs
+RDEPEND=python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=app-emulation/qemu-6.0.0[gtk,sdl,spice] >=app-shells/bash-4.0:= app-cdr/cdrtools app-crypt/swtpm app-misc/jq net-misc/spice-gtk[gtk3] net-misc/wget net-misc/zsync sys-apps/usbutils sys-apps/util-linux sys-firmware/edk2-ovmf sys-process/procps x11-apps/xrandr x11-misc/xdg-user-dirs
 REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/quickemu-project/quickemu/archive/refs/tags/3.11.tar.gz -> quickemu-3.11.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	8d5c1c4ecef47fa1b4576a718c620d1d	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=18cbb82536de30d89b773c672576e1cc
