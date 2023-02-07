@@ -6,8 +6,8 @@ EAPI=8
 inherit ninja-utils toolchain-funcs
 
 DESCRIPTION="Lua language server"
-HOMEPAGE="https://github.com/sumneko/lua-language-server"
-SRC_URI="https://github.com/sumneko/lua-language-server/releases/download/${PV}/${P}-submodules.zip -> ${P}.zip"
+HOMEPAGE="https://github.com/LuaLS/lua-language-server"
+SRC_URI="https://github.com/LuaLS/lua-language-server/releases/download/${PV}/${P}-submodules.zip -> ${P}.zip"
 S="${WORKDIR}"
 
 LICENSE="MIT"
