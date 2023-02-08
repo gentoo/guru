@@ -16,14 +16,12 @@ S="${WORKDIR}/syrupy-${PV}"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="test"
 
 RDEPEND="
 	dev-python/rich[${PYTHON_USEDEP}]
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	dev-lang/python
 	dev-python/poetry-core[${PYTHON_USEDEP}]
 	dev-python/colored[${PYTHON_USEDEP}]
 	dev-python/pytest[${PYTHON_USEDEP}]
