@@ -51,7 +51,7 @@ BDEPEND="
 		dev-python/pytest-subtests[${PYTHON_USEDEP}]
 		>=dev-python/pytest-timeout-1.4.2[${PYTHON_USEDEP}]
 		>=dev-python/pyyaml-3.10[${PYTHON_USEDEP}]
-		dev-python/redis-py[${PYTHON_USEDEP}]
+		dev-python/redis[${PYTHON_USEDEP}]
 		dev-python/sphinx-testing[${PYTHON_USEDEP}]
 		dev-python/tblib[${PYTHON_USEDEP}]
 		sci-astronomy/pyephem[${PYTHON_USEDEP}]
