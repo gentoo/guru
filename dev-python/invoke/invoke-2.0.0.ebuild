@@ -13,11 +13,7 @@ SRC_URI="https://github.com/pyinvoke/invoke/archive/refs/tags/${PV}.tar.gz -> ${
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
-
-RDEPEND=""
-BDEPEND=""
-DEPEND=""
+KEYWORDS="~amd64"
 
 src_prepare(){
 	rm -r ./invoke/vendor/yaml2
