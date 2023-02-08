@@ -16,11 +16,8 @@ S="${WORKDIR}/mkdocstrings-${PV}"
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64"
-ISUE="test"
 
-RDEPEND=""
 BDEPEND="
-	dev-python/pdm-pep517[${PYTHON_USEDEP}]
 	dev-python/mkdocs[${PYTHON_USEDEP}]
 	test? (
 		dev-python/pymdown-extensions[${PYTHON_USEDEP}]
