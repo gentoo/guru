@@ -10,7 +10,7 @@ RUBY_VER=2.7
 inherit bash-completion-r1 cmake git-r3 python-r1
 
 DESCRIPTION="paludis, the other package mangler"
-HOMEPAGE="http://paludis.exherbo.org/"
+HOMEPAGE="https://paludis.exherbo.org/"
 SRC_URI=""
 
 IUSE="doc pbins pink python ruby ruby_targets_ruby${RUBY_VER/./} search-index test +xml eapi7 eapi8"

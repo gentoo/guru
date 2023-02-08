@@ -5,14 +5,8 @@ EAPI=8
 
 DESCRIPTION="TypeScript & JavaScript Language Server"
 HOMEPAGE="https://www.npmjs.com/package/typescript-language-server"
-SRC_URI="
-	mirror://npm/${PN}/-/${P}.tgz
-"
+SRC_URI="mirror://npm/${PN}/-/${P}.tgz"
 S="${WORKDIR}"
-
-# NOTE: to generate the dependency tarball:
-#       npm --cache ./npm-cache install $(portageq envvar DISTDIR)/${P}.tgz
-#       tar -caf ${P}-deps.tar.xz npm-cache
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -27,7 +21,7 @@ BDEPEND="
 "
 
 src_unpack() {
-	cd "${T}" || die "Could not cd to temporary directory"
+	: # npm uses the archive directly
 }
 
 src_install() {

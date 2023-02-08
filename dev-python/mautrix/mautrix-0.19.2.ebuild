@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{9..10} )
 
-inherit distutils-r1
+inherit distutils-r1 optfeature
 
 DESCRIPTION="A Python 3 asyncio Matrix framework"
 HOMEPAGE="https://github.com/mautrix/python/"
@@ -29,9 +29,13 @@ RDEPEND="
 	test? (
 		dev-python/aiosqlite[${PYTHON_USEDEP}]
 		dev-python/asyncpg[${PYTHON_USEDEP}]
-		dev-python/sqlalchemy[${PYTHON_USEDEP}]
+		<dev-python/sqlalchemy-2[${PYTHON_USEDEP}]
 	)
 "
 DEPEND="${RDEPEND}"
 
 distutils_enable_tests pytest
+
+pkg_postinst() {
+	optfeature "media transcoding" media-video/ffmpeg
+}

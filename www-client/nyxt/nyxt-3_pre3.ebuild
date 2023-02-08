@@ -14,8 +14,8 @@ then
 	EGIT_REPO_URI="https://github.com/atlas-engineer/${PN}.git"
 else
 	KEYWORDS="~amd64"
-	NYXTCOMMIT="e41f9c39ac50ceb780ba46359ef4fcaa780434a5"
-	S="${WORKDIR}/${PN}-${NYXTCOMMIT}"
+	MY_PV="3-pre-release-3"
+	S="${WORKDIR}/${PN}-${MY_PV}"
 
 	# Specify commits for each submodules
 	# Some regex substitutions allows to automate this process...
@@ -175,115 +175,160 @@ else
 	TRIVIALBACKTRACECOMMIT="43ef7d947f4b4de767d0f91f28b50d9c03ad29d6"
 	CLUNICODECOMMIT="2790a6b8912be1cb051437f463400b4a7198748a"
 
-	SRC_URI="https://github.com/atlas-engineer/${PN}/archive/${NYXTCOMMIT}.tar.gz -> ${P}.gh.tar.gz
-		https://github.com/sionescu/bordeaux-threads/archive/${BORDEAUXTHREADSCOMMIT}.tar.gz -> bordeaux-threads-${BORDEAUXTHREADSCOMMIT}.gh.tar.gz
+	SRC_URI="https://github.com/atlas-engineer/${PN}/archive/${MY_PV}.tar.gz -> ${P}.gh.tar.gz
+		https://github.com/sionescu/bordeaux-threads/archive/${BORDEAUXTHREADSCOMMIT}.tar.gz -> \
+			bordeaux-threads-${BORDEAUXTHREADSCOMMIT}.gh.tar.gz
 		https://github.com/sionescu/fiveam/archive/${FIVEAMCOMMIT}.tar.gz -> fiream-${FIVEAMCOMMIT}.gh.tar.gz
 		https://github.com/didierverna/asdf-flv/archive/${ASDFFLVCOMMIT}.tar.gz -> asdf-flv-${ASDFFLVCOMMIT}.gh.tar.gz
-		https://github.com/gwkkwg/trivial-backtrace/archive/${TRIVIALBACKTRACECOMMIT}.tar.gz -> trivial-backtrace-${TRIVIALBACKTRACECOMMIT}.gh.tar.gz
+		https://github.com/gwkkwg/trivial-backtrace/archive/${TRIVIALBACKTRACECOMMIT}.tar.gz -> \
+			trivial-backtrace-${TRIVIALBACKTRACECOMMIT}.gh.tar.gz
 		https://github.com/gwkkwg/lift/archive/${LIFTCOMMIT}.tar.gz -> lift-${LIFTCOMMIT}.gh.tar.gz
-		https://github.com/hawkir/calispel/archive/${CALISPELCOMMIT}.tar.gz -> calispel-${CALISPELCOMMIT}.gh.tar.gz
-		https://github.com/hawkir/cl-jpl-util/archive/${CLJPLUTILCOMMIT}.tar.gz -> cl-jpl-util-${CLJPLUTILCOMMIT}.gh.tar.gz
-		https://github.com/trivial-garbage/trivial-garbage/archive/${TRIVIALGARBAGECOMMIT}.tar.gz -> trivial-garbage-${TRIVIALGARBAGECOMMIT}.gh.tar.gz
-		https://github.com/gwkkwg/cl-containers/archive/${CLCONTAINERSCOMMIT}.tar.gz -> cl-containers${CLCONTAINERSCOMMIT}.gh.tar.gz
-		https://github.com/gwkkwg/metatilities-base/archive/${METATILITIESCOMMIT}.tar.gz -> metatilities-base-${METATILITIESCOMMIT}.gh.tar.gz
-		https://github.com/metawilm/cl-custom-hash-table/archive/${CLCUSTOMHASHTABLECOMMIT}.tar.gz -> cl-custom-hash-table-${CLCUSTOMHASHTABLECOMMIT}.gh.tar.gz
-		https://github.com/wiseman/cl-html-diff/archive/${CLHTMLDIFFCOMMIT}.tar.gz -> cl-html-diff-${CLHTMLDIFFCOMMIT}.gh.tar.gz
+		https://github.com/hawkir/calispel/archive/${CALISPELCOMMIT}.tar.gz -> \
+			calispel-${CALISPELCOMMIT}.gh.tar.gz
+		https://github.com/hawkir/cl-jpl-util/archive/${CLJPLUTILCOMMIT}.tar.gz -> \
+			cl-jpl-util-${CLJPLUTILCOMMIT}.gh.tar.gz
+		https://github.com/trivial-garbage/trivial-garbage/archive/${TRIVIALGARBAGECOMMIT}.tar.gz -> \
+			trivial-garbage-${TRIVIALGARBAGECOMMIT}.gh.tar.gz
+		https://github.com/gwkkwg/cl-containers/archive/${CLCONTAINERSCOMMIT}.tar.gz -> \
+			cl-containers${CLCONTAINERSCOMMIT}.gh.tar.gz
+		https://github.com/gwkkwg/metatilities-base/archive/${METATILITIESCOMMIT}.tar.gz -> \
+			metatilities-base-${METATILITIESCOMMIT}.gh.tar.gz
+		https://github.com/metawilm/cl-custom-hash-table/archive/${CLCUSTOMHASHTABLECOMMIT}.tar.gz -> \
+			cl-custom-hash-table-${CLCUSTOMHASHTABLECOMMIT}.gh.tar.gz
+		https://github.com/wiseman/cl-html-diff/archive/${CLHTMLDIFFCOMMIT}.tar.gz -> \
+			cl-html-diff-${CLHTMLDIFFCOMMIT}.gh.tar.gz
 		https://github.com/wiseman/cl-difflib/archive/${CLDIFFLIBCOMMIT}.tar.gz -> cl-difflib-${CLDIFFLIBCOMMIT}.gh.tar.gz
 		https://github.com/hankhero/cl-json/archive/${CLJSONCOMMIT}.tar.gz -> cl-json-${CLJSONCOMMIT}.gh.tar.gz
-		https://github.com/edicl/cl-ppcre/archive/${CLPPCRECOMMIT}.tar.gz -> cl-ppcre-${CLPPCRECOMMIT}.gh.tar.gz
-		https://github.com/edicl/flexi-streams/archive/${FLEXISTREAMSCOMMIT}.tar.gz -> flexi-streams-${FLEXISTREAMSCOMMIT}.gh.tar.gz
-		https://github.com/trivial-gray-streams/trivial-gray-streams/archive/${TRIVIALGRAYSTREAMSCOMMIT}.tar.gz -> trivial-gray-streams-${TRIVIALGRAYSTREAMSCOMMIT}.gh.tar.gz
-		https://github.com/40ants/cl-prevalence/archive/${CLPREVALENCECOMMIT}.tar.gz -> cl-prevalence-${CLPREVALENCECOMMIT}.gh.tar.gz
+		https://github.com/edicl/cl-ppcre/archive/${CLPPCRECOMMIT}.tar.gz -> \
+			cl-ppcre-${CLPPCRECOMMIT}.gh.tar.gz
+		https://github.com/edicl/flexi-streams/archive/${FLEXISTREAMSCOMMIT}.tar.gz -> \
+			flexi-streams-${FLEXISTREAMSCOMMIT}.gh.tar.gz
+		https://github.com/trivial-gray-streams/trivial-gray-streams/archive/${TRIVIALGRAYSTREAMSCOMMIT}.tar.gz -> \
+			trivial-gray-streams-${TRIVIALGRAYSTREAMSCOMMIT}.gh.tar.gz
+		https://github.com/40ants/cl-prevalence/archive/${CLPREVALENCECOMMIT}.tar.gz -> \
+			cl-prevalence-${CLPREVALENCECOMMIT}.gh.tar.gz
 		https://github.com/svenvc/s-sysdeps/archive/${SSYSDEPSCOMMIT}.tar.gz -> s-sysdeps-${SSYSDEPSCOMMIT}.gh.tar.gz
 		https://github.com/usocket/usocket/archive/${USOCKETCOMMIT}.tar.gz -> usocket-${USOCKETCOMMIT}.gh.tar.gz
-		https://github.com/sharplispers/split-sequence/archive/${SPLITSEQUENCECOMMIT}.tar.gz -> split-sequence-${SPLITSEQUENCECOMMIT}.gh.tar.gz
+		https://github.com/sharplispers/split-sequence/archive/${SPLITSEQUENCECOMMIT}.tar.gz -> \
+			split-sequence-${SPLITSEQUENCECOMMIT}.gh.tar.gz
 		https://github.com/pcostanza/closer-mop/archive/${CLOSERMOPCOMMIT}.tar.gz -> closer-mop-${CLOSERMOPCOMMIT}.gh.tar.gz
 		https://github.com/robert-strandh/cluffer/archive/${CLUFFERCOMMIT}.tar.gz -> cluffer-${CLUFFERCOMMIT}.gh.tar.gz
-		https://github.com/robert-strandh/Acclimation/archive/${ACCLIMATIONCOMMIT}.tar.gz -> acclimation-${ACCLIMATIONCOMMIT}.gh.tar.gz
+		https://github.com/robert-strandh/Acclimation/archive/${ACCLIMATIONCOMMIT}.tar.gz -> \
+			acclimation-${ACCLIMATIONCOMMIT}.gh.tar.gz
 		https://github.com/robert-strandh/Clump/archive/${CLUMPCOMMIT}.tar.gz -> clump-${CLUMPCOMMIT}.gh.tar.gz
 		https://github.com/fukamachi/dexador/archive/${DEXADORCOMMIT}.tar.gz -> dexador-${DEXADORCOMMIT}.gh.tar.gz
 		https://github.com/cl-babel/babel/archive/${BABELCOMMIT}.tar.gz -> babel-${BABELCOMMIT}.gh.tar.gz
-		https://github.com/trivial-features/trivial-features/archive/${TRIVIALFEATURESCOMMIT}.tar.gz -> trivial-features-${TRIVIALFEATURESCOMMIT}.gh.tar.gz
-		https://github.com/hu-dwim/hu.dwim.stefil/archive/${HUDWIMSTEFILCOMMIT}.tar.gz -> hu-dwim-stefil-${HUDWIMSTEFILCOMMIT}.gh.tar.gz
-		https://github.com/hu-dwim/hu.dwim.asdf/archive/${HUDWIMASDFCOMMIT}.tar.gz -> hu-dwim-asdf-${HUDWIMASDFCOMMIT}.gh.tar.gz
+		https://github.com/trivial-features/trivial-features/archive/${TRIVIALFEATURESCOMMIT}.tar.gz -> \
+			trivial-features-${TRIVIALFEATURESCOMMIT}.gh.tar.gz
+		https://github.com/hu-dwim/hu.dwim.stefil/archive/${HUDWIMSTEFILCOMMIT}.tar.gz -> \
+			hu-dwim-stefil-${HUDWIMSTEFILCOMMIT}.gh.tar.gz
+		https://github.com/hu-dwim/hu.dwim.asdf/archive/${HUDWIMASDFCOMMIT}.tar.gz -> \
+			hu-dwim-asdf-${HUDWIMASDFCOMMIT}.gh.tar.gz
 		https://github.com/fukamachi/fast-http/archive/${FASTHTTPCOMMIT}.tar.gz -> fast-http-${FASTHTTPCOMMIT}.gh.tar.gz
 		https://github.com/fukamachi/proc-parse/archive/${PROCPARSECOMMIT}.tar.gz -> proc-parse-${PROCPARSECOMMIT}.gh.tar.gz
-		https://github.com/pnathan/cl-ansi-text/archive/${CLANSITEXTCOMMIT}.tar.gz -> cl-ansi-text-${CLANSITEXTCOMMIT}.gh.tar.gz
+		https://github.com/pnathan/cl-ansi-text/archive/${CLANSITEXTCOMMIT}.tar.gz -> \
+			cl-ansi-text-${CLANSITEXTCOMMIT}.gh.tar.gz
 		https://github.com/tpapp/cl-colors/archive/${CLCOLORSCOMMIT}.tar.gz -> cl-colors-${CLCOLORSCOMMIT}.gh.tar.gz
 		https://github.com/sharplispers/let-plus/archive/${LETPLUSCOMMIT}.tar.gz -> let-plus-${LETPLUSCOMMIT}.gh.tar.gz
 		https://github.com/tokenrove/anaphora/archive/${ANAPHORACOMMIT}.tar.gz -> anaphora-${ANAPHORACOMMIT}.gh.tar.gz
 		https://github.com/fukamachi/xsubseq/archive/${XSUBSEQCOMMIT}.tar.gz -> xsubseq-${XSUBSEQCOMMIT}.gh.tar.gz
-		https://github.com/fukamachi/smart-buffer/archive/${SMARTBUFFERCOMMIT}.tar.gz -> smart-buffer-${SMARTBUFFERCOMMIT}.gh.tar.gz
+		https://github.com/fukamachi/smart-buffer/archive/${SMARTBUFFERCOMMIT}.tar.gz -> \
+			smart-buffer-${SMARTBUFFERCOMMIT}.gh.tar.gz
 		https://github.com/m2ym/cl-syntax/archive/${CLSYNTAXCOMMIT}.tar.gz -> cl-syntax-${CLSYNTAXCOMMIT}.gh.tar.gz
 		https://github.com/m2ym/cl-annot/archive/${CLANNOTCOMMIT}.tar.gz -> cl-annot-${CLANNOTCOMMIT}.gh.tar.gz
 		https://github.com/edicl/cl-interpol/archive/${CLINTERPOLCOMMIT}.tar.gz -> cl-intelpol-${CLINTERPOLCOMMIT}.gh.tar.gz
 		https://github.com/edicl/cl-unicode/archive/${CLUNICODECOMMIT}.tar.gz -> cl-unicode-${CLUNICODECOMMIT}.gh.tar.gz
-		https://github.com/melisgl/named-readtables/archive/${NAMEDREADTABLESCOMMIT}.tar.gz -> named-readtables-${NAMEDREADTABLESCOMMIT}.gh.tar.gz
-		https://github.com/m2ym/trivial-types/archive/${TRIVIALTYPESCOMMIT}.tar.gz -> trivial-types-${TRIVIALTYPESCOMMIT}.gh.tar.gz
+		https://github.com/melisgl/named-readtables/archive/${NAMEDREADTABLESCOMMIT}.tar.gz -> \
+			named-readtables-${NAMEDREADTABLESCOMMIT}.gh.tar.gz
+		https://github.com/m2ym/trivial-types/archive/${TRIVIALTYPESCOMMIT}.tar.gz -> \
+			trivial-types-${TRIVIALTYPESCOMMIT}.gh.tar.gz
 		https://github.com/fukamachi/quri/archive/${QURICOMMIT}.tar.gz -> quri-${QURICOMMIT}.gh.tar.gz
 		https://github.com/rpav/fast-io/archive/${FASTIOCOMMIT}.tar.gz -> fast-io-${FASTIOCOMMIT}.gh.tar.gz
-		https://github.com/sionescu/static-vectors/archive/${STATICVECTORSCOMMIT}.tar.gz -> static-vectors-${STATICVECTORSCOMMIT}.gh.tar.gz
+		https://github.com/sionescu/static-vectors/archive/${STATICVECTORSCOMMIT}.tar.gz -> \
+			static-vectors-${STATICVECTORSCOMMIT}.gh.tar.gz
 		https://github.com/cffi/cffi/archive/${CFFICOMMIT}.tar.gz -> cffi-${CFFICOMMIT}.gh.tar.gz
 		https://github.com/rpav/CheckL/archive/${CHECKLCOMMIT}.tar.gz -> checkl-${CHECKLCOMMIT}.gh.tar.gz
 		https://github.com/wlbr/cl-marshal/archive/${CLMARSHALCOMMIT}.tar.gz -> cl-marshal-${CLMARSHALCOMMIT}.gh.tar.gz
 		https://github.com/edicl/chunga/archive/${CHUNGACOMMIT}.tar.gz -> chunga-${CHUNGACOMMIT}.gh.tar.gz
 		https://github.com/fukamachi/cl-cookie/archive/${CLCOOKIECOMMIT}.tar.gz -> cl-cookie-${CLCOOKIECOMMIT}.gh.tar.gz
 		https://github.com/dlowe-net/local-time/archive/${LOCALTIMECOMMIT}.tar.gz -> local-time-${LOCALTIMECOMMIT}.gh.tar.gz
-		https://github.com/Shinmera/trivial-mimes/archive/${TRIVIALMIMESCOMMIT}.tar.gz -> trivial-mimes-${TRIVIALMIMESCOMMIT}.gh.tar.gz
+		https://github.com/Shinmera/trivial-mimes/archive/${TRIVIALMIMESCOMMIT}.tar.gz -> \
+			trivial-mimes-${TRIVIALMIMESCOMMIT}.gh.tar.gz
 		https://github.com/edicl/cl-fad//archive/${CLFADCOMMIT}.tar.gz -> cl-fad-${CLFADCOMMIT}.gh.tar.gz
 		https://github.com/froydnj/chipz/archive/${CHIPZCOMMIT}.tar.gz -> chipz-${CHIPZCOMMIT}.gh.tar.gz
 		https://github.com/takagi/cl-reexport/archive/${CLREEXPORTCOMMIT}.tar.gz -> cl-reexport-${CLREEXPORTCOMMIT}.gh.tar.gz
-		https://github.com/cl-plus-ssl/cl-plus-ssl/archive/${CLPLUSSSLCOMMIT}.tar.gz -> cl-plus-ssl-${CLPLUSSSLCOMMIT}.gh.tar.gz
+		https://github.com/cl-plus-ssl/cl-plus-ssl/archive/${CLPLUSSSLCOMMIT}.tar.gz -> \
+			cl-plus-ssl-${CLPLUSSSLCOMMIT}.gh.tar.gz
 		https://github.com/fukamachi/lack/archive/${LACKCOMMIT}.tar.gz -> lack-${LACKCOMMIT}.gh.tar.gz
-		https://github.com/fukamachi/circular-streams/archive/${CIRCULARSTREAMSCOMMIT}.tar.gz -> circular-streams-${CIRCULARSTREAMSCOMMIT}.gh.tar.gz
+		https://github.com/fukamachi/circular-streams/archive/${CIRCULARSTREAMSCOMMIT}.tar.gz -> \
+			circular-streams-${CIRCULARSTREAMSCOMMIT}.gh.tar.gz
 		https://github.com/fukamachi/http-body/archive/${HTTPBODYCOMMIT}.tar.gz -> http-body-${HTTPBODYCOMMIT}.gh.tar.gz
 		https://github.com/Rudolph-Miller/jonathan/archive/${JONATHANCOMMIT}.tar.gz -> jonathan-${JONATHANCOMMIT}.gh.tar.gz
 		https://github.com/sharplispers/ironclad/archive/${IRONCLADCOMMIT}.tar.gz -> ironclad-${IRONCLADCOMMIT}.gh.tar.gz
 		https://github.com/fukamachi/clack/archive/${CLACKCOMMIT}.tar.gz -> clack-${CLACKCOMMIT}.gh.tar.gz
 		https://github.com/KDr2/cl-fastcgi//archive/${CLFASTCGICOMMIT}.tar.gz -> cl-fastcgi-${CLFASTCGICOMMIT}.gh.tar.gz
-		https://github.com/edicl/hunchentoot/archive/${HUNCHENTOOTCOMMIT}.tar.gz -> hunchentoot-${HUNCHENTOOTCOMMIT}.gh.tar.gz
+		https://github.com/edicl/hunchentoot/archive/${HUNCHENTOOTCOMMIT}.tar.gz -> \
+			hunchentoot-${HUNCHENTOOTCOMMIT}.gh.tar.gz
 		https://github.com/pmai/md5/archive/${MD5COMMIT}.tar.gz -> mde-${MD5COMMIT}.gh.tar.gz
 		https://github.com/jdz/rfc2388/archive/${RFC2388COMMIT}.tar.gz -> rfc2388-${RFC2388COMMIT}.gh.tar.gz
 		https://github.com/edicl/cl-who/archive/${CLWHOCOMMIT}.tar.gz -> cl-who-${CLWHOCOMMIT}.gh.tar.gz
 		https://github.com/edicl/drakma/archive/${DRAKMACOMMIT}.tar.gz -> drakma-${DRAKMACOMMIT}.gh.tar.gz
 		https://github.com/tlikonen/cl-enchant/archive/${CLENCHANTCOMMIT}.tar.gz -> cl-enchant-${CLENCHANTCOMMIT}.gh.tar.gz
 		https://github.com/slburson/fset/archive/${FSETCOMMIT}.tar.gz -> fset-${FSETCOMMIT}.gh.tar.gz
-		https://github.com/hu-dwim/hu.dwim.defclass-star/archive/${HUDWIMDEFCLASSSTARCOMMIT}.tar.gz -> hu-dwim-defclass-star-${HUDWIMDEFCLASSSTARCOMMIT}.gh.tar.gz
+		https://github.com/hu-dwim/hu.dwim.defclass-star/archive/${HUDWIMDEFCLASSSTARCOMMIT}.tar.gz -> \
+			hu-dwim-defclass-star-${HUDWIMDEFCLASSSTARCOMMIT}.gh.tar.gz
 		https://github.com/sionescu/iolib/archive/${IOLIBCOMMIT}.tar.gz -> iolib-${IOLIBCOMMIT}.gh.tar.gz
 		https://github.com/antifuchs/idna/archive/${IDNACOMMIT}.tar.gz -> idna-${IDNACOMMIT}.gh.tar.gz
 		https://github.com/sionescu/swap-bytes/archive/${SWAPBYTESCOMMIT}.tar.gz -> swap-bytes-${SWAPBYTESCOMMIT}.gh.tar.gz
 		https://github.com/sharplispers/log4cl/archive/${LOG4CLCOMMIT}.tar.gz -> log4cl-${LOG4CLCOMMIT}.gh.tar.gz
-		https://github.com/gwkkwg/metabang-bind/archive/${METABANGBINDCOMMIT}.tar.gz -> metabang-bind-${METABANGBINDCOMMIT}.gh.tar.gz
+		https://github.com/gwkkwg/metabang-bind/archive/${METABANGBINDCOMMIT}.tar.gz -> \
+			metabang-bind-${METABANGBINDCOMMIT}.gh.tar.gz
 		https://github.com/slime/slime/archive/${SLIMECOMMIT}.tar.gz -> slime-${SLIMECOMMIT}.gh.tar.gz
-		https://github.com/gwkkwg/moptilities/archive/${MOPTILITIESCOMMIT}.tar.gz -> moptilities-${MOPTILITIESCOMMIT}.gh.tar.gz
+		https://github.com/gwkkwg/moptilities/archive/${MOPTILITIESCOMMIT}.tar.gz -> \
+			moptilities-${MOPTILITIESCOMMIT}.gh.tar.gz
 		https://github.com/Shinmera/plump/archive/${PLUMPCOMMIT}.tar.gz -> plump-${PLUMPCOMMIT}.gh.tar.gz
-		https://github.com/Shinmera/array-utils/archive/${ARRAYUTILSCOMMIT}.tar.gz -> array-utils-${ARRAYUTILSCOMMIT}.gh.tar.gz
-		https://github.com/Shinmera/documentation-utils/archive/${DOCUMENTATIONUTILSCOMMIT}.tar.gz -> documentation-utils-${DOCUMENTATIONUTILSCOMMIT}.gh.tar.gz
-		https://github.com/Shinmera/trivial-indent/archive/${TRIVIALINDENTCOMMIT}.tar.gz -> trivial-indent-${TRIVIALINDENTCOMMIT}.gh.tar.gz
+		https://github.com/Shinmera/array-utils/archive/${ARRAYUTILSCOMMIT}.tar.gz -> \
+			array-utils-${ARRAYUTILSCOMMIT}.gh.tar.gz
+		https://github.com/Shinmera/documentation-utils/archive/${DOCUMENTATIONUTILSCOMMIT}.tar.gz -> \
+			documentation-utils-${DOCUMENTATIONUTILSCOMMIT}.gh.tar.gz
+		https://github.com/Shinmera/trivial-indent/archive/${TRIVIALINDENTCOMMIT}.tar.gz -> \
+			trivial-indent-${TRIVIALINDENTCOMMIT}.gh.tar.gz
 		https://github.com/Shinmera/parachute/archive/${PARACHUTECOMMIT}.tar.gz -> parachute-${PARACHUTECOMMIT}.gh.tar.gz
-		https://github.com/Shinmera/form-fiddle/archive/${FORMFIDDLECOMMIT}.tar.gz -> form-fiddle-${FORMFIDDLECOMMIT}.gh.tar.gz
+		https://github.com/Shinmera/form-fiddle/archive/${FORMFIDDLECOMMIT}.tar.gz -> \
+			form-fiddle-${FORMFIDDLECOMMIT}.gh.tar.gz
 		https://github.com/ruricolist/serapeum/archive/${SERAPEUMCOMMIT}.tar.gz -> serapeum-${SERAPEUMCOMMIT}.gh.tar.gz
 		https://github.com/atlas-engineer/nhooks/archive/${NCOMMIT}.tar.gz -> nhooks-${NCOMMIT}.gh.tar.gz
 		https://github.com/guicho271828/trivia/archive/${TRIVIACOMMIT}.tar.gz -> trivia-${TRIVIACOMMIT}.gh.tar.gz
 		https://github.com/m2ym/optima/archive/${OPTIMACOMMIT}.tar.gz -> optima-${OPTIMACOMMIT}.gh.tar.gz
 		https://github.com/adlai/Eos/archive/${EOSCOMMIT}.tar.gz -> eos-${EOSCOMMIT}.gh.tar.gz
-		https://github.com/guicho271828/lisp-namespace/archive/${LISPNAMESPACECOMMIT}.tar.gz -> lisp-namespace-${LISPNAMESPACECOMMIT}.gh.tar.gz
-		https://github.com/Zulu-Inuoe/trivial-cltl2/archive/${TRIVIALCLTL2COMMIT}.tar.gz -> trivial-cltl2-${TRIVIALCLTL2COMMIT}.gh.tar.gz
+		https://github.com/guicho271828/lisp-namespace/archive/${LISPNAMESPACECOMMIT}.tar.gz -> \
+			lisp-namespace-${LISPNAMESPACECOMMIT}.gh.tar.gz
+		https://github.com/Zulu-Inuoe/trivial-cltl2/archive/${TRIVIALCLTL2COMMIT}.tar.gz -> \
+			trivial-cltl2-${TRIVIALCLTL2COMMIT}.gh.tar.gz
 		https://github.com/guicho271828/type-i/archive/${TYPEICOMMIT}.tar.gz -> type-i-${TYPEICOMMIT}.gh.tar.gz
-		https://github.com/Bike/introspect-environment/archive/${INTROSPECTENVIRONMENTCOMMIT}.tar.gz -> introspect-environment-${INTROSPECTENVIRONMENTCOMMIT}.gh.tar.gz
-		https://github.com/pkhuong/string-case/archive/${STRINGCASECOMMIT}.tar.gz -> string-case-${STRINGCASECOMMIT}.gh.tar.gz
-		https://github.com/sharplispers/parse-number/archive/${PARSENUMBERCOMMIT}.tar.gz -> parse-number-${PARSENUMBERCOMMIT}.gh.tar.gz
+		https://github.com/Bike/introspect-environment/archive/${INTROSPECTENVIRONMENTCOMMIT}.tar.gz -> \
+			introspect-environment-${INTROSPECTENVIRONMENTCOMMIT}.gh.tar.gz
+		https://github.com/pkhuong/string-case/archive/${STRINGCASECOMMIT}.tar.gz -> \
+			string-case-${STRINGCASECOMMIT}.gh.tar.gz
+		https://github.com/sharplispers/parse-number/archive/${PARSENUMBERCOMMIT}.tar.gz -> \
+			parse-number-${PARSENUMBERCOMMIT}.gh.tar.gz
 		https://github.com/lmj/global-vars/archive/${GLOBALVARSCOMMIT}.tar.gz -> global-vars-${GLOBALVARSCOMMIT}.gh.tar.gz
-		https://github.com/ruricolist/trivial-file-size/archive/${TRIVIALFILESIZECOMMIT}.tar.gz -> trivial-file-size-${TRIVIALFILESIZECOMMIT}.gh.tar.gz
-		https://github.com/cbaggers/trivial-macroexpand-all/archive/${TRIVIALMACROEXPANDALLCOMMIT}.tar.gz -> trivial-macroexpand-all-${TRIVIALMACROEXPANDALLCOMMIT}.gh.tar.gz
+		https://github.com/ruricolist/trivial-file-size/archive/${TRIVIALFILESIZECOMMIT}.tar.gz -> \
+			trivial-file-size-${TRIVIALFILESIZECOMMIT}.gh.tar.gz
+		https://github.com/cbaggers/trivial-macroexpand-all/archive/${TRIVIALMACROEXPANDALLCOMMIT}.tar.gz -> \
+			trivial-macroexpand-all-${TRIVIALMACROEXPANDALLCOMMIT}.gh.tar.gz
 		https://github.com/vindarel/cl-str/archive/${CLSTRCOMMIT}.tar.gz -> cl-str-${CLSTRCOMMIT}.gh.tar.gz
-		https://github.com/rudolfochrist/cl-change-case/archive/${CLCHANGECASECOMMIT}.tar.gz -> cl-change-case-${CLCHANGECASECOMMIT}.gh.tar.gz
-		https://github.com/snmsts/trivial-clipboard/archive/${TRIVIALCLIPBOARDCOMMIT}.tar.gz -> trivial-clipboard-${TRIVIALCLIPBOARDCOMMIT}.gh.tar.gz
-		https://github.com/phoe/trivial-package-local-nicknames/archive/${TRIVIALPACKAGELOCALNICKNAMESCOMMIT}.tar.gz -> trivial-package-local-nicknames-${TRIVIALPACKAGELOCALNICKNAMESCOMMIT}.gh.tar.gz
+		https://github.com/rudolfochrist/cl-change-case/archive/${CLCHANGECASECOMMIT}.tar.gz -> \
+			cl-change-case-${CLCHANGECASECOMMIT}.gh.tar.gz
+		https://github.com/snmsts/trivial-clipboard/archive/${TRIVIALCLIPBOARDCOMMIT}.tar.gz -> \
+			trivial-clipboard-${TRIVIALCLIPBOARDCOMMIT}.gh.tar.gz
+		https://github.com/phoe/trivial-package-local-nicknames/archive/${TRIVIALPACKAGELOCALNICKNAMESCOMMIT}.tar.gz -> \
+			trivial-package-local-nicknames-${TRIVIALPACKAGELOCALNICKNAMESCOMMIT}.gh.tar.gz
 		https://github.com/libre-man/unix-opts/archive/${UNIXOPTSCOMMIT}.tar.gz -> unix-opts-${UNIXOPTSCOMMIT}.gh.tar.gz
 		https://github.com/Ferada/cl-cffi-gtk/archive/${CLCFFIGTKCOMMIT}.tar.gz -> cl-cffi-gtk-${CLCFFIGTKCOMMIT}.gh.tar.gz
 		https://github.com/joachifm/cl-webkit/archive/${CLWEBKITCOMMIT}.tar.gz -> cl-webkit-${CLWEBKITCOMMIT}.gh.tar.gz
-		https://github.com/andy128k/cl-gobject-introspection/archive/${CLGOBJECTINTROSPECTIONCOMMIT}.tar.gz -> cl-gobject-introspection-${CLGOBJECTINTROSPECTIONCOMMIT}.gh.tar.gz
+		https://github.com/andy128k/cl-gobject-introspection/archive/${CLGOBJECTINTROSPECTIONCOMMIT}.tar.gz -> \
+			cl-gobject-introspection-${CLGOBJECTINTROSPECTIONCOMMIT}.gh.tar.gz
 		https://github.com/lmj/lparallel/archive/${LPARALLELCOMMIT}.tar.gz -> lparallel-${LPARALLELCOMMIT}.gh.tar.gz
 		https://github.com/jnjcc/cl-qrencode/archive/${CLQRENCODECOMMIT}.tar.gz -> cl-qrencore-${CLQRENCODECOMMIT}.gh.tar.gz
 		https://github.com/Shinmera/clss/archive/${CLSSCOMMIT}.tar.gz -> clss-${CLSSCOMMIT}.gh.tar.gz
@@ -298,34 +343,47 @@ else
 		https://github.com/atlas-engineer/nkeymaps/archive/${NKEYMAPSCOMMIT}.tar.gz -> nkeymaps-${NKEYMAPSCOMMIT}.gh.tar.gz
 		https://github.com/joaotavora/sly/archive/${SLYCOMMIT}.tar.gz -> sly-${SLYCOMMIT}.gh.tar.gz
 		https://github.com/Shinmera/dissect/archive/${DISSECTCOMMIT}.tar.gz -> dissect-${DISSECTCOMMIT}.gh.tar.gz
-		https://github.com/phoe/trivial-custom-debugger/archive/${TRIVIALCUSTOMDEBUGGERCOMMIT}.tar.gz -> trivial-custom-debugger-${TRIVIALCUSTOMDEBUGGERCOMMIT}.gh.tar.gz
+		https://github.com/phoe/trivial-custom-debugger/archive/${TRIVIALCUSTOMDEBUGGERCOMMIT}.tar.gz -> \
+			trivial-custom-debugger-${TRIVIALCUSTOMDEBUGGERCOMMIT}.gh.tar.gz
 		https://github.com/atlas-engineer/ndebug/archive/${NDEBUGCOMMIT}.tar.gz -> ndebug-${NDEBUGCOMMIT}.gh.tar.gz
-		https://github.com/AccelerationNet/lisp-unit2/archive/${LISPUNIT2COMMIT}.tar.gz -> lisp-unit2-${LISPUNIT2COMMIT}.gh.tar.gz
+		https://github.com/AccelerationNet/lisp-unit2/archive/${LISPUNIT2COMMIT}.tar.gz -> \
+			lisp-unit2-${LISPUNIT2COMMIT}.gh.tar.gz
 		https://github.com/atlas-engineer/ospm/archive/${OSPMCOMMIT}.tar.gz -> ospm-${OSPMCOMMIT}.gh.tar.gz
 		https://github.com/sharplispers/montezuma/archive/${MONTEZUMACOMMIT}.tar.gz -> montezuma-${MONTEZUMACOMMIT}.gh.tar.gz
 		https://github.com/atlas-engineer/nsymbols/archive/${NSYMBOLSCOMMIT}.tar.gz -> nsymbols-${NSYMBOLSCOMMIT}.gh.tar.gz
 		https://github.com/Shinmera/LASS/archive/${LASSCOMMIT}.tar.gz -> lass-${LASSCOMMIT}.gh.tar.gz
 		https://github.com/atlas-engineer/njson/archive/${NJSONCOMMIT}.tar.gz -> njson-${NJSONCOMMIT}.gh.tar.gz
-		https://github.com/atlas-engineer/history-tree/archive/${HISTORYTREECOMMIT}.tar.gz -> history-tree-${HISTORYTREECOMMIT}.gh.tar.gz
-		https://gitlab.common-lisp.net/alexandria/alexandria/-/archive/${ALEXANDRIACOMMIT}.tar.bz2 -> alexandria-${ALEXANDRIACOMMIT}.tar.bz2
+		https://github.com/atlas-engineer/history-tree/archive/${HISTORYTREECOMMIT}.tar.gz -> \
+			history-tree-${HISTORYTREECOMMIT}.gh.tar.gz
+		https://gitlab.common-lisp.net/alexandria/alexandria/-/archive/${ALEXANDRIACOMMIT}.tar.bz2 -> \
+			alexandria-${ALEXANDRIACOMMIT}.tar.bz2
 		https://gitlab.common-lisp.net/nyxt/rt/-/archive/${NYXTRTCOMMIT}.tar.bz2 -> rt-${NYXTRTCOMMIT}.tar.bz2
-		https://gitlab.common-lisp.net/vsedach/eager-future2/-/archive/${EAGERFUTURECOMMIT}.tar.bz2 -> eager-future2-${EAGERFUTURECOMMIT}.tar.bz2
-		https://gitlab.common-lisp.net/nyxt/cl-base64/-/archive/${CLBASE64COMMIT}.tar.bz2 -> cl-base64-${CLBASE64COMMIT}.tar.bz2
+		https://gitlab.common-lisp.net/vsedach/eager-future2/-/archive/${EAGERFUTURECOMMIT}.tar.bz2 -> \
+			eager-future2-${EAGERFUTURECOMMIT}.tar.bz2
+		https://gitlab.common-lisp.net/nyxt/cl-base64/-/archive/${CLBASE64COMMIT}.tar.bz2 -> \
+			cl-base64-${CLBASE64COMMIT}.tar.bz2
 		https://gitlab.common-lisp.net/nyxt/ptester/-/archive/${PTESTERCOMMIT}.tar.bz2 -> ptester-${PTESTERCOMMIT}.tar.bz2
 		https://gitlab.common-lisp.net/nyxt/kmrcl/-/archive/${KMRCLCOMMIT}.tar.bz2 -> kmrcl-${KMRCLCOMMIT}.tar.bz2
 		https://gitlab.common-lisp.net/nyxt/puri/-/archive/${PURICOMMIT}.tar.bz2 -> pyri-${PURICOMMIT}.tar.bz2
 		https://gitlab.common-lisp.net/stefil/stefil/-/archive/${STEFILCOMMIT}.tar.bz2 -> stefil-${STEFILCOMMIT}.tar.bz2
-		https://gitlab.common-lisp.net/parenscript/parenscript/-/archive/${PARENSCRIPTCOMMIT}.tar.bz2 -> parenscript-${PARENSCRIPTCOMMIT}.tar.bz2
-		https://gitlab.common-lisp.net/frideau/fare-quasiquote/-/archive/${FAREQUASIQUOTECOMMIT}.tar.bz2 -> fare-quasiquote-${FAREQUASIQUOTECOMMIT}.tar.bz2
-		https://gitlab.common-lisp.net/frideau/fare-utils/-/archive/${FAREUTILSCOMMIT}.tar.bz2 -> fare-utils-${FAREUTILSCOMMIT}.tar.bz2
-		https://gitlab.common-lisp.net/nyxt/jpl-queues/-/archive/${JPLQUEUESCOMMIT}.tar.bz2 -> jpl-queues-${JPLQUEUESCOMMIT}.tar.bz2
+		https://gitlab.common-lisp.net/parenscript/parenscript/-/archive/${PARENSCRIPTCOMMIT}.tar.bz2 -> \
+			parenscript-${PARENSCRIPTCOMMIT}.tar.bz2
+		https://gitlab.common-lisp.net/frideau/fare-quasiquote/-/archive/${FAREQUASIQUOTECOMMIT}.tar.bz2 -> \
+			fare-quasiquote-${FAREQUASIQUOTECOMMIT}.tar.bz2
+		https://gitlab.common-lisp.net/frideau/fare-utils/-/archive/${FAREUTILSCOMMIT}.tar.bz2 -> \
+			fare-utils-${FAREUTILSCOMMIT}.tar.bz2
+		https://gitlab.common-lisp.net/nyxt/jpl-queues/-/archive/${JPLQUEUESCOMMIT}.tar.bz2 -> \
+			jpl-queues-${JPLQUEUESCOMMIT}.tar.bz2
 		https://gitlab.common-lisp.net/nyxt/mt19937/-/archive/${MT19937COMMIT}.tar.bz2 -> mt19937-${MT19937COMMIT}.tar.bz2
 		https://gitlab.common-lisp.net/s-xml/s-xml/-/archive/${SXMLCOMMIT}.tar.bz2 -> s-xml-${SXMLCOMMIT}.tar.bz2
-		https://gitlab.common-lisp.net/cl-utilities/cl-utilities/-/archive/${CLUTILITIESCOMMIT}.tar.bz2 -> cl-utilities-${CLUTILITIESCOMMIT}.tar.bz2
+		https://gitlab.common-lisp.net/cl-utilities/cl-utilities/-/archive/${CLUTILITIESCOMMIT}.tar.bz2 -> \
+			cl-utilities-${CLUTILITIESCOMMIT}.tar.bz2
 		https://gitlab.common-lisp.net/rtoy/rt/-/archive/${RTCOMMIT}.tar.bz2 -> rt-${RTCOMMIT}.tar.bz2
-		https://gitlab.common-lisp.net/nyxt/py-configparser/-/archive/${PYCONFIGPARSERCOMMIT}.tar.bz2 -> py-configparser-${PYCONFIGPARSERCOMMIT}.tar.bz2
+		https://gitlab.common-lisp.net/nyxt/py-configparser/-/archive/${PYCONFIGPARSERCOMMIT}.tar.bz2 -> \
+			py-configparser-${PYCONFIGPARSERCOMMIT}.tar.bz2
 		https://gitlab.common-lisp.net/iterate/iterate/-/archive/${ITERATECOMMIT}.tar.bz2 -> iterate-${ITERATECOMMIT}.tar.bz2
-		https://gitlab.common-lisp.net/parse-declarations/parse-declarations/-/archive/${PARSEDECLARATIONSCOMMIT}.tar.bz2 -> parse-declarations-${PARSEDECLARATIONSCOMMIT}.tar.bz2
+		https://gitlab.common-lisp.net/parse-declarations/parse-declarations/-/archive/${PARSEDECLARATIONSCOMMIT}.tar.bz2 -> \
+			parse-declarations-${PARSEDECLARATIONSCOMMIT}.tar.bz2
 		https://gitlab.common-lisp.net/misc-extensions/devel/-/archive/${DEVELCOMMIT}.tar.bz2 -> devel-${DEVELCOMMIT}.tar.bz2
 "
 fi

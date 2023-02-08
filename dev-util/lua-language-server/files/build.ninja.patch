@@ -1,6 +1,6 @@
 --- a/build/build.ninja
 +++ b/build/build.ninja
-@@ -12,18 +12,18 @@
+@@ -13,18 +13,18 @@
      3rd/bee.lua/compile/config.lua 3rd/bee.lua/compile/common.lua $
      make/code_format.lua
  rule c_source_bee
@@ -24,7 +24,7 @@
    description = Compile C++ $out
    deps = gcc
    depfile = $out.d
-@@ -31,8 +31,8 @@
+@@ -32,8 +32,8 @@
      3rd/bee.lua/bee/nonstd/fmt/format.cc
  build $obj/source_bee/os.obj: cxx_source_bee 3rd/bee.lua/bee/nonstd/fmt/os.cc
  rule cxx_source_bee_1
@@ -35,7 +35,7 @@
    description = Compile C++ $out
    deps = gcc
    depfile = $out.d
-@@ -56,9 +56,9 @@
+@@ -57,9 +57,9 @@
  build $obj/source_bee/path_helper.obj: cxx_source_bee_1 $
      3rd/bee.lua/bee/utility/path_helper.cpp
  rule cxx_source_bee_2
@@ -48,9 +48,9 @@
    description = Compile C++ $out
    deps = gcc
    depfile = $out.d
-@@ -79,26 +79,26 @@
- build $obj/source_bee/lua_time.obj: cxx_source_bee_2 $
-     3rd/bee.lua/binding/lua_time.cpp
+@@ -82,26 +82,26 @@
+ build $obj/source_bee/luaref.obj: cxx_source_bee_2 $
+     3rd/bee.lua/binding/luaref.cpp
  rule c_source_lua
 -  command = $cc -MMD -MT $out -MF $out.d -std=c11 -O2 -Wall -Werror $
 -    -fvisibility=hidden -DNDEBUG -fPIC -o $out -c $in
@@ -83,7 +83,7 @@
    description = Compile C++ $out
    deps = gcc
    depfile = $out.d
-@@ -108,7 +108,7 @@
+@@ -111,7 +111,7 @@
      3rd/bee.lua/bootstrap/progdir.cpp
  rule link_bootstrap
    command = $cc $in -o $out -lm -ldl -Wl,-E -lstdc++fs -pthread $
@@ -92,3 +92,40 @@
    description = Link    Exe $out
  build /bootstrap: link_bootstrap $obj/source_bootstrap/main.obj $
      $obj/source_bootstrap/progdir.obj $obj/source_bee/lua-seri.obj $
+@@ -149,10 +149,10 @@
+     3rd/bee.lua/test/test_thread.lua 3rd/bee.lua/test/test_time.lua | $
+     /bootstrap copy_script
+ rule cxx_code_format
+-  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -O2 -Wall $
++  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -Wall $
+     -fvisibility=hidden -I3rd/EmmyLuaCodeStyle/include $
+     -I3rd/bee.lua/3rd/lua -I3rd/EmmyLuaCodeStyle/3rd/wildcards/include $
+-    -DNDEBUG -Wall -Werror -o $out -c $in
++    -DNDEBUG -Wall -o $out -c $in CXXFLAGS
+   description = Compile C++ $out
+   deps = gcc
+   depfile = $out.d
+@@ -245,9 +245,9 @@
+ build $obj/code_format/Utf8.obj: cxx_code_format $
+     3rd/EmmyLuaCodeStyle/Util/src/Utf8.cpp
+ rule c_lpeglabel
+-  command = $cc -MMD -MT $out -MF $out.d -std=c11 -O2 -Wall $
++  command = $cc -MMD -MT $out -MF $out.d -std=c11 -Wall $
+     -fvisibility=hidden -I3rd/bee.lua/3rd/lua -DMAXRECLEVEL=1000 -DNDEBUG $
+-    -o $out -c $in
++    -o $out -c $in CFLAGS
+   description = Compile C   $out
+   deps = gcc
+   depfile = $out.d
+@@ -257,9 +257,9 @@
+ build $obj/lpeglabel/lpltree.obj: c_lpeglabel 3rd/lpeglabel/lpltree.c
+ build $obj/lpeglabel/lplvm.obj: c_lpeglabel 3rd/lpeglabel/lplvm.c
+ rule cxx_lua_language_server
+-  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -O2 -Wall $
++  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -Wall $
+     -fvisibility=hidden -I3rd/bee.lua -I3rd/bee.lua/3rd/lua -DCODE_FORMAT $
+-    -DNDEBUG -o $out -c $in
++    -DNDEBUG -o $out -c $in CXXFLAGS
+   description = Compile C++ $out
+   deps = gcc
+   depfile = $out.d

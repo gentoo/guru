@@ -7,9 +7,9 @@ PYTHON_COMPAT=( python3_{8,9,10,11} )
 inherit python-single-r1 desktop wrapper
 
 DESCRIPTION="Visual novel parody of Goodbye Volcano High"
-MY_PV="Update7_Fangsgiving"
+MY_PV="Patch8_NewYears"
 HOMEPAGE="https://snootgame.xyz/"
-SRC_URI="https://secureupdates.snootgame.xyz/SnootGame-${MY_PV}-linux.tar.bz2"
+SRC_URI="https://snootgame.xyz/downloads/game/SnootGame-${MY_PV}-linux.tar.bz2"
 
 LICENSE="AGPL-3 CC-BY-SA-4.0"
 SLOT="0"
