@@ -29,7 +29,7 @@ RDEPEND="
 	test? (
 		dev-python/aiosqlite[${PYTHON_USEDEP}]
 		dev-python/asyncpg[${PYTHON_USEDEP}]
-		dev-python/sqlalchemy[${PYTHON_USEDEP}]
+		<dev-python/sqlalchemy-2[${PYTHON_USEDEP}]
 	)
 "
 DEPEND="${RDEPEND}"
