@@ -6,17 +6,14 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{9..11} )
 
-inherit distutils-r1
+inherit distutils-r1 git-r3
 
 DESCRIPTION="Python Nanoid"
 HOMEPAGE="https://github.com/puyuan/py-nanoid https://pypi.org/project/nanoid"
-SRC_URI="https://github.com/puyuan/py-nanoid/archive/refs/heads/master.tar.gz -> ${P}.gh.tar.gz"
-S="${WORKDIR}/py-nanoid-master"
+EGIT_REPO_URI="https://github.com/puyuan/py-nanoid.git"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE="test"
 
 RDEPEND=""
 BDEPEND="
