@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>gasc@eurecom.fr</email>
+		<name>Gasc Henri</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">griffe</remote-id>
+		<remote-id type="github">mkdocstrings/griffe</remote-id>
+	</upstream>
+	<longdescription>
+		Extract the structure, the frame, the skeleton of your project, to generate API documentation or find breaking changes in your API.
+	</longdescription>
+</pkgmetadata>
