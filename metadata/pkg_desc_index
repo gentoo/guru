@@ -803,7 +803,6 @@ dev-python/WSME 0.11.0: Simplify the writing of REST APIs, and extend them with 
 dev-python/XenAPI 2.14-r1: Xen API SDK, for communication with Citrix XenServer and Xen Cloud Platform
 dev-python/aiomysql 0.1.1: aiomysql is a library for accessing a MySQL database from the asyncio
 dev-python/aiopg 1.4.0: Postgres integration with asyncio
-dev-python/aiosqlite 0.17.0-r2: asyncio bridge to the standard sqlite3 module
 dev-python/aiounittest 1.4.2: Test python asyncio-based code with ease
 dev-python/almost 0.1.5: A helper for approximate comparison
 dev-python/anyascii 0.3.1 9999: Unicode to ASCII transliteration
@@ -1194,9 +1193,10 @@ dev-util/gftools 0.9.21: Miscellaneous tools for working with the Google Fonts c
 dev-util/git-bug 0.7.1 9999: distributed, offline-first bug tracker
 dev-util/glsl-language-server 0.3.7: Language server implementation for GLSL
 dev-util/gshards 0.1-r1: Small helper tools to aid installing Crystal packages in Gentoo
+dev-util/haredo 1.0.2 9999: a simple and unix-idiomatic build automator
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/lemminx-bin 0.22.0 0.24.0: XML Language Server
-dev-util/lua-language-server 3.6.8: Lua language server
+dev-util/lua-language-server 3.6.10: Lua language server
 dev-util/mh 1.0.3: Generate help for Makefile
 dev-util/odb 2.5.0_beta21_p1: ODB compiler and the ODB system documentation
 dev-util/osc 0.173.0 9999: Command line tool for Open Build Service
@@ -1212,7 +1212,7 @@ dev-util/rust-analyzer-bin 2021.09.06 2021.09.20: An implementation of Language 
 dev-util/stripe-cli 9999: A command-line tool for Stripe
 dev-util/tflint-bin 0.43.0: A Pluggable Terraform Linter
 dev-util/tokei 12.1.1 12.1.2: Count code, quickly
-dev-util/typescript-language-server 3.0.2 3.0.3: TypeScript & JavaScript Language Server
+dev-util/typescript-language-server 3.0.3 3.1.0: TypeScript & JavaScript Language Server
 dev-util/vala-language-server 0.48.4: Code Intelligence for Vala & Genie
 dev-util/vscode-langservers-extracted 4.5.0 4.6.0: HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode.
 dev-util/wakatime-cli 1.27.0 1.28.6: Command line interface to WakaTime used by all WakaTime plugins
@@ -1268,13 +1268,13 @@ games-misc/bonsai 0_pre20210201: bonsai tree generator written in bash
 games-misc/cbonsai 1.3.1-r1: grow bonsai trees in your terminal
 games-misc/gay 1.2.8: Colour your text / terminal to be more gay
 games-misc/varlpenis 3.0.2: Generates ASCII-art penis of arbitrary length
-games-puzzle/aaaaxy 1.2.377 1.2.399 1.3.103: A nonlinear 2D puzzle platformer taking place in impossible spaces
+games-puzzle/aaaaxy 1.2.399 1.3.103 1.3.263: A nonlinear 2D puzzle platformer taking place in impossible spaces
 games-puzzle/atris 1.0.7: Alizarin tetris
 games-puzzle/baba-is-you 474: Puzzle game where you can change the rules by which you play
 games-puzzle/krank 8: Little casual game
 games-puzzle/superflu-riteurnz 1.0.0: Artisanal video-game about Superflu, the useless super-hero (french)
 games-rpg/airshipper 0.7.0-r1: Provides automatic updates for the voxel RPG Veloren
-games-rpg/snoot-game 1.7-r1: Visual novel parody of Goodbye Volcano High
+games-rpg/snoot-game 1.8: Visual novel parody of Goodbye Volcano High
 games-server/among-sus 20210519: Among Us, but it's a text adventure
 games-util/NotEnoughProduction 0.0.4: Tool for building production chains for modded minecraft
 games-util/chiaki 2.1.1-r1 9999: Client for PlayStation 4 and PlayStation 5 Remote Play
@@ -1472,7 +1472,7 @@ media-sound/spotify_dl 8.3.0 8.4.0 8.5.0: Downloads songs from a Spotify Playlis
 media-sound/tavu 9999: Terminal-based ALSA VU-meter with peaking
 media-sound/zita-ajbridge 0.8.4 0.8.4-r1: zita-a2j and zita-j2a - bridges between ALSA and JACK
 media-video/ciano 0.2.4-r1: A multimedia file converter focused on simplicity
-media-video/ffsubsync 0.4.19-r1 0.4.20-r1 0.4.22: Automagically syncronize subtitles with video
+media-video/ffsubsync 0.4.20-r1 0.4.22 0.4.23: Automagically syncronize subtitles with video
 media-video/kikoplay 0.8.2 9999: KikoPlay is a full-featured danmu player
 media-video/megapixels 1.4.3: A GTK3 camera application that knows how to deal with the media request api
 media-video/obs-vkcapture 1.1.3 1.1.4 1.2.0 9999: OBS Linux Vulkan/OpenGL game capture
@@ -1494,7 +1494,7 @@ mpv-plugin/mpv-autosub 20210629: Fully automatic subtitle downloading for the MP
 mpv-plugin/mpv-mpris 0.8.1 0.9-r2 9999: MPRIS plugin for mpv
 mpv-plugin/mpv-plugin-xrandr 20190523-r1: Automatically invoke the xrandr to set the parameters for the display output
 mpv-plugin/mpv-youtube-upnext 20210620 20220922 20221230: A userscript that allows you to play "up next"/recommended youtube videos
-mpv-plugin/mpv_sponsorblock 20211223 20220924: mpv script to skip sponsored segments of YouTube videos
+mpv-plugin/mpv_sponsorblock 20211223 20220924 20230130: mpv script to skip sponsored segments of YouTube videos
 mpv-plugin/mpv_sponsorblock_minimal 2022.02.07: A minimal script to skip sponsored segments of YouTube videos
 mpv-plugin/mpv_thumbnail_script 0.4.9 0.5.1 0.5.2: A Lua script to show preview thumbnails in mpv's OSC seekbar
 net-analyzer/gping-bin 1.5.1: Ping with graph
@@ -1521,7 +1521,7 @@ net-im/gajim-plugins 9999: Plugins developed fro Gajim XMPP client
 net-im/go-sendxmpp 0.5.5 0.5.6: A little tool to send messages to an XMPP contact or MUC
 net-im/gtkcord 0.1.0-r1: A Gtk3 Discord client in Golang
 net-im/guilded-bin 1.0.9105465: Drop Discord, get Guilded
-net-im/heisenbridge 1.14.1: A bouncer-style Matrix IRC bridge
+net-im/heisenbridge 1.14.1 1.14.2: A bouncer-style Matrix IRC bridge
 net-im/jitsi-meet 2022.3.1: Desktop application for Jitsi Meet built with Electron
 net-im/kaidan 0.8.0-r1: A simple, user-friendly Jabber/XMPP client for every device!
 net-im/matterhorn-bin 50200.13.0: Terminal based Mattermost client
@@ -1865,7 +1865,7 @@ www-apps/twint 2.1.20-r2 2.1.20_p20220316: Twitter scraping & OSINT tool written
 www-apps/uwebsockets 20.11.0 20.14.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.2.2 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/browsh 1.6.4_p1: A fully-modern text-based browser, rendering to TTY and browsers
-www-client/nyxt 3_pre20230131 9999: Nyxt - the hacker's power-browser
+www-client/nyxt 3_pre3 9999: Nyxt - the hacker's power-browser
 www-client/torbrowser-launcher 0.3.6 9999: A program to download, update, and run the Tor Browser Bundle
 www-client/vimb 3.6.0 9999: a fast, lightweight, vim-like browser based on webkit
 www-client/woob 3.1 9999: Web Outside Of Browsers (core, site modules and applications)

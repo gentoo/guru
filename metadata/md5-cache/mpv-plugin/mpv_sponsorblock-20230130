@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst prepare setup
+DESCRIPTION=mpv script to skip sponsored segments of YouTube videos
+EAPI=8
+HOMEPAGE=https://github.com/po5/mpv_sponsorblock
+INHERIT=mpv-plugin python-single-r1
+IUSE=+autoload python_single_target_pypy3 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=python_single_target_pypy3? ( >=dev-python/pypy3-7.3.11-r1:0= ) python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) media-video/mpv[lua]
+REQUIRED_USE=^^ ( python_single_target_pypy3 python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
+SLOT=0
+SRC_URI=https://github.com/po5/mpv_sponsorblock/archive/7785c1477103f2fafabfd65fdcf28ef26e6d7f0d.tar.gz -> mpv_sponsorblock-20230130.tar.gz
+_eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=cd71f104c3eb3d2ea282c9fd1cd31199
