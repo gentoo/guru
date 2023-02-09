@@ -1,4 +1,4 @@
-BDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-python/gpep517-13[python_targets_python3_9(-)?,python_targets_python3_10(-)?] || ( >=dev-python/setuptools-67.2.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] <dev-python/setuptools-65.6.4[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) >=dev-python/wheel-0.38.4[python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+BDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-python/gpep517-13[python_targets_python3_9(-)?,python_targets_python3_10(-)?] || ( >=dev-python/setuptools-67.2.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] <dev-python/setuptools-65.7.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) >=dev-python/wheel-0.38.4[python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-python/pycryptodome[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/sjcl[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/base58[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/requests[python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 DESCRIPTION=PrivateBin CLI
@@ -12,5 +12,5 @@ RDEPEND=dev-python/pycryptodome[python_targets_python3_9(-)?,python_targets_pyth
 REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
 SRC_URI=https://github.com/r4sas/PBinCLI/archive/refs/tags/0.3.2.tar.gz -> PBinCLI-0.3.2.tar.gz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	04dde92883ebd9dcb0c9a8626a98d863
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	a9f2e2ae24bd496873c092a94cae1539
 _md5_=d0160b53ac0732cbed51220a075f7a06
