@@ -330,7 +330,7 @@ EGO_SUM=(
 	"sourcegraph.com/sourcegraph/appdash-data v0.0.0-20151005221446-73f23eafcf67/go.mod"
 )
 go-module_set_globals
-SRC_URI="https://github.com/MichaelMure/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
+SRC_URI="https://github.com/MichaelMure/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}"
 
 RESTRICT="strip"
