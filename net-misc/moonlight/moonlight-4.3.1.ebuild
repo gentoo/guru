@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 IUSE="vaapi"
 
 RDEPEND="
-	>=dev-libs/openssl-1.1.1l:0/1.1
+	>=dev-libs/openssl-1.1.1
 	>=media-libs/libsdl2-2.0.16-r1:0[kms]
 	>=media-libs/sdl2-ttf-2.0.15:0
 	>=media-video/ffmpeg-4.4-r1:0
@@ -32,6 +32,9 @@ BDEPEND="
 	virtual/pkgconfig
 	dev-qt/qtcore
 "
+PATCHES=(
+	"${FILESDIR}/${PV}-respect-cflags.patch"
+)
 
 src_configure() {
 	eqmake5 PREFIX="${EPREFIX}/usr"
