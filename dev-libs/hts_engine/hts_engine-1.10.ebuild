@@ -4,8 +4,8 @@
 EAPI=7
 
 DESCRIPTION="HMM-based speech synthesis system (HTS) engine and API"
-HOMEPAGE="http://hts-engine.sourceforge.net/"
-SRC_URI="http://downloads.sourceforge.net/hts-engine/hts_engine_API-${PV}.tar.gz"
+HOMEPAGE="https://hts-engine.sourceforge.net/"
+SRC_URI="https://downloads.sourceforge.net/hts-engine/hts_engine_API-${PV}.tar.gz"
 S="${WORKDIR}/hts_engine_API-${PV}"
 LICENSE="BSD"
 SLOT="0"
