@@ -9,7 +9,7 @@ MY_P="${MY_PN}-${PV}"
 inherit autotools
 
 DESCRIPTION="V. K. Mueller English-Russian Dictionary"
-HOMEPAGE="http://mueller-dict.sourceforge.net"
+HOMEPAGE="https://mueller-dict.sourceforge.net"
 SRC_URI="mirror://sourceforge/${MY_PN}/${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
