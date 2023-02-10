@@ -12,7 +12,7 @@ else
 fi
 
 DESCRIPTION="Modern, cross-platform Quake 1 engine based on FitzQuake"
-HOMEPAGE="http://quakespasm.sourceforge.net"
+HOMEPAGE="https://quakespasm.sourceforge.net"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="sdl2"
