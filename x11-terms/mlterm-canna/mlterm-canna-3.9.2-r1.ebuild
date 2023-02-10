@@ -7,7 +7,7 @@ MYPN="mlterm"
 MYP="${MYPN}-${PV}"
 
 DESCRIPTION="canna plugin for mlterm"
-HOMEPAGE="http://mlterm.sourceforge.net/"
+HOMEPAGE="https://mlterm.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${MYPN}/${MYP}.tar.gz"
 S="${WORKDIR}/${MYP}"
 
