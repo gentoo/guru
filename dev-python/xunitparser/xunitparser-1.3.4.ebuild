@@ -8,7 +8,7 @@ DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
 DESCRIPTION="Read JUnit/XUnit XML files and map them to Python objects"
-HOMEPAGE="http://gitlab.com/woob/xunitparser/"
+HOMEPAGE="https://gitlab.com/woob/xunitparser/"
 SRC_URI="https://gitlab.com/woob/xunitparser/-/archive/v${PV}/xunitparser-v${PV}.tar.gz"
 S="${WORKDIR}/xunitparser-v${PV}/"
 
