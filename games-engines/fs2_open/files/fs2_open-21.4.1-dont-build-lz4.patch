@@ -1,9 +1,0 @@
---- fs2_open/lib/CMakeLists.txt	2021-11-01 18:00:53.000000000 +0100
-+++ fs2_open/lib/CMakeLists.txt	2022-03-26 11:34:48.746075280 +0100
-@@ -50,5 +50,3 @@
- add_subdirectory(mdns)
- 
- add_subdirectory(variant)
--
--ADD_SUBDIRECTORY(lz4)
-\ No newline at end of file

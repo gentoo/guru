@@ -24,7 +24,7 @@ SRC_URI="
 LICENSE="Unlicense MIT Boost-1.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="debug discord"
+IUSE="clang debug discord"
 
 DEPEND="
 	app-arch/lz4
@@ -42,12 +42,13 @@ DEPEND="
 	media-video/ffmpeg
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
+BDEPEND="
+	dev-util/cmake
+	clang? ( sys-devel/clang:= )
+"
 PATCHES=(
 	"${FILESDIR}/${P}-dont-build-lz4.patch"
-	"${FILESDIR}/${P}-dont-override-ldflags.patch"
 	"${FILESDIR}/${P}-make-arch-independent.patch"
-	"${FILESDIR}/${P}-version-fix.patch"
 )
 
 CMAKE_BUILD_TYPE=Release
@@ -58,6 +59,18 @@ src_unpack() {
 	unpack ${A}
 	mv libRocket-${HASH_LIBROCKET}/* "${S}/lib/libRocket/" || die
 	mv cmake-modules-${HASH_CMAKE_MODULES}/* "${S}/cmake/external/rpavlik-cmake-modules/" || die
+}
+
+src_configure() {
+	if use clang ; then
+		# Force clang
+		einfo "Enforcing the use of clang due to USE=clang ..."
+		AR=llvm-ar
+		CC=${CHOST}-clang
+		CXX=${CHOST}-clang++
+		LDFLAGS+=" -fuse-ld=lld"
+	fi
+	cmake_src_configure
 }
 
 src_prepare() {
