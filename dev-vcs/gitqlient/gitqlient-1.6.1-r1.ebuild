@@ -28,7 +28,10 @@ RDEPEND="
 	dev-vcs/git
 "
 
-PATCHES=( "$FILESDIR/${P}_fix_tabs_style.patch" )
+PATCHES=(
+	"$FILESDIR/${P}_fix_tabs_style.patch"
+	"$FILESDIR/${P}_fix_commit_longLog.patch"
+)
 
 src_prepare() {
 	default
