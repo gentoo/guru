@@ -48,6 +48,8 @@ src_install() {
 
 pkg_postinst() {
 	optfeature "Terminal tab plugin support" x11-libs/qtermwidget
-	optfeature "Jenkins and/or GitServer plugins support" dev-qt/qtwebchannel:5 dev-qt/qtwebengine:5[widgets]
+	optfeature "GitServer plugin support" dev-vcs/gitqlient-gitserver-plugin
+	optfeature "Jenkins plugin support"  dev-vcs/gitqlient-jenkins-plugin
+	elog "To use plugins set PluginFolder in GitQlient settings Plugin tab to /usr/$(get_libdir)"
 	xdg_pkg_postinst
 }
