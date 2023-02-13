@@ -7,12 +7,20 @@ inherit cmake toolchain-funcs xdg
 
 DESCRIPTION="An emulator for Nintendo Switch"
 HOMEPAGE="https://yuzu-emu.org"
-SRC_URI="https://github.com/yuzu-emu/yuzu-mainline/archive/d5f6201521cdfd0be09a187d62f95d3a38f18c3e.tar.gz -> ${P}.tar.gz
-	https://github.com/merryhime/dynarmic/archive/befe547d5631024a70d81d2ccee808bbfcb3854e.tar.gz -> ${PN}-dynarmic-${PV}.tar.gz
-	https://github.com/herumi/xbyak/archive/a1ac3750f9a639b5a6c6d6c7da4259b8d6790989.tar.gz -> ${PN}-xbyak-${PV}.tar.gz
+SRC_URI="https://github.com/yuzu-emu/yuzu-mainline/archive/d5f6201521cdfd0be09a187d62f95d3a38f18c3e.tar.gz
+		-> ${P}.tar.gz
+	https://github.com/merryhime/dynarmic/archive/befe547d5631024a70d81d2ccee808bbfcb3854e.tar.gz
+		-> ${PN}-dynarmic-${PV}.tar.gz
+	https://github.com/herumi/xbyak/archive/a1ac3750f9a639b5a6c6d6c7da4259b8d6790989.tar.gz
+		-> ${PN}-xbyak-${PV}.tar.gz
 	https://github.com/yuzu-emu/sirit/archive/ab75463999f4f3291976b079d42d52ee91eebf3f.tar.gz -> ${PN}-sirit-${PV}.tar.gz
-	compatibility-list? ( https://gist.githubusercontent.com/mazes-80/e3f1518e67c3292656a9055ba338994f/raw/b975f96366294d9cf65f844ed8df9189a488463d/yuzu-0_p20230202-compatibility_list.json )
-	discord? ( https://github.com/yuzu-emu/discord-rpc/archive/20cc99aeffa08a4834f156b6ab49ed68618cf94a.tar.gz -> ${PN}-discord-${PV}.tar.gz )"
+	compatibility-list? (
+		https://gist.githubusercontent.com/mazes-80/e3f1518e67c3292656a9055ba338994f/raw/b975f96366294d9cf65f844ed8df9189a488463d/${P}-compatibility_list.json
+	)
+	discord? (
+		https://github.com/yuzu-emu/discord-rpc/archive/20cc99aeffa08a4834f156b6ab49ed68618cf94a.tar.gz
+		-> ${PN}-discord-${PV}.tar.gz
+	)"
 # Dynarmic is not intended to be generic, it is tweaked to fit emulated processor
 # TODO wait 'xbyak' waiting version bump. see #860816
 
@@ -91,7 +99,8 @@ src_prepare() {
 		sed -i -e '/^if.*discord-rpc/,/^endif()/d' externals/CMakeLists.txt || die
 	else
 		# Unbundle discord rapidjson
-		sed -i '/NOT RAPIDJSONTEST/,/endif(NOT RAPIDJSONTEST)/d;/find_file(RAPIDJSON/d;s:\${RAPIDJSON}:"/usr/include/rapidjson":' \
+		sed -i -e '/NOT RAPIDJSONTEST/,/endif(NOT RAPIDJSONTEST)/d' \
+			-e '/find_file(RAPIDJSON/d' -e 's:\${RAPIDJSON}:"/usr/include/rapidjson":' \
 			externals/discord-rpc/CMakeLists.txt || die
 	fi
 
