@@ -1,0 +1,98 @@
+# Copyright 2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+# required because of manuall install in src_install
+CMAKE_MAKEFILE_GENERATOR="emake"
+
+PYTHON_COMPAT=( python3_{9..11} )
+
+inherit cmake python-any-r1 optfeature toolchain-funcs
+
+DESCRIPTION="header-only C++ library for numerical analysis with multi-dimensional arrays"
+HOMEPAGE="https://github.com/xtensor-stack/xtensor"
+SRC_URI="https://codeload.github.com/xtensor-stack/${PN}/tar.gz/refs/tags/${PV} -> ${P}.tar.gz"
+
+LICENSE="BSD"
+SLOT="0"
+KEYWORDS="~amd64"
+
+IUSE="doc openmp tbb test xsimd"
+
+DEPEND="
+	dev-cpp/xtl
+	tbb? ( dev-cpp/tbb )
+	xsimd? ( dev-cpp/xsimd )
+"
+RDEPEND="${DEPEND}"
+BDEPEND="
+	doc? (
+		app-doc/doxygen
+		$(python_gen_any_dep '
+			dev-python/breathe[${PYTHON_USEDEP}]
+			dev-python/sphinx[${PYTHON_USEDEP}]
+			dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
+		')
+	)
+	test? ( dev-cpp/doctest )
+"
+
+RESTRICT="!test? ( test )"
+REQUIRED_USE="?? ( tbb openmp )"
+
+python_check_deps() {
+	python_has_version \
+		"dev-python/breathe[${PYTHON_USEDEP}]" \
+		"dev-python/sphinx[${PYTHON_USEDEP}]" \
+		"dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]"
+}
+
+pkg_pretend() {
+	use openmp && tc-check-openmp
+}
+
+pkg_setup() {
+	use openmp && tc-check-openmp
+	use doc && python-any-r1_pkg_setup
+}
+
+src_prepare() {
+	# Skipping test due to https://github.com/xtensor-stack/xtensor/issues/2653
+	sed -i -e '/test_xoptional\.cpp/d' test/CMakeLists.txt || die
+
+	cmake_src_prepare
+}
+
+src_configure() {
+	local mycmakeargs=(
+		-DBUILD_TESTS=$(usex test)
+		-DXTENSOR_USE_OPENMP=$(usex openmp)
+		-DXTENSOR_USE_TBB=$(usex tbb)
+		-DXTENSOR_USE_XSIMD=$(usex xsimd)
+	)
+
+	cmake_src_configure
+}
+
+src_compile() {
+	use test && cmake_src_compile xtest
+
+	if use doc; then
+		cd "${WORKDIR}/${P}/docs" || die
+		emake html BUILDDIR="${BUILD_DIR}"
+		HTML_DOCS=( "${BUILD_DIR}/html/." )
+	fi
+}
+
+src_install() {
+	# default install starts compiling more tests
+	# that do not affect the header-only install image
+	DESTDIR="${D}" emake -C "${BUILD_DIR}" install/fast "$@"
+
+	einstalldocs
+}
+
+pkg_postinst() {
+	optfeature "JSON support" dev-cpp/nlohmann_json
+}

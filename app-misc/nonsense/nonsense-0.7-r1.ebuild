@@ -9,7 +9,7 @@ DESCRIPTION="Generates random text from datafiles and templates"
 HOMEPAGE="
 	https://github.com/aduial/nonsense
 	https://sourceforge.net/projects/nonsense/
-	http://nonsense.sourceforge.net
+	https://nonsense.sourceforge.net
 "
 SRC_URI="https://github.com/aduial/nonsense/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"

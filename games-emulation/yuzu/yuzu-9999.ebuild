@@ -28,8 +28,8 @@ RDEPEND="
 	>=net-libs/enet-1.3
 	app-arch/lz4:=
 	dev-libs/boost:=[context]
-	media-libs/vulkan-loader
 	media-libs/opus
+	media-libs/vulkan-loader
 	sys-libs/zlib
 	virtual/libusb:1
 	cubeb? ( media-libs/cubeb )
@@ -92,9 +92,9 @@ src_prepare() {
 
 	# Unbundle inih
 	sed -i -e '/^if.*inih/,/^endif()/d' externals/CMakeLists.txt || die
-	sed -i -e '1afind_package(PkgConfig REQUIRED)\npkg_check_modules(INIH REQUIRED INIReader)' src/yuzu_cmd/CMakeLists.txt || die
+	sed -i -e '1afind_package(PkgConfig REQUIRED)\npkg_check_modules(INIH REQUIRED INIReader)' \
+		src/yuzu_cmd/CMakeLists.txt || die
 	sed -i -e 's:inih/cpp/::' src/yuzu_cmd/config.cpp || die
-
 
 	# Unbundle mbedtls
 	sed -i -e '/mbedtls/d' externals/CMakeLists.txt || die
@@ -112,7 +112,8 @@ src_prepare() {
 		sed -i -e '/^if.*discord-rpc/,/^endif()/d' externals/CMakeLists.txt || die
 	else
 		# Unbundle discord rapidjson
-		sed -i '/NOT RAPIDJSONTEST/,/endif(NOT RAPIDJSONTEST)/d;/find_file(RAPIDJSON/d;s:\${RAPIDJSON}:"/usr/include/rapidjson":' \
+		sed -i -e '/NOT RAPIDJSONTEST/,/endif(NOT RAPIDJSONTEST)/d' \
+		-e '/find_file(RAPIDJSON/d' -e 's:\${RAPIDJSON}:"/usr/include/rapidjson":' \
 			externals/discord-rpc/CMakeLists.txt || die
 	fi
 
@@ -121,7 +122,8 @@ src_prepare() {
 	sed -i '/^if.*cubeb/,/^endif()/d' externals/CMakeLists.txt || die
 
 	# Unbundle cpp-httplib
-	sed -i -e '/^	# httplib/,/^	endif()/d' externals/CMakeLists.txt || die
+	sed -i -e '/httplib/s/ 0.11//' CMakeLists.txt || die
+	sed -i -e '/^# httplib/,/^endif()/d' externals/CMakeLists.txt || die
 
 	# Unbundle enet
 	sed -i -e '/^if.*enet/,/^endif()/d' externals/CMakeLists.txt || die

@@ -5,6 +5,9 @@
 		<email>andrewathalye@outlook.com</email>
 		<name>Andrew Athalye</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">moonlight-stream/moonlight-qt</remote-id>
+	</upstream>
 	<use>
 		<flag name="vaapi">
 			Enable support for hardware video decoding using <pkg>media-libs/libva</pkg>.

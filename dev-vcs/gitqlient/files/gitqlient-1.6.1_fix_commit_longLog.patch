@@ -1,0 +1,34 @@
+diff -Naur a/src/cache/CommitInfo.cpp b/src/cache/CommitInfo.cpp
+--- a/src/cache/CommitInfo.cpp
++++ b/src/cache/CommitInfo.cpp
+@@ -16,7 +16,7 @@
+    parseDiff(data, 1);
+ }
+ 
+-void CommitInfo::parseDiff(QByteArray &data, int startingField)
++void CommitInfo::parseDiff(QByteArray &data, qsizetype startingField)
+ {
+    if (data.isEmpty())
+       return;
+@@ -39,9 +39,9 @@
+       committer = fields.at(startingField++);
+       author = fields.at(startingField++);
+       dateSinceEpoch = std::chrono::seconds(fields.at(startingField++).toInt());
+-      shortLog = fields.at(startingField);
++      shortLog = fields.at(startingField++);
+ 
+-      for (auto i = 6; i < fields.count(); ++i)
++      for (auto i = startingField; i < fields.count(); ++i)
+          longLog += fields.at(i) + '\n';
+ 
+       longLog = longLog.trimmed();
+diff -Naur a/src/cache/CommitInfo.h b/src/cache/CommitInfo.h
+--- a/src/cache/CommitInfo.h
++++ b/src/cache/CommitInfo.h
+@@ -96,5 +96,5 @@
+ 
+    friend class GitCache;
+ 
+-   void parseDiff(QByteArray &data, int startingField);
++   void parseDiff(QByteArray &data, qsizetype startingField);
+ };

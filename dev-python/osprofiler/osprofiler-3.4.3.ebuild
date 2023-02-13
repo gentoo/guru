@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -46,7 +46,7 @@ DEPEND="
 		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
 		>=dev-python/pymongo-3.0.2[${PYTHON_USEDEP}]
 		>=dev-python/elasticsearch-py-2.0.0[${PYTHON_USEDEP}]
-		>=dev-python/redis-py-2.10.0[${PYTHON_USEDEP}]
+		>=dev-python/redis-2.10.0[${PYTHON_USEDEP}]
 		>=dev-python/reno-3.1.0[${PYTHON_USEDEP}]
 	)
 "
