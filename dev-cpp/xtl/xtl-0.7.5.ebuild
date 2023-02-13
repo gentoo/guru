@@ -47,11 +47,13 @@ src_configure() {
 }
 
 src_compile() {
-	use test && cmake_src_compile xtest
-
 	if use doc; then
 		cd "${WORKDIR}/${P}/docs" || die
 		emake html BUILDDIR="${BUILD_DIR}"
 		HTML_DOCS=( "${BUILD_DIR}/html/." )
 	fi
+}
+
+src_test() {
+	cmake_src_compile xtest
 }
