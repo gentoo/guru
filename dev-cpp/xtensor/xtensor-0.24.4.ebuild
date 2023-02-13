@@ -3,7 +3,7 @@
 
 EAPI=8
 
-# required because of manuall install in src_install
+# required because of manual install in src_install
 CMAKE_MAKEFILE_GENERATOR="emake"
 
 PYTHON_COMPAT=( python3_{9..11} )
@@ -88,9 +88,9 @@ src_test() {
 }
 
 src_install() {
-	# default install starts compiling more tests
-	# that do not affect the header-only install image
-	DESTDIR="${D}" emake -C "${BUILD_DIR}" install/fast "$@"
+	# Default install target depends on tests with USE=test enabled.
+	# However, this is a header-only library.
+	DESTDIR="${D}" cmake_build install/fast "$@"
 
 	einstalldocs
 }
