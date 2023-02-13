@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile install postinst prepare test
+DEPEND=|| ( ~dev-lang/zig-0.10.1 ~dev-lang/zig-bin-0.10.1 )
+DESCRIPTION=The officially unofficial Ziglang language server
+EAPI=8
+HOMEPAGE=https://github.com/zigtools/zls
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=|| ( ~dev-lang/zig-0.10.1 ~dev-lang/zig-bin-0.10.1 )
+SLOT=0
+SRC_URI=https://github.com/ziglibs/known-folders/archive/24845b0103e611c108d6bc334231c464e699742c.tar.gz -> known-folders-24845b0103e611c108d6bc334231c464e699742c.tar.gz https://github.com/wolfpld/tracy/archive/f493d4aa8ba8141d9680473fad007d8a6348628e.tar.gz -> tracy-f493d4aa8ba8141d9680473fad007d8a6348628e.tar.gz https://github.com/zigtools/zls/archive/refs/tags/0.10.0.tar.gz -> zls-0.10.0.tar.gz
+_md5_=8738e71f824032ae4a14f88c1b7497ed

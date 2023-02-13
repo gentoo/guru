@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig dev-qt/qtcore
+DEFINED_PHASES=configure install postinst postrm
+DEPEND=>=dev-libs/openssl-1.1.1 >=media-libs/libsdl2-2.0.16-r1:0[kms] >=media-libs/sdl2-ttf-2.0.15:0 >=media-video/ffmpeg-4.4-r1:0 >=dev-qt/qtsvg-5.15.2-r10:5/5.15 >=dev-qt/qtquickcontrols2-5.15.2-r11:5 >=media-libs/opus-1.3.1-r2:0 >=media-sound/pulseaudio-15.0-r1:0 vaapi? ( >=media-libs/libva-2.12.0:0 )
+DESCRIPTION=GameStream client for PCs
+EAPI=8
+HOMEPAGE=https://github.com/moonlight-stream/moonlight-qt
+INHERIT=qmake-utils xdg-utils
+IUSE=vaapi
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=>=dev-libs/openssl-1.1.1 >=media-libs/libsdl2-2.0.16-r1:0[kms] >=media-libs/sdl2-ttf-2.0.15:0 >=media-video/ffmpeg-4.4-r1:0 >=dev-qt/qtsvg-5.15.2-r10:5/5.15 >=dev-qt/qtquickcontrols2-5.15.2-r11:5 >=media-libs/opus-1.3.1-r2:0 >=media-sound/pulseaudio-15.0-r1:0 vaapi? ( >=media-libs/libva-2.12.0:0 )
+SLOT=0
+SRC_URI=https://github.com/moonlight-stream/moonlight-qt/releases/download/v4.3.1/MoonlightSrc-4.3.1.tar.gz
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707	xdg-utils	ac0e315a3688929e34ac75b139e7349a
+_md5_=60b6aa5d139beff1a9288a4e89469e53

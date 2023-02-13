@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install prepare setup test
+DESCRIPTION=Dynamic Kernel Module Support
+EAPI=8
+HOMEPAGE=https://github.com/dell/dkms
+INHERIT=linux-info
+IUSE=systemd
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=sys-apps/kmod systemd? ( sys-apps/systemd )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/dell/dkms/archive/v3.0.10.tar.gz -> dkms-3.0.10.tar.gz
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e
+_md5_=56f340f343924b32be1ef13ce01753c2

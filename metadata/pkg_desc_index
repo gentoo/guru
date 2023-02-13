@@ -103,7 +103,7 @@ app-crypt/ifcplugin-bin 3.1.1.0: Crypto Interface Web Browser Plugin
 app-crypt/intel-ipsec-mb 1.1 1.2 1.3 9999: Multi-Buffer Crypto for IPSec from Intel
 app-crypt/pinentry-bemenu 0.11.0: Pinentry based on bemenu
 app-crypt/reop 2.1.1: reasonable expectation of privacy
-app-crypt/tang 11: Tang binding daemon
+app-crypt/tang 11 12: Tang binding daemon
 app-crypt/tomb 2.9-r6: Tomb :: File Encryption on GNU/Linux
 app-crypt/tpm2-openssl 1.1.1: OpenSSL Provider for TPM2 integration
 app-crypt/uacme 1.7.1: ACMEv2 client written in plain C with minimal dependencies
@@ -183,7 +183,7 @@ app-misc/glow 1.4.1: Render markdown on the CLI, with pizzazz!
 app-misc/grit 0.3.0: An personal task manager that represents tasks as multitree nodes
 app-misc/hollywood 1.22: Fill your console with Hollywood melodrama technobabble
 app-misc/kloak 0.2.30: A privacy tool that makes keystroke biometrics less effective
-app-misc/ledger-live 2.49.2 2.50.0 2.50.1 2.51.0 2.52.0: Manager for the Ledger hardware wallet
+app-misc/ledger-live 2.50.0 2.50.1 2.51.0 2.52.0 2.53.1: Manager for the Ledger hardware wallet
 app-misc/lf 27 28: Terminal file manager
 app-misc/macchina 5.0.2 6.0.5 6.0.6 6.1.6: A system information fetcher, with an (unhealthy) emphasis on performance.
 app-misc/mangadesk 0.7.7 0.7.8: Terminal Client for MangaDex
@@ -498,6 +498,9 @@ dev-cpp/vexcl 1.4.3-r2: VexCL - Vector expression template library for OpenCL
 dev-cpp/wangle 2022.04.11.00-r1: Framework providing common client/server abstractions
 dev-cpp/workflow 0.10.2-r1 0.10.3 9999: C++ Parallel Computing and Asynchronous Networking Engine
 dev-cpp/xdgpp 0_pre20201007-r1: C++17 header-only implementation of the XDG Base Directory Specification
+dev-cpp/xsimd 10.0.0: C++ wrappers for SIMD intrinsics
+dev-cpp/xtensor 0.24.4: header-only C++ library for numerical analysis with multi-dimensional arrays
+dev-cpp/xtl 0.7.5: Algorithms and containers used by the xtensor stack and the xeus stack
 dev-crystal/athena-negotiation 0.1.2: Framework agnostic content negotiation library
 dev-crystal/athena-spec 0.3.1 0.3.2: Common/helpful Spec compliant testing utilities
 dev-crystal/backtracer 1.2.2: Crystal shard aiming to assist with parsing backtraces into a structured form
@@ -840,6 +843,7 @@ dev-python/click-option-group 0.5.5: Option groups missing in Click
 dev-python/click-repl 0.2.0-r1: Subcommand REPL for click apps
 dev-python/clufter 0.77.2: Tool/library for transforming/analyzing cluster configuration formats
 dev-python/cmarkgfm 2022.10.27: Python bindings for GitHub's cmark
+dev-python/codecov 2.1.12: Hosted coverage reports for GitHub, Bitbucket and Gitlab
 dev-python/collidoscope 0.4.1 0.5.2: Brute force detection of glyph collisions
 dev-python/colored 1.4.2 1.4.3: Very simple Python library for color and formatting in terminal
 dev-python/commandlines 0.4.1: Routines for extracting information from fontTools glyphs
@@ -907,6 +911,7 @@ dev-python/gpxpy 1.5.0: GPX file parser and GPS track manipulation library
 dev-python/graphene 3.0.0: GraphQL Framework for Python
 dev-python/graphql-core 3.1.6: GraphQL for Python
 dev-python/graphql-relay 3.1.0: Relay library for graphql-core-next
+dev-python/griffe 0.25.4: Signatures for entire Python programs.
 dev-python/grpclib 0.4.2 0.4.3_rc2: Pure-Python gRPC implementation for asyncio
 dev-python/guidata 2.3.0: Library for user interfaces for easy dataset editing and display
 dev-python/hachoir 3.2.0: Hachoir is a Python library to view and edit a binary stream field by field
@@ -922,6 +927,7 @@ dev-python/i3ipc 2.2.1 2.2.1-r1: An improved Python library to control i3wm and 
 dev-python/injector 0.18.4: Python dependency injection framework
 dev-python/inscriptis 2.3.1 2.3.2: HTML to text converter
 dev-python/insipid-sphinx-theme 0.4.0 0.4.1: An insipid Sphinx theme
+dev-python/invoke 2.0.0: Pythonic task execution
 dev-python/isosurfaces 0.1.0: Construct isolines/isosurfaces of a 2D/3D scalar field defined by a function
 dev-python/itemadapter 0.4.0 0.6.0 0.7.0: Common interface for scrapy data container classes
 dev-python/itemloaders 1.0.4 1.0.6: Library to populate items using XPath and CSS with a convenient API
@@ -947,8 +953,13 @@ dev-python/microversion-parse 1.0.1-r1: A simple parser for OpenStack microversi
 dev-python/minio 7.1.12: MinIO Client SDK for Python
 dev-python/mistletoe 0.9.0: A fast, extensible and spec-compliant Markdown parser in pure Python.
 dev-python/mitype 0.2.4: Typing speed test in terminal
+dev-python/mkdocs-autorefs 0.4.1: Automatically link across pages in MkDocs.
+dev-python/mkdocs-blog-plugin 9999: Plugin for MkDocs to keep a simple blog section inside your documentation.
 dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your output
+dev-python/mkdocs-mkdocstrings 0.20.0: Automatic documentation from sources, for MkDocs.
+dev-python/mkdocs-mkdocstrings-python 0.8.3: A Python handler for mkdocstrings.
 dev-python/mkdocs-render-swagger-plugin 0.0.4: MKDocs plugin for rendering swagger & openapi files
+dev-python/mkdocs-rss-plugin 1.5.0: MkDocs plugin to generate a RSS feeds.
 dev-python/mnemonic 0.19: Reference implementation of BIP-0039 for generating deterministic keys
 dev-python/mobi 0.3.3: unpack unencrypted mobi files
 dev-python/moderngl 5.7.4: Modern OpenGL binding for python
@@ -1000,6 +1011,7 @@ dev-python/protego 0.1.16 0.2.1: robots.txt parser with support for modern conve
 dev-python/proxy_tools 0.1.0: Simple proxy (as in the GoF design pattern)
 dev-python/psycopg2cffi 2.9.0: Implementation of the psycopg2 module using cffi. Compatible with Psycopg 2.5.
 dev-python/pure-protobuf 2.2.0 2.2.1: Python implementation of Protocol Buffers data types with dataclasses support
+dev-python/py-nanoid 9999: Python Nanoid
 dev-python/py3nvml 0.2.6: Python 3 Bindings for the NVIDIA Management Library
 dev-python/pyagentx 0.4: Python AgentX Implementation
 dev-python/pybeam 0.7-r1: Python module to parse Erlang BEAM files
@@ -1039,6 +1051,7 @@ dev-python/pytest-instafail 0.4.2: Plugin for pytest that shows failures and err
 dev-python/pytest-isort 3.1.0: Plugin to check import ordering using isort
 dev-python/pytest-randomly 3.12.0: Pytest plugin to randomly order tests and control random.seed
 dev-python/pytest-steps 1.8.0: Create step-wise / incremental tests in pytest
+dev-python/pytest-syrupy 4.0.0: The sweeter pytest snapshot plugin
 dev-python/pytest-vcr 1.0.2: Plugin for managing VCR.py cassettes
 dev-python/python-barbicanclient 5.3.0: Client library for Barbican API
 dev-python/python-betterproto 2.0.0_beta4 9999: Better Protobuf / gRPC Support for Python
@@ -1094,7 +1107,6 @@ dev-python/sphinx-hoverxref 1.3.0: Sphinx extension to show tooltips with conten
 dev-python/sphinx-rtd-dark-mode 1.2.4: Dark mode for the Sphinx Read the Docs theme
 dev-python/sphinx-sitemap 2.2.1: Sitemap generator for Sphinx
 dev-python/sphinx-version-warning 1.1.2: Sphinx extension to add a warning banner
-dev-python/sphinxcontrib-jquery 3.0.0: Extension to include jQuery on newer Sphinx releases
 dev-python/sphinxcontrib-katex 0.9.3 0.9.4: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-restbuilder 0.3: A Sphinx builder/writer to output reStructuredText (rst) files
 dev-python/sre_yield 1.2: Python module to generate regular all expression matches
@@ -1138,6 +1150,7 @@ dev-python/ukpostcodeparser 1.1.2-r1: UK postcode parser library
 dev-python/unicodedata2 14.0.0: Unicodedata backport for python 2/3 updated to the latest unicode version
 dev-python/urlmatch 1.0.1-r2: A Python library for easily pattern matching wildcard URLs
 dev-python/usort 1.0.2: Safe, minimal import sorting for Python projects
+dev-python/validator-collection 1.5.0: Python library of 60+ commonly-used validator functions.
 dev-python/vharfbuzz 0.1.3 0.1.4: A user-friendlier way to use Harfbuzz in Python
 dev-python/volatile 2.1.0: A small extension for the tempfile module
 dev-python/vttlib 0.11.0: Dump, merge and compile Visual TrueType data in UFO3 with FontTools
@@ -1190,7 +1203,7 @@ dev-util/fpm 0.7.0-r1: Fortran Package Manager (fpm)
 dev-util/fypp 3.1: Fypp - Python powered Fortran preprocessor
 dev-util/gammaray 2.11.3: High-level runtime introspection tool for Qt applications
 dev-util/gftools 0.9.21: Miscellaneous tools for working with the Google Fonts collection
-dev-util/git-bug 0.7.1 9999: distributed, offline-first bug tracker
+dev-util/git-bug 0.7.2 9999: distributed, offline-first bug tracker
 dev-util/glsl-language-server 0.3.7: Language server implementation for GLSL
 dev-util/gshards 0.1-r1: Small helper tools to aid installing Crystal packages in Gentoo
 dev-util/haredo 1.0.2 9999: a simple and unix-idiomatic build automator
@@ -1224,18 +1237,20 @@ dev-vcs/git-blame-someone-else 0_pre20180613: Blame someone else for your bad co
 dev-vcs/git-cu 0.5.0: Helps to keep your local git repositories organized
 dev-vcs/git-repo-updater 0.5.1-r2: Easily update multiple git repositories at once
 dev-vcs/gitahead 2.6.3: Graphical Git client to help understand and manage source code history
-dev-vcs/gitqlient 1.5.0-r1 1.6.1 9999: Multi-platform Git client written with Qt
+dev-vcs/gitqlient 1.5.0-r1 1.6.1 1.6.1-r1 9999: Multi-platform Git client written with Qt
+dev-vcs/gitqlient-gitserver-plugin 0.2.0: GitQlient GitServer plugin
+dev-vcs/gitqlient-jenkins-plugin 0.2.0: GitQlient Jenkins plugin
 dev-vcs/gitui 0.18.0 0.20.1: Blazing fast terminal-ui for git
 dev-vcs/got 0.79 0.82: Portable version of the Game of Trees version control system
 dev-vcs/lazygit 0.35 0.36 0.37: Simple terminal UI for git commands
 dev-vcs/lefthook 1.0.4 1.2.6: Fast and powerful Git hooks manager for any type of projects
-dev-zig/zls 9999: The officially unofficial Ziglang language server
-games-action/ATLauncher 3.4.3.1: Minecraft launcher which integrates multiple different ModPacks
+dev-zig/zls 0.10.0 9999: The officially unofficial Ziglang language server
+games-action/ATLauncher 3.4.3.1 3.4.27.0: Minecraft launcher which integrates multiple different ModPacks
 games-action/blackvoxel 2.50 9999: Blackvoxel Video Game
 games-action/ddnet 16.7.2 9999: DDraceNetwork, a cooperative racing mod of Teeworlds
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
-games-action/technic-launcher 4.625: Minecraft launcher for community-made modpacks on the Technic Platform
+games-action/technic-launcher 4.625 4.768: Minecraft launcher for community-made modpacks on the Technic Platform
 games-arcade/SpaceCadetPinball 2.0 2.0.1 9999: Decompilation of 3D Pinball for Windows - Space Cadet
 games-arcade/opensurge 0.5.2.1 9999: fun 2D retro platformer inspired by old-school Sonic games
 games-arcade/taisei 1.3.2-r1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
@@ -1250,10 +1265,10 @@ games-emulation/flycast 9999: Sega Dreamcast, Naomi and Atomiswave emulator
 games-emulation/mupen64plus-qt 1.15 9999: A basic launcher for Mupen64Plus
 games-emulation/np2kai 22 22_p20210211: NP2kai is an emulator for the japanese PC-98 series of computers
 games-emulation/rpcs3 9999: PS3 emulator/debugger
-games-emulation/yuzu 0_p20220725 0_p20230202 9999: An emulator for Nintendo Switch
+games-emulation/yuzu 0_p20230202 9999: An emulator for Nintendo Switch
 games-engines/boxtron 0.5.4-r2: Steam Play compatibility tool to run DOS games using native Linux DOSBox
 games-engines/easyrpg-player 0.7.0: RPG Maker 2000/2003 and EasyRPG games interpreter
-games-engines/fs2_open 21.4.1-r2 22.0.0 22.2.0: FreeSpace2 Source Code Project game engine
+games-engines/fs2_open 22.2.0 23.0.0: FreeSpace2 Source Code Project game engine
 games-engines/instead 3.3.5 3.4.1 9999: INSTEAD text-based quest game engine
 games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games using native Linux engines
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
@@ -1274,7 +1289,7 @@ games-puzzle/baba-is-you 474: Puzzle game where you can change the rules by whic
 games-puzzle/krank 8: Little casual game
 games-puzzle/superflu-riteurnz 1.0.0: Artisanal video-game about Superflu, the useless super-hero (french)
 games-rpg/airshipper 0.7.0-r1: Provides automatic updates for the voxel RPG Veloren
-games-rpg/snoot-game 1.8: Visual novel parody of Goodbye Volcano High
+games-rpg/snoot-game 1.8 1.8-r1: Visual novel parody of Goodbye Volcano High
 games-server/among-sus 20210519: Among Us, but it's a text adventure
 games-util/NotEnoughProduction 0.0.4: Tool for building production chains for modded minecraft
 games-util/chiaki 2.1.1-r1 9999: Client for PlayStation 4 and PlayStation 5 Remote Play
@@ -1452,7 +1467,7 @@ media-sound/dzr 221112: DZR: the command line deezer.com player
 media-sound/helvum 0.3.4 0.3.4-r2: A GTK patchbay for pipewire
 media-sound/hushboard 0.0_pre20220518 9999: Mutes your microphone while you are typing
 media-sound/ibniz 1.18-r1: virtual machine designed for extremely compact low-level audiovisual programs
-media-sound/jacktrip 1.6.8 1.7.0: Send JACK audio over a network
+media-sound/jacktrip 1.7.0 1.7.1: Send JACK audio over a network
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/mopidy 3.3.0: An extensible music server written in Python.
 media-sound/mpd-mpris 0.3.1: An implementation of the MPRIS protocol for MPD.
@@ -1515,7 +1530,7 @@ net-im/Quaternion 0.0.95.1: A Qt-based IM client for Matrix
 net-im/abaddon 0.1.8 9999: Alternative Discord client using GTK instead of Electron
 net-im/chatterino 2.3.5-r3: Chat client for https://twitch.tv
 net-im/conduit 0.5.0: A Matrix homeserver written in Rust
-net-im/discord-canary-bin 0.0.146: All-in-one voice and text chat
+net-im/discord-canary-bin 0.0.148: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.29: All-in-one voice and text chat
 net-im/gajim-plugins 9999: Plugins developed fro Gajim XMPP client
 net-im/go-sendxmpp 0.5.5 0.5.6: A little tool to send messages to an XMPP contact or MUC
@@ -1532,7 +1547,7 @@ net-im/mautrix-slack 0_pre20230124: A Matrix-Slack puppeting bridge based on sla
 net-im/mautrix-telegram 0.12.2_p20230118: A Matrix-Telegram Messenger puppeting bridge
 net-im/nheko 0.10.2-r1 0.11.1 9999: Native desktop client for Matrix using Qt
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
-net-im/session-desktop-bin 1.10.4-r1: Session Desktop - Onion routing based messenger
+net-im/session-desktop-bin 1.10.7: Session Desktop - Onion routing based messenger
 net-im/whatsapp-for-linux 1.3.2 1.3.2-r1 1.5.3: An unofficial WhatsApp desktop application for Linux
 net-irc/catgirl 2.0a 2.1: TLS-only terminal IRC client
 net-irc/pounce 3.0: Multi-client, TLS-only IRC bouncer
@@ -1550,7 +1565,7 @@ net-libs/signald 0.23.2: an API for interacting with Signal Private Messenger
 net-libs/td 1.8.0 9999: Cross-platform library for building Telegram clients
 net-libs/telepathy-haze 0.8.1: Telepathy connection manager providing libpurple supported protocols
 net-libs/udt 4.11_p20181126: UDT is a UDP based data transport protocol
-net-libs/ulfius 2.7.12: HTTP Framework for REST Applications in C
+net-libs/ulfius 2.7.13: HTTP Framework for REST Applications in C
 net-libs/usockets 0.8.1_p20211023 9999: tiny eventing, networking & crypto for async applications
 net-mail/dovecot-fts-xapian 1.5.4 1.5.5 9999: Dovecot FTS plugin backed by Xapian
 net-mail/hydroxide 0.2.23 0.2.24 9999: A third-party, open-source ProtonMail CardDAV, IMAP and SMTP bridge
@@ -1567,11 +1582,11 @@ net-misc/giara 1.0.1: An app for Reddit
 net-misc/gmid 1.8.5 1.8.6 9999: Simple and secure Gemini server
 net-misc/gnome-ssh-askpass 9.1_p1: GTK-based passphrase dialog for use with OpenSSH
 net-misc/lyrics-in-terminal 1.4.2 1.5.0: Command Line Lyrics fetcher for MPRIS media players
-net-misc/maestral 1.5.3 1.6.5 1.7.0_rc1: Maestral is an open-source Dropbox client written in Python
+net-misc/maestral 1.5.3 1.6.5 1.7.0_rc2: Maestral is an open-source Dropbox client written in Python
 net-misc/maestral-qt 1.5.3 1.6.5 1.7.0_rc0: Maestral is an open-source Dropbox client written in Python
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
-net-misc/moonlight 3.1.4: GameStream client for PCs
+net-misc/moonlight 4.3.1: GameStream client for PCs
 net-misc/myip 1.2.0: Get your external IP address using STUN server
 net-misc/ooni-probe-cli 3.16.6 3.16.7: OONI Probe network measurement tool for detecting internet censorship
 net-misc/openbgpd 6.8_p0 6.9_p0 9999: OpenBGPD is a free implementation of BGPv4
@@ -1810,9 +1825,10 @@ sys-fs/dwarfs-bin 0.6.1: Static version of a fast very high compression read-onl
 sys-fs/gcsfuse 0.41.4: A user-space file system for interacting with Google Cloud Storage
 sys-fs/gdu 5.13.2 5.14.0: Disk usage analyzer with console interface written in Go
 sys-fs/gfs2-utils 3.4.1: Shared-disk cluster file system
+sys-fs/ntfs2btrfs 20220812: Conversion tool from NTFS to Btrfs
 sys-fs/python-btrfs 13-r1: Python 3 module to inspect btrfs filesystems
 sys-fs/ufiformat 0.9.9: USB Floppy Disk formatting tool
-sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
+sys-kernel/dkms 2.8.4 3.0.10: Dynamic Kernel Module Support
 sys-kernel/dpdk-kmod 21.11.1 22.07: DPDK Kernel Nic Interface module
 sys-kernel/modprobed-db 2.46: This utility tracks modules loaded by the kernel, for localmodconfig
 sys-kernel/msr-safe 1.6.0: Allows safer access to model specific registers (MSRs)

@@ -58,6 +58,9 @@ dev-cpp/tiny-dnn:opencl - Build tiny-dnn with OpenCL library support
 dev-cpp/tiny-dnn:serialization - Build tiny-dnn with Serialization support
 dev-cpp/tiny-dnn:tbb - Build tiny-dnn with TBB library support
 dev-cpp/vexcl:amdsi - Implement workaround for AMD SI GPUs
+dev-cpp/xtensor:openmp - Enable parallel assignment loop using OpenMP
+dev-cpp/xtensor:tbb - Enable parallel assignment loop using dev-cpp/tbb
+dev-cpp/xtensor:xsimd - Enable SIMD accelaration using dev-cpp/xsimd
 dev-embedded/esp-idf:esp32 - Enable support for esp32
 dev-embedded/esp-idf:esp32s2 - Enable support for esp32
 dev-embedded/esp-idf:esp32s3 - Enable support for esp32

@@ -1,9 +1,9 @@
 DEFINED_PHASES=install
 DESCRIPTION=Generates random text from datafiles and templates
 EAPI=8
-HOMEPAGE=https://github.com/aduial/nonsense https://sourceforge.net/projects/nonsense/ http://nonsense.sourceforge.net
+HOMEPAGE=https://github.com/aduial/nonsense https://sourceforge.net/projects/nonsense/ https://nonsense.sourceforge.net
 KEYWORDS=~amd64
 LICENSE=GPL-3
 SLOT=0
 SRC_URI=https://github.com/aduial/nonsense/archive/766d34590e1fc0edddb381ad16fab57f5d20d299.tar.gz -> nonsense-0.7.tar.gz
-_md5_=c9add08f562c34e4584eff1181af4c6e
+_md5_=bbb74a75247def162ff3810328cb2729

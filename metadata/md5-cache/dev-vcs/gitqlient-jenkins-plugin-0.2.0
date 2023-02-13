@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install postinst prepare
+DESCRIPTION=GitQlient Jenkins plugin
+EAPI=8
+HOMEPAGE=https://github.com/francescmm/JenkinsPlugin
+INHERIT=qmake-utils
+KEYWORDS=~amd64
+LICENSE=LGPL-2.1
+PDEPEND=>=dev-vcs/gitqlient-1.6.1
+RDEPEND=dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 dev-qt/qtwebengine:5[widgets]
+SLOT=0
+SRC_URI=https://github.com/francescmm/JenkinsPlugin/archive/refs/tags/0.2.0.tar.gz -> gitqlient-JenkinsPlugin-0.2.0.tar.gz https://github.com/francescmm/GitQlient/releases/download/v1.6.1/gitqlient_1.6.1.tar.gz -> gitqlient-1.6.1.tar.gz
+_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707
+_md5_=0a932be3f625f12d0fe067812f0394d8
