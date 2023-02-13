@@ -17,7 +17,7 @@ SRC_URI="
 	https://github.com/francescmm/${GQ}/releases/download/v${GQ_PV}/${GQ_PN}_${GQ_PV}.tar.gz -> ${GQ_PN}-${GQ_PV}.tar.gz
 "
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 LICENSE="LGPL-2.1"
 SLOT="0"
 
