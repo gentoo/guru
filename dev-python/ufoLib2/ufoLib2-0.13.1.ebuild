@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 DOCS_DEPEND="
-	dev-python/sphinx_rtd_theme
+	dev-python/sphinx-rtd-theme
 	dev-python/typing-extensions
 "
 DOCS_DIR="${S}/docs/source"

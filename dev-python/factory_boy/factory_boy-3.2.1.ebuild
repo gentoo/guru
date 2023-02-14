@@ -41,4 +41,4 @@ python_prepare_all() {
 
 distutils_enable_tests --install unittest
 
-distutils_enable_sphinx docs dev-python/sphinx_rtd_theme dev-python/sphinxcontrib-spelling
+distutils_enable_sphinx docs dev-python/sphinx-rtd-theme dev-python/sphinxcontrib-spelling

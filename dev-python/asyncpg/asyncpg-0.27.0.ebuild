@@ -26,7 +26,7 @@ BDEPEND="
 
 distutils_enable_tests unittest
 
-distutils_enable_sphinx docs dev-python/sphinxcontrib-asyncio dev-python/sphinx_rtd_theme
+distutils_enable_sphinx docs dev-python/sphinxcontrib-asyncio dev-python/sphinx-rtd-theme
 
 python_test() {
 	cd "${T}" || die

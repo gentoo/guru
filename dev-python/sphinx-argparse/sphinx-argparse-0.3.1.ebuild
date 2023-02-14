@@ -26,7 +26,7 @@ RDEPEND="
 distutils_enable_tests pytest
 
 # requires self to build own documentation
-distutils_enable_sphinx docs dev-python/sphinx_rtd_theme dev-python/sphinx-argparse
+distutils_enable_sphinx docs dev-python/sphinx-rtd-theme dev-python/sphinx-argparse
 
 python_prepare_all() {
 	# needs test files in workdir to compile docs for some reason

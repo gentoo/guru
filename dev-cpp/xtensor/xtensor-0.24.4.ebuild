@@ -32,7 +32,7 @@ BDEPEND="
 		$(python_gen_any_dep '
 			dev-python/breathe[${PYTHON_USEDEP}]
 			dev-python/sphinx[${PYTHON_USEDEP}]
-			dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
+			dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]
 		')
 	)
 	test? ( dev-cpp/doctest )
@@ -45,7 +45,7 @@ python_check_deps() {
 	python_has_version \
 		"dev-python/breathe[${PYTHON_USEDEP}]" \
 		"dev-python/sphinx[${PYTHON_USEDEP}]" \
-		"dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]"
+		"dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]"
 }
 
 pkg_pretend() {

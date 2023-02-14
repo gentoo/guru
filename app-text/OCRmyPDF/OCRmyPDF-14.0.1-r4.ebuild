@@ -45,7 +45,7 @@ distutils_enable_tests pytest
 
 distutils_enable_sphinx docs \
 	dev-python/sphinx-issues \
-	dev-python/sphinx_rtd_theme
+	dev-python/sphinx-rtd-theme
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 

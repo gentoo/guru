@@ -18,7 +18,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	doc? ( dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}] )
+	doc? ( dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}] )
 	test? ( dev-python/pytest-mock[${PYTHON_USEDEP}] )
 "
 DEPEND="${RDEPEND}"

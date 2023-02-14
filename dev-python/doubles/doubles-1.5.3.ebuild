@@ -24,7 +24,7 @@ BDEPEND="
 
 DOCS=( CHANGES.rst CONTRIBUTING.rst README.rst )
 
-distutils_enable_sphinx docs/source dev-python/sphinx_rtd_theme
+distutils_enable_sphinx docs/source dev-python/sphinx-rtd-theme
 distutils_enable_tests pytest
 
 EPYTEST_DESELECT=(

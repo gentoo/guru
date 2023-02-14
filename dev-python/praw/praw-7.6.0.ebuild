@@ -34,7 +34,7 @@ EPYTEST_DESELECT=(
 	tests/unit/models/reddit/test_submission.py::TestSubmission::test_comment_sort_warning__disabled
 )
 
-distutils_enable_sphinx docs dev-python/sphinx_rtd_theme
+distutils_enable_sphinx docs dev-python/sphinx-rtd-theme
 
 distutils_enable_tests pytest
 

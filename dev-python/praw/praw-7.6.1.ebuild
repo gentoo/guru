@@ -29,7 +29,7 @@ BDEPEND="test? (
 distutils_enable_tests pytest
 
 distutils_enable_sphinx docs \
-	dev-python/sphinx_rtd_theme \
+	dev-python/sphinx-rtd-theme \
 	dev-python/sphinx-rtd-dark-mode
 
 python_prepare_all() {

@@ -37,7 +37,7 @@ DEPEND="
 BDEPEND="
 	doc? (
 		dev-python/sphinx
-		dev-python/sphinx_rtd_theme
+		dev-python/sphinx-rtd-theme
 		dev-python/sphinxemoji
 	)
 "

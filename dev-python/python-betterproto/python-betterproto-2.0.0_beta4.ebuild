@@ -40,7 +40,7 @@ BDEPEND="
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs \
-	'>=dev-python/sphinx_rtd_theme-0.5.0'
+	'>=dev-python/sphinx-rtd-theme-0.5.0'
 
 python_prepare() {
 	default

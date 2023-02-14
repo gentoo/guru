@@ -52,5 +52,5 @@ distutils_enable_tests pytest
 #distutils_enable_sphinx docs \
 	#dev-python/recommonmark \
 	#dev-python/sphinx-autodoc-typehints \
-	#dev-python/sphinx_rtd_theme \
+	#dev-python/sphinx-rtd-theme \
 	#dev-python/sphinxcontrib-apidoc

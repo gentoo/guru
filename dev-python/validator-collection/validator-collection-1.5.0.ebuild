@@ -24,7 +24,7 @@ BDEPEND="
 	dev-python/jsonschema[${PYTHON_USEDEP}]
 	dev-python/sphinx[${PYTHON_USEDEP}]
 	dev-python/sphinx-tabs[${PYTHON_USEDEP}]
-	dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
+	dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]
 	test? (
 		dev-python/coverage[${PYTHON_USEDEP}]
 		dev-python/pytest[${PYTHON_USEDEP}]

@@ -47,7 +47,7 @@ RDEPEND="
 	>=dev-python/dnspython-2.2.1[${PYTHON_USEDEP}]
 "
 
-distutils_enable_sphinx docs dev-python/sphinx_rtd_theme
+distutils_enable_sphinx docs dev-python/sphinx-rtd-theme
 distutils_enable_tests pytest
 
 # Same than PATCHES but from repository's root directory,

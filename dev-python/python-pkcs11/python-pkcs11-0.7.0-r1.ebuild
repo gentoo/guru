@@ -5,7 +5,7 @@ EAPI=8
 
 DOCS_BUILDER="sphinx"
 DOCS_DIR="${S}/docs"
-DOCS_DEPEND="dev-python/sphinx_rtd_theme"
+DOCS_DEPEND="dev-python/sphinx-rtd-theme"
 PYTHON_COMPAT=( python3_{8..10} )
 
 inherit distutils-r1 docs
