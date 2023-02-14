@@ -132,12 +132,14 @@ src_prepare() {
 	# LZ4 temporary fix: https://github.com/yuzu-emu/yuzu/pull/9054/commits/a8021f5a18bc5251aef54468fa6033366c6b92d9
 	sed -i 's/lz4::lz4/lz4/' src/common/CMakeLists.txt || die
 
-	# Temporary use lastest gentoo vulkan
-	sed -i -e '/Vulkan/s/238/236/' CMakeLists.txt || die
-	sed -i -e '/VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR/d;' -e '/VK_ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR/d' \
-		-e '/VK_ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR/d' -e '/VK_ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR/d' \
-		-e '/VK_ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR/d' -e '/VK_ERROR_VIDEO_STD_VERSION_NOT_SUPPORTED_KHR/d' \
-		src/video_core/vulkan_common/vulkan_wrapper.cpp
+	# Allow compiling using older glslang
+	if has_version '<dev-util/glslang-1.3.238'; then
+		sed -i -e '/Vulkan/s/238/236/' CMakeLists.txt || die
+		sed -i -e '/VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR/d;' -e '/VK_ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR/d' \
+			-e '/VK_ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR/d' -e '/VK_ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR/d' \
+			-e '/VK_ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR/d' -e '/VK_ERROR_VIDEO_STD_VERSION_NOT_SUPPORTED_KHR/d' \
+			src/video_core/vulkan_common/vulkan_wrapper.cpp
+	fi
 
 	cmake_src_prepare
 }
