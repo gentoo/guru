@@ -703,6 +703,7 @@ sys-boot/limine:limine-install - Enables building the limine-install program.
 sys-boot/limine:uefi - Enable UEFI support.
 sys-boot/limine:uefi32 - Enable 32-bit UEFI support.
 sys-boot/limine:uefi64 - Enable 64-bit UEFI support.
+sys-boot/limine:uefiaa64 - Enable AArch64 UEFI support.
 sys-cluster/OpenHPC-meta:io-libs - Collection of IO libraries
 sys-cluster/OpenHPC-meta:parallel - Collection of parallel libraries
 sys-cluster/OpenHPC-meta:perf-tools - Collection of performance tools

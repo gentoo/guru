@@ -1,4 +1,4 @@
-BDEPEND=dev-cpp/cpp-jwt dev-cpp/robin-map >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-cpp/cpp-httplib dev-cpp/cpp-jwt dev-cpp/robin-map >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
 DEPEND=cubeb? ( media-libs/cubeb ) !hle-sound? ( media-libs/fdk-aac ) hle-sound? ( media-video/ffmpeg[fdk] ) qt5? ( nls? ( dev-qt/linguist ) dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 ) sdl? ( media-libs/libsdl2 >=dev-libs/inih-52 ) system-libfmt? ( >=dev-libs/libfmt-9:= ) video? ( media-video/ffmpeg:= ) >=dev-libs/openssl-1.1:= app-arch/zstd dev-libs/boost:= dev-libs/crypto++:= dev-libs/teakra net-libs/enet:1.3= virtual/libusb:1
 DESCRIPTION=A Nintendo 3DS Emulator
@@ -13,4 +13,4 @@ RDEPEND=cubeb? ( media-libs/cubeb ) !hle-sound? ( media-libs/fdk-aac ) hle-sound
 REQUIRED_USE=|| ( qt5 sdl )
 SLOT=0
 _eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	git-r3	2347f8fe2d392b2a091191f94be37e6f	xdg	6024fbc93167fad782e2032933654857
-_md5_=451e863ebcf15c59d9f34205e4a2148b
+_md5_=4830068a09927a5fc5fe20148ca6f97a

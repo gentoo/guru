@@ -1,16 +1,16 @@
-BDEPEND=test? ( dev-python/responses[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) doc? ( || ( ( >=dev-lang/python-3.10.9-r1:3.10 >=dev-python/sphinx-5.3.0[python_targets_python3_10(-)] dev-python/alabaster[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16-r1:3.9 >=dev-python/sphinx-5.3.0[python_targets_python3_9(-)] dev-python/alabaster[python_targets_python3_9(-)] ) ) ) test? ( dev-python/requests[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/jsonpickle[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pytest-7.2.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-python/setuptools-65.7.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+BDEPEND=test? ( dev-python/responses[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) doc? ( || ( ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-python/sphinx-5.3.0[python_targets_python3_11(-)] dev-python/alabaster[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.9-r1:3.10 >=dev-python/sphinx-5.3.0[python_targets_python3_10(-)] dev-python/alabaster[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16-r1:3.9 >=dev-python/sphinx-5.3.0[python_targets_python3_9(-)] dev-python/alabaster[python_targets_python3_9(-)] ) ) ) test? ( dev-python/requests[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/jsonpickle[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pytest-7.2.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) >=dev-python/setuptools-65.7.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Digitalocean API access library
 EAPI=8
 HOMEPAGE=https://github.com/koalalorenzo/python-digitalocean
 INHERIT=distutils-r1
-IUSE=doc test python_targets_python3_9 python_targets_python3_10
+IUSE=doc test python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
 KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-3
-RDEPEND=dev-python/requests[python_targets_python3_9(-)?,python_targets_python3_10(-)?] dev-python/jsonpickle[python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 )
-REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=dev-python/requests[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/jsonpickle[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
+REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/koalalorenzo/python-digitalocean/archive/v1.17.0.tar.gz -> digitalocean-1.17.0.gh.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	a9f2e2ae24bd496873c092a94cae1539
-_md5_=08bd3bd57ac0805607d3d149262881cd
+_md5_=3e123a56136934069c983e9b739a4a3f
