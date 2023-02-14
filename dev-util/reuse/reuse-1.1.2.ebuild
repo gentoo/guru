@@ -1,11 +1,11 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
 DISTUTILS_USE_PEP517=poetry
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="A tool for compliance with the REUSE recommendations"
 HOMEPAGE="
@@ -13,7 +13,6 @@ HOMEPAGE="
 	https://pypi.org/project/reuse/
 	https://github.com/fsfe/reuse-tool
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0 CC0-1.0 CC-BY-SA-4.0 GPL-3+"
 SLOT="0"
@@ -25,26 +24,18 @@ RDEPEND="
 	dev-python/jinja[${PYTHON_USEDEP}]
 	dev-python/license-expression[${PYTHON_USEDEP}]
 	dev-python/python-debian[${PYTHON_USEDEP}]
-	dev-python/requests[${PYTHON_USEDEP}]
+	dev-python/setuptools[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+	dev-python/setuptools[${PYTHON_USEDEP}]
+	sys-devel/gettext
 	test? (
 		dev-vcs/git
 		dev-vcs/mercurial
 	)
 "
 
-DOCS=( AUTHORS.rst CHANGELOG.md CODE_OF_CONDUCT.md CONTRIBUTING.md README.md )
-
-# not supported by recent git versions
-EPYTEST_DESELECT=(
-	tests/test_lint.py::test_lint_submodule
-	tests/test_lint.py::test_lint_submodule_included
-	tests/test_main.py::test_lint_submodule
-	tests/test_main.py::test_lint_submodule_included_fail
-	tests/test_project.py::test_all_files_submodule_is_ignored
-)
+DOCS=( AUTHORS.rst CHANGELOG.md README.md )
 
 distutils_enable_tests pytest
 
