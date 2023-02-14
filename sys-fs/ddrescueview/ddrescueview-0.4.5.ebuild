@@ -15,12 +15,13 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND="
-	dev-lang/lazarus
-"
+BDEPEND="dev-lang/lazarus"
 
-# I don't know yet how not to strip debug info during lazbuild build
-QA_PRESTRIPPED="usr/bin/ddrescueview"
+# Pascal ignores CFLAGS and does its own stripping. Nothing else can be done about it.
+QA_FLAGS_IGNORED="usr/bin/ddrescueview"
+QA_PRESTRIPPED="${QA_FLAGS_IGNORED}"
+
+RESTRICT="strip"
 
 S="${WORKDIR}/${MY_P}"
 
