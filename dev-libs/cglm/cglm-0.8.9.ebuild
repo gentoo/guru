@@ -5,7 +5,7 @@ EAPI=8
 
 DOCS_BUILDER="sphinx"
 DOCS_AUTODOC=1
-DOCS_DEPEND="dev-python/sphinx_rtd_theme"
+DOCS_DEPEND="dev-python/sphinx-rtd-theme"
 DOCS_DIR="${S}/docs/source"
 
 PYTHON_COMPAT=( python3_{8..11} )

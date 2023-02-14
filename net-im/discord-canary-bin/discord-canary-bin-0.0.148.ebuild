@@ -16,7 +16,7 @@ SRC_URI="https://dl-canary.discordapp.net/apps/linux/${PV}/${MY_PN}-${PV}.deb"
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64"
-RESTRICT="mirror bindist"
+RESTRICT="bindist mirror strip test"
 
 RDEPEND="
 	app-accessibility/at-spi2-atk:2
@@ -55,6 +55,7 @@ S="${WORKDIR}"
 
 QA_PREBUILT="
 	opt/discord-canary/${MY_BIN}
+	opt/discord-canary/chrome_crashpad_handler
 	opt/discord-canary/chrome-sandbox
 	opt/discord-canary/libffmpeg.so
 	opt/discord-canary/libvk_swiftshader.so

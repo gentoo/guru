@@ -25,5 +25,5 @@ RDEPEND="dev-python/sphinx[${PYTHON_USEDEP}]"
 #	dev-python/sphinx-autoapi \
 #	dev-python/sphinx-prompt \
 #	dev-python/sphinx-tabs \
-#	dev-python/sphinx_rtd_theme \
+#	dev-python/sphinx-rtd-theme \
 #	dev-python/sphinxemoji

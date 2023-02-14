@@ -3,7 +3,7 @@
 
 EAPI=8
 
-# required because of manuall install in src_install
+# required because of manual install in src_install
 CMAKE_MAKEFILE_GENERATOR="emake"
 
 PYTHON_COMPAT=( python3_{9..11} )
@@ -32,7 +32,7 @@ BDEPEND="
 		$(python_gen_any_dep '
 			dev-python/breathe[${PYTHON_USEDEP}]
 			dev-python/sphinx[${PYTHON_USEDEP}]
-			dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
+			dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]
 		')
 	)
 	test? ( dev-cpp/doctest )
@@ -45,7 +45,7 @@ python_check_deps() {
 	python_has_version \
 		"dev-python/breathe[${PYTHON_USEDEP}]" \
 		"dev-python/sphinx[${PYTHON_USEDEP}]" \
-		"dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]"
+		"dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]"
 }
 
 pkg_pretend() {
@@ -76,8 +76,6 @@ src_configure() {
 }
 
 src_compile() {
-	use test && cmake_src_compile xtest
-
 	if use doc; then
 		cd "${WORKDIR}/${P}/docs" || die
 		emake html BUILDDIR="${BUILD_DIR}"
@@ -85,10 +83,14 @@ src_compile() {
 	fi
 }
 
+src_test() {
+	cmake_src_compile xtest
+}
+
 src_install() {
-	# default install starts compiling more tests
-	# that do not affect the header-only install image
-	DESTDIR="${D}" emake -C "${BUILD_DIR}" install/fast "$@"
+	# Default install target depends on tests with USE=test enabled.
+	# However, this is a header-only library.
+	DESTDIR="${D}" cmake_build install/fast "$@"
 
 	einstalldocs
 }

@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -67,12 +67,17 @@ src_prepare() {
 	sed -i -e '/add_subdirectory(core\/deps\/glslang/{N;s/.*/find_library(GLSLANG libglslang.so)\nfind_library(SPIRV libSPIRV.so)\ntarget_link_libraries(${PROJECT_NAME} PRIVATE ${GLSLANG} ${SPIRV})/}' CMakeLists.txt || die
 	sed -i -e '/include.*SPIRV/{s:":<glslang/:;s/"/>/}' core/rend/vulkan/shaders.h \
 		core/rend/vulkan/compiler.cpp || die
+	# Crazy commit fix: 8d0654c
+	sed -i -e '/maxMeshViewCountNV/a256,256,128,128,128,128,128,128,4,' \
+		core/rend/vulkan/compiler.cpp || die
 
 	# Unbundle xxHash
-	sed -i -e '/XXHASH_BUILD_XXHSUM/{N;N;s/.*/target_link_libraries(${PROJECT_NAME} PRIVATE xxhash)/}' CMakeLists.txt || die
+	sed -i -e '/XXHASH_BUILD_XXHSUM/{N;N;s/.*/target_link_libraries(${PROJECT_NAME} PRIVATE xxhash)/}' \
+		CMakeLists.txt || die
 
 	# Unbundle chdr
-	sed -i -e '/add_subdirectory.*chdr/d' -e 's/chdr-static/chdr/' -e 's:core/deps/chdr/include:/usr/include/chdr:' CMakeLists.txt || die
+	sed -i -e '/add_subdirectory.*chdr/d' -e 's/chdr-static/chdr/' \
+		-e 's:core/deps/chdr/include:/usr/include/chdr:' CMakeLists.txt || die
 
 	# Do not use ccache
 	sed -i -e '/find_program(CCACHE_FOUND/d' CMakeLists.txt
@@ -86,6 +91,9 @@ src_prepare() {
 
 	# Do not use ccache
 	sed -i -e '/find_program(CCACHE_PROGRAM ccache)/d' CMakeLists.txt
+
+	# Revert crazy commit: #4408aa7
+	sed -i -e '/if(NOT APPLE AND (/s/.*/if( NOT APPLE )/' CMakeLists.txt
 
 	cmake_src_prepare
 }

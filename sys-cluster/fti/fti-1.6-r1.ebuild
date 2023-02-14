@@ -6,7 +6,7 @@ EAPI="7"
 DOCS_BUILDER="sphinx"
 DOCS_DEPEND="
 	dev-python/breathe
-	dev-python/sphinx_rtd_theme
+	dev-python/sphinx-rtd-theme
 "
 DOCS_DIR="${S}/docs/source"
 FORTRAN_NEEDED="fortran"

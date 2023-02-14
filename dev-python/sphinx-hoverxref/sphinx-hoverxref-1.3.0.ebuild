@@ -44,6 +44,6 @@ distutils_enable_sphinx docs \
 	dev-python/sphinx-prompt \
 	dev-python/sphinx-tabs \
 	dev-python/sphinx-version-warning \
-	dev-python/sphinx_rtd_theme \
+	dev-python/sphinx-rtd-theme \
 	dev-python/sphinxcontrib-bibtex \
 	dev-python/sphinxemoji

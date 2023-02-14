@@ -41,7 +41,7 @@ distutils_enable_tests unittest
 
 distutils_enable_sphinx doc/source \
 	dev-python/recommonmark \
-	dev-python/sphinx_rtd_theme
+	dev-python/sphinx-rtd-theme
 
 python_test() {
 	[[ ${EPYTHON} == pypy3 ]] && \

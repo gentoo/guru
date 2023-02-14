@@ -20,7 +20,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]"
+RDEPEND="dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]"
 BDEPEND="
 	test? (
 		dev-python/sphinx[${PYTHON_USEDEP}]

@@ -41,7 +41,7 @@ BDEPEND="
 
 distutils_enable_tests pytest
 distutils_enable_sphinx docs \
-	'dev-python/sphinx_rtd_theme'
+	'dev-python/sphinx-rtd-theme'
 
 python_test() {
 	[[ ${EPYTHON} == python3.10 ]] && local EPYTEST_DESELECT=(

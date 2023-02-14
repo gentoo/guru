@@ -49,7 +49,7 @@ DEPEND="
 distutils_enable_tests pytest
 # distutils_enable_sphinx docs/source \
 # 	"<dev-python/sphinx-4.0" \
-# 	dev-python/sphinx_rtd_theme \
+# 	dev-python/sphinx-rtd-theme \
 # 	dev-python/recommonmark
 
 pkg_setup() {

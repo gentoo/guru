@@ -24,7 +24,7 @@ RDEPEND="
 	dev-python/zope-interface[${PYTHON_USEDEP}]
 	doc? (
 		dev-python/repoze-sphinx-autointerface[${PYTHON_USEDEP}]
-		dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}]
+		dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]
 	)
 	test? (
 		dev-python/transaction[${PYTHON_USEDEP}]

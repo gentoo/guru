@@ -31,7 +31,7 @@ RDEPEND="
 "
 BDEPEND="
 	test? ( ${RDEPEND} )
-	doc? ( dev-python/sphinx_rtd_theme[${PYTHON_USEDEP}] )
+	doc? ( dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}] )
 "
 
 distutils_enable_sphinx docs/source --no-autodoc

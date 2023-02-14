@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<maintainer type="person">
-	<name>Samuel Bauer</name>
-	<email>samuel.bauer@yahoo.fr</email>
-</maintainer>
-<use>
-	<flag name="cubeb">Enables the cubeb audio backend</flag>
-	<flag name="compatibility-list">Downloads the latest compatibility list</flag>
-	<flag name="discord">Enables Discord Rich Presence</flag>
-	<flag name="system-vulkan">Use system dev-util/vulkan-headers</flag>
-	<flag name="webengine">Use QtWebEngine for web applet implementation</flag>
-	<flag name="webservice">Enable web services (telemetry, etc.)</flag>
-</use>
+	<maintainer type="person">
+		<name>Samuel Bauer</name>
+		<email>samuel.bauer@yahoo.fr</email>
+	</maintainer>
+	<use>
+		<flag name="cubeb">Enables the cubeb audio backend</flag>
+		<flag name="compatibility-list">Downloads the latest compatibility list</flag>
+		<flag name="discord">Enables Discord Rich Presence</flag>
+		<flag name="system-vulkan">Use system dev-util/vulkan-headers</flag>
+		<flag name="webengine">Use QtWebEngine for web applet implementation</flag>
+		<flag name="webservice">Enable web services (telemetry, etc.)</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">herumi/xbyak</remote-id>
+	</upstream>
 </pkgmetadata>

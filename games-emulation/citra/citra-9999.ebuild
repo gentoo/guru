@@ -44,6 +44,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
+	dev-cpp/cpp-httplib
 	dev-cpp/cpp-jwt
 	dev-cpp/robin-map"
 REQUIRED_USE="|| ( qt5 sdl )"
@@ -125,6 +126,9 @@ src_prepare() {
 	if use cubeb; then
 		sed -i -e '$afind_package(cubeb REQUIRED)\n' CMakeLists.txt || die
 	fi
+
+	# Unbundle cpp-httplib
+	sed -i -e '/# httplib/,/target_link_libraries(httplib/d' externals/CMakeLists.txt || die
 
 	# Unbundle cpp-jwt
 	sed -i -e '/# cpp-jwt/,/CPP_JWT_USE_VENDORED_NLOHMANN_JSON/d' externals/CMakeLists.txt || die

@@ -3,6 +3,9 @@
 
 EAPI=8
 
+# required because of manual install in src_install
+CMAKE_MAKEFILE_GENERATOR="emake"
+
 PYTHON_COMPAT=( python3_{9..11} )
 
 inherit cmake python-any-r1
@@ -47,11 +50,21 @@ src_configure() {
 }
 
 src_compile() {
-	use test && cmake_src_compile xtest
-
 	if use doc; then
 		cd "${WORKDIR}/${P}/docs" || die
 		emake html BUILDDIR="${BUILD_DIR}"
 		HTML_DOCS=( "${BUILD_DIR}/html/." )
 	fi
+}
+
+src_test() {
+	cmake_src_compile xtest
+}
+
+src_install() {
+	# Default install target depends on tests with USE=test enabled.
+	# However, this is a header-only library.
+	DESTDIR="${D}" cmake_build install/fast "$@"
+
+	einstalldocs
 }

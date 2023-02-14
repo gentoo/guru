@@ -42,7 +42,7 @@ EPYTEST_DESELECT=(
 distutils_enable_tests pytest
 
 distutils_enable_sphinx docs \
-	dev-python/sphinx_rtd_theme
+	dev-python/sphinx-rtd-theme
 
 pkg_postinst() {
 	optfeature "calendars support" "dev-python/hijri-converter dev-python/convertdate"

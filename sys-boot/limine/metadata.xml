@@ -2,9 +2,12 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <email>arsen@aarsen.me</email>
+    <email>arsen@gentoo.org</email>
     <name>Arsen Arsenović</name>
   </maintainer>
+  <upstream>
+    <remote-id type="github">limine-bootloader/limine</remote-id>
+  </upstream>
   <use>
     <flag name="uefi">
       Enable UEFI support.
@@ -14,6 +17,9 @@
     </flag>
     <flag name="uefi64">
       Enable 64-bit UEFI support.
+    </flag>
+    <flag name="uefiaa64">
+      Enable AArch64 UEFI support.
     </flag>
     <flag name="eltorito-efi">
       Enable building eltorito-efi.bin using <pkg>sys-fs/mtools</pkg>.

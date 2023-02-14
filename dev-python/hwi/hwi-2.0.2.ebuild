@@ -31,7 +31,7 @@ RDEPEND="
 distutils_enable_tests unittest
 
 distutils_enable_sphinx docs \
-	dev-python/sphinx_rtd_theme \
+	dev-python/sphinx-rtd-theme \
 	dev-python/sphinxcontrib-autoprogram
 
 python_prepare_all() {
