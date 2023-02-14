@@ -55,7 +55,7 @@ BDEPEND="
 	dev-util/glslang
 	discord? ( >=dev-libs/rapidjson-1.1.0 )
 "
-REQUIRED_USE="|| ( qt5 sdl )"
+REQUIRED_USE="|| ( qt5 sdl ) discord? ( webservice )"
 RESTRICT="!test? ( test )"
 
 pkg_setup() {
@@ -131,8 +131,6 @@ src_prepare() {
 
 	# LZ4 temporary fix: https://github.com/yuzu-emu/yuzu/pull/9054/commits/a8021f5a18bc5251aef54468fa6033366c6b92d9
 	sed -i 's/lz4::lz4/lz4/' src/common/CMakeLists.txt || die
-
-	sed -i '/fmt.*REQUIRED/d' CMakeLists.txt || die # libfmt >= 9
 
 	# Temporary use lastest gentoo vulkan
 	sed -i -e '/Vulkan/s/238/236/' CMakeLists.txt || die
