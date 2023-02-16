@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-doc/doxygen || ( ( >=dev-lang/python-3.11.1-r1:3.11 dev-python/breathe[python_targets_python3_11(-)] dev-python/sphinx[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.9-r1:3.10 dev-python/breathe[python_targets_python3_10(-)] dev-python/sphinx[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16-r1:3.9 dev-python/breathe[python_targets_python3_9(-)] dev-python/sphinx[python_targets_python3_9(-)] ) ) ) test? ( dev-cpp/doctest ) sys-devel/make >=dev-util/cmake-3.20.5
+BDEPEND=doc? ( app-doc/doxygen || ( ( >=dev-lang/python-3.11.1-r1:3.11 dev-python/breathe[python_targets_python3_11(-)] dev-python/sphinx[python_targets_python3_11(-)] dev-python/sphinx-rtd-theme[python_targets_python3_11(-)] ) ( >=dev-lang/python-3.10.9-r1:3.10 dev-python/breathe[python_targets_python3_10(-)] dev-python/sphinx[python_targets_python3_10(-)] dev-python/sphinx-rtd-theme[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16-r1:3.9 dev-python/breathe[python_targets_python3_9(-)] dev-python/sphinx[python_targets_python3_9(-)] dev-python/sphinx-rtd-theme[python_targets_python3_9(-)] ) ) ) test? ( dev-cpp/doctest ) sys-devel/make >=dev-util/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DESCRIPTION=Algorithms and containers used by the xtensor stack and the xeus stack
 EAPI=8
@@ -11,4 +11,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://codeload.github.com/xtensor-stack/xtl/tar.gz/refs/tags/0.7.5 -> xtl-0.7.5.tar.gz
 _eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
-_md5_=dd9e79146101e910fd9c508eee776159
+_md5_=458a39dca2764d3cfdaf0cc76c4a5e84
