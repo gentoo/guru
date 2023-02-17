@@ -341,12 +341,12 @@ EGO_SUM=(
 go-module_set_globals
 
 DESCRIPTION="Facebook's PTP libraries"
-HOMEPAGE="https://github.com/facebookincubator/ptp"
+HOMEPAGE="https://github.com/facebook/time"
 SRC_URI="
-	https://github.com/facebookincubator/ptp/archive/${COMMIT}.tar.gz -> ${P}.tar.gz
+	https://github.com/facebook/time/archive/${COMMIT}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}
 "
-S="${WORKDIR}/ptp-${COMMIT}"
+S="${WORKDIR}/time-${COMMIT}"
 
 LICENSE="Apache-2.0 BSD ISC MIT"
 SLOT="0"
