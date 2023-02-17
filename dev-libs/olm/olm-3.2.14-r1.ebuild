@@ -1,4 +1,4 @@
-# Copyright 2020-2022 Gentoo Authors
+# Copyright 2020-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,23 +13,20 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
-IUSE="doc test"
+IUSE="test"
 RESTRICT="!test? ( test )"
 
+DOCS=( README.md docs )
+
 src_configure() {
-	local -a mycmakeargs=(
-		-DOLM_TESTS="$(usex test)"
+	local mycmakeargs=(
+		-DOLM_TESTS=$(usex test)
 	)
 
 	cmake_src_configure
 }
 
 src_test() {
-	BUILD_DIR="${BUILD_DIR}/tests" cmake_src_test
-}
-
-src_install() {
-	use doc && DOCS=( README.md docs/{{,meg}olm,signing}.md )
-
-	cmake_src_install
+	local -x BUILD_DIR="${BUILD_DIR}/tests"
+	cmake_src_test
 }
