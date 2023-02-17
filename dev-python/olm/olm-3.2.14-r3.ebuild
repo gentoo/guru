@@ -10,32 +10,34 @@ inherit distutils-r1
 
 DESCRIPTION="Python bindings for dev-libs/olm"
 HOMEPAGE="https://gitlab.matrix.org/matrix-org/olm/"
-SRC_URI="https://gitlab.matrix.org/matrix-org/olm/-/archive/${PV}/${P}.tar.bz2"
+SRC_URI="https://gitlab.matrix.org/matrix-org/${PN}/-/archive/${PV}/${P}.tar.bz2"
 S="${WORKDIR}/${P}/python"
-RESTRICT="!test? ( test )"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
+DEPEND="dev-libs/olm"
 RDEPEND="
-	dev-libs/olm
+	${DEPEND}
 	dev-python/cffi[${PYTHON_USEDEP}]
+	dev-python/future[${PYTHON_USEDEP}]
+"
+BDEPEND="
 	test? (
-		dev-python/aspectlib[${PYTHON_USEDEP}]
-		dev-python/future[${PYTHON_USEDEP}]
 		dev-python/pytest-benchmark[${PYTHON_USEDEP}]
-		dev-python/pytest-cov[${PYTHON_USEDEP}]
-		dev-python/pytest-flake8[${PYTHON_USEDEP}]
-		dev-python/pytest-isort[${PYTHON_USEDEP}]
 	)
 "
-DEPEND="${RDEPEND}"
+
+DOCS=( README-python.md )
 
 distutils_enable_tests pytest
 
-src_install() {
-	distutils-r1_src_install
+distutils_enable_sphinx docs
+
+src_prepare() {
+	distutils-r1_src_prepare
+
 	# To avoid merge collision with dev-libs/olm
-	rm "${ED}/usr/share/doc/${PF}/README.md" || die
+	mv README.md README-python.md || die
 }
