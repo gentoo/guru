@@ -10,6 +10,7 @@ HOMEPAGE="https://dpp.dev/ https://github.com/brainboxdotcc/DPP"
 SRC_URI="
 	https://github.com/brainboxdotcc/DPP/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	https://patch-diff.githubusercontent.com/raw/brainboxdotcc/DPP/pull/591.patch -> ${P}-fix-install.patch
+	https://patch-diff.githubusercontent.com/raw/brainboxdotcc/DPP/pull/596.patch -> ${PN}-890014-rework-compiler-flags.patch
 "
 
 LICENSE="Apache-2.0"
@@ -33,6 +34,8 @@ DEPEND="${RDEPEND}"
 PATCHES=(
 	# Backport of the installation fixes, remove after 10.0.21
 	"${DISTDIR}/${P}-fix-install.patch"
+	# Backport of the compiler flag setting fixes, remove after 10.0.22, https://bugs.gentoo.org/890014
+	"${DISTDIR}/${PN}-890014-rework-compiler-flags.patch"
 )
 
 S="${WORKDIR}/DPP-${PV}"

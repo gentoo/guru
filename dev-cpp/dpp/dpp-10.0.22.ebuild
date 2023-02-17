@@ -9,6 +9,7 @@ DESCRIPTION="Lightweight C++ Discord bot library"
 HOMEPAGE="https://dpp.dev/ https://github.com/brainboxdotcc/DPP"
 SRC_URI="
 	https://github.com/brainboxdotcc/DPP/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://patch-diff.githubusercontent.com/raw/brainboxdotcc/DPP/pull/596.patch -> ${PN}-890014-rework-compiler-flags.patch
 "
 
 LICENSE="Apache-2.0"
@@ -32,6 +33,11 @@ DEPEND="${RDEPEND}"
 S="${WORKDIR}/DPP-${PV}"
 
 DOCS=( "README.md" "SECURITY.md" )
+
+PATCHES=(
+	# Backport of the compiler flag setting fixes, remove after 10.0.22, https://bugs.gentoo.org/890014
+	"${DISTDIR}/${PN}-890014-rework-compiler-flags.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
