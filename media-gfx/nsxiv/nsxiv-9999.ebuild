@@ -16,7 +16,7 @@ fi
 DESCRIPTION="Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer"
 HOMEPAGE="https://codeberg.org/nsxiv/nsxiv"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+ public-domain"
 SLOT="0"
 IUSE="+statusbar +inotify exif"
 
