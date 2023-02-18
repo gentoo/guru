@@ -1,18 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <description>co-maintainers welcome</description>
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
-  <longdescription lang="en">
-Features
-grabs up to date useragent from useragentstring.com
-randomize with real world statistic via w3schools.com
-  </longdescription>
-  <upstream>
-    <remote-id type="github">hellysmile/fake-useragent</remote-id>
-    <remote-id type="pypi">fake-useragent</remote-id>
-  </upstream>
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">fake-useragent/fake-useragent</remote-id>
+		<remote-id type="pypi">fake-useragent</remote-id>
+	</upstream>
 </pkgmetadata>
