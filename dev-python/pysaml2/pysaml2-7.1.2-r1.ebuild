@@ -3,13 +3,14 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit distutils-r1
 
 DESCRIPTION="Python implementation of SAML Version 2 to be used in a WSGI environment"
 HOMEPAGE="https://github.com/rohe/pysaml2"
-SRC_URI="https://github.com/IdentityPython/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/IdentityPython/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -20,12 +21,11 @@ RDEPEND="
 	dev-python/defusedxml[${PYTHON_USEDEP}]
 	dev-python/pyopenssl[${PYTHON_USEDEP}]
 	dev-python/python-dateutil[${PYTHON_USEDEP}]
-	dev-python/python-xmlsec[${PYTHON_USEDEP}]
 	dev-python/pytz[${PYTHON_USEDEP}]
 	>=dev-python/requests-1.0.0[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
 	dev-python/xmlschema[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep 'dev-python/importlib_resources[${PYTHON_USEDEP}]' python3.8)
+	dev-python/xmlsec[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
@@ -37,10 +37,11 @@ BDEPEND="
 	)
 "
 
-distutils_enable_tests --install pytest
+distutils_enable_tests pytest
 
 python_prepare_all() {
 	# No module named 'pymongo.mongo_replica_set_client' because pymongo should be <4 but we only have >=4
 	rm tests/test_{75_mongodb,76_metadata_in_mdb}.py || die
+
 	distutils-r1_python_prepare_all
 }
