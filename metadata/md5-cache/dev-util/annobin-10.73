@@ -13,5 +13,5 @@ REQUIRED_USE=clang? ( llvm )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://nickc.fedorapeople.org/annobin-10.73.tar.xz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	cf009a3ed4e5bef503e7a9f215791a78	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	llvm	4cc6f8e29d24a8011266413e74c728bb
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	llvm	4cc6f8e29d24a8011266413e74c728bb
 _md5_=b6bf18931d13294acce7f694b7cd611a
