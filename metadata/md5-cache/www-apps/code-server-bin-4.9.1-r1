@@ -10,5 +10,5 @@ RDEPEND=>=net-libs/nodejs-16.0.0[ssl] sys-apps/ripgrep app-crypt/libsecret
 RESTRICT=test
 SLOT=0
 SRC_URI=amd64? ( https://github.com/coder/code-server/releases/download/v4.9.1/code-server-4.9.1-linux-amd64.tar.gz ) arm64? ( https://github.com/coder/code-server/releases/download/v4.9.1/code-server-4.9.1-linux-arm64.tar.gz )
-_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=toolchain-funcs	cf009a3ed4e5bef503e7a9f215791a78	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=cf27a7b97b4a991efab21e6a7a576fd5

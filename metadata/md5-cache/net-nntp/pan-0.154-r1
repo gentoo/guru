@@ -12,5 +12,5 @@ LICENSE=GPL-2
 RDEPEND=>=dev-libs/glib-2.26:2 dev-libs/gmime:3.0 >=x11-libs/gtk+-3.00:3 gnome-keyring? ( >=app-crypt/gcr-3.20 >=app-crypt/libsecret-0.20 ) libnotify? ( >=x11-libs/libnotify-0.4.1:0= ) spell? ( >=app-text/enchant-2.2.3:2 >=app-text/gtkspell-3.0.10:3 ) ssl? ( >=net-libs/gnutls-3:0= ) >=sys-libs/zlib-1.2.0
 SLOT=0
 SRC_URI=https://gitlab.gnome.org/GNOME/pan/-/archive/v0.154/pan-v0.154.tar.bz2
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	3eaa1386ddbbbbb3951256d4b170fba3	xdg	6024fbc93167fad782e2032933654857	gnome2	8dcac7a0c320f92299160b297d4fec6f
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	cf009a3ed4e5bef503e7a9f215791a78	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	gnome.org	429073e99d7067d3462e875bf5c6e14a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	3eaa1386ddbbbbb3951256d4b170fba3	xdg	6024fbc93167fad782e2032933654857	gnome2	8dcac7a0c320f92299160b297d4fec6f
 _md5_=a70bd1ae222448f274d6a4a83d5bfc79

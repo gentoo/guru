@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=dev-libs/glib:2 media-video/mpv:=[cplugins(+),libmpv]
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a	toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a	toolchain-funcs	cf009a3ed4e5bef503e7a9f215791a78	multilib	5ca4e49abed8e3a2f7b56920eadee157	git-r3	2347f8fe2d392b2a091191f94be37e6f
 _md5_=32b8043d6a2a8edeb309bfd2437a3e17

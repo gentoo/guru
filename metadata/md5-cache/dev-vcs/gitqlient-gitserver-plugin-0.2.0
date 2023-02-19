@@ -9,5 +9,5 @@ PDEPEND=>=dev-vcs/gitqlient-1.6.1
 RDEPEND=dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 dev-qt/qtwebengine:5[widgets]
 SLOT=0
 SRC_URI=https://github.com/francescmm/GitServerPlugin/archive/refs/tags/0.2.0.tar.gz -> gitqlient-GitServerPlugin-0.2.0.tar.gz https://github.com/francescmm/GitQlient/releases/download/v1.6.1/gitqlient_1.6.1.tar.gz -> gitqlient-1.6.1.tar.gz
-_eclasses_=toolchain-funcs	9a610728b9bcca1919234cceb35a1027	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707
+_eclasses_=toolchain-funcs	cf009a3ed4e5bef503e7a9f215791a78	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707
 _md5_=9e6c6ac299923671ffa23a6277639885
