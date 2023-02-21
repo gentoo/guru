@@ -26,6 +26,8 @@ RDEPEND="
 	dev-python/pystardict[${PYTHON_USEDEP}]
 	dev-python/pymorphy2[${PYTHON_USEDEP}]
 	dev-python/pymorphy2-dicts-ru[${PYTHON_USEDEP}]
+	dev-python/pymorphy2-dicts-uk[${PYTHON_USEDEP}]
+	dev-python/pyqtdarktheme[${PYTHON_USEDEP}]
 	dev-python/charset_normalizer[${PYTHON_USEDEP}]
 	dev-python/EbookLib[${PYTHON_USEDEP}]
 	dev-python/sentence-splitter[${PYTHON_USEDEP}]
@@ -35,4 +37,5 @@ RDEPEND="
 	dev-python/markdownify[${PYTHON_USEDEP}]
 	dev-python/readmdict[${PYTHON_USEDEP}]
 	dev-python/python-lzo[${PYTHON_USEDEP}]
+	dev-python/pyqtgraph[${PYTHON_USEDEP}]
 "
