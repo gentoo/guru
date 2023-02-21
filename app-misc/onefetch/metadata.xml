@@ -5,4 +5,10 @@
 		<email>rahul@sandhuservices.dev</email>
 		<name>Rahul Sandhu</name>
 	</maintainer>
+	<upstream>
+		<changelog>
+			https://github.com/o2sh/onefetch/releases/
+		</changelog>
+		<remote-id type="github">o2sh/onefetch</remote-id>
+	</upstream>
 </pkgmetadata>
