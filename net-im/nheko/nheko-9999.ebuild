@@ -25,6 +25,7 @@ REQUIRED_USE="video? ( voip )"
 MY_GST_V="1.18"
 RDEPEND="
 	app-text/cmark:=
+	dev-cpp/cpp-httplib:=
 	dev-cpp/qt-jdenticon
 	dev-db/lmdb:=
 	>=dev-db/lmdb++-1.0.0
@@ -99,11 +100,12 @@ src_prepare() {
 
 src_configure() {
 	local -a mycmakeargs=(
-		"-DUSE_BUNDLED_MTXCLIENT=ON"
-		"-DUSE_BUNDLED_COEURL=ON"
-		"-DBUILD_SHARED_LIBS=OFF"
-		"-DVOIP=$(usex voip)"
-		"-DCMAKE_POSITION_INDEPENDENT_CODE=$(usex pie)"
+		-DUSE_BUNDLED_MTXCLIENT=yes
+		-DUSE_BUNDLED_COEURL=yes
+		-DBUILD_SHARED_LIBS=no
+		-DVOIP=$(usex voip)
+		-DCMAKE_POSITION_INDEPENDENT_CODE=$(usex pie)
+		-DUSE_BUNDLED_CPPHTTPLIB=no
 	)
 	if use video && use X; then
 		mycmakeargs+=("-DSCREENSHARE_X11=yes")
