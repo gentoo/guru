@@ -22,6 +22,7 @@ RDEPEND="
 	dev-python/lxml[${PYTHON_USEDEP}]
 	dev-python/flask[${PYTHON_USEDEP}]
 	dev-python/flask-sqlalchemy[${PYTHON_USEDEP}]
+	dev-python/pysubs2[${PYTHON_USEDEP}]
 	dev-python/bidict[${PYTHON_USEDEP}]
 	dev-python/pystardict[${PYTHON_USEDEP}]
 	dev-python/pymorphy2[${PYTHON_USEDEP}]
