@@ -20,7 +20,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="X chafa dbus gnome imagemagick networkmanager opencl opengl osmesa pci sqlite vulkan wayland xcb xfce xrandr"
+IUSE="X chafa dbus gnome imagemagick networkmanager opencl opengl osmesa pci pulseaudio sqlite vulkan wayland xcb xfce xrandr"
 
 # note - qa-vdb will always report errors because fastfetch loads the libs dynamically
 RDEPEND="
@@ -38,6 +38,7 @@ RDEPEND="
 	opengl? ( media-libs/libglvnd[X] )
 	osmesa? ( media-libs/mesa[osmesa] )
 	pci? ( sys-apps/pciutils )
+	pulseaudio? ( media-libs/libpulse )
 	sqlite? ( dev-db/sqlite:3 )
 	vulkan? ( media-libs/vulkan-loader )
 	wayland? ( dev-libs/wayland )
@@ -62,29 +63,31 @@ src_configure() {
 	fi
 
 	local mycmakeargs=(
+		-DENABLE_LIBCJSON=no
 		-DENABLE_RPM=no
+		-DENABLE_ZLIB=yes
+
+		-DENABLE_CHAFA=$(usex chafa)
+		-DENABLE_DBUS=$(usex dbus)
+		-DENABLE_DCONF=$(usex gnome)
+		-DENABLE_EGL=$(usex opengl)
+		-DENABLE_GIO=$(usex gnome)
+		-DENABLE_GLX=$(usex opengl)
+		-DENABLE_IMAGEMAGICK6=${fastfetch_enable_imagemagick6}
+		-DENABLE_IMAGEMAGICK7=${fastfetch_enable_imagemagick7}
+		-DENABLE_LIBNM=$(usex networkmanager)
 		-DENABLE_LIBPCI=$(usex pci)
+		-DENABLE_OPENCL=$(usex opencl)
+		-DENABLE_OSMESA=$(usex osmesa)
+		-DENABLE_PULSE=$(usex pulseaudio)
+		-DENABLE_SQLITE3=$(usex sqlite)
 		-DENABLE_VULKAN=$(usex vulkan)
 		-DENABLE_WAYLAND=$(usex wayland)
-		-DENABLE_XCB_RANDR=$(usex xcb)
-		-DENABLE_XCB=$(usex xcb)
-		-DENABLE_XRANDR=$(usex xrandr)
 		-DENABLE_X11=$(usex X)
-		-DENABLE_GIO=$(usex gnome)
-		-DENABLE_DCONF=$(usex gnome)
+		-DENABLE_XCB=$(usex xcb)
+		-DENABLE_XCB_RANDR=$(usex xcb)
 		-DENABLE_XFCONF=$(usex xfce)
-		-DENABLE_IMAGEMAGICK7=${fastfetch_enable_imagemagick7}
-		-DENABLE_IMAGEMAGICK6=${fastfetch_enable_imagemagick6}
-		-DENABLE_ZLIB=yes
-		-DENABLE_CHAFA=$(usex chafa)
-		-DENABLE_SQLITE3=$(usex sqlite)
-		-DENABLE_EGL=$(usex opengl)
-		-DENABLE_GLX=$(usex opengl)
-		-DENABLE_OSMESA=$(usex osmesa)
-		-DENABLE_OPENCL=$(usex opencl)
-		-DENABLE_DBUS=$(usex dbus)
-		-DENABLE_LIBCJSON=no
-		-DENABLE_LIBNM=$(usex networkmanager)
+		-DENABLE_XRANDR=$(usex xrandr)
 	)
 
 	append-cppflags -DNDEBUG
