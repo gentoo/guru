@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=Process manager for Procfile-based applications and tmux
+EAPI=8
+HOMEPAGE=https://github.com/DarthSim/overmind
+INHERIT=go-module
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT BSD BSD-2
+RDEPEND=app-misc/tmux
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/DarthSim/overmind/archive/v2.4.0.tar.gz -> overmind-2.4.0.tar.gz https://github.com/ixti/overmind/releases/download/v2.4.0/overmind-2.4.0-deps.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	go-module	f2c9bcab49079a176b3ae061c94bb344
+_md5_=954bb63f18bb45faaab321d83db6d39a

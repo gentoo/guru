@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile config install postinst unpack
+DEPEND=acct-user/mautrix-discord dev-libs/olm
+DESCRIPTION=A Matrix-Discord puppeting bridge
+EAPI=8
+HOMEPAGE=https://github.com/mautrix/discord
+INHERIT=go-module systemd
+KEYWORDS=~amd64
+LICENSE=AGPL-3
+RDEPEND=acct-user/mautrix-discord dev-libs/olm
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/mautrix/discord/archive/v0.1.1.tar.gz -> mautrix-discord-0.1.1.gh.tar.gz https://jroy.ca/dist/mautrix-discord-0.1.1.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	go-module	f2c9bcab49079a176b3ae061c94bb344	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=d5029289c8060ddf4adfb953522597e0

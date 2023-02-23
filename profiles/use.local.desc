@@ -275,6 +275,8 @@ games-emulation/yuzu:discord - Enables Discord Rich Presence
 games-emulation/yuzu:system-vulkan - Use system dev-util/vulkan-headers
 games-emulation/yuzu:webengine - Use QtWebEngine for web applet implementation
 games-emulation/yuzu:webservice - Enable web services (telemetry, etc.)
+games-engines/easyrpg-player:fluidsynth - Support FluidSynth as MIDI synth backend
+games-engines/easyrpg-player:wildmidi - Support wildmidi as MIDI synth backend
 games-engines/fs2_open:clang - Use Clang compiler instead of GCC
 games-engines/fs2_open:debug - Debug build to collect logfiles
 games-engines/fs2_open:discord - Enable Discord RPC support
@@ -314,10 +316,8 @@ gui-apps/nwg-launchers:bar - Installs nwgbar, a horizontal or vertical button ba
 gui-apps/nwg-launchers:dmenu - Installs nwgdmenu, GTK dynamic menu windows.
 gui-apps/nwg-launchers:grid - Installs nwggrid, a GNOME-like application grid.
 gui-apps/nwg-launchers:layershell - Enable Wayland layer shell support
-gui-apps/rofi-wayland:check - Build and run libcheck-based tests
 gui-apps/rofi-wayland:drun - Desktop file mode
-gui-apps/rofi-wayland:wayland - Build with wayland support
-gui-apps/rofi-wayland:window - Window switcher mode
+gui-apps/rofi-wayland:windowmode - Window switcher mode
 gui-apps/swaylock-effects:fish-completion - Enable fish completion support
 gui-apps/swaylock-effects:gdk-pixbuf - Enable additional image format support via the x11-libs/gdk-pixbuf library
 gui-apps/swaylock-effects:man - Build and install man pages
@@ -382,9 +382,7 @@ media-gfx/bonzomatic:system-glfw - Use the systems installed version of GLFW (up
 media-gfx/bonzomatic:system-stb - Use the systems installed version of STB (upstream-unsupported)
 media-gfx/bonzomatic:wayland - Build non-system-glfw for wayland instead of X11
 media-gfx/grafx2:ttf - Install TTF Fonts
-media-gfx/nsxiv:gif - Add animated gif support
 media-gfx/nsxiv:statusbar - Add statusbar support
-media-gfx/nsxiv:webp - Add animated webp support
 media-gfx/vpuppr:ifm-tracker - Enable the iFacialMocap tracker.
 media-gfx/vpuppr:meowface-tracker - Enable the MeowFace tracker.
 media-gfx/vpuppr:mouse-tracker - Enable the mouse tracker.
@@ -397,6 +395,7 @@ media-libs/alvr:vulkan - Build ALVR vulkan layer
 media-libs/alvr:x264 - Use x264 for h264 software encoding
 media-libs/alvr:x265 - Use x265 for h265 software encoding
 media-libs/amdvlk:raytracing - Enable Vulkan raytracing support in AMDVLK, requires dev-util/DirectXShaderCompiler to build. Disable if you have weak hardware.
+media-libs/imgui:allegro - Enable allegro backend and renderer
 media-libs/imgui:allegro5 - Enable allegro backend and renderer
 media-libs/imgui:bindings - Build the cimgui C bindigs
 media-libs/imgui:freetype - Use FreeType to build and rasterize the font atlas

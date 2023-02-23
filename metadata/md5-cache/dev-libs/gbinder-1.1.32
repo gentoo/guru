@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig sys-apps/sed
+DEFINED_PHASES=compile install prepare test
+DEPEND=dev-libs/libglibutil
+DESCRIPTION=GLib-style interface to binder
+EAPI=8
+HOMEPAGE=https://github.com/mer-hybris/libgbinder
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=BSD
+RDEPEND=dev-libs/libglibutil
+SLOT=0
+SRC_URI=https://github.com/mer-hybris/libgbinder/archive/1.1.32.tar.gz -> gbinder-1.1.32.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=be69b316c8f0a814fb07f1fdfd2dd847

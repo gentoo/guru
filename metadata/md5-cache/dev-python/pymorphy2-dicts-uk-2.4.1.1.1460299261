@@ -1,0 +1,15 @@
+BDEPEND=python_targets_pypy3? ( >=dev-python/pypy3-7.3.11-r1:0= ) python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-python/setuptools-65.7.0[python_targets_pypy3(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Ukrainian dictionary for PyMorphy2
+EAPI=7
+HOMEPAGE=https://pypi.org/project/pymorphy2-dicts-uk/
+INHERIT=distutils-r1
+IUSE=python_targets_pypy3 python_targets_python3_9 python_targets_python3_10
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=MIT
+RDEPEND=python_targets_pypy3? ( >=dev-python/pypy3-7.3.11-r1:0= ) python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 )
+REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_9 python_targets_python3_10 )
+SLOT=0
+SRC_URI=mirror://pypi/p/pymorphy2-dicts-uk/pymorphy2-dicts-uk-2.4.1.1.1460299261.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	a9f2e2ae24bd496873c092a94cae1539
+_md5_=33caa91de44f45174697294c1fc021af

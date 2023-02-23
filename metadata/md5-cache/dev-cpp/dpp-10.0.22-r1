@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/openssl:= sys-libs/zlib:= voice? ( dev-libs/libsodium:= media-libs/opus )
+DESCRIPTION=Lightweight C++ Discord bot library
+EAPI=8
+HOMEPAGE=https://dpp.dev/ https://github.com/brainboxdotcc/DPP
+INHERIT=cmake
+IUSE=voice
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=dev-libs/openssl:= sys-libs/zlib:= voice? ( dev-libs/libsodium:= media-libs/opus )
+SLOT=0/10.0.22
+SRC_URI=https://github.com/brainboxdotcc/DPP/archive/refs/tags/v10.0.22.tar.gz -> dpp-10.0.22.tar.gz https://patch-diff.githubusercontent.com/raw/brainboxdotcc/DPP/pull/596.patch -> dpp-890014-rework-compiler-flags.patch
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	449b4785acace35308fe747fc939bde1
+_md5_=b5600400d1bb5cf93da7d48d24200f57

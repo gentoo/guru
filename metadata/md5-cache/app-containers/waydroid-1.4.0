@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile config install postinst postrm setup
+DEPEND=|| ( virtual/linux-sources virtual/dist-kernel )
+DESCRIPTION=Container-based approach to boot a full Android system on Linux systems
+EAPI=8
+HOMEPAGE=https://waydro.id
+INHERIT=linux-info xdg-utils python-single-r1
+IUSE=systemd apparmor python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=GPL-3
+RDEPEND=systemd? ( sys-apps/systemd ) app-containers/lxc[systemd?,apparmor?,seccomp] python_single_target_python3_9? ( dev-python/pygobject[python_targets_python3_9(-)] >=dev-python/gbinder-1.1.1[python_targets_python3_9(-)] >=dev-python/pyclip-0.7.0[wayland,python_targets_python3_9(-)] ) python_single_target_python3_10? ( dev-python/pygobject[python_targets_python3_10(-)] >=dev-python/gbinder-1.1.1[python_targets_python3_10(-)] >=dev-python/pyclip-0.7.0[wayland,python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygobject[python_targets_python3_11(-)] >=dev-python/gbinder-1.1.1[python_targets_python3_11(-)] >=dev-python/pyclip-0.7.0[wayland,python_targets_python3_11(-)] ) net-firewall/nftables[modern-kernel] net-dns/dnsmasq >=dev-libs/libglibutil-1.0.67 >=dev-libs/gbinder-1.1.21 python_single_target_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_single_target_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_single_target_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
+REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
+SLOT=0
+SRC_URI=https://github.com/waydroid/waydroid/archive/1.4.0.tar.gz -> waydroid-1.4.0.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e	xdg-utils	ac0e315a3688929e34ac75b139e7349a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
+_md5_=35c37a40b4ccc001d827a00ca55172bc

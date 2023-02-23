@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install prepare
+DESCRIPTION=Lua language server
+EAPI=8
+HOMEPAGE=https://github.com/LuaLS/lua-language-server
+INHERIT=ninja-utils toolchain-funcs
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/LuaLS/lua-language-server/releases/download/3.6.11/lua-language-server-3.6.11-submodules.zip -> lua-language-server-3.6.11.zip
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_md5_=b7137b23e9f850e8aa63f578963a84e8

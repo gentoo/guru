@@ -1,0 +1,11 @@
+BDEPEND=net-libs/nodejs[npm] >=dev-lang/typescript-4.9.5
+DEFINED_PHASES=install unpack
+DESCRIPTION=TypeScript & JavaScript Language Server
+EAPI=8
+HOMEPAGE=https://www.npmjs.com/package/typescript-language-server
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=net-libs/nodejs
+SLOT=0
+SRC_URI=mirror://npm/typescript-language-server/-/typescript-language-server-3.2.0.tgz
+_md5_=784996b1cf71132c00e9ee78c4e6236b
