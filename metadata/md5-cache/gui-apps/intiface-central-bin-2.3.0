@@ -9,5 +9,5 @@ LICENSE=GPL-3
 RDEPEND=app-accessibility/at-spi2-core media-gfx/graphite2 sys-apps/dbus sys-apps/systemd-utils x11-libs/gtk+:3[X]
 SLOT=0
 SRC_URI=https://github.com/intiface/intiface-central/releases/download/v2.3.0/intiface-central-v2.3.0-linux-x64.zip
-_eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d
 _md5_=4620012af01a93fabf4174f45297bf45

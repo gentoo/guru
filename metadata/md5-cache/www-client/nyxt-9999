@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=dev-libs/gobject-introspection gnome-base/gsettings-desktop-schemas media-libs/gst-plugins-bad media-libs/gst-plugins-base media-libs/gst-plugins-good media-libs/gst-plugins-ugly media-plugins/gst-plugins-libav net-libs/glib-networking net-libs/webkit-gtk:4.1 sys-libs/libfixposix
 RESTRICT=mirror strip
 SLOT=0
-_eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	optfeature	1a2157392a869265b2afcb63a26c12ac	xdg-utils	ac0e315a3688929e34ac75b139e7349a	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	optfeature	1a2157392a869265b2afcb63a26c12ac	xdg-utils	ac0e315a3688929e34ac75b139e7349a	git-r3	2347f8fe2d392b2a091191f94be37e6f
 _md5_=af1afe211f207ddd73d636ea08f90816

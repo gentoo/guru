@@ -11,5 +11,5 @@ RDEPEND=media-libs/alsa-lib media-libs/libglvnd x11-libs/libX11
 RESTRICT=bindist strip
 SLOT=0
 SRC_URI=https://github.com/divVerent/aaaaxy/archive/refs/tags/v1.2.399.tar.gz -> aaaaxy-1.2.399.tar.gz https://gitlab.com/api/v4/projects/41581401/packages/generic/aaaaxy/1.2.399+2022-12-06/aaaaxy-1.2.399-deps.tar.xz
-_eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	go-module	f2c9bcab49079a176b3ae061c94bb344
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	go-module	f2c9bcab49079a176b3ae061c94bb344
 _md5_=531f235e8a618ed067eb07f86ef97ea3

@@ -10,5 +10,5 @@ LICENSE=GPL-2+ public-domain
 RDEPEND=x11-libs/libX11 >=media-libs/imlib2-1.8.0[X] statusbar? ( x11-libs/libXft ) exif? ( media-libs/libexif )
 SLOT=0
 SRC_URI=https://github.com/nsxiv/nsxiv/archive/v31.tar.gz -> nsxiv-31.tar.gz
-_eclasses_=desktop	7eb20ad915a0a318176d51bc2508ff5c	xdg-utils	ac0e315a3688929e34ac75b139e7349a	portability	58227860123d3e8da23290064ce3373e	savedconfig	4011d8d7370446e970e2c92b20a31341	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	xdg-utils	ac0e315a3688929e34ac75b139e7349a	portability	58227860123d3e8da23290064ce3373e	savedconfig	4011d8d7370446e970e2c92b20a31341	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	4b552625ebd741dfd2ac08637fd2436e
 _md5_=956f3bcf7e1a0f5958aa6b1ac178eec5
