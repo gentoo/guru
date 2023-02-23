@@ -21,9 +21,9 @@ KEYWORDS="~amd64"
 
 DEPEND="
 	$(python_gen_cond_dep	'
-		>=dev-python/rchitect-0.3.36[${PYTHON_USEDEP}]
-		>=dev-python/prompt_toolkit-3.0.15[${PYTHON_USEDEP}]
+		>=dev-python/prompt-toolkit-3.0.15[${PYTHON_USEDEP}]
 		>=dev-python/pygments-2.5.0[${PYTHON_USEDEP}]
+		>=dev-python/rchitect-0.3.36[${PYTHON_USEDEP}]
 	')
 "
 RDEPEND="

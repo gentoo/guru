@@ -139,7 +139,7 @@ DEPEND="${RDEPEND}"
 # 		~dev-python/black-22.3.0[${PYTHON_USEDEP}]
 # 		>=dev-python/hypothesis-4.36.0[${PYTHON_USEDEP}]
 # 		>=dev-python/hypothesmith-0.0.4[${PYTHON_USEDEP}]
-# 		>=dev-python/prompt_toolkit-2.0.9[${PYTHON_USEDEP}]
+# 		>=dev-python/prompt-toolkit-2.0.9[${PYTHON_USEDEP}]
 # 	)
 # "
 # BDEPEND="test? ( dev-python/ufmt[${PYTHON_USEDEP}] )"
