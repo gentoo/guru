@@ -28,10 +28,10 @@ RDEPEND="
 	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/pycryptodome[${PYTHON_USEDEP}]
 	dev-python/python-magic[${PYTHON_USEDEP}]
-	dev-python/python-zstandard[${PYTHON_USEDEP}]
 	dev-python/ruamel-yaml[${PYTHON_USEDEP}]
 	dev-python/unpaddedbase64[${PYTHON_USEDEP}]
 	dev-python/yarl[${PYTHON_USEDEP}]
+	dev-python/zstandard[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
 
