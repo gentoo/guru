@@ -3,9 +3,9 @@
 
 # @ECLASS: dotnet-utils.eclass
 # @MAINTAINER:
-# anna@navirc.com
+# navi@vlhl.dev
 # @AUTHOR:
-# Anna Figueiredo Gomes <anna@navirc.com>
+# Anna Figueiredo Gomes <navi@vlhl.dev>
 # @SUPPORTED_EAPIS: 7 8
 # @BLURB: common functions and variables for dotnet builds
 
