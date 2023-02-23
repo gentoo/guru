@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit desktop python-single-r1 toolchain-funcs xdg
 
@@ -72,16 +72,16 @@ src_test() {
 src_install() {
 	python_moduleinto ${PN}
 	python_domodule {client/,server/,start.sh}
-	fperms 755 $(python_get_sitedir)/${PN}/start.sh
-	fperms 755 $(python_get_sitedir)/${PN}/server/run_server.sh
+	chmod 755 "${D}"/$(python_get_sitedir)/${PN}/start.sh
+	chmod 755 "${D}"/$(python_get_sitedir)/${PN}/server/run_server.sh
 
 	python_moduleinto ${PN}/bot
 	python_domodule bot/bot
-	fperms 755 $(python_get_sitedir)/${PN}/bot/bot
+	chmod 755 "${D}"/$(python_get_sitedir)/${PN}/bot/bot
 
-	python_optimize "${D}/$(python_get_sitedir)/${PN}/"{client,server}/*.py
+	python_optimize
 
-	dobin "rmahjong"
+	dobin rmahjong
 	doicon -s 48 "${DISTDIR}/kmahjongg_${PN}.png"
-	make_desktop_entry "${PN}" "RMahjong" "kmahjongg_${PN}" "Game;BoardGame;" || die "Failed making desktop entry!"
+	make_desktop_entry "${PN}" "RMahjong" "kmahjongg_${PN}" "Game;BoardGame;"
 }

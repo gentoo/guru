@@ -13,6 +13,7 @@
     </upstream>
     <use>
         <flag name="allegro5">Enable allegro backend and renderer</flag>
+        <flag name="allegro">Enable allegro backend and renderer</flag>
         <flag name="bindings">Build the cimgui C bindigs</flag>
         <flag name="freetype">Use FreeType to build and rasterize the font atlas</flag>
         <flag name="glfw">Enable glfw backend</flag>

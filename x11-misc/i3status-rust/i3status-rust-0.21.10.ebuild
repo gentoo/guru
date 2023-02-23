@@ -141,13 +141,11 @@ SRC_URI="https://github.com/greshake/i3status-rust/archive/v${PV}.tar.gz -> ${P}
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="profile"
 
 QA_FLAGS_IGNORED="usr/bin/i3status-rs"
 
 DEPEND="sys-apps/dbus
-	media-sound/pulseaudio
-	profile? ( dev-util/google-perftools )"
+	media-sound/pulseaudio"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
@@ -156,19 +154,9 @@ src_unpack() {
 	mv "${S}/man" "${S}/man.bak" || die
 }
 
-src_configure() {
-	myfeatures=(
-		$(usex profile profiling '')
-	)
-}
-
-src_compile() {
-	cargo_src_compile ${myfeatures:+--features "${myfeatures[*]}"}
-}
-
 src_install() {
 	doman "${S}/man.bak/i3status-rs.1"
-	cargo_src_install ${myfeatures:+--features "${myfeatures[*]}"}
-	instinto /usr/share/"${PN}"
+	cargo_src_install
+	insinto /usr/share/"${PN}"
 	doins -r files/icons files/themes
 }

@@ -60,6 +60,7 @@ QA_PREBUILT="
 	opt/discord-canary/libffmpeg.so
 	opt/discord-canary/libvk_swiftshader.so
 	opt/discord-canary/libvulkan.so
+	opt/discord-canary/libvulkan.so.1
 	opt/discord-canary/libEGL.so
 	opt/discord-canary/libGLESv2.so
 	opt/discord-canary/libVkICD_mock_icd.so

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<use>
+		<flag name="fluidsynth">Support FluidSynth as MIDI synth backend</flag>
+		<flag name="wildmidi">Support wildmidi as MIDI synth backend</flag>
+	</use>
+</pkgmetadata>

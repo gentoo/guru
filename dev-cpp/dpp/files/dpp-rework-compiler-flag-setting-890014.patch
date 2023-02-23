@@ -1,0 +1,147 @@
+From 664b39498815689aae284f1d8541ed88a1101dd7 Mon Sep 17 00:00:00 2001
+From: NexAdn <nex@nexadn.de>
+Date: Sat, 7 Jan 2023 12:58:34 +0100
+Subject: [PATCH 1/4] build: Use CXX_FLAGS_{DEBUG,RELEASE} to get rid of
+ if-else blocks
+
+This commit uses the CMake variables CMAKE_CXX_FLAGS_DEBUG and
+CMAKE_CXX_FLAGS_RELEASE to handle setting varying compiler flags
+depending on the build target. This gets rid of a bunch of if-else
+blocks, allowing easier to read code.
+
+Furthermore, common flags are put in CMAKE_CXX_FLAGS only once to reduce
+code duplication.
+
+Issue: https://github.com/brainboxdotcc/DPP/issues/595
+---
+ library/CMakeLists.txt | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
+
+diff --git a/library/CMakeLists.txt b/library/CMakeLists.txt
+index 90cb6b6958..2dea07e7b7 100644
+--- a/library/CMakeLists.txt
++++ b/library/CMakeLists.txt
+@@ -170,14 +170,12 @@ if(MSVC)
+ 	endif()
+ 	string(REGEX REPLACE "/W[1|2|3|4]" "/W3" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+ else()
+-	if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+-		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -Wno-psabi -Wempty-body -Wignored-qualifiers -Wimplicit-fallthrough -Wmissing-field-initializers -Wsign-compare -Wtype-limits -Wuninitialized -Wshift-negative-value -pthread -g -Og -fPIC")
++	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -Wno-psabi -Wempty-body -Wignored-qualifiers -Wimplicit-fallthrough -Wmissing-field-initializers -Wsign-compare -Wtype-limits -Wuninitialized -Wshift-negative-value -pthread")
++	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -Og -fPIC")
++	if (BUILD_O3)
++		set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3 -fPIC")
+ 	else()
+-		if (BUILD_O3)
+-			set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -Wno-psabi -Wempty-body -Wignored-qualifiers -Wimplicit-fallthrough -Wmissing-field-initializers -Wsign-compare -Wtype-limits -Wuninitialized -Wshift-negative-value -pthread -O3 -fPIC")
+-		else()
+-			set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -Wno-psabi -Wempty-body -Wignored-qualifiers -Wimplicit-fallthrough -Wmissing-field-initializers -Wsign-compare -Wtype-limits -Wuninitialized -Wshift-negative-value -pthread -Os -fPIC")
+-		endif()
++		set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Os -fPIC")
+ 	endif()
+ 
+ 	if (NOT MINGW)
+
+From a48f9f6dfa7f9aa443d5bf52295a24decbaf1480 Mon Sep 17 00:00:00 2001
+From: NexAdn <nex@nexadn.de>
+Date: Sat, 7 Jan 2023 13:13:53 +0100
+Subject: [PATCH 2/4] build: Drop manually set -fPIC and -std=c++17 flags on
+ Linux
+
+-std=c++17 is automatically set on demand by target_compile_features.
+-fPIC is set by default for SHARED and MODULE targets and can be enabled
+by target properties for STATIC targets.
+
+Issue: https://github.com/brainboxdotcc/DPP/issues/595
+---
+ library/CMakeLists.txt | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/library/CMakeLists.txt b/library/CMakeLists.txt
+index 2dea07e7b7..245380d2b9 100644
+--- a/library/CMakeLists.txt
++++ b/library/CMakeLists.txt
+@@ -170,12 +170,12 @@ if(MSVC)
+ 	endif()
+ 	string(REGEX REPLACE "/W[1|2|3|4]" "/W3" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+ else()
+-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -Wno-psabi -Wempty-body -Wignored-qualifiers -Wimplicit-fallthrough -Wmissing-field-initializers -Wsign-compare -Wtype-limits -Wuninitialized -Wshift-negative-value -pthread")
+-	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -Og -fPIC")
++	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-psabi -Wempty-body -Wignored-qualifiers -Wimplicit-fallthrough -Wmissing-field-initializers -Wsign-compare -Wtype-limits -Wuninitialized -Wshift-negative-value -pthread")
++	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -Og")
+ 	if (BUILD_O3)
+-		set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3 -fPIC")
++		set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
+ 	else()
+-		set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Os -fPIC")
++		set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Os")
+ 	endif()
+ 
+ 	if (NOT MINGW)
+@@ -202,6 +202,7 @@ foreach (fullmodname ${subdirlist})
+ 		PROPERTIES
+ 		VERSION ${CMAKE_PROJECT_VERSION}
+ 		SOVERSION ${CMAKE_PROJECT_VERSION}
++		POSITION_INDEPENDENT_CODE true
+ 	)
+ 	target_include_directories(${modname} PUBLIC 
+ 		$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>
+
+From 5c03764df94b4a1f1c48581ab9e5a94941c2da29 Mon Sep 17 00:00:00 2001
+From: Adrian Schollmeyer <git@nexadn.de>
+Date: Mon, 9 Jan 2023 13:07:42 +0100
+Subject: [PATCH 3/4] build: Drop explicitly set -O and -g flags for Linux
+ where possible
+
+CMake provides various build types which already set the correct -O
+levels and -g depending on the user's choice. This commit gets rid of
+the previous explicit setting of these flags where possible.
+
+Issue: https://github.com/brainboxdotcc/DPP/issues/595
+---
+ library/CMakeLists.txt | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/library/CMakeLists.txt b/library/CMakeLists.txt
+index 245380d2b9..5531dbaddf 100644
+--- a/library/CMakeLists.txt
++++ b/library/CMakeLists.txt
+@@ -171,12 +171,7 @@ if(MSVC)
+ 	string(REGEX REPLACE "/W[1|2|3|4]" "/W3" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+ else()
+ 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-psabi -Wempty-body -Wignored-qualifiers -Wimplicit-fallthrough -Wmissing-field-initializers -Wsign-compare -Wtype-limits -Wuninitialized -Wshift-negative-value -pthread")
+-	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -Og")
+-	if (BUILD_O3)
+-		set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
+-	else()
+-		set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Os")
+-	endif()
++	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Og")
+ 
+ 	if (NOT MINGW)
+ 		add_link_options("-rdynamic")
+
+From 373d694517d0f773b8b248d306a7014d6c199862 Mon Sep 17 00:00:00 2001
+From: Adrian Schollmeyer <git@nexadn.de>
+Date: Mon, 9 Jan 2023 18:52:49 +0100
+Subject: [PATCH 4/4] build: Make C++17 a public compile feature
+
+C++17 is required when building against DPP. As such, it should be a
+PUBLIC compile feature.
+---
+ library/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/library/CMakeLists.txt b/library/CMakeLists.txt
+index 5531dbaddf..f558ce0816 100644
+--- a/library/CMakeLists.txt
++++ b/library/CMakeLists.txt
+@@ -240,7 +240,7 @@ foreach (fullmodname ${subdirlist})
+ 	endif()
+ endforeach()
+ 
+-target_compile_features(dpp PRIVATE cxx_std_17)
++target_compile_features(dpp PUBLIC cxx_std_17)
+ target_compile_features(dpp PRIVATE cxx_constexpr)
+ target_compile_features(dpp PRIVATE cxx_auto_type)
+ target_compile_features(dpp PRIVATE cxx_defaulted_functions)

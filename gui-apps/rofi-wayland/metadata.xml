@@ -7,8 +7,6 @@
 	</maintainer>
 	<use>
 		<flag name="drun">Desktop file mode</flag>
-		<flag name="window">Window switcher mode</flag>
-		<flag name="check">Build and run libcheck-based tests</flag>
-		<flag name="wayland">Build with wayland support</flag>
+		<flag name="windowmode">Window switcher mode</flag>
 	</use>
 </pkgmetadata>
