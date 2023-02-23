@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
-inherit python-any-r1 meson
+inherit python-any-r1 xdg meson
 
 DESCRIPTION="Send JACK audio over a network"
 HOMEPAGE="https://jacktrip.github.io/jacktrip/ https://github.com/jacktrip/jacktrip"
