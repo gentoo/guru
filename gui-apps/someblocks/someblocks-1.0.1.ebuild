@@ -17,8 +17,13 @@ src_prepare() {
 	default
 	sed -i -e 's:$(LDFLAGS):$(CPPFLAGS) $(CFLAGS) $(LDFLAGS):' Makefile \
 		|| die "sed fix failed. Uh-oh..."
-
+	# prevent compilation in install phase
+	sed -i -e "s/install: output/install:/g" Makefile
 	restore_config blocks.h
+}
+
+src_compile() {
+	emake output
 }
 
 src_install() {
