@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
-
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
 		<email>ezzieyguywuf@gmail.com</email>
 		<name>Wolfgang E. Sanyer</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">rst2ansi</remote-id>
+		<remote-id type="github">Snaipe/python-rst2ansi</remote-id>
+	</upstream>
 </pkgmetadata>
