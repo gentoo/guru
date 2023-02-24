@@ -20,6 +20,10 @@ RDEPEND="
 	sys-apps/dbus
 	sys-apps/systemd-utils
 	x11-libs/gtk+:3[X]
+	|| (
+		dev-libs/openssl:0/1.1
+		dev-libs/openssl-compat:1.1.1
+	)
 "
 BDEPEND="app-arch/unzip"
 
