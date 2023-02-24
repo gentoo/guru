@@ -90,7 +90,6 @@ app-backup/timeshift-autosnap 0.9: Automatically creates a timeshift-snapshot wh
 app-benchmarks/phoronix-test-suite 9999: Phoronix's comprehensive, cross-platform testing and benchmark suite
 app-containers/aardvark-dns 1.0.2 1.0.2-r1: A container-focused DNS server
 app-containers/dnsname-cni-plugin 1.3.0 1.3.1 9999: name resolution for containers
-app-containers/netavark 1.0.2 1.0.2-r1: A container network stack
 app-containers/nvidia-container-toolkit 1.9.0 1.10.0 9999: NVIDIA container runtime toolkit
 app-containers/waydroid 1.4.0: Container-based approach to boot a full Android system on Linux systems
 app-crypt/PBinCLI 0.3.2: PrivateBin CLI
@@ -188,7 +187,7 @@ app-misc/ledger-live 2.50.1 2.51.0 2.52.0 2.53.1 2.53.2: Manager for the Ledger 
 app-misc/lf 27 28: Terminal file manager
 app-misc/macchina 5.0.2 6.0.5 6.0.6 6.1.6: A system information fetcher, with an (unhealthy) emphasis on performance.
 app-misc/mangadesk 0.7.7 0.7.8: Terminal Client for MangaDex
-app-misc/mat2 0.13.1: Metadata Anonymisation Toolkit: handy tool to trash your metadata
+app-misc/mat2 0.13.3: Metadata Anonymisation Toolkit: handy tool to trash your metadata
 app-misc/metadata-cleaner 2.3.1: Python GTK application to view and clean metadata in files, using mat2.
 app-misc/minder 1.14.0: Mind-mapping application for Elementary OS.
 app-misc/mobile-datovka 1.10.0: Mobile optimized GUI to access the Czech data box e-government system
@@ -625,8 +624,8 @@ dev-libs/octetos-db 1.3.2_alpha 1.3.3_alpha: C++ library for Database Acces.
 dev-libs/octetos-db-abstract 0.1.2_alpha 0.6.0_alpha: API to access database, abstract component.
 dev-libs/octetos-db-maria 1.4.2_alpha 1.9.2_alpha 9999: C++ library for Database Acces.
 dev-libs/octetos-db-postgresql 1.3.9_alpha 1.3.10_alpha: C++ library for Database Acces.
-dev-libs/olm 3.2.13 3.2.14-r1: Implementation of the olm and megolm cryptographic ratchets
-dev-libs/open62541 1.3.4: Open source C implementation of OPC UA
+dev-libs/olm 3.2.13 3.2.14-r2: Implementation of the olm and megolm cryptographic ratchets
+dev-libs/open62541 1.3.5: Open source C implementation of OPC UA
 dev-libs/perfstubs 0_pre20210915: Profiling API for adding external tool instrumentation support to any project
 dev-libs/polyseed 1.0.0 9999: Mnemonic seed library for Monero and other CryptoNote-based currencies.
 dev-libs/properties-cpp 0.0.2: Simple convenience library for handling properties and signals in C++11
@@ -1333,7 +1332,7 @@ gui-apps/gcolor3 2.4.0: A simple color chooser written in GTK3
 gui-apps/gradience 0.3.0-r1: GNOME's main interface to configure various aspects of the desktop
 gui-apps/gtklock 2.0.1: GTK-based lockscreen for Wayland
 gui-apps/hiprompt-gtk-py 0_pre20220624 9999: GTK+ Himitsu prompter for Wayland
-gui-apps/intiface-central-bin 2.3.0: Buttplug frontend application
+gui-apps/intiface-central-bin 2.3.0-r1: Buttplug frontend application
 gui-apps/mpvpaper 1.2 1.3 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.5.0 0.6.3 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/organicmaps 9999: Offline maps and navigation using OpenStreetMap data
@@ -1460,7 +1459,7 @@ media-sound/dzr 221112: DZR: the command line deezer.com player
 media-sound/helvum 0.3.4 0.3.4-r2: A GTK patchbay for pipewire
 media-sound/hushboard 0.0_pre20220518 9999: Mutes your microphone while you are typing
 media-sound/ibniz 1.18-r1: virtual machine designed for extremely compact low-level audiovisual programs
-media-sound/jacktrip 1.7.0 1.7.1: Send JACK audio over a network
+media-sound/jacktrip 1.7.0 1.7.1-r1: Send JACK audio over a network
 media-sound/loudgain 0.6.8: Versatile ReplayGain 2.0 loudness normalizer
 media-sound/mopidy 3.3.0: An extensible music server written in Python.
 media-sound/mpd-mpris 0.3.1: An implementation of the MPRIS protocol for MPD.
@@ -1538,7 +1537,7 @@ net-im/mautrix-facebook 0.4.1: A Matrix-Facebook Messenger puppeting bridge
 net-im/mautrix-signal 0.4.2: A Matrix-Telegram Messenger puppeting bridge
 net-im/mautrix-slack 0_pre20230124: A Matrix-Slack puppeting bridge based on slack-go
 net-im/mautrix-telegram 0.12.2_p20230118: A Matrix-Telegram Messenger puppeting bridge
-net-im/nheko 0.11.1 0.11.2 9999: Native desktop client for Matrix using Qt
+net-im/nheko 0.11.1 0.11.3 9999: Native desktop client for Matrix using Qt
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
 net-im/session-desktop-bin 1.10.7: Session Desktop - Onion routing based messenger
 net-im/whatsapp-for-linux 1.3.2 1.3.2-r1 1.5.3: An unofficial WhatsApp desktop application for Linux
@@ -1575,8 +1574,8 @@ net-misc/giara 1.0.1: An app for Reddit
 net-misc/gmid 1.8.5 1.8.6 9999: Simple and secure Gemini server
 net-misc/gnome-ssh-askpass 9.1_p1: GTK-based passphrase dialog for use with OpenSSH
 net-misc/lyrics-in-terminal 1.4.2 1.5.0: Command Line Lyrics fetcher for MPRIS media players
-net-misc/maestral 1.5.3 1.6.5 1.7.0_rc3: Maestral is an open-source Dropbox client written in Python
-net-misc/maestral-qt 1.5.3 1.6.5 1.7.0_rc2: Maestral is an open-source Dropbox client written in Python
+net-misc/maestral 1.5.3 1.6.5 1.7.0_rc4: Maestral is an open-source Dropbox client written in Python
+net-misc/maestral-qt 1.5.3 1.6.5 1.7.0_rc4: Maestral is an open-source Dropbox client written in Python
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/moonlight 4.3.1: GameStream client for PCs
@@ -1712,7 +1711,7 @@ sci-physics/SU2 7.2.0-r2 7.2.0-r100: SU2: An Open-Source Suite for Multiphysics 
 sci-physics/mbdyn 1.7.3_p20210925-r1: A general purpose Multibody Dynamics analysis software
 sec-keys/openpgp-keys-aepaneshnikov 20221210: OpenPGP keys used by Alexander Epaneshnikov
 sec-keys/openpgp-keys-emersion 20220802: OpenPGP keys used by Simon Ser
-sec-keys/openpgp-keys-jvoisin 20200714: OpenPGP keys used by Julien Voisin
+sec-keys/openpgp-keys-jvoisin 20230224: OpenPGP keys used by Julien Voisin
 sec-keys/openpgp-keys-russallbery 20220000: OpenPGP keys used by Russ Allbery (Eagle)
 sec-keys/openpgp-keys-skyjake 20211224: OpenPGP keys used by Jaakko Keranen
 sec-keys/signify-keys-gmid 1.7 1.8: Signify keys used to sign gmid releases
@@ -1862,7 +1861,7 @@ virtual/survival 0: Virtual of a R recommended package
 www-apps/code-server-bin 4.7.1 4.8.3 4.9.1-r1: VS Code in the browser (binary version with unbundled node and ripgrep)
 www-apps/forgejo 1.18.0.1: A self-hosted lightweight software forge
 www-apps/gogs 0.12.3 0.12.10: Gogs is a self-hosted Git service written in Go
-www-apps/gotosocial 0.5.2 0.6.0-r1: Fast, fun, ActivityPub server, powered by Go
+www-apps/gotosocial 0.7.1: Fast, fun, ActivityPub server, powered by Go
 www-apps/honk 0.9.8: ActivityPub server with minimal setup and support costs
 www-apps/invidious 2022.11.22 2023.01.26: Invidious is an alternative front-end to YouTube
 www-apps/jackett-bin 0.20.514 0.20.1202 9999: API Support for your favorite torrent trackers
