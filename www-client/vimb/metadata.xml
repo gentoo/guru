@@ -8,4 +8,7 @@
 	<use>
 		<flag name="adblock">Use <pkg>www-misc/wyebadblock</pkg> for adblocking</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">fanglingsu/vimb</remote-id>
+	</upstream>
 </pkgmetadata>

@@ -3,25 +3,29 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..11} )
+PYTHON_COMPAT=( python3_{9..11} )
 inherit cmake check-reqs python-any-r1
 
 DESCRIPTION="Microsoft DirectX Shader Compiler which is based on LLVM/Clang"
 HOMEPAGE="https://github.com/microsoft/DirectXShaderCompiler"
-# ToDo: unbundle spirv headers/tools
-SPIRV_HEADERS_COMMIT_MAGIC="0bcc624926a25a2a273d07877fd25a6ff5ba1cfb"
-SPIRV_TOOLS_COMMIT_MAGIC="71b2aee6c868a673ec82d1385f97593aa2881316"
+# ToDo: unbundle spirv headers/tools and directx headers
+SPIRV_HEADERS_COMMIT_MAGIC="d13b52222c39a7e9a401b44646f0ca3a640fbd47"
+SPIRV_TOOLS_COMMIT_MAGIC="f36a8d47f738cc612c7dd89f145a15465ab437cd"
+DIRECTX_HEADERS_COMMIT_MAGIC="980971e835876dc0cde415e8f9bc646e64667bf7"
 SRC_URI="https://github.com/microsoft/DirectXShaderCompiler/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 https://github.com/KhronosGroup/SPIRV-Headers/archive/${SPIRV_HEADERS_COMMIT_MAGIC}.tar.gz -> DirectXShaderCompiler-headers-${SPIRV_HEADERS_COMMIT_MAGIC}.tar.gz
-https://github.com/KhronosGroup/SPIRV-Tools/archive/${SPIRV_TOOLS_COMMIT_MAGIC}.tar.gz -> DirectXShaderCompiler-tools-${SPIRV_TOOLS_COMMIT_MAGIC}.tar.gz"
+https://github.com/KhronosGroup/SPIRV-Tools/archive/${SPIRV_TOOLS_COMMIT_MAGIC}.tar.gz -> DirectXShaderCompiler-tools-${SPIRV_TOOLS_COMMIT_MAGIC}.tar.gz
+https://github.com/microsoft/DirectX-Headers/archive/${DIRECTX_HEADERS_COMMIT_MAGIC}.tar.gz -> DirectXShaderCompiler-directxheaders-${DIRECTX_HEADERS_COMMIT_MAGIC}.tar.gz"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc"
 SLOT="0"
-KEYWORDS=""
-IUSE=""
+KEYWORDS="~amd64 ~x86"
 
-DEPEND="${PYTHON_DEPS}
-	dev-util/directx-headers"
+DEPEND="${PYTHON_DEPS}"
+# Todo: unbundle
+#	dev-util/directx-headers
+#	dev-util/spirv-headers
+#	dev-util/spirv-tools
 RDEPEND="
 	sys-libs/zlib:0=
 	>=dev-libs/libffi-3.4.2-r1:0=
@@ -35,9 +39,12 @@ CHECKREQS_DISK_BUILD="4G"
 CMAKE_EXTRA_CACHE_FILE="${S}/cmake/caches/PredefinedParams.cmake"
 
 src_prepare() {
-	rm -d "${S}"/external/SPIRV*
+	rm -d "${S}"/external/SPIRV* || die
+	rm -d "${S}"/external/DirectX* || die
 	mv "${WORKDIR}/SPIRV-Headers-${SPIRV_HEADERS_COMMIT_MAGIC}" "${S}/external/SPIRV-Headers" || die "can't move headers"
 	mv "${WORKDIR}/SPIRV-Tools-${SPIRV_TOOLS_COMMIT_MAGIC}" "${S}/external/SPIRV-Tools"|| die "can't move tools"
+	mv "${WORKDIR}/DirectX-Headers-${DIRECTX_HEADERS_COMMIT_MAGIC}" "${S}/external/DirectX-Headers"|| die "can't move DXH"
+
 	cmake_src_prepare
 }
 

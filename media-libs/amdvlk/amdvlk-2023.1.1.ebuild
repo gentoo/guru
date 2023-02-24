@@ -88,17 +88,16 @@ pkg_pretend(){
 
 src_prepare() {
 	einfo "moving src to proper directories"
-	mkdir -p "${S}"
-	mkdir -p "${S}/third_party"
-	mv xgl-${XGL_COMMIT}/ "${S}/xgl"
-	mv pal-${PAL_COMMIT}/ "${S}/pal"
-	mv llpc-${LLPC_COMMIT}/ "${S}/llpc"
-	mv gpurt-${GPURT_COMMIT}/ "${S}/gpurt"
-	mv llvm-project-${LLVM_PROJECT_COMMIT}/ "${S}/llvm-project"
-	rm -d "${S}"/llpc/imported/llvm-dialects/ || die
-	mv llvm-dialects-${LLVM_DIALECTS_COMMIT}/ "${S}"/llpc/imported/llvm-dialects/
-	mv MetroHash-${METROHASH_COMMIT}/ "${S}/third_party/metrohash"
-	mv CWPack-${CWPACK_COMMIT}/ "${S}/third_party/cwpack"
+	mkdir third_party || die
+	mv xgl-${XGL_COMMIT}/ xgl || die
+	mv pal-${PAL_COMMIT}/ /pal || die
+	mv llpc-${LLPC_COMMIT}/ llpc || die
+	mv gpurt-${GPURT_COMMIT}/ gpurt || die
+	mv llvm-project-${LLVM_PROJECT_COMMIT}/ llvm-project || die
+	rm -d llpc/imported/llvm-dialects/ || die
+	mv llvm-dialects-${LLVM_DIALECTS_COMMIT}/ llpc/imported/llvm-dialects/ || die
+	mv MetroHash-${METROHASH_COMMIT}/ third_party/metrohash || die
+	mv CWPack-${CWPACK_COMMIT}/ third_party/cwpack || die
 	cmake_src_prepare
 }
 
@@ -128,9 +127,9 @@ multilib_check_headers() {
 multilib_src_install_all() {
 	default
 	einfo "Removing unused LLVM parts…"
-	rm "${D}"/usr/lib/libLTO* || die "Can't remove unused LLVM lto library"
-	rm "${D}"/usr/lib/libRemarks* || die "Can't remove unused LLVM libRemarks library"
-	rm -r "${D}"/usr/lib/cmake || die "Can't remove unused LLVM cmake folder"
+	rm "${ED}"/usr/lib/libLTO* || die "Can't remove unused LLVM lto library"
+	rm "${ED}"/usr/lib/libRemarks* || die "Can't remove unused LLVM libRemarks library"
+	rm -r "${ED}"/usr/lib/cmake || die "Can't remove unused LLVM cmake folder"
 	einfo "Removal done"
 }
 

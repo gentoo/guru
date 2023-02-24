@@ -20,7 +20,6 @@ DEPEND="
 	dev-libs/popt
 "
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 pkg_postinst() {
 	elog "To use pinentry-bemenu, edit your gpg-agent.conf file to include:"

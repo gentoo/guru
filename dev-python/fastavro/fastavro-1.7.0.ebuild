@@ -25,8 +25,8 @@ BDEPEND="
 		dev-python/lz4[${PYTHON_USEDEP}]
 		dev-python/numpy[${PYTHON_USEDEP}]
 		dev-python/pandas[${PYTHON_USEDEP}]
-		dev-python/python-zstandard[${PYTHON_USEDEP}]
 		dev-python/python-snappy[${PYTHON_USEDEP}]
+		dev-python/zstandard[${PYTHON_USEDEP}]
 	)
 "
 
@@ -56,5 +56,5 @@ python_test() {
 pkg_postinst() {
 	optfeature "lz4 support" dev-python/lz4
 	optfeature "snappy support" dev-python/snappy
-	optfeature "zstd support" dev-python/python-zstandard
+	optfeature "zstd support" dev-python/zstandard
 }

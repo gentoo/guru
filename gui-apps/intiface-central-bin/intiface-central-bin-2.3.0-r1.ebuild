@@ -38,8 +38,7 @@ EOF
 	dobin intiface_central
 
 	newicon --size 512 \
-		/opt/${PN}/data/flutter_assets/assets/icons/intiface_central_icon.png \
-		${PN}.png
+		data/flutter_assets/assets/icons/intiface_central_icon.png ${PN}.png
 
 	make_desktop_entry intiface_central "Intiface Central" ${PN} "Utility"
 }

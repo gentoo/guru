@@ -2,7 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <email>anna@navirc.com</email>
+    <email>navi@vlhl.dev</email>
     <name>Anna Figueiredo Gomes</name>
   </maintainer>
   <use>
