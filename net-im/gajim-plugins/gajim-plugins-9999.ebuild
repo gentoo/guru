@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9,10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit python-single-r1
 
@@ -20,7 +20,6 @@ SLOT="0"
 IUSE="$(printf '+%s ' ${MY_PLUGINS[@]})"
 S="${WORKDIR}/${P%_p2}"
 
-DEPEND=""
 RDEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep '
@@ -31,8 +30,11 @@ RDEPEND="
 			dev-python/qrcode[${PYTHON_USEDEP}]
 			dev-python/cryptography[${PYTHON_USEDEP}] )
 		pgp? (
-			>=dev-python/python-gnupg-0.4.0[${PYTHON_USEDEP}] )
-		plugins_translations? ( app-misc/geoclue[introspection] )
+			>=dev-python/python-gnupg-0.4.0[${PYTHON_USEDEP}]
+		)
+		plugins_translations? (
+			app-misc/geoclue[introspection]
+		)
 	')"
 
 src_install() {
