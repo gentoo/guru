@@ -5,4 +5,8 @@
 		<email>gentoo@aisha.cc</email>
 		<name>Aisha Tammy</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">mcfletch/pydispatcher</remote-id>
+		<remote-id type="pypi">PyDispatcher</remote-id>
+	</upstream>
 </pkgmetadata>
