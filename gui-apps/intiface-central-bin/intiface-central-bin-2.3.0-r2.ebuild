@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop
+inherit desktop xdg
 
 DESCRIPTION="Buttplug frontend application"
 HOMEPAGE="https://github.com/intiface/intiface-central"
