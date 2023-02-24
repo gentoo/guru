@@ -27,7 +27,10 @@ RDEPEND="
 "
 BDEPEND="app-arch/unzip"
 
-QA_PREBUILT="/opt/${PN}/lib/*.so"
+QA_PREBUILT="
+	/opt/${PN}/lib/*.so
+	/opt/${PN}/intiface_central
+"
 
 src_install() {
 	insinto /opt/${PN}
