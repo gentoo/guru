@@ -5,6 +5,8 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
 
+DISTUTILS_USE_PEP517="setuptools"
+
 inherit distutils-r1
 
 if [[ ${PV} != *9999* ]]; then
@@ -23,14 +25,20 @@ HOMEPAGE="https://github.com/erfanoabdi/gbinder-python"
 LICENSE="GPL-3"
 SLOT="0"
 
+PATCHES=(
+	"${FILESDIR}"/gbinder-1.1.1-setuptools.patch
+)
+
+
 DEPEND="dev-libs/gbinder
 	dev-libs/libglibutil"
 RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 	dev-python/cython[${PYTHON_USEDEP}]
+	${DISTUTILS_DEPS}
 "
 
-python_compile() {
-	distutils-r1_python_compile --cython
+python_configure_all () {
+	DISTUTILS_ARGS=( --cython )
 }
