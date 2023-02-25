@@ -13,6 +13,9 @@ LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+# `make check` does nothing
+RESTRICT="test"
+
 RDEPEND="
 	dev-libs/libevent:=
 	sys-libs/ncurses:=[unicode(+)]

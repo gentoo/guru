@@ -21,6 +21,6 @@
 	</maintainer>
 	<bugs-to>mailto:gameoftrees@openbsd.org</bugs-to>
 	<doc>https://gameoftrees.org/examples.html</doc>
-	<changelog>https://git.gameoftrees.org/gitweb/?p=got-portable.git;a=blob_plain;f=CHANGES</changelog>
+	<changelog>http://gameoftrees.org/releases/portable/CHANGELOG</changelog>
 </upstream>
 </pkgmetadata>

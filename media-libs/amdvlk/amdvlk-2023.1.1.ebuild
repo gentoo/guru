@@ -90,7 +90,7 @@ src_prepare() {
 	einfo "moving src to proper directories"
 	mkdir third_party || die
 	mv xgl-${XGL_COMMIT}/ xgl || die
-	mv pal-${PAL_COMMIT}/ /pal || die
+	mv pal-${PAL_COMMIT}/ pal || die
 	mv llpc-${LLPC_COMMIT}/ llpc || die
 	mv gpurt-${GPURT_COMMIT}/ gpurt || die
 	mv llvm-project-${LLVM_PROJECT_COMMIT}/ llvm-project || die
