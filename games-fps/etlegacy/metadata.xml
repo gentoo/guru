@@ -14,4 +14,7 @@
 		<flag name="renderer2">Enable renderer2</flag>
 		<flag name="renderer-gles">Enable renderer-gles</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">etlegacy/etlegacy</remote-id>
+	</upstream>
 </pkgmetadata>

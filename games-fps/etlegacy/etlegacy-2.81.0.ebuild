@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake unpacker xdg
 
@@ -22,18 +22,14 @@ fi
 
 LICENSE="GPL-3 RTCW-ETEULA"
 SLOT="0"
-IUSE="autoupdate +curl dedicated +freetype +gettext ipv6 irc lua omnibot +openal +opengl +png renderer2 renderer-gles +ssl +theora +vorbis"
+IUSE="autoupdate +curl dedicated +freetype +gettext ipv6 irc +lua omnibot +openal +opengl +png renderer2 renderer-gles +ssl +theora +vorbis"
 #REQUIRED_USE="omnibot? ( x86 )"
 
 RESTRICT="bindist mirror"
 
 # TODO add debug use for CMAKE_BUILD_TYPE=debug
 
-if [[ ${PV} == "9999" ]]; then
-	LUADEPEND="lua? ( dev-lang/lua:5.2 )"
-else
-	LUADEPEND="lua? ( >=dev-lang/lua-5.1:* )"
-fi
+LUADEPEND="lua? ( >=dev-lang/lua-5.4:* )"
 
 # * media-libs/glew     | media-libs/glew:=
 # * media-libs/libpng:= <
@@ -61,6 +57,7 @@ UIDEPEND="
 
 DEPEND="
 	dev-db/sqlite:3
+	dev-libs/cJSON
 	opengl? ( ${UIDEPEND} )
 "
 
@@ -148,8 +145,10 @@ src_configure() {
 src_install() {
 	cmake_src_install
 
+	local arch=$(uname -m || die "Failed to detect architecture")
+
 	insinto /usr/share/etlegacy/legacy
-	doins "${BUILD_DIR}"/legacy/ui.mp.$(uname -m).so
+	doins "${BUILD_DIR}"/legacy/ui.mp.${arch}.so
 
 	# Install the game files
 	insinto /usr/share/etlegacy/etmain
