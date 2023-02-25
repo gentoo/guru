@@ -15,9 +15,12 @@ SRC_URI="https://github.com/c-blake/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P
 LICENSE="ISC MIT"
 SLOT="${PV}"
 KEYWORDS="~amd64"
-RESTRICT="test"  # Version.nim test fails
+IUSE="examples"
 
-DOCS=( configs examples {MOTIVATION,README,RELEASE-NOTES,TODO}.md )
+# Version.nim test fails
+RESTRICT="test"
+
+DOCS=( configs {MOTIVATION,README,RELEASE-NOTES,TODO}.md )
 
 set_package_url "https://github.com/c-blake/cligen"
 
@@ -26,6 +29,10 @@ src_test() {
 }
 
 src_install() {
-	docompress -x /usr/share/doc/${PF}/examples
+	if use examples; then
+		docompress -x /usr/share/doc/${PF}/examples
+		dodoc -r examples
+	fi
+
 	nimble_src_install
 }
