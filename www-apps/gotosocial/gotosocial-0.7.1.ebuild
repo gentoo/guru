@@ -76,7 +76,7 @@ src_test() {
 	GOFLAGS="${GOFLAGS//-v/}"
 	GOFLAGS="${GOFLAGS//-x/}"
 
-	ego test -vet off ./... | tee /dev/null
+	ego test -vet off ./...
 }
 
 src_install() {
