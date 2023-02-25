@@ -3,9 +3,12 @@
 
 EAPI=8
 
-DOCS_BUILDER="mkdocs"
-DOCS_DEPEND="dev-python/mkdocs-render-swagger-plugin"
 PYTHON_COMPAT=( python3_{9..11} )
+DOCS_BUILDER="mkdocs"
+DOCS_DEPEND=(
+	dev-python/mkdocs-material
+	dev-python/mkdocs-render-swagger-plugin
+)
 inherit python-any-r1 docs go-module systemd tmpfiles
 
 DESCRIPTION="Fast, fun, ActivityPub server, powered by Go"
@@ -13,14 +16,14 @@ HOMEPAGE="
 	https://gotosocial.org/
 	https://github.com/superseriousbusiness/gotosocial
 "
-GH="https://github.com/superseriousbusiness/${PN}"
+GH_RELEASE="https://github.com/superseriousbusiness/${PN}/releases/download/v${PV}"
 SRC_URI="
-	${GH}/releases/download/v${PV}/${P}-source-code.tar.gz
-	${GH}/releases/download/v${PV}/${PN}_${PV}_web-assets.tar.gz
+	${GH_RELEASE}/${P}-source-code.tar.gz
+	${GH_RELEASE}/${PN}_${PV}_web-assets.tar.gz
 "
 S="${WORKDIR}"
 
-LICENSE="|| ( WTFPL-2 CC0-1.0 ) AGPL-3 BSD BSD-2 CC0-1.0 GPL-3 MIT MPL-2.0"
+LICENSE="|| ( WTFPL-2 CC0-1.0 ) AGPL-3 Apache-2.0 BSD BSD-2 CC0-1.0 GPL-3 MIT MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
