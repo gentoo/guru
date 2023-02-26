@@ -8,6 +8,7 @@ DOCS_BUILDER="mkdocs"
 DOCS_DEPEND=(
 	dev-python/mkdocs-material
 	dev-python/mkdocs-render-swagger-plugin
+	dev-python/regex
 )
 inherit python-any-r1 docs go-module systemd tmpfiles
 
