@@ -1,0 +1,10 @@
+--- a/setup.py
++++ b/setup.py
+@@ -57,7 +57,7 @@ setup_kwargs = dict(
+     description=README[0].strip(),
+     long_description=''.join(README),
+     test_suite='psycopg2cffi.tests.suite',
+-    packages=['psycopg2cffi', 'psycopg2cffi._impl', 'psycopg2cffi.tests'],
++    packages=['psycopg2cffi', 'psycopg2cffi._impl', 'psycopg2cffi.tests', 'psycopg2cffi.tests.psycopg2_tests'],
+     install_requires=['six'],
+ )
