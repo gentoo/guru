@@ -1,1 +1,2 @@
 move dev-python/dropbox-sdk-python dev-python/dropbox
+move dev-python/sre_yield dev-python/sre-yield
