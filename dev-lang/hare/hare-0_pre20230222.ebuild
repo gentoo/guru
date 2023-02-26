@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ if [[ "${PV}" = 9999 ]]; then
 	EGIT_REPO_URI="https://git.sr.ht/~sircmpwn/hare"
 	SLOT="0"
 else
-	EGIT_COMMIT="1e039a8411948564b53fe53483afe4af6cf78b22"
+	EGIT_COMMIT="1cbc3d0453055fa75b15797e937f4abafe53bcbc"
 	MY_P="${PN}-${EGIT_COMMIT}"
 	SRC_URI="https://git.sr.ht/~sircmpwn/hare/archive/${EGIT_COMMIT}.tar.gz -> ${MY_P}.tar.gz"
 	S="${WORKDIR}/${MY_P}"
