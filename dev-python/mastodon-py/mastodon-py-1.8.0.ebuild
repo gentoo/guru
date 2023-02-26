@@ -33,7 +33,7 @@ RDEPEND="
 BDEPEND="
 	test? (
 		dev-python/cryptography[${PYTHON_USEDEP}]
-		dev-python/http_ece[${PYTHON_USEDEP}]
+		dev-python/http-ece[${PYTHON_USEDEP}]
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
 		dev-python/pytest-vcr[${PYTHON_USEDEP}]
 		dev-python/requests-mock[${PYTHON_USEDEP}]
@@ -51,5 +51,5 @@ src_prepare() {
 }
 
 pkg_postinst() {
-	optfeature "webpush support" "dev-python/cryptography dev-python/http_ece"
+	optfeature "webpush support" "dev-python/cryptography dev-python/http-ece"
 }
