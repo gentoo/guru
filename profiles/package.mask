@@ -84,7 +84,6 @@ sys-power/gwe
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-09-26)
 # Depends on removed ~dev-cpp/folly-2022.04.11.00:=
 dev-cpp/fizz
-dev-cpp/wangle
 
 # Viorel Munteanu <ceamac.paragon@gmail.com> (2022-08-03)
 # depends on dev-python/PyQt6, which is currently masked with all of qt6
