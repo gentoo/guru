@@ -95,7 +95,7 @@ shards_src_test() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	if [[ -d "spec" ]]; then
-		ecrystal spec "${@}" || die "Tests failed"
+		ecrystal spec --verbose "${@}" || die "Tests failed"
 	fi
 
 	return 0
