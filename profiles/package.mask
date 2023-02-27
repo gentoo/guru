@@ -61,11 +61,6 @@ sys-cluster/scalasca
 # See also this discussion: https://github.com/gentoo/guru/commit/10a1f43a0ebe867718744de54cb17fde32e4c329
 sys-apps/paludis
 
-# Julien Roy <julien@jroy.ca> (2023-01-28)
-# Depends on <dev-python/rich-13, which is no longer available in ::gentoo
-# Masked for removal in 30 days
-media-sound/spotify_dl
-
 # Julien Roy <julien@jroy.ca> (2023-01-27)
 # Tests require dev-python/flask-restful, which is no longer available in ::gentoo.
 # Masked for removal in 30 days.
