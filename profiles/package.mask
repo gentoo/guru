@@ -20,7 +20,6 @@
 dev-python/SQLAlchemy-Utils
 dev-python/automaton
 dev-python/cotyledon
-dev-python/daiquiri
 dev-python/httptools
 dev-python/ldappool
 dev-python/microversion-parse
