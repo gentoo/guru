@@ -28,8 +28,8 @@ RDEPEND="
 BDEPEND="app-arch/unzip"
 
 QA_PREBUILT="
-	/opt/${PN}/lib/*.so
-	/opt/${PN}/intiface_central
+	opt/${PN}/lib/*.so
+	opt/${PN}/intiface_central
 "
 
 src_install() {
