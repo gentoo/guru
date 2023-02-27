@@ -86,7 +86,6 @@ sys-power/gwe
 dev-cpp/fbthrift
 dev-cpp/fizz
 dev-cpp/wangle
-sys-fs/dwarfs
 
 # Viorel Munteanu <ceamac.paragon@gmail.com> (2022-08-03)
 # depends on dev-python/PyQt6, which is currently masked with all of qt6
