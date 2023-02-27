@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 SLOT="0"
 
 RDEPEND="
-	dev-python/sre_yield[${PYTHON_USEDEP}]
+	dev-python/sre-yield[${PYTHON_USEDEP}]
 	dev-python/rstr[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"

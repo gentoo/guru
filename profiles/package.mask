@@ -14,6 +14,33 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-02-02)
+# Python libraries with no consumers left in tree.
+# Masked for removal in 30 days.
+dev-python/SQLAlchemy-Utils
+dev-python/automaton
+dev-python/cotyledon
+dev-python/daiquiri
+dev-python/httptools
+dev-python/ldappool
+dev-python/microversion-parse
+dev-python/monotonic
+dev-python/ncclient
+dev-python/os-testr
+dev-python/oslo-cache
+dev-python/oslo-metrics
+dev-python/oslo-middleware
+dev-python/oslo-upgradecheck
+dev-python/osprofiler
+dev-python/ovsdbapp
+dev-python/pybeam
+dev-python/pycadf
+dev-python/pyngus
+dev-python/python-monascaclient
+dev-python/python-qpid-proton
+dev-python/tinyrpc
+dev-python/zVMCloudConnector
+
 # Joe Kappus <joe@wt.gd> (2023-02-09)
 # Multiple critical vulnerabilities, no maintainer: https://github.com/gogs/gogs/security/advisories
 # Masked for removal in 30 days.
