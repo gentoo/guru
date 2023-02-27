@@ -81,10 +81,6 @@ sys-power/gwe
 # (Bug: https://bugs.gentoo.org/877463)
 =sys-cluster/opencoarrays-2.10.1
 
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-09-26)
-# Depends on removed ~dev-cpp/folly-2022.04.11.00:=
-dev-cpp/fizz
-
 # Viorel Munteanu <ceamac.paragon@gmail.com> (2022-08-03)
 # depends on dev-python/PyQt6, which is currently masked with all of qt6
 >=net-misc/maestral-qt-1.6.0
