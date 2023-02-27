@@ -3,11 +3,11 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_10 )
+PYTHON_COMPAT=( python3_{10..11} )
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
 
-inherit distutils-r1
+inherit distutils-r1 toolchain-funcs
 
 DESCRIPTION="A double-entry accounting system that uses text files as input"
 HOMEPAGE="https://beancount.github.io https://github.com/beancount/beancount"
@@ -25,11 +25,14 @@ RDEPEND="
 		dev-python/google-api-python-client[${PYTHON_USEDEP}]
 		dev-python/lxml[${PYTHON_USEDEP}]
 		dev-python/ply[${PYTHON_USEDEP}]
-		dev-python/pytest[${PYTHON_USEDEP}]
 		dev-python/python-dateutil[${PYTHON_USEDEP}]
 		dev-python/python-magic[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
 	')
+"
+BDEPEND="
+	sys-devel/bison
+	sys-devel/flex
 "
 
 EPYTEST_DESELECT=( scripts/setup_test.py )
@@ -37,20 +40,58 @@ EPYTEST_DESELECT=( scripts/setup_test.py )
 distutils_enable_tests pytest
 
 src_prepare() {
+	distutils-r1_src_prepare
+
+	# remove test deps from 'install_requires'
+	sed "/pytest/d" -i setup.py || die
+
+	# we'll regenerate C sources
+	rm ${PN}/parser/grammar.{c,h} || die
+	rm ${PN}/parser/lexer.{c,h} || die
+
+	# repair tests
 	sed "/def find_repository_root/a\    return '${S}'" \
 		-i ${PN}/utils/test_utils.py || die
 	sed "s/\[PROGRAM\]/['${EPYTHON}', PROGRAM]/" \
 		-i ${PN}/tools/treeify_test.py || die
 	sed "/DATA_DIR =/c\    DATA_DIR = '${S}/${PN}/utils/file_type_testdata'" \
 		-i ${PN}/utils/file_type_test.py || die
-	distutils-r1_src_prepare
+}
+
+src_configure() {
+	tc-export CC
 }
 
 python_compile() {
 	distutils-r1_python_compile
 
 	# keep in sync with hashsrc.py, otherwise expect test failures
-	cp beancount/parser/{lexer.l,grammar.y,decimal.h,decimal.c,macros.h,parser.h,parser.c,tokens.h} "${BUILD_DIR}"/install$(python_get_sitedir)/${PN}/parser || die
+	local csources=(
+		decimal.{c,h}
+		grammar.y
+		lexer.l
+		macros.h
+		parser.{c,h}
+		tokens.h
+	)
+
+	for file in "${csources[@]}"; do
+		cp ${PN}/parser/${file} "${BUILD_DIR}"/install$(python_get_sitedir)/${PN}/parser || die
+	done
+}
+
+src_compile() {
+	local mymakeflags=(
+		PYCONFIG="$(python_get_PYTHON_CONFIG)"
+	)
+
+	emake "${mymakeflags[@]}" ${PN}/parser/grammar.c
+	emake "${mymakeflags[@]}" ${PN}/parser/lexer.c
+
+	distutils-r1_src_compile
+
+	use test && \
+		emake "${mymakeflags[@]}" ${PN}/parser/tokens_test
 }
 
 python_test(){
@@ -59,6 +100,10 @@ python_test(){
 }
 
 src_test() {
-	emake ctest
+	local mymakeflags=(
+		PYCONFIG="$(python_get_PYTHON_CONFIG)"
+	)
+
+	emake "${mymakeflags[@]}" ctest
 	distutils-r1_src_test
 }
