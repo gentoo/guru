@@ -34,6 +34,13 @@ BDEPEND="
 	x11-libs/libXxf86vm
 "
 
+src_prepare() {
+	eapply_user
+
+	# some dependencies use -Werror
+	find "${WORKDIR}" -type f -exec sed -i "s/\-Werror//g" {} + || die "Could not remove -Werror"
+}
+
 src_configure() {
 	GOFLAGS+=" -buildmode=pie -trimpath -ldflags=-linkmode=external -mod=readonly -modcacherw"
 }
