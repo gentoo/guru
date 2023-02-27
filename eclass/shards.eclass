@@ -56,10 +56,10 @@ shards_src_configure() {
 	debug-print-function ${FUNCNAME} "${@}"
 
 	crystal_configure
-	einfo "CRYSTAL_OPTS='${CRYSTAL_OPTS}'"
+	debug-print "CRYSTAL_OPTS='${CRYSTAL_OPTS}'"
 
 	export CRYSTAL_PATH="${BROOT}$(shards_get_libdir):$(crystal env CRYSTAL_PATH || die "'crystal env' failed")"
-	einfo "CRYSTAL_PATH='${CRYSTAL_PATH}'"
+	debug-print "CRYSTAL_PATH='${CRYSTAL_PATH}'"
 
 	tc-export CC
 }
