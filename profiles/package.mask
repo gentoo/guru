@@ -71,10 +71,6 @@ dev-python/coveralls
 # Upstream bug: https://github.com/iamkroot/trakt-scrobbler/issues/240
 media-video/trakt-scrobbler
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-18)
-# Depends on masked dev-python/Rx (can be restored here after treeclean)
-sys-power/gwe
-
 # Torokhov Sergey <torokhov-s-a@yandex.ru> (2022-10-30)
 # Masked due to failed tests with sys-cluster/openmpi;
 # failed tests with sys-devel/gcc-12.2.1_p20221008
