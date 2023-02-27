@@ -21,7 +21,7 @@ SLOT="0"
 
 
 src_install() {
-	dosbin src/oet.sh
+	dosbin src/oet
 	dodir /usr/share/oet
 	insinto /usr/share/oet
 	doins src/oet_auto_emerge_update.source
