@@ -88,10 +88,6 @@ dev-cpp/fizz
 dev-cpp/wangle
 sys-fs/dwarfs
 
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-09-08)
-# depends on removed dev-haskell/pandoc-citeproc
-dev-python/pypandoc
-
 # Viorel Munteanu <ceamac.paragon@gmail.com> (2022-08-03)
 # depends on dev-python/PyQt6, which is currently masked with all of qt6
 >=net-misc/maestral-qt-1.6.0
