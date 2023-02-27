@@ -175,7 +175,7 @@ app-misc/doublecmd-bin 1.0.9 1.0.10: Free cross platform open source file manage
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/electricsheep 3.0.2_p20191005 9999: Realize the collective dream of sleeping computers from all over the internet
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
-app-misc/fastfetch 0.1.9999 0.2.9999 1.9.1 1.10.2: Fast system information tool
+app-misc/fastfetch 0.1.9999 0.2.9999 1.9.1 1.10.3: Fast system information tool
 app-misc/fetsh 1.8 1.9 9999: A fetch written in POSIX shell without any external commands
 app-misc/fff 2.2: A simple file manager written in bash
 app-misc/ghq 1.1.0 1.1.5: Remote repository management made easy
@@ -1489,7 +1489,7 @@ media-video/uxplay 1.63: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
 media-video/ytarchive 0.3.2: Youtube livestream downloader
 mpv-plugin/SmartCopyPaste 3.1: Gives mpv the capability to copy and paste while being smart and customizable
-mpv-plugin/autoload 0.34.1 0.35.0: Loads playlist entries before and after the the currently played file
+mpv-plugin/autoload 0.34.1 0.35.0 0.35.1: Loads playlist entries before and after the the currently played file
 mpv-plugin/autosubsync-mpv 20220402: Automatic subtitle synchronization script for mpv media player
 mpv-plugin/kde-do-not-disturb 20230110: Disable the notifications while mpv is running
 mpv-plugin/kde-night-color 20230110: Disable Night Color while mpv is running
@@ -1571,8 +1571,8 @@ net-misc/giara 1.0.1: An app for Reddit
 net-misc/gmid 1.8.5 1.8.6 9999: Simple and secure Gemini server
 net-misc/gnome-ssh-askpass 9.1_p1: GTK-based passphrase dialog for use with OpenSSH
 net-misc/lyrics-in-terminal 1.5.0: Command Line Lyrics fetcher for MPRIS media players
-net-misc/maestral 1.5.3 1.6.5 1.7.0: Maestral is an open-source Dropbox client written in Python
-net-misc/maestral-qt 1.5.3 1.6.5 1.7.0_rc4 1.7.0: Maestral is an open-source Dropbox client written in Python
+net-misc/maestral 1.5.3 1.7.1: Maestral is an open-source Dropbox client written in Python
+net-misc/maestral-qt 1.5.3 1.7.1: Maestral is an open-source Dropbox client written in Python
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
 net-misc/moonlight 4.3.1: GameStream client for PCs
