@@ -1,0 +1,12 @@
+BDEPEND=app-arch/gzip dev-lang/nasm sys-apps/findutils sys-devel/clang[llvm_targets_AArch64(-),llvm_targets_ARM(-),llvm_targets_X86(-)] sys-devel/lld sys-devel/llvm[llvm_targets_AArch64(-),llvm_targets_ARM(-),llvm_targets_X86(-)] cd-efi? ( sys-fs/mtools )
+DEFINED_PHASES=configure
+DESCRIPTION=Limine is a modern, advanced, and portable BIOS/UEFI multiprotocol bootloader
+EAPI=8
+HOMEPAGE=https://limine-bootloader.org/
+IUSE=+bios +bios-pxe +bios-cd +uefi +cd-efi +uefi32 +uefi64 +uefiaa64
+KEYWORDS=~amd64
+LICENSE=BSD-2
+REQUIRED_USE=uefi32? ( uefi ) uefi64? ( uefi ) uefiaa64? ( uefi ) cd-efi? ( uefi ) uefi? ( || ( uefi32 uefi64 uefiaa64 cd-efi ) ) bios-pxe? ( bios ) bios-cd? ( bios ) bios? ( || ( bios-pxe bios-cd ) )
+SLOT=0
+SRC_URI=https://github.com/limine-bootloader/limine/releases/download/v4.20230227.0/limine-4.20230227.0.tar.xz
+_md5_=cbc2d8cc7d9e012adcf3e69edfb0169b
