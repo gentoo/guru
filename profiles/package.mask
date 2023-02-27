@@ -14,7 +14,13 @@
 
 # New entries go on top.
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-02-02)
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-02-28)
+# Python libraries with no consumers left in tree.
+# Masked for removal in 30 days.
+dev-python/injector
+dev-python/py3nvml
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-02-27)
 # Python libraries with no consumers left in tree.
 # Masked for removal in 30 days.
 dev-python/SQLAlchemy-Utils
@@ -61,21 +67,6 @@ sys-cluster/scalasca
 # See also this discussion: https://github.com/gentoo/guru/commit/10a1f43a0ebe867718744de54cb17fde32e4c329
 sys-apps/paludis
 
-# Julien Roy <julien@jroy.ca> (2023-01-28)
-# Depends on <dev-python/rich-13, which is no longer available in ::gentoo
-# Masked for removal in 30 days
-media-sound/spotify_dl
-
-# Julien Roy <julien@jroy.ca> (2023-01-27)
-# Tests require dev-python/flask-restful, which is no longer available in ::gentoo.
-# Masked for removal in 30 days.
-dev-python/WSME
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-01-25)
-# Broken and has no maintainers. Bug #891773.
-# Masked for removal in 30 days.
-www-client/torbrowser-launcher
-
 # Julien Roy <julien@jroy.ca> (2023-01-25)
 # Requires <dev-python/coverage-7, which is no longer available in ::gentoo.
 # Upstream bug: https://github.com/TheKevJames/coveralls-python/issues/377
@@ -86,26 +77,11 @@ dev-python/coveralls
 # Upstream bug: https://github.com/iamkroot/trakt-scrobbler/issues/240
 media-video/trakt-scrobbler
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2022-11-18)
-# Depends on masked dev-python/Rx (can be restored here after treeclean)
-sys-power/gwe
-
 # Torokhov Sergey <torokhov-s-a@yandex.ru> (2022-10-30)
 # Masked due to failed tests with sys-cluster/openmpi;
 # failed tests with sys-devel/gcc-12.2.1_p20221008
 # (Bug: https://bugs.gentoo.org/877463)
 =sys-cluster/opencoarrays-2.10.1
-
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-09-26)
-# Depends on removed ~dev-cpp/folly-2022.04.11.00:=
-dev-cpp/fbthrift
-dev-cpp/fizz
-dev-cpp/wangle
-sys-fs/dwarfs
-
-# Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-09-08)
-# depends on removed dev-haskell/pandoc-citeproc
-dev-python/pypandoc
 
 # Viorel Munteanu <ceamac.paragon@gmail.com> (2022-08-03)
 # depends on dev-python/PyQt6, which is currently masked with all of qt6
