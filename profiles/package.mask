@@ -83,7 +83,6 @@ sys-power/gwe
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2022-09-26)
 # Depends on removed ~dev-cpp/folly-2022.04.11.00:=
-dev-cpp/fbthrift
 dev-cpp/fizz
 dev-cpp/wangle
 
