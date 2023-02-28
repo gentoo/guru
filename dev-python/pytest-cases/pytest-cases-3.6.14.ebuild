@@ -8,7 +8,10 @@ DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
 
 DOCS_BUILDER="mkdocs"
-DOCS_DEPEND="dev-python/mkdocs-material"
+DOCS_DEPEND=(
+	dev-python/mkdocs-material
+	dev-python/regex
+)
 
 inherit distutils-r1 docs pypi
 
