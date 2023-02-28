@@ -8,7 +8,7 @@ inherit autotools flag-o-matic
 DESCRIPTION="Analog clock hack for the xscreensaver program"
 HOMEPAGE="http://pt2k.xii.jp/software/anclock/xscreensaver/index_e.html"
 SRC_URI="https://www.jwz.org/xscreensaver/xscreensaver-6.05.1.tar.gz \
-http://pt2k.xii.jp/software/anclock/xscreensaver/anclock-2.1.0-for-xscreensaver-6.04.patch.gz"
+http://pt2k.xii.jp/software/anclock/xscreensaver/oldver/anclock-${PV}-for-xscreensaver-6.04.patch.gz"
 
 LICENSE="BSD"
 SLOT="0"
