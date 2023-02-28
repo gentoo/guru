@@ -3,16 +3,15 @@
 
 EAPI=7
 
-MY_P="${P/_rc/-RC}"
+MY_PV="${PV/_rc/-RC}"
 
 DESCRIPTION="Static version of a fast very high compression read-only FUSE file system"
 HOMEPAGE="https://github.com/mhx/dwarfs"
-SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${PV}-RC4/dwarfs-${MY_P}-Linux.tar.xz"
+SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${MY_PV}/dwarfs-${MY_PV}-Linux.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-S="${WORKDIR}/${MY_P}"
 
 RDEPEND="
 	${PYTHON_DEPS}
@@ -22,7 +21,7 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-S="${WORKDIR}/dwarfs-${PV}-Linux/"
+S="${WORKDIR}/dwarfs-${MY_PV}-Linux/"
 QA_PREBUILT="
 	sbin/dwarfs
 	bin/*
