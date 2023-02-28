@@ -1,29 +1,31 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit desktop xdg
 
 MY_P="tabby-${PV}-linux"
 
 DESCRIPTION="A terminal for a more modern age"
-HOMEPAGE="https://eugeny.github.io/tabby/"
+HOMEPAGE="https://tabby.sh"
 SRC_URI="
-	https://github.com/Eugeny/tabby/releases/download/v${PV}/${MY_P}.tar.gz
-	https://github.com/scardracs/icons/releases/download/release/tabby-icons.tar.gz
+	amd64? ( https://github.com/Eugeny/tabby/releases/download/v${PV}/${MY_P}-x64.tar.gz )
+	arm? ( https://github.com/Eugeny/tabby/releases/download/v${PV}/${MY_P}-armhf.tar.gz )
 "
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm"
 
-S="${WORKDIR}/${MY_P}"
+# This needs to be adjusted to allow for arm
+S="${WORKDIR}/${MY_P}-x64"
 
 DEPEND="
-	app-accessibility/at-spi2-atk
-	app-accessibility/at-spi2-core
-	dev-libs/atk
+	|| (
+		>=app-accessibility/at-spi2-core-2.46.0:2
+		( app-accessibility/at-spi2-atk dev-libs/atk )
+	)
 	dev-libs/nss
 	media-libs/alsa-lib
 	net-print/cups
@@ -54,9 +56,10 @@ src_install(){
 	make_desktop_entry "/opt/${PN}/tabby %U" "Tabby" "tabby" \
 		"GNOME;GTK;Utility;" \
 		"GenericName=Tabby\n\nStartupNotify=true\nStartupWMClass=tabby"
-	doicon ../tabby.svg
-	doicon ../tabby.ico
-	for i in {16,24,32,48,64,72,96,128,512}; do
-		doicon -s "${i}" ../tabby-"${i}".png
-	done
+	# No icons for now
+	#doicon ../tabby.svg
+	#doicon ../tabby.ico
+	#for i in {16,24,32,48,64,72,96,128,512}; do
+	#	doicon -s "${i}" ../tabby-"${i}".png
+	#done
 }
