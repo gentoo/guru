@@ -1,6 +1,5 @@
-diff '--color=auto' -ru psautohint-2.3.0/setup.py /var/tmp/portage/dev-util/psautohint-2.3.0/work/psautohint-2.3.0/setup.py
---- psautohint-2.3.0/setup.py	2021-06-18 02:49:14.569282664 +0200
-+++ /var/tmp/portage/dev-util/psautohint-2.3.0/work/psautohint-2.3.0/setup.py	2021-06-18 02:51:12.569250040 +0200
+--- a/setup.py
++++ b/setup.py
 @@ -192,7 +192,7 @@
          # If we were asked to build any C/C++ libraries, make sure that the
          # directory where we put them is in the library search path for
