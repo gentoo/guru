@@ -17,6 +17,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+DEPEND="dev-libs/libpcre:3"
+RDEPEND="${DEPEND}"
+
 set_package_url "https://github.com/soasme/nim-markdown"
 
 src_install() {
