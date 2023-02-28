@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -16,7 +16,7 @@ SRC_URI="https://github.com/mhx/dwarfs/releases/download/v0.7.0-RC4/dwarfs-0.7.0
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="python +jemalloc test man"
+IUSE="python +jemalloc test man +bundled-libs"
 S="${WORKDIR}/${MY_P}"
 
 RDEPEND="
