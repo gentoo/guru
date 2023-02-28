@@ -1,6 +1,5 @@
-diff '--color=auto' -ru afdko-3.8.1-orig/c/makeotf/lib/hotconv/CMakeLists.txt afdko-3.8.1/c/makeotf/lib/hotconv/CMakeLists.txt
---- a/c/makeotf/lib/hotconv/CMakeLists.txt	2022-04-16 18:04:34.060438876 +0200
-+++ b/c/makeotf/lib/hotconv/CMakeLists.txt	2022-04-16 18:11:51.280732567 +0200
+--- a/c/makeotf/lib/hotconv/CMakeLists.txt
++++ b/c/makeotf/lib/hotconv/CMakeLists.txt
 @@ -68,8 +68,8 @@
  )
  
@@ -12,9 +11,8 @@ diff '--color=auto' -ru afdko-3.8.1-orig/c/makeotf/lib/hotconv/CMakeLists.txt af
  
  if ( CMAKE_COMPILER_IS_GNUCC )
      target_compile_options(hotconv PRIVATE -Wall -Wno-attributes)
-diff '--color=auto' -ru afdko-3.8.1-orig/CMakeLists.txt afdko-3.8.1/CMakeLists.txt
---- a/CMakeLists.txt	2022-04-16 18:04:34.055438815 +0200
-+++ b/CMakeLists.txt	2022-04-16 18:05:14.656930402 +0200
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
 @@ -27,23 +27,6 @@
  
  list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
