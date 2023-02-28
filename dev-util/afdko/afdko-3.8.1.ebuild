@@ -33,10 +33,10 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-python/fonttools-4.26.2[${PYTHON_USEDEP}]
 	>=dev-python/fs-2.2.0[${PYTHON_USEDEP}]
 	>=dev-python/lxml-4.8.0[${PYTHON_USEDEP}]
+	>=dev-python/psautohint-2.3.1[${PYTHON_USEDEP}]
 	>=dev-python/tqdm-4.62.2[${PYTHON_USEDEP}]
 	>=dev-python/ufoNormalizer-0.6.0[${PYTHON_USEDEP}]
 	>=dev-python/ufoProcessor-1.9.0[${PYTHON_USEDEP}]
-	>=dev-util/psautohint-2.3.1[${PYTHON_USEDEP}]
 	!app-i18n/transifex-client
 " # file collisions with app-i18n/transifex-client
 DEPEND="${COMMON_DEPEND}
