@@ -4,7 +4,7 @@
 EAPI=7
 
 DESCRIPTION="An XQuery and XPath 2 library and command line utility written in C++"
-HOMEPAGE="http://xqilla.sourceforge.net/HomePage"
+HOMEPAGE="https://sourceforge.net/projects/xqilla/"
 SRC_URI="mirror://sourceforge/${PN}/XQilla-${PV}.tar.gz"
 
 LICENSE="Apache-2.0"
