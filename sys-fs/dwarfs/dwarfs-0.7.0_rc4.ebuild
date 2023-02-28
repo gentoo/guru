@@ -7,17 +7,17 @@ PYTHON_COMPAT=( python3_{10..11} )
 
 inherit check-reqs cmake flag-o-matic python-single-r1
 
-MY_P="${P/_rc/-RC}"
+MY_PV="${PV/_rc/-RC}"
 
 DESCRIPTION="A fast very high compression read-only FUSE file system"
 HOMEPAGE="https://github.com/mhx/dwarfs"
-SRC_URI="https://github.com/mhx/dwarfs/releases/download/v0.7.0-RC4/dwarfs-0.7.0-RC4.tar.xz" #TODO: change to ${PV}
+SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${MY_PV}/${PN}-${MY_PV}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
-IUSE="python +jemalloc test man +bundled-libs"
-S="${WORKDIR}/${MY_P}"
+KEYWORDS="~amd64"
+IUSE="python +jemalloc test man"
+S="${WORKDIR}/dwarfs-${MY_PV}"
 
 RDEPEND="
 	${PYTHON_DEPS}
@@ -26,15 +26,11 @@ RDEPEND="
 	app-arch/snappy
 	app-arch/xz-utils
 	app-arch/zstd
-	dev-cpp/fbthrift:=
-	dev-cpp/folly:=
 	dev-cpp/gflags
 	dev-cpp/glog[gflags]
 	dev-cpp/parallel-hashmap:=
-	dev-cpp/sparsehash
-	dev-libs/boost[context,threads(+),python?]
+	dev-libs/boost[context,python?]
 	dev-libs/double-conversion
-	dev-libs/fsst:=
 	dev-libs/libevent
 	dev-libs/libfmt
 	dev-libs/xxhash
@@ -44,31 +40,35 @@ RDEPEND="
 	sys-libs/zlib
 
 	jemalloc? ( >=dev-libs/jemalloc-5.3.0-r1 )
+
+	!dev-cpp/fbthrift
+	!dev-cpp/folly
+	!dev-cpp/wangle
+	!dev-cpp/fizz
 "
+
 DEPEND="
 	${RDEPEND}
 	sys-devel/flex
-	!sys-fs/dwarfs-bin
 "
 BDEPEND="
 	man? ( || ( app-text/ronn app-text/ronn-ng ) )
 	sys-devel/bison
 	virtual/pkgconfig
-
+	dev-util/patchelf
 	test? ( dev-cpp/gtest )
 "
 
 DOCS=( "README.md" "CHANGES.md" "TODO" )
 RESTRICT="!test? ( test )"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
-PATCHES=( "${FILESDIR}/${P}-unbundle.patch" )
 
 CHECKREQS_DISK_BUILD="1300M"
 CMAKE_IN_SOURCE_BUILD=1
 CMAKE_WARN_UNUSED_CLI=0
 
 src_prepare(){
-	rm -r fsst zstd fbthrift/* folly xxHash parallel-hashmap || die
+	rm -r zstd xxHash parallel-hashmap || die
 	cmake_src_prepare
 	sed "s/DESTINATION lib/DESTINATION $(get_libdir)/" -i CMakeLists.txt || die
 }
@@ -80,11 +80,12 @@ src_configure(){
 		-DUSE_JEMALLOC=$(usex jemalloc ON OFF)
 		-DWITH_PYTHON=$(usex python ON OFF)
 		-DWITH_TESTS=$(usex test ON OFF)
-		-WITH_MAN_PAGES=$(usex man ON OFF)
-		-DPREFER_SYSTEM_ZSTD=1
-		-DPREFER_SYSTEM_XXHASH=1
-		-DPREFER_SYSTEM_GTEST=1
-		-DWITH_LEGACY_FUSE=0
+		-DWITH_MAN_PAGES=$(usex man ON OFF)
+		-DPREFER_SYSTEM_ZSTD=ON
+		-DPREFER_SYSTEM_XXHASH=ON
+		-DPREFER_SYSTEM_GTEST=ON
+		-DPREFER_SYSTEM_LIBFMT=ON
+		-DWITH_LEGACY_FUSE=OFF
 	)
 	use python && mycmakeargs+=( "-DWITH_PYTHON_VERSION=${EPYTHON#python}" )
 	cmake_src_configure
@@ -92,7 +93,12 @@ src_configure(){
 
 src_install(){
 	cmake_src_install
-	dolib.so libdwarfs.so
+	# Remove insecure RPATH from bundled lib
+	patchelf --remove-rpath libdwarfs.so || die
+	patchelf --remove-rpath libdwarfs_tool.so || die
+
+	dolib.so libdwarfs.so libdwarfs_tool.so libdwarfs_compression.so libthrift_light.so libmetadata_thrift.so
+	dolib.so folly/libfolly.so folly/libfolly.so.0.58.0-dev
 }
 
 pkg_postinst(){
