@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{9..11} )
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND=(
 	dev-python/mkdocs-material
-	dev-python/mkdocs-render-swagger-plugin
+	dev-python/mkdocs-swagger-ui-tag
 	dev-python/regex
 )
 inherit python-any-r1 docs go-module systemd tmpfiles
