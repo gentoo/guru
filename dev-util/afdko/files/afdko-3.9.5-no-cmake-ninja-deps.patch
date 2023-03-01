@@ -1,26 +1,24 @@
+Drop CMake and Ninja dependencies
+
 --- a/pyproject.toml
 +++ b/pyproject.toml
-@@ -3,9 +3,7 @@
- 	"setuptools",
+@@ -4,8 +4,6 @@ requires = [
  	"wheel",
  	"setuptools_scm",
--	"scikit-build",
+ 	"scikit-build",
 -	"cmake",
 -	"ninja"
-+	"scikit-build"
  ]
  build-backend = "setuptools.build_meta"
  
 --- a/setup.py
 +++ b/setup.py
-@@ -196,9 +196,7 @@
-           setup_requires=[
+@@ -197,8 +197,6 @@ def main():
                'wheel',
                'setuptools_scm',
--              'scikit-build',
+               'scikit-build',
 -              'cmake',
 -              'ninja'
-+              'scikit-build'
            ],
            tests_require=[
                'pytest',
