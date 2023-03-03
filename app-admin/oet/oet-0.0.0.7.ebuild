@@ -30,4 +30,3 @@ src_prepare() {
 	default
 	eautoreconf -fi
 }
-
