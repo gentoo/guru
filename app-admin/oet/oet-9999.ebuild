@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit autotools
+
 DESCRIPTION="Update your system into binpkgs in an overlay sandbox"
 HOMEPAGE="https://codeberg.org/bcsthsc/overlay-emerge-tool"
 if [[ "${PV}" == "9999" ]]; then
@@ -19,17 +21,13 @@ fi
 LICENSE="LGPL-2"
 SLOT="0"
 
-src_install() {
-	dosbin src/oet
-	insinto /usr/share/oet
-	dodir /usr/share/oet
-	doins src/oet_auto_emerge_update.source
-	doins src/oet_interactive.source
-	doman resources/oet.1
-	insinto /etc/${PN}
-	newins resources/default_config config
+src_prepare() {
+	if [[ "${PV}" == "9999" ]]; then
+		git describe --tags --abbrev=0 | sed -e "s/oet-//" >.version
+	else
+		echo ${PV} >.version
+	fi
+	default
+	eautoreconf -fi
 }
 
-src_compile() {
-	true
-}
