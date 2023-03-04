@@ -18,7 +18,7 @@ SLOT="0"
 
 DEPEND=">=dev-python/cython-0.28.5[${PYTHON_USEDEP}]"
 BDEPEND="
-	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
 		dev-python/pytest-cython[${PYTHON_USEDEP}]
 	)

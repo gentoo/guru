@@ -24,7 +24,7 @@ RDEPEND=">=dev-python/fonttools-4[${PYTHON_USEDEP}]"
 DEPEND=">=dev-python/cython-0.29.24[${PYTHON_USEDEP}]"
 BDEPEND="
 	app-arch/unzip
-	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 "
 
 PATCHES=( "${FILESDIR}/${PN}-0.5.1_p1-remove-unwanted-dependencies.patch" )

@@ -56,7 +56,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	$(python_gen_cond_dep '>=dev-python/setuptools_scm-4[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep '>=dev-python/setuptools-scm-4[${PYTHON_USEDEP}]')
 "
 
 RESTRICT="test"

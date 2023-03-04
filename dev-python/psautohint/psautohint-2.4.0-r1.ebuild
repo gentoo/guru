@@ -30,7 +30,7 @@ RDEPEND="
 	>=dev-python/fonttools-4.20[${PYTHON_USEDEP}]
 	dev-python/fs[${PYTHON_USEDEP}]
 "
-BDEPEND="dev-python/setuptools_scm[${PYTHON_USEDEP}]"
+BDEPEND="dev-python/setuptools-scm[${PYTHON_USEDEP}]"
 
 DOCS=( doc {NEWS,README}.md )
 

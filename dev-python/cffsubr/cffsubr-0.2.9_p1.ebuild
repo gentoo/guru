@@ -22,7 +22,7 @@ RDEPEND="
 	>=dev-util/afdko-3.6.1[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 "
 
 PATCHES=(

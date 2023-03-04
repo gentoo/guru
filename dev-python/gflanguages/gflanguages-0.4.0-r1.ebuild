@@ -22,7 +22,7 @@ SLOT="0"
 RDEPEND="dev-python/protobuf-python[${PYTHON_USEDEP}]"
 DEPEND="
 	${RDEPEND}
-	>=dev-python/setuptools_scm-4[${PYTHON_USEDEP}]
+	>=dev-python/setuptools-scm-4[${PYTHON_USEDEP}]
 "
 
 PATCHES=( "${FILESDIR}/${P}-remove-setuptools_scm-constraint.patch" )

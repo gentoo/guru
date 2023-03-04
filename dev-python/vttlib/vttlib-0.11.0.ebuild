@@ -29,7 +29,7 @@ RDEPEND="
 "
 BDEPEND="
 	app-arch/unzip
-	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	dev-python/wheel[${PYTHON_USEDEP}]
 	test? (
 		>=dev-python/ufo2ft-2.14.0[${PYTHON_USEDEP}]

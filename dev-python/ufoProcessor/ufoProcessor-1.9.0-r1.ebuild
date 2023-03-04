@@ -28,7 +28,7 @@ DEPEND="
 	${RDEPEND}
 	test? ( dev-python/unicodedata2[${PYTHON_USEDEP}] )
 "
-BDEPEND="dev-python/setuptools_scm[${PYTHON_USEDEP}]"
+BDEPEND="dev-python/setuptools-scm[${PYTHON_USEDEP}]"
 
 RESTRICT="!test? ( test )"
 

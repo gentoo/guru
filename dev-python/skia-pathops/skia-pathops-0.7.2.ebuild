@@ -25,7 +25,7 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="
 	app-arch/unzip
-	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? ( dev-python/pytest-cython[${PYTHON_USEDEP}] )
 "
 

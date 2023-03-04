@@ -44,7 +44,7 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-python/scikit-build-0.11.1[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	>=dev-python/setuptools_scm-3.2.0[${PYTHON_USEDEP}]
+	>=dev-python/setuptools-scm-3.2.0[${PYTHON_USEDEP}]
 	dev-util/ninja
 	dev-util/cmake
 "

@@ -22,7 +22,7 @@ RDEPEND=">=media-libs/harfbuzz-4.3.0:=[experimental(-)]"
 BDEPEND="
 	app-arch/unzip
 	>=dev-python/cython-0.28.1[${PYTHON_USEDEP}]
-	>=dev-python/setuptools_scm-2.1[${PYTHON_USEDEP}]
+	>=dev-python/setuptools-scm-2.1[${PYTHON_USEDEP}]
 "
 
 PATCHES=( "${FILESDIR}/${PN}-0.33.0-system-harfbuzz.patch" )

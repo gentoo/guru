@@ -18,7 +18,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="dev-python/docutils[${PYTHON_USEDEP}]"
 BDEPEND="
-	>=dev-python/setuptools_scm-1.15.0[${PYTHON_USEDEP}]
+	>=dev-python/setuptools-scm-1.15.0[${PYTHON_USEDEP}]
 	test? (
 		${RDEPEND}
 		dev-python/path[${PYTHON_USEDEP}]

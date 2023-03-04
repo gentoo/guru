@@ -22,7 +22,7 @@ SLOT="0"
 RDEPEND=">=dev-python/fonttools-3.32.0[${PYTHON_USEDEP}]"
 BDEPEND="
 	app-arch/unzip
-	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest
