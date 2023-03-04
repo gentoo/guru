@@ -42,5 +42,5 @@ src_install() {
 	systemd_dounit etc/systemd/wsdd.service
 
 	dodoc README.md
-	doman man/wsdd.1
+	doman man/wsdd.8
 }
