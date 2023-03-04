@@ -20,5 +20,5 @@ RDEPEND="dev-python/pymeeus[${PYTHON_USEDEP}]"
 distutils_enable_tests pytest
 
 distutils_enable_sphinx docs \
-	dev-python/myst_parser \
+	dev-python/myst-parser \
 	dev-python/sphinx-rtd-theme
