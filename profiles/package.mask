@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-04)
+# Depend on masked gconf.
+games-util/itch-bin
+net-p2p/lbry
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-02-28)
 # Python libraries with no consumers left in tree.
 # Masked for removal in 30 days.
