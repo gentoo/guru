@@ -16,9 +16,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	>=dev-python/intelhex-2.3.0
-	>=dev-python/libusb1-1.9.3
-	dev-python/python-fire
-	dev-python/tqdm
+	>=dev-python/intelhex-2.3.0[${PYTHON_USEDEP}]
+	>=dev-python/libusb1-1.9.3[${PYTHON_USEDEP}]
+	dev-python/python-fire[${PYTHON_USEDEP}]
+	dev-python/tqdm[${PYTHON_USEDEP}]
 "
 BDEPEND=""
