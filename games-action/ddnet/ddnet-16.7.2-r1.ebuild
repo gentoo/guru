@@ -38,19 +38,19 @@ DEPEND="
 		media-libs/libsdl2
 		media-libs/opus
 		media-libs/opusfile
-		media-libs/pnglite
+		media-libs/libpng
+		media-libs/x264
+		media-sound/wavpack
+		x11-libs/libnotify
 		videorecorder? ( media-video/ffmpeg )
 	)
-	dev-libs/glib
+	sys-libs/zlib
 	dev-libs/openssl
 	dev-db/sqlite
 	download-gtest? (
 		dev-cpp/gtest
 		dev-vcs/git
 	)
-	media-libs/libglvnd
-	media-libs/libpng
-	media-sound/wavpack
 	net-misc/curl
 	upnp? ( net-libs/miniupnpc )
 	vulkan? (
@@ -58,9 +58,6 @@ DEPEND="
 		media-libs/libsdl2[vulkan]
 	)
 	websockets? ( net-libs/libwebsockets[client] )
-	x11-libs/gdk-pixbuf
-	x11-libs/libnotify
-	<=x11-libs/libX11-1.8.2
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -68,7 +65,6 @@ BDEPEND="
 	dev-util/cmake
 	dev-util/glslang
 	dev-util/spirv-tools
-	media-libs/x264
 "
 
 src_unpack() {
