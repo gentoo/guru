@@ -21,6 +21,13 @@ fi
 LICENSE="LGPL-2"
 SLOT="0"
 
+DEPEND="
+	sys-apps/util-linux
+"
+RDEPEND="
+	${DEPEND}
+"
+
 src_prepare() {
 	if [[ "${PV}" == "9999" ]]; then
 		git describe --tags --abbrev=0 | sed -e "s/oet-//" >.version
