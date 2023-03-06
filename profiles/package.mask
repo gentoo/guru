@@ -57,10 +57,6 @@ dev-python/zVMCloudConnector
 acct-user/gogs
 www-apps/gogs
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-02-02)
-# Requires <sys-devel/llvm-14, which is no longer available in ::gentoo.
-dev-util/annobin
-
 # Viorel Munteanu <ceamac@gentoo.org> (2023-01-29)
 # Very outdated live version
 # See also this discussion: https://github.com/gentoo/guru/commit/10a1f43a0ebe867718744de54cb17fde32e4c329
