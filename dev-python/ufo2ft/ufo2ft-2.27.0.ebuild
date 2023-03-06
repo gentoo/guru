@@ -28,7 +28,7 @@ RDEPEND="
 	>=dev-python/ufoLib2-0.13.1[${PYTHON_USEDEP}]
 "
 DEPEND="
-	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
 		dev-python/glyphsLib[${PYTHON_USEDEP}]
 	)

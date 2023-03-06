@@ -22,7 +22,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	>=dev-python/setuptools_scm-6.0[${PYTHON_USEDEP}]
+	>=dev-python/setuptools-scm-6.0[${PYTHON_USEDEP}]
 	dev-python/wheel[${PYTHON_USEDEP}]
 "
 BDEPEND="

@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1 gnome2-utils xdg
 
 DESCRIPTION="Aplication able to temporarily inhibit the screensaver"
-HOMEPAGE="https://github.com/caffeine-ng/caffeine-ng"
+HOMEPAGE="https://codeberg.org/WhyNotHugo/caffeine-ng"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3

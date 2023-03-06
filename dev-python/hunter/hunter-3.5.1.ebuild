@@ -22,7 +22,7 @@ KEYWORDS="~amd64"
 
 BDEPEND="
 	dev-python/cython[${PYTHON_USEDEP}]
-	>=dev-python/setuptools_scm-3.3.1[${PYTHON_USEDEP}]
+	>=dev-python/setuptools-scm-3.3.1[${PYTHON_USEDEP}]
 	test? (
 		dev-python/aspectlib[${PYTHON_USEDEP}]
 		dev-python/ipdb[${PYTHON_USEDEP}]

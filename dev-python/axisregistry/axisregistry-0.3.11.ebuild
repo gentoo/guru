@@ -25,7 +25,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	>=dev-python/setuptools_scm-6[${PYTHON_USEDEP}]
+	>=dev-python/setuptools-scm-6[${PYTHON_USEDEP}]
 	test? (
 		dev-python/coverage[${PYTHON_USEDEP}]
 		dev-python/black[${PYTHON_USEDEP}]

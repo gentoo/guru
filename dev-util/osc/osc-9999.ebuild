@@ -38,7 +38,7 @@ RDEPEND="
 "
 BDEPEND="
 	$(python_gen_cond_dep '
-		>=dev-python/setuptools_scm-1.15.0[${PYTHON_USEDEP}]
+		>=dev-python/setuptools-scm-1.15.0[${PYTHON_USEDEP}]
 	')
 	test? (
 		${RDEPEND}

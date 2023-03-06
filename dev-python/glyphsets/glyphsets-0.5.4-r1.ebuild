@@ -26,7 +26,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	>=dev-python/setuptools_scm-4[${PYTHON_USEDEP}]
+	>=dev-python/setuptools-scm-4[${PYTHON_USEDEP}]
 "
 
 PATCHES=( "${FILESDIR}/${PN}-0.5.0-remove-setuptools_scm.constraint.patch" )

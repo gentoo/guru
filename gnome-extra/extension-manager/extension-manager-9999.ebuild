@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -41,7 +41,10 @@ DEPEND="
 "
 
 src_configure() {
-	local emesonargs=()
+	local emesonargs=(
+		-Dpackage="ebuild"
+		-Ddistributor="Gentoo GURU <guru-bugs@gentoo.org>"
+	)
 	if has live ${PROPERTIES}; then
 		# Produce a development build for live ebuild
 		emesonargs+=( -Ddevelopment=true )

@@ -20,7 +20,7 @@ SLOT="0"
 
 RDEPEND="media-gfx/ttfautohint"
 BDEPEND="
-	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
 		dev-python/fonttools[${PYTHON_USEDEP}]
 	)

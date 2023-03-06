@@ -31,7 +31,7 @@ RDEPEND="
 	>=media-gfx/img2pdf-0.3.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
 		>=app-text/unpaper-6.1
 		dev-python/pytest-helpers-namespace[${PYTHON_USEDEP}]

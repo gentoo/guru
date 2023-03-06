@@ -29,7 +29,7 @@ RDEPEND="
 	>=dev-python/unicodedata2-14[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	dev-python/setuptools_scm[${PYTHON_USEDEP}]
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
 		media-gfx/fontdiff
 		dev-python/mock[${PYTHON_USEDEP}]

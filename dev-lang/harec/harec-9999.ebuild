@@ -21,7 +21,7 @@ HOMEPAGE="https://harelang.org/"
 LICENSE="GPL-3"
 SLOT="0"
 
-DEPEND="sys-devel/qbe"
+DEPEND=">=sys-devel/qbe-1.1"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
