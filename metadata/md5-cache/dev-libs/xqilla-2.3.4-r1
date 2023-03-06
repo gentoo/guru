@@ -2,7 +2,7 @@ DEFINED_PHASES=configure prepare
 DEPEND=>=dev-libs/xerces-c-3.2.1 tidy? ( app-text/htmltidy )
 DESCRIPTION=An XQuery and XPath 2 library and command line utility written in C++
 EAPI=8
-HOMEPAGE=http://xqilla.sourceforge.net/HomePage
+HOMEPAGE=https://sourceforge.net/projects/xqilla/
 INHERIT=flag-o-matic
 IUSE=static-libs tidy
 KEYWORDS=~amd64
@@ -11,4 +11,4 @@ RDEPEND=>=dev-libs/xerces-c-3.2.1 tidy? ( app-text/htmltidy )
 SLOT=0
 SRC_URI=mirror://sourceforge/xqilla/XQilla-2.3.4.tar.gz
 _eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395
-_md5_=440d39bfae445cb748f68a2a61900279
+_md5_=5b109d04ddd2b7f24f0c769a1911f604

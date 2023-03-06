@@ -1,0 +1,11 @@
+DEFINED_PHASES=install postinst prepare
+DEPEND=sys-fs/fuse:3 !sys-fs/dwarfs
+DESCRIPTION=Static version of a fast very high compression read-only FUSE file system
+EAPI=7
+HOMEPAGE=https://github.com/mhx/dwarfs
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=sys-fs/fuse:3 !sys-fs/dwarfs
+SLOT=0
+SRC_URI=https://github.com/mhx/dwarfs/releases/download/v0.7.0-RC4/dwarfs-0.7.0-RC4-Linux.tar.xz -> dwarfs-bin-0.7.0-RC4-Linux.tar.xz
+_md5_=2788a09016022110ddb9e3ae7298a9ea

@@ -1,6 +1,6 @@
 BDEPEND=test? ( >=dev-python/booleanOperations-0.9.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/compreffor-0.5.1_p1[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/cffsubr-0.2.9_p1[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/cu2qu-1.6.7[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/defcon-0.10.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/fonttools-4.29.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/skia-pathops-0.7.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/ufoLib2-0.13.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/pytest-7.2.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?] ) python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-python/setuptools-65.7.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-python/setuptools_scm[python_targets_python3_9(-)?,python_targets_python3_10(-)?] test? ( dev-python/glyphsLib[python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
+DEPEND=dev-python/setuptools-scm[python_targets_python3_9(-)?,python_targets_python3_10(-)?] test? ( dev-python/glyphsLib[python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
 DESCRIPTION=A bridge from UFOs to FontTool objects
 EAPI=8
 HOMEPAGE=https://github.com/googlefonts/ufo2ft https://pypi.org/project/ufo2ft/
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://pypi/u/ufo2ft/ufo2ft-2.27.0.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46
-_md5_=c0b297960cbf56ca23dae57a3a4b2172
+_md5_=5c2eed4f88d528b6492d931b9296178b

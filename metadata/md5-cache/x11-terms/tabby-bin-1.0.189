@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm preinst prepare
+DEPEND=|| ( >=app-accessibility/at-spi2-core-2.46.0:2 ( app-accessibility/at-spi2-atk dev-libs/atk ) ) dev-libs/nss media-libs/alsa-lib net-print/cups media-libs/mesa x11-libs/gdk-pixbuf x11-libs/gtk+ x11-libs/libdrm x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXfixes x11-libs/libxkbcommon x11-libs/libXrandr x11-libs/libxshmfence x11-libs/pango
+DESCRIPTION=A terminal for a more modern age
+EAPI=8
+HOMEPAGE=https://tabby.sh
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop xdg
+KEYWORDS=~amd64 ~arm
+LICENSE=MIT
+SLOT=0
+SRC_URI=amd64? ( https://github.com/Eugeny/tabby/releases/download/v1.0.189/tabby-1.0.189-linux-x64.tar.gz ) arm? ( https://github.com/Eugeny/tabby/releases/download/v1.0.189/tabby-1.0.189-linux-armhf.tar.gz )
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_md5_=dca6332960e9a6c66fad410afba9aa2c

@@ -1,4 +1,4 @@
-BDEPEND=dev-python/setuptools_scm[python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-python/setuptools-65.7.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?]
+BDEPEND=dev-python/setuptools-scm[python_targets_python3_9(-)?,python_targets_python3_10(-)?] python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-python/setuptools-65.7.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?]
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) >=dev-python/defcon-0.6.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/fontMath-0.4.9[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/fontParts-0.8.2[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/fonttools-3.32.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?] >=dev-python/MutatorMath-2.1.2[python_targets_python3_9(-)?,python_targets_python3_10(-)?] test? ( dev-python/unicodedata2[python_targets_python3_9(-)?,python_targets_python3_10(-)?] )
 DESCRIPTION=A Python package for processing and generating UFO files
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/LettError/ufoProcessor/archive/refs/tags/1.9.0.tar.gz -> ufoProcessor-1.9.0.gh.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46
-_md5_=e2a42bb909f0bb735fa041bc06285800
+_md5_=610b27494af4a44abf6ffae7f9b5406a
