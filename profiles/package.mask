@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-06)
+# Ancient Python library with no tests enabled and no revdeps.
+# Masked for removal in 30 days.
+dev-python/pysftp
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-04)
 # Depend on masked gconf.
 games-util/itch-bin
