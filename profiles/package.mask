@@ -64,7 +64,6 @@ net-misc/bee
 sys-cluster/scorep
 # and revdeps
 gui-libs/cubegui
-sys-cluster/OpenHPC-meta
 sys-cluster/scalasca
 
 # Viorel Munteanu <ceamac@gentoo.org> (2023-01-29)
