@@ -61,7 +61,6 @@ www-apps/gogs
 # Requires <sys-devel/llvm-14, which is no longer available in ::gentoo.
 dev-util/annobin
 net-misc/bee
-sys-cluster/scorep
 
 # Viorel Munteanu <ceamac@gentoo.org> (2023-01-29)
 # Very outdated live version
