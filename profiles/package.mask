@@ -62,8 +62,6 @@ www-apps/gogs
 dev-util/annobin
 net-misc/bee
 sys-cluster/scorep
-# and revdeps
-sys-cluster/scalasca
 
 # Viorel Munteanu <ceamac@gentoo.org> (2023-01-29)
 # Very outdated live version
