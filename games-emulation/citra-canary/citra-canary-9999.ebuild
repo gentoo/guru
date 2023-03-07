@@ -96,7 +96,7 @@ src_prepare() {
 
 	# Fix boost unbundling
 	sed -i -e '/(-DBOOST_ERROR_CODE_HEADER_ONLY/,/)/d' CMakeLists.txt || die
-	sed -i -e '/[Bb][Oo][Oo][Ss][Tt]/d' externals/CMakeLists.txt || die
+	sed -i -e '/^# Boost/,/boost)$/d' externals/CMakeLists.txt || die
 
 	# Unbundle libressl (TODO rework scopes, find_package(OpenSSL is called 5 times)
 	sed -i -e '$afind_package(OpenSSL 1.1)\nset(OPENSSL_LIBRARIES OpenSSL::SSL OpenSSL::Crypto PARENT_SCOPE)' \
@@ -137,7 +137,7 @@ src_prepare() {
 		-e '1ifind_package(PkgConfig REQUIRED)\npkg_check_modules(CRYPTOPP REQUIRED libcryptopp)' \
 		src/dedicated_room/CMakeLists.txt \
 		src/core/CMakeLists.txt || die
-	sed -i -e '/cryptopp-cmake/d' externals/CMakeLists.txt || die
+	sed -i -e '/^# Crypto++/,/set(CRYPTOPP_COMPILE_DEFINITIONS/d' externals/CMakeLists.txt || die
 
 	# Unbundle cubeb
 	sed -i -e '/CUBEB/,/endif()/d' externals/CMakeLists.txt || die
@@ -150,7 +150,7 @@ src_prepare() {
 
 	# Unbundle cpp-jwt
 	sed -i -e '/# cpp-jwt/,/CPP_JWT_USE_VENDORED_NLOHMANN_JSON/d' externals/CMakeLists.txt || die
-	sed -i -e 's/ cpp-jwt//' src/web_service/CMakeLists.txt || die
+	sed -i -e 's/ cpp-jwt/ ssl crypto/' src/web_service/CMakeLists.txt || die
 
 	# Unbundle xbyak
 	sed -i -e '/^install(/,/^)$/d' externals/xbyak/CMakeLists.txt || die
