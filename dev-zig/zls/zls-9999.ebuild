@@ -20,6 +20,13 @@ RDEPEND="${DEPEND}"
 # For now, Zig Build System doesn't support CFLAGS/LDFLAGS/etc.
 QA_FLAGS_IGNORED="usr/bin/zls"
 
+src_unpack() {
+	git-r3_src_unpack
+	cd "${S}" || die
+	# "zig build" doesn't have "fetch" subcommand yet
+	zig build --help || die "Fetching Zig modules failed"
+}
+
 src_compile() {
 	zig build -Doptimize=ReleaseSafe -Ddata_version=master --verbose || die
 }
