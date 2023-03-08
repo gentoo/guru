@@ -1,23 +1,28 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..11} pypy3 )
+PYTHON_COMPAT=( python3_{9..11} pypy3 )
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 optfeature
 
 DESCRIPTION="Offline-First Gemini/Web/Gopher/RSS reader and browser"
-HOMEPAGE="https://notabug.org/ploum/offpunk"
-SRC_URI="https://notabug.org/ploum/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}"
+HOMEPAGE="https://sr.ht/~lioploum/offpunk/"
+SRC_URI="https://git.sr.ht/~lioploum/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-v${PV}"
 
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
 DOCS=( doc/. CHANGELOG README.md )
+
+src_install() {
+	distutils-r1_src_install
+	doman man/*
+}
 
 pkg_postinst() {
 	optfeature "HTML support" "dev-python/beautifulsoup4 dev-python/readability-lxml"
