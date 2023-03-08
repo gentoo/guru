@@ -67,11 +67,6 @@ dev-python/python-qpid-proton
 dev-python/tinyrpc
 dev-python/zVMCloudConnector
 
-# Joe Kappus <joe@wt.gd> (2023-02-09)
-# Multiple critical vulnerabilities, no maintainer: https://github.com/gogs/gogs/security/advisories
-# Masked for removal in 30 days.
-acct-user/gogs
-
 # Viorel Munteanu <ceamac@gentoo.org> (2023-01-29)
 # Very outdated live version
 # See also this discussion: https://github.com/gentoo/guru/commit/10a1f43a0ebe867718744de54cb17fde32e4c329
