@@ -196,8 +196,6 @@ dev-ml/xen-gnt:unix - build the userspace library
 dev-python/python-socketio:asyncio-client - Add async websocket client
 dev-python/python-socketio:client - Add websocket client
 dev-util/FoBiS:graphviz - Add support of generation of a dependencies graph
-dev-util/annobin:clang - Build the clang plugin
-dev-util/annobin:llvm - Build the LLVM plugin
 dev-util/fpm:openmp - OpenMP support to build targets in parallel where possible
 dev-util/gammaray:3d - Build support for Qt5 3D modules
 dev-util/gammaray:designer - Widget .ui file export
@@ -358,7 +356,6 @@ gui-apps/yambar:sway-xkb - keyboard support for Sway
 gui-apps/yambar:xkb - keyboard support for X11
 gui-apps/yambar:xwindow - XWindow (window tracking for X11) support
 gui-libs/cubegui:concurrent - Enables usage of the QtConcurrent for the the parallel calculations
-gui-libs/cubegui:scorep - Enable scorep support
 gui-libs/cubegui:webengine - Enables usage of the QtWebEngine for the HTML Documentation
 gui-libs/power-profiles-daemon:pylint - Run pylint checks
 gui-wm/cage:X - Enable support for X11 applications (XWayland)
@@ -504,9 +501,6 @@ net-libs/ulfius:jansson - Jansson support for JSON
 net-libs/ulfius:websocket - websocket support
 net-libs/usockets:asio - Enable bindings to use the boost asio dispatcher
 net-libs/usockets:libuv - Enable bindings to use the libuv dispatcher
-net-misc/bee:dashboard - build the dashboard plugin
-net-misc/bee:rocksdb - add support for roscksb as storage
-net-misc/bee:sled - add support for sled as storage
 net-misc/megasync:cryptopp - Compile with Crypto++ Library.
 net-misc/megasync:dolphin - Upload your files to your Mega account from Dolphin file manager.
 net-misc/megasync:freeimage - Use freeimage to manage graphic images format.
@@ -866,13 +860,6 @@ sys-cluster/portals4:reliable-udp - Use reliable UDP for remote communication
 sys-cluster/portals4:unordered-matching - Enable unordered (hashed) match list searching. Experimental
 sys-cluster/portals4:zero-mrs - Enable this when using MOFED V2.2+ or Qlogic InfiniPath Hardware of IB communication
 sys-cluster/redset:slurm - Use sys-cluster/slurm as resource manager
-sys-cluster/scorep:gcc-plugin - Enable support for the GCC plug-in instrumentation
-sys-cluster/scorep:llvm - Enable the user library wrapping feature
-sys-cluster/scorep:online-access - Enable Online Access
-sys-cluster/scorep:openacc - Enable support for OpenACC
-sys-cluster/scorep:opencl - Build with libOpenCL support
-sys-cluster/scorep:openshmem - Use the SHMEM compiler
-sys-cluster/scorep:pmi - Build with libpmi support
 sys-cluster/scr:fcntl - use fcntl as a file locking type
 sys-cluster/scr:flock - use flock as a file locking type
 sys-cluster/scr:fortran - Enables Fortran support

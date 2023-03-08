@@ -1,0 +1,15 @@
+BDEPEND=python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) >=dev-python/gpep517-13[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] || ( >=dev-python/setuptools-67.2.0[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] <dev-python/setuptools-65.7.1[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) >=dev-python/wheel-0.38.4[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Generate random strings matching a pattern
+EAPI=8
+HOMEPAGE=https://pypi.org/project/stringbrewer/ https://github.com/simoncozens/stringbrewer
+INHERIT=distutils-r1 pypi
+IUSE=python_targets_python3_9 python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-python/rstr[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] dev-python/sre-yield[python_targets_python3_9(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_python3_9? ( >=dev-lang/python-3.9.16-r1:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
+REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 python_targets_python3_11 )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/s/stringbrewer/stringbrewer-0.0.1.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46	pypi	1bc874ed4adb7d785e7201acbbb8347a
+_md5_=64aca5fb2fee6942972de07a5d9fa433

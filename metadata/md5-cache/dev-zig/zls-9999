@@ -10,4 +10,4 @@ PROPERTIES=live
 RDEPEND=~dev-lang/zig-9999
 SLOT=0
 _eclasses_=git-r3	2347f8fe2d392b2a091191f94be37e6f
-_md5_=4a577c9619e2d6d4e9bf476ad3c9919a
+_md5_=e2b2b1bf7c31d1ffaa7aeac733bf1592
