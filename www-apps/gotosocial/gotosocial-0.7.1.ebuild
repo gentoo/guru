@@ -8,7 +8,9 @@ DOCS_BUILDER="mkdocs"
 DOCS_DEPEND=(
 	dev-python/mkdocs-material
 	dev-python/mkdocs-swagger-ui-tag
+	dev-python/pillow
 	dev-python/regex
+	media-gfx/cairosvg
 )
 inherit python-any-r1 docs go-module systemd tmpfiles
 

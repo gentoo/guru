@@ -1,33 +1,36 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{9..10} )
 
 inherit python-single-r1
 
 DESCRIPTION="OpenHPC metapackage"
 
-SLOT="0"
-LICENSE="GPL-2"
 HOMEPAGE="
 	https://openhpc.community
 	https://github.com/openhpc/ohpc
 "
+
 KEYWORDS="~amd64"
+SLOT="0"
+LICENSE="metapackage"
 IUSE="+io-libs +parallel +perf-tools +python +runtimes +serial +slurm-client +slurm-server" #geopm warewulf
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 #TODO: add metis/partition useflags in a way that doesn't pull in non-free parmetis
 RDEPEND="
 	${PYTHON_DEPS}
-	|| ( sys-libs/libunwind sys-libs/llvm-libunwind )
-
 	app-shells/pdsh
 	sys-apps/ipmitool
 	sys-process/numactl
 	virtual/mpi
-
+	|| (
+		sys-libs/libunwind
+		sys-libs/llvm-libunwind
+	)
 	io-libs? (
 		sci-libs/hdf5[cxx,fortran,mpi]
 		sci-libs/netcdf[hdf5,mpi]
@@ -35,9 +38,12 @@ RDEPEND="
 		sci-libs/netcdf-fortran
 		sys-cluster/adios2[fortran,hdf5,mpi]
 		sys-cluster/parallel-netcdf
-		python? ( $(python_gen_cond_dep 'sys-cluster/adios2[python,${PYTHON_SINGLE_USEDEP}]') )
+		python? (
+			$(python_gen_cond_dep '
+				sys-cluster/adios2[python,${PYTHON_SINGLE_USEDEP}]
+			')
+		)
 	)
-
 	parallel? (
 		dev-libs/boost[mpi]
 		sci-libs/fftw[mpi]
@@ -51,16 +57,18 @@ RDEPEND="
 		sci-mathematics/petsc[fftw,hypre,mpi,mumps,scotch]
 		sci-mathematics/slepc[mpi]
 		sys-cluster/opencoarrays
-
 		io-libs? (
 			sci-libs/mfem[netcdf]
 			sci-libs/trilinos[hdf5,netcdf]
 			sci-mathematics/petsc[hdf5]
 		)
-		python? ( $(python_gen_cond_dep 'dev-libs/boost[numpy,python,${PYTHON_USEDEP}]') )
+		python? (
+			$(python_gen_cond_dep '
+				dev-libs/boost[numpy,python,${PYTHON_USEDEP}]
+			')
+		)
 		serial? ( sci-libs/mfem[superlu] )
 	)
-
 	perf-tools? (
 		dev-libs/papi
 		sys-apps/likwid
@@ -68,10 +76,7 @@ RDEPEND="
 		sys-cluster/extrae[${PYTHON_SINGLE_USEDEP}]
 		sys-cluster/mpi-benchmarks
 		sys-cluster/osu-micro-benchmarks
-		sys-cluster/scalasca
-		sys-cluster/scorep[mpi,unwind]
 	)
-
 	python? (
 		$(python_gen_cond_dep '
 			dev-python/mpi4py[${PYTHON_USEDEP}]
@@ -79,12 +84,10 @@ RDEPEND="
 			dev-python/scipy[${PYTHON_USEDEP}]
 		')
 	)
-
 	runtimes? (
 		sys-cluster/charliecloud[${PYTHON_SINGLE_USEDEP}]
 		app-containers/apptainer
 	)
-
 	serial? (
 		dev-lang/R[lapack]
 		sci-libs/gsl[cblas-external]
@@ -93,18 +96,15 @@ RDEPEND="
 		sci-libs/plasma
 		sci-libs/superlu
 	)
-
 	slurm-client? (
 		sys-apps/hwloc
 		sys-cluster/slurm[numa,pam]
 		io-libs? ( sys-cluster/slurm[hdf5] )
 	)
-
 	slurm-server? (
 		sys-cluster/slurm[numa,perl,slurmdbd]
 		io-libs? ( sys-cluster/slurm[hdf5] )
 	)
-
 "
 #	perf-tools
 	#tau
@@ -128,5 +128,3 @@ RDEPEND="
 		#warewulf-provision-server
 		#warewulf-vnfs
 	#)
-
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"

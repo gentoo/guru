@@ -14,6 +14,22 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-08)
+# Libraries with no consumers and no releases. Very hard to maintain.
+# Masked for removal in 30 days.
+media-libs/skcms
+media-libs/skia
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-08)
+# Python library with no consumers left in tree.
+# Masked for removal in 30 days.
+dev-python/uhashring
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-06)
+# Ancient Python library with no tests enabled and no revdeps.
+# Masked for removal in 30 days.
+dev-python/pysftp
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-04)
 # Depend on masked gconf.
 games-util/itch-bin
@@ -56,16 +72,6 @@ dev-python/zVMCloudConnector
 # Masked for removal in 30 days.
 acct-user/gogs
 www-apps/gogs
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-02-02)
-# Requires <sys-devel/llvm-14, which is no longer available in ::gentoo.
-dev-util/annobin
-net-misc/bee
-sys-cluster/scorep
-# and revdeps
-gui-libs/cubegui
-sys-cluster/OpenHPC-meta
-sys-cluster/scalasca
 
 # Viorel Munteanu <ceamac@gentoo.org> (2023-01-29)
 # Very outdated live version

@@ -16,13 +16,9 @@ S="${WORKDIR}/${MYP}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="concurrent debug scorep webengine"
+IUSE="concurrent debug webengine"
 
 RDEPEND="
-	concurrent? ( dev-qt/qtconcurrent:5 )
-	scorep? ( sys-cluster/scorep )
-	webengine? ( dev-qt/qtwebengine:5 )
-
 	dev-libs/cubelib
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
@@ -31,6 +27,8 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	sys-apps/dbus
 	sys-libs/zlib
+	concurrent? ( dev-qt/qtconcurrent:5 )
+	webengine? ( dev-qt/qtwebengine:5 )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="app-doc/doxygen[dot]"
@@ -97,19 +95,15 @@ src_configure() {
 		--with-plugin-system-topology
 		--with-plugin-treeitem-marker
 		--with-plugin-vampir
+		--without-plugin-scorep-config
+		--without-scorep
 		--with-qt="$(qt5_get_bindir)"
 		--with-qt-specs="$(qmake5 -query QMAKE_SPEC || die)"
 
 		$(use_enable debug)
 		$(use_with concurrent)
-		$(use_with scorep plugin-scorep-config)
 		$(use_with webengine web-engine)
 	)
-	if use scorep; then
-		myconf+=( "--with-scorep=${EPREFIX}/usr" )
-	else
-		myconf+=( "--without-scorep" )
-	fi
 
 	econf "${myconf[@]}"
 }

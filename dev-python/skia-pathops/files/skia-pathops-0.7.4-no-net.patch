@@ -1,0 +1,11 @@
+--- a/setup.py
++++ b/setup.py
+@@ -252,7 +252,7 @@ def build_skia(build_base):
+     build_cmd = [sys.executable, build_skia_py, build_dir]
+ 
+     if inside_sdist:
+-        build_cmd.append("--no-sync-deps")
++        build_cmd += ["--no-sync-deps", "--no-virtualenv", "--no-fetch-gn", "--gn-path", "/usr/bin/gn"]
+ 
+     env = os.environ
+     target_cpu = None
