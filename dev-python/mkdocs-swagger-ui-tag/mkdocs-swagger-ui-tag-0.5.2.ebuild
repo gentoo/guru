@@ -13,7 +13,7 @@ HOMEPAGE="
 	https://pypi.org/project/mkdocs-swagger-ui-tag/
 	https://github.com/Blueswen/mkdocs-swagger-ui-tag
 "
-SRC_URI="https://github.com/Blueswen/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/Blueswen/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -30,3 +30,8 @@ BDEPEND="
 HTML_DOCS=( docs/. )
 
 distutils_enable_tests pytest
+
+src_prepare() {
+	distutils-r1_src_prepare
+	rm docs/sitemap.xml.gz || die
+}
