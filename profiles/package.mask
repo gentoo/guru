@@ -71,7 +71,6 @@ dev-python/zVMCloudConnector
 # Multiple critical vulnerabilities, no maintainer: https://github.com/gogs/gogs/security/advisories
 # Masked for removal in 30 days.
 acct-user/gogs
-www-apps/gogs
 
 # Viorel Munteanu <ceamac@gentoo.org> (2023-01-29)
 # Very outdated live version
