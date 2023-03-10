@@ -1728,7 +1728,6 @@ sys-apps/intel-cmt-cat 4.3.0 4.4.0: User space software for Intel(R) Resource Di
 sys-apps/nvimpager 0.11.0: Use nvim as a pager to view manpages, diff, etc with nvim's syntax highlighting.
 sys-apps/openSeaChest 22.07 23.03: SeaGate's open source harddrive control utilities
 sys-apps/ov 0.11.1 0.11.2: Feature-rich terminal pager
-sys-apps/paludis 9999: paludis, the other package mangler
 sys-apps/procs 0.12.3: A modern replacement for ps
 sys-apps/qemu-openrc 0.10.0 9999: OpenRC init script for QEMU/KVM
 sys-apps/qjournalctl 0.6.2: Qt-based GUI for systemd's journalctl command
