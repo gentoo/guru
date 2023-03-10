@@ -1233,7 +1233,7 @@ dev-vcs/lefthook 1.0.4 1.2.6: Fast and powerful Git hooks manager for any type o
 dev-zig/zls 0.10.0-r1 9999: The officially unofficial Ziglang language server
 games-action/ATLauncher 3.4.3.1 3.4.27.0: Minecraft launcher which integrates multiple different ModPacks
 games-action/blackvoxel 2.50 9999: Blackvoxel Video Game
-games-action/ddnet 16.7.2-r1 9999: DDraceNetwork, a cooperative racing mod of Teeworlds
+games-action/ddnet 16.8 9999: DDraceNetwork, a cooperative racing mod of Teeworlds
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
 games-action/technic-launcher 4.625 4.768: Minecraft launcher for community-made modpacks on the Technic Platform
@@ -1489,7 +1489,7 @@ media-video/uxplay 1.63: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
 media-video/ytarchive 0.3.2: Youtube livestream downloader
 mpv-plugin/SmartCopyPaste 3.1: Gives mpv the capability to copy and paste while being smart and customizable
-mpv-plugin/autoload 0.34.1 0.35.0 0.35.1: Loads playlist entries before and after the the currently played file
+mpv-plugin/autoload 0.35.0 0.35.1: Loads playlist entries before and after the the currently played file
 mpv-plugin/autosubsync-mpv 20220402: Automatic subtitle synchronization script for mpv media player
 mpv-plugin/kde-do-not-disturb 20230110: Disable the notifications while mpv is running
 mpv-plugin/kde-night-color 20230110: Disable Night Color while mpv is running
