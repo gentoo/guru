@@ -925,7 +925,6 @@ sys-power/linux-tools-power-x86:pstate-tracer - Install utility to debug and tun
 sys-process/nq:shell - Use shell implementation
 sys-process/nq:tq - Install tq, a tmux & screen wrapper
 www-apps/forgejo:acct - User and group management via acct-*/git packages
-www-apps/gogs:cert - Adds support for self-signed certificates
 www-client/vimb:adblock - Use www-misc/wyebadblock for adblocking
 www-servers/hinsightd:cgi - Enable old/slow cgi support (legacy should not be used)
 www-servers/hinsightd:fcgi - Enable fast cgi support
