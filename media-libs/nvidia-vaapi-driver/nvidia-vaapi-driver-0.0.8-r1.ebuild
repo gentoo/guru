@@ -22,6 +22,9 @@ RDEPEND="x11-drivers/nvidia-drivers
 	media-libs/libva"
 BDEPEND="dev-util/meson"
 
+PATCHES=( "${FILESDIR}/${PN}-0.0.8-install-path.patch" )
+
+
 pkg_postinst() {
 	ewarn "This library requires special configuration! See "
 	ewarn "${HOMEPAGE}"

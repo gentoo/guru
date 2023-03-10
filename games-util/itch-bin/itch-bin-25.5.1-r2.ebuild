@@ -1,7 +1,7 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit desktop xdg
 
@@ -18,7 +18,6 @@ BDEPEND="app-arch/unzip"
 RDEPEND="
 	x11-libs/gtk+:3[X,cups]
 	x11-libs/libXtst
-	gnome-base/gconf
 	dev-libs/nss
 	media-libs/alsa-lib
 	media-libs/freetype
@@ -35,9 +34,9 @@ RDEPEND="
 "
 
 QA_PREBUILT="
-	/opt/itch-bin/itch
-	/opt/itch-bin/libvk_swiftshader.so
-	!system-ffmpeg? ( /opt/itch-bin/libffmpeg.so )
+	opt/itch-bin/itch
+	opt/itch-bin/libvk_swiftshader.so
+	!system-ffmpeg? ( opt/itch-bin/libffmpeg.so )
 "
 
 S="${WORKDIR}"
@@ -46,13 +45,15 @@ src_install() {
 	local destdir="${EPREFIX}/opt/${PN}"
 	insinto "${destdir}"
 	doins -r locales resources
-	doins *.pak *.dat *.bin *.json version libvk_swiftshader.so
+	doins ./*.pak ./*.dat ./*.bin ./*.json version libvk_swiftshader.so
 
 	if use system-ffmpeg; then	# bug 710944
 		rm libffmpeg.so || die
-		ln -s "${EPREFIX}/usr/$(get_libdir)/chromium/libffmpeg.so" || die
+		dosym -r "${EPREFIX}/usr/$(get_libdir)/chromium/libffmpeg.so" \
+			${destdir}/libffmpeg.so
+	else
+		doins libffmpeg.so
 	fi
-	doins libffmpeg.so
 
 	exeinto "${destdir}"
 	doexe itch

@@ -2,10 +2,4 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<!-- maintainer-needed -->
-	<upstream>
-		<remote-id type="github">gogs/gogs</remote-id>
-	</upstream>
-	<use>
-		<flag name="cert">Adds support for self-signed certificates</flag>
-	</use>
 </pkgmetadata>

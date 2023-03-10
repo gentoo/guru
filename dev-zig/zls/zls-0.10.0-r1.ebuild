@@ -3,25 +3,36 @@
 
 EAPI=8
 
-inherit edo git-r3
-
-EGIT_REPO_URI="https://github.com/zigtools/zls"
+inherit edo
 
 DESCRIPTION="The officially unofficial Ziglang language server"
 HOMEPAGE="https://github.com/zigtools/zls"
 
+KNOWN_FOLDERS_COMMIT="24845b0103e611c108d6bc334231c464e699742c"
+TRACY_COMMIT="f493d4aa8ba8141d9680473fad007d8a6348628e"
+SRC_URI="
+	https://github.com/ziglibs/known-folders/archive/${KNOWN_FOLDERS_COMMIT}.tar.gz -> known-folders-${KNOWN_FOLDERS_COMMIT}.tar.gz
+	https://github.com/wolfpld/tracy/archive/${TRACY_COMMIT}.tar.gz -> tracy-${TRACY_COMMIT}.tar.gz
+	https://github.com/zigtools/zls/archive/refs/tags/${PV}.tar.gz -> zls-${PV}.tar.gz
+"
+
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64"
 
-EZIG_MIN="9999"
-EZIG_MAX_EXCLUSIVE="99991"
+EZIG_MIN="0.10"
+EZIG_MAX_EXCLUSIVE="0.11"
 
-DEPEND="dev-lang/zig:${EZIG_MIN}"
+DEPEND="|| ( dev-lang/zig:${EZIG_MIN} dev-lang/zig-bin:${EZIG_MIN} )"
 RDEPEND="${DEPEND}"
 
 # see https://github.com/ziglang/zig/issues/3382
 # For now, Zig Build System doesn't support CFLAGS/LDFLAGS/etc.
 QA_FLAGS_IGNORED="usr/bin/zls"
+
+PATCHES=(
+	"${FILESDIR}/zls-0.10.0-add-builtin-data-for-new-zig-versions.patch"
+)
 
 # : copied from sys-fs/ncdu :
 # Many thanks to Florian Schmaus (Flowdalic)!
@@ -103,23 +114,25 @@ ezig() {
 	edo "${EZIG}" "${@}"
 }
 
-src_unpack() {
-	git-r3_src_unpack
-	cd "${S}" || die
-	# "zig build" doesn't have "fetch" subcommand yet
-	ezig build --help || die "Fetching Zig modules failed"
+src_prepare() {
+	rm -r src/known-folders || die
+	mv "../known-folders-${KNOWN_FOLDERS_COMMIT}" src/known-folders || die
+	rm -r src/tracy || die
+	mv "../tracy-${TRACY_COMMIT}" src/zinput || die
+
+	default
 }
 
 src_compile() {
-	ezig build -Doptimize=ReleaseSafe -Ddata_version=master --verbose || die
+	ezig build -Drelease-safe -Ddata_version=0.10.0 --verbose || die
 }
 
 src_test() {
-	ezig build test -Doptimize=ReleaseSafe -Ddata_version=master --verbose || die
+	ezig build test -Drelease-safe -Ddata_version=0.10.0 --verbose || die
 }
 
 src_install() {
-	DESTDIR="${ED}" ezig build install --prefix /usr -Doptimize=ReleaseSafe -Ddata_version=master --verbose || die
+	DESTDIR="${ED}" ezig build install --prefix /usr -Drelease-safe -Ddata_version=0.10.0 --verbose || die
 	dodoc README.md
 }
 

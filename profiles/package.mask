@@ -32,7 +32,6 @@ dev-python/pysftp
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-04)
 # Depend on masked gconf.
-games-util/itch-bin
 net-p2p/lbry
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-02-28)
@@ -66,12 +65,6 @@ dev-python/python-monascaclient
 dev-python/python-qpid-proton
 dev-python/tinyrpc
 dev-python/zVMCloudConnector
-
-# Joe Kappus <joe@wt.gd> (2023-02-09)
-# Multiple critical vulnerabilities, no maintainer: https://github.com/gogs/gogs/security/advisories
-# Masked for removal in 30 days.
-acct-user/gogs
-www-apps/gogs
 
 # Viorel Munteanu <ceamac@gentoo.org> (2023-01-29)
 # Very outdated live version
