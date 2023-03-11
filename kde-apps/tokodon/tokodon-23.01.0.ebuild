@@ -5,7 +5,7 @@ EAPI=8
 
 KFMIN=5.77.0
 QTMIN=5.15.0
-ECM_TEST=optional
+ECM_TEST=forceoptional
 inherit ecm
 
 DESCRIPTION="Mastodon client for Plasma and Plasma Mobile"

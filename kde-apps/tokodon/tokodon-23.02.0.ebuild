@@ -1,18 +1,16 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 KFMIN=5.77.0
 QTMIN=5.15.0
-ECM_TEST=optional
+ECM_TEST=forceoptional
 inherit ecm
 
-MY_P="${PN}-21.11.1" # upstream mistake
 DESCRIPTION="Mastodon client for Plasma and Plasma Mobile"
 HOMEPAGE="https://invent.kde.org/network/tokodon"
-SRC_URI="mirror://kde/unstable/${PN}/${MY_P}.tar.xz"
-S="${WORKDIR}/${MY_P}"
+SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 
 LICENSE="|| ( GPL-2 GPL-3 ) AGPL-3+ CC-BY-SA-4.0 CC0-1.0 GPL-2+ GPL-3 GPL-3+ LGPL-2+ LGPL-2.1+ MIT"
 SLOT="5"
