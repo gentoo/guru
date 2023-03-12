@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit distutils-r1
 
@@ -15,32 +15,39 @@ S="${WORKDIR}/Pyrr-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
+IUSE="doc"
 
-RDEPEND=""
 BDEPEND="
 	dev-python/multipledispatch[${PYTHON_USEDEP}]
 	dev-python/numpy[${PYTHON_USEDEP}]
-	dev-python/setuptools[${PYTHON_USEDEP}]
-	dev-python/wheel[${PYTHON_USEDEP}]
-	dev-python/sphinx[${PYTHON_USEDEP}]
+	doc? (
+		dev-python/sphinx[${PYTHON_USEDEP}]
+	)
 "
 DEPEND="${BDEPEND}"
 
 python_compile() {
 	distutils-r1_python_compile
-	find ./ -type f -exec sed -i 's/sphinx.ext.pngmath/sphinx.ext.imgmath/g' {} \;
-	emake man -C docs
+	if use doc; then
+		find "${S}/docs" -type f -exec sed -i 's/sphinx\.ext\.pngmath/sphinx\.ext\.imgmath/g' {} \;
+		emake man -C docs
+	fi
 }
 
 python_install() {
 	distutils-r1_python_install
-	doman "${S}/docs/build/man/pyrr.1"
+	use doc && doman "${S}/docs/build/man/pyrr.1"
 }
 
-# The tests failed with `module 'numpy' has no attribute 'float'`
-# distutils_enable_tests pytest
-# python_test() {
-#     cd "${T}" || die
-#     epytest "${S}"/tests || die "Tests failed with ${EPYTHON}"
-# }
+distutils_enable_tests pytest
+python_test() {
+	local EPYTEST_DESELECT="tests/test_matrix44.py::test_matrix44::test_create_perspective_projection_matrix_dtype"
+	find "${S}/tests" -iname "*.py" -exec sed -i \
+		-e 's/np\.float/float/g' \
+		-e 's/float32/np\.float32/g' \
+		-e 's/np\.int/int/g' \
+		-e 's/int16/np\.int16/g' \
+		{} \;
+	epytest "${S}/tests" || die "Tests failed with ${EPYTHON}"
+}
