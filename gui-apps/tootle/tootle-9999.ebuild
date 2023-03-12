@@ -1,50 +1,45 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
 inherit git-r3 gnome2-utils meson vala xdg-utils
 
 DESCRIPTION="Mastodon client written in GTK3"
-HOMEPAGE="https://github.com/bleakgrey/tootle"
+HOMEPAGE="https://gitlab.gnome.org/World/tootle"
 EGIT_REPO_URI="https://gitlab.gnome.org/World/tootle"
-LICENSE="GPL-3"
 
+LICENSE="GPL-3"
 SLOT="0"
 
 RDEPEND="
+	app-crypt/libsecret
+	dev-libs/glib:2
+	>=dev-libs/granite-0.5.2:=
 	dev-libs/json-glib
-	>=dev-libs/granite-0.5.2
-	gui-libs/libhandy:1.0/0
-	net-libs/libsoup
+	dev-libs/libgee:0.8=
+	dev-libs/libxml2:2
+	gui-libs/gtk:4
+	gui-libs/libadwaita:1
+	net-libs/libsoup:2.4
 "
-DEPEND="
-	${RDEPEND}
-	dev-util/meson
-	dev-lang/vala
-	virtual/pkgconfig
+DEPEND="${RDEPEND}"
+BDEPEND="
+	$(vala_depend)
+	sys-devel/gettext
 "
 
 src_prepare() {
-	vala_src_prepare
+	vala_setup
 	default
 }
 
-src_install() {
-	meson_src_install
-	dosym "${EPREFIX}"/usr/bin/{com.github.bleakgrey.,}tootle
-}
-
-pkg_preinst() {
-	gnome2_gconf_savelist
-	gnome2_schemas_savelist
-}
-
 pkg_postinst() {
-	xdg_icon_cache_update
-	gnome2_gconf_install
+	xdg_pkg_postinst
 	gnome2_schemas_update
 }
 
 pkg_postrm() {
-	xdg_icon_cache_update
+	xdg_pkg_postinst
+	gnome2_schemas_update
 }
