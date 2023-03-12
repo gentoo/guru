@@ -14,6 +14,12 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-12)
+# Dead package, no Python 3.10 support.
+# Masked for removal in 30 days.
+# https://github.com/McLeopold/PythonSkills/issues/11
+dev-python/skills
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-08)
 # Libraries with no consumers and no releases. Very hard to maintain.
 # Masked for removal in 30 days.
