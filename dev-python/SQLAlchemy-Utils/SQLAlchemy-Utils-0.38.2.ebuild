@@ -4,7 +4,7 @@
 EAPI=8
 
 EPYTEST_DESELECT=( tests/types/test_timezone.py ) # https://bugs.gentoo.org/819021
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{9..10} )
 
 inherit distutils-r1
 
