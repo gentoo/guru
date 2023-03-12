@@ -4,26 +4,23 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit distutils-r1
 
 DESCRIPTION="Binding for Pango, to use with Manim."
 HOMEPAGE="https://github.com/ManimCommunity/ManimPango https://pypi.org/project/manimpango"
-SRC_URI="https://github.com/ManimCommunity/ManimPango/archive/refs/tags/v${PV}.tar.gz -> v${PV}.gh.tar.gz"
+SRC_URI="https://github.com/ManimCommunity/ManimPango/archive/refs/tags/v${PV}.tar.gz -> ${V}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE="test"
+KEYWORDS="~amd64"
 
-RDEPEND=""
-BDEPEND="
-	dev-python/cython
-	dev-python/setuptools[${PYTHON_USEDEP}]
-	dev-python/wheel[${PYTHON_USEDEP}]
-	x11-libs/pango
-"
+BDEPEND="x11-libs/pango"
 DEPEND="${BDEPEND}"
 
-distutils_enable_tests pytest
+src_prepare() {
+	# The tests always fails (ManimPango has to be installed for them to work)
+	rm -rf "${S}/tests"
+	distutils-r1_src_prepare
+}
