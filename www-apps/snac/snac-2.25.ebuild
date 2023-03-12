@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,13 +29,13 @@ src_configure() {
 	tc-export CC
 }
 
-src_compile() {
-	emake CFLAGS="${CFLAGS}"
-}
-
 src_install() {
-	mkdir -p "${ED}"/usr/bin
-	emake PREFIX="${ED}/usr" PREFIX_MAN="${ED}/usr/share/man" install
+	local mymakeflags=(
+		PREFIX="${ED}/usr"
+		PREFIX_MAN="${ED}/usr/share/man"
+	)
+
+	emake "${mymakeflags[@]}" install
 	einstalldocs
 
 	doinitd "${FILESDIR}"/snac
