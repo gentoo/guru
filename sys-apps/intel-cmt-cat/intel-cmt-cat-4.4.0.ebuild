@@ -16,29 +16,10 @@ SRC_URI="https://github.com/intel/intel-cmt-cat/archive/refs/tags/v${PV}.tar.gz 
 
 LICENSE="BSD"
 SLOT="0"
-IUSE="appqos perl"
+IUSE="perl"
 
-RDEPEND="
-	${PYTHON_DEPS}
-	appqos? (
-		dev-python/flask[${PYTHON_USEDEP}]
-		dev-python/flask-restful[${PYTHON_USEDEP}]
-		dev-python/gevent[${PYTHON_USEDEP}]
-		dev-python/jsonschema[${PYTHON_USEDEP}]
-		dev-python/pexpect[${PYTHON_USEDEP}]
-		dev-python/psutil[${PYTHON_USEDEP}]
-		sys-apps/CommsPowerManagement[${PYTHON_USEDEP}]
-	)
-	perl? ( dev-lang/perl:= )
-"
-DEPEND="
-	${RDEPEND}
-	test? (
-		appqos? ( dev-python/mock[${PYTHON_USEDEP}] )
-	)
-"
+RDEPEND="perl? ( dev-lang/perl:= )"
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 PATCHES=(
 	"${FILESDIR}/${P}-perl-makefile.patch"
 	"${FILESDIR}/${P}-no-strip.patch"
@@ -46,7 +27,6 @@ PATCHES=(
 )
 
 distutils_enable_tests unittest
-distutils_enable_tests pytest
 
 src_prepare() {
 	mkdir -p "${T}/prefix" || die
@@ -94,11 +74,6 @@ src_install() {
 	docinto rdtset
 	dodoc rdtset/README
 
-	if use appqos; then
-		docinto appqos
-		dodoc appqos/README.md
-	fi
-
 	unset DOCS
 	python_foreach_impl python_install
 
@@ -121,20 +96,10 @@ python_install() {
 	pushd "lib/python" || die
 	distutils-r1_python_install
 	popd || die
-
-	if use appqos; then
-		python_domodule appqos
-	fi
 }
 
 python_test() {
 	pushd "lib/python" || die
 	eunittest
 	popd || die
-
-	if use appqos; then
-		pushd "appqos" || die
-		epytest -vv tests
-		popd || die
-	fi
 }
