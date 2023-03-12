@@ -72,7 +72,7 @@ app-admin/himitsu-ssh 0.1-r1 9999: SSH integration for Himitsu
 app-admin/himitsu-totp 9999: TOTP support for Himitsu
 app-admin/i2pd-tools 0.2021.10.17 0.2022.11.26: Some useful tools for I2P
 app-admin/krapplet 0.3.1-r1: Krapplet (keyring applet): a Linux graphical password manager
-app-admin/oet 0.1.9 9999: Update your system into binpkgs in an overlay sandbox
+app-admin/oet 0.1.9 0.1.10 9999: Update your system into binpkgs in an overlay sandbox
 app-admin/overmind 2.2.2-r1 2.4.0: Process manager for Procfile-based applications and tmux
 app-admin/pass-update 2.1: pass extension that provides an easy flow for updating passwords
 app-admin/s-tui 1.1.3-r1: Stress-Terminal UI monitoring tool
@@ -1321,6 +1321,7 @@ gui-apps/coreterminal 4.2.0 9999: A terminal emulator for C Suite
 gui-apps/coretime 4.2.0 9999: A time related task manager for C Suite
 gui-apps/coretoppings 4.1.0-r1 4.2.0 9999: Additional features, plugins, widgets etc for C Suite
 gui-apps/coreuniverse 4.2.0 9999: Shows information about apps for C Suite
+gui-apps/darkman 1.5.4: Framework for dark and light mode transitions
 gui-apps/eww 0.3.0 0.4.0 0.4.0-r1: Elkowars Wacky Widgets is a standalone widget system made in Rust
 gui-apps/fnott 1.2.1 1.3.0 9999: Keyboard driven and lightweight Wayland notification daemon.
 gui-apps/fuzzel 1.8.2 9999: Application launcher for wlroots based Wayland compositors.
@@ -1346,6 +1347,7 @@ gui-apps/swaync 0.7.3: A simple notification daemon with a GTK gui for notificat
 gui-apps/szyszka 1.0.0: Simple, powerful and easy to use file renamer
 gui-apps/tessen 2.1.2 2.1.3 9999: an interactive menu to autotype and copy pass and gopass data
 gui-apps/tiramisu 1.0_p20201110 2.0.20211107 9999: minimalistic desktop notifications provider
+gui-apps/tofi 0.8.1: Fast and simple dmenu/rofi replacement for wlroots-based Wayland compositors
 gui-apps/tootle 9999: Mastodon client written in GTK3
 gui-apps/wbg 1.0.2 1.1.0: Super simple wallpaper application
 gui-apps/wdisplays 1.0-r3 1.1 9999: GUI display configurator for wlroots compositors
@@ -1373,7 +1375,7 @@ kde-apps/alligator 22.11: A convergent RSS/Atom feed reader for Plasma
 kde-apps/kclock 22.11: A convergent clock application for Plasma
 kde-apps/krecorder 22.11: A convergent audio recording application for Plasma
 kde-apps/plasma-settings 22.11: Settings application for Plasma Mobile
-kde-apps/tokodon 22.11.1 23.01.0: Mastodon client for Plasma and Plasma Mobile
+kde-apps/tokodon 23.01.0 23.02.0: Mastodon client for Plasma and Plasma Mobile
 kde-misc/geminipart 2021125 20221020: KPart for viewing text/gemini files
 kde-misc/kio-gemini 20211107 20221021: Gemini KIO slave
 kde-misc/plasma-applet-thermal-monitor 1.3.0: Plasma 5 applet for monitoring CPU, GPU and other available temperature sensors
@@ -1519,7 +1521,7 @@ net-im/Quaternion 0.0.95.1: A Qt-based IM client for Matrix
 net-im/abaddon 0.1.8 9999: Alternative Discord client using GTK instead of Electron
 net-im/chatterino 2.3.5-r3: Chat client for https://twitch.tv
 net-im/conduit 0.5.0: A Matrix homeserver written in Rust
-net-im/discord-canary-bin 0.0.148: All-in-one voice and text chat
+net-im/discord-canary-bin 0.0.149: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.29: All-in-one voice and text chat
 net-im/gajim-plugins 9999: Plugins developed fro Gajim XMPP client
 net-im/go-sendxmpp 0.5.5 0.5.6: A little tool to send messages to an XMPP contact or MUC

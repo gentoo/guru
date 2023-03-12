@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig man? ( app-text/scdoc ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=dev-libs/glib dev-libs/wayland media-libs/freetype:2 media-libs/harfbuzz x11-libs/cairo x11-libs/pango x11-libs/libxkbcommon dev-libs/wayland-protocols dev-util/wayland-scanner elibc_musl? ( sys-libs/fts-standalone )
+DESCRIPTION=Fast and simple dmenu/rofi replacement for wlroots-based Wayland compositors
+EAPI=8
+HOMEPAGE=https://github.com/philj56/tofi
+INHERIT=meson
+IUSE=+man
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-libs/glib dev-libs/wayland media-libs/freetype:2 media-libs/harfbuzz x11-libs/cairo x11-libs/pango x11-libs/libxkbcommon
+SLOT=0
+SRC_URI=https://github.com/philj56/tofi/archive/refs/tags/v0.8.1.tar.gz -> tofi-0.8.1.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	1994a5aef5d4f5798b92f64d6f9a6003
+_md5_=eba9daf418ce58e6654b76c18623826b
