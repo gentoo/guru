@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/rakudo:= test? ( dev-raku/App-Prove6 )
+DEFINED_PHASES=compile install test
+DEPEND=dev-raku/File-Temp dev-raku/Term-termios
+DESCRIPTION=A command line tool for renaming files in any text editor.
+EAPI=8
+HOMEPAGE=https://codeberg.org/amano.kenji/raku-File-Name-Editor
+INHERIT=rakudo
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=public-domain
+RDEPEND=dev-raku/File-Temp dev-raku/Term-termios dev-lang/rakudo:=
+RESTRICT=primaryuri !test? ( test )
+SLOT=0
+SRC_URI=mirror://zef/F/IL/FILE_NAME_EDITOR/553ab3efd41a7404684ca8c824efa8227791a8f7.tar.gz -> File-Name-Editor-0.2.1.tar.gz
+_eclasses_=rakudo	3797e490475cd8f94e9987fb92ff282e
+_md5_=945ff9e6287c96d0866a06268658bfb2

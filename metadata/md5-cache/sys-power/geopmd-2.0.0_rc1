@@ -13,4 +13,4 @@ REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10
 SLOT=0
 SRC_URI=https://github.com/geopm/geopm/archive/refs/tags/v2.0.0+rc1.tar.gz -> geopm-2.0.0+rc1.gh.tar.gz
 _eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=f278af1a36bacc7cd5d1d4b51260d15b
+_md5_=5c374f60b398a2269c018cb9bbbc2793

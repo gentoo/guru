@@ -167,7 +167,7 @@ app-misc/aw-core 0.11.0: Core library for ActivityWatch
 app-misc/brightness-control 2.4: Qt Brightness Controller in Python
 app-misc/brightnessctl 0.5.1: A program to read and control device brightness
 app-misc/cheat 4.2.3 4.3.3: cheat allows you to create and view interactive cheatsheets on the command-line
-app-misc/clifm 1.6 1.7 1.8 1.9 9999: The command line file manager
+app-misc/clifm 1.7 1.8 1.9 1.10 9999: The command line file manager
 app-misc/cpufetch 1.01 1.02: Simplistic yet fancy CPU architecture fetching tool
 app-misc/dbf 0.9.0: Command line tool to read the content of dBASE III, IV, and 5.0 files
 app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs
@@ -263,7 +263,7 @@ app-text/cmark-gfm 0.29.0.3: GitHub's fork of cmark
 app-text/code-minimap 0.6.4: A high performance code minimap generator
 app-text/epubgrep 0.6.0-r1 0.6.2: Search tool for EPUB e-books
 app-text/klogg 22.06.0.1289: A GUI application to browse and search through long and complex log files
-app-text/komikku 1.12.1 1.13.0: An online/offline manga reader for GNOME
+app-text/komikku 1.13.0 1.14.0: An online/offline manga reader for GNOME
 app-text/koodo-reader-bin 1.5.1: A modern ebook manager and reader with sync and backup capacities
 app-text/lizard 1.17.10: A simple code complexity analyser, supports most of the popular languages.
 app-text/mandown 0.1.2: Markdown to groff (man page) converter
@@ -593,7 +593,7 @@ dev-libs/dmd_core 0.6.2: Core logic for an AT&T / Teletype DMD 5620 terminal emu
 dev-libs/dyninst 11.0.1-r1 12.1.0: Tools for binary instrumentation, analysis, and modification
 dev-libs/fastText 0.9.2: Library for fast text representation and classification
 dev-libs/feedbackd 0.0.3 0.1.0: A daemon to provide haptic feedback on events
-dev-libs/feedbackd-device-themes 0.0.20220523: A daemon to provide haptic feedback on events (themes package)
+dev-libs/feedbackd-device-themes 0.0.20220523 0.1.0: A daemon to provide haptic feedback on events (themes package)
 dev-libs/ffs 1.6.0_p20220525: FFS is a middleware library for data communication
 dev-libs/fortran-stdlib 0.2.1-r1 9999: A community driven standard library for (modern) Fortran
 dev-libs/fsst 0_pre20200830-r1: Fast Static Symbol Table: fast text compression that allows random access
@@ -959,8 +959,8 @@ dev-python/mkdocs-exclude 1.0.2: Lets you exclude files or trees from your outpu
 dev-python/mkdocs-mkdocstrings 0.20.0: Automatic documentation from sources, for MkDocs.
 dev-python/mkdocs-mkdocstrings-python 0.8.3: A Python handler for mkdocstrings.
 dev-python/mkdocs-render-swagger-plugin 0.0.4: MKDocs plugin for rendering swagger & openapi files
-dev-python/mkdocs-rss-plugin 1.5.0: MkDocs plugin to generate a RSS feeds.
-dev-python/mkdocs-swagger-ui-tag 0.5.2: MkDocs Swagger UI Tag
+dev-python/mkdocs-rss-plugin 1.6.0: MkDocs plugin to generate a RSS feeds.
+dev-python/mkdocs-swagger-ui-tag 0.5.2 0.6.0: MkDocs Swagger UI Tag
 dev-python/mnemonic 0.19: Reference implementation of BIP-0039 for generating deterministic keys
 dev-python/mobi 0.3.3: Unpack unencrypted mobi files
 dev-python/moderngl 5.7.4: Modern OpenGL binding for python
@@ -1055,6 +1055,7 @@ dev-python/pytest-syrupy 4.0.0: The sweeter pytest snapshot plugin
 dev-python/pytest-vcr 1.0.2: Plugin for managing VCR.py cassettes
 dev-python/python-betterproto 2.0.0_beta4 9999: Better Protobuf / gRPC Support for Python
 dev-python/python-fire 0.4.0 0.5.0: Library for automatically generating command line interfaces from Python objects
+dev-python/python-http-client 3.3.5: HTTP REST client, simplified for Python
 dev-python/python-manilaclient 3.4.0: A client for the OpenStack Manila API
 dev-python/python-monascaclient 2.5.0: A client for the OpenStack Monasca API
 dev-python/python-pidfile 3.0.0-r1: PIDFile context processor. Supported py2 and py3
@@ -1080,6 +1081,7 @@ dev-python/scramp 1.4.4: A pure-Python implementation of the SCRAM authenticatio
 dev-python/scrapy 2.5.1 2.6.2 2.6.3 2.8.0: A high-level Web Crawling and Web Scraping framework
 dev-python/screeninfo 0.8.1: Fetch location and size of physical screens.
 dev-python/sdnotify 0.3.2: Python implementation of the systemd sd_notify protocol
+dev-python/sendgrid 6.9.7: Twilio SendGrid library for Python
 dev-python/sentence-splitter 1.4-r2: Sentence splitter using heuristic algorithm by Philipp Koehn and Josh Schroeder
 dev-python/signalstickers-client 3.2.0: A Python client for the Signal stickers API
 dev-python/simplemma 0.9.1: A simple multilingual lemmatizer for Python
@@ -1092,13 +1094,14 @@ dev-python/sphinx-argparse-cli 1.9.0 1.11.0: Render CLI arguments (sub-commands 
 dev-python/sphinx-click 4.1.0 4.2.0: Sphinx plugin to automatically document click-based applications
 dev-python/sphinx-hoverxref 1.3.0: Sphinx extension to show tooltips with content embedded when hover a reference
 dev-python/sphinx-rtd-dark-mode 1.2.4: Dark mode for the Sphinx Read the Docs theme
-dev-python/sphinx-sitemap 2.2.1: Sitemap generator for Sphinx
+dev-python/sphinx-sitemap 2.2.1 2.5.0: Sitemap generator for Sphinx
 dev-python/sphinx-version-warning 1.1.2: Sphinx extension to add a warning banner
 dev-python/sphinxcontrib-katex 0.9.3 0.9.4: KaTeX Sphinx extension for rendering of math in HTML pages
 dev-python/sphinxcontrib-restbuilder 0.3-r1: A Sphinx builder/writer to output reStructuredText (rst) files
 dev-python/sre-yield 1.2-r1: Python module to generate regular all expression matches
 dev-python/srt 3.5.0 3.5.1 3.5.2: A tiny library for parsing, modifying, and composing SRT files
 dev-python/sse-starlette 1.1.6: Server Sent Events for Starlette
+dev-python/starkbank-ecdsa 2.2.0: A lightweight and fast pure python ECDSA library
 dev-python/statmake 0.6.0: Generate STAT tables for variable fonts from .stylespace files
 dev-python/stdlibs 2022.3.16 2022.6.8: What's in the Python stdlib
 dev-python/stone 3.3.1: The Official Api Spec Language for Dropbox
@@ -1111,7 +1114,7 @@ dev-python/sysv_ipc 1.1.0: System V IPC primitives for python
 dev-python/tempus-themes 2.3.0.20220206: Accessible themes for Pygments
 dev-python/tempy 1.0.9: A simple, visually pleasing weather report in your terminal
 dev-python/testrepository 0.0.20-r200: A repository of test results
-dev-python/textual 0.10.1: Modern Text User Interface framework
+dev-python/textual 0.14.0: Modern Text User Interface framework
 dev-python/timeslot 0.1.2: Time slots/intervals with an arbitrary start and stop
 dev-python/tinyrpc 1.1.5: A protocol neutral RPC library that supports JSON-RPC and zmq
 dev-python/trailrunner 1.2.1: Walk paths and run things
@@ -1157,6 +1160,29 @@ dev-python/zope-cachedescriptors 4.4: Python descriptors which cache their outpu
 dev-python/zope-testrunner 5.6: This package provides a flexible test runner with layer support.
 dev-python/zopfli 0.2.2: Zopfli module for Python
 dev-python/zxcvbn 4.4.28: Python implementation of Dropbox's realistic password strength estimator
+dev-raku/App-Prove6 0.0.12-r2: Run tests through a TAP harness.
+dev-raku/Digest-MD5 0.05_p20170425-r1: MD5 Algorithm
+dev-raku/Distribution-Builder-MakeFromJSON 0.6-r2: Makefile based distribution builder
+dev-raku/File-Directory-Tree 0_pre20220314-r1: Module for creating and deleting directories
+dev-raku/File-Find 0.1.1: Get a lazy list of a directory tree
+dev-raku/File-Name-Editor 0.2.1-r1: A command line tool for renaming files in any text editor.
+dev-raku/File-Temp 0.0.10-r2: Create temporary files and directories.
+dev-raku/File-Which 1.0.1: Find the full or relative paths to an executable program
+dev-raku/Getopt-Long 0.3.3-r1: A powerful getopt implementation
+dev-raku/Inline-Perl5 0.59-r1: Use Perl 5 code in a Raku program
+dev-raku/JSON-Fast 0.17-r1: A naive imperative JSON parser in pure Raku
+dev-raku/LibraryMake 1.0.0_p20220410-r1: An attempt to simplify building native code for a Raku module.
+dev-raku/Shell-Command 0_pre20190129-r1: Cross-platform routines emulating common *NIX shell commands
+dev-raku/System-Query 0.1.6-r1: It collapses JSON dependent upon certain environmental information
+dev-raku/TAP 0.3.5-r1: An asynchronous TAP framework written in Raku.
+dev-raku/Term-termios 0_pre20180208-r1: termios routines for Raku
+dev-raku/Terminal-ANSIColor 0.5: Colorize terminal output
+dev-raku/Terminal-ANSIParser 0.0.2: ANSI/VT stream parser
+dev-raku/Terminal-LineEditor 0.0.11: Generalized terminal line editing
+dev-raku/Text-MiscUtils 0.0.6: A bag of small text processing tricks
+dev-raku/URI-Encode 0.09: A Raku module for encoding / decoding URIs
+dev-raku/fez 37-r1: Command line tool for uploading distributions to zef ecosystem
+dev-raku/zef 0.13.8-r1: Raku / Perl6 Module Management
 dev-ruby/asciidoctor-pdf 2.3.4: A native PDF converter for AsciiDoc based on Asciidoctor and Prawn
 dev-ruby/byebug 11.1.3: a Ruby 2 debugger
 dev-ruby/chruby 0.3.9-r3 9999: Changes the current Ruby
@@ -1398,7 +1424,7 @@ media-fonts/robotomono-nerdfont 2.2.2: A free and open-source typeface for devel
 media-fonts/source-han-mono 1.002: Pan-CJK OpenType/CFF mono font family
 media-fonts/source-han-serif 1.001 2.001: Pan-CJK OpenType/CFF font family
 media-fonts/symbola 7.17 13.00: Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks
-media-fonts/twemoji 13.1.0: A color emoji font with a flat visual style, designed and used by Twitter
+media-fonts/twemoji 13.1.0 14.0.2: A color emoji font with a flat visual style, designed and used by Twitter
 media-fonts/ubuntumono-nerdfont 2.2.2: A free and open-source typeface for developers
 media-fonts/unscii 2.1: Set of bitmapped Unicode fonts based on classic system fonts
 media-fonts/victor-mono 1.5.3 1.5.4: A free programming font with cursive italics and ligatures
@@ -1541,7 +1567,7 @@ net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
 net-im/session-desktop-bin 1.10.7: Session Desktop - Onion routing based messenger
 net-im/whatsapp-for-linux 1.3.2 1.3.2-r1 1.5.3: An unofficial WhatsApp desktop application for Linux
 net-irc/catgirl 2.0a 2.1: TLS-only terminal IRC client
-net-irc/pounce 3.0: Multi-client, TLS-only IRC bouncer
+net-irc/pounce 3.0 3.1: Multi-client, TLS-only IRC bouncer
 net-irc/srain 1.4.0: Modern, beautiful IRC client written in GTK+ 3
 net-irc/tiny 0.10.0: An IRC client
 net-libs/dpdk 21.11.1-r1 22.07-r1: Data Plane Development Kit libraries for fast userspace networking
@@ -1726,7 +1752,7 @@ sys-apps/dust 0.7.5 0.8.3 0.8.4: A more intuitive version of du
 sys-apps/fchroot 0.1.2: Funtoo's franken-chroot tool - chroot from AMD64 to ARM system
 sys-apps/fselect 0.7.9 0.8.0: Find files with SQL-like queries
 sys-apps/hex 0.3.2 0.4.0 0.4.1 0.4.2: Futuristic take on hexdump
-sys-apps/intel-cmt-cat 4.3.0 4.4.0: User space software for Intel(R) Resource Director Technology
+sys-apps/intel-cmt-cat 4.4.0: User space software for Intel(R) Resource Director Technology
 sys-apps/nvimpager 0.11.0: Use nvim as a pager to view manpages, diff, etc with nvim's syntax highlighting.
 sys-apps/openSeaChest 22.07 23.03: SeaGate's open source harddrive control utilities
 sys-apps/ov 0.11.1 0.11.2: Feature-rich terminal pager
@@ -1860,7 +1886,7 @@ www-apps/invidious 2022.11.22 2023.01.26: Invidious is an alternative front-end 
 www-apps/jackett-bin 0.20.514 0.20.1202 0.20.3288 9999: API Support for your favorite torrent trackers
 www-apps/mycorrhiza 1.13.0 9999: Git-based wiki engine written in Go using mycomarkup
 www-apps/nitter 0.1.0_p20230101-r1 0.1.0_p20230120: An alternative front-end for Twitter
-www-apps/snac 2.17 2.18: A simple, minimalistic ActivityPub instance
+www-apps/snac 2.18 2.25: A simple, minimalistic ActivityPub instance
 www-apps/twint 2.1.20-r2 2.1.20_p20220316: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 20.11.0 20.14.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.2.2 9999: Minimalist and privacy-oriented WebKitGTK+ browser

@@ -1,0 +1,14 @@
+BDEPEND=dev-lang/rakudo:=
+DEFINED_PHASES=compile install test
+DESCRIPTION=An asynchronous TAP framework written in Raku.
+EAPI=8
+HOMEPAGE=https://raku.land/cpan:LEONT/TAP
+INHERIT=rakudo
+KEYWORDS=~amd64
+LICENSE=Artistic-2
+RDEPEND=dev-lang/rakudo:=
+RESTRICT=primaryuri
+SLOT=0
+SRC_URI=mirror://cpan/authors/id//L/LE/LEONT/Perl6/TAP-0.3.5.tar.gz
+_eclasses_=rakudo	3797e490475cd8f94e9987fb92ff282e
+_md5_=9f22e340e79607323112868d6f80a5ab

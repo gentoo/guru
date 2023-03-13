@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/rakudo:= test? ( dev-raku/App-Prove6 )
+DEFINED_PHASES=compile install test
+DESCRIPTION=Find the full or relative paths to an executable program
+EAPI=8
+HOMEPAGE=https://github.com/azawawi/perl6-file-which
+INHERIT=rakudo
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-lang/rakudo:=
+RESTRICT=primaryuri !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/azawawi/perl6-file-which/archive/1dfbeba2f92f8b2b04e8b26619eb20d599198d25.tar.gz -> File-Which-1.0.1.tar.gz
+_eclasses_=rakudo	3797e490475cd8f94e9987fb92ff282e
+_md5_=3133f577afb3df26aa83e8cc7afda0d1

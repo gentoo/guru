@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/rakudo:= test? ( dev-raku/App-Prove6 )
+DEFINED_PHASES=compile install test
+DEPEND=dev-raku/File-Directory-Tree
+DESCRIPTION=Create temporary files and directories.
+EAPI=8
+HOMEPAGE=https://raku.land/zef:rbt/File::Temp
+INHERIT=rakudo
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=Artistic-2
+RDEPEND=dev-raku/File-Directory-Tree dev-lang/rakudo:=
+RESTRICT=primaryuri !test? ( test )
+SLOT=0
+SRC_URI=mirror://zef/F/IL/FILE_TEMP/69f79c4c08341b8e5afcc414585cea34083ec4f5.tar.gz -> File-Temp-0.0.10.tar.gz
+_eclasses_=rakudo	3797e490475cd8f94e9987fb92ff282e
+_md5_=9f7810f187d747a65c2503dbb51869a1

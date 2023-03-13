@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/perl-5.20.0 dev-raku/Distribution-Builder-MakeFromJSON test? ( dev-raku/File-Temp ) dev-lang/rakudo:= test? ( dev-raku/App-Prove6 )
+DEFINED_PHASES=compile install test
+DESCRIPTION=Use Perl 5 code in a Raku program
+EAPI=8
+HOMEPAGE=https://raku.land/cpan:NINE/Inline::Perl5
+INHERIT=rakudo
+IUSE=test test
+KEYWORDS=~amd64
+LICENSE=Artistic-2
+RDEPEND=>=dev-lang/perl-5.20.0 dev-lang/rakudo:=
+RESTRICT=primaryuri !test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id//N/NI/NINE/Perl6/Inline-Perl5-0.59.tar.gz
+_eclasses_=rakudo	3797e490475cd8f94e9987fb92ff282e
+_md5_=8615e4b3cd71ab37e5e9355255517130

@@ -1,0 +1,14 @@
+BDEPEND=|| ( >=dev-lang/python-3.10.9-r1:3.10 >=dev-lang/python-3.9.16-r1:3.9 ) app-arch/zopfli media-gfx/pngquant x11-libs/cairo || ( media-gfx/imagemagick[png] media-gfx/graphicsmagick[png] ) || ( ( >=dev-lang/python-3.10.9-r1:3.10 >=dev-python/fonttools-4.7.0[python_targets_python3_10(-)] >=dev-python/nototools-0.2.13[python_targets_python3_10(-)] ) ( >=dev-lang/python-3.9.16-r1:3.9 >=dev-python/fonttools-4.7.0[python_targets_python3_9(-)] >=dev-python/nototools-0.2.13[python_targets_python3_9(-)] ) ) X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=compile install postinst postrm prepare setup unpack
+DESCRIPTION=A color emoji font with a flat visual style, designed and used by Twitter
+EAPI=8
+HOMEPAGE=https://twemoji.twitter.com https://github.com/twitter/twemoji
+INHERIT=font python-any-r1
+IUSE=X
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 CC-BY-4.0 MIT OFL-1.1
+RESTRICT=binchecks strip
+SLOT=0
+SRC_URI=https://github.com/googlefonts/noto-emoji/archive/refs/tags/v2.034.tar.gz -> twemoji-14.0.2-noto.tar.gz https://github.com/twitter/twemoji/archive/refs/tags/v14.0.2.tar.gz -> twemoji-14.0.2.tar.gz
+_eclasses_=font	5e03cb70902daa9ff8967c61130f0f60	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_md5_=d738e2650bb79a35155d3194124f5bfa

@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/rakudo:= test? ( dev-raku/App-Prove6 )
+DEFINED_PHASES=compile install test
+DESCRIPTION=Module for creating and deleting directories
+EAPI=8
+HOMEPAGE=https://raku.land/github:labster/File::Directory::Tree
+INHERIT=rakudo
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=Artistic-2
+RDEPEND=dev-lang/rakudo:=
+RESTRICT=primaryuri !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/labster/p6-file-directory-tree/archive/e386a00ecdd5a149c888257feb1715c8825d8545.tar.gz -> File-Directory-Tree-0_pre20220314.tar.gz
+_eclasses_=rakudo	3797e490475cd8f94e9987fb92ff282e
+_md5_=8f6fe189ad4079415517948ec84e1234

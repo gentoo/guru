@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/rakudo:= test? ( dev-raku/App-Prove6 )
+DEFINED_PHASES=compile install test
+DESCRIPTION=A naive imperative JSON parser in pure Raku
+EAPI=8
+HOMEPAGE=https://raku.land/cpan:TIMOTIMO/JSON::Fast
+INHERIT=rakudo
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=Artistic-2
+RDEPEND=dev-lang/rakudo:=
+RESTRICT=primaryuri !test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id//T/TI/TIMOTIMO/Perl6/JSON-Fast-0.17.tar.gz
+_eclasses_=rakudo	3797e490475cd8f94e9987fb92ff282e
+_md5_=f8fd1afcd9ea5eb67dd59720e5eca7c2

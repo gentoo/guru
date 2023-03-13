@@ -14,4 +14,4 @@ RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/aio-libs/aiopg/archive/v1.4.0.tar.gz -> aiopg-1.4.0.gh.tar.gz
 _eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	666be58f658d6b32affe30f80e39a49e	distutils-r1	3929d88685167435c587b740fdb5ec46	optfeature	1a2157392a869265b2afcb63a26c12ac
-_md5_=a4b13df544c643405ab431b3440b8b05
+_md5_=0a139f3ca374c20ef95ed393e0d18305

@@ -1,0 +1,15 @@
+BDEPEND=test? ( dev-raku/JSON-Fast ) dev-lang/rakudo:= test? ( dev-raku/App-Prove6 )
+DEFINED_PHASES=compile install test
+DESCRIPTION=It collapses JSON dependent upon certain environmental information
+EAPI=8
+HOMEPAGE=https://raku.land/zef:tony-o/System::Query
+INHERIT=rakudo
+IUSE=test test
+KEYWORDS=~amd64
+LICENSE=public-domain
+RDEPEND=dev-lang/rakudo:=
+RESTRICT=primaryuri !test? ( test )
+SLOT=0
+SRC_URI=mirror://zef/S/YS/SYSTEM_QUERY/d254fdd0efd10a06bde98ee99b6ab1349532760a.tar.gz -> System-Query-0.1.6.tar.gz
+_eclasses_=rakudo	3797e490475cd8f94e9987fb92ff282e
+_md5_=f912d306f964b5931d107bb82b0d60b3

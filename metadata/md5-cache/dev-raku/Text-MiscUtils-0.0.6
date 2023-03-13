@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/rakudo:= test? ( dev-raku/App-Prove6 )
+DEFINED_PHASES=compile install test
+DEPEND=dev-raku/Terminal-ANSIColor
+DESCRIPTION=A bag of small text processing tricks
+EAPI=8
+HOMEPAGE=https://github.com/japhb/Text-MiscUtils
+INHERIT=rakudo
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=Artistic-2
+RDEPEND=dev-raku/Terminal-ANSIColor dev-lang/rakudo:=
+RESTRICT=primaryuri !test? ( test )
+SLOT=0
+SRC_URI=mirror://zef/T/EX/TEXT_MISCUTILS/8c1fc412964235de0ff8180d2056ec5915090df9.tar.gz -> Text-MiscUtils-0.0.6.tar.gz
+_eclasses_=rakudo	3797e490475cd8f94e9987fb92ff282e
+_md5_=e5868f0edc96bfd412f3f567010253ce

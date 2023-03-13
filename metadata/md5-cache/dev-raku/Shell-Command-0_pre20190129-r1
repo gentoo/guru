@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/rakudo:= test? ( dev-raku/App-Prove6 )
+DEFINED_PHASES=compile install test
+DEPEND=dev-raku/File-Find dev-raku/File-Which
+DESCRIPTION=Cross-platform routines emulating common *NIX shell commands
+EAPI=8
+HOMEPAGE=https://github.com/tadzik/Shell-Command
+INHERIT=rakudo
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-raku/File-Find dev-raku/File-Which dev-lang/rakudo:=
+RESTRICT=primaryuri !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/tadzik/Shell-Command/archive/1145ea0ff71507b2fe932fca6d2a68d4004c7d12.tar.gz -> Shell-Command-0_pre20190129.tar.gz
+_eclasses_=rakudo	3797e490475cd8f94e9987fb92ff282e
+_md5_=09b9c9a0df4d1fa4d908e65c6fb1208d

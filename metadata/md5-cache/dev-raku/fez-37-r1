@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/rakudo:= test? ( dev-raku/App-Prove6 )
+DEFINED_PHASES=compile install test
+DESCRIPTION=Command line tool for uploading distributions to zef ecosystem
+EAPI=8
+HOMEPAGE=https://github.com/tony-o/raku-fez
+INHERIT=rakudo
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=Artistic-2
+RDEPEND=dev-lang/rakudo:=
+RESTRICT=primaryuri !test? ( test )
+SLOT=0
+SRC_URI=mirror://zef/F/EZ/FEZ/0b19dd84433b44730a15983296b72bd459f4b140.tar.gz -> fez-37.tar.gz
+_eclasses_=rakudo	3797e490475cd8f94e9987fb92ff282e
+_md5_=a36cb6aa5bf6f3943be24e6db2dae063

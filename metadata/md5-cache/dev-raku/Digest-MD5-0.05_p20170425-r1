@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/rakudo:= test? ( dev-raku/App-Prove6 )
+DEFINED_PHASES=compile install test
+DESCRIPTION=MD5 Algorithm
+EAPI=8
+HOMEPAGE=https://raku.land/github:cosimo/Digest::MD5
+INHERIT=rakudo
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=public-domain
+RDEPEND=dev-lang/rakudo:=
+RESTRICT=primaryuri !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/cosimo/perl6-digest-md5/archive/2194250ff2d50a37f92d4f82fac216729f4eba87.tar.gz -> Digest-MD5-0.05_p20170425.tar.gz
+_eclasses_=rakudo	3797e490475cd8f94e9987fb92ff282e
+_md5_=90e2ebd6e2bce3367381a935f28355df

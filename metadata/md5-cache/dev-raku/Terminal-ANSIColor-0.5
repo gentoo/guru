@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/rakudo:= test? ( dev-raku/App-Prove6 )
+DEFINED_PHASES=compile install test
+DESCRIPTION=Colorize terminal output
+EAPI=8
+HOMEPAGE=https://github.com/tadzik/Terminal-ANSIColor
+INHERIT=rakudo
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-lang/rakudo:=
+RESTRICT=primaryuri !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/tadzik/Terminal-ANSIColor/archive/eeb2dadd2cc2b7df34588be7869768213fd9fff4.tar.gz -> Terminal-ANSIColor-0.5.tar.gz
+_eclasses_=rakudo	3797e490475cd8f94e9987fb92ff282e
+_md5_=aaf115f4c5df9a5958d4d46234334bc6

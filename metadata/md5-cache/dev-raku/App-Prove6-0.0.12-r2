@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/rakudo:=
+DEFINED_PHASES=compile install test
+DEPEND=dev-raku/TAP dev-raku/Getopt-Long
+DESCRIPTION=Run tests through a TAP harness.
+EAPI=8
+HOMEPAGE=https://raku.land/cpan:LEONT/App::Prove6
+INHERIT=rakudo
+KEYWORDS=~amd64
+LICENSE=Artistic-2
+RDEPEND=dev-raku/TAP dev-raku/Getopt-Long dev-lang/rakudo:=
+RESTRICT=primaryuri
+SLOT=0
+SRC_URI=mirror://cpan/authors/id//L/LE/LEONT/Perl6/App-Prove6-0.0.12.tar.gz
+_eclasses_=rakudo	3797e490475cd8f94e9987fb92ff282e
+_md5_=e3826ead013061cb8b521a1ddc411b01

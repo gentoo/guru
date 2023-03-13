@@ -11,4 +11,4 @@ REQUIRED_USE=^^ ( python_single_target_pypy3 python_single_target_python3_9 pyth
 SLOT=0
 SRC_URI=https://github.com/po5/mpv_sponsorblock/archive/7785c1477103f2fafabfd65fdcf28ef26e6d7f0d.tar.gz -> mpv_sponsorblock-20230130.tar.gz
 _eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
-_md5_=cd71f104c3eb3d2ea282c9fd1cd31199
+_md5_=e20f70c34ff74ee69e35a22bfaac2920

@@ -1,0 +1,15 @@
+BDEPEND=dev-raku/LibraryMake dev-lang/rakudo:= test? ( dev-raku/App-Prove6 )
+DEFINED_PHASES=compile install test
+DESCRIPTION=termios routines for Raku
+EAPI=8
+HOMEPAGE=https://github.com/krunen/term-termios
+INHERIT=rakudo
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=Artistic-2
+RDEPEND=dev-lang/rakudo:=
+RESTRICT=primaryuri !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/krunen/term-termios/archive/f4c84e1d95cb11be7655c489d2e470011ff269c8.tar.gz -> Term-termios-0_pre20180208.tar.gz
+_eclasses_=rakudo	3797e490475cd8f94e9987fb92ff282e
+_md5_=edb9c8a989520c9b51537b9ba6215f1f
