@@ -5,7 +5,7 @@ EAPI=8
 
 DOCS_BUILDER="sphinx"
 DOCS_DIR="doc"
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{9..10} )
 
 inherit distutils-r1 docs
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+      <email>stepan_kk@pm.me</email>
+      <name>Stepan Kulikov</name>
+    </maintainer>
+    <upstream>
+        <remote-id type="github">starkbank/ecdsa-python</remote-id>
+        <remote-id type="pypi">starkbank-ecdsa</remote-id>
+    </upstream>
+</pkgmetadata>

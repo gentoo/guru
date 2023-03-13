@@ -4,7 +4,7 @@
 EAPI=7
 
 DISTUTILS_USE_SETUPTOOLS=bdepend
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_9 )
 inherit distutils-r1
 
 DESCRIPTION="Package for curses-like operations, text UIs and ASCII art animations"

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_9 )
 PYTHON_REQ_USE="xml"
 DISTUTILS_SINGLE_IMPL=1
 

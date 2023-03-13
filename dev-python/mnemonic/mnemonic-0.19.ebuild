@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8,9} )
+PYTHON_COMPAT=( python3_9 )
 inherit distutils-r1
 
 DESCRIPTION="Reference implementation of BIP-0039 for generating deterministic keys"

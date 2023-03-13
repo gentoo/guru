@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_SETUPTOOLS=bdepend
 MY_PN=${PN/-/.}
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{9..10} )
 
 inherit distutils-r1
 

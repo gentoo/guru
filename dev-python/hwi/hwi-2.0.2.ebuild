@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_9 )
 inherit distutils-r1 udev
 
 DESCRIPTION="Library and command line tool for interacting with hardware wallets"

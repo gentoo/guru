@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{9..10} )
 inherit python-single-r1 meson
 
 DESCRIPTION="Data Plane Development Kit libraries for fast userspace networking"
