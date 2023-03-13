@@ -10,5 +10,5 @@ RDEPEND=dev-vcs/git
 RESTRICT=mirror strip
 SLOT=0
 SRC_URI=https://github.com/bouncepaw/mycorrhiza/archive/v1.13.0.tar.gz -> mycorrhiza-1.13.0.tar.gz https://codeberg.org/BratishkaErik/distfiles/media/branch/master/mycorrhiza-1.13.0-vendor.tar.xz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	go-module	f2c9bcab49079a176b3ae061c94bb344
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	go-module	472b9e09c35add3a3da376330c033dec
 _md5_=53bfe426f99e06dca66e086d1cd3dae4

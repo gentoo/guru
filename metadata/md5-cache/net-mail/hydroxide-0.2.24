@@ -10,5 +10,5 @@ LICENSE=MIT BSD
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/emersion/hydroxide/releases/download/v0.2.24/hydroxide-0.2.24.tar.gz verify-sig? ( https://github.com/emersion/hydroxide/releases/download/v0.2.24/hydroxide-0.2.24.tar.gz.sig ) https://gitlab.com/sevz17/go-deps/-/raw/main/hydroxide-0.2.24-deps.tar.xz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	go-module	f2c9bcab49079a176b3ae061c94bb344	verify-sig	167258b573910fd3f5b71c5c52d66ab3
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	go-module	472b9e09c35add3a3da376330c033dec	verify-sig	167258b573910fd3f5b71c5c52d66ab3
 _md5_=eea60eb49e4dcdbd9f822e54167345d8
