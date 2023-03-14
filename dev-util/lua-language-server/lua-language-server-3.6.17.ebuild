@@ -3,7 +3,9 @@
 
 EAPI=8
 
-inherit ninja-utils toolchain-funcs
+LUA_COMPAT=( lua{5-{1,3,4},jit} )
+
+inherit ninja-utils toolchain-funcs lua-single prefix
 
 DESCRIPTION="Lua language server"
 HOMEPAGE="https://github.com/LuaLS/lua-language-server"
@@ -14,8 +16,11 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
+REQUIRE_USE="${LUA_REQUIRED_USE}"
+
+DEPEND="${LUA_DEPS}"
+RDEPEND="${DEPEND}"
 BDPEND="
-	${NINJA_DEPEND}
 	app-arch/unzip
 	dev-util/ninja
 "
@@ -28,7 +33,7 @@ src_prepare() {
 		make.lua || die
 	sed -i "s/CC = gcc/ CC = ${tc-getCC}/" \
 		3rd/lpeglabel/makefile || die
-	# Shipped file doesn't respect CFLAGS/CXXFLAGS
+	# Shipped file doesn't respect CFLAGS/CXXFLAGS/LDFLAGS
 	eapply "${FILESDIR}/linux.ninja.patch"
 	eapply_user
 	sed -i -e "s/^cc = REPLACE_ME/cc = $(tc-getCC)/" \
@@ -36,6 +41,8 @@ src_prepare() {
 		-e "s/CXXFLAGS/${CXXFLAGS}/" \
 		-e "s/LDFLAGS/${LDFLAGS}/" \
 		3rd/luamake/compile/ninja/linux.ninja || die
+
+	prefixify_ro "${FILESDIR}/wrapper.sh"
 }
 
 src_compile() {
@@ -43,7 +50,7 @@ src_compile() {
 	use test && eninja -C 3rd/luamake -f compile/ninja/linux.ninja luamake
 	./3rd/luamake/luamake init || die
 
-	# Generated file doesn't respect CFLAGS/CXXFLAGS
+	# Generated file doesn't respect CFLAGS/CXXFLAGS/LDFLAGS
 	sed -i -e "s/^cc =.*./cc = REPLACE_ME/" \
 		-e "s/^luamake =.*./luamake = LUAMAKE_PATH/" \
 		build/build.ninja || die
@@ -57,11 +64,20 @@ src_compile() {
 		-e "7d" \
 		build/build.ninja || die
 
-	# Tests are broken
-	eninja -f build/build.ninja all
+	use test && eninja -f build/build.ninja || eninja -f build/build.ninja all
 }
 
 src_install() {
-	dobin ./bin/{main.lua,lua-language-server}
-	dodoc changelog.md README.md
+	newbin "${T}/wrapper.sh" ${PN}
+
+	into /opt/${PN}
+	dobin bin/${PN}
+
+	insinto /opt/${PN}/bin
+	doins bin/main.lua
+
+	insinto /opt/${PN}
+	doins -r debugger.lua main.lua locale meta script
+
+	einstalldocs
 }
