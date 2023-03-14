@@ -1201,7 +1201,6 @@ dev-util/bats-assert 2.0.0: Common assertions for Bats
 dev-util/bats-support 0.3.0: Supporting library for Bats test helpers
 dev-util/bazelisk 1.12.0: A user-friendly launcher for Bazel
 dev-util/binaryen 105: Compiler and toolchain infrastructure library for WebAssembly
-dev-util/blueprint-compiler 0.6.0 9999: Compiler for Blueprint, a markup language for GTK user interfaces
 dev-util/cargo-make 0.35.9 0.35.10: Rust task runner and build tool
 dev-util/deblob 0.3 9999: remove binary executables from a directory
 dev-util/dockerfile-language-server 0.9.0: A language server for Dockerfiles
