@@ -5,4 +5,8 @@
 		<email>abbat.2008@gmail.com</email>
 		<name>Aleksandr Batyuk</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">tomaspinho/rtl8821ce</remote-id>
+		<bugs-to>https://github.com/tomaspinho/rtl8821ce/issues</bugs-to>
+	</upstream>
 </pkgmetadata>
