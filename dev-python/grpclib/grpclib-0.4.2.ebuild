@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit distutils-r1
 
@@ -16,9 +16,13 @@ if [[ ${PV} == 9999 ]]; then
 else
 	MY_PV="${PV/_rc/rc}"
 	S="${WORKDIR}/${PN}-${MY_PV}"
-	SRC_URI="https://github.com/vmagamedov/${PN}/archive/refs/tags/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/vmagamedov/${PN}/archive/refs/tags/v${MY_PV}.tar.gz -> ${P}.gh.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
+
+PATCHES=(
+	"${FILESDIR}/${PN}-add_css_file.patch"
+)
 
 LICENSE="BSD"
 SLOT="0"
