@@ -215,7 +215,6 @@ app-misc/watchexec 1.18.12 1.19.0 1.20.6 1.21.0 1.21.1: Executes commands in res
 app-misc/wego 2.1: Wego is a weather client for the terminal
 app-misc/xplr 0.15.2 0.17.0 0.17.1 0.17.2 0.17.6: A hackable, minimal, fast TUI file explorer
 app-misc/yaf 0.0.3: Yet another system fetch that is minimal and customizable.
-app-misc/zellij 0.28.1 0.29.1 0.31.4: A terminal workspace with batteries included
 app-mobilephone/flashlight 0.1.1-r2: It's a flashlight, what do you expect?
 app-mobilephone/mobile-config-firefox 2.1.0: Mobile and privacy friendly configuration for Firefox
 app-mobilephone/pinephone-modem-scripts 0.20.8: Modem scripts for the PinePhone
