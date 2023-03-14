@@ -40,8 +40,7 @@ DEPEND="
 	net-libs/czmq:=
 "
 RDEPEND="
-	${DEPEND}
-	net-vpn/tor
+	${DEPEND}	
 	xmrig? ( net-misc/xmrig )
 "
 BDEPEND="virtual/pkgconfig"
