@@ -26,6 +26,10 @@ BDEPEND="sys-devel/autoconf-archive
 
 RESTRICT="!test? ( test )"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-1.1.1-tests-include-base-provider-required-to-load-ecparam.patch"
+	)
+
 dbus_run() {
 	(
 		# start isolated dbus session bus
