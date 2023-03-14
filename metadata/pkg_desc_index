@@ -1222,7 +1222,7 @@ dev-util/gshards 0.1-r1: Small helper tools to aid installing Crystal packages i
 dev-util/haredo 1.0.2 9999: a simple and unix-idiomatic build automator
 dev-util/insomnia-bin 2020.3.3 2020.5.2: HTTP and GraphQL client for developers
 dev-util/lemminx-bin 0.22.0 0.24.0: XML Language Server
-dev-util/lua-language-server 3.6.11 3.6.13: Lua language server
+dev-util/lua-language-server 3.6.17: Lua language server
 dev-util/mh 1.0.3: Generate help for Makefile
 dev-util/odb 2.5.0_beta21_p1: ODB compiler and the ODB system documentation
 dev-util/osc 0.173.0 9999: Command line tool for Open Build Service
@@ -1362,7 +1362,7 @@ gui-apps/organicmaps 9999: Offline maps and navigation using OpenStreetMap data
 gui-apps/packettracer 8.2.0: Cisco's packet tracer
 gui-apps/paperde 0.1.1_p20210426 9999: Simple, sleek QT based DE for wayland using wayfire
 gui-apps/rofi-wayland 1.7.5: A window switcher, run dialog and dmenu replacement
-gui-apps/sfwbar 1.0_beta6 1.0_beta8 1.0_beta9: Sway Floating Window Bar
+gui-apps/sfwbar 1.0_beta9 1.0_beta10: S* Floating Window Bar
 gui-apps/showmethekey 1.7.3: Show keys you typed on screen.
 gui-apps/somebar 1.0.0 1.0.3 9999: dwm-like bar for dwl
 gui-apps/someblocks 1.0.0 1.0.1 9999: Modular status bar for somebar written in c.
@@ -1598,7 +1598,7 @@ net-misc/giara 1.0.1: An app for Reddit
 net-misc/gmid 1.8.5 1.8.6 9999: Simple and secure Gemini server
 net-misc/gnome-ssh-askpass 9.2_p1: GTK-based passphrase dialog for use with OpenSSH
 net-misc/lyrics-in-terminal 1.5.0: Command Line Lyrics fetcher for MPRIS media players
-net-misc/maestral 1.5.3 1.7.1: Maestral is an open-source Dropbox client written in Python
+net-misc/maestral 1.5.3 1.7.1 1.7.2_rc0: Maestral is an open-source Dropbox client written in Python
 net-misc/maestral-qt 1.5.3 1.7.1: Maestral is an open-source Dropbox client written in Python
 net-misc/mastorss 0.13.0 0.13.1 9999: Another RSS to Mastodon bot
 net-misc/megasync 4.3.8.0 4.5.0.0 9999: The official Qt-based program for syncing your MEGA account in your PC
@@ -1637,9 +1637,9 @@ net-voip/gnome-calls 43.2 43.3: Phone dialer and call handler
 net-voip/vvmd 0.8: vvmd is a lower level daemon that retrieves Visual Voicemail
 net-vpn/fastd 22: A very small VPN daemon which tunnels IP packets and Ethernet frames over UDP.
 net-wireless/iwdgui 0.1.0 0.2.0: A graphical frontend for IWD, Intel's iNet Wireless Daemon
-net-wireless/rtl8192eu 0_pre20220825: Realtek 8192EU driver module for Linux kernel
+net-wireless/rtl8192eu 0_pre20230313: Realtek 8192EU driver module for Linux kernel
 net-wireless/rtl8723bu 999: Driver for the rtl8723 wireless chipset
-net-wireless/rtl8821ce 0_pre20220911: Realtek RTL8821CE Driver module for Linux kernel
+net-wireless/rtl8821ce 0_pre20230101: Realtek RTL8821CE Driver module for Linux kernel
 net-wireless/rtl8821cu 0_pre20220409: Realtek 8821CU/RTL8811CU module for Linux kernel
 sci-biology/cmdock 0.2.0: Program for docking ligands to proteins and nucleic acids
 sci-biology/geneathome 1.10-r3: BOINC application for expanding Gene Regulatory Networks (GRN)

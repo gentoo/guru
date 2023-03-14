@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare setup
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
+DESCRIPTION=Lua language server
+EAPI=8
+HOMEPAGE=https://github.com/LuaLS/lua-language-server
+INHERIT=ninja-utils toolchain-funcs lua-single prefix
+IUSE=test lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/LuaLS/lua-language-server/releases/download/3.6.17/lua-language-server-3.6.17-submodules.zip -> lua-language-server-3.6.17.zip
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	lua-utils	e69ff116248d78546ae1a234c086fe80	lua-single	aee383a0de35701b9eb0b27077a1c143	prefix	eab3c99d77fe00506c109c8a736186f7
+_md5_=1f33412070e7b7ad18f30f4f2a6edc30
