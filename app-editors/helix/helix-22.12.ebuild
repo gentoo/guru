@@ -418,7 +418,7 @@ src_compile() {
 	export HELIX_DISABLE_AUTO_GRAMMAR_BUILD=1
 	export HELIX_RUNTIME="${S}/runtime"
 	cargo_src_compile
-	use grammar && ( target/release/hx --grammar build || die )
+	use grammar && ( target/$(usex debug debug release)/hx --grammar build || die )
 }
 
 src_install() {
