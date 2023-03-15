@@ -4,16 +4,23 @@ Date: Sun, 20 Nov 2022 21:23:24 +0000
 Subject: [PATCH] Fix library name in sv-lang.pc.in (#661)
 
 ---
- scripts/sv-lang.pc.in | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ scripts/sv-lang.pc.in | 4 +-
+ 1 file changed, 2 insertion(+), 2 deletion(-)
 
 diff --git a/scripts/sv-lang.pc.in b/scripts/sv-lang.pc.in
 index eabfbc9a..fc6191b7 100644
 --- a/scripts/sv-lang.pc.in
 +++ b/scripts/sv-lang.pc.in
-@@ -7,4 +7,4 @@ Description: @PROJECT_DESCRIPTION@
+@@ -2,9 +2,9 @@
+ includedir="${prefix}/@CMAKE_INSTALL_INCLUDEDIR@"
+ libdir="${prefix}/@CMAKE_INSTALL_LIBDIR@"
+ 
+-Name: @PROJECT_NAME@
++Name: svlang
+ Description: @PROJECT_DESCRIPTION@
  URL: @PROJECT_HOMEPAGE_URL@
  Version: @PROJECT_VERSION@
  Cflags: -I"${includedir}"
 -Libs: -L"${libdir}" -lslang
 +Libs: -L"${libdir}" -lsvlang
+
