@@ -42,9 +42,14 @@ BDEPEND="
 # desktop, but (at least on GNOME) the program does not launch in a movable
 # and resizable window; whereas with media-libs/libsdl2[X], it does.  Thus,
 # unconditionally require media-libs/libsdl2[X] for better user experience.
+#
+# DOSBox-X works with multiple audio backends of SDL 2 but requires at least
+# one available backend (https://bugs.gentoo.org/901303).  Unconditionally
+# depending on media-libs/libsdl2[alsa] to satisfy this requirement since
+# this ebuild already unconditionally pulls in media-libs/alsa-lib.
 RDEPEND="
 	media-libs/alsa-lib
-	media-libs/libsdl2[X,opengl?,sound,threads,video]
+	media-libs/libsdl2[X,alsa,opengl?,sound,threads,video]
 	media-libs/sdl2-net
 	net-libs/libpcap
 	sys-libs/zlib
