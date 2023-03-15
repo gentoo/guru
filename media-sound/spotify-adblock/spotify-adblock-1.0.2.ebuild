@@ -59,7 +59,7 @@ src_install(){
 	dobin "${T}/spotify-adblock"
 
 	# library
-	newlib.so target/release/libspotifyadblock.so ${PN}.so
+	newlib.so target/$(usex debug debug release)/libspotifyadblock.so ${PN}.so
 
 	# config
 	insinto "/etc/${PN}"
