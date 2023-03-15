@@ -12,5 +12,9 @@ SRC_URI="https://github.com/tevador/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="" #todo: make test executible an optiona; USE flag
+IUSE="static-libs test"
 BDEPEND="virtual/pkgconfig"
+
+src_compile() {
+        cmake_build polyseed $(usex "static-libs" "polyseed_static" "") $(usex "test" "polyseed-tests" "")
+}
