@@ -13,5 +13,9 @@ EGIT_REPO_URI="https://github.com/tevador/polyseed.git"
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="" #todo: make test executible an optional USE flag
+IUSE="static-libs test"
 BDEPEND="virtual/pkgconfig"
+
+src_compile() {
+        cmake_build polyseed $(usex "static-libs" "polyseed_static" "") $(usex "test" "polyseed-tests" "")
+}

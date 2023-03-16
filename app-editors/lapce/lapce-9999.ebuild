@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 EAPI=8
 
@@ -10,6 +10,18 @@ EGIT_REPO_URI="https://github.com/lapce/lapce.git"
 
 LICENSE="( Apache-2.0 ( MIT 0BSD ) Apache-2.0-with-LLVM-exceptions Artistic-2 BSD BSD-2 Boost-1.0 CC0-1.0 CeCILL-2 GPL-2 ISC MIT MIT ) MPL-2.0 Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
+
+DEPEND="
+	x11-libs/gtk+:3
+	media-libs/fontconfig
+"
+RDEPEND="${DEPEND}"
+BDEPEND="
+	dev-util/cmake
+	sys-devel/gcc
+	virtual/pkgconfig
+	>=virtual/rust-1.64
+"
 
 src_unpack() {
 	git-r3_src_unpack
