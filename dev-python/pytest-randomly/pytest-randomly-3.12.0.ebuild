@@ -25,7 +25,7 @@ RDEPEND="
 "
 # tests pytest-xdist integration
 BDEPEND="test? (
-	dev-python/factory_boy[${PYTHON_USEDEP}]
+	dev-python/factory-boy[${PYTHON_USEDEP}]
 	dev-python/Faker[${PYTHON_USEDEP}]
 	dev-python/numpy[${PYTHON_USEDEP}]
 	dev-python/pytest-xdist[${PYTHON_USEDEP}]

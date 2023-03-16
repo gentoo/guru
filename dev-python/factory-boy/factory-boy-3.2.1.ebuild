@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="A fixtures replacement tool"
 HOMEPAGE="https://github.com/FactoryBoy/factory_boy"
-SRC_URI="https://github.com/FactoryBoy/${PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
+SRC_URI="https://github.com/FactoryBoy/${PN}/archive/${PV}.tar.gz -> ${P/-/_}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -24,7 +24,7 @@ BDEPEND="
 		dev-python/sqlalchemy[${PYTHON_USEDEP}]
 	)
 	doc? (
-		dev-python/factory_boy[${PYTHON_USEDEP}]
+		dev-python/factory-boy[${PYTHON_USEDEP}]
 	)
 "
 
