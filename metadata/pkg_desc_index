@@ -555,8 +555,6 @@ dev-hare/hare-ssh 9999: SSH library for Hare
 dev-hare/hare-xml 9999: XML support for Hare
 dev-java/expression-tree 1.02: Parser for mathematical expressions written in Java
 dev-java/gluegen 2.3.2: Automatically generate the JNI code necessary to call C libraries
-dev-java/gradle-base-annotations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
-dev-java/gradle-build-operations 6.8.2: Build automation tool for JVM Languages, C(++), etc.
 dev-java/jargs 1.0: Command-line argument parsing library in Java
 dev-java/jcommon 1.0.24: A collection of useful classes used by JFreeChart, JFreeReport and others
 dev-java/jcuber 4.7-r1: Java reader library
@@ -878,7 +876,7 @@ dev-python/etcd3 0.12.0: Python client for the etcd API v3
 dev-python/etcd3gw 1.0.2: A python client for etcd3 grpc-gateway v3 API
 dev-python/eventlet 0.33.3: Concurrent networking library for Python
 dev-python/exifread 3.0.0: Easy to use Python module to extract Exif metadata from tiff and jpeg files
-dev-python/factory_boy 3.2.1: A fixtures replacement tool
+dev-python/factory-boy 3.2.1-r1: A versatile test fixtures replacement based on thoughtbot's factory_bot for Ruby
 dev-python/fake-useragent 1.1.2: Up to date simple useragent faker with real world database
 dev-python/fastavro 1.7.0: Fast read/write of AVRO files
 dev-python/filecheck 0.0.22: Python port of LLVM's FileCheck, flexible pattern matching file verifier
@@ -1048,7 +1046,7 @@ dev-python/pytest-flask 1.2.0: A set of pytest fixtures to test Flask applicatio
 dev-python/pytest-harvest 1.10.4: Store and retrieve data created during your pytest tests execution
 dev-python/pytest-instafail 0.4.2: Plugin for pytest that shows failures and errors instantly
 dev-python/pytest-isort 3.1.0: Plugin to check import ordering using isort
-dev-python/pytest-randomly 3.12.0: Pytest plugin to randomly order tests and control random.seed
+dev-python/pytest-randomly 3.12.0-r1: Pytest plugin to randomly order tests and control random.seed
 dev-python/pytest-steps 1.8.0: Create step-wise / incremental tests in pytest
 dev-python/pytest-syrupy 4.0.0: The sweeter pytest snapshot plugin
 dev-python/pytest-vcr 1.0.2: Plugin for managing VCR.py cassettes
@@ -1251,7 +1249,7 @@ dev-vcs/gitqlient 1.5.0-r1 1.6.1 1.6.1-r1 9999: Multi-platform Git client writte
 dev-vcs/gitqlient-gitserver-plugin 0.2.0: GitQlient GitServer plugin
 dev-vcs/gitqlient-jenkins-plugin 0.2.0: GitQlient Jenkins plugin
 dev-vcs/gitui 0.18.0 0.20.1: Blazing fast terminal-ui for git
-dev-vcs/got 0.84.1 0.85: Portable version of the Game of Trees version control system
+dev-vcs/got 0.85 0.86: Portable version of the Game of Trees version control system
 dev-vcs/lazygit 0.35 0.36 0.37: Simple terminal UI for git commands
 dev-vcs/lefthook 1.0.4 1.2.6: Fast and powerful Git hooks manager for any type of projects
 dev-zig/zls 0.10.0-r1 9999: The officially unofficial Ziglang language server

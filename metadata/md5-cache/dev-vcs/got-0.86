@@ -9,5 +9,5 @@ LICENSE=ISC
 RDEPEND=dev-libs/libevent:= sys-libs/ncurses:=[unicode(+)] sys-libs/zlib:= elibc_Darwin? ( dev-libs/ossp-uuid ) elibc_SunOS? ( sys-libs/libuuid ) !elibc_Darwin? ( dev-libs/libbsd !elibc_SunOS? ( app-crypt/libmd sys-apps/util-linux ) )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://gameoftrees.org/releases/portable/got-portable-0.84.1.tar.gz
+SRC_URI=https://gameoftrees.org/releases/portable/got-portable-0.86.tar.gz
 _md5_=c50ce9a3ba1441fd3ea904f72982eb5e
