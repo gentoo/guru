@@ -1,11 +1,10 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+PYTHON_COMPAT=( python3_{10..11} )
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..10} )
-
 inherit distutils-r1
 
 DESCRIPTION="Pytest plugin to randomly order tests and control random.seed"
@@ -19,17 +18,15 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="
-	dev-python/pytest[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep '>=dev-python/importlib_metadata-3.6.0[${PYTHON_USEDEP}]' python3_{8,9})
-"
-# tests pytest-xdist integration
-BDEPEND="test? (
-	dev-python/factory-boy[${PYTHON_USEDEP}]
-	dev-python/Faker[${PYTHON_USEDEP}]
-	dev-python/numpy[${PYTHON_USEDEP}]
-	dev-python/pytest-xdist[${PYTHON_USEDEP}]
-)"
+RDEPEND="dev-python/pytest[${PYTHON_USEDEP}]"
+BDEPEND="
+	test? (
+		dev-python/Faker[${PYTHON_USEDEP}]
+		dev-python/factory-boy[${PYTHON_USEDEP}]
+		dev-python/numpy[${PYTHON_USEDEP}]
+		dev-python/pytest-xdist[${PYTHON_USEDEP}]
+	)
+" # tests pytest-xdist integration
 
 EPYTEST_DESELECT=(
 	tests/test_pytest_randomly.py::test_entrypoint_injection
