@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>ran.dall@icloud.com</email>
-		<name>Randall Vasquez</name>
+		<email>me@rebtoor.com</email>
+		<name>Roberto Alfieri</name>
 	</maintainer>
 	<longdescription lang="en">
 			Dotfile management application which provides a configuration
