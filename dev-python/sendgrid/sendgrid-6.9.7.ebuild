@@ -19,8 +19,8 @@ RESTRICT="!test? ( test )"
 
 DOCS="README.rst"
 
-RDEPEND=">=app-dicts/python-http-client-3.3.5[${PYTHON_USEDEP}]
-	>=app-dicts/starkbank-ecdsa-2.2.0[${PYTHON_USEDEP}]"
+RDEPEND=">=dev-python/python-http-client-3.3.5[${PYTHON_USEDEP}]
+	>=dev-python/starkbank-ecdsa-2.2.0[${PYTHON_USEDEP}]"
 BDEPEND="
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	test? (
@@ -32,4 +32,3 @@ python_test() {
 }
 
 distutils_enable_tests pytest
-
