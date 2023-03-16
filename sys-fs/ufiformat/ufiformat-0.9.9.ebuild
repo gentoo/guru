@@ -15,3 +15,7 @@ IUSE=""
 
 RDEPEND="sys-fs/e2fsprogs"
 DEPEND=${RDEPEND}
+
+QA_CONFIG_IMPL_DECL_SKIP=(
+	makedev
+)
