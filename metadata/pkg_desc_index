@@ -95,7 +95,7 @@ app-containers/waydroid 1.4.0: Container-based approach to boot a full Android s
 app-crypt/PBinCLI 0.3.2: PrivateBin CLI
 app-crypt/autofirma 1.7.1: Spanish government's electronic signature application for online procedures
 app-crypt/certbot-dns-desec 1.2.1: deSEC DNS Authenticator plugin for Certbot
-app-crypt/certbot-dns-rfc2136 2.0.0 2.1.0 2.2.0 9999: RFC 2136 DNS Authenticator plugin for Certbot (Let’s Encrypt client)
+app-crypt/certbot-dns-rfc2136 2.2.0 2.3.0 2.4.0 9999: RFC 2136 DNS Authenticator plugin for Certbot (Let’s Encrypt client)
 app-crypt/clevis 19-r1: Automated Encryption Framework
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/gnome-encfs-manager 1.9: An easy to use manager and mounter for encfs stashes
@@ -131,11 +131,10 @@ app-doc/openbsd-manpages 6.9 7.0: OpenBSD manual pages
 app-doc/stdman 2022.07.30 9999: Formatted C++ stdlib man pages (cppreference)
 app-editors/amp 0.6.2: A complete text editor for your terminal.
 app-editors/atom-bin 1.58.0-r1: A hackable text editor for the 21st Century
-app-editors/helix 22.05 22.08.1 22.12: A post-modern text editor.
 app-editors/imhex 1.26.2-r1: A hex editor for reverse engineers, programmers, and eyesight
 app-editors/kak-lsp 12.2.1: Kakoune Language Server Protocol Client
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
-app-editors/lapce 9999: Lightning-fast and Powerful Code Editor written in Rust
+app-editors/lapce 0.2.6 9999: Lightning-fast and Powerful Code Editor written in Rust
 app-editors/mined 2015.25: A powerful text editor with extensive Unicode and CJK support
 app-editors/neovim-qt 0.2.16.1 0.2.17: Neovim client library and GUI, in Qt5
 app-editors/typora-bin 1.5.8: a markdown editor,markdown reader.
@@ -260,6 +259,7 @@ app-shells/zsh-silver 9999: Zsh plugin for silver
 app-text/OCRmyPDF 14.0.1-r4: OCRmyPDF adds an OCR text layer to scanned PDF files
 app-text/cmark-gfm 0.29.0.3: GitHub's fork of cmark
 app-text/code-minimap 0.6.4: A high performance code minimap generator
+app-text/dooit 1.0.0: A TUI todo manager
 app-text/epubgrep 0.6.0-r1 0.6.2: Search tool for EPUB e-books
 app-text/klogg 22.06.0.1289: A GUI application to browse and search through long and complex log files
 app-text/komikku 1.13.0 1.14.0: An online/offline manga reader for GNOME
@@ -625,7 +625,7 @@ dev-libs/octetos-db-postgresql 1.3.9_alpha 1.3.10_alpha: C++ library for Databas
 dev-libs/olm 3.2.13 3.2.14-r2: Implementation of the olm and megolm cryptographic ratchets
 dev-libs/open62541 1.3.5: Open source C implementation of OPC UA
 dev-libs/perfstubs 0_pre20210915: Profiling API for adding external tool instrumentation support to any project
-dev-libs/polyseed 1.0.0 9999: Mnemonic seed library for Monero and other CryptoNote-based currencies.
+dev-libs/polyseed 1.0.0 2.0.0 9999: Mnemonic seed library for Monero and other CryptoNote-based currencies.
 dev-libs/properties-cpp 0.0.2: Simple convenience library for handling properties and signals in C++11
 dev-libs/protothreads 1.4-r2: Lightweight, Stackless Threads in C
 dev-libs/qhttpengine 1.0.1-r1 9999: HTTP server for Qt applications
@@ -911,7 +911,7 @@ dev-python/graphene 3.0.0: GraphQL Framework for Python
 dev-python/graphql-core 3.1.6: GraphQL for Python
 dev-python/graphql-relay 3.1.0: Relay library for graphql-core-next
 dev-python/griffe 0.25.4: Signatures for entire Python programs.
-dev-python/grpclib 0.4.2 0.4.3_rc2: Pure-Python gRPC implementation for asyncio
+dev-python/grpclib 0.4.2 0.4.3: Pure-Python gRPC implementation for asyncio
 dev-python/guidata 2.3.0: Library for user interfaces for easy dataset editing and display
 dev-python/hachoir 3.2.0: Hachoir is a Python library to view and edit a binary stream field by field
 dev-python/hijri-converter 2.2.4: Accurate Hijri-Gregorian date converter based on the Umm al-Qura calendar
@@ -1204,7 +1204,7 @@ dev-util/binaryen 105: Compiler and toolchain infrastructure library for WebAsse
 dev-util/cargo-make 0.35.9 0.35.10: Rust task runner and build tool
 dev-util/deblob 0.3 9999: remove binary executables from a directory
 dev-util/dockerfile-language-server 0.9.0: A language server for Dockerfiles
-dev-util/eclipse-parallel-bin 4.25 4.26: Eclipse IDE for Scientific Computing (C, C++, Fortran)
+dev-util/eclipse-parallel-bin 4.25 4.26 4.27: Eclipse IDE for Scientific Computing (C, C++, Fortran)
 dev-util/exercism 3.1.0: Command line client for https://exercism.io
 dev-util/fnm 1.32.0 1.33.1: Fast and simple Node.js version manager
 dev-util/fontmake 3.3.0: A wrapper for several Python libraries to compile fonts from sources
@@ -1269,7 +1269,7 @@ games-board/openriichi 0.2.1.1: OpenRiichi is an open source Japanese Mahjong cl
 games-board/rmahjong 0.4_p20201106: Riichi Mahjong, the Japanese variant of the Chinese game Mahjong for 4 players
 games-emulation/citra 9999: A Nintendo 3DS Emulator
 games-emulation/citra-canary 9999: A Nintendo 3DS Emulator
-games-emulation/dosbox-x 2022.12.26 9999: Complete, accurate DOS emulator forked from DOSBox
+games-emulation/dosbox-x 2022.12.26-r1 9999: Complete, accurate DOS emulator forked from DOSBox
 games-emulation/duckstation 9999: Fast Sony PlayStation (PSX) emulator
 games-emulation/flycast 9999: Sega Dreamcast, Naomi and Atomiswave emulator
 games-emulation/mupen64plus-qt 1.15 9999: A basic launcher for Mupen64Plus
@@ -1621,7 +1621,7 @@ net-news/communique 1.2.0: RSS Reader with cross-platform sync
 net-nntp/inn 2.6.5: InterNetNews -- the Internet meets Netnews
 net-nntp/pan 0.154-r1: A newsreader for GNOME
 net-p2p/bisq-bin 1.9.9: The decentralized bitcoin exchange (non-atomic, with arbitration)
-net-p2p/feather 2.2.3 2.3.0 2.4.1_pre20230301 9999: A free, open-source Monero wallet
+net-p2p/feather 2.2.3 2.3.0 2.4.1_pre20230301 2.4.2 9999: A free, open-source Monero wallet
 net-p2p/ipfs-cluster 1.0.1 1.0.2: Pinset orchestration for IPFS
 net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 0.18.1.0 0.18.1.1 0.18.1.2 0.18.2.0 9999: The secure, private, untraceable cryptocurrency
@@ -1680,7 +1680,6 @@ sci-libs/qdldl 0.1.5_p20211001: A free LDL factorisation routine
 sci-libs/saclib 2.2.8 2.2.8_p20220502-r2: Reference implementations of algorithms and forms the basis of QEPCAD
 sci-libs/slicot 5.0_p20101122-r1: Subroutine Library in Systems and Control Theory
 sci-libs/superlu_dist 8.0.0_p20220526 8.1.0: MPI distributed sparse LU factorization library
-sci-mathematics/abc 9999: System for sequential logic synthesis and formal verification
 sci-mathematics/aspcud 1.9.6: A solver for package problems in CUDF format
 sci-mathematics/chaco 2.2-r3: Software for Partitioning Graphs
 sci-mathematics/clasp 3.3.8-r1: A conflict-driven nogood learning answer set solver
@@ -1770,7 +1769,7 @@ sys-auth/pam-gnupg 0.3: Unlock GnuPG keys on login
 sys-block/partclone 0.3.20: Partition cloning tool
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
-sys-boot/limine 2.88 3.0 3.4.3 3.4.4 3.4.5 4.20230212.1 4.20230216.1 4.20230219.0 4.20230221.0 4.20230227.0 4.20230305.2 4.20230307.0 4.20230308.0: Limine is a modern, advanced, and portable BIOS/UEFI multiprotocol bootloader
+sys-boot/limine 2.88 3.0 3.4.3 3.4.4 3.4.5 4.20230212.1 4.20230216.1 4.20230219.0 4.20230221.0 4.20230227.0 4.20230305.2 4.20230307.0 4.20230308.0 4.20230315.0: Limine is a modern, advanced, and portable BIOS/UEFI multiprotocol bootloader
 sys-boot/woeusb-ng 0.2.10: Create Windows installer USB from ISO (rewrite of WoeUSB)
 sys-boot/zfsbootmenu 1.12.0: ZFS bootloader for root-on-ZFS systems
 sys-cluster/AXL 0.5.0 0.7.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy

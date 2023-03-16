@@ -20,7 +20,6 @@ app-crypt/uacme:mbedtls - Use net-libs/mbedtls instead of dev-libs/openssl
 app-crypt/uacme:ualpn - Build the ualpn proxy that transparently handles tls-alpn-01
 app-dicts/canna-2ch:canna - Add support for the Canna kana to kanji conversion engine
 app-dicts/dictd-mueller:ipa - convert transcription into the IPA Unicode
-app-editors/helix:grammar - Build and install grammar language files
 app-emulation/arnold:inkz80 - Use inkz80 processor emulation
 app-i18n/canna:canuum - Build canuum
 app-misc/apidb:commands - Build commands
@@ -591,9 +590,6 @@ sci-libs/superlu_dist:double-precision - Enable double precision library
 sci-libs/superlu_dist:hip - Enable the HIP libraries
 sci-libs/superlu_dist:metis - Use parmetis as dependency
 sci-libs/superlu_dist:single-precision - Enable single precision library
-sci-mathematics/abc:pthread - Builds with pthreads
-sci-mathematics/abc:readline - Enables readline support
-sci-mathematics/abc:static-libs - Builds libabc.a
 sci-mathematics/clasp:tools - whether or not to build the clasp application
 sci-mathematics/clingo:tools - whether or not to build the clingo tool
 sci-mathematics/frama-c-aorai:eva - Build support for the Eva plugin
