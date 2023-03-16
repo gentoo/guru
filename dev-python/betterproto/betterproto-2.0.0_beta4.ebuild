@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 
 inherit distutils-r1 optfeature
 
@@ -15,10 +15,14 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/danielgtaylor/python-betterproto"
 else
 	MY_PV="${PV/_beta/b}"
-	S="${WORKDIR}/${PN}-${MY_PV}"
-	SRC_URI="https://github.com/danielgtaylor/${PN}/archive/refs/tags/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/python-${PN}-${MY_PV}"
+	SRC_URI="https://github.com/danielgtaylor/python-${PN}/archive/refs/tags/v${MY_PV}.tar.gz -> ${P}.gh.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
+
+PATCHES=(
+	"${FILESDIR}/betterproto-2.0.0b4-fix-tests.patch"
+	)
 
 LICENSE="MIT"
 SLOT="0"
@@ -42,13 +46,8 @@ distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	'>=dev-python/sphinx-rtd-theme-0.5.0'
 
-python_prepare() {
-	default
-	python_fix_shebang tests/generate.py src/betterproto/plugin/main.py
-}
-
 python_test() {
-	"${EPYTHON}" -m tests.generate -v
+	"${EPYTHON}" -m tests.generate
 	epytest
 }
 
