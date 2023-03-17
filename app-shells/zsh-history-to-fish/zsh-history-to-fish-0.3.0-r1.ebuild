@@ -3,16 +3,16 @@
 
 EAPI=8
 
+PYPI_NO_NORMALIZE=1
 PYTHON_COMPAT=( python3_{9..11} pypy3 )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Bring your ZSH history to Fish shell"
 HOMEPAGE="
 	https://github.com/rsalmei/zsh-history-to-fish
 	https://pypi.org/project/portio/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
