@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RDEPEND=sys-libs/libcap sys-libs/readline:= sys-apps/acl sys-apps/file
 SLOT=0
 SRC_URI=https://github.com/leo-arch/clifm/archive/v1.10.tar.gz -> clifm-1.10.tar.gz
-_eclasses_=optfeature	1a2157392a869265b2afcb63a26c12ac	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	6024fbc93167fad782e2032933654857
+_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=3d9472f89f147b975ca187a581589d96

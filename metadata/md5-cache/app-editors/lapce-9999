@@ -10,5 +10,5 @@ LICENSE=( Apache-2.0 ( MIT 0BSD ) Apache-2.0-with-LLVM-exceptions Artistic-2 BSD
 PROPERTIES=live
 RDEPEND=x11-libs/gtk+:3 media-libs/fontconfig
 SLOT=0
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	cargo	33a6fedd9e309870a65565d0b995fb41	desktop	021728fdc1b03b36357dbc89489e0f0d	git-r3	2347f8fe2d392b2a091191f94be37e6f	xdg-utils	ac0e315a3688929e34ac75b139e7349a
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	cargo	2076d5b84dfa54f78d70aea5e10dde87	desktop	021728fdc1b03b36357dbc89489e0f0d	git-r3	c57c50c922e121043788de0b40ada60a	xdg-utils	ac0e315a3688929e34ac75b139e7349a
 _md5_=6b715326935aa947c974d4af7c410f31

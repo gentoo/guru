@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=|| ( >=dev-lang/rust-1.57.0[rust-src] >=dev-lang/rust-bin-1.57.0[rust-src] )
 RESTRICT=mirror
 SLOT=0
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	cargo	33a6fedd9e309870a65565d0b995fb41	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	cargo	2076d5b84dfa54f78d70aea5e10dde87	git-r3	c57c50c922e121043788de0b40ada60a
 _md5_=ff801751dee4c16c2583e65842484897

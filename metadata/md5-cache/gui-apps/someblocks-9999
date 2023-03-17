@@ -8,5 +8,5 @@ IUSE=savedconfig
 LICENSE=ISC
 PROPERTIES=live
 SLOT=0
-_eclasses_=portability	58227860123d3e8da23290064ce3373e	savedconfig	4011d8d7370446e970e2c92b20a31341	git-r3	2347f8fe2d392b2a091191f94be37e6f
+_eclasses_=portability	58227860123d3e8da23290064ce3373e	savedconfig	8b5f9d995a970e49cd427c55d5840285	git-r3	c57c50c922e121043788de0b40ada60a
 _md5_=b449a9554faec0d42b6ad214dd07d72f
