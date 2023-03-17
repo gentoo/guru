@@ -6,11 +6,10 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{9..10} ) # python3_11 depends on dev-python/libcst
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Safe, minimal import sorting for Python projects"
 HOMEPAGE="https://github.com/facebookexperimental/usort/"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
