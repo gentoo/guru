@@ -19,3 +19,12 @@ jobs:
       - name: Check for duplicates
         run: |
           ./scripts/check-duplicates.sh
+
+      - name: Inform on IRC
+        if: ${{ failure() && github.repository == 'gentoo/guru' }}
+        uses: rectalogic/notify-irc@v1
+        with:
+          channel: "#gentoo-guru"
+          server: "irc.libera.chat"
+          nickname: "github-ci"
+          message: CI failure detected on job ${{ github.workflow }} - ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
