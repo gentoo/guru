@@ -1,11 +1,11 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=flit
 PYTHON_COMPAT=(python3_{9..11})
-inherit distutils-r1 pypi
+inherit distutils-r1
 
 DESCRIPTION="Unicode to ASCII transliteration"
 HOMEPAGE="
@@ -16,6 +16,7 @@ if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/anyascii/anyascii.git"
 else
+	inherit pypi
 	KEYWORDS="~amd64 ~arm64"
 fi
 
