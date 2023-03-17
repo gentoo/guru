@@ -5,11 +5,10 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{9..10} pypy3  )
 DISTUTILS_USE_SETUPTOOLS=bdepend
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Morphological analyzer (POS tagger + inflection engine) for Russian language."
 HOMEPAGE="https://github.com/kmike/pymorphy2 https://pypi.org/project/pymorphy2/"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 DEPEND="
 	dev-python/docopt[${PYTHON_USEDEP}]
 	dev-python/pymorphy2-dicts-ru[${PYTHON_USEDEP}]
