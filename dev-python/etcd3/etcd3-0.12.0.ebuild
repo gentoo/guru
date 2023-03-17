@@ -11,14 +11,13 @@ EPYTEST_DESELECT=(
 )
 PYTHON_COMPAT=( python3_{9..10} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Python client for the etcd API v3"
 HOMEPAGE="
 	https://pypi.org/project/etcd3/
 	https://github.com/kragniz/python-etcd3
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
