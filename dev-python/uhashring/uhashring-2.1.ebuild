@@ -5,11 +5,10 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..10} pypy3 )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Full featured consistent hashing python library compatible with ketama"
 HOMEPAGE="https://github.com/ultrabug/uhashring"
-SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
