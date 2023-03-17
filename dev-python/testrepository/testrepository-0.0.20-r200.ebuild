@@ -67,7 +67,7 @@ EPYTEST_DESELECT=(
 PYTHON_COMPAT=( python3_{9..10} pypy3 )
 PYTHON_REQ_USE="threads(+)"
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="A repository of test results"
 HOMEPAGE="
@@ -75,7 +75,6 @@ HOMEPAGE="
 	https://pypi.org/project/testrepository/
 	https://github.com/testing-cabal/testrepository
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0 BSD"
 SLOT="0"
