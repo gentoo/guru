@@ -6,14 +6,13 @@ EAPI=8
 PYTHON_COMPAT=( python3_{10..11} )
 DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="A Python API to access data from the Google Fonts variable fonts Axis Registry"
 HOMEPAGE="
 	https://github.com/googlefonts/axisregistry
 	https://pypi.org/project/axisregistry/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 KEYWORDS="~amd64"
