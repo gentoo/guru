@@ -3,11 +3,10 @@
 
 EAPI=8
 PYTHON_COMPAT=( python3_{9..10} pypy3 )
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Single function module with no dependencies for playing sounds."
 HOMEPAGE="https://pypi.org/project/playsound/ https://github.com/TaylorSMarks/playsound"
-SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
