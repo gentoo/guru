@@ -5,11 +5,11 @@ EAPI=8
 
 PYTHON_COMPAT=( pypy3 python3_{9..11} )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1 optfeature
+PYPI_NO_NORMALIZE=1
+inherit distutils-r1 optfeature pypi
 
 DESCRIPTION="A set of third-party serializers for Betamax"
 HOMEPAGE="https://pypi.org/project/betamax-serializers/ https://gitlab.com/betamax/serializers"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
