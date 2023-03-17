@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=flit
 PYTHON_COMPAT=(python3_{9..11})
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Unicode to ASCII transliteration"
 HOMEPAGE="
@@ -16,7 +16,6 @@ if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/anyascii/anyascii.git"
 else
-	SRC_URI="https://files.pythonhosted.org/packages/source/a/anyascii/${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm64"
 fi
 
