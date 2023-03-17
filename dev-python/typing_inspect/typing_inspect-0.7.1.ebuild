@@ -5,11 +5,10 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..10} ) # python3_11 depends on dev-python/mypy_extensions
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Runtime inspection utilities for Python typing module"
 HOMEPAGE="https://github.com/ilevkivskyi/typing_inspect"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
