@@ -7,11 +7,10 @@ PYTHON_COMPAT=( python3_{9..10} )
 
 DISTUTILS_USE_SETUPTOOLS=no
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Convert string cases between camel case, pascal case, snake case etc."
 HOMEPAGE="https://github.com/okunishinishi/python-stringcase"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
