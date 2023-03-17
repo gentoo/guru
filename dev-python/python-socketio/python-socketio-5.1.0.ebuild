@@ -3,15 +3,15 @@
 
 EAPI=8
 
+PYPI_NO_NORMALIZE=1
 PYTHON_COMPAT=( python3_{9..10} )
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Python implementation of the Socket.IO realtime server."
 HOMEPAGE="
 	https://python-socketio.readthedocs.org/
 	https://github.com/miguelgrinberg/python-socketio/
 	https://pypi.org/project/python-socketio"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
