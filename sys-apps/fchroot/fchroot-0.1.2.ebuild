@@ -5,11 +5,10 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..10} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Funtoo's franken-chroot tool - chroot from AMD64 to ARM system"
 HOMEPAGE="https://code.funtoo.org/bitbucket/users/drobbins/repos/fchroot/browse"
-SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 RESTRICT="mirror test"
 LICENSE="Apache-2.0"
