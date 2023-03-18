@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,12 +24,18 @@ RDEPEND="
 	dev-libs/glib:2
 "
 DEPEND="${RDEPEND}"
+# temporary dep for tests on media-video/mpv due to https://github.com/mpv-player/mpv/pull/11468
 BDEPEND="
 	virtual/pkgconfig
 	test? (
 		app-misc/jq
 		app-text/jo
 		media-sound/playerctl
+		|| (
+			media-video/mpv[lua]
+			media-video/mpv[javascript]
+			>=media-video/mpv-0.36
+		)
 		net-misc/socat
 		sys-apps/dbus
 		x11-apps/xauth
