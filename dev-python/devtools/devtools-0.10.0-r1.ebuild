@@ -6,36 +6,33 @@ EAPI=8
 DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{9..11} )
 
-DOCS_BUILDER="mkdocs"
-DOCS_DEPEND="
+DOCS_BUILDER=mkdocs
+DOCS_DEPEND=(
 	dev-python/ansi2html
-	dev-python/markdown
 	dev-python/markdown-include
 	dev-python/mkdocs-exclude
 	dev-python/mkdocs-material
-	dev-python/pygments
-"
+)
 
-inherit distutils-r1 docs
-
-MYPN="python-${PN}"
-MYP="${MYPN}-${PV}"
+inherit distutils-r1 docs pypi
 
 DESCRIPTION="Dev tools for python"
-HOMEPAGE="https://github.com/samuelcolvin/python-devtools"
-SRC_URI="https://github.com/samuelcolvin/${MYPN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+HOMEPAGE="
+	https://pypi.org/project/devtools/
+	https://github.com/samuelcolvin/python-devtools
+"
 RESTRICT="!test? ( test )"
 
 LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
-S="${WORKDIR}/${MYP}"
-
-DEPEND="
+RDEPEND="
 	dev-python/asttokens[${PYTHON_USEDEP}]
 	dev-python/executing[${PYTHON_USEDEP}]
 	dev-python/pygments[${PYTHON_USEDEP}]
+"
+BDEPEND="
 	test? (
 		dev-python/asyncpg[${PYTHON_USEDEP}]
 		dev-python/coverage[${PYTHON_USEDEP}]
