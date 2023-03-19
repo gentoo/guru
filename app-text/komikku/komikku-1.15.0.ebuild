@@ -45,6 +45,7 @@ RDEPEND="
 		dev-python/keyring[${PYTHON_USEDEP}]
 		dev-python/lxml[${PYTHON_USEDEP}]
 		dev-python/natsort[${PYTHON_USEDEP}]
+		dev-python/piexif[${PYTHON_USEDEP}]
 		dev-python/pillow[${PYTHON_USEDEP}]
 		dev-python/pure-protobuf[${PYTHON_USEDEP}]
 		dev-python/pygobject[${PYTHON_USEDEP}]
