@@ -27,8 +27,8 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/0001-${PN}-nodebug.patch
-	"${FILESDIR}"/0002-${PN}-flags.patch
+	"${FILESDIR}"/${P}-nodebug.patch
+	"${FILESDIR}"/${P}-flags.patch
 )
 
 src_unpack() {
