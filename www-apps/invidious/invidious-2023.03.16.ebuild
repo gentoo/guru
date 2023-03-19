@@ -1,11 +1,11 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit check-reqs multiprocessing shards systemd
 
-COMMIT="5160d8bae39dc5cc5d51abee90571a03c08d0f2b"
+COMMIT="26ea676b8d0d617b8fd0b2655e41e01fcb6e3447"
 MOCKS_COMMIT="dfd53ea6ceb3cbcbbce6004f6ce60b330ad0f9b1"
 MOCKS_P="${PN}-mocks-${MOCKS_COMMIT:0:7}"
 DESCRIPTION="Invidious is an alternative front-end to YouTube"
@@ -58,7 +58,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-crystal/crystal-sqlite3
 	~dev-crystal/kemal-1.1.2
 	dev-crystal/kilt
-	dev-crystal/protodec
+	>=dev-crystal/protodec-0.1.5
 	test? (
 		dev-crystal/spectator
 	)
