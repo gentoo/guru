@@ -23,17 +23,14 @@ RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 "
 
-# TODO add package dev-python/requests-wsgi-adapter and enable tests
-# BDEPEND="
-#	${RDEPEND}
-#	test? (
-#		dev-python/pytest-httpserver[${PYTHON_USEDEP}]
-#		dev-python/flask[${PYTHON_USEDEP}]
-#		dev-python/requests-wsgi-adapter[${PYTHON_USEDEP}]
-#		dev-python/trustme[${PYTHON_USEDEP}]
-#	)
-# "
+BDEPEND="
+	${RDEPEND}
+	test? (
+		dev-python/pytest-httpserver[${PYTHON_USEDEP}]
+		dev-python/flask[${PYTHON_USEDEP}]
+		dev-python/requests-wsgi-adapter[${PYTHON_USEDEP}]
+		dev-python/trustme[${PYTHON_USEDEP}]
+	)
+"
 
-# distutils_enable_tests pytest
-
-RESTRICT="test"
+distutils_enable_tests pytest
