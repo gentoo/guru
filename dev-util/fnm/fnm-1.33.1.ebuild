@@ -302,6 +302,11 @@ src_prepare() {
 
 	sed -r -e "${sedexpr}" -i Cargo.toml || die
 
+	pushd ../ring* >/dev/null || die
+	# Somehow it fails to compile without the .git directory: https://pastebin.com/cRGzVsHE
+	unpack "${FILESDIR}/ring-git.tar.gz"
+	popd >/dev/null || die
+
 	default
 }
 
