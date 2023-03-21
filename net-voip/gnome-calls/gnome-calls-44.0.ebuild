@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,27 +22,24 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 IUSE="gtk-doc man"
 
-COMMON_DEPEND="
-	app-crypt/libsecret[introspection(+),vala(+)]
-	dev-libs/feedbackd[introspection(+),vala(+)]
+RDEPEND="
+	app-crypt/libsecret[introspection,vala]
+	dev-libs/feedbackd[introspection,vala]
 	dev-libs/folks:=
 	dev-libs/glib:2
-	dev-libs/gom[introspection(+)]
-	dev-libs/libgee:0.8=[introspection(+)]
+	dev-libs/gom[introspection]
+	dev-libs/libgee:0.8=[introspection]
 	dev-libs/libpeas
-	gnome-extra/evolution-data-server:=[vala(+)]
-	>=gui-libs/libhandy-1.0.0:1[introspection(+),vala(+)]
-	media-libs/gstreamer:1.0[introspection(+)]
+	gnome-extra/evolution-data-server:=[vala]
+	>=gui-libs/libhandy-1.0.0:1[introspection,vala]
+	media-libs/gstreamer:1.0[introspection]
 	>=media-sound/callaudiod-0.0.5
 	net-libs/sofia-sip
-	>=net-misc/modemmanager-1.12.0:=[introspection(+)]
+	>=net-misc/modemmanager-1.12.0:=[introspection]
 	x11-libs/gtk+:3
 "
-DEPEND="${COMMON_DEPEND}
+DEPEND="${RDEPEND}
 	test? ( media-plugins/gst-plugins-srtp:1.0 )
-"
-RDEPEND="${COMMON_DEPEND}
-	virtual/secret-service
 "
 BDEPEND="
 	$(vala_depend)
@@ -56,8 +53,9 @@ BDEPEND="
 src_unpack() {
 	default
 
-	rm -r "${S}"/subprojects/libcall-ui || die
-	mv "${WORKDIR}"/libcall-ui-${LCU_COMMIT} "${S}"/subprojects/libcall-ui || die
+	cd "${S}" || die
+	rmdir subprojects/libcall-ui || die
+	mv "${WORKDIR}"/libcall-ui-${LCU_COMMIT} subprojects/libcall-ui || die
 }
 
 src_prepare() {
@@ -76,19 +74,22 @@ src_configure() {
 
 src_test() {
 	local tests=(
-		calls:util
-		calls:settings
-		calls:origin
-		calls:provider
+		calls:application
 		calls:call
-		calls:plugins
 		calls:contacts
-		calls:ui-call
+		calls:dbus
 		calls:manager
-		calls:ringer
 		calls:media
-		calls:srtp
+		calls:origin
+		calls:plugins
+		calls:provider
+		calls:ringer
 		calls:sdp-crypto
+		calls:settings
+		#calls:sip
+		calls:srtp
+		calls:ui-call
+		calls:util
 	)
 	virtx meson_src_test "${tests[@]}"
 }
