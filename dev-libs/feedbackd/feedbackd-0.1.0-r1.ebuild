@@ -6,19 +6,19 @@ VALA_USE_DEPEND="vapigen"
 
 inherit vala meson
 
-GMOBILECOMMIT="d483537aee4778b114ce5d50c4c8a9f8d58337ed"
+GMOBILE_COMMIT="d483537aee4778b114ce5d50c4c8a9f8d58337ed"
 DESCRIPTION="A daemon to provide haptic feedback on events"
 HOMEPAGE="https://source.puri.sm/Librem5/feedbackd"
-SRC_URI="https://source.puri.sm/Librem5/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2
-	https://gitlab.gnome.org/guidog/gmobile/-/archive/${GMOBILECOMMIT}.tar.bz2
-	-> gmobile-${GMOBILECOMMIT}.tar.bz2
+SRC_URI="
+	https://source.puri.sm/Librem5/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2
+	https://gitlab.gnome.org/guidog/gmobile/-/archive/${GMOBILE_COMMIT}.tar.bz2 -> gmobile-${GMOBILE_COMMIT}.tar.bz2
 "
 S="${WORKDIR}/${PN}-v${PV}"
 
 LICENSE="LGPL-3"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 SLOT="0"
-IUSE="daemon gtk-doc +introspection man test +vala"
+IUSE="+daemon gtk-doc +introspection man test +vala"
 REQUIRED_USE="vala? ( introspection )"
 RESTRICT="!test? ( test )"
 
@@ -41,7 +41,7 @@ src_prepare() {
 
 	if use daemon; then
 		rmdir "${S}/subprojects/gmobile" || die
-		mv "${WORKDIR}/gmobile-${GMOBILECOMMIT}" "${S}/subprojects/gmobile" || die
+		mv "${WORKDIR}/gmobile-${GMOBILE_COMMIT}" "${S}/subprojects/gmobile" || die
 	fi
 
 	use vala && vala_setup
