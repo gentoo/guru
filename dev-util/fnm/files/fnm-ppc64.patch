@@ -1,0 +1,25 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index da1325d..5808e01 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1393,8 +1393,7 @@ dependencies = [
+ [[package]]
+ name = "ring"
+ version = "0.16.20"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "3053cf52e236a3ed746dfc745aa9cacf1b791d846bdaf412f60a8d7d6e17c8fc"
++source = "git+https://github.com/IBM/ring.git?branch=ppc-0.16.20#3f8f04a1057e286f3b8c5b9e39c9f795b15743cc"
+ dependencies = [
+  "cc",
+  "libc",
+diff --git a/Cargo.toml b/Cargo.toml
+index 11f72c9..c41017f 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -45,3 +45,6 @@ csv = "1.1.6"
+ junction = "0.2.0"
+ 
+ [features]
++
++[patch.crates-io]
++ring = { git = 'https://github.com/IBM/ring.git', branch = 'ppc-0.16.20' }

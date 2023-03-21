@@ -147,7 +147,6 @@ CRATES="
 	regex-syntax-0.6.28
 	remove_dir_all-0.5.3
 	reqwest-0.11.13
-	ring-0.16.20
 	rustc_version-0.4.0
 	rustls-0.20.7
 	rustls-native-certs-0.6.2
@@ -243,6 +242,10 @@ CRATES="
 	zstd-sys-2.0.1+zstd.1.5.2
 "
 
+declare -A GIT_CRATES=(
+	[ring]="https://github.com/IBM/ring;3f8f04a1057e286f3b8c5b9e39c9f795b15743cc"
+)
+
 inherit cargo bash-completion-r1 flag-o-matic
 
 DESCRIPTION="Fast and simple Node.js version manager"
@@ -277,6 +280,27 @@ src_prepare() {
 	# Skip testing against PowerShell and WinCmd
 	eapply "${FILESDIR}/${PN}-1.32.0-skip-windows-related-tests.patch"
 	eapply "${FILESDIR}/${P}-remove-deprecated-time-dependency.patch"
+	eapply "${FILESDIR}/${PN}-ppc64.patch"
+
+	local crate crate_uri commit crate_dir sedexpr ifs
+	for crate in "${!GIT_CRATES[@]}"; do
+		IFS=';' read -r crate_uri commit crate_dir <<< "${GIT_CRATES[${crate}]}"
+		: "${crate_dir:=${crate}-%commit%}"
+
+		# replace git patch for crates.io
+		sedexpr+="s@^(${crate}[[:space:]]*=[[:space:]]*[{][[:space:]]*.*)[[:space:]]*git[[:space:]]*=[[:space:]]*[\"'][[:graph:]]+[\"'](,|)(.*[[:space:]]*[}])@\\1path = \"${WORKDIR}/${crate_dir//%commit%/${commit}}\",\\3 @;"
+
+		# get rid of the rev=
+		sedexpr+="s@^(${crate}[[:space:]]*=[[:space:]]*[{][[:space:]]*.*)[[:space:]]*rev[[:space:]]*=[[:space:]]*[\"'][[:alnum:]]+[\"'](,|[[:space:]]*)(.*[[:space:]]*[}])@\\1\\3@;"
+
+		# get rid of the branch=
+		sedexpr+="s@^(${crate}[[:space:]]*=[[:space:]]*[{][[:space:]]*.*)[[:space:]]*branch[[:space:]]*=[[:space:]]*[\"'][[:graph:]]+[\"'](,|[[:space:]]*)(.*[[:space:]]*[}])@\\1\\3@;"
+
+		# make sure we don't have a trailing comma
+		sedexpr+="s@^(${crate}[[:space:]]*=[[:space:]]*[{][[:space:]]*.*),([[:space:]]*[}])@\\1\\2@;"
+	done
+
+	sed -r -e "${sedexpr}" -i Cargo.toml || die
 
 	default
 }
