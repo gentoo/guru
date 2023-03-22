@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( ruby_targets_ruby27 ruby_targets_ruby30 )
 RESTRICT=test !test? ( test ) !test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://rubygems.org/gems/prawn-icon-3.1.0.gem
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-ng	69b6ab182fab608b42dee39cae3d730c	ruby-fakegem	b4704898f1b861fc19d465c8af7abe9c
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-ng	41693b3ee4cab79e287237b59f7e2184	ruby-fakegem	4bb1017b1ef0d5e0bdd1c7b040fccc0d
 _md5_=8e16386a9e73c293e01284442912a9f5
