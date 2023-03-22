@@ -12,5 +12,5 @@ LICENSE=MIT
 RDEPEND=>=dev-games/liblcf-0.7.0 >=media-libs/libsdl2-2.0.5 media-libs/libpng:= x11-libs/pixman dev-libs/libfmt:= media-libs/freetype:= media-libs/harfbuzz:= media-libs/alsa-lib media-libs/speexdsp media-sound/mpg123 media-libs/libsndfile media-libs/libvorbis media-libs/opus wildmidi? ( media-sound/wildmidi ) fluidsynth? ( media-sound/fluidsynth ) media-libs/libxmp dev-ruby/asciidoctor doc? ( app-doc/doxygen )
 SLOT=0
 SRC_URI=https://github.com/EasyRPG/Player/archive/refs/tags/0.7.0.tar.gz -> easyrpg-player-0.7.0.tar.gz
-_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	69394e25812406faa1f90edaf4969395	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	2e47edc2986d4e1c0363867058cd4489	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	2e47edc2986d4e1c0363867058cd4489	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=f5e979ea7f4de76d8ff8fe54db190351
