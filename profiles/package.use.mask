@@ -3,6 +3,10 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-23)
+# app-emulation/faudio multilib not available
+games-util/xivlauncher abi_x86_32
+
 # Torokhov Sergey <torokhov-s-a@yandex.ru> (2022-12-09)
 # Masked due to infinite run of tests with USE="openmp"
 ~sci-physics/SU2-7.2.0 openmp
