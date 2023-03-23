@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-python/packaging[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pytest-7.2.1[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] ) python_targets_pypy3? ( >=dev-python/pypy3-7.3.11-r1:0= ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 ) >=dev-python/gpep517-13[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] >=dev-python/pdm-pep517-1.0.6[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=A utility to find python versions on your system
+EAPI=8
+HOMEPAGE=https://github.com/frostming/findpython/ https://pypi.org/project/findpython/
+INHERIT=distutils-r1 pypi
+IUSE=test python_targets_pypy3 python_targets_python3_10 python_targets_python3_11
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=dev-python/packaging[python_targets_pypy3(-)?,python_targets_python3_10(-)?,python_targets_python3_11(-)?] python_targets_pypy3? ( >=dev-python/pypy3-7.3.11-r1:0= ) python_targets_python3_10? ( >=dev-lang/python-3.10.9-r1:3.10 ) python_targets_python3_11? ( >=dev-lang/python-3.11.1-r1:3.11 )
+REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_10 python_targets_python3_11 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/f/findpython/findpython-0.2.4.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	3c6cd0f418ba702c186a9865b85e704d	distutils-r1	ad4c1e4ec8737eb363aacd638f6a513b	pypi	d083c45ce254373ad68562a43f4b9035
+_md5_=d791158a3c2eab6ff6bc6c38b06b9aac

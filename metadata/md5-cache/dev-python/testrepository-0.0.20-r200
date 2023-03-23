@@ -4,7 +4,7 @@ DEPEND=>=dev-python/subunit-0.0.18[python_targets_pypy3(-)?,python_targets_pytho
 DESCRIPTION=A repository of test results
 EAPI=8
 HOMEPAGE=https://launchpad.net/testrepository https://pypi.org/project/testrepository/ https://github.com/testing-cabal/testrepository
-INHERIT=distutils-r1
+INHERIT=distutils-r1 pypi
 IUSE=test python_targets_pypy3 python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64
 LICENSE=Apache-2.0 BSD
@@ -12,6 +12,6 @@ RDEPEND=>=dev-python/subunit-0.0.18[python_targets_pypy3(-)?,python_targets_pyth
 REQUIRED_USE=|| ( python_targets_pypy3 python_targets_python3_9 python_targets_python3_10 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=mirror://pypi/t/testrepository/testrepository-0.0.20.tar.gz
-_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	3c6cd0f418ba702c186a9865b85e704d	distutils-r1	ad4c1e4ec8737eb363aacd638f6a513b
-_md5_=0a339cc59cf877c2439685a5ade2c9ba
+SRC_URI=https://files.pythonhosted.org/packages/source/t/testrepository/testrepository-0.0.20.tar.gz
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-r1	3c6cd0f418ba702c186a9865b85e704d	distutils-r1	ad4c1e4ec8737eb363aacd638f6a513b	pypi	d083c45ce254373ad68562a43f4b9035
+_md5_=ebfd4d3a27e6f7b97bc4f342a07e071b

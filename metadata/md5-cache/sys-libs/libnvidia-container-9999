@@ -10,4 +10,4 @@ PROPERTIES=live
 RDEPEND=net-libs/libtirpc sys-libs/libcap sys-libs/libseccomp x11-drivers/nvidia-drivers
 SLOT=0
 _eclasses_=git-r3	c57c50c922e121043788de0b40ada60a
-_md5_=3397432e9636ee0877cb034f411ce8b7
+_md5_=5ca5945da5f7305a77a417caca8b0517

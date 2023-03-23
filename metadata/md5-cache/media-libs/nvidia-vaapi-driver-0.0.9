@@ -1,0 +1,14 @@
+BDEPEND=dev-util/meson >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst test
+DEPEND=x11-drivers/nvidia-drivers media-libs/nv-codec-headers media-libs/libva
+DESCRIPTION=A VA-API implemention using NVIDIA's NVDEC, specifically designed to be used by Firefox
+EAPI=8
+HOMEPAGE=https://github.com/elFarto/nvidia-vaapi-driver
+INHERIT=meson
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=x11-drivers/nvidia-drivers media-libs/gst-plugins-bad[egl] media-libs/libva
+SLOT=0
+SRC_URI=https://github.com/elFarto/nvidia-vaapi-driver/archive/refs/tags/v0.0.9.tar.gz -> nvidia-vaapi-driver-0.0.9.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	cd2865332c8d99e1da0655523ff4a28f
+_md5_=84f295969fd79ce708218d5f13ec5cbf

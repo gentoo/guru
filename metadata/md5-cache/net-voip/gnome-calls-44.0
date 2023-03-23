@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/vala:0.56[vapigen(+)] ) dev-libs/gobject-introspection dev-libs/protobuf dev-util/wayland-scanner gtk-doc? ( dev-util/gtk-doc ) man? ( dev-python/docutils ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=app-crypt/libsecret[introspection,vala] dev-libs/feedbackd[introspection,vala] dev-libs/folks:= dev-libs/glib:2 dev-libs/gom[introspection] dev-libs/libgee:0.8=[introspection] dev-libs/libpeas gnome-extra/evolution-data-server:=[vala] >=gui-libs/libhandy-1.0.0:1[introspection,vala] media-libs/gstreamer:1.0[introspection] >=media-sound/callaudiod-0.0.5 net-libs/sofia-sip >=net-misc/modemmanager-1.12.0:=[introspection] x11-libs/gtk+:3 test? ( media-plugins/gst-plugins-srtp:1.0 )
+DESCRIPTION=Phone dialer and call handler
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/calls
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=vala meson gnome2-utils optfeature virtualx xdg
+IUSE=gtk-doc man test
+KEYWORDS=~amd64 ~arm64
+LICENSE=CC-BY-SA-4.0 GPL-3+ LGPL-2+ LGPL-2.1+
+RDEPEND=app-crypt/libsecret[introspection,vala] dev-libs/feedbackd[introspection,vala] dev-libs/folks:= dev-libs/glib:2 dev-libs/gom[introspection] dev-libs/libgee:0.8=[introspection] dev-libs/libpeas gnome-extra/evolution-data-server:=[vala] >=gui-libs/libhandy-1.0.0:1[introspection,vala] media-libs/gstreamer:1.0[introspection] >=media-sound/callaudiod-0.0.5 net-libs/sofia-sip >=net-misc/modemmanager-1.12.0:=[introspection] x11-libs/gtk+:3
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.gnome.org/GNOME/calls/-/archive/v44.0/calls-v44.0.tar.bz2 https://gitlab.gnome.org/World/Phosh/libcall-ui/-/archive/619dd91561ad470db3d0e0e263ebc35d787afd2e/libcall-ui-619dd91561ad470db3d0e0e263ebc35d787afd2e.tar.bz2
+_eclasses_=vala	2633382950a3a9ce912c9258150d5db8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	cd2865332c8d99e1da0655523ff4a28f	xdg-utils	ac0e315a3688929e34ac75b139e7349a	gnome2-utils	3eaa1386ddbbbbb3951256d4b170fba3	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	virtualx	ab0d5fcb35ad650a57b516e6f4c467e7	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=e29654a62bf58d4602c970eaf264eae6

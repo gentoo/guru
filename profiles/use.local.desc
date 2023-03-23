@@ -83,6 +83,7 @@ dev-libs/dill:ignore-native - Build to do emulation, regardless of architecture
 dev-libs/dill:multitarget - Build all available target architectures
 dev-libs/dyninst:openmp - Enable parallel code parsing
 dev-libs/dyninst:valgrind - Enable annotations for Valgrind analysis
+dev-libs/feedbackd:daemon - Build the feedbackd daemon
 dev-libs/ffs:atl - Enable the use of ATL
 dev-libs/hts_engine:speech-tools - use memory allocation/free functions of app-accessibility/speech-tools
 dev-libs/libdbf:doc - Include documentation

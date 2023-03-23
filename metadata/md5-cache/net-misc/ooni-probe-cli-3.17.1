@@ -1,0 +1,16 @@
+BDEPEND=<dev-lang/go-1.20 >=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-db/sqlite:3[icu]
+DESCRIPTION=OONI Probe network measurement tool for detecting internet censorship
+EAPI=8
+HOMEPAGE=https://ooni.org https://github.com/ooni/probe-cli
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=0BSD Apache-2.0 BSD BSD-2 CC0-1.0 GPL-3 GPL-3+ ISC LGPL-3 MIT MPL-2.0
+PROPERTIES=test_network
+RDEPEND=dev-db/sqlite:3[icu]
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://github.com/ooni/probe-cli/releases/download/v3.17.1/ooni-probe-cli-3.17.1.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	go-module	f9700c7efec1fd4955363169e9930c1c
+_md5_=0be374a90d61aa68240d3d5c44621cf0

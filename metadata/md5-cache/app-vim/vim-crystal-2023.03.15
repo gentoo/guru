@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm prepare
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=vim plugin: Crystal language support
+EAPI=8
+HOMEPAGE=https://github.com/vim-crystal/vim-crystal
+INHERIT=optfeature vim-plugin
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+SLOT=0
+SRC_URI=https://github.com/vim-crystal/vim-crystal/archive/dc21188ec8c2ee77bb81dffca02e1a29d87cfd9f.tar.gz -> vim-crystal-2023.03.15.tar.gz
+_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	vim-doc	f088862726f2bc672c57b1063b81ec52	vim-plugin	eb89c94cd8e3b681c68883e8b6b40e83
+_md5_=704481bd5c2029a2435f2e114de04ebf

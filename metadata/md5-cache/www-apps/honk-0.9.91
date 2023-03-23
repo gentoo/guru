@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=install postinst unpack
+DEPEND=dev-db/sqlite:3
+DESCRIPTION=ActivityPub server with minimal setup and support costs
+EAPI=8
+HOMEPAGE=https://humungus.tedunangst.com/r/honk
+INHERIT=go-module systemd
+KEYWORDS=~amd64
+LICENSE=BSD BSD-2 ISC MIT
+RDEPEND=dev-db/sqlite:3 acct-user/honk
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://humungus.tedunangst.com/r/honk/d/honk-0.9.91.tgz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	go-module	f9700c7efec1fd4955363169e9930c1c	systemd	5f4bb0758df2e483babf68cd517078ca
+_md5_=6c8e7381ecef3f2a01a74ead97b00a47
