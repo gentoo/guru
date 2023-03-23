@@ -6,14 +6,13 @@ EAPI=8
 PYTHON_COMPAT=( python3_{9..11} )
 DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="A python API for evaluating language support in the Google Fonts collection"
 HOMEPAGE="
 	https://github.com/googlefonts/lang
 	https://pypi.org/project/gflanguages/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 KEYWORDS="~amd64"

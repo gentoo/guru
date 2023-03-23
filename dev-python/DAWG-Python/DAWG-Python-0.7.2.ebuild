@@ -5,14 +5,14 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} pypy3  )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1
+PYPI_NO_NORMALIZE=1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Pure-python reader for DAWGs (DAFSAs) created by dawgdic C++ library."
 HOMEPAGE="
 	https://github.com/pytries/DAWG-Python
 	https://pypi.org/project/DAWG-Python/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"

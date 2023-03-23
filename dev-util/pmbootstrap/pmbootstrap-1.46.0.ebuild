@@ -5,12 +5,11 @@ EAPI=8
 PYTHON_COMPAT=( python3_{9..11} )
 
 DISTUTILS_SINGLE_IMPL=1
-inherit distutils-r1 linux-info
+inherit distutils-r1 linux-info pypi
 
 DESCRIPTION="Helper tool for developing and building postmarketOS"
 HOMEPAGE="https://postmarketos.org/"
 
-SRC_URI="https://files.pythonhosted.org/packages/source/p/${PN}/${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 

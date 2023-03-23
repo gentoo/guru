@@ -5,14 +5,14 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..10} )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1
+PYPI_NO_NORMALIZE=1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Various utility functions and datatypes for SQLAlchemy"
 HOMEPAGE="
 	https://github.com/kvesteri/sqlalchemy-utils
 	https://pypi.org/project/SQLAlchemy-Utils/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="BSD"

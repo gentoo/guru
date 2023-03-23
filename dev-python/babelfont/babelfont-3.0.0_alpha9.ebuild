@@ -4,18 +4,15 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
-MYP="${P/_alpha/a}"
 PYTHON_COMPAT=( python3_10 )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Interrogate and manipulate UFO, TTF and OTF fonts with a common interface"
 HOMEPAGE="
 	https://github.com/simoncozens/babelfont
 	https://pypi.org/project/babelfont/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${MYP}.tar.gz"
-S="${WORKDIR}/${MYP}"
 
 KEYWORDS="~amd64"
 LICENSE="MIT"

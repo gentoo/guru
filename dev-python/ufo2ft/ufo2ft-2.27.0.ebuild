@@ -4,14 +4,13 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{9..10} )
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="A bridge from UFOs to FontTool objects"
 HOMEPAGE="
 	https://github.com/googlefonts/ufo2ft
 	https://pypi.org/project/ufo2ft/
 "
-SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 KEYWORDS="~amd64"

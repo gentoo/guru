@@ -4,12 +4,12 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
+PYPI_NO_NORMALIZE=1
 PYTHON_COMPAT=( python3_{9..11} pypy3 )
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Helps to keep your local git repositories organized"
 HOMEPAGE="https://gitlab.com/3point2/git-cu"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 # This package has tests, but they are not included in the PyPi
 # distribution.

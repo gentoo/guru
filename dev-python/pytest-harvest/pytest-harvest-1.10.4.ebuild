@@ -5,16 +5,16 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
 DISTUTILS_USE_PEP517=setuptools
+PYPI_NO_NORMALIZE=1
 
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="dev-python/mkdocs-material"
 DOCS_DIR="docs"
 
-inherit distutils-r1 docs
+inherit distutils-r1 docs pypi
 
 DESCRIPTION="Store and retrieve data created during your pytest tests execution"
 HOMEPAGE="https://pypi.org/project/pytest-harvest/ https://github.com/smarie/python-pytest-harvest"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"

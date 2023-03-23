@@ -4,11 +4,10 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_9 )
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Python API for communicating with the BitBox02 device"
 HOMEPAGE="https://github.com/digitalbitbox/bitbox02-firmware"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"

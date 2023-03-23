@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,7 +21,7 @@ RDEPEND="${PYTHON_DEPS}
 	dev-python/cssselect[${PYTHON_USEDEP}]
 	dev-python/cryptography[${PYTHON_USEDEP}]
 	<dev-python/priority-2.0.0[${PYTHON_USEDEP}]
-	<dev-python/h2-4.0.0[${PYTHON_USEDEP}]
+	dev-python/h2[${PYTHON_USEDEP}]
 	dev-python/itemadapter[${PYTHON_USEDEP}]
 	dev-python/itemloaders[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]

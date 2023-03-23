@@ -3,13 +3,13 @@
 
 EAPI=8
 
+PYPI_NO_NORMALIZE=1
 PYTHON_COMPAT=( python3_{9..11} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="A lightweight and fast pure python ECDSA library"
 HOMEPAGE="https://github.com/starkbank/ecdsa-python/ https://pypi.org/project/starkbank-ecdsa/"
-SRC_URI="mirror://pypi/${P:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"

@@ -14,7 +14,7 @@ EPYTEST_DESELECT=(
 EPYTEST_IGNORE=( osprofiler/tests/unit/drivers/test_jaeger.py )
 PYTHON_COMPAT=( python3_{9..10} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="OpenStack Profiler Library"
 HOMEPAGE="
@@ -22,7 +22,6 @@ HOMEPAGE="
 	https://opendev.org/openstack/osprofiler
 	https://pypi.org/project/osprofiler/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"

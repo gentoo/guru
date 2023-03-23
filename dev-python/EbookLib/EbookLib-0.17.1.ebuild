@@ -5,11 +5,11 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1
+PYPI_NO_NORMALIZE=1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Ebook library which can handle EPUB2/EPUB3 and Kindle format"
 HOMEPAGE="https://github.com/aerkalov/ebooklib https://pypi.org/project/EbookLib/"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"

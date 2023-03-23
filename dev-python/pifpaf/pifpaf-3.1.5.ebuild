@@ -6,14 +6,13 @@ EAPI=8
 EPYTEST_DESELECT=( pifpaf/tests/test_cli.py::TestCli::test_non_existing_command )
 PYTHON_COMPAT=( python3_{9..10} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Python fixtures and daemon managing tools for functional testing"
 HOMEPAGE="
 	https://pypi.org/project/pifpaf/
 	https://github.com/jd/pifpaf
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"

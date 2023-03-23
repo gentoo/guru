@@ -3,9 +3,10 @@
 
 EAPI=8
 
+PYPI_NO_NORMALIZE=1
 PYTHON_COMPAT=( python3_{9..11} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Xen API SDK, for communication with Citrix XenServer and Xen Cloud Platform"
 HOMEPAGE="
@@ -13,7 +14,6 @@ HOMEPAGE="
 	https://github.com/xapi-project/xen-api
 	https://pypi.org/project/XenAPI/
 "
-SRC_URI="mirror://pypi/X/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2"
 SLOT="0"

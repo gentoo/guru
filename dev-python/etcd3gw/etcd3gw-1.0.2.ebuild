@@ -5,14 +5,13 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{9..10} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="A python client for etcd3 grpc-gateway v3 API"
 HOMEPAGE="
 	https://opendev.org/openstack/etcd3gw
 	https://pypi.org/project/etcd3gw/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"

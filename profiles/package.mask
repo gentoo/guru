@@ -14,6 +14,18 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-17)
+# Python libraries with no consumers left in tree.
+# Masked for removal in 30 days.
+dev-python/os-resource-classes
+dev-python/os-traits
+dev-python/python-manilaclient
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-17)
+# Python library with no consumers left in tree.
+# Masked for removal in 30 days.
+dev-python/mkdocs-render-swagger-plugin
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-12)
 # Dead package, no Python 3.10 support.
 # Masked for removal in 30 days.

@@ -6,11 +6,10 @@ EAPI=7
 PYTHON_COMPAT=( python3_9 )
 DISTUTILS_USE_SETUPTOOLS=bdepend
 
-inherit distutils-r1 xdg
+inherit distutils-r1 xdg pypi
 
 DESCRIPTION="A graphical frontend for IWD, Intel's iNet Wireless Daemon"
 HOMEPAGE="https://gitlab.com/hfernh/iwdgui https://pypi.org/project/iwdgui/"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
