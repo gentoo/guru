@@ -220,7 +220,6 @@ RDEPEND="
 	media-libs/freetype:2[abi_x86_32?]
 	media-libs/glu[abi_x86_32?]
 	x11-libs/libSM[abi_x86_32?]
-	app-emulation/faudio[abi_x86_32?]
 "
 
 XIVQL_COMMIT="77115d3f7d920179ce83f0708ec97ba2450ce795"
