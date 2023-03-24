@@ -12,4 +12,7 @@
 	<use>
 		<flag name="daemon">Build the feedbackd daemon</flag>
 	</use>
+	<upstream>
+		<remote-id type="gnome-gitlab">guidog/gmobile</remote-id>
+	</upstream>
 </pkgmetadata>
