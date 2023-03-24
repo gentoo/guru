@@ -590,7 +590,7 @@ dev-libs/dill 2.4.1: Provides instruction-level code generation directly into me
 dev-libs/dmd_core 0.6.2: Core logic for an AT&T / Teletype DMD 5620 terminal emulator
 dev-libs/dyninst 11.0.1-r1 12.1.0: Tools for binary instrumentation, analysis, and modification
 dev-libs/fastText 0.9.2: Library for fast text representation and classification
-dev-libs/feedbackd 0.1.0-r1: A daemon to provide haptic feedback on events
+dev-libs/feedbackd 0.1.0-r2: A daemon to provide haptic feedback on events
 dev-libs/feedbackd-device-themes 0.0.20220523 0.1.0: A daemon to provide haptic feedback on events (themes package)
 dev-libs/ffs 1.6.0_p20220525: FFS is a middleware library for data communication
 dev-libs/fortran-stdlib 0.2.1-r1 9999: A community driven standard library for (modern) Fortran
@@ -747,7 +747,7 @@ dev-nim/httpbeast 0.4.1: A super-fast epoll-backed and parallel HTTP server
 dev-nim/inim 0.6.1: Interactive Nim Shell / REPL / Playground
 dev-nim/jester 0.5.0: A sinatra-like web framework for Nim
 dev-nim/jsony 1.1.3_p20220114 1.1.5: A loose direct to object json parser with hooks
-dev-nim/karax 1.2.1_p20220621 1.2.3: a framework for developing single page applications in Nim
+dev-nim/karax 1.2.3 1.3.0: a framework for developing single page applications in Nim
 dev-nim/markdown 0.8.5 0.8.7-r1: A Markdown Parser in Nim World
 dev-nim/nake 1.9.4: make-like for Nim. Describe your builds as tasks!
 dev-nim/nimbus 1.0.0: A Nim build system
@@ -861,7 +861,7 @@ dev-python/daiquiri 3.0.1: Python library to easily setup basic logging function
 dev-python/darkdetect 0.8.0: Detect OS dark mode from Python
 dev-python/dasbus 1.7: DBus library in Python 3
 dev-python/dataclasses_json 0.5.7: Easily serialize Data Classes to and from JSON
-dev-python/dateparser 1.1.6 1.1.7: Date parsing library designed to parse dates from HTML pages
+dev-python/dateparser 1.1.7 1.1.8: Date parsing library designed to parse dates from HTML pages
 dev-python/decopatch 1.4.9 1.4.10: Create decorators easily in python
 dev-python/desktop-notifier 3.4.3: desktop-notifier is a Python library for cross-platform desktop notifications
 dev-python/devtools 0.10.0-r1: Dev tools for python
@@ -1243,7 +1243,8 @@ dev-util/typescript-language-server 3.2.0 3.3.0: TypeScript & JavaScript Languag
 dev-util/vala-language-server 0.48.4: Code Intelligence for Vala & Genie
 dev-util/vscode-langservers-extracted 4.5.0 4.6.0: HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode.
 dev-util/wakatime-cli 1.27.0 1.28.6: Command line interface to WakaTime used by all WakaTime plugins
-dev-util/xmake 2.7.7 9999: A cross-platform build utility based on Lua
+dev-util/wxformbuilder 3.10.1-r1: A wxWidgets GUI Builder
+dev-util/xmake 2.7.1 9999: A cross-platform build utility based on Lua
 dev-util/xxd 8.2.4092: Hexdump utility from vim
 dev-util/yaml-language-server 1.11.0 1.12.0: Language Server for YAML Files
 dev-vcs/bit 1.1.1 1.1.2: Bit is a modern Git CLI
@@ -1319,7 +1320,7 @@ games-util/minigalaxy 1.0.2 1.1.0: A simple GOG client for Linux
 games-util/roll 2.6.1: Program to roll dices specified in a simple and intuitive way
 games-util/samrewritten 9999 202008: Steam Achievement Manager For Linux
 games-util/steamtinkerlaunch 12.0: Wrapper script for Steam custom launch options
-games-util/xivlauncher 1.0.3: Custom Launcher for Final Fantasy XIV Online (Crossplatform rewrite)
+games-util/xivlauncher 1.0.3-r1: Custom Launcher for Final Fantasy XIV Online (Crossplatform rewrite)
 gnome-extra/extension-manager 0.4.0 9999: A native tool for browsing, installing, and managing GNOME Shell Extensions
 gnome-extra/iio-sensor-proxy 3.3: IIO sensors to D-Bus proxy
 gnome-extra/junction 1.6-r1: Application/browser chooser
@@ -1538,7 +1539,7 @@ net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various pl
 net-client/amfora 1.8.0 1.9.2: A fancy terminal browser for the Gemini protocol.
 net-client/castor 0.8.18 0.9.0: A graphical browser for plain-text protocols
 net-client/kristall 0.3-r2 0.4: Visual cross-platform gemini browser
-net-client/lagrange 1.15.4 1.15.5: Desktop GUI client for browsing Geminispace
+net-client/lagrange 1.15.5 1.15.6: Desktop GUI client for browsing Geminispace
 net-client/offpunk 1.8 1.9.1: Offline-First Gemini/Web/Gopher/RSS reader and browser
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
 net-client/telescope 0.7.1 0.8.1: w3m-like browser for Gemini
@@ -1648,7 +1649,7 @@ sci-biology/cmdock 0.2.0: Program for docking ligands to proteins and nucleic ac
 sci-biology/geneathome 1.10-r3: BOINC application for expanding Gene Regulatory Networks (GRN)
 sci-chemistry/vesta-bin 3.5.8: Visualisation for Electronic and STructural Analysis.
 sci-chemistry/xcrysden 1.6.2: For the visualisation of molecular and crystal structures.
-sci-electronics/bluespec 2022.01-r1 9999: Toolchain for the Bluespec Hardware Definition Language
+sci-electronics/bluespec 2022.01-r1 2023.01 9999: Toolchain for the Bluespec Hardware Definition Language
 sci-electronics/circt 1.14.0: The fast free Verilog/SystemVerilog simulator
 sci-electronics/dsview 1.2.1 9999: An open source multi-function instrument
 sci-electronics/kactus2 3.10.0 9999: A open source IP-XACT-based tool

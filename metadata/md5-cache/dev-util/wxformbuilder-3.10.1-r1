@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=x11-libs/wxGTK:3.2-gtk3[X]
+DESCRIPTION=A wxWidgets GUI Builder
+EAPI=8
+HOMEPAGE=https://github.com/wxFormBuilder/wxFormBuilder
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake wxwidgets xdg
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=x11-libs/wxGTK:3.2-gtk3[X]
+SLOT=0
+SRC_URI=https://github.com/wxFormBuilder/wxFormBuilder/archive/1fa5400695f68ee22718f4a4a28b2fb63f275145.tar.gz -> wxformbuilder-1fa5400695f68ee22718f4a4a28b2fb63f275145.tar.gz https://github.com/wxFormBuilder/ticpp/archive/6f45ec628cbf34784bb3b3132c0d00aac8e491c6.tar.gz -> wxformbuilder-ticpp-6f45ec628cbf34784bb3b3132c0d00aac8e491c6.tar.gz
+_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	xdg-utils	ac0e315a3688929e34ac75b139e7349a	cmake	2e47edc2986d4e1c0363867058cd4489	wxwidgets	9a707a3f9f1ea7aa703b1e46552291e5	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=81cdd5ba57d7f531098568b447061430

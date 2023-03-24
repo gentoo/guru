@@ -1,0 +1,14 @@
+BDEPEND=dev-haskell/cabal:0= dev-lang/ghc:0= dev-lang/perl dev-util/gperf doc? ( dev-ruby/asciidoctor dev-ruby/asciidoctor-pdf dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-latexrecommended dev-texlive/texlive-plaingeneric ) sys-apps/coreutils sys-devel/autoconf sys-devel/bison sys-devel/flex virtual/pkgconfig
+DEFINED_PHASES=compile install postinst postrm prepare test
+DEPEND=app-eselect/eselect-bluespec app-shells/tcsh dev-haskell/old-time:0= dev-haskell/regex-compat:0= dev-haskell/split:0= dev-haskell/syb:0= dev-lang/tcl test? ( dev-util/dejagnu sci-electronics/iverilog sci-electronics/systemc sys-process/time )
+DESCRIPTION=Toolchain for the Bluespec Hardware Definition Language
+EAPI=8
+HOMEPAGE=https://github.com/B-Lang-org/bsc
+IUSE=doc test
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD GPL-3+ MIT
+RDEPEND=app-eselect/eselect-bluespec app-shells/tcsh dev-haskell/old-time:0= dev-haskell/regex-compat:0= dev-haskell/split:0= dev-haskell/syb:0= dev-lang/tcl
+RESTRICT=!test? ( test )
+SLOT=2023.01
+SRC_URI=https://github.com/B-Lang-org/bsc/archive/refs/tags/2023.01.tar.gz -> bluespec-2023.01.tar.gz https://github.com/SRI-CSL/yices2/archive/refs/tags/Yices-2.6.4.tar.gz -> yices-2.6.4.tar.gz
+_md5_=6f19ee8d6b613d1b1e116844ae623dab
