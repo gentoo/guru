@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<changelog>https://github.com/wxFormBuilder/wxFormBuilder/releases</changelog>
+		<bugs-to>https://github.com/wxFormBuilder/wxFormBuilder/issues</bugs-to>
+		<remote-id type="github">wxFormBuilder/wxFormBuilder</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		wxFormBuilder is a GUI builder for the wxWidgets framework.
+		Code generation is supported for C++, Python, Lua and PHP. Additionally,
+		the import and export of XRC code is possible. To support additional
+		widgets, custom plugins can be used.
+		wxFormBuilder runs on Windows, various Linux distributions and macOS.
+	</longdescription>
+</pkgmetadata>

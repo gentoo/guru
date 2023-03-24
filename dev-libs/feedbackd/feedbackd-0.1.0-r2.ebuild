@@ -24,6 +24,7 @@ RESTRICT="!test? ( test )"
 
 DEPEND="
 	dev-libs/glib:2
+	daemon? ( dev-libs/json-glib )
 	introspection? ( dev-libs/gobject-introspection )
 "
 RDEPEND="${DEPEND}

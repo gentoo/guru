@@ -14,6 +14,10 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-24)
+# Archived upstream.
+net-im/gtkcord:0
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-17)
 # Python libraries with no consumers left in tree.
 # Masked for removal in 30 days.
