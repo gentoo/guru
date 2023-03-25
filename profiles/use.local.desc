@@ -926,6 +926,7 @@ x11-libs/gtk-fortran:plplot - Build with sci-libs/plplot support
 x11-libs/sdl-fakeqwerty:sdl - Enable support for libsdl
 x11-libs/sdl-fakeqwerty:sdl2 - Enable support for libsdl2
 x11-libs/sdl-fakeqwerty:xlib - Enable support for libX11
+x11-misc/i3status-rust:notmuch - Enable support for net-mail/notmuch
 x11-misc/picom-jonaburg:config-file - Enable config file support
 x11-misc/picom-jonaburg:doc - Build documentation and man pages (requires app-text/asciidoc)
 x11-misc/picom-jonaburg:drm - Enable support for using drm for vsync

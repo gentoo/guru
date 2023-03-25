@@ -1,6 +1,6 @@
 BDEPEND=dev-util/gdbus-codegen gtk-doc? ( dev-util/gi-docgen ) man? ( dev-python/docutils ) vala? ( || ( dev-lang/vala:0.56[vapigen(+)] ) ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/glib:2 daemon? ( dev-libs/json-glib ) introspection? ( dev-libs/gobject-introspection )
+DEPEND=dev-libs/glib:2 daemon? ( dev-libs/json-glib dev-libs/libgudev media-libs/gsound ) introspection? ( dev-libs/gobject-introspection )
 DESCRIPTION=A daemon to provide haptic feedback on events
 EAPI=8
 HOMEPAGE=https://source.puri.sm/Librem5/feedbackd
@@ -8,10 +8,10 @@ INHERIT=vala meson
 IUSE=+daemon gtk-doc +introspection man test +vala
 KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=LGPL-3
-RDEPEND=dev-libs/glib:2 daemon? ( dev-libs/json-glib ) introspection? ( dev-libs/gobject-introspection ) dev-libs/feedbackd-device-themes
+RDEPEND=dev-libs/glib:2 daemon? ( dev-libs/json-glib dev-libs/libgudev media-libs/gsound ) introspection? ( dev-libs/gobject-introspection ) dev-libs/feedbackd-device-themes
 REQUIRED_USE=vala? ( introspection )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://source.puri.sm/Librem5/feedbackd/-/archive/v0.1.0/feedbackd-v0.1.0.tar.bz2 https://gitlab.gnome.org/guidog/gmobile/-/archive/d483537aee4778b114ce5d50c4c8a9f8d58337ed.tar.bz2 -> gmobile-d483537aee4778b114ce5d50c4c8a9f8d58337ed.tar.bz2
 _eclasses_=vala	2633382950a3a9ce912c9258150d5db8	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	cd2865332c8d99e1da0655523ff4a28f
-_md5_=a25c41c06f17526e2dbbe84df17ead32
+_md5_=d750161ada21314b521d43e344b6302f
