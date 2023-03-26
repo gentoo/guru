@@ -1,4 +1,4 @@
-# Copyright 2019-2022 Gentoo Authors
+# Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,7 +19,6 @@ fi
 LICENSE="GPL-3"
 SLOT="0"
 IUSE="systemd"
-PATCHES=( "${FILESDIR}/${PN}-9999-remove-docs-from-make.patch" )
 
 DEPEND="
 	sys-fs/btrfs-progs
@@ -38,9 +37,9 @@ src_compile(){
 src_install(){
 	local conf
 	if use systemd; then
-		conf+="SYSTEMD=true OPENRC=false"
+		conf+="GRUB_UPDATE_EXCLUDE=true INSTALL_DOCS=false SYSTEMD=true OPENRC=false"
 	else
-		conf+="OPENRC=true SYSTEMD=false"
+		conf+="GRUB_UPDATE_EXCLUDE=true INSTALL_DOCS=false OPENRC=true SYSTEMD=false"
 	fi
 	emake DESTDIR="${D}" ${conf} install || die
 	dodoc README.md
