@@ -85,7 +85,6 @@ dev-python/pycadf
 dev-python/pyngus
 dev-python/python-monascaclient
 dev-python/python-qpid-proton
-dev-python/tinyrpc
 
 # Julien Roy <julien@jroy.ca> (2023-01-25)
 # Requires <dev-python/coverage-7, which is no longer available in ::gentoo.
