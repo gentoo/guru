@@ -82,7 +82,6 @@ dev-python/osprofiler
 dev-python/ovsdbapp
 dev-python/pybeam
 dev-python/pycadf
-dev-python/pyngus
 
 # Julien Roy <julien@jroy.ca> (2023-01-25)
 # Requires <dev-python/coverage-7, which is no longer available in ::gentoo.
