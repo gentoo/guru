@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=alsa? ( media-libs/alsa-lib ) lv2? ( media-libs/lv2 ) media-libs/libsmf media-libs/libsndfile media-libs/zita-resampler x11-libs/libX11
 REQUIRED_USE=|| ( alsa jack )
 SLOT=0
-_eclasses_=git-r3	c57c50c922e121043788de0b40ada60a
+_eclasses_=git-r3	27e13c09a4c7e4c78ac812f74727e676
 _md5_=5963375a05b880afc3c48a794f37b4e8

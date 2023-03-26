@@ -10,5 +10,5 @@ LICENSE=MIT
 RDEPEND=dev-libs/glib:2[dbus]
 SLOT=0
 SRC_URI=https://github.com/Sweets/tiramisu/archive/2.0.20211107.tar.gz -> tiramisu-2.0.20211107.tar.gz
-_eclasses_=vala	2633382950a3a9ce912c9258150d5db8
+_eclasses_=vala	1343f639cc74d2aa8b36fc08677da58d
 _md5_=8690bcba23290218f6c746abb3f1026a

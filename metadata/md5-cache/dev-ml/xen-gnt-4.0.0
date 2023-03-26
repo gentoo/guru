@@ -13,5 +13,5 @@ REQUIRED_USE=test? ( unix )
 RESTRICT=!test? ( test )
 SLOT=0/4.0.0
 SRC_URI=https://github.com/mirage/ocaml-gnt/releases/download/v4.0.0/xen-gnt-v4.0.0.tbz
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	beddc7cde467b2e48afc78a87d042c01
 _md5_=67f65d84e81abe0413de0c3579f021b4

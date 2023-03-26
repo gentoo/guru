@@ -9,5 +9,5 @@ LICENSE=MPL-2.0 GPL-3
 PROPERTIES=live
 RDEPEND=sys-devel/qbe >=dev-lang/harec-0_pre20220702
 SLOT=0
-_eclasses_=git-r3	c57c50c922e121043788de0b40ada60a
+_eclasses_=git-r3	27e13c09a4c7e4c78ac812f74727e676
 _md5_=df9f52944b6d9f5a7cc579333069759b

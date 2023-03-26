@@ -13,5 +13,5 @@ REQUIRED_USE=lwt? ( ppx ) test? ( lwt ppx ppx-deriving-json toplevel tyxml ) top
 RESTRICT=!test? ( test )
 SLOT=0/4.0.0
 SRC_URI=https://github.com/ocsigen/js_of_ocaml/archive/4.0.0.tar.gz -> js_of_ocaml-4.0.0.tar.gz
-_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	77dc707d5b61b8d0b0fe46cefbdfec3a	findlib	cc1c14904708a0a28bcb256b342a808c
+_eclasses_=edo	c0eb9cbe6b0bd01fcb4918f12598a4d3	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	dune	beddc7cde467b2e48afc78a87d042c01	findlib	cc1c14904708a0a28bcb256b342a808c
 _md5_=093fae7629f23cae844ad146c11c44b5

@@ -9,5 +9,5 @@ LICENSE=Apache-2.0
 RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
 SLOT=0
 SRC_URI=https://github.com/luochen1990/rainbow/archive/c18071e5c7790928b763c2e88c487dfc93d84a15.tar.gz -> rainbow-3.4.0_p20211113.tar.gz
-_eclasses_=readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	vim-doc	f088862726f2bc672c57b1063b81ec52	vim-plugin	eb89c94cd8e3b681c68883e8b6b40e83
+_eclasses_=readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3	vim-doc	f088862726f2bc672c57b1063b81ec52	vim-plugin	92ea4186891b666b0970fa1d713d64fa
 _md5_=98bb685bed1d2251bfde9919ecdf8f3f

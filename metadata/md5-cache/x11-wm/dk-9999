@@ -10,5 +10,5 @@ LICENSE=MIT
 PROPERTIES=live
 RDEPEND=x11-base/xcb-proto x11-libs/libxcb x11-libs/xcb-util-cursor x11-libs/xcb-util-keysyms x11-libs/xcb-util x11-libs/xcb-util-wm x11-misc/sxhkd
 SLOT=0
-_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	xdg-utils	ac0e315a3688929e34ac75b139e7349a	git-r3	c57c50c922e121043788de0b40ada60a
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	xdg-utils	baea6080dd821f5562d715887954c9d3	git-r3	27e13c09a4c7e4c78ac812f74727e676
 _md5_=df3f7e9212c8311a283432c1cd21394f

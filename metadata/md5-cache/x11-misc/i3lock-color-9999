@@ -9,5 +9,5 @@ LICENSE=BSD
 PROPERTIES=live
 RDEPEND=dev-libs/libev media-libs/fontconfig:= media-libs/libjpeg-turbo sys-libs/pam x11-libs/cairo[X] x11-libs/libxcb x11-libs/libxkbcommon[X] x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-xrm !!x11-misc/i3lock
 SLOT=0
-_eclasses_=git-r3	c57c50c922e121043788de0b40ada60a
+_eclasses_=git-r3	27e13c09a4c7e4c78ac812f74727e676
 _md5_=515c5cc13a312484cff11c990e6f1aaa

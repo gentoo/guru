@@ -10,5 +10,5 @@ PROPERTIES=live
 RDEPEND=sys-libs/ncurses:= sys-libs/readline:= virtual/pkgconfig
 RESTRICT=test
 SLOT=0
-_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	git-r3	c57c50c922e121043788de0b40ada60a
+_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	git-r3	27e13c09a4c7e4c78ac812f74727e676
 _md5_=2ab7f08e94267c3537ab475f0c051244

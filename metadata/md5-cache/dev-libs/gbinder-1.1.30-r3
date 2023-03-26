@@ -10,5 +10,5 @@ LICENSE=BSD
 RDEPEND=dev-libs/libglibutil
 SLOT=0
 SRC_URI=https://github.com/mer-hybris/libgbinder/archive/1.1.30.tar.gz -> gbinder-1.1.30.tar.gz
-_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693
 _md5_=be69b316c8f0a814fb07f1fdfd2dd847

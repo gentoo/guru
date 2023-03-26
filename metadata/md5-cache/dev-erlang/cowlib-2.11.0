@@ -11,5 +11,5 @@ RDEPEND=dev-lang/erlang:=
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/ninenines/cowlib/archive/2.11.0.tar.gz -> cowlib-2.11.0.tar.gz
-_eclasses_=rebar	2914a5b863e914d99ddc9a6b6222a76f
+_eclasses_=rebar	ee6e83452f154c8ce7b91144005c5faf
 _md5_=797cb9c26627069afc33fb77fce1052a

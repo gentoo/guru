@@ -12,5 +12,5 @@ RDEPEND=dev-perl/Const-Fast dev-perl/HTTP-Tiny-Multipart dev-perl/JSON dev-perl/
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/B/BL/BLUEFEET/GitLab-API-v4-0.26.tar.gz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	perl-module	8c55459fea879ccdec282839a3b22f78
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	perl-functions	c3fca037246e877693badea0df3b0ef8	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	perl-module	8c55459fea879ccdec282839a3b22f78
 _md5_=7462441893f45370964343ee966b6021

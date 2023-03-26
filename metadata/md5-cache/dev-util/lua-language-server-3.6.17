@@ -11,5 +11,5 @@ RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/LuaLS/lua-language-server/releases/download/3.6.17/lua-language-server-3.6.17-submodules.zip -> lua-language-server-3.6.17.zip
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	38c85b725d0467e51954ea921b6c104b	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	prefix	eab3c99d77fe00506c109c8a736186f7
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	lua-utils	d37a16dbcc1f07f71bc48da75ed7a0cb	lua-single	86d497a20c93c7ce83af442f627515c1	prefix	eab3c99d77fe00506c109c8a736186f7
 _md5_=1f33412070e7b7ad18f30f4f2a6edc30

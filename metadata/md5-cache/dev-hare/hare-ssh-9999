@@ -8,5 +8,5 @@ LICENSE=MPL-2.0
 PROPERTIES=live
 RDEPEND=dev-lang/hare
 SLOT=0
-_eclasses_=git-r3	c57c50c922e121043788de0b40ada60a
+_eclasses_=git-r3	27e13c09a4c7e4c78ac812f74727e676
 _md5_=c18e2a28119fed575934ac3f121fcd40

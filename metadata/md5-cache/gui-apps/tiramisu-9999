@@ -9,5 +9,5 @@ LICENSE=MIT
 PROPERTIES=live
 RDEPEND=dev-libs/glib:2[dbus]
 SLOT=0
-_eclasses_=vala	2633382950a3a9ce912c9258150d5db8	git-r3	c57c50c922e121043788de0b40ada60a
+_eclasses_=vala	1343f639cc74d2aa8b36fc08677da58d	git-r3	27e13c09a4c7e4c78ac812f74727e676
 _md5_=8690bcba23290218f6c746abb3f1026a

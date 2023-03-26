@@ -10,5 +10,5 @@ LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=media-libs/libvorbis media-libs/libogg media-libs/libmad virtual/opengl virtual/glu sdl2? ( media-libs/libsdl2 ) !sdl2? ( media-libs/libsdl )
 SLOT=0
-_eclasses_=git-r3	c57c50c922e121043788de0b40ada60a
+_eclasses_=git-r3	27e13c09a4c7e4c78ac812f74727e676
 _md5_=d286e617d9627051ffc8576665c75c2f

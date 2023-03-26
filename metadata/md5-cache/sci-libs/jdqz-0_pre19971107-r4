@@ -12,5 +12,5 @@ RDEPEND=virtual/blas virtual/lapack || ( sci-libs/openblas !sci-libs/lapack[-dep
 RESTRICT=!test? ( test )
 SLOT=0/0_pre19971107
 SRC_URI=https://www.win.tue.nl/~hochsten/jd/jdqz.tar.gz -> jdqz-0_pre19971107.tar.gz
-_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	fortran-2	7eb0cd2524143c5f3298ba4bcc95391b
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea
 _md5_=7cef38e1bb161f62b12682cbf8500f40

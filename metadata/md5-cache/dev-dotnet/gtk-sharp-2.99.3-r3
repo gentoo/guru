@@ -12,5 +12,5 @@ RDEPEND=>=dev-lang/mono-3.0 x11-libs/pango >=dev-libs/glib-2.31 dev-libs/atk x11
 RESTRICT=test
 SLOT=3
 SRC_URI=https://github.com/mono/gtk-sharp/archive/2.99.3.tar.gz -> gtk-sharp-2.99.3.tar.gz
-_eclasses_=mono-env	cef880fd27385e7e80934656e8789627	dotnet	ef209a6e0d509373d570f41c2120c9fa	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	b5529dc611971a61a30153916014f616
+_eclasses_=mono-env	cef880fd27385e7e80934656e8789627	dotnet	ef209a6e0d509373d570f41c2120c9fa	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a
 _md5_=829b15e8ea89fd62e5df4dc60bb081a6

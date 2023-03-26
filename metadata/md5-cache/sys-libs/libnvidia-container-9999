@@ -9,5 +9,5 @@ LICENSE=Apache-2.0
 PROPERTIES=live
 RDEPEND=net-libs/libtirpc sys-libs/libcap sys-libs/libseccomp x11-drivers/nvidia-drivers
 SLOT=0
-_eclasses_=git-r3	c57c50c922e121043788de0b40ada60a
+_eclasses_=git-r3	27e13c09a4c7e4c78ac812f74727e676
 _md5_=5ca5945da5f7305a77a417caca8b0517

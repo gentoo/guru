@@ -11,5 +11,5 @@ RDEPEND=app-shells/fzf app-shells/zsh
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/Aloxaf/fzf-tab/archive/938eef72e93ddb0609205a663bf0783f4e1b5fae.tar.gz -> fzf-tab-0_pre20220815.tar.gz
-_eclasses_=readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55
+_eclasses_=readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3
 _md5_=2f1af1c4369e62d94d3db8963bbc2ed6

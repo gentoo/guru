@@ -12,5 +12,5 @@ RDEPEND=>=app-accessibility/at-spi2-core-2.46.0:2 app-crypt/libsecret app-misc/j
 RESTRICT=bindist mirror strip test
 SLOT=0
 SRC_URI=https://download1.rstudio.org/electron/rhel8/x86_64/rstudio-2022.12.0-353-x86_64.rpm
-_eclasses_=toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	linux-info	ecb03306c95c6ccc55852c98abcfcc64	chromium-2	93690d770dc2e27deaa89794e2f9fe3f	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	estack	055c42df72f76a4f45ec92b35e83cd56	rpm	f73e907469f65e52192f110dec72dce0	xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	linux-info	54fa9b732d29075cfacc3c3091b38747	chromium-2	93690d770dc2e27deaa89794e2f9fe3f	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	estack	055c42df72f76a4f45ec92b35e83cd56	rpm	f73e907469f65e52192f110dec72dce0	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=9f1330ea34f818ad29a5459725dc4947

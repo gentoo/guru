@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=app-text/scdoc pass? ( app-admin/pass ) gopass? ( app-admin/gopass )
 REQUIRED_USE=|| ( pass gopass )
 SLOT=0
-_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	git-r3	c57c50c922e121043788de0b40ada60a
+_eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	git-r3	27e13c09a4c7e4c78ac812f74727e676
 _md5_=4d360ee7d8d906bda5e7bb6433e45bef

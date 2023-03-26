@@ -9,5 +9,5 @@ LICENSE=BSD
 RDEPEND=dev-qt/qtcore:5 dev-qt/qtnetwork:5 dev-qt/qtxml:5 dev-qt/qtsql:5 dev-qt/qtwidgets:5 dev-libs/quazip
 SLOT=0
 SRC_URI=https://github.com/dh4/mupen64plus-qt/archive/1.15.tar.gz -> mupen64plus-qt-1.15.tar.gz
-_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157	qmake-utils	59420c906278d16deaaa629f9d115707
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	qmake-utils	59420c906278d16deaaa629f9d115707
 _md5_=9c2fc3232232d0f492507f8ecc15ae0f

@@ -11,5 +11,5 @@ RDEPEND=app-shells/zsh
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/mafredri/zsh-async/archive/3ba6e2d1ea874bfb6badb8522ab86c1ae272923d.tar.gz -> zsh-async-1.8.5_p20211005.tar.gz
-_eclasses_=readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55
+_eclasses_=readme.gentoo-r1	204091a2cde6179cd9d3db26d09412d3
 _md5_=2f68229fdcad1d2423eba85c1b83e471

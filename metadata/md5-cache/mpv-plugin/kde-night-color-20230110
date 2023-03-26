@@ -10,5 +10,5 @@ LICENSE=Unlicense
 RDEPEND=media-video/mpv:=[cplugins(+),libmpv]
 SLOT=0
 SRC_URI=https://gitlab.com/smaniottonicola/kde-night-color/-/archive/2fb6f013a21553861c6ce28d48e022eb361097b4/kde-night-color-2fb6f013a21553861c6ce28d48e022eb361097b4.tar.gz -> kde-night-color-20230110.tar.gz
-_eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	multilib	5ca4e49abed8e3a2f7b56920eadee157
+_eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693
 _md5_=5ab55f35f83f832db2b764424f50c01a
