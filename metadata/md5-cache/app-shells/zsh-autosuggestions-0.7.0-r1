@@ -12,5 +12,5 @@ REQUIRED_USE=test? ( || ( ruby_targets_ruby27 ruby_targets_ruby30 ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/zsh-users/zsh-autosuggestions/archive/v0.7.0.tar.gz -> zsh-autosuggestions-0.7.0.tar.gz
-_eclasses_=readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-ng	41693b3ee4cab79e287237b59f7e2184
+_eclasses_=readme.gentoo-r1	b776ad4b42f564c406a95c41ccb42c55	estack	055c42df72f76a4f45ec92b35e83cd56	multilib	5ca4e49abed8e3a2f7b56920eadee157	toolchain-funcs	6001248ef162a5fa2a21ce132a212f6b	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-ng	378d61ff0c0fe75e24cc380111c71424
 _md5_=08a92be62d4d08bce846d8b56a6085be
