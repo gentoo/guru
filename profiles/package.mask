@@ -79,7 +79,6 @@ dev-python/oslo-metrics
 dev-python/oslo-middleware
 dev-python/oslo-upgradecheck
 dev-python/osprofiler
-dev-python/ovsdbapp
 
 # Julien Roy <julien@jroy.ca> (2023-01-25)
 # Requires <dev-python/coverage-7, which is no longer available in ::gentoo.
