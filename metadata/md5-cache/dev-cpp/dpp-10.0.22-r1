@@ -11,5 +11,5 @@ LICENSE=Apache-2.0
 RDEPEND=dev-libs/openssl:= sys-libs/zlib:= voice? ( dev-libs/libsodium:= media-libs/opus )
 SLOT=0/10.0.22
 SRC_URI=https://github.com/brainboxdotcc/DPP/archive/refs/tags/v10.0.22.tar.gz -> dpp-10.0.22.tar.gz https://patch-diff.githubusercontent.com/raw/brainboxdotcc/DPP/pull/596.patch -> dpp-890014-rework-compiler-flags.patch
-_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	a5db80fc70a5cb2ba598250d1c470593
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c
 _md5_=b5600400d1bb5cf93da7d48d24200f57
