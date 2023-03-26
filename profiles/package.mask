@@ -70,7 +70,6 @@ dev-python/automaton
 dev-python/cotyledon
 dev-python/httptools
 dev-python/ldappool
-dev-python/microversion-parse
 
 # Julien Roy <julien@jroy.ca> (2023-01-25)
 # Requires <dev-python/coverage-7, which is no longer available in ::gentoo.
