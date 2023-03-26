@@ -75,7 +75,6 @@ dev-python/monotonic
 dev-python/ncclient
 dev-python/os-testr
 dev-python/oslo-cache
-dev-python/oslo-metrics
 
 # Julien Roy <julien@jroy.ca> (2023-01-25)
 # Requires <dev-python/coverage-7, which is no longer available in ::gentoo.
