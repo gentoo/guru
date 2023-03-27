@@ -23,7 +23,6 @@ In this repository you'll find:
 NOTE: Plasma theme Arc Color now supports KDE Color Schemes with Papirus icon theme.
   </longdescription>
   <upstream>
-    <bugs-to>https://github.com/PapirusDevelopmentTeam/arc-kde/issues</bugs-to>
-    <doc>https://github.com/PapirusDevelopmentTeam/arc-kde/blob/master/README.md</doc>
+    <remote-id type="github">PapirusDevelopmentTeam/arc-kde</remote-id>
   </upstream>
 </pkgmetadata>
