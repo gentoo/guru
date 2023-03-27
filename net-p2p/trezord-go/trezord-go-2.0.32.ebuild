@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -8,7 +8,6 @@ inherit go-module systemd udev
 EGO_SUM=(
 	"github.com/BurntSushi/toml v0.3.1"
 	"github.com/BurntSushi/toml v0.3.1/go.mod"
-	"github.com/creack/pty v1.1.9/go.mod"
 	"github.com/felixge/httpsnoop v1.0.1"
 	"github.com/felixge/httpsnoop v1.0.1/go.mod"
 	"github.com/gorilla/csrf v1.7.0"
@@ -19,23 +18,14 @@ EGO_SUM=(
 	"github.com/gorilla/mux v1.8.0/go.mod"
 	"github.com/gorilla/securecookie v1.1.1"
 	"github.com/gorilla/securecookie v1.1.1/go.mod"
-	"github.com/kr/pty v1.1.1/go.mod"
-	"github.com/kr/text v0.1.0"
-	"github.com/kr/text v0.1.0/go.mod"
-	"github.com/kr/text v0.2.0"
-	"github.com/kr/text v0.2.0/go.mod"
-	"github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e"
-	"github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod"
 	"github.com/pkg/errors v0.9.1"
 	"github.com/pkg/errors v0.9.1/go.mod"
 	"gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405"
 	"gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod"
-	"gopkg.in/check.v1 v1.0.0-20200902074654-038fdea0a05b"
-	"gopkg.in/check.v1 v1.0.0-20200902074654-038fdea0a05b/go.mod"
 	"gopkg.in/natefinch/lumberjack.v2 v2.0.0"
 	"gopkg.in/natefinch/lumberjack.v2 v2.0.0/go.mod"
-	"gopkg.in/yaml.v2 v2.3.0"
-	"gopkg.in/yaml.v2 v2.3.0/go.mod"
+	"gopkg.in/yaml.v2 v2.4.0"
+	"gopkg.in/yaml.v2 v2.4.0/go.mod"
 )
 
 go-module_set_globals
