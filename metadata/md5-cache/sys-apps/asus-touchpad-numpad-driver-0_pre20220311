@@ -11,5 +11,5 @@ RDEPEND=dev-libs/libevdev sys-apps/i2c-tools python_single_target_python3_9? ( d
 REQUIRED_USE=^^ ( python_single_target_python3_9 python_single_target_python3_10 python_single_target_python3_11 )
 SLOT=0
 SRC_URI=https://github.com/mohamed-badaoui/asus-touchpad-numpad-driver/archive/a2bada610ebb3fc002fceb53ddf93bc799241867.tar.gz -> asus-touchpad-numpad-driver-0_pre20220311.tar.gz
-_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	linux-info	54fa9b732d29075cfacc3c3091b38747	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-single-r1	75118e916668a74c660a13b0ecb22562
 _md5_=1d5a4b6e1f9c60ec103b539a7927ea97

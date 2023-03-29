@@ -10,5 +10,5 @@ LICENSE=GPL-2+ public-domain
 PROPERTIES=live
 RDEPEND=x11-libs/libX11 >=media-libs/imlib2-1.8.0[X] statusbar? ( x11-libs/libXft ) exif? ( media-libs/libexif )
 SLOT=0
-_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	xdg-utils	baea6080dd821f5562d715887954c9d3	portability	964493f201f557a5c6baccacccf45ee2	savedconfig	8b5f9d995a970e49cd427c55d5840285	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	linux-info	54fa9b732d29075cfacc3c3091b38747	git-r3	27e13c09a4c7e4c78ac812f74727e676
+_eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	xdg-utils	baea6080dd821f5562d715887954c9d3	portability	964493f201f557a5c6baccacccf45ee2	savedconfig	8b5f9d995a970e49cd427c55d5840285	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	git-r3	27e13c09a4c7e4c78ac812f74727e676
 _md5_=956f3bcf7e1a0f5958aa6b1ac178eec5
