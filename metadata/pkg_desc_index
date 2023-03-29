@@ -1615,7 +1615,7 @@ net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital mar
 net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 0.18.1.0 0.18.1.1 0.18.1.2 0.18.2.0 9999: The secure, private, untraceable cryptocurrency
 net-p2p/p2pool 2.7 3.0 3.1 9999: Decentralized pool for Monero mining
 net-p2p/popura 0.4.6 9999: Popura: alternative Yggdrasil network client
-net-p2p/trezord-go 2.0.32: TREZOR Communication Daemon
+net-p2p/trezord-go 2.0.32-r1: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.4.7 9999: An experiment in scalable routing as an encrypted IPv6 overlay network
 net-print/hpuld 1.00.39.15.00.23-r1: HP Unified Linux Driver (for samsung hardware)
 net-voip/discover-overlay 0.4.5 0.5.4 0.6.3-r1: Yet another Discord overlay for Linux written in Python using GTK3
