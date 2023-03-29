@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit go-module systemd udev
 
@@ -62,4 +62,12 @@ src_install() {
 
 	use systemd && systemd_dounit release/linux/trezord.service
 	use udev && udev_dorules release/linux/trezor.rules
+}
+
+pkg_postinst() {
+	use udev && udev_reload
+}
+
+pkg_postrm() {
+	use udev && udev_reload
 }
