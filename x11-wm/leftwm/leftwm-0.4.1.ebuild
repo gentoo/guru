@@ -173,7 +173,6 @@ DEPEND="
 	x11-libs/libXinerama:0=
 	x11-apps/xrandr:0=
 	x11-base/xorg-server:0=
-	>=dev-lang/rust-1.60.0
 "
 RDEPEND="${DEPEND}"
 

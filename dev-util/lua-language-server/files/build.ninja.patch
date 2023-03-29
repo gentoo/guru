@@ -1,6 +1,6 @@
 --- a/build/build.ninja
 +++ b/build/build.ninja
-@@ -12,26 +12,26 @@
+@@ -12,25 +12,25 @@
      3rd/bee.lua/compile/config.lua 3rd/bee.lua/compile/common.lua $
      make/code_format.lua
  rule c_source_bee
@@ -16,16 +16,14 @@
      3rd/bee.lua/3rd/lua-seri/lua-seri.c
  rule cxx_source_bee
 -  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -O2 -Wall $
--    -Werror -fvisibility=hidden -I3rd/bee.lua/bee/nonstd/3rd -DNDEBUG -fPIC $
--    -o $out -c $in
+-    -Werror -fvisibility=hidden -DNDEBUG -fPIC -o $out -c $in
 +  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -Wall $
-+    -fvisibility=hidden -I3rd/bee.lua/bee/nonstd/3rd -DNDEBUG -fPIC $
-+    -o $out -c $in CXXFLAGS
++    -fvisibility=hidden -DNDEBUG -fPIC -o $out -c $in CXXFLAGS
    description = Compile C++ $out
    deps = gcc
    depfile = $out.d
  build $obj/source_bee/format.obj: cxx_source_bee $
-     3rd/bee.lua/bee/nonstd/3rd/fmt/format.cc
+     3rd/bee.lua/bee/nonstd/3rd/format.cc
  rule cxx_source_bee_1
 -  command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -O2 -Wall $
 -    -Werror -fvisibility=hidden -I3rd/bee.lua -DNDEBUG -fPIC -o $out -c $in
@@ -34,7 +32,7 @@
    description = Compile C++ $out
    deps = gcc
    depfile = $out.d
-@@ -57,9 +57,9 @@
+@@ -56,9 +56,9 @@
  build $obj/source_bee/path_helper.obj: cxx_source_bee_1 $
      3rd/bee.lua/bee/utility/path_helper.cpp
  rule cxx_source_bee_2
@@ -47,7 +45,7 @@
    description = Compile C++ $out
    deps = gcc
    depfile = $out.d
-@@ -80,26 +80,26 @@
+@@ -79,26 +79,26 @@
  build $obj/source_bee/lua_time.obj: cxx_source_bee_2 $
      3rd/bee.lua/binding/lua_time.cpp
  rule c_source_lua
@@ -81,7 +79,7 @@
    description = Compile C++ $out
    deps = gcc
    depfile = $out.d
-@@ -109,7 +109,7 @@
+@@ -108,7 +108,7 @@
      3rd/bee.lua/bootstrap/progdir.cpp
  rule link_bootstrap
    command = $cc $in -o $out -lm -ldl -Wl,-E -lstdc++fs -pthread $
@@ -90,7 +88,7 @@
    description = Link    Exe $out
  build $bin/bootstrap: link_bootstrap $obj/source_bootstrap/main.obj $
      $obj/source_bootstrap/progdir.obj $obj/source_bee/lua-seri.obj $
-@@ -148,10 +148,10 @@
+@@ -147,10 +147,10 @@
      3rd/bee.lua/test/test_thread.lua 3rd/bee.lua/test/test_time.lua | $
      $bin/bootstrap copy_script
  rule cxx_code_format
@@ -103,7 +101,7 @@
    description = Compile C++ $out
    deps = gcc
    depfile = $out.d
-@@ -246,9 +246,9 @@
+@@ -247,9 +247,9 @@
  build $obj/code_format/Utf8.obj: cxx_code_format $
      3rd/EmmyLuaCodeStyle/Util/src/Utf8.cpp
  rule c_lpeglabel
@@ -115,7 +113,7 @@
    description = Compile C   $out
    deps = gcc
    depfile = $out.d
-@@ -258,9 +258,9 @@
+@@ -259,9 +259,9 @@
  build $obj/lpeglabel/lpltree.obj: c_lpeglabel 3rd/lpeglabel/lpltree.c
  build $obj/lpeglabel/lplvm.obj: c_lpeglabel 3rd/lpeglabel/lplvm.c
  rule cxx_lua_language_server
