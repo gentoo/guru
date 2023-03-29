@@ -316,6 +316,7 @@ gui-apps/nwg-launchers:grid - Installs nwggrid, a GNOME-like application grid.
 gui-apps/nwg-launchers:layershell - Enable Wayland layer shell support
 gui-apps/rofi-wayland:drun - Desktop file mode
 gui-apps/rofi-wayland:windowmode - Window switcher mode
+gui-apps/sfwbar:mpd - Add support for Music Player Daemon
 gui-apps/swaylock-effects:fish-completion - Enable fish completion support
 gui-apps/swaylock-effects:gdk-pixbuf - Enable additional image format support via the x11-libs/gdk-pixbuf library
 gui-apps/swaylock-effects:man - Build and install man pages

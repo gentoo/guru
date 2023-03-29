@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DESCRIPTION=Note taking app, on Electron, can import notes from Evernote
+EAPI=8
+HOMEPAGE=https://joplinapp.org
+KEYWORDS=~amd64
+LICENSE=AGPL-3
+RDEPEND=sys-fs/fuse:0
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/laurent22/joplin/releases/download/v2.9.17/Joplin-2.9.17.AppImage
+_md5_=f5cf7458f4ad4f02372426c57bd58132

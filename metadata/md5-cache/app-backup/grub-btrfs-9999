@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=sys-fs/btrfs-progs sys-boot/grub app-alternatives/awk >=app-shells/bash-4 sys-fs/inotify-tools
 SLOT=0
 _eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=49761a34634f80d23774f91204a2d323
+_md5_=045b18cd1db56798f95a381f090437f9

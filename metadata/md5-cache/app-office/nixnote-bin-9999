@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DESCRIPTION=Free and open source note taking app, compatible with Evernote sync server
+EAPI=8
+HOMEPAGE=https://github.com/robert7/nixnote2
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=sys-fs/fuse:0
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/robert7/nixnote2/releases/download/continuous-develop/NixNote2-x86_64.AppImage
+_md5_=e8b529b797774020ae26aba2359097fb

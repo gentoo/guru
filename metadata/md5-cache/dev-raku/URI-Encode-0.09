@@ -6,10 +6,10 @@ HOMEPAGE=https://github.com/raku-community-modules/URI-Encode
 INHERIT=rakudo
 IUSE=test
 KEYWORDS=~amd64
-LICENSE=FreeBSD
+LICENSE=BSD
 RDEPEND=dev-lang/rakudo:=
-RESTRICT=primaryuri !test? ( test )
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://zef/U/RI/URI_ENCODE/44046038356c5e83ec603dff2486d91870355c28.tar.gz -> URI-Encode-0.09.tar.gz
 _eclasses_=rakudo	3797e490475cd8f94e9987fb92ff282e
-_md5_=dd2d3586425989a060cf01033ecb373f
+_md5_=0ce3af7b6dd9cfe0ae9213a8c4ca66d1
