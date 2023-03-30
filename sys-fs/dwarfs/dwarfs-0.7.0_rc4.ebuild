@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 PYTHON_COMPAT=( python3_{10..11} )
 
@@ -38,24 +38,20 @@ RDEPEND="
 	sys-libs/binutils-libs
 	sys-libs/libunwind
 	sys-libs/zlib
-
-	jemalloc? ( >=dev-libs/jemalloc-5.3.0-r1 )
-
 	!dev-cpp/fbthrift
+	!dev-cpp/fizz
 	!dev-cpp/folly
 	!dev-cpp/wangle
-	!dev-cpp/fizz
+	jemalloc? ( >=dev-libs/jemalloc-5.3.0-r1 )
 "
 
-DEPEND="
-	${RDEPEND}
-	sys-devel/flex
-"
+DEPEND="${RDEPEND}"
 BDEPEND="
-	man? ( || ( app-text/ronn app-text/ronn-ng ) )
-	sys-devel/bison
-	virtual/pkgconfig
 	dev-util/patchelf
+	sys-devel/bison
+	sys-devel/flex
+	virtual/pkgconfig
+	man? ( app-text/ronn-ng )
 	test? ( dev-cpp/gtest )
 "
 
