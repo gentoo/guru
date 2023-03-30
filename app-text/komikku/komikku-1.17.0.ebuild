@@ -27,9 +27,12 @@ PROPERTIES="test_network"
 DEPEND="
 	dev-libs/glib:2
 	dev-libs/gobject-introspection
-	>=gui-libs/gtk-4.8.2:4
-	>=gui-libs/libadwaita-1.2.0[introspection]
-	net-libs/webkit-gtk:5[introspection]
+	>=gui-libs/gtk-4.10:4
+	>=gui-libs/libadwaita-1.3[introspection]
+	|| (
+		net-libs/webkit-gtk:6[introspection]
+		net-libs/webkit-gtk:5[introspection]
+	)
 "
 RDEPEND="
 	${DEPEND}
@@ -38,7 +41,6 @@ RDEPEND="
 		dev-python/aiohttp[${PYTHON_USEDEP}]
 		dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 		dev-python/cffi[${PYTHON_USEDEP}]
-		dev-python/cloudscraper[${PYTHON_USEDEP}]
 		dev-python/cryptography[${PYTHON_USEDEP}]
 		dev-python/dateparser[${PYTHON_USEDEP}]
 		dev-python/emoji[${PYTHON_USEDEP}]
@@ -67,7 +69,7 @@ BDEPEND="
 distutils_enable_tests pytest
 
 src_prepare() {
-	default
+	distutils-r1_src_prepare
 
 	# fix broken shebang
 	sed "s|py_installation.full_path()|'${PYTHON}'|" -i bin/meson.build || die
