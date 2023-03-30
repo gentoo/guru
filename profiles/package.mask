@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-28)
+# Python library with no consumers left in tree.
+# Masked for removal in 30 days.
+dev-python/oslo-policy
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-24)
 # Archived upstream.
 net-im/gtkcord:0
