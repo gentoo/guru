@@ -21,6 +21,7 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="dev-python/sniffio[${PYTHON_USEDEP}]"
 BDEPEND="
 	test? (
+		dev-python/httpx[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/pytest-trio[${PYTHON_USEDEP}]
 		dev-python/starlette[${PYTHON_USEDEP}]
@@ -28,18 +29,10 @@ BDEPEND="
 	)
 "
 
-EPYTEST_DESELECT=(
-	"tests/test_manager.py::test_lifespan_manager[asyncio-None-ValueError-None]"
-	"tests/test_manager.py::test_lifespan_manager[asyncio-ValueError-None-None]"
-	"tests/test_manager.py::test_lifespan_manager[asyncio-ValueError-ValueError-None]"
-	"tests/test_manager.py::test_lifespan_manager[trio-None-ValueError-None]"
-	"tests/test_manager.py::test_lifespan_manager[trio-ValueError-None-None]"
-	"tests/test_manager.py::test_lifespan_manager[trio-ValueError-ValueError-None]"
-)
-
 distutils_enable_tests pytest
 
-python_prepare_all() {
+src_prepare() {
+	distutils-r1_src_prepare
+
 	rm setup.cfg || die
-	distutils-r1_python_prepare_all
 }
