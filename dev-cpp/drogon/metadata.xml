@@ -16,5 +16,6 @@
 			Add support for the Redis database via
 			<pkg>dev-libs/hiredis</pkg>
 		</flag>
+		<flag name="yaml">Add support for yaml config file</flag>
 	</use>
 </pkgmetadata>
