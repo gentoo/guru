@@ -11,16 +11,16 @@
 # for popular shells. It inherits the already widely adopted
 # `bash-completion-r1`, thus extending on its functionality. 
 
+case ${EAPI} in
+	8) ;;
+	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported"
+esac
+
 if [[ ! ${_SHELL_COMPLETION_ECLASS} ]]; then
 _SHELL_COMPLETION_ECLASS=1
 
 # Extend bash-completion-r1
 inherit bash-completion-r1
-
-case ${EAPI} in
-	6|7|8) ;;
-	*) die "${ECLASS}: EAPI ${EAPI} unsupported."
-esac
 
 # @FUNCTION: _shell-completion_get_fishcompdir
 # @INTERNAL
