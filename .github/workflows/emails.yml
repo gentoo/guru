@@ -45,7 +45,7 @@ jobs:
           python ./scripts/email-checker.py ${{ steps.changed-files.outputs.all_changed_files }}
 
       - name: Inform on IRC
-        if: ${{ failure() && github.repository == 'gentoo/guru' }}
+        if: ${{ failure() && github.repository == 'gentoo/guru' && github.event_name == 'push' }}
         uses: rectalogic/notify-irc@v1
         with:
           channel: "#gentoo-guru"
