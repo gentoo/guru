@@ -51,4 +51,3 @@ src_install() {
 	meson_src_install
 	rm -rf "${ED}/usr/share/doc/fuzzel" || die
 }
-

@@ -28,10 +28,6 @@ DEPEND="
 	${RDEPEND}
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-2.0.0-fix-cmake-install-path.patch"
-)
-
 src_configure() {
 	local mycmakeargs=(
 		-D CMAKE_INSTALL_LIBDIR="${EPREFIX}/usr/$(get_libdir)"

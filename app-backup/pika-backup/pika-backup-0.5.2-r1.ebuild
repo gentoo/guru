@@ -324,7 +324,7 @@ BDEPEND="
 	sys-devel/gettext
 "
 
-QA_FLAGS_IGNORED="usr/bin/${PN}"
+QA_FLAGS_IGNORED="usr/bin/${PN} usr/bin/${PN}-monitor"
 
 PATCHES=(
 	"${FILESDIR}/meson-fixes.patch"

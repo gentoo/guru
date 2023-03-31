@@ -1,0 +1,15 @@
+# fix build error that happens without trantor submodule
+# upstream: <https://github.com/drogonframework/drogon/issues/1551>
+
+diff --git a/lib/tests/CMakeLists.txt b/lib/tests/CMakeLists.txt
+index 62a2240..424fec2 100644
+--- a/lib/tests/CMakeLists.txt
++++ b/lib/tests/CMakeLists.txt
+@@ -42,6 +42,7 @@ else()
+ endif()
+ 
+ add_executable(unittest ${UNITTEST_SOURCES})
++target_include_directories(unittest PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/..")
+ 
+ if (BUILD_CTL)
+   set(INTEGRATION_TEST_CLIENT_SOURCES

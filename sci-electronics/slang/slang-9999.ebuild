@@ -31,7 +31,7 @@ RDEPEND="
 	${PYTHON_DEPS}
 	>=dev-cpp/catch-3.0.1
 	>=dev-libs/libfmt-9.1.0
-	>=dev-libs/unordered_dense-2.0.0
+	>=dev-libs/unordered_dense-2.0.0 <dev-libs/unordered_dense-3.0.0
 	$(python_gen_cond_dep '
 		>=dev-python/pybind11-2.10[${PYTHON_USEDEP}]
 	')

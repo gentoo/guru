@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake xdg
 
 DESCRIPTION="NVIDIA GPUs htop like monitoring tool"
 HOMEPAGE="https://github.com/Syllo/nvtop"
@@ -45,4 +45,3 @@ src_configure() {
 
 	cmake_src_configure
 }
-
