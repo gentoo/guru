@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gettext virtual/rust >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEPEND=dev-libs/glib dev-libs/openssl:= gui-libs/gtk gui-libs/libadwaita net-p2p/transmission sys-apps/dbus
+DESCRIPTION=Fragments is an easy to use BitTorrent client
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/World/Fragments
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome2-utils meson xdg
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 GPL-3+ MIT Unicode-DFS-2016 Unlicense ZLIB
+RDEPEND=dev-libs/glib dev-libs/openssl:= gui-libs/gtk gui-libs/libadwaita net-p2p/transmission sys-apps/dbus
+SLOT=0
+SRC_URI=https://gitlab.gnome.org/World/fragments/uploads/bc6347513638efaf1a9e095ffa4c23ca/fragments-2.1.tar.xz -> fragments-2.1-r1.tar.xz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	915ec7c25e08d7886558215e6809ca1e	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=32c13e30eab673556d5f370259f6149c

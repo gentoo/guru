@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig test? ( app-misc/jq app-text/jo media-sound/playerctl || ( media-video/mpv[lua] media-video/mpv[javascript] >=media-video/mpv-0.36 ) net-misc/socat sys-apps/dbus x11-apps/xauth x11-misc/xvfb-run x11-themes/sound-theme-freedesktop ) >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install postinst prepare test unpack
+DEFINED_PHASES=compile install postinst test unpack
 DEPEND=dev-libs/glib:2
 DESCRIPTION=MPRIS plugin for mpv
 EAPI=8
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/glib:2 media-video/mpv:=[cplugins(+),libmpv]
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=mpv-plugin	d5b74b0d4b9aa2b088badc969f11de7a	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=4f85097378436a44eb55747657ae568d
+_md5_=b9a1da0bf59ea8f7e9becc3c10e26da8

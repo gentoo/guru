@@ -49,6 +49,7 @@ dev-cpp/dpp:voice - Enable voice-chat support
 dev-cpp/drogon:brotli - Enable support for brotli compression
 dev-cpp/drogon:mariadb - Add support for the mariadb database
 dev-cpp/drogon:redis - Add support for the Redis database via dev-libs/hiredis
+dev-cpp/drogon:yaml - Add support for yaml config file
 dev-cpp/jwt-cpp:picojson - Enable use of dev-cpp/picojson
 dev-cpp/sprout:texconv - Install texconv from subproject compost
 dev-cpp/sprout:wavconv - Install texconv from subproject darkroom
