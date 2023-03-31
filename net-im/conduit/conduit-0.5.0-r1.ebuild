@@ -544,20 +544,14 @@ declare -A GIT_CRATES=(
 
 inherit cargo systemd
 
-# As of 0.5.0, Conduit uses specific commits of these
-# crates so they need to be added to SRC_URI manually
-CONDUITCOMMIT="53f14a2c4c216b529cc63137d8704573197aed19"
-RUMACOMMIT="67d0f3cc04a8d1dc4a8a1ec947519967ce11ce26"
-REQCOMMIT="57b7cf4feb921573dfafad7d34b9ac6e44ead0bd"
-HEEDCOMMIT="f6f825da7fb2c758867e05ad973ef800a6fe1d5d"
-
+COMMIT="53f14a2c4c216b529cc63137d8704573197aed19"
 DESCRIPTION="A Matrix homeserver written in Rust"
 HOMEPAGE="https://gitlab.com/famedly/conduit"
 SRC_URI="https://gitlab.com/famedly/${PN}/-/archive/v${PV}/${P}.tar.bz2
 	$(cargo_crate_uris)
 "
 
-S="${WORKDIR}/${PN}-v${PV}-${CONDUITCOMMIT}"
+S="${WORKDIR}/${PN}-v${PV}-${COMMIT}"
 
 LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 CC0-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
