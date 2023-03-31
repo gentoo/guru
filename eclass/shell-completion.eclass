@@ -2,14 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: shell-completion.eclass
-# @SUPPORTED_EAPIS: 6 7 8
+# @SUPPORTED_EAPIS: 8
+# @PROVIDES: bash-completion-r1
 # @MAINTAINER:
 # Jonas Frei <freijon@pm.me>
-# @BLURB: A few quick functions to install various shell completion files
+# @BLURB: a few quick functions to install various shell completion files
 # @DESCRIPTION:
-# This eclass provides a standardised way to install shell completions 
-# for popular shells. It inherits the already widely adopted
-# `bash-completion-r1`, thus extending on its functionality. 
+# This eclass provides a standardised way to install shell completions
+# for popular shells.  It inherits the already widely adopted
+# 'bash-completion-r1', thus extending on its functionality.
 
 case ${EAPI} in
 	8) ;;
@@ -24,44 +25,36 @@ inherit bash-completion-r1
 
 # @FUNCTION: _shell-completion_get_fishcompdir
 # @INTERNAL
-# @DESCRIPTION:
-# Get unprefixed fish completions directory
+# @RETURN: unprefixed fish completions directory
 _shell-completion_get_fishcompdir() {
-	debug-print-function ${FUNCNAME} "${@}"
-
 	echo "/usr/share/fish/vendor_completions.d"
 }
 
 # @FUNCTION: _shell-completion_get_zshcompdir
 # @INTERNAL
-# @DESCRIPTION:
-# Get unprefixed zsh completions directory
+# @RETURN: unprefixed zsh completions directory
 _shell-completion_get_zshcompdir() {
-	debug-print-function ${FUNCNAME} "${@}"
-
 	echo "/usr/share/zsh/site-functions"
 }
 
 # @FUNCTION: get_fishcompdir
-# @DESCRIPTION:
-# Get the fish completions directory.
+# @RETURN: the fish completions directory (with EPREFIX)
 get_fishcompdir() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	echo "${EPREFIX}$(_get_fishcompdir)"
+	echo "${EPREFIX}$(_shell-completion_get_fishcompdir)"
 }
 
 # @FUNCTION: get_zshcompdir
-# @DESCRIPTION:
-# Get the zsh completions directory.
+# @RETURN: the zsh completions directory (with EPREFIX)
 get_zshcompdir() {
 	debug-print-function ${FUNCNAME} "${@}"
 
-	echo "${EPREFIX}$(_get_zshcompdir)"
+	echo "${EPREFIX}$(_shell-completion_get_zshcompdir)"
 }
 
 # @FUNCTION: dofishcomp
-# @USAGE: <file> [...]
+# @USAGE: <file...>
 # @DESCRIPTION:
 # Install fish completion files passed as args.
 dofishcomp() {
@@ -75,7 +68,7 @@ dofishcomp() {
 }
 
 # @FUNCTION: dozshcomp
-# @USAGE: <file> [...]
+# @USAGE: <file...>
 # @DESCRIPTION:
 # Install zsh completion files passed as args.
 dozshcomp() {
