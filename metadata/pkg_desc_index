@@ -159,8 +159,8 @@ app-i18n/scim-canna 1.0.1: SCIM IMEngine module using Canna
 app-metrics/scaphandre 0.4.1: Electrical power consumption measurement agent.
 app-misc/afc 1.1 1.2 9999: Anime File Checker, checks CRC32 contained in filenames
 app-misc/afetch 2.2.0: Simple system info written in C
-app-misc/ani-cli 4.0 9999: A cli to browse and watch anime.
-app-misc/anki-bin 2.1.57 2.1.58 2.1.60: A spaced-repetition memory training program (flash cards)
+app-misc/ani-cli 4.2 9999: A cli to browse and watch anime.
+app-misc/anki-bin 2.1.60 2.1.61: A spaced-repetition memory training program (flash cards)
 app-misc/apidb 5.8.0_beta 5.11.0_beta 5.13.1_beta 5.13.4_beta 5.13.6_beta: API Generator for Database access
 app-misc/aw-client 0.11.0: Client library for ActivityWatch
 app-misc/aw-core 0.11.0: Core library for ActivityWatch
@@ -195,6 +195,7 @@ app-misc/navi 2.19.0 2.20.1 9999: An interactive cheatsheet tool for the command
 app-misc/neo 0.6.1 9999: cmatrix clone with 32-bit color and Unicode support
 app-misc/nerdfetch 5.0.2: A POSIX *nix fetch script using Nerdfonts
 app-misc/nonsense 0.7-r1: Generates random text from datafiles and templates
+app-misc/nwg-look 0.2.1: GTK3 settings editor adapted to work in the sway / wlroots environment
 app-misc/onefetch 2.14.2 2.15.1: Command-line Git information tool
 app-misc/pfetch 0.6.0: A pretty system information tool written in POSIX sh
 app-misc/pipes-rs 1.6.0: An over-engineered rewrite of pipes.sh in Rust
@@ -1224,7 +1225,7 @@ dev-util/vala-language-server 0.48.4: Code Intelligence for Vala & Genie
 dev-util/vscode-langservers-extracted 4.5.0 4.6.0: HTML/CSS/JSON/ESLint/Markdown language servers extracted from vscode.
 dev-util/wakatime-cli 1.27.0 1.28.6: Command line interface to WakaTime used by all WakaTime plugins
 dev-util/wxformbuilder 3.10.1-r1: A wxWidgets GUI Builder
-dev-util/xmake 2.7.1 9999: A cross-platform build utility based on Lua
+dev-util/xmake 2.7.7 9999: A cross-platform build utility based on Lua
 dev-util/xxd 8.2.4092: Hexdump utility from vim
 dev-util/yaml-language-server 1.11.0 1.12.0: Language Server for YAML Files
 dev-vcs/bit 1.1.1 1.1.2: Bit is a modern Git CLI
@@ -1254,7 +1255,7 @@ games-board/openriichi 0.2.1.1: OpenRiichi is an open source Japanese Mahjong cl
 games-board/rmahjong 0.4_p20201106: Riichi Mahjong, the Japanese variant of the Chinese game Mahjong for 4 players
 games-emulation/citra 9999: A Nintendo 3DS Emulator
 games-emulation/citra-canary 9999: A Nintendo 3DS Emulator
-games-emulation/dosbox-x 2022.12.26-r1 9999: Complete, accurate DOS emulator forked from DOSBox
+games-emulation/dosbox-x 2022.12.26-r1 2023.03.31 9999: Complete, accurate DOS emulator forked from DOSBox
 games-emulation/duckstation 9999: Fast Sony PlayStation (PSX) emulator
 games-emulation/flycast 9999: Sega Dreamcast, Naomi and Atomiswave emulator
 games-emulation/mupen64plus-qt 1.15 9999: A basic launcher for Mupen64Plus
@@ -1531,7 +1532,7 @@ net-fs/hubicfuse 3.0.1: Support for mounting HubiC drive in GNU/Linux
 net-im/Quaternion 0.0.95.1: A Qt-based IM client for Matrix
 net-im/abaddon 0.1.8 9999: Alternative Discord client using GTK instead of Electron
 net-im/chatterino 2.3.5-r3: Chat client for https://twitch.tv
-net-im/conduit 0.5.0: A Matrix homeserver written in Rust
+net-im/conduit 0.5.0-r1: A Matrix homeserver written in Rust
 net-im/discord-canary-bin 0.0.150: All-in-one voice and text chat
 net-im/discord-ptb-bin 0.0.29: All-in-one voice and text chat
 net-im/gajim-plugins 9999: Plugins developed fro Gajim XMPP client
@@ -1613,7 +1614,7 @@ net-p2p/fragments 2.1-r1: Fragments is an easy to use BitTorrent client
 net-p2p/ipfs-cluster 1.0.1 1.0.2: Pinset orchestration for IPFS
 net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 0.18.1.0 0.18.1.1 0.18.1.2 0.18.2.0 9999: The secure, private, untraceable cryptocurrency
-net-p2p/p2pool 2.7 3.0 3.1 9999: Decentralized pool for Monero mining
+net-p2p/p2pool 2.7 3.0 3.1 3.2 9999: Decentralized pool for Monero mining
 net-p2p/popura 0.4.6 9999: Popura: alternative Yggdrasil network client
 net-p2p/trezord-go 2.0.32-r1: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.4.7 9999: An experiment in scalable routing as an encrypted IPv6 overlay network
@@ -1640,9 +1641,9 @@ sci-electronics/logic-bin 2.4.0: Saleae logic analyzer
 sci-electronics/lxi-tools 2.1 2.3: Tools to access devices with LXI
 sci-electronics/open_pdks 1.0.311: PDK installer for open-source EDA tools and toolchains
 sci-electronics/skywater-pdk 0.0.0_p20220424: Process design kit for usage with SkyWater Technology Foundry's 130nm node
-sci-electronics/slang 1.0 2.0 9999: SystemVerilog compiler and language services
+sci-electronics/slang 1.0 2.0-r1 9999: SystemVerilog compiler and language services
 sci-electronics/svls 0.2.3: SystemVerilog language server
-sci-electronics/verible 0.0.2275: SystemVerilog parser, style-linter, and formatter
+sci-electronics/verible 0.0.2275 0.0.3124: SystemVerilog parser, style-linter, and formatter
 sci-electronics/verilator 4.106 5.008 9999: The fast free Verilog/SystemVerilog simulator
 sci-geosciences/GeographicLib-data 0-r1: Datasets for GeographicLib
 sci-geosciences/mapillary_tools 0.8.2_p20220702: Command line tools for processing and uploading Mapillary imagery
@@ -1872,6 +1873,7 @@ www-apps/jackett-bin 0.20.514 0.20.1202 0.20.3288 9999: API Support for your fav
 www-apps/mycorrhiza 1.13.0 9999: Git-based wiki engine written in Go using mycomarkup
 www-apps/nitter 0.1.0_p20230120 0.1.0_p20230306: An alternative front-end for Twitter
 www-apps/snac 2.18 2.25: A simple, minimalistic ActivityPub instance
+www-apps/ttyd 1.7.3: Share your terminal over the web
 www-apps/twint 2.1.20-r2 2.1.20_p20220316: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 20.11.0 20.14.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.2.2 9999: Minimalist and privacy-oriented WebKitGTK+ browser

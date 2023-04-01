@@ -1,5 +1,5 @@
 BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install postinst unpack
+DEFINED_PHASES=configure postinst unpack
 DEPEND=sys-libs/ncurses:= sys-libs/readline:=
 DESCRIPTION=A cross-platform build utility based on Lua
 EAPI=8
@@ -8,7 +8,7 @@ INHERIT=optfeature git-r3
 LICENSE=Apache-2.0
 PROPERTIES=live
 RDEPEND=sys-libs/ncurses:= sys-libs/readline:= virtual/pkgconfig
-RESTRICT=test
+RESTRICT=test strip
 SLOT=0
 _eclasses_=optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=2ab7f08e94267c3537ab475f0c051244
+_md5_=94410beb7109ea6bdd5d568cd3594e1c
