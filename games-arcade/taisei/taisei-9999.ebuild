@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,12 +25,14 @@ IUSE="doc lto zip"
 
 RDEPEND="
 	media-libs/freetype:2
+	media-libs/opusfile
 	>=media-libs/libpng-1.5
 	media-libs/libsdl2
 	media-libs/opusfile
 	media-libs/libwebp
 	app-arch/zstd
 	sys-libs/zlib
+	dev-libs/openssl:=
 	zip? ( dev-libs/libzip )
 "
 DEPEND="
@@ -63,6 +65,7 @@ src_configure() {
 		$(meson_use lto b_lto)
 		$(meson_use zip enable_zip)
 		-Dstrip=false
+		-Duse_libcrypto=true
 	)
 	meson_src_configure
 }
