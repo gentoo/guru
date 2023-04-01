@@ -536,25 +536,22 @@ CRATES="
 	zigzag-0.1.0
 "
 
+declare -A GIT_CRATES=(
+	[ruma]="https://github.com/ruma/ruma;67d0f3cc04a8d1dc4a8a1ec947519967ce11ce26;ruma-%commit%/crates/ruma"
+	[reqwest]="https://github.com/timokoesters/reqwest;57b7cf4feb921573dfafad7d34b9ac6e44ead0bd"
+	[heed]="https://github.com/timokoesters/heed;f6f825da7fb2c758867e05ad973ef800a6fe1d5d;heed-%commit%/heed"
+)
+
 inherit cargo systemd
 
-# As of 0.5.0, Conduit uses specific commits of these
-# crates so they need to be added to SRC_URI manually
-CONDUITCOMMIT="53f14a2c4c216b529cc63137d8704573197aed19"
-RUMACOMMIT="67d0f3cc04a8d1dc4a8a1ec947519967ce11ce26"
-REQCOMMIT="57b7cf4feb921573dfafad7d34b9ac6e44ead0bd"
-HEEDCOMMIT="f6f825da7fb2c758867e05ad973ef800a6fe1d5d"
-
+COMMIT="53f14a2c4c216b529cc63137d8704573197aed19"
 DESCRIPTION="A Matrix homeserver written in Rust"
 HOMEPAGE="https://gitlab.com/famedly/conduit"
 SRC_URI="https://gitlab.com/famedly/${PN}/-/archive/v${PV}/${P}.tar.bz2
-	https://github.com/ruma/ruma/archive/${RUMACOMMIT}.tar.gz -> ruma-${RUMACOMMIT}.crate
-	https://github.com/timokoesters/reqwest/archive/${REQCOMMIT}.tar.gz -> reqwest-${REQCOMMIT}.crate
-	https://github.com/timokoesters/heed/archive/${HEEDCOMMIT}.tar.gz -> heed-${HEEDCOMMIT}.crate
 	$(cargo_crate_uris)
 "
 
-S="${WORKDIR}/${PN}-v${PV}-${CONDUITCOMMIT}"
+S="${WORKDIR}/${PN}-v${PV}-${COMMIT}"
 
 LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 CC0-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
@@ -564,176 +561,7 @@ RDEPEND="acct-user/conduit"
 DEPEND="${RDEPEND}"
 BDEPEND="sys-devel/clang"
 
-# rust does not use *FLAGS from make.conf, silence portage warning
-# update with proper path to binaries this crate installs, omit leading /
 QA_FLAGS_IGNORED="usr/bin/${PN}"
-
-src_unpack() {
-	cargo_src_unpack
-
-	# Conduit uses custom forks/commits for Heed, Reqwest and Ruma
-	# The Heed and Ruma crates can't be used by portage as-is,
-	# so they need to be unpacked and corrected manually
-
-	# Prepare Ruma Crates
-	cd "${WORKDIR}/cargo_home/gentoo/ruma-${RUMACOMMIT}/crates" || die
-
-	# Remove references to workspaces since we are moving them out of the ruma workspace
-	sed -i -e '/workspace/d' "ruma/Cargo.toml" || die
-	sed -i -e '/workspace/d' "ruma-appservice-api/Cargo.toml" || die
-	sed -i -e '/workspace/d' "ruma-client-api/Cargo.toml" || die
-	sed -i -e '/workspace/d' "ruma-client/Cargo.toml" || die
-	sed -i -e '/workspace/d' "ruma-common/Cargo.toml" || die
-	sed -i -e '/workspace/d' "ruma-federation-api/Cargo.toml" || die
-	sed -i -e '/workspace/d' "ruma-identifiers-validation/Cargo.toml" || die
-	sed -i -e '/workspace/d' "ruma-identity-service-api/Cargo.toml" || die
-	sed -i -e '/workspace/d' "ruma-macros/Cargo.toml" || die
-	sed -i -e '/workspace/d' "ruma-push-gateway-api/Cargo.toml" || die
-	sed -i -e '/workspace/d' "ruma-server-util/Cargo.toml" || die
-	sed -i -e '/workspace/d' "ruma-signatures/Cargo.toml" || die
-	sed -i -e '/workspace/d' "ruma-state-res/Cargo.toml" || die
-
-	# Because we undid the workspaces, some of the packages unpacked from
-	# the ruma crate are missing dependencies, so we add them back here
-
-	RUMADEPS="\[dependencies\]"
-	RUMADEPS+="\nassign = \"1.1.1\""
-	RUMADEPS+="\njs_int = { version = \"0.2.2\", features = \[\"serde\"\] }"
-	sed -i -e "s/^\[dependencies\]$/${RUMADEPS}/" "ruma/Cargo.toml" || die
-
-	RUMEAPPSERVICEDEPS="\[dependencies\]"
-	RUMEAPPSERVICEDEPS+="\njs_int = { version = \"0.2.2\", features = \[\"serde\"\] }"
-	RUMEAPPSERVICEDEPS+="\nserde = { version = \"1.0.147\", features = \[\"derive\"\] }"
-	RUMEAPPSERVICEDEPS+="\nserde_json = { version = \"1.0.87\", features = \[\"raw_value\"\] }"
-	sed -i -e "s/^\[dependencies\]$/${RUMEAPPSERVICEDEPS}/" "ruma-appservice-api/Cargo.toml" || die
-
-	RUMACLIENTDEPS="\[dependencies\]"
-	RUMACLIENTDEPS+="\nassign = \"1.1.1\""
-	RUMACLIENTDEPS+="\nhttp = \"0.2.8\""
-	RUMACLIENTDEPS+="\njs_int = { version = \"0.2.2\", features = \[\"serde\"\] }"
-	RUMACLIENTDEPS+="\nmaplit = \"1.0.2\""
-	RUMACLIENTDEPS+="\nserde = { version = \"1.0.147\", features = \[\"derive\"\] }"
-	RUMACLIENTDEPS+="\nserde_json = \"1.0.87\""
-	sed -i -e "s/^\[dependencies\]$/${RUMACLIENTDEPS}/" "ruma-client-api/Cargo.toml" || die
-
-	RUMACOMMONDEPS="\[dependencies\]"
-	RUMACOMMONDEPS+="\nbase64 = \"0.20.0\""
-	RUMACOMMONDEPS+="\nhttp = { version = \"0.2.8\", optional = true }"
-	RUMACOMMONDEPS+="\njs_int = { version = \"0.2.2\", features = \[\"serde\"\] }"
-	RUMACOMMONDEPS+="\nserde = { version = \"1.0.147\", features = \[\"derive\"\] }"
-	RUMACOMMONDEPS+="\nserde_json = { version = \"1.0.87\", features = \[\"raw_value\"\] }"
-	RUMACOMMONDEPS+="\nthiserror = \"1.0.37\""
-	RUMACOMMONDEPS+="\ntracing = { version = \"0.1.37\", features = \[\"attributes\"\] }"
-	sed -i -e "s/^\[dependencies\]$/${RUMACOMMONDEPS}/" "ruma-common/Cargo.toml" || die
-
-	RUMAIDENTIFIERSDEPS="\[dependencies\]"
-	RUMAIDENTIFIERSDEPS+="\njs_int = \"0.2.2\""
-	RUMAIDENTIFIERSDEPS+="\nthiserror = \"1.0.37\""
-	sed -i -e "s/^\[dependencies\]$/${RUMAIDENTIFIERSDEPS}/" "ruma-identifiers-validation/Cargo.toml" || die
-
-	RUMAFEDERATIONDEPS="\[dependencies\]"
-	RUMAFEDERATIONDEPS+="\njs_int = { version = \"0.2.2\", features = \[\"serde\"\] }"
-	RUMAFEDERATIONDEPS+="\nserde = { version = \"1.0.147\", features = \[\"derive\"\] }"
-	RUMAFEDERATIONDEPS+="\nserde_json = \"1.0.87\""
-	sed -i -e "s/^\[dependencies\]$/${RUMAFEDERATIONDEPS}/" "ruma-federation-api/Cargo.toml" || die
-
-	RUMAMACROSDEPS="\[dependencies\]"
-	RUMAMACROSDEPS+="\nserde = { version = \"1.0.147\", features = \[\"derive\"\] }"
-	sed -i -e "s/^\[dependencies\]$/${RUMAMACROSDEPS}/" "ruma-macros/Cargo.toml" || die
-
-	RUMAPUSHDEPS="\[dependencies\]"
-	RUMAPUSHDEPS+="\njs_int = { version = \"0.2.2\", features = \[\"serde\"\] }"
-	RUMAPUSHDEPS+="\nserde = { version = \"1.0.147\", features = \[\"derive\"\] }"
-	RUMAPUSHDEPS+="\nserde_json = \"1.0.87\""
-	sed -i -e "s/^\[dependencies\]$/${RUMAPUSHDEPS}/" "ruma-push-gateway-api/Cargo.toml" || die
-
-	RUMASIGNDEPS="\[dependencies\]"
-	RUMASIGNDEPS+="\nbase64 = \"0.20.0\""
-	RUMASIGNDEPS+="\nserde = { version = \"1.0.147\", features = \[\"derive\"\] }"
-	RUMASIGNDEPS+="\nserde_json = { version = \"1.0.87\", features = \[\"raw_value\"\] }"
-	RUMASIGNDEPS+="\nthiserror = \"1.0.37\""
-	sed -i -e "s/^\[dependencies\]$/${RUMASIGNDEPS}/" "ruma-signatures/Cargo.toml" || die
-
-	RUMASTATEDEPS="\[dependencies\]"
-	RUMASTATEDEPS+="\njs_int = \"0.2.2\""
-	RUMASTATEDEPS+="\nserde = { version = \"1.0.147\", features = \[\"derive\"\] }"
-	RUMASTATEDEPS+="\nserde_json = \"1.0.87\""
-	RUMASTATEDEPS+="\nthiserror = \"1.0.37\""
-	RUMASTATEDEPS+="\ntracing = { version = \"0.1.37\", features = \[\"std\"\] }"
-	sed -i -e "s/^\[dependencies\]$/${RUMASTATEDEPS}/" "ruma-state-res/Cargo.toml" || die
-
-	# Copy the checksum so Cargo is happy
-	cp "../.cargo-checksum.json" "ruma" || die
-	cp "../.cargo-checksum.json" "ruma-appservice-api" || die
-	cp "../.cargo-checksum.json" "ruma-client" || die
-	cp "../.cargo-checksum.json" "ruma-client-api" || die
-	cp "../.cargo-checksum.json" "ruma-common" || die
-	cp "../.cargo-checksum.json" "ruma-federation-api" || die
-	cp "../.cargo-checksum.json" "ruma-identifiers-validation" || die
-	cp "../.cargo-checksum.json" "ruma-identity-service-api" || die
-	cp "../.cargo-checksum.json" "ruma-macros" || die
-	cp "../.cargo-checksum.json" "ruma-push-gateway-api" || die
-	cp "../.cargo-checksum.json" "ruma-server-util" || die
-	cp "../.cargo-checksum.json" "ruma-signatures" || die
-	cp "../.cargo-checksum.json" "ruma-state-res" || die
-
-	# Move them in cargo home
-	mv "ruma" "../../ruma-0.7.4" || die
-	mv "ruma-appservice-api" "../../ruma-appservice-api-0.7.0" || die
-	mv "ruma-client" "../../ruma-client-0.10.0" || die
-	mv "ruma-client-api" "../../ruma-client-api-0.15.3" || die
-	mv "ruma-common" "../../ruma-common-0.10.5" || die
-	mv "ruma-federation-api" "../../ruma-federation-api-0.6.0" || die
-	mv "ruma-identifiers-validation" "../../ruma-identifiers-validation-0.9.0" || die
-	mv "ruma-identity-service-api" "../../ruma-identity-service-api-0.6.0" || die
-	mv "ruma-macros" "../../ruma-macros-0.10.5" || die
-	mv "ruma-push-gateway-api" "../../ruma-push-gateway-api-0.6.0" || die
-	mv "ruma-server-util" "../../ruma-server-util-0.1.0" || die
-	mv "ruma-signatures" "../../ruma-signatures-0.12.0" || die
-	mv "ruma-state-res" "../../ruma-state-res-0.8.0" || die
-
-	# Repeat all of the above for xtask
-	cd "${WORKDIR}/cargo_home/gentoo/ruma-${RUMACOMMIT}" || die
-	sed -i -e '/workspace/d' "xtask/Cargo.toml" || die
-	cp ".cargo-checksum.json" "xtask" || die
-	mv "xtask" "../xtask-0.1.0" || die
-
-	# Remove the now useless Cargo.toml
-	rm "Cargo.toml" || die
-
-	# Repeat all of the above for heed
-	cd "${WORKDIR}/cargo_home/gentoo/heed-${HEEDCOMMIT}" || die
-	cp ".cargo-checksum.json" "heed" || die
-	cp ".cargo-checksum.json" "heed-traits" || die
-	cp ".cargo-checksum.json" "heed-types" || die
-	mv "heed" "../heed-0.10.6" || die
-	mv "heed-traits" "../heed-traits-0.7.0" || die
-	mv "heed-types" "../heed-types-0.7.2" || die
-	rm "Cargo.toml" || die
-
-	# We also need to update Conduit's dependencies to let Cargo know
-	# that they are available in the local store and don't need to be
-	# fetched from their git repositoes
-	cd "${S}" || die
-	sed -i -e 's/^heed.*/heed = \{ version = "0.10.6", optional = true \}/' Cargo.toml || die
-	REQWESTFEATURES="features = "
-	REQWESTFEATURES+="\[\"rustls-tls-native-roots\", \"socks\"\]"
-	sed -i -e "s/^reqwest.*/reqwest = { version = \"0.11.9\", ${REQWESTFEATURES} }/" Cargo.toml || die
-	RUMAFEATURES="features = \["
-	RUMAFEATURES+="\"compat\", "
-	RUMAFEATURES+="\"rand\", "
-	RUMAFEATURES+="\"appservice-api-c\", "
-	RUMAFEATURES+="\"client-api\", "
-	RUMAFEATURES+="\"federation-api\", "
-	RUMAFEATURES+="\"push-gateway-api-c\", "
-	RUMAFEATURES+="\"state-res\", "
-	RUMAFEATURES+="\"unstable-msc2448\", "
-	RUMAFEATURES+="\"unstable-exhaustive-types\", "
-	RUMAFEATURES+="\"ring-compat\", "
-	RUMAFEATURES+="\"unstable-unspecified\""
-	RUMAFEATURES+="\]"
-	sed -i -e "s/^ruma.*/ruma = { version = \"0.7.4\", ${RUMAFEATURES} }/" Cargo.toml || die
-}
 
 src_install() {
 	cargo_src_install

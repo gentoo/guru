@@ -2,10 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>gentoo@tastytea.de</email>
-		<name>tastytea</name>
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
 	</maintainer>
 	<upstream>
-		<bugs-to>https://gitlab.gnome.org/World/gcolor3/-/issues</bugs-to>
+		<remote-id type="github">tsl0922/ttyd</remote-id>
 	</upstream>
 </pkgmetadata>

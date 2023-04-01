@@ -14,12 +14,10 @@ if [[ ${PV} == *9999* ]]; then
 else
 	SRC_URI="https://github.com/xmake-io/${PN}/releases/download/v${PV}/${PN}-v${PV}.tar.gz"
 	KEYWORDS="~amd64 ~riscv ~x86"
-	# extraction path may change in future
-	S="${WORKDIR}"
 fi
 
 # tarball doesn't provide tests
-RESTRICT="test"
+RESTRICT="test strip"
 LICENSE="Apache-2.0"
 SLOT="0"
 
@@ -40,14 +38,11 @@ DOCS=(
 	NOTICE.md README.md README_zh.md
 )
 
-src_compile() {
-	emake build
-}
-
-src_install() {
-	einstalldocs
-
-	emake PREFIX="/usr" DESTDIR="${D}" install
+src_configure(){
+	econf --prefix="${EPREFIX}"/usr \
+		--plat=linux
+		# --plat=linux is necessary, which enables correct directory:
+		# build/linux/ARCH other than build/ARCH/ARCH
 }
 
 pkg_postinst() {

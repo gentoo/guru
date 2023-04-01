@@ -21,7 +21,7 @@ jobs:
           ./scripts/check-duplicates.sh
 
       - name: Inform on IRC
-        if: ${{ failure() && github.repository == 'gentoo/guru' }}
+        if: ${{ failure() && github.repository == 'gentoo/guru' && github.event_name == 'push' }}
         uses: rectalogic/notify-irc@v1
         with:
           channel: "#gentoo-guru"
