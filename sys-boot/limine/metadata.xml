@@ -9,9 +9,6 @@
     <remote-id type="github">limine-bootloader/limine</remote-id>
   </upstream>
   <use>
-    <flag name="uefi">
-      Enable UEFI support.
-    </flag>
     <flag name="uefi32">
       Enable 32-bit UEFI support.
     </flag>
@@ -20,9 +17,6 @@
     </flag>
     <flag name="uefiaa64">
       Enable AArch64 UEFI support.
-    </flag>
-    <flag name="eltorito-efi">
-      Enable building eltorito-efi.bin using <pkg>sys-fs/mtools</pkg>.
     </flag>
     <flag name="cd-efi">
         Enable building cd-efi.bin using <pkg>sys-fs/mtools</pkg>.
@@ -37,13 +31,6 @@
     </flag>
     <flag name="bios-cd">
       Enables BIOS boot support for CDs.
-    </flag>
-    <flag name="limine-install">
-      Enables building the limine-install program.
-    </flag>
-    <flag name="limine-deploy">
-      Enables building the limine-deploy program.
-      This flag was previously known as limine-install.
     </flag>
   </use>
 </pkgmetadata>
