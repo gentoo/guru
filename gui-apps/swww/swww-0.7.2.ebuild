@@ -167,13 +167,12 @@ DESCRIPTION="Efficient animated wallpaper daemon for wayland, controlled at runt
 HOMEPAGE="https://github.com/Horus645/swww"
 SRC_URI="https://github.com/Horus645/swww/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz $(cargo_crate_uris)"
 
-# License set may be more restrictive as OR is not respected
-# use cargo-license for a more accurate license picture
 LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD ISC MIT Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="app-arch/lz4"
+DEPEND="app-arch/lz4
+	x11-libs/libxkbcommon[wayland]"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
