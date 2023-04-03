@@ -30,12 +30,9 @@ bazel_external_uris="
 	https://github.com/bazelbuild/rules_python/releases/download/0.2.0/rules_python-0.2.0.tar.gz
 	https://github.com/c0fec0de/anytree/archive/2.8.0.tar.gz
 	https://github.com/google/bazel_rules_install/archive/5ae7c2a8d22de2558098e3872fc7f3f7edc61fb4.zip
-	https://github.com/google/bazel_rules_install/issues/31
 	https://github.com/google/boringssl/archive/d345d68d5c4b5471290ebe13f090f1fd5b7e8f58.zip
-	https://github.com/google/boringssl/tree/master-with-bazel
 	https://github.com/google/googletest/archive/refs/tags/release-1.12.1.zip
 	https://github.com/google/re2/archive/215bf4aa0bdc081862590463bc98a00bb2be48f2.zip
-	https://github.com/google/re2/tree/abseil
 	https://github.com/grailbio/bazel-compilation-database/archive/940cedacdb8a1acbce42093bf67f3a5ca8b265f7.tar.gz
 	https://github.com/jmillikin/rules_bison/releases/download/v0.2.1/rules_bison-v0.2.1.tar.xz
 	https://github.com/jmillikin/rules_flex/releases/download/v0.2/rules_flex-v0.2.tar.xz
