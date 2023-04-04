@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=(  python3_9 )
+PYTHON_COMPAT=( python3_9 python3_10 python3_11 )
 
 inherit git-r3 python-r1 multilib
 
