@@ -7,13 +7,14 @@ inherit gnome2-utils meson vala xdg
 
 DESCRIPTION="Mastodon client, previously known as Tooth"
 HOMEPAGE="https://github.com/GeopJr/Tuba"
-SRC_URI="https://github.com/GeopJr/${PN}/archive/refs/tags/v${PV}.tar.gz"
+MY_PN="Tuba"
+SRC_URI="https://github.com/GeopJr/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="CC-BY-3.0 GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
-S="${WORKDIR}/Tuba-${PV}"
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 RDEPEND="
 	>=app-crypt/libsecret-0.20
