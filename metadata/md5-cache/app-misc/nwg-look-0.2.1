@@ -1,13 +1,15 @@
 BDEPEND=>=dev-lang/go-1.18 app-arch/unzip
 DEFINED_PHASES=compile install postinst postrm unpack
+DEPEND=x11-libs/gtk+:3 x11-apps/xcur2png
 DESCRIPTION=GTK3 settings editor adapted to work in the sway / wlroots environment
 EAPI=8
 HOMEPAGE=https://github.com/nwg-piotr/nwg-look
 INHERIT=go-module xdg-utils desktop
 KEYWORDS=~amd64
 LICENSE=MIT
+RDEPEND=x11-libs/gtk+:3 x11-apps/xcur2png
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/nwg-piotr/nwg-look/archive/refs/tags/v0.2.1.tar.gz -> nwg-look-0.2.1.tar.gz https://github.com/micielski/nwg-look-vendor/releases/download/0.2.1/nwg-look-0.2.1-vendor.tar.xz
 _eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	go-module	f9700c7efec1fd4955363169e9930c1c	xdg-utils	baea6080dd821f5562d715887954c9d3	desktop	021728fdc1b03b36357dbc89489e0f0d
-_md5_=a0cde21ed5d3ef4e2dc722b0ab698e4c
+_md5_=601e9a7f186b415b60be80a8dec8240b

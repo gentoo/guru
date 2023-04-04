@@ -7,5 +7,5 @@ IUSE=+bios +bios-pxe +bios-cd +cd-efi +uefi32 +uefi64 +uefiaa64
 KEYWORDS=~amd64
 LICENSE=BSD-2
 SLOT=0
-SRC_URI=https://github.com/limine-bootloader/limine/releases/download/v4.20230308.0/limine-4.20230308.0.tar.xz
-_md5_=2c27b9b7045abf905d1cc014fed83d33
+SRC_URI=https://github.com/limine-bootloader/limine/releases/download/v4.20230330.0/limine-4.20230330.0.tar.xz
+_md5_=1e5d42b5a409d9dd7f6d3251007f787c

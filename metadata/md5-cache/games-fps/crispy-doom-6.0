@@ -1,0 +1,16 @@
+BDEPEND=|| ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-lang/python-3.10.9-r1:3.10 >=dev-lang/python-3.9.16-r1:3.9 ) doc? ( || ( >=dev-lang/python-3.11.1-r1:3.11 >=dev-lang/python-3.10.9-r1:3.10 >=dev-lang/python-3.9.16-r1:3.9 ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install postinst postrm preinst prepare setup
+DEPEND=media-libs/libsdl2[video] media-libs/sdl2-mixer[fluidsynth?,midi?,vorbis?] media-libs/sdl2-net libsamplerate? ( media-libs/libsamplerate ) png? ( media-libs/libpng:= ) zlib? ( sys-libs/zlib )
+DESCRIPTION=A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
+EAPI=8
+HOMEPAGE=https://github.com/fabiangreffrath/crispy-doom
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=autotools prefix python-any-r1 xdg
+IUSE=doc fluidsynth libsamplerate +midi png truecolor vorbis zlib
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD GPL-2+
+RDEPEND=media-libs/libsdl2[video] media-libs/sdl2-mixer[fluidsynth?,midi?,vorbis?] media-libs/sdl2-net libsamplerate? ( media-libs/libsamplerate ) png? ( media-libs/libpng:= ) zlib? ( sys-libs/zlib )
+SLOT=0
+SRC_URI=https://github.com/fabiangreffrath/crispy-doom/archive/crispy-doom-6.0.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a	prefix	eab3c99d77fe00506c109c8a736186f7	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_md5_=d5aa9ff5e805f9b05279f56526f40e0b

@@ -167,7 +167,7 @@ app-misc/aw-core 0.11.0: Core library for ActivityWatch
 app-misc/brightness-control 2.4: Qt Brightness Controller in Python
 app-misc/brightnessctl 0.5.1: A program to read and control device brightness
 app-misc/cheat 4.2.3 4.3.3: cheat allows you to create and view interactive cheatsheets on the command-line
-app-misc/clifm 1.7 1.8 1.9 1.10 9999: The command line file manager
+app-misc/clifm 1.8 1.9 1.10 1.11 9999: The command line file manager
 app-misc/cpufetch 1.01 1.02: Simplistic yet fancy CPU architecture fetching tool
 app-misc/dbf 0.9.0: Command line tool to read the content of dBASE III, IV, and 5.0 files
 app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs
@@ -224,7 +224,7 @@ app-office/beancount 2.3.5-r2: A double-entry accounting system that uses text f
 app-office/jameica-bin 2.10.3: Local platform for home banking
 app-office/joplin-bin 2.9.17: Note taking app, on Electron, can import notes from Evernote
 app-office/nixnote-bin 9999: Free and open source note taking app, compatible with Evernote sync server
-app-office/openoffice-bin 4.1.13 4.1.14: Apache OpenOffice productivity suite
+app-office/openoffice-bin 4.1.14: Apache OpenOffice productivity suite
 app-office/pyspread 2.1.1: Pyspread is a non-traditional spreadsheet written in Python
 app-portage/appswipe 1.1.14: Application for browsing your local Portage repository files
 app-portage/emlop 0.4.2 0.5.0: A fast, accurate, ergonomic emerge.log parser
@@ -1189,7 +1189,7 @@ dev-util/binaryen 105: Compiler and toolchain infrastructure library for WebAsse
 dev-util/cargo-make 0.35.9 0.35.10: Rust task runner and build tool
 dev-util/deblob 0.3 9999: remove binary executables from a directory
 dev-util/dockerfile-language-server 0.9.0: A language server for Dockerfiles
-dev-util/eclipse-parallel-bin 4.25 4.26 4.27: Eclipse IDE for Scientific Computing (C, C++, Fortran)
+dev-util/eclipse-parallel-bin 4.26 4.27: Eclipse IDE for Scientific Computing (C, C++, Fortran)
 dev-util/exercism 3.1.0: Command line client for https://exercism.io
 dev-util/fnm 1.32.0 1.33.1: Fast and simple Node.js version manager
 dev-util/fontmake 3.3.0: A wrapper for several Python libraries to compile fonts from sources
@@ -1243,13 +1243,13 @@ dev-vcs/lefthook 1.0.4 1.2.6: Fast and powerful Git hooks manager for any type o
 dev-zig/zls 0.10.0-r1 9999: The officially unofficial Ziglang language server
 games-action/ATLauncher 3.4.3.1 3.4.27.0: Minecraft launcher which integrates multiple different ModPacks
 games-action/blackvoxel 2.50 9999: Blackvoxel Video Game
-games-action/ddnet 16.8 9999: DDraceNetwork, a cooperative racing mod of Teeworlds
+games-action/ddnet 16.9 9999: DDraceNetwork, a cooperative racing mod of Teeworlds
 games-action/netrek-brmh 2.6.0: brmh client for netrek
 games-action/netrek-cow 3.3.2: cow client for netrek
 games-action/technic-launcher 4.625 4.768: Minecraft launcher for community-made modpacks on the Technic Platform
 games-arcade/SpaceCadetPinball 2.0 2.0.1 9999: Decompilation of 3D Pinball for Windows - Space Cadet
 games-arcade/opensurge 0.5.2.1 9999: fun 2D retro platformer inspired by old-school Sonic games
-games-arcade/taisei 1.3.2-r1 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
+games-arcade/taisei 1.3.2-r2 9999: Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL.
 games-board/fairy-stockfish 14.0.1: Chess variant engine derived from Stockfish to support fairy chess variants
 games-board/openriichi 0.2.1.1: OpenRiichi is an open source Japanese Mahjong client
 games-board/rmahjong 0.4_p20201106: Riichi Mahjong, the Japanese variant of the Chinese game Mahjong for 4 players
@@ -1270,7 +1270,7 @@ games-engines/luxtorpeda 25.0.0: Steam Play compatibility tool to run games usin
 games-engines/nxengine-evo 2.6.4: rewrite of the jump-and-run platformer Doukutsu Monogatari(Cave Story)
 games-engines/ponscripter-fork 3.0.2: Fork of the Ponscripter visual novel engine to take advantage of SDL2
 games-fps/assaultcube 1.3.0.2: Free multiplayer FPS based on the Cube engine
-games-fps/crispy-doom 5.12.0: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
+games-fps/crispy-doom 5.12.0 6.0: A limit-removing enhanced-resolution Doom source port based on Chocolate Doom
 games-fps/etlegacy 2.81.0: Wolfenstein: Enemy Territory 2.60b compatible client/server
 games-fps/openspades 0.1.3: Open-source voxel FPS
 games-fps/quakespasm 0.94.1 9999: Modern, cross-platform Quake 1 engine based on FitzQuake
@@ -1340,6 +1340,7 @@ gui-apps/gradience 0.3.0-r1: GNOME's main interface to configure various aspects
 gui-apps/gtklock 2.0.1: GTK-based lockscreen for Wayland
 gui-apps/hiprompt-gtk-py 0_pre20220624 9999: GTK+ Himitsu prompter for Wayland
 gui-apps/intiface-central-bin 2.3.0-r2: Buttplug frontend application
+gui-apps/meteo-qt 3.3: A system tray application for the weather status
 gui-apps/mpvpaper 1.2 1.3 9999: A video wallpaper program for wlroots based wayland compositors
 gui-apps/nwg-launchers 0.5.0 0.6.3 9999: GTK+ launchers for sway, i3 and some other WMs
 gui-apps/organicmaps 9999: Offline maps and navigation using OpenStreetMap data
@@ -1435,7 +1436,7 @@ media-gfx/silicon 0.5.1: Create beautiful image of your code
 media-gfx/svgcleaner 0.9.5: svgcleaner could help you to clean up your SVG files from the unnecessary data.
 media-gfx/ufolint 1.2.0-r1: UFO source format linter
 media-gfx/vpuppr 0.9.0 9999: VTuber application made with Godot 3.4
-media-gfx/zw3d 2022.0.3.1-r2: CAD/CAM software for 3D design and processing
+media-gfx/zw3d 2022.0.3.1-r3 2023.0.3.1: CAD/CAM software for 3D design and processing
 media-gfx/zwcad 2023.23.0.3.4-r1: CAD software for 2D drawing, reviewing and printing work
 media-libs/alsa-ucm-pinephone 1.2.6.3: ALSA ucm configuration files for the PinePhone (Pro)
 media-libs/alvr 15.2.1_p20210604 16.0.0: ALVR is an open source remote VR display for the Oculus Go/Quest
@@ -1758,7 +1759,7 @@ sys-auth/pam-gnupg 0.3: Unlock GnuPG keys on login
 sys-block/partclone 0.3.20: Partition cloning tool
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
-sys-boot/limine 2.88 3.0 3.4.3 3.4.4 3.4.5 4.20230212.1 4.20230216.1 4.20230219.0 4.20230221.0 4.20230227.0 4.20230305.2 4.20230307.0 4.20230308.0 4.20230315.0 4.20230317.0 4.20230325.0: Limine is a modern, advanced, and portable BIOS/UEFI multiprotocol bootloader
+sys-boot/limine 4.20230325.0 4.20230330.0: Limine is a modern, advanced, and portable BIOS/UEFI multiprotocol bootloader
 sys-boot/woeusb-ng 0.2.10: Create Windows installer USB from ISO (rewrite of WoeUSB)
 sys-boot/zfsbootmenu 1.12.0: ZFS bootloader for root-on-ZFS systems
 sys-cluster/AXL 0.5.0 0.7.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy
@@ -1868,7 +1869,7 @@ www-apps/code-server-bin 4.7.1 4.8.3 4.9.1-r1: VS Code in the browser (binary ve
 www-apps/forgejo 1.18.0.1: A self-hosted lightweight software forge
 www-apps/gotosocial 0.7.1: Fast, fun, ActivityPub server, powered by Go
 www-apps/honk 0.9.8 0.9.91: ActivityPub server with minimal setup and support costs
-www-apps/invidious 2023.01.26 2023.03.16: Invidious is an alternative front-end to YouTube
+www-apps/invidious 2023.03.16 2023.04.01: Invidious is an alternative front-end to YouTube
 www-apps/jackett-bin 0.20.514 0.20.1202 0.20.3288 9999: API Support for your favorite torrent trackers
 www-apps/mycorrhiza 1.13.0 9999: Git-based wiki engine written in Go using mycomarkup
 www-apps/nitter 0.1.0_p20230120 0.1.0_p20230306: An alternative front-end for Twitter
