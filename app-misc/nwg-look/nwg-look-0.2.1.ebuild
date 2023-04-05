@@ -17,8 +17,14 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="
+	media-libs/fontconfig"
+	media-libs/freetype
+	media-libs/harfbuzz
+	x11-apps/xcur2png
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf
 	x11-libs/gtk+:3
-	x11-apps/xcur2png"
+	x11-libs/pango
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
