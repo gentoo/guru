@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://anonticket.onionize.space/</bugs-to>
+	</upstream>
+	<use>
+		<flag name="client">Build the client application</flag>
+		<flag name="server">Build the server application</flag>
+		<flag name="proxy">Build standalone proxy application</flag>
+	</use>
+</pkgmetadata>
