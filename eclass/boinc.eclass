@@ -45,7 +45,7 @@ fi
 if [[ ! ${_BOINC_ECLASS} ]]; then
 
 # @FUNCTION: get_boinc_src
-# @USAGE: <SRC_URI|S> <release> [client|server]
+# @USAGE: <SRC_URI|S> <release> [client|server|vboxwrapper|wrapper]
 # @RETURN: SRC_URI snippet or temporary build directory for given BOINC release
 get_boinc_src() {
 	debug-print-function ${FUNCNAME} "${@}"]
@@ -55,18 +55,20 @@ get_boinc_src() {
 	local RELEASE_MINOR=$(ver_cut 1-2 ${RELEASE_PATCH})
 	local RELEASE_TYPE=${3:-client}
 
-	local SUFFIX=
+	local TAG
 	case ${RELEASE_TYPE} in
-		server) SUFFIX="-server" ;;
-		client) ;;
-		*) die "${FUNCNAME}: unknown release type '${RELEASE_TYPE}'"
+		client|server)
+			TAG="${RELEASE_TYPE}_release/${RELEASE_MINOR}/${RELEASE_PATCH}" ;;
+		vboxwrapper|wrapper)
+			TAG="${RELEASE_TYPE}/${RELEASE_PATCH}" ;;
+		*)
+			die "${FUNCNAME}: unknown release type '${RELEASE_TYPE}'"
 	esac
 
-	local _SRC_URI="https://github.com/BOINC/boinc/archive/"
-	_SRC_URI+="${RELEASE_TYPE}_release/${RELEASE_MINOR}/${RELEASE_PATCH}.tar.gz"
-	_SRC_URI+=" -> boinc${SUFFIX}-${RELEASE_PATCH}.tar.gz"
+	local _SRC_URI="https://github.com/BOINC/boinc/archive/refs/tags/${TAG}.tar.gz"
+	_SRC_URI+=" -> boinc-${RELEASE_TYPE}-${RELEASE_PATCH}.tar.gz"
 
-	local _S="${WORKDIR}/boinc-${RELEASE_TYPE}_release-${RELEASE_MINOR}-${RELEASE_PATCH}"
+	local _S="${WORKDIR}/boinc-${TAG////-}"
 
 	case ${query_var} in
 		SRC_URI) echo "${_SRC_URI}" ;;
@@ -82,7 +84,7 @@ get_boinc_src() {
 # Temporary build directory, where BOINC sources are located.
 
 # @FUNCTION: boinc_require_source
-# @USAGE: [boinc version] [client|server]
+# @USAGE: [boinc version] [client|server|vboxwrapper|wrapper]
 # @DESCRIPTION:
 # Set up SRC_URI and S for building application within BOINC source tree.
 #
