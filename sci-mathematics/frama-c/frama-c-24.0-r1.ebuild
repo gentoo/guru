@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,7 +7,7 @@ inherit autotools toolchain-funcs
 
 DESCRIPTION="Framework for analysis of source codes written in C"
 HOMEPAGE="https://frama-c.com"
-NAME="Manganese"
+NAME="Chromium"
 SRC_URI="https://frama-c.com/download/${P}-${NAME}.tar.gz"
 
 LICENSE="BSD LGPL-2 LGPL-2.1"
@@ -18,9 +18,7 @@ RESTRICT="strip"
 
 RDEPEND="
 	>=dev-lang/ocaml-4.08.1[ocamlopt?]
-	>=dev-ml/ocamlgraph-1.8.8[gtk(-)?,ocamlopt?]
-	dev-ml/ppx_import[ocamlopt?]
-	dev-ml/ppx_deriving[ocamlopt?]
+	>=dev-ml/ocamlgraph-1.8.8[ocamlopt?]
 	>=dev-ml/zarith-1.5[ocamlopt?]
 	>=dev-ml/yojson-1.4.1[ocamlopt?]
 	gtk? ( >=dev-ml/lablgtk-2.14:2=[sourceview,gnomecanvas,ocamlopt?] )"
@@ -28,6 +26,8 @@ DEPEND="${RDEPEND}
 	media-gfx/graphviz"
 
 S="${WORKDIR}/${P}-${NAME}"
+
+PATCHES=( "${FILESDIR}/frama-c-24.0-fix-bflags.patch" )
 
 src_prepare() {
 	mv configure.in configure.ac || die

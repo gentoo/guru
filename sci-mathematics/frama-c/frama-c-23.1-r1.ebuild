@@ -18,7 +18,7 @@ RESTRICT="strip"
 
 RDEPEND="
 	>=dev-lang/ocaml-4.08.1[ocamlopt?]
-	>=dev-ml/ocamlgraph-1.8.5[gtk(-)?,ocamlopt?]
+	>=dev-ml/ocamlgraph-1.8.5[ocamlopt?]
 	>=dev-ml/zarith-1.5[ocamlopt?]
 	>=dev-ml/yojson-1.4.1[ocamlopt?]
 	gtk? ( >=dev-ml/lablgtk-2.14:2=[sourceview,gnomecanvas,ocamlopt?] )"
