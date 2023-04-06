@@ -30,8 +30,12 @@ src_configure() {
 }
 
 src_install() {
-	mkdir -p "${ED}"/usr/bin
-	emake PREFIX="${ED}/usr" PREFIX_MAN="${ED}/usr/share/man" install
+	local mymakeflags=(
+		PREFIX="${ED}/usr"
+		PREFIX_MAN="${ED}/usr/share/man"
+	)
+
+	emake "${mymakeflags[@]}" install
 	einstalldocs
 
 	doinitd "${FILESDIR}"/snac
