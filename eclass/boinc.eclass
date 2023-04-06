@@ -109,15 +109,15 @@ boinc_require_source() {
 # @DESCRIPTION:
 # Configure BOINC source tree using autotools.
 #
-# If no arguments are given, econf will be called
-# with --enable-pkg-devel flag.
+# If no arguments are given, econf will be called with
+# '--enable-static --enable-pkg-devel --disable-fcgi' flags.
 #
 # This function must be called in global scope.
 boinc_enable_autotools() {
 	debug-print-function ${FUNCNAME} "${@}"]
 
 	_BOINC_RUN_AUTOTOOLS=1
-	_BOINC_ECONF_ARGS=${@:---enable-pkg-devel}
+	_BOINC_ECONF_ARGS=${@:---enable-static --enable-pkg-devel --disable-fcgi}
 }
 
 # @FUNCTION: boinc_override_config
@@ -204,7 +204,7 @@ boinc_src_configure() {
 	edo bash ./generate_svn_version.sh
 
 	if [[ ${_BOINC_RUN_AUTOTOOLS} ]]; then
-		econf "${_BOINC_ECONF_ARGS[@]}"
+		econf ${_BOINC_ECONF_ARGS}
 	else
 		tc-export AR CC CPP CXX LD OBJDUMP RANLIB
 	fi
