@@ -60,7 +60,7 @@ RDEPEND="
 # miniaudio is headers-only
 DEPEND="
 	${RDEPEND}
-	system-miniaudio? ( media-libs/miniaudio:0.10= )
+	system-miniaudio? ( >=dev-libs/miniaudio-0.10 )
 "
 BDEPEND="!system-glfw? ( wayland? ( dev-libs/wayland-protocols ) )"
 
