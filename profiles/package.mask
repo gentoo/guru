@@ -74,11 +74,6 @@ dev-python/skills
 media-libs/skcms
 media-libs/skia
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-08)
-# Python library with no consumers left in tree.
-# Masked for removal in 30 days.
-dev-python/uhashring
-
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-04)
 # Depend on masked gconf.
 net-p2p/lbry
