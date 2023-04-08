@@ -71,7 +71,6 @@ dev-python/skills
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-08)
 # Libraries with no consumers and no releases. Very hard to maintain.
 # Masked for removal in 30 days.
-media-libs/skcms
 media-libs/skia
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-04)
