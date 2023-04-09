@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-04-09)
+# Library with no consumers left.
+# Masked for removal in 30 days.
+dev-libs/boinc-zip
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-31)
 # Revdeps of masked packages:
 # - dev-python/booleanOperations
