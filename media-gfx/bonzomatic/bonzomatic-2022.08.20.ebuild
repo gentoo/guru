@@ -15,7 +15,7 @@ else
 	MY_PV="$(ver_rs 1- -)"
 	SRC_URI="https://github.com/Gargaj/Bonzomatic/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/Bonzomatic-${MY_PV}"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="Unlicense"
