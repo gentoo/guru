@@ -96,7 +96,7 @@ app-containers/waydroid 1.4.0: Container-based approach to boot a full Android s
 app-crypt/PBinCLI 0.3.2: PrivateBin CLI
 app-crypt/autofirma 1.7.1: Spanish government's electronic signature application for online procedures
 app-crypt/certbot-dns-desec 1.2.1: deSEC DNS Authenticator plugin for Certbot
-app-crypt/certbot-dns-rfc2136 2.2.0 2.3.0 2.4.0 9999: RFC 2136 DNS Authenticator plugin for Certbot (Let’s Encrypt client)
+app-crypt/certbot-dns-rfc2136 2.2.0 2.3.0 2.4.0 2.5.0 9999: RFC 2136 DNS Authenticator plugin for Certbot (Let’s Encrypt client)
 app-crypt/clevis 19-r1: Automated Encryption Framework
 app-crypt/configuradorfnmt 1.0.1: Spanish government certificate request generator
 app-crypt/gnome-encfs-manager 1.9: An easy to use manager and mounter for encfs stashes
@@ -137,7 +137,7 @@ app-editors/kak-lsp 12.2.1: Kakoune Language Server Protocol Client
 app-editors/kitscenarist 0.7.2_rc9: Simple and powerful application for creating screenplays.
 app-editors/lapce 0.2.6 9999: Lightning-fast and Powerful Code Editor written in Rust
 app-editors/mined 2015.25: A powerful text editor with extensive Unicode and CJK support
-app-editors/neovim-qt 0.2.16.1 0.2.17: Neovim client library and GUI, in Qt5
+app-editors/neovim-qt 0.2.17-r1: Neovim client library and GUI, in Qt5
 app-editors/typora-bin 1.5.8: a markdown editor,markdown reader.
 app-emacs/idris-mode 1.0 9999: Idris syntax highlighting, compiler-supported editing, and interactive REPL
 app-emacs/prop-menu 0.1.2: Compute pop-up menus from text and overlay properties
@@ -171,7 +171,7 @@ app-misc/clifm 1.8 1.9 1.10 1.11 9999: The command line file manager
 app-misc/cpufetch 1.01 1.02: Simplistic yet fancy CPU architecture fetching tool
 app-misc/dbf 0.9.0: Command line tool to read the content of dBASE III, IV, and 5.0 files
 app-misc/diff-so-fancy 1.4.3-r1: Good-lookin' diffs. Actually... nah... The best-lookin' diffs
-app-misc/doublecmd-bin 1.0.9 1.0.10: Free cross platform open source file manager with two panels side by side.
+app-misc/doublecmd-bin 1.0.10 1.0.11: Free cross platform open source file manager with two panels side by side.
 app-misc/dragon 1.1.1 1.1.1_p20210820 1.2.0: Simple drag-and-drop source/sink for X and Wayland
 app-misc/electricsheep 3.0.2_p20191005 9999: Realize the collective dream of sleeping computers from all over the internet
 app-misc/far2l 2.3.2_alpha 2.4.0_beta 9999: Linux port of FAR Manager v2
@@ -543,7 +543,7 @@ dev-embedded/esp-idf 5.0: Espressif IoT Development Framework
 dev-embedded/etlcpp 20.35.8: A C++ template library for embedded applications
 dev-embedded/idf-component-manager 1.1.4: Tool for installing ESP-IDF components
 dev-embedded/mv88e6xxx-dump 0.2.0_pre20210327: Dump information about Marvell mv88e6xxx Ethernet switches
-dev-embedded/rauc 1.8: Lightweight update client that runs on your Embedded Linux device
+dev-embedded/rauc 1.9: Lightweight update client that runs on your Embedded Linux device
 dev-embedded/yosys 0.9_p20200324-r1 9999: RTL synthesis toolkit
 dev-erlang/cowboy 2.9.0: Small, fast, modern HTTP server for Erlang/OTP.
 dev-erlang/cowlib 2.11.0: Support library for manipulating Web protocols.
@@ -822,7 +822,7 @@ dev-python/auditok 0.1.5 0.2.0: A module for Audio/Acoustic Activity Detection
 dev-python/autoflake 1.4-r1: Removes unused imports and unused variables as reported by pyflakes
 dev-python/avro 1.11.0: Apache Avro is a data serialization system
 dev-python/axisregistry 0.3.11: A Python API to access data from the Google Fonts variable fonts Axis Registry
-dev-python/azure-core 1.26.2 1.26.3: Microsoft Azure Core Library for Python
+dev-python/azure-core 1.26.3 1.26.4: Microsoft Azure Core Library for Python
 dev-python/azure-storage-blob 12.14.1: Microsoft Azure Blob Storage Client Library for Python
 dev-python/b2sdk 1.12.0 1.17.2: The client library for BackBlaze's B2 product
 dev-python/babelfont 3.0.0_alpha9: Interrogate and manipulate UFO, TTF and OTF fonts with a common interface
@@ -973,7 +973,6 @@ dev-python/openstep-plist 0.3.0_p1: ASCII plist parser written in Cython
 dev-python/opentracing 2.4.0: OpenTracing API for Python
 dev-python/opentypespec 1.9.1: Data derived from the OpenType specification
 dev-python/orderedmultidict 1.0.1: Ordered Multivalue Dictionary. Helps power furl.
-dev-python/orjson 3.8.7: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
 dev-python/os-api-ref 2.3.0: Sphinx Extensions to support API reference sites in OpenStack
 dev-python/os-resource-classes 1.1.0: A list of standardized resource classes for OpenStack
 dev-python/os-traits 2.7.0: os-traits is a library containing standardized trait strings
@@ -1023,7 +1022,6 @@ dev-python/pyodbc 4.0.35: Python ODBC library
 dev-python/pyqtdarktheme 2.1.0: A flat dark theme for PySide and PyQt.
 dev-python/pyrr 0.10.3: A cross platform utility library for ModernGL
 dev-python/pysaml2 7.1.2-r1: Python implementation of SAML Version 2 to be used in a WSGI environment
-dev-python/pysftp 0.2.9: A friendly face on SFTP
 dev-python/pystardict 0.8-r1: Library for manipulating StarDict dictionaries from within Python
 dev-python/pysubs2 1.4.4 1.5.0 1.6.0: A library for editing subtitle files
 dev-python/pytest-benchmark 3.4.1 4.0.0: py.test fixture for benchmarking code
@@ -1034,7 +1032,7 @@ dev-python/pytest-cython 0.2.1: Plugin for testing Cython extension modules
 dev-python/pytest-flask 1.2.0: A set of pytest fixtures to test Flask applications
 dev-python/pytest-harvest 1.10.4: Store and retrieve data created during your pytest tests execution
 dev-python/pytest-instafail 0.4.2: Plugin for pytest that shows failures and errors instantly
-dev-python/pytest-isort 3.1.0: Plugin to check import ordering using isort
+dev-python/pytest-isort 3.1.0 3.1.0-r1: Plugin to check import ordering using isort
 dev-python/pytest-randomly 3.12.0-r1: Pytest plugin to randomly order tests and control random.seed
 dev-python/pytest-steps 1.8.0: Create step-wise / incremental tests in pytest
 dev-python/pytest-syrupy 4.0.0: The sweeter pytest snapshot plugin
@@ -1067,7 +1065,6 @@ dev-python/screeninfo 0.8.1: Fetch location and size of physical screens.
 dev-python/sdnotify 0.3.2: Python implementation of the systemd sd_notify protocol
 dev-python/sendgrid 6.9.7: Twilio SendGrid library for Python
 dev-python/sentence-splitter 1.4-r2: Sentence splitter using heuristic algorithm by Philipp Koehn and Josh Schroeder
-dev-python/shellingham 1.5.0: Tool to Detect Surrounding Shell
 dev-python/signalstickers-client 3.2.0: A Python client for the Signal stickers API
 dev-python/simplemma 0.9.1: A simple multilingual lemmatizer for Python
 dev-python/sjcl 0.2.1: Decrypt and encrypt 'Stanford Javascript Crypto Library'-compatible messages
@@ -1119,7 +1116,6 @@ dev-python/ufoLib2 0.13.1: A UFO font library
 dev-python/ufoNormalizer 0.6.1: A tool that will normalize the XML and other data inside of a UFO
 dev-python/ufoProcessor 1.9.0-r1: A Python package for processing and generating UFO files
 dev-python/uharfbuzz 0.33.0-r1: Streamlined Cython bindings for the HarfBuzz shaping engine
-dev-python/uhashring 2.1: Full featured consistent hashing python library compatible with ketama
 dev-python/ukpostcodeparser 1.1.2-r1: UK postcode parser library
 dev-python/unearth 0.8.1: A utility to fetch and download python packages
 dev-python/unicodedata2 15.0.0: Unicodedata backport updated to the latest Unicode version
@@ -1181,7 +1177,7 @@ dev-util/DirectXShaderCompiler 1.7.2207-r1 1.7.2212: Microsoft DirectX Shader Co
 dev-util/FoBiS 3.0.5-r1: FoBiS.py, a Fortran Building System for poor men
 dev-util/afdko 3.8.1: Adobe Font Development Kit for OpenType
 dev-util/babeltrace2 2.0.4: A command-line tool and library to read and convert trace files
-dev-util/bash-language-server 4.8.3 4.8.4: A language server for Bash
+dev-util/bash-language-server 4.8.4 4.9.0: A language server for Bash
 dev-util/bats-assert 2.0.0: Common assertions for Bats
 dev-util/bats-support 0.3.0: Supporting library for Bats test helpers
 dev-util/bazelisk 1.12.0: A user-friendly launcher for Bazel
@@ -1210,7 +1206,7 @@ dev-util/mh 1.0.3: Generate help for Makefile
 dev-util/odb 2.5.0_beta21_p1: ODB compiler and the ODB system documentation
 dev-util/osc 0.173.0 9999: Command line tool for Open Build Service
 dev-util/ots 8.1.4 8.2.1: An util for validating and sanitising OpenType files
-dev-util/pmbootstrap 1.46.0: Helper tool for developing and building postmarketOS
+dev-util/pmbootstrap 1.51.0: Helper tool for developing and building postmarketOS
 dev-util/qshaderedit 0.1.5: Multiplatform shader editor inspired by Apple's OpenGL Shader Builder
 dev-util/quilttools 0.3-r1: Mailbox to quilt series converter
 dev-util/reflex 0.3.1: A small tool to watch a directory and rerun a command when certain files change
@@ -1418,7 +1414,7 @@ media-fonts/warframe-fonts 0_pre20191111: Fonts from the Warframe game
 media-gfx/WebPlotDigitizer-bin 4.6: Web based tool to extract data from plots, images, and maps
 media-gfx/akira 0.0.13 9999: Native Linux App for UI and UX Design built in Vala and GTK.
 media-gfx/azpainter 3.0.3 3.0.4: Full color painting software for Linux for illustration drawing
-media-gfx/bonzomatic 2022.02.05 9999: Live shader coding tool and Shader Showdown workhorse
+media-gfx/bonzomatic 2022.02.05 2022.08.20 9999: Live shader coding tool and Shader Showdown workhorse
 media-gfx/dehinter 4.0.0: A tool for the removal of TrueType instruction sets (hints) in fonts
 media-gfx/dustr 9999: light and interactive tool your crops need
 media-gfx/fontbakery 0.7.38-r1 0.8.10-r1: Font quality assurance tool
@@ -1451,8 +1447,6 @@ media-libs/monado 9999: The open source OpenXR runtime.
 media-libs/nvidia-vaapi-driver 0.0.8-r1 0.0.9: A VA-API implemention using NVIDIA's NVDEC, specifically designed to be used by Firefox
 media-libs/openxr-loader 1.0.20 9999: OpenXR loader
 media-libs/sjpeg 1.0_p20210422-r1: simple jpeg encoder
-media-libs/skcms 0_pre20211006-r1: A complete 2D graphic library for drawing Text, Geometries, and Images
-media-libs/skia 97-r2: A complete 2D graphic library for drawing Text, Geometries, and Images
 media-libs/svt-vp9 0.3.0 9999: Scalable Video Technology for VP9 (SVT-VP9 Encoder)
 media-libs/vips 8.10.6: VIPS Image Processing Library
 media-plugins/alsa-sndio 0.2: ALSA PCM to play audio on sndio servers
@@ -1504,7 +1498,7 @@ media-video/uxplay 1.63: AirPlay Unix mirroring server
 media-video/wlrobs 1.0 9999: OBS plugin that allows you to screen capture on wlroots based compositors
 media-video/ytarchive 0.3.2: Youtube livestream downloader
 mpv-plugin/SmartCopyPaste 3.1: Gives mpv the capability to copy and paste while being smart and customizable
-mpv-plugin/autoload 0.35.0 0.35.1: Loads playlist entries before and after the the currently played file
+mpv-plugin/autoload 0.35.1: Loads playlist entries before and after the the currently played file
 mpv-plugin/autosubsync-mpv 20220402: Automatic subtitle synchronization script for mpv media player
 mpv-plugin/kde-do-not-disturb 20230110: Disable the notifications while mpv is running
 mpv-plugin/kde-night-color 20230110: Disable Night Color while mpv is running
@@ -1522,7 +1516,7 @@ net-analyzer/munin-plugins-mendix 23_p20210510: This package provides various pl
 net-client/amfora 1.8.0 1.9.2: A fancy terminal browser for the Gemini protocol.
 net-client/castor 0.8.18 0.9.0: A graphical browser for plain-text protocols
 net-client/kristall 0.3-r2 0.4: Visual cross-platform gemini browser
-net-client/lagrange 1.15.6 1.15.7: Desktop GUI client for browsing Geminispace
+net-client/lagrange 1.15.7 1.15.8: Desktop GUI client for browsing Geminispace
 net-client/offpunk 1.8 1.9.1: Offline-First Gemini/Web/Gopher/RSS reader and browser
 net-client/starfish 1.2.0 1.3.1: A Gemini browser for elementary OS
 net-client/telescope 0.7.1 0.8.1: w3m-like browser for Gemini
@@ -1551,7 +1545,7 @@ net-im/mautrix-slack 0_pre20230124: A Matrix-Slack puppeting bridge based on sla
 net-im/mautrix-telegram 0.12.2_p20230118 0.13.0: A Matrix-Telegram Messenger puppeting bridge
 net-im/nheko 0.11.1 0.11.3 9999: Native desktop client for Matrix using Qt
 net-im/ruqola 1.3.1: Rocket.Chat client for the KDE desktop
-net-im/session-desktop-bin 1.10.7: Session Desktop - Onion routing based messenger
+net-im/session-desktop-bin 1.10.8: Session Desktop - Onion routing based messenger
 net-im/whatsapp-for-linux 1.3.2 1.3.2-r1 1.5.3: An unofficial WhatsApp desktop application for Linux
 net-irc/catgirl 2.0a 2.1: TLS-only terminal IRC client
 net-irc/pounce 3.0 3.1: Multi-client, TLS-only IRC bouncer
@@ -1575,10 +1569,12 @@ net-mail/dovecot-fts-xapian 1.5.4 1.5.5 9999: Dovecot FTS plugin backed by Xapia
 net-mail/hydroxide 0.2.23 0.2.24 9999: A third-party, open-source ProtonMail CardDAV, IMAP and SMTP bridge
 net-misc/FORT-validator 1.5.2 1.5.3 1.5.3_p20220607: FORT validator is an open source RPKI validator
 net-misc/can-utils 2020.02.04 2020.12.0-r1 2021.08.0 9999-r3: CAN userspace utilities and tools
+net-misc/cve-client 1.0.4 9999: CLI-based client / toolbox for CVE.org
 net-misc/eg25-manager 0.4.2: Daemon for managing the Quectel EG25 modem
 net-misc/facebook-ptp 0_pre20211123: Facebook's PTP libraries
 net-misc/fedigroup 1.0.6 1.0.8: Emulate group accounts on Mastodon/Pleroma
 net-misc/freetube-bin 0.17.1: A private YouTube desktop client
+net-misc/gdown 4.7.1: Google Drive direct download of big files
 net-misc/gemget 1.8.0: Command line downloader for the Gemini protocol
 net-misc/gemserv 0.6.5 0.6.6: A gemini Server written in rust
 net-misc/giara 1.0.1 1.1.0: An app for Reddit
@@ -1599,11 +1595,12 @@ net-misc/rpki-client 6.8_p0 6.8_p1: Portability shim for OpenBSD's rpki-client
 net-misc/smcroute 2.5.6: A static multicast routing daemon
 net-misc/tinyssh 20220801 20230101 99999999: A small SSH server with state-of-the-art cryptography
 net-misc/tooth 9999: Tooth is a fork of the now archived Tootle, a gtk Mastodon client.
+net-misc/tuba 0.2.0: Mastodon client, previously known as Tooth
 net-misc/tuxi 9999: Tuxi is a cli assistant. Get answers of your questions instantly.
 net-misc/wayback_machine_downloader 2.3.0 2.3.1: Download an entire website from the Wayback Machine
 net-misc/whatscli 1.0.6 1.0.11: A command line interface for WhatsApp
 net-misc/wsdd 0.7.0 0.7.1: A Web Service Discovery host daemon.
-net-misc/xmrig-mo 6.16.2 6.16.3 6.16.4 6.16.5 6.18.0 6.18.1 6.19.0 6.19.1: MoneroOcean fork of xmrig that supports algo switching
+net-misc/xmrig-mo 6.16.2 6.16.3 6.16.4 6.16.5 6.18.0 6.18.1 6.19.0 6.19.1 6.19.2: MoneroOcean fork of xmrig that supports algo switching
 net-misc/yacy 1.924.20210209.10069: YaCy - p2p based distributed web-search engine
 net-news/comitium 1.8.1: feed aggregator for gemini supporting many formats and protocols
 net-news/communique 1.2.0: RSS Reader with cross-platform sync
@@ -1613,13 +1610,13 @@ net-p2p/bisq-bin 1.9.9: The decentralized bitcoin exchange (non-atomic, with arb
 net-p2p/feather 2.2.3 2.3.0 2.4.1_pre20230301 2.4.2 9999: A free, open-source Monero wallet
 net-p2p/fragments 2.1-r1: Fragments is an easy to use BitTorrent client
 net-p2p/ipfs-cluster 1.0.1 1.0.2: Pinset orchestration for IPFS
-net-p2p/lbry 0.50.2 0.51.2 0.52.0: A browser for the LBRY network, a digital marketplace controlled by its users.
 net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 0.18.1.0 0.18.1.1 0.18.1.2 0.18.2.0 0.18.2.2 9999: The secure, private, untraceable cryptocurrency
 net-p2p/p2pool 2.7 3.0 3.1 3.2 9999: Decentralized pool for Monero mining
 net-p2p/popura 0.4.6 9999: Popura: alternative Yggdrasil network client
 net-p2p/trezord-go 2.0.32-r1: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.4.7 9999: An experiment in scalable routing as an encrypted IPv6 overlay network
 net-print/hpuld 1.00.39.15.00.23-r1: HP Unified Linux Driver (for samsung hardware)
+net-proxy/snowflake 2.5.1: Pluggable Transport using WebRTC, inspired by Flashproxy
 net-voip/discover-overlay 0.4.5 0.5.4 0.6.3-r1: Yet another Discord overlay for Linux written in Python using GTK3
 net-voip/gnome-calls 43.3 44.0: Phone dialer and call handler
 net-voip/vvmd 0.8: vvmd is a lower level daemon that retrieves Visual Voicemail
@@ -1674,7 +1671,7 @@ sci-mathematics/aspcud 1.9.6: A solver for package problems in CUDF format
 sci-mathematics/chaco 2.2-r3: Software for Partitioning Graphs
 sci-mathematics/clasp 3.3.8-r1: A conflict-driven nogood learning answer set solver
 sci-mathematics/clingo 5.5.2: Integrated grounder and solver for answer set logic programs
-sci-mathematics/frama-c 23.1 24.0 25.0: Framework for analysis of source codes written in C
+sci-mathematics/frama-c 23.1-r1 24.0-r1 25.0-r2: Framework for analysis of source codes written in C
 sci-mathematics/frama-c-aorai 23.1 24.0 25.0: Aorai (automaton annotations) plugin for frama-c
 sci-mathematics/frama-c-callgraph 23.1 24.0 25.0: Callgraph plugin for frama-c
 sci-mathematics/frama-c-constant-folding 23.1 24.0 25.0: Constant folding plugin for frama-c
@@ -1716,7 +1713,7 @@ sci-mathematics/qepcad 1.72b_p20220502-r2: Quantifier Elimination by Partial Cyl
 sci-mathematics/radian 0.6.3: A 21 century R console
 sci-mathematics/rstudio-desktop-bin 2022.12.0_p353: IDE for R and Python
 sci-mathematics/the-omega-project 2.1_p20131119: Tools from Pugh et al.'s for constraint-based compiler tools
-sci-misc/boinc-wrapper 7.20.2: Wrapper to use non-BOINC apps with BOINC
+sci-misc/boinc-wrapper 26018: Wrapper to use non-BOINC apps with BOINC
 sci-misc/linuxcnc 9999: LinuxCNC
 sci-physics/SU2 7.2.0-r2 7.2.0-r100: SU2: An Open-Source Suite for Multiphysics Simulation and Design
 sci-physics/mbdyn 1.7.3_p20210925-r1: A general purpose Multibody Dynamics analysis software
@@ -1759,7 +1756,7 @@ sys-auth/pam-gnupg 0.3: Unlock GnuPG keys on login
 sys-block/partclone 0.3.20: Partition cloning tool
 sys-boot/customrescuecd-x86-grub 0.1: Grub menu entries for the .iso image of customrescuecd
 sys-boot/customrescuecd-x86_64-grub 0.1: Grub menu entries for the .iso image of customrescuecd
-sys-boot/limine 4.20230325.0 4.20230330.0: Limine is a modern, advanced, and portable BIOS/UEFI multiprotocol bootloader
+sys-boot/limine 4.20230325.0 4.20230330.0 4.20230408.0: Limine is a modern, advanced, and portable BIOS/UEFI multiprotocol bootloader
 sys-boot/woeusb-ng 0.2.10: Create Windows installer USB from ISO (rewrite of WoeUSB)
 sys-boot/zfsbootmenu 1.12.0: ZFS bootloader for root-on-ZFS systems
 sys-cluster/AXL 0.5.0 0.7.0: AXL provides a common C interface to transfer files in an HPC storage hierarchy
@@ -1871,9 +1868,9 @@ www-apps/gotosocial 0.7.1: Fast, fun, ActivityPub server, powered by Go
 www-apps/honk 0.9.8 0.9.91: ActivityPub server with minimal setup and support costs
 www-apps/invidious 2023.03.16 2023.04.01: Invidious is an alternative front-end to YouTube
 www-apps/jackett-bin 0.20.514 0.20.1202 0.20.3288 9999: API Support for your favorite torrent trackers
-www-apps/mycorrhiza 1.13.0 9999: Git-based wiki engine written in Go using mycomarkup
+www-apps/mycorrhiza 1.13.0 1.14.0 9999: Git-based wiki engine written in Go using mycomarkup
 www-apps/nitter 0.1.0_p20230120 0.1.0_p20230306: An alternative front-end for Twitter
-www-apps/snac 2.18 2.25: A simple, minimalistic ActivityPub instance
+www-apps/snac 2.25 2.26: A simple, minimalistic ActivityPub instance
 www-apps/ttyd 1.7.3: Share your terminal over the web
 www-apps/twint 2.1.20-r2 2.1.20_p20220316: Twitter scraping & OSINT tool written in Python that doesn't use Twitter's API
 www-apps/uwebsockets 20.11.0 20.14.0 9999: ultra fast, simple, secure & standards compliant web I/O

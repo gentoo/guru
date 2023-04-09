@@ -380,6 +380,7 @@ media-fonts/victor-mono:otf - Install the OpenType version of the font
 media-fonts/victor-mono:ttf - Install the TrueType version of the font
 media-gfx/bonzomatic:system-glew - Use the systems installed version of GLEW (upstream-unsupported)
 media-gfx/bonzomatic:system-glfw - Use the systems installed version of GLFW (upstream-unsupported)
+media-gfx/bonzomatic:system-miniaudio - Use the systems installed version of Miniaudio (upstream-unsupported)
 media-gfx/bonzomatic:system-stb - Use the systems installed version of STB (upstream-unsupported)
 media-gfx/bonzomatic:wayland - Build non-system-glfw for wayland instead of X11
 media-gfx/grafx2:ttf - Install TTF Fonts
@@ -429,15 +430,6 @@ media-libs/monado:vive - Enable driver for HTC Vive, Vive Pro, Valve Index, and 
 media-libs/monado:vulkan - Enable Vulkan Graphics API support (also needed for compositor)
 media-libs/monado:wayland - Enable Wayland support
 media-libs/sjpeg:tools - Build the sjpeg / vjpeg command line tools
-media-libs/skia:ccpr - enable coverage counting path renderer
-media-libs/skia:freetype - enable media-libs/freetype support
-media-libs/skia:gpu - enable GPU backend
-media-libs/skia:harfbuzz - enable media-libs/harfbuzz support
-media-libs/skia:lottie - Play back bodymovin lottie files
-media-libs/skia:opencl - enable opencl support
-media-libs/skia:rive - enable support for rive files
-media-libs/skia:svg - enable support for SVG files
-media-libs/skia:vulkan - enable vulkan backend
 media-libs/vips:fits - Enable support for the FITS image format through sci-libs/cfitsio
 media-libs/vips:gsf - Enable support for creating image pyramids with dzsave
 media-libs/vips:heif - Enable support for HEIC images
@@ -535,6 +527,9 @@ net-p2p/monero:wallet-rpc - Build the RPC wallet, monero-wallet-rpc.
 net-p2p/trezord-go:systemd - Install systemd service file
 net-p2p/trezord-go:udev - Install udev rules
 net-print/hpuld:scanner - Enable scanner on multifunction devices which support it
+net-proxy/snowflake:client - Build the client application
+net-proxy/snowflake:proxy - Build standalone proxy application
+net-proxy/snowflake:server - Build the server application
 net-vpn/fastd:doc - Build and install manpages
 net-vpn/fastd:offload-l2tp - Offload L2TP traffic to the kernel when using the null@l2tp transport method
 sci-biology/cmdock:apidoc - Build API documentation using app-doc/doxygen
