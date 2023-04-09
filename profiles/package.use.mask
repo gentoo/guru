@@ -7,10 +7,6 @@
 # Masked due to infinite run of tests with USE="openmp"
 ~sci-physics/SU2-7.2.0 openmp
 
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-06-26)
-# depend on masked dev-python/python-binary-memcached
-dev-python/oslo-cache test
-
 # Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-05-22)
 # cmake failure
 # https://github.com/mfem/mfem/issues/2243

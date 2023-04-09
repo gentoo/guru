@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=pdm
-PYTHON_COMPAT=( python3_{10..11} pypy3 )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit bash-completion-r1 distutils-r1 pypi
 
@@ -15,7 +15,7 @@ HOMEPAGE="
 "
 
 LICENSE="MIT"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 SLOT="0"
 
 RDEPEND="

@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-04-09)
+# Library with no consumers left.
+# Masked for removal in 30 days.
+dev-libs/boinc-zip
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-31)
 # Revdeps of masked packages:
 # - dev-python/booleanOperations
@@ -67,26 +72,6 @@ dev-python/mkdocs-render-swagger-plugin
 # Masked for removal in 30 days.
 # https://github.com/McLeopold/PythonSkills/issues/11
 dev-python/skills
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-08)
-# Libraries with no consumers and no releases. Very hard to maintain.
-# Masked for removal in 30 days.
-media-libs/skcms
-media-libs/skia
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-08)
-# Python library with no consumers left in tree.
-# Masked for removal in 30 days.
-dev-python/uhashring
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-06)
-# Ancient Python library with no tests enabled and no revdeps.
-# Masked for removal in 30 days.
-dev-python/pysftp
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-04)
-# Depend on masked gconf.
-net-p2p/lbry
 
 # Julien Roy <julien@jroy.ca> (2023-01-25)
 # Requires <dev-python/coverage-7, which is no longer available in ::gentoo.

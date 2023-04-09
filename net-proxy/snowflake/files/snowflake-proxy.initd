@@ -1,0 +1,15 @@
+#!/sbin/openrc-run
+# Copyright 2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+#
+# shellcheck shell=sh
+
+command="/usr/bin/snowflake-proxy"
+command_args="${SNOWFLAKE_PROXY_OPTS}"
+command_background=1
+command_user="nobody:nobody"
+pidfile="/run/snowflake-proxy.pid"
+
+depend() {
+	need net
+}

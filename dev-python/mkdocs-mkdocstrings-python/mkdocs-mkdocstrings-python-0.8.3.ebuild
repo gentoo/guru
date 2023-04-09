@@ -27,7 +27,7 @@ BDEPEND="
 		dev-python/mkdocs-mkdocstrings[${PYTHON_USEDEP}]
 		dev-python/mkdocs-autorefs[${PYTHON_USEDEP}]
 		dev-python/pymdown-extensions[${PYTHON_USEDEP}]
-		dev-python/mkdocs_pymdownx_material_extras[${PYTHON_USEDEP}]
+		dev-python/mkdocs-pymdownx-material-extras[${PYTHON_USEDEP}]
 	)
 "
 DEPEND="${BDEPEND}"
