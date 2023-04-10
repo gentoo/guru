@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( ruby_targets_ruby27 ruby_targets_ruby30 )
 RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://rubygems.org/gems/prawn-svg-0.32.0.gem
-_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	d1408425c7c4a7669b9b17735404b693	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-ng	e68c3e575d599044297cb3253a2566d7	ruby-fakegem	52594c9f6d00a877106c877d3dd1acee
+_eclasses_=estack	055c42df72f76a4f45ec92b35e83cd56	multilib	d1408425c7c4a7669b9b17735404b693	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	ruby-utils	2412b1152083f1e866ae6df229d51d30	ruby-ng	76a677328d71b04b457f26be67717028	ruby-fakegem	52594c9f6d00a877106c877d3dd1acee
 _md5_=b80f23121cb92356d6debee953bf795e
