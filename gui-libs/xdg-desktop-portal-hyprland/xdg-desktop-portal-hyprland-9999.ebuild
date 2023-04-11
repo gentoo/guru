@@ -22,13 +22,15 @@ IUSE="elogind systemd"
 REQUIRED_USE="?? ( elogind systemd )"
 
 DEPEND="
+	>=media-video/pipewire-0.3.41:=
 	dev-libs/inih
 	dev-libs/wayland
+	dev-qt/qtbase
 	dev-qt/qtcore
-	dev-qt/qtwidgets
 	dev-qt/qtgui
+	dev-qt/qtwayland:6
+	dev-qt/qtwidgets
 	media-libs/mesa
-	>=media-video/pipewire-0.3.41:=
 	x11-libs/libdrm
 	|| (
 		systemd? ( >=sys-apps/systemd-237 )
