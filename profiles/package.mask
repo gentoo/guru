@@ -67,12 +67,6 @@ dev-python/python-manilaclient
 # Masked for removal in 30 days.
 dev-python/mkdocs-render-swagger-plugin
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-12)
-# Dead package, no Python 3.10 support.
-# Masked for removal in 30 days.
-# https://github.com/McLeopold/PythonSkills/issues/11
-dev-python/skills
-
 # Julien Roy <julien@jroy.ca> (2023-01-25)
 # Requires <dev-python/coverage-7, which is no longer available in ::gentoo.
 # Upstream bug: https://github.com/TheKevJames/coveralls-python/issues/377
