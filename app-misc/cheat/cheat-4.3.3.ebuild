@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="man zsh-completion"
 
 RDEPEND="zsh-completion? ( !app-shells/zsh-completions )"
-BDEPEND="man? ( app-text/pandoc-cli )"
+BDEPEND="man? ( app-text/pandoc )"
 
 src_compile() {
 	ego build -o ${PN} ./cmd/${PN}
