@@ -12,8 +12,12 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/hyprwm/xdg-desktop-portal-hyprland.git"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/hyprwm/xdg-desktop-portal-hyprland/archive/refs/tags/v${PV}.tar.gz -> xdg-desktop-hyprland-${PV}.tar.gz"
 	KEYWORDS="~amd64"
+	PROTOCOMMIT=4d29e48433270a2af06b8bc711ca1fe5109746cd
+	SRC_URI="https://github.com/hyprwm/xdg-desktop-portal-hyprland/archive/refs/tags/v${PV}.tar.gz \
+		-> xdg-desktop-hyprland-${PV}.tar.gz
+	https://github.com/hyprwm/hyprland-protocols/archive/${PROTOCOMMIT}.tar.gz \
+		-> hyprland-protocol-${PV}.tar.gz"
 fi
 
 LICENSE="MIT"
@@ -46,6 +50,13 @@ BDEPEND="
 	>=dev-libs/wayland-protocols-1.24
 	virtual/pkgconfig
 "
+
+src_unpack() {
+	default
+
+	rmdir "${S}/subprojects/hyprland-protocols"
+	mv "${WORKDIR}/hyprland-protocols-${PROTOCOMMIT}" "${S}/subprojects/hyprland-protocols" || die
+}
 
 src_configure() {
 	local emasonargs=()
