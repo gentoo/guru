@@ -60,13 +60,11 @@ src_configure() {
 }
 
 src_compile() {
-	cd hyprland-share-picker || die
-	make all || die "Couldn't compile hyprland-share-picker"
-	cd .. || die
 	meson_src_compile
+	emake -C hyprland-share-picker all
 }
 
 src_install() {
 	meson_src_install
-	dobin "${WORKDIR}"/xdg-desktop-portal-hyprland-${PV}/hyprland-share-picker/build/hyprland-share-picker
+	dobin "${S}/hyprland-share-picker/build/hyprland-share-picker"
 }
