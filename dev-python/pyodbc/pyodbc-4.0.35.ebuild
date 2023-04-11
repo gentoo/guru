@@ -43,7 +43,7 @@ src_test() {
 
 src_install() {
 	distutils-r1_src_install
-	rm /usr/pyodbc.pyi || die
+	rm "${D}/usr/pyodbc.pyi" || die
 }
 
 pkg_postinst() {
