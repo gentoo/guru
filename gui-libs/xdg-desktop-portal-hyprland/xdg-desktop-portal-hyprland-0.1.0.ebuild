@@ -13,11 +13,11 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/hyprwm/xdg-desktop-portal-hyprland/archive/refs/tags/v${PV}.tar.gz -> xdg-desktop-hyprland-${PV}.tar.gz"
-	KEYWORDS="~amd64"
 fi
 
 LICENSE="MIT"
 SLOT="0/9999"
+KEYWORDS="~amd64"
 IUSE="elogind systemd"
 REQUIRED_USE="?? ( elogind systemd )"
 
