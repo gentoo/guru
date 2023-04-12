@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit bash-completion-r1 go-module systemd
+inherit go-module shell-completion systemd
 
 EGO_SUM=(
 	"cloud.google.com/go v0.26.0/go.mod"
@@ -629,11 +629,9 @@ src_install() {
 	systemd_dounit fan2go.service
 	insinto /etc/fan2go
 	doins fan2go.yaml
-	newbashcomp fan2go.bash fan2go
-	insinto "/usr/share/fish/vendor_completions.d"
-	doins fan2go.fish
-	insinto "/usr/share/zsh/site-functions"
-	newins fan2go.zsh _fan2go
+	newbashcomp "${PN}.bash" "${PN}"
+	dofishcomp "${PN}.fish"
+	newzshcomp "${PN}.zsh" "_${PN}"
 }
 
 src_test() {
