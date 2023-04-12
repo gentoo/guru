@@ -41,7 +41,7 @@ src_install() {
 	cp -ar "${S}/opt"  "${D}" || die "Install failed!"
 	cp -ar "${S}/usr"  "${D}" || die "Install failed!"
 
-	chgrp onepassword "${D}/opt/1Password/1Password-BrowserSupport"
+	chgrp onepassword "${D}/opt/1Password/1Password-BrowserSupport" || die
 
 	dosym ../../opt/1Password/1password /usr/bin/1password
 }
