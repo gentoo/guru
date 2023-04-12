@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit go-module bash-completion-r1 desktop xdg
+inherit go-module desktop shell-completion xdg
 
 SRC_URI="https://github.com/gokcehan/lf/archive/r${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://github.com/ephemer4l/gentoo-lf/raw/main/${P}-deps.tar.xz"
@@ -45,12 +45,10 @@ src_install() {
 	newbashcomp "etc/${PN}.bash" "${PN}"
 
 	# zsh-completion
-	insinto /usr/share/zsh/site-functions
-	newins "etc/${PN}.zsh" "_${PN}"
+	newzshcomp "etc/${PN}.zsh" "_${PN}"
 
 	# fish-completion
-	insinto /usr/share/fish/vendor_completions.d
-	doins "etc/${PN}.fish"
+	dofishcomp "etc/${PN}.fish"
 	insinto /usr/share/fish/vendor_functions.d
 	doins "etc/${PN}cd.fish"
 
