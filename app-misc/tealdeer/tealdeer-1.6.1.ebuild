@@ -183,7 +183,7 @@ yansi-0.5.1
 zip-0.6.3
 "
 
-inherit cargo flag-o-matic bash-completion-r1
+inherit cargo flag-o-matic shell-completion
 
 DESCRIPTION="A very fast implementation of tldr in Rust."
 HOMEPAGE="https://github.com/tldr-pages/tldr
@@ -215,9 +215,7 @@ src_install() {
 
 	newbashcomp completion/bash_tealdeer tldr
 
-	insinto /usr/share/zsh/site-functions
-	newins completion/zsh_tealdeer _tldr
+	newzshcomp completion/zsh_tealdeer _tldr
 
-	insinto /usr/share/fish/vendor_completions.d
-	newins completion/fish_tealdeer tldr.fish
+	newfishcomp completion/fish_tealdeer tldr.fish
 }
