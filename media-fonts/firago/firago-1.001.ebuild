@@ -16,7 +16,6 @@ SRC_URI="https://bboxtype.com/downloads/${MY_PN}/${MY_P}.zip"
 LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 RDEPEND=""
 DEPEND="
