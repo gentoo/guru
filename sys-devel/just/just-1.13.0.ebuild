@@ -116,7 +116,7 @@ CRATES="
 	${P}
 "
 
-inherit bash-completion-r1 cargo toolchain-funcs
+inherit cargo shell-completion toolchain-funcs
 
 DESCRIPTION="Just a command runner (with syntax inspired by 'make')"
 HOMEPAGE="
@@ -157,10 +157,8 @@ src_install() {
 	newbashcomp "completions/${PN}.bash" "${PN}"
 
 	# zsh-completion
-	insinto /usr/share/zsh/site-functions
-	newins "completions/${PN}.zsh" "_${PN}"
+	newzshcomp "completions/${PN}.zsh" "_${PN}"
 
 	# fish-completion
-	insinto /usr/share/fish/vendor_completions.d
-	doins "completions/${PN}.fish"
+	dofishcomp "completions/${PN}.fish"
 }
