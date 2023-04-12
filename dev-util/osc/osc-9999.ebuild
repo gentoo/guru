@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_9 )
 PYTHON_REQ_USE="xml"
 DISTUTILS_SINGLE_IMPL=1
 
-inherit bash-completion-r1 distutils-r1
+inherit distutils-r1 shell-completion
 
 DESCRIPTION="Command line tool for Open Build Service"
 HOMEPAGE="
@@ -61,8 +61,6 @@ src_install() {
 	newbashcomp dist/complete.sh "${PN}"
 	insinto /usr/lib/osc
 	newins dist/osc.complete complete
-	insinto /usr/share/zsh/site-functions
-	newins "${FILESDIR}/osc.zsh_completion" _osc
-	insinto /usr/share/fish/vendor_completions.d
-	doins osc.fish
+	newzshcomp "${FILESDIR}/${PN}.zsh_completion" "_${PN}"
+	dofishcomp "${PN}.fish"
 }
