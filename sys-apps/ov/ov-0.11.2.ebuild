@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit bash-completion-r1 edo go-module
+inherit edo go-module shell-completion
 
 DESCRIPTION="Feature-rich terminal pager"
 HOMEPAGE="https://github.com/noborus/ov"
@@ -23,11 +23,9 @@ src_compile() {
 src_install() {
 	dodoc README.md ov{,-less}.yaml
 	dobin ov
-	newbashcomp ov.bash ov
-	insinto /usr/share/fish/vendor_completions.d
-	doins ov.fish
-	insinto /usr/share/zsh/site-functions
-	newins ov.zsh _ov
+	newbashcomp "${PN}.bash" "${PN}"
+	dofishcomp "${PN}.fish"
+	newzshcomp "${PN}.zsh" "_${PN}"
 }
 
 src_test() {
