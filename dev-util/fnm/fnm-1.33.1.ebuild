@@ -243,7 +243,7 @@ CRATES="
 	zstd-sys-2.0.1+zstd.1.5.2
 "
 
-inherit cargo bash-completion-r1 flag-o-matic
+inherit cargo flag-o-matic shell-completion
 
 DESCRIPTION="Fast and simple Node.js version manager"
 HOMEPAGE="https://github.com/Schniz/fnm"
@@ -284,16 +284,14 @@ src_prepare() {
 src_install() {
 	cargo_src_install
 
-	"${D}"/usr/bin/fnm completions --shell bash > fnm.bash-completion || die "Cannot generate bash completions"
-	newbashcomp fnm.bash-completion fnm
+	"${D}"/usr/bin/fnm completions --shell bash > "${PN}.bash-completion" || die "Cannot generate bash completions"
+	newbashcomp "${PN}.bash-completion" "${PN}"
 
-	"${D}"/usr/bin/fnm completions --shell zsh > fnm.zsh-completion || die "Cannot generate zsh completions"
-	insinto /usr/share/zsh/site-functions
-	newins fnm.zsh-completion _fnm
+	"${D}"/usr/bin/fnm completions --shell zsh > "${PN}.zsh-completion" || die "Cannot generate zsh completions"
+	newzshcomp "${PN}.zsh-completion" "_${PN}"
 
-	"${D}"/usr/bin/fnm completions --shell fish > fnm.fish-completion || die "Cannot generate fish completions"
-	insinto /usr/share/fish/vendor_completions.d/
-	newins fnm.fish-completion fnm.fish
+	"${D}"/usr/bin/fnm completions --shell fish > "${PN}.fish-completion" || die "Cannot generate fish completions"
+	newfishcomp "${PN}.fish-completion" "${PN}.fish"
 
 	dodoc CHANGELOG.md README.md
 }

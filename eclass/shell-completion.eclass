@@ -4,6 +4,8 @@
 # @ECLASS: shell-completion.eclass
 # @SUPPORTED_EAPIS: 8
 # @PROVIDES: bash-completion-r1
+# @AUTHOR:
+# Alfred Wingate <parona@protonmail.com>
 # @MAINTAINER:
 # Jonas Frei <freijon@pm.me>
 # @BLURB: a few quick functions to install various shell completion files

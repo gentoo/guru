@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit shell-completion
+
 DESCRIPTION="100% pure-Fish test runner"
 HOMEPAGE="https://github.com/jorgebucaran/fishtape"
 SRC_URI="https://github.com/jorgebucaran/fishtape/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
@@ -22,8 +24,7 @@ DOCS=( README.md )
 RESTRICT="!test? ( test )"
 
 src_install() {
-	insinto "/usr/share/fish/vendor_completions.d"
-	doins completions/*
+	dofishcomp completions/*
 	insinto "/usr/share/fish/vendor_functions.d"
 	doins functions/*
 	einstalldocs

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>John-Henry Lim</name>
+		<email>johnhenrylim12@gmail.com</email>
+	</maintainer>
+	<use>
+		<flag name="lto">Enable Link Time Optimization (LTO)</flag>
+	</use>
+	<upstream>
+		<maintainer>
+			<name>Filip Stamcar</name>
+			<email>info@filips.si</email>
+		</maintainer>
+		<bugs-to>https://github.com/filips123/PWAsForFirefox/issues</bugs-to>
+		<changelog>https://github.com/filips123/PWAsForFirefox/releases</changelog>
+		<doc>https://github.com/filips123/PWAsForFirefox/wiki</doc>
+		<remote-id type="github">filips123/PWAsForFirefox</remote-id>
+	</upstream>
+</pkgmetadata>

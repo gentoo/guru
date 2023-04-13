@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit shell-completion
+
 DESCRIPTION="Augment your fish command line with fzf key bindings"
 HOMEPAGE="https://github.com/PatrickF1/fzf.fish"
 SRC_URI="https://github.com/PatrickF1/fzf.fish/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
@@ -34,8 +36,7 @@ DOCS=( README.md )
 RESTRICT="test" # how to run tests?
 
 src_install() {
-	insinto "/usr/share/fish/vendor_completions.d"
-	doins completions/*
+	dofishcomp completions/*
 	insinto "/usr/share/fish/vendor_conf.d"
 	doins conf.d/*
 	insinto "/usr/share/fish/vendor_functions.d"

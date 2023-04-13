@@ -1,9 +1,11 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 MYPN="${PN/-/.}"
+
+inherit shell-completion
 
 DESCRIPTION="Sparklines for Fish"
 HOMEPAGE="https://github.com/jorgebucaran/spark.fish"
@@ -27,8 +29,7 @@ DOCS=( README.md )
 RESTRICT="!test? ( test )"
 
 src_install() {
-	insinto "/usr/share/fish/vendor_completions.d"
-	doins completions/*
+	dofishcomp completions/*
 	insinto "/usr/share/fish/vendor_functions.d"
 	doins functions/*
 	einstalldocs

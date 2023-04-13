@@ -413,7 +413,7 @@ CRATES="
 	zvariant_utils-1.0.0
 "
 
-inherit bash-completion-r1 cargo
+inherit cargo shell-completion
 
 DESCRIPTION="Executes commands in response to file modifications"
 HOMEPAGE="https://github.com/watchexec/watchexec"
@@ -447,11 +447,9 @@ src_install() {
 	einstalldocs
 	doman doc/watchexec.1
 
-	newbashcomp completions/bash watchexec
+	newbashcomp completions/bash "${PN}"
 
-	insinto /usr/share/zsh/site-functions
-	newins completions/zsh _watchexec
+	newzshcomp completions/zsh "_${PN}"
 
-	insinto /usr/share/fish/vendor_completions.d
-	newins completions/fish watchexec.fish
+	newfishcomp completions/fish "${PN}.fish"
 }

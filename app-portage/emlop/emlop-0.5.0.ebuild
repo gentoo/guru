@@ -1,4 +1,4 @@
-# Copyright 2017-2022 Gentoo Authors
+# Copyright 2017-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -65,7 +65,7 @@ CRATES="
 	winapi-x86_64-pc-windows-gnu-0.4.0
 "
 
-inherit cargo bash-completion-r1
+inherit cargo shell-completion
 
 DESCRIPTION="A fast, accurate, ergonomic emerge.log parser"
 HOMEPAGE="https://github.com/vincentdephily/emlop"
@@ -86,17 +86,15 @@ src_install() {
 	cargo_src_install
 	einstalldocs
 	if use bash-completion; then
-		./target/release/emlop complete bash > emlop
+		./target/$(usex debug debug release)/emlop complete bash > "${PN}"
 		dobashcomp emlop
 	fi
 	if use zsh-completion; then
-		./target/release/emlop complete zsh > _emlop
-		insinto /usr/share/zsh/site-functions
-		doins _emlop
+		./target/$(usex debug debug release)/emlop complete zsh > "_${PN}"
+		dozshcomp "_${PN}"
 	fi
 	if use fish-completion; then
-		./target/release/emlop complete fish > emlop.fish
-		insinto /usr/share/fish/vendor_completions.d
-		doins emlop.fish
+		./target/$(usex debug debug release)/emlop complete fish > "${PN}.fish"
+		dofishcomp "${PN}.fish"
 	fi
 }
