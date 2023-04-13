@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module bash-completion-r1
+inherit go-module shell-completion
 
 DESCRIPTION="Manage your dotfiles across multiple machines, securely"
 HOMEPAGE="https://chezmoi.io/"
@@ -35,9 +35,7 @@ src_install() {
 
 	newbashcomp completions/${PN}-completion.bash ${PN}
 
-	insinto /usr/share/fish/vendor_completions.d
-	doins completions/${PN}.fish
+	dofishcomp completions/${PN}.fish
 
-	insinto /usr/share/zsh/site-functions
-	newins completions/${PN}.zsh _${PN}
+	newzshcomp completions/${PN}.zsh _${PN}
 }
