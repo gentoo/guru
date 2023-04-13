@@ -82,6 +82,7 @@ app-admin/terragrunt-bin 0.38.6: A thin wrapper for Terraform
 app-admin/zenmonitor3 2.0.0: Zen monitor is monitoring software for AMD Zen-based CPUs
 app-arch/libarchive-qt 2.0.6-r1 2.0.7 9999: A Qt based archiving solution with libarchive backend
 app-arch/microtar 0.1.0: A lightweight tar library written in ANSI C
+app-arch/ouch 0.4.1: A cli utility for easily compressing and decompressing files and directories.
 app-arch/unalz 0.65-r1: Extract ALZ archives
 app-arch/zarchive 0.1.2: Library for creating and reading zstd-compressed file archives (.zar)
 app-backup/b2 3.4.0: Command-line tool for BackBlaze's B2 product
@@ -269,7 +270,7 @@ app-text/code-minimap 0.6.4: A high performance code minimap generator
 app-text/dooit 1.0.0: A TUI todo manager
 app-text/epubgrep 0.6.0-r1 0.6.2: Search tool for EPUB e-books
 app-text/klogg 22.06.0.1289: A GUI application to browse and search through long and complex log files
-app-text/komikku 1.16.0 1.17.0: An online/offline manga reader for GNOME
+app-text/komikku 1.17.0 1.18.0: An online/offline manga reader for GNOME
 app-text/koodo-reader-bin 1.5.1: A modern ebook manager and reader with sync and backup capacities
 app-text/lizard 1.17.10: A simple code complexity analyser, supports most of the popular languages.
 app-text/mandown 0.1.2: Markdown to groff (man page) converter
@@ -771,7 +772,7 @@ dev-nim/ups 0.0.8: a package handler
 dev-nim/weave 0.4.0: a state-of-the-art multithreading runtime
 dev-nim/ws 0.5.0: Simple WebSocket library for nim
 dev-nim/zedeus_redis 0.3.0_p20211226: Fork of the official redis client for Nim
-dev-nim/zippy 0.10.6 0.10.7: Pure Nim implementation of deflate, zlib, gzip and zip
+dev-nim/zippy 0.10.7 0.10.8: Pure Nim implementation of deflate, zlib, gzip and zip
 dev-octave/control 3.4.0: Computer-Aided Control System Design
 dev-octave/dataframe 1.2.0: Data manipulation toolbox similar to R data.frame
 dev-octave/fuzzy-logic-toolkit 0.4.6: A mostly MATLAB-compatible fuzzy logic toolkit for Octave
@@ -951,7 +952,7 @@ dev-python/markdownify 0.11.6: Convert HTML to Markdown
 dev-python/marshmallow_enum 1.5.1: Enum handling for Marshmallow
 dev-python/mastodon-py 1.7.0 1.8.0: Python wrapper for the Mastodon API
 dev-python/material-color-utilities 0.1.5 9999: Python port of material-color-utilities used for Material You colors
-dev-python/mautrix 0.19.8: A Python 3 asyncio Matrix framework
+dev-python/mautrix 0.19.8 0.19.9: A Python 3 asyncio Matrix framework
 dev-python/minio 7.1.14: MinIO Client SDK for Python
 dev-python/mistletoe 1.0.1: A fast, extensible and spec-compliant Markdown parser in pure Python.
 dev-python/mitype 0.2.4: Typing speed test in terminal
@@ -1911,7 +1912,7 @@ x11-misc/greenclip-bin 4.2: Simple clipboard manager to be integrated with rofi
 x11-misc/gromit-mpx 1.4.3 9999: Gromit-MPX is a multi-pointer GTK3 port of the Gromit desktop annotation tool
 x11-misc/i3lock-color 2.13.2 2.13.4 9999: The world's most popular non-default computer lockscreen
 x11-misc/i3lock-fancy-rapid 0.0.0_pre20201109-r1 0.0.0_pre20210421: A faster implementation of i3lock-fancy
-x11-misc/i3status-rust 0.30.5 0.30.6: A feature-rich and resource-friendly replacement for i3status, written in Rust.
+x11-misc/i3status-rust 0.30.7: A feature-rich and resource-friendly replacement for i3status, written in Rust.
 x11-misc/ksnip 1.9.2 1.10.0-r1: Ksnip is a Qt based cross-platform screenshot tool
 x11-misc/leftwm-theme 9999: A theme mangager for LeftWM
 x11-misc/picom-jonaburg 9999: A lightweight compositor for X11 (previously a compton fork)
