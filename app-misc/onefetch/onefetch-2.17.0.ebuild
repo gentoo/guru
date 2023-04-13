@@ -374,7 +374,7 @@ CRATES="
 	zstd-sys-2.0.1+zstd.1.5.2
 "
 
-inherit bash-completion-r1 cargo
+inherit cargo shell-completion
 
 DESCRIPTION="Command-line Git information tool"
 HOMEPAGE="https://onefetch.dev"
@@ -398,7 +398,7 @@ QA_FLAGS_IGNORED="usr/bin/onefetch"
 
 src_compile() {
 	cargo_src_compile
-	local _completion="target/release/${PN} --generate"
+	local _completion="target/$(usex debug debug release)/${PN} --generate"
 	mkdir completions || die
 	$_completion bash > completions/${PN} || die
 	$_completion fish > completions/${PN}.fish || die
@@ -409,10 +409,8 @@ src_install() {
 	doman docs/${PN}.1
 
 	dobashcomp completions/${PN}
-	insinto /usr/share/fish/vendor_completions.d
-	doins completions/${PN}.fish
-	insinto /usr/share/zsh/site-functions
-	doins completions/_${PN}
+	dofishcomp completions/${PN}.fish
+	dozshcomp completions/_${PN}
 
 	cargo_src_install
 }
