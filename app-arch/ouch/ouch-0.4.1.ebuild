@@ -139,8 +139,6 @@ CRATES="
 inherit cargo shell-completion
 
 DESCRIPTION="A cli utility for easily compressing and decompressing files and directories."
-# Double check the homepage as the cargo_metadata crate
-# does not provide this value so instead repository is used
 HOMEPAGE="https://github.com/ouch-org/ouch"
 SRC_URI="
 	$(cargo_crate_uris ${CRATES})
@@ -161,8 +159,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
-# rust does not use *FLAGS from make.conf, silence portage warning
-# update with proper path to binaries this crate installs, omit leading /
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 src_compile() {
