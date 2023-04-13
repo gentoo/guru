@@ -5,4 +5,7 @@
 		<email>zdanevich.vitaly@ya.ru</email>
 		<name>Vitaly Zdanevich</name>
 	</maintainer>
+	<use>
+		<flag name="cli">Install app-misc/1password-cli</flag>
+	</use>
 </pkgmetadata>
