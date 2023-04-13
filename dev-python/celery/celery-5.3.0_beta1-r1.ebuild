@@ -114,7 +114,6 @@ pkg_postinst() {
 	#optfeature "couchbase support" dev-python/couchbase
 	optfeature "redis support" dev-python/redis-py
 	optfeature "auth support" dev-python/pyopenssl
-	optfeature "pyro support" dev-python/Pyro4
 	optfeature "yaml support" dev-python/pyyaml
 	optfeature "memcache support" dev-python/pylibmc
 	optfeature "mongodb support" dev-python/pymongo
