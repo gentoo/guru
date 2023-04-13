@@ -98,7 +98,7 @@ CRATES="
 	winapi-x86_64-pc-windows-gnu-0.4.0
 "
 
-inherit cargo bash-completion-r1
+inherit cargo shell-completion
 
 DESCRIPTION="A smarter cd command for your terminal"
 # Double check the homepage as the cargo_metadata crate
@@ -132,11 +132,9 @@ src_install() {
 
 	newbashcomp contrib/completions/"${PN}".bash "${PN}"
 
-	insinto /usr/share/zsh/site-functions
-	doins contrib/completions/_"${PN}"
+	dozshcomp contrib/completions/_"${PN}"
 
-	insinto /usr/share/fish/vendor_completions.d
-	doins contrib/completions/"${PN}".fish
+	dofishcomp contrib/completions/"${PN}".fish
 
 	insinto /usr/share/"${PN}"
 	doins init.fish
