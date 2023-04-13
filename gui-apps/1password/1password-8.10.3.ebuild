@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit rpm xdg-utils
+inherit rpm xdg-utils optfeature
 
 DESCRIPTION="The world’s most-loved password manager"
 HOMEPAGE="https://1password.com"
@@ -15,13 +15,9 @@ KEYWORDS="~amd64"
 
 RESTRICT="mirror strip test bindist"
 
-IUSE="+policykit +cli"
-
 DEPEND="
 	x11-misc/xdg-utils
 	acct-group/1password
-	policykit? ( sys-auth/polkit )
-	cli? ( app-misc/1password-cli )
 "
 RDEPEND="${DEPEND}"
 BDEPEND=""
@@ -54,6 +50,9 @@ pkg_postinst() {
 	xdg_icon_cache_update
 	xdg_desktop_database_update
 	xdg_mimeinfo_database_update
+
+	optfeature "cli support" app-misc/1password-cli
+	optfeature "policykit support" sys-auth/polkit
 }
 
 pkg_postrm() {
