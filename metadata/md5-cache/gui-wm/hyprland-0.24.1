@@ -1,0 +1,15 @@
+BDEPEND=grimblast? ( app-text/scdoc ) shellevents? ( app-text/scdoc ) >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=app-misc/jq dev-libs/libevdev dev-libs/libinput dev-libs/libliftoff dev-libs/wayland >=dev-libs/wayland-protocols-1.31 dev-util/glslang dev-util/vulkan-headers gui-libs/gtk-layer-shell gui-libs/wlroots[X?] media-libs/libdisplay-info media-libs/libglvnd[X?] media-libs/mesa[gles2,wayland,X?] media-libs/vulkan-loader x11-base/xcb-proto x11-libs/cairo x11-libs/libdrm x11-libs/libxkbcommon x11-libs/pixman x11-misc/xkeyboard-config virtual/libudev grimblast? ( gui-apps/grim gui-apps/slurp gui-apps/wl-clipboard x11-libs/libnotify ) X? ( gui-libs/wlroots[x11-backend] x11-base/xwayland x11-libs/libxcb x11-libs/xcb-util-image x11-libs/xcb-util-renderutil x11-libs/xcb-util-wm )
+DESCRIPTION=A dynamic tiling Wayland compositor that doesn't sacrifice on its looks
+EAPI=8
+HOMEPAGE=https://github.com/hyprwm/Hyprland/releases
+INHERIT=meson toolchain-funcs
+IUSE=X grimblast legacy-renderer scratchpad shellevents systemd
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=app-misc/jq dev-libs/libevdev dev-libs/libinput dev-libs/libliftoff dev-libs/wayland >=dev-libs/wayland-protocols-1.31 dev-util/glslang dev-util/vulkan-headers gui-libs/gtk-layer-shell gui-libs/wlroots[X?] media-libs/libdisplay-info media-libs/libglvnd[X?] media-libs/mesa[gles2,wayland,X?] media-libs/vulkan-loader x11-base/xcb-proto x11-libs/cairo x11-libs/libdrm x11-libs/libxkbcommon x11-libs/pixman x11-misc/xkeyboard-config virtual/libudev grimblast? ( gui-apps/grim gui-apps/slurp gui-apps/wl-clipboard x11-libs/libnotify ) X? ( gui-libs/wlroots[x11-backend] x11-base/xwayland x11-libs/libxcb x11-libs/xcb-util-image x11-libs/xcb-util-renderutil x11-libs/xcb-util-wm )
+SLOT=0
+SRC_URI=https://github.com/hyprwm/Hyprland/archive/v0.24.1.tar.gz -> hyprland-0.24.1.tar.gz https://github.com/hyprwm/hyprland-protocols/archive/4d29e48433270a2af06b8bc711ca1fe5109746cd.tar.gz -> hyprland-protocols-0.24.1.tar.gz https://github.com/hyprwm/contrib/archive/1af47a008e850c595aeddc83bb3f04fd81935caa.tar.gz -> contrib-0.24.1.tar.gz https://github.com/canihavesomecoffee/udis86/archive/5336633af70f3917760a6d441ff02d93477b0c86.tar.gz -> udis-0.24.1.tar.gz https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/7abda952d0000b72d240fe1d41457b9288f0b6e5/wlroots-7abda952d0000b72d240fe1d41457b9288f0b6e5.tar.bz2 -> wlr-0.24.1.tar.bz2
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	915ec7c25e08d7886558215e6809ca1e
+_md5_=04c2cf5d210af0dcb0a212f604102698

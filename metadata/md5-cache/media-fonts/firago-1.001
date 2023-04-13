@@ -1,0 +1,14 @@
+BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=install postinst postrm prepare setup
+DEPEND=app-arch/unzip
+DESCRIPTION=A continuation of FiraSans
+EAPI=8
+HOMEPAGE=https://bboxtype.com/typefaces/FiraGO
+INHERIT=font
+IUSE=X
+KEYWORDS=~amd64 ~x86
+LICENSE=OFL-1.1
+SLOT=0
+SRC_URI=https://bboxtype.com/downloads/FiraGO/Download_Folder_FiraGO_1001.zip
+_eclasses_=font	aa113a3df9cd0a9693a1c1ee7c34a6eb
+_md5_=2748ec9c7df39b410817ea8b133f4467

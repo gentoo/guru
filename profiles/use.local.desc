@@ -361,8 +361,10 @@ gui-apps/yambar:xwindow - XWindow (window tracking for X11) support
 gui-libs/cubegui:concurrent - Enables usage of the QtConcurrent for the the parallel calculations
 gui-libs/cubegui:webengine - Enables usage of the QtWebEngine for the HTML Documentation
 gui-libs/power-profiles-daemon:pylint - Run pylint checks
+gui-libs/xdg-desktop-portal-hyprland:elogind - Enable support for rootless session via elogind
 gui-wm/cage:X - Enable support for X11 applications (XWayland)
 gui-wm/hyprland:grimblast - Install 'grimblast': a Hyprland version of the sway script for taking screenshots
+gui-wm/hyprland:legacy-renderer - Enable legacy renderer
 gui-wm/hyprland:scratchpad - Install 'scratchpad': a Bash script that sends focused window to a special workspace
 gui-wm/hyprland:shellevents - Install 'shellevents': Invoke shell functions in response to Hyprland socket2 events.
 gui-wm/swayfx:X - Enable support for X11 applications (XWayland)
@@ -909,6 +911,7 @@ sys-process/nq:shell - Use shell implementation
 sys-process/nq:tq - Install tq, a tmux & screen wrapper
 www-apps/forgejo:acct - User and group management via acct-*/git packages
 www-client/vimb:adblock - Use www-misc/wyebadblock for adblocking
+www-plugins/firefoxpwa:lto - Enable Link Time Optimization (LTO)
 www-servers/hinsightd:cgi - Enable old/slow cgi support (legacy should not be used)
 www-servers/hinsightd:fcgi - Enable fast cgi support
 www-servers/hinsightd:ffcall - Use ffcall library for better logging format support

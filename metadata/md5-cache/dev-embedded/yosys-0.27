@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare setup
+DEPEND=|| ( >=dev-lang/python-3.9.16-r1:3.9 ) sys-devel/bison sys-devel/flex sys-apps/gawk virtual/pkgconfig sys-libs/readline:= dev-libs/libffi:= dev-vcs/git dev-lang/tcl:=
+DESCRIPTION=Yosys - Yosys Open SYnthesis Suite
+EAPI=8
+HOMEPAGE=http://www.clifford.at/icestorm/
+INHERIT=python-any-r1
+KEYWORDS=~amd64 ~x86
+LICENSE=ISC
+RDEPEND=sys-libs/readline:= dev-libs/libffi:= dev-vcs/git dev-lang/tcl:=
+SLOT=0
+SRC_URI=https://github.com/YosysHQ/yosys/archive/refs/tags/yosys-0.27.tar.gz https://github.com/YosysHQ/abc/archive/2c1c83f75b8078ced51f92c697da3e712feb3ac3.tar.gz -> yosys-abc-2c1c83f75b8078ced51f92c697da3e712feb3ac3.tar.gz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	python-any-r1	d2955aaac8daaaa69fcc6dc93ed19f29
+_md5_=69b0f5e7152998b0c4bd6ee4e54cd312
