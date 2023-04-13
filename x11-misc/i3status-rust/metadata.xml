@@ -6,6 +6,9 @@
     <name>Lucio Sauer</name>
   </maintainer>
   <upstream>
+    <changelog>
+      https://github.com/greshake/i3status-rust/blob/master/NEWS.md
+    </changelog>
     <remote-id type="github">greshake/i3status-rust</remote-id>
   </upstream>
   <use>
