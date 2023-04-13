@@ -21,9 +21,8 @@ KEYWORDS="~amd64"
 RDEPEND="dev-python/zope-interface[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
 BDEPEND="
-	test? (
-		dev-python/mock[${PYTHON_USEDEP}]
-	)
+	doc? ( dev-python/repoze-sphinx-autointerface )
+	test? ( dev-python/mock[${PYTHON_USEDEP}] )
 "
 
 DOCS="CHANGES.rst README.rst"
