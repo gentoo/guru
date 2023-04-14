@@ -1,0 +1,15 @@
+diff --git a/protocols/meson.build b/protocols/meson.build
+index 458de86..294d9ee 100644
+--- a/protocols/meson.build
++++ b/protocols/meson.build
+@@ -31,8 +31,8 @@ protocols = [
+   ['pointer-constraints-unstable-v1.xml'],
+   ['tablet-unstable-v2.xml'],
+   ['idle.xml'],
+-  [hl_protocol_dir, 'protocols/hyprland-toplevel-export-v1.xml'],
+-  [hl_protocol_dir, 'protocols/hyprland-global-shortcuts-v1.xml']
++  ['/usr/share', 'protocols/hyprland-toplevel-export-v1.xml'],
++  ['/usr/share', 'protocols/hyprland-global-shortcuts-v1.xml']
+ ]
+ wl_protos_src = []
+ wl_protos_headers = []
