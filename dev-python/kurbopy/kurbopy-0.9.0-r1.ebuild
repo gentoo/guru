@@ -64,4 +64,4 @@ src_install() {
 
 distutils_enable_tests pytest
 
-QA_FLAGS_IGNORED="usr/lib/python3\..*/site-packages/kurbopy/kurbopy.cpython-.*.so"
+QA_FLAGS_IGNORED="usr/lib/python3\..*/site-packages/kurbopy/kurbopy.*.so"

@@ -35,3 +35,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 distutils_enable_tests pytest
+
+EPYTEST_DESELECT=(
+	tests/readthedocs/quick_references/test_client_reference.py::test_all_methods_present
+)

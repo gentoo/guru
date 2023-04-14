@@ -25,8 +25,6 @@ RDEPEND="
 	>=dev-python/stone-2.0.0[${PYTHON_USEDEP}]
 "
 
-PATCHES=( "${FILESDIR}"/${P}-setuptools-67.patch )
-
 # disable tests that need SCOPED_USER_DROPBOX_TOKEN
 # and tests that fail
 EPYTEST_DESELECT=(
