@@ -87,7 +87,7 @@ app-arch/unalz 0.65-r1: Extract ALZ archives
 app-arch/zarchive 0.1.2: Library for creating and reading zstd-compressed file archives (.zar)
 app-backup/b2 3.4.0: Command-line tool for BackBlaze's B2 product
 app-backup/grub-btrfs 4.11-r1 4.12 9999: Improves Grub by adding btrfs snapshots to the Grub menu.
-app-backup/pika-backup 0.5.2-r1: Keep your data safe
+app-backup/pika-backup 0.5.2-r1 0.6.0: Keep your data safe
 app-backup/timeshift 21.09.1-r3 22.06.5-r2 22.11.1-r1: A system restore utility for Linux
 app-backup/timeshift-autosnap 0.9: Automatically creates a timeshift-snapshot when executed
 app-benchmarks/phoronix-test-suite 9999: Phoronix's comprehensive, cross-platform testing and benchmark suite
@@ -842,7 +842,7 @@ dev-python/bitbox02 5.3.0: Python API for communicating with the BitBox02 device
 dev-python/blurhash 1.1.4: Pure-Python implementation of the blurhash algorithm
 dev-python/browserstack-local-python 1.2.3: Python bindings for BrowserStack Local
 dev-python/bson 0.5.10: Independent BSON codec for Python that doesn't depend on MongoDB
-dev-python/celery 5.3.0_beta1-r1: Asynchronous task queue/job queue based on distributed message passing
+dev-python/celery 5.3.0_beta1-r1 5.3.0_beta2: Asynchronous task queue/job queue based on distributed message passing
 dev-python/cffsubr 0.2.9_p1: Standalone CFF subroutinizer based on AFDKO tx tool
 dev-python/click-command-tree 1.1.1: click plugin to show the command tree of your CLI
 dev-python/click-option-group 0.5.5: Option groups missing in Click
@@ -878,7 +878,7 @@ dev-python/django-widget-tweaks 1.4.12: Tweak the form field rendering in templa
 dev-python/dotmap 1.3.30-r1: Dot access dictionary with dynamic hierarchy creation and ordered iteration
 dev-python/doubles 1.5.3: Test doubles for Python
 dev-python/doxypypy 0.8.8.6_p20210405: A more Pythonic version of doxypy, a Doxygen filter for Python
-dev-python/dropbox 11.36.0: The offical Dropbox SDK for Python
+dev-python/dropbox 11.36.1: The offical Dropbox SDK for Python
 dev-python/emailthreads 0.1.3: Parses email threads into conversation trees
 dev-python/etcd3 0.12.0: Python client for the etcd API v3
 dev-python/etcd3gw 1.0.2: A python client for etcd3 grpc-gateway v3 API
@@ -942,7 +942,7 @@ dev-python/jplephem 2.16: Python version of NASA DE4xx ephemerides for Astronomi
 dev-python/jsonpath-rw 1.4.0: A robust and significantly extended implementation of JSONPath for Python
 dev-python/jsonpath-rw-ext 1.2.2: Extensions for JSONPath RW
 dev-python/jupyter-sphinx 0.4.0: Jupyter Sphinx Extensions
-dev-python/kurbopy 0.9.0: Python wrapper around Rust kurbo 2D curves library
+dev-python/kurbopy 0.9.0-r1: Python wrapper around Rust kurbo 2D curves library
 dev-python/langdetect 1.0.9: Port of Google's language-detection library to Python
 dev-python/libcst 0.4.3_p20220607: Concrete syntax tree parser and serializer for Python
 dev-python/libusb1 2.0.1: Pure-python wrapper for libusb-1.0
@@ -952,7 +952,7 @@ dev-python/markdownify 0.11.6: Convert HTML to Markdown
 dev-python/marshmallow_enum 1.5.1: Enum handling for Marshmallow
 dev-python/mastodon-py 1.7.0 1.8.0: Python wrapper for the Mastodon API
 dev-python/material-color-utilities 0.1.5 9999: Python port of material-color-utilities used for Material You colors
-dev-python/mautrix 0.19.8 0.19.9: A Python 3 asyncio Matrix framework
+dev-python/mautrix 0.19.8 0.19.9 0.19.10: A Python 3 asyncio Matrix framework
 dev-python/minio 7.1.14: MinIO Client SDK for Python
 dev-python/mistletoe 1.0.1: A fast, extensible and spec-compliant Markdown parser in pure Python.
 dev-python/mitype 0.2.4: Typing speed test in terminal
@@ -1108,7 +1108,7 @@ dev-python/trailrunner 1.2.1: Walk paths and run things
 dev-python/transaction 3.0.1-r1 3.1.0: Transaction management for Python
 dev-python/trueskill 0.4.5_p20220422: Python Implementation of the TrueSkill Algorithm
 dev-python/ttfautohint-py 0.5.1-r1: Python wrapper for ttfautohint, a free auto-hinter for TrueType fonts
-dev-python/tulir-telethon 1.27.0_alpha6 1.28.0_alpha9: Pure Python 3 MTProto API Telegram client library, for bots too!
+dev-python/tulir-telethon 1.27.0_alpha6 1.28.0_alpha9-r1: Pure Python 3 MTProto API Telegram client library, for bots too!
 dev-python/tweepy 4.10.1: An easy-to-use Python library for accessing the Twitter API.
 dev-python/types-paramiko 2.10.0 2.11.1: Typing stubs for paramiko
 dev-python/types-python-dateutil 2.8.17 2.8.18: Typing stubs for python-dateutil

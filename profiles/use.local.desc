@@ -304,7 +304,6 @@ games-util/xivlauncher:aria2 - Enable Aria2 support.
 games-util/xivlauncher:dx9 - Support for running the dx9 api in wined3d/dxvk.
 games-util/xivlauncher:libsecret - Enable secrets/password storage support.
 gnome-extra/yad:spell - Enable spell check support with app-text/gspell
-gui-apps/1password:cli - Install app-misc/1password-cli
 gui-apps/azote:imagemagick - enable colorpicker using imagemagick
 gui-apps/azote:simple-colorpicker - enable colorpicker without imagemagick
 gui-apps/azote:yaml - enable support for reading yaml files
