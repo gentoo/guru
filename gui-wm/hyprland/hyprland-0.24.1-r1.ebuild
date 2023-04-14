@@ -82,6 +82,7 @@ src_unpack() {
 	mv "${WORKDIR}/udis86-${UDISCOMMIT}" "${S}/subprojects/udis86" || die
 	# Workaround for https://github.com/hyprwm/Hyprland/issues/1207
 	cp "${S}/subprojects/hyprland-protocols/protocols/hyprland-toplevel-export-v1.xml" "${S}/protocols" || die
+	cp "${S}/subprojects/hyprland-protocols/protocols/hyprland-global-shortcuts-v1.xml" "${S}/protocols" || die
 }
 
 src_prepare() {
