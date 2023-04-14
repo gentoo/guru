@@ -8,9 +8,4 @@
 	<upstream>
 		<bugs-to>https://anonticket.onionize.space/</bugs-to>
 	</upstream>
-	<use>
-		<flag name="client">Build the client application</flag>
-		<flag name="server">Build the server application</flag>
-		<flag name="proxy">Build standalone proxy application</flag>
-	</use>
 </pkgmetadata>
