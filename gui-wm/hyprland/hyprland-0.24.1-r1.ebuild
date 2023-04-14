@@ -72,7 +72,7 @@ BDEPEND="
 "
 
 PATCHES=(
-   "${FILES}/0.24.1-meson.patch
+   "${FILES}/0.24.1-meson.patch"
 )
 
 src_unpack() {
