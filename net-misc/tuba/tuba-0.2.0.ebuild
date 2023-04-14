@@ -25,6 +25,7 @@ RDEPEND="
 	gui-libs/gtk:4
 	>=gui-libs/libadwaita-1.2
 	>=net-libs/libsoup-3
+	gui-libs/gtksourceview:5
 "
 
 DEPEND="${RDEPEND}"
