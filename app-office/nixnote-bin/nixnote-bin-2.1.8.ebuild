@@ -21,6 +21,5 @@ QA_PREBUILT="*"
 S="${WORKDIR}"
 
 src_install() {
-	cp "${DISTDIR}/NixNote2-x86_64.AppImage" nixnote-bin || die
-	dobin nixnote-bin
+	newbin "${DISTDIR}/NixNote2-x86_64.AppImage" nixnote-bin
 }
