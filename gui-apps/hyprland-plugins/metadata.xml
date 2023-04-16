@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Julien Roy</name>
+		<email>julien@jroy.ca</email>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/hyprwm/hyprland-plugins/issues</bugs-to>
+		<changelog>https://github.com/hyprwm/hyprland-plugins/releases</changelog>
+		<remote-id type="github">hypr/hyprland-plugins</remote-id>
+		<remote-id type="github">hypr/Hyprland</remote-id>
+	</upstream>
+	<use>
+		<flag name="borders-plus-plus">adds one or two additional borders to windows</flag>
+		<flag name="csgo-vulkan-fix">fixes custom resolutions on CS:GO with -vulkan</flag>
+		<flag name="hyprbars">adds title bars to windows</flag>
+		<flag name="split-monitor-workspaces">A small Hyprland plugin to provide awesome-like workspace behavior</flag>
+	</use>
+</pkgmetadata>
