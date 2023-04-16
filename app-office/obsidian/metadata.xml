@@ -6,4 +6,7 @@
 		<name>Rahul Sandhu</name>
 	</maintainer>
 	<longdescription lang="en">A second brain, for you, forever.</longdescription>
+	<upstream>
+		<remote-id type="github">obsidianmd/obsidian-releases</remote-id>
+	</upstream>
 </pkgmetadata>
