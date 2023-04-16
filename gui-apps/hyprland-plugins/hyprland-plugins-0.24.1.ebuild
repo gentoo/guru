@@ -18,17 +18,30 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+borders-plus-plus csgo-vulkan-fix +hyprbars split-monitor-workspaces"
+IUSE="+borders-plus-plus csgo-vulkan-fix +hyprbars split-monitor-workspaces X"
 REQUIRED_USE="|| ( borders-plus-plus csgo-vulkan-fix hyprbars split-monitor-workspaces )"
 
 RDEPEND="gui-wm/hyprland"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	~gui-wm/hyprland-${PV}
-	split-monitor-workspaces? ( gui-libs/wlroots[X] )
+	split-monitor-workspaces? ( gui-libs/wlroots[X?] )
 	x11-libs/libdrm
 	x11-libs/pixman
 "
+
+src_unpack() {
+	default
+	cp "${FILESDIR}/split-monitor-workspaces.patch" "${WORKDIR}/split-monitor-workspaces-${SPLITCOMMIT}" || die
+}
+
+src_prepare() {
+	eapply_user
+	if use split-monitor-workspaces && ! use X; then
+		cd "${WORKDIR}/split-monitor-workspaces-${SPLITCOMMIT}" || die
+		eapply "${WORKDIR}/split-monitor-workspaces-${SPLITCOMMIT}"
+	fi
+}
 
 src_compile() {
 	emake -C "${WORKDIR}/hyprland-source" protocols
