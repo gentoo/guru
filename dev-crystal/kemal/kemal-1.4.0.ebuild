@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,9 +15,15 @@ SRC_URI="https://github.com/kemalcr/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-RESTRICT="test"
 
 RDEPEND="
 	dev-crystal/exception_page
 	dev-crystal/radix
 "
+
+src_test() {
+	# conflicts with spec/run_spec.cr
+	unset CRYSTAL_OPTS
+
+	shards_src_test
+}
