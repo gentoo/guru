@@ -27,5 +27,5 @@ src_compile() {
 }
 
 src_install() {
-	dobin "${BUILD_DIR}/hyprpaper"
+	dobin "${BUILD_DIR}/${PN}"
 }
