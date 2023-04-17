@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer needed -->
+	<maintainer type="person">
+		<email>gasc@eurecom.fr</email>
+		<name>Gasc Henri</name>
+	</maintainer>
 	<upstream>
 		<changelog>https://github.com/WerWolv/ImHex/releases</changelog>
 		<bugs-to>https://github.com/WerWolv/ImHex/issues</bugs-to>

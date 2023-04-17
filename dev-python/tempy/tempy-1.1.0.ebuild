@@ -10,17 +10,16 @@ inherit distutils-r1
 
 DESCRIPTION="A simple, visually pleasing weather report in your terminal"
 HOMEPAGE="https://github.com/noprobelm/tempy"
-SRC_URI="https://github.com/noprobelm/tempy/archive/7a597ee.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/tempy-7a597ee78fc7ba2c4ced041780470f568998f3c1"
+SRC_URI="https://github.com/noprobelm/tempy/archive/26f13ed.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/tempy-26f13ed15bc1a4458976572ccdc60399ca5cb123"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-python/rich[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]"
-BDEPEND=""
 DEPEND="${RDEPEND}"
 
 PATCHES=(

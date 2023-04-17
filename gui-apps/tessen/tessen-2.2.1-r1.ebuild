@@ -18,12 +18,15 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
+# Requires shfmt (https://github.com/mvdan/sh) which is not packaged
+RESTRICT="test"
 
 DEPEND="app-text/scdoc"
 RDEPEND="${DEPEND}
 	|| ( app-admin/pass
-	   app-admin/gopass )"
-BDEPEND=""
+		 app-admin/gopass
+	)
+"
 
 pkg_postinst() {
 	optfeature "autotype support" gui-apps/wtype

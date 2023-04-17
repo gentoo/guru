@@ -19,16 +19,19 @@ KEYWORDS="~amd64"
 RDEPEND="
 	dev-python/persistent[${PYTHON_USEDEP}]
 	dev-python/zope-interface[${PYTHON_USEDEP}]
+"
+DEPEND="${RDEPEND}"
+BDEPEND="
 	doc? (
 		dev-python/repoze-sphinx-autointerface[${PYTHON_USEDEP}]
 		dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]
 	)
 	test? (
+		dev-python/persistent[${PYTHON_USEDEP}]
 		dev-python/transaction[${PYTHON_USEDEP}]
 		dev-python/zope-testrunner[${PYTHON_USEDEP}]
 	)
 "
-DEPEND="${RDEPEND}"
 
 distutils_enable_sphinx docs
 distutils_enable_tests pytest
