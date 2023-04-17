@@ -1,6 +1,6 @@
 BDEPEND=|| ( dev-lang/vala:0.56 ) virtual/pkgconfig >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=>=app-crypt/libsecret-0.20 >=dev-libs/glib-2.71.2 >=dev-libs/json-glib-1.4.4 >=dev-libs/libxml2-2.9.10 >=dev-libs/libgee-0.8.5 gui-libs/gtk:4 >=gui-libs/libadwaita-1.2 >=net-libs/libsoup-3
+DEPEND=>=app-crypt/libsecret-0.20 >=dev-libs/glib-2.71.2 >=dev-libs/json-glib-1.4.4 >=dev-libs/libxml2-2.9.10 >=dev-libs/libgee-0.8.5 gui-libs/gtk:4 >=gui-libs/libadwaita-1.2 >=net-libs/libsoup-3 gui-libs/gtksourceview:5
 DESCRIPTION=Mastodon client, previously known as Tooth
 EAPI=8
 HOMEPAGE=https://github.com/GeopJr/Tuba
@@ -8,8 +8,8 @@ IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome2-utils meson vala xdg
 KEYWORDS=~amd64 ~arm ~arm64 ~x86
 LICENSE=CC-BY-3.0 GPL-3+
-RDEPEND=>=app-crypt/libsecret-0.20 >=dev-libs/glib-2.71.2 >=dev-libs/json-glib-1.4.4 >=dev-libs/libxml2-2.9.10 >=dev-libs/libgee-0.8.5 gui-libs/gtk:4 >=gui-libs/libadwaita-1.2 >=net-libs/libsoup-3
+RDEPEND=>=app-crypt/libsecret-0.20 >=dev-libs/glib-2.71.2 >=dev-libs/json-glib-1.4.4 >=dev-libs/libxml2-2.9.10 >=dev-libs/libgee-0.8.5 gui-libs/gtk:4 >=gui-libs/libadwaita-1.2 >=net-libs/libsoup-3 gui-libs/gtksourceview:5
 SLOT=0
 SRC_URI=https://github.com/GeopJr/Tuba/archive/refs/tags/v0.2.0.tar.gz -> tuba-0.2.0.tar.gz
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	xdg-utils	baea6080dd821f5562d715887954c9d3	gnome2-utils	b0183db3b2e07b18f3b77bffec72e116	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	915ec7c25e08d7886558215e6809ca1e	vala	1343f639cc74d2aa8b36fc08677da58d	xdg	4a14c5c24f121e7da66e5aab4a168c6e
-_md5_=3004b74eee919dde9977705dd57c78c5
+_md5_=974436673eee47c119c07fee33c93268

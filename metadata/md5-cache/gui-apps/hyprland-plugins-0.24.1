@@ -1,0 +1,14 @@
+BDEPEND=~gui-wm/hyprland-0.24.1 split-monitor-workspaces? ( gui-libs/wlroots[X?] ) x11-libs/libdrm x11-libs/pixman
+DEFINED_PHASES=compile install postinst prepare unpack
+DEPEND=gui-wm/hyprland
+DESCRIPTION=A blazing fast wayland wallpaper utility
+EAPI=8
+HOMEPAGE=https://github.com/hyprwm/hyprpaper
+IUSE=+borders-plus-plus csgo-vulkan-fix +hyprbars split-monitor-workspaces X
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=gui-wm/hyprland
+REQUIRED_USE=|| ( borders-plus-plus csgo-vulkan-fix hyprbars split-monitor-workspaces )
+SLOT=0
+SRC_URI=https://github.com/hyprwm/hyprland-plugins/archive/bb1437add2df7f76147f7beb430365637fc2c35e.tar.gz -> hyprland-plugins-0.24.1.gh.tar.gz https://github.com/hyprwm/Hyprland/releases/download/v0.24.1/source-v0.24.1.tar.gz -> hyprland-plugins-0.24.1-hyprsrc.gh.tar.gz https://github.com/Duckonaut/split-monitor-workspaces/archive/feb6ab9a4929a92d41c724f6d16e9d351b12de39.tar.gz -> hyprland-plugins-0.24.1-split-monitor-workspaces.gh.tar.gz
+_md5_=82fa7e0e9773d12f87d72258d2f318f9

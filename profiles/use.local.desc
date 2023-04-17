@@ -312,6 +312,10 @@ gui-apps/coretoppings:location - Enable location discovery
 gui-apps/fuzzel:cairo - Required for rounded corners and SVG icons
 gui-apps/fuzzel:png - Enable support for PNG icons
 gui-apps/fuzzel:svg - enables support for SVG icons
+gui-apps/hyprland-plugins:borders-plus-plus - adds one or two additional borders to windows
+gui-apps/hyprland-plugins:csgo-vulkan-fix - fixes custom resolutions on CS:GO with -vulkan
+gui-apps/hyprland-plugins:hyprbars - adds title bars to windows
+gui-apps/hyprland-plugins:split-monitor-workspaces - A small Hyprland plugin to provide awesome-like workspace behavior
 gui-apps/nwg-launchers:bar - Installs nwgbar, a horizontal or vertical button bar.
 gui-apps/nwg-launchers:dmenu - Installs nwgdmenu, GTK dynamic menu windows.
 gui-apps/nwg-launchers:grid - Installs nwggrid, a GNOME-like application grid.
@@ -324,11 +328,6 @@ gui-apps/swaylock-effects:gdk-pixbuf - Enable additional image format support vi
 gui-apps/swaylock-effects:man - Build and install man pages
 gui-apps/swaync:man - Build and install man pages
 gui-apps/swaync:scripting - Enable notification scripting
-gui-apps/tessen:bemenu - Enable bemenu backend
-gui-apps/tessen:gopass - Enable gopass support
-gui-apps/tessen:pass - Enable pass support
-gui-apps/tessen:rofi - Enable rofi backend
-gui-apps/tessen:wofi - Enable wofi backend
 gui-apps/wlogout:bash-completions - Enable completions for bash shell
 gui-apps/wlogout:doc - Install man pages
 gui-apps/wlogout:fish-completions - Enable completions for fish shell
@@ -529,9 +528,6 @@ net-p2p/monero:wallet-rpc - Build the RPC wallet, monero-wallet-rpc.
 net-p2p/trezord-go:systemd - Install systemd service file
 net-p2p/trezord-go:udev - Install udev rules
 net-print/hpuld:scanner - Enable scanner on multifunction devices which support it
-net-proxy/snowflake:client - Build the client application
-net-proxy/snowflake:proxy - Build standalone proxy application
-net-proxy/snowflake:server - Build the server application
 net-vpn/fastd:doc - Build and install manpages
 net-vpn/fastd:offload-l2tp - Offload L2TP traffic to the kernel when using the null@l2tp transport method
 sci-biology/cmdock:apidoc - Build API documentation using app-doc/doxygen

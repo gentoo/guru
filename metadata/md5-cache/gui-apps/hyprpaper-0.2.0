@@ -1,0 +1,12 @@
+BDEPEND=dev-libs/wayland-protocols dev-util/cmake dev-util/wayland-scanner >=dev-util/ninja-1.8.2 >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=A blazing fast wayland wallpaper utility
+EAPI=8
+HOMEPAGE=https://github.com/hyprwm/hyprpaper
+INHERIT=cmake
+KEYWORDS=~amd64
+LICENSE=BSD
+SLOT=0
+SRC_URI=https://github.com/hyprwm/hyprpaper/archive/v0.2.0.tar.gz -> hyprpaper-0.2.0.gh.tar.gz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	flag-o-matic	514815b1cc0dd4aeac177c2e812b3b1a	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	xdg-utils	baea6080dd821f5562d715887954c9d3	cmake	7fb5980de96325cbab639f5b2187357c
+_md5_=54bdf678eca84e2a5bdf6fbeb0d2b6e8
