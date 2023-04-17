@@ -11,5 +11,5 @@ LICENSE=MIT
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/gokcehan/lf/archive/r28.tar.gz -> lf-28.tar.gz https://github.com/ephemer4l/gentoo-lf/raw/main/lf-28-deps.tar.xz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	go-module	f9700c7efec1fd4955363169e9930c1c	desktop	021728fdc1b03b36357dbc89489e0f0d	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	shell-completion	12c269a0250324a6ce3779fbc741744b	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	go-module	9c75e51a48520b2f01471c1f91762882	desktop	021728fdc1b03b36357dbc89489e0f0d	bash-completion-r1	f5e7a020fd9c741740756aac61bf75ff	shell-completion	12c269a0250324a6ce3779fbc741744b	xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=199e7e084813a5fcbb5dda3f896d6e0c

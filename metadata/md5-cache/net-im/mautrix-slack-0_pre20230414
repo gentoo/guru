@@ -11,5 +11,5 @@ RDEPEND=acct-user/mautrix-slack dev-libs/olm
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/mautrix/slack/archive/eb519c6407751b48001bb66bc55014100322b6c6.tar.gz -> mautrix-slack-0_pre20230414.gh.tar.gz https://jroy.ca/dist/mautrix-slack-0_pre20230414.tar.xz
-_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	go-module	f9700c7efec1fd4955363169e9930c1c	systemd	5f4bb0758df2e483babf68cd517078ca
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	go-module	9c75e51a48520b2f01471c1f91762882	systemd	5f4bb0758df2e483babf68cd517078ca
 _md5_=0df3f8aebde3dcd74acb538ade13329b
