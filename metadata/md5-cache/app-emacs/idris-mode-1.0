@@ -1,5 +1,5 @@
 BDEPEND=app-emacs/prop-menu >=app-editors/emacs-25.3:*
-DEFINED_PHASES=compile configure install postinst postrm prepare setup unpack
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DESCRIPTION=Idris syntax highlighting, compiler-supported editing, and interactive REPL
 EAPI=7
 HOMEPAGE=https://github.com/idris-hackers/idris-mode
@@ -10,5 +10,5 @@ RDEPEND=app-emacs/prop-menu >=app-editors/emacs-25.3:*
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/idris-hackers/idris-mode/archive/refs/tags/1.0.tar.gz -> idris-mode-1.0.tar.gz
-_eclasses_=elisp-common	1d6e8d43be4713f04a441f721d890d48	elisp	4885a6bf2026d3a2d5b9789f3b76d1f3
+_eclasses_=elisp-common	dcd21c5d379fc2217e95f529504c5fe0	elisp	7190c722d9e06fabcae26ef1e1dc9183
 _md5_=23e40b1f6862b176dafc895fcc3b2a5c
