@@ -15,7 +15,7 @@ diff -Naur a/fpm.toml b/fpm.toml
 -rev = "ea6bbffc1c2fb0885e994d37ccf0029c99b19f24"
 +[build]
 +external-modules = ["tomlf", "m_cli2"]
-+link = ["toml-f","m_cli2"]
++link = ["toml-f","M_CLI2"]
  
  [[test]]
  name = "cli-test"

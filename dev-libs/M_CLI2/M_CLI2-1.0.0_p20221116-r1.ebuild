@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ m_cli2_sha="90a1a146e19c8ad37b0469b8cbd04bc28eb67a50"
 
 DESCRIPTION="M_CLI2 - parse Unix-like command line arguments from Fortran"
 HOMEPAGE="https://github.com/urbanjost/M_CLI2"
-SRC_URI="https://github.com/urbanjost/M_CLI2/archive/${m_cli2_sha}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/urbanjost/${PN}/archive/${m_cli2_sha}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Unlicense"
 SLOT="0"
@@ -20,7 +20,7 @@ IUSE="test"
 
 RESTRICT="!test? ( test )"
 
-S="${WORKDIR}/M_CLI2-${m_cli2_sha}/src"
+S="${WORKDIR}/${PN}-${m_cli2_sha}/src"
 
 src_prepare() {
 	default
@@ -34,7 +34,7 @@ src_compile() {
 		*gfortran* )
 			emake clean
 			emake F90=$(tc-getFC) gfortran
-			$(tc-getFC) -Wl,-soname,lib"${PN}".so.1 ${LDFLAGS} -shared -o lib"${PN}".so.1 M_CLI2.o;;
+			$(tc-getFC) -Wl,-soname,lib"${PN}".so.1 ${LDFLAGS} -shared -o lib"${PN}".so.1 ${PN}.o;;
 		* )
 			die "Sorry, only GNU gfortran is currently supported in the ebuild" ;;
 	esac
@@ -46,7 +46,7 @@ src_test() {
 
 src_install() {
 	insinto "/usr/include/${PN}"
-	doins "${PN}.mod"
+	doins "m_cli2.mod"
 	dolib.so "lib${PN}.so.1"
 	dosym  "lib${PN}.so.1" "/usr/$(get_libdir)/lib${PN}.so"
 }

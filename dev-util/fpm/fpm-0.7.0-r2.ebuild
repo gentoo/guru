@@ -24,7 +24,7 @@ RESTRICT="!test? ( test )"
 
 CDEPEND="
 	dev-libs/toml-f:0/2
-	dev-libs/m_cli2
+	dev-libs/M_CLI2
 "
 
 RDEPEND="
@@ -88,7 +88,7 @@ src_compile() {
 	"$(tc-getFC)" -J "${BSDIR}" -o "${BSDIR}"/fpm "${BSDIR}/${P}.F90" || die
 
 	# Use the bootstrap binary to build the feature complete fpm version
-	"${BSDIR}"/fpm build --verbose --compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/m_cli2" \
+	"${BSDIR}"/fpm build --verbose --compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/M_CLI2" \
 		--c-compiler "$(tc-getCC)" --c-flag "${CFLAGS}" \
 		--cxx-compiler "$(tc-getCXX)" --cxx-flag "${CXXFLAGS}" \
 		--archiver "$(tc-getAR)" --link-flag "${LDFLAGS}" || die
@@ -100,7 +100,7 @@ src_compile() {
 }
 
 src_test() {
-	"${BSDIR}"/fpm test --verbose --compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/m_cli2" \
+	"${BSDIR}"/fpm test --verbose --compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/M_CLI2" \
 		--c-compiler "$(tc-getCC)" --c-flag "${CFLAGS}" \
 		--cxx-compiler "$(tc-getCXX)" --cxx-flag "${CXXFLAGS}" \
 		--archiver="$(tc-getAR)" --link-flag "${LDFLAGS}" || die
@@ -109,7 +109,7 @@ src_test() {
 src_install() {
 	# Set prefix and pass all used env flags to avoid recompiling with default values
 	"${BSDIR}"/fpm install --prefix "${ED}/usr" \
-		--compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/m_cli2" \
+		--compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/M_CLI2" \
 		--c-compiler "$(tc-getCC)" --c-flag "${CFLAGS}" \
 		--cxx-compiler "$(tc-getCXX)" --cxx-flag "${CXXFLAGS}" \
 		--archiver="$(tc-getAR)" --link-flag "${LDFLAGS}" || die
