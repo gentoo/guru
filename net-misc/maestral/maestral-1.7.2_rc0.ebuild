@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,7 +24,7 @@ RDEPEND="
 	>=dev-python/desktop-notifier-3.3.0[${PYTHON_USEDEP}]
 	=dev-python/dropbox-11*[${PYTHON_USEDEP}]
 	>=dev-python/fasteners-0.15[${PYTHON_USEDEP}]
-	dev-python/importlib_metadata[${PYTHON_USEDEP}]
+	dev-python/importlib-metadata[${PYTHON_USEDEP}]
 	>=dev-python/keyring-22.0.0[${PYTHON_USEDEP}]
 	>=dev-python/keyrings-alt-3.1.0[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
