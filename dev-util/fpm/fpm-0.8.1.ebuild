@@ -23,8 +23,9 @@ IUSE="openmp doc test"
 RESTRICT="!test? ( test )"
 
 CDEPEND="
-	dev-libs/toml-f:0/2
-	dev-libs/m_cli2
+	dev-libs/jonquil:0/2
+	dev-libs/toml-f:0/4
+	dev-libs/M_CLI2
 "
 
 RDEPEND="
@@ -52,7 +53,7 @@ pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 }
 
-set_omp_flag() {
+set_build_flags() {
 	OMPFLAG=""
 	if use openmp ; then
 		case $(tc-getFC) in
@@ -62,13 +63,19 @@ set_omp_flag() {
 				die "Sorry, only GNU gfortran is currently supported in the ebuild" ;;
 		esac
 	fi
+
+	BUILD_FLAGS=( --compiler "$(tc-getFC)"
+		--flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f/modules -I/usr/include/jonquil/modules -I/usr/include/M_CLI2"
+		--c-compiler "$(tc-getCC)" --c-flag "${CFLAGS}"
+		--cxx-compiler "$(tc-getCXX)" --cxx-flag "${CXXFLAGS}"
+		--archiver "$(tc-getAR)" --link-flag "${LDFLAGS}" )
 }
 
 pkg_setup() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 	fortran-2_pkg_setup
 	python-any-r1_pkg_setup
-	set_omp_flag
+	set_build_flags
 }
 
 src_prepare() {
@@ -88,10 +95,7 @@ src_compile() {
 	"$(tc-getFC)" -J "${BSDIR}" -o "${BSDIR}"/fpm "${BSDIR}/${P}.F90" || die
 
 	# Use the bootstrap binary to build the feature complete fpm version
-	"${BSDIR}"/fpm build --verbose --compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/m_cli2" \
-		--c-compiler "$(tc-getCC)" --c-flag "${CFLAGS}" \
-		--cxx-compiler "$(tc-getCXX)" --cxx-flag "${CXXFLAGS}" \
-		--archiver "$(tc-getAR)" --link-flag "${LDFLAGS}" || die
+	"${BSDIR}"/fpm build --verbose "${BUILD_FLAGS[@]}" || die
 
 	if use doc ; then
 		einfo "Build API documentation:"
@@ -100,19 +104,12 @@ src_compile() {
 }
 
 src_test() {
-	"${BSDIR}"/fpm test --verbose --compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/m_cli2" \
-		--c-compiler "$(tc-getCC)" --c-flag "${CFLAGS}" \
-		--cxx-compiler "$(tc-getCXX)" --cxx-flag "${CXXFLAGS}" \
-		--archiver="$(tc-getAR)" --link-flag "${LDFLAGS}" || die
+	"${BSDIR}"/fpm test --verbose "${BUILD_FLAGS[@]}" || die
 }
 
 src_install() {
 	# Set prefix and pass all used env flags to avoid recompiling with default values
-	"${BSDIR}"/fpm install --prefix "${ED}/usr" \
-		--compiler "$(tc-getFC)" --flag "${FCFLAGS} ${OMPFLAG} -I/usr/include/toml-f -I/usr/include/m_cli2" \
-		--c-compiler "$(tc-getCC)" --c-flag "${CFLAGS}" \
-		--cxx-compiler "$(tc-getCXX)" --cxx-flag "${CXXFLAGS}" \
-		--archiver="$(tc-getAR)" --link-flag "${LDFLAGS}" || die
+		"${BSDIR}"/fpm install --prefix "${ED}/usr" "${BUILD_FLAGS[@]}" || die
 
 	use doc && HTML_DOCS=( "${S}"/fpm-doc/. )
 	einstalldocs

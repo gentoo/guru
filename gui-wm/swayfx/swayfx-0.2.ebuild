@@ -38,8 +38,8 @@ DEPEND="
 	X? ( x11-libs/libxcb:0= )
 "
 DEPEND+="
-	>=gui-libs/wlroots-0.15:=[X?]
-	<gui-libs/wlroots-0.16:=[X?]
+	>=gui-libs/wlroots-0.16:=[X?]
+	<gui-libs/wlroots-0.17:=[X?]
 "
 RDEPEND="
 	x11-misc/xkeyboard-config

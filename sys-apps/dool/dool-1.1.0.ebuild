@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,7 +15,11 @@ if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
 else
 	DOOL_COMMIT_ID="6b89f2d0b6e38e1c8d706e88a12e020367f5100d"
-	SRC_URI="https://github.com/scottchiefbaker/dool/archive/${DOOL_COMMIT_ID}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="
+		https://github.com/scottchiefbaker/dool/archive/${DOOL_COMMIT_ID}.tar.gz -> ${P}.tar.gz
+		https://github.com/stanford-rc/dool/commit/fa079a43c97f772a4809304386dbed5f4afa9a54.patch
+			-> ${PN}-1.0.0-fix-proc-diskstats-parsing.patch
+	"
 	S="${WORKDIR}/${PN}-${DOOL_COMMIT_ID}"
 fi
 
@@ -32,7 +36,7 @@ RDEPEND="${PYTHON_DEPS}"
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/0001-Key-for-key-in-dool_disk_avgqu.py-to-avoid-KeyError.patch"
+	"${DISTDIR}"/${PN}-1.0.0-fix-proc-diskstats-parsing.patch
 )
 
 src_compile() {
