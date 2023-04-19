@@ -20,7 +20,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	$(python_gen_cond_dep \
-		'dev-python/importlib_resources[${PYTHON_USEDEP}]' python3_9
+		'dev-python/importlib-resources[${PYTHON_USEDEP}]' python3_9
 	)
 "
 
