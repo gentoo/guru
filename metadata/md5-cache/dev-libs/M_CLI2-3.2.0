@@ -1,0 +1,16 @@
+BDEPEND=virtual/fortran >=dev-util/meson-0.62.2 >=dev-util/ninja-1.8.2 dev-util/meson-format-array
+DEFINED_PHASES=compile configure install setup test
+DEPEND=virtual/fortran
+DESCRIPTION=M_CLI2 - parse Unix-like command line arguments from Fortran
+EAPI=8
+HOMEPAGE=https://github.com/urbanjost/M_CLI2
+INHERIT=fortran-2 meson
+IUSE=static-libs test
+KEYWORDS=~amd64 ~x86
+LICENSE=Unlicense
+RDEPEND=virtual/fortran
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/urbanjost/M_CLI2/archive/refs/tags/V3.2.0.tar.gz -> M_CLI2-3.2.0.tar.gz
+_eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	fortran-2	40c4450f1c4ecb2ee694d96e1958d4ea	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	ninja-utils	76050953ad5b70d7e09a6ca55558db92	python-utils-r1	429bfd4e8d8e39db5385ba5744f30788	meson	915ec7c25e08d7886558215e6809ca1e
+_md5_=94728141c78bdc07ec01ec16ba0e75dd
