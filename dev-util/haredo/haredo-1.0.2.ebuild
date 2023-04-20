@@ -29,5 +29,6 @@ src_test() {
 
 src_install() {
 	einstalldocs
-	emake DESDIR="${ED}" PREFIX="/usr"
+	# I wish install(1) would support DESTDIR…
+	emake PREFIX="${ED}/usr" install
 }
