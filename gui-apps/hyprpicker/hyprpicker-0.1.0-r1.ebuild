@@ -18,6 +18,7 @@ BDEPEND="
 	dev-libs/wayland-protocols
 	dev-util/cmake
 	dev-util/wayland-scanner
+	media-libs/libglvnd
 	media-libs/libjpeg-turbo
 	x11-libs/cairo
 	x11-libs/pango
