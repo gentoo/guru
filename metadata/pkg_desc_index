@@ -227,7 +227,7 @@ app-mobilephone/usb-tethering 0.3: USB tethering on Pine64/ConfigFS systems
 app-office/beancount 2.3.5-r2: A double-entry accounting system that uses text files as input
 app-office/jameica-bin 2.10.3: Local platform for home banking
 app-office/joplin-bin 2.9.17: Note taking app, on Electron, can import notes from Evernote
-app-office/nixnote-bin 2.1.8 9999: Free and open source note taking app, compatible with Evernote sync server
+app-office/nixnote-bin 2.1.9 9999: Free and open source note taking app, compatible with Evernote sync server
 app-office/obsidian 1.1.16: A second brain, for you, forever.
 app-office/openoffice-bin 4.1.14: Apache OpenOffice productivity suite
 app-office/pyspread 2.1.1: Pyspread is a non-traditional spreadsheet written in Python
@@ -1627,7 +1627,7 @@ net-p2p/ipfs-cluster 1.0.1 1.0.2: Pinset orchestration for IPFS
 net-p2p/monero 0.17.2.0 0.17.2.3 0.17.3.0 0.17.3.2 0.18.1.0 0.18.1.1 0.18.1.2 0.18.2.0 0.18.2.2 9999: The secure, private, untraceable cryptocurrency
 net-p2p/p2pool 2.7 3.0 3.1 3.2 9999: Decentralized pool for Monero mining
 net-p2p/popura 0.4.6 9999: Popura: alternative Yggdrasil network client
-net-p2p/trezord-go 2.0.32-r1: TREZOR Communication Daemon
+net-p2p/trezord-go 2.0.33: TREZOR Communication Daemon
 net-p2p/yggdrasil-go 0.4.7 9999: An experiment in scalable routing as an encrypted IPv6 overlay network
 net-print/hpuld 1.00.39.15.00.23-r1: HP Unified Linux Driver (for samsung hardware)
 net-proxy/snowflake 2.5.1: Pluggable Transport using WebRTC, inspired by Flashproxy

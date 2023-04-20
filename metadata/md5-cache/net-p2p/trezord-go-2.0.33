@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.18 app-arch/unzip virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile install postinst postrm unpack
+DEPEND=acct-user/trezord acct-group/plugdev
+DESCRIPTION=TREZOR Communication Daemon
+EAPI=8
+HOMEPAGE=https://github.com/trezor/trezord-go
+INHERIT=go-module systemd udev
+IUSE=systemd +udev
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-3
+RESTRICT=mirror test strip
+SLOT=0
+SRC_URI=https://github.com/trezor/trezord-go/archive/v2.0.33.tar.gz -> trezord-go-2.0.33.tar.gz mirror://goproxy//github.com/!burnt!sushi/toml/@v/v0.3.1.zip -> github.com%2F!burnt!sushi%2Ftoml%2F@v%2Fv0.3.1.zip mirror://goproxy//github.com/!burnt!sushi/toml/@v/v0.3.1.mod -> github.com%2F!burnt!sushi%2Ftoml%2F@v%2Fv0.3.1.mod mirror://goproxy//github.com/felixge/httpsnoop/@v/v1.0.1.zip -> github.com%2Ffelixge%2Fhttpsnoop%2F@v%2Fv1.0.1.zip mirror://goproxy//github.com/felixge/httpsnoop/@v/v1.0.1.mod -> github.com%2Ffelixge%2Fhttpsnoop%2F@v%2Fv1.0.1.mod mirror://goproxy//github.com/gorilla/csrf/@v/v1.7.0.zip -> github.com%2Fgorilla%2Fcsrf%2F@v%2Fv1.7.0.zip mirror://goproxy//github.com/gorilla/csrf/@v/v1.7.0.mod -> github.com%2Fgorilla%2Fcsrf%2F@v%2Fv1.7.0.mod mirror://goproxy//github.com/gorilla/handlers/@v/v1.5.1.zip -> github.com%2Fgorilla%2Fhandlers%2F@v%2Fv1.5.1.zip mirror://goproxy//github.com/gorilla/handlers/@v/v1.5.1.mod -> github.com%2Fgorilla%2Fhandlers%2F@v%2Fv1.5.1.mod mirror://goproxy//github.com/gorilla/mux/@v/v1.8.0.zip -> github.com%2Fgorilla%2Fmux%2F@v%2Fv1.8.0.zip mirror://goproxy//github.com/gorilla/mux/@v/v1.8.0.mod -> github.com%2Fgorilla%2Fmux%2F@v%2Fv1.8.0.mod mirror://goproxy//github.com/gorilla/securecookie/@v/v1.1.1.zip -> github.com%2Fgorilla%2Fsecurecookie%2F@v%2Fv1.1.1.zip mirror://goproxy//github.com/gorilla/securecookie/@v/v1.1.1.mod -> github.com%2Fgorilla%2Fsecurecookie%2F@v%2Fv1.1.1.mod mirror://goproxy//github.com/pkg/errors/@v/v0.9.1.zip -> github.com%2Fpkg%2Ferrors%2F@v%2Fv0.9.1.zip mirror://goproxy//github.com/pkg/errors/@v/v0.9.1.mod -> github.com%2Fpkg%2Ferrors%2F@v%2Fv0.9.1.mod mirror://goproxy//gopkg.in/check.v1/@v/v0.0.0-20161208181325-20d25e280405.zip -> gopkg.in%2Fcheck.v1%2F@v%2Fv0.0.0-20161208181325-20d25e280405.zip mirror://goproxy//gopkg.in/check.v1/@v/v0.0.0-20161208181325-20d25e280405.mod -> gopkg.in%2Fcheck.v1%2F@v%2Fv0.0.0-20161208181325-20d25e280405.mod mirror://goproxy//gopkg.in/natefinch/lumberjack.v2/@v/v2.0.0.zip -> gopkg.in%2Fnatefinch%2Flumberjack.v2%2F@v%2Fv2.0.0.zip mirror://goproxy//gopkg.in/natefinch/lumberjack.v2/@v/v2.0.0.mod -> gopkg.in%2Fnatefinch%2Flumberjack.v2%2F@v%2Fv2.0.0.mod mirror://goproxy//gopkg.in/yaml.v2/@v/v2.4.0.zip -> gopkg.in%2Fyaml.v2%2F@v%2Fv2.4.0.zip mirror://goproxy//gopkg.in/yaml.v2/@v/v2.4.0.mod -> gopkg.in%2Fyaml.v2%2F@v%2Fv2.4.0.mod
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	go-module	9c75e51a48520b2f01471c1f91762882	systemd	5f4bb0758df2e483babf68cd517078ca	udev	eec0bbab06977f1cfc5597269c1fa152
+_md5_=ed37f6a5f1cffe940f0aba5e46802b4a
