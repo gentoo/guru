@@ -1,0 +1,8 @@
+#!/sbin/openrc-run
+# Copyright 2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# shellcheck shell=sh
+
+command=/opt/inn/bin/ovsqlite-server
+pidfile=/run/news/ovsqlite.pid
