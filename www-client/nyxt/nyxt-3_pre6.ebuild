@@ -15,10 +15,7 @@ then
 else
 	KEYWORDS="~amd64"
 	MY_PV="${PV/_pre/-pre-release-}"
-	#S="${WORKDIR}/${P}"
-
 	SRC_URI="https://github.com/atlas-engineer/${PN}/releases/download/${MY_PV}/nyxt-3-source-with-submodules.tar.xz -> ${PF}.gh.tar.xz"
-	# https://github.com/atlas-engineer/nyxt/releases/download/3-pre-release-5/nyxt-3-source-with-submodules.tar.xz
 fi
 
 # Portage replaces the nyxt binary with scbl when stripping
@@ -44,10 +41,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-lisp/sbcl-2.0.0
-	!!net-libs/webkit-gtk:5
 "
-# If net-libs/webkit-gtk:5 is installed, nyxt won't compile
-# https://github.com/atlas-engineer/nyxt/issues/2743
 
 src_unpack() {
 	default

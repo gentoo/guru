@@ -23,10 +23,12 @@ BDEPEND="app-text/scdoc"
 # binaries are hare-built
 QA_FLAGS_IGNORED="usr/bin/.*"
 
-src_configure() {
-	sed -i 's;^PREFIX=.*;PREFIX=/usr;' Makefile || die
-}
-
 src_test() {
 	PATH="${S}/bin:$PATH" ./bin/haredo test || die
+}
+
+src_install() {
+	einstalldocs
+	# I wish install(1) would support DESTDIR…
+	emake PREFIX="${ED}/usr" install
 }

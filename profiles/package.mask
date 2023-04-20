@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-04-20)
+# Depends on masked java-virtuals/servlet-api. Unused Java library.
+# Removal on 2023-05-22.
+dev-java/jfreechart
+
 # Remigiusz Micielski <remigiusz.micielski@gmail.com>
 # depends on qtwayland:6 which is currently masked with all of qt6
 gui-libs/xdg-desktop-portal-hyprland
