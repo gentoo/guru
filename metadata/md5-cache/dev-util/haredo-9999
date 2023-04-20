@@ -1,5 +1,5 @@
 BDEPEND=app-text/scdoc >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure test unpack
+DEFINED_PHASES=install test unpack
 DEPEND=dev-lang/hare:=
 DESCRIPTION=a simple and unix-idiomatic build automator
 EAPI=8
@@ -9,4 +9,4 @@ LICENSE=WTFPL-2
 PROPERTIES=live
 SLOT=0
 _eclasses_=git-r3	27e13c09a4c7e4c78ac812f74727e676
-_md5_=cb55909436670ee6757698ad9a4fcaa1
+_md5_=799a74c83b1e54de65143073c7e337fc

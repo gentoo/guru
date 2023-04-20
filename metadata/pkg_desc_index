@@ -68,7 +68,7 @@ app-admin/customrescuecd-x86_64 0.12.7 0.12.8: A system rescue cd or usbstick fo
 app-admin/enpass-desktop-bin 6.7.4.933: A cross-platform, complete password management solution
 app-admin/gnome-passwordsafe 4.0-r1 4.1: A password manager for GNOME
 app-admin/grub-customizer 5.1.0: A graphical grub2 settings manager
-app-admin/himitsu 0.2 9999: Secret storage system for Unix, suitable for storing passwords, keys, ...
+app-admin/himitsu 0.3 9999: Secret storage system for Unix, suitable for storing passwords, keys, ...
 app-admin/himitsu-ssh 0.1-r1 9999: SSH integration for Himitsu
 app-admin/himitsu-totp 9999: TOTP support for Himitsu
 app-admin/i2pd-tools 0.2022.11.26 0.2023.03.12: Some useful tools for I2P
@@ -507,7 +507,6 @@ dev-cpp/vexcl 1.4.3-r2: VexCL - Vector expression template library for OpenCL
 dev-cpp/wangle 2023.02.06.00: Framework providing common client/server abstractions
 dev-cpp/workflow 0.10.2-r1 0.10.3 0.10.5 9999: C++ Parallel Computing and Asynchronous Networking Engine
 dev-cpp/xdgpp 0_pre20201007-r1: C++17 header-only implementation of the XDG Base Directory Specification
-dev-cpp/xsimd 10.0.0: C++ wrappers for SIMD intrinsics
 dev-cpp/xtensor 0.24.4: header-only C++ library for numerical analysis with multi-dimensional arrays
 dev-cpp/xtl 0.7.5: Algorithms and containers used by the xtensor stack and the xeus stack
 dev-crystal/athena-negotiation 0.1.2 0.1.3: Framework agnostic content negotiation library
@@ -645,7 +644,7 @@ dev-libs/shuffile 0.1.0-r1 0.2.0: SHUFFILE Shuffle files between processes
 dev-libs/sirit 0_p20220725: A runtime SPIR-V assembler
 dev-libs/supercop 0_p20200827: Fast cryptographic operations for Monero wallets
 dev-libs/tfdn 1.5.0 1.6.0: Opinionated C11 library for low-level functionality
-dev-libs/toml-f 0.2.4 0.4.0: TOML parser implementation for data serialization and deserialization in Fortran
+dev-libs/toml-f 0.2.4 0.4.0 0.4.1: TOML parser implementation for data serialization and deserialization in Fortran
 dev-libs/tweeny 3.1.1 3.2.0: C++ tweening (inbetweening) library
 dev-libs/unordered_dense 2.0.0 3.1.1 9999: A fast and densely stored hashmap and hashset
 dev-libs/weechat-relay 9999: Portable and multi-interface IRC client relay api
@@ -955,7 +954,7 @@ dev-python/markdownify 0.11.6: Convert HTML to Markdown
 dev-python/marshmallow_enum 1.5.1: Enum handling for Marshmallow
 dev-python/mastodon-py 1.7.0 1.8.0: Python wrapper for the Mastodon API
 dev-python/material-color-utilities 0.1.5 9999: Python port of material-color-utilities used for Material You colors
-dev-python/mautrix 0.19.11: A Python 3 asyncio Matrix framework
+dev-python/mautrix 0.19.12: A Python 3 asyncio Matrix framework
 dev-python/minio 7.1.14: MinIO Client SDK for Python
 dev-python/mistletoe 1.0.1: A fast, extensible and spec-compliant Markdown parser in pure Python.
 dev-python/mitype 0.2.4: Typing speed test in terminal
@@ -1345,8 +1344,8 @@ gui-apps/gradience 0.3.0-r1: GNOME's main interface to configure various aspects
 gui-apps/gtklock 2.0.1: GTK-based lockscreen for Wayland
 gui-apps/hiprompt-gtk-py 0_pre20220624 9999: GTK+ Himitsu prompter for Wayland
 gui-apps/hyprland-plugins 0.24.1: A blazing fast wayland wallpaper utility
-gui-apps/hyprpaper 0.2.0: A blazing fast wayland wallpaper utility
-gui-apps/hyprpicker 0.1.0: A wlroots-compatible Wayland color picker that does not suck
+gui-apps/hyprpaper 0.2.0-r1: A blazing fast wayland wallpaper utility
+gui-apps/hyprpicker 0.1.0-r1: A wlroots-compatible Wayland color picker that does not suck
 gui-apps/intiface-central-bin 2.3.0-r2: Buttplug frontend application
 gui-apps/meteo-qt 3.3: A system tray application for the weather status
 gui-apps/mpvpaper 1.2 1.3 9999: A video wallpaper program for wlroots based wayland compositors
@@ -1890,7 +1889,7 @@ www-apps/twint 2.1.20-r2 2.1.20_p20220316: Twitter scraping & OSINT tool written
 www-apps/uwebsockets 20.11.0 20.14.0 9999: ultra fast, simple, secure & standards compliant web I/O
 www-client/badwolf 1.2.2 9999: Minimalist and privacy-oriented WebKitGTK+ browser
 www-client/browsh 1.6.4_p1: A fully-modern text-based browser, rendering to TTY and browsers
-www-client/nyxt 3_pre3 3_pre4-r1 3_pre5 9999: Nyxt - the hacker's power-browser
+www-client/nyxt 3_pre6 9999: Nyxt - the hacker's power-browser
 www-client/vimb 3.6.0 9999: a fast, lightweight, vim-like browser based on webkit
 www-client/woob 3.1-r1 9999: Web Outside Of Browsers (core, site modules and applications)
 www-misc/gitea2rss 0.7.0: Generates RSS feeds from Gitea releases, tags and commits

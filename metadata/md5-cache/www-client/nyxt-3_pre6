@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lisp/sbcl-2.0.0 !!net-libs/webkit-gtk:5
+BDEPEND=>=dev-lisp/sbcl-2.0.0
 DEFINED_PHASES=compile install postinst postrm unpack
 DEPEND=dev-libs/gobject-introspection gnome-base/gsettings-desktop-schemas media-libs/gst-plugins-bad media-libs/gst-plugins-base media-libs/gst-plugins-good media-libs/gst-plugins-ugly media-plugins/gst-plugins-libav net-libs/glib-networking net-libs/webkit-gtk:4.1 sys-libs/libfixposix
 DESCRIPTION=Nyxt - the hacker's power-browser
@@ -11,6 +11,6 @@ LICENSE=BSD CC-BY-SA-3.0
 RDEPEND=dev-libs/gobject-introspection gnome-base/gsettings-desktop-schemas media-libs/gst-plugins-bad media-libs/gst-plugins-base media-libs/gst-plugins-good media-libs/gst-plugins-ugly media-plugins/gst-plugins-libav net-libs/glib-networking net-libs/webkit-gtk:4.1 sys-libs/libfixposix
 RESTRICT=mirror strip
 SLOT=0
-SRC_URI=https://github.com/atlas-engineer/nyxt/releases/download/3-pre-release-5/nyxt-3-source-with-submodules.tar.xz -> nyxt-3_pre5.gh.tar.xz
+SRC_URI=https://github.com/atlas-engineer/nyxt/releases/download/3-pre-release-6/nyxt-3-source-with-submodules.tar.xz -> nyxt-3_pre6.gh.tar.xz
 _eclasses_=desktop	021728fdc1b03b36357dbc89489e0f0d	optfeature	222cb475c5a4f7ae7cfb0bf510a6fe54	xdg-utils	baea6080dd821f5562d715887954c9d3
-_md5_=e89445a2cd2d5ec75a2ce2adcead11cb
+_md5_=36ef1a81e1b5cd7e077bf7a275804f39
