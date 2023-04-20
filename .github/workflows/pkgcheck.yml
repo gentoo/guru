@@ -1,8 +1,8 @@
----
-
 name: pkgcheck
 
 on:
+  schedule:
+    - cron: '0 12 * * *'
   push:
     branches: [dev]
   pull_request:
@@ -13,13 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: dev
       - name: Run pkgcheck
         uses: pkgcore/pkgcheck-action@v1
         with:
           args: --keywords=-RedundantVersion,-NonsolvableDepsInDev
-
       - name: Inform on IRC
-        if: ${{ failure() && github.repository == 'gentoo/guru' && github.event_name == 'push' }}
+        if: ${{ failure() && github.repository == 'gentoo/guru' && github.event_name != 'pull_request' }}
         uses: rectalogic/notify-irc@v1
         with:
           channel: "#gentoo-guru"

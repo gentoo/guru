@@ -1,8 +1,8 @@
----
-
 name: duplicates
 
 on:
+  schedule:
+    - cron: '0 12 * * *'
   push:
     branches: [dev]
   pull_request:
@@ -13,15 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: dev
       - name: Setup master gentoo repository
         run: |
           ./scripts/setup-master-gentoo.sh
       - name: Check for duplicates
         run: |
           ./scripts/check-duplicates.sh
-
       - name: Inform on IRC
-        if: ${{ failure() && github.repository == 'gentoo/guru' && github.event_name == 'push' }}
+        if: ${{ failure() && github.repository == 'gentoo/guru' && github.event_name != 'pull_request' }}
         uses: rectalogic/notify-irc@v1
         with:
           channel: "#gentoo-guru"
