@@ -6,6 +6,7 @@
 		<name>Luciano Degni</name>
 	</maintainer>
 	<upstream>
+		<remote-id type="github">sayanarijit/xplr</remote-id>
 		<doc>https://xplr.dev/en/</doc>
 		<bugs-to>https://github.com/sayanarijit/xplr/issues</bugs-to>
 	</upstream>
