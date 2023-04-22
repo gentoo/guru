@@ -11,7 +11,7 @@ inherit cmake llvm toolchain-funcs
 DESCRIPTION="A hex editor for reverse engineers, programmers, and eyesight"
 HOMEPAGE="https://github.com/WerWolv/ImHex"
 SRC_URI="
-	https://github.com/WerWolv/ImHex/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/WerWolv/ImHex/releases/download/v${PV}/Full.Sources.tar.gz -> ${P}.tar.gz
 	https://github.com/WerWolv/ImHex-Patterns/archive/refs/tags/ImHex-v${PV}.tar.gz -> ${PN}-patterns-${PV}.tar.gz
 "
 S="${WORKDIR}/ImHex"
