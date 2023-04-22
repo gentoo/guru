@@ -19,7 +19,6 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 IUSE="bash-completion zsh-completion fish-completion"
 
 DEPEND=""
