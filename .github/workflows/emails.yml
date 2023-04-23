@@ -19,31 +19,35 @@ jobs:
           workflow_id: 'emails.yml'
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Checkout compare ref
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ steps.last_successful_commit.outputs.commit_hash }}
-
-      - run: git submodule deinit --all
-
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v3
         with:
           ref: dev
+          fetch-depth: 0
 
       - uses: actions/setup-python@v3
         with:
           python-version: 3.x
 
+      - name: Validate compare commit
+        run: |
+          if git rev-parse --verify "${{ steps.last_successful_commit.outputs.commit_hash }}^{commit}"; then
+            echo "is_commit_valid=true" >> ${GITHUB_ENV}
+          else
+            echo "is_commit_valid=false" >> ${GITHUB_ENV}
+          fi
+
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v18.6
+        if: ${{ fromJSON(env.is_commit_valid) }}
+        uses: tj-actions/changed-files@v35
         with:
           base_sha: ${{ steps.last_successful_commit.outputs.commit_hash }}
           files: |
             **/metadata.xml
 
       - name: Check Emails against bugzilla
+        if: ${{ fromJSON(env.is_commit_valid) }}
         run: |
           python ./scripts/email-checker.py ${{ steps.changed-files.outputs.all_changed_files }}
 
