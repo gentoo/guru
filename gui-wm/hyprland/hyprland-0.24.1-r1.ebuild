@@ -29,7 +29,6 @@ RDEPEND="
 	dev-util/glslang
 	dev-util/vulkan-headers
 	gui-libs/gtk-layer-shell
-	>=gui-libs/wlroots-0.16.0[X?]
 	media-libs/libdisplay-info
 	media-libs/libglvnd[X?]
 	media-libs/mesa[gles2,wayland,X?]
@@ -60,6 +59,8 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-libs/hyprland-protocols
 	dev-libs/libliftoff
+	dev-vcs/git
+	>=gui-libs/wlroots-0.16.0[X?]
 	grimblast? ( app-text/scdoc )
 	shellevents? ( app-text/scdoc )
 "
