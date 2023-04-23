@@ -6,7 +6,7 @@ EAPI=8
 inherit go-module shell-completion
 
 DESCRIPTION="Manage your dotfiles across multiple machines, securely"
-HOMEPAGE="https://chezmoi.io/"
+HOMEPAGE="https://www.chezmoi.io/"
 SRC_URI="https://github.com/twpayne/chezmoi/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://github.com/rebtoor/portage-deps/raw/master/${P}-deps.tar.xz"
 
@@ -25,9 +25,10 @@ src_compile() {
 }
 
 src_test() {
-	go test -race -ldflags \
-		"-X github.com/twpayne/chezmoi/internal/chezmoitest.umaskStr=0o022" \
-		|| die "tests failed"
+	go test -ldflags \
+		"-X github.com/twpayne/chezmoi/v2/pkg/chezmoitest.umaskStr=0o022"
+	go test -ldflags \
+		"-X github.com/twpayne/chezmoi/v2/pkg/chezmoitest.umaskStr=0o002"
 }
 
 src_install() {
