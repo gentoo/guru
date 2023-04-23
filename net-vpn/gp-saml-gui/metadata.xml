@@ -2,11 +2,9 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>freijon@pm.me</email>
-		<name>Jonas Frei</name>
+		<email>zdanevich.vitaly@ya.ru</email>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">yory8/clipman</remote-id>
-		<bugs-to>https://github.com/yory8/clipman/issues</bugs-to>
+		<remote-id type="github">dlenski/gp-saml-gui</remote-id>
 	</upstream>
 </pkgmetadata>

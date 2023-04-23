@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person" proxied="yes">
-		<email>0xdutra@gmail.com</email>
-		<name>Gabriel M. Dutra</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription lang="en">
 		Terraform linter
 		Features:
@@ -12,4 +9,7 @@
 			- Warn abount deprecated syntax, unused declarations
 			- Enforce best pratices, naming conventions
 	</longdescription>
+	<upstream>
+		<remote-id type="github">terraform-linters/tflint</remote-id>
+	</upstream>
 </pkgmetadata>
