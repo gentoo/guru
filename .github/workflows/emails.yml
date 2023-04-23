@@ -12,12 +12,10 @@ jobs:
   bugzilla:
     runs-on: ubuntu-latest
     steps:
-      - uses: nrwl/last-successful-commit-action@v1
-        id: last_successful_commit
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
-          branch: 'dev'
-          workflow_id: 'emails.yml'
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          python-version: 3.x
 
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -25,31 +23,36 @@ jobs:
           ref: dev
           fetch-depth: 0
 
-      - uses: actions/setup-python@v3
-        with:
-          python-version: 3.x
-
-      - name: Validate compare commit
+      - name: Get compare commit
         run: |
-          if git rev-parse --verify "${{ steps.last_successful_commit.outputs.commit_hash }}^{commit}"; then
-            echo "is_commit_valid=true" >> ${GITHUB_ENV}
+          COMMIT=$(gh run list -R ${GITHUB_REPOSITORY} --branch=dev --workflow=emails.yml --status=success --limit=1 --json=headSha --jq=".[0].headSha")
+          echo "last_successful_commit=${COMMIT}" >> "${GITHUB_ENV}"
+          echo "Workflow last succeeded on commit ${COMMIT:0:7}"
+
+          if git rev-parse --verify "${COMMIT}^{commit}"; then
+            echo -e "\033[92m\u2713 ${COMMIT:0:7} points to a valid commit"
+            VALID=true
           else
-            echo "is_commit_valid=false" >> ${GITHUB_ENV}
+            echo -e "\033[91m\u2717 ${COMMIT:0:7} doesn't point to a valid commit"
+            VALID=false
           fi
+          echo "is_commit_valid=${VALID}" >> "${GITHUB_ENV}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get changed files
-        id: changed-files
         if: ${{ fromJSON(env.is_commit_valid) }}
         uses: tj-actions/changed-files@v35
         with:
-          base_sha: ${{ steps.last_successful_commit.outputs.commit_hash }}
+          base_sha: ${{ env.last_successful_commit }}
+          write_output_files: true
           files: |
             **/metadata.xml
 
-      - name: Check Emails against bugzilla
+      - name: Check emails against Bugzilla
         if: ${{ fromJSON(env.is_commit_valid) }}
         run: |
-          python ./scripts/email-checker.py ${{ steps.changed-files.outputs.all_changed_files }}
+          python ./scripts/email-checker.py < .github/outputs/all_changed_files.txt
 
       - name: Inform on IRC
         if: ${{ failure() && github.repository == 'gentoo/guru' && github.event_name == 'push' }}
