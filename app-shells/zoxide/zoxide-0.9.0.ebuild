@@ -112,7 +112,7 @@ CRATES="
 	windows_x86_64_msvc-0.42.0
 "
 
-inherit cargo bash-completion-r1
+inherit cargo shell-completion
 
 DESCRIPTION="A smarter cd command for your terminal"
 HOMEPAGE="https://github.com/ajeetdsouza/zoxide"
@@ -145,11 +145,9 @@ src_install() {
 
 	newbashcomp contrib/completions/"${PN}".bash "${PN}"
 
-	insinto /usr/share/zsh/site-functions
-	doins contrib/completions/_"${PN}"
+	dozshcomp contrib/completions/_"${PN}"
 
-	insinto /usr/share/fish/vendor_completions.d
-	doins contrib/completions/"${PN}".fish
+	dofishcomp contrib/completions/"${PN}".fish
 
 	insinto /usr/share/"${PN}"
 	doins init.fish
