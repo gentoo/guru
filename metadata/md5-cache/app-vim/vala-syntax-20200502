@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm prepare
+DEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+DESCRIPTION=vim plugin: vala language support
+EAPI=8
+HOMEPAGE=https://github.com/vala-lang/vala.vim https://wiki.gnome.org/Projects/Vala/Vim
+INHERIT=vim-plugin
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=|| ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+SLOT=0
+SRC_URI=https://github.com/vala-lang/vala.vim/archive/ce569e187bf8f9b506692ef08c10b584595f8e2d.tar.gz -> vala-syntax-20200502.tar.gz
+_eclasses_=vim-doc	f088862726f2bc672c57b1063b81ec52	vim-plugin	92ea4186891b666b0970fa1d713d64fa
+_md5_=00b5c66277bfb53dac67a66ee91988c8

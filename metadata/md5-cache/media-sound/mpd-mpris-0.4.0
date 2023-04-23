@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig >=dev-lang/go-1.18 app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DEPEND=media-sound/mpd
+DESCRIPTION=An implementation of the MPRIS protocol for MPD.
+EAPI=8
+HOMEPAGE=https://github.com/natsukagami/mpd-mpris
+INHERIT=multiprocessing systemd go-module
+KEYWORDS=~amd64
+LICENSE=MIT BSD-2
+RDEPEND=media-sound/mpd
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/natsukagami/mpd-mpris/archive/v0.4.0.tar.gz -> mpd-mpris-0.4.0.tar.gz https://gitlab.com/sevz17/go-deps/-/raw/main/mpd-mpris-0.4.0-deps.tar.xz
+_eclasses_=multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	systemd	5f4bb0758df2e483babf68cd517078ca	go-module	9c75e51a48520b2f01471c1f91762882
+_md5_=423929e8483775ba494baae21ba0a22e
