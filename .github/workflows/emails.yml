@@ -27,9 +27,8 @@ jobs:
         run: |
           COMMIT=$(gh run list -R ${GITHUB_REPOSITORY} --branch=dev --workflow=emails.yml --status=success --limit=1 --json=headSha --jq=".[0].headSha")
           echo "last_successful_commit=${COMMIT}" >> "${GITHUB_ENV}"
-          echo "Workflow last succeeded on commit ${COMMIT:0:7}"
 
-          if git rev-parse --verify "${COMMIT}^{commit}"; then
+          if git rev-parse --verify "${COMMIT}^{commit}" > /dev/null; then
             echo -e "\033[92m\u2713 ${COMMIT:0:7} points to a valid commit"
             VALID=true
           else

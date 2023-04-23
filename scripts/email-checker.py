@@ -47,5 +47,7 @@ def check_maintainers(maintainers: Iterator[Maintainer]) -> Iterator[Maintainer]
 
 
 if __name__ == '__main__':
-    missing_maintainers = len(tuple(check_maintainers(set(read_all_maintainers(sys.argv[1:])))))
-    sys.exit(int(missing_maintainers != 0))
+    files = [line.strip() for line in sys.stdin]
+    maintainers = set(read_all_maintainers(files))
+    missing_maintainers = tuple(check_maintainers(maintainers))
+    sys.exit(int(len(missing_maintainers) != 0))
