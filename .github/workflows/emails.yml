@@ -24,7 +24,7 @@ jobs:
         with:
           ref: ${{ steps.last_successful_commit.outputs.commit_hash }}
 
-      - run: rm -f .gitmodules
+      - run: git submodule deinit --all
 
       - name: Checkout code
         uses: actions/checkout@v3
