@@ -12,7 +12,6 @@ jobs:
   bugzilla:
     runs-on: ubuntu-latest
     steps:
-
       - uses: nrwl/last-successful-commit-action@v1
         id: last_successful_commit
         with:
@@ -24,9 +23,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: ${{ steps.last_successful_commit.outputs.commit_hash }}
+          submodules: true
 
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          ref: dev
+          submodules: true
 
       - uses: actions/setup-python@v3
         with:
