@@ -33,7 +33,7 @@ RDEPEND="
 	dev-python/python-magic[${PYTHON_USEDEP}]
 	dev-python/qrcode[${PYTHON_USEDEP}]
 	dev-python/ruamel-yaml[${PYTHON_USEDEP}]
-	~dev-python/tulir-telethon-1.27.0_alpha6[${PYTHON_USEDEP}]
+	>=dev-python/tulir-telethon-1.28.0_alpha0[${PYTHON_USEDEP}]
 	dev-python/unpaddedbase64[${PYTHON_USEDEP}]
 	dev-python/yarl[${PYTHON_USEDEP}]
 "
