@@ -55,12 +55,14 @@ pkg_pretend() {
 
 src_prepare() {
 	default
-	# Due to network sandboxing, we can't do network test here.
+	# We are removing all tests altogether
+	# The tests need ImHex installed to succeed (see https://bugs.gentoo.org/attachment.cgi?id=860683), so we remove them
+	# We could use `ln "${BUILD_DIR}/lib/libimhex.so.${PV}" "/lib64/libimhex.so.${PV}"` and  circumvent sandboxing
 	sed -i \
-		-e 's/StoreAPI$/#StoreAPI/' \
-		-e 's/TipsAPI$/#TipsAPI/' \
-		-e 's/ContentAPI$/#ContentAPI/' \
-		"${S}/tests/helpers/CMakeLists.txt" || die
+		-e 's/enable_testing/#enable_testing/' \
+		-e 's/add_subdirectory(tests/#add_subdirectory(tests/' \
+		"${S}/CMakeLists.txt" || die
+
 	cmake_src_prepare
 }
 
@@ -69,8 +71,8 @@ src_configure() {
 		-D CMAKE_BUILD_TYPE="Release" \
 		-D CMAKE_C_COMPILER_LAUNCHER=ccache \
 		-D CMAKE_CXX_COMPILER_LAUNCHER=ccache \
-		-D CMAKE_C_FLAGS="-fuse-ld=lld" \
-		-D CMAKE_CXX_FLAGS="-fuse-ld=lld" \
+		-D CMAKE_C_FLAGS="-fuse-ld=lld ${CFLAGS}" \
+		-D CMAKE_CXX_FLAGS="-fuse-ld=lld ${CXXFLAGS}" \
 		-D CMAKE_OBJC_COMPILER_LAUNCHER=ccache \
 		-D CMAKE_OBJCXX_COMPILER_LAUNCHER=ccache \
 		-D CMAKE_SKIP_RPATH=ON \
@@ -95,13 +97,6 @@ src_configure() {
 	)
 
 	cmake_src_configure
-}
-
-src_test() {
-	pushd "${BUILD_DIR}" || die
-	emake unit_tests
-	popd || die
-	cmake_src_test
 }
 
 src_install() {
