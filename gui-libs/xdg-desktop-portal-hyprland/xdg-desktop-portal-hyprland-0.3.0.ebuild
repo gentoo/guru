@@ -51,13 +51,13 @@ BDEPEND="
 "
 
 src_configure() {
-	local emasonargs=()
+	local emesonargs=()
 	if use systemd; then
-		emasonargs+=(-Dsd-bus-provider=libsystemd)
+		emesonargs+=(-Dsd-bus-provider=libsystemd)
 	elif use elogind; then
-		emasonargs+=(-Dsd-bus-provider=libelogind)
+		emesonargs+=(-Dsd-bus-provider=libelogind)
 	else
-		emasonargs+=(-Dsd-bus-provider=basu)
+		emesonargs+=(-Dsd-bus-provider=basu)
 	fi
 	meson_src_configure
 }
