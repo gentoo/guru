@@ -10,16 +10,13 @@ inherit distutils-r1 optfeature
 
 DESCRIPTION="SVG Parsing for Elements, Paths, and other SVG Objects."
 HOMEPAGE="https://github.com/meerk40t/svgelements https://pypi.org/project/svgelements"
-SRC_URI="https://github.com/meerk40t/svgelements/archive/refs/tags/${PV}.tar.gz -> v${PV}.gh.tar.gz"
+SRC_URI="https://github.com/meerk40t/svgelements/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
 
-RDEPEND=""
 BDEPEND="
-	dev-python/setuptools[${PYTHON_USEDEP}]
 	test? (
 		dev-python/numpy[${PYTHON_USEDEP}]
 		dev-python/scipy[${PYTHON_USEDEP}]
