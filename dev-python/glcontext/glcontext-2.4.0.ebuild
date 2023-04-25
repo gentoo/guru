@@ -10,20 +10,17 @@ inherit distutils-r1 virtualx
 
 DESCRIPTION="Modern OpenGL binding for python"
 HOMEPAGE="https://github.com/moderngl/glcontext https://pypi.org/project/glcontext"
-SRC_URI="https://github.com/moderngl/glcontext/archive/refs/tags/${PV}.tar.gz -> v${PV}.gh.tar.gz"
+SRC_URI="https://github.com/moderngl/glcontext/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
-RESTRICT="!test? ( test )"
+IUSE="debug"
 
-RDEPEND=""
+DISTUTILS_EXT=1
 BDEPEND="
 	x11-libs/libX11
 	media-libs/libglvnd[X]
-	dev-python/setuptools[${PYTHON_USEDEP}]
-	dev-python/wheel[${PYTHON_USEDEP}]
 	test? (
 		dev-python/pytest[${PYTHON_USEDEP}]
 		dev-python/psutil[${PYTHON_USEDEP}]
