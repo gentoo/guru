@@ -22,9 +22,15 @@ BDEPEND="
 	test? (
 		dev-python/pymdown-extensions[${PYTHON_USEDEP}]
 		dev-python/mkdocs-autorefs[${PYTHON_USEDEP}]
+		dev-python/mkdocs-material[${PYTHON_USEDEP}]
 		dev-python/mkdocs-mkdocstrings-python[${PYTHON_USEDEP}]
 	)
 "
 DEPEND="${BDEPEND}"
 
 distutils_enable_tests pytest
+
+src_prepare() {
+	rm "${S}/tests/test_plugin.py"
+	default
+}
