@@ -18,9 +18,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 ISUE="test"
 
-RDEPEND=""
 BDEPEND="
-	dev-python/pdm-pep517[${PYTHON_USEDEP}]
 	dev-python/mkdocs[${PYTHON_USEDEP}]
 	dev-python/griffe[${PYTHON_USEDEP}]
 	test? (
