@@ -320,6 +320,7 @@ KEYWORDS="~amd64"
 
 DEPEND="
 	>=gui-libs/gtk-4
+	gui-libs/libadwaita
 	dev-libs/gobject-introspection
 "
 RDEPEND="${DEPEND}"
