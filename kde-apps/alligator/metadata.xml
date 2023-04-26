@@ -2,6 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<upstream>
+		<remote-id type="kde-invent">network/alligator</remote-id>
 		<remote-id type="github">KDE/alligator</remote-id>
 		<bugs-to>https://bugs.kde.org/enter_bug.cgi?product=Alligator</bugs-to>
 	</upstream>
