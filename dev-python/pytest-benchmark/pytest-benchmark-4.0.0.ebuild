@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{9..11} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
@@ -24,19 +24,24 @@ RDEPEND="
 	dev-python/py-cpuinfo[${PYTHON_USEDEP}]
 	dev-python/pytest[${PYTHON_USEDEP}]
 "
-BDEPEND="test? (
-	dev-python/aspectlib[${PYTHON_USEDEP}]
-	dev-python/elasticsearch-py[${PYTHON_USEDEP}]
-	dev-python/freezegun[${PYTHON_USEDEP}]
-	dev-python/hunter[${PYTHON_USEDEP}]
-	dev-python/pygal[${PYTHON_USEDEP}]
-	dev-python/pygaljs[${PYTHON_USEDEP}]
-	dev-python/pytest-xdist[${PYTHON_USEDEP}]
-	dev-vcs/git
-	dev-vcs/mercurial
-)" # tests include pytest-xdist integration
+
+# tests include pytest-xdist integration
+BDEPEND="
+	test? (
+		dev-python/aspectlib[${PYTHON_USEDEP}]
+		dev-python/elasticsearch-py[${PYTHON_USEDEP}]
+		dev-python/freezegun[${PYTHON_USEDEP}]
+		dev-python/hunter[${PYTHON_USEDEP}]
+		dev-python/pygal[${PYTHON_USEDEP}]
+		dev-python/pygaljs[${PYTHON_USEDEP}]
+		dev-python/pytest-xdist[${PYTHON_USEDEP}]
+		dev-vcs/git
+		dev-vcs/mercurial
+	)
+"
 
 EPYTEST_DESELECT=(
+	tests/test_benchmark.py::test_help
 	tests/test_cli.py::test_help
 	tests/test_cli.py::test_help_compare
 )
@@ -45,3 +50,15 @@ distutils_enable_tests pytest
 
 distutils_enable_sphinx docs \
 	dev-python/sphinx-py3doc-enhanced-theme
+
+python_test() {
+	if [[ ${EPYTHON} == "python3.11" ]]; then
+		# https://github.com/ionelmc/pytest-benchmark/issues/231
+		EPYTEST_DESELECT+=(
+			tests/test_benchmark.py::test_abort_broken
+			"tests/test_utils.py::test_clonefunc[<lambda>]"
+			"tests/test_utils.py::test_clonefunc[f2]"
+		)
+	fi
+	epytest
+}
