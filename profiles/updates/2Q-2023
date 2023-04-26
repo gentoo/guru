@@ -1,1 +1,2 @@
 move gui-libs/power-profiles-daemon sys-power/power-profiles-daemon
+move kde-apps/tokodon net-im/tokodon
