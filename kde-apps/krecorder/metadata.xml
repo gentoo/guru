@@ -2,8 +2,9 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<upstream>
+		<remote-id type="kde-invent">utilities/krecorder</remote-id>
 		<remote-id type="github">KDE/krecorder</remote-id>
-		<bugs-to>https://invent.kde.org/plasma-mobile/krecorder/-/issues</bugs-to>
+		<bugs-to>https://bugs.kde.org/enter_bug.cgi?product=krecorder</bugs-to>
 	</upstream>
 	<maintainer type="person">
 		<email>cyber+gentoo@sysrq.in</email>
