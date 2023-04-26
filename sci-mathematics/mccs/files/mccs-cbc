@@ -1,3 +1,0 @@
-description: CUDF solver based on the Mixed Integer Linear Programming solver Cbc
-exec: /usr/bin/mccs -i $in -o $out $pref
-cudf-version: 2.0
