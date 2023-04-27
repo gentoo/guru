@@ -28,11 +28,8 @@ DEPEND="
 	dev-libs/glib:2
 	dev-libs/gobject-introspection
 	>=gui-libs/gtk-4.10:4
-	>=gui-libs/libadwaita-1.3[introspection]
-	|| (
-		net-libs/webkit-gtk:6[introspection]
-		net-libs/webkit-gtk:5[introspection]
-	)
+	>=gui-libs/libadwaita-1.3:1[introspection]
+	net-libs/webkit-gtk:6[introspection]
 "
 RDEPEND="
 	${DEPEND}
