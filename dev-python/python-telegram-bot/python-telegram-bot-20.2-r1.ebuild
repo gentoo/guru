@@ -29,6 +29,7 @@ BDEPEND="
 		dev-python/flaky[${PYTHON_USEDEP}]
 		dev-python/pytest[${PYTHON_USEDEP}]
 		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
+		dev-python/pytz[${PYTHON_USEDEP}]
 		>=dev-python/tornado-6.2[${PYTHON_USEDEP}]
 	)
 "
