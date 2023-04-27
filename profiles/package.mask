@@ -60,10 +60,6 @@ media-gfx/fontbakery
 # Masked for removal in 30 days.
 dev-python/oslo-policy
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-24)
-# Archived upstream.
-net-im/gtkcord:0
-
 # Julien Roy <julien@jroy.ca> (2023-01-25)
 # Requires <dev-python/coverage-7, which is no longer available in ::gentoo.
 # Upstream bug: https://github.com/TheKevJames/coveralls-python/issues/377
