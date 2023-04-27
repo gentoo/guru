@@ -20,7 +20,7 @@ REQUIRE_USE="${LUA_REQUIRED_USE}"
 
 DEPEND="${LUA_DEPS}"
 RDEPEND="${DEPEND}"
-BDPEND="
+BDEPEND="
 	app-arch/unzip
 	dev-util/ninja
 "
