@@ -303,7 +303,7 @@ CRATES="
 inherit cargo shell-completion
 
 DESCRIPTION="Magical shell history"
-HOMEPAGE="https://github.com/ellie/atuin"
+HOMEPAGE="https://atuin.sh"
 SRC_URI="
 	https://github.com/ellie/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	$(cargo_crate_uris)
