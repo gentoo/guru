@@ -4,7 +4,7 @@
 EAPI=8
 VALA_USE_DEPEND="vapigen"
 
-inherit vala meson
+inherit vala meson udev
 
 GMOBILE_COMMIT="d483537aee4778b114ce5d50c4c8a9f8d58337ed"
 DESCRIPTION="A daemon to provide haptic feedback on events"
@@ -67,9 +67,18 @@ src_configure() {
 
 src_install() {
 	meson_src_install
+	udev_newrules debian/feedbackd.udev 90-feedbackd
 
 	if use gtk-doc; then
 		mkdir -p "${ED}"/usr/share/gtk-doc/html/ || die
 		mv "${ED}"/usr/share/doc/libfeedback-${SLOT} "${ED}"/usr/share/gtk-doc/html/ || die
 	fi
+}
+
+pkg_postinst() {
+	udev_reload
+}
+
+pkg_postrm() {
+	udev_reload
 }
