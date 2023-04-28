@@ -30,7 +30,6 @@ BDEPEND="
 		dev-python/ipdb[${PYTHON_USEDEP}]
 		dev-python/manhole[${PYTHON_USEDEP}]
 		dev-python/process-tests[${PYTHON_USEDEP}]
-		dev-python/pytest-benchmark[${PYTHON_USEDEP}]
 		dev-python/six[${PYTHON_USEDEP}]
 		sys-devel/gdb
 	)
@@ -42,6 +41,12 @@ EPYTEST_DESELECT=(
 	# broken
 	#tests/test_tracer.py::test_source_cython
 	tests/test_tracer.py::test_fullsource_cython
+
+	# need pytest-benchmark
+	tests/test_cookbook.py::test_probe
+	tests/test_tracer.py::test_perf_actions
+	tests/test_tracer.py::test_perf_filter
+	tests/test_tracer.py::test_perf_stdlib
 
 	# flaky
 	tests/test_remote.py
