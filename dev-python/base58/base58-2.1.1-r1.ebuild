@@ -18,10 +18,13 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 BDEPEND="
-	test? (
-		dev-python/pyhamcrest[${PYTHON_USEDEP}]
-		dev-python/pytest-benchmark[${PYTHON_USEDEP}]
-	)
+	test? ( dev-python/pyhamcrest[${PYTHON_USEDEP}] )
 "
+
+EPYTEST_DESELECT=(
+	# need pytest-benchmark
+	test_base58.py::test_encode_random
+	test_base58.py::test_decode_random
+)
 
 distutils_enable_tests pytest
