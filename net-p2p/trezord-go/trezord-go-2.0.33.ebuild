@@ -33,7 +33,7 @@ go-module_set_globals
 DESCRIPTION="TREZOR Communication Daemon"
 HOMEPAGE="https://github.com/trezor/trezord-go"
 SRC_URI="
-	https://github.com/trezor/trezord-go/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/trezor/trezord-go/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}
 "
 
