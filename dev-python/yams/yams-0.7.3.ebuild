@@ -23,7 +23,7 @@ SLOT="0"
 RDEPEND="
 	dev-python/psutil[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
-	dev-python/python-mpd[${PYTHON_USEDEP}]
+	dev-python/python-mpd2[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	media-sound/mpd
 "
