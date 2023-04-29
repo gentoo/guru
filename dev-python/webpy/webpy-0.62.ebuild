@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="8"
+EAPI=8
 
 PYTHON_COMPAT=( python3_{9..11} )
 
@@ -13,7 +13,7 @@ HOMEPAGE="
 	https://github.com/webpy/webpy
 	https://pypi.org/project/web.py/
 "
-SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="public-domain"
 SLOT="0"
@@ -21,20 +21,18 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-python/cheroot[${PYTHON_USEDEP}]"
 
-distutils_enable_tests pytest
-distutils_enable_sphinx docs
-
-src_prepare() {
-	#tests require postgresql and mysql running
+EPYTEST_IGNORE=(
+	# TODO: tests require postgresql and mysql running
 	rm tests/test_db.py
-	default
-}
+)
 
-python_test() {
-	#https://github.com/webpy/webpy/issues/712
-	#https://github.com/webpy/webpy/issues/713
-	epytest -vv \
-		--deselect tests/test_application.py::ApplicationTest::test_routing \
-		--deselect tests/test_session.py::DiskStoreTest::testStoreConcurrent \
-		|| die
-}
+EPYTEST_DESELECT=(
+	# https://github.com/webpy/webpy/issues/712
+	# https://github.com/webpy/webpy/issues/713
+	tests/test_application.py::ApplicationTest::test_routing
+	tests/test_session.py::DiskStoreTest::testStoreConcurrent
+)
+
+distutils_enable_tests pytest
+
+distutils_enable_sphinx docs
