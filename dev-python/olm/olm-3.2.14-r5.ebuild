@@ -3,9 +3,8 @@
 
 EAPI=8
 
+PYTHON_COMPAT=( python3_{9..11} )
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..10} )
-
 inherit distutils-r1
 
 DESCRIPTION="Python bindings for dev-libs/olm"
@@ -20,21 +19,25 @@ KEYWORDS="~amd64"
 DEPEND="dev-libs/olm"
 RDEPEND="
 	${DEPEND}
-	dev-python/cffi[${PYTHON_USEDEP}]
 	dev-python/future[${PYTHON_USEDEP}]
+	virtual/python-cffi[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	test? (
-		dev-python/aspectlib[${PYTHON_USEDEP}]
-		dev-python/pytest-benchmark[${PYTHON_USEDEP}]
-	)
+	test? ( dev-python/aspectlib[${PYTHON_USEDEP}] )
 "
 
 DOCS=( README-python.md )
 
 distutils_enable_tests pytest
 
-distutils_enable_sphinx docs
+distutils_enable_sphinx docs \
+	dev-python/alabaster
+
+EPYTEST_DESELECT=(
+	# need pytest-benchmark
+	tests/group_session_test.py::TestClass::test_encrypt
+	tests/group_session_test.py::TestClass::test_decrypt
+)
 
 src_prepare() {
 	distutils-r1_src_prepare
