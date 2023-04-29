@@ -67,8 +67,8 @@ src_unpack() {
 }
 
 src_prepare() {
-	default
 	find . -name '*.c' -delete || die "removing csources failed"
+	distutils-r1_src_prepare
 }
 
 python_compile() {
