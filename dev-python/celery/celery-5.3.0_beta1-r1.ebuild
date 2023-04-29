@@ -58,7 +58,7 @@ BDEPEND="
 	)
 	doc? (
 		dev-python/docutils[${PYTHON_USEDEP}]
-		>=dev-python/sphinx_celery-2.0.0[${PYTHON_USEDEP}]
+		>=dev-python/sphinx-celery-2.0.0[${PYTHON_USEDEP}]
 		>=dev-python/sphinx-click-2.5.0[${PYTHON_USEDEP}]
 		dev-python/jinja[${PYTHON_USEDEP}]
 		dev-python/sqlalchemy[${PYTHON_USEDEP}]
