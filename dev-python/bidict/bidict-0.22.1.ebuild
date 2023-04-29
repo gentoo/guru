@@ -36,7 +36,7 @@ distutils_enable_sphinx docs \
 	dev-python/furo
 
 src_prepare() {
-	default
+	distutils-r1_src_prepare
 
 	sed -i pytest.ini \
 		-e "/--numprocesses/d" \
