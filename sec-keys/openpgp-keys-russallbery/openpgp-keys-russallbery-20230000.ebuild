@@ -6,7 +6,7 @@ EAPI=8
 MY_PN="${PN#openpgp-keys-}"
 DESCRIPTION="OpenPGP keys used by Russ Allbery (Eagle)"
 HOMEPAGE="https://www.eyrie.org/~eagle/personal/contact.html"
-SRC_URI="https://www.eyrie.org/~eagle/personal/82004173.txt -> ${P}.asc"
+SRC_URI="https://keys.openpgp.org/vks/v1/by-fingerprint/E784364E8DDE7BB370FBD9EAD15D313882004173 -> ${P}.asc"
 S="${WORKDIR}"
 
 LICENSE="public-domain"
