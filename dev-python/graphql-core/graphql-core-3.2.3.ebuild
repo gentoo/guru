@@ -37,6 +37,12 @@ distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	dev-python/sphinx-rtd-theme
 
+src_prepare() {
+	distutils-r1_src_prepare
+
+	sed "/addopts =/d" -i setup.cfg pyproject.toml || die
+}
+
 python_test() {
 	if [[ ${EPYTHON} == "python3.11" ]]; then
 		local EPYTEST_DESELECT=(
