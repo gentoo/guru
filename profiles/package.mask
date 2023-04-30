@@ -32,33 +32,6 @@ gui-libs/xdg-desktop-portal-hyprland
 # Masked for removal in 30 days.
 dev-libs/boinc-zip
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-03-31)
-# Revdeps of masked packages:
-# - dev-python/booleanOperations
-# - dev-python/defcon
-# - dev-python/nototools
-#
-# If packages above are restored here, masks could be removed.
-dev-python/MutatorMath
-dev-python/babelfont
-dev-python/cffsubr
-dev-python/collidoscope
-dev-python/cu2qu
-dev-python/fontFeatures
-dev-python/fontParts
-dev-python/fontPens
-dev-python/glyphsLib
-dev-python/glyphtools
-dev-python/statmake
-dev-python/ufo2ft
-dev-python/ufoProcessor
-dev-python/vttlib
-dev-util/afdko
-dev-util/fontmake
-dev-util/gftools
-media-fonts/3270font
-media-gfx/fontbakery
-
 # Julien Roy <julien@jroy.ca> (2023-01-25)
 # Requires <dev-python/coverage-7, which is no longer available in ::gentoo.
 # Upstream bug: https://github.com/TheKevJames/coveralls-python/issues/377
