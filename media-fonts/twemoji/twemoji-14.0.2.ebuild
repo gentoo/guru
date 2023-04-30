@@ -33,7 +33,7 @@ BDEPEND="
 	)
 	$(python_gen_any_dep '
 		>=dev-python/fonttools-4.7.0[${PYTHON_USEDEP}]
-		>=dev-python/nototools-0.2.13[${PYTHON_USEDEP}]
+		>=dev-python/notofonttools-0.2.13[${PYTHON_USEDEP}]
 	')
 "
 
