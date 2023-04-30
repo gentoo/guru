@@ -6,7 +6,7 @@ EAPI=8
 inherit meson
 
 DESCRIPTION="xrandr clone for wlroots compositors"
-HOMEPAGE="https://git.sr.ht/~emersion/wlr-randr"
+HOMEPAGE="https://sr.ht/~emersion/wlr-randr/"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
