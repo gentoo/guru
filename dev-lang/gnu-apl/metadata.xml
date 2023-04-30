@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>lav@vampires.gay</email>
+    <name>Laura Aléanor</name>
+  </maintainer>
+  <use>
+    <flag name="erlang">Build the Erlang interface</flag>
+    <flag name="python">Build the Python extension lib_gnu_apl.so</flag>
+    <flag name="gtk3">Include the interface to gtk3</flag>
+    <flag name="libapl">Build as a shared library rather than an executable</flag>
+    <flag name="pcre2">Enable pcre2</flag>
+    <flag name="postgresql">Use postrgesql</flag>
+    <flag name="sqlite3">Use sqlite3</flag>
+  </use>
+</pkgmetadata>
