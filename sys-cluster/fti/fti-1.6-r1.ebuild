@@ -10,7 +10,7 @@ DOCS_DEPEND="
 "
 DOCS_DIR="${S}/docs/source"
 FORTRAN_NEEDED="fortran"
-PYTHON_COMPAT=( python3_{9..10} pypy3 )
+PYTHON_COMPAT=( python3_10 pypy3 )
 
 inherit cmake python-any-r1 docs fortran-2
 

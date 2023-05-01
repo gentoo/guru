@@ -4,7 +4,7 @@
 EAPI=8
 
 COMMIT=0bc27f4740e382f2a2896dc1dabfec1d0ac96818
-PYTHON_COMPAT=( python3_{9..11} pypy3 )
+PYTHON_COMPAT=( python3_{10..11} pypy3 )
 
 inherit linux-info python-single-r1
 

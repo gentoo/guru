@@ -9,7 +9,7 @@ DOCS_DEPEND="
 	dev-python/sphinx-bootstrap-theme
 "
 DOCS_DIR="docs"
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit cmake python-any-r1 docs
 

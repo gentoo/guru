@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_10 )
 
 VER="esp-2022r1"
 CROSSTOOL_URL="https://github.com/espressif/crosstool-NG/releases/download/${VER}"

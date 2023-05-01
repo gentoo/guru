@@ -8,7 +8,7 @@ EPYTEST_DESELECT=(
 	jsonpath_rw_ext/tests/test_jsonpath_rw_ext.py::TestJsonpath_rw_ext::test_shortcut_functions
 )
 PYPI_NO_NORMALIZE=1
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_10 )
 
 inherit distutils-r1 pypi
 

@@ -5,7 +5,7 @@ EAPI=8
 
 EPYTEST_IGNORE=( tests/integration )
 MYPN="${PN}-python"
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_10 )
 
 inherit distutils-r1 optfeature
 

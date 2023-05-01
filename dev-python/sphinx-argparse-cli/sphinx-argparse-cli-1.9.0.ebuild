@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..11} ) # no pypy3 support
+PYTHON_COMPAT=( python3_{10..11} ) # no pypy3 support
 inherit distutils-r1
 
 MY_PN="${PN//-/_}"

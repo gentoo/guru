@@ -5,7 +5,7 @@ HOMEPAGE="https://github.com/virtual-puppet-project/vpuppr"
 
 RESTRICT="strip"
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 inherit desktop python-single-r1
 
 IUSE="+osf-tracker ifm-tracker mouse-tracker vts-tracker meowface-tracker remote-control"

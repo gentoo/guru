@@ -4,7 +4,7 @@
 EAPI=8
 
 DOCS_BUILDER="mkdocs"
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 DISTUTILS_USE_PEP517="setuptools"
 inherit distutils-r1 docs
 

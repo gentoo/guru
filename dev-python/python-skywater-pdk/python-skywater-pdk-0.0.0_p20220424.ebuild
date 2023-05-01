@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..10} ) # python3_11 depends on dev-python/dataclasses_json
+PYTHON_COMPAT=( python3_10 ) # python3_11 depends on dev-python/dataclasses_json
 
 MY_PN="skywater-pdk"
 MY_REV=5a57f505cd4cd65d10e9f37dd2d259a526bc9bf7

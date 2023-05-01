@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} ) # python3_11 depends on dev-python/mypy_extensions
+PYTHON_COMPAT=( python3_10 ) # python3_11 depends on dev-python/mypy_extensions
 
 inherit distutils-r1 pypi
 

@@ -4,7 +4,7 @@
 EAPI=8
 
 FORTRAN_STANDARD="77 90"
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit cmake fortran-2 python-any-r1 toolchain-funcs
 

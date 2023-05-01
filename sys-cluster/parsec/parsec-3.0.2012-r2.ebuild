@@ -5,7 +5,7 @@ EAPI=8
 
 DOCS_BUILDER="doxygen"
 DOCS_DIR="docs/doxygen"
-PYTHON_COMPAT=( python3_{9..11} pypy3 )
+PYTHON_COMPAT=( python3_{10..11} pypy3 )
 
 inherit cmake fortran-2 docs python-single-r1
 

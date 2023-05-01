@@ -70,7 +70,7 @@ CRATES="
 	windows_x86_64_msvc-0.42.0
 "
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit cargo distutils-r1
 

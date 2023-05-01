@@ -6,7 +6,7 @@ EAPI=8
 # required because of manual install in src_install
 CMAKE_MAKEFILE_GENERATOR="emake"
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit cmake python-any-r1
 

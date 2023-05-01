@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_10 )
 
 # Keep these revs up to date with the 'latest' submodule for each pdk lib in libraries/
 # Build seems to fail if these lapse compared to the rev used by the skywater_pdk python module within this repo

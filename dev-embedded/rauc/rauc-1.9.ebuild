@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 DOCS_BUILDER="sphinx"
 DOCS_DIR="${S}/docs"
 

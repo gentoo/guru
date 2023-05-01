@@ -178,7 +178,7 @@ CRATES="
 	yeslogic-fontconfig-sys-3.2.0
 "
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit cargo python-any-r1
 

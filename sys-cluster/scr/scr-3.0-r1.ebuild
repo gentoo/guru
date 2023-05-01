@@ -8,7 +8,7 @@ DOCS_BUILDER="sphinx"
 DOCS_DIR="${S}/doc/rst"
 FORTRAN_NEEDED="fortran"
 MYPV="${PV/_pre/rc}"
-PYTHON_COMPAT=( python3_{9..11} pypy3 )
+PYTHON_COMPAT=( python3_{10..11} pypy3 )
 
 inherit cmake python-single-r1 fortran-2 docs
 

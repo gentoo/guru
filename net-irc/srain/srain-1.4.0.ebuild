@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} pypy3 )
+PYTHON_COMPAT=( python3_{10..11} pypy3 )
 inherit meson python-any-r1 xdg
 
 DESCRIPTION="Modern, beautiful IRC client written in GTK+ 3"

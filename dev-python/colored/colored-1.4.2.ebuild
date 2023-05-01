@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} pypy3 )
+PYTHON_COMPAT=( python3_10 pypy3 )
 inherit distutils-r1
 
 EGIT_REPO_URI="https://gitlab.com/dslackw/${PN}"

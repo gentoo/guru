@@ -4,7 +4,7 @@
 EAPI=8
 
 COMMIT="0dc28fafb8a917cee8d6ffd4a037cdc1f8755101"
-PYTHON_COMPAT=( pypy3 python3_{9..11} )
+PYTHON_COMPAT=( pypy3 python3_{10..11} )
 
 inherit autotools java-pkg-opt-2 python-any-r1
 

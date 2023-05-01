@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..10} ) # python3_11 depends on dev-python/libcst
+PYTHON_COMPAT=( python3_10 ) # python3_11 depends on dev-python/libcst
 
 inherit distutils-r1 pypi
 

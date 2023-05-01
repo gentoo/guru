@@ -4,7 +4,7 @@
 EAPI=8
 
 LUA_COMPAT=( lua5-{3..4} )
-PYTHON_COMPAT=( python3_{9..11} ) # IDK how to pass pypy3
+PYTHON_COMPAT=( python3_{10..11} ) # IDK how to pass pypy3
 
 inherit cmake flag-o-matic lua-single python-single-r1 toolchain-funcs
 

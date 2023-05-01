@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_SETUPTOOLS=no
 MY_PV="$(ver_rs 1-2 -)"
 MY_P="${PN}-${MY_PV}"
-PYTHON_COMPAT=( python3_{9..11} pypy3 )
+PYTHON_COMPAT=( python3_{10..11} pypy3 )
 
 inherit distutils-r1 edo flag-o-matic java-pkg-opt-2 perl-module
 

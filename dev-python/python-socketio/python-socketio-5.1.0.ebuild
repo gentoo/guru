@@ -4,7 +4,7 @@
 EAPI=8
 
 PYPI_NO_NORMALIZE=1
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_10 )
 inherit distutils-r1 pypi
 
 DESCRIPTION="Python implementation of the Socket.IO realtime server."

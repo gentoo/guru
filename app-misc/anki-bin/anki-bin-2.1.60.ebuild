@@ -8,7 +8,7 @@ EAPI=8
 # that is not linked against libpython.
 # The configuration with Python 3.10 was tested on a limited number of machines and is not guaranteed to work.
 
-PYTHON_COMPAT=( python3_9 python3_10 )
+PYTHON_COMPAT=( python3_10 )
 inherit python-single-r1 desktop xdg
 
 MY_PN=${PN%-bin}

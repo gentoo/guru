@@ -5,7 +5,7 @@ EAPI=8
 
 #DOCS_BUILDER="sphinx"
 #DOCS_DIR="docs/source"
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit cmake fortran-2 python-single-r1 #docs
 

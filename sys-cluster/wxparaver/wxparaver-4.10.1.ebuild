@@ -6,7 +6,7 @@ EAPI=8
 DOCS_AUTODOC=0
 DOCS_BUILDER="sphinx"
 DOCS_DIR="docs/wxparaver_help_contents/sphinx/2.paraver_toolset/source"
-PYTHON_COMPAT=( python3_{9..11} pypy3 )
+PYTHON_COMPAT=( python3_{10..11} pypy3 )
 WX_GTK_VER="3.0-gtk3"
 
 inherit autotools python-any-r1 docs wxwidgets

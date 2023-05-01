@@ -6,7 +6,7 @@ EAPI=8
 DOCS_BUILDER="doxygen"
 DOCS_CONFIG_NAME="doxy"
 FORTRAN_NEEDED="fortran"
-PYTHON_COMPAT=( pypy3 python3_{9..11} )
+PYTHON_COMPAT=( pypy3 python3_{10..11} )
 
 inherit docs edo flag-o-matic fortran-2 python-any-r1 toolchain-funcs
 

@@ -4,7 +4,7 @@
 EAPI=8
 
 # No pypy3 support: https://github.com/mkleehammer/pyodbc/issues/915
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..11} )
 DISTUTILS_USE_PEP517=setuptools
 inherit databases edo distutils-r1 optfeature pypi
 

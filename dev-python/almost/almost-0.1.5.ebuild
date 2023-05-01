@@ -5,7 +5,7 @@ EAPI="8"
 
 COMMIT="cc3eeb0abde7ff95a222d571443989c74a112ff7"
 DISTUTILS_USE_SETUPTOOLS=rdepend
-PYTHON_COMPAT=( python3_{9..11} pypy3 )
+PYTHON_COMPAT=( python3_{10..11} pypy3 )
 
 inherit distutils-r1
 
