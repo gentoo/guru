@@ -67,6 +67,8 @@ BDEPEND="
 	)
 "
 
+PATCHES=( "${FILESDIR}"/${P}-fix-explicit-optional-construction.patch )
+
 src_configure() {
 	local -a mycmakeargs=(
 		-DVOIP=$(usex voip)
