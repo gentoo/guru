@@ -1,9 +1,9 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cargo
+inherit cargo shell-completion
 
 DESCRIPTION="unofficial bitwarden cli"
 HOMEPAGE="https://git.tozt.net/rbw"
@@ -19,11 +19,6 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="bash-completion zsh-completion fish-completion"
-
-DEPEND=""
-RDEPEND="${DEPEND}"
-BDEPEND="virtual/rust"
 
 src_unpack() {
 	if [[ ${PV} = *9999* ]]; then
@@ -37,21 +32,12 @@ src_unpack() {
 src_install() {
 	cargo_src_install
 
-	if use bash-completion; then
-		insinto /usr/share/bash-completion/completions
-		rbw gen-completions bash > rbw.bash
-		doins rbw.bash
-	fi
+	rbw gen-completions bash > rbw.bash || die
+	dobashcomp rbw.bash
 
-	if use fish-completion; then
-		insinto /usr/share/fish/completions
-		rbw gen-completions fish > rbw.fish
-		doins rbw.fish
-	fi
+	rbw gen-completions fish > rbw.fish || die
+	dofishcomp rbw.fish
 
-	if use zsh-completion; then
-		insinto /usr/share/zsh-completion/completions
-		rbw gen-completions zsh > _rbw
-		doins _rbw
-	fi
+	rbw gen-completions zsh > _rbw || die
+	dozshcomp _rbw
 }
