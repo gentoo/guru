@@ -14,7 +14,7 @@ HOMEPAGE="
 "
 SRC_URI="https://github.com/robotools/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"
 
