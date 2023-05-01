@@ -22,7 +22,6 @@ sys-cluster/pcs
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-05-01)
 # No supported Pythom implementations set in ebuild.
 # Masked for removal in 30 days.
-dev-python/google-cloud-storage
 dev-python/hwi
 dev-python/mnemonic
 dev-python/noiseprotocol
