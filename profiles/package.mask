@@ -15,6 +15,11 @@
 # New entries go on top.
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-05-01)
+# Depends on removed versions of sys-cluster/pacemaker.
+# Masked for removal in 30 days.
+sys-cluster/pcs
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-05-01)
 # No supported Pythom implementations set in ebuild.
 # Masked for removal in 30 days.
 app-admin/gnome-passwordsafe
