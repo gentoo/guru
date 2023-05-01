@@ -13,7 +13,7 @@ SRC_URI="$(pypi_sdist_url ${PN} ${PV} .zip)"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND=">=dev-python/fonttools-4.34.4[${PYTHON_USEDEP}]"
 BDEPEND="
