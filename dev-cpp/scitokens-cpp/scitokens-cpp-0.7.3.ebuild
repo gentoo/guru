@@ -36,7 +36,7 @@ PATCHES=(
 
 src_prepare() {
 	# Unbundle dev-cpp/gtest, dev-cpp/jwt-cpp
-	rm -rvf vendor
+	rm -r vendor || die
 	# Fix include path for picojson.
 	find src/ \( -name '*.cpp' -o -name '*.h' \) -type f -print0 | xargs -0 sed -r -e "s:picojson/picojson\.h:picojson.h:g" -i || die
 	cmake_src_prepare
