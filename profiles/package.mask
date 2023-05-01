@@ -15,6 +15,27 @@
 # New entries go on top.
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-05-01)
+# No supported Pythom implementations set in ebuild.
+# Masked for removal in 30 days.
+app-admin/gnome-passwordsafe
+dev-embedded/yosys
+dev-lang/wren
+dev-python/asciimatics
+dev-python/bitbox02
+dev-python/google-cloud-storage
+dev-python/hwi
+dev-python/mnemonic
+dev-python/noiseprotocol
+dev-python/pyinstaller
+dev-python/redbaron
+dev-util/osc
+gui-apps/azote
+net-wireless/iwdgui
+sci-geosciences/mapillary_tools
+sys-apps/rogdrv
+www-apps/twint
+
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-05-01)
 # Unavailable dependency. Masked until a version bump.
 net-im/kaidan
 
