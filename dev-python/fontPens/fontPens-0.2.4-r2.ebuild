@@ -15,7 +15,7 @@ HOMEPAGE="
 "
 SRC_URI=$(pypi_sdist_url --no-normalize ${PN} ${PV} .zip)
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 LICENSE="BSD"
 SLOT="0"
 
