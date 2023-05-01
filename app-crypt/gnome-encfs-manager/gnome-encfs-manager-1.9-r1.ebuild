@@ -15,7 +15,7 @@ SLOT="0"
 IUSE="+appindicator"
 
 DEPEND="
-	|| ( gnome-base/gconf gnome-base/dconf )
+	gnome-base/dconf
 	sys-fs/encfs
 	sys-fs/fuse
 	app-crypt/libsecret
