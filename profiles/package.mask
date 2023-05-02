@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-05-02)
+# Python library with no revdeps left in tree.
+# Masked for removal in 30 days.
+dev-python/promise
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-05-01)
 # Depends on removed versions of sys-cluster/pacemaker.
 # Masked for removal in 30 days.
