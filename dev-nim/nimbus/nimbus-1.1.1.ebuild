@@ -21,6 +21,7 @@ SRC_URI="https://git.sysrq.in/${PN}/snapshot/${P}.tar.bz2"
 LICENSE="Apache-2.0 BSD"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="debug"
 
 RDEPEND="dev-lang/nim"
 BDEPEND="
