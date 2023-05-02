@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit optfeature
+
 DESCRIPTION="Community-maintained extensions for hyprland"
 HOMEPAGE="https://hyprland.org/"
 SRC_URI="https://github.com/hyprwm/contrib/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -10,29 +12,70 @@ SRC_URI="https://github.com/hyprwm/contrib/archive/refs/tags/v${PV}.tar.gz -> ${
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="+grimblast +hyprprop +scratchpad +shellevents +swap"
 
 RDEPEND="
 	app-shells/bash
+	gui-wm/hyprland
+	grimblast? (
+		gui-apps/wl-clipboard
+		gui-apps/grim
+		app-misc/jq
+		gui-apps/slurp
+		app-misc/jq
+	)
+	hyprprop? (
+		app-misc/jq
+		gui-apps/slurp
+	)
+	scratchpad? (
+		sys-apps/sed
+		app-misc/jq
+		gui-apps/slurp
+		app-misc/jq
+	)
 "
-DEPEND="${RDEPEND}
+BDEPEND="
+	grimblast? (
+		app-text/scdoc
+	)
+	hyprprop? (
+		app-text/scdoc
+	)
 "
+DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/contrib-${PV}"
 src_install() {
-	pushd grimblast || die
-	PREFIX="${D}/usr" emake install
-	popd || die
-	pushd hyprprop || die
-	PREFIX="${D}/usr" emake install
-	popd || die
-	pushd scratchpad || die
-	PREFIX="${D}/usr" emake install
-	popd || die
-	pushd shellevents || die
-	PREFIX="${D}/usr" emake install
-	popd || die
-	pushd try_swap_workspace || die
-	PREFIX="${D}/usr" emake install
-	popd || die
+	if use grimblast; then
+	   pushd grimblast || die
+	   PREFIX="${D}/usr" emake install
+	   popd || die
+	fi
+	if use hyprprop; then
+	   pushd hyprprop || die
+	   PREFIX="${D}/usr" emake install
+	   popd || die
+	fi
+	if use scratchpad; then
+	   pushd scratchpad || die
+	   PREFIX="${D}/usr" emake install
+	   popd || die
+	fi
+	if use shellevents; then
+	   pushd shellevents || die
+	   PREFIX="${D}/usr" emake install
+	   popd || die
+	fi
+	if use swap; then
+	   pushd try_swap_workspace || die
+	   PREFIX="${D}/usr" emake install
+	   popd || die
+	fi
+}
+
+pkg_postinst() {
+	if use grimblast || use hyprprop || use scratchpad || use swap; then
+		optfeature "GUI notifications during dependency checks" x11-libs/libnotify
+	fi
 }
