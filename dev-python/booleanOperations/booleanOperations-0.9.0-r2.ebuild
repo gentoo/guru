@@ -26,7 +26,10 @@ RDEPEND="
 BDEPEND="
 	app-arch/unzip
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
-	test? ( dev-python/fontPens[${PYTHON_USEDEP}] )
+	test? (
+		dev-python/defcon[${PYTHON_USEDEP}]
+		dev-python/fontPens[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_tests pytest
