@@ -24,7 +24,7 @@ S="${WORKDIR}/123elf-${MY_PV}"
 LICENSE="all-rights-reserved"
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="-* ~amd64 ~x86"
 IUSE="+abi_x86_32"
 
 RESTRICT="bindist mirror"
