@@ -7,8 +7,8 @@
 	</maintainer>
 	<maintainer type="person">
 		<email>efe.izbudak@metu.edu.tr</email>
- 		<name>Efe İzbudak</name>
-    </maintainer>
+		<name>Efe İzbudak</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">gokcehan/lf</remote-id>
 	</upstream>
