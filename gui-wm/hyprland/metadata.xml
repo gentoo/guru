@@ -16,6 +16,7 @@
 	</upstream>
 	<use>
 		<flag name="grimblast">Install 'grimblast': a Hyprland version of the sway script for taking screenshots</flag>
+		<flag name="hyprprop">Install hyprprop: a xprop replacement for hyprland</flag>
 		<flag name="legacy-renderer">Enable legacy renderer</flag>
 		<flag name="scratchpad">Install 'scratchpad': a Bash script that sends focused window to a special workspace</flag>
 		<flag name="shellevents">Install 'shellevents': Invoke shell functions in response to Hyprland socket2 events.</flag>
