@@ -6,7 +6,7 @@ EAPI=8
 COMMIT=bb1437add2df7f76147f7beb430365637fc2c35e
 SPLITCOMMIT=feb6ab9a4929a92d41c724f6d16e9d351b12de39
 DESCRIPTION="A blazing fast wayland wallpaper utility"
-HOMEPAGE="https://github.com/hyprwm/hyprpaper"
+HOMEPAGE="https://github.com/hyprwm/hyprland-plugins"
 SRC_URI="https://github.com/hyprwm/${PN}/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz
 	https://github.com/hyprwm/Hyprland/releases/download/v${PV}/source-v${PV}.tar.gz \
 	-> ${P}-hyprsrc.gh.tar.gz
