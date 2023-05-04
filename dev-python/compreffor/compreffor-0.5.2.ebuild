@@ -28,6 +28,11 @@ PATCHES=( "${FILESDIR}/${PN}-0.5.1_p1-remove-unwanted-dependencies.patch" )
 
 distutils_enable_tests pytest
 
+src_prepare() {
+	find "${S}" -name '*.cpp' -delete || die
+	distutils-r1_src_prepare
+}
+
 python_test() {
 	cd "${T}" || die
 	epytest --pyargs compreffor
