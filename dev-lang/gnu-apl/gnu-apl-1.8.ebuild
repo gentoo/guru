@@ -14,6 +14,8 @@ S="${WORKDIR}/apl-${PV}"
 
 IUSE="static-libs erlang libapl python gtk3 pcre2 sqlite3 postgresql"
 
+BDEPEND="dev-vcs/subversion"
+
 RDEPEND="gtk3? ( >=gui-libs/gtk-3.0.0 )
 		 sqlite3? ( >=dev-db/sqlite-3.0.0 )
 		 postgresql? ( dev-db/postgresql )
