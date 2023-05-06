@@ -67,8 +67,7 @@ NINJA="ninja"
 inherit nim-utils ninja-utils
 
 BDEPEND="${NINJA_DEPEND}
-	dev-lang/nim[experimental(-)]
-	>=dev-nim/nimbus-1.0.0
+	>=dev-nim/nimbus-1.1.0
 "
 
 # @FUNCTION: set_package_url
