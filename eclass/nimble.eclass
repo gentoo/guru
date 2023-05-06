@@ -58,12 +58,6 @@ if [[ ! ${_NIMBLE_ECLASS} ]]; then
 # Build directory, location where all generated files should be placed.
 # If this isn't set, it defaults to ${WORKDIR}/${P}-build.
 
-# @ECLASS_VARIABLE: NINJA
-# @INTERNAL
-# @DESCRIPTION:
-# Force ninja because samu doesn't work correctly.
-NINJA="ninja"
-
 inherit nim-utils ninja-utils
 
 BDEPEND="${NINJA_DEPEND}
