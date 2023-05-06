@@ -55,7 +55,7 @@ FONT_CONF=( "${FILESDIR}"/75-${PN}.conf )
 
 python_check_deps() {
 	python_has_version "dev-python/fonttools[${PYTHON_USEDEP}]" &&
-	python_has_version "dev-python/nototools[${PYTHON_USEDEP}]"
+	python_has_version "dev-python/notofonttools[${PYTHON_USEDEP}]"
 }
 
 pkg_setup() {
