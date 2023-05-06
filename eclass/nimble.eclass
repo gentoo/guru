@@ -140,7 +140,6 @@ nimble_src_configure() {
 	local nimbusargs=(
 		--nimbleDir:"${EPREFIX}"/opt/nimble
 		--binDir:"${EPREFIX}"/usr/bin
-		--useDepfile
 		"${mynimargs[@]}"
 	)
 
