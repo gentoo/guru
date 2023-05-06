@@ -38,6 +38,7 @@ BDEPEND="
 python_check_deps() {
 	use doc || return 0
 
+	python_has_version dev-python/insipid-sphinx-theme[${PYTHON_USEDEP}] &&
 	python_has_version "dev-python/sphinx-notfound-page[${PYTHON_USEDEP}]" &&
 	python_has_version "dev-python/sphinx-prompt[${PYTHON_USEDEP}]" &&
 	python_has_version "dev-python/sphinx-sitemap[${PYTHON_USEDEP}]"
