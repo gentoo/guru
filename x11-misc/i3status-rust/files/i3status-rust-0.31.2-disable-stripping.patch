@@ -1,0 +1,10 @@
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -104,6 +104,7 @@ features = ["json"]
+ 
+ [profile.release]
+ lto = "thin"
++debug = true
+ 
+ [profile.release-debug-info]
+ inherits = "release"
