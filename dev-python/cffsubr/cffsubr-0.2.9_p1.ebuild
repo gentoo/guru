@@ -31,7 +31,7 @@ distutils_enable_tests pytest
 
 src_prepare() {
 	# remove bundled afdko
-	rm -rf external || die
+	rm -r external || die
 
 	distutils-r1_src_prepare
 }
