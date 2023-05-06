@@ -25,6 +25,7 @@ SRC_URI="
 LICENSE="AGPL-3+ Apache-2.0 BSD CC-BY-3.0 GPL-3+ MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="qt6"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 QA_PREBUILT="usr/lib/*"
@@ -35,16 +36,29 @@ $(python_gen_cond_dep '
 	dev-python/distro[${PYTHON_USEDEP}]
 	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
-	dev-python/flask[${PYTHON_USEDEP}]
 	dev-python/waitress[${PYTHON_USEDEP}]
 	dev-python/send2trash[${PYTHON_USEDEP}]
 	dev-python/markdown[${PYTHON_USEDEP}]
 	dev-python/jsonschema[${PYTHON_USEDEP}]
 	dev-python/flask-cors[${PYTHON_USEDEP}]
-	dev-python/PyQt5[${PYTHON_USEDEP}]
-	dev-python/PyQtWebEngine[${PYTHON_USEDEP}]
-	dev-python/stringcase[${PYTHON_USEDEP}]
 	')
+
+!qt6? (
+		$(python_gen_cond_dep '
+			>=dev-python/PyQt5-5.15.5[gui,network,webchannel,widgets,${PYTHON_USEDEP}]
+			>=dev-python/PyQt5-sip-12.9.0[${PYTHON_USEDEP}]
+			>=dev-python/PyQtWebEngine-5.15.5[${PYTHON_USEDEP}]
+			')
+		!dev-python/PyQt6
+	  )
+
+qt6? (
+		$(python_gen_cond_dep '
+			>=dev-python/PyQt6-6.5.0[dbus,gui,network,opengl,printsupport,webchannel,widgets,${PYTHON_USEDEP}]
+			>=dev-python/PyQt6-sip-13.5.1[${PYTHON_USEDEP}]
+			>=dev-python/PyQt6-WebEngine-6.5.0[widgets,${PYTHON_USEDEP}]
+			')
+	 )
 "
 RDEPEND="${DEPEND}
 	${PYTHON_DEPS}
