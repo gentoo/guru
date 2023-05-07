@@ -18,7 +18,7 @@ S="${WORKDIR}/${PN}-source"
 KEYWORDS="~amd64"
 LICENSE="BSD"
 SLOT="0"
-IUSE="X grimblast hyprprop legacy-renderer scratchpad shellevents systemd video_cards_nvidia"
+IUSE="X legacy-renderer systemd video_cards_nvidia"
 
 RDEPEND="
 	app-misc/jq
@@ -40,13 +40,6 @@ RDEPEND="
 	x11-libs/pixman
 	x11-misc/xkeyboard-config
 	virtual/libudev
-	grimblast? (
-		 gui-apps/grim
-		 gui-apps/slurp
-		 gui-apps/wl-clipboard
-		 x11-libs/libnotify
-	)
-	hyprprop? ( gui-apps/slurp )
 	X? (
 	   gui-libs/wlroots[x11-backend]
 	   x11-base/xwayland
@@ -63,9 +56,6 @@ BDEPEND="
 	>=dev-libs/wayland-1.22.0
 	dev-vcs/git
 	>=gui-libs/wlroots-0.16.0[X?]
-	grimblast? ( app-text/scdoc )
-	hyprprop? ( app-text/scdoc )
-	shellevents? ( app-text/scdoc )
 "
 
 src_prepare() {
@@ -96,9 +86,4 @@ src_configure() {
 
 src_install() {
 	meson_src_install --skip-subprojects wlroots
-
-	use grimblast && emake PREFIX="${ED}/usr" -C "${WORKDIR}/contrib-${CONTRIBCOMMIT}/grimblast" install
-	use hyprprop && emake PREFIX="${ED}/usr" -C "${WORKDIR}/contrib-${CONTRIBCOMMIT}/hyprprop" install
-	use scratchpad && emake PREFIX="${ED}/usr" -C "${WORKDIR}/contrib-${CONTRIBCOMMIT}/scratchpad" install
-	use shellevents && emake PREFIX="${ED}/usr" -C "${WORKDIR}/contrib-${CONTRIBCOMMIT}/shellevents" install
 }
