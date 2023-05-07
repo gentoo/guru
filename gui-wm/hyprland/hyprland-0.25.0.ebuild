@@ -18,7 +18,7 @@ S="${WORKDIR}/${PN}-source"
 KEYWORDS="~amd64"
 LICENSE="BSD"
 SLOT="0"
-IUSE="X grimblast hyprprop legacy-renderer scratchpad shellevents systemd"
+IUSE="X grimblast hyprprop legacy-renderer scratchpad shellevents systemd video_cards_nvidia"
 
 RDEPEND="
 	app-misc/jq
@@ -75,7 +75,13 @@ src_prepare() {
 		die "Hyprland requires >=sys-devel/gcc-12.1.0 to build"
 	fi
 
-	default
+	if use video_cards_nvidia; then
+		cd "${S}/subprojects/wlroots" || die
+		eapply "${FILESDIR}/nvidia-0.25.0.patch"
+		cd "${S}" || die
+	fi
+
+	eapply_user
 }
 
 src_configure() {
