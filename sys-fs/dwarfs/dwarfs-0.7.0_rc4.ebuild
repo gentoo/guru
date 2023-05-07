@@ -35,6 +35,7 @@ RDEPEND="
 	dev-libs/libfmt
 	dev-libs/xxhash
 	sys-fs/fuse:3
+	dev-libs/fsst
 	sys-libs/binutils-libs
 	sys-libs/libunwind
 	sys-libs/zlib
