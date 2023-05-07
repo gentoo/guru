@@ -8,11 +8,7 @@ inherit meson toolchain-funcs
 DESCRIPTION="A dynamic tiling Wayland compositor that doesn't sacrifice on its looks"
 HOMEPAGE="https://github.com/hyprwm/Hyprland/releases"
 
-CONTRIBCOMMIT=a5792efdb113e9e971dc6fe5114fee814afbfb81
-SRC_URI="https://github.com/hyprwm/${PN^}/releases/download/v${PV}/source-v${PV}.tar.gz -> ${PF}.gh.tar.gz
-	https://github.com/hyprwm/contrib/archive/${CONTRIBCOMMIT}.tar.gz \
-	-> contrib-${PV}.tar.gz
-"
+SRC_URI="https://github.com/hyprwm/${PN^}/releases/download/v${PV}/source-v${PV}.tar.gz -> ${PF}.gh.tar.gz"
 S="${WORKDIR}/${PN}-source"
 
 KEYWORDS="~amd64"
