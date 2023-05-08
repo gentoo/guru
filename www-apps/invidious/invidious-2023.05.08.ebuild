@@ -5,8 +5,8 @@ EAPI=8
 
 inherit check-reqs multiprocessing shards systemd
 
-COMMIT="26ea676b8d0d617b8fd0b2655e41e01fcb6e3447"
-MOCKS_COMMIT="dfd53ea6ceb3cbcbbce6004f6ce60b330ad0f9b1"
+COMMIT="10fee9da618db8ffe6a3952d547d4e85d144877e"
+MOCKS_COMMIT="11ec372f72747c09d48ffef04843f72be67d5b54"
 MOCKS_P="${PN}-mocks-${MOCKS_COMMIT:0:7}"
 DESCRIPTION="Invidious is an alternative front-end to YouTube"
 HOMEPAGE="
@@ -42,7 +42,7 @@ COMMON_DEPEND="
 	dev-db/sqlite:3
 	dev-libs/boehm-gc
 	dev-libs/libevent:=
-	dev-libs/libpcre:3
+	dev-libs/libpcre2:=
 	dev-libs/libxml2:2
 	dev-libs/libyaml
 	dev-libs/openssl:=
@@ -149,7 +149,7 @@ src_configure() {
 }
 
 src_compile() {
-	ecrystal build src/invidious.cr --verbose --threads=$(makeopts_jobs)
+	ecrystal build --verbose --threads=$(makeopts_jobs) src/invidious.cr
 }
 
 src_install() {
