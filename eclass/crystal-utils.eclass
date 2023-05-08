@@ -164,4 +164,12 @@ crystal_build() {
 	ecrystal build "${build_args[@]}" "${@}"
 }
 
+# @FUNCTION: crystal_spec
+# @USAGE: [<args>...]
+# @DESCRIPTION:
+# Function for running tests.  All arguments are passed to crystal.
+crystal_spec() {
+	ecrystal spec --verbose "${@}" || die -n "Tests failed"
+}
+
 fi
