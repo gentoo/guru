@@ -20,7 +20,7 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+borders-plus-plus csgo-vulkan-fix +hyprbars split-monitor-workspaces X"
+IUSE="+borders-plus-plus csgo-vulkan-fix +hyprbars split-monitor-workspaces"
 REQUIRED_USE="|| ( borders-plus-plus csgo-vulkan-fix hyprbars split-monitor-workspaces )"
 
 RDEPEND="gui-wm/hyprland"
