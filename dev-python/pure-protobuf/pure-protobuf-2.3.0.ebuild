@@ -17,11 +17,4 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-# ModuleNotFoundError
-RESTRICT="test"
-
 BDEPEND="dev-python/hatch-vcs[${PYTHON_USEDEP}]"
-
-distutils_enable_tests pytest
-
-export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
