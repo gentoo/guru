@@ -3,19 +3,16 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..11} pypy3 )
-
-inherit distutils-r1
+DISTUTILS_USE_PEP517=setuptools
+PYPI_NO_NORMALIZE=1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Accurate Hijri-Gregorian date converter based on the Umm al-Qura calendar"
 HOMEPAGE="https://github.com/dralshehri/hijri-converter"
-SRC_URI="https://github.com/dralshehri/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
 distutils_enable_tests pytest
-
-distutils_enable_sphinx docs
