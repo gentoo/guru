@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -34,6 +34,12 @@ BDEPEND="
 		dev-python/tabulate[${PYTHON_USEDEP}]
 	)
 "
+
+EPYTEST_DESELECT=(
+	# tests fail with recent Pandas
+	pytest_steps/tests/test_docs_example_with_harvest.py::test_synthesis_df
+	pytest_steps/tests/test_steps_harvest.py::test_synthesis
+)
 
 distutils_enable_tests pytest
 
