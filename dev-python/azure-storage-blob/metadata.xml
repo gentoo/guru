@@ -7,6 +7,6 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="github">Azure/azure-sdk-for-python</remote-id>
-		<remote-id type="pypi">azure-storage-block</remote-id>
+		<remote-id type="pypi">azure-storage-blob</remote-id>
 	</upstream>
 </pkgmetadata>
