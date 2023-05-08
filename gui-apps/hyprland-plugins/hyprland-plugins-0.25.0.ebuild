@@ -10,8 +10,6 @@ SPLITCOMMIT=44785cee3fc0b2aa34a92882df31568bea3af8f0
 DESCRIPTION="A blazing fast wayland wallpaper utility"
 HOMEPAGE="https://github.com/hyprwm/hyprland-plugins"
 SRC_URI="https://github.com/hyprwm/${PN}/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz
-	https://github.com/hyprwm/Hyprland/releases/download/v${PV}/source-v${PV}.tar.gz \
-	-> ${P}-hyprsrc.gh.tar.gz
 	https://github.com/Duckonaut/split-monitor-workspaces/archive/${SPLITCOMMIT}.tar.gz \
 	-> ${P}-split-monitor-workspaces.gh.tar.gz
 "
