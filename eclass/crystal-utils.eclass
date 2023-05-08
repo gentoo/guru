@@ -24,7 +24,7 @@ esac
 if [[ ! ${_CRYSTAL_UTILS_ECLASS} ]]; then
 _CRYSTAL_UTILS_ECLASS=1
 
-inherit edo flag-o-matic
+inherit edo flag-o-matic multiprocessing
 
 # @ECLASS_VARIABLE: CRYSTAL_DEPS
 # @OUTPUT_VARIABLE
@@ -149,6 +149,19 @@ eshards() {
 	)
 
 	edo shards "${args[@]}" "${@}"
+}
+
+# @FUNCTION: crystal_build
+# @USAGE: <args>...
+# @DESCRIPTION:
+# Function for building a target.  All arguments are passed to crystal.
+crystal_build() {
+	local build_args=(
+		--threads=$(makeopts_jobs)
+		--verbose
+	)
+
+	ecrystal build "${build_args[@]}" "${@}"
 }
 
 fi
