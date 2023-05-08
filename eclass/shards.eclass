@@ -67,18 +67,9 @@ shards_src_configure() {
 
 # @FUNCTION: shards_src_compile
 # @DESCRIPTION:
-# General function for building packages using Shards.
+# Function for building the package's documentation.
 shards_src_compile() {
 	debug-print-function ${FUNCNAME} "${@}"
-
-	local build_args=(
-		--threads=$(makeopts_jobs)
-		--verbose
-	)
-
-	if gshards-has-targets; then
-		eshards build "${build_args[@]}"
-	fi
 
 	if use doc; then
 		ecrystal docs
