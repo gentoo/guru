@@ -58,7 +58,8 @@ shards_src_configure() {
 	crystal_configure
 	debug-print "CRYSTAL_OPTS='${CRYSTAL_OPTS}'"
 
-	export CRYSTAL_PATH="${BROOT}$(shards_get_libdir):$(crystal env CRYSTAL_PATH || die "'crystal env' failed")"
+	export SHARDS_INSTALL_PATH="${BROOT}$(shards_get_libdir)"
+	export CRYSTAL_PATH="${SHARDS_INSTALL_PATH}:$(crystal env CRYSTAL_PATH || die "'crystal env' failed")"
 	debug-print "CRYSTAL_PATH='${CRYSTAL_PATH}'"
 
 	tc-export CC
