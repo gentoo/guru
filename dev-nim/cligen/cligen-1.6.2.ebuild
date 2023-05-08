@@ -7,8 +7,9 @@ inherit nimble
 
 DESCRIPTION="Infer & generate command-line interface/option/argument parser"
 HOMEPAGE="
-	https://github.com/c-blake/cligen
+	https://c-blake.github.io/cligen/
 	https://nimble.directory/pkg/cligen
+	https://github.com/c-blake/cligen
 "
 SRC_URI="https://github.com/c-blake/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -17,22 +18,12 @@ SLOT="${PV}"
 KEYWORDS="~amd64"
 IUSE="examples"
 
-# very fragile tests
-RESTRICT="test"
-
 DOCS=( configs {MOTIVATION,README,RELEASE-NOTES,TODO}.md )
 
 set_package_url "https://github.com/c-blake/cligen"
 
-src_prepare() {
-	default
-
-	# verbose makefile
-	sed "s/\t@/\t/g" -i GNUmakefile || die
-}
-
 src_test() {
-	emake
+	emake V=1
 }
 
 src_install() {
