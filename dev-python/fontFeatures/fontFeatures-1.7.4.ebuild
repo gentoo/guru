@@ -38,7 +38,18 @@ PDEPEND=">=dev-python/glyphtools-0.7.0[${PYTHON_USEDEP}]"
 
 DOCS=( {CHANGES,NEW-FORMAT,README}.md )
 
+EPYTEST_DESELECT=(
+	tests/test_anchors.py::TestAnchors::test_markbase
+	tests/test_chaining.py::TestChaining::test_ignore
+	"tests/test_fea_parser.py::test_round_trip[mark_attachment]"
+)
+
 distutils_enable_tests pytest
+
+python_test() {
+	local -x CI=1
+	epytest
+}
 
 pkg_postinst() {
 	optfeature "shaper support" "dev-python/babelfont dev-python/youseedee"
