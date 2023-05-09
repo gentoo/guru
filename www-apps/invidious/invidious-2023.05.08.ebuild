@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit check-reqs multiprocessing shards systemd
+inherit check-reqs shards systemd
 
 COMMIT="10fee9da618db8ffe6a3952d547d4e85d144877e"
 MOCKS_COMMIT="11ec372f72747c09d48ffef04843f72be67d5b54"
@@ -146,10 +146,6 @@ src_configure() {
 		-Ddisable_quic
 	)
 	shards_src_configure
-}
-
-src_compile() {
-	ecrystal build --verbose --threads=$(makeopts_jobs) src/invidious.cr
 }
 
 src_install() {
