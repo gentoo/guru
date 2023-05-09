@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit fcaps meson toolchain-funcs
+inherit fcaps meson
 
 DESCRIPTION="Swaylock, with fancy effects"
 HOMEPAGE="https://github.com/mortie/swaylock-effects"
