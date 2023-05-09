@@ -28,7 +28,7 @@ inherit crystal-utils multiprocessing toolchain-funcs
 BDEPEND="
 	${CRYSTAL_DEPS}
 	${SHARDS_DEPS}
-	dev-util/gshards
+	>=dev-util/gshards-0.2
 "
 IUSE="debug doc"
 
@@ -67,9 +67,14 @@ shards_src_configure() {
 
 # @FUNCTION: shards_src_compile
 # @DESCRIPTION:
-# Function for building the package's documentation.
+# Function for building the package's executables and documentation.
 shards_src_compile() {
 	debug-print-function ${FUNCNAME} "${@}"
+
+	local args
+	gshards-print-targets | while read -r args; do
+		crystal_build "${@}" ${args}
+	done
 
 	if use doc; then
 		ecrystal docs
@@ -95,13 +100,9 @@ shards_src_test() {
 
 # @FUNCTION: shards_src_install
 # @DESCRIPTION:
-# Function for installing the package.
+# Function for installing the package's source.
 shards_src_install() {
 	debug-print-function ${FUNCNAME} "${@}"
-
-	if [[ -d "bin" ]]; then
-		dobin bin/*
-	fi
 
 	if [[ -d "src" ]]; then
 		insinto $(shards_get_libdir)/$(shards_get_pkgname)
