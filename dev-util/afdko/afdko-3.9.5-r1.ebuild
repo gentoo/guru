@@ -44,7 +44,10 @@ SLOT="0"
 # ========
 #
 # app-i18n/transifex-client: file collision
-DEPEND="dev-libs/libxml2:2"
+DEPEND="
+	dev-libs/libxml2:2
+	dev-libs/utfcpp
+"
 RDEPEND="${DEPEND}
 	>=app-arch/brotli-1.0.1[python,${PYTHON_USEDEP}]
 	>=dev-python/booleanOperations-0.9.0[${PYTHON_USEDEP}]
