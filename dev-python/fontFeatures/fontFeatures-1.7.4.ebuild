@@ -3,14 +3,16 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_10 )
+PYTHON_COMPAT=( python3_{10..11} )
 DISTUTILS_USE_PEP517=setuptools
-
-inherit distutils-r1
+PYPI_NO_NORMALIZE=1
+inherit distutils-r1 optfeature pypi
 
 DESCRIPTION="Python library for manipulating OpenType font features"
-HOMEPAGE="https://github.com/simoncozens/fontFeatures"
-SRC_URI="https://github.com/simoncozens/fontFeatures/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+HOMEPAGE="
+	https://pypi.org/project/fontFeatures/
+	https://github.com/simoncozens/fontFeatures
+"
 
 KEYWORDS="~amd64"
 LICENSE="MIT"
@@ -18,15 +20,14 @@ SLOT="0"
 
 # Tests are also failing upstream
 # https://github.com/simoncozens/fontFeatures/actions/runs/3677601386/jobs/6219782260
-RESTRICT="test"
+#RESTRICT="test"
 
 RDEPEND="
+	>=dev-python/beziers-0.1.0[${PYTHON_USEDEP}]
+	>=dev-python/fonttools-4.28.0[${PYTHON_USEDEP}]
 	dev-python/fs[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
-	>=dev-python/fonttools-4.28.0[${PYTHON_USEDEP}]
-	>=dev-python/beziers-0.1.0[${PYTHON_USEDEP}]
 "
-DEPEND="${RDEPEND}"
 BDEPEND="
 	test? (
 		>=dev-python/youseedee-0.3.0[${PYTHON_USEDEP}]
@@ -35,4 +36,10 @@ BDEPEND="
 "
 PDEPEND=">=dev-python/glyphtools-0.7.0[${PYTHON_USEDEP}]"
 
+DOCS=( {CHANGES,NEW-FORMAT,README}.md )
+
 distutils_enable_tests pytest
+
+pkg_postinst() {
+	optfeature "shaper support" "dev-python/babelfont dev-python/youseedee"
+}
