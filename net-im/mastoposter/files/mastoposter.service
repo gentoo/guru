@@ -1,0 +1,15 @@
+[Unit]
+Description=Configurable reposter from Mastodon-compatible Fediverse servers
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/mastoposter /etc/mastoposter/config.ini
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=inherit
+
+[Install]
+WantedBy=multi-user.target
