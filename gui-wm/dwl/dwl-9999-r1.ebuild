@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -61,6 +61,8 @@ src_configure() {
 	sed -i "s:/local::g" config.mk || die
 
 	sed -i "s:pkg-config:$(tc-getPKG_CONFIG):g" config.mk || die
+
+	tc-export CC
 
 	if use X; then
 		append-cppflags '-DXWAYLAND'
