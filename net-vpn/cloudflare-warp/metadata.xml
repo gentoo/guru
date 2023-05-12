@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>John-Henry Lim</name>
+		<email>johnhenrylim12@gmail.com</email>
+	</maintainer>
+	<use>
+		<flag name="systray">Enable systray indicator of whether WARP is active</flag>
+	</use>
+</pkgmetadata>
