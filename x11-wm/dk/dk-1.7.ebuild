@@ -28,7 +28,7 @@ RDEPEND="
 	${DEPEND}
 	x11-misc/sxhkd
 "
-KEYWORDS="amd64 ~riscv x86"
+KEYWORDS="~amd64 ~riscv ~x86"
 #src_prepare() {
 #	default
 
@@ -61,7 +61,7 @@ src_install() {
 
 #	insinto /etc/xdg/sxhkd
 #	doins examples/sxhkdrc
-	
+
 #	if use doc ; then
 #		insinto /etc/xdg/sxhkd
 #		doins doc/sxhkdrc doc/dkrc

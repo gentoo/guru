@@ -8,6 +8,7 @@
 	<upstream>
 		<doc>https://bitbucket.org/natemaia/dk/src/master/</doc>
 		<bugs-to>https://bitbucket.org/natemaia/dk/issue</bugs-to>
+		<remote-id type="bitbucket">natemaia/dk</remote-id>
 	</upstream>
 </pkgmetadata>
 
