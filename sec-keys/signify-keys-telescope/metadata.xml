@@ -5,4 +5,7 @@
 		<email>cyber+gentoo@sysrq.in</email>
 		<name>Anna</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">omar-polo/telescope</remote-id>
+	</upstream>
 </pkgmetadata>
