@@ -26,16 +26,20 @@ DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
 	dev-libs/libxslt
 	dev-util/glib-utils
+"
+
+BDEPEND="
 	virtual/pkgconfig
 	test? (
 		dev-python/pygobject:3
 		$(python_gen_any_dep 'dev-python/twisted[${PYTHON_USEDEP}]')
 	)
 "
+
 RESTRICT="!test? ( test )"
 
 python_check_deps() {
 	if use test ; then
-		has_version "dev-python/twisted[${PYTHON_USEDEP}]"
+		python_has_version "dev-python/twisted[${PYTHON_USEDEP}]"
 	fi
 }
