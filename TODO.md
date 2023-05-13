@@ -107,10 +107,9 @@ If you find an interesting piece of software here, consider to package it, also 
 [foobnix](https://github.com/foobnix/foobnix) | setuptools | audio | | | ✖
 [TauonMusicBox](https://github.com/Taiko2k/TauonMusicBox) | setuptools | audio | | | ✖
 [mmtracking](https://github.com/open-mmlab/mmtracking) | setuptools | science | Alessandro-Barbieri | ✖
-[ueberzug](https://github.com/seebye/ueberzug) | setuptools | cli | N-R-K | | ✖
 [libensemble](https://github.com/Libensemble/libensemble) | setuptools | cluster | Alessandro-Barbieri | ✖ | ✔
 [ActivityWatch](https://github.com/ActivityWatch/activitywatch) | setuptools | utils | David Roman | ✔ | ✖ 
-[greenclip](https://github.com/erebe/greenclip) | cabal | desktop | N-R-K | | ✖
+[greenclip](https://github.com/erebe/greenclip) | cabal | desktop | NRK | ✔ | ✖
 [kaitai](https://github.com/kaitai-io/kaitai_struct) | sbt | util | Alessandro-Barbieri | ✔ | ✖
 [casadi](https://web.casadi.org/) | cmake swig | science | Alessandro-Barbieri | ✖ | ✔
 [ipyleaflet](https://github.com/jupyter-widgets/ipyleaflet) | setuptools yarn | jupyter | Alessandro-Barbieri | ✔ | ✖
