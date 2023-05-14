@@ -18,6 +18,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
+	acct-user/mastoposter
 	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 	dev-python/emoji[${PYTHON_USEDEP}]
 	dev-python/httpx[${PYTHON_USEDEP}]
@@ -33,6 +34,6 @@ src_install() {
 	newconfd "${FILESDIR}"/mastoposter.confd mastoposter
 
 	insinto /etc/mastoposter
-	insopts --mode 600
+	insopts --mode=600 --owner=${PN} --group=${PN}
 	doins config.ini
 }

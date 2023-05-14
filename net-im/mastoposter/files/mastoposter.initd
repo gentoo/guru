@@ -6,6 +6,7 @@
 
 command="/usr/bin/mastoposter"
 command_args="${MASTOPOSTER_CONFIG_FILE:=/etc/mastoposter/config.ini}"
+command_user="mastoposter:mastoposter"
 command_background=1
 pidfile="/run/${RC_SVCNAME}.pid"
 output_log="/var/log/${RC_SVCNAME}.log"
@@ -13,4 +14,8 @@ error_log="${output_log}"
 
 depend() {
 	need net
+}
+
+start_pre() {
+	checkpath -fo "${command_user}" "${output_log}"
 }
