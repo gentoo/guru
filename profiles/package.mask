@@ -20,11 +20,6 @@
 dev-python/promise
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-05-01)
-# Depends on removed versions of sys-cluster/pacemaker.
-# Masked for removal in 30 days.
-sys-cluster/pcs
-
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-05-01)
 # Unavailable dependency. Masked until a version bump.
 net-im/kaidan
 
