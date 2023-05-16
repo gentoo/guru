@@ -7,8 +7,11 @@
 	</maintainer>
 	<use>
 		<flag name="esp32">Enable support for esp32</flag>
-		<flag name="esp32s2">Enable support for esp32</flag>
-		<flag name="esp32s3">Enable support for esp32</flag>
-		<flag name="riscv32">Enable support for esp32</flag>
+		<flag name="esp32s2">Enable support for esp32s2</flag>
+		<flag name="esp32s3">Enable support for esp32s3</flag>
+		<flag name="riscv32">Enable support for riscv32</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">espressif/esp-idf</remote-id> 
+	</upstream>
 </pkgmetadata>
