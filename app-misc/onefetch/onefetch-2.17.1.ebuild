@@ -432,7 +432,13 @@ PATCHES=(
 	"${FILESDIR}"/${P}-fix-missing-git-repo.patch
 )
 
+# libgit2-sys-${cver}+${sover} dynamically links to libgit2.so, if provided
+# check https://github.com/rust-lang/git2-rs/blob/libgit2-sys-${cver}%2B${sover}/libgit2-sys/build.rs
+# and Cargo.lock before dep bump
+DEPEND=">=dev-libs/libgit2-1.6.4 <dev-libs/libgit2-1.7.0"
+RDEPEND="${DEPEND}"
 BDEPEND="test? ( dev-vcs/git )"
+
 QA_FLAGS_IGNORED="usr/bin/onefetch"
 
 src_compile() {
