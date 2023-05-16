@@ -5,6 +5,10 @@
 		<email>rahul@sandhuservices.dev</email>
 		<name>Rahul Sandhu</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>watermanpaint@posteo.net</email>
+		<name>Lucio Sauer</name>
+	</maintainer>
 	<upstream>
 		<changelog>
 			https://github.com/o2sh/onefetch/releases/
