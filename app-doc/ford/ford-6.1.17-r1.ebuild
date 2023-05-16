@@ -5,12 +5,12 @@ EAPI=8
 PYTHON_COMPAT=( python3_{10..11} )
 DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1 toolchain-funcs
+inherit distutils-r1 pypi toolchain-funcs
 
 MY_PN="FORD"
 DESCRIPTION="FORD, automatic documentation generator for modern Fortran programs"
 HOMEPAGE="https://github.com/Fortran-FOSS-Programmers/ford"
-SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_PN}-${PV}.tar.gz"
+SRC_URI="$(pypi_sdist_url --no-normalize "${MY_PN^}" "${PV}")"
 
 LICENSE="GPL-3"
 SLOT="0"
