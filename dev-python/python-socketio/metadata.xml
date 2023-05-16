@@ -9,4 +9,8 @@
 		<flag name="client">Add websocket client</flag>
 		<flag name="asyncio-client">Add async websocket client</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">miguelgrinberg/python-socketio</remote-id> 
+		<remote-id type="pypi">python-socketio</remote-id> 
+	</upstream>
 </pkgmetadata>
