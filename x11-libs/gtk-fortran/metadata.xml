@@ -14,4 +14,7 @@
 	<flag name="high-level">Build high-level interface to the gtk-fortran package</flag>
 	<flag name="plplot">Build with <pkg>sci-libs/plplot</pkg> support</flag>
 </use>
+<upstream>
+	<remote-id type="github">vmagnin/gtk-fortran</remote-id>
+</upstream>
 </pkgmetadata>
