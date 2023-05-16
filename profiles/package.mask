@@ -14,6 +14,16 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-05-16)
+# Depend on masked dev-python/toml.
+# Removal on 2023-06-15.
+dev-python/pysaml2
+dev-python/usort
+# and revdeps
+dev-python/hypothesmith
+dev-python/libcst
+dev-python/ufmt
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-05-02)
 # Python library with no revdeps left in tree.
 # Masked for removal in 30 days.
