@@ -33,6 +33,8 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=( "${FILESDIR}/${PN}-6.2.5_fix_setuptools_warnings.patch" )
+
 DOCS=( CHANGELOG.md README.md )
 
 distutils_enable_tests pytest
