@@ -17,7 +17,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 # IUSE="test xgboost pyspark lightgbm"
-IUSE="test xgboost"
+IUSE="test"
 
 RDEPEND="
 	>=dev-python/graphviz-0.9
@@ -26,7 +26,6 @@ RDEPEND="
 	sci-libs/scikit-learn
 	dev-python/matplotlib
 	dev-python/colour
-	xgboost? ( dev-python/xgboost )
 "
 # xgboost: available at the science overlay: https://github.com/gentoo/sci - Tested
 # pyspark: available at the spark overlay: https://github.com/6-6-6/spark-overlay - Not tested
@@ -37,11 +36,11 @@ DEPEND="test? ( dev-python/pytest )"
 TEST_DIR="testing/testlib/models"
 
 python_prepare_all() {
-    # FIXME
-	if ! use xgboost; then
+	# FIXME
+	#if ! use xgboost; then
 		rm $TEST_DIR/test_decision_trees_xgb_classifier.py || die
 		rm $TEST_DIR/test_decision_tree_xgb_regressor.py || die
-	fi
+	#fi
 
 	# if ! use pyspark; then
 	rm $TEST_DIR/test_decision_tree_spark_classifier.py || die
@@ -54,8 +53,7 @@ python_prepare_all() {
 	#TODO: tensorflow_decision_forests ebuild
 	rm $TEST_DIR/test_decision_tree_tensorflow_classifier.py || die
 
-
-    distutils-r1_python_prepare_all
+	distutils-r1_python_prepare_all
 }
 
 distutils_enable_tests pytest
