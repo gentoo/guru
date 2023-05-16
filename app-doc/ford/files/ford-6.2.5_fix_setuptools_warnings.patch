@@ -1,0 +1,53 @@
+Upstream patch: https://github.com/Fortran-FOSS-Programmers/ford
+
+From a793ebfa36895ef79134313c2c7b7e9da8b9d992 Mon Sep 17 00:00:00 2001
+From: Sergey Torokhov <torokhov-s-a@yandex.ru>
+Date: Sat, 6 May 2023 21:46:57 +0300
+Subject: [PATCH] pyproject.toml: fix setuptools warnings
+
+Introduced changes fix setuptools warnings:
+
+* Installing 'ford.css' as data is deprecated, please list it in `packages`.
+* Installing 'ford.fonts' as data is deprecated, please list it in `packages`.
+* Installing 'ford.js' as data is deprecated, please list it in `packages`.
+* Installing 'ford.templates' as data is deprecated, please list it in `packages`.
+* Installing 'ford.tipuesearch' as data is deprecated, please list it in `packages`.
+* Installing 'ford.tipuesearch.img' as data is deprecated, please list it in `packages`.
+
+The following parts aren't used due to it are applied by default:
+
+[tool.setuptools]
+include-package-data = true
+[tool.setuptools.packages.find]
+namespaces = true
+
+Signed-off-by: Sergey Torokhov <torokhov-s-a@yandex.ru>
+---
+ pyproject.toml | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 4d90b9c..f3bcfae 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -64,10 +64,18 @@ Documentation = "https://forddocs.readthedocs.io/en/latest/"
+ ford = "ford:run"
+ 
+ [tool.setuptools]
+-packages = ["ford"]
++packages = [
++    "ford",
++    "ford.css",
++    "ford.fonts",
++    "ford.js",
++    "ford.templates",
++    "ford.tipuesearch",
++    "ford.tipuesearch.img",
++]
+ 
+ [tool.setuptools.package-data]
+-ford = ["css/*", "fonts/*", "js/*", "templates/*", "tipuesearch/*", "config.json", "favicon.png"]
++ford = ["config.json", "favicon.png"]
+ 
+ [tool.setuptools_scm]
+ write_to = "ford/_version.py"
