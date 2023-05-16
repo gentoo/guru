@@ -1,0 +1,13 @@
+diff --git a/fbthrift/thrift/compiler/generate/json.cc b/fbthrift/thrift/compiler/generate/json.cc
+index c4d87a3..015e81f 100644
+--- a/fbthrift/thrift/compiler/generate/json.cc
++++ b/fbthrift/thrift/compiler/generate/json.cc
+@@ -18,7 +18,7 @@
+ 
+ #include <ostream>
+ #include <sstream>
+-
++#include <cstdint>
+ namespace apache {
+ namespace thrift {
+ namespace compiler {

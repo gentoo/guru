@@ -19,6 +19,11 @@ KEYWORDS="~amd64"
 IUSE="python +jemalloc test man"
 S="${WORKDIR}/dwarfs-${MY_PV}"
 
+PATCHES=(
+	"${FILESDIR}/dwarfs-0.7.0_rc4-stdexcept.patch"
+	"${FILESDIR}/dwarfs-0.7.0_rc4-fbthrift-cstdint.patch"
+)
+
 RDEPEND="
 	${PYTHON_DEPS}
 	app-arch/libarchive
