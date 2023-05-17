@@ -6,4 +6,8 @@
 		<email>abbat.2008@gmail.com</email>
 		<name>Aleksandr Batyuk</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">morrownr/8821cu-20210916</remote-id>
+		<bugs-to>https://github.com/morrownr/8821cu-20210916/issues</bugs-to>
+	</upstream>
 </pkgmetadata>
