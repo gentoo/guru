@@ -1,24 +1,25 @@
-# Copyright 1999-2023 Gentoo Foundation
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="Manager for the Ledger hardware wallet"
 HOMEPAGE="https://www.ledger.com/"
-SRC_URI="https://download.live.ledger.com/ledger-live-desktop-${PV}-linux-x86_64.AppImage"
+SRC_URI="https://download.live.ledger.com/ledger-live-desktop-${PV}-linux-x86_64.AppImage -> ${P}.AppImage"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 RESTRICT="strip"
 
-RDEPEND="sys-fs/fuse:0"
+DEPEND="sys-libs/zlib:="
+RDEPEND="${DEPEND}
+	sys-fs/fuse:0
+"
 
 QA_PREBUILT="*"
-S="${WORKDIR}"
+S="${DISTDIR}"
 
 src_install() {
-	cp "${DISTDIR}/ledger-live-desktop-${PV}-linux-x86_64.AppImage" ledger-live || die
-	dobin ledger-live
+	newbin ${P}.AppImage ledger-live
 }
