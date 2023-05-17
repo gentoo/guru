@@ -7,7 +7,7 @@ DESCRIPTION="Dynamic Kernel Module Support"
 HOMEPAGE="https://github.com/dell/dkms"
 LICENSE="GPL-2"
 DEPEND=""
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 SLOT="0"
 IUSE="kernel-hooks"
 
