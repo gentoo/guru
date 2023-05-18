@@ -5,7 +5,8 @@
 		<email>rahul@sandhuservices.dev</email>
 		<name>Rahul Sandhu</name>
 	</maintainer>
-	<longdescription lang="en">A second brain, for you, forever.</longdescription>
+	<longdescription lang="en">Obsidian is a powerful and extensible knowledge base
+that works on top of your local folder of plain text files.</longdescription>
 	<upstream>
 		<remote-id type="github">obsidianmd/obsidian-releases</remote-id>
 	</upstream>
