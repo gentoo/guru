@@ -19,8 +19,10 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	>=sys-fs/python-btrfs-12
-	"
+	$(python_gen_cond_dep '
+		>=sys-fs/python-btrfs-12[${PYTHON_USEDEP}]
+	')
+"
 DEPEND="${RDEPEND}"
 
 src_install()
