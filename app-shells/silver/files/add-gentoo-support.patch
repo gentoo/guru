@@ -1,15 +1,8 @@
 From f379762f622724890693f63b0ab994978f51ef11 Mon Sep 17 00:00:00 2001
-From: Leonardo Hernandez Hernandez <leohdz172@outlook.com>
+From: Leonardo Hernández Hernández <leohdz172@proton.me>
 Date: Wed, 15 Sep 2021 23:04:13 -0500
 Subject: [PATCH 2/2] Add gentoo support
 
----
- src/icons.rs      | 1 +
- src/modules/os.rs | 1 +
- 2 files changed, 2 insertions(+)
-
-diff --git a/src/icons.rs b/src/icons.rs
-index 71f342b..f24ea0e 100644
 --- a/src/icons.rs
 +++ b/src/icons.rs
 @@ -16,6 +16,7 @@ pub fn get(id: &str) -> String {
@@ -20,8 +13,6 @@ index 71f342b..f24ea0e 100644
                          "elementary" => "\u{f309}", // Font Linux
                          "linux" => "\u{f31a}",      // Font Linux
                          "windows" => "\u{f17a}",    // Font Awesome; windows
-diff --git a/src/modules/os.rs b/src/modules/os.rs
-index 57090e8..2d22fe9 100644
 --- a/src/modules/os.rs
 +++ b/src/modules/os.rs
 @@ -22,6 +22,7 @@ pub fn segment(segment: &mut Segment, _: &[&str]) {
