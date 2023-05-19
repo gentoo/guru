@@ -2,7 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
 <pkgmetadata>
 	<maintainer type="person">
-		<email>gentoo-guru@steev.me.uk</email>
+		<email>gentoo-bugzilla2@steev.me.uk</email>
 		<name>Steven Davies</name>
 	</maintainer>
 	<longdescription lang="en">A Python 3 library that provides ways to interact programmatically with an online btrfs file system. It provides a pure python shadow implementation of data structures used in btrfs together with convenient wrappers around the collection of kernel functions that are available in the btrfs kernel API. Using them, we can examine the secret inner world of a btrfs file system for educational purposes.</longdescription>
