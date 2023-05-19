@@ -24,6 +24,7 @@ RDEPEND="
 	x11-libs/libXext
 "
 DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 src_compile() {
 	emake CC=$(tc-getCC)
