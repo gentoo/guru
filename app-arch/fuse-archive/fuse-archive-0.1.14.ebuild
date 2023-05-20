@@ -26,6 +26,11 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+# TODO(NRK): enable tests. requires additional dependency on dev-lang/go and such.
+src_test() {
+	:
+}
+
 src_compile() {
 	emake CXX="$(tc-getCXX)" PKG_CONFIG="$(tc-getPKG_CONFIG)"
 }
@@ -33,5 +38,3 @@ src_compile() {
 src_install() {
 	dobin out/fuse-archive
 }
-
-# TODO(NRK): enable tests
