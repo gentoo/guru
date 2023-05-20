@@ -22,15 +22,8 @@ DOCS=( configs {MOTIVATION,README,RELEASE-NOTES,TODO}.md )
 
 set_package_url "https://github.com/c-blake/cligen"
 
-src_prepare() {
-	default
-
-	# verbose makefile
-	sed "s/\t@/\t/g" -i GNUmakefile || die
-}
-
 src_test() {
-	emake NIM_FLAGS="--hints:off --warning:all:off --warning:User:on --colors:off"
+	emake V=1
 }
 
 src_install() {
