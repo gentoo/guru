@@ -19,5 +19,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 python_test() {
-	"${EPYTHON}" guppy/heapy/test/test_all.py || die "tests failed"
+	cd "${T}" || die
+	"${EPYTHON}" "${S}"/guppy/heapy/test/test_all.py || die
 }
