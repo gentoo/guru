@@ -19,12 +19,14 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="
+RDEPEND="
 	app-arch/lz4:=
 	media-libs/woff2
 	sys-libs/zlib:=
 "
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	dev-cpp/gtest
+"
 BDEPEND="dev-util/meson"
 
 distutils_enable_tests pytest
