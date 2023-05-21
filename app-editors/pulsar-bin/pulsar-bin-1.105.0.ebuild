@@ -69,11 +69,23 @@ src_install(){
 
 	# Bug 798459
 	fperms +x /opt/Pulsar/resources/app.asar.unpacked/node_modules/{vscode-ripgrep/bin/rg,dugite/git/bin/git}
+	fperms +x /opt/Pulsar/resources/app.asar.unpacked/node_modules/fuzzy-finder/node_modules/vscode-ripgrep/bin/rg
+	fperms +x /opt/Pulsar/resources/app.asar.unpacked/node_modules/whats-my-line/node_modules/dugite/git/bin/git
 
 	doicon resources/pulsar.png
-	make_desktop_entry "/opt/pulsar-bin/pulsar %U" "Pulsar" "pulsar" \
+	make_desktop_entry "/usr/bin/pulsar %F" "Pulsar" "pulsar" \
 		"GNOME;GTK;Utility;TextEditor;Development;" \
-		"GenericName=Text Editor\nMimeType=text/plain;\nStartupNotify=true\nStartupWMClass=pulsar"
+		"GenericName=Text Editor\nStartupNotify=true\nStartupWMClass=pulsar\n" \
+		"MimeType=application/javascript;application/json;application/x-httpd-eruby;" \
+			"application/x-httpd-php;application/x-httpd-php3;application/x-httpd-php4;" \
+			"application/x-httpd-php5;application/x-ruby;application/x-bash;application/x-csh;" \
+			"application/x-sh;application/x-zsh;application/x-shellscript;application/x-sql;" \
+			"application/x-tcl;application/xhtml+xml;application/xml;application/xml-dtd;" \
+			"application/xslt+xml;text/coffeescript;text/css;text/html;text/plain;text/xml;" \
+			"text/xml-dtd;text/x-bash;text/x-c++;text/x-c++hdr;text/x-c++src;text/x-c;text/x-chdr;" \
+			"text/x-csh;text/x-csrc;text/x-dsrc;text/x-diff;text/x-go;text/x-java;text/x-java-source;" \
+			"text/x-makefile;text/x-markdown;text/x-objc;text/x-perl;text/x-php;text/x-python;" \
+			"text/x-ruby;text/x-sh;text/x-zsh;text/yaml;inode/directory"
 
 	einstalldocs
 
