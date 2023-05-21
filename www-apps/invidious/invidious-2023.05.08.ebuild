@@ -68,6 +68,11 @@ DOCS=( {CHANGELOG,README}.md TRANSLATION )
 
 CHECKREQS_MEMORY="2G"
 
+CRYSTAL_DEFINES=(
+	-Dskip_videojs_download
+	-Ddisable_quic
+)
+
 src_unpack() {
 	local src depname destname js css
 
@@ -138,14 +143,6 @@ src_prepare() {
 		-e "s|config/sql|${datadir}/\0|g" || die
 
 	rm shard.lock || die
-}
-
-src_configure() {
-	local mycrystalargs=(
-		-Dskip_videojs_download
-		-Ddisable_quic
-	)
-	shards_src_configure
 }
 
 src_install() {
