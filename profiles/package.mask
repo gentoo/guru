@@ -29,10 +29,6 @@ dev-python/ufmt
 # Masked for removal in 30 days.
 dev-python/promise
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-05-01)
-# Unavailable dependency. Masked until a version bump.
-net-im/kaidan
-
 # Joe Kappus <joe@wt.gd> (2023-04-30)
 # Upstream disappeared months/years ago. Removing in 30 days.
 dev-cpp/vectorwrapper
