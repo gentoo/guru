@@ -77,7 +77,7 @@ shards_src_compile() {
 	done
 
 	if use doc; then
-		ecrystal docs
+		ecrystal docs "${CRYSTAL_DEFINES[@]}"
 		HTML_DOCS=( docs/. )
 	fi
 
