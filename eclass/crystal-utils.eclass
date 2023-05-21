@@ -48,6 +48,11 @@ SHARDS_DEPS="
 	)
 "
 
+# @ECLASS_VARIABLE: CRYSTAL_DEFINES
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# List of compile-time defines.  Used by 'crystal build' and 'crystal docs'.
+
 # @FUNCTION: _crystal_get_colors_opt
 # @INTERNAL
 # @RETURN: "--no-color" if colors should be disabled, empty string otherwise
@@ -76,15 +81,6 @@ _crystal_get_debug_opt() {
 # mycrystalargs bash array.
 #
 # Must be run or ecrystal/eshards will fail.
-#
-# @CODE
-# src_configure() {
-#       local mycrystalargs=(
-#               -Dfoo
-#       )
-#       crystal_configure
-# }
-# @CODE
 crystal_configure() {
 	debug-print-function ${FUNCNAME} "${@}"
 
@@ -107,6 +103,7 @@ crystal_configure() {
 		$(is-flagq -mcpu && echo "--mcpu=$(get-flag mcpu)")
 		$(is-flagq -mcmodel && echo "--mcmodel=$(get-flag mcmodel)")
 		# TODO: --mattr
+		"${CRYSTAL_DEFINES[@]}"
 		"${mycrystalargs[@]}"
 	)
 
