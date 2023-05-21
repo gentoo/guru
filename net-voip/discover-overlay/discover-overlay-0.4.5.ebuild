@@ -5,12 +5,12 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_10 )
 DISTUTILS_USE_PEP517=setuptools
+PYPI_NO_NORMALIZE=1
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Yet another Discord overlay for Linux written in Python using GTK3"
 HOMEPAGE="https://github.com/trigg/Discover"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"

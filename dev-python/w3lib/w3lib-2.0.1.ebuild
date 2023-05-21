@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..11} pypy3 )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Library of web-related functions"
 HOMEPAGE="
@@ -13,7 +13,6 @@ HOMEPAGE="
 	https://pypi.org/project/w3lib/
 	https://github.com/scrapy/w3lib
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT=0

@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..11} )
 DISTUTILS_USE_PEP517=poetry
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="A tool for compliance with the REUSE recommendations"
 HOMEPAGE="
@@ -13,7 +13,6 @@ HOMEPAGE="
 	https://pypi.org/project/reuse/
 	https://github.com/fsfe/reuse-tool
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0 CC0-1.0 CC-BY-SA-4.0 GPL-3+"
 SLOT="0"

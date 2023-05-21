@@ -4,18 +4,16 @@
 EAPI="8"
 
 PYTHON_COMPAT=( python3_10 )
+PYPI_PN="cx_Oracle"
+PYPI_NO_NORMALIZE=1
 
-inherit distutils-r1
-
-MY_PN="cx_Oracle"
-MY_P=${MY_PN}-${PV}
+inherit distutils-r1 pypi
 
 DESCRIPTION="Python interface to Oracle"
 HOMEPAGE="
 	https://oracle.github.io/python-cx_Oracle/
 	https://pypi.org/project/cx-Oracle/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${MY_PN}/${MY_PN}-${PV}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
@@ -28,8 +26,6 @@ RESTRICT="test"
 
 DEPEND="dev-db/oracle-instantclient"
 RDEPEND="${DEPEND}"
-
-S=${WORKDIR}/${MY_P}
 
 python_prepare_all() {
 	# do not install LICENSE and README to /usr/

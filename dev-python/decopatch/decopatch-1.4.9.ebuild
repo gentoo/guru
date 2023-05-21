@@ -9,11 +9,10 @@ DISTUTILS_USE_PEP517=setuptools
 DOCS_BUILDER="mkdocs"
 DOCS_DEPEND="dev-python/mkdocs-material"
 
-inherit distutils-r1 docs
+inherit distutils-r1 docs pypi
 
 DESCRIPTION="Create decorators easily in python"
 HOMEPAGE="https://pypi.org/project/decopatch/ https://github.com/smarie/python-decopatch"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"

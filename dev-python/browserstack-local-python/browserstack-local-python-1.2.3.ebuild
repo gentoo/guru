@@ -3,19 +3,17 @@
 
 EAPI=8
 
-MYP="${P/-python/}"
-MYPN="${PN/-python/}"
+PYPI_PN="${PN/-python/}"
+PYPI_NO_NORMALIZE=1
 PYTHON_COMPAT=( python3_{10..11} pypy3 )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Python bindings for BrowserStack Local"
 HOMEPAGE="
 	https://github.com/browserstack/browserstack-local-python
 	https://pypi.org/project/browserstack-local/
 "
-SRC_URI="mirror://pypi/${MYPN:0:1}/${MYPN}/${MYP}.tar.gz"
-S="${WORKDIR}/${MYP}"
 KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0"

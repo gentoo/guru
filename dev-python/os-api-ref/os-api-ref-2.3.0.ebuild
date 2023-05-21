@@ -5,15 +5,15 @@ EAPI=8
 
 EPYTEST_DESELECT=( os_api_ref/tests/test_microversions.py::TestMicroversions::test_parameters_table )
 PYTHON_COMPAT=( python3_10 )
+PYPI_NO_NORMALIZE=1
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Sphinx Extensions to support API reference sites in OpenStack"
 HOMEPAGE="
 	https://opendev.org/openstack/os-api-ref
 	https://pypi.org/project/os-api-ref/
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"

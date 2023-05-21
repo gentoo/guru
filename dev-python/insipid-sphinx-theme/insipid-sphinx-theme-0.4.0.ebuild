@@ -4,15 +4,15 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
+PYPI_NO_NORMALIZE=1
 PYTHON_COMPAT=( pypy3 python3_{10..11} )
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="An insipid Sphinx theme"
 HOMEPAGE="
 	https://pypi.org/project/insipid-sphinx-theme/
 	https://github.com/mgeier/insipid-sphinx-theme
 "
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"

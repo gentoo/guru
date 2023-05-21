@@ -6,11 +6,11 @@ EAPI=8
 PYTHON_COMPAT=( python3_{10..11} )
 PYTHON_REQ_USE="xml(+)"
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1 optfeature
+inherit distutils-r1 optfeature pypi
 
 DESCRIPTION="AutoRest swagger generator Python client runtime"
 HOMEPAGE="https://github.com/Azure/msrest-for-python"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.zip"
+SRC_URI="$(pypi_sdist_url ${PN} ${PV} .zip)"
 
 LICENSE="MIT"
 SLOT="0"

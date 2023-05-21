@@ -5,14 +5,10 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..11} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="HTTP REST client, simplified for Python"
 HOMEPAGE="https://github.com/sendgrid/python-http-client https://pypi.org/project/python-http-client/"
-MY_PN=${PN//-/_}
-MY_P=${MY_PN}-${PV}
-SRC_URI="mirror://pypi/${P:0:1}/${MY_PN}/${MY_P}.tar.gz -> ${P}.tar.gz"
-S=${WORKDIR}/${MY_PN}-${PV}
 
 LICENSE="MIT"
 SLOT="0"
@@ -34,4 +30,3 @@ python_test() {
 }
 
 distutils_enable_tests pytest
-

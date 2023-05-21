@@ -5,17 +5,15 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..11} pypy3 )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1
+PYPI_PN="PyMeeus"
+PYPI_NO_NORMALIZE=1
+inherit distutils-r1 pypi
 
-MY_PN="PyMeeus"
-MY_P="${MY_PN}-${PV}"
 DESCRIPTION="Python implementation of Jean Meeus astronomical routines"
 HOMEPAGE="
 	https://pypi.org/project/PyMeeus/
 	https://github.com/architest/pymeeus
 "
-SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
-S="${WORKDIR}/${MY_P}"
 
 LICENSE="LGPL-3"
 SLOT="0"

@@ -5,13 +5,12 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..11} )
 DISTUTILS_USE_PEP517=setuptools
-inherit distutils-r1
+PYPI_PN="PyDispatcher"
+PYPI_NO_NORMALIZE=1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Multi-producer-multi-consumer signal dispatching mechanism"
 HOMEPAGE="https://github.com/mcfletch/pydispatcher"
-MY_P=PyDispatcher
-SRC_URI="mirror://pypi/${MY_P:0:1}/${MY_P}/${MY_P}-${PV}.tar.gz"
-S=${WORKDIR}/${MY_P}-${PV}
 
 LICENSE="BSD"
 SLOT="0"
