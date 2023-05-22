@@ -5,10 +5,6 @@
     <email>watermanpaint@posteo.net</email>
     <name>Lucio Sauer</name>
   </maintainer>
-  <maintainer type="project" proxied="proxy">
-    <email>proxy-maint@gentoo.org</email>
-    <name>Proxy Maintainers</name>
-  </maintainer>
   <upstream>
     <remote-id type="github">shabbyrobe/grpc-stubs</remote-id>
     <remote-id type="pypi">grpc-stubs</remote-id>
