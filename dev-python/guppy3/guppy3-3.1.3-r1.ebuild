@@ -18,6 +18,10 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+PATCHES=(
+	"${FILESDIR}"/guppy3-3.1.3-py311-refcount-assert.patch
+)
+
 python_test() {
 	cd "${T}" || die
 	"${EPYTHON}" "${S}"/guppy/heapy/test/test_all.py || die
