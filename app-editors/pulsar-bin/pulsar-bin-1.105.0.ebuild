@@ -73,6 +73,10 @@ src_install(){
 	fperms +x /opt/Pulsar/resources/app.asar.unpacked/node_modules/fuzzy-finder/node_modules/vscode-ripgrep/bin/rg
 	fperms +x /opt/Pulsar/resources/app.asar.unpacked/node_modules/whats-my-line/node_modules/dugite/git/bin/git
 
+	# Bug #906939
+	rm "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/tree-sitter-bash/build/node_gyp_bins/python3
+	rmdir "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/tree-sitter-bash/build/node_gyp_bins
+
 	doicon resources/pulsar.png
 	make_desktop_entry "/usr/bin/pulsar %F" "Pulsar" "pulsar" \
 		"GNOME;GTK;Utility;TextEditor;Development;" \
