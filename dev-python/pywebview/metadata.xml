@@ -5,4 +5,7 @@
 		<email>gentoo@tastytea.de</email>
 		<name>tastytea</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">r0x0r/pywebview</remote-id>
+	</upstream>
 </pkgmetadata>
