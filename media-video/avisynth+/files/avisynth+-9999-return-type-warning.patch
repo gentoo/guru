@@ -1,0 +1,12 @@
+--- avisynth+-9999/avs_core/core/parser/script.cpp.orig	2023-05-24 19:09:20.896164496 +0200
++++ avisynth+-9999/avs_core/core/parser/script.cpp	2023-05-24 19:11:50.755632346 +0200
+@@ -1941,6 +1941,9 @@
+ 
+     return PROCESS_32_ON_32;
+   }
++#else
++  else
++    return PROCESS_UNKNOWN;
+ #endif
+ }
+ 
