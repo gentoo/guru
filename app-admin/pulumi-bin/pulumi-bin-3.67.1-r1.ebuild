@@ -27,10 +27,10 @@ S="${WORKDIR}/pulumi"
 src_install() {
 	dobin pulumi*
 
-	pulumi gen-completion bash > pulumi.bash-completion || die "Cannot generate bash completions"
+	./pulumi gen-completion bash > pulumi.bash-completion || die "Cannot generate bash completions"
 	newbashcomp pulumi.bash-completion pulumi
 
-	pulumi gen-completion zsh > pulumi.zsh-completion || die "Cannot generate zsh completions"
+	./pulumi gen-completion zsh > pulumi.zsh-completion || die "Cannot generate zsh completions"
 	insinto /usr/share/zsh/site-functions
 	newins pulumi.zsh-completion _pulumi
 }
