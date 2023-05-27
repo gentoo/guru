@@ -19,9 +19,7 @@ DEPEND="
 	x11-libs/libXfixes
 	x11-libs/libXrandr
 	media-libs/alsa-lib
-	dev-libs/atk
-	app-accessibility/at-spi2-atk
-	app-accessibility/at-spi2-core
+	>=app-accessibility/at-spi2-core-2.46.0
 	net-print/cups
 	x11-libs/libdrm
 	media-libs/mesa
