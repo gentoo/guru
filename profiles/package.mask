@@ -58,12 +58,6 @@ dev-python/coveralls
 # Upstream bug: https://github.com/iamkroot/trakt-scrobbler/issues/240
 media-video/trakt-scrobbler
 
-# Torokhov Sergey <torokhov-s-a@yandex.ru> (2022-10-30)
-# Masked due to failed tests with sys-cluster/openmpi;
-# failed tests with sys-devel/gcc-12.2.1_p20221008
-# (Bug: https://bugs.gentoo.org/877463)
-=sys-cluster/opencoarrays-2.10.1
-
 # Viorel Munteanu <ceamac.paragon@gmail.com> (2022-08-03)
 # depends on dev-python/PyQt6, which is currently masked with all of qt6
 >=net-misc/maestral-qt-1.6.0

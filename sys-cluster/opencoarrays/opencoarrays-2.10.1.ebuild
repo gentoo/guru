@@ -28,7 +28,8 @@ PROPERTIES="test_network"
 RESTRICT="!test? ( test )"
 
 # >=sys-cluster/openmpi-4.1.2[fortran] is dropped due to
-# multiple test failures issue: https://github.com/sourceryinstitute/OpenCoarrays/issues/769
+# multiple test failures issue:
+# https://github.com/sourceryinstitute/OpenCoarrays/issues/769
 RDEPEND="
 	>=sys-cluster/mpich-3.4.3[fortran,mpi-threads,threads]
 "
