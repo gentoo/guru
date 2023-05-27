@@ -31,10 +31,10 @@
 	</use>
 	<upstream>
 		<remote-id type="github">WillPower3309/swayfx</remote-id>
-        <maintainer status="active">
-            <name>William McKinnon</name>
-        </maintainer>
-        <bugs-to>https://github.com/WillPower3309/swayfx/issues</bugs-to>
-        <changelog>https://github.com/WillPower3309/swayfx/releases</changelog>
-    </upstream>
+		<maintainer status="active">
+			<name>William McKinnon</name>
+		</maintainer>
+		<bugs-to>https://github.com/WillPower3309/swayfx/issues</bugs-to>
+		<changelog>https://github.com/WillPower3309/swayfx/releases</changelog>
+	</upstream>
 </pkgmetadata>
