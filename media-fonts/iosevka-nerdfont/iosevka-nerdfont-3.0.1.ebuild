@@ -17,9 +17,9 @@ S="${WORKDIR}"
 FONT_SUFFIX="ttf"
 
 pkg_postinst() {
-    ewarn "Upstream has recently made some major changes since version 3.0.0."
-    ewarn "The older Material Design Icon codepoints have been dropped."
-    ewarn "See issue 1059, comment 1404891287 at upstream for a translation table."
-    ewarn "More information can be found here:"
-    ewarn "https://github.com/ryanoasis/nerd-fonts/tree/v3.0.0"
+	ewarn "Upstream has recently made some major changes since version 3.0.0."
+	ewarn "The older Material Design Icon codepoints have been dropped."
+	ewarn "See issue 1059, comment 1404891287 at upstream for a translation table."
+	ewarn "More information can be found here:"
+	ewarn "https://github.com/ryanoasis/nerd-fonts/tree/v3.0.0"
 }
