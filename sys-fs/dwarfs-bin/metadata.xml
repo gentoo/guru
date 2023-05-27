@@ -15,4 +15,7 @@
 		* Highly multi-threaded implementation. Both the file system creation tool as well as the FUSE driver are able to make good use of the many cores of your system.
 		* Optional experimental Python support to provide custom filtering and ordering functionality.
 	</longdescription>
+	<upstream>
+		<remote-id type="github">mhx/dwarfs</remote-id>
+	</upstream>
 </pkgmetadata>
