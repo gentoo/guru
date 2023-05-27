@@ -6,6 +6,7 @@
 		<name>tastytea</name>
 	</maintainer>
 	<upstream>
+		<remote-id type="github">solokeys/solo1</remote-id>
 		<bugs-to>https://github.com/solokeys/solo1/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
