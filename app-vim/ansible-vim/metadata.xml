@@ -5,4 +5,7 @@
 		<name>Adrian Schollmeyer</name>
 		<email>nex+b-g-o@nexadn.de</email>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">pearofducks/ansible-vim</remote-id>
+	</upstream>
 </pkgmetadata>
