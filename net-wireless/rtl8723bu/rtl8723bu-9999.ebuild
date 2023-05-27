@@ -10,7 +10,6 @@ HOMEPAGE="https://github.com/lwfinger/rtl8723bu"
 EGIT_REPO_URI="https://github.com/lwfinger/rtl8723bu.git"
 
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
 
 RDEPEND="sys-kernel/linux-firmware"
 
