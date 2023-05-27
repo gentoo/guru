@@ -11,4 +11,7 @@
 	full-featured studio for creating stories from the birth of the idea and 
 	before the transfer of the script to production.
 	</longdescription>
+	<upstream>
+		<remote-id type="github">dimkanovikov/KITScenarist</remote-id>
+	</upstream>
 </pkgmetadata>
