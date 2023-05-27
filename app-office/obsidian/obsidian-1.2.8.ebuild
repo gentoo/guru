@@ -41,14 +41,14 @@ DIR="/opt/${PN^}"
 S="${WORKDIR}"
 
 QA_PREBUILT="${DIR#/}/chrome-sandbox
-   ${DIR#/}/chrome_crashpad_handler
-   ${DIR#/}/libGLESv2.so
-   ${DIR#/}/libEGL.so
-   ${DIR#/}/libffmpeg.so
-   ${DIR#/}/libvk_swiftshader.so
-   ${DIR#/}/libvulkan.so.1
-   ${DIR#/}/obsidian
-   ${DIR#/}/resources/app.asar.unpacked/node_modules/*
+	${DIR#/}/chrome_crashpad_handler
+	${DIR#/}/libGLESv2.so
+	${DIR#/}/libEGL.so
+	${DIR#/}/libffmpeg.so
+	${DIR#/}/libvk_swiftshader.so
+	${DIR#/}/libvulkan.so.1
+	${DIR#/}/obsidian
+	${DIR#/}/resources/app.asar.unpacked/node_modules/*
 "
 
 src_install() {
