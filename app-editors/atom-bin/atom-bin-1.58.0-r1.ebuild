@@ -18,10 +18,8 @@ RESTRICT="test"
 S="${WORKDIR}/atom-${PV}-amd64"
 
 RDEPEND="
-	app-accessibility/at-spi2-atk
-	app-accessibility/at-spi2-core
+	>=app-accessibility/at-spi2-core-2.46.0
 	app-crypt/libsecret
-	dev-libs/atk
 	dev-libs/nss
 	dev-libs/openssl
 	dev-libs/openssl-compat
