@@ -5,4 +5,7 @@
 		<email>gentoo@tastytea.de</email>
 		<name>tastytea</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">PapirusDevelopmentTeam/papirus-claws-mail-theme</remote-id>
+	</upstream>
 </pkgmetadata>
