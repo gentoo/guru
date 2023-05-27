@@ -10,6 +10,7 @@
 		<maintainer>
 			<name>Denis Howe</name>
 		</maintainer>
+		<remote-id type="launchpad">ubuntu</remote-id>
 	</upstream>
 	<longdescription lang="en">
 		A database for 'dict'-compatible dictionary software, based on the Free On-line Dictionary of Computing describing various topics in computing.
