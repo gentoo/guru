@@ -5,13 +5,11 @@ EAPI=8
 
 inherit meson optfeature
 
-DESCRIPTION="i3-compatible Wayland window manager"
-HOMEPAGE="https://swaywm.org"
+DESCRIPTION="SwayFX: Sway, but with eye candy!"
+HOMEPAGE="https://github.com/WillPower3309/swayfx"
 
-MY_PV=${PV/_rc/-rc}
-SRC_URI="https://github.com/WillPower3309/swayfx/archive/refs/tags/${PV}.tar.gz"
+SRC_URI="https://github.com/WillPower3309/swayfx/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64"
-S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="MIT"
 SLOT="0"
