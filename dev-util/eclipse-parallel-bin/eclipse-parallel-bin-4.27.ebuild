@@ -43,5 +43,6 @@ src_install() {
 	make_wrapper ${PN%-*} "/opt/${PN}/${MY_PN} -vm /opt/openjdk*/bin/java" "" "/opt/${PN}" "/opt/bin"
 
 	doicon -s 48 plugins/org.eclipse.platform_4.27.0.v20230302-0300/eclipse48.png
-	make_desktop_entry eclipse-parallel "Eclipse IDE Parallel ${MY_PV}" eclipse48 "Development;" || die "Failed making desktop entry!"
+	make_desktop_entry eclipse-parallel "Eclipse IDE Parallel ${MY_PV}" eclipse48 "Development;" \
+		|| die "Failed making desktop entry!"
 }
