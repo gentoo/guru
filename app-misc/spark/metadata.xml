@@ -5,4 +5,7 @@
 		<name>Alessandro Barbieri</name>
 		<email>lssndrbarbieri@gmail.com</email>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">holman/spark</remote-id>
+	</upstream>
 </pkgmetadata>
