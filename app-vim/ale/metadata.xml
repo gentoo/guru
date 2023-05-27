@@ -9,4 +9,7 @@
 		<email>cyber+gentoo@sysrq.in</email>
 		<name>Anna</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">dense-analysis/ale</remote-id>
+	</upstream>
 </pkgmetadata>
