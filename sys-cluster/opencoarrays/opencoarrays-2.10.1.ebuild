@@ -37,6 +37,10 @@ DEPEND="
 	${RDEPEND}
 "
 
+PATCHES=(
+	"${FILESDIR}/${PN}-2.10.1_fix_Wint-conversion_warning_error.patch"
+)
+
 src_configure() {
 	filter-lto # Bug 860765
 
