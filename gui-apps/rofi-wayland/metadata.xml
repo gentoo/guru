@@ -9,4 +9,7 @@
 		<flag name="drun">Desktop file mode</flag>
 		<flag name="windowmode">Window switcher mode</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">lbonn/rofi</remote-id>
+	</upstream>
 </pkgmetadata>
