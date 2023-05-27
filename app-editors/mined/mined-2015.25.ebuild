@@ -5,7 +5,7 @@ inherit toolchain-funcs
 
 DESCRIPTION="A powerful text editor with extensive Unicode and CJK support"
 HOMEPAGE="http://towo.net/mined/"
-SRC_URI="https://downloads.sourceforge.net/project/mined/mined/mined%202015.25/mined-2015.25.tar.gz?ts=gAAAAABhfF-EKWvxGfwH7tpfR0NI8LV87Muimvh4jUigxZZZAD1fN8xgcbBPJc1TQ3f8djMFDbHXXz6rQZI4_qwwEsqakvBpqg%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fmined%2Ffiles%2Fmined%2Fmined%25202015.25%2Fmined-${P}.tar.gz%2Fdownload -> ${P}.tar.gz"
+SRC_URI="https://downloads.sourceforge.net/project/mined/mined/mined%20${PV}/${P}.tar.gz?ts=gAAAAABhfF-EKWvxGfwH7tpfR0NI8LV87Muimvh4jUigxZZZAD1fN8xgcbBPJc1TQ3f8djMFDbHXXz6rQZI4_qwwEsqakvBpqg%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fmined%2Ffiles%2Fmined%2Fmined%2520${PV}%2Fmined-${P}.tar.gz%2Fdownload -> ${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
