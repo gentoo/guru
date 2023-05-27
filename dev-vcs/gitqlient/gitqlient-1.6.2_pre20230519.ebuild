@@ -17,9 +17,11 @@ HOMEPAGE="https://github.com/francescmm/GitQlient"
 
 SRC_URI="
 	https://github.com/francescmm/${MY_PN}/archive/${gitqlient_sha}.tar.gz -> ${P}.tar.gz
-	https://github.com/francescmm/AuxiliarCustomWidgets/archive/${AuxiliarCustomWidgets_sha}.tar.gz -> ${P}_AuxiliarCustomWidgets.tar.gz
+	https://github.com/francescmm/AuxiliarCustomWidgets/archive/${AuxiliarCustomWidgets_sha}.tar.gz \
+		-> ${P}_AuxiliarCustomWidgets.tar.gz
 	https://github.com/francescmm/QLogger/archive/${QLogger_sha}.tar.gz -> ${P}_QLogger.tar.gz
-	https://github.com/francescmm/QPinnableTabWidget/archive/${QPinnableTabWidget_sha}.tar.gz -> ${P}_QPinnableTabWidget.tar.gz
+	https://github.com/francescmm/QPinnableTabWidget/archive/${QPinnableTabWidget_sha}.tar.gz \
+		-> ${P}_QPinnableTabWidget.tar.gz
 	https://github.com/francescmm/git/archive/${git_sha}.tar.gz -> ${P}_git.tar.gz
 "
 KEYWORDS="~amd64 ~x86"
