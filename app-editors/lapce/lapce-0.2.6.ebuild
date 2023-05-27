@@ -627,7 +627,7 @@ inherit cargo desktop xdg-utils
 DESCRIPTION="Lightning-fast and Powerful Code Editor written in Rust "
 HOMEPAGE="https://lapce.dev/"
 SRC_URI="
-	https://github.com/lapce/lapce/archive/v${PV}.tar.gz
+	https://github.com/lapce/lapce/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	$(cargo_crate_uris)
 "
 
