@@ -3,3 +3,4 @@ move kde-apps/tokodon net-im/tokodon
 move sci-mathematics/mccs dev-ml/mccs
 move dev-python/nototools dev-python/notofonttools
 move kde-apps/krecorder media-sound/krecorder
+move kde-apps/alligator net-news/alligator
