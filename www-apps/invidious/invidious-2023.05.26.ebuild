@@ -3,10 +3,10 @@
 
 EAPI=8
 
-inherit check-reqs multiprocessing shards systemd
+inherit check-reqs shards systemd
 
-COMMIT="8db2a93827a4e27a55a9095be15083ea68cdd571"
-MOCKS_COMMIT="cb16e0343c8f94182615610bfe3c503db89717a7"
+COMMIT="381a0e326d413daba1418bfca820bbfe2b7829a3"
+MOCKS_COMMIT="11ec372f72747c09d48ffef04843f72be67d5b54"
 MOCKS_P="${PN}-mocks-${MOCKS_COMMIT:0:7}"
 DESCRIPTION="Invidious is an alternative front-end to YouTube"
 HOMEPAGE="
@@ -42,7 +42,7 @@ COMMON_DEPEND="
 	dev-db/sqlite:3
 	dev-libs/boehm-gc
 	dev-libs/libevent:=
-	dev-libs/libpcre:3
+	dev-libs/libpcre2:=
 	dev-libs/libxml2:2
 	dev-libs/libyaml
 	dev-libs/openssl:=
@@ -67,6 +67,11 @@ DEPEND="${COMMON_DEPEND}
 DOCS=( {CHANGELOG,README}.md TRANSLATION )
 
 CHECKREQS_MEMORY="2G"
+
+CRYSTAL_DEFINES=(
+	-Dskip_videojs_download
+	-Ddisable_quic
+)
 
 src_unpack() {
 	local src depname destname js css
@@ -138,18 +143,6 @@ src_prepare() {
 		-e "s|config/sql|${datadir}/\0|g" || die
 
 	rm shard.lock || die
-}
-
-src_configure() {
-	local mycrystalargs=(
-		-Dskip_videojs_download
-		-Ddisable_quic
-	)
-	shards_src_configure
-}
-
-src_compile() {
-	ecrystal build src/invidious.cr --verbose --threads=$(makeopts_jobs)
 }
 
 src_install() {
