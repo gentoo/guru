@@ -61,6 +61,11 @@ src_prepare() {
 	# Skipping test due to https://github.com/xtensor-stack/xtensor/issues/2653
 	sed -i -e '/test_xoptional\.cpp/d' test/CMakeLists.txt || die
 
+	# Current version of xsimd in tree is 11.1.0 (announcing itself as 11.0.1)
+	# Version appears to be compatible (compiles & tests succeed)
+	sed -i -e 's/xsimd_REQUIRED_VERSION 10.0.0/xsimd_REQUIRED_VERSION 11.0.1/' \
+		CMakeLists.txt || die
+
 	cmake_src_prepare
 }
 
