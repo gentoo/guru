@@ -6,12 +6,10 @@
 EAPI=8
 
 CRATES="
-	aead-0.5.2
 	ahash-0.7.6
 	aho-corasick-0.7.19
 	android_system_properties-0.1.5
 	anyhow-1.0.64
-	argon2-0.5.0
 	async-trait-0.1.58
 	atoi-1.0.0
 	atty-0.2.14
@@ -20,10 +18,8 @@ CRATES="
 	axum-core-0.3.2
 	base64-0.13.1
 	base64-0.21.0
-	base64ct-1.6.0
 	beef-0.5.2
 	bitflags-1.3.2
-	blake2-0.10.6
 	block-buffer-0.10.3
 	bumpalo-3.12.0
 	byteorder-1.4.3
@@ -33,7 +29,6 @@ CRATES="
 	cfg-if-1.0.0
 	chrono-0.4.22
 	chronoutil-0.2.3
-	cipher-0.4.4
 	clap-4.1.14
 	clap_builder-4.1.14
 	clap_complete-4.2.0
@@ -105,7 +100,6 @@ CRATES="
 	indenter-0.3.3
 	indexmap-1.9.1
 	indicatif-0.17.3
-	inout-0.1.3
 	instant-0.1.12
 	interim-0.1.0
 	io-lifetimes-1.0.10
@@ -143,7 +137,6 @@ CRATES="
 	num_cpus-1.13.1
 	number_prefix-0.4.0
 	once_cell-1.17.1
-	opaque-debug-0.3.0
 	openssl-probe-0.1.5
 	overload-0.1.1
 	parking_lot-0.11.2
@@ -151,7 +144,6 @@ CRATES="
 	parking_lot_core-0.8.5
 	parking_lot_core-0.9.3
 	parse_duration-2.1.1
-	password-hash-0.5.0
 	paste-1.0.9
 	pathdiff-0.2.1
 	pbkdf2-0.11.0
@@ -161,14 +153,13 @@ CRATES="
 	pin-project-lite-0.2.9
 	pin-utils-0.1.0
 	pkg-config-0.3.25
-	poly1305-0.8.0
 	portable-atomic-0.3.19
 	ppv-lite86-0.2.16
 	proc-macro2-1.0.56
 	quote-1.0.26
 	rand-0.8.5
 	rand_chacha-0.3.1
-	rand_core-0.6.4
+	rand_core-0.6.3
 	redox_syscall-0.2.16
 	redox_users-0.4.3
 	regex-1.7.2
@@ -180,7 +171,7 @@ CRATES="
 	rmp-serde-1.1.1
 	rpassword-7.2.0
 	rtoolbox-0.0.1
-	runtime-format-0.1.3
+	runtime-format-0.1.2
 	rustc-hash-1.1.0
 	rustix-0.37.11
 	rustls-0.20.6
@@ -188,7 +179,6 @@ CRATES="
 	rustls-pemfile-1.0.1
 	rustversion-1.0.11
 	ryu-1.0.11
-	salsa20-0.10.2
 	same-file-1.0.6
 	schannel-0.1.20
 	scopeguard-1.1.0
@@ -258,7 +248,6 @@ CRATES="
 	unicode-segmentation-1.10.1
 	unicode-width-0.1.10
 	unicode_categories-0.1.1
-	universal-hash-0.5.0
 	untrusted-0.7.1
 	url-2.3.1
 	urlencoding-2.1.2
@@ -307,7 +296,6 @@ CRATES="
 	windows_x86_64_msvc-0.42.0
 	windows_x86_64_msvc-0.48.0
 	winreg-0.10.1
-	xsalsa20poly1305-0.9.0
 	zeroize-1.6.0
 	zeroize_derive-1.4.2
 "
@@ -326,11 +314,11 @@ SRC_URI="
 LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="doc"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND=">=dev-lang/rust-1.67.1"
+BDEPEND="dev-lang/rust"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
@@ -346,13 +334,13 @@ src_install() {
 	exeinto "/usr/bin"
 	doexe "target/$(usex debug debug release)/${PN}"
 
-	dodoc -r "${DOCS[@]}"
+	use doc && dodoc -r "${DOCS[@]}"
 
 	# Prepare shell completion generation
 	mkdir completions || die
 	for shell in 'bash' 'fish' 'zsh'; do
-		"target/$(usex debug debug release)/${PN}" gen-completions -s "$shell" -o completions || die
-	done
+    "target/$(usex debug debug release)/${PN}" gen-completions -s "$shell" -o completions || die
+  done
 
 	newbashcomp "completions/${PN}.bash" "${PN}"
 	dozshcomp "completions/_${PN}"
