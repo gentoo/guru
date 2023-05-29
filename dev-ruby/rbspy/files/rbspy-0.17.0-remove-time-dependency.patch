@@ -1,0 +1,94 @@
+From fec8fa58ac4665c234bb4165eb72bc8431d8feab Mon Sep 17 00:00:00 2001
+From: Alexey Zapparov <alexey@zapparov.com>
+Date: Mon, 17 Apr 2023 18:56:40 +0200
+Subject: [PATCH] sec: Remove vulnerable time-0.1.x chrono dependency
+
+The dependency is optional for chrono and enabled by default for
+backward compatibility only.
+
+See: https://rustsec.org/advisories/RUSTSEC-2020-0071
+See: https://github.com/chronotope/chrono/blob/v0.4.23/CHANGELOG.md#0416
+---
+ Cargo.lock | 26 +++-----------------------
+ Cargo.toml |  2 +-
+ 2 files changed, 4 insertions(+), 24 deletions(-)
+
+diff --git a/Cargo.lock b/Cargo.lock
+index 685ccb7..a816906 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -218,16 +218,13 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
+ 
+ [[package]]
+ name = "chrono"
+-version = "0.4.23"
++version = "0.4.24"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "16b0a3d9ed01224b22057780a37bb8c5dbfe1be8ba48678e7bf57ec4b385411f"
++checksum = "4e3c5919066adf22df73762e50cffcde3a758f2a848b113b586d1f86728b673b"
+ dependencies = [
+  "iana-time-zone",
+- "js-sys",
+  "num-integer",
+  "num-traits",
+- "time",
+- "wasm-bindgen",
+  "winapi",
+ ]
+ 
+@@ -513,7 +510,7 @@ checksum = "c05aeb6a22b8f62540c194aac980f2115af067bfe15a0734d7277a768d396b31"
+ dependencies = [
+  "cfg-if",
+  "libc",
+- "wasi 0.11.0+wasi-snapshot-preview1",
++ "wasi",
+ ]
+ 
+ [[package]]
+@@ -1462,17 +1459,6 @@ dependencies = [
+  "syn",
+ ]
+ 
+-[[package]]
+-name = "time"
+-version = "0.1.45"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "1b797afad3f312d1c66a56d11d0316f916356d11bd158fbc6ca6389ff6bf805a"
+-dependencies = [
+- "libc",
+- "wasi 0.10.0+wasi-snapshot-preview1",
+- "winapi",
+-]
+-
+ [[package]]
+ name = "unicode-ident"
+ version = "1.0.6"
+@@ -1491,12 +1477,6 @@ version = "0.9.4"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ checksum = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
+ 
+-[[package]]
+-name = "wasi"
+-version = "0.10.0+wasi-snapshot-preview1"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "1a143597ca7c7793eff794def352d41792a93c481eb1042423ff7ff72ba2c31f"
+-
+ [[package]]
+ name = "wasi"
+ version = "0.11.0+wasi-snapshot-preview1"
+diff --git a/Cargo.toml b/Cargo.toml
+index 9ee77ad..c28bbd0 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -21,7 +21,7 @@ members = [
+ 
+ [dependencies]
+ anyhow = "1.0.58"
+-chrono = "0.4.19"
++chrono = { version = "0.4.24", default-features = false, features = ["clock", "std"] }
+ clap = "3.1.6"
+ ctrlc = "3.1.0"
+ directories = "5.0.0"
+-- 
+2.39.3
+
