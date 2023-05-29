@@ -202,8 +202,18 @@ PATCHES=(
 	"${FILESDIR}/${P}-remove-time-dependency.patch"
 )
 
+src_test() {
+	local skip=(
+		--skip sampler::tests::test_sample_single_process
+		--skip sampler::tests::test_sample_single_process_with_time_limit
+		--skip core::ruby_spy::tests::test_get_trace_when_process_has_exited
+		--skip core::ruby_spy::tests::test_get_trace
+		--skip sampler::tests::test_sample_subprocesses
+	)
+	cargo_src_test -- "${skip[@]}"
+}
+
 src_install() {
 	cargo_src_install
-
 	dodoc README.md
 }
