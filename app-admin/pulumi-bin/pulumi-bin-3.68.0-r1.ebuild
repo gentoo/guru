@@ -24,6 +24,8 @@ BDEPEND=""
 
 S="${WORKDIR}/pulumi"
 
+QA_PREBUILT="*"
+
 src_install() {
 	dobin pulumi*
 
