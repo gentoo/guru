@@ -41,4 +41,3 @@ src_install() {
 	doicon -s scalable desktop/${PN}.svg
 	domenu desktop/org.${PN}.${PN}.desktop
 }
-
