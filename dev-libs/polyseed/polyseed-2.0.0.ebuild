@@ -15,6 +15,11 @@ KEYWORDS="~amd64"
 IUSE="static-libs test"
 BDEPEND="virtual/pkgconfig"
 
+src_prepare() {
+	sed -i "s/install(TARGETS polyseed polyseed_static/install(TARGETS polyseed/g" "${S}"/CMakeLists.txt
+	cmake_src_prepare
+}
+
 src_compile() {
-        cmake_build polyseed $(usex "static-libs" "polyseed_static" "") $(usex "test" "polyseed-tests" "")
+	cmake_build polyseed $(usex "static-libs" "polyseed_static" "") $(usex "test" "polyseed-tests" "")
 }
