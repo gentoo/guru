@@ -5,7 +5,7 @@ EAPI=8
 
 inherit linux-mod
 
-DESCRIPTION="CPU monitoring software designed for the 64-bits Processors"
+DESCRIPTION="CPU monitoring software designed for the 64-bits Processors, like top"
 HOMEPAGE="https://github.com/cyring/CoreFreq"
 SRC_URI="https://github.com/cyring/CoreFreq/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
