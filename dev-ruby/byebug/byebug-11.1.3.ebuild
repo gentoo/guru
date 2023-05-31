@@ -8,7 +8,7 @@ RUBY_FAKEGEM_EXTENSIONS=(ext/byebug/extconf.rb)
 RUBY_FAKEGEM_EXTENSION_LIBDIR=lib/byebug
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md GUIDE.md README.md"
 RUBY_FAKEGEM_GEMSPEC=${PN}.gemspec
-USE_RUBY="ruby26 ruby27 ruby30"
+USE_RUBY="ruby30 ruby31 ruby32"
 
 inherit ruby-fakegem
 
