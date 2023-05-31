@@ -1,0 +1,6 @@
+#!/sbin/openrc-run
+name=corefreq
+command=/usr/bin/corefreqd
+command_args=${COREFREQD_ARGS}
+command_background=1
+pidfile=/run/corefreqd.pid
