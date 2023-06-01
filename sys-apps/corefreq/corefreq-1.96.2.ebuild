@@ -52,5 +52,6 @@ pkg_postinst() {
 	einfo "To be able to use corefreq, you need to load kernel module:"
 	einfo "modprobe corefreqk"
 	einfo "After that - start daemon with corefreqd"
+	einfo "or by `rc-service corefreq start`"
 	einfo "And only after that you can start corefreq-cli"
 }
