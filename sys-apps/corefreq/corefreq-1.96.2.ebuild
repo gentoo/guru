@@ -47,3 +47,10 @@ src_install() {
 	use systemd && systemd_dounit ${PN}.service
 	use doc && dodoc README.md
 }
+
+pkg_postinst() {
+	einfo "To be able to use corefreq, you need to load kernel module:"
+	einfo "modprobe corefreqk"
+	einfo "After that - start daemon with corefreqd"
+	einfo "And only after that you can start corefreq-cli"
+}
