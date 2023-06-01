@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<bugs-to>https://github.com/dogecoin/dogecoin/issues</bugs-to>
+		<changelog>https://github.com/dogecoin/dogecoin/tree/master/doc/release-notes</changelog>
+		<doc>https://github.com/dogecoin/dogecoin/tree/master/doc</doc>
+		<remote-id type="github">dogecoin/dogecoin</remote-id>
+	</upstream>
+	<maintainer type="person" proxied="yes">
+		<email>victor3.14@yandex.com</email>
+		<name>Victor Skovorodnikov</name>
+	</maintainer>
+	<use>
+		<flag name="tests">Build Dogecoin Core Qt with tests option</flag>
+		<flag name="wallet">Build Dogecoin Core Qt with wallet support</flag>
+		<flag name="zmq">Enables ZeroMQ notifications</flag>
+	</use>
+	<longdescription lang="en">
+		Dogecoin Core Qt featuring Graphical User Interface with statistical analysis, console interaction and optional wallet support.
+	</longdescription>
+</pkgmetadata>
