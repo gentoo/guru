@@ -1,8 +1,9 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{9..11} )
+DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1
 
@@ -16,9 +17,11 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	~dev-python/auditok-0.1.5[${PYTHON_USEDEP}]
-	dev-python/cchardet[${PYTHON_USEDEP}]
+	dev-python/chardet[${PYTHON_USEDEP}]
+	dev-python/charset_normalizer[${PYTHON_USEDEP}]
+	dev-python/faust-cchardet[${PYTHON_USEDEP}]
 	dev-python/ffmpeg-python[${PYTHON_USEDEP}]
-	dev-python/future[${PYTHON_USEDEP}]
+	>=dev-python/future-0.18.2[${PYTHON_USEDEP}]
 	>=dev-python/numpy-1.12.0[${PYTHON_USEDEP}]
 	>=dev-python/pysubs2-1.2.0[${PYTHON_USEDEP}]
 	dev-python/rich[${PYTHON_USEDEP}]
@@ -30,8 +33,3 @@ RDEPEND="
 "
 
 distutils_enable_tests pytest
-
-python_prepare_all() {
-	sed "/argparse/d" -i requirements.txt || die
-	distutils-r1_python_prepare_all
-}
