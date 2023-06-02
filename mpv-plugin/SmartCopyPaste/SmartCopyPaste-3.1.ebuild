@@ -18,7 +18,10 @@ LICENSE="BSD-2"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	x11-misc/xclip
+	|| (
+		gui-apps/wl-clipboard
+		x11-misc/xclip
+	)
 "
 
 S="${WORKDIR}/${MY_PN}-2.2.1/scripts"
