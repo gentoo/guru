@@ -70,5 +70,5 @@ python_install() {
 }
 
 pkg_postinst() {
-	optfeature "sha256_password and caching_sha2_password auth methods" dev-python/cryprography
+	optfeature "sha256_password and caching_sha2_password auth methods" dev-python/cryptography
 }
