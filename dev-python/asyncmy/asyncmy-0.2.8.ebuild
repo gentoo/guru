@@ -6,6 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{10..11} )
 PYTHON_REQ_USE="ssl"
 DISTUTILS_USE_PEP517=poetry
+DISTUTILS_EXT=1
 inherit databases distutils-r1 optfeature
 
 DESCRIPTION="A fast asyncio MySQL driver"
