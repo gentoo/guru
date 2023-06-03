@@ -19,6 +19,7 @@ RDEPEND="
 	media-libs/fontconfig
 	media-libs/freetype
 	x11-libs/libxkbcommon
+	bash-completion? ( app-shells/bash-completion )
 	exif? ( media-libs/libexif )
 	gif? ( media-libs/giflib )
 	heif? ( media-libs/libheif )
