@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>hilobakho@gmail.com</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">artemsen/swayimg</remote-id>
+	</upstream>
+	<use>
+		<flag name="jpegxl">Enable support for JPEG XL image format</flag>
+	</use>
+</pkgmetadata>
