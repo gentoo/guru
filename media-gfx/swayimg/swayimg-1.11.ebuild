@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit meson
+inherit meson xdg
 
 DESCRIPTION="A lightweight image viewer for Wayland display servers"
 HOMEPAGE="https://github.com/artemsen/swayimg"
