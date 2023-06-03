@@ -1,9 +1,12 @@
 # Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# Note: This is the last upstream version that does not depend on
-# sys-libs/libbacktrace.  ebuilds for version 0.4.0 and above would
-# have to be removed due to sys-libs/libbacktrace last rite.
+# Note: This is the last version in which the upstream had not introduced
+# dependency on sys-libs/libbacktrace, which has been last-rited in ::gentoo.
+#
+# ebuilds for newer upstream versions have to use an experimental patch that
+# makes the libbacktrace dependency optional; please keep this version for
+# reasonable time until the patch has been proven stable.
 
 EAPI=8
 
