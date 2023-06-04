@@ -35,10 +35,6 @@ dev-python/ufmt
 # Masked for removal in 30 days.
 dev-python/promise
 
-# Joe Kappus <joe@wt.gd> (2023-04-30)
-# Upstream disappeared months/years ago. Removing in 30 days.
-dev-cpp/vectorwrapper
-
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-04-20)
 # Depends on masked java-virtuals/servlet-api. Unused Java library.
 # Removal on 2023-05-22.
