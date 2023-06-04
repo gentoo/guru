@@ -38,11 +38,11 @@ BDEPEND="
 "
 
 	PATCHES=(
-		"${FILESDIR}"/1-14-6-net_processing.patch
-		"${FILESDIR}"/1-14-6-paymentserver.patch
-		"${FILESDIR}"/1-14-6-transactiondesc.patch
-		"${FILESDIR}"/1-14-6-deque.patch
-
+		"${FILESDIR}"/"${PV}"-net_processing.patch
+		"${FILESDIR}"/"${PV}"-paymentserver.patch
+		"${FILESDIR}"/"${PV}"-transactiondesc.patch
+		"${FILESDIR}"/"${PV}"-deque.patch
+		"${FILESDIR}"/"${PV}"-gcc13.patch
 	)
 
 WORKDIR_="${WORKDIR}/dogecoin-${PV}"
