@@ -35,6 +35,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="
 	app-alternatives/gzip[reference]
 	sys-devel/binutils[multitarget]
+	sys-libs/ncurses[abi_x86_32(-)]
 "
 QA_PREBUILT="usr/bin/123"
 
