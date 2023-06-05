@@ -10,4 +10,7 @@
 		ClassRegistry. This package contains the python modules necessary to use
 		this dessign pattern
 	</longdescription>
+	<upstream>
+		<remote-id type="github">todofixthis/class-registry</remote-id>
+	</upstream>
 </pkgmetadata>

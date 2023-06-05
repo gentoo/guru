@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_10 python3_11 pypy3 )
+PYTHON_COMPAT=( python3_10 python3_11 )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
@@ -16,4 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 S="${WORKDIR}/class-registry-${PV}"
 
-distutils_enable_tests nose
+distutils_enable_tests unittest
+
+python_test() {
+	"${EPYTHON}" -m unittest || die "Tests failed with ${EPYTHON}"
+}
