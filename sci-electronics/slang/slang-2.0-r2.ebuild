@@ -3,7 +3,7 @@
 
 EAPI="8"
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{9..11} )
 inherit cmake python-single-r1
 
 DESCRIPTION="SystemVerilog compiler and language services"
@@ -31,7 +31,7 @@ RDEPEND="
 	${PYTHON_DEPS}
 	>=dev-cpp/catch-3.0.1
 	>=dev-libs/libfmt-9.1.0
-	>=dev-libs/unordered_dense-2.0.0 <dev-libs/unordered_dense-3.0.0
+	>=dev-libs/unordered_dense-2.0.0 <dev-libs/unordered_dense-2.0.1
 	$(python_gen_cond_dep '
 		>=dev-python/pybind11-2.10[${PYTHON_USEDEP}]
 	')
