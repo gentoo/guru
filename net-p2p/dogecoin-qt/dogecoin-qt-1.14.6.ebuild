@@ -62,6 +62,7 @@ src_configure() {
 		$(use_enable zmq)
 		$(use_enable wallet)
 		$(use_enable tests tests)
+		--disable-bench
 	)
 	econf "${my_econf[@]}"
 }
