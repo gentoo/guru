@@ -69,7 +69,7 @@ BDEPEND="app-arch/unzip"
 S="${WORKDIR}"
 
 src_install() {
-	python_domodule anki anki-${PV}.dist-info _aqt aqt aqt-${PV}.dist-info
+	python_domodule anki {,_}aqt *.dist-info
 	printf "#!/usr/bin/python3\nimport sys;from aqt import run;sys.exit(run())" > runanki
 	python_newscript runanki anki
 	newicon "${DISTDIR}"/${P}.png ${MY_PN}.png
