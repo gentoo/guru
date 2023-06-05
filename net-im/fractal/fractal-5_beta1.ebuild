@@ -35,7 +35,7 @@ RDEPEND=">=dev-libs/glib-2.72
 	>=media-libs/libshumate-1
 	>=x11-libs/cairo-1.16.0
 	>=gui-libs/gtk-4.10:4
-	x11-libs/gtksourceview:4
+	gui-libs/gtksourceview:5
 	media-plugins/gst-plugins-gtk"
 DEPEND="${RDEPEND}"
 BDEPEND="dev-util/ninja
