@@ -13,5 +13,6 @@
 	</longdescription>
 	<upstream>
 		<remote-id type="github">Backblaze/B2_Command_Line_Tool</remote-id>
+		<remote-id type="pypi">b2</remote-id>
 	</upstream>
 </pkgmetadata>
