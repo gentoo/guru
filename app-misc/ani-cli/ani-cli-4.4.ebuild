@@ -9,7 +9,11 @@ if [[ "${PV}" == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/pystardust/ani-cli.git"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/pystardust/ani-cli/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="
+		https://github.com/pystardust/${PN}/releases/download/v${PV}/ani-cli
+		https://github.com/pystardust/${PN}/releases/download/v${PV}/ani-cli.1
+	"
+	S="${WORKDIR}"
 	KEYWORDS="~amd64 ~x86"
 fi
 LICENSE="GPL-3"
@@ -25,6 +29,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_install() {
-	dobin ani-cli
-	doman ani-cli.1
+	dobin "${SRC_URI:+$DISTDIR/}ani-cli"
+	doman "${SRC_URI:+$DISTDIR/}ani-cli.1"
 }
