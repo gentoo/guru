@@ -55,8 +55,8 @@ src_configure() {
 		--enable-cxx
 		$(use_with wallet incompatible-bdb)
 		--bindir="${DOGEDIR}/bin"
-		CPPFLAGS="-I/usr/include/db${DB_VER}"
-		CFLAGS="-I/usr/include/db${DB_VER}"
+		BDB_CFLAGS="-I/usr/include/db${DB_VER}"
+		BDB_LIBS="-L/usr/lib64 -ldb_cxx-${DB_VER}"
 		--with-gui=qt5
 		--with-qt-incdir=/usr/include/qt5
 		$(use_enable zmq)
