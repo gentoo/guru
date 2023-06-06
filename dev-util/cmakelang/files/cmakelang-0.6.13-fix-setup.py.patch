@@ -1,6 +1,14 @@
 --- cmake_format-0.6.13/cmakelang/pypi/setup.py.orig	2023-06-06 12:33:22.631609182 +0200
 +++ cmake_format-0.6.13/cmakelang/pypi/setup.py	2023-06-06 12:33:46.126544329 +0200
-@@ -61,97 +61,3 @@
+@@ -25,6 +25,7 @@
+         "cmakelang.lint",
+         "cmakelang.parse",
+         "cmakelang.parse.funs",
++        "cmakelang.templates",
+     ],
+     version=VERSION,
+     description="Language tools for cmake (format, lint, etc)",
+@@ -61,97 +62,3 @@
      },
      install_requires=["six>=1.13.0"]
  )

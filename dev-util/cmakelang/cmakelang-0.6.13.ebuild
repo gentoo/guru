@@ -27,6 +27,8 @@ BDEPEND="
 	${RDEPEND}
 "
 
+DOCS=( cmakelang/doc/README.rst )
+
 PATCHES=(
 	"${FILESDIR}/cmakelang-0.6.13-fix-setup.py.patch"
 )
