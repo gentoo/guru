@@ -3,13 +3,63 @@
 <pkgmetadata>
 	<longdescription>
 		The command line file manager.
-		By default most features are enabled, customizing this requires adding CFLAGS:
+		More information about the use flags can be found here:
 		https://github.com/leo-arch/clifm/blob/master/src/README.md#compiling-features-inout
 	</longdescription>
 	<maintainer type="person">
 		<email>michaelzcyang@gmail.com</email>
 		<name>Michael Yang</name>
 	</maintainer>
+	<use>
+		<flag name="archive">
+			Archive manipulation support (extraction/decompression, listing, repacking, mounting)
+		</flag>
+		<flag name="bleach">
+			Support for Bleach, the built-in file names cleaner
+		</flag>
+		<flag name="emoji">
+			Enable icons and set them to use the noto-emoji font (see <pkg>media-fonts/noto-emoji</pkg>)
+		</flag>
+		<flag name="fzf">
+			Enable support for tab completion via <pkg>app-shells/fzf</pkg>
+		</flag>
+		<flag name="highlight">
+			Syntax highlighting support
+		</flag>
+		<flag name="icons">
+			Enable icons and set them to use icons-in-terminal (see https://github.com/sebastiencs/icons-in-terminal)
+		</flag>
+		<flag name="lira">
+			Add Lira as the default built-in resource opener
+		</flag>
+		<flag name="magic">
+			Use libmagic from <pkg>sys-apps/file</pkg> to query file MIME types (instead of using the output of the file command)
+		</flag>
+		<flag name="nerdfonts">
+			Enable icons and set them to use NerdFonts
+		</flag>
+		<flag name="nls">
+			Add translations support (via <pkg>sys-devel/gettext</pkg>)
+		</flag>
+		<flag name="posix">
+			Force POSIX.1-2008 compliance, removing support for Linux-specific "file birth time" information
+		</flag>
+		<flag name="profiles">
+			Enable support for creating, switching, renaming, and deleting of user profiles
+		</flag>
+		<flag name="qsort">
+			Use Alexey Tourbin's faster qsort implementation
+		</flag>
+		<flag name="suggestions">
+			Autosuggestion support
+		</flag>
+		<flag name="tags">
+			Built-in file tagging system support
+		</flag>
+		<flag name="trash">
+			FreeDesktop compliant trash system support
+		</flag>
+	</use>
 	<upstream>
 		<remote-id type="github">leo-arch/clifm</remote-id>
 	</upstream>
