@@ -5,4 +5,12 @@
 		<email>cyber+gentoo@sysrq.in</email>
 		<name>Anna</name>
 	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>George Dietrich</name>
+			<email>george@dietrich.app</email>
+		</maintainer>
+		<doc>https://athenaframework.org/Negotiation</doc>
+		<remote-id type="github">athena-framework/negotiation</remote-id>
+	</upstream>
 </pkgmetadata>
