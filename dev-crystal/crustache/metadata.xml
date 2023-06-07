@@ -5,4 +5,10 @@
 		<email>cyber+gentoo@sysrq.in</email>
 		<name>Anna</name>
 	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>TSUYUSATO Kitsune</name>
+			<email>make.just.on@gmail.com</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>
