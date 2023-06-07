@@ -5,4 +5,14 @@
 		<email>cyber+gentoo@sysrq.in</email>
 		<name>Anna</name>
 	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Ary Borenszweig</name>
+			<email>aborenszweig@manas.tech</email>
+		</maintainer>
+		<maintainer>
+			<name>Brian J. Cardiff</name>
+			<email>bcardiff@manas.tech</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>
