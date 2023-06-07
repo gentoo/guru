@@ -47,5 +47,12 @@ src_prepare() {
 	./extract.sh
 
 	# Fix the Makefile
-	sed -i 's|prefix = /usr/local|prefix = $(DESTDIR)/usr|g' Makefile
+	sed -i \
+		-e 's|prefix = /usr/local|prefix = $(DESTDIR)/usr|g' \
+		-e 's/^all: check /all: /' \
+		Makefile
+
+	# Respect CFLAGS in other Makefiles
+	sed -i 's/-ggdb3 -O0//' keymap/Makefile res/Makefile
+
 }
