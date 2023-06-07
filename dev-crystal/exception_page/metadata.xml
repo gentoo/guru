@@ -5,4 +5,14 @@
 		<email>cyber+gentoo@sysrq.in</email>
 		<name>Anna</name>
 	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Paul Smith</name>
+			<email>paulcsmith0218@gmail.com</email>
+		</maintainer>
+		<maintainer>
+			<name>Sijawusz Pur Rahnama</name>
+			<email>sija@sija.pl</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>
