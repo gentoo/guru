@@ -15,6 +15,8 @@ LICENSE="WTFPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
+BDEPEND="test? ( app-text/xmldiff[${PYTHON_USEDEP}] )"
+
 distutils_enable_tests pytest
 
 pkg_postinst() {
