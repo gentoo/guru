@@ -7,5 +7,9 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="github">matthewmcgarvey/webdrivers.cr</remote-id>
+		<maintainer>
+			<name>Matthew McGarvey</name>
+			<email>matthewmcgarvey14@gmail.com</email>
+		</maintainer>
 	</upstream>
 </pkgmetadata>
