@@ -5,4 +5,10 @@
 		<email>cyber+gentoo@sysrq.in</email>
 		<name>Anna</name>
 	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Omar Roth</name>
+			<email>omarroth@protonmail.com</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>
