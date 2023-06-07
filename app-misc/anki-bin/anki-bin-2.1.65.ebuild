@@ -9,7 +9,7 @@ EAPI=8
 # The configuration with Python 3.{10,11} was tested on a limited number of machines and is not guaranteed to work.
 
 PYTHON_COMPAT=( python3_{10..11} )
-inherit desktop python-single-r1 pypi xdg
+inherit desktop optfeature python-single-r1 pypi xdg
 
 MY_PN=${PN%-bin}
 DESCRIPTION="A spaced-repetition memory training program (flash cards)"
@@ -75,4 +75,19 @@ src_install() {
 	newicon "${DISTDIR}"/${P}.png ${MY_PN}.png
 	newmenu "${DISTDIR}"/${P}.desktop ${MY_PN}.desktop
 	newman "${DISTDIR}"/${P}.1 ${MY_PN}.1
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+	optfeature "LaTeX in cards" "app-text/texlive[extra] app-text/dvipng"
+	optfeature "sound support" media-video/mpv media-video/mplayer
+	if use qt6; then
+		ewarn "Recording support is broken for Qt6 until dev-qt/multimedia"
+		ewarn "implements support for ALSA or PulseAudio."
+		ewarn "Consider running Anki with Qt5 if you need recordings."
+	else
+		optfeature "recording support" "media-sound/lame[frontend] dev-python/PyQt5[multimedia]"
+	fi
+	einfo "You can customize the LaTeX header for your cards to fit your needs:"
+	einfo "Notes > Manage Note Types > Options"
 }
