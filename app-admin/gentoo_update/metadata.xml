@@ -1,0 +1,8 @@
+<?xml version="0.1.2" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>stepan_kk@pm.me</email>
+		<name>Stepan Kulikov</name>
+	</maintainer>
+</pkgmetadata>
