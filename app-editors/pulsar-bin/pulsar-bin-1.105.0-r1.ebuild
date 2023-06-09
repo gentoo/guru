@@ -7,12 +7,14 @@ inherit desktop xdg
 
 DESCRIPTION="A Community-led Hyper-Hackable Text Editor"
 HOMEPAGE="https://pulsar-edit.dev/"
-SRC_URI="https://github.com/pulsar-edit/pulsar/releases/download/v${PV}/Linux.pulsar-${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	amd64? ( https://github.com/pulsar-edit/pulsar/releases/download/v${PV}/Linux.pulsar-${PV}.tar.gz -> ${P}-amd64.tar.gz )
+	arm64? ( https://github.com/pulsar-edit/pulsar/releases/download/v${PV}/ARM.Linux.pulsar-${PV}-arm64.tar.gz -> ${P}-arm64.tar.gz )
+"
 
 LICENSE="MIT"
 SLOT="0"
-# Need different downloads for other architectures; untested
-KEYWORDS="-* ~amd64"
+KEYWORDS="-* ~amd64 ~arm64"
 RESTRICT="test"
 
 S="${WORKDIR}/pulsar-${PV}"
@@ -50,6 +52,14 @@ RDEPEND="
 QA_PREBUILT="/opt/Pulsar/*"
 QA_PRESTRIPPED="/opt/Pulsar/resources/*"  # Files are already stripped
 
+src_unpack(){
+	default
+
+	if use arm64; then
+		mv "pulsar-${PV}-arm64" "pulsar-${PV}" || die
+	fi
+}
+
 src_prepare(){
 	default
 
@@ -58,26 +68,18 @@ src_prepare(){
 }
 
 src_install(){
-	insinto /opt/Pulsar
-	doins -r "${S}"/*
-	dosym ../../opt/Pulsar/resources/pulsar.sh "${EPREFIX}"/usr/bin/pulsar
-	fperms +x /opt/Pulsar/resources/pulsar.sh
-	fperms +x /opt/Pulsar/pulsar
+	dodir /opt/Pulsar
+	mv "${S}"/* "${ED}"/opt/Pulsar
 
-	# I will use only npm provided with package itself
-	# as nodejs is not required to make it working (and it is really big).
-	fperms +x /opt/Pulsar/resources/app/ppm/bin/{apm,node,npm}
-
-	# Bug 798459
-	fperms +x /opt/Pulsar/resources/app.asar.unpacked/node_modules/{vscode-ripgrep/bin/rg,dugite/git/bin/git}
-	fperms +x /opt/Pulsar/resources/app.asar.unpacked/node_modules/fuzzy-finder/node_modules/vscode-ripgrep/bin/rg
-	fperms +x /opt/Pulsar/resources/app.asar.unpacked/node_modules/whats-my-line/node_modules/dugite/git/bin/git
+	dosym ../../opt/Pulsar/resources/pulsar.sh /usr/bin/pulsar
 
 	# Bug #906939
-	rm "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/tree-sitter-bash/build/node_gyp_bins/python3
-	rmdir "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/tree-sitter-bash/build/node_gyp_bins
+	if use amd64; then
+		rm "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/tree-sitter-bash/build/node_gyp_bins/python3
+		rmdir "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/tree-sitter-bash/build/node_gyp_bins
+	fi
 
-	doicon resources/pulsar.png
+	doicon "${ED}"/opt/Pulsar/resources/pulsar.png
 	make_desktop_entry "/usr/bin/pulsar %F" "Pulsar" "pulsar" \
 		"GNOME;GTK;Utility;TextEditor;Development;" \
 		"GenericName=Text Editor\nStartupNotify=true\nStartupWMClass=pulsar\n" \
