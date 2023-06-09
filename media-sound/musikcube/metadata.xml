@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>zhuyifei1999@gmail.com</email>
+		<name>YiFei Zhu</name>
+	</maintainer>
+	<use>
+		<flag name="alsa">Build plugin for alsa-out.</flag>
+		<flag name="pipewire">Build plugin to support pipewire.</flag>
+		<flag name="pulseaudio">Build plugin to support pulseaudio.</flag>
+		<flag name="sndio">Build plugin to support sndio</flag>
+		<flag name="portaudio">Build plugin to support portaudio</flag>
+		<flag name="libopenmpt">Build plugin to support playing MOD music aka tracker music through libopenmpt</flag>
+		<flag name="mpris">
+			Build plugin to support MPRIS. needs systemd/elogind or basu USE flags.
+			MPRIS (Media Player Remote Interfacing Specification) is a standard D-Bus interface which aims to provide a common programmatic API for controlling media players.
+		</flag>
+		<flag name="systemd">Build plugin to support MPRIS using systemd.</flag>
+		<flag name="elogind">Build plugin to support MPRIS using elogind.</flag>
+		<flag name="basu">Build plugin to support MPRIS using basu.</flag>
+	</use>
+	<upstream>
+		<bugs-to>https://github.com/clangen/musikcube/issues</bugs-to>
+		<changelog>https://github.com/clangen/musikcube/releases</changelog>
+		<doc>https://github.com/clangen/musikcube/wiki</doc>
+		<remote-id type="github">clangen/musikcube</remote-id>
+	</upstream>
+</pkgmetadata>
