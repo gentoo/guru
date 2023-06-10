@@ -40,7 +40,7 @@ RDEPEND="
 	dev-qt/qtdeclarative:5[widgets]
 	dev-qt/qtgraphicaleffects:5
 	dev-qt/qtgui:5[dbus,jpeg,png]
-	dev-qt/qtimageformats
+	dev-qt/qtimageformats:5
 	dev-qt/qtmultimedia:5[gstreamer,qml,widgets]
 	dev-qt/qtquickcontrols2:5[widgets]
 	dev-qt/qtsvg:5
