@@ -25,20 +25,15 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 DEPEND="app-arch/bzip2"
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}"/makefile.patch )
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.10-include.patch
+	"${FILESDIR}"/${PN}-1.10-iostream.patch
+	"${FILESDIR}"/${PN}-1.10-makefile.patch
+)
 
 DOCS=( Readme.md )
 
 boinc-app_add_deps
-
-src_prepare() {
-	default
-
-	# error: inlining failed in call to ‘always_inline’ ‘int fprintf(FILE*, const char*, ...)’: target specific option mismatch
-	sed  -i src/main.cpp \
-		-e 's/stdio.h/iostream/' \
-		-e 's/fprintf(stderr, \(.*\))/std::cerr << \1/g' || die
-}
 
 src_compile() {
 	tc-export CC CXX

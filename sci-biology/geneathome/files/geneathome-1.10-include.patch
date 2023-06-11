@@ -1,0 +1,12 @@
+Fixes build with GCC 13.
+
+--- a/src/simd/Vector.hpp
++++ b/src/simd/Vector.hpp
+@@ -23,6 +23,7 @@
+ 
+ #include <type_traits>
+ #include <cassert>
++#include <cstdint>
+ 
+ // std::negation requires C++17, so defined own one
+ template<typename B>
