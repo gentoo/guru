@@ -32,6 +32,7 @@ DEPEND="
 	dev-cpp/asio
 	libopenmpt? (
 		media-libs/libopenmpt
+		media-sound/mpg123
 	)
 	mpris? (
 		|| (
@@ -78,16 +79,17 @@ src_configure() {
 		-DENABLE_PIPEWIRE=$(usex pipewire true false)
 		$(usex pulseaudio '' -DLIBPULSE=LIBPULSE-NOTFOUND)
 		$(usex portaudio '' -DLIBPORTAUDIO=LIBPORTAUDIO-NOTFOUND)
-
-		if use mpris then
-			-DUSE_ELOGIND=$(usex elogind true false)
-			-DUSE_BASU=$(usex basu true false)
-		fi
-
 		$(usex libopenmpt '' -DLIBOPENMPT=LIBOPENMPT-NOTFOUND)
 		$(usex sndio '' -DLIBSNDIO=LIBSNDIO-NOTFOUND)
 		-DBUILD_STANDALONE=false
 	)
+
+	if use mpris; then
+		mycmakeargs+=(
+			-DUSE_ELOGIND=$(usex elogind true false)
+			-DUSE_BASU=$(usex basu true false)
+		)
+	fi
 
 	cmake_src_configure
 }
