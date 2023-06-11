@@ -15,11 +15,18 @@ LICENSE="WTFPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND="test? ( app-text/xmldiff[${PYTHON_USEDEP}] )"
+BDEPEND="
+	test? (
+		app-text/xmldiff[${PYTHON_USEDEP}]
+		dev-python/pyyaml[${PYTHON_USEDEP}]
+		$(python_gen_cond_dep \
+			'dev-python/tomli[${PYTHON_USEDEP}]' 3.10 )
+	)
+"
 
 distutils_enable_tests pytest
 
 pkg_postinst() {
-	optfeature "toml support" dev-python/tomli
 	optfeature "yaml support" dev-python/pyyaml
+	optfeature "toml support" dev-python/tomli
 }
