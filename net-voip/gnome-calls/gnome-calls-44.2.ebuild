@@ -7,17 +7,18 @@ VALA_USE_DEPEND="vapigen"
 inherit vala meson gnome2-utils optfeature virtualx xdg
 
 MY_PN="${PN#gnome-}"
-LCU_COMMIT="619dd91561ad470db3d0e0e263ebc35d787afd2e"
+MY_P="${MY_PN}-v${PV}"
+LCU_COMMIT="6798b38d4d66d069751151b3e9a202c6de8d7f3c"
 DESCRIPTION="Phone dialer and call handler"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/calls"
 GITLAB="https://gitlab.gnome.org"
 SRC_URI="
-	${GITLAB}/GNOME/${MY_PN}/-/archive/v${PV}/${MY_PN}-v${PV}.tar.bz2
+	${GITLAB}/GNOME/${MY_PN}/-/archive/v${PV}/${MY_P}.tar.bz2
 	${GITLAB}/World/Phosh/libcall-ui/-/archive/${LCU_COMMIT}/libcall-ui-${LCU_COMMIT}.tar.bz2
 "
-S="${WORKDIR}/${MY_PN}-v${PV}"
+S="${WORKDIR}/${MY_P}"
 
-LICENSE="CC-BY-SA-4.0 GPL-3+ LGPL-2+ LGPL-2.1+"
+LICENSE="CC0-1.0 CC-BY-SA-4.0 GPL-3+ LGPL-2+ LGPL-2.1+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 IUSE="gtk-doc man"
@@ -31,11 +32,11 @@ RDEPEND="
 	dev-libs/libgee:0.8=[introspection]
 	dev-libs/libpeas
 	gnome-extra/evolution-data-server:=[vala]
-	>=gui-libs/libhandy-1.0.0:1[introspection,vala]
+	gui-libs/libhandy:1[introspection,vala]
 	media-libs/gstreamer:1.0[introspection]
-	>=media-sound/callaudiod-0.0.5
+	media-sound/callaudiod
 	net-libs/sofia-sip
-	>=net-misc/modemmanager-1.12.0:=[introspection]
+	net-misc/modemmanager:=[introspection]
 	x11-libs/gtk+:3
 "
 DEPEND="${RDEPEND}
