@@ -36,11 +36,6 @@ dev-python/hypothesmith
 dev-python/libcst
 dev-python/ufmt
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-05-02)
-# Python library with no revdeps left in tree.
-# Masked for removal in 30 days.
-dev-python/promise
-
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-04-20)
 # Depends on masked java-virtuals/servlet-api. Unused Java library.
 # Removal on 2023-05-22.
