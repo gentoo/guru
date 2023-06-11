@@ -20,8 +20,8 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="archive +bleach emoji +highlight icons +lira +magic nerdfonts nls
-		posix qsort +suggestions +tags"
+IUSE="archive +bleach emoji fzf +highlight icons +lira +magic nerdfonts nls
+		posix +profiles qsort +tags +trash"
 
 PATCHES=(
 	"${FILESDIR}/${P}-gentoo-skip-manpage-compression.patch"
@@ -44,6 +44,7 @@ RDEPEND="
 		app-arch/atool
 		sys-fs/archivemount
 	)
+	fzf? ( app-shells/fzf )
 	nls? ( virtual/libintl )
 "
 BDEPEND=""
@@ -55,21 +56,23 @@ src_compile() {
 			append-cflags "-D_NERD"
 		elif use icons; then
 			append-cflags "-D_ICONS_IN_TERMINAL"
+		else
+			append-cflags "-D_NO_ICONS"
 		fi
-		# do not append -D_NO_ICONS here, causes compilation error
 	fi
 
 	use posix && append-cflags "-D_BE_POSIX"
 	use archive || append-cflags "-D_NO_ARCHIVING"
 	use bleach || append-cflags "-D_NO_BLEACH"
 	use nls || append-cflags "-D_NO_GETTEXT"
-	# -D_NO_FZF causes compile error
+	use fzf || append-cflags "-D_NO_FZF"
 	use highlight || append-cflags "-D_NO_HIGHLIGHT"
 	use lira || append-cflags "-D_NO_LIRA"
 	use magic || append-cflags "-D_NO_MAGIC"
-	use suggestions || append-cflags "-D_NO_SUGGESTIONS"
+	# -D_NO_SUGGESTIONS causes compile error
 	use tags || append-cflags "-D_NO_TAGS"
-	# -D_NO_TRASH causes compile error
+	use profiles || append-cflags "-D_NO_PROFILES"
+	use trash || append-cflags "-D_NO_TRASH"
 	use qsort && append-cflags "-D_TOURBIN_QSORT"
 
 	# makefile defaults to /usr/local
@@ -89,13 +92,9 @@ pkg_postinst() {
 		use icons && ewarn "Warning: Use flag 'icons' overridden by 'emoji'"
 	elif use nerdfonts; then
 		use icons && ewarn "Warning: Use flag 'icons' overridden by 'nerdfonts'"
-	else
-		use icons || ewarn "Warning: as none of 'emoji', 'nerdfonts', or 'icons' were selected, \
-			'emoji' was implicitly enabled to prevent compilation error"
 	fi
 	optfeature_header "Install additional optional functionality:"
 	optfeature "mounting/unmounting support" sys-apps/udevil sys-fs/udisks
-	optfeature "fzf tab completion and more" app-shells/fzf
 	if use archive; then
 		optfeature_header "Install additional archive support:"
 		optfeature "zstd support" app-arch/zstd
