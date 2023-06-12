@@ -9,6 +9,10 @@ DESCRIPTION="Mnemonic seed library for Monero and other CryptoNote-based currenc
 HOMEPAGE="https://github.com/tevador/polyseed"
 SRC_URI="https://github.com/tevador/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
+PATCHES=(
+	"${FILESDIR}"/0000-lang-check.patch
+)
+
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"

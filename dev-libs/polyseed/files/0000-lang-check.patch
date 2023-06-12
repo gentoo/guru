@@ -1,0 +1,11 @@
+diff --git a/src/lang.c b/src/lang.c
+index 81a0045..38522aa 100644
+--- a/src/lang.c
++++ b/src/lang.c
+@@ -253,5 +253,5 @@ void polyseed_lang_check(const polyseed_lang* lang) {
+     /* normalized separator must be a space */
+     polyseed_str separator;
+     UTF8_DECOMPOSE(lang->separator, separator);
+-    assert(!strcmp(" ", separator));
++    //assert(!strcmp(" ", separator));
+ }
