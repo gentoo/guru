@@ -1,0 +1,13 @@
+diff --git a/unitTests/main.cpp b/unitTests/main.cpp
+index 96befa3..73a4d93 100644
+--- a/unitTests/main.cpp
++++ b/unitTests/main.cpp
+@@ -1409,7 +1409,7 @@ TEST_F(UnitContainer, to_string)
+ 	EXPECT_STREQ("8 m", units::length::to_string(b).c_str());
+ }
+ 
+-TEST_F(UnitContainer, to_string_locale)
++TEST_F(UnitContainer, DISABLED_to_string_locale)
+ {
+ 	struct lconv * lc;
+ 

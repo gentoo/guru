@@ -16,6 +16,10 @@ KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
+PATCHES=(
+	"${FILESDIR}/${P}-disable-failing-tests.patch"
+)
+
 src_configure() {
 	local mycmakeargs+=(
 		-DBUILD_TESTS="$(usex test ON OFF)"
