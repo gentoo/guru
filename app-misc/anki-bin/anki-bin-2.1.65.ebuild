@@ -81,13 +81,7 @@ pkg_postinst() {
 	xdg_pkg_postinst
 	optfeature "LaTeX in cards" "app-text/texlive[extra] app-text/dvipng"
 	optfeature "sound support" media-video/mpv media-video/mplayer
-	if use qt6; then
-		ewarn "Recording support is broken for Qt6 until dev-qt/qtmultimedia"
-		ewarn "implements support for ALSA or PulseAudio."
-		ewarn "Consider running Anki with Qt5 if you need recordings."
-	else
-		optfeature "recording support" "media-sound/lame[frontend] dev-python/PyQt5[multimedia]"
-	fi
+	optfeature "recording support" "media-sound/lame[frontend] dev-python/PyQt$(usex qt6 6 5)[multimedia]"
 	einfo "You can customize the LaTeX header for your cards to fit your needs:"
 	einfo "Notes > Manage Note Types > Options"
 }
