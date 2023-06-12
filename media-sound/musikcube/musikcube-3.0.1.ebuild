@@ -62,6 +62,7 @@ RDEPEND="${DEPEND}"
 
 BDEPEND="
 	dev-util/cmake
+	dev-util/patchelf
 "
 PATCHES=(
 	"${FILESDIR}/musikcube-3.0.1-tinfow.patch"
