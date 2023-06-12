@@ -13,6 +13,7 @@
 <app_version>
 	<app_name>gene_pcim</app_name>
 	<version_num>110</version_num>
+	<plan_class>avx</plan_class>
 	<file_ref>
 		<file_name>gene_pcim_v@PV@</file_name>
 		<main_program/>
