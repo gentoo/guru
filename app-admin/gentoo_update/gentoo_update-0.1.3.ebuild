@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 
 distutils_enable_tests unittest
 
-src_test() {
+python_test() {
 	cd tests || die
-	distutils-r1_src_test
+	eunittest
 }
