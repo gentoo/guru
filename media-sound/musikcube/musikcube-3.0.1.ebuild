@@ -86,10 +86,12 @@ src_configure() {
 	)
 
 	if use mpris; then
-		mycmakeargs+=(
-			-DUSE_ELOGIND=$(usex elogind true false)
-			-DUSE_BASU=$(usex basu true false)
-		)
+		if use elogind; then
+			 mycmakeargs+=( -DUSE_ELOGIND=true )
+		fi
+		if use basu; then
+			 mycmakeargs+=( -DUSE_BASU=true )
+		fi
 	fi
 
 	cmake_src_configure
