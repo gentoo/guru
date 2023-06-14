@@ -33,17 +33,14 @@ RDEPEND="
 	dev-libs/libfmt:=
 	dev-libs/olm
 	>=dev-libs/openssl-1.1.0:=
-	>=dev-libs/qtkeychain-0.12.0:=
+	>=dev-libs/qtkeychain-0.14.1-r1:=[qt6]
 	>=dev-libs/re2-0.2022.04.01:=
 	dev-libs/spdlog:=
-	dev-qt/qtconcurrent:5
-	dev-qt/qtdeclarative:5[widgets]
-	dev-qt/qtgraphicaleffects:5
-	dev-qt/qtgui:5[dbus,jpeg,png]
-	dev-qt/qtimageformats:5
-	dev-qt/qtmultimedia:5[gstreamer,qml,widgets]
-	dev-qt/qtquickcontrols2:5[widgets]
-	dev-qt/qtsvg:5
+	dev-qt/qtbase:6[concurrent,dbus,gui,widgets]
+	dev-qt/qtdeclarative:6[widgets]
+	dev-qt/qtimageformats:6
+	dev-qt/qtmultimedia:6[gstreamer]
+	dev-qt/qtsvg:6
 	net-misc/curl[ssl]
 	virtual/notification-daemon
 	voip? (
@@ -55,21 +52,23 @@ RDEPEND="
 		video? (
 			>=media-libs/gst-plugins-base-${MY_GST_V}[opengl]
 			>=media-plugins/gst-plugins-meta-${MY_GST_V}[v4l,vpx]
-			>=media-plugins/gst-plugins-qt5-${MY_GST_V}
 			X? (
 				>=media-plugins/gst-plugins-ximagesrc-${MY_GST_V}
-				x11-libs/libxcb:=
-				x11-libs/xcb-util-wm
 			)
 		)
 	)
+	X? (
+		x11-libs/libxcb:=
+		x11-libs/xcb-util-wm
+	)
 "
+# TODO: gst-plugins-qt6
 DEPEND="
 	dev-cpp/nlohmann_json
 	${RDEPEND}
 "
 BDEPEND="
-	dev-qt/linguist-tools:5
+	dev-qt/qttools:6[linguist]
 	|| (
 		app-text/asciidoc
 		dev-ruby/asciidoctor
@@ -106,12 +105,8 @@ src_configure() {
 		-DVOIP=$(usex voip)
 		-DCMAKE_POSITION_INDEPENDENT_CODE=$(usex pie)
 		-DUSE_BUNDLED_CPPHTTPLIB=no
+		-DX11=$(usex X)
 	)
-	if use video && use X; then
-		mycmakeargs+=("-DSCREENSHARE_X11=yes")
-	else
-		mycmakeargs+=("-DSCREENSHARE_X11=no")
-	fi
 
 	cmake_src_configure
 }
@@ -130,7 +125,11 @@ pkg_postinst() {
 	optfeature "secrets storage support other than kwallet (for example gnome-keyring or keepassxc)" \
 		"dev-libs/qtkeychain[gnome-keyring]"
 	optfeature "additional, less common, image format support" \
-		"kde-frameworks/kimageformats"
+		"kde-frameworks/kimageformats:6"
 
 	xdg_pkg_postinst
+
+	ewarn "since Nheko migrated to Qt 6 there may be some regressions. video streams will"
+	ewarn "probably not work for now. d95d2fcaa9e3b8ab47275d2bf56e5a7ebddd37e7 was the"
+	ewarn "last commit with Qt5 support."
 }
