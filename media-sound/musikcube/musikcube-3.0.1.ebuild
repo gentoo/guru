@@ -48,7 +48,7 @@ DEPEND="
 		media-libs/portaudio
 	)
 	pulseaudio? (
-		media-sound/pulseaudio
+		media-libs/libpulse
 	)
 	sndio? (
 		media-sound/sndio
