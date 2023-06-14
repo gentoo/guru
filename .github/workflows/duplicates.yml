@@ -12,7 +12,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Prepare job
+        run: |
+          LAST_STATUS=$(gh run list -R ${GITHUB_REPOSITORY} \
+            --branch=dev \
+            --workflow=duplicates.yml \
+            --status=completed \
+            --json=event,conclusion \
+            --jq='first(.[] | select(.event != "pull_request")).conclusion'
+          )
+          IRC_NOTIFY=${{ github.repository == 'gentoo/guru' && github.event_name != 'pull_request' }}
+          echo "last_status=${LAST_STATUS}" >> "${GITHUB_ENV}"
+          echo "irc_notify=${IRC_NOTIFY}" >> "${GITHUB_ENV}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check out repository
+        uses: actions/checkout@v3
         with:
           ref: dev
       - name: Setup master gentoo repository
@@ -21,11 +36,19 @@ jobs:
       - name: Check for duplicates
         run: |
           ./scripts/check-duplicates.sh
-      - name: Inform on IRC
-        if: ${{ failure() && github.repository == 'gentoo/guru' && github.event_name != 'pull_request' }}
+      - name: Inform failure on IRC
+        if: ${{ failure() && env.last_status == 'success' && fromJSON(env.irc_notify) }}
         uses: rectalogic/notify-irc@v1
         with:
           channel: "#gentoo-guru"
           server: "irc.libera.chat"
           nickname: "github-ci"
           message: CI failure detected on job ${{ github.workflow }} - ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      - name: Inform recovery on IRC
+        if: ${{ success() && env.last_status != 'success' && fromJSON(env.irc_notify) }}
+        uses: rectalogic/notify-irc@v1
+        with:
+          channel: "#gentoo-guru"
+          server: "irc.libera.chat"
+          nickname: "github-ci"
+          message: CI on job ${{ github.workflow }} is green again. Thanks!
