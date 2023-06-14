@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+			<maintainer>
+					<name>Jelmer Vernooij</name>
+					<email>jelmer@jelmer.uk</email>
+			</maintainer>
+			<remote-id type="pypi">upstream-ontologist</remote-id>
+			<remote-id type="github">jelmer/upstream-ontologist</remote-id>
+	</upstream>
+</pkgmetadata>
