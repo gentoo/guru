@@ -20,7 +20,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RDEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep '
-		>=sys-fs/python-btrfs-12[${PYTHON_USEDEP}]
+		>=dev-python/btrfs-12[${PYTHON_USEDEP}]
 	')
 "
 DEPEND="${RDEPEND}"
