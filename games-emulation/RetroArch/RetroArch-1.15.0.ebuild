@@ -54,7 +54,7 @@ RDEPEND="
 	openal? ( media-libs/openal:0= )
 	opengl? ( media-libs/mesa:0=[gles2?] )
 	osmesa? ( media-libs/mesa:0=[osmesa?] )
-	pulseaudio? ( media-sound/pulseaudio:0= )
+	pulseaudio? ( media-libs/libpulse:0= )
 	sdl? ( >=media-libs/libsdl-1.2.10:0=[joystick] )
 	sdl2? ( media-libs/libsdl2:0=[joystick] )
 	truetype? ( media-libs/freetype:2= )
