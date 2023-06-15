@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<maintainer type="person">
+		<name>Rafael Rondão</name>
+		<email>rafael.rondao@gmail.com</email>
+	</maintainer>
 	<use>
 		<flag name="7zip">Compile in 7z support</flag>
 		<flag name="alsa">ALSA support</flag>
