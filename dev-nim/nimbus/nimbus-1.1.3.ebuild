@@ -16,7 +16,7 @@ HOMEPAGE="
 	https://nimbus.sysrq.in/
 	https://git.sysrq.in/nimbus/about/
 "
-SRC_URI="https://git.sysrq.in/${PN}/snapshot/${P}.tar.bz2"
+SRC_URI="https://git.sysrq.in/${PN}/snapshot/${P}.tar.xz"
 
 LICENSE="Apache-2.0 BSD"
 SLOT="0"
