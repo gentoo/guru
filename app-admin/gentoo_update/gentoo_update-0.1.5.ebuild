@@ -13,6 +13,12 @@ SRC_URI="https://github.com/Lab-Brat/gentoo_update/archive/refs/tags/${PV}.tar.g
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="gentoo_update_cleanup gentoo_update_checkrestart"
+
+RDEPEND="
+	gentoo_update_cleanup? ( app-portage/gentoolkit )
+	gentoo_update_checkrestart? ( app-admin/needrestart )
+"
 
 distutils_enable_tests unittest
 
