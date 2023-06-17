@@ -17,42 +17,46 @@ SRC_URI="
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="-* ~amd64"
+
+# binary package; no tests available
 RESTRICT="test"
 
 S="${WORKDIR}/pulsar-${PV}"
 
 RDEPEND="
-	>=app-accessibility/at-spi2-core-2.46.0
+	app-accessibility/at-spi2-core
+	dev-libs/nspr
 	app-crypt/libsecret
+	dev-libs/expat
+	dev-libs/glib
 	dev-libs/nss
-	dev-libs/openssl
 	dev-libs/openssl-compat
 	dev-vcs/git
 	media-libs/alsa-lib
+	media-libs/mesa
+	net-misc/curl
 	net-print/cups
+	sys-apps/dbus
+	sys-libs/zlib
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf
-	x11-libs/gtk+
-	x11-libs/libnotify
+	x11-libs/gtk+:3[X]
+	x11-libs/libdrm
 	x11-libs/libX11
 	x11-libs/libxcb
 	x11-libs/libXcomposite
-	x11-libs/libXcursor
 	x11-libs/libXdamage
 	x11-libs/libXext
 	x11-libs/libXfixes
-	x11-libs/libXi
 	x11-libs/libxkbcommon
 	x11-libs/libxkbfile
+	x11-libs/libxshmfence
 	x11-libs/libXrandr
-	x11-libs/libXrender
-	x11-libs/libXScrnSaver
-	x11-libs/libXtst
 	x11-libs/pango
 "
 
-QA_PREBUILT="/opt/Pulsar/*"
-QA_PRESTRIPPED="/opt/Pulsar/resources/*"  # Files are already stripped
+QA_PREBUILT="opt/Pulsar/*"
+QA_PRESTRIPPED="opt/Pulsar/resources/*"  # Files are already stripped
 
 src_unpack(){
 	default
@@ -73,12 +77,12 @@ src_install(){
 	dodir /opt/Pulsar
 	mv "${S}"/* "${ED}"/opt/Pulsar
 
-	dosym ../../opt/Pulsar/resources/pulsar.sh /usr/bin/pulsar
+	dosym -r /opt/Pulsar/resources/pulsar.sh /usr/bin/pulsar
 
 	# Bug #906939
 	if use amd64; then
-		rm "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/tree-sitter-bash/build/node_gyp_bins/python3
-		rmdir "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/tree-sitter-bash/build/node_gyp_bins
+		rm "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/tree-sitter-bash/build/node_gyp_bins/python3 || die
+		rmdir "${ED}"/opt/Pulsar/resources/app.asar.unpacked/node_modules/tree-sitter-bash/build/node_gyp_bins || die
 	fi
 
 	doicon "${ED}"/opt/Pulsar/resources/pulsar.png
