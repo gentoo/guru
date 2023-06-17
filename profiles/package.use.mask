@@ -3,6 +3,11 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-06-17)
+# Broken docs build.
+dev-crystal/crikey doc
+dev-crystal/slang doc
+
 # Torokhov Sergey <torokhov-s-a@yandex.ru> (2022-12-09)
 # Masked due to infinite run of tests with USE="openmp"
 ~sci-physics/SU2-7.2.0 openmp
