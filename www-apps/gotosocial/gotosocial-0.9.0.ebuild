@@ -3,16 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
-DOCS_BUILDER="mkdocs"
-DOCS_DEPEND=(
-	dev-python/mkdocs-material
-	dev-python/mkdocs-swagger-ui-tag
-	dev-python/pillow
-	dev-python/regex
-	media-gfx/cairosvg
-)
-inherit python-any-r1 docs go-module systemd tmpfiles
+inherit go-module systemd tmpfiles
 
 DESCRIPTION="Fast, fun, ActivityPub server, powered by Go"
 HOMEPAGE="
@@ -67,8 +58,6 @@ src_compile() {
 	)
 
 	ego build "${myargs[@]}" ./cmd/gotosocial
-
-	use doc && docs_compile
 }
 
 src_test() {
