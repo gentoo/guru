@@ -40,7 +40,6 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.4.1-exm-backtrace.c-include-stdint.h.patch"
 	"${FILESDIR}/${PN}-0.4.1-make-libbacktrace-optional.patch"
 )
 
