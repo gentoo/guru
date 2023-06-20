@@ -14,10 +14,6 @@
 
 # New entries go on top.
 
-# Julien Roy <julien@jroy.ca> (2023-06-20)
-# Depends on dev-dotnet/dotnet-sdk-bin:5 which was dropped from ::gentoo
-x11-drivers/OpenTabletDriver-bin
-
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-06-17)
 # Requires network to build docs.
 # Removal on 2023-07-17.
