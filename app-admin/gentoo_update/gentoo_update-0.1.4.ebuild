@@ -5,7 +5,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..11} )
 
-inherit distutils-r1
+inherit distutils-r1 optfeature
 
 DESCRIPTION="Gentoo Linux updater"
 HOMEPAGE="https://github.com/Lab-Brat/gentoo_update"
@@ -19,4 +19,9 @@ distutils_enable_tests unittest
 python_test() {
 	cd tests || die
 	eunittest
+}
+
+pkg_postinst() {
+	optfeature "--clean support" app-portage/gentoolkit
+	optfeature "--deamon-reload support" app-admin/needrestart
 }
