@@ -23,5 +23,5 @@ python_test() {
 
 pkg_postinst() {
 	optfeature "--clean support" app-portage/gentoolkit
-	optfeature "--deamon-reload support" app-admin/needrestart
+	optfeature "--daemon-restart support" app-admin/needrestart
 }
