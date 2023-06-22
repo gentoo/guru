@@ -5,13 +5,13 @@ EAPI=8
 
 inherit optfeature webapp
 
-UPLOAD_HASH="f011d401810c4281b9487aa58af35835"
+UPLOAD_HASH="a486871ac2e2787c90420001bf782c7a"
 DESCRIPTION="Open-source hosting platform made for podcasters"
 HOMEPAGE="
 	https://castopod.org
 	https://code.castopod.org/adaures/castopod
 "
-SRC_URI="https://code.castopod.org/adaures/${P}/uploads/${UPLOAD_HASH}/${P}.tar.gz"
+SRC_URI="https://code.castopod.org/adaures/${PN}/uploads/${UPLOAD_HASH}/${P}.tar.gz"
 S="${WORKDIR}/${PN}"
 
 LICENSE="AGPL-3+ Apache-2.0 BSD-2 BSD GPL-1+ GPL-2 GPL-2+ GPL-3 LGPL-3 MIT MPL-2.0"
@@ -21,9 +21,6 @@ RDEPEND="
 	>=dev-lang/php-8.1[curl,exif,gd,intl,mysqli,unicode,webp,xml]
 	virtual/httpd-php
 "
-
-# https://code.castopod.org/adaures/castopod/-/issues/345
-RESTRICT="fetch"
 
 src_install() {
 	webapp_src_preinst
