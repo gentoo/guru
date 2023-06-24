@@ -25,12 +25,6 @@ dev-python/mkdocs-swagger-ui-tag
 # Sorry for the inconvenience.
 app-office/lotus123r3
 
-# YiFei Zhu <zhuyifei1999@gmail.com> (2023-05-21)
-# Unmaintained, outdated ebuild, upstream EOL.
-# Use app-editors/pulsar-bin instead.
-# Removal on 2023-06-21.
-app-editors/atom-bin
-
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-05-16)
 # Depend on masked dev-python/toml.
 # Removal on 2023-06-15.
