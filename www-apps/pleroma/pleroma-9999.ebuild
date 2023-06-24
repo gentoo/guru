@@ -102,7 +102,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	optfeature "For Pleroma.Upload.Filters.{Mogrify,Mogrifun} and still image support in Media Preview Proxy" media-gfx/imagemagick
+	optfeature "For Pleroma.Upload.Filters.{Mogrify,Mogrifun} & images in previews" media-gfx/imagemagick
 	optfeature "For video support in Media Preview Proxy" media-video/ffmpeg
 	optfeature "For Pleroma.Upload.Filters.Exiftool.* filters" media-libs/exiftool
 }
