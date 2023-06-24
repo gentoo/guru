@@ -17,10 +17,6 @@ dev-crystal/slang doc
 # https://github.com/mfem/mfem/issues/2243
 sci-libs/mfem netcdf
 
-# Alessandro Barbieri <lssndrbarbieri@gmail.com> (2022-03-10)
-# build failure
-media-libs/skia ffmpeg
-
 # Alessandro Barbieri <lssndrbarbieri@gmail.com> (2021-10-09)
 # build failure with metis
 # https://public.gitlab.polimi.it/DAER/mbdyn/-/issues/101
