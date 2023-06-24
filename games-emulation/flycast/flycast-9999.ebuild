@@ -88,6 +88,10 @@ src_prepare() {
 	# Vulkan-header
 	sed -i -e '/add_subdirectory(core.*Vulkan-Headers)$/,/Vulkan::Headers/d' \
 		-e '/core\/deps\/Vulkan-Headers\/include)/d' CMakeLists.txt
+	sed -i -e 's:SPIRV/GlslangToSpv.h:glslang/&:' core/rend/vulkan/compiler.cpp
+	if use vulkan; then
+		sed -i -e '$atarget_link_libraries(${PROJECT_NAME} PRIVATE glslang-default-resource-limits)' CMakeLists.txt
+	fi
 
 	# Do not use ccache
 	sed -i -e '/find_program(CCACHE_PROGRAM ccache)/d' CMakeLists.txt
