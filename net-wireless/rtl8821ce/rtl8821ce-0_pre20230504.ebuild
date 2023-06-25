@@ -3,8 +3,8 @@
 
 EAPI=8
 
-inherit linux-mod toolchain-funcs
-BUILD_PARAMS="CC=$(tc-getCC) V=1 KSRC=${KERNEL_DIR}"
+inherit linux-mod-r1
+SLOT=0
 
 COMMIT="a478095a45d8aa957b45be4f9173c414efcacc6f"
 
@@ -19,7 +19,17 @@ DEPEND="virtual/linux-sources"
 
 S="${WORKDIR}/rtl8821ce-${COMMIT}"
 
-MODULE_NAMES="8821ce(net/wireless)"
-BUILD_TARGETS="all"
 CONFIG_CHECK="~!RTW88_8821CE"
 ERROR_RTL8XXXU="The RTW88_8821CE module is enabled in the kernel; it conflicts with this module."
+
+src_compile() {
+	linux-mod-r1_pkg_setup
+
+	local modlist=(8821ce=net/wireless)
+
+	linux-mod-r1_src_compile
+}
+
+src_install() {
+	linux-mod-r1_src_install
+}
