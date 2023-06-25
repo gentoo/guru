@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit linux-mod
-
-COMMIT="528ae31705764d78cc117abd604d9b799bd52543"
+inherit linux-mod-r1
+SLOT=0
+COMMIT="f2fc8af7ab58d2123eed1aa4428e713cdfc27976"
 
 DESCRIPTION="Realtek 8192EU driver module for Linux kernel"
 HOMEPAGE="https://github.com/Mange/rtl8192eu-linux-driver"
@@ -17,13 +17,17 @@ DEPEND="virtual/linux-sources"
 
 S="${WORKDIR}/rtl8192eu-linux-driver-${COMMIT}"
 
-MODULE_NAMES="8192eu(net/wireless)"
-BUILD_TARGETS="all"
-
 CONFIG_CHECK="~!RTL8XXXU"
 ERROR_RTL8XXXU="The RTL8XXXXU module is enabled in the kernel; it conflicts with this module."
 
-pkg_setup() {
-	linux-mod_pkg_setup
-	BUILD_PARAMS="KSRC=${KERNEL_DIR}"
+src_compile() {
+	linux-mod-r1_pkg_setup
+	local modlist=(8192eu=net/wireless)
+	local modargs=(KSRC=$KV_OUT_DIR)
+
+	linux-mod-r1_src_compile
+}
+
+src_install() {
+	linux-mod-r1_src_install
 }
