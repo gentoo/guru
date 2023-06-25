@@ -12,13 +12,14 @@ if [[ "${PV}" == *9999 ]]; then
 	EGIT_REPO_URI="https://git.pleroma.social/pleroma/pleroma"
 	# git-r3 doesn't allows make.conf override of MIN_CLONE_TYPE, so done here for my self-hosted branch
 	EGIT_MIN_CLONE_TYPE="single+tags"
+	KEYWORDS=""
 else
 	SRC_URI="https://git.pleroma.social/pleroma/pleroma/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
 	S="${WORKDIR}/${PN}-v${PV}"
+	KEYWORDS="~amd64"
 fi
 LICENSE="AGPL-3 CC-BY-SA-4.0 CC-BY-4.0"
 SLOT="otp"
-KEYWORDS="~amd64"
 IUSE=""
 
 # Requires network access (https) as long as elixir dependencies aren't packaged
