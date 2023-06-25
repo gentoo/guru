@@ -442,7 +442,7 @@ RDEPEND="${DEPEND}"
 # 06-2023: zlib-ng is unconditionally and statically built using system cmake
 BDEPEND="
 	dev-util/cmake
-	dev-util/pkgconf
+	virtual/pkgconfig
 	test? (
 		  app-arch/xz-utils
 		  dev-vcs/git
