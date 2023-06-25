@@ -5,11 +5,14 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..11} )
 DISTUTILS_USE_PEP517=flit
-inherit distutils-r1 optfeature
+PYPI_PN="gentle-mxml"
+inherit distutils-r1 optfeature pypi
 
 DESCRIPTION="Gentoo Lazy Entry - a metadata.xml generator"
-HOMEPAGE="https://git.sysrq.in/gentle"
-SRC_URI="https://git.sysrq.in/${PN}/snapshot/${P}.tar.xz"
+HOMEPAGE="
+	https://pypi.org/project/gentle-mxml/
+	https://git.sysrq.in/gentle
+"
 
 LICENSE="WTFPL-2"
 SLOT="0"
@@ -18,7 +21,9 @@ KEYWORDS="~amd64"
 BDEPEND="
 	test? (
 		app-text/xmldiff[${PYTHON_USEDEP}]
+		dev-python/pkginfo[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
+		dev-python/rdflib[${PYTHON_USEDEP}]
 		$(python_gen_cond_dep \
 			'dev-python/tomli[${PYTHON_USEDEP}]' 3.10)
 	)
@@ -27,6 +32,8 @@ BDEPEND="
 distutils_enable_tests pytest
 
 pkg_postinst() {
+	optfeature "PKG-INFO support" dev-python/pkginfo
 	optfeature "yaml support" dev-python/pyyaml
+	optfeature "rdf support" dev-python/rdflib
 	optfeature "toml support" dev-python/tomli
 }
