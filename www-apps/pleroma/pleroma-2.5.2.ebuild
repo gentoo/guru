@@ -27,8 +27,8 @@ IUSE=""
 RESTRICT="network-sandbox"
 
 BDEPEND="
-	dev-lang/erlang:=
-	dev-lang/elixir:=
+	<dev-lang/erlang-26:=
+	<dev-lang/elixir-1.15:=
 	dev-util/cmake
 	dev-util/rebar
 	dev-elixir/hex
