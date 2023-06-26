@@ -22,6 +22,7 @@ microsoft.aspnetcore.app.runtime.linux-musl-arm-6.0.10
 microsoft.aspnetcore.app.runtime.linux-musl-arm64-6.0.10
 microsoft.aspnetcore.app.runtime.linux-musl-x64-6.0.10
 microsoft.aspnetcore.app.runtime.linux-x64-6.0.10
+microsoft.aspnetcore.app.runtime.linux-x64-6.0.12
 microsoft.bcl.asyncinterfaces-6.0.0
 microsoft.codeanalysis.analyzers-3.3.3
 microsoft.codeanalysis.bannedapianalyzers-3.3.3
@@ -39,6 +40,7 @@ microsoft.netcore.app.runtime.linux-musl-arm-6.0.10
 microsoft.netcore.app.runtime.linux-musl-arm64-6.0.10
 microsoft.netcore.app.runtime.linux-musl-x64-6.0.10
 microsoft.netcore.app.runtime.linux-x64-6.0.10
+microsoft.netcore.app.runtime.linux-x64-6.0.12
 microsoft.netcore.platforms-1.1.0
 microsoft.netcore.targets-1.1.0
 microsoft.win32.primitives-4.3.0
