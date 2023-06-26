@@ -5,4 +5,7 @@
 		<email>smaniotto.nicola@gmail.com</email>
 		<name>Nicola Smaniotto</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">divVerent/aaaaxy</remote-id>
+	</upstream>
 </pkgmetadata>
