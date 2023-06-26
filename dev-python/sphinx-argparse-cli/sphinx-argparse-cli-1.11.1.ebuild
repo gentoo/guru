@@ -23,6 +23,6 @@ BDEPEND="dev-python/hatch-vcs[${PYTHON_USEDEP}]"
 distutils_enable_tests pytest
 
 src_configure() {
-	distutils-r1_src-configure
+	distutils-r1_src_configure
 	export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 }
