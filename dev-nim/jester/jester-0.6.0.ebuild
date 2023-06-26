@@ -47,7 +47,6 @@ src_unpack() {
 src_prepare() {
 	default
 
-	sed "s/0.5.0/${PV}/" -i jester.nimble || die
 	sed "s/nimble \(c --hints:off\) -y/nim \1/g" -i tests/tester.nim || die
 }
 
