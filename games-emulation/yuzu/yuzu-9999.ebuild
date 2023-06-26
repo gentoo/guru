@@ -1,4 +1,4 @@
-# Copyright 2020-2022 Gentoo Authors
+# Copyright 2020-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ inherit cmake git-r3 toolchain-funcs xdg
 DESCRIPTION="An emulator for Nintendo Switch"
 HOMEPAGE="https://yuzu-emu.org"
 EGIT_REPO_URI="https://github.com/yuzu-emu/yuzu-mainline"
-EGIT_SUBMODULES=( '-*' 'dynarmic' 'sirit' 'xbyak' )
+EGIT_SUBMODULES=( '-*' 'dynarmic' 'sirit' 'xbyak' 'tzdb_to_nx' 'externals/nx_tzdb/tzdb_to_nx/externals/tz/tz' )
 # Dynarmic is not intended to be generic, it is tweaked to fit emulated processor
 # TODO wait 'xbyak' waiting version bump. see #860816
 
@@ -33,11 +33,16 @@ RDEPEND="
 	sys-libs/zlib
 	virtual/libusb:1
 	cubeb? ( media-libs/cubeb )
+	dev-util/spirv-headers
 	qt5? (
 		>=dev-qt/qtcore-5.15:5
 		>=dev-qt/qtgui-5.15:5
 		>=dev-qt/qtmultimedia-5.15:5
 		>=dev-qt/qtwidgets-5.15:5
+		>=dev-qt/qtdbus-5.15:5
+		>=dev-qt/qtconcurrent-5.15:5
+		>=dev-qt/linguist-tools-5.15:5
+		webengine? ( >=dev-qt/qtwebengine-5.15:5 )
 	)
 	sdl? (
 		>=media-libs/libsdl2-2.0.18
@@ -47,7 +52,7 @@ DEPEND="${RDEPEND}
 	dev-cpp/cpp-httplib
 	dev-cpp/cpp-jwt
 	system-vulkan? ( >=dev-util/vulkan-headers-1.3.246 )
-	test? ( <dev-cpp/catch-3:0 )
+	test? ( >dev-cpp/catch-3:0 )
 "
 BDEPEND="
 	>=dev-cpp/nlohmann_json-3.8.0
