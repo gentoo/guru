@@ -47,7 +47,11 @@ def check_maintainers(maintainers: Iterator[Maintainer]) -> Iterator[Maintainer]
 
 
 if __name__ == '__main__':
-    files = input().split()
+    try:
+        files = input().split()
+    except EOFError:
+        sys.exit(0)
+
     maintainers = set(read_all_maintainers(files))
     missing_maintainers = tuple(check_maintainers(maintainers))
     sys.exit(int(len(missing_maintainers) != 0))
