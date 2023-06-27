@@ -1,0 +1,30 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -154,7 +154,7 @@ ENDIF()
+ 
+ IF (NOT DEFINED BORINGSSL_INCLUDE AND DEFINED BORINGSSL_DIR)
+     FIND_PATH(BORINGSSL_INCLUDE NAMES openssl/ssl.h
+-                PATHS ${BORINGSSL_DIR}/include
++                PATHS ${BORINGSSL_DIR}/include/boringssl
+                 NO_DEFAULT_PATH)
+ ENDIF()
+ # This must be done before adding other include directories to take
+--- a/bin/CMakeLists.txt
++++ b/bin/CMakeLists.txt
+@@ -1,5 +1,6 @@
+ # Copyright (c) 2017 - 2022 LiteSpeed Technologies Inc.  See LICENSE.
+ 
++link_directories("/usr/lib64/boringssl")
+ include_directories(${CMAKE_CURRENT_BINARY_DIR})
+ LIST(APPEND LIBS ${EVENT_LIB})
+ 
+--- a/src/liblsquic/CMakeLists.txt
++++ b/src/liblsquic/CMakeLists.txt
+@@ -94,6 +94,7 @@ IF(NOT MSVC)
+ set_source_files_properties(ls-qpack/lsqpack.c PROPERTIES COMPILE_FLAGS ${QPACK_FLAGS})
+ ENDIF()
+ 
++link_directories(/usr/lib64/boringssl)
+ include_directories(ls-qpack)
+ 
+ IF(PROJECT_NAME STREQUAL "openlitespeed")
