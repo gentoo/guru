@@ -26,9 +26,10 @@ RESTRICT="!test? ( test )"
 DEPEND="
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5
-	dev-qt/qtcharts:5
+	dev-qt/qtcharts:5[qml]
 	dev-qt/qtsvg:5
 	dev-qt/linguist-tools:5
+	dev-qt/qtquickcontrols2:5
 	dev-libs/quazip
 	dev-libs/botan:2
 	sys-auth/polkit
