@@ -215,27 +215,25 @@ DESCRIPTION="Custom Launcher for Final Fantasy XIV Online (Crossplatform rewrite
 
 HOMEPAGE="https://github.com/goatcorp/XIVLauncher.Core/"
 
-IUSE="+aria2 act dx9 +libsecret abi_x86_32"
-
-REQUIRED_USE="act? ( abi_x86_32 ) dx9? ( abi_x86_32 )"
+IUSE="+aria2 +libsecret"
 
 RDEPEND="
 	aria2? ( net-misc/aria2 )
 	libsecret? ( app-crypt/libsecret )
-	media-libs/libsdl2[abi_x86_32?]
-	sys-apps/attr[abi_x86_32?]
-	media-libs/fontconfig[abi_x86_32?]
-	media-libs/lcms[abi_x86_32?]
-	dev-libs/libxml2[abi_x86_32?]
-	x11-libs/libXcursor[abi_x86_32?]
-	x11-libs/libXrandr[abi_x86_32?]
-	x11-libs/libXdamage[abi_x86_32?]
-	x11-libs/libXi[abi_x86_32?]
-	sys-devel/gettext[abi_x86_32?]
-	sys-libs/libunwind[abi_x86_32?]
-	media-libs/freetype:2[abi_x86_32?]
-	media-libs/glu[abi_x86_32?]
-	x11-libs/libSM[abi_x86_32?]
+	media-libs/libsdl2
+	sys-apps/attr
+	media-libs/fontconfig
+	media-libs/lcms
+	dev-libs/libxml2
+	x11-libs/libXcursor
+	x11-libs/libXrandr
+	x11-libs/libXdamage
+	x11-libs/libXi
+	sys-devel/gettext
+	|| ( sys-libs/libunwind sys-libs/llvm-libunwind )
+	media-libs/freetype:2
+	media-libs/glu
+	x11-libs/libSM
 "
 
 XIVQL_COMMIT="77115d3f7d920179ce83f0708ec97ba2450ce795"
