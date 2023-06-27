@@ -5,4 +5,7 @@
         <email>telans@posteo.de</email>
         <name>James Beddek</name>
     </maintainer>
+    <upstream>
+        <remote-id type="github">libkeepass/pykeepass</remote-id>
+    </upstream>
 </pkgmetadata>

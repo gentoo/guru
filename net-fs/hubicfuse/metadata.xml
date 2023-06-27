@@ -45,4 +45,7 @@
 		hubicfuse /mnt/hubic1 fuse user,noauto,settings_filename=/root/hubic/account1.settings 0 0
 		hubicfuse /mnt/hubic2 fuse user,noauto,settings_filename=/root/hubic/account2.settings 0 0
 	</longdescription>
+	<upstream>
+		<remote-id type="github">TurboGit/hubicfuse</remote-id>
+	</upstream>
 </pkgmetadata>

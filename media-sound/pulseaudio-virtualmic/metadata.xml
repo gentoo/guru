@@ -5,4 +5,7 @@
         <name>Matthias Coppens</name>
         <email>coppens.matthias.abc@gmail.com</email>
     </maintainer>
+    <upstream>
+        <remote-id type="github">MatthiasCoppens/pulseaudio-virtualmic</remote-id>
+    </upstream>
 </pkgmetadata>

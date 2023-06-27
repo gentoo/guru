@@ -5,4 +5,8 @@
 		<email>davidroman96@gmail.com</email>
 		<name>David Roman</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">peter-wangxu/persist-queue</remote-id>
+		<remote-id type="pypi">persist-queue</remote-id>
+	</upstream>
 </pkgmetadata>

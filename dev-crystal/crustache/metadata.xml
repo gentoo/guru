@@ -10,5 +10,6 @@
 			<name>TSUYUSATO Kitsune</name>
 			<email>make.just.on@gmail.com</email>
 		</maintainer>
+		<remote-id type="github">MakeNowJust/crustache</remote-id>
 	</upstream>
 </pkgmetadata>

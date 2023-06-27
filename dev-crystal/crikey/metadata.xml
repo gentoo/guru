@@ -10,5 +10,6 @@
 			<name>Dominic Muller</name>
 			<email>nicklink483@gmail.com</email>
 		</maintainer>
+		<remote-id type="github">domgetter/crikey</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -11,5 +11,6 @@
   </longdescription>
   <upstream>
     <bugs-to>https://github.com/MustafaSalih1993/tai/issues</bugs-to>
+    <remote-id type="github">mustafasalih1993/tai</remote-id>
   </upstream>
 </pkgmetadata>

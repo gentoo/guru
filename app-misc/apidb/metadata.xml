@@ -11,4 +11,7 @@
 		<flag name="commands">Build commands</flag>
 		<flag name="corelibs">Build Abtract layer</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">azaeldevel/apidb</remote-id>
+	</upstream>
 </pkgmetadata>

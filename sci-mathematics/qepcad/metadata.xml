@@ -10,6 +10,7 @@
       <email>wcbrown@usna.edu</email>
       <name>Chris Brown</name>
     </maintainer>
+    <remote-id type="github">Alessandro-Barbieri/qepcad</remote-id>
   </upstream>
   <longdescription lang="en">
 The Program

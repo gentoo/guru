@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
 		<email>telans@posteo.de</email>
@@ -8,4 +8,7 @@
 	<use>
 		<flag name="sky130">Build the Skywater 130nm PDK.</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">RTimothyEdwards/open_pdks</remote-id>
+	</upstream>
 </pkgmetadata>

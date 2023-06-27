@@ -5,4 +5,7 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">sagiegurari/cargo-make</remote-id>
+	</upstream>
 </pkgmetadata>

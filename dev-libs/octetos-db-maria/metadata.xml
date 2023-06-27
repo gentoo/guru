@@ -5,4 +5,7 @@
 		<email>azael.devel@gmail.com</email>
 		<name>Azael Reyes</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">azaeldevel/octetos-db-maria</remote-id>
+	</upstream>
 </pkgmetadata>

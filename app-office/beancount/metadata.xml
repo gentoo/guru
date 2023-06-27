@@ -11,4 +11,7 @@
 		and generate and export a variety of reports, such as balance sheets or
 		income statements.
 	</longdescription>
+	<upstream>
+		<remote-id type="github">beancount/beancount</remote-id>
+	</upstream>
 </pkgmetadata>

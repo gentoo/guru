@@ -5,4 +5,7 @@
 		<email>pascal.jaeger@leimstift.de</email>
 		<name>Pascal Jaeger</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">exercism/cli</remote-id>
+	</upstream>
 </pkgmetadata>

@@ -11,5 +11,6 @@
 	</longdescription>
 	<upstream>
 		<bugs-to>https://github.com/sdushantha/fontpreview/issues</bugs-to>
+		<remote-id type="github">sdushantha/fontpreview</remote-id>
 	</upstream>
 </pkgmetadata>

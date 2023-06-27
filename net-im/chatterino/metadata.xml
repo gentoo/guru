@@ -5,4 +5,7 @@
     <name>Maria Keating</name>
     <email>maria@mariakeating.com</email>
   </maintainer>
+  <upstream>
+    <remote-id type="github">pajlada/signals</remote-id>
+  </upstream>
 </pkgmetadata>

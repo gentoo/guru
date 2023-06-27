@@ -5,4 +5,7 @@
     <email>brian.gloyer@gmail.com</email>
     <name>brian gloyer</name>
   </maintainer>
+  <upstream>
+    <remote-id type="github">gsl-lite/gsl-lite</remote-id>
+  </upstream>
 </pkgmetadata>

@@ -23,4 +23,7 @@
 	from your vimrc, having this installed will ensure you still have some
 	basic amenities.
 	</longdescription>
+	<upstream>
+		<remote-id type="github">tpope/vim-sensible</remote-id>
+	</upstream>
 </pkgmetadata>

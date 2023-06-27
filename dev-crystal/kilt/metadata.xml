@@ -10,5 +10,6 @@
 			<name>Jerome Gravel-Niquet</name>
 			<email>jeromegn@gmail.com</email>
 		</maintainer>
+		<remote-id type="github">jeromegn/kilt</remote-id>
 	</upstream>
 </pkgmetadata>

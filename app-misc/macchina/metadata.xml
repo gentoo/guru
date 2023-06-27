@@ -8,6 +8,6 @@
 	<upstream>
 		<doc>https://github.com/Macchina-CLI/macchina</doc>
 		<bugs-to>https://github.com/Macchina-CLI/macchina/issues</bugs-to>
+		<remote-id type="github">Macchina-CLI/macchina</remote-id>
 	</upstream>
 </pkgmetadata>
-

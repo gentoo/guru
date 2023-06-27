@@ -5,4 +5,7 @@
 	<name>Samuel Bauer</name>
 	<email>samuel.bauer@yahoo.fr</email>
 </maintainer>
+<upstream>
+	<remote-id type="github">nicman23/dkms-hid-nintendo</remote-id>
+</upstream>
 </pkgmetadata>

@@ -11,5 +11,6 @@ It was designed to help remind *nix system administrators of options for command
 	</longdescription>
 	<upstream>
 		<bugs-to>https://github.com/cheat/cheat/issues</bugs-to>
+		<remote-id type="github">cheat/cheat</remote-id>
 	</upstream>
 </pkgmetadata>

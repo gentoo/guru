@@ -11,4 +11,7 @@
 	<slots>
 		<subslots>Correspond to SONAME</subslots>
 	</slots>
+	<upstream>
+		<remote-id type="github">machinezone/IXWebSocket</remote-id>
+	</upstream>
 </pkgmetadata>

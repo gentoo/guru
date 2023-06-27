@@ -10,5 +10,6 @@
 			<name>Paul Smith</name>
 			<email>paulcsmith0218@gmail.com</email>
 		</maintainer>
+		<remote-id type="github">luckyframework/lucky_flow</remote-id>
 	</upstream>
 </pkgmetadata>

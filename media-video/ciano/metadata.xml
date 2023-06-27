@@ -13,5 +13,6 @@
 	</longdescription>
 	<upstream>
 		<bugs-to>https://github.com/robertsanseries/ciano/issues</bugs-to>
+		<remote-id type="github">robertsanseries/ciano</remote-id>
 	</upstream>
 </pkgmetadata>

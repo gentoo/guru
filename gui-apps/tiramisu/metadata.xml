@@ -5,4 +5,7 @@
     <name>Aisha Tammy</name>
     <email>gentoo@aisha.cc</email>
   </maintainer>
+  <upstream>
+    <remote-id type="github">Sweets/tiramisu</remote-id>
+  </upstream>
 </pkgmetadata>

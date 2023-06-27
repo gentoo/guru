@@ -10,5 +10,6 @@
 			<name>Ali Naqvi</name>
 			<email>syed.alinaqvi@gmail.com</email>
 		</maintainer>
+		<remote-id type="github">naqvis/crystar</remote-id>
 	</upstream>
 </pkgmetadata>

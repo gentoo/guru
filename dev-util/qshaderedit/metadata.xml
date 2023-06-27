@@ -5,4 +5,7 @@
 	<name>mazes_80</name>
 	<email>samuel.bauer@yahoo.fr</email>
 </maintainer>
+<upstream>
+	<remote-id type="gitlab">mazes_80/qshaderedit</remote-id>
+</upstream>
 </pkgmetadata>

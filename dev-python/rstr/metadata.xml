@@ -13,5 +13,6 @@
 	</longdescription>
 	<upstream>
 		<remote-id type="pypi">rstr</remote-id>
+		<remote-id type="github">leapfrogonline/rstr</remote-id>
 	</upstream>
 </pkgmetadata>

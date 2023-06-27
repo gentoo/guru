@@ -9,5 +9,6 @@
 		<bugs-to>https://github.com/xxxserxxx/gotop/issues</bugs-to>
 		<changelog>https://github.com/xxxserxxx/gotop/blob/master/CHANGELOG.md</changelog>
 		<doc>https://github.com/xxxserxxx/gotop/wiki</doc>
+		<remote-id type="github">xxxserxxx/gotop</remote-id>
 	</upstream>
 </pkgmetadata>

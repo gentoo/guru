@@ -11,5 +11,6 @@
 	</longdescription>
 	<upstream>
 		<bugs-to>https://github.com/MasterQ32/kristall/issues</bugs-to>
+		<remote-id type="github">MasterQ32/kristall</remote-id>
 	</upstream>
 </pkgmetadata>

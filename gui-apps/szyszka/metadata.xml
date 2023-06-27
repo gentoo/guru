@@ -7,5 +7,6 @@
   </maintainer>
   <upstream>
     <bugs-to>https://github.com/qarmin/szyszka/issues</bugs-to>
+    <remote-id type="github">qarmin/szyszka</remote-id>
   </upstream>
 </pkgmetadata>

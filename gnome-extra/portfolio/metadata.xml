@@ -8,5 +8,6 @@
 	<upstream>
 		<doc>https://github.com/tchx84/Portfolio</doc>
 		<bugs-to>https://github.com/tchx84/Portfolio/issues</bugs-to>
+		<remote-id type="github">tchx84/Portfolio</remote-id>
 	</upstream>
 </pkgmetadata>

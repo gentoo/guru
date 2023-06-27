@@ -8,6 +8,6 @@
 	<upstream>
 		<doc>https://github.com/leftwm/leftwm-theme</doc>
 		<bugs-to>https://github.com/leftwm/leftwm-theme/issues</bugs-to>
+		<remote-id type="github">leftwm/leftwm-theme</remote-id>
 	</upstream>
 </pkgmetadata>
-

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
 		<email>duje.mihanovic@skole.hr</email>
 		<name>Duje Mihanović</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">cruegge/pam-gnupg</remote-id>
+	</upstream>
 </pkgmetadata>

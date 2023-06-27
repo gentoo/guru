@@ -10,4 +10,7 @@
     Walld automatically changes the wallpaper. It sets the wallpaper through feh. It changes the wallpaper by default every 30 minutes.
     Walld has a feature that grabs the 16 most prominent colors from the wallpaper that it has set. Walld puts them in a file located at $HOME/.walld/colors. This file can be included in your .Xresources. Walld then reloads your .Xresources with xrdb.
   </longdescription>
+  <upstream>
+    <remote-id type="github">Dotz0cat/walld</remote-id>
+  </upstream>
 </pkgmetadata>

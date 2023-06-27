@@ -5,4 +5,7 @@
 		<email>freijon@pm.me</email>
 		<name>Jonas Frei</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">wfxr/code-minimap</remote-id>
+	</upstream>
 </pkgmetadata>

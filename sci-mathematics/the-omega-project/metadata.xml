@@ -22,4 +22,7 @@ but this may just be an equivalent iteration space expressed in a different way.
     <flag name="htmldoc">Build html documentation</flag>
     <flag name="petit">Build Petit, a educational/research tool for analyzing array data dependences</flag>
   </use>
+  <upstream>
+    <remote-id type="github">davewathaverford/the-omega-project</remote-id>
+  </upstream>
 </pkgmetadata>

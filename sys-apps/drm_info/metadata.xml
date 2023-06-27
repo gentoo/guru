@@ -8,4 +8,7 @@
 	<use>
 		<flag name="pci">Print PCI device names via libpci</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">ascent12/drm_info</remote-id>
+	</upstream>
 </pkgmetadata>

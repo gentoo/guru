@@ -10,5 +10,6 @@
 			<name>Michael Miller</name>
 			<email>icy.arctic.fox@gmail.com</email>
 		</maintainer>
+		<remote-id type="github">icy-arctic-fox/spectator</remote-id>
 	</upstream>
 </pkgmetadata>

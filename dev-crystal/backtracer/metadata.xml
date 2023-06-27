@@ -10,5 +10,6 @@
 			<name>Sijawusz Pur Rahnama</name>
 			<email>sija@sija.pl</email>
 		</maintainer>
+		<remote-id type="github">Sija/backtracer.cr</remote-id>
 	</upstream>
 </pkgmetadata>

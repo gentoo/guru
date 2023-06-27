@@ -14,5 +14,6 @@
 			<name>Brian J. Cardiff</name>
 			<email>bcardiff@manas.tech</email>
 		</maintainer>
+		<remote-id type="github">crystal-lang/crystal-sqlite3</remote-id>
 	</upstream>
 </pkgmetadata>

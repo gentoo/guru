@@ -14,4 +14,7 @@
 		stays unchanged for about 0.1s, vim-paste-easy will `set
 		nopaste` for you.
 	</longdescription>
+	<upstream>
+		<remote-id type="github">ConradIrwin/vim-bracketed-paste</remote-id>
+	</upstream>
 </pkgmetadata>

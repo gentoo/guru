@@ -11,5 +11,6 @@
 	<upstream>
 		<doc>https://github.com/lib-cpp/properties-cpp</doc>
 		<bugs-to>https://github.com/lib-cpp/properties-cpp/issues</bugs-to>
+		<remote-id type="launchpad">properties-cpp</remote-id>
 	</upstream>
 </pkgmetadata>

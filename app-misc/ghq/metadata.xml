@@ -5,4 +5,7 @@
 		<email>kenichi.taka@gmail.com</email>
 		<name>Kenichi Takahashi</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">x-motemen/ghq</remote-id>
+	</upstream>
 </pkgmetadata>

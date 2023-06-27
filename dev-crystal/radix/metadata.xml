@@ -10,5 +10,6 @@
 			<name>Luis Lavena</name>
 			<email>luislavena@gmail.com</email>
 		</maintainer>
+		<remote-id type="github">luislavena/radix</remote-id>
 	</upstream>
 </pkgmetadata>

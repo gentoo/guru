@@ -9,4 +9,7 @@
 		This package adds menu entries in GRUB for the CustomRescueCD. You can
 		add custom bootoptions for CustomRescueCD in a special config file.
 	</longdescription>
+	<upstream>
+		<remote-id type="sourceforge">customrescuecd</remote-id>
+	</upstream>
 </pkgmetadata>

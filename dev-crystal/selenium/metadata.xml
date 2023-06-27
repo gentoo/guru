@@ -10,5 +10,6 @@
 			<name>Matthew McGarvey</name>
 			<email>matthewmcgarvey14@gmail.com</email>
 		</maintainer>
+		<remote-id type="github">matthewmcgarvey/selenium.cr</remote-id>
 	</upstream>
 </pkgmetadata>

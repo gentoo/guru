@@ -9,4 +9,8 @@
         <email>cyber+gentoo@sysrq.in</email>
         <name>Anna</name>
     </maintainer>
+    <upstream>
+        <remote-id type="github">MagicStack/asyncpg</remote-id>
+        <remote-id type="pypi">asyncpg</remote-id>
+    </upstream>
 </pkgmetadata>

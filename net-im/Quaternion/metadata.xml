@@ -8,4 +8,7 @@
 	<use>
 		<flag name="keychain">Enable support for password storage via <pkg>dev-libs/qtkeychain</pkg></flag>
 	</use>
+	<upstream>
+		<remote-id type="github">quotient-im/Quaternion</remote-id>
+	</upstream>
 </pkgmetadata>

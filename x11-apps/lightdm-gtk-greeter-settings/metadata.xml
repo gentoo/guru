@@ -8,4 +8,7 @@
   <use>
     <flag name="xfce">Adds <pkg>x11-apps/lightdm-gtk-greeter-settings</pkg> to Xfce settings manager</flag>
   </use>
+  <upstream>
+    <remote-id type="github">xubuntu/lightdm-gtk-greeter-settings</remote-id>
+  </upstream>
 </pkgmetadata>

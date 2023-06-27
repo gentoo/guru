@@ -11,5 +11,6 @@
 	<upstream>
 		<doc>https://source.puri.sm/Librem5/phosh</doc>
 		<bugs-to>https://source.puri.sm/Librem5/phosh/-/issues</bugs-to>
+		<remote-id type="gnome-gitlab">World/Phosh/phosh</remote-id>
 	</upstream>
 </pkgmetadata>

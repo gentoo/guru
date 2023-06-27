@@ -5,4 +5,7 @@
         <name>Samuel Bauer</name>
         <email>samuel.bauer@yahoo.fr</email>
 </maintainer>
+<upstream>
+        <remote-id type="github">ReinUsesLisp/sirit</remote-id>
+</upstream>
 </pkgmetadata>

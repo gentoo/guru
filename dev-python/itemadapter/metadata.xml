@@ -5,4 +5,7 @@
 		<email>gentoo@aisha.cc</email>
 		<name>Aisha Tammy</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">scrapy/itemadapter</remote-id>
+	</upstream>
 </pkgmetadata>

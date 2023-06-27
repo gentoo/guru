@@ -5,4 +5,7 @@
 		<email>davidroman96@gmail.com</email>
 		<name>David Roman</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">phase1geo/Minder</remote-id>
+	</upstream>
 </pkgmetadata>

@@ -8,4 +8,7 @@
     <use>
         <flag name="fusion">"fusion" AES-GCM engine, optimized for QUIC and other protocols that use short AEAD blocks</flag>
     </use>
+    <upstream>
+        <remote-id type="github">h2o/picotls</remote-id>
+    </upstream>
 </pkgmetadata>

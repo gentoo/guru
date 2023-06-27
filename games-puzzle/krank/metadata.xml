@@ -5,5 +5,7 @@
 		<email>samuel.bauer@yahoo.fr</email>
 		<name>Samuel Bauer</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="gitlab">mazes_80/krank</remote-id>
+	</upstream>
 </pkgmetadata>
-

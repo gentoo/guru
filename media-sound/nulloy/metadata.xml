@@ -8,4 +8,7 @@
 	<use>
 		<flag name="skins">Add a few themes, enable if you want dark</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">nulloy/nulloy</remote-id>
+	</upstream>
 </pkgmetadata>

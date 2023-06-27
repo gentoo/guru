@@ -16,5 +16,6 @@
 	<upstream>
 		<remote-id type="pypi">yaql</remote-id>
 		<remote-id type="github">openstack/yaql</remote-id>
+		<remote-id type="launchpad">yaql</remote-id>
 	</upstream>
 </pkgmetadata>

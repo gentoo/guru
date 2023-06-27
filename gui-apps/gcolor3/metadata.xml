@@ -7,5 +7,6 @@
 	</maintainer>
 	<upstream>
 		<bugs-to>https://gitlab.gnome.org/World/gcolor3/-/issues</bugs-to>
+		<remote-id type="gnome-gitlab">World/gcolor3</remote-id>
 	</upstream>
 </pkgmetadata>

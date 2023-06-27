@@ -10,5 +10,6 @@
 			<name>Omar Roth</name>
 			<email>omarroth@protonmail.com</email>
 		</maintainer>
+		<remote-id type="github">iv-org/protodec</remote-id>
 	</upstream>
 </pkgmetadata>

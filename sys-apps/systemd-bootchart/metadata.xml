@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
 		<email>gentoo-bugzilla2@steev.me.uk</email>
 		<name>Steven Davies</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">systemd/systemd-bootchart</remote-id>
+	</upstream>
 </pkgmetadata>

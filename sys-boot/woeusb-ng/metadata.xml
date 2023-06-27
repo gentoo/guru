@@ -5,4 +5,7 @@
     <email>duje.mihanovic@skole.hr</email>
     <name>Duje Mihanović</name>
   </maintainer>
+  <upstream>
+    <remote-id type="github">WoeUSB/WoeUSB-ng</remote-id>
+  </upstream>
 </pkgmetadata>

@@ -13,4 +13,7 @@
 		<flag name="server">Build ALVR server</flag>
 		<flag name="vulkan">Build ALVR vulkan layer</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">alvr-org/ALVR</remote-id>
+	</upstream>
 </pkgmetadata>

@@ -15,4 +15,7 @@
 	<use>
 		<flag name="icons">Install icon themes</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">rtlewis88/rtl88-Themes</remote-id>
+	</upstream>
 </pkgmetadata>

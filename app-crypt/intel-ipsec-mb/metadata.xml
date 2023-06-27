@@ -10,4 +10,7 @@
 		<flag name="safe-lookup">lookups which depend on sensitive information are implemented with constant time functions</flag>
 		<flag name="safe-param">input parameters are checked, looking generally for NULL pointers or an incorrect input length</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">intel/intel-ipsec-mb</remote-id>
+	</upstream>
 </pkgmetadata>

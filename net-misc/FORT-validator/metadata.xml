@@ -5,4 +5,7 @@
 		<email>alarig@swordarmor.fr</email>
 		<name>Alarig Le Lay</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">NICMx/FORT-validator</remote-id>
+	</upstream>
 </pkgmetadata>

@@ -5,4 +5,7 @@
     <email>telans@posteo.de</email>
     <name>James Beddek</name>
   </maintainer>
+  <upstream>
+    <remote-id type="github">monero-project/supercop</remote-id>
+  </upstream>
 </pkgmetadata>

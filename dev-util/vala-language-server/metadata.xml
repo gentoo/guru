@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- Maintainer Needed -->
+	<!-- maintainer-needed -->
 	<use>
 		<flag name="plugins"></flag>
 		<flag name="debug_mem"></flag>
 	</use>
+	<upstream>
+		<remote-id type="github">vala-lang/vala-language-server</remote-id>
+	</upstream>
 </pkgmetadata>

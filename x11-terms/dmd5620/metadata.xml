@@ -6,4 +6,7 @@
     <name>Vladislav Dudar</name>
     <description>Primary maintainer</description>
   </maintainer>
+  <upstream>
+    <remote-id type="github">sethm/dmd_gtk</remote-id>
+  </upstream>
 </pkgmetadata>

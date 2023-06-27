@@ -8,4 +8,7 @@
 <use>
 	<flag name="vulkan">Compile vulkan backend</flag>
 </use>
+<upstream>
+	<remote-id type="github">flyinghead/flycast</remote-id>
+</upstream>
 </pkgmetadata>

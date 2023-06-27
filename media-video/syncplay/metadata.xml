@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
-
 <pkgmetadata>
 	<maintainer type="person">
 		<email>smaniotto.nicola@gmail.com</email>
@@ -10,4 +9,7 @@
 		<flag name="client">Install the Syncplay client</flag>
 		<flag name="server">Install the Syncplay server</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">Syncplay/syncplay</remote-id>
+	</upstream>
 </pkgmetadata>

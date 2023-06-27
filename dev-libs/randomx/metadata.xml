@@ -5,4 +5,7 @@
     <email>telans@posteo.de</email>
     <name>James Beddek</name>
   </maintainer>
+  <upstream>
+    <remote-id type="github">tevador/RandomX</remote-id>
+  </upstream>
 </pkgmetadata>

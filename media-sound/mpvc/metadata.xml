@@ -11,4 +11,7 @@
 		This tool is inspired by mpc, a command line interface for the Music Player Daemon.
 		It uses subcommands to control any mpv instance over a given socket.
 	</longdescription>
+	<upstream>
+		<remote-id type="gitlab">mpv-ipc/mpvc</remote-id>
+	</upstream>
 </pkgmetadata>

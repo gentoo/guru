@@ -8,4 +8,7 @@
 	<longdescription lang="en">
 	Open Surge is a fun 2D retro platformer inspired by old-school Sonic games. Play, hack, become a creator and unleash your creativity!
 	</longdescription>
+	<upstream>
+		<remote-id type="github">alemart/opensurge</remote-id>
+	</upstream>
 </pkgmetadata>

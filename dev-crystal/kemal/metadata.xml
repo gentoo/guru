@@ -10,5 +10,6 @@
 			<name>Serdar Dogruyol</name>
 			<email>dogruyolserdar@gmail.com</email>
 		</maintainer>
+		<remote-id type="github">kemalcr/kemal</remote-id>
 	</upstream>
 </pkgmetadata>

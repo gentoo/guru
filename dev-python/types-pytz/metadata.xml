@@ -8,5 +8,6 @@
   <upstream>
     <bugs-to>https://github.com/python/typeshed/issues</bugs-to>
     <remote-id type="pypi">types-pytz</remote-id>
+    <remote-id type="github">python/typeshed</remote-id>
   </upstream>
 </pkgmetadata>

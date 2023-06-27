@@ -5,4 +5,7 @@
 		<email>contact@hacktivis.me</email>
 		<name>Haelwenn (lanodan) Monnier</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">MycroftAI/mimic1</remote-id>
+	</upstream>
 </pkgmetadata>

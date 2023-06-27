@@ -10,5 +10,6 @@
 			<name>Shootingfly</name>
 			<email>xiefei@yolanda.hk</email>
 		</maintainer>
+		<remote-id type="github">shootingfly/water</remote-id>
 	</upstream>
 </pkgmetadata>

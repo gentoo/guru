@@ -9,4 +9,7 @@
 	A graphical user interface which displays the systemd's journal and 
 	lets the user filter the output without the command line.
 	</longdescription>
+	<upstream>
+		<remote-id type="github">pentix/qjournalctl</remote-id>
+	</upstream>
 </pkgmetadata>

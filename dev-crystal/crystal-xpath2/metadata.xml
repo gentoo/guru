@@ -10,5 +10,6 @@
 			<name>Ali Naqvi</name>
 			<email>syed.alinaqvi@gmail.com</email>
 		</maintainer>
+		<remote-id type="github">naqvis/crystal-xpath2</remote-id>
 	</upstream>
 </pkgmetadata>

@@ -10,5 +10,6 @@
 			<name>Paul Hoffer</name>
 			<email>git@paulhoffer.com</email>
 		</maintainer>
+		<remote-id type="github">phoffer/inflector.cr</remote-id>
 	</upstream>
 </pkgmetadata>

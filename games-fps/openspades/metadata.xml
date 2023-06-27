@@ -11,4 +11,7 @@
     terrain and plenty of game modes (including the well-known Capture the Flag)
     created by the community.
   </longdescription>
+  <upstream>
+    <remote-id type="github">yvt/openspades</remote-id>
+  </upstream>
 </pkgmetadata>

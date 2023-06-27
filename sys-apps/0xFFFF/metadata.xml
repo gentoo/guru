@@ -25,5 +25,8 @@ using the flasher to avoid questions, problems or so.
   <longdescription lang="cs">
 Program pro nahrání firmwaru do Nokií založených na Linuxu (jako např. Nokia N900).
   </longdescription>
+  <upstream>
+<remote-id type="github">pali/0xFFFF</remote-id>
+  </upstream>
 </pkgmetadata>
 

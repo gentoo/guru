@@ -8,5 +8,6 @@
   </maintainer>
   <upstream>
     <remote-id type="pypi">XenAPI</remote-id>
+    <remote-id type="github">xapi-project/xen-api</remote-id>
   </upstream>
 </pkgmetadata>

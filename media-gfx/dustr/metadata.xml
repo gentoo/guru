@@ -10,4 +10,7 @@
 
 	This tool is especially useful when you know the output size, but you need to pick the most aesthetically pleasing crop of the image.
 	</longdescription>
+	<upstream>
+		<remote-id type="github">aearil/dustr</remote-id>
+	</upstream>
 </pkgmetadata>

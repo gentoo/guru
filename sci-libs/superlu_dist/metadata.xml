@@ -32,4 +32,7 @@ estimate the condition number, calculate the relative backward
 error, and estimate error bounds for the refined solutions.
 This is the distributed version (MPI based).
 	</longdescription>
+	<upstream>
+		<remote-id type="github">xiaoyeli/superlu_dist</remote-id>
+	</upstream>
 </pkgmetadata>

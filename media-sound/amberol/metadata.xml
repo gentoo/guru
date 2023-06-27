@@ -8,5 +8,6 @@
 	<upstream>
 		<bugs-to>https://gitlab.gnome.org/World/amberol/-/issues</bugs-to>
 		<doc>https://gitlab.gnome.org/World/amberol/-/blob/main/README.md</doc>
+		<remote-id type="gnome-gitlab">World/amberol</remote-id>
 	</upstream>
 </pkgmetadata>

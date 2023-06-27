@@ -8,4 +8,7 @@
 	<use>
 		<flag name="libhandy">Support for features using gui-libs/libhandy</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">uowuo/abaddon</remote-id>
+	</upstream>
 </pkgmetadata>

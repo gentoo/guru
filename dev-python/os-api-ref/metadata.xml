@@ -13,4 +13,7 @@ Sphinx stanza rest_method describing the method and resource for a REST API call
 Sphinx stanza rest_parameters used to insert semi-structured data into the RST files describing the parameters users cansend with the request. The stanza points to a structured YAML file, parameters.yaml.
 Sphinx stanza rest_status_code used to insert pointers to error or status codes returned by the service. Points to a structured YAML file, http_codes.yaml.
 	</longdescription>
+	<upstream>
+		<remote-id type="pypi">os-api-ref</remote-id>
+	</upstream>
 </pkgmetadata>

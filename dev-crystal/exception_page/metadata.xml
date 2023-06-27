@@ -14,5 +14,6 @@
 			<name>Sijawusz Pur Rahnama</name>
 			<email>sija@sija.pl</email>
 		</maintainer>
+		<remote-id type="github">crystal-loot/exception_page</remote-id>
 	</upstream>
 </pkgmetadata>

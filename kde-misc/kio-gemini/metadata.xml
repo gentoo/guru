@@ -7,6 +7,7 @@
 			<email>mail@tobias.rautenkranz.ch</email>
 		</maintainer>
 		<bugs-to>https://invent.kde.org/tobias/kio-gemini/-/issues</bugs-to>
+		<remote-id type="gitlab">tobiasrautenkranz/kio-gemini</remote-id>
 	</upstream>
 	<maintainer type="person">
 		<email>cyber+gentoo@sysrq.in</email>

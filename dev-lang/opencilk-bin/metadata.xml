@@ -5,4 +5,7 @@
 		<name>Florian Schmaus</name>
 		<email>flow@gentoo.org</email>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">OpenCilk/opencilk-project</remote-id>
+	</upstream>
 </pkgmetadata>

@@ -5,7 +5,7 @@
 		<email>0xdutra@gmail.com</email>
 		<name>Gabriel M. Dutra</name>
 	</maintainer>
-  	<upstream>
-    	<remote-id type="github">orf/gping</remote-id>
+	<upstream>
+		<remote-id type="github">orf/gping</remote-id>
 	</upstream>
 </pkgmetadata>

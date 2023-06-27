@@ -5,4 +5,7 @@
 	<email>egorr.berd@gmail.com</email>
 	<name>Yahor Berdnikau</name>
 </maintainer>
+<upstream>
+	<remote-id type="github">justjanne/powerline-go</remote-id>
+</upstream>
 </pkgmetadata>

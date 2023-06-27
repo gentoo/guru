@@ -5,10 +5,10 @@
         <email>ran.dall@icloud.com</email>
         <name>Randall T. Vasquez</name>
     </maintainer>
-	<maintainer type="person">
-		<email>pascal.jaeger@leimstift.de</email>
-		<name>Pascal Jaeger</name>
-	</maintainer>
+    <maintainer type="person">
+        <email>pascal.jaeger@leimstift.de</email>
+        <name>Pascal Jaeger</name>
+    </maintainer>
     <upstream>
         <remote-id type="github">avanishsubbiah/material-color-utilities-python"</remote-id>
         <remote-id type="pypi">material-color-utilities</remote-id>

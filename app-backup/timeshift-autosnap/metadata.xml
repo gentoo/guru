@@ -7,6 +7,7 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="github">Antynea/grub-btrfs</remote-id>
+		<remote-id type="gitlab">gobonja/timeshift-autosnap</remote-id>
 	</upstream>
 	<longdescription lang="en">
 		Improves Grub by adding "btrfs snapshots" to the Grub menu.
