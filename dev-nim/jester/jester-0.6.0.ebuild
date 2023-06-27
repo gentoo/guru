@@ -25,6 +25,7 @@ RDEPEND="dev-nim/httpbeast"
 DEPEND="
 	test? (
 		${RDEPEND}
+		dev-libs/libpcre:3
 		dev-nim/asynctools
 	)
 "
