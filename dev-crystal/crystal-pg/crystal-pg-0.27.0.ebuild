@@ -18,7 +18,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="dev-crystal/crystal-db"
 BDEPEND="
 	test? (
-		$(epostgres --get-depend)
+		$(epostgres --get-depend "xml")
 	)
 "
 
