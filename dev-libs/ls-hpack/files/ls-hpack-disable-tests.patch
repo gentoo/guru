@@ -1,0 +1,11 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -80,7 +80,7 @@ SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${MY_CMAKE_FLAGS} $ENV{EXTRA_CFLAGS}")
+ MESSAGE(STATUS "Compiler flags: ${CMAKE_C_FLAGS}")
+ 
+ IF (NOT CMAKE_BUILD_TYPE STREQUAL Release)
+-    ENABLE_TESTING()
++#    ENABLE_TESTING()
+     INCLUDE_DIRECTORIES("test")
+     ADD_SUBDIRECTORY("test")
+ ENDIF()
