@@ -41,7 +41,7 @@ jobs:
 
       - name: Get changed files
         if: ${{ fromJSON(env.is_commit_valid) }}
-        uses: tj-actions/changed-files@v35
+        uses: tj-actions/changed-files@v37
         with:
           base_sha: ${{ env.last_successful_commit }}
           write_output_files: true
