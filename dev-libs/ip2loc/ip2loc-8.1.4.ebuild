@@ -3,44 +3,33 @@
 
 EAPI=8
 
-inherit cmake autotools
+inherit autotools
 
 DESCRIPTION="IP2Location C Library"
 HOMEPAGE="https://github.com/chrislim2888/IP2Location-C-Library/"
-SRC_URI="https://github.com/chrislim2888/IP2Location-C-Library/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/chrislim2888/IP2Location-C-Library/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="static-libs"
 
-src_unpack() {
-	unpack ${A}
-	mv IP2Location-C-Library-${PV} ip2loc-${PV}
-}
+BDEPEND="dev-lang/perl"
 
-src_prepare() {
-	eautoreconf
-
-	eapply_user
-}
+S="${WORKDIR}/IP2Location-C-Library-${PV}"
 
 src_configure() {
-	./configure --prefix=${T}/usr
+	eautoreconf
+	default
 }
 
 src_compile() {
-	make
+	default
+	pushd data > /dev/null || die
+	perl ip-country.pl || die "Failed to generate database!"
+	popd || die
 }
 
 src_install() {
-	make install
-}
-
-pkg_preinst() {
-	mkdir -p ${D}/usr/lib/
-	mkdir -p ${D}/usr/include/
-	cp -a ${T}/usr/include/IP2Location.h ${D}/usr/include/
-	cp -a ${T}/usr/lib/libIP2Location* ${D}/usr/lib/
-	return
+	default
+	find "${ED}" -type f -name '*.la' -delete || die
 }
