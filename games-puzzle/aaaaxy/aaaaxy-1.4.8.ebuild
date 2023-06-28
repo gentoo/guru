@@ -26,6 +26,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	app-arch/advancecomp
+	app-arch/zip
 	x11-libs/libXcursor
 	x11-libs/libXi
 	x11-libs/libXinerama
