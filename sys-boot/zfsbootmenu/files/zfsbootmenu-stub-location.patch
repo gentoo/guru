@@ -1,0 +1,13 @@
+diff --git a/etc/zfsbootmenu/config.yaml b/etc/zfsbootmenu/config.yaml
+index e8b196c..38b2812 100644
+--- a/etc/zfsbootmenu/config.yaml
++++ b/etc/zfsbootmenu/config.yaml
+@@ -14,6 +14,7 @@ Components:
+     Enabled: false
+ EFI:
+   ImageDir: /boot/efi/EFI/zbm
++  Stub: /usr/lib/systemd/boot/efi/linuxx64.elf.stub
+   Versions: false
+   Enabled: false
+ Kernel:
+
