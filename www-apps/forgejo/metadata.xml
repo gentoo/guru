@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>artemis@artemis.sh</email>
+		<description>Primary maintainer</description>
+		<name>Artemis Everfree</name>
+	</maintainer>
+	<upstream>
+		<changelog>https://codeberg.org/forgejo/forgejo/releases</changelog>
+		<bugs-to>https://codeberg.org/forgejo/forgejo/issues</bugs-to>
+	</upstream>
 	<use>
 		<flag name="acct">User and group management via acct-*/git packages</flag>
 	</use>
