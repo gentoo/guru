@@ -7,3 +7,4 @@ move kde-apps/alligator net-news/alligator
 move kde-apps/kclock kde-misc/kclock
 move sys-fs/python-btrfs dev-python/btrfs
 move sys-apps/procs sys-process/procs
+move sys-apps/dust sys-block/dust
