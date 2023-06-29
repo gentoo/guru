@@ -67,7 +67,10 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}"/${P}-fix-explicit-optional-construction.patch )
+PATCHES=(
+	"${FILESDIR}"/${P}-fix-explicit-optional-construction.patch
+	"${FILESDIR}"/${P}-fix-build-against-fmt10.patch
+)
 
 src_configure() {
 	local -a mycmakeargs=(
