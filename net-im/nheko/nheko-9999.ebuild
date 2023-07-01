@@ -123,7 +123,7 @@ pkg_postinst() {
 	optfeature "audio & video file playback support" \
 		"media-plugins/gst-plugins-meta[ffmpeg]"
 	optfeature "secrets storage support other than kwallet (for example gnome-keyring or keepassxc)" \
-		"dev-libs/qtkeychain[gnome-keyring]"
+		"dev-libs/qtkeychain[keyring]"
 	optfeature "additional, less common, image format support" \
 		"kde-frameworks/kimageformats:6"
 
