@@ -333,7 +333,7 @@ src_configure() {
 
 src_install() {
 	cargo_src_install
-	newman "${WORKDIR}"/${P}-man.1 i3status-rs.1
+	newman "${DISTDIR}"/${P}-man.1 i3status-rs.1
 	insinto /usr/share/i3status
 	doins -r files/icons files/themes
 	dodoc NEWS.md CONTRIBUTING.md
