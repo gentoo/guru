@@ -22,6 +22,7 @@ DEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/fix-${PN}-collisions-openssl.patch
+	"${FILESDIR}"/${PN}-remove-Werror.patch
 )
 
 src_configure() {
