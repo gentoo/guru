@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ USE_MPV="rdepend"
 MPV_REQ_USE="lua"
 inherit mpv-plugin
 
-COMMIT="d3d7b1d5ed0d2afb3227ec1ef1155a6bd7f6481d"
+COMMIT="fccdcfb19afb9100f7e8291716f906fee0710aa3"
 MY_P="${PN}-${COMMIT}"
 
 DESCRIPTION="A userscript that allows you to play \"up next\"/recommended youtube videos"
