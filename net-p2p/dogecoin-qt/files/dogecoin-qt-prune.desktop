@@ -6,7 +6,7 @@ Comment[fr]=Dogecoin, monnaie virtuelle cryptographique pair à pair
 Comment[ru]=Подключиться к Dogecoin пиринговой сети
 Comment[tr]=Dogecoin, eşten eşe kriptografik sanal para birimi
 Terminal=false
-Exec=dogecoin-qt %u
+Exec=dogecoin-qt --prune=2201 %u
 Type=Application
 Icon=dogecoin
 MimeType=x-scheme-handler/dogecoin;

@@ -12,11 +12,12 @@
 		<name>Victor Skovorodnikov</name>
 	</maintainer>
 	<use>
+		<flag name="prune">Make downloaded blockchain be minimal size at ~2.2GB (if ran from desktop)</flag>
 		<flag name="tests">Build Dogecoin Core Qt with tests option</flag>
 		<flag name="wallet">Build Dogecoin Core Qt with wallet support</flag>
 		<flag name="zmq">Enables ZeroMQ notifications</flag>
 	</use>
 	<longdescription lang="en">
-		Dogecoin Core Qt featuring Graphical User Interface with statistical analysis, console interaction and optional wallet support.
+		Dogecoin Core Qt for desktop environment.  Featuring Graphical User Interface with statistical analysis, console interaction and optional wallet support.
 	</longdescription>
 </pkgmetadata>

@@ -11,7 +11,7 @@ LICENSE="MIT"
 SLOT="0"
 DB_VER="5.3"
 KEYWORDS="~amd64 ~x86"
-IUSE="tests +wallet zmq"
+IUSE="tests +wallet +prune zmq"
 DOGEDIR="/opt/${PN}"
 DEPEND="
 	dev-libs/libevent:=
@@ -69,15 +69,23 @@ src_configure() {
 
 src_install() {
 	emake DESTDIR="${D}" install
-	insinto "${DOGEDIR}"
+	insinto "${DOGEDIR}/bin"
 	insinto /usr/share/pixmaps
 	doins src/qt/res/icons/dogecoin.png
-	dosym "${DOGEDIR}/bin/dogecoin-qt" "/usr/bin/dogecoin-qt"
-	domenu "${FILESDIR}/dogecoin-qt.desktop"
+	dosym "${DOGEDIR}/bin/${PN}" "/usr/bin/${PN}"	
+	
+	if use prune ; then
+		domenu "${FILESDIR}"/"${PN}-prune.desktop"	
+	fi
+	
+	if ! use prune ; then
+		domenu "${FILESDIR}"/"${PN}.desktop"	
+	fi	
 }
 
 pkg_postinst() {
+	xdg_desktop_database_update
 	elog "Dogecoin Core Qt ${PV} has been installed."
 	elog "Dogecoin Core Qt binaries have been placed in ${DOGEDIR}/bin."
-	elog "dogecoin-qt has been symlinked with /usr/bin/dogecoin-qt."
+	elog "${PN} has been symlinked with /usr/bin/${PN}."
 }
