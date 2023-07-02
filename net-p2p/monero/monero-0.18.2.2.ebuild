@@ -42,6 +42,7 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.18.1.2-unbundle-dependencies.patch"
+	"${FILESDIR}/${P}-csdint.patch"
 )
 
 src_configure() {

@@ -303,7 +303,7 @@ CRATES="
 inherit cargo shell-completion
 
 DESCRIPTION="Magical shell history"
-HOMEPAGE="https://atuin.sh"
+HOMEPAGE="https://github.com/ellie/atuin"
 SRC_URI="
 	https://github.com/ellie/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
 	$(cargo_crate_uris)
@@ -316,9 +316,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="doc"
 
-DEPEND=""
-RDEPEND="${DEPEND}"
-BDEPEND="dev-lang/rust"
+BDEPEND=">=dev-lang/rust-1.67.1"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
@@ -331,15 +329,21 @@ DOCS=(
 src_install() {
 	cargo install --path "${PN}"
 
+	local atuin_bin="target/$(usex debug debug release)/${PN}"
+
 	exeinto "/usr/bin"
-	doexe "target/$(usex debug debug release)/${PN}"
+	doexe "${atuin_bin}"
 
 	use doc && dodoc -r "${DOCS[@]}"
 
 	# Prepare shell completion generation
 	mkdir completions || die
-	for shell in 'bash' 'fish' 'zsh'; do
-		"target/$(usex debug debug release)/${PN}" gen-completions -s "$shell" -o completions || die
+	local shell
+	for shell in bash fish zsh; do
+		"${atuin_bin}" gen-completions \
+					 -s ${shell} \
+					 -o completions \
+			|| die
 	done
 
 	newbashcomp "completions/${PN}.bash" "${PN}"

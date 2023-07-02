@@ -29,7 +29,7 @@ RDEPEND="
 "
 
 DEPEND="test? (
-	dev-python/docker-py[${PYTHON_USEDEP}]
+	dev-python/docker[${PYTHON_USEDEP}]
 	dev-python/pytest-timeout[${PYTHON_USEDEP}]
 	dev-python/sqlalchemy[${PYTHON_USEDEP}]
 )"
