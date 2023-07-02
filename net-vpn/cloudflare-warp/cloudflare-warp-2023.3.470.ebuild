@@ -7,7 +7,7 @@ inherit rpm systemd xdg desktop
 
 DESCRIPTION="Cloudflare Warp Client"
 HOMEPAGE="https://1.1.1.1"
-SRC_URI="https://pkg.cloudflareclient.com/uploads/cloudflare_warp_2023_3_398_1_x86_64_e9b71b3326.rpm"
+SRC_URI="https://pkg.cloudflareclient.com/rpm/x86_64/${P}-1.x86_64.rpm"
 
 LICENSE="all-rights-reserved"
 RESTRICT="bindist mirror"
