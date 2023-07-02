@@ -8,7 +8,6 @@ inherit xdg
 if [[ "${PV}" == "9999" ]]
 then
 	EGIT_REPO_URI="https://hacktivis.me/git/badwolf.git"
-	EGIT_MIN_CLONE_TYPE="single+tags"
 	inherit git-r3
 else
 	MY_P="${PN}-$(ver_rs 3 - 4 .)"

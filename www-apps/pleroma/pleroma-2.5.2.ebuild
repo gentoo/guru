@@ -10,8 +10,6 @@ HOMEPAGE="https://pleroma.social/"
 if [[ "${PV}" == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.pleroma.social/pleroma/pleroma"
-	# git-r3 doesn't allows make.conf override of MIN_CLONE_TYPE, so done here for my self-hosted branch
-	EGIT_MIN_CLONE_TYPE="single+tags"
 	KEYWORDS=""
 else
 	SRC_URI="https://git.pleroma.social/pleroma/pleroma/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
