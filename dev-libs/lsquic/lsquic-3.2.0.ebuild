@@ -17,6 +17,8 @@ IUSE="static-libs"
 
 DEPEND="
 	dev-libs/boringssl-fips:=[static-libs=]
+	dev-libs/ls-hpack:=[static-libs=]
+	dev-libs/ls-qpack:=[static-libs=]
 "
 
 PATCHES=(
