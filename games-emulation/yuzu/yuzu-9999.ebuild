@@ -8,7 +8,7 @@ inherit cmake git-r3 toolchain-funcs xdg
 DESCRIPTION="An emulator for Nintendo Switch"
 HOMEPAGE="https://yuzu-emu.org"
 EGIT_REPO_URI="https://github.com/yuzu-emu/yuzu-mainline"
-EGIT_SUBMODULES=( '-*' 'dynarmic' 'sirit' 'xbyak' 'tzdb_to_nx' 'externals/nx_tzdb/tzdb_to_nx/externals/tz/tz' )
+EGIT_SUBMODULES=( '-*' 'dynarmic' 'sirit' 'tzdb_to_nx' 'externals/nx_tzdb/tzdb_to_nx/externals/tz/tz' 'VulkanMemoryAllocator' )
 # Dynarmic is not intended to be generic, it is tweaked to fit emulated processor
 # TODO wait 'xbyak' waiting version bump. see #860816
 
@@ -16,13 +16,12 @@ LICENSE="|| ( Apache-2.0 GPL-2+ ) 0BSD BSD GPL-2+ ISC MIT
 	!system-vulkan? ( Apache-2.0 )"
 SLOT="0"
 KEYWORDS=""
-IUSE="+compatibility-list +cubeb discord +qt5 sdl +system-vulkan test webengine +webservice"
+IUSE="+compatibility-list +cubeb discord +qt5 sdl +system-libfmt +system-vulkan test webengine +webservice"
 
 RDEPEND="
 	<net-libs/mbedtls-3.1[cmac]
 	>=app-arch/zstd-1.5
 	>=dev-libs/inih-52
-	>=dev-libs/libfmt-9:=
 	>=dev-libs/openssl-1.1:=
 	>=media-video/ffmpeg-4.3:=
 	>=net-libs/enet-1.3
@@ -33,7 +32,6 @@ RDEPEND="
 	sys-libs/zlib
 	virtual/libusb:1
 	cubeb? ( media-libs/cubeb )
-	dev-util/spirv-headers
 	qt5? (
 		>=dev-qt/qtcore-5.15:5
 		>=dev-qt/qtgui-5.15:5
@@ -47,11 +45,13 @@ RDEPEND="
 	sdl? (
 		>=media-libs/libsdl2-2.0.18
 	)
+	system-libfmt? ( >=dev-libs/libfmt-9:= )
 "
 DEPEND="${RDEPEND}
 	dev-cpp/cpp-httplib
 	dev-cpp/cpp-jwt
 	system-vulkan? ( >=dev-util/vulkan-headers-1.3.246 )
+		dev-util/spirv-headers )
 	test? ( >dev-cpp/catch-3:0 )
 "
 BDEPEND="
@@ -91,9 +91,6 @@ src_unpack() {
 src_prepare() {
 	# temporary fix
 	sed -i -e '/Werror/d' src/CMakeLists.txt || die
-
-	# Allow skip submodule downloading
-	rm .gitmodules || die
 
 	# Unbundle inih
 	sed -i -e '/^if.*inih/,/^endif()/d' externals/CMakeLists.txt || die
@@ -137,9 +134,13 @@ src_prepare() {
 	# LZ4 temporary fix: https://github.com/yuzu-emu/yuzu/pull/9054/commits/a8021f5a18bc5251aef54468fa6033366c6b92d9
 	sed -i 's/lz4::lz4/lz4/' src/common/CMakeLists.txt || die
 
+	if ! use system-libfmt; then # libfmt >= 9
+		sed -i '/fmt.*REQUIRED/d' CMakeLists.txt || die
+	fi
+
 	# Allow compiling using older glslang
-	if has_version '<dev-util/glslang-1.3.238'; then
-		sed -i -e '/Vulkan/s/238/236/' CMakeLists.txt || die
+	if use system-vulkan -a has_version '<dev-util/glslang-1.3.246'; then
+		sed -i -e '/Vulkan/s/246/236/' CMakeLists.txt || die
 		sed -i -e '/VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR/d;' -e '/VK_ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR/d' \
 			-e '/VK_ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR/d' -e '/VK_ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR/d' \
 			-e '/VK_ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR/d' -e '/VK_ERROR_VIDEO_STD_VERSION_NOT_SUPPORTED_KHR/d' \
@@ -160,11 +161,12 @@ src_configure() {
 		-DENABLE_QT_TRANSLATION=$(usex qt5)
 		-DENABLE_SDL2=$(usex sdl)
 		-DENABLE_WEB_SERVICE=$(usex webservice)
-		-DSIRIT_USE_SYSTEM_SPIRV_HEADERS=yes
+		-DSIRIT_USE_SYSTEM_SPIRV_HEADERS=$([ use system-vulkan ] && echo OFF || echo ON)
 		-DUSE_DISCORD_PRESENCE=$(usex discord)
 		-DYUZU_TESTS=$(usex test)
-		-DYUZU_USE_EXTERNAL_VULKAN_HEADERS=$(use system-vulkan no yes)
+		-DYUZU_USE_EXTERNAL_VULKAN_HEADERS=$([ use system-vulkan ] && echo ON || echo OFF)
 		-DYUZU_USE_EXTERNAL_SDL2=OFF
+		-DYUZU_CHECK_SUBMODULES=false
 		-DYUZU_USE_QT_WEB_ENGINE=$(usex webengine)
 	)
 
