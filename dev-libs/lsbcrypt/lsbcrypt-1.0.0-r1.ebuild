@@ -24,5 +24,6 @@ src_test() {
 
 src_install() {
 	newlib.a bcrypt.a libbcrypt.a
+	newheader bcrypt.h libbcrypt.h
 	einstalldocs
 }
