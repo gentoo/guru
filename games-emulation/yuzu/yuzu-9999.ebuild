@@ -42,15 +42,13 @@ RDEPEND="
 		>=dev-qt/linguist-tools-5.15:5
 		webengine? ( >=dev-qt/qtwebengine-5.15:5 )
 	)
-	sdl? (
-		>=media-libs/libsdl2-2.0.18
-	)
+	sdl? ( >=media-libs/libsdl2-2.28 )
 	system-libfmt? ( >=dev-libs/libfmt-9:= )
 "
 DEPEND="${RDEPEND}
 	dev-cpp/cpp-httplib
 	dev-cpp/cpp-jwt
-	system-vulkan? ( >=dev-util/vulkan-headers-1.3.246 )
+	system-vulkan? ( >=dev-util/vulkan-headers-1.3.246
 		dev-util/spirv-headers )
 	test? ( >dev-cpp/catch-3:0 )
 "
