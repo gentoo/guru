@@ -38,8 +38,10 @@ DEPEND="
 	dev-libs/pugixml
 	dev-cpp/easyloggingpp
 	dev-cpp/units
-	~dev-cpp/catch-2.13.8
-	dev-cpp/trompeloeil
+	test? (
+		~dev-cpp/catch-2.13.8
+		dev-cpp/trompeloeil
+	)
 "
 
 BDEPEND="${DEPEND}"
