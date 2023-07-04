@@ -334,7 +334,7 @@ src_configure() {
 src_install() {
 	cargo_src_install
 	newman "${DISTDIR}"/${P}-man.1 i3status-rs.1
-	insinto /usr/share/i3status
+	insinto /usr/share/i3status-rust
 	doins -r files/icons files/themes
 	dodoc NEWS.md CONTRIBUTING.md
 	docinto examples
