@@ -16,22 +16,22 @@ DESCRIPTION="Lenovo Legion Linux kernel module"
 HOMEPAGE="https://github.com/johnfanv2/LenovoLegionLinux"
 
 DEPEND="sys-kernel/linux-headers
-        sys-apps/lm-sensors
-        sys-apps/dmidecode
-        legion-tools? ( dev-python/PyQt5 )
-        legion-tools? ( dev-python/pyyaml )
-        legion-tools? ( dev-python/argcomplete )
-		app-portage/smart-live-rebuild
-		legion-acpi? ( sys-power/acpid )
-		radeon-dgpu? ( dev-util/rocm-smi )
-        downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
-        ryzenadj? ( sys-power/RyzenAdj )"
+    sys-apps/lm-sensors
+    sys-apps/dmidecode
+    legion-tools? ( dev-python/PyQt5 )
+    legion-tools? ( dev-python/pyyaml )
+    legion-tools? ( dev-python/argcomplete )
+	app-portage/smart-live-rebuild
+	legion-acpi? ( sys-power/acpid )
+	radeon-dgpu? ( dev-util/rocm-smi )
+    downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
+    ryzenadj? ( sys-power/RyzenAdj )
+"
+
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="legion-tools legion-acpi systemd radeon-dgpu downgrade-nvidia ryzenadj"
 REQUIRED_USE="|| ( systemd legion-acpi radeon-dgpu downgrade-nvidia ryzenadj legion-tools ) legion-acpi? ( legion-tools ) radeon-dgpu? ( !downgrade-nvidia legion-tools ) downgrade-nvidia? ( !radeon-dgpu legion-tools )"
-
-KEYWORDS="~amd64~x86"
 
 MODULES_KERNEL_MIN=5.10
 
