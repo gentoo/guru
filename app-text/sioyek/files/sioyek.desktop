@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Sioyek
+Comment=PDF viewer for reading research papers and technical books
+Keywords=pdf;viewer;reader;research;
+TryExec=/opt/sioyek/sioyek
+Exec=/opt/sioyek/sioyek %f
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=sioyek-icon-linux
+Categories=Development;Viewer;
+MimeType=application/pdf;
