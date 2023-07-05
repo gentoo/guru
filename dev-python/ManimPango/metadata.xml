@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
 		<email>gasc@eurecom.fr</email>
@@ -8,5 +8,7 @@
 	<upstream>
 		<remote-id type="pypi">manimpango</remote-id>
 		<remote-id type="github">ManimCommunity/ManimPango</remote-id>
+		<doc>https://manimpango.manim.community/</doc>
+		<changelog>https://github.com/ManimCommunity/ManimPango/releases/</changelog>
 	</upstream>
 </pkgmetadata>
