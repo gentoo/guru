@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<upstream>
@@ -8,6 +8,8 @@
 			<name>Bernat Gabor</name>
 			<email>gaborjbernat@gmail.com</email>
 		</maintainer>
+		<doc>https://github.com/tox-dev/sphinx-argparse-cli#sphinx-argparse-cli</doc>
+		<bugs-to>https://github.com/tox-dev/sphinx-argparse-cli/issues</bugs-to>
 	</upstream>
 	<maintainer type="person">
 		<email>cyber+gentoo@sysrq.in</email>
