@@ -1,12 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>falbrechtskirchinger@gmail.com</email>
-    <name>Florian Albrechtskirchinger</name>
-  </maintainer>
-  <upstream>
-    <remote-id type="pypi">pdm</remote-id>
-    <remote-id type="github">pdm-project/pdm</remote-id>
-  </upstream>
+	<maintainer type="person">
+		<email>falbrechtskirchinger@gmail.com</email>
+		<name>Florian Albrechtskirchinger</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">pdm</remote-id>
+		<remote-id type="github">pdm-project/pdm</remote-id>
+		<maintainer>
+			<name>Frost Ming</name>
+			<email>mianghong@gmail.com</email>
+		</maintainer>
+		<doc>https://pdm.fming.dev</doc>
+		<changelog>https://pdm.fming.dev/latest/dev/changelog/</changelog>
+	</upstream>
 </pkgmetadata>
