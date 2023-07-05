@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
 		<email>gasc@eurecom.fr</email>
@@ -8,5 +8,12 @@
 	<upstream>
 		<remote-id type="pypi">mkdocstrings-python</remote-id>
 		<remote-id type="github">mkdocstrings/python</remote-id>
+		<maintainer>
+			<name>Timothée Mazzucotelli</name>
+			<email>pawamoy@pm.me</email>
+		</maintainer>
+		<doc>https://mkdocstrings.github.io/python</doc>
+		<changelog>https://mkdocstrings.github.io/python/changelog</changelog>
+		<bugs-to>https://github.com/mkdocstrings/python/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
