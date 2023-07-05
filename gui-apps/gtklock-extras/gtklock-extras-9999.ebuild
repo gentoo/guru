@@ -20,9 +20,7 @@ BDEPEND="x11-libs/gtk+
       userinfo? ( sys-apps/accountsservice )
 "
 
-DEPEND="${RDEPEND}
-      app-portage/smart-live-rebuild
-"
+DEPEND="${RDEPEND}"
 
 IUSE="playerctl powerbar userinfo"
 REQUIRED_USE="|| ( playerctl powerbar userinfo )"
