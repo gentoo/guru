@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -8,5 +8,9 @@
 	<upstream>
 		<remote-id type="github">mosquito/python-pidfile</remote-id>
 		<remote-id type="pypi">python-pidfile</remote-id>
+		<maintainer>
+			<name>Dmitry Orlov</name>
+			<email>me@mosquito.su</email>
+		</maintainer>
 	</upstream>
 </pkgmetadata>
