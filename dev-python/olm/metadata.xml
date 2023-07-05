@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -8,5 +8,6 @@
 	<upstream>
 		<doc>https://poljar.github.io/python-olm/html/index.html</doc>
 		<bugs-to>https://gitlab.matrix.org/matrix-org/olm/-/issues</bugs-to>
+		<remote-id type="github">poljar/python-olm</remote-id>
 	</upstream>
 </pkgmetadata>
