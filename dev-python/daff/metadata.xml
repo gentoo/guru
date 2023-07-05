@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -8,6 +8,11 @@
 	<upstream>
 		<remote-id type="pypi">daff</remote-id>
 		<remote-id type="github">paulfitz/daff</remote-id>
+		<maintainer>
+			<name>Paul Fitzpatrick</name>
+			<email>paul@robotrebuilt.com</email>
+		</maintainer>
+		<bugs-to>https://github.com/paulfitz/daff/issues</bugs-to>
 	</upstream>
 	<longdescription lang="en">
 	daff: data diff. daff can produce and apply tabular diffs.
