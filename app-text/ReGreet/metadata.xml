@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<use>
+		<flag name="gtk4">Compile with support for gtk4</flag>
+		<flag name="cage">Use cage to start ReGreet</flag>
+		<flag name="sway">Use sway to start ReGreet</flag>
+	</use>
+    <upstream>
+        <remote-id type="github">rharish101/ReGreet</remote-id>
+    </upstream>
+</pkgmetadata>
