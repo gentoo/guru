@@ -9,7 +9,7 @@ VER="12.2.0_20230208"
 
 CROSSTOOL_URL="https://github.com/espressif/crosstool-NG/releases/download/esp-${VER}"
 
-inherit python-single-r1
+inherit python-r1
 
 DESCRIPTION="Espressif IoT Development Framework"
 HOMEPAGE="https://www.espressif.com/"
@@ -35,23 +35,18 @@ SLOT="0"
 BDEPEND="app-arch/unzip"
 RDEPEND="
 	${PYTHON_DEPS}
-	dev-embedded/esptool[${PYTHON_SINGLE_USEDEP}]
 
-	$(python_gen_cond_dep '
-		dev-python/click[${PYTHON_USEDEP}]
-		dev-python/bitstring[${PYTHON_USEDEP}]
-		dev-python/construct[${PYTHON_USEDEP}]
-		dev-python/ecdsa[${PYTHON_USEDEP}]
-		dev-python/future[${PYTHON_USEDEP}]
-		dev-python/kconfiglib[${PYTHON_USEDEP}]
-		dev-python/pyelftools[${PYTHON_USEDEP}]
-		dev-python/pyparsing[${PYTHON_USEDEP}]
-		dev-python/pyserial[${PYTHON_USEDEP}]
-		dev-python/python-socketio[${PYTHON_USEDEP}]
-		dev-python/pyyaml[${PYTHON_USEDEP}]
-		dev-python/reedsolomon[${PYTHON_USEDEP}]
-		dev-embedded/idf-component-manager[${PYTHON_USEDEP}]
-	')
+	dev-python/click[${PYTHON_USEDEP}]
+	dev-python/pyserial[${PYTHON_USEDEP}]
+	dev-python/cryptography[${PYTHON_USEDEP}]
+	dev-python/pyparsing[${PYTHON_USEDEP}]
+	dev-python/pyelftools[${PYTHON_USEDEP}]
+	dev-embedded/esp-coredump[${PYTHON_USEDEP}]
+	dev-embedded/esptool
+	dev-embedded/esp-idf-kconfig[${PYTHON_USEDEP}]
+	dev-embedded/esp-idf-monitor[${PYTHON_USEDEP}]
+	dev-embedded/esp-idf-size[${PYTHON_USEDEP}]
+	dev-embedded/idf-component-manager[${PYTHON_USEDEP}]
 "
 
 RESTRICT="strip"
