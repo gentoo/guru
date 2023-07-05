@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,15 +23,11 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 src_compile() {
-	emake \
-		CC=$(tc-getCC) \
-		CFLAGS="${CFLAGS}" \
-		LDFLAGS="${LDFLAGS}"
+	$(tc-getCC) -o sxcs sxcs.c ${CFLAGS} ${LDFLAGS} -l X11 -l Xcursor
 }
 
 src_install() {
-	emake install \
-		DESTDIR="${D}" \
-		PREFIX="${EPREFIX}/usr"
+	dobin sxcs
+	doman sxcs.1
 	dodoc README.md
 }
