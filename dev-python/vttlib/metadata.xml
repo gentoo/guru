@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <description>co-maintainers welcome</description>
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
-  <longdescription lang="en">
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">
 vttLib
 
 A library to
@@ -17,8 +17,12 @@ A library to
 
 The primary use case is version control of hinting data of fonts.
   </longdescription>
-  <upstream>
-    <remote-id type="github">daltonmaag/vttLib</remote-id>
-    <remote-id type="pypi">vttlib</remote-id>
-  </upstream>
+	<upstream>
+		<remote-id type="github">daltonmaag/vttLib</remote-id>
+		<remote-id type="pypi">vttlib</remote-id>
+		<maintainer>
+			<name>Dalton Maag Ltd</name>
+			<email>info@daltonmaag.com</email>
+		</maintainer>
+	</upstream>
 </pkgmetadata>
