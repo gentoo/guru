@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -13,5 +13,7 @@
 	<upstream>
 		<remote-id type="pypi">pysaml2</remote-id>
 		<remote-id type="github">rohe/pysaml2</remote-id>
+		<bugs-to>https://github.com/IdentityPython/pysaml2/issues</bugs-to>
+		<doc>https://pysaml2.readthedocs.io</doc>
 	</upstream>
 </pkgmetadata>
