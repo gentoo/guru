@@ -1,12 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-    <maintainer type="person">
-        <email>watermanpaint@posteo.net</email>
-        <name>Lucio Sauer</name>
-    </maintainer>
-    <upstream>
-        <remote-id type="github">python/typeshed</remote-id>
-        <remote-id type="pypi">types-protobuf</remote-id>
-    </upstream>
+	<maintainer type="person">
+		<email>watermanpaint@posteo.net</email>
+		<name>Lucio Sauer</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">python/typeshed</remote-id>
+		<remote-id type="pypi">types-protobuf</remote-id>
+		<changelog>https://github.com/typeshed-internal/stub_uploader/blob/main/data/changelogs/protobuf.md</changelog>
+	</upstream>
 </pkgmetadata>
