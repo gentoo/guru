@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -14,5 +14,9 @@
 		<bugs-to>https://github.com/cher-nov/cryptg/issues</bugs-to>
 		<remote-id type="github">cher-nov/cryptg</remote-id>
 		<remote-id type="pypi">cryptg</remote-id>
+		<maintainer>
+			<name>Lonami Exo</name>
+			<email>totufals@hotmail.com</email>
+		</maintainer>
 	</upstream>
 </pkgmetadata>
