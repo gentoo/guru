@@ -1,6 +1,0 @@
-[terminal]
-vt = 1
-
-[default_session]
-command = "cage -s -- regreet"
-user = "greetd"
