@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<!-- maintainer-needed -->
 	<upstream>
 		<remote-id type="github">jupyter/jupyter-sphinx</remote-id>
+		<bugs-to>https://github.com/jupyter/jupyter-sphinx/issues/</bugs-to>
+		<doc>https://jupyter-sphinx.readthedocs.io</doc>
 	</upstream>
 </pkgmetadata>
