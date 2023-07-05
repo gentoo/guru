@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -12,5 +12,7 @@
 	<upstream>
 		<remote-id type="github">python-telegram-bot/python-telegram-bot</remote-id>
 		<doc>https://docs.python-telegram-bot.org/en/stable/</doc>
+		<bugs-to>https://github.com/python-telegram-bot/python-telegram-bot/issues</bugs-to>
+		<changelog>https://python-telegram-bot.readthedocs.io/en/stable/changelog.html</changelog>
 	</upstream>
 </pkgmetadata>
