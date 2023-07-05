@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
-  <longdescription lang="en">
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">
     This plugin tightly integrates into pytest. To use this effectively you should know a thing or two about pytest first. Take a look at the introductory material or watch talks.
 
     Few notes:
@@ -16,8 +16,10 @@
 
 This plugin provides a benchmark fixture. This fixture is a callable object that will benchmark any function passed to it.
   </longdescription>
-  <upstream>
-    <remote-id type="github">ionelmc/pytest-benchmark</remote-id>
-    <remote-id type="pypi">pytest-benchmark</remote-id>
-  </upstream>
+	<upstream>
+		<remote-id type="github">ionelmc/pytest-benchmark</remote-id>
+		<remote-id type="pypi">pytest-benchmark</remote-id>
+		<doc>https://pytest-benchmark.readthedocs.io/</doc>
+		<changelog>https://pytest-benchmark.readthedocs.io/en/latest/changelog.html</changelog>
+	</upstream>
 </pkgmetadata>
