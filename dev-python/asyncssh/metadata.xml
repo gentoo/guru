@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <description>co-maintainers welcome</description>
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
-  <longdescription lang="en">
+	<maintainer type="person">
+		<description>co-maintainers welcome</description>
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">
 AsyncSSH is a Python package which provides an asynchronous client and server implementation of the SSHv2 protocol on top of the Python 3.6+ asyncio framework.
 
 Features
@@ -44,12 +44,14 @@ Compatibility with OpenSSH "Encrypt then MAC" option for better security
 Time and byte-count based session key renegotiation
 Designed to be easy to extend to support new forms of key exchange, authentication, encryption, and compression algorithms
   </longdescription>
-  <upstream>
-    <remote-id type="github">ronf/asyncssh</remote-id>
-    <remote-id type="pypi">asyncssh</remote-id>
-    <maintainer status="unknown">
-      <email>ronf@timeheart.net</email>
-      <name>Ron Frederick</name>
-    </maintainer>
-  </upstream>
+	<upstream>
+		<remote-id type="github">ronf/asyncssh</remote-id>
+		<remote-id type="pypi">asyncssh</remote-id>
+		<maintainer status="unknown">
+			<email>ronf@timeheart.net</email>
+			<name>Ron Frederick</name>
+		</maintainer>
+		<doc>https://asyncssh.readthedocs.io</doc>
+		<bugs-to>https://github.com/ronf/asyncssh/issues</bugs-to>
+	</upstream>
 </pkgmetadata>
