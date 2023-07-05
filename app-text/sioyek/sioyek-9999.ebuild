@@ -13,9 +13,8 @@ SLOT="0"
 
 BDEPEND="media-libs/harfbuzz
     dev-qt/qtbase
-    dev-qt/qt3d"
-
-KEYWORDS="~amd64~x86"
+    dev-qt/qt3d
+"
 
 src_prepare() {
     #Make Mupdf specific for build
