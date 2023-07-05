@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<!-- maintainer-needed -->
 	<upstream>
 		<remote-id type="pypi">celery</remote-id>
 		<remote-id type="github">celery/celery</remote-id>
+		<doc>https://docs.celeryq.dev/en/stable/</doc>
+		<changelog>https://docs.celeryq.dev/en/stable/changelog.html</changelog>
+		<bugs-to>https://github.com/celery/celery/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
