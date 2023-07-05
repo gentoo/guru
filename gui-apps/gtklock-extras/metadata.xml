@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<use>
+		<flag name="powerbar">gtklock module adding power controls to the lockscreen</flag>
+		<flag name="playerctl">gtklock module adding media player controls to the lockscreen</flag>
+		<flag name="userinfo">gtklock module adding user info to the lockscreen</flag>
+	</use>
+    <upstream>
+        <remote-id type="github">MrDuartePT/gtklock-modules-gentoo</remote-id>
+    </upstream>
+</pkgmetadata>
