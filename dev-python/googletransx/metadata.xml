@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
-  <longdescription lang="en">
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">
 Googletrans is a free and unlimited python library that implemented Google Translate API. This uses the Google Translate Ajax API to make calls to such methods as detect and translate.
 
 Compatible with Python 2.7+ and 3.4+. (Note: Python 2 support will be dropped in the next major release.)
@@ -36,7 +36,8 @@ You may wonder why this library works properly, whereas other approaches such li
 
 I eventually figure out a way to generate a ticket by reverse engineering on the obfuscated and minified code used by Google to generate such token, and implemented on the top of Python. However, this could be blocked at any time.
   </longdescription>
-  <upstream>
-    <remote-id type="pypi">googletransx</remote-id>
-  </upstream>
+	<upstream>
+		<remote-id type="pypi">googletransx</remote-id>
+		<remote-id type="github">x0rkov/py-googletrans</remote-id>
+	</upstream>
 </pkgmetadata>
