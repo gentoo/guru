@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
-
 <pkgmetadata>
-  <maintainer type="person">
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
-  <longdescription lang="en">
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">
 Hunter is a flexible code tracing toolkit, not for measuring coverage, but for debugging, logging, inspection and other nefarious purposes. It has a simple Python API, a convenient terminal API and a CLI tool to attach to processes.
 Design notes
 
@@ -66,8 +65,10 @@ From the other perspective, you'd be wondering if you could use Hunter to measur
 
 In other words, filtering events is the main selling point of Hunter - it's fast (cython implementation) and the query API is flexible enough.
   </longdescription>
-  <upstream>
-    <remote-id type="github">ionelmc/python-hunter</remote-id>
-    <remote-id type="pypi">hunter</remote-id>
-  </upstream>
+	<upstream>
+		<remote-id type="github">ionelmc/python-hunter</remote-id>
+		<remote-id type="pypi">hunter</remote-id>
+		<doc>https://python-hunter.readthedocs.io/</doc>
+		<changelog>https://python-hunter.readthedocs.io/en/latest/changelog.html</changelog>
+	</upstream>
 </pkgmetadata>
