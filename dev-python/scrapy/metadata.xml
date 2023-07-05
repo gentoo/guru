@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -7,5 +7,7 @@
 	</maintainer>
 	<upstream>
 		<remote-id type="github">scrapy/scrapy</remote-id>
+		<doc>https://docs.scrapy.org/</doc>
+		<bugs-to>https://github.com/scrapy/scrapy/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
