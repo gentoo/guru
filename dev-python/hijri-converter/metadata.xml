@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -13,5 +13,6 @@
 	<upstream>
 		<remote-id type="github">dralshehri/hijri-converter</remote-id>
 		<remote-id type="pypi">hijri-converter</remote-id>
+		<doc>https://hijri-converter.readthedocs.io</doc>
 	</upstream>
 </pkgmetadata>
