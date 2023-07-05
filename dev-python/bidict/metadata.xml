@@ -1,12 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<upstream>
-<remote-id type="pypi">bidict</remote-id>
-<remote-id type="github">jab/bidict</remote-id>
-</upstream>
-<maintainer type="person">
-<email>1over137@anche.no</email>
-<name>Shaoyu Tseng</name>
-</maintainer>
+	<upstream>
+		<remote-id type="pypi">bidict</remote-id>
+		<remote-id type="github">jab/bidict</remote-id>
+		<maintainer>
+			<name>Joshua Bronson</name>
+			<email>jabronson@gmail.com</email>
+		</maintainer>
+		<doc>https://bidict.readthedocs.io</doc>
+		<changelog>https://bidict.readthedocs.io/changelog.html</changelog>
+	</upstream>
+	<maintainer type="person">
+		<email>1over137@anche.no</email>
+		<name>Shaoyu Tseng</name>
+	</maintainer>
 </pkgmetadata>
