@@ -1,15 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <maintainer type="person">
-    <email>lssndrbarbieri@gmail.com</email>
-    <name>Alessandro Barbieri</name>
-  </maintainer>
-  <longdescription lang="en">
+	<maintainer type="person">
+		<email>lssndrbarbieri@gmail.com</email>
+		<name>Alessandro Barbieri</name>
+	</maintainer>
+	<longdescription lang="en">
 sphinx-click is a Sphinx plugin that allows you to automatically extract documentation from a click-based application and include it in your docs.
   </longdescription>
-  <upstream>
-    <remote-id type="github">click-contrib/sphinx-click</remote-id>
-    <remote-id type="pypi">sphinx-click</remote-id>
-  </upstream>
+	<upstream>
+		<remote-id type="github">click-contrib/sphinx-click</remote-id>
+		<remote-id type="pypi">sphinx-click</remote-id>
+		<bugs-to>https://github.com/click-contrib/sphinx-click/issues</bugs-to>
+		<doc>https://sphinx-click.readthedocs.io/en/latest</doc>
+	</upstream>
 </pkgmetadata>
