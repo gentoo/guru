@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
@@ -12,5 +12,9 @@
 	<upstream>
 		<remote-id type="github">cmacmackin/markdown-include</remote-id>
 		<remote-id type="pypi">markdown-include</remote-id>
+		<maintainer>
+			<name>Chris MacMackin</name>
+			<email>cmacmackin@gmail.com</email>
+		</maintainer>
 	</upstream>
 </pkgmetadata>
