@@ -5,7 +5,7 @@ EAPI=8
 
 inherit desktop go-module
 
-DEPS_DATE="2023-02-07" # when the deps archive has been created
+DEPS_DATE="2023-07-06" # when the deps archive has been created
 
 DESCRIPTION="A nonlinear 2D puzzle platformer taking place in impossible spaces"
 HOMEPAGE="https://divverent.github.io/aaaaxy/"
@@ -14,11 +14,9 @@ SRC_URI="
 	https://gitlab.com/api/v4/projects/41581401/packages/generic/${PN}/${PV}+${DEPS_DATE}/${P}-deps.tar.xz
 "
 
-LICENSE="Apache-2.0 BSD MIT || ( FTL GPL-2+ )"
+LICENSE="Apache-2.0 BSD MIT FTL OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64"
-
-RESTRICT="bindist" # only redistributable when using Freetype under FTL
 
 DEPEND="
 	media-libs/alsa-lib
@@ -27,6 +25,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
+	app-arch/advancecomp
+	app-arch/zip
 	x11-libs/libXcursor
 	x11-libs/libXi
 	x11-libs/libXinerama
