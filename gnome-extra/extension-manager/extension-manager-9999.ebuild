@@ -39,10 +39,6 @@ DEPEND="
 	${RDEPEND}
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-0.4.1-make-libbacktrace-optional.patch"
-)
-
 src_configure() {
 	local emesonargs=(
 		-Dpackage="ebuild"
