@@ -3,7 +3,7 @@
 
 EAPI=8
 inherit desktop
-DESCRIPTION="Dogecoin Core Qt 1.14.6 (with Graphical User Interface) with ultra-low transaction fees.  Fast and lightweight; the default installation keeps downloaded blockchain size below 2.2GB, making it ideal for daily transactions, even on systems where disk space could be limited."
+DESCRIPTION="Dogecoin Core Qt 1.14.6 (with Graphical User Interface) with ultra-low transaction fees.  Fast and lightweight; the default installation for desktop keeps downloaded blockchain size below 2.2GB, making it ideal for daily transactions, even on systems where disk space could be limited."
 HOMEPAGE="https://github.com/dogecoin"
 SRC_URI="https://github.com/dogecoin/dogecoin/archive/refs/tags/v${PV}.tar.gz -> ${PN}-v${PV}.tar.gz"
 

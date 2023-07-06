@@ -18,6 +18,6 @@
 		<flag name="zmq">Enables ZeroMQ notifications</flag>
 	</use>
 	<longdescription lang="en">
-		Dogecoin Core Qt for desktop environment.  Fun-loving cryptocurrency with ultra-low transaction fees featuring Graphical User Interface with statistical analysis, console interaction and wallet support.  Fast and lightweight; the default installation keeps downloaded blockchain size below 2.2GB, making it ideal for daily transactions even on systems where disk space could be limited.
+		Dogecoin Core Qt for desktop environment.  Fun-loving cryptocurrency with ultra-low transaction fees featuring Graphical User Interface with statistical analysis, console interaction and wallet support.  Fast and lightweight; the default installation for desktop keeps downloaded blockchain size below 2.2GB, making it ideal for daily transactions even on systems where disk space could be limited.
 	</longdescription>
 </pkgmetadata>
