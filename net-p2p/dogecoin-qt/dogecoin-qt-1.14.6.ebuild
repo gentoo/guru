@@ -84,7 +84,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	xdg_desktop_database_update
 	elog "Dogecoin Core Qt ${PV} has been installed."
 	elog "Dogecoin Core Qt binaries have been placed in ${DOGEDIR}/bin."
 	elog "${PN} has been symlinked with /usr/bin/${PN}."
