@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=ProtonUp-Qt
-Exec=sh -c "cd /opt/ProtonUp-Qt &&  python3 -m  pupgui2"
+Exec=/usr/bin/ProtonUp-Qt
 Type=Application
 Comment=Install Wine and Proton-based Compatibility Tools
 Comment[de]=Wine und Proton Kompatibilitätstools installieren

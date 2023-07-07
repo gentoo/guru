@@ -1,2 +1,3 @@
-#!/bin/sh
-cd /opt/ProtonUp-Qt &&  python3 -m  pupgui2
+#!/bin/bash
+
+/usr/bin/python -m pupgui2 "$@"

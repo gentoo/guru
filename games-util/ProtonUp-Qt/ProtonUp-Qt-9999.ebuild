@@ -2,8 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+_app_id=net.davidotek.pupgui2
 
-inherit git-r3 qmake-utils desktop
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{9..12} )
+
+EPYTHON=python3
+
+inherit git-r3 distutils-r1 desktop
 EGIT_REPO_URI="https://github.com/DavidoTek/ProtonUp-Qt.git"
 DESCRIPTION="Install and manage GE-Proton, Luxtorpeda & more for Steam and Wine-GE & more for Lutris with this graphical user interface."
 HOMEPAGE="https://davidotek.github.io/protonup-qt"
@@ -21,12 +27,17 @@ DEPEND="dev-python/steam
         dev-python/zstandard
 "
 
+src_compile() {
+    appstream-util validate-relax --nonet "share/metainfo/$_app_id.appdata.xml"
+    desktop-file-validate "share/applications/$_app_id.desktop"
+	distutils-r1_src_compile
+}
+
 src_install() {
-    insinto /opt/ProtonUp-Qt && doins -r "${WORKDIR}/${P}/pupgui2" && doins -r "${WORKDIR}/${P}/pupgui2"
-
-    insinto /opt/bin/ && doins "${FILESDIR}/ProtonUp-Qt"
-    fperms +x /opt/bin/ProtonUp-Qt
-
+	distutils-r1_src_install
     domenu "${FILESDIR}/ProtonUp-Qt.desktop"
-    newicon "${WORKDIR}/${P}/share/icons/hicolor/64x64/apps/net.davidotek.pupgui2.png" ProtonUp-Qt.png
+    dobin  "${FILESDIR}/ProtonUp-Qt"
+    newicon -s 64 "${WORKDIR}/${P}/share/icons/hicolor/64x64/apps/net.davidotek.pupgui2.png" ProtonUp-Qt.png
+    newicon -s 128 "${WORKDIR}/${P}/share/icons/hicolor/128x128/apps/net.davidotek.pupgui2.png" ProtonUp-Qt.png
+    newicon -s 256 "${WORKDIR}/${P}/share/icons/hicolor/256x256/apps/net.davidotek.pupgui2.png" ProtonUp-Qt.png
 }
