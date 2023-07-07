@@ -12,7 +12,7 @@ EPYTHON=python3
 inherit distutils-r1 desktop xdg-utils
 
 SRC_URI="https://github.com/DavidoTek/ProtonUp-Qt/archive/refs/tags/v${PV}.tar.gz"
-DESCRIPTION="Install and manage GE-Proton, Luxtorpeda & more for Steam and Wine-GE & more for Lutris with this graphical user interface."
+DESCRIPTION="Install and manage GE-Proton, Luxtorpeda & more for Steam Lutris and Heroic."
 HOMEPAGE="https://davidotek.github.io/protonup-qt"
 
 LICENSE="GPL-3"
