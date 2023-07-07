@@ -5,7 +5,7 @@
 		<flag name="gtk4">Compile with support for gtk4</flag>
 		<flag name="cage">Use cage to start ReGreet</flag>
 		<flag name="sway">Use sway to start ReGreet</flag>
-		<flag name="logs">Compile ReGreet with logs enable (debug)</flag>
+		<flag name="logs">Compile logs support ReGreet (debug)</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">rharish101/ReGreet</remote-id>

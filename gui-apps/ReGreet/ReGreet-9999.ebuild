@@ -13,21 +13,21 @@ HOMEPAGE="https://github.com/rharish101/ReGreet"
 LICENSE="GPL-3"
 SLOT="0"
 DEPEND="x11-libs/gtk+:3
-    gtk4? ( gui-libs/gtk )
-    cage? ( gui-wm/cage )
-    sway? ( gui-wm/sway )
-    || ( gui-wm/cage gui-wm/sway )
+        gtk4? ( gui-libs/gtk )
+        cage? ( gui-wm/cage )
+        sway? ( gui-wm/sway )
+        || ( gui-wm/cage gui-wm/sway )
 "
+
 RDEPEND="
-    ${DEPEND}
-    gui-libs/greetd
+	${DEPEND}
+	gui-libs/greetd
 "
 BDEPEND="
-    virtual/rust
+	virtual/rust
 "
 IUSE="gtk4 logs cage sway"
 REQUIRED_USE="|| ( cage sway ) cage? ( !sway ) sway? ( !cage )"
-
 
 src_unpack() {
     git-r3_src_unpack 
