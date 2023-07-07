@@ -28,7 +28,7 @@ BDEPEND="
 	dev-lang/erlang:=
 	dev-lang/elixir:=
 	dev-util/cmake
-	dev-util/rebar
+	>=dev-util/rebar-3.20.0-r1
 	dev-elixir/hex
 "
 DEPEND="
