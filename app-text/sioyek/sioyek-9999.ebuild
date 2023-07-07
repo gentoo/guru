@@ -32,9 +32,10 @@ src_install() {
     fperms +x /opt/sioyek/sioyek
     insinto /opt/sioyek/shaders
     doins pdf_viewer/shaders/*
-    #Add Desktop file and icon
+
     domenu "${FILESDIR}/sioyek.desktop"
     doicon resources/sioyek-icon-linux.png
     insinto /usr/share/sioyek && doins tutorial.pdf pdf_viewer/keys.config pdf_viewer/prefs.config
     doman resources/sioyek.1
+
 }
