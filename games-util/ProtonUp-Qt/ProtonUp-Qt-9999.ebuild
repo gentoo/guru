@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{9..12} )
 
 EPYTHON=python3
 
-inherit git-r3 distutils-r1 desktop
+inherit git-r3 distutils-r1 desktop xdg-utils
 EGIT_REPO_URI="https://github.com/DavidoTek/ProtonUp-Qt.git"
 DESCRIPTION="Install and manage GE-Proton, Luxtorpeda & more for Steam and Wine-GE & more for Lutris with this graphical user interface."
 HOMEPAGE="https://davidotek.github.io/protonup-qt"
@@ -40,4 +40,8 @@ src_install() {
     newicon -s 64 "${WORKDIR}/${P}/share/icons/hicolor/64x64/apps/net.davidotek.pupgui2.png" ProtonUp-Qt.png
     newicon -s 128 "${WORKDIR}/${P}/share/icons/hicolor/128x128/apps/net.davidotek.pupgui2.png" ProtonUp-Qt.png
     newicon -s 256 "${WORKDIR}/${P}/share/icons/hicolor/256x256/apps/net.davidotek.pupgui2.png" ProtonUp-Qt.png
+}
+
+pkg_postinst() {
+    xdg_icon_cache_update
 }
