@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{9..11} )
 
 EPYTHON=python3
 
-inherit linux-mod-r1 toolchain-funcs git-r3 distutils-r1 desktop systemd
+inherit linux-mod-r1 git-r3 distutils-r1 desktop systemd
 
 EGIT_REPO_URI="https://github.com/johnfanv2/LenovoLegionLinux.git"
 
@@ -21,7 +21,6 @@ DEPEND="sys-kernel/linux-headers
     legion-tools? ( dev-python/PyQt5 )
     legion-tools? ( dev-python/pyyaml )
     legion-tools? ( dev-python/argcomplete )
-	app-portage/smart-live-rebuild
 	legion-acpi? ( sys-power/acpid )
 	radeon-dgpu? ( dev-util/rocm-smi )
     downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
@@ -60,29 +59,29 @@ src_install() {
 		cd "${WORKDIR}/${P}/extra"
 
 		if use legion-acpi; then
-            insinto /etc/acpi/events/ && doins acpi/events/{ac_adapter_legion-fancurve,novo-button,PrtSc-button,fn-r-refrate}
+			insinto /etc/acpi/events/ && doins acpi/events/{ac_adapter_legion-fancurve,novo-button,PrtSc-button,fn-r-refrate}
 			insinto /etc/acpi/actions/ && doins acpi/actions/{battery-legion-quiet.sh,snipping-tool.sh,fn-r-refresh-rate.sh}
         fi
 
 		if use systemd; then
-        	systemd_dounit service/legion-linux.service service/legion-linux.path
+			systemd_dounit service/legion-linux.service service/legion-linux.path
 			dobin service/fancurve-set
 			insinto /usr/share/legion_linux && doins service/profiles/*
 			insinto /etc/legion_linux && doins service/profiles/*
 
 			#AMD
     		if use radeon-dgpu; then
-        		insinto /usr/share/legion_linux && newins "${FILESDIR}/radeon" .env
+				insinto /usr/share/legion_linux && newins "${FILESDIR}/radeon" .env
 				insinto /etc/legion_linux && newins "${FILESDIR}/radeon" .env
     		fi
     		#NVIDIA (need dowgrade because nvidia-smi -pl was removed)
    			 if use downgrade-nvidia; then 
-        		insinto /usr/share/legion_linux && newins "${FILESDIR}/nvidia" .env
+				insinto /usr/share/legion_linux && newins "${FILESDIR}/nvidia" .env
 				insinto /etc/legion_linux && newins "${FILESDIR}/nvidia" .env
     		fi
 
 			if use ryzenadj; then 
-        		insinto /usr/share/legion_linux && newins "${FILESDIR}/cpu" .env
+				insinto /usr/share/legion_linux && newins "${FILESDIR}/cpu" .env
 				insinto /etc/legion_linux && newins "${FILESDIR}/cpu" .env
     		fi
 
