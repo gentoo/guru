@@ -4,9 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..11} )
-
-EPYTHON=python3
+PYTHON_COMPAT=( python3_{9..12} )
 
 inherit linux-mod-r1 git-r3 distutils-r1 desktop systemd
 
@@ -15,17 +13,17 @@ EGIT_REPO_URI="https://github.com/johnfanv2/LenovoLegionLinux.git"
 DESCRIPTION="Lenovo Legion Linux kernel module"
 HOMEPAGE="https://github.com/johnfanv2/LenovoLegionLinux"
 
-DEPEND="sys-kernel/linux-headers
-    sys-apps/lm-sensors
-    sys-apps/dmidecode
-    legion-tools? ( dev-python/PyQt5 )
-    legion-tools? ( dev-python/pyyaml )
-    legion-tools? ( dev-python/argcomplete )
-	legion-acpi? ( sys-power/acpid )
-	radeon-dgpu? ( dev-util/rocm-smi )
-    downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
-    ryzenadj? ( sys-power/RyzenAdj )
+RDEPEND="sys-kernel/linux-headers
+		sys-apps/lm-sensors
+		sys-apps/dmidecode
+		legion-tools? ( dev-python/PyQt5 dev-python/pyyaml dev-python/argcomplete )
+		legion-acpi? ( sys-power/acpid )
+		radeon-dgpu? ( dev-util/rocm-smi )
+		downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
+		ryzenadj? ( sys-power/RyzenAdj )
 "
+
+DEPEND="${RDEPEND}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -49,8 +47,9 @@ src_compile() {
 src_install() {
 	linux-mod-r1_src_install
 	#Load the module without reboot
-	cd "${WORKDIR}/${P}/python/legion_linux/"
-	make forcereloadmodule
+	pushd python/legion_linux/ || die
+		make forcereloadmodule
+	popd || die
 	if use legion-tools; then
 		#Define build dir (fix sandboxed)
 		cd "${WORKDIR}/${P}/python/legion_linux/"
@@ -75,7 +74,7 @@ src_install() {
 				insinto /etc/legion_linux && newins "${FILESDIR}/radeon" .env
     		fi
     		#NVIDIA (need dowgrade because nvidia-smi -pl was removed)
-   			 if use downgrade-nvidia; then 
+			if use downgrade-nvidia; then 
 				insinto /usr/share/legion_linux && newins "${FILESDIR}/nvidia" .env
 				insinto /etc/legion_linux && newins "${FILESDIR}/nvidia" .env
     		fi
@@ -84,8 +83,6 @@ src_install() {
 				insinto /usr/share/legion_linux && newins "${FILESDIR}/cpu" .env
 				insinto /etc/legion_linux && newins "${FILESDIR}/cpu" .env
     		fi
-
-			elog  "IMPORTANT!!!!\nPls copy /usr/share/legion_linux folder to .config in your Home folder\n Dont forget to edit .config/legion_linux/.env"
 		fi
 
 		# Desktop Files and Polkit
@@ -94,6 +91,17 @@ src_install() {
 		insinto "/usr/share/polkit-1/actions/" && doins "${FILESDIR}/legion_cli.policy"
 
 	fi
+}
 
-	elog "INTEL USERS!!!!\nCPU Control Feature: On intel cpu install undervolt https://github.com/georgewhewell/undervolt (or other tool you like to use). More information read the readme https://github.com/Petingoso/legion-fan-utils-linux/blob/main/README.md"
+pkg_postinst() {
+	if use systemd; then
+		ewarn "Default config files are present in /usr/share/legion_linux"
+		ewarn "Pls copy that folder to /etc/legion_linux and edit the fancurves to your liking"
+		ewarn "Note:can be done using the gui app"
+		ewarn "Dont forget to edit /etc/legion_linux/.env to enable and disable extra features"
+		ewarn "Note: use flag downgrade-nvidia in need for nvidia TDP control"
+	fi
+	ewarn "For Intel Users is need to install undervolt manally since and ebuild exist"
+	ewarn "Undervolt Repo: https://github.com/georgewhewell/undervolt"
+	ewarn "More information on this README: https://github.com/Petingoso/legion-fan-utils-linux/blob/main/README.md"
 }
