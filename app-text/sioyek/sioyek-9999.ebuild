@@ -16,7 +16,7 @@ BDEPEND="media-libs/harfbuzz
     dev-qt/qt3d
 "
 
-src_prepare() {
+src_compile() {
     #Make Mupdf specific for build
     pushd mupdf || die
     emake USE_SYSTEM_HARFBUZZ=yes
