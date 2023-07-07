@@ -21,7 +21,7 @@ DEPEND="dev-python/steam
         dev-python/zstandard
 "
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 src_install() {
     insinto /opt/ProtonUp-Qt && doins -r "${WORKDIR}/${P}/pupgui2" && doins -r "${WORKDIR}/${P}/pupgui2"
