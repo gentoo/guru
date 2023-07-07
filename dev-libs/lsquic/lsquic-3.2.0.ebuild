@@ -3,27 +3,25 @@
 
 EAPI=8
 
-inherit cmake git-r3
-
-DESCRIPTION="LiteSpeed QUIC (LSQUIC) Library"
-HOMEPAGE="https://github.com/litespeedtech/lsquic/"
+inherit cmake
 
 # LSQUIC
-EGIT_LSQUIC_REPO_URI="https://github.com/litespeedtech/lsquic/"
-EGIT_LSQUIC_COMMIT="3bbf683f25ab84826951350c57ae226c88c54422"
-EGIT_LSQUIC_CHECKOUT_DIR="${WORKDIR}/${P}/"
-
+LSQUIC_COMMIT="3bbf683f25ab84826951350c57ae226c88c54422"
 # BoringSSL
-EGIT_BORINGSSL_REPO_URI="https://github.com/google/boringssl"
-EGIT_BORINGSSL_BRANCH="fips-20230428"
-EGIT_BORINGSSL_CHECKOUT_DIR="${WORKDIR}/${P}/src/liblsquic/boringssl"
-
-EGIT_SUBMODULES=()
+BORINGSSL_COMMIT="15655052e8701f908937204785eaa8cd4363099f"
+DESCRIPTION="LiteSpeed QUIC (LSQUIC) Library"
+HOMEPAGE="https://github.com/litespeedtech/lsquic/"
+SRC_URI="
+	https://github.com/litespeedtech/lsquic/archive/${LSQUIC_COMMIT}.tar.gz -> ${P}.tar.gz
+	https://github.com/google/boringssl/archive/${BORINGSSL_COMMIT}.tar.gz -> boringssl-fips-20230428.tar.gz
+"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="bin static-libs test"
+IUSE="static-libs test"
+
+S="${WORKDIR}/lsquic-${LSQUIC_COMMIT}"
 
 DEPEND="
 	dev-libs/ls-qpack:=[static-libs=]
@@ -36,19 +34,15 @@ PATCHES=(
 )
 
 src_unpack() {
-	# Checkout LSQUIC Sources
-	git-r3_fetch ${EGIT_LSQUIC_REPO_URI} ${EGIT_LSQUIC_COMMIT}
-	git-r3_checkout ${EGIT_LSQUIC_REPO_URI} ${EGIT_LSQUIC_CHECKOUT_DIR}
-	# Checkout BoringSSL Sources
-	git-r3_fetch ${EGIT_BORINGSSL_REPO_URI} ${EGIT_BORINGSSL_BRANCH}
-	git-r3_checkout ${EGIT_BORINGSSL_REPO_URI} ${EGIT_BORINGSSL_CHECKOUT_DIR}
+	unpack ${P}.tar.gz
+	unpack boringssl-fips-20230428.tar.gz
+	mv boringssl-${BORINGSSL_COMMIT} ${S}/src/liblsquic/boringssl || die
 }
 
 src_configure() {
 	local mycmakeargs=(
 		-DLSQUIC_SHARED_LIB=$(usex !static-libs)
 		-DLSQUIC_TESTS=$(usex test)
-		-DLSQUIC_BIN=$(usex bin)
 	)
 	cmake_src_configure
 }
