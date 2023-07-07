@@ -28,14 +28,14 @@ REQUIRED_USE="|| ( playerctl powerbar userinfo )"
 src_compile() {
       if use powerbar; then
             pushd gtklock-powerbar-module || die
-	      emake
-	      popd || die
+            emake
+            popd || die
       fi
 
       if use playerctl; then
             pushd gtklock-playerctl-module || die
-	      emake
-	      popd || die
+            emake
+            popd || die
       fi
     
       if use userinfo; then
@@ -49,14 +49,14 @@ src_install() {
       dodir /usr/local/lib/gtklock
       if use powerbar; then
             pushd gtklock-powerbar-module || die
-	      insinto /usr/local/lib/gtklock && doins powerbar-module.so
-	      popd || die
+            insinto /usr/local/lib/gtklock && doins powerbar-module.so
+            popd || die
       fi
 
       if use playerctl; then
             pushd gtklock-playerctl-module || die
-	      insinto /usr/local/lib/gtklock && doins playerctl-module.so
-	      popd || die
+            insinto /usr/local/lib/gtklock && doins playerctl-module.so
+            popd || die
       fi
     
       if use userinfo; then
