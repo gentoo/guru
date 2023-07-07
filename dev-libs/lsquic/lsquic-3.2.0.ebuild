@@ -20,6 +20,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="static-libs test"
+RESTRICT="!test? ( test )"
 
 S="${WORKDIR}/lsquic-${LSQUIC_COMMIT}"
 
