@@ -1,3 +1,5 @@
+Modify the BoringSSL library to be included internally during LSQUIC construction, so that the BoringSSL library does not need to be installed by itself on the system.
+BoringSSL must always be built as static, so we intentionally removed the code that builds it as shared.
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 4c7b181..723a075 100644
 --- a/CMakeLists.txt
