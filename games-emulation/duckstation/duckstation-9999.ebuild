@@ -50,7 +50,7 @@ src_configure() {
 		-DBUILD_NOGUI_FRONTEND=$(usex nogui)
 		-DBUILD_QT_FRONTEND=$(usex qt5)
 		-DENABLE_CHEEVOS=$(usex retroachievements)
-		–DENABLE_DISCORD_PRESENCE=$(usex discord)
+		-DENABLE_DISCORD_PRESENCE=$(usex discord)
 		-DUSE_DRMKMS=$(usex gbm)
 		-DUSE_EGL=$(usex egl)
 		-DUSE_EVDEV=$(usex evdev)
@@ -68,13 +68,12 @@ src_install() {
 
 	# Binary and resources files must be in same directory – installing in /opt
 	insinto /opt/${PN}
-	doins -r "${BUILD_DIR}"/bin/{database,inputprofiles,resources,shaders,translations}
+	doins -r "${BUILD_DIR}"/bin/resources
+	doins -r "${BUILD_DIR}"/bin/translations
 
 	if use nogui; then
-		for i in {16,32,48,64,128,256}; do
-			newicon -s ${i} extras/icons/icon-${i}px.png duckstation-nogui.png
-		done
-		domenu extras/linux-desktop-files/duckstation-nogui.desktop
+		newicon "${BUILD_DIR}"/bin/resources/images/duck.png duckstation-nogui.png
+		make_desktop_entry "${PN}-nogui %f" "DuckStation NoGUI" "${PN}-nogui" "Game"
 
 		doins "${BUILD_DIR}"/bin/duckstation-nogui
 		dosym ../../opt/${PN}/duckstation-nogui usr/bin/duckstation-nogui
@@ -82,10 +81,8 @@ src_install() {
 	fi
 
 	if use qt5; then
-		for i in {16,32,48,64,128,256}; do
-			newicon -s ${i} extras/icons/icon-${i}px.png duckstation-qt.png
-		done
-		domenu extras/linux-desktop-files/duckstation-qt.desktop
+		newicon "${BUILD_DIR}"/bin/resources/images/duck.png duckstation-qt.png
+		make_desktop_entry "${PN}-qt %f" "DuckStation Qt" "${PN}-qt" "Game"
 
 		doins "${BUILD_DIR}"/bin/duckstation-qt
 		dosym ../../opt/${PN}/duckstation-qt usr/bin/duckstation-qt
