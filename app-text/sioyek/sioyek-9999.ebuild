@@ -11,31 +11,31 @@ HOMEPAGE="https://github.com/ahrm/sioyek"
 LICENSE="GPL-3"
 SLOT="0"
 
-BDEPEND="media-libs/harfbuzz
-    dev-qt/qtbase
-    dev-qt/qt3d
+BDEPEND="media-libs/harfbuzz 
+	dev-qt/qtbase 
+	dev-qt/qt3d
 "
 
 src_compile() {
-    #Make Mupdf specific for build
-    pushd mupdf || die
-    emake USE_SYSTEM_HARFBUZZ=yes
-    popd || die
+	#Make Mupdf specific for build
+	pushd mupdf || die
+	emake USE_SYSTEM_HARFBUZZ=yes
+	popd || die
 
-    eapply_user
-    eqmake5 "CONFIG+=linux_app_image" pdf_viewer_build_config.pro
+	eapply_user
+	eqmake5 "CONFIG+=linux_app_image" pdf_viewer_build_config.pro
 }
 src_install() {
-    #intall bin and shaders
-    insinto /opt/sioyek
-    doins sioyek
-    fperms +x /opt/sioyek/sioyek
-    insinto /opt/sioyek/shaders
-    doins pdf_viewer/shaders/*
+	#intall bin and shaders
+	insinto /opt/sioyek
+	doins sioyek
+	fperms +x /opt/sioyek/sioyek
+	insinto /opt/sioyek/shaders
+	doins pdf_viewer/shaders/*
 
-    domenu "${FILESDIR}/sioyek.desktop"
-    doicon resources/sioyek-icon-linux.png
-    insinto /usr/share/sioyek && doins tutorial.pdf pdf_viewer/keys.config pdf_viewer/prefs.config
-    doman resources/sioyek.1
+	domenu "${FILESDIR}/sioyek.desktop"
+	doicon resources/sioyek-icon-linux.png
+	insinto /usr/share/sioyek && doins tutorial.pdf pdf_viewer/keys.config pdf_viewer/prefs.config
+	doman resources/sioyek.1
 
 }
