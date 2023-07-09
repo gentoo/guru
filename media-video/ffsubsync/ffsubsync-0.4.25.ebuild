@@ -18,7 +18,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	~dev-python/auditok-0.1.5[${PYTHON_USEDEP}]
 	dev-python/chardet[${PYTHON_USEDEP}]
-	dev-python/charset_normalizer[${PYTHON_USEDEP}]
+	dev-python/charset-normalizer[${PYTHON_USEDEP}]
 	dev-python/faust-cchardet[${PYTHON_USEDEP}]
 	dev-python/ffmpeg-python[${PYTHON_USEDEP}]
 	>=dev-python/future-0.18.2[${PYTHON_USEDEP}]
