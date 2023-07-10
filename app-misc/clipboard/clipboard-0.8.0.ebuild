@@ -5,9 +5,11 @@ EAPI=8
 
 inherit cmake
 
+MY_PN="Clipboard"
+MY_P="${MY_PN}-${PV}"
 DESCRIPTION="Cut, copy, and paste anything in your terminal"
 HOMEPAGE="https://getclipboard.app/ https://github.com/Slackadays/Clipboard"
-SRC_URI="https://github.com/Slackadays/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/Slackadays/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -20,6 +22,8 @@ RDEPEND="X? ( x11-libs/libX11 )
 			dev-libs/wayland
 		)
 "
+S="${WORKDIR}/${MY_P}"
+
 PATCHES=(
 	"${FILESDIR}/disable-git-and-lto.patch"
 )
