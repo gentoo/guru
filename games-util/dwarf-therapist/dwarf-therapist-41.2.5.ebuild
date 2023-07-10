@@ -9,7 +9,7 @@ MY_PN="Dwarf-Therapist"
 MY_PV="v${PV}"
 MY_P="${MY_PN}-${PV}"
 
-DESCRIPTION="For managing dwarves in  Dwarf Fortress"
+DESCRIPTION="For managing dwarves in Dwarf Fortress"
 HOMEPAGE="https://github.com/Dwarf-Therapist/Dwarf-Therapist"
 SRC_URI="https://github.com/Dwarf-Therapist/${MY_PN}/archive/refs/tags/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
 
