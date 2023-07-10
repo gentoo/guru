@@ -10,8 +10,8 @@ if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
 else
 	SRC_URI="
-		https://github.com/pystardust/${PN}/releases/download/v${PV}/ani-cli
-		https://github.com/pystardust/${PN}/releases/download/v${PV}/ani-cli.1
+		https://github.com/pystardust/${PN}/releases/download/v${PV}/ani-cli -> ${P}
+		https://github.com/pystardust/${PN}/releases/download/v${PV}/ani-cli.1 -> ${P}.1
 	"
 	S="${WORKDIR}"
 	KEYWORDS="~amd64 ~x86"
@@ -29,6 +29,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_install() {
-	dobin "${SRC_URI:+$DISTDIR/}ani-cli"
-	doman "${SRC_URI:+$DISTDIR/}ani-cli.1"
+	if [[ ! "${PV}" == *9999* ]]; then
+		mv "${DISTDIR}/${P}" "ani-cli"
+		mv "${DISTDIR}/${P}.1" "ani-cli.1"
+	fi
+	dobin "ani-cli"
+	doman "ani-cli.1"
 }
