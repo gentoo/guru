@@ -24,7 +24,7 @@ src_install() {
 	fperms +x /opt/heroic /opt/bin/heroic
 
 	#fix login error both EPIC and GOG
-	fperms +x /opt/heroic/resources/app.asar.unpacked/build/bin/linux/{legendary, gogdl}
+	fperms +x /opt/heroic/resources/app.asar.unpacked/build/bin/linux/legendary /opt/heroic/resources/app.asar.unpacked/build/bin/linux/gogdl
 
 	domenu "${FILESDIR}/HeroicGamesLauncher.desktop"
 	newicon "${WORKDIR}/heroic/resources/app.asar.unpacked/build/icon.png" heroic.png
