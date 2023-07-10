@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake desktop xdg-utils
+inherit cmake desktop linux-info xdg-utils
 
 MY_PN="Dwarf-Therapist"
 MY_PV="v${PV}"
@@ -24,6 +24,10 @@ RDEPEND="
 	dev-qt/qtdeclarative:5
 	dev-qt/qtwidgets:5
 "
+
+CONFIG_CHECK="~CROSS_MEMORY_ATTACH"
+WARNING_CROSS_MEMORY_ATTACH="required to interact with Dwarf Fortress"
+
 src_install() {
 	# Install some sort of documentation
 	dodoc README.rst
