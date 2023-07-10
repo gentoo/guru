@@ -14,14 +14,14 @@ DESCRIPTION="Lenovo Legion Linux kernel module"
 HOMEPAGE="https://github.com/johnfanv2/LenovoLegionLinux"
 
 RDEPEND="sys-kernel/linux-headers
-		sys-apps/lm-sensors
-		sys-apps/dmidecode
-		legion-tools? ( dev-python/PyQt5 dev-python/pyyaml dev-python/argcomplete )
-		legion-acpi? ( sys-power/acpid )
-		radeon-dgpu? ( dev-util/rocm-smi )
-		downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
-		ryzenadj? ( sys-power/RyzenAdj )
-		undervolt-intel? ( dev-python/undervolt )
+	sys-apps/lm-sensors
+	sys-apps/dmidecode
+	legion-tools? ( dev-python/PyQt5 dev-python/pyyaml dev-python/argcomplete )
+	legion-acpi? ( sys-power/acpid )
+	radeon-dgpu? ( dev-util/rocm-smi )
+	downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
+	ryzenadj? ( sys-power/RyzenAdj )
+	undervolt-intel? ( dev-python/undervolt )
 "
 
 DEPEND="${RDEPEND}"
