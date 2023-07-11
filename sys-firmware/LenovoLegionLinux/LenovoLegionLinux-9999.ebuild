@@ -14,21 +14,22 @@ DESCRIPTION="Lenovo Legion Linux kernel module"
 HOMEPAGE="https://github.com/johnfanv2/LenovoLegionLinux"
 
 RDEPEND="sys-kernel/linux-headers
-		sys-apps/lm-sensors
-		sys-apps/dmidecode
-		legion-tools? ( dev-python/PyQt5 dev-python/pyyaml dev-python/argcomplete )
-		legion-acpi? ( sys-power/acpid )
-		radeon-dgpu? ( dev-util/rocm-smi )
-		downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
-		ryzenadj? ( sys-power/RyzenAdj )
+	sys-apps/lm-sensors
+	sys-apps/dmidecode
+	legion-tools? ( dev-python/PyQt5 dev-python/pyyaml dev-python/argcomplete )
+	legion-acpi? ( sys-power/acpid )
+	radeon-dgpu? ( dev-util/rocm-smi )
+	downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
+	ryzenadj? ( sys-power/RyzenAdj )
+	undervolt-intel? ( dev-python/undervolt )
 "
 
 DEPEND="${RDEPEND}"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="legion-tools legion-acpi systemd radeon-dgpu downgrade-nvidia ryzenadj"
-REQUIRED_USE="|| ( systemd legion-acpi radeon-dgpu downgrade-nvidia ryzenadj legion-tools ) legion-acpi? ( legion-tools ) radeon-dgpu? ( !downgrade-nvidia legion-tools ) downgrade-nvidia? ( !radeon-dgpu legion-tools )"
+IUSE="legion-tools legion-acpi systemd radeon-dgpu downgrade-nvidia ryzenadj undervolt-intel"
+REQUIRED_USE="|| ( systemd legion-acpi radeon-dgpu downgrade-nvidia ryzenadj legion-tools undervolt-intel ) legion-acpi? ( legion-tools ) radeon-dgpu? ( !downgrade-nvidia legion-tools ) downgrade-nvidia? ( !radeon-dgpu legion-tools ) undervolt-intel? ( !ryzenadj legion-tools ) ryzenadj? ( !undervolt-intel legion-tools )"
 
 MODULES_KERNEL_MIN=5.10
 
@@ -36,7 +37,7 @@ src_compile() {
 	local modlist=(
 		legion-laptop=kernel/drivers/platform/x86:kernel_module:kernel_module:all
 	)
-    KERNELVERSION=${KV_FULL} linux-mod-r1_src_compile
+	KERNELVERSION=${KV_FULL} linux-mod-r1_src_compile
 	if use legion-tools; then
 		#Define build dir (fix sandboxed)
 		cd "${WORKDIR}/${P}/python/legion_linux"
@@ -60,7 +61,7 @@ src_install() {
 		if use legion-acpi; then
 			insinto /etc/acpi/events/ && doins acpi/events/{ac_adapter_legion-fancurve,novo-button,PrtSc-button,fn-r-refrate}
 			insinto /etc/acpi/actions/ && doins acpi/actions/{battery-legion-quiet.sh,snipping-tool.sh,fn-r-refresh-rate.sh}
-        fi
+		fi
 
 		if use systemd; then
 			systemd_dounit service/legion-linux.service service/legion-linux.path
@@ -69,20 +70,20 @@ src_install() {
 			insinto /etc/legion_linux && doins service/profiles/*
 
 			#AMD
-    		if use radeon-dgpu; then
+			if use radeon-dgpu; then
 				insinto /usr/share/legion_linux && newins "${FILESDIR}/radeon" .env
 				insinto /etc/legion_linux && newins "${FILESDIR}/radeon" .env
-    		fi
-    		#NVIDIA (need dowgrade because nvidia-smi -pl was removed)
+			fi
+			#NVIDIA (need dowgrade because nvidia-smi -pl was removed)
 			if use downgrade-nvidia; then 
 				insinto /usr/share/legion_linux && newins "${FILESDIR}/nvidia" .env
 				insinto /etc/legion_linux && newins "${FILESDIR}/nvidia" .env
-    		fi
+			fi
 
 			if use ryzenadj; then 
 				insinto /usr/share/legion_linux && newins "${FILESDIR}/cpu" .env
 				insinto /etc/legion_linux && newins "${FILESDIR}/cpu" .env
-    		fi
+			fi
 		fi
 
 		# Desktop Files and Polkit
@@ -99,9 +100,7 @@ pkg_postinst() {
 		ewarn "Pls copy that folder to /etc/legion_linux and edit the fancurves to your liking"
 		ewarn "Note:can be done using the gui app"
 		ewarn "Dont forget to edit /etc/legion_linux/.env to enable and disable extra features"
-		ewarn "Note: use flag downgrade-nvidia in need for nvidia TDP control"
+		ewarn "Note the CPU and APU control command both for undervolt an ryzenadj are edit in /etc/legion_linux/.env command"
+		ewarn "Note: use flag downgrade-nvidia in need for nvidia TDP control\n"
 	fi
-	ewarn "For Intel Users is need to install undervolt manally since and ebuild exist"
-	ewarn "Undervolt Repo: https://github.com/georgewhewell/undervolt"
-	ewarn "More information on this README: https://github.com/Petingoso/legion-fan-utils-linux/blob/main/README.md"
 }

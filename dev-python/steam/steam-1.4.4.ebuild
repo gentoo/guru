@@ -13,12 +13,12 @@ DESCRIPTION="Python package for interacting with Steam"
 HOMEPAGE="https://github.com/ValvePython/steam"
 
 DEPEND="dev-python/six
-    dev-python/pycryptodome
-    dev-python/requests
-    dev-python/urllib3
-    dev-python/vdf
-    dev-python/protobuf-python
-    dev-python/cachetools
+	dev-python/pycryptodome
+	dev-python/requests
+	dev-python/urllib3
+	dev-python/vdf
+	dev-python/protobuf-python
+	dev-python/cachetools
 "
 LICENSE="GPL-3"
 SLOT="0"
@@ -26,9 +26,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 src_compile() {
-    distutils-r1_src_compile
+	distutils-r1_src_compile
 }
 
 src_install() {
-    distutils-r1_src_install
+	distutils-r1_src_install
 }

@@ -1,11 +1,11 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 CMAKE_REMOVE_MODULES_LIST=( FindFreetype )
 
-inherit xdg cmake
+inherit xdg cmake-multilib
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -25,20 +25,22 @@ IUSE=""
 BDEPEND="
 	dev-util/vulkan-headers
 	media-libs/shaderc
-	media-libs/vulkan-loader
+	media-libs/vulkan-loader[${MULTILIB_USEDEP}]
 	>=media-video/obs-studio-27[wayland]
-	x11-libs/libdrm
+	x11-libs/libdrm[${MULTILIB_USEDEP}]
 "
 RDEPEND="
-	media-libs/libglvnd
+	media-libs/libglvnd[${MULTILIB_USEDEP}]
 	>=media-video/obs-studio-27[wayland]
-	x11-libs/libdrm
-	x11-libs/libxcb:=
+	x11-libs/libdrm[${MULTILIB_USEDEP}]
+	x11-libs/libxcb:=[${MULTILIB_USEDEP}]
 "
 
 QA_SONAME="
 	/usr/lib64/libVkLayer_obs_vkcapture.so
 	/usr/lib64/libobs_glcapture.so
+	/usr/lib/libVkLayer_obs_vkcapture.so
+	/usr/lib/libobs_glcapture.so
 "
 
 src_unpack() {
@@ -47,4 +49,13 @@ src_unpack() {
 	if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
 	fi
+}
+
+multilib_src_configure() {
+if ! multilib_is_native_abi; then
+	local mycmakeargs+=(
+	-DBUILD_PLUGIN=OFF
+	)
+fi
+	cmake_src_configure
 }

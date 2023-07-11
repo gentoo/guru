@@ -7,7 +7,7 @@ MY_PV="${PV/_rc/-RC}"
 
 DESCRIPTION="Static version of a fast very high compression read-only FUSE file system"
 HOMEPAGE="https://github.com/mhx/dwarfs"
-SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${MY_PV}/dwarfs-${MY_PV}-Linux.tar.xz -> dwarfs-bin-${MY_PV}-Linux.tar.xz"
+SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${MY_PV}/dwarfs-${MY_PV}-Linux-x86_64.tar.xz -> dwarfs-bin-${MY_PV}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -21,7 +21,7 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-S="${WORKDIR}/dwarfs-${MY_PV}-Linux/"
+S="${WORKDIR}/dwarfs-${MY_PV}-Linux-x86_64/"
 QA_PREBUILT="
 	sbin/dwarfs
 	bin/*

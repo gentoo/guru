@@ -5,7 +5,7 @@ EAPI=8
 
 inherit optfeature webapp
 
-UPLOAD_HASH="a486871ac2e2787c90420001bf782c7a"
+UPLOAD_HASH="50c9b05f5267aa48c562539182d9ffd1"
 DESCRIPTION="Open-source hosting platform made for podcasters"
 HOMEPAGE="
 	https://castopod.org

@@ -5,7 +5,7 @@ EAPI=8
 
 inherit check-reqs shards systemd
 
-COMMIT="e7bed765fed0691795ac29c55640ddaa6b13c57d"
+COMMIT="507bed6313b49564e53b69a5c9b4d072d1e05e4b"
 MOCKS_COMMIT="11ec372f72747c09d48ffef04843f72be67d5b54"
 MOCKS_P="${PN}-mocks-${MOCKS_COMMIT:0:7}"
 DESCRIPTION="Invidious is an alternative front-end to YouTube"
@@ -45,7 +45,7 @@ COMMON_DEPEND="
 	dev-libs/libpcre2:=
 	dev-libs/libxml2:2
 	dev-libs/libyaml
-	dev-libs/openssl:=
+	<dev-libs/openssl-3:=
 	sys-libs/zlib:=
 "
 RDEPEND="${COMMON_DEPEND}
@@ -54,7 +54,8 @@ RDEPEND="${COMMON_DEPEND}
 "
 DEPEND="${COMMON_DEPEND}
 	dev-crystal/athena-negotiation
-	dev-crystal/crystal-pg
+	<dev-crystal/crystal-db-0.12.0
+	<dev-crystal/crystal-pg-0.27.0
 	dev-crystal/crystal-sqlite3
 	~dev-crystal/kemal-1.1.2
 	dev-crystal/kilt

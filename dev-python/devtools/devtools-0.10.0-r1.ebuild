@@ -24,7 +24,7 @@ HOMEPAGE="
 RESTRICT="!test? ( test )"
 
 LICENSE="MIT"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 SLOT="0"
 
 RDEPEND="

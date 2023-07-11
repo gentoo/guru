@@ -28,7 +28,7 @@ RDEPEND="
 	dev-python/pymorphy2-dicts-ru[${PYTHON_USEDEP}]
 	dev-python/pymorphy2-dicts-uk[${PYTHON_USEDEP}]
 	dev-python/pyqtdarktheme[${PYTHON_USEDEP}]
-	dev-python/charset_normalizer[${PYTHON_USEDEP}]
+	dev-python/charset-normalizer[${PYTHON_USEDEP}]
 	dev-python/EbookLib[${PYTHON_USEDEP}]
 	dev-python/sentence-splitter[${PYTHON_USEDEP}]
 	dev-python/mobi[${PYTHON_USEDEP}]

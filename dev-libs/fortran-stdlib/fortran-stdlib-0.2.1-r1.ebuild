@@ -16,7 +16,7 @@ HOMEPAGE="https://stdlib.fortran-lang.org/"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE="doc test"
 RESTRICT="mirror !test? ( test )"
 
