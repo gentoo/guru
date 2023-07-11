@@ -46,6 +46,8 @@ src_install() {
 }
 
 pkg_postinst(){
+	mpv-plugin_pkg_postinst
+
 	if [[ "${THUMBNAIL_SERVER_THREADS}" -gt 1 ]]; then
 		elog "Created a total of ${THUMBNAIL_SERVER_THREADS} server threads. Setting this too high is not recommended"
 	else
