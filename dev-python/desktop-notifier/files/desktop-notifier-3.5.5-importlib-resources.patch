@@ -1,0 +1,15 @@
+dev-python/importlib-resources has been removed from Gentoo for python > 3.9
+
+See also https://github.com/samschott/desktop-notifier/issues/92
+
+--- a/src/desktop_notifier/base.py
++++ b/src/desktop_notifier/base.py
+@@ -19,7 +19,7 @@
+     Sequence,
+ )
+ 
+-from importlib_resources import files, as_file
++from importlib.resources import files, as_file
+ 
+ 
+ logger = logging.getLogger(__name__)
