@@ -12,9 +12,10 @@
 		<name>Victor Skovorodnikov</name>
 	</maintainer>
 	<use>
+		<flag name="avx2">Build with Advanced Vector Extensions instructions support (if CPU model supports it)</flag>
 		<flag name="prune">Enables automatic pruning of old blocks to stay below 2.2GB target size (if ran from desktop)</flag>
 		<flag name="tests">Build Dogecoin Core Qt with tests option</flag>
-		<flag name="wallet">Build Dogecoin Core Qt with wallet support</flag>
+		<flag name="wallet">Build Dogecoin Core Qt with wallet</flag>
 		<flag name="zmq">Enables ZeroMQ notifications</flag>
 	</use>
 	<longdescription lang="en">
