@@ -7,20 +7,17 @@ PYTHON_COMPAT=( python3_{10..12} )
 
 inherit check-reqs cmake flag-o-matic python-single-r1
 
-MY_PV="${PV/_rc/-RC}"
-
 DESCRIPTION="A fast very high compression read-only FUSE file system"
 HOMEPAGE="https://github.com/mhx/dwarfs"
-SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${MY_PV}/${PN}-${MY_PV}.tar.xz"
+SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${PV}/${PN}-${PV}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="python +jemalloc test man"
-S="${WORKDIR}/dwarfs-${MY_PV}"
+S="${WORKDIR}/dwarfs-${PV}"
 
-PATCHES=(
-)
+PATCHES=()
 
 RDEPEND="
 	${PYTHON_DEPS}
@@ -36,6 +33,7 @@ RDEPEND="
 	dev-libs/double-conversion
 	dev-libs/libevent
 	dev-libs/libfmt
+	dev-libs/utfcpp
 	dev-libs/xxhash
 	sys-fs/fuse:3
 	dev-libs/fsst
