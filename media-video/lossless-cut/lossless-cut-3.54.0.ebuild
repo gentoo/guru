@@ -18,7 +18,6 @@ RDEPEND="sys-fs/fuse:0"
 S="${WORKDIR}"
 
 QA_PREBUILT="*"
-S="${WORKDIR}"
 
 src_install() {
 	newbin "${DISTDIR}/LosslessCut-linux-x86_64.AppImage" losslesscut-bin
