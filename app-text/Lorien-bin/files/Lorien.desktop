@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Lorien
+Comment=Infinite canvas drawing/whiteboarding app for Windows, Linux and macOS. Made with Godot.
+Keywords=tablet;Wacom;pen input;svg;markup
+TryExec=/opt/Lorien/Lorien.x86_64
+Exec=/opt/Lorien/Lorien.x86_64 %f
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=Lorien
+Categories=Office;Godot
+MimeType=application/svg;
