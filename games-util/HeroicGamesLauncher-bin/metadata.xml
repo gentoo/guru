@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<use>
+		<flag name="gamescope">Efficient micro-compositor for running games</flag>
+	</use>
 	<upstream>
 		<remote-id type="github">Heroic-Games-Launcher/HeroicGamesLauncher</remote-id>
 	</upstream>

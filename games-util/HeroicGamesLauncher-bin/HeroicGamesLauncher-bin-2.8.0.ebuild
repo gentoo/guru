@@ -11,9 +11,13 @@ HOMEPAGE="https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher"
 LICENSE="GPL-3"
 SLOT="0"
 
-KEYWORDS="~amd64 ~x86"
+RDEPEND="gamescope? ( gui-wm/gamescope )"
+
+KEYWORDS="~amd64"
 
 S="${WORKDIR}/heroic-${PV}"
+
+IUSE="gamescope"
 
 src_install() {
 	mv "${S}" "${WORKDIR}/heroic"
@@ -24,8 +28,13 @@ src_install() {
 	fperms +x /opt/heroic/heroic /opt/bin/heroic
 
 	#fix login error both EPIC and GOG
-	fperms +x /opt/heroic/resources/app.asar.unpacked/build/bin/linux/legendary /opt/heroic/resources/app.asar.unpacked/build/bin/linux/gogdl
+	fperms +x /opt/heroic/resources/app.asar.unpacked/build/bin/linux/legendary \
+	/opt/heroic/resources/app.asar.unpacked/build/bin/linux/gogdl
 
 	domenu "${FILESDIR}/HeroicGamesLauncher.desktop"
 	newicon "${WORKDIR}/heroic/resources/app.asar.unpacked/build/icon.png" heroic.png
+	if use gamescope; then
+		#Start Heroic as gamescope window
+		domenu "${FILESDIR}/HeroicGamesLauncher-gamescope.desktop"
+	fi
 }
