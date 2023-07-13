@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Heroic Games Launcher (Gamescope)
-Exec=env GDK_BACKEND=wayland gamescope -w 1920 -h 1080 -f -Y -R --RT --force-grab-cursor --prefer-vk-device --adaptive-sync --sharpness 15 -- /opt/heroic/heroic --ozone-platform=x11 --enable-features=UseOzonePlatform,WaylandWindowDecorations
+Exec=env GDK_BACKEND=wayland gamescope -w 1920 -h 1080 -f -R --RT --force-grab-cursor --prefer-vk-device --adaptive-sync --sharpness 15 -- /opt/heroic/heroic --ozone-platform=x11 --enable-features=UseOzonePlatform,WaylandWindowDecorations
 Terminal=false
 Type=Application
 Icon=heroic
