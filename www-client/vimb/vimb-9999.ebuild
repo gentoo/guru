@@ -21,13 +21,12 @@ SLOT="0"
 IUSE="savedconfig adblock"
 
 DEPEND="
-	virtual/pkgconfig
 	adblock? ( www-misc/wyebadblock )
-"
-RDEPEND="
-	x11-libs/gtk+:3
 	>=net-libs/webkit-gtk-2.20.0:4
+	x11-libs/gtk+:3
 "
+BDEPEND="virtual/pkgconfig"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	default
