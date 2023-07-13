@@ -16,7 +16,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND=""
+RDEPEND="sys-devel/gdb"
 DEPEND="${RDEPEND}"
 
 distutils_enable_tests pytest
