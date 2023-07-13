@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit desktop
+inherit desktop xdg-utils
 DESCRIPTION="Dogecoin Core Qt 1.14.6 (with Graphical User Interface) with ultra-low transaction fees.  Fast and lightweight; the default installation for desktop keeps downloaded blockchain size below 2.2GB, making it ideal for daily transactions, even on systems where disk space could be limited."
 HOMEPAGE="https://github.com/dogecoin"
 SRC_URI="https://github.com/dogecoin/dogecoin/archive/refs/tags/v${PV}.tar.gz -> ${PN}-v${PV}.tar.gz"
@@ -76,19 +76,29 @@ src_install() {
 	insinto "${DOGEDIR}/bin"
 	insinto /usr/share/pixmaps
 	doins src/qt/res/icons/dogecoin.png
-	dosym "${DOGEDIR}/bin/${PN}" "/usr/bin/${PN}"	
-	
+	dosym "${DOGEDIR}/bin/${PN}" "/usr/bin/${PN}"
+
 	if use prune ; then
 		domenu "${FILESDIR}"/"${PN}-prune.desktop"	
 	fi
-	
+
 	if ! use prune ; then
 		domenu "${FILESDIR}"/"${PN}.desktop"	
-	fi	
+	fi
+
+	find "${ED}" -type f -name '*.la' -delete || die
 }
 
 pkg_postinst() {
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
 	elog "Dogecoin Core Qt ${PV} has been installed."
 	elog "Dogecoin Core Qt binaries have been placed in ${DOGEDIR}/bin."
 	elog "${PN} has been symlinked with /usr/bin/${PN}."
 }
+
+pkg_postrm() {
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
+}
+
