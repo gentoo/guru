@@ -9,31 +9,26 @@ DESCRIPTION="A Nintendo 3DS Emulator"
 HOMEPAGE="https://citra-emu.org"
 EGIT_REPO_URI="https://github.com/citra-emu/citra"
 EGIT_SUBMODULES=(
-	'catch2' 'discord-rpc' 'dynarmic' 'libyuv'
-	'lodepng' 'nihstro' 'soundtouch' 'xbyak'
+	'catch2' 'dds-ktx' 'discord-rpc' 'dynarmic' 'library-headers' 'libyuv'
+	'lodepng' 'nihstro' 'sirit' 'soundtouch' 'vma' 'xbyak'
 )
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="cubeb +hle-sound nls +qt5 sdl +system-libfmt +telemetry video"
+IUSE="cubeb nls openal +gui sdl +system-libfmt +telemetry"
 
 RDEPEND="
 	cubeb? ( media-libs/cubeb )
-	!hle-sound? ( media-libs/fdk-aac )
-	hle-sound? ( media-video/ffmpeg[fdk] )
-	qt5? ( nls? ( dev-qt/linguist )
-			dev-qt/qtgui:5
-			dev-qt/qtmultimedia:5
-			dev-qt/qtnetwork:5
-			dev-qt/qtopengl:5
-			dev-qt/qtwidgets:5 )
+	media-video/ffmpeg:=[fdk]
+	gui? ( nls? ( dev-qt/qttools:6[linguist] )
+			dev-qt/qtbase:6[widgets,gui,opengl,network]
+			dev-qt/qtmultimedia:6 )
 	sdl? (
 		media-libs/libsdl2
 		>=dev-libs/inih-52
 	)
 	system-libfmt? ( >=dev-libs/libfmt-9:= )
-	video? ( media-video/ffmpeg:= )
 	>=dev-libs/openssl-1.1:=
 	app-arch/zstd
 	dev-libs/boost:=
@@ -47,11 +42,14 @@ BDEPEND="
 	dev-cpp/cpp-httplib
 	dev-cpp/cpp-jwt
 	dev-cpp/robin-map"
-REQUIRED_USE="|| ( qt5 sdl )"
+REQUIRED_USE="|| ( gui sdl )"
 
 src_unpack() {
 	if ! use system-libfmt; then
 		EGIT_SUBMODULES+=( 'fmt' )
+	fi
+	if use openal; then
+		EGIT_SUBMODULES+=( 'openal-soft' )
 	fi
 	git-r3_src_unpack
 
@@ -78,24 +76,17 @@ src_prepare() {
 
 	# Fix boost unbundling
 	sed -i -e '/(-DBOOST_ERROR_CODE_HEADER_ONLY/,/)/d' CMakeLists.txt || die
-	sed -i -e '/^# Boost/,/boost)$/d' externals/CMakeLists.txt || die
+	sed -i -e '/^# Boost/,/boost_iostreams PUBLIC/d' externals/CMakeLists.txt || die
+	sed -i -e '/^#define BOOST_STACKTRACE_USE_BACKTRACE/d' \
+		src/common/logging/backend.cpp || die
+	sed -i -e 's/ backtrace//' src/common/CMakeLists.txt || die
 
-	# Unbundle libressl (TODO rework scopes, find_package(OpenSSL is called 5 times)
-	sed -i -e '$afind_package(OpenSSL 1.1)\nset(OPENSSL_LIBRARIES OpenSSL::SSL OpenSSL::Crypto PARENT_SCOPE)' \
-		CMakeLists.txt || die
-	sed -i -e 's/# LibreSSL/find_package(OpenSSL 1.1)\nif (NOT OPENSSL_FOUND)\n/' \
-		-e 's/-DHAVE_INET_NTOP)$/&\nendif()\n/' externals/CMakeLists.txt || die
-	sed -i -e '/get_directory_property(OPENSSL_LIBS/,/)/d' \
-		-e 's/OPENSSL_LIBS/OPENSSL_LIBRARIES/' \
-		src/web_service/CMakeLists.txt \
-		src/core/CMakeLists.txt || die
-	sed -i -e 's/{PLATFORM_LIBRARIES}/& OpenSSL::SSL OpenSSL::Crypto/' \
-		src/{citra,citra_qt,dedicated_room,tests}/CMakeLists.txt || die
-	sed -i -e '1ifind_package(OpenSSL 1.1)' src/{citra,citra_qt,dedicated_room,tests}/CMakeLists.txt || die
-
-	if use system-libfmt; then # Unbundle libfmt
+	# Unbundle libfmt
+	if use system-libfmt; then
 		sed -i -e '/fmt/d' externals/CMakeLists.txt || die
 		sed -i -e '/find_package(Threads/afind_package(fmt)' CMakeLists.txt || die
+	else
+		sed -i -e '/FMT_INSTALL/d' externals/dynarmic/externals/CMakeLists.txt || die
 	fi
 
 	# Unbundle teakra
@@ -119,7 +110,7 @@ src_prepare() {
 		-e '1ifind_package(PkgConfig REQUIRED)\npkg_check_modules(CRYPTOPP REQUIRED libcryptopp)' \
 		src/dedicated_room/CMakeLists.txt \
 		src/core/CMakeLists.txt || die
-	sed -i -e '/^# Crypto++/,/set(CRYPTOPP_COMPILE_DEFINITIONS/d' externals/CMakeLists.txt || die
+	sed -i -e '/^# Crypto++/,/add_subdirectory(cryptopp-cmake)/d' externals/CMakeLists.txt || die
 
 	# Unbundle cubeb
 	sed -i -e '/CUBEB/,/endif()/d' externals/CMakeLists.txt || die
@@ -131,14 +122,30 @@ src_prepare() {
 	sed -i -e '/# httplib/,/target_link_libraries(httplib/d' externals/CMakeLists.txt || die
 
 	# Unbundle cpp-jwt
-	sed -i -e '/# cpp-jwt/,/CPP_JWT_USE_VENDORED_NLOHMANN_JSON/d' externals/CMakeLists.txt || die
+	sed -i -e '/cpp-jwt/d' externals/CMakeLists.txt || die
 	sed -i -e 's/ cpp-jwt/ ssl crypto/' src/web_service/CMakeLists.txt || die
 
 	# Unbundle xbyak
 	sed -i -e '/^install(/,/^)$/d' externals/xbyak/CMakeLists.txt || die
 
+	# glslang
+	sed -i -e '/^# glslang/,/(glslang)/d' externals/CMakeLists.txt || die
+	sed -i -e 's:SPIRV/GlslangToSpv.h:glslang/&:' src/video_core/renderer_vulkan/vk_shader_util.cpp || die
+	sed -i -e '/target_include_directories(vulkan-headers/d' externals/CMakeLists.txt || die
+
 	# Do not install dynarmic
 	sed -i -e '/^# Install/,$d' externals/dynarmic/CMakeLists.txt || die
+
+	# Do not install zydis
+	sed -i '/^install(FILES/,/^install(DIRECTORY/d' \
+		externals/dynarmic/externals/zydis/CMakeLists.txt || die
+	sed -i -e '/MCL_INSTALL/d' externals/dynarmic/externals/CMakeLists.txt || die
+
+	# do not trigger flags
+	sed -i -e 's/-Werror//' externals/sirit/CMakeLists.txt externals/dynarmic/CMakeLists.txt || die
+	sed -i -e 's/Wuninitialized/Wno-uninitialized/' externals/catch2/CMake/CatchMiscFunctions.cmake \
+		externals/dynarmic/externals/catch/CMake/CatchMiscFunctions.cmake || die
+	sed -i -e '/-Werror/d' src/CMakeLists.txt externals/dynarmic/externals/mcl/CMakeLists.txt externals/dynarmic/externals/catch/CMake/CatchMiscFunctions.cmake externals/catch2/CMake/CatchMiscFunctions.cmake
 
 	cmake_src_prepare
 }
@@ -146,15 +153,19 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=OFF
+		-DCOMPILE_WITH_DWARF=OFF
 		-DENABLE_CUBEB=$(usex cubeb)
-		-DENABLE_FFMPEG_AUDIO_DECODER=$(usex hle-sound)
-		-DENABLE_FFMPEG_VIDEO_DUMPER=$(usex video)
-		-DENABLE_QT=$(usex qt5)
-		-DENABLE_QT_TRANSLATION=$(use qt5 && usex nls || echo OFF)
+		-DENABLE_MF=ON
+		-DENABLE_OPENAL=$(usex openal)
+		-DENABLE_QT=$(usex gui)
+		-DENABLE_QT_TRANSLATION=$(use gui && usex nls || echo OFF)
 		-DENABLE_SDL2=$(usex sdl)
 		-DENABLE_WEB_SERVICE=$(usex telemetry)
-		-DGENERATE_QT_TRANSLATION=$(use qt5 && usex nls || echo OFF)
+		-DGENERATE_QT_TRANSLATION=$(use gui && usex nls || echo OFF)
+		-DSIRIT_USE_SYSTEM_SPIRV_HEADERS=ON
 		-DUSE_SYSTEM_BOOST=ON
+		-DUSE_SYSTEM_LIBUSB=ON
+		-DUSE_SYSTEM_OPENSSL=ON
 		-DUSE_SYSTEM_SDL2=ON
 	)
 	cmake_src_configure
