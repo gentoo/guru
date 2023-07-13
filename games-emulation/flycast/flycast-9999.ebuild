@@ -30,7 +30,7 @@ DEPEND="
 	lua? ( ${LUA_DEPS} )
 	opengl? ( virtual/opengl )
 	openmp? ( sys-devel/gcc:*[openmp] )
-	pulseaudio? ( media-sound/pulseaudio )
+	pulseaudio? ( media-libs/libpulse )
 	vulkan? (
 		>=dev-util/glslang-1.3.231
 		dev-util/spirv-headers
