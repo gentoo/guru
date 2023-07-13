@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop
+inherit autotools desktop
 
 DESCRIPTION="Alizarin tetris"
 HOMEPAGE="https://www.wkiri.com/projects/atris/"
@@ -26,7 +26,13 @@ RDEPEND="${DEPEND}"
 PATCHES=(
 	"${FILESDIR}"/${P}-fno-common.patch
 	"${FILESDIR}"/${P}-path-and-fullscreen.patch
+	"${FILESDIR}"/${P}-no-implicit.patch
 )
+
+src_prepare() {
+	default
+	eautoreconf
+}
 
 src_install() {
 	dobin atris

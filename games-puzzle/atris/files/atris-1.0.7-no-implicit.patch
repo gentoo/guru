@@ -1,0 +1,11 @@
+--- a/configure.in
++++ b/configure.in
+@@ -69,7 +69,7 @@
+             :,
+ 	    AC_MSG_ERROR([*** SDL version $SDL_VERSION not found! Get it from http://www.libsdl.org ])
+ )
+-CFLAGS="$CFLAGS -Wall -Wimplicit -Wsign-compare -Wpointer-arith $SDL_CFLAGS -DATRIS_LIBDIR=\\\"$GAME_INSTALLDIR\\\""
++CFLAGS="$CFLAGS -Wall -Wsign-compare -Wpointer-arith $SDL_CFLAGS -DATRIS_LIBDIR=\\\"$GAME_INSTALLDIR\\\""
+ LIBS="$LIBS $SDL_LIBS"
+ 
+ # Finally create all the generated files
