@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit savedconfig optfeature
+inherit flag-o-matic optfeature savedconfig
 
 DESCRIPTION="A fast, lightweight, vim-like browser based on webkit"
 HOMEPAGE="https://fanglingsu.github.io/vimb/"
@@ -35,6 +35,7 @@ src_prepare() {
 }
 
 src_compile() {
+	has_version x11-libs/gtk+:3[-X,wayland] && append-cflags -DFEATURE_NO_XEMBED=1
 	emake PREFIX="/usr"
 }
 
@@ -42,6 +43,7 @@ src_install() {
 	emake PREFIX="/usr" DESTDIR="${D}" install
 	save_config src/config.def.h
 	use adblock && dosym /usr/lib/wyebrowser/adblock.so /usr/lib/vimb/adblock.so
+	einstalldocs
 }
 
 pkg_postinst() {
