@@ -5,11 +5,16 @@ EAPI=7
 
 inherit savedconfig optfeature
 
-DESCRIPTION="a fast, lightweight, vim-like browser based on webkit"
+DESCRIPTION="A fast, lightweight, vim-like browser based on webkit"
 HOMEPAGE="https://fanglingsu.github.io/vimb/"
 
-KEYWORDS="~amd64"
-SRC_URI="https://github.com/fanglingsu/vimb/archive/${PV}.tar.gz -> ${P}.tar.gz"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/fanglingsu/vimb.git"
+else
+	SRC_URI="https://github.com/fanglingsu/vimb/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -19,7 +24,6 @@ DEPEND="
 	virtual/pkgconfig
 	adblock? ( www-misc/wyebadblock )
 "
-
 RDEPEND="
 	x11-libs/gtk+:3
 	>=net-libs/webkit-gtk-2.20.0:4
@@ -31,11 +35,11 @@ src_prepare() {
 }
 
 src_compile() {
-	emake V=1 PREFIX="/usr"
+	emake PREFIX="/usr"
 }
 
 src_install() {
-	emake V=1 PREFIX="/usr" DESTDIR="${D}" install
+	emake PREFIX="/usr" DESTDIR="${D}" install
 	save_config src/config.def.h
 	use adblock && dosym /usr/lib/wyebrowser/adblock.so /usr/lib/vimb/adblock.so
 }
