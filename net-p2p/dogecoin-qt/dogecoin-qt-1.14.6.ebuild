@@ -1,9 +1,10 @@
-# Copyright 2023 Gentoo Authors 
+# Copyright 2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit desktop xdg-utils
-DESCRIPTION="Dogecoin Core Qt 1.14.6 (with Graphical User Interface) with ultra-low transaction fees.  Fast and lightweight; the default installation for desktop keeps downloaded blockchain size below 2.2GB, making it ideal for daily transactions, even on systems where disk space could be limited."
+WANT_AUTOCONF="2.5"
+inherit autotools desktop xdg-utils
+DESCRIPTION="Dogecoin Core Qt-GUI for desktop. Keeps downloaded blockchain size below 2.2GB."
 HOMEPAGE="https://github.com/dogecoin"
 SRC_URI="https://github.com/dogecoin/dogecoin/archive/refs/tags/v${PV}.tar.gz -> ${PN}-v${PV}.tar.gz"
 
@@ -51,9 +52,15 @@ BDEPEND="
 WORKDIR_="${WORKDIR}/dogecoin-${PV}"
 S=${WORKDIR_}
 
+src_prepare() {
+	default
+
+	einfo "Generating autotools files..."
+	eaclocal -I "${WORKDIR_}"
+	eautoreconf
+}
+
 src_configure() {
-	chmod 755 ./autogen.sh
-	./autogen.sh || die "autogen failed"
 	local my_econf=(
 		--enable-cxx
 		$(use_with cpu_flags_x86_avx2 intel-avx2)
@@ -79,11 +86,11 @@ src_install() {
 	dosym "${DOGEDIR}/bin/${PN}" "/usr/bin/${PN}"
 
 	if use prune ; then
-		domenu "${FILESDIR}"/"${PN}-prune.desktop"	
+		domenu "${FILESDIR}"/"${PN}-prune.desktop"
 	fi
 
 	if ! use prune ; then
-		domenu "${FILESDIR}"/"${PN}.desktop"	
+		domenu "${FILESDIR}"/"${PN}.desktop"
 	fi
 
 	find "${ED}" -type f -name '*.la' -delete || die
@@ -101,4 +108,3 @@ pkg_postrm() {
 	xdg_desktop_database_update
 	xdg_mimeinfo_database_update
 }
-
