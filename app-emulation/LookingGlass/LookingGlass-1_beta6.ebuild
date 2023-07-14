@@ -12,8 +12,9 @@ HOMEPAGE="https://looking-glass.io https://github.com/gnif/LookingGlass"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="binutils X wayland pipewire pulseaudio gnome"
-REQUIRED_USE="|| ( binutils X wayland pipewire pulseaudio ) pipewire? ( !pulseaudio ) pulseaudio? ( !pipewire ) "
+IUSE="binutils gnome pipewire pulseaudio wayland X"
+USE="pipewire pulseaudio"
+REQUIRED_USE="|| ( binutils gnome pipewire pulseaudio wayland X ) pipewire? ( !pulseaudio ) pulseaudio? ( !pipewire ) "
 
 RDEPEND="dev-libs/libconfig
 	dev-libs/nettle
@@ -39,19 +40,20 @@ BDEPEND="virtual/pkgconfig"
 
 CMAKE_USE_DIR="${S}"/client
 
-src_configure () {
+src_prepare () {
+	default
+
 	# Base on build.rst from the project
 	# doc/build.rst
-	local mycmakeargs=(
-		-DENABLE_BACKTRACE=$(usex binutils) -DENABLE_X11=$(usex X) -DENABLE_WAYLAND=$(usex wayland) \
-		DENABLE_PIPEWIRE=$(usex pipewire) -DENABLE_PULSEAUDIO=$(usex pulseaudio) -DENABLE_LIBDECOR=$(usex gnome)
+	MYCMAKEARGS=( 
+		-DENABLE_BACKTRACE=$(usex binutils) \ 
+		-DENABLE_X11=$(usex X) -DENABLE_WAYLAND=$(usex wayland) \ 
+		-DENABLE_PIPEWIRE=$(usex pipewire) \
+		-DENABLE_PULSEAUDIO=$(usex pulseaudio) \
+		-DENABLE_LIBDECOR=$(usex gnome) 
 	)
 
-	cmake_src_configure
-}
-
-src_compile() {
-	cmake_src_compile
+	cmake_src_prepare
 }
 
 src_install() {
