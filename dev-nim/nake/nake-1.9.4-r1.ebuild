@@ -13,6 +13,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
+RDEPEND="dev-libs/libpcre:3"
+
 src_test() {
 	local PATH="${BUILD_DIR}:${PATH}"
 
