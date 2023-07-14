@@ -40,7 +40,6 @@ BDEPEND="
 	sys-devel/autoconf
 	sys-devel/automake
 "
-
 	PATCHES=(
 		"${FILESDIR}"/"${PV}"-net_processing.patch
 		"${FILESDIR}"/"${PV}"-paymentserver.patch
