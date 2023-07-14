@@ -1,9 +1,9 @@
-# Copyright 2020 Gentoo Authors
+# Copyright 2020-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit flag-o-matic systemd
+inherit systemd
 
 MY_PV="${PV/_p/p}"
 MY_P="${PN}-${MY_PV}"
@@ -20,7 +20,7 @@ IUSE=""
 DEPEND=""
 RDEPEND="
 	${DEPEND}
-	!!net-misc/quagga
+	!!net-misc/frr
 	acct-group/_bgpd
 	acct-user/_bgpd
 "
@@ -36,11 +36,6 @@ src_install() {
 	newinitd "${FILESDIR}/${PN}-init.d" bgpd
 	newconfd "${FILESDIR}/${PN}-conf.d" bgpd
 	systemd_newunit "${FILESDIR}/${PN}.service" bgpd.service
-}
-
-src_configure() {
-	append-cflags -fcommon
-	default
 }
 
 pkg_postinst() {
