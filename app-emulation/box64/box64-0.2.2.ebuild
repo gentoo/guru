@@ -22,7 +22,7 @@ BDEPEND=""
 src_configure() {
 	local -a mycmakeargs=(
 		-DNOGIT=1
-		-DARM_DYNAREC=$(usex jit)
+		-DARM_DYNAREC=$(usex aot)
 	)
 
 	use ppc64 && mycmakeargs+=( -DPPC64LE=1 )
