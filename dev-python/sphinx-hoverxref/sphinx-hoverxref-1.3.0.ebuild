@@ -38,12 +38,13 @@ EPYTEST_DESELECT=(
 
 distutils_enable_tests pytest
 
-distutils_enable_sphinx docs \
-	dev-python/sphinx-autoapi \
-	dev-python/sphinx-notfound-page \
-	dev-python/sphinx-prompt \
-	dev-python/sphinx-tabs \
-	dev-python/sphinx-version-warning \
-	dev-python/sphinx-rtd-theme \
-	dev-python/sphinxcontrib-bibtex \
-	dev-python/sphinxemoji
+# Bug #883189
+#distutils_enable_sphinx docs \
+#	dev-python/sphinx-autoapi \
+#	dev-python/sphinx-notfound-page \
+#	dev-python/sphinx-prompt \
+#	dev-python/sphinx-tabs \
+#	dev-python/sphinx-version-warning \
+#	dev-python/sphinx-rtd-theme \
+#	dev-python/sphinxcontrib-bibtex \
+#	dev-python/sphinxemoji
