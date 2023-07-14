@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=LookingGlass Client (X11/XWayland)
+StartupNotify=true
+Exec=env -u WAYLAND_DISPLAY looking-glass-client -m 97
+Terminal=false
+Icon=looking-glass-client
+Type=Application

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<use>
+		<flag name="binutils">build backtrace support </flag>
+		<flag name="pipewire">enable media-video/pipewire support</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">gnif/LookingGlass</remote-id>
+	</upstream>
+</pkgmetadata>
