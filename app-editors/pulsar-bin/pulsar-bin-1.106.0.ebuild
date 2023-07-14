@@ -8,15 +8,14 @@ inherit desktop xdg
 DESCRIPTION="A Community-led Hyper-Hackable Text Editor"
 HOMEPAGE="https://pulsar-edit.dev/"
 
-# ARM64 build is missing upstream for 1.106.0
-#	arm64? ( https://github.com/pulsar-edit/pulsar/releases/download/v${PV}/ARM.Linux.pulsar-${PV}-arm64.tar.gz -> ${P}-arm64.tar.gz )
 SRC_URI="
 	amd64? ( https://github.com/pulsar-edit/pulsar/releases/download/v${PV}/Linux.pulsar-${PV}.tar.gz -> ${P}-amd64.tar.gz )
+	arm64? ( https://github.com/pulsar-edit/pulsar/releases/download/v${PV}/ARM.Linux.pulsar-${PV}-arm64.tar.gz -> ${P}-arm64.tar.gz )
 "
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="-* ~amd64"
+KEYWORDS="-* ~amd64 ~arm64"
 
 # binary package; no tests available
 RESTRICT="test"
