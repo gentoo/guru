@@ -12,7 +12,6 @@ HOMEPAGE="https://looking-glass.io https://github.com/gnif/LookingGlass"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE="binutils X wayland pipewire pulseaudio gnome"
 REQUIRED_USE="|| ( binutils X wayland pipewire pulseaudio ) pipewire? ( !pulseaudio ) pulseaudio? ( !pipewire ) "
 
@@ -40,41 +39,19 @@ BDEPEND="virtual/pkgconfig"
 
 CMAKE_USE_DIR="${S}"/client
 
-src_prepare() {
-	default
-
+src_configure () {
 	# Base on build.rst from the project
-	# https://github.com/gnif/LookingGlass/blob/master/doc/build.rst
+	# doc/build.rst
+	local mycmakeargs=(
+		-DENABLE_BACKTRACE=$(usex binutils) -DENABLE_X11=$(usex X) -DENABLE_WAYLAND=$(usex wayland) \
+		DENABLE_PIPEWIRE=$(usex pipewire) -DENABLE_PULSEAUDIO=$(usex pulseaudio) -DENABLE_LIBDECOR=$(usex gnome)
+	)
 
-	if ! use binutils; then
-		MYCMAKEARGS=" -DENABLE_BACKTRACE=no "
-	fi
+	cmake_src_configure
+}
 
-	if ! use X; then
-		MYCMAKEARGS=" ${MYCMAKEARGS} -DENABLE_X11=no "
-	fi
-
-	if ! use wayland; then
-		MYCMAKEARGS=" ${MYCMAKEARGS} -DENABLE_WAYLAND=no "
-	fi
-
-	if ! use pipewire; then
-		MYCMAKEARGS=" ${MYCMAKEARGS} -DENABLE_PIPEWIRE=no "
-	fi
-
-	if ! use pulseaudio; then
-		MYCMAKEARGS=" ${MYCMAKEARGS} -DENABLE_PULSEAUDIO=no "
-	fi
-
-	if ! use pulseaudio; then
-		MYCMAKEARGS=" ${MYCMAKEARGS} -DENABLE_PULSEAUDIO=no "
-	fi
-
-	if use gnome && use wayland; then
-		MYCMAKEARGS=" ${MYCMAKEARGS} -DENABLE_LIBDECOR=ON "
-	fi
-
-	cmake_src_prepare
+src_compile() {
+	cmake_src_compile
 }
 
 src_install() {
