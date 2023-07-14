@@ -59,5 +59,5 @@ pkg_postinst() {
 
 pkg_config() {
 	su - "${PN}" -s /bin/sh -c \
-	   "/usr/bin/${PN} -c /etc/mautrix/${PN/-/_}.yaml -g -r /var/lib/${PN/-/\/}/registration.yaml"
+		"/usr/bin/${PN} -c /etc/mautrix/${PN/-/_}.yaml -g -r /var/lib/${PN/-/\/}/registration.yaml"
 }

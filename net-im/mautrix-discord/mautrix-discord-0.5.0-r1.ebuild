@@ -19,6 +19,7 @@ KEYWORDS="~amd64"
 RDEPEND="
 	acct-user/${PN}
 	dev-libs/olm
+	dev-util/lottieconverter
 "
 DEPEND="${RDEPEND}"
 
