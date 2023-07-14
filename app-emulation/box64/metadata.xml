@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>rrogalski@tutanota.com</email>
+		<name>Richard Rogalski</name>
+	</maintainer>
+
+	<use>
+		<flag name="aot">Enables the dynamic ahead of time recompiler for increased performance on ARM</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">ptitSeb/box64</remote-id>
+	</upstream>
+</pkgmetadata>
