@@ -103,4 +103,8 @@ pkg_postinst() {
 		ewarn "Note the CPU and APU control command both for undervolt an ryzenadj are edit in /etc/legion_linux/.env command"
 		ewarn "Note: use flag downgrade-nvidia in need for nvidia TDP control\n"
 	fi
+	ewarn "Note for 2023-2023 Legion user: It need help for testing the features"
+	ewarn "Pls test the feature how is decribe in the README of the project!"
+	ewarn "and also go to this issue in github: https://github.com/johnfanv2/LenovoLegionLinux/issues/46"
+
 }
