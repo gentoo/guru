@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{9..12} )
 
 inherit distutils-r1
 
-SRC_URI="https://github.com/bayasdev/envycontrol/archive/refs/tags/v${PV}.tar.gz"
+SRC_URI="https://github.com/bayasdev/envycontrol/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 DESCRIPTION="Easy GPU switching for Nvidia Optimus laptops under Linux "
 HOMEPAGE="https://github.com/bayasdev/envycontrol"
 
