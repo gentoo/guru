@@ -16,12 +16,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	dev-python/requests
-	dev-python/pyyaml
+	dev-python/boto3
 	dev-python/packaging
+	dev-python/pyyaml
+	dev-python/requests
 	dev-python/rich
 	<dev-python/urllib3-2
-	dev-python/boto3
 "
-
-BDEPEND=""
