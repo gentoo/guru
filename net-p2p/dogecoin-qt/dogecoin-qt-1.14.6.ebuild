@@ -15,17 +15,13 @@ KEYWORDS="~amd64"
 IUSE="cpu_flags_x86_avx2 tests +wallet +prune zmq"
 DOGEDIR="/opt/${PN}"
 DEPEND="
+	sys-libs/db:"${DB_VER}"=[cxx]
 	dev-libs/libevent:=
 	dev-libs/protobuf
 	dev-libs/openssl
 	sys-devel/libtool
 	sys-devel/automake:=
 	>=dev-libs/boost-1.81.0-r1
-	cpu_flags_x86_avx2? ( app-crypt/intel-ipsec-mb )
-	wallet? (
-			sys-libs/db:"${DB_VER}"=[cxx]
-			media-gfx/qrencode
-			)
 	dev-qt/qtcore
 	dev-qt/qtgui
 	dev-qt/qtwidgets
@@ -33,6 +29,8 @@ DEPEND="
 	dev-qt/qtnetwork
 	dev-qt/qtprintsupport
 	dev-qt/linguist-tools:=
+	cpu_flags_x86_avx2? ( app-crypt/intel-ipsec-mb )
+	wallet? ( media-gfx/qrencode )
 	zmq? ( net-libs/cppzmq )
 "
 RDEPEND="${DEPEND}"
@@ -40,13 +38,14 @@ BDEPEND="
 	sys-devel/autoconf
 	sys-devel/automake
 "
-	PATCHES=(
-		"${FILESDIR}"/"${PV}"-net_processing.patch
-		"${FILESDIR}"/"${PV}"-paymentserver.patch
-		"${FILESDIR}"/"${PV}"-transactiondesc.patch
-		"${FILESDIR}"/"${PV}"-deque.patch
-		"${FILESDIR}"/"${PV}"-gcc13.patch
-	)
+
+PATCHES=(
+	"${FILESDIR}"/"${PV}"-net_processing.patch
+	"${FILESDIR}"/"${PV}"-paymentserver.patch
+	"${FILESDIR}"/"${PV}"-transactiondesc.patch
+	"${FILESDIR}"/"${PV}"-deque.patch
+	"${FILESDIR}"/"${PV}"-gcc13.patch
+)
 
 WORKDIR_="${WORKDIR}/dogecoin-${PV}"
 S=${WORKDIR_}
@@ -62,18 +61,18 @@ src_prepare() {
 src_configure() {
 	local my_econf=(
 		--enable-cxx
-		$(use_with cpu_flags_x86_avx2 intel-avx2)
-		$(use_with wallet incompatible-bdb)
 		--bindir="${DOGEDIR}/bin"
+		--with-gui=qt5
+		--with-qt-incdir="/usr/include/qt5"
+		--disable-bench
 		BDB_CFLAGS="-I/usr/include/db${DB_VER}"
 		BDB_LIBS="-L/usr/lib64 -ldb_cxx-${DB_VER}"
-		--with-gui=qt5
-		--with-qt-incdir=/usr/include/qt5
-		$(use_enable zmq)
+		$(use_with cpu_flags_x86_avx2 intel-avx2)
 		$(use_enable wallet)
+		$(use_enable zmq)
 		$(use_enable tests tests)
-		--disable-bench
 	)
+
 	econf "${my_econf[@]}"
 }
 
@@ -86,9 +85,7 @@ src_install() {
 
 	if use prune ; then
 		domenu "${FILESDIR}"/"${PN}-prune.desktop"
-	fi
-
-	if ! use prune ; then
+	else
 		domenu "${FILESDIR}"/"${PN}.desktop"
 	fi
 
