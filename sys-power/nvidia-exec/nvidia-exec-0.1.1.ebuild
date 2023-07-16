@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{9..12} )
 
 inherit  systemd
 
-SRC_URI="https://github.com/pedro00dk/nvidia-exec/archive/refs/tags/v${PV}.tar.gz"
+SRC_URI="https://github.com/pedro00dk/nvidia-exec/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 DESCRIPTION="Lenovo Legion Linux kernel module"
 HOMEPAGE="https://github.com/pedro00dk/nvidia-exec"
