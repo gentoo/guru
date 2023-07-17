@@ -20,6 +20,7 @@ RDEPEND="
 	x11-libs/cairo
 	x11-libs/pango
 	dev-libs/wayland
+	x11-libs/libxkbcommon
 "
 DEPEND="
 	${RDEPEND}
