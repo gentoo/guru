@@ -19,6 +19,6 @@ src_install() {
 	emake DESTDIR="${D}" prefix="${EPREFIX}"/usr install
 
 	dodoc README
-	insinto "${EPREFIX}/usr/share/${PN}"
+	insinto "/usr/share/${PN}"
 	doins LICENSE
 }
