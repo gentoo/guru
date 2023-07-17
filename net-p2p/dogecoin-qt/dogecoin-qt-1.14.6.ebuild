@@ -3,7 +3,7 @@
 
 EAPI=8
 WANT_AUTOCONF="2.5"
-inherit autotools desktop xdg-utils
+inherit autotools db-use desktop xdg-utils
 DESCRIPTION="Dogecoin Core Qt-GUI for desktop. Keeps downloaded blockchain size below 2.2GB."
 HOMEPAGE="https://github.com/dogecoin"
 SRC_URI="https://github.com/dogecoin/dogecoin/archive/refs/tags/v${PV}.tar.gz -> ${PN}-v${PV}.tar.gz"
@@ -65,8 +65,6 @@ src_configure() {
 		--with-gui=qt5
 		--with-qt-incdir="/usr/include/qt5"
 		--disable-bench
-		BDB_CFLAGS="-I/usr/include/db${DB_VER}"
-		BDB_LIBS="-L/usr/lib64 -ldb_cxx-${DB_VER}"
 		$(use_with cpu_flags_x86_avx2 intel-avx2)
 		$(use_enable wallet)
 		$(use_enable zmq)
