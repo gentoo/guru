@@ -18,11 +18,6 @@
 # Depends on removed <sci-mathematics/why3-1.5.0
 sci-mathematics/frama-c-wp
 
-# Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-06-17)
-# Requires network to build docs.
-# Removal on 2023-07-17.
-dev-python/mkdocs-swagger-ui-tag
-
 # Viorel Munteanu <ceamac@gentoo.org> (2023-06-07)
 # Does not work on no-multilib profiles and cannot be masked per profile
 # (See also top comment)
