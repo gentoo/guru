@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>quincyf467@protonmail.com</email>
+    <name>Quincy Fleming</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">andersson/qdl</remote-id>
+    <doc lang="en">https://github.com/andersson/qdl#readme</doc>
+    <bugs-to>https://github.com/andersson/qdl/issues</bugs-to>
+  </upstream>
+  <longdescription lang="en">
+    This tool communicates with USB devices of id 05c6:9008 to upload a flash
+    loader and use this to flash images.
+  </longdescription>
+</pkgmetadata>
