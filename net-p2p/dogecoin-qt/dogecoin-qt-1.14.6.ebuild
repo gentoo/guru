@@ -3,7 +3,7 @@
 
 EAPI=8
 WANT_AUTOCONF="2.5"
-inherit autotools db-use desktop xdg-utils
+inherit autotools desktop xdg-utils
 DESCRIPTION="Dogecoin Core Qt-GUI for desktop. Keeps downloaded blockchain size below 2.2GB."
 HOMEPAGE="https://github.com/dogecoin"
 SRC_URI="https://github.com/dogecoin/dogecoin/archive/refs/tags/v${PV}.tar.gz -> ${PN}-v${PV}.tar.gz"
