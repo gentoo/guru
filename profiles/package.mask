@@ -27,7 +27,6 @@ app-office/lotus123r3
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-05-16)
 # Depend on masked dev-python/toml.
 # Removal on 2023-06-15.
-dev-python/pysaml2
 dev-python/usort
 # and revdeps
 dev-python/hypothesmith
