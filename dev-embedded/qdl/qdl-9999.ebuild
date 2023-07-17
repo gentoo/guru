@@ -11,7 +11,6 @@ EGIT_REPO_URI="https://github.com/andersson/qdl.git"
 
 LICENSE="BSD-3"
 SLOT="0"
-KEYWORDS="~amd64"
 
 BDEPEND="virtual/libudev
 		dev-libs/libxml2
