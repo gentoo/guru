@@ -28,10 +28,6 @@ app-office/lotus123r3
 # Depend on masked dev-python/toml.
 # Removal on 2023-06-15.
 dev-python/usort
-# and revdeps
-dev-python/hypothesmith
-dev-python/libcst
-dev-python/ufmt
 
 # Julien Roy <julien@jroy.ca> (2023-01-25)
 # Requires <dev-python/coverage-7, which is no longer available in ::gentoo.
