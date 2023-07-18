@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit git-r3
+inherit git-r3 toolchain-funcs
 
 DESCRIPTION="Tool to communicate with Qualcomm System On a Chip bootroms"
 HOMEPAGE="https://github.com/andersson/qdl"
@@ -13,13 +13,18 @@ LICENSE="BSD-3"
 SLOT="0"
 
 BDEPEND="virtual/libudev
+		virtual/pkgconfig
 		dev-libs/libxml2
 "
 
-src_install() {
-	emake DESTDIR="${D}" prefix="${EPREFIX}"/usr install
+PATCHES=( "${FILESDIR}/${P}-makefile.patch" )
 
-	dodoc README
+src_compile() {
+	emake CC=$(tc-getCC) PKG_CONFIG=$(tc-getPKG_CONFIG)
+}
+
+src_install() {
+	default
 	insinto "/usr/share/${PN}"
 	doins LICENSE
 }
