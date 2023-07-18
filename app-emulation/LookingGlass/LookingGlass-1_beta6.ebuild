@@ -26,7 +26,7 @@ RDEPEND="dev-libs/libconfig
 	binutils? ( sys-devel/binutils )
 	X? ( x11-libs/libX11 x11-libs/libXfixes x11-libs/libXi x11-libs/libXScrnSaver x11-libs/libXpresent )
 	wayland? ( dev-libs/wayland )
-	pulseaudio? ( media-libs/libpulse )
+	media-libs/libpulse
 	pipewire? ( media-video/pipewire )
 	gnome? ( gui-libs/libdecor )
 "
