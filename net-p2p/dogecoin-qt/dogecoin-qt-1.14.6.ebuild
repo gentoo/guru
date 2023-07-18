@@ -12,7 +12,7 @@ LICENSE="MIT"
 SLOT="0"
 DB_VER="5.3"
 KEYWORDS="~amd64"
-IUSE="cpu_flags_x86_avx2 tests +wallet +prune zmq"
+IUSE="cpu_flags_x86_avx2 dogecoind tests utils +wallet +prune zmq"
 DOGEDIR="/opt/${PN}"
 DEPEND="
 	sys-libs/db:"${DB_VER}"=[cxx]
@@ -66,6 +66,8 @@ src_configure() {
 		--with-qt-incdir="/usr/include/qt5"
 		--disable-bench
 		$(use_with cpu_flags_x86_avx2 intel-avx2)
+		$(use_with dogecoind daemon)
+		$(use_with utils utils)
 		$(use_enable wallet)
 		$(use_enable zmq)
 		$(use_enable tests tests)
