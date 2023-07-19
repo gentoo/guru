@@ -1,9 +1,9 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit xdg
+inherit xdg ninja-utils
 
 if [[ "${PV}" == "9999" ]]
 then
@@ -46,8 +46,16 @@ src_configure() {
 	./configure
 }
 
+src_compile() {
+	eninja
+}
+
+src_test() {
+	eninja test
+}
+
 src_install() {
-	default
+	DESTDIR="${ED}" eninja install
 
 	[[ "${PV}" == "9999" ]] || save_config config.h
 }
