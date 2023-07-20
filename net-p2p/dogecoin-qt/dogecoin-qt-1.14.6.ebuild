@@ -13,6 +13,7 @@ SLOT="0"
 DB_VER="5.3"
 KEYWORDS="~amd64"
 IUSE="cpu_flags_x86_avx2 dogecoind tests utils +wallet +prune zmq"
+REQUIRED_USE="dogecoind? ( utils )"
 DOGEDIR="/opt/${PN}"
 DEPEND="
 	sys-libs/db:"${DB_VER}"=[cxx]
