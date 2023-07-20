@@ -19,7 +19,6 @@ RESTRICT="test"
 
 DEPEND="dev-db/sqlite:3[icu]"
 RDEPEND="${DEPEND}"
-BDEPEND="<dev-lang/go-1.20"
 
 DOCS=( docs CODEOWNERS {CODE_OF_CONDUCT,CONTRIBUTING,DESIGN,Readme}.md )
 
