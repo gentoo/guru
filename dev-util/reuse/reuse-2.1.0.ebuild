@@ -24,10 +24,8 @@ RDEPEND="
 	dev-python/jinja[${PYTHON_USEDEP}]
 	dev-python/license-expression[${PYTHON_USEDEP}]
 	dev-python/python-debian[${PYTHON_USEDEP}]
-	dev-python/setuptools[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	dev-python/setuptools[${PYTHON_USEDEP}]
 	sys-devel/gettext
 	test? (
 		dev-vcs/git
@@ -41,7 +39,12 @@ distutils_enable_tests pytest
 
 # [Errno 2] No such file or directory: '../README.md'
 #distutils_enable_sphinx docs \
+	#dev-python/furo \
 	#dev-python/recommonmark \
 	#dev-python/sphinx-autodoc-typehints \
-	#dev-python/sphinx-rtd-theme \
 	#dev-python/sphinxcontrib-apidoc
+
+python_test() {
+	cd "${T}" || die
+	epytest "${S}"/tests
+}
