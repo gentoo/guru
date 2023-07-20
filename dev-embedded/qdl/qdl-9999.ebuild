@@ -9,7 +9,7 @@ DESCRIPTION="Tool to communicate with Qualcomm System On a Chip bootroms"
 HOMEPAGE="https://github.com/andersson/qdl"
 EGIT_REPO_URI="https://github.com/andersson/qdl.git"
 
-LICENSE="BSD-3"
+LICENSE="BSD"
 SLOT="0"
 
 BDEPEND="virtual/libudev
