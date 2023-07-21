@@ -14,16 +14,14 @@ HOMEPAGE="https://github.com/hagenw/sphinxcontrib-katex"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
-RDEPEND="
-	>=dev-python/sphinx-4.5.0-r1[${PYTHON_USEDEP}]
-	doc? ( dev-python/insipid-sphinx-theme )
-"
+RDEPEND=">=dev-python/sphinx-4.5.0-r1[${PYTHON_USEDEP}]"
 
 DOCS=()
 
-distutils_enable_sphinx docs
+distutils_enable_sphinx docs \
+	dev-python/insipid-sphinx-theme
 
 src_prepare() {
 	default
