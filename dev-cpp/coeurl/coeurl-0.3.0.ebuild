@@ -27,6 +27,11 @@ DEPEND="
 	test? ( dev-cpp/doctest )
 "
 
+src_prepare() {
+	default
+	rm -r subprojects || die
+}
+
 src_configure() {
 	local -a emesonargs=(
 		$(meson_use test tests)
