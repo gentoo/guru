@@ -19,7 +19,7 @@ RESTRICT="test" # Tests turned off because they need a local webserver.
 RDEPEND="
 	net-misc/curl[ssl?]
 	dev-libs/libevent:=
-	dev-libs/libfmt:=
+	<dev-libs/libfmt-9:=
 	dev-libs/spdlog:=
 "
 DEPEND="
