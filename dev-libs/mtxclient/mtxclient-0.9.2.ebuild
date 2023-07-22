@@ -13,16 +13,16 @@ LICENSE="MIT"
 SLOT="0/${PV}" # ABI may break even on patch version changes
 KEYWORDS="~amd64"
 
-IUSE="+pie test"
+IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	>=dev-cpp/coeurl-0.3.0:=[ssl]
 	dev-libs/libfmt:=
 	dev-libs/olm
 	>=dev-libs/openssl-1.1.0:=
 	>=dev-libs/re2-0.2022.04.01:=
 	dev-libs/spdlog:=
-	>=dev-cpp/coeurl-0.3.0:=[ssl]
 "
 DEPEND="
 	${RDEPEND}
@@ -38,7 +38,6 @@ src_configure() {
 	local -a mycmakeargs=(
 		-DBUILD_LIB_TESTS="$(usex test)"
 		-DBUILD_LIB_EXAMPLES=OFF
-		-DCMAKE_POSITION_INDEPENDENT_CODE=$(usex pie)
 	)
 
 	cmake_src_configure
