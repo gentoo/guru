@@ -21,7 +21,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	net-misc/curl[ssl?]
 	dev-libs/libevent:=
-	<dev-libs/libfmt-9:=
+	dev-libs/libfmt:=
 	dev-libs/spdlog:=
 "
 DEPEND="
