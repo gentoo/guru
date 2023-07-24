@@ -14,7 +14,6 @@
 	<use>
 		<flag name="cpu_flags_x86_avx2">Build with Advanced Vector Extensions instructions support (if the CPU model supports it)</flag>
 		<flag name="dogecoind">Build with dogecoind daemon</flag>
-		<flag name="pie">Position Independent Executables - attempt to harden resulting executables for greater security</flag>  
 		<flag name="prune">Enables automatic pruning of old blocks to stay below 2.2GB target size (if ran from desktop)</flag>
 		<flag name="tests">Build Dogecoin Core Qt with tests option</flag>
 		<flag name="utils">Build with client utilities dogecoin-cli and dogecoin-tx</flag> 
