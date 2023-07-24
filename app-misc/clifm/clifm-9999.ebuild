@@ -20,8 +20,8 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="archive +bleach emoji fzf +highlight icons +lira +magic nerdfonts nls
-		posix +profiles qsort +suggestions +tags +trash"
+IUSE="arc4random archive +bleach emoji fzf +highlight icons +inotify +lira +magic
+		nerdfonts nls posix +profiles qsort +suggestions +tags +trash"
 
 PATCHES=(
 	"${FILESDIR}/${P}-gentoo-skip-manpage-compression.patch"
@@ -63,6 +63,7 @@ src_compile() {
 
 	use posix && append-cflags "-D_BE_POSIX"
 	use archive || append-cflags "-D_NO_ARCHIVING"
+	use arc4random || append-cflags "-D_NO_ARC4RANDOM"
 	use bleach || append-cflags "-D_NO_BLEACH"
 	use nls || append-cflags "-D_NO_GETTEXT"
 	use fzf || append-cflags "-D_NO_FZF"
@@ -74,6 +75,7 @@ src_compile() {
 	use profiles || append-cflags "-D_NO_PROFILES"
 	use trash || append-cflags "-D_NO_TRASH"
 	use qsort && append-cflags "-D_TOURBIN_QSORT"
+	use inotify || append-cflags "-DUSE_GENERIC_FS_MONITOR"
 
 	# makefile defaults to /usr/local
 	emake PREFIX="/usr"
@@ -93,6 +95,8 @@ pkg_postinst() {
 	elif use nerdfonts; then
 		use icons && ewarn "Warning: Use flag 'icons' overridden by 'nerdfonts'"
 	fi
+	use inotify && use posix && ewarn "Warning: Use flag 'inotify' overriden by 'posix'"
+	use arc4random && use posix && ewarn "Warning: Use flag 'arc4random' overriden by 'posix'"
 	optfeature_header "Install additional optional functionality:"
 	optfeature "mounting/unmounting support" sys-apps/udevil sys-fs/udisks
 	if use archive; then

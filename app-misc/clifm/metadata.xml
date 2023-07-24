@@ -11,6 +11,9 @@
 		<name>Michael Yang</name>
 	</maintainer>
 	<use>
+		<flag name="arc4random">
+			Use arc4random instead of random, requires 'posix' to be unset
+		</flag>
 		<flag name="archive">
 			Archive manipulation support (extraction/decompression, listing, repacking, mounting)
 		</flag>
@@ -29,6 +32,9 @@
 		<flag name="icons">
 			Enable icons and set them to use icons-in-terminal (see https://github.com/sebastiencs/icons-in-terminal)
 		</flag>
+		<flag name="inotify">
+			Use the inotify API for filesystem monitoring instead of a generic check, requires 'posix' to be unset
+		</flag>
 		<flag name="lira">
 			Add Lira as the default built-in resource opener
 		</flag>
@@ -42,7 +48,7 @@
 			Add translations support (via <pkg>sys-devel/gettext</pkg>)
 		</flag>
 		<flag name="posix">
-			Force POSIX.1-2008 compliance, removing support for Linux-specific "file birth time" information
+			Force POSIX.1-2008 compliance, removing support for Linux-specific "file birth time" information, inotify, and arc4random
 		</flag>
 		<flag name="profiles">
 			Enable support for creating, switching, renaming, and deleting of user profiles
