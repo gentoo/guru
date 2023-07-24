@@ -46,7 +46,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	dev-libs/wayland-protocols
+	>=dev-libs/wayland-protocols-1.32
 	dev-util/wayland-scanner
 	virtual/pkgconfig
 "
