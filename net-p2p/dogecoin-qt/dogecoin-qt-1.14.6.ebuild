@@ -71,6 +71,7 @@ src_configure() {
 		$(use_with utils utils)
 		$(use_enable wallet)
 		$(use_enable zmq)
+		$(use_enable tests tests)
 		$(use_enable pie hardening)
 	)
 
