@@ -12,8 +12,9 @@
 		<name>Victor Skovorodnikov</name>
 	</maintainer>
 	<use>
-		<flag name="cpu_flags_x86_avx2">Build with Advanced Vector Extensions instructions support (if CPU model supports it)</flag>
+		<flag name="cpu_flags_x86_avx2">Build with Advanced Vector Extensions instructions support (if the CPU model supports it)</flag>
 		<flag name="dogecoind">Build with dogecoind daemon</flag>
+		<flag name="pie">Position Independent Executables - attempt to harden resulting executables for greater security</flag>  
 		<flag name="prune">Enables automatic pruning of old blocks to stay below 2.2GB target size (if ran from desktop)</flag>
 		<flag name="tests">Build Dogecoin Core Qt with tests option</flag>
 		<flag name="utils">Build with client utilities dogecoin-cli and dogecoin-tx</flag> 
@@ -21,6 +22,6 @@
 		<flag name="zmq">Enables ZeroMQ notifications</flag>
 	</use>
 	<longdescription lang="en">
-		Dogecoin Core Qt for desktop environment.  Fun-loving cryptocurrency with ultra-low transaction fees featuring Graphical User Interface with statistical analysis, console interaction and wallet support.  Fast and lightweight; the default installation for desktop keeps downloaded blockchain size below 2.2GB, making it ideal for daily transactions even on systems where disk space could be limited.
+		Dogecoin Core Qt for desktop environment.  Fun-loving, highly secure, peer-to-peer digital currency with ultra-low transaction fees featuring Graphical User Interface with statistical analysis, console interaction and wallet support.  Fast and lightweight; the default installation for desktop keeps downloaded blockchain size below 2.2GB, making it ideal for daily transactions, even on systems where disk space could be limited.
 	</longdescription>
 </pkgmetadata>

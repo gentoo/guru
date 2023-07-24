@@ -4,7 +4,7 @@
 EAPI=8
 WANT_AUTOCONF="2.5"
 inherit autotools desktop xdg-utils
-DESCRIPTION="Dogecoin Core Qt-GUI for desktop. Keeps downloaded blockchain size below 2.2GB."
+DESCRIPTION="Dogecoin Core Qt for desktop. Downloaded blockchain is under 2.2GB. Much secure."
 HOMEPAGE="https://github.com/dogecoin"
 SRC_URI="https://github.com/dogecoin/dogecoin/archive/refs/tags/v${PV}.tar.gz -> ${PN}-v${PV}.tar.gz"
 
@@ -12,7 +12,7 @@ LICENSE="MIT"
 SLOT="0"
 DB_VER="5.3"
 KEYWORDS="~amd64"
-IUSE="cpu_flags_x86_avx2 dogecoind tests utils +wallet +prune zmq"
+IUSE="cpu_flags_x86_avx2 dogecoind +pie +prune tests utils +wallet zmq"
 REQUIRED_USE="dogecoind? ( utils )"
 DOGEDIR="/opt/${PN}"
 DEPEND="
@@ -71,7 +71,7 @@ src_configure() {
 		$(use_with utils utils)
 		$(use_enable wallet)
 		$(use_enable zmq)
-		$(use_enable tests tests)
+		$(use_enable pie hardening)
 	)
 
 	econf "${my_econf[@]}"
