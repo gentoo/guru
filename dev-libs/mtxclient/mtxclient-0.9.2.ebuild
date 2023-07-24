@@ -38,6 +38,7 @@ src_configure() {
 	local -a mycmakeargs=(
 		-DBUILD_LIB_TESTS="$(usex test)"
 		-DBUILD_LIB_EXAMPLES=OFF
+		-DCMAKE_POSITION_INDEPENDENT_CODE=OFF
 	)
 
 	cmake_src_configure
