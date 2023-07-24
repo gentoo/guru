@@ -41,7 +41,7 @@ BDEPEND="
 		dev-python/azure-storage-blob[${PYTHON_USEDEP}]
 		>=dev-python/boto3-1.9.178[${PYTHON_USEDEP}]
 		dev-python/cryptography[${PYTHON_USEDEP}]
-		dev-python/elasticsearch-py[${PYTHON_USEDEP}]
+		dev-python/elasticsearch[${PYTHON_USEDEP}]
 		>=dev-python/moto-1.3.7[${PYTHON_USEDEP}]
 		dev-python/msgpack[${PYTHON_USEDEP}]
 		dev-python/pylibmc[${PYTHON_USEDEP}]
