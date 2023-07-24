@@ -24,7 +24,7 @@ IUSE="arc4random archive +bleach emoji fzf +highlight icons +inotify +lira +magi
 		nerdfonts nls posix +profiles qsort +suggestions +tags +trash"
 
 PATCHES=(
-	"${FILESDIR}/${P}-gentoo-skip-manpage-compression.patch"
+	"${FILESDIR}/${PN}-1.12-gentoo-skip-manpage-compression.patch"
 )
 
 LIB="
