@@ -29,7 +29,7 @@ RDEPEND="
 BDEPEND="
 	test? (
 		dev-python/aspectlib[${PYTHON_USEDEP}]
-		dev-python/elasticsearch-py[${PYTHON_USEDEP}]
+		dev-python/elasticsearch[${PYTHON_USEDEP}]
 		dev-python/freezegun[${PYTHON_USEDEP}]
 		dev-python/hunter[${PYTHON_USEDEP}]
 		dev-python/pygal[${PYTHON_USEDEP}]
