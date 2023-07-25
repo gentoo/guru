@@ -1,0 +1,30 @@
+#!/sbin/openrc-run
+# Copyright 2020-2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="Laminar daemon"
+description="Fast and lightweight Continuous Integration"
+command=/usr/sbin/laminard
+pidfile=/run/laminar.pid
+command_background="true"
+command_user="laminar:laminar"
+
+depend() {
+	need localmount
+}
+
+start_pre() {
+	local env
+	local env_args
+
+	OIFS=$IFS
+	IFS=$'\n'
+
+	for env in $(set | grep ^LAMINAR_); do
+		env_args="${env_args} --env ${env}"
+	done
+
+	IFS=$OIFS
+
+	start_stop_daemon_args="${start_stop_daemon_args} ${env_args}"
+}
