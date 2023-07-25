@@ -13,7 +13,9 @@
 	</maintainer>
 	<use>
 		<flag name="dogecoind">Build with dogecoind daemon</flag>
+		<flag name="pie">Position Independent Executables - attempt to harden resulting executables, for extra security</flag>
 		<flag name="prune">Enables automatic pruning of old blocks to stay below 2.2GB target size (if ran from desktop)</flag>
+		<flag name="ssp">Apply stack protector to all functions, for extra security</flag>
 		<flag name="tests">Build Dogecoin Core Qt with tests option</flag>
 		<flag name="utils">Build with client utilities dogecoin-cli and dogecoin-tx</flag> 
 		<flag name="wallet">Build Dogecoin Core Qt with wallet</flag>

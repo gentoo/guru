@@ -12,7 +12,8 @@ LICENSE="MIT"
 SLOT="0"
 DB_VER="5.3"
 KEYWORDS="~amd64"
-IUSE="cpu_flags_x86_avx2 dogecoind +prune tests utils +wallet zmq"
+# Please see Bug 910673	Comment 10
+IUSE="cpu_flags_x86_avx2 dogecoind +pie +prune +ssp tests utils +wallet zmq"
 REQUIRED_USE="dogecoind? ( utils )"
 DOGEDIR="/opt/${PN}"
 DEPEND="
@@ -52,6 +53,17 @@ WORKDIR_="${WORKDIR}/dogecoin-${PV}"
 S=${WORKDIR_}
 
 src_prepare() {
+
+	if use pie && use ssp ; then
+		PATCHES+=( "${FILESDIR}"/"${PV}"-hardened-all.patch )
+	elif use pie && ! use ssp ; then
+		PATCHES+=( "${FILESDIR}"/"${PV}"-hardened-no-ssp.patch )
+	elif use ssp && ! use pie ; then
+		PATCHES+=( "${FILESDIR}"/"${PV}"-hardened-no-pie.patch )
+	else
+		PATCHES+=( "${FILESDIR}"/"${PV}"-hardened-minimal.patch )
+	fi
+
 	default
 
 	einfo "Generating autotools files..."
