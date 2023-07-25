@@ -9,14 +9,11 @@ MY_PV="$(ver_cut 1-3)-$(ver_cut 4)"
 DESCRIPTION="A self-hosted lightweight software forge"
 HOMEPAGE="https://forgejo.org/ https://codeberg.org/forgejo/forgejo"
 
-if [[ ${PV} == *9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://codeberg.org/forgejo/forgejo"
-else
-	SRC_URI="https://codeberg.org/forgejo/forgejo/releases/download/v${MY_PV}/forgejo-src-${MY_PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
-fi
-
+SRC_URI="
+	https://codeberg.org/forgejo/forgejo/releases/download/v${MY_PV}/forgejo-src-${MY_PV}.tar.gz -> ${P}.tar.gz
+	https://pkg.artemis.sh/gentoo/pkg-deps/www-apps/forgejo/forgejo-node-modules-cache-${PV}.tar.gz
+"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 S="${WORKDIR}/${PN}-src-${MY_PV}"
 
 LICENSE="Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0"
@@ -28,6 +25,9 @@ DEPEND="
 		acct-group/git
 		acct-user/git[gitea] )
 	pam? ( sys-libs/pam )"
+BDEPEND="
+	net-libs/nodejs[npm]
+"
 RDEPEND="${DEPEND}
 	dev-vcs/git
 	!www-apps/gitea" # until acct-user/git[forgejo]
@@ -82,6 +82,7 @@ src_compile() {
 		DRONE_TAG="${PV}"
 		LDFLAGS="-extldflags \"${LDFLAGS}\" ${forgejo_settings[*]}"
 		TAGS="${forgejo_tags[*]}"
+		npm_config_cache="${WORKDIR}/node-modules-cache"
 	)
 
 	GOFLAGS=""
@@ -89,7 +90,10 @@ src_compile() {
 		GOFLAGS+="-buildmode=pie"
 	fi
 
-	env "${makeenv[@]}" emake EXTRA_GOFLAGS="${GOFLAGS}" backend
+	# need to set -j1 or build fails due to a race condition between MAKE jobs.
+	# this does not actually impact build parallelism, because the go compiler
+	# will still build everything in parallel when it's invoked.
+	env "${makeenv[@]}" emake -j1 EXTRA_GOFLAGS="${GOFLAGS}"
 }
 
 src_install() {
