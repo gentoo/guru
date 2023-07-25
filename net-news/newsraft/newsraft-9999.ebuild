@@ -21,16 +21,20 @@ SLOT="0"
 DEPEND="
 	dev-db/sqlite:3
 	dev-libs/expat
-	dev-libs/gumbo
-	dev-libs/yajl
+	dev-libs/gumbo:=
+	dev-libs/yajl:=
 	net-misc/curl
-	sys-libs/ncurses
+	sys-libs/ncurses:=
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
 	app-text/scdoc
 	virtual/pkgconfig
 "
+
+src_compile() {
+	emake CC="${CC}" CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}"
+}
 
 src_install() {
 	emake PREFIX="/usr" DESTDIR="${D}" install
