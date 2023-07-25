@@ -1,13 +1,11 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-MY_PV="${PV/_rc/-RC}"
-
 DESCRIPTION="Static version of a fast very high compression read-only FUSE file system"
 HOMEPAGE="https://github.com/mhx/dwarfs"
-SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${MY_PV}/dwarfs-${MY_PV}-Linux-x86_64.tar.xz -> dwarfs-bin-${MY_PV}.tar.xz"
+SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${PV}/dwarfs-${PV}-Linux-x86_64.tar.xz -> dwarfs-bin-${PV}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -21,7 +19,7 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-S="${WORKDIR}/dwarfs-${MY_PV}-Linux-x86_64/"
+S="${WORKDIR}/dwarfs-${PV}-Linux-x86_64/"
 QA_PREBUILT="
 	sbin/dwarfs
 	bin/*
