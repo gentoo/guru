@@ -75,12 +75,12 @@ src_install() {
 				insinto /etc/legion_linux && newins "${FILESDIR}/radeon" .env
 			fi
 			#NVIDIA (need dowgrade because nvidia-smi -pl was removed)
-			if use downgrade-nvidia; then 
+			if use downgrade-nvidia; then
 				insinto /usr/share/legion_linux && newins "${FILESDIR}/nvidia" .env
 				insinto /etc/legion_linux && newins "${FILESDIR}/nvidia" .env
 			fi
 
-			if use ryzenadj; then 
+			if use ryzenadj; then
 				insinto /usr/share/legion_linux && newins "${FILESDIR}/cpu" .env
 				insinto /etc/legion_linux && newins "${FILESDIR}/cpu" .env
 			fi
