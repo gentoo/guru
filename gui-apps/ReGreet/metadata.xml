@@ -7,6 +7,10 @@
 		<flag name="sway">Use sway to start ReGreet</flag>
 		<flag name="logs">Compile logs support ReGreet (debug)</flag>
 	</use>
+	<maintainer type="person">
+		<email>gonegrier.duarte@gmail.com</email>
+		<name>Gonçalo Negrier Duarte</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">rharish101/ReGreet</remote-id>
 	</upstream>
