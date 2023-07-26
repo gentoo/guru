@@ -11,7 +11,7 @@ EPYTHON=python3
 
 inherit distutils-r1 desktop xdg-utils
 
-SRC_URI="https://github.com/DavidoTek/ProtonUp-Qt/archive/refs/tags/v${PV}.tar.gz"
+SRC_URI="https://github.com/DavidoTek/ProtonUp-Qt/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 DESCRIPTION="Install and manage GE-Proton, Luxtorpeda & more for Steam Lutris and Heroic."
 HOMEPAGE="https://davidotek.github.io/protonup-qt"
 
