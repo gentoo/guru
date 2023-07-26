@@ -16,7 +16,7 @@ RDEPEND="gui-apps/gtklock"
 BDEPEND="x11-libs/gtk+
 	virtual/pkgconfig
 	playerctl? ( dev-go/act )
-	playerctl? ( net-libs/libsoup )
+	playerctl? ( net-libs/libsoup:2.4 )
 	playerctl? ( media-sound/playerctl )
 	userinfo? ( sys-apps/accountsservice )
 "
@@ -33,11 +33,11 @@ src_compile() {
 		popd || die
 	fi
 
-	#if use playerctl; then
-	#	pushd gtklock-playerctl-module || die
-	#	emake
-	#	popd || die
-	#fi
+	if use playerctl; then
+		pushd gtklock-playerctl-module || die
+		emake
+		popd || die
+	fi
 
 	if use userinfo; then
 		pushd gtklock-userinfo-module || die
@@ -54,23 +54,15 @@ src_install() {
 		popd || die
 	fi
 
-	#if use playerctl; then
-	#	pushd gtklock-playerctl-module || die
-	#	insinto /usr/local/lib/gtklock && doins playerctl-module.so
-	#	popd || die
-	#fi
+	if use playerctl; then
+		pushd gtklock-playerctl-module || die
+		insinto /usr/local/lib/gtklock && doins playerctl-module.so
+		popd || die
+	fi
 
 	if use userinfo; then
 		pushd gtklock-userinfo-module || die
 		insinto /usr/local/lib/gtklock && doins userinfo-module.so
 		popd || die
-	fi
-}
-
-pkg_postinst() {
-	if use playerctl; then
-		ewarn "The MAKEFILE for playerctl gtklock module is broken i will try to fixit later"
-		ewarn "For now the useflag will be disable on guru overlay to prevent the package failing to build"
-		ewarn "If you have a idea on how to fix open a issue here:https://github.com/MrDuartePT/mrduarte-ebuilds"
 	fi
 }
