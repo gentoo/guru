@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{9..12} )
 
 inherit distutils-r1
 
-SRC_URI="https://github.com/georgewhewell/undervolt/archive/refs/tags/${PV}.tar.gz"
+SRC_URI="https://github.com/georgewhewell/undervolt/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 DESCRIPTION="Undervolt Intel CPUs under Linux"
 HOMEPAGE="https://github.com/georgewhewell/undervolt"
 
