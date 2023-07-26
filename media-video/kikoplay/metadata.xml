@@ -6,7 +6,7 @@
 		<name>Huang Rui</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">Protostars/KikoPlay</remote-id>
+		<remote-id type="github">KikoPlayProject/KikoPlay</remote-id>
 	</upstream>
 	<longdescription lang="en">
 	KikoPlay - A Full-Featured Danmu Player.
