@@ -5,6 +5,10 @@
 		<flag name="binutils">build backtrace support </flag>
 		<flag name="pipewire">enable media-video/pipewire support</flag>
 	</use>
+	<maintainer type="person">
+		<email>gonegrier.duarte@gmail.com</email>
+		<name>Gonçalo Negrier Duarte</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">gnif/LookingGlass</remote-id>
 	</upstream>
