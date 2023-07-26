@@ -21,7 +21,7 @@ DESCRIPTION="SSH library for Hare"
 HOMEPAGE="https://git.sr.ht/~sircmpwn/hare-ssh"
 LICENSE="MPL-2.0"
 
-RDEPEND="<=dev-lang/hare-0_pre20220922"
+RDEPEND="dev-lang/hare"
 DEPEND="${DEPEND}"
 
 src_prepare() {
