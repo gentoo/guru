@@ -6,6 +6,10 @@
 		<flag name="playerctl">gtklock module adding media player controls to the lockscreen</flag>
 		<flag name="userinfo">gtklock module adding user info to the lockscreen</flag>
 	</use>
+	<maintainer type="person">
+		<email>gonegrier.duarte@gmail.com</email>
+		<name>Gonçalo Negrier Duarte</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">MrDuartePT/gtklock-modules-gentoo</remote-id>
 	</upstream>
