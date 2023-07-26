@@ -9,6 +9,10 @@
 		<flag name="ryzenadj">[AMD] CPU and APU control using ryzenadj (systemd-service)</flag>
 		<flag name="undervolt-intel">[INTEL] CPU and APU control using undervolt (systemd-service)</flag>
 	</use>
+	<maintainer type="person">
+		<email>gonegrier.duarte@gmail.com</email>
+		<name>Gonçalo Negrier Duarte</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">johnfanv2/LenovoLegionLinux</remote-id>
 		<bugs-to>https://github.com/johnfanv2/LenovoLegionLinux/issues</bugs-to>
