@@ -9,6 +9,10 @@
 		<email>pascal.jaeger@leimstift.de</email>
 		<name>Pascal Jäger</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>gonegrier.duarte@gmail.com</email>
+		<name>Gonçalo Negrier Duarte</name>
+	</maintainer>
 	<upstream>
 		<doc>https://elkowar.github.io/eww</doc>
 		<bugs-to>https://github.com/elkowar/eww/issues</bugs-to>
