@@ -37,6 +37,7 @@ src_prepare() {
 	eapply "${FILESDIR}/linux.ninja.patch"
 	eapply_user
 	sed -i -e "s/^cc = REPLACE_ME/cc = $(tc-getCC)/" \
+		-e "s/^ar = REPLACE_AR/ar = $(tc-getAR)/" \
 		-e "s/CFLAGS/${CFLAGS}/" \
 		-e "s/CXXFLAGS/${CXXFLAGS}/" \
 		-e "s/LDFLAGS/${LDFLAGS}/" \
@@ -52,16 +53,16 @@ src_compile() {
 
 	# Generated file doesn't respect CFLAGS/CXXFLAGS/LDFLAGS
 	sed -i -e "s/^cc =.*./cc = REPLACE_ME/" \
-		-e "s/^luamake =.*./luamake = LUAMAKE_PATH/" \
+		-e "s/^ar =.*./ar = REPLACE_AR/" \
 		build/build.ninja || die
 
 	eapply "${FILESDIR}/build.ninja.patch"
 	sed -i -e "s/REPLACE_ME/$(tc-getCC)/" \
+		-e "s/REPLACE_AR/$(tc-getAR)/" \
 		-e "s|LUAMAKE_PATH|${S}/3rd/luamake/luamake|" \
 		-e "s/CFLAGS/${CFLAGS}/" \
 		-e "s/CXXFLAGS/${CXXFLAGS}/" \
 		-e "s/LDFLAGS/${LDFLAGS}/" \
-		-e "7d" \
 		build/build.ninja || die
 
 	use test && eninja -f build/build.ninja || eninja -f build/build.ninja all
