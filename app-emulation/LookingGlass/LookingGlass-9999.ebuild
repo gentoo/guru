@@ -43,12 +43,12 @@ src_prepare () {
 
 	# Base on build.rst from the project
 	# doc/build.rst
-	MYCMAKEARGS=( 
-		-DENABLE_BACKTRACE=$(usex binutils) \ 
-		-DENABLE_X11=$(usex X) -DENABLE_WAYLAND=$(usex wayland) \ 
+	MYCMAKEARGS=(
+		-DENABLE_BACKTRACE=$(usex binutils) \
+		-DENABLE_X11=$(usex X) -DENABLE_WAYLAND=$(usex wayland) \
 		-DENABLE_PIPEWIRE=$(usex pipewire) \
 		-DENABLE_PULSEAUDIO=$(usex pulseaudio) \
-		-DENABLE_LIBDECOR=$(usex gnome) 
+		-DENABLE_LIBDECOR=$(usex gnome)
 	)
 
 	cmake_src_prepare
