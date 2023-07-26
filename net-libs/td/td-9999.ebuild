@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -65,12 +65,9 @@ src_configure() {
 	)
 
 	if use java; then
-		local JAVA_AWT_LIBRARY="${JAVA_HOME}/lib/libjawt.so"
-		local JAVA_JVM_LIBRARY="${JAVA_HOME}/lib/libjava.so"
-
 		mycmakeargs+=(
-			-DJAVA_AWT_LIBRARY="${JAVA_AWT_LIBRARY}"
-			-DJAVA_JVM_LIBRARY="${JAVA_JVM_LIBRARY}"
+			-DJAVA_AWT_LIBRARY="${JAVA_HOME}/lib/libjawt.so"
+			-DJAVA_JVM_LIBRARY="${JAVA_HOME}/lib/libjava.so"
 			-DJAVA_INCLUDE_PATH="${JAVA_HOME}/include"
 			-DJAVA_INCLUDE_PATH2="${JAVA_HOME}/include/linux"
 			-DJAVA_AWT_INCLUDE_PATH="${JAVA_HOME}/include"

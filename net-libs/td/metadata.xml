@@ -11,7 +11,6 @@
 	</upstream>
 	<use>
 		<flag name="abseil">Build with <pkg>dev-cpp/abseil-cpp</pkg></flag>
-		<flag name="benchmark">Enable benchmarking</flag>
 		<flag name="dotnet">Add support for .NET</flag>
 		<flag name="jumbo-build">Combine source files to speed up build process</flag>
 	</use>

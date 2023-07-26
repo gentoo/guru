@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2022-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,13 +7,16 @@ DOCS_BUILDER="doxygen"
 inherit cmake docs java-pkg-opt-2
 
 DESCRIPTION="Cross-platform library for building Telegram clients"
-HOMEPAGE="https://core.telegram.org/tdlib https://github.com/tdlib/td"
+HOMEPAGE="
+	https://core.telegram.org/tdlib
+	https://github.com/tdlib/td
+"
 SRC_URI="https://github.com/tdlib/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Boost-1.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="benchmark dotnet +jumbo-build static-libs test"
+IUSE="dotnet +jumbo-build static-libs test"
 
 RESTRICT="!test? ( test )"
 
@@ -37,24 +40,14 @@ TEST_TARGETS=(
 	#test-tdutils -- hangs
 	#run_all_tests -- segfaults
 )
-BENCH_TARGETS=(
-	bench_{actor,empty,handshake,misc}
-	bench_http
-	check_tls
-	#bench_{db,tddb} -- fail
-	#bench_http_server{,_cheat,_fast} - hang
-	#bench_http_reader -- fails
-	#check_proxy -- requires proxy
-	#rmdir -- fails
-	#wget -- requires network
-)
 
 src_prepare() {
 	sed "/find_program(CCACHE_FOUND ccache)/d" -i CMakeLists.txt || die
 	echo "" > gen_git_commit_h.sh || die
 
-	use test || cmake_comment_add_subdirectory test
-	use benchmark || cmake_comment_add_subdirectory benchmark
+	cmake_comment_add_subdirectory benchmark
+	use test || \
+		cmake_comment_add_subdirectory test
 
 	cmake_src_prepare
 }
@@ -65,13 +58,10 @@ src_configure() {
 	)
 
 	if use java; then
-		local JAVA_AWT_LIBRARY="${JAVA_HOME}/lib/libjawt.so"
-		local JAVA_JVM_LIBRARY="${JAVA_HOME}/lib/libjava.so"
-
 		mycmakeargs+=(
 			-DTD_ENABLE_JNI=ON
-			-DJAVA_AWT_LIBRARY="${JAVA_AWT_LIBRARY}"
-			-DJAVA_JVM_LIBRARY="${JAVA_JVM_LIBRARY}"
+			-DJAVA_AWT_LIBRARY="${JAVA_HOME}/lib/libjawt.so"
+			-DJAVA_JVM_LIBRARY="${JAVA_HOME}/lib/libjava.so"
 			-DJAVA_INCLUDE_PATH="${JAVA_HOME}/include"
 			-DJAVA_INCLUDE_PATH2="${JAVA_HOME}/include/linux"
 			-DJAVA_AWT_INCLUDE_PATH="${JAVA_HOME}/include"
@@ -122,15 +112,6 @@ src_test() {
 		./"${exe}" || die "${exe} failed"
 	done
 	popd > /dev/null || die
-
-	if use benchmark; then
-		pushd "${BUILD_DIR}"/benchmark > /dev/null || die
-		for exe in "${BENCH_TARGETS[@]}"; do
-			einfo "Running ${exe}"
-			./"${exe}" || die "${exe} failed"
-		done
-		popd > /dev/null || die
-	fi
 }
 
 src_install() {
