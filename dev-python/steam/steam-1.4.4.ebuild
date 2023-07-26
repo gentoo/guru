@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{9..12} )
 
 inherit distutils-r1
 
-SRC_URI="https://github.com/ValvePython/steam/archive/refs/tags/v${PV}.tar.gz"
+SRC_URI="https://github.com/ValvePython/steam/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 DESCRIPTION="Python package for interacting with Steam"
 HOMEPAGE="https://github.com/ValvePython/steam"
 
