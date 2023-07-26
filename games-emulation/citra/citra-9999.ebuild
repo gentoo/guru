@@ -41,9 +41,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-cpp/cpp-httplib
 	dev-cpp/cpp-jwt
-	dev-cpp/robin-map
-	dev-util/spirv-headers
-"
+	dev-cpp/robin-map"
 REQUIRED_USE="|| ( gui sdl )"
 
 src_unpack() {
