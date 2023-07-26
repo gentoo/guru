@@ -5,6 +5,10 @@
 		<flag name="dbus">Enable dbus to query current cursor theme </flag>
 		<flag name="examples">Build and install examples</flag>
 	</use>
+	<maintainer type="person">
+		<email>gonegrier.duarte@gmail.com</email>
+		<name>Gonçalo Negrier Duarte</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="freedesktop-gitlab">libdecor/libdecor</remote-id>
 	</upstream>
