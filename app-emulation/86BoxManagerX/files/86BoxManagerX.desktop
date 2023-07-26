@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=86BoxManagerX
+StartupNotify=true
+Exec=/opt/86BoxManagerX/86Manager
+Terminal=false
+Icon=86BoxManagerX
+Type=Application
