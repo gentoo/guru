@@ -17,9 +17,9 @@ RDEPEND="sys-kernel/linux-headers
 	sys-apps/lm-sensors
 	sys-apps/dmidecode
 	legion-tools? ( dev-python/PyQt5 dev-python/pyyaml dev-python/argcomplete )
+	downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
 	legion-acpi? ( sys-power/acpid )
 	radeon-dgpu? ( dev-util/rocm-smi )
-	downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
 	ryzenadj? ( sys-power/RyzenAdj )
 	undervolt-intel? ( dev-python/undervolt )
 "
@@ -58,53 +58,31 @@ src_install() {
 
 		cd "${WORKDIR}/${P}/extra"
 
+		if use systemd; then
+			systemd_dounit service/legion-linux.service service/legion-linux.path
+		fi
+
 		if use legion-acpi; then
 			insinto /etc/acpi/events/ && doins acpi/events/{ac_adapter_legion-fancurve,novo-button,PrtSc-button,fn-r-refrate}
 			insinto /etc/acpi/actions/ && doins acpi/actions/{battery-legion-quiet.sh,snipping-tool.sh,fn-r-refresh-rate.sh}
 		fi
-
-		if use systemd; then
-			systemd_dounit service/legion-linux.service service/legion-linux.path
-			dobin service/fancurve-set
-			insinto /usr/share/legion_linux && doins service/profiles/*
-			insinto /etc/legion_linux && doins service/profiles/*
-
-			#AMD
-			if use radeon-dgpu; then
-				insinto /usr/share/legion_linux && newins "${FILESDIR}/radeon" .env
-				insinto /etc/legion_linux && newins "${FILESDIR}/radeon" .env
-			fi
-			#NVIDIA (need dowgrade because nvidia-smi -pl was removed)
-			if use downgrade-nvidia; then
-				insinto /usr/share/legion_linux && newins "${FILESDIR}/nvidia" .env
-				insinto /etc/legion_linux && newins "${FILESDIR}/nvidia" .env
-			fi
-
-			if use ryzenadj; then
-				insinto /usr/share/legion_linux && newins "${FILESDIR}/cpu" .env
-				insinto /etc/legion_linux && newins "${FILESDIR}/cpu" .env
-			fi
-		fi
-
-		# Desktop Files and Polkit
-		domenu "${FILESDIR}/legion_gui.desktop"
-		doicon "${WORKDIR}/${P}/python/legion_linux/legion_linux/legion_logo.png"
-		insinto "/usr/share/polkit-1/actions/" && doins "${FILESDIR}/legion_cli.policy"
-
 	fi
 }
 
 pkg_postinst() {
 	if use systemd; then
 		ewarn "Default config files are present in /usr/share/legion_linux"
-		ewarn "Pls copy that folder to /etc/legion_linux and edit the fancurves to your liking"
-		ewarn "Note:can be done using the gui app"
+		ewarn "Copy folder /usr/share/legion_linux to /etc/legion_linux"
+		ewarn "Note:Fancurve can edit using the gui app"
 		ewarn "Dont forget to edit /etc/legion_linux/.env to enable and disable extra features"
 		ewarn "Note the CPU and APU control command both for undervolt an ryzenadj are edit in /etc/legion_linux/.env command"
-		ewarn "Note: use flag downgrade-nvidia in need for nvidia TDP control\n"
+		if !use downgrade-nvidia; then
+			ewarn "Note: use flag downgrade-nvidia if you need for nvidia TDP control (requires driver 525 to work)\n"
+		else
+			ewarn "Note: Edit /etc/legion_linux/.env to enable nvidia TDP control\n"
+		fi
 	fi
 	ewarn "Note for 2023-2023 Legion user: It need help for testing the features"
 	ewarn "Pls test the feature how is decribe in the README of the project!"
 	ewarn "and also go to this issue in github: https://github.com/johnfanv2/LenovoLegionLinux/issues/46"
-
 }
