@@ -66,6 +66,7 @@ src_compile() {
 		build/build.ninja || die
 
 	use test && eninja -f build/build.ninja || eninja -f build/build.ninja all
+	rm -rf meta/198256b1
 }
 
 src_install() {
