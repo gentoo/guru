@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit meson
 
@@ -22,7 +22,7 @@ SLOT="0"
 IUSE="X"
 
 RDEPEND="
-	>=gui-libs/wlroots-0.14[X?]
+	>=gui-libs/wlroots-0.16[X?]
 	x11-libs/libxkbcommon[X?]
 "
 DEPEND="${RDEPEND}"
