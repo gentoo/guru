@@ -36,6 +36,8 @@ BDEPEND="
 "
 
 python_check_deps() {
+	use test || return 0 # python is only used for tests, bug #911504
+
 	python_has_version "dev-python/flask[${PYTHON_USEDEP}]"
 }
 
