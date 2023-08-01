@@ -21,6 +21,7 @@ RDEPEND="
 	x11-libs/libxkbcommon
 	bash-completion? ( app-shells/bash-completion )
 	exif? ( media-libs/libexif )
+	exr? ( media-libs/openexr )
 	gif? ( media-libs/giflib )
 	heif? ( media-libs/libheif )
 	jpeg? ( media-libs/libjpeg-turbo )
@@ -33,11 +34,12 @@ DEPEND="${RDEPEND}
 	dev-libs/wayland-protocols"
 BDEPEND="dev-util/wayland-scanner"
 
-IUSE="+exif +gif heif +jpeg jpegxl +png svg tiff webp bash-completion zsh-completion"
+IUSE="+exif exr +gif heif +jpeg jpegxl +png svg tiff webp bash-completion zsh-completion"
 
 src_configure() {
 	local emesonargs=(
 		$(meson_feature exif)
+		$(meson_feature exr)
 		$(meson_feature gif)
 		$(meson_feature heif)
 		$(meson_feature jpeg)
