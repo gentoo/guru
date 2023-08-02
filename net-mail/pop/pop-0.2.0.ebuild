@@ -10,7 +10,7 @@ HOMEPAGE="https://charm.sh"
 SRC_URI="https://github.com/charmbracelet/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 # Using a dependency tarball as per https://devmanual.gentoo.org/eclass-reference/go-module.eclass/index.html
-DEPS_URI="https://gitlab.com/freijon_gentoo/${CATEGORY}/${PN}/uploads/7f29f486dd58e399fd05ca93587660c5/${P}-deps.tar.xz"
+DEPS_URI="https://gitlab.com/freijon_gentoo/${CATEGORY}/${PN}/-/raw/main/${P}-deps.tar.xz"
 SRC_URI+=" ${DEPS_URI}"
 
 LICENSE="MIT"
