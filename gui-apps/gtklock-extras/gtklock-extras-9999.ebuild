@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit git-r3
 DESCRIPTION="Gtklock modules"
@@ -26,43 +26,47 @@ DEPEND="${RDEPEND}"
 IUSE="playerctl powerbar userinfo"
 REQUIRED_USE="|| ( playerctl powerbar userinfo )"
 
-src_compile() {
+src_prepare() {
 	if use powerbar; then
-		pushd gtklock-powerbar-module || die
-		emake
-		popd || die
+		cd "${S}/gtklock-powerbar-module" || die
+		eapply "${S}/gtklock-powerbar-module.patch"
+		cd "${S}" || die
 	fi
 
 	if use playerctl; then
-		pushd gtklock-playerctl-module || die
-		emake
-		popd || die
+		cd "${S}/gtklock-playerctl-module" || die
+		eapply "${S}/gtklock-playerctl-module.patch"
+		cd "${S}" || die
 	fi
 
 	if use userinfo; then
-		pushd gtklock-userinfo-module || die
-		emake
-		popd || die
+		cd "${S}/gtklock-userinfo-module" || die
+		eapply "${S}/gtklock-userinfo-module.patch"
+		cd "${S}" || die
 	fi
+	eapply_user
 }
 
 src_install() {
 	dodir /usr/local/lib/gtklock
 	if use powerbar; then
 		pushd gtklock-powerbar-module || die
-		insinto /usr/local/lib/gtklock && doins powerbar-module.so
+		emake
+		emake DESTDIR="${D}" install
 		popd || die
 	fi
 
 	if use playerctl; then
 		pushd gtklock-playerctl-module || die
-		insinto /usr/local/lib/gtklock && doins playerctl-module.so
+		emake
+		emake DESTDIR="${D}" install
 		popd || die
 	fi
 
 	if use userinfo; then
 		pushd gtklock-userinfo-module || die
-		insinto /usr/local/lib/gtklock && doins userinfo-module.so
+		emake
+		emake DESTDIR="${D}" install
 		popd || die
 	fi
 }
