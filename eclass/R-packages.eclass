@@ -68,9 +68,11 @@ _movelink() {
 	local source=${1}
 	local dest=${2}
 	if [[ -e "${source}" ]]; then
-		local rp_source="$(realpath ${source} || die)"
-		mv "${rp_source}" "${dest}" || die
-		cp -rsf "${dest}" "${rp_source}" || die
+		local rdir=/usr/$(get_libdir)/R/site-library/${CRAN_PN}
+		local rp_source="${rdir}/${source}"
+		insinto ${rdir}
+		doins -r ${source}
+		ln -s "${rp_source}" "${dest}" || die
 	fi
 }
 
@@ -162,11 +164,7 @@ R-packages_src_install() {
 	fi
 
 	if [[ -e doc ]]; then
-		pushd doc || die
-		for i in *; do
-			_movelink "${i}" "${EDOCDIR}/${i}"
-		done
-		popd || die
+		_movelink doc "${EDOCDIR}"/doc
 	fi
 
 	rm -f LICENSE || die
