@@ -5,6 +5,10 @@
         <email>svdm-gentoo@protonmail.com</email>
         <name>Simon van der Maas</name>
     </maintainer>
+	<maintainer type="person">
+		<email>dev.tqb0k@silomails.com</email>
+		<name>Ryan Vann</email>
+	</maintainer>
     <upstream>
         <remote-id type="github">FreeTubeApp/FreeTube</remote-id>
     </upstream>
