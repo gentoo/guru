@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: R-packages.eclass
@@ -59,23 +59,6 @@ SLOT="0"
 DEPEND="dev-lang/R"
 RDEPEND="${DEPEND}"
 
-# @FUNCTION: _movelink
-# @INTERNAL
-# @USAGE: <source> <dest>
-# @DESCRIPTION:
-# <dest> will contain symlinks to everything in <source>
-_movelink() {
-	local source=${1}
-	local dest=${2}
-	if [[ -e "${source}" ]]; then
-		local rdir=/usr/$(get_libdir)/R/site-library/${CRAN_PN}
-		local rp_source="${rdir}/${source}"
-		insinto ${rdir}
-		doins -r ${source}
-		ln -s "${rp_source}" "${dest}" || die
-	fi
-}
-
 # @FUNCTION: R-packages_src_unpack
 # @DEPRECATED: none
 # @DESCRIPTION:
@@ -134,7 +117,6 @@ R-packages_src_compile() {
 		edo R CMD INSTALL . -d -l "${T}"/R --byte-compile
 }
 
-
 # @FUNCTION: R-packages_src_install
 # @DESCRIPTION:
 # Move files into right folders.
@@ -150,22 +132,33 @@ R-packages_src_install() {
 	local EDOCDIR="${ED}${DOCDIR}"
 	mkdir -p "${EDOCDIR}" || die
 
+	# _maybe_movelink <target> <link_name>
+	# If target exists, installs everything under target into R's
+	# site-library for the package and creates a link with the name
+	# <link_name> to it.
+	_maybe_movelink() {
+		local target=${1}
+		local link_name=${2}
+		if [[ ! -e "${target}" ]]; then
+			return
+		fi
+
+		local rdir=/usr/$(get_libdir)/R/site-library/${CRAN_PN}
+		local rp_source="${rdir}/${target}"
+		insinto ${rdir}
+		doins -r ${target}
+		ln -s "${rp_source}" "${link_name}" || die
+	}
+
 	for i in {NEWS,README}.md DESCRIPTION CITATION INDEX NEWS WORDLIST News.Rd; do
-		_movelink "${i}" "${EDOCDIR}/${i}"
+		_maybe_movelink "${i}" "${EDOCDIR}/${i}"
 	done
 
-	if [[ -e html ]]; then
-		_movelink html "${EDOCDIR}"/html
-	fi
+	_maybe_movelink html "${EDOCDIR}"/html
 
-	if [[ -e examples ]]; then
-		_movelink examples "${EDOCDIR}"/examples
-		docompress -x "${DOCDIR}"/examples
-	fi
+	_maybe_movelink examples "${EDOCDIR}"/examples
 
-	if [[ -e doc ]]; then
-		_movelink doc "${EDOCDIR}"/doc
-	fi
+	_maybe_movelink doc "${EDOCDIR}"/doc
 
 	rm -f LICENSE || die
 	rm -rf tests test || die
