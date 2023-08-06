@@ -26,7 +26,10 @@ esac
 
 EXPORT_FUNCTIONS src_prepare src_compile src_install
 
-RDEPEND="dev-lang/elixir"
+RDEPEND="
+	dev-lang/elixir
+	dev-lang/erlang:=
+"
 DEPEND="${RDEPEND}"
 
 # Erlang/Elixir software fails to build when another version with API 
