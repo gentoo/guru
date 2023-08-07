@@ -34,7 +34,7 @@ DEPEND="${RDEPEND}"
 
 # Erlang/Elixir software fails to build when another version with API 
 # differences is present
-BDEPEND="!<${CATEGORY}/${P} !>${CATEGORY}/${P}"
+BDEPEND="!<${CATEGORY}/${P} !>${CATEGORY}/${PF}"
 
 # @ECLASS-VARIABLE: HEX_OFFLINE
 HEX_OFFLINE=1
