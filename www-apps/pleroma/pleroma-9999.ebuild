@@ -82,7 +82,8 @@ src_install() {
 	mkdir -p "${ED}/opt" || die
 	cp -pr ./pleroma "${ED}/opt/pleroma" || die
 	fperms 0750 /opt/pleroma
-	fowners 0:pleroma /opt/pleroma
+	fperms -R g-w,o= /opt/pleroma
+	fowners -R 0:pleroma /opt/pleroma
 
 	dosym /opt/pleroma/bin/pleroma /usr/bin/pleroma
 	dosym /opt/pleroma/bin/pleroma_ctl /usr/bin/pleroma_ctl
