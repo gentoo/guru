@@ -11,8 +11,7 @@ SRC_URI="https://github.com/dogecoin/dogecoin/archive/refs/tags/v${PV}.tar.gz ->
 LICENSE="MIT"
 SLOT="0"
 DB_VER="5.3"
-KEYWORDS="~amd64"
-# Please see Bug 910673	Comment 10
+KEYWORDS="~amd64 ~arm64"
 IUSE="cpu_flags_x86_avx2 dogecoind +pie +prune +ssp tests utils +wallet zmq"
 REQUIRED_USE="dogecoind? ( utils )"
 DOGEDIR="/opt/${PN}"
@@ -46,7 +45,7 @@ PATCHES=(
 	"${FILESDIR}"/"${PV}"-paymentserver.patch
 	"${FILESDIR}"/"${PV}"-transactiondesc.patch
 	"${FILESDIR}"/"${PV}"-deque.patch
-	"${FILESDIR}"/"${PV}"-gcc13.patch
+	"${FILESDIR}"/gcc13.patch
 )
 
 WORKDIR_="${WORKDIR}/dogecoin-${PV}"
@@ -55,13 +54,13 @@ S=${WORKDIR_}
 src_prepare() {
 
 	if use pie && use ssp ; then
-		PATCHES+=( "${FILESDIR}"/"${PV}"-hardened-all.patch )
+		PATCHES+=( "${FILESDIR}"/hardened-all.patch )
 	elif use pie && ! use ssp ; then
-		PATCHES+=( "${FILESDIR}"/"${PV}"-hardened-no-ssp.patch )
+		PATCHES+=( "${FILESDIR}"/hardened-no-ssp.patch )
 	elif use ssp && ! use pie ; then
-		PATCHES+=( "${FILESDIR}"/"${PV}"-hardened-no-pie.patch )
+		PATCHES+=( "${FILESDIR}"/hardened-no-pie.patch )
 	else
-		PATCHES+=( "${FILESDIR}"/"${PV}"-hardened-minimal.patch )
+		PATCHES+=( "${FILESDIR}"/hardened-minimal.patch )
 	fi
 
 	default
@@ -96,6 +95,11 @@ src_install() {
 	doins src/qt/res/icons/dogecoin.png
 	dosym "${DOGEDIR}/bin/${PN}" "/usr/bin/${PN}"
 
+	if use dogecoind ; then
+		dosym "${DOGEDIR}/bin/dogecoind" "/usr/bin/dogecoind"
+		dosym "${DOGEDIR}/bin/dogecoin-cli" "/usr/bin/dogecoin-cli"
+	fi
+
 	if use prune ; then
 		domenu "${FILESDIR}"/"${PN}-prune.desktop"
 	else
@@ -111,6 +115,11 @@ pkg_postinst() {
 	elog "Dogecoin Core Qt ${PV} has been installed."
 	elog "Dogecoin Core Qt binaries have been placed in ${DOGEDIR}/bin."
 	elog "${PN} has been symlinked with /usr/bin/${PN}."
+
+	if use dogecoind ; then
+		elog "dogecoin daemon has been symlinked with /usr/bin/dogecoind."
+		elog "dogecoin client utils have been symlinked with /usr/bin/dogecoin-cli."
+	fi
 }
 
 pkg_postrm() {

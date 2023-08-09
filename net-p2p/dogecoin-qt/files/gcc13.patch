@@ -1,0 +1,13 @@
+# Fixes error when building with gcc13
+diff --git a/src/support/lockedpool.cpp b/src/support/lockedpool.cpp
+index ccebbe8..9d57846 100644
+--- a/src/support/lockedpool.cpp
++++ b/src/support/lockedpool.cpp
+@@ -5,6 +5,7 @@
+ 
+ #include "support/lockedpool.h"
+ #include "support/cleanse.h"
++#include <stdexcept>
+ 
+ #if defined(HAVE_CONFIG_H)
+ #include "config/bitcoin-config.h"
