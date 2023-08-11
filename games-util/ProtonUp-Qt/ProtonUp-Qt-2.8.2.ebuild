@@ -18,7 +18,7 @@ HOMEPAGE="https://davidotek.github.io/protonup-qt"
 LICENSE="GPL-3"
 SLOT="0"
 
-DEPEND="dev-python/steam
+RDEPEND="dev-python/steam
 	dev-python/requests
 	dev-python/pyside6[designer(+)]
 	dev-python/PyQt6
@@ -26,6 +26,9 @@ DEPEND="dev-python/steam
 	dev-python/pyxdg
 	dev-python/pyaml
 	dev-python/zstandard
+"
+
+DEPEND="${RDEPEND}
 	dev-util/desktop-file-utils
 	dev-libs/appstream-glib
 "
