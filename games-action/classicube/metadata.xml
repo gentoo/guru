@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Seth Price</name>
+		<email>sprice623@aol.com</email>
+	</maintainer>
+	<longdescription lang="en">
+		ClassiCube is a clean-room reverse-engineered Minecraft Classic
+		client with optional additional features such as noclip and fly.
+		ClassiCube has a significantly lightweight memory footprint
+		and is designed to work on any OpenGL-supported graphics card. 
+	</longdescription>
+	<upstream>
+		<bugs-to>https://github.com/UnknownShadow200/ClassiCube/issues</bugs-to>
+		<remote-id type="github">UnknownShadow200/ClassiCube</remote-id>
+	</upstream>
+</pkgmetadata>
