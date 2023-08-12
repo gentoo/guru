@@ -3,15 +3,16 @@
 
 EAPI=8
 
-inherit git-r3 toolchain-funcs
+inherit toolchain-funcs
 
 DESCRIPTION="Reverse-engineered Minecraft Classic client"
 HOMEPAGE="https://www.classicube.net/"
-EGIT_REPO_URI="https://github.com/UnknownShadow200/ClassiCube"
-EGIT_COMMIT="${PV}"
+SRC_URI="https://github.com/UnknownShadow200/ClassiCube/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/ClassiCube-${PV}"
 
 LICENSE="BSD MIT FTL"
 SLOT="0"
+KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~sparc ~x86"
 
 DEPEND="x11-libs/libX11 x11-libs/libXi virtual/opengl"
 RDEPEND="${DEPEND}"
