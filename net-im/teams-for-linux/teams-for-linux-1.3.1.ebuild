@@ -5,8 +5,8 @@ EAPI=8
 
 inherit desktop xdg multilib-build
 
-DESCRIPTION="Microsoft Teams client for Linux. Binary precompiled version."
-HOMEPAGE="https://teams.microsoft.com/ https://github.com/IsmaelMartinez/teams-for-linux"
+DESCRIPTION="Unofficial Microsoft Teams client for Linux. Binary precompiled version."
+HOMEPAGE="https://github.com/IsmaelMartinez/teams-for-linux"
 SRC_URI="https://github.com/IsmaelMartinez/${PN}/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-3"
