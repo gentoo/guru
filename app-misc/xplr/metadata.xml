@@ -2,8 +2,13 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
+		<email>rmicielski@purelymail.com</email>
+		<name>Remigiusz Micielski</name>
+	</maintainer>
+	<maintainer type="person">
 		<email>degni.public@gmail.com</email>
 		<name>Luciano Degni</name>
+		<description>Inactive</description>
 	</maintainer>
 	<upstream>
 		<remote-id type="github">sayanarijit/xplr</remote-id>
