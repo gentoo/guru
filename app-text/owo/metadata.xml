@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+   <upstream>
+       <remote-id type="github">iliketwertles/owo</remote-id>
+   </upstream>
+   <maintainer type="person">
+       <email>jarodjoe1210@gmail.com</email>
+       <name>Jarod Anders</name>
+   </maintainer>
+</pkgmetadata>
