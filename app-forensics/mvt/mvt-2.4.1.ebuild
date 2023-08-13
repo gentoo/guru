@@ -19,7 +19,6 @@ RDEPEND="
 	dev-python/adb-shell[${PYTHON_USEDEP}]
 	dev-python/biplist[${PYTHON_USEDEP}]
 	dev-python/click[${PYTHON_USEDEP}]
-	dev-python/iOSbackup[${PYTHON_USEDEP}]
 	dev-python/libusb1[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/rich[${PYTHON_USEDEP}]
