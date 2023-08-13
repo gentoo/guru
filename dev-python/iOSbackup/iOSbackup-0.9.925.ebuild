@@ -11,7 +11,7 @@ inherit distutils-r1 pypi
 
 DESCRIPTION="Reads and extracts files from a password-encrypted iOS backup"
 HOMEPAGE="https://pypi.org/project/iOSbackup/ https://github.com/avibrazil/iOSbackup"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
 SLOT="0"
