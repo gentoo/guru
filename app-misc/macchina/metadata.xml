@@ -11,7 +11,7 @@
 		<description>Inactive</description>
 	</maintainer>
 	<upstream>
-		<doc>https://github.com/Macchina-CLI/macchina</doc>
+		<doc>https://github.com/Macchina-CLI/macchina/wiki</doc>
 		<bugs-to>https://github.com/Macchina-CLI/macchina/issues</bugs-to>
 		<remote-id type="github">Macchina-CLI/macchina</remote-id>
 	</upstream>
