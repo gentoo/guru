@@ -14,7 +14,7 @@ LICENSE="ZLIB"
 SLOT="0"
 
 src_compile() {
-	emake
+	emake PREFIX="${EPREFIX}/usr"
 }
 
 src_install() {
