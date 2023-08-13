@@ -13,7 +13,7 @@ HOMEPAGE="https://pypi.org/project/biplist/ https://github.com/wooster/biplist"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-python/six[${PYTHON_USEDEP}]"
 DEPEND="test? ( ${RDEPEND} )"
