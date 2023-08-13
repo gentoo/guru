@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Remigiusz Micielski <rmicielski@purelymail.com> (2023-08-13)
+# rust-analyzer is in ::gentoo as a use flag for rust
+dev-util/rust-analyzer
+dev-util/rust-analyzer-bin
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-07-18)
 # Depends on removed <sci-mathematics/why3-1.5.0
 sci-mathematics/frama-c-wp
