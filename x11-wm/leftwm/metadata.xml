@@ -2,8 +2,14 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>degni.public@gmail.com</email>
+		<name>Remigiusz Micielski</name>
+		<email>rmicielski@purelymail.com</email>
+		<description>Primary maintainer</description>
+	</maintainer>
+	<maintainer type="person">
 		<name>Luciano Degni</name>
+		<email>degni.public@gmail.com</email>
+		<description>Inactive</description>
 	</maintainer>
 	<upstream>
 		<remote-id type="github">leftwm/leftwm</remote-id>
