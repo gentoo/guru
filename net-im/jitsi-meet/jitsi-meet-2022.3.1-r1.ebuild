@@ -15,7 +15,7 @@ SRC_URI="https://github.com/jitsi/jitsi-meet-electron/releases/download/v${PV}/j
 LICENSE="Apache-2.0"
 SLOT="0"
 
-IUSE="swiftshader system-ffmpeg"
+IUSE="swiftshader"
 
 RESTRICT="bindist mirror splitdebug test"
 
@@ -27,7 +27,6 @@ RDEPEND="
 	x11-libs/libXtst
 	app-accessibility/at-spi2-core:2
 	app-accessibility/at-spi2-atk:2
-	system-ffmpeg? ( <media-video/ffmpeg-4.3[chromium] )
 "
 #	sys-libs/libuuid seems to be included in sys-apps/util-linux
 #	sys-fs/fuse
@@ -49,12 +48,6 @@ src_install() {
 	pushd "${ED}/opt/Jitsi Meet/locales" > /dev/null || die
 	chromium_remove_language_paks
 	popd > /dev/null || die
-
-	if use system-ffmpeg; then
-		rm "${ED}/opt/Jitsi Meet/libffmpeg.so" || die
-		dosym "../../usr/$(get_libdir)/chromium/libffmpeg.so" "opt/Jitsi Meet/libffmpeg.so" || die
-		elog "Using system ffmpeg. This is experimental and may lead to crashes."
-	fi
 
 	if ! use swiftshader; then
 		rm -r "${D}/opt/Jitsi Meet/swiftshader" || die

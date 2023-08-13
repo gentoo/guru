@@ -4,7 +4,6 @@
 	<!-- maintainer-needed -->
 	<use>
 		<flag name="swiftshader">Use SwiftShader OpenGL graphics</flag>
-		<flag name="system-ffmpeg">Use the system ffmpeg library</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">jitsi/jitsi-meet-electron</remote-id>
