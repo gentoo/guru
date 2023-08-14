@@ -1,3 +1,1 @@
 move app-text/git-delta dev-util/git-delta
-move dev-libs/wren dev-lang/wren
-move app-editors/atom app-editors/atom-bin
