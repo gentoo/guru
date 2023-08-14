@@ -208,7 +208,7 @@ src_compile() {
 		$(usex systemd "journald-log" "")
 		$(usex syslog "sys-log" "")
 	)
-	cargo_src_compile --bin leftwm --no-default-features
+	cargo_src_compile --no-default-features
 }
 
 src_install() {
