@@ -6,36 +6,36 @@
 EAPI=8
 
 CRATES="
-	aho-corasick-1.0.3
-	atty-0.2.14
-	autocfg-1.1.0
-	bincode-2.0.0-rc.3
-	bincode_derive-2.0.0-rc.3
-	bitflags-1.3.2
-	cfg-if-1.0.0
-	colored-2.0.0
-	devices-0.3.0
-	either-1.9.0
-	hermit-abi-0.1.19
-	lazy_static-1.4.0
-	libc-0.2.140
-	memchr-2.5.0
-	memoffset-0.7.1
-	nix-0.26.2
-	once_cell-1.18.0
-	pin-utils-0.1.0
-	regex-1.9.3
-	regex-automata-0.3.6
-	regex-syntax-0.7.4
-	serde-1.0.183
-	static_assertions-1.1.0
-	uname-rs-0.1.1
-	virtue-0.0.13
-	which-4.4.0
-	widestring-1.0.2
-	winapi-0.3.9
-	winapi-i686-pc-windows-gnu-0.4.0
-	winapi-x86_64-pc-windows-gnu-0.4.0
+	aho-corasick@1.0.3
+	atty@0.2.14
+	autocfg@1.1.0
+	bincode@2.0.0-rc.3
+	bincode_derive@2.0.0-rc.3
+	bitflags@1.3.2
+	cfg-if@1.0.0
+	colored@2.0.0
+	devices@0.3.0
+	either@1.9.0
+	hermit-abi@0.1.19
+	lazy_static@1.4.0
+	libc@0.2.140
+	memchr@2.5.0
+	memoffset@0.7.1
+	nix@0.26.2
+	once_cell@1.18.0
+	pin-utils@0.1.0
+	regex@1.9.3
+	regex-automata@0.3.6
+	regex-syntax@0.7.4
+	serde@1.0.183
+	static_assertions@1.1.0
+	uname-rs@0.1.1
+	virtue@0.0.13
+	which@4.4.0
+	widestring@1.0.2
+	winapi@0.3.9
+	winapi-i686-pc-windows-gnu@0.4.0
+	winapi-x86_64-pc-windows-gnu@0.4.0
 "
 
 inherit cargo
