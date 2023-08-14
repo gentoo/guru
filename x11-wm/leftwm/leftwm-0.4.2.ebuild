@@ -178,16 +178,11 @@ SRC_URI="
 	${CARGO_CRATE_URIS}
 "
 
-LICENSE="
-	|| ( Apache-2.0 MIT )
-	|| ( Apache-2.0 MIT )
-	|| ( Apache-2.0 MIT MPL-2.0 )
-	|| ( MIT )
-	|| ( MIT Unlicense )
-	Apache-2.0
-	MIT
-	Unlicense
-	MPL-2.0
+LICENSE="MIT"
+# Dependent crate licenses
+LICENSE+="
+	BSD-2 BSD MPL-2.0 Unicode-DFS-2016 ZLIB
+	|| ( Apache-2.0 Boost-1.0 )
 "
 SLOT="0"
 KEYWORDS="~amd64"
@@ -202,30 +197,22 @@ RDEPEND="${DEPEND}"
 
 QA_FLAGS_IGNORED="usr/bin/.*"
 
-src_compile() {
+src_configure() {
 	local myfeatures=(
 		$(usev lefthk)
 		$(usex systemd "journald-log" "")
 		$(usex syslog "sys-log" "")
 	)
-	cargo_src_compile --no-default-features
+	cargo_src_configure --no-default-features
 }
 
 src_install() {
 	dodoc README.md CHANGELOG
 	make_desktop_entry leftwm.desktop /usr/share/xsessions/
 
-	if use debug; then
-		cd target/debug || die "Couldn't cd into debug directory"
-	else
-		cd target/release || die "Couldn't cd into release directory"
-	fi
-
-	dobin leftwm{,-worker,-state,-check,-command}
-
-	if use lefthk; then
-		dobin lefthk-worker
-	fi
+	bins="target/$(usex debug debug release)"
+	dobin "${bins}"/leftwm{,-worker,-state,-check,-command}
+	use lefthk && dobin "${bins}"/lefthk-worker
 }
 
 src_test() {
