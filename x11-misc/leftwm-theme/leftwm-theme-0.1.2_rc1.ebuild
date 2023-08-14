@@ -191,7 +191,6 @@ SRC_URI="
 	${CARGO_CRATE_URIS}
 "
 
-
 LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0 BSD MIT MPL-2.0 Unicode-DFS-2016"
@@ -222,4 +221,3 @@ src_install() {
 	cd target/$(usex debug debug release) || die
 	dobin leftwm-theme
 }
-
