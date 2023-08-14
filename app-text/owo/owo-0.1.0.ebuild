@@ -7,10 +7,10 @@
 EAPI=8
 
 CRATES="
-	aho-corasick-0.7.20
-	memchr-2.5.0
-	regex-1.7.3
-	regex-syntax-0.6.29
+	aho-corasick@0.7.20
+	memchr@2.5.0
+	regex@1.7.3
+	regex-syntax@0.6.29
 "
 
 inherit cargo
