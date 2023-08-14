@@ -1,20 +1,20 @@
 certificate version 0.1
-pusher Remigiusz Micielski <rmicielski@purelymail.com> 1692000917 +0200
+pusher Remigiusz Micielski <rmicielski@purelymail.com> 1692001030 +0200
 pushee git.gentoo.org:repo/proj/guru.git
-nonce 1692000917-8bf8eb4a3441ca15f372e1f1a4b9ea1048353c9e
+nonce 1692001030-fb6dd9caf68a8d8967ff2afe539ef0eb3a2ee55c
 
-aa02bcb37277880a1d624b00b43a5434a7ed3b68 eeffdbb49df546cb262347198be4f1f769186599 refs/heads/dev
+eeffdbb49df546cb262347198be4f1f769186599 28c07c41e18cb1b88d1945c0e73ff87938da2b29 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iQGuBAABCgCYFiEEElH5A5MxS5x0BlOGh7R0XIxr/hgFAmTZ4pVfFIAAAAAALgAo
+iQGuBAABCgCYFiEEElH5A5MxS5x0BlOGh7R0XIxr/hgFAmTZ4wZfFIAAAAAALgAo
 aXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5maWZ0aGhvcnNlbWFuLm5ldDEy
 NTFGOTAzOTMzMTRCOUM3NDA2NTM4Njg3QjQ3NDVDOEM2QkZFMTgaHHJtaWNpZWxz
-a2lAcHVyZWx5bWFpbC5jb20ACgkQh7R0XIxr/hgw5AgAow/JJA7JgM9iqqY0/LvL
-uPAIA/7Yi2lI2+2SSqVKY3N2fPIw/wM+r6ieM7c0XVcEweCO822xD0fjxkhw+cm1
-w4PEHglFYGUl/xbg4XcgWwJB3LJUH1ML6L2NX3DrwxoBvcfdxwIYPJaantXwN7eX
-o5kuz2WJhgn1bl6gxkuU04Pjdd/TwN8ip+tkkHZ9uKPKIWGFYshTjAXPwp+Xqo9N
-gqD2Pj+O559hkMylVop3kqeOjHtdYu6Omcjh40f+fC10/40BXjwXDxtSpKL+1C0T
-7hE5OTrT6YTxoSvotVnddx5I0kV8eVF0EE26cop1DQVD426TsdwI2ejwMwwz6ec1
-5g==
-=YoF6
+a2lAcHVyZWx5bWFpbC5jb20ACgkQh7R0XIxr/hisQQf7B6Mz2NdvvuwzLaE1mYwN
+pIIOdMwnxYtIpHVQN5H+nDKi9Xw7RTT4sF3gWvC7O5X1Imul8P6k1nlaqaKQxb9r
+qgJBs7tZKXAZkpZbq8Gzr1cno6hln0xKvhxwfCXV8tI8UROO/MyKE7wIZY98fNY1
+72ittJPyQsHPZB4LhWVOYUCeVFRDixo6UDu/tFu5lOEzeNq5McjXusGeXkiP7kjl
+hA6mspya18VmGOOwGJACXPG1EHUzVkgBA0L5q7tIvAhAzTehrqg0OA/NpkzdP1js
+cZvwWZ4qDDLMyxxDAo2pmIabYXsZ+U+BTbma5y030FfZ6h6iuOHAWOD+nbL8qClD
+Qw==
+=H4kk
 -----END PGP SIGNATURE-----
