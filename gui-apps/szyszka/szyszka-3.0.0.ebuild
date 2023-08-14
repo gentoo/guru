@@ -192,13 +192,13 @@ CRATES="
 	winnow@0.4.6
 "
 
-inherit cargo xdg-utils
+inherit cargo xdg
 
 DESCRIPTION="Simple, powerful and easy to use file renamer"
 HOMEPAGE="https://github.com/qarmin/szyszka"
 SRC_URI="
-  https://www.github.com/qarmin/szyszka/archive/${PV}.tar.gz -> ${P}.tar.gz
-  ${CARGO_CRATE_URIS}
+	https://www.github.com/qarmin/szyszka/archive/${PV}.tar.gz -> ${P}.tar.gz
+	${CARGO_CRATE_URIS}
 "
 LICENSE="MIT"
 # Dependent crate licenses
@@ -207,18 +207,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND=""
-RDEPEND="${DEPEND}
-        gui-libs/gtk
+RDEPEND="
+	${DEPEND}
+	gui-libs/gtk
 "
 
 QA_FLAGS_IGNORED="usr/bin/szyszka"
-
-pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
-}
