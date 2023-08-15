@@ -216,6 +216,14 @@ src_unpack() {
 	cargo_src_unpack
 }
 
+src_test() {
+	# leftwm-theme requires an internet connection pass "test_update_repos"
+	# unfortunately it doesn't look like that there's an option to skip particular tests in cargo.eclass
+	cargo test $(usex debug "" --release) ${ECARGO_ARGS[@]} "$@" -- --skip test_update_repos
+	einfo "${@}"
+	"${@}" || die "cargo test failed"
+}
+
 src_install() {
 	dodoc README.md
 	cd target/$(usex debug debug release) || die
