@@ -4,7 +4,7 @@
 EAPI=8
 
 inherit desktop xdg
-SRC_URI="https://github.com/mbrlabs/Lorien/releases/download/v${PV}/Lorien_${PV}_Linux.tar.xz"
+SRC_URI="https://github.com/mbrlabs/Lorien/releases/download/v${PV}/Lorien_${PV}_Linux.tar.xz -> ${P}.tar.xz"
 DESCRIPTION="Infinite canvas drawing/whiteboarding. Made with Godot."
 HOMEPAGE="https://github.com/mbrlabs/Lorien"
 
@@ -26,8 +26,8 @@ src_install() {
 	fperms +x /opt/Lorien/Lorien.x86_64
 
 	#Install icon and desktop file
-	domenu "${FILESDIR}/Lorien.desktop"
-	doicon "${FILESDIR}/Lorien.png"
+	domenu "${FILESDIR}/lorien.desktop"
+	doicon "${FILESDIR}/lorien.png"
 }
 
 pkg_postinst() {
