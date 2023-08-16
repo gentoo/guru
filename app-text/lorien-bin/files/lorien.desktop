@@ -7,6 +7,6 @@ Exec=/opt/Lorien/Lorien.x86_64 %f
 StartupNotify=true
 Terminal=false
 Type=Application
-Icon=Lorien
+Icon=lorien
 Categories=Office;Godot
 MimeType=application/svg;
