@@ -9,7 +9,7 @@ inherit check-reqs cmake flag-o-matic python-single-r1
 
 DESCRIPTION="A fast very high compression read-only FUSE file system"
 HOMEPAGE="https://github.com/mhx/dwarfs"
-SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${PV}/${PN}-${PV}.tar.xz"
+SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${PV}/${P}.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -64,7 +64,14 @@ REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 CHECKREQS_DISK_BUILD="1300M"
 CMAKE_IN_SOURCE_BUILD=1
 CMAKE_WARN_UNUSED_CLI=0
-
+#These files supposed to have no symlink
+QA_SONAME=(
+"/usr/sbin/dwarfs"
+"/usr/bin/dwarfsbench"
+"/usr/bin/dwarfsck"
+"/usr/bin/dwarfsextract"
+"/usr/bin/mkdwarfs"
+)
 src_prepare(){
 	rm -r zstd xxHash parallel-hashmap || die
 	cmake_src_prepare
@@ -88,15 +95,22 @@ src_configure(){
 	use python && mycmakeargs+=( "-DWITH_PYTHON_VERSION=${EPYTHON#python}" )
 	cmake_src_configure
 }
-
-src_install(){
-	cmake_src_install
+src_compile(){
+	cmake_src_compile
 	# Remove insecure RPATH from bundled lib
 	patchelf --remove-rpath libdwarfs.so || die
 	patchelf --remove-rpath libdwarfs_tool.so || die
-
-	dolib.so libdwarfs.so libdwarfs_tool.so libdwarfs_compression.so libthrift_light.so libmetadata_thrift.so
-	dolib.so folly/libfolly.so folly/libfolly.so.0.58.0-dev
+	patchelf --remove-rpath libmetadata_thrift.so || die
+	patchelf --remove-rpath libdwarfs_compression.so || die
+	patchelf --remove-rpath libthrift_light.so || die
+	patchelf --remove-rpath libdwarfs_main.so || die
+	# TODO: make it proper
+}
+src_install(){
+	# Perform install
+	cmake_src_install
+	dolib.so libdwarfs.so libdwarfs_main.so libdwarfs_tool.so libdwarfs_compression.so libthrift_light.so libmetadata_thrift.so || die "Install failed"
+	dolib.so folly/libfolly.so folly/libfolly.so.0.58.0-dev libmkdwarfs_main.so libdwarfsbench_main.so libdwarfsck_main.so libdwarfsextract_main.so || die "Install failed"
 }
 
 pkg_postinst(){
