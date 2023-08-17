@@ -20,7 +20,7 @@
 		<flag name="gamepad">Link with SDL2 for controller support</flag>
 		<flag name="gbm">Support DRM/KMS OpenGL contexts</flag>
 		<flag name="nogui">Build the NoGUI frontend</flag>
-		<flag name="qt5">Build the QT frontend</flag>
+		<flag name="qt6">Build the QT frontend</flag>
 		<flag name="retroachievements">Build with RetroAchievements supports</flag>
 	</use>
 </pkgmetadata>
