@@ -76,7 +76,9 @@ IUSE="systemd"
 DEPEND=""
 RDEPEND="${DEPEND}
 				sys-libs/pam
-				systemd? ( sys-apps/systemd:= )"
+				systemd? ( sys-apps/systemd:= )
+				!systemd? ( sys-apps/kbd )
+"
 BDEPEND=""
 
 QA_FLAGS_IGNORED="usr/bin/lemurs"
@@ -108,13 +110,7 @@ src_install() {
 	newinitd "${FILESDIR}"/lemurs.initd lemurs
 	systemd_dounit "${S}"/extra/lemurs.service
 
-	if use debug ; then
-		cd target/debug || die "Couldn't cd into target/debug"
-	else
-		cd target/release || die "Couldn't cd into target/release"
-	fi
-
-	dobin lemurs
+	dobin target/$(usex debug debug release)/lemurs
 }
 
 pkg_postinst() {
