@@ -40,10 +40,6 @@
 		<flag name="fluidsynth">
 			Enable FluidSynth to be used as the MIDI synthesizer
 		</flag>
-		<flag name="freetype">
-			Enable TrueType font (TTF) output and printing support
-			via <pkg>media-libs/freetype</pkg>
-		</flag>
 		<flag name="opengl">
 			Enable OpenGL as a video system to use for output
 		</flag>
@@ -53,6 +49,10 @@
 		</flag>
 		<flag name="slirp">
 			Enable the SLIRP back-end for network adapter emulation
+		</flag>
+		<flag name="truetype">
+			Enable TrueType font (TTF) output and printing support
+			via <pkg>media-libs/freetype</pkg>
 		</flag>
 	</use>
 </pkgmetadata>
