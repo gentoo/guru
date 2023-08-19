@@ -125,6 +125,7 @@ SRC_URI="
 LICENSE="Apache-2.0 BSD GPL-3 ISC MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+RESTRICT="mirror"
 
 DEPEND="
 	>=dev-libs/glib-2.66:2
@@ -150,4 +151,3 @@ src_install() {
 
 	make_desktop_entry "${PN}" Helvum org.pipewire.Helvum "AudioVideo;Audio;Video;Midi;Settings;GNOME;GTK" "Terminal=false\nGenericName=Patchbay"
 }
-
