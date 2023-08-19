@@ -118,8 +118,8 @@ inherit cargo desktop
 DESCRIPTION="A GTK patchbay for pipewire"
 HOMEPAGE="https://gitlab.freedesktop.org/pipewire/helvum"
 SRC_URI="
-	https://gitlab.freedesktop.org/pipewire/helvum/-/archive/${PV}/${P}.tar.gz
-	$(cargo_crate_uris)
+	https://gitlab.freedesktop.org/pipewire/helvum/-/archive/${PV}/${P}.tar.bz2
+	${CARGO_CRATE_URIS}
 "
 
 LICENSE="Apache-2.0 BSD GPL-3 ISC MIT"
