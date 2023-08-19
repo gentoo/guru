@@ -127,9 +127,12 @@ SLOT="0"
 KEYWORDS="~amd64"
 RESTRICT="mirror"
 
+BDEPEND="
+	sys-devel/clang
+"
 DEPEND="
-	>=dev-libs/glib-2.66:2
-	>=gui-libs/gtk-4.4.0:4
+	dev-libs/glib:2
+	gui-libs/gtk:4
 	media-libs/graphene
 	media-video/pipewire:=
 	x11-libs/cairo
