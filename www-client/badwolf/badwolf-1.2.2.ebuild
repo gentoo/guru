@@ -1,4 +1,4 @@
-# Copyright 2019-2021 Gentoo Authors
+# Copyright 2019-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -24,13 +24,14 @@ SLOT="0"
 
 DOCS=("README.md" "KnowledgeBase.md")
 
-IUSE="test"
+IUSE="+webkit41 test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
 	x11-libs/gtk+:3
 	net-libs/libsoup:2.4
-	net-libs/webkit-gtk:4=
+	webkit41? ( net-libs/webkit-gtk:4.1= )
+	!webkit41? ( net-libs/webkit-gtk:4= )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="test? ( app-text/mandoc )"
@@ -42,7 +43,7 @@ src_configure() {
 	CFLAGS="${CFLAGS:--02 -Wall -Wextra}" \
 	LDFLAGS="${LDFLAGS}" \
 	DOCDIR="/usr/share/doc/${PF}" \
-	WITH_WEBKITGTK=4.0 \
+	WITH_WEBKITGTK=$(usex webkit41 4.1 4.0) \
 	PREFIX="/usr" \
 	./configure
 }

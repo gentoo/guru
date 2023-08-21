@@ -10,4 +10,7 @@
 	for first-usage usability. Privacy is the first goal, and it should be
 	usable (security=usability^(-1) being false).
 	</longdescription>
+	<use>
+		<flag name="webkit41">Use <pkg>net-libs/webkit:4.1</pkg> (uses libsoup3 and so allows HTTP/2) instead of <pkg>net-libs/webkit:4</pkg></flag>
+	</use>
 </pkgmetadata>
