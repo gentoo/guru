@@ -6,6 +6,6 @@
     <name>Konstantin Tutsch</name>
   </maintainer>
   <upstream>
-    <remote-id type="gitlab">https://gitlab.gnome.org/neithern/g4music</remote-id>
+    <remote-id type="gnome-gitlab">neithern/g4music</remote-id>
   </upstream>
 </pkgmetadata>
