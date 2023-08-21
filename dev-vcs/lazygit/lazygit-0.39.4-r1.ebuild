@@ -20,7 +20,8 @@ RDEPEND="dev-vcs/git"
 DOCS=( {CODE-OF-CONDUCT,CONTRIBUTING,README}.md docs )
 
 src_compile() {
-	go build -o bin/lazygit || die
+	ego build -o bin/lazygit \
+		-ldflags "-X main.version=${PV}"
 }
 
 src_install() {
