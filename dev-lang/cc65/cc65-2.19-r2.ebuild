@@ -9,6 +9,7 @@ SRC_URI="https://github.com/cc65/cc65/archive/refs/tags/V${PV}.tar.gz"
 
 LICENSE="ZLIB"
 SLOT="0"
+KEYWORDS="~amd64"
 
 src_compile() {
 	emake PREFIX="${EPREFIX}/usr"
