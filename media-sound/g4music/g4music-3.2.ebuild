@@ -7,7 +7,7 @@ inherit meson xdg gnome2-utils vala
 
 DESCRIPTION="A GTK4 music player"
 HOMEPAGE="https://gitlab.gnome.org/neithern/g4music"
-SRC_URI="https://gitlab.gnome.org/neithern/g4music/-/archive/v${PV}/g4music-v${PV}.tar.gz"
+SRC_URI="https://gitlab.gnome.org/neithern/g4music/-/archive/v${PV}/g4music-v${PV}.tar.bz2"
 S="${WORKDIR}/g4music-v${PV}"
 
 LICENSE="GPL-3"
