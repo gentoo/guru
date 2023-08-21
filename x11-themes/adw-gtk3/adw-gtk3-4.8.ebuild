@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/lassekongo83/adw-gtk3"
 SRC_URI="https://github.com/lassekongo83/adw-gtk3/archive/refs/tags/v${PV}.tar.gz"
 S="${WORKDIR}/adw-gtk3-${PV}"
 
-LICENSE="LGPG-2.1"
+LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64"
 
