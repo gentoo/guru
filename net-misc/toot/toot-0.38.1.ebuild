@@ -12,7 +12,7 @@ DESCRIPTION="toot - Mastodon CLI & TUI"
 HOMEPAGE="https://github.com/ihabunek/toot"
 SRC_URI="https://github.com/ihabunek/toot/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-3.0"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
