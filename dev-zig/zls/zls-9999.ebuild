@@ -108,18 +108,20 @@ src_unpack() {
 	cd "${S}" || die
 	# "zig build" doesn't have "fetch" subcommand yet
 	ezig build --help || die "Fetching Zig modules failed"
+	local ZLS_GEN_FLAGS="--generate-version-data master --generate-version-data-path version_data_offline.zig"
+	ezig build gen --verbose -- ${ZLS_GEN_FLAGS} || die "Pre-generating Zig version data failed"
 }
 
 src_compile() {
-	ezig build -Doptimize=ReleaseSafe -Ddata_version=master --verbose || die
+	ezig build -Doptimize=ReleaseSafe -Dversion_data_file_path=version_data_offline.zig --verbose || die
 }
 
 src_test() {
-	ezig build test -Doptimize=ReleaseSafe -Ddata_version=master --verbose || die
+	ezig build test -Doptimize=ReleaseSafe -Dversion_data_file_path=version_data_offline.zig --verbose || die
 }
 
 src_install() {
-	DESTDIR="${ED}" ezig build install --prefix /usr -Doptimize=ReleaseSafe -Ddata_version=master --verbose || die
+	DESTDIR="${ED}" ezig build install --prefix /usr -Doptimize=ReleaseSafe -Dversion_data_file_path=version_data_offline.zig --verbose || die
 	dodoc README.md
 }
 
