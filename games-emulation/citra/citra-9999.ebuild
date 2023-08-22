@@ -39,7 +39,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	dev-cpp/cpp-httplib
 	dev-cpp/cpp-jwt
 	dev-cpp/robin-map
 	dev-util/spirv-headers
@@ -75,13 +74,6 @@ src_prepare() {
 	sed -i -e '1ifind_package(PkgConfig REQUIRED)\npkg_check_modules(INIH REQUIRED INIReader)' \
 		-e '/target_link_libraries/s/inih/${INIH_LIBRARIES}/' src/citra/CMakeLists.txt || die
 	sed -i -e 's:inih/cpp/::' src/citra/config.cpp || die
-
-	# Fix boost unbundling
-	sed -i -e '/(-DBOOST_ERROR_CODE_HEADER_ONLY/,/)/d' CMakeLists.txt || die
-	sed -i -e '/^# Boost/,/boost_iostreams PUBLIC/d' externals/CMakeLists.txt || die
-	sed -i -e '/^#define BOOST_STACKTRACE_USE_BACKTRACE/d' \
-		src/common/logging/backend.cpp || die
-	sed -i -e 's/ backtrace//' src/common/CMakeLists.txt || die
 
 	# Unbundle libfmt
 	if use system-libfmt; then
@@ -119,10 +111,6 @@ src_prepare() {
 	if use cubeb; then
 		sed -i -e '$afind_package(cubeb REQUIRED)\n' CMakeLists.txt || die
 	fi
-
-	# Unbundle cpp-httplib
-	sed -i -e '/# httplib/,/target_link_libraries(httplib/d' externals/CMakeLists.txt || die
-
 	# Unbundle cpp-jwt
 	sed -i -e '/cpp-jwt/d' externals/CMakeLists.txt || die
 	sed -i -e 's/ cpp-jwt/ ssl crypto/' src/web_service/CMakeLists.txt || die
