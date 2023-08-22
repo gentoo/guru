@@ -16,7 +16,7 @@ LICENSE="MIT"
 SLOT="0"
 
 src_unpack() {
-	git-r3_checkout
+	git-r3_src_unpack
 	cd "${S}"
 	dotnet publish 86BoxManager -r linux-x64
 }
