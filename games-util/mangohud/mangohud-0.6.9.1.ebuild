@@ -33,7 +33,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="+dbus debug +X xnvctrl wayland video_cards_nvidia"
+IUSE="+dbus debug +X xnvctrl wayland video_cards_nvidia video_cards_amdgpu"
 
 REQUIRED_USE="
 	|| ( X wayland )
@@ -50,6 +50,7 @@ python_check_deps() {
 
 DEPEND="
 	~media-libs/imgui-1.81[opengl,vulkan]
+	dev-cpp/nlohmann_json
 	dev-libs/spdlog
 	dev-util/glslang
 	media-libs/vulkan-loader
