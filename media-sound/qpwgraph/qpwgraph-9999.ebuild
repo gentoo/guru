@@ -27,9 +27,6 @@ RDEPEND="${DEPEND}
 "
 
 src_prepare() {
-	# A small tweak in socket name that allow multiple user at same time
-	# See https://github.com/rncbc/qpwgraph/issues/1
-	sed -i -e "/@/a	m_unique += qgetenv(\"USER\");\n	m_unique += '-';" src/qpwgraph.cpp || die
 	cmake_src_prepare
 }
 
