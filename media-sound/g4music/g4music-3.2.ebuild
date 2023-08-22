@@ -14,10 +14,13 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
+IUSE="pipewire"
+
 IDEPEND=">=gui-libs/gtk-4.6
 >=gui-libs/libadwaita-1
 >=media-libs/gstreamer-1.20.6[introspection]
->=dev-lang/vala-0.56.8"
+>=dev-lang/vala-0.56.8
+pipewire? ( media-video/pipewire[gstreamer] )"
 DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND="$(vala_depend)"
