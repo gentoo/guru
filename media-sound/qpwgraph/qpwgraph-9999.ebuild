@@ -13,6 +13,8 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
+IUSE="alsa trayicon wayland"
+
 BDEPEND="dev-qt/linguist-tools:5"
 DEPEND="
 	dev-qt/qtcore:5
