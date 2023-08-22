@@ -141,6 +141,8 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+QA_FLAGS_IGNORED="usr/bin/${PN}"
+
 src_install() {
 	cargo_src_install
 
