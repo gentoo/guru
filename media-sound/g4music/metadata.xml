@@ -5,6 +5,9 @@
     <email>mail@konstantintutsch.de</email>
     <name>Konstantin Tutsch</name>
   </maintainer>
+  <use>
+    <flag name="pipewire">Enable support for the PipeWire audio sink</flag>
+  </use>
   <upstream>
     <remote-id type="gnome-gitlab">neithern/g4music</remote-id>
   </upstream>
