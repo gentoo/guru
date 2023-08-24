@@ -161,7 +161,8 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="x264 vaapi"
+IUSE="x264 vaapi test"
+RESTRICT="!test? ( test )"
 
 IDEPEND=">=dev-util/meson-1.1.1
 >=dev-util/ninja-1.11.1-r2
@@ -174,7 +175,8 @@ x264? ( >=media-libs/x264-0.0.20220222
 vaapi? ( >=media-plugins/gst-plugins-vaapi-1.20.6 )
 >=dev-libs/glib-2.76.3
 >=gui-libs/gtk-4.10.4
->=gui-libs/libadwaita-1.3.3"
+>=gui-libs/libadwaita-1.3.3
+>=media-libs/libpulse-15.0[glib]"
 DEPEND=">=media-video/pipewire-0.3.77-r1[gstreamer]
 >=sys-apps/xdg-desktop-portal-1.16.0-r1"
 RDEPEND="${DEPEND}"
