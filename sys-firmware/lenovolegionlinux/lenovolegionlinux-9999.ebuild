@@ -16,7 +16,7 @@ HOMEPAGE="https://github.com/johnfanv2/LenovoLegionLinux"
 RDEPEND="sys-kernel/linux-headers
 	sys-apps/lm-sensors
 	sys-apps/dmidecode
-	legion-tools? ( dev-python/PyQt5 dev-python/pyyaml dev-python/argcomplete )
+	legion-tools? ( dev-python/PyQt5 dev-python/pyyaml dev-python/argcomplete dev-python/darkdetect )
 	downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
 	legion-acpi? ( sys-power/acpid )
 	radeon-dgpu? ( dev-util/rocm-smi )
