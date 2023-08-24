@@ -18,7 +18,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
-# Tests blocks many keywords and new dependencies, skipping for now
-RESTRICT=test
+# prawn breaks tests for some reasons, needs to be investigated; code
+# still works though.
+RESTRICT="test"
 
 ruby_add_rdepend ">=dev-ruby/prawn-1.1.0"
