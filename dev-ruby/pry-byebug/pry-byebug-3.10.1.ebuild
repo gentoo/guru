@@ -1,13 +1,13 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 RUBY_FAKEGEM_EXTRADOC=""
 RUBY_FAKEGEM_GEMSPEC=""
 RUBY_FAKEGEM_TASK_DOC=""
 RUBY_FAKEGEM_TASK_TEST=""
-USE_RUBY="ruby32 ruby31 ruby30 ruby27 ruby26"
+USE_RUBY="ruby31 ruby32"
 
 inherit ruby-fakegem
 
