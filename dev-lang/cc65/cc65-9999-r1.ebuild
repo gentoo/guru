@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit git-r3
+inherit git-r3 toolchain-funcs
 
 DESCRIPTION="Cross-development package for 65(C)02 systems"
 HOMEPAGE="https://cc65.github.io/"
