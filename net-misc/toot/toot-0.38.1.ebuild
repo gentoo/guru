@@ -20,7 +20,8 @@ DEPEND=">=dev-python/urwid-2.1.2-r1
 >=dev-python/wcwidth-0.2.6
 >=media-fonts/symbola-13.00
 >=dev-python/beautifulsoup4-4.12.2
->=dev-python/tomlkit-0.11.8"
+>=dev-python/tomlkit-0.11.8
+test? ( dev-python/psycopg:2 )"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
