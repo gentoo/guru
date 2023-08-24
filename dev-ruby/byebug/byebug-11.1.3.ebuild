@@ -1,14 +1,14 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 RUBY_FAKEGEM_BINDIR="exe"
 RUBY_FAKEGEM_EXTENSIONS=(ext/byebug/extconf.rb)
 RUBY_FAKEGEM_EXTENSION_LIBDIR=lib/byebug
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md GUIDE.md README.md"
 RUBY_FAKEGEM_GEMSPEC=${PN}.gemspec
-USE_RUBY="ruby30 ruby31 ruby32"
+USE_RUBY="ruby31 ruby32"
 
 inherit ruby-fakegem
 
