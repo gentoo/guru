@@ -183,7 +183,6 @@ BDEPEND=">=dev-util/meson-1.1.1
 		 >=virtual/rust-1.69.0
 "
 
-
 # rust does not use *FLAGS from make.conf, silence portage warning
 # update with proper path to binaries this crate installs, omit leading /
 QA_FLAGS_IGNORED="usr/bin/${PN}"
