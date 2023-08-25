@@ -31,6 +31,11 @@ src_prepare() {
 	default
 	vala_setup
 	xdg_environment_reset
+
+	sed -i \
+		-e '/^gnome.post_install(/,/)/d' \
+		meson.build \
+		|| die
 }
 
 pkg_postinst() {
