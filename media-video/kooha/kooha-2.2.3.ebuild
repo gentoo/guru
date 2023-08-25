@@ -164,29 +164,45 @@ KEYWORDS="~amd64"
 IUSE="x264 vaapi test"
 RESTRICT="!test? ( test )"
 
-IDEPEND=">=dev-util/meson-1.1.1
->=dev-util/ninja-1.11.1-r2
->=dev-libs/appstream-glib-0.8.2
->=virtual/rust-1.69.0
-x264? ( >=media-libs/x264-0.0.20220222
-		>=media-libs/gst-plugins-ugly-1.20.6 )
->=media-libs/gstreamer-1.20.6
->=media-libs/gst-plugins-base-1.20.6
-vaapi? ( >=media-plugins/gst-plugins-vaapi-1.20.6 )
->=dev-libs/glib-2.76.3
->=gui-libs/gtk-4.10.4
->=gui-libs/libadwaita-1.3.3
->=media-libs/libpulse-15.0[glib]"
-DEPEND=">=media-video/pipewire-0.3.77-r1[gstreamer]
->=sys-apps/xdg-desktop-portal-1.16.0-r1"
+DEPEND="x264? ( >=media-libs/x264-0.0.20220222
+				>=media-libs/gst-plugins-ugly-1.20.6 )
+		>=media-libs/gstreamer-1.20.6
+		>=media-libs/gst-plugins-base-1.20.6
+		vaapi? ( >=media-plugins/gst-plugins-vaapi-1.20.6 )
+		>=dev-libs/glib-2.76.3
+		>=gui-libs/gtk-4.10.4
+		>=gui-libs/libadwaita-1.3.3
+		>=media-libs/libpulse-15.0[glib]
+		>=media-video/pipewire-0.3.77-r1[gstreamer]
+		>=sys-apps/xdg-desktop-portal-1.16.0-r1
+"
 RDEPEND="${DEPEND}"
-BDEPEND=""
+BDEPEND=">=dev-util/meson-1.1.1
+		 >=dev-util/ninja-1.11.1-r2
+		 >=dev-libs/appstream-glib-0.8.2
+		 >=virtual/rust-1.69.0
+"
+
 
 # rust does not use *FLAGS from make.conf, silence portage warning
 # update with proper path to binaries this crate installs, omit leading /
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 BUILD_DIR="${S}/build"
+
+src_prepare() {
+	default
+
+	sed -i \
+		-e '/^gnome.post_install(/,/)/d' \
+		meson.build \
+		|| die
+
+	sed -i \
+		-e '/^test(/,/time\n\t)/d' \
+		src/meson.build \
+		|| die
+}
 
 pkg_postinst() {
 	xdg_pkg_postinst
