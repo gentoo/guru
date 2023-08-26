@@ -183,6 +183,8 @@ BDEPEND="
 		>=dev-util/ninja-1.11.1-r2
 		>=dev-libs/appstream-glib-0.8.2
 		>=virtual/rust-1.69.0
+		test? ( || ( dev-lang/rust[clippy]
+					 dev-lang/rust-bin[clippy] ) )
 "
 
 # rust does not use *FLAGS from make.conf, silence portage warning
