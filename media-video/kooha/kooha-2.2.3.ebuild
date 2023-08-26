@@ -196,11 +196,6 @@ src_prepare() {
 		-e '/^gnome.post_install(/,/)/d' \
 		meson.build \
 		|| die
-
-	sed -i \
-		-e '/^test(/,/time\n\t)/d' \
-		src/meson.build \
-		|| die
 }
 
 pkg_postinst() {
