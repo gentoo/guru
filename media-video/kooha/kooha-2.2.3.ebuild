@@ -164,7 +164,8 @@ KEYWORDS="~amd64"
 IUSE="x264 vaapi test"
 RESTRICT="!test? ( test )"
 
-DEPEND="x264? ( >=media-libs/x264-0.0.20220222
+DEPEND="
+		x264? ( >=media-libs/x264-0.0.20220222
 				>=media-libs/gst-plugins-ugly-1.20.6 )
 		>=media-libs/gstreamer-1.20.6
 		>=media-libs/gst-plugins-base-1.20.6
@@ -177,10 +178,11 @@ DEPEND="x264? ( >=media-libs/x264-0.0.20220222
 		>=sys-apps/xdg-desktop-portal-1.16.0-r1
 "
 RDEPEND="${DEPEND}"
-BDEPEND=">=dev-util/meson-1.1.1
-		 >=dev-util/ninja-1.11.1-r2
-		 >=dev-libs/appstream-glib-0.8.2
-		 >=virtual/rust-1.69.0
+BDEPEND="
+		>=dev-util/meson-1.1.1
+		>=dev-util/ninja-1.11.1-r2
+		>=dev-libs/appstream-glib-0.8.2
+		>=virtual/rust-1.69.0
 "
 
 # rust does not use *FLAGS from make.conf, silence portage warning
