@@ -27,6 +27,8 @@ RDEPEND="
 	dev-python/simplejson[${PYTHON_USEDEP}]
 	dev-python/tld[${PYTHON_USEDEP}]
 	dev-python/tqdm[${PYTHON_USEDEP}]
+	dev-python/ahocorasick[${PYTHON_USEDEP}]
+	dev-python/appdirs[${PYTHON_USEDEP}]
 "
 
 src_prepare() {
