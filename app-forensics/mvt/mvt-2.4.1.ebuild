@@ -28,3 +28,8 @@ RDEPEND="
 	dev-python/tld[${PYTHON_USEDEP}]
 	dev-python/tqdm[${PYTHON_USEDEP}]
 "
+
+src_prepare() {
+	rm -rf "${S}/tests"
+	distutils-r1_src_prepare
+}
