@@ -31,6 +31,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 QA_PREBUILT="usr/lib/*"
 
 RDEPEND="
+app-misc/ca-certificates
 $(python_gen_cond_dep '
 	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 	dev-python/distro[${PYTHON_USEDEP}]
