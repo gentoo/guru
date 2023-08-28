@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Vitaly Zdanevich</name>
+		<email>zdanevich.vitaly@ya.ru</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Evernote/evernote-sdk-python3</remote-id>
+		<remote-id type="pypi">evernote3</remote-id>
+		<bugs-to>https://github.com/Evernote/evernote-sdk-python3/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
