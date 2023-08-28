@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<use>
+		<flag name="asm">Use <pkg>dev-lang/jwasm</pkg> to include optimized code</flag>
+	</use>
+	<maintainer type="person">
+		<email>m@matous.dev</email>
+		<name>Martin Matouš</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Igor Pavlov</name>
+		</maintainer>
+		<remote-id type="sourceforge">sevenzip</remote-id>
+		<changelog>https://www.7-zip.org/history.txt</changelog>
+		<bugs-to>https://sourceforge.net/p/sevenzip/bugs/</bugs-to>
+	</upstream>
+</pkgmetadata>
