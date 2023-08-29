@@ -6,7 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{10..11} )
 DISTUTILS_USE_PEP517=setuptools
 
-inherit distutils-r1 git-r3
+inherit bash-completion-r1 distutils-r1 git-r3
 
 DESCRIPTION="Evernote CLI"
 HOMEPAGE="https://github.com/Evernote/evernote-sdk-python3"
@@ -23,12 +23,11 @@ dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 dev-python/thrift[${PYTHON_USEDEP}]
 dev-python/lxml[${PYTHON_USEDEP}]"
 
-src_prepare() {
-	eapply "${FILESDIR}"/completion.patch
-
-	default
-}
+PATCHES=( "${FILESDIR}/${P}-remove_completion_from_setup.patch" )
 
 python_install_all() {
-	distutils-r1_python_install_all --bash-completion-dir="${D}"/etc/bash_completion.d
+        dobashcomp completion/bash_completion/_geeknote
+        insinto /usr/share/zsh/site-functions
+        doins completion/zsh_completion/_geeknote
+        distutils-r1_python_install_all
 }
