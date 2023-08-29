@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{9..12} )
 inherit distutils-r1
 
@@ -19,7 +20,6 @@ HOMEPAGE="https://github.com/mps-youtube/yewtube https://pypi.org/project/yewtub
 LICENSE="GPL-3"
 SLOT="0"
 
-DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}
  	media-video/ffmpeg
 	dev-python/requests
@@ -27,6 +27,7 @@ RDEPEND="${DEPEND}
 	net-misc/yt-dlp
 	dev-python/youtube-search-python
 	dev-python/pylast
+	dev-python/pip
 	|| ( media-video/mplayer media-video/mpv )"
 
 src_compile() {
