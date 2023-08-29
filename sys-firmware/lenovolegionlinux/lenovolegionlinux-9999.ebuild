@@ -13,9 +13,13 @@ EGIT_REPO_URI="https://github.com/johnfanv2/LenovoLegionLinux.git"
 DESCRIPTION="Lenovo Legion Linux kernel module"
 HOMEPAGE="https://github.com/johnfanv2/LenovoLegionLinux"
 
-RDEPEND="sys-kernel/linux-headers
+BDEPEND="sys-kernel/linux-headers
 	sys-apps/lm-sensors
 	sys-apps/dmidecode
+	sys-apps/sed
+"
+
+RDEPEND="
 	legion-tools? ( dev-python/PyQt5 dev-python/pyyaml dev-python/argcomplete dev-python/darkdetect )
 	downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
 	legion-acpi? ( sys-power/acpid )
@@ -39,6 +43,8 @@ src_compile() {
 	)
 	KERNELVERSION=${KV_FULL} linux-mod-r1_src_compile
 	if use legion-tools; then
+		#fix python package version
+		sed -i "s/version = _VERSION/version = 1.0.0/g" "${WORKDIR}/${P}/python/legion_linux/setup.cfg"
 		#Define build dir (fix sandboxed)
 		cd "${WORKDIR}/${P}/python/legion_linux"
 		distutils-r1_src_compile --build-dir "${WORKDIR}/${P}/python/legion_linux/build"
