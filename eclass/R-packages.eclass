@@ -20,7 +20,7 @@ esac
 
 if [ ! ${_R_PACKAGES_ECLASS} ]; then
 
-inherit edo eutils optfeature toolchain-funcs
+inherit edo optfeature toolchain-funcs
 
 # @ECLASS_VARIABLE: SUGGESTED_PACKAGES
 # @DEPRECATED: none
