@@ -3,12 +3,20 @@
 
 EAPI=8
 
+M_PN=LenovoLegionLinux
+
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{9..12} )
 
-inherit linux-mod-r1 git-r3 distutils-r1 systemd
+inherit linux-mod-r1 distutils-r1 systemd
 
-EGIT_REPO_URI="https://github.com/johnfanv2/LenovoLegionLinux.git"
+if [[ ${PV} == "9999" ]] ; then
+	EGIT_REPO_URI="https://github.com/johnfanv2/${M_PN}.git"
+	inherit git-r3
+else
+	SRC_URI="https://github.com/johnfanv2/${M_PN}/archive/refs/tags/v${PV}.tar.gz"
+	KEYWORDS="~amd64"
+fi
 
 DESCRIPTION="Lenovo Legion Linux kernel module"
 HOMEPAGE="https://github.com/johnfanv2/LenovoLegionLinux"
@@ -41,10 +49,16 @@ src_compile() {
 	local modlist=(
 		legion-laptop=kernel/drivers/platform/x86:kernel_module:kernel_module:all
 	)
-	KERNELVERSION=${KV_FULL} linux-mod-r1_src_compile
+	KERNELVERSION=${KV_FULL}
+	linux-mod-r1_src_compile
 	if use legion-tools; then
-		#fix python package version
-		sed -i "s/version = _VERSION/version = 1.0.0/g" "${WORKDIR}/${P}/python/legion_linux/setup.cfg"
+		if [[ ${PV} == "9999" ]] ; then
+			#fix python package version
+			sed -i "s/version = _VERSION/version = 9999/g" "${WORKDIR}/${P}/python/legion_linux/setup.cfg"
+		else
+			#fix python package version
+			sed -i "s/version = _VERSION/version = ${PV}/g" "${WORKDIR}/${P}/python/legion_linux/setup.cfg"
+		fi
 		#Define build dir (fix sandboxed)
 		cd "${WORKDIR}/${P}/python/legion_linux"
 		distutils-r1_src_compile --build-dir "${WORKDIR}/${P}/python/legion_linux/build"
