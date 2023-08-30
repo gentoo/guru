@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit desktop eutils xdg
+inherit desktop wrapper xdg
 
 DESCRIPTION="Free universal database tool (community edition)."
 HOMEPAGE="https://dbeaver.io/"
