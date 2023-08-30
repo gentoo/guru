@@ -423,7 +423,7 @@ inherit cargo shell-completion
 DESCRIPTION="Executes commands in response to file modifications"
 HOMEPAGE="https://watchexec.github.io/"
 SRC_URI="https://github.com/watchexec/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" $(cargo_crate_uris)"
+SRC_URI+=" ${CARGO_CRATE_URIS}"
 
 LICENSE="Apache-2.0 || ( Artistic-2 CC0-1.0 ) BSD ISC MIT MPL-2.0 Unicode-DFS-2016 WTFPL-2 ZLIB"
 SLOT="0"

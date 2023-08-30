@@ -429,7 +429,7 @@ inherit cargo shell-completion
 DESCRIPTION="Executes commands in response to file modifications"
 HOMEPAGE="https://github.com/watchexec/watchexec"
 SRC_URI="https://github.com/watchexec/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" $(cargo_crate_uris)"
+SRC_URI+=" ${CARGO_CRATE_URIS}"
 
 # `dunce`: CC0-1.0
 # `human_format`: MIT
