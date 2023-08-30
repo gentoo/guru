@@ -1,11 +1,11 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit meson
 
-if [[ ${PV} == 9999 ]]; then
+if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://codeberg.org/dnkl/${PN}.git"
 else
@@ -94,5 +94,14 @@ src_configure() {
 
 src_install() {
 	meson_src_install
-	rm -rf "${D}/usr/share/doc/${PN}"
+	if use core; then
+		mv "${D}"/usr/lib64/yambar/libdynlist.so "${D}"/usr/lib64/libdynlist.so || die
+	fi
+	rm -rf "${D}/usr/share/doc/${PN}" || die
+}
+
+pkg_postinst() {
+	ewarn "Warning: if you are upgrading from 1.8.0, please note that there are breaking changes that might affect your config.yml file."
+	ewarn "See the changelog for more information"
+	ewarn "https://codeberg.org/dnkl/yambar/releases/tag/1.9.0"
 }
