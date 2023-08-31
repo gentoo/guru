@@ -6,9 +6,9 @@ EAPI=8
 inherit cmake xdg
 
 DESCRIPTION="Library to handle RPG Maker 2000/2003 and EasyRPG projects"
-HOMEPAGE="https://github.com/EasyRPG/liblcf"
-SRC_URI="https://github.com/EasyRPG/liblcf/archive/refs/tags/${PV}.tar.gz
-	-> ${P}.gh.tar.gz"
+HOMEPAGE="https://easyrpg.org/
+	https://github.com/EasyRPG/liblcf"
+SRC_URI="https://easyrpg.org/downloads/player/${PV}/${P}.tar.xz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -29,9 +29,7 @@ src_configure() {
 		-DBUILD_SHARED_LIBS=True
 		-DLIBLCF_UPDATE_MIMEDB=False
 		-DLIBLCF_ENABLE_TOOLS=$(usex tools)
-		$(cmake_use_find_package doc Doxygen)
 	)
-
 	cmake_src_configure
 }
 
