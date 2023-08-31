@@ -22,8 +22,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="doc? ( app-doc/doxygen[dot] )"
 
-HTML_DOCS="doc/*"
-
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=True
@@ -41,4 +39,12 @@ src_compile() {
 
 src_test() {
 	cmake_build check
+}
+
+src_install() {
+	cmake_src_install
+	if use doc; then
+		docinto /usr/share/doc/${PF}/html
+		dodoc -r doc/*
+	fi
 }
