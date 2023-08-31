@@ -26,8 +26,8 @@ dev-python/lxml[${PYTHON_USEDEP}]"
 PATCHES=( "${FILESDIR}/${P}-remove_completion_from_setup.patch" )
 
 python_install_all() {
-        dobashcomp completion/bash_completion/_geeknote
-        insinto /usr/share/zsh/site-functions
-        doins completion/zsh_completion/_geeknote
-        distutils-r1_python_install_all
+	dobashcomp completion/bash_completion/_geeknote
+	insinto /usr/share/zsh/site-functions
+	doins completion/zsh_completion/_geeknote
+	distutils-r1_python_install_all
 }
