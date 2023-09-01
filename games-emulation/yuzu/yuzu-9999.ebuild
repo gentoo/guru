@@ -46,7 +46,7 @@ RDEPEND="
 	system-libfmt? ( >=dev-libs/libfmt-9:= )
 "
 DEPEND="${RDEPEND}
-	dev-cpp/cpp-httplib
+	<=dev-cpp/cpp-httplib-0.13.0
 	dev-cpp/cpp-jwt
 	system-vulkan? ( >=dev-util/vulkan-headers-1.3.250
 		dev-util/spirv-headers )
@@ -98,7 +98,7 @@ src_prepare() {
 	sed -i -e 's:inih/cpp/::' src/yuzu_cmd/config.cpp || die
 
 	# Unbundle mbedtls
-	sed -i -e '/mbedtls/d' externals/CMakeLists.txt || die
+	sed -i -e '/mbedtls/d' -e '/^if (NOT MSVC)/,/endif()/d' externals/CMakeLists.txt || die
 	sed -i -e 's/mbedtls/& mbedcrypto mbedx509/' \
 		src/dedicated_room/CMakeLists.txt \
 		src/core/CMakeLists.txt || die
