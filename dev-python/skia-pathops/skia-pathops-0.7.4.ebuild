@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 PYPI_NO_NORMALIZE=1
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_EXT=1
@@ -21,14 +21,12 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
+# Until cpdef is removed from skia-pathops, we need cython < 3.0.0
 BDEPEND="
 	app-arch/unzip
-	dev-python/cython[${PYTHON_USEDEP}]
+	<dev-python/cython-3[${PYTHON_USEDEP}]
 	dev-util/gn
 	dev-util/ninja
-	test? (
-		dev-python/pytest-cython[${PYTHON_USEDEP}]
-	)
 "
 
 PATCHES=( "${FILESDIR}"/${PN}-0.7.4-no-net.patch )
