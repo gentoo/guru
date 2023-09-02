@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
-	<use>
-		<flag name="fluidsynth">Support FluidSynth as MIDI synth backend</flag>
-		<flag name="wildmidi">Support wildmidi as MIDI synth backend</flag>
-	</use>
-
-	<upstream>
-		<remote-id type="github">EasyRPG/Player</remote-id>
-	</upstream>
+  <maintainer type="person">
+    <email>watermanpaint@posteo.net</email>
+    <name>Lucio Sauer</name>
+  </maintainer>
+  <longdescription>
+    FluidSynth takes precedence over WildMIDI at runtime. If no external
+    MIDI synthesizer backend is enabled, EasyRPG Player falls back to ALSA
+    for native MIDI support.
+    At version 0.8, this will most likely result in no sound.
+  </longdescription>
+  <use>
+    <flag name="fluidsynth">
+      Support FluidSynth as a MIDI synthesizer backend.
+      Support the `--soundfont` command line option for custom soundfonts
+    </flag>
+    <flag name="harfbuzz">
+      Use <pkg>media-libs/harfbuzz</pkg> for Unicode text shaping.
+      Depends on external font support by means of the truetype USE flag
+    </flag>
+    <flag name="wildmidi">Support WildMIDI as a MIDI synthesizer backend</flag>
+  </use>
+  <upstream>
+    <remote-id type="github">EasyRPG/Player</remote-id>
+  </upstream>
 </pkgmetadata>

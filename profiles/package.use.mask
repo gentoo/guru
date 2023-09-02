@@ -1,7 +1,11 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # New entries go on top.
+
+# Lucio Sauer<watermanpaint@posteo.net> (2023-09-01)
+# Segfaults upon termination when run from inside a game folder.
+~games-engines/easyrpg-player-0.8 fluidsynth
 
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-06-17)
 # Broken docs build.
