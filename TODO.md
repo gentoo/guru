@@ -5,7 +5,6 @@ If you find an interesting piece of software here, consider to package it, also 
    Name      |  Buildsystem  |    Category   |     User      |    Need help  | Dependency
 ------------ | ------------- | ------------- | ------------- | ------------- | -------------
 [Atkinson Hyperlegible](https://brailleinstitute.org/freefont) | no | fonts | Anna | ✖ | ✖
-[Whoogle](https://github.com/benbusby/whoogle-search/) | setuptools | www | Anna | ✔ | ✖
 [SearXNG](https://docs.searxng.org/) | setuptools | www | Anna | ✔ | ✖
 [Takahe](https://jointakahe.org/) | no (django) | www | Anna | ✔ | ✖
 [couchbase](https://pypi.org/project/couchbase/) | poetry | devel | Anna | ✔ | ✔
