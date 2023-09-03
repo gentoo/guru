@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit edos2unix toolchain-funcs
 
 NO_DOT_PV=$(ver_rs 1- '')
 DESCRIPTION="A free file archiver for extremely high compression"
@@ -45,14 +45,22 @@ pkg_setup() {
 }
 
 src_prepare() {
-	default
+	# patch doesn't deal with CRLF even if file+patch match
+	# not even with --ignore-whitespace, --binary or --force
+	edos2unix ./7zip_gcc.mak ./var_gcc{,_x64}.mak ./var_clang{,_x64}.mak
+	PATCHES+=( "${FILESDIR}/${P}-respect-build-env.patch" )
+
 	sed -i -e 's/-Werror //g' ./7zip_gcc.mak || die "Error removing -Werror"
-	sed -i -e 's/$(LFLAGS_STRIP)//g' ./7zip_gcc.mak \
-		|| die "Error removing hardcoded strip"
+	default
 }
 
 src_compile() {
 	pushd "./Bundles/Alone2" || die "Unable to switch directory"
+	export G_CC=$(tc-getCC)
+	export G_CXX=$(tc-getCXX)
+	export G_CFLAGS=${CFLAGS}
+	export G_CXXFLAGS=${CXXFLAGS}
+	export G_LDFLAGS=${LDFLAGS}
 	# USE_JWASM=1 - if asm: use JWasm assembler instead of Asmc (not a gentoo package)
 	emake DISABLE_RAR=1 USE_JWASM=1 --file "../../${mfile}"
 	popd > /dev/null || die "Unable to switch directory"
