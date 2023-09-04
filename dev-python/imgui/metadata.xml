@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gasc@eurecom.fr</email>
+		<name>Gasc Henri</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">imgui</remote-id>
+		<remote-id type="github">pyimgui/pyimgui</remote-id>
+		<doc>https://pyimgui.readthedocs.io</doc>
+	</upstream>
+	<use>
+		<flag name="allegro">Enable allegro backend and renderer</flag>
+		<flag name="glfw">Enable glfw backend</flag>
+		<flag name="glut">Enable glut backen</flag>
+		<flag name="opengl">Enable opengl renderer</flag>
+		<flag name="sdl">Enable sdl backend</flag>
+		<flag name="vulkan">Enable vulkan renderer</flag>
+	</use>
+</pkgmetadata>
