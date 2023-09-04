@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>1over137@anche.no</email>
+		<name>Shaoyu Tseng</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">pymorphy3</remote-id>
+		<remote-id type="github">no-plagiarism/pymorphy3</remote-id>
+	</upstream>
+</pkgmetadata>
