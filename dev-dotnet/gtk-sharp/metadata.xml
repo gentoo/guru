@@ -2,6 +2,11 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<!-- maintainer-needed -->
+	<use>
+		<flag name="atk">Build the ATK bindings.</flag>
+		<flag name="gdk">Build the GDK bindings.</flag>
+		<flag name="pango">Build the Pango bindings.</flag>
+	</use>
 	<upstream>
 		<remote-id type="github">mono/gtk-sharp</remote-id>
 	</upstream>

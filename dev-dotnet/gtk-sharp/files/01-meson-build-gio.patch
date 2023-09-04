@@ -1,0 +1,11 @@
+diff --git a/Source/gio/generated/meson.build b/Source/gio/generated/meson.build
+index f8e3978..416ed5c 100644
+--- a/Source/gio/generated/meson.build
++++ b/Source/gio/generated/meson.build
+@@ -413,5 +413,5 @@ pkgs += [pkg]
+ source_gen = files(generated_sources)
+ gio_api_includes = join_paths(meson.current_source_dir(), 'gio-api.xml')
+ if install
+-    install_data(gdk_api_includes, install_dir: gapi_xml_installdir)
++    install_data(gio_api_includes, install_dir: gapi_xml_installdir)
+ endif
