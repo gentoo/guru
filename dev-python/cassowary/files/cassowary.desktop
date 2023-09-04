@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Cassowary
+Icon=cassowary
+Exec=/usr/bin/cassowary -a
+Comment=Cassowary Configuration (Gui App)
+Categories=System
+Terminal=false
