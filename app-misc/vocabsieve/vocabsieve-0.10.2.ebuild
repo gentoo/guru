@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_10 )
+PYTHON_COMPAT=( python3_{10..11} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 pypi
 
@@ -24,9 +24,9 @@ RDEPEND="
 	dev-python/pysubs2[${PYTHON_USEDEP}]
 	dev-python/bidict[${PYTHON_USEDEP}]
 	dev-python/pystardict[${PYTHON_USEDEP}]
-	dev-python/pymorphy2[${PYTHON_USEDEP}]
-	dev-python/pymorphy2-dicts-ru[${PYTHON_USEDEP}]
-	dev-python/pymorphy2-dicts-uk[${PYTHON_USEDEP}]
+	dev-python/pymorphy3[${PYTHON_USEDEP}]
+	dev-python/pymorphy3-dicts-ru[${PYTHON_USEDEP}]
+	dev-python/pymorphy3-dicts-uk[${PYTHON_USEDEP}]
 	dev-python/pyqtdarktheme[${PYTHON_USEDEP}]
 	dev-python/charset-normalizer[${PYTHON_USEDEP}]
 	dev-python/EbookLib[${PYTHON_USEDEP}]
