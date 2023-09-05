@@ -28,17 +28,17 @@ IUSE="X wayland"
 MODULES_KERNEL_MIN=5.10
 
 python_compile() {
-	cd "${S}/app-linux"
-	echo "See documenation of cassowary" > README.md # Dummy Readme file (solve qa error)
-	sed -i "s/version = 0.5/version = ${PV}/g" setup.cfg #version typo upstream
+	cd "${S}/app-linux" || die
+	echo "See documenation of cassowary" > README.md || die # Dummy Readme file (solve qa error)
+	sed -i "s/version = 0.5/version = ${PV}/g" setup.cfg || die #version typo upstream
 	${EPYTHON} -m build --wheel --no-isolation
 }
 
 python_install() {
-	cd "${S}/app-linux"
+	cd "${S}/app-linux" || die
 	${EPYTHON} -m installer --destdir="${D}" dist/cassowary-${PV}-py3-none-any.whl
 	domenu "${FILESDIR}/cassowary.desktop"
-	doicon "${FILESDIR}/cassowary.png"
+	doicon "${S}/app-linux/src/cassowary/gui/extrares/cassowary.png"
 }
 
 pkg_postinst() {
