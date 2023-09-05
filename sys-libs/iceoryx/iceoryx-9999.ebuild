@@ -7,8 +7,8 @@ inherit cmake
 
 
 if [[ ${PV} == *9999 ]] ; then
-	inherit git-r3
 	EGIT_REPO_URI="https://github.com/eclipse-iceoryx/iceoryx"
+	inherit git-r3	
 else
 	SRC_URI="https://github.com/eclipse-iceoryx/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
@@ -27,10 +27,10 @@ RESTRICT="!test? ( test )"
 RDEPEND=(
 	"doc? ( app-doc/doxygen )"
 	"dev-cpp/cpptoml"
-	"ccache? dev-util/ccache"
+	"ccache? ( dev-util/ccache )"
 	)
 
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND[@]}"
 
 CMAKE_BUILD_TYPE=Release
 

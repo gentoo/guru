@@ -7,9 +7,9 @@ inherit cmake
 
 
 if [[ ${PV} == *9999 ]] ; then
-	inherit git-r3
 	EGIT_REPO_URI="https://github.com/eclipse-cyclonedds/"
-	
+	inherit git-r3
+
 else
 
 	SRC_URI="https://github.com/eclipse-cyclonedds/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
@@ -31,8 +31,8 @@ RDEPEND=(
 	"shm? ( sys-libs/iceoryx )"
 	"parser? ( sys-devel/bison )"
 )
+DEPEND="${RDEPEND[@]}"
 
-DEPEND="${RDEPEND}"
 
 CMAKE_BUILD_TYPE=Release
 
