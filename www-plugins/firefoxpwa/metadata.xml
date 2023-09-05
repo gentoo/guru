@@ -7,6 +7,7 @@
 	</maintainer>
 	<use>
 		<flag name="lto">Enable Link Time Optimization (LTO)</flag>
+		<flag name="custom-cflags">Disable the default use of clang and lld with LTO and all other manipulations of CFLAGS. Disabling this may cause the build and/or LTO to fail.</flag>
 	</use>
 	<upstream>
 		<maintainer>
@@ -15,7 +16,7 @@
 		</maintainer>
 		<bugs-to>https://github.com/filips123/PWAsForFirefox/issues</bugs-to>
 		<changelog>https://github.com/filips123/PWAsForFirefox/releases</changelog>
-		<doc>https://github.com/filips123/PWAsForFirefox/wiki</doc>
+		<doc>https://pwasforfirefox.filips.si/</doc>
 		<remote-id type="github">filips123/PWAsForFirefox</remote-id>
 	</upstream>
 </pkgmetadata>
