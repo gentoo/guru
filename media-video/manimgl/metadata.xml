@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gasc@eurecom.fr</email>
+		<name>Gasc Henri</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">manimgl</remote-id>
+		<remote-id type="github">3b1b/manim</remote-id>
+		<doc>https://3b1b.github.io/manim/</doc>
+		<changelog>https://github.com/3b1b/manim/releases</changelog>
+	</upstream>
+</pkgmetadata>
