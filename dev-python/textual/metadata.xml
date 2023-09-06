@@ -8,5 +8,6 @@
 	<upstream>
 		<remote-id type="pypi">textual</remote-id>
 		<remote-id type="github">Textualize/textual</remote-id>
+		<doc>https://textual.textualize.io/</doc>
 	</upstream>
 </pkgmetadata>
