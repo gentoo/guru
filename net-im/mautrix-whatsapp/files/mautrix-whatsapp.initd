@@ -1,0 +1,25 @@
+#!/sbin/openrc-run
+# Copyright 1999-2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="mautrix-whatsapp daemon"
+description="A Matrix-WhatsApp puppeting bridge"
+module="mautrix_whatsapp"
+
+pidfile="/run/${RC_SVCNAME}.pid"
+command="/usr/bin/mautrix-whatsapp"
+command_args="-c /etc/mautrix/${module}.yaml -r /var/lib/mautrix/whatsapp/registration.yaml"
+command_background=true
+command_user="mautrix-whatsapp:mautrix"
+
+output_log="/var/log/mautrix/mautrix-whatsapp_daemon.log"
+error_log="/var/log/mautrix/mautrix-whatsapp_daemon.log"
+
+depend() {
+	need net
+}
+
+start_pre() {
+	checkpath -d -m 0755 -o "$command_user" /var/lib/mautrix/whatsapp
+	checkpath -f -m 0644 -o "$command_user" "$output_log"
+}

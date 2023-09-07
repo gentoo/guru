@@ -1,0 +1,12 @@
+[Unit]
+Description=A Matrix-WhatsApp puppeting bridge
+After=network.target
+
+[Service]
+User=mautrix-whatsapp
+Group=mautrix
+Restart=on-failure
+ExecStart=/usr/bin/mautrix-whatsapp -c /etc/mautrix/mautrix_whatsapp.yaml -r /var/lib/mautrix/whatsapp/registration.yaml
+
+[Install]
+WantedBy=multi-user.target
