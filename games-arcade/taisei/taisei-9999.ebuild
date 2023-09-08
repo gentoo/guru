@@ -11,9 +11,8 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/taisei-project/taisei.git"
 else
-	SRC_URI="https://github.com/taisei-project/taisei/releases/download/v${PV}/${PN}-v${PV}.tar.xz"
+	SRC_URI="https://github.com/taisei-project/taisei/releases/download/v${PV}/${PN}-${PV}.tar.xz"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}/${PN}-v${PV}"
 fi
 
 DESCRIPTION="Clone of the Touhou series, written in C using SDL/OpenGL/OpenAL."
@@ -28,8 +27,8 @@ RDEPEND="
 	media-libs/opusfile
 	>=media-libs/libpng-1.5
 	media-libs/libsdl2
-	media-libs/opusfile
 	media-libs/libwebp
+	media-libs/opusfile
 	app-arch/zstd
 	sys-libs/zlib
 	dev-libs/openssl:=
@@ -40,7 +39,7 @@ DEPEND="
 	>=dev-libs/cglm-0.7.8
 "
 BDEPEND="
-	>=dev-util/meson-0.53
+	dev-util/meson
 	$(python_gen_any_dep '
 		dev-python/zstandard[${PYTHON_USEDEP}]
 	')
@@ -48,14 +47,13 @@ BDEPEND="
 	doc? ( dev-python/docutils )"
 
 python_check_deps() {
-	has_version "dev-python/zstandard[${PYTHON_USEDEP}]"
+	python_has_version "dev-python/zstandard[${PYTHON_USEDEP}]"
 }
 
 src_prepare() {
-	if use doc; then
-		sed -i "s/doc_path = join.*/doc_path = join_paths(datadir, \'doc\', \'${PF}\')/" \
-			meson.build || die "Failed changing doc_path"
-	fi
+	# Path patching needed also without USE=doc (COPYING etc.)
+	sed -i "s/doc_path = join.*/doc_path = join_paths(datadir, \'doc\', \'${PF}\')/" \
+		meson.build || die "Failed changing doc_path"
 	default
 }
 
@@ -63,7 +61,7 @@ src_configure() {
 	local emesonargs=(
 		$(meson_use doc docs)
 		$(meson_use lto b_lto)
-		$(meson_use zip enable_zip)
+		$(meson_use zip vfs_zip)
 		-Dstrip=false
 		-Duse_libcrypto=true
 	)
