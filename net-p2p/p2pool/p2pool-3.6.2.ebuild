@@ -33,6 +33,14 @@ src_prepare() {
 	cmake_src_prepare
 }
 
+src_configure() {
+	local mycmakeargs=(
+		-DWITH_RANDOMX=OFF
+	)
+	
+	cmake_src_configure
+}
+
 src_install(){
 	dobin "${BUILD_DIR}/p2pool"
 }
