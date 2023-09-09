@@ -11,7 +11,8 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/taisei-project/taisei.git"
 else
-	SRC_URI="https://github.com/taisei-project/taisei/releases/download/v${PV}/${PN}-${PV}.tar.xz"
+	# Auto-generated tarballs lacks submodules, all of which are taisei subrepos
+	SRC_URI="https://github.com/taisei-project/taisei/releases/download/v${PV}/taisei-${PV}.tar.xz"
 	KEYWORDS="~amd64"
 fi
 
@@ -54,16 +55,24 @@ src_prepare() {
 	# Path patching needed also without USE=doc (COPYING etc.)
 	sed -i "s/doc_path = join.*/doc_path = join_paths(datadir, \'doc\', \'${PF}\')/" \
 		meson.build || die "Failed changing doc_path"
+
+	# Remove blobs
+	rm external/basis_universal/OpenCL/lib/*.lib \
+		external/basis_universal/webgl_videotest/basis.wasm \
+		external/basis_universal/webgl/transcoder/build/basis_transcoder.wasm \
+		external/basis_universal/webgl/encoder/build/basis_encoder.wasm \
+		|| die
+
 	default
 }
 
 src_configure() {
 	local emesonargs=(
-		$(meson_use doc docs)
+		$(meson_feature doc docs)
 		$(meson_use lto b_lto)
-		$(meson_use zip vfs_zip)
+		$(meson_feature zip vfs_zip)
 		-Dstrip=false
-		-Duse_libcrypto=true
+		-Duse_libcrypto=enabled
 	)
 	meson_src_configure
 }
