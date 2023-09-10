@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gasc@eurecom.fr</email>
+		<name>Gasc Henri</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">cloup</remote-id>
+		<remote-id type="github">janLuke/cloup</remote-id>
+		<doc>https://cloup.readthedocs.io/</doc>
+	</upstream>
+	<longdescription>Library to build command line interfaces based on (and 100% compatible) with Click. It's like using Click but with more built-in features: option groups, constraints (e.g. mutually exclusive params), command aliases, help themes, "did you mean ...?" suggestions and more.</longdescription>
+</pkgmetadata>
