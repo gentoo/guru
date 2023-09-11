@@ -16,6 +16,8 @@ RDEPEND="sys-fs/fuse:0"
 
 S="${WORKDIR}"
 
+QA_FLAGS_IGNORED="/usr/bin/${PN}"
+
 src_install() {
 	newbin "${S}/bin/mount-s3" ${PN}
 }
