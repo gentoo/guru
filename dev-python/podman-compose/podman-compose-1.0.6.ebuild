@@ -11,7 +11,7 @@ DESCRIPTION="A script to run docker-compose.yml using Podman"
 HOMEPAGE="https://github.com/containers/podman-compose"
 SRC_URI="https://github.com/containers/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="BSD-2"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
