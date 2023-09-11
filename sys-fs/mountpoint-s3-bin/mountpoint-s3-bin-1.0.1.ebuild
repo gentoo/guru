@@ -17,5 +17,5 @@ RDEPEND="sys-fs/fuse:0"
 S="${WORKDIR}"
 
 src_install() {
-	newbin "${S}/bin/mount-s3" mount-s3-bin
+	newbin "${S}/bin/mount-s3" ${PN}
 }
