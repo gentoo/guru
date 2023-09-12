@@ -50,10 +50,8 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-lisp/sbcl-2.0.0
-	!!net-libs/webkit-gtk:5
 "
-# If webkit-gtk:5 is installed, nyxt won't compile
-# https://github.com/atlas-engineer/nyxt/issues/2743
+QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 src_unpack() {
 	default
