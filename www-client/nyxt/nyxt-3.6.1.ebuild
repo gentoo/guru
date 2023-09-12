@@ -41,6 +41,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-lisp/sbcl-2.0.0
 "
+QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 src_unpack() {
 	default
