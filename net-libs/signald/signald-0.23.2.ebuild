@@ -17,7 +17,8 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="acct-user/signald"
+RDEPEND="acct-user/signald
+	virtual/jre"
 DEPEND="${RDEPEND}"
 BDEPEND="dev-java/gradle-bin:7.3.3"
 
