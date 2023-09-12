@@ -102,7 +102,10 @@ RDEPEND="${DEPEND}
 	fluidsynth? ( media-sound/fluid-soundfont )
 "
 BDEPEND="virtual/pkgconfig
-	doc? ( app-doc/doxygen[dot] )
+	doc? (
+		   app-doc/doxygen
+		   media-gfx/graphviz[svg]
+		 )
 "
 
 DOC_CONTENTS="
