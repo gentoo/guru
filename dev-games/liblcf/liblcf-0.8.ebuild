@@ -20,7 +20,11 @@ RDEPEND="
 	dev-libs/icu:=
 "
 DEPEND="${RDEPEND}"
-BDEPEND="doc? ( app-doc/doxygen[dot] )"
+BDEPEND="doc? (
+				app-doc/doxygen
+				media-gfx/graphviz[svg]
+			  )
+"
 
 src_configure() {
 	local mycmakeargs=(
