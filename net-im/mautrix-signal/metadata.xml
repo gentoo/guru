@@ -10,10 +10,10 @@
 			<name>Tulir Asokan</name>
 			<email>tulir@maunium.net</email>
 		</maintainer>
-		<changelog>https://github.com/mautrix/telegram/releases</changelog>
-		<doc>https://docs.mau.fi/bridges/python/telegram/index.html</doc>
-		<bugs-to>https://github.com/mautrix/telegram/issues</bugs-to>
-		<remote-id type="github">mautrix/telegram</remote-id>
-		<remote-id type="pypi">mautrix-telegram</remote-id>
+		<changelog>https://github.com/mautrix/signal/releases</changelog>
+		<doc>https://docs.mau.fi/bridges/python/signal/index.html</doc>
+		<bugs-to>https://github.com/mautrix/signal/issues</bugs-to>
+		<remote-id type="github">mautrix/signal</remote-id>
+		<remote-id type="pypi">mautrix-signal</remote-id>
 	</upstream>
 </pkgmetadata>
