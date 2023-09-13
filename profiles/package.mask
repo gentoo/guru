@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# Nicola Smaniotto <smaniotto.nicola@gmail.com> (2023-09-13)
+# Upstream is using unstable compiler features, needs dev-lang/rust[nightly].
+# Removal in 30 days if no one else wants to maintain it.
+games-rpg/airshipper
+
 # Remigiusz Micielski <rmicielski@purelymail.com> (2023-08-13)
 # rust-analyzer is in ::gentoo as a use flag for rust
 dev-util/rust-analyzer
