@@ -5,7 +5,7 @@ EAPI=8
 
 inherit desktop go-module
 
-DEPS_DATE="2023-06-26" # when the deps archive has been created
+DEPS_DATE="2023-09-13" # when the deps archive has been created
 
 DESCRIPTION="A nonlinear 2D puzzle platformer taking place in impossible spaces"
 HOMEPAGE="https://divverent.github.io/aaaaxy/"
