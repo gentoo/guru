@@ -1,0 +1,12 @@
+--- Makefile	2023-09-14 13:33:57.490315315 -0400
++++ Makefile-tmp	2023-09-14 13:34:37.140272322 -0400
+@@ -103,7 +103,7 @@
+ 	./$(NAME) $(ARGS)
+ 
+ install: build man
+-	mkdir -pv $(DESTDIR)/$(PREFIX) $(DESTDIR)/$(LIBDIR)/$(NAME) $(DESTDIR)/$(MANDIR) ${DESTDIR}/$(ETC_DIR)/$(NAME)
++	mkdir -pv $(DESTDIR)/$(PREFIX) $(DESTDIR)/$(LIBDIR)/$(NAME) $(DESTDIR)/$(MANDIR) ${DESTDIR}/$(ETC_DIR)/$(NAME) ${DESTDIR}/${INCDIR}
+ 	cp $(NAME) $(DESTDIR)/$(PREFIX)
+ 	cp lib$(LIB_FILES:.c=.so) $(DESTDIR)/$(LIBDIR)
+ 	cp $(LIB_FILES:.c=.h) $(DESTDIR)/$(INCDIR)/
+

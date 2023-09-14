@@ -1,0 +1,12 @@
+--- Makefile	2023-09-14 13:19:55.388011895 -0400
++++ Makefile-tmp	2023-09-14 13:21:18.607891001 -0400
+@@ -17,7 +17,7 @@
+ 
+ ifeq ($(PLATFORM), Linux)
+ 	PREFIX		= bin
+-	LIBDIR		= lib
++	LIBDIR		= lib64
+ 	INCDIR		= include
+ 	ETC_DIR		= /etc
+ 	MANDIR		= share/man/man1
+
