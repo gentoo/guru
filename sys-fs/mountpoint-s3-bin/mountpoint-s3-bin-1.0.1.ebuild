@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Foundation
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,6 +10,8 @@ SRC_URI="https://s3.amazonaws.com/mountpoint-s3-release/${PV}/x86_64/mount-s3-${
 KEYWORDS="~amd64"
 
 LICENSE="Apache-2.0"
+# Dependent crate licenses
+LICENSE+=" Apache-2.0 BSD BSD-2 ISC MIT openssl Unicode-DFS-2016 ZLIB"
 SLOT="0"
 
 RDEPEND="sys-fs/fuse:0"
