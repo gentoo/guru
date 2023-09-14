@@ -39,6 +39,8 @@ pkg_setup() {
 		linux-mod_pkg_setup
 }
 
+QA_FLAGS_IGNORED="usr/bin/${PN}-cli"
+
 src_install() {
 	linux-mod_src_install
 	dobin corefreqd corefreq-cli
