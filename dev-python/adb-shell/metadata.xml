@@ -6,7 +6,7 @@
 		<name>David Roman</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">JeffLIrion/adb-shell</remote-id>
+		<remote-id type="github">JeffLIrion/adb_shell</remote-id>
 		<remote-id type="pypi">adb-shell</remote-id>
 	</upstream>
 </pkgmetadata>

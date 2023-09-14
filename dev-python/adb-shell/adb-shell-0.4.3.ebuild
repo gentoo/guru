@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_11 )
 inherit distutils-r1
 
 DESCRIPTION="A Python implementation of ADB with shell and FileSync functionality."
-HOMEPAGE="https://pypi.org/project/adb-shell/ https://github.com/JeffLIrion/adb-shell"
+HOMEPAGE="https://pypi.org/project/adb-shell/ https://github.com/JeffLIrion/adb_shell"
 SRC_URI="https://github.com/JeffLIrion/adb_shell/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="BSD"
