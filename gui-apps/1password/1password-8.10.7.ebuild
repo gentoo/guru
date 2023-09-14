@@ -35,6 +35,27 @@ src_unpack() {
 
 QA_FLAGS_IGNORED="/usr/bin/${PN}"
 
+QA_SONAME="
+/usr/lib64/libXcomposite.so.1
+/usr/lib64/libXdamage.so.1
+/usr/lib64/libXfixes.so.3
+/usr/lib64/libXrandr.so.2
+/usr/lib64/libasound.so.2
+/usr/lib64/libatk-1.0.so.0
+/usr/lib64/libatk-bridge-2.0.so.0
+/usr/lib64/libatspi.so.0
+/usr/lib64/libcups.so.2
+/usr/lib64/libdrm.so.2
+/usr/lib64/libgbm.so.1
+/usr/lib64/libgtk-3.so.0
+/usr/lib64/libnspr4.so
+/usr/lib64/libnss3.so
+/usr/lib64/libnssutil3.so
+/usr/lib64/libpango-1.0.so.0
+/usr/lib64/libsmime3.so
+/usr/lib64/libxkbcommon.so.0
+"
+
 src_install() {
 	cp -ar "${S}/opt"  "${D}" || die "Install failed!"
 	cp -ar "${S}/usr"  "${D}" || die "Install failed!"
