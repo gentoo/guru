@@ -33,6 +33,8 @@ src_unpack() {
 	rpm_unpack ${P}.x86_64.rpm
 }
 
+QA_FLAGS_IGNORED="/usr/bin/${PN}"
+
 src_install() {
 	cp -ar "${S}/opt"  "${D}" || die "Install failed!"
 	cp -ar "${S}/usr"  "${D}" || die "Install failed!"
