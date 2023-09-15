@@ -6,11 +6,11 @@ EAPI=8
 M_PN=LenovoLegionLinux
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=(python3_{9..12})
 
 inherit linux-mod-r1 distutils-r1 systemd
 
-if [[ ${PV} == "9999" ]] ; then
+if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/johnfanv2/${M_PN}.git"
 	inherit git-r3
 else
@@ -49,10 +49,10 @@ src_compile() {
 	local modlist=(
 		legion-laptop=kernel/drivers/platform/x86:kernel_module:kernel_module:all
 	)
-	KERNELVERSION=${KV_FULL}
+	export KERNELVERSION=${KV_FULL}
 	linux-mod-r1_src_compile
 	if use legion-tools; then
-		if [[ ${PV} == "9999" ]] ; then
+		if [[ ${PV} == "9999" ]]; then
 			#fix python package version
 			sed -i "s/version = _VERSION/version = 9999/g" "${WORKDIR}/${P}/python/legion_linux/setup.cfg"
 		else
@@ -69,7 +69,7 @@ src_install() {
 	linux-mod-r1_src_install
 	#Load the module without reboot
 	pushd python/legion_linux/ || die
-		make forcereloadmodule
+	make forcereloadmodule
 	popd || die
 	if use legion-tools; then
 		#Define build dir (fix sandboxed)
