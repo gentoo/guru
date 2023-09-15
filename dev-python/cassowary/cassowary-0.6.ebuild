@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=no
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=(python3_{9..12})
 
 inherit linux-mod-r1 distutils-r1 desktop
 
@@ -13,6 +13,11 @@ KEYWORDS="~amd64"
 
 DESCRIPTION="Run Windows Applications on Linux as if they are native (Using a VM and FreeRDP)"
 HOMEPAGE="https://github.com/casualsnek/cassowary"
+
+BDEPEND="dev-python/setuptools
+	dev-python/build
+	dev-python/installer
+"
 
 RDEPEND="net-misc/freerdp
 	dev-python/libvirt-python
@@ -29,7 +34,7 @@ MODULES_KERNEL_MIN=5.10
 
 python_compile() {
 	cd "${S}/app-linux" || die
-	echo "See documenation of cassowary" > README.md || die # Dummy Readme file (solve qa error)
+	echo "See documenation of cassowary" >README.md || die      # Dummy Readme file (solve qa error)
 	sed -i "s/version = 0.5/version = ${PV}/g" setup.cfg || die #version typo upstream
 	${EPYTHON} -m build --wheel --no-isolation
 }
