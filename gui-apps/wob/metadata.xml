@@ -16,7 +16,6 @@
 		<bugs-to>https://github.com/francma/wob/issues</bugs-to>
 	</upstream>
 	<use>
-		<flag name="man">Install man page</flag>
 		<flag name="seccomp">Linux kernel syscall filtering</flag>
 	</use>
 </pkgmetadata>
