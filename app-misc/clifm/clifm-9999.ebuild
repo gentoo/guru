@@ -21,7 +21,7 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="arc4random archive +bleach emoji fzf +highlight icons +inotify +lira +magic
-		nerdfonts nls posix +profiles qsort +suggestions +tags +trash"
+		+media nerdfonts nls posix +profiles qsort +suggestions +tags +trash"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.12-gentoo-skip-manpage-compression.patch"
@@ -44,6 +44,12 @@ RDEPEND="
 		app-arch/atool
 		sys-fs/archivemount
 	)
+	media? (
+		|| (
+			sys-apps/udevil
+			sys-fs/udisks
+		)
+	)
 	fzf? ( app-shells/fzf )
 	nls? ( virtual/libintl )
 "
@@ -61,14 +67,14 @@ src_compile() {
 		fi
 	fi
 
-	use posix && append-cflags "-D_BE_POSIX"
-	use archive || append-cflags "-D_NO_ARCHIVING"
+	use posix && append-cflags "-DPOSIX_STRICT"
+	use archive && append-cflags "-DALLOW_ARCHIVING" || append-cflags "-D_NO_ARCHIVING"
 	use arc4random || append-cflags "-D_NO_ARC4RANDOM"
 	use bleach || append-cflags "-D_NO_BLEACH"
 	use nls || append-cflags "-D_NO_GETTEXT"
 	use fzf || append-cflags "-D_NO_FZF"
 	use highlight || append-cflags "-D_NO_HIGHLIGHT"
-	use lira || append-cflags "-D_NO_LIRA"
+	use lira && append-cflags "-DALLOW_LIRA" || append-cflags "-D_NO_LIRA"
 	use magic || append-cflags "-D_NO_MAGIC"
 	use suggestions || append-cflags "-D_NO_SUGGESTIONS"
 	use tags || append-cflags "-D_NO_TAGS"
@@ -76,6 +82,7 @@ src_compile() {
 	use trash || append-cflags "-D_NO_TRASH"
 	use qsort && append-cflags "-D_TOURBIN_QSORT"
 	use inotify || append-cflags "-DUSE_GENERIC_FS_MONITOR"
+	use media && append-cflags "-DALLOW_MEDIA" || append-cflags "-DNO_MEDIA_FUNC"
 
 	# makefile defaults to /usr/local
 	emake PREFIX="/usr"
@@ -97,8 +104,6 @@ pkg_postinst() {
 	fi
 	use inotify && use posix && ewarn "Warning: Use flag 'inotify' overriden by 'posix'"
 	use arc4random && use posix && ewarn "Warning: Use flag 'arc4random' overriden by 'posix'"
-	optfeature_header "Install additional optional functionality:"
-	optfeature "mounting/unmounting support" sys-apps/udevil sys-fs/udisks
 	if use archive; then
 		optfeature_header "Install additional archive support:"
 		optfeature "zstd support" app-arch/zstd

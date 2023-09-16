@@ -41,6 +41,9 @@
 		<flag name="magic">
 			Use libmagic from <pkg>sys-apps/file</pkg> to query file MIME types (instead of using the output of the file command)
 		</flag>
+		<flag name="media">
+			Enable mounting/unmounting support (via the media and mountpoint commands) using either <pkg>sys-apps/udevil</pkg> or <pkg>sys-fs/udisks</pkg>
+		</flag>
 		<flag name="nerdfonts">
 			Enable icons and set them to use NerdFonts
 		</flag>
@@ -48,7 +51,7 @@
 			Add translations support (via <pkg>sys-devel/gettext</pkg>)
 		</flag>
 		<flag name="posix">
-			Force POSIX.1-2008 compliance, removing support for Linux-specific "file birth time" information, inotify, and arc4random
+			Comply with POSIX.1-2008 as much as possible, removing support for Linux-specific "file birth time" information, inotify, and arc4random. Exceptions: for flags 'archive', 'media', and 'lira', although they require non-compliant functionality, enabling them selectively enables the non-compliant code, even with this flag set. (Hence, if your goal is POSIX compliance, make sure to disable those flags too!)
 		</flag>
 		<flag name="profiles">
 			Enable support for creating, switching, renaming, and deleting of user profiles
