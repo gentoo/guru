@@ -1,0 +1,13 @@
+The strrchr function prototype may have been provided transitively in the past.
+Not yet upstreamed as of 2023-09-17.
+Author: Lucio Sauer <watermanpaint@posteo.net>
+--- a/bpgdec.c
++++ b/bpgdec.c
+@@ -33,6 +33,7 @@
+ 
+ #ifdef USE_PNG
+ #include <png.h>
++#include <string.h>
+ #endif
+ 
+ #include "libbpg.h"

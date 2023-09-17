@@ -37,6 +37,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-add-fpic.patch
 	"${FILESDIR}"/${P}-backport-GNU-stack-note-fix.patch
 	"${FILESDIR}"/${P}-dont-strip-bins.patch
+	"${FILESDIR}"/${P}-fix-implicit-declaration.patch
 	"${FILESDIR}"/${P}-remove-forced-options.patch
 	"${FILESDIR}"/${P}-remove-unused-cmake-var.patch
 	"${FILESDIR}"/${P}-respect-compiler-driver.patch
