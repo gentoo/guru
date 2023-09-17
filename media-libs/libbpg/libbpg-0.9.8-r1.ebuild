@@ -9,7 +9,26 @@ DESCRIPTION="Better Portable Graphics reference implementation"
 HOMEPAGE="https://bellard.org/bpg/"
 SRC_URI="https://bellard.org/bpg/${P}.tar.gz"
 
-LICENSE="LGPL-2.1"
+# The BPG decoding library and executable excluding the FFMPEG code as well as
+# the BPG Javscript decoder are licensed under the MIT license.
+LICENSE="MIT"
+# The program bundles several 3rd-party libraries:
+#
+# The BPG decoding libary and executable use:
+# A modified version of FFMPEG - It is stripped of all codecs except HEVC and
+# the necessary support code and thus licensed under LGPL-2.1.
+# - libavcodec/*
+# - libavutil/*
+#
+# The BPG encoder supports the x265 library and the JCT-VC HEVC reference encoder:
+# The modified version of the x265 library - licensed under GPL-2.
+# - x265/*
+#
+# JCT-VC HEVC reference encoder - licensed under the 3-clause BSD license.
+# - jctvc/*
+LICENSE+=" LGPL-2.1 GPL-2
+	jctvc? ( BSD )
+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="bpgview jctvc"
