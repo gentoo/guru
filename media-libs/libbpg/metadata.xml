@@ -17,9 +17,7 @@
 	</upstream>
 	<use>
 		<!-- useflag description copied from the Makefile -->
-		<flag name="x265">Enable x265 for the encoder</flag>
 		<flag name="bpgview">Compile bpgview (<pkg>media-libs/libsdl</pkg> and <pkg>media-libs/sdl-image</pkg> needed)</flag>
 		<flag name="jctvc">Enable the JCTVC code (best quality but slow) for the encoder</flag>
-		<flag name="emcc">Enable compilation of Javascript decoder with Emscripten</flag>
 	</use>
 </pkgmetadata>
