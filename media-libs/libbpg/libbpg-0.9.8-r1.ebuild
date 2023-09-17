@@ -40,6 +40,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-dont-strip-bins.patch
 	"${FILESDIR}"/${P}-remove-forced-options.patch
 	"${FILESDIR}"/${P}-remove-unused-cmake-var.patch
+	"${FILESDIR}"/${P}-respect-user-flags.patch
 )
 
 # Libnuma is a dependency of the default (x265) encoder.
