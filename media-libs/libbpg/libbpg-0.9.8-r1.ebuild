@@ -90,8 +90,9 @@ src_compile() {
 }
 
 src_install() {
-	mkdir -p "${D}"/usr/bin
-	emake prefix="${D}"/usr install
+	mkdir -p "${ED}"/usr/bin || die
+	# We never called configure with --prefix="${EPREFIX}"/usr or similar
+	emake prefix="${ED}"/usr install
 
 	if use bpgview; then
 		dobin bpgview
