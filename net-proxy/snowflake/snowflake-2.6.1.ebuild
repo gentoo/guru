@@ -5,13 +5,16 @@ EAPI=8
 
 inherit go-module systemd
 
-JOB_ID="222736"
+MY_PV="v${PV}"
+MY_P="${PN}-${MY_PV}"
+
+JOB_ID="363325"
 DESCRIPTION="Pluggable Transport using WebRTC, inspired by Flashproxy"
 HOMEPAGE="
 	https://snowflake.torproject.org/
 	https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake
 "
-SRC_URI="https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/${PN}/-/jobs/${JOB_ID}/artifacts/raw/${P}.tar.gz"
+SRC_URI="https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/${PN}/-/jobs/${JOB_ID}/artifacts/raw/${MY_P}.tar.gz"
 
 LICENSE="Apache-2.0 BSD BSD-2 CC0-1.0 MIT"
 SLOT="0"
