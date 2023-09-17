@@ -1,7 +1,7 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
@@ -27,8 +27,8 @@ BDEPEND="
 	media-video/ffmpeg
 	media-libs/libpng
 	media-libs/libjpeg-turbo
-	bpgview? ( media-libs/sdl-image )
-	bpgview? ( media-libs/libsdl )
+	bpgview? ( media-libs/sdl-image
+				media-libs/libsdl )
 	dev-lang/yasm
 "
 
