@@ -34,10 +34,11 @@ KEYWORDS="~amd64 ~x86"
 IUSE="bpgview jctvc"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-remove-forced-options.patch
-	"${FILESDIR}"/${P}-dont-strip-bins.patch
 	"${FILESDIR}"/${P}-add-chost.patch
 	"${FILESDIR}"/${P}-add-fpic.patch
+	"${FILESDIR}"/${P}-dont-strip-bins.patch
+	"${FILESDIR}"/${P}-remove-forced-options.patch
+	"${FILESDIR}"/${P}-remove-unused-cmake-var.patch
 )
 
 # Libnuma is a dependency of the default (x265) encoder.
