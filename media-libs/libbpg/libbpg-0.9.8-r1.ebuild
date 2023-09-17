@@ -12,7 +12,7 @@ SRC_URI="https://bellard.org/bpg/${P}.tar.gz"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+x265 bpgview jctvc emcc static-libs"
+IUSE="bpgview jctvc"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-remove-forced-options.patch
@@ -20,21 +20,23 @@ PATCHES=(
 	"${FILESDIR}"/${P}-add-chost.patch
 	"${FILESDIR}"/${P}-add-fpic.patch
 )
+
+# Libnuma is a dependency of the default (x265) encoder.
 DEPEND="
 	media-libs/libjpeg-turbo:=
 	media-libs/libpng:=
-	x265? ( sys-process/numactl )
+	sys-process/numactl
 	bpgview? (
 				media-libs/sdl-image
 				media-libs/libsdl
 			 )
 "
 RDEPEND="${DEPEND}"
+# Strictly speaking, these are the default (x265) encoder's build time
+# dependencies.
 BDEPEND="
-	x265? (
-			dev-lang/yasm
-			dev-util/cmake
-		  )
+	dev-lang/yasm
+	dev-util/cmake
 "
 
 src_prepare() {
@@ -58,10 +60,9 @@ EOF
 
 src_compile() {
 	emake \
-		$(usex x265 USE_X265=y '') \
+		USE_X265=y \
 		$(usex bpgview USE_BPGVIEW=y '') \
 		$(usex jctvc USE_JCTVC=y '') \
-		$(usex emcc USE_EMCC=y '') \
 		CXX="$(tc-getCXX)" \
 		CC="$(tc-getCC)"
 }
@@ -74,12 +75,10 @@ src_install() {
 		dobin bpgview
 	fi
 
-	if use static-libs; then
-		dolib.a libbpg.a
-		doheader libbpg.h
-		doheader bpgenc.h
+	dolib.a libbpg.a
+	doheader libbpg.h
+	doheader bpgenc.h
 
-		insinto /usr/$(get_libdir)/pkgconfig
-		doins ${PN}.pc
-	fi
+	insinto /usr/$(get_libdir)/pkgconfig
+	doins ${PN}.pc
 }
