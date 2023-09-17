@@ -93,14 +93,14 @@ src_install() {
 	mkdir -p "${ED}"/usr/bin || die
 	# We never called configure with --prefix="${EPREFIX}"/usr or similar
 	emake prefix="${ED}"/usr install
+	einstalldocs
 
 	if use bpgview; then
 		dobin bpgview
 	fi
 
 	dolib.a libbpg.a
-	doheader libbpg.h
-	doheader bpgenc.h
+	doheader libbpg.h bpgenc.h
 
 	insinto /usr/$(get_libdir)/pkgconfig
 	doins ${PN}.pc
