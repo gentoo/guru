@@ -34,12 +34,12 @@ KEYWORDS="~amd64 ~x86"
 IUSE="bpgview jctvc"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-add-chost.patch
 	"${FILESDIR}"/${P}-add-fpic.patch
 	"${FILESDIR}"/${P}-backport-GNU-stack-note-fix.patch
 	"${FILESDIR}"/${P}-dont-strip-bins.patch
 	"${FILESDIR}"/${P}-remove-forced-options.patch
 	"${FILESDIR}"/${P}-remove-unused-cmake-var.patch
+	"${FILESDIR}"/${P}-respect-compiler-driver.patch
 	"${FILESDIR}"/${P}-respect-user-flags.patch
 )
 
@@ -81,12 +81,11 @@ EOF
 }
 
 src_compile() {
+	tc-export AR CC CXX
 	emake \
 		USE_X265=y \
 		$(usex bpgview USE_BPGVIEW=y '') \
-		$(usex jctvc USE_JCTVC=y '') \
-		CXX="$(tc-getCXX)" \
-		CC="$(tc-getCC)"
+		$(usex jctvc USE_JCTVC=y '')
 }
 
 src_install() {

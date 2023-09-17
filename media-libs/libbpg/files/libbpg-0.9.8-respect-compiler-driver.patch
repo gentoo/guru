@@ -1,0 +1,23 @@
+Honor AR, CC and CXX from the user enviroment instead of relying on
+${CHOST}-driver though it may be correct most of the time.
+Author: Lucio Sauer <watermanpaint@posteo.net>
+--- a/Makefile
++++ b/Makefile
+@@ -27,13 +27,13 @@ CROSS_PREFIX:=x86_64-w64-mingw32-
+ #CROSS_PREFIX=i686-w64-mingw32-
+ EXE:=.exe
+ else
+-CROSS_PREFIX:=
++CROSS_PREFIX:=${CHOST}-
+ EXE:=
+ endif
+ 
+-CC=$(CROSS_PREFIX)gcc
+-CXX=$(CROSS_PREFIX)g++
+-AR=$(CROSS_PREFIX)ar
++CC ?= $(CROSS_PREFIX)gcc
++CXX ?= $(CROSS_PREFIX)g++
++AR ?= $(CROSS_PREFIX)ar
+ EMCC=emcc
+ 
+ PWD:=$(shell pwd)
