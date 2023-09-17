@@ -1,0 +1,24 @@
+Excerpt of a commit in media-libs/x265. If the GNU stack note is not added the
+GNU linker assumes the stack is executable by default.
+commit 3b49d65f07ce07c68c88fa2ddfbaab295a28ca0b
+Author: Vignesh Vijayakumar <vignesh@multicorewareinc.com>
+Date:   Thu Nov 2 09:40:41 2017 +0530
+
+    x86: Change assembler from YASM to NASM
+
+    Supports NASM versions 2.13 and greater
+--- a/x265/source/common/x86/x86inc.asm
++++ b/x265/source/common/x86/x86inc.asm
+@@ -724,6 +724,12 @@ BRANCH_INSTR jz, je, jnz, jne, jl, jle, jnl, jnle, jg, jge, jng, jnge, ja, jae,
+ %ifidn __OUTPUT_FORMAT__,elf
+ SECTION .note.GNU-stack noalloc noexec nowrite progbits
+ %endif
++%ifidn __OUTPUT_FORMAT__,elf32
++section .note.GNU-stack noalloc noexec nowrite progbits
++%endif
++%ifidn __OUTPUT_FORMAT__,elf64
++section .note.GNU-stack noalloc noexec nowrite progbits
++%endif
+ 
+ ; cpuflags
+ 
