@@ -55,7 +55,7 @@ SRC_URI="https://easyrpg.org/downloads/player/${PV}/${P}.tar.xz"
 # The upstream tarball contains also "Teenyicons", under the MIT license,
 # but those are used only for Emscripten builds.
 
-LICENSE="Baekmuk CC-BY-4.0 GPL-2+-with-font-exception GPL-3+ public-domain
+LICENSE="BAEKMUK CC-BY-4.0 GPL-2+-with-font-exception GPL-3+ public-domain
 	TTYP0 Unlicense || ( MIT-0 public-domain )"
 SLOT="0"
 
