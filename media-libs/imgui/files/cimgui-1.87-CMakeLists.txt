@@ -43,13 +43,22 @@ if(IMGUI_VULKAN)
 	list(APPEND GENERATOR_ARGS vulkan)
 endif()
 list(APPEND GENERATOR_ARGS ${IMGUI_COMMON_FLAGS} ${CMAKE_CPP_FLAGS})
-file(GLOB GENERATOR_OUTPUT_FILES "${CMAKE_SOURCE_DIR}/generator/output/*")
-list(APPEND
-	GENERATOR_OUTPUT_FILES
+set(CIMGUI_EXTRA_STUFF
+	${CMAKE_SOURCE_DIR}/generator/output/definitions.json
+	${CMAKE_SOURCE_DIR}/generator/output/definitions.lua
+	${CMAKE_SOURCE_DIR}/generator/output/impl_definitions.json
+	${CMAKE_SOURCE_DIR}/generator/output/impl_definitions.lua
+	${CMAKE_SOURCE_DIR}/generator/output/overloads.txt
+	${CMAKE_SOURCE_DIR}/generator/output/structs_and_enums.json
+	${CMAKE_SOURCE_DIR}/generator/output/structs_and_enums.lua
+	${CMAKE_SOURCE_DIR}/generator/output/typedefs_dict.json
+	${CMAKE_SOURCE_DIR}/generator/output/typedefs_dict.lua
+)
+set(GENERATOR_OUTPUT_FILES
 	${CMAKE_SOURCE_DIR}/cimgui.cpp
 	${CMAKE_SOURCE_DIR}/cimgui.h
-	${CMAKE_SOURCE_DIR}/generator/output/cimgui_nopreprocess.cpp
-	${CMAKE_SOURCE_DIR}/generator/output/cimgui_nopreprocess.h
+	${CMAKE_SOURCE_DIR}/generator/output/cimgui_impl.h
+	${CIMGUI_EXTRA_STUFF}
 )
 ADD_CUSTOM_COMMAND(VERBATIM
 	OUTPUT ${GENERATOR_OUTPUT_FILES}
@@ -57,7 +66,10 @@ ADD_CUSTOM_COMMAND(VERBATIM
 	WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/generator"
 )
 set(CIMGUI_SOURCES "${CMAKE_SOURCE_DIR}/cimgui.cpp")
-set(CIMGUI_INCLUDE_FILES "${CMAKE_SOURCE_DIR}/cimgui.h")
+set(CIMGUI_INCLUDE_FILES
+	"${CMAKE_SOURCE_DIR}/cimgui.h"
+	"${CMAKE_SOURCE_DIR}/generator/output/cimgui_impl.h"
+)
 
 target_sources(cimgui
 	PUBLIC
@@ -70,6 +82,7 @@ include(GNUInstallDirs)
 #install
 install(TARGETS cimgui LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
 install(FILES ${CIMGUI_INCLUDE_FILES} DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/imgui")
+install(FILES ${CIMGUI_EXTRA_STUFF} DESTINATION "${CMAKE_INSTALL_DATADIR}/cimgui")
 
 #test
 set(CIMGUI_TEST "no" CACHE STRING "Enable compilation of a test unit based on imgui null")
@@ -78,3 +91,4 @@ if (CIMGUI_TEST)
   add_subdirectory(test)
 endif ()
 endif()
+
