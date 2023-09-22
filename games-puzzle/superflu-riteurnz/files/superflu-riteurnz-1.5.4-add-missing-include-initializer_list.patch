@@ -1,0 +1,25 @@
+From 9be5089a57c9a406ee262d3efcab42ccbf3a4db9 Mon Sep 17 00:00:00 2001
+From: "Haelwenn (lanodan) Monnier" <contact@hacktivis.me>
+Date: Fri, 22 Sep 2023 10:24:36 +0200
+Subject: [PATCH 1/2] include/Sosage/Config: Add missing #include
+ <initializer_list>
+
+---
+ include/Sosage/Config/config.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/Sosage/Config/config.h b/include/Sosage/Config/config.h
+index 828a31d..25aa95d 100644
+--- a/include/Sosage/Config/config.h
++++ b/include/Sosage/Config/config.h
+@@ -29,6 +29,7 @@
+ 
+ #include <memory>
+ #include <limits>
++#include <initializer_list>
+ 
+ namespace Sosage::Config
+ {
+-- 
+2.41.0
+
