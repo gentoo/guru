@@ -43,7 +43,12 @@ RDEPEND="
 		x11-libs/xcb-util-wm
 	)
 "
-DEPEND="${RDEPEND}"
+
+# uses <linux/input-event-codes.h>
+DEPEND="
+	${RDEPEND}
+	sys-kernel/linux-headers
+"
 BDEPEND="
 	>=dev-libs/wayland-protocols-1.32
 	dev-util/wayland-scanner
