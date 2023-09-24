@@ -5,6 +5,7 @@ EAPI=8
 
 inherit flag-o-matic savedconfig toolchain-funcs
 
+WLROOTS_SLOT="0/16"
 if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/djpohly/dwl"
 	inherit git-r3
@@ -14,7 +15,6 @@ if [[ ${PV} == *9999 ]]; then
 	case ${PVR} in
 		9999)
 			EGIT_BRANCH=main
-			WLROOTS_SLOT="0/16"
 			;;
 		9999-r1)
 			EGIT_BRANCH=wlroots-next
@@ -22,7 +22,6 @@ if [[ ${PV} == *9999 ]]; then
 			;;
 	esac
 else
-	WLROOTS_SLOT="0/16"
 	SRC_URI="https://github.com/djpohly/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
