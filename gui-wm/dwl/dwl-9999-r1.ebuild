@@ -30,7 +30,7 @@ fi
 DESCRIPTION="dwm for Wayland"
 HOMEPAGE="https://github.com/djpohly/dwl"
 
-LICENSE="CC0-1.0 GPL-3 MIT"
+LICENSE="CC0-1.0 GPL-3+ MIT"
 SLOT="0"
 IUSE="X"
 

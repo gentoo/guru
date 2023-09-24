@@ -9,7 +9,7 @@ DESCRIPTION="dwm for Wayland"
 HOMEPAGE="https://github.com/djpohly/dwl"
 SRC_URI="https://github.com/djpohly/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="CC0-1.0 GPL-3 MIT"
+LICENSE="CC0-1.0 GPL-3+ MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="X"
