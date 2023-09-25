@@ -17,7 +17,7 @@ else
 	KEYWORDS="~amd64"
 fi
 
-LICENSE="MIT-with-advertising"
+LICENSE="MIT"
 SLOT="0"
 
 RDEPEND="

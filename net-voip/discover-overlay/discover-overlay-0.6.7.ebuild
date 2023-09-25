@@ -10,7 +10,7 @@ inherit distutils-r1 xdg
 
 DESCRIPTION="Yet another Discord overlay for Linux written in Python using GTK3"
 HOMEPAGE="https://github.com/trigg/Discover"
-SRC_URI="https://github.com/trigg/Discover/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/trigg/Discover/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
