@@ -12,7 +12,7 @@ LICENSE="MIT"
 SLOT="0"
 DB_VER="5.3"
 KEYWORDS="~amd64 ~arm64"
-IUSE="cpu_flags_x86_avx2 dogecoind +pie +prune +ssp tests utils +wallet zmq"
+IUSE="dogecoind +pie +prune +ssp tests utils +wallet zmq"
 REQUIRED_USE="dogecoind? ( utils )"
 DOGEDIR="/opt/${PN}"
 DEPEND="
@@ -30,7 +30,6 @@ DEPEND="
 	dev-qt/qtnetwork
 	dev-qt/qtprintsupport
 	dev-qt/linguist-tools:=
-	cpu_flags_x86_avx2? ( app-crypt/intel-ipsec-mb )
 	wallet? ( media-gfx/qrencode )
 	zmq? ( net-libs/cppzmq )
 "
@@ -45,7 +44,7 @@ PATCHES=(
 	"${FILESDIR}"/"${PV}"-paymentserver.patch
 	"${FILESDIR}"/"${PV}"-transactiondesc.patch
 	"${FILESDIR}"/"${PV}"-deque.patch
-	"${FILESDIR}"/gcc13.patch
+	"${FILESDIR}"/gcc13.patch	
 )
 
 WORKDIR_="${WORKDIR}/dogecoin-${PV}"
@@ -72,12 +71,9 @@ src_prepare() {
 
 src_configure() {
 	local my_econf=(
-		--enable-cxx
 		--bindir="${DOGEDIR}/bin"
 		--with-gui=qt5
-		--with-qt-incdir="/usr/include/qt5"
 		--disable-bench
-		$(use_with cpu_flags_x86_avx2 intel-avx2)
 		$(use_with dogecoind daemon)
 		$(use_with utils utils)
 		$(use_enable wallet)
