@@ -1,0 +1,180 @@
+The following commit was fixed and backported from upstream. The fix adds
+a header to audio_generic_midiout.h to provide the missing definition
+of AudioDecoderMidi at compile time.
+Author: Lucio Sauer <watermanpaint@posteo.net>
+
+https://github.com/EasyRPG/Player/issues/3079
+commit 7269d325035f547907ec352bff5d39bc611abc88
+Author: Ghabry <gabriel+github@mastergk.de>
+Date:   Fri Sep 22 20:45:19 2023 +0200
+
+    GenericAudio: Make static variables instance variables
+
+    This way they are destroyed when the DisplayUi is destroyed instead of when the process terminates.
+
+    Fixes a use-after-free in the Fluidsynth Decoder.
+--- a/src/audio_generic.cpp
++++ b/src/audio_generic.cpp
+@@ -20,33 +20,21 @@
+ #include <cstring>
+ #include <cassert>
+ #include <memory>
+-#include "audio_decoder_midi.h"
+ #include "audio_generic.h"
+-#include "audio_generic_midiout.h"
+-#include "filefinder.h"
+ #include "output.h"
+ 
+-GenericAudio::BgmChannel GenericAudio::BGM_Channels[nr_of_bgm_channels];
+-GenericAudio::SeChannel GenericAudio::SE_Channels[nr_of_se_channels];
+-bool GenericAudio::BGM_PlayedOnceIndicator;
+-
+-std::vector<int16_t> GenericAudio::sample_buffer = {};
+-std::vector<uint8_t> GenericAudio::scrap_buffer = {};
+-unsigned GenericAudio::scrap_buffer_size = 0;
+-std::vector<float> GenericAudio::mixer_buffer = {};
+-
+-std::unique_ptr<GenericAudioMidiOut> GenericAudio::midi_thread;
+-
+ GenericAudio::GenericAudio(const Game_ConfigAudio& cfg) : AudioInterface(cfg) {
+ 	int i = 0;
+ 	for (auto& BGM_Channel : BGM_Channels) {
+ 		BGM_Channel.id = i++;
+ 		BGM_Channel.decoder.reset();
++		BGM_Channel.instance = this;
+ 	}
+ 	i = 0;
+ 	for (auto& SE_Channel : SE_Channels) {
+ 		SE_Channel.id = i++;
+ 		SE_Channel.decoder.reset();
++		SE_Channel.instance = this;
+ 	}
+ 	BGM_PlayedOnceIndicator = false;
+ 	midi_thread.reset();
+@@ -492,8 +480,8 @@ void GenericAudio::BgmChannel::Stop() {
+ 	stopped = true;
+ 	if (midi_out_used) {
+ 		midi_out_used = false;
+-		midi_thread->GetMidiOut().Reset();
+-		midi_thread->GetMidiOut().Pause();
++		instance->midi_thread->GetMidiOut().Reset();
++		instance->midi_thread->GetMidiOut().Pause();
+ 	} else if (decoder) {
+ 		decoder.reset();
+ 	}
+@@ -503,16 +491,16 @@ void GenericAudio::BgmChannel::SetPaused(bool newPaused) {
+ 	paused = newPaused;
+ 	if (midi_out_used) {
+ 		if (newPaused) {
+-			midi_thread->GetMidiOut().Pause();
++			instance->midi_thread->GetMidiOut().Pause();
+ 		} else {
+-			midi_thread->GetMidiOut().Resume();
++			instance->midi_thread->GetMidiOut().Resume();
+ 		}
+ 	}
+ }
+ 
+ int GenericAudio::BgmChannel::GetTicks() const {
+ 	if (midi_out_used) {
+-		return midi_thread->GetMidiOut().GetTicks();
++		return instance->midi_thread->GetMidiOut().GetTicks();
+ 	} else if (decoder) {
+ 		return decoder->GetTicks();
+ 	}
+@@ -521,7 +509,7 @@ int GenericAudio::BgmChannel::GetTicks() const {
+ 
+ void GenericAudio::BgmChannel::SetFade(int fade) {
+ 	if (midi_out_used) {
+-		midi_thread->GetMidiOut().SetFade(0, std::chrono::milliseconds(fade));
++		instance->midi_thread->GetMidiOut().SetFade(0, std::chrono::milliseconds(fade));
+ 	} else if (decoder) {
+ 		decoder->SetFade(0, std::chrono::milliseconds(fade));
+ 	}
+@@ -529,7 +517,7 @@ void GenericAudio::BgmChannel::SetFade(int fade) {
+ 
+ void GenericAudio::BgmChannel::SetVolume(int volume) {
+ 	if (midi_out_used) {
+-		midi_thread->GetMidiOut().SetVolume(volume);
++		instance->midi_thread->GetMidiOut().SetVolume(volume);
+ 	} else if (decoder) {
+ 		decoder->SetVolume(volume);
+ 	}
+@@ -537,7 +525,7 @@ void GenericAudio::BgmChannel::SetVolume(int volume) {
+ 
+ void GenericAudio::BgmChannel::SetPitch(int pitch) {
+ 	if (midi_out_used) {
+-		midi_thread->GetMidiOut().SetPitch(pitch);
++		instance->midi_thread->GetMidiOut().SetPitch(pitch);
+ 	} else if (decoder) {
+ 		decoder->SetPitch(pitch);
+ 	}
+old mode 100644
+new mode 100755
+--- a/src/audio_generic.h
++++ b/src/audio_generic.h
+@@ -21,10 +21,9 @@
+ #include "audio.h"
+ #include "audio_secache.h"
+ #include "audio_decoder_base.h"
++#include "audio_generic_midiout.h"
+ #include <memory>
+ 
+-class GenericAudioMidiOut;
+-
+ /**
+  * A software implementation for handling EasyRPG Audio utilizing the
+  * AudioDecoder for BGM and AudioSeCache for fast SE playback.
+@@ -73,6 +72,7 @@ private:
+ 	struct BgmChannel {
+ 		int id;
+ 		std::unique_ptr<AudioDecoderBase> decoder;
++		GenericAudio* instance = nullptr;
+ 		bool paused;
+ 		bool stopped;
+ 		bool midi_out_used = false;
+@@ -87,6 +87,7 @@ private:
+ 	struct SeChannel {
+ 		int id;
+ 		std::unique_ptr<AudioDecoderBase> decoder;
++		GenericAudio* instance = nullptr;
+ 		bool paused;
+ 		bool stopped;
+ 	};
+@@ -103,17 +104,17 @@ private:
+ 	static constexpr unsigned nr_of_se_channels = 31;
+ 	static constexpr unsigned nr_of_bgm_channels = 2;
+ 
+-	static BgmChannel BGM_Channels[nr_of_bgm_channels];
+-	static SeChannel SE_Channels[nr_of_se_channels];
+-	static bool BGM_PlayedOnceIndicator;
+-	static bool Muted;
++	BgmChannel BGM_Channels[nr_of_bgm_channels];
++	SeChannel SE_Channels[nr_of_se_channels];
++	mutable bool BGM_PlayedOnceIndicator;
++	bool Muted;
+ 
+-	static std::vector<int16_t> sample_buffer;
+-	static std::vector<uint8_t> scrap_buffer;
+-	static unsigned scrap_buffer_size;
+-	static std::vector<float> mixer_buffer;
++	std::vector<int16_t> sample_buffer = {};
++	std::vector<uint8_t> scrap_buffer = {};
++	unsigned scrap_buffer_size = 0;
++	std::vector<float> mixer_buffer = {};
+ 
+-	static std::unique_ptr<GenericAudioMidiOut> midi_thread;
++	std::unique_ptr<GenericAudioMidiOut> midi_thread;
+ };
+ 
+ #endif
+--- a/src/audio_generic_midiout.h
++++ b/src/audio_generic_midiout.h
+@@ -19,6 +19,7 @@
+ #define EP_AUDIO_GENERIC_MIDITHREAD_H
+ 
+ #include <memory>
++#include "audio_decoder_midi.h"
+ #include "system.h"
+ 
+ class AudioDecoderMidi;
