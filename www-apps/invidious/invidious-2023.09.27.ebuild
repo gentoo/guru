@@ -5,7 +5,7 @@ EAPI=8
 
 inherit check-reqs shards systemd
 
-COMMIT="507bed6313b49564e53b69a5c9b4d072d1e05e4b"
+COMMIT="bb14f794969f62582917a39c2dd57bf92fa146a7"
 MOCKS_COMMIT="11ec372f72747c09d48ffef04843f72be67d5b54"
 MOCKS_P="${PN}-mocks-${MOCKS_COMMIT:0:7}"
 DESCRIPTION="Invidious is an alternative front-end to YouTube"
@@ -45,7 +45,7 @@ COMMON_DEPEND="
 	dev-libs/libpcre2:=
 	dev-libs/libxml2:2
 	dev-libs/libyaml
-	<dev-libs/openssl-3:=
+	dev-libs/openssl:=
 	sys-libs/zlib:=
 "
 RDEPEND="${COMMON_DEPEND}
