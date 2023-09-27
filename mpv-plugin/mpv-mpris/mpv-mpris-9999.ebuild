@@ -22,7 +22,7 @@ IUSE="test"
 
 RDEPEND="
 	dev-libs/glib:2
-	media-video/ffmpeg
+	media-video/ffmpeg:=
 "
 DEPEND="${RDEPEND}"
 # temporary dep for tests on media-video/mpv due to https://github.com/mpv-player/mpv/pull/11468
