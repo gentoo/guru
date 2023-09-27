@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit font
 
 DESCRIPTION="Pan-CJK OpenType/CFF mono font family"
-HOMEPAGE="https://github.com/adobe-fonts/source-han-serif/"
+HOMEPAGE="https://github.com/adobe-fonts/source-han-mono"
 SRC_URI="https://github.com/adobe-fonts/${PN}/releases/download/${PV}/SourceHanMono.ttc -> ${P}.ttc"
 S=${WORKDIR}
 
