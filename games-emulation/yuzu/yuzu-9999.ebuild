@@ -46,7 +46,7 @@ RDEPEND="
 	system-libfmt? ( >=dev-libs/libfmt-9:= )
 "
 DEPEND="${RDEPEND}
-	<=dev-cpp/cpp-httplib-0.13.0
+	dev-cpp/cpp-httplib
 	dev-cpp/cpp-jwt
 	system-vulkan? ( >=dev-util/vulkan-headers-1.3.250
 		dev-util/spirv-headers )
@@ -123,7 +123,7 @@ src_prepare() {
 	sed -i '/^if.*cubeb/,/^endif()/d' externals/CMakeLists.txt || die
 
 	# Unbundle cpp-httplib
-	sed -i -e '/httplib/s/ 0.11//' CMakeLists.txt || die
+	sed -i -e '/httplib/s/ 0.12//' CMakeLists.txt || die
 	sed -i -e '/^# httplib/,/^endif()/d' externals/CMakeLists.txt || die
 
 	# Unbundle enet
