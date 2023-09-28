@@ -67,10 +67,8 @@ pkg_setup() {
 }
 
 src_prepare() {
-	if tc-is-clang ; then
-		eapply "${FILESDIR}/xdg-desktop-portal-hyprland-1.1.0_fix_clang.patch"
-		default
-	fi
+	eapply "${FILESDIR}/xdg-desktop-portal-hyprland-1.1.0_fix_clang.patch"
+	default
 }
 
 src_compile() {
