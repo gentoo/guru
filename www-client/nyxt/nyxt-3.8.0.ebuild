@@ -55,7 +55,6 @@ src_unpack() {
 		mv "${WORKDIR}/_build" "${WORKDIR}/${P}/" || die
 		mv "${WORKDIR}/build-scripts" "${WORKDIR}/${P}/" || die
 		mv "${WORKDIR}/documents" "${WORKDIR}/${P}/" || die
-		mv "${WORKDIR}/engineer.atlas.Nyxt.yaml" "${WORKDIR}/${P}/" || die
 		mv "${WORKDIR}/examples" "${WORKDIR}/${P}/" || die
 		mv "${WORKDIR}/INSTALL" "${WORKDIR}/${P}/" || die
 		mv "${WORKDIR}/libraries" "${WORKDIR}/${P}/" || die
