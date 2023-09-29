@@ -49,7 +49,7 @@ BDEPEND="
 	>=dev-libs/wayland-protocols-1.24
 	dev-libs/hyprland-protocols
 	virtual/pkgconfig
-  || ( >=sys-devel/gcc-13:* >=sys-devel/clang-17:* )
+	|| ( >=sys-devel/gcc-13:* >=sys-devel/clang-17:* )
 "
 
 pkg_setup() {
