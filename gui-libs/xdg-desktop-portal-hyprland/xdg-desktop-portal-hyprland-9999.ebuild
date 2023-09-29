@@ -49,21 +49,20 @@ BDEPEND="
 	>=dev-libs/wayland-protocols-1.24
 	dev-libs/hyprland-protocols
 	virtual/pkgconfig
+  || ( >=sys-devel/gcc-13:* >=sys-devel/clang-17:* )
 "
 
 pkg_setup() {
 		[[ ${MERGE_TYPE} == binary ]] && return
 
-	if tc-is-gcc; then
-		STDLIBVER=$(echo '#include <string>' | $(tc-getCXX) -x c++ -dM -E - | \
-					grep GLIBCXX_RELEASE | sed 's/.*\([1-9][0-9]\)/\1/')
-
-		if [[ ${STDLIBVER} -lt 13 ]]; then
-			die "XDPH requires >=sys-devel/gcc-13.0.0 to build"
-		fi
-	else
-		die "XDPH 1.1.0 won't build with clang.\
-		See: https://github.com/hyprwm/xdg-desktop-portal-hyprland/issues/81";
+	if tc-is-gcc && ver_test $(gcc-version) -lt 13 ; then
+		eerror "XDPH needs >=gcc-13 or >=clang-17 to compile."
+		eerror "Please upgrade GCC: emerge -v1 sys-devel/gcc"
+		die "GCC version is too old to compile XDPH!"
+	elif tc-is-clang && ver_test $(clang-version) -lt 17 ; then
+		eerror "XDPH needs >=gcc-13 or >=clang-17 to compile."
+		eerror "Please upgrade Clang: emerge -v1 sys-devel/clang"
+		die "Clang version is too old to compile XDPH!"
 	fi
 }
 
