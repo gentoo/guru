@@ -2,8 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer type="person">
-    <email>mustafasalih1991@gmail.com</email>
-    <name>Mustafa Salih</name>
+    <email>rmicielski@purelymail.com</email>
+    <name>Remigiusz Micielski</name>
   </maintainer>
   <upstream>
     <bugs-to>https://github.com/qarmin/szyszka/issues</bugs-to>
