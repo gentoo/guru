@@ -55,7 +55,7 @@ BDEPEND="
 pkg_setup() {
 		[[ ${MERGE_TYPE} == binary ]] && return
 
-	if tc-is-gcc && ver_test $(gcc-version) -lt 11 ; then
+	if tc-is-gcc && ver_test $(gcc-version) -lt 13 ; then
 		eerror "XDPH needs >=gcc-13 to compile."
 		eerror "Please upgrade GCC: emerge -v1 sys-devel/gcc"
 		die "GCC version is too old to compile XDPH!"
