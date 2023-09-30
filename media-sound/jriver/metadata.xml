@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person" proxied="yes">
+		<email>zdanevich.vitaly@ya.ru</email>
+		<name>Vitaly Zdanevich</name>
+	</maintainer>
+	<longdescription lang="en">
+JRiver Media Center is a multimedia application that allows the user to play and organize various types of media on a computer running Windows, macOS, or Linux operating systems. 
+
+JRiver Media Center is a "jukebox"-style media player, like iTunes, which usually uses most of the screen to display a potentially very large library of files.
+
+DLNA server/renderer/control point.
+
+See more at https://en.wikipedia.org/wiki/JRiver_Media_Center
+	</longdescription>
+</pkgmetadata>
