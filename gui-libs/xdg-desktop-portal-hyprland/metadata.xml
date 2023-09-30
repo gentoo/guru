@@ -5,6 +5,10 @@
 		<email>rmicielski@purelymail.com</email>
 		<name>Remigiusz Micielski</name>
 	</maintainer>
+	<maintainer type="person">
+		<email>mia@xenialinux.com</email>
+		<name>Mia Neufeld</name>
+	</maintainer>
 	<upstream>
 		<doc lang="en">https://wiki.hyprland.org/hyprland-wiki/pages/Useful-Utilities/Hyprland-desktop-portal/</doc>
 		<remote-id type="github">hyprwm/xdg-desktop-portal-hyprland</remote-id>
