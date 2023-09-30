@@ -1,0 +1,54 @@
+# Copyright 2021-2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+inherit cmake desktop
+
+DESCRIPTION="Alternative Discord client using GTK instead of Electron"
+HOMEPAGE="https://github.com/uowuo/abaddon"
+SRC_URI="
+	https://github.com/uowuo/abaddon/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
+"
+
+LICENSE="GPL-3"
+SLOT="0"
+KEYWORDS="~amd64 ~x86"
+IUSE="+libhandy +rnnoise"
+
+RDEPEND="
+	>=net-libs/ixwebsocket-11.0.8
+	dev-cpp/gtkmm:3.0=
+	dev-db/sqlite:3
+	dev-libs/miniaudio
+	net-misc/curl
+	sys-libs/zlib:=
+	libhandy? ( gui-libs/libhandy:= )
+	rnnoise? ( media-libs/rnnoise )
+"
+DEPEND="
+	${RDEPEND}
+	dev-cpp/nlohmann_json
+"
+
+src_configure() {
+	# Disable keychain because there's currently
+	# no package for it in ::guru or ::gentoo
+	# also disable QRCODE, for the same reason
+	local mycmakeargs=(
+		-DUSE_LIBHANDY="$(usex libhandy)"
+		-DENABLE_RNNOISE="$(usex rnnoise)"
+	  -DUSE_KEYCHAIN="no"
+		-DENABLE_QRCODE_LOGIN="no"
+	)
+	cmake_src_configure
+}
+
+src_install() {
+	dobin "${BUILD_DIR}"/abaddon
+
+	insinto /usr/share/${PN}
+	doins -r res/*
+
+	make_desktop_entry /usr/bin/${PN}
+}

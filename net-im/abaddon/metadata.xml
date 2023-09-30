@@ -7,6 +7,7 @@
 	</maintainer>
 	<use>
 		<flag name="libhandy">Support for features using gui-libs/libhandy</flag>
+		<flag name="rnnoise">Support for noise reduction using media-libs/rnnoise</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">uowuo/abaddon</remote-id>
