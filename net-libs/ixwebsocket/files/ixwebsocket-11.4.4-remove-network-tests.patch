@@ -1,0 +1,28 @@
+diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
+index c2fa943..15e3136 100644
+--- a/test/CMakeLists.txt
++++ b/test/CMakeLists.txt
+@@ -11,7 +11,6 @@ option(USE_TLS "Add TLS support" ON)
+ 
+ # Shared sources
+ set (TEST_TARGET_NAMES
+-  IXSocketTest
+   IXSocketConnectTest
+   IXWebSocketServerTest
+   IXWebSocketTestConnectionDisconnection
+@@ -19,7 +18,6 @@ set (TEST_TARGET_NAMES
+   # IXHttpClientTest ## FIXME httpbin.org does not seem normal
+   IXUnityBuildsTest
+   IXHttpTest
+-  IXDNSLookupTest
+   IXWebSocketSubProtocolTest
+   # IXWebSocketBroadcastTest ## FIXME was depending on cobra / take a broadcast server from ws
+   IXStrCaseCompareTest
+@@ -33,7 +31,6 @@ if (UNIX)
+   list(APPEND TEST_TARGET_NAMES
+     # Fail on Windows in CI probably because the pathing is wrong and
+     # some resource files cannot be found
+-    IXHttpServerTest
+     IXWebSocketChatTest
+   )
+ endif()
