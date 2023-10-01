@@ -7,13 +7,19 @@ inherit cmake desktop
 
 DESCRIPTION="Alternative Discord client using GTK instead of Electron"
 HOMEPAGE="https://github.com/uowuo/abaddon"
-SRC_URI="
-	https://github.com/uowuo/abaddon/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
-"
+
+if [[ ${PV} == 9999 ]]; then
+	EGIT_REPO_URI="https://github.com/uowuo/abaddon.git"
+	# All dependencies are provided by portage
+	EGIT_SUBMODULES=()
+	inherit git-r3
+else
+	KEYWORDS="~amd64 ~x86"
+	SRC_URI="https://github.com/uowuo/abaddon/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+fi
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 IUSE="+libhandy +rnnoise"
 
 RDEPEND="
