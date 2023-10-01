@@ -12,7 +12,7 @@ LICENSE="MIT"
 SLOT="0"
 DB_VER="5.3"
 KEYWORDS="~amd64 ~arm64"
-IUSE="dogecoind +pie +prune +ssp tests utils +wallet zmq"
+IUSE="cpu_flags_x86_avx2 dogecoind +pie +prune +ssp tests utils +wallet zmq"
 REQUIRED_USE="dogecoind? ( utils )"
 DOGEDIR="/opt/${PN}"
 DEPEND="
@@ -30,6 +30,7 @@ DEPEND="
 	dev-qt/qtnetwork
 	dev-qt/qtprintsupport
 	dev-qt/linguist-tools:=
+	cpu_flags_x86_avx2? ( app-crypt/intel-ipsec-mb )
 	wallet? ( media-gfx/qrencode )
 	zmq? ( net-libs/cppzmq )
 "
@@ -49,6 +50,16 @@ PATCHES=(
 
 WORKDIR_="${WORKDIR}/dogecoin-${PV}"
 S=${WORKDIR_}
+
+pkg_pretend() {
+
+	if use cpu_flags_x86_avx2 && [[ ! -e "${ROOT}"/etc/portage/patches/app-crypt/intel-ipsec-mb/remove_digest_init.patch ]]; then
+		eerror "${ROOT}/etc/portage/patches/app-crypt/intel-ipsec-mb/remove_digest_init.patch does not exist!"
+		eerror "To build with avx2 intel support, please create ${ROOT}/etc/portage/patches/app-crypt/intel-ipsec-mb directory"
+		eerror "and copy patch from package net-p2p/dogecoin-qt/files/intel-ipsec-mb/remove_digest_init.patch into that directory"
+		die     
+	fi
+}
 
 src_prepare() {
 
@@ -74,6 +85,7 @@ src_configure() {
 		--bindir="${DOGEDIR}/bin"
 		--with-gui=qt5
 		--disable-bench
+		$(use_with cpu_flags_x86_avx2 intel-avx2)
 		$(use_with dogecoind daemon)
 		$(use_with utils utils)
 		$(use_enable wallet)
