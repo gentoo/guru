@@ -1,7 +1,7 @@
-# Copyright 2021-2022 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit desktop xdg-utils savedconfig toolchain-funcs linux-info
 
@@ -43,8 +43,8 @@ src_prepare() {
 }
 
 src_configure() {
-	sed -i -e '/^install: / s|: all|:|' Makefile || die "sed failed"
-	sed -i -e 's|^CFLAGS =|CFLAGS +=|' config.mk || die "sed failed"
+	sed -i -e '/^install: / s|: all|:|' Makefile || die
+	sed -i -e 's|^CFLAGS =|CFLAGS +=|;s|-O2 ||;' config.mk || die
 }
 
 src_compile() {
