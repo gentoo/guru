@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>mva@gentoo.org</email>
+    <name>Vadim Misbakh-Soloviov</name>
+    <description>IRC: mva@libera; TG: @mva_name; (currently I'll probably not respond via jabber because tons of spam)</description>
+  </maintainer>
+  <maintainer type="person">
+    <email>alex@ws54.tk</email>
+    <name>Alexander Golikov</name>
+    <description>
+      If you have any issues, please contact me via e-mail or jabber (same)
+    </description>
+  </maintainer>
+  <longdescription>Yandex Browser is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.</longdescription>
+  <use>
+    <flag name="ffmpeg-codecs">Use <pkg>www-plugins/yandex-browser-ffmpeg-codecs-bin</pkg> for multi-threaded ffmpeg codecs for the HTML5 &lt;audio&gt; and &lt;video&gt; tags</flag>
+  </use>
+</pkgmetadata>
