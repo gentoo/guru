@@ -5,14 +5,33 @@
 		<name>John-Henry Lim</name>
 		<email>johnhenrylim12@gmail.com</email>
 	</maintainer>
+	<maintainer type="person">
+		<name>Filip Štamcar</name>
+		<email>projects@filips.si</email>
+	</maintainer>
+	<longdescription>
+		Progressive Web Apps (PWAs) are web apps that use web APIs and features along
+		with progressive enhancement strategy to bring a native app-like user
+		experience to cross-platform web applications. Although Firefox supports many
+		of Progressive Web App APIs, it does not support functionality to install them
+		as a standalone system app with an app-like experience.
+
+		This project creates a custom modified Firefox runtime to allow websites to be
+		installed as standalone apps and provides a console tool and browser extension
+		to install, manage and use them.
+
+		This package contains only the native part of the PWAsForFirefox project. You
+		should also install the browser extension if you haven&apos;t already. You can
+		download it from &lt;https://addons.mozilla.org/firefox/addon/pwas-for-firefox/&gt;.
+	</longdescription>
 	<use>
-		<flag name="lto">Enable Link Time Optimization (LTO)</flag>
+		<flag name="lto">Enable Link Time Optimization (LTO).</flag>
 		<flag name="custom-cflags">Disable the default use of clang and lld with LTO and all other manipulations of CFLAGS. Disabling this may cause the build and/or LTO to fail.</flag>
 	</use>
 	<upstream>
 		<maintainer>
-			<name>Filip Stamcar</name>
-			<email>info@filips.si</email>
+			<name>Filip Štamcar</name>
+			<email>projects@filips.si</email>
 		</maintainer>
 		<bugs-to>https://github.com/filips123/PWAsForFirefox/issues</bugs-to>
 		<changelog>https://github.com/filips123/PWAsForFirefox/releases</changelog>
