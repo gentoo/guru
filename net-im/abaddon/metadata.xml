@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<name>Adrian Schollmeyer</name>
-		<email>nex+b-g-o@nexadn.de</email>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<use>
 		<flag name="libhandy">Support for features using gui-libs/libhandy</flag>
 		<flag name="rnnoise">Support for noise reduction using media-libs/rnnoise</flag>
