@@ -12,7 +12,7 @@ KEYWORDS="~amd64"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="X mpd pulseaudio"
+IUSE="X mpd pulseaudio alsa"
 
 COMMON_DEPEND="
 	dev-libs/glib:2
@@ -23,6 +23,7 @@ COMMON_DEPEND="
 	X? ( x11-libs/libxkbcommon )
 	mpd? ( media-libs/libmpdclient )
 	pulseaudio? ( media-libs/libpulse[glib] )
+	alsa? ( media-libs/alsa-lib )
 "
 RDEPEND="${COMMON_DEPEND}
 	virtual/freedesktop-icon-theme
@@ -34,10 +35,14 @@ BDEPEND="dev-util/wayland-scanner"
 
 src_configure() {
 	local emesonargs=(
+		$(meson_feature alsa)
 		$(meson_feature mpd)
 		$(meson_feature pulseaudio pulse)
 		$(meson_feature X xkb)
 		-Dnetwork=enabled
+		-Didleinhibit=enabled
+		-Dbluez=enabled
+		-Dbsdctl=disabled
 	)
 
 	meson_src_configure
