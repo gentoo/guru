@@ -1,0 +1,12 @@
+Tests should fail if mypy fails to find the stubs that are to be tested.
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -1,7 +1,7 @@
+ [mypy]
+ check_untyped_defs = True
+ ignore_errors = False
+-ignore_missing_imports = True
++ignore_missing_imports = False
+ strict_optional = True
+ no_error_summary = True
+ no_color_output = True
