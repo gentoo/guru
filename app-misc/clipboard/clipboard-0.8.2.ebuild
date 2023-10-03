@@ -31,9 +31,9 @@ S="${WORKDIR}/${MY_P}"
 src_configure() {
 	local mycmakeargs=(
 	"-DCMAKE_INSTALL_LIBDIR=$(get_libdir)"
+	"-DCMAKE_DISABLE_FIND_PACKAGE_X11=$(usex X OFF ON)"
 	"-DCMAKE_C_FLAGS=$(usex debug "${CFLAGS}" "${CFLAGS} -DNDEBUG")"
 	"-DCMAKE_CXX_FLAGS=$(usex debug "${CXXFLAGS}" "${CXXFLAGS} -DNDEBUG")"
-	"-DCMAKE_DISABLE_FIND_PACKAGE_X11=$(usex X OFF ON)"
 	"-DNO_WAYLAND=$(usex wayland FALSE TRUE)"
 	)
 	cmake_src_configure
