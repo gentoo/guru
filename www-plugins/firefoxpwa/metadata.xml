@@ -5,10 +5,6 @@
 		<name>John-Henry Lim</name>
 		<email>johnhenrylim12@gmail.com</email>
 	</maintainer>
-	<maintainer type="person">
-		<name>Filip Štamcar</name>
-		<email>projects@filips.si</email>
-	</maintainer>
 	<longdescription>
 		Progressive Web Apps (PWAs) are web apps that use web APIs and features along
 		with progressive enhancement strategy to bring a native app-like user
