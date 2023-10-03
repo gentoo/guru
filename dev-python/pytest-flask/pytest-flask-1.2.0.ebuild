@@ -4,19 +4,16 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_11 pypy3 )
-inherit distutils-r1
+PYPI_NO_NORMALIZE=1
+PYTHON_COMPAT=( python3_{11,12} pypy3 )
+inherit distutils-r1 pypi
 
 DESCRIPTION="A set of pytest fixtures to test Flask applications "
 HOMEPAGE="http://pytest-flask.readthedocs.org"
 
-inherit git-r3
-EGIT_REPO_URI="https://github.com/pytest-dev/${PN}.git"
-EGI_COMMIT="1.2.0"
-
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="test"
 
 RDEPEND="
