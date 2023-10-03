@@ -18,7 +18,7 @@ RDEPEND="
 	app-misc/jq
 	>=gui-apps/wofi-1.3
 	gui-apps/slurp
-	gui-wm/sway
+	gui-libs/wlroots
 "
 BDEPEND=""  # scripts are just sh
 
