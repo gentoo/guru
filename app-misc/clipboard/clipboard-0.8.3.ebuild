@@ -14,7 +14,7 @@ SRC_URI="https://github.com/Slackadays/${MY_PN}/archive/refs/tags/${PV}.tar.gz -
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="X wayland debug"
+IUSE="X wayland lto debug"
 
 RDEPEND="X? (
 			x11-libs/libX11
@@ -35,6 +35,7 @@ src_configure() {
 	"-DCMAKE_C_FLAGS=$(usex debug "${CFLAGS}" "${CFLAGS} -DNDEBUG")"
 	"-DCMAKE_CXX_FLAGS=$(usex debug "${CXXFLAGS}" "${CXXFLAGS} -DNDEBUG")"
 	"-DNO_WAYLAND=$(usex wayland FALSE TRUE)"
+	"-DNO_LTO=$(usex lto FALSE TRUE)"
 	)
 	cmake_src_configure
 }
