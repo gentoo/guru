@@ -217,7 +217,7 @@ RDEPEND="
 	x11-libs/libSM
 "
 
-XIVQL_COMMIT="5e1022893d0aa52da84680b7c0694bdd5d560b32"
+XIVQL_COMMIT="e8e22c32969a858343b751dbbda4777606ba5717"
 
 SRC_URI="
 	https://github.com/goatcorp/XIVLauncher.Core/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
