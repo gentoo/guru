@@ -7,9 +7,7 @@
   </maintainer>
   <use>
     <flag name="libsecret">Enable secrets/password storage support.</flag>
-    <flag name="act">Advanced Combat Tracker in Final Fantasy XIV.</flag>
     <flag name="aria2">Enable Aria2 support.</flag>
-    <flag name="dx9">Support for running the dx9 api in wined3d/dxvk.</flag>
   </use>
   <upstream>
     <remote-id type="github">goatcorp/XIVLauncher.Core</remote-id>
