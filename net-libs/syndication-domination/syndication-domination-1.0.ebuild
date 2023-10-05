@@ -15,12 +15,9 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://gitlab.com/gabmus/syndication-domination.git"
 else
 	KEYWORDS="~amd64"
-	SRC_URI="
-		https://gitlab.com/gabmus/syndication-domination/-/archive/${PV}/${P}.tar.bz2
-		https://gitlab.com/gabmus/syndication-domination/-/commit/75920321.patch
-	"
+	SRC_URI="https://gitlab.com/gabmus/syndication-domination/-/archive/${PV}/${P}.tar.bz2"
 	#required for gfeeds
-	PATCHES="${DISTDIR}/75920321.patch"
+	PATCHES="${FILESDIR}/gfeeds-2.2.0-blueprint-compiler-fix.patch"
 fi
 
 LICENSE="AGPL-3"
