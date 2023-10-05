@@ -260,6 +260,8 @@ CRATES="
 	xml-rs@0.8.15
 "
 
+PYTHON_COMPAT=( python3_{9..11} )
+
 PATHFINDER_COMMIT=21ec6fa933547636bc6c5ee8f0dd4a0ea3fcd062
 NVTOP_COMMIT=be47f8c560487efc6e6a419d59c69bfbdb819324
 
@@ -273,7 +275,7 @@ declare -A GIT_CRATES=(
 	[pathfinder_resources]="https://github.com/servo/pathfinder;${PATHFINDER_COMMIT};pathfinder-${PATHFINDER_COMMIT}/resources/"
 )
 
-inherit cargo gnome2-utils meson
+inherit cargo gnome2-utils meson python-any-r1
 
 DESCRIPTION="Monitor your CPU, Memory, Disk, Network and GPU usage."
 HOMEPAGE="https://missioncenter.io/"
@@ -291,11 +293,11 @@ KEYWORDS="~amd64"
 IUSE="debug"
 
 DEPEND="
-	>=dev-lang/python-3
 	dev-libs/wayland
 	gui-libs/libadwaita
 	>=gui-libs/gtk-4
 	gui-libs/egl-gbm
+	virtual/rust
 	virtual/udev
 	x11-libs/libdrm
 "
@@ -304,7 +306,7 @@ RDEPEND="
 	sys-apps/dmidecode
 "
 BDEPEND="
-	>=dev-lang/rust-1.69
+	${PYTHON_DEPS}
 	dev-libs/gobject-introspection
 	>=dev-util/meson-0.63
 	dev-util/blueprint-compiler
