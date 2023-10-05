@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# David Roman <davidroman96@gmail.com> (2023-10-05)
+# Upstream seems dead (no new releases since 2016).
+# Removal in +30 days.
+app-misc/pup
+
 # David Roman <davidroman96@gmail.com> (2023-09-26)
 # Requires net-libs/rest:0.7, which is no longer available in ::gentoo.
 # No new upstream releases since 25 May, 2022.
