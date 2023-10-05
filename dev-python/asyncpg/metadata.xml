@@ -5,10 +5,6 @@
         <email>piotr.staroszczyk@get24.org</email>
         <name>Piotr Staroszczyk</name>
     </maintainer>
-    <maintainer type="person">
-        <email>cyber+gentoo@sysrq.in</email>
-        <name>Anna</name>
-    </maintainer>
     <upstream>
         <remote-id type="github">MagicStack/asyncpg</remote-id>
         <remote-id type="pypi">asyncpg</remote-id>

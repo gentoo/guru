@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>cyber+gentoo@sysrq.in</email>
-		<name>Anna</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription>
 		Akita is a local HTTP log monitoring tool that runs in your
 		terminal. With Akita, you can view a summary of you webserver's

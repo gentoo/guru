@@ -4,10 +4,6 @@
 	<maintainer type="project">
 		<email>vim@gentoo.org</email>
 	</maintainer>
-	<maintainer type="person">
-		<email>cyber+gentoo@sysrq.in</email>
-		<name>Anna</name>
-	</maintainer>
 	<upstream>
 		<maintainer>
 			<email>leonid@fedorenchik.com</email>

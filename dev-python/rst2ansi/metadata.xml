@@ -5,10 +5,6 @@
 		<email>ezzieyguywuf@gmail.com</email>
 		<name>Wolfgang E. Sanyer</name>
 	</maintainer>
-	<maintainer type="person">
-		<email>cyber+gentoo@sysrq.in</email>
-		<name>Anna</name>
-	</maintainer>
 	<upstream>
 		<remote-id type="pypi">rst2ansi</remote-id>
 		<remote-id type="github">Snaipe/python-rst2ansi</remote-id>

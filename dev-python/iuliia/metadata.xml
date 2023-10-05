@@ -5,8 +5,5 @@
 		<remote-id type="github">nalgeon/iuliia-py</remote-id>
 		<remote-id type="pypi">iuliia</remote-id>
 	</upstream>
-	<maintainer type="person">
-		<email>cyber+gentoo@sysrq.in</email>
-		<name>Anna</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 </pkgmetadata>

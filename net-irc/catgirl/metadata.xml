@@ -8,8 +8,5 @@
 		</maintainer>
 		<bugs-to>mailto:list+catgirl@causal.agency</bugs-to>
 	</upstream>
-	<maintainer type="person">
-		<email>cyber+gentoo@sysrq.in</email>
-		<name>Anna</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 </pkgmetadata>
