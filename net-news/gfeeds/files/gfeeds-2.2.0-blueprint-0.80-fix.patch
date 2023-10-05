@@ -1,0 +1,4620 @@
+diff --git a/.gitignore b/.gitignore
+index cdbbb3b..d8e5d2c 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -17,7 +17,6 @@ __pycache__
+ /*~
+ /.*.sw[nop]
+ /.dirstamp
+-/.gitignore
+ /ChangeLog
+ /GPATH
+ /GRTAGS
+diff --git a/.gitlab-ci.yml b/.gitlab-ci.yml
+index 7dfa75b..ca54e1f 100644
+--- a/.gitlab-ci.yml
++++ b/.gitlab-ci.yml
+@@ -1,20 +1,26 @@
+-include: 'https://gitlab.gnome.org/GNOME/citemplates/raw/master/flatpak/flatpak_ci_initiative.yml'
++include: 
++  - file: 'flatpak/flatpak_ci_initiative.yml'
++    project: 'GNOME/citemplates'
++
++variables:
++  APP_ID: "org.gabmus.gfeeds"
++  BUNDLE: "org.gabmus.gfeeds.flatpak"
++  # CONFIG_OPTS: "-Dprofile=development"
++  FLATPAK_MODULE: "gfeeds"
++  MANIFEST_PATH: "dist/flatpak/org.gabmus.gfeeds.json"
++  RUNTIME_REPO: "https://flathub.org/repo/flathub.flatpakrepo"
++
+ 
+ flake8:
+-    image: python:3.10
+-    script:
+-        - pip install flake8
+-        - flake8 gfeeds
++  image: python:3.10
++  script:
++    - pip install flake8
++    - flake8 gfeeds
+ 
+ flatpak:
+-    variables:
+-        MANIFEST_PATH: "dist/flatpak/org.gabmus.gfeeds.json"
+-        MESON_ARGS: "-Dprofile=Devel"
+-        FLATPAK_MODULE: "gfeeds"
+-        RUNTIME_REPO: "https://flathub.org/repo/flathub.flatpakrepo"
+-        APP_ID: "org.gabmus.gfeeds"
+-        BUNDLE: "gfeeds.flatpak"
+-    image: 'quay.io/gnome_infrastructure/gnome-runtime-images:gnome-43'
+-    extends: .flatpak
+-    rules:
+-        - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
++  extends: '.flatpak@x86_64'
++  image: 'quay.io/gnome_infrastructure/gnome-runtime-images:x86_64-gnome-44'
++
++flatpak@aarch64:
++  extends: '.flatpak@aarch64'
++  image: 'quay.io/gnome_infrastructure/gnome-runtime-images:aarch64-gnome-44'
+diff --git a/data/icons/org.gabmus.gfeeds-symbolic.svg b/data/icons/org.gabmus.gfeeds-symbolic.svg
+index 5debb14..7128f43 100644
+--- a/data/icons/org.gabmus.gfeeds-symbolic.svg
++++ b/data/icons/org.gabmus.gfeeds-symbolic.svg
+@@ -1,226 +1,18 @@
+-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+-<svg
+-   xmlns:dc="http://purl.org/dc/elements/1.1/"
+-   xmlns:cc="http://creativecommons.org/ns#"
+-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+-   xmlns:svg="http://www.w3.org/2000/svg"
+-   xmlns="http://www.w3.org/2000/svg"
+-   xmlns:xlink="http://www.w3.org/1999/xlink"
+-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+-   sodipodi:docname="org.gabmus.gfeeds-symbolic.svg"
+-   inkscape:version="1.0alpha2 (5e8e0a6, 2019-09-01)"
+-   id="svg2170"
+-   version="1.1"
+-   viewBox="0 0 4.2333333 4.2333335"
+-   height="16"
+-   width="16">
+-  <defs
+-     id="defs2164">
+-    <linearGradient
+-       xlink:href="#linearGradient1038"
+-       id="linearGradient1159"
+-       x1="27.99999"
+-       y1="-276"
+-       x2="115.99999"
+-       y2="-276"
+-       gradientUnits="userSpaceOnUse"
+-       gradientTransform="matrix(0.67798714,0,0,0.52916666,6.5899031,-124.84283)" />
+-    <linearGradient
+-       id="linearGradient1038">
+-      <stop
+-         id="stop1026"
+-         offset="0"
+-         style="stop-color:#c0bfbc;stop-opacity:1" />
+-      <stop
+-         style="stop-color:#ffffff;stop-opacity:1"
+-         offset="0.04545454"
+-         id="stop1028" />
+-      <stop
+-         style="stop-color:#deddda;stop-opacity:1"
+-         offset="0.09090909"
+-         id="stop1030" />
+-      <stop
+-         style="stop-color:#deddda;stop-opacity:1"
+-         offset="0.90909088"
+-         id="stop1032" />
+-      <stop
+-         id="stop1034"
+-         offset="0.95454544"
+-         style="stop-color:#ffffff;stop-opacity:1" />
+-      <stop
+-         id="stop1036"
+-         offset="1"
+-         style="stop-color:#c0bfbc;stop-opacity:1" />
+-    </linearGradient>
+-    <linearGradient
+-       xlink:href="#linearGradient1351-3"
+-       id="linearGradient1130"
+-       gradientUnits="userSpaceOnUse"
+-       gradientTransform="matrix(0.25,0,0,0.25,180,83)"
+-       x1="344"
+-       y1="76"
+-       x2="340"
+-       y2="72" />
+-    <linearGradient
+-       id="linearGradient1351-3">
+-      <stop
+-         style="stop-color:#d5d3cf;stop-opacity:1"
+-         offset="0"
+-         id="stop1347" />
+-      <stop
+-         style="stop-color:#ffffff;stop-opacity:1"
+-         offset="1"
+-         id="stop1349-6" />
+-    </linearGradient>
+-    <clipPath
+-       clipPathUnits="userSpaceOnUse"
+-       id="clipPath1609-7">
+-      <path
+-         inkscape:connector-curvature="0"
+-         id="path1611-5"
+-         d="m 252,116 28,-28 v -8 h -36 v 36 z"
+-         style="fill:#e74747;stroke:none;stroke-width:0.25px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+-    </clipPath>
+-  </defs>
+-  <sodipodi:namedview
+-     inkscape:document-rotation="0"
+-     inkscape:snap-bbox-midpoints="true"
+-     inkscape:snap-bbox="true"
+-     inkscape:window-maximized="1"
+-     inkscape:window-y="0"
+-     inkscape:window-x="0"
+-     inkscape:window-height="1376"
+-     inkscape:window-width="2560"
+-     units="px"
+-     showgrid="true"
+-     inkscape:current-layer="layer1"
+-     inkscape:document-units="px"
+-     inkscape:cy="60.996647"
+-     inkscape:cx="-95.339529"
+-     inkscape:zoom="2.8284271"
+-     inkscape:pageshadow="2"
+-     inkscape:pageopacity="0.0"
+-     borderopacity="1.0"
+-     bordercolor="#666666"
+-     pagecolor="#ffffff"
+-     id="base"
+-     inkscape:bbox-paths="false"
+-     inkscape:snap-to-guides="false"
+-     inkscape:object-nodes="true"
+-     inkscape:bbox-nodes="true"
+-     inkscape:snap-smooth-nodes="true">
+-    <inkscape:grid
+-       type="xygrid"
+-       id="grid859" />
+-  </sodipodi:namedview>
+-  <metadata
+-     id="metadata2167">
+-    <rdf:RDF>
+-      <cc:Work
+-         rdf:about="">
+-        <dc:format>image/svg+xml</dc:format>
+-        <dc:type
+-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+-        <dc:title />
+-      </cc:Work>
+-    </rdf:RDF>
+-  </metadata>
+-  <g
+-     transform="translate(0,-229.26665)"
+-     id="layer1"
+-     inkscape:groupmode="layer"
+-     inkscape:label="Layer 1">
+-    <g
+-       id="g898"
+-       transform="translate(-0.13229166,0.26457673)">
+-      <path
+-         id="rect1115"
+-         style="display:inline;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.518001;stroke-opacity:1;paint-order:stroke fill markers;enable-background:new"
+-         d="m 0.66145834,229.79582 c -0.14657917,0 -0.26458334,0.118 -0.26458334,0.26458 v 2.38125 c 0,0.14658 0.11800417,0.26459 0.26458334,0.26459 H 3.8364584 c 0.1465792,0 0.2645833,-0.11801 0.2645833,-0.26459 v -2.38125 c 0,-0.14658 -0.1180041,-0.26458 -0.2645833,-0.26458 z m 0.13229167,0.26458 H 3.7041667 c 0.07329,0 0.1322917,0.059 0.1322917,0.1323 v 2.11666 c 0,0.0733 -0.059002,0.13229 -0.1322917,0.13229 H 0.79375001 c -0.0732896,0 -0.13229167,-0.059 -0.13229167,-0.13229 v -2.11666 c 0,-0.0733 0.0590021,-0.1323 0.13229167,-0.1323 z"
+-         inkscape:connector-curvature="0"
+-         sodipodi:nodetypes="ssssssssssssssssss" />
+-      <g
+-         style="display:inline;opacity:1;fill:#000000;enable-background:new;stop-opacity:1"
+-         transform="matrix(0.11023383,0,0,0.11024297,2.0284917,230.36908)"
+-         fill="#474747"
+-         id="g930-3">
+-        <path
+-           inkscape:connector-curvature="0"
+-           d="M 6,12 A 2,2 0 0 1 4,14 2,2 0 0 1 2,12 2,2 0 0 1 4,10 2,2 0 0 1 6,12 Z"
+-           style="fill:#000000;marker:none"
+-           color="#000"
+-           overflow="visible"
+-           id="path920-6" />
+-        <path
+-           style="fill:#000000"
+-           inkscape:connector-curvature="0"
+-           d="M 2,6 H 3.014 V 7.014 H 2 Z m 7.014,7.014 H 10 V 14 H 9.014 Z m 4,0 H 14 V 14 H 13.014 Z M 2,2 H 3.014 V 3.014 H 2 Z"
+-           id="path922-7" />
+-        <path
+-           inkscape:connector-curvature="0"
+-           d="m 3.014,8.014 c 2.774,0 5,2.227 5,5 h 2 c 0,-3.854 -3.145,-7 -7,-7 z"
+-           style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;text-transform:none;text-orientation:mixed;shape-padding:0;isolation:auto;mix-blend-mode:normal;fill:#000000;marker:none"
+-           color="#000"
+-           font-weight="400"
+-           font-family="sans-serif"
+-           white-space="normal"
+-           overflow="visible"
+-           id="path924-5" />
+-        <path
+-           inkscape:connector-curvature="0"
+-           d="m 3.014,4.028 a 8.972,8.972 0 0 1 8.987,8.986 h 2 C 14,6.96 9.07,2.028 3.014,2.028 Z"
+-           style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;text-transform:none;text-orientation:mixed;shape-padding:0;isolation:auto;mix-blend-mode:normal;fill:#000000;marker:none"
+-           color="#000"
+-           font-weight="400"
+-           font-family="sans-serif"
+-           white-space="normal"
+-           overflow="visible"
+-           id="path926-3" />
+-        <path
+-           inkscape:connector-curvature="0"
+-           d="M 4,7 A 1,1 0 0 1 3,8 1,1 0 0 1 2,7 1,1 0 0 1 3,6 1,1 0 0 1 4,7 Z M 4,3 A 1,1 0 0 1 3,4 1,1 0 0 1 2,3 1,1 0 0 1 3,2 1,1 0 0 1 4,3 Z m 6,10 a 1,1 0 0 1 -1,1 1,1 0 0 1 -1,-1 1,1 0 0 1 1,-1 1,1 0 0 1 1,1 z m 4,0 a 1,1 0 0 1 -1,1 1,1 0 0 1 -1,-1 1,1 0 0 1 1,-1 1,1 0 0 1 1,1 z"
+-           style="fill:#000000;marker:none"
+-           color="#000"
+-           overflow="visible"
+-           id="path928-5" />
+-      </g>
+-      <rect
+-         style="display:inline;opacity:1;fill:#000000;stroke-width:0.0494165;enable-background:new;stop-opacity:1"
+-         width="1.0583334"
+-         height="0.26458335"
+-         x="0.92604172"
+-         y="230.32498"
+-         ry="0"
+-         fill="#0cc"
+-         id="rect932-6" />
+-      <rect
+-         style="display:inline;opacity:1;fill:#000000;stroke-width:0.0405059;enable-background:new;stop-opacity:1"
+-         width="0.79374999"
+-         height="0.26458335"
+-         x="0.92604172"
+-         y="231.38332"
+-         ry="0"
+-         fill="#deddda"
+-         id="rect934-2" />
+-      <rect
+-         id="rect1127"
+-         fill="#deddda"
+-         ry="0"
+-         y="230.85414"
+-         x="0.92604172"
+-         height="0.26458335"
+-         width="1.0583334"
+-         style="display:inline;opacity:1;fill:#000000;stroke-width:0.0467722;enable-background:new;stop-opacity:1" />
+-      <rect
+-         style="display:inline;opacity:1;fill:#000000;stroke-width:0.0467722;enable-background:new;stop-opacity:1"
+-         width="1.0583334"
+-         height="0.26458335"
+-         x="0.92604172"
+-         y="231.91248"
+-         ry="0"
+-         fill="#deddda"
+-         id="rect1137" />
++<svg version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
++    <g transform="translate(0 -229.27)">
++        <g transform="matrix(3.7795 0 0 3.7795 -.5 -636.25)">
++            <path d="m0.66146 229.8c-0.14658 0-0.26458 0.118-0.26458 0.26458v2.3812c0 0.14658 0.118 0.26459 0.26458 0.26459h3.175c0.14658 0 0.26458-0.11801 0.26458-0.26459v-2.3812c0-0.14658-0.118-0.26458-0.26458-0.26458zm0.13229 0.26458h2.9104c0.07329 0 0.13229 0.059 0.13229 0.1323v2.1167c0 0.0733-0.059002 0.13229-0.13229 0.13229h-2.9104c-0.07329 0-0.13229-0.059-0.13229-0.13229v-2.1167c0-0.0733 0.059002-0.1323 0.13229-0.1323z" enable-background="new" style="paint-order:stroke fill markers"/>
++            <g transform="matrix(.11023 0 0 .11024 2.0285 230.37)" enable-background="new">
++                <path d="m6 12a2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2 2 2 0 0 1 2 2z" color="#000000" overflow="visible"/>
++                <path d="m2 6h1.014v1.014h-1.014zm7.014 7.014h0.986v0.986h-0.986zm4 0h0.986v0.986h-0.986zm-11.014-11.014h1.014v1.014h-1.014z"/>
++                <path d="m3.014 8.014c2.774 0 5 2.227 5 5h2c0-3.854-3.145-7-7-7z" color="#000000" font-family="sans-serif" font-weight="400" overflow="visible" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none" white-space="normal"/>
++                <path d="m 3.014,4.028 a 8.972,8.972 0 0 1 8.987,8.986 h 2 C 14,6.96 9.07,2.028 3.014,2.028 Z" color="#000000" font-family="sans-serif" font-weight="400" overflow="visible" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none" white-space="normal"/>
++                <path d="m4 7a1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1zm0-4a1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1zm6 10a1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1zm4 0a1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1z" color="#000000" overflow="visible"/>
++            </g>
++            <rect x=".92604" y="230.32" width="1.0583" height=".26458" ry="0" enable-background="new" stroke-width=".049416"/>
++            <rect x=".92604" y="231.38" width=".79375" height=".26458" ry="0" enable-background="new" stroke-width=".040506"/>
++            <rect x=".92604" y="230.85" width="1.0583" height=".26458" ry="0" enable-background="new" stroke-width=".046772"/>
++            <rect x=".92604" y="231.91" width="1.0583" height=".26458" ry="0" enable-background="new" stroke-width=".046772"/>
++        </g>
+     </g>
+-  </g>
+ </svg>
+diff --git a/data/icons/org.gabmus.gfeeds.svg b/data/icons/org.gabmus.gfeeds.svg
+index bde1c04..0eb0100 100644
+--- a/data/icons/org.gabmus.gfeeds.svg
++++ b/data/icons/org.gabmus.gfeeds.svg
+@@ -1 +1,45 @@
+-<svg width="128" height="128" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient id="h" x1="144" x2="144" y1="-84" y2="366.07" gradientTransform="matrix(.25 0 0 .25 4 43)" gradientUnits="userSpaceOnUse"><stop stop-color="#edece9" offset="0"/><stop stop-color="#fff" offset="1"/></linearGradient><linearGradient id="g" x1="69.009" x2="180.21" y1="487.9" y2="487.9" gradientTransform="translate(-60 -206)" gradientUnits="userSpaceOnUse"><stop stop-color="#c0bfbc" offset="0"/><stop stop-color="#dcdbd8" offset=".065"/><stop stop-color="#c0bfbc" offset=".11"/><stop stop-color="#c0bfbc" offset=".846"/><stop stop-color="#deddda" offset=".923"/><stop stop-color="#c0bfbc" offset="1"/></linearGradient><clipPath id="b"><path d="m252 116 28-28v-8h-36v36z" fill="#e74747"/></clipPath><linearGradient id="a" x1="344" x2="340" y1="76" y2="72" gradientTransform="matrix(.25 0 0 .25 180 83)" gradientUnits="userSpaceOnUse"><stop stop-color="#d5d3cf" offset="0"/><stop stop-color="#fff" offset="1"/></linearGradient></defs><path d="M16 40c-4.432 0-8 3.568-8 8v60c0 4.432 3.568 8 8 8h96c4.432 0 8-3.568 8-8V48c0-4.432-3.568-8-8-8z" fill="#ffa348"/><path transform="translate(0 -172)" d="m16 210c-4.432 0-8 3.568-8 8v60c0 4.432 3.568 8 8 8h96c4.432 0 8-3.568 8-8v-60c0-4.432-3.568-8-8-8z" fill="url(#g)"/><path d="m16 22c-4.432 0-8 3.568-8 8v70c0 4.432 3.568 8 8 8h48 48c4.432 0 8-3.568 8-8v-70c0-4.432-3.568-8-8-8h-48-48z" fill="url(#h)"/><g transform="matrix(.59642 0 0 .59642 -7.5708 -502)"><g transform="matrix(4.9684 0 0 4.9684 126.94 884.48)" fill="#ffa348"><path d="m6 12a2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2 2 2 0 0 1 2 2z" overflow="visible"/><path d="m2 6h1.014v1.014h-1.014zm7.014 7.014h0.986v0.986h-0.986zm4 0h0.986v0.986h-0.986zm-11.014-11.014h1.014v1.014h-1.014z"/><path d="m3.014 8.014c2.774 0 5 2.227 5 5h2c0-3.854-3.145-7-7-7z" font-family="sans-serif" font-weight="400" overflow="visible" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none" white-space="normal"/><path d="m 3.014,4.028 a 8.972,8.972 0 0 1 8.987,8.986 h 2 C 14,6.96 9.07,2.028 3.014,2.028 Z" font-family="sans-serif" font-weight="400" overflow="visible" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none" white-space="normal"/><path d="m4 7a1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1zm0-4a1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1zm6 10a1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1zm4 0a1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1z" overflow="visible"/></g><g transform="translate(9.375)" stroke-width="1.875"><rect x="33.75" y="894.42" width="53.75" height="7.5" ry="0" fill="#ffa348"/><g fill="#deddda"><rect x="33.75" y="909.42" width="60" height="7.5" ry="0"/><rect x="33.75" y="924.42" width="51.469" height="7.5" ry="0"/><rect x="33.75" y="939.42" width="60" height="7.5" ry="0"/><rect x="33.75" y="954.42" width="60" height="7.5" ry="0"/><rect x="33.75" y="969.42" width="60" height="7.5" ry="0"/><rect x="33.75" y="984.42" width="39.999" height="7.5" ry="0"/><rect x="33.75" y="999.42" width="60" height="7.5" ry="0"/></g></g><g fill="#deddda" stroke-width="1.875"><rect x="136.88" y="984.42" width="60" height="7.5" ry="0"/><rect x="136.88" y="999.42" width="60" height="7.5" ry="0"/><rect x="136.88" y="969.42" width="39.999" height="7.5" ry="0"/></g></g><rect transform="matrix(0 .63036 .63036 0 47.118 -68.269)" x="252" y="88" width="36" height="36" rx="11.2" ry="11.2" clip-path="url(#b)" enable-background="new" fill="url(#a)" style="paint-order:normal"/></svg>
++<svg version="1.0" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
++    <defs>
++        <linearGradient id="h" x1="144" x2="144" y1="-84" y2="366.07" gradientTransform="matrix(.25 0 0 .25 4 43)" gradientUnits="userSpaceOnUse">
++            <stop stop-color="#edece9" offset="0"/>
++            <stop stop-color="#fff" offset="1"/>
++        </linearGradient>
++        <linearGradient id="g" x1="69.009" x2="180.21" y1="487.9" y2="487.9" gradientTransform="translate(-60 -206)" gradientUnits="userSpaceOnUse">
++            <stop stop-color="#c0bfbc" offset="0"/>
++            <stop stop-color="#dcdbd8" offset=".065"/>
++            <stop stop-color="#c0bfbc" offset=".11"/>
++            <stop stop-color="#c0bfbc" offset=".846"/>
++            <stop stop-color="#deddda" offset=".923"/>
++            <stop stop-color="#c0bfbc" offset="1"/>
++        </linearGradient>
++        <linearGradient id="a" x1="344" x2="288" y1="76.001" y2="20" gradientTransform="matrix(.25 0 0 .25 180 83)" gradientUnits="userSpaceOnUse">
++            <stop stop-color="#d5d3cf" offset="0"/>
++            <stop stop-color="#fff" offset=".2"/>
++            <stop stop-color="#fff" offset="1"/>
++        </linearGradient>
++    </defs>
++    <path d="M16 40c-4.432 0-8 3.568-8 8v60c0 4.432 3.568 8 8 8h96c4.432 0 8-3.568 8-8V48c0-4.432-3.568-8-8-8z" fill="#ffa348"/>
++    <path transform="translate(0 -172)" d="m16 210c-4.432 0-8 3.568-8 8v60c0 4.432 3.568 8 8 8h96c4.432 0 8-3.568 8-8v-60c0-4.432-3.568-8-8-8z" fill="url(#g)"/>
++    <path d="m16 22c-4.432 0-8 3.568-8 8v70c0 4.432 3.568 8 8 8h96c4.432 0 8-3.568 8-8v-70c0-4.432-3.568-8-8-8h-96z" fill="url(#h)"/>
++    <g fill="#ffa348">
++        <g stroke-width="2.9632">
++            <path d="m85.918 61.081a5.9265 5.9265 0 01-5.9265 5.9265 5.9265 5.9265 0 01-5.9265-5.9265 5.9265 5.9265 0 015.9265-5.9265 5.9265 5.9265 0 015.9265 5.9265z" overflow="visible"/>
++            <path d="m74.065 43.301h3.0047v3.0047h-3.0047zm20.784 20.784h2.9218v2.9218h-2.9218zm11.853 0h2.9218v2.9218h-2.9218zm-32.637-32.637h3.0047v3.0047h-3.0047z"/>
++            <path d="m77.07 49.269c8.2201 0 14.816 6.5992 14.816 14.816h5.9265c0-11.42-9.3194-20.743-20.743-20.743z" font-family="sans-serif" font-weight="400" overflow="visible" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none" white-space="normal"/>
++            <path d="m77.07 37.458a26.586 26.586 0 0126.631 26.628h5.9265c-.00296-17.94-14.612-32.554-32.557-32.554z" font-family="sans-serif" font-weight="400" overflow="visible" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none" white-space="normal"/>
++            <path d="m79.992 46.264a2.9633 2.9633 0 01-2.9633 2.9633 2.9633 2.9633 0 01-2.9633-2.9633 2.9633 2.9633 0 012.9633-2.9633 2.9633 2.9633 0 012.9633 2.9633zm0-11.853a2.9633 2.9633 0 01-2.9633 2.9633 2.9633 2.9633 0 01-2.9633-2.9633 2.9633 2.9633 0 012.9633-2.9633 2.9633 2.9633 0 012.9633 2.9633zm17.78 29.633a2.9633 2.9633 0 01-2.9633 2.9633 2.9633 2.9633 0 01-2.9633-2.9633 2.9633 2.9633 0 012.9633-2.9633 2.9633 2.9633 0 012.9633 2.9633zm11.853 0a2.9633 2.9633 0 01-2.9632 2.9633 2.9633 2.9633 0 01-2.9633-2.9633 2.9633 2.9633 0 012.9633-2.9633 2.9633 2.9633 0 012.9632 2.9633z" overflow="visible"/>
++        </g>
++        <rect x="18.15" y="31.45" width="45.85" height="8.9463" ry="0" stroke-width="1.8914"/>
++    </g>
++    <g fill="#deddda">
++        <rect x="18.15" y="44.869" width="40.484" height="8.9463" ry="0" stroke-width="1.6821"/>
++        <rect x="18.15" y="58.289" width="35.785" height="8.9463" ry="0" stroke-width="1.5815"/>
++        <rect x="18.15" y="71.708" width="42.487" height="8.9463" ry="0" stroke-width="1.7232"/>
++        <g stroke-width="1.5815">
++            <rect x="18.15" y="85.128" width="23.856" height="8.9463" ry="0"/>
++            <rect x="74.067" y="85.128" width="35.785" height="8.9463" ry="0"/>
++            <rect x="74.067" y="71.708" width="23.856" height="8.9463" ry="0"/>
++        </g>
++    </g>
++    <path transform="matrix(0 .63036 .63036 0 47.118 -68.269)" d="m252 99.201c0-6.2048 4.996-11.201 11.201-11.201h13.599c.98013 0 1.924.13745 2.8289.37181l-27.257 27.257c-.23437-.90485-.37182-1.8487-.37182-2.8289v-13.599z" fill="url(#a)" style="paint-order:normal"/>
++</svg>
+diff --git a/data/icons/scalable/status/ephy-reader-mode-symbolic.svg b/data/icons/scalable/status/ephy-reader-mode-symbolic.svg
+index e50637e..459aa8e 100644
+--- a/data/icons/scalable/status/ephy-reader-mode-symbolic.svg
++++ b/data/icons/scalable/status/ephy-reader-mode-symbolic.svg
+@@ -1,180 +1,10 @@
+-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+-<!-- Created with Inkscape (http://www.inkscape.org/) -->
+-
+-<svg
+-   xmlns:dc="http://purl.org/dc/elements/1.1/"
+-   xmlns:cc="http://creativecommons.org/ns#"
+-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+-   xmlns:svg="http://www.w3.org/2000/svg"
+-   xmlns="http://www.w3.org/2000/svg"
+-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+-   sodipodi:docname="ephy-reader-mode-symbolic.svg"
+-   height="16"
+-   id="svg7384"
+-   inkscape:version="0.92.2 2405546, 2018-03-11"
+-   version="1.1"
+-   width="16">
+-  <metadata
+-     id="metadata90">
+-    <rdf:RDF>
+-      <cc:Work
+-         rdf:about="">
+-        <dc:format>image/svg+xml</dc:format>
+-        <dc:type
+-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+-        <dc:title>Gnome Symbolic Icon Theme</dc:title>
+-      </cc:Work>
+-    </rdf:RDF>
+-  </metadata>
+-  <sodipodi:namedview
+-     inkscape:bbox-nodes="true"
+-     inkscape:bbox-paths="true"
+-     bordercolor="#666666"
+-     borderopacity="1"
+-     inkscape:current-layer="layer12"
+-     inkscape:cx="-16.505524"
+-     inkscape:cy="24.848761"
+-     gridtolerance="10"
+-     inkscape:guide-bbox="true"
+-     guidetolerance="10"
+-     id="namedview88"
+-     inkscape:object-nodes="false"
+-     inkscape:object-paths="false"
+-     objecttolerance="10"
+-     pagecolor="#3a3b39"
+-     inkscape:pageopacity="1"
+-     inkscape:pageshadow="2"
+-     showborder="false"
+-     showgrid="false"
+-     showguides="true"
+-     inkscape:snap-bbox="true"
+-     inkscape:snap-bbox-midpoints="false"
+-     inkscape:snap-global="true"
+-     inkscape:snap-grids="true"
+-     inkscape:snap-nodes="false"
+-     inkscape:snap-others="false"
+-     inkscape:snap-to-guides="true"
+-     inkscape:window-height="1376"
+-     inkscape:window-maximized="1"
+-     inkscape:window-width="3440"
+-     inkscape:window-x="0"
+-     inkscape:window-y="27"
+-     inkscape:zoom="8">
+-    <inkscape:grid
+-       empspacing="2"
+-       enabled="true"
+-       id="grid4866"
+-       originx="60.0002"
+-       originy="650.00012"
+-       snapvisiblegridlinesonly="true"
+-       spacingx="1"
+-       spacingy="1"
+-       type="xygrid"
+-       visible="true" />
+-  </sodipodi:namedview>
+-  <title
+-     id="title9167">Gnome Symbolic Icon Theme</title>
+-  <defs
+-     id="defs7386" />
+-  <g
+-     inkscape:groupmode="layer"
+-     id="layer9"
+-     inkscape:label="status"
+-     style="display:inline"
+-     transform="translate(-181,-867.00012)" />
+-  <g
+-     inkscape:groupmode="layer"
+-     id="layer10"
+-     inkscape:label="devices"
+-     transform="translate(-181,-867.00012)" />
+-  <g
+-     inkscape:groupmode="layer"
+-     id="layer11"
+-     inkscape:label="apps"
+-     transform="translate(-181,-867.00012)" />
+-  <g
+-     inkscape:groupmode="layer"
+-     id="layer13"
+-     inkscape:label="places"
+-     transform="translate(-181,-867.00012)" />
+-  <g
+-     inkscape:groupmode="layer"
+-     id="layer14"
+-     inkscape:label="mimetypes"
+-     transform="translate(-181,-867.00012)" />
+-  <g
+-     inkscape:groupmode="layer"
+-     id="layer15"
+-     inkscape:label="emblems"
+-     style="display:inline"
+-     transform="translate(-181,-867.00012)" />
+-  <g
+-     inkscape:groupmode="layer"
+-     id="g71291"
+-     inkscape:label="emotes"
+-     style="display:inline"
+-     transform="translate(-181,-867.00012)" />
+-  <g
+-     inkscape:groupmode="layer"
+-     id="g4953"
+-     inkscape:label="categories"
+-     style="display:inline"
+-     transform="translate(-181,-867.00012)" />
+-  <g
+-     inkscape:groupmode="layer"
+-     id="layer12"
+-     inkscape:label="actions"
+-     style="display:inline"
+-     transform="translate(-181,-867.00012)">
+-    <path
+-       inkscape:connector-curvature="0"
+-       d="m 181,868 0,1 0,11 0,1 1,0 5,0 c 0.1754,0 0.52538,0.15166 0.8125,0.34375 0.28712,0.19209 0.46875,0.375 0.46875,0.375 L 189,882.4375 l 0.71875,-0.75 c 0,0 0.8963,-0.6875 1.28125,-0.6875 l 5,0 1,0 0,-1 0,-11 0,-1 -1,0 -5,0 c -0.87652,0 -1.56017,0.34756 -2.03125,0.6875 -0.0301,-0.0207 -0.031,-0.0105 -0.0625,-0.0312 C 188.44557,868.35254 187.82811,868 187,868 l -5,0 -1,0 z m 2,2 4,0 c 0.13821,0 0.51476,0.14746 0.8125,0.34375 0.29774,0.19629 0.5,0.375 0.5,0.375 l 0.71875,0.6875 0.6875,-0.71875 c 0,0 0.89975,-0.6875 1.28125,-0.6875 l 4,0 0,9 -4,0 c -0.87693,0 -1.56008,0.34735 -2.03125,0.6875 -0.0196,-0.0135 -0.011,-0.0177 -0.0312,-0.0312 C 188.47725,879.34834 187.83512,879 187,879 l -4,0 0,-9 z"
+-       id="rect7352-28-4-8"
+-       style="opacity:1;font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#bebebe;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans" />
+-    <rect
+-       height="2"
+-       id="rect42942-5-3-1-4-4-5-9"
+-       inkscape:label="a"
+-       rx="0.375"
+-       ry="0.375"
+-       style="opacity:0.5;color:#bebebe;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible"
+-       transform="scale(-1,1)"
+-       width="3.0000136"
+-       x="-187.00021"
+-       y="871.99976" />
+-    <rect
+-       height="2.0002136"
+-       id="rect42944-7-5-3-5-1-5-0-2-62-5"
+-       inkscape:label="a"
+-       rx="0.375"
+-       ry="0.375"
+-       style="opacity:0.5;color:#bebebe;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible"
+-       transform="scale(-1,1)"
+-       width="3.0000129"
+-       x="-187.00021"
+-       y="874.99976" />
+-    <rect
+-       height="2.0002136"
+-       id="rect42942-5-3-1-4-4-6-0-1"
+-       inkscape:label="a"
+-       rx="0.375"
+-       ry="0.375"
+-       style="opacity:0.5;color:#bebebe;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible"
+-       transform="scale(-1,1)"
+-       width="3.0000136"
+-       x="-194.00021"
+-       y="871.99976" />
+-    <rect
+-       height="2.0002136"
+-       id="rect42944-7-5-3-5-1-5-0-2-6-4-6"
+-       inkscape:label="a"
+-       rx="0.375"
+-       ry="0.375"
+-       style="opacity:0.5;color:#bebebe;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible"
+-       transform="scale(-1,1)"
+-       width="3.0000129"
+-       x="-194.00021"
+-       y="874.99976" />
+-  </g>
++<svg version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
++    <title>Gnome Symbolic Icon Theme</title>
++    <g transform="translate(-181 -867)" fill="#bebebe">
++        <path d="m181 868v1 11 1h1 5c0.1754 0 0.52538 0.15166 0.8125 0.34375s0.46875 0.375 0.46875 0.375l0.71875 0.71875 0.71875-0.75s0.8963-0.6875 1.2812-0.6875h5 1v-1-11-1h-1-5c-0.87652 0-1.5602 0.34756-2.0312 0.6875-0.0301-0.0207-0.031-0.0105-0.0625-0.0312-0.46068-0.30376-1.0781-0.6563-1.9062-0.6563h-5-1zm2 2h4c0.13821 0 0.51476 0.14746 0.8125 0.34375s0.5 0.375 0.5 0.375l0.71875 0.6875 0.6875-0.71875s0.89975-0.6875 1.2812-0.6875h4v9h-4c-0.87693 0-1.5601 0.34735-2.0312 0.6875-0.0196-0.0135-0.011-0.0177-0.0312-0.0312-0.4603-0.30796-1.1024-0.6563-1.9376-0.6563h-4v-9z" color="#bebebe" style="block-progression:tb;text-indent:0;text-transform:none"/>
++        <rect transform="scale(-1,1)" x="-187" y="872" width="3" height="2" rx=".375" ry=".375" color="#bebebe" opacity=".5"/>
++        <rect transform="scale(-1,1)" x="-187" y="875" width="3" height="2.0002" rx=".375" ry=".375" color="#bebebe" opacity=".5"/>
++        <rect transform="scale(-1,1)" x="-194" y="872" width="3" height="2.0002" rx=".375" ry=".375" color="#bebebe" opacity=".5"/>
++        <rect transform="scale(-1,1)" x="-194" y="875" width="3" height="2.0002" rx=".375" ry=".375" color="#bebebe" opacity=".5"/>
++    </g>
+ </svg>
+diff --git a/data/icons/scalable/status/globe-alt-symbolic.svg b/data/icons/scalable/status/globe-alt-symbolic.svg
+index ab18760..bbbefbf 100644
+--- a/data/icons/scalable/status/globe-alt-symbolic.svg
++++ b/data/icons/scalable/status/globe-alt-symbolic.svg
+@@ -1,90 +1,12 @@
+-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+-<svg
+-   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+-   xmlns:dc="http://purl.org/dc/elements/1.1/"
+-   xmlns:cc="http://creativecommons.org/ns#"
+-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+-   xmlns:svg="http://www.w3.org/2000/svg"
+-   xmlns="http://www.w3.org/2000/svg"
+-   width="16"
+-   viewBox="0 0 16 16.004578"
+-   version="1.1"
+-   id="svg7384"
+-   height="16.004578">
+-  <metadata
+-     id="metadata90">
+-    <rdf:RDF>
+-      <cc:Work
+-         rdf:about="">
+-        <dc:format>image/svg+xml</dc:format>
+-        <dc:type
+-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+-        <dc:title>Gnome Symbolic Icon Theme</dc:title>
+-      </cc:Work>
+-    </rdf:RDF>
+-  </metadata>
+-  <title
+-     id="title9167">Gnome Symbolic Icon Theme</title>
+-  <defs
+-     id="defs7386">
+-    <linearGradient
+-       osb:paint="solid"
+-       id="linearGradient7212">
+-      <stop
+-         style="stop-color:#000000;stop-opacity:1;"
+-         offset="0"
+-         id="stop7214" />
+-    </linearGradient>
+-    <clipPath
+-       id="clipPath17189-2"
+-       clipPathUnits="userSpaceOnUse">
+-      <circle
+-         style="display:inline;opacity:1;fill:url(#radialGradient17193);fill-opacity:1;stroke:none;stroke-width:0.04035077px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal;enable-background:new"
+-         r="200"
+-         id="circle17191-8"
+-         cy="20"
+-         cx="280" />
+-    </clipPath>
+-  </defs>
+-  <g
+-     transform="translate(-539.98255,160)"
+-     style="display:inline"
+-     id="layer1" />
+-  <g
+-     transform="translate(-780.98275,527)"
+-     style="display:inline"
+-     id="layer9" />
+-  <g
+-     transform="translate(-780.98275,527)"
+-     style="display:inline"
+-     id="g7628">
+-    <path
+-       id="path13484"
+-       d="m 788.5,-527 c -4.13029,0 -7.5,3.36971 -7.5,7.5 0,4.13029 3.36971,7.5 7.5,7.5 4.13029,0 7.5,-3.36971 7.5,-7.5 0,-4.13029 -3.36971,-7.5 -7.5,-7.5 z m 0,2 c 3.04941,0 5.5,2.45059 5.5,5.5 0,3.04941 -2.45059,5.5 -5.5,5.5 -3.04941,0 -5.5,-2.45059 -5.5,-5.5 0,-3.04941 2.45059,-5.5 5.5,-5.5 z"
+-       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#2e3436;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;paint-order:normal;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+-    <path
+-       clip-path="url(#clipPath17189-2)"
+-       d="m 152,-12 v -32 l 32,-32 h 32 v -32 l -32,-32 H 56 v 128 l 32,32 32,32 v 32 l 32,32 v 32 32 l 32,32 v -32 l 32,-32 V 116 L 248,84 216,52 184,20 h -32 -32 v -32 z m 128,-64 32,32 32,-32 h 32 32 l 33,48.000008 v 16 L 472,20 V -140 H 344 v 32 h -32 z m 32,32 -32,32 v 32 l 32,32 h 32 l 17,24.000008 v 32.000002 32 L 408,180 440,148 V 52 L 472,20 439.05046,21.86025 408,-12 v -7.999992 h -39 l -16,-24 z"
+-       id="path17205"
+-       style="display:inline;opacity:0.5;fill:#2e3436;fill-opacity:1;stroke:none;stroke-width:0.40954158px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal;enable-background:new"
+-       transform="matrix(0.02758747,0,0,0.02758747,780.7836,-520.03762)" />
+-  </g>
+-  <g
+-     transform="translate(-539.98255,-40)"
+-     id="layer13" />
+-  <g
+-     transform="translate(-539.98255,160)"
+-     style="display:inline"
+-     id="g6387" />
+-  <g
+-     transform="translate(-539.98255,160)"
+-     style="display:inline"
+-     id="layer10" />
+-  <g
+-     transform="translate(-539.98255,160)"
+-     id="layer12" />
+-  <g
+-     transform="translate(-539.98255,160)"
+-     style="display:inline"
+-     id="layer11" />
++<svg version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:osb="http://www.openswatchbook.org/uri/2009/osb">
++    <title>Gnome Symbolic Icon Theme</title>
++    <defs>
++        <clipPath id="clipPath17189-2">
++            <circle cx="280" cy="20" r="200" enable-background="new" fill="url(#radialGradient17193)" style="paint-order:normal"/>
++        </clipPath>
++    </defs>
++    <g transform="translate(-780.98 527)" fill="#2e3436">
++        <path d="m788.5-527c-4.1303 0-7.5 3.3697-7.5 7.5s3.3697 7.5 7.5 7.5 7.5-3.3697 7.5-7.5-3.3697-7.5-7.5-7.5zm0 2c3.0494 0 5.5 2.4506 5.5 5.5s-2.4506 5.5-5.5 5.5-5.5-2.4506-5.5-5.5 2.4506-5.5 5.5-5.5z" color="#000000" color-rendering="auto" dominant-baseline="auto" image-rendering="auto" shape-rendering="auto" solid-color="#000000" style="font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;isolation:auto;mix-blend-mode:normal;paint-order:normal;shape-padding:0;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
++        <path transform="matrix(.027587 0 0 .027587 780.78 -520.04)" d="m152-12v-32l32-32h32v-32l-32-32h-128v128l32 32 32 32v32l32 32v32 32l32 32v-32l32-32v-32l32-32-32-32-32-32h-32-32v-32zm128-64 32 32 32-32h32 32l33 48v16l31 32v-160h-128v32h-32zm32 32-32 32v32l32 32h32l17 24v32 32l47 40 32-32v-96l32-32-32.95 1.8602-31.05-33.86v-8h-39l-16-24z" clip-path="url(#clipPath17189-2)" enable-background="new" opacity=".5" style="paint-order:normal"/>
++    </g>
+ </svg>
+diff --git a/data/icons/scalable/status/tag-symbolic.svg b/data/icons/scalable/status/tag-symbolic.svg
+index 00e272b..8bf6f21 100644
+--- a/data/icons/scalable/status/tag-symbolic.svg
++++ b/data/icons/scalable/status/tag-symbolic.svg
+@@ -1,3 +1,3 @@
+-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+-    <path d="M1 2v6l6.691 6.691c.188.188.413.205.598.02l6.383-6.383c.221-.221.207-.45.02-.636L8 1H2c-.464 0-1 .491-1 1zm3 .962A1.07 1.07 0 1 1 4 5.1a1.07 1.07 0 0 1 0-2.138z" style="marker:none" fill="#2e3436"/>
++<svg version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
++    <path d="M1 2v6l6.691 6.691c.188.188.413.205.598.02l6.383-6.383c.221-.221.207-.45.02-.636L8 1H2c-.464 0-1 .491-1 1zm3 .962A1.07 1.07 0 1 1 4 5.1a1.07 1.07 0 0 1 0-2.138z" fill="#2e3436"/>
+ </svg>
+diff --git a/data/icons/scalable/status/webview-filler-symbolic.svg b/data/icons/scalable/status/webview-filler-symbolic.svg
+index 07dbf50..17aae48 100644
+--- a/data/icons/scalable/status/webview-filler-symbolic.svg
++++ b/data/icons/scalable/status/webview-filler-symbolic.svg
+@@ -1,72 +1,8 @@
+-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+-<svg
+-   width="16"
+-   height="16"
+-   version="1.1"
+-   id="svg4"
+-   sodipodi:docname="webview-filler-symbolic.svg"
+-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+-   xmlns="http://www.w3.org/2000/svg"
+-   xmlns:svg="http://www.w3.org/2000/svg">
+-  <defs
+-     id="defs8" />
+-  <sodipodi:namedview
+-     id="namedview6"
+-     pagecolor="#acacac"
+-     bordercolor="#eeeeee"
+-     borderopacity="1"
+-     inkscape:pageshadow="0"
+-     inkscape:pageopacity="0"
+-     inkscape:pagecheckerboard="0"
+-     showgrid="true"
+-     inkscape:snap-bbox="true"
+-     inkscape:bbox-paths="true"
+-     inkscape:object-paths="true"
+-     inkscape:snap-bbox-midpoints="false"
+-     inkscape:snap-center="false"
+-     inkscape:snap-global="true"
+-     inkscape:zoom="32"
+-     inkscape:cx="11.265625"
+-     inkscape:cy="9.9375"
+-     inkscape:window-width="2560"
+-     inkscape:window-height="1371"
+-     inkscape:window-x="0"
+-     inkscape:window-y="32"
+-     inkscape:window-maximized="1"
+-     inkscape:current-layer="svg4"
+-     inkscape:bbox-nodes="true">
+-    <inkscape:grid
+-       type="xygrid"
+-       id="grid2915" />
+-  </sodipodi:namedview>
+-  <path
+-     id="rect1205"
+-     style="opacity:1;fill:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
+-     d="M 2 5 A 1.0001 1.0001 0 0 0 1 6 L 1 10 A 1.0001 1.0001 0 0 0 1.1699219 10.544922 L 3 8.6386719 L 3 8 C 3 7.446 3.446 7 4 7 L 12 7 C 12.554 7 13 7.446 13 8 C 13 8.554 12.554 9 12 9 L 6 9 L 6 11 L 14 11 A 1.0001 1.0001 0 0 0 15 10 L 15 6 A 1.0001 1.0001 0 0 0 14 5 L 2 5 z M 4.0390625 9 L 2.1191406 11 L 5 11 L 5 9 L 4.0390625 9 z " />
+-  <path
+-     d="m 5,8 v 6.048951 l -1.3659675,-1.333334 -0.7808857,1.59324 c -0.1905594,0.431236 -1.1847319,0.0845 -0.9020979,-0.491841 l 0.7727272,-1.65443 H 1 Z"
+-     style="color:#000000;fill:#000000;stroke-width:1;marker:none"
+-     display="block"
+-     overflow="visible"
+-     id="path2913" />
+-  <rect
+-     style="opacity:0.3;fill:#000000;stroke-width:1.99999;stroke-linecap:round;stroke-linejoin:round"
+-     id="rect847"
+-     width="12"
+-     height="3"
+-     x="2"
+-     y="1"
+-     rx="1"
+-     ry="1" />
+-  <rect
+-     style="opacity:0.3;fill:#000000;stroke-width:1.99999;stroke-linecap:round;stroke-linejoin:round"
+-     id="rect1111"
+-     width="12"
+-     height="3"
+-     x="2"
+-     y="12"
+-     rx="1"
+-     ry="1" />
++<svg version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
++    <g>
++        <path d="m2 5a1.0001 1.0001 0 0 0-1 1v4a1.0001 1.0001 0 0 0 0.16992 0.54492l1.8301-1.9063v-0.63867c0-0.554 0.446-1 1-1h8c0.554 0 1 0.446 1 1s-0.446 1-1 1h-6v2h8a1.0001 1.0001 0 0 0 1-1v-4a1.0001 1.0001 0 0 0-1-1h-12zm2.0391 4-1.9199 2h2.8809v-2h-0.96094z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
++        <path d="m5 8v6.049l-1.366-1.3333-0.78089 1.5932c-0.19056 0.43124-1.1847 0.0845-0.9021-0.49184l0.77273-1.6544h-1.7238z" color="#000000" display="block" overflow="visible"/>
++        <rect x="2" y="1" width="12" height="3" rx="1" ry="1" opacity=".3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
++        <rect x="2" y="12" width="12" height="3" rx="1" ry="1" opacity=".3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
++    </g>
+ </svg>
+diff --git a/data/ui/add_feed_popover.blp b/data/ui/add_feed_popover.blp
+index 13806f5..b61f2ea 100644
+--- a/data/ui/add_feed_popover.blp
++++ b/data/ui/add_feed_popover.blp
+@@ -1,6 +1,6 @@
+ using Gtk 4.0;
+ 
+-template AddFeedPopover : Gtk.Popover {
++template $AddFeedPopover : Gtk.Popover {
+     autohide: true;
+     Gtk.Box container_box {
+         width-request: 290;
+@@ -18,13 +18,13 @@ template AddFeedPopover : Gtk.Popover {
+                 placeholder-text: 'https://…';
+                 input-purpose: url;
+                 hexpand: true;
+-                activate => on_url_entry_activate();
+-                changed => on_url_entry_changed();
++                activate => $on_url_entry_activate();
++                changed => $on_url_entry_changed();
+             }
+             Gtk.Button confirm_btn {
+                 styles ['suggested-action']
+                 label: _("Add");
+-                clicked => on_confirm_btn_clicked();
++                clicked => $on_confirm_btn_clicked();
+             }
+         }
+         Gtk.Revealer already_subscribed_revealer {
+diff --git a/data/ui/empty_state.blp b/data/ui/empty_state.blp
+index dbdbf2c..a9c91b9 100644
+--- a/data/ui/empty_state.blp
++++ b/data/ui/empty_state.blp
+@@ -1,7 +1,7 @@
+ using Gtk 4.0;
+ using Adw 1;
+ 
+-template EmptyState : Adw.Bin {
++template $EmptyState : Adw.Bin {
+     Adw.StatusPage {
+         styles ['navigation-sidebar']
+         title: _("Let's get started");
+diff --git a/data/ui/filter_view.blp b/data/ui/filter_view.blp
+index 7b5e0a3..9c060d3 100644
+--- a/data/ui/filter_view.blp
++++ b/data/ui/filter_view.blp
+@@ -2,7 +2,7 @@ using Gtk 4.0;
+ using Adw 1;
+ 
+ 
+-template FilterView : Adw.Bin {
++template $FilterView : Adw.Bin {
+     styles ['background']
+     ScrolledWindow {
+         hscrollbar-policy: never;
+@@ -13,13 +13,13 @@ template FilterView : Adw.Bin {
+             ListBox all_listbox {
+                 styles ['navigation-sidebar']
+                 selection-mode: single;
+-                row-activated => on_all_row_activated();
++                row-activated => $on_all_row_activated();
+             }
+             Separator { orientation: horizontal; margin-start: 6; margin-end: 6; }
+             ListBox tags_listbox {
+                 styles ['navigation-sidebar']
+                 selection-mode: single;
+-                row-activated => on_tags_row_activated();
++                row-activated => $on_tags_row_activated();
+             }
+             Separator { orientation: horizontal; margin-start: 6; margin-end: 6; }
+             Adw.Bin feeds_listbox_bin {}
+diff --git a/data/ui/left_headerbar.blp b/data/ui/left_headerbar.blp
+index 113a839..10e0195 100644
+--- a/data/ui/left_headerbar.blp
++++ b/data/ui/left_headerbar.blp
+@@ -20,7 +20,7 @@ menu generalMenu {
+     }
+ }
+ 
+-template LeftHeaderbar : WindowHandle {
++template $LeftHeaderbar : WindowHandle {
+     vexpand: false; hexpand: true;
+     Adw.HeaderBar left_headerbar {
+         [title] Adw.Bin {}
+@@ -40,7 +40,7 @@ template LeftHeaderbar : WindowHandle {
+         [end] Button refresh_btn {
+             tooltip-text: _("Refresh");
+             icon-name: 'view-refresh-symbolic';
+-            clicked => on_refresh_btn_clicked();
++            clicked => $on_refresh_btn_clicked();
+         }
+         [end] ToggleButton search_btn {
+             tooltip-text: _("Search");
+@@ -50,7 +50,7 @@ template LeftHeaderbar : WindowHandle {
+             tooltip-text: _("There Are Errors");
+             icon-name: 'dialog-warning-symbolic';
+             visible: false;
+-            clicked => show_errors_dialog();
++            clicked => $show_errors_dialog();
+         }
+     }
+ }
+diff --git a/data/ui/main_leaflet.blp b/data/ui/main_leaflet.blp
+index c2e49f5..8fe5d27 100644
+--- a/data/ui/main_leaflet.blp
++++ b/data/ui/main_leaflet.blp
+@@ -1,20 +1,20 @@
+ using Gtk 4.0;
+ using Adw 1;
+ 
+-template MainLeaflet : Adw.Bin {
++template $MainLeaflet : Adw.Bin {
+     Adw.Leaflet leaflet {
+         homogeneous: false;
+         can-navigate-back: true;
+         transition-type: over;
+         visible-child: left_box;
+-        notify::folded => on_leaflet_folded();
++        notify::folded => $on_leaflet_folded();
+         Adw.LeafletPage left_page {
+             child: Gtk.Box left_box {
+                 hexpand: false;
+                 orientation: vertical;
+                 width-request: 360;
+                 height-request: 100;
+-                .LeftHeaderbar left_headerbar {
++                $LeftHeaderbar left_headerbar {
+                     searchbar: searchbar;
+                 }
+                 SearchBar searchbar {
+@@ -50,9 +50,9 @@ template MainLeaflet : Adw.Bin {
+                     reveal-flap: false;
+                     swipe-to-open: true;
+                     swipe-to-close: true;
+-                    [flap] .FilterView filter_view {}
+-                    [content] .StackWithEmptyState sidebar_stack {
+-                        main-widget: .GFeedsSidebar sidebar {
++                    [flap] $FilterView filter_view {}
++                    [content] $StackWithEmptyState sidebar_stack {
++                        main-widget: $GFeedsSidebar sidebar {
+ 
+                         };
+                     }
+@@ -66,11 +66,11 @@ template MainLeaflet : Adw.Bin {
+         Adw.LeafletPage right_page {
+             child: Gtk.Box right_box {
+                 orientation: vertical;
+-                .RightHeaderbar right_headerbar {
++                $RightHeaderbar right_headerbar {
+                     webview: webview;
+-                    go_back => on_back_btn_clicked();
++                    go_back => $on_back_btn_clicked();
+                 }
+-                .GFeedsWebView webview {}
++                $GFeedsWebView webview {}
+             };
+         }
+     }
+diff --git a/data/ui/manage_feeds_headerbar.blp b/data/ui/manage_feeds_headerbar.blp
+index 8e862a9..ea130ec 100644
+--- a/data/ui/manage_feeds_headerbar.blp
++++ b/data/ui/manage_feeds_headerbar.blp
+@@ -1,7 +1,7 @@
+ using Gtk 4.0;
+ using Adw 1;
+ 
+-template ManageFeedsHeaderbar : Gtk.HeaderBar {
++template $ManageFeedsHeaderbar : Gtk.HeaderBar {
+     show-title-buttons: true;
+     [title] Adw.WindowTitle {
+         title: _("Manage Feeds");
+diff --git a/data/ui/manage_tags_content.blp b/data/ui/manage_tags_content.blp
+index b6b009f..b47f99d 100644
+--- a/data/ui/manage_tags_content.blp
++++ b/data/ui/manage_tags_content.blp
+@@ -1,7 +1,7 @@
+ using Gtk 4.0;
+ using Adw 1;
+ 
+-template ManageTagsContent : Adw.Bin {
++template $ManageTagsContent : Adw.Bin {
+     styles ['background']
+     Box {
+         spacing: 6;
+@@ -16,14 +16,14 @@ template ManageTagsContent : Adw.Bin {
+             Entry tags_entry {
+                 placeholder-text: _("New tag name…");
+                 hexpand: true;
+-                changed => on_tags_entry_changed();
+-                activate => on_submit_add_tag();
++                changed => $on_tags_entry_changed();
++                activate => $on_submit_add_tag();
+             }
+             Button add_tag_btn {
+                 styles ['suggested-action']
+                 tooltip-text: _("Add Tag");
+                 icon-name: 'list-add-symbolic';
+-                clicked => on_submit_add_tag();
++                clicked => $on_submit_add_tag();
+             }
+         }
+         Separator { orientation: horizontal; }
+@@ -34,7 +34,7 @@ template ManageTagsContent : Adw.Bin {
+                 ListBox tags_listbox {
+                     styles ['navigation-sidebar']
+                     selection-mode: none;
+-                    row-activated => on_tags_listbox_row_activated();
++                    row-activated => $on_tags_listbox_row_activated();
+                     [placeholder] Adw.StatusPage {
+                         title: _("There are no tags yet");
+                         description: _("Add some using the entry above");
+diff --git a/data/ui/manage_tags_listbox_row.blp b/data/ui/manage_tags_listbox_row.blp
+index 21124d2..0350c8f 100644
+--- a/data/ui/manage_tags_listbox_row.blp
++++ b/data/ui/manage_tags_listbox_row.blp
+@@ -1,6 +1,6 @@
+ using Gtk 4.0;
+ 
+-template ManageTagsListboxRow : ListBoxRow {
++template $ManageTagsListboxRow : ListBoxRow {
+     Box main_box {
+         spacing: 6;
+         orientation: horizontal;
+@@ -12,7 +12,7 @@ template ManageTagsListboxRow : ListBoxRow {
+             styles ['destructive-action']
+             margin-start: 12;
+             icon-name: 'user-trash-symbolic';
+-            clicked => on_delete_btn_clicked();
++            clicked => $on_delete_btn_clicked();
+         }
+     }
+ }
+diff --git a/data/ui/right_headerbar.blp b/data/ui/right_headerbar.blp
+index 992dfa6..b033c20 100644
+--- a/data/ui/right_headerbar.blp
++++ b/data/ui/right_headerbar.blp
+@@ -3,7 +3,7 @@ using Adw 1;
+ 
+ menu webviewMenu {
+     section {
+-        item { custom: zoom; }
++        item { custom: 'zoom'; }
+     }
+     section {
+         item (_("Open in _Browser"), 'app.open_externally')
+@@ -42,25 +42,25 @@ PopoverMenu extra_popover {
+             styles ['flat', 'circular']
+             icon-name: 'zoom-out-symbolic';
+             tooltip-text: _("Zoom Out");
+-            clicked => on_zoom_out_btn_clicked();
++            clicked => $on_zoom_out_btn_clicked();
+         }
+         Button zoom_reset_btn {
+             styles ['flat']
+             label: '100%';
+             width-request: 80;
+             tooltip-text: _("Reset Zoom");
+-            clicked => on_zoom_reset_btn_clicked();
++            clicked => $on_zoom_reset_btn_clicked();
+         }
+         Button zoom_in_btn {
+             styles ['flat', 'circular']
+             icon-name: 'zoom-in-symbolic';
+             tooltip-text: _("Zoom In");
+-            clicked => on_zoom_in_btn_clicked();
++            clicked => $on_zoom_in_btn_clicked();
+         }
+     }
+ }
+ 
+-template RightHeaderbar : WindowHandle {
++template $RightHeaderbar : WindowHandle {
+     vexpand: false; hexpand: true;
+     Adw.HeaderBar right_headerbar {
+         hexpand: true;
+@@ -89,7 +89,7 @@ template RightHeaderbar : WindowHandle {
+             visible: false;
+             tooltip-text: _("Back to Articles");
+             icon-name: 'go-previous-symbolic';
+-            clicked => on_back_btn_clicked();
++            clicked => $on_back_btn_clicked();
+         }
+         MenuButton view_mode_menu_btn {
+             sensitive: false;
+diff --git a/data/ui/sidebar_listbox_row.blp b/data/ui/sidebar_listbox_row.blp
+index 2e873bd..fbeb032 100644
+--- a/data/ui/sidebar_listbox_row.blp
++++ b/data/ui/sidebar_listbox_row.blp
+@@ -7,7 +7,7 @@ menu row_menu {
+     }
+ }
+ 
+-template SidebarRow : Box {
++template $SidebarRow : Box {
+     spacing: 6;
+     orientation: vertical;
+     margin-top: 12; margin-bottom: 12;
+diff --git a/data/ui/webview.blp b/data/ui/webview.blp
+index c1c68de..55dc2b3 100644
+--- a/data/ui/webview.blp
++++ b/data/ui/webview.blp
+@@ -2,7 +2,7 @@ using Gtk 4.0;
+ using WebKit 6.0;
+ using Adw 1;
+ 
+-template GFeedsWebView : Stack {
++template $GFeedsWebView : Stack {
+     width-request: 360; height-request: 400;
+     hexpand: true; vexpand: true;
+     transition-type: crossfade;
+@@ -40,9 +40,9 @@ template GFeedsWebView : Stack {
+             hexpand: true; vexpand: true;
+             WebKit.WebView webkitview {
+                 hexpand: true; vexpand: true;
+-                load-changed => on_load_changed();
+-                decide-policy => on_decide_policy();
+-                mouse-target-changed => on_mouse_target_changed();
++                load-changed => $on_load_changed();
++                decide-policy => $on_decide_policy();
++                mouse-target-changed => $on_mouse_target_changed();
+             }
+         }
+     }
+diff --git a/gfeeds/base_app.py b/gfeeds/base_app.py
+index 0ace634..a414cf2 100644
+--- a/gfeeds/base_app.py
++++ b/gfeeds/base_app.py
+@@ -24,7 +24,7 @@ class AppAction:
+         self.state_type = state_type
+         self.state_default = state_default
+ 
+-        assert not self.stateful or self.state_default is not None
++        assert (not self.stateful or self.state_default is not None)
+ 
+     def get_action(self):
+         action = None
+diff --git a/po/eu.po b/po/eu.po
+index 79f7969..1be0a1a 100644
+--- a/po/eu.po
++++ b/po/eu.po
+@@ -1,13 +1,13 @@
+ # Basque translation for gfeeds.
+ # Copyright (C) 2022 gfeeds's COPYRIGHT HOLDER
+ # This file is distributed under the same license as the gfeeds package.
+-# Asier Sarasua Garmendia <asiersarasua@ni.eus>, 2022.
++# Asier Sarasua Garmendia <asiersarasua@ni.eus>, 2022, 2023.
+ #
+ msgid ""
+ msgstr "Project-Id-Version: gfeeds master\n"
+ "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/gfeeds/issues\n"
+-"POT-Creation-Date: 2022-10-02 17:13+0000\n"
+-"PO-Revision-Date: 2022-12-04 20:28+0000\n"
++"POT-Creation-Date: 2023-03-26 11:12+0000\n"
++"PO-Revision-Date: 2023-04-04 20:28+0000\n"
+ "Last-Translator: Asier Sarasua Garmendia <asiersarasua@ni.eus>\n"
+ "Language-Team: Basque <librezale@librezale.eus>\n"
+ "Language: eu\n"
+@@ -140,7 +140,7 @@ msgstr "Freskatu"
+ msgid "Search"
+ msgstr "Bilatu"
+ 
+-#: data/ui/left_headerbar.blp:51
++#: data/ui/left_headerbar.blp:50
+ msgid "There Are Errors"
+ msgstr "Erroreak daude"
+ 
+@@ -148,7 +148,7 @@ msgstr "Erroreak daude"
+ msgid "Offline"
+ msgstr "Lineaz kanpo"
+ 
+-#: data/ui/manage_feeds_headerbar.blp:7 gfeeds/manage_feeds_window.py:263
++#: data/ui/manage_feeds_headerbar.blp:7 gfeeds/manage_feeds_window.py:257
+ msgid "Manage Feeds"
+ msgstr "Kudeatu jarioak"
+ 
+@@ -284,7 +284,7 @@ msgstr "Markatu irakurrita/irakurri gabeko gisa"
+ msgid "Select an article"
+ msgstr "Hautatu artikulu bat"
+ 
+-#: gfeeds/feed_item.py:57
++#: gfeeds/feed_item.py:62
+ #, python-brace-format
+ msgid "Error: unable to parse datetime {0} for feeditem {1}"
+ msgstr "Errorea: Ezin da {0} data analizatu {1} jario-elementurako"
+@@ -294,12 +294,22 @@ msgstr "Errorea: Ezin da {0} data analizatu {1} jario-elementurako"
+ msgid "Errors while parsing feed `{0}`, URL: `{1}`"
+ msgstr "Erroreak `{0}` jarioa, URL: `{1}` analizatzean"
+ 
+-#: gfeeds/feed_parser.py:71
++#: gfeeds/feed_parser.py:75
++#, python-brace-format
++msgid "Error decoding unicode data from feed `{0}`, URL: `{1}`"
++msgstr "Errorea `{0}`, URL: `{1}` jarioko unicode datuak deskodetzean"
++
++#: gfeeds/feed_parser.py:82
++#, python-brace-format
++msgid "Error extracting data from feed `{0}`, URL: `{1}`"
++msgstr "Errorea `{0}`, URL: `{1}` jarioko datuak erauztean"
++
++#: gfeeds/feed_parser.py:90
+ #, python-brace-format
+ msgid "`{0}` may not be an RSS or Atom feed"
+ msgstr "`{0}` agian ez da RSS edo Atom jario bat"
+ 
+-#: gfeeds/feeds_manager.py:97
++#: gfeeds/feeds_manager.py:83
+ #, python-brace-format
+ msgid "Feed {0} exists already, skipping"
+ msgstr "{0} jarioa badago lehendik, saltatzen"
+@@ -320,7 +330,7 @@ msgstr "_Mantendu"
+ msgid "_Remove"
+ msgstr "_Kendu"
+ 
+-#: gfeeds/main_leaflet.py:122
++#: gfeeds/main_leaflet.py:114
+ #, python-brace-format
+ msgid "{0} new article"
+ msgid_plural "{0} new articles"
+@@ -332,7 +342,7 @@ msgid "Do you want to import these feeds?"
+ msgstr "Jario hauek inportatu nahi dituzu?"
+ 
+ #: gfeeds/__main__.py:239 gfeeds/__main__.py:273
+-#: gfeeds/manage_feeds_window.py:330
++#: gfeeds/manage_feeds_window.py:324
+ msgid "_Cancel"
+ msgstr "_Utzi"
+ 
+@@ -352,11 +362,11 @@ msgstr "URLa"
+ msgid "opml file local url or rss remote url to import"
+ msgstr "inportatuko den OPML fitxategiaren URL lokala edo urruneko RSSaren URLa"
+ 
+-#: gfeeds/manage_feeds_window.py:327
++#: gfeeds/manage_feeds_window.py:321
+ msgid "Do you want to delete these feeds?"
+ msgstr "Jario horiek ezabatu nahi al dituzu?"
+ 
+-#: gfeeds/manage_feeds_window.py:332
++#: gfeeds/manage_feeds_window.py:326
+ msgid "_Delete"
+ msgstr "Ez_abatu"
+ 
+@@ -597,6 +607,16 @@ msgstr "It_xi"
+ msgid "Cop_y"
+ msgstr "_Kopiatu"
+ 
++#: gfeeds/util/build_reader_html.py:104
++#, python-brace-format
++msgid "Author: <a href=\"{0}\">{1}</a>"
++msgstr "Egilea: <a href=\"{0}\">{1}</a>"
++
++#: gfeeds/util/build_reader_html.py:108
++#, python-brace-format
++msgid "Author: {0}"
++msgstr "Egilea: {0}"
++
+ #: gfeeds/util/download_manager.py:112
+ #, python-brace-format
+ msgid "`{0}`: connection timed out"
+@@ -626,11 +646,11 @@ msgstr "Errorea: emandako OPML bide-izena ez da existitzen"
+ msgid "Error parsing OPML file `{0}`"
+ msgstr "Errorea `{0}` OPML fitxategia analizatzean"
+ 
+-#: gfeeds/webview.py:204
++#: gfeeds/webview.py:200
+ msgid "Link copied to clipboard!"
+ msgstr "Esteka arbelean kopiatu da!"
+ 
+-#: gfeeds/webview.py:226
++#: gfeeds/webview.py:222
+ msgid "Feed content not available for this article"
+ msgstr "Jarioaren edukia ez dago erabilgarri artikulu honetarako"
+ 
+diff --git a/po/fi.po b/po/fi.po
+index d20a628..ec473ca 100644
+--- a/po/fi.po
++++ b/po/fi.po
+@@ -7,8 +7,8 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: gfeeds master\n"
+ "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/gfeeds/issues\n"
+-"POT-Creation-Date: 2022-10-02 17:13+0000\n"
+-"PO-Revision-Date: 2022-10-05 12:20+0300\n"
++"POT-Creation-Date: 2023-03-26 11:12+0000\n"
++"PO-Revision-Date: 2023-05-18 20:47+0300\n"
+ "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
+ "Language-Team: Finnish <lokalisointi-lista@googlegroups.com>\n"
+ "Language: fi\n"
+@@ -16,7 +16,7 @@ msgstr ""
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+-"X-Generator: Poedit 3.1.1\n"
++"X-Generator: Poedit 3.2.2\n"
+ 
+ #: data/org.gabmus.gfeeds.appdata.xml.in:4
+ msgid "Feeds"
+@@ -149,7 +149,7 @@ msgstr "Päivitä"
+ msgid "Search"
+ msgstr "Etsi"
+ 
+-#: data/ui/left_headerbar.blp:51
++#: data/ui/left_headerbar.blp:50
+ msgid "There Are Errors"
+ msgstr "Ilmeni virheitä"
+ 
+@@ -157,7 +157,7 @@ msgstr "Ilmeni virheitä"
+ msgid "Offline"
+ msgstr "Ei verkossa"
+ 
+-#: data/ui/manage_feeds_headerbar.blp:7 gfeeds/manage_feeds_window.py:263
++#: data/ui/manage_feeds_headerbar.blp:7 gfeeds/manage_feeds_window.py:257
+ msgid "Manage Feeds"
+ msgstr "Hallitse syötteitä"
+ 
+@@ -293,7 +293,7 @@ msgstr "Merkitse luetuksi/lukemattomaksi"
+ msgid "Select an article"
+ msgstr "Valitse artikkeli"
+ 
+-#: gfeeds/feed_item.py:57
++#: gfeeds/feed_item.py:62
+ #, python-brace-format
+ msgid "Error: unable to parse datetime {0} for feeditem {1}"
+ msgstr "Virhe: ei voitu jäsentää datetimea {0} syötekohteelle {1}"
+@@ -303,12 +303,24 @@ msgstr "Virhe: ei voitu jäsentää datetimea {0} syötekohteelle {1}"
+ msgid "Errors while parsing feed `{0}`, URL: `{1}`"
+ msgstr "Virhe jäsentäessä syötettä `{0}`, URL: `{1}`"
+ 
+-#: gfeeds/feed_parser.py:71
++#: gfeeds/feed_parser.py:75
++#, python-brace-format
++#| msgid "Errors while parsing feed `{0}`, URL: `{1}`"
++msgid "Error decoding unicode data from feed `{0}`, URL: `{1}`"
++msgstr "Virhe käsiteltäessä unicode-dataa syötteestä `{0}`, URL-osoite: `{1}`"
++
++#: gfeeds/feed_parser.py:82
++#, python-brace-format
++#| msgid "Errors while parsing feed `{0}`, URL: `{1}`"
++msgid "Error extracting data from feed `{0}`, URL: `{1}`"
++msgstr "Virhe purkaessa dataa syötteestä `{0}`, URL-osoite: `{1}`"
++
++#: gfeeds/feed_parser.py:90
+ #, python-brace-format
+ msgid "`{0}` may not be an RSS or Atom feed"
+ msgstr "`{0}` ei välttämättä ole RSS- tai Atom-syöte"
+ 
+-#: gfeeds/feeds_manager.py:97
++#: gfeeds/feeds_manager.py:83
+ #, python-brace-format
+ msgid "Feed {0} exists already, skipping"
+ msgstr "Syöte {0} on jo olemassa, ohitetaan"
+@@ -329,7 +341,7 @@ msgstr "_Säilytä"
+ msgid "_Remove"
+ msgstr "_Poista"
+ 
+-#: gfeeds/main_leaflet.py:122
++#: gfeeds/main_leaflet.py:114
+ #, python-brace-format
+ msgid "{0} new article"
+ msgid_plural "{0} new articles"
+@@ -341,7 +353,7 @@ msgid "Do you want to import these feeds?"
+ msgstr "Haluatko tuoda nämä syötteet?"
+ 
+ #: gfeeds/__main__.py:239 gfeeds/__main__.py:273
+-#: gfeeds/manage_feeds_window.py:330
++#: gfeeds/manage_feeds_window.py:324
+ msgid "_Cancel"
+ msgstr "_Peru"
+ 
+@@ -361,11 +373,11 @@ msgstr "url"
+ msgid "opml file local url or rss remote url to import"
+ msgstr "opml-tiedoston paikallinen osoite tai rss-etäosoite tuotavaksi"
+ 
+-#: gfeeds/manage_feeds_window.py:327
++#: gfeeds/manage_feeds_window.py:321
+ msgid "Do you want to delete these feeds?"
+ msgstr "Haluatko poistaa nämä syötteet?"
+ 
+-#: gfeeds/manage_feeds_window.py:332
++#: gfeeds/manage_feeds_window.py:326
+ msgid "_Delete"
+ msgstr "_Poista"
+ 
+@@ -606,6 +618,16 @@ msgstr "_Sulje"
+ msgid "Cop_y"
+ msgstr "Ko_pioi"
+ 
++#: gfeeds/util/build_reader_html.py:104
++#, python-brace-format
++msgid "Author: <a href=\"{0}\">{1}</a>"
++msgstr "Tekijä: <a href=\"{0}\">{1}</a>"
++
++#: gfeeds/util/build_reader_html.py:108
++#, python-brace-format
++msgid "Author: {0}"
++msgstr "Tekijä: {0}"
++
+ #: gfeeds/util/download_manager.py:112
+ #, python-brace-format
+ msgid "`{0}`: connection timed out"
+@@ -635,11 +657,11 @@ msgstr "Virhe: Määritettyä OPML-polkua ei ole olemassa"
+ msgid "Error parsing OPML file `{0}`"
+ msgstr "Virhe jäsentäessä OPML-tiedostoa `{0}`"
+ 
+-#: gfeeds/webview.py:204
++#: gfeeds/webview.py:200
+ msgid "Link copied to clipboard!"
+ msgstr "Linkki kopioitu leikepöydälle!"
+ 
+-#: gfeeds/webview.py:226
++#: gfeeds/webview.py:222
+ msgid "Feed content not available for this article"
+ msgstr "Syötteen sisältöä tälle artikkelille ei ole saatavilla"
+ 
+diff --git a/po/fr.po b/po/fr.po
+index e1f0c85..781a424 100644
+--- a/po/fr.po
++++ b/po/fr.po
+@@ -2,14 +2,15 @@
+ # Copyright (C) 2019 THE gfeeds'S COPYRIGHT HOLDER
+ # This file is distributed under the same license as the gfeeds package.
+ # Éloi Rivard <eloi.rivard@aquilenet.fr>, 2019-2022.
++# Alexandre Franke <afranke@gnome.org>, 2022.
+ # Charles Monzat <charles.monzat@free.fr>, 2022.
+ #
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: gfeeds 0.12\n"
+ "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/gfeeds/issues\n"
+-"POT-Creation-Date: 2022-05-09 14:29+0000\n"
+-"PO-Revision-Date: 2022-05-25 18:56+0200\n"
++"POT-Creation-Date: 2022-10-03 18:20+0000\n"
++"PO-Revision-Date: 2022-10-07 12:34+0200\n"
+ "Last-Translator: Charles Monzat <charles.monzat@free.fr>\n"
+ "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
+ "Language: fr\n"
+@@ -63,24 +64,259 @@ msgstr "Les flux peuvent êtres importés et exportés via OPML."
+ msgid "rss;reader;feed;news;"
+ msgstr "rss;reader;feed;news;lecture;nouvelles;journaux;flux;"
+ 
+-#: gfeeds/feed_item.py:49
++#: data/ui/aboutdialog.ui.in:10
++msgid "translator-credits"
++msgstr ""
++"Éloi Rivard <eloi.rivard@aquilenet.fr>\n"
++"Charles Monzat <charles.monzat@free.fr>\n"
++"Alexandre Franke <afranke@gnome.org>"
++
++#: data/ui/add_feed_popover.blp:11
++msgid "Enter feed address to add"
++msgstr "Entrez l’adresse du flux à ajouter"
++
++#: data/ui/add_feed_popover.blp:26
++msgid "Add"
++msgstr "Ajouter"
++
++#: data/ui/add_feed_popover.blp:32
++msgid "You're already subscribed to that feed!"
++msgstr "Vous êtes déjà abonné à ce flux !"
++
++#: data/ui/empty_state.blp:7
++msgid "Let's get started"
++msgstr "Commençons"
++
++#: data/ui/empty_state.blp:22
++msgid "Add new feeds via URL"
++msgstr "Ajouter de nouveaux flux via une URL"
++
++#: data/ui/empty_state.blp:27
++msgid "Import an OPML file"
++msgstr "Importer un fichier OPML"
++
++#: data/ui/left_headerbar.blp:6
++msgid "_Show Read Articles"
++msgstr "_Afficher les articles lus"
++
++#: data/ui/left_headerbar.blp:7
++msgid "Mark All as Read"
++msgstr "Tout marquer comme lu"
++
++#: data/ui/left_headerbar.blp:8
++msgid "Mark All as _Unread"
++msgstr "Tout marquer comme non lu"
++
++#: data/ui/left_headerbar.blp:11
++msgid "Show _Empty Feeds"
++msgstr "Afficher les flux _vides"
++
++#: data/ui/left_headerbar.blp:12
++msgid "_Manage Feeds"
++msgstr "_Gérer les flux"
++
++#: data/ui/left_headerbar.blp:13
++msgid "_Import OPML"
++msgstr "_Importer un fichier OPML"
++
++#: data/ui/left_headerbar.blp:14
++msgid "E_xport OPML"
++msgstr "E_xporter un fichier OPML"
++
++#: data/ui/left_headerbar.blp:17
++msgid "P_references"
++msgstr "P_références"
++
++#: data/ui/left_headerbar.blp:18
++msgid "_Keyboard Shortcuts"
++msgstr "Raccourcis _clavier"
++
++#: data/ui/left_headerbar.blp:19
++msgid "_About Feeds"
++msgstr "À _propos"
++
++#: data/ui/left_headerbar.blp:28
++msgid "Filter"
++msgstr "Filtrer"
++
++#: data/ui/left_headerbar.blp:32
++msgid "Add Feed"
++msgstr "Ajouter un flux"
++
++#: data/ui/left_headerbar.blp:36
++msgid "Menu"
++msgstr "Menu"
++
++#: data/ui/left_headerbar.blp:41 data/ui/shortcutsWindow.blp:35
++msgid "Refresh"
++msgstr "Actualiser"
++
++#: data/ui/left_headerbar.blp:46 data/ui/shortcutsWindow.blp:39
++msgid "Search"
++msgstr "Rechercher"
++
++#: data/ui/left_headerbar.blp:51
++msgid "There Are Errors"
++msgstr "Il y a des erreurs"
++
++#: data/ui/main_leaflet.blp:40
++msgid "Offline"
++msgstr "Hors ligne"
++
++#: data/ui/manage_feeds_headerbar.blp:7 gfeeds/manage_feeds_window.py:263
++msgid "Manage Feeds"
++msgstr "Gérer les flux"
++
++#: data/ui/manage_feeds_headerbar.blp:11
++msgid "Manage Tags for Selected Feeds"
++msgstr "Gérer les étiquettes pour les flux sélectionnés"
++
++#: data/ui/manage_feeds_headerbar.blp:16
++msgid "Select/Unselect All"
++msgstr "Tout sélectionner / désélectionner"
++
++#: data/ui/manage_feeds_headerbar.blp:21
++msgid "Delete Selected Feeds"
++msgstr "Supprimer les flux sélectionnés"
++
++#: data/ui/manage_tags_content.blp:17
++msgid "New tag name…"
++msgstr "Nouveau nom d’étiquette…"
++
++#: data/ui/manage_tags_content.blp:24
++msgid "Add Tag"
++msgstr "Ajouter une étiquette"
++
++#: data/ui/manage_tags_content.blp:39
++msgid "There are no tags yet"
++msgstr "Il n’y a pas encore d’étiquettes"
++
++#: data/ui/manage_tags_content.blp:40
++msgid "Add some using the entry above"
++msgstr "Ajoutez-en via l’entrée ci-dessus"
++
++#: data/ui/right_headerbar.blp:9
++msgid "Open in _Browser"
++msgstr "Ouvrir dans le _navigateur"
++
++#: data/ui/right_headerbar.blp:10
++msgid "Open in External Media _Player"
++msgstr "Ouvrir dans un _lecteur média externe"
++
++#: data/ui/right_headerbar.blp:11
++msgid "_Copy Article Link"
++msgstr "_Copier le lien de l’article"
++
++#: data/ui/right_headerbar.blp:17 data/ui/right_headerbar.blp:96
++msgid "View Mode"
++msgstr "Mode de vue"
++
++#: data/ui/right_headerbar.blp:19
++msgid "Web View"
++msgstr "Page web"
++
++#: data/ui/right_headerbar.blp:24
++msgid "Reader Mode"
++msgstr "Mode lecture"
++
++#: data/ui/right_headerbar.blp:29
++msgid "Feed Content"
++msgstr "Contenu du flux"
++
++#: data/ui/right_headerbar.blp:44 data/ui/shortcutsWindow.blp:66
++msgid "Zoom Out"
++msgstr "Zoom arrière"
++
++#: data/ui/right_headerbar.blp:51 data/ui/shortcutsWindow.blp:70
++msgid "Reset Zoom"
++msgstr "Réinitialiser le zoom"
++
++#: data/ui/right_headerbar.blp:57 data/ui/shortcutsWindow.blp:62
++msgid "Zoom In"
++msgstr "Zoom avant"
++
++#: data/ui/right_headerbar.blp:90
++msgid "Back to Articles"
++msgstr "Retour aux articles"
++
++#: data/ui/shortcutsWindow.blp:9 gfeeds/preferences_window.py:24
++msgid "General"
++msgstr "Général"
++
++#: data/ui/shortcutsWindow.blp:12
++msgid "Open Keyboard Shortcuts"
++msgstr "Ouvrir les raccourcis clavier"
++
++#: data/ui/shortcutsWindow.blp:16
++msgid "Open Menu"
++msgstr "Ouvrir le menu"
++
++#: data/ui/shortcutsWindow.blp:20
++msgid "Open Preferences"
++msgstr "Ouvrir les préférences"
++
++#: data/ui/shortcutsWindow.blp:24
++msgid "Open Filter"
++msgstr "Ouvrir le filtre"
++
++#: data/ui/shortcutsWindow.blp:28
++msgid "Quit"
++msgstr "Quitter"
++
++#: data/ui/shortcutsWindow.blp:32
++msgid "Article List"
++msgstr "Liste des articles"
++
++#: data/ui/shortcutsWindow.blp:43
++msgid "Next"
++msgstr "Suivant"
++
++#: data/ui/shortcutsWindow.blp:47
++msgid "Previous"
++msgstr "Précédent"
++
++#: data/ui/shortcutsWindow.blp:51
++msgid "Show/Hide Read Articles"
++msgstr "Afficher / masquer les articles lus"
++
++#: data/ui/shortcutsWindow.blp:55
++msgid "Mark All Read"
++msgstr "Tout marquer comme lu"
++
++#: data/ui/shortcutsWindow.blp:59
++msgid "Article"
++msgstr "Article"
++
++#: data/ui/shortcutsWindow.blp:74 data/ui/sidebar_listbox_row.blp:6
++msgid "Open in Browser"
++msgstr "Ouvrir dans le navigateur"
++
++#: data/ui/sidebar_listbox_row.blp:5
++msgid "Mark as Read/Unread"
++msgstr "Marqué comme lu / non lu"
++
++#: data/ui/webview.blp:12
++msgid "Select an article"
++msgstr "Choisir un article"
++
++#: gfeeds/feed_item.py:57
+ #, python-brace-format
+ msgid "Error: unable to parse datetime {0} for feeditem {1}"
+ msgstr ""
+ "Erreur : impossible d’analyser la date et l’heure {0} pour l’élément de flux "
+ "{1}"
+ 
+-#: gfeeds/feed_parser.py:37
++#: gfeeds/feed_parser.py:61
+ #, python-brace-format
+-msgid "Errors while parsing feed `{0}`"
+-msgstr "Erreurs lors de l’analyse du flux « {0} »"
++msgid "Errors while parsing feed `{0}`, URL: `{1}`"
++msgstr "Erreurs lors de l’analyse du flux « {0} », URL : « {1} »"
+ 
+-#: gfeeds/feed_parser.py:55
++#: gfeeds/feed_parser.py:71
+ #, python-brace-format
+ msgid "`{0}` may not be an RSS or Atom feed"
+ msgstr "« {0} » n’est sans doute pas un flux RSS ou Atom"
+ 
+-#: gfeeds/feeds_manager.py:88
++#: gfeeds/feeds_manager.py:97
+ #, python-brace-format
+ msgid "Feed {0} exists already, skipping"
+ msgstr "Le flux {0} existe déjà, ignoré"
+@@ -89,45 +325,59 @@ msgstr "Le flux {0} existe déjà, ignoré"
+ msgid "All feeds"
+ msgstr "Tous les flux"
+ 
+-#: gfeeds/headerbar.py:184
+-msgid ""
+-"There were problems with some feeds.\n"
+-"Do you want to remove them?"
++#: gfeeds/headerbar.py:197
++msgid "There were problems with some feeds. Do you want to remove them?"
+ msgstr ""
+-"Il y a eu des problèmes avec certains flux.\n"
+-"Voulez-vous les supprimer ?"
++"Il y a eu des problèmes avec certains flux. Voulez-vous les supprimer ?"
+ 
+-#: gfeeds/main_leaflet.py:119
++#: gfeeds/headerbar.py:202
++msgid "_Keep"
++msgstr "_Conserver"
++
++#: gfeeds/headerbar.py:204
++msgid "_Remove"
++msgstr "_Enlever"
++
++#: gfeeds/main_leaflet.py:122
+ #, python-brace-format
+ msgid "{0} new article"
+ msgid_plural "{0} new articles"
+ msgstr[0] "{0} nouvel article"
+ msgstr[1] "{0} nouveaux articles"
+ 
+-#: gfeeds/__main__.py:229
++#: gfeeds/__main__.py:232
+ msgid "Do you want to import these feeds?"
+ msgstr "Voulez-vous importer ces flux ?"
+ 
+-#: gfeeds/__main__.py:256
++#: gfeeds/__main__.py:239 gfeeds/__main__.py:273
++#: gfeeds/manage_feeds_window.py:330
++msgid "_Cancel"
++msgstr "A_nnuler"
++
++#: gfeeds/__main__.py:242 gfeeds/__main__.py:276
++msgid "_Import"
++msgstr "_Importer"
++
++#: gfeeds/__main__.py:269
+ msgid "Do you want to import this feed?"
+ msgstr "Voulez-vous importer ce flux ?"
+ 
+-#: gfeeds/__main__.py:285
++#: gfeeds/__main__.py:301
+ msgid "url"
+ msgstr "url"
+ 
+-#: gfeeds/__main__.py:288
++#: gfeeds/__main__.py:304
+ msgid "opml file local url or rss remote url to import"
+ msgstr "URL locale du fichier opml ou URL distante rss à importer"
+ 
+-#: gfeeds/manage_feeds_window.py:263
+-msgid "Manage Feeds"
+-msgstr "Gérer les flux"
+-
+-#: gfeeds/manage_feeds_window.py:318
++#: gfeeds/manage_feeds_window.py:327
+ msgid "Do you want to delete these feeds?"
+ msgstr "Voulez-vous supprimer ces flux ?"
+ 
++#: gfeeds/manage_feeds_window.py:332
++msgid "_Delete"
++msgstr "_Supprimer"
++
+ #: gfeeds/opml_file_chooser.py:7
+ msgid "XML files"
+ msgstr "Fichiers XML"
+@@ -152,84 +402,71 @@ msgstr "Choisir où enregistrer le fichier OPML exporté"
+ msgid "Save"
+ msgstr "Enregistrer"
+ 
+-#: gfeeds/opml_manager.py:42
+-msgid "Error: OPML path provided does not exist"
+-msgstr "Erreur : Le chemin du fichier OPML n’existe pas"
+-
+-#: gfeeds/opml_manager.py:53
+-#, python-brace-format
+-msgid "Error parsing OPML file `{0}`"
+-msgstr "Erreur lors de l’analyse du fichier OPML « {0} »"
+-
+-#: gfeeds/preferences_window.py:22
+-msgid "General"
+-msgstr "Général"
+-
+-#: gfeeds/preferences_window.py:25
++#: gfeeds/preferences_window.py:27
+ msgid "General preferences"
+ msgstr "Paramètres généraux"
+ 
+-#: gfeeds/preferences_window.py:27
++#: gfeeds/preferences_window.py:29
+ msgid "Show newer articles first"
+ msgstr "Afficher l’article le plus récent en premier"
+ 
+-#: gfeeds/preferences_window.py:32
++#: gfeeds/preferences_window.py:34
+ msgid "Open links in your browser"
+ msgstr "Ouvrir les liens dans votre navigateur"
+ 
+-#: gfeeds/preferences_window.py:36
++#: gfeeds/preferences_window.py:38
+ msgid "Use external video player for YouTube"
+ msgstr "Utiliser un lecteur vidéo externe pour YouTube"
+ 
+-#: gfeeds/preferences_window.py:38
++#: gfeeds/preferences_window.py:40
+ msgid "Requires youtube-dl and a compatible video player"
+ msgstr "Nécessite youtube-dl et un lecteur vidéo compatible"
+ 
+-#: gfeeds/preferences_window.py:44
++#: gfeeds/preferences_window.py:46
+ msgid "Preferred video player"
+ msgstr "Lecteur vidéo préféré"
+ 
+-#: gfeeds/preferences_window.py:48
++#: gfeeds/preferences_window.py:50
+ msgid "Maximum article age"
+ msgstr "Âge maximum des articles"
+ 
+-#: gfeeds/preferences_window.py:49
++#: gfeeds/preferences_window.py:51
+ msgid "In days"
+ msgstr "En jours"
+ 
+-#: gfeeds/preferences_window.py:56
++#: gfeeds/preferences_window.py:58
+ msgid "Refresh preferences"
+ msgstr "Préférences d’actualisation"
+ 
+-#: gfeeds/preferences_window.py:58
++#: gfeeds/preferences_window.py:60
+ msgid "Refresh articles on startup"
+ msgstr "Actualiser les articles au démarrage"
+ 
+-#: gfeeds/preferences_window.py:62
++#: gfeeds/preferences_window.py:64
+ msgid "New articles notification"
+ msgstr "Notification des nouveaux articles"
+ 
+-#: gfeeds/preferences_window.py:66
++#: gfeeds/preferences_window.py:68
+ msgid "Enable auto-refresh"
+ msgstr "Activer l’actualisation automatique"
+ 
+-#: gfeeds/preferences_window.py:70
++#: gfeeds/preferences_window.py:72
+ msgid "Auto-refresh interval"
+ msgstr "Intervalle d’actualisation automatique"
+ 
+-#: gfeeds/preferences_window.py:71
++#: gfeeds/preferences_window.py:73
+ msgid "In seconds"
+ msgstr "En secondes"
+ 
+-#: gfeeds/preferences_window.py:78
++#: gfeeds/preferences_window.py:80
+ msgid "Cache"
+ msgstr "Cache"
+ 
+-#: gfeeds/preferences_window.py:80
++#: gfeeds/preferences_window.py:82
+ msgid "Clear caches"
+ msgstr "Effacer les caches"
+ 
+-#: gfeeds/preferences_window.py:81
++#: gfeeds/preferences_window.py:83
+ msgid "Clear"
+ msgstr "Effacer"
+ 
+@@ -246,7 +483,6 @@ msgid "Dark mode"
+ msgstr "Mode sombre"
+ 
+ #: gfeeds/preferences_window.py:118
+-#| msgid "Reader Mode"
+ msgid "Reader mode theme"
+ msgstr "Thème du mode lecture"
+ 
+@@ -259,7 +495,6 @@ msgid "Light"
+ msgstr "Clair"
+ 
+ #: gfeeds/preferences_window.py:122
+-#| msgid "Dark mode"
+ msgid "Dark"
+ msgstr "Sombre"
+ 
+@@ -303,217 +538,132 @@ msgstr "Police à chasse fixe personnalisée"
+ msgid "Privacy"
+ msgstr "Confidentialité"
+ 
+-#: gfeeds/preferences_window.py:176
++#: gfeeds/preferences_window.py:177
+ msgid "Privacy preferences"
+ msgstr "Paramètres de confidentialité"
+ 
+-#: gfeeds/preferences_window.py:178
++#: gfeeds/preferences_window.py:179
+ msgid "Enable JavaScript"
+ msgstr "Activer Javascript"
+ 
+-#: gfeeds/preferences_window.py:183
++#: gfeeds/preferences_window.py:184
+ msgid "Try to block advertisements"
+ msgstr "Essayer de bloquer les publicités"
+ 
+-#: gfeeds/preferences_window.py:185 gfeeds/preferences_window.py:220
++#: gfeeds/preferences_window.py:186 gfeeds/preferences_window.py:221
+ msgid "Requires app restart"
+ msgstr "Nécessite le redémarrage de l’application"
+ 
+-#: gfeeds/preferences_window.py:189
++#: gfeeds/preferences_window.py:190
+ msgid "Update advertisement blocking list"
+ msgstr "Mettre à jour la liste de blocage des publicités"
+ 
+-#: gfeeds/preferences_window.py:190
++#: gfeeds/preferences_window.py:191
+ msgid "Updates automatically every 10 days"
+ msgstr "Mise à jour automatique tous les 10 jours"
+ 
+-#: gfeeds/preferences_window.py:191
++#: gfeeds/preferences_window.py:192
+ msgid "Update"
+ msgstr "Mettre à jour"
+ 
+-#: gfeeds/preferences_window.py:204
++#: gfeeds/preferences_window.py:205
+ msgid "Advanced"
+ msgstr "Avancé"
+ 
+-#: gfeeds/preferences_window.py:207
++#: gfeeds/preferences_window.py:208
+ msgid "Advanced preferences"
+ msgstr "Paramètres avancés"
+ 
+-#: gfeeds/preferences_window.py:209
++#: gfeeds/preferences_window.py:210
+ msgid "Maximum refresh threads"
+ msgstr "Nombre maximal de fils d’actualisation"
+ 
+-#: gfeeds/preferences_window.py:211
++#: gfeeds/preferences_window.py:212
+ msgid "How many threads to use for feeds refresh"
+ msgstr "Nombre de fils à utiliser pour actualiser les flux"
+ 
+-#: gfeeds/preferences_window.py:218
++#: gfeeds/preferences_window.py:219
+ msgid "Experimental GtkListView for articles list"
+ msgstr "Activation expérimentale de GtkListView pour la liste des articles"
+ 
+-#: gfeeds/sidebar.py:21
+-msgid "Loading feeds..."
+-msgstr "Chargement des flux…"
++#: gfeeds/preferences_window.py:227
++msgid "Troubleshooting"
++msgstr "Dépannage"
++
++#: gfeeds/preferences_window.py:229
++msgid "Export Configuration as JSON"
++msgstr "Exporter la configuration en JSON"
++
++#: gfeeds/preferences_window.py:230
++msgid "Attach this when reporting bugs"
++msgstr "Lier cela aux rapports d’anomalies"
+ 
+-#: gfeeds/sidebar_row_popover.py:31 gfeeds/sidebar_row_popover.py:58
+-msgid "Mark as unread"
+-msgstr "Marqué comme non lu"
++#: gfeeds/preferences_window.py:231
++msgid "Export"
++msgstr "Exporter"
+ 
+-#: gfeeds/sidebar_row_popover.py:38 gfeeds/sidebar_row_popover.py:50
+-msgid "Mark as read"
+-msgstr "Marquer comme lu"
++#. type: ignore
++#: gfeeds/preferences_window.py:244
++msgid "Feeds Configuration"
++msgstr "Configuration du flux"
+ 
+-#: gfeeds/util/download_manager.py:96
++#: gfeeds/preferences_window.py:248
++msgid "_Close"
++msgstr "_Fermer"
++
++#: gfeeds/preferences_window.py:251
++msgid "Cop_y"
++msgstr "Co_pier"
++
++#: gfeeds/util/download_manager.py:112
+ #, python-brace-format
+ msgid "`{0}`: connection timed out"
+ msgstr "« {0} » : connexion expirée"
+ 
+-#: gfeeds/util/download_manager.py:105
++#: gfeeds/util/download_manager.py:121
+ #, python-brace-format
+ msgid "`{0}` might not be a valid address"
+ msgstr "« {0} » n’est sans doute pas une adresse valide"
+ 
+-#: gfeeds/util/download_manager.py:144
++#: gfeeds/util/download_manager.py:161
+ #, python-brace-format
+ msgid "Error downloading `{0}`, code `{1}`"
+ msgstr "Erreur lors du téléchargement de « {0} », code « {1} »"
+ 
+-#: gfeeds/util/get_favicon.py:53
++#: gfeeds/util/get_favicon.py:48
+ #, python-brace-format
+ msgid "Error downloading favicon for `{0}`"
+ msgstr "Erreur lors du téléchargement du favicon pour « {0} »"
+ 
+-#: gfeeds/webview.py:201
++#: gfeeds/util/opml_parser.py:33
++msgid "Error: OPML path provided does not exist"
++msgstr "Erreur : Le chemin du fichier OPML n’existe pas"
++
++#: gfeeds/util/opml_parser.py:44
++#, python-brace-format
++msgid "Error parsing OPML file `{0}`"
++msgstr "Erreur lors de l’analyse du fichier OPML « {0} »"
++
++#: gfeeds/webview.py:204
+ msgid "Link copied to clipboard!"
+ msgstr "Lien copié dans le presse-papiers !"
+ 
+-#: gfeeds/webview.py:223
++#: gfeeds/webview.py:226
+ msgid "Feed content not available for this article"
+ msgstr "Contenu du flux indisponible pour cet article"
+ 
++#~ msgid "Loading feeds..."
++#~ msgstr "Chargement des flux…"
++
++#~ msgid "Mark as read"
++#~ msgstr "Marquer comme lu"
++
+ #~ msgid "Use dark theme for reader mode"
+ #~ msgstr "Utiliser le thème sombre pour le mode lecture"
+ 
+ #~ msgid "Maximum thumbnail height"
+ #~ msgstr "Hauteur maximale des vignettes"
+ 
+-#~ msgid "Enter feed address to add"
+-#~ msgstr "Entrez l'adresse du flux à ajouter"
+-
+-#~ msgid "Add"
+-#~ msgstr "Ajouter"
+-
+-#~ msgid "You're already subscribed to that feed!"
+-#~ msgstr "Vous êtes déjà abonné à ce flux !"
+-
+-#~ msgid "Let's get started"
+-#~ msgstr "Commençons"
+-
+-#~ msgid "Add new feeds via URL"
+-#~ msgstr "Ajouter de nouveaux flux via une URL"
+-
+-#~ msgid "Import an OPML file"
+-#~ msgstr "Importer un fichier OPML"
+-
+-#~ msgid "Show Read Articles"
+-#~ msgstr "Montrer les articles lus"
+-
+-#~ msgid "Mark All as Read"
+-#~ msgstr "Marquer tous comme lus"
+-
+-#~ msgid "Mark All as Unread"
+-#~ msgstr "Marquer tous comme non-lus"
+-
+-#~ msgid "Show Empty Feeds"
+-#~ msgstr "Montrer les flux vides"
+-
+-#~ msgid "Import OPML"
+-#~ msgstr "Importer un fichier OPML"
+-
+-#~ msgid "Export OPML"
+-#~ msgstr "Exporter un fichier OPML"
+-
+-#~ msgid "Preferences"
+-#~ msgstr "Préférences"
+-
+-#~ msgid "Keyboard Shortcuts"
+-#~ msgstr "Raccourcis clavier"
+-
+-#~ msgid "About Feeds"
+-#~ msgstr "À propos"
+-
+-#~ msgid "Filter"
+-#~ msgstr "Filtrer"
+-
+-#~ msgid "Add Feed"
+-#~ msgstr "Ajouter un flux"
+-
+-#~ msgid "Menu"
+-#~ msgstr "Menu"
+-
+-#~ msgid "Refresh"
+-#~ msgstr "Rafraîchir"
+-
+-#~ msgid "Search"
+-#~ msgstr "Rechercher"
+-
+-#~ msgid "There Are Errors"
+-#~ msgstr "Il y a des erreurs"
+-
+-#~ msgid "Offline"
+-#~ msgstr "Hors-ligne"
+-
+-#~ msgid "Manage Tags for Selected Feeds"
+-#~ msgstr "Gérer les étiquettes pour les flux sélectionnés"
+-
+-#~ msgid "Select/Unselect All"
+-#~ msgstr "Sélectionner / désélectionner tous"
+-
+-#~ msgid "Delete Selected Feeds"
+-#~ msgstr "Supprimer les flux sélectionnés"
+-
+-#~ msgid "New tag name…"
+-#~ msgstr "Nouveau nom d'étiquette..."
+-
+-#~ msgid "Add Tag"
+-#~ msgstr "Ajouter une étiquette"
+-
+-#~ msgid "There are no tags yet"
+-#~ msgstr "Il n'y a pas encore d'étiquettes"
+-
+-#~ msgid "Add some using the entry above"
+-#~ msgstr "Ajoutez-en en utilisant l'entrée ci-dessus"
+-
+-#~ msgid "Open in Browser"
+-#~ msgstr "Ouvrir dans le navigateur"
+-
+-#~ msgid "Open in External Media Player"
+-#~ msgstr "Ouvrir dans un lecteur média externe"
+-
+-#~ msgid "Copy Article Link"
+-#~ msgstr "Copier le lien de l'article"
+-
+-#~ msgid "View Mode"
+-#~ msgstr "Mode de vue"
+-
+-#~ msgid "Web View"
+-#~ msgstr "Page web"
+-
+-#~ msgid "Feed Content"
+-#~ msgstr "Contenu du flux"
+-
+-#~ msgid "Zoom Out"
+-#~ msgstr "Dézoomer"
+-
+-#~ msgid "Reset Zoom"
+-#~ msgstr "Réinitialiser le zoom"
+-
+-#~ msgid "Zoom In"
+-#~ msgstr "Zoomer"
+-
+-#~ msgid "Back to Articles"
+-#~ msgstr "Retour aux articles"
+-
+ #~ msgid "Mark as Read"
+ #~ msgstr "Marquer comme lu"
+ 
+@@ -523,42 +673,6 @@ msgstr "Contenu du flux indisponible pour cet article"
+ #~ msgid "Yes"
+ #~ msgstr "Oui"
+ 
+-#~ msgid "Open Keyboard Shortcuts"
+-#~ msgstr "Ouvrir les raccourcis clavier"
+-
+-#~ msgid "Open Menu"
+-#~ msgstr "Ouvrir le menu"
+-
+-#~ msgid "Open Preferences"
+-#~ msgstr "Ouvrir les préférences"
+-
+-#~ msgid "Open Filter"
+-#~ msgstr "Ouvrir le filtre"
+-
+-#~ msgid "Quit"
+-#~ msgstr "Quitter"
+-
+-#~ msgid "Article List"
+-#~ msgstr "Liste des articles"
+-
+-#~ msgid "Next"
+-#~ msgstr "Suivant"
+-
+-#~ msgid "Previous"
+-#~ msgstr "Précédent"
+-
+-#~ msgid "Show/Hide Read Articles"
+-#~ msgstr "Montrer / cacher les articles lus"
+-
+-#~ msgid "Mark All Read"
+-#~ msgstr "Marquer tous comme lus"
+-
+-#~ msgid "Article"
+-#~ msgstr "Article"
+-
+-#~ msgid "Select an article"
+-#~ msgstr "Choisir un article"
+-
+ #~ msgid "@prettyname@"
+ #~ msgstr "@prettyname@"
+ 
+diff --git a/po/id.po b/po/id.po
+index b9f6082..ffb9dd4 100644
+--- a/po/id.po
++++ b/po/id.po
+@@ -1,16 +1,16 @@
+ # Indonesian translation for gfeeds.
+ # Copyright (C) 2022 gfeeds's COPYRIGHT HOLDER
+ # This file is distributed under the same license as the gfeeds package.
+-# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2022.
++# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2022-2023.
+ # Andika Triwidada <andika@gmail.com>, 2023.
+ #
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: gfeeds master\n"
+ "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/gfeeds/issues\n"
+-"POT-Creation-Date: 2023-03-11 08:34+0000\n"
+-"PO-Revision-Date: 2023-03-22 17:53+0700\n"
+-"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
++"POT-Creation-Date: 2023-03-26 11:12+0000\n"
++"PO-Revision-Date: 2023-03-31 07:58+0700\n"
++"Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
+ "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
+ "Language: id\n"
+ "MIME-Version: 1.0\n"
+@@ -66,7 +66,7 @@ msgstr "rss;pembaca;asupan;umpan;berita;"
+ #: data/ui/aboutdialog.ui.in:10
+ msgid "translator-credits"
+ msgstr ""
+-"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2022.\n"
++"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2022-2023.\n"
+ "Andika Triwidada <andika@gmail.com>, 2023."
+ 
+ #: data/ui/add_feed_popover.blp:11
+@@ -297,7 +297,7 @@ msgstr "Tandai sebagai Sudah/Belum Dibaca"
+ msgid "Select an article"
+ msgstr "Pilih artikel"
+ 
+-#: gfeeds/feed_item.py:59
++#: gfeeds/feed_item.py:62
+ #, python-brace-format
+ msgid "Error: unable to parse datetime {0} for feeditem {1}"
+ msgstr "Galat: tidak dapat mengurai datetime {0} untuk feeditem {1}"
+@@ -619,6 +619,16 @@ msgstr "_Tutup"
+ msgid "Cop_y"
+ msgstr "Sal_in"
+ 
++#: gfeeds/util/build_reader_html.py:104
++#, python-brace-format
++msgid "Author: <a href=\"{0}\">{1}</a>"
++msgstr "Penulis: <a href=\"{0}\">{1}</a>"
++
++#: gfeeds/util/build_reader_html.py:108
++#, python-brace-format
++msgid "Author: {0}"
++msgstr "Penulis: {0}"
++
+ #: gfeeds/util/download_manager.py:112
+ #, python-brace-format
+ msgid "`{0}`: connection timed out"
+@@ -648,10 +658,10 @@ msgstr "Galat: Path OPML yang disediakan tidak ada"
+ msgid "Error parsing OPML file `{0}`"
+ msgstr "Galat mengurai berkas OPML '{0}'"
+ 
+-#: gfeeds/webview.py:204
++#: gfeeds/webview.py:200
+ msgid "Link copied to clipboard!"
+ msgstr "Tautan disalin ke papan klip!"
+ 
+-#: gfeeds/webview.py:226
++#: gfeeds/webview.py:222
+ msgid "Feed content not available for this article"
+ msgstr "Konten asupan tidak tersedia untuk artikel ini"
+diff --git a/po/nl.po b/po/nl.po
+index 317ace6..021a6e7 100644
+--- a/po/nl.po
++++ b/po/nl.po
+@@ -3,21 +3,22 @@
+ # This file is distributed under the same license as the gfeeds package.
+ # Heimen Stoffels <vistausss@outlook.com>, 2020.
+ # Nathan Follens <nfollens@gnome.org>, 2022.
++# Philip Goto <philip.goto@gmail.com>, 2023.
+ #
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: gfeeds 0.14.1\n"
+ "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/gfeeds/issues\n"
+-"POT-Creation-Date: 2022-02-09 10:26+0000\n"
+-"PO-Revision-Date: 2022-03-26 23:53+0100\n"
+-"Last-Translator: Nathan Follens <nfollens@gnome.org>\n"
+-"Language-Team: Dutch <gnome-nl-list@gnome.org>\n"
++"POT-Creation-Date: 2023-04-11 13:51+0000\n"
++"PO-Revision-Date: 2023-04-11 17:40+0200\n"
++"Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
++"Language-Team: GNOME-NL https://matrix.to/#/#nl:gnome.org\n"
+ "Language: nl\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+-"X-Generator: Poedit 3.0.1\n"
++"X-Generator: Poedit 3.1.1\n"
+ 
+ #: data/org.gabmus.gfeeds.appdata.xml.in:4
+ msgid "Feeds"
+@@ -61,87 +62,329 @@ msgstr "U kunt feeds importeren uit en exporteren naar OPML."
+ #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+ #: data/org.gabmus.gfeeds.desktop.in:16
+ msgid "rss;reader;feed;news;"
+-msgstr "rss;lezer;feed;nieuws;"
++msgstr "rss;reader;feed;news;lezer;nieuws;"
+ 
+-#: data/ui/extra_popover_menu.ui:19
++#: data/ui/aboutdialog.ui.in:10
++msgid "translator-credits"
++msgstr ""
++"Heimen Stoffels <vistausss@outlook.com>\n"
++"Nathan Follens <nfollens@gnome.org>\n"
++"Philip Goto flipflop97.github.io/\n"
++"Meer info over GNOME-NL https://nl.gnome.org"
++
++#: data/ui/add_feed_popover.blp:11
++msgid "Enter feed address to add"
++msgstr "Voer een feedadres in"
++
++#: data/ui/add_feed_popover.blp:26
++msgid "Add"
++msgstr "Toevoegen"
++
++#: data/ui/add_feed_popover.blp:32
++msgid "You're already subscribed to that feed!"
++msgstr "U bent al geabonneerd op deze feed!"
++
++#: data/ui/empty_state.blp:7
++msgid "Let's get started"
++msgstr "Aan de slag"
++
++#: data/ui/empty_state.blp:22
++msgid "Add new feeds via URL"
++msgstr "Feeds toevoegen middels url"
++
++#: data/ui/empty_state.blp:27
++msgid "Import an OPML file"
++msgstr "OPML-bestand importeren"
++
++#: data/ui/left_headerbar.blp:6
++msgid "_Show Read Articles"
++msgstr "_Gelezen artikelen tonen"
++
++#: data/ui/left_headerbar.blp:7
++msgid "Mark All as Read"
++msgstr "Alles markeren als gelezen"
++
++#: data/ui/left_headerbar.blp:8
++msgid "Mark All as _Unread"
++msgstr "Alles markeren als _ongelezen"
++
++#: data/ui/left_headerbar.blp:11
++msgid "Show _Empty Feeds"
++msgstr "_Lege feeds tonen"
++
++#: data/ui/left_headerbar.blp:12
++msgid "_Manage Feeds"
++msgstr "Feeds _beheren"
++
++#: data/ui/left_headerbar.blp:13
++msgid "_Import OPML"
++msgstr "OPML-bestand _importeren"
++
++#: data/ui/left_headerbar.blp:14
++msgid "E_xport OPML"
++msgstr "OPML-bestand _exporteren"
++
++#: data/ui/left_headerbar.blp:17
++msgid "P_references"
++msgstr "_Voorkeuren"
++
++#: data/ui/left_headerbar.blp:18
++msgid "_Keyboard Shortcuts"
++msgstr "Snel_toetsen"
++
++#: data/ui/left_headerbar.blp:19
++msgid "_About Feeds"
++msgstr "_Over Feeds"
++
++#: data/ui/left_headerbar.blp:28
++msgid "Filter"
++msgstr "Filteren"
++
++#: data/ui/left_headerbar.blp:32
++msgid "Add Feed"
++msgstr "Feed toevoegen"
++
++#: data/ui/left_headerbar.blp:36
++msgid "Menu"
++msgstr "Menu"
++
++#: data/ui/left_headerbar.blp:41 data/ui/shortcutsWindow.blp:35
++msgid "Refresh"
++msgstr "Verversen"
++
++#: data/ui/left_headerbar.blp:46 data/ui/shortcutsWindow.blp:39
++msgid "Search"
++msgstr "Zoeken"
++
++#: data/ui/left_headerbar.blp:50
++msgid "There Are Errors"
++msgstr "Er zijn fouten opgetreden"
++
++#: data/ui/main_leaflet.blp:40
++msgid "Offline"
++msgstr "Offline"
++
++#: data/ui/manage_feeds_headerbar.blp:7 gfeeds/manage_feeds_window.py:257
++msgid "Manage Feeds"
++msgstr "Feeds beheren"
++
++#: data/ui/manage_feeds_headerbar.blp:11
++msgid "Manage Tags for Selected Feeds"
++msgstr "Labels van geselecteerde feeds beheren"
++
++#: data/ui/manage_feeds_headerbar.blp:16
++msgid "Select/Unselect All"
++msgstr "Alles/niets selecteren"
++
++#: data/ui/manage_feeds_headerbar.blp:21
++msgid "Delete Selected Feeds"
++msgstr "Geselecteerde feeds verwijderen"
++
++#: data/ui/manage_tags_content.blp:17
++msgid "New tag name…"
++msgstr "Nieuwe labelnaam…"
++
++#: data/ui/manage_tags_content.blp:24
++msgid "Add Tag"
++msgstr "Label toevoegen"
++
++#: data/ui/manage_tags_content.blp:39
++msgid "There are no tags yet"
++msgstr "Er zijn nog geen labels toegekend"
++
++#: data/ui/manage_tags_content.blp:40
++msgid "Add some using the entry above"
++msgstr "Voeg labels toe middels het vak hierboven"
++
++#: data/ui/right_headerbar.blp:9
++msgid "Open in _Browser"
++msgstr "Openen in _browser"
++
++#: data/ui/right_headerbar.blp:10
++msgid "Open in External Media _Player"
++msgstr "Openen in externe _mediaspeler"
++
++#: data/ui/right_headerbar.blp:11
++msgid "_Copy Article Link"
++msgstr "Artikellink _kopiëren"
++
++#: data/ui/right_headerbar.blp:17 data/ui/right_headerbar.blp:96
++msgid "View Mode"
++msgstr "Weergavemodus"
++
++#: data/ui/right_headerbar.blp:19
+ msgid "Web View"
+ msgstr "Webweergave"
+ 
+-#: data/ui/extra_popover_menu.ui:26
++#: data/ui/right_headerbar.blp:24
+ msgid "Reader Mode"
+ msgstr "Leesmodus"
+ 
+-#: data/ui/extra_popover_menu.ui:33
++#: data/ui/right_headerbar.blp:29
+ msgid "Feed Content"
+ msgstr "Feedinhoud"
+ 
+-#: gfeeds/confirm_add_dialog.py:16
+-msgid "Do you want to import these feeds?"
+-msgstr "Wilt u deze feeds importeren?"
++#: data/ui/right_headerbar.blp:44 data/ui/shortcutsWindow.blp:66
++msgid "Zoom Out"
++msgstr "Uitzoomen"
+ 
+-#: gfeeds/confirm_add_dialog.py:17
+-msgid "Do you want to import this feed?"
+-msgstr "Wilt u deze feed importeren?"
++#: data/ui/right_headerbar.blp:51 data/ui/shortcutsWindow.blp:70
++msgid "Reset Zoom"
++msgstr "Zoomniveau resetten"
++
++#: data/ui/right_headerbar.blp:57 data/ui/shortcutsWindow.blp:62
++msgid "Zoom In"
++msgstr "Inzoomen"
++
++#: data/ui/right_headerbar.blp:90
++msgid "Back to Articles"
++msgstr "Terug naar artikelen"
++
++#: data/ui/shortcutsWindow.blp:9 gfeeds/preferences_window.py:24
++msgid "General"
++msgstr "Algemeen"
++
++#: data/ui/shortcutsWindow.blp:12
++msgid "Open Keyboard Shortcuts"
++msgstr "Sneltoetsoverzicht tonen"
+ 
+-#: gfeeds/download_manager.py:88
++#: data/ui/shortcutsWindow.blp:16
++msgid "Open Menu"
++msgstr "Menu openen"
++
++#: data/ui/shortcutsWindow.blp:20
++msgid "Open Preferences"
++msgstr "Voorkeuren openen"
++
++#: data/ui/shortcutsWindow.blp:24
++msgid "Open Filter"
++msgstr "Filter openen"
++
++#: data/ui/shortcutsWindow.blp:28
++msgid "Quit"
++msgstr "Afsluiten"
++
++#: data/ui/shortcutsWindow.blp:32
++msgid "Article List"
++msgstr "Artikellijst"
++
++#: data/ui/shortcutsWindow.blp:43
++msgid "Next"
++msgstr "Volgende"
++
++#: data/ui/shortcutsWindow.blp:47
++msgid "Previous"
++msgstr "Vorige"
++
++#: data/ui/shortcutsWindow.blp:51
++msgid "Show/Hide Read Articles"
++msgstr "Gelezen artikelen tonen/verbergen"
++
++#: data/ui/shortcutsWindow.blp:55
++msgid "Mark All Read"
++msgstr "Alles markeren als gelezen"
++
++#: data/ui/shortcutsWindow.blp:59
++msgid "Article"
++msgstr "Artikel"
++
++#: data/ui/shortcutsWindow.blp:74 data/ui/sidebar_listbox_row.blp:6
++msgid "Open in Browser"
++msgstr "Openen in browser"
++
++#: data/ui/sidebar_listbox_row.blp:5
++msgid "Mark as Read/Unread"
++msgstr "Markeren als (on)gelezen"
++
++#: data/ui/webview.blp:12
++msgid "Select an article"
++msgstr "Selecteer een artikel"
++
++#: gfeeds/feed_item.py:62
+ #, python-brace-format
+-msgid "`{0}`: connection timed out"
+-msgstr "`{0}`: verbinding verlopen"
++msgid "Error: unable to parse datetime {0} for feeditem {1}"
++msgstr "Fout: kan de datum en tijd ‘{0}’ van feed-item ‘{1}’ niet verwerken"
+ 
+-#: gfeeds/download_manager.py:92
++#: gfeeds/feed_parser.py:61
+ #, python-brace-format
+-msgid "`{0}` might not be a valid address"
+-msgstr "`{0}` is misschien geen geldig adres"
++msgid "Errors while parsing feed `{0}`, URL: `{1}`"
++msgstr "Fouten tijdens verwerken van feed ‘{0}’, URL: ‘{1}’"
+ 
+-#: gfeeds/download_manager.py:117
++#: gfeeds/feed_parser.py:75
+ #, python-brace-format
+-msgid "Error downloading `{0}`, code `{1}`"
+-msgstr "Fout tijdens ophalen van `{0}` - code `{1}`"
++msgid "Error decoding unicode data from feed `{0}`, URL: `{1}`"
++msgstr "Fout bij decoderen van unicode-gegevens uit feed ‘{0}’, URL: ‘{1}’"
++
++#: gfeeds/feed_parser.py:82
++#, python-brace-format
++msgid "Error extracting data from feed `{0}`, URL: `{1}`"
++msgstr "Fout bij extraheren van gegevens uit feed ‘{0}’, URL: ‘{1}’"
++
++#: gfeeds/feed_parser.py:90
++#, python-brace-format
++msgid "`{0}` may not be an RSS or Atom feed"
++msgstr "‘{0}’ is mogelijk geen RSS- of Atom-feed"
+ 
+-#: gfeeds/feeds_manager.py:87
++#: gfeeds/feeds_manager.py:83
+ #, python-brace-format
+ msgid "Feed {0} exists already, skipping"
+-msgstr "'{0}' bestaat al - deze wordt overgeslagen"
++msgstr "Feed ‘{0}’ bestaat al - deze wordt overgeslagen"
+ 
+-#: gfeeds/feeds_view.py:14
++#: gfeeds/feeds_view.py:13
+ msgid "All feeds"
+ msgstr "Alle feeds"
+ 
+-#: gfeeds/get_favicon.py:45
+-#, python-brace-format
+-msgid "Error downloading favicon for `{0}`"
+-msgstr "De favicon van `{0}` kan niet worden opgehaald"
++#: gfeeds/headerbar.py:197
++msgid "There were problems with some feeds. Do you want to remove them?"
++msgstr "Er zijn problemen opgetreden met enkele feeds. Wilt u ze verwijderen?"
+ 
+-#: gfeeds/headerbar.py:171
+-msgid ""
+-"There were problems with some feeds.\n"
+-"Do you want to remove them?"
+-msgstr ""
+-"Er zijn problemen opgetreden met enkele feeds.\n"
+-"Wilt u ze verwijderen?"
++#: gfeeds/headerbar.py:202
++msgid "_Keep"
++msgstr "_Bewaren"
+ 
+-#: gfeeds/main_leaflet.py:118
++#: gfeeds/headerbar.py:204
++msgid "_Remove"
++msgstr "_Verwijderen"
++
++#: gfeeds/main_leaflet.py:114
+ #, python-brace-format
+ msgid "{0} new article"
+ msgid_plural "{0} new articles"
+ msgstr[0] "{0} nieuw artikel"
+ msgstr[1] "{0} nieuwe artikelen"
+ 
+-#: gfeeds/__main__.py:251
++#: gfeeds/__main__.py:232
++msgid "Do you want to import these feeds?"
++msgstr "Wilt u deze feeds importeren?"
++
++#: gfeeds/__main__.py:239 gfeeds/__main__.py:273
++#: gfeeds/manage_feeds_window.py:324
++msgid "_Cancel"
++msgstr "_Annuleren"
++
++#: gfeeds/__main__.py:242 gfeeds/__main__.py:276
++msgid "_Import"
++msgstr "_Importeren"
++
++#: gfeeds/__main__.py:269
++msgid "Do you want to import this feed?"
++msgstr "Wilt u deze feed importeren?"
++
++#: gfeeds/__main__.py:301
+ msgid "url"
+ msgstr "URL"
+ 
+-#: gfeeds/__main__.py:254
++#: gfeeds/__main__.py:304
+ msgid "opml file local url or rss remote url to import"
+ msgstr "het te importeren opmlbestand, een lokale of rss-url"
+ 
+-#: gfeeds/manage_feeds_window.py:229
++#: gfeeds/manage_feeds_window.py:321
+ msgid "Do you want to delete these feeds?"
+ msgstr "Weet u zeker dat u deze feeds wilt verwijderen?"
+ 
+-#: gfeeds/manage_feeds_window.py:281
+-msgid "Manage Feeds"
+-msgstr "Feeds beheren"
++#: gfeeds/manage_feeds_window.py:326
++msgid "_Delete"
++msgstr "_Verwijderen"
+ 
+ #: gfeeds/opml_file_chooser.py:7
+ msgid "XML files"
+@@ -167,84 +410,71 @@ msgstr "Kies een locatie voor het OPML-bestand"
+ msgid "Save"
+ msgstr "Opslaan"
+ 
+-#: gfeeds/opml_manager.py:42
+-msgid "Error: OPML path provided does not exist"
+-msgstr "Fout: het opgegeven OPML-pad bestaat niet"
+-
+-#: gfeeds/opml_manager.py:53
+-#, python-brace-format
+-msgid "Error parsing OPML file `{0}`"
+-msgstr "Fout tijdens verwerken van `{0}`"
+-
+-#: gfeeds/preferences_window.py:22
+-msgid "General"
+-msgstr "Algemeen"
+-
+-#: gfeeds/preferences_window.py:25
++#: gfeeds/preferences_window.py:27
+ msgid "General preferences"
+ msgstr "Algemene voorkeuren"
+ 
+-#: gfeeds/preferences_window.py:27
++#: gfeeds/preferences_window.py:29
+ msgid "Show newer articles first"
+ msgstr "Nieuwste artikelen bovenaan"
+ 
+-#: gfeeds/preferences_window.py:32
++#: gfeeds/preferences_window.py:34
+ msgid "Open links in your browser"
+ msgstr "Links openen in webbrowser"
+ 
+-#: gfeeds/preferences_window.py:36
++#: gfeeds/preferences_window.py:38
+ msgid "Use external video player for YouTube"
+ msgstr "Externe videospeler gebruiken voor YouTube"
+ 
+-#: gfeeds/preferences_window.py:38
++#: gfeeds/preferences_window.py:40
+ msgid "Requires youtube-dl and a compatible video player"
+ msgstr "Vereist youtube-dl en een compatibele videospeler"
+ 
+-#: gfeeds/preferences_window.py:44
++#: gfeeds/preferences_window.py:46
+ msgid "Preferred video player"
+ msgstr "Voorkeursvideospeler"
+ 
+-#: gfeeds/preferences_window.py:48
++#: gfeeds/preferences_window.py:50
+ msgid "Maximum article age"
+ msgstr "Maximale artikelouderdom"
+ 
+-#: gfeeds/preferences_window.py:49
++#: gfeeds/preferences_window.py:51
+ msgid "In days"
+ msgstr "In dagen"
+ 
+-#: gfeeds/preferences_window.py:56
++#: gfeeds/preferences_window.py:58
+ msgid "Refresh preferences"
+ msgstr "Voorkeuren bijwerken"
+ 
+-#: gfeeds/preferences_window.py:58
++#: gfeeds/preferences_window.py:60
+ msgid "Refresh articles on startup"
+ msgstr "Artikelen verversen na opstarten"
+ 
+-#: gfeeds/preferences_window.py:62
++#: gfeeds/preferences_window.py:64
+ msgid "New articles notification"
+ msgstr "Melding voor nieuwe artikelen"
+ 
+-#: gfeeds/preferences_window.py:66
++#: gfeeds/preferences_window.py:68
+ msgid "Enable auto-refresh"
+ msgstr "Automatisch verversen inschakelen"
+ 
+-#: gfeeds/preferences_window.py:70
++#: gfeeds/preferences_window.py:72
+ msgid "Auto-refresh interval"
+ msgstr "Interval voor automatisch verversen"
+ 
+-#: gfeeds/preferences_window.py:71
++#: gfeeds/preferences_window.py:73
+ msgid "In seconds"
+ msgstr "In seconden"
+ 
+-#: gfeeds/preferences_window.py:78
++#: gfeeds/preferences_window.py:80
+ msgid "Cache"
+ msgstr "Cache"
+ 
+-#: gfeeds/preferences_window.py:80
++#: gfeeds/preferences_window.py:82
+ msgid "Clear caches"
+ msgstr "Caches legen"
+ 
+-#: gfeeds/preferences_window.py:81
++#: gfeeds/preferences_window.py:83
+ msgid "Clear"
+ msgstr "Wissen"
+ 
+@@ -261,158 +491,212 @@ msgid "Dark mode"
+ msgstr "Donkere modus"
+ 
+ #: gfeeds/preferences_window.py:118
+-msgid "Use dark theme for reader mode"
+-msgstr "Donker thema gebruiken in leesmodus"
++msgid "Reader mode theme"
++msgstr "Thema van leesmodus"
++
++#: gfeeds/preferences_window.py:122
++msgid "Automatic"
++msgstr "Automatisch"
+ 
+ #: gfeeds/preferences_window.py:122
++msgid "Light"
++msgstr "Licht"
++
++#: gfeeds/preferences_window.py:122
++msgid "Dark"
++msgstr "Donker"
++
++#: gfeeds/preferences_window.py:126
+ msgid "Show article thumbnails"
+ msgstr "Miniaturen van artikelen tonen"
+ 
+-#: gfeeds/preferences_window.py:127
+-msgid "Maximum thumbnail height"
+-msgstr "Maximale hoogte van miniaturen"
+-
+-#: gfeeds/preferences_window.py:133
++#: gfeeds/preferences_window.py:131
+ msgid "Show full articles titles"
+ msgstr "Volledige artikelkoppen tonen"
+ 
+-#: gfeeds/preferences_window.py:138
++#: gfeeds/preferences_window.py:136
+ msgid "Show full feeds names"
+ msgstr "Volledige feednamen tonen"
+ 
+-#: gfeeds/preferences_window.py:145
++#: gfeeds/preferences_window.py:143
+ msgid "Font preferences"
+ msgstr "Lettertypevoorkeuren"
+ 
+-#: gfeeds/preferences_window.py:147
++#: gfeeds/preferences_window.py:145
+ msgid "Use system font for titles"
+ msgstr "Systeemlettertype gebruiken voor titels"
+ 
+-#: gfeeds/preferences_window.py:151
++#: gfeeds/preferences_window.py:149
+ msgid "Use system font for paragraphs"
+ msgstr "Systeemlettertype gebruiken voor alinea’s"
+ 
+-#: gfeeds/preferences_window.py:155
++#: gfeeds/preferences_window.py:153
+ msgid "Custom title font"
+ msgstr "Aangepast titellettertype"
+ 
+-#: gfeeds/preferences_window.py:159
++#: gfeeds/preferences_window.py:157
+ msgid "Custom paragraph font"
+ msgstr "Aangepast alinealettertype"
+ 
+-#: gfeeds/preferences_window.py:163
++#: gfeeds/preferences_window.py:161
+ msgid "Custom monospace font"
+ msgstr "Aangepast lettertype met vaste breedte"
+ 
+-#: gfeeds/preferences_window.py:175
++#: gfeeds/preferences_window.py:173
+ msgid "Privacy"
+ msgstr "Privacy"
+ 
+-#: gfeeds/preferences_window.py:178
++#: gfeeds/preferences_window.py:177
+ msgid "Privacy preferences"
+ msgstr "Privacyvoorkeuren"
+ 
+-#: gfeeds/preferences_window.py:180
++#: gfeeds/preferences_window.py:179
+ msgid "Enable JavaScript"
+ msgstr "JavaScript inschakelen"
+ 
+-#: gfeeds/preferences_window.py:185
++#: gfeeds/preferences_window.py:184
+ msgid "Try to block advertisements"
+ msgstr "Probeer advertenties te blokkeren"
+ 
+-#: gfeeds/preferences_window.py:187 gfeeds/preferences_window.py:222
++#: gfeeds/preferences_window.py:186 gfeeds/preferences_window.py:221
+ msgid "Requires app restart"
+ msgstr "Vereist dat de toepassing opnieuw gestart wordt"
+ 
+-#: gfeeds/preferences_window.py:191
++#: gfeeds/preferences_window.py:190
+ msgid "Update advertisement blocking list"
+ msgstr "Lijst met geblokkeerde reclame bijwerken"
+ 
+-#: gfeeds/preferences_window.py:192
++#: gfeeds/preferences_window.py:191
+ msgid "Updates automatically every 10 days"
+ msgstr "Wordt elke 10 dagen automatisch bijgewerkt"
+ 
+-#: gfeeds/preferences_window.py:193
++#: gfeeds/preferences_window.py:192
+ msgid "Update"
+ msgstr "Bijwerken"
+ 
+-#: gfeeds/preferences_window.py:206
++#: gfeeds/preferences_window.py:205
+ msgid "Advanced"
+ msgstr "Geavanceerd"
+ 
+-#: gfeeds/preferences_window.py:209
++#: gfeeds/preferences_window.py:208
+ msgid "Advanced preferences"
+ msgstr "Geavanceerde voorkeuren"
+ 
+-#: gfeeds/preferences_window.py:211
++#: gfeeds/preferences_window.py:210
+ msgid "Maximum refresh threads"
+ msgstr "Maximumaantal verversprocessen"
+ 
+-#: gfeeds/preferences_window.py:213
++#: gfeeds/preferences_window.py:212
+ msgid "How many threads to use for feeds refresh"
+ msgstr "Hoeveel processen mogen gebruikt worden om feeds te verversen"
+ 
+-#: gfeeds/preferences_window.py:220
++#: gfeeds/preferences_window.py:219
+ msgid "Experimental GtkListView for articles list"
+ msgstr "Experimentele GtkListView voor de artikellijst"
+ 
+-#: gfeeds/rss_parser.py:67
+-#, python-brace-format
+-msgid "Error: unable to parse datetime {0} for feeditem {1}"
+-msgstr "Fout: kan de datum en tijd {0} van feeditem {1} niet verwerken"
++#: gfeeds/preferences_window.py:227
++msgid "Troubleshooting"
++msgstr "Probleemoplossing"
+ 
+-#: gfeeds/rss_parser.py:148
+-#, python-brace-format
+-msgid "Errors while parsing feed `{0}`"
+-msgstr "Fouten tijdens het verwerken van `{0}`"
++#: gfeeds/preferences_window.py:229
++msgid "Export Configuration as JSON"
++msgstr "Configuratie exporteren als JSON"
+ 
+-#: gfeeds/rss_parser.py:175
+-#, python-brace-format
+-msgid "`{0}` may not be an RSS or Atom feed"
+-msgstr "`{0}` is mogelijk geen RSS- of Atom-feed"
++#: gfeeds/preferences_window.py:230
++msgid "Attach this when reporting bugs"
++msgstr "Voeg dit toe als bijlage bij het rapporteren van een probleem"
+ 
+-#: gfeeds/sidebar.py:23
+-msgid "Loading feeds..."
+-msgstr "Bezig met laden van feeds…"
++#: gfeeds/preferences_window.py:231
++msgid "Export"
++msgstr "Exporteren"
+ 
+-#: gfeeds/sidebar_row_popover.py:31 gfeeds/sidebar_row_popover.py:58
+-msgid "Mark as unread"
+-msgstr "Markeren als ongelezen"
++#. type: ignore
++#: gfeeds/preferences_window.py:244
++msgid "Feeds Configuration"
++msgstr "Feedconfiguratie"
+ 
+-#: gfeeds/sidebar_row_popover.py:38 gfeeds/sidebar_row_popover.py:50
+-msgid "Mark as read"
+-msgstr "Markeren als gelezen"
++#: gfeeds/preferences_window.py:248
++msgid "_Close"
++msgstr "_Sluiten"
+ 
+-#: gfeeds/suggestion_bar.py:37
+-msgid "There are some errors"
+-msgstr "Er zijn fouten opgetreden"
++#: gfeeds/preferences_window.py:251
++msgid "Cop_y"
++msgstr "_Kopiëren"
+ 
+-#: gfeeds/suggestion_bar.py:46
+-msgid "Show"
+-msgstr "Tonen"
++#: gfeeds/util/build_reader_html.py:104
++#, python-brace-format
++msgid "Author: <a href=\"{0}\">{1}</a>"
++msgstr "Auteur: <a href=\"{0}\">{1}</a>"
+ 
+-#: gfeeds/suggestion_bar.py:47
+-msgid "Ignore"
+-msgstr "Negeren"
++#: gfeeds/util/build_reader_html.py:108
++#, python-brace-format
++msgid "Author: {0}"
++msgstr "Auteur: {0}"
+ 
+-#: gfeeds/suggestion_bar.py:70
+-msgid "There were problems with some feeds. Do you want to remove them?"
+-msgstr "Er zijn problemen opgetreden met enkele feeds. Wilt u ze verwijderen?"
++#: gfeeds/util/download_manager.py:112
++#, python-brace-format
++msgid "`{0}`: connection timed out"
++msgstr "`{0}`: verbinding verlopen"
+ 
+-#: gfeeds/suggestion_bar.py:97
+-msgid "You are offline"
+-msgstr "U hebt geen interverbinding"
++#: gfeeds/util/download_manager.py:121
++#, python-brace-format
++msgid "`{0}` might not be a valid address"
++msgstr "`{0}` is misschien geen geldig adres"
++
++#: gfeeds/util/download_manager.py:161
++#, python-brace-format
++msgid "Error downloading `{0}`, code `{1}`"
++msgstr "Fout tijdens ophalen van `{0}` - code `{1}`"
++
++#: gfeeds/util/get_favicon.py:48
++#, python-brace-format
++msgid "Error downloading favicon for `{0}`"
++msgstr "De favicon van `{0}` kan niet worden opgehaald"
++
++#: gfeeds/util/opml_parser.py:33
++msgid "Error: OPML path provided does not exist"
++msgstr "Fout: het opgegeven OPML-pad bestaat niet"
+ 
+-#: gfeeds/webview.py:183
++#: gfeeds/util/opml_parser.py:44
++#, python-brace-format
++msgid "Error parsing OPML file `{0}`"
++msgstr "Fout tijdens verwerken van `{0}`"
++
++#: gfeeds/webview.py:200
+ msgid "Link copied to clipboard!"
+ msgstr "De link is gekopieerd naar het klembord!"
+ 
+-#: gfeeds/webview.py:205
++#: gfeeds/webview.py:222
+ msgid "Feed content not available for this article"
+ msgstr "Geen feedinhoud beschikbaar bij dit artikel"
+ 
+-#~ msgid "Add new feed"
+-#~ msgstr "Feed toevoegen"
++#~ msgid ""
++#~ "There were problems with some feeds.\n"
++#~ "Do you want to remove them?"
++#~ msgstr ""
++#~ "Er zijn problemen opgetreden met enkele feeds.\n"
++#~ "Wilt u ze verwijderen?"
++
++#~ msgid "Use dark theme for reader mode"
++#~ msgstr "Donker thema gebruiken in leesmodus"
++
++#~ msgid "Maximum thumbnail height"
++#~ msgstr "Maximale hoogte van miniaturen"
++
++#~ msgid "Loading feeds..."
++#~ msgstr "Bezig met laden van feeds…"
++
++#~ msgid "Mark as read"
++#~ msgstr "Markeren als gelezen"
++
++#~ msgid "Show"
++#~ msgstr "Tonen"
++
++#~ msgid "Ignore"
++#~ msgstr "Negeren"
++
++#~ msgid "You are offline"
++#~ msgstr "U hebt geen interverbinding"
+ 
+ #~ msgid "Filler View"
+ #~ msgstr "Vullende weergave"
+@@ -438,15 +722,6 @@ msgstr "Geen feedinhoud beschikbaar bij dit artikel"
+ #~ msgid "Feed"
+ #~ msgstr "Feed"
+ 
+-#~ msgid "Select/Unselect all"
+-#~ msgstr "Alles/Niets selecteren"
+-
+-#~ msgid "Delete selected feeds"
+-#~ msgstr "Geselecteerde feeds verwijderen"
+-
+-#~ msgid "Manage tags for selected feeds"
+-#~ msgstr "Labels van geselecteerde feeds beheren"
+-
+ #~ msgid "General Settings"
+ #~ msgstr "Algemene instellingen"
+ 
+@@ -465,126 +740,27 @@ msgstr "Geen feedinhoud beschikbaar bij dit artikel"
+ #~ msgid "`{0}` is not an URL"
+ #~ msgstr "`{0}` is geen url"
+ 
+-#~ msgid "Open Keyboard Shortcuts"
+-#~ msgstr "Sneltoetsoverzicht tonen"
+-
+-#~ msgid "Quit"
+-#~ msgstr "Afsluiten"
+-
+-#~ msgid "Refresh articles"
+-#~ msgstr "Artikelen verversen"
+-
+ #~ msgid "Search articles"
+ #~ msgstr "Zoeken naar artikelen"
+ 
+-#~ msgid "Previous article"
+-#~ msgstr "Vorig artikel"
+-
+-#~ msgid "Show/Hide read articles"
+-#~ msgstr "Gelezen artikelen tonen/verbergen"
+-
+-#~ msgid "Zoom in"
+-#~ msgstr "Inzoomen"
+-
+-#~ msgid "Zoom out"
+-#~ msgstr "Uitzoomen"
+-
+-#~ msgid "Reset zoom"
+-#~ msgstr "Standaard zoomniveau"
+-
+-#~ msgid "Select an article"
+-#~ msgstr "Selecteer een artikel"
+-
+-#~ msgid "Show read articles"
+-#~ msgstr "Gelezen artikelen tonen"
+-
+-#~ msgid "Mark all as read"
+-#~ msgstr "Alles markeren als gelezen"
+-
+-#~ msgid "Mark all as unread"
+-#~ msgstr "Alles markeren als ongelezen"
+-
+-#~ msgid "Import OPML"
+-#~ msgstr "OPML-bestand importeren"
+-
+-#~ msgid "Export OPML"
+-#~ msgstr "OPML-bestand exporteren"
+-
+-#~ msgid "Keyboard Shortcuts"
+-#~ msgstr "Sneltoetsen"
+-
+-#~ msgid "About Feeds"
+-#~ msgstr "Over Feeds"
+-
+-#~ msgid "Menu"
+-#~ msgstr "Menu"
+-
+-#~ msgid "Filter by feed"
+-#~ msgstr "Filteren op feed"
+-
+-#~ msgid "Search"
+-#~ msgstr "Zoeken"
+-
+-#~ msgid "Back to articles"
+-#~ msgstr "Terug naar artikeloverzicht"
+-
+ #~ msgid "Change view mode"
+ #~ msgstr "Weergavemodus aanpassen"
+ 
+ #~ msgid "Share"
+ #~ msgstr "Delen"
+ 
+-#~ msgid "Open externally"
+-#~ msgstr "Extern openen"
+-
+-#~ msgid "Let's get started"
+-#~ msgstr "Aan de slag"
+-
+-#~ msgid "Add new feeds via URL"
+-#~ msgstr "Feeds toevoegen middels url"
+-
+-#~ msgid "Import an OPML file"
+-#~ msgstr "OPML-bestand importeren"
+-
+-#~ msgid "Enter feed address to add"
+-#~ msgstr "Voer een feedadres in"
+-
+ #~ msgid "https://..."
+ #~ msgstr "https://..."
+ 
+-#~ msgid "Add"
+-#~ msgstr "Toevoegen"
+-
+-#~ msgid "You're already subscribed to that feed!"
+-#~ msgstr "U bent al geabonneerd op deze feed!"
+-
+-#~ msgid "View mode"
+-#~ msgstr "Weergavemodus"
+-
+ #~ msgid "label"
+ #~ msgstr "label"
+ 
+-#~ msgid "New tag name..."
+-#~ msgstr "Nieuwe labelnaam..."
+-
+-#~ msgid "Add tag"
+-#~ msgstr "Label toekennen"
+-
+-#~ msgid "There are no tags yet"
+-#~ msgstr "Er zijn nog geen labels toegekend"
+-
+-#~ msgid "Add some using the entry above"
+-#~ msgstr "Voeg labels toe middels het vak hierboven"
+-
+ #~ msgid "page0"
+ #~ msgstr "pagina0"
+ 
+ #~ msgid "page1"
+ #~ msgstr "pagina1"
+ 
+-#~ msgid "Save article"
+-#~ msgstr "Artikel opslaan"
+-
+ #~ msgid "@prettyname@"
+ #~ msgstr "@prettyname@"
+ 
+diff --git a/po/pl.po b/po/pl.po
+index 70c3a92..6821f5a 100644
+--- a/po/pl.po
++++ b/po/pl.po
+@@ -8,8 +8,8 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: gfeeds\n"
+ "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/gfeeds/issues\n"
+-"POT-Creation-Date: 2023-03-11 08:34+0000\n"
+-"PO-Revision-Date: 2023-03-12 15:00+0100\n"
++"POT-Creation-Date: 2023-03-26 11:12+0000\n"
++"PO-Revision-Date: 2023-04-02 13:03+0200\n"
+ "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
+ "Language-Team: Polish <community-poland@mozilla.org>\n"
+ "Language: pl\n"
+@@ -298,7 +298,7 @@ msgstr "Oznacz jako przeczytane/nieprzeczytane"
+ msgid "Select an article"
+ msgstr "Wybór artykułu"
+ 
+-#: gfeeds/feed_item.py:59
++#: gfeeds/feed_item.py:62
+ #, python-brace-format
+ msgid "Error: unable to parse datetime {0} for feeditem {1}"
+ msgstr "Błąd: nie można przetworzyć daty i czasu {0} dla elementu kanału {1}"
+@@ -624,6 +624,16 @@ msgstr "Za_mknij"
+ msgid "Cop_y"
+ msgstr "S_kopiuj"
+ 
++#: gfeeds/util/build_reader_html.py:104
++#, python-brace-format
++msgid "Author: <a href=\"{0}\">{1}</a>"
++msgstr "Autor: <a href=\"{0}\">{1}</a>"
++
++#: gfeeds/util/build_reader_html.py:108
++#, python-brace-format
++msgid "Author: {0}"
++msgstr "Autor: {0}"
++
+ #: gfeeds/util/download_manager.py:112
+ #, python-brace-format
+ msgid "`{0}`: connection timed out"
+@@ -653,10 +663,10 @@ msgstr "Błąd: podana ścieżka do pliku OPML nie istnieje"
+ msgid "Error parsing OPML file `{0}`"
+ msgstr "Błąd podczas przetwarzania pliku OPML „{0}”"
+ 
+-#: gfeeds/webview.py:204
++#: gfeeds/webview.py:200
+ msgid "Link copied to clipboard!"
+ msgstr "Skopiowano odnośnik do schowka"
+ 
+-#: gfeeds/webview.py:226
++#: gfeeds/webview.py:222
+ msgid "Feed content not available for this article"
+ msgstr "Treść kanału jest niedostępna dla tego artykułu"
+diff --git a/po/ru.po b/po/ru.po
+index 0d7bf43..02108af 100644
+--- a/po/ru.po
++++ b/po/ru.po
+@@ -5,648 +5,662 @@
+ #
+ msgid ""
+ msgstr ""
+-"Project-Id-Version: GFeeds 0.9\n"
+-"Report-Msgid-Bugs-To: \n"
+-"POT-Creation-Date: 2019-09-11 20:52+0200\n"
+-"PO-Revision-Date: 2019-10-03 22:01+0200\n"
+-"Last-Translator: Alessandra Gallia <alessandragalliaaru@gmail.com>\n"
+-"Language-Team: Russian <gnu@d07.ru>\n"
++"Project-Id-Version: Feeds\n"
++"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/gfeeds/issues\n"
++"POT-Creation-Date: 2023-04-09 21:18+0000\n"
++"PO-Revision-Date: 2023-04-11 16:29+0300\n"
++"Last-Translator: Aleksandr Melman <Alexmelman88@gmail.com>\n"
++"Language-Team: Russian\n"
+ "Language: ru\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+-"X-Generator: Poedit 2.2.1\n"
++"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
++"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
++"X-Generator: Poedit 3.2.2\n"
+ 
+-#: ../gfeeds/opml_file_chooser.py:6
+-msgid "Choose an OPML file to import"
+-msgstr "Выберите файл OPML для импорта"
+-
+-#: ../gfeeds/opml_file_chooser.py:13 ../gfeeds/opml_file_chooser.py:30
+-msgid "XML files"
+-msgstr "Файлы XML"
+-
+-#: ../gfeeds/opml_file_chooser.py:21
+-msgid "Choose where to save the exported OPML file"
+-msgstr "Выберите место для сохранения экспортированного файла OPML"
++#: data/org.gabmus.gfeeds.appdata.xml.in:4
++msgid "Feeds"
++msgstr "Feeds"
+ 
+-#: ../gfeeds/rss_parser.py:60
+-#, python-brace-format
+-msgid "Error: unable to parse datetime {0} for feeditem {1}"
+-msgstr "Ошибка: не удается разбираться дату и время {0} для элемента фида {1}"
++#: data/org.gabmus.gfeeds.appdata.xml.in:6 data/org.gabmus.gfeeds.desktop.in:7
++msgid "News reader for GNOME"
++msgstr "Приложение для чтения новостей"
+ 
+-#: ../gfeeds/rss_parser.py:172
+-#, python-brace-format
+-msgid "`{0}` may not be an RSS or Atom feed"
+-msgstr "`{0}` не может быть RSS или Atom фид"
++#: data/org.gabmus.gfeeds.appdata.xml.in:15
++msgid ""
++"Feeds is a minimal RSS/Atom feed reader built with speed and simplicity in "
++"mind."
++msgstr ""
++"Feeds - это минималистичное приложение для чтения каналов RSS/Atom, "
++"созданное с учетом скорости и простоты."
+ 
+-#: ../gfeeds/rss_parser.py:197
+-#, python-brace-format
++#: data/org.gabmus.gfeeds.appdata.xml.in:16
+ msgid ""
+-"Error resizing favicon for feed {0}. Probably not an image.\n"
+-"Trying downloading favicon from an article."
++"It offers a simple user interface that only shows the latest news from your "
++"subscriptions."
+ msgstr ""
+-"Ошибка изменения размера фавикона для фида {0}. Наверное, не является "
+-"изображением.\n"
+-"Попытка загрузки фавикона из статьи."
++"Оно предлагает простой пользовательский интерфейс, который показывает только "
++"последние новости из ваших подписок."
+ 
+-#: ../gfeeds/rss_parser.py:206
+-#, python-brace-format
++#: data/org.gabmus.gfeeds.appdata.xml.in:17
+ msgid ""
+-"Error resizing favicon from article for feed {0}.\n"
+-"Deleting invalid favicon."
++"Articles are shown in a web view by default, with javascript disabled for a "
++"faster and less intrusive user experience. There's also a reader mode "
++"included, built from the one GNOME Web/Epiphany uses."
+ msgstr ""
+-"Ошибка изменения размера фавикона из статьи для фида {0}.\n"
+-"Удаление неверного фавикона."
++"По умолчанию статьи отображаются в веб-просмотре, с отключенным javascript "
++"для более быстрого и менее навязчивого пользовательского опыта. Также "
++"имеется режим чтения, созданный на основе режима GNOME Web/Epiphany."
+ 
+-#: ../gfeeds/feeds_manager.py:60
+-#, python-brace-format
+-msgid "Feed {0} exists already, skipping"
+-msgstr "Фид {0} уже существует, пропускание"
++#: data/org.gabmus.gfeeds.appdata.xml.in:18
++msgid "Feeds can be imported and exported via OPML."
++msgstr "Каналы могут быть импортированы и экспортированы через OPML."
+ 
+-#: ../gfeeds/headerbar.py:154
+-msgid "Add new feed"
+-msgstr "Добавить новый фид"
++#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
++#: data/org.gabmus.gfeeds.desktop.in:16
++msgid "rss;reader;feed;news;"
++msgstr "rss;ридер;канал;новости;"
+ 
+-#: ../gfeeds/get_favicon.py:61
+-#, python-brace-format
+-msgid "Error downloading favicon for `{0}`"
+-msgstr "Ошибка при загрузке фавикона для `{0}`"
++#: data/ui/aboutdialog.ui.in:10
++msgid "translator-credits"
++msgstr "Aleksandr Melman <alexmelman88@gmail.com>, 2023"
+ 
+-#: ../gfeeds/feeds_view.py:15
+-msgid "All feeds"
+-msgstr "Все фиды"
++#: data/ui/add_feed_popover.blp:11
++msgid "Enter feed address to add"
++msgstr "Введите адрес канала для добавления"
+ 
+-#: ../gfeeds/webview.py:68
+-msgid "Web View"
+-msgstr "Веб-просмотр"
++#: data/ui/add_feed_popover.blp:26
++msgid "Add"
++msgstr "Добавить"
+ 
+-#: ../gfeeds/webview.py:69
+-msgid "Filler View"
+-msgstr "Filler View"
++#: data/ui/add_feed_popover.blp:32
++msgid "You're already subscribed to that feed!"
++msgstr "Вы уже подписаны на этот канал!"
+ 
+-#: ../gfeeds/webview.py:137
+-msgid "RSS content or summary not available for this article"
+-msgstr "Содержимое или сводка RSS-каналов недоступны для этой статьи"
++#: data/ui/empty_state.blp:7
++msgid "Let's get started"
++msgstr "Давайте начнем"
+ 
+-#: ../gfeeds/build_reader_html.py:397
+-msgid "Reader mode unavailable for this site"
+-msgstr "Режим чтения недоступен для этого сайта"
++#: data/ui/empty_state.blp:22
++msgid "Add new feeds via URL"
++msgstr "Добавить новые каналы через URL"
+ 
+-#: ../gfeeds/sidebar.py:166
+-msgid "Feed"
+-msgstr "Фид"
++#: data/ui/empty_state.blp:27
++msgid "Import an OPML file"
++msgstr "Импортировать файл OPML"
+ 
+-#: ../gfeeds/sidebar.py:172
+-msgid "Saved"
+-msgstr "Сохранено"
++#: data/ui/left_headerbar.blp:6
++msgid "_Show Read Articles"
++msgstr "_Показывать прочитанные статьи"
+ 
+-#: ../gfeeds/__main__.py:277
+-msgid "url"
+-msgstr "url"
++#: data/ui/left_headerbar.blp:7
++msgid "Mark All as Read"
++msgstr "Отметить все как прочитанное"
+ 
+-#: ../gfeeds/__main__.py:280
+-msgid "opml file local url or rss remote url to import"
+-msgstr "OPML файл, локальный URL или удаленный URL RSS-каналов для импорта"
++#: data/ui/left_headerbar.blp:8
++msgid "Mark All as _Unread"
++msgstr "Отметить все как _непрочитанное"
+ 
+-#: ../gfeeds/download_manager.py:38
+-#, python-brace-format
+-msgid "`{0}` is not an URL"
+-msgstr "`{0}` не является URL-адресом"
++#: data/ui/left_headerbar.blp:11
++msgid "Show _Empty Feeds"
++msgstr "Показывать _пустые каналы"
+ 
+-#: ../gfeeds/download_manager.py:56
+-#, python-brace-format
+-msgid "Error downloading `{0}`, code `{1}`"
+-msgstr "Ошибка при загрузке `{0}`, код `{1}`"
++#: data/ui/left_headerbar.blp:12
++msgid "_Manage Feeds"
++msgstr "_Управление каналами"
+ 
+-#: ../gfeeds/settings_window.py:123
+-msgid "General"
+-msgstr "Основные"
++#: data/ui/left_headerbar.blp:13
++msgid "_Import OPML"
++msgstr "_Импортировать OPML"
+ 
+-#: ../gfeeds/settings_window.py:128
+-msgid "General Settings"
+-msgstr "Основные настройки"
++#: data/ui/left_headerbar.blp:14
++msgid "E_xport OPML"
++msgstr "Э_кспортировать OPML"
+ 
+-#: ../gfeeds/settings_window.py:131
+-msgid "Show newer articles first"
+-msgstr "Вначале отображать новые статьи"
++#: data/ui/left_headerbar.blp:17
++msgid "P_references"
++msgstr "Па_раметры"
+ 
+-#: ../gfeeds/settings_window.py:136
+-msgid "Use reader mode by default"
+-msgstr "Использовать режим чтения по умолчанию"
++#: data/ui/left_headerbar.blp:18
++msgid "_Keyboard Shortcuts"
++msgstr "_Комбинации клавиш"
+ 
+-#: ../gfeeds/settings_window.py:141
+-msgid "Use content from the RSS feed"
+-msgstr "Использовать содержимое RSS фида"
++#: data/ui/left_headerbar.blp:19
++msgid "_About Feeds"
++msgstr "_О приложении"
+ 
+-#: ../gfeeds/settings_window.py:151
+-msgid "Maximum article age"
+-msgstr "Максимальный возраст статьи"
++#: data/ui/left_headerbar.blp:28
++msgid "Filter"
++msgstr "Фильтр"
+ 
+-#: ../gfeeds/settings_window.py:155
+-msgid "In days"
+-msgstr "Через несколько дней"
++#: data/ui/left_headerbar.blp:32
++msgid "Add Feed"
++msgstr "Добавить канал"
+ 
+-#: ../gfeeds/settings_window.py:161
+-msgid "Cache"
+-msgstr "Кэш"
++#: data/ui/left_headerbar.blp:36
++msgid "Menu"
++msgstr "Меню"
+ 
+-#: ../gfeeds/settings_window.py:164
+-msgid "Clear all caches"
+-msgstr "Очистить весь кэш"
++#: data/ui/left_headerbar.blp:41 data/ui/shortcutsWindow.blp:35
++msgid "Refresh"
++msgstr "Обновить"
+ 
+-#: ../gfeeds/settings_window.py:165
+-msgid "Clear caches"
+-msgstr "Очистить кэш"
++#: data/ui/left_headerbar.blp:46 data/ui/shortcutsWindow.blp:39
++msgid "Search"
++msgstr "Поиск"
+ 
+-#: ../gfeeds/settings_window.py:203
+-msgid "View"
+-msgstr "Вид"
++#: data/ui/left_headerbar.blp:50
++msgid "There Are Errors"
++msgstr "Есть ошибки"
+ 
+-#: ../gfeeds/settings_window.py:208
+-msgid "View Settings"
+-msgstr "Посмотрить Настройки"
++#: data/ui/main_leaflet.blp:40
++msgid "Offline"
++msgstr "Не в сети"
+ 
+-#: ../gfeeds/settings_window.py:211
+-msgid "Show colored border"
+-msgstr "Отображать цветную границу"
++#: data/ui/manage_feeds_headerbar.blp:7 gfeeds/manage_feeds_window.py:257
++msgid "Manage Feeds"
++msgstr "Управление каналами"
+ 
+-#: ../gfeeds/settings_window.py:216
+-msgid "Show full articles titles"
+-msgstr "Отображать полные заголовки статьи"
++#: data/ui/manage_feeds_headerbar.blp:11
++msgid "Manage Tags for Selected Feeds"
++msgstr "Управление метками для выбранных каналов"
+ 
+-#: ../gfeeds/settings_window.py:221
+-msgid "Use dark theme for reader mode"
+-msgstr "Использовать темную тему для режима чтения"
++#: data/ui/manage_feeds_headerbar.blp:16
++msgid "Select/Unselect All"
++msgstr "Выбрать/Отменить все"
+ 
+-#: ../gfeeds/settings_window.py:226
+-msgid "Enable JavaScript"
+-msgstr "Включить JavaScript"
++#: data/ui/manage_feeds_headerbar.blp:21
++msgid "Delete Selected Feeds"
++msgstr "Удалить выбранные каналы"
+ 
+-#: ../gfeeds/settings_window.py:231
+-msgid "Enable client side decoration"
+-msgstr "Включить оформление на стороне клиента"
++#: data/ui/manage_tags_content.blp:17
++msgid "New tag name…"
++msgstr "Новое имя метки…"
+ 
+-#: ../gfeeds/settings_window.py:247
+-msgid "Advanced"
+-msgstr "Дополнительно"
++#: data/ui/manage_tags_content.blp:24
++msgid "Add Tag"
++msgstr "Добавить метку"
+ 
+-#: ../gfeeds/settings_window.py:252
+-msgid "Advanced Settings"
+-msgstr "Дополнительные Настройки"
++#: data/ui/manage_tags_content.blp:39
++msgid "There are no tags yet"
++msgstr "Метки пока отсутствуют"
+ 
+-#: ../gfeeds/settings_window.py:255
+-msgid "Maximum refresh threads"
+-msgstr "Максимальные потоки обновления"
++#: data/ui/manage_tags_content.blp:40
++msgid "Add some using the entry above"
++msgstr "Добавить несколько, используя запись выше"
+ 
+-#: ../gfeeds/settings_window.py:260
+-msgid "How many threads to refresh feeds"
+-msgstr "Сколько потоков для обновления фидов"
++#: data/ui/right_headerbar.blp:9
++msgid "Open in _Browser"
++msgstr "Открыть в _браузере"
+ 
+-#: ../gfeeds/settings_window.py:298
+-msgid "Preferences"
+-msgstr "Персональные настройки"
++#: data/ui/right_headerbar.blp:10
++msgid "Open in External Media _Player"
++msgstr "Открыть во внешнем медиа _плеере"
+ 
+-#: ../gfeeds/manage_feeds_window.py:17 ../gfeeds/manage_feeds_window.py:107
+-msgid "Manage Feeds"
+-msgstr "Управление Фидами"
++#: data/ui/right_headerbar.blp:11
++msgid "_Copy Article Link"
++msgstr "_Копировать ссылку на статью"
+ 
+-#: ../gfeeds/manage_feeds_window.py:24
+-msgid "Select/Unselect all"
+-msgstr "Выбрать/Отменить все"
++#: data/ui/right_headerbar.blp:17 data/ui/right_headerbar.blp:96
++msgid "View Mode"
++msgstr "Режим просмотра"
+ 
+-#: ../gfeeds/manage_feeds_window.py:30
+-msgid "Delete selected feeds"
+-msgstr "Удалить выбранные фиды"
++#: data/ui/right_headerbar.blp:19
++msgid "Web View"
++msgstr "Веб-просмотр"
+ 
+-#: ../gfeeds/manage_feeds_window.py:79
+-msgid "Do you want to delete these feeds?"
+-msgstr "Вы действительно хотите удалить эти фиды?"
++#: data/ui/right_headerbar.blp:24
++msgid "Reader Mode"
++msgstr "Режим чтения"
+ 
+-#: ../gfeeds/spinner_button.py:15
+-msgid "Refresh feeds"
+-msgstr "Обновить фиды"
++#: data/ui/right_headerbar.blp:29
++msgid "Feed Content"
++msgstr "Содержимое канала"
+ 
+-#: ../gfeeds/confirm_add_dialog.py:14
+-msgid "Do you want to import these feeds?"
+-msgstr "Вы хотите импортировать эти фиды?"
++#: data/ui/right_headerbar.blp:44 data/ui/shortcutsWindow.blp:66
++msgid "Zoom Out"
++msgstr "Уменьшить"
+ 
+-#: ../gfeeds/confirm_add_dialog.py:15
+-msgid "Do you want to import this feed?"
+-msgstr "Вы хотите импортировать этот фид?"
++#: data/ui/right_headerbar.blp:51 data/ui/shortcutsWindow.blp:70
++msgid "Reset Zoom"
++msgstr "Сбросить масштаб"
+ 
+-#: ../gfeeds/opml_manager.py:8
+-msgid "Error: OPML path provided does not exist"
+-msgstr "Ошибка: указанный путь OPML не существует"
++#: data/ui/right_headerbar.blp:57 data/ui/shortcutsWindow.blp:62
++msgid "Zoom In"
++msgstr "Увеличить"
+ 
+-#: ../gfeeds/opml_manager.py:15
+-#, python-brace-format
+-msgid "Error parsing OPML file `{0}`"
+-msgstr "Сбой разбора файла OPML `{0}`"
++#: data/ui/right_headerbar.blp:90
++msgid "Back to Articles"
++msgstr "Вернуться к статьям"
+ 
+-#: ../gfeeds/suggestion_bar.py:33
+-msgid "There are some errors"
+-msgstr "Являются несколько ошибок"
++#: data/ui/shortcutsWindow.blp:9 gfeeds/preferences_window.py:24
++msgid "General"
++msgstr "Общие"
+ 
+-#: ../gfeeds/suggestion_bar.py:40
+-msgid "Show"
+-msgstr "Отображать"
++#: data/ui/shortcutsWindow.blp:12
++msgid "Open Keyboard Shortcuts"
++msgstr "Открыть комбинации клавиш"
+ 
+-#: ../gfeeds/suggestion_bar.py:41
+-msgid "Ignore"
+-msgstr "Игнорировать"
++#: data/ui/shortcutsWindow.blp:16
++msgid "Open Menu"
++msgstr "Открыть меню"
+ 
+-#: ../gfeeds/suggestion_bar.py:59
+-msgid "There were problems with some feeds"
+-msgstr "Являлись проблемы с несколькими фидами"
++#: data/ui/shortcutsWindow.blp:20
++msgid "Open Preferences"
++msgstr "Открыть параметры"
+ 
+-#: ../gfeeds/suggestion_bar.py:71
+-msgid "You are offline"
+-msgstr "Вы офлайн"
++#: data/ui/shortcutsWindow.blp:24
++msgid "Open Filter"
++msgstr "Открыть фильтр"
+ 
+-#: ../gfeeds/sidebar_row_popover.py:45 ../gfeeds/sidebar_row_popover.py:90
+-msgid "Mark as unread"
+-msgstr "Отметить как непрочитанное"
++#: data/ui/shortcutsWindow.blp:28
++msgid "Quit"
++msgstr "Закрыть"
+ 
+-#: ../gfeeds/sidebar_row_popover.py:53 ../gfeeds/sidebar_row_popover.py:80
+-msgid "Mark as read"
+-msgstr "Отметить как прочитанное"
++#: data/ui/shortcutsWindow.blp:32
++msgid "Article List"
++msgstr "Список статей"
+ 
+-#: ../data/ui/menu.xml:6
+-msgid "Show read articles"
+-msgstr "Отображать прочитанные статьи"
++#: data/ui/shortcutsWindow.blp:43
++msgid "Next"
++msgstr "Следующая"
+ 
+-#: ../data/ui/menu.xml:10
+-msgid "Mark all as read"
+-msgstr "Отметить все как прочитанное"
++#: data/ui/shortcutsWindow.blp:47
++msgid "Previous"
++msgstr "Предыдущая"
+ 
+-#: ../data/ui/menu.xml:14
+-msgid "Mark all as unread"
+-msgstr "Отметить все как непрочитанное"
++#: data/ui/shortcutsWindow.blp:51
++msgid "Show/Hide Read Articles"
++msgstr "Показать/Скрыть прочитанные статьи"
+ 
+-#: ../data/ui/menu.xml:24
+-msgid "Import OPML"
+-msgstr "Импортировать OPML"
++#: data/ui/shortcutsWindow.blp:55
++msgid "Mark All Read"
++msgstr "Отметить все прочитанное"
+ 
+-#: ../data/ui/menu.xml:28
+-msgid "Export OPML"
+-msgstr "Экспортировать OPML"
++#: data/ui/shortcutsWindow.blp:59
++msgid "Article"
++msgstr "Статья"
+ 
+-#: ../data/ui/menu.xml:38
+-msgid "Keyboard Shortcuts"
+-msgstr "Сочетания Клавиш"
++#: data/ui/shortcutsWindow.blp:74 data/ui/sidebar_listbox_row.blp:6
++msgid "Open in Browser"
++msgstr "Открыть в браузере"
+ 
+-#: ../data/ui/menu.xml:42
+-msgid "About Feeds"
+-msgstr "О Feeds"
++#: data/ui/sidebar_listbox_row.blp:5
++msgid "Mark as Read/Unread"
++msgstr "Отметить как прочитанное/непрочитанное"
+ 
+-#: ../data/ui/empty_state.glade:42
+-msgid "Let's get started"
+-msgstr "Давайте начнем"
++#: data/ui/webview.blp:12
++msgid "Select an article"
++msgstr "Выберите статью"
+ 
+-#: ../data/ui/empty_state.glade:88
+-msgid "Add new feeds via URL"
+-msgstr "Добавить новые фиды через URL"
++#: gfeeds/feed_item.py:62
++#, python-brace-format
++msgid "Error: unable to parse datetime {0} for feeditem {1}"
++msgstr "Ошибка: не удалось разобрать дату и время {0} для элемента канала {1}"
+ 
+-#: ../data/ui/empty_state.glade:100
+-msgid "Import an OPML file"
+-msgstr "Импортируйте файл OPML"
++#: gfeeds/feed_parser.py:61
++#, python-brace-format
++msgid "Errors while parsing feed `{0}`, URL: `{1}`"
++msgstr "Ошибки при разборе канала `{0}`, URL: `{1}`"
+ 
+-#: ../data/ui/shortcutsWindow.xml:13
+-msgid "Quit"
+-msgstr "Выйти"
++#: gfeeds/feed_parser.py:75
++#, python-brace-format
++msgid "Error decoding unicode data from feed `{0}`, URL: `{1}`"
++msgstr "Ошибка при декодировании unicode-данных из канала `{0}`, URL: `{1}`"
+ 
+-#: ../data/ui/shortcutsWindow.xml:19
+-msgid "Next article"
+-msgstr "Следующая статья"
++#: gfeeds/feed_parser.py:82
++#, python-brace-format
++msgid "Error extracting data from feed `{0}`, URL: `{1}`"
++msgstr "Ошибка при извлечении данных из канала `{0}`, URL: `{1}`"
+ 
+-#: ../data/ui/shortcutsWindow.xml:25
+-msgid "Previous article"
+-msgstr "Предыдущая статья"
++#: gfeeds/feed_parser.py:90
++#, python-brace-format
++msgid "`{0}` may not be an RSS or Atom feed"
++msgstr "`{0}` не может быть каналом RSS или Atom"
+ 
+-#: ../data/ui/shortcutsWindow.xml:31
+-msgid "Show/Hide read articles"
+-msgstr "Отображать/Скрыть прочитанные статьи"
++#: gfeeds/feeds_manager.py:83
++#, python-brace-format
++msgid "Feed {0} exists already, skipping"
++msgstr "Канал {0} уже существует, пропуск"
+ 
+-#: ../data/ui/shortcutsWindow.xml:37
+-msgid "Refresh articles"
+-msgstr "Обновить статьи"
++#: gfeeds/feeds_view.py:13
++msgid "All feeds"
++msgstr "Все каналы"
+ 
+-#: ../data/ui/shortcutsWindow.xml:43
+-msgid "Zoom in"
+-msgstr "Увеличить"
++#: gfeeds/headerbar.py:197
++msgid "There were problems with some feeds. Do you want to remove them?"
++msgstr "Возникли проблемы с некоторыми каналами. Вы хотите удалить их?"
+ 
+-#: ../data/ui/shortcutsWindow.xml:49
+-msgid "Zoom out"
+-msgstr "Уменьшить"
++#: gfeeds/headerbar.py:202
++msgid "_Keep"
++msgstr "_Оставить"
+ 
+-#: ../data/ui/shortcutsWindow.xml:55
+-msgid "Reset zoom"
+-msgstr "Сбросить масштаб"
++#: gfeeds/headerbar.py:204
++msgid "_Remove"
++msgstr "_Удалить"
+ 
+-#: ../data/ui/spinner_button.glade:22
+-msgid "page0"
+-msgstr "страница0"
++#: gfeeds/main_leaflet.py:114
++#, python-brace-format
++msgid "{0} new article"
++msgid_plural "{0} new articles"
++msgstr[0] "{0} новая статья"
++msgstr[1] "{0} новые статьи"
++msgstr[2] "{0} новых статей"
+ 
+-#: ../data/ui/spinner_button.glade:33
+-msgid "page1"
+-msgstr "страница1"
++#: gfeeds/__main__.py:232
++msgid "Do you want to import these feeds?"
++msgstr "Вы хотите импортировать эти каналы?"
+ 
+-#: ../data/ui/add_feed_box.glade:20
+-msgid "Enter feed address to add"
+-msgstr "Введите адрес фида для добавления"
++#: gfeeds/__main__.py:239 gfeeds/__main__.py:273
++#: gfeeds/manage_feeds_window.py:324
++msgid "_Cancel"
++msgstr "_Отменить"
+ 
+-#: ../data/ui/add_feed_box.glade:41
+-msgid "https://..."
+-msgstr "https://..."
++#: gfeeds/__main__.py:242 gfeeds/__main__.py:276
++msgid "_Import"
++msgstr "_Импортировать"
+ 
+-#: ../data/ui/add_feed_box.glade:61
+-msgid "Add"
+-msgstr "Добавить"
++#: gfeeds/__main__.py:269
++msgid "Do you want to import this feed?"
++msgstr "Вы хотите импортировать этот канал?"
+ 
+-#: ../data/ui/add_feed_box.glade:91
+-msgid "You're already subscribed to that feed!"
+-msgstr "Вы уже подписаны на этот фид!"
++#: gfeeds/__main__.py:301
++msgid "url"
++msgstr "url"
+ 
+-#: ../data/ui/article_right_click_popover_content.glade:48
+-msgid "Save article"
+-msgstr "Сохранить статью"
++#: gfeeds/__main__.py:304
++msgid "opml file local url or rss remote url to import"
++msgstr "opml файл, локальный url или удаленный url rss для импорта"
+ 
+-#: ../data/ui/headerbar.glade:44
+-msgid "Menu"
+-msgstr "Меню"
++#: gfeeds/manage_feeds_window.py:321
++msgid "Do you want to delete these feeds?"
++msgstr "Вы хотите удалить эти каналы?"
+ 
+-#: ../data/ui/headerbar.glade:64
+-msgid "Filter by feed"
+-msgstr "Фильтр по фиду"
++#: gfeeds/manage_feeds_window.py:326
++msgid "_Delete"
++msgstr "_Удалить"
+ 
+-#: ../data/ui/headerbar.glade:87
+-msgid "Back to articles"
+-msgstr "Вернуться к статьям"
++#: gfeeds/opml_file_chooser.py:7
++msgid "XML files"
++msgstr "Файлы XML"
+ 
+-#: ../data/ui/headerbar.glade:104
+-msgid "Reader mode"
+-msgstr "Режим чтения"
++#: gfeeds/opml_file_chooser.py:14
++msgid "Choose an OPML file to import"
++msgstr "Выберите файл OPML для импорта"
+ 
+-#: ../data/ui/headerbar.glade:123
+-msgid "Load RSS content"
+-msgstr "Загрузить содержимое RSS"
++#: gfeeds/opml_file_chooser.py:18
++msgid "Open"
++msgstr "Открыть"
+ 
+-#: ../data/ui/headerbar.glade:142
+-msgid "Share"
+-msgstr "Поделиться"
++#: gfeeds/opml_file_chooser.py:19 gfeeds/opml_file_chooser.py:31
++msgid "Cancel"
++msgstr "Отменить"
+ 
+-#: ../data/ui/headerbar.glade:189
+-msgid "Open externally"
+-msgstr "Открыть снаружи"
++#: gfeeds/opml_file_chooser.py:26
++msgid "Choose where to save the exported OPML file"
++msgstr "Выберите место для сохранения экспортированного файла OPML"
+ 
+-#: ../data/ui/webview_with_notification.glade:51
+-msgid "Link copied to clipboard!"
+-msgstr "Ссылка скопирована в буфер обмена!"
++#: gfeeds/opml_file_chooser.py:30
++msgid "Save"
++msgstr "Сохранить"
+ 
+-#: ../data/ui/webview_filler.glade:42
+-msgid "Select an article"
+-msgstr "Выберите статью"
++#: gfeeds/preferences_window.py:27
++msgid "General preferences"
++msgstr "Общие параметры"
+ 
+-#: ../data/org.gabmus.gfeeds.desktop.in:3
+-msgid "@prettyname@"
+-msgstr "@prettyname@"
++#: gfeeds/preferences_window.py:29
++msgid "Show newer articles first"
++msgstr "Показывать сначала более новые статьи"
+ 
+-#: ../data/org.gabmus.gfeeds.desktop.in:4
+-msgid "News reader for GNOME"
+-msgstr "Ридер новостей для GNOME"
++#: gfeeds/preferences_window.py:34
++msgid "Open links in your browser"
++msgstr "Открывать ссылки в браузере"
+ 
+-#: ../data/org.gabmus.gfeeds.desktop.in:6
+-msgid "@appid@"
+-msgstr "@appid@"
++#: gfeeds/preferences_window.py:38
++msgid "Use external video player for YouTube"
++msgstr "Использовать внешний видеоплеер для YouTube"
+ 
+-#: ../data/org.gabmus.gfeeds.desktop.in:12
+-msgid "rss;reader;feed;news;"
+-msgstr "rss;ридер;фид;новости;"
++#: gfeeds/preferences_window.py:40
++msgid "Requires youtube-dl and a compatible video player"
++msgstr "Требуется youtube-dl и совместимый видеоплеер"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:4
+-msgid "Feeds"
+-msgstr "Feeds"
++#: gfeeds/preferences_window.py:46
++msgid "Preferred video player"
++msgstr "Предпочтительный видеоплеер"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:5
+-msgid "Gabriele Musco"
+-msgstr "Габриеле Муско"
++#: gfeeds/preferences_window.py:50
++msgid "Maximum article age"
++msgstr "Максимальная давность статьи"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:10
+-msgid ""
+-"Feeds is a minimal RSS/Atom feed reader built with speed and simplicity in "
+-"mind."
+-msgstr ""
+-"Feeds - это минимальный ридер RSS/Atom фидов, построенный с учетом скорости "
+-"и простоты."
++#: gfeeds/preferences_window.py:51
++msgid "In days"
++msgstr "В днях"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:11
+-msgid ""
+-"It offers a simple user interface that only shows the latest news from your "
+-"subscriptions."
+-msgstr ""
+-"Предлагает простой интерфейс пользователя, который отображает только "
+-"последние новости из ваших подписок."
++#: gfeeds/preferences_window.py:58
++msgid "Refresh preferences"
++msgstr "Параметры обновления"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:12
+-msgid ""
+-"Articles are shown in a web view by default, with javascript disabled for a "
+-"faster and less intrusive user experience. There's also a reader mode "
+-"included, built from the one GNOME Web/Epiphany uses."
+-msgstr ""
+-"Статьи отображаются в веб-просмотре по умолчанию, с выключенным javascript "
+-"за более быстрым и менее навязчивым опытом пользователя. Является тоже "
+-"включенный режим чтения, построенный из того, что использует GNOME Web/"
+-"Epiphany."
++#: gfeeds/preferences_window.py:60
++msgid "Refresh articles on startup"
++msgstr "Обновлять статьи при запуске"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:13
+-msgid "Feeds can be imported and exported via OPML."
+-msgstr "Можно импортировать и экспортировать фиды через OPML."
++#: gfeeds/preferences_window.py:64
++msgid "New articles notification"
++msgstr "Уведомление о новых статьях"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:54
+-msgid "Errors with feeds are now shown in the UI"
+-msgstr "Ошибки фидов теперь отображаются в ИП"
++#: gfeeds/preferences_window.py:68
++msgid "Enable auto-refresh"
++msgstr "Включить автообновление"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:55
+-msgid "Big UI overhaul"
+-msgstr "Большое преображение ИП"
++#: gfeeds/preferences_window.py:72
++msgid "Auto-refresh interval"
++msgstr "Интервал автообновления"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:56
+-msgid "Updated translations"
+-msgstr "Обновленные переводы"
++#: gfeeds/preferences_window.py:73
++msgid "In seconds"
++msgstr "В секундах"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:57
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:72
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:83
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:136
+-msgid "Various bug fixes"
+-msgstr "Разные исправления ошибок"
++#: gfeeds/preferences_window.py:80
++msgid "Cache"
++msgstr "Кэш"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:64
+-msgid "OPML file association"
+-msgstr "Ассоциация файлов OPML"
++#: gfeeds/preferences_window.py:82
++msgid "Clear caches"
++msgstr "Очистить кэш"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:65
+-msgid "Changed left headerbar button order"
+-msgstr "Изменен порядок левой кнопки строки заголовка"
++#: gfeeds/preferences_window.py:83
++msgid "Clear"
++msgstr "Очистить"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:66
+-msgid "Optimization for updating feeds"
+-msgstr "Оптимизация для обновления фидов"
++#: gfeeds/preferences_window.py:109
++msgid "Appearance"
++msgstr "Внешний вид"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:67
+-msgid "Redesigned right click/longpress menu"
+-msgstr "Переработано меню при правом щелчке/длинном нажатии"
++#: gfeeds/preferences_window.py:112
++msgid "Appearance preferences"
++msgstr "Параметры внешнего вида"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:68
+-msgid "Option to show/hide read articles"
+-msgstr "Параметр для отображения/скрывания прочитанных статей"
++#: gfeeds/preferences_window.py:114
++msgid "Dark mode"
++msgstr "Темный режим"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:69
+-msgid "Reworked suggestion bar"
+-msgstr "Переработана строка предложения"
++#: gfeeds/preferences_window.py:118
++msgid "Reader mode theme"
++msgstr "Тема для режима чтения"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:70
+-msgid "Changed name to Feeds"
+-msgstr "Изменено имя Feeds"
++#: gfeeds/preferences_window.py:122
++msgid "Automatic"
++msgstr "Автоматическая"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:71
+-msgid "Improved CPU utilization"
+-msgstr "Улучшено использование ЦПУ"
++#: gfeeds/preferences_window.py:122
++msgid "Light"
++msgstr "Светлая"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:79
+-msgid "New right click or longpress menu for articles"
+-msgstr "Новое меню при правом щелчке или длинном нажатии для статей"
++#: gfeeds/preferences_window.py:122
++msgid "Dark"
++msgstr "Темная"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:80
+-msgid "You can now save articles offline"
+-msgstr "Теперь можно сохранить статьи в режиме офлайн"
++#: gfeeds/preferences_window.py:126
++msgid "Show article thumbnails"
++msgstr "Показывать миниатюры статей"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:81
+-msgid "Initial suggestion to add feeds is now less intrusive"
+-msgstr "Начальное предложение для добавления фидов теперь менее навязчивое"
++#: gfeeds/preferences_window.py:131
++msgid "Show full articles titles"
++msgstr "Показывать полные заголовки статей"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:82
+-msgid "Read articles are now greyed out"
+-msgstr "Прочитанные статьи теперь выделены серым цветом"
++#: gfeeds/preferences_window.py:136
++msgid "Show full feeds names"
++msgstr "Показывать полные названия каналов"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:90
+-msgid "Concurrent feeds refresh, with customizable thread count"
+-msgstr "Одновременное обновление фиды с настраиваемым количеством потоков"
++#: gfeeds/preferences_window.py:143
++msgid "Font preferences"
++msgstr "Параметры шрифта"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:91
+-msgid "Added German translation (thanks @Etamuk)"
+-msgstr "Добавлен перевод на немецкий язык (спасибо @Etamuk)"
++#: gfeeds/preferences_window.py:145
++msgid "Use system font for titles"
++msgstr "Использовать системный шрифт для заголовков"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:98
+-msgid "Fix bugs in reader mode"
+-msgstr "Исправить ошибки в режиме чтения"
++#: gfeeds/preferences_window.py:149
++msgid "Use system font for paragraphs"
++msgstr "Использовать системный шрифт для абзацев"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:105
+-msgid "Minor bug fix"
+-msgstr "Исправление незначительных ошибок"
++#: gfeeds/preferences_window.py:153
++msgid "Custom title font"
++msgstr "Пользовательский шрифт заголовка"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:112
+-msgid "Improved date and time parsing and display"
+-msgstr "Улучшены разбирание даты и времени, и экран"
+-
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:113
+-msgid "Reader mode can now work on websites without an article tag"
+-msgstr "Теперь режим чтения может работать на веб-сайтах без тега статьи"
+-
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:114
+-msgid "Slight improvements to the icon"
+-msgstr "Небольшие улучшения значка"
+-
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:115
+-msgid "New feature to filter articles by feed"
+-msgstr "Новая функция фильтра статей по фиду"
+-
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:122
+-msgid "Improved favicon download"
+-msgstr "Улучшена загрузка фавикона"
+-
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:123
+-msgid "Fixed refresh duplicating articles"
+-msgstr "Исправлено обновление дублирующих статей"
+-
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:130
+-msgid "Added option to disable client side decoration"
+-msgstr "Добавлен параметр для выключения оформление на стороне клиента"
+-
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:131
+-msgid "Brought primary menu in line with GNOME HIG"
+-msgstr "Главное меню в соответствии с GNOME HIG"
+-
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:132
+-msgid "Added placeholder icon for feeds without an icon"
+-msgstr "Добавлен значок-заполнитель для фидов без значка"
++#: gfeeds/preferences_window.py:157
++msgid "Custom paragraph font"
++msgstr "Пользовательский шрифт абзаца"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:133
+-msgid "Migrated some widgets to Glade templates"
+-msgstr "Несколько виджетов переносые в шаблоны Glade"
++#: gfeeds/preferences_window.py:161
++msgid "Custom monospace font"
++msgstr "Пользовательский моноширинный шрифт"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:134
+-msgid "Option to use reader mode by default"
+-msgstr "Параметр для использования режима чтения по умолчанию"
++#: gfeeds/preferences_window.py:173
++msgid "Privacy"
++msgstr "Конфиденциальность"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:135
+-msgid "Option to show article content from the feed"
+-msgstr "Параметр для отображения содержимого статьи через фиды"
++#: gfeeds/preferences_window.py:177
++msgid "Privacy preferences"
++msgstr "Параметры конфиденциальности"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:143
+-msgid "Fixed labels alignment"
+-msgstr "Исправлено выравнивание меток"
++#: gfeeds/preferences_window.py:179
++msgid "Enable JavaScript"
++msgstr "Включить JavaScript"
++
++#: gfeeds/preferences_window.py:184
++msgid "Try to block advertisements"
++msgstr "Стараться блокировать рекламу"
++
++#: gfeeds/preferences_window.py:186 gfeeds/preferences_window.py:221
++msgid "Requires app restart"
++msgstr "Требуется перезапуск приложения"
++
++#: gfeeds/preferences_window.py:190
++msgid "Update advertisement blocking list"
++msgstr "Обновление списка блокировки рекламы"
++
++#: gfeeds/preferences_window.py:191
++msgid "Updates automatically every 10 days"
++msgstr "Обновляется автоматически каждые 10 дней"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:144
+-msgid "Changed app name to Feeds"
+-msgstr "Изменено имя приложеня Feeds"
++#: gfeeds/preferences_window.py:192
++msgid "Update"
++msgstr "Обновить"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:145
+-msgid "Added separators for the two sections of the app"
+-msgstr "Добавлены разделители для двух разделов приложения"
++#: gfeeds/preferences_window.py:205
++msgid "Advanced"
++msgstr "Дополнительно"
++
++#: gfeeds/preferences_window.py:208
++msgid "Advanced preferences"
++msgstr "Дополнительные параметры"
++
++#: gfeeds/preferences_window.py:210
++msgid "Maximum refresh threads"
++msgstr "Максимальные потоки обновления"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:146
+-msgid "Using links as feed titles when there is no title"
+-msgstr "Использование ссылок как заголовок фидов, когда нет заголовка"
++#: gfeeds/preferences_window.py:212
++msgid "How many threads to use for feeds refresh"
++msgstr "Сколько потоков использовать для обновления каналов"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:147
+-msgid "Added preference for maximum article age"
+-msgstr "Добавлено предпочтение для максимального возраста статьи"
++#: gfeeds/preferences_window.py:219
++msgid "Experimental GtkListView for articles list"
++msgstr "Экспериментальный GtkListView для списка статей"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:148
+-msgid "Added zoom keyboard shortcuts"
+-msgstr "Добавлен масштаб сочетаний клавиш"
++#: gfeeds/preferences_window.py:227
++msgid "Troubleshooting"
++msgstr "Устранение неполадок"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:149
+-msgid "Added preference to enable JavaScript"
+-msgstr "Добавлено предпочтение для включения JavaScript"
++#: gfeeds/preferences_window.py:229
++msgid "Export Configuration as JSON"
++msgstr "Экспортировать конфигурацию в формате JSON"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:150
+-msgid "Fix window control positions when they are on the left"
+-msgstr "Исправить позиции управления окном, когда оно находится слева"
++#: gfeeds/preferences_window.py:230
++msgid "Attach this when reporting bugs"
++msgstr "Прикрепите это, если хотите сообщить об ошибках"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:157
+-msgid "Feeds for websites without favicons will now work"
+-msgstr "Теперь фиды сайтов без фавиконов будут работать"
++#: gfeeds/preferences_window.py:231
++msgid "Export"
++msgstr "Экспортировать"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:164
+-msgid "Fixed bug with adding new feeds"
+-msgstr "Исправлена ошибка при добавлении новых фидов"
++#. type: ignore
++#: gfeeds/preferences_window.py:244
++msgid "Feeds Configuration"
++msgstr "Конфигурация Feeds"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:171
+-msgid "Switched to native file chooser"
+-msgstr "Переключено на выбор собственных файлов"
++#: gfeeds/preferences_window.py:248
++msgid "_Close"
++msgstr "_Закрыть"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:172
+-msgid "Added empty state initial screen for sidebar"
+-msgstr "Добавлено пустое состояние как начальный экран на боковая панель"
++#: gfeeds/preferences_window.py:251
++msgid "Cop_y"
++msgstr "_Копировать"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:173
+-msgid "Added italian translation"
+-msgstr "Добавлен перевод на итальянский язык"
++#: gfeeds/util/build_reader_html.py:104
++#, python-brace-format
++msgid "Author: <a href=\"{0}\">{1}</a>"
++msgstr "Автор: <a href=\"{0}\">{1}</a>"
++
++#: gfeeds/util/build_reader_html.py:108
++#, python-brace-format
++msgid "Author: {0}"
++msgstr "Автор: {0}"
++
++#: gfeeds/util/download_manager.py:112
++#, python-brace-format
++msgid "`{0}`: connection timed out"
++msgstr "`{0}`: время ожидания соединения истекло"
++
++#: gfeeds/util/download_manager.py:121
++#, python-brace-format
++msgid "`{0}` might not be a valid address"
++msgstr "`{0}` может быть недопустимым адресом"
++
++#: gfeeds/util/download_manager.py:161
++#, python-brace-format
++msgid "Error downloading `{0}`, code `{1}`"
++msgstr "Ошибка при загрузке `{0}`, код `{1}`"
++
++#: gfeeds/util/get_favicon.py:48
++#, python-brace-format
++msgid "Error downloading favicon for `{0}`"
++msgstr "Ошибка при загрузке фавикона для `{0}`"
++
++#: gfeeds/util/opml_parser.py:33
++msgid "Error: OPML path provided does not exist"
++msgstr "Ошибка: указанный путь OPML не существует"
++
++#: gfeeds/util/opml_parser.py:44
++#, python-brace-format
++msgid "Error parsing OPML file `{0}`"
++msgstr "Ошибка при разборе файла OPML `{0}`"
++
++#: gfeeds/webview.py:200
++msgid "Link copied to clipboard!"
++msgstr "Ссылка скопирована в буфер обмена!"
+ 
+-#: ../data/org.gabmus.gfeeds.appdata.xml.in:180
+-msgid "First release"
+-msgstr "Первый релиз"
++#: gfeeds/webview.py:222
++msgid "Feed content not available for this article"
++msgstr "Содержимое канала недоступно для этой статьи"
+diff --git a/po/sv.po b/po/sv.po
+index 2af0a54..8679f60 100644
+--- a/po/sv.po
++++ b/po/sv.po
+@@ -8,8 +8,8 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: gfeeds master\n"
+ "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/gfeeds/issues\n"
+-"POT-Creation-Date: 2023-03-11 08:34+0000\n"
+-"PO-Revision-Date: 2023-03-11 13:36+0100\n"
++"POT-Creation-Date: 2023-03-26 11:12+0000\n"
++"PO-Revision-Date: 2023-03-26 14:02+0200\n"
+ "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+ "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+ "Language: sv\n"
+@@ -298,7 +298,7 @@ msgstr "Märk som läst/oläst"
+ msgid "Select an article"
+ msgstr "Välj en artikel"
+ 
+-#: gfeeds/feed_item.py:59
++#: gfeeds/feed_item.py:62
+ #, python-brace-format
+ msgid "Error: unable to parse datetime {0} for feeditem {1}"
+ msgstr "Fel: Kan inte tolka datumtid {0} för flödesobjekt {1}"
+@@ -621,6 +621,16 @@ msgstr "S_täng"
+ msgid "Cop_y"
+ msgstr "_Kopiera"
+ 
++#: gfeeds/util/build_reader_html.py:104
++#, python-brace-format
++msgid "Author: <a href=\"{0}\">{1}</a>"
++msgstr "Författare: <a href=\"{0}\">{1}</a>"
++
++#: gfeeds/util/build_reader_html.py:108
++#, python-brace-format
++msgid "Author: {0}"
++msgstr "Författare: {0}"
++
+ #: gfeeds/util/download_manager.py:112
+ #, python-brace-format
+ msgid "`{0}`: connection timed out"
+@@ -650,11 +660,11 @@ msgstr "Fel: Angiven OPML-sökväg finns inte"
+ msgid "Error parsing OPML file `{0}`"
+ msgstr "Kunde inte tolka OPML-fil \"{0}\""
+ 
+-#: gfeeds/webview.py:204
++#: gfeeds/webview.py:200
+ msgid "Link copied to clipboard!"
+ msgstr "Länk kopierad till urklipp!"
+ 
+-#: gfeeds/webview.py:226
++#: gfeeds/webview.py:222
+ msgid "Feed content not available for this article"
+ msgstr "Flödesinnehåll ej tillgängligt för den här artikeln"
+ 
+diff --git a/po/tr.po b/po/tr.po
+index 6ecf380..a1fbd3c 100644
+--- a/po/tr.po
++++ b/po/tr.po
+@@ -10,16 +10,16 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: gfeeds 0.16.2\n"
+ "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/gfeeds/issues\n"
+-"POT-Creation-Date: 2023-03-12 18:06+0000\n"
+-"PO-Revision-Date: 2023-03-13 05:49+0300\n"
+-"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
++"POT-Creation-Date: 2023-03-26 11:12+0000\n"
++"PO-Revision-Date: 2023-03-27 15:29+0300\n"
++"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
+ "Language-Team: Turkish <gnome-turk@gnome.org>\n"
+ "Language: tr\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ "Plural-Forms: nplurals=1; plural=0;\n"
+-"X-Generator: Poedit 3.1.1\n"
++"X-Generator: Poedit 3.0.1\n"
+ 
+ #: data/org.gabmus.gfeeds.appdata.xml.in:4
+ msgid "Feeds"
+@@ -73,7 +73,7 @@ msgstr ""
+ 
+ #: data/ui/add_feed_popover.blp:11
+ msgid "Enter feed address to add"
+-msgstr "Eklenecek besleme adresini giriniz"
++msgstr "Eklenecek besleme adresini girin"
+ 
+ #: data/ui/add_feed_popover.blp:26
+ msgid "Add"
+@@ -89,7 +89,7 @@ msgstr "Hadi başlayalım"
+ 
+ #: data/ui/empty_state.blp:22
+ msgid "Add new feeds via URL"
+-msgstr "URL kullanarak yeni beslemeler ekleyiniz"
++msgstr "URL kullanarak yeni beslemeler ekleyin"
+ 
+ #: data/ui/empty_state.blp:27
+ msgid "Import an OPML file"
+@@ -299,7 +299,7 @@ msgstr "Okundu/Okunmadı İmle"
+ msgid "Select an article"
+ msgstr "Makale seç"
+ 
+-#: gfeeds/feed_item.py:59
++#: gfeeds/feed_item.py:62
+ #, python-brace-format
+ msgid "Error: unable to parse datetime {0} for feeditem {1}"
+ msgstr "Hata: feeditem {1} için datetime verisi {0} ayrıştırılamadı"
+@@ -391,7 +391,7 @@ msgstr "XML dosyaları"
+ 
+ #: gfeeds/opml_file_chooser.py:14
+ msgid "Choose an OPML file to import"
+-msgstr "İçe aktarılacak OPML dosyası seçiniz"
++msgstr "İçe aktarılacak OPML dosyası seçin"
+ 
+ #: gfeeds/opml_file_chooser.py:18
+ msgid "Open"
+@@ -403,7 +403,7 @@ msgstr "İptal Et"
+ 
+ #: gfeeds/opml_file_chooser.py:26
+ msgid "Choose where to save the exported OPML file"
+-msgstr "Dışarı aktarılan OPML dosyasının nereye kaydedileceğini seçiniz"
++msgstr "Dışarı aktarılan OPML dosyasının nereye kaydedileceğini seçin"
+ 
+ #: gfeeds/opml_file_chooser.py:30
+ msgid "Save"
+@@ -622,6 +622,16 @@ msgstr "_Kapat"
+ msgid "Cop_y"
+ msgstr "Kop_yala"
+ 
++#: gfeeds/util/build_reader_html.py:104
++#, python-brace-format
++msgid "Author: <a href=\"{0}\">{1}</a>"
++msgstr "Yazar: <a href=\"{0}\">{1}</a>"
++
++#: gfeeds/util/build_reader_html.py:108
++#, python-brace-format
++msgid "Author: {0}"
++msgstr "Yazar: {0}"
++
+ #: gfeeds/util/download_manager.py:112
+ #, python-brace-format
+ msgid "`{0}`: connection timed out"
+@@ -651,10 +661,10 @@ msgstr "Hata: Verilen OPML yolu yok"
+ msgid "Error parsing OPML file `{0}`"
+ msgstr "`{0}` OPML dosyası ayrıştırılırken hata oluştu"
+ 
+-#: gfeeds/webview.py:204
++#: gfeeds/webview.py:200
+ msgid "Link copied to clipboard!"
+ msgstr "Bağlantı panoya kopyalandı!"
+ 
+-#: gfeeds/webview.py:226
++#: gfeeds/webview.py:222
+ msgid "Feed content not available for this article"
+ msgstr "Besleme içeriği bu makale için kullanılamıyor"
+diff --git a/po/uk.po b/po/uk.po
+index d59c33f..f50326f 100644
+--- a/po/uk.po
++++ b/po/uk.po
+@@ -7,8 +7,8 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: gfeeds master\n"
+ "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/gfeeds/issues\n"
+-"POT-Creation-Date: 2023-03-11 08:34+0000\n"
+-"PO-Revision-Date: 2023-03-12 20:06+0200\n"
++"POT-Creation-Date: 2023-03-26 11:12+0000\n"
++"PO-Revision-Date: 2023-03-26 15:23+0300\n"
+ "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+ "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+ "Language: uk\n"
+@@ -295,7 +295,7 @@ msgstr "Позначити як прочитане/непрочитане"
+ msgid "Select an article"
+ msgstr "Виберіть статтю"
+ 
+-#: gfeeds/feed_item.py:59
++#: gfeeds/feed_item.py:62
+ #, python-brace-format
+ msgid "Error: unable to parse datetime {0} for feeditem {1}"
+ msgstr "Помилка: не вдалося обробити позначку часу {0} для запису стрічки {1}"
+@@ -307,14 +307,12 @@ msgstr "Помилки під час обробки стрічки «{0}», ад
+ 
+ #: gfeeds/feed_parser.py:75
+ #, python-brace-format
+-#| msgid "Errors while parsing feed `{0}`, URL: `{1}`"
+ msgid "Error decoding unicode data from feed `{0}`, URL: `{1}`"
+ msgstr ""
+ "Помилка під час декодування даних Unicode зі стрічки «{0}», адреса: «{1}»"
+ 
+ #: gfeeds/feed_parser.py:82
+ #, python-brace-format
+-#| msgid "Errors while parsing feed `{0}`, URL: `{1}`"
+ msgid "Error extracting data from feed `{0}`, URL: `{1}`"
+ msgstr "Помилки під час видобування даних зі стрічки «{0}», адреса: «{1}»"
+ 
+@@ -625,6 +623,16 @@ msgstr "_Закрити"
+ msgid "Cop_y"
+ msgstr "_Копіювати"
+ 
++#: gfeeds/util/build_reader_html.py:104
++#, python-brace-format
++msgid "Author: <a href=\"{0}\">{1}</a>"
++msgstr "Автор: <a href=\"{0}\">{1}</a>"
++
++#: gfeeds/util/build_reader_html.py:108
++#, python-brace-format
++msgid "Author: {0}"
++msgstr "Автор: {0}"
++
+ #: gfeeds/util/download_manager.py:112
+ #, python-brace-format
+ msgid "`{0}`: connection timed out"
+@@ -654,11 +662,11 @@ msgstr "Помилка: вказаного шляху до OPML не існує"
+ msgid "Error parsing OPML file `{0}`"
+ msgstr "Помилка під час обробки файла OPML «{0}»"
+ 
+-#: gfeeds/webview.py:204
++#: gfeeds/webview.py:200
+ msgid "Link copied to clipboard!"
+ msgstr "Посилання скопійовано до буфера обміну!"
+ 
+-#: gfeeds/webview.py:226
++#: gfeeds/webview.py:222
+ msgid "Feed content not available for this article"
+ msgstr "Для цієї статті дані стрічки є недоступними"
+ 
+diff --git a/test/__init__.py b/test/__init__.py
+index 66b0cd6..8ba8dfd 100644
+--- a/test/__init__.py
++++ b/test/__init__.py
+@@ -3,4 +3,4 @@ import gi
+ gi.require_version('Gtk', '4.0')
+ gi.require_version('Gdk', '4.0')
+ gi.require_version('Adw', '1')
+-gi.require_version('WebKit2', '5.0')
++gi.require_version('WebKit', '6.0')
