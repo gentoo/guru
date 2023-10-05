@@ -19,24 +19,24 @@ esac
 
 EXPORT_FUNCTIONS src_unpack src_prepare src_compile src_install src_test pkg_postinst pkg_prerm pkg_postrm
 
-# @ECLASS-VARIABLE: REPO_URI
+# @ECLASS_VARIABLE: REPO_URI
 # @DESCRIPTION:
 # URI to the sourceforge octave-forge repository
 REPO_URI="http://svn.code.sf.net/p/octave/code/trunk/octave-forge"
 
 # defining some paths
 
-# @ECLASS-VARIABLE: OCT_ROOT
+# @ECLASS_VARIABLE: OCT_ROOT
 # @DESCRIPTION:
 # full path to octave share
 OCT_ROOT="/usr/share/octave"
 
-# @ECLASS-VARIABLE: OCT_PKGDIR
+# @ECLASS_VARIABLE: OCT_PKGDIR
 # @DESCRIPTION:
 # path to octave pkgdir
 OCT_PKGDIR="${OCT_ROOT}/packages"
 
-# @ECLASS-VARIABLE: OCT_BIN
+# @ECLASS_VARIABLE: OCT_BIN
 # @DESCRIPTION:
 # octave binary name
 OCT_BIN="octave"
