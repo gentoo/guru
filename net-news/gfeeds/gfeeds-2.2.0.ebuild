@@ -16,6 +16,7 @@ PATCHES="${FILESDIR}/${P}-blueprint-0.80-fix.patch"
 
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="~amd64"
 IUSE="debug"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -34,7 +35,7 @@ DEPEND="
 	')
 	gui-libs/gtk:4
 	gui-libs/libadwaita
-	~net-libs/syndication-domination-9999[python]
+	net-libs/syndication-domination[python]
 	net-libs/webkit-gtk:6
 "
 RDEPEND="${DEPEND}"
