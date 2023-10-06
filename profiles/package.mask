@@ -14,6 +14,12 @@
 
 # New entries go on top.
 
+# David Roman <davidroman96@gmail.com> (2023-10-06)
+# No new releases upstream for over 5 years.
+# Supported kernel versions have been long removed from ::gentoo
+# Removal in +30 days.
+sys-kernel/ummunotify
+
 # David Roman <davidroman96@gmail.com> (2023-10-05)
 # Upstream seems dead (no new releases since 2016).
 # Removal in +30 days.
