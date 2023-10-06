@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>davidroman96@gmail.com</email>
+		<name>David Roman</name>
+	</maintainer>
 	<upstream>
 		<maintainer>
 			<name> ̡̡̢̯͖̘̘͈͟͡ ̵̨̛͍͎̪̻̣̕͟ ̷̵̧͚͓̠̬̲͘͟ ̡̨̪̘̺͎̼͖͎͉</name>
 			<email>colecmac@protonmail.com</email>
 		</maintainer>
-		<bugs-to>https://github.com/makeworld-the-better-one/gemget/issues</bugs-to>
-		<remote-id type="github">makeworld-the-better-one/gemget</remote-id>
+		<bugs-to>https://github.com/makew0rld/gemget/issues</bugs-to>
+		<remote-id type="github">makew0rld/gemget</remote-id>
 	</upstream>
 </pkgmetadata>
