@@ -15,6 +15,11 @@
 # New entries go on top.
 
 # David Roman <davidroman96@gmail.com> (2023-10-06)
+# No new releases since 2020, deprecated by upstream
+# Removal in +30 days.
+app-shells/antibody
+
+# David Roman <davidroman96@gmail.com> (2023-10-06)
 # No new releases upstream for over 5 years.
 # Supported kernel versions have been long removed from ::gentoo
 # Removal in +30 days.
