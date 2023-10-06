@@ -19,10 +19,10 @@ IUSE="libnotify"
 RDEPEND="
 	app-misc/jq
 	gui-apps/grim
-	gui-apps/slurm
+	gui-apps/slurp
 	gui-apps/wl-clipboard
 	gui-wm/sway
-	!!<=gui-wm/sway-1.8.1[grimshot
+	!!<=gui-wm/sway-1.8.1[grimshot]
 	libnotify? ( x11-libs/libnotify )
 "
 
