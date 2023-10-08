@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">simulton/gpds</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		GPDS is a General Purpose Data Serializer implemented as a very small
+		C++ library. It allows to serialize C++ classes to and from XML/YAML
+		files in a generic format that can be processed by other XML/YAML
+		processing software (or just for the sake of readability).
+	</longdescription>
+</pkgmetadata>
