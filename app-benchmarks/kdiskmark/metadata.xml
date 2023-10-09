@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mark@harmstone.com</email>
+		<name>Mark Harmstone</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">JonMagon/KDiskMark</remote-id>
+	</upstream>
+</pkgmetadata>
