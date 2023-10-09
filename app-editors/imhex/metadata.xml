@@ -10,6 +10,9 @@
 		<bugs-to>https://github.com/WerWolv/ImHex/issues</bugs-to>
 		<remote-id type="github">WerWolv/ImHex</remote-id>
 	</upstream>
+	<use>
+		<flag name="system-llvm">Use the system LLVM installation</flag>
+	</use>
 	<longdescription lang="en">
 		Features
 
