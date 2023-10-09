@@ -15,7 +15,10 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+man +seccomp test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="dev-libs/wayland"
+RDEPEND="
+	dev-libs/inih
+	dev-libs/wayland
+"
 DEPEND="${RDEPEND}
 	dev-libs/wayland-protocols
 	seccomp? ( sys-libs/libseccomp )
