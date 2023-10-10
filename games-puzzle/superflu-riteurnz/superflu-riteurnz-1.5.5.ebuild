@@ -31,7 +31,7 @@ DEPEND="
 	media-libs/sdl2-mixer
 	media-libs/sdl2-image
 	media-libs/sdl2-ttf
-	>=games-puzzle/superflu-riteurnz-data-11
+	>=games-puzzle/superflu-riteurnz-data-11:=
 "
 RDEPEND="${DEPEND}"
 
