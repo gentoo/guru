@@ -16,6 +16,10 @@ SLOT="0"
 LICENSE="all-rights-reserved"
 KEYWORDS="~amd64"
 
+RDEPEND="
+	app-arch/brotli
+"
+
 src_unpack() {
 	unpack_deb ${A}
 }
