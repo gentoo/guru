@@ -15,6 +15,8 @@ S="${WORKDIR}/eartag-${PV}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="test"
+RESTRICT="!test? ( test )"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
@@ -26,6 +28,7 @@ DEPEND="
 		>=media-libs/mutagen-1.46.0
 		>=dev-python/python-magic-0.4.27
 		>=dev-python/pyacoustid-1.2.2-r1
+		test? ( >=dev-python/pytest-7.4.0 )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
