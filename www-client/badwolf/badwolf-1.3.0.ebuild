@@ -35,10 +35,15 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="test? ( app-text/mandoc )"
 
+PATCHES=(
+	"${FILESDIR}/badwolf-1.3.0-configure_missing_ed.patch"
+)
+
 src_configure() {
 	[[ "${PV}" == "9999" ]] || restore_config config.h
 
 	CC="${CC:-cc}" \
+	ED="false" \
 	CFLAGS="${CFLAGS:--02 -Wall -Wextra}" \
 	LDFLAGS="${LDFLAGS}" \
 	DOCDIR="/usr/share/doc/${PF}" \
