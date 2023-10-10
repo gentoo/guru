@@ -440,14 +440,14 @@ src_configure() {
 src_compile() {
 	meson_src_compile
 	cargo_src_compile
-}
 
-src_install() {
 	# meson_src_install won't find spot binary otherwise because cargo.sh isn't used for compiling
 	mv "${WORKDIR}/${P}/target/release/spot" \
 	   "${WORKDIR}/${P}-build/src/spot" \
 	   || die
+}
 
+src_install() {
 	meson_src_install
 }
 
