@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
 
-PATCHES=( "${FILESDI}/${PN}-fix-flask-compat.patch" )
+PATCHES=( "${FILESDIR}/${PN}-fix-flask-compat.patch" )
 
 RDEPEND="
 	dev-python/aniso8601[${PYTHON_USEDEP}]
