@@ -9,7 +9,7 @@ MY_P="sosage-v${PV}"
 
 DESCRIPTION="Artisanal video-game about Superflu, the useless super-hero"
 HOMEPAGE="https://studios.ptilouk.net/superflu-riteurnz/"
-SRC_URI="https://framagit.org/Gee/sosage/-/archive/v${MY_PV}/${MY_P}.tar.gz"
+SRC_URI="https://framagit.org/Gee/sosage/-/archive/v${PV}/${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 # Engine under GPL-3+ + assets under all-rights-reserved are combined together
 LICENSE="GPL-3+ all-rights-reserved"
