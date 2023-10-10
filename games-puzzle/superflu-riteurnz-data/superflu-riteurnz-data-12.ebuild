@@ -10,7 +10,7 @@ HOMEPAGE="https://studios.ptilouk.net/superflu-riteurnz/ https://ptilouk.itch.io
 SRC_URI="${MY_P}-only.zip"
 S="${WORKDIR}/"
 LICENSE="all-rights-reserved"
-SLOT="0"
+SLOT="0/${PV}"
 KEYWORDS="~amd64"
 
 RESTRICT="bindist fetch"
