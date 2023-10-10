@@ -106,8 +106,7 @@ ezig() {
 src_unpack() {
 	git-r3_src_unpack
 	cd "${S}" || die
-	# "zig build" doesn't have "fetch" subcommand yet
-	ezig build --help || die "Fetching Zig modules failed"
+	ezig build --fetch || die "Fetching Zig modules failed"
 	local ZLS_GEN_FLAGS="--generate-version-data master --generate-version-data-path version_data_offline.zig"
 	ezig build gen --verbose -- ${ZLS_GEN_FLAGS} || die "Pre-generating Zig version data failed"
 }
