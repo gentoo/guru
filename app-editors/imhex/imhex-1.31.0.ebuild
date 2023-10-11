@@ -23,7 +23,8 @@ KEYWORDS="~amd64"
 IUSE="+system-llvm"
 
 PATCHES=(
-	"${FILESDIR}/llvm-16.patch"
+	"${FILESDIR}/require-llvm-16.patch"
+	"${FILESDIR}/remove-Werror.patch"
 )
 
 DEPEND="
