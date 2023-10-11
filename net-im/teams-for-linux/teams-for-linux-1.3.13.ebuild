@@ -14,7 +14,13 @@ SLOT="0"
 KEYWORDS="-* ~amd64"
 
 IUSE=""
-DEPEND=">=app-accessibility/at-spi2-core-2.46.0:2[${MULTILIB_USEDEP}]
+QA_PREBUILT="*"
+
+DEPEND="
+	app-accessibility/at-spi2-core:2[${MULTILIB_USEDEP}]
+	dev-libs/nspr[${MULTILIB_USEDEP}]
+	dev-libs/nss[${MULTILIB_USEDEP}]
+	media-libs/alsa-lib[${MULTILIB_USEDEP}]
 	media-libs/freetype:2[${MULTILIB_USEDEP}]
 	media-gfx/graphite2[${MULTILIB_USEDEP}]
 	net-print/cups[${MULTILIB_USEDEP}]
