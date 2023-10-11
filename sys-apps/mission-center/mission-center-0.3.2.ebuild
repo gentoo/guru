@@ -286,6 +286,9 @@ SRC_URI="
 	${CARGO_CRATE_URIS}
 
 "
+S="${WORKDIR}/${PN}-v${PV}"
+BUILD_DIR="${S}-build"
+ECARGO_HOME="${S}-build/cargo-home"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -312,19 +315,16 @@ BDEPEND="
 	dev-util/blueprint-compiler
 "
 
-BUILD_DIR=${WORKDIR}/${P}/_build
-
 src_unpack() {
 	unpack ${P}.tar.bz2
-	mv "${WORKDIR}/${PN}-v${PV}/" "${WORKDIR}/${P}"
 	unpack nvtop-${NVTOP_COMMIT}.tar.gz
-	mv nvtop-${NVTOP_COMMIT} "${WORKDIR}/${P}/subprojects"
+	mv nvtop-${NVTOP_COMMIT} "${S}/subprojects"
 	cargo_src_unpack
 }
 
 src_prepare() {
 	eapply_user
-	cd "${WORKDIR}/${P}/subprojects/nvtop-${NVTOP_COMMIT}"
+	cd "${S}/subprojects/nvtop-${NVTOP_COMMIT}"
 	find ../packagefiles -type f -name 'nvtop-*' -exec sh -c 'patch -p1 < {}' \;
 }
 
@@ -334,16 +334,13 @@ src_configure() {
 		--prefix=/usr
 	)
 	meson_src_configure
-	cp -r "${WORKDIR}/cargo_home" "${WORKDIR}/${P}/_build/cargo-home"
-	cp -r "${WORKDIR}/cargo_home" "${WORKDIR}/${P}/_build/src/sys_info_v2/gatherer/cargo-home"
+	cp -r "${ECARGO_HOME}" "${BUILD_DIR}/src/sys_info_v2/gatherer/cargo-home"
 }
 
-src_compile() {
-	meson_src_compile -C _build
-}
-
-src_install() {
-	meson_src_install -C _build
+src_test() {
+	# patch the appstream-util validate command to use --nonet when validating the urls
+	sed -i "s/args: \['validate',/args: \['validate', '--nonet',/g" "${S}/data/meson.build"
+	meson_src_test
 }
 
 pkg_postinst() {
@@ -357,3 +354,7 @@ pkg_postrm() {
 	xdg_icon_cache_update
 	xdg_desktop_database_update
 }
+
+# rust does not use *FLAGS from make.conf, silence portage warning
+# update with proper path to binaries this crate installs, omit leading /
+QA_FLAGS_IGNORED="usr/bin/${PN}"
