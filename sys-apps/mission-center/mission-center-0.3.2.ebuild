@@ -275,7 +275,7 @@ declare -A GIT_CRATES=(
 	[pathfinder_resources]="https://github.com/servo/pathfinder;${PATHFINDER_COMMIT};pathfinder-${PATHFINDER_COMMIT}/resources/"
 )
 
-inherit cargo gnome2-utils meson python-any-r1
+inherit cargo meson python-any-r1 xdg
 
 DESCRIPTION="Monitor your CPU, Memory, Disk, Network and GPU usage."
 HOMEPAGE="https://missioncenter.io/"
@@ -318,14 +318,14 @@ BDEPEND="
 src_unpack() {
 	unpack ${P}.tar.bz2
 	unpack nvtop-${NVTOP_COMMIT}.tar.gz
-	mv nvtop-${NVTOP_COMMIT} "${S}/subprojects"
+	mv nvtop-${NVTOP_COMMIT} "${S}/subprojects" || die
 	cargo_src_unpack
 }
 
 src_prepare() {
 	eapply_user
-	cd "${S}/subprojects/nvtop-${NVTOP_COMMIT}"
-	find ../packagefiles -type f -name 'nvtop-*' -exec sh -c 'patch -p1 < {}' \;
+	cd "${S}/subprojects/nvtop-${NVTOP_COMMIT}" || die
+	find ../packagefiles -type f -name 'nvtop-*' -exec sh -c 'patch -p1 < {}' \; || die
 }
 
 src_configure() {
@@ -334,25 +334,13 @@ src_configure() {
 		--prefix=/usr
 	)
 	meson_src_configure
-	cp -r "${ECARGO_HOME}" "${BUILD_DIR}/src/sys_info_v2/gatherer/cargo-home"
+	cp -r "${ECARGO_HOME}" "${BUILD_DIR}/src/sys_info_v2/gatherer/cargo-home" || die
 }
 
 src_test() {
 	# patch the appstream-util validate command to use --nonet when validating the urls
-	sed -i "s/args: \['validate',/args: \['validate', '--nonet',/g" "${S}/data/meson.build"
+	sed -i "s/args: \['validate',/args: \['validate', '--nonet',/g" "${S}"/data/meson.build || die
 	meson_src_test
-}
-
-pkg_postinst() {
-	gnome2_schemas_update
-	xdg_icon_cache_update
-	xdg_desktop_database_update
-}
-
-pkg_postrm() {
-	gnome2_schemas_update
-	xdg_icon_cache_update
-	xdg_desktop_database_update
 }
 
 # rust does not use *FLAGS from make.conf, silence portage warning
