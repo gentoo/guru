@@ -1,0 +1,39 @@
+From da68ec0acc6cfdd40ccd0ad23971b66e4517811e Mon Sep 17 00:00:00 2001
+From: Christopher Byrne <salah.coronya@gmail.com>
+Date: Wed, 4 Oct 2023 20:21:20 -0500
+Subject: [PATCH] build: Keep non-PAM mkhomedir parts when PAM support is
+ disabled
+
+Signed-off-by: Christopher Byrne <salah.coronya@gmail.com>
+---
+ src/Makefile.am | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/src/Makefile.am b/src/Makefile.am
+index e3af35d..5360168 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -25,9 +25,7 @@ endif
+ 
+ confddir = $(sysconfdir)/$(PACKAGE)d.conf.d
+ confd_DATA = oddjobd-introspection.conf
+-if BUILD_PAM
+ confd_DATA += oddjobd-mkhomedir.conf
+-endif
+ 
+ CLEANFILES = $(confd_DATA)
+ 
+@@ -40,10 +38,8 @@ install-data-hook:
+ pkgsysconfdir = $(sysconfdir)/$(PACKAGE)
+ systemdbusdir = $(sysconfdir)/@DBUS_PACKAGE@/system.d
+ systemdbus_DATA = oddjob.conf
+-if BUILD_PAM
+ systemdbus_DATA += oddjob-mkhomedir.conf
+ pkglibexec_PROGRAMS = mkhomedir
+-endif
+ 
+ pkglibexecdir = $(libexecdir)/$(PACKAGE)
+ pkglibexec_SCRIPTS = sanity.sh
+-- 
+2.41.0
+

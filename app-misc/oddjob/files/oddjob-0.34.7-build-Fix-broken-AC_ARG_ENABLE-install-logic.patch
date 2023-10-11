@@ -1,0 +1,59 @@
+From 1112006e8de56fae69e2418b155622f96e2b9fea Mon Sep 17 00:00:00 2001
+From: Christopher Byrne <salah.coronya@gmail.com>
+Date: Thu, 21 Sep 2023 19:35:24 -0500
+Subject: [PATCH 2/3] build: Fix broken AC_ARG_ENABLE install logic
+
+The arguments for AC_ARG_ENABLE were wrong. The 3rd argument is
+"if specified" and the 4th argument is "if not specified". So
+--disable-X did not work.
+
+Signed-off-by: Christopher Byrne <salah.coronya@gmail.com>
+---
+ configure.ac | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 0f6b497..632f47c 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -91,9 +91,9 @@ AC_SUBST(SYSTEMDSYSTEMUNITDIR)
+ 
+ AC_ARG_ENABLE(sample,
+ AS_HELP_STRING(--enable-sample,[Build and install a sample service.]),
+-sample=$withval,
+-sample=no)
+-AM_CONDITIONAL(INSTALL_SAMPLE,test x$sample = xyes)
++,
++[enables_sample=no])
++AM_CONDITIONAL(INSTALL_SAMPLE,test x$enable_sample = xyes)
+ 
+ AC_ARG_ENABLE(experimental,
+ AS_HELP_STRING(--enable-experimental,[Build experimental helpers.]),
+@@ -330,18 +330,18 @@ AC_DEFINE_UNQUOTED(DBUS_PACKAGE,"$DBUS_PACKAGE",[Define to the package name for
+ 
+ AC_ARG_ENABLE(xml-docs,
+ AS_HELP_STRING(--enable-xml-docs,[Reformat XML documentation.]),
+-xml_docs=$withval,
+-xml_docs=no)
+-AM_CONDITIONAL(REFORMAT_XML_DOCS,test x$xml_docs = xyes)
++,
++[enable_xml_docs=no])
++AM_CONDITIONAL(REFORMAT_XML_DOCS,test x$enable_xml_docs = xyes)
+ AC_PATH_PROGS(PATH_XMLTO,xmlto,:)
+ AC_SUBST(PATH_XMLTO)
+ 
+ AC_ARG_ENABLE(compat-dtd,
+ AS_HELP_STRING(--enable-compat-dtd,[Use DocBook 4.3 instead of DocBook 4.4.]),
+-compat_dtd=$withval,
+-compat_dtd=no)
++,
++[enable_xml_dtd=no])
+ AC_MSG_CHECKING([which version of the DocBook DTD to use])
+-if test x$compat_dtd = xyes ; then
++if test x$enable_compat_dtd = xyes ; then
+ 	DOCBOOK_PACKAGE_START=
+ 	DOCBOOK_PACKAGE_END=
+ 	DOCBOOK_VERSION=4.3
+-- 
+2.41.0
+

@@ -1,0 +1,35 @@
+From 6e0328ab88daed53ffbaca9a7212cf57ff70de69 Mon Sep 17 00:00:00 2001
+From: Christopher Byrne <salah.coronya@gmail.com>
+Date: Tue, 19 Sep 2023 09:44:59 -0500
+Subject: [PATCH 1/3] src/oddjobd.c: Fix non-selinux build
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This fixes a oddjobd.c:2988:61: error: ‘struct <anonymous>’ has no member
+named ‘selinux_enabled’
+
+Signed-off-by: Christopher Byrne <salah.coronya@gmail.com>
+---
+ src/oddjobd.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/oddjobd.c b/src/oddjobd.c
+index ca78550..44de748 100644
+--- a/src/oddjobd.c
++++ b/src/oddjobd.c
+@@ -2985,7 +2985,11 @@ main(int argc, char **argv)
+ 
+ 	/* Open a connection to the message bus. */
+ 	check_selinux_applicable();
++#if SELINUX_ACLS
+ 	ctx = oddjob_dbus_listeners_new(options.bus, globals.selinux_enabled);
++#else
++	ctx = oddjob_dbus_listeners_new(options.bus, 0);
++#endif
+ 	if (ctx == NULL) {
+ 		fprintf(stderr, "Error connecting to D-Bus!\n");
+ 		return 2;
+-- 
+2.41.0
+

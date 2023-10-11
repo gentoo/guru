@@ -1,0 +1,144 @@
+From f63287a35107385dcb6e04a4c742077c9d1eab86 Mon Sep 17 00:00:00 2001
+From: Christopher Byrne <salah.coronya@gmail.com>
+Date: Tue, 19 Sep 2023 08:39:15 -0500
+Subject: [PATCH 3/3] build: Remove --with-systemd and --with-sysvinit
+
+There no need a configure option for just a single file that doesn't require
+any compilation. Install it unconditionally, and just delete unwanted file
+
+Fixes: https://pagure.io/oddjob/pull-request/16
+
+Signed-off-by: Christopher Byrne <salah.coronya@gmail.com>
+---
+ configure.ac        | 62 +++++----------------------------------------
+ oddjob.spec         | 10 ++++----
+ scripts/Makefile.am |  8 ++----
+ 3 files changed, 14 insertions(+), 66 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 632f47c..13a28af 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -74,20 +74,13 @@ DEFAULT_RECONNECT_TIMEOUT=30
+ AC_DEFINE_UNQUOTED(DEFAULT_RECONNECT_TIMEOUT,$DEFAULT_RECONNECT_TIMEOUT,[Define to the default amount of time which oddjobd will pause between attempts to reconnect to the system message bus after being disconnected for any reason.])
+ AC_SUBST(DEFAULT_RECONNECT_TIMEOUT)
+ 
+-AC_ARG_ENABLE(systemd,
+-AS_HELP_STRING([--enable-systemd],[install unit file for systemd]),
+-SYSTEMD=$enableval,
+-SYSTEMD=no)
+-
+-AC_SUBST(SYSTEMD)
+-AM_CONDITIONAL(SYSTEMD,test x$SYSTEMD != xno)
+-if test x$SYSTEMD = xyes ; then
+-	SYSTEMDSYSTEMUNITDIR=`pkg-config --variable=systemdsystemunitdir systemd 2> /dev/null`
+-	AC_MSG_RESULT(will install systemd unit file)
+-else
+-	AC_MSG_RESULT(will install sysv init script)
+-fi
+-AC_SUBST(SYSTEMDSYSTEMUNITDIR)
++AC_ARG_WITH([systemdsystemunitdir],
++	[AS_HELP_STRING([--with-systemdsystemunitdir=DIR],
++		[Directory for systemd service files])],,
++		[PKG_CHECK_VAR([with_systemdsystemunitdir],[systemd],
++			[systemdsystemunitdir],,
++			[with_systemdsystemunitdir=${libdir}/systemd/system])])
++AC_SUBST([systemdsystemunitdir],[$with_systemdsystemunitdir])
+ 
+ AC_ARG_ENABLE(sample,
+ AS_HELP_STRING(--enable-sample,[Build and install a sample service.]),
+@@ -365,47 +358,6 @@ currentgid=`id -g`
+ AC_SUBST(currentgid)
+ AC_PATH_PROGS(PATH_PWD,pwd,pwd)
+ 
+-AC_ARG_ENABLE(systemd,
+-AS_HELP_STRING(--enable-systemd,[Install systemd unit files]),
+-systemd=$enableval
+-if test x$systemd = xyes ; then
+-	SYSTEMDSYSTEMUNITDIR=`pkg-config --variable=systemdsystemunitdir systemd`
+-fi
+-,
+-if pkg-config systemd 2> /dev/null ; then
+-	SYSTEMDSYSTEMUNITDIR=`pkg-config --variable=systemdsystemunitdir systemd 2> /dev/null`
+-	systemd=yes
+-else
+-	systemd=no
+-fi
+-)
+-
+-AC_ARG_ENABLE(sysvinit,
+-AS_HELP_STRING(--enable-sysvinit,[Install sysvinit unit files]),
+-sysvinit=$enableval,
+-if test x$systemd = xno ; then
+-	sysvinit=yes
+-else
+-	sysvinit=no
+-fi
+-)
+-if test x$systemd = xyes ; then
+-	AC_MSG_RESULT([installing systemd unit file])
+-	if test "x$SYSTEMDSYSTEMUNITDIR" = x ; then
+-		AC_MSG_ERROR([error locating systemd system unit directory])
+-	fi
+-	AC_SUBST(SYSTEMDSYSTEMUNITDIR)
+-else
+-	AC_MSG_RESULT([not installing systemd unit file])
+-fi
+-AM_CONDITIONAL(SYSTEMD,test x$systemd = xyes)
+-if test x$sysvinit = xyes ; then
+-	AC_MSG_RESULT([installing sysv init script])
+-else
+-	AC_MSG_RESULT([not installing sysv init script])
+-fi
+-AM_CONDITIONAL(SYSVINIT,test x$sysvinit = xyes)
+-
+ AC_ARG_ENABLE(pie,
+ AS_HELP_STRING(--enable-pie,[Build position-independent executables.]),
+ pie=$enableval,
+diff --git a/oddjob.spec b/oddjob.spec
+index f4943a1..c5a09dd 100644
+--- a/oddjob.spec
++++ b/oddjob.spec
+@@ -100,11 +100,6 @@ sample_flag=--enable-sample
+ 	--with-selinux-labels \
+ 	--without-python --enable-xml-docs --enable-compat-dtd \
+ 	--disable-dependency-tracking \
+-%if %{systemd}
+-	--enable-systemd --disable-sysvinit \
+-%else
+-	--enable-sysvinit --disable-systemd \
+-%endif
+ 	$sample_flag
+ make %{_smp_mflags}
+ 
+@@ -119,6 +114,11 @@ if ! test -d "$RPM_BUILD_ROOT"/%{_lib}/security ; then
+ 	mv "$RPM_BUILD_ROOT"/%{_libdir}/security/*.so "$RPM_BUILD_ROOT"/%{_lib}/security/
+ fi
+ %endif
++%if %{systemd}
++rm -f "$RPM_BUILD_ROOT"%{_initrddir}/oddjobd
++%else
++rm -f "$RPM_BUILD_ROOT"%{_unitdir}/oddjobd.service
++%endif
+ # Recommended, though I disagree.
+ rm -f "$RPM_BUILD_ROOT"/%{_libdir}/*.la
+ 
+diff --git a/scripts/Makefile.am b/scripts/Makefile.am
+index 86d50be..a5a89b7 100644
+--- a/scripts/Makefile.am
++++ b/scripts/Makefile.am
+@@ -1,9 +1,5 @@
+ EXTRA_DIST = oddjobd.in oddjobd.service.in
+-if SYSVINIT
++systemdsystemunit_DATA = oddjobd.service
+ initdir = $(sysconfdir)/rc.d/init.d
+ init_SCRIPTS = oddjobd
+-endif
+-if SYSTEMD
+-unitdir = @SYSTEMDSYSTEMUNITDIR@
+-unit_DATA = oddjobd.service
+-endif
++
+-- 
+2.41.0
+
