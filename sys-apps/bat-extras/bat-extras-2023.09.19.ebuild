@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,15 +26,15 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	dev-vcs/git
-	sys-apps/ripgrep
 	app-admin/entr
-	dev-util/git-delta
-	sys-devel/clang
-	sys-apps/exa
 	app-shells/fzf
-	sys-libs/ncurses
 	dev-python/black
+	dev-util/git-delta
+	dev-vcs/git
+	sys-apps/eza
+	sys-apps/ripgrep
+	sys-devel/clang
+	sys-libs/ncurses
 	virtual/rust[rustfmt(+)]
 "
 
