@@ -36,11 +36,6 @@ app-misc/pup
 # Removal in +30 days if no one else wants to take care of it.
 net-news/communique
 
-# Nicola Smaniotto <smaniotto.nicola@gmail.com> (2023-09-13)
-# Upstream is using unstable compiler features, needs dev-lang/rust[nightly].
-# Removal in 30 days if no one else wants to maintain it.
-games-rpg/airshipper
-
 # Viorel Munteanu <ceamac@gentoo.org> (2023-06-07)
 # Does not work on no-multilib profiles and cannot be masked per profile
 # (See also top comment)
