@@ -21,18 +21,13 @@ DEPEND="
 	dev-libs/libsodium:=
 	media-gfx/qrencode:=
 	media-gfx/zbar:=[v4l]
-	>=dev-libs/polyseed-1.0.0
+	~dev-libs/polyseed-1.0.0
 	dev-libs/libzip:=
 	dev-libs/boost:=[nls]
-	>=dev-qt/qtcore-5.15:5
-	>=dev-qt/qtwidgets-5.15:5
-	>=dev-qt/qtgui-5.15:5
-	>=dev-qt/qtnetwork-5.15:5
-	>=dev-qt/qtsvg-5.15:5
-	>=dev-qt/qtxml-5.15:5
-	>=dev-qt/qtwebsockets-5.15:5
-	>=dev-qt/qtmultimedia-5.15:5[widgets]
-	>=dev-qt/qtconcurrent-5.15:5
+	>=dev-qt/qtbase-6.5.2:6
+	>=dev-qt/qtsvg-6.5.2:6
+	>=dev-qt/qtmultimedia-6.5.2:6
+	>=dev-qt/qtwebsockets-6.5.2:6
 	dev-libs/libgcrypt:=
 	sys-libs/zlib
 	dev-libs/openssl:=

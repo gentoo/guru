@@ -5,6 +5,7 @@ EAPI=8
 
 inherit cmake desktop xdg
 
+#Verify feather-${PV}.tar.gz with  https://github.com/feather-wallet/feather-sigs
 SINGLEAPPLICATION_DIST_COMIT="3e8e85d1a487e433751711a8a090659684d42e3b"
 MONERO_DIST_COMIT="1f068d1ee84849b3b1758b0a46844834019de1bc"
 	MINIUPNP_DIST_COMIT="544e6fcc73c5ad9af48a8985c94f0f1d742ef2e0"
@@ -38,13 +39,13 @@ ${PF}-monero-trezorcommon.tar.gz
 LICENSE="BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="qrcode xmrig localmonero qt6"
+IUSE="qrcode xmrig localmonero"
 
 DEPEND="
 	dev-libs/libsodium:=
 	media-gfx/qrencode:=
 	media-gfx/zbar:=[v4l]
-	=dev-libs/polyseed-1.0.0
+	~dev-libs/polyseed-1.0.0
 	dev-libs/libzip:=
 	dev-libs/boost:=[nls]
 	>=dev-qt/qtbase-6.5.2:6
