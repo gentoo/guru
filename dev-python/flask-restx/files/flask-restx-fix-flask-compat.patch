@@ -107,7 +107,7 @@ diff --git a/tests/test_utils.py b/tests/test_utils.py
 index d98d68d0..fe3a1adb 100644
 --- a/tests/test_utils.py
 +++ b/tests/test_utils.py
-@@ -98,3 +98,17 @@ def test_value_headers_default_code(self):
+@@ -98,3 +98,14 @@ def test_value_headers_default_code(self):
      def test_too_many_values(self):
          with pytest.raises(ValueError):
              utils.unpack((None, None, None, None))
@@ -117,9 +117,6 @@ index d98d68d0..fe3a1adb 100644
 +    def test_none(self):
 +        with pytest.raises(AssertionError):
 +            _ = utils.to_view_name(None)
-+
-+    def test_name(self):
-+        assert self.test_none == self.test_none.__name__
 +
 +
 +class ImportCheckViewFuncTest(object):
