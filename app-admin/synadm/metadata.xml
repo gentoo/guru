@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>julien@jroy.ca</email>
-		<name>Julien Roy</name>
-	</maintainer>
+	<!-- maintainer-needed -->
 	<longdescription>A CLI tool to help admins of Matrix-Synapse homeservers conveniently issue commands available via its admin API.</longdescription>
 	<upstream>
 		<maintainer>
