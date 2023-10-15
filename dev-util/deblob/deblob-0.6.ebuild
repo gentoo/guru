@@ -1,4 +1,4 @@
-# Copyright 2021-2022 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
+# Copyright 2021-2023 Haelwenn (lanodan) Monnier <contact@hacktivis.me>
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ HOMEPAGE="https://git.sr.ht/~lanodan/deblob"
 LICENSE="BSD"
 SLOT="0"
 
-DEPEND="dev-lang/hare:="
+DEPEND=">=dev-lang/hare-0_pre20230615:="
 RDEPEND=""
 
 # built by hare
