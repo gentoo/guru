@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,18 +16,21 @@ KEYWORDS="~amd64"
 
 IUSE="pipewire"
 
-IDEPEND="
+IDEPEND=""
+DEPEND="
 		>=gui-libs/gtk-4.6
 		>=gui-libs/libadwaita-1
 		>=media-libs/gstreamer-1.20.6[introspection]
 		>=media-plugins/gst-plugins-taglib-1.20.6
-		>=dev-lang/vala-0.56.8
 		>=dev-libs/appstream-glib-0.8.2
 		pipewire? ( media-video/pipewire[gstreamer] )
 "
-DEPEND=""
 RDEPEND="${DEPEND}"
-BDEPEND="$(vala_depend)"
+BDEPEND="
+		>=dev-util/meson-1.1.1
+		>=dev-lang/vala-0.56.8
+		$(vala_depend)
+"
 
 src_prepare() {
 	default
