@@ -1,0 +1,14 @@
+diff --git a/src/util.rs b/src/util.rs
+index 5411c08..5fd3d91 100644
+--- a/src/util.rs
++++ b/src/util.rs
+@@ -105,7 +105,8 @@ pub mod build_info {
+     }
+ 
+     pub fn get_version() -> Build {
+-        let version: Option<Version> = option_env!("GIT_VERSION").and_then(|s| Version::parse(s).ok());
++        // remove the preceding 'v' from the version which throws the parse off
++        let version: Option<Version> = option_env!("GIT_VERSION").and_then(|s| Version::parse(&s[1..]).ok());
+         let short_hash: Option<&'static str> = option_env!("GIT_COMMIT_HASH");
+ 
+         match (version, short_hash.map(|s| s.to_string())) {

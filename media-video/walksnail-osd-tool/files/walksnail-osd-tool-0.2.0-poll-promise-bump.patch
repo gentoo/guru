@@ -1,0 +1,13 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index 8f3e88f..6ebef2a 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -23,7 +23,7 @@ github_release_check = "0.2.1"
+ image = "0.24.5"
+ imageproc = "0.23.0"
+ parse-display = "0.8.0"
+-poll-promise = "0.2.0"
++poll-promise = "0.2.1"
+ rayon = "1.6.1"
+ rfd = "0.11.1"
+ rusttype = "0.9.3"
