@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit python-r1 qmake-utils xdg
 
 DESCRIPTION="A open source IP-XACT-based tool"
@@ -17,7 +17,7 @@ if [[ "${PV}" == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/${PN}/${PN}dev.git"
 else
 	SRC_URI="https://github.com/${PN}/${PN}dev/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64"
 	S="${WORKDIR}/${PN}dev-${PV}"
 fi
 
@@ -27,13 +27,8 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qthelp:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtsvg:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	dev-qt/qtbase:6=[cups,gui,network,opengl,widgets,xml]
+	dev-qt/qtsvg:6
 "
 
 DEPEND="
@@ -42,7 +37,12 @@ DEPEND="
 
 BDEPEND="
 	dev-lang/swig
+	dev-qt/qttools:6[linguist,qdoc]
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-3.12.0-fix-createhelp.patch
+)
 
 src_prepare() {
 	default
@@ -50,8 +50,8 @@ src_prepare() {
 	while IFS= read -r -d '' i; do
 		echo "CONFIG+=nostrip" >> "${i}" || die
 	done < <(find . -type f '(' -name "*.pro" ')' -print0)
-	# Fix QTBIN_PATH
-	sed -i -e "s|QTBIN_PATH=.*|QTBIN_PATH=\"$(qt5_get_bindir)/\"|" configure || die
+	# # Fix QTBIN_PATH
+	# sed -i -e "s|QTBIN_PATH=.*|QTBIN_PATH=\"$(qt6_get_bindir)/\"|" configure || die
 }
 
 src_install() {
