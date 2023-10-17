@@ -364,14 +364,17 @@ BDEPEND="
 src_unpack() {
 	unpack ${P}.tar.bz2
 	unpack nvtop-${NVTOP_COMMIT}.tar.gz
-	mkdir -p "${BUILD_DIR}/src/sys_info_v2/gatherer/src/release/build/native" || die
-	mv nvtop-${NVTOP_COMMIT} "${BUILD_DIR}/src/sys_info_v2/gatherer/src/release/build/native" || die
+	
+	GATHERER_BUILD_DIR=$(usex debug debug release)
+	mkdir -p "${BUILD_DIR}/src/sys_info_v2/gatherer/src/${GATHERER_BUILD_DIR}/build/native" || die
+	mv nvtop-${NVTOP_COMMIT} "${BUILD_DIR}/src/sys_info_v2/gatherer/src/${GATHERER_BUILD_DIR}/build/native" || die
 	cargo_src_unpack
 }
 
 src_prepare() {
 	eapply_user
-	cd "${BUILD_DIR}/src/sys_info_v2/gatherer/src/release/build/native/nvtop-${NVTOP_COMMIT}" || die
+	GATHERER_BUILD_DIR=$(usex debug debug release)
+	cd "${BUILD_DIR}/src/sys_info_v2/gatherer/src/${GATHERER_BUILD_DIR}/build/native/nvtop-${NVTOP_COMMIT}" || die
 	find "${S}/src/sys_info_v2/gatherer/3rdparty/nvtop/patches" -type f -name 'nvtop-*' -exec sh -c 'patch -p1 < {}' \; || die
 }
 
