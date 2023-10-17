@@ -1,0 +1,94 @@
+From d3e5af0dba523303708d30ceb8cd8339eabd4320 Mon Sep 17 00:00:00 2001
+From: Huang Rui <vowstar@gmail.com>
+Date: Tue, 17 Oct 2023 19:11:21 +0800
+Subject: [PATCH] [CORRECTIVE] fix build PATH bugs about QT
+
+- Path variables need to be enclosed in double quotes to prevent
+  accidents caused by spaces in the middle.
+- createhelp also needs to do the same processing as configure
+- Fixed build issues under gentoo and archlinux
+
+Signed-off-by: Huang Rui <vowstar@gmail.com>
+---
+ configure  | 15 ++++++++++-----
+ createhelp | 25 ++++++++++++++++++++++++-
+ 2 files changed, 34 insertions(+), 6 deletions(-)
+
+diff --git a/configure b/configure
+index 82c7b9060..f74a23ee2 100755
+--- a/configure
++++ b/configure
+@@ -20,27 +20,32 @@ print_success() {
+ }
+ 
+ # Auto search QTBIN_PATH when empty and qmake already installed.
+-if [ -z ${QTBIN_PATH} ]; then
++if [ -z "${QTBIN_PATH}" ]; then
+     if command -v qmake6 >/dev/null 2>&1; then
+         # Default to qmake6, which will exist on some linux distributions.
+-        QTBIN_PATH=$(qmake6 -query QT_INSTALL_BINS)/
++        QTBIN_PATH="$(qmake6 -query QT_INSTALL_BINS)/"
++        QTLIBEXEC_PATH="$(qmake6 -query QT_INSTALL_LIBEXECS)/"
+     elif command -v qmake >/dev/null 2>&1; then
+         # qmake exists on the vast majority of linux distributions.
+-        QTBIN_PATH=$(qmake -query QT_INSTALL_BINS)/
++        QTBIN_PATH="$(qmake -query QT_INSTALL_BINS)/"
++        QTLIBEXEC_PATH="$(qmake -query QT_INSTALL_LIBEXECS)/"
+     fi
+ fi
+ 
+ # Generate compressed help files.
+ echo "Generating compressed help files..."
+ if command -v ${QTBIN_PATH}qhelpgenerator >/dev/null 2>&1; then
+-    ${QTBIN_PATH}qhelpgenerator Help/kactus2help.qhcp -o Help/Kactus2Help.qhc
++    "${QTBIN_PATH}qhelpgenerator" Help/kactus2help.qhcp -o Help/Kactus2Help.qhc
++elif command -v ${QTLIBEXEC_PATH}qhelpgenerator >/dev/null 2>&1; then
++    # QT6 put qhelpgenerator at QTLIBEXEC_PATH
++    "${QTLIBEXEC_PATH}qhelpgenerator" Help/kactus2help.qhcp -o Help/Kactus2Help.qhc
+ else
+     echo "Qhelpgenerator not found. Please set variable QTBIN_PATH to Qt binary files."
+ fi
+ 
+ if command -v ${QTBIN_PATH}qmake >/dev/null 2>&1; then
+    echo "Running qmake..."
+-   ${QTBIN_PATH}qmake Kactus2_Solution.pro
++   "${QTBIN_PATH}qmake" Kactus2_Solution.pro
+    print_success
+ else
+     echo "Qmake not found. Please set variable QTBIN_PATH to Qt binary files."
+diff --git a/createhelp b/createhelp
+index 72299e655..522378331 100755
+--- a/createhelp
++++ b/createhelp
+@@ -1,7 +1,30 @@
+ #!/bin/sh
+ 
++# Change this to your Qt binaries directory.
++QTBIN_PATH=""
++
++# Auto search QTBIN_PATH when empty and qmake already installed.
++if [ -z "${QTBIN_PATH}" ]; then
++    if command -v qmake6 >/dev/null 2>&1; then
++        # Default to qmake6, which will exist on some linux distributions.
++        QTBIN_PATH="$(qmake6 -query QT_INSTALL_BINS)/"
++        QTLIBEXEC_PATH="$(qmake6 -query QT_INSTALL_LIBEXECS)/"
++    elif command -v qmake >/dev/null 2>&1; then
++        # qmake exists on the vast majority of linux distributions.
++        QTBIN_PATH="$(qmake -query QT_INSTALL_BINS)/"
++        QTLIBEXEC_PATH="$(qmake -query QT_INSTALL_LIBEXECS)/"
++    fi
++fi
++
+ if [ ! -f Help/Kactus2Help.qch ] || [ ! -f Help/Kactus2Help.qhc ]; then
+-   qhelpgenerator Help/kactus2help.qhp -o Help/Kactus2Help.qch
++    if command -v ${QTBIN_PATH}qhelpgenerator >/dev/null 2>&1; then
++        "${QTBIN_PATH}qhelpgenerator" Help/kactus2help.qhp -o Help/Kactus2Help.qch
++    elif command -v ${QTLIBEXEC_PATH}qhelpgenerator >/dev/null 2>&1; then
++        # QT6 put qhelpgenerator at QTLIBEXEC_PATH
++        "${QTLIBEXEC_PATH}qhelpgenerator" Help/kactus2help.qhp -o Help/Kactus2Help.qch
++    else
++        echo "Qhelpgenerator not found. Please set variable QTBIN_PATH to Qt binary files."
++    fi
+ fi
+ 
+ rm -R -f executable/Help
