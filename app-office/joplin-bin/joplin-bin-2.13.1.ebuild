@@ -11,12 +11,9 @@ KEYWORDS="~amd64"
 
 LICENSE="AGPL-3"
 SLOT="0"
-IUSE=""
 RESTRICT="strip"
 
 RDEPEND="sys-fs/fuse:0"
-
-S="${WORKDIR}"
 
 QA_PREBUILT="*"
 S="${WORKDIR}"
