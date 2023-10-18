@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 if [[ "${PV}" == 9999 ]]
 then
@@ -23,7 +23,13 @@ RDEPEND="
 	x11-libs/gtk+:3
 	dev-cpp/gtkmm:3.0
 	dev-cpp/nlohmann_json
-	layershell? ( gui-libs/gtk-layer-shell )"
+	layershell? ( gui-libs/gtk-layer-shell )
+	dev-cpp/atkmm
+	dev-cpp/cairomm
+	dev-cpp/glibmm:2
+	dev-libs/glib:2
+	dev-libs/libsigc++:2
+"
 DEPEND="${RDEPEND}"
 
 RESTRICT="mirror"
