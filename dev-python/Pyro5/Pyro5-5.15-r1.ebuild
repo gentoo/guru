@@ -3,6 +3,7 @@
 
 EAPI=8
 
+PYTHON_REQ_USE="sqlite"
 PYTHON_COMPAT=( python3_{10..12} pypy3 )
 DISTUTILS_USE_PEP517=setuptools
 
@@ -31,6 +32,7 @@ distutils_enable_sphinx docs/source \
 
 EPYTEST_DESELECT=(
 	tests/test_socketutil.py::TestSocketutil::testGetInterface # https://github.com/irmen/Pyro5/issues/82
+	tests/test_server.py::TestServerOnce::testRegisterWeak # https://github.com/irmen/Pyro5/issues/83 (pypy3 specific)
 )
 
 python_test() {
