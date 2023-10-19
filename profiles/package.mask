@@ -14,6 +14,11 @@
 
 # New entries go on top.
 
+# David Roman <davidroman96@gmail.com> (2023-10-19)
+# Known security bugs. Masked until somone updates it.
+# See https://bugs.gentoo.org/915891
+media-video/owncast
+
 # David Roman <davidroman96@gmail.com> (2023-10-06)
 # No new releases since 2020, deprecated by upstream
 # Removal in +30 days.
