@@ -42,33 +42,52 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.12.0-fix-createhelp.patch
+	"${FILESDIR}"/${PN}-3.12.0-fix-missing-qsharedpointer.patch
 )
 
 src_prepare() {
 	default
 	# Fix QA pre-stripped warnings, bug 781674
-	while IFS= read -r -d '' i; do
-		echo "CONFIG+=nostrip" >> "${i}" || die
-	done < <(find . -type f '(' -name "*.pro" ')' -print0)
-	# # Fix QTBIN_PATH
-	# sed -i -e "s|QTBIN_PATH=.*|QTBIN_PATH=\"$(qt6_get_bindir)/\"|" configure || die
+	find . -type f -name \*.pro -exec sed -e '$a\\nCONFIG+=nostrip' -i '{}' + || die
+	# Fix bug 854081
+	python_setup
+	sed -e "s|PYTHON_CONFIG=.*|PYTHON_CONFIG=${EPYTHON}-config|" -i .qmake.conf || die
+}
+
+src_configure() {
+	default
+	# Fix bug 854075
+	# Fix bug 854078
+	eqmake6 Kactus2.pro
+}
+
+src_compile() {
+	default
+	python_compile() {
+		cp -TR "${S}/" "${BUILD_DIR}/" || die
+		# Fix bug 854081
+		python_setup
+		sed -e "s|PYTHON_CONFIG=.*|PYTHON_CONFIG=${EPYTHON}-config|" -i .qmake.conf || die
+		export PYTHON_C_FLAGS="$(python_get_CFLAGS)"
+		export PYTHON_LIBS="$(python_get_LIBS)"
+		pushd "PythonAPI" || die
+		eqmake6 PREFIX="$(python_get_library_path)"
+		emake
+		rm _pythonAPI.so || die
+		cp libPythonAPI.so.1.0.0 _pythonAPI.so || die
+		popd
+	}
+	python_foreach_impl run_in_build_dir python_compile
 }
 
 src_install() {
 	# Can't use default, set INSTALL_ROOT and workaround parallel install bug
 	emake -j1 INSTALL_ROOT="${D}" install
 	python_install() {
-		export PYTHON_C_FLAGS="$(python_get_CFLAGS)"
-		export PYTHON_LIBS="$(python_get_LIBS)"
 		pushd "PythonAPI" || die
-		emake clean
-		eqmake5 PREFIX="$(python_get_library_path)"
-		emake
-		rm -rf _pythonAPI.so || die
-		cp -rf libPythonAPI.so.1.0.0 _pythonAPI.so || die
 		python_domodule _pythonAPI.so
 		python_domodule pythonAPI.py
 		popd
 	}
-	python_foreach_impl python_install
+	python_foreach_impl run_in_build_dir python_install
 }

@@ -1,0 +1,117 @@
+From 1fd0d3cc8a3530a04491e736a673b9fc5092daeb Mon Sep 17 00:00:00 2001
+From: Huang Rui <vowstar@gmail.com>
+Date: Fri, 20 Oct 2023 23:41:51 +0800
+Subject: [PATCH] [CORRECTIVE] add missing <QSharedPointer> include to fix
+ QT6.6.0 build
+
+- add missing #include <QSharedPointer> to fix incomplete type about QSharedPointer
+
+Closes: https://github.com/kactus2/kactus2dev/issues/85
+Signed-off-by: Huang Rui <vowstar@gmail.com>
+---
+ editors/HWDesign/undoCommands/HWComponentAddCommand.h        | 5 +++--
+ .../SystemDesign/UndoCommands/ApiConnectionDeleteCommand.h   | 3 ++-
+ .../SystemDesign/UndoCommands/ComConnectionDeleteCommand.h   | 3 ++-
+ editors/SystemDesign/UndoCommands/SWInterfaceDeleteCommand.h | 3 ++-
+ .../SystemDesign/UndoCommands/SystemComponentDeleteCommand.h | 3 ++-
+ editors/SystemDesign/UndoCommands/SystemDeleteCommands.h     | 3 ++-
+ 6 files changed, 13 insertions(+), 7 deletions(-)
+
+diff --git a/editors/HWDesign/undoCommands/HWComponentAddCommand.h b/editors/HWDesign/undoCommands/HWComponentAddCommand.h
+index fe53209d6..c131ada50 100644
+--- a/editors/HWDesign/undoCommands/HWComponentAddCommand.h
++++ b/editors/HWDesign/undoCommands/HWComponentAddCommand.h
+@@ -12,10 +12,11 @@
+ #ifndef HWCOMPONENTADDCOMMAND_H
+ #define HWCOMPONENTADDCOMMAND_H
+ 
+-#include <QUndoCommand>
+ #include <QGraphicsScene>
+-#include <QString>
+ #include <QObject>
++#include <QSharedPointer>
++#include <QString>
++#include <QUndoCommand>
+ 
+ class IGraphicsItemStack;
+ class ComponentItem;
+diff --git a/editors/SystemDesign/UndoCommands/ApiConnectionDeleteCommand.h b/editors/SystemDesign/UndoCommands/ApiConnectionDeleteCommand.h
+index 02aaea2c1..7173b9dd9 100644
+--- a/editors/SystemDesign/UndoCommands/ApiConnectionDeleteCommand.h
++++ b/editors/SystemDesign/UndoCommands/ApiConnectionDeleteCommand.h
+@@ -12,9 +12,10 @@
+ #ifndef APICONNECTIONDELETECOMMAND_H
+ #define APICONNECTIONDELETECOMMAND_H
+ 
+-#include <QUndoCommand>
+ #include <QGraphicsScene>
+ #include <QObject>
++#include <QSharedPointer>
++#include <QUndoCommand>
+ 
+ class ApiGraphicsConnection;
+ 
+diff --git a/editors/SystemDesign/UndoCommands/ComConnectionDeleteCommand.h b/editors/SystemDesign/UndoCommands/ComConnectionDeleteCommand.h
+index 5e86dbdf1..e0676b2ca 100644
+--- a/editors/SystemDesign/UndoCommands/ComConnectionDeleteCommand.h
++++ b/editors/SystemDesign/UndoCommands/ComConnectionDeleteCommand.h
+@@ -12,9 +12,10 @@
+ #ifndef COMCONNECTIONDELETECOMMAND_H
+ #define COMCONNECTIONDELETECOMMAND_H
+ 
+-#include <QUndoCommand>
+ #include <QGraphicsScene>
+ #include <QObject>
++#include <QSharedPointer>
++#include <QUndoCommand>
+ 
+ class ComGraphicsConnection;
+ 
+diff --git a/editors/SystemDesign/UndoCommands/SWInterfaceDeleteCommand.h b/editors/SystemDesign/UndoCommands/SWInterfaceDeleteCommand.h
+index d05d3750d..72a1128fd 100644
+--- a/editors/SystemDesign/UndoCommands/SWInterfaceDeleteCommand.h
++++ b/editors/SystemDesign/UndoCommands/SWInterfaceDeleteCommand.h
+@@ -12,9 +12,10 @@
+ #ifndef SWINTERFACEDELETECOMMAND_H
+ #define SWINTERFACEDELETECOMMAND_H
+ 
+-#include <QUndoCommand>
+ #include <QGraphicsScene>
+ #include <QObject>
++#include <QSharedPointer>
++#include <QUndoCommand>
+ 
+ class IGraphicsItemStack;
+ class SWInterfaceItem;
+diff --git a/editors/SystemDesign/UndoCommands/SystemComponentDeleteCommand.h b/editors/SystemDesign/UndoCommands/SystemComponentDeleteCommand.h
+index 36abdda6f..ecfcef7db 100644
+--- a/editors/SystemDesign/UndoCommands/SystemComponentDeleteCommand.h
++++ b/editors/SystemDesign/UndoCommands/SystemComponentDeleteCommand.h
+@@ -12,9 +12,10 @@
+ #ifndef SYSTEMCOMPONENTDELETECOMMAND_H
+ #define SYSTEMCOMPONENTDELETECOMMAND_H
+ 
+-#include <QUndoCommand>
+ #include <QGraphicsScene>
+ #include <QObject>
++#include <QSharedPointer>
++#include <QUndoCommand>
+ 
+ class ComponentItem;
+ class IGraphicsItemStack;
+diff --git a/editors/SystemDesign/UndoCommands/SystemDeleteCommands.h b/editors/SystemDesign/UndoCommands/SystemDeleteCommands.h
+index 7eb0ed694..a3c1748e6 100644
+--- a/editors/SystemDesign/UndoCommands/SystemDeleteCommands.h
++++ b/editors/SystemDesign/UndoCommands/SystemDeleteCommands.h
+@@ -12,9 +12,10 @@
+ #ifndef SYSTEMDELETECOMMANDS_H
+ #define SYSTEMDELETECOMMANDS_H
+ 
+-#include <QUndoCommand>
+ #include <QGraphicsScene>
+ #include <QObject>
++#include <QSharedPointer>
++#include <QUndoCommand>
+ 
+ class GraphicsConnection;
+ class GraphicsColumnLayout;
