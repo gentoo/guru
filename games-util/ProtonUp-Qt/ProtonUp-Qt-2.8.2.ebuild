@@ -5,7 +5,7 @@ EAPI=8
 _app_id=net.davidotek.pupgui2
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=(python3_{9..12})
 
 EPYTHON=python3
 
@@ -21,7 +21,6 @@ SLOT="0"
 RDEPEND="dev-python/steam
 	dev-python/requests
 	dev-python/pyside6[designer(+)]
-	dev-python/PyQt6
 	dev-python/vdf
 	dev-python/pyxdg
 	dev-python/pyaml
@@ -44,7 +43,7 @@ src_compile() {
 src_install() {
 	distutils-r1_src_install
 	domenu "${FILESDIR}/ProtonUp-Qt.desktop"
-	dobin  "${FILESDIR}/ProtonUp-Qt"
+	dobin "${FILESDIR}/ProtonUp-Qt"
 	newicon -s 64 "${WORKDIR}/${P}/share/icons/hicolor/64x64/apps/net.davidotek.pupgui2.png" ProtonUp-Qt.png
 	newicon -s 128 "${WORKDIR}/${P}/share/icons/hicolor/128x128/apps/net.davidotek.pupgui2.png" ProtonUp-Qt.png
 	newicon -s 256 "${WORKDIR}/${P}/share/icons/hicolor/256x256/apps/net.davidotek.pupgui2.png" ProtonUp-Qt.png
