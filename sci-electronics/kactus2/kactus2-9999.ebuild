@@ -58,7 +58,7 @@ src_configure() {
 	default
 	# Fix bug 854075
 	# Fix bug 854078
-	eqmake6 Kactus2.pro
+	eqmake6 Kactus2_Solution.pro
 }
 
 src_compile() {
