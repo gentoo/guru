@@ -31,7 +31,7 @@ S="${WORKDIR}/${MY_PN}"
 QA_PREBUILT="
 	*/doublecmd
 	*/libQt5Pas.so.1
-	*/libunrar.so                                                                                                                                     │
+	*/libunrar.so
 	*/plugins/.*
 "
 
