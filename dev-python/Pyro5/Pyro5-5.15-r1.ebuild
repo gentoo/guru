@@ -26,12 +26,15 @@ RDEPEND="
 	>=dev-python/serpent-1.40[${PYTHON_USEDEP}]
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-fix-test-on-ipv6.patch
+)
+
 distutils_enable_tests pytest
 distutils_enable_sphinx docs/source \
 	dev-python/sphinx-rtd-theme
 
 EPYTEST_DESELECT=(
-	tests/test_socketutil.py::TestSocketutil::testGetInterface # https://github.com/irmen/Pyro5/issues/82
 	tests/test_server.py::TestServerOnce::testRegisterWeak # https://github.com/irmen/Pyro5/issues/83 (pypy3 specific)
 )
 
