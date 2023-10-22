@@ -18,7 +18,7 @@ start_pre() {
 	local env_args
 
 	OIFS=$IFS
-	IFS=$'\n'
+	IFS=$(printf '\n')
 
 	for env in $(set | grep ^LAMINAR_); do
 		env_args="${env_args} --env ${env}"
