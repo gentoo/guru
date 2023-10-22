@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>brettalcox@gmail.com</email>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">aome510/spotify-player</remote-id>
+	</upstream>
+	<use>
+		<flag name="daemon">
+			Enables running the app as a daemon 
+		</flag>
+		<flag name="image">
+			Enables basic image support for album artwork
+		</flag>
+		<flag name="lyrics">
+			Enables lyrics support for playing songs
+		</flag>
+		<flag name="media-control">
+			Enables media control via MPRIS DBus
+		</flag>
+		<flag name="sixel">
+			Enables sixel support -- requires 'image' flag
+		</flag>
+		<flag name="streaming">
+			Enables streaming functionality -- requires an audio backend to be set
+		</flag>
+	</use>
+</pkgmetadata>
