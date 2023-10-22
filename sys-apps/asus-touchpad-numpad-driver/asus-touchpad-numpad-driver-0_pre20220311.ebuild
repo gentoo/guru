@@ -27,9 +27,9 @@ DEPEND="
 	dev-libs/libevdev
 	sys-apps/i2c-tools
 	$(python_gen_cond_dep '
-		dev-python/python-evdev[${PYTHON_USEDEP}]
+		dev-python/libevdev[${PYTHON_USEDEP}]
 		dev-python/numpy[${PYTHON_USEDEP}]
-		dev-python/python-libevdev[${PYTHON_USEDEP}]
+		dev-python/python-evdev[${PYTHON_USEDEP}]
 	')
 "
 RDEPEND="
@@ -47,5 +47,5 @@ src_install() {
 
 	python_optimize "${ED}/usr/libexec/${PN}"
 
-	dosym ../libexec/${PN}/asus_touchpad.py /usr/bin/asus_touchpad
+	dosym -r /usr/libexec/${PN}/asus_touchpad.py /usr/bin/asus_touchpad
 }
