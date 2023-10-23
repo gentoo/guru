@@ -24,6 +24,7 @@ RDEPEND="
 		dev-python/pygobject[${PYTHON_USEDEP}]
 		>=dev-python/gbinder-1.1.1[${PYTHON_USEDEP}]
 		>=dev-python/pyclip-0.7.0[wayland,${PYTHON_USEDEP}]
+		dev-python/dbus-python[${PYTHON_USEDEP}]
 	')
 	net-firewall/nftables[modern-kernel]
 	net-dns/dnsmasq
