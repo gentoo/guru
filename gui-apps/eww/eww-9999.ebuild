@@ -36,7 +36,7 @@ DEPEND="
 "
 BDEPEND="
 	$DEPEND
-	dev-lang/rust[nightly]
+	>=dev-lang/rust-1.73.0[nightly]
 "
 RDEPEND="
 	$DEPEND
