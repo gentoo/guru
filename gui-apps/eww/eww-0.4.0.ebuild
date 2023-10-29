@@ -251,12 +251,11 @@ KEYWORDS="~amd64"
 IUSE="wayland"
 
 DEPEND="
-	>=gui-libs/gtk-3.0
+	x11-libs/gtk+:3
 	x11-libs/pango
 	x11-libs/gdk-pixbuf
 	x11-libs/cairo
 	>=dev-libs/glib-2.0
-	sys-libs/glibc
 	sys-devel/gcc
 	wayland? (
 	gui-libs/gtk-layer-shell
@@ -264,6 +263,7 @@ DEPEND="
 "
 BDEPEND="
 	$DEPEND
+	=dev-lang/rust-1.70.0[nightly]
 "
 RDEPEND="
 	$DEPEND
@@ -283,4 +283,3 @@ src_install() {
 	elog "Eww wont run without a config file (usually in ~/.config/eww)."
 	elog "For example configs visit https://github.com/elkowar/eww#examples"
 }
-
