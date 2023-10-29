@@ -14,6 +14,23 @@ SLOT="0"
 RESTRICT="test strip"
 KEYWORDS="-* ~amd64"
 
+RDEPEND="
+	app-accessibility/at-spi2-core
+	dev-libs/nspr
+	dev-libs/nss
+	media-libs/alsa-lib
+	media-libs/mesa
+	net-print/cups
+	x11-libs/gtk+
+	x11-libs/libdrm
+	x11-libs/libXcomposite
+	x11-libs/libXdamage
+	x11-libs/libXfixes
+	x11-libs/libxkbcommon
+	x11-libs/libXrandr
+	x11-libs/pango
+"
+
 QA_PREBUILT="*"
 
 S="${WORKDIR}"
@@ -24,7 +41,7 @@ src_install() {
 	fperms +x "/opt/Mullvad VPN/chrome_crashpad_handler"
 	fperms 4755 "/opt/Mullvad VPN/chrome-sandbox"
 
-	# tbh I don't know if all next lines are needed or we can just do cp -pPR "${S}"/usr "${D}"/" 
+	# tbh I don't know if all next lines are needed or we can just do cp -pPR "${S}"/usr "${D}"/"
 
 	local i
 	dobin "${S}"/usr/bin/mullvad
@@ -42,7 +59,7 @@ src_install() {
 	domenu "${S}"/usr/share/applications/mullvad-vpn.desktop
 	local x
 	for x in 16 32 48 64 128 256 512 1024; do
-		doicon -s ${x} ${S}/usr/share/icons/hicolor/${x}x${x}/apps/mullvad-vpn.png
+		doicon -s ${x} "${S}"/usr/share/icons/hicolor/${x}x${x}/apps/mullvad-vpn.png
 	done
 
 }
