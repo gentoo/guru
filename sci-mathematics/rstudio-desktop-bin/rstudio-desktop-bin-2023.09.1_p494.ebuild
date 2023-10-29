@@ -103,10 +103,12 @@ src_install() {
 
 	exeinto "${DESTDIR}"
 
-	doexe "${MY_PN}" chrome-sandbox chrome_crashpad_handler libEGL.so libGLESv2.so libffmpeg.so libvk_swiftshader.so libvulkan.so.1
+	doexe "${MY_PN}" chrome-sandbox chrome_crashpad_handler
+	doexe "${MY_PN}" libEGL.so libGLESv2.so libffmpeg.so libvk_swiftshader.so libvulkan.so.1
 
 	insinto "${DESTDIR}"
-	doins chrome_100_percent.pak chrome_200_percent.pak icudtl.dat resources.pak snapshot_blob.bin v8_context_snapshot.bin vk_swiftshader_icd.json
+	doins chrome_100_percent.pak chrome_200_percent.pak icudtl.dat resources.pak
+	doins snapshot_blob.bin v8_context_snapshot.bin vk_swiftshader_icd.json
 	insopts -m0755
 	doins -r locales resources
 
