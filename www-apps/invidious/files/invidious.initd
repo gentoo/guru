@@ -13,8 +13,12 @@ pidfile="/run/invidious.pid"
 output_log="/var/log/invidious.log"
 error_log="${output_log}"
 
+# Invidious hard depends on PostgreSQL, and fails to start if PostgreSQL hasn't already started.
+# So it will fail to start if started at boot (rc-update add invidious default).
+# See: https://bugs.gentoo.org/916051
+# Using 'postgresql' as 'use' in the 'depend' function fixes this behaviour.
 depend() {
-	use logger net
+	use logger net postgresql
 }
 
 start_pre() {
