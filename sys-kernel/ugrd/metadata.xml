@@ -5,4 +5,7 @@
 		<email>dev@pyl.onl</email>
 		<name>Zen</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">desultory/ugrd</remote-id>
+	</upstream>
 </pkgmetadata>
