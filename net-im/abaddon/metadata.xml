@@ -6,6 +6,7 @@
 		<name>Remigiusz Micielski</name>
 	</maintainer>
 	<use>
+		<flag name="qrcodegen">Support for login through QR Code feature using dev-libs/qrcodegen</flag>
 		<flag name="libhandy">Support for features using gui-libs/libhandy</flag>
 		<flag name="rnnoise">Support for noise reduction using media-libs/rnnoise</flag>
 	</use>
