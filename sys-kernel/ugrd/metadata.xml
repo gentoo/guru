@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>dev@pyl.onl</email>
+		<name>Zen</name>
+	</maintainer>
+	<use>
+		<flag name="btrfs">Pull btrfs-progs as a dependency</flag>
+		<flag name="cryptsetup">Pull cryptsetup as a dependency</flag>
+		<flag name="gpg">Pull gnupg as a dependency</flag>
+		<flag name="zfs">Pull zfs as a dependency</flag>
+	</use>
+</pkgmetadata>
