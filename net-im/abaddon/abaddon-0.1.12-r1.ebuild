@@ -20,7 +20,8 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="+libhandy +rnnoise"
+# Disable qrcodegen by default. Only the ones who really want it should enable it.
+IUSE="+libhandy +rnnoise -qrcodegen"
 
 RDEPEND="
 	>=net-libs/ixwebsocket-11.0.8
@@ -31,6 +32,7 @@ RDEPEND="
 	sys-libs/zlib:=
 	libhandy? ( gui-libs/libhandy:= )
 	rnnoise? ( media-libs/rnnoise )
+    qrcodegen ( dev-libs/qrcodegen )
 "
 DEPEND="
 	${RDEPEND}
@@ -40,12 +42,11 @@ DEPEND="
 src_configure() {
 	# Disable keychain because there's currently
 	# no package for it in ::guru or ::gentoo
-	# also disable QRCODE, for the same reason
 	local mycmakeargs=(
 		-DUSE_LIBHANDY="$(usex libhandy)"
 		-DENABLE_RNNOISE="$(usex rnnoise)"
-	  -DUSE_KEYCHAIN="no"
-		-DENABLE_QRCODE_LOGIN="no"
+	    -DUSE_KEYCHAIN="no"
+		-DENABLE_QRCODE_LOGIN="$(usex qrcodegen)"
 	)
 	cmake_src_configure
 }
