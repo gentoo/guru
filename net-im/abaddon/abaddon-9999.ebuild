@@ -20,8 +20,7 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-# Disable qrcodegen by default. Only the ones who really want it should enable it.
-IUSE="+libhandy +rnnoise -qrcodegen"
+IUSE="+libhandy +rnnoise qrcodegen"
 
 RDEPEND="
 	>=net-libs/ixwebsocket-11.0.8
