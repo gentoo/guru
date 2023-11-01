@@ -3,6 +3,11 @@
 
 # New entries go on top.
 
+# Leonardo Hernández Hernández <leohdz172@proton.me> (2023-11-01)
+# Per the commiter (Benoît Dufour)
+# "Disable qrcodegen by default. Only the ones who really want it should enable it."
+net-im/abaddon qrcodegen
+
 # Anna Vyalkova <cyber+gentoo@sysrq.in> (2023-06-17)
 # Broken docs build.
 dev-crystal/crikey doc
