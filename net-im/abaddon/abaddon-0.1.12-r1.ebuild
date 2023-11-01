@@ -31,8 +31,8 @@ RDEPEND="
 	net-misc/curl
 	sys-libs/zlib:=
 	libhandy? ( gui-libs/libhandy:= )
+	qrcodegen? ( dev-libs/qrcodegen )
 	rnnoise? ( media-libs/rnnoise )
-    qrcodegen ( dev-libs/qrcodegen )
 "
 DEPEND="
 	${RDEPEND}
