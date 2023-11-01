@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop rpm systemd shell-completion
+inherit desktop rpm systemd shell-completion xdg
 
 DESCRIPTION="Tool used to manage daemon setup"
 HOMEPAGE="https://github.com/mullvad/mullvadvpn-app https://mullvad.net/"
