@@ -46,6 +46,10 @@ DEPEND="
 
 BDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-gcc-14.patch
+)
+
 src_configure() {
 	local mycmakeargs+=(
 		-DBUILD_TESTING=$(usex test ON OFF)
