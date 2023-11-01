@@ -47,7 +47,7 @@ DEPEND="
 BDEPEND="${DEPEND}"
 
 PATCHES=(
-        "${FILESDIR}"/${PN}-gcc-14.patch
+	"${FILESDIR}"/${PN}-gcc-14.patch
 )
 
 src_configure() {
