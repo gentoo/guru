@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">vowstar/zfs-auto-utils</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		ZFS Automatic Scrub/Trim for Linux.
+		This package is ported from debian to facilitate use on other
+		distributions. This package renames some properties to make them more
+		consistent when used with zfs-auto-snapshot.
+		Auto TRIM is implemented using a custom per-pool property:
+		com.sun:auto-trim
+		By default, these TRIM jobs are scheduled on the first Sunday of every
+		month. The completion speed depends on the disks size, disk speed and
+		workload pattern. Cheap QLC disks could take considerable more time than
+		very expensive enterprise graded NVMe disks.
+		When com.sun:auto-trim is not present in pool, or the property is
+		present but value is empty/invalid, they are treated as auto.
+		Auto Scrub is implemented using a custom per-pool property:
+		com.sun:auto-scrub
+		By default this have a cron job entry to scrub all pools on the second
+		Sunday of every month at 24 minutes past midnight.
+		See /etc/cron.d/zfsutils-linux and /usr/libexec/zfs/scrub for details
+		It is possible to disable this by setting a zfs user defined property on
+		the root dataset for a pool.
+	</longdescription>
+	<longdescription lang="zh">
+		适用于 Linux 的 ZFS 自动清理/修剪。
+		这个包是从debian移植来的，方便在其他平台上使用。这个包重命名了一些属性，
+		使它们与 zfs-auto-snapshot 一起使用时保持一致。
+		自动修剪 (TRIM) 是使用自定义的每个池属性来实现的：
+		com.sun:auto-trim
+		默认情况下，这些 TRIM 作业安排在每个月的第一个星期日。完成速度取决于磁盘
+		大小、磁盘速度和工作负载模式。廉价的 QLC 磁盘可能比昂贵的企业级 NVMe
+		磁盘花费更多的时间。
+		当 com.sun:auto-trim 不存在于池中，或者该属性是存在但值为空/无效，它们被
+		视为自动。
+		自动清理 (SCRUB) 是使用自定义的每个池属性来实现的：
+		com.sun:scrub
+		默认情况下，它有一个 cron 作业条目，用于在每月第二个星期日午夜过后
+		24 分钟清理所有池。
+		有关详细信息，请参阅 /etc/cron.d/zfsutils-linux 和
+		/usr/libexec/zfs/scrub.
+		可以通过在池的根数据集上设置 zfs 用户定义的属性来禁用此功能。
+	</longdescription>
+</pkgmetadata>
