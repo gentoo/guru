@@ -84,6 +84,8 @@ src_install() {
 	fperms 0750 /opt/pleroma
 	fowners 0:pleroma /opt/pleroma
 
+	doinitd ./pleroma/installation/init.d/pleroma
+
 	dosym /opt/pleroma/bin/pleroma /usr/bin/pleroma
 	dosym /opt/pleroma/bin/pleroma_ctl /usr/bin/pleroma_ctl
 
