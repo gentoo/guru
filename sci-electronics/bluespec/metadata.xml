@@ -9,9 +9,22 @@
 		<remote-id type="github">B-Lang-org/bsc</remote-id>
 	</upstream>
 	<longdescription lang="en">
-		This is a compiler, simulator, and associated tools for Bluespec High Level
-		Hardware Design Language (HL-HDL), supporting the two optional syntaxes,
-		BSV and BH. Language specifications and tutorials are available in the
-		BSVlang repository.
+		This is a compiler, simulator, and associated tools for Bluespec High
+		Level Hardware Design Language (HL-HDL), supporting the two optional
+		syntaxes, BSV and BH. Language specifications and tutorials are
+		available in the BSVlang repository.
+		Bluespec is a high-level hardware description language. It has a variety
+		of advanced features including a powerful type system that can prevent
+		errors prior to synthesis time, and its most distinguishing feature,
+		Guarded Atomic Actions, allow you to define hardware components in a
+		modular manner based on their invariants, and let the compiler pick a
+		scheduler.
+	</longdescription>
+	<longdescription lang="zh">
+		这是 Bluespec 高级硬件设计语言 (HL-HDL) 的编译器、模拟器和相关工具，支持
+		两种可选语法：BSV 和 BH。 BSVlang 存储库中提供了语言规范和教程。
+		Bluespec 是一种高级硬件描述语言。它具有各种高级功能，包括强大的类型系统，
+		可以在综合之前防止错误，其最显着的功能是受保护的原子操作，允许您根据硬件
+		组件的不变量以模块化方式定义硬件组件，并让编译器选择一个调度程序。
 	</longdescription>
 </pkgmetadata>
