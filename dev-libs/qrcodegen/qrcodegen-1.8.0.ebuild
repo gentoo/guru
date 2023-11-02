@@ -5,16 +5,14 @@
 
 EAPI=8
 
-DESCRIPTION="High-quality QR Code generator library in Java, TypeScript/JavaScript, Python, C++, C, Rust."
+DESCRIPTION="High-quality QR Code generator library"
 HOMEPAGE="https://www.nayuki.io/page/qr-code-generator-library"
 SRC_URI="https://github.com/nayuki/QR-Code-generator/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
-IUSE=""
+KEYWORDS="~amd64 ~x86"
 
-RDEPEND=""
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}"
 
@@ -35,12 +33,12 @@ src_compile() {
 
 src_install() {
 	pushd c
-	emake DESTDIR=${D} install-header
-	emake DESTDIR=${D} LIBDIR=${D}/usr/$(get_libdir) install-shared
+	emake DESTDIR="${D}" install-header
+	emake DESTDIR="${D}" LIBDIR="${D}"/usr/$(get_libdir) install-shared
 	popd
 
 	pushd cpp
-	emake DESTDIR=${D} install-header
-	emake DESTDIR=${D} LIBDIR=${D}/usr/$(get_libdir) install-shared
+	emake DESTDIR="${D}" install-header
+	emake DESTDIR="${D}" LIBDIR="${D}"/usr/$(get_libdir) install-shared
 	popd
 }
