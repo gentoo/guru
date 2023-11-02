@@ -18,6 +18,8 @@ KEYWORDS="~amd64"
 RDEPEND="app-misc/pax-utils"
 
 src_install() {
+	# Call the distutils-r1_src_install function to install the package
+	distutils-r1_src_install
 	# Create the ugrd config directory
 	keepdir /etc/ugrd
 }
