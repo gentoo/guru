@@ -23,6 +23,7 @@ RDEPEND="
         dev-python/python-dotenv[${PYTHON_USEDEP}]
 		dev-python/defusedxml[${PYTHON_USEDEP}]
 		dev-python/waitress[${PYTHON_USEDEP}]
+		dev-python/validators[${PYTHON_USEDEP}]
         app-arch/brotli[${PYTHON_USEDEP},python]
         net-libs/stem
         acct-user/whoogle
