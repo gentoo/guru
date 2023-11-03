@@ -1,15 +1,13 @@
 certificate version 0.1
-pusher Aisha Tammy <gentoo@aisha.cc> 1698980726 -0400
-pushee gentoo:repo/proj/guru.git
-nonce 1698980726-d3bf3cea19042110b5bd76eb2f3986b7024920b2
+pusher 385E3E52 1698981537 +0800
+pushee git.gentoo.org:repo/proj/guru.git
+nonce 1698981536-3886b3aca728d77c22b6474416c21a51497b622a
 
-433d9d6ad5487fadfaff425a663db13430fa60e9 280e79e5a82dbb1a0ea5c4aa9fb3d657d08f78b0 refs/heads/dev
+280e79e5a82dbb1a0ea5c4aa9fb3d657d08f78b0 01dcb3fb6ba08756ab1579fcc896eabc6fb06ae6 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iOYEABYKAI4WIQSuAZ7BB9Fi0ukZ1sPSLWk5CvPY8wUCZURjdl8UgAAAAAAuAChp
-c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QUUw
-MTlFQzEwN0QxNjJEMkU5MTlENkMzRDIyRDY5MzkwQUYzRDhGMxAcZ2VudG9vQGFp
-c2hhLmNjAAoJENItaTkK89jzJ9gBAM+TzCDYm8B/FiPWgFRaIb1de9r9Nlnn9btX
-uJ1e9oYAAP4wLFbUTGB0oa1G7I0gJ8p+0cDe8t7rQb38vww/TdMcBA==
-=fsl0
+iHUEABYKAB0WIQR+/TuwzxUTAJc40CytTjSoOF4+UgUCZURmoQAKCRCtTjSoOF4+
+Uon7AP9m2Zj0bHBDSe0qT3Mh2xAexy2ZwORq32lHTrDCT/YlrwEArLGWM8kouAFV
+laIpKF5n8JS7al688NEosvneaFeq7gI=
+=nFau
 -----END PGP SIGNATURE-----
