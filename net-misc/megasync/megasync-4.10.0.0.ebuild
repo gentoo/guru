@@ -29,7 +29,7 @@ fi
 
 LICENSE="MEGA"
 SLOT="0"
-IUSE="+cryptopp +curl +freeimage +sqlite +zlib dolphin examples java nautilus php python readline threads thunar"
+IUSE="+cryptopp +curl +sqlite +zlib dolphin examples freeimage java nautilus php python readline threads thunar"
 
 RDEPEND="
 	app-arch/xz-utils
@@ -121,6 +121,7 @@ src_configure() {
 	local myeqmakeargs=(
 		MEGA.pro
 		CONFIG+="release"
+		$(usex freeimage "" "CONFIG+=nofreeimage")
 	)
 
 	eqmake5 ${myeqmakeargs[@]}
