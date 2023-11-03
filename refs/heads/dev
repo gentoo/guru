@@ -1,17 +1,15 @@
 certificate version 0.1
-pusher 02CCA92C4FA05B80 1698968740 +0100
-pushee git.gentoo.org:repo/proj/guru.git
-nonce 1698968739-bc1b05e67a68079a616c28d8465bad0457619e7b
+pusher Aisha Tammy <gentoo@aisha.cc> 1698980726 -0400
+pushee gentoo:repo/proj/guru.git
+nonce 1698980726-d3bf3cea19042110b5bd76eb2f3986b7024920b2
 
-c0cc1f727058bd5f6c962ef77acdfab3d6d63b46 433d9d6ad5487fadfaff425a663db13430fa60e9 refs/heads/dev
+433d9d6ad5487fadfaff425a663db13430fa60e9 280e79e5a82dbb1a0ea5c4aa9fb3d657d08f78b0 refs/heads/dev
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCAAdFiEEO8J+J1jqinW9x3+NH6VPhusYnzwFAmVENKQACgkQH6VPhusY
-nzwquwf/eAFXOTCzetTwIDlu6TsKwldvU7Ckej08efE6PCGvzqAf7pMIenzidhI6
-A+Bpt9j10cPis9i+evnmFNXBvG8hGj2Zlw0kzEEQfoyxKli6+A7YSYW1/7R9IOcI
-+TpQTk+zuMlQmjkNME7Y25Xx/NydEKnN7/8KgfPhExT1KqntMax+ETd6cOFM+3DL
-Uccq1LdRmbsE3rQvfhG8lXFbvlVqfepOGUZZrFKgKjtSZnscVfNj8sk1FCVpmkFX
-Zjt3tbRu7uzTpxr5LDxQH7R3I9qpaH/Phd/VCzPxvdhEqJiVEqoDbkPOqeJ1GClE
-/qJ42fN87GeoqkR7/gYPLAvoBZpraA==
-=sTxM
+iOYEABYKAI4WIQSuAZ7BB9Fi0ukZ1sPSLWk5CvPY8wUCZURjdl8UgAAAAAAuAChp
+c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QUUw
+MTlFQzEwN0QxNjJEMkU5MTlENkMzRDIyRDY5MzkwQUYzRDhGMxAcZ2VudG9vQGFp
+c2hhLmNjAAoJENItaTkK89jzJ9gBAM+TzCDYm8B/FiPWgFRaIb1de9r9Nlnn9btX
+uJ1e9oYAAP4wLFbUTGB0oa1G7I0gJ8p+0cDe8t7rQb38vww/TdMcBA==
+=fsl0
 -----END PGP SIGNATURE-----
