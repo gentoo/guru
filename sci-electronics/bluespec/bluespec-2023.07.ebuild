@@ -109,7 +109,7 @@ src_test() {
 	emake -C testsuite check
 }
 
-# Call eselect vi update with --if-unset
+# Call eselect bluespec update with --if-unset
 # to respect user's choice
 eselect_bluespec_update() {
 	ebegin "Calling eselect bluespec update"
