@@ -3,10 +3,10 @@
 
 EAPI=8
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=(python3_{9..12})
 inherit distutils-r1
 
-if [[ ${PV} == "9999" ]] ; then
+if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/mps-youtube/yewtube.git"
 	inherit git-r3
 else
@@ -29,6 +29,8 @@ RDEPEND="${DEPEND}
 	dev-python/pylast
 	dev-python/pip
 	|| ( media-video/mplayer media-video/mpv )"
+
+distutils_enable_tests pytest
 
 src_compile() {
 	distutils-r1_src_compile --build-dir "${WORKDIR}/${P}"
