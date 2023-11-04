@@ -46,6 +46,9 @@ DEPEND="
 
 BDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-headers-6.6.patch
+)
 src_configure() {
 	local mycmakeargs+=(
 		-DBUILD_TESTING=$(usex test ON OFF)
