@@ -41,7 +41,7 @@ src_unpack() {
 	sed -i "${ECARGO_HOME}/config" -e '/source.crates-io/d'  || die
 	sed -i "${ECARGO_HOME}/config" -e '/replace-with = "gentoo"/d'  || die
 	sed -i "${ECARGO_HOME}/config" -e '/local-registry = "\/nonexistent"/d'  || die
-	cat "${WORKDIR}/vendor/vendor-config.toml" >> "${ECARGO_HOME}/config"
+	cat "${WORKDIR}/vendor/vendor-config.toml" >> "${ECARGO_HOME}/config" || die
 }
 
 src_install() {
