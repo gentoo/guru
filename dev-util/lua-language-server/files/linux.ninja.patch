@@ -59,7 +59,7 @@
    deps = gcc
    depfile = $out.d
  build $obj/source_lua/linit.obj: c_source_lua_1 bee.lua/3rd/lua/linit.c
-@@ -95,7 +95,7 @@
+@@ -95,15 +95,15 @@
  rule cxx_source_bootstrap
    command = $cc -MMD -MT $out -MF $out.d -std=c++17 -fno-rtti -O2 -Wall $
      -fvisibility=hidden -Ibee.lua/3rd/lua -Ibee.lua -DLUA_USE_LINUX $
@@ -68,11 +68,12 @@
    description = Compile C++ $out
    deps = gcc
    depfile = $out.d
-@@ -103,7 +103,7 @@
+ build $obj/source_bootstrap/main.obj: cxx_source_bootstrap $
      bee.lua/bootstrap/main.cpp
  rule link_bootstrap
-   command = $cc $in -o $out -Wl,-E -static-libgcc -lm -ldl -lstdc++fs $
+-  command = $cc $in -o $out -Wl,-E -static-libgcc -lm -ldl -lstdc++fs $
 -    -pthread -Wl,-Bstatic -lstdc++ -Wl,-Bdynamic -s
++  command = $cc $in -o $out -Wl,-E -static-libgcc -lm -ldl $
 +    -pthread -Wl,-Bstatic -lstdc++ -Wl,-Bdynamic LDFLAGS
    description = Link    Exe $out
  build $bin/bootstrap: link_bootstrap $obj/source_bootstrap/main.obj $
