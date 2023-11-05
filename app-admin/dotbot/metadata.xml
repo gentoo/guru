@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>sstallion@gmail.com</email>
+		<name>Steven Stallion</name>
+	</maintainer>
+	<longdescription>
+		Dotbot is designed to be lightweight and self-contained, with no
+		external dependencies and no installation required. Dotbot can also be
+		a drop-in replacement for any other tool you were using to manage your
+		dotfiles, and Dotbot is VCS-agnostic -- it doesn't make any attempt to
+		manage your dotfiles.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">anishathalye/dotbot</remote-id>
+	</upstream>
+</pkgmetadata>
