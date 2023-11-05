@@ -1,0 +1,32 @@
+diff --git a/src/MEGAShellExtNautilus/MEGAShellExtNautilus.pro b/src/MEGAShellExtNautilus/MEGAShellExtNautilus.pro
+index 06cbb08cd..7ca767132 100644
+--- a/src/MEGAShellExtNautilus/MEGAShellExtNautilus.pro
++++ b/src/MEGAShellExtNautilus/MEGAShellExtNautilus.pro
+@@ -52,5 +52,4 @@ INSTALLS += emblems32  emblems64
+ !contains(DEFINES, no_desktop) {
+     update_cache.commands = gtk-update-icon-cache -f -t $${HICOLOR} || true
+     update_cache.path = $${HICOLOR}
+-    INSTALLS += update_cache
+ }
+diff --git a/src/MEGAShellExtNemo/MEGAShellExtNemo.pro b/src/MEGAShellExtNemo/MEGAShellExtNemo.pro
+index 33668b4ee..061e0d445 100644
+--- a/src/MEGAShellExtNemo/MEGAShellExtNemo.pro
++++ b/src/MEGAShellExtNemo/MEGAShellExtNemo.pro
+@@ -43,5 +43,4 @@ INSTALLS += emblems32  emblems64
+ !contains(DEFINES, no_desktop) {
+     update_cache.commands = gtk-update-icon-cache -f -t $${HICOLOR} || true
+     update_cache.path = $$PWD
+-    INSTALLS += update_cache
+ }
+diff --git a/src/MEGASync/platform/platform.pri b/src/MEGASync/platform/platform.pri
+index 99f4dbd4f..ef5553508 100644
+--- a/src/MEGASync/platform/platform.pri
++++ b/src/MEGASync/platform/platform.pri
+@@ -89,7 +89,6 @@ unix:!macx {
+         # desktop
+         desktop.path = $$DESKTOP_DESTDIR/share/applications
+         desktop.files = $$PWD/linux/data/megasync.desktop
+-        desktop.commands = update-desktop-database &> /dev/null || true
+         INSTALLS += desktop
+ 
+         HICOLOR = $$DESKTOP_DESTDIR/share/icons/hicolor
