@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+      <email>martin-kokos@protonmail.com</email>
+      <name>Martin Mokry</name>
+    </maintainer>
+    <upstream>
+      <remote-id type="github">usebruno/bruno</remote-id>
+      <maintainer>
+        <email>anoop.md1421@gmail.com</email>
+        <name>Anoop M D</name>
+      </maintainer>
+    </upstream>
+</pkgmetadata>
