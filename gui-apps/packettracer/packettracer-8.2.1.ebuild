@@ -7,7 +7,7 @@ inherit desktop unpacker xdg
 
 DESCRIPTION="Cisco's packet tracer"
 HOMEPAGE="https://www.netacad.com/portal/resources/packet-tracer"
-SRC_URI="CiscoPacketTracer_820_Ubuntu_64bit.deb"
+SRC_URI="CiscoPacketTracer_821_Ubuntu_64bit.deb"
 
 LICENSE="Cisco"
 SLOT="0"
@@ -30,7 +30,7 @@ pkg_nofetch(){
 	ewarn "after that, go to https://www.netacad.com and login with"
 	ewarn "your account, and after that, you should download a file"
 	ewarn "named \"${A}\" then move it to"
-	ewarn "your DISTDIR directory"
+	ewarn "your DISTDIR directory. (most likely /var/cache/distfiles)"
 	ewarn "and then, you can proceed with the installation."
 }
 
