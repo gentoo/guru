@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..12} )
-inherit bash-completion-r1 distutils-r1
+inherit distutils-r1 shell-completion
 
 DESCRIPTION="youtube-dl fork with additional features and fixes"
 HOMEPAGE="https://ytdl-org.github.io/youtube-dl"
@@ -34,11 +34,7 @@ src_prepare() {
 python_install_all() {
 	dodoc "${S}"/{AUTHORS,ChangeLog,README.*}
 	doman "${S}"/youtube-dl.1
-	newbashcomp "${S}"/youtube-dl.bash-completion youtube-dl
-
-	insinto /usr/share/fish/vendor_completions.d
-	doins "${S}"/youtube-dl.fish
-
-	insinto /usr/share/zsh/site-functions
-	doins "${S}"/youtube-dl.zsh
+	newbashcomp "${S}"/youtube-dl.bash-completion "${PN}"
+	dofishcomp "${S}"/youtube-dl.fish
+	newzshcomp "${S}"/youtube-dl.zsh "_${PN}"
 }
