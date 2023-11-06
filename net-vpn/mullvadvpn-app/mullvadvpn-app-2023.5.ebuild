@@ -49,6 +49,8 @@ src_install() {
 	dobin "${S}"/usr/bin/mullvad-exclude
 	dosym "/opt/Mullvad VPN/resources/mullvad-problem-report" /usr/bin/mullvad-problem-report
 
+	newinitd "${FILESDIR}"/mullvad-daemon.initd mullvad-daemon
+
 	systemd_newunit "${S}"/usr/lib/systemd/system/mullvad-daemon.service mullvad-daemon.service
 	systemd_newunit "${S}"/usr/lib/systemd/system/mullvad-early-boot-blocking.service mullvad-early-boot-blocking.service
 
