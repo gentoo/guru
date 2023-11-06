@@ -18,6 +18,9 @@
     <flag name="uefiaa64">
       Enable AArch64 UEFI support.
     </flag>
+    <flag name="uefirv64">
+      Enable 64-bit RISC-V UEFI support.
+    </flag>
     <flag name="cd-efi">
         Enable building cd-efi.bin using <pkg>sys-fs/mtools</pkg>.
         This flag was previously known as eltorito-efi.
