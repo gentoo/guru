@@ -22,7 +22,7 @@ RDEPEND="
 	>=dev-libs/json-glib-1.4.4
 	>=dev-libs/libxml2-2.9.10
 	>=dev-libs/libgee-0.8.5
-	>=gui-libs/gtk-4.3:4
+	>=gui-libs/gtk-4.3:4[gstreamer]
 	>=gui-libs/libadwaita-1.2
 	>=net-libs/libsoup-3
 	gui-libs/gtksourceview:5
