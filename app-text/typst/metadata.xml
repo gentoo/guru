@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>vowstar@gmail.com</email>
+		<name>Huang Rui</name>
+	</maintainer>
+	<upstream>
+		<bugs-to>https://github.com/typst/typst/issues</bugs-to>
+		<changelog>https://github.com/typst/typst/releases</changelog>
+		<doc>https://github.com/typst/typst/wiki</doc>
+		<remote-id type="github">typst/typst</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		Typst is a new markup-based typesetting system that is designed to be as
+		powerful as LaTeX while being much easier to learn and use. Typst has:
+		- Built-in markup for the most common formatting tasks
+		- Flexible functions for everything else
+		- A tightly integrated scripting system
+		- Math typesetting, bibliography management, and more
+		- Fast compile times thanks to incremental compilation
+		- Friendly error messages in case something goes wrong
+	</longdescription>
+	<longdescription lang="zh">
+		Typst 是一种新的基于标记的排版系统，其设计与 LaTeX 一样强大，同时更易于
+		学习和使用。Typst有以下用途和特性：
+		- 适用于最常见格式化任务的内置标记
+		- 具备其他一切排版系统应有的灵活功能
+		- 内嵌紧密集成的脚本系统
+		- 数学排版、参考书目管理等
+		- 得益于增量编译，编译速度很快
+		- 如果出现问题，会输出友好的错误消息
+	</longdescription>
+</pkgmetadata>
