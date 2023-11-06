@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>kocelfc@tutanota.com</email>
+		<name>Kostadin Shishmanov</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Mastermindzh/tidal-hifi</remote-id>
+	</upstream>
+</pkgmetadata>
