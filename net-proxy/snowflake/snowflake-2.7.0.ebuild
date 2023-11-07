@@ -5,28 +5,49 @@ EAPI=8
 
 inherit go-module systemd
 
-MY_PV="v${PV}"
-MY_P="${PN}-${MY_PV}"
-
-JOB_ID="363325"
+MY_P="${PN}-v${PV}"
+JOB_ID="389000"
 DESCRIPTION="Pluggable Transport using WebRTC, inspired by Flashproxy"
 HOMEPAGE="
 	https://snowflake.torproject.org/
 	https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake
 "
 SRC_URI="https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/${PN}/-/jobs/${JOB_ID}/artifacts/raw/${MY_P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="Apache-2.0 BSD BSD-2 CC0-1.0 MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="test"
+RESTRICT="!test? ( test )"
 
-COMPONENTS=( broker client probetest proxy server )
+BDEPEND="test? ( >=dev-lang/go-1.21 )"
+
+src_configure() {
+	COMPONENTS=(
+		broker
+		probetest
+		proxy
+	)
+
+	if has_version -b ">=dev-lang/go-1.21"; then
+		COMPONENTS+=(
+			client
+			server
+		)
+	else
+		ewarn "The following components have been disabled:"
+		ewarn "	client server"
+		ewarn
+		ewarn "You need >=dev-lang/go-1.21 to build them."
+	fi
+}
 
 src_compile() {
 	for component in "${COMPONENTS[@]}"; do
 		pushd ${component} || die
 		einfo "Building ${component}"
-		ego build
+		nonfatal ego build || die "${component}: build failed"
 		popd || die
 	done
 }
