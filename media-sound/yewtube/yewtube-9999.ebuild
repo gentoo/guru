@@ -14,21 +14,29 @@ else
 	KEYWORDS="~amd64"
 fi
 
+IUSE="test"
+RESTRICT="!test? ( test )"
+
 DESCRIPTION="Terminal-based YouTube player and downloader"
 HOMEPAGE="https://github.com/mps-youtube/yewtube https://pypi.org/project/yewtube/"
 
 LICENSE="GPL-3"
 SLOT="0"
 
-RDEPEND="${DEPEND}
+RDEPEND="
 	media-video/ffmpeg
-	dev-python/requests
-	dev-python/pyperclip
+	dev-python/requests[${PYTHON_USEDEP}]
+	dev-python/pyperclip[${PYTHON_USEDEP}]
 	net-misc/yt-dlp
 	dev-python/youtube-search-python
-	dev-python/pylast
-	dev-python/pip
-	|| ( media-video/mplayer media-video/mpv )"
+	dev-python/pylast[${PYTHON_USEDEP}]
+	dev-python/pip[${PYTHON_USEDEP}]
+	|| ( media-video/mplayer media-video/mpv )
+"
+
+DEPEND="
+	test? ( dev-python/dbus-python[${PYTHON_USEDEP}] )
+"
 
 distutils_enable_tests pytest
 
