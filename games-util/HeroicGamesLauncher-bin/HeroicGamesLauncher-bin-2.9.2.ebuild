@@ -19,11 +19,23 @@ S="${WORKDIR}/heroic-${PV}"
 
 IUSE="gamescope"
 
-QA_PRESTRIPPED="
+QA_PREBUILD="
+	opt/heroic/chrome-sandbox
+	opt/heroic/chrome_crashpad_handler
+	opt/heroic/heroic
+	opt/heroic/libEGL.so
+	opt/heroic/libGLESv2.so
+	opt/heroic/libffmpeg.so
+	opt/heroic/libvk_swiftshader.so
+	opt/heroic/libvulkan.so.1
 	opt/heroic/resources/app.asar.unpacked/build/bin/linux/gogdl
 	opt/heroic/resources/app.asar.unpacked/build/bin/linux/legendary
 	opt/heroic/resources/app.asar.unpacked/build/bin/linux/nile
-	opt/heroic/resources/app.asar.unpacked/build/bin/linux/vulkan-helper"
+	opt/heroic/resources/app.asar.unpacked/build/bin/linux/vulkan-helper
+	opt/heroic/resources/app.asar.unpacked/node_modules/register-scheme/build/Release/register-protocol-handler.node
+	opt/heroic/resources/app.asar.unpacked/node_modules/register-scheme/build/Release/node-addon-api/src/nothing.a
+	opt/heroic/resources/app.asar.unpacked/node_modules/register-scheme/build/Release/nothing.a
+"
 
 src_install() {
 	mv "${S}" "${WORKDIR}/heroic"
