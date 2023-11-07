@@ -75,7 +75,6 @@ src_configure() {
 
 src_test() {
 	local tests=(
-		calls:application
 		calls:call
 		calls:contacts
 		calls:dbus
@@ -87,10 +86,15 @@ src_test() {
 		calls:ringer
 		calls:sdp-crypto
 		calls:settings
-		#calls:sip
 		calls:srtp
 		calls:ui-call
 		calls:util
+
+		# TODO: needs working sound card
+		#calls:application
+
+		# TODO: hangs
+		#calls:sip
 	)
 	virtx meson_src_test "${tests[@]}"
 }
