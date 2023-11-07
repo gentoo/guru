@@ -18,6 +18,19 @@ index 33668b4ee..061e0d445 100644
      update_cache.path = $$PWD
 -    INSTALLS += update_cache
  }
+diff --git a/src/MEGASync/google_breakpad/google_breakpad.pri b/src/MEGASync/google_breakpad/google_breakpad.pri
+index 122268aba..cd141a5f9 100644
+--- a/src/MEGASync/google_breakpad/google_breakpad.pri
++++ b/src/MEGASync/google_breakpad/google_breakpad.pri
+@@ -43,8 +43,6 @@ unix:!macx {
+   SOURCES += $$PWD/common/linux/elfutils.cc
+   SOURCES += $$PWD/common/string_conversion.cc
+   SOURCES += $$PWD/common/convert_UTF.c
+-
+-  QMAKE_CXXFLAGS+=-g
+ }
+ 
+ win32 {
 diff --git a/src/MEGASync/platform/platform.pri b/src/MEGASync/platform/platform.pri
 index 99f4dbd4f..ef5553508 100644
 --- a/src/MEGASync/platform/platform.pri

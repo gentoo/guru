@@ -113,8 +113,7 @@ src_configure() {
 		$(use_enable examples) \
 		$(use_enable java) \
 		$(use_enable php) \
-		$(use_enable python) \
-		"--enable-gcc-hardening"
+		$(use_enable python)
 
 	cd "${S}/src"
 	local myeqmakeargs=(
