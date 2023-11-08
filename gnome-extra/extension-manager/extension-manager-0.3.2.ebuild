@@ -21,7 +21,7 @@ else
 fi
 
 DESCRIPTION="A native tool for browsing, installing, and managing GNOME Shell Extensions"
-HOMEPAGE="https://mjakeman.github.io/extension-manager/"
+HOMEPAGE="https://mattjakeman.com/apps/extension-manager"
 
 LICENSE="GPL-3+"
 SLOT="0"
