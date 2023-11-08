@@ -1,0 +1,22 @@
+#!/sbin/openrc-run
+# Copyright 2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="Whoogle Search"
+description="A self-hosted, ad-free, privacy-respecting metasearch engine"
+command="/opt/whoogle-search/run"
+command_user="whoogle:whoogle"
+command_background=1
+pidfile="/run/whoogle.pid"
+output_log="/var/log/whoogle.log"
+error_log="${output_log}"
+
+depend() {
+	use logger net
+}
+
+start_pre() {
+	checkpath -fo whoogle:whoogle "/var/log/whoogle.log"
+	source "/etc/default/whoogle"
+}
+
