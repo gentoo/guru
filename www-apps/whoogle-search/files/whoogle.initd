@@ -2,6 +2,11 @@
 # Copyright 2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Environment variables for whoogle
+source "/etc/default/whoogle"
+export ADDRESS=${BIND_ADDRESS:-0.0.0.0}
+export PORT=${LISTEN_PORT:-5000}
+
 name="Whoogle Search"
 description="A self-hosted, ad-free, privacy-respecting metasearch engine"
 command="/opt/whoogle-search/run"
@@ -17,6 +22,12 @@ depend() {
 
 start_pre() {
 	checkpath -fo whoogle:whoogle "/var/log/whoogle.log"
-	source "/etc/default/whoogle"
+	echo "Whoogle is running on: ${BIND_ADDRESS}:${LISTEN_PORT}"
+	cd /opt/whoogle-search
 }
 
+stop_post() {
+	# whoogle doesn't get killed by stop so it needs to be done manually
+	whoogle_pid="$(ps aux | grep -i "/usr/lib/python-exec/python3.11/python3 -um app" | grep -v 'grep' | cut -d ' ' -f 3-4 | xargs)"
+	kill "${whoogle_pid}"
+}
