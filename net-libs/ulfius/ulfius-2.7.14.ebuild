@@ -35,7 +35,6 @@ RDEPEND="
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_ULFIUS_DOCUMENTATION=$(usex doc)
-		-DDOWNLOAD_DEPENDENCIES=OFF
 		-DWITH_CURL=$(usex curl)
 		-DWITH_GNUTLS=$(usex ssl)
 		-DWITH_JANSSON=$(usex jansson)
