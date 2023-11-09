@@ -57,7 +57,7 @@ $(python_gen_cond_dep '
 
 qt6? (
 		$(python_gen_cond_dep '
-			>=dev-python/PyQt6-6.5.0[dbus,gui,network,opengl,printsupport,webchannel,widgets,${PYTHON_USEDEP}]
+			>=dev-python/PyQt6-6.5.0[dbus,gui,network,opengl,printsupport,webchannel,widgets,quick,${PYTHON_USEDEP}]
 			>=dev-python/PyQt6-sip-13.5.1[${PYTHON_USEDEP}]
 			>=dev-python/PyQt6-WebEngine-6.5.0[widgets,${PYTHON_USEDEP}]
 			')
