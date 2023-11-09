@@ -23,3 +23,9 @@ RDEPEND="
 	gui-libs/libhandy:=
 "
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+	default
+
+	sed -i "s;@PYTHON@;/usr/bin/${EPYTHON};g" himitsu_gtk/himitsu-keyring.in || die
+}
