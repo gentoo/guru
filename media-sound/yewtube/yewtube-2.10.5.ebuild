@@ -35,7 +35,10 @@ RDEPEND="
 "
 
 DEPEND="
-	test? ( dev-python/dbus-python[${PYTHON_USEDEP}] )
+	test? (
+		dev-python/dbus-python[${PYTHON_USEDEP}]
+		dev-python/pygobject[${PYTHON_USEDEP}]
+	)
 "
 
 distutils_enable_tests pytest
