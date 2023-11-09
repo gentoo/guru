@@ -101,10 +101,13 @@ src_install() {
 	keepdir /var/lib/pleroma
 	fperms 0750 /var/lib/pleroma
 	fowners pleroma:pleroma /var/lib/pleroma
+
+	dosym /opt/pleroma-fe/dist /var/lib/pleroma/static/frontends/pleroma-fe/gentoo
 }
 
 pkg_postinst() {
 	optfeature "For Pleroma.Upload.Filters.{Mogrify,Mogrifun} & images in previews" media-gfx/imagemagick
 	optfeature "For video support in Media Preview Proxy" media-video/ffmpeg
 	optfeature "For Pleroma.Upload.Filters.Exiftool.* filters" media-libs/exiftool
+	optfeature "Allows to pick system-managed frontend instead of bundled" www-apps/pleroma-fe
 }
