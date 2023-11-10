@@ -5,7 +5,6 @@ EAPI=8
 
 MY_PN="${PN/-bin/}"
 
-CHROMIUM_VERSION="102"
 CHROMIUM_LANGS="
 	af am ar bg bn ca cs da de el en-GB en-US es es-419 et fa fi fil fr gu he hi
 	hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr sv
@@ -29,6 +28,7 @@ RDEPEND="
 	dev-libs/libgcrypt
 	dev-libs/nspr
 	dev-libs/nss
+	media-libs/alsa-lib
 	media-libs/fontconfig
 	media-libs/mesa[gbm(+)]
 	net-print/cups
@@ -71,6 +71,7 @@ src_prepare() {
 	pushd "locales/" >/dev/null || die "location change for language cleanup failed"
 	chromium_remove_language_paks
 	popd >/dev/null || die "location reset for language cleanup failed"
+	rm -rf "${S}"/resources/app.asar.unpacked/node_modules/register-scheme/build/node_gyp_bins || die
 }
 
 src_install() {
