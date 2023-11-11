@@ -71,7 +71,8 @@ src_prepare() {
 	pushd "locales/" >/dev/null || die "location change for language cleanup failed"
 	chromium_remove_language_paks
 	popd >/dev/null || die "location reset for language cleanup failed"
-	rm -rf "${S}"/resources/app.asar.unpacked/node_modules/register-scheme/build/node_gyp_bins || die
+	rm -rf "${S}"/resources/app.asar.unpacked/node_modules/register-scheme/build/node_gyp_bins
+	rm -rf "${S}"/resources/app.asar.unpacked/node_modules/abstract-socket/build/node_gyp_bins
 }
 
 src_install() {
