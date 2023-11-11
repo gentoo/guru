@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>zhuyifei1999@gmail.com</email>
+		<name>YiFei Zhu</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">kopia/kopia</remote-id>
+	</upstream>
+	<use>
+		<flag name="system-kopia">Use the system-wide <pkg>app-backup/kopia</pkg> instead of bundled.</flag>
+	</use>
+</pkgmetadata>
