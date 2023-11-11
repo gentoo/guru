@@ -5,4 +5,7 @@
 		<email>baileykasin@gmail.com</email>
 		<name>Bailey Kasin</name>
 	</maintainer>
+	<upstream>
+		<remote-id type="github">benbusby/whoogle-search</remote-id>
+	</upstream>
 </pkgmetadata>

@@ -20,29 +20,30 @@ RDEPEND="
 		dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 		dev-python/cryptography[${PYTHON_USEDEP}]
 		dev-python/flask[${PYTHON_USEDEP}]
-        dev-python/python-dotenv[${PYTHON_USEDEP}]
+		dev-python/python-dotenv[${PYTHON_USEDEP}]
 		dev-python/defusedxml[${PYTHON_USEDEP}]
 		dev-python/waitress[${PYTHON_USEDEP}]
-        app-arch/brotli[${PYTHON_USEDEP},python]
-        net-libs/stem
-        acct-user/whoogle
-        acct-group/whoogle
+		app-arch/brotli[${PYTHON_USEDEP},python]
+		net-libs/stem
+		acct-user/whoogle
+		acct-group/whoogle
 "
 
-
 src_install() {
-    rm -r .github docs test .dockerignore .gitignore .replit docker-compose.yml Dockerfile heroku.yml MANIFEST.in README.md requirements.txt
-    mkdir -p "${ED}/opt/whoogle-search" || die
-    insinto /opt/whoogle-search
-    doins -r ./*
-    fperms -R 0755 /opt/whoogle-search
+	rm -r .github docs test .dockerignore .gitignore .replit \
+		docker-compose.yml Dockerfile heroku.yml MANIFEST.in README.md \
+		requirements.txt
+	mkdir -p "${ED}/opt/whoogle-search" || die
+	insinto /opt/whoogle-search
+	doins -r ./*
+	fperms -R 0755 /opt/whoogle-search
 	fowners -R whoogle:whoogle /opt/whoogle-search
 
-    insinto /etc/default/
-    doins ${FILESDIR}/whoogle
-    insinto /usr/lib/sysusers.d/
-    doins ${FILESDIR}/whoogle.conf
+	insinto /etc/default/
+	doins "${FILESDIR}/whoogle"
+	insinto /usr/lib/sysusers.d/
+	doins "${FILESDIR}/whoogle.conf"
 
-    newinitd "${FILESDIR}"/whoogle.initd whoogle
-    systemd_dounit ${FILESDIR}/whoogle.service
+	newinitd "${FILESDIR}"/whoogle.initd whoogle
+	systemd_dounit "${FILESDIR}/whoogle.service"
 }

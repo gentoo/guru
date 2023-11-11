@@ -3,7 +3,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 # Environment variables for whoogle
-source "/etc/default/whoogle"
+. "/etc/default/whoogle"
 export ADDRESS=${BIND_ADDRESS:-0.0.0.0}
 export PORT=${LISTEN_PORT:-5000}
 
@@ -23,7 +23,7 @@ depend() {
 start_pre() {
 	checkpath -fo whoogle:whoogle "/var/log/whoogle.log"
 	echo "Whoogle is running on: ${BIND_ADDRESS}:${LISTEN_PORT}"
-	cd /opt/whoogle-search
+	cd /opt/whoogle-search || exit 1
 }
 
 stop_post() {
