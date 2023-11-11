@@ -68,7 +68,7 @@ Rust and Go packages automagically collect all dependencies. The licenses of the
 
 - #### Don't use `EGO_SUM`
 
-This method of declaring Go module dependencies is deprecared. Please consider either hosting a dependency tarball somewhere (you can find out how to generate it in [go-module.eclass(5)](https://devmanual.gentoo.org/eclass-reference/go-module.eclass/index.html)) or improving upstream release CI scripts (example: [noborus/ov#196](https://github.com/noborus/ov/pull/196/files)).
+This method of declaring Go module dependencies is deprecated. Please consider either hosting a dependency tarball somewhere (you can find out how to generate it in [go-module.eclass(5)](https://devmanual.gentoo.org/eclass-reference/go-module.eclass/index.html)) or improving upstream release CI scripts (example: [noborus/ov#196](https://github.com/noborus/ov/pull/196/files)).
 
 - #### Use the cmake eclass instead of the cmake-utils eclass
 
