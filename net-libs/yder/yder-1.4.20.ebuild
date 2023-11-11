@@ -20,6 +20,7 @@ BDEPEND="
 		app-doc/doxygen
 		media-gfx/graphviz
 	)
+	net-libs/yder
 	systemd? (
 		sys-apps/systemd
 	)
