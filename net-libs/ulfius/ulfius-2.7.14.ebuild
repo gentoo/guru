@@ -42,6 +42,9 @@ src_configure() {
 		-DWITH_YDER=OFF
 	)
 
+	# bug 917149
+	sed -i -e "s/-Werror//g" CMakeLists.txt || die
+
 	cmake_src_configure
 }
 
