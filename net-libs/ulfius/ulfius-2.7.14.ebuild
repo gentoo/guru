@@ -20,7 +20,10 @@ BDEPEND="
 "
 DEPEND="
 	curl? ( net-misc/curl )
-	doc? ( app-doc/doxygen )
+	doc? (
+	     app-doc/doxygen
+	     media-gfx/graphviz
+	)
 	jansson? ( dev-libs/jansson:= )
 	ssl? ( net-libs/gnutls:= )
 	net-libs/libmicrohttpd:=
