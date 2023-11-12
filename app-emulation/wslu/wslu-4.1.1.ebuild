@@ -11,11 +11,17 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
+RESTRICT="test"
+
 RDEPEND="
 	app-shells/bash-completion
 	sys-devel/bc
 	sys-process/psmisc
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-dont-compress-manpages.patch #916991
+)
 
 src_install() {
 	emake DESTDIR="${D}" install

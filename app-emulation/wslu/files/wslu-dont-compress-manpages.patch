@@ -1,0 +1,29 @@
+Don't compress man pages.
+https://bugs.gentoo.org/show_bug.cgi?id=916991
+
+--- a/Makefile
++++ b/Makefile
+@@ -38,7 +38,7 @@ uninstall:
+ 	for f in $(INSTEDMANOS); do \
+ 		rm -f $$f; \
+ 	done
+-	rm -rf $(DESTDIR)$(PREFIX)/share/man/man7/wslu.7.gz
++	rm -rf $(DESTDIR)$(PREFIX)/share/man/man7/wslu.7
+ 	rm -rf $(DESTDIR)$(PREFIX)/share/wslu
+ 
+ doc:
+@@ -47,12 +47,11 @@ doc:
+ 		cp $$file $(OUTMANPATH); \
+ 		sed -e 's/DATEPLACEHOLDER/'$(DATETMP)'/' -e 's/VERSIONPLACEHOLDER/'$(VERTMP)'/' $(OUTMANPATH)/`basename $$file` > $(OUTMANPATH)/`basename $$file`.tmp; \
+ 		mv $(OUTMANPATH)/`basename $$file`.tmp $(OUTMANPATH)/`basename $$file`; \
+-		gzip -f -q $(OUTMANPATH)/`basename $$file`; \
+ 	done
+ 
+ doc_install:
+-	install -Dm 644 out-docs/*.1.gz -t $(DESTDIR)$(PREFIX)/share/man/man1
+-	install -Dm 644 out-docs/*.7.gz -t $(DESTDIR)$(PREFIX)/share/man/man7
++	install -Dm 644 out-docs/*.1 -t $(DESTDIR)$(PREFIX)/share/man/man1
++	install -Dm 644 out-docs/*.7 -t $(DESTDIR)$(PREFIX)/share/man/man7
+ 
+ res_install:
+ 	install -Dm 644 src/etc/*.vbs -t $(DESTDIR)$(PREFIX)/share/wslu
