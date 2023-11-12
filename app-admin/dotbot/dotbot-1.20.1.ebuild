@@ -3,6 +3,7 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1
@@ -20,3 +21,8 @@ RDEPEND="
 "
 
 distutils_enable_tests pytest
+
+python_test() {
+	# test_shim fails when executed with superuser privileges:
+	epytest -k "not test_shim"	#916987
+}
