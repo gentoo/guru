@@ -13,7 +13,7 @@ SLOT="0"
 
 KEYWORDS="~amd64 ~x86"
 
-S="${WORKDIR}/Lorien_${PV}_Linux"
+S="${WORKDIR}/Lorien_v${PV}_Linux"
 
 src_install() {
 	#Copy Manual & Make a copy of the folder
