@@ -48,6 +48,7 @@ BDEPEND="
 "
 PATCHES=(
 	"${FILESDIR}/${P}-dont-build-lz4.patch"
+	"${FILESDIR}/${P}-dont-ignore-user-cflags.patch"
 	"${FILESDIR}/${P}-make-arch-independent.patch"
 )
 
