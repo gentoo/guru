@@ -4,7 +4,7 @@
 EAPI=8
 
 inherit desktop xdg
-SRC_URI="https://github.com/mbrlabs/Lorien/releases/download/v${PV}/Lorien_${PV}_Linux.tar.xz -> ${P}.tar.xz"
+SRC_URI="https://github.com/mbrlabs/Lorien/releases/download/v${PV}/Lorien_v${PV}_Linux.tar.xz -> ${P}.tar.xz"
 DESCRIPTION="Infinite canvas drawing/whiteboarding. Made with Godot."
 HOMEPAGE="https://github.com/mbrlabs/Lorien"
 
