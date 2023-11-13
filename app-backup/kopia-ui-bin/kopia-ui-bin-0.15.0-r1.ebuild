@@ -47,7 +47,7 @@ RDEPEND="
 	x11-libs/pango
 "
 
-QA_PREBUILT="opt/KopiaUI"
+QA_PREBUILT="opt/KopiaUI/*"
 S="${WORKDIR}"
 
 src_install() {
@@ -70,6 +70,12 @@ src_install() {
 	rm -rf "${ED}/usr/share/doc/kopia-ui" || die
 }
 
-pkg_postinst(){
+pkg_postinst() {
+	xdg_icon_cache_update
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
 	xdg_desktop_database_update
 }
