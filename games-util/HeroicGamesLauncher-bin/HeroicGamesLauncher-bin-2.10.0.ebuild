@@ -19,7 +19,7 @@ S="${WORKDIR}/heroic-${PV}"
 
 IUSE="gamescope"
 
-QA_PREBUILD="
+QA_PREBUILT="
 	opt/heroic/chrome-sandbox
 	opt/heroic/chrome_crashpad_handler
 	opt/heroic/heroic
