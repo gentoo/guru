@@ -29,12 +29,6 @@ app-shells/antibody
 # Removal in +30 days.
 app-misc/pup
 
-# David Roman <davidroman96@gmail.com> (2023-09-26)
-# Requires net-libs/rest:0.7, which is no longer available in ::gentoo.
-# No new upstream releases since 25 May, 2022.
-# Removal in +30 days if no one else wants to take care of it.
-net-news/communique
-
 # Viorel Munteanu <ceamac@gentoo.org> (2023-06-07)
 # Does not work on no-multilib profiles and cannot be masked per profile
 # (See also top comment)
