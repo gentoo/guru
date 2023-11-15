@@ -38,5 +38,9 @@ BDEPEND="
 
 src_prepare() {
 	default
+	if [[ ! "${PV}" == "9999" ]] ; then
+		# https://github.com/verilator/verilator/issues/3352
+		sed -i "s/UNKNOWN_REV/(Gentoo ${PVR})/g" "${S}"/src/config_rev || die
+	fi
 	eautoconf --force
 }
