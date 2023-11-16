@@ -24,4 +24,10 @@ python_test() {
 pkg_postinst() {
 	optfeature "--clean support" app-portage/gentoolkit
 	optfeature "--daemon-restart support" app-admin/needrestart
+
+	elog ""
+	elog "Important Update: Version 0.2.2 introduces breaking changes."
+	elog "The CLI has been completely rewritten and now features a "
+	elog "subcommands structure. Please review the updated README "
+	elog "to understand the changes and ensure a smooth transition."
 }
