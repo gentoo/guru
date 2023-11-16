@@ -233,6 +233,8 @@ REQUIRED_USE="?? ( x11 gnome kde wlroots )"
 
 RDEPEND="x11? ( x11-libs/libX11 )"
 
+QA_FLAGS_IGNORED=".*"
+
 src_configure() {
 	local myfeatures=(
 		$(usev x11)
@@ -246,4 +248,12 @@ src_configure() {
 src_install() {
 	cargo_src_install
 	udev_newrules "${FILESDIR}"/xremap-input.rules 99-xremap-input.rules
+}
+
+pkg_postinst() {
+	udev_reload
+}
+
+pkg_postrm() {
+	udev_reload
 }
