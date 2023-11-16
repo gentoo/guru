@@ -231,9 +231,11 @@ KEYWORDS="~amd64"
 IUSE="x11 gnome kde wlroots"
 REQUIRED_USE="?? ( x11 gnome kde wlroots )"
 
+RDEPEND="x11? ( x11-libs/libX11 )"
+
 src_configure() {
 	local myfeatures=(
-		$(usex x11)
+		$(usev x11)
 		$(usev gnome)
 		$(usev kde)
 		$(usev wlroots)
