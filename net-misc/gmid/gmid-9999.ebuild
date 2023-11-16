@@ -44,7 +44,7 @@ if [[ ${PV} != 9999 ]]; then
 fi
 
 QA_CONFIG_IMPL_DECL_SKIP=1
-VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/signify-keys/${PN}-$(ver_cut 1-2).pub"
+VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/signify-keys/${PN}-$(ver_cut 1-2).pub"
 
 DOCS=( README.md ChangeLog contrib/README )
 

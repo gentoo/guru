@@ -14,7 +14,7 @@ else
 		verify-sig? ( https://github.com/emersion/${PN}/releases/download/v${PV}/${P}.tar.gz.sig )
 		https://gitlab.com/sevz17/go-deps/-/raw/main/${P}-deps.tar.xz
 	"
-	VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/emersion.asc"
+	VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/emersion.asc"
 	BDEPEND+="verify-sig? ( sec-keys/openpgp-keys-emersion )"
 	KEYWORDS="~amd64"
 fi

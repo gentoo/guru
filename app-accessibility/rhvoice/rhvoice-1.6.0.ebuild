@@ -57,7 +57,7 @@ BDEPEND="
 "
 REQUIRED_USE="|| ( ao portaudio pulseaudio )"
 
-VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/aepaneshnikov.asc"
+VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/aepaneshnikov.asc"
 
 DOCS=( README.md doc config/dicts )
 

@@ -51,7 +51,7 @@ BDEPEND="
 
 DOCS=( CONTRIBUTORS HACKING INSTALL NEWS README TODO )
 
-VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/openpgp-keys/russallbery.asc"
+VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/russallbery.asc"
 
 src_configure() {
 	econf_args=(

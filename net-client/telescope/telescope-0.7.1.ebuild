@@ -29,7 +29,7 @@ BDEPEND="
 	verify-sig? ( sec-keys/signify-keys-telescope:$(ver_cut 1-2) )
 "
 
-VERIFY_SIG_OPENPGP_KEY_PATH="${BROOT}/usr/share/signify-keys/${PN}-$(ver_cut 1-2).pub"
+VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/signify-keys/${PN}-$(ver_cut 1-2).pub"
 
 src_unpack() {
 	if use verify-sig; then
