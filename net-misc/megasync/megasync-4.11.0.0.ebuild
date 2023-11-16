@@ -29,32 +29,15 @@ fi
 
 LICENSE="MEGA"
 SLOT="0"
-IUSE="+cryptopp +curl +sqlite +zlib dolphin examples freeimage java nautilus nemo php python readline threads thunar"
+IUSE="dolphin freeimage nautilus nemo threads thunar"
 
-RDEPEND="
-	app-arch/xz-utils
+DEPEND="
+	dev-db/sqlite:3
+	dev-libs/crypto++
 	dev-libs/libgcrypt
 	dev-libs/libsodium
 	dev-libs/libuv
 	dev-libs/openssl:0=
-	media-libs/libpng
-	net-dns/c-ares
-	x11-themes/hicolor-icon-theme
-	cryptopp? ( dev-libs/crypto++ )
-	curl? ( net-misc/curl[ssl,curl_ssl_openssl(-)] )
-	dolphin? ( kde-apps/dolphin )
-	freeimage? ( media-libs/freeimage )
-	nautilus? ( >=gnome-base/nautilus-43 )
-	nemo? ( gnome-extra/nemo )
-	readline? ( sys-libs/readline:0 )
-	sqlite? ( dev-db/sqlite:3 )
-	thunar? ( xfce-base/thunar )
-	zlib? ( sys-libs/zlib )
-"
-DEPEND="
-	${RDEPEND}
-	media-libs/libmediainfo
-	media-libs/libraw
 	dev-qt/qtcore:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtgui:5
@@ -64,10 +47,24 @@ DEPEND="
 	dev-qt/qtimageformats:5
 	dev-qt/qtsvg:5
 	dev-qt/qtx11extras:5
+	media-libs/libmediainfo
+	media-libs/libpng
+	media-libs/libraw
+	net-dns/c-ares
+	net-misc/curl[ssl,curl_ssl_openssl(-)]
+	sys-libs/zlib
+	dolphin? ( kde-apps/dolphin )
+	freeimage? ( media-libs/freeimage )
+	nautilus? ( >=gnome-base/nautilus-43 )
+	nemo? ( gnome-extra/nemo )
+	thunar? ( xfce-base/thunar )
+"
+RDEPEND="
+	${DEPEND}
+	x11-themes/hicolor-icon-theme
 "
 BDEPEND="
-	dev-lang/swig
-	dev-qt/linguist-tools
+	dev-qt/linguist-tools:5
 	dolphin? ( kde-frameworks/extra-cmake-modules )
 "
 
@@ -97,23 +94,10 @@ src_prepare() {
 src_configure() {
 	cd "${S}/src/MEGASync/mega"
 	econf \
-		"--disable-silent-rules" \
 		"--disable-curl-checks" \
-		"--disable-megaapi" \
-		$(use_with zlib) \
-		$(use_with sqlite) \
-		$(use_with cryptopp) \
-		"--with-cares" \
-		$(use_with curl) \
-		"--without-termcap" \
+		"--disable-examples" \
 		$(use_enable threads posix-threads) \
-		"--with-sodium" \
-		$(use_with freeimage) \
-		$(use_with readline) \
-		$(use_enable examples) \
-		$(use_enable java) \
-		$(use_enable php) \
-		$(use_enable python)
+		$(use_with freeimage)
 
 	cd "${S}/src"
 	local myeqmakeargs=(
