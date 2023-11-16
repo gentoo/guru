@@ -9,4 +9,7 @@
 		<doc>https://trantor.docsforge.com/</doc>
 		<remote-id type="github">an-tao/trantor</remote-id>
 	</upstream>
+	<use>
+		<flag name="spdlog">enable <pkg>dev-libs/spdlog</pkg> logging backend</flag>
+	</use>
 </pkgmetadata>
