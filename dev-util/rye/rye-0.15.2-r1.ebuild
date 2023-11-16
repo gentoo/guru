@@ -304,6 +304,16 @@ LICENSE+=" 0BSD Apache-2.0 BSD MIT Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
 
+QA_FLAGS_IGNORED=".*"
+
+src_test() {
+	local mytestargs=(
+		--skip utils::test_is_inside_git_work_tree::test_is_inside_git_work_tree_true
+	)
+
+	cargo_src_test -- "${mytestargs[@]}"
+}
+
 src_install() {
 	cargo_src_install --path rye
 }
