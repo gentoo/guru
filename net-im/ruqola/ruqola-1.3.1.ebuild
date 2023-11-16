@@ -38,7 +38,7 @@ DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:5
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:5
 	speech? ( >=dev-qt/qtspeech-${QTMIN}:5 )
-	telemetry? ( dev-libs/kuserfeedback:5 )
+	telemetry? ( kde-frameworks/kuserfeedback:5 )
 "
 
 RDEPEND="${DEPEND}"
