@@ -15,6 +15,12 @@
 # New entries go on top.
 
 # David Roman <davidroman96@gmail.com> (2023-11-16)
+# Requires package removed from ::gentoo
+# No release since 2017, package seems broken
+# Removal in +30 days
+dev-python/webrtcvad
+
+# David Roman <davidroman96@gmail.com> (2023-11-16)
 # Redundant package, mpv[lua] also provide this.
 # See https://bugs.gentoo.org/917411
 # Removal in +30 days if no one objects
