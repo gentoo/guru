@@ -29,7 +29,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-src_install() {
+python_install_all() {
 	default
 	dobin scripts/*
 }
