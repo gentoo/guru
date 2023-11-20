@@ -17,7 +17,6 @@
 	secure communications.
 </longdescription>
 <use>
-	<flag name="fribidi" restrict="&lt;net-client/lagrange-1.17.3">Use <pkg>dev-libs/fribidi</pkg> for bidirectional text</flag>
 	<flag name="harfbuzz">Use <pkg>media-libs/harfbuzz</pkg> to shape text</flag>
 </use>
 <upstream>
