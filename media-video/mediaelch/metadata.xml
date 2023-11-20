@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM 'https://www.gentoo.org/dtd/metadata.dtd'>
+<pkgmetadata>
+	<maintainer type="person">
+		<email>web.alexander@web.de</email>
+		<name>Alexander Weber</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Komet/MediaElch</remote-id>
+	</upstream>
+</pkgmetadata>
