@@ -18,10 +18,10 @@ IUSE="+libbsd"
 
 DEPEND="
 	dev-libs/imsg-compat
+	dev-libs/libbsd
 	dev-libs/libevent:=
 	dev-libs/libretls:=
 	sys-libs/ncurses:=
-	libbsd? ( dev-libs/libbsd )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -47,7 +47,7 @@ src_configure() {
 	local econf_args=(
 		HOSTCC="${BUILD_CC}"
 		HOSTCFLAGS="${BUILD_CFLAGS}"
-		$(use_with libbsd)
+		--with-libbsd
 		--with-libimsg
 	)
 
