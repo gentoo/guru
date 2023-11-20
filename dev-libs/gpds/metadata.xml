@@ -5,8 +5,13 @@
 		<email>vowstar@gmail.com</email>
 		<name>Huang Rui</name>
 	</maintainer>
+	<use>
+		<flag name="spdlog">Enable spdlog sink feature</flag>
+	</use>
 	<upstream>
 		<remote-id type="github">simulton/gpds</remote-id>
+		<bugs-to>https://github.com/simulton/gpds/issues</bugs-to>
+		<changelog>https://github.com/simulton/gpds/releases</changelog>
 	</upstream>
 	<longdescription lang="en">
 		GPDS is a General Purpose Data Serializer library written in modern C++.
@@ -16,5 +21,11 @@
 		GPDS provides the user with complete control over the generated tag names and
 		attributes in the resulting XML compared to just using traditional "key" and
 		"value" tags.
+	</longdescription>
+	<longdescription lang="zh">
+		GPDS 是一个用现代 C++ 编写的通用数据序列化器库。它允许以通用格式将 C++
+		类与 XML 文件序列化，该通用格式可以由其他 XML 处理软件处理（或只是为了
+		可读性）。与仅使用传统的“键”和“值”标签相比，GPDS 使用户能够完全控制生成
+		的标签名称和结果 XML 中的属性。
 	</longdescription>
 </pkgmetadata>
