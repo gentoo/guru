@@ -46,6 +46,7 @@ RDEPEND="
 	dev-embedded/esptool
 	dev-embedded/esp-idf-kconfig[${PYTHON_USEDEP}]
 	dev-embedded/esp-idf-monitor[${PYTHON_USEDEP}]
+	dev-embedded/esp-idf-panic-decoder[${PYTHON_USEDEP}]
 	dev-embedded/esp-idf-size[${PYTHON_USEDEP}]
 	dev-embedded/idf-component-manager[${PYTHON_USEDEP}]
 "
