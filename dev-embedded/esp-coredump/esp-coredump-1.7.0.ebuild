@@ -5,12 +5,12 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
-PYTHON_COMPAT=( python3_11 )
+PYTHON_COMPAT=( python3_{11,12} )
 
 inherit distutils-r1 pypi
 
 DESCRIPTION="Utility that helps users to retrieve and analyse core dumps"
-HOMEPAGE="https://github.com/esppressif/esp-coredump"
+HOMEPAGE="https://github.com/espressif/esp-coredump"
 
 LICENSE="Apache-2.0"
 SLOT="0"
