@@ -30,7 +30,7 @@ DEPEND="
 	media-libs/cubeb
 	evdev? ( dev-libs/libevdev )
 	dbus? ( sys-apps/dbus )
-	gamepad? ( >=media-libs/libsdl2-2.28.2 )
+	gamepad? ( >=media-libs/libsdl2-2.28.5 )
 	gbm? ( x11-libs/libdrm )
 	qt6? (
 		dev-qt/qtbase:6[gui,network,widgets]
