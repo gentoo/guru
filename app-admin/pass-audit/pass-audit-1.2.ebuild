@@ -15,12 +15,11 @@ HOMEPAGE="https://github.com/roddhjav/pass-audit"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-# No test on PYPI
+# Tests seems broken
 RESTRICT="test"
 
 DEPEND="app-admin/pass"
 RDEPEND="${DEPEND}"
-BDEPEND=""
 
 src_install() {
 	distutils-r1_src_install
