@@ -1,28 +1,31 @@
-EAPI=7
-inherit cmake
+# Copyright 2021-223 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
 
-MY_PN=MediaElch
-S=$WORKDIR/$MY_PN-$PV
+EAPI=8
+
+inherit cmake
 
 DESCRIPTION="Video metadata scraper"
 HOMEPAGE="https://www.mediaelch.de/"
 
-IUSE="debug"
+MY_PN=MediaElch
 
 if [[ ${PV} == *9999 ]] ; then
-	EGIT_REPO_URI="https://github.com/Komet/MediaElch"
+	EGIT_REPO_URI="https://github.com/Komet/$MY_PN"
 	EGIT_BRANCH="master"
 	EGIT_SUBMODULES=()
 	inherit git-r3
-	S="${WORKDIR}/mediaelch-9999"
+	S="${WORKDIR}/${PN}-9999"
 else
 	RESTRICT="mirror"
 	SRC_URI="https://github.com/Komet/$MY_PN/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
+	S=$WORKDIR/${MY_PN}-${PV}
 fi
 
-SLOT="0"
 LICENSE="LGPL-3"
+SLOT="0"
+IUSE="debug"
 
 DEPEND="dev-libs/quazip
 	dev-qt/qtconcurrent:5
