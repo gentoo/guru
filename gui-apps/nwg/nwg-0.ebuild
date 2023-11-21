@@ -5,7 +5,6 @@ EAPI=8
 
 DESCRIPTION="meta package package for nwg-shell"
 HOMEPAGE="https://nwg-piotr.github.io/nwg-shell/"
-SRC_URI="https://github.com/nwg-piotr/nwg-shell"
 
 LICENSE="metapackage"
 SLOT="0"
