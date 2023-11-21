@@ -24,7 +24,7 @@ KEYWORDS="~amd64"
 
 DEPEND="test? (
 		dev-python/mypy[${PYTHON_USEDEP}]
-		dev-python/PyQt5[${PYTHON_USEDEP}]
+		dev-python/PyQt5[${PYTHON_USEDEP},widgets]
 	)
 "
 
