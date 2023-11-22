@@ -181,6 +181,9 @@ LICENSE="MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
+M_PN=Satty
+S="${WORKDIR}/${M_PN}-${PV}"
+
 RDEPEND="virtual/rust
 		x11-libs/pango
 		dev-libs/glib:2
