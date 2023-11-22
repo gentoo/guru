@@ -3,22 +3,20 @@
 
 EAPI=8
 
-inherit meson toolchain-funcs
+inherit cmake toolchain-funcs
 
 DESCRIPTION="xdg-desktop-portal backend for hyprland"
 HOMEPAGE="https://github.com/hyprwm/xdg-desktop-portal-hyprland"
 
-if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://github.com/hyprwm/xdg-desktop-portal-hyprland.git"
-	inherit git-r3
-else
-	KEYWORDS="~amd64"
-	SRC_URI="https://github.com/hyprwm/xdg-desktop-portal-hyprland/archive/refs/tags/v${PV}.tar.gz \
-		-> xdg-desktop-hyprland-${PV}.tar.gz"
-fi
+KEYWORDS="~amd64"
+PROTO_COMMIT="4d29e48433270a2af06b8bc711ca1fe5109746cd"
+SRC_URI="https://github.com/hyprwm/xdg-desktop-portal-hyprland/archive/refs/tags/v${PV}.tar.gz \
+	-> xdg-desktop-hyprland-${PV}.tar.gz
+https://github.com/hyprwm/hyprland-protocols/archive/${PROTO_COMMIT}.tar.gz \
+	-> proto-subproject-${PV}.tar.gz"
 
 LICENSE="MIT"
-SLOT="0/9999"
+SLOT="0"
 IUSE="elogind systemd"
 REQUIRED_USE="?? ( elogind systemd )"
 
@@ -41,10 +39,12 @@ DEPEND="
 		sys-libs/basu
 	)
 "
+
 RDEPEND="
 	${DEPEND}
 	sys-apps/xdg-desktop-portal
 "
+
 BDEPEND="
 	>=dev-libs/wayland-protocols-1.24
 	dev-libs/hyprland-protocols
@@ -53,7 +53,7 @@ BDEPEND="
 "
 
 pkg_setup() {
-		[[ ${MERGE_TYPE} == binary ]] && return
+	[[ ${MERGE_TYPE} == binary ]] && return
 
 	if tc-is-gcc && ver_test $(gcc-version) -lt 13 ; then
 		eerror "XDPH needs >=gcc-13 or >=clang-17 to compile."
@@ -66,12 +66,24 @@ pkg_setup() {
 	fi
 }
 
+src_unpack() {
+	default
+	rmdir "${S}/subprojects/hyprland-protocols" || die
+	mv "hyprland-protocols-${PROTO_COMMIT}" "${S}/subprojects/hyprland-protocols" || die
+}
+
+src_prepare() {
+	default
+	eapply "${FILESDIR}/xdg-desktop-portal-hyprland-1.2.5_use_sys_sdbus-c++.patch"
+	cmake_src_prepare
+}
+
 src_compile() {
-	meson_src_compile
-	emake -C hyprland-share-picker all
+	cmake_src_compile all
 }
 
 src_install() {
-	meson_src_install
-	dobin "${S}/hyprland-share-picker/build/hyprland-share-picker"
+	cmake_src_install
+	exeinto /usr/libexec
+	doexe "${BUILD_DIR}/xdg-desktop-portal-hyprland"
 }
