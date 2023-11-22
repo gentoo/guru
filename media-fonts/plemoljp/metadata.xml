@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>dev@dyama.net</email>
+    <name>Daichi Yamamoto</name>
+  </maintainer>
+  <stabilize-allarches />
+  <use>
+    <flag name="hiddenspace">Install full-width space invisible version</flag>
+    <flag name="nerdfonts">Install Nerd Fonts composite version</flag>
+  </use>
+  <upstream>
+    <remote-id type="github">yuru7/PlemolJP</remote-id>
+  </upstream>
+</pkgmetadata>
