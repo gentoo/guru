@@ -7,7 +7,7 @@
   </maintainer>
   <stabilize-allarches />
   <use>
-    <flag name="nerdfonts">Install composite variations of Nerd Fonts</flag>
+    <flag name="nerdfonts">Install Nerd Fonts composite version</flag>
   </use>
   <upstream>
     <remote-id type="github">yuru7/udev-gothic</remote-id>

@@ -10,7 +10,7 @@ MY_PV="v${PV}"
 MY_P="${MY_PN}_${MY_PV}"
 MY_P_NF="${MY_PN}_NF_${MY_PV}"
 
-DESCRIPTION="UDEV Gothic is a font that combines BIZ UD Gothic and JetBrains Mono."
+DESCRIPTION="UDEV Gothic is a composite font of BIZ UD Gothic and JetBrains Mono."
 HOMEPAGE="https://github.com/yuru7/udev-gothic"
 SRC_URI="https://github.com/yuru7/udev-gothic/releases/download/${MY_PV}/${MY_P}.zip
 	nerdfonts? ( https://github.com/yuru7/udev-gothic/releases/download/${MY_PV}/${MY_P_NF}.zip )
