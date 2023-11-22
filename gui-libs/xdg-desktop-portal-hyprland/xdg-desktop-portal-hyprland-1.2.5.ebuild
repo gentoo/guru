@@ -9,9 +9,11 @@ DESCRIPTION="xdg-desktop-portal backend for hyprland"
 HOMEPAGE="https://github.com/hyprwm/xdg-desktop-portal-hyprland"
 
 KEYWORDS="~amd64"
+PROTO_COMMIT="4d29e48433270a2af06b8bc711ca1fe5109746cd"
 SRC_URI="https://github.com/hyprwm/xdg-desktop-portal-hyprland/archive/refs/tags/v${PV}.tar.gz \
 	-> xdg-desktop-hyprland-${PV}.tar.gz
-https://github.com/micielski/xdg-desktop-portal-hyprland-subprojects/releases/download/${PV}/xdg-desktop-portal-hyprland-${PV}-subprojects.tar.xz"
+https://github.com/hyprwm/hyprland-protocols/archive/${PROTO_COMMIT}.tar.gz \
+	-> proto-subproject-${PV}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -37,10 +39,12 @@ DEPEND="
 		sys-libs/basu
 	)
 "
+
 RDEPEND="
 	${DEPEND}
 	sys-apps/xdg-desktop-portal
 "
+
 BDEPEND="
 	>=dev-libs/wayland-protocols-1.24
 	dev-libs/hyprland-protocols
@@ -64,7 +68,8 @@ pkg_setup() {
 
 src_unpack() {
 	default
-	mv subprojects/* "xdg-desktop-portal-hyprland-${PV}/subprojects" || die
+	rmdir "${S}/subprojects/hyprland-protocols" || die
+	mv "hyprland-protocols-${PROTO_COMMIT}" "${S}/subprojects/hyprland-protocols" || die
 }
 
 src_prepare() {
