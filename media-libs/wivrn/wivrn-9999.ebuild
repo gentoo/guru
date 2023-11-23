@@ -3,6 +3,7 @@ EAPI=7
 DESCRIPTION="WiVRn OpenXR streaming"
 HOMEPAGE="https://github.com/meumeu/WiVRn"
 SLOT="0"
+LICENSE="GPL-3 Apache-2.0 MIT"
 
 IUSE="nvenc vaapi x264"
 
