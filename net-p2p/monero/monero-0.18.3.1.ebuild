@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -19,7 +19,7 @@ fi
 
 LICENSE="BSD MIT"
 SLOT="0"
-IUSE="+daemon readline +tools +wallet-cli +wallet-rpc"
+IUSE="+daemon hw-wallet readline +tools +wallet-cli +wallet-rpc"
 REQUIRED_USE="|| ( daemon tools wallet-cli wallet-rpc )"
 RESTRICT="test"
 
@@ -36,6 +36,11 @@ DEPEND="
 	net-libs/czmq:=
 	net-libs/miniupnpc
 	readline? ( sys-libs/readline:0= )
+	hw-wallet? (
+		dev-libs/hidapi
+		dev-libs/protobuf:=
+		virtual/libusb:1
+	)
 "
 RDEPEND="${DEPEND}"
 BDEPEND="virtual/pkgconfig"
@@ -49,7 +54,7 @@ src_configure() {
 		# TODO: Update CMake to install built libraries (help wanted)
 		-DBUILD_SHARED_LIBS=OFF
 		-DMANUAL_SUBMODULES=ON
-		-DUSE_DEVICE_TREZOR=OFF
+		-DUSE_DEVICE_TREZOR=$(usex hw-wallet ON OFF)
 	)
 
 	use elibc_musl && mycmakeargs+=( -DSTACK_TRACE=OFF )
