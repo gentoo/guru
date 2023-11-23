@@ -33,10 +33,9 @@ IUSE="dolphin freeimage nautilus nemo threads thunar"
 
 DEPEND="
 	dev-db/sqlite:3
-	dev-libs/crypto++
-	dev-libs/libgcrypt
-	dev-libs/libsodium
-	dev-libs/libuv
+	dev-libs/crypto++:=
+	dev-libs/libsodium:=
+	dev-libs/libuv:=
 	dev-libs/openssl:0=
 	dev-qt/qtcore:5
 	dev-qt/qtwidgets:5
@@ -48,13 +47,15 @@ DEPEND="
 	dev-qt/qtsvg:5
 	dev-qt/qtx11extras:5
 	media-libs/libmediainfo
-	media-libs/libpng
 	media-libs/libraw
-	net-dns/c-ares
+	net-dns/c-ares:=
 	net-misc/curl[ssl,curl_ssl_openssl(-)]
 	sys-libs/zlib
 	dolphin? ( kde-apps/dolphin )
-	freeimage? ( media-libs/freeimage )
+	freeimage? (
+		media-libs/freeimage
+		media-video/ffmpeg:=
+	)
 	nautilus? ( >=gnome-base/nautilus-43 )
 	nemo? ( gnome-extra/nemo )
 	thunar? ( xfce-base/thunar )
