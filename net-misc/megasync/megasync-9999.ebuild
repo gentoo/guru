@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit autotools desktop qmake-utils xdg cmake
+inherit autotools cmake qmake-utils xdg
 
 DESCRIPTION="The official Qt-based program for syncing your MEGA account in your PC"
 HOMEPAGE="
@@ -17,43 +17,26 @@ if [[ ${PV} == 9999 ]];then
 	EGIT_BRANCH="master"
 	EGIT_SUBMODULES=( '*' )
 else
-	MEGA_SDK_REV="c11a688d578e16dc25d4c94fee7995730be1aa50" # commit of src/MEGASync/mega submodule
+	MEGA_SDK_REV="6d4c102940dab277974090cd4292e58f08ac6032" # commit of src/MEGASync/mega submodule
+	MEGA_TAG_SUFFIX="Win"
 	SRC_URI="
-		https://github.com/meganz/MEGAsync/archive/v${PV}_Win.tar.gz -> ${P}.tar.gz
+		https://github.com/meganz/MEGAsync/archive/v${PV}_${MEGA_TAG_SUFFIX}.tar.gz -> ${P}.tar.gz
 		https://github.com/meganz/sdk/archive/${MEGA_SDK_REV}.tar.gz -> ${PN}-sdk-${PV}.tar.gz
 	"
 	KEYWORDS="~amd64 ~x86"
-	# 4.5.0.0 has no dedicated linux tag
-	S="${WORKDIR}"/MEGAsync-${PV}_Win
+	S="${WORKDIR}"/MEGAsync-${PV}_${MEGA_TAG_SUFFIX}
 fi
 
 LICENSE="MEGA"
 SLOT="0"
-IUSE="+cryptopp +curl +sqlite +zlib dolphin examples freeimage java nautilus php python readline threads thunar"
+IUSE="dolphin freeimage nautilus nemo threads thunar"
 
-RDEPEND="
-	app-arch/xz-utils
-	dev-libs/libgcrypt
-	dev-libs/libsodium
-	dev-libs/libuv
-	dev-libs/openssl:0=
-	media-libs/libpng
-	net-dns/c-ares
-	x11-themes/hicolor-icon-theme
-	cryptopp? ( dev-libs/crypto++ )
-	curl? ( net-misc/curl[ssl,curl_ssl_openssl(-)] )
-	dolphin? ( kde-apps/dolphin )
-	freeimage? ( media-libs/freeimage )
-	nautilus? ( >=gnome-base/nautilus-3 )
-	readline? ( sys-libs/readline:0 )
-	sqlite? ( dev-db/sqlite:3 )
-	thunar? ( xfce-base/thunar )
-	zlib? ( sys-libs/zlib )
-"
 DEPEND="
-	${RDEPEND}
-	media-libs/libmediainfo
-	media-libs/libraw
+	dev-db/sqlite:3
+	dev-libs/crypto++:=
+	dev-libs/libsodium:=
+	dev-libs/libuv:=
+	dev-libs/openssl:0=
 	dev-qt/qtcore:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtgui:5
@@ -63,36 +46,48 @@ DEPEND="
 	dev-qt/qtimageformats:5
 	dev-qt/qtsvg:5
 	dev-qt/qtx11extras:5
+	media-libs/libmediainfo
+	media-libs/libraw
+	net-dns/c-ares:=
+	net-misc/curl[ssl,curl_ssl_openssl(-)]
+	sys-libs/zlib
+	dolphin? ( kde-apps/dolphin )
+	freeimage? (
+		media-libs/freeimage
+		media-video/ffmpeg:=
+	)
+	nautilus? ( >=gnome-base/nautilus-43 )
+	nemo? ( gnome-extra/nemo )
+	thunar? ( xfce-base/thunar )
+"
+RDEPEND="
+	${DEPEND}
+	x11-themes/hicolor-icon-theme
 "
 BDEPEND="
-	dev-lang/swig
-	dev-qt/linguist-tools
+	dev-qt/linguist-tools:5
+	dolphin? ( kde-frameworks/extra-cmake-modules )
 "
-
-DOCS=( CREDITS.md README.md )
 
 CMAKE_USE_DIR="${S}/src/MEGAShellExtDolphin"
 
 src_prepare() {
 	if [[ ${PV} != 9999 ]]; then
 		rmdir src/MEGASync/mega
-		mv "${WORKDIR}"/sdk-${MEGA_SDK_REV} src/MEGASync/mega
+		mv "${WORKDIR}/sdk-${MEGA_SDK_REV}" src/MEGASync/mega
 	fi
-	if [ -e "${FILESDIR}/${P}_pdfium.patch" ]; then
-		cd "${S}/src/MEGASync/mega"
-		eapply -Np1 "${FILESDIR}/${P}_pdfium.patch"
-		cd "${S}"
+
+	if has_version ">=media-video/ffmpeg-6.0"; then
+		eapply "${FILESDIR}/${PN}-4.10.0.0_ffmpeg6.patch"
 	fi
-	if has_version ">=media-video/ffmpeg-4.4" && [ -e "${FILESDIR}/${P}_ffmpeg.patch" ]; then
-		eapply "${FILESDIR}/${P}_ffmpeg.patch"
-	fi
+	eapply "${FILESDIR}/${PN}-4.10.0.0_fix-build.patch"
+
 	if use dolphin; then
-		# use the kde5 CMakeLists instead of the kde 4 version
-		mv src/MEGAShellExtDolphin/CMakeLists_kde5.txt src/MEGAShellExtDolphin/CMakeLists.txt || die
 		cmake_src_prepare
 	else
 		default
 	fi
+
 	cd "${S}/src/MEGASync/mega"
 	eautoreconf
 }
@@ -100,51 +95,40 @@ src_prepare() {
 src_configure() {
 	cd "${S}/src/MEGASync/mega"
 	econf \
-		"--disable-silent-rules" \
 		"--disable-curl-checks" \
-		"--disable-megaapi" \
-		$(use_with zlib) \
-		$(use_with sqlite) \
-		$(use_with cryptopp) \
-		"--with-cares" \
-		$(use_with curl) \
-		"--without-termcap" \
+		"--disable-examples" \
 		$(use_enable threads posix-threads) \
-		"--with-sodium" \
-		$(use_with freeimage) \
-		$(use_with readline) \
-		$(use_enable examples) \
-		$(use_enable java) \
-		$(use_enable php) \
-		$(use_enable python) \
-		"--enable-chat" \
-		"--enable-gcc-hardening"
-	cd "${S}/src"
+		$(use_with freeimage)
 
+	cd "${S}/src"
 	local myeqmakeargs=(
 		MEGA.pro
 		CONFIG+="release"
+		$(usex freeimage "" "CONFIG+=nofreeimage")
+		$(usev nautilus "SUBDIRS+=MEGAShellExtNautilus")
+		$(usev nemo "SUBDIRS+=MEGAShellExtNemo")
+		$(usev thunar "SUBDIRS+=MEGAShellExtThunar")
 	)
 
 	eqmake5 ${myeqmakeargs[@]}
-	use dolphin && cmake_src_configure
 	$(qt5_get_bindir)/lrelease MEGASync/MEGASync.pro
+
+	use dolphin && cmake_src_configure
 }
 
 src_compile() {
-	emake -C src INSTALL_ROOT=. || die
+	emake -C src
+
 	use dolphin && cmake_src_compile
 }
 
 src_install() {
+	emake -C src INSTALL_ROOT="${D}" install
+	dobin "src/MEGASync/${PN}"
+	dodoc CREDITS.md README.md
+
+	rm -rf "${D}"/usr/share/doc/megasync
+	rm -rf "${D}"/usr/share/icons/ubuntu-mono-dark
+
 	use dolphin && cmake_src_install
-	einstalldocs
-
-	dobin src/MEGASync/${PN}
-	domenu src/MEGASync/platform/linux/data/${PN}.desktop
-
-	cd src/MEGASync/platform/linux/data/icons/hicolor
-	for size in 16x16 32x32 48x48 128x128 256x256;do
-		doicon -s $size $size/apps/mega.png
-	done
 }
