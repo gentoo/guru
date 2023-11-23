@@ -18,7 +18,6 @@
 		<flag name='nautilus'>Upload your files to your Mega account from nautilus.</flag>
 		<flag name='nemo'>Upload your files to your Mega account from Nemo.</flag>
 		<flag name='thunar'>Upload your files to your Mega account from Thunar.</flag>
-		<flag name='cryptopp'>Compile with Crypto++ Library.</flag>
 		<flag name='freeimage'>Use freeimage to manage graphic images format.</flag>
 	</use>
 </pkgmetadata>
