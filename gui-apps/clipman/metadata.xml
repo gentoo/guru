@@ -6,7 +6,7 @@
 		<name>Jonas Frei</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">yory8/clipman</remote-id>
-		<bugs-to>https://github.com/yory8/clipman/issues</bugs-to>
+		<remote-id type="github">chmouel/clipman</remote-id>
+		<bugs-to>https://github.com/chmouel/clipman/issues</bugs-to>
 	</upstream>
 </pkgmetadata>
