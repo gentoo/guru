@@ -9,5 +9,6 @@
 		<doc>https://poljar.github.io/python-olm/html/index.html</doc>
 		<bugs-to>https://gitlab.matrix.org/matrix-org/olm/-/issues</bugs-to>
 		<remote-id type="github">poljar/python-olm</remote-id>
+		<remote-id type="pypi">python-olm</remote-id>
 	</upstream>
 </pkgmetadata>
