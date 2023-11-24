@@ -9,8 +9,8 @@ inherit distutils-r1
 
 DESCRIPTION="Python bindings for dev-libs/olm"
 HOMEPAGE="https://gitlab.matrix.org/matrix-org/olm/"
-SRC_URI="https://gitlab.matrix.org/matrix-org/${PN}/-/archive/${PV}/${P}.tar.bz2"
-S="${WORKDIR}/${P}/python"
+SRC_URI="https://gitlab.matrix.org/matrix-org/olm/-/archive/${PV}/olm-${PV}.tar.bz2"
+S="${WORKDIR}/olm-${PV}/python"
 
 LICENSE="Apache-2.0"
 SLOT="0"

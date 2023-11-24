@@ -20,7 +20,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	dev-python/aiohttp[${PYTHON_USEDEP}]
 	dev-python/attrs[${PYTHON_USEDEP}]
-	dev-python/olm[${PYTHON_USEDEP}]
+	dev-python/python-olm[${PYTHON_USEDEP}]
 	dev-python/pycryptodome[${PYTHON_USEDEP}]
 	dev-python/unpaddedbase64[${PYTHON_USEDEP}]
 	dev-python/yarl[${PYTHON_USEDEP}]

@@ -23,7 +23,7 @@ RDEPEND="
 	dev-python/asyncpg[${PYTHON_USEDEP}]
 	dev-python/commonmark[${PYTHON_USEDEP}]
 	dev-python/mautrix[${PYTHON_USEDEP}]
-	dev-python/olm[${PYTHON_USEDEP}]
+	dev-python/python-olm[${PYTHON_USEDEP}]
 	dev-python/paho-mqtt[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/pycryptodome[${PYTHON_USEDEP}]

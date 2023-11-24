@@ -27,7 +27,7 @@ RDEPEND="
 	dev-python/cryptg[${PYTHON_USEDEP}]
 	dev-python/mako[${PYTHON_USEDEP}]
 	dev-python/mautrix[${PYTHON_USEDEP}]
-	dev-python/olm[${PYTHON_USEDEP}]
+	dev-python/python-olm[${PYTHON_USEDEP}]
 	dev-python/phonenumbers[${PYTHON_USEDEP}]
 	dev-python/pycryptodome[${PYTHON_USEDEP}]
 	dev-python/python-magic[${PYTHON_USEDEP}]
