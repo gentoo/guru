@@ -4,5 +4,6 @@
 	<!-- maintainer-needed -->
 	<upstream>
 		<remote-id type="github">ap/vim-css-color</remote-id>
+		<remote-id type="vim">5056</remote-id>
 	</upstream>
 </pkgmetadata>

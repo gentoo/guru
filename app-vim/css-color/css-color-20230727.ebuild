@@ -5,10 +5,12 @@ EAPI=8
 
 inherit vim-plugin
 
-COMMIT="8bf943681f92c81a8cca19762a1ccec8bc29098a"
+COMMIT="6cc65734bc7105d9677ca54e2255fcbc953ba6bf"
 DESCRIPTION="vim plugin: preview colours in source code while editing"
-HOMEPAGE="http://www.vim.org/scripts/script.php?script_id=5056
-https://github.com/ap/vim-css-color"
+HOMEPAGE="
+	https://github.com/ap/vim-css-color
+	https://www.vim.org/scripts/script.php?script_id=5056
+"
 SRC_URI="https://github.com/ap/vim-${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/vim-${PN}-${COMMIT}"
 
