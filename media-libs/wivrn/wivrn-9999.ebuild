@@ -5,7 +5,8 @@ HOMEPAGE="https://github.com/meumeu/WiVRn"
 SLOT="0"
 LICENSE="GPL-3 Apache-2.0 MIT"
 
-IUSE="nvenc vaapi x264"
+IUSE="nvenc systemd vaapi x264"
+REQUIRED_USE="|| ( nvenc vaapi x264 )"
 
 inherit cmake
 
@@ -36,9 +37,22 @@ RDEPEND="
 		media-libs/x264
 	)
 	dev-libs/libbsd
+	media-libs/libpulse
 	media-libs/openxr-loader
 	net-dns/avahi
-	sys-apps/systemd
+	systemd? (
+		sys-apps/systemd
+	)
+"
+
+BDEPEND="
+	${RDEPEND}
+	nvenc? (
+		dev-util/nvidia-cuda-toolkit
+	)
+	dev-cpp/eigen
+	dev-cpp/nlohmann_json
+	dev-util/glslang
 "
 
 if [[ ${PV} == 9999 ]]; then
@@ -66,9 +80,14 @@ src_configure() {
 	local mycmakeargs=(
 		-DGIT_DESC=${GIT_DESC}
 		-DWIVRN_BUILD_CLIENT=OFF
+		-DWIVRN_USE_NVENC=$(usex nvenc)
+		-DWIVRN_USE_VAAPI=$(usex vaapi)
+		-DWIVRN_USE_X264=$(usex x264)
+		-DWIVRN_USE_SYSTEMD=$(usex systemd)
 		-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
 		-DFETCHCONTENT_FULLY_DISCONNECTED=ON
 		-DFETCHCONTENT_BASE_DIR=${WORKDIR}
+		-DENABLE_COLOURED_OUTPUT=OFF
 	)
 
 	cmake_src_configure
