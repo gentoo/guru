@@ -208,10 +208,11 @@ inherit cargo shell-completion
 
 DESCRIPTION="Efficient animated wallpaper daemon for wayland, controlled at runtime"
 HOMEPAGE="https://github.com/Horus645/swww"
-SRC_URI="https://github.com/Horus645/swww/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz $(cargo_crate_uris)"
+SRC_URI="https://github.com/Horus645/swww/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz ${CARGO_CRATE_URIS}"
 
 LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD ISC MIT Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
+IUSE="debug +man"
 KEYWORDS="~amd64"
 
 DEPEND="app-arch/lz4
@@ -228,6 +229,19 @@ src_install() {
 	dodoc README.md CHANGELOG.md
 	dobashcomp "${WORKDIR}/swww-${PV}/completions/swww.bash"
 	dofishcomp "${WORKDIR}/swww-${PV}/completions/swww.fish"
+
+	if use man ; then
+		for FILE in "${WORKDIR}/swww-${PV}/doc/*scd"; do
+			scdoc < "$FILE" > "${WORKDIR}/swww-${PV}/doc/"
+		done
+		doman "${WORKDIR}/swww-${PV}/doc/swww.1"
+		doman "${WORKDIR}/swww-${PV}/doc/swww-clear.1"
+		doman "${WORKDIR}/swww-${PV}/doc/swww-daemon.1"
+		doman "${WORKDIR}/swww-${PV}/doc/swww-img.1"
+		doman "${WORKDIR}/swww-${PV}/doc/swww-init.1"
+		doman "${WORKDIR}/swww-${PV}/doc/swww-kill.1"
+		doman "${WORKDIR}/swww-${PV}/doc/swww-query.1"
+	fi
 
 	if use debug ; then
 		cd target/debug || die
