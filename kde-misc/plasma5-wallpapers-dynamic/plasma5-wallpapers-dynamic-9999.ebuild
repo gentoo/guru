@@ -32,7 +32,7 @@ DEPEND="
 	>=kde-frameworks/kconfig-${KFMIN}:5
 	>=kde-frameworks/ki18n-${KFMIN}:5
 	>=kde-frameworks/kpackage-${KFMIN}:5
-	>=kde-frameworks/libplasma-${KFMIN}:5
+	>=kde-plasma/libplasma-${KFMIN}:5
 	>=media-libs/libheif-1.3.0
 	>=kde-frameworks/kirigami-${KFMIN}:5
 	media-libs/libexif

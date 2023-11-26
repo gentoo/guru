@@ -19,7 +19,7 @@ fi
 LICENSE="GPL-2+"
 SLOT="5"
 
-DEPEND="kde-frameworks/libplasma:5"
+DEPEND="kde-plasma/libplasma:5"
 RDEPEND="${DEPEND}
 	kde-plasma/ksysguard:5[lm-sensors]
 "
