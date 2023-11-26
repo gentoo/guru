@@ -23,7 +23,7 @@ LICENSE="GPL-3"
 SLOT="0"
 
 BDEPEND="
-	kde-frameworks/extra-cmake-modules:5
+	kde-frameworks/extra-cmake-modules
 "
 DEPEND="
 	dev-libs/libdbusmenu-qt

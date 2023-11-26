@@ -30,7 +30,7 @@ RDEPEND="
 	x11-libs/libxcb"
 DEPEND="${RDEPEND}
 	dev-qt/qtconcurrent:5
-	kde-frameworks/extra-cmake-modules:5
+	kde-frameworks/extra-cmake-modules
 "
 BDEPEND="
 	dev-qt/linguist-tools:5
