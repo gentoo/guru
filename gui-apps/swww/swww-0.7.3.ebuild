@@ -212,7 +212,7 @@ SRC_URI="https://github.com/Horus645/swww/archive/refs/tags/v${PV}.tar.gz -> ${P
 
 LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD ISC MIT Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
-IUSE="debug +man"
+IUSE="+man"
 KEYWORDS="~amd64"
 
 DEPEND="app-arch/lz4
@@ -231,22 +231,21 @@ src_install() {
 	dofishcomp "${WORKDIR}/swww-${PV}/completions/swww.fish"
 
 	if use man ; then
-		for FILE in "${WORKDIR}/swww-${PV}/doc/*scd"; do
-			scdoc < "$FILE" > "${WORKDIR}/swww-${PV}/doc/"
-		done
-		doman "${WORKDIR}/swww-${PV}/doc/swww.1"
-		doman "${WORKDIR}/swww-${PV}/doc/swww-clear.1"
-		doman "${WORKDIR}/swww-${PV}/doc/swww-daemon.1"
-		doman "${WORKDIR}/swww-${PV}/doc/swww-img.1"
-		doman "${WORKDIR}/swww-${PV}/doc/swww-init.1"
-		doman "${WORKDIR}/swww-${PV}/doc/swww-kill.1"
-		doman "${WORKDIR}/swww-${PV}/doc/swww-query.1"
+		cd "${WORKDIR}/swww-${PV}/doc/"
+		./gen.sh #generate the man pages
+		doman "generated/swww.1"
+		doman "generated/swww-clear.1"
+		doman "generated/swww-daemon.1"
+		doman "generated/swww-img.1"
+		doman "generated/swww-init.1"
+		doman "generated/swww-kill.1"
+		doman "generated/swww-query.1"
 	fi
 
 	if use debug ; then
-		cd target/debug || die
+		cd "${WORKDIR}/swww-${PV}/target/debug" || die
 	else
-		cd target/release || die
+		cd "${WORKDIR}/swww-${PV}/target/release"  || die
 	fi
 
 	dobin swww{,-daemon}
