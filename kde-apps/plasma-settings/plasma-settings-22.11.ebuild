@@ -31,9 +31,9 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kpackage-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
+	>=kde-frameworks/libplasma-${KFMIN}:5
 	>=kde-frameworks/modemmanager-qt-${KFMIN}:5
 	>=kde-frameworks/networkmanager-qt-${KFMIN}:5
-	>=kde-frameworks/plasma-${KFMIN}:5
 	>=kde-frameworks/solid-${KFMIN}:5
 	virtual/libcrypt:=
 "
