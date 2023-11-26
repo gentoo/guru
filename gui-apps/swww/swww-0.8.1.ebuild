@@ -234,8 +234,8 @@ src_install() {
 	dofishcomp "${WORKDIR}/swww-${PV}/completions/swww.fish"
 
 	if use man ; then
-		cd "${WORKDIR}/swww-${PV}/doc/"
-		./gen.sh #generate the man pages
+		cd "${WORKDIR}/swww-${PV}/doc/" || die
+		./gen.sh || die #generate the man pages
 		doman "generated/swww.1"
 		doman "generated/swww-clear.1"
 		doman "generated/swww-daemon.1"
