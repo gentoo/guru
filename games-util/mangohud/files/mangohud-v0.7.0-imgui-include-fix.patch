@@ -1,0 +1,13 @@
+diff --git a/src/overlay.h b/src/overlay.h
+index 8b53285..127c3db 100644
+--- a/src/overlay.h
++++ b/src/overlay.h
+@@ -7,7 +7,7 @@
+ #include <vector>
+ #include <deque>
+ #include <imgui.h>
+-#include "imgui_internal.h"
++#include "imgui/imgui_internal.h"
+ #include "overlay_params.h"
+ #include "hud_elements.h"
+ #include "engine_types.h"
