@@ -25,10 +25,14 @@ SRC_URI="
 
 # The program itself is licensed under AGPL-3+ with contributed portions licensed
 # under BSD-3.
-LICENSE="AGPL-3+ BSD"
 # The translation files are licensed under BSD-3 and public-domain.
 # - ftl/
-#
+LICENSE="AGPL-3+ BSD public-domain"
+# Dependent crate licenses
+LICENSE+="
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 CC0-1.0 ISC MIT
+	MPL-2.0 openssl Unicode-DFS-2016
+"
 # The supermemo importer is licensed under GPL-3+ and 0BSD.
 # - pylib/anki/importing/supermemo_xml.py
 #
@@ -48,18 +52,14 @@ LICENSE="AGPL-3+ BSD"
 # The Winpath module is licensed under MIT.
 # - qt/aqt/winpaths.py
 #
-# jQuery and jQuery-UI are licensed under MIT.
-# - node_modules/jquery/jquery.min.js
-# - node_modules/jquery-ui/jquery-ui.min.js
+# The licenses for the runtime JS libaries are documented in the source code.
+# - ts/licenses.json
+# How to get an up-to-date summary:
+# ./node_modules/.bin/license-checker-rseidelsohn --production --excludePackages anki --summary
 #
-# The Flot plotting library is licensed under MIT.
+# The vendored Flot plotting library is licensed under MIT.
 # - qt/aqt/data/web/js/vendor/plot.js
-LICENSE+=" public-domain 0BSD Apache-2.0 CC-BY-2.5 CC-BY-4.0 GPL-3+ MIT"
-# Dependent crate licenses
-LICENSE+="
-	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0 ISC MIT
-	MPL-2.0 openssl Unicode-DFS-2016
-"
+LICENSE+=" 0BSD CC-BY-4.0 CC-BY-SA-2.5 GPL-3+ Unlicense"
 
 SLOT="0"
 KEYWORDS="~amd64"
