@@ -14,6 +14,8 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
+DEPEND="dev-libs/libedit"
+RDEPEND="${DEPEND}"
 BDEPEND="
 	$(python_gen_any_dep 'dev-python/pyyaml[${PYTHON_USEDEP}]' )
 "
