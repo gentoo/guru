@@ -9,7 +9,7 @@
 		<remote-id type="github">Nheko-Reborn/nheko</remote-id>
 	</upstream>
 	<use>
-		<flag name="video">Enables video calls</flag>
-		<flag name="voip">Enables audio calls</flag>
+		<flag name="video">Enable video calls</flag>
+		<flag name="voip">Enable audio calls</flag>
 	</use>
 </pkgmetadata>
