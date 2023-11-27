@@ -187,6 +187,8 @@ IUSE="lua52 lua53 lua54 luau"
 
 S="${WORKDIR}/StyLua-${PV}"
 
+QA_FLAGS_IGNORED=".*"
+
 src_configure() {
 	local myfeatures=(
 		$(usev lua52)
