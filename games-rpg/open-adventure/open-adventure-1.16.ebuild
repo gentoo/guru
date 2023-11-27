@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
-inherit desktop python-any-r1
+inherit desktop flag-o-matic python-any-r1
 
 DESCRIPTION="Forward-port of the Crowther/Woods Adventure 2.5"
 HOMEPAGE="http://www.catb.org/~esr/open-adventure/"
@@ -13,6 +13,14 @@ SRC_URI="https://gitlab.com/esr/${PN}/-/archive/${PV}/${P}.tar.bz2"
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="autosave nosave test"
+# autosave and nosave are mutually exclusive
+# tests require that they are both disabled
+REQUIRED_USE="
+	?? ( autosave nosave )
+	test? ( !autosave !nosave )
+"
+RESTRICT="!test? ( test )"
 
 DEPEND="dev-libs/libedit"
 RDEPEND="${DEPEND}"
@@ -26,7 +34,22 @@ python_check_deps() {
 	python_has_version "dev-python/pyyaml[${PYTHON_USEDEP}]"
 }
 
+src_prepare() {
+	eapply_user
+
+	# Add missing semicolon
+	sed -e 's/rspeak(SAVERESUME_DISABLED)/rspeak(SAVERESUME_DISABLED);/' \
+		-i saveresume.c
+}
+
 src_compile() {
+	if use autosave; then
+		append-cflags "-DADVENT_AUTOSAVE"
+	fi
+	if use nosave; then
+		append-cflags "-DADVENT_NOSAVE"
+	fi
+
 	emake advent advent.6
 }
 

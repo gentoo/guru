@@ -5,6 +5,10 @@
 		<email>smaniotto.nicola@gmail.com</email>
 		<name>Nicola Smaniotto</name>
 	</maintainer>
+	<use>
+		<flag name="autosave">Build with auto-save/resume enabled</flag>
+		<flag name="nosave">Build with save/resume disabled</flag>
+	</use>
 	<upstream>
 		<remote-id type="gitlab">esr/open-adventure</remote-id>
 	</upstream>
