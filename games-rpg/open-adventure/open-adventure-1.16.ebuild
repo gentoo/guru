@@ -15,11 +15,14 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 BDEPEND="
-	${PYTHON_DEPS}
 	$(python_gen_any_dep 'dev-python/pyyaml[${PYTHON_USEDEP}]' )
 "
 
 DOCS=( NEWS.adoc hints.adoc history.adoc README.adoc notes.adoc )
+
+python_check_deps() {
+	python_has_version "dev-python/pyyaml[${PYTHON_USEDEP}]"
+}
 
 src_compile() {
 	emake advent advent.6
