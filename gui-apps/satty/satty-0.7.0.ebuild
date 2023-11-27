@@ -169,7 +169,7 @@ CRATES="
 	zvariant_utils-1.0.1
 "
 
-inherit cargo desktop
+inherit cargo desktop xdg
 
 DESCRIPTION="A screenshot annotation tool inspired by Swappy and Flameshot."
 HOMEPAGE="https://github.com/gabm/satty"
@@ -197,7 +197,13 @@ QA_FLAGS_IGNORED="usr/bin/${PN}"
 
 src_install() {
 	dodoc README.md
-	cd target/release || die
+
+	if use debug ; then
+		cd target/debug || die
+	else
+		cd target/release  || die
+	fi
+
 	dobin satty
 	#Just add the icon and desktop file
 	doicon "${S}/assets/satty.svg"

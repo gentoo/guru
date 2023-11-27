@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cargo git-r3 desktop
+inherit cargo git-r3 desktop xdg
 
 DESCRIPTION="A screenshot annotation tool inspired by Swappy and Flameshot."
 HOMEPAGE="https://github.com/gabm/satty"
@@ -30,7 +30,13 @@ src_unpack() {
 
 src_install() {
 	dodoc README.md
-	cd target/release || die
+
+	if use debug ; then
+		cd target/debug || die
+	else
+		cd target/release  || die
+	fi
+
 	dobin satty
 	#Just add the icon and desktop file
 	doicon "${S}/assets/satty.svg"
