@@ -29,17 +29,18 @@ IUSE="debug"
 
 DEPEND="dev-libs/quazip
 	dev-qt/qtconcurrent:5
+	dev-qt/qtcore:5
+	dev-qt/qtdeclarative:5
+	dev-qt/qtgui:5
 	dev-qt/qtmultimedia:5[widgets]
+	dev-qt/qtopengl:5
 	dev-qt/qtsql:5
 	dev-qt/qtsvg:5
 	dev-qt/qtxmlpatterns:5
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
 	dev-util/cmake
-	media-video/mediainfo
 	media-libs/libzen
-	media-libs/phonon"
-
+	media-libs/phonon
+	media-video/mediainfo"
 src_configure() {
 	local mycmakeargs=("-DUSE_EXTERN_QUAZIP=ON")
 	if use debug; then
