@@ -1,0 +1,16 @@
+# We provide media-libs/imgui in guru
+
+diff --git a/meson.build b/meson.build.new
+index b628fe0..16b11de 100644
+--- a/meson.build
++++ b/meson.build
+@@ -5,8 +5,7 @@ project(
+   version : '0.16',
+ )
+
+-imgui_sp = subproject('imgui')
+-imgui_dep = imgui_sp.get_variable('imgui_dep')
++imgui_dep = dependency('imgui')
+
+ implot_inc = include_directories('.')
+ implot_src = files(

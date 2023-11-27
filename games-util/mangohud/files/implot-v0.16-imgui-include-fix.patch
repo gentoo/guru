@@ -1,0 +1,45 @@
+diff --git a/.github/example_implot.cpp b/.github/example_implot.cpp
+index 9339bab..13bcf8c 100644
+--- a/.github/example_implot.cpp
++++ b/.github/example_implot.cpp
+@@ -1,12 +1,12 @@
+ // Sample app built with Dear ImGui and ImPlot
+ // This app uses implot and imgui, but does not output to any backend! It only serves as a proof that an app can be built, linked, and run.
+ 
+-#include "imgui.h"
++#include "imgui/imgui.h"
+ #include "implot.h"
+ #include "stdio.h"
+ 
+ int main(int, char**)
+-{    
++{
+     printf("sample_implot: start\n");
+ 
+     IMGUI_CHECKVERSION();
+diff --git a/implot.h b/implot.h
+index 36c0d40..5dabc9d 100644
+--- a/implot.h
++++ b/implot.h
+@@ -45,7 +45,7 @@
+ // [SECTION] Obsolete API
+ 
+ #pragma once
+-#include "imgui.h"
++#include "imgui/imgui.h"
+ 
+ //-----------------------------------------------------------------------------
+ // [SECTION] Macros and Defines
+diff --git a/implot_internal.h b/implot_internal.h
+index fb01204..4e58767 100644
+--- a/implot_internal.h
++++ b/implot_internal.h
+@@ -32,7 +32,7 @@
+ #pragma once
+ 
+ #include <time.h>
+-#include "imgui_internal.h"
++#include "imgui/imgui_internal.h"
+ 
+ #ifndef IMPLOT_VERSION
+ #error Must include implot.h before implot_internal.h
