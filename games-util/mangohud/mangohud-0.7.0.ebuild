@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit python-any-r1 meson
+inherit python-single-r1 meson
 
 MY_PV=$(ver_cut 1-3)
 [[ -n "$(ver_cut 4)" ]] && MY_PV_REV="-$(ver_cut 4)"
@@ -40,22 +40,18 @@ SLOT="0"
 IUSE="+dbus debug +X xnvctrl wayland video_cards_nvidia video_cards_amdgpu"
 
 REQUIRED_USE="
+	${PYTHON_REQUIRED_USE}
 	|| ( X wayland )
-	xnvctrl? ( video_cards_nvidia )"
+	xnvctrl? ( video_cards_nvidia )
+"
 
 BDEPEND="
 	app-arch/unzip
-	$(python_gen_any_dep 'dev-python/mako[${PYTHON_USEDEP}]')
+	$(python_gen_cond_dep 'dev-python/mako[${PYTHON_USEDEP}]')
 "
 
-python_check_deps() {
-	python_has_version "dev-python/mako[${PYTHON_USEDEP}]" ||
-	python_has_version "dev-python/matplotlib[gtk3,${PYTHON_USEDEP}]" ||
-	python_has_version "dev-python/matplotlib[qt5,${PYTHON_USEDEP}]" ||
-	python_has_version "dev-python/matplotlib[wxwidgets,${PYTHON_USEDEP}]"
-}
-
-DEPEND="
+RDEPEND="
+	${PYTHON_DEPS}
 	~media-libs/imgui-1.81[opengl,vulkan]
 	dev-cpp/nlohmann_json
 	dev-libs/spdlog
@@ -71,16 +67,14 @@ DEPEND="
 		xnvctrl? ( x11-drivers/nvidia-drivers[static-libs] )
 	)
 	wayland? ( dev-libs/wayland )
-	|| (
-			 $(python_gen_any_dep '
-					dev-python/matplotlib[gtk3,${PYTHON_USEDEP}]
-					dev-python/matplotlib[qt5,${PYTHON_USEDEP}]
-					dev-python/matplotlib[wxwidgets,${PYTHON_USEDEP}]
-				')
-		 )
+	$(python_gen_cond_dep '
+		|| (
+			dev-python/matplotlib[gtk3,${PYTHON_USEDEP}]
+			dev-python/matplotlib[qt5,${PYTHON_USEDEP}]
+			dev-python/matplotlib[wxwidgets,${PYTHON_USEDEP}]
+		)
+	')
 "
-
-RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/mangohud-v0.7.0-meson-fix-imgui-dep.patch"
