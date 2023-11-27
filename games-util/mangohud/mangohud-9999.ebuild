@@ -85,7 +85,6 @@ RDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/mangohud-v0.7.0-meson-fix-imgui-dep.patch"
-	"${FILESDIR}/mangohud-v0.7.0-imgui-include-fix.patch"
 )
 
 src_unpack() {
@@ -108,14 +107,15 @@ src_unpack() {
 
 	cd "${S}/subprojects/implot-${IMPLOT_VER}" || die
 	eapply "${FILESDIR}/implot-v0.16-fix-imgui-dep.patch"
-	eapply "${FILESDIR}/implot-v0.16-imgui-include-fix.patch"
 }
 
 src_prepare() {
 	default
 	# replace all occurences of "#include <imgui.h>" to "#include <imgui/imgui.h>"
-	find . -type f -exec sed -i 's/#include <imgui.h>/#include <imgui\/imgui.h>/g' {} \;
-	find . -type f -exec sed -i 's/#include "imgui.h"/#include <imgui\/imgui.h>/g' {} \;
+	find . -type f -exec sed -i 's|<imgui.h>|<imgui/imgui.h>|g' {} \; || die
+	find . -type f -exec sed -i 's|"imgui.h"|<imgui/imgui.h>|g' {} \; || die
+	find . -type f -exec sed -i 's|<imgui_internal.h>|<imgui/imgui_internal.h>|g' {} \; || die
+	find . -type f -exec sed -i 's|"imgui_internal.h"|<imgui/imgui_internal.h>|g' {} \; || die
 }
 
 src_configure() {
