@@ -276,7 +276,7 @@ KEYWORDS="~amd64"
 IUSE="+drm gtk"
 
 DEPEND="
-	drm? ( x11-libs/libdrm )
+	drm? ( x11-libs/libdrm[video_cards_amdgpu] )
 	gtk? ( gui-libs/gtk:4 )
 "
 RDEPEND="
@@ -296,7 +296,7 @@ PATCHES=(
 
 src_configure() {
 	sed -i "s|target/release|target/$(usex debug debug release)|" Makefile || die
-	sed -i "/^strip =.*/d" Cargo.toml || die
+	sed -i "/^strip =/d" Cargo.toml || die
 
 	local myfeatures=(
 		$(usev gtk lact-gui)
