@@ -215,6 +215,7 @@ BDEPEND="
 DEPEND="
 	media-libs/fontconfig
 	media-libs/freetype
+	media-libs/harfbuzz
 	x11-libs/libxcb"
 RDEPEND="${DEPEND}
 	x11-misc/xclip"
