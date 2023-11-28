@@ -14,7 +14,7 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="GPL-3 MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="X tiff video voip webp"
+IUSE="X doc +jpeg man tiff v4l video voip +webp"
 REQUIRED_USE="video? ( voip )"
 
 MY_GST_V="1.18"
@@ -31,7 +31,7 @@ COMMON_DEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtdbus:5
 	dev-qt/qtdeclarative:5[widgets]
-	dev-qt/qtgui:5[png]
+	dev-qt/qtgui:5[jpeg?,png]
 	dev-qt/qtmultimedia:5[qml]
 	dev-qt/qtnetwork:5
 	dev-qt/qtsvg:5
@@ -55,9 +55,12 @@ DEPEND="${COMMON_DEPEND}
 	>=dev-db/lmdb++-1.0.0
 	dev-qt/qtconcurrent:5
 "
+# 'virtual/notification-daemon' is required because of upstream bug:
+# https://github.com/Nheko-Reborn/nheko/issues/693
 RDEPEND="${COMMON_DEPEND}
 	dev-qt/qtgraphicaleffects:5
 	dev-qt/qtquickcontrols2:5
+	virtual/notification-daemon
 	tiff? ( dev-qt/qtimageformats:5 )
 	voip? (
 		>=media-plugins/gst-plugins-dtls-${MY_GST_V}:1.0
@@ -67,7 +70,7 @@ RDEPEND="${COMMON_DEPEND}
 		>=media-plugins/gst-plugins-webrtc-${MY_GST_V}:1.0
 		video? (
 			>=media-libs/gst-plugins-base-${MY_GST_V}:1.0[opengl]
-			>=media-plugins/gst-plugins-meta-${MY_GST_V}:1.0[vpx]
+			>=media-plugins/gst-plugins-meta-${MY_GST_V}:1.0[v4l?,vpx]
 			>=media-plugins/gst-plugins-qt5-${MY_GST_V}:1.0
 			X? (
 				>=media-plugins/gst-plugins-ximagesrc-${MY_GST_V}:1.0
@@ -78,9 +81,12 @@ RDEPEND="${COMMON_DEPEND}
 "
 BDEPEND="
 	dev-qt/linguist-tools:5
-	|| (
-		app-text/asciidoc
-		dev-ruby/asciidoctor
+	doc? ( app-doc/doxygen[dot] )
+	man? (
+		|| (
+			app-text/asciidoc
+			dev-ruby/asciidoctor
+		)
 	)
 "
 
@@ -89,14 +95,29 @@ PATCHES=(
 	"${FILESDIR}"/${P}-fix-build-against-fmt10.patch
 )
 
+DOCS=( {CHANGELOG,README}.md )
+
 src_configure() {
 	local -a mycmakeargs=(
 		-DSCREENSHARE_X11=$(if use video && use X; then echo ON; else echo OFF; fi)
 		-DVOIP=$(usex voip)
+		-DBUILD_DOCS=$(usex doc)
+		-DMAN=$(usex man)
 		-DUSE_BUNDLED_CPPHTTPLIB=OFF
 		-DUSE_BUNDLED_BLURHASH=OFF
+
+		# See #890903 and #911111
+		-DCMAKE_POSITION_INDEPENDENT_CODE=OFF
+
+		# Handle transitive dependencies
+		-DOPENSSL_FOUND:BOOL=TRUE
+		-Dlibevent_core_FOUND:BOOL=TRUE
+		-Dlibevent_pthreads_FOUND:BOOL=TRUE
+		-Dlibcurl_FOUND:BOOL=TRUE
+		-Dre2_FOUND:BOOL=TRUE
 	)
 
+	use doc && HTML_DOCS=( "${BUILD_DIR}"/docs/html/. )
 	cmake_src_configure
 }
 
