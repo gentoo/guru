@@ -9,7 +9,7 @@ SRC_URI="https://github.com/nwg-piotr/nwg-look/archive/refs/tags/v${PV}.tar.gz -
 				https://github.com/micielski/nwg-look-vendor/releases/download/${PV}/nwg-look-${PV}-vendor.tar.xz
 "
 
-inherit go-module xdg-utils desktop
+inherit go-module xdg desktop
 
 LICENSE="MIT"
 SLOT="0"
@@ -41,14 +41,4 @@ src_install() {
 	insinto /usr/share/pixmaps
 	doins stuff/nwg-look.svg
 	domenu stuff/nwg-look.desktop
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
 }
