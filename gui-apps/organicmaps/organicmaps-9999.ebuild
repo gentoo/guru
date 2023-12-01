@@ -16,6 +16,7 @@ DEPEND="sys-devel/clang
 	dev-libs/icu
 	sys-libs/libstdc++-v3
 	dev-qt/qtcore
+	dev-qt/qtpositioning
 	dev-qt/qtsvg
 	dev-db/sqlite
 	sys-libs/zlib[minizip]"
