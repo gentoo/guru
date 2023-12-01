@@ -4,11 +4,11 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1
 
-hash_commit="4e742d7cf4cdc7e2d8a9a768305fd9f7060b6b74"
+hash_commit="be6340920e0f31a362bcedaf0f08ef1ce2c64a8b"
 
 DESCRIPTION="Modern Text User Interface framework"
 HOMEPAGE="https://github.com/Textualize/textual-dev https://pypi.org/project/textual-dev/"
