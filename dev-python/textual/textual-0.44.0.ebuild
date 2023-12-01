@@ -1,10 +1,10 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1
 
@@ -41,8 +41,11 @@ python_install_all() {
 	elog "If you want the documentation, you can read it at https://textual.textualize.io/"
 }
 
-python_test() {
+EPYTEST_DESELECT=(
 	# Those tests ask to press keys
-	local EPYTEST_IGNORE="tests/snapshot_tests/test_snapshots.py"
-	epytest "${S}/tests" || die "Tests failed with ${EPYTHON}"
-}
+	tests/snapshot_tests/test_snapshots.py
+
+	# Need a package that should be optional
+	tests/text_area/test_languages.py::test_register_language
+	tests/text_area/test_languages.py::test_register_language_existing_language
+)
