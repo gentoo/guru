@@ -12,6 +12,7 @@ KEYWORDS="~amd64"
 
 LICENSE="MIT"
 SLOT="0"
+RESTRICT="strip"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
