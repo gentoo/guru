@@ -42,7 +42,7 @@ src_configure() {
 		* ) die "unsupported architecture: ${ARCH}" ;;
 	esac
 
-	cp config.example.mk config.mk || die
+	cp configs/linux.mk config.mk || die
 	sed -i \
 		-e 's;=aarch64-;=;' \
 		-e 's;=riscv64-;=;' \
