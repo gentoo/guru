@@ -5,7 +5,7 @@ EAPI=8
 
 inherit check-reqs shards systemd
 
-COMMIT="bb14f794969f62582917a39c2dd57bf92fa146a7"
+COMMIT="438467f69a20007cace4f300d03138b7d2d7e79a"
 MOCKS_COMMIT="11ec372f72747c09d48ffef04843f72be67d5b54"
 MOCKS_P="${PN}-mocks-${MOCKS_COMMIT:0:7}"
 DESCRIPTION="Invidious is an alternative front-end to YouTube"
