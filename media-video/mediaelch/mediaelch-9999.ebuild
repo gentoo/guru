@@ -49,6 +49,8 @@ src_configure() {
 		mycmakeargs+=("-DSANITIZE_ADDRESS=on")
 		CXXFLAGS+=("-fsanitize=address")
 	fi
+	mycmakeargs+=("-DCMAKE_C_FLAGS=${CFLAGS}")
+	mycmakeargs+=("-DCMAKE_CXX_FLAGS=${CXXFLAGS}")
 
 	cmake_src_configure
 }
