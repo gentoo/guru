@@ -218,7 +218,7 @@ KEYWORDS="~amd64"
 DEPEND="app-arch/lz4
 	x11-libs/libxkbcommon[wayland]"
 RDEPEND="${DEPEND}"
-BDEPEND=""
+BDEPEND="app-text/scdoc"
 
 QA_FLAGS_IGNORED="
 	usr/bin/swww

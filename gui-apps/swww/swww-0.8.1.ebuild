@@ -221,7 +221,10 @@ DEPEND="
 	app-arch/lz4
 	x11-libs/libxkbcommon[wayland]"
 RDEPEND="${DEPEND}"
-BDEPEND=">=virtual/rust-1.70.0"
+BDEPEND="
+	>=virtual/rust-1.70.0
+	app-text/scdoc
+"
 
 QA_FLAGS_IGNORED="
 	usr/bin/swww
