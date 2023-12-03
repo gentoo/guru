@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
@@ -11,7 +11,7 @@ MY_PN="encrypted-content-encoding"
 DESCRIPTION="Encrypted Content Encoding for HTTP"
 HOMEPAGE="
 	https://pypi.org/project/http-ece/
-	https://github.com/martinthomson/encrypted-content-encoding
+	https://github.com/web-push-libs/encrypted-content-encoding
 "
 SRC_URI="https://github.com/martinthomson/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/${MY_PN}-${PV}/python"
