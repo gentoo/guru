@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="app-misc/pax-utils"
-DEPEND=">=dev-python/zenlib-1.1.1
+DEPEND=">=dev-python/zenlib-1.2.0
 		dev-python/pycpio"
 
 src_install() {
