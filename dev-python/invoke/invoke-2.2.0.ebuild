@@ -15,7 +15,19 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-src_prepare(){
-	rm -r ./invoke/vendor/yaml2
-	eapply_user
-}
+BDEPEND="
+	test? (
+		dev-python/decorator[${PYTHON_USEDEP}]
+		>=dev-python/icecream-2.1[${PYTHON_USEDEP}]
+		>=dev-python/pytest-cov-4[${PYTHON_USEDEP}]
+		>=dev-python/pytest-relaxed-2[${PYTHON_USEDEP}]
+	)
+"
+
+distutils_enable_tests pytest
+EPYTEST_DESELECT=(
+	# Most of those fails with "OSError: reading from stdin while output is captured"
+	# seems like it is because I do the testing in a chroot
+	# Because there are 112 tests that fails, I'd rather skip the file than manually add 112 tests
+	tests/runners.py
+)
