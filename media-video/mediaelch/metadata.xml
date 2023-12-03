@@ -5,6 +5,9 @@
 		<email>web.alexander@web.de</email>
 		<name>Alexander Weber</name>
 	</maintainer>
+	<use>
+		<flag name="lto">Enable link-time-optimization. Increases link time.</flag>
+	</use>
 	<upstream>
 		<remote-id type="github">Komet/MediaElch</remote-id>
 	</upstream>
