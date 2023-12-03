@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake toolchain-funcs
+inherit systemd cmake toolchain-funcs
 
 DESCRIPTION="xdg-desktop-portal backend for hyprland"
 HOMEPAGE="https://github.com/hyprwm/xdg-desktop-portal-hyprland"
@@ -83,7 +83,26 @@ src_compile() {
 }
 
 src_install() {
+	LIBEXEC="/usr/libexec"
+	SYSTEMD_SERVICE="${S}/contrib/systemd/xdg-desktop-portal-hyprland.service"
+	DBUS_SERVICE="${S}/org.freedesktop.impl.portal.desktop.hyprland.service"
+
 	cmake_src_install
-	exeinto /usr/libexec
+
+	exeinto $LIBEXEC
 	doexe "${BUILD_DIR}/xdg-desktop-portal-hyprland"
+
+	insinto /usr/share/xdg-desktop-portal/portals
+	doins "${S}/hyprland.portal"
+
+	# systemd service
+	sed -i "s|@libexecdir@|${LIBEXEC}|g" "${SYSTEMD_SERVICE}.in"
+	mv "${SYSTEMD_SERVICE}.in" "${SYSTEMD_SERVICE}" || die
+	systemd_douserunit "${SYSTEMD_SERVICE}"
+
+	# dbus service
+	sed -i "s|@libexecdir@|${LIBEXEC}|g" "${DBUS_SERVICE}.in"
+	mv "${DBUS_SERVICE}.in" "${DBUS_SERVICE}"
+	insinto /usr/share/dbus-1/services/
+	doins "${DBUS_SERVICE}"
 }
