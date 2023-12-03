@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="project">
+		<email>gasc@eurecom.fr</email>
+		<name>Gasc Henri</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="pypi">pytest-relaxed</remote-id>
+		<remote-id type="github">bitprophet/pytest-relaxed</remote-id>
+	</upstream>
+</pkgmetadata>
