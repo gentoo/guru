@@ -19,25 +19,23 @@ KEYWORDS="~amd64"
 DEPEND="dev-libs/olm"
 RDEPEND="
 	${DEPEND}
-	virtual/python-cffi[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		dev-python/cffi[${PYTHON_USEDEP}]
+	' 'python*')
 "
 BDEPEND="
-	test? (
-		dev-python/aspectlib[${PYTHON_USEDEP}]
-		dev-python/pytest-benchmark[${PYTHON_USEDEP}]
-	)
+	test? ( dev-python/aspectlib[${PYTHON_USEDEP}] )
 "
 
 DOCS=( README-python.md )
+
+EPYTEST_DESELECT=(
+	# disable benchmarks
+	tests/group_session_test.py::TestClass::test_encrypt
+	tests/group_session_test.py::TestClass::test_decrypt
+)
 
 distutils_enable_tests pytest
 
 distutils_enable_sphinx docs \
 	dev-python/alabaster
-
-src_prepare() {
-	distutils-r1_src_prepare
-
-	# To avoid merge collision with dev-libs/olm
-	mv "README.md" "README-python.md" || die
-}
