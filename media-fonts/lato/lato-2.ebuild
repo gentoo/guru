@@ -7,7 +7,7 @@ inherit font
 
 DESCRIPTION="Lato font"
 HOMEPAGE="https://www.latofonts.com/"
-SRC_URI="https://www.latofonts.com/download/Lato2OFL.zip -> ${P}.zip"
+SRC_URI="https://www.latofonts.com/files/Lato2OFL.zip -> ${P}.zip"
 
 LICENSE="OFL-1.1"
 SLOT="0"
