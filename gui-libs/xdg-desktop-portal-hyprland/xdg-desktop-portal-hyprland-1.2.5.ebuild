@@ -74,7 +74,7 @@ src_unpack() {
 
 src_prepare() {
 	eapply "${FILESDIR}/xdg-desktop-portal-hyprland-1.2.5_use_sys_sdbus-c++.patch"
-	sed -i "/add_compile_options(-O3)/d" "${S}/CMakeLists.txt" || die "Sed failed"
+	sed -i "/add_compile_options(-O3)/d" "${S}/CMakeLists.txt" || die
 	cmake_src_prepare
 }
 
@@ -96,12 +96,12 @@ src_install() {
 	doins "${S}/hyprland.portal"
 
 	# systemd service
-	sed -i "s|@libexecdir@|${LIBEXEC}|g" "${SYSTEMD_SERVICE}.in"
+	sed -i "s|@libexecdir@|${LIBEXEC}|g" "${SYSTEMD_SERVICE}.in" || die
 	mv "${SYSTEMD_SERVICE}.in" "${SYSTEMD_SERVICE}" || die
 	systemd_douserunit "${SYSTEMD_SERVICE}"
 
 	# dbus service
-	sed -i "s|@libexecdir@|${LIBEXEC}|g" "${DBUS_SERVICE}.in"
+	sed -i "s|@libexecdir@|${LIBEXEC}|g" "${DBUS_SERVICE}.in" || die
 	mv "${DBUS_SERVICE}.in" "${DBUS_SERVICE}"
 	insinto /usr/share/dbus-1/services/
 	doins "${DBUS_SERVICE}"
