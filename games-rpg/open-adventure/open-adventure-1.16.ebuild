@@ -35,6 +35,10 @@ python_check_deps() {
 }
 
 src_prepare() {
+	# remove uncommon flags
+	sed -e 's/-D_FORTIFY_SOURCE=2 -fstack-protector-all $(CFLAGS) -g/$(CFLAGS)/' \
+		-i Makefile
+
 	eapply_user
 
 	# Add missing semicolon
