@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/desultory/pycpio"
 SRC_URI="https://github.com/desultory/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 # Specify the subdirectory containing the actual source code
-S="${WORKDIR}/${PN}-${PV}/src"
+S="${WORKDIR}/${PN}-${PV}"
 
 LICENSE="GPL-2"
 SLOT="0"
