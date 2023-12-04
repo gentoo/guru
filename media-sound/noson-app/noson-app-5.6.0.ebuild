@@ -22,7 +22,7 @@ DEPEND="
 	>=dev-qt/qtsvg-5.9
 	dev-libs/openssl:0
 	media-libs/flac
-	media-sound/pulseaudio
+	media-libs/libpulse
 "
 RDEPEND="${DEPEND}"
 
