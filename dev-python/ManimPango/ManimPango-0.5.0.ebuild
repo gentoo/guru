@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,18 +19,20 @@ KEYWORDS="~amd64"
 IUSE="debug"
 
 BDEPEND="
-	dev-python/cython[${PYTHON_USEDEP}]
+	>=dev-python/cython-3.0.2[${PYTHON_USEDEP}]
 	x11-libs/pango
 "
-# 	doc? (
-# 		dev-python/sphinxext-opengraph[${PYTHON_USEDEP}]
-# 	)
+	# doc? (
+	# 	dev-python/furo[${PYTHON_USEDEP}]
+	# 	dev-python/sphinxext-opengraph[${PYTHON_USEDEP}]
+	# )
 DEPEND="${BDEPEND}"
 
 src_prepare() {
-	# The tests always fails (ManimPango has to be installed for them to work)
+	# The tests always fails. I cannot find how to solve it
 	rm -rf "${S}/tests"
 	distutils-r1_src_prepare
 }
 
-# distutils_enable_sphinx docs # We need a lot of other packages if we allow doc
+# Cannot build the docs, sphinx.ext.autosummary cannot find manimpango
+# distutils_enable_sphinx docs
