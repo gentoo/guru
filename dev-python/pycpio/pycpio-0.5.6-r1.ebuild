@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{11..12} )
 inherit distutils-r1
 
 DESCRIPTION="Python CPIO library"
-HOMEPAGE="https://github.com/desultory/PyCPIO"
+HOMEPAGE="https://github.com/desultory/pycpio"
 SRC_URI="https://github.com/desultory/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 # Specify the subdirectory containing the actual source code
