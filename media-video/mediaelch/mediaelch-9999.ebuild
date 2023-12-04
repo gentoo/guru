@@ -42,7 +42,7 @@ DEPEND=">dev-libs/quazip-1.2[qt5?,qt6]
 	)
 	qt6? (
 		dev-qt/qt5compat:6
-		dev-qt/qtbase:6
+		dev-qt/qtbase:6[concurrent,gui,opengl,sql,widgets,xml]
 		dev-qt/qtdeclarative:6
 		dev-qt/qtmultimedia:6
 		dev-qt/qtsvg:6
