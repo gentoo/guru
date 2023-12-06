@@ -17,7 +17,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="app-misc/pax-utils"
 DEPEND=">=dev-python/zenlib-1.2.0
-		?=dev-python/pycpio-0.6.0"
+		>=dev-python/pycpio-0.6.0"
 
 src_install() {
 	# Call the distutils-r1_src_install function to install the package
