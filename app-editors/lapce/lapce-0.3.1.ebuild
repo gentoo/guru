@@ -51,8 +51,12 @@ src_compile() {
 }
 
 src_install() {
-	dobin target/release/lapce
-	dobin target/release/lapce-proxy
+	local btype=release
+	if use debug; then
+		btype=debug
+	fi
+	dobin target/"${btype}"/lapce
+	dobin target/"${btype}"/lapce-proxy
 	domenu extra/linux/dev.lapce.lapce.desktop
 	newicon extra/images/logo.png dev.lapce.lapce.png
 }
