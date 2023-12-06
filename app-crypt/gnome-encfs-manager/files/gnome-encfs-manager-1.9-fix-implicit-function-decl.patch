@@ -1,0 +1,28 @@
+Clang 16 and GCC 14 do not allow implicit function declarations by default.
+This adds the proper declaration.
+
+Upstream PR: https://bugs.launchpad.net/gencfsm/+bug/2045767
+Bug: https://bugs.gentoo.org/887207
+
+Pascal Jäger <pascal.jaeger@leimstift.de> (2023-12-06)
+
+--- a/src/tools.c
++++ b/src/tools.c
+@@ -19,6 +19,17 @@
+ 
+ #include "tools.h"
+ 
++#if !defined(VALA_EXTERN)
++#if defined(_MSC_VER)
++#define VALA_EXTERN __declspec(dllexport) extern
++#elif __GNUC__ >= 4
++#define VALA_EXTERN __attribute__((visibility("default"))) extern
++#else
++#define VALA_EXTERN extern
++#endif
++#endif
++VALA_EXTERN void gnome_encfs_manager_on_logout (void);
++
+ gchar* get_glade_file(gchar *filename) {
+     return g_build_filename(DATA_PATH, "glade", filename, NULL);
+ }
