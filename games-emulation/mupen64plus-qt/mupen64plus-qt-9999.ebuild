@@ -19,7 +19,7 @@ RDEPEND="
 	dev-qt/qtxml:5
 	dev-qt/qtsql:5
 	dev-qt/qtwidgets:5
-	dev-libs/quazip
+	|| ( <dev-libs/quazip-1.3 >=dev-libs/quazip-1.3[qt5] )
 "
 DEPEND=">=games-emulation/mupen64plus-core-2.5
 		${RDEPEND}"
