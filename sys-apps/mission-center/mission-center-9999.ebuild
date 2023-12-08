@@ -3,16 +3,15 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{9..12} )
 
-PATHFINDER_COMMIT=21ec6fa933547636bc6c5ee8f0dd4a0ea3fcd062
-NVTOP_COMMIT=be47f8c560487efc6e6a419d59c69bfbdb819324
+PATHFINDER_COMMIT=ec56924f660e6faa83c81c6b62b3c69b9a9fa00e
+NVTOP_COMMIT=45a1796375cd617d16167869bb88e5e69c809468
 
 inherit git-r3 gnome2-utils meson python-any-r1 xdg
 
 DESCRIPTION="Monitor your CPU, Memory, Disk, Network and GPU usage."
 HOMEPAGE="https://missioncenter.io/"
-
 
 EGIT_REPO_URI="https://gitlab.com/mission-center-devs/mission-center.git"
 EGIT_CHECKOUT_DIR="${WORKDIR}/${PN}-v${PV}"
@@ -22,15 +21,19 @@ SRC_URI="
 
 S="${WORKDIR}/${PN}-v${PV}"
 BUILD_DIR="${S}-build"
-LICENSE="GPL-3+"
+LICENSE="Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD BSD-2 Boost-1.0 CC0-1.0 CeCILL-2 MIT Unicode-DFS-2016 Unlicense ZLIB"
 SLOT="0"
 IUSE="debug"
 RESTRICT="network-sandbox"
 
 DEPEND="
+	>=dev-libs/appstream-0.16.4
+	>=x11-libs/pango-1.51.0
+	>=dev-libs/glib-2.77
+	>=dev-util/gdbus-codegen-2.77
 	dev-libs/wayland
-	gui-libs/libadwaita
-	>=gui-libs/gtk-4
+	>=gui-libs/libadwaita-1.4.0
+	>=gui-libs/gtk-4.12.3
 	gui-libs/egl-gbm
 	virtual/rust
 	virtual/udev
