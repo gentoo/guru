@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,7 +22,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	# Not using -DGRK_BUILD_JPEG=OFF fails the build
+	# Need -DGRK_BUILD_JPEG=OFF, otherwise will pull libjpeg-turbo from github
 	# (see https://github.com/GrokImageCompression/grok/issues/351)
 	local mycmakeargs=(
 		-DBUILD_TESTING=OFF
