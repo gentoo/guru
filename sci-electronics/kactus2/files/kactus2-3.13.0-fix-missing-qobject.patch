@@ -1,0 +1,45 @@
+From d69c10931e17655f6d159e58a910a91c7fcd0a63 Mon Sep 17 00:00:00 2001
+From: Huang Rui <vowstar@gmail.com>
+Date: Sat, 9 Dec 2023 12:34:01 +0800
+Subject: [PATCH] [CORRECTIVE] Fix incomplete QObject type in
+ FieldReferenceValidator
+
+- Added missing #include <QObject> in FieldReferenceValidator.h
+- Resolves compilation errors due to incomplete type 'QObject' used
+  in nested name specifier in various validator components
+
+Signed-off-by: Huang Rui <vowstar@gmail.com>
+---
+ IPXACTmodels/Component/validators/FieldReferenceValidator.h | 2 ++
+ IPXACTmodels/Component/validators/MemoryArrayValidator.h    | 2 ++
+ 2 files changed, 4 insertions(+)
+
+diff --git a/IPXACTmodels/Component/validators/FieldReferenceValidator.h b/IPXACTmodels/Component/validators/FieldReferenceValidator.h
+index 0beea5845..4cfcbcb8b 100644
+--- a/IPXACTmodels/Component/validators/FieldReferenceValidator.h
++++ b/IPXACTmodels/Component/validators/FieldReferenceValidator.h
+@@ -16,6 +16,8 @@
+ 
+ #include <IPXACTmodels/Component/FieldReference.h>
+ 
++#include <QObject>
++
+ namespace FieldReferenceValidator
+ {
+     /*!
+diff --git a/IPXACTmodels/Component/validators/MemoryArrayValidator.h b/IPXACTmodels/Component/validators/MemoryArrayValidator.h
+index b0f3e492f..c8ddc249e 100644
+--- a/IPXACTmodels/Component/validators/MemoryArrayValidator.h
++++ b/IPXACTmodels/Component/validators/MemoryArrayValidator.h
+@@ -16,6 +16,8 @@
+ 
+ #include <KactusAPI/include/SystemVerilogExpressionParser.h>
+ 
++#include <QObject>
++
+ class MemoryArray;
+ 
+ class IPXACTMODELS_EXPORT MemoryArrayValidator
+-- 
+2.43.0
+
