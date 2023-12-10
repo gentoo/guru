@@ -232,7 +232,7 @@ xunit.extensibility.execution@2.4.1
 xunit.runner.visualstudio@2.4.3
 "
 
-inherit desktop dotnet-pkg udev xdg
+inherit desktop dotnet-pkg linux-info udev xdg
 
 DESCRIPTION="A cross-platform open-source tablet driver"
 HOMEPAGE="https://opentabletdriver.net/"
@@ -251,13 +251,20 @@ RDEPEND="
 	x11-libs/libX11
 	x11-libs/libXrandr
 	x11-libs/gtk+:3
+	!x11-drivers/OpenTabletDriver-bin
 "
 
+CONFIG_CHECK="~INPUT_UINPUT"
 DOTNET_PKG_PROJECTS=(
 	"${S}/OpenTabletDriver.Console/OpenTabletDriver.Console.csproj"
 	"${S}/OpenTabletDriver.Daemon/OpenTabletDriver.Daemon.csproj"
 	"${S}/OpenTabletDriver.UX.Gtk/OpenTabletDriver.UX.Gtk.csproj"
 )
+
+pkg_setup() {
+	linux-info_pkg_setup
+	dotnet-pkg_pkg_setup
+}
 
 src_prepare() {
 	# Build doesn't need the solution file but eclass tries to use it.
