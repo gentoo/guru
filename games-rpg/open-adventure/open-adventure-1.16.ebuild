@@ -37,13 +37,13 @@ python_check_deps() {
 src_prepare() {
 	# remove uncommon flags
 	sed -e 's/-D_FORTIFY_SOURCE=2 -fstack-protector-all $(CFLAGS) -g/$(CFLAGS)/' \
-		-i Makefile
+		-i Makefile || die "Makefile patching failed"
 
 	eapply_user
 
 	# Add missing semicolon
 	sed -e 's/rspeak(SAVERESUME_DISABLED)/rspeak(SAVERESUME_DISABLED);/' \
-		-i saveresume.c
+		-i saveresume.c || die "Typo fix failed"
 }
 
 src_compile() {
