@@ -19,8 +19,8 @@ SRC_URI="
 	https://raw.githubusercontent.com/ankitects/anki/${PV}/qt/bundle/lin/anki.1 -> ${P}.1
 	https://raw.githubusercontent.com/ankitects/anki/${PV}/qt/bundle/lin/anki.desktop -> ${P}.desktop
 	https://raw.githubusercontent.com/ankitects/anki/${PV}/qt/bundle/lin/anki.png -> ${P}.png
-	https://raw.githubusercontent.com/ankitects/anki/${PV}/qt/bundle/lin/anki.xpm -> ${P}.xpm
 	https://raw.githubusercontent.com/ankitects/anki/${PV}/qt/bundle/lin/anki.xml -> ${P}.xml
+	https://raw.githubusercontent.com/ankitects/anki/${PV}/qt/bundle/lin/anki.xpm -> ${P}.xpm
 "
 
 # The program itself is licensed under AGPL-3+ with contributed portions licensed
@@ -110,12 +110,21 @@ The latter option has additional runtime dependencies. Please take a look
 at this package's 'optional runtime features' for a complete listing.
 
 In an early 2024 update, ENABLE_QT5_COMPAT will be removed, so this is not a
-long term solution.
+long-term solution.
 
 Anki's user manual is located online at https://docs.ankiweb.net/
 Anki's add-on developer manual is located online at
 https://addon-docs.ankiweb.net/
 "
+
+src_prepare() {
+	default
+	# Anki's Qt detection mechanism falls back to Qt5 Python bindings, if Qt6
+	# Python bindings don't get imported successfully.
+	if ! use qt6; then
+		sed -i "s/import PyQt6/raise ImportError/" aqt/qt/__init__.py || die
+	fi
+}
 
 src_install() {
 	python_domodule anki {,_}aqt *.dist-info
