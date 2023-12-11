@@ -212,7 +212,7 @@ CRATES="
 	lazycell@1.3.0
 	lebe@0.5.2
 	lewton@0.10.2
-	libc@0.2.150
+	libc@0.2.151
 	libdbus-sys@0.2.5
 	libloading@0.6.7
 	libloading@0.7.4
@@ -368,9 +368,9 @@ CRATES="
 	rustc-demangle@0.1.23
 	rustc-hash@1.1.0
 	rustc_version@0.4.0
-	rustix@0.38.27
+	rustix@0.38.28
 	rustversion@1.0.14
-	ryu@1.0.15
+	ryu@1.0.16
 	same-file@1.0.6
 	schannel@0.1.22
 	scoped-tls@1.0.1
@@ -537,7 +537,7 @@ CRATES="
 	x11-dl@2.21.0
 	x11rb-protocol@0.12.0
 	x11rb@0.12.0
-	xcursor@0.3.4
+	xcursor@0.3.5
 	xkbcommon-dl@0.4.1
 	xkeysym@0.2.0
 	xml5ever@0.17.0

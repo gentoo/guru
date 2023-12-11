@@ -3,7 +3,7 @@
 
 EAPI=8
 
-CRATES="
+CRATES="	
 	ab_glyph@0.2.23
 	ab_glyph_rasterizer@0.1.8
 	addr2line@0.21.0
