@@ -44,7 +44,6 @@ QA_CONFIG_IMPL_DECL_SKIP=( getspnam_shadow )
 
 src_configure() {
 	econf
-	cd wayland
 	local S="$S"/wayland
 	# Will write a patch later and send it to upstream.
 	# For now accept it.
@@ -70,7 +69,7 @@ src_install() {
 		filename=$(basename "${file}")
 		if [[ "${filename}" != *.* && "${filename}" != *meson-*  ]]; then
 			doins "${file}"
-			fperms +x /usr/lib64/misc/"${PN}"/"${filename}"
+			fperms +x /usr/$(get_libdir)/misc/"${PN}"/"${filename}"
 		fi
 	done
 }
