@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>pascal.jaeger@leimstift.de</email>
+		<name>Pascal Jaeger</name>
+	</maintainer>
+	<longdescription lang="en">
+		Wscreensaver is an attempt to compile the screensaver collection
+		form Xscreensaver as animated backgrounds for Wayland.
+		wscreensaver is not a standalone program like xscreensaver.
+		Each indiviual screensaver is a standalane binary, that can be usid
+		in other programs such a <pkg>gui-apps/swaylock-plugin</pkg> or
+		standalone as an animated background.
+	</longdescription>
+	<upstream>
+		<remote-id type="sourcehut">~mstoeckl/wscreensaver</remote-id>
+		<maintainer status="active">
+			<name>Manuel Stoeckl</name>
+		</maintainer>
+	</upstream>
+</pkgmetadata>
