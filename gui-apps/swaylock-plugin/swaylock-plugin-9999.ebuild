@@ -50,4 +50,8 @@ pkg_postinst() {
 	if ! use pam; then
 		fcaps cap_sys_admin usr/bin/swaylock
 	fi
+	# see https://github.com/mstoeckl/swaylock-plugin/issues/8
+	elog "If gui-apps/swaylock is not installed alongside, "
+	elog "symlink /etc/pam.d/swaylock to /etc/pam.d/swaylock-plugin."
+	elog "!!! Otherwise swaylock plugin will work but can not unlock !!!"
 }
