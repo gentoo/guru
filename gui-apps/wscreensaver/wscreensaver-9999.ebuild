@@ -48,7 +48,9 @@ src_configure() {
 	local S="$S"/wayland
 	# Will write a patch later and send it to upstream.
 	# For now accept it.
-	append-cflags -Wno-error=incompatible-function-pointer-types
+	if [[ $CC == clang* ]]; then
+		append-cflags -Wno-error=incompatible-function-pointer-types
+	fi
 	meson_src_configure
 }
 
