@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://github.com/mstoeckl/${PN}.git"
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="+gdk-pixbuf +man replace +pam"
+IUSE="+gdk-pixbuf +man +pam"
 
 DEPEND="
 	dev-libs/wayland
