@@ -1,0 +1,371 @@
+# Copyright 2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+CRATES="
+	addr2line@0.19.0
+	adler@1.0.2
+	aho-corasick@0.7.20
+	aho-corasick@1.0.2
+	android-tzdata@0.1.1
+	android_system_properties@0.1.5
+	ansi_term@0.12.1
+	anyhow@1.0.71
+	app_dirs2@2.5.5
+	async-priority-channel@0.1.0
+	async-recursion@1.0.4
+	async-trait@0.1.68
+	atomic-take@1.1.0
+	atty@0.2.14
+	autocfg@1.1.0
+	backtrace@0.3.67
+	base64@0.13.1
+	base64@0.21.2
+	bitflags@1.3.2
+	bitflags@2.3.1
+	block-buffer@0.10.4
+	bstr@1.5.0
+	btoi@0.4.3
+	bumpalo@3.13.0
+	byte-unit@4.0.19
+	byteorder@1.4.3
+	bytes@1.4.0
+	cc@1.0.79
+	cesu8@1.1.0
+	cfg-if@1.0.0
+	chrono@0.4.26
+	chrono-tz@0.6.1
+	chrono-tz-build@0.0.2
+	clap@2.34.0
+	clearscreen@2.0.1
+	combine@4.6.6
+	command-group@2.1.0
+	core-foundation@0.9.3
+	core-foundation-sys@0.8.4
+	cpufeatures@0.2.7
+	crc32fast@1.3.2
+	crossbeam-channel@0.5.8
+	crossbeam-utils@0.8.15
+	crypto-common@0.1.6
+	curl@0.4.44
+	curl-sys@0.4.63+curl-8.1.2
+	deunicode@0.4.3
+	digest@0.10.7
+	dirs@4.0.0
+	dirs-sys@0.3.7
+	dunce@1.0.4
+	either@1.8.1
+	encoding_rs@0.8.32
+	endian-type@0.1.2
+	errno@0.3.1
+	errno-dragonfly@0.1.2
+	error-chain@0.12.4
+	event-listener@2.5.3
+	fastrand@1.9.0
+	filetime@0.2.21
+	flate2@1.0.26
+	fnv@1.0.7
+	foreign-types@0.3.2
+	foreign-types-shared@0.1.1
+	form_urlencoded@1.2.0
+	fs2@0.4.3
+	fsevent-sys@4.1.0
+	futures@0.3.28
+	futures-channel@0.3.28
+	futures-core@0.3.28
+	futures-executor@0.3.28
+	futures-io@0.3.28
+	futures-macro@0.3.28
+	futures-sink@0.3.28
+	futures-task@0.3.28
+	futures-util@0.3.28
+	generic-array@0.14.7
+	getrandom@0.2.10
+	gimli@0.27.2
+	gix-actor@0.20.0
+	gix-config@0.22.0
+	gix-config-value@0.12.1
+	gix-date@0.5.1
+	gix-features@0.29.0
+	gix-fs@0.1.1
+	gix-glob@0.7.0
+	gix-hash@0.11.2
+	gix-lock@5.0.1
+	gix-object@0.29.2
+	gix-path@0.8.1
+	gix-ref@0.29.1
+	gix-sec@0.8.1
+	gix-tempfile@5.0.3
+	gix-utils@0.1.2
+	gix-validate@0.7.5
+	globset@0.4.10
+	globwalk@0.8.1
+	h2@0.3.19
+	hashbrown@0.12.3
+	headers@0.3.8
+	headers-core@0.2.0
+	heck@0.3.3
+	hermit-abi@0.1.19
+	hermit-abi@0.2.6
+	hermit-abi@0.3.1
+	hex@0.4.3
+	home@0.5.5
+	html-escape@0.2.13
+	http@0.2.9
+	http-body@0.4.5
+	httparse@1.8.0
+	httpdate@1.0.2
+	humansize@2.1.3
+	hyper@0.14.26
+	hyper-tls@0.5.0
+	iana-time-zone@0.1.57
+	iana-time-zone-haiku@0.1.2
+	idna@0.4.0
+	ignore@0.4.20
+	ignore-files@1.3.1
+	indexmap@1.9.3
+	inotify@0.9.6
+	inotify-sys@0.1.5
+	instant@0.1.12
+	io-lifetimes@1.0.11
+	ipnet@2.7.2
+	is-docker@0.2.0
+	is-wsl@0.4.0
+	itoa@1.0.6
+	jni@0.21.1
+	jni-sys@0.3.0
+	js-sys@0.3.63
+	kqueue@1.0.7
+	kqueue-sys@1.0.3
+	lazy_static@1.4.0
+	libc@0.2.146
+	libm@0.2.7
+	libz-sys@1.1.9
+	linux-raw-sys@0.3.8
+	lock_api@0.4.10
+	log@0.4.19
+	md-5@0.10.5
+	memchr@2.5.0
+	memmap2@0.5.10
+	memoffset@0.7.1
+	miette@5.9.0
+	miette-derive@5.9.0
+	mime@0.3.17
+	minimal-lexical@0.2.1
+	miniz_oxide@0.6.2
+	miniz_oxide@0.7.1
+	mio@0.8.8
+	native-tls@0.2.11
+	ndk-context@0.1.1
+	nibble_vec@0.1.0
+	nix@0.26.2
+	nom@7.1.3
+	normalize-path@0.2.0
+	notify@5.2.0
+	num-traits@0.2.15
+	num_cpus@1.15.0
+	num_threads@0.1.6
+	object@0.30.4
+	once_cell@1.18.0
+	open@4.1.0
+	openssl@0.10.54
+	openssl-macros@0.1.1
+	openssl-probe@0.1.5
+	openssl-src@111.26.0+1.1.1u
+	openssl-sys@0.9.88
+	parking_lot@0.12.1
+	parking_lot_core@0.9.8
+	parse-zoneinfo@0.3.0
+	pathdiff@0.2.1
+	percent-encoding@2.3.0
+	pest@2.6.0
+	pest_derive@2.6.0
+	pest_generator@2.6.0
+	pest_meta@2.6.0
+	phf@0.10.1
+	phf@0.11.1
+	phf_codegen@0.10.0
+	phf_codegen@0.11.1
+	phf_generator@0.10.0
+	phf_generator@0.11.1
+	phf_shared@0.10.0
+	phf_shared@0.11.1
+	pin-project-lite@0.2.9
+	pin-utils@0.1.0
+	pinot@0.1.5
+	pkg-config@0.3.27
+	ppv-lite86@0.2.17
+	proc-macro-error@1.0.4
+	proc-macro-error-attr@1.0.4
+	proc-macro2@1.0.60
+	project-origins@1.2.0
+	quick-xml@0.28.2
+	quote@1.0.28
+	radix_trie@0.2.1
+	rand@0.8.5
+	rand_chacha@0.3.1
+	rand_core@0.6.4
+	redox_syscall@0.2.16
+	redox_syscall@0.3.5
+	redox_users@0.4.3
+	regex@1.8.4
+	regex-automata@0.1.10
+	regex-syntax@0.7.2
+	reqwest@0.11.18
+	rustc-demangle@0.1.23
+	rustix@0.37.20
+	ryu@1.0.13
+	same-file@1.0.6
+	schannel@0.1.21
+	scopeguard@1.1.0
+	security-framework@2.9.1
+	security-framework-sys@2.9.0
+	serde@1.0.164
+	serde_derive@1.0.164
+	serde_json@1.0.96
+	serde_spanned@0.6.2
+	serde_urlencoded@0.7.1
+	sha1@0.10.5
+	sha1_smol@1.0.0
+	sha2@0.10.6
+	signal-hook-registry@1.4.1
+	siphasher@0.3.10
+	slab@0.4.8
+	slug@0.1.4
+	smallvec@1.10.0
+	socket2@0.4.9
+	static_assertions@1.1.0
+	strsim@0.8.0
+	structopt@0.3.26
+	structopt-derive@0.4.18
+	syn@1.0.109
+	syn@2.0.18
+	tempfile@3.6.0
+	tera@1.19.0
+	termcolor@1.2.0
+	terminfo@0.8.0
+	textwrap@0.11.0
+	thiserror@1.0.40
+	thiserror-impl@1.0.40
+	thread_local@1.1.4
+	time@0.3.22
+	time-core@0.1.1
+	time-macros@0.2.9
+	tinyvec@1.6.0
+	tinyvec_macros@0.1.1
+	tokio@1.28.2
+	tokio-macros@2.1.0
+	tokio-native-tls@0.3.1
+	tokio-stream@0.1.14
+	tokio-util@0.7.8
+	toml@0.7.4
+	toml_datetime@0.6.2
+	toml_edit@0.19.10
+	tower-service@0.3.2
+	tracing@0.1.37
+	tracing-attributes@0.1.24
+	tracing-core@0.1.31
+	try-lock@0.2.4
+	typenum@1.16.0
+	ucd-trie@0.1.5
+	uncased@0.9.9
+	unic-char-property@0.9.0
+	unic-char-range@0.9.0
+	unic-common@0.9.0
+	unic-segment@0.9.0
+	unic-ucd-segment@0.9.0
+	unic-ucd-version@0.9.0
+	unicode-bidi@0.3.13
+	unicode-bom@2.0.2
+	unicode-ident@1.0.9
+	unicode-normalization@0.1.22
+	unicode-segmentation@1.10.1
+	unicode-width@0.1.10
+	url@2.4.0
+	utf8-width@0.1.6
+	vcpkg@0.2.15
+	vec_map@0.8.2
+	version_check@0.9.4
+	walkdir@2.3.3
+	want@0.3.0
+	wasi@0.11.0+wasi-snapshot-preview1
+	wasm-bindgen@0.2.86
+	wasm-bindgen-backend@0.2.86
+	wasm-bindgen-futures@0.4.36
+	wasm-bindgen-macro@0.2.86
+	wasm-bindgen-macro-support@0.2.86
+	wasm-bindgen-shared@0.2.86
+	watchexec@2.3.0
+	watchexec-events@1.0.0
+	watchexec-filterer-globset@1.2.0
+	watchexec-filterer-ignore@1.2.1
+	watchexec-signals@1.0.0
+	web-sys@0.3.63
+	which@4.4.0
+	winapi@0.3.9
+	winapi-i686-pc-windows-gnu@0.4.0
+	winapi-util@0.1.5
+	winapi-x86_64-pc-windows-gnu@0.4.0
+	windows@0.48.0
+	windows-sys@0.42.0
+	windows-sys@0.45.0
+	windows-sys@0.48.0
+	windows-targets@0.42.2
+	windows-targets@0.48.0
+	windows_aarch64_gnullvm@0.42.2
+	windows_aarch64_gnullvm@0.48.0
+	windows_aarch64_msvc@0.42.2
+	windows_aarch64_msvc@0.48.0
+	windows_i686_gnu@0.42.2
+	windows_i686_gnu@0.48.0
+	windows_i686_msvc@0.42.2
+	windows_i686_msvc@0.48.0
+	windows_x86_64_gnu@0.42.2
+	windows_x86_64_gnu@0.48.0
+	windows_x86_64_gnullvm@0.42.2
+	windows_x86_64_gnullvm@0.48.0
+	windows_x86_64_msvc@0.42.2
+	windows_x86_64_msvc@0.48.0
+	winnow@0.4.6
+	winreg@0.10.1
+	xdg@2.5.0
+	zip@0.6.6
+"
+
+inherit cargo
+
+DESCRIPTION="A modernized, complete, embeddable TeX/LaTeX engine."
+HOMEPAGE="https://github.com/tectonic-typesetting/tectonic/"
+SRC_URI="
+	https://github.com/tectonic-typesetting/tectonic/archive/refs/tags/tectonic@${PV}.tar.gz -> ${P}.tar.gz
+	${CARGO_CRATE_URIS}
+"
+
+LICENSE="MIT"
+SLOT="0"
+KEYWORDS="~amd64"
+
+DEPEND=""
+RDEPEND="${DEPEND}"
+BDEPEND="media-libs/harfbuzz"
+
+QA_FLAGS_IGNORED="usr/bin/tectonic"
+
+src_unpack() {
+	cargo_src_unpack
+	mv tectonic-${P}/* ${P}/
+}
+
+src_compile() {
+	cargo_gen_config
+	cargo_src_compile --features external-harfbuzz
+}
+
+src_test() {
+	cargo_src_test --features external-harfbuzz
+}
+
+src_install() {
+	cargo_src_install --features external-harfbuzz
+}
