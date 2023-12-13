@@ -43,7 +43,6 @@ If you find an interesting piece of software here, consider to package it, also 
 [libreoffice-online](https://github.com/LibreOffice/online) | autotools | office | Alessandro-Barbieri | ✔ | ✖
 [latte-integrale](https://www.math.ucdavis.edu/~latte/) | autotools | math | Alessandro-Barbieri | ✔ | ✖
 [bonmin](https://projects.coin-or.org/Bonmin) | autotools | math | Alessandro-Barbieri | ✖ | ✔
-[graph-tool](https://graph-tool.skewed.de/) | autotools | visualization | Alessandro-Barbieri | ✖ | ✖
 [tides](https://sourceforge.net/projects/tidesodes/) | autotools | math | Alessandro-Barbieri | ✖ | ✔
 [Cakeml](https://cakeml.org/) | autotools | ML | Alessandro-Barbieri | ✔ | ✔
 [geopm](https://geopm.github.io/) | autotools | power | Alessandro-Barbieri | ✖ | ✔
@@ -75,7 +74,6 @@ If you find an interesting piece of software here, consider to package it, also 
 [osqp](https://github.com/osqp/osqp) | cmake | science | Alessandro-Barbieri | ✖ | ✔
 [superscs](https://github.com/kul-optec/superscs) | cmake | science | Alessandro-Barbieri | ✖ | ✔
 [amrex](https://github.com/AMReX-Codes/amrex/blob/development/CMakeLists.txt) | cmake | science | Alessandro-Barbieri | ✖ | ✔
-[arborx](https://github.com/arborx/ArborX) | cmake | science | Alessandro-Barbieri | ✖ | ✔
 [DataTransferKit](https://github.com/ORNL-CEES/DataTransferKit) | cmake | cluster | Alessandro-Barbieri | ✖ | ✔
 [heffte](https://bitbucket.org/icl/heffte/src/master/) | cmake | cluster | Alessandro-Barbieri | ✖ | ✔
 [omega_h](https://github.com/sandialabs/omega_h) | cmake | cluster | Alessandro-Barbieri | ✖ | ✔
