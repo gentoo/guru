@@ -1,3 +1,9 @@
+See: https://github.com/stefantalpalaru/gentoo-overlay/issues/26#issuecomment-455773380
+"Seems that GL/glext.h now exports functions for GL_ARB_shader_objects extension, so they
+define GL_ARB_shader_objects, which results in relevant section being skipped in /usr/include/GLee.h.
+By default GL/glext.h skips defining prototypes for functions, but it can be enabled -
+I used -DGL_GLEXT_PROTOTYPES option to gcc, and compilation finished without errors."
+
 --- client_generic/Client/Makefile.am
 +++ client_generic/Client/Makefile.am
 @@ -12,6 +12,7 @@
