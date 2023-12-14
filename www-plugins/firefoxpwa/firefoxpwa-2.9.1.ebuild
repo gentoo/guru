@@ -325,7 +325,7 @@ SRC_URI="
 LICENSE="MPL-2.0"
 
 # Dependent crate licenses
-LICENSE+=""
+LICENSE+=" Apache-2.0 BSD-2 BSD MIT MPL-2.0 Unicode-DFS-2016 ZLIB"
 
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
