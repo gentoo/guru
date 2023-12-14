@@ -1,0 +1,11 @@
+--- a/Release/src/http/common/http_helpers.cpp	2021-02-02 05:03:00.000000000 +0100
++++ b/Release/src/http/common/http_helpers.cpp	2022-12-08 08:42:47.321677974 +0100
+@@ -84,7 +84,7 @@
+     }
+     else
+     {
+-        char buffer[9];
++        char buffer[17];
+ #ifdef _WIN32
+         sprintf_s(buffer, sizeof(buffer), "%8IX", bytes_read);
+ #else
