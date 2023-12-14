@@ -15,25 +15,18 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	app-accessibility/at-spi2-atk:2
 	app-accessibility/at-spi2-core:2
-	app-crypt/libsecret
-	app-crypt/mit-krb5
-	dev-libs/atk
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/nspr
 	dev-libs/nss
-	dev-libs/openssl-compat:1.0.0
 	gnome-base/gvfs
 	media-libs/alsa-lib
 	media-libs/mesa
 	net-print/cups
 	sys-apps/dbus
 	sys-devel/libtool
-	sys-libs/db:5.3
 	x11-libs/cairo
-	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
 	x11-libs/gtk+:3
 	x11-libs/libdrm
