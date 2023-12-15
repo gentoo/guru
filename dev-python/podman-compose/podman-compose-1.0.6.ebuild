@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..12} )
 inherit distutils-r1
 
 DESCRIPTION="A script to run docker-compose.yml using Podman"
@@ -16,8 +16,11 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
+	|| (
+		( app-containers/netavark app-containers/aardvark-dns )
+		app-containers/dnsname-cni-plugin
+	)
 	app-containers/podman
-	app-containers/dnsname-cni-plugin
 	dev-python/pyaml[${PYTHON_USEDEP}]
 	dev-python/python-dotenv[${PYTHON_USEDEP}]
 "
