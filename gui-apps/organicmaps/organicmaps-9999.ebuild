@@ -1,4 +1,7 @@
-EAPI=7
+# Copyright 1999-2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
 
 inherit git-r3 xdg cmake
 EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
@@ -10,8 +13,6 @@ LICENSE="Apache-2.0"
 SLOT="0"
 
 DEPEND="sys-devel/clang
-	>=dev-util/cmake-3.18.1
-	dev-util/ninja
 	media-libs/freetype
 	dev-libs/icu
 	sys-libs/libstdc++-v3
@@ -20,7 +21,6 @@ DEPEND="sys-devel/clang
 	dev-qt/qtsvg
 	dev-db/sqlite
 	sys-libs/zlib[minizip]"
-RDEPEND=""
 
 PATCHES=(
 	"${FILESDIR}/${P}-zlib-compile.patch"
