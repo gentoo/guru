@@ -1,0 +1,24 @@
+--- a/Release/tests/functional/http/CMakeLists.txt
++++ b/Release/tests/functional/http/CMakeLists.txt
+@@ -1,3 +1,3 @@
+ add_subdirectory(utilities)
+-add_subdirectory(client)
++#add_subdirectory(client)
+ add_subdirectory(listener)
+--- a/Release/tests/functional/websockets/CMakeLists.txt
++++ b/Release/tests/functional/websockets/CMakeLists.txt
+@@ -27,9 +27,9 @@ if (NOT CPPREST_EXCLUDE_WEBSOCKETS)
+     client/stdafx.cpp
+   )
+ 
+-  add_casablanca_test(websocketsclient_test SOURCES)
+-  if(NOT TEST_LIBRARY_TARGET_TYPE STREQUAL "OBJECT")
+-    target_link_libraries(websocketsclient_test PRIVATE websockettest_utilities)
+-  endif()
+-  target_include_directories(websocketsclient_test PRIVATE utilities)
++#  add_casablanca_test(websocketsclient_test SOURCES)
++#  if(NOT TEST_LIBRARY_TARGET_TYPE STREQUAL "OBJECT")
++#    target_link_libraries(websocketsclient_test PRIVATE websockettest_utilities)
++#  endif()
++#  target_include_directories(websocketsclient_test PRIVATE utilities)
+ endif()

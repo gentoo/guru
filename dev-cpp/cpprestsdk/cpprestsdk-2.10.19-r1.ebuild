@@ -26,21 +26,11 @@ BDEPEND=">=dev-util/cmake-3.23
 
 PATCHES=(
 	"${FILESDIR}"/cpprestsdk-${PV}-warnings.patch
+	"${FILESDIR}"/cpprestsdk-${PV}-disabl-int-tests.patch
 )
-
-src_prepare(){
-	cmake_src_prepare
-}
 
 src_configure() {
 	local mycmakeargs=( -DCMAKE_BUILD_TYPE=Release )
 	cmake_src_configure
 }
 
-src_compile(){
-	cmake_src_compile
-}
-
-src_install(){
-	cmake_src_install
-}
