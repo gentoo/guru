@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="A script to run docker-compose.yml using Podman"
 HOMEPAGE="https://github.com/containers/podman-compose"
-SRC_URI="https://github.com/containers/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/containers/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -27,3 +27,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 distutils_enable_tests pytest
+
+python_test() {
+	epytest pytests
+}
