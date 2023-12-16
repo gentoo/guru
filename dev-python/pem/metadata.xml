@@ -1,7 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<!-- maintainer-needed -->
+	<maintainer type="person">
+		<email>smaniotto.nicola@gmail.com</email>
+		<name>Nicola Smaniotto</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">hynek/pem</remote-id>
 		<doc>https://pem.readthedocs.io/</doc>
