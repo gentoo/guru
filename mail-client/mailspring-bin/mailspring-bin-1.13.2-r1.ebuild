@@ -16,16 +16,19 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	app-accessibility/at-spi2-core:2
+	app-crypt/mit-krb5
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/nspr
 	dev-libs/nss
+	dev-libs/openssl-compat
 	gnome-base/gvfs
 	media-libs/alsa-lib
 	media-libs/mesa
 	net-print/cups
 	sys-apps/dbus
 	sys-devel/libtool
+	sys-libs/db
 	x11-libs/cairo
 	x11-libs/gtk+:3
 	x11-libs/gtk+:3
