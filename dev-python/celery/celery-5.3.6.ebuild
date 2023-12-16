@@ -4,7 +4,8 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_10 )
+PYTHON_COMPAT=( python3_{10,11} )
+
 inherit bash-completion-r1 check-reqs distutils-r1 optfeature
 
 MY_PV="${PV/_beta/b}"
@@ -52,7 +53,6 @@ BDEPEND="
 		>=dev-python/pytest-timeout-1.4.2[${PYTHON_USEDEP}]
 		>=dev-python/pyyaml-3.10[${PYTHON_USEDEP}]
 		dev-python/redis[${PYTHON_USEDEP}]
-		dev-python/sphinx-testing[${PYTHON_USEDEP}]
 		dev-python/tblib[${PYTHON_USEDEP}]
 		sci-astronomy/pyephem[${PYTHON_USEDEP}]
 	)
