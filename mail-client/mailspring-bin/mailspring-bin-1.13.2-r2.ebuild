@@ -21,7 +21,7 @@ RDEPEND="
 	dev-libs/glib:2
 	dev-libs/nspr
 	dev-libs/nss
-	dev-libs/openssl-compat
+	dev-libs/openssl-compat:1.0.0
 	gnome-base/gvfs
 	media-libs/alsa-lib
 	media-libs/mesa
