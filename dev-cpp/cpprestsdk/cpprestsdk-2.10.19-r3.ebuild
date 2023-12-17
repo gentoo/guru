@@ -27,6 +27,7 @@ BDEPEND=">=dev-util/cmake-3.23
 PATCHES=(
 	"${FILESDIR}"/cpprestsdk-${PV}-warnings.patch
 	"${FILESDIR}"/cpprestsdk-${PV}-disabl-int-tests.patch
+	"${FILESDIR}"/cpprestsdk-${PV}-disable-werror-default.patch
 )
 
 src_configure() {
