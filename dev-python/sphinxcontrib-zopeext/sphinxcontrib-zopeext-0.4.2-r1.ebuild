@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=pdm
-PYTHON_COMPAT=( python3_10 )
+PYTHON_COMPAT=( python3_{10,11,12} )
 
 inherit distutils-r1 pypi
 
@@ -18,11 +18,11 @@ KEYWORDS="~amd64"
 RDEPEND="
 	dev-python/importlib-metadata[${PYTHON_USEDEP}]
 	dev-python/zope-interface[${PYTHON_USEDEP}]
+	dev-python/sphinx[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
 		dev-python/pytest-cov[${PYTHON_USEDEP}]
-		dev-python/sphinx-testing[${PYTHON_USEDEP}]
 	)
 "
 
@@ -31,3 +31,6 @@ PATCHES=(
 )
 
 distutils_enable_tests pytest
+
+# Tests requires sphinx-testing which has been removed from ::gentoo
+RESTRICT="test"
