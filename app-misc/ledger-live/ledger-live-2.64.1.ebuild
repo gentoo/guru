@@ -10,7 +10,6 @@ SRC_URI="https://download.live.ledger.com/ledger-live-desktop-${PV}-linux-x86_64
 LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 RESTRICT="strip"
 
 RDEPEND="sys-fs/fuse:0"
