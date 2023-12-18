@@ -2,12 +2,12 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<name>Zhang Zheng</name>
-		<email>zhangzheng.dylan@foxmail.com</email>
-	</maintainer>
-	<maintainer type="person">
 		<name>Edgar Luque</name>
 		<email>edgar@edgarluque.com</email>
+	</maintainer>
+	<maintainer type="person">
+		<name>Zhang Zheng</name>
+		<email>zhangzheng.dylan@foxmail.com</email>
 	</maintainer>
 	<upstream>
 		<changelog>https://ddnet.org/downloads/</changelog>
