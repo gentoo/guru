@@ -21,7 +21,6 @@ EGIT_SUBMODULES=()
 LICENSE="CC-BY-SA-3.0 OFL-1.1 BSD"
 SLOT="0"
 IUSE="antibot autoupdate +client download-gtest headless-client +inform-update +server +tools upnp +videorecorder vulkan websockets"
-KEYWORDS=""
 
 DEPEND="
 	client? (
