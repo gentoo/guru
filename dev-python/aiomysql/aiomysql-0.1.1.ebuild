@@ -22,7 +22,6 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="dev-python/pymysql[${PYTHON_USEDEP}]"
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
-	dev-python/setuptools_scm_git_archive[${PYTHON_USEDEP}]
 	test? (
 		$(python_gen_impl_dep "ssl")
 		dev-python/sqlalchemy[${PYTHON_USEDEP}]
@@ -31,6 +30,7 @@ BDEPEND="
 "
 
 DOCS=( CHANGES.txt {CONTRIBUTING,README}.rst )
+PATCHES=( "${FILESDIR}/${P}-git_archive.patch" )
 
 EPYTEST_IGNORE=(
 	# No Table.count() method in recent PyMySQL
