@@ -16,6 +16,7 @@ KEYWORDS="~amd64"
 
 RDEPEND=""
 BDEPEND="
+	dev-python/hatch-fancy-pypi-readme[${PYTHON_USEDEP}]
 	test? (
 		>=dev-python/coverage-5.0.2[${PYTHON_USEDEP}]
 		dev-python/certifi[${PYTHON_USEDEP}]
