@@ -14,7 +14,7 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/Meumeu/WiVRn.git"
 
-	MONADO_V=3ca1381be18e4cda516a2c7ac5778706aac89ce4
+	MONADO_V=79bf8eb8fa168f65f4e5505e0525ee74aa88783e
 	PFR_V=2.0.3
 	SRC_URI="
 	https://github.com/boostorg/pfr/archive/refs/tags/${PFR_V}.tar.gz -> boostpfr_${PFR_V}.tar.gz
