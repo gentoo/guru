@@ -28,9 +28,8 @@ RDEPEND="
 	net-print/cups
 	sys-apps/dbus
 	sys-devel/libtool
-	sys-libs/db
+	sys-libs/db:5.3
 	x11-libs/cairo
-	x11-libs/gtk+:3
 	x11-libs/gtk+:3
 	x11-libs/libdrm
 	x11-libs/libX11
