@@ -13,18 +13,17 @@ LICENSE="Apache-2.0"
 SLOT="0"
 
 DEPEND="sys-devel/clang
+	>=dev-util/cmake-3.18.1
+	dev-util/ninja
 	media-libs/freetype
 	dev-libs/icu
+	>=dev-qt/qtpositioning-6
 	sys-libs/libstdc++-v3
 	dev-qt/qtcore
-	dev-qt/qtpositioning
 	dev-qt/qtsvg
 	dev-db/sqlite
 	sys-libs/zlib[minizip]"
-
-PATCHES=(
-	"${FILESDIR}/${P}-zlib-compile.patch"
-)
+RDEPEND=""
 
 src_prepare() {
 	eapply_user
@@ -38,6 +37,9 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=False
 		-DINSTALL_GTEST=off
+		-DUNITY_DISABLE=on
+		-DPLATFORM_DESKTOP=true
+		-DSKIP_TESTS=on
 	)
 
 	echo | ./configure.sh
