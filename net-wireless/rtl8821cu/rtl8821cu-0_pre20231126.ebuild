@@ -6,7 +6,7 @@ EAPI=8
 inherit linux-mod-r1
 
 MY_PN="8821cu-20210916"
-COMMIT="8e300c0885835b079ad1a99cccd960754a4c849f"
+COMMIT="eb52ece92607394ecc22e96b41671ec3e5b1fa30"
 DESCRIPTION="Realtek 8821CU/RTL8811CU module for Linux kernel"
 HOMEPAGE="https://github.com/morrownr/8821cu-20210916"
 SRC_URI="https://github.com/morrownr/${MY_PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
