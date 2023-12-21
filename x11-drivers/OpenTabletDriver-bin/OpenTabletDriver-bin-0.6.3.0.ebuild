@@ -10,13 +10,12 @@ MY_PN=OpenTabletDriver
 DESCRIPTION="Cross platform tablet driver (binary package)"
 HOMEPAGE="https://github.com/OpenTabletDriver"
 #SRC_URI="https://github.com/OpenTabletDriver/OpenTabletDriver/archive/refs/tags/v${PV}.tar.gz -> OpenTabletDriver-source-${PV}.tar.gz https://github.com/OpenTabletDriver/OpenTabletDriver/releases/download/v${PV}/OpenTabletDriver.linux-x64.tar.gz -> OpenTabletDriver-v${PV}.tar.gz"
-
-SRC_URI="https://github.com/OpenTabletDriver/OpenTabletDriver/releases/download/v0.6.3.0/opentabletdriver-0.6.3.0-x64.tar.gz -> OpenTabletDriver-v${PV}.tar.gz"
+SRC_URI="https://github.com/OpenTabletDriver/OpenTabletDriver/releases/download/v${PV}/opentabletdriver-${PV}-x64.tar.gz -> OpenTabletDriver-v${PV}.tar.gz"
+S="${WORKDIR}/opentabletdriver"
 
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 RESTRICT="strip"
 
 DEPEND="
@@ -31,7 +30,6 @@ DEPEND="
 
 QA_PREBUILT="*"
 
-S="${WORKDIR}/opentabletdriver"
 src_install() {
 	local LP=opentabletdriver
 	local SP="otd"
@@ -50,7 +48,6 @@ src_install() {
 	#for bin in *.Daemon *.UX.Gtk *.Console; do
 	#	doins "$bin"
 	#done
-
 
 	cd "${FILESDIR}" || die
 
