@@ -17,9 +17,10 @@ SRC_URI="https://github.com/rpm-software-management/mock/releases/download/${P}-
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+RESTRICT="!test? ( test )"
 
-#DEPEND=""
 RDEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep '
@@ -35,6 +36,10 @@ RDEPEND="
 	app-containers/podman
 	dev-util/distribution-gpg-keys
 	dev-util/mock-core-configs
+"
+BDEPEND="
+	${PYTHON_DEPS}
+	test? ( $(python_gen_cond_dep 'dev-python/pytest[${PYTHON_USEDEP}]') )
 "
 
 src_prepare() {
@@ -75,6 +80,10 @@ src_install() {
 
 	diropts -m0775 -o root -g mock
 	keepdir /var/lib/mock
+}
+
+src_test() {
+	epytest tests
 }
 
 pkg_postinst() {
