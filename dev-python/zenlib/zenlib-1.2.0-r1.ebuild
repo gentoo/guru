@@ -11,9 +11,6 @@ DESCRIPTION="Useful python decorators and utilities"
 HOMEPAGE="https://github.com/desultory/zenlib"
 SRC_URI="https://github.com/desultory/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
-# Specify the subdirectory containing the actual source code
-S="${WORKDIR}/${PN}-${PV}/src"
-
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
