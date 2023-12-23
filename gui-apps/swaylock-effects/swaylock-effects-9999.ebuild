@@ -6,16 +6,15 @@ EAPI=7
 inherit fcaps meson
 
 DESCRIPTION="Swaylock, with fancy effects"
-HOMEPAGE="https://github.com/mortie/swaylock-effects"
+HOMEPAGE="https://github.com/jirutka/swaylock-effects"
 
 if [[ ${PV} == 9999 ]]
 then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/mortie/swaylock-effects.git"
+	EGIT_REPO_URI="https://github.com/jirutka/swaylock-effects.git"
 else
-	MY_PV="$(ver_rs 2 -)"
 	S="${WORKDIR}/swaylock-effects-${MY_PV}"
-	SRC_URI="https://github.com/mortie/swaylock-effects/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/jirutka/swaylock-effects/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 

@@ -15,8 +15,8 @@
             <name>Martin Dørum</name>
             <email>martid0311@gmail.com</email>
         </maintainer>
-        <doc>https://github.com/mortie/swaylock-effects#effects</doc>
-        <remote-id type="github">mortie/swaylock-effects</remote-id>
-        <bugs-to>https://github.com/mortie/swaylock-effects/issues</bugs-to>
+        <doc>https://github.com/jirutka/swaylock-effects#effects</doc>
+        <remote-id type="github">jirutka/swaylock-effects</remote-id>
+        <bugs-to>https://github.com/jirutka/swaylock-effects/issues</bugs-to>
     </upstream>
 </pkgmetadata>
