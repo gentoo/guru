@@ -13,7 +13,6 @@ then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/jirutka/swaylock-effects.git"
 else
-	S="${WORKDIR}/swaylock-effects-${MY_PV}"
 	SRC_URI="https://github.com/jirutka/swaylock-effects/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
