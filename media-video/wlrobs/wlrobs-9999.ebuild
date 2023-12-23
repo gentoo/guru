@@ -1,7 +1,7 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit meson
 
@@ -22,21 +22,18 @@ LICENSE="GPL-3"
 
 SLOT="0"
 
-IUSE="+dmabuf +scpy"
-
 RESTRICT="mirror"
 
 RDEPEND="
 	dev-libs/wayland
 	media-video/obs-studio
-	dmabuf? ( x11-libs/libdrm )
 "
 DEPEND="${RDEPEND}"
 
 src_configure() {
 	local emesonargs=(
-		$(meson_use dmabuf use_dmabuf)
-		$(meson_use scpy   use_scpy  )
+		-Duse_dmabuf=true
+		-Duse_scpy=true
 	)
 	meson_src_configure
 }
