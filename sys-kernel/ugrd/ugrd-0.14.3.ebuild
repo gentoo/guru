@@ -24,10 +24,14 @@ src_install() {
 	distutils-r1_src_install
 	# Create the ugrd config directory
 	keepdir /etc/ugrd
+	# Install the example config into /etc/ugrd/config.toml
+	# Do not overwrite an existing config
+	insinto /etc/ugrd
+	newins examples/config_kmod.toml config.toml
 	# Create the kernel preinst.d directory if it doesn't exist
+	# Install the kernel preinst.d hook
 	keepdir /etc/kernel/preinst.d
 	exeinto /etc/kernel/preinst.d
-	# Install the kernel preinst.d script
 	doexe hooks/51-ugrd.install
 }
 
@@ -35,5 +39,4 @@ pkg_postinst() {
 	optfeature "ugrd.crypto.cryptsetup support" sys-fs/cryptsetup
 	optfeature "ugrd.fs.btrfs support" sys-fs/btrfs-progs
 	optfeature "ugrd.crypto.gpg support" app-crypt/gnupg
-	optfeature "ugrd.fs.zfs support" sys-fs/zfs
 }
