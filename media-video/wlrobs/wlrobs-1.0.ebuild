@@ -29,7 +29,10 @@ RESTRICT="mirror"
 RDEPEND="
 	dev-libs/wayland
 	media-video/obs-studio
-	dmabuf? ( x11-libs/libdrm )
+	dmabuf? (
+		media-libs/libglvnd[X]
+		x11-libs/libdrm
+	)
 "
 DEPEND="${RDEPEND}"
 
