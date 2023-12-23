@@ -1,9 +1,9 @@
 # Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit linux-info linux-mod
+inherit linux-info linux-mod-r1
 
 DESCRIPTION="Linux kernel driver for reading sensors of AMD Zen family CPUs"
 HOMEPAGE="https://github.com/Ta180m/zenpower3"
@@ -18,20 +18,18 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
-PATCHES="${FILESDIR}/${P}-use-symlink-to-detect-kernel-version.patch"
-
 CONFIG_CHECK="HWMON PCI AMD_NB"
 
-BUILD_TARGETS="modules"
-MODULE_NAMES="zenpower(misc:${S})"
-
 src_compile() {
-	export KV_FULL
-	linux-mod_src_compile
+	export KERNELVERSION=${KV_FULL}
+	local modlist=(
+		zenpower=misc:::all
+	)
+	linux-mod-r1_src_compile
 }
 
 src_install() {
-	linux-mod_src_install
+	linux-mod-r1_src_install
 	dobin zp_read_debug.sh
 	dodoc README.md
 }

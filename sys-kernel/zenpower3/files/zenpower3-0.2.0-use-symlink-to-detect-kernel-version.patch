@@ -1,9 +1,0 @@
---- a/Makefile
-+++ b/Makefile
-@@ -1,5 +1,5 @@
- VERSION         := 0.2.0
--TARGET          := $(shell uname -r)
-+TARGET          := $(KV_FULL)
- DKMS_ROOT_PATH  := /usr/src/zenpower-$(VERSION)
- 
- KERNEL_MODULES	:= /lib/modules/$(TARGET)
