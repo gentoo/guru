@@ -28,7 +28,7 @@ src_install() {
 	# Install the example config into /etc/ugrd/config.toml
 	# Do not overwrite an existing config
 	insinto /etc/ugrd
-	newins examples/config_kmod.toml config.toml
+	newins examples/example.toml config.toml
 	# Create the kernel preinst.d directory if it doesn't exist
 	# Install the kernel preinst.d hook
 	keepdir /etc/kernel/preinst.d
