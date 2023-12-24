@@ -21,7 +21,7 @@ DEPEND="${RDEPEND}"
 IUSE="test"
 
 RESTRICT="!test? ( test )"
-PATCHES=( "${FILESDIR}/${P}-no-static.patch" )
+#PATCHES=( "${FILESDIR}/${P}-no-static.patch" )
 
 src_prepare() {
 	eapply_user
