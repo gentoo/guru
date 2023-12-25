@@ -1,0 +1,65 @@
+From 2e86f55dd594dd176c1ade2ce58918900e011391 Mon Sep 17 00:00:00 2001
+From: YiFei Zhu <zhuyifei1999@gmail.com>
+Date: Mon, 25 Dec 2023 08:40:21 -0800
+Subject: [PATCH] Gentoo Makefile changes
+
+- Apply $(LIBSUBDIR) instead of hardcoding "lib"
+- Use env vars for $(CC) $(AR) and $(PREFIX)
+- Delete $(DEBUG) $(OPTIM); we don't want package to override CFLAGS
+  in make.conf
+---
+ Makefile | 19 +++++++++----------
+ 1 file changed, 9 insertions(+), 10 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index d365952..951fc85 100644
+--- a/Makefile
++++ b/Makefile
+@@ -7,7 +7,8 @@ TESTS ?= 1
+ 
+ UNAME = $(shell sh -c 'uname -s 2>/dev/null || echo not')
+ DESTDIR =
+-PREFIX = /usr/local
++PREFIX ?= /usr/local
++LIBSUBDIR ?= lib
+ 
+ MAJOR = 1
+ MINOR = 10
+@@ -15,12 +16,10 @@ REVISION = 7
+ LIB = libcli.so
+ LIB_STATIC = libcli.a
+ 
+-CC = gcc
+-AR = ar
++CC ?= gcc
++AR ?= ar
+ ARFLAGS = rcs
+-DEBUG = -g
+-OPTIM = -O3
+-override CFLAGS += $(DEBUG) $(OPTIM) -Wall -std=c99 -pedantic -Wformat-security -Wno-format-zero-length -Werror -Wwrite-strings -Wformat -fdiagnostics-show-option -Wextra -Wsign-compare -Wcast-align -Wno-unused-parameter
++override CFLAGS += -Wall -std=c99 -pedantic -Wformat-security -Wno-format-zero-length -Werror -Wwrite-strings -Wformat -fdiagnostics-show-option -Wextra -Wsign-compare -Wcast-align -Wno-unused-parameter
+ override LDFLAGS += -shared
+ override LIBPATH += -L.
+ 
+@@ -64,14 +63,14 @@ clean:
+ 	rm -f *.o $(LIB)* $(LIB_STATIC) clitest libcli-$(MAJOR).$(MINOR).$(REVISION).tar.gz
+ 
+ install: $(TARGET_LIBS)
+-	install -d $(DESTDIR)$(PREFIX)/include $(DESTDIR)$(PREFIX)/lib
++	install -d $(DESTDIR)$(PREFIX)/include $(DESTDIR)$(PREFIX)/$(LIBSUBDIR)
+ 	install -m 0644 libcli.h $(DESTDIR)$(PREFIX)/include
+   ifeq (1,$(STATIC_LIB))
+-	install -m 0644 $(LIB_STATIC) $(DESTDIR)$(PREFIX)/lib
++	install -m 0644 $(LIB_STATIC) $(DESTDIR)$(PREFIX)/$(LIBSUBDIR)
+   endif
+   ifeq (1,$(DYNAMIC_LIB))
+-	install -m 0755 $(LIB).$(MAJOR).$(MINOR).$(REVISION) $(DESTDIR)$(PREFIX)/lib
+-	cd $(DESTDIR)$(PREFIX)/lib && \
++	install -m 0755 $(LIB).$(MAJOR).$(MINOR).$(REVISION) $(DESTDIR)$(PREFIX)/$(LIBSUBDIR)
++	cd $(DESTDIR)$(PREFIX)/$(LIBSUBDIR) && \
+ 	    ln -fs $(LIB).$(MAJOR).$(MINOR).$(REVISION) $(LIB).$(MAJOR).$(MINOR) && \
+ 	    ln -fs $(LIB).$(MAJOR).$(MINOR) $(LIB)
+   endif
+-- 
+2.43.0
+
