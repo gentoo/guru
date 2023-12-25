@@ -1,0 +1,24 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8a5bee3..c3a377e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -21,7 +21,6 @@ endif()
+ include_directories(
+   .
+   "protocols/"
+-  "subprojects/sdbus-cpp/include/"
+ )
+ 
+ set(CMAKE_CXX_STANDARD 23)
+@@ -30,9 +29,10 @@ add_compile_options(-Wall -Wextra -Wno-unused-parameter -Wno-unused-value
+ 	-fpermissive -Wno-address-of-temporary)
+ 
+ message(STATUS "Checking deps...")
+-add_subdirectory(subprojects/sdbus-cpp)
+ add_subdirectory(hyprland-share-picker)
+ 
++find_package(sdbus-c++ REQUIRED)
++
+ find_package(Threads REQUIRED)
+ 
+ find_package(PkgConfig REQUIRED)
