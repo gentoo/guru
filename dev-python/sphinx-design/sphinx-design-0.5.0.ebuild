@@ -22,8 +22,8 @@ RDEPEND="
 "
 
 src_prepare() {
-	find "${S}/docs" -type f -exec sed -i 's/sphinxcontrib.napoleon/sphinx\.ext\.napoleon/g' {} \;
-	rm -rf "${S}/tests"
+	find "${S}/docs" -type f -exec sed -i 's/sphinxcontrib.napoleon/sphinx\.ext\.napoleon/g' {} \; || die "Could not find and replace sphinxcontrib.napoleon"
+	rm -rf "${S}/tests" || die "Could not remove ${S}/tests"
 	use doc && HTML_DOCS="${S}/docs/_build/html"
 	distutils-r1_src_prepare
 }
