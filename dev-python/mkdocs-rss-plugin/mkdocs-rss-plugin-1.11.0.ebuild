@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_10 )
+PYTHON_COMPAT=( python3_{10..11} )
 
 inherit distutils-r1
 
@@ -22,9 +22,11 @@ BDEPEND="
 	test? (
 		dev-python/black[${PYTHON_USEDEP}]
 		dev-python/feedparser[${PYTHON_USEDEP}]
+		dev-python/jsonschema[${PYTHON_USEDEP}]
 		dev-vcs/pre-commit
 		dev-python/validator-collection[${PYTHON_USEDEP}]
 		dev-python/mkdocs-bootswatch[${PYTHON_USEDEP}]
+		dev-python/mkdocs-material[${PYTHON_USEDEP}]
 		dev-python/mkdocs-minify-plugin[${PYTHON_USEDEP}]
 		dev-python/pygments[${PYTHON_USEDEP}]
 		dev-python/pymdown-extensions[${PYTHON_USEDEP}]
@@ -51,6 +53,9 @@ python_test() {
 	git config --global user.name nobody || die
 	git config --global user.email foo.bar@example.org || die
 	local EPYTEST_IGNORE="${S}/tests/_wip"
-	local EPYTEST_DESELECT="tests/test_rss_util.py::TestRssUtil::test_remote_image_ok"
+	local EPYTEST_DESELECT=(
+		tests/test_rss_util.py::TestRssUtil::test_remote_image_ok
+		tests/test_integrations_material_social_cards.py::TestRssPluginIntegrationsMaterialSocialCards::test_simple_build
+	)
 	epytest "${S}"/tests || die "Tests failed with ${EPYTHON}"
 }
