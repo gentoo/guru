@@ -23,7 +23,6 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
-# Until cpdef is removed from skia-pathops, we need cython < 3.0.0
 BDEPEND="
 	app-arch/unzip
 	dev-python/cython[${PYTHON_USEDEP}]
