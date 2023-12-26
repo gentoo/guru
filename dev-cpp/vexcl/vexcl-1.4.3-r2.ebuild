@@ -30,7 +30,7 @@ IUSE="${IUSE_BACKEND} amdsi examples test" #clogs
 
 RDEPEND="
 	dev-libs/boost:=
-	dev-libs/clhpp
+	dev-cpp/clhpp
 	backend_jit? ( virtual/opencl )
 	backend_opencl? ( virtual/opencl )
 "
