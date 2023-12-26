@@ -83,7 +83,7 @@ src_install() {
 }
 
 src_test() {
-	epytest tests
+	PYTHONPATH=py epytest tests
 }
 
 pkg_postinst() {
