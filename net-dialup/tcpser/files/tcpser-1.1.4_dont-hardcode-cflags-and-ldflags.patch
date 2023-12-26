@@ -1,0 +1,17 @@
+Don’t hardcode CFLAGS and LDFLAGS into Makefile.
+
+From: Seth M. Price <sprice623@aol.com>
+
+--- a/Makefile
++++ b/Makefile
+@@ -3,8 +3,8 @@ SRCS = $(SRC)/bridge.c $(SRC)/debug.c $(SRC)/getcmd.c $(SRC)/ip.c $(SRC)/init.c
+ OBJS = $(SRC)/bridge.o $(SRC)/debug.o $(SRC)/getcmd.o $(SRC)/ip.o $(SRC)/init.o $(SRC)/modem_core.o $(SRC)/nvt.o $(SRC)/serial.o $(SRC)/ip232.o $(SRC)/util.o $(SRC)/phone_book.o $(SRC)/tcpser.o $(SRC)/dce.o $(SRC)/line.o
+ CC ?= gcc
+ DEF = 
+-CFLAGS = -O $(DEF) -Wall
+-LDFLAGS = -lpthread
++CFLAGS = 
++LDFLAGS += -lpthread
+ DEPEND = makedepend $(DEF) $(CFLAGS)
+ 
+ all:   tcpser
