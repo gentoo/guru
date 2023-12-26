@@ -4,7 +4,7 @@
 EAPI=8
 inherit go-module
 
-DESCRIPTION="A fork of Terraform that is open-source, community-driven, and managed by the Linux Foundation"
+DESCRIPTION="A fork of Terraform that is open-source and community-driven"
 HOMEPAGE="https://opentofu.org/"
 
 MY_PV="${PV/_rc/-rc}"
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/opentofu/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.
 	https://github.com/sin-ack/opentofu-vendor/releases/download/v${MY_PV}/opentofu-v${MY_PV}-vendor.tar.gz"
 
 # Main package is MPL-2.0. The rest is obtained with `go-licenses csv ./cmd/tofu'
-LICENSE="MPL-2.0 Apache-2.0 BSD-2-Clause ISC MIT"
+LICENSE="MPL-2.0 Apache-2.0 BSD-2 ISC MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
