@@ -28,6 +28,10 @@ src_compile() {
 	ego build
 }
 
+src_test() {
+	ego test -timeout=30s ./...
+}
+
 src_install() {
 	dobin "${PN}"
 	dodoc README.md CHANGELOG.md docs/configuration.md docs/usage.md
