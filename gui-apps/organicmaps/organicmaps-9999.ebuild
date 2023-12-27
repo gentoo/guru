@@ -31,6 +31,8 @@ RDEPEND="
 	dev-lang/python
 	dev-libs/boost
 	dev-libs/icu
+	dev-libs/jansson
+	dev-libs/utfcpp
 	dev-qt/qtpositioning:6
 	dev-util/vulkan-headers
 	media-libs/freetype
