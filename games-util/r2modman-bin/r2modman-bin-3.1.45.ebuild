@@ -33,6 +33,7 @@ src_install() {
 	insinto /opt
 	doins -r "${M_PN}"
 	fperms 755 "/opt/${M_PN}/r2modman"
+	dosym -r /opt/r2modman/r2modman /usr/bin/r2modman
 
 	#Install License file in proper location
 	find "${ED}" -name "LICENSE*" -delete || die
