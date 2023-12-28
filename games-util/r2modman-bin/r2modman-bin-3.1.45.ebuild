@@ -8,14 +8,14 @@ M_PN=r2modman
 inherit desktop xdg
 SRC_URI="
 	https://github.com/ebkr/${M_PN}Plus/releases/download/v${PV}/${M_PN}-${PV}.tar.gz -> ${P}.tar.gz
-	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/16x16.png -> "${M_PN}"-16x16.png
-	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/32x32.png -> "${M_PN}"-32x32.png
-	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/48x48.png -> "${M_PN}"-48x48.png
-	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/64x64.png -> "${M_PN}"-64x64.png
-	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/96x96.png -> "${M_PN}"-96x96.png
-	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/128x128.png -> "${M_PN}"-128x128.png
-	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/192x192.png -> "${M_PN}"-192x192.png
-	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/256x256.png -> "${M_PN}"-256x256.png
+	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/16x16.png -> ${P}-16x16.png
+	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/32x32.png -> ${P}-32x32.png
+	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/48x48.png -> ${P}-48x48.png
+	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/64x64.png -> ${P}-64x64.png
+	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/96x96.png -> ${P}-96x96.png
+	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/128x128.png -> ${P}-128x128.png
+	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/192x192.png -> ${P}-192x192.png
+	https://raw.githubusercontent.com/ebkr/r2modmanPlus/v${PV}/src/assets/icon/256x256.png -> ${P}-256x256.png
 "
 DESCRIPTION="A simple and easy to use mod manager for several games using Thunderstore"
 HOMEPAGE="https://github.com/ebkr/r2modmanPlus"
@@ -41,12 +41,7 @@ src_install() {
 	domenu "${FILESDIR}/${M_PN}".desktop
 
 	# Install icons
-	newicon -s 16 "${DISTDIR}/${M_PN}"-16x16.png "${M_PN}".png
-	newicon -s 32 "${DISTDIR}/${M_PN}"-32x32.png "${M_PN}".png
-	newicon -s 48 "${DISTDIR}/${M_PN}"-48x48.png "${M_PN}".png
-	newicon -s 64 "${DISTDIR}/${M_PN}"-64x64.png "${M_PN}".png
-	newicon -s 96 "${DISTDIR}/${M_PN}"-96x96.png "${M_PN}".png
-	newicon -s 128 "${DISTDIR}/${M_PN}"-128x128.png "${M_PN}".png
-	newicon -s 192 "${DISTDIR}/${M_PN}"-192x192.png "${M_PN}".png
-	newicon -s 256 "${DISTDIR}/${M_PN}"-256x256.png "${M_PN}".png
+	for size in 16 32 48 64 96 128 192 256; do
+		newicon -s ${size} "${DISTDIR}"/${P}-${size}x${size}.png ${M_PN}.png
+	done
 }
