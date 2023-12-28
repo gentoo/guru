@@ -26,13 +26,13 @@ SLOT="0"
 
 KEYWORDS="~amd64 ~x86"
 
-S="${WORKDIR}/${M_PN}-${PV}"
+S="${WORKDIR}"
 
 src_install() {
 	## Install binaries file
-	cp -r "${S}" "${WORKDIR}/${M_PN}" #Fix folder name
+	mv "${M_PN}-${PV}" "${M_PN}" || die #Fix folder name
 	insinto /opt
-	doins -r "${WORKDIR}/${M_PN}"
+	doins -r "${M_PN}"
 	fperms 755 "/opt/${M_PN}/r2modman"
 
 	# Install desktop file
