@@ -20,7 +20,7 @@ SRC_URI="
 DESCRIPTION="A simple and easy to use mod manager for several games using Thunderstore"
 HOMEPAGE="https://github.com/ebkr/r2modmanPlus"
 
-LICENSE="GPL-3"
+LICENSE="MIT"
 SLOT="0"
 
 KEYWORDS="~amd64 ~x86"
@@ -28,11 +28,14 @@ KEYWORDS="~amd64 ~x86"
 S="${WORKDIR}"
 
 src_install() {
-	## Install binaries file
+	# Install binaries file
 	mv "${M_PN}-${PV}" "${M_PN}" || die #Fix folder name
 	insinto /opt
 	doins -r "${M_PN}"
 	fperms 755 "/opt/${M_PN}/r2modman"
+
+	#Install License file in proper location
+	find "${ED}" -name "LICENSE*" -delete || die
 
 	# Install desktop file
 	domenu "${FILESDIR}/${M_PN}".desktop
@@ -46,8 +49,4 @@ src_install() {
 	newicon -s 128 "${DISTDIR}/${M_PN}"-128x128.png "${M_PN}".png
 	newicon -s 192 "${DISTDIR}/${M_PN}"-192x192.png "${M_PN}".png
 	newicon -s 256 "${DISTDIR}/${M_PN}"-256x256.png "${M_PN}".png
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
 }
