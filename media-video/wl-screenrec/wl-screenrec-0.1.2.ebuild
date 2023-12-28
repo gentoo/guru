@@ -108,7 +108,11 @@ LICENSE="Apache-2.0 BSD Boost-1.0 ISC MIT Unicode-DFS-2016 Unlicense WTFPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND="media-video/ffmpeg"
+BDEPEND="
+	media-video/ffmpeg
+	sys-devel/clang
+	x11-libs/libdrm
+"
 RDEPEND="${BDEPEND}"
 DEPEND="${RDEPEND}"
 
