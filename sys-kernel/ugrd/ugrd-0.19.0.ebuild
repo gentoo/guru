@@ -16,8 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="app-misc/pax-utils"
-DEPEND=">=dev-python/zenlib-1.2.0
-	>=dev-python/pycpio-0.6.1
+DEPEND=">=dev-python/zenlib-1.3.0
+	>=dev-python/pycpio-0.7.0
 	sys-apps/pciutils"
 
 src_install() {
@@ -28,7 +28,7 @@ src_install() {
 	# Install the example config into /etc/ugrd/config.toml
 	# Do not overwrite an existing config
 	insinto /etc/ugrd
-	newins examples/config_kmod.toml config.toml
+	newins examples/example.toml config.toml
 	# Create the kernel preinst.d directory if it doesn't exist
 	# Install the kernel preinst.d hook
 	keepdir /etc/kernel/preinst.d
