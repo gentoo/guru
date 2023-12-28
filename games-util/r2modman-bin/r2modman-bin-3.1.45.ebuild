@@ -4,6 +4,7 @@
 EAPI=8
 
 M_PN=r2modman
+M_PK=${PN::-3}
 
 inherit desktop xdg
 SRC_URI="https://github.com/ebkr/${M_PN}Plus/releases/download/v${PV}/${M_PN}-${PV}.tar.gz -> ${P}.tar.gz"
@@ -24,11 +25,8 @@ src_install() {
 	doins -r "${WORKDIR}/${M_PN}"
 	fperms 755 "/opt/${M_PN}/r2modman"
 
-	## Install desktop and icon file
-	# Copy and fix version on desktop file version
+	# Install desktop file
 	domenu "${FILESDIR}/${M_PN}".desktop
-	sed -i 's/Version=pkgversion/Version='${PV}'/g' "${D}/usr/share/applications/${M_PN}".desktop
-	sed -i 's/X-AppImage-Version=pkgversion/X-AppImage-Version='${PV}'/g' "${D}/usr/share/applications/${M_PN}".desktop
 
 	# Install icons
 	newicon -s 16 "${FILESDIR}/${M_PN}"-16x16.png "${M_PN}".png
