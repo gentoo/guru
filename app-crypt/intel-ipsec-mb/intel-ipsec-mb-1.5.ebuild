@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit cmake
 
 DESCRIPTION="Multi-Buffer Crypto for IPSec from Intel"
 HOMEPAGE="https://github.com/intel/intel-ipsec-mb"
