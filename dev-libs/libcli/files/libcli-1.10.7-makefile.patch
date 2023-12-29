@@ -1,4 +1,4 @@
-From 2e86f55dd594dd176c1ade2ce58918900e011391 Mon Sep 17 00:00:00 2001
+From 08cc1bf7558e3ba24149d4452677abcc7caf270a Mon Sep 17 00:00:00 2001
 From: YiFei Zhu <zhuyifei1999@gmail.com>
 Date: Mon, 25 Dec 2023 08:40:21 -0800
 Subject: [PATCH] Gentoo Makefile changes
@@ -7,12 +7,15 @@ Subject: [PATCH] Gentoo Makefile changes
 - Use env vars for $(CC) $(AR) and $(PREFIX)
 - Delete $(DEBUG) $(OPTIM); we don't want package to override CFLAGS
   in make.conf
+- Remove -Werror [1]
+
+[1] https://bugs.gentoo.org/920891
 ---
  Makefile | 19 +++++++++----------
  1 file changed, 9 insertions(+), 10 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index d365952..951fc85 100644
+index d365952..ce393fd 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -7,7 +7,8 @@ TESTS ?= 1
@@ -37,7 +40,7 @@ index d365952..951fc85 100644
 -DEBUG = -g
 -OPTIM = -O3
 -override CFLAGS += $(DEBUG) $(OPTIM) -Wall -std=c99 -pedantic -Wformat-security -Wno-format-zero-length -Werror -Wwrite-strings -Wformat -fdiagnostics-show-option -Wextra -Wsign-compare -Wcast-align -Wno-unused-parameter
-+override CFLAGS += -Wall -std=c99 -pedantic -Wformat-security -Wno-format-zero-length -Werror -Wwrite-strings -Wformat -fdiagnostics-show-option -Wextra -Wsign-compare -Wcast-align -Wno-unused-parameter
++override CFLAGS += -Wall -std=c99 -pedantic -Wformat-security -Wno-format-zero-length -Wwrite-strings -Wformat -fdiagnostics-show-option -Wextra -Wsign-compare -Wcast-align -Wno-unused-parameter
  override LDFLAGS += -shared
  override LIBPATH += -L.
  
