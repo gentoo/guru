@@ -32,7 +32,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	sys-devel/flex
+	app-alternatives/lex
 	sys-devel/bison
 	dev-libs/libsodium
 	virtual/pkgconfig
@@ -41,14 +41,9 @@ BDEPEND="
 src_prepare() {
 	default
 
-	sed -e '/CFLAGS/s:?=:+=:' \
-		-e '/CPPFLAGS/s:?=:+=:' \
-		-e '/CFLAGS/s:\(-g\|-O2\|-O3\|-m\(arch\|tune\)=native\)::g' \
-		-i Makefile || die
-
-	if ! grep -Fq nacl-20110221 curvetun/nacl_build.sh ; then
-		die "have nacl-20110221, expected $(grep ${MY_NACL_P} curvetun/nacl_build.sh)"
-	fi
+	# force mausezahn to respect CFLAGS
+	sed -e '/CFLAGS/s:=:+=:' -i Extra || die
+	sed -e 's/ -O2//' -i mausezahn/Makefile || die
 
 	export NACL_INC_DIR="${EPREFIX}/usr/include/nacl"
 	export NACL_LIB_DIR="${EPREFIX}/usr/$(get_libdir)/nacl"
@@ -77,9 +72,7 @@ src_configure() {
 }
 
 src_compile() {
-	emake CC="$(tc-getCC)" LD="$(tc-getCC)" CCACHE="" \
-		LEX=lex YAAC=bison STRIP=true \
-		Q= HARDENING=1
+	emake CC="$(tc-getCC)" LD="$(tc-getCC)" CCACHE="" Q=
 }
 
 src_install() {
