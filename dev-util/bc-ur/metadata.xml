@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>adam.pimentel46@gmail.com</email>
+		<name>Adam Pimentel</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">BlockchainCommons/bc-ur</remote-id>
+	</upstream>
+	<longdescription lang="en">
+	The Blockchain Commons UR Library is a UR Reference Implementation in C++.
+	URs ("Uniform Resources") are a method for encoding structured binary data for transport in URIs and QR Codes. They are described in BCR-2020-005.
+	</longdescription>
+</pkgmetadata>
