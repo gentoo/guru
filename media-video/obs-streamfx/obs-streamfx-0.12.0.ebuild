@@ -5,14 +5,14 @@ EAPI=8
 
 inherit cmake
 
-CMAKE_CLANG_COMMIT="d2f9e3234313a7434dead5b957301ebbdddf13d7"
+CMAKE_CLANG_COMMIT="7e577af2e963e3dfcce611942fce305c70583b2a"
 CMAKE_VERSION_COMMIT="3bef96bafab04161991c2cd98a1ed51f6362d670"
-NHOHMANN_JSON_COMMIT="e4643d1f1b03fc7a1d7b65f17e012ca93680cad8"
-MSVC_REDIST_HELPER_COMMIT="7587246671340b683a0b8f06fb369d6574d8274f"
-NVIDIA_MAXINE_AR_SDK_COMMIT="c4154fa68fc2f91a26f2475e3cf98f64c50483b7"
-NVIDIA_MAXINE_VFX_SDK_COMMIT="3df6c37852afad9f15ee0b85e51b5b49e611cfc0"
+NHOHMANN_JSON_COMMIT="db78ac1d7716f56fc9f1b030b715f872f93964e4"
+MSVC_REDIST_HELPER_COMMIT="aa4665ccf68a382f1c2b115fb6c9668b6a8bd64d"
+NVIDIA_MAXINE_AR_SDK_COMMIT="ca10ac3b3984357aab84b3c6319d35c82d49e836"
+NVIDIA_MAXINE_VFX_SDK_COMMIT="f63d9d1dbd14c905d56648817f132d3eb9a8690d"
 NVIDIA_MAXINE_AFX_SDK_COMMIT="4d4ed8d8aca914f4dbf8570f1626cf4108e19bb4"
-OBS_STUDIO_COMMIT="34ef67e212f24a085a63705a0ab81e3401c8eca4"
+OBS_STUDIO_COMMIT="abb80571351438bebd018a45d896b26f95881fbe"
 
 #remove when stable release (make life easy later because of new submodules)
 M_PV="0.12.0b366"
@@ -24,7 +24,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/Xaymar/obs-StreamFX.git"
 else
 	SRC_URI="
-			https://github.com/Xaymar/obs-StreamFX/archive/refs/tags/${M_PV}.tar.gz -> ${P}.tar.gz
+			https://github.com/Xaymar/obs-StreamFX/archive/refs/tags/${M_PV}.tar.gz -> ${PN}-${M_PV}.tar.gz
 			https://github.com/Xaymar/cmake-clang/archive/${CMAKE_CLANG_COMMIT}.tar.gz \
 				-> cmake-clang-${CMAKE_CLANG_COMMIT}.tar.gz
 			https://github.com/Xaymar/cmake-version/archive/${CMAKE_VERSION_COMMIT}.tar.gz \
@@ -58,9 +58,7 @@ fi
 src_unpack() {
 	default
 
-	if [[ ${PV} == 9999 ]]; then
-		git-r3_src_unpack
-	else
+	if [[ ${PV} != 9999 ]]; then
 		rm -d "${S}/cmake/clang"
 		mv cmake-clang-${CMAKE_CLANG_COMMIT} "${S}/cmake/clang"
 
@@ -84,6 +82,9 @@ src_unpack() {
 
 		rm -d "${S}/third-party/obs-studio"
 		mv obs-studio-${OBS_STUDIO_COMMIT} "${S}/third-party/obs-studio"
+
+	else
+		git-r3_src_unpack
 	fi
 }
 
@@ -92,7 +93,6 @@ src_prepare() {
 
 	#fix CMakeLists.txt libdir
 	sed -i 's|"lib/obs-plugins/"|"${CMAKE_INSTALL_LIBDIR}/obs-plugins/"|g' "${S}/CMakeLists.txt"
-
 	cmake_src_prepare
 }
 
@@ -101,6 +101,7 @@ src_configure() {
 	local mycmakeargs+=(
 		-DSTRUCTURE_PACKAGEMANAGER=TRUE
 		-DPACKAGE_NAME="obs-streamfx"
+		$([[ ${PV} != "9999" ]] && echo "-DVERSION=${M_PV}")
 	)
 
 	cmake_src_configure
