@@ -85,7 +85,7 @@ src_install() {
 	eninja package
 	cd ./_CPack_Packages/Linux/STGZ || die
 	mkdir -p "${D}"/usr/share || die
-	bash ./GitAhead-2.6.3.sh --prefix="${D}"/usr/share --include-subdir || die
+	bash ./GitAhead-2.7.1.sh --prefix="${D}"/usr/share --include-subdir || die
 	rm -fr "${D}"/usr/share/GitAhead/*.so.* || die
 
 	cd "${D}"/usr/share/GitAhead/Resources/GitAhead.iconset || die
