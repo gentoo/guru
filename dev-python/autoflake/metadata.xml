@@ -14,7 +14,7 @@ By default, autoflake only removes unused imports for modules that are part of t
 autoflake also removes useless pass statements.
   </longdescription>
   <upstream>
-    <remote-id type="github">myint/autoflake</remote-id>
+    <remote-id type="github">PyCQA/autoflake</remote-id>
     <remote-id type="pypi">autoflake</remote-id>
   </upstream>
 </pkgmetadata>
