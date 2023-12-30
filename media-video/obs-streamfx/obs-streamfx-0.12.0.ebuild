@@ -25,14 +25,22 @@ if [[ ${PV} == 9999 ]]; then
 else
 	SRC_URI="
 			https://github.com/Xaymar/obs-StreamFX/archive/refs/tags/${M_PV}.tar.gz -> ${P}.tar.gz
-			https://github.com/Xaymar/cmake-clang/archive/${CMAKE_CLANG_COMMIT}.tar.gz -> cmake-clang-${CMAKE_CLANG_COMMIT}.tar.gz
-			https://github.com/Xaymar/cmake-version/archive/${CMAKE_VERSION_COMMIT}.tar.gz -> cmake-version-${CMAKE_VERSION_COMMIT}.tar.gz
-			https://github.com/nlohmann/json/archive/${NHOHMANN_JSON_COMMIT}.tar.gz -> json-${NHOHMANN_JSON_COMMIT}.tar.gz
-			https://github.com/Xaymar/msvc-redist-helper/archive/${MSVC_REDIST_HELPER_COMMIT}.tar.gz -> msvc-redist-helper-${MSVC_REDIST_HELPER_COMMIT}.tar.gz
-			https://github.com/NVIDIA/MAXINE-AR-SDK/archive/${NVIDIA_MAXINE_AR_SDK_COMMIT}.tar.gz -> MAXINE-AR-SDK-${NVIDIA-MAXINE-AR-SDK}.tar.gz
-			https://github.com/NVIDIA/MAXINE-VFX-SDK/archive/${NVIDIA_MAXINE_VFX_SDK_COMMIT}.tar.gz -> MAXINE-VFX-SDK-${NVIDIA_MAXINE_VFX_SDK_COMMIT}.tar.gz
-			https://github.com/NVIDIA/MAXINE-AFX-SDK/archive/${NVIDIA_MAXINE_AFX_SDK_COMMIT}.tar.gz -> MAXINE-AFX-SDK-${NVIDIA_MAXINE_AFX_SDK_COMMIT}.tar.gz
-			https://github.com/obsproject/obs-studio/archive/${OBS_STUDIO_COMMIT}.tar.gz -> obs-studio-${OBS_STUDIO_COMMIT}.tar.gz
+			https://github.com/Xaymar/cmake-clang/archive/${CMAKE_CLANG_COMMIT}.tar.gz \
+				-> cmake-clang-${CMAKE_CLANG_COMMIT}.tar.gz
+			https://github.com/Xaymar/cmake-version/archive/${CMAKE_VERSION_COMMIT}.tar.gz \
+				-> cmake-version-${CMAKE_VERSION_COMMIT}.tar.gz
+			https://github.com/nlohmann/json/archive/${NHOHMANN_JSON_COMMIT}.tar.gz \
+				-> json-${NHOHMANN_JSON_COMMIT}.tar.gz
+			https://github.com/Xaymar/msvc-redist-helper/archive/${MSVC_REDIST_HELPER_COMMIT}.tar.gz \
+				-> msvc-redist-helper-${MSVC_REDIST_HELPER_COMMIT}.tar.gz
+			https://github.com/NVIDIA/MAXINE-AR-SDK/archive/${NVIDIA_MAXINE_AR_SDK_COMMIT}.tar.gz \
+				-> MAXINE-AR-SDK-${NVIDIA_MAXINE_AR_SDK_COMMIT}.tar.gz
+			https://github.com/NVIDIA/MAXINE-VFX-SDK/archive/${NVIDIA_MAXINE_VFX_SDK_COMMIT}.tar.gz \
+				-> MAXINE-VFX-SDK-${NVIDIA_MAXINE_VFX_SDK_COMMIT}.tar.gz
+			https://github.com/NVIDIA/MAXINE-AFX-SDK/archive/${NVIDIA_MAXINE_AFX_SDK_COMMIT}.tar.gz \
+				-> MAXINE-AFX-SDK-${NVIDIA_MAXINE_AFX_SDK_COMMIT}.tar.gz
+			https://github.com/obsproject/obs-studio/archive/${OBS_STUDIO_COMMIT}.tar.gz \
+				-> obs-studio-${OBS_STUDIO_COMMIT}.tar.gz
 	"
 	KEYWORDS="~amd64"
 fi
@@ -84,9 +92,6 @@ src_prepare() {
 
 	#fix CMakeLists.txt libdir
 	sed -i 's|"lib/obs-plugins/"|"${CMAKE_INSTALL_LIBDIR}/obs-plugins/"|g' "${S}/CMakeLists.txt"
-	if [[ ${PV} != 9999 ]]; then
-		sed -i "/Not a git repository, automatic version detection disabled./a \    set(_VERSION \"${M_PV}\")" "${S}/CMakeLists.txt"
-	fi
 
 	cmake_src_prepare
 }
@@ -94,7 +99,6 @@ src_prepare() {
 src_configure() {
 
 	local mycmakeargs+=(
-		-DENABLE_UPDATER=FALSE
 		-DSTRUCTURE_PACKAGEMANAGER=TRUE
 		-DPACKAGE_NAME="obs-streamfx"
 	)
