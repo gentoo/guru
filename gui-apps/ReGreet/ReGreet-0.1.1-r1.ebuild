@@ -211,9 +211,6 @@ LICENSE="GPL-3"
 SLOT="0"
 DEPEND="x11-libs/gtk+:3
 	gtk4? ( gui-libs/gtk )
-	cage? ( gui-wm/cage )
-	sway? ( gui-wm/sway )
-	|| ( gui-wm/cage gui-wm/sway )
 "
 
 KEYWORDS="~amd64"
@@ -243,15 +240,6 @@ src_compile() {
 
 src_install() {
 	newbin "${WORKDIR}/${P}/target/release/regreet" regreet
-	if use cage; then
-		insinto /etc/greetd/ && newins "${FILESDIR}/config-cage.toml" config.toml
-		echo "Restart cage service to verify if works (Only activate on TTY1)"
-	fi
-	if use sway; then
-		insinto /etc/greetd/ && newins "${FILESDIR}/config-sway.toml" config.toml
-		insinto /etc/greetd/ && doins "${FILESDIR}/sway-config"
-		echo "Restart cage service to verify if works (Only activate on TTY1)"
-	fi
 }
 
 src_post_install () {
