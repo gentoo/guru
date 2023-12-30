@@ -1,0 +1,293 @@
+# Copyright 2001-2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+CRATES="
+	addr2line@0.21.0
+	adler@1.0.2
+	aes@0.8.3
+	ahash@0.8.6
+	aho-corasick@1.1.2
+	android-tzdata@0.1.1
+	android_system_properties@0.1.5
+	autocfg@1.1.0
+	backtrace@0.3.69
+	base64@0.21.5
+	base64ct@1.6.0
+	bitflags@1.3.2
+	bitflags@2.4.1
+	bitreader@0.3.8
+	bitstream-io@1.10.0
+	block-buffer@0.10.4
+	bumpalo@3.14.0
+	bytecount@0.6.7
+	byteorder@1.5.0
+	bytes@1.5.0
+	bzip2@0.4.4
+	bzip2-sys@0.1.11+1.0.8
+	cc@1.0.83
+	cfg-if@1.0.0
+	chrono@0.4.31
+	chrono-english@0.1.7
+	cipher@0.4.4
+	clipboard-win@5.0.0
+	constant_time_eq@0.1.5
+	core-foundation@0.9.4
+	core-foundation-sys@0.8.6
+	cpufeatures@0.2.11
+	crc32fast@1.3.2
+	crossbeam-deque@0.8.4
+	crossbeam-epoch@0.9.17
+	crossbeam-utils@0.8.18
+	crypto-common@0.1.6
+	csv@1.3.0
+	csv-core@0.1.11
+	deranged@0.3.10
+	digest@0.10.7
+	directories@5.0.1
+	dirs-sys@0.4.1
+	either@1.9.0
+	encoding_rs@0.8.33
+	endian-type@0.1.2
+	equivalent@1.0.1
+	errno@0.3.8
+	error-code@3.0.0
+	fallible_collections@0.4.9
+	fd-lock@4.0.1
+	fixedbitset@0.4.2
+	flate2@1.0.28
+	fnv@1.0.7
+	form_urlencoded@1.2.1
+	futures-channel@0.3.30
+	futures-core@0.3.30
+	futures-io@0.3.30
+	futures-sink@0.3.30
+	futures-task@0.3.30
+	futures-util@0.3.30
+	generic-array@0.14.7
+	getrandom@0.2.11
+	gimli@0.28.1
+	h2@0.3.22
+	hashbrown@0.13.2
+	hashbrown@0.14.3
+	hermit-abi@0.3.3
+	hmac@0.12.1
+	home@0.5.9
+	http@0.2.11
+	http-body@0.4.6
+	httparse@1.8.0
+	httpdate@1.0.3
+	human-time@0.1.6
+	human-time-macros@0.1.8
+	humansize@2.1.3
+	hyper@0.14.28
+	hyper-rustls@0.24.2
+	iana-time-zone@0.1.58
+	iana-time-zone-haiku@0.1.2
+	idna@0.5.0
+	imagesize@0.12.0
+	indexmap@2.1.0
+	inout@0.1.3
+	ipnet@2.9.0
+	itertools@0.10.5
+	itoa@1.0.10
+	jobserver@0.1.27
+	js-sys@0.3.66
+	kamadak-exif@0.5.5
+	keccak@0.1.4
+	lazy_static@1.4.0
+	libc@0.2.151
+	libm@0.2.8
+	libmimalloc-sys@0.1.35
+	libredox@0.0.1
+	linux-raw-sys@0.4.12
+	log@0.4.20
+	lscolors@0.16.0
+	matroska@0.26.0
+	memchr@2.6.4
+	mimalloc@0.1.39
+	mime@0.3.17
+	minimal-lexical@0.2.1
+	miniz_oxide@0.7.1
+	mio@0.8.10
+	mp3-metadata@0.3.4
+	mp4parse@0.17.0
+	mutate_once@0.1.1
+	nibble_vec@0.1.0
+	nix@0.27.1
+	nom@7.1.3
+	nu-ansi-term@0.49.0
+	num-traits@0.2.17
+	num_cpus@1.16.0
+	object@0.32.2
+	once_cell@1.19.0
+	option-ext@0.2.0
+	password-hash@0.4.2
+	pbkdf2@0.11.0
+	percent-encoding@2.3.1
+	petgraph@0.6.4
+	phf@0.11.2
+	phf_generator@0.11.2
+	phf_macros@0.11.2
+	phf_shared@0.11.2
+	pin-project-lite@0.2.13
+	pin-utils@0.1.0
+	pkg-config@0.3.28
+	powerfmt@0.2.0
+	ppv-lite86@0.2.17
+	proc-macro2@1.0.71
+	quote@1.0.33
+	radix_trie@0.2.1
+	rand@0.8.5
+	rand_chacha@0.3.1
+	rand_core@0.6.4
+	rayon@1.8.0
+	rayon-core@1.12.0
+	rbase64@2.0.3
+	redox_syscall@0.4.1
+	redox_users@0.4.4
+	regex@1.10.2
+	regex-automata@0.4.3
+	regex-syntax@0.8.2
+	reqwest@0.11.23
+	ring@0.17.7
+	rustc-demangle@0.1.23
+	rustix@0.38.28
+	rustls@0.21.10
+	rustls-pemfile@1.0.4
+	rustls-webpki@0.101.7
+	rustyline@13.0.0
+	ryu@1.0.16
+	scanlex@0.1.4
+	sct@0.7.1
+	semver@1.0.20
+	serde@1.0.193
+	serde_derive@1.0.193
+	serde_json@1.0.108
+	serde_spanned@0.6.5
+	serde_urlencoded@0.7.1
+	sha-1@0.10.1
+	sha1@0.10.6
+	sha2@0.10.8
+	sha3@0.10.8
+	siphasher@0.3.11
+	slab@0.4.9
+	smallvec@1.11.2
+	socket2@0.5.5
+	spin@0.9.8
+	static_assertions@1.1.0
+	subtle@2.5.0
+	svg@0.14.0
+	syn@1.0.109
+	syn@2.0.43
+	system-configuration@0.5.1
+	system-configuration-sys@0.5.0
+	thiserror@1.0.52
+	thiserror-impl@1.0.52
+	time@0.3.31
+	time-core@0.1.2
+	tinyvec@1.6.0
+	tinyvec_macros@0.1.1
+	tokio@1.35.1
+	tokio-rustls@0.24.1
+	tokio-util@0.7.10
+	toml@0.8.8
+	toml_datetime@0.6.5
+	toml_edit@0.21.0
+	tower-service@0.3.2
+	tracing@0.1.40
+	tracing-core@0.1.32
+	tree_magic_db@3.0.0
+	tree_magic_mini@3.0.3
+	try-lock@0.2.5
+	typenum@1.17.0
+	unicode-bidi@0.3.14
+	unicode-ident@1.0.12
+	unicode-normalization@0.1.22
+	unicode-segmentation@1.10.1
+	unicode-width@0.1.11
+	untrusted@0.9.0
+	update-informer@1.1.0
+	ureq@2.9.1
+	url@2.5.0
+	utf8parse@0.2.1
+	uzers@0.11.3
+	version_check@0.9.4
+	wana_kana@3.0.0
+	want@0.3.1
+	wasi@0.11.0+wasi-snapshot-preview1
+	wasm-bindgen@0.2.89
+	wasm-bindgen-backend@0.2.89
+	wasm-bindgen-futures@0.4.39
+	wasm-bindgen-macro@0.2.89
+	wasm-bindgen-macro-support@0.2.89
+	wasm-bindgen-shared@0.2.89
+	web-sys@0.3.66
+	webpki-roots@0.25.3
+	winapi@0.3.9
+	winapi-i686-pc-windows-gnu@0.4.0
+	winapi-x86_64-pc-windows-gnu@0.4.0
+	windows-core@0.51.1
+	windows-sys@0.48.0
+	windows-sys@0.52.0
+	windows-targets@0.48.5
+	windows-targets@0.52.0
+	windows_aarch64_gnullvm@0.48.5
+	windows_aarch64_gnullvm@0.52.0
+	windows_aarch64_msvc@0.48.5
+	windows_aarch64_msvc@0.52.0
+	windows_i686_gnu@0.48.5
+	windows_i686_gnu@0.52.0
+	windows_i686_msvc@0.48.5
+	windows_i686_msvc@0.52.0
+	windows_x86_64_gnu@0.48.5
+	windows_x86_64_gnu@0.52.0
+	windows_x86_64_gnullvm@0.48.5
+	windows_x86_64_gnullvm@0.52.0
+	windows_x86_64_msvc@0.48.5
+	windows_x86_64_msvc@0.52.0
+	winnow@0.5.31
+	winreg@0.50.0
+	xattr@1.2.0
+	zerocopy@0.7.32
+	zerocopy-derive@0.7.32
+	zip@0.6.6
+	zstd@0.11.2+zstd.1.5.2
+	zstd-safe@5.0.2+zstd.1.5.2
+	zstd-sys@2.0.9+zstd.1.5.5
+"
+
+inherit cargo
+
+DESCRIPTION="Find files with SQL-like queries"
+HOMEPAGE="https://github.com/jhspetersson/fselect"
+SRC_URI="
+	https://github.com/jhspetersson/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
+	${CARGO_CRATE_URIS}
+"
+
+LICENSE="0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 Boost-1.0 CC0-1.0 GPL-2+ ISC MIT MPL-2.0 Unicode-DFS-2016 Unlicense ZLIB"
+SLOT="0"
+KEYWORDS="~amd64 ~x86"
+IUSE="+uzers"
+
+QA_FLAGS_IGNORED="/usr/bin/fselect"
+DOCS=( README.md docs/usage.md )
+
+src_configure() {
+	local myfeatures=(
+		$(usev uzers)
+	)
+	cargo_src_configure --no-default-features
+}
+
+src_compile() {
+	cargo_src_compile
+}
+
+src_install() {
+	cargo_src_install
+	doman docs/*.1
+	einstalldocs
+}

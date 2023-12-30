@@ -11,6 +11,6 @@
 		<remote-id type="github">jhspetersson/fselect</remote-id>
 	</upstream>
 	<use>
-		<flag name='users'>Add support for getting system users and groups</flag>
+		<flag name='uzers'>Add support for getting system users and groups</flag>
 	</use>
 </pkgmetadata>
