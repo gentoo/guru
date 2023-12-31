@@ -30,6 +30,7 @@ RDEPEND="
 	dev-python/click-didyoumean[${PYTHON_USEDEP}]
 	dev-python/click-plugins[${PYTHON_USEDEP}]
 	dev-python/click-repl[${PYTHON_USEDEP}]
+	>=dev-python/python-dateutil-2.8.2[${PYTHON_USEDEP}]
 	>=dev-python/kombu-5.3.0_beta1[${PYTHON_USEDEP}]
 	<dev-python/kombu-6.0.0[${PYTHON_USEDEP}]
 	dev-python/pytz[${PYTHON_USEDEP}]
