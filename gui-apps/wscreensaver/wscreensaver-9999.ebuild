@@ -36,7 +36,6 @@ PATCHES=(
 	"${FILESDIR}"/xscreensaver-5.31-pragma.patch
 	"${FILESDIR}"/xscreensaver-6.01-gentoo.patch
 	"${FILESDIR}"/xscreensaver-5.45-gcc.patch
-	"${FILESDIR}"/wscreensaver-fix-implicit-function-decl-when-JWXYZ.patch
 )
 
 # see https://bugs.gentoo.org/898328
