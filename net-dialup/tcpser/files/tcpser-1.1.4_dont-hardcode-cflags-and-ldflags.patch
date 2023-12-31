@@ -10,7 +10,7 @@ From: Seth M. Price <sprice623@aol.com>
  DEF = 
 -CFLAGS = -O $(DEF) -Wall
 -LDFLAGS = -lpthread
-+CFLAGS = 
++CFLAGS += 
 +LDFLAGS += -lpthread
  DEPEND = makedepend $(DEF) $(CFLAGS)
  
