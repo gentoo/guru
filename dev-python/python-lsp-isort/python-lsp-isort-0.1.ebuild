@@ -5,7 +5,6 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{10..12} pypy3 )
-MY_PV="0.1"
 
 inherit distutils-r1
 
@@ -15,10 +14,9 @@ HOMEPAGE="
 	https://pypi.org/project/python-lsp-isort/
 "
 SRC_URI="
-	https://github.com/chantera/${PN}/archive/refs/tags/v${MY_PV}.tar.gz
+	https://github.com/chantera/${PN}/archive/refs/tags/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 "
-S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="MIT"
 SLOT="0"
