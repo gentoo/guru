@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -40,7 +40,8 @@ LICENSE="BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="qrcode home tickers crowdfunding bounties reddit revuo calc exchange xmrig localmonero"
-REQUIRED_USE="qrcode" #2.6.1 bug
+#2.6.1 bug
+REQUIRED_USE="qrcode"
 DEPEND="
 	dev-libs/libsodium:=
 	media-gfx/qrencode:=
@@ -57,7 +58,7 @@ DEPEND="
 	dev-libs/openssl:=
 	net-dns/unbound:=[threads]
 	net-libs/czmq:=
-	
+
 "
 RDEPEND="
 	${DEPEND}

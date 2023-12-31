@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,14 +7,12 @@ inherit cmake git-r3 desktop xdg
 
 DESCRIPTION="A free, open-source Monero wallet"
 HOMEPAGE="https://featherwallet.org"
-SRC_URI=""
 EGIT_REPO_URI="https://github.com/feather-wallet/feather.git"
 
 # Feather is released under the terms of the BSD license, but it vendors
 # code from Monero and Tor too.
 LICENSE="BSD MIT"
 SLOT="0"
-KEYWORDS=""
 IUSE="qrcode xmrig localmonero"
 
 DEPEND="
