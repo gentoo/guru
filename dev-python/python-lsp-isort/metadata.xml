@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<name>Moritz Brunner</name>
+		<email>moritz.brunner+gentoo@posteo.de</email>
+	</maintainer>
+	<stabilize-allarches />
+	<upstream>
+		<remote-id type="pypi">python-lsp-isort</remote-id>
+		<remote-id type="github">chantera/python-lsp-isort</remote-id>
+	</upstream>
+</pkgmetadata>
