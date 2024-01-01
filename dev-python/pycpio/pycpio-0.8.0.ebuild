@@ -15,5 +15,4 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=">=dev-python/zen-logging-1.1.0
->=dev-python/zen-util-1.0.1"
+DEPEND=">=dev-python/zenlib-1.4.0[${PYTHON_USEDEP}]"
