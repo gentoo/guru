@@ -6,6 +6,6 @@
 		<name>Aisha Tammy</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="sourcehut">emersion/wlr-randr</remote-id>
+		<remote-id type="sourcehut">~emersion/wlr-randr</remote-id>
 	</upstream>
 </pkgmetadata>
