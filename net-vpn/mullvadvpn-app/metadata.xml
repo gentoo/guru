@@ -6,6 +6,6 @@
 		<name>David Roman</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">mullvad/mullvad-app</remote-id> 
+		<remote-id type="github">mullvad/mullvadvpn-app</remote-id> 
 	</upstream>
 </pkgmetadata>
