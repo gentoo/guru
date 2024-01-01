@@ -25,8 +25,8 @@ SLOT="0"
 
 RDEPEND="
 	net-dns/c-ares
-	media-video/ffmpeg
-	x11-libs/gtk+
+	media-video/ffmpeg[alsa]
+	x11-libs/gtk+[cups]
 	net-libs/http-parser
 	dev-libs/libappindicator
 	dev-libs/libevent
@@ -34,6 +34,7 @@ RDEPEND="
 	media-libs/libvpx
 	dev-libs/libxslt
 	x11-libs/libXScrnSaver
+	x11-libs/libxkbcommon
 	sys-libs/zlib[minizip]
 	dev-libs/nss
 	dev-libs/re2
