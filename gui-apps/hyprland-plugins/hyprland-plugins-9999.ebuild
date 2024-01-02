@@ -8,9 +8,10 @@ inherit meson
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/hyprwm/${PN}.git"
 	inherit git-r3
-	S="${WORKDIR}/${PN}-${COMMIT}"
+	S="${WORKDIR}/${PN}-${PV}"
 else
 	COMMIT=2cc193e6dc524baed841c016109b4f48fd0512a3
+	SPLITCOMMIT=2b1abdbf9e9de9ee660540167c8f51903fa3d959
 	SRC_URI="https://github.com/hyprwm/${PN}/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
 	S="${WORKDIR}/${PN}-${COMMIT}"
 fi
@@ -20,7 +21,6 @@ HOMEPAGE="https://github.com/hyprwm/hyprland-plugins"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE="+borders-plus-plus csgo-vulkan-fix +hyprbars split-monitor-workspaces"
 REQUIRED_USE="|| ( borders-plus-plus csgo-vulkan-fix hyprbars split-monitor-workspaces )"
 

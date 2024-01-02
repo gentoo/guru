@@ -5,6 +5,10 @@
 		<name>Julien Roy</name>
 		<email>julien@jroy.ca</email>
 	</maintainer>
+	<maintainer type="person">
+		<name>Gonçalo Negrier Duarte</name>
+		<email>gonegrier.duarte@gmail.com</email>
+	</maintainer>
 	<upstream>
 		<bugs-to>https://github.com/hyprwm/hyprland-plugins/issues</bugs-to>
 		<changelog>https://github.com/hyprwm/hyprland-plugins/releases</changelog>
