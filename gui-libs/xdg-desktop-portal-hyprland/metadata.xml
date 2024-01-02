@@ -9,6 +9,10 @@
 		<email>mia@xenialinux.com</email>
 		<name>Mia Neufeld</name>
 	</maintainer>
+	<maintainer type="person">
+		<name>Gonçalo Negrier Duarte</name>
+		<email>gonegrier.duarte@gmail.com</email>
+	</maintainer>
 	<upstream>
 		<doc lang="en">https://wiki.hyprland.org/hyprland-wiki/pages/Useful-Utilities/Hyprland-desktop-portal/</doc>
 		<remote-id type="github">hyprwm/xdg-desktop-portal-hyprland</remote-id>
