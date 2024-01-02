@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>itslyn.dev@gmail.com</email>
+		<name>Lyn Serra</name>
+	</maintainer>
+	<longdescription lang="en">
+	This package aims to create a simple and easy to use fetch system, it tries to remain POSIX compliant (where it can).
+	It also serves as a cutesy fetch for people who like strawberries.
+	</longdescription>
+	<upstream>
+		<maintainer status="active">
+			<name>Lyn Serra</name>
+		</maintainer>
+		<bugs-to>https://github.com/its-Lyn/lyfetch/issues</bugs-to>
+		<remote-id type="github">its-Lyn/lyfetch</remote-id>
+	</upstream>
+</pkgmetadata>
