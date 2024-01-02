@@ -64,6 +64,7 @@ RDEPEND="
 	${DEPEND}
 	net-vpn/tor
 	xmrig? ( net-misc/xmrig )
+	qrcode? ( media-libs/zxing-cpp )
 "
 BDEPEND="
 	virtual/pkgconfig
