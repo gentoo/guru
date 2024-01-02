@@ -4,7 +4,6 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{10..11} )
-DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
 
 inherit distutils-r1 xdg
@@ -35,13 +34,7 @@ BDEPEND="
 	')
 "
 
-python_configure_all() {
-	if use xfce; then
-		DISTUTILS_ARGS=( --xfce-integration )
-	fi
-}
-
-src_install() {
-	distutils-r1_src_install
+python_install() {
+	distutils-r1_python_install $(usex xfce '--xfce-integration' '')
 	rm -r "${ED}/usr/share/doc/${PN}" || die
 }
