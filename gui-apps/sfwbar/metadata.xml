@@ -7,6 +7,9 @@
 	</maintainer>
 	<use>
 		<flag name="mpd">Add support for Music Player Daemon</flag>
+		<flag name="pulse">Add support for Pulse Audio</flag>
+		<flag name="alsa">Add support for ALSA sound server</flag>
+		<flag name="X">Add support for xkb maps</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">LBCrion/sfwbar</remote-id>
