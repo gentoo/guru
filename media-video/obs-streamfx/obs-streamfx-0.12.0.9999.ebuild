@@ -22,6 +22,7 @@ HOMEPAGE="https://github.com/Xaymar/obs-StreamFX"
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/Xaymar/obs-StreamFX.git"
+	EGIT_BRANCH="${M_PV}"
 else
 	SRC_URI="
 			https://github.com/Xaymar/obs-StreamFX/archive/refs/tags/${M_PV}.tar.gz -> ${PN}-${M_PV}.tar.gz
