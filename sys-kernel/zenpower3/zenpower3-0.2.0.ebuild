@@ -15,8 +15,10 @@ KEYWORDS="~amd64"
 
 CONFIG_CHECK="HWMON PCI AMD_NB"
 
+PATCHES="${FILESDIR}/${P}-use-symlink-to-detect-kernel-version.patch"
+
 src_compile() {
-	export KERNELVERSION=${KV_FULL}
+	export TARGET=${KV_FULL}
 	local modlist=(
 		zenpower=misc:::all
 	)

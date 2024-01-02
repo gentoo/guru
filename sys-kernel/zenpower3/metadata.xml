@@ -5,6 +5,10 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
+	<maintainer type="person">
+		<name>Gonçalo Negrier Duarte</name>
+		<email>gonegrier.duarte@gmail.com</email>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">Ta180m/zenpower3</remote-id>
 	</upstream>
