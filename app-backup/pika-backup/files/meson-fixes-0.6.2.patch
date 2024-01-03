@@ -1,9 +1,0 @@
-diff --git a/meson.build b/meson.build
-index a13a513..1bac8f8 100644
---- a/meson.build
-+++ b/meson.build
-@@ -28,4 +28,3 @@ meson.add_dist_script('build-aux/meson-dist-vendor.sh')
- subdir('data')
- subdir('help')
- subdir('po')
--subdir('src')
