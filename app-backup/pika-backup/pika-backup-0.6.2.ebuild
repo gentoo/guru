@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 2023-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -298,8 +298,8 @@ CRATES="
 	zvariant_utils@1.0.0
 	zxcvbn@2.2.2
 "
-
-inherit cargo gnome2-utils meson xdg
+PYTHON_COMPAT=( python3_{9..12} )
+inherit cargo gnome2-utils meson python-any-r1 xdg
 
 DESCRIPTION="Keep your data safe"
 HOMEPAGE="https://gitlab.gnome.org/World/pika-backup"
@@ -322,6 +322,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
+	${PYTHON_DEPS}
 	dev-util/itstool
 	sys-devel/gettext
 "
@@ -331,6 +332,12 @@ QA_FLAGS_IGNORED="usr/bin/${PN} usr/bin/${PN}-monitor"
 PATCHES=(
 	"${FILESDIR}/meson-fixes.patch"
 )
+
+# src_prepare() {
+# 	default
+# 	python-any-r1_pkg_setup
+# 	sed -e 's/python3/${EPYTHON}/' "${S}/build-aux/meson-cargo-manifest.py" || die
+# }
 
 src_compile() {
 	meson_src_compile

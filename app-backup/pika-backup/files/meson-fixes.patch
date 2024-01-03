@@ -1,8 +1,18 @@
+diff --git a/build-aux/meson-cargo-manifest.py b/build-aux/meson-cargo-manifest.py
+index 34028e2..3bf3376 100755
+--- a/build-aux/meson-cargo-manifest.py
++++ b/build-aux/meson-cargo-manifest.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python3
++#!/usr/bin/env python3
+ 
+ try:
+     import tomllib
 diff --git a/meson.build b/meson.build
-index 2f20ee8..95bd28e 100644
+index 932bdb2..8938862 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -29,4 +29,3 @@ meson.add_dist_script('build-aux/meson-dist-vendor.sh')
+@@ -28,4 +28,3 @@ meson.add_dist_script('build-aux/meson-dist-vendor.sh')
  subdir('data')
  subdir('help')
  subdir('po')
