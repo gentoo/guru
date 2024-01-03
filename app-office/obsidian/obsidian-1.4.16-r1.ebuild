@@ -31,7 +31,7 @@ LICENSE="Obsidian-EULA"
 
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="appindicator wayland"
+IUSE="appindicator"
 
 RDEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0:2
@@ -97,11 +97,38 @@ src_prepare() {
 	pushd "${S_OBSIDIAN}/locales/" >/dev/null || die "location change for language cleanup failed"
 	chromium_remove_language_paks
 	popd >/dev/null || die "location reset for language cleanup failed"
-	if use wayland; then
-		sed -i '/Exec/s/obsidian/obsidian --ozone-platform-hint=auto --enable-features=UseOzonePlatform,WaylandWindowDecorations/' \
-			"usr/share/applications/obsidian.desktop" ||
-			die "sed failed for wayland"
-	fi
+
+	# Create separate .desktop file for launching Obsidian with native wayland
+	# support.
+	#
+	# Obsidian is an Electron app, and Electron can be instructed to run in
+	# native-wayland mode by turning on the Ozone platform. However, doing this
+	# causes Obsidian to crash on some users' systems, while it works fine for
+	# others. (see https://bugs.gentoo.org/915899)
+	#
+	# It appears VSCode may have encountered a similar issue, because VSCode
+	# installs two separate .desktop files, one for launching with wayland
+	# support and one for launching without. We will do the same here.
+
+	# Create a copy of upstream's .desktop
+	cp usr/share/applications/obsidian.desktop \
+		usr/share/applications/obsidian-wayland.desktop \
+		|| die "failed to create obsidian-wayland.desktop file"
+
+	# Edit the Exec & Name
+	sed -i \
+		'
+			# Add Electron ozone enable flags to obsidian execution
+			/Exec/s/obsidian /obsidian --ozone-platform-hint=auto --enable-features=UseOzonePlatform,WaylandWindowDecorations /
+
+			# Give this .desktop file a new name/desc of "Obsidian Wayland"
+			/^Name/s/$/ Wayland/
+
+			# comment field
+			/^Comment/s/$/ with Wayland support enabled/
+		' \
+		'usr/share/applications/obsidian-wayland.desktop' ||
+		die "sed failed for obsidian-wayland.desktop file"
 }
 
 src_install() {
@@ -133,8 +160,19 @@ src_install() {
 	fi
 
 	domenu usr/share/applications/obsidian.desktop
+	domenu usr/share/applications/obsidian-wayland.desktop
 
 	for size in 16 32 48 64 128 256 512; do
 		doicon --size ${size} usr/share/icons/hicolor/${size}x${size}/apps/${PN}.png
 	done
+}
+
+pkg_postinst() {
+	ewarn "Some users have reported that running Obsidian with native Wayland"
+	ewarn "support causes the software to crash. Others have it working"
+	ewarn "without issue. See https://bugs.gentoo.org/915899"
+	ewarn ""
+	ewarn "This package now provides application entries for both Obsidian and"
+	ewarn "Obsidian Wayland. If Obsidian Wayland breaks for you under Wayland,"
+	ewarn "try the other Obsidian entry to launch with XWayland"
 }
