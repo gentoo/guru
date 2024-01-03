@@ -1,4 +1,4 @@
-# Copyright 2021-2023 Gentoo Authors
+# Copyright 2021-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,24 +17,23 @@ fi
 DESCRIPTION="Super simple wallpaper application"
 HOMEPAGE="https://codeberg.org/dnkl/wbg"
 
-LICENSE="MIT"
+# ZLIB for nanosvg
+LICENSE="MIT ZLIB"
 SLOT="0"
 IUSE="png jpeg webp"
 
-REQUIRED_USE="|| ( png jpeg webp )"
-
-DEPEND="
-	x11-libs/pixman
-	dev-libs/wayland
-"
 RDEPEND="
-	${DEPEND}
-	png? ( media-libs/libpng:= )
+	dev-libs/wayland
+	x11-libs/pixman
 	jpeg? ( media-libs/libjpeg-turbo:= )
+	png? ( media-libs/libpng:= )
 	webp? ( media-libs/libwebp:= )
 "
-BDEPEND="
+DEPEND="
+	${RDEPEND}
 	dev-libs/tllist
+"
+BDEPEND="
 	dev-libs/wayland-protocols
 	dev-util/wayland-scanner
 	virtual/pkgconfig
@@ -45,7 +44,13 @@ src_configure() {
 		$(meson_feature png)
 		$(meson_feature jpeg)
 		$(meson_feature webp)
+		-Dsvg=true
 	)
 
 	meson_src_configure
+}
+
+src_install() {
+	meson_src_install
+	dodoc README.md CHANGELOG.md
 }
