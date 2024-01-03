@@ -19,6 +19,5 @@
 		<flag name="borders-plus-plus">adds one or two additional borders to windows</flag>
 		<flag name="csgo-vulkan-fix">fixes custom resolutions on CS:GO with -vulkan</flag>
 		<flag name="hyprbars">adds title bars to windows</flag>
-		<flag name="split-monitor-workspaces">A small plugin to provide awesome/dwm-like behavior with workspaces</flag>
 	</use>
 </pkgmetadata>

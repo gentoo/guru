@@ -21,14 +21,11 @@ HOMEPAGE="https://github.com/hyprwm/hyprland-plugins"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+borders-plus-plus csgo-vulkan-fix +hyprbars split-monitor-workspaces"
-REQUIRED_USE="|| ( borders-plus-plus csgo-vulkan-fix hyprbars split-monitor-workspaces )"
+IUSE="+borders-plus-plus csgo-vulkan-fix +hyprbars"
+REQUIRED_USE="|| ( borders-plus-plus csgo-vulkan-fix hyprbars )"
 
 RDEPEND="gui-wm/hyprland"
-DEPEND="
-	${RDEPEND}
-	split-monitor-workspaces? ( ~gui-apps/hyprland-split-monitor-workspaces-${PV} )
-"
+DEPEND="${RDEPEND}"
 BDEPEND="
 	~gui-wm/hyprland-${PV}
 	x11-libs/libdrm
