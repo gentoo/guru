@@ -54,6 +54,7 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="
 	>=dev-cpp/nlohmann_json-3.8.0
+	dev-cpp/simpleini
 	dev-cpp/robin-map
 	dev-util/glslang
 	discord? ( >=dev-libs/rapidjson-1.1.0 )
@@ -90,12 +91,6 @@ src_unpack() {
 src_prepare() {
 	# temporary fix
 	sed -i -e '/Werror/d' src/CMakeLists.txt || die
-
-	# Unbundle inih
-	sed -i -e '/^if.*inih/,/^endif()/d' externals/CMakeLists.txt || die
-	sed -i -e '1afind_package(PkgConfig REQUIRED)\npkg_check_modules(INIH REQUIRED INIReader)' \
-		src/yuzu_cmd/CMakeLists.txt || die
-	sed -i -e 's:inih/cpp/::' src/yuzu_cmd/config.cpp || die
 
 	# Unbundle mbedtls
 	sed -i -e '/mbedtls/d' -e '/^if (NOT MSVC)/,/endif()/d' externals/CMakeLists.txt || die
