@@ -13,5 +13,6 @@
 	<upstream>
 		<bugs-to>https://codeberg.org/dnkl/wbg/issues</bugs-to>
 		<doc>https://codeberg.org/dnkl/wbg/src/branch/master/README.md</doc>
+		<remote-id type="codeberg">dnkl/wbg</remote-id>
 	</upstream>
 </pkgmetadata>
