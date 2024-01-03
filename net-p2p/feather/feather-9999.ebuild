@@ -31,6 +31,7 @@ DEPEND="
 	dev-libs/openssl:=
 	net-dns/unbound:=[threads]
 	net-libs/czmq:=
+	qrcode? ( media-libs/zxing-cpp )
 "
 RDEPEND="
 	${DEPEND}
