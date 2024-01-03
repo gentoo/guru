@@ -13,7 +13,7 @@ EGIT_REPO_URI="https://github.com/feather-wallet/feather.git"
 # code from Monero and Tor too.
 LICENSE="BSD MIT"
 SLOT="0"
-IUSE="qrcode xmrig localmonero"
+IUSE="qrcode home tickers crowdfunding bounties reddit revuo calc exchange xmrig localmonero"
 
 DEPEND="
 	dev-libs/libsodium:=
@@ -37,7 +37,9 @@ RDEPEND="
 	net-vpn/tor
 	xmrig? ( net-misc/xmrig )
 "
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	virtual/pkgconfig
+"
 
 src_configure() {
 	local mycmakeargs=(
@@ -47,8 +49,16 @@ src_configure() {
 		-DBUILD_TAG="linux-x64"
 		-DBUILD_64=ON
 		-DSELF_CONTAINED=OFF
-		-DLOCALMONERO=$(usex localmonero)
-		-DXMRIG=$(usex xmrig)
+		-DWITH_PLUGIN_HOME=$(usex home)
+		-DWITH_PLUGIN_TICKERS=$(usex tickers)
+		-DWITH_PLUGIN_CROWDFUNDING=$(usex crowdfunding)
+		-DWITH_PLUGIN_BOUNTIES=$(usex bounties)
+		-DWITH_PLUGIN_REDDIT=$(usex reddit)
+		-DWITH_PLUGIN_REVUO=$(usex revuo)
+		-DWITH_PLUGIN_CALC=$(usex calc)
+		-DWITH_PLUGIN_EXCHANGE=$(usex exchange)
+		-DWITH_PLUGIN_LOCALMONERO=$(usex localmonero)
+		-DWITH_PLUGIN_XMRIG=$(usex xmrig)
 		-DCHECK_UPDATES=OFF
 		-DPLATFORM_INSTALLER=OFF
 		-DUSE_DEVICE_TREZOR=OFF
@@ -66,8 +76,13 @@ src_compile() {
 src_install() {
 	dobin "${BUILD_DIR}/bin/feather"
 
-	doicon "${WORKDIR}"/${PF}/src/assets/images/feather.png
-	domenu "${WORKDIR}"/${PF}/src/assets/feather.desktop
+	newicon -s 256 "${WORKDIR}"/${P}/src/assets/images/appicons/256x256.png feather.png
+	newicon -s 128 "${WORKDIR}"/${P}/src/assets/images/appicons/128x128.png feather.png
+	newicon -s 96 "${WORKDIR}"/${P}/src/assets/images/appicons/96x96.png feather.png
+	newicon -s 64 "${WORKDIR}"/${P}/src/assets/images/appicons/64x64.png feather.png
+	newicon -s 48 "${WORKDIR}"/${P}/src/assets/images/appicons/48x48.png feather.png
+	newicon -s 32 "${WORKDIR}"/${P}/src/assets/images/appicons/32x32.png feather.png
+	domenu "${WORKDIR}"/${P}/src/assets/feather.desktop
 }
 
 pkg_postinst() {
