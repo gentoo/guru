@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # Andrew Ammerlaan <andrewammerlaan@gentoo.org> (2021-03-29)
@@ -13,6 +13,11 @@
 # relevant entries to the relevant package.mask files in ::gentoo
 
 # New entries go on top.
+
+# Lucio Sauer <watermanpaint@posteo.net> (2024-01-04)
+# Known security bugs. Masked until somone updates it.
+# https://github.com/TheDarkBug/uwufetch/issues/249
+app-misc/uwufetch
 
 # David Roman <davidroman96@gmail.com> (2023-10-19)
 # Known security bugs. Masked until somone updates it.
