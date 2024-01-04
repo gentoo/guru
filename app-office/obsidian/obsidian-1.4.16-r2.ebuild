@@ -168,6 +168,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_icon_cache_update
+	
 	ewarn "Some users have reported that running Obsidian with native Wayland"
 	ewarn "support causes the software to crash. Others have it working"
 	ewarn "without issue. See https://bugs.gentoo.org/915899"
