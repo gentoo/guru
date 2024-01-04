@@ -30,7 +30,7 @@ RDEPEND="
 		x11-drivers/nvidia-drivers
 	)
 	vaapi? (
-		media-video/ffmpeg[vulkan,vaapi]
+		media-video/ffmpeg[libdrm,vulkan,vaapi]
 	)
 	x264? (
 		media-libs/x264
