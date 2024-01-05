@@ -6,7 +6,7 @@
 		<email>freijon@pm.me</email>
 	</maintainer>
 	<upstream>
-		<!--><remote-id type="codeberg">dnkl/fuzzel</remote-id>-->
+		<remote-id type="codeberg">dnkl/fuzzel</remote-id>
 		<bugs-to>https://codeberg.org/dnkl/fuzzel/issues</bugs-to>
 	</upstream>
 	<use>
