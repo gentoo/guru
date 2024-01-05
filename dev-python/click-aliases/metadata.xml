@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+		<maintainer type="person">
+				<email>cyber+gentoo@sysrq.in</email>
+				<name>Anna</name>
+		</maintainer>
+		<stabilize-allarches/>
+		<upstream>
+				<remote-id type="pypi">click-aliases</remote-id>
+				<remote-id type="github">click-contrib/click-aliases</remote-id>
+		</upstream>
+</pkgmetadata>
