@@ -1,0 +1,36 @@
+# Default config for mta-sts-daemon
+# If path/mode is set, host/port is ignored
+host: 127.0.0.1
+port: 8461
+#path: "/var/run/mta-sts.sock"
+#mode: 0666
+reuse_port: true
+cache_grace: 60
+shutdown_timeout: 20
+# Select one type of cache
+cache:
+  type: internal
+  options:
+    cache_size: 10000
+#  type: redis
+#  options:
+#    url: "redis://127.0.0.1/0"
+#    max_connections: 25
+#    socket_timeout: 1.0
+#    socket_connect_timeout: 1.0
+#  type: sqlite
+#  options:
+#    filename: "/var/lib/mta-sts/cache.db"
+proactive_policy_fetching:
+  enabled: false
+  interval: 86400
+  concurrency_limit: 100
+  grace_ratio: 2.0
+default_zone:
+  strict_testing: false
+  timeout: 4
+  require_sni: true
+#zones:
+#  myzone:
+#    strict_testing: false
+#    timeout: 4
