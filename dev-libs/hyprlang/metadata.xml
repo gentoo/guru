@@ -13,6 +13,6 @@ It's user-friendly, easy to grasp, and easy to implement.
 	<upstream>
 		<bugs-to>https://github.com/hyprwm/hyprlang/issues</bugs-to>
 		<changelog>https://github.com/hyprwm/hyprlang/releases</changelog>
-		<remote-id type="github">hypr/hyprlang</remote-id>
+		<remote-id type="github">hyprwm/hyprlang</remote-id>
 	</upstream>
 </pkgmetadata>
