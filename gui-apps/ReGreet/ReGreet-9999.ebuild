@@ -23,8 +23,7 @@ RDEPEND="
 BDEPEND="
 	virtual/rust
 "
-IUSE="gtk4 logs cage sway"
-REQUIRED_USE="|| ( cage sway ) cage? ( !sway ) sway? ( !cage )"
+IUSE="gtk4 logs"
 
 src_unpack() {
 	git-r3_src_unpack

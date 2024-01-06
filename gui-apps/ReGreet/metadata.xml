@@ -3,8 +3,6 @@
 <pkgmetadata>
 	<use>
 		<flag name="gtk4">Compile with support for gtk4</flag>
-		<flag name="cage">Use cage to start ReGreet</flag>
-		<flag name="sway">Use sway to start ReGreet</flag>
 		<flag name="logs">Compile logs support ReGreet (debug)</flag>
 	</use>
 	<maintainer type="person">
