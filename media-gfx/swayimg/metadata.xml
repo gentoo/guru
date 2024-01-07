@@ -8,6 +8,7 @@
 		<remote-id type="github">artemsen/swayimg</remote-id>
 	</upstream>
 	<use>
+		<flag name="exr">Enable support for EXR image format</flag>
 		<flag name="jpegxl">Enable support for JPEG XL image format</flag>
 	</use>
 </pkgmetadata>
