@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<!-- maintainer-needed -->
+	<upstream>
+		<remote-id type="github">eclipse-cyclonedds/cyclonedds</remote-id>
+	</upstream>
+	<use>
+		<flag name="get-kind">Apply patch for additional interface which returns type of entity</flag>
+		<flag name="idlc">Build IDL preprocessor</flag>
+		<flag name="parser">Regenerate parser</flag>
+		<flag name="shm">Enable shared memory support</flag>
+	</use>
+</pkgmetadata>
