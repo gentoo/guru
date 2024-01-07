@@ -49,7 +49,6 @@ RDEPEND="
 
 DEPEND="${RDEPEND}"
 BDEPEND="
-	dev-util/patchelf
 	sys-devel/bison
 	sys-devel/flex
 	virtual/pkgconfig
@@ -80,6 +79,7 @@ src_prepare(){
 
 src_configure(){
 	append-cxxflags "-I/usr/include"
+	append-ldflags $(no-as-needed)
 
 	mycmakeargs=(
 		-DUSE_JEMALLOC=$(usex jemalloc ON OFF)
@@ -95,22 +95,16 @@ src_configure(){
 	use python && mycmakeargs+=( "-DWITH_PYTHON_VERSION=${EPYTHON#python}" )
 	cmake_src_configure
 }
-src_compile(){
-	cmake_src_compile
-	# Remove insecure RPATH from bundled lib
-	patchelf --remove-rpath libdwarfs.so || die
-	patchelf --remove-rpath libdwarfs_tool.so || die
-	patchelf --remove-rpath libmetadata_thrift.so || die
-	patchelf --remove-rpath libdwarfs_compression.so || die
-	patchelf --remove-rpath libthrift_light.so || die
-	patchelf --remove-rpath libdwarfs_main.so || die
-	# TODO: make it proper
-}
+
 src_install(){
 	# Perform install
 	cmake_src_install
 	dolib.so libdwarfs.so libdwarfs_main.so libdwarfs_tool.so libdwarfs_compression.so libthrift_light.so libmetadata_thrift.so || die "Install failed"
-	dolib.so folly/libfolly.so folly/libfolly.so.0.58.0-dev libmkdwarfs_main.so libdwarfsbench_main.so libdwarfsck_main.so libdwarfsextract_main.so || die "Install failed"
+	dolib.so folly/libfolly.so folly/libfolly.so.0.58.0-dev libmkdwarfs_main.so libdwarfsbench_main.so || die "Install failed"
+	dolib.so libdwarfsck_main.so libdwarfsextract_main.so || die "Install failed"
+	# See https://github.com/mhx/dwarfs/issues/184
+	dolib.so folly/folly/experimental/exception_tracer/libfolly_exception_tracer_base.so || die "Install failed"
+	dolib.so folly/folly/experimental/exception_tracer/libfolly_exception_tracer_base.so.0.58.0-dev || die "Install failed"
 }
 
 pkg_postinst(){
