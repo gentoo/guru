@@ -21,7 +21,7 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="arc4random archive +bleach emoji fzf +highlight icons +inotify +lira +magic
-		+media nerdfonts nls posix +profiles qsort +suggestions +tags +trash"
+		+media nerdfonts nls posix +profiles qsort +suggestions +tags +trash xdu"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.12-gentoo-skip-manpage-compression.patch"
@@ -83,6 +83,7 @@ src_compile() {
 	use qsort && append-cflags "-D_TOURBIN_QSORT"
 	use inotify || append-cflags "-DUSE_GENERIC_FS_MONITOR"
 	use media && append-cflags "-DALLOW_MEDIA" || append-cflags "-DNO_MEDIA_FUNC"
+	use xdu && append-cflags "-DUSE_XDU"
 
 	# makefile defaults to /usr/local
 	emake PREFIX="/usr"

@@ -68,6 +68,9 @@
 		<flag name="trash">
 			FreeDesktop compliant trash system support
 		</flag>
+		<flag name="xdu">
+			Use a home-made implementation of du(1) instead
+		</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">leo-arch/clifm</remote-id>
