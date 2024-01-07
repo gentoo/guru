@@ -6,10 +6,6 @@
 		<email>lssndrbarbieri@gmail.com</email>
 		<name>Alessandro Barbieri</name>
 	</maintainer>
-	<use>
-		<flag name="nerdfonts">Use nerd-fonts icons</flag>
-		<flag name="trace">Enable libgit tracing</flag>
-	</use>
 	<upstream>
 		<changelog>https://github.com/extrawurst/gitui/raw/master/CHANGELOG.md</changelog>
 		<bugs-to>https://github.com/extrawurst/gitui/issues</bugs-to>
