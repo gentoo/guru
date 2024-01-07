@@ -10,7 +10,7 @@
 			<name>Anna</name>
 			<email>cyber@sysrq.in</email>
 		</maintainer>
-		<bugs-to>https://bugs.sysrq.in/enter_bug.cgi?product=Python libraries&amp;component=repology-client</bugs-to>
+		<bugs-to>https://bugs.sysrq.in/enter_bug.cgi?product=Python%20libraries&amp;component=repology-client</bugs-to>
 		<changelog>https://repology-client.sysrq.in/release-notes.html</changelog>
 	</upstream>
 </pkgmetadata>
