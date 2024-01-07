@@ -15,4 +15,7 @@
 	A web UI is provided to allow configuration, and client pairing, from your favorite web browser.
 	Pair from the local server or any mobile device.
 	</longdescription>
+	<use>
+		<flag name="libdrm">Enable KMS grab</flag>
+	</use>
 </pkgmetadata>
