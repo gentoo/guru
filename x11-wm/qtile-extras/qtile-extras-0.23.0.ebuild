@@ -6,19 +6,18 @@ EAPI=8
 DISTUTILS_USE_PEP517=no
 PYTHON_COMPAT=(python3_{9..12})
 
-inherit distutils-r1 desktop
+inherit distutils-r1
 
-SRC_URI="https://github.com/elParaguayo/qtile-extras/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/elParaguayo/qtile-extras/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="amd64"
 
-DESCRIPTION="Run Windows Applications on Linux as if they are native (Using a VM and FreeRDP)"
-HOMEPAGE="https://github.com/casualsnek/cassowary"
+DESCRIPTION="elParaguayo's Qtile Extras"
+HOMEPAGE="https://github.com/elParaguayo/qtile-extras"
 
-BDEPEND="dev-python/setuptools
+BDEPEND="
 	dev-python/build
 	dev-python/installer
 	dev-python/setuptools-scm
-	dev-python/wheel
 "
 
 RDEPEND="x11-wm/qtile"
@@ -27,7 +26,6 @@ DEPEND="${RDEPEND}"
 
 LICENSE="MIT"
 SLOT="0"
-IUSE=""
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=7.0.0
 
