@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>cyber+gentoo@sysrq.in</email>
+		<name>Anna</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<name>Anna</name>
+			<email>cyber@sysrq.in</email>
+		</maintainer>
+		<remote-id type="pypi">find-work</remote-id>
+		<bugs-to>https://bugs.sysrq.in/enter_bug.cgi?product=Software&amp;component=find-work</bugs-to>
+		<changelog>https://find-work.sysrq.in/release-notes.html</changelog>
+	</upstream>
+</pkgmetadata>
