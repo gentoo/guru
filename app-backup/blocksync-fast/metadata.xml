@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mk@nethappen.pl</email>
+		<name>Marcin Koczwara</name>
+	</maintainer>
+	<upstream>
+		<maintainer>
+			<email>mk@nethappen.pl</email>
+			<name>Marcin Koczwara</name>
+		</maintainer>
+		<doc>https://nethappen.github.io/blocksync-fast/</doc>
+		<changelog>https://raw.githubusercontent.com/nethappen/blocksync-fast/main/CHANGELOG.md</changelog>
+		<remote-id type="github">nethappen/blocksync-fast</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		This program compares and synchronizes block devices using fast and efficient methods.
+		Digest can be used to store checksums of data blocks from previous synchronization
+		to speed up synchronize process and avoid read operations from target block device.
+		Program can also create delta files that contains differences between block devices
+	</longdescription>
+	<use>
+		<flag name="xxhash">Enable dev-libs/xxhash support for very high speed hashing</flag>
+	</use>
+</pkgmetadata>
