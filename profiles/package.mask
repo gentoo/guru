@@ -14,6 +14,12 @@
 
 # New entries go on top.
 
+# Anna Vyalkova <cyber+gentoo@sysrq.in> (2024-01-07)
+# Depends on removed dev-java/gradle-bin slot.
+net-libs/signald
+# and revdeps
+net-im/mautrix-signal
+
 # Lucio Sauer <watermanpaint@posteo.net> (2024-01-04)
 # Known security bugs. Masked until somone updates it.
 # https://github.com/TheDarkBug/uwufetch/issues/249
