@@ -6,6 +6,10 @@
 		<name>Denis Reva</name>
 		<description>rarogcmex</description>
 	</maintainer>
+	<maintainer type="person">
+		<email>zhuyifei1999@gmail.com</email>
+		<name>YiFei Zhu</name>
+	</maintainer>
 	<longdescription lang="en">
 		DwarFS is a read-only file system with a focus on achieving very high compression ratios in particular for very redundant data.
 		This probably doesn't sound very exciting, because if it's redundant, it should compress well. However, I found that other read-only, compressed file systems don't do a very good job at making use of this redundancy. See here for a comparison with other compressed file systems.
