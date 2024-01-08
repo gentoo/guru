@@ -17,8 +17,6 @@ KEYWORDS="~amd64"
 IUSE="python +jemalloc test man"
 S="${WORKDIR}/dwarfs-${PV}"
 
-PATCHES=()
-
 RDEPEND="
 	${PYTHON_DEPS}
 	app-arch/libarchive
@@ -71,10 +69,18 @@ QA_SONAME=(
 "/usr/bin/dwarfsextract"
 "/usr/bin/mkdwarfs"
 )
+
 src_prepare(){
 	rm -r zstd xxHash parallel-hashmap || die
-	cmake_src_prepare
 	sed "s/DESTINATION lib/DESTINATION $(get_libdir)/" -i CMakeLists.txt || die
+
+	# Bug #900016, but upstream discourages O3
+	sed '/FLAGS_RELEASE/s# -O2 -g##' -i CMakeLists.txt || die
+	sed '/CMAKE_CXX_FLAGS_COMMON/s#-g ##' -i folly/CMake/FollyCompilerUnix.cmake || die
+	sed '/^\s*-g$/d' -i folly/CMake/FollyCompilerUnix.cmake || die
+	replace-flags -O3 -O2
+
+	cmake_src_prepare
 }
 
 src_configure(){
@@ -103,9 +109,6 @@ src_install(){
 	dolib.so libdwarfs.so libdwarfs_main.so libdwarfs_tool.so libdwarfs_compression.so libthrift_light.so libmetadata_thrift.so || die "Install failed"
 	dolib.so folly/libfolly.so folly/libfolly.so.0.58.0-dev libmkdwarfs_main.so libdwarfsbench_main.so || die "Install failed"
 	dolib.so libdwarfsck_main.so libdwarfsextract_main.so || die "Install failed"
-	# See https://github.com/mhx/dwarfs/issues/184
-	dolib.so folly/folly/experimental/exception_tracer/libfolly_exception_tracer_base.so || die "Install failed"
-	dolib.so folly/folly/experimental/exception_tracer/libfolly_exception_tracer_base.so.0.58.0-dev || die "Install failed"
 }
 
 pkg_postinst(){
