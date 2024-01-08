@@ -5,11 +5,14 @@ EAPI=7
 
 DESCRIPTION="Static version of a fast very high compression read-only FUSE file system"
 HOMEPAGE="https://github.com/mhx/dwarfs"
-SRC_URI="https://github.com/mhx/dwarfs/releases/download/v${PV}/dwarfs-${PV}-Linux-x86_64.tar.xz -> dwarfs-bin-${PV}.tar.xz"
+SRC_URI="
+	amd64? ( https://github.com/mhx/dwarfs/releases/download/v${PV}/dwarfs-${PV}-Linux-x86_64.tar.xz -> ${P}-amd64.tar.xz )
+	arm64? ( https://github.com/mhx/dwarfs/releases/download/v${PV}/dwarfs-${PV}-Linux-aarch64.tar.xz -> ${P}-arm64.tar.gz )
+"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="-* ~amd64 ~arm64"
 
 RDEPEND="
 	${PYTHON_DEPS}
@@ -19,11 +22,21 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-S="${WORKDIR}/dwarfs-${PV}-Linux-x86_64/"
 QA_PREBUILT="
 	sbin/dwarfs
 	bin/*
 "
+
+src_unpack() {
+	if use amd64; then
+		S="${WORKDIR}/dwarfs-${PV}-Linux-x86_64"
+	elif use arm64; then
+		S="${WORKDIR}/dwarfs-${PV}-Linux-aarch64"
+	fi
+
+	default
+}
+
 src_prepare() {
 	default
 	einfo "Removing legacy fuse2-related stuff..."
