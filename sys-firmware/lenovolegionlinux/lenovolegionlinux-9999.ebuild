@@ -28,9 +28,14 @@ BDEPEND="sys-kernel/linux-headers
 "
 
 RDEPEND="
-	legion-tools? ( dev-python/PyQt5 dev-python/pyyaml dev-python/argcomplete dev-python/darkdetect )
+	gui? (
+		dev-python/PyQt6[gui,widgets]
+		dev-python/pyyaml
+		dev-python/argcomplete
+		dev-python/darkdetect
+	)
 	downgrade-nvidia? ( <=x11-drivers/nvidia-drivers-525 )
-	legion-acpi? ( sys-power/acpid )
+	acpi? ( sys-power/acpid )
 	radeon-dgpu? ( dev-util/rocm-smi )
 	ryzenadj? ( sys-power/RyzenAdj )
 	undervolt-intel? ( dev-python/undervolt )
@@ -40,8 +45,8 @@ DEPEND="${RDEPEND}"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="legion-tools legion-acpi systemd radeon-dgpu downgrade-nvidia ryzenadj undervolt-intel"
-REQUIRED_USE="|| ( systemd legion-acpi radeon-dgpu downgrade-nvidia ryzenadj legion-tools undervolt-intel ) legion-acpi? ( legion-tools ) radeon-dgpu? ( !downgrade-nvidia legion-tools ) downgrade-nvidia? ( !radeon-dgpu legion-tools ) undervolt-intel? ( !ryzenadj legion-tools ) ryzenadj? ( !undervolt-intel legion-tools )"
+IUSE="gui acpi systemd radeon-dgpu downgrade-nvidia ryzenadj undervolt-intel"
+REQUIRED_USE="|| ( systemd acpi radeon-dgpu downgrade-nvidia ryzenadj gui undervolt-intel ) acpi? ( gui ) radeon-dgpu? ( !downgrade-nvidia gui ) downgrade-nvidia? ( !radeon-dgpu gui ) undervolt-intel? ( !ryzenadj gui ) ryzenadj? ( !undervolt-intel gui )"
 
 MODULES_KERNEL_MIN=5.10
 
@@ -51,7 +56,7 @@ src_compile() {
 	)
 	export KERNELVERSION=${KV_FULL}
 	linux-mod-r1_src_compile
-	if use legion-tools; then
+	if use gui; then
 		if [[ ${PV} == "9999" ]]; then
 			#fix python package version
 			sed -i "s/version = _VERSION/version = 9999/g" "${WORKDIR}/${P}/python/legion_linux/setup.cfg"
@@ -71,7 +76,7 @@ src_install() {
 	pushd python/legion_linux/ || die
 	make forcereloadmodule
 	popd || die
-	if use legion-tools; then
+	if use gui; then
 		#Define build dir (fix sandboxed)
 		cd "${WORKDIR}/${P}/python/legion_linux/"
 		distutils-r1_src_install --build-dir "${WORKDIR}/${P}/python/legion_linux/build"
@@ -82,9 +87,11 @@ src_install() {
 			systemd_dounit service/legion-linux.service service/legion-linux.path
 		fi
 
-		if use legion-acpi; then
-			insinto /usr/share/legion_linux/acpi/events && doins acpi/events/{ac_adapter_legion-fancurve,novo-button,PrtSc-button,fn-r-refrate}
-			insinto /usr/share/legion_linux/acpi/actions  && doins acpi/actions/{battery-legion-quiet.sh,snipping-tool.sh,fn-r-refresh-rate.sh}
+		if use acpi; then
+			insinto /usr/share/legion_linux/acpi/events
+			doins acpi/events/{ac_adapter_legion-fancurve,novo-button,PrtSc-button,fn-r-refrate}
+			insinto /usr/share/legion_linux/acpi/actions
+			doins acpi/actions/{battery-legion-quiet.sh,snipping-tool.sh,fn-r-refresh-rate.sh}
 		fi
 	fi
 }
@@ -102,7 +109,7 @@ pkg_postinst() {
 			ewarn "Note: Edit /etc/legion_linux/.env to enable nvidia TDP control\n"
 		fi
 	fi
-	use legion-acpi && ewarn "Acpi exemples are included in /usr/share/legion_linux/acpi\n"
+	use acpi && ewarn "Acpi exemples are included in /usr/share/legion_linux/acpi\n"
 	ewarn "Note for 2023-2023 Legion user: It need help for testing the features"
 	ewarn "Pls test the feature how is decribe in the README of the project!"
 	ewarn "and also go to this issue in github: https://github.com/johnfanv2/LenovoLegionLinux/issues/46"
