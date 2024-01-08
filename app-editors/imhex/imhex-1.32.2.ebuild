@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,14 +20,11 @@ S_PATTERNS="${WORKDIR}/ImHex-Patterns-ImHex-v${PV}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+system-llvm"
-
-PATCHES=(
-	"${FILESDIR}/require-llvm-16.patch"
-	"${FILESDIR}/remove-Werror.patch"
-)
+IUSE="+system-llvm test"
+RESTRICT="test" # the tests need the shared library to work
 
 DEPEND="
+	app-arch/zstd[zlib]
 	app-forensics/yara
 	>=dev-cpp/nlohmann_json-3.10.2
 	dev-libs/capstone
@@ -47,7 +44,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
-	system-llvm? ( <sys-devel/llvm-17 )
+	system-llvm? ( sys-devel/llvm )
 	app-admin/chrpath
 	gnome-base/librsvg
 	sys-devel/lld
@@ -61,6 +58,10 @@ pkg_pretend() {
 }
 
 src_configure() {
+	if use test; then
+		sed -ie "s/tests EXCLUDE_FROM_ALL/tests ALL/" "${S}/CMakeLists.txt"
+	fi
+
 	local mycmakeargs=(
 		-D CMAKE_BUILD_TYPE="Release" \
 		-D CMAKE_C_COMPILER_LAUNCHER=ccache \
