@@ -1,9 +1,9 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit optfeature
+inherit bash-completion-r1 optfeature
 
 DESCRIPTION="A cross-platform build utility based on Lua"
 HOMEPAGE="https://xmake.io"
@@ -17,7 +17,7 @@ else
 fi
 
 # tarball doesn't provide tests
-RESTRICT="test strip"
+RESTRICT="test"
 LICENSE="Apache-2.0"
 SLOT="0"
 
@@ -38,11 +38,33 @@ DOCS=(
 	NOTICE.md README.md README_zh.md
 )
 
-src_configure(){
+src_prepare() {
+	default
+
+	# Don't strip binaries
+	sed -i 's/"-s"/""/' configure || die
+}
+
+src_configure() {
 	econf --prefix="${EPREFIX}"/usr \
 		--plat=linux
 		# --plat=linux is necessary, which enables correct directory:
 		# build/linux/ARCH other than build/ARCH/ARCH
+}
+
+src_install() {
+	default
+
+	doman scripts/man/*
+
+	newbashcomp xmake/scripts/completions/register-completions.bash xmake
+	bashcomp_alias xmake xrepo
+
+	insinto /usr/share/zsh/site-functions
+	newins xmake/scripts/completions/register-completions.zsh xmake.zsh
+
+	insinto /usr/share/fish/vendor_completions.d
+	newins xmake/scripts/completions/register-completions.fish xmake.fish
 }
 
 pkg_postinst() {
