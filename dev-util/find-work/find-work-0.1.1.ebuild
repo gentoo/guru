@@ -13,7 +13,7 @@ HOMEPAGE="
 	https://pypi.org/project/find-work/
 "
 
-LICENSE="WTFPL"
+LICENSE="WTFPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
