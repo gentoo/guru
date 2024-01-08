@@ -91,6 +91,7 @@ src_configure(){
 		-DPREFER_SYSTEM_GTEST=ON
 		-DPREFER_SYSTEM_LIBFMT=ON
 		-DWITH_LEGACY_FUSE=OFF
+		-DDISABLE_CCACHE=ON  # Use FEATURES=ccache
 	)
 	use python && mycmakeargs+=( "-DWITH_PYTHON_VERSION=${EPYTHON#python}" )
 	cmake_src_configure
