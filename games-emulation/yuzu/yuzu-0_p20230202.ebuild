@@ -1,4 +1,4 @@
-# Copyright 2020-2023 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -91,9 +91,6 @@ src_unpack() {
 src_prepare() {
 	# Allow skip submodule downloading
 	rm .gitmodules || die
-
-	# Unbundle cubeb
-	use cubeb && sed -i '$afind_package(Threads REQUIRED)' CMakeLists.txt || die
 
 	if ! use discord; then
 		sed -i -e '/^if.*discord-rpc/,/^endif()/d' externals/CMakeLists.txt || die

@@ -1,4 +1,4 @@
-# Copyright 2020-2023 Gentoo Authors
+# Copyright 2020-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -117,7 +117,6 @@ src_prepare() {
 	fi
 
 	# Unbundle cubeb
-	use cubeb && sed -i '$afind_package(Threads REQUIRED)' CMakeLists.txt || die
 	sed -i '/^if.*cubeb/,/^endif()/d' externals/CMakeLists.txt || die
 
 	# Unbundle cpp-httplib
