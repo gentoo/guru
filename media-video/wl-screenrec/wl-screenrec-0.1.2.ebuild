@@ -107,6 +107,7 @@ SRC_URI="
 LICENSE="Apache-2.0 BSD Boost-1.0 ISC MIT Unicode-DFS-2016 Unlicense WTFPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
+RESTRICT="test" # Need wayland environment for tests
 
 BDEPEND="
 	media-video/ffmpeg
