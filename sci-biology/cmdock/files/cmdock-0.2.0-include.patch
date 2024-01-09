@@ -1,0 +1,19 @@
+Rbt.cxx: Add missing include
+
+--- a/src/lib/Rbt.cxx
++++ b/src/lib/Rbt.cxx
+@@ -15,6 +15,7 @@
+ #include <algorithm> //For sort
+ #include <climits>   //For PATH_MAX
+ #include <cstdlib>   //For getenv
++#include <cstdint>   //For int types
+ #include <ctime>     //For time functions
+ #include <dirent.h>  //For directory handling
+ #include <fstream>   //For ifstream
+@@ -581,4 +582,4 @@ bool Rbt::endsWith (std::string const &fullString, std::string const &ending) {
+     } else {
+         return false;
+     }
+-}
+\ No newline at end of file
++}
