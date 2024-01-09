@@ -61,6 +61,11 @@ src_test() {
 src_install() {
 	meson_src_install
 
+	if use gtk-doc; then
+		mkdir -p "${ED}"/usr/share/gtk-doc/html/ || die
+		mv "${ED}"/usr/share/doc/${PN}-${SLOT} "${ED}"/usr/share/gtk-doc/html/ || die
+	fi
+
 	newbin helpers/auto-maximize phoc-auto-maximize
 	newbin helpers/scale-to-fit phoc-scale-to-fit
 }
