@@ -13,6 +13,7 @@ LICENSE="|| ( GPL-3+ MIT ) GPL-3+ LGPL-2.1+ MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 IUSE="+X gtk-doc man test"
+REQUIRED_USE="test? ( X )"
 RESTRICT="!test? ( test )"
 
 DEPEND="
