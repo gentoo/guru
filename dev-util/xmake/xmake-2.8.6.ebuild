@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit bash-completion-r1 optfeature
+inherit optfeature shell-completion
 
 DESCRIPTION="A cross-platform build utility based on Lua"
 HOMEPAGE="https://xmake.io"
@@ -59,12 +59,8 @@ src_install() {
 
 	newbashcomp xmake/scripts/completions/register-completions.bash xmake
 	bashcomp_alias xmake xrepo
-
-	insinto /usr/share/zsh/site-functions
-	newins xmake/scripts/completions/register-completions.zsh xmake.zsh
-
-	insinto /usr/share/fish/vendor_completions.d
-	newins xmake/scripts/completions/register-completions.fish xmake.fish
+	newzshcomp xmake/scripts/completions/register-completions.zsh _xmake
+	newfishcomp xmake/scripts/completions/register-completions.fish xmake.fish
 }
 
 pkg_postinst() {
