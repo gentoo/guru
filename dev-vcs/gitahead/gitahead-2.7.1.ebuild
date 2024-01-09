@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,9 +9,10 @@ DESCRIPTION="Graphical Git client to help understand and manage source code hist
 HOMEPAGE="https://github.com/gitahead/gitahead"
 SRC_URI="
 	https://github.com/gitahead/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/stinb/libgit2/archive/90af68bbe2690998f015f18b7c890f5868bcd3ee.tar.gz -> ${P}-dep_libgit2_libgit2.tar.gz
-	https://github.com/libssh2/libssh2/archive/42d37aa63129a1b2644bf6495198923534322d64.tar.gz -> ${P}-dep_libssh2_libssh2.tar.gz
-	https://github.com/commonmark/cmark/archive/f0793895eefc8ca14499831a24abee549a5af53e.tar.gz -> ${P}-dep_cmark_cmark.tar.gz
+	https://github.com/stinb/libgit2/archive/834d652bcb932af447d7f0acd1214a4057cb0771.tar.gz
+		-> ${P}-dep_libgit2_libgit2.tar.gz
+	https://github.com/hunspell/hunspell/archive/8a2fdfe5a6bb1cbafc04b0c8486abcefd17ad903.tar.gz
+		-> ${P}-dep_hunspell_hunspell.tar.gz
 	gnome-keyring? (
 		https://github.com/git/git/archive/0d0ac3826a3bbb9247e39e12623bbcfdd722f24c.tar.gz -> ${P}-dep_git_git.tar.gz
 	)
@@ -24,30 +25,23 @@ RESTRICT="test"
 IUSE="gnome-keyring"
 
 RDEPEND="
-	app-crypt/mit-krb5
-	app-text/cmark
-	dev-qt/qtconcurrent:5
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5[jpeg]
-	dev-qt/qtnetwork:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qttest:5
-	dev-qt/qtwidgets:5
+	app-text/cmark:=
+	dev-libs/openssl:=
+	dev-qt/qt5compat:6
+	dev-qt/qtbase:6[concurrent,gui,network,widgets]
 	net-libs/libssh2
 	gnome-keyring? (
 		app-crypt/libsecret
 	)
 "
-DEPEND="
-	${RDEPEND}
-	dev-qt/linguist-tools:5
+DEPEND="${RDEPEND}"
+BDEPEND="
+	dev-qt/qttools:6[linguist]
+	virtual/pkgconfig
 "
 
-QA_FLAGS_IGNORED="
-	usr/share/GitAhead/Plugins/imageformats/libqjpeg.so
-	usr/share/GitAhead/Plugins/platforms/libqxcb.so
-	usr/share/GitAhead/Plugins/platforminputcontexts/libcomposeplatforminputcontextplugin.so
-"
+QA_FLAGS_IGNORED="usr/share/GitAhead/Plugins/.*"
+QA_PRESTRIPPED="usr/share/GitAhead/Plugins/.*"
 
 src_unpack() {
 	unpack "${P}.tar.gz"
@@ -55,8 +49,7 @@ src_unpack() {
 	cd "${S}" || die
 	local i list=(
 		dep_libgit2_libgit2
-		dep_libssh2_libssh2
-		dep_cmark_cmark
+		dep_hunspell_hunspell
 	)
 	use gnome-keyring && list+=( dep_git_git )
 	for i in "${list[@]}"; do
@@ -70,6 +63,8 @@ src_prepare() {
 		sed -i 's/add_subdirectory(git)//' ./dep/CMakeLists.txt || die
 	fi
 	sed -i 's/add_subdirectory(openssl)//' ./dep/CMakeLists.txt || die
+	# Respect LDFLAGS
+	sed -i '/CMAKE_EXE_LINKER_FLAGS/d' CMakeLists.txt || die
 
 	cmake_src_prepare
 }
