@@ -35,7 +35,8 @@ CRATES="
 	cxxbridge-flags-1.0.88
 	cxxbridge-macro-1.0.88
 	derivative-2.2.0
-	errno-0.3.5
+	errno-0.2.8
+	errno-dragonfly-0.1.2
 	field-offset-0.3.4
 	file-rotate-0.7.2
 	flate2-1.0.25
@@ -121,7 +122,7 @@ CRATES="
 	relm4-0.5.0
 	relm4-macros-0.5.0
 	rustc_version-0.3.3
-	rustix-0.36.16
+	rustix-0.36.7
 	ryu-1.0.12
 	scopeguard-1.1.0
 	scratch-1.0.3
@@ -179,23 +180,14 @@ CRATES="
 	winapi-x86_64-pc-windows-gnu-0.4.0
 	windows-sys-0.42.0
 	windows-sys-0.45.0
-	windows-sys-0.48.0
 	windows-targets-0.42.2
-	windows-targets-0.48.5
 	windows_aarch64_gnullvm-0.42.2
-	windows_aarch64_gnullvm-0.48.5
 	windows_aarch64_msvc-0.42.2
-	windows_aarch64_msvc-0.48.5
 	windows_i686_gnu-0.42.2
-	windows_i686_gnu-0.48.5
 	windows_i686_msvc-0.42.2
-	windows_i686_msvc-0.48.5
 	windows_x86_64_gnu-0.42.2
-	windows_x86_64_gnu-0.48.5
 	windows_x86_64_gnullvm-0.42.2
-	windows_x86_64_gnullvm-0.48.5
 	windows_x86_64_msvc-0.42.2
-	windows_x86_64_msvc-0.48.5
 "
 
 inherit cargo
