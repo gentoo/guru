@@ -27,8 +27,6 @@ at the end of your ~/.zshrc"
 
 src_install() {
 	# Move repo/tarball folder to zsh "plugin folder"
-	# Remove .git in 9999 (update using portage)
-	[[ ${PV} == 9999 ]] && rm -r "${S}/.git" ||die
 	mkdir -p "${ED}/usr/share/zsh/site-functions/" || die
 	mv "${S}" "${ED}/usr/share/zsh/site-functions/${PN}"
 
