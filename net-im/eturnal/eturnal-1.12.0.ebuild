@@ -17,6 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
+	acct-user/eturnal
 	>=dev-lang/erlang-21[ssl]
 	dev-libs/libyaml
 	dev-libs/openssl:=
@@ -27,9 +28,7 @@ DEPEND="
 	>=dev-erlang/stun-1.2
 	dev-erlang/yval
 "
-RDEPEND="${DEPEND}
-	acct-user/eturnal
-"
+RDEPEND="${DEPEND}"
 
 DOCS=( {CHANGELOG,README}.md doc/. )
 
