@@ -50,5 +50,5 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTING=$(usex test ON OFF)
 	)
-	ecm_src_configure
+	cmake_src_configure
 }
