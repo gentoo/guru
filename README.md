@@ -4,7 +4,7 @@
 
 # The GURU Project Repository
 
-[![pkgcheck](https://github.com/gentoo/guru/workflows/pkgcheck/badge.svg)](https://github.com/gentoo/guru/actions?query=workflow%3Apkgcheck)
+[![pkgcheck](https://github.com/gentoo/guru/actions/workflows/pkgcheck.yml/badge.svg)](https://github.com/gentoo/guru/actions?query=workflow%3Apkgcheck)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://wiki.gentoo.org/wiki/Project:GURU/Information_for_Contributors)
 [![chat on libera](https://img.shields.io/badge/chat-on%20libera-brightgreen.svg)](https://web.libera.chat/#gentoo-guru)
 
