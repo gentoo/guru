@@ -61,6 +61,7 @@ REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 CHECKREQS_DISK_BUILD="1300M"
 CMAKE_IN_SOURCE_BUILD=1
 CMAKE_WARN_UNUSED_CLI=0
+
 #These files supposed to have no symlink
 QA_SONAME=(
 "/usr/sbin/dwarfs"
@@ -70,7 +71,7 @@ QA_SONAME=(
 "/usr/bin/mkdwarfs"
 )
 
-src_prepare(){
+src_prepare() {
 	rm -r zstd xxHash parallel-hashmap || die
 	sed "s/DESTINATION lib/DESTINATION $(get_libdir)/" -i CMakeLists.txt || die
 
@@ -83,7 +84,7 @@ src_prepare(){
 	cmake_src_prepare
 }
 
-src_configure(){
+src_configure() {
 	append-cxxflags "-I/usr/include"
 	append-ldflags $(no-as-needed)
 
@@ -103,7 +104,7 @@ src_configure(){
 	cmake_src_configure
 }
 
-src_install(){
+src_install() {
 	# Perform install
 	cmake_src_install
 	dolib.so libdwarfs.so libdwarfs_main.so libdwarfs_tool.so libdwarfs_compression.so libthrift_light.so libmetadata_thrift.so || die "Install failed"
@@ -111,7 +112,16 @@ src_install(){
 	dolib.so libdwarfsck_main.so libdwarfsextract_main.so || die "Install failed"
 }
 
-pkg_postinst(){
+src_test() {
+	local CMAKE_SKIP_TESTS=(
+		# Tests don't work in sandbox
+		# fuse: failed to open /dev/fuse: Permission denied
+		dwarfs/tools_test
+	)
+	cmake_src_test
+}
+
+pkg_postinst() {
 	elog "You may find more information in the"
 	elog "${HOMEPAGE}"
 	elog "About creating: ${HOMEPAGE}/blob/main/doc/mkdwarfs.md"
