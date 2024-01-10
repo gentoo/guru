@@ -47,6 +47,7 @@ RDEPEND="
 
 DEPEND="${RDEPEND}"
 BDEPEND="
+	dev-util/patchelf
 	sys-devel/bison
 	sys-devel/flex
 	virtual/pkgconfig
@@ -61,15 +62,6 @@ REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 CHECKREQS_DISK_BUILD="1300M"
 CMAKE_IN_SOURCE_BUILD=1
 CMAKE_WARN_UNUSED_CLI=0
-
-#These files supposed to have no symlink
-QA_SONAME=(
-"/usr/sbin/dwarfs"
-"/usr/bin/dwarfsbench"
-"/usr/bin/dwarfsck"
-"/usr/bin/dwarfsextract"
-"/usr/bin/mkdwarfs"
-)
 
 src_prepare() {
 	rm -r zstd xxHash parallel-hashmap || die
@@ -105,11 +97,30 @@ src_configure() {
 }
 
 src_install() {
-	# Perform install
+	local libs=(
+		libdwarfs.so
+		libdwarfs_main.so
+		libdwarfs_tool.so
+		libdwarfs_compression.so
+		libthrift_light.so
+		libmetadata_thrift.so
+		libmkdwarfs_main.so
+		libdwarfsbench_main.so
+		libdwarfsck_main.so
+		libdwarfsextract_main.so
+		libdwarfsck_main.so
+		libdwarfsextract_main.so
+		folly/libfolly.so
+		folly/libfolly.so.0.58.0-dev
+	)
+
 	cmake_src_install
-	dolib.so libdwarfs.so libdwarfs_main.so libdwarfs_tool.so libdwarfs_compression.so libthrift_light.so libmetadata_thrift.so || die "Install failed"
-	dolib.so folly/libfolly.so folly/libfolly.so.0.58.0-dev libmkdwarfs_main.so libdwarfsbench_main.so || die "Install failed"
-	dolib.so libdwarfsck_main.so libdwarfsextract_main.so || die "Install failed"
+
+	for lib in "${libs[@]}"; do
+		# TODO: figure out how to remove this with cmake
+		patchelf --remove-rpath "$lib" || die
+		dolib.so "$lib"
+	done
 }
 
 src_test() {
