@@ -1,4 +1,4 @@
-# Copyright 2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,12 +8,9 @@ PYTHON_COMPAT=( python3_{10..12} )
 
 inherit distutils-r1
 
-hash_commit="be6340920e0f31a362bcedaf0f08ef1ce2c64a8b"
-
 DESCRIPTION="Modern Text User Interface framework"
 HOMEPAGE="https://github.com/Textualize/textual-dev https://pypi.org/project/textual-dev/"
-SRC_URI="https://github.com/Textualize/textual-dev/archive/${hash_commit}.tar.gz -> ${P}.gh.tar.gz"
-S="${WORKDIR}/${PN}-${hash_commit}"
+SRC_URI="https://github.com/Textualize/textual-dev/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
